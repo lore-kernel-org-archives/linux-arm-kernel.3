@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D31B4C2A062
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 07:12:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB707C2A072
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 07:18:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QRlQweHJSwz5fIUp8fpjKgQRNAxoSgkzgMORHOGxt3U=; b=gUq/9b35ZaQ+ay0jx7dZHxMpJl
-	LKHgRfhHgVLTnBxZS4/5r7+Howjo5unxkAZaF8V+9LlD7hgMVDV3zMCS7RLcq/PcojUJUg0Sv+JT5
-	u255ryDpH1Hg/48UjjWNByiOAhN15KrAUkOgyxd4rM3gMh6pmx/7tow2bL12Qfkb7G1lRxpkpf2CJ
-	7ITEinhsaweARtY2xZFyPhBfJNXz+sUK1dfO2MA3mqKXrTwW7tT5GbuQnMy256hJpPtS3/frv7akZ
-	V41ERsVnCqg7KqGHHDhxFtk8Rw8cEtA8dTYaoxN2JK1WrdA8AS7aMqbeLTMjG/wTMO/6wpzrnrF7t
-	Vc710+/A==;
+	bh=4cupiCEMbgZD8O8oBS+AwmgimkTgp9A9yCgrebxhCjk=; b=TmX+KAB2TVHl9hnPtPwQUpYRDh
+	thS+ywEjSP3TX6qeHHnHwR5VmVg9xPDUJXQ1GRmBAIZWR0yVMfLqFcF//SXV38aGVdZq45Rmq2cp7
+	Q+50DlzGofoAvzVsIAnFP64klte6x0UlM7oNChPQxrP+g3HCs60zGmd1aFLmmcjsoGFGBr740FzpU
+	eWNZzHy6h16hibMDV+YyxqZSHULUabCpPpcsJH8XZD76BnbaDrC5pCdTkB93WVeMGjPQgZ5Erb0jR
+	NYuKxYqa5vR+f2R4Nu5t3uQPGpkqktNaNwtIJ3xj9SgfiaepGDeX9r8duLcS01j1gdQkVmqtaWbVX
+	qu4clK3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcelJ-0000000Au83-3tAj;
-	Mon, 05 Jan 2026 07:12:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vcerH-0000000AuQL-3Bvk;
+	Mon, 05 Jan 2026 07:18:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcelH-0000000Au7g-2M1u
+	id 1vcerE-0000000AuPz-3YUW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 07:12:20 +0000
+	Mon, 05 Jan 2026 07:18:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4361C43708;
-	Mon,  5 Jan 2026 07:12:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A273C116D0;
-	Mon,  5 Jan 2026 07:12:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 196E240964;
+	Mon,  5 Jan 2026 07:18:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABADDC116D0;
+	Mon,  5 Jan 2026 07:18:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767597137;
-	bh=l0YX2y6vxc+U6hQS0ZR85jVgKROtnAllep264vlUulg=;
+	s=k20201202; t=1767597508;
+	bh=Dd5z6Cu7EQtxEPy8BPPO8ROH3udMOAphLXE6SAeXQNE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aoMDbZbpjRZXpMmZ8qnRHXT5SXbpMmaxrLyPWnzKuc62YMlC1Z+EIUoJEjJ/1v0c0
-	 bWOblFJ+W8wAZbGWLQNiC1fp0G9zYFfXPdPq5yzZjte0QvN65EnWv0hEW8iPFhl12g
-	 WpW4UK2szyQbvmNavAookdiUHqXZPhqlA8+wBJxr8r0hoBBgY5GWa2v8c4Y3Lom0sp
-	 JJTysKSfO3Nm982+WbvJ/OQ0gtKv7suyClJ2Oe4K2Ezg5GyQeiaGOodY/Ftm849aOy
-	 S4D3VB6QZRp3BrWWqOssomuByn41OT0zGN7AM2qkCvuq9BgXomoHhxlWaQkOdsV+UJ
-	 Ub/2B9frP4ydQ==
-Message-ID: <6e1d7e2e-9585-4b4e-8c82-004a613bdb39@kernel.org>
-Date: Mon, 5 Jan 2026 08:12:12 +0100
+	b=YH5PKFGeTBRjeI4tyR1DDTsSb8TP71VXnDpPKwY96WP1uFFIcvHLTi5C7juoaDEHE
+	 PjGeMDa9O+3lAVfEeulilFTNB1ei6i8XPNGODpvqcuqE1JUjXaw7m3yjTe1/e2gr6k
+	 1nKNDjwPx0QQ36Ob58nNvZRLhOwSjV79DgaG8IAOiFHAYUSaA4StZMGPvnjBhFY+ab
+	 OFC+YoaRuCCY3S7iPkZ9h6ySzA2IWO/JNC0uz000xGb3Nu3DltPCDryNsk8HYuTcSV
+	 NiKoCTqlCwRextnjJl+vtGo+yNC2wnQklRMuzpXUc4SZ9YH301DV4u13AzCoYW7L5D
+	 JMBFVZt6YgV2g==
+Message-ID: <2c36a7e1-b591-4702-b4b9-90661e1474a2@kernel.org>
+Date: Mon, 5 Jan 2026 08:18:25 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/7] arm64: dts: add description for solidrun imx8mp
- hummingboard-iiot
-To: Josua Mayer <josua@solid-run.com>, Rob Herring <robh@kernel.org>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, Shawn Guo <shawnguo@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-References: <20260101-imx8mp-hb-iiot-v5-0-b369b2e0c07f@solid-run.com>
- <176736452823.3671482.4196945570874126466.robh@kernel.org>
- <9369989.DvuYhMxLoT@josua-pc>
+Subject: Re: [PATCH 2/2] soc: nxp: Add a simple NXP LPC32xx socinfo driver
+To: Vladimir Zapolskiy <vz@mleia.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260101235647.2411062-1-vz@mleia.com>
+ <20260101235647.2411062-3-vz@mleia.com>
+ <accb4ab1-07fa-4e33-a74c-2c588ca415ac@kernel.org>
+ <eb9ef21a-c0b4-4c8d-b1b1-6c76f45c53aa@mleia.com>
+ <1eef3c49-83a7-48d4-96ad-ffb71df2be7a@kernel.org>
+ <1a336af6-6c27-4211-9c8c-ede4d091eb17@mleia.com>
+ <a77325ae-fc53-4554-a7d8-3bdd841e1065@kernel.org>
+ <28841a34-eee6-46fc-97de-27e4b9c0d0bc@mleia.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <9369989.DvuYhMxLoT@josua-pc>
+In-Reply-To: <28841a34-eee6-46fc-97de-27e4b9c0d0bc@mleia.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_231219_644430_D3829825 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20260104_231828_944149_7CEED7D3 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,35 +123,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/01/2026 14:46, Josua Mayer wrote:
-> On Friday, 2 January 2026 16:43:35 IST Rob Herring wrote:
+On 03/01/2026 23:14, Vladimir Zapolskiy wrote:
+> On 1/3/26 14:43, Krzysztof Kozlowski wrote:
+>> On 02/01/2026 14:21, Vladimir Zapolskiy wrote:
+>>> On 1/2/26 14:54, Krzysztof Kozlowski wrote:
+>>>> On 02/01/2026 13:36, Vladimir Zapolskiy wrote:
+>>>>> On 1/2/26 11:58, Krzysztof Kozlowski wrote:
+>>>>>> On 02/01/2026 00:56, Vladimir Zapolskiy wrote:
+>>>>>>> Add NXP LPC32xx specific driver to get unique SoC ID from System Control
+>>>>>>> Block registers and export it to userspace.
+>>>>>>>
+>>>>>>> Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
+>>>>>>> ---
+>>>>>>>     drivers/soc/Kconfig           |   1 +
+>>>>>>>     drivers/soc/Makefile          |   1 +
+>>>>>>>     drivers/soc/nxp/Kconfig       |  16 +++++
+>>>>>>>     drivers/soc/nxp/Makefile      |   2 +
+>>>>>>>     drivers/soc/nxp/lpc32xx-soc.c | 114 ++++++++++++++++++++++++++++++++++
+>>>>>>>     5 files changed, 134 insertions(+)
+>>>>>>>     create mode 100644 drivers/soc/nxp/Kconfig
+>>>>>>>     create mode 100644 drivers/soc/nxp/Makefile
+>>>>>>>     create mode 100644 drivers/soc/nxp/lpc32xx-soc.c
+>>>>>>>
+>>>>>>> diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
+>>>>>>> index a2d65adffb80..c21b0d2f58fc 100644
+>>>>>>> --- a/drivers/soc/Kconfig
+>>>>>>> +++ b/drivers/soc/Kconfig
+>>>>>>> @@ -18,6 +18,7 @@ source "drivers/soc/loongson/Kconfig"
+>>>>>>>     source "drivers/soc/mediatek/Kconfig"
+>>>>>>>     source "drivers/soc/microchip/Kconfig"
+>>>>>>>     source "drivers/soc/nuvoton/Kconfig"
+>>>>>>> +source "drivers/soc/nxp/Kconfig"
+>>>>>>>     source "drivers/soc/pxa/Kconfig"
+>>>>>>>     source "drivers/soc/qcom/Kconfig"
+>>>>>>>     source "drivers/soc/renesas/Kconfig"
+>>>>>>> diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
+>>>>>>> index 47a3925ff84c..a04c21a8a5a4 100644
+>>>>>>> --- a/drivers/soc/Makefile
+>>>>>>> +++ b/drivers/soc/Makefile
+>>>>>>> @@ -24,6 +24,7 @@ obj-y				+= loongson/
+>>>>>>>     obj-y				+= mediatek/
+>>>>>>>     obj-y				+= microchip/
+>>>>>>>     obj-y				+= nuvoton/
+>>>>>>> +obj-y				+= nxp/
+>>>>>>>     obj-y				+= pxa/
+>>>>>>>     obj-y				+= qcom/
+>>>>>>>     obj-y				+= renesas/
+>>>>>>
+>>>>>> Missing maintainers entry.
+>>>>>>
+>>>>>>
+>>>>>>> +
+>>>>>>> +static int lpc32xx_soc_probe(struct platform_device *pdev)
+>>>>>>> +{
+>>>>>>> +	struct soc_device_attribute *soc_dev_attr;
+>>>>>>> +	struct device *dev = &pdev->dev;
+>>>>>>> +	struct soc_device *soc_dev;
+>>>>>>> +	struct regmap *scb;
+>>>>>>> +	u32 serial_id[4];
+>>>>>>> +	int ret;
+>>>>>>> +
+>>>>>>> +	soc_dev_attr = devm_kzalloc(dev, sizeof(*soc_dev_attr), GFP_KERNEL);
+>>>>>>> +	if (!soc_dev_attr)
+>>>>>>> +		return -ENOMEM;
+>>>>>>> +
+>>>>>>> +	soc_dev_attr->family = "NXP LPC32xx";
+>>>>>>> +
+>>>>>>> +	ret = of_property_read_string(of_root, "model", &soc_dev_attr->machine);
+>>>>>>> +	if (ret)
+>>>>>>> +		return ret;
+>>>>>>> +
+>>>>>>> +	scb = syscon_regmap_lookup_by_compatible("nxp,lpc3220-scb");
+>>>>>>
+>>>>>> This is undocumented ABI.
+>>>>>
+>>>>> What is the expected level of documentation for syscon?
+>>>>
+>>>> git grep nxp,lpc3220-scb
+>>>>
+>>>> gives me 0 results.
+>>>>
+>>>> Documentation is supposed to be in this patchset. If it is not, you have
+>>>> changelog part to explain dependencies and unusual things.
+>>>
+>>> The documentation is under review, as a DT maintainer you are in To: list
+>>> and should have it in the mailbox, for anyone's convenience the dependency
+>>> is mentioned in the cover letter to this changeset also.
 >>
->> This patch series was applied (using b4) to base:
->>  Base: 8f0b4cce4481fb22653697cced8d0d04027cb1e8 (use --merge-base to
->> override)
+>> There is nothing about dependency and nothing about binding in the cover
+>> letter, so no - this is not explained nowhere and must have been explained.
 >>
->> If this is not the correct base, please add 'base-commit' tag
->> (or use b4 which does this automatically)
->>
->> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/'
->> for 20260101-imx8mp-hb-iiot-v5-0-b369b2e0c07f@solid-run.com:
->>
->> scripts/Makefile.dtbs:20: .dtbo is not applied to any base:
->> imx8mp-hummingboard-iiot-panel-dsi-WJ70N3TYJHMNG0.dtbo
->> imx8mp-hummingboard-iiot-panel-lvds-WF70A8SYJHLNGA.dtbo
->> imx8mp-hummingboard-iiot-rs485-a.dtbo imx8mp-hummingboard-iiot-rs485-b.dtbo
 > 
-> These overlays are not applied to anything on purpose,
-> as we don't want to create a dtb for each possible combination.
+> If you do not find the asked information, then let me repeat my question, what
+> dependency or information does this changeset miss? What "undocumented ABI"
+> you'd expect to resolve?
 
-But we want to validate applying DTB.
+I already explained that.
 
+You added here new undocumented ABI. I said that.
 
-> 
-> Is there any advice what to do in this case?
+Changelog of this patch or cover letter must say where is the ABI
+documented, if it is not in this patchset. I basically said it as well.
 
-If you don't want to follow upstream rules, I think we cannot take that
-code, so don't upstream code...
+There is nothing like this in cover letter. There is nothing about
+dependency, either.
+
 
 Best regards,
 Krzysztof
