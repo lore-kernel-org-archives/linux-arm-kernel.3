@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 189D4C79FBD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:46:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C56C79FBD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aJVqJaQHGnHNwn+NsCjpyA0YMFbmKoccSlZUowb2XBY=; b=2qPIwzV0y6lfRoiAR7KXeBZKRP
-	Jdp+Msrh3SvhTo2nv1UK9tDFAaSWoztj5srd1lVf7duPgv+Of3Y2vFbAIz9kG6C3FAuYHIFHTeYTA
-	R+Ax8Da5GLznDK0oY3GRo9ZZaHiKgfoNyQSh56kjTPhCiN5gt9vftIbUfW2yfvnNE5X1iWZdClkyk
-	0j6EIIx5Ed+i5nOIPcV4l4f1M+iwyjTo2y5SjGQS0sDJ/fbGWgH0IxsPgDfFrp8F/grYgX1YZiHhl
-	E9ROJrkQiu0rlYOiSqHdzUwVinbv3kUxZuS6PZ8QLMR9KFLQx0zUEWUizUPfXIGfGIVp/oaqdyHX0
-	guyaK2nA==;
+	bh=4FjM/HGADyunZKsQ5wlCWc9WRstz1PXBATyIEm2nhGs=; b=Mbc1VmwGUI6Z7MJdr7MjELAMLb
+	Ppt1aOaURW4vkMWZFNCIvIbNa+XKAfHxlOktih3+HrYa4sE6emgAIKjcabb4NH5SDhn84kgOFtkYE
+	uxFnboxdDGdfx+cfZScWtCAo/bEW/69nR/NyrfwCcnhhBBvd8uPuRxOnCKWCt+fsoPwzBnjDcawHL
+	TvxO20c/ZhJ1agRi3tyZInQg/SZCcTf2x4NKqDku5+TjxXQdBgZr+LKYWYwY4ODW155hJiaD+Fvid
+	awh0oVZ+tj9ZV+itoz2IRzu3We+pMPEXu3BI62aABgjocnUXlN8Yeq9tEmmloMhxJPv8KV2oAO1d+
+	WlJUp4mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqXP-0000000Bztw-1tMs;
-	Mon, 05 Jan 2026 19:46:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vcqXT-0000000Bzve-34IZ;
+	Mon, 05 Jan 2026 19:46:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqXN-0000000Bztc-2kE3
+	id 1vcqXT-0000000Bzv0-0nh1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 19:46:45 +0000
+	Mon, 05 Jan 2026 19:46:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1B8846013A;
-	Mon,  5 Jan 2026 19:46:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4A90C116D0;
-	Mon,  5 Jan 2026 19:46:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 49A626013C;
+	Mon,  5 Jan 2026 19:46:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D011FC19422;
+	Mon,  5 Jan 2026 19:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767642404;
-	bh=jXT/B7qerXIpcbaLv0iK/+Rwz/W3jTzZ5aQTdvgrZgI=;
+	s=k20201202; t=1767642410;
+	bh=4d4Kz6wZLKZJMC8dluV+ZOL4eRSU5mD/Cf1EU5faObM=;
 	h=From:To:Cc:Subject:Date:From;
-	b=H3UYn4jGB3zIZ/hSnUBT6WLmSoTbGjmDcCLCV1LHlH2IuQO2qxPQTyEW0Zc+W0IPe
-	 1Wy2LcLW13W8eLdLeM8kh25YKTVn42uZbgmRwpI5VthSTraGpe0iE4yXLFeJRwqIp3
-	 MfCSMHCVCJjYSxhmmhMVapBj3MeFStl4nAdjMK0YCJY/G/zfqumy4MNhfBG3pnHlcz
-	 7wHZsujnidHnvPEM3BwQdbQe4qtOckMUYl85NzNRC7Q0I/b+/ILaYxLoW4PWTKDvEp
-	 F5EoEeqYDIP8Br5Pyv0UnwztvboAt41AxVAYZXn4DOLN6k/8rHzjqbuqIZ6xojBNEK
-	 VjgUCMXkqwr3A==
+	b=Wg7l7fbqsWe80PFqqn4VUq0vZtdUwGnvQS9QbiP7DUTk94SKY1E+fwVG4gnrz6AEH
+	 ro5ezLrCNnlEsQhHiZ8I14DukAC4Sl6azVsGb+v+umGYRyAO0Pjmfm1ki5TuvV45DO
+	 yp+4pMb3uKr/JgLJ5nMINwaCx7Isvi4/tlhD5agaTqg7sU7NGR1cl6y9jndMdLwHbO
+	 Qh3Z78IF6c+pH4ROlNvoy9WwXumBesesDKO37xux6429RQJ4B8UtTkAadoD70EN3Bg
+	 /+u4mHTAiszhyI3NoCZiVN5UEvRFujop5QGGbxsIWWVl9Km0fYBgdnQhxWc2qBWy1l
+	 ro+orBsttd94A==
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Gregory Clement <gregory.clement@bootlin.com>,
@@ -51,9 +51,9 @@ To: Andrew Lunn <andrew@lunn.ch>,
 Cc: linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: marvell: Fix stray and typo "pinctrl-names" properties
-Date: Mon,  5 Jan 2026 13:46:41 -0600
-Message-ID: <20260105194642.3189113-1-robh@kernel.org>
+Subject: [PATCH] arm64: dts: marvell: cn9131-cf-solidwan: Add missing GPIO properties on "nxp,pca9536"
+Date: Mon,  5 Jan 2026 13:46:46 -0600
+Message-ID: <20260105194647.3189303-1-robh@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -71,89 +71,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There's several cases of "pinctrl-names" used without any "pinctrl-0"
-properties. Drop them.
-
-Fix the typo "pintrl-names" as well.
+The PCA9536 is always a GPIO provider, so add the missing properties.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- arch/arm64/boot/dts/marvell/armada-3720-espressobin-ultra.dts | 1 -
- arch/arm64/boot/dts/marvell/cn9130-cf-base.dts                | 2 +-
- arch/arm64/boot/dts/marvell/cn9130-crb.dtsi                   | 1 -
- arch/arm64/boot/dts/marvell/cn9130-db.dtsi                    | 2 --
- arch/arm64/boot/dts/marvell/cn9132-db.dtsi                    | 1 -
- 5 files changed, 1 insertion(+), 6 deletions(-)
+ arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/marvell/armada-3720-espressobin-ultra.dts b/arch/arm64/boot/dts/marvell/armada-3720-espressobin-ultra.dts
-index e82284888b9a..0ab33aa928e7 100644
---- a/arch/arm64/boot/dts/marvell/armada-3720-espressobin-ultra.dts
-+++ b/arch/arm64/boot/dts/marvell/armada-3720-espressobin-ultra.dts
-@@ -42,7 +42,6 @@ usb3_phy: usb3-phy {
- 	};
+diff --git a/arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts b/arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts
+index 338853d3b179..b6aeba7d0a61 100644
+--- a/arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts
++++ b/arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts
+@@ -202,6 +202,8 @@ fan-controller@18 {
+ 	expander0: gpio@41 {
+ 		compatible = "nxp,pca9536";
+ 		reg = <0x41>;
++		gpio-controller;
++		#gpio-cells = <2>;
  
- 	gpio-leds {
--		pinctrl-names = "default";
- 		compatible = "gpio-leds";
- 		/* No assigned functions to the LEDs by default */
- 		led1 {
-diff --git a/arch/arm64/boot/dts/marvell/cn9130-cf-base.dts b/arch/arm64/boot/dts/marvell/cn9130-cf-base.dts
-index 788a5c302b17..212865f6cf6a 100644
---- a/arch/arm64/boot/dts/marvell/cn9130-cf-base.dts
-+++ b/arch/arm64/boot/dts/marvell/cn9130-cf-base.dts
-@@ -137,7 +137,7 @@ led@1 {
- 
- &cp0_pinctrl {
- 	pinctrl-0 = <&sim_select_pins>;
--	pintrl-names = "default";
-+	pinctrl-names = "default";
- 
- 	rear_button_pins: cp0-rear-button-pins {
- 		marvell,pins = "mpp31";
-diff --git a/arch/arm64/boot/dts/marvell/cn9130-crb.dtsi b/arch/arm64/boot/dts/marvell/cn9130-crb.dtsi
-index 5689a8bdfd03..c9050e707a60 100644
---- a/arch/arm64/boot/dts/marvell/cn9130-crb.dtsi
-+++ b/arch/arm64/boot/dts/marvell/cn9130-crb.dtsi
-@@ -93,7 +93,6 @@ &uart0 {
- 
- /* on-board eMMC U6 */
- &ap_sdhci0 {
--	pinctrl-names = "default";
- 	bus-width = <8>;
- 	status = "okay";
- 	mmc-ddr-1_8v;
-diff --git a/arch/arm64/boot/dts/marvell/cn9130-db.dtsi b/arch/arm64/boot/dts/marvell/cn9130-db.dtsi
-index 7156739aa31a..8e413286e019 100644
---- a/arch/arm64/boot/dts/marvell/cn9130-db.dtsi
-+++ b/arch/arm64/boot/dts/marvell/cn9130-db.dtsi
-@@ -111,7 +111,6 @@ &uart0 {
- 
- /* on-board eMMC - U9 */
- &ap_sdhci0 {
--	pinctrl-names = "default";
- 	bus-width = <8>;
- 	vqmmc-supply = <&ap0_reg_sd_vccq>;
- 	status = "okay";
-@@ -166,7 +165,6 @@ &cp0_i2c0 {
- 	/* U36 */
- 	expander0: pca953x@21 {
- 		compatible = "nxp,pca9555";
--		pinctrl-names = "default";
- 		gpio-controller;
- 		#gpio-cells = <2>;
- 		reg = <0x21>;
-diff --git a/arch/arm64/boot/dts/marvell/cn9132-db.dtsi b/arch/arm64/boot/dts/marvell/cn9132-db.dtsi
-index f82d45e62753..98eee9e4e10b 100644
---- a/arch/arm64/boot/dts/marvell/cn9132-db.dtsi
-+++ b/arch/arm64/boot/dts/marvell/cn9132-db.dtsi
-@@ -142,7 +142,6 @@ i2c@1 {
- 			/* U12 */
- 			cp2_module_expander1: pca9555@21 {
- 				compatible = "nxp,pca9555";
--				pinctrl-names = "default";
- 				gpio-controller;
- 				#gpio-cells = <2>;
- 				reg = <0x21>;
+ 		usb-a-vbus0-ilimit-hog {
+ 			gpio-hog;
 -- 
 2.51.0
 
