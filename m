@@ -4,53 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28AFEC2A099
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 11:29:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FCC1C2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 11:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mu3cyRLYu86MCsdn6oOtKe+hE5fEosqU+bTYtq9HHFs=; b=jwo1XKzw45MDbRehDmnjW1mJwi
-	F6Q5DAJ30cqG0W2AqXkCXBz4Qp2y6+fPFAcPokgdDgUZTvxpBOs6EpthogweywhoU067XpMl/MbM1
-	oQtcg2ZmBawYlqbZi0dWWN1O0ewNf8jB4x82a/jv0qL+Do0p102BVvK8JJS06uVUmKWdr4sOftU/U
-	GtQUPGkYBh9pKMYUckEa9cvILVFJdVsQksx04jce7QD7o3g/RPhvdYwR8lqtaXScGnUc+9YvEyymS
-	N/2CJJEfMULmQA+2/3MdnRjba7d2SnJbbjkG3IgTg1eINggrOLGRehGcm39lQtNUz3rHST191CK9P
-	llotSrZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e/UYstX4hnjc4sadogv8VbKD2rPz/XtK16w+KJyc0Us=; b=KFKUBYVPp197u9gA5DIY/SFmdh
+	1oFyUvUUQqkFFFHOpvrav3ysA0xLitVYf5uQ13hSQT22niXNWusCYTlor9URRBAOQlO0GT2QGgozc
+	W6evFrX418YqipejmmNCpj0FdCQP0E2IWAX150sTsBGa8IfxnmSqQxvnJy6YT0moxojm7fDKBIyGE
+	f6B+1emPdFfjdXM2eWUobTXH+xFJB2PuurZ6DNhXdF8vSNRowzik9dZ4l2vq35LAs/ZknkF5PLKHk
+	GXc5HvawKYAKGeiRZPt4It70ypEQaHDBNrFC8jwOaS4tX5TLGpa6lDI3h613Vp3aWMpAAAdDzXk+c
+	PmLELkGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcimG-0000000BC1d-38fj;
-	Mon, 05 Jan 2026 11:29:36 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vcis3-0000000BCrB-41vb;
+	Mon, 05 Jan 2026 11:35:38 +0000
+Received: from mail-northeuropeazon11010006.outbound.protection.outlook.com ([52.101.84.6] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcimE-0000000BC1C-30WE;
-	Mon, 05 Jan 2026 11:29:35 +0000
-Received: from pendragon.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 15C42664;
-	Mon,  5 Jan 2026 12:29:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1767612550;
-	bh=iISwdZtvnnraV/VMYYVj79jvGkuZPTBqF1C6SfCyOhY=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=EzzMb8HOeneWwzjW6sYtITaQ8Sg50f2HmArAmxA9vGADkwgV6rGLYbY4Aps7IK0Ys
-	 qdJMpeVTgDso/wLf6WaCRV6v3Uylym63LK83uGB9IhtwGTE6E+6Vvc5YbsbEn0WI1L
-	 L90b+d9rvoArIvwQYmg3m+NbAijw4cYgT/Na4k7k=
-Content-Type: text/plain; charset="utf-8"
+	id 1vcis1-0000000BCqo-0Vfv
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Jan 2026 11:35:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=P8mV5aSkmIptEFNBnkocNxTNeuJZD7ETjpx4AdIe0av9+2zEOH3w4OjqBMA2WChKVclR2Foy9A51wER85V5r2gbrakBx3Qw61cxjdIEtCOKzWJ1klDVZ5l/cFJfDwgCoR+jlQq7pzxg31bqqVa4V+dUmpiZdWQSuddRmsBa4Uz96XSC6Jt4dFOSHefD0YqNdqIELcG92dl50cksXvGyiWLkL/PH3zp7Q2C+cODD4SZUkuubKWZgTCx4BnRGvXz/t3exMq7E3loS3N+IhAZZ7P28mbtZY6Slu5SBYbv1KgEl9ajM8Bgx7iGmQSFKmobsqYAC7yJ1P0gEubH+vaUcgZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=e/UYstX4hnjc4sadogv8VbKD2rPz/XtK16w+KJyc0Us=;
+ b=GCGHoR3RmQieTAcJVtmk5M7hh2Ihm7LABhNGYjW9jgi42Vnm+o2kBoT246lYInWqLnGput7M5YTL7k4dzyK+hp57SCx/QTpxgRts75GcM0am7miN+ZMhcxuDny7kB6US5iiC7uhbAMCZnO3X9DMPRvHoe/DGlxzUhEkcEiUTMnVYjonX8vCCl+AHW43R1U3o6gBLTwLFbFQx8ZrWuaqWTC5ulOmDdVbUBPqIj5WhvexPmzrWlZy1dSoDrbxnUdBQvNdb5FUTtn+HtldehL+sMUUq03STKclesBhCceY6v8VLmk/2jdeeTrHzB0VmW6mMIBnIdb8w4Dql4ur1DnOyBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=e/UYstX4hnjc4sadogv8VbKD2rPz/XtK16w+KJyc0Us=;
+ b=AZnE2oz544cTakFM9aOPdnZ/VGvkgJO83rPEcauomJtkQC/YBIfREhvxlbyGLa7rpgdgZDkXyx25/jxh10beAq5IWi5+TosWLwydOjH5ncK05uZHzBNvwjbqP6Tg+YVqW2aH1DW8oF65XDd5bpnO7666VrvZ3YvdATrbcvOXhb5UCX/J9p/zqMxfObPkkaIdKhmgl+s5GDkCfhK45Fbi1rKY/e60xebhrO0slJlF9p8aoLXLGYZLTr4dE8uK1GNeRpkW3GTIAw/1RT1LL9EDbMyhqTASb/Da5VxHgnmzQO8kx+1gV3pteVOU+Fxn6CjuYxDLf0YGFe3pn0MGZu+4Tg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI0PR04MB11700.eurprd04.prod.outlook.com (2603:10a6:800:2fc::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
+ 2026 11:35:26 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9478.004; Mon, 5 Jan 2026
+ 11:35:26 +0000
+Date: Mon, 5 Jan 2026 20:49:24 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/2] firmware: arm_scmi/imx: Support dump syslog
+Message-ID: <aVuzVNmG2l-igiEB@nxa18884-linux.ap.freescale.net>
+References: <20251029-sm-syslog-v3-v3-0-64e14a6e3f87@nxp.com>
+ <aUCy5+vAPzDGeux3@shlinux89>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aUCy5+vAPzDGeux3@shlinux89>
+X-ClientProxiedBy: MA5PR01CA0054.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1b8::17) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <176465775606.135635.13034018447792643478@localhost>
-References: <20251202015025.601549-1-rui.wang@ideasonboard.com> <20251202015025.601549-2-rui.wang@ideasonboard.com> <176465775606.135635.13034018447792643478@localhost>
-Subject: Re: [PATCH v1 1/1] media: rkisp1: Fix filter mode register configuration
-From: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: libcamera-devel@lists.libcamera.org, Rui Wang <rui.wang@ideasonboard.com>
-To: Rui Wang <rui.wang@ideasonboard.com>, Stefan Klug <stefan.klug@ideasonboard.com>, dafna@fastmail.com, heiko@sntech.de, laurent.pinchart@ideasonboard.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, mchehab@kernel.org
-Date: Mon, 05 Jan 2026 11:29:27 +0000
-Message-ID: <176761256763.3192372.8001486757502337420@ping.linuxembedded.co.uk>
-User-Agent: alot/0.9.1
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI0PR04MB11700:EE_
+X-MS-Office365-Filtering-Correlation-Id: aee1f4b0-2e6f-486f-56d1-08de4c4e8502
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|7416014|52116014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KTdW0acIsOzHEPs3PCUsMNngfcXyehzaz8XQPj2PSiaygKoqmW1FsAMMbPtO?=
+ =?us-ascii?Q?ajOol7rij2/Ag1iClRpOBBBz5HHKuctFllANl3injNeMMi5SEpj6ytvj3XlP?=
+ =?us-ascii?Q?NU34p+++GGETcjhTKMu6zM7KAeMOwIdSmN0qjzlmaX0UHCqpo+PPKDuJcQgA?=
+ =?us-ascii?Q?MZTFMA+M5GDUSaQV/OwQfyYwrsMpe++rkpZmz0hNSxSsdrTM2G9n4Z1VXMSk?=
+ =?us-ascii?Q?vZ//TbxtRL69zBAD/DZpyG3jwOYWU7lbGrI+sCXuMMDtVOzLzCTyesTnWRtt?=
+ =?us-ascii?Q?mGuhD51AFyJHWwafwPX0dkmKN4LcJvBu9zYhHpJihKtPjiC+Afoebfn+elcD?=
+ =?us-ascii?Q?ln/th+3bB+7knY9IQhcDt6t6klr9HEmXwERYQ0Srvr6dUcUvpntiluxzRJV8?=
+ =?us-ascii?Q?Q+9Q5tP1C6fK5mdN6Ol0in/jq0x+et4ELhrunO01EMkuL5Va6Xc2wMGbons5?=
+ =?us-ascii?Q?hoIp/Xk0YKix1yFBK7ClaFZxq+CE7NDrPWuuiCyESVzHuChSAFH9ESFIPp2X?=
+ =?us-ascii?Q?xgIZ4AzhqLZynj4YqzbAkCA72GXwOLbX7Ub973wFmiOBp326r8/FusW5+WH7?=
+ =?us-ascii?Q?EsmL2Ri7PzsArOVgIgZQZvr1l4iVBu1M83Oq8RLsMGSez5qcux/3WeMQp2v9?=
+ =?us-ascii?Q?JBCeCGh9vdfYtrdaaqjgR5iK2JrkE2C0eAfHpXh/PDv64Qg40cKgq4w1kOTD?=
+ =?us-ascii?Q?dzd+l3mdZnSdebjOXUoXc/CE6jyszo5z/bNi2JXqtvnFHgdsr4RHTSIXG/cg?=
+ =?us-ascii?Q?yz+m2tVknAfoY+siyBtQGHx47Bj8U7oO/3ydEZlUeF6xdbVoIT7jaA8vxSxz?=
+ =?us-ascii?Q?1RUkAUltoxhTPxihJpAgg6IdoHHLCFhpKo38mrMgdS17lutJDNRFPYbFfoT6?=
+ =?us-ascii?Q?sQSIsF6nIYw7RY+b+S7mE/ZgfRA7ObHaNAYX7YACmjRHX2KMMZj3igIDJ2lo?=
+ =?us-ascii?Q?OLg8jTLXJzsY9RpSpADooXSQC6kJGAgMhFsNcC96grnGbzvwihovmUTZJQXm?=
+ =?us-ascii?Q?QxufpfKkpRD+1jO1tjyvpWwdO4Umq7vNocVy5EIVFU0uvyafHrC5P29gN4KO?=
+ =?us-ascii?Q?oMRj/zQDNcNA9uAytzSDnotitcHdIzjyZB+I1tHbYbIrgrmh0WGiefpO5xH0?=
+ =?us-ascii?Q?WS9dMhEGyog6Av5jv35HIUK7zoTZYW96a2fWIcoYxpvn+L3cvHKR4GQ1sen2?=
+ =?us-ascii?Q?KYYftcS0WipLDCLqGF0X2btI0iJsNyezh3YZ0/koFefYFTo+/anipbxFKgcd?=
+ =?us-ascii?Q?7nRb9aQ8IAGMyO2Kn2YN2xzN9tYmhXWcmG0CzNxK8goi9fd2jcTcETuT4ENp?=
+ =?us-ascii?Q?sQL6f3w7HwDl1j7UQvI5wHWk4vkNstIwDWNTqVj7vqFgSg0tT7jEyA0/cHyw?=
+ =?us-ascii?Q?eP0WmDxMkR/3IEPBRdLWpF7J4J0/MErUAmIiPdsdgRLeQGRz9ZO/W/JvIl3G?=
+ =?us-ascii?Q?3TlnBuedqrAlMLhpQjAuSpZKOaZ31sUB9Z2RIpeLuEphKbx+iWlczQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(7416014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?P6DIV42lKS11DX0O2sghlM5v9rn1Vhkm46Zl7A8fAo2kJwf/d/kbol6GBbgD?=
+ =?us-ascii?Q?Ny1Mj1hDmiFltefGh0I/8I+/U7TpdVRjzGtTggDt6K2HYm+/6EBdEHVUtbA3?=
+ =?us-ascii?Q?Jp64c3KdX+KHn8ymX+L5BwvmZ1+462FI+Wyy1vHjM4XKVgA0Ynds1oo8TP7l?=
+ =?us-ascii?Q?XxJvxGES/UOGp0WvXT/fjDToBxiElVk4fjHsOX+Jcp2zbH/N4FeCkjaMOmiQ?=
+ =?us-ascii?Q?63lg62qKmZrPO5TwlCXZ0YhxWsTrHjm2B80Y4BLbsUprp2O6Tz7G2LHhjyUo?=
+ =?us-ascii?Q?Lm7DwJde9FJtu3zuiJjquD8QmEeovuB8KxkV+PbwsXX8AQI1M+AePYgHnDYN?=
+ =?us-ascii?Q?oBw5ymn0/NTbv11ITAzfOtVgghGjUYiqXhoUqB63BalfDODVv4vsaA7HCMuS?=
+ =?us-ascii?Q?E+je4G+8gVNijmgRA+vuekPyLbk4i1eOaUnR5ep+BVJtG4yIC2b99hn/gJ0j?=
+ =?us-ascii?Q?D19tW3hbikt/ZrbQKb2TLVCN6abN4AbQuNKmWMRJ0trqYeqyzxApCazcmfqr?=
+ =?us-ascii?Q?T5XpzcaR/pZ/6hWD8bTpgVASMwEYIYgIwe1IoOJPmnjzndM8T7Hn0tevKDMF?=
+ =?us-ascii?Q?2auHpal6eHTIJ/W6kbvrn0UFExaRlrwv5o80ZGl/nEp0oBdsTB50+SDwitlf?=
+ =?us-ascii?Q?3o4YupMekSzKRlAbaLOslY+nMXFKntfzDrBB0A9WB54hBZjZaIQAzZbEsADn?=
+ =?us-ascii?Q?HuNVL8xpwh3fjt6obj4mDqpLeuly7bd48ZgweSa2RvG2hNLEdPniGG+eevwW?=
+ =?us-ascii?Q?9jdV0S75jowr/2pOe7tH4koUV4jKQYSnA2+fFNxTO9ZOZ4TPa5LY5LyOyRUv?=
+ =?us-ascii?Q?bjZ7ji6Pi7hLR4Fo8zjekVCWWBZN5u7jdoguOhIh0MsSWqeXS8MyarvXzO4O?=
+ =?us-ascii?Q?p8nFXYCGiuo/smU7RG9GIYuNgSQ5FoOa4P5FbCJSH9esKfa5TitvkLgqRdfC?=
+ =?us-ascii?Q?n7/106ay4+0xFNtzI6aeJgJIWFay0G1BlCALzytzQWvH1Dg7rZnp90n1EK7g?=
+ =?us-ascii?Q?b7wmog/z//ScNIZib5+lwoXdFJSXeDVuy1EwAhzEmLI9OJmmACB5FwF43Dmu?=
+ =?us-ascii?Q?c7UpGK7YTtcuZqXCpzoh3y+X0jHvOTOqY8WV7GeLK9MvvweTokvS/o7QznQg?=
+ =?us-ascii?Q?B4oCgvcPOUU+T5k3jJiSk+KvSRdvc/mQTuDKbBK3sRdogBrf8WlIa24fe7Y5?=
+ =?us-ascii?Q?GAEkGSPTcK1uex5NQWQio/cui8scFbrbL7JeDmH/kV43QWucKR4xXO2a7UIr?=
+ =?us-ascii?Q?hjiePkRubox4X/zdD215BOgDe25tMMB5TiN3C8AWMcFXkqwZBaXqZOr5/8oh?=
+ =?us-ascii?Q?TKuu8cz9veESpAXPnjuyCIpqqYBFVXjS/7RrYca03dTToozv5mENb+1n61DB?=
+ =?us-ascii?Q?xbtCJsKmTR0sQGCLCf7HOk/SV1C4n0SmJodJRpCeSJuOeq+SDm1NZfUx8CW2?=
+ =?us-ascii?Q?TLYbFIeocpnx+YdoZn+hUOMW5/OOe4ZP3e9Xu9b8V4hTX1RJA/SYJVmoRpME?=
+ =?us-ascii?Q?9g1ZaO+8gLs0DPySN88GOX/rEvSbnhOuvRWGnZs7YGrBl47F5QJ4Q3fEGCRf?=
+ =?us-ascii?Q?DD9xoJWTJg612ml1r0jZUtfcMytnpqKI1I/X+AGVgaHTbQUmpROcSCOglnpC?=
+ =?us-ascii?Q?5LWtsZX3j947s5j2OSKOrFehLC5oVB7kbKvKyZQYLIWEok79YYk5MWHiPsm+?=
+ =?us-ascii?Q?rXW5Y/q2To79GESWchmiTJRoWzZvZbjRrgMKVGtlFz/e50uZI/laVZnUJZUp?=
+ =?us-ascii?Q?OsfPAmrlOg=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aee1f4b0-2e6f-486f-56d1-08de4c4e8502
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 11:35:25.9628
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BpoN0ctt+q7mH5Ey105hRjRt2YmwgDrW9wQgQ48djoyZQF3/nPU7NZK94Qwnk6IFiL8m8k23SbOg8D/dyUF6jw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11700
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_032934_897653_2CA8F730 
-X-CRM114-Status: GOOD (  19.86  )
+X-CRM114-CacheID: sfid-20260105_033533_179493_DAE2C9D0 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,74 +168,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Stefan Klug (2025-12-02 06:42:36)
-> Hi Rui,
->=20
-> Thank you for the patch.
->=20
-> Quoting Rui Wang (2025-12-02 02:50:25)
-> > The rkisp1_flt_config() function performs an initial direct write to
-> > RKISP1_CIF_ISP_FILT_MODE without including the RKISP1_CIF_ISP_FLT_ENA
-> > bit, which clears the filter enable bit in the hardware.
->=20
-> That sentence is a bit hard for me to understand. Maybe:
->=20
-> "The rkisp1_flt_config() function overwrites RKISP1_CIF_ISP_FILT_MODE
-> without preserving the RKISP1_CIF_ISP_FLT_ENA bit thereby unconditionally
-> disabling the hardware block on reconfiguration.
+Hi Sudeep,
 
+Hope you're doing well. Apologies for following up again, but this v3 patchset
+has been pending for quite some time. I wanted to check if everything looks
+good on your end.
 
-Stefan's proposal sounds good here.
+Could you please confirm whether you plan to pick both patches? Or do you need
+an A-b from the i.MX maintainer for patch 2? Alternatively, I can ask Shawn to
+pick patch 2 if you only intend to take patch 1.
 
+Please let me know your thoughts.
 
-Reviewed-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Thanks,
+Peng
 
->=20
-> But as I'm no native speaker you could maybe wait for feedback from a
-> native speaker.
->=20
-> Functionality wise the change is correct.
->=20
-> Reviewed-by: Stefan Klug <stefan.klug@ideasonboard.com>
->=20
-> Best regards,
-> Stefan
->=20
-> >=20
-> > The subsequent read/modify/write sequence then reads back the register
-> > with the enable bit already cleared and cannot restore it, resulting in
-> > the filter being inadvertently disabled.
-> >=20
-> > Remove the redundant direct write. The read/modify/write sequence alone
-> > correctly preserves the existing enable bit state while updating the
-> > DNR mode and filter configuration bits.
-> >=20
-> > Signed-off-by: Rui Wang <rui.wang@ideasonboard.com>
-> > ---
-> >  drivers/media/platform/rockchip/rkisp1/rkisp1-params.c | 6 ------
-> >  1 file changed, 6 deletions(-)
-> >=20
-> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/d=
-rivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> > index c9f88635224c..6442436a5e42 100644
-> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> > @@ -411,12 +411,6 @@ static void rkisp1_flt_config(struct rkisp1_params=
- *params,
-> >         rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_FILT_LUM_WEIGHT,
-> >                      arg->lum_weight);
-> > =20
-> > -       rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_FILT_MODE,
-> > -                    (arg->mode ? RKISP1_CIF_ISP_FLT_MODE_DNR : 0) |
-> > -                    RKISP1_CIF_ISP_FLT_CHROMA_V_MODE(arg->chr_v_mode) |
-> > -                    RKISP1_CIF_ISP_FLT_CHROMA_H_MODE(arg->chr_h_mode) |
-> > -                    RKISP1_CIF_ISP_FLT_GREEN_STAGE1(arg->grn_stage1));
-> > -
-> >         /* avoid to override the old enable value */
-> >         filt_mode =3D rkisp1_read(params->rkisp1, RKISP1_CIF_ISP_FILT_M=
-ODE);
-> >         filt_mode &=3D RKISP1_CIF_ISP_FLT_ENA;
-> > --=20
-> > 2.43.0
-> >
+On Tue, Dec 16, 2025 at 09:16:23AM +0800, Peng Fan wrote:
+>Hi Sudeep, Cristian
+>
+>Just checking in - did you get a chance to review this patchset?
+>Please let me know if you need any additional details or context.
+>
+>Thanks,
+>Peng
+>On Wed, Oct 29, 2025 at 08:07:00PM +0800, Peng Fan wrote:
+>>This is the patch 5 and 6 from patchset [1] with switching to using raw
+>>dump, per check with Sudeep and NXP i.MX SM firmware owner
+>>
+>>System Manager firmware provides API to dump system log information.
+>>So add the interface for Linux to retrieve the information.
+>>
+>>In patch 1, I drop the two structures compared to patch 5 in [1]:
+>>struct scmi_imx_misc_sys_sleep_rec
+>>struct scmi_imx_misc_syslog
+>>No other changes in this patch.
+>>
+>>In patch 2, I switched to use debugfs to do raw dump the syslog, compared
+>>with patch 6 in [1].
+>>
+>>[1] https://lore.kernel.org/arm-scmi/PAXPR04MB845937237E3C1AF5A2ABA8FA880CA@PAXPR04MB8459.eurprd04.prod.outlook.com/T/#m6ed303ac9c584c6e2ab39f89359f3131b
+>>dfcc9e5
+>>
+>>Signed-off-by: Peng Fan <peng.fan@nxp.com>
+>>---
+>>Changes in v3:
+>>- Rebased to next-20251028
+>>- Drop unused variable to avoid build warning reported by kernel test robot
+>>- Link to v2: https://lore.kernel.org/arm-scmi/20251011-sm-syslog-v2-1-v2-0-f43a3f6b32e4@nxp.com/
+>>
+>>Changes in v2:
+>>- Rebased to next-20251010
+>>- Patch 2: Remove the IS_ERR check for debugfs_create_dir per Dan Carpenter
+>>           Change 'return 0' to 'return devm_add_action_or_reset'
+>>	   Drop the size check
+>>	   Include 'linux/sizes.h' to avoid build break
+>>- Link to v1: https://lore.kernel.org/r/20250910-sm-syslog-v1-0-5b36f8f21da6@nxp.com
+>>
+>>---
+>>Peng Fan (2):
+>>      firmware: arm_scmi: imx: Support getting syslog of MISC protocol
+>>      firmware: imx: sm-misc: Dump syslog info
+>>
+>> .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    | 83 ++++++++++++++++++++++
+>> drivers/firmware/imx/sm-misc.c                     | 37 +++++++++-
+>> include/linux/scmi_imx_protocol.h                  |  2 +
+>> 3 files changed, 121 insertions(+), 1 deletion(-)
+>>---
+>>base-commit: f7d2388eeec24966fc4d5cf32d706f0514f29ac5
+>>change-id: 20251029-sm-syslog-v3-0143f85b0ce6
+>>
+>>Best regards,
+>>-- 
+>>Peng Fan <peng.fan@nxp.com>
+>>
+>
 
