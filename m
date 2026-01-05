@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08057C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:50:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247DEC79F9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K/N3zAbb9Io53mL9MfScjAIE7UgKalQY+fltjoVvwuo=; b=cN6XgmOz/pavs3gIZYnTvewch7
-	eVAkjQ+gQuhkb0Xh1kc3Oky6rskG4Igc/A+s0X9Ix8m310HQpNU04o048YlYcG+HmfvT2Gb/rj0wp
-	upOCryg2jHf+gafMQnymOAZxKJPWxw+mO2ghcfmqo3fsJNIbbOhYqJnpFpR/VDGLb6IxLFdGnAti0
-	t5GJi82P9m26KutUN2G+j7Ghl6f9V7tF/cCzNxUT5LWP5T3fON06mEx8zlhAQG6yew4y0XOzuPNZM
-	xUjP577nyKs4vGDlWeLplUWpSwVJRUf7A4E9spWJJ1f+ySEm7YzRyY6+6nJZvJZp6qWYcOrnI5ZIH
-	sm7NoN6Q==;
+	bh=9Bh74ffhwGvzoB32j6548UJ2jmofNRBk5TExayO2sC0=; b=zHy8bwxtK78io7YjwPa5LWrnSd
+	d9bd0U9Hq4ThrqP7xzqRYmFB24FId4oJ5zVss2A2sw2XeiwBU57wwLcWKkMQjVSmSf5cQ5u1MKM/+
+	/sGHsV6C8OGUatfEGRVtzitxt+x6ObOmXQGBKPkswcPMxxEooZXbVnQ1tayr1CFfDzjEHFSU9U8R/
+	Ug8/65ER7zPEBYrStneR9l4Z6GBjiIxOxJaF+M1P7h7R2mPX/rqOZKWmYSGUalft4SY7Pglz2tGNH
+	91efopu3XsoSffby6lZDg3K8Hr2kLi0P6UdRLrrFMpyAB4JQUWShTipxVcDRVWpZnrbMWaSU4FMbL
+	4+rUa7FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmqR-0000000Bdef-1z79;
-	Mon, 05 Jan 2026 15:50:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vcmqY-0000000BdkP-2rDv;
+	Mon, 05 Jan 2026 15:50:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmqM-0000000Bdbp-1no1
+	id 1vcmqV-0000000Bdhz-3WBH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 15:50:07 +0000
+	Mon, 05 Jan 2026 15:50:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BA3CD4421E;
-	Mon,  5 Jan 2026 15:50:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F5A5C19421;
-	Mon,  5 Jan 2026 15:50:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 457B660141;
+	Mon,  5 Jan 2026 15:50:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F19FC19425;
+	Mon,  5 Jan 2026 15:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767628205;
-	bh=slfr55E2le7kv/1YuB/BPrtDozKTarzMBTzRIRUEr8I=;
+	s=k20201202; t=1767628214;
+	bh=FMgH4tjmmPzyeMSdlENmcMAZuZ5jAY2wrE5NYUN4Hvk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PNe2ibjzuSwchxppJkcNekOmPZiyvcX2vgZVhiTNwmI+HRhxbVPeU6mvM00A4hBgS
-	 zibDsgfG0sZ49CPxi2HBT5oPZmpoOWmRlXaNc0iL4qBiwOQVV++Plz6AUagm7+WBlz
-	 7Yw8Wfdvyk3yt0LSUWAG3Tw4vNKvWiN2Q7pHCp5o0bFugNkLqTyNPebQKWD4KcLkln
-	 /9E4Sq5JF91eQEGBr5QfOe47HPcG5sN1Fr1sCWH9mfjUCt1egaGfORAR9eOAr5U/Vo
-	 RmvZSsjH4DfwAF5Yg06wPKDrrQI3jAVI/A7uf2KQSb22ZFkXbesBoTJ512EIEe2lGs
-	 VZB4jf/bBAFrA==
+	b=Fqe6pn6Ocahv3hqhHuzUxcGmCjLM1isCKz3KxZSjp9wwvlnJhxkrD+jRFqBFnHK6t
+	 3pCqJr/6H+dd3UOSyjGcTat3gebE8uZFWa5ur0yQEtjjyie+dLGSNek15sBlGzEe3O
+	 AAU4dpxz3/IEgRi/gr67OGMVX9ogEFmZRmSWuQJ7/OgCKAgr/gtcM3k8yY7RN4AwDe
+	 BlFKh4vyWkvaeISHUR0ki/1GU8xQMu+FTwB7fXBelbqplzn6B3IdZiHYMrDWhuun9e
+	 jidaSmoyi0bYYCICQED2UEtcuqArZzSUdvWMDTyY7PdcoLoozT2S/dEHhslYj9nOAE
+	 D3/3CP/tZmoUA==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -56,17 +56,14 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Fuad Tabba <tabba@google.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH 05/30] KVM: arm64: Expose self-hosted debug regs as RAZ/WI for protected guests
-Date: Mon,  5 Jan 2026 15:49:13 +0000
-Message-ID: <20260105154939.11041-6-will@kernel.org>
+Subject: [PATCH 08/30] KVM: arm64: Prevent unsupported memslot operations on protected VMs
+Date: Mon,  5 Jan 2026 15:49:16 +0000
+Message-ID: <20260105154939.11041-9-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260105154939.11041-1-will@kernel.org>
 References: <20260105154939.11041-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_075006_496239_2F08C16C 
-X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,39 +78,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fuad Tabba <tabba@google.com>
+Protected VMs do not support deleting or moving memslots after first
+run nor do they support read-only or dirty logging.
 
-Debug and trace are not currently supported for protected guests, so
-trap accesses to the related registers and emulate them as RAZ/WI for
-now. Although this isn't strictly compatible with the architecture, it's
-sufficient for Linux guests and means that debug support can be added
-later on.
+Return -EPERM to userspace if such an operation is attempted.
 
-Signed-off-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/nvhe/sys_regs.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/arm64/kvm/mmu.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-index 3108b5185c20..c106bb796ab0 100644
---- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-+++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-@@ -372,6 +372,14 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
- 	/* Cache maintenance by set/way operations are restricted. */
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index a888840497f9..8f290d9477d3 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -2419,6 +2419,19 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+ 	hva_t hva, reg_end;
+ 	int ret = 0;
  
- 	/* Debug and Trace Registers are restricted. */
-+	RAZ_WI(SYS_DBGBVRn_EL1(0)),
-+	RAZ_WI(SYS_DBGBCRn_EL1(0)),
-+	RAZ_WI(SYS_DBGWVRn_EL1(0)),
-+	RAZ_WI(SYS_DBGWCRn_EL1(0)),
-+	RAZ_WI(SYS_MDSCR_EL1),
-+	RAZ_WI(SYS_OSLAR_EL1),
-+	RAZ_WI(SYS_OSLSR_EL1),
-+	RAZ_WI(SYS_OSDLR_EL1),
- 
- 	/* Group 1 ID registers */
- 	HOST_HANDLED(SYS_REVIDR_EL1),
++	if (kvm_vm_is_protected(kvm)) {
++		/* Cannot modify memslots once a pVM has run. */
++		if (pkvm_hyp_vm_is_created(kvm) &&
++		    (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
++			return -EPERM;
++		}
++
++		if (new &&
++		    new->flags & (KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_READONLY)) {
++			return -EPERM;
++		}
++	}
++
+ 	if (change != KVM_MR_CREATE && change != KVM_MR_MOVE &&
+ 			change != KVM_MR_FLAGS_ONLY)
+ 		return 0;
 -- 
 2.52.0.351.gbe84eed79e-goog
 
