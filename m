@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E28D7C79F9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 203C7C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Z1t3f7wrfxeNesPgJJ9II3gEkT9Nl6MjeL1+/sskaA=; b=3IJXWkh1Ql5eqsV/7qP/2xOeU7
-	OzloW6vpCIR22Xp8JVn41XYvovR6g1MsmQjB7jQA0aE5bpqv6QUjgTrSoeNBIR/7V9hF7+iNZRFcY
-	AvgLiZc+29z+xMfCEaPgpCpJI0N56jI/U80OpSz2lSYV4djmQG2hf1crjtImcC4jt1Muh2RWHZEen
-	JCGWAtDADrho1a+mP8OGxBTuWRw9oXskh0SQlROdXhapnoHOU7Eooo4Jb7HXmERp1rvaAj28DIuZb
-	UlcCSLrFg8NYBtpaZXhStaKjAcogxcIu0UzQQDabYC2imqC46eoBoO8k7IKEV/ieJVXXYnGewu67M
-	YyulCzhQ==;
+	bh=kCYsmcwG+vupArs9CCstylj8tFZzAy5OKOVUFDzDTtc=; b=XLDHIPPqpcMQQVk10oPXH+9Um6
+	0q7CX8UjWegX7utmo7tqXE3i5pOVKdcMmp++AoUsD40fsfGZIXq3tqc9zvn6Px0PCbAnF3bGNVt9L
+	OQt1nAQ2JxpiR6t5cEOQrOfbFRo+Tua84gyDTviTO2WCGBynEYt19ehWTmf/GNjxODlV5uNIyFqAX
+	YxaTcUesVumc34lC2EzW+gRDk9GZlRqTghGTGDltjORhr1aTDmLXwRLmWpLfyGWN4glpg4gzL7p17
+	jfmF8d0lFu0j6qWDbKnGjhiCmDjiOxWv0RAcf2cWv/bNEMGULlWl1z8lCRFkMEGWLsVf9Q09AHJ0f
+	/yO1CJrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmr5-0000000BeHM-2b8x;
+	id 1vcmr5-0000000BeGf-1CxJ;
 	Mon, 05 Jan 2026 15:50:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmr4-0000000BeF4-0HA6
+	id 1vcmr0-0000000BeAB-25IK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 15:50:50 +0000
+	Mon, 05 Jan 2026 15:50:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 71DD660143;
-	Mon,  5 Jan 2026 15:50:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C676C19421;
+	by sea.source.kernel.org (Postfix) with ESMTP id 29BDE406AD;
 	Mon,  5 Jan 2026 15:50:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EBFEC116D0;
+	Mon,  5 Jan 2026 15:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767628249;
-	bh=s4+WSuCvYplaNUVX5guR216Cm3FmdjlvuYliNemWxzQ=;
+	s=k20201202; t=1767628246;
+	bh=vgLyn6tJZl/IzUA/ABSnXGcwxUN7qnglUo+W23OuePQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Yus9aiDxosBrh2s7VoV5ser5y1E8q+nTR4OKnk+pbn2lhNkNbNea7Aq7iPcsI1J0i
-	 JrHj4KBvAHIsvVyVKeY9V9taKvOlBddc6GZpWb6IdT7K1mouz9jqP4R0kCrJczoZVD
-	 mydUavxCMbd0nT/huYYmPK7hSmluKY3RZMn+1gHEOqI3CIt9ZLyRKahjb/lbbw1P7f
-	 j60HWn4RDcKT0kXDSm2ZQVnuSBrz7AR45z+C79fS7kZb2sELpX4qaT1G92iVjcJUYa
-	 Y3PxDUCcbCYHXhOM/3s+nu/QxAIF31wDmc++p6U5hg2uRiljGM3sD0gGnncFsYC6/b
-	 ZOdMiAwhiQMpg==
+	b=ZLfh4s7U/2r8ZZGsSED3Z7sdHutH5ikw+xVospiq87BO5lP6IDbG1uSqEqrUOO6rJ
+	 UsddN8WMrSufxfPrn4EUQehcO05ZiSfmsDPoi8t4HYNupxL5DSTpkgbROHIdZsk2q9
+	 S1SViVnjFBcTtb3tbLmqQwXJfI3P9Oa/VFUxgBky3GQalThACNBoNMje38gemwrXth
+	 C1zs6fliaPcqEnvZqs0qXQXVen5xyni8ljyTC24nib+sAJQ7kIGcmOUpr7Aym7sR2q
+	 D9rt5Jn5s6dXVGdHLt7fDbRUzRXXNA2EnIsGeGnVLVhGKmpVtQdDgq/LOUUgx16XnJ
+	 Q22BvbFAyRfVQ==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -56,14 +56,18 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Fuad Tabba <tabba@google.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH 19/30] KVM: arm64: Annotate guest donations with handle and gfn in host stage-2
-Date: Mon,  5 Jan 2026 15:49:27 +0000
-Message-ID: <20260105154939.11041-20-will@kernel.org>
+Subject: [PATCH 18/30] KVM: arm64: Introduce host_stage2_set_owner_metadata_locked()
+Date: Mon,  5 Jan 2026 15:49:26 +0000
+Message-ID: <20260105154939.11041-19-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260105154939.11041-1-will@kernel.org>
 References: <20260105154939.11041-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260105_075046_629865_32A06138 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,61 +82,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Handling host kernel faults arising from accesses to donated guest
-memory will require an rmap-like mechanism to identify the guest mapping
-of the faulting page.
-
-Extend the page donation logic to encode the guest handle and gfn
-alongside the owner information in the host stage-2 pte.
+Rework host_stage2_set_owner_locked() to add a new helper function,
+host_stage2_set_owner_metadata_locked(), which will allow us to store
+additional metadata alongside the owner ID for invalid host stage-2
+entries.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 18 +++++++++++++++++-
- 1 file changed, 17 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 19 ++++++++++++-------
+ 1 file changed, 12 insertions(+), 7 deletions(-)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 7d1844e2888d..1a341337b272 100644
+index 6c32bdc689ed..7d1844e2888d 100644
 --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
 +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -1063,6 +1063,19 @@ static void hyp_poison_page(phys_addr_t phys)
- 	hyp_fixmap_unmap();
+@@ -539,12 +539,8 @@ static void __host_update_page_state(phys_addr_t addr, u64 size, enum pkvm_page_
+ 		set_host_state(page, state);
  }
  
-+#define KVM_HOST_INVALID_PTE_GUEST_HANDLE_MASK	GENMASK(15, 0)
-+#define KVM_HOST_INVALID_PTE_GUEST_GFN_MASK	GENMASK(56, 16)
-+static u64 host_stage2_encode_gfn_meta(struct pkvm_hyp_vm *vm, u64 gfn)
+-static kvm_pte_t kvm_init_invalid_leaf_owner(u8 owner_id)
+-{
+-	return FIELD_PREP(KVM_INVALID_PTE_OWNER_MASK, owner_id);
+-}
+-
+-int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
++static int host_stage2_set_owner_metadata_locked(phys_addr_t addr, u64 size,
++						 u8 owner_id, u64 meta)
+ {
+ 	kvm_pte_t annotation;
+ 	int ret;
+@@ -552,10 +548,14 @@ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
+ 	if (!FIELD_FIT(KVM_INVALID_PTE_OWNER_MASK, owner_id))
+ 		return -EINVAL;
+ 
++	if (!FIELD_FIT(KVM_INVALID_PTE_EXTRA_MASK, meta))
++		return -EINVAL;
++
+ 	if (!range_is_memory(addr, addr + size))
+ 		return -EPERM;
+ 
+-	annotation = kvm_init_invalid_leaf_owner(owner_id);
++	annotation = FIELD_PREP(KVM_INVALID_PTE_OWNER_MASK, owner_id) |
++		     FIELD_PREP(KVM_INVALID_PTE_EXTRA_MASK, meta);
+ 	ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
+ 			      addr, size, &host_s2_pool, annotation);
+ 	if (ret)
+@@ -570,6 +570,11 @@ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
+ 	return 0;
+ }
+ 
++int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
 +{
-+	pkvm_handle_t handle = vm->kvm.arch.pkvm.handle;
-+
-+	WARN_ON(!FIELD_FIT(KVM_HOST_INVALID_PTE_GUEST_HANDLE_MASK, handle));
-+	WARN_ON(!FIELD_FIT(KVM_HOST_INVALID_PTE_GUEST_GFN_MASK, gfn));
-+
-+	return FIELD_PREP(KVM_HOST_INVALID_PTE_GUEST_HANDLE_MASK, handle) |
-+	       FIELD_PREP(KVM_HOST_INVALID_PTE_GUEST_GFN_MASK, gfn);
++	return host_stage2_set_owner_metadata_locked(addr, size, owner_id, 0);
 +}
 +
- int __pkvm_host_reclaim_page_guest(u64 gfn, struct pkvm_hyp_vm *vm)
+ static bool host_stage2_force_pte_cb(u64 addr, u64 end, enum kvm_pgtable_prot prot)
  {
- 	u64 ipa = hyp_pfn_to_phys(gfn);
-@@ -1105,6 +1118,7 @@ int __pkvm_host_donate_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu)
- 	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
- 	u64 phys = hyp_pfn_to_phys(pfn);
- 	u64 ipa = hyp_pfn_to_phys(gfn);
-+	u64 meta;
- 	int ret;
- 
- 	host_lock_component();
-@@ -1118,7 +1132,9 @@ int __pkvm_host_donate_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu)
- 	if (ret)
- 		goto unlock;
- 
--	WARN_ON(host_stage2_set_owner_locked(phys, PAGE_SIZE, PKVM_ID_GUEST));
-+	meta = host_stage2_encode_gfn_meta(vm, gfn);
-+	WARN_ON(host_stage2_set_owner_metadata_locked(phys, PAGE_SIZE,
-+						      PKVM_ID_GUEST, meta));
- 	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
- 				       pkvm_mkstate(KVM_PGTABLE_PROT_RWX, PKVM_PAGE_OWNED),
- 				       &vcpu->vcpu.arch.pkvm_memcache, 0));
+ 	/*
 -- 
 2.52.0.351.gbe84eed79e-goog
 
