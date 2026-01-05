@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBCC3C79FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:40:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B757BC79FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fx2nE7GEtYBOEncCLLjUx+UCvxrL3VBofuFzfQVI9KQ=; b=cM/8SKZNbALekK1kzKryMbwo41
-	GHMSZQjqSEaMSXj79XZHqjCQuBfuQwyIoAAc+NecYYpz0KKhJFrTsJfRDCeYs67ioTf7g/1KJzzrz
-	eyqVtFnNnNDwwHBBn0qyBNlGClmT0jz0AcKSWgTMvGqb23104D5qQL4an9M/xeLuCyAcWZOMTk8Ir
-	6vxH10r90W5F3lZRHidx8RmSynAT+TrJ6zrYGeydsejLd1hr69PuUmXEkM8Nqs68t3FJp5u3DZSjY
-	APTndcpBkmYYbOmV1TgQQ30ldUcg8fu0or3PXK22d2BKa0eT5BSvTSiX310NS0/DYjfLhxB62ZDNl
-	ReQMDcIQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zDRy0amAmiBw6egOaxifJbdE2F/pvrbTmoQr4H4lVeQ=; b=hLoGuyIxLc+97KAFYNgQUYpCyv
+	mewJto56Y+/6AUQL1ksrUpLeNd7EHkoMLUO4SJpYVe6M+Kmiwrl9s7LwMlpbB/pPv5I+OVnzeF4Lo
+	By4qQfqIBde2M7lNXp/018kfHK/lvY+f5vX7oeySkvhp8BliR37yEloWaB+IgJMj0jPhxKzmZQd1P
+	Og7lTFdbc9Yz9UP4jhh/4snVbDYtRjUiCWYbSa/DOZrJmvoXT4d8W7iusRodZNDDm4sIi/MCkKAa6
+	E1CWV34rThKoqZYW92Z8pu4bY8PCESc+z4TJa7gOUain2EhSpPPMpuWe6Ja3tgjbLMtIzdMAHG1nq
+	CLWqacug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcoZ2-0000000BqwH-0shN;
-	Mon, 05 Jan 2026 17:40:20 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vcoZ9-0000000Bqyr-2KxF;
+	Mon, 05 Jan 2026 17:40:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcoYv-0000000Bqu7-49PQ
+	id 1vcoZ7-0000000Bqy4-0oVR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 17:40:18 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dlM526ZjtzHnGcc;
-	Tue,  6 Jan 2026 01:40:06 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 83CB840539;
-	Tue,  6 Jan 2026 01:40:09 +0800 (CST)
-Received: from localhost (10.126.174.38) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 5 Jan
- 2026 17:40:07 +0000
-Date: Mon, 5 Jan 2026 17:40:05 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
-	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
-	<kobak@nvidia.com>, <lcherian@marvell.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
-	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
-	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
-	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
-	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>
-Subject: Re: [PATCH v2 15/45] arm_mpam: resctrl: Add boilerplate cpuhp and
- domain allocation
-Message-ID: <20260105174005.00001ba0@huawei.com>
-In-Reply-To: <20251219181147.3404071-16-ben.horgan@arm.com>
-References: <20251219181147.3404071-1-ben.horgan@arm.com>
-	<20251219181147.3404071-16-ben.horgan@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Mon, 05 Jan 2026 17:40:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6F06A44393;
+	Mon,  5 Jan 2026 17:40:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A218C19422;
+	Mon,  5 Jan 2026 17:40:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767634824;
+	bh=2uciPgKZTfAN+kHFN9+AWCUpup3++wuAGSvEJP++CVU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=rxdJfilehYXTF2CXiJ68ugDkk0WeJK8N06jer4golHbxFQ+Kl18nLFOWgjY5ZxIlI
+	 oyRraD2Lsu8pxVtW+nvLafUTgCQyRt13ut4qqNj3YWwW6rYG0uA1/styq2XtGTQFIS
+	 TfiK/H8S6kr6tb1PSBR5imilYtm3n6zwFeqE5GCyqOheL1N0QWDjzYgvVx2MJW7Rwy
+	 TcmkjPzAsWLiBQUHsH+KmHpxQzWIO4cZ20HrS0bpbUug8/Crxx5nVwkJoq9jp/7pWN
+	 QrUoyINpByyFZPZWAFJYgv1oopnCyXHTFNRIpvtd2vwVVT1AEGSkiVpuZGcIrk5PCY
+	 xPUY/US74WR4A==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: soc@kernel.org,
+	Wei Xu <xuwei5@hisilicon.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: hisilicon: hikey960: Drop "snps,gctl-reset-quirk" and "snps,tx_de_emphasis*" properties
+Date: Mon,  5 Jan 2026 11:40:02 -0600
+Message-ID: <20260105174002.2997615-1-robh@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.126.174.38]
-X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_094016_518823_9372CA60 
-X-CRM114-Status: GOOD (  26.04  )
+X-CRM114-CacheID: sfid-20260105_094025_254248_C50F624B 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,133 +74,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Dec 2025 18:11:17 +0000
-Ben Horgan <ben.horgan@arm.com> wrote:
+"snps,tx_de_emphasis" is supposed to be a u8, not a u32. Since it is big
+endian, 0 will be read rather than 1. The DWC3 Linux driver simply ORs
+the value if "snps,tx_de_emphasis_quirk" is set, so the 2 properties
+have no effect. (The driver doesn't clear the field either which is
+another problem).
 
-> From: James Morse <james.morse@arm.com>
-> 
-> resctrl has its own data structures to describe its resources. We can't use
-> these directly as we play tricks with the 'MBA' resource, picking the MPAM
-> controls or monitors that best apply. We may export the same component as
-> both L3 and MBA.
-> 
-> Add mpam_resctrl_exports[] as the array of class->resctrl mappings we are
-> exporting, and add the cpuhp hooks that allocated and free the resctrl
-> domain structures.
-> 
-> While we're here, plumb in a few other obvious things.
-> 
-> CONFIG_ARM_CPU_RESCTRL is used to allow this code to be built even though
-> it can't yet be linked against resctrl.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
-> Domain list is an rcu list
-> Add synchronize_rcu() to free the deleted element
-> Code flow simplification (Jonathan)
+"snps,gctl-reset-quirk" is not documented nor used in the driver, so
+drop it as well.
 
-Just trivial stuff and that one what do we loop over thing that
-we continued discussing in the RFC thread (I think you already
-tidied that up)  Nothing here to stop:
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-(which is another way of saying I'm not planning to read it again :)
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dts | 3 ---
+ 1 file changed, 3 deletions(-)
 
-
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> new file mode 100644
-> index 000000000000..4beeeded00ff
-> --- /dev/null
-> +++ b/drivers/resctrl/mpam_resctrl.c
-
-> +
-> +static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
-> +{
-> +	struct mpam_class *class = comp->class;
-> +
-> +	if (class->type == MPAM_CLASS_CACHE)
-> +		return comp->comp_id;
-> +
-> +	/* TODO: repaint domain ids to match the L3 domain ids */
-> +	/*
-> +	 * Otherwise, expose the ID used by the firmware table code.
-Maybe more turns up in here. Otherwise, easily fits in single line comment.
-> +	 */
-> +	return comp->comp_id;
-> +}
-
-> +static struct mpam_resctrl_dom *
-> +mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
-> +{
-> +	struct mpam_resctrl_dom *dom;
-> +	struct rdt_ctrl_domain *ctrl_d;
-> +	struct rdt_resource *r = &res->resctrl_res;
-> +
-> +	lockdep_assert_cpus_held();
-> +
-> +	list_for_each_entry_rcu(ctrl_d, &r->ctrl_domains, hdr.list) {
-
-As a reminder, though I think you already changed this, discussion carried
-on wrt to the RFC version of this loop.
-
-> +		dom = container_of(ctrl_d, struct mpam_resctrl_dom,
-> +				   resctrl_ctrl_dom);
-> +
-> +		if (cpumask_test_cpu(cpu, &dom->ctrl_comp->affinity))
-> +			return dom;
-> +	}
-> +
-> +	return NULL;
-> +}
-
-> +
-> +void mpam_resctrl_offline_cpu(unsigned int cpu)
-> +{
-> +	resctrl_offline_cpu(cpu);
-> +
-> +	guard(mutex)(&domain_list_lock);
-> +	for (int i = 0; i < RDT_NUM_RESOURCES; i++) {
-> +		struct mpam_resctrl_res *res;
-> +		struct mpam_resctrl_dom *dom;
-> +		struct rdt_mon_domain *mon_d;
-> +		struct rdt_ctrl_domain *ctrl_d;
-> +		bool ctrl_dom_empty, mon_dom_empty;
-> +
-> +		res = &mpam_resctrl_controls[i];
-> +		if (!res->class)
-> +			continue;	// dummy resource
-> +
-> +		dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
-> +		if (WARN_ON_ONCE(!dom))
-> +			continue;
-> +
-> +		ctrl_dom_empty = true;
-> +		if (exposed_alloc_capable) {
-> +			ctrl_d = &dom->resctrl_ctrl_dom;
-> +			ctrl_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
-> +			if (ctrl_dom_empty)
-> +				resctrl_offline_ctrl_domain(&res->resctrl_res, ctrl_d);
-> +		}
-really small thing but I'd do 
-		} else {
-			ctrl_dom_empty = true;
-		}
-here to make it visually obvious why that is set to true. The initialize and override
-if we have more info pattern is to me less readable.
-
-> +
-> +		mon_dom_empty = true;
-> +		if (exposed_mon_capable) {
-> +			mon_d = &dom->resctrl_mon_dom;
-> +			mon_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &mon_d->hdr);
-> +			if (mon_dom_empty)
-> +				resctrl_offline_mon_domain(&res->resctrl_res, mon_d);
-> +		}
-Similar for this one.
-> +
-> +		if (ctrl_dom_empty && mon_dom_empty)
-> +			kfree(dom);
-> +	}
-> +}
+diff --git a/arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dts b/arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dts
+index 3f13a960f34e..ed84ab92fb19 100644
+--- a/arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dts
++++ b/arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dts
+@@ -675,10 +675,7 @@ &dwc3 { /* USB */
+ 	snps,lfps_filter_quirk;
+ 	snps,dis_u2_susphy_quirk;
+ 	snps,dis_u3_susphy_quirk;
+-	snps,tx_de_emphasis_quirk;
+-	snps,tx_de_emphasis = <1>;
+ 	snps,dis_enblslpm_quirk;
+-	snps,gctl-reset-quirk;
+ 	usb-role-switch;
+ 	role-switch-default-mode = "host";
+ 	port {
+-- 
+2.51.0
 
 
