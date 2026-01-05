@@ -4,185 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E7A0C79F9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 14:38:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F48C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 14:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ti6doOokkOuf1fU82BjOqYUG2AtLj8E38n45wx271uo=; b=ZibOb9TB+5e6BlBsVZzwLUuECG
-	u0SLBEopwyb2zN3STNDvAOk8+BNNV6f6cl8bPs9Zmle6kRYmL2xytanKKej2rC6FfWSaJk8zcAojW
-	QVd6G/mI1s9nLA+93g2eEJjPXOwRcHEm5Z7mLolmqUNNiQWnX02lrlVl9dHS0ULPekL1kZEy2UgYt
-	sahAzWiYNGXqQAaCzTjfh4cXYuP0m855J8vKvW3EZQorhWpuJEqOciIYxJQ0ybb5/PmYe7LHynLJX
-	b4z+EF1j7mo57Gdentg8d0iB9p1mmYTX2mitLiCJMZ0U4movDcPxHopOYQukQzZPbM4sGh/2rPnTG
-	p2iVHt6Q==;
+	bh=XSwPcNo8o0N6KCcNlfNXq5S6yUSOj9uBi5hsA/QPZGo=; b=xgLIuspVPlSeraov5d334G2uNR
+	bzqGGHO6LYDwrxvrwa76YEv+BnEMmi256ylHZt3MhcNF+gtOiVYPHhK4AVdOfYR3yorVylqE6Zjy5
+	SVO4n+rMrE5Nw8UXDz5m2PdtoQZgnjRBh5XuMillfhkgELJtlwKcAGcppHY4LG6Lep9GVrt8aLKLE
+	NhQg5ukdtov/Cj7Bifx0IMQj+OdEKUmPU7Fxv5YvQx82JJK8Wdp4D9hmPNdZPuKp2fEpZmTsve6KV
+	jR6XcImtGRjyYFad3IZQYChhJFCfOQiqQ/bDPdzaEnq3udPDcT8o+7Xlp8XvSGdT+T2vop2bDlKrF
+	lhW4ZSVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vclil-0000000BYQh-2z49;
-	Mon, 05 Jan 2026 14:38:11 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vclqD-0000000BZ15-1dCr;
+	Mon, 05 Jan 2026 14:45:53 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vclij-0000000BYQK-2gJJ
+	id 1vclqA-0000000BZ0K-0GJE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 14:38:10 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6059eS8p3542060
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 5 Jan 2026 14:38:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Ti6doOokkOuf1fU82BjOqYUG2AtLj8E38n45wx271uo=; b=Sjz5YZFkbaAgPHjf
-	Xr9nC2IK8gcOosOfbQR9gmuDiLdzRNN5Gn80x+bjHA2o3r6yQdPWewpxp4r83EiG
-	Zv1au6np+62NArsD3ELCAopT/5HYpXUqLYBd57s8/Y2kwb0VU7Pu6Ib2+scoeMjc
-	XQ1fybwC1yz7qIJ5t64pYUsPJj/rMVzHYBdCnIMmcihLEuaSzveP3gHrD2aD8AMu
-	yaRi2Fi5N/SxdCuFh3uQ8TasAG0N4yuZjqXgZstePbkeYhoU/5Ncw1paanNhNFop
-	+0wyqVHuwnX7aqdQz0LZLyqB1xqVKdCyo3Tu/zH0LuE+AgAl8ObPt730ZVAf1a3p
-	Hv93GA==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bg57shsyf-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 14:38:09 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4edad69b4e8so48975641cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 06:38:08 -0800 (PST)
+	Mon, 05 Jan 2026 14:45:51 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-477632d9326so86151375e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 06:45:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767623888; x=1768228688; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ti6doOokkOuf1fU82BjOqYUG2AtLj8E38n45wx271uo=;
-        b=j8eTsZsGTlWT4CycKgSl89L4FBNJ6GAvSvmnV3xSTH265NLrS0t6lDSm72kg4e9kab
-         J/jPnaEdURzqhumBG2FY5v59CTNM9X2mplF9LaWPKJDu7UN8H6TK6wMj8yD7qFknHeCO
-         0n1iDPXhdQ8mg5AQ8Pmur0yvqwiLMZLaVPdKC9y2po6k/eqT9gEaDw5UmQguDChQz1DR
-         ESgcKwKty8o7nsKAp0+mc6ppQLGe8ecJGWTWB03+kEL2d+rikKyymkNqTMRPLxVTVgdr
-         biu4+rlEjNaVM8M3yTp5r0+ZQ020DLgZM+NY356ZS4PDpy/XkoQgag4Bsjh+dPJsigUw
-         5WRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767623888; x=1768228688;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1767624348; x=1768229148; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Ti6doOokkOuf1fU82BjOqYUG2AtLj8E38n45wx271uo=;
-        b=DTSi/otZ0qdZY1LK2BHL9Rej2cX4u/EfyEwLP9uQvZXobETAeswiFjdo6+306mQHKE
-         kQqHzAL7uFoIT7l/D0yionwFeDLJXI+l6ryE8t1AxM9ncpq3LrdKF96zMIywa9RJItH4
-         qc4UXwdEfYs6xQ1SRkgZVrH8XbcXqGbTj4gwz3wrxH3utuHMOcWZO7DkMWMvT/gjCScz
-         DsaMWC/kRTev/KEN0blh7yq/nYCggiSeZCRQp0ohEtOh3tFfXwZghNh5378yT3HcCOXU
-         UfB2YJ/zUOnKzPCVi+dheWdHlKGr/5vcB/SnGh39yFGTig5I7aoB7CW0cE9zzvEKcxW1
-         haGw==
-X-Forwarded-Encrypted: i=1; AJvYcCWq+zBBzUjcKwYuw5oHC/C9e1Om4oVt84RFuny4dL2Wxy3+yLS98doJfPSUJ19ugm+DxKxuiKMF2IlwvegrB7lo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxOhyCKLKJ/edgkFeHLCd5Uu+n90AKC7l3L8J9eZ0JHPejOVxU
-	aebloRLifg0tp4uDhQHSSg1CMgcYvmFUP2zJ7iHrsozVdLnZvsp0aYRtgnG0huVXwf2DxYVN1Bh
-	kgLnP6uAV5HDsu0Mv0wgk/zxouQtgki9M2nK3107rDHQFoz257IoM8sXAPgqc93LfflWhWT6rcf
-	1coA==
-X-Gm-Gg: AY/fxX4fy/z4wdn9f7X0VzK9Zmb2Qm4k0LkGYXIjFp/FkzZNTQNlMiHyzZb0e7vaODN
-	5f2XHD3WHdeIcTBbFtR7lmw8rlCVgp03xPeQ2Y7LZ4Sq6gLtN3PufT0cYd9cmtTrCJtb6PLsdAY
-	EpqDFrf+EJDtpsri2x1cHoydmFt4bMUq6dbsxlwRufhLBbfsXX91MWaTPy0g/KopPgl58kNz+PX
-	gbCcW/toF38iNlEpM8tat3I5DuZpHT8heLxz4Ixnd0DKYSAGiCBtKR08luBTNRs2b2QnCD/GPDp
-	tf0a50IzfD4ff6SQnokSt5F0tzPMlQmTXcZ0PuGUKzgk1Srehun5tF3UNBo2PM8Q/iFHIjKdOds
-	2P/ehNVWhhaaZFv5FUPQW2HBCvmEVcxwhncVRKQ==
-X-Received: by 2002:a05:622a:1188:b0:4f1:bd8a:9fdb with SMTP id d75a77b69052e-4ff4508b502mr108113121cf.2.1767623888145;
-        Mon, 05 Jan 2026 06:38:08 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHgicMyDjA5PM/+eqsrIBwMK144H65yoEKhRKChcbGfAHLmAZEHZwjzOBn9OnYAC/WqGr9WyQ==
-X-Received: by 2002:a05:622a:1188:b0:4f1:bd8a:9fdb with SMTP id d75a77b69052e-4ff4508b502mr108112691cf.2.1767623887721;
-        Mon, 05 Jan 2026 06:38:07 -0800 (PST)
-Received: from [192.168.1.29] ([178.197.218.229])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b84267a5063sm3411466b.69.2026.01.05.06.38.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 Jan 2026 06:38:07 -0800 (PST)
-Message-ID: <715cb873-6bf9-4902-b586-f02ebf5a611a@oss.qualcomm.com>
-Date: Mon, 5 Jan 2026 15:38:05 +0100
+        bh=XSwPcNo8o0N6KCcNlfNXq5S6yUSOj9uBi5hsA/QPZGo=;
+        b=Mjuf7FF+r6KAz71+Xosnx7graUoYAntEs3f9gYGo6WnallDaW7F0zsP7uZPBZA7dU7
+         U3HnhY1uzVY9qR4bG1c++1tN4wqPWa8sZaARU7JKbxW7L89k5zcNnvfU9Vfzef1uxKLQ
+         S3W+9VQFETEwJqnsczuLi9XhjOSL9LdPgPqGKpOKZqdnWkUEs7FIxwYSbCDNbrLgVyoK
+         vxfzDt+zW9GT8op2M9sMIYMazQBqBSjtevnwSLewNGRNb0GoDmNLI2xm9PiMQfpW9ZYN
+         26ZYzyvZVnyM/CF+mfDaUL9jO7GO/z53ZzwxHjoGZyNz9v8CgWfSCXZmh54PenBoSrBR
+         vfbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767624348; x=1768229148;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=XSwPcNo8o0N6KCcNlfNXq5S6yUSOj9uBi5hsA/QPZGo=;
+        b=uxYjOsg32GAAnOQT9xWOcHTI0PSpJMdjFKI0O5UCexyUVhH4Lx4uEQKtOcNMKcFDDE
+         /XOdJ/FEWsN9r4P8w74B9fg+IlIEVAdK9po5Ox2ArATPCOKcxwPKMFGH9d5zom29c14M
+         Itvfi+7CbJqe9/ePVQTJJma+6OAMHlSG3gIEvpUgNzp6Yy6iUB+qlHbjpzoDUvHRTXMf
+         3ygv1TkabuVS5Hd7UFDgKiUIOFWWD7NcTXimozJgFCvwwSi1j7LeHU9R46JyriEAYO1g
+         Hx2aMavw0M7TFXhs5fIC90f4zJunByfyAkS1Xyo7U/xYh1dtHjMGpHrx6DckNcXY69PG
+         7owQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVJnhJOOR+OVvv+XU55zg55lPVMHrb2rfI21qqosDiH37NW5FimYKe1WUXcrFXcWhQ4XpiMibailhk01aLlveD7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkuLIXMdJLlGVLV0z6kDGT4KhPb8OMrRGfh1L8KUNocD9sNi6o
+	/TTK5kd64kf95dVFwvCddvRydLWyNWnXNEqrUJtZLfLXP/o5GajF+zYS
+X-Gm-Gg: AY/fxX7LhED3SldAP1YvX6rumWwW90ZXh8hdHzKy/GvgP9PVCONsKLnDsk2mFAmyrpJ
+	9nKD5/7wf1EUxh/LUHjL+VyzPJjFZXEf0oO4mR60xLKlQy4eRo9L1nBX1JADOfQavMTfGzT0b2j
+	7DlwHIvKxftJC1hq0z9F06Yl6idd0uunxf7x2Fz01ljS8LjANtKYXbMHeapcmYaCWTu6JROsxAc
+	ReXlA8scI5142bJisMN5HN6MeG/t2MyejuZyoaMmdV1DMHplj3+BnpsBXFDxZagD5mwFXFDf3jY
+	ZabEMllv663d3mDHD8yhQym9vVEAejc8Og7pYy/IU++kJTJEChEsMgGVWL3DWMruMfHqhreZmVI
+	FmuadYzV+TixT2XiLymTO4L8qxu4W1i3x3tDQebNExPFVUL+ytiycCR8tFdWZJxxF68MUO0y5OV
+	w/SpkIcYIWK+P2kHBfRFUuuUTfLwcG59FpQMq73Lsk4ChiSz7UhAFTSPQaUiyg+cA=
+X-Google-Smtp-Source: AGHT+IEzQJ2d8LdW+ZAISEQqtjJZ6hu3kCqntkmy/4NpDB13AhMox7IMuU26/rlmQkOaOYroxoA3pQ==
+X-Received: by 2002:a05:600c:1991:b0:477:5af7:6fa with SMTP id 5b1f17b1804b1-47d195aa354mr674903875e9.32.1767624347886;
+        Mon, 05 Jan 2026 06:45:47 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d6d452c69sm195826845e9.9.2026.01.05.06.45.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Jan 2026 06:45:47 -0800 (PST)
+Date: Mon, 5 Jan 2026 14:45:45 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
+ <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
+ <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Thomas
+ Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, Kees Cook
+ <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, Arnd
+ Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>, "Jason A.
+ Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>, Jeremy
+ Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] randomize_kstack: Unify random source across
+ arches
+Message-ID: <20260105144545.45f2b0ba@pumpkin>
+In-Reply-To: <60c5d7b1-1ab7-490c-8cb8-dfd50cf23856@arm.com>
+References: <20260102131156.3265118-1-ryan.roberts@arm.com>
+	<20260102131156.3265118-4-ryan.roberts@arm.com>
+	<20260104230136.7aaf8886@pumpkin>
+	<60c5d7b1-1ab7-490c-8cb8-dfd50cf23856@arm.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] bus: qcom-ebi2: Simplify with scoped for each OF
- child loop
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Gatien Chevallier <gatien.chevallier@foss.st.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20260105143657.383621-4-krzysztof.kozlowski@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@oss.qualcomm.com; keydata=
- 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
- cwzYbmi/Et7T2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <20260105143657.383621-4-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=UJ/Q3Sfy c=1 sm=1 tr=0 ts=695bccd1 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=Eb9f15NH/cHKzfGOmZSO4Q==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=pJbpxMvPcy3AeZgjqcEA:9
- a=QEXdDO2ut3YA:10 a=QYH75iMubAgA:10 a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA1MDEyOCBTYWx0ZWRfX7gKLhf7TGm16
- zCXy37K7pCEepd8DNsO3VC+QyfoYGB+9InHOXz8WSROxLmD+GcOkJ/Fs+yNs3qleE/9Epos6oDz
- AX9lqx1QeoCS0Ph+8krXiSRF/ddjiuIZpLvyjnkooAax8lmYlGo+GgRxv0VEWl85H5pw7uMkF9L
- 5AZ3cZHfECFatzMj6aOC6FEyULx40qh9b7dzvbbuJhHrU3FzanhQDPbDWr6EvXRLiMLJV4xdfcZ
- /yqWI8dpBxwnPYKZwFe/ynPmsQ/JNwVzbnNA9QrOd2mWOW6koeJiJNkebwjvXozV+wpz+X1kmQl
- 0w1Jv7eGOc3Vr5tTXS8I1zu02jMNVgvFJcIJQqbSStSd4Djtd8MDg+u3IcYMzAwzc8LVK9694pz
- wVfSiSHr9x08k+UHHuG4PY/phoFBdjxDoq6uYTNqdx/7Q1eATzPpqZYjzCsN4Eq01R3/nNvDa0a
- GYPMY8iCIBts2uaUXpQ==
-X-Proofpoint-ORIG-GUID: yJgA7i2qlTQYxX0mLgNgzg9AMH-jcbl1
-X-Proofpoint-GUID: yJgA7i2qlTQYxX0mLgNgzg9AMH-jcbl1
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-05_01,2026-01-05_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 adultscore=0 spamscore=0 bulkscore=0 phishscore=0
- lowpriorityscore=0 clxscore=1015 priorityscore=1501 impostorscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
- definitions=main-2601050128
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_063809_689362_E620202C 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20260105_064550_151277_3B43F8F7 
+X-CRM114-Status: GOOD (  51.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,21 +117,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/01/2026 15:36, Krzysztof Kozlowski wrote:
-> Use scoped for-each loop when iterating over device nodes to make code a
-> bit simpler.
-> 
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> 
-> ---
-> 
-> Changes in v2:
-> 1. Add Rb tag
-> ---
+On Mon, 5 Jan 2026 11:05:18 +0000
+Ryan Roberts <ryan.roberts@arm.com> wrote:
 
-Please ignore this one patch #1. I am sorry, this was already applied.
+> On 04/01/2026 23:01, David Laight wrote:
+> > On Fri,  2 Jan 2026 13:11:54 +0000
+> > Ryan Roberts <ryan.roberts@arm.com> wrote:
+> >   
+> >> Previously different architectures were using random sources of
+> >> differing strength and cost to decide the random kstack offset. A number
+> >> of architectures (loongarch, powerpc, s390, x86) were using their
+> >> timestamp counter, at whatever the frequency happened to be. Other
+> >> arches (arm64, riscv) were using entropy from the crng via
+> >> get_random_u16().
+> >>
+> >> There have been concerns that in some cases the timestamp counters may
+> >> be too weak, because they can be easily guessed or influenced by user
+> >> space. And get_random_u16() has been shown to be too costly for the
+> >> level of protection kstack offset randomization provides.
+> >>
+> >> So let's use a common, architecture-agnostic source of entropy; a
+> >> per-cpu prng, seeded at boot-time from the crng. This has a few
+> >> benefits:
+> >>
+> >>   - We can remove choose_random_kstack_offset(); That was only there to
+> >>     try to make the timestamp counter value a bit harder to influence
+> >>     from user space.
+> >>
+> >>   - The architecture code is simplified. All it has to do now is call
+> >>     add_random_kstack_offset() in the syscall path.
+> >>
+> >>   - The strength of the randomness can be reasoned about independently
+> >>     of the architecture.
+> >>
+> >>   - Arches previously using get_random_u16() now have much faster
+> >>     syscall paths, see below results.
+> >>
+> >> There have been some claims that a prng may be less strong than the
+> >> timestamp counter if not regularly reseeded. But the prng has a period
+> >> of about 2^113. So as long as the prng state remains secret, it should
+> >> not be possible to guess. If the prng state can be accessed, we have
+> >> bigger problems.  
+> > 
+> > If you have 128 bits of output from consecutive outputs I think you
+> > can trivially determine the full state using (almost) 'school boy' maths
+> > that could be done on pencil and paper.
+> > (Most of the work only has to be done once.)
+> > 
+> > The underlying problem is that the TAUSWORTHE() transformation is 'linear'
+> > So that TAUSWORTHE(x ^ y) == TAUSWORTHE(x) ^ TAUSWORTHE(y).
+> > (This is true of a LFSR/CRC and TOUSWORTH() is doing some subset of CRCs.)
+> > This means that each output bit is the 'xor' of some of the input bits.
+> > The four new 'state' values are just xor of the the bits of the old ones.
+> > The final xor of the four states gives a 32bit value with each bit just
+> > an xor of some of the 128 state bits.
+> > Get four consecutive 32 bit values and you can solve the 128 simultaneous
+> > equations (by trivial substitution) and get the initial state.
+> > The solution gives you the 128 128bit constants for:
+> > 	u128 state = 0;
+> > 	u128 val = 'value returned from 4 calls';
+> > 	for (int i = 0; i < 128; i++)
+> > 		state |= parity(const128[i] ^ val) << i;  
+> 
+> What is const128[] here?
 
-Best regards,
-Krzysztof
+Some values you prepared earlier :-)
+
+> > You done need all 32bits, just accumulate 128 bits.  
+> > So if you can get the 5bit stack offset from 26 system calls you know the
+> > value that will be used for all the subsequent calls.  
+> 
+> It's not immediately obvious to me how user space would do this, but I'll take
+> it on faith that it may be possible.
+
+It shouldn't be possible, but anything that leaks a stack address would
+give it away.
+It is also pretty much why you care about the cycle length of the PRNG.
+(If the length is short a rogue application can remember all the values.)
+
+> > 
+> > Simply changing the final line to use + not ^ makes the output non-linear
+> > and solving the equations a lot harder.  
+> 
+> There has been pushback on introducing new primitives [1] but I don't think
+> that's a reason not to considder it.
+
+That is a more general issue with the PRNG.
+ISTR it was true for the previous version that explicitly used four CRC.
+Jason should know more about whether the xor are a good idea.
+
+> 
+> [1] https://lore.kernel.org/all/aRyppb8PCxFKVphr@zx2c4.com/
+> 
+> > 
+> > I might sit down tomorrow and see if I can actually code it...  
+> 
+> Thanks for the analysis! I look forward to seeing your conclusion... although
+> I'm not sure I'll be qualified to evaluate it mathematically.
+
+I need to drag out the brian cells from when I learnt about CRC (actually
+relating to burst error correction) over 40 years ago...
+ 
+> FWIW, I previously had a go at various schemes using siphash to calculate some
+> random bits. I found it to be significantly slower than this prng. I've so far
+> taken the view that 6 bits of randomness is not much of a defence against brute
+> force so we really shouldn't be spending too many cycles to generate the bits.
+> If we can get to approach to work, I think that's best.
+
+Indeed.
+A single 32bit CRC using (crc + (crc >> 16)) & 0x3f could be 'good enough'.
+Especially if the value is 'perturbed' during (say) context switch.
+The '16' might need adjusting for the actual CRC, especially if TAUSWORTHE()
+is used - you don't want the value to match one of the shifts it uses.
+
+prandom_u32_state() is defined as:
+#define TAUSWORTHE(s, a, b, c, d) ((s & c) << d) ^ (((s << a) ^ s) >> b)
+	state->s1 = TAUSWORTHE(state->s1,  6U, 13U, 4294967294U, 18U);
+	state->s2 = TAUSWORTHE(state->s2,  2U, 27U, 4294967288U,  2U);
+	state->s3 = TAUSWORTHE(state->s3, 13U, 21U, 4294967280U,  7U);
+	state->s4 = TAUSWORTHE(state->s4,  3U, 12U, 4294967168U, 13U);
+	return (state->s1 ^ state->s2 ^ state->s3 ^ state->s4);
+This is equivalent to:
+#define TAUSWORTHE(s, a, b, c, d) ((s & ~c) << d) ^ (s >> a) ^ (s >> b)
+	state->s1 = TAUSWORTHE(state->s1,  7, 13,   1, 18);
+	state->s2 = TAUSWORTHE(state->s2, 25, 27,   7,  2);
+	state->s3 = TAUSWORTHE(state->s3,  8, 21,  15,  7);
+	state->s4 = TAUSWORTHE(state->s4,  9, 12, 127, 13);
+which makes it clear that some low bits of each 's' get discarded reducing
+the length of each CRC to (I think) 31, 29, 28 and 25.
+Since 'b + d' matches the bits discarded by 'c', two of those shifts are
+actually just a rotate, so there isn't really much 'bit stirring' going on.
+
+By comparison CRC-16 (for hdlc comms like x25, isdn and ss7) reduces to:
+u32 crc_step(u32 crc, u8 byte_val)
+{
+    u8 t = crc ^ byte_val;
+    t = (t ^ t << 4);
+    return crc >> 8 ^ t << 8 ^ t << 3 ^ t >> 4;
+}
+Much more 'stirring'.
+
+	David
+
+
 
