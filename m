@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A355CC2A075
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 05:16:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B6EDC2A062
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 05:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k4CPf2ZJynm0JU5P5TMioqoG4hO+NATA51L2XquL3Tw=; b=QmTGla6ziXJyDf7aujvgoq1VVK
-	PEmVyj7ZRRZKA0EsCdkR3Da3odBjarIUPDxwb9SKyp+SFSyQllRmKtIXakXva/6bsCd8Z08n05mxu
-	pqQYzOhQFzPzxDEaxYCNlld/GGxdINf+6qu7/rwqZXkuhVjdHyulpi2kqMn5zlp6AMcuX6/DDLEmo
-	nIy27Ch5dkU+ZaifDjm8ysB2gcQdIm1u+RNFDIq82q3njY9B//Y0tzaCuv3vjz0tjfbIt1PHHVS+F
-	fuP9viaK8OppHx1im/CmGEe5OcS0Yym1W0DWW4vmsaFIdAYkWZvovRm6BOBQdWJz5zhVuTML4UcR0
-	dZniRt5Q==;
+	bh=jku3CL07+U1b76FjLnYHoEBywtmNzCcg1Uj5VCGEfso=; b=z1P3bsnRnzVUPwQJD1DCPcJ3v6
+	ecGUV/9XCpPkIJ9+P8yv0fwuC2XE/D7vt0BbKLbgT8PKB0/PyaiQ4zVUPYzVD002Yg5OqHwg/cvvC
+	v04dUoi8ir4UIqeQdkfOIPA6qoevsvxBK7ccraA+Ss1UpawgULRxdCC464HOT39G7O8/nhWUi8sdF
+	Fks+siy18pPVitRS9aQv2DIBJP4Mmcdb/RhoIZJqkNl6uT1mamzFyZoDrh/ibKWBaGpIw3taH2nxO
+	tbgwP53s5KFuoHKUKPH6+RgrGlhQ2F8YjT4g7PYMe7VRW/5XraKeE419K3cTPe4akLqVz4y9eUSLG
+	1ElSD1ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccxC-0000000AlED-2E8l;
-	Mon, 05 Jan 2026 05:16:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vccxM-0000000AlSN-1CmN;
+	Mon, 05 Jan 2026 05:16:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccvp-0000000Aj5N-0E5k;
-	Mon, 05 Jan 2026 05:15:06 +0000
+	id 1vccvq-0000000Aj2d-1rCp;
+	Mon, 05 Jan 2026 05:15:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E3E4E44345;
-	Mon,  5 Jan 2026 05:15:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56DBAC19425;
-	Mon,  5 Jan 2026 05:15:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 39D274434D;
+	Mon,  5 Jan 2026 05:15:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5352C19425;
+	Mon,  5 Jan 2026 05:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767590104;
-	bh=QrYuLwUNu/mVSc/Yo9MLheYVuGpn5hYaMt0fTaKLTGY=;
+	s=k20201202; t=1767590106;
+	bh=32kb2l0NMdpg22PqusIRxtEfgY/UOrZtqLBmf/rQszE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=G3G0Bk0G56Ktu3wG+6a9uAZH1lAOba80s4ElWn2pJFGgFmNV/Cvh+Z4L4klecwAfJ
-	 4A4jYZkIX5u/TAbMBp2/t6kvMz1vfkfl6kK8wTbdYEMZzD48byZukOJjTQls80D1Xy
-	 4WkndmU3Qn4EkS0p+n03CEKYzEJ0P2Wu+x5eAaKoh0QJtMhWu243+nRHSrwnSBLnET
-	 /USJVwZLIvP7OD84paOmDdk+WrENSjRQUTX3tIVS55nIybRN4WLxj52YLt7MKHOYg9
-	 LR99hxKJTTahowUoQL9JPYKxznndT0rryjV8qUaCJhK4rY0IHuWnAW46qVo1Gxtx6a
-	 1WQW7lG89tSYQ==
+	b=qcVBpCYWjV2xse6dJQSomMH+1tsEuVvo82gcrovtJCAgJJDeXu5vrEAro7enrzEhB
+	 DaxHZ0LdmShaUjawHJZMDqG1bXV0tmx4L5DZkVyFwzPAg0m+bv5fKBQKvlHMl88xDs
+	 X0bHKanr2bLut60x824nG+hHVBE/pMXERweo8wrFEZNRR7eW0jpLtumEYksHpL/wBs
+	 /5m5BvyGThfyHEVhFdRbdn8+vdrhOWgKyvSzJuMUCnFPE9oJooOmrKheKw40lTqJIp
+	 0KFxGE6yoUtIrHoPV9/b1L6A8yT8uANGcjgZNyzRziawi+WbznGyyN50gHxJio+67d
+	 zWINIa5JFDduQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,17 +56,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 21/36] net: phy: mscc: macsec: Use new AES library API
-Date: Sun,  4 Jan 2026 21:12:54 -0800
-Message-ID: <20260105051311.1607207-22-ebiggers@kernel.org>
+Subject: [PATCH 23/36] crypto: arm/ghash - Use new AES library API
+Date: Sun,  4 Jan 2026 21:12:56 -0800
+Message-ID: <20260105051311.1607207-24-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260105051311.1607207-1-ebiggers@kernel.org>
 References: <20260105051311.1607207-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_211505_272795_F9121B10 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20260104_211506_638480_3E124A80 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,37 +92,47 @@ callers of the old aes_encrypt() have been updated.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- drivers/net/phy/mscc/mscc_macsec.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm/crypto/ghash-ce-glue.c | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/phy/mscc/mscc_macsec.c b/drivers/net/phy/mscc/mscc_macsec.c
-index 4f39ba63a9a9..bcb7f5a4a8fd 100644
---- a/drivers/net/phy/mscc/mscc_macsec.c
-+++ b/drivers/net/phy/mscc/mscc_macsec.c
-@@ -502,19 +502,19 @@ static u32 vsc8584_macsec_flow_context_id(struct macsec_flow *flow)
+diff --git a/arch/arm/crypto/ghash-ce-glue.c b/arch/arm/crypto/ghash-ce-glue.c
+index a52dcc8c1e33..9ab03bce352d 100644
+--- a/arch/arm/crypto/ghash-ce-glue.c
++++ b/arch/arm/crypto/ghash-ce-glue.c
+@@ -202,24 +202,28 @@ int pmull_gcm_dec_final(int bytes, u64 dg[], char *tag,
  
- /* Derive the AES key to get a key for the hash autentication */
- static int vsc8584_macsec_derive_key(const u8 *key, u16 key_len, u8 hkey[16])
+ static int gcm_aes_setkey(struct crypto_aead *tfm, const u8 *inkey,
+ 			  unsigned int keylen)
  {
- 	const u8 input[AES_BLOCK_SIZE] = {0};
--	struct crypto_aes_ctx ctx;
-+	struct aes_enckey aes;
+ 	struct gcm_key *ctx = crypto_aead_ctx(tfm);
+-	struct crypto_aes_ctx aes_ctx;
++	struct aes_enckey aes_key;
+ 	be128 h, k;
  	int ret;
  
--	ret = aes_expandkey(&ctx, key, key_len);
-+	ret = aes_prepareenckey(&aes, key, key_len);
+-	ret = aes_expandkey(&aes_ctx, inkey, keylen);
++	ret = aes_prepareenckey(&aes_key, inkey, keylen);
  	if (ret)
- 		return ret;
+ 		return -EINVAL;
  
--	aes_encrypt(&ctx, hkey, input);
--	memzero_explicit(&ctx, sizeof(ctx));
-+	aes_encrypt_new(&aes, hkey, input);
-+	memzero_explicit(&aes, sizeof(aes));
- 	return 0;
- }
+-	aes_encrypt(&aes_ctx, (u8 *)&k, (u8[AES_BLOCK_SIZE]){});
++	aes_encrypt_new(&aes_key, (u8 *)&k, (u8[AES_BLOCK_SIZE]){});
  
- static int vsc8584_macsec_transformation(struct phy_device *phydev,
- 					 struct macsec_flow *flow,
+-	memcpy(ctx->rk, aes_ctx.key_enc, sizeof(ctx->rk));
++	/*
++	 * Note: this assumes that the arm implementation of the AES library
++	 * stores the standard round keys in k.rndkeys.
++	 */
++	memcpy(ctx->rk, aes_key.k.rndkeys, sizeof(ctx->rk));
+ 	ctx->rounds = 6 + keylen / 4;
+ 
+-	memzero_explicit(&aes_ctx, sizeof(aes_ctx));
++	memzero_explicit(&aes_key, sizeof(aes_key));
+ 
+ 	ghash_reflect(ctx->h[0], &k);
+ 
+ 	h = k;
+ 	gf128mul_lle(&h, &k);
 -- 
 2.52.0
 
