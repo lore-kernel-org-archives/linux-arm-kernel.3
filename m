@@ -4,149 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4EC5C79FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 940D9C79FBB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:20:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xTaeHhBh03fSXy/g7zMuEqF+1iHJfVmt2S4Pt3EiCFw=; b=tKsWBErprdrNMaYbDhFNWFD/w9
-	U7Utm7Qtls8eJDUEuDiMakls35yarN1iOnX+e6xavIDh77K96RL0N70b6Qwt71iCy5zB0ntOL3ejh
-	6z6dVr31H923QXv+bjGqshhkRAMoeC9ilIw+hAjZ4yFkS7nFZ+QxQIz2KZ2aCELix1zQKUfVAjSex
-	O/lzxnfQ/gW7KKb0tsoe4pMGxb6bKjnj7SREpnzDH4zwWJs4u2i7EBMxVxRcH8ZS9VH5AOqhaw8Od
-	YlVa+82eh1R+Pz7Kt/a8HoaoKBsf++IV2/Q0WrRSGnbe0cVsIgMTroZGKgWDrWxS1R0m+HIrTVqTa
-	jGb9mCUA==;
+	bh=tDDvkHfL5SsDyjmtGrwtC4U8Vp9VsmLY6KqyAaQnAtw=; b=sJwtKkCpfBgNVrjLCbs+SOkfA0
+	VN3e6xgSrkvnoF3ECtYrqTx7VfHQu89ITR2x5GSdopL2EE9KV4h/2A4OxUSkGS7NfDtS5wE9AfuLA
+	vREjSo00D7uVpF1m6rdEnny/BtRo9JJTgX/ZhKiuKWewbpX2eA84/Z3gW+hvF/+F8N+L/zrNR0Dkt
+	xmYd+5gNhlyV/oaBedY06icXtc71JitGahqHyMbNkjtyYcZqgw39WD+ZSIFvNOKHlRBgnVmj8zXZ4
+	XWNUspHkvEB1vYrSNCEuQql7kHDpw3Fsh8zOmZKWi+5xT+7HvauUIq4/k/IgsQFX1VcmdGYO3W8YY
+	ITIfSG1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcpvK-0000000BxHc-0pay;
-	Mon, 05 Jan 2026 19:07:26 +0000
-Received: from mail-westusazon11012059.outbound.protection.outlook.com ([52.101.43.59] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1vcq7g-0000000ByAZ-1zD5;
+	Mon, 05 Jan 2026 19:20:13 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcpvH-0000000BxHI-1Ib9
+	id 1vcq7d-0000000By9n-1Bcy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 19:07:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iTFo6+XLD7UOnJkbTKmuvoyrh7SPq9N8+Y+DxaOn9BD092qL77pgPD8nQoQTPqLq4+nqMoEnrUYbpq7PH04Pnira0xkSQV0KpIWBevMZ9EkLMQSI2mKEcbikESWVcPcI46bfmRHBiRAuYnd1jvZTfuG4ZTTJ1tOnDqey1V0lvoKJJhOnSSPSNudqQ04mBZlSxAhfWtPbq/f816ruLeFKlW1SYyt6IbPTqUkpY7peR+BSWoVl2lALyPBrJTAfOMg414ndTDY7PpAcvwUIhGoRS4xHhNwIF8PjyULTtewHughYNS2pi8eioDDvGpehiuQVNn7vRBE4puw3a+efLtbneQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xTaeHhBh03fSXy/g7zMuEqF+1iHJfVmt2S4Pt3EiCFw=;
- b=YvWe3Hki59BeawjqQoFQdTaNQO76VK+pG528rV4+n04Lst2uLWhVcX3UbZnHSrMSCvL6ewyiHzb1pyYAQG3rTTLRprdgt+JZDG3duaLeN4wPH1rYzlOBey2/V5xGE58y7QFReS3HNqPxKqEnN9s1I6j0MMVs/3OtIdibNgaWXEIhZ53+KK3GkEjuhUiD7xYoTR4g00mceLZDaLnp78WiZ3EuLg9T48W04ZUoMDIxiVtxGKRapXSwsSRy6RbcI6QdLzF5aA6W6YpRXZaCbj2kw364p02pSZaougdeitLCWFAPBT0ztFlUdYXMOJh4IVYNB1GYXVvvvd4i9+5c5Z1RsA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xTaeHhBh03fSXy/g7zMuEqF+1iHJfVmt2S4Pt3EiCFw=;
- b=Qpf7RgC2pVBaZX5rFnwvMfDCWGe1Yl6LvqAnhGTEo0dmbnlOukMZVfXTxqlDGAjJNZQglMSWiRuId1jbER/hXu/sEXQez/+aRl3UExwHHesUmtA4OpZ2FdpNIqONMM4PmTpwnzMLX4EsfkCWtda9IsiO7eOVmm2yfpbzhE3A3kYlTQvtEWVRoQvo6URg1Jy4tKbljJfgsoadyOp48PY+3zyzFgQ/W+QvZTHAd1NjoNaBTGJ+iBuROfM7SfAb5W0UqSjcs2iF7dYtJpofCuuavTTeFMDhKM62DQIyhetheMeEPfG+4vCtWJVkyjMU4ArKX2IkwOof2TZc+m+AEAMWnw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH7PR12MB7818.namprd12.prod.outlook.com (2603:10b6:510:269::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
- 2026 19:07:17 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9478.004; Mon, 5 Jan 2026
- 19:07:17 +0000
-Date: Mon, 5 Jan 2026 15:07:16 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Chaitanya Kulkarni <ckulkarnilinux@gmail.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
-	robin.clark@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org,
-	kch@nvidia.com, stable@vger.kernel.org
-Subject: Re: [PATCH] iommu/io-pgtable-arm: fix size_t signedness bug in unmap
- path
-Message-ID: <20260105190716.GB193546@nvidia.com>
-References: <20251219232858.51902-1-ckulkarnilinux@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251219232858.51902-1-ckulkarnilinux@gmail.com>
-X-ClientProxiedBy: MN0P221CA0016.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:208:52a::19) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Mon, 05 Jan 2026 19:20:10 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-4fc42188805so2540301cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 11:20:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1767640808; x=1768245608; darn=lists.infradead.org;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:to
+         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=tDDvkHfL5SsDyjmtGrwtC4U8Vp9VsmLY6KqyAaQnAtw=;
+        b=pACYwJmy6s9WdIr5SOSDqqofo0ebtZP2AByvC038tahYFmbLYM7LHs/SIA159XJock
+         Q4YCfufXCsleXXkJD+J67KiSPKwcF9ebeWE9hfOWS8eDL8eNoRrKAWCph7HPa2AhQeId
+         xffQ8g2qF5j1FyXeI4yYnDkCVn6lP2q88f6NOgSJoUaxd/hd4DyN2H0hH/CEOjSFAzmm
+         RBnNY4UW7r4EATeKuIAESOGSHrjRpubQ7AtmqbVIT+A20eVEpUOrw5W1CP2oZNW7jxBD
+         unYqzFMdfzAwBh2Z+k3VSIzeuRx70puTDsTj3dPkI6FsTZL0GVCIeXy215l1v8LhbfE4
+         sAfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767640808; x=1768245608;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:to
+         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tDDvkHfL5SsDyjmtGrwtC4U8Vp9VsmLY6KqyAaQnAtw=;
+        b=wZ07VJi7W9lOj1aNJMMIam0vMPVZYAnARnVNh9c/OR0AKVOHsNVHwpxOO8zlTpzdZn
+         oGDaNn1RrnuU1lrm0OByL+MRZ1jVVv8LnBhypueYCnZP3Q/UMKoG815g3Qz2LiLjAb/v
+         xSnrPcS7pGEWveVbu/wEfH8LpX5tn5FDKAFj4qb/mnrb+3WObH7TJQdggmAmAJOHVT6k
+         RfyJKo7x833cnnwVanDcq0bJz8R1F67nSkdpJA0JLke1ax8+T/LDv4LtkYPS/rXR8pPc
+         Sj75Ky5Ilz59wdCDMn6a8yPJyACdDEO5mrasSrSxDmtu/8PB/t1i1qQRorcorj7Snnkr
+         dkGw==
+X-Forwarded-Encrypted: i=1; AJvYcCVpFmYYNnhxm4CUEcotT2o1Ufdox5aiSrw7FaYRYl1R0AcnfyRNvlFVovX8gq2sIg/RrWncNrrfp0c68SGF99vG@lists.infradead.org
+X-Gm-Message-State: AOJu0YyF9AFAYtYPWZ2AeQIE9+M+J0RXI6gm0pXxY5ohgCEJhgwZMqId
+	PKPvDz1lK9DiUuFvs6cH8bn5JFDpR+ZBWbkd0U7o1MbstQ06cxXehbvqyHtUdkHSXVo=
+X-Gm-Gg: AY/fxX77tEUc42WtbpWPWGAn57SbvYC4/NA5Wi1WnQEoZwmb79fIZhWFTbHEeoqHmfo
+	hypduhA2hKl7iqT63cI132j7xETylb8FwxuXEozI/B7n31+4y+i4s5o2ieVEfv8hBvulc7Y4Sj6
+	mQxhjDYc6BQt/vNEhIIa2/QR9lRHlMfPIcFgKudBhhnoi7YKp0WbWIIt8rlQNTa12unohBolbQg
+	6jw6ylQqssq2A98QxHpLCs2cQ27CRlLfxmpY4Lg1scYIyfulUDSX+Cf/6BfpO4CFm+iD4Sb2Fn8
+	DuKLREZ7iEooCSNewQR6C5SS1vZEUHkM2G2rDDlk4c55lzZOQtu/P2owh0DIgeH88pWrkWaVfkC
+	QCl8Ss2Jzt5Gn77gide8jDferB080X5j37CsYLssJItaB1ua1VtBcV8p+UYhjTppCS9ShGtPjJY
+	UzD/+8Ng+95DCWoBqS
+X-Google-Smtp-Source: AGHT+IE5ziBUA1L6ZAL+rkRAZxmOcXQvbxBtmVTb5t38TGd5tiHW8FkBWpqUQMf/N8PhTT3xc9qk1w==
+X-Received: by 2002:a05:622a:250b:b0:4eb:a6c5:f6c7 with SMTP id d75a77b69052e-4ffa769a084mr8345811cf.2.1767640807852;
+        Mon, 05 Jan 2026 11:20:07 -0800 (PST)
+Received: from ?IPv6:2606:6d00:17:7b4b::5ac? ([2606:6d00:17:7b4b::5ac])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4ffa708853fsm4201461cf.9.2026.01.05.11.20.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Jan 2026 11:20:07 -0800 (PST)
+Message-ID: <415509d2c4639d086614e9a473b09be16442648a.camel@ndufresne.ca>
+Subject: Re: [PATCH v11 03/12] media: mediatek: jpeg: fix jpeg buffer layout
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Kyrie Wu =?UTF-8?Q?=28=E5=90=B4=E6=99=97=29?= <Kyrie.Wu@mediatek.com>, 
+ "linux-kernel@vger.kernel.org"
+	 <linux-kernel@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
+	 <linux-mediatek@lists.infradead.org>, "linux-media@vger.kernel.org"
+	 <linux-media@vger.kernel.org>, "devicetree@vger.kernel.org"
+	 <devicetree@vger.kernel.org>, "mchehab@kernel.org" <mchehab@kernel.org>, 
+ "conor+dt@kernel.org"
+	 <conor+dt@kernel.org>, "robh@kernel.org" <robh@kernel.org>, 
+ "hverkuil-cisco@xs4all.nl"
+	 <hverkuil-cisco@xs4all.nl>, "linux-arm-kernel@lists.infradead.org"
+	 <linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
+	 <matthias.bgg@gmail.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Date: Mon, 05 Jan 2026 14:20:05 -0500
+In-Reply-To: <714f2e57521e990d77b80d23a9eb773ca878b07a.camel@mediatek.com>
+References: <20251202094800.6140-1-kyrie.wu@mediatek.com>
+		 <20251202094800.6140-4-kyrie.wu@mediatek.com>
+		 <89f845b45405bbf985a5e92c195078074bcce0e2.camel@ndufresne.ca>
+	 <714f2e57521e990d77b80d23a9eb773ca878b07a.camel@mediatek.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-4+oXkLqgBdCrGoVfdxJj"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH7PR12MB7818:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8f218925-e649-444b-e714-08de4c8da4b3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?38tuoND4CGp99uH61kkzdZM0Ta3wY6o6l2wrtqr7f/om7MaSKskc/1rDOa9x?=
- =?us-ascii?Q?oDLsrJx43uNl1z2T4QUCwa954HxH3a9wO2JWYrHa9EUt5fG5Dw3d6D8KfqAo?=
- =?us-ascii?Q?3kK5vgvpLNIxFqC/yvPaGaY55BebFkxcnckbg2cJcvnpbgPlD54IkfPf6T6O?=
- =?us-ascii?Q?QfooKvuMHMgm3SLR8cnwu8gX6yXkkzSPn0emjpN/mNX7x0seYJTAGOAtEIIm?=
- =?us-ascii?Q?F66ii7IQSuDzQp9c4syQ26iNzDVSU2maOq56hvXAYbut8kz5VRsOlLt6x3Fp?=
- =?us-ascii?Q?1j5QH0kv2lMk37xMwwQ9bLszfbUL39TpVWi2fit9MpWui185RNGO+KY9ryH7?=
- =?us-ascii?Q?Rxp//fee7c3Bx9VcKuDr+qxlirnSXeYZsG+c90VaYSVHluGnpD/199xOSqEo?=
- =?us-ascii?Q?tWbTvp5+ukHW7hjhqzhJzmP2yI2WFQrJJcJTXOGLBVO783ROaP06PYcp2nNr?=
- =?us-ascii?Q?U2ri1oGlFlEdF2/aWFW98Ud+FHJOEzy4W+wtUT6KL0ydo4xRdlLKFwgJq5AW?=
- =?us-ascii?Q?1J0Yz0Qx7myrpKwXMtbtkszg+wz1X0s01id1DV3omnMwG+drNnF368T/MgzE?=
- =?us-ascii?Q?FGPXY2Snkps5odP+NrWNYXlw3vcwKORGKHPzv4MJt2PA6Ux3xUF3JiwKzLZ1?=
- =?us-ascii?Q?E1iYuRZnGJpO+RlwOpELPtreQo5ClZtfM4XCeL7xNkjuQOR74jcckwLO0wuT?=
- =?us-ascii?Q?TyTW3eszSdbl6wznKejOzuIGqS0WZ+TreB4dIZ8MU9wTZ9iJR+ir+h5x7foA?=
- =?us-ascii?Q?X3OglZGTJGLSge8ZtY4mp00InrNIaCAMZ0kLtJcyTDqgRKVCbaxJmpTpsgSi?=
- =?us-ascii?Q?DPwv99WtGXLR2JHo9+zUIK0faAOZECPkOlaUr7LQUyIGMgd8ui5W6LVX9jB3?=
- =?us-ascii?Q?qk7tJ101HKnd2ju6k+Bi4azMO1x3mVrhCwAGUplVeEmaTZ1kkVUajdxkoed6?=
- =?us-ascii?Q?K4ojwXBnlQ44bxrzwooFVd2mzMaFUCA17OISHHeI+Rs1zMRRfCMC6J8tIW8j?=
- =?us-ascii?Q?qnoRXlpaNkevGzLv6Sfo8rX1NoPuMus1Fhd0k3zTmQaHJKkQ62E689U+e11Q?=
- =?us-ascii?Q?5kqAvP1KOkvkjqF4h9Ox+MwoZEJgXzvm/gdeMcQ/JGHoBUJavdFwQAaDZ86l?=
- =?us-ascii?Q?mTG7h1W6iQZkvDMLHnRlqD+e26+/aXe72gF6mrzeU1GVq/bkrn1yYu0Vb8Yi?=
- =?us-ascii?Q?Un7hCdpWZkHfytKisEiXhWGdHmII50S/1Xrhfi/ZvjFdEfsoZWnsCrLnTT0E?=
- =?us-ascii?Q?PlAdbI2WEtbD+D+ObJa9K+h+rIcHzPtsYl7IwZypsusv71V2fa7Pwf6IBwnA?=
- =?us-ascii?Q?qYk3OXfZj0f7tFmaprTtmVX7JyvSc6lng6IKixB7VehyhMFh4RjvxltMSTc1?=
- =?us-ascii?Q?GcwjtmIEvbioJCpIRhjq2HjYiTyBjFTAC4oaNAzeB+ABudc441s9qXaDM1io?=
- =?us-ascii?Q?8DZQfsdSRgG4IbCnOkCXGG/lIPNQRCLm?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+68Wxm71D0cBzkW/c4JK5jQwD+S3zCd9BfN2NWlesK+Y6vhs+UKn6Ml86bAV?=
- =?us-ascii?Q?Tl8OMYJnPhg1uzEJnJkI6iuLZB6W0itFMgg0WeZCDlIKUVTGDaZUNNVvgYZH?=
- =?us-ascii?Q?/cNVmM7t0Hb45kQCFYzMwtoDg+qj/Z8Xn2wruAKW/REU9jb0+/uNtAJX+DYM?=
- =?us-ascii?Q?qNWPKloMZWKaEuDTzi5Ya7+ibukGW0Y3UcqdVMl9XHoi2sn/9e+/IaR2m3P9?=
- =?us-ascii?Q?ZwZCnCKAkN4pGySpCGh+PMfQqQvTqsllk8byaGr5TOMAep8FEMZ0SQLGgCtM?=
- =?us-ascii?Q?ZlR9JCE0U/YAPLKEpvYi7l5nHdWOnXwe/vLcPH9owaiYgDc4NoIpV+u3VJzK?=
- =?us-ascii?Q?l6vWYh3m6oonEmL8HEpwE5kkJgZCbW7jw1tw1VDbAlc6ceu9nlTpYG8VcXq8?=
- =?us-ascii?Q?X09BVXFNWumbmCn9CU8YBr5OcAlwq2qDsrxXzyjsmldess7ypsxSeNlabOd7?=
- =?us-ascii?Q?k9Mx8vWWlUZJQVPXMzazpAWfeggUG2IHGOS5uprOsC38O/WHUaGbBrTYvyUV?=
- =?us-ascii?Q?LVaRh0zdEuW71vqswO+0hkev0qjJ3B/InMI94Pr/GhJPt/yYUD5Di5YFG2yc?=
- =?us-ascii?Q?VOCfeDM+WIBcfOyjoSo0Hu0XlCmDsVhQyMUOwyDUQkEYiNzypDyETP/LnjU3?=
- =?us-ascii?Q?f2aRa4uYKXsawC8ZYDP93xJGknrAcYJijn6uHtzml+DUMGgXpTM6rmWyW9nF?=
- =?us-ascii?Q?PHacKuGjZJtQDsxlFhEr8EM08VxjArQjTfdjko4X+eCy3y71nG7YlKWBOFvv?=
- =?us-ascii?Q?iTzIBWvpwf+wLj4UCawkYQd+dK9eyqUuAsmPASIMlWx7y3PS22ImZvPZyDFQ?=
- =?us-ascii?Q?SucIn+2RIxMxGJVFDVHuQX/+GK+eiXjHlLMV5RARJ3ac2u+7WajymsgcXsO6?=
- =?us-ascii?Q?smbfUvQ8EGDtXFwVJbMGWOUs5WYEsP+1Yv9q84f8aqc/GyU3ir4m/yCjvlwU?=
- =?us-ascii?Q?0Bm2A5KtmwYcT2SzZb8Mj5eHUwhqdb3ukXQQhmPgKUPLQrhc9u8RxPrv2WB3?=
- =?us-ascii?Q?w8MLzhNF224h8lz2QxRflQGzDA2IBO6Eo0I+VrnktJPbYPK9EE5QmsRllzSi?=
- =?us-ascii?Q?BBTmHRA4mUrV92OkD9xBceOEQIqhVAJir+JGd3s5xMSSgYqRNbvzwDhbktMa?=
- =?us-ascii?Q?CImp/YicLWEMoomURcu9KZzoCWaL52TmUxsgZwPXQoNsCmNwxUwrm8D4+oZW?=
- =?us-ascii?Q?NkRKMPKBFTrcweE2pEsCYExXs18/u4lGog+FvAc5TgAvAuFg+nY/NNQ6Pynq?=
- =?us-ascii?Q?8ybNNmUjDs1ypMvzP9S/4Fn5cZ56+zu9dPjnQjyW02ZrCB4V/a8gTf6AlDBK?=
- =?us-ascii?Q?g3U9OvVRS9Dj+I+c7A8534iBx8s25zyB9k9ucQdg7BOU00vgPgu7DWB/ycZ5?=
- =?us-ascii?Q?a3zuguChBOjMumhJXapbEmT7VWmDbr8nhkKFbFcQ9MeGL4TS1Q124nhL2893?=
- =?us-ascii?Q?ZwXjOWVqQgOy602cjS8Tw7ICKOl9+Fqt82HiF3h9p0kpWvgY4wcb1dkdCpow?=
- =?us-ascii?Q?B30p4bAtZe0s9cNz6Uyc/wHg9qnnj6u6YzuYGmv9jWNhjW1p9PkNoREW3v+U?=
- =?us-ascii?Q?IgIi4ulYHavRlGlh5ivkjcyo9Ssfci5gM/vaiOslz6zDlOHxZLU/bILUysmT?=
- =?us-ascii?Q?4JAR12TMdKBIcXNTIQUM94PEkRPtfr+oZ/PnXuLRih4XTiGKnhk8yDRjGCl0?=
- =?us-ascii?Q?tgaPF5/1Z1w0Rt/mHARrl54ltFTsPX0/t8YxKuUOfUWfPJYja3ySsMjrKQLS?=
- =?us-ascii?Q?o48bmIpJTg=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8f218925-e649-444b-e714-08de4c8da4b3
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 19:07:17.2286
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cH1qo+6OpoO1IpDwT2VlDMqSVWt35IzVNzHt3s9vX8HqBdgtGTUs6pqMHL0wnwg3
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7818
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_110723_351935_BAACCBB5 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20260105_112009_486242_C0A09206 
+X-CRM114-Status: GOOD (  37.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,39 +125,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 19, 2025 at 03:28:58PM -0800, Chaitanya Kulkarni wrote:
-> __arm_lpae_unmap() returns size_t but was returning -ENOENT (negative
-> error code) when encountering an unmapped PTE. Since size_t is unsigned,
-> -ENOENT (typically -2) becomes a huge positive value (0xFFFFFFFFFFFFFFFE
-> on 64-bit systems).
-> 
-> This corrupted value propagates through the call chain:
->   __arm_lpae_unmap() returns -ENOENT as size_t
->   -> arm_lpae_unmap_pages() returns it
->   -> __iommu_unmap() adds it to iova address
->   -> iommu_pgsize() triggers BUG_ON due to corrupted iova
-> 
-> This can cause IOVA address overflow in __iommu_unmap() loop and
-> trigger BUG_ON in iommu_pgsize() from invalid address alignment.
-> 
-> Fix by returning 0 instead of -ENOENT. The WARN_ON already signals
-> the error condition, and returning 0 (meaning "nothing unmapped")
-> is the correct semantic for size_t return type. This matches the
-> behavior of other io-pgtable implementations (io-pgtable-arm-v7s,
-> io-pgtable-dart) which return 0 on error conditions.
-> 
-> Fixes: 3318f7b5cefb ("iommu/io-pgtable-arm: Add quirk to quiet WARN_ON()")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Chaitanya Kulkarni <ckulkarnilinux@gmail.com>
-> ---
->  drivers/iommu/io-pgtable-arm.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+--=-4+oXkLqgBdCrGoVfdxJj
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-At least the iommu_pgsize() path runs with !IO_PGTABLE_QUIRK_NO_WARN
-and we don't hit that WARN_ON() before the return, but the GPU folks
-using this NO_WARN path might have an issue so it should be fixed..
+Le jeudi 25 d=C3=A9cembre 2025 =C3=A0 06:05 +0000, Kyrie Wu (=E5=90=B4=E6=
+=99=97) a =C3=A9crit=C2=A0:
+> On Tue, 2025-12-16 at 16:22 -0500, Nicolas Dufresne wrote:
+> > Hi,
+> >=20
+> > Le mardi 02 d=C3=A9cembre 2025 =C3=A0 17:47 +0800, Kyrie Wu a =C3=A9cri=
+t :
+> > > For memory alloc operation of jpeg dst buffer: the mallocing
+> > > memory function interface use vb2_buffer as the base addr.
+> > > If structure mtk_jpeg_src_buf wants to be allocated to memory,
+> > > it needs to be placed vb2_v4l2_buffer at the starting position,
+> > > because structure vb2_buffer is at the starting position of
+> > > vb2_v4l2_buffer, and the allocated size is set to the size of
+> > > structure mtk_jpeg_src_buf, so as to ensure that structures
+> > > mtk_jpeg_src_buf, vb2_v4l2_buffer and vb2_buffer can all be
+> > > allocated memory.
+> >=20
+> > Please correct the wording, "mallocing" is not a word, addr ->
+> > address. I tend
+> > to do the same, but refrain from giving the code a personality, the
+> > vb2_buffer
+> > have no will. This is overall complicated way to simply say:
+> >=20
+> > 	Fix the size of the allocated mtk_jpeg_src_buf structure.
+> >=20
+> > >=20
+> > > Fixes: 5fb1c2361e56 ("mtk-jpegenc: add jpeg encode worker
+> > > interface")
+> > >=20
+> >=20
+> > Drop the blank line.
+> >=20
+> > > Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+> > > ---
+> > > =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 2 +-
+> > > =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h | 2 +-
+> > > =C2=A02 files changed, 2 insertions(+), 2 deletions(-)
+> > >=20
+> > > diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> > > b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> > > index 0cf3dc5407e4..bd0afc93d491 100644
+> > > --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> > > +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> > > @@ -1099,7 +1099,7 @@ static int mtk_jpeg_queue_init(void *priv,
+> > > struct vb2_queue *src_vq,
+> > > =C2=A0	dst_vq->type =3D V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
+> > > =C2=A0	dst_vq->io_modes =3D VB2_DMABUF | VB2_MMAP;
+> > > =C2=A0	dst_vq->drv_priv =3D ctx;
+> > > -	dst_vq->buf_struct_size =3D sizeof(struct v4l2_m2m_buffer);
+> > > +	dst_vq->buf_struct_size =3D sizeof(struct mtk_jpeg_src_buf);
+> > > =C2=A0	dst_vq->ops =3D jpeg->variant->qops;
+> > > =C2=A0	dst_vq->mem_ops =3D &vb2_dma_contig_memops;
+> > > =C2=A0	dst_vq->timestamp_flags =3D V4L2_BUF_FLAG_TIMESTAMP_COPY;
+> > > diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+> > > b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+> > > index 6be5cf30dea1..148fd41759b7 100644
+> > > --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+> > > +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+> > > @@ -85,10 +85,10 @@ struct mtk_jpeg_variant {
+> > > =C2=A0};
+> > > =C2=A0
+> > > =C2=A0struct mtk_jpeg_src_buf {
+> > > -	u32 frame_num;
+> > > =C2=A0	struct vb2_v4l2_buffer b;
+> > > =C2=A0	struct list_head list;
+> > > =C2=A0	u32 bs_size;
+> > > +	u32 frame_num;
+> >=20
+> > I like the change, but this shouldn't be an issue if you use
+> > container_of, which
+> > is safer then a plain cast. Please review the code and make sure to
+> > use it. It
+> > may be confusing to include a cosmetic change in a fixes.
+> >=20
+> > Nicolas
+>=20
+> Dear Nicolas,
+>=20
+> The driver requests memory space for mtk_jpeg_src_buf in the
+> function of mtk_jpeg_queue_init,
+> and it used struct vb2_v4l2_buffer b as the starting base address,
+> the parameter,frame_num, will not get a memory if we keep the old
+> structure. And a unknown memory would be get if we used container_of
+> to get the starting address of mtk_jpeg_src_buf.
 
-Jason
+You are right, and the documentation says so:
+
+ *              The first field of the
+ *		driver-specific buffer structure must be the subsystem-specific
+ *		struct (vb2_v4l2_buffer in the case of V4L2).
+
+This is inconsistent with how other objects are overloaded, notably the req=
+uest
+object, which does not have this limitation. We should probably fix that
+someday, meanwhile.
+
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+
+>=20
+> Thanks.
+>=20
+> Regards,
+> Kyrie.
+> >=20
+> > > =C2=A0	struct mtk_jpeg_dec_param dec_param;
+> > > =C2=A0
+> > > =C2=A0	struct mtk_jpeg_ctx *curr_ctx;
+
+--=-4+oXkLqgBdCrGoVfdxJj
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaVwO5QAKCRDZQZRRKWBy
+9JQpAP0dnUFHHjrwSdklIXv0iM9Mn2ffy7uO4iLtFZ1F13veZwEAxFlPuKq8bjib
+yxKl4rlCUkzH3EGoWvZd1nccuFKJ5Qw=
+=uGnL
+-----END PGP SIGNATURE-----
+
+--=-4+oXkLqgBdCrGoVfdxJj--
 
