@@ -4,90 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84FE6CD0402
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 20:55:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6DF4CD0406
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z8khihi+OTS3DbmwGaQQ5QNmCINXg1t+QNpzKMIH1qg=; b=g747H722oEH23rUAny4saCefYF
-	Ufk8V9Bn3rB1AB7rm9iWkUPZHwkALihU+ayNzA6B/Nwz/P3iac0umczm672Z3Cj9zh1C21RYG5tfV
-	6+WSd/Bkt8B72dS5T4kx+7aIKiLxhNuqlr5ILof5gBrs3OKXD9Ehq5i4mxA3IeG2YTFDlPcNX5tjS
-	rI30dbV3FA6pwCM9qfijtFryRUaijYQ7GfIOHyTqU8XdQjsd0TQeZe6E9jCqgeQr3rMxGIyP74ecU
-	WeMYCRPOhGQh04BwhXTyLRKVqhgEwuy7ed7gf91SQDKGHm3MjFj8PHy5QuCNmNEXsQo/JL0E1JVK9
-	ic65xaaQ==;
+	bh=GMgoeh4gYpUXEdSBCbE7evyOo1WBu9v+2MID43Drjf0=; b=LNDlLOXXEDW3nZKHp+0kPKNXgF
+	YNc1dk23bqz44l3QXGiHG1RMT3+cb29ZsEVotgxUnx/HkRswQ+nfRNUKHLbG6KqLeoqg+NH5lHXMC
+	0eNyT7DV/eA4S4MGlzbIari4equOxTHpopyDcpSp7iAfYwFNH17aPqQV0iyif8mROsZJ0NOTKhLFM
+	qeTNnNzJRzsuc5F6O0C4ZiOTk6x+Bfty8Lo7kG/jfIgz3n8X1iMBOeaQTlE+vn1OXKTLLsN38KftW
+	CnMWhKx5NQ3o/RywONUBy5C/JNhMNeZfME2kqvjplytqiOHMxIhBz9+zUCGLpdhlyjKcVWf8sRb+t
+	83HUocAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcrcF-0000000C5EO-24Hv;
-	Mon, 05 Jan 2026 20:55:51 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1vcrmf-0000000C5ih-0eKw;
+	Mon, 05 Jan 2026 21:06:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcrcC-0000000C5Dp-1mbY;
-	Mon, 05 Jan 2026 20:55:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1767646548; x=1799182548;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=WVnWbjYOpqIDwisoDyPelz9EoJY5dPQN7uCwfAGaPOw=;
-  b=BAAKaW8Z3uz0MAC0Ztl7qvoUD+rdWujpEok3eT8LoVUvXTtUmpqjNiD0
-   xYFzLVcC+F53WcP0dpZ2+WcmN7Mha06tEDMVcm3wI6xd/krWBdlFWvDho
-   2HBqoiIn29J7kUzHBcESY+mm7BCpRr4rP0FVznwN3JDSxddB7ieRuJPfZ
-   VsumMDCYeugaxahs6EHtrD+IR+zTamEGnyKtNsShcpqCc6ZJtF1Swhqb3
-   r3BUbIbRzgIB3aBCL5g/Wsy22LMGixJLQ/Q+wuKp4IlrvIG+tCQH+7fcH
-   Yg2uqOSnM5+x1hCz46UcGU/2n/LZIn0PrRuEZPwjXJeXYSsiA3TNAvn4r
-   Q==;
-X-CSE-ConnectionGUID: KuaDqId9Ry+Br+lTpoxJIA==
-X-CSE-MsgGUID: 24/dvIw7RV2o1Lz/2BhR/g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11662"; a="72863470"
-X-IronPort-AV: E=Sophos;i="6.21,204,1763452800"; 
-   d="scan'208";a="72863470"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jan 2026 12:55:44 -0800
-X-CSE-ConnectionGUID: vVhRYXs2Sa+I91rilLBy4A==
-X-CSE-MsgGUID: MMI8n2KmS3y+WWgOlzEMug==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,204,1763452800"; 
-   d="scan'208";a="202534141"
-Received: from igk-lkp-server01.igk.intel.com (HELO 92b2e8bd97aa) ([10.211.93.152])
-  by orviesa008.jf.intel.com with ESMTP; 05 Jan 2026 12:55:41 -0800
-Received: from kbuild by 92b2e8bd97aa with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vcrc1-000000001BN-36Ax;
-	Mon, 05 Jan 2026 20:55:37 +0000
-Date: Mon, 5 Jan 2026 21:55:01 +0100
-From: kernel test robot <lkp@intel.com>
-To: Jai Luthra <jai.luthra@ideasonboard.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Paul Gazzillo <paul@pgazz.com>,
-	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
-	oe-kbuild-all@lists.linux.dev, Phil Elwell <phil@raspberrypi.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	Jai Luthra <jai.luthra@ideasonboard.com>
-Subject: Re: [PATCH v2 4/6] platform/raspberrypi: vchiq-mmal: Use vc-sm-cma
- to support zero copy
-Message-ID: <202601052123.hNOfRem6-lkp@intel.com>
-References: <20260105-b4-vc-sm-cma-v2-4-4daea749ced9@ideasonboard.com>
+	id 1vcrmd-0000000C5iA-2oKj
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Jan 2026 21:06:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BE5E96013A;
+	Mon,  5 Jan 2026 21:06:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14F56C116D0;
+	Mon,  5 Jan 2026 21:06:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767647194;
+	bh=4cLq/CaKkyPJSPiRRC3v7YCzlgUUsrtS2k32vjdQu7Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LIRsUPKuDv+Mks0Qe7ANH/OdcNIFKOVaftpxF5IwRNWDb8WKqzCbiLSuu/0ZgOMai
+	 ykgsseC0sVG/7zKYsN9g+dNLTCmjj5rNSZmFxaMajI//YgqSy9wWVxevwPc7Vo3z2I
+	 tNyzjeVitH53IsOQ+YyXo+uLk90aE1KZXkQp050Wt+1uBIi2Qt/N8uXt8LW8lEkqFj
+	 Ym5YCkU/YYYY3qiF418UP2wYXPvYw+8N4C0yD7ec7m3OO4NC3KvHf7P1bpmYvbBNb2
+	 EvCeYZlfQAnac/34RrSmA2LtbkzcoJY5qIkSQ4AL86nBJag4vSJYBpPiO/mk5xY5IO
+	 ubFOk7ghqoc1g==
+Date: Mon, 5 Jan 2026 21:06:28 +0000
+From: Will Deacon <will@kernel.org>
+To: Jeongin Yeo <leo.yeo@luaberry.com>
+Cc: catalin.marinas@arm.com, ryan.roberts@arm.com,
+	akpm@linux-foundation.org, david@kernel.org, kevin.brodsky@arm.com,
+	dev.jain@arm.com, quic_zhenhuah@quicinc.com,
+	lorenzo.stoakes@oracle.com, yang@os.amperecomputing.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: mm: prevent context switching during idmap is
+ mapped
+Message-ID: <aVwn1PgxgiBsNK6o@willie-the-truck>
+References: <20251202004223.108388-1-leo.yeo@luaberry.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260105-b4-vc-sm-cma-v2-4-4daea749ced9@ideasonboard.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_125548_539954_F80435C1 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20251202004223.108388-1-leo.yeo@luaberry.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,33 +72,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jai,
+On Tue, Dec 02, 2025 at 12:42:23AM +0000, Jeongin Yeo wrote:
+>  cpu_install_idmap replaces ttbr0 to install idmap. replace_phys uses
+>  idmap_cpu_replace_ttbr1 which is located in idmap,
+>  thus it requires ttbr0 to point idmap. 
+>  
+>  However, if a kernel task has switched out right after
+>  cpu_install_idmap, when kernel task is loaded, its ttbr0 is
+>  mapped to reserved_pg_dir which doesn't contain any idmap
+>  functions.
+>  Therefore, the kernel task cannot find any functions to run,
+>  causing memory fault.
+>  
+>  As far as I can verify from the current arm64 tree,
+>  no in-tree caller invokes this function from a preemptible context.
+>  
+>  Nevertheless, future work might allow this function to be called in
+>  preemptive state. Encapsulating the idmap sequence with
+>  preempt_disable() and preempt_enable() prevents this possible problem.
+> 
+> Signed-off-by: Jeongin Yeo <leo.yeo@luaberry.com>
+> ---
+>  arch/arm64/mm/mmu.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 2ba01dc8ef82..c3da836ebe8d 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -29,6 +29,7 @@
+>  #include <linux/mm_inline.h>
+>  #include <linux/pagewalk.h>
+>  #include <linux/stop_machine.h>
+> +#include <linux/preempt.h>
+>  
+>  #include <asm/barrier.h>
+>  #include <asm/cputype.h>
+> @@ -2136,7 +2137,7 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
+>  		ttbr1 |= TTBR_CNP_BIT;
+>  
+>  	replace_phys = (void *)__pa_symbol(idmap_cpu_replace_ttbr1);
+> -
+> +	preempt_disable();
+>  	cpu_install_idmap();
+>  
+>  	/*
+> @@ -2148,6 +2149,7 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
+>  	local_daif_restore(daif);
+>  
+>  	cpu_uninstall_idmap();
+> +	preempt_enable();
+>  }
 
-kernel test robot noticed the following build warnings:
+__cpu_replace_ttbr1() is a _very_ low-level helper with only a handful
+of arch-specific callers and so we shouldn't be worrying about random
+functions calling it with preemption enabled.
 
-[auto build test WARNING on 3e7f562e20ee87a25e104ef4fce557d39d62fa85]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Jai-Luthra/platform-raspberrypi-vchiq-mmal-Reset-buffers_with_vpu-on-port_enable/20260105-170249
-base:   3e7f562e20ee87a25e104ef4fce557d39d62fa85
-patch link:    https://lore.kernel.org/r/20260105-b4-vc-sm-cma-v2-4-4daea749ced9%40ideasonboard.com
-patch subject: [PATCH v2 4/6] platform/raspberrypi: vchiq-mmal: Use vc-sm-cma to support zero copy
-config: sh-kismet-CONFIG_BCM2835_VCHIQ-CONFIG_BCM2835_VCHIQ_MMAL-0-0 (https://download.01.org/0day-ci/archive/20260105/202601052123.hNOfRem6-lkp@intel.com/config)
-reproduce: (https://download.01.org/0day-ci/archive/20260105/202601052123.hNOfRem6-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601052123.hNOfRem6-lkp@intel.com/
-
-kismet warnings: (new ones prefixed by >>)
->> kismet: WARNING: unmet direct dependencies detected for BCM2835_VCHIQ when selected by BCM2835_VCHIQ_MMAL
-   WARNING: unmet direct dependencies detected for BCM2835_VCHIQ
-     Depends on [n]: BCM_VIDEOCORE [=y] && HAS_DMA [=n]
-     Selected by [y]:
-     - BCM2835_VCHIQ_MMAL [=y] && BCM_VIDEOCORE [=y]
-     - BCM_VC_SM_CMA [=y] && BCM_VIDEOCORE [=y]
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Will
 
