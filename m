@@ -4,144 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE445C79FA8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBDA7C79FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:19:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BP6Gu/c4u72ZuJtLgtoBCZcMdP8EzVQc6SErXMu+NVM=; b=G6tfWXHPMcB3yUAsGLejjkPAR9
-	iXB7nv1QI8cB0KNrbLWIY4UpDkf9ZT4rf0795Kqp6X4cRVkca0tri4FAV8OZcWovroP8RfED3F92f
-	w3P9lTRG63zEiBiu7DHSOJbAe6Mv1CptueiPmp6MEK7+w4fugH32gUNkI4DM38H4wzOloZ7OJXUUR
-	wrnpS1NPh3b/aL48MCg76TwgJl1KbGfEfldlJ/+hnizwnbNUgZwyV8D07CerQdLdGZUDyY8hTGSwx
-	rotguwL7lQLBKbtC9dsQJv9JxI1fEuMXjoi8sdbfLxm8l+E74+kGoayGl6EnrOJTGcNBd7Oli+XuB
-	1Dpf0fLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
+	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jJBDd1lBnsLLVQ+v5uRZrldoZU9HJRYkyBCUB5ieka0=; b=CneKfBUgHQ/PCkxKrcjTP7T9fs
+	pWnG0p/VT7Qg2mrVGJ2wB+zYpK2++RgdkLy6vNDP5MssRj47W7f/IEDILrbzYJqWtFas5uXMvT4DC
+	cTGRBMLFkGoGQ0/PFQtzUfKh9ub/f+KO2AviAVRLNVZ5Z+5Bycpyt4wQf3OfjuIpNLMBFH0W3FUM2
+	VwgGVoK43TjCDVMkJoWbwyk3fM0ufsuqCwFLE2ZccIa9djCYn3h+ObwZIV/s3587+yjcDJQCo0rb8
+	+T4GMM9WsXoJzK04g4aESy8imZt+0chReHVQBrsbVfejAOZve6TSeRVRncRAEEdgEGdnPHqKDpVX0
+	Gg9NL6Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcoBf-0000000BnqO-2sbW;
-	Mon, 05 Jan 2026 17:16:11 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vcoEJ-0000000Bo67-0GKl;
+	Mon, 05 Jan 2026 17:18:55 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcoBZ-0000000BnpL-1EGR
+	id 1vcoEG-0000000Bo55-0frU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 17:16:10 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 605FoYhr1617144
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 5 Jan 2026 17:16:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	BP6Gu/c4u72ZuJtLgtoBCZcMdP8EzVQc6SErXMu+NVM=; b=iJK2TIcElu/UfXQV
-	UvzgwnNdTKPmjV+ldOkt+wmncU7M/+LJK8zj7oxg0lQnKO9M3nVatd5QseCCMdlm
-	v6Gf9MfKK1QWOptn1ZfV4OUGZGA2OawuLhP1qZo1TY9E493FDAbuSi8QlWI7eVFr
-	0nd6Ie6hremkkOfX5HjfV8L80MUEVI2cu/4akS8xssybFVCiurZ2NnXhfUVhV4cs
-	jEyavDC65WsZZdtzEGDX/Xw0oQcuXrHVEgEzUIu8UWAEdUn0jX7Y/Vmk7z5v3GXM
-	6M1Nk/2oSjIfJIH2QVS+1xTieirzDgWkStxqNKs36epIh5mF/T4c2inJeobU0BMo
-	Od8Z8Q==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bgg9yr958-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 17:16:04 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2a0f47c0e60so2069715ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 09:16:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767633364; x=1768238164; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=BP6Gu/c4u72ZuJtLgtoBCZcMdP8EzVQc6SErXMu+NVM=;
-        b=FdHLHc8Yr5fBGvB9ZKDuOsdJZpWDKgf0hfO/KZPUC3ou3EpO1BQiCzH3I0lciqS6GE
-         zatLpUxHyRZpG8CZ5BNCgbfCQfJlk+cvAspXZkCVAQTYULh4MS6ZX/oneT/MXg4JzS+j
-         kl0K+Yl0Uhm/5YOhXu0hIccwP2OKGLdomroBRKIcBRCnTsmkiIOvBMmvRxi+cieTIIHW
-         SO9sq6IBXRAr8hPhECYxz55bL8eNUChnCkiu7rCjmjvChttpynT/Qt2wYNeFEhWN6ba+
-         2cPpjt0xixdgaPWr89vi2Kshc6udpLEYTnZH3aWKcQKElN2Rtlw9kl/WSDmJX+kWqGCq
-         yUuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767633364; x=1768238164;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BP6Gu/c4u72ZuJtLgtoBCZcMdP8EzVQc6SErXMu+NVM=;
-        b=s0QYHtE4kxYt8PWjfMOe/fwPtqD6fFb0x+F3xt4jCotj9ONNW5Gv+0YpvIIvxZfms9
-         Xf0P35/TQDPbEL24kAh6NUW21GCEzSM8e88f8f3T7+bBJHWZLhHuPfu5W6gyQOE/+tAz
-         3An4nhig0wQQh+HD9CMTXBQY30xqk+ru3RABr5sbrH+IWp22ZqaCufOKgPyMS/o9+QJ3
-         qVS0aKcFZV/xmRxfqNzWxbmsW8YLyAQsChia5HN3pGaZ799mXUSgIQt6LJgPDfv1pbrs
-         ikAk9GPKSZ39sTvDGO6i/T2vgW4ceyzy/y2sWuE0nOo2KCt8pBKm56dcaXpXj0k5jEs4
-         Pb4A==
-X-Forwarded-Encrypted: i=1; AJvYcCXspEdHiK6fMcNfj4cXugG8MwPSsbIaT/57b+ZSDD7pVG//T8NO2boQxK6SUt49oL3ldidX+Zp7owj7/DsRLRBK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8AQxB1m59aXMJErRxjW79ez2GOtlY5y4GZ+I+b7c1EX29RNAF
-	IElC+OGsFfPf6YmNZVEAdgj/nbjI+O6DVT0yHHF6aVmpQ4tauVizEbi75HdQLX2rVcwKXaY9CZJ
-	/z+YOY3eV+LH8dLmSPXCq/J7X4jklD2zTSTJHZz2sn8VUu+RnXvD+n7ISHXR2UoLS+rBYyd1PQ5
-	6NNQ==
-X-Gm-Gg: AY/fxX6qBjT4GYDxWk7OdUd1bH63YcUIJ3UneXDnmx9BKSQv9vvEMkhsQKQgGEnhzNV
-	qQB8fDQGTLSyamVTRqQfCauG8p4V02UxalUGH6rkpLrAiCVv0UHOUe8gJnByfjQuz6f0NaM4Y65
-	4qK9U+kUgxVKOPQ9l+UyNVW/c9SpaStJq2j7eAcbGRDrj6zzvV4mlsZYblxkHej8wqLlaWyr4QQ
-	m9zjtByGjUtXG4wb5MtrUIaP6HYClRW/p9cFABDOCtKxaQ9tA2Yr2ecPWaN/f7r/u12kJlrmRIX
-	fi7P62eaZkvQQ9nSUL2edkBmi5vk1MtenA4kPiuIDK2DK1JR3Se49mwqPrUl/YD9+JXDYA3hqvT
-	o+79wdJkrDkj3F4UWFLZQjMkwAw==
-X-Received: by 2002:a05:6a20:3c8e:b0:371:53a7:a4ba with SMTP id adf61e73a8af0-389822fca65mr45921637.30.1767633363798;
-        Mon, 05 Jan 2026 09:16:03 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFDb3ibB9yyf+XjsFBKFvP7NjPBf6cbuRzUcRVAfkOINXdA704jnRwHCauACbYKxkz5R4nWrA==
-X-Received: by 2002:a05:6a20:3c8e:b0:371:53a7:a4ba with SMTP id adf61e73a8af0-389822fca65mr45883637.30.1767633363170;
-        Mon, 05 Jan 2026 09:16:03 -0800 (PST)
-Received: from work ([120.56.194.222])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c4bfca6fbccsm199197a12.3.2026.01.05.09.15.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jan 2026 09:16:02 -0800 (PST)
-Date: Mon, 5 Jan 2026 22:45:56 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Bjorn Helgaas <helgaas@kernel.org>
-Cc: Yue Wang <yue.wang@amlogic.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Linnaea Lavia <linnaea-von-lavia@live.com>,
-        FUKAUMI Naoki <naoki@radxa.com>,
-        Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-        linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>,
-        stable@vger.kernel.org, Ricardo Pardini <ricardo@pardini.net>
-Subject: Re: [PATCH] PCI: meson: Remove meson_pcie_link_up() timeout,
- message, speed check
-Message-ID: <2veit3krpnauq67smexshnknbahup4yuckjgd6bxqisfqswkqe@dbhcgpiaajga>
-References: <20251103221930.1831376-1-helgaas@kernel.org>
- <176603796183.17581.9416209133990924154.b4-ty@kernel.org>
- <CAFBinCAPpiq=M00ZQXAB4Pu2Myjo8gpXC7DByKkGN6Z_Ahqafg@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAFBinCAPpiq=M00ZQXAB4Pu2Myjo8gpXC7DByKkGN6Z_Ahqafg@mail.gmail.com>
-X-Authority-Analysis: v=2.4 cv=M89A6iws c=1 sm=1 tr=0 ts=695bf1d4 cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=3dEILRYKsVIWdVk4w2Qziw==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=6FUes5m74a-6EvCHSkUA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA1MDE1MCBTYWx0ZWRfX7p/jegG/McNm
- 1Rbd6f64BGtPbi8HhOTj9o9I2q9CJxATqmu3KaQxVBGLQMU0VOtqCR3easlGR9M/3zoOfTIbR31
- 9mT++NnSrnxH4K1Eo4mHLOVH6e4koUnCxnGle5WZL1seQhnGZWGQEj/VKaER0GFRgFo7Duv60Iw
- P+mSmR+40+zMDOU916hWalfQB1teWoO7pcFymGCPPcg0H7hFrBjZcEgDAVxzO1uuILpbb1GRcTm
- w5MZtsHeETnJhS7THO2bzs3d1QFAkCjfiP6VsML8uM1Kevaca/lNXJtjU1VcpUFnLR+uQo08gAK
- PSsLOJYB8mJ+bgDS9O6U/kJAW0Nn8KVLOxcHy+70fSWAjnb65TKTP5LYKLJNXFCrfE0TnR3Cki5
- FOO4tRKY3ZD5avG+O97azTHH4twZ0gv7Mw0fb7U17h+Ei/rnsOcbRXhCAEdfIJ9tXnl0Bhw/LZB
- C/cR61CcRTeZu+fnbvA==
-X-Proofpoint-ORIG-GUID: w0k0yPRdRgSPNt8fJanCsvbLQSPA-Ke0
-X-Proofpoint-GUID: w0k0yPRdRgSPNt8fJanCsvbLQSPA-Ke0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-05_01,2026-01-05_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 priorityscore=1501 phishscore=0 clxscore=1015
- lowpriorityscore=0 impostorscore=0 spamscore=0 adultscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601050150
+	Mon, 05 Jan 2026 17:18:53 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id DDA831A265E;
+	Mon,  5 Jan 2026 17:18:43 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id AE7C060726;
+	Mon,  5 Jan 2026 17:18:43 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 34754103C8570;
+	Mon,  5 Jan 2026 18:18:33 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1767633521; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=jJBDd1lBnsLLVQ+v5uRZrldoZU9HJRYkyBCUB5ieka0=;
+	b=pbz9pPZvL1ZahfDLn46OeQ5DP15RMcsamsRlCdxFLSVe1OoIsY++I543gAavhbvRpmauuI
+	YKHc3yuyAQcEtpSquPFG+U68vJAt4jCkftgv8nMZ7F4KhijQDkIZXPhO9X6tTdCWRNtuUt
+	o0ZvvgsnKl5d6RByNX1h7+4Rjh6S3pmwRBZLq0FDC5ha4YirVoIIsT/dKlIMwjJIkW48Fg
+	gQAbTMhubNlNcRj9E35TJyR67vr96yhZTyKr0nZvRfIazM53pNemdtDM4qM2tb1quywmXL
+	apq5cndky1UIlAzOly5WykcD0qFOTDIg9nEBHcKj+ZrAE4IDL0p8v/lTI7nLxA==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 05 Jan 2026 18:18:32 +0100
+Message-Id: <DFGTS953Y2YJ.1SUIIDRMKUGQJ@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v2 05/20] drm/tilcdc: Convert legacy panel binding via
+ DT overlay at boot time
+Cc: "Jyri Sarha" <jyri.sarha@iki.fi>, "Tomi Valkeinen"
+ <tomi.valkeinen@ideasonboard.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Russell King" <linux@armlinux.org.uk>,
+ "Bartosz Golaszewski" <brgl@bgdev.pl>, "Tony Lindgren" <tony@atomide.com>,
+ "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Markus
+ Schneider-Pargmann" <msp@baylibre.com>, "Bajjuri Praneeth"
+ <praneeth@ti.com>, "Louis Chauvet" <louis.chauvet@bootlin.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
+ <miguel.gazquez@bootlin.com>, <dri-devel@lists.freedesktop.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>
+To: "Kory Maincent" <kory.maincent@bootlin.com>
+X-Mailer: aerc 0.20.1
+References: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
+ <20251211-feature_tilcdc-v2-5-f48bac3cd33e@bootlin.com>
+ <DF0K5UFX46JA.OH85T6IPC5MW@bootlin.com>
+ <20260105152939.49642d0a@kmaincent-XPS-13-7390>
+In-Reply-To: <20260105152939.49642d0a@kmaincent-XPS-13-7390>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_091608_648101_DF81DDE6 
-X-CRM114-Status: GOOD (  23.28  )
+X-CRM114-CacheID: sfid-20260105_091852_331508_AD6F60BE 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,42 +95,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 05, 2026 at 05:49:00PM +0100, Martin Blumenstingl wrote:
-> Hi Mani,
-> 
-> On Thu, Dec 18, 2025 at 7:06 AM Manivannan Sadhasivam
-> <manivannan.sadhasivam@oss.qualcomm.com> wrote:
-> >
-> >
-> > On Mon, 03 Nov 2025 16:19:26 -0600, Bjorn Helgaas wrote:
-> > > Previously meson_pcie_link_up() only returned true if the link was in the
-> > > L0 state.  This was incorrect because hardware autonomously manages
-> > > transitions between L0, L0s, and L1 while both components on the link stay
-> > > in D0.  Those states should all be treated as "link is active".
-> > >
-> > > Returning false when the device was in L0s or L1 broke config accesses
-> > > because dw_pcie_other_conf_map_bus() fails if the link is down, which
-> > > caused errors like this:
-> > >
-> > > [...]
-> >
-> > Applied, thanks!
-> >
-> > [1/1] PCI: meson: Remove meson_pcie_link_up() timeout, message, speed check
-> >       commit: 11647fc772e977c981259a63c4a2b7e2c312ea22
-> My understanding is that this is queued for -next.
-> Ricardo (Cc'ed) reported that this patch fixes PCI link up on his Odroid-HC4.
-> Is there a chance to get this patch into -fixes, so it can be pulled
-> by Linus for one of the next -rc?
-> 
+Hi K=C3=B6ry,
 
-Hmm, I looked at the Fixes tag and mistakenly assumed that the issue existed
-from the beginning.
+On Mon Jan 5, 2026 at 3:29 PM CET, Kory Maincent wrote:
+>> > +static int __init tilcdc_panel_copy_props(struct device_node *old_pan=
+el,
+>> > +					  struct device_node *new_panel)
+>> > +{
+>> > +	struct device_node *child, *old_timing, *new_timing, *panel_info;
+>> > +	u32 invert_pxl_clk =3D 0, sync_edge =3D 0;
+>> > +	struct property *prop;
+>> > +
+>> > +	/* Copy all panel properties to the new panel node */
+>> > +	for_each_property_of_node(old_panel, prop) {
+>> > +		if (!strncmp(prop->name, "compatible",
+>> > sizeof("compatible")))
+>> > +			continue;
+>> > +
+>> > +		tilcdc_panel_update_prop(new_panel, prop->name,
+>> > +					 prop->value, prop->length);
+>> > +	}
+>> > +
+>> > +	child =3D of_get_child_by_name(old_panel, "display-timings");
+>>
+>> There's some housekeeping code in this function to ensure you put all th=
+e
+>> device_node refs. It would be simpler and less error prone to use a clea=
+nup
+>> action. E.g.:
+>>
+>> -	struct device_node *child, *old_timing, *new_timing, *panel_info;
+>>
+>> -	child =3D of_get_child_by_name(old_panel, "display-timings");
+>> +	struct device_node *child __free(device_node) =3D
+>> of_get_child_by_name(old_panel, "display-timings");
+>
+> I am not used to this __free() macro and even some subsystem (net) are av=
+oiding
+> it but ok I will move to it. I don't know what are the pros and cons.
 
-Bjorn, could you please include this patch in the next fixes PR?
+I don't see drawbacks from a technical point of view. Only potentially a
+matter of taste.
 
-- Mani
+The pro is that with a cleanup action the compiler will put the cleanup
+code at scope exit, whichever exit point is taken. Example:
 
--- 
-மணிவண்ணன் சதாசிவம்
+int myfunc()
+{
+    struct device_node *node1, *node2, *node3;
+
+    struct device_node *node1 =3D of_get_child_by_name();
+    ...
+    if (foo) {
+        of_node_put(node1);
+        return -E...;
+    }
+
+    struct device_node *node2 =3D of_get_child_by_name();
+    ...
+    if (bar) {
+        of_node_put(node2);
+        of_node_put(node1);
+        return -E...;
+    }
+
+    struct device_node *node3 =3D of_get_child_by_name();
+    ...
+    if (foo) {
+        of_node_put(node3);
+        of_node_put(node2);
+        of_node_put(node1);
+        return -E...;
+    }
+}
+
+Here the of_node_put() list grows at every return point. Of course you can
+use gotos to do all the of_node_put()s in a single place, but still with
+some code to maintain, potential bugs, and take care of corner cases in
+case of a complex code path.
+
+Same example with a cleanup action:
+
+int myfunc()
+{
+    struct device_node *node1 __free(of_node_put) =3D of_get_child_by_name(=
+);
+    ...
+    if (foo)
+        return -E...;
+
+    struct device_node *node2 __free(of_node_put) =3D of_get_child_by_name(=
+);
+    ...
+    if (bar)
+        return -E...;
+
+    struct device_node *node3 __free(of_node_put) =3D of_get_child_by_name(=
+);
+    ...
+    if (foo)
+        return -E...;
+}
+
+The compiler will insert the of_node_put() calls at scope exit (the scope
+is the entire function in the above example), so they are called whichever
+'return' statement happens. Pros: less code to write and maintain, code is
+cleaner, less potential mistakes.
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
