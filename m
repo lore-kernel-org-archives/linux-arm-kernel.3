@@ -4,166 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A73C2A062
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 07:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E35CC2A062
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 07:55:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ej8tixVab4Csa5LP85L7d//tuATCC5+B3KkIV+txH78=; b=m21ZkkuB5wPhoCflEO9EZVdMzN
-	RpImKGKjSXDzyOthWt1s0E4OBYjvWHXwT4NZbmsprlZHZMwc28Ez3rHsCJqIeOo9Xjw5Br87zCWa4
-	1fMo7KnFWN+pOslmZox20th19CoJFXPIbYl493jXEvtc+5D+z/j79h6yeMC1dF3pn5JbVBOHBXJAX
-	v+o1I1pSLQY+aEnZ5TYVkua+HV7o1gw+pQK98uCf76YpSWdcXkhhZkup5mcygolkhicy/NJV3gu6K
-	WtI34VUzwQwBXU9t4fZB57u0mbD0Yv5unKKA+ETzLDlOlWIwUFK/Ip6jF6N82WjuIFNu6TXusuVbU
-	6sbg39gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aWPAionUGYVqkBpz5QQVAcYUIfxJMKwBFtRZhqGCqzM=; b=NmNXWIF7//GWT4NDjiOl+JZjK3
+	2rOiEcGzJE6x1EsGefsVWbhVfArPk6IUQV1p9o2ek70JnwX2l72XzDr8BqWuhMaPCCZUbuOXIDCE3
+	PBHr+hWjpQFVbvinue+xUkSINP7kI369hGTba43qS5qUCaNN/pHJZ6+/QakKmXBTsPN62UVr8DvWt
+	zKLd1fbZiMJ4fM5piMa0tfhcJXuHSetm3blbFPHCGYS1Cp31xGaKnZmITvRIZGvas2W4GLzVGgCo8
+	oj2TOrYR56iOZohAgAY2HHTpCKLV0fOrTwkukn28JX0C+I+CaBDadwAfiogFZ5wXR/jflAurcXauv
+	EolhjW8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcfMw-0000000Aw06-15KV;
-	Mon, 05 Jan 2026 07:51:14 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vcfRB-0000000AwCj-2ZOR;
+	Mon, 05 Jan 2026 07:55:37 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcfMt-0000000Avzk-1vdi
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 07:51:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mcSQQRfIIJSb5iBxGsqjPul1+quYN94UBNs7UEGigkgAmtBK0VEYRSBRsddknIicd4sIoGvL07bsAhR82GDCXEaOOhcV1UGoFvtfTNG8gVsyXWm31K6X9Yyv3/4F0ZXPslqUpAsFfP+j/f7v+nEvQa4Uc5axszqljLoubF+Njrnd5X+IYWNjHaeogLusrP/SAKBZHA+kEJvKuJvOnd6HbdLeqL+KcFo07w8HYiWYEgq3/amP9lehsgBGSLvZ2yrBmYEUcWit96AW0IU6+oZvvx6g7hmIfAtKh4aPQAK/5JftoT7XuLxfF5nv/M0q/sSO/aO/ZBW29ra8xK+Mmq3aRA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ej8tixVab4Csa5LP85L7d//tuATCC5+B3KkIV+txH78=;
- b=eKaFGzO91dtFEN2+UMSTpY1tqbv7PiAaPa2JrbgpI5lyomI/4TaOXh5WeHBOsot9i9yftMK3l8vgtQ+milf9sdkZbcZIV0EdbEXhk2thv2TarUfdOh6BuKiXsI9N5BXp0OIzRrlcR0tvowQ6/+kDGr2KIALyCsl95x5Uw1t1DlVbTFyDbXIkg2rg3PoDku24vVr1qPoSaUgBxXC7S9g60UTkN4Hx63SMxlkUxf1EdPJSlHgsVnPMhv3F8PkToNADFItv3bC45uh/QnLpepDvYRAwKdgt/RbdFNN1xsHlCOUvLTYcPPoDNo2UhzqdTlpGZyBpkSOD+a1gyftaORtVAA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=mess.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ej8tixVab4Csa5LP85L7d//tuATCC5+B3KkIV+txH78=;
- b=NNfK/c/5YyosPRuS7mdWJ4THpyeTnflV2I1kTMnm16Kr3rZOqZcc0+OKqQ5STHYnv4QrU5N+hY4pMp9TVAKBbxG6GkBqNxVRMgcwnnvu7RvFoPsOkAfM9pdlBZhHW9VWrbZzrMIRI5SRbxK3ljDr8V6irYi6kY3hZ+2q1jggS+lPEdgREsL4Gr5j3QLPwudWN+ZAN+qyM7yGT6xMStUnmc+iDOEbkIsgy5Iy4DboW5sX9IEXQIYrsTOwEy7RYHBUyfpM7ENAwD+VIyq5gIyEeR4DWNBJl28woQdM1FxU2SRBYtOfSAioFC9cgs1Yo/nT12dWUoPphJlK+aa5Md1Raw==
-Received: from AS8PR07CA0020.eurprd07.prod.outlook.com (2603:10a6:20b:451::13)
- by AS2PR10MB7106.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5e9::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
- 2026 07:51:06 +0000
-Received: from AM4PEPF00025F97.EURPRD83.prod.outlook.com
- (2603:10a6:20b:451:cafe::bc) by AS8PR07CA0020.outlook.office365.com
- (2603:10a6:20b:451::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.1 via Frontend Transport; Mon, 5
- Jan 2026 07:51:06 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- AM4PEPF00025F97.mail.protection.outlook.com (10.167.16.6) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.0 via Frontend Transport; Mon, 5 Jan 2026 07:51:06 +0000
-Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 5 Jan
- 2026 08:52:19 +0100
-Received: from [10.48.87.93] (10.48.87.93) by STKDAG1NODE1.st.com
- (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 5 Jan
- 2026 08:51:04 +0100
-Message-ID: <8d8b5d79-4b70-4ad0-9496-8d409495cbc9@foss.st.com>
-Date: Mon, 5 Jan 2026 08:51:03 +0100
+	id 1vcfR8-0000000AwC4-2eyJ;
+	Mon, 05 Jan 2026 07:55:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1767599726; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ApyVmbqvyvvb8na3d/melHLpY2DTPtJeJzJ9aWMiXiAmqnz89jYsWoPJ0vVj5aTgXvgnWPOwPPfqDU/LNUOkE6MQEZu2okpX1MjtLqGfcVTyg1Py7MQgJSE8Gk4P07RiQyKrTCte+OCs4BgDYf3sey5i+mVfz6hngJY8gmK3UYk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1767599726; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=aWPAionUGYVqkBpz5QQVAcYUIfxJMKwBFtRZhqGCqzM=; 
+	b=RuiFb+t17z7NWutMYXVwxR3XZl8vkhaNc+HPwldTvIxBW6iyroeFZlOxk4gQPyZXwMi0q/fFm32VS+2LnzuALx0/ZKwHfOe9HNXwL90TgwrZWwMkyhSkYRdbeL6qDnv6SPMU1W/6wcWNx61Y9DdZXz68YT2tF0eO1hrTkhFQfAc=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1767599726;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=aWPAionUGYVqkBpz5QQVAcYUIfxJMKwBFtRZhqGCqzM=;
+	b=dejfNqMo6xmOUjexvSDcHRAdx7eGKVoKzOgsSAouO/QpFOaFtb/2l++R+0lz/IIE
+	GA1s1tqndtY+CqwFmV4yoqxwS+YAzplmyPeZ88imwA/+zgkAwGVoPqWSMcSAHKcC4t9
+	g3QSRCI3m5/DeUkzc8rpw6Q/Z4h7E5iLJDvEHf7w=
+Received: by mx.zohomail.com with SMTPS id 1767599722778915.547246258709;
+	Sun, 4 Jan 2026 23:55:22 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Frank Wang <frank.wang@rock-chips.com>, Alexey Charkov <alchark@gmail.com>,
+ Liang Chen <cl@rock-chips.com>, Finley Xiao <finley.xiao@rock-chips.com>,
+ Elaine Zhang <zhangqing@rock-chips.com>,
+ Yifeng Zhao <yifeng.zhao@rock-chips.com>, Chaoyi Chen <kernel@airkyi.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: rockchip: Fix wrong register range of rk3576 gpu
+Date: Mon, 05 Jan 2026 08:55:17 +0100
+Message-ID: <5954009.DvuYhMxLoT@workhorse>
+In-Reply-To: <20251230090246.46-1-kernel@airkyi.com>
+References: <20251230090246.46-1-kernel@airkyi.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] media: rc: rc_unregister_device() should not call
- rc_free_device()
-To: Sean Young <sean@mess.org>, Andrzej Hajda <andrzej.hajda@intel.com>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	=?UTF-8?Q?Bruno_Pr=C3=A9mont?= <bonbons@linux-vserver.org>, Jiri Kosina
-	<jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, Hans Verkuil
-	<hverkuil@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, "Maxim
- Levitsky" <maximlevitsky@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, "Samuel
- Holland" <samuel@sholland.org>, =?UTF-8?Q?David_H=C3=A4rdeman?=
-	<david@hardeman.nu>, Benjamin Valentin <benpicco@googlemail.com>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>
-CC: Haotian Zhang <vulab@iscas.ac.cn>, <dri-devel@lists.freedesktop.org>,
-	<linux-kernel@vger.kernel.org>, <linux-input@vger.kernel.org>,
-	<linux-media@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-staging@lists.linux.dev>
-References: <20251220222757.7063-1-sean@mess.org>
-Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20251220222757.7063-1-sean@mess.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.93]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE1.st.com
- (10.75.128.132)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM4PEPF00025F97:EE_|AS2PR10MB7106:EE_
-X-MS-Office365-Filtering-Correlation-Id: a79621e0-ae8f-4dab-64ef-08de4c2f2e8d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|82310400026|7053199007|13003099007|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WkN5TGxJbDB4RXBVYmlsUytjdVZ2ZzFjUjZta0tTeURJaTdXZmtSeG8zTmJ3?=
- =?utf-8?B?K1ZsS2FRaGNIMzl2OTVrNGpVOGRYRlRQQUt0ZzJSYndPQitra2xXT0VTUFJU?=
- =?utf-8?B?bjQ4c0YrOG1Lcnc1US9mclliN0RPYXRqV3RJVWNFSzhWV29lR3hnbGVmNXZD?=
- =?utf-8?B?Y1grNDYrcjFiaXRxVjk5UXBEdEkwY1FhazVNKzEyUVhzcjFlTVpibTZBUEs3?=
- =?utf-8?B?YU9xLy85ZTNIOFRwSFI4V2F5dWFpWTZnTk9iODFjdXVTSytwZGxJSTc2a0d3?=
- =?utf-8?B?ZWFEQWY0bDZtWU1EaXVUSWIzOTlBUUNHUm1YZEY3Tm9TK2FuWWxvdll0L2g4?=
- =?utf-8?B?WS9uTDdhUzNZUjZUWGw1REFCU285UENtSGJBS2pDU2tRTXZBajhKNnFrVDlS?=
- =?utf-8?B?WmJKSDcvbHpHSnVHWnZvY2dsMENIbGJuMGI1OTBRb0hnUTJCZElCaXcyZTh5?=
- =?utf-8?B?ZVc5cmM2eXM5SGI0T0x1aDBDUjhmMjNiMDd5N3YyTzBrNHJpaUpMZ0hrQjZt?=
- =?utf-8?B?ZHVkekUrWTRaaXJiQ2dOd3g2WmVReFE5RnNscHdvb3ZqMThtSTAwYkYxK3VM?=
- =?utf-8?B?NjVPdldOM083c25HUkQ3OTRsM0M5OXlQU0lEOG5vNHlHVUk5djB3ZjQvSUZH?=
- =?utf-8?B?dGZxaUpTMnArN3M1Rzg1cHBjSFVjQkE1aU9xSHd0eks2RU8vLzk5enlrcWF2?=
- =?utf-8?B?Zzd2cEw1VUsvSkk1d3lTVk4yZG93V2dCRTRmRUo2UUxSbVlMTmtIMmc5Si9X?=
- =?utf-8?B?OHFNNXVUR1gzSm5LM3ZyMmR1VFlTZnlIN000L0tIVnVDb2N4aDFSZTA3aGJu?=
- =?utf-8?B?YzNZWXM1SDN5VWg0Rzc4T0RzTTdiN1dQYlp3N3hnb01ZNTRmWncyTTZtaHAz?=
- =?utf-8?B?NVhBdWV5dUtKeWFqb0czNGFCTVR0cHV1Y2JpUWJnR3RSR2s1RmZOVUNCaTBM?=
- =?utf-8?B?MHVyWUw4Mjl6SThDUFNGcG1ZZ2JEN0lLanljazhyUnEvUkVSOVBuZFM4QVpB?=
- =?utf-8?B?b0JwNlJ1Vko5WEh2bUJkR09oL0o1STZkVGVFSDRFMVZ2TWp1dGNjYkw3ZmJH?=
- =?utf-8?B?ektCVEIwM0hLYUg1YUo5eC9jdTllaEp1SHFuSGl4L0REa04wUERXbnVMRFF4?=
- =?utf-8?B?SDZKM2dORFY0VTlmdC9ld2UzaFI4VXZFTE05UGRDUkR5WWxvem1mTUpCMm11?=
- =?utf-8?B?cEJHRWlNV2tZanUwMmRVR3lGUFlKWlZ2ai96SnhSNmVTdjhZZ0pNVytqSnVr?=
- =?utf-8?B?eERma1lyTFFmWm5KRzVVVjNvcXh4NHF6bk00Q2w5eWNEM1ZlTVNzMC9KbmJh?=
- =?utf-8?B?Q3ZrNlJWNk94MkVpcEU5R0dxV1BnakY3L3JOSmdvajFRY002T2JrRlgrOTNu?=
- =?utf-8?B?RnZoVUY2ZEp5OGd0akQ0cXZuQWlqZmFya2grMnp2TlI3RGVpU1pNckFHNEl4?=
- =?utf-8?B?M011dW5MdWs0QTBuOEE0TjVtN29kc1E1R0U5bkIybTNodFhWTUlFV3NxcXZC?=
- =?utf-8?B?ZHU4S2VZdStiVWk1dmFqaS9mb1doeHdqYWlRZkU4ZFhnSjY5dWc3QVdYWmNo?=
- =?utf-8?B?bVJCc09HWFJKRzBVb0FMSjFxRlhVMEhTL3h2M0ZlUTFRVWFyeE1TQ3NtSno4?=
- =?utf-8?B?NFduVXBEWHgrVlIwb0dQWFNSQUo2bkFMeVp1L0lGUEVPQ1ZTNW0zdC90ZkNZ?=
- =?utf-8?B?N1pVeVFkb0tJcHYwZ2xvMG9zcXJLbnc0NVVwUkxmMDlCSzArcVp2Qlc3c1dY?=
- =?utf-8?B?Vk5Mc1l0S3FGTHVpZU51aVAxUUJBY21UVjlCUlM4Tkl5bXhJZ055VDAxelQv?=
- =?utf-8?B?Zk0ySmlwOUkxK3NrRHc1MmJsZDdJZlpEaU9vYW8wcW1YTENHRk84NEF4Mm8v?=
- =?utf-8?B?R1R2NUk5UlBjd2QrNWlYUVVmaS9YU1RVQjYybU1qQWNwLzhCUTdobXdmL0Uw?=
- =?utf-8?B?ZnZaMWhYeHZ5a2lsaCtxSm4vdFNNSFFnbG1sMnZ3N25CMm5iSHRwQlpmaFlj?=
- =?utf-8?B?YW9DS1dtdUFlU25oMVplY3dSWUI5NVNMZHQ3bWhUSTBjWkljSGdoZllnVGxj?=
- =?utf-8?B?blZBOWcxekhmTUFrdHFiOHdobGtWN0p1RSs5clJWanZUbnBEekt1enBzKzRF?=
- =?utf-8?B?MFRBQ2pYcExZRHlubWpUNC94SENQOUxqV2tlMmMwWm5mL09PVStRTVNDOUFa?=
- =?utf-8?B?ZHc9PQ==?=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(82310400026)(7053199007)(13003099007)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: CobXj9tYxhWVAkSvd1gKJXGTV5918KBac9bymEkGS3QgMIcCW5MIRLhvup0tof/gLhgOusQxtzkudxn45p/THhDVSs5pKcOdAuT10LeK20irnzs5nKwdrLvimhqEdzGVQcvU1pCxweekUvXFxlSxmDol8uUWu4mNr+iVqhsQT3rWkuiX10RPUsUfKYImu8zPPOQuBH+/QtOWvelz5r9eak1qM6QBY2gTERlPyvUrH8a/+KeruAaIK4975CN3veFzVA4hkE7QkjufPdq8hbqtfbm/Um9P/2AuWywOW7yzLwMcuRsykcMOrAV7/yjsi20AAuL4rNcwepoeYZnPK7P1z3+wPlJNC3qgV23MR1MFTKjfgYgxXUB4rBnIW2c7XBkPeHpr031I48fol0Mxetwt74n5QuQiZuCbToI3V3lD9AJ+BjnGEjuMIAoeEqKeSeRKB2KkfLBQ+Vojb+VYNbqaTk6VOIZiruI/GnBXiFSOiJ0NHd3+3Jz9/1BwHITkBHIfJrFT1xSwFWDRsru+x5my63rK5sZEj2Tu5NEIy+z7azCybZ4z4r+aZ73PKInqHvUyWIJ4fADIiYv0mtyfKjM1+q8usSFCUHDFx5jcGXN6BCq+U9fgDlSw5Dky3mhq4dHCgfosQ5X2ypjhGNeKQBEkXVhwtf1zAs+hyKxjaYxxiuwe8ifBPYGPZ30tBPbfOvb+
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 07:51:06.0889
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a79621e0-ae8f-4dab-64ef-08de4c2f2e8d
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00025F97.EURPRD83.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR10MB7106
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_235111_777297_6F8930A4 
-X-CRM114-Status: GOOD (  20.86  )
+X-CRM114-CacheID: sfid-20260104_235534_739917_7C5A8B15 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,104 +84,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 12/20/25 23:27, Sean Young wrote:
-> rc_unregister_device() does two things: it marks the device as
-> unregistered, so no new commands can be issued via the lirc chardev,
-> and also frees the rc device. Device drivers want to both cancel
-> in-flight commands (i.e. kill urbs) and prevent further commands from
-> being issued. Only once both are done, can we really free the rc device,
-> because it might be referenced in urb callbacks. This is impossible to
-> do with the current way of things.
+On Tuesday, 30 December 2025 10:02:46 Central European Standard Time Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 > 
-> This change removes the implicit call to rc_free_device() from
-> rc_unregister_device(). This means that device drivers can call
-> rc_unregister_device() in their remove or disconnect function, then cancel
-> all the urbs and interrupts before explicitly calling rc_free_device().
+> According to RK3576 TRM part1 page13, the size of the GPU registers
+> is 128 KB.
 > 
-> Note this is an alternative fix for an issue found by Haotian Zhang, see
-> the Closes: tags.
-> 
-> Reported-by: Haotian Zhang <vulab@iscas.ac.cn>
-> Closes: https://lore.kernel.org/linux-media/20251114101432.2566-1-vulab@iscas.ac.cn
-> Closes: https://lore.kernel.org/linux-media/20251114101418.2548-1-vulab@iscas.ac.cn
-> Closes: https://lore.kernel.org/linux-media/20251114101346.2530-1-vulab@iscas.ac.cn/
-> Closes: https://lore.kernel.org/linux-media/20251114090605.2413-1-vulab@iscas.ac.cn/
-> Signed-off-by: Sean Young <sean@mess.org>
+> Fixes: 57b1ce903966 ("arm64: dts: rockchip: Add rk3576 SoC base DT")
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 > ---
->  drivers/gpu/drm/bridge/sil-sii8620.c        | 1 +
->  drivers/hid/hid-picolcd_cir.c               | 1 +
->  drivers/media/cec/core/cec-core.c           | 2 +-
->  drivers/media/common/siano/smsir.c          | 1 +
->  drivers/media/i2c/ir-kbd-i2c.c              | 2 ++
->  drivers/media/pci/bt8xx/bttv-input.c        | 1 +
->  drivers/media/pci/cx23885/cx23885-input.c   | 1 +
->  drivers/media/pci/cx88/cx88-input.c         | 1 +
->  drivers/media/pci/dm1105/dm1105.c           | 1 +
->  drivers/media/pci/mantis/mantis_input.c     | 1 +
->  drivers/media/pci/saa7134/saa7134-input.c   | 1 +
->  drivers/media/pci/smipcie/smipcie-ir.c      | 1 +
->  drivers/media/pci/ttpci/budget-ci.c         | 1 +
->  drivers/media/rc/ati_remote.c               | 4 ++--
->  drivers/media/rc/ene_ir.c                   | 2 +-
->  drivers/media/rc/fintek-cir.c               | 3 ++-
->  drivers/media/rc/igorplugusb.c              | 1 +
->  drivers/media/rc/iguanair.c                 | 1 +
->  drivers/media/rc/img-ir/img-ir-hw.c         | 3 ++-
->  drivers/media/rc/img-ir/img-ir-raw.c        | 3 ++-
->  drivers/media/rc/imon.c                     | 3 ++-
->  drivers/media/rc/ir-hix5hd2.c               | 2 +-
->  drivers/media/rc/ir_toy.c                   | 1 +
->  drivers/media/rc/ite-cir.c                  | 2 +-
->  drivers/media/rc/mceusb.c                   | 1 +
->  drivers/media/rc/rc-ir-raw.c                | 5 -----
->  drivers/media/rc/rc-loopback.c              | 1 +
->  drivers/media/rc/rc-main.c                  | 6 +-----
->  drivers/media/rc/redrat3.c                  | 4 +++-
->  drivers/media/rc/st_rc.c                    | 2 +-
->  drivers/media/rc/streamzap.c                | 3 ++-
->  drivers/media/rc/sunxi-cir.c                | 1 +
->  drivers/media/rc/ttusbir.c                  | 2 +-
->  drivers/media/rc/winbond-cir.c              | 2 +-
->  drivers/media/rc/xbox_remote.c              | 3 ++-
->  drivers/media/usb/au0828/au0828-input.c     | 1 +
->  drivers/media/usb/dvb-usb-v2/dvb_usb_core.c | 1 +
->  drivers/media/usb/dvb-usb/dvb-usb-remote.c  | 6 ++++--
->  drivers/media/usb/em28xx/em28xx-input.c     | 1 +
->  drivers/staging/media/av7110/av7110_ir.c    | 1 +
->  include/media/rc-core.h                     | 2 --
->  41 files changed, 52 insertions(+), 30 deletions(-)
+>  arch/arm64/boot/dts/rockchip/rk3576.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> index 6284e7bdc442..b375015f0662 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> @@ -1271,7 +1271,7 @@ power-domain@RK3576_PD_VO1 {
+>  
+>  		gpu: gpu@27800000 {
+>  			compatible = "rockchip,rk3576-mali", "arm,mali-bifrost";
+> -			reg = <0x0 0x27800000 0x0 0x200000>;
+> +			reg = <0x0 0x27800000 0x0 0x20000>;
+>  			assigned-clocks = <&scmi_clk SCMI_CLK_GPU>;
+>  			assigned-clock-rates = <198000000>;
+>  			clocks = <&cru CLK_GPU>;
 > 
 
-[...]
+This is only true if you only consider the GPU_CONTROL and
+JOB_CONTROL register ranges, and leave out the MMU_STAGE1
+and MMU_STAGE2 ranges. I don't know if those need to be
+mapped, since the MMU control registers are < 0x2000.
 
-> diff --git a/drivers/media/rc/st_rc.c b/drivers/media/rc/st_rc.c
-> index 6b70bac5f45d6..0ba06bfc9e14b 100644
-> --- a/drivers/media/rc/st_rc.c
-> +++ b/drivers/media/rc/st_rc.c
-> @@ -203,6 +203,7 @@ static void st_rc_remove(struct platform_device *pdev)
->  	device_init_wakeup(&pdev->dev, false);
->  	clk_disable_unprepare(rc_dev->sys_clock);
->  	rc_unregister_device(rc_dev->rdev);
-> +	rc_free_device(rc_dev->rdev);
->  }
->  
->  static int st_rc_open(struct rc_dev *rdev)
-> @@ -334,7 +335,6 @@ static int st_rc_probe(struct platform_device *pdev)
->  	return ret;
->  rcerr:
->  	rc_unregister_device(rdev);
-> -	rdev = NULL;
->  clkerr:
->  	clk_disable_unprepare(rc_dev->sys_clock);
->  err:
-> diff --git a/drivers/media/rc/streamzap.c b/drivers/media/rc/streamzap.c
-> index d3b48a0dd1f47..b9b241fe46ea1 100644
+What do other bifrost devices do?
 
-Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
+Kind regards,
+Nicolas Frattaroli
 
-Thanks
-Patrice
 
 
