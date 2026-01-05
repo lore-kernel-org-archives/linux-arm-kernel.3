@@ -4,95 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7471C79FBA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:35:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2FE9C79FBA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cCvkvL2C/5gj+RhnXidCQE8qJ7m+kanbEcL9OclNPb4=; b=EgSCFG7Z+X3NeldozFqQcNphBJ
-	KPmCXeJO+3PLF9ws3WkKBJzCUzkMOhRKtf/1ythq2xV7Dysgy0b+hxCYBKbbfkc7lyhEaFEeBh6La
-	oSi/9SzSGkm4Z6JDPk+RoaYRiDGzizDlHjdoTKt8+8v9wjDb4/oH/TANFwlD4xfM5KRGtRTUbHFsA
-	0zyFlBp8d1bJD4OuNGNFpBGOuE6T1UwhL6Ofbvu0IhLAYcYFRG59YdLiteLQV8Ik8KBk1l7Ow8m7p
-	H86NBznCn5j/pgYcxKdeDIL96AwqZkLXrsK0+rA3/nwEsybz2Iu9x7kNrmPzbILbPrV84HJ2tgSws
-	j7jggisQ==;
+	bh=WQiw5ZuqbRa/R+rOzhfPK59j8NEJ1LOlep90YkURlxE=; b=oJtxdnfKN90wnrRubbLbR/OCSq
+	Zf/Q/jVRIGpsGlfjZQZF5gIphF4aML5pwCnkBvaaTn+2Incrlja0WxIw0bFblnIOqpTjWxdxsr6YV
+	EA386lQEX8SyBxUPde+Z1ctVnqPROPgORo+rsdR/QeySketI+ImKMqYlambLxUXcFkxyyFhs4ECyZ
+	GscS7rKPvU2HIXP+g0ghISuGXEyEG8lR5vAHdnSB+9qA4UJaYcrhWkeFVhzLMZl5MrX2C6dxOi9GK
+	3JcyOHDgkOmnqZhY4bbhTpTwxUemiOCak/lppYNEZbGzy0yTTEU8EI3D5rIi68pW2XL0Yegq20Osk
+	9REWDSKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqMp-0000000BzGF-0CIC;
-	Mon, 05 Jan 2026 19:35:51 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqMg-0000000BzFB-1nQc
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 19:35:49 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-b7ffa5d1b80so48108566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 11:35:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1767641739; x=1768246539; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cCvkvL2C/5gj+RhnXidCQE8qJ7m+kanbEcL9OclNPb4=;
-        b=g7AklKKac3z+zSV8AkisHWJYANZUAFfk6rISttgwg2CNrVxEngJd6Fmf4g5c4NMgli
-         GPq+h6AbTeiNop7SA3WnhTKYfcZSQumMsaylA8PVQ4Qsf1kS5S1E5X4TZ/G0PusAem/L
-         nO7rvnhPQDjtpbasajJB8nhK40XfGNIyIEQSc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767641739; x=1768246539;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=cCvkvL2C/5gj+RhnXidCQE8qJ7m+kanbEcL9OclNPb4=;
-        b=fqNI7OEkks2bGsNUBT/A7bep0vMbz3NaorMNPpArFZwlL9uYjyLCtPTd1RFBacmVSz
-         OAQLUt5OEji+1wcu08BUw10cHLv41CEdBP6HzRGOkqgbJf+7D4Zzff6TWgEJUtb9izGf
-         Nf5qkzdPhzIdVCn5O71eT9SE9DS8l6VVyn/b8Vk/kWKoz70mhlXU8Z0N/VUFTKDunbm0
-         k+dXHQnZxjJJXnJTYwCB5uE3tVj8GwdfD9+sjfNx9A7zrIui1GHnTEOwwNC69m1//ate
-         Q8vQ2lFP7nDkE6lbOKs6K+KemQI92YxBebdlvbsP4I3msOkyKy/FMICFFZmLIUM2f0WH
-         kmhg==
-X-Forwarded-Encrypted: i=1; AJvYcCXZfog6XS2vv6BEs1X6EZBpTOS8ULN9T8YQM0NVQU/mqXWlXoUBWvrb+6qoiJ50Lmh0CbGDWUXw1BJcwFFN7Rww@lists.infradead.org
-X-Gm-Message-State: AOJu0YynzjTUzy9sAWOW08BJkKAJce5JSHMx+uvwB2lmrWiiIbBYEZvQ
-	QU+WF4iexFv4QWfbWV9NzBHEwLLAiWyRHChgAxVVPj83G0egi+uwGYitFrN69CjGiex1DlTlMJC
-	hkYgA+A==
-X-Gm-Gg: AY/fxX6tIlvAuJgD2wyJb3MlXi0LHY4qMFHIGaCtwjkEBhaepK9DvApZ4v9hWwwH01t
-	quSgwc4lZqRV1KIpvJwvSWV+aE3+vvUeLa/ylx+MN5KAbznsPordkGTjvGD26IzWA9MR3wa+4Tb
-	xLQRkMTIEoqmU6W57BN3dHD/gjl9X1RbTgh1mPflv1JPoIg6rbzSJGl2SqXbTofWi6ni9DG+aFn
-	Kjmvx37NOc3GjZMbQ92vsfu9ZprNQBLpVH5LCIfk4Tqk2SJ5GJaulD84sC1uEuU2z3enYgMCpJH
-	5MVRPk/ojsBK7ULcxiEqQ27SKnwW54rNv64/107ZaZPEUNu1Iw6w6IxxI3RESaFQxHS02YTixNC
-	Dh2kNtLFNkmga99T+vZLqSzq9fTv+r9adfwX1DVMt4ameW9yBAJAnc7Z2+O1TxhDrTG6wpRwOXd
-	E+fAJuwvUd+N1Q1xWl04QWqNOIRK3xrFfC6BLknnTnLYjkrN9y06oNdloKw5tP
-X-Google-Smtp-Source: AGHT+IFBV89cCUl4L4x2uAL0ADacybVHy+BqtuEo4eH3BFuSCUzY+Towp5xHUCerY1aw+tXgKXTLlg==
-X-Received: by 2002:a17:907:608d:b0:b83:1326:a504 with SMTP id a640c23a62f3a-b8426c96d63mr97867366b.60.1767641739383;
-        Mon, 05 Jan 2026 11:35:39 -0800 (PST)
-Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com. [209.85.221.45])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b842a4d1c61sm9096566b.35.2026.01.05.11.35.38
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 Jan 2026 11:35:38 -0800 (PST)
-Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-42fbc305882so135005f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 11:35:38 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXwlFKrocshiDewdjMDe4gVMN4gjrCWXGwwnEUk/vOqjVnl2HqkTE//yz8rZN9OFCRxJbL0qMo48DmmJdw/co4o@lists.infradead.org
-X-Received: by 2002:a05:6000:2089:b0:431:53:1f49 with SMTP id
- ffacd0b85a97d-432bca5166emr1151221f8f.41.1767641738057; Mon, 05 Jan 2026
- 11:35:38 -0800 (PST)
+	id 1vcqQA-0000000BzTV-2jzZ;
+	Mon, 05 Jan 2026 19:39:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vcqQ8-0000000BzSz-0G21;
+	Mon, 05 Jan 2026 19:39:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0934339;
+	Mon,  5 Jan 2026 11:39:07 -0800 (PST)
+Received: from [10.57.46.243] (unknown [10.57.46.243])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F1CB63F694;
+	Mon,  5 Jan 2026 11:39:12 -0800 (PST)
+Message-ID: <c76ae679-d05a-4192-8ffe-189649799ee4@arm.com>
+Date: Mon, 5 Jan 2026 19:39:04 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/4] arm64: dts: rockchip: Add overlay for FriendlyElec
+ HD702E
+To: Doug Anderson <dianders@chromium.org>
+Cc: heiko@sntech.de, neil.armstrong@linaro.org, thierry.reding@gmail.com,
+ sam@ravnborg.org, jesszhan0024@gmail.com, dri-devel@lists.freedesktop.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 References: <cover.1767111804.git.robin.murphy@arm.com>
-In-Reply-To: <cover.1767111804.git.robin.murphy@arm.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Mon, 5 Jan 2026 11:35:26 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=UkCYRPbs3u3jGRZaqs4EW4-zA75iAaqM+=Weom1uojmw@mail.gmail.com>
-X-Gm-Features: AQt7F2qVclSy_2QUaj476pwucQuko2WJOWlBn7va8S3tPYkC358gB4ruqkJGhvQ
-Message-ID: <CAD=FV=UkCYRPbs3u3jGRZaqs4EW4-zA75iAaqM+=Weom1uojmw@mail.gmail.com>
-Subject: Re: [PATCH 0/4] Properly support FriendlyElec HD702E
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: heiko@sntech.de, neil.armstrong@linaro.org, thierry.reding@gmail.com, 
-	sam@ravnborg.org, jesszhan0024@gmail.com, dri-devel@lists.freedesktop.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+ <bc54c6c700a4be244bd4f81cb846cf628313a6ee.1767111810.git.robin.murphy@arm.com>
+ <CAD=FV=VB9XOm33VvsTN4cd22rBf9A-7ie4hN80TAByciQropfg@mail.gmail.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <CAD=FV=VB9XOm33VvsTN4cd22rBf9A-7ie4hN80TAByciQropfg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_113547_081493_B631FDE9 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20260105_113916_219286_DE8F3682 
+X-CRM114-Status: GOOD (  31.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,28 +67,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Doug,
 
-On Tue, Dec 30, 2025 at 9:20=E2=80=AFAM Robin Murphy <robin.murphy@arm.com>=
- wrote:
->
-> Hi all,
->
-> I've been using the HD702E LCD/touchscreen on my NanoPC-T4 for a few
-> years using my own DT with the "simple-panel" binding, but now we have
-> upstream overlays I figured it's about time to try doing it properly.
-> The screen itself doesn't seem to want to work as a generic "edp-panel",
-> as it appears the EDID isn't readable until after the whole lot is
-> enabled - I'm guessing this might be to do with the Analogix driver's
-> force-hpd behaviour - but since we do already have the legacy data, it
-> doesn't seem unreasonable to keep using it.
+On 2026-01-05 5:39 pm, Doug Anderson wrote:
+> Hi,
+> 
+> On Tue, Dec 30, 2025 at 9:21 AM Robin Murphy <robin.murphy@arm.com> wrote:
+>>
+>> +&{/} {
+>> +       pwm_bl: backlight {
+> 
+> nit: up to you, but I happened to notice that other rk3399 boards just
+> use the label "backlight:" instead of "pwm_bl:"
 
-Oh, I guess I should have read the cover letter before the patches. Sorry! =
-:(
+Sure, if you prefer.
 
-I'm hoping that with the "hpd-absent-delay-ms" you'll be able to read
-the EDID. I'd be surprised if something else is required, but let me
-know if that doesn't work.
+>> +               compatible = "pwm-backlight";
+>> +               pwms = <&pwm0 0 25000 0>;
+> 
+> 40kHz is awfully fast for a PWM backlight. Are you sure you need it that fast?
 
--Doug
+I guess I just copied this from somewhere without too much thought, but 
+double-checking the schematic[1] now, the backlight driver where this 
+signal ends up is apparently a SY7200A, whose datasheet says "And the 
+recommend dimming frequency range is 20kHz~1MHz." So relative to that 
+range it doesn't seem too bad!
+
+> 
+>> +               enable-gpios = <&gpio4 RK_PD5 GPIO_ACTIVE_HIGH>;
+> 
+> Not that I'm doing a thorough review here, but I happened to notice
+> that you're referring to a GPIO without adding a pinctrl entry. I
+> think the usual convention is to add one.
+
+Ah yes, good point! (Too easy to forget the boring details when doing a 
+holiday project away from home...)
+
+>> +               brightness-levels = <0 255>;
+>> +               default-brightness-level = <200>;
+>> +               num-interpolated-steps = <255>;
+>> +       };
+>> +};
+>> +
+>> +&edp {
+>> +       force-hpd;
+>> +       status = "okay";
+>> +
+>> +       aux-bus {
+>> +               edp-panel {
+>> +                       compatible = "friendlyarm,hd702e";
+> 
+> As per my response in your driver patch, any chance this can just be
+> "edp-panel"?
+
+Per the cover letter, I did try...
+
+>> +                       backlight = <&pwm_bl>;
+>> +                       no-hpd;
+>> +                       power-supply = <&vcc12v0_sys>;
+> 
+> While not strictly required, it seems highly likely that you want
+> "hpd-absent-delay-ms". It's highly unlikely that you would have
+> "no-hpd" plus a "power-supply" but no hardcoded delay to wait here. I
+> haven't seen panels that turn on and respond instantly.
+
+...but even with both delays bumped up and up and up to a ridiculous 
+2000ms it still didn't work. It reads the EDID as all-zeros then fails 
+to probe due to a lack of modes. Whereas with the hard-coded mode, the 
+display lights up immediately upon probe, so I don't think it's a timing 
+issue. My working theory is that there's some fundamental ordering issue 
+based on the comments in analogix_dp_detect_hpd() about aux not working 
+until HPD is forced at the controller end, and from a brief skim of the 
+history, quite possibly related to f2600d08d4e8 ("drm/bridge: 
+analogix_dp: Improve panel on time") which maybe prevents that happening?
+
+By that point it's well beyond my expertise, hence my conclusion that 
+since I'm not *adding* the legacy panel data, just rearranging what's 
+already upstream to finally put it to proper use, that's just about 
+acceptable :)
+
+The power-supply entry is really just for cleanliness, to avoid a "dummy 
+regulator" message - the screen module has all its own regulation on 
+board, which didn't seem worth modelling in detail as it's all fixed and 
+always-on, but the source is the board's main 12V input, so that much 
+*is* true.
+
+>> +
+>> +                       port {
+>> +                               panel_in_edp: endpoint {
+>> +                                       remote-endpoint = <&edp_out_panel>;
+>> +                               };
+>> +                       };
+>> +               };
+>> +       };
+>> +};
+>> +
+>> +&edp_out {
+>> +       edp_out_panel: endpoint {
+>> +               remote-endpoint = <&panel_in_edp>;
+>> +       };
+>> +};
+>> +
+>> +&i2c4 {
+>> +       #address-cells = <1>;
+>> +       #size-cells = <0>;
+> 
+> The base dts already specifies #address-cells and #size-cells, right?
+
+Indeed, but dtc doesn't know that when compiling the .dtbo in isolation.
+
+>> +       touchscreen@5d {
+>> +               compatible = "goodix,gt9271";
+>> +               reg = <0x5d>;
+>> +               interrupt-parent = <&gpio1>;
+>> +               interrupts = <RK_PC4 IRQ_TYPE_EDGE_FALLING>;
+>> +               irq-gpios = <&gpio1 RK_PC4 GPIO_ACTIVE_HIGH>;
+>> +               reset-gpios = <&gpio1 RK_PB5 GPIO_ACTIVE_HIGH>;
+> 
+> There's no power supply here, so I'll assume it follows the power
+> supply of the panel? You probably want to be a "panel-follower" then,
+> right? AKA you'd want to add a "panel = " node here to refer to your
+> edp-panel.
+> 
+> Oh, except that the goodix driver you're using doesn't support
+> panel-follower. That's annoying. I guess you'd have to add support for
+> that (see history around "is_panel_follower" in "i2c-hid-core.c")?
+> Without it then I assume you'll just be lucky that things work? ...or
+> you'd need to mark the power supply as always-on?
+
+Yeah, as above it is in fact always-on anyway - somehow I missed that 
+the goodix driver is getting regulators too. The 12V input is stepped 
+down to a main VDD_3.3V rail from which everything else is derived, so 
+if I add a fixed-regulator node for that which is sufficiently close to 
+the truth for both these and the panel supply, would that be clear enough?
+
+> I guess I can also note the same comment that there is no pinctrl for
+> your GPIOs here.
+
+Ack.
+
+Cheers,
+Robin.
+
+[1] https://wiki.friendlyelec.com/wiki/images/f/f3/LCD-HD702E-2106_SCH.PDF
 
