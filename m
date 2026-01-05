@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7114FCD0424
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 22:59:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA9FCD0424
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 22:59:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hFzXHytXScL9ONW+TaNE/6VXjGjDzsMwQx2FGngkYMk=; b=z2NrvINdDyPvoUHqgtViz554Qc
-	49Z6PWYZFuTQmlhgcv5c16+CtfhFTbQ42Kusx3ATqwXmKxtmxykhTx5avIq1jMsiysSGtWAk1+VJ1
-	XYF/2yVRPFibJE9w/91fhr58nt7kYc804L/c+ZDy4UKe1E5FTs+v89HqIee79GRyRfxldzNDqHpQH
-	neVQvFqxL4Ce6Y2Ys+29JZMw1Bcihze08chp/l4DbHzGFuYXkSsAcOdIfzt6Q0pmvF5XoB4LJRDTs
-	6mvl70B5cXStTUsgv7hOgKJglwUI7+qJMWoYbUOk6IxbdFfZW19aZGXMzTylYao5uHteq81neXASp
-	FR1q21YA==;
+	bh=6FdaQqxDsHIc/tUDTanXXS05tkq7OE+GcHX/z6IjsVE=; b=eI4Q90NzfE7/S4Zf0FxFJfwtVZ
+	V50sJxk0ccKdyBb27NzD5D6zrJF2abQlle3xWeIYQvmW+metanmiBBIEef09ZqTAAD7TwHQUwzuR1
+	n1i+tCX8ZEPWIBL67nIE24EdVwolSBDkQwCkH5dR0OBITc4Py0ISLr5PStZKY8+QthN3ltQlTWh24
+	7m5kVlslV4xfy1k3gJhgZPzzvoD88xAw9MJtu4cyyk2H/VTVmBySyLKah/5D+59B2AKCkzewchfTZ
+	06n7qCCiuHsXfCXFRrA4WBkItnB8z60EG6c+Z5zXzzGblFoE7Gu5t+rwrO0At4wR0F/KrPV840IHh
+	+Gj2z6zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vctXN-0000000CCsc-2bIE;
-	Mon, 05 Jan 2026 22:58:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vctXR-0000000CCus-3oHP;
+	Mon, 05 Jan 2026 22:59:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vctXL-0000000CCrl-1FI8
+	id 1vctXN-0000000CCsI-2o1l
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 22:58:55 +0000
+	Mon, 05 Jan 2026 22:58:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B8A166011E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 487A743B82;
+	Mon,  5 Jan 2026 22:58:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BEDCC16AAE;
 	Mon,  5 Jan 2026 22:58:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52DAAC19425;
-	Mon,  5 Jan 2026 22:58:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767653934;
-	bh=za7YNt3enxyPJ4YpLu4GYj73La7HrT7JJAIZfsfnNqc=;
+	s=k20201202; t=1767653937;
+	bh=JFPOBvbTjmeMqXOwXhUAcaRqRs6h5mCTAz9J+WLFGV4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mGk9/lU3+sIOcpG1lUUOhhj5clSduvESN/PzA7SkfjPjMMs0N+IM1m0lV32EYck9w
-	 R5jRT2ogLnS1ovYkY++wM71KNkVgMKwgHkWv99OgCQyiuc+AenyBaI5M+LSrq03+zv
-	 +/Lh8XOUbC0c+OOtMSbPXesrVfbubLc+7ZDwLHnTwx8Ad+N17e5NEJSkDL1Izy8bUj
-	 4BurhbCbQl9ClVrX1M0gwFkfQABa1rTJPaH4BXR50xCOhfZC6+yO5a7AkuKBICTmSf
-	 p8slZ1r1aI2JSvnyICLQ09QUn+rXrlgUOoAMf2IWKby92WusmAF20XVOIu2eNT3LtW
-	 /xv6TBB2SmVOQ==
+	b=vCKsMQy9EpaX08WQG2C4dwkfLcRRS+BH/zMGoHUv0EWLDweFyqvrTylCH4BCl1glb
+	 O5usHNjvzbmnwACa4EuLZjX1K6H79oOmIOR+147TEGSzWYJzGYUetWWV7GmkF09h42
+	 7P6hWwN+CqDEE2uWypmaQXMHYbgB2ih3fihvDjnUcvaVtL6uzDDhHT4QN9D6usTX9L
+	 Sz4Q/eneWLGNws3wWK05aRvASSA9VhrTz0nLyZKU+iD9GgTAWG/Ys9fujsM8bpn1Ee
+	 71VIOZMm0hjh0a8a76DSRbxcUP6mLO4VuBwpsAcQWnUnXrA66OSNQxl87tzvOaOU+M
+	 3O3I1EpK/M8FA==
 From: Will Deacon <will@kernel.org>
-To: Rob Clark <robin.clark@oss.qualcomm.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	iommu@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
+To: mhiramat@kernel.org,
+	oleg@redhat.com,
+	peterz@infradead.org,
+	catalin.marinas@arm.com,
+	Osama Abdelkader <osama.abdelkader@gmail.com>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH] iommu: arm-smmu: Simplify with scoped for each OF child loop
-Date: Mon,  5 Jan 2026 22:58:24 +0000
-Message-ID: <176764815322.1453267.5338402258433264092.b4-ty@kernel.org>
+	linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: simplify arch_uprobe_xol_was_trapped return
+Date: Mon,  5 Jan 2026 22:58:25 +0000
+Message-ID: <176763137996.1384236.2783577028215975576.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260102125003.64962-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260102125003.64962-2-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20251126223130.216302-1-osama.abdelkader@gmail.com>
+References: <20251126223130.216302-1-osama.abdelkader@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260105_145857_732848_89F72100 
+X-CRM114-Status: UNSURE (   6.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,16 +80,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 02 Jan 2026 13:50:04 +0100, Krzysztof Kozlowski wrote:
-> Use scoped for-each loop when iterating over device nodes to make code a
-> bit simpler.
+On Thu, 27 Nov 2025 00:31:30 +0200, Osama Abdelkader wrote:
+> convert arch_uprobe_xol_was_trapped() from explicit if/return true
+> return false pattern to direct boolean expression return in
+> arch/arm64/kernel/probes/uprobes.c
 > 
 > 
 
-Applied to iommu (arm/smmu/updates), thanks!
+Applied to arm64 (for-next/misc), thanks!
 
-[1/1] iommu/qcom: Simplify with scoped for each OF child loop
-      https://git.kernel.org/iommu/c/2026159372bb
+[1/1] arm64: simplify arch_uprobe_xol_was_trapped return
+      https://git.kernel.org/arm64/c/484626209600
 
 Cheers,
 -- 
