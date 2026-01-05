@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F76C2A075
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 05:18:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E822AC2A062
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 05:18:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6FnNbpGrvlniCMOLch6NApfeJnytZoAyLzv1qsCY88o=; b=yHEJd7V881tOrGtQC1fMUWiIl+
-	rlkAEblh3f2vLWJq1uq4+QHg8NaJmJABER/vDqs5Xl/E+toqq09CiU2vp3vQnx6+MllVeof1wP5J8
-	TEHMjh1e7Z7fZfKt7U+O4pR9lmX8hBsWallcyGdQWrI8iTy0aDeh2ux2HV+nGKJXGHtw/mU5zRROz
-	kkkN9UYNUNmoTMFlQkg+nlVZsrch6peOz57k44dpuqyiF7NtNhg5CzGKuSfOZLW8n39IAOecDKa3L
-	r4QbZU3+tOmWSNqOD6kNJ3VCrPy7A18zgR7rBl9a4SfJMu7r068s7Uvf4WjwC9zp3jZ/RMtwea0+I
-	sY/U71jw==;
+	bh=5EgHCXMOz5gRh7eMughW4cZ4zBOrTNxJx4cu/aaTqL8=; b=pnBrPu5N4+TYTS9Zls2/SVkKWG
+	Bsbwyws3y+TX6rWge4pQ+0nPfFGxu1zBpZb8FfmPuSiPWPcQRKnpji4HXThywrGzKTt3GBhIQlQ2D
+	2o9gNTef87Y3biIkzUu8V4s+0dESysLyaIkiYEiKrHXnS6y1oJhE2LF+KmNKPfSzKeRG4v6YDJSxk
+	o2lBfsHoJ60ZJIZr5qEYSfsMVoW6d/vckOH5eb63tLJpa4h/wSl8P/hgw4jJ+MKiyWjBWwni8Q/O4
+	qR8yyVTFmxb6zS68qV+RZfPFpePhk0P/kIKIyWsAD30MT8cTS7rWAN/2bMGfBSTKBxlOQUD3Fh8tu
+	BocnpHew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccyZ-0000000AnEH-02KI;
-	Mon, 05 Jan 2026 05:17:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vccyb-0000000AnHh-1MY2;
+	Mon, 05 Jan 2026 05:17:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vccvw-0000000Aj3N-3qHj;
-	Mon, 05 Jan 2026 05:15:16 +0000
+	id 1vccvz-0000000AjUq-1O8g;
+	Mon, 05 Jan 2026 05:15:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 876B344315;
-	Mon,  5 Jan 2026 05:15:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAC91C2BCB0;
-	Mon,  5 Jan 2026 05:15:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7EF5760150;
+	Mon,  5 Jan 2026 05:15:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF948C19421;
+	Mon,  5 Jan 2026 05:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767590112;
-	bh=6GiGUP+X4gmyZFn4wILAzmE5Daf6tx/zz/5Ty9L/V2o=;
+	s=k20201202; t=1767590114;
+	bh=0EBUEmVTe0e4bzKdqvPELWwoIgTHdjzdDZHfkwljOsg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Hn+T5ja72OrFlu0ck1rY36j7hbDeSAIJtr1r2XfD5CZBBnXK82U0S2S5vVueu6vnL
-	 Ghn7LwihQM4Z1AZgO8m2aTE58Q+/Bjc/ZK+eWiEUcVhHFW0NBhChppDwY4rzIw+g+C
-	 9p8jFujFM0C3hdvjFzSGjopv0y2xHajarIJvzOiV6qYl0h0iSEtW22Hz9i75CDqSyT
-	 1QIjgA+t/pE1tWp7u+IpsDLawczDOM+9cHXE3mm2OstI914Q9UN3LNYriQKKxBDTTM
-	 ALoc6OJvSK74qp7/vu/2Sm30b3bE6cpISIQX3QSUh3SiADUd6TRP9CGyKcBloveSWy
-	 OJK/pBYjbcdtw==
+	b=rOAhnKYROQMEoMD81Em7mWQ61HyLgE3WDv40a+uauy0zXQQ0mHHhwqwczGz06JzjM
+	 BdNHtV7nIaURBKsF+oSa2rFdIAEXQ7LByXqGJRKmIrdfOf6QiEc5WT1lC9vh/BhW9a
+	 IQ9OEsk+eGFsSOCFKi5iDvmfEmKDGx5jd+GTG1pUfu7myy1vVeHI3pUsbThA4X2oyu
+	 lJCDZSbKqwRYYUw6a5frOfQp/Jv2FxRovn8kxjvrIGakLOdH6Z1+7/6yA/2TAaFePp
+	 BbafT19y5VWI6JSqqbcyOypU34Iu6dDnPvbkNn++RQT2plgft3r939P/tX35BnbGzF
+	 L9/mowQabouBA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,17 +56,14 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 33/36] lib/crypto: aesgcm: Use new AES library API
-Date: Sun,  4 Jan 2026 21:13:06 -0800
-Message-ID: <20260105051311.1607207-34-ebiggers@kernel.org>
+Subject: [PATCH 36/36] lib/crypto: aes: Drop 'volatile' from aes_sbox and aes_inv_sbox
+Date: Sun,  4 Jan 2026 21:13:09 -0800
+Message-ID: <20260105051311.1607207-37-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260105051311.1607207-1-ebiggers@kernel.org>
 References: <20260105051311.1607207-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_211513_207057_48F977AC 
-X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,113 +78,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch from the old AES library functions (which use struct
-crypto_aes_ctx) to the new ones (which use struct aes_enckey).  This
-eliminates the unnecessary computation and caching of the decryption
-round keys.  The new AES en/decryption functions are also much faster
-and use AES instructions when supported by the CPU.
-
-Note: aes_encrypt_new() will be renamed to aes_encrypt() once all
-callers of the old aes_encrypt() have been updated.
+The volatile keyword is no longer necessary or useful on aes_sbox and
+aes_inv_sbox, since the table prefetching is now done using a helper
+function that casts to volatile itself and also includes an optimization
+barrier.  Since it prevents some compiler optimizations, remove it.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- include/crypto/gcm.h |  2 +-
- lib/crypto/aesgcm.c  | 12 ++++++------
- 2 files changed, 7 insertions(+), 7 deletions(-)
+ lib/crypto/aes.c | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
 
-diff --git a/include/crypto/gcm.h b/include/crypto/gcm.h
-index fd9df607a836..b524e47bd4d0 100644
---- a/include/crypto/gcm.h
-+++ b/include/crypto/gcm.h
-@@ -64,11 +64,11 @@ static inline int crypto_ipsec_check_assoclen(unsigned int assoclen)
- 	return 0;
- }
- 
- struct aesgcm_ctx {
- 	be128			ghash_key;
--	struct crypto_aes_ctx	aes_ctx;
-+	struct aes_enckey	aes_key;
- 	unsigned int		authsize;
- };
- 
- int aesgcm_expandkey(struct aesgcm_ctx *ctx, const u8 *key,
- 		     unsigned int keysize, unsigned int authsize);
-diff --git a/lib/crypto/aesgcm.c b/lib/crypto/aesgcm.c
-index ac0b2fcfd606..19106fe008fd 100644
---- a/lib/crypto/aesgcm.c
-+++ b/lib/crypto/aesgcm.c
-@@ -10,11 +10,11 @@
- #include <crypto/ghash.h>
+diff --git a/lib/crypto/aes.c b/lib/crypto/aes.c
+index 98ade1758735..e85c905296f1 100644
+--- a/lib/crypto/aes.c
++++ b/lib/crypto/aes.c
+@@ -9,15 +9,11 @@
+ #include <linux/crypto.h>
  #include <linux/export.h>
  #include <linux/module.h>
- #include <asm/irqflags.h>
+ #include <linux/unaligned.h>
  
--static void aesgcm_encrypt_block(const struct crypto_aes_ctx *ctx, void *dst,
-+static void aesgcm_encrypt_block(const struct aes_enckey *key, void *dst,
- 				 const void *src)
- {
- 	unsigned long flags;
+-/*
+- * Emit the sbox as volatile const to prevent the compiler from doing
+- * constant folding on sbox references involving fixed indexes.
+- */
+-static volatile const u8 __cacheline_aligned aes_sbox[] = {
++static const u8 __cacheline_aligned aes_sbox[] = {
+ 	0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5,
+ 	0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76,
+ 	0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0,
+ 	0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72, 0xc0,
+ 	0xb7, 0xfd, 0x93, 0x26, 0x36, 0x3f, 0xf7, 0xcc,
+@@ -48,11 +44,11 @@ static volatile const u8 __cacheline_aligned aes_sbox[] = {
+ 	0x9b, 0x1e, 0x87, 0xe9, 0xce, 0x55, 0x28, 0xdf,
+ 	0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68,
+ 	0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16,
+ };
  
- 	/*
-@@ -24,11 +24,11 @@ static void aesgcm_encrypt_block(const struct crypto_aes_ctx *ctx, void *dst,
- 	 * mitigates this risk to some extent by pulling the entire S-box into
- 	 * the caches before doing any substitutions, but this strategy is more
- 	 * effective when running with interrupts disabled.
- 	 */
- 	local_irq_save(flags);
--	aes_encrypt(ctx, dst, src);
-+	aes_encrypt_new(key, dst, src);
- 	local_irq_restore(flags);
+-static volatile const u8 __cacheline_aligned aes_inv_sbox[] = {
++static const u8 __cacheline_aligned aes_inv_sbox[] = {
+ 	0x52, 0x09, 0x6a, 0xd5, 0x30, 0x36, 0xa5, 0x38,
+ 	0xbf, 0x40, 0xa3, 0x9e, 0x81, 0xf3, 0xd7, 0xfb,
+ 	0x7c, 0xe3, 0x39, 0x82, 0x9b, 0x2f, 0xff, 0x87,
+ 	0x34, 0x8e, 0x43, 0x44, 0xc4, 0xde, 0xe9, 0xcb,
+ 	0x54, 0x7b, 0x94, 0x32, 0xa6, 0xc2, 0x23, 0x3d,
+@@ -428,11 +424,11 @@ static void __maybe_unused aes_decrypt_generic(const u32 inv_rndkeys[],
+ 		w[1] = w1;
+ 		w[2] = w2;
+ 		w[3] = w3;
+ 	} while (--n);
+ 
+-	aes_prefetch((const void *)aes_inv_sbox, sizeof(aes_inv_sbox));
++	aes_prefetch(aes_inv_sbox, sizeof(aes_inv_sbox));
+ 	put_unaligned_le32(declast_quarterround(w, 0, *rkp++), &out[0]);
+ 	put_unaligned_le32(declast_quarterround(w, 1, *rkp++), &out[4]);
+ 	put_unaligned_le32(declast_quarterround(w, 2, *rkp++), &out[8]);
+ 	put_unaligned_le32(declast_quarterround(w, 3, *rkp++), &out[12]);
  }
- 
- /**
-  * aesgcm_expandkey - Expands the AES and GHASH keys for the AES-GCM key
-@@ -47,16 +47,16 @@ int aesgcm_expandkey(struct aesgcm_ctx *ctx, const u8 *key,
- {
- 	u8 kin[AES_BLOCK_SIZE] = {};
- 	int ret;
- 
- 	ret = crypto_gcm_check_authsize(authsize) ?:
--	      aes_expandkey(&ctx->aes_ctx, key, keysize);
-+	      aes_prepareenckey(&ctx->aes_key, key, keysize);
- 	if (ret)
- 		return ret;
- 
- 	ctx->authsize = authsize;
--	aesgcm_encrypt_block(&ctx->aes_ctx, &ctx->ghash_key, kin);
-+	aesgcm_encrypt_block(&ctx->aes_key, &ctx->ghash_key, kin);
- 
- 	return 0;
- }
- EXPORT_SYMBOL(aesgcm_expandkey);
- 
-@@ -95,11 +95,11 @@ static void aesgcm_mac(const struct aesgcm_ctx *ctx, const u8 *src, int src_len,
- 	aesgcm_ghash(&ghash, &ctx->ghash_key, assoc, assoc_len);
- 	aesgcm_ghash(&ghash, &ctx->ghash_key, src, src_len);
- 	aesgcm_ghash(&ghash, &ctx->ghash_key, &tail, sizeof(tail));
- 
- 	ctr[3] = cpu_to_be32(1);
--	aesgcm_encrypt_block(&ctx->aes_ctx, buf, ctr);
-+	aesgcm_encrypt_block(&ctx->aes_key, buf, ctr);
- 	crypto_xor_cpy(authtag, buf, (u8 *)&ghash, ctx->authsize);
- 
- 	memzero_explicit(&ghash, sizeof(ghash));
- 	memzero_explicit(buf, sizeof(buf));
- }
-@@ -117,11 +117,11 @@ static void aesgcm_crypt(const struct aesgcm_ctx *ctx, u8 *dst, const u8 *src,
- 		 * inadvertent IV reuse, which must be avoided at all cost for
- 		 * stream ciphers such as AES-CTR. Given the range of 'int
- 		 * len', this cannot happen, so no explicit test is necessary.
- 		 */
- 		ctr[3] = cpu_to_be32(n++);
--		aesgcm_encrypt_block(&ctx->aes_ctx, buf, ctr);
-+		aesgcm_encrypt_block(&ctx->aes_key, buf, ctr);
- 		crypto_xor_cpy(dst, src, buf, min(len, AES_BLOCK_SIZE));
- 
- 		dst += AES_BLOCK_SIZE;
- 		src += AES_BLOCK_SIZE;
- 		len -= AES_BLOCK_SIZE;
 -- 
 2.52.0
 
