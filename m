@@ -4,91 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD7D4CD040C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D3CECD0409
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:46:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p8u80z+tPf43NlNwf3gyc1tmFsPKFLQnzJ5dp6IiBCs=; b=K3LcvZM9fVvWAz0bnue2gsWmNW
-	PlPCHI1ukROWwbD7dl6dceW9GtY9UY0NC0Kx3Yo3P2dYkBrig7oURkLg0GmLQMvS6C5aXfkQsS3TV
-	IpkKFptHfMdTmal1yw3DcG/BzP5ernkP+eEdxHl83ky5b7m9vI2umKtHgOiGad9dHiGGK4PXCKsie
-	WN956OSYTODS8bw4rHf7+vLC9gtTadbGTjDsMJKP5GGvcCC0faWAdjsZifkVkcV0elxtCot6JjHlh
-	5OpD/zT3Zq94tnYRKOdtYKaZ7GCwWXc5w4VTsQWZRUszOp8/3XlPz9g+Dh0I2/fyHqlCjdt2bTtnf
-	lKyw46Dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2AQgacz8x6LTCWKBQSLIrsMe5Rnqw2MnbZkxJhjnGKo=; b=QwFzl9ZtTeUMTTMRATNWjnkrIh
+	02TthZ7PkSDqTUb3UnXIEsB/m/0speEQbYKuDqBMI8zODD3jtAJcz4wu3qptYdNBYMOKNAsVie0ed
+	fL+I4X4BPQjCaVtQDN/rLiU9JqjiNNVtpPWGevxQyr0aSrF/HkqaZDLBAsO39GNG6ALk/JTu+kwX+
+	3vdHriaxx5a18uF2ou854qjldnDfgmrtGi8OdclIq3sJB0Y0PaBO2y/Sf+PMqdcZ2ApGKUHK9YTgP
+	6APk+O2vtcuyENP4+b5hKh7vNn+J1A1h1DwmFSMofy6yFPXRvu3oP65jYDCYbwTsh/Q6XtYmCyJij
+	Xg7ZfEfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcsCO-0000000C8Aw-2MVU;
-	Mon, 05 Jan 2026 21:33:12 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1vcsP5-0000000C8Ue-3cij;
+	Mon, 05 Jan 2026 21:46:20 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcsCL-0000000C8AA-35C4
+	id 1vcsP3-0000000C8UJ-099A
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 21:33:11 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2a0d0788adaso3140285ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 13:33:09 -0800 (PST)
+	Mon, 05 Jan 2026 21:46:18 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b713c7096f9so65849466b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 13:46:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767648789; x=1768253589; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=p8u80z+tPf43NlNwf3gyc1tmFsPKFLQnzJ5dp6IiBCs=;
-        b=zzYciquNB8WHPeXYeuiiqNzv8cfMLaThzqhT3k/LWnYo2NdmSfw2iByXYP6nfiip0H
-         2QkfcGn0YlGH8l887Sq7iITzUTdDDbNDjGjSoPIRJFF6XIlqLZvX8zy0rMrrrqzG2oqC
-         rd/Hl6QR4stMtE+oy+wrIAJqscPPEsuQnXjlMDNQLXwJ8mNNpsuBsvR0VBIiat3hz+i7
-         0hKSk0o6OAl9wh+evXlTpMRSmhxwyUOfs+/gLbDNXfpcBTUxglbZtd3/xAWipFpSYHe7
-         zrTJL225zEFwbjX35JZ6k7Ska+wtAawrUxpYR8Xv1U8/7P/bIECY5IaPc3kVexAAS0p+
-         ooNw==
+        d=gmail.com; s=20230601; t=1767649575; x=1768254375; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2AQgacz8x6LTCWKBQSLIrsMe5Rnqw2MnbZkxJhjnGKo=;
+        b=PQ/0GPBPjZoFAsAaza2BX0FHS85cVHD0un/2IWi79BC+rtI9g2OK0x8i4h73rzBfTA
+         9ZjloI8FHGt/YBbSGA6I6KB2s3qV03Tltufrn9b56zHSd90o82TfwIefjoD+lEOaI4R/
+         zB/ZCcC4gne8E0AMV5iDjPXJ43wTROOpkxeWJoIQMJdK4E5GLBfQvTlBJ9JW/Zbg5oCq
+         PtBd+egx6SHS3b+TRwEbpTgYMBvLyQE1eQ749cKC7N8eiobcrB7l2iiyFxi0Q27bON6p
+         TP2oTCgUnQBtvZu1k0Gg7SM5RESxzOxntcGN6+CIQ7Zfkj5dNqIh0/w92x/IrDEXeo0K
+         iQYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767648789; x=1768253589;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=p8u80z+tPf43NlNwf3gyc1tmFsPKFLQnzJ5dp6IiBCs=;
-        b=oLm8Rp8QSggeHGhS9e8AGntIJU7Fl70PxS/S98/MjEUIVUQZvat19Mw+vEZ8gJ60ML
-         VNdWj3njCzElo31f9RQ9xuSSYhgtvrym8ibguiYmB3XU07LF1Ck/z8B0zVXYng8Gn9LZ
-         sor90QNAQmjOKd5T7t9p6jbPaFEdiSOqZ+zKPBwHUnjUjPoiws6Cpg473/nTGB0jVSWb
-         XB5gV+JTmOg3hw6ZxoNuUrA/LVMpHdThiSAV0F/CDCYdL+zaBPWKdEnzSm1fT4ysAuAq
-         hDc+/tlbU9y0fWEWPR1MjKMhqVISEOGF0ymZRh8YmMa3LawZ3Q2p1+jf6E+dhwPE2lgy
-         bEZg==
-X-Forwarded-Encrypted: i=1; AJvYcCWKlu0Y/0QO1qV4rTfYtLYcDkiYRaXqR9f14+DZWCG1LQQfecqH8wmlY3MY/c7t6xPhLe8sHfaISj6frKeTZBJO@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIiYahLE6/xfSAOyKgCn5d2saxgZgI4BV3X4toBWyV8ECtoVf0
-	WR8AmhKVWgGKdZcu95e7Qr+lPGxGLUa4n0O1YWbVdFw6QymVUfgEsktQTVxR+UsGmUs=
-X-Gm-Gg: AY/fxX4sur24M7KyeDiWt30rtNYfaIOc5tWI2Nb9Ll1rQVvcGJFn9N+jA6Zy5wiCfHi
-	LL1NFM9O54nZZOzDOfOBytWwx1r0epYeflD5rNiHlbxTLT/K9hYLtegDFOXbjn5P/AwARDyLc65
-	pDcXsQLY86P5/Dr7a/Ei1hpIjsdPClh09TbH4XyOfb3VDAsCNwsUFL24fvjkwwmWXmgF3MF6/nZ
-	bA3ODejVJJ+X+BQNDV36SBS/ITVPbvlu8pUR+sRcFJ3dpPRmYEbuY3Sr0FQAeBEX4QDV4F1X3AF
-	yMbmdrizIodOesgBobt67f02WacN0SHnCr9d9TolUjmRQdVPsyRXC6IlqmS/eMBy4xbXtN0tC1P
-	T8Wu/846twqW6jCCfWadLi69fgnpdPG43Vx+HLCYE8WFi3umphlND9EKjMa6MZYavUu3K2f7osy
-	zXm8RXMnAtX9S7FQ==
-X-Google-Smtp-Source: AGHT+IF0bVODhApERlsNCQrrCwCXh5Bc7cgqZB6OPyCG+4xaL0MSIbArxA2Sg2gVDzhacygsGqC4xA==
-X-Received: by 2002:a17:902:fe04:b0:2a1:2b5f:d16b with SMTP id d9443c01a7336-2a3e2cefe5fmr6801155ad.31.1767648788754;
-        Mon, 05 Jan 2026 13:33:08 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:3f6b:5551:220f:8f13])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3c3a512sm1849275ad.10.2026.01.05.13.33.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jan 2026 13:33:07 -0800 (PST)
-Date: Mon, 5 Jan 2026 14:33:05 -0700
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 1/2] remoteproc: mtk_scp: Simplify with scoped for each
- OF child loop
-Message-ID: <aVwuEZCAjscaZs7m@p14s>
-References: <20260102124827.64355-3-krzysztof.kozlowski@oss.qualcomm.com>
+        d=1e100.net; s=20230601; t=1767649575; x=1768254375;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=2AQgacz8x6LTCWKBQSLIrsMe5Rnqw2MnbZkxJhjnGKo=;
+        b=vmnqZel2qprZa4472lUW8ewQ02XTYaPkbee1nDDZuOFXQ3T64e6Rtr+ZrMvtG3Xf+a
+         dmN9TdK/nvWCxiYhEs/Th6rBupZYC6ypjhUDz7/VPpab9FxkOXR1zU9YR12vhdiHgZyI
+         hIXMh7SAZZUhxPcC5JUPnO9gjH92x/Myo6mmC5IdSBul21TWb+wOEbS8og+rrWX47uyn
+         mnBhOZgMAbaCy6nHUg/B5UhD76OeTBwVNbAUNEXBNTBoujgtP4qPTput4cxqycevdpAE
+         oFfAS0vxC/+p2Hma+XAENpCVmK7lwGT5P3lDpNVSKPhKcF1+88dCXFP088A3mZ7deFSb
+         BsYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWP2Q6EdijU9Czryo9N3oLK/VBq/x6k6rpauFN/QtJyz/yNxacYgQ1fGqv2V0npWcyp5MfkQDVtfWYjpOPnFzZV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHdt1oZ+BJ38wSoc77Ugp5o2ZmjxndpF3qzZokHrG7demWP+oQ
+	AWjrgdQR0wAmg10oArzE7eoTiayvUzF6PB98CfwvGprs5DO3FqCy+f/ieJCTCjFcTBg/PQbWq9P
+	tzdaxjbdPIl6MuhOy30NmEl1L7LZWrKM=
+X-Gm-Gg: AY/fxX5DRoPLGokUNnTSo1HtNQc0dKht+O56PLiYPzZD5wYzBfhuRjIpQRTCEEAaHpX
+	l1vbG4Rjh08KvUOh6bPNzr9UOUHuaFIh9u9w0Gra4lau8HdipdTtpPl5uV4VDCyqyJoq/XS+sZ6
+	DMJN8qKh6b6bx3LIoJ9dcscc9jLA2OBPBu3lXhTg1oErZZbxAVMvhZ4z0Juglam2PSvmx73f6IB
+	M2ZK8hJWTLgGpAMtOW9nREs2yn0XdeYS/DkqHokWTET9dnifpIs1QlIqnx1MAUwFL+VsTwR8vQZ
+	is3JGunokkM=
+X-Google-Smtp-Source: AGHT+IF1rsCaTWKuHuU/DdNT/WlhCRwDnxcpN2RA6MA+qVhMgphIIIFwK8xfuiaraadBaRIRPf+t5spMfoiLc7jhNv8=
+X-Received: by 2002:a17:907:7294:b0:b7a:1bdb:30d9 with SMTP id
+ a640c23a62f3a-b8426c263a3mr99860166b.65.1767649574761; Mon, 05 Jan 2026
+ 13:46:14 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260102124827.64355-3-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260102214043.1410242-1-puranjay@kernel.org> <CANk7y0j7hAJ7OcH_HgN0cVGnUh=iBz=iuD9sYZmSy-koMjB_cg@mail.gmail.com>
+ <20260105212213.GA336318@e132581.arm.com>
+In-Reply-To: <20260105212213.GA336318@e132581.arm.com>
+From: Puranjay Mohan <puranjay12@gmail.com>
+Date: Mon, 5 Jan 2026 21:46:01 +0000
+X-Gm-Features: AQt7F2r2qkyYhWt9Ro6mLpJTWDlG9bogUxKNqnFN-4AlLZBj7oPXj2gxwhDnz3M
+Message-ID: <CANk7y0gb8TM7obqWgaNY3aK_TZLX_nivYEATv2GndN5Ghz1hcQ@mail.gmail.com>
+Subject: Re: [RFC PATCH] perf/arm64: Add BRBE support for bpf_get_branch_snapshot()
+To: Leo Yan <leo.yan@arm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Rob Herring <robh+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <martin.lau@kernel.org>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Breno Leitao <leitao@debian.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	kernel-team@meta.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_133309_808832_2B826170 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20260105_134617_111981_9E3F84F7 
+X-CRM114-Status: GOOD (  20.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,70 +102,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 02, 2026 at 01:48:28PM +0100, Krzysztof Kozlowski wrote:
-> Use scoped for-each loop when iterating over device nodes to make code a
-> bit simpler.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
->  drivers/remoteproc/mtk_scp.c | 7 +------
->  1 file changed, 1 insertion(+), 6 deletions(-)
+On Mon, Jan 5, 2026 at 9:22=E2=80=AFPM Leo Yan <leo.yan@arm.com> wrote:
 >
+> Hi,
+>
+> On Fri, Jan 02, 2026 at 09:51:15PM +0000, Puranjay Mohan wrote:
+> > Hi Catalin, Will, Mark, and Rob.
+> >
+> > I don't have access to BRBE enabled hardware and Qemu doesn't support
+> > this as well therefore I just sent the compile tested version.
+> >
+> > Can you help me with testing this:
+> >
+> > The relevant bpf self test is:
+> >
+> > ./test_progs -t get_branch_snapshot
+> > #132     get_branch_snapshot:SKIP
+> > Summary: 1/0 PASSED, 1 SKIPPED, 0 FAILED
+> >
+> > skipped for my setup as it is not supported.
+>
+> eBPF selftest build is quite heavy (many dependencies), finally I built
+> it cleanly.
+>
+> I did a test on FVP RevC, the test hit NULL pointer deference and kernel
+> panic in armv8pmu_sched_task().  See https://termbin.com/peg4, the
+> backtrace should can give you hints for the issue.
+>
+> Thanks,
+> Leo
+>
+> P.s. some logs are duplicate, this might be caused by two cores both hit
+> the NULL pointer issue ?
 
-I have applied both patches.
+Thanks for running the test, it will help me debug it better. But as
+Mark pointer out this has fundamental problems which I will try to fix
+first.
+
+P.S. - The test on FVP RevC, does this need special hardware or this
+is an emulation platform, in the later case, can I do the test myself
+somehow?
 
 Thanks,
-Mathieu
- 
-> diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
-> index db8fd045468d..328541e62158 100644
-> --- a/drivers/remoteproc/mtk_scp.c
-> +++ b/drivers/remoteproc/mtk_scp.c
-> @@ -1287,7 +1287,6 @@ static int scp_add_multi_core(struct platform_device *pdev,
->  	struct device *dev = &pdev->dev;
->  	struct device_node *np = dev_of_node(dev);
->  	struct platform_device *cpdev;
-> -	struct device_node *child;
->  	struct list_head *scp_list = &scp_cluster->mtk_scp_list;
->  	const struct mtk_scp_of_data **cluster_of_data;
->  	struct mtk_scp *scp, *temp;
-> @@ -1296,11 +1295,10 @@ static int scp_add_multi_core(struct platform_device *pdev,
->  
->  	cluster_of_data = (const struct mtk_scp_of_data **)of_device_get_match_data(dev);
->  
-> -	for_each_available_child_of_node(np, child) {
-> +	for_each_available_child_of_node_scoped(np, child) {
->  		if (!cluster_of_data[core_id]) {
->  			ret = -EINVAL;
->  			dev_err(dev, "Not support core %d\n", core_id);
-> -			of_node_put(child);
->  			goto init_fail;
->  		}
->  
-> @@ -1308,7 +1306,6 @@ static int scp_add_multi_core(struct platform_device *pdev,
->  		if (!cpdev) {
->  			ret = -ENODEV;
->  			dev_err(dev, "Not found platform device for core %d\n", core_id);
-> -			of_node_put(child);
->  			goto init_fail;
->  		}
->  
-> @@ -1317,14 +1314,12 @@ static int scp_add_multi_core(struct platform_device *pdev,
->  		if (IS_ERR(scp)) {
->  			ret = PTR_ERR(scp);
->  			dev_err(dev, "Failed to initialize core %d rproc\n", core_id);
-> -			of_node_put(child);
->  			goto init_fail;
->  		}
->  
->  		ret = rproc_add(scp->rproc);
->  		if (ret) {
->  			dev_err(dev, "Failed to add rproc of core %d\n", core_id);
-> -			of_node_put(child);
->  			scp_free(scp);
->  			goto init_fail;
->  		}
-> -- 
-> 2.51.0
-> 
+Puranjay
 
