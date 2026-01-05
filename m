@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6DF4CD0406
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:06:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27AA4CD0405
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:07:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GMgoeh4gYpUXEdSBCbE7evyOo1WBu9v+2MID43Drjf0=; b=LNDlLOXXEDW3nZKHp+0kPKNXgF
-	YNc1dk23bqz44l3QXGiHG1RMT3+cb29ZsEVotgxUnx/HkRswQ+nfRNUKHLbG6KqLeoqg+NH5lHXMC
-	0eNyT7DV/eA4S4MGlzbIari4equOxTHpopyDcpSp7iAfYwFNH17aPqQV0iyif8mROsZJ0NOTKhLFM
-	qeTNnNzJRzsuc5F6O0C4ZiOTk6x+Bfty8Lo7kG/jfIgz3n8X1iMBOeaQTlE+vn1OXKTLLsN38KftW
-	CnMWhKx5NQ3o/RywONUBy5C/JNhMNeZfME2kqvjplytqiOHMxIhBz9+zUCGLpdhlyjKcVWf8sRb+t
-	83HUocAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dpbQMbqsJKKioS0fNkIff5gURO/lF/Ipj4HJPiLvMsQ=; b=QRbir4dBevzxeN01yTLQSGEGLT
+	PrpbeHfQyI57xG3JdaD5pGnYZrEhmgc2PDPJ1yJ0m4sAuS80jI9XVxgCwXE6vVfjapXiZGV5c+F8t
+	WYqxkrTsOqRdycMSOj9xDQX01EHwhTJPU8vDLk7Y1binY5XOdwlQI5NW/4HeRMix6Urf8Z6tmkE8Q
+	f28A40LrQ5xaSOKfwoTo7vT0D7CQxhHnt2zIG18Agzgr9RGtQO5ehMQPODJrEjvMA24OhFzJg48xb
+	xlVgQSTK8MmHynox979mIksAKgXXXYBXs8XuTZ99TdeBU+8SO/Z98k2HbWb5Al9QQKsqwn2MfnGYu
+	zcpc1S3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcrmf-0000000C5ih-0eKw;
-	Mon, 05 Jan 2026 21:06:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vcrmx-0000000C5nk-19aP;
+	Mon, 05 Jan 2026 21:06:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcrmd-0000000C5iA-2oKj
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 21:06:35 +0000
+	id 1vcrmu-0000000C5m3-01z0;
+	Mon, 05 Jan 2026 21:06:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BE5E96013A;
-	Mon,  5 Jan 2026 21:06:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14F56C116D0;
-	Mon,  5 Jan 2026 21:06:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B2000408DF;
+	Mon,  5 Jan 2026 21:06:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78641C16AAE;
+	Mon,  5 Jan 2026 21:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767647194;
-	bh=4cLq/CaKkyPJSPiRRC3v7YCzlgUUsrtS2k32vjdQu7Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LIRsUPKuDv+Mks0Qe7ANH/OdcNIFKOVaftpxF5IwRNWDb8WKqzCbiLSuu/0ZgOMai
-	 ykgsseC0sVG/7zKYsN9g+dNLTCmjj5rNSZmFxaMajI//YgqSy9wWVxevwPc7Vo3z2I
-	 tNyzjeVitH53IsOQ+YyXo+uLk90aE1KZXkQp050Wt+1uBIi2Qt/N8uXt8LW8lEkqFj
-	 Ym5YCkU/YYYY3qiF418UP2wYXPvYw+8N4C0yD7ec7m3OO4NC3KvHf7P1bpmYvbBNb2
-	 EvCeYZlfQAnac/34RrSmA2LtbkzcoJY5qIkSQ4AL86nBJag4vSJYBpPiO/mk5xY5IO
-	 ubFOk7ghqoc1g==
-Date: Mon, 5 Jan 2026 21:06:28 +0000
-From: Will Deacon <will@kernel.org>
-To: Jeongin Yeo <leo.yeo@luaberry.com>
-Cc: catalin.marinas@arm.com, ryan.roberts@arm.com,
-	akpm@linux-foundation.org, david@kernel.org, kevin.brodsky@arm.com,
-	dev.jain@arm.com, quic_zhenhuah@quicinc.com,
-	lorenzo.stoakes@oracle.com, yang@os.amperecomputing.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: mm: prevent context switching during idmap is
- mapped
-Message-ID: <aVwn1PgxgiBsNK6o@willie-the-truck>
-References: <20251202004223.108388-1-leo.yeo@luaberry.com>
+	s=k20201202; t=1767647211;
+	bh=SGqvyNbapL7DF9Ho4FGpHDUF7ldVAxZx9cM+6JpIZxE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=BPRyBdJhlShaF11A/HZfsOSVgD1I/OTDE5XtAhZU82hLcYzy9o10QI2LHCyM2fn+I
+	 nfj+rG13/TJFKMe41GOAmMmCsUk10Wvnr98E7g/UGNUo17Z2TNhyiFyimEL0df2b//
+	 94MBGpaHHG2I7/nw2tcWtumtiAiJv4DMK42X1cocgxwzWWJ6FFuThNwRkISt5kMdkz
+	 AJjMBXIfvZ64e8knok5pbijfVagliZFihk4L7J8hBzteWnPYMMXDQduu56DYIZgfrv
+	 O9ucJePTGltILVSFki2XH0+YEAsY1vF8v7yb045/iwQNElDP4xrwhR92KF2RaXMqp/
+	 qgAG0uBZFHipw==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Date: Mon, 05 Jan 2026 15:06:43 -0600
+Subject: [PATCH v3 1/3] mtd: nand: atmel: Defer probe if SRAM is missing
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251202004223.108388-1-leo.yeo@luaberry.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260105-at91-probe-v3-1-594013ff2965@kernel.org>
+References: <20260105-at91-probe-v3-0-594013ff2965@kernel.org>
+In-Reply-To: <20260105-at91-probe-v3-0-594013ff2965@kernel.org>
+To: Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15-dev
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260105_130652_067329_DE062E97 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,61 +76,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 02, 2025 at 12:42:23AM +0000, Jeongin Yeo wrote:
->  cpu_install_idmap replaces ttbr0 to install idmap. replace_phys uses
->  idmap_cpu_replace_ttbr1 which is located in idmap,
->  thus it requires ttbr0 to point idmap. 
->  
->  However, if a kernel task has switched out right after
->  cpu_install_idmap, when kernel task is loaded, its ttbr0 is
->  mapped to reserved_pg_dir which doesn't contain any idmap
->  functions.
->  Therefore, the kernel task cannot find any functions to run,
->  causing memory fault.
->  
->  As far as I can verify from the current arm64 tree,
->  no in-tree caller invokes this function from a preemptible context.
->  
->  Nevertheless, future work might allow this function to be called in
->  preemptive state. Encapsulating the idmap sequence with
->  preempt_disable() and preempt_enable() prevents this possible problem.
-> 
-> Signed-off-by: Jeongin Yeo <leo.yeo@luaberry.com>
-> ---
->  arch/arm64/mm/mmu.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 2ba01dc8ef82..c3da836ebe8d 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -29,6 +29,7 @@
->  #include <linux/mm_inline.h>
->  #include <linux/pagewalk.h>
->  #include <linux/stop_machine.h>
-> +#include <linux/preempt.h>
->  
->  #include <asm/barrier.h>
->  #include <asm/cputype.h>
-> @@ -2136,7 +2137,7 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
->  		ttbr1 |= TTBR_CNP_BIT;
->  
->  	replace_phys = (void *)__pa_symbol(idmap_cpu_replace_ttbr1);
-> -
-> +	preempt_disable();
->  	cpu_install_idmap();
->  
->  	/*
-> @@ -2148,6 +2149,7 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
->  	local_daif_restore(daif);
->  
->  	cpu_uninstall_idmap();
-> +	preempt_enable();
->  }
+The Atmel NAND controller driver depends on an SRAM pool and has an
+implicit assumption that the SRAM pool has already been created.
+Changing the initcall ordering can break this. Unfortunately, fw_devlink
+can't save us here as there's not a standard property to track the
+dependency. So it's up to deferring probe to save us.
 
-__cpu_replace_ttbr1() is a _very_ low-level helper with only a handful
-of arch-specific callers and so we shouldn't be worrying about random
-functions calling it with preemption enabled.
+Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Tested-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+v3:
+ - Use dev_err_probe()
+---
+ drivers/mtd/nand/raw/atmel/nand-controller.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-Will
+diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
+index 83ba4ebd02d4..e7fdf532c5fe 100644
+--- a/drivers/mtd/nand/raw/atmel/nand-controller.c
++++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
+@@ -2304,10 +2304,8 @@ atmel_hsmc_nand_controller_init(struct atmel_hsmc_nand_controller *nc)
+ 
+ 	nc->sram.pool = of_gen_pool_get(nc->base.dev->of_node,
+ 					 "atmel,nfc-sram", 0);
+-	if (!nc->sram.pool) {
+-		dev_err(nc->base.dev, "Missing SRAM\n");
+-		return -ENOMEM;
+-	}
++	if (!nc->sram.pool)
++		return dev_err_probe(nc->base.dev, -EPROBE_DEFER, "Missing SRAM\n");
+ 
+ 	nc->sram.virt = (void __iomem *)gen_pool_dma_alloc(nc->sram.pool,
+ 							   ATMEL_NFC_SRAM_SIZE,
+
+-- 
+2.51.0
+
 
