@@ -4,159 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F20C2A062
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 02:21:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68211C2A062
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 02:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zAimY0oUUyOBfTVPgCpIbkgSm6b/wndiQu22R4nHJGw=; b=c2HDO3JwDnGK2SnTfcdmu/JbCU
-	9Q5a6uphWfFAv+szaFaygkgHnue4IyAkg9v9wK6k1cePFakEttE3fTwythfa9kchZ+2C1bROAyohW
-	mHVwpCr9d/18MzS0xTrADSCw6jkFGtBYARQDUmxkfKVSGUP+9GWwiJKhM2KnYrL0yesBdYI0e0huL
-	6pLIjlUMv+CCilqpwxBinWcADK7ab2GS1cGjpeAaJZC5H5lIun2Nvcm4QRMq3q51/QdWEJbXeXbyB
-	VLSnb1IvK/o7Jq/TnkNL8vZT0HB+A5fel/qGeVGmzMPCJU3wxQKpeLvFepWK7NZCsuMNzy/nXY8aw
-	XOe37qIg==;
+	bh=Y5/bn7VFLTPKVaHoanyjExDYS1J5nNKjCLzRIm69R90=; b=fr44km2EfGHKM17O/PVlSEXLkj
+	S49Vk+pcLMM1jITLN0MTX2zLKWDwIJDuALkJ1ofcfQk5HcYM65TwPFfaGsVwkAwlZiVxOvrbBeO4L
+	9gqXqi8LBZLGeCciszG9mZq+hyOedslIBQW0ppoPnq8Q/zv/nEcC2Rg7mnAuwokEZ8jypKEQ25bZq
+	0f/mARAFKic3KD0qlLR1fzcyTurFn/4WQVTqx0l1NKIWpAUlE0i2OwfmaMy9Re8DbygzIi9NMF0n/
+	EEN9/eufkurZp017VTsObg9HGWbuiOOGyYLart7ttN/y8l6WErFj9PfYyPNfynCMhhKEJmkcrWJZ0
+	9Avx1fhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcaDa-0000000AdKQ-1dFH;
-	Mon, 05 Jan 2026 02:21:14 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vcaPj-0000000AdkE-0D3f;
+	Mon, 05 Jan 2026 02:33:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcaDR-0000000AdJU-1Z96
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 02:21:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=e9o+uQtgFcnFG5yU9KpDzyzLE5Kcsfl6uufZIZ8No9jj0dZXdITH7mvu4ayVPCPamnE+h6bngB9a/qKtJ3nNuAEEniH5bu9uwJ74pdZcE3bIcl09vEfxyXhgK4yzfp6g/sKazAHGc2CZQZHefd5vpIYFupsT2UeT9Tdp9yP6RqsxscVav3PFv8Svk23BzIqAfuJ2oM6tngE28idzZ2ZubCtxuGyUOB3OjegzpAmazbchHb3OxnI4OCMUaNzjl87wKfGi4MrXFYzLeBmrmZ0FN4vqIK1kr9zaA3k4IhyjDazT9Y2dEYuXU18s62K+Dm3JkbooxINMVImFEucmqgtd3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zAimY0oUUyOBfTVPgCpIbkgSm6b/wndiQu22R4nHJGw=;
- b=jdlcApNPWBtQ2eeuba06yhqeEB/3ylb8QaAnnFTJAcaqGFrEfeQ5Jp34YGwyWYy9UetqXtP3fVYFW/Mju0i/lb+zRfuM9q+k4e9+ftX7sQpXz1AU37UXducjuflgfdJ+Xzp+OBevUkq8/GxH0j2hrCqk0+ZKdd+QqI0nx/Z0YuucIG/f2WOdGpqMYdTheGpE+TdBjb0f64UUVE3kIp/gO7LvfIGit7/wnzZgp/nfX220rqjOKITetzLNWqaSeK/C9/0IVzM1e4ZBpV14YNbiDHZbKA3+VN5Y3T3Dm3EKX5s2L16Z74Evk1ztuWe78l2/jgHSqzSE90PP0Z1UyPmSNw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zAimY0oUUyOBfTVPgCpIbkgSm6b/wndiQu22R4nHJGw=;
- b=CisEsg/NEc0aNv48mGtZAiiJiZpLxydj0vnbCgD89AFTY/ikyM4bTa41mhgLHlN/qP5Yzh3ImYJKNYlvSFeW/5+SFaPhuWTSwQ5BkD0P7n7lyLrEnXo4no0+wGoRO8QMfkYzujylgHDLuYNuvIgAOPK3+jdGn2LFfU6XhRIZK5iurUXb9GGCDyXNoHJDCs1J2KeCS/fsZV5ANcbqKyCzwfBwQkk8YmPBU0IL3eJcruIcWqY6waVfF73w+3PBCEERPuRw+QQCFqrBSD2gBWgMLYYbyRS6RbsYTpvkVlpLfm/B4aO+v4sJrnxQ4kaoVvpDEScmdX+zwkjTukyUyc/EBA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM9PR04MB7713.eurprd04.prod.outlook.com (2603:10a6:20b:2d4::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
- 2026 02:20:56 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.9478.004; Mon, 5 Jan 2026
- 02:20:56 +0000
-Date: Mon, 5 Jan 2026 10:19:16 +0800
-From: Rain Yang <jiyu.yang@oss.nxp.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Frank.Li@nxp.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
-	festevam@gmail.com, imx@lists.linux.dev, jiyu.yang@nxp.com,
-	kernel@pengutronix.de, krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	liviu.dudau@arm.com, marek.vasut@mailbox.org, robh@kernel.org,
-	s.hauer@pengutronix.de, shawnguo@kernel.org
-Subject: Re: [PATCH] arm64: dts: imx95: remove CLK_GPUAPB
-Message-ID: <aVsfpHtID4SdPP1n@oss.nxp.com>
-References: <20251231031915.752262-1-jiyu.yang@oss.nxp.com>
- <37489cb7-820d-46cd-a7ea-0f9097604895@mailbox.org>
- <aVXByNiEfC66RDG0@oss.nxp.com>
- <b2dd2109-c2d9-412e-9b11-5851485acf04@mailbox.org>
- <aVegAt002L20oBGf@oss.nxp.com>
- <0de33175-1dc3-417b-8dab-9b57940f0789@mailbox.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0de33175-1dc3-417b-8dab-9b57940f0789@mailbox.org>
-X-ClientProxiedBy: SI2PR01CA0034.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::9) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1vcaPh-0000000Adk5-0Txh;
+	Mon, 05 Jan 2026 02:33:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Y5/bn7VFLTPKVaHoanyjExDYS1J5nNKjCLzRIm69R90=; b=Za9ue1RhvMn07nMzSDFLoh/plx
+	X1raPfqf+g4PgT5J1M3wTW2gjlSzwHErKiDqVKJoBbn1VZZpGJI/x0UdbLC6f8e2hrW0xU+zKUEUm
+	od+LaSx4bQh4X7AdsFATRT65ADEi45Krey+AJpbHeTyKnevxyYq2Tc9XppQRREHDY9wACrj6lktkn
+	7dy3u2VPcq4m9zrw4SBTpoOyyWl0/TIddVFTZWtPATSiPnrL1F/Q+4WGwYPi94SECw7y9k9rse21c
+	mK50xyQvPsphQFA2dR44/uJnWigrdjhJ++DjYLYmv+/R9vpNs7QU+wCumjCzD2DLmQWK0xVF7pNWO
+	v9NAUAug==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vcaPd-00000007WTZ-0qUB;
+	Mon, 05 Jan 2026 02:33:43 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6052UpUmA1923969, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1767580251; bh=Y5/bn7VFLTPKVaHoanyjExDYS1J5nNKjCLzRIm69R90=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=DFzzrRUQIMbZfynfgMuGy8sSG9luT5oPyW2+9fwOS7EN+1WVww870cw2T3bDtnrkD
+	 VtQAHdlV/KndhrIeWqM8D9WrHQw0yEtgNFWJFJnRM7aYXM9xqOJSp9x8x2s5CBJiC6
+	 CJfJ2pumYYTjYfpLh6eBwhvRcw4ID5VqdwBbYE/SeX6/jSTbYalPmIn1x0BymcSxgt
+	 IlSshTJzpdhOqBkxcio/xGyEKEeOCmzwkfUBZOt0z+Z//xjnty79fEdyZORjbwpLHp
+	 YN/2VKL2W8NZh9qjmrOsM31BaQ04swNIdd8znxLsYlg/DFy/yjzY0G8ItCSHiQ6Fs/
+	 A8ug9GiYrrTrw==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 6052UpUmA1923969
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 5 Jan 2026 10:30:51 +0800
+Received: from RTKEXHMBS04.realtek.com.tw (10.21.1.54) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Mon, 5 Jan 2026 10:30:50 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS04.realtek.com.tw
+ (10.21.1.54) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Mon, 5 Jan 2026 10:30:50 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <eleanor.lin@realtek.com>
+CC: <afaerber@suse.de>, <conor+dt@kernel.org>, <cy.huang@realtek.com>,
+        <devicetree@vger.kernel.org>, <james.tai@realtek.com>,
+        <krzk+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>,
+        <linux-realtek-soc@lists.infradead.org>, <robh@kernel.org>,
+        <stanley_chang@realtek.com>
+Subject: Re: [PATCH v3 0/2 RESEND] arm64: dts: Add support for Kent SoC family
+Date: Mon, 5 Jan 2026 10:30:50 +0800
+Message-ID: <20260105023050.26864-1-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20251215103157.27039-1-eleanor.lin@realtek.com>
+References: <20251215103157.27039-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB7713:EE_
-X-MS-Office365-Filtering-Correlation-Id: b0f0b727-02cf-4ede-8c89-08de4c010ee4
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|1800799024|366016|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bkQSl1kopo1N1ibv6jhG1LNSrZDgJOBn/lZPZEJ0VcFDaJkSf/CrgHiOO4kw?=
- =?us-ascii?Q?aB6oG7R/r1AwSHaiqgo+yyqf9vmqlvhHaohP+WZ1l4HK/NnMd6M32JAMvDoo?=
- =?us-ascii?Q?gx/L0Dvyx7uJgo3cvxUft08FlyBs602PMmgneMfWsZDKzHxP9fRi6M4ZGwvM?=
- =?us-ascii?Q?dBNUNBhAWx/fUbqIAEVIBbXVdsBlnPLDFThXKke5xtfm/G93B8QzPkHBr7L1?=
- =?us-ascii?Q?Wda1vOvZgEu5SIs7nqOb50esTDSxVt8AeRSzPwAi0OgLHTDS1qn0ep7k16RD?=
- =?us-ascii?Q?yaBLR/PMuugEegsgdhlMOgfiakANAgVieg1F2e8o8f4DYdRs1pPAqmlukb1F?=
- =?us-ascii?Q?YXxfB8v31lkG4NSZ4p9/1dW8oQz0vhncepRiQjvxfhnQy+usexx5TVM4wAzt?=
- =?us-ascii?Q?X53s77swqSuAvzum+roxJ00lwT5KfglUXmdKrvomso1MYfuQC6V0xL7ugO4x?=
- =?us-ascii?Q?4s7njkLiK2mxDl01bwjdWGugB4OI+kZsI1w59FricuMVPyvpEg+oNmJzaGb9?=
- =?us-ascii?Q?PjQzunrLBzhBltEOnZvABjoFRN4317sn8G/l1hksQGK0sI2xphEDbJb2AS6i?=
- =?us-ascii?Q?VEr1nu8A3+FbWyJL4KKbioZEXcQTHDrxGn6xBsOFAEmlP/IEZUvfLe39+6Ce?=
- =?us-ascii?Q?/nJ/97YHAMIv+c+gPLJ31820q5UFWqShxY1f50MadAaXgKSj4bwgVH46ldDe?=
- =?us-ascii?Q?rpMk9g4c7RV6LWudtwrx4B3R2uVXGjZoQkrUfY76IfIojXE9L0ap5viMdcK+?=
- =?us-ascii?Q?wcCgrlGcujFUYzBASzS9hXDdClfIW0BGwjgE9sKy72XpTioXn75Um0cI2y5R?=
- =?us-ascii?Q?LSGKCmYhJH8uFIHcG70YhNib+xbVAnhFfNiW83Ijz+L+jAxM/3Q6SQq2Qudx?=
- =?us-ascii?Q?DiH+GLCVBlpF3+r8SkGp55xmGUA5WOxixF4bvj0JCGQAgw/nE+k2csz3gpdm?=
- =?us-ascii?Q?f9BjTKoVR/rf9AgRgmk/T/vTaTUWZ8GL78KLoH+PeFtm3wIllYAE7bihqd7e?=
- =?us-ascii?Q?J5dVejrqkotpVlJbkZy+hVT15B9ZlCLhFoLh7WuWWL642m35A1dX8UEmh55r?=
- =?us-ascii?Q?2OBHUsz5JM8IHgyZ1WFQXpLzcsKyXIKHOcz95kU4hBTw7brrO7pRK5vIonVA?=
- =?us-ascii?Q?h7QBB9IOHTtDRAZdTmSVgfaX8oYyE85m53PSmTaIKoCeNpGXEBefiFrkiBfj?=
- =?us-ascii?Q?qGx5jfqnCL6kk88/WHkp6CAZnnn1rEUu34CB9ij6hVYxTiCwRH1/ipkpOSpc?=
- =?us-ascii?Q?TSXQI1FWdy2iy7eSqZ0E0mXbIOHaiZwdBidXRDMM00CGVkbAaKYjuGXCxpes?=
- =?us-ascii?Q?BKfgfcK0NnCN2BfKOyywp/uW+LC22hO63AmYYGJcqYJrkbt/Vdrh9NOY6sDp?=
- =?us-ascii?Q?nrKcHAtr6B/oznT8CXBvN2zGVcbPGk2ewWeVXuN8Vd/je8/nIIZY0wymP+mh?=
- =?us-ascii?Q?vzORs7fRa0cwFM+7uzMoDlEJNvZKrcXTFy+VBjRsKqIui7Z3QwNAXLKh20fo?=
- =?us-ascii?Q?74vsgq8e5N08zNUZK0YUYxnU15TqJmQaH8wk?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(1800799024)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?37DfF56jOqOoI6bbEAIbDwRcnw5Fyq6X2C93Nhvq3yw2mJSg1j+FpeP1Es6M?=
- =?us-ascii?Q?NhizaEg7tIXL8FWQDk5oC3h6EQPRhyRxMDr/YpaXRjy2hSJIwVRndwHbD1j2?=
- =?us-ascii?Q?BC+xpPRbo3KK4QdVZxK8uZjDLzrrGd7AVxWinFXWDq+m0tjMOqSw4OsWO8sF?=
- =?us-ascii?Q?vJAJgfs1obRzOfAMQeoFKF7gkZi/hNsXYD8gSWqEUIOL3ahnXYwbVw3da5+l?=
- =?us-ascii?Q?XFZVfw3ZpWNknlgznL6Ln2Wr2gdJstZ0fNONwxvT//NVvwai/9UECtwgujKA?=
- =?us-ascii?Q?LSvYMRoMe5QgtCHmRsXNWIVtg6N5aAvdXe5UP5g7DDTnQ3x996y/b3wFTmXl?=
- =?us-ascii?Q?RFLISet2wWAO8XsutJP9cb9ePs6IELoWZZiUbkS7Ok79UwhaUzakCAN16iTI?=
- =?us-ascii?Q?g9b1EG2MM0BC9C+H4QfhOZpV1WBlPSjxtmCkAJNQt39LB/5nEV7YzMArdtca?=
- =?us-ascii?Q?LvjoId1g7x5cQYNn69CmYgMcvgNKZtncjSiUMvvgxjkhzsRpIF8fmihgmKgW?=
- =?us-ascii?Q?NSNIebzAYkyLgog3bzKDD9sQe2dac04Qpgt2rQ6YP4QhX8dFQA4y4OQtLsEd?=
- =?us-ascii?Q?jFUi7wYBmOOi+F4FatoiKcFAsbt1U/8jcJM5CPx/m4tiIhx31KI+0DNCYj4x?=
- =?us-ascii?Q?dzm1UcpCG1qGjEe1THfYer/S3EbLuTQf7lEEedTTIYfhRIv3aHvLUzHVt7Wa?=
- =?us-ascii?Q?fh+YKTc3tdzPP+80Y2s+Edf5X7t7SVFJrrtXx4fybgSEwg6NpSnuEIy0yUeZ?=
- =?us-ascii?Q?ziwaaBCe7JVYkA9+rb8d1IskeLct9V2L15d7wAYSDwh6Nuz5JdIhhxtespat?=
- =?us-ascii?Q?KNCIaanEpxYOYyOYC2x/By6ssY6mikhTxFZYbpl5jyrqXeIi0icZ+hb+6LqZ?=
- =?us-ascii?Q?7nrznl7xh4zhVML5dkZgI+hzn3ymuJEr5YBABve/p1YNuJrGRtnHDemDKa9a?=
- =?us-ascii?Q?CA0wzGXYrkp2n0UyhTmjeBPcTsyca0mErwJEQO8dy/MsEHChxzwB/TChu21Z?=
- =?us-ascii?Q?tpe/2X4vzGBRkr+GmAYb7YgSMrV6e61ahHdWPYYW2gXIl/rJgRoZbO2tK5v7?=
- =?us-ascii?Q?IGWiT332RFRJa5GUKmRZq1I1UFeCHgpidor0N1rZJLbekX/M2tHwXmHcDRkL?=
- =?us-ascii?Q?ZTK33gIpU0yC/KOQVfnx+VC17OeTqHeXTXveXyy0InAfN0dobtBIlXLOwo0P?=
- =?us-ascii?Q?DcrDst9BpwRg/G6x0uWaT9Zlxn1gAnh66Q7xh5Ze2JZ9HCOEr7j2c80wYQdA?=
- =?us-ascii?Q?PRPK1lDGcMaLbHkp+2ySGVFY1eZkkk6ri2cyL+fdOIiTTetfJXwGdGEJ1d+A?=
- =?us-ascii?Q?pMta3ARFtrQ2KsV2ywAXEZAjlqniAUiR5XkxOBLlYXCRCE+lBSF5OY+XbVP2?=
- =?us-ascii?Q?PXaIli+8K3gBq+G3so2R1PBtH8OwqI2bxw2JrSqs/z1kCc9SNEuOrs4Ue4yw?=
- =?us-ascii?Q?3z8n0R3w/4rV00BN7pRNzHaA4LWfzzMqEV895T5jxSdV9RDn8vQ2MPk0gxVL?=
- =?us-ascii?Q?ymMfTna9uPS/+oiFx0NrhbvAk3gKkZVyYQZQyGkgapT41OWunxD+jxXxn0OW?=
- =?us-ascii?Q?VowRYHpdreHwDIjp9O6bLKtkICFFNNcQlaKbhQM2itfYPgxxk4mHlpO8AF5w?=
- =?us-ascii?Q?d4o/XE1uC8DsBUM9bhFy1BtzABxX06fBqagf2zmOVzTtTOnAKsoFTsNaEPt1?=
- =?us-ascii?Q?y9cTGoGiVbEGUubVODflFuQFSYYfLRAxzmnbeFObtBaxBlNF3ZaN5bNZfC0L?=
- =?us-ascii?Q?TpMYgZo2+Q=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b0f0b727-02cf-4ede-8c89-08de4c010ee4
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 02:20:56.4036
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OyiWQefsxGcZUKUMVfsNNskm9V64A4mGUNe08oWjshGOOXydNHfsj2KMO2Cnt2vn4sRrePI47eluHTWR/COLbA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7713
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_182105_425353_0C18D243 
-X-CRM114-Status: GOOD (  31.28  )
+X-CRM114-CacheID: sfid-20260105_023341_930613_EEBC4B70 
+X-CRM114-Status: UNSURE (   6.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,76 +97,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 02, 2026 at 02:53:31PM +0100, Marek Vasut wrote:
->On 1/2/26 11:37 AM, Rain Yang wrote:
->> On Thu, Jan 01, 2026 at 05:51:12PM +0100, Marek Vasut wrote:
->> > On 1/1/26 1:37 AM, Rain Yang wrote:
->> > > On Wed, Dec 31, 2025 at 03:11:21PM +0100, Marek Vasut wrote:
->> > > > On 12/31/25 4:19 AM, Rain Yang wrote:
->> > > > > From: Rain Yang <jiyu.yang@nxp.com>
->> > > > > 
->> > > > > Dropping CLK_GPUAPB simplifies OPP handling and avoids unnecessary
->> > > > > complexity.
->> > > > > 
->> > > > > Fixes: 67934f248e64 ("arm64: dts: imx95: Describe Mali G310 GPU")
->> > > > > Signed-off-by: Rain Yang <jiyu.yang@nxp.com>
->> > > > > ---
->> > > > >     arch/arm64/boot/dts/freescale/imx95.dtsi | 4 ++--
->> > > > >     1 file changed, 2 insertions(+), 2 deletions(-)
->> > > > > 
->> > > > > diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
->> > > > > index 88bde59e61b2..ab446aa6f73c 100644
->> > > > > --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
->> > > > > +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
->> > > > > @@ -2164,8 +2164,8 @@ netc_emdio: mdio@0,0 {
->> > > > >     		gpu: gpu@4d900000 {
->> > > > >     			compatible = "nxp,imx95-mali", "arm,mali-valhall-csf";
->> > > > >     			reg = <0 0x4d900000 0 0x480000>;
->> > > > > -			clocks = <&scmi_clk IMX95_CLK_GPU_CGC>, <&scmi_clk IMX95_CLK_GPUAPB>;
->> > > > > -			clock-names = "core", "coregroup";
->> > > > > +			clocks = <&scmi_clk IMX95_CLK_GPU_CGC>;
->> > > > > +			clock-names = "core";
->> > > > 
->> > > > I don't think this is correct, SM can disable the GPUAPB clock from the SM
->> > > > monitor:
->> > > > 
->> > > > > $ clock.w gpuapb off
->> > > > 
->> > > > Linux has to make sure the GPUAPB clock are enabled to access the GPU
->> > > > register, hence the clock have to be described in DT.
->> > > Hi Marek,
->> > 
->> > Hello Jiyu,
->> > 
->> > > CLK_GPU and CLK_GPUAPB can only be controlled internally by the SM, not by Linux.
->> > > CLK_GPUAPB always runs at a fixed frequency, does not require dynamic adjustment,
->> > > and is practically always on.
->> > > Additionally, CLK_GPUAPB's frequency is absent from all OPP entries. Removing it
->> > > could simplify OPP handling logic and reduce unnecessary complexity.
->> > 
->> > But the SM can turn the GPUAPB clock off, correct ?
->> > 
->> > Linux has to be able to turn GPUAPB clock on, therefore the GPUAPB clock have
->> > to be described in DT, correct ?
->> 
->> Yes, CLK_GPUAPB can be turned off by the SM, but by default it remains on, just like
->> CLK_GPU. AFAIK, there is no scenario where either of these clocks could or would be
->> disabled in both SM and Linux.
->> 
->> If enabling or disabling CLK_GPUAPB in Linux was wanted, the same shall apply to CLK_GPU
->> to make this approach reasonable.
->> Also, OPP framework shall be adjusted to meet these changes too.
->
->You can not depend on the state in which bootloader or any other prior stage
->left the platform. If the clock can be turned off, you must make sure they
->are turned on for correct hardware operation.
->
->CLK_GPU is enabled as parent clock of CLK_GPUCGC already.
-Hi Marek,
-I'm afraid it's not what you expected, the CLK_GPUCGC patch already based on the CLK_GPU is
-always-on, you can disable the CLK_GPU in SM, then run any gles application, the board will reboot.
->
->I don't understand your concerns about the OPP framework, this keeps coming
->up in the discussion one way or the other, but it is not clear to me what
->this is about. Can you elaborate on the OPP framework concern ?
+Hi all,
+
+Just checking if there are any comments on this? Thanks.
+
+Best regards,
+Yu-Chun
 
