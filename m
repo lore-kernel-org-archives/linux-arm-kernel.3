@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6236CC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:08:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC22C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:12:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DJeP3umUUPJKCdZprAUZ1ZTfLiCOqec4hH3IqgMAE2k=; b=Meb5X8F9sVjQu+HK0sPWVMRRQu
-	Rs37unRTFfFe6krnE3SIuJe6+7VaUvUm4u55xPYgRjol4c108mwTeW+5BnErZILrMErohyhc4aYZE
-	Pgb1EtIkMwBDwOfAQUCBkinRT6gMLqgtx3TE3VErPnC+tHlNNb0jrEn5ywVRop/xosOVDPlWbtWGz
-	6FEHnqdenlqN0m+mUPB+sevHCX1LDdFKd52w93cZHvg/5crKeuyYdVlUnvhkqNxjhMH0B6LL4j2F0
-	ahsMIFhMwV09nLdJjN/UMu3Rk8dH+r5nWO1gNVbGFGre23Q1RyZcZdbH8r6f/jB2dvZ9zaxeZwzJg
-	1Sci+8vw==;
+	bh=ZICbs1ZKFUXAVw8Uv53chEaSv1izJm54XChd7BXTSFI=; b=vAE17YT4vN1PRbHvWRXlY86d/Z
+	qQ1eoiY5i2TjtnOWZfS014BN7azgeY2njQevuYcKD2qW3pB1g9Zmnia6odmNt9FMURhWcS6cYF4KV
+	nVh9AIMfUUgOWIWcsB7QjvZQb30lJhJPBRRSyslF5zLBogZLOt7zilkv4DOWLWz2VVUJuW16kYyKy
+	0WIYorVnAm9czw3/xbMJ74ygXN+5xuU2GxWjjZmr53uhs66GOPoCKF/G1+GISAcrhrp50WroP3uPb
+	xEo6Gdxocee2wcftGtEfZU/ahOwUwoF6RetwD315qWrdDyuYzohk/4fu+gmzm6n7GTlHg37izbYuK
+	ynS0F7aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmBd-0000000BaZ2-1nuK;
-	Mon, 05 Jan 2026 15:08:01 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1vcmFV-0000000BatR-3Q6C;
+	Mon, 05 Jan 2026 15:12:01 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmBZ-0000000BaXU-2uqW
+	id 1vcmFS-0000000BasA-2Wms
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 15:07:59 +0000
-Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-47796a837c7so205595e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 07:07:57 -0800 (PST)
+	Mon, 05 Jan 2026 15:12:00 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-47d63594f7eso199505e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 07:11:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767625676; x=1768230476; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1767625917; x=1768230717; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DJeP3umUUPJKCdZprAUZ1ZTfLiCOqec4hH3IqgMAE2k=;
-        b=KcKFNqLejGDM/u62ZnFccOIVNB4NvHm9Pyowkt5Cm0tobX+QH/fgyyDVFjKzWcinyI
-         agwPISDZlZN/1dt5maDA++vdHdoaj4cimxbfm02gkeaXTi25w78CDbwZ5wGED5eWGptV
-         xVuLk6AyfK6SJq8m16GOtMaLGae6fZYvS80qY8PqO/+xx7R2VfnidW3vQVqxrDG+TVpF
-         pOSt5cY3RgwmvTPYb4UhlIchaguBj/februQLLH9Q7Gdm9z3cZDP6ZDWxDC74HNU8F6+
-         Sa82+5E18DbPbnK0PM80oJtOYgjjcA+KSN5BtPPgsn98jYmLcD52gkNe3KwfGksQOaFQ
-         hlcA==
+        bh=ZICbs1ZKFUXAVw8Uv53chEaSv1izJm54XChd7BXTSFI=;
+        b=BltVfcdxXqj8NQk21/9GhftU26DJA/A7mOU/wZnubvoySKObb50B1kBcxUn8aE4yUr
+         VUzH4AtsNDLpcGLBJfaY3ZmZA4EuklSqfw2ZSrL2/AviHALXq+1YsKTT9VKE3I//W8zF
+         usSa6rqvNo20mylI4J4Zc8cJDUiEPE5z4Z/zwdNw606qHe0PLLY8EokTH9M+Da8H7oBl
+         bI1PVALwvZgzHH0wcXXObniD11JKbhkcv7RMhwJ0BPSZgKR+vQe4y5QIoqYyJVjwGiWZ
+         FU+8hUZOwJVs4RfwrKyG1QWRJ7BCqz0DEXB2G+jKhhpir9CZH1XNlJRtgbLEUkFh9OOy
+         DM5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767625676; x=1768230476;
+        d=1e100.net; s=20230601; t=1767625917; x=1768230717;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=DJeP3umUUPJKCdZprAUZ1ZTfLiCOqec4hH3IqgMAE2k=;
-        b=NH5kjbMKt2wp1UdfvmG5zO3lOL/U3eVzAHKAMnNX8oGrZ1zLPr+Ar4oOJu+b9L0rs4
-         Zy6So5X17G7g+4J5g2f3JaCW2CpnQb/3NRlvTnP8Mzmq4UAc9rOwlu+hTTUsBdAW/Kcb
-         fzZXElWFpmX4d8pZmkiRwJ5TqhTYirEhsUf/A9ZN+d47B1Adi9c0hUmgOX9z+08Mn3ii
-         rvdJtlapexkA0lZD3JH29nVk+PPICJIbrnYRztp2Vmyo/IroTQlqrQhki/x8mdsqmA8a
-         ARJPLhXImwV0KwJgopZ83ep2lWQsH4mUF1/LAIjkH2IhHFYFe2z62MDCBBOQgfg9Ljj5
-         EOqg==
-X-Forwarded-Encrypted: i=1; AJvYcCXdPmG+HKFIy/Kxbv66CxUQUPBe4NREfTRFEQWTksVew7AwvR+vorwWzayrykw4Cuh1Aki3ibTHDq0nvDQZnDT2@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkwV1Az/zuxTUD4u4WztoZAuZZeJCYZygG8UnZLR4R/PhDsFcW
-	Q/VdP9uPT6H0V80DXDhd9a+6viOgBbqwXjHGb01pX7n06mqwH0ZT6qVYCyksI+/FpeE=
-X-Gm-Gg: AY/fxX4t9sSobDr48HKWZ0XLSFTVseJBeEAfqgGPsCsa5S4fVE8A7Uqtpl7uGtO/9VG
-	BD+4qE3g0bR5yASlBZqy1hnJgXQc8sizhO8ONFZf9nHS5X7/4ZvdaSgiLsI5Aa1jGQyQ8QOPEJS
-	f5fEVoPTH2xmk6Bl6UUf1NcHfO8hCzWVIUxragml4tnKX4bqm1JzGAz5AGrG+bIF8CbFoMB1ZZN
-	0YAE9PlARvfmbJGdiDjEugSEoCdR/CQF0sbcGr/fxTTbxDGgxikFbAsvyq8jzCe0Tnat8aGpAsl
-	vwiDXEkZheKSOpTAXe99MR9jJk6UMUzVG1Nsfc85oymhmQoC7R+7THg14lgJ6y3GT2llB2MjhfN
-	kxinDrbJhVI4vqVmIZp/1EO9iLuwtj8VjT0wTz0i0v/Iw6sn05+iC1/9OBX2ATKDNlOa2EZ7GFY
-	dz4khj4wHzjgc4xdtEJ4KH98S+tvW92r81cxQdvJzlxOQhKXcSGM045Gx+pV47gnA=
-X-Google-Smtp-Source: AGHT+IHNPKjsE1L43Mcol0BPhYCu+RrWOpaqpZKfNqq23wdaZg/I9TTFl/xgV8vj8QWVD5+5pya8pQ==
-X-Received: by 2002:a05:600c:5249:b0:456:1a69:94fa with SMTP id 5b1f17b1804b1-47d1954a128mr636773765e9.13.1767625675529;
-        Mon, 05 Jan 2026 07:07:55 -0800 (PST)
+        bh=ZICbs1ZKFUXAVw8Uv53chEaSv1izJm54XChd7BXTSFI=;
+        b=WZl2EH5gBPv8zct24Y1En0UjpwmULcL8qOCkpGggQN4siP+32km7mn6dajbDWOY/7R
+         1GqO2BldXYlutrXLRvI0AUSKJ2pH4rOIN0Fnui7l0bQ6eYP/viHnymAHNQbdZrfesoK0
+         SododpPbVpIDxHY3H7CqT8I66jla9sQOqlyBSpMBR4WHmBYFJ1GdFSKYvUUIXz5Mn6FI
+         /IPRSNPc0mBjKv8Dj1SjFdBZmH+qtiWRYVREAsdZkcgmCX5KHE7dVoIlx0Rv4jIXCMzh
+         HH3AHgn6Hrq/Ikf889Dt6EymX7u5XX23C+1+yzsr6pCun6HAZhFYGvwdw03pVxQbPW8I
+         tmsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU+9rhPsyA3WTAyJeCB5uE/3y7PuiogXgT7gpqVFc7oBWA52mjSq/Qkq5kas+XHunonI9DTi0sNXZF8rtte95e4@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywnz3/WebOXzyW+5N4m3Lgscwq/NtAWdDbADjiELh+M2OgKvUO4
+	mF98OMd8FlDUMt+IpuHH7QVDvcsKFIN51S7Wyf43+HmZs/5V5leEFtPYloV9tjKj3HDCaYaLdSQ
+	Q/84U
+X-Gm-Gg: AY/fxX5Y1C1Mh/MFklvHNP8e7rK/9zJGQdIir1Cb0zzQdz1iB7gFyz5aujm0zk3cUa2
+	xD5jcRtM3dqrHsYRpc+kODI1EuzMsIwibVjA10Cg7QOwE6xGs77My5vokQACam9ez9/t2wWSdg7
+	rDv44b0NX5/+h0AdfQHc7BPycvEfNmohOJ6JrLVKofdIBBHUVOUU+KUoYRcJso3/GHjm2qxYl0O
+	mi4WT691zXHZlggqkJs45vtqA4SE5AhhhYSNr7ezNTOfOIWEQZZC9pL5m9XGnwmR2cZyXs+kn8h
+	6e/SPbaBPqE0FvOSEJNLeaSZ2cKCSwBAHwJHCZFyQYkhb86RJspc6x6a1IBnQx7m0hofjFhAG73
+	FyvVQ/WdHMjMvw0QBp0r723d93GqtzvJSOW6Hb/q6Ui9o04YN1GaKsDdXJ1mcoGPKv97lZl5CZr
+	RaHSxMXpORLIN/OPGRM6ej7l/Rba/D/3wCPih2duPBFkiG45+M4/SVCbQfWYGLQ9Y=
+X-Google-Smtp-Source: AGHT+IHRLvC8RFN1wxpNMmjmLXPXlAzEc9S+ADXuomF/jWk/3+qxIvBtpEcUlQn4VBvzYM2OCRH1ZA==
+X-Received: by 2002:a05:600c:154b:b0:477:55c9:c3ea with SMTP id 5b1f17b1804b1-47d1958e7b9mr656916475e9.35.1767625916649;
+        Mon, 05 Jan 2026 07:11:56 -0800 (PST)
 Received: from ?IPV6:2a01:e0a:3d9:2080:d4c1:5589:eadb:1033? ([2a01:e0a:3d9:2080:d4c1:5589:eadb:1033])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d7443c04csm35338465e9.1.2026.01.05.07.07.54
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d6d13e2e0sm197844145e9.1.2026.01.05.07.11.55
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 Jan 2026 07:07:55 -0800 (PST)
-Message-ID: <0a457882-1700-4edd-ba86-3682b05731f0@linaro.org>
-Date: Mon, 5 Jan 2026 16:07:54 +0100
+        Mon, 05 Jan 2026 07:11:56 -0800 (PST)
+Message-ID: <9fbeb95f-8f79-4983-857c-659566206835@linaro.org>
+Date: Mon, 5 Jan 2026 16:11:55 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH] pinctrl: meson: mark the GPIO controller as sleeping
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Linus Walleij <linusw@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>
-References: <20260105150509.56537-1-bartosz.golaszewski@oss.qualcomm.com>
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH 2/4] drm/panel-edp: Move FriendlyELEC HD702E
+To: Robin Murphy <robin.murphy@arm.com>, heiko@sntech.de,
+ dianders@chromium.org, thierry.reding@gmail.com, sam@ravnborg.org
+Cc: jesszhan0024@gmail.com, dri-devel@lists.freedesktop.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <cover.1767111804.git.robin.murphy@arm.com>
+ <027763b36fbad2005d09eeb289b7716c57f65e76.1767111809.git.robin.murphy@arm.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -113,12 +111,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20260105150509.56537-1-bartosz.golaszewski@oss.qualcomm.com>
+In-Reply-To: <027763b36fbad2005d09eeb289b7716c57f65e76.1767111809.git.robin.murphy@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_070757_774874_7CE14196 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20260105_071158_707738_E2DE3DCF 
+X-CRM114-Status: GOOD (  16.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,86 +132,105 @@ Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/5/26 16:05, Bartosz Golaszewski wrote:
-> The GPIO controller is configured as non-sleeping but it uses generic
-> pinctrl helpers which use a mutex for synchronization.
+On 12/30/25 18:20, Robin Murphy wrote:
+> FriendlyELEC's HD702E module is an eDP panel (in as much as it's some
+> LVDS LCD behind a Chrontel CH7511B eDP bridge), so move its data over
+> to the eDP driver, also resolving the warning about the missing bpc
+> value in the process.
 > 
-> This can cause the following lockdep splat with shared GPIOs enabled on
-> boards which have multiple devices using the same GPIO:
-> 
-> BUG: sleeping function called from invalid context at
-> kernel/locking/mutex.c:591
-> in_atomic(): 1, irqs_disabled(): 1, non_block: 0, pid: 142, name:
-> kworker/u25:3
-> preempt_count: 1, expected: 0
-> RCU nest depth: 0, expected: 0
-> INFO: lockdep is turned off.
-> irq event stamp: 46379
-> hardirqs last  enabled at (46379): [<ffff8000813acb24>]
-> _raw_spin_unlock_irqrestore+0x74/0x78
-> hardirqs last disabled at (46378): [<ffff8000813abf38>]
-> _raw_spin_lock_irqsave+0x84/0x88
-> softirqs last  enabled at (46330): [<ffff8000800c71b4>]
-> handle_softirqs+0x4c4/0x4dc
-> softirqs last disabled at (46295): [<ffff800080010674>]
-> __do_softirq+0x14/0x20
-> CPU: 1 UID: 0 PID: 142 Comm: kworker/u25:3 Tainted: G C
-> 6.19.0-rc4-next-20260105+ #11963 PREEMPT
-> Tainted: [C]=CRAP
-> Hardware name: Khadas VIM3 (DT)
-> Workqueue: events_unbound deferred_probe_work_func
-> Call trace:
->    show_stack+0x18/0x24 (C)
->    dump_stack_lvl+0x90/0xd0
->    dump_stack+0x18/0x24
->    __might_resched+0x144/0x248
->    __might_sleep+0x48/0x98
->    __mutex_lock+0x5c/0x894
->    mutex_lock_nested+0x24/0x30
->    pinctrl_get_device_gpio_range+0x44/0x128
->    pinctrl_gpio_set_config+0x40/0xdc
->    gpiochip_generic_config+0x28/0x3c
->    gpio_do_set_config+0xa8/0x194
->    gpiod_set_config+0x34/0xfc
->    gpio_shared_proxy_set_config+0x6c/0xfc [gpio_shared_proxy]
->    gpio_do_set_config+0xa8/0x194
->    gpiod_set_transitory+0x4c/0xf0
->    gpiod_configure_flags+0xa4/0x480
->    gpiod_find_and_request+0x1a0/0x574
->    gpiod_get_index+0x58/0x84
->    devm_gpiod_get_index+0x20/0xb4
->    devm_gpiod_get+0x18/0x24
->    mmc_pwrseq_emmc_probe+0x40/0xb8
->    platform_probe+0x5c/0xac
->    really_probe+0xbc/0x298
->    __driver_probe_device+0x78/0x12c
->    driver_probe_device+0xdc/0x164
->    __device_attach_driver+0xb8/0x138
->    bus_for_each_drv+0x80/0xdc
->    __device_attach+0xa8/0x1b0
-> 
-> Fixes: 6ac730951104 ("pinctrl: add driver for Amlogic Meson SoCs")
-> Cc: stable@vger.kernel.org
-> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Closes: https://lore.kernel.org/all/00107523-7737-4b92-a785-14ce4e93b8cb@samsung.com/
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 > ---
->   drivers/pinctrl/meson/pinctrl-meson.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+>   drivers/gpu/drm/panel/panel-edp.c    | 26 ++++++++++++++++++++++++++
+>   drivers/gpu/drm/panel/panel-simple.c | 25 -------------------------
+>   2 files changed, 26 insertions(+), 25 deletions(-)
 > 
-> diff --git a/drivers/pinctrl/meson/pinctrl-meson.c b/drivers/pinctrl/meson/pinctrl-meson.c
-> index 18295b15ecd9..4507dc8b5563 100644
-> --- a/drivers/pinctrl/meson/pinctrl-meson.c
-> +++ b/drivers/pinctrl/meson/pinctrl-meson.c
-> @@ -619,7 +619,7 @@ static int meson_gpiolib_register(struct meson_pinctrl *pc)
->   	pc->chip.set = meson_gpio_set;
->   	pc->chip.base = -1;
->   	pc->chip.ngpio = pc->data->num_pins;
-> -	pc->chip.can_sleep = false;
-> +	pc->chip.can_sleep = true;
+> diff --git a/drivers/gpu/drm/panel/panel-edp.c b/drivers/gpu/drm/panel/panel-edp.c
+> index 415b894890ad..dd53ccc209ce 100644
+> --- a/drivers/gpu/drm/panel/panel-edp.c
+> +++ b/drivers/gpu/drm/panel/panel-edp.c
+> @@ -1256,6 +1256,29 @@ static const struct panel_desc boe_nv140fhmn49 = {
+>   	},
+>   };
 >   
->   	ret = gpiochip_add_data(&pc->chip, pc);
->   	if (ret) {
+> +static const struct drm_display_mode friendlyarm_hd702e_mode = {
+> +	.clock		= 67185,
+> +	.hdisplay	= 800,
+> +	.hsync_start	= 800 + 20,
+> +	.hsync_end	= 800 + 20 + 24,
+> +	.htotal		= 800 + 20 + 24 + 20,
+> +	.vdisplay	= 1280,
+> +	.vsync_start	= 1280 + 4,
+> +	.vsync_end	= 1280 + 4 + 8,
+> +	.vtotal		= 1280 + 4 + 8 + 4,
+> +	.flags		= DRM_MODE_FLAG_NVSYNC | DRM_MODE_FLAG_NHSYNC,
+> +};
+> +
+> +static const struct panel_desc friendlyarm_hd702e = {
+> +	.modes = &friendlyarm_hd702e_mode,
+> +	.num_modes = 1,
+> +	.bpc = 8,
+> +	.size = {
+> +		.width	= 94,
+> +		.height	= 151,
+> +	},
+> +};
+> +
+>   static const struct drm_display_mode innolux_n116bca_ea1_mode = {
+>   	.clock = 76420,
+>   	.hdisplay = 1366,
+> @@ -1663,6 +1686,9 @@ static const struct of_device_id platform_of_match[] = {
+>   	}, {
+>   		.compatible = "boe,nv140fhmn49",
+>   		.data = &boe_nv140fhmn49,
+> +	}, {
+> +		.compatible = "friendlyarm,hd702e",
+> +		.data = &friendlyarm_hd702e,
+>   	}, {
+>   		.compatible = "innolux,n116bca-ea1",
+>   		.data = &innolux_n116bca_ea1,
+> diff --git a/drivers/gpu/drm/panel/panel-simple.c b/drivers/gpu/drm/panel/panel-simple.c
+> index b26b682826bc..3ea52667b858 100644
+> --- a/drivers/gpu/drm/panel/panel-simple.c
+> +++ b/drivers/gpu/drm/panel/panel-simple.c
+> @@ -2359,28 +2359,6 @@ static const struct panel_desc frida_frd350h54004 = {
+>   	.connector_type = DRM_MODE_CONNECTOR_DPI,
+>   };
+>   
+> -static const struct drm_display_mode friendlyarm_hd702e_mode = {
+> -	.clock		= 67185,
+> -	.hdisplay	= 800,
+> -	.hsync_start	= 800 + 20,
+> -	.hsync_end	= 800 + 20 + 24,
+> -	.htotal		= 800 + 20 + 24 + 20,
+> -	.vdisplay	= 1280,
+> -	.vsync_start	= 1280 + 4,
+> -	.vsync_end	= 1280 + 4 + 8,
+> -	.vtotal		= 1280 + 4 + 8 + 4,
+> -	.flags		= DRM_MODE_FLAG_NVSYNC | DRM_MODE_FLAG_NHSYNC,
+> -};
+> -
+> -static const struct panel_desc friendlyarm_hd702e = {
+> -	.modes = &friendlyarm_hd702e_mode,
+> -	.num_modes = 1,
+> -	.size = {
+> -		.width	= 94,
+> -		.height	= 151,
+> -	},
+> -};
+> -
+>   static const struct drm_display_mode giantplus_gpg482739qs5_mode = {
+>   	.clock = 9000,
+>   	.hdisplay = 480,
+> @@ -5235,9 +5213,6 @@ static const struct of_device_id platform_of_match[] = {
+>   	}, {
+>   		.compatible = "frida,frd350h54004",
+>   		.data = &frida_frd350h54004,
+> -	}, {
+> -		.compatible = "friendlyarm,hd702e",
+> -		.data = &friendlyarm_hd702e,
+>   	}, {
+>   		.compatible = "giantplus,gpg482739qs5",
+>   		.data = &giantplus_gpg482739qs5
 
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
