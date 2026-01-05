@@ -4,58 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BAD1CD0402
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:25:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A31ECD0409
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:29:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fH19RE7Po3v8c9Ryy2a6XxmLoV9SbMmzMoPQngKMgaE=; b=ZGC+HtjU3vzz1LbbGtlReFFnIe
-	AKWRdnj1fT4mrDmJu7WtQWRrJZj8nosAbmfeg9Gnh/6HlkyQZ+PWhgS126nBycqMsyGHty8KayThT
-	nLjCqq9oN60L6TwRXBOaaGunOCOCRoYmHiX71bJkd5eUSMKp9aYrquVrdzU/QSbEEHjanCksh+Ckm
-	I/qR8WxlNxZXqi6UVjAO3TmN7POaJ36h9d2AZexdTvV0yTm2X/7MC/1EH11qe4BV/hMAY2ktjKj+G
-	4LxmtwNdtUXAt2AFbY14FpbP5M8arKlml14xP5FYRZgqaoUJWE0nZCsnq9jJ5om0UOB70g6sSNaQi
-	Shs6s0Yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Im+1uPtAsHmMgTHyP6vN7Ci6XLQ3Q1HmHKAZSOYfbZU=; b=DeNH260c99wzul6yhjhOGBy4dg
+	FHlrR0n3MCNEoGs4iMTJtfaB82ugLf+gNXDL6oO4u8/NZgq8e3zR1MeWPxjMp+mFjqnOXCu03KUNm
+	bf6RfdPK0d3uqIvF+v8jCRTmKQJOsWGnELAH7j+5lp+YpzioVcNAtszzi98arap8OHKk4HCoVrNrQ
+	z+eA4r9wIxdnBiUP+9pnx5bsWW8yZ2LOHaxPz7x058qco26cYzYnc9/lfQEmw2wlfvdeoeg4dSZZF
+	GO/rbCSGuF66grrSxGMiwFlyvXjsPXnXw6ChS3A/6E+qwtX96e8d4XDCvq5uBM+fZP/q/5X3gWoFw
+	rrfvMdPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcs57-0000000C7as-2Qi7;
-	Mon, 05 Jan 2026 21:25:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vcs8T-0000000C7j2-1FRG;
+	Mon, 05 Jan 2026 21:29:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcs56-0000000C7am-1Qrg
+	id 1vcs8Q-0000000C7ii-2H7p
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 21:25:40 +0000
+	Mon, 05 Jan 2026 21:29:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AE97D60010;
-	Mon,  5 Jan 2026 21:25:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0F8CC116D0;
-	Mon,  5 Jan 2026 21:25:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BC114407EB;
+	Mon,  5 Jan 2026 21:29:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BC31C116D0;
+	Mon,  5 Jan 2026 21:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767648339;
-	bh=emnuWaNbQ/8r/CtexRe8ZoNLJgQGD8zcqE9kgbYDXbw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DMqnwYu3huICq9qp/8JaBvCQHBJWgeL+xOc0H3SsW56bt1rS9BavzrXVhL7tkllhc
-	 yHpM9qcealhig6gpwQyQqQoQTHu/KcujzUdKZiwNCfYP9q4mS5xUS7n9v7oWxAjhgd
-	 8CUi7aVA65YS3+9OSF5utS9vgoPkBALhMseN/QgvmMiPse/aTnhkTVyGiDHA+CG27P
-	 A+O5df3wxGMoWU+So3tHJrasroflA2GlBDghfTiRZtEl6i02lBFu386w71Z4ELQbKo
-	 F1aAmft3iDgjqdGiDVxg3+D89cuhemkeTxTLcUbD5QRe3ROwxUjwXYFXXPYY4x/+V+
-	 owYPatY0lTPDw==
-Date: Mon, 5 Jan 2026 21:25:34 +0000
-From: Will Deacon <will@kernel.org>
-To: Chaitanya Kulkarni <ckulkarnilinux@gmail.com>, joro@8bytes.org
-Cc: robin.murphy@arm.com, robin.clark@oss.qualcomm.com,
-	linux-arm-kernel@lists.infradead.org, kch@nvidia.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] iommu/io-pgtable-arm: fix size_t signedness bug in unmap
- path
-Message-ID: <aVwsThVhGG-6bINs@willie-the-truck>
-References: <20251219232858.51902-1-ckulkarnilinux@gmail.com>
+	s=k20201202; t=1767648545;
+	bh=CiTuVwc7tscmiNNKi7o7qvreD6DS7hi3dLd5+IdW8AE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=MyLU7TVXqWVP5cnxK1llZYdSGPFcHXVDkIaK6cEz0jWGVt6PVc2HuKr65Rf65xa9y
+	 HPon11mTgb3MwMvfMSi/ncp2OU0BzqDsoZRanpcE2JEpGJGZeoizBLp7ZtA2iOcHVA
+	 RR3p/KNp/l6dZc4NksRlwp5Qsu+gbIJLgv3UyPH1TEL2tcrsrBBt3HA2UKDnyqruI8
+	 sCENthzAmZ7kzr0WOqdnum/kEFLuDdKKK6Pc7N3VsFaGM3f0SUtFT6xmD5BaByf3Yt
+	 gOpW4SA2gGNR9gTEElaYTmp65QBIgWZRH1r3diBfepk4Ufc/GY16/6CTJ1lOPMrSLT
+	 FWVM03VRspHWQ==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: soc: samsung: exynos-pmu: Drop unnecessary select schema
+Date: Mon,  5 Jan 2026 15:28:57 -0600
+Message-ID: <20260105212858.3454174-1-robh@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251219232858.51902-1-ckulkarnilinux@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260105_132906_626156_6932CD12 
+X-CRM114-Status: UNSURE (   6.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,53 +75,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 19, 2025 at 03:28:58PM -0800, Chaitanya Kulkarni wrote:
-> __arm_lpae_unmap() returns size_t but was returning -ENOENT (negative
-> error code) when encountering an unmapped PTE. Since size_t is unsigned,
-> -ENOENT (typically -2) becomes a huge positive value (0xFFFFFFFFFFFFFFFE
-> on 64-bit systems).
-> 
-> This corrupted value propagates through the call chain:
->   __arm_lpae_unmap() returns -ENOENT as size_t
->   -> arm_lpae_unmap_pages() returns it
->   -> __iommu_unmap() adds it to iova address
->   -> iommu_pgsize() triggers BUG_ON due to corrupted iova
-> 
-> This can cause IOVA address overflow in __iommu_unmap() loop and
-> trigger BUG_ON in iommu_pgsize() from invalid address alignment.
-> 
-> Fix by returning 0 instead of -ENOENT. The WARN_ON already signals
-> the error condition, and returning 0 (meaning "nothing unmapped")
-> is the correct semantic for size_t return type. This matches the
-> behavior of other io-pgtable implementations (io-pgtable-arm-v7s,
-> io-pgtable-dart) which return 0 on error conditions.
-> 
-> Fixes: 3318f7b5cefb ("iommu/io-pgtable-arm: Add quirk to quiet WARN_ON()")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Chaitanya Kulkarni <ckulkarnilinux@gmail.com>
-> ---
->  drivers/iommu/io-pgtable-arm.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-> index e6626004b323..05d63fe92e43 100644
-> --- a/drivers/iommu/io-pgtable-arm.c
-> +++ b/drivers/iommu/io-pgtable-arm.c
-> @@ -637,7 +637,7 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
->  	pte = READ_ONCE(*ptep);
->  	if (!pte) {
->  		WARN_ON(!(data->iop.cfg.quirks & IO_PGTABLE_QUIRK_NO_WARN));
-> -		return -ENOENT;
-> +		return 0;
->  	}
->  
->  	/* If the size matches this level, we're in the right place */
+The "select" schema is not necessary because "syscon" compatible is already
+excluded from the default select logic.
 
-Acked-by: Will Deacon <will@kernel.org>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/soc/samsung/exynos-pmu.yaml      | 22 -------------------
+ 1 file changed, 22 deletions(-)
 
-Joerg -- please can you pick this one up for 6.19-rc?
+diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+index 6de47489ee42..bc2f83aec42b 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+@@ -9,28 +9,6 @@ title: Samsung Exynos SoC series Power Management Unit (PMU)
+ maintainers:
+   - Krzysztof Kozlowski <krzk@kernel.org>
+ 
+-# Custom select to avoid matching all nodes with 'syscon'
+-select:
+-  properties:
+-    compatible:
+-      contains:
+-        enum:
+-          - google,gs101-pmu
+-          - samsung,exynos3250-pmu
+-          - samsung,exynos4210-pmu
+-          - samsung,exynos4212-pmu
+-          - samsung,exynos4412-pmu
+-          - samsung,exynos5250-pmu
+-          - samsung,exynos5260-pmu
+-          - samsung,exynos5410-pmu
+-          - samsung,exynos5420-pmu
+-          - samsung,exynos5433-pmu
+-          - samsung,exynos7-pmu
+-          - samsung,exynos850-pmu
+-          - samsung-s5pv210-pmu
+-  required:
+-    - compatible
+-
+ properties:
+   compatible:
+     oneOf:
+-- 
+2.51.0
 
-Cheers,
-
-Will
 
