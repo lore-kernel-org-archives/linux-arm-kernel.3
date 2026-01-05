@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB0DCC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:51:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB52C79F9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZGxtQUKlmrtmSlpVIOuOpCZoju6luge5XNefwhjY828=; b=fRX2c17QKUbVO05QezqOmnZTpg
-	JsB05kLGh/DkvsjZ4uGH/inwXxUU/iIpm3phmiAfsUBtTSj9Mtd8KQgN9SRWUDg8Ro3XXz/aR9/pv
-	KHLY07BuKDFRhFbnuYmROX1pGSoJNuuw7l3z5iUxJr8oNQXlG1s88TOlzCGM9V/d3gRAgJTw+b8aw
-	VGPn+VP0S+NeAShU2aSQTY73LLpdNi9QFRP8XK7zYPf74x8AxKijmlcgbYGna683EwhkiL3cf7+ac
-	Zx8TD0v3p2toTcaoFiKObpmsReQI4FLug5VjX8gC6c0KKBrrsgRVWsopLINqDbEi7x05lOAAFKlap
-	yUqs6pOQ==;
+	bh=+BSqVH73L8fTrN31P/kcv+KzTmsi2a6tfsFFSE88wRE=; b=wvvYOjOzHX9whN+OmpK6PvsuLX
+	gJBgGC2LvR5QJyrXNzjS31+1sPiBtWC3sQ+l9qHxMuERF68tDlPnqgh2zGyRvyn3hLVhzYSF+3irK
+	9wjsTu/RaIbb8y2M/g36+L2tOFmNPg3odYrZbfG+46p+kcy+fmzlIXKnUaaER8iSKDCAIvfK46eOR
+	W5bDgpl6ImLJRLj6r6STydMS9j63vYtIb23uaGB0YUWsG+cE0BFBNhlJ6khmaiym4FuFHzivadxVS
+	TOqW6gwD0FpBiyrgjoDIg8MegcfSsS6ReZhnZBq3Qmhor5y+Wf0i469/KUiNaONwPmDl9zqElC25X
+	BLZ8rNSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmrW-0000000BerT-15ad;
-	Mon, 05 Jan 2026 15:51:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vcmrb-0000000Bez5-2U2f;
+	Mon, 05 Jan 2026 15:51:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmrS-0000000Beks-1rv4
+	id 1vcmrZ-0000000Bev2-159d
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 15:51:17 +0000
+	Mon, 05 Jan 2026 15:51:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 171264349A;
-	Mon,  5 Jan 2026 15:51:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6548DC19422;
-	Mon,  5 Jan 2026 15:51:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7D02C6013D;
+	Mon,  5 Jan 2026 15:51:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97A18C19421;
+	Mon,  5 Jan 2026 15:51:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767628274;
-	bh=z+ECzJROyQdWWU7EpyeiCPFMZT/79bbG51bzW+4nrIY=;
+	s=k20201202; t=1767628280;
+	bh=ZfA4UiYzGCQK0cKgopfw/hgwBoFVIptbiSIx9OCxWUw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RKZ6ExlMtj2i5gtBpyNGEVPoyvAQFmA502jSn1cYYu3f8bDRUaiybGO+HKre2RPmY
-	 fCMI+4+jGeAIkUqGFsNKl7eyU6cPyGMRN6fM0Ei53tULseptEbKEwoQSdKtWXySbuY
-	 dk4TBEthW7liY/bS4EFIYfS1Z4qY55AvmeYwJW0I8CHUhs+caHJZc2FNAPTh7t2RrV
-	 5TajTshsmE+bWzRoZGQ/a5REkJQejY/fsEZrVWMPd2qnxv+A3PCSmnor0LdczZRrAC
-	 lL3QPqS9x7H7NE8Mh+f8NW/sW60x5SRRlCPHsUYJw48SVJuxEavkfdMf3C7yMT/Xga
-	 awBQlHKOaHEMA==
+	b=In5EPAjsQr2rW6Ope7CCN5D7aJR9li8Br8OtEK2+f6DaLBHPgjB5rcSWySgbbWD8n
+	 KTt+oMf1bdU7tKV+kOn48VmtKs856C8skddVug2eTzfVZa6oWMAOHHExJ1w1+AW30q
+	 k3qiV8Y3QeYQofFgXr+lV1LwavNDwUrvkTLCdepJD807C5StAWelnRh9cgzDSIy9w4
+	 PH7Zbyr9VwIkXidDso6IG8Bb/QWEK0jVT9n9ZE6rDwnd5uK8/xwGVKcR6IAH3xXlDK
+	 XT8lCS5Ycq1GCW/qBq7XhWQOl8xYyBda3CAIGxTQDAoMLILQ0idC3z0KC1Fa6ZkLuz
+	 8+gPYMheh1rWw==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -56,17 +56,14 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Fuad Tabba <tabba@google.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH 27/30] KVM: arm64: Add some initial documentation for pKVM
-Date: Mon,  5 Jan 2026 15:49:35 +0000
-Message-ID: <20260105154939.11041-28-will@kernel.org>
+Subject: [PATCH 29/30] KVM: arm64: Register 'selftest_vm' in the VM table
+Date: Mon,  5 Jan 2026 15:49:37 +0000
+Message-ID: <20260105154939.11041-30-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260105154939.11041-1-will@kernel.org>
 References: <20260105154939.11041-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_075115_681572_F92FEFB9 
-X-CRM114-Status: GOOD (  23.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,152 +78,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add some initial documentation for pKVM to help people understand what
-is supported, the limitations of protected VMs when compared to
-non-protected VMs and also what is left to do.
+In preparation for extending the pKVM page ownership selftests to cover
+forceful reclaim of donated pages, rework the creation of the
+'selftest_vm' so that it is registered in the VM table while the tests
+are running.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- .../admin-guide/kernel-parameters.txt         |   4 +-
- Documentation/virt/kvm/arm/index.rst          |   1 +
- Documentation/virt/kvm/arm/pkvm.rst           | 101 ++++++++++++++++++
- 3 files changed, 104 insertions(+), 2 deletions(-)
- create mode 100644 Documentation/virt/kvm/arm/pkvm.rst
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  2 +
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 53 ++++---------------
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                | 49 +++++++++++++++++
+ 3 files changed, 61 insertions(+), 43 deletions(-)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index a8d0afde7f85..9939dc5654d2 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -3141,8 +3141,8 @@ Kernel parameters
- 			for the host. To force nVHE on VHE hardware, add
- 			"arm64_sw.hvhe=0 id_aa64mmfr1.vh=0" to the
- 			command-line.
--			"nested" is experimental and should be used with
--			extreme caution.
-+			"nested" and "protected" are experimental and should be
-+			used with extreme caution.
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+index e41a128b0854..3ad644111885 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+@@ -77,6 +77,8 @@ static __always_inline void __load_host_stage2(void)
  
- 	kvm-arm.vgic_v3_group0_trap=
- 			[KVM,ARM,EARLY] Trap guest accesses to GICv3 group-0
-diff --git a/Documentation/virt/kvm/arm/index.rst b/Documentation/virt/kvm/arm/index.rst
-index ec09881de4cf..0856b4942e05 100644
---- a/Documentation/virt/kvm/arm/index.rst
-+++ b/Documentation/virt/kvm/arm/index.rst
-@@ -10,6 +10,7 @@ ARM
-    fw-pseudo-registers
-    hyp-abi
-    hypercalls
-+   pkvm
-    pvtime
-    ptp_kvm
-    vcpu-features
-diff --git a/Documentation/virt/kvm/arm/pkvm.rst b/Documentation/virt/kvm/arm/pkvm.rst
-new file mode 100644
-index 000000000000..1882bde8cc0b
---- /dev/null
-+++ b/Documentation/virt/kvm/arm/pkvm.rst
-@@ -0,0 +1,101 @@
-+.. SPDX-License-Identifier: GPL-2.0
+ #ifdef CONFIG_NVHE_EL2_DEBUG
+ void pkvm_ownership_selftest(void *base);
++struct pkvm_hyp_vcpu *init_selftest_vm(void *virt);
++void teardown_selftest_vm(void);
+ #else
+ static inline void pkvm_ownership_selftest(void *base) { }
+ #endif
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index a586ca922258..f59f5e24ddda 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -1609,53 +1609,18 @@ struct pkvm_expected_state {
+ 
+ static struct pkvm_expected_state selftest_state;
+ static struct hyp_page *selftest_page;
+-
+-static struct pkvm_hyp_vm selftest_vm = {
+-	.kvm = {
+-		.arch = {
+-			.mmu = {
+-				.arch = &selftest_vm.kvm.arch,
+-				.pgt = &selftest_vm.pgt,
+-			},
+-		},
+-	},
+-};
+-
+-static struct pkvm_hyp_vcpu selftest_vcpu = {
+-	.vcpu = {
+-		.arch = {
+-			.hw_mmu = &selftest_vm.kvm.arch.mmu,
+-		},
+-		.kvm = &selftest_vm.kvm,
+-	},
+-};
+-
+-static void init_selftest_vm(void *virt)
+-{
+-	struct hyp_page *p = hyp_virt_to_page(virt);
+-	int i;
+-
+-	selftest_vm.kvm.arch.mmu.vtcr = host_mmu.arch.mmu.vtcr;
+-	WARN_ON(kvm_guest_prepare_stage2(&selftest_vm, virt));
+-
+-	for (i = 0; i < pkvm_selftest_pages(); i++) {
+-		if (p[i].refcount)
+-			continue;
+-		p[i].refcount = 1;
+-		hyp_put_page(&selftest_vm.pool, hyp_page_to_virt(&p[i]));
+-	}
+-}
++static struct pkvm_hyp_vcpu *selftest_vcpu;
+ 
+ static u64 selftest_ipa(void)
+ {
+-	return BIT(selftest_vm.pgt.ia_bits - 1);
++	return BIT(selftest_vcpu->vcpu.arch.hw_mmu->pgt->ia_bits - 1);
+ }
+ 
+ static void assert_page_state(void)
+ {
+ 	void *virt = hyp_page_to_virt(selftest_page);
+ 	u64 size = PAGE_SIZE << selftest_page->order;
+-	struct pkvm_hyp_vcpu *vcpu = &selftest_vcpu;
++	struct pkvm_hyp_vcpu *vcpu = selftest_vcpu;
+ 	u64 phys = hyp_virt_to_phys(virt);
+ 	u64 ipa[2] = { selftest_ipa(), selftest_ipa() + PAGE_SIZE };
+ 	struct pkvm_hyp_vm *vm;
+@@ -1670,10 +1635,10 @@ static void assert_page_state(void)
+ 	WARN_ON(__hyp_check_page_state_range(phys, size, selftest_state.hyp));
+ 	hyp_unlock_component();
+ 
+-	guest_lock_component(&selftest_vm);
++	guest_lock_component(vm);
+ 	WARN_ON(__guest_check_page_state_range(vm, ipa[0], size, selftest_state.guest[0]));
+ 	WARN_ON(__guest_check_page_state_range(vm, ipa[1], size, selftest_state.guest[1]));
+-	guest_unlock_component(&selftest_vm);
++	guest_unlock_component(vm);
+ }
+ 
+ #define assert_transition_res(res, fn, ...)		\
+@@ -1686,14 +1651,15 @@ void pkvm_ownership_selftest(void *base)
+ {
+ 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_RWX;
+ 	void *virt = hyp_alloc_pages(&host_s2_pool, 0);
+-	struct pkvm_hyp_vcpu *vcpu = &selftest_vcpu;
+-	struct pkvm_hyp_vm *vm = &selftest_vm;
++	struct pkvm_hyp_vcpu *vcpu;
+ 	u64 phys, size, pfn, gfn;
++	struct pkvm_hyp_vm *vm;
+ 
+ 	WARN_ON(!virt);
+ 	selftest_page = hyp_virt_to_page(virt);
+ 	selftest_page->refcount = 0;
+-	init_selftest_vm(base);
++	selftest_vcpu = vcpu = init_selftest_vm(base);
++	vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
+ 
+ 	size = PAGE_SIZE << selftest_page->order;
+ 	phys = hyp_virt_to_phys(virt);
+@@ -1817,6 +1783,7 @@ void pkvm_ownership_selftest(void *base)
+ 	selftest_state.hyp = PKVM_PAGE_OWNED;
+ 	assert_transition_res(0,	__pkvm_host_donate_hyp, pfn, 1);
+ 
++	teardown_selftest_vm();
+ 	selftest_page->refcount = 1;
+ 	hyp_put_page(&host_s2_pool, virt);
+ }
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index 2890328f4a78..6dc90ccc99a2 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -696,6 +696,55 @@ void __pkvm_unreserve_vm(pkvm_handle_t handle)
+ 	hyp_spin_unlock(&vm_table_lock);
+ }
+ 
++#ifdef CONFIG_NVHE_EL2_DEBUG
++static struct pkvm_hyp_vm selftest_vm = {
++	.kvm = {
++		.arch = {
++			.mmu = {
++				.arch = &selftest_vm.kvm.arch,
++				.pgt = &selftest_vm.pgt,
++			},
++		},
++	},
++};
 +
-+====================
-+Protected KVM (pKVM)
-+====================
++static struct pkvm_hyp_vcpu selftest_vcpu = {
++	.vcpu = {
++		.arch = {
++			.hw_mmu = &selftest_vm.kvm.arch.mmu,
++		},
++		.kvm = &selftest_vm.kvm,
++	},
++};
 +
-+**NOTE**: pKVM is currently an experimental, development feature and
-+subject to breaking changes as new isolation features are implemented.
-+Please reach out to the developers at kvmarm@lists.linux.dev if you have
-+any questions.
++struct pkvm_hyp_vcpu *init_selftest_vm(void *virt)
++{
++	struct hyp_page *p = hyp_virt_to_page(virt);
++	int i;
 +
-+Overview
-+========
++	selftest_vm.kvm.arch.mmu.vtcr = host_mmu.arch.mmu.vtcr;
++	WARN_ON(kvm_guest_prepare_stage2(&selftest_vm, virt));
 +
-+Booting a host kernel with '``kvm-arm.mode=protected``' enables
-+"Protected KVM" (pKVM). During boot, pKVM installs a stage-2 identity
-+map page-table for the host and uses it to isolate the hypervisor
-+running at EL2 from the rest of the host running at EL1/0.
++	for (i = 0; i < pkvm_selftest_pages(); i++) {
++		if (p[i].refcount)
++			continue;
++		p[i].refcount = 1;
++		hyp_put_page(&selftest_vm.pool, hyp_page_to_virt(&p[i]));
++	}
 +
-+If ``CONFIG_PROTECTED_VM_UAPI=y``, pKVM permits creation of protected
-+virtual machines (pVMs) by passing the ``KVM_VM_TYPE_ARM_PROTECTED``
-+machine type identifier to the ``KVM_CREATE_VM`` ioctl(). The hypervisor
-+isolates pVMs from the host by unmapping pages from the stage-2 identity
-+map as they are accessed by a pVM. Hypercalls are provided for a pVM to
-+share specific regions of its IPA space back with the host, allowing
-+for communication with the VMM. See hypercalls.rst for more details.
++	selftest_vm.kvm.arch.pkvm.handle = __pkvm_reserve_vm();
++	insert_vm_table_entry(selftest_vm.kvm.arch.pkvm.handle, &selftest_vm);
++	return &selftest_vcpu;
++}
 +
-+Isolation mechanisms
-+====================
++void teardown_selftest_vm(void)
++{
++	hyp_spin_lock(&vm_table_lock);
++	remove_vm_table_entry(selftest_vm.kvm.arch.pkvm.handle);
++	hyp_spin_unlock(&vm_table_lock);
++}
++#endif /* CONFIG_NVHE_EL2_DEBUG */
 +
-+pKVM relies on a number of mechanisms to isolate PVMs from the host:
-+
-+CPU memory isolation
-+--------------------
-+
-+Status: Isolation of anonymous memory and metadata pages.
-+
-+Metadata pages (e.g. page-table pages and '``struct kvm_vcpu``' pages)
-+are donated from the host to the hypervisor during pVM creation and
-+are consequently unmapped from the stage-2 identity map until the pVM is
-+destroyed.
-+
-+Similarly to regular KVM, pages are lazily mapped into the guest in
-+response to stage-2 page faults handled by the host. However, when
-+running a pVM, these pages are first pinned and then unmapped from the
-+stage-2 identity map as part of the donation procedure. This gives rise
-+to some user-visible differences when compared to non-protected VMs,
-+largely due to the lack of MMU notifiers:
-+
-+* Memslots cannot be moved or deleted once the pVM has started running.
-+* Read-only memslots and dirty logging are not supported.
-+* With the exception of swap, file-backed pages cannot be mapped into a
-+  pVM.
-+* Donated pages are accounted against ``RLIMIT_MLOCK`` and so the VMM
-+  must have a sufficient resource limit or be granted ``CAP_IPC_LOCK``.
-+* Changes to the VMM address space (e.g. a ``MAP_FIXED`` mmap() over a
-+  mapping associated with a memslot) are not reflected in the guest and
-+  may lead to loss of coherency.
-+* Accessing pVM memory that has not been shared back will result in the
-+  delivery of a SIGSEGV.
-+* If a system call accesses pVM memory that has not been shared back
-+  then it will either return ``-EFAULT`` or forcefully reclaim the
-+  memory pages. Reclaimed memory is zeroed by the hypervisor and a
-+  subsequent attempt to access it in the pVM will return ``-EFAULT``
-+  from the ``VCPU_RUN`` ioctl().
-+
-+CPU state isolation
-+-------------------
-+
-+Status: **Unimplemented.**
-+
-+DMA isolation using an IOMMU
-+----------------------------
-+
-+Status: **Unimplemented.**
-+
-+Proxying of Trustzone services
-+------------------------------
-+
-+Status: FF-A and PSCI calls from the host are proxied by the pKVM
-+hypervisor.
-+
-+The FF-A proxy ensures that the host cannot share pVM or hypervisor
-+memory with Trustzone as part of a "confused deputy" attack.
-+
-+The PSCI proxy ensures that CPUs always have the stage-2 identity map
-+installed when they are executing in the host.
-+
-+Protected VM firmware (pvmfw)
-+-----------------------------
-+
-+Status: **Unimplemented.**
-+
-+Resources
-+=========
-+
-+Quentin Perret's KVM Forum 2022 talk entitled "Protected KVM on arm64: A
-+technical deep dive" remains a good resource for learning more about
-+pKVM, despite some of the details having changed in the meantime:
-+
-+https://www.youtube.com/watch?v=9npebeVFbFw
+ /*
+  * Initialize the hypervisor copy of the VM state using host-donated memory.
+  *
 -- 
 2.52.0.351.gbe84eed79e-goog
 
