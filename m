@@ -4,82 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE5F7C2A075
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 08:59:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A45BC2A072
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 09:03:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BPGhObJh6p/DSugBaOZ6iBeMK4ZTjHPbYDiZj+b1/wo=; b=RZSe19o9vBvNH9OwKiW72wFm6D
-	BV474Xx+msncwWsO86JmL9Q+m/8Zl0wU2H/DB4NERI/iN1wrlfcMZhLZ6vC8EhQiCxZPUqG5zu5og
-	HsufEs5vVI0gGKqSFVJVxzN9W38bWtrwtn28gApJxEvHH607usJKADDGZhqR4ncsSdKaqEpOarnEy
-	S1eCHY+dTBdrnQlKgt009YNGe9lwlZiOfwhmjzYoXxjTh9deWXMYgAQPArqMcw+YR0J21lgL0CHrw
-	XIeI7j+o4bGQitjc2AMfYB5GRi1Wt/CiIsxiPE8DZYWPMQUx4eEnqf+BmxhQPygpqUhIGAxIsBNmT
-	C3rrsxjg==;
+	bh=Jdr6hzYdB6yV4A5dMP40GqEQPv+MIBJRoxnrozc+EiU=; b=vFDPt+f+CKPRH2l3CdAFiUh3yU
+	ujRuSRxsKHT8BICegApTmthTdXROAQRd+zrpkp8dEIaQm+DmcJ+g1RcQRbIcFOlR01reVYdFVyCaF
+	UoMqahA5y6VfPbHYj523SNw75eKIESQxyJLrIJNgrnGb4YL4FfSTwQP/klw2KByZGvIhw4zlutCMU
+	AYFQHWRRq2rb7wWBJSGauXKVeNmN8Dqj3dH0Uhj06xRpHOAlNwLK8wPJv7RbK/PEL+hhCYucD1s6M
+	OwbQxdNVsx2bKs4au4XSXDSCvG98zUutv5JIn1r8yqn/CCASYlCiA7gMCIkwHiKhalCEHqpZiH+nJ
+	MfMDPVpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcgR7-0000000B1ii-3NIi;
-	Mon, 05 Jan 2026 08:59:37 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vcgUh-0000000B26f-0zFq;
+	Mon, 05 Jan 2026 09:03:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcgR5-0000000B1hP-00WH;
-	Mon, 05 Jan 2026 08:59:36 +0000
-Received: from mail.ideasonboard.com (unknown [223.190.87.50])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3293422A;
-	Mon,  5 Jan 2026 09:59:13 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1767603553;
-	bh=IrxFe1lrCBvxReChMTgPwOdsw66G0dqVQjkOzd+EC+0=;
+	id 1vcgUf-0000000B26E-2gcC;
+	Mon, 05 Jan 2026 09:03:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id ACF4D6001D;
+	Mon,  5 Jan 2026 09:03:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3451C2BCB6;
+	Mon,  5 Jan 2026 09:03:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767603796;
+	bh=8vXTewXSrHJNcvfU5XxxfBAvi/sv6EPaP/XXsW+cvCM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=wNnS1q59LTsqwloUYby/iHc5Pwgxy0sMaW997kCOKfL3se6mYS/V9QAht0viT3qMG
-	 Vd6N07jMMDGKaCBEqJwWAUnLlA3TLA6UX61l6Ou6zGrkOYWUT8edq4gTTly93JksVC
-	 4bkR8S3AjHR/rKOxR5gi3RmLXp3Qb3QtTMBuO/yg=
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-Date: Mon, 05 Jan 2026 14:26:52 +0530
-Subject: [PATCH v2 6/6] platform/raspberrypi: vchiq: Register vc-sm-cma as
- a platform driver
+	b=VQrsMO31f35whw1OvqyzyD/ru/6ixeJrxJqPSihrTCg+MHcXEHSusMQXN/hY4PGjo
+	 7KdK1HTSSTcUXldEfr4r85VXwKlKItXgxOrS90enPT9z5nLTl4qRCH9GUPl7CydNsV
+	 +tndekfEl2Y/rhVnsJQid2JcGtCFnaqcRXuxQq2RhsljeKVt+t1NbH7ggrgOb/TxYD
+	 qN81C9cFNow3uGVreDH+5EF0zCBS57S49qXkXmPt0QgW9RHGZKRhE0DWbsE/ZRrak7
+	 78U3qCwPUG6LjsYdvW5TaMjEzN0YMgLFTggPba1Yok42Pz0Ux0tVBLBx2l1ehzF9CL
+	 wt/NJnGkuNnGg==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Mon, 05 Jan 2026 10:02:56 +0100
+Subject: [PATCH net-next 1/2] dt-bindings: net: airoha: npu: Add BA memory
+ region
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260105-b4-vc-sm-cma-v2-6-4daea749ced9@ideasonboard.com>
-References: <20260105-b4-vc-sm-cma-v2-0-4daea749ced9@ideasonboard.com>
-In-Reply-To: <20260105-b4-vc-sm-cma-v2-0-4daea749ced9@ideasonboard.com>
-To: Florian Fainelli <florian.fainelli@broadcom.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- bcm-kernel-feedback-list@broadcom.com, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Phil Elwell <phil@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Kieran Bingham <kieran.bingham@ideasonboard.com>, 
- Sumit Semwal <sumit.semwal@linaro.org>, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, 
- Jai Luthra <jai.luthra@ideasonboard.com>
+Message-Id: <20260105-airoha-ba-memory-region-v1-1-5b07a737c7a7@kernel.org>
+References: <20260105-airoha-ba-memory-region-v1-0-5b07a737c7a7@kernel.org>
+In-Reply-To: <20260105-airoha-ba-memory-region-v1-0-5b07a737c7a7@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1763;
- i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
- bh=QYSQaUNB5lBa98ydD83CEAKtQUeTbuJyuVjbux4+qMw=;
- b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBpW3z+sMGXH5sVaPa3fvc4cmzVziCxoz370dWdE
- Z+P6fu4RyCJAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaVt8/gAKCRBD3pH5JJpx
- RRQAD/9Pe2aMP1jkZ8t4yCvCmwzKA04VeVllyVHrvqIzuTyt9qlUfdML5ht+uFP4DuGvcv6lwWX
- vfZ+1XyOiaC8uEJALmVCk+fmAaw7+jId1JqPWk9rgK5ENRs3zP+x8sgD0w67s9EkVPdTRz0aVez
- EOujMxXsO0A54yPT/Suqw9MGLAcXxVFo4uTAbXvzyC/RsaMQlT36ytcEl5knmk2NKEGP7/l6wBO
- c9+ytklURyqDaUbzPNiCSHRJRqVgeE6DA3mH7dcREUzEayOsUzUjtxoNwPy5PgzmPF7WLceQjwY
- Tk4swoURnwgMa3B4BwHv9tozbIu+652invW14echlO7ePon8ygHf9JVmRWHAZ0Y++aoopVeafcl
- EQwrSvjRcXhyOITZ63Jtg1DllEvWBbbX15s/5aJwv+Ryrq7VvaMNQ9nrUSnovLt2s25vGy8E7vi
- OmHkPLffPhsvei7n4L+4okwTPOFrlXZqKZkcKFGqVPjlhN4H8cTlMM3h9D7JabBxXQoziP4BPih
- 3JkE16WZSReRGqvqxvhmiTejTM2WE8e8Y3JXktvYaLmPsASbe5fpCIk9Nin8LYzzvQdTTGt1a5D
- ldBdTDmtR5hf6nPgko8HvXh/iIrW5iZ6q0kFwPxzJ+O3KSIFUUdL4Vn0x9QwsK+GLJcEiayCAz5
- aBgWSNUq+evaWiA==
-X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
- fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_005935_185361_B9CAE561 
-X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,49 +73,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Introduce Block Ack memory region used by NPU MT7996 (Eagle) offloading.
 
-Register the vc-sm-cma driver as a platform driver under vchiq.
-
-Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c | 2 ++
- include/linux/raspberrypi/vchiq_arm.h                    | 1 +
- 2 files changed, 3 insertions(+)
+ Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
-index 2cc7574a6132d9a26278439eb5f89c7bad94d764..00c31f18bb69fa8f21a2a048393ea76615eb926b 100644
---- a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
-+++ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
-@@ -1415,6 +1415,7 @@ static int vchiq_probe(struct platform_device *pdev)
- 	vchiq_debugfs_init(&mgmt->state);
+diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
+index 59c57f58116b568092446e6cfb7b6bd3f4f47b82..b3a2b36f6a121f90acf88a07b0f1733fa6da08a8 100644
+--- a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
++++ b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
+@@ -50,6 +50,12 @@ properties:
+           - description: NPU wlan offload RX buffers region
+           - description: NPU wlan offload TX buffers region
+           - description: NPU wlan offload TX packet identifiers region
++      - items:
++          - description: NPU firmware binary region
++          - description: NPU wlan offload RX buffers region
++          - description: NPU wlan offload TX buffers region
++          - description: NPU wlan offload TX packet identifiers region
++          - description: NPU wlan Block Ack buffers region
  
- 	mgmt->audio_dev = vchiq_device_register(&pdev->dev, "bcm2835-audio");
-+	mgmt->vcsm_cma_dev = vchiq_device_register(&pdev->dev, "vcsm-cma");
+   memory-region-names:
+     items:
+@@ -57,6 +63,7 @@ properties:
+       - const: pkt
+       - const: tx-pkt
+       - const: tx-bufid
++      - const: ba
  
- 	return 0;
- }
-@@ -1423,6 +1424,7 @@ static void vchiq_remove(struct platform_device *pdev)
- {
- 	struct vchiq_drv_mgmt *mgmt = dev_get_drvdata(&pdev->dev);
- 
-+	vchiq_device_unregister(mgmt->vcsm_cma_dev);
- 	vchiq_device_unregister(mgmt->audio_dev);
- 	vchiq_debugfs_deinit();
- 	vchiq_deregister_chrdev();
-diff --git a/include/linux/raspberrypi/vchiq_arm.h b/include/linux/raspberrypi/vchiq_arm.h
-index 541b4efd64d9a8229c7e4b5bc21137a9899af9c6..d59837eaaa8c0e699575897c01d17359a58b0e62 100644
---- a/include/linux/raspberrypi/vchiq_arm.h
-+++ b/include/linux/raspberrypi/vchiq_arm.h
-@@ -62,6 +62,7 @@ struct vchiq_drv_mgmt {
- 	 * the interface.
- 	 */
- 	struct vchiq_device *audio_dev;
-+	struct vchiq_device *vcsm_cma_dev;
- };
- 
- struct user_service {
+ required:
+   - compatible
+@@ -93,7 +100,7 @@ examples:
+                      <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>,
+                      <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
+         memory-region = <&npu_firmware>, <&npu_pkt>, <&npu_txpkt>,
+-                        <&npu_txbufid>;
+-        memory-region-names = "firmware", "pkt", "tx-pkt", "tx-bufid";
++                        <&npu_txbufid>, <&npu_ba>;
++        memory-region-names = "firmware", "pkt", "tx-pkt", "tx-bufid", "ba";
+       };
+     };
 
 -- 
 2.52.0
