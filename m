@@ -4,141 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E658C2A062
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 05:07:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D7A6C2A072
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 05:15:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9Cc5jKflp9TlkxD7MiDANYT80vnx7M1outrulGRToH4=; b=ao9zkoo9vvSk3yA+XAXsdLa5kT
-	R7fJ01s4D5ws774Vgz581TM4Bzu42xnhCbr+q9xze5127IlSON51OpJ2VmnLYZrlPuVDgCeYIEZjf
-	pEGMcFNaeOTtWjOmVEtEPS4LHQm80Bpyf2YIJMYEuhCzn9OnzKM/mKj5v6UWCQ1NoVp+5GdLyBdjI
-	qQ0bGPubb8dbGMshW4Eazp5XBpbJWndPDLGQ4M7NxDR8t1I+/zfTJQKt+2Oy/0bQDjHpA6hZP8OjM
-	sByKENZtGOUiOo6jOE5lvsAiIZm8EdhLRxn4+HZwe6wAEdQdi5mibEGcEuljrIMJYVkHARkxaKOJr
-	og7rg12A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JVchaga48/tJEyPGmS9gUewrXvyfa7XPkG6JRIj5qsI=; b=CiR7FtUQpCXwKeT/HDTIkfp9io
+	c1i6uQyLJbrwimhg9rFlYrr3e+9Hw+UwWhDPX8pFLVZTqekqSc3cYPyEKFRwvM8Lk4/LetPR0IMEO
+	+/64CUZSoOjS3j2sArQecsUBkCAcP1rteONxbRbpayLWXgDt3LiWN0uIsQLK/4+/mfizWRDwDh1fF
+	tIzXVpzzfxvBkWpkE+SzRCc0hlRUOCc71T2hgq8WZaouXXAJN1XBA85SLzqvs7z9NfQP/YzfXEy+7
+	XtJ2K7niZ9RSkQ+Nl+dJe29wJuPDcDcT8LP9gn36tbvtpkK1VTTsqdmuHYOVxZFfSxkXdE3/WRoWw
+	ndnF0Alg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcco6-0000000AilM-2iK9;
-	Mon, 05 Jan 2026 05:07:09 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1vccvd-0000000Aj2Q-3nTf;
+	Mon, 05 Jan 2026 05:14:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcco3-0000000Ail0-1NkH
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 05:07:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=l6xASHvqSeCL+uauU3TYn9DzCIIS1726vebFQ2QoPnxcuz1rv5DhRHYb7/8PYPGpaCM1froN0wqEk9tjMI5UDTPg4qLYgWSjADtCWorU/oQDLlCpwygznGmqRHFJsOnDOoH3XbbzAMNNUpRsXiuooavDfvGAdysTQGXjCmVSWKdWgxutnMq3tI+HVANKXf5m5q+NMzFx5fdO1E9SD+LXynVrOCAWRAMmwhcVboxPdt5qko3/chHR4Tm8zPb34c+KbnA4uVZ/rJQj9Au3STA87jdwT91VoNenCFNyNx3rdNw/3ZBibxD5oB6fpqhkAEVaUHXvj3J+XPhIH/J7cHnzAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9Cc5jKflp9TlkxD7MiDANYT80vnx7M1outrulGRToH4=;
- b=aHp92S+8r2mbR2Iok6TooQJ68uCZQ2Oq8+XHo+CuA1yYYSmrIQYPNIvMBm/qkp4udRoeQAPPUSOwCnJ/ckZqz/xPuRksRmc0b1GSyT9JtOFby2U18MnEI80rSNhZN68Cgo/AWr+NcQ8vXOrudZSGf8KYF25/c4gYlRhiqretlC90k5pVDZO/1yQyVKJZlHkKQ8ug1vPqWXboss+Hk+iNH5UOONSylXLC6IjY1kQIoVzdALqmVdTSU/ZHIKuVbTCXxLEGIkufGk7d0FQpQHcZvjdwpTKF8uta4nYmYbCZ6oF0fazobn6nJGG4q+JtBSYexUGKp69quewWIwCb/9py4w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9Cc5jKflp9TlkxD7MiDANYT80vnx7M1outrulGRToH4=;
- b=NwYlYWhjPJ0hzxXSNjVDQqzwtFdVEWEMFUL6B5u0yJ1QGWQumJUo3LSPN9lrBCwJfuOSv4EVcUL4FbI/Yhe3gkK482ckreWvMzF3Il4oILL1z26qh56tLiqXfsIUwv1h0keUlJ/sEorX8mVX08lCfmp8AEMvznyh3rbzQLMJJ1U=
-Received: from DS7PR05CA0104.namprd05.prod.outlook.com (2603:10b6:8:56::16) by
- SA1PR10MB7855.namprd10.prod.outlook.com (2603:10b6:806:3a7::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
- 2026 05:06:59 +0000
-Received: from DS3PEPF0000C37E.namprd04.prod.outlook.com
- (2603:10b6:8:56:cafe::bb) by DS7PR05CA0104.outlook.office365.com
- (2603:10b6:8:56::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.1 via Frontend Transport; Mon, 5
- Jan 2026 05:06:54 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- DS3PEPF0000C37E.mail.protection.outlook.com (10.167.23.8) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9499.1 via Frontend Transport; Mon, 5 Jan 2026 05:06:58 +0000
-Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 4 Jan
- 2026 23:06:56 -0600
-Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 4 Jan
- 2026 23:06:56 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE213.ent.ti.com
- (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Sun, 4 Jan 2026 23:06:56 -0600
-Received: from uda0543015.dhcp.ti.com (uda0543015.dhcp.ti.com [10.24.69.9])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60556qme566425;
-	Sun, 4 Jan 2026 23:06:53 -0600
-From: Abhash Kumar Jha <a-kumar2@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<conor+dt@kernel.org>, <krzk+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <u-kumar1@ti.com>, <p-mantena@ti.com>,
-	<m-chawdhry@ti.com>
-Subject: [PATCH v2] arm64: dts: ti: Remove 4 watchdogs from common file and move them to J784S4
-Date: Mon, 5 Jan 2026 10:35:57 +0530
-Message-ID: <20260105050557.3459321-1-a-kumar2@ti.com>
-X-Mailer: git-send-email 2.34.1
+	id 1vccvb-0000000Aj1D-3wQI;
+	Mon, 05 Jan 2026 05:14:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3B3A044123;
+	Mon,  5 Jan 2026 05:14:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A769FC2BCB1;
+	Mon,  5 Jan 2026 05:14:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767590091;
+	bh=LgDbklGtIZFHjM4cuU4zrZQcyIE2hb0ascSpMxwTuKE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ijd+I7op5lmUKmk5siN9yLBtx/9k6AgkTruGEiLPcRGwEnQMxlLCxqX8pywV5GfoN
+	 tsBAnhPaMBaFTSP28NAe1luTRwpp2pepivmaJuj0U3w+9l8tt4BoMZon1eDSPWJB/3
+	 ixqKtW8L6wJNKC6zKnVH2XGD1Z7xpH2r9lqNLJaF8E3YC+ZE63dSTUP00KZnr6xOk/
+	 NAtoHW7Uew++VxBJ2sTNG1FMLDxVg+Xrvb1C2h9ttJ1kMRrZWuu7+Iip6dnqGcRe1T
+	 XviKWGaNVEUdpOmcKj0/MhKJk2lIzVOli5+z36mLRKHUUDgb/+WCYf9f34Ddkdec22
+	 hvdBT5uSXtmZg==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Holger Dengler <dengler@linux.ibm.com>,
+	Harald Freudenberger <freude@linux.ibm.com>,
+	Eric Biggers <ebiggers@kernel.org>
+Subject: [PATCH 01/36] crypto: powerpc/aes - Rename struct aes_key
+Date: Sun,  4 Jan 2026 21:12:34 -0800
+Message-ID: <20260105051311.1607207-2-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260105051311.1607207-1-ebiggers@kernel.org>
+References: <20260105051311.1607207-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF0000C37E:EE_|SA1PR10MB7855:EE_
-X-MS-Office365-Filtering-Correlation-Id: 66114cfa-2af6-4c18-539d-08de4c184111
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?O7z+o+1cKCFLu0Z+ZMoLod+nkV4yGCXEqtPoxyqmseQsDf1BOuX1cPnac5vS?=
- =?us-ascii?Q?P1ItAyx0ryY1m+ejpB38govCQwOqcbib/0j6kdNvhBd0MegeTEdcmYiF88Sx?=
- =?us-ascii?Q?SnPuCXEzUDxHf+XJxOcZ71FHuTVY6TiEqpPy7A8RCc69pd0SM65JryQ5yOcZ?=
- =?us-ascii?Q?4lvB0n/pbeEiRETdwTOVXrK7gQ18yTLZZGtWfLWu4vrvnD5bc5rMic2/50YW?=
- =?us-ascii?Q?Vr/2x5UW2+t75ABgxeewmy/dcuFHR0d08ARuwQ3VQmZULt9gYxDx+ZgA92zJ?=
- =?us-ascii?Q?mI37r4f5RpPISPqSgAi+yI2/+c3wy7rIUKr07qOIJtilB0g2R1XFZhulotY5?=
- =?us-ascii?Q?K3C3USs65IVRxLKXEDlqowbE7ITW7onmjnxDLQHbQRiZR4MLmnMikcIpe28o?=
- =?us-ascii?Q?hqS1hZGO8JnKFP58lMgGvj2prfHtjFH6vqpZYU2fcqZtFwfFlL3gjA4jIgnD?=
- =?us-ascii?Q?4c4xPfQWEd1ajdrKcvrc+9DKJm6UMi3KRVLf2IuGf+kgCAKlW5pcBVADdm1w?=
- =?us-ascii?Q?PR/WBU4o71CVL+ME0usGNzeJVu5wb5WST3ZHj7sOOYNxiCGm091rlaTFErrn?=
- =?us-ascii?Q?hqp+b9wXkU6EjFeYKYgR6tyMEPU9xgq7FtKF/Cpjk0GyiCc3qImkmxMPrSLC?=
- =?us-ascii?Q?tShnhNuITTS/laoNyJXk8zLhITcdpEiABjG/58AZDI9uQVf48nKKIUUD/rPa?=
- =?us-ascii?Q?1sZ3j+zAEWE+EcigzE3YxhUFqM1w4rHRIN+vzGobQPZr1ZbVTdkuE1Fu0jzH?=
- =?us-ascii?Q?vEbL+/+CEJpo/rLnYGYL1sU02Ux4wmilbIys7rE3GTCYZl/bnvHfx5CBDGse?=
- =?us-ascii?Q?w7xY0CWPlMuZ1qXOB64piHaQ4oG9whxEYQJlpqXgiSlWGqiGsW7/cd7wvogN?=
- =?us-ascii?Q?3xIhKVBwmGKPPyAtOV/7Fy6KkaPSfzpiVQUHxIvrxiCtuPemqPJTqyYmyBJl?=
- =?us-ascii?Q?uQY07vhKe5Ys+pQuYJO4qjleX7F4USoTnowNGcvPFREZBqcjnhoBVmXHv2hX?=
- =?us-ascii?Q?S/Kahixuwovw71qJWi9HKlTxkg21KgUcUyt1negWO8Dd3XI2I3yTyal03poU?=
- =?us-ascii?Q?h9wRWgEJcXzk2Q2OwW3XHx/QrDfJ45ViYeYDREk7XR2dXp5b/dvewM8ueSrR?=
- =?us-ascii?Q?yuqNE+eEqX7O1uTDQ/F90I06L3341tE3Yf9ABIaAjhZeNoZfPDYDSxpFT+Ek?=
- =?us-ascii?Q?ZSO6lR/E+nL/+2JG87FNkaHSIN+9Udea4sU504NRnk+a/mOMwAyW9auBwTlT?=
- =?us-ascii?Q?C4sH8ALhXAsuld+HaNZnHNjkZzL/DlNsZhxlJifEHv2BBABGtq66YP56qUfJ?=
- =?us-ascii?Q?Z394UkbSr4DunSXJBaxvFrd7cq28/v+YwbrxcXwxLY4K11ee3L8D2LwJ7mHE?=
- =?us-ascii?Q?71dooapLTUMhRrkPzT7Kd2TsmJ4EdHdluJB6lVMtcXd7GeCQwtGqH7n+Bmk2?=
- =?us-ascii?Q?JZxJJUR5KRUjC9W28E70wVrlnpu5e8ImQ2NkhOgbScrW2mhBrLiIW+3jZdI8?=
- =?us-ascii?Q?yhwujzD8+UNkxcOHYudhPDEYvuXVjLMgxxiqbTO03yZ4wzrQ8anPuXwan5Vx?=
- =?us-ascii?Q?kIbosMwogKaUFepkCUnrnENFNvxPhNCux5ivkEx0?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 05:06:58.6729
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 66114cfa-2af6-4c18-539d-08de4c184111
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C37E.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB7855
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_210703_473326_17885F6D 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260104_211452_025830_E9277E0E 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,115 +81,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As the J742S2 SOC has only 4 cores, remove the extra watchdogs and add
-them only for J784S4 SOC.
+Rename struct aes_key in aesp8-ppc.h and aes-gcm-p10-glue.c to
+p8_aes_key and p10_aes_key, respectively.  This frees up the name to use
+in the library API in <crypto/aes.h>.
 
-Fixes: 9cc161a4509c ("arm64: dts: ti: Refactor J784s4 SoC files to a common file")
-Signed-off-by: Abhash Kumar Jha <a-kumar2@ti.com>
+Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
-Changes in v2:
-- Added fixes tag in the commit message.
-- Link to v1: https://lore.kernel.org/all/20251224055410.208516-1-a-kumar2@ti.com/T/#u
+ arch/powerpc/crypto/aes-gcm-p10-glue.c |  4 ++--
+ arch/powerpc/crypto/aes.c              |  4 ++--
+ arch/powerpc/crypto/aes_cbc.c          |  4 ++--
+ arch/powerpc/crypto/aes_ctr.c          |  2 +-
+ arch/powerpc/crypto/aes_xts.c          |  6 +++---
+ arch/powerpc/crypto/aesp8-ppc.h        | 23 ++++++++++++-----------
+ 6 files changed, 22 insertions(+), 21 deletions(-)
 
- .../dts/ti/k3-j784s4-j742s2-main-common.dtsi  | 36 -------------------
- arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi    | 36 +++++++++++++++++++
- 2 files changed, 36 insertions(+), 36 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-index 9cc0901d58fb..c2636e624f18 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-@@ -2378,42 +2378,6 @@ watchdog3: watchdog@2230000 {
- 		assigned-clock-parents = <&k3_clks 351 4>;
- 	};
+diff --git a/arch/powerpc/crypto/aes-gcm-p10-glue.c b/arch/powerpc/crypto/aes-gcm-p10-glue.c
+index 85f4fd4b1bdc..f3417436d3f7 100644
+--- a/arch/powerpc/crypto/aes-gcm-p10-glue.c
++++ b/arch/powerpc/crypto/aes-gcm-p10-glue.c
+@@ -42,11 +42,11 @@ asmlinkage void aes_p10_gcm_decrypt(const u8 *in, u8 *out, size_t len,
+ asmlinkage void gcm_init_htable(unsigned char htable[], unsigned char Xi[]);
+ asmlinkage void gcm_ghash_p10(unsigned char *Xi, unsigned char *Htable,
+ 			      unsigned char *aad, unsigned int alen);
+ asmlinkage void gcm_update(u8 *iv, void *Xi);
  
--	watchdog4: watchdog@2240000 {
--		compatible = "ti,j7-rti-wdt";
--		reg = <0x00 0x2240000 0x00 0x100>;
--		clocks = <&k3_clks 352 0>;
--		power-domains = <&k3_pds 352 TI_SCI_PD_EXCLUSIVE>;
--		assigned-clocks = <&k3_clks 352 0>;
--		assigned-clock-parents = <&k3_clks 352 4>;
--	};
--
--	watchdog5: watchdog@2250000 {
--		compatible = "ti,j7-rti-wdt";
--		reg = <0x00 0x2250000 0x00 0x100>;
--		clocks = <&k3_clks 353 0>;
--		power-domains = <&k3_pds 353 TI_SCI_PD_EXCLUSIVE>;
--		assigned-clocks = <&k3_clks 353 0>;
--		assigned-clock-parents = <&k3_clks 353 4>;
--	};
--
--	watchdog6: watchdog@2260000 {
--		compatible = "ti,j7-rti-wdt";
--		reg = <0x00 0x2260000 0x00 0x100>;
--		clocks = <&k3_clks 354 0>;
--		power-domains = <&k3_pds 354 TI_SCI_PD_EXCLUSIVE>;
--		assigned-clocks = <&k3_clks 354 0>;
--		assigned-clock-parents = <&k3_clks 354 4>;
--	};
--
--	watchdog7: watchdog@2270000 {
--		compatible = "ti,j7-rti-wdt";
--		reg = <0x00 0x2270000 0x00 0x100>;
--		clocks = <&k3_clks 355 0>;
--		power-domains = <&k3_pds 355 TI_SCI_PD_EXCLUSIVE>;
--		assigned-clocks = <&k3_clks 355 0>;
--		assigned-clock-parents = <&k3_clks 355 4>;
--	};
--
- 	/*
- 	 * The following RTI instances are coupled with MCU R5Fs, c7x and
- 	 * GPU so keeping them reserved as these will be used by their
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-index 0160fe0da983..ffc61ec77635 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-@@ -113,6 +113,42 @@ serdes2: serdes@5020000 {
- 			status = "disabled";
- 		};
- 	};
-+
-+	watchdog4: watchdog@2240000 {
-+		compatible = "ti,j7-rti-wdt";
-+		reg = <0x00 0x2240000 0x00 0x100>;
-+		clocks = <&k3_clks 352 0>;
-+		power-domains = <&k3_pds 352 TI_SCI_PD_EXCLUSIVE>;
-+		assigned-clocks = <&k3_clks 352 0>;
-+		assigned-clock-parents = <&k3_clks 352 4>;
-+	};
-+
-+	watchdog5: watchdog@2250000 {
-+		compatible = "ti,j7-rti-wdt";
-+		reg = <0x00 0x2250000 0x00 0x100>;
-+		clocks = <&k3_clks 353 0>;
-+		power-domains = <&k3_pds 353 TI_SCI_PD_EXCLUSIVE>;
-+		assigned-clocks = <&k3_clks 353 0>;
-+		assigned-clock-parents = <&k3_clks 353 4>;
-+	};
-+
-+	watchdog6: watchdog@2260000 {
-+		compatible = "ti,j7-rti-wdt";
-+		reg = <0x00 0x2260000 0x00 0x100>;
-+		clocks = <&k3_clks 354 0>;
-+		power-domains = <&k3_pds 354 TI_SCI_PD_EXCLUSIVE>;
-+		assigned-clocks = <&k3_clks 354 0>;
-+		assigned-clock-parents = <&k3_clks 354 4>;
-+	};
-+
-+	watchdog7: watchdog@2270000 {
-+		compatible = "ti,j7-rti-wdt";
-+		reg = <0x00 0x2270000 0x00 0x100>;
-+		clocks = <&k3_clks 355 0>;
-+		power-domains = <&k3_pds 355 TI_SCI_PD_EXCLUSIVE>;
-+		assigned-clocks = <&k3_clks 355 0>;
-+		assigned-clock-parents = <&k3_clks 355 4>;
-+	};
+-struct aes_key {
++struct p10_aes_key {
+ 	u8 key[AES_MAX_KEYLENGTH];
+ 	u64 rounds;
  };
  
- &scm_conf {
+ struct gcm_ctx {
+@@ -61,11 +61,11 @@ struct Hash_ctx {
+ 	u8 H[16];	/* subkey */
+ 	u8 Htable[256];	/* Xi, Hash table(offset 32) */
+ };
+ 
+ struct p10_aes_gcm_ctx {
+-	struct aes_key enc_key;
++	struct p10_aes_key enc_key;
+ 	u8 nonce[RFC4106_NONCE_SIZE];
+ };
+ 
+ static void vsx_begin(void)
+ {
+diff --git a/arch/powerpc/crypto/aes.c b/arch/powerpc/crypto/aes.c
+index 3f1e5e894902..b7192ee719fc 100644
+--- a/arch/powerpc/crypto/aes.c
++++ b/arch/powerpc/crypto/aes.c
+@@ -19,12 +19,12 @@
+ 
+ #include "aesp8-ppc.h"
+ 
+ struct p8_aes_ctx {
+ 	struct crypto_cipher *fallback;
+-	struct aes_key enc_key;
+-	struct aes_key dec_key;
++	struct p8_aes_key enc_key;
++	struct p8_aes_key dec_key;
+ };
+ 
+ static int p8_aes_init(struct crypto_tfm *tfm)
+ {
+ 	const char *alg = crypto_tfm_alg_name(tfm);
+diff --git a/arch/powerpc/crypto/aes_cbc.c b/arch/powerpc/crypto/aes_cbc.c
+index 5f2a4f375eef..4a9f285f0970 100644
+--- a/arch/powerpc/crypto/aes_cbc.c
++++ b/arch/powerpc/crypto/aes_cbc.c
+@@ -19,12 +19,12 @@
+ 
+ #include "aesp8-ppc.h"
+ 
+ struct p8_aes_cbc_ctx {
+ 	struct crypto_skcipher *fallback;
+-	struct aes_key enc_key;
+-	struct aes_key dec_key;
++	struct p8_aes_key enc_key;
++	struct p8_aes_key dec_key;
+ };
+ 
+ static int p8_aes_cbc_init(struct crypto_skcipher *tfm)
+ {
+ 	struct p8_aes_cbc_ctx *ctx = crypto_skcipher_ctx(tfm);
+diff --git a/arch/powerpc/crypto/aes_ctr.c b/arch/powerpc/crypto/aes_ctr.c
+index e27c4036e711..7dbd06f442db 100644
+--- a/arch/powerpc/crypto/aes_ctr.c
++++ b/arch/powerpc/crypto/aes_ctr.c
+@@ -19,11 +19,11 @@
+ 
+ #include "aesp8-ppc.h"
+ 
+ struct p8_aes_ctr_ctx {
+ 	struct crypto_skcipher *fallback;
+-	struct aes_key enc_key;
++	struct p8_aes_key enc_key;
+ };
+ 
+ static int p8_aes_ctr_init(struct crypto_skcipher *tfm)
+ {
+ 	struct p8_aes_ctr_ctx *ctx = crypto_skcipher_ctx(tfm);
+diff --git a/arch/powerpc/crypto/aes_xts.c b/arch/powerpc/crypto/aes_xts.c
+index 9440e771cede..b4c760e465ea 100644
+--- a/arch/powerpc/crypto/aes_xts.c
++++ b/arch/powerpc/crypto/aes_xts.c
+@@ -20,13 +20,13 @@
+ 
+ #include "aesp8-ppc.h"
+ 
+ struct p8_aes_xts_ctx {
+ 	struct crypto_skcipher *fallback;
+-	struct aes_key enc_key;
+-	struct aes_key dec_key;
+-	struct aes_key tweak_key;
++	struct p8_aes_key enc_key;
++	struct p8_aes_key dec_key;
++	struct p8_aes_key tweak_key;
+ };
+ 
+ static int p8_aes_xts_init(struct crypto_skcipher *tfm)
+ {
+ 	struct p8_aes_xts_ctx *ctx = crypto_skcipher_ctx(tfm);
+diff --git a/arch/powerpc/crypto/aesp8-ppc.h b/arch/powerpc/crypto/aesp8-ppc.h
+index 5764d4438388..0bea010128cb 100644
+--- a/arch/powerpc/crypto/aesp8-ppc.h
++++ b/arch/powerpc/crypto/aesp8-ppc.h
+@@ -1,10 +1,10 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/types.h>
+ #include <crypto/aes.h>
+ 
+-struct aes_key {
++struct p8_aes_key {
+ 	u8 key[AES_MAX_KEYLENGTH];
+ 	int rounds;
+ };
+ 
+ extern struct shash_alg p8_ghash_alg;
+@@ -12,19 +12,20 @@ extern struct crypto_alg p8_aes_alg;
+ extern struct skcipher_alg p8_aes_cbc_alg;
+ extern struct skcipher_alg p8_aes_ctr_alg;
+ extern struct skcipher_alg p8_aes_xts_alg;
+ 
+ int aes_p8_set_encrypt_key(const u8 *userKey, const int bits,
+-			   struct aes_key *key);
++			   struct p8_aes_key *key);
+ int aes_p8_set_decrypt_key(const u8 *userKey, const int bits,
+-			   struct aes_key *key);
+-void aes_p8_encrypt(const u8 *in, u8 *out, const struct aes_key *key);
+-void aes_p8_decrypt(const u8 *in, u8 *out, const struct aes_key *key);
++			   struct p8_aes_key *key);
++void aes_p8_encrypt(const u8 *in, u8 *out, const struct p8_aes_key *key);
++void aes_p8_decrypt(const u8 *in, u8 *out, const struct p8_aes_key *key);
+ void aes_p8_cbc_encrypt(const u8 *in, u8 *out, size_t len,
+-			const struct aes_key *key, u8 *iv, const int enc);
+-void aes_p8_ctr32_encrypt_blocks(const u8 *in, u8 *out,
+-				 size_t len, const struct aes_key *key,
+-				 const u8 *iv);
++			const struct p8_aes_key *key, u8 *iv, const int enc);
++void aes_p8_ctr32_encrypt_blocks(const u8 *in, u8 *out, size_t len,
++				 const struct p8_aes_key *key, const u8 *iv);
+ void aes_p8_xts_encrypt(const u8 *in, u8 *out, size_t len,
+-			const struct aes_key *key1, const struct aes_key *key2, u8 *iv);
++			const struct p8_aes_key *key1,
++			const struct p8_aes_key *key2, u8 *iv);
+ void aes_p8_xts_decrypt(const u8 *in, u8 *out, size_t len,
+-			const struct aes_key *key1, const struct aes_key *key2, u8 *iv);
++			const struct p8_aes_key *key1,
++			const struct p8_aes_key *key2, u8 *iv);
+
+base-commit: e78a3142fa5875126e477fdfe329b0aeb1b0693f
 -- 
-2.34.1
+2.52.0
 
 
