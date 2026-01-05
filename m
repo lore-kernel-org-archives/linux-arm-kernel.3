@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E44C7D5B160
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 11:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45891D5B160
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 11:43:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mI+Cro7p+Gcp0ZdfXr5nvjZutzVRgDK9X5NPoqngEE0=; b=ShM10qVRU9kzGhcP9j01GJyGKm
-	YzSzYsZ7E/rCwkEexyUZ6138oDZqWa/GPVQuRbkTBKasjfMhQ2nYbhw9y2IGm1kuxzM5WDFl81zr+
-	OuSgpkK3btt4X4dBFEGwLbGz68c80ZMz8pBTxPe4vl8sGyXV2aldu+zCfalMBVwZUw5kMS0dox9t2
-	kgcojsoIgYYefHdYeJQ+JP6OoQWOIwT+3oVg97XEC5OjKTC4fakv0zDpwFRxaXOkRltV2bC1jiOus
-	k6OwEZLnWnZPKxE+/PGX+mOdyLvsP1jap0C5xLJF3KEqbC9t7TCDAr+P+CmV+W2/TbbtzQ25ZcL08
-	/x7VUjmA==;
+	bh=tbBVA6+YaJ1NAxKDOFes4VW49SDjApJzIHYDeEwdBtM=; b=pcJTM+bPcKmCGaQdv9cBEkvWHl
+	3/t3VkbtfXGILAudXW0ocn0BQLYmpLAL7Xsya6glyRS6RVYZ8I+T6edNjFhkFYbCaYI8nnxASGVuT
+	YPsd2LoQMJVHwIawPn0pA5z5AXWsVT1+GEzf/jnoDvut3vn4oYv+wB3EOs+TeszhFzGs9GI+TtmR4
+	G3FwTv/ymE6QHV/2RTXIjZkX8xNs9arK3zgkxRePcW7POyg/bYWxzUuMNU5fnRbrPCYEs4Eji7hxy
+	cSSDV+rmKmHiLwvN4yAH/l2AyhSgqL+aJf69me1W89o5YAwRwyylnNBe3YeVRMJ1xwJ967W8aHhTB
+	OeMhll3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vciyo-0000000BD91-2CFp;
-	Mon, 05 Jan 2026 11:42:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vcizM-0000000BDCC-3Y2t;
+	Mon, 05 Jan 2026 11:43:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vciyn-0000000BD8t-2Zxc
+	id 1vcizK-0000000BDBp-1aRB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 11:42:33 +0000
+	Mon, 05 Jan 2026 11:43:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A290C6013B;
-	Mon,  5 Jan 2026 11:42:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A5C4C116D0;
-	Mon,  5 Jan 2026 11:42:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A53CD41850;
+	Mon,  5 Jan 2026 11:43:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 879E1C19424;
+	Mon,  5 Jan 2026 11:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767613352;
-	bh=Lfq9OKSBveYeitWjDBWnDMCM9DlJ5bEI/x++ksAnupc=;
+	s=k20201202; t=1767613385;
+	bh=4DN3Pxz0Y8uO4k7E6M6VWtYnQtQ44mrFW69WYRFBdZ8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=V3N5Qiz+Qb4bo8/lKNZL3p40XKfe3CgtTlj3YFv566c4aR/Vu8jisDbbpAn8kSS3M
-	 At+91CTpceHrYDSKVIRvYz+hNJGsDIbHbxZdhb4YRiQZ0Wyl+O45w6wpByFzdXpbwC
-	 y0EbDP49sXh4MX2MlN7Wj7e+1dHn2ExxKviXq4kgct3yFhDCG7XkWAv5j4H8bJvdEI
-	 vtv+a609Zr/iJFES+x8mZ6kl0CV7e/E5fp8fO1P63VxWKLouwj9Q+noraO+ZIoWBTu
-	 R9jAYDP4S0psrmhVOEikJ0cVLOTkzk9NYNDqvWtJnsqfPBkio5WuvkHVHAJ5OQSnTv
-	 jlsGtUcIrqO0w==
-Message-ID: <83338b57-2e8e-4b77-9e93-fadfb0f6a5fc@kernel.org>
-Date: Mon, 5 Jan 2026 12:42:27 +0100
+	b=ViJ/mwbdJq3HZvmalcWXzDz3qIPZM5QwJwRRhiHifvh7M60gxCemWb4BDFRVjR1DH
+	 wrEMvJ0iTRg6Hx44s+OsUGWjCRjEnlkGz67KYc9lVI4nPa3GQR7o0AwlOShds7ILPP
+	 cgBCMwzRAYzticGwgWfdOemgR4N66zwPTZfAc3xR7qyOMxU8r4ciXv5tIIfn/1Eo+/
+	 hbdtiREmyEUBqaiCyk82Q0lQ3wecKZVY5R61HOmiRbxsIGxCv9/+fs//+ynGXEquqA
+	 9oDMTxuN4BXBViUPdEa++bNxlA+2NmPwS/FWKnp9ol7PvAfA+HLwBW/HBIGDVez2Mo
+	 YlCzItjaS59wQ==
+Message-ID: <ee6ba772-7972-4212-9658-2d6eef48848a@kernel.org>
+Date: Mon, 5 Jan 2026 12:43:02 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: exynosautov920: Add DT node for all I2C
- ports
-To: Faraz Ata <faraz.ata@samsung.com>, 'Andi Shyti' <andi.shyti@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- alim.akhtar@samsung.com, linux-i2c@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- rosa.pila@samsung.com, dev.tailor@samsung.com, pritam.sutar@samsung.com
-References: <CGME20251014111455epcas5p30731028365023e101dad3b9ba1f90bec@epcas5p3.samsung.com>
- <20251014112338.2023223-1-faraz.ata@samsung.com>
- <2knbzksxobg2kl3aexuiwluctgafgzxblsqc5q5rcikuruuegr@cqlizryhhx4s>
- <7ba31fb7-8f1b-4277-a3cf-649a76c7dda5@kernel.org>
- <000001dc7e34$b809a030$281ce090$@samsung.com>
+Subject: Re: [PATCH] media: samsung: exynos4-is: Simplify with scoped for each
+ OF child loop
+To: Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, linux-media@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260102124955.64904-2-krzysztof.kozlowski@oss.qualcomm.com>
+ <20260105104131.00005693@huawei.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,9 +102,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <000001dc7e34$b809a030$281ce090$@samsung.com>
+In-Reply-To: <20260105104131.00005693@huawei.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260105_034306_465166_B80B8E8C 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,14 +123,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/01/2026 12:16, Faraz Ata wrote:
-> HI Krzysztof
-> 
-> I want to follow up on my I2C patches submitted.
-> Please let me know if anything else needs to be done or do I have to resend the patches
+On 05/01/2026 11:41, Jonathan Cameron wrote:
+>> diff --git a/drivers/media/platform/samsung/exynos4-is/fimc-is.c b/drivers/media/platform/samsung/exynos4-is/fimc-is.c
+>> index 0827fdaf455a..14d84cc96831 100644
+>> --- a/drivers/media/platform/samsung/exynos4-is/fimc-is.c
+>> +++ b/drivers/media/platform/samsung/exynos4-is/fimc-is.c
+>> @@ -200,7 +200,7 @@ static int fimc_is_parse_sensor_config(struct fimc_is *is, unsigned int index,
+>>  
+>>  static int fimc_is_register_subdevs(struct fimc_is *is)
+>>  {
+>> -	struct device_node *i2c_bus, *child;
+>> +	struct device_node *i2c_bus;
+>>  	int ret, index = 0;
+>>  
+>>  	ret = fimc_isp_subdev_create(&is->isp);
+>> @@ -208,11 +208,10 @@ static int fimc_is_register_subdevs(struct fimc_is *is)
+>>  		return ret;
+>>  
+>>  	for_each_compatible_node(i2c_bus, NULL, "samsung,exynos4212-i2c-isp") {
+> I haven't checked how frequently this would help, but at least in this case
+> I'd consider adding a
+> 	for_each_compatible_node_scoped() following same approach as
+> other scoped loops.
 
-There is nothing from my side, this was a correct posting. I am still
-waiting for the bindings being applied (or letting me know about that).
+yes, yes, that's on my TODO list. :)
+
+I saw it in several places already.
 
 Best regards,
 Krzysztof
