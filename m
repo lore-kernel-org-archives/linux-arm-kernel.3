@@ -4,72 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E35CC2A062
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 07:55:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18929C2A072
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 07:55:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aWPAionUGYVqkBpz5QQVAcYUIfxJMKwBFtRZhqGCqzM=; b=NmNXWIF7//GWT4NDjiOl+JZjK3
-	2rOiEcGzJE6x1EsGefsVWbhVfArPk6IUQV1p9o2ek70JnwX2l72XzDr8BqWuhMaPCCZUbuOXIDCE3
-	PBHr+hWjpQFVbvinue+xUkSINP7kI369hGTba43qS5qUCaNN/pHJZ6+/QakKmXBTsPN62UVr8DvWt
-	zKLd1fbZiMJ4fM5piMa0tfhcJXuHSetm3blbFPHCGYS1Cp31xGaKnZmITvRIZGvas2W4GLzVGgCo8
-	oj2TOrYR56iOZohAgAY2HHTpCKLV0fOrTwkukn28JX0C+I+CaBDadwAfiogFZ5wXR/jflAurcXauv
-	EolhjW8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1iKPvLbeIhMb8/OpxJH+S6Wjo+A1NnxcK8qrv3fzzsc=; b=Qf5D8pD89YM4HJzPBRparxKHPc
+	MEMvji/opw9vgIg3mXftLlQ/t/3EGSgBR85yaLy0WtoMVqrGuWBjZacP68TpIhu1eT/TBlWgktF99
+	fFemotBhGiMgLgR5ypsrFjUSswxgwjqlzvTLdm/1Y4Gd2FMcfPCAQrSlSj9TtzBF5aEdu1L3eXX1K
+	VNB1RcYanq6KqWbVXom4+/3G9E/U3VsnTbO6EY6VXrpVwaHbeaHk18jJLPcTPDhBVQ+TWS2e14wWW
+	5ugzHpWVXAiRXu3gfwhOVY+bepqXtcAfzGk7p6ePw07eEOpr6/wWKZg44HN9PSrJImQWxcl+yaZ9z
+	tX9807Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcfRB-0000000AwCj-2ZOR;
-	Mon, 05 Jan 2026 07:55:37 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vcfRM-0000000AwFS-0wEM;
+	Mon, 05 Jan 2026 07:55:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcfR8-0000000AwC4-2eyJ;
-	Mon, 05 Jan 2026 07:55:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1767599726; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ApyVmbqvyvvb8na3d/melHLpY2DTPtJeJzJ9aWMiXiAmqnz89jYsWoPJ0vVj5aTgXvgnWPOwPPfqDU/LNUOkE6MQEZu2okpX1MjtLqGfcVTyg1Py7MQgJSE8Gk4P07RiQyKrTCte+OCs4BgDYf3sey5i+mVfz6hngJY8gmK3UYk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1767599726; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=aWPAionUGYVqkBpz5QQVAcYUIfxJMKwBFtRZhqGCqzM=; 
-	b=RuiFb+t17z7NWutMYXVwxR3XZl8vkhaNc+HPwldTvIxBW6iyroeFZlOxk4gQPyZXwMi0q/fFm32VS+2LnzuALx0/ZKwHfOe9HNXwL90TgwrZWwMkyhSkYRdbeL6qDnv6SPMU1W/6wcWNx61Y9DdZXz68YT2tF0eO1hrTkhFQfAc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1767599726;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=aWPAionUGYVqkBpz5QQVAcYUIfxJMKwBFtRZhqGCqzM=;
-	b=dejfNqMo6xmOUjexvSDcHRAdx7eGKVoKzOgsSAouO/QpFOaFtb/2l++R+0lz/IIE
-	GA1s1tqndtY+CqwFmV4yoqxwS+YAzplmyPeZ88imwA/+zgkAwGVoPqWSMcSAHKcC4t9
-	g3QSRCI3m5/DeUkzc8rpw6Q/Z4h7E5iLJDvEHf7w=
-Received: by mx.zohomail.com with SMTPS id 1767599722778915.547246258709;
-	Sun, 4 Jan 2026 23:55:22 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>,
- Kever Yang <kever.yang@rock-chips.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Frank Wang <frank.wang@rock-chips.com>, Alexey Charkov <alchark@gmail.com>,
- Liang Chen <cl@rock-chips.com>, Finley Xiao <finley.xiao@rock-chips.com>,
- Elaine Zhang <zhangqing@rock-chips.com>,
- Yifeng Zhao <yifeng.zhao@rock-chips.com>, Chaoyi Chen <kernel@airkyi.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix wrong register range of rk3576 gpu
-Date: Mon, 05 Jan 2026 08:55:17 +0100
-Message-ID: <5954009.DvuYhMxLoT@workhorse>
-In-Reply-To: <20251230090246.46-1-kernel@airkyi.com>
-References: <20251230090246.46-1-kernel@airkyi.com>
+	id 1vcfRK-0000000AwEt-1dY2
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Jan 2026 07:55:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 848BF6001D;
+	Mon,  5 Jan 2026 07:55:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE4CDC116D0;
+	Mon,  5 Jan 2026 07:55:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767599745;
+	bh=egTyVvYfwf14ijcZfGgVQuVyGcHIfmNUWLP9o5rocq0=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=bOAyElvod6hsBagCdn70ZeYXTyQOJvhfUlpF4n+WKmCulfFGSVj37ZGq4MDirooKx
+	 Jw/YZJHI+KbMIngK0odEQ6pLi06BjHKP9hzAixZ4aZdjyMwaR2F+d45ArKQnm3LJCI
+	 lVT69qHVaFIdP0VV+nVTAOikD0sUVFVnWrMI+A/qBmuB1nX2GjRv8/NzaknOQgjw3a
+	 Cb9WIKQnkGr1X+KnjPvcb8ePBeyHBj9LksFSknVAePIUU2Y4rwKgpYK/qSn0w07HIK
+	 yviX3KotkB10mB+YkTLZNsh8jMTXlqHPPu7ZFUHzZISW2yCJM9SpCHNafpBGTmAXSj
+	 escS6wDYCMhEw==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Linus Walleij <linusw@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Tomasz Figa <tomasz.figa@gmail.com>, Alexandru Chimac <alex@chimac.ro>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260102-exynos9610-pinctrl-v3-0-3f21f2cfb651@chimac.ro>
+References: <20260102-exynos9610-pinctrl-v3-0-3f21f2cfb651@chimac.ro>
+Subject: Re: [PATCH v3 0/3] pinctrl: samsung: add Exynos9610 pinctrl
+ support
+Message-Id: <176759974254.17011.15262742954028365380.b4-ty@kernel.org>
+Date: Mon, 05 Jan 2026 08:55:42 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_235534_739917_7C5A8B15 
-X-CRM114-Status: GOOD (  17.11  )
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,42 +74,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 30 December 2025 10:02:46 Central European Standard Time Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+
+On Fri, 02 Jan 2026 11:29:30 +0000, Alexandru Chimac wrote:
+> This patchset adds support for the pin controller found on Exynos9610.
 > 
-> According to RK3576 TRM part1 page13, the size of the GPU registers
-> is 128 KB.
-> 
-> Fixes: 57b1ce903966 ("arm64: dts: rockchip: Add rk3576 SoC base DT")
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3576.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> index 6284e7bdc442..b375015f0662 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> @@ -1271,7 +1271,7 @@ power-domain@RK3576_PD_VO1 {
->  
->  		gpu: gpu@27800000 {
->  			compatible = "rockchip,rk3576-mali", "arm,mali-bifrost";
-> -			reg = <0x0 0x27800000 0x0 0x200000>;
-> +			reg = <0x0 0x27800000 0x0 0x20000>;
->  			assigned-clocks = <&scmi_clk SCMI_CLK_GPU>;
->  			assigned-clock-rates = <198000000>;
->  			clocks = <&cru CLK_GPU>;
 > 
 
-This is only true if you only consider the GPU_CONTROL and
-JOB_CONTROL register ranges, and leave out the MMU_STAGE1
-and MMU_STAGE2 ranges. I don't know if those need to be
-mapped, since the MMU control registers are < 0x2000.
+Applied, thanks!
 
-What do other bifrost devices do?
+[1/3] dt-bindings: pinctrl: samsung: Add exynos9610-pinctrl compatible
+      https://git.kernel.org/pinctrl/samsung/c/2432700e9c927d3c4ba1219db24fb2634282f45d
+[2/3] dt-bindings: pinctrl: samsung: Add exynos9610-wakeup-eint node
+      https://git.kernel.org/pinctrl/samsung/c/891eb0543f203cea0a85a4878258eefa9d3f84b0
+[3/3] pinctrl: samsung: Add Exynos9610 pinctrl configuration
+      https://git.kernel.org/pinctrl/samsung/c/9ce17ff1881f5be272ec016e108ae68be4b73646
 
-Kind regards,
-Nicolas Frattaroli
-
+Best regards,
+-- 
+Krzysztof Kozlowski <krzk@kernel.org>
 
 
