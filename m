@@ -4,111 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB707C2A072
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 07:18:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF644C2A062
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 07:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4cupiCEMbgZD8O8oBS+AwmgimkTgp9A9yCgrebxhCjk=; b=TmX+KAB2TVHl9hnPtPwQUpYRDh
-	thS+ywEjSP3TX6qeHHnHwR5VmVg9xPDUJXQ1GRmBAIZWR0yVMfLqFcF//SXV38aGVdZq45Rmq2cp7
-	Q+50DlzGofoAvzVsIAnFP64klte6x0UlM7oNChPQxrP+g3HCs60zGmd1aFLmmcjsoGFGBr740FzpU
-	eWNZzHy6h16hibMDV+YyxqZSHULUabCpPpcsJH8XZD76BnbaDrC5pCdTkB93WVeMGjPQgZ5Erb0jR
-	NYuKxYqa5vR+f2R4Nu5t3uQPGpkqktNaNwtIJ3xj9SgfiaepGDeX9r8duLcS01j1gdQkVmqtaWbVX
-	qu4clK3A==;
+	bh=tYUEi3AMBgCtF4FBqUes8AGHKBEoECwNZpocuLpSrSk=; b=PLJ2KedOl+O1g6U56yiEtkliMH
+	0fz7AW2GSBisq6OtJKHFsXAzyhq+MKz4QkgA85ORcYW5jkUaxeZdV8EB/3zuQpBNMjuNgtKOXaemO
+	287qUoxV0WPqdQ204mqndr6GUy7QD8bVdoxnL3bsRlv65zc0dyRwvsJqzzZP73TWggZWPGqnGlC2p
+	8AbwYgbee3q3tKk2Vn1XwVcYa924++FzYTpchrpfvONHC9iiNPOkpcaG3uvoxdSmsD6TGiXX5Gfds
+	AweX2Yh3cW4LyFEhUHZaF/cb4+ejg7U0ez3QtYFL/xMwd8ySdpEkKZU5TxaJImtwN7kU5EoLdNRLo
+	TLa8x7Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcerH-0000000AuQL-3Bvk;
-	Mon, 05 Jan 2026 07:18:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vceyl-0000000Auh2-3Bb0;
+	Mon, 05 Jan 2026 07:26:15 +0000
+Received: from mail-swedencentralazon11013041.outbound.protection.outlook.com ([52.101.83.41] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcerE-0000000AuPz-3YUW
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 07:18:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 196E240964;
-	Mon,  5 Jan 2026 07:18:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABADDC116D0;
-	Mon,  5 Jan 2026 07:18:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767597508;
-	bh=Dd5z6Cu7EQtxEPy8BPPO8ROH3udMOAphLXE6SAeXQNE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YH5PKFGeTBRjeI4tyR1DDTsSb8TP71VXnDpPKwY96WP1uFFIcvHLTi5C7juoaDEHE
-	 PjGeMDa9O+3lAVfEeulilFTNB1ei6i8XPNGODpvqcuqE1JUjXaw7m3yjTe1/e2gr6k
-	 1nKNDjwPx0QQ36Ob58nNvZRLhOwSjV79DgaG8IAOiFHAYUSaA4StZMGPvnjBhFY+ab
-	 OFC+YoaRuCCY3S7iPkZ9h6ySzA2IWO/JNC0uz000xGb3Nu3DltPCDryNsk8HYuTcSV
-	 NiKoCTqlCwRextnjJl+vtGo+yNC2wnQklRMuzpXUc4SZ9YH301DV4u13AzCoYW7L5D
-	 JMBFVZt6YgV2g==
-Message-ID: <2c36a7e1-b591-4702-b4b9-90661e1474a2@kernel.org>
-Date: Mon, 5 Jan 2026 08:18:25 +0100
+	id 1vceyj-0000000AugY-11by;
+	Mon, 05 Jan 2026 07:26:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WCu9kpszoEsb9w1cDelbtczseOAz4bmshWmrVAoFVCai6PVCLHn3l2kxxTzl+QHKZrgQzM+Cw7NyZjwbsWDycluW1FLsn0xagtc/PYqi5Mlmm05uBz6BiGzq7BxSbiENaAwMgVkPV2+ayKbiV18b9ccUToWF+D+3YPG6TSSQU+z71z4PcYfeN5GpnnutYUzKKq+WT7AVCd8k2iToPZVEWmuBDmQLycqzQJVnRCCbn3QKD8QSD6HAPMh3lrQxHqaaMg+TzD3B8eUepTSKPBTwSem4dRnLqaxtB+kDwFUXd75IHsJgYA4Jn17hxn6BGJuTTRTAv3RnDlK85eWsOWOUBQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tYUEi3AMBgCtF4FBqUes8AGHKBEoECwNZpocuLpSrSk=;
+ b=LZ9OQJat/Aiw6MEZLWyzfI68lMZ9AJA+QhmQMX45oHovcmkgSq22to7cleyUQn2dKNkQzx1nAli3A1L6AkQOap16YwlUU38shOPmnc02scqvxK6It3u0g2sPNSCo2y0BBYI3Rx4Jc9U7rO10eYWQfIB3CDdd4zIz4bdAOza+kwGUACE/u57TdL5SzOZBCuMoTYvELCV0n6qjAMB+1Om0GFSgAshPs8gNTMAVO2E+w9JpjacFkN1WgqRTfGTAsTM9xnjxvjnFjCUUyvSLIwLawtTOT9uoHIbo0S5Lupjq+g11dc2yQN7dpk0gLoKKZFyG6kcfDYA6c0AJ4pmSlRsbjA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=oss.qualcomm.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tYUEi3AMBgCtF4FBqUes8AGHKBEoECwNZpocuLpSrSk=;
+ b=E6E457/n64iyq84BJrbjfORSAQcYGhiW3B6M8qCiinDDkuFlu1z+ZVdfGEJE2CMvTmkATY95Hd2yaNQKDCw5oicx8wIIgFthf8/HKEluon9lEWKvTklTZvbDbIIimhqTdE8kDWSTCwwhCyVsOuwpfw0J6aPPN7P1g78MowPPZtk4i46NMwzitbYF5Jm4OOH7OzTCbWHCVycWPuavw6iU3PlO/CVRwG+lnYvpQO9Ja80N376qBQJYCyMLxLkvrIkFXa7Beg5zQGIBYsqQLNXkpxYVRbyDVsIgbWROzwSjBRI0cXzQbzCYiltxOKJa8wTa6Avq4P8sjxcM21m+GN9RvA==
+Received: from DB9PR06CA0021.eurprd06.prod.outlook.com (2603:10a6:10:1db::26)
+ by DB8PR10MB3306.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:11f::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
+ 2026 07:26:06 +0000
+Received: from DU6PEPF0000A7E4.eurprd02.prod.outlook.com
+ (2603:10a6:10:1db:cafe::22) by DB9PR06CA0021.outlook.office365.com
+ (2603:10a6:10:1db::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9478.4 via Frontend Transport; Mon, 5
+ Jan 2026 07:25:49 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DU6PEPF0000A7E4.mail.protection.outlook.com (10.167.8.43) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9499.1 via Frontend Transport; Mon, 5 Jan 2026 07:26:05 +0000
+Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 5 Jan
+ 2026 08:27:18 +0100
+Received: from [10.48.87.93] (10.48.87.93) by STKDAG1NODE1.st.com
+ (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 5 Jan
+ 2026 08:26:03 +0100
+Message-ID: <92c8b930-adc2-4204-b9c1-0dc1e31115f3@foss.st.com>
+Date: Mon, 5 Jan 2026 08:26:02 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] soc: nxp: Add a simple NXP LPC32xx socinfo driver
-To: Vladimir Zapolskiy <vz@mleia.com>, Arnd Bergmann <arnd@arndb.de>
-Cc: Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260101235647.2411062-1-vz@mleia.com>
- <20260101235647.2411062-3-vz@mleia.com>
- <accb4ab1-07fa-4e33-a74c-2c588ca415ac@kernel.org>
- <eb9ef21a-c0b4-4c8d-b1b1-6c76f45c53aa@mleia.com>
- <1eef3c49-83a7-48d4-96ad-ffb71df2be7a@kernel.org>
- <1a336af6-6c27-4211-9c8c-ede4d091eb17@mleia.com>
- <a77325ae-fc53-4554-a7d8-3bdd841e1065@kernel.org>
- <28841a34-eee6-46fc-97de-27e4b9c0d0bc@mleia.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 07/12] i2c: st: set device parent and of_node through the
+ adapter struct
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Wolfram Sang
+	<wsa+renesas@sang-engineering.com>, Mukesh Kumar Savaliya
+	<mukesh.savaliya@oss.qualcomm.com>, Viken Dadhaniya
+	<viken.dadhaniya@oss.qualcomm.com>, Andi Shyti <andi.shyti@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
+	<rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, "Broadcom
+ internal kernel review list" <bcm-kernel-feedback-list@broadcom.com>, Vignesh
+ R <vigneshr@ti.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik
+	<jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, Andreas Kemnade
+	<andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, Roger Quadros
+	<rogerq@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, "Magnus
+ Damm" <magnus.damm@gmail.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>
+CC: Bartosz Golaszewski <brgl@kernel.org>, <linux-i2c@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+	<linux-omap@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <imx@lists.linux.dev>,
+	<linux-rpi-kernel@lists.infradead.org>
+References: <20251223-i2c-adap-dev-config-v1-0-4829b1cf0834@oss.qualcomm.com>
+ <20251223-i2c-adap-dev-config-v1-7-4829b1cf0834@oss.qualcomm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <28841a34-eee6-46fc-97de-27e4b9c0d0bc@mleia.com>
-Content-Type: text/plain; charset=UTF-8
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20251223-i2c-adap-dev-config-v1-7-4829b1cf0834@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.93]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE1.st.com
+ (10.75.128.132)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU6PEPF0000A7E4:EE_|DB8PR10MB3306:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3c0cac0e-5012-4f9a-14b2-08de4c2bb02f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|82310400026|921020|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?U1JCU0Zsc1BIRHVJVCtTakx1bFM1ZWlWR1Vwd2RtZ0NVVjR2SEhkcXA1UE03?=
+ =?utf-8?B?aFVGekNBSjdScUdKS0oyeVcxZlVBWmk3K1Ezd1crKzR2dnRMQnltU1NCdTUv?=
+ =?utf-8?B?YlFMYkErZGFpNEJJaHAvQ3duQmpWWm93RURBVEpuS1hLMXFUZGJzT1VhOEEy?=
+ =?utf-8?B?eGtHSWJsSGNVaWMvU0xsMnBRQ3ZhQlZPZ0lHOUdpRkNBODM3bDVudHF4cENk?=
+ =?utf-8?B?cE9sS3Y1cGowbjRSU3V5UjFjRGxXSWllMldYU2h0VGUydnpWeTdMUGk2ZWt4?=
+ =?utf-8?B?dFNvOFVIeVcxZElCb2xnVUxpSlIzSlVIQ0FYZU4yaEVmSUtrSmxHeVZ4Tnph?=
+ =?utf-8?B?RTlnVzdyQWgwTStySGMrWGU3dXhXcFM1eUxpYmdRSnROTmZQUUdPR2hzeVdM?=
+ =?utf-8?B?a05GWXFYM0gydGhwWVBxR29oaGF3d1R0RWFyVVZ0K0lHMnJFeGV0S3dKQm1R?=
+ =?utf-8?B?MktCRjRBZkhXTTYvdW1ZaDdNVzRwUGsraVdmbVBFOGROSDhzWDNwYU9aOWJH?=
+ =?utf-8?B?TVBSY3MycExlYW9aVkVDTm5ZMGdvL05TV1R6eUhweXlHSi9jcDMreVNtSGR4?=
+ =?utf-8?B?cXBROHAzNEpIdVhHQ0JpN1VzNGhEMjZYK0VvWEQyMkk3K2d0bHFrN1NhTjB5?=
+ =?utf-8?B?bUlkazU4czJzUlVTUmdESWFyUHk1VU4vTWFkMWs0UnJMWlhJTzZPTXJmZUpz?=
+ =?utf-8?B?Yy94SU1RQTV5SlRjUkFFR0N1bHh3cTZyVU5ieFV5cStDQ0YvMEQ2WnQvNkgx?=
+ =?utf-8?B?amhPOTYwcWdjbXN5WFN6VmMvUytWbE9FcHd3L0krZVlscWlDR1VEaEp6NE1x?=
+ =?utf-8?B?M29iNGxOanN1TWFBV0d3TWNTRk95b1NYOEN3UzJpV0lqWHRDdzNTOHM3WUhx?=
+ =?utf-8?B?TEt4M1dUWkx3WW5kcFFLeGFaRytQd1FJVlFZeUxKclZ0ZXQ4eml5UE8wMXh2?=
+ =?utf-8?B?aml1d0d1Q1B5bFo4YlFUbkwrYlROOTFWY3hmakRmd1J4eWNTQnF1M1ZRZ1Br?=
+ =?utf-8?B?VmdWMHM2SklmbzZ3RUcrZ2NNK0hTKzlXdFJuSVZpd3Z4MXhCZkdTSnF3K0Nh?=
+ =?utf-8?B?SXo5elA5VWxKV0dPQzNSSlNibEcwVlltSzE4b3RlSzV2RFhaMWVGREJIUnNB?=
+ =?utf-8?B?aVYvZ0NuN3NDWTl6V2pORHlJNStYeDMwR3pFZTNvSHlJc3pjLzd5eXlhbkFo?=
+ =?utf-8?B?Ti80TUZlRG9OZEdVVENtVzV0NVhNQnBjVS90dERIcitKNWdzMEJlV0xZeEZ2?=
+ =?utf-8?B?S1N4THoxdTVoZm1ieXVpNTJWQUlJOWd5cWFyWDdtTUxIdklzdHhmZmpOc3Nk?=
+ =?utf-8?B?R1ZjeHdSdDJYRjExb1Q1VVdFWDNWUGRWdTdyTUpocHh1ZW5hck1wNFQrZ000?=
+ =?utf-8?B?VWppSWxHY0wwVURBSEZjQjZrdnBEU2EwZmFuRWowU0N4MjRFRy9wb1h0SWcx?=
+ =?utf-8?B?cXJ3eFYyUGlaVERZT1FXZFl0emZoVDNlTExVNFFrUjV1TlgyMlVxMWE3Y0Ft?=
+ =?utf-8?B?SzliTHoxQkIvM0hST1BRTHpXWXc5UU1haDNWSXd5bTBESnkwRGRiVXArSzF3?=
+ =?utf-8?B?OUVzOEN0cDVaMHQvWFVrY3drK0h0S2NHYW1lMHlna0RablVNNTlsZUh2cjJZ?=
+ =?utf-8?B?OTN2TUJBZmhiWHBYWGQvNi9XMENRMkZXUCttUDdSd3VNcHE4b0U3VHhQRUha?=
+ =?utf-8?B?WFNFdlR1SzdhVVB4QlNCMFZ2RkVwWWlIOVlabGw3d3l0RXpyZWpzTFRnTE1i?=
+ =?utf-8?B?OE5vVDU1a0h0aERCQW1BSUVqeUQxQ0phaC9xcGxPOUtxckE5WWxZSzNrcDVT?=
+ =?utf-8?B?aXdjZXA3eHV0VW91Tk5sUkdTT0pCeGU3Vy9UY1k1NGlQSlRYd2hmVU83WjB5?=
+ =?utf-8?B?VWNsSHdOOStFUlRYT3V5UjNZQjFNRnppTUFwbnVWMGhOWFRYeVA3UUp2bGdR?=
+ =?utf-8?B?TFFuVno4c0lDY0VzYnlOOElFWSs1bTBSM1dUMTQ3M2ZvQ2Y0QjNhb29td29K?=
+ =?utf-8?B?ckh0bjA5bkRlcDNBUTFvbTA5SHF5bzkwc0w1VU9QU24xQmVOdVJ3RlZpWVFP?=
+ =?utf-8?B?SUtuRHBQa2IxemF1NlYyQ0lpVmFUYWI4eXFTRFRxVjJrdHZBeG1jV3RGVnQ0?=
+ =?utf-8?Q?dCkLI7yqYPYS6AvM+ckZbErSs?=
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(82310400026)(921020)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: XhOIkKigiqcgBC4YONy8k00dBReqFN3Dao+NmHFl+fQrxIN3tHsnEI8MWfYyPy0IYibIDTMDMar1uYpi4Jm5nBY9IhzBJmfoMIEGyIDOBgIasF7d2TWq5NchNtknip5M9cJDAkUwgjnizgQrqznK3GSY+yLd1K7Chpjcl7plM/p2Zm815000zu20YrMtltLguN3ePqOqpHMuTvAefGymZGOtLLe9VGAJgzMTJL/KfjXjbUwVFXMIusaoBGLkArRr8dh2w7ktVG3NJ4Jfz7hvLTi7wssY2rzZY1HMf1FrPNOvz6fmy1nFS7Cd1OfJk4mU5Fq3ejBfRAy9WkmEnTSaHBYR5ivvNZBwQp/D9hsXVxoUSnTp4Lm04tT1wEPEq5IhHl5cR1jTP9h2N0Zy58VM7VLjXbNe+I4FS5u+8ZBM0yz4nspouO6SuhxWoJh05Lwl/WPNtJDGKVIkAPuS7sN6C6/R43WCab3ifFiD7L6mCbbKS/3hALpWJK1zde8mh6uLmkRaZ+G6ca7ARrEDfXMROI+2S31i4x00xXY2QqKewcXcdbifBpDbMlfKNP8rgF31qDJ7ITtphodNMRWqTofuqkXrTo+Owi1YuX2YrR7tj572EA5KMsrQojYK3d+O1JI2ixf0AQ8DYcdCK/wRMuPb6b/gIJvrYUcmnmKlVYXiDk0EQFHFSoUgWOl44VmQoUvt
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 07:26:05.5599
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3c0cac0e-5012-4f9a-14b2-08de4c2bb02f
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E4.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR10MB3306
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_231828_944149_7CEED7D3 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20260104_232613_620341_67F4C0B1 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,112 +178,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/01/2026 23:14, Vladimir Zapolskiy wrote:
-> On 1/3/26 14:43, Krzysztof Kozlowski wrote:
->> On 02/01/2026 14:21, Vladimir Zapolskiy wrote:
->>> On 1/2/26 14:54, Krzysztof Kozlowski wrote:
->>>> On 02/01/2026 13:36, Vladimir Zapolskiy wrote:
->>>>> On 1/2/26 11:58, Krzysztof Kozlowski wrote:
->>>>>> On 02/01/2026 00:56, Vladimir Zapolskiy wrote:
->>>>>>> Add NXP LPC32xx specific driver to get unique SoC ID from System Control
->>>>>>> Block registers and export it to userspace.
->>>>>>>
->>>>>>> Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
->>>>>>> ---
->>>>>>>     drivers/soc/Kconfig           |   1 +
->>>>>>>     drivers/soc/Makefile          |   1 +
->>>>>>>     drivers/soc/nxp/Kconfig       |  16 +++++
->>>>>>>     drivers/soc/nxp/Makefile      |   2 +
->>>>>>>     drivers/soc/nxp/lpc32xx-soc.c | 114 ++++++++++++++++++++++++++++++++++
->>>>>>>     5 files changed, 134 insertions(+)
->>>>>>>     create mode 100644 drivers/soc/nxp/Kconfig
->>>>>>>     create mode 100644 drivers/soc/nxp/Makefile
->>>>>>>     create mode 100644 drivers/soc/nxp/lpc32xx-soc.c
->>>>>>>
->>>>>>> diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
->>>>>>> index a2d65adffb80..c21b0d2f58fc 100644
->>>>>>> --- a/drivers/soc/Kconfig
->>>>>>> +++ b/drivers/soc/Kconfig
->>>>>>> @@ -18,6 +18,7 @@ source "drivers/soc/loongson/Kconfig"
->>>>>>>     source "drivers/soc/mediatek/Kconfig"
->>>>>>>     source "drivers/soc/microchip/Kconfig"
->>>>>>>     source "drivers/soc/nuvoton/Kconfig"
->>>>>>> +source "drivers/soc/nxp/Kconfig"
->>>>>>>     source "drivers/soc/pxa/Kconfig"
->>>>>>>     source "drivers/soc/qcom/Kconfig"
->>>>>>>     source "drivers/soc/renesas/Kconfig"
->>>>>>> diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
->>>>>>> index 47a3925ff84c..a04c21a8a5a4 100644
->>>>>>> --- a/drivers/soc/Makefile
->>>>>>> +++ b/drivers/soc/Makefile
->>>>>>> @@ -24,6 +24,7 @@ obj-y				+= loongson/
->>>>>>>     obj-y				+= mediatek/
->>>>>>>     obj-y				+= microchip/
->>>>>>>     obj-y				+= nuvoton/
->>>>>>> +obj-y				+= nxp/
->>>>>>>     obj-y				+= pxa/
->>>>>>>     obj-y				+= qcom/
->>>>>>>     obj-y				+= renesas/
->>>>>>
->>>>>> Missing maintainers entry.
->>>>>>
->>>>>>
->>>>>>> +
->>>>>>> +static int lpc32xx_soc_probe(struct platform_device *pdev)
->>>>>>> +{
->>>>>>> +	struct soc_device_attribute *soc_dev_attr;
->>>>>>> +	struct device *dev = &pdev->dev;
->>>>>>> +	struct soc_device *soc_dev;
->>>>>>> +	struct regmap *scb;
->>>>>>> +	u32 serial_id[4];
->>>>>>> +	int ret;
->>>>>>> +
->>>>>>> +	soc_dev_attr = devm_kzalloc(dev, sizeof(*soc_dev_attr), GFP_KERNEL);
->>>>>>> +	if (!soc_dev_attr)
->>>>>>> +		return -ENOMEM;
->>>>>>> +
->>>>>>> +	soc_dev_attr->family = "NXP LPC32xx";
->>>>>>> +
->>>>>>> +	ret = of_property_read_string(of_root, "model", &soc_dev_attr->machine);
->>>>>>> +	if (ret)
->>>>>>> +		return ret;
->>>>>>> +
->>>>>>> +	scb = syscon_regmap_lookup_by_compatible("nxp,lpc3220-scb");
->>>>>>
->>>>>> This is undocumented ABI.
->>>>>
->>>>> What is the expected level of documentation for syscon?
->>>>
->>>> git grep nxp,lpc3220-scb
->>>>
->>>> gives me 0 results.
->>>>
->>>> Documentation is supposed to be in this patchset. If it is not, you have
->>>> changelog part to explain dependencies and unusual things.
->>>
->>> The documentation is under review, as a DT maintainer you are in To: list
->>> and should have it in the mailbox, for anyone's convenience the dependency
->>> is mentioned in the cover letter to this changeset also.
->>
->> There is nothing about dependency and nothing about binding in the cover
->> letter, so no - this is not explained nowhere and must have been explained.
->>
+
+
+On 12/23/25 11:04, Bartosz Golaszewski wrote:
+> Configure the parent device and the OF-node using dedicated fields in
+> struct i2c_adapter and avoid dereferencing the internal struct device.
 > 
-> If you do not find the asked information, then let me repeat my question, what
-> dependency or information does this changeset miss? What "undocumented ABI"
-> you'd expect to resolve?
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> ---
+>  drivers/i2c/busses/i2c-st.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/i2c/busses/i2c-st.c b/drivers/i2c/busses/i2c-st.c
+> index 97d70e66722706f242cd97153387c3a865abc12d..b50be2c39eaa4b9b95a71b038a4d63f3c5fd7c4b 100644
+> --- a/drivers/i2c/busses/i2c-st.c
+> +++ b/drivers/i2c/busses/i2c-st.c
+> @@ -849,8 +849,8 @@ static int st_i2c_probe(struct platform_device *pdev)
+>  	adap->retries = 0;
+>  	adap->algo = &st_i2c_algo;
+>  	adap->bus_recovery_info = &st_i2c_recovery_info;
+> -	adap->dev.parent = &pdev->dev;
+> -	adap->dev.of_node = pdev->dev.of_node;
+> +	adap->parent = &pdev->dev;
+> +	adap->of_node = pdev->dev.of_node;
+>  
+>  	init_completion(&i2c_dev->complete);
+>  
+> 
+Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
 
-I already explained that.
-
-You added here new undocumented ABI. I said that.
-
-Changelog of this patch or cover letter must say where is the ABI
-documented, if it is not in this patchset. I basically said it as well.
-
-There is nothing like this in cover letter. There is nothing about
-dependency, either.
-
-
-Best regards,
-Krzysztof
+Thanks
+Patrice
 
