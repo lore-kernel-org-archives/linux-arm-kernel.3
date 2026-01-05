@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733D8C2A062
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 08:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A2D3C2A062
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 08:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6xuz8o/gb6QERQ6+/8fZLHtPXBEmYMHI7qqP90dZeLA=; b=uQABJ8WVzuymppIvuNmtd6dyi5
-	YE3+nFRYgIu5QrojyEy6C9iOx3+mt+fvV9flQsUXy3qZuE1vYQdhzfTyFD0wsiIzXNozDOqlp6knS
-	12jFh+SWDnI2gLOZrzQIlTsO3iyfc5Ht+kEkVp4fdPY8cdhp/3/sF4NM7Qtq6VENnxHhBoW7fpGTD
-	FTYL90TUnTbPT78cTue54tMdL6AwtC0Y+wWAPRKBlV+aDerCuPJK1r8phP/JMv2CduCk+bYf6aX1Z
-	H5TfMad1x2S+79NlE6i8b7XRYTJ7h66Q+oJt0wIB2IddYm2q+ko+XMFfZoiFvOuxxATRhz6PoFFwE
-	K9iGGyog==;
+	bh=6Hpx5updEnG6CR6tdCfveNfPE2OmvxTxNFtA6EfUaWU=; b=GP3nYHzYNqf2AKDB5XRoLxmpjj
+	bq1gIqn/yZz+3RgwXFxIggVgS5HI9WEfxAj/aWqbp9sCF1IBJ1JC/Mvza5damHCwXdhNEfPA/uKPT
+	H3wW35Vt/G1TBVma4MzpxldUY4MIfYwdv9bN0XzohxERuII/3T+7k7WjH2MgJZeDBlUptatY8Z6UH
+	2B3kEMEly2XYw58XGiY7YrZzi92vvwIyruYN+61of7KbVlsE+SIa5uI9kFWjpfBeyWa4hoO5Pf2es
+	YpVqqw8wiB+17QreaZPenYVw1h7jK4xjKEzZiKg429kjC5349A9QIWJxA2IFTkyFqhwdU6Z1VtO6z
+	M7g9dzPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcfzu-0000000AzGC-3ZMB;
-	Mon, 05 Jan 2026 08:31:30 +0000
+	id 1vcg1X-0000000AzSf-06Qy;
+	Mon, 05 Jan 2026 08:33:11 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcfzt-0000000AzFj-03X1;
-	Mon, 05 Jan 2026 08:31:30 +0000
+	id 1vcg1U-0000000AzSC-2o1y;
+	Mon, 05 Jan 2026 08:33:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A71F400FD;
-	Mon,  5 Jan 2026 08:31:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8A45C116D0;
-	Mon,  5 Jan 2026 08:31:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DE29342D65;
+	Mon,  5 Jan 2026 08:33:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57010C116D0;
+	Mon,  5 Jan 2026 08:33:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767601888;
-	bh=6xuz8o/gb6QERQ6+/8fZLHtPXBEmYMHI7qqP90dZeLA=;
+	s=k20201202; t=1767601987;
+	bh=jR4fFLVRiuegFqSf3wGQVE9BvrmQiyfEnJAXr4ps4Oc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=m0zpWZGkSxVKTdN7HrCPz92ypNhbN1w1zDeqrAcx+9MbI1vYYo5498R4h8MI/W6g2
-	 PyvVQOdHvv0o5j7nlvbKS8pHWejn3KRycnkXCFdqiMZrN/JvOSMDGb1VJw1rZlsT+U
-	 qhzGWN4Uu6QytU/wTFo/uAXDtvsgAUUWsgLuOX/J1cQtxOFz0RaiQtRYLV3O8YBhag
-	 RGI1i4u+JJSD8zwn1eJ6wrXdJmStDe4zPsW2C8AZOE01DiTfpVxXDhkZntQyXSrhoj
-	 aXP0Cpv+MuLtsqirs5652iBBvRBYGeV9odoBrMw4pKwCm+27QIkCYu1kJWWVHWygtu
-	 In4RvTE8Gf4yA==
-Date: Mon, 5 Jan 2026 09:31:25 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, linux-phy@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 01/11] dt-bindings: phy: renesas: usb3-phy: add r8a77990
- support
-Message-ID: <20260105-beneficial-seal-of-swiftness-1c5eeb@quoll>
-References: <20260101203938.159161-1-marek.vasut+renesas@mailbox.org>
- <20260101203938.159161-2-marek.vasut+renesas@mailbox.org>
+	b=UK3Dce6S+YtTWs/Rlbr7cbBA/AcEhlPFHOM5rRNu8ft8yJYAhfFxN6T2gRTuH2MKD
+	 UOCv2DQ4WnUZl4pDsT71NtcqecqnM2MHGl6rP3eFd+So5+9LCDLR5+GQeY4j3HeCfl
+	 fUOflI3v1aq8o36rS1l0/L8450oJ2uljS5RGcuLeO6OYQx79kcItfxiGdeWwWOI7OQ
+	 CovGMLXQ6XN0PsMB36cNcm1VU24lOezbyiGEBiaYhttKnIe45zE51nFRfQQZKlLz53
+	 tPhLPapYsbcS0HvZeaom+07J5yc5y0CEuZRNF2GLKad6GTN3tuyJBqhupNp0KRcBHU
+	 fcgZEmmMEy7uQ==
+Date: Mon, 5 Jan 2026 09:33:03 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net] net: airoha: Fix schedule while atomic in
+ airoha_ppe_deinit()
+Message-ID: <aVt3P_sAeb0UtshZ@lore-rh-laptop>
+References: <20251223-airoha-fw-ethtool-v1-1-1dbd1568c585@kernel.org>
+ <20260104095748.70107b9b@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fJ2NtbytHDl8SsTF"
 Content-Disposition: inline
-In-Reply-To: <20260101203938.159161-2-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260104095748.70107b9b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_003129_075299_7D20C999 
-X-CRM114-Status: UNSURE (   7.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260105_003308_747997_355F91F8 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,19 +76,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 01, 2026 at 09:35:48PM +0100, Marek Vasut wrote:
-> This patch adds support for r8a77990 (R-Car E3).
 
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
+--fJ2NtbytHDl8SsTF
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Also, you cannot add support in bindings. You either document hardware
-or you add bindings for or simply you add hardware.
+> On Tue, 23 Dec 2025 22:56:44 +0100 Lorenzo Bianconi wrote:
+> > Rely on rcu_replace_pointer in airoha_ppe_deinit routine in order to fix
+> > schedule while atomic issue.
+>=20
+> The information in the commit message is not sufficient.
+> What "schedule while atomic issue"?
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+The issue is we run kzalloc() with GFP_KERNEL in airoha_npu_ppe_deinit()
+in atomic context but we do not really need atomic context there.
+I will fix the commit log in v2.
 
-Best regards,
-Krzysztof
+Regards,
+Lorenzo
 
+>=20
+> > -	npu =3D rcu_dereference(eth->npu);
+> > +	mutex_lock(&flow_offload_mutex);
+> > +
+> > +	npu =3D rcu_replace_pointer(eth->npu, NULL,
+> > +				  lockdep_is_held(&flow_offload_mutex));
+> >  	if (npu) {
+> >  		npu->ops.ppe_deinit(npu);
+> >  		airoha_npu_put(npu);
+> --=20
+> pw-bot: cr
+
+--fJ2NtbytHDl8SsTF
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaVt3OwAKCRA6cBh0uS2t
+rOkJAP4jrr9vVu+SoLlKEvC8/13XPzrDIHx03ib3U4KbcNisjQD/WfD6TFYOSFEG
+UOd9aqYCXOtyhpoyTsUnD/vsLMRmlgE=
+=vvTn
+-----END PGP SIGNATURE-----
+
+--fJ2NtbytHDl8SsTF--
 
