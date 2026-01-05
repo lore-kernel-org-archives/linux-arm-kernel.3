@@ -4,70 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD64C2A072
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 06:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEE55C2A072
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 06:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ozQD9R+T65iAXfWtpkBIJpYmbD7YAYiEDjJbuw0jJD0=; b=zUsWU/06VE/VH4j8Zd+0nxE0Q8
-	+D9uj0Z/FKMcdh2sOdixFYy2pikGDqGbLuGargxJ+rWjgckLIFVNKxRdG0L76BvWbKLN+t+CaqPZX
-	fBlWU2lHPoCz1JGfWJg+VXTwW06OrGHENgtxqw+2j07zixs2jItDlna6bW+yVM6rq645Rytkvm0dn
-	RdeaV/G2cf5uKSn26DpHv917d6hYi/XCV3/3sEbbMgLqpSNiMrODQi6GlGdI5eqTXoSb6PSkOqmRd
-	E9JRUohltOEo48AfwIixwWT8B50J+GjMI+xHBWTtTFO783NeVpBpXeHSRTbo0RQ1Kyw5rSBzUlf2m
-	IoiYTyJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zY2MaNpM9pGsrupuSIoeJB7tNZYYShQJpswW318V6Vw=; b=dTk185IMkitYD1FlEdRnyuAYor
+	j8qrw9z47KkkSL/YOPOSDZU5JIjBTr60cogrJQkoSVJzSjr58mB5KUpnILfGrtDTBRKec0VXYsu6J
+	t/BSScLM1Wpg/PQkQy3Xvr/tk/I6gr/g9XVK9WShiWHJp8rBWbZXJIw8rHeJKK5Gq6mau5zSkE31o
+	qJWL3Ims7K8/Mf/4JFL5fpci7/j38rtqAJuVe+Tzu2NWFWlbaqhU7RB1b7isFvIEOJUtFaWRJjRc6
+	L6/0x1v+kzM9syFN0I+2DpZPB4pGQqRVAC7A3Pbc8TWvdJbrDEQ3ZnZrIkzXLbfMIAr5xcu6gxWpl
+	FWNpXXAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vce6i-0000000AsIN-0JPD;
-	Mon, 05 Jan 2026 06:30:24 +0000
-Received: from mail-m19731109.qiye.163.com ([220.197.31.109])
+	id 1vce7R-0000000AsR7-1woQ;
+	Mon, 05 Jan 2026 06:31:09 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vce6a-0000000AsGa-2Q3T;
-	Mon, 05 Jan 2026 06:30:19 +0000
-Received: from [172.16.12.51] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2f8176a56;
-	Mon, 5 Jan 2026 14:30:02 +0800 (GMT+08:00)
-Message-ID: <458ed33d-ab28-406c-9a0e-ca54ab5afa6c@rock-chips.com>
-Date: Mon, 5 Jan 2026 14:30:01 +0800
+	id 1vce7P-0000000AsQO-01Rr
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Jan 2026 06:31:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p0WQKbPLgvt3a+g8SNcmju9lZdVaf1O6K8WWzKiDo0yWRnBU4Rkunqs7bEV33RKqGSSkpNPPajb4aCLSfe5deR6a+zkQaBL15nL6iT4Z0Vlqs14NICH0Wbwrb2eDvyZPqNpzdI+l8v/PD18PU7+PL6Z7MnP21aEMfsxgRaCFDYEv+ib/Fc1JP7BJEQSoXfyTwl8Ovw6w/5mWrCuLAuY3wEM4HRuNubqICF6Cg4s1z3afyphvNW63Y2tJqPmuUmKDtB9oveSxv71UFOKrgy4b+BRbI5XyOtKkOtocQF2/IzyFyBSqXBAHqa37gwSUjYSFlKwdbo/Q/i/TeFTFAr0Puw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zY2MaNpM9pGsrupuSIoeJB7tNZYYShQJpswW318V6Vw=;
+ b=T3/DflYnREb/9PiPBdSpUqX7ah4nkkGUsFp1dCTOTqIjo6SzgjgJSuxw+7RJdOtfQNNrETtEbtX6buKIWUQhoNOfEPg0WsvolpH9PosXqk6x94cw6IN+CDo7aOX+F5A8iwCYZ4eHnuzYzdySQn6m1WG4RNw3oz14Zbk1Hd45MPW0GT28Tl+HTy5y04hb13et1tkcx5Qc35iX5giqIfkbbAIALD44kVUoum9SEDHtkmqDJILtoDx0Bi6pzwR6tpWY8q7opxqGErnVxITjzMYYPLnlVaztdzR37NV59BrHKnzbRCzdJQYK6r7avTQhYkZ8M5AT+jcrJW7Yxhnd1P13GA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microchip.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zY2MaNpM9pGsrupuSIoeJB7tNZYYShQJpswW318V6Vw=;
+ b=2DI8su5GMSLrWB8KHPLW5/Sn+8w7YwR1hOP5X8hr6HERlsJ3dZYjNnA3d5b2toFyzNujjGaavF9IAEpt49LLSyAbTKwouu+/yi3MuZi6gVCFClGDC0JgTkn7osYkq+h4a0Kc8xPhnwN5kupZQ/qoHPsZgYLMBbZ6v7crQuXgv2BMrJAbW77IYqT9hJ26y8L7/XgktLDy5TIBq+XHssERPM4gaC/uGvlVJI5PkrROh7D9zl6qfMWi4tfEebWXHbGviaZ4K3X4YMorHlLAvScBUm+rFixD7uKQkea8tBASbcbve3RoUmzR6LiHHUGN60lwh1ftqCyGaxuJQortmzd2Eg==
+Received: from DM3PPF9623118BD.namprd11.prod.outlook.com
+ (2603:10b6:f:fc00::f3a) by PH0PR11MB5174.namprd11.prod.outlook.com
+ (2603:10b6:510:3b::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
+ 2026 06:31:02 +0000
+Received: from DM3PPF9623118BD.namprd11.prod.outlook.com
+ ([fe80::253c:c449:c087:43b1]) by DM3PPF9623118BD.namprd11.prod.outlook.com
+ ([fe80::253c:c449:c087:43b1%2]) with mapi id 15.20.9456.008; Mon, 5 Jan 2026
+ 06:31:01 +0000
+From: <Manikandan.M@microchip.com>
+To: <Ludovic.Desroches@microchip.com>, <Dharma.B@microchip.com>,
+	<maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
+	<tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
+	<Nicolas.Ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>
+CC: <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 0/2] drm/atmel-hlcdc: fix memory bugs
+Thread-Topic: [PATCH 0/2] drm/atmel-hlcdc: fix memory bugs
+Thread-Index: AQHcRQFeQJRKPVfW2Eqh1yNSJs0dQLVDj7QA
+Date: Mon, 5 Jan 2026 06:31:01 +0000
+Message-ID: <b47bc69e-3b98-4462-a709-2f5d407d01f5@microchip.com>
+References: <20251024-lcd_fixes_mainlining-v1-0-79b615130dc3@microchip.com>
+In-Reply-To: <20251024-lcd_fixes_mainlining-v1-0-79b615130dc3@microchip.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-GB
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DM3PPF9623118BD:EE_|PH0PR11MB5174:EE_
+x-ms-office365-filtering-correlation-id: f3071f23-067f-40ed-54e8-08de4c23fed1
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700021|921020;
+x-microsoft-antispam-message-info: =?utf-8?B?Ry9sTDV2d2lScVlSc1M2WElSUjJ3T20wb290eHVPUUtkV254VVAwdmRINlAx?=
+ =?utf-8?B?TXp6QzRuZ1NXK1lObTZuMTIrSTlRSFI3V0Rzd0RKYm5lUksyNlJlMmJML01r?=
+ =?utf-8?B?ODdtMXlLM1lLbDBZb1ZPR3lEbHRzQXh2eWpIQmFUQ3NTbW00THNWT2JSN25V?=
+ =?utf-8?B?N1ZnYUU4UDVwK1lHUWdrRlZNQW1LVjhnTkpEUHJzKzJGOHFYTVhWL0dCQ2VR?=
+ =?utf-8?B?M3p5QllDRFRBTlp6Skw3S09JOVpsMkNGcjRERGZuYTlPSkxEQTBXeEhZNWl4?=
+ =?utf-8?B?TFpCME5HbnYwc3o1UFVCSVZvdTJrNXJWei9sZ3UrcXA0NUJRNGFhZ2Uvekky?=
+ =?utf-8?B?TVZKREE1T3UwcUY4cWxFK0VIelRFUmZ2RFVmL0RRNmljQzJrZG1GVmM1aW1y?=
+ =?utf-8?B?aDEwdFBiR0xwNXBzK3Yxc0NmY1NrUUhkSE1PWkRjWm94U1dwMjlrcUxKMVE3?=
+ =?utf-8?B?bUUrdVdCTEZwNW9pdVRMVEp5Rk9mRWlOTDdtTmtJbEdHRXdXcGJvQnNyU0JG?=
+ =?utf-8?B?dG92Z283K3JXek9BZGNFaEpLSE9iQUd3bkpHN2I1MkFLWURWdysyd2JZcENo?=
+ =?utf-8?B?aWh4eXVKVW1TUHN6VlYyYmFtOVhZdFR2T0g5UDN4LzZoK1BwZFZzczRDUjFG?=
+ =?utf-8?B?WGRMWGFxU1BQQzcvRDNxMHpmRVVacEE2QzYySmpYYTNnNnd2a1FkRE10WmNx?=
+ =?utf-8?B?K1haV2Z1WDQ4NWtrQ1lGNHFkT0gySC9SK0VZZVE0S2lYVlZzVThMS0g5VEdt?=
+ =?utf-8?B?cG5URldVV2owclRtcnpaZEZCNlZzREpqcDlHQm0rOUhJMGJhM29uRUtkdThU?=
+ =?utf-8?B?Y3hPSFV4aElrNG5GWG5JanhsR2phYWg1dmpwd1JBTG1XcDBYQS95RHhtWE5s?=
+ =?utf-8?B?S2VmMnRnZENzeWkwWDZwQ05RMFNPUWN6UW1Ec3lCWHI4L3g4RUJ4aFhWSlMv?=
+ =?utf-8?B?WjE5M1RDcHZZdkdtNkp3dXU0Nm94NFNkdkRRallRbFF2cno3V3NvcThocjRZ?=
+ =?utf-8?B?V0N4TjNTSUZ2WG1pU21BNzNGSTdlaEJnU2ZWeUNWcVBJaUZrTlY5OHVZM0w2?=
+ =?utf-8?B?ZFNJNDdlRXRiR2tvQlRTaGUrNCtOMm9KWWhXbkNKM0NibTNsVmk5N29zcTdi?=
+ =?utf-8?B?YVdybGl1UFc5SWNCOXo2NzlVYk1iZ1JVZEFyMEZvRXUwZXRiSVV0UWZNK0VB?=
+ =?utf-8?B?c0NudFRCS1dWRUZFVytYTm9iZnZhZVZCeCtIZzJLdjFtRGR4cUFzNkJIelV2?=
+ =?utf-8?B?YW9yeU4rM2dpaHhXbVpJOTY4ZzAycmpoZStGaWI5cTVWMUJjMVM0WEF0Q1Mv?=
+ =?utf-8?B?WFVHMFVVUEFVNy84OVFGOVBnazdyMERqbUVOSC9XYmJYNUtCTHlvZ0ZFQmpu?=
+ =?utf-8?B?VXJCS2xRUTZhd2FqZGdRUFJUTWxLanFGY1plMUVyNGxMRElxVjdhREFZRndh?=
+ =?utf-8?B?TjFQZy8ydkk5cW9US0szRlhlVjU4WnNmT2RzdGxObk1GT3RFK0JSYWdNY2Q0?=
+ =?utf-8?B?YUk1QzBsOElxdzMzc081RlNxSDJFNGtwdHNieGV4KzFlcVdQNFBoaWNUd3Fj?=
+ =?utf-8?B?OHFqZ2xxejIwTVNnTnNSVlp6SkpMTnprdGdhWTFwUzF6Zk5UMnpzdmRLaDNC?=
+ =?utf-8?B?NGtxbEtGTjdLcGl0NW1xK3NUSmFUSlhMZGczZ0F6ZTJOSHM5V3Q2VThVYXJs?=
+ =?utf-8?B?N1dCT2Q2Y2VldDFhTWQra3gzTVN3MlB6TVZXRHdYS00vT05aa2JOL0Y0UzV2?=
+ =?utf-8?B?Q3QrQmx4Ry90N3VGUEhXK25LT0xIMU5FVzRJR2kyRUxpTE9vM2hUSGp2aWRB?=
+ =?utf-8?B?NEhOZkJYOFpzZ01LUkxLQmZtYURmRDI0a2ZRTGlNTi9EUTg5bVVBZzgxalhX?=
+ =?utf-8?B?Zm90WVk0Q3BVYmdiNGltK2M0d0JwZkpaa2JsVmp2YkJ3ZDhGVTVlbE9jMXN3?=
+ =?utf-8?B?Vks2ZmxOL1NxVEhDLzg0c0RRejlXOS94Qko1VUVZTmRVK2h4aGNrVDdndFA5?=
+ =?utf-8?B?bzhZMThZTHJaY0NoYVhLaUV5aENlOXBNRnZubEphSWRrRkRPTlZmbUxEdzNM?=
+ =?utf-8?B?ZFZrbnNiRWNLOVR2d2NmbGlhU1I3bGVzeElGdz09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM3PPF9623118BD.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700021)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?bjlSYTNKeG5mazdQWExYOWdOWUFPeEJiNkg4TTB3VDl6TkNkSmxQZ3N0S0p6?=
+ =?utf-8?B?UUJRaWNzWk1ucG8zeUpmc1Z3VlZCTGFoVHNNSzl2ekEvWlpMUS9XM0ZRT0hQ?=
+ =?utf-8?B?aTZCWUpldHpvaVB5OTBXVFRPREdwWXNSMHowV2labnYyMTcxS0I0bHZKUWh0?=
+ =?utf-8?B?Q3ZOanRpNVdOK2Fvd3pRZ3hzL3Q1SWhybm5CM250RFhMSE9yWjBKK1V4YS9D?=
+ =?utf-8?B?VXlXQ3EvUDErYy9QT1M0TTdocFhaL29wZlJGa1lCcjlUUG5PSjdUU1dNWENw?=
+ =?utf-8?B?czdaNzQxNFEyZWpQVEYwT2FqSXNaeU5TQ0h5ZC9xMkpXYTBTRWV5L0s4WFRi?=
+ =?utf-8?B?akkvTDRBRzcyRXFOckhYRzRSRERWUkNrc2NFc25FM3B2d20ycUFCZ3Q5TEx2?=
+ =?utf-8?B?Y2NIaFJpUlNIZ25FWlVXbGw1c0ZzQW8wUjk2U0pGWHVzQmk3UUdWMHNsZ1Ry?=
+ =?utf-8?B?RGNvS3hGbkQ3RXJZYldDeE9yNWtWWmEwVlhjZkprSDl6a1lHUnZnR1NjTUpK?=
+ =?utf-8?B?eHJlb21nWWxBRk5sOXRJT1EycFZWSzgzM01VMXZDK0pSSnhhMDFxaklTdjF0?=
+ =?utf-8?B?bUU2dTB5VzF4QXFsVnNHS0FmTVJ0UGhmT2IzZkg2cENPRjltS0dVRm02TlY5?=
+ =?utf-8?B?MCtJVUFGM3dzL1lxWm5rY2hJNjJlM3dobEtzK1BCckNEWDFuUTBuUjZTTlN0?=
+ =?utf-8?B?OGRpMmtqZzViS3Bna3k4eHM1cC9naW5ncjRiQkJCMGVmOWsrdUlXVmxvZmMv?=
+ =?utf-8?B?VGFHZUYxUjBBOHJRMTVobWhEOXozUUFSWDhPWW5QRTZVUk1aWitvUTFZOVo1?=
+ =?utf-8?B?NitETWw5SG5zb1MvWHRvRjRuUmd4Vzl5UE9vUGw4cGVDYkx1R1VvQjVLcm9r?=
+ =?utf-8?B?YTM0QXozVlVBQjVzOXVteXcvVXQ4K1VNZEl4c1REVDBjRTBVa2p3RHF0bnI5?=
+ =?utf-8?B?Z1ZhZ203aG55N3R0L1lLNXROZWgxWGh6Mk5jak81N0tjUGdJSVBiemY0cDh4?=
+ =?utf-8?B?YnpoVlFNNGtUSTB5N2hiTVZjV0sxeEdYRVZib1c1YlFxSWRBVmw0S3FkUXpQ?=
+ =?utf-8?B?Q0V1Z3hFSTFoYTMvdXN1dlZNMG5OanQ1c3FWTm91ZEZZUFBscjZidzJlckhJ?=
+ =?utf-8?B?aWMyTWllZk1sNnJqRnFIL1hCSGY5N1lnWEFQemZYWGxaY2h2cnBhZEZEMnV2?=
+ =?utf-8?B?SW9YemdoUkhtaTV6UjFhYzVZN1psbGdUclV0VDZKTitCeG9aNU42MW4vM28r?=
+ =?utf-8?B?bDA0Sis0aUhiWEc1dlV1ZHc2Z3FKRUUxQXY2K05ZUXdDWmZBRVhtdmpzV0hJ?=
+ =?utf-8?B?dmRmZjNUWGdUUFVrL09OMjZXMzNQYnVFazNTVVBicXJST1dhZHc1SUxqQ2d6?=
+ =?utf-8?B?cFB6UDd2RWVWQ0dUTmYrR2NuS3Q1OFkxczNNQzlmWkRtOERrOVNxQ1diRXo0?=
+ =?utf-8?B?cGdXc0owOVIwdG9JdFVMbVl0SVdHQXVUcS9Da0I4bTJzanJOa1pWV0o4U29J?=
+ =?utf-8?B?bCtjWXBQa2h4V0VDWnJBaHRsN1RkV253azBMY3JQM2o4OXROVXJQWEcrVzEx?=
+ =?utf-8?B?MllWZ2Zka2JscVNuanYzbzE4cVIzWDJqN2FIblFhSUErblFLVHQ0dlZhRU1Z?=
+ =?utf-8?B?czVIWENjR2J0dGp5R1R3T1JGNElhS3B4OHVRZVdsNTUyRkwvTDVkMGJGeWhC?=
+ =?utf-8?B?NU9FMStFUXNCVzl5REY3WFlQUmhlZjFKcDhRUm11SjZkNzFULzBIak1pK0t3?=
+ =?utf-8?B?dmxBS2l6SVpoQlgrYnExODhLMkpVbU1aUWMrMGRRMlh1b1pyUTh4SXk1SlFq?=
+ =?utf-8?B?WWhQZWRSZDg4TDkycm56U3l3L0FtN2tIUGZBY1I4N1AwR2FzcFNWM1N3ZGNn?=
+ =?utf-8?B?bDE0RGlyd00rY0RsTlc1VnIxY0htSWtuRk00OUNtSUVJZ1hmYzhaaXoxSzFu?=
+ =?utf-8?B?VWE0ZGFzOVduanlCRzFsS0JlTWtRZlk3Q3UwcWRNR3hHemk1OVJNWVVDZkpv?=
+ =?utf-8?B?RGR5QU5qa1l2N1orc0tzUDNaQzRGLzVoS09lZkFPZ3UzcGFwQlRlQTZ5eUR5?=
+ =?utf-8?B?alJTakZhOE04VzkrTTNsR3U5NVo5Z0JkNitiV3dKU2gyTi9TOGQ0YkZmeW53?=
+ =?utf-8?B?dzZMREFrblFYaGNQdC9lNVd3VjBVa09vTGptK3Q1OEhRalM3cU9sWjRabFJt?=
+ =?utf-8?B?Zk5IQmFMWkdTT2tLM2Y3MnkrSldkUFRzcjRoM0tyWmtHY0M2eDRWTDQwdUR5?=
+ =?utf-8?B?TFlFanBxd3IvS1B6ak1tUVZQSS9zUmhraUd5MEp3Q2ZLSU5Id3czOGFlMjBo?=
+ =?utf-8?B?b1lTT3lTWkl0aWlncGFZZ2hiR3B0Vks2OVFoWVB5RmVCN1JyZEhKZz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <5AEAD69AC9524E4FA396BE04461C7E48@namprd11.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add rk3576 evb2 board
-To: Alexey Charkov <alchark@gmail.com>, Chaoyi Chen <kernel@airkyi.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Quentin Schulz <quentin.schulz@cherry.de>,
- Kever Yang <kever.yang@rock-chips.com>, Jonas Karlman <jonas@kwiboo.se>,
- John Clark <inindev@gmail.com>, FUKAUMI Naoki <naoki@radxa.com>,
- Jimmy Hon <honyuenkwun@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
- Michael Riesch <michael.riesch@collabora.com>,
- Peter Robinson <pbrobinson@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260104023703.118-1-kernel@airkyi.com>
- <20260104023703.118-3-kernel@airkyi.com>
- <CABjd4Yz6Hp780DU_Z8j6D0-gQfT_ag86N8Vv=Q4TxUait_6-Mw@mail.gmail.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <CABjd4Yz6Hp780DU_Z8j6D0-gQfT_ag86N8Vv=Q4TxUait_6-Mw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9b8cd92fc403abkunmcefd5ae1b378a8
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0sYS1ZDQh8dTUNKSB1KH0NWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=iC8+jclDlBqNhnqNbmPthW5WYhOTqVnL1em2uG3hMeKGxDNMKeyLf7QSQW/b8nNXqhD0B9bvv8hLodoZIlgMuw0TNVUZ4soMPLf2KZttXAbO0yBmGb6BMVGi3gDXbzkmJ4wrCJYjw7YihpAhQnffqR/HVQH7Ni3E+6UVMShMhZE=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=ozQD9R+T65iAXfWtpkBIJpYmbD7YAYiEDjJbuw0jJD0=;
-	h=date:mime-version:subject:message-id:from;
+X-OriginatorOrg: microchip.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DM3PPF9623118BD.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f3071f23-067f-40ed-54e8-08de4c23fed1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Jan 2026 06:31:01.5577
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 0Zkj6nE2T2eJOnG1UMS0MhJ52BAbp6Hj/KjPK8jUpMxZEN9bH8DMZgsCaQXym3y9gEZu3ZTPS7SicexH0xJETQdWnpA3kRG1Lv7W1NQcTTg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB5174
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_223018_256547_1F7B9FC0 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20260104_223107_044788_F8E49305 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,1124 +186,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexey,
-
-On 1/4/2026 3:36 PM, Alexey Charkov wrote:
-> Hi Chaoyi,
-> 
-> On Sun, Jan 4, 2026 at 6:38 AM Chaoyi Chen <kernel@airkyi.com> wrote:
->>
->> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>
->> General features for rk3576 evb2 board:
->>     - Rockchip RK3576
->>     - LPDDR4/4X
->>     - eMMC5.1
->>     - RK806-2x2pcs + DiscretePower
->>     - 1x HDMI2.1 TX / HDMI2.0 RX
->>     - 1x full size DP1.4 TX (Only 2 Lanes)
->>     - 2x 10/100/1000M Ethernet
->>     - 5x SATA3.0 7Pin Slot
->>     - 2x USB3.2 Gen1 Host
->>     - 3x USB2.0 Host
->>     - WIFI/BT
-> 
-> Would you like to highlight which features are tested/enabled with
-> this version of the DTS? That might help set the expectations right
-> for whoever tries it out.
-
-Sure, I will add this in v2.
-
-> 
->> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->> ---
->>  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->>  .../boot/dts/rockchip/rk3576-evb2-v10.dts     | 941 ++++++++++++++++++
->>  2 files changed, 942 insertions(+)
->>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
->>
->> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
->> index c7617e06e1c1..cff95657d406 100644
->> --- a/arch/arm64/boot/dts/rockchip/Makefile
->> +++ b/arch/arm64/boot/dts/rockchip/Makefile
->> @@ -153,6 +153,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-io-expander.dtbo
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-armsom-sige5.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-armsom-sige5-v1.2-wifibt.dtbo
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-evb1-v10.dtb
->> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-evb2-v10.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-luckfox-omni3576.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-nanopi-m5.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-roc-pc.dtb
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
->> new file mode 100644
->> index 000000000000..4f7d9f2027ca
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
->> @@ -0,0 +1,941 @@
->> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
->> +/*
->> + * Copyright (c) 2025 Rockchip Electronics Co., Ltd.
->> + *
->> + */
->> +
->> +/dts-v1/;
->> +
->> +#include <dt-bindings/gpio/gpio.h>
->> +#include <dt-bindings/input/input.h>
->> +#include <dt-bindings/pinctrl/rockchip.h>
->> +#include <dt-bindings/soc/rockchip,vop2.h>
->> +#include "rk3576.dtsi"
->> +
->> +/ {
->> +#include "rk3576.dtsi"
->> +
->> +/ {
->> +       model = "Rockchip RK3576 EVB2 V10 Board";
->> +       compatible = "rockchip,rk3576-evb2-v10", "rockchip,rk3576";
->> +
->> +       aliases {
->> +               ethernet0 = &gmac0;
->> +               ethernet1 = &gmac1;
->> +       };
->> +
->> +       chosen: chosen {
->> +               stdout-path = "serial0:1500000n8";
->> +       };
->> +
->> +       adc_keys: adc-keys {
->> +               compatible = "adc-keys";
->> +               io-channels = <&saradc 1>;
->> +               io-channel-names = "buttons";
->> +               keyup-threshold-microvolt = <1800000>;
->> +               poll-interval = <100>;
->> +
->> +               button-back {
->> +                       label = "back";
->> +                       linux,code = <KEY_BACK>;
->> +                       press-threshold-microvolt = <1235000>;
->> +               };
->> +
->> +               button-menu {
->> +                       label = "menu";
->> +                       linux,code = <KEY_MENU>;
->> +                       press-threshold-microvolt = <890000>;
->> +               };
->> +
->> +               button-vol-down {
->> +                       label = "volume down";
->> +                       linux,code = <KEY_VOLUMEDOWN>;
->> +                       press-threshold-microvolt = <417000>;
->> +               };
->> +
->> +               button-vol-up {
->> +                       label = "volume up";
->> +                       linux,code = <KEY_VOLUMEUP>;
->> +                       press-threshold-microvolt = <17000>;
->> +               };
->> +       };
->> +
->> +       hdmi-con {
->> +               compatible = "hdmi-connector";
->> +               type = "a";
->> +
->> +               port {
->> +                       hdmi_con_in: endpoint {
->> +                               remote-endpoint = <&hdmi_out_con>;
->> +                       };
->> +               };
->> +       };
->> +
->> +       leds: leds {
->> +               compatible = "gpio-leds";
->> +
->> +               work_led: led-0 {
->> +                       gpios = <&gpio0 RK_PB4 GPIO_ACTIVE_HIGH>;
->> +                       linux,default-trigger = "heartbeat";
->> +               };
->> +       };
->> +
->> +       sdio_pwrseq: sdio-pwrseq {
->> +               compatible = "mmc-pwrseq-simple";
->> +               pinctrl-names = "default";
->> +               pinctrl-0 = <&wifi_pwren>;
->> +
->> +               /*
->> +                * On the module itself this is one of these (depending
->> +                * on the actual card populated):
->> +                * - SDIO_RESET_L_WL_REG_ON
->> +                * - PDN (power down when low)
->> +                */
->> +               post-power-on-delay-ms = <200>;
->> +               reset-gpios = <&gpio1 RK_PC6 GPIO_ACTIVE_LOW>;
->> +       };
->> +
->> +       vbus5v0_typec: regulator-vbus5v0-typec {
->> +               compatible = "regulator-fixed";
->> +               regulator-name = "vbus5v0_typec";
->> +               regulator-min-microvolt = <5000000>;
->> +               regulator-max-microvolt = <5000000>;
->> +               enable-active-high;
->> +               gpio = <&gpio0 RK_PD1 GPIO_ACTIVE_HIGH>;
->> +               vin-supply = <&vcc5v0_device>;
->> +               pinctrl-names = "default";
->> +               pinctrl-0 = <&usb_otg0_pwren>;
->> +       };
->> +
->> +       vcc12v_dcin: regulator-vcc12v-dcin {
->> +               compatible = "regulator-fixed";
->> +               regulator-name = "vcc12v_dcin";
->> +               regulator-always-on;
->> +               regulator-boot-on;
->> +               regulator-min-microvolt = <12000000>;
->> +               regulator-max-microvolt = <12000000>;
->> +       };
->> +
->> +       vcc1v2_ufs_vccq_s0: regulator-vcc1v2-ufs-vccq-s0 {
->> +               compatible = "regulator-fixed";
->> +               regulator-name = "vcc1v2_ufs_vccq_s0";
->> +               regulator-boot-on;
->> +               regulator-always-on;
->> +               regulator-min-microvolt = <1200000>;
->> +               regulator-max-microvolt = <1200000>;
->> +               vin-supply = <&vcc_sys>;
->> +       };
->> +
->> +       vcc1v8_ufs_vccq2_s0: regulator-vcc1v8-ufs-vccq2-s0 {
->> +               compatible = "regulator-fixed";
->> +               regulator-name = "vcc1v8_ufs_vccq2_s0";
->> +               regulator-boot-on;
->> +               regulator-always-on;
->> +               regulator-min-microvolt = <1800000>;
->> +               regulator-max-microvolt = <1800000>;
->> +               vin-supply = <&vcc_1v8_s3>;
->> +       };
->> +
->> +       vcc3v3_lcd_n: regulator-vcc3v3-lcd0-n {
->> +               compatible = "regulator-fixed";
->> +               regulator-name = "vcc3v3_lcd0_n";
->> +               regulator-boot-on;
->> +               enable-active-high;
->> +               gpio = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
->> +               vin-supply = <&vcc_3v3_s0>;
->> +       };
->> +
->> +       vcc3v3_pcie1: regulator-vcc3v3-pcie1 {
->> +               compatible = "regulator-fixed";
->> +               regulator-name = "vcc3v3_pcie1";
->> +               regulator-min-microvolt = <3300000>;
->> +               regulator-max-microvolt = <3300000>;
->> +               enable-active-high;
->> +               gpios = <&gpio0 RK_PA2 GPIO_ACTIVE_HIGH>;
->> +               startup-delay-us = <5000>;
->> +               vin-supply = <&vcc12v_dcin>;
->> +       };
->> +
->> +       vcc3v3_rtc_s5: regulator-vcc3v3-rtc-s5 {
->> +               compatible = "regulator-fixed";
->> +               regulator-name = "vcc3v3_rtc_s5";
->> +               regulator-boot-on;
->> +               regulator-always-on;
->> +               regulator-min-microvolt = <3300000>;
->> +               regulator-max-microvolt = <3300000>;
->> +               vin-supply = <&vcc_sys>;
->> +       };
->> +
->> +       vcc5v0_device: regulator-vcc5v0-device {
->> +               compatible = "regulator-fixed";
->> +               regulator-name = "vcc5v0_device";
->> +               regulator-always-on;
->> +               regulator-boot-on;
->> +               regulator-min-microvolt = <5000000>;
->> +               regulator-max-microvolt = <5000000>;
->> +               vin-supply = <&vcc12v_dcin>;
->> +       };
->> +
->> +       vcc5v0_host: regulator-vcc5v0-host {
->> +               compatible = "regulator-fixed";
->> +               regulator-name = "vcc5v0_host";
->> +               regulator-boot-on;
->> +               regulator-always-on;
->> +               regulator-min-microvolt = <5000000>;
->> +               regulator-max-microvolt = <5000000>;
->> +               enable-active-high;
->> +               gpio = <&gpio0 RK_PC3 GPIO_ACTIVE_HIGH>;
->> +               vin-supply = <&vcc5v0_device>;
->> +               pinctrl-names = "default";
->> +               pinctrl-0 = <&usb_host_pwren>;
->> +       };
->> +
->> +       vcc_sys: regulator-vcc5v0-sys {
->> +               compatible = "regulator-fixed";
->> +               regulator-name = "vcc_sys";
->> +               regulator-always-on;
->> +               regulator-boot-on;
->> +               regulator-min-microvolt = <5000000>;
->> +               regulator-max-microvolt = <5000000>;
->> +               vin-supply = <&vcc12v_dcin>;
->> +       };
->> +
->> +       vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
->> +               regulator-always-on;
-> 
-> The name says "S3", so isn't it supposed to be able to go off in S5?
-> Then perhaps only "regulator-boot-on" is needed, but not
-> "regulator-always-on"?
->
-
-No, it will not go off in S5. Additionally, we cannot dynamically switch
-it on or off, as this would affect the system's functioning. 
-Therefore, the "regulator-always-on" is essential. 
-
-The configuration of regulator is consistent with EVB1.
-
->> +               regulator-min-microvolt = <1100000>;
->> +               regulator-max-microvolt = <1100000>;
->> +               vin-supply = <&vcc_sys>;
->> +       };
->> +
->> +       vcc_1v8_s0: regulator-vcc-1v8-s0 {
->> +               compatible = "regulator-fixed";
->> +               regulator-name = "vcc_1v8_s0";
->> +               regulator-boot-on;
->> +               regulator-always-on;
-> 
-> Ditto
->
->> +               regulator-min-microvolt = <1800000>;
->> +               regulator-max-microvolt = <1800000>;
->> +               vin-supply = <&vcc_1v8_s3>;
->> +       };
->> +
->> +       vcc_2v0_pldo_s3: regulator-vcc-2v0-pldo-s3 {
->> +               compatible = "regulator-fixed";
->> +               regulator-name = "vcc_2v0_pldo_s3";
->> +               regulator-boot-on;
->> +               regulator-always-on;
-> 
-> Ditto
-> 
->> +               regulator-min-microvolt = <2000000>;
->> +               regulator-max-microvolt = <2000000>;
->> +               vin-supply = <&vcc_sys>;
->> +       };
->> +
->> +       vcc_3v3_s0: regulator-vcc-3v3-s0 {
->> +               compatible = "regulator-fixed";
->> +               regulator-name = "vcc_3v3_s0";
->> +               regulator-boot-on;
->> +               regulator-always-on;
-> 
-> Ditto
-> 
->> +               regulator-min-microvolt = <3300000>;
->> +               regulator-max-microvolt = <3300000>;
->> +               vin-supply = <&vcc_3v3_s3>;
->> +       };
->> +
->> +       vcc_ufs_s0: regulator-vcc-ufs-s0 {
->> +               compatible = "regulator-fixed";
->> +               regulator-name = "vcc_ufs_s0";
->> +               regulator-boot-on;
->> +               regulator-always-on;
-> 
-> Ditto
-> 
->> +               regulator-min-microvolt = <3300000>;
->> +               regulator-max-microvolt = <3300000>;
->> +               vin-supply = <&vcc_sys>;
->> +       };
->> +};
->> +
->> +&cpu_l0 {
->> +       cpu-supply = <&vdd_cpu_lit_s0>;
->> +};
->> +
->> +&cpu_b0 {
->> +       cpu-supply = <&vdd_cpu_big_s0>;
->> +};
-> 
-> Shall we list all of &cpu_l{0,1,2,3} and &cpu_b{0,1,2,3} here for completeness?
->
-
-It make sense. I will add them in v2.
-
->> +&combphy0_ps {
->> +       status = "okay";
->> +};
->> +
->> +&combphy1_psu {
->> +       status = "okay";
->> +};
->> +
->> +&gmac0 {
->> +       clock_in_out = "output";
->> +       phy-mode = "rgmii-rxid";
->> +       phy-handle = <&rgmii_phy0>;
->> +       pinctrl-names = "default";
->> +       pinctrl-0 = <&eth0m1_miim
->> +                    &eth0m1_tx_bus2
->> +                    &eth0m1_rx_bus2
->> +                    &eth0m1_rgmii_clk
->> +                    &eth0m1_rgmii_bus>;
->> +       tx_delay = <0x1d>;
->> +       status = "okay";
->> +};
->> +
->> +&gmac1 {
->> +       clock_in_out = "output";
->> +       phy-handle = <&rgmii_phy1>;
->> +       phy-mode = "rgmii-rxid";
->> +       pinctrl-names = "default";
->> +       pinctrl-0 = <&eth1m0_miim
->> +                    &eth1m0_tx_bus2
->> +                    &eth1m0_rx_bus2
->> +                    &eth1m0_rgmii_clk
->> +                    &eth1m0_rgmii_bus>;
->> +       tx_delay = <0x1e>;
->> +       status = "okay";
->> +};
->> +
->> +&gpu {
->> +       mali-supply = <&vdd_gpu_s0>;
->> +       status = "okay";
->> +};
->> +
->> +&hdmi {
->> +       status = "okay";
->> +};
->> +
->> +&hdmi_in {
->> +       hdmi_in_vp0: endpoint {
->> +               remote-endpoint = <&vp0_out_hdmi>;
->> +       };
->> +};
->> +
->> +&hdmi_out {
->> +       hdmi_out_con: endpoint {
->> +               remote-endpoint = <&hdmi_con_in>;
->> +       };
->> +};
-> 
-> Would you like to enable &hdmi_sound and &sai6 here, or is there a
-> reason not to?
-
-Hmm, I will add them in v2.
-
-> 
->> +&hdptxphy {
->> +       status = "okay";
->> +};
->> +
->> +&i2c1 {
->> +       status = "okay";
->> +
->> +       rk806: pmic@23 {
->> +               compatible = "rockchip,rk806";
->> +               reg = <0x23>;
->> +               interrupt-parent = <&gpio0>;
->> +               interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
->> +               gpio-controller;
->> +               #gpio-cells = <2>;
->> +               pinctrl-names = "default";
->> +               pinctrl-0 = <&pmic_pins>, <&rk806_dvs1_null>,
->> +                           <&rk806_dvs2_null>, <&rk806_dvs3_null>;
->> +               system-power-controller;
->> +
->> +               vcc1-supply = <&vcc_sys>;
->> +               vcc2-supply = <&vcc_sys>;
->> +               vcc3-supply = <&vcc_sys>;
->> +               vcc4-supply = <&vcc_sys>;
->> +               vcc5-supply = <&vcc_sys>;
->> +               vcc6-supply = <&vcc_sys>;
->> +               vcc7-supply = <&vcc_sys>;
->> +               vcc8-supply = <&vcc_sys>;
->> +               vcc9-supply = <&vcc_sys>;
->> +               vcc10-supply = <&vcc_sys>;
->> +               vcc11-supply = <&vcc_2v0_pldo_s3>;
->> +               vcc12-supply = <&vcc_sys>;
->> +               vcc13-supply = <&vcc_1v1_nldo_s3>;
->> +               vcc14-supply = <&vcc_1v1_nldo_s3>;
->> +               vcca-supply = <&vcc_sys>;
->> +
->> +               rk806_dvs1_null: dvs1-null-pins {
->> +                       pins = "gpio_pwrctrl1";
->> +                       function = "pin_fun0";
->> +               };
->> +
->> +               rk806_dvs2_null: dvs2-null-pins {
->> +                       pins = "gpio_pwrctrl2";
->> +                       function = "pin_fun0";
->> +               };
->> +
->> +               rk806_dvs3_null: dvs3-null-pins {
->> +                       pins = "gpio_pwrctrl3";
->> +                       function = "pin_fun0";
->> +               };
->> +
->> +               rk806_dvs1_slp: dvs1-slp-pins {
->> +                       pins = "gpio_pwrctrl1";
->> +                       function = "pin_fun1";
->> +               };
->> +
->> +               rk806_dvs1_pwrdn: dvs1-pwrdn-pins {
->> +                       pins = "gpio_pwrctrl1";
->> +                       function = "pin_fun2";
->> +               };
->> +
->> +               rk806_dvs1_rst: dvs1-rst-pins {
->> +                       pins = "gpio_pwrctrl1";
->> +                       function = "pin_fun3";
->> +               };
->> +
->> +               rk806_dvs2_slp: dvs2-slp-pins {
->> +                       pins = "gpio_pwrctrl2";
->> +                       function = "pin_fun1";
->> +               };
->> +
->> +               rk806_dvs2_pwrdn: dvs2-pwrdn-pins {
->> +                       pins = "gpio_pwrctrl2";
->> +                       function = "pin_fun2";
->> +               };
->> +
->> +               rk806_dvs2_rst: dvs2-rst-pins {
->> +                       pins = "gpio_pwrctrl2";
->> +                       function = "pin_fun3";
->> +               };
->> +
->> +               rk806_dvs2_dvs: dvs2-dvs-pins {
->> +                       pins = "gpio_pwrctrl2";
->> +                       function = "pin_fun4";
->> +               };
->> +
->> +               rk806_dvs2_gpio: dvs2-gpio-pins {
->> +                       pins = "gpio_pwrctrl2";
->> +                       function = "pin_fun5";
->> +               };
->> +
->> +               rk806_dvs3_slp: dvs3-slp-pins {
->> +                       pins = "gpio_pwrctrl3";
->> +                       function = "pin_fun1";
->> +                       function = "pin_fun3";
->> +               };
->> +
->> +               rk806_dvs2_dvs: dvs2-dvs-pins {
->> +                       pins = "gpio_pwrctrl2";
->> +                       function = "pin_fun4";
->> +               };
->> +
->> +               rk806_dvs2_gpio: dvs2-gpio-pins {
->> +                       pins = "gpio_pwrctrl2";
->> +                       function = "pin_fun5";
->> +               };
->> +
->> +               rk806_dvs3_slp: dvs3-slp-pins {
->> +                       pins = "gpio_pwrctrl3";
->> +                       function = "pin_fun1";
->> +               };
->> +
->> +               rk806_dvs3_pwrdn: dvs3-pwrdn-pins {
->> +                       pins = "gpio_pwrctrl3";
->> +                       function = "pin_fun2";
->> +               };
->> +
->> +               rk806_dvs3_rst: dvs3-rst-pins {
->> +                       pins = "gpio_pwrctrl3";
->> +                       function = "pin_fun3";
->> +               };
->> +
->> +               rk806_dvs3_dvs: dvs3-dvs-pins {
->> +                       pins = "gpio_pwrctrl3";
->> +                       function = "pin_fun4";
->> +               };
->> +
->> +               rk806_dvs3_gpio: dvs3-gpio-pins {
->> +                       pins = "gpio_pwrctrl3";
->> +                       function = "pin_fun5";
->> +               };
->> +
->> +               regulators {
->> +                       vdd_cpu_big_s0: dcdc-reg1 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <550000>;
->> +                               regulator-max-microvolt = <950000>;
->> +                               regulator-ramp-delay = <12500>;
->> +                               regulator-name = "vdd_cpu_big_s0";
->> +                               regulator-enable-ramp-delay = <400>;
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                               };
->> +                       };
->> +
->> +                       vdd_npu_s0: dcdc-reg2 {
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <550000>;
->> +                               regulator-max-microvolt = <950000>;
->> +                               regulator-ramp-delay = <12500>;
->> +                               regulator-name = "vdd_npu_s0";
->> +                               regulator-enable-ramp-delay = <400>;
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                               };
->> +                       };
->> +
->> +                       vdd_cpu_lit_s0: dcdc-reg3 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <550000>;
->> +                               regulator-max-microvolt = <950000>;
->> +                               regulator-ramp-delay = <12500>;
->> +                               regulator-name = "vdd_cpu_lit_s0";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                                       regulator-suspend-microvolt = <750000>;
->> +                               };
->> +                       };
->> +
->> +                       vcc_3v3_s3: dcdc-reg4 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <3300000>;
->> +                               regulator-max-microvolt = <3300000>;
->> +                               regulator-name = "vcc_3v3_s3";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-on-in-suspend;
->> +                                       regulator-suspend-microvolt = <3300000>;
->> +                               };
->> +                       };
->> +
->> +                       vdd_gpu_s0: dcdc-reg5 {
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <550000>;
->> +                               regulator-max-microvolt = <900000>;
->> +                               regulator-ramp-delay = <12500>;
->> +                               regulator-name = "vdd_gpu_s0";
->> +                               regulator-enable-ramp-delay = <400>;
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                                       regulator-suspend-microvolt = <850000>;
->> +                               };
->> +                       };
->> +
->> +                       vddq_ddr_s0: dcdc-reg6 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-name = "vddq_ddr_s0";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                               };
->> +                       };
->> +
->> +                       vdd_logic_s0: dcdc-reg7 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <550000>;
->> +                               regulator-max-microvolt = <800000>;
->> +                               regulator-name = "vdd_logic_s0";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                               };
->> +                       };
->> +
->> +                       vcc_1v8_s3: dcdc-reg8 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <1800000>;
->> +                               regulator-max-microvolt = <1800000>;
->> +                               regulator-name = "vcc_1v8_s3";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-on-in-suspend;
->> +                                       regulator-suspend-microvolt = <1800000>;
->> +                               };
->> +                       };
->> +
->> +                       vdd2_ddr_s3: dcdc-reg9 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-name = "vdd2_ddr_s3";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-on-in-suspend;
->> +                               };
->> +                       };
->> +
->> +                       vdd_ddr_s0: dcdc-reg10 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <550000>;
->> +                               regulator-max-microvolt = <1200000>;
->> +                               regulator-name = "vdd_ddr_s0";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                               };
->> +                       };
->> +
->> +                       vcca_1v8_s0: pldo-reg1 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <1800000>;
->> +                               regulator-max-microvolt = <1800000>;
->> +                               regulator-name = "vcca_1v8_s0";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                               };
->> +                       };
->> +
->> +                       vcca1v8_pldo2_s0: pldo-reg2 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <1800000>;
->> +                               regulator-max-microvolt = <1800000>;
->> +                               regulator-name = "vcca1v8_pldo2_s0";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                               };
->> +                       };
->> +
->> +                       vdda_1v2_s0: pldo-reg3 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <1200000>;
->> +                               regulator-max-microvolt = <1200000>;
->> +                               regulator-name = "vdda_1v2_s0";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                               };
->> +                       };
->> +
->> +                       vcca_3v3_s0: pldo-reg4 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <3300000>;
->> +                               regulator-max-microvolt = <3300000>;
->> +                               regulator-name = "vcca_3v3_s0";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                               };
->> +                       };
->> +
->> +                       vccio_sd_s0: pldo-reg5 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <1800000>;
->> +                               regulator-max-microvolt = <3300000>;
->> +                               regulator-name = "vccio_sd_s0";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                               };
->> +                       };
->> +
->> +                       vcca1v8_pldo6_s3: pldo-reg6 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <1800000>;
->> +                               regulator-max-microvolt = <1800000>;
->> +                               regulator-name = "vcca1v8_pldo6_s3";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-on-in-suspend;
->> +                                       regulator-suspend-microvolt = <1800000>;
->> +                       vdda_ddr_pll_s0: nldo-reg2 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <850000>;
->> +                               regulator-max-microvolt = <850000>;
->> +                               regulator-name = "vdda_ddr_pll_s0";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                               };
->> +                       };
->> +
->> +                       vdda0v75_hdmi_s0: nldo-reg3 {
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <837500>;
->> +                               regulator-max-microvolt = <837500>;
->> +                               regulator-name = "vdda0v75_hdmi_s0";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                               };
->> +                       };
->> +
->> +                       vdda_0v85_s0: nldo-reg4 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <850000>;
->> +                               regulator-max-microvolt = <850000>;
->> +                               regulator-name = "vdda_0v85_s0";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                               };
->> +                       };
->> +
->> +                       vdda_0v75_s0: nldo-reg5 {
->> +                               regulator-always-on;
->> +                               regulator-boot-on;
->> +                               regulator-min-microvolt = <750000>;
->> +                               regulator-max-microvolt = <750000>;
->> +                               regulator-name = "vdda_0v75_s0";
->> +
->> +                               regulator-state-mem {
->> +                                       regulator-off-in-suspend;
->> +                               };
->> +                       };
->> +               };
->> +       };
->> +};
->> +
->> +&i2c2 {
->> +       status = "okay";
->> +
->> +       hym8563: rtc@51 {
->> +               compatible = "haoyu,hym8563";
->> +               reg = <0x51>;
->> +               clock-output-names = "hym8563";
->> +               interrupt-parent = <&gpio0>;
->> +               interrupts = <RK_PA5 IRQ_TYPE_LEVEL_LOW>;
->> +               pinctrl-names = "default";
->> +               pinctrl-0 = <&rtc_int>;
->> +               wakeup-source;
->> +               #clock-cells = <0>;
->> +       };
->> +};
->> +
->> +&mdio0 {
->> +       rgmii_phy0: ethernet-phy@1 {
->> +               compatible = "ethernet-phy-id4f51.e91b";
->> +               reg = <0x1>;
->> +               pinctrl-names = "default";
->> +               pinctrl-0 = <&rgmii_phy0_rst>;
->> +               reset-assert-us = <20000>;
->> +               reset-deassert-us = <100000>;
->> +               reset-gpios = <&gpio3 RK_PD3 GPIO_ACTIVE_LOW>;
-> 
-> Do you need to assign a clock here, or does EVB2 use a different PHY
-> clock arrangement vs. EVB1? See the patch [1] by Sebastian for EVB1
-> 
-> [1] https://lore.kernel.org/linux-rockchip/20250910-rk3576-evb-network-v1-1-68ed4df272a2@collabora.com/
->
-
-Yes, EVB2 uses a different PHY. I have tested it and it can work fine
-without assigning a clock, so I removed them.
-
->> +       };
->> +};
->> +
->> +&mdio1 {
->> +       rgmii_phy1: ethernet-phy@1 {
->> +               compatible = "ethernet-phy-id4f51.e91b";
->> +               reg = <0x1>;
->> +               pinctrl-names = "default";
->> +               pinctrl-0 = <&rgmii_phy1_rst>;
->> +               reset-assert-us = <20000>;
->> +               reset-deassert-us = <100000>;
->> +               reset-gpios = <&gpio3 RK_PD6 GPIO_ACTIVE_LOW>;
-> 
-> Ditto
-> 
->> +       };
->> +};
->> +
->> +&pinctrl {
->> +       bluetooth {
->> +               bt_reg_on: bt-reg-on {
->> +                       rockchip,pins = <1 RK_PC7 RK_FUNC_GPIO &pcfg_pull_up>;
->> +               };
->> +
->> +               bt_wake_host: bt-wake-host {
->> +                       rockchip,pins = <0 RK_PB1 RK_FUNC_GPIO &pcfg_pull_down>;
->> +               };
->> +
->> +               host_wake_bt: host-wake-bt {
->> +                       rockchip,pins = <1 RK_PD4 RK_FUNC_GPIO &pcfg_pull_up>;
->> +               };
->> +       };
->> +
->> +       hym8563 {
->> +               rtc_int: rtc-int {
->> +                       rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_up>;
->> +               };
->> +       };
->> +
->> +       network {
->> +               rgmii_phy0_rst: rgmii-phy0-rst {
->> +                       rockchip,pins = <3 RK_PD3 RK_FUNC_GPIO &pcfg_pull_none>;
->> +               };
->> +
->> +               rgmii_phy1_rst: rgmii-phy1-rst {
->> +                       rockchip,pins = <3 RK_PD6 RK_FUNC_GPIO &pcfg_pull_none>;
->> +               };
->> +       };
->> +
->> +       pcie1 {
->> +               pcie1_rst: pcie1-rst {
->> +                       rockchip,pins = <4 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
->> +               };
->> +       };
->> +
->> +       sata {
->> +               satapm_pwren: satapm-pwren {
->> +                       rockchip,pins = <4 RK_PC7 RK_FUNC_GPIO &pcfg_output_high>;
-> 
-> Should this one become a regulator, instead of just statically
-> configuring it for high output? This looks fragile: I can imagine a
-> user toggling GPIOs at random in search for some pin they need, and
-> suddenly powering down their SATA port, potentially with data loss.
-> With a pin configured as a fixed voltage regulator the kernel would
-> say that it's in use in such a scenario.
->
-
-Thank you for your reminder. I will try to do this in v2.
-
->> +               };
->> +       };
->> +
->> +       usb {
->> +               usb_host_pwren: usb-host-pwren {
->> +                       rockchip,pins = <0 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
->> +               };
->> +
->> +               usb_otg0_pwren: usb-otg0-pwren {
->> +                       rockchip,pins = <0 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
->> +               };
->> +
->> +               usbc0_int: usbc0-int {
->> +                       rockchip,pins = <0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>;
-> 
-> You don't seem to be requesting this pin config from anywhere, do you?
-> Does EVB2 use a HUSB311 chip lacking mainline Linux support, like EVB1
-> does?
-> 
-
-Sorry, actually there is no Type-C interface on the EVB2. I copied
-this part from the EVB1 and forgot to delete it.
-
->> +               };
->> +       };
->> +
->> +       wifi {
->> +               wifi_host_wake: wifi-host-wake {
->> +                       rockchip,pins = <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_down>;
->> +               };
->> +
->> +               wifi_pwren: wifi-pwren {
->> +                       rockchip,pins = <1 RK_PC6 RK_FUNC_GPIO &pcfg_pull_up>;
->> +               };
->> +       };
->> +};
->> +
->> +&sata0 {
->> +       pinctrl-0 = <&satapm_pwren>;
->> +       pinctrl-names = "default";
->> +       status = "okay";
->> +};
->> +
->> +&sdio {
->> +       #address-cells = <1>;
->> +       #size-cells = <0>;
->> +       bus-width = <4>;
->> +       cap-sd-highspeed;
->> +       cap-sdio-irq;
->> +       disable-wp;
->> +       keep-power-in-suspend;
->> +       max-frequency = <150000000>;
->> +       mmc-pwrseq = <&sdio_pwrseq>;
->> +       no-sd;
->> +       no-mmc;
->> +       non-removable;
->> +       pinctrl-names = "default";
->> +       pinctrl-0 = <&sdmmc1m0_bus4 &sdmmc1m0_clk &sdmmc1m0_cmd>;
->> +       sd-uhs-sdr104;
->> +       status = "okay";
->> +
->> +       brcmf: wifi@1 {
->> +               compatible = "brcm,bcm4329-fmac";
->> +               reg = <1>;
->> +               interrupt-parent = <&gpio0>;
->> +               interrupts = <RK_PB0 IRQ_TYPE_LEVEL_HIGH>;
->> +               interrupt-names = "host-wake";
->> +               pinctrl-names = "default";
->> +               pinctrl-0 = <&wifi_host_wake>;
->> +       };
->> +};
->> +
->> +&sdhci {
->> +       bus-width = <8>;
->> +       full-pwr-cycle-in-suspend;
->> +       max-frequency = <200000000>;
->> +       mmc-hs400-1_8v;
->> +       mmc-hs400-enhanced-strobe;
->> +       no-sdio;
->> +       no-sd;
->> +       non-removable;
->> +       status = "okay";
->> +};
->> +
->> +&sdmmc {
->> +       bus-width = <4>;
->> +       cap-mmc-highspeed;
-> 
-> This seems to contradict the "no-mmc" just below, remove perhaps?
->
-
-Yes, I will remove this in v2.
-
->> +       cap-sd-highspeed;
->> +       disable-wp;
->> +       max-frequency = <200000000>;
->> +       no-sdio;
-> 
-> Can't this SD slot support an external SDIO card?
->
-
-No support for it.
-
->> +       no-mmc;
->> +       sd-uhs-sdr104;
->> +       vqmmc-supply = <&vccio_sd_s0>;
->> +       status = "okay";
->> +};
->> +
->> +&saradc {
->> +       vref-supply = <&vcca_1v8_s0>;
->> +       status = "okay";
->> +};
->> +
->> +&u2phy0 {
->> +       status = "okay";
->> +};
->> +
->> +&u2phy0_otg {
->> +       phy-supply = <&vbus5v0_typec>;
->> +       status = "okay";
->> +};
->> +
->> +&u2phy1 {
->> +       status = "okay";
->> +};
->> +
->> +&u2phy1_otg {
->> +       phy-supply = <&vcc5v0_host>;
->> +       status = "okay";
->> +};
->> +
->> +&uart0 {
->> +       status = "okay";
->> +};
->> +
->> +&uart4 {
->> +       pinctrl-0 = <&uart4m1_xfer &uart4m1_ctsn &uart4m1_rtsn>;
->> +       pinctrl-names = "default";
->> +       uart-has-rtscts;
->> +       status = "okay";
->> +
->> +       bluetooth {
->> +               compatible = "brcm,bcm43438-bt";
->> +               clocks = <&hym8563>;
->> +               clock-names = "lpo";
->> +               device-wakeup-gpios = <&gpio1 RK_PD4 GPIO_ACTIVE_HIGH>;
->> +               interrupt-parent = <&gpio0>;
->> +               interrupts = <RK_PB1 IRQ_TYPE_LEVEL_HIGH>;
->> +               pinctrl-0 = <&bt_reg_on &bt_wake_host &host_wake_bt>;
->> +               pinctrl-names = "default";
->> +               shutdown-gpios = <&gpio1 RK_PC7 GPIO_ACTIVE_HIGH>;
->> +               vbat-supply = <&vcc_3v3_s3>;
->> +               vddio-supply = <&vcc_1v8_s3>;
->> +       };
->> +};
->> +
->> +&ufshc {
-> 
-> Given that you have the required regulators defined already, it sounds
-> like a good idea to reference them here. Something like this perhaps?
-> 
-> + vcc-supply = <&vcc_ufs_s0>;
-> + vccq-supply = <&vcc1v2_ufs_vccq_s0>;
-> + vccq2-supply = <&vcc1v8_ufs_vccq2_s0>;
->
-
-Thanks for point out this. I will fix this in v2.
-
->> +       status = "okay";
->> +};
->> +
->> +&usbdp_phy {
->> +       rockchip,dp-lane-mux = <2 3>;
-> 
-> Do you need static lane muxing here, or is it connected to a Type-C DP
-> AltMode port? You don't seem to be defining a regular DP connector
-> anywhere (although I realise that there isn't mainline DP support on
-> RK3576 yet, anyway), but you do mention a Type-C IRQ line in pin
-> configs.
-> 
-
-These config should be added when connected to full size DP
-connector. Conversely, the Type-C DP does not require these 
-descriptions. Sorry for the confusion, but there is indeed no
-Type-C interface on the EVB2.
-
-And yes, I believe this is a beginning for us to upstream the RK3576 DP
-in mainline :)
-
->> +       status = "okay";
->> +};
->> +
->> +&usb_drd0_dwc3 {
->> +       dr_mode = "host";
-> 
-> No OTG capability here? Is it connected somewhere else than USB2.0
-> OTG0, where you link up an OTG regulator?
->
-
-Oh, this part was missed. I will add them in v2.
-
->> +       status = "okay";
->> +};
->> +
->> +&usb_drd1_dwc3 {
->> +       dr_mode = "host";
->> +       status = "okay";
->> +};
->> +
->> +&vop {
->> +       status = "okay";
->> +};
->> +
->> +&vop_mmu {
->> +       status = "okay";
->> +};
->> +
->> +&vp0 {
->> +       vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
->> +               reg = <ROCKCHIP_VOP2_EP_HDMI0>;
->> +               remote-endpoint = <&hdmi_in_vp0>;
->> +       };
->> +};
->> --
->> 2.51.1
-> 
-> Best regards,
-> Alexey
-> 
-> 
-
--- 
-Best, 
-Chaoyi
+T24gMjQvMTAvMjUgOTo0NCBwbSwgTHVkb3ZpYyBEZXNyb2NoZXMgd3JvdGU6DQo+IFRoZXNlIHR3
+byBwYXRjaGVzIGZpeCBhIG1lbW9yeSBsZWFrIGFuZCBhIHVzZSBhZnRlciBmcmVlIGJ1Z3MuDQo+
+IA0KPiBUaGUgbWVtb3J5IGxlYWsgYnVnIGhhZCBiZWVuIHJlcG9ydGVkIGJ5IHNldmVyYWwgdXNl
+cnMuIFRoZXJlIHdlcmUgc29tZQ0KPiBhdHRlbXB0cyB0byBmaXggaXQgaW4gdGhlIHBhc3QsIGJ1
+dCB0aGUgcmVzb2x1dGlvbnMgcHJvcG9zZWQgY2F1c2VkDQo+IG90aGVyIGJyZWFrYWdlcy4NCj4g
+DQo+IFNpZ25lZC1vZmYtYnk6IEx1ZG92aWMgRGVzcm9jaGVzIDxsdWRvdmljLmRlc3JvY2hlc0Bt
+aWNyb2NoaXAuY29tPg0KPiAtLS0NCj4gTHVkb3ZpYyBEZXNyb2NoZXMgKDIpOg0KPiAgICAgICAg
+ZHJtL2F0bWVsLWhsY2RjOiBmaXggbWVtb3J5IGxlYWsgZnJvbSB0aGUgYXRvbWljX2Rlc3Ryb3lf
+c3RhdGUgY2FsbGJhY2sNCj4gICAgICAgIGRybS9hdG1lbC1obGNkYzogZml4IHVzZS1hZnRlci1m
+cmVlIG9mIGRybV9jcnRjX2NvbW1pdCBhZnRlciByZWxlYXNlDQo+IA0KPiAgIGRyaXZlcnMvZ3B1
+L2RybS9hdG1lbC1obGNkYy9hdG1lbF9obGNkY19wbGFuZS5jIHwgNiArKy0tLS0NCj4gICAxIGZp
+bGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQ0KPiAtLS0NCg0KRm9y
+IHRoZSBFbnRpcmUgc2VyaWVzLA0KDQpSZXZpZXdlZC1ieTogTWFuaWthbmRhbiBNdXJhbGlkaGFy
+YW4gPG1hbmlrYW5kYW4ubUBtaWNyb2NoaXAuY29tPg0KDQpUaGFua3MgTHVkb3ZpYy4NCg0KPiBi
+YXNlLWNvbW1pdDogNzJmYjAxNzBlZjFmNDVhZGRmNzI2MzE5YzUyYTA1NjJiNjkxMzcwNw0KPiBj
+aGFuZ2UtaWQ6IDIwMjUxMDI0LWxjZF9maXhlc19tYWlubGluaW5nLWExMjM0ZDgxYTc2OA0KPiAN
+Cj4gQmVzdCByZWdhcmRzLA0KDQotLSANClRoYW5rcyBhbmQgUmVnYXJkcywNCk1hbmlrYW5kYW4g
+TS4NCg0K
 
