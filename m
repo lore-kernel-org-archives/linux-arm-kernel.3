@@ -4,113 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3CB0C79F86
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 12:15:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2775C79F86
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 12:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pALCUxgG0Sih3gS1zvT5EYeP9u7uxFAHJ/wplVNqgIA=; b=tPQRuY3xDVaQZcnxdzTku+jW1i
-	OZb+SUaoawxiQutob3kRqyntfti0bkpn9+YaERWWs0tyjz4T4ZeMJvwddk8dvWLLnORk+aFRWWdBW
-	Adv5hahWhTvZXXaalgoPn7gO2x58Pfj0gc0mqnv9ekl6CJ35BP2DGvA5WHnsFDr9fLagDDTYr7ID6
-	v1iUsG1YoYv13mxtNHyLATYF+A3MOlDv1hk0S9IuRzebHAyFCrJUuFNMZm57geWC9mSukkYg7F89+
-	8l+X7Ze/Cta29YwAqLFYYXbCH0WivudV6779m4bTZkLjHarTLk03lNyxqzLvVFRw+r1phtgw+ITg9
-	4LPP3lug==;
+	bh=QPn739x+7AU+AZhIq89aYPPlBiPdTctxDvHzmkZIcjs=; b=Mvk5ceTVpIr/MYnljf+S0a0Kog
+	55fN1VOHRsqjOBwIlGCBjXARVZHQIQ8Bam6c8lDWmZJo0KSzw0rSJf4iYNH2Vw4UU3uUlyCAJN3go
+	oWeDrkUGUOOLUsbeKackpubczsb64JDhSiWhu/zc9zfF/uxvj3a3zokG3Zgfmfl8xt4k1YL0PW7hA
+	2Bq23XiUzt8B93UNOW9+jjzuD+qMf3eOv0APEBlJ9oxkVel18qUHGgjXM6cuT1IHLMg3+4TXE7Wzb
+	CamXL+71Gz4ae2Uru5RztZ7XoWLXxZU4TtNrpYVNMlOEoERezC2BIh+oiSWsSg6/vEXFd6CYtC4iH
+	DIeFBrzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcjU7-0000000BGFZ-0o5Z;
-	Mon, 05 Jan 2026 12:14:55 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vcjUf-0000000BGOl-2H8D;
+	Mon, 05 Jan 2026 12:15:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcjU4-0000000BGDi-17kG
+	id 1vcjUe-0000000BGOO-3wJr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 12:14:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1767615289;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pALCUxgG0Sih3gS1zvT5EYeP9u7uxFAHJ/wplVNqgIA=;
-	b=CL8esZY1GYAaPV/IZ7WsWlwGBj13y/IQcaqsIRArVMNb5/Q+NTkVPMf6qcDry5aokXap+e
-	Qp3p7aLxStjtEwdF7suBn1LLJZHAcxe29ykATjuPh/UQWkCkZjh/RbkOKXgCNOGU26R51K
-	fLMcj8qiKFH4EZ8ys6ngGpc5mZR7w5M=
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
- [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-614-jIYIrZp1OYWi42NdnK7joQ-1; Mon, 05 Jan 2026 07:14:48 -0500
-X-MC-Unique: jIYIrZp1OYWi42NdnK7joQ-1
-X-Mimecast-MFC-AGG-ID: jIYIrZp1OYWi42NdnK7joQ_1767615287
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8ba026720eeso2340169485a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 04:14:48 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767615287; x=1768220087;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=pALCUxgG0Sih3gS1zvT5EYeP9u7uxFAHJ/wplVNqgIA=;
-        b=HryvFGiUBR+WF706dQ/vhT7r22eY4pISImMT+H62YmAZvBBWWBX6mZt13kApws6FA9
-         10TFmdAj0MGIreIxe4md21PWC4GD7Dnv5AhUjlBVGmbUtBI83yYYsatjBhfLUo6LMb/A
-         XVWOxlGU7AJjrYSo2gvZFJQ2G5Rzum28bNZwAzou1NmcHvl5Hp2wiz2rFAm5l9qWvbmI
-         +4jlxUkU2IQ2yHOHz+OmPvIjdM+PZ3eh3jLqueBJA9ww00fylrPdr3Yz3DGfrsE/4Pya
-         1upNuiUoHwDuL5zifHcpFgeWPtvN+cRHJlaYI0IsEojVvTuB6dx4roWjFQv2ajFwGIM2
-         5+9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXn3SQSlowPL5bbCHDD28Px7TO/AIwOAeQ58OooHTSMzgkFJogDzcsG9QRGYflg4vq9ifgPWIT63xjJ9jAK4Xaw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw351s3O7cRkNvm4rkB8ZwOBYtrlvVbSfcEpdgJMA08RlDqqE76
-	igeACUq1oUsyzDyn5LyzrBbmxO3owM+XzJ53ewRdP4qzHfEGnx6zgREPbKceKssp3pX3ORwa4BL
-	q3I3jzZ1cOI7t9ZuQA/5uORZMjOZo4LF/c+gViZ8VFOG3VGCihO59Dmax09PJK047hgx+eeBQus
-	2Z
-X-Gm-Gg: AY/fxX4FLviz4quCt3JOCUfZ9uhXuQuX0T6IBxEzySnCX9uRgl7iHWYcc4p4vqt59g7
-	uUOBz/sQsKa1ErltKoqR7bnZtagAwGGSGmP0mZP5lyMxOLgK1HxsQK6W9gy0vpjLJprMZbNydaw
-	3QMRZXd2kN2mK2N1MZzGzSdUOfQM0K02a928gGhgkrrJtFAYn+adlzR+UvrOBCjVS00ts8LUHZv
-	ySkZlLlwm5rWMhLJw4UwK9h7zsjYo+WgyDXBf1XyZiDVZbGGdutAIvr656Mk2V947Q7zboy3w++
-	zCBEYCBaxrc8R1LdUjA1xJFzScH5opK/w7vUzlE+nJZHGf5CjAP5nB6JtEemrzxG2jRFQPzMbUq
-	7mtBTJfm+pp/JapFgEbG6ybMwq1Sa+kOzOnRUrirLqkge
-X-Received: by 2002:a05:620a:44d5:b0:8b2:d6eb:8203 with SMTP id af79cd13be357-8c090501db3mr7123131185a.69.1767615287428;
-        Mon, 05 Jan 2026 04:14:47 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFX37kzKtyI4pVa2B6zkJ45mbfVDYf5b4bq6gq1EC+G2OfHkde7TEgVCraCyU1NH7StTtKeCg==
-X-Received: by 2002:a05:620a:44d5:b0:8b2:d6eb:8203 with SMTP id af79cd13be357-8c090501db3mr7123126885a.69.1767615286882;
-        Mon, 05 Jan 2026 04:14:46 -0800 (PST)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c0971ee247sm3701650785a.27.2026.01.05.04.14.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jan 2026 04:14:45 -0800 (PST)
-Date: Mon, 5 Jan 2026 07:14:43 -0500
-From: Brian Masney <bmasney@redhat.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Stephen Boyd <sboyd@kernel.org>, Maxime Ripard <mripard@kernel.org>,
-	linux-clk@vger.kernel.org, linux-phy@lists.infradead.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v3 9/9] phy: ti: phy-j721e-wiz: convert from round_rate()
- to determine_rate()
-Message-ID: <aVurM1XRqiYlzi1B@redhat.com>
-References: <20251212-phy-clk-round-rate-v3-0-beae3962f767@redhat.com>
- <20251212-phy-clk-round-rate-v3-9-beae3962f767@redhat.com>
- <CAMuHMdXudWW3MPKqP0-d+DyMNRF-X62oyHRnj=MM_9MSpJw6sw@mail.gmail.com>
+	Mon, 05 Jan 2026 12:15:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F3B7A6011E;
+	Mon,  5 Jan 2026 12:15:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52C1DC116D0;
+	Mon,  5 Jan 2026 12:15:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767615327;
+	bh=g7riX2VqIGy0ZpqnkS1w4HiY4vb+qABQS3L7IQZHGDU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XoiCfFp/wSyuhaeas9riVl/kkZRVQlQo3wXXez3u1chk5kYSGHx3E9eHqm3gR6THG
+	 hCMtU9LSDWhYB6/qVn99rx5gh5QMPIfK2CO7LayXgpbxTtOHRv17o8uiyZ7mED2F2Y
+	 Q1+gtk/oTdSZiAa3ZPbAtP9egWoBJiqA+F2Ga0lSrSZSlEDnfuEkTWWVlgGOcEiznQ
+	 n9D56FOxJP4oC/a596C1rKKD0xvP9QipYzPT8/c7NdcdFjRsSZVxhWCW6MwST14ByT
+	 dAcDgdLqdrmhAXk2u5fdHFxuGY9KO0Fh15Y+leLFBQd/RYLnDI6NmQzCAkgydnE59j
+	 rG9WuuQkWHk6Q==
+Date: Mon, 5 Jan 2026 12:15:22 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/4] KVM: selftests: arm64: Make set_id_regs bitfield
+ validatity checks non-fatal
+Message-ID: <0056f0ca-7f9a-4eb4-a16b-b1ba3eb21832@sirena.org.uk>
+References: <20251219-kvm-arm64-set-id-regs-aarch64-v3-0-bfa474ec3218@kernel.org>
+ <20251219-kvm-arm64-set-id-regs-aarch64-v3-3-bfa474ec3218@kernel.org>
+ <89fd9661-731c-4335-bee8-575a7c221390@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <CAMuHMdXudWW3MPKqP0-d+DyMNRF-X62oyHRnj=MM_9MSpJw6sw@mail.gmail.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: O04IgqkexL_gEYvgX4vt0eahFoVG39HZPigaZ-Gq2SU_1767615287
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="BIDSB1JZrnBn413u"
 Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_041452_370461_6A3A5FDD 
-X-CRM114-Status: GOOD (  23.89  )
+In-Reply-To: <89fd9661-731c-4335-bee8-575a7c221390@arm.com>
+X-Cookie: So many women
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,52 +78,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
 
-On Mon, Dec 29, 2025 at 11:18:52AM +0100, Geert Uytterhoeven wrote:
-> Hi Brian,
-> 
-> On Fri, 12 Dec 2025 at 00:21, Brian Masney <bmasney@redhat.com> wrote:
-> > The round_rate() clk ops is deprecated, so migrate this driver from
-> > round_rate() to determine_rate() using the Coccinelle semantic patch
-> > on the cover letter of this series.
-> >
-> > Signed-off-by: Brian Masney <bmasney@redhat.com>
-> 
-> Thanks for your patch, which is now commit 27287e3b52b5954b ("phy:
-> ti: phy-j721e-wiz: convert from round_rate() to determine_rate()")
-> in phy/next
-> 
-> > --- a/drivers/phy/ti/phy-j721e-wiz.c
-> > +++ b/drivers/phy/ti/phy-j721e-wiz.c
-> > @@ -934,12 +934,15 @@ static unsigned long wiz_clk_div_recalc_rate(struct clk_hw *hw,
-> >         return divider_recalc_rate(hw, parent_rate, val, div->table, 0x0, 2);
-> >  }
-> >
-> > -static long wiz_clk_div_round_rate(struct clk_hw *hw, unsigned long rate,
-> > -                                  unsigned long *prate)
-> > +static int wiz_clk_div_determine_rate(struct clk_hw *hw,
-> > +                                     struct clk_rate_request *req)
-> >  {
-> >         struct wiz_clk_divider *div = to_wiz_clk_div(hw);
-> >
-> > -       return divider_round_rate(hw, rate, prate, div->table, 2, 0x0);
-> > +       req->rate = divider_round_rate(hw, req->rate, &req->best_parent_rate,
-> > +                                      div->table, 2, 0x0);
-> 
-> Is this correct?  divider_round_rate() can return a negative error code
-> (from divider_ro_determine_rate()), which is not handled here?
-> 
-> Looks like several other users of divider_round_rate() use this
-> same logic, and thus are affected, too.
+--BIDSB1JZrnBn413u
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Thanks for the review! You are correct that this is a bug.
+On Fri, Jan 02, 2026 at 02:45:04PM +0000, Ben Horgan wrote:
+> On 12/19/25 19:28, Mark Brown wrote:
+> > Currently when set_id_regs encounters a problem checking validation of
+> > writes to feature registers it uses an immediately fatal assert to report
+> > the problem. This is not idiomatic for kselftest, and it is also not great
 
-I had planned once round_rate is removed from the clk core to post a
-series to remove divider_round_rate() and divider_ro_round_rate() (plus
-the _parent functions) since they call the corresponding determine_rate
-functions. I'll bump that up on my todo list this week.
+> This one also looks good to me. I'm not aware of why the asserts have
+> been favoured previously though.
 
-Brian
+The older KVM selftests and the KVM specific selftest framework don't
+work with the kselftest framework inside the test programs and instead
+just run a single test within each test program and die immediately if
+there's some issue.  This is fine so long as each test only does one
+thing but falls apart when you've got multiple tests in a single program
+like this one, there the kselftest framework helps a lot.  It looks like
+the program is mixing the two idioms.
 
+--BIDSB1JZrnBn413u
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlbq1kACgkQJNaLcl1U
+h9CXRAf+NbYdUS/FF1ZammJpdArzKQFlNAuZaEcgy42dYSaeojFbLNsK2xVPCyab
+M8zhG1bcCF49wHDCiSMgW5HX7fL7uc6HTwlj1EQIi2QUFor+7s6LCeMv1C7sKNUF
+LlB/2sNtkI2Z1cRTbR73JvDg6MnNTrDakb6C4FV2J/Wc/7yB34GOHjoDY9GXWnS4
+93F6bRFd4QDUTuOR0t812tWsTzHOkOq3M6OiwcYHUUi8aFliUcPhzXvXV51LPEi9
++htiID3s/XHU7QamnYRmq1dgIXssqtXaqm6v5iaw3gDNfQtM6MDHIhB1R9H3vTBM
+VXLb/mySruiIfLCoWSe0ccqhEUWKlQ==
+=OyR8
+-----END PGP SIGNATURE-----
+
+--BIDSB1JZrnBn413u--
 
