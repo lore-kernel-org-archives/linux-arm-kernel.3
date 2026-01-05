@@ -4,145 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8630FC79F87
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 13:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3506C79F8B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 13:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z76cfDlTSj/8sXAaYJrvDpk6YedONTKs3xCQtRU8iCM=; b=jBUx1tiwvRlhd3RBjK2Yi05jr0
-	WSO9YajjWTQW2kCox6KSYEF0HkTLiz3bRofYdUtWClR45xMsr2sVDsbpqekByk9uNbRmO6V2TPoNb
-	Q1UrHjNM62FrVMvH5hbF1ETlbDLXqF9/RsnmlH9R9SFr0VuxJ8S0PvmIhvbgm6PBaFck/4E7H+NUv
-	5Xtfj8ETuYLuD8MsDv5JC/IaoTJXsXNyEZ9B2E3jvoKrkO6LYMh61A7w/TzvMGmOffSg/YrCBjP37
-	uWgcREEB/m+5U2cesQYbqSvD8dHGUhASfZ3ZUvnm8r/qRCoKIZfOd/nDwpqXjI/cAiW25gC480LbI
-	RH6iIcyg==;
+	bh=CNdW+yweJKbZGKs5bRVU6qstvJcACkiQgPrrfmicQL0=; b=G8SMIg/zSAY3m82TQNf8cY6PXY
+	1r8gWzjZjripBrs7Ct8q0fpsQDgR4K7sK3ARKHybiEot/CyjW0s1FxupHzGP7naRdAKdnMP0bwLfV
+	1LzJZt4g/dxJn0NIJPJ9dJIPbs3AgoH4vMBQzT7+l6yX94bX5dZvIbAc3hWIxrM79o/XP0PVyoAtX
+	kkJsidrmNpx+kyvf8psOVCy87+LWaHYefvGNKrxHvs7qnsZnlvKGqNd96y4DD8Kyq4y124NzPgUEg
+	t5YzR/BpnMQ85OM1VfZ6QdIhefvaOx1goyYYtcityAEYXD9cjbJ2jrgw3Y/Wdid+ijhY5Y5iQMvlL
+	8kovrsVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vckSa-0000000BQ9T-3IUp;
-	Mon, 05 Jan 2026 13:17:24 +0000
-Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vckUZ-0000000BQXJ-2z7n;
+	Mon, 05 Jan 2026 13:19:27 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vckSX-0000000BQ8a-40Ef
+	id 1vckUW-0000000BQWR-3ITj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 13:17:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vJ5hWHbfcD/GzxaILRfWARY3c025b8vX2IMGHjNAuDb0dtEevQd5RcF9jJw5klzxqIw5nIeGmzGaxIJ0OFgrzSH5M6Pi2OmBJBCsdvjXHvVVye4et0Qn6x+8jJm4Bl8m1jHzPN2FwNMvbFUEHKO14XDEBDoba61Et/8lgSbCibKBVbZ0v5CKUQUr/hSs1fmBEWliLjK4MhQBy5TpnUgyRvKgOwt2kP0aX6N2OSZZTfAqu1EESmfqcXPDJXoXaABW9EbP7flW3TgKYOLnpUA7Ut2rclmCHJbzXmY1fu2jKxmAVF4PkydDU0Prehckyz2pwwZvk/OCskSR/nxr/8Nm3g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Z76cfDlTSj/8sXAaYJrvDpk6YedONTKs3xCQtRU8iCM=;
- b=txIc1hMG/KWGQA1jhQ8lE2GV3B8KN+Ng+R8tUjlNKHuYKLKA8huJYl4LMMx1J38Mc2+9gjSmJ91DV7w3JLvz3wFpDcYMTMvvDJHRZZQcxAUjQ7FTaoUIEgDBwjygaiGOBe/mdZn7B2Wv0GjI3kgYaHt8kTXCh8BpKee3Aj7IM8lBc9diOhNUYe3RUmvk0RjPSPCsfRi/v35/a9rftVjESka+5Vp/015r29CVTO+jplTm76U+1y9fns51u7MhLxH6vVhQMaKIDOgqbCKuXoFSwUGwyg/2lD1n8Q+4P6rKvkgWAjqPZrVJXBzy6qBWeOm7O+gluBSsgFsysAWCbzKzZw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Z76cfDlTSj/8sXAaYJrvDpk6YedONTKs3xCQtRU8iCM=;
- b=M/GvlDukYumcsO4SIJDOzPrV5f9Zl//A46ZgBM/OHIbp5XAODyp2BjEy+k1duIcVpRgNVzm4Fs1NWDZW7rsvTpuXJJljsMmvfVI3YIoR36TmVZZfVcaZE1+jXhvu8tFY8Vt9gzbj+8Jn0J4L6gvvAXajHwG9ENx7YqV3eRSFzHk=
-Received: from SN6PR04CA0105.namprd04.prod.outlook.com (2603:10b6:805:f2::46)
- by SA2PR10MB4729.namprd10.prod.outlook.com (2603:10b6:806:11c::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
- 2026 13:17:16 +0000
-Received: from SN1PEPF000397B5.namprd05.prod.outlook.com
- (2603:10b6:805:f2:cafe::c8) by SN6PR04CA0105.outlook.office365.com
- (2603:10b6:805:f2::46) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9478.4 via Frontend Transport; Mon, 5
- Jan 2026 13:17:18 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- SN1PEPF000397B5.mail.protection.outlook.com (10.167.248.59) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9499.1 via Frontend Transport; Mon, 5 Jan 2026 13:17:16 +0000
-Received: from DLEE202.ent.ti.com (157.170.170.77) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 5 Jan
- 2026 07:17:15 -0600
-Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 5 Jan
- 2026 07:17:15 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE214.ent.ti.com
- (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 5 Jan 2026 07:17:15 -0600
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 605DHEVq1319840;
-	Mon, 5 Jan 2026 07:17:14 -0600
-Date: Mon, 5 Jan 2026 18:47:13 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Kendall Willis <k-willis@ti.com>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Tero
- Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	<vishalm@ti.com>, <sebin.francis@ti.com>, <msp@baylibre.com>,
-	<khilman@baylibre.com>, <a-kaur@ti.com>, <s-kochidanadu@ti.com>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 0/5] arm64: dts: ti: k3-am62: Support Main UART wakeup
-Message-ID: <20260105131713.foqfyyga2zjzyjzf@lcpd911>
-References: <20251230-b4-uart-daisy-chain-dts-v2-0-fa5257ec54bb@ti.com>
+	Mon, 05 Jan 2026 13:19:26 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6058Ji1H3505181
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 5 Jan 2026 13:19:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=CNdW+yweJKbZGKs5bRVU6qst
+	vJcACkiQgPrrfmicQL0=; b=HWaC2kU3vgFofkYiclNc9RRHj4/UbLFBj+PQiNhB
+	uBk5fJFfX1eS5li67GLKVPMqzC1pzBu0yGDIPKLxkHNwL1ntyNVW7IietNN89MQY
+	kcdOv6It20vf27qbATMohWkzHSQrnIAXgHmwKGC/XaYPAu9Z20KZ7aKv8UA0oMDr
+	QHPXEwONP3fuV1D8Nf48Gl4XRQwpN8CxQYoqTV7G1eWJS/xP/O3lUUIOF86PvmXk
+	ozaeiuKvRvFwvwKYsHuiyBrK73VvAhax0j6aMfqgpUUyz2M3sxEn1Ybm1aoxMAMW
+	k5G1HcLm76JSkAAHltH4gLpuk9ZAX4YyJHxAQCtAsY7xGA==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bet2qvrmu-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 13:19:24 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2a0e9e0fd49so19377315ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 05:19:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1767619163; x=1768223963; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=CNdW+yweJKbZGKs5bRVU6qstvJcACkiQgPrrfmicQL0=;
+        b=Iz9yEom9SHqljXPzZtx0ZKygs/xR/9/47iwjvtNzIXFLa/oxtiWo0JfDstEpiYXiPM
+         5pmro5gtj54mm5tgUMEF+p7ZLkxH7VcRuwDggnz0pwANIP8XHfUIgYYI+tQRwyKj/bm1
+         uIBn4hHwwmbnATEjJvK7MUnBTWk6mMJ5C91T1uswkJ4HBIBnew5SXHG5mK4dkgjnDTpN
+         +vLtOAMNDNwriscm9mSKbLeKwy0HaKIk/8vUpVOXlVNOCHdGSBn3WuUmmnbpjQzvXU9M
+         XKwn4WxTbRANLbQbmMc/GLsQ6ffe4opu2fXp3HXexfuxp8kVOo+IYKfNZQ+foRiJoNgu
+         n5Bg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767619163; x=1768223963;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CNdW+yweJKbZGKs5bRVU6qstvJcACkiQgPrrfmicQL0=;
+        b=p9m6pcyAHIzQYDIlv9wHimsTfXbTz4K8XSRU4mVLMYLcjPb2mQAToV9/9E/nSaScaC
+         GD04xrCwZ2JGj+4m6uV+tC4Iq0ZANMIgmofQWq6F/ZzdowOP+DuU8LYcYwer4SUjrXG7
+         D2/zWhOt7cu7dbaJUFEqL+KA1qUTYed8i8ZOosRY8XMsQfvKvEoBVLlK1VAYtGwF0W8s
+         2oGr0BTnjO3KjDZHTrDaMjyRdJDhVIIYBQ+YnxHRk1QY5RQ8d+H8MTd8ZgSZxV3Uad19
+         bh/fl/c0m8BC09rGMihO3KQmHW7fNonkEyA0xCpEoENXBp+d/i6lx1UVFEHUQdKYLTTr
+         PqvA==
+X-Forwarded-Encrypted: i=1; AJvYcCUwR180w18jMWY33NKU/iw/cBah77Tj1HJGPGCQbQnWhkIKQqX80iSkeRkG1ar75ogask0QpfzSMhI5EEksxBut@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2Ju7C/+F8wS8CFbvTqr+OeGk8RCoIaX3Hi+djULq1dX1lgky7
+	21lNPWaovDGY/yyQpeg8W6BSptAm5wysbRT2g3v+3k2h/7iCJHU+SzCzGzC4rLcDPwVbYvd6mVx
+	touUZ55kEsA92JCTCkKMASRZbRWG8urLOWnQ3kHemZiFG1fwXCQ/ZpGAGC5DEItCD8QMVgzo1T1
+	V9Iw==
+X-Gm-Gg: AY/fxX7Eh79VAZyIA11pxOxhLqkQ/+zkkootB/XzSQTZy5uH1k3SCJp+A34/3ueEvLQ
+	wqD1/bhFdjBpyNtOw/Hb9EfadbW3+HglCOYpVcpcy+blsIdNxG8qGtQC6jHmQi+zCsu1L8k4fA1
+	X1OiLo0/7uIxV1X6tvyKhZtUuQFsQkMCudtAKs8vkpbJmoe4BLwSxokkckfkIV9Bc/9zoF8hs4H
+	Ae5bYHoc9gZY13RNNuWkkz6m4L8OmMJ8xzIwYimn3skCPtiEb4QEyyTnKW0MrkxJ1cOt51X7F1m
+	XdUgPfscUHKfOoQM03djBG6xjl/sV3Lutpwlb20JQkMSFXS0UyVytoGPew2W+k0IOOjgCmDgmOZ
+	1iv7JO8pitnT8hIBzbVaa+imkra5uTiXQ0PjNievr1kE=
+X-Received: by 2002:a17:903:40ce:b0:29e:fc06:b8a5 with SMTP id d9443c01a7336-2a3c09a784cmr76586285ad.18.1767619163445;
+        Mon, 05 Jan 2026 05:19:23 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHfmmjXD52GS+/SFpt/E/gK2kVcZx2dB3Ho8aGtwT5PjefCe11pbLaRe31VDBznhUuFc/y1aw==
+X-Received: by 2002:a17:903:40ce:b0:29e:fc06:b8a5 with SMTP id d9443c01a7336-2a3c09a784cmr76585965ad.18.1767619162950;
+        Mon, 05 Jan 2026 05:19:22 -0800 (PST)
+Received: from hu-pkondeti-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a2f3c666d5sm446140805ad.21.2026.01.05.05.19.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Jan 2026 05:19:22 -0800 (PST)
+Date: Mon, 5 Jan 2026 18:49:18 +0530
+From: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org
+Subject: Re: SMP boot issue during system resume
+Message-ID: <13e3edb1-24b9-4fd3-97ba-cfa2546a73bc@quicinc.com>
+References: <dfa19ca7-c4c6-4386-a54d-44d623c8d3ed@quicinc.com>
+ <aVfhhXHfFE6lzlzp@willie-the-truck>
+ <e71b9bc5-42c1-4295-998e-4a9d71d84b25@quicinc.com>
+ <aVu2mEldTlpMK0hh@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251230-b4-uart-daisy-chain-dts-v2-0-fa5257ec54bb@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF000397B5:EE_|SA2PR10MB4729:EE_
-X-MS-Office365-Filtering-Correlation-Id: adea2cef-4982-42bf-50f1-08de4c5cbf25
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?XEA+qptGzYKB2HJycQSbQ4kQT7C4nJe3uQ4ijDBCwuNg3RnzU59BQa/tINTh?=
- =?us-ascii?Q?AtqWDGiy6TTnJ5W7yEHZMnZ7mkGhg/gG7fIEg+5BfQ7YI6dEfnvDWceWwaJF?=
- =?us-ascii?Q?Cx47L+qkPQIE1NY9lu1Tw2xFx7EOLbZfGvR/U1CX1VmV7ziht8obbueOluB9?=
- =?us-ascii?Q?ea+nQBMZc6aitCoM/+xCwZ88TRRuHPpFmO6lNjYVMW7FW84O0o+lOEz78XpQ?=
- =?us-ascii?Q?SgUtqi5DhYo/gbkG6LV/oO2xOYZVtkMBNseWCyS2xfvraLFMsXSBcmANI8Qc?=
- =?us-ascii?Q?uyMgCbEoI199cS/oqDPBuzIux2dr3c6dDiowK1EOdG8d2ZzsP2hCreFrz1ex?=
- =?us-ascii?Q?ww/cCjKiFTR2sxsNqX8oJIrYgoSVXxNzzy5fvAJhdsYS5Z20YjtSzdmL5BJc?=
- =?us-ascii?Q?iqmMeu1NNhqJRdySTuIY9KCRSeJMCFh3rrYkq0dZ6V3l4xYisjqnhIiA+YQP?=
- =?us-ascii?Q?PxwqyFzH2g7gnnx0A4EmPO7o5ZS+ga5Z9fe2+ZHcpFJUbXzCQJjzQnW1poHC?=
- =?us-ascii?Q?4Ro00Y2p4M70eAdtK3i9VeK4s1R1fffQjPgGilUJpl/TQsOmx83dfYNvNhje?=
- =?us-ascii?Q?A62KVUHg8AdXyNs++oX0xmnvSXIaJP67b4yZ+mKIDW8VLvpOX65LW9Q1YTCs?=
- =?us-ascii?Q?kD4lfm4Fd3gCIGRJYYSrsv9sd2iz2JATFaRq7e2JIlfUMFzqmAohuXmD3T6m?=
- =?us-ascii?Q?crS+vlkx1/fDuW5NQzpf3seJasTdb0HGKFi1L8J1FXSnDf70yFlJnIU48yq7?=
- =?us-ascii?Q?yZMKdEI7eK8CxXxcb0WLsxjMyiZEaHAza3gjSt+Kl3IgB3FlGRhBd4ooY5sz?=
- =?us-ascii?Q?133GtMpWsTyrvtlA8rysbUXhQgeZoK9tr5imy1MdgCPeVTW5aU5PS2kOezj6?=
- =?us-ascii?Q?MVyRsU0GlwtdsIA5Xna3xAF8aPHwcDuYiSlDohRByuz5wB4A/60jEWHl2TMb?=
- =?us-ascii?Q?F8l4118J9bqA3/Xzwn4/Pc7tafMb8XE6d+p/HPQjA+E+i0RRVdAhZ+F5XUJh?=
- =?us-ascii?Q?hMdeQaiDbduZby7qFlEouTwE5D79KFXOltV2BR8LQenBDgOh+8Mm3QAJ/yUc?=
- =?us-ascii?Q?A/k02y5L8b6ZFoNF+LaqHrJzXXLDhxMxrViqTf+LVbuTYg3QSb/F144pyCDC?=
- =?us-ascii?Q?QgJAxNpyET+4Q6BHKNXWWLMkdxRJcsH9chYZV4ppOpaQ1Fmzi/PMQqqYpowf?=
- =?us-ascii?Q?xS5vll9chmiwk18IKUI5Lpqr6yOmXr136UrmJaDFnAJA1K3gUiAd3iwXdKag?=
- =?us-ascii?Q?QKO/svUoasMT2zl+4IJF+O4i1Dw1V5ujg3hCTZ7Y0O2lW8Iz3y908K3V2rg3?=
- =?us-ascii?Q?mSwVsXEUV0RJdeHq42fD/8rFVKb9zEMsIYYppC3prdlEmUPke+aRho0zOS1n?=
- =?us-ascii?Q?N69HR95EcMA587HWrUM5ykNr7+717vPLIHFpfngk8g6vgsuh6NGy7XMP/Ytf?=
- =?us-ascii?Q?qK5aGQJDzlVusC5RRMkZC0sR9B2HzeWRiy1YioMIwb79lW+Nr1F7XsEa8Xgq?=
- =?us-ascii?Q?jueLruW1TJaffScCrNUdPIPGyemUoLlP1vR9uj19vNBz4Q59jMkuZruG6kpA?=
- =?us-ascii?Q?uqI5xqj0wH/zndB3wpg=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 13:17:16.0314
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: adea2cef-4982-42bf-50f1-08de4c5cbf25
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B5.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR10MB4729
+In-Reply-To: <aVu2mEldTlpMK0hh@willie-the-truck>
+X-Proofpoint-GUID: 2Pgcethp8yDm6iRIcnmADyyr9p5SQSVb
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA1MDExNiBTYWx0ZWRfXz9h+loMJfnoF
+ A48lOpgnWcXEsdrP02j/FuKD4my5XiKCcWndpF9DBn6lpXpXszziJP0kzGvcZN+lgkkow/SP+xX
+ fgibsbITLb8fxQSDofJ320kCTSgdr6E/gOgx/Uf8dmX0vlBD4iyqhuSa3gDfDeNanNqJagEMXDW
+ bgQrXcRQGeeyx2Livy/fw/v69UCoG51vXFhQRuvmPQEtWXRCr20gI8dKO52USDb0uavBD6pAkFi
+ r4ujxi4RVFd1Al9epmdfjZwsy6TfMPAix5/STFUSz1iNcQQrflCD535DIKsWFtVsgrWH5csplx/
+ iJ+5Dx6G0YMP+/TaM/kNdvYOPlnPtyeEXKbw5txoYq0hMgf2ZUV1cqSjVd0JDq0TUBEVueLIJF9
+ yG+nzKQD1d66+vOn5FIHhhmhVuTsCY6OwJy46pCfJpLfVwk9UrXuWp1XvKjm0WxvwwqHTaMwNGx
+ 59pOcaz40YUmZ9bykiA==
+X-Authority-Analysis: v=2.4 cv=RKK+3oi+ c=1 sm=1 tr=0 ts=695bba5c cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=kj9zAlcOel0A:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=vTbu8QI6xcUb0PBDzaYA:9 a=CjuIK1q_8ugA:10
+ a=1OuFwYUASf3TG4hYMiVC:22
+X-Proofpoint-ORIG-GUID: 2Pgcethp8yDm6iRIcnmADyyr9p5SQSVb
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-05_01,2025-12-31_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 impostorscore=0 malwarescore=0 lowpriorityscore=0
+ priorityscore=1501 suspectscore=0 bulkscore=0 adultscore=0 clxscore=1015
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
+ definitions=main-2601050116
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_051722_211560_94D385B6 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20260105_051924_852684_45E1CDAC 
+X-CRM114-Status: GOOD (  38.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,79 +146,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Dec 30, 2025 at 20:38:19 -0600, Kendall Willis wrote:
-> This series adds wakeup support for the Main UART in the device tree of
-> the TI AM62 family of devices. It defines the specific pins and pinctrl
-> states needed to wakeup the system from the Main UART via I/O
-> daisy-chaining. The wakeup-source property is configured to describe the
-> low power modes the system can wakeup from using the Main UART.
+On Mon, Jan 05, 2026 at 01:03:20PM +0000, Will Deacon wrote:
+> On Mon, Jan 05, 2026 at 04:24:44PM +0530, Pavan Kondeti wrote:
+> > On Fri, Jan 02, 2026 at 03:17:25PM +0000, Will Deacon wrote:
+> > > On Mon, Dec 22, 2025 at 11:30:19AM +0530, Pavan Kondeti wrote:
+> > > > We are seeing a SMP boot issue during system resume when CPUs are brought 
+> > > > online via pm_sleep_enable_secondary_cpus()->thaw_secondary_cpus()->_cpu_up() 
+> > > > on ARM64.
+> > > > 
+> > > > The _cpu_up() sets a global variable
+> > > > 
+> > > > secondary_data.task = idle;
+> > > > 
+> > > > and wait for the secondary CPU to come online. A 5 second timeout is
+> > > > used here. If at all, the secondary CPU comes online after this timeout,
+> > > > we expect it to loop in kernel via __secondary_too_slow(). However, this
+> > > > depends on secondary_data.task value. Since we are bringing all disabled
+> > > > cores, after timeout, we set this global variable to the next CPU idle
+> > > > task and the late secondary CPU thinks the value is its idle task and
+> > > > does not enter __secondary_too_slow().
+> > > > 
+> > > > An earlier attempt [1] to fix similar issue incrased the timout to 5
+> > > > seconds. We could reproduce this issue in Linux guest where vCPU
+> > > > scheduling latency can be higher under heavy load on the host.
+> > > > 
+> > > > I would like to seek your inputs on how we can improve the current
+> > > > situation. We would like to avoid __secondary_too_slow() spin even when
+> > > > the CPU comes late. This is probably not a desired behavior for other cases like 
+> > > > Linux running bare metal or some guests. Having a Kconfig option or
+> > > > kernel param might help here.
+> > > 
+> > > You probably want to use the parallel hotplug machinery (or one of the
+> > > interim steps) for this, as it avoids the global state entirely. I spoke
+> > > about it at KVM forum [1] and I have some old hacks at [2]. I can dust
+> > > those off and post them to the list if you like?
+> > 
+> > Thanks Will for pointing to your informative talk. I see that your patch
+> > depends on PSCIv0.2 extension to CPU_ON (context argument) [1]. I am not
+> > sure if this suit our immediate needs, but it is good to know that we
+> > have a plan for parallel vCPU hotplug.
+> > 
+> > I am happy to test if you have any other patches that address /
+> > workaround this problem w/o depending on backend/firmware.
 > 
-> Implementation
-> --------------
-> This series is intended to be implemented along with the following
-> series:
-> 
-> 1. "pmdomain: ti_sci: handle wakeup constraint for out-of-band wakeup":
->    Skips setting constraints for wakeup sources that have
->    out-of-band wakeup capability.
->    https://github.com/kwillis01/linux/tree/v6.19/uart-daisy-chain/pmdomain
-> 
-> 2. "serial: 8250: omap: set out-of-band wakeup if wakeup pinctrl exists":
->    Implements out-of-band wakeup from the UARTs for TI K3 SoCs.
->    https://github.com/kwillis01/linux/tree/v6.19/uart-daisy-chain/uart-wakeup
-> 
-> 3. "arm64: dts: ti: k3-am62: Support Main UART wakeup": (this series)
->    implements the functionality to wakeup the system from the Main UART.
->    https://github.com/kwillis01/linux/tree/b4/uart-daisy-chain-dts
-> 
-> Testing
-> -------
-> Tested on a AM62P SK EVM board and a AM62L EVM board with all the above
-> mentioned series implemented. Suspend/resume verified with the Main UART
-> wakeup source by entering a keypress on the console.
-> 
-> This github branch has all the necessary patches to test the series
-> using v6.19-rc1:
-> https://github.com/kwillis01/linux/tree/v6.19/uart-daisy-chain/all
-> 
-> Revisions
-> ---------
-> v1->v2:
->  - Define AM62L system idle states
->  - Enable Main UART wakeup for AM62L SoC
->  - Rebase to v6.19-rc3
-
-For the series,
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
-
-> 
-> v1: https://lore.kernel.org/all/20250904212827.3730314-1-k-willis@ti.com/
-> 
-> ---
-> Kendall Willis (5):
->       arm64: dts: ti: k3-am62l: Define possible system states
->       arm64: dts: ti: k3-am62x-sk-common: Enable Main UART wakeup
->       arm64: dts: ti: k3-am62a7-sk: Enable Main UART wakeup
->       arm64: dts: ti: k3-am62p5-sk: Enable Main UART wakeup
->       arm64: dts: ti: k3-am62l3-evm: Enable Main UART wakeup
-> 
->  arch/arm64/boot/dts/ti/k3-am62a7-sk.dts        | 24 ++++++++++++++++++++----
->  arch/arm64/boot/dts/ti/k3-am62l.dtsi           | 12 ++++++++++++
->  arch/arm64/boot/dts/ti/k3-am62l3-evm.dts       | 22 ++++++++++++++++++----
->  arch/arm64/boot/dts/ti/k3-am62p5-sk.dts        | 24 ++++++++++++++++++++----
->  arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 24 ++++++++++++++++++++----
->  5 files changed, 90 insertions(+), 16 deletions(-)
-> ---
-> base-commit: f323ed34dc9831effb1ee95403bc364869d29d4c
-> change-id: 20251230-b4-uart-daisy-chain-dts-d01aa40560b2
-> 
-> Best regards,
-> -- 
-> Kendall Willis <k-willis@ti.com>
+> Surely you're not using PSCI v0.1 in 2026?
 > 
 
--- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+I am not sure, what I was confused with. We are good wrt PSCI v0.2.
+
+Thanks,
+Pavan
 
