@@ -4,54 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C892C79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 13:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E974C79F90
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 13:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rR25wF+00D9fLEkRSslKXcQJN9H+YLNtyZjv4WHEqzE=; b=dVA71GBj9Ak3sH+F3vlGtJixhr
-	6c3Hs0nnU7IN9mk+0cGlYLb/IJPGbWuAXzicvDhA/R3Yoj4ZRaRzI0vCRoM/vOzkPztWbaVHcvlUz
-	CzuASc5lwJEb/8Aqfyra7Fm9nJPIcwAkdyvp0jkD5sr+8G6hYoWR9ZtqvNqgoZRaGu6DtJUJovsMV
-	/dn7LOQVU7ts2MB220WAbx3K8BhZkq7Rsn53+WJhHt2+jKP+N01LUAnPdE0FpdsBuP6NH5xXGXpXP
-	lwzgnn3YQEw0toIxviu/pfRBdRI0fuascMVPxfqmBI66rtDswm9Ti0Yu/Pxekj5kk9YTCzm82DUNm
-	+G60Kt3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eBLWi/Kbuhx9TqF7mhxf1H8jWhbGxH4EXAW6f0Ac6FE=; b=fsAVHj3h/iAI5X
+	wD8zf0NtpUjqVptI1IgHZ7CkLA6ZUR5zB/wuqtDxRhQbm/lF1fszrvnfU9JcG6L++v9PKkgl+G7cU
+	nNauAgXMLxxGJoPcNUIjfcERKd5P55uOpVKb5rPqOEVRBMPeHPFYQzwMOgdp0rvymrq94tdIaKVpi
+	ww4TBXoJZAKVuWHNfvn9LTknHsy6i8R+Awgds9wVOTEXJ1sKy1CORoPbdsU6RvGJe195z8YCTXVSO
+	kQQpDVqB64LJXqUmv8e1mSSL763L7ilZtMg0RVV0HfW7OTD9PRH6OcClRy2WJXXdmdUMZyJAQ1w0d
+	j/fmbcfdfEhBgZw7HbTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vckiV-0000000BSuh-2ctD;
-	Mon, 05 Jan 2026 13:33:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vckiS-0000000BStw-2I4I
+	id 1vckie-0000000BSwq-1qZ7;
+	Mon, 05 Jan 2026 13:34:01 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vckib-0000000BSw6-0zKe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 13:33:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F5C8497;
-	Mon,  5 Jan 2026 05:33:38 -0800 (PST)
-Received: from [10.57.49.14] (unknown [10.57.49.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A7F733F5A1;
-	Mon,  5 Jan 2026 05:33:42 -0800 (PST)
-Message-ID: <c25309d1-0424-495e-82af-d025b3e6d8c8@arm.com>
-Date: Mon, 5 Jan 2026 13:33:34 +0000
+	Mon, 05 Jan 2026 13:33:58 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6058PZFw1234621
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 5 Jan 2026 13:33:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=eBLWi/Kbuhx9TqF7mhxf1H
+	8jWhbGxH4EXAW6f0Ac6FE=; b=MIb4tc2omLHC+vOEDy0doL7yPHZHY3nhgmuou4
+	tYf+C7eylsOinYlUZQnPWRjlT4buir1bjJnhXin1wqH5aHgV88H5mYY8r8dv72xP
+	q/F8xrIpvv8VwuMU0MtOQ7cGLH5qZ0qtXt55KUUW1lGFeqthcRgPUZfMMOwJWF3X
+	rXJ0Bz8xQSaTbbDEEvB1oaxjA20tmKa2910eoYv53t1kCjospC0LPgy2U9e4kZCL
+	OVzWgnhkwPtXTXcGKLui980aI6cvSzj8E0XktjoMwI5OiJQrm16siZNsBan9ekBk
+	DQ1R0+DI7W+cR5JNb3nZffJHN82h/WNKN4SRT/AQKXKJKHoA==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bev9hcj03-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 13:33:56 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4ee1b7293e7so540072131cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 05:33:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1767620035; x=1768224835; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=eBLWi/Kbuhx9TqF7mhxf1H8jWhbGxH4EXAW6f0Ac6FE=;
+        b=B/l93hOpBeGzlpyu9KGf5z0AKD+j0v/PDfOr3rW4/UmYHcE9GgpYjlB8BgnfH1Mv+7
+         8Ou6qIulVb52Gofe7mfCZl85YFk/kIOJDqz5ogfTlJ7Zt/jgUzsu718V0y9RtosV0bR0
+         8w12oyFFS3G+Rrc4RQ5ETpf+zPCAYPifkBPyjXIdFEku1wIo3FmTdCNOGq4Y80YwqnAs
+         pXjo4h6QFb48THezLx3DlQhWYn3n1fKd7Y1qrJNSr6nsR4H/yxz+Mv2PFbTfeSypDFbL
+         4nnhD4T3gYVm7l/HFyFoYjbRsr+iwocZwlVVc1WNkrx75EC9HvGK2zeOoT4vrvfwAZ5o
+         owIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767620035; x=1768224835;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eBLWi/Kbuhx9TqF7mhxf1H8jWhbGxH4EXAW6f0Ac6FE=;
+        b=Mpqrz7GrKT99GrNzmczW1bPzpGwnfoopo1C27v2D5m7DczHRK9vW1kbJ8OUQifbBg2
+         GOFl05CnQDGGiPf21yjUcVjCElJ/qHvmQkOoh6mLTiaz2oEkanHmN655Wt4AmE68ZkNb
+         Focz2XiNnU7rWvEC7uCkeljlHUBxLNAggcZ2jYlE8//8qatk5lUoGRpddNcy2SCXl8Oq
+         qfI4MoYexToMmV7AfyZqilu2y5ssRKpQ0aEY3zsJmOQTJg8RwDGJnjmUW5so0N5YeK7L
+         eK7rzeanlpGi0OYIR+ReQiUaxWVlBAsDjoYgB2oBihsSgOEetXMuyAln5D53o+uEfKxY
+         AZVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVbDXEjQ7/P46Ta0voUrtql2Y2u3Q9tRVU+YL4kbceBHoSTN7GasIDpFaXMkTp+5Trqo3IRc4vUhV0gJxYnLnOG@lists.infradead.org
+X-Gm-Message-State: AOJu0YycQLiyMgm0hMzLWMUqU4mLzYnEjPaflsWsW9axeyAhahIjz+pP
+	p+xTH9MJQeWmlKx4+rluwDMG4X+8wFgI+6ZyqogVahKAkaIf1/UhNYWvWJv8CvxreBlQS6Ws/m7
+	fXPotlJ3r5UhlDFz1EkaJqzkFk3opCUiQBu3WDG1D1mGFZNwGLaE2FR9/HK8+N0QlhdBqj+3InS
+	jrIA==
+X-Gm-Gg: AY/fxX5dnF3a8H10mYSlidG64+mixi9r182JCkixC7dmP5mmw4RcCnEskSY+Hw6p9tD
+	AyxVRqwVDC65vdc8Hlp9UOGvOSiC3kHE2f+MOdFdOrTKTs9lh2e1BlgS2VtfbdqlC0mGf7jgQEe
+	2sPi9m5BQVMAwJvgwvp5V1TMjEOtTNxR6947IMgM9Zp0Wj0NdBV2qBx5EH1czJHx2obzRbim8gK
+	MSF5+3aJm3NypLkaSjfrIZFIfn2wjrkwy0r2CBeynb4hoyqBKWqMEswz+4cvVV56FUkwVU4Pj02
+	TYBHXnlPxTYcCL7F3xeohdqOvg0rfJ2p2HhwljRhx2Afsr0/vsOCO10ecMjXSn6Dc7syrLe5961
+	SCGodfrhUblOQTzt4NjHjMxWebkdybKASIQ==
+X-Received: by 2002:ac8:6f0d:0:b0:4e8:93a1:7464 with SMTP id d75a77b69052e-4f4abcb8d23mr696751661cf.15.1767620035230;
+        Mon, 05 Jan 2026 05:33:55 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEJyENY1AnKxxs/GvCTILXx+88Wewnlpw6vtBkZZehwqeQb52jMZGVzw5b/PZHtR1M+E/dfEA==
+X-Received: by 2002:ac8:6f0d:0:b0:4e8:93a1:7464 with SMTP id d75a77b69052e-4f4abcb8d23mr696751151cf.15.1767620034778;
+        Mon, 05 Jan 2026 05:33:54 -0800 (PST)
+Received: from [127.0.1.1] ([178.197.218.229])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d6d143f75sm147211015e9.5.2026.01.05.05.33.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Jan 2026 05:33:54 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH 00/11] of/treewide: Simplify with
+ for_each_compatible_node_scoped()
+Date: Mon, 05 Jan 2026 14:33:38 +0100
+Message-Id: <20260105-of-for-each-compatible-scoped-v1-0-24e99c177164@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Maintain valid access attributes for
- non-coherent SMMU
-To: Dawei Li <dawei.li@linux.dev>, will@kernel.org, joro@8bytes.org
-Cc: jgg@ziepe.ca, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org, set_pte_at@outlook.com,
- stable@vger.kernel.org
-References: <20251229002354.162872-1-dawei.li@linux.dev>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20251229002354.162872-1-dawei.li@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALK9W2kC/x3MSwqDMBAA0KvIrB2IkUjpVcRFPhMz0GZCIiKId
+ 2/o8m3eDY0qU4P3cEOlkxtL7pjGAXyyeSfk0A1a6UVNyqBEjFKRrE/o5Vvswe5D2LwUCqhfxs3
+ BBavNDP0olSJf/3/dnucHfr4aQG8AAAA=
+X-Change-ID: 20260105-of-for-each-compatible-scoped-285b3dbda253
+To: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>,
+        Saravana Kannan <saravanak@google.com>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+        Bill Wendling <morbo@google.com>,
+        Justin Stitt <justinstitt@google.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Nicolas Ferre <nicolas.ferre@microchip.com>,
+        Alexandre Belloni <alexandre.belloni@bootlin.com>,
+        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Alim Akhtar <alim.akhtar@samsung.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Nipun Gupta <nipun.gupta@amd.com>,
+        Nikhil Agarwal <nikhil.agarwal@amd.com>,
+        Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+        Sylwester Nawrocki <s.nawrocki@samsung.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Viresh Kumar <viresh.kumar@linaro.org>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        llvm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-samsung-soc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        linux-clk@vger.kernel.org, imx@lists.linux.dev,
+        dmaengine@vger.kernel.org, linux-media@vger.kernel.org,
+        linux-pm@vger.kernel.org,
+        Jonathan Cameron <jonathan.cameron@huawei.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2238;
+ i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=LOzUYd+dRmkv3oMmU7xQB3tIB1OpRm86ei1dR0EieQM=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpW7212LDD9aWpmO2pXajLqrMXSfYpdw8+/wsif
+ 01n3q4kghCJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaVu9tQAKCRDBN2bmhouD
+ 1/fJD/9T1pJUb2ZATSYxfBTsBulhDfg4M2cKxMAn3j5J2ZUJ0IpQxNIT0HTjj1huRozwEiSTEz8
+ jbTVcl4uwbM2MppZBpdsT7l0qa2DcDLLsicU2afLE40cOYHueRcPJ0yCOWOeVopVIZ0ooCjHwMQ
+ IFQhnUiEIOjtB0CNSBe7uYU/43VB4uovE1YiNWZHBHuRQYShbjHtDQObKlx0H0wW+jxBmZLbjnZ
+ uQNYKHFL5PGqilIwKhBt9yWAWSSse5KGau0nb9iBuI/OJCNaEEoGmv9ozbm/jkvLQ7tFZA5BTBR
+ d13IEKUNKAbdek4MPdbypLIp8yag7xIgPxRGSnLnmHIS2+vtASaXW+CqNg2GdYAq0jQjo9PAeyh
+ rS/S5zJ30SOZxVJTNuJC7lTcBOLv379N2H6pvnRejAzj690y8b+uJRDSMHpLeqqKZ/VoZgutyP6
+ ZJqJy4SMwUqO+G0EuIFfAFXgxMF3NyEJ4XMZu6rTRncQxM8TbfHJiof8isywUEkxs/iCcDvlSXs
+ 2Dejv85c5Kqs93S9INZGOwQrv9mQp2rfKM4GC+VOT279jb/n4qFaJcOW6iiW/ipRYmtPvDgBqJA
+ trjLF6akNFp8akjaJCMwOEw6cZOkvAqoK2RTjO5BkrsLl5ZmYP20XaNI237J0dPJhrDpUIm61s6
+ 10hjLcSwFVNVocw==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA1MDExOCBTYWx0ZWRfX2ELxZUBr/Ld5
+ msuX3JcXvVKQMgy94JFbE6O0CKmWFfxhVYytH6J+8mfDoEV2pNGWpez6xCDR6Pi7XKVWp55QIHS
+ bamrbtj6k6HGWmTcT96QUWTpyaGOjgkWvaABGoy8K9tD775HtBTWv7q5OGIL9X6dUstbGpm4i3B
+ JjS7beq0/9ru4LE08Kt2qNFutQFlBNhtrGaUHodro5ed+hofE5rn+LBdr8j/b+dq/7ljzZrG2pE
+ jkJA/6/PpC9zzeoPnz8u1Ld1ZOYgdKYuxifSNafBEreEfBfO1V8BvLwHBrDWn4WaZTUmM09wwGz
+ X43+/qOSEU4qGH0YyXKKIwBaHmKlYjazv4JfYEHQBKfSXy0yWUgYnpgSq1D2zoGPmR3H1AxlbIB
+ NS3sIqTqNdapdhUbYAU8MiqYh/hOu6CQ4ejFl89sx9c9QNhTZyt1UoxyS2nxHxh4/KPoKTYgx+r
+ OdW/Kl0YkLs4JgS7InQ==
+X-Proofpoint-GUID: wO7DyC2LjZU-jF9dWMDHj-SVCFY0eBtw
+X-Authority-Analysis: v=2.4 cv=RrbI7SmK c=1 sm=1 tr=0 ts=695bbdc4 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=Eb9f15NH/cHKzfGOmZSO4Q==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=d9g9ln5aRjr3gUnP3tUA:9
+ a=QEXdDO2ut3YA:10 a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-ORIG-GUID: wO7DyC2LjZU-jF9dWMDHj-SVCFY0eBtw
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-05_01,2025-12-31_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 spamscore=0 impostorscore=0 malwarescore=0
+ suspectscore=0 adultscore=0 priorityscore=1501 bulkscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601050118
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_053348_673888_60460E98 
-X-CRM114-Status: GOOD (  27.87  )
+X-CRM114-CacheID: sfid-20260105_053357_296025_50068A06 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,234 +194,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-12-29 12:23 am, Dawei Li wrote:
-> According to SMMUv3 architecture specification, IO-coherent access for
-> SMMU is supported for:
-> - Translation table walks.
-> - Fetches of L1STD, STE, L1CD and CD.
-> - Command queue, Event queue and PRI queue access.
-> - GERROR, CMD_SYNC, Event queue and PRI queue MSIs, if supported
-> 
-> In other words, if a SMMU implementation doesn't support IO coherent
-> access(SMMUIDR0.COHACC==0), all fields above accessed by SMMU is
-> expected to be non-coherent and S/W is supposed to maintain proper
-> access attributes to achieve expected behavior.
-> 
-> Unfortunately, for non-coherent SMMU implementation, current codebase
-> only takes care of translation table walking. Fix it by providing right
-> attributes(cacheability, shareablility, cache allocation hints, e.g) to
-> other fields.
+Dependencies/merging
+====================
+1. First patch is a prerequisite for entire set, so either everything
+   goes via same tree, the further patches wait a cycle or stable tag is
+   shared from DT tree.
 
-The assumption is that if the SMMU is not I/O-coherent, then the Normal 
-Cacheable attribute will inherently degrade to a non-snooping (and thus 
-effectively Normal Non-Cacheable) one, as that's essentially what AXI 
-will do in practice, and thus the attribute doesn't actually matter all 
-that much in terms of functional correctness. If the SMMU _is_ capable 
-of snooping but is not described as such then frankly firmware is wrong.
+2. The last media patch depends on my earlier cleanup.
 
-If prople have a good reason for wanting to use a coherent SMMU 
-non-coherently (and/or control of allocation hints), then that should 
-really be some kind of driver-level option - it would need a bit of 
-additional DMA API work (which has been low down my to-do list for a few 
-years now...), but it's perfectly achievable, and I think it's still 
-preferable to abusing the COHACC override in firmware.
+Description
+===========
+Simplify for_each_compatible_node() users with a new helper -
+for_each_compatible_node_scoped().
 
-> Fixes: 4f41845b3407 ("iommu/io-pgtable: Replace IO_PGTABLE_QUIRK_NO_DMA with specific flag")
+Best regards,
+Krzysztof
 
-That commit didn't change any behaviour though?
+---
+Krzysztof Kozlowski (11):
+      of: Add for_each_compatible_node_scoped() helper
+      ARM: at91: Simplify with scoped for each OF child loop
+      ARM: exynos: Simplify with scoped for each OF child loop
+      powerpc/fsp2: Simplify with scoped for each OF child loop
+      powerpc/wii: Simplify with scoped for each OF child loop
+      cdx: Simplify with scoped for each OF child loop
+      clk: imx: imx27: Simplify with scoped for each OF child loop
+      clk: imx: imx31: Simplify with scoped for each OF child loop
+      dmaengine: fsl_raid: Simplify with scoped for each OF child loop
+      media: samsung: exynos4-is: Simplify with scoped for each OF child loop
+      cpufreq: s5pv210: Simplify with scoped for each OF child loop
 
-> Fixes: 9e6ea59f3ff3 ("iommu/io-pgtable: Support non-coherent page tables")
+ .clang-format                                       |  1 +
+ arch/arm/mach-at91/pm.c                             |  7 ++-----
+ arch/arm/mach-exynos/exynos.c                       |  8 ++------
+ arch/powerpc/platforms/44x/fsp2.c                   |  5 +----
+ arch/powerpc/platforms/embedded6xx/hlwd-pic.c       |  4 +---
+ drivers/cdx/cdx.c                                   |  4 +---
+ drivers/clk/imx/clk-imx27.c                         |  7 ++-----
+ drivers/clk/imx/clk-imx31.c                         |  7 ++-----
+ drivers/cpufreq/s5pv210-cpufreq.c                   | 10 ++++------
+ drivers/dma/fsl_raid.c                              |  4 +---
+ drivers/media/platform/samsung/exynos4-is/fimc-is.c |  8 +++-----
+ include/linux/of.h                                  |  7 +++++++
+ 12 files changed, 27 insertions(+), 45 deletions(-)
+---
+base-commit: 4d27ce1b1abefb22e277e715901cc52acdc5af2c
+change-id: 20260105-of-for-each-compatible-scoped-285b3dbda253
 
-And that was a change to io-pgtable which did exactly what it intended 
-and claimed to do, entirely orthogonal to arm-smmu-v3. (And IIRC it was 
-really more about platforms using arm-smmu (v2) where the SMMU is 
-non-coherent but the Outer Cacheable attribute acts as an allocation 
-hint for a transparent system cache.)
-
-Thanks,
-Robin.
-
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Dawei Li <dawei.li@linux.dev>
-> ---
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 73 +++++++++++++++------
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
->   2 files changed, 54 insertions(+), 20 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index d16d35c78c06..4f00bf53d26c 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -265,8 +265,14 @@ static int queue_remove_raw(struct arm_smmu_queue *q, u64 *ent)
->   	return 0;
->   }
->   
-> +static __always_inline bool smmu_coherent(struct arm_smmu_device *smmu)
-> +{
-> +	return !!(smmu->features & ARM_SMMU_FEAT_COHERENCY);
-> +}
-> +
->   /* High-level queue accessors */
-> -static int arm_smmu_cmdq_build_cmd(u64 *cmd, struct arm_smmu_cmdq_ent *ent)
-> +static int arm_smmu_cmdq_build_cmd(u64 *cmd, struct arm_smmu_cmdq_ent *ent,
-> +				   struct arm_smmu_device *smmu)
->   {
->   	memset(cmd, 0, 1 << CMDQ_ENT_SZ_SHIFT);
->   	cmd[0] |= FIELD_PREP(CMDQ_0_OP, ent->opcode);
-> @@ -358,8 +364,13 @@ static int arm_smmu_cmdq_build_cmd(u64 *cmd, struct arm_smmu_cmdq_ent *ent)
->   		} else {
->   			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_CS, CMDQ_SYNC_0_CS_SEV);
->   		}
-> -		cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSH, ARM_SMMU_SH_ISH);
-> -		cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSIATTR, ARM_SMMU_MEMATTR_OIWB);
-> +		if (smmu_coherent(smmu)) {
-> +			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSH, ARM_SMMU_SH_ISH);
-> +			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSIATTR, ARM_SMMU_MEMATTR_OIWB);
-> +		} else {
-> +			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSH, ARM_SMMU_SH_OSH);
-> +			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSIATTR, ARM_SMMU_MEMATTR_OINC);
-> +		}
->   		break;
->   	default:
->   		return -ENOENT;
-> @@ -405,7 +416,7 @@ static void arm_smmu_cmdq_build_sync_cmd(u64 *cmd, struct arm_smmu_device *smmu,
->   				   q->ent_dwords * 8;
->   	}
->   
-> -	arm_smmu_cmdq_build_cmd(cmd, &ent);
-> +	arm_smmu_cmdq_build_cmd(cmd, &ent, smmu);
->   	if (arm_smmu_cmdq_needs_busy_polling(smmu, cmdq))
->   		u64p_replace_bits(cmd, CMDQ_SYNC_0_CS_NONE, CMDQ_SYNC_0_CS);
->   }
-> @@ -461,7 +472,7 @@ void __arm_smmu_cmdq_skip_err(struct arm_smmu_device *smmu,
->   		dev_err(smmu->dev, "\t0x%016llx\n", (unsigned long long)cmd[i]);
->   
->   	/* Convert the erroneous command into a CMD_SYNC */
-> -	arm_smmu_cmdq_build_cmd(cmd, &cmd_sync);
-> +	arm_smmu_cmdq_build_cmd(cmd, &cmd_sync, smmu);
->   	if (arm_smmu_cmdq_needs_busy_polling(smmu, cmdq))
->   		u64p_replace_bits(cmd, CMDQ_SYNC_0_CS_NONE, CMDQ_SYNC_0_CS);
->   
-> @@ -913,7 +924,7 @@ static int __arm_smmu_cmdq_issue_cmd(struct arm_smmu_device *smmu,
->   {
->   	u64 cmd[CMDQ_ENT_DWORDS];
->   
-> -	if (unlikely(arm_smmu_cmdq_build_cmd(cmd, ent))) {
-> +	if (unlikely(arm_smmu_cmdq_build_cmd(cmd, ent, smmu))) {
->   		dev_warn(smmu->dev, "ignoring unknown CMDQ opcode 0x%x\n",
->   			 ent->opcode);
->   		return -EINVAL;
-> @@ -965,7 +976,7 @@ static void arm_smmu_cmdq_batch_add(struct arm_smmu_device *smmu,
->   	}
->   
->   	index = cmds->num * CMDQ_ENT_DWORDS;
-> -	if (unlikely(arm_smmu_cmdq_build_cmd(&cmds->cmds[index], cmd))) {
-> +	if (unlikely(arm_smmu_cmdq_build_cmd(&cmds->cmds[index], cmd, smmu))) {
->   		dev_warn(smmu->dev, "ignoring unknown CMDQ opcode 0x%x\n",
->   			 cmd->opcode);
->   		return;
-> @@ -1603,6 +1614,7 @@ void arm_smmu_make_cdtable_ste(struct arm_smmu_ste *target,
->   {
->   	struct arm_smmu_ctx_desc_cfg *cd_table = &master->cd_table;
->   	struct arm_smmu_device *smmu = master->smmu;
-> +	u64 val;
->   
->   	memset(target, 0, sizeof(*target));
->   	target->data[0] = cpu_to_le64(
-> @@ -1612,11 +1624,18 @@ void arm_smmu_make_cdtable_ste(struct arm_smmu_ste *target,
->   		(cd_table->cdtab_dma & STRTAB_STE_0_S1CTXPTR_MASK) |
->   		FIELD_PREP(STRTAB_STE_0_S1CDMAX, cd_table->s1cdmax));
->   
-> +	if (smmu_coherent(smmu)) {
-> +		val = FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_WBRA) |
-> +		      FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_WBRA) |
-> +		      FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_ISH);
-> +	} else {
-> +		val = FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_NC) |
-> +		      FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_NC) |
-> +		      FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_OSH);
-> +	}
-> +
->   	target->data[1] = cpu_to_le64(
-> -		FIELD_PREP(STRTAB_STE_1_S1DSS, s1dss) |
-> -		FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_WBRA) |
-> -		FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_WBRA) |
-> -		FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_ISH) |
-> +		FIELD_PREP(STRTAB_STE_1_S1DSS, s1dss) | val |
->   		((smmu->features & ARM_SMMU_FEAT_STALLS &&
->   		  !master->stall_enabled) ?
->   			 STRTAB_STE_1_S1STALLD :
-> @@ -3746,7 +3765,7 @@ int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
->   	q->cons_reg	= page + cons_off;
->   	q->ent_dwords	= dwords;
->   
-> -	q->q_base  = Q_BASE_RWA;
-> +	q->q_base  = smmu_coherent(smmu) ? Q_BASE_RWA : 0;
->   	q->q_base |= q->base_dma & Q_BASE_ADDR_MASK;
->   	q->q_base |= FIELD_PREP(Q_BASE_LOG2SIZE, q->llq.max_n_shift);
->   
-> @@ -4093,6 +4112,7 @@ static void arm_smmu_write_strtab(struct arm_smmu_device *smmu)
->   	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
->   	dma_addr_t dma;
->   	u32 reg;
-> +	u64 val;
->   
->   	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB) {
->   		reg = FIELD_PREP(STRTAB_BASE_CFG_FMT,
-> @@ -4107,8 +4127,12 @@ static void arm_smmu_write_strtab(struct arm_smmu_device *smmu)
->   		      FIELD_PREP(STRTAB_BASE_CFG_LOG2SIZE, smmu->sid_bits);
->   		dma = cfg->linear.ste_dma;
->   	}
-> -	writeq_relaxed((dma & STRTAB_BASE_ADDR_MASK) | STRTAB_BASE_RA,
-> -		       smmu->base + ARM_SMMU_STRTAB_BASE);
-> +
-> +	val = dma & STRTAB_BASE_ADDR_MASK;
-> +	if (smmu_coherent(smmu))
-> +		val |= STRTAB_BASE_RA;
-> +
-> +	writeq_relaxed(val, smmu->base + ARM_SMMU_STRTAB_BASE);
->   	writel_relaxed(reg, smmu->base + ARM_SMMU_STRTAB_BASE_CFG);
->   }
->   
-> @@ -4130,12 +4154,21 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
->   		return ret;
->   
->   	/* CR1 (table and queue memory attributes) */
-> -	reg = FIELD_PREP(CR1_TABLE_SH, ARM_SMMU_SH_ISH) |
-> -	      FIELD_PREP(CR1_TABLE_OC, CR1_CACHE_WB) |
-> -	      FIELD_PREP(CR1_TABLE_IC, CR1_CACHE_WB) |
-> -	      FIELD_PREP(CR1_QUEUE_SH, ARM_SMMU_SH_ISH) |
-> -	      FIELD_PREP(CR1_QUEUE_OC, CR1_CACHE_WB) |
-> -	      FIELD_PREP(CR1_QUEUE_IC, CR1_CACHE_WB);
-> +	if (smmu_coherent(smmu)) {
-> +		reg = FIELD_PREP(CR1_TABLE_SH, ARM_SMMU_SH_ISH) |
-> +		      FIELD_PREP(CR1_TABLE_OC, CR1_CACHE_WB) |
-> +		      FIELD_PREP(CR1_TABLE_IC, CR1_CACHE_WB) |
-> +		      FIELD_PREP(CR1_QUEUE_SH, ARM_SMMU_SH_ISH) |
-> +		      FIELD_PREP(CR1_QUEUE_OC, CR1_CACHE_WB) |
-> +		      FIELD_PREP(CR1_QUEUE_IC, CR1_CACHE_WB);
-> +	} else {
-> +		reg = FIELD_PREP(CR1_TABLE_SH, ARM_SMMU_SH_OSH) |
-> +		      FIELD_PREP(CR1_TABLE_OC, CR1_CACHE_NC) |
-> +		      FIELD_PREP(CR1_TABLE_IC, CR1_CACHE_NC) |
-> +		      FIELD_PREP(CR1_QUEUE_SH, ARM_SMMU_SH_OSH) |
-> +		      FIELD_PREP(CR1_QUEUE_OC, CR1_CACHE_NC) |
-> +		      FIELD_PREP(CR1_QUEUE_IC, CR1_CACHE_NC);
-> +	}
->   	writel_relaxed(reg, smmu->base + ARM_SMMU_CR1);
->   
->   	/* CR2 (random crap) */
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index ae23aacc3840..7a5f76e165dc 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -183,6 +183,7 @@ struct arm_vsmmu;
->   #define ARM_SMMU_SH_ISH			3
->   #define ARM_SMMU_MEMATTR_DEVICE_nGnRE	0x1
->   #define ARM_SMMU_MEMATTR_OIWB		0xf
-> +#define ARM_SMMU_MEMATTR_OINC		0x5
->   
->   #define Q_IDX(llq, p)			((p) & ((1 << (llq)->max_n_shift) - 1))
->   #define Q_WRP(llq, p)			((p) & (1 << (llq)->max_n_shift))
+Best regards,
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 
