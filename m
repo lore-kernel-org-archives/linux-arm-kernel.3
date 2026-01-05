@@ -4,90 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD7DCCF2C2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 20:16:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B891CCF2C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 20:23:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ifa3FgzMJhdcyEQYjXisaWYQtz/jhQwaq5a5wqcFCs=; b=AnTFIoUiTp9hzvCDpBBFNOK5Ox
-	yJBYnAtsj96vQU6s+VPZLwO0hvLC+WXcnbRMPet1j75/f81aBDGGuY2RiCvvn7rJRPIDLr/BA2WHB
-	PbvxkpZjsTP2dffqUKXjMhseTLdiyhV/U1PJ3DhHtnNq9E4JQnrgCGZXgtP7BKYy+sldUaXqnrCcP
-	POKqK24KfjXmqZdO3Uj8FS2FkMGBZV1bkV0mTzTbAPnlto+MbwrsPNp+JtPS3N9juKyAMrsKJExGx
-	yl+jDPp0b03vZv8gz2kB6LLe8FyCGukL4ysCUi72ZEvDZPObnhhbqpW80BSkPwo5tftDPfTQY7FbW
-	00FPbNOQ==;
+	bh=TyHgIMuzeoLQhyssdIejyVlK3XQ+OLA7UCIX6/QOjPI=; b=jD6eZ2hstlRE7JVhNu33dbT+c1
+	GlQoG8Hnpv9S4Nu86H4LPrRVP9c/Uv3pEgQ7MSd1Q1Sp9fDbm08yg9lDYZF9BbsD1IbCG4qAz3V69
+	4pmKvXUGEl+dojDEiIRWIXzhUPo9JyVW/I/5J99xOWzJYoi/h4WCwWrKgh7cc0/wXeyv8xNnuTXEv
+	xrbz+2PUDzSPRsVMqJaNBWRNwZVoqrAJ98IGAPeOxfAjg9Tv0g0oXO4unmSuC/mWLKEmDSElOUeYy
+	n6zh3aJ8lpBeeflJjdncw70NMBg7iiHBpkyNu2YGwgPJrzdE11L+pygpdM7qpB5utwSTkt9NHSenk
+	C+dTIMbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqzo-0000000C2G5-3Ig7;
-	Mon, 05 Jan 2026 20:16:08 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqzj-0000000C2F1-2V3p
+	id 1vcr75-0000000C2gg-30CR;
+	Mon, 05 Jan 2026 20:23:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vcr72-0000000C2g3-362W
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 20:16:04 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2a1388cdac3so2453005ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 12:16:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1767644163; x=1768248963; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6ifa3FgzMJhdcyEQYjXisaWYQtz/jhQwaq5a5wqcFCs=;
-        b=HJmmuOeuuSbJCbegZeyuE5YT+/e1euV7bNduw0xns7+B2oqpq/H6rFrYnxBG7TFY+z
-         YIP4U66o4J1pqt5ImY5AJKLpX813alg3SeRZNNciWw6MKrceAttoaNE2ayKo631/JlQI
-         2iW4C78A9iGnIUmhHuf9Qru0jOxseT3+uyB8Jb3vcKNRLKXfTNFPkWW+ym89XKLEIyTw
-         3xzTzZhp1dfzWudacXnp9Vm0AkDsQdM8WMymlBLULXOT57JGVxABDdhMkh80butYgUfL
-         T96fj4Cz8d1l8Jsc+RlCPCvwgg2C3BLWJF48Nr8pME4Jpn5F2fX/Nh2i45vnzVmZOQTW
-         qUdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767644163; x=1768248963;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=6ifa3FgzMJhdcyEQYjXisaWYQtz/jhQwaq5a5wqcFCs=;
-        b=v6seVB5woK0V8GB8gUnfxBjiHv0lN1L5suOK96VEQ10IrCvMV7E+5KFLQlmEIct+gg
-         Zul5JTzyUCJXDuxcCEAyBviC1jmrK83DW32E9d55AvHTXNruDyc8JiJFIIKDFMmpyE6S
-         K6E2i0wwFdvptVyc/qUcjORpoywoCJz3PG2O0tZGShOpk6mpsB/eJu0mJzORgdrsTQfy
-         OfkGY7+JImIucD7oo0ONDlYwcOeEZ28CGEUWK6rJ74SPzk/O93GyEUtT5gZCEkojoZbD
-         PYhxnpKUc0gQ8iWOLxdn5zioh2v2vnhYlrk48ko63lpIWq6cbD6818/jtpW6Ez0Ec8tX
-         lDMg==
-X-Gm-Message-State: AOJu0YySEx/XSslQMmkKgrRm2h3nIaOj1SkqLpulxBtVGEFZ/9aBmrvN
-	JaS1cbV4cHJXOiQByIP11ZZ1roUBmUUYi2v957vPzCXHstwGl7zBqoffuo9GQsR1PYQ=
-X-Gm-Gg: AY/fxX7lPAuMGzs7VYOaTt/EZ3F2XVNm55sBrxIdkUK1DSFhvG1r9Vm0bwNeVTwWuwZ
-	BuMaKKxXSIBWeptMN4u1DApML8PdOWuBVf6MMSbr8Y6If04atyOy93H5m+T5mIn/DAtZ9neperA
-	TvvANbZGrseuNAhKq9ekcWf+Hn8Bl8soSPJmhm5xMXRd/Y4tE5CmKXrmTSN+XxfCrP39AM9uqm0
-	Z1tzrXr+dwS5bDK+iZ5bQZ6jfv016yNVgDIhZTZnJZfkxXTjP8+1XsKufG9cqahlfGk1PROn2EK
-	8ZC1Hhk7OKV8Q1QcgTnGbSs+aTKkqZjt+U9rBf5ZtgsRD1hl5k37CoRZRpSj8nVkfg4fpqW9Pmk
-	B/net3zHHSZm4aEr6jslK4w39qxfcyWzsEfR0lMZb8xyo6g5mCPlooU9jmZKEyOfyKkVXwQtr1F
-	72hVPGF7sE
-X-Google-Smtp-Source: AGHT+IHdmIrEr4BVbZEQPNX3+GmY+SREBGPwkRDFt+Xql+oRg3wNX3X+Ikd9nNU24yxL3SJbGllaWw==
-X-Received: by 2002:a17:903:32c7:b0:2a0:b4f6:5595 with SMTP id d9443c01a7336-2a3e2df0741mr6144155ad.50.1767644162704;
-        Mon, 05 Jan 2026 12:16:02 -0800 (PST)
-Received: from localhost ([71.212.208.158])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3cd2b3asm873055ad.88.2026.01.05.12.16.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jan 2026 12:16:02 -0800 (PST)
-From: Kevin Hilman <khilman@baylibre.com>
-To: linux-arm-kernel@lists.infradead.org, 
- Randy Dunlap <rdunlap@infradead.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, patches@armlinux.org.uk, 
- Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, 
- linux-omap@vger.kernel.org, Russell King <linux@armlinux.org.uk>
-In-Reply-To: <20251230055230.3212260-1-rdunlap@infradead.org>
-References: <20251230055230.3212260-1-rdunlap@infradead.org>
-Subject: Re: [PATCH] ARM: omap1: drop unused Kconfig symbol
-Message-Id: <176764416184.2561401.16752078199800151881.b4-ty@baylibre.com>
-Date: Mon, 05 Jan 2026 12:16:01 -0800
+	Mon, 05 Jan 2026 20:23:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52B63153B;
+	Mon,  5 Jan 2026 12:23:29 -0800 (PST)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2DF953F6A8;
+	Mon,  5 Jan 2026 12:23:33 -0800 (PST)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	ryan.roberts@arm.com,
+	akpm@linux-oundation.org,
+	david@kernel.org,
+	kevin.brodsky@arm.com,
+	quic_zhenhuah@quicinc.com,
+	dev.jain@arm.com,
+	yang@os.amperecomputing.com,
+	chaitanyas.prakash@arm.com,
+	bigeasy@linutronix.de,
+	clrkwllms@kernel.org,
+	rostedt@goodmis.org,
+	lorenzo.stoakes@oracle.com,
+	ardb@kernel.org,
+	jackmanb@google.com,
+	vbabka@suse.cz,
+	mhocko@suse.com,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v5 1/3] arm64: mmu: introduce pgtable_alloc_t
+Date: Mon,  5 Jan 2026 20:23:26 +0000
+Message-Id: <20260105202328.2418990-2-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260105202328.2418990-1-yeoreum.yun@arm.com>
+References: <20260105202328.2418990-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-a6db3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_121603_636704_A174D16E 
-X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-CacheID: sfid-20260105_122336_904973_7EB2AC91 
+X-CRM114-Status: UNSURE (   8.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,25 +82,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This is preparation patch to use preallocated page tables
+for linear_map_split_to_ptes().
 
-On Mon, 29 Dec 2025 21:52:30 -0800, Randy Dunlap wrote:
-> "select ARCH_HAS_HOLES_MEMORYMODEL" was mistakenly merged here
-> due to a botched rebase (says Arnd [1]).
-> 
-> Drop that line since that symbol is not used anywhere else in the
-> kernel source tree.
-> 
-> [1] https://lore.kernel.org/all/5e335232-89b4-4c35-93bd-efad7e4d8995@app.fastmail.com/
-> 
-> [...]
+Define pgtable_alloc_t type for callback used by create_XXX_mapping().
 
-Applied, thanks!
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+---
+ arch/arm64/mm/mmu.c | 18 ++++++++++--------
+ 1 file changed, 10 insertions(+), 8 deletions(-)
 
-[1/1] ARM: omap1: drop unused Kconfig symbol
-      commit: dc717e24deb4e626f4ad4896dd722815ef32311a
-
-Best regards,
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 8e1d80a7033e..4b4908ae189b 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -74,6 +74,8 @@ EXPORT_SYMBOL(empty_zero_page);
+ static DEFINE_SPINLOCK(swapper_pgdir_lock);
+ static DEFINE_MUTEX(fixmap_lock);
+ 
++typedef phys_addr_t (pgtable_alloc_t)(enum pgtable_type);
++
+ void noinstr set_swapper_pgd(pgd_t *pgdp, pgd_t pgd)
+ {
+ 	pgd_t *fixmap_pgdp;
+@@ -197,7 +199,7 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 			       unsigned long end, phys_addr_t phys,
+ 			       pgprot_t prot,
+-			       phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++			       pgtable_alloc_t pgtable_alloc,
+ 			       int flags)
+ {
+ 	unsigned long next;
+@@ -252,7 +254,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 
+ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+ 		    phys_addr_t phys, pgprot_t prot,
+-		    phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags)
++		    pgtable_alloc_t pgtable_alloc, int flags)
+ {
+ 	unsigned long next;
+ 
+@@ -292,7 +294,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+ 			       unsigned long end, phys_addr_t phys,
+ 			       pgprot_t prot,
+-			       phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++			       pgtable_alloc_t pgtable_alloc,
+ 			       int flags)
+ {
+ 	int ret;
+@@ -349,7 +351,7 @@ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+ 
+ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 			  phys_addr_t phys, pgprot_t prot,
+-			  phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++			  pgtable_alloc_t pgtable_alloc,
+ 			  int flags)
+ {
+ 	int ret = 0;
+@@ -415,7 +417,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 
+ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+ 			  phys_addr_t phys, pgprot_t prot,
+-			  phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++			  pgtable_alloc_t pgtable_alloc,
+ 			  int flags)
+ {
+ 	int ret;
+@@ -467,7 +469,7 @@ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+ static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+ 				       unsigned long virt, phys_addr_t size,
+ 				       pgprot_t prot,
+-				       phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++				       pgtable_alloc_t pgtable_alloc,
+ 				       int flags)
+ {
+ 	int ret;
+@@ -500,7 +502,7 @@ static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+ static int __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+ 				unsigned long virt, phys_addr_t size,
+ 				pgprot_t prot,
+-				phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++				pgtable_alloc_t pgtable_alloc,
+ 				int flags)
+ {
+ 	int ret;
+@@ -516,7 +518,7 @@ static int __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+ static void early_create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+ 				     unsigned long virt, phys_addr_t size,
+ 				     pgprot_t prot,
+-				     phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++				     pgtable_alloc_t pgtable_alloc,
+ 				     int flags)
+ {
+ 	int ret;
 -- 
-Kevin Hilman <khilman@baylibre.com>
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
