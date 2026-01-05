@@ -4,85 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C87C79FA3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 16:22:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1BA3C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 16:24:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MASj0+5F+BhI0O8zz8NrhU8cFe/vl+IgpIDneI/8zCU=; b=08igv139zFcD13HolhgMASe6oT
-	YZ1/vfA/WjQyKSys585qnorry3Fe9zSnALBmgLs11vk34ejHx/hlnli0bxxissHikmjXXwYBuFXKj
-	THrNpU7xVAVhj2+s6LLgJikH9ADtAl1w5AnsDoxujM4jwWS8TxUE+yGQ6RcZqunKFeSJhD9b5JqUT
-	qcKNymIYvzIwwR+uh2WBsz/GMq0dT3lL/DLU1YRH3hCbaHl/q4qm/glHRuSkclcsqNErhWruUJgs4
-	YkO0Ue/0jGEo/MCpYNbKVWyNLSeS0trxPLDogM+r+hLipOXUD2n6Kx5rRvimN6kV1WcNCoFNZGOE0
-	gRUoMoUg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yC5tnwt+eZCDG/SfjgdC6zXxTMsUKrOW/ojqL/NvNJQ=; b=xLoWkU2VVSWLwiTtDdNFTmwFXq
+	MuescOInJqN8DIwwMzEHHxytQQnuesanNxTHy/8YB5juAGlJ9Jdfqpxxkl80f0TpmDxo/3olc4Rrb
+	X6egniOXnDoaT4IDThqXIHgUeDaTVatysOVH/fxbQy1RyQ5/GpI+JYuLkHbmBaSwnxJ9B1zYU682G
+	Go/CLLkTNd+4CFWjEUaKEWkve6jojkHwWAl2m3faYRUAt0ClvI3EWLvakFoi6l3p6BT7Dn0/IuIIm
+	FAKTazXzvTDHWFzwDRKwKCwhw1cKMmJu2XdhUF3s2SeQ7A+O/HLaFKlK1VLPT20TIfNvzkMpiEHQt
+	QHYx1/Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcnLr-0000000Bj5b-0nHc;
-	Mon, 05 Jan 2026 16:22:39 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vcnNg-0000000BjGL-1Vss;
+	Mon, 05 Jan 2026 16:24:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcnLo-0000000Bj4y-0Br5
+	id 1vcnNf-0000000BjGF-34LQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 16:22:38 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 09CEDC1E48A;
-	Mon,  5 Jan 2026 16:22:07 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id F102A60726;
-	Mon,  5 Jan 2026 16:22:32 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 362D1103C8581;
-	Mon,  5 Jan 2026 17:22:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767630151; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=MASj0+5F+BhI0O8zz8NrhU8cFe/vl+IgpIDneI/8zCU=;
-	b=wfyASmZYAXZDOEI9ogI1szLZusLvXiw3hq/bBEIuPMHGAjW+PCHy4rELj73K3KzyrFrPZO
-	TEDzqz/Jr0x2JkdZiTTpfWBWBg0MGxmkkTPmKMe3FN+aQpm7fIf1Ak/W1lkcc2AhEY412W
-	dI9HvO5+bzTPhEB/eVPG48ldJ+aYfLHrdN1e2Le4vOqajsUib3r4MaJXsa3t0RYt0yOF9k
-	N73Cb6I252QKdqNZ/QkqD2c5Yk/imngKg/nIoGC8nsKA1bNlLZgkrC9UXjwo3HVf0rGzxS
-	wHPP0PRX/alh9zs6FQdYIus8qT+KGVSoOk1unbSanDxfmERwOeLe0yu8SM3Lfw==
-Date: Mon, 5 Jan 2026 17:22:20 +0100
-From: Herve Codina <herve.codina@bootlin.com>
-To: "Luca Ceresoli" <luca.ceresoli@bootlin.com> (by way of Kory Maincent
- <kory.maincent@bootlin.com>)
-Cc: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>, "Jyri Sarha"
- <jyri.sarha@iki.fi>, "Tomi Valkeinen" <tomi.valkeinen@ideasonboard.com>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Russell King"
- <linux@armlinux.org.uk>, "Bartosz Golaszewski" <brgl@bgdev.pl>, "Tony
- Lindgren" <tony@atomide.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>,
- "Neil Armstrong" <neil.armstrong@linaro.org>, "Robert Foss"
- <rfoss@kernel.org>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
- "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>, "Markus Schneider-Pargmann" <msp@baylibre.com>,
- "Bajjuri Praneeth" <praneeth@ti.com>, "Louis Chauvet"
- <louis.chauvet@bootlin.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
- <miguel.gazquez@bootlin.com>, <dri-devel@lists.freedesktop.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>
-Subject: Re: [PATCH v2 05/20] drm/tilcdc: Convert legacy panel binding via
- DT overlay at boot time
-Message-ID: <20260105172220.2d2edd28@bootlin.com>
-In-Reply-To: <DF0K5UFX46JA.OH85T6IPC5MW@bootlin.com>
-References: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
-	<20251211-feature_tilcdc-v2-5-f48bac3cd33e@bootlin.com>
-	<DF0K5UFX46JA.OH85T6IPC5MW@bootlin.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
+	Mon, 05 Jan 2026 16:24:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 172DA60141;
+	Mon,  5 Jan 2026 16:24:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94B09C116D0;
+	Mon,  5 Jan 2026 16:24:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767630270;
+	bh=lYCW3siDQNRZY+GsyMzVi9UL/1vFDJTQoDJqk5WeLXk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=GPjcKII0OHEUX4sJTxAE62ChobNYZmkA/Y73pMem5xTDSVO5jhPzKqBCMAVJTQRwm
+	 7Yt1EsjtuZiZnM77g2ULdAc2Y7y9v9HO0v8QHt8Mb9zMCT5TULXuU1UT7O2UQQc+0a
+	 LbqTZJ4M7wFSU6ZlyR67Ifn9LFgcfup5aOpCujbJLhzK2AgvPzeiG37W4iCOCC2SM9
+	 cep0MaDn6gAKbW7AQVSS57ZwNb4iSGTLg57ur7j1PyZWNEZraKrvYsOpUfD2TlXCvX
+	 OketC79ovpwhXE13BuTiCpBC82BUk2BzQTMsGiFBsBdS4yEs+FIB6gYNicUr7PalTg
+	 tSudURb0MsIEA==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>
+Cc: linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] dt-bindings: usb: Add Socionext Uniphier DWC3 controller
+Date: Mon,  5 Jan 2026 10:24:16 -0600
+Message-ID: <20260105162418.2842825-1-robh@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_082236_373362_5D351E72 
-X-CRM114-Status: GOOD (  33.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,241 +72,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca, Kory,
+The Socionext Uniphier DWC3 controller binding is already in use, but
+undocumented. It's a straight-forward binding similar to other DWC3
+bindings.
 
-On Wed, 17 Dec 2025 15:23:26 +0100
-"Luca Ceresoli" <luca.ceresoli@bootlin.com> (by way of Kory Maincent <kory.maincent@bootlin.com>) wrote:
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+v2:
+ - Allow 1 phy entry for Pro4
+---
+ .../bindings/usb/socionext,uniphier-dwc3.yaml | 89 +++++++++++++++++++
+ 1 file changed, 89 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/usb/socionext,uniphier-dwc3.yaml
 
-> Hi,
-> 
-> Cc: Hervé, can you review the DT overlay aspects?
+diff --git a/Documentation/devicetree/bindings/usb/socionext,uniphier-dwc3.yaml b/Documentation/devicetree/bindings/usb/socionext,uniphier-dwc3.yaml
+new file mode 100644
+index 000000000000..2b253339c199
+--- /dev/null
++++ b/Documentation/devicetree/bindings/usb/socionext,uniphier-dwc3.yaml
+@@ -0,0 +1,89 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/usb/socionext,uniphier-dwc3.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Socionext Uniphier SuperSpeed DWC3 USB SoC controller
++
++maintainers:
++  - Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
++  - Masami Hiramatsu <mhiramat@kernel.org>
++
++select:
++  properties:
++    compatible:
++      contains:
++        const: socionext,uniphier-dwc3
++  required:
++    - compatible
++
++properties:
++  compatible:
++    items:
++      - const: socionext,uniphier-dwc3
++      - const: snps,dwc3
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    minItems: 1
++    items:
++      - description: Host or single combined interrupt
++      - description: Peripheral interrupt
++
++  interrupt-names:
++    minItems: 1
++    items:
++      - enum:
++          - dwc_usb3
++          - host
++      - const: peripheral
++
++  clocks:
++    maxItems: 3
++
++  clock-names:
++    items:
++      - const: ref
++      - const: bus_early
++      - const: suspend
++
++  phys:
++    description: 1 to 4 HighSpeed PHYs followed by 1 or 2 SuperSpeed PHYs
++    minItems: 1
++    maxItems: 6
++
++  resets:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - phys
++
++unevaluatedProperties: false
++
++allOf:
++  - $ref: snps,dwc3.yaml#
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    usb@65a00000 {
++        compatible = "socionext,uniphier-dwc3", "snps,dwc3";
++        reg = <0x65a00000 0xcd00>;
++        interrupt-names = "dwc_usb3";
++        interrupts = <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH>;
++        clock-names = "ref", "bus_early", "suspend";
++        clocks = <&sys_clk 12>, <&sys_clk 12>, <&sys_clk 12>;
++        resets = <&usb0_rst 15>;
++        phys = <&usb0_hsphy0>, <&usb0_hsphy1>,
++               <&usb0_ssphy0>, <&usb0_ssphy1>;
++        dr_mode = "host";
++    };
+-- 
+2.51.0
 
-Yes sure.
-
-Here is my global review.
-
-Depending on the discussion on things I have spotted, I will go deeper in
-patch details.
-
-...
-
-> > +
-> > +static void __init
-> > +tilcdc_panel_update_prop(struct device_node *node, char *name,
-> > +			 void *val, int length)
-> > +{
-> > +	struct property *prop;
-> > +
-> > +	prop = kzalloc(sizeof(*prop), GFP_KERNEL);
-> > +	if (!prop)
-> > +		return;
-> > +
-> > +	prop->name = kstrdup(name, GFP_KERNEL);
-> > +	prop->length = length;
-> > +	prop->value = kmemdup(val, length, GFP_KERNEL);
-> > +	of_update_property(node, prop);
-
-I would use OF changesets to perform the modification.
-
-OF changesets are kind of atomic. You first prepare all modifications in a
-changeset and then you apply the changeset.
-If something goes wrong, the changeset is removed.
-
-Also, if something goes wrong during the changeset preparation, you can abort
-without any modification on the live device-tree.
-
-> > +}
-> > +
-> > +static int __init tilcdc_panel_copy_props(struct device_node *old_panel,
-> > +					  struct device_node *new_panel)
-> > +{
-> > +	struct device_node *child, *old_timing, *new_timing, *panel_info;
-> > +	u32 invert_pxl_clk = 0, sync_edge = 0;
-> > +	struct property *prop;
-> > +
-> > +	/* Copy all panel properties to the new panel node */
-> > +	for_each_property_of_node(old_panel, prop) {
-> > +		if (!strncmp(prop->name, "compatible", sizeof("compatible")))
-> > +			continue;
-> > +
-> > +		tilcdc_panel_update_prop(new_panel, prop->name,
-> > +					 prop->value, prop->length);
-> > +	}
-> > +
-> > +	child = of_get_child_by_name(old_panel, "display-timings");  
-> 
-> There's some housekeeping code in this function to ensure you put all the
-> device_node refs. It would be simpler and less error prone to use a cleanup
-> action. E.g.:
-> 
-> -	struct device_node *child, *old_timing, *new_timing, *panel_info;
-> 
-> -	child = of_get_child_by_name(old_panel, "display-timings");
-> +	struct device_node *child __free(device_node) = of_get_child_by_name(old_panel, "display-timings");
-> 
-> > +	if (!child)
-> > +		return -EINVAL;
-> > +
-> > +	/* The default display timing is the one specified as native-mode.
-> > +	 * If no native-mode is specified then the first node is assumed
-> > +	 * to be the native mode.
-> > +	 */
-> > +	old_timing = of_parse_phandle(child, "native-mode", 0);
-> > +	if (!old_timing) {
-> > +		old_timing = of_get_next_child(child, NULL);
-> > +		if (!old_timing) {
-> > +			of_node_put(child);
-> > +			return -EINVAL;
-> > +		}
-> > +	}
-> > +	of_node_put(child);
-> > +
-> > +	new_timing = of_get_child_by_name(new_panel, "panel-timing");
-> > +	if (!new_timing)
-> > +		return -EINVAL;
-
-Here, for instance, you have already modified your live tree and you abort the
-operation. Your live tree is somewhat corrupted.
-
-> > +
-> > +	/* Copy all panel timing property to the new panel node */
-> > +	for_each_property_of_node(old_timing, prop)
-> > +		tilcdc_panel_update_prop(new_timing, prop->name,
-> > +					 prop->value, prop->length);
-> > +
-> > +	panel_info = of_get_child_by_name(old_panel, "panel-info");
-> > +	if (!panel_info)
-> > +		return -EINVAL;  
-> 
-> tilcdc_panel_update_prop() has previously done various allocations which
-> will not be freed if you return here. You shoudl probably do all the
-> of_get_*() at the top, and if they all succeed start copying data along
-> with with the needed allocations.
-> 
-> > +	/* Looked only for these two parameter as all the other are always
-> > +	 * set to default and not related to common DRM properties.
-> > +	 */
-> > +	of_property_read_u32(panel_info, "invert-pxl-clk", &invert_pxl_clk);
-> > +	of_property_read_u32(panel_info, "sync-edge", &sync_edge);
-> > +
-> > +	if (!invert_pxl_clk)
-> > +		tilcdc_panel_update_prop(new_timing, "pixelclk-active",
-> > +					 &(int){1}, sizeof(int));
-> > +
-> > +	if (!sync_edge)
-> > +		tilcdc_panel_update_prop(new_timing, "syncclk-active",
-> > +					 &(int){1}, sizeof(int));
-> > +
-> > +	of_node_put(panel_info);
-> > +	of_node_put(old_timing);
-> > +	of_node_put(new_timing);
-> > +	return 0;
-> > +}
-> > +
-> > +static const struct of_device_id tilcdc_panel_of_match[] __initconst = {
-> > +	{ .compatible = "ti,tilcdc,panel", },
-> > +	{},
-> > +};
-> > +
-> > +static const struct of_device_id tilcdc_of_match[] __initconst = {
-> > +	{ .compatible = "ti,am33xx-tilcdc", },
-> > +	{ .compatible = "ti,da850-tilcdc", },
-> > +	{},
-> > +};
-> > +
-> > +static int __init tilcdc_panel_legacy_init(void)
-> > +{
-> > +	struct device_node *panel, *lcdc, *new_panel;
-> > +	void *dtbo_start;
-> > +	u32 dtbo_size;
-> > +	int ovcs_id;
-> > +	int ret;
-> > +
-> > +	lcdc = of_find_matching_node(NULL, tilcdc_of_match);
-> > +	panel = of_find_matching_node(NULL, tilcdc_panel_of_match);
-> > +
-> > +	if (!of_device_is_available(panel) ||
-> > +	    !of_device_is_available(lcdc)) {
-> > +		ret = -ENODEV;
-> > +		goto out;
-> > +	}
-> > +
-> > +	dtbo_start = __dtbo_tilcdc_panel_legacy_begin;
-> > +	dtbo_size = __dtbo_tilcdc_panel_legacy_end -
-> > +		    __dtbo_tilcdc_panel_legacy_begin;
-> > +
-> > +	ret = of_overlay_fdt_apply(dtbo_start, dtbo_size, &ovcs_id, NULL);
-> > +	if (ret)
-> > +		goto out;
-
-As soon as the overlay is applied, the driver handling the panel-dti node
-can be probed.
-
-Modifying some properties after applying the overlay could be not seen by the
-driver.
-
-> > +
-> > +	new_panel = of_find_node_by_name(NULL, "panel-dpi");
-> > +	if (!new_panel) {
-> > +		ret = -ENODEV;
-> > +		goto overlay_remove;
-> > +	}
-> > +
-> > +	ret = tilcdc_panel_copy_props(panel, new_panel);
-> > +	if (ret)
-> > +		goto overlay_remove;
-> > +
-> > +	/* Remove compatible property to avoid any driver compatible match */
-> > +	of_remove_property(panel, of_find_property(panel, "compatible",
-> > +						   NULL));
-> > +overlay_remove:
-> > +	of_overlay_remove(&ovcs_id);  
-> 
-> Is it correct to remove the overlay here? Won't it remove what you have
-> just added?
-
-Agreed, the overlay should not be removed here.
-
-> 
-> > +out:
-> > +	of_node_put(new_panel);
-> > +	of_node_put(panel);
-> > +	of_node_put(lcdc);  
-> 
-> Here too you can use cleanup actions, even though the current code is
-> slightly simpler than tilcdc_panel_copy_props as far as of_node_put() is
-> concerned.
-> 
-> > +	return ret;
-> > +}
-> > +
-> > +subsys_initcall(tilcdc_panel_legacy_init);
-
-IMHO, the call to tilcdc_panel_legacy_init() will be too late.
-
-subsys initcalls are called after arch initcalls.
-
-During arch initcalls, of_platform_populate_init() is called
-https://elixir.bootlin.com/linux/v6.19-rc3/source/drivers/of/platform.c#L599
-
-The root node is populated and handled by the platform bus.
-
-Later at subsys initcall, the tilcdc_panel_legacy_init() function is called.
-This function starts by applying the overlay and so a new node (panel-dpi)
-is added at the root node.
-
-This trigger an OF_RECONFIG_CHANGE_ADD event handled by the platform bus.
-https://elixir.bootlin.com/linux/v6.19-rc3/source/drivers/of/platform.c#L731
-
-If the "panel-dpi" compatible driver is available, its probe() is called but
-the panel-dpi DT node is not fully correct. Indeed, tilcdc_panel_copy_props()
-has not be called yet.
-
-Also, the legacy compatible string is removed after the of_platform_populate_init()
-call. The legacy driver could have been already probed.
-
-Of course, please correct me if I have misunderstood something.
-
-Best regards,
-Hervé
 
