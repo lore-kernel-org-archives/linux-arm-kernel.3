@@ -4,68 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21364CD0424
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 22:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEEC9CD0424
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 22:59:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ncq2s6474sa9D3GpMgpfMtTeehSgLMBJB69IsErTnNc=; b=OUvz/FDt8WCRKjXETtpwyY630R
-	qg4flPfzBw1ljDuez/DG7DydQbUVipnyOqtE8fJ5ois/Tu4W5kKZgaxeOixg5zTYtQE3nSr0fR2k1
-	SiARmn2yOdzaHLI4afGbHmXYUcyCyMomx9HCS5ea/308cBYCypDjC659YqUPLHNPAXba/nOk3IfgC
-	jyi5+1NYU3PYOLH2e3hn75n6U6tmxYA6TmedVmgGLqrvGMKnVKEQDGRT4RqUdgxZrh+e009pqkr+I
-	ZEkCDg5o57aJf0wBtKcdrG3+srlW0NmgrPytZAtdUI0oJGAB36/UEyhGYD02VMh2ymyR69PzB5WRO
-	/MBp9Ufw==;
+	bh=Jt7YiDCywn6pYyTWeWllvr8jjBbiVlGPLg10vWe4nUg=; b=wlYF4RwRORl5+4lgbrcBUkQcim
+	d7RwZcJ0Wm/JFJ6Jgbb12vI1+N0w1WWWdj4I8klK9SQyalVDeCJGfrXVIzzodyb/scXjBegLF6XTo
+	t98EVKS7lMOF5DMluF/+bL/1yeo9KSRMSiufiit7mnp9o5vjhIBp0gOWulwZVQSzp6v8jnsw/5kAK
+	xsQVL4egAtN7mqeIedrTlWF6SwnDn4O1jQwG8pBcMKqnTMCkI8ZJNTrkqEqRPcqEERbrSuFeQLCdB
+	Ui7ZLU2CeRAoBioOQtv8No54NB6XVdoIjurCyEbNlD89VbHe4JiN+Zo+DRzdMzowadyVynTmx0zN1
+	bEtkORUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vctXV-0000000CCxj-05Gl;
-	Mon, 05 Jan 2026 22:59:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vctXY-0000000CD1H-1aoA;
+	Mon, 05 Jan 2026 22:59:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vctXU-0000000CCwi-0hVk
+	id 1vctXW-0000000CCz1-3OY5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 22:59:04 +0000
+	Mon, 05 Jan 2026 22:59:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9068A6013C;
+	by tor.source.kernel.org (Postfix) with ESMTP id F41A860144;
+	Mon,  5 Jan 2026 22:59:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF2DFC19424;
 	Mon,  5 Jan 2026 22:59:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F27DDC16AAE;
-	Mon,  5 Jan 2026 22:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767653943;
-	bh=zS32bjl8HU3aHzxK9HhcHAJYRjhoEVD8h0LSMzZgws8=;
+	s=k20201202; t=1767653945;
+	bh=0EsaXgqqpmOSYRjimpQeYsK2n0KiWjDF7ZngGi0fb6c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uQq7rcV6+nC2mF0eCHJofNA/Jd/xgG8BXfSx/PnYUKGR3FN0AlYke0z6DJ8JUzVXZ
-	 fxBeU343LqrmmUwNY7PqAiiZqbgnz1kfUUzrW+F6R0kkAJkP9ISkmqJvnXP+ozVYng
-	 kmxssDEAHiRCtKt4mpGEumc2ZYWFg3xZf+ovOeDFg7tkoxvNdTTW9FXkk+Sfu+SE48
-	 /xqaeHrG96Ct8z4hZZ/iuCHORNbYW9CQF0foj0YexltwDrEZkWatCX5R7LD9Z5xw7n
-	 deeoqBOy/RykHGXmvaLZhz6S4v7UQb2uPZ8plLkTmBLcNC5bhGpJFxGIKNjh1IcAl0
-	 EUfPq9nhBwmKw==
+	b=A0/06ytFx96DMxTEJTbErPGErNbj9hSCVeLeWdsqV4AlNAEy3xnyJIm5ALlCcQLYc
+	 QKxYJc9e1E34B6cdq9ei6HxWilhmcNBH9JPFZO2+safy/HXVYxv+QwSP4JSkWNgiyD
+	 9+ObCDA4qq0epgTV1pYDk0yCbOEqpD5jCWWwHiF9PIci18qtWeTFIk6YeLuslPSpAq
+	 Y+t6dUyDvGOxVGQlwuK6kcF+G/SAPWjMoJsW6IkDLEPBQfUdKKeOvZFzT697afFxFS
+	 fU3wbpQk9s4Cp1s/uGSnbzdXNgR/cmGpAXkcCwGwdxG8v53+7VkiaiwyeKiREoRpHL
+	 J5UlFWaWhVwXg==
 From: Will Deacon <will@kernel.org>
-To: linux@armlinux.org.uk,
-	catalin.marinas@arm.com,
-	chris@zankel.net,
-	jcmvbkbc@gmail.com,
-	ldv@strace.io,
-	charlie@rivosinc.com,
-	deller@gmx.de,
-	macro@orcam.me.uk,
-	akpm@linux-foundation.org,
-	mark.rutland@arm.com,
-	rostedt@goodmis.org,
-	tglx@linutronix.de,
+To: catalin.marinas@arm.com,
+	Jinqian Yang <yangjinqian1@huawei.com>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v2 0/2] syscall: Cleanup and improve syscall_get_arguments()
-Date: Mon,  5 Jan 2026 22:58:27 +0000
-Message-ID: <176763166882.1385538.15950355888937561559.b4-ty@kernel.org>
+	wangzhou1@hisilicon.com,
+	shenjian15@huawei.com,
+	linuxarm@huawei.com
+Subject: Re: [PATCH] arm64: Add support for TSV110 Spectre-BHB mitigation
+Date: Mon,  5 Jan 2026 22:58:28 +0000
+Message-ID: <176764727038.1448075.15030241284048815190.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251201120633.1193122-1-ruanjinjie@huawei.com>
-References: <20251201120633.1193122-1-ruanjinjie@huawei.com>
+In-Reply-To: <20251227092448.732059-1-yangjinqian1@huawei.com>
+References: <20251227092448.732059-1-yangjinqian1@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -83,22 +75,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 01 Dec 2025 20:06:31 +0800, Jinjie Ruan wrote:
-> Remove unused SYSCALL_MAX_ARGS and avoid memcpy() for
-> syscall_get_arguments() for arm64.
+On Sat, 27 Dec 2025 17:24:48 +0800, Jinqian Yang wrote:
+> The TSV110 processor is vulnerable to the Spectre-BHB (Branch History
+> Buffer) attack, which can be exploited to leak information through
+> branch prediction side channels. This commit adds the MIDR of TSV110
+> to the list for software mitigation.
 > 
-> Jinjie Ruan (2):
->   syscall.h: Remove unused SYSCALL_MAX_ARGS
->   arm64: Avoid memcpy() for syscall_get_arguments()
 > 
-> [...]
 
-Applied to arm64 (for-next/entry), thanks!
+Applied to arm64 (for-next/cpufeature), thanks!
 
-[1/2] syscall.h: Remove unused SYSCALL_MAX_ARGS
-      https://git.kernel.org/arm64/c/35c3dcb1ac2c
-[2/2] arm64: Avoid memcpy() for syscall_get_arguments()
-      https://git.kernel.org/arm64/c/98cc091262ef
+[1/1] arm64: Add support for TSV110 Spectre-BHB mitigation
+      https://git.kernel.org/arm64/c/e3baa5d4b361
 
 Cheers,
 -- 
