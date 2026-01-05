@@ -4,66 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA87CCD0405
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:07:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87353CD0405
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=isoH5k0y+aDZr/nregHU+MggELfxdWLllFBsO/2n9p0=; b=yF+H+QUua4ncIXhcXc7pvjGlSX
-	J8knLkisyWYlYhzG/Y42aqU5zcWetk/oFfexadJhvwUPmgVhf9sfS2xZs20m+sWYNy9j0GC/aFDrB
-	95FOxbat8jhDxbs6rYjPX0K7N11DPTT7ZT5yhf2c9i38UEGoQm5UTSM8FGsZDW8tXg+Fpw3yEF3uu
-	q1lNSGmlEsJ7C60wcPI0NO/UviJ+G0pVTp8C98toSBut5OabE0fFIjaiVcshEpXZsE8DjJvPYhmny
-	HlCXT/c7iUrQeVWkzmhJ1udmlH8FzRBCdy1LR9ojK6rjtoCmurj/S6hy3givWjEujaFm9WgrlQNps
-	OEa2knFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4tSkxCKwZXCfTTNee+KHC5cdt2q9BOYUvx4EdY3LV9o=; b=zJPYelff6P3LnYTouIS9arl/o5
+	RNKXXsxyZmlWPnMGOsiENuKI66Qk74p9VztUyICwSjSJromD5sUvSNqF4kt31qM98RG3I4H3UOzbR
+	hQm7TPo2dXdQfsYUQsT4a9JtO2m+AC/SNdC7MHFaqMhdGzHoH0mTjumZDVBlW30eiub4Oz9blXv8F
+	In0B2cpQxs2CqUIu4FkK523L8pi9oOAGgZbe7WuPnSsOYLkkjHH0AfhoKBWg3r9eFhPvXR0u9fo0U
+	fP6+gkYh5dgWMiaKXy7TSN782QdiCkk8+jChPOwUl3to4XDVSqnzNoQRpIjZX/+1nvP+m9k0xj+qx
+	WSzrxuyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcrn0-0000000C5qZ-25nh;
-	Mon, 05 Jan 2026 21:06:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vcrpO-0000000C6U3-11Tv;
+	Mon, 05 Jan 2026 21:09:26 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcrmv-0000000C5my-41mA;
-	Mon, 05 Jan 2026 21:06:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A5376443EF;
-	Mon,  5 Jan 2026 21:06:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A8CEC116D0;
-	Mon,  5 Jan 2026 21:06:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767647213;
-	bh=xTzY1wDaAQkjeeTLkTSAa8tj3Kl+yUVQWDNwIYcpXnQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=YKNTIDH0O5+FY20pBs59xQ4+kewAZwQzpPR3qyIBCNwGsJKZdNQEa4ozqA8kI4zko
-	 3pqIpkSLkQ/whkiC4SGn/NWtG01qH0PqBaEF76DyC1hUgMczK0YvRZMiStaaeYfK85
-	 wyHLx1Ff6bFVT/asXiHYMTWYx7g/LnUINAQGV/WRO8w30inA8VxcmIesekotm9dlJy
-	 jwVgg41CY8n4U9SvdsPJFlDhx82IYGP31TajLDaW4ecpKGEpBiei4TqF5ozLTDBpoK
-	 JeO7tXCPFHfSmGTmSQ2Qjt69FmB6Xw+0PgcC+UpiKY/M9M5wdfUS84vnbNCGBedL2q
-	 itbizmI/QO2kw==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Mon, 05 Jan 2026 15:06:45 -0600
-Subject: [PATCH v3 3/3] ARM: at91: remove unnecessary
- of_platform_default_populate calls
+	id 1vcrpL-0000000C6Tg-1Da2
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Jan 2026 21:09:24 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-29f0f875bc5so4686855ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 13:09:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1767647362; x=1768252162; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4tSkxCKwZXCfTTNee+KHC5cdt2q9BOYUvx4EdY3LV9o=;
+        b=aYC1bLsActI3x5rSv5WZ0JKaONe7Nb4n0Gui9OvKgxpvIQ8e/ID9E98CDHmIwez7HT
+         iDk0Nnz1Asi8EK4Dw2WF5tB53oe/RYvP3oNkqVpSRD/2yr8ALLN2dEL7u7OhTtXJxn6a
+         il357q3HHThcqOPcDq/J0hj2y1xtsctVKvCtHLB2oxGS2ouc/q4luUppc5zLvA8Xz0ct
+         8p6DqdZ/K7U5Ghju/MEZqRyRmvoS1G/cjBpYajEw4sErtPLo8tlY0UsMiV3pP01Y6D6V
+         nNqPPfNvi8a8+yxMtKM7bHDENpiGQkxeQ6VqyTrKhUfmQDFK8zmCAoQrGXH+4zgfISdY
+         8yjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767647362; x=1768252162;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4tSkxCKwZXCfTTNee+KHC5cdt2q9BOYUvx4EdY3LV9o=;
+        b=rxkaANzlAzrxTsJQJ4C2XTyXSPCMqRjXrzRuDQAWO05UnN78qinL78EwhetpuwfSa+
+         zjvL4Ur1JxwXd+jvzMqjA7ZfVqgU5u5hbtr8WpK1AP4mvfPSjWyxfhiuyA6Ejz7bfePT
+         sH7Zit4pKwNI2eXtJ2vTPjJ+ZP55DHnWMUGOjBJVDZprt6jXAXfZwokqTX1MYhk9C6r6
+         3ORphgWuNxf00ce7qx231i+024n1i+KJuYcsQiCWy9wdtZ7rXyszHQolgfhtHi1v65qZ
+         4jNn1kEhs/KuoasrhK7wpb+Fagy8W8zZB+P2fY8CMptqt96ycs6IP+nKaFTYgWGBTepA
+         qd8w==
+X-Forwarded-Encrypted: i=1; AJvYcCUjlELJb4lEQbvgXhOJbvDSDBJRjgkJUw6eaAqVirKmUYqbCmYF86lQnMcWDn804LXTKBBkscIoQza3fnxG7dav@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFtpzZBrw9b1dqamO/92fw/ZCFWsA8LQ7ZLs289h0ZscKvYys0
+	Gz123a85uyZUy+N5KJC4MfNFGHFbc5fowNe/+IHhF7sjvctODsQQC2MEh5P9YV7uVns=
+X-Gm-Gg: AY/fxX4i+NRmCvb4oqDNvbfIdPgqth5Sp3diC1KoFRRbPEUXEJFkclzOD/k0UJcvc/E
+	VIpJI8cs41APjw908xNgmOGnaa/q4UMizlAwe4vm0dFyBXny6jYP5G4YZSDuZwdBoA0Qj8qfOAD
+	aAHYYuJ+F57b5R9QSAdYndLxkKnXUkhE6rsgztimpcmd+KpC4qL9zrzL4I31ipyFRIbuMIv/d2n
+	zoM/6ITTZWR0sHFT12+msYxqh15+pZXC2KPP9h3eha4QHYYzKcssxDOiLdkk/honucZ2rTQBOyc
+	XpPigOohSjln7EY44IdLsvdqENOyJcN3pbrHqvbkdu2Trn0gzUewjP/aLuY5kiowdp10wF1yvd3
+	9LfQ6NPvBj/37M7+4hLH8xiboJgUU+YRW20Lwm6Z5YOneBeFeqsdB/m2tnmHa/Qr1m/3ZZcg8Ki
+	Cngr7DlWvrUsbi6g==
+X-Google-Smtp-Source: AGHT+IHXo6DMFCW0WpfI4RbwmQ0/+SMw7AIolM0jI+6hLOC2qL1pTqhGB59TCu4aAjBQnNj3aCaTnQ==
+X-Received: by 2002:a17:903:2f46:b0:29f:2b8a:d3d with SMTP id d9443c01a7336-2a3e2d7896dmr8294395ad.4.1767647361918;
+        Mon, 05 Jan 2026 13:09:21 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:3f6b:5551:220f:8f13])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3ba03f9sm1721825ad.0.2026.01.05.13.09.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Jan 2026 13:09:21 -0800 (PST)
+Date: Mon, 5 Jan 2026 14:09:19 -0700
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: andersson@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, daniel.baluta@nxp.com,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] remoteproc: imx_dsp_rproc: only reset carveout memory
+ at RPROC_OFFLINE state
+Message-ID: <aVwof_w31EMxi5st@p14s>
+References: <20251218071750.2692132-1-shengjiu.wang@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260105-at91-probe-v3-3-594013ff2965@kernel.org>
-References: <20260105-at91-probe-v3-0-594013ff2965@kernel.org>
-In-Reply-To: <20260105-at91-probe-v3-0-594013ff2965@kernel.org>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Russell King <linux@armlinux.org.uk>
-Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15-dev
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251218071750.2692132-1-shengjiu.wang@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_130654_657703_8281F3A8 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260105_130923_334925_5C383702 
+X-CRM114-Status: GOOD (  21.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,246 +101,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DT core will call of_platform_default_populate, so it is not
-necessary for machine specific code to call it unless there are custom
-match entries, auxdata or parent device. Neither of those apply here, so
-remove the call.
+On Thu, Dec 18, 2025 at 03:17:50PM +0800, Shengjiu Wang wrote:
+> Do not reset memory at suspend and resume stage, because some
+> memory is used to save the software state for resume, if it is cleared,
+> the resume operation can fail.
+> 
+> Fixes: c4c432dfb00f ("remoteproc: imx_dsp_rproc: Add support of recovery and coredump process")
+> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+> Reviewed-by: Iuliana Prodan <iuliana.prodan@nxp.com>
+> ---
+> changes in v2:
+> - refine commit message.
+>
 
-Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Tested-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
-v3:
- - Fixup split between patch 2 and 3.
+Applied.
 
-v2:
- - Dust off and rebase to 6.18-rc1
- - Add new platforms added since v1
----
- arch/arm/mach-at91/at91rm9200.c |  9 ---------
- arch/arm/mach-at91/at91sam9.c   |  9 ---------
- arch/arm/mach-at91/sam9x60.c    |  9 ---------
- arch/arm/mach-at91/sam9x7.c     |  9 ---------
- arch/arm/mach-at91/sama5.c      | 16 ----------------
- arch/arm/mach-at91/sama7.c      |  9 ---------
- 6 files changed, 61 deletions(-)
-
-diff --git a/arch/arm/mach-at91/at91rm9200.c b/arch/arm/mach-at91/at91rm9200.c
-index 2ac564eb8bbb..d15997fff5d7 100644
---- a/arch/arm/mach-at91/at91rm9200.c
-+++ b/arch/arm/mach-at91/at91rm9200.c
-@@ -7,18 +7,10 @@
-  *                2012 Joachim Eastwood <manabian@gmail.com>
-  */
+Thanks,
+Mathieu
  
--#include <linux/of.h>
--#include <linux/of_platform.h>
--
- #include <asm/mach/arch.h>
- 
- #include "generic.h"
- 
--static void __init at91rm9200_dt_device_init(void)
--{
--	of_platform_default_populate(NULL, NULL, NULL);
--}
--
- static const char *const at91rm9200_dt_board_compat[] __initconst = {
- 	"atmel,at91rm9200",
- 	NULL
-@@ -26,6 +18,5 @@ static const char *const at91rm9200_dt_board_compat[] __initconst = {
- 
- DT_MACHINE_START(at91rm9200_dt, "Atmel AT91RM9200")
- 	.init_late	= at91rm9200_pm_init,
--	.init_machine	= at91rm9200_dt_device_init,
- 	.dt_compat	= at91rm9200_dt_board_compat,
- MACHINE_END
-diff --git a/arch/arm/mach-at91/at91sam9.c b/arch/arm/mach-at91/at91sam9.c
-index cf07cba4ee5d..b9d2909d1b65 100644
---- a/arch/arm/mach-at91/at91sam9.c
-+++ b/arch/arm/mach-at91/at91sam9.c
-@@ -6,19 +6,11 @@
-  *                2011 Nicolas Ferre <nicolas.ferre@atmel.com>
-  */
- 
--#include <linux/of.h>
--#include <linux/of_platform.h>
--
- #include <asm/mach/arch.h>
- #include <asm/system_misc.h>
- 
- #include "generic.h"
- 
--static void __init at91sam9_init(void)
--{
--	of_platform_default_populate(NULL, NULL, NULL);
--}
--
- static const char *const at91_dt_board_compat[] __initconst = {
- 	"atmel,at91sam9",
- 	NULL
-@@ -27,6 +19,5 @@ static const char *const at91_dt_board_compat[] __initconst = {
- DT_MACHINE_START(at91sam_dt, "Atmel AT91SAM9")
- 	/* Maintainer: Atmel */
- 	.init_late	= at91sam9_pm_init,
--	.init_machine	= at91sam9_init,
- 	.dt_compat	= at91_dt_board_compat,
- MACHINE_END
-diff --git a/arch/arm/mach-at91/sam9x60.c b/arch/arm/mach-at91/sam9x60.c
-index a31beaaeffcd..744bab2cbb92 100644
---- a/arch/arm/mach-at91/sam9x60.c
-+++ b/arch/arm/mach-at91/sam9x60.c
-@@ -7,19 +7,11 @@
-  * Author: Claudiu Beznea <claudiu.beznea@microchip.com>
-  */
- 
--#include <linux/of.h>
--#include <linux/of_platform.h>
--
- #include <asm/mach/arch.h>
- #include <asm/system_misc.h>
- 
- #include "generic.h"
- 
--static void __init sam9x60_init(void)
--{
--	of_platform_default_populate(NULL, NULL, NULL);
--}
--
- static const char *const sam9x60_dt_board_compat[] __initconst = {
- 	"microchip,sam9x60",
- 	NULL
-@@ -28,6 +20,5 @@ static const char *const sam9x60_dt_board_compat[] __initconst = {
- DT_MACHINE_START(sam9x60_dt, "Microchip SAM9X60")
- 	/* Maintainer: Microchip */
- 	.init_late	= sam9x60_pm_init,
--	.init_machine	= sam9x60_init,
- 	.dt_compat	= sam9x60_dt_board_compat,
- MACHINE_END
-diff --git a/arch/arm/mach-at91/sam9x7.c b/arch/arm/mach-at91/sam9x7.c
-index 0c73f7fefd4f..166c8625509d 100644
---- a/arch/arm/mach-at91/sam9x7.c
-+++ b/arch/arm/mach-at91/sam9x7.c
-@@ -7,18 +7,10 @@
-  * Author: Varshini Rajendran <varshini.rajendran@microchip.com>
-  */
- 
--#include <linux/of.h>
--#include <linux/of_platform.h>
--
- #include <asm/mach/arch.h>
- 
- #include "generic.h"
- 
--static void __init sam9x7_init(void)
--{
--	of_platform_default_populate(NULL, NULL, NULL);
--}
--
- static const char * const sam9x7_dt_board_compat[] __initconst = {
- 	"microchip,sam9x7",
- 	NULL
-@@ -27,6 +19,5 @@ static const char * const sam9x7_dt_board_compat[] __initconst = {
- DT_MACHINE_START(sam9x7_dt, "Microchip SAM9X7")
- 	/* Maintainer: Microchip */
- 	.init_late	= sam9x7_pm_init,
--	.init_machine	= sam9x7_init,
- 	.dt_compat	= sam9x7_dt_board_compat,
- MACHINE_END
-diff --git a/arch/arm/mach-at91/sama5.c b/arch/arm/mach-at91/sama5.c
-index 576654cba82d..e56022f00800 100644
---- a/arch/arm/mach-at91/sama5.c
-+++ b/arch/arm/mach-at91/sama5.c
-@@ -6,9 +6,6 @@
-  *                2013 Ludovic Desroches <ludovic.desroches@atmel.com>
-  */
- 
--#include <linux/of.h>
--#include <linux/of_platform.h>
--
- #include <asm/hardware/cache-l2x0.h>
- #include <asm/mach/arch.h>
- #include <asm/mach/map.h>
-@@ -30,11 +27,6 @@ static void __init sama5_secure_cache_init(void)
- 		outer_cache.write_sec = sama5_l2c310_write_sec;
- }
- 
--static void __init sama5_dt_device_init(void)
--{
--	of_platform_default_populate(NULL, NULL, NULL);
--}
--
- static const char *const sama5_dt_board_compat[] __initconst = {
- 	"atmel,sama5",
- 	NULL
-@@ -43,7 +35,6 @@ static const char *const sama5_dt_board_compat[] __initconst = {
- DT_MACHINE_START(sama5_dt, "Atmel SAMA5")
- 	/* Maintainer: Atmel */
- 	.init_late	= sama5_pm_init,
--	.init_machine	= sama5_dt_device_init,
- 	.dt_compat	= sama5_dt_board_compat,
- MACHINE_END
- 
-@@ -54,17 +45,11 @@ static const char *const sama5_alt_dt_board_compat[] __initconst = {
- 
- DT_MACHINE_START(sama5_alt_dt, "Atmel SAMA5")
- 	/* Maintainer: Atmel */
--	.init_machine	= sama5_dt_device_init,
- 	.init_late	= sama5_pm_init,
- 	.dt_compat	= sama5_alt_dt_board_compat,
- 	.l2c_aux_mask	= ~0UL,
- MACHINE_END
- 
--static void __init sama5d2_init(void)
--{
--	of_platform_default_populate(NULL, NULL, NULL);
--}
--
- static const char *const sama5d2_compat[] __initconst = {
- 	"atmel,sama5d2",
- 	NULL
-@@ -72,7 +57,6 @@ static const char *const sama5d2_compat[] __initconst = {
- 
- DT_MACHINE_START(sama5d2, "Atmel SAMA5")
- 	/* Maintainer: Atmel */
--	.init_machine	= sama5d2_init,
- 	.init_early	= sama5_secure_cache_init,
- 	.init_late	= sama5d2_pm_init,
- 	.dt_compat	= sama5d2_compat,
-diff --git a/arch/arm/mach-at91/sama7.c b/arch/arm/mach-at91/sama7.c
-index 8bf57a020f1c..f56828d61199 100644
---- a/arch/arm/mach-at91/sama7.c
-+++ b/arch/arm/mach-at91/sama7.c
-@@ -6,19 +6,11 @@
-  *
-  */
- 
--#include <linux/of.h>
--#include <linux/of_platform.h>
--
- #include <asm/mach/arch.h>
- #include <asm/system_misc.h>
- 
- #include "generic.h"
- 
--static void __init sama7_dt_device_init(void)
--{
--	of_platform_default_populate(NULL, NULL, NULL);
--}
--
- static const char *const sama7_dt_board_compat[] __initconst = {
- 	"microchip,sama7",
- 	NULL
-@@ -27,7 +19,6 @@ static const char *const sama7_dt_board_compat[] __initconst = {
- DT_MACHINE_START(sama7_dt, "Microchip SAMA7")
- 	/* Maintainer: Microchip */
- 	.init_late	= sama7_pm_init,
--	.init_machine	= sama7_dt_device_init,
- 	.dt_compat	= sama7_dt_board_compat,
- MACHINE_END
- 
-
--- 
-2.51.0
-
+>  drivers/remoteproc/imx_dsp_rproc.c | 8 +++++---
+>  1 file changed, 5 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+> index d03017d6b214..ac8aa71aa56c 100644
+> --- a/drivers/remoteproc/imx_dsp_rproc.c
+> +++ b/drivers/remoteproc/imx_dsp_rproc.c
+> @@ -984,9 +984,11 @@ static int imx_dsp_rproc_load(struct rproc *rproc, const struct firmware *fw)
+>  	 * Clear buffers after pm rumtime for internal ocram is not
+>  	 * accessible if power and clock are not enabled.
+>  	 */
+> -	list_for_each_entry(carveout, &rproc->carveouts, node) {
+> -		if (carveout->va)
+> -			memset(carveout->va, 0, carveout->len);
+> +	if (rproc->state == RPROC_OFFLINE) {
+> +		list_for_each_entry(carveout, &rproc->carveouts, node) {
+> +			if (carveout->va)
+> +				memset(carveout->va, 0, carveout->len);
+> +		}
+>  	}
+>  
+>  	ret = imx_dsp_rproc_elf_load_segments(rproc, fw);
+> -- 
+> 2.34.1
+> 
 
