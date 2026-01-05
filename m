@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEEC9CD0424
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 22:59:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D0FCD0423
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 22:59:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jt7YiDCywn6pYyTWeWllvr8jjBbiVlGPLg10vWe4nUg=; b=wlYF4RwRORl5+4lgbrcBUkQcim
-	d7RwZcJ0Wm/JFJ6Jgbb12vI1+N0w1WWWdj4I8klK9SQyalVDeCJGfrXVIzzodyb/scXjBegLF6XTo
-	t98EVKS7lMOF5DMluF/+bL/1yeo9KSRMSiufiit7mnp9o5vjhIBp0gOWulwZVQSzp6v8jnsw/5kAK
-	xsQVL4egAtN7mqeIedrTlWF6SwnDn4O1jQwG8pBcMKqnTMCkI8ZJNTrkqEqRPcqEERbrSuFeQLCdB
-	Ui7ZLU2CeRAoBioOQtv8No54NB6XVdoIjurCyEbNlD89VbHe4JiN+Zo+DRzdMzowadyVynTmx0zN1
-	bEtkORUQ==;
+	bh=F7JV/PJ0VnrzWpBv4LESf97hWHvhonfUJamLTdd+SvM=; b=IgF4eI1YlGrQTChaFevT3tISBe
+	YIpg9IheVWocbnn8yKZw0jq995IVLvZvWzy5IWH9GWm2+hHOieHYbM7eH4d3doP/dfmP4OFK5vDTO
+	zDOfNEjsRCBjqaNDK8dCahqa4jiuS/Ihg7jJvbR1pEGmFi4KbQ5SsK8RWJOFUU5q4I3AOiubdz8Wf
+	U1+RtXUImBwixRY1yKJWAuvEU8eQJdJFTYxEwPzDvdAJ88D8p6fWH8W2RzPpK0DceUrqVPV80yr9U
+	ZQqe2nzJv+x9qPVv8GNLyj9uJKE6YgjqlUf/3gTZ5/jPD6uqgiSAKhmjEdmvh4o6j6MyYhRXVT2QM
+	WPNuX9iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vctXY-0000000CD1H-1aoA;
-	Mon, 05 Jan 2026 22:59:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vctXa-0000000CD4C-30s8;
+	Mon, 05 Jan 2026 22:59:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vctXW-0000000CCz1-3OY5
+	id 1vctXZ-0000000CD1u-0ANn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 22:59:06 +0000
+	Mon, 05 Jan 2026 22:59:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F41A860144;
-	Mon,  5 Jan 2026 22:59:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF2DFC19424;
-	Mon,  5 Jan 2026 22:59:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AEF2744189;
+	Mon,  5 Jan 2026 22:59:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35C25C19422;
+	Mon,  5 Jan 2026 22:59:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767653945;
-	bh=0EsaXgqqpmOSYRjimpQeYsK2n0KiWjDF7ZngGi0fb6c=;
+	s=k20201202; t=1767653948;
+	bh=mjbsh5qTsWiK+bL9N+lcIzG0oeu7SbZwJAqsk6DZtZ4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=A0/06ytFx96DMxTEJTbErPGErNbj9hSCVeLeWdsqV4AlNAEy3xnyJIm5ALlCcQLYc
-	 QKxYJc9e1E34B6cdq9ei6HxWilhmcNBH9JPFZO2+safy/HXVYxv+QwSP4JSkWNgiyD
-	 9+ObCDA4qq0epgTV1pYDk0yCbOEqpD5jCWWwHiF9PIci18qtWeTFIk6YeLuslPSpAq
-	 Y+t6dUyDvGOxVGQlwuK6kcF+G/SAPWjMoJsW6IkDLEPBQfUdKKeOvZFzT697afFxFS
-	 fU3wbpQk9s4Cp1s/uGSnbzdXNgR/cmGpAXkcCwGwdxG8v53+7VkiaiwyeKiREoRpHL
-	 J5UlFWaWhVwXg==
+	b=KqZDpgzzTWS+c/2QXiq/v/J7NmbO7ILss8exfk3eSj8L2zYvix7/ZDY6YEIknZLWe
+	 FpRw1hjFCwKszZ9aNsXLyG9S3+EybZNzMCez1zXD/ipLfJj4axjzgEzaQ2vE9RHy2d
+	 oNPNn72qyclj0t+0DddSe/43RKPLNjlVWd7WW53s0tygrpoOLp2uHbe9dly/4BOba0
+	 pM9bOKBfSEk8vWSvwLzWwmeldPsN4pYBtXmmkENKiprTz6PI8eb0OPwrl5i5tmTZZp
+	 K6ViYlHOkbkdajt65tSVHcRnqUDNp9q+RQ03aBTp/a+KaCXzlNOerzXR/iFypoPjtW
+	 NnYRTs3WEDW5Q==
 From: Will Deacon <will@kernel.org>
-To: catalin.marinas@arm.com,
-	Jinqian Yang <yangjinqian1@huawei.com>
+To: akpm@linux-foundation.org,
+	pjw@kernel.org,
+	leitao@debian.org,
+	catalin.marinas@arm.com,
+	mark.rutland@arm.com,
+	coxu@redhat.com,
+	Yeoreum Yun <yeoreum.yun@arm.com>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	wangzhou1@hisilicon.com,
-	shenjian15@huawei.com,
-	linuxarm@huawei.com
-Subject: Re: [PATCH] arm64: Add support for TSV110 Spectre-BHB mitigation
-Date: Mon,  5 Jan 2026 22:58:28 +0000
-Message-ID: <176764727038.1448075.15030241284048815190.b4-ty@kernel.org>
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: kernel: initialize missing kexec_buf->random field
+Date: Mon,  5 Jan 2026 22:58:29 +0000
+Message-ID: <176764846370.1457992.3931677360070887996.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251227092448.732059-1-yangjinqian1@huawei.com>
-References: <20251227092448.732059-1-yangjinqian1@huawei.com>
+In-Reply-To: <20251201105118.2786335-1-yeoreum.yun@arm.com>
+References: <20251201105118.2786335-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260105_145909_105228_E177BEFC 
+X-CRM114-Status: UNSURE (   8.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,18 +82,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 27 Dec 2025 17:24:48 +0800, Jinqian Yang wrote:
-> The TSV110 processor is vulnerable to the Spectre-BHB (Branch History
-> Buffer) attack, which can be exploited to leak information through
-> branch prediction side channels. This commit adds the MIDR of TSV110
-> to the list for software mitigation.
+On Mon, 01 Dec 2025 10:51:18 +0000, Yeoreum Yun wrote:
+> Commit bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
+> introduced the kexec_buf->random field to enable random placement of
+> kexec_buf.
 > 
+> However, this field was never properly initialized for kexec images
+> that do not need to be placed randomly, leading to the following UBSAN
+> warning:
 > 
+> [...]
 
-Applied to arm64 (for-next/cpufeature), thanks!
+Applied to arm64 (for-next/misc), thanks!
 
-[1/1] arm64: Add support for TSV110 Spectre-BHB mitigation
-      https://git.kernel.org/arm64/c/e3baa5d4b361
+[1/1] arm64: kernel: initialize missing kexec_buf->random field
+      https://git.kernel.org/arm64/c/15dd20dda979
 
 Cheers,
 -- 
