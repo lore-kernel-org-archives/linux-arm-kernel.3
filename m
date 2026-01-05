@@ -4,188 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E56F5C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 14:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A1D6C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 14:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TPOi0ltjpHpUlu0zw5I4NwGLj+xVsPpMDnYDnVYVy64=; b=1nG1Jy42LK5YU3eGKMuCh+ZHN2
-	/IEH9KlYR0OtFMWuc5g9hPQ60OKh3pw9BMCtapMCcZz0m7J33ESPMCipMaetFyAhb8BM2a7d7yeQk
-	AIJWNtpT5Mpafrrzy5fqJIybCphQqzdxP2LRQ6Y2Sab8CcRF5/8xbi6hI2+1x0ETw5XgyOpqz5FUk
-	liDd2rR7oBi1z0+5bUlJAjKsmIlJG2+/kQ+J3Fio1qKyD9Rc6ncJoHG32NYycuG9ppDb+YgK1ocGH
-	oaWqFE0c5oxLH2c4S85fevr+f0WPmwtSUdPPjOJ4xZ9Ypea3mYo+ux+XuHuP8AwT68yx+YdNimsl7
-	qwnTJNFA==;
+	bh=o4f2DQ1WSbAm2u31CVo+GntDagSQYTjRfPhTR4DZPJI=; b=XgAiALY45GNm8MdujZAiI3zPPM
+	t+z7muJWVJ7hO6BiB8moBZKGFlCR5n4NOftY7dCEZ5WtCrCdwCP1YH25E0NFZno3Z1d7/0/frUW4A
+	2FI97ti/FWnJQaH1/eBpobWpa1789BhYgJAseUl90NIp4BhXgfWBpYIC6umddn07i4Um18uFpp2P6
+	IGs9z+4Si7hp4kkCgw8Xnv0ieSllCLGdNbu+2rolLKFqPVw1t6FVZIcyiuG5lDbm6DZCUQGAfj2Wn
+	fOHKIBJeSRY0IIP2VYXupVGHANOETK1d026KyA5rI6PEP+tn5xt0VNlqsJ33mfCpycubk3IEurrDn
+	uCkead9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcluh-0000000BZP9-216f;
-	Mon, 05 Jan 2026 14:50:31 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vclwR-0000000BZWk-1w9r;
+	Mon, 05 Jan 2026 14:52:19 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vclue-0000000BZOe-1ww3
+	id 1vclwN-0000000BZW0-1vmU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 14:50:30 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=rb/nv+9GT9SyfVdSHQZMd8vPQ1CaTS05I5nQUnqyRlOeTFTW0ykPQl5Lex/5h8zK+j39XaHwWulmEcRLEz5iHirEv52sONAww0yLzVna2/JCcUXJk6AzKNT5EQ30rZXReZIe/FxgfK9JILvKw7vC/ok1McxFuSLIFyQZ3VJIDbflOeEfyrNZ1bmAzaDepkqv1Nwwd+nNWfgBWF+BdO6YEUS0cJKHqG9g7Xi3e6glvlY4UvlCX3Kmb7NsjK58Vpyd+59fcJtNTo9/kLhMtx/IhxYPYeuCPfXGZ9v3cexTFfjdVxFGhkR6y04HHGSPFkU0uorne2PokEoWB3bpuBmPIw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TPOi0ltjpHpUlu0zw5I4NwGLj+xVsPpMDnYDnVYVy64=;
- b=ak66TBD4xnufojlbp6Wp/XqKGoyfBuo+3K4vYKeCqev/mfArK1oKFnjkzFidQ8JfaqjUJiRjCnJuEPLyxlS/R1ubkoTSnMhVdvm29zbcYoYV+nNok3u7WI6X63G9TbiZths9rurzuccrnnvp/0esElu85Zm+6VloOMTwgQaCxA3p6SMQRlbq/IAyUBVcXEa6zHpRp2Vqxmj2le0nNofHbzw83968kp1mHqLXxOSZflSNqKhMbBCHU0K4adlIIr2+NjC6SLrz47dLUM6vZMSzKCUAwGsUqa4GQ3OvFvTGzSYBE34lHA7X98/q17cqMKJlRqtUInUJOEghxXv0pwGtbA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TPOi0ltjpHpUlu0zw5I4NwGLj+xVsPpMDnYDnVYVy64=;
- b=cQ9vZv8M/hiWAzYIrdpPFy72URfzwJcXCMxaE29fSVQ92rbyqDTvcz5fkLzckQJHYm6TOCTuqMpz3ZY4LFLTIOFNTRYgaCyVgLeY9pVC0+koli82hJ69MClorUO7IDuePBQU0ecJfTNn/CrFI+6drPEIqzDDh46KiXkGormGvsM=
-Received: from CWLP265CA0412.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1b6::23)
- by DB9PR08MB11473.eurprd08.prod.outlook.com (2603:10a6:10:60f::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
- 2026 14:50:21 +0000
-Received: from AM4PEPF00027A62.eurprd04.prod.outlook.com
- (2603:10a6:400:1b6:cafe::3d) by CWLP265CA0412.outlook.office365.com
- (2603:10a6:400:1b6::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9478.4 via Frontend Transport; Mon, 5
- Jan 2026 14:49:52 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM4PEPF00027A62.mail.protection.outlook.com (10.167.16.71) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.1
- via Frontend Transport; Mon, 5 Jan 2026 14:50:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NYCKTjKXUz0BWO5JESKkkVK4eQl6RliYFry8sLjHMmiNEQ7Hek0YOQd/xAh+J5KCeWv48/uGQIoZNxkUx/hI5b5lXdMjx9OO3XYEBvyd3SLs4emqhHU7b2mBp2jambZZGuDKf0CYS/mAz/oPuHG0g421Aae1GqF01tOzExRE8aEdxlWiRfzTLTe4XeRyuTwthA8NWq+NFyjjgweWrplgKwRef5bFCBPlUpugB84odNWDtCL+1xQ5USE8TbywuZwLFjXxtlb7Af1FKE8ZWoDg8E7w47FsjpjM23CiNj5FAOYum92S7CnOhgYEFjVU9650b0kpjf++9WR+DYSsrrILRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TPOi0ltjpHpUlu0zw5I4NwGLj+xVsPpMDnYDnVYVy64=;
- b=IFjh163iBE1gSvjI+2NcqaRKYjqisac/ptJCk/dBD/YWY0bCs03MuqHN6OWoO7eswh65fIfZ7Li5gwjT5BXFGmEpkrYN8+NNq1yHCU1gnS+ieutTttv15gm6NQ3RrY6oYBSSCzx0Si5oeET4qpszZ8vLokKFDv9krqG6LpjsifIK9Jtla8Ihp6JGGG8PBVHA+92pPtSjHFfCvEcJ2ewCLwPVAFMqDWm8c+zvZJZtMQ0oTGwGKUuba4aNO3ppswHYFtJQWC6NBqcI1kvWN21PL9IlBkOdtX8mI909DEXmd4ztkV082qrARNMdhA3l5/06XKbNs/M8SM0GmWYR2VBLyw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TPOi0ltjpHpUlu0zw5I4NwGLj+xVsPpMDnYDnVYVy64=;
- b=cQ9vZv8M/hiWAzYIrdpPFy72URfzwJcXCMxaE29fSVQ92rbyqDTvcz5fkLzckQJHYm6TOCTuqMpz3ZY4LFLTIOFNTRYgaCyVgLeY9pVC0+koli82hJ69MClorUO7IDuePBQU0ecJfTNn/CrFI+6drPEIqzDDh46KiXkGormGvsM=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from PA6PR08MB10526.eurprd08.prod.outlook.com
- (2603:10a6:102:3d5::16) by PAWPR08MB9854.eurprd08.prod.outlook.com
- (2603:10a6:102:2e2::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
- 2026 14:48:04 +0000
-Received: from PA6PR08MB10526.eurprd08.prod.outlook.com
- ([fe80::b3fc:bdd1:c52c:6d95]) by PA6PR08MB10526.eurprd08.prod.outlook.com
- ([fe80::b3fc:bdd1:c52c:6d95%5]) with mapi id 15.20.9478.004; Mon, 5 Jan 2026
- 14:48:04 +0000
-Date: Mon, 5 Jan 2026 14:48:01 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	ardb@kernel.org, catalin.marinas@arm.com, will@kernel.org,
-	Mark.Rutland@arm.com
-Subject: Re: [PATCH v1] arm64/efi: Don't fail check current_in_efi() if
- preemptible
-Message-ID: <aVvPIdREAdweYqZf@e129823.arm.com>
-References: <20260105135847.1585034-1-ben.horgan@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260105135847.1585034-1-ben.horgan@arm.com>
-X-ClientProxiedBy: LO2P123CA0002.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:a6::14) To PA6PR08MB10526.eurprd08.prod.outlook.com
- (2603:10a6:102:3d5::16)
+	Mon, 05 Jan 2026 14:52:17 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-42e2e3c0dccso8730659f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 06:52:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1767624733; x=1768229533; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=o4f2DQ1WSbAm2u31CVo+GntDagSQYTjRfPhTR4DZPJI=;
+        b=XLxf4sPV+B2pkvl/2S0elsNl78DpKWXx+inzorUypPKFFCYaxSyxYxyfZkBjO5WXir
+         j/rDZSY7Nzb2e++tRJvpNagn04caMwxAdxt/Rz9zB/IpVDJ45VoiuqwfXR/Gk8Oq1wpM
+         X9Rw8+ZmtCINIYXNVK+HPOs/rMmrS7fwMAFCXCrQznpxMOjs9PwqIbWaOHYosI1Ektjo
+         ys2huWol2tWLQLM4huO3nJZToMjTH2vf1MYa0121xrlDFHvoZSucXlT9BMYIGVIBmAuw
+         YIPgDB8eGNTuvTdyVUOo9IsEfo5JWL809+FZ2BwD6Na5oHqw9IkQ0mKl7Ojk/Lm77NXV
+         pk7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767624733; x=1768229533;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=o4f2DQ1WSbAm2u31CVo+GntDagSQYTjRfPhTR4DZPJI=;
+        b=aNAZiocnJvpwBgM1Cf7K38uA/dcLIjRXsRa7hIbZghmpOBh6UOrtH0eL9Rp0q3+06T
+         ddj3Wurq3pLlwn8i7+2MB6AKVuuSAOb8j1DWKQhRy4P9cGQqu8I7E8/48mqJOrmIupEg
+         Koya5i0ZgOv/Azk0ebwah7l4DyE5zvfFK4gnXY2XDVK3MJLUiIMgqG7zWz1a29zv+xRi
+         s7KSvLSwTMO1ZuknwrFa9G+Sip7k4IZlD10NpVKX7ZTCw1Wg0uygU7bpx36qKOWMp/Pu
+         dj3DSFtTr1SDMT7mWvi3el5VMl6Ik+tL6XMaeu0uyCpZXpyeCeuMocBB01QkTcQ4GrU1
+         burQ==
+X-Gm-Message-State: AOJu0YxoiXvhYBs+Yt0YFjtNgYGwvKMAKQDGjt1qCUTgfiWNs41iyLr/
+	+XOUL96zPbQR+YvjpesQFppUByakNuVpzfoPNSe97qHkiLe7qX0rjeGPbLEujf09i6A=
+X-Gm-Gg: AY/fxX5F/RzHNjxxOvpZRN4vBoMd11BE/KZzrNwTDxfkWYS3M/PTryjBOxIhtIBdrGE
+	kBWIEzjnU96J3p5H+GojlHHzadELTOHj/1vnyZCMr/a31ThcAKMU6bSbk6G9UuJxzAWNK6eyr1s
+	9dyWunGZ4Vu+IoFKalDyFytZqFGLUOJvVRV7/6iONOUIo8+PlMhFc1OWP0vMa5gkLfyfe9w7uVu
+	rJXVhexEVuw7hgiFEZ6ZKf8DPR9w3D9pjjN5Aj+GlPMf3i2t7VCXfoKbSIH8dXpxYOGrgG6oc/w
+	EPmS8HdB5zZLCXQwhrK9bSIYYLVMMiqadLRNJdZVYvuYLwTA3JAHiwppLU9fpXlMBtiBUjJVUXo
+	VzWgfFL8uPOEZ+GsOx+3X1q5NIjhqWYlrfwvCZsQyfnDeoVxr4Qtu3az8FiRoNuOu1XT+3AAzPM
+	eX1dOxLPVjqWC1z0YDbJjhceBqlioXP94AArNU5VP+fHR2pe+D/ARDPBK0KAU04pI=
+X-Google-Smtp-Source: AGHT+IF04xwY7BPXpJXoTEi+h7FZBuYpUNOJ0m3AYz1i2MW5UInfMvTq40PaR8bkTy9F4e2TmhOFXw==
+X-Received: by 2002:a05:6000:2c0f:b0:432:aa5a:3916 with SMTP id ffacd0b85a97d-432bc9eddbdmr31074f8f.40.1767624733256;
+        Mon, 05 Jan 2026 06:52:13 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:3d9:2080:d4c1:5589:eadb:1033? ([2a01:e0a:3d9:2080:d4c1:5589:eadb:1033])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324eaa0908sm100780184f8f.31.2026.01.05.06.52.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 05 Jan 2026 06:52:12 -0800 (PST)
+Message-ID: <aac69070-d000-460f-a1fc-4ac5c097c7e5@linaro.org>
+Date: Mon, 5 Jan 2026 15:52:11 +0100
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: PA6PR08MB10526:EE_|PAWPR08MB9854:EE_|AM4PEPF00027A62:EE_|DB9PR08MB11473:EE_
-X-MS-Office365-Filtering-Correlation-Id: 54a3f68d-0af8-40dc-3289-08de4c69bf6f
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?zs5njY5RZ4B+j14lF+DgRzr5A5AE9G6qcX8b4eDjSoZ2YMhVI8ac6PmAsCLo?=
- =?us-ascii?Q?6M7ZkOzG/VHeAHLMhXY8xmIsTQ7aZNNM7uDdNgC1MpNvKIoy92WDt4CJx8aN?=
- =?us-ascii?Q?eRY3j13Q0a6FXPyQHjVD+kKqh4FbUeFfViMswpUGQIz8H5oIxSa+Vyq1R10Z?=
- =?us-ascii?Q?ToUe7Fc/ORKDNEcqEtSqwVB8R2yMr4XYC/HqL2tX/mQfCUAzvrOHWUxuiSkF?=
- =?us-ascii?Q?zrQ857eN3+F6z/Nu1nOUm84vZD9tA0C1KT1DZ3TdN2mSLtih9HROiJV1C5mr?=
- =?us-ascii?Q?b9JekQkWwW6Cy4ZI9GgCK26IIl+i0Bf1b+35n0GVdLnqeXv+KZUyjyGemru7?=
- =?us-ascii?Q?ge7Zyh3W89Mf7J7Ix37vnzpLohIZZTNWdsD4w+B4QysTxvftRFqbl6hd7A87?=
- =?us-ascii?Q?e6quzjcnwUtu6pkR5Z/nqe675w+MY4xSHSsGsPAhldAvyohHvdaQ1nyQXDIG?=
- =?us-ascii?Q?ixXXzLfexQxCHtVdalQr5SO802S/5u3uJlk6jW6+i/Q/e1NQzlHCbrTTrOn4?=
- =?us-ascii?Q?vgkIl+Xs1A/E/qc5CLVkxn9cjcyTa7xN9dBRDZZ2T1uh+64Xmr5oDu/NzKN6?=
- =?us-ascii?Q?R7aPJ7NPsZUznJqZZ6kGEpEflF60CkL42JhmzZRvNljyxuSQpU1T+av3vOb8?=
- =?us-ascii?Q?dMuQ4DosnpYuYc7ab/d0Bqk4Lc6zh0ttnAsXziqVkupwHC8ut/Q4R/wQ98V1?=
- =?us-ascii?Q?GV3zaB4e3Rdh8WP21sRFNMNsG+vzX5+eYEMGA9R0FIpfTeQi2Rl/6HOyAGAp?=
- =?us-ascii?Q?7qvO8/q/Ti9U4G6kP6FvHjn3e0FVoFfvtbTRNYeTAQwI4eawhlZ0T43dJhMr?=
- =?us-ascii?Q?Q8ilyc3/gMzgsYlwWn94LoNx5ukxPQ0Y+EtkYKg/nRFLPJ8CbXTkdyzQsvch?=
- =?us-ascii?Q?Z5ZBe6TrjD1+mhqmb6R7sB1Z8Hp0CZm/QjsFzLbDLGLKIcE7KuC8rpwdEuGy?=
- =?us-ascii?Q?JkP34g8O0m4sIG3LiV4pAozDALTilVD4WZ2ogx1gFfKyH9MRChaIXlIyX930?=
- =?us-ascii?Q?dtP+ndSS/1qfy69mXszGaFVDEOy6EYFFxOi2fJ07rG8PB1Tvh5eFSqYkQy42?=
- =?us-ascii?Q?tQ8x83rUsQNyZPh+p9yoYuossB+7iJfnG8B0UfktuoX0OkaR4u2/jQDup9Gs?=
- =?us-ascii?Q?PTpDaP3q2jZWFS1SgDRj6udUm6kyMuV9+BwtwmotRXyEZeTCjaJanBwpakcL?=
- =?us-ascii?Q?WQzs4N48trArYHKaVgWTEyiwZ8e6maaYKRl+EPDT2B7YM3h/FQ4yNEHSSlwf?=
- =?us-ascii?Q?Wkae0nC6WaRuSmTSaooFDszI5bdkpjHh0nJKaJ7nNi5T5N6PbgmQ35F7f3Kh?=
- =?us-ascii?Q?bakvHbSR2s43rPiekze/WpXMAVKaeU7Cr9Mi3JcYEX3U4BUSP54jo1CeLKt8?=
- =?us-ascii?Q?lA8Ct929ICuitxm+tNHNA1kxU2yA7Ib5PeStG0hcNtEPB6QQmqPVghOELeL8?=
- =?us-ascii?Q?mG2Ll5p6o+dlmTMjhbDkbp3O5zKYc5Jy?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA6PR08MB10526.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB9854
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00027A62.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 8c9e89aa-fef7-42c7-ddd5-08de4c696e3a
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|14060799003|35042699022|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?V6nPDVAhjgG2NGAx6HwSTj1YX6XWLIDfDzDQnTRbKgeMluwU7Ot4ArF52/Ys?=
- =?us-ascii?Q?V3Kis9BBHlQks++fScs+GOmllq7ZQO8/vmHvw63IL2p91mJoMmq22AUDvLxs?=
- =?us-ascii?Q?I7YlfbgPS8evyV/1RkFIJcmeBZm55cHXHpwOP7XReIQ4pFkYq8K9tmEsw6Nq?=
- =?us-ascii?Q?B0IIcJWkyvbc9vASJfkwyNG8s/YvpQG6UCM7/4DmLN/Y3379xffwQry1hVUq?=
- =?us-ascii?Q?XW+o39MGXSnQPQ+9UBz1BuDDN+fSPq3HL2ePDbalX8Uy2Jz2PxL6bnElrrLY?=
- =?us-ascii?Q?EHMIsTLQdS46LYgfSWw09BV2mMMcXac+0MhfNVXblTqTiy3M+Nt4tqQPZQlP?=
- =?us-ascii?Q?Ikilub+Evzt0+BSlF0sRkb2BckGYonYh30zK8NNvyktgnOaCoSgF5O8ZG72f?=
- =?us-ascii?Q?Q3jhBhpO8Wa69PdgAsDuOOJg1UeY0l8XhnSsoQemqfVc1PrgVIO6xCP63OBb?=
- =?us-ascii?Q?RENLXcQ+TOshLTRCgB596q9QzTIbyrn/1CFj90cYsOHeuwyDvk8GJlsRQdtD?=
- =?us-ascii?Q?gZ42UTUyernRPxmvjKFIV0R54f+BwdfDUOhVzk8juCmMo4wZ5+JtbN3L18dl?=
- =?us-ascii?Q?C+8P1uZwffE4OjuaWAQTNthZVW3tvo7cmieeaUXYgIoPDrSp8mkeJQyIpy6w?=
- =?us-ascii?Q?+J+q0s6xNB9WuXGNUtuD1lgyJzCo0qbYiqZvs3bnk/klm5UaEh3TH/uoamhD?=
- =?us-ascii?Q?p1aVb0Zmux21YQFJDc7CDe+SdNKiW2q0RG2Oqluovw5dph/GGzfc3lPmFaZk?=
- =?us-ascii?Q?enBwv5aP4RH9xLovFKSB/EjTjMtZWb15rccYrJU0pZ68N4xCI0ZSYafOJP7y?=
- =?us-ascii?Q?Y7ZMTcBjUgziRaPGHQIuygwYAgtbAUW3L78pA0O3o6K6QCTR6bSdpaT68IV3?=
- =?us-ascii?Q?AwpQMxqpgUv4E98e3Mtc3brYMwnbah8Br4rzUB/z5tb8nMfuD/FwbqNP3KK9?=
- =?us-ascii?Q?0SzGK4/vrcVwsSXeKGcJwAgxss8Bi4/PEWNrFQ7wLYtgHlAS7lrLVXd8r9Xq?=
- =?us-ascii?Q?eRHvxJpppg6GxNu+KwP5xwHVLYyPDMf5G4CYHL6TLcdnFJHLxa+WVcs7xlQs?=
- =?us-ascii?Q?jHTzbS/4WXGLn/ADBC7m8or1g4ZdzfqpqM0pt3n0SQg6pyH4YKWwQBvyEhMX?=
- =?us-ascii?Q?62LGYRT5cy2Yz/7/d5Q+Ea24aHz639Fc9X3/T8kmBMPtqywYTYiGMYUYmSAy?=
- =?us-ascii?Q?EYb9S5RcwGvJbOynk7+djAko31zrD/Gl2wMJjpjwgGgzrzhi2NDB4Xv2Ky3u?=
- =?us-ascii?Q?8u81/tfvsKHkqFI94RL0AheiRwt659nsQGGJ9+AYdx3mGCy1ZmvkSULcxvQK?=
- =?us-ascii?Q?Ep03hXhMs8dPeqzYgxBbgHAlbuJC1tislJCi+d01rbBBgKU0NJGWEqE1fcsL?=
- =?us-ascii?Q?ZHVDM6djTGZriYXJmgo+S59RkurBl+AgyL4sR8QxHPQXYx9NSDQnWYDqrYm1?=
- =?us-ascii?Q?eQAbVZpUs+R2S5ZnDCTAcw38FG1Nf/PALdBS65D73yffyxjyzyQehpxqOqI9?=
- =?us-ascii?Q?9/cdMlUvQ5FogE8YaMTC/lW68zQKjl4fUxZLAgCNFBJzWYw53e5icXI9dmvc?=
- =?us-ascii?Q?jN0gWKFFKyH73U8V3Bk=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(14060799003)(35042699022)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 14:50:19.9317
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 54a3f68d-0af8-40dc-3289-08de4c69bf6f
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A62.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB11473
+User-Agent: Mozilla Thunderbird
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH RFC v1] drm/meson: venc: add support for HDMI DMT modes up
+ to 3840x2160
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-amlogic@lists.infradead.org, dri-devel@lists.freedesktop.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ tobetter@gmail.com, christianshewitt@gmail.com
+References: <20251108134236.1299630-1-martin.blumenstingl@googlemail.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20251108134236.1299630-1-martin.blumenstingl@googlemail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_065028_616362_C236EBE5 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20260105_065215_560547_9469DBF0 
+X-CRM114-Status: GOOD (  22.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,43 +127,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LGTM. feel free to add:
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-
-> As EFI runtime services can now be run without disabling preemption remove
-> the check for non preemptible in current_in_efi(). Without this change,
-> firmware errors that were previously recovered from by
-> __efi_runtime_kernel_fixup_exception() will lead to a kernel oops.
->
-> Fixes: a5baf582f4c0 ("arm64/efi: Call EFI runtime services without disabling preemption")
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+On 11/8/25 14:42, Martin Blumenstingl wrote:
+> Commit 5d0bfe448481 ("drm/meson: Add HDMI 1.4 4k modes") added support
+> for HDMI 1.4 4k modes, which is what TVs need. For computer monitors
+> the code is using the DMT code-path, which ends up in
+> meson_venc_hdmi_supported_mode(), which does not allow the 4k modes yet.
+> 
+> The datasheet for all supported SoCs mentions "4Kx2K@60". It's not
+> clear whether "4K" here means 3840 or 4096 pixels.
+> 
+> Allow resolutions up to 3840x2160 pixels (including middle steps, such
+> as WQHD at 2560x1440 pixels) so they can be used with computer monitors
+> (using the DMT code-path in the driver).
+> 
+> Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 > ---
-> On the partner platform I was testing on this issue caused the boot to fail.
-> ---
->  arch/arm64/include/asm/efi.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/include/asm/efi.h b/arch/arm64/include/asm/efi.h
-> index aa91165ca140..e8a9783235cb 100644
-> --- a/arch/arm64/include/asm/efi.h
-> +++ b/arch/arm64/include/asm/efi.h
-> @@ -45,7 +45,7 @@ void arch_efi_call_virt_teardown(void);
->   * switching to the EFI runtime stack.
->   */
->  #define current_in_efi()						\
-> -	(!preemptible() && efi_rt_stack_top != NULL &&			\
-> +	(efi_rt_stack_top != NULL &&					\
->  	 on_task_stack(current, READ_ONCE(efi_rt_stack_top[-1]), 1))
->
->  #define ARCH_EFI_IRQ_FLAGS_MASK (PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
-> --
-> 2.43.0
->
+> I'm sending this as RFC as I'm hoping to get some comments on the
+> "4Kx2K@60" note from the datasheets.
+> 
+> I have tested it myself on a GXL Le Potato board using a computer
+> monitor at 2560x1440 pixels.
+> 
+> This is the spiritual successor of a patch titled "drm/meson: add
+> support for 2560x1440 resolution output" from [0]
+> 
+> [0] https://lore.kernel.org/linux-amlogic/20250927130239.825060-1-christianshewitt@gmail.com/
+> 
+> 
+>   drivers/gpu/drm/meson/meson_venc.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/meson/meson_venc.c b/drivers/gpu/drm/meson/meson_venc.c
+> index 3bf0d6e4fc30..4abd0c09b442 100644
+> --- a/drivers/gpu/drm/meson/meson_venc.c
+> +++ b/drivers/gpu/drm/meson/meson_venc.c
+> @@ -868,10 +868,10 @@ meson_venc_hdmi_supported_mode(const struct drm_display_mode *mode)
+>   			    DRM_MODE_FLAG_PVSYNC | DRM_MODE_FLAG_NVSYNC))
+>   		return MODE_BAD;
+>   
+> -	if (mode->hdisplay < 400 || mode->hdisplay > 1920)
+> +	if (mode->hdisplay < 400 || mode->hdisplay > 3840)
+>   		return MODE_BAD_HVALUE;
+>   
+> -	if (mode->vdisplay < 480 || mode->vdisplay > 1920)
+> +	if (mode->vdisplay < 480 || mode->vdisplay > 2160)
+>   		return MODE_BAD_VVALUE;
+>   
+>   	return MODE_OK;
 
---
-Sincerely,
-Yeoreum Yun
+Acked-by: Neil Armstrong <neil.armstrong@linaro.org>
+
+Thanks,
+Neil
 
