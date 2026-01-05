@@ -4,119 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC22C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:12:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0E05C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZICbs1ZKFUXAVw8Uv53chEaSv1izJm54XChd7BXTSFI=; b=vAE17YT4vN1PRbHvWRXlY86d/Z
-	qQ1eoiY5i2TjtnOWZfS014BN7azgeY2njQevuYcKD2qW3pB1g9Zmnia6odmNt9FMURhWcS6cYF4KV
-	nVh9AIMfUUgOWIWcsB7QjvZQb30lJhJPBRRSyslF5zLBogZLOt7zilkv4DOWLWz2VVUJuW16kYyKy
-	0WIYorVnAm9czw3/xbMJ74ygXN+5xuU2GxWjjZmr53uhs66GOPoCKF/G1+GISAcrhrp50WroP3uPb
-	xEo6Gdxocee2wcftGtEfZU/ahOwUwoF6RetwD315qWrdDyuYzohk/4fu+gmzm6n7GTlHg37izbYuK
-	ynS0F7aw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hA5Eb8jjhZAFgp1b3JMkV/ZsS3xVH/UHBSvLtkEWLts=; b=2yA7jNevHbkbfWj0lkSVCMQ+5a
+	7tlsIg4NoJmqYikANKi6hirFbanOzau/SvIcQy7jrzT8xGcwdgXXYpJie79vdS4Pgmuozigr+dPvC
+	cglT9hBkDr4/rxgRR3bBCauGZTbwMyegaSO6yAohAEWW6ZrdB8IX9fR9zgjfSHv2YySGqHSpncWCD
+	GsWeOi0cD2FkGza4qTkbPVbfgLgGOQz7ompA29DEHVLFNieW2IeNMu6yxC8tpjTBMchQyRmlTKIDl
+	bqRTEQV6+lQNfbLHz06wpDEvY8b7VKIAJrm0InxSHJm5EynMkwHVmUgWyCaJCFfJERFDrQJ6+KoVw
+	MtPeQ2WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmFV-0000000BatR-3Q6C;
-	Mon, 05 Jan 2026 15:12:01 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1vcmLF-0000000BbGb-0qti;
+	Mon, 05 Jan 2026 15:17:57 +0000
+Received: from mail-westcentralusazon11013024.outbound.protection.outlook.com ([40.93.201.24] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmFS-0000000BasA-2Wms
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 15:12:00 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-47d63594f7eso199505e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 07:11:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767625917; x=1768230717; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZICbs1ZKFUXAVw8Uv53chEaSv1izJm54XChd7BXTSFI=;
-        b=BltVfcdxXqj8NQk21/9GhftU26DJA/A7mOU/wZnubvoySKObb50B1kBcxUn8aE4yUr
-         VUzH4AtsNDLpcGLBJfaY3ZmZA4EuklSqfw2ZSrL2/AviHALXq+1YsKTT9VKE3I//W8zF
-         usSa6rqvNo20mylI4J4Zc8cJDUiEPE5z4Z/zwdNw606qHe0PLLY8EokTH9M+Da8H7oBl
-         bI1PVALwvZgzHH0wcXXObniD11JKbhkcv7RMhwJ0BPSZgKR+vQe4y5QIoqYyJVjwGiWZ
-         FU+8hUZOwJVs4RfwrKyG1QWRJ7BCqz0DEXB2G+jKhhpir9CZH1XNlJRtgbLEUkFh9OOy
-         DM5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767625917; x=1768230717;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZICbs1ZKFUXAVw8Uv53chEaSv1izJm54XChd7BXTSFI=;
-        b=WZl2EH5gBPv8zct24Y1En0UjpwmULcL8qOCkpGggQN4siP+32km7mn6dajbDWOY/7R
-         1GqO2BldXYlutrXLRvI0AUSKJ2pH4rOIN0Fnui7l0bQ6eYP/viHnymAHNQbdZrfesoK0
-         SododpPbVpIDxHY3H7CqT8I66jla9sQOqlyBSpMBR4WHmBYFJ1GdFSKYvUUIXz5Mn6FI
-         /IPRSNPc0mBjKv8Dj1SjFdBZmH+qtiWRYVREAsdZkcgmCX5KHE7dVoIlx0Rv4jIXCMzh
-         HH3AHgn6Hrq/Ikf889Dt6EymX7u5XX23C+1+yzsr6pCun6HAZhFYGvwdw03pVxQbPW8I
-         tmsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU+9rhPsyA3WTAyJeCB5uE/3y7PuiogXgT7gpqVFc7oBWA52mjSq/Qkq5kas+XHunonI9DTi0sNXZF8rtte95e4@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywnz3/WebOXzyW+5N4m3Lgscwq/NtAWdDbADjiELh+M2OgKvUO4
-	mF98OMd8FlDUMt+IpuHH7QVDvcsKFIN51S7Wyf43+HmZs/5V5leEFtPYloV9tjKj3HDCaYaLdSQ
-	Q/84U
-X-Gm-Gg: AY/fxX5Y1C1Mh/MFklvHNP8e7rK/9zJGQdIir1Cb0zzQdz1iB7gFyz5aujm0zk3cUa2
-	xD5jcRtM3dqrHsYRpc+kODI1EuzMsIwibVjA10Cg7QOwE6xGs77My5vokQACam9ez9/t2wWSdg7
-	rDv44b0NX5/+h0AdfQHc7BPycvEfNmohOJ6JrLVKofdIBBHUVOUU+KUoYRcJso3/GHjm2qxYl0O
-	mi4WT691zXHZlggqkJs45vtqA4SE5AhhhYSNr7ezNTOfOIWEQZZC9pL5m9XGnwmR2cZyXs+kn8h
-	6e/SPbaBPqE0FvOSEJNLeaSZ2cKCSwBAHwJHCZFyQYkhb86RJspc6x6a1IBnQx7m0hofjFhAG73
-	FyvVQ/WdHMjMvw0QBp0r723d93GqtzvJSOW6Hb/q6Ui9o04YN1GaKsDdXJ1mcoGPKv97lZl5CZr
-	RaHSxMXpORLIN/OPGRM6ej7l/Rba/D/3wCPih2duPBFkiG45+M4/SVCbQfWYGLQ9Y=
-X-Google-Smtp-Source: AGHT+IHRLvC8RFN1wxpNMmjmLXPXlAzEc9S+ADXuomF/jWk/3+qxIvBtpEcUlQn4VBvzYM2OCRH1ZA==
-X-Received: by 2002:a05:600c:154b:b0:477:55c9:c3ea with SMTP id 5b1f17b1804b1-47d1958e7b9mr656916475e9.35.1767625916649;
-        Mon, 05 Jan 2026 07:11:56 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:3d9:2080:d4c1:5589:eadb:1033? ([2a01:e0a:3d9:2080:d4c1:5589:eadb:1033])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d6d13e2e0sm197844145e9.1.2026.01.05.07.11.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 Jan 2026 07:11:56 -0800 (PST)
-Message-ID: <9fbeb95f-8f79-4983-857c-659566206835@linaro.org>
-Date: Mon, 5 Jan 2026 16:11:55 +0100
+	id 1vcmLC-0000000BbG9-1bjL;
+	Mon, 05 Jan 2026 15:17:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uYZcu8zxyEPBSPdzXwarH7YHMCY0IKLHswLHcejxoI5CYhvHn4VB3sV4trI6f0ZF5cXJUC5g5Xx2e3dG0xoQXxcC48KG76ExImWRr8yHb9bOJQl6afrWsKBhk3HDWiMcQklb3Uu4IQLbSuD07El5Y4wpa7lBKsIZdmj+lHkJ5xdM6YiB6F9V6DZLaWzCIoWJLs+/NvDXHoyCnIezUhKsJzyY6WN2A6ENWVCWwPiYv4wxvNySZm4jAWTwtEEjOqBvgHKGbazvrpdshM6+4iei2KRh867wcl7YmVGnCjHdmzIIdtGw12YZNlqwvwZl9rL8vKyXvxCiXidorNZZoCnxCQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hA5Eb8jjhZAFgp1b3JMkV/ZsS3xVH/UHBSvLtkEWLts=;
+ b=P2k2/zNXSca3LHIlV/FMBo3BTDX4vPNAe46XW64zXpbiuO57mOWSJ9e6XtVOP46NyQTcDDcKYH+9HPvoAROHADqS2bsHtcH91or+L3vjBiLxweNN/EToNDm1SfOmAradmEQoH1tp7EV6xso764LFI5sS/iYzFSYd6PNZLgjzF39duteT3LOsdfPCxNIbrxibGtZ1lSZkfS9j4W7BN8GA98KRNrFrOjrPfxQUG4sLkXfsuxG3UQzNwpAxvNL2yZsgM79VlnMWrqLthAWe3DrOgu0iyXB3yTaHm6OTfb72dIb2GB5+qkM4jiC/w+LD16xm5yKDtiCd3hDgGwJBVIaoFg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hA5Eb8jjhZAFgp1b3JMkV/ZsS3xVH/UHBSvLtkEWLts=;
+ b=rCYpzVeXeJKqEbrDFANEzCnXozdegdJpcbaqHScYHLQmHNitQjly15sZ/y3A4G3ylqHvZj862hq9/NSg+DUTOX8+FC1/yJKtmsupv8yJymN+eTLfjSqzP7Yn7jHVrNl5KrqF+CrbHIoKnNVQKrIcN1W4q/WlvQUq93Tyvuwyk+g=
+Received: from BN9PR03CA0040.namprd03.prod.outlook.com (2603:10b6:408:fb::15)
+ by DS0PR10MB8031.namprd10.prod.outlook.com (2603:10b6:8:200::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
+ 2026 15:17:47 +0000
+Received: from BN1PEPF00004687.namprd05.prod.outlook.com
+ (2603:10b6:408:fb:cafe::58) by BN9PR03CA0040.outlook.office365.com
+ (2603:10b6:408:fb::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9478.4 via Frontend Transport; Mon, 5
+ Jan 2026 15:17:32 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BN1PEPF00004687.mail.protection.outlook.com (10.167.243.132) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9499.1 via Frontend Transport; Mon, 5 Jan 2026 15:17:46 +0000
+Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 5 Jan
+ 2026 09:17:43 -0600
+Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 5 Jan
+ 2026 09:17:43 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 5 Jan 2026 09:17:43 -0600
+Received: from [10.249.139.123] ([10.249.139.123])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 605FHcXm1349835;
+	Mon, 5 Jan 2026 09:17:38 -0600
+Message-ID: <81639035-8fc5-4ee6-b0c5-4cfdf5b2425a@ti.com>
+Date: Mon, 5 Jan 2026 20:47:35 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH 2/4] drm/panel-edp: Move FriendlyELEC HD702E
-To: Robin Murphy <robin.murphy@arm.com>, heiko@sntech.de,
- dianders@chromium.org, thierry.reding@gmail.com, sam@ravnborg.org
-Cc: jesszhan0024@gmail.com, dri-devel@lists.freedesktop.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-References: <cover.1767111804.git.robin.murphy@arm.com>
- <027763b36fbad2005d09eeb289b7716c57f65e76.1767111809.git.robin.murphy@arm.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <027763b36fbad2005d09eeb289b7716c57f65e76.1767111809.git.robin.murphy@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v2 2/2] phy: cadence-torrent: Add PCIe + XAUI multilink
+ configuration for 100MHz refclk
+To: Andrew Lunn <andrew@lunn.ch>
+CC: <vkoul@kernel.org>, <neil.armstrong@linaro.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <sjakhade@cadence.com>,
+	<rogerq@kernel.org>, <krzk@kernel.org>, <linux-phy@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, <s-vadapalli@ti.com>
+References: <20260104114422.2868321-1-s-vadapalli@ti.com>
+ <20260104114422.2868321-3-s-vadapalli@ti.com>
+ <7fd42221-d602-4ce4-9f7f-6754ed91e7aa@lunn.ch>
+Content-Language: en-US
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+In-Reply-To: <7fd42221-d602-4ce4-9f7f-6754ed91e7aa@lunn.ch>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF00004687:EE_|DS0PR10MB8031:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3399ee7d-b471-4f63-fa45-08de4c6d951b
+X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ei8xdlVLdHBFaXRIbmpyUDlkbTNNdGtLNEFpTWxpaHRibU93SzR1WWs1cHRa?=
+ =?utf-8?B?dXlKV0ZlNEpvUmQ2bzNFall0dGRLZ2tOeHpxQnFraTNKejcyOUZhWVhYdktT?=
+ =?utf-8?B?ajdzWTUwejk5OTg0aG92bTBqbUdXTEIzR2ZCeWk3OUc2NkVxNTAvVTNEb0M4?=
+ =?utf-8?B?R0o1TXFDWDQ1dzd3djRXRm53Ym5sQjA2VkJ5ZHd2ODJKemNHL0UxbFhZNG5B?=
+ =?utf-8?B?QUxOWlMzNXNvTkxnWjJsMytmZjVIQzhjOW5hVFpqYlh2ZHA5Q0FhU3c2SVZi?=
+ =?utf-8?B?V1dUVE8xSUFDK3NiWFQrL0N3ZjBuUGg0UWptR0laRk9oNFBiOHRsblhKeWhO?=
+ =?utf-8?B?QjlxK0FHNklDNUtzN1FOemw5S1p2ZVNzTy9nZkRPVmRTZUpIN3JWNFF3ek50?=
+ =?utf-8?B?OUN6SGpJYXlMTWFxYXNWZlJUYjd2Ly9CWmNMUVZsUUJRaGR2aTV6U1NvV1Jz?=
+ =?utf-8?B?bm04R1pYQWcrMVpwSHFkYVBqdDR1T2ZmcDBQZHRzU3VqVnRpYUY5ejBkV0U0?=
+ =?utf-8?B?NXQrbTFkNytTSnE4YXI0UnBuMkQzOWV2aTQ0WEJtZGxsYWxIQkZqZzlyVmpm?=
+ =?utf-8?B?S1pzRUNxeDdMeTVzNEFVTDcwRzhhMTNPWFF5TG1pRCtWMDIxM3F1TlRvRllQ?=
+ =?utf-8?B?RVh3K3RLaGRrZ3gzRGpteUhtUmtwelRoSExFQkh3ZDh5K2FRWGltM3VrelJl?=
+ =?utf-8?B?UVJWVzZHQUVQZDVVa0ZFRUF3aWt6UVJPWTZzSjlCN0Q5dHZyc3BweDgralVB?=
+ =?utf-8?B?RUZBK2tEMWxRNzdMamxVc0pwS1J5Mm11MDN5bXl2TVFmT29PS3BNcFZnaTB0?=
+ =?utf-8?B?MGdEWjYrT2FYM1B2Q1dPdWpQdURPUElzeG9WaW5uSGhSRDEycVdiR0Q1cXNN?=
+ =?utf-8?B?Vk9qd1JPV3djVU9CemU4ckE1VGdtMnpBM1REYmFRdmdJNTBSdS9TcTRUVjMx?=
+ =?utf-8?B?blJhU25ONGFuaks3WGlxdjkyUWE0SUREU3ZjaTc3b3Z0ZHdSdDRldnd1NlFt?=
+ =?utf-8?B?Y3pwcW9DRzN0cm5xMG1vdXRjTHRjZFVpd2NtaEZ1Nno5MmgxdFJqYzNqWWhl?=
+ =?utf-8?B?dkF3UzNPY2FXTjZiNGFLQ2EyZFpjTEgzWXJjN2F6L0g4bWNwMzl1U3dOUFZQ?=
+ =?utf-8?B?RTh2UkpaU1A2cGFYbGZ1eUpuSlQzV3lZbnNLdW11Y1JWSHNRWXFRRlZ0aFJN?=
+ =?utf-8?B?d1FRdjNNSlp3bUUwaG5vMVRob0JkSHRueXNGQXlaZGhXRUNoKzd3R0MzVlln?=
+ =?utf-8?B?ek1RblpVRUVTMi92cUgwQUQ2RGNjazMrVldsOXNOZkhZVHFycmFMbWhaaHAz?=
+ =?utf-8?B?U0hRNzluUGFsTVorM1NVaWlzY3Zqd09DME5rRmo3MjlUMFo0blFuT25sc0JD?=
+ =?utf-8?B?dkZzWnMwTUo1OS8rNHM5d29oZkM0cTgyRUVma1ZlMXF2VFFtaHhRNmRUdGlF?=
+ =?utf-8?B?aXNNbUhZR3o2SlgranFrNDl0VVVoL0huS2lMa3QzeE14Qk9tZHpoME4vUXVm?=
+ =?utf-8?B?Z2p6enZYNkVYdnVrVlJ1eXE1RVcyMjZCcFNxWWRxWFBiUFNlQXZjbVpCNlZ0?=
+ =?utf-8?B?VHozblR2enMvMm5Dd2hCdG1PNWdVUWE5STVKOUx3dWI3MG9PU09Qb2ZMZm9a?=
+ =?utf-8?B?N1REVk5ZdzZKQ1FRM1Faa3JpM2RiZ1l6a0ZnbFBXcUtRa3AvenE5TWNEdS9I?=
+ =?utf-8?B?SzVMMTFWVW9vYlhucE9wOEJlUk9FejNPK21kbnlkT3pJRHRIVTJaTmlhc0hI?=
+ =?utf-8?B?aUh0QmdNNHJVV3N2MDcrYXB6L2dWSEZLTGVIQUVFTkhzcFZzM3Z5Zi9TZS9T?=
+ =?utf-8?B?MVc3NlZRZWhjVkpqY01XQTJhMzhwNGVqV21BZHJTVFdxeFBMWDFUenFYSlZF?=
+ =?utf-8?B?NnY2QnozVmY3ZEdHOGVheSswTEI0NVdpWHA0cnNCSTMyVGYxOE9OVUlUNlJY?=
+ =?utf-8?B?K1NxeXdLYmRmTVgzakNUNmh0TFdOd0o1d2VXUVF3cWRPYndRV0kwMTJ5czhE?=
+ =?utf-8?B?emVET0pIR2thVXlFNC9VM29NNkxxZHNkT3g0MEJJUHhoSVRkbHkvNWFzejlJ?=
+ =?utf-8?B?UFVNdzlRN0RQWng5UWxMVlNYZmp5VWlvQWdpWUlPcTduMEQySzZPZGY4aXNu?=
+ =?utf-8?Q?WCSo=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 15:17:46.8748
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3399ee7d-b471-4f63-fa45-08de4c6d951b
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004687.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB8031
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_071158_707738_E2DE3DCF 
-X-CRM114-Status: GOOD (  16.04  )
+X-CRM114-CacheID: sfid-20260105_071754_456570_695D6518 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,112 +166,112 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/30/25 18:20, Robin Murphy wrote:
-> FriendlyELEC's HD702E module is an eDP panel (in as much as it's some
-> LVDS LCD behind a Chrontel CH7511B eDP bridge), so move its data over
-> to the eDP driver, also resolving the warning about the missing bpc
-> value in the process.
+On 05/01/26 3:27 AM, Andrew Lunn wrote:
+> On Sun, Jan 04, 2026 at 05:14:18PM +0530, Siddharth Vadapalli wrote:
+>> From: Swapnil Jakhade <sjakhade@cadence.com>
+>>
+>> Add register sequences for PCIe + XAUI multilink configuration for
+>> 100MHz reference clock.
+>>
+>> Signed-off-by: Swapnil Jakhade <sjakhade@cadence.com>
+>> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+>> ---
+>>
+>> v1 of this patch is at:
+>> https://lore.kernel.org/r/20251224054905.763399-3-s-vadapalli@ti.com/
+>> No changes since v1.
+>>
+>> Regards,
+>> Siddharth.
+>>
+>>   drivers/phy/cadence/phy-cadence-torrent.c | 143 ++++++++++++++++++++--
+>>   1 file changed, 136 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/drivers/phy/cadence/phy-cadence-torrent.c b/drivers/phy/cadence/phy-cadence-torrent.c
+>> index 37fa4bad6bd7..f0d870886cca 100644
+>> --- a/drivers/phy/cadence/phy-cadence-torrent.c
+>> +++ b/drivers/phy/cadence/phy-cadence-torrent.c
+>> @@ -300,6 +300,7 @@ enum cdns_torrent_phy_type {
+>>   	TYPE_USB,
+>>   	TYPE_USXGMII,
+>>   	TYPE_PCIE_ML,
+>> +	TYPE_XAUI,
+>>   };
+>>   
+>>   enum cdns_torrent_ref_clk {
+>> @@ -320,14 +321,14 @@ enum cdns_torrent_ssc_mode {
+>>   /* Unique key id for vals table entry
+>>    * REFCLK0_RATE | REFCLK1_RATE | LINK0_TYPE | LINK1_TYPE | SSC_TYPE
+>>    */
+>> -#define REFCLK0_SHIFT	12
+>> -#define REFCLK0_MASK	GENMASK(14, 12)
+>> -#define REFCLK1_SHIFT	9
+>> -#define REFCLK1_MASK	GENMASK(11, 9)
+>> -#define LINK0_SHIFT	6
+>> -#define LINK0_MASK	GENMASK(8, 6)
+>> +#define REFCLK0_SHIFT	15
+>> +#define REFCLK0_MASK	GENMASK(18, 15)
+>> +#define REFCLK1_SHIFT	11
+>> +#define REFCLK1_MASK	GENMASK(14, 11)
+>> +#define LINK0_SHIFT	7
+>> +#define LINK0_MASK	GENMASK(10, 7)
 > 
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> ---
->   drivers/gpu/drm/panel/panel-edp.c    | 26 ++++++++++++++++++++++++++
->   drivers/gpu/drm/panel/panel-simple.c | 25 -------------------------
->   2 files changed, 26 insertions(+), 25 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/panel/panel-edp.c b/drivers/gpu/drm/panel/panel-edp.c
-> index 415b894890ad..dd53ccc209ce 100644
-> --- a/drivers/gpu/drm/panel/panel-edp.c
-> +++ b/drivers/gpu/drm/panel/panel-edp.c
-> @@ -1256,6 +1256,29 @@ static const struct panel_desc boe_nv140fhmn49 = {
->   	},
->   };
->   
-> +static const struct drm_display_mode friendlyarm_hd702e_mode = {
-> +	.clock		= 67185,
-> +	.hdisplay	= 800,
-> +	.hsync_start	= 800 + 20,
-> +	.hsync_end	= 800 + 20 + 24,
-> +	.htotal		= 800 + 20 + 24 + 20,
-> +	.vdisplay	= 1280,
-> +	.vsync_start	= 1280 + 4,
-> +	.vsync_end	= 1280 + 4 + 8,
-> +	.vtotal		= 1280 + 4 + 8 + 4,
-> +	.flags		= DRM_MODE_FLAG_NVSYNC | DRM_MODE_FLAG_NHSYNC,
-> +};
-> +
-> +static const struct panel_desc friendlyarm_hd702e = {
-> +	.modes = &friendlyarm_hd702e_mode,
-> +	.num_modes = 1,
-> +	.bpc = 8,
-> +	.size = {
-> +		.width	= 94,
-> +		.height	= 151,
-> +	},
-> +};
-> +
->   static const struct drm_display_mode innolux_n116bca_ea1_mode = {
->   	.clock = 76420,
->   	.hdisplay = 1366,
-> @@ -1663,6 +1686,9 @@ static const struct of_device_id platform_of_match[] = {
->   	}, {
->   		.compatible = "boe,nv140fhmn49",
->   		.data = &boe_nv140fhmn49,
-> +	}, {
-> +		.compatible = "friendlyarm,hd702e",
-> +		.data = &friendlyarm_hd702e,
->   	}, {
->   		.compatible = "innolux,n116bca-ea1",
->   		.data = &innolux_n116bca_ea1,
-> diff --git a/drivers/gpu/drm/panel/panel-simple.c b/drivers/gpu/drm/panel/panel-simple.c
-> index b26b682826bc..3ea52667b858 100644
-> --- a/drivers/gpu/drm/panel/panel-simple.c
-> +++ b/drivers/gpu/drm/panel/panel-simple.c
-> @@ -2359,28 +2359,6 @@ static const struct panel_desc frida_frd350h54004 = {
->   	.connector_type = DRM_MODE_CONNECTOR_DPI,
->   };
->   
-> -static const struct drm_display_mode friendlyarm_hd702e_mode = {
-> -	.clock		= 67185,
-> -	.hdisplay	= 800,
-> -	.hsync_start	= 800 + 20,
-> -	.hsync_end	= 800 + 20 + 24,
-> -	.htotal		= 800 + 20 + 24 + 20,
-> -	.vdisplay	= 1280,
-> -	.vsync_start	= 1280 + 4,
-> -	.vsync_end	= 1280 + 4 + 8,
-> -	.vtotal		= 1280 + 4 + 8 + 4,
-> -	.flags		= DRM_MODE_FLAG_NVSYNC | DRM_MODE_FLAG_NHSYNC,
-> -};
-> -
-> -static const struct panel_desc friendlyarm_hd702e = {
-> -	.modes = &friendlyarm_hd702e_mode,
-> -	.num_modes = 1,
-> -	.size = {
-> -		.width	= 94,
-> -		.height	= 151,
-> -	},
-> -};
-> -
->   static const struct drm_display_mode giantplus_gpg482739qs5_mode = {
->   	.clock = 9000,
->   	.hdisplay = 480,
-> @@ -5235,9 +5213,6 @@ static const struct of_device_id platform_of_match[] = {
->   	}, {
->   		.compatible = "frida,frd350h54004",
->   		.data = &frida_frd350h54004,
-> -	}, {
-> -		.compatible = "friendlyarm,hd702e",
-> -		.data = &friendlyarm_hd702e,
->   	}, {
->   		.compatible = "giantplus,gpg482739qs5",
->   		.data = &giantplus_gpg482739qs5
+> Why do these change? It would be good to add an explanation to the
+> commit message about this, because it is not obvious why these need to
+> change.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+The 'key id' is supposed to be a unique value defined as the following 
+Bitwise OR:
+REFCLK0_RATE | REFCLK1_RATE | LINK0_TYPE | LINK1_TYPE | SSC_TYPE
 
-Thanks,
-Neil
+The 'LINK_TYPE' parameter corresponds to the protocol (PHY Type). In the 
+phy-cadence-torrent.c driver, the following enum describes the supported 
+'LINK_TYPE's:
+enum cdns_torrent_phy_type {
+	TYPE_NONE,
+	TYPE_DP,
+	TYPE_PCIE,
+	TYPE_SGMII,
+	TYPE_QSGMII,
+	TYPE_USB,
+	TYPE_USXGMII,
+	TYPE_PCIE_ML,
+};
+The last entry which is TYPE_PCIE_ML has the value of '7' (TYPE_NONE is 
+'0'). Therefore, 'LINK_MASK' happened to be a 3-bit mask:
+	#define LINK0_MASK	GENMASK(8, 6)
+	#define LINK1_MASK	GENMASK(5, 3)
+With the addition of TYPE_XAUI in the current patch, 'LINK_MASK' has to 
+be extended to a 4-bit mask.
+
+The 'REFCLK_RATE' parameter corresponds to the reference clock rates 
+defined which are again described by the following enum in the driver:
+enum cdns_torrent_ref_clk {
+	CLK_19_2_MHZ,
+	CLK_25_MHZ,
+	CLK_100_MHZ,
+	CLK_156_25_MHZ,
+	CLK_ANY,
+};
+The last entry which is CLK_ANY has the value of '4' (CLK_19_2_MHZ is 
+'0'). Although the existing macros defined as:
+	#define REFCLK0_MASK	GENMASK(14, 12)
+	#define REFCLK1_MASK	GENMASK(11, 9)
+are 3-bit masks and can fit values until '7', for the sake of 
+future-proofing the driver (the SERDES Hardware supports more reference 
+clocks which are not yet enabled in the driver), 'REFCLK_MASK' has been 
+extended to a 4-bit mask as well.
+
+The shifts associated with the masks have been updated accordingly.
+
+I shall include a summary of the above in the commit message of the v3 
+series.
+
+Thank you for reviewing the patch and providing feedback.
+
+Regards,
+Siddharth.
 
