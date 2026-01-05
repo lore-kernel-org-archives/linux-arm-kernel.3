@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 860ECC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:50:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15356C79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PMPAk2th1jHkliIK+0FnfoLEWXhbUgZrcoqmZLvr8Jk=; b=FdCkKxAiYk+bYjYnmBvBzT45Nx
-	uPGUrzPOUExQLAKZg5jq4c3piO/5/3vAZFy6m+LXdwwEYnDAjQkHxD7fBN8azL/br7G+KVZGREErv
-	3Nc7/miV/4mdaKZS/B5a3Ck5X4LfMEsntaQkPQiQzwrJOwJNgLQUG9Stu5qqwk8FSRFeqjNi6NU/Y
-	FEnwrm1FQWIlnG15gZhkpVrYDU/CyoTJ/fFr/c81iT733CmuPLHmO8NxuKE+PO17uxr/SGKecLDve
-	WPdwdWv7G/BLkPzShbWt+ufaHu85QvGgO1Du7zy3vYMy5dWqqSUyL0exmU0MgEco5kMivjbInBc7b
-	upwHMamg==;
+	bh=tKOhiFEOafw5PGFPHs7jniz0VlN2heEA730F+46Yv90=; b=gns5KTeGEpZcprGsf9Hxm+4kaw
+	QFXQvZ/QybRrnEaXi7M+sCQIqNFWUir0mQaawLMEEwCK03dJOhM9j1WminiHwifeVA1h5l7IVjwOO
+	5ZKgnVRK311xeiXG0uxIJ1GgKpITRf5I0IooKq+DR7OVxTiqV3oZ/klWLFF/nup99Ing6UcT4758x
+	8Q6gaPpP+e117zHMOmEyflqVeBLo5RzMfmYgLikVEIsKTCKRasr6xLTIjLK9guIvyEAlOP1H6wUrZ
+	jLcEDhx2hpD5iMD/nWPthkGaRzP9V0wv4pPPg+JwS5ZrcB4c10YIRcRlZpPjOeOx0GvqY86jNX7If
+	e++aCTTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmqL-0000000Bdb3-0Y8F;
-	Mon, 05 Jan 2026 15:50:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vcmqR-0000000Bdf8-3C1E;
+	Mon, 05 Jan 2026 15:50:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmqJ-0000000BdaA-1uZY
+	id 1vcmqP-0000000Bdd8-2dLp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 15:50:03 +0000
+	Mon, 05 Jan 2026 15:50:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB21B60141;
-	Mon,  5 Jan 2026 15:50:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEC8DC19425;
-	Mon,  5 Jan 2026 15:49:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 14F5160143;
+	Mon,  5 Jan 2026 15:50:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F11EC19425;
+	Mon,  5 Jan 2026 15:50:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767628202;
-	bh=urzC1N4aQ6kG8UqznJupq3gEB8+LBsZGlefWUCpaFx0=;
+	s=k20201202; t=1767628208;
+	bh=+/NGTWZlDwhdjhF3q+DED2fDBv7biV9jEmodadqNXiY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KxERz5s641JQj1eu2LAkhYryLlMlPmq6kWR6NNt9H+5YgdzKemLUI/Ps35nPCt9JS
-	 td4ig/PraeyNZZtSR+HJ4sYRUvptYxeVeDszaxiEKS9X/F0fdJjeLii0oUaXTydS7v
-	 MxilMjzon9CS1ELiX4Uum8zy1VuTAcLou1aZPfXrCa5d8a03BMvFWciYlLRalLVMtd
-	 c/5EWK739nkggs+LhRCX1i6dGMlvHX8+k0eaaidIJwilSLSayKnZnt8eHC7DVRh0le
-	 JNNCNGdl3MWG/p9kJU86+xQP4kR4p4EC4wAFpDnVwh216jeeWGk1wEAeJYVwcVcs3b
-	 GunoWSrMEMYnA==
+	b=ZuBtfQQeDu1/vsq//9QEnHF2dav6VCABvdxvsKA7R3TEQNCLuloTxL6HzWy4lIxT8
+	 GY3AZVyMKsREO/yHfcCmKvRw3vML71EUmv4eE4kYytjLGOj4pgdthy5PWi58YNnSj0
+	 JOBLAY09Ww5S8cOg0iZDuIX6nqBUYMu1nrfVA4yXD8Hfj3/V1LqA/r4cuO9nD1NRYw
+	 3+ZSMrkCawRIfX7u0omxoEtgoYETnXrGYwsTB+Vd8+a043rOWfsHz2GEh4F9JlebU3
+	 SmCk91v+uB3EXrbCtPwJNmTcoq/jgUyKhkh4HFAPCm6QL3V9Zo35cXnFa3/0eaptkr
+	 3SY8O9QOdCC/g==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -56,9 +56,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Fuad Tabba <tabba@google.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH 04/30] KVM: arm64: Don't advertise unsupported features for protected guests
-Date: Mon,  5 Jan 2026 15:49:12 +0000
-Message-ID: <20260105154939.11041-5-will@kernel.org>
+Subject: [PATCH 06/30] KVM: arm64: Remove pointless is_protected_kvm_enabled() checks from hyp
+Date: Mon,  5 Jan 2026 15:49:14 +0000
+Message-ID: <20260105154939.11041-7-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260105154939.11041-1-will@kernel.org>
 References: <20260105154939.11041-1-will@kernel.org>
@@ -78,32 +78,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both SVE and PMUv3 are treated as "restricted" features for protected
-guests and attempts to access their corresponding architectural state
-from a protected guest result in an undefined exception being injected
-by the hypervisor.
+When pKVM is not enabled, the host shouldn't issue pKVM-specific
+hypercalls and so there's no point checking for this in the EL2
+hypercall handling code.
 
-Since these exceptions are unexpected and typically fatal for the guest,
-don't advertise these features for protected guests.
+Remove the redundant is_protected_kvm_enabled() checks.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/kvm_pkvm.h | 2 --
- 1 file changed, 2 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 33 ++----------------------------
+ 1 file changed, 2 insertions(+), 31 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index 0aecd4ac5f45..5a71d25febca 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -37,8 +37,6 @@ static inline bool kvm_pvm_ext_allowed(long ext)
- 	case KVM_CAP_MAX_VCPU_ID:
- 	case KVM_CAP_MSI_DEVID:
- 	case KVM_CAP_ARM_VM_IPA_SIZE:
--	case KVM_CAP_ARM_PMU_V3:
--	case KVM_CAP_ARM_SVE:
- 	case KVM_CAP_ARM_PTRAUTH_ADDRESS:
- 	case KVM_CAP_ARM_PTRAUTH_GENERIC:
- 		return true;
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index a7c689152f68..62a56c6084ca 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -169,9 +169,6 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
+ 	DECLARE_REG(u64, hcr_el2, host_ctxt, 3);
+ 	struct pkvm_hyp_vcpu *hyp_vcpu;
+ 
+-	if (!is_protected_kvm_enabled())
+-		return;
+-
+ 	hyp_vcpu = pkvm_load_hyp_vcpu(handle, vcpu_idx);
+ 	if (!hyp_vcpu)
+ 		return;
+@@ -185,12 +182,8 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
+ 
+ static void handle___pkvm_vcpu_put(struct kvm_cpu_context *host_ctxt)
+ {
+-	struct pkvm_hyp_vcpu *hyp_vcpu;
++	struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+ 
+-	if (!is_protected_kvm_enabled())
+-		return;
+-
+-	hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+ 	if (hyp_vcpu)
+ 		pkvm_put_hyp_vcpu(hyp_vcpu);
+ }
+@@ -254,9 +247,6 @@ static void handle___pkvm_host_share_guest(struct kvm_cpu_context *host_ctxt)
+ 	struct pkvm_hyp_vcpu *hyp_vcpu;
+ 	int ret = -EINVAL;
+ 
+-	if (!is_protected_kvm_enabled())
+-		goto out;
+-
+ 	hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+ 	if (!hyp_vcpu || pkvm_hyp_vcpu_is_protected(hyp_vcpu))
+ 		goto out;
+@@ -278,9 +268,6 @@ static void handle___pkvm_host_unshare_guest(struct kvm_cpu_context *host_ctxt)
+ 	struct pkvm_hyp_vm *hyp_vm;
+ 	int ret = -EINVAL;
+ 
+-	if (!is_protected_kvm_enabled())
+-		goto out;
+-
+ 	hyp_vm = get_np_pkvm_hyp_vm(handle);
+ 	if (!hyp_vm)
+ 		goto out;
+@@ -298,9 +285,6 @@ static void handle___pkvm_host_relax_perms_guest(struct kvm_cpu_context *host_ct
+ 	struct pkvm_hyp_vcpu *hyp_vcpu;
+ 	int ret = -EINVAL;
+ 
+-	if (!is_protected_kvm_enabled())
+-		goto out;
+-
+ 	hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+ 	if (!hyp_vcpu || pkvm_hyp_vcpu_is_protected(hyp_vcpu))
+ 		goto out;
+@@ -318,9 +302,6 @@ static void handle___pkvm_host_wrprotect_guest(struct kvm_cpu_context *host_ctxt
+ 	struct pkvm_hyp_vm *hyp_vm;
+ 	int ret = -EINVAL;
+ 
+-	if (!is_protected_kvm_enabled())
+-		goto out;
+-
+ 	hyp_vm = get_np_pkvm_hyp_vm(handle);
+ 	if (!hyp_vm)
+ 		goto out;
+@@ -340,9 +321,6 @@ static void handle___pkvm_host_test_clear_young_guest(struct kvm_cpu_context *ho
+ 	struct pkvm_hyp_vm *hyp_vm;
+ 	int ret = -EINVAL;
+ 
+-	if (!is_protected_kvm_enabled())
+-		goto out;
+-
+ 	hyp_vm = get_np_pkvm_hyp_vm(handle);
+ 	if (!hyp_vm)
+ 		goto out;
+@@ -359,9 +337,6 @@ static void handle___pkvm_host_mkyoung_guest(struct kvm_cpu_context *host_ctxt)
+ 	struct pkvm_hyp_vcpu *hyp_vcpu;
+ 	int ret = -EINVAL;
+ 
+-	if (!is_protected_kvm_enabled())
+-		goto out;
+-
+ 	hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+ 	if (!hyp_vcpu || pkvm_hyp_vcpu_is_protected(hyp_vcpu))
+ 		goto out;
+@@ -421,12 +396,8 @@ static void handle___kvm_tlb_flush_vmid(struct kvm_cpu_context *host_ctxt)
+ static void handle___pkvm_tlb_flush_vmid(struct kvm_cpu_context *host_ctxt)
+ {
+ 	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+-	struct pkvm_hyp_vm *hyp_vm;
++	struct pkvm_hyp_vm *hyp_vm = get_np_pkvm_hyp_vm(handle);
+ 
+-	if (!is_protected_kvm_enabled())
+-		return;
+-
+-	hyp_vm = get_np_pkvm_hyp_vm(handle);
+ 	if (!hyp_vm)
+ 		return;
+ 
 -- 
 2.52.0.351.gbe84eed79e-goog
 
