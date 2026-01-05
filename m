@@ -4,116 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E575BC2A072
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 09:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95725C2A072
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 09:06:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P5lDIn9wXPXzJ7MufA3huYLoJauwu2Gv2n7Ja6OSYW8=; b=39aFulqvtYhTRLuXwSlVRply+R
-	iIsF3ErI9A40bDBmBl2t7+n0UViRGYC+mo2zsJF20mL9B8QZM0A/TJZJOYbJV6oYjcMsV/pJDe2pU
-	od1wXHEO3i5OQi8MvrI/KBsRZfWKHtMqRs3ASrt1NZvuDvJ3wRQoeuEgjSxEOjzFkfCiT0NDHgDEq
-	C26hl9dIaQunJ9ixtvHNf0wALa/UTBCruiEjJfhFA0sZIp/gueV/IXfQK4PyGZ2lhwWXHlta754wx
-	HawEkTPfyjNuP2bzei0L/2K9hWK4mYsUN41XkHMYnUJKs3yILvNTPHRNui480YAxv/nebPK6U578K
-	dWA+9Y3w==;
+	bh=smOOJyQryUYimNpb7IbF6fU1ftUCXsLgF82NcOd66E4=; b=N525D8mf8IqKCLc74I5RMglLdB
+	iTzB05mgj+kd4TEfIq8Hq017ZLrIp3ltPzV54y/XPhGhtTCQcAHRYvP7lH3ePImzQa2DEbIt/GfV2
+	X/yT5Z8GeCiL21FUnWIkKqJifNIPuTU1QwhE/33lUoTITNnBX1lf7yFw1lC2WRkhenZTs2ypO9OIx
+	01NLL2dQLvuSxYbjfg6ua0efgo9oWXgDTd/w4m/XeKg/H/VbXDf33o+/s7o9drmd32Xx9m9U7gZ+R
+	W+9U2mDiLXJFTuy9rFjxPU3YfieE7yI8Uu5N8zkMPxRtEfB5NPbEVhImvKsbAnmSmBHbM1L96wQMv
+	3TS6FVJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcgXP-0000000B2Uy-0Zl1;
-	Mon, 05 Jan 2026 09:06:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vcgXS-0000000B2WA-1oXl;
+	Mon, 05 Jan 2026 09:06:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcgXM-0000000B2Ub-1D2n
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 09:06:05 +0000
+	id 1vcgXQ-0000000B2VN-0Clf;
+	Mon, 05 Jan 2026 09:06:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D4B7A4152A;
-	Mon,  5 Jan 2026 09:06:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AFACC4E694;
-	Mon,  5 Jan 2026 09:06:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 992F542E10;
+	Mon,  5 Jan 2026 09:06:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9933C4E694;
+	Mon,  5 Jan 2026 09:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767603963;
-	bh=PIUAxzm6ZXlE1kyz9ABajDveVbl+5hOSYiaXnizUZcA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oeMHuG5QJpnkdebai3T5unWtYHvukCc5t39w0lkr9Qle0ljCPPxYs1h6NML8S3eHR
-	 UUF7YhhbrtjTVTi1i8qEdP6Cnhu/ZsXV3ZVUakpmZHBpla5HcLSFzt+SG9HhNwk6Qf
-	 4RjfyP3tXDuzU2hxveci/DQ3ImKLj8wQhM8iipCK/YeR/qvTWvuWcmJBCq3uaOZTHr
-	 Q9vpSmwILfn0olVptPoChyyBgJ1XmS9P5Z9U36Jto/pcbixEYzE18VaZMmVkkmSLkP
-	 uIvcLvk4vcpdyHNTa0whwSmAy+FwasFk3SNeSSeToru+D+gP5PNCoO0leKPbwlOxh4
-	 G1byazgOne/Ww==
-Message-ID: <63454553-01df-4c40-aad3-7ea64bef685e@kernel.org>
-Date: Mon, 5 Jan 2026 10:05:59 +0100
+	s=k20201202; t=1767603967;
+	bh=peEnoxldRbRzDKvGHhMCLsWPsFLvytHX9Kqdw5HT/7Y=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=GZFI05tU2fVRmDAnoA4N8wUfDYxv69/f1M+3jEu5C+ESWtRSJQ0Bb7FeNzAVizoi1
+	 xSV6hwVUddZC6mB0g8zRDG+kq06NGrlDI5e0/7gRGOlNZXhpAqByFnRdVqZkCAjQMm
+	 h8C0TGZchhhbucxSObX1mbXE5ZmxwxZPUTAj3hegvPP8kluABAKJzTzAMm8NFGqFRH
+	 s4MK1YtNbhWC2LXsOkhw8vzBTgTVOmXyFteq2vdc7x4E7vNQIrMtlgtHyLBc9eyTjl
+	 RAz6QnI02c863v4iSslTpV6suwfsfJbNwcQgk6w9M6Su5q+U2XccHStx04Oxg7Djdp
+	 6V+2/K5/U0YFw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Mon, 05 Jan 2026 10:02:57 +0100
+Subject: [PATCH net-next 2/2] net: airoha: npu: Init BA memory region if
+ provided via DTS
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: =?UTF-8?B?UmU6IOWbnuWkjTogW1BBVENIIHYzIDEvMl0gZHQtYmluZGluZ3M6IGFy?=
- =?UTF-8?Q?m=3A_cix=3A_add_OrangePi_6_Plus_board?=
-To: Gary Yang <gary.yang@cixtech.com>
-Cc: Peter Chen <peter.chen@cixtech.com>, Fugang Duan
- <fugang.duan@cixtech.com>, "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "linux-cix-kernel-upstream@cixtech.com"
- <linux-cix-kernel-upstream@cixtech.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20260104075400.1673101-1-gary.yang@cixtech.com>
- <20260104075400.1673101-2-gary.yang@cixtech.com>
- <20260105-excellent-uakari-of-joy-f0dfa4@quoll>
- <PUZPR06MB588755A9FB6B42AAA870E30BEF86A@PUZPR06MB5887.apcprd06.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <PUZPR06MB588755A9FB6B42AAA870E30BEF86A@PUZPR06MB5887.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260105-airoha-ba-memory-region-v1-2-5b07a737c7a7@kernel.org>
+References: <20260105-airoha-ba-memory-region-v1-0-5b07a737c7a7@kernel.org>
+In-Reply-To: <20260105-airoha-ba-memory-region-v1-0-5b07a737c7a7@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_010604_392707_B391F2D5 
-X-CRM114-Status: GOOD (  22.00  )
+X-CRM114-CacheID: sfid-20260105_010608_111074_AE19BF60 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,100 +77,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/01/2026 09:49, Gary Yang wrote:
-> Hi Krzysztof:
-> 
-> Thanks for your comments
-> 
->> EXTERNAL EMAIL
->>
->> On Sun, Jan 04, 2026 at 03:53:59PM +0800, Gary Yang wrote:
->>> OrangePi 6 Plus adopts CIX CD8180/CD8160 SoC, built-in 12-core 64-bit
->>> processor + NPU processor,integrated graphics processor, equipped with
->>> 16GB/32GB/64GB LPDDR5, and provides two M.2 KEY-M interfaces 2280 for
->>> NVMe SSD,as well as SPI FLASH and TF slots to meet the needs of fast
->>> read/write and high-capacity storage
->>>
->>> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
->>> ---
->>>  Documentation/devicetree/bindings/arm/cix.yaml | 11 +++++++++--
->>>  1 file changed, 9 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/Documentation/devicetree/bindings/arm/cix.yaml
->>> b/Documentation/devicetree/bindings/arm/cix.yaml
->>> index 114dab4bc4d2..9e132e609b7b 100644
->>> --- a/Documentation/devicetree/bindings/arm/cix.yaml
->>> +++ b/Documentation/devicetree/bindings/arm/cix.yaml
->>> @@ -16,9 +16,16 @@ properties:
->>>    compatible:
->>>      oneOf:
->>>
->>> -      - description: Radxa Orion O6
->>> +      - description: Radxa Orion O6 board
->>>          items:
->>> -          - const: radxa,orion-o6
->>> +          - enum:
->>> +              - radxa,orion-o6
->>> +          - const: cix,sky1
->>> +
->>> +      - description: Xunlong orangepi 6 plus board
->>> +        items:
->>> +          - enum:
->>> +              - xunlong,orangepi-6-plus
->>
->> Previous patch was correct, not this one.
->>
->> <form letter>
->> This is a friendly reminder during the review process.
->>
->> It looks like you received a tag and forgot to add it.
->>
->> If you do not know the process, here is a short explanation:
->> Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
->> of patchset, under or above your Signed-off-by tag, unless patch changed
->> significantly (e.g. new properties added to the DT bindings). Tag is "received",
->> when provided in a message replied to you on the mailing list. Tools like b4 can
->> help here. However, there's no need to repost patches *only* to add the tags.
->> The upstream maintainer will do that for tags received on the version they
->> apply.
->>
->> Please read:
->> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/sub
->> mitting-patches.rst#L577
->>
->> If a tag was not added on purpose, please state why and what changed.
->> </form letter>
->>
->> Read last sentence and linked documentation. Where did you explain
->> ignoring/dropping my tag?
->>
-> 
-> Yes, the previous version was acked by you before.
+Initialize NPU Block Ack memory region if reserved via DTS.
+Block Ack memory region is used by NPU MT7996 (Eagle) offloading.
 
-I stressed what I expect twice. In form letter and later explicitly. You
-still ignored it.
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_npu.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-> 
-> When apply it, we found that orangepi 6 plus and Radxa Orion O6 belongs the different boards.
-> 
-> So we need to add a new item for it. Like these from qcom.yaml
-> 
->       - description: Qualcomm Technologies, Inc. Distributed Unit 1000 platform
->         items:
->           - enum:
->               - qcom,qdu1000-idp
->               - qcom,qdu1000-x100
->           - const: qcom,qdu1000
-> 
->       - description: Qualcomm Technologies, Inc. Radio Unit 1000 platform
->         items:
->           - enum:
->               - qcom,qru1000-idp
->           - const: qcom,qru1000
+diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+index 68b7f9684dc7f3912493876ae937207f55b81330..00faca2a388aa4378b58560c14d8eec0cb6b0330 100644
+--- a/drivers/net/ethernet/airoha/airoha_npu.c
++++ b/drivers/net/ethernet/airoha/airoha_npu.c
+@@ -519,6 +519,14 @@ static int airoha_npu_wlan_init_memory(struct airoha_npu *npu)
+ 	if (err)
+ 		return err;
+ 
++	if (of_property_match_string(npu->dev->of_node, "memory-region-names",
++				     "ba") >= 0) {
++		cmd = WLAN_FUNC_SET_WAIT_DRAM_BA_NODE_ADDR;
++		err = airoha_npu_wlan_set_reserved_memory(npu, 0, "ba", cmd);
++		if (err)
++			return err;
++	}
++
+ 	cmd = WLAN_FUNC_SET_WAIT_IS_FORCE_TO_CPU;
+ 	return airoha_npu_wlan_msg_send(npu, 0, cmd, &val, sizeof(val),
+ 					GFP_KERNEL);
 
-No, look at SoCs. Different SocS.
+-- 
+2.52.0
 
-
-Best regards,
-Krzysztof
 
