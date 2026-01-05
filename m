@@ -4,57 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC78C79FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 18:07:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 668D0C79FB0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 18:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ISZ5KdlFNm4QMiSYu8ataQ4t+3TWra8fgifo7YvecI8=; b=o1gilYQRCP8e1zKBjvpD1Ot3Og
-	30olvKtTAnWo0NZfu106tj3FbZWUfhNdGu+GyVk8MWzdWZLWM1iF8pOqeb+2l1oGHYtP2qxxKkcXh
-	4Ttsz3z8loNfyzT/DTz9W6RmhSH860dcxwvZs86Go5YNEhgqEfIoF2wgRxFWIf5Qe9o2lNnRQ25/a
-	hnLuHehn/4NRtYpHqwntC1D3AhQoWs+90lM7X0+e9ZgaimwVxl1Uco1HYbAeZyk5B8U2V1sx4VJ+0
-	7cHuTEz8h5PGetdDA2EwVo9+vUm4/ICKuPEmIJ204HRQiQ2lih11iGZXIf5QqvY6nlHeZfdxXrpsu
-	A1LHj7ww==;
+	bh=1gtqFFWFbmnYqsdra7V6E0H/IysyN/79mV6ZrXnL61U=; b=Y0/N8clCTC1TfPkbswALgZcuFU
+	54mWn9ZVxfISFuYEHi8SAgQOgUQ4iswjcn8MECDo3brOITHD9Na2/nCFC6xsIZsNbK8jwZfxB6TWR
+	Two95quF0EOZqF1y5eyN42T124WDo1NrAtPy5yvLMG0HkUabP+dVlSmm+DBozooeyOM/A08wji7Cq
+	XfP+LOYU5vURkS70jsHQL6m1pb5vT57FAdAQNA1loK12RJilzJrPVyGdZYw4ApfHIgrAqgHAeWy26
+	epVjZkQvRoF9B5J3NwJma6FGzAMxM1hb7+452hzGWIVzJA6VclVrmoaqYhA064uW0/Vs9KvbDsoLF
+	RGKbQ07A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcozf-0000000BuLP-3CCM;
-	Mon, 05 Jan 2026 18:07:51 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vcp03-0000000BuSu-1lJN;
+	Mon, 05 Jan 2026 18:08:15 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcozd-0000000BuJt-0Hob;
-	Mon, 05 Jan 2026 18:07:50 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-152.bb.dnainternet.fi [81.175.209.152])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 67F57591;
-	Mon,  5 Jan 2026 19:07:24 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1767636444;
-	bh=zRxW+WZPUDHP4oyJE2pbwtIHuE8/tdQr/GQ0IO95NIU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fTdqGib0D4lb2SZSUnMZhCqS5Ih1tnaBjnCdMTZ2oDFZGLkQnJH5xEW3G7xkM6bi5
-	 BZvxFJCG4JiMNh/Zf4qRy0hCj12prn6+p/xkpJlUh0nTI9iZoQ68L/GF3cJLfaVU/G
-	 RrbGYTnH3nR5ZAETdqRuVUze29+YH9LPHlO7Me5g=
-Date: Mon, 5 Jan 2026 20:07:26 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Daniel Scally <dan.scally@ideasonboard.com>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] media: rkisp1: request/free irqs in PM runtime ops
-Message-ID: <20260105180726.GG10026@pendragon.ideasonboard.com>
-References: <20260105-rkisp1-irqs-v1-1-922f6a94a2e2@ideasonboard.com>
+	id 1vcp00-0000000BuRk-3YEJ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Jan 2026 18:08:14 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-888310b91c5so17297636d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 10:08:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1767636491; x=1768241291; darn=lists.infradead.org;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=1gtqFFWFbmnYqsdra7V6E0H/IysyN/79mV6ZrXnL61U=;
+        b=eDcOqqDfv73nb7WEUxLiDnhdC2y5wcKvTmynj+v6RtYgchfytGzP57AhBASMA0FjdR
+         3SNdZH9BsEVRe8xnCykCTWus400F9vPgjkY2lep4L+Xb0svEBOXLqdn+TjzR7zpACHmf
+         D3I92aEwqs+CF3UtAHq8S18ZGmMH+QIqGtsbEymYYJrjg71AmyX7j4pd0vql+xbf0LKE
+         rIP4MF75tSm8YE+lafZZe4dZw37IHnOoGI7LjXA6wkEJPkoJiEQPF0wy37hsdiiPPVG1
+         e+wjHL4A2GqHuhc0KcrkVaT/piVS0werDmF80AoASlcOOxbAzhTtM+lSDmdu35gsEUKB
+         1n2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767636491; x=1768241291;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1gtqFFWFbmnYqsdra7V6E0H/IysyN/79mV6ZrXnL61U=;
+        b=X6juIKqK3s3er+5MwsNIfHpIlX1mMfozkGdCkfMYfYxtmQmCvaa9Xg9GG/eyaF7bpA
+         KZq2qtomIBwiqulXccTzgDsFmJpWQL+eW2qbF34L/A6HjWSQmr4sY8P84WKNiH37Us+c
+         FlO8qzyTIC036NqU1FKWMfvm7nai8F1Dh5Mq4NdKo1yLgVpMOOxZg37SDvwzJQZPsAoA
+         wtvrB6O/ZU914nzR/OwNU2mz9AnO3D3F7gxyRdbHKw7lLLlk8vkTD5lHq82E/vCcXSGz
+         SjUYaOoW3T32QGGw9y6fBNaXX5wJh3Xzy5+TzdBz6hwYFtVYbWu45WYHOJvMQx0lh0bY
+         uoEw==
+X-Forwarded-Encrypted: i=1; AJvYcCU62vflaDKJ1mFt5f6VokKvs8oREBLiRlOSp9l8dSUv9+Xck47r/CUKktYVPhio9/wjsJ+5s2aDPwOYr5mKw3NJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPuT13umjpm5PYp94q3165CLcMv7crZmXH9UkLzc6WxRC5sNY/
+	4SFTCS8rIoDKU81N8QFT5nbUDOBr1UU2NHrcT1YYk4t3ODNWuv/JK03HeqirHZyBtIE=
+X-Gm-Gg: AY/fxX5Ax3oY7rtD38+h1RWTgZ5KXJrXa3exIKvI5BbrgUtv9OkT1/wUWe/NSpzcUnt
+	/MJAB8+5T4N/9KQNQpTMwzu2Xy8ikeFfB7ArVhVlRf1un07rrQynAZrtSMLMb+ERrkp6b4J/wS9
+	PD8oFwckFY9hyjTJVlZet5EY9azvq2pdKxHe3vscJWyLV5F2BrB/Hm3Pj5DfAud249B32ezlLsP
+	UptrWHt7BjVWKJN/6kPtMkOK74BC1KFZPND+Q5s3HZ6XGIJzHP7VFlGX0QdGb48PGo41o1yQZub
+	Oynd6QFXF96VYY1x1tnOxO40j+kXacOCiyVR3Ej7RpgDRNehuJxr31QGHehmAivYQuyO+6d+oES
+	3CJ6stzi4wwzGTn7v200EHAWwAV8SIhn3WNgtNCOBVHvjZUlVzdFlB2ZCz90MvjEqvk4YQ2OrtY
+	8R1CdTpYX8Y1snFjUz
+X-Google-Smtp-Source: AGHT+IENhU1Bd6KYqPomQwkI/vDljW6F2Sf1y49E1gWNuGUePlUTcFMG+iVNXpq2O9aWulA+yUJXTw==
+X-Received: by 2002:a05:6214:224e:b0:88a:525a:8dbf with SMTP id 6a1803df08f44-890769ababcmr850536d6.15.1767636491324;
+        Mon, 05 Jan 2026 10:08:11 -0800 (PST)
+Received: from ?IPv6:2606:6d00:17:7b4b::5ac? ([2606:6d00:17:7b4b::5ac])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-890753ef51csm3947706d6.16.2026.01.05.10.08.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Jan 2026 10:08:10 -0800 (PST)
+Message-ID: <16eb88083b68e3701f22799d8ccc20b800b59d61.camel@ndufresne.ca>
+Subject: Re: [PATCH v4 1/3] media: v4l2-mem2mem: Add a kref to the
+ v4l2_m2m_dev structure
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Ulf Hansson <ulf.hansson@linaro.org>, ming.qian@oss.nxp.com
+Cc: linux-media@vger.kernel.org, mchehab@kernel.org,
+ hverkuil-cisco@xs4all.nl, 	benjamin.gaignard@collabora.com,
+ p.zabel@pengutronix.de, 	sebastian.fricke@collabora.com,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, 	kernel@pengutronix.de,
+ festevam@gmail.com, linux-imx@nxp.com, 	l.stach@pengutronix.de,
+ Frank.li@nxp.com, peng.fan@nxp.com, eagle.zhou@nxp.com, 
+	imx@lists.linux.dev, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org
+Date: Mon, 05 Jan 2026 13:08:08 -0500
+In-Reply-To: <CAPDyKFpt-GL-RFcJ5mTWFqaRfy1dQJ7LL8OBCoQK0+zPDFEzsg@mail.gmail.com>
+References: <20251205015428.643-1-ming.qian@oss.nxp.com>
+	 <20251205015428.643-2-ming.qian@oss.nxp.com>
+	 <CAPDyKFpt-GL-RFcJ5mTWFqaRfy1dQJ7LL8OBCoQK0+zPDFEzsg@mail.gmail.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-4H25zADnHXlwNymaecNy"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260105-rkisp1-irqs-v1-1-922f6a94a2e2@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_100749_393578_4663ED41 
-X-CRM114-Status: GOOD (  47.02  )
+X-CRM114-CacheID: sfid-20260105_100813_514933_6F6AC10B 
+X-CRM114-Status: GOOD (  33.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,235 +121,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 05, 2026 at 04:19:08PM +0000, Daniel Scally wrote:
-> The rkisp1 driver tracks whether the IRQ handlers should take any
-> action through the use of an "irqs_enabled" flag which is set true
-> at the end of .runtime_resume() and false at the start of
-> .runtime_suspend(). In .runtime_suspend(), after setting the flag,
-> there's then a short window during which the hardware has not yet
-> been disabled by the clock APIs but interrupts remain enabled. If an
-> interrupt is triggered during that window the IRQ handlers will return
-> IRQ_NONE and fail to clear the ISP's IRQ reset registers.
-> 
-> Instead, delay calling request_irq() from .probe() to the end of the
-> .runtime_resume() callback, and call free_irq() at the start of the
-> .runtime_suspend() callback. This will prevent the interrupt handlers
-> being called at all for the device once .runtime_suspend() has been
-> called for it.
-> 
-> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> ---
-> We noticed this problem when testing hibernation with the streams
-> running. In a typical use-case the stream might be stopped before the
-> runtime PM suspend callback is called, and so the problem is avoided,
-> but when hibernated with active streams there are sufficient interrupts
-> coming in to reliably land one in the window between the irqs_enabled
-> flag being set to false and the hardware being disabled through
-> clk_bulk_disable_unprepare().
-> 
-> I'm under the impression that requesting the IRQs when the device is
-> in use in the manner of this patch and releasing the when it is not
-> in use is preferred over requesting them in the .probe() function -
-> possibly an impression I picked up from Linux Device Drivers. It
-> doesn't seem to be a particularly common model though, so I thought
-> I'd flag the method here.
 
-I'm not aware of drivers doing this commonly, so the approach taken in
-this patch seems wrong.
+--=-4H25zADnHXlwNymaecNy
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> ---
->  .../platform/rockchip/rkisp1/rkisp1-capture.c      |  3 -
->  .../media/platform/rockchip/rkisp1/rkisp1-common.h |  2 -
->  .../media/platform/rockchip/rkisp1/rkisp1-csi.c    |  3 -
->  .../media/platform/rockchip/rkisp1/rkisp1-dev.c    | 82 +++++++++++++++-------
->  .../media/platform/rockchip/rkisp1/rkisp1-isp.c    |  3 -
->  5 files changed, 57 insertions(+), 36 deletions(-)
-> 
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
-> index 6dcefd144d5abe358323e37ac6133c6134ac636e..510d1e8d8bbc86e8b8be3579571e308e5ad9f260 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
-> @@ -820,9 +820,6 @@ irqreturn_t rkisp1_capture_isr(int irq, void *ctx)
->  	unsigned int i;
->  	u32 status;
->  
-> -	if (!rkisp1->irqs_enabled)
-> -		return IRQ_NONE;
-> -
->  	status = rkisp1_read(rkisp1, RKISP1_CIF_MI_MIS);
->  	if (!status)
->  		return IRQ_NONE;
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> index 5e6a4d5f6fd12baf45a0083eff75de1095162b2d..2a5f6f69b217cdba2fa7c4d1f230ede5aff49149 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> @@ -507,7 +507,6 @@ struct rkisp1_debug {
->   * @debug:	   debug params to be exposed on debugfs
->   * @info:	   version-specific ISP information
->   * @irqs:          IRQ line numbers
-> - * @irqs_enabled:  the hardware is enabled and can cause interrupts
->   */
->  struct rkisp1_device {
->  	void __iomem *base_addr;
-> @@ -532,7 +531,6 @@ struct rkisp1_device {
->  	struct rkisp1_debug debug;
->  	const struct rkisp1_info *info;
->  	int irqs[RKISP1_NUM_IRQS];
-> -	bool irqs_enabled;
->  };
->  
->  /*
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
-> index ddc6182f3e4bdacdd1962c86f6259334b16aa505..bfc33365ad9d09ccace4ccbb2b19a2fbe1b77eb2 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
-> @@ -196,9 +196,6 @@ irqreturn_t rkisp1_csi_isr(int irq, void *ctx)
->  	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
->  	u32 val, status;
->  
-> -	if (!rkisp1->irqs_enabled)
-> -		return IRQ_NONE;
-> -
->  	status = rkisp1_read(rkisp1, RKISP1_CIF_MIPI_MIS);
->  	if (!status)
->  		return IRQ_NONE;
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-> index 1791c02a40ae18205f5eb2fd6edca6cda6b459bf..6fa76423bacf3e92cbbb4ef1ceb55e194b88d963 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-> @@ -307,28 +307,62 @@ static int rkisp1_subdev_notifier_register(struct rkisp1_device *rkisp1)
->   * Power
->   */
->  
-> -static int __maybe_unused rkisp1_runtime_suspend(struct device *dev)
-> +static void rkisp1_free_irqs(struct rkisp1_device *rkisp1)
->  {
-> -	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
-> +	for (unsigned int i = 0; i < ARRAY_SIZE(rkisp1->irqs); i++) {
-> +		if (rkisp1->irqs[i] == -1)
-> +			continue;
->  
-> -	rkisp1->irqs_enabled = false;
-> -	/* Make sure the IRQ handler will see the above */
-> -	mb();
-> +		if (irq_has_action(rkisp1->irqs[i]))
-> +			free_irq(rkisp1->irqs[i], rkisp1->dev);
-> +	}
-> +}
->  
-> -	/*
-> -	 * Wait until any running IRQ handler has returned. The IRQ handler
-> -	 * may get called even after this (as it's a shared interrupt line)
-> -	 * but the 'irqs_enabled' flag will make the handler return immediately.
-> -	 */
-> -	for (unsigned int il = 0; il < ARRAY_SIZE(rkisp1->irqs); ++il) {
-> -		if (rkisp1->irqs[il] == -1)
-> +static int rkisp1_request_irqs(struct rkisp1_device *rkisp1)
-> +{
-> +	const struct rkisp1_info *info = rkisp1->info;
-> +	int ret;
-> +
-> +	for (unsigned int irqn = 0; irqn < ARRAY_SIZE(rkisp1->irqs); irqn++) {
-> +		unsigned int isrn;
-> +
-> +		if (rkisp1->irqs[irqn] == -1)
->  			continue;
->  
-> -		/* Skip if the irq line is the same as previous */
-> -		if (il == 0 || rkisp1->irqs[il - 1] != rkisp1->irqs[il])
-> -			synchronize_irq(rkisp1->irqs[il]);
-> +		if (irq_has_action(rkisp1->irqs[irqn]))
-> +			continue;
-> +
-> +		for (isrn = 0; isrn < info->isr_size; isrn++)
-> +			if ((info->isrs[isrn].line_mask & BIT(irqn)))
-> +				break;
-> +
-> +		if (isrn == info->isr_size) {
-> +			dev_err(rkisp1->dev, "Failed to find IRQ handler\n");
-> +			return -EINVAL;
-> +		}
-> +
-> +		ret = request_irq(rkisp1->irqs[irqn], info->isrs[isrn].isr,
-> +				  IRQF_SHARED, dev_driver_string(rkisp1->dev),
-> +				  rkisp1->dev);
-> +		if (ret) {
-> +			dev_err(rkisp1->dev, "Failed to request IRQ\n");
-> +			goto err_free_irqs;
-> +		}
->  	}
->  
-> +	return 0;
-> +
-> +err_free_irqs:
-> +	rkisp1_free_irqs(rkisp1);
-> +	return ret;
-> +}
-> +
-> +static int __maybe_unused rkisp1_runtime_suspend(struct device *dev)
-> +{
-> +	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
-> +
-> +	rkisp1_free_irqs(rkisp1);
-> +
->  	clk_bulk_disable_unprepare(rkisp1->clk_size, rkisp1->clks);
->  	return pinctrl_pm_select_sleep_state(dev);
->  }
-> @@ -345,11 +379,16 @@ static int __maybe_unused rkisp1_runtime_resume(struct device *dev)
->  	if (ret)
->  		return ret;
->  
-> -	rkisp1->irqs_enabled = true;
-> -	/* Make sure the IRQ handler will see the above */
-> -	mb();
-> +	ret = rkisp1_request_irqs(rkisp1);
-> +	if (ret)
-> +		goto err_clk_disable;
->  
->  	return 0;
-> +
-> +err_clk_disable:
-> +	clk_bulk_disable_unprepare(rkisp1->clk_size, rkisp1->clks);
-> +
-> +	return ret;
->  }
->  
->  static const struct dev_pm_ops rkisp1_pm_ops = {
-> @@ -694,13 +733,6 @@ static int rkisp1_probe(struct platform_device *pdev)
->  			if (info->isrs[i].line_mask & BIT(il))
->  				rkisp1->irqs[il] = irq;
->  		}
-> -
-> -		ret = devm_request_irq(dev, irq, info->isrs[i].isr, IRQF_SHARED,
-> -				       dev_driver_string(dev), dev);
-> -		if (ret) {
-> -			dev_err(dev, "request irq failed: %d\n", ret);
-> -			return ret;
-> -		}
->  	}
->  
->  	ret = rkisp1_init_clocks(rkisp1);
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> index 2311672cedb1b6c9dd7f1b883adcac1516a685ae..c6b1ecd2d0c260f6739726c9f32562b98ca31364 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> @@ -1106,9 +1106,6 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
->  	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
->  	u32 status, isp_err;
->  
-> -	if (!rkisp1->irqs_enabled)
-> -		return IRQ_NONE;
-> -
->  	status = rkisp1_read(rkisp1, RKISP1_CIF_ISP_MIS);
->  	if (!status)
->  		return IRQ_NONE;
-> 
-> ---
-> base-commit: ee5b462b97162dbb6c536e18a37b3048f6520019
-> change-id: 20260105-rkisp1-irqs-8af5a1e0b887
+Hi,
 
--- 
-Regards,
+Le mardi 30 d=C3=A9cembre 2025 =C3=A0 14:39 +0100, Ulf Hansson a =C3=A9crit=
+=C2=A0:
+> On Fri, 5 Dec 2025 at 02:55, <ming.qian@oss.nxp.com> wrote:
+> >=20
+> > From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> >=20
+> > Adding a reference count to the v4l2_m2m_dev structure allow safely
+> > sharing it across multiple hardware nodes. This can be used to prevent
+> > running jobs concurrently on m2m cores that have some internal resource
+> > sharing.
+> >=20
+> > Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+>=20
+> I certainly don't have the complete picture for how this needs to work.
+>=20
+> However, I was thinking that rather than using a kref and having to
+> share two specific functions to update it (v4l2_m2m_get|put), couldn't
+> we just use a device-link instead?
 
-Laurent Pinchart
+The device link seems to be intended for power management, I'm effectively =
+not
+familiar with it, so thanks for the information. However, my impression is =
+that
+this is indented to describe power management dependencies on siblings, but=
+ this
+was done differently on this SoC (way before my time here), the DT seems to
+describe a block controller which is common to the two (defective) cores. S=
+o
+power management wise, its already handled.
+
+Be aware that my intent is to rename v4l2_m2m_dev into v4l2_m2m_sched. Its =
+not a
+dev wrapper, but a helper object that will schedule work coming from N
+v4l2_m2m_ctx (per open() calls). Making this helper object ref counted make=
+s the
+live-time management a lot simpler, and since its not a dev wrapper, this p=
+atch
+is not creating a second refcount for the same object.
+
+regards,
+Nicolas
+
+
+>=20
+> Kind regards
+> Uffe
+>=20
+> > ---
+> > v4
+> > - Add my Signed-off-by
+> >=20
+> > =C2=A0drivers/media/v4l2-core/v4l2-mem2mem.c | 23 +++++++++++++++++++++=
+++
+> > =C2=A0include/media/v4l2-mem2mem.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 | 21 +++++++++++++++++++++
+> > =C2=A02 files changed, 44 insertions(+)
+> >=20
+> > diff --git a/drivers/media/v4l2-core/v4l2-mem2mem.c b/drivers/media/v4l=
+2-
+> > core/v4l2-mem2mem.c
+> > index fec93c1a9231..ae0de54d4c3e 100644
+> > --- a/drivers/media/v4l2-core/v4l2-mem2mem.c
+> > +++ b/drivers/media/v4l2-core/v4l2-mem2mem.c
+> > @@ -90,6 +90,7 @@ static const char * const m2m_entity_name[] =3D {
+> > =C2=A0 * @job_work:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 worker to run queued jobs.
+> > =C2=A0 * @job_queue_flags:=C2=A0=C2=A0 flags of the queue status, %QUEU=
+E_PAUSED.
+> > =C2=A0 * @m2m_ops:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 driver callbacks
+> > + * @kref:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 device reference count
+> > =C2=A0 */
+> > =C2=A0struct v4l2_m2m_dev {
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct v4l2_m2m_ctx=C2=A0=C2=
+=A0=C2=A0=C2=A0 *curr_ctx;
+> > @@ -109,6 +110,8 @@ struct v4l2_m2m_dev {
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsigned long=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 job_queue_flags;
+> >=20
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const struct v4l2_m2m_ops *m=
+2m_ops;
+> > +
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct kref kref;
+> > =C2=A0};
+> >=20
+> > =C2=A0static struct v4l2_m2m_queue_ctx *get_queue_ctx(struct v4l2_m2m_c=
+tx
+> > *m2m_ctx,
+> > @@ -1200,6 +1203,7 @@ struct v4l2_m2m_dev *v4l2_m2m_init(const struct
+> > v4l2_m2m_ops *m2m_ops)
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 INIT_LIST_HEAD(&m2m_dev->job=
+_queue);
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 spin_lock_init(&m2m_dev->job=
+_spinlock);
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 INIT_WORK(&m2m_dev->job_work=
+, v4l2_m2m_device_run_work);
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 kref_init(&m2m_dev->kref);
+> >=20
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return m2m_dev;
+> > =C2=A0}
+> > @@ -1211,6 +1215,25 @@ void v4l2_m2m_release(struct v4l2_m2m_dev *m2m_d=
+ev)
+> > =C2=A0}
+> > =C2=A0EXPORT_SYMBOL_GPL(v4l2_m2m_release);
+> >=20
+> > +void v4l2_m2m_get(struct v4l2_m2m_dev *m2m_dev)
+> > +{
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 kref_get(&m2m_dev->kref);
+> > +}
+> > +EXPORT_SYMBOL_GPL(v4l2_m2m_get);
+> > +
+> > +static void v4l2_m2m_release_from_kref(struct kref *kref)
+> > +{
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct v4l2_m2m_dev *m2m_dev =3D =
+container_of(kref, struct
+> > v4l2_m2m_dev, kref);
+> > +
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 v4l2_m2m_release(m2m_dev);
+> > +}
+> > +
+> > +void v4l2_m2m_put(struct v4l2_m2m_dev *m2m_dev)
+> > +{
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 kref_put(&m2m_dev->kref, v4l2_m2m=
+_release_from_kref);
+> > +}
+> > +EXPORT_SYMBOL_GPL(v4l2_m2m_put);
+> > +
+> > =C2=A0struct v4l2_m2m_ctx *v4l2_m2m_ctx_init(struct v4l2_m2m_dev *m2m_d=
+ev,
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 void *drv_priv,
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 int (*queue_init)(void *priv, struct vb2_queue *src_v=
+q,
+> > struct vb2_queue *dst_vq))
+> > diff --git a/include/media/v4l2-mem2mem.h b/include/media/v4l2-mem2mem.=
+h
+> > index bf6a09a04dcf..ca295c660c7f 100644
+> > --- a/include/media/v4l2-mem2mem.h
+> > +++ b/include/media/v4l2-mem2mem.h
+> > @@ -547,6 +547,27 @@ v4l2_m2m_register_media_controller(struct v4l2_m2m=
+_dev
+> > *m2m_dev,
+> > =C2=A0 */
+> > =C2=A0void v4l2_m2m_release(struct v4l2_m2m_dev *m2m_dev);
+> >=20
+> > +/**
+> > + * v4l2_m2m_get() - take a reference to the m2m_dev structure
+> > + *
+> > + * @m2m_dev: opaque pointer to the internal data to handle M2M context
+> > + *
+> > + * This is used to share the M2M device across multiple devices. This
+> > + * can be used to avoid scheduling two hardware nodes concurrently.
+> > + */
+> > +void v4l2_m2m_get(struct v4l2_m2m_dev *m2m_dev);
+> > +
+> > +/**
+> > + * v4l2_m2m_put() - remove a reference to the m2m_dev structure
+> > + *
+> > + * @m2m_dev: opaque pointer to the internal data to handle M2M context
+> > + *
+> > + * Once the M2M device have no more references, v4l2_m2m_realse() will=
+ be
+> > + * called automatically. Users of this method should never call
+> > + * v4l2_m2m_release() directly. See v4l2_m2m_get() for more details.
+> > + */
+> > +void v4l2_m2m_put(struct v4l2_m2m_dev *m2m_dev);
+> > +
+> > =C2=A0/**
+> > =C2=A0 * v4l2_m2m_ctx_init() - allocate and initialize a m2m context
+> > =C2=A0 *
+> > --
+> > 2.52.0
+> >=20
+
+--=-4H25zADnHXlwNymaecNy
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaVv+CAAKCRDZQZRRKWBy
+9GnBAP9YVI4l3nVSoW8LuEWowJqpYHQplV4632VpWVcZXPWxgQD/VvEAJf8OJJu4
+siPIvlpEB/ftrpXiSKkVbExl1UWd6AI=
+=a96A
+-----END PGP SIGNATURE-----
+
+--=-4H25zADnHXlwNymaecNy--
 
