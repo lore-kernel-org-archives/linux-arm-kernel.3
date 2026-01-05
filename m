@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 587F7C79FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:25:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947F3C79FBA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+eYBqoUzN2+h4HGky8/6reMdv+vWNLooxMBisEuv9uw=; b=V2BFvaHC0wlx12xPK9cJb7GfkE
-	P30cKmIjIFdfvOGi2Av3TGFFreBT79lEl1BGzjlyyUHPPPgGiXnHPl2QHzZVly6QjUaXkV0oFTnYP
-	IIYrqRgfU66X//4SrGn/EdcpU5bcubDfCgYs9fgcKO7Rx4CCwW0zse4RfKyGELJ7wCp6sFMxlsGze
-	Fxwf8X1cShqQ3N2yPJ85riwhV9SEp1dUCBS0zOjyMH47a/Ao89IjfXR4LXQ2n1cdyhQ/fSbfXUdrI
-	IDREY3oqBmmS8OI7iHPQZAo/PTJBoFvdka/ce+wSlimxIjA1r1iTQrqwNvlXaayyJBH/O9Jl6JXON
-	cewToQVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wKP8BXcQ6rjEgwWhGXyvSC3sJuSoh+CpPU6v8uC/NLU=; b=rV4mdnBk0fdrOfw2n7xA5DUraj
+	275VB3Xw/eS/DMe5zaR/+I8ZINjSxPoOrtT7qff9YlR534bNf9NF0e5EstUf+Pf8mgxE8WOkMpnfV
+	zM8QoOF6g44p9d05MS6HZ6gbks0T5qyZhNPN4Vi3zbIjBhkuMg0L/eIEfCeIkzdepyr7lfOmY5UVq
+	C+HjCXF6JoBe7UQVpeasc8pG05uOh6vkk/MWO2LhVfvyVU3r7fgqwx2hWdktIDvLAqAFQtmJZUmq4
+	ZNWPx+d9ZG47hoamVZ1/lz1UmPfCtvGWuff6qAOt1S1SfiVVIVV+MO48jHRCTetWY9RErJTkPHbXD
+	fpA4iFKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqCI-0000000ByUR-3sHx;
-	Mon, 05 Jan 2026 19:24:58 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vcqIl-0000000Byrp-1nRT;
+	Mon, 05 Jan 2026 19:31:39 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqCG-0000000ByTo-0XId;
-	Mon, 05 Jan 2026 19:24:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1767641089; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=CottjbLhr1z6jC7i7Flp+v+5LhDl6uS+YVZbNw2ld2JfPW7E1jZGFhN4ADezeT5riWanf1Us9kdXtzLjBvqJ3+eNbm74FfTlLPMyuHEtNwmJ0KVnloLaKIIbGMb+n+5PYvRVd2NSq3vSzEKctz+iyTuG0PzXLqTMDPawzaaPKFw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1767641089; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=+eYBqoUzN2+h4HGky8/6reMdv+vWNLooxMBisEuv9uw=; 
-	b=ZDTo/tCXQ7PAp1toucD2qN20Uh2H8bUa2vslbjsByc3pnuHoTG5AbiUssw4g3HoJYYHdkkuT3WBQjfl0l2FkuCj2erOIfTcH6fYMtkhNBV7djSV19Kl4frOuvsKPdm1yBRDVbQQ41oBKLXmgPyLf47metArVee0qrT9D+IiyKFg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1767641089;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=+eYBqoUzN2+h4HGky8/6reMdv+vWNLooxMBisEuv9uw=;
-	b=QlP/7MylbzSI4cx96KIuR91JZT+dHf3eGfwqJDoJd9mbvnCEwS8rTZXxqqllByz4
-	WI9Y7XF1UtxKj/w+w1QFx543Bzq0CyIh82su6mbzQAEK+QOwl/w6RtdaT31LXowKKRG
-	NF2cnox2UNz07hkP0Wd+OUpEU+El+kXTZEVceUoA=
-Received: by mx.zohomail.com with SMTPS id 1767641086980433.82009734349515;
-	Mon, 5 Jan 2026 11:24:46 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id B1861181D56; Mon, 05 Jan 2026 20:24:42 +0100 (CET)
-Date: Mon, 5 Jan 2026 20:24:42 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>, Kever Yang <kever.yang@rock-chips.com>, 
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Frank Wang <frank.wang@rock-chips.com>, 
-	Alexey Charkov <alchark@gmail.com>, Liang Chen <cl@rock-chips.com>, 
-	Finley Xiao <finley.xiao@rock-chips.com>, Elaine Zhang <zhangqing@rock-chips.com>, 
-	Yifeng Zhao <yifeng.zhao@rock-chips.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix wrong register range of rk3576
- gpu
-Message-ID: <aVwIukddZTukxH_8@venus>
-References: <20251230090246.46-1-kernel@airkyi.com>
+	id 1vcqIj-0000000ByrQ-0PKD
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Jan 2026 19:31:38 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b725ead5800so43137266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 11:31:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767641494; x=1768246294; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wKP8BXcQ6rjEgwWhGXyvSC3sJuSoh+CpPU6v8uC/NLU=;
+        b=G7rqPf6XyCH0Xj//UE7h4TkjZhMr6zM3qFHPqBJFAH/m6j4sSEEAgJPXLSor5Y1GeI
+         Lx4g3QmXzokRxKCyQ/ALjImqPBMnfKxuxQ1cMQaeFwlMSxgjeohJDpQAOlV6454rnqFZ
+         07+NJB8fwos7fba0H4GVOUxzrL1cgsiq4yHs9jsL1urViTIC3lVAQFLoX7kIzsK7wRu2
+         tFgdyddGsjMXuXaHA3BZ5jxXqhIHXMZEHvWpCrz8qTTRdFeUVrA9kWED0no1qWZDKq4Q
+         ji82s7JjO6+xOhlwveMbwAsM13lWKHTdQ0Qiq9Pc8+LmPeq9zL91tZ6L7YkHdE6CEdEr
+         /9pw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767641494; x=1768246294;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=wKP8BXcQ6rjEgwWhGXyvSC3sJuSoh+CpPU6v8uC/NLU=;
+        b=HPnRZVFXiBpuRccW0Iu0FDU9zZmjsSOOe/fYxPiw7Vkz0VMgGDk+zkohvD65ZF9Nc5
+         6Kmm+nwkGsq6tyVdHxRv2MsxmuZu4mwg+l6Oc7D3SSO06/1BUPiYuJ59FE5ymT+13pe/
+         2URWaOYnc64nnl4n+3UrTMMN0BWM36mQbcDYXy64F6NiB3VLZg+l74W5VjQ+A6olI7St
+         t+IcHGcx9mMx7OyzLoRLGUFfAGBjiRdcgHWgxDq8n1D0YM52qsOGL2+tZumcXvzUkLN/
+         /rVcw9PyIenJ83CydqNIjyYknVPkm40FRLQBTYHJ+fT2rKKP6WcstC3j5R1XDvCbQQjM
+         rNiA==
+X-Forwarded-Encrypted: i=1; AJvYcCX6iwchgVV8QdYJpjdq39VMHtmyP0DPdUrvR2gnQuOLM6YQHi6NlegmZ4mz9HJPHnH9gy+OSUuR6IKtLkYDx08G@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0HLbZM47ZuHmkgCORQj1GxANOlIrUCtq+HU/psQznMMiHgeD5
+	9HaiYzgH1w/ZJNpiRRYELBNoVuTD8GfOzglhZoU4DRlrVvk3KRnBygKinI92B8eJOqRH+NWEOTU
+	yG/0pqU+3CA2ihoNXrAUYA6LtK8rqgRk=
+X-Gm-Gg: AY/fxX7Xoq/2mTq0++HGZXxZwMjbfcGm7Xy60TuFeNXHOFCsSL17bZtbeEfE2bvPAxI
+	eDGwmQ+I2BBNvVUbJ/9LB5zaRykFMNv18cysmKFbiXawOpPggXHiaRMLM/xkoFBRvGm5IRqb4ZO
+	0M5ZseQgj/hI8M0EVU3YjzL490tYeB0f+vDlr87Onoj99B0uDPjlGSkjg0E+whqwu/4qFyspoMW
+	qVhWZ1TFjnCG/2GztdUJwLLdL68DY8krnXYyplAZfn0pLdZhI8g4abThZ04Tcb+sZugtxGT69YW
+	24nydCs5A/0=
+X-Google-Smtp-Source: AGHT+IHWXWcSL2ypRzwrXhZGRYXDxTuhkUPTtqeF8miccqaxHJcqkcxP/4yTCaxUzXMQIBg+77A8IP9i8mP3CXWFU2c=
+X-Received: by 2002:a17:907:7288:b0:b76:eec9:a1a9 with SMTP id
+ a640c23a62f3a-b8426a56bb3mr72786566b.7.1767641494141; Mon, 05 Jan 2026
+ 11:31:34 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gh72f5z6wmtbfhva"
-Content-Disposition: inline
-In-Reply-To: <20251230090246.46-1-kernel@airkyi.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.4.3/267.599.44
-X-ZohoMailClient: External
+References: <20260102214043.1410242-1-puranjay@kernel.org> <aVv5nq5QTVDOz1Zk@J2N7QTR9R3>
+In-Reply-To: <aVv5nq5QTVDOz1Zk@J2N7QTR9R3>
+From: Puranjay Mohan <puranjay12@gmail.com>
+Date: Mon, 5 Jan 2026 19:31:19 +0000
+X-Gm-Features: AQt7F2qGhDBs3pKZB2Wr69RbJg7A6Q93VsSbpiAu0Y3FJEpYrfWHO1XDHG-ebLE
+Message-ID: <CANk7y0gthCiw5K-z-8sWsWF0ZcbmDgYuDHjE4RPLfHTjQk=4nw@mail.gmail.com>
+Subject: Re: [RFC PATCH] perf/arm64: Add BRBE support for bpf_get_branch_snapshot()
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
+	Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Martin KaFai Lau <martin.lau@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Rob Herring <robh@kernel.org>, 
+	Breno Leitao <leitao@debian.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, kernel-team@meta.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_112456_246602_03D2DEA3 
-X-CRM114-Status: GOOD (  20.40  )
+X-CRM114-CacheID: sfid-20260105_113137_207739_EA8D4F2B 
+X-CRM114-Status: GOOD (  51.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,84 +101,255 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 5, 2026 at 5:49=E2=80=AFPM Mark Rutland <mark.rutland@arm.com> =
+wrote:
+>
+> Hi Puranjay,
+>
+> I have a number of techincal concerns with this, noted below. At a high
+> level, I don't think this makes sense without a better description of
+> the usage, and I suspect we'd need changes to bpf_get_branch_snapshot()
+> to be able to implement something useful.
 
---gh72f5z6wmtbfhva
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix wrong register range of rk3576
- gpu
-MIME-Version: 1.0
+Hi Mark,
 
-Hi,
+Thanks for your review.
 
-On Tue, Dec 30, 2025 at 05:02:46PM +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->=20
-> According to RK3576 TRM part1 page13, the size of the GPU registers
-> is 128 KB.
+>
+> On Fri, Jan 02, 2026 at 01:40:41PM -0800, Puranjay Mohan wrote:
+> > Enable the bpf_get_branch_snapshot() BPF helper on ARM64 by implementin=
+g
+> > the perf_snapshot_branch_stack static call for ARM's Branch Record
+> > Buffer Extension (BRBE).
+> >
+> > The BPF helper bpf_get_branch_snapshot() allows BPF programs to capture
+> > hardware branch records on-demand. This was previously only available o=
+n
+> > x86 (Intel LBR, AMD BRS) but not on ARM64 despite BRBE being available
+> > since ARMv9.
+>
+> When exactly can bpf_get_branch_snapshot() be called?
+>
+> How is it expected to be used?
+>
+> The driver is written on the expectation that BRBE records are only read
+> in the PMUv3 overflow handler.
 
-RK3576 TRM V1.2 has the address mapping on page 15. Maybe just
-reference "Table 1-1 Address Mapping" instead of giving a page
-number?
+bpf_get_branch_snapshot() can be called from any BPF tracing program
+so from unknown context.
 
-I think it makes sense to add the following extra text:
+>
+> > This implementation:
+> >
+> > - Follows the x86 snapshot pattern (intel_pmu_snapshot_branch_stack)
+> > - Performs atomic snapshot by pausing BRBE, reading records, and
+> >   restoring previous state without disrupting ongoing perf events
+>
+> If BRBE is stopped, then we lost contiguity of branch records (e.g. for
+> a series of branches A->B->C->D->E, we could record A->B->D->E). The
+> driver is intended to ensure contiguity of those records, and if that's
+> lost, we deliberately discard. That's why brbe_enable() calls
+> brbe_invalidate().
+>
+> Restarting BRBE without discarding will produce bogus data for other
+> consumers. If BRBE is stopped, we *must* discard.
+>
+> > - Reads branch records directly from BRBE registers without
+> >   event-specific filtering to minimize branch pollution
+>
+> If BRBE is paused, there's no polution, so this rationale doesn't make
+> sense to me.
+>
+> BRBE can be configured with various filters (specific to the event),
+> multiple events with distinct filters can be active simultaneously, and
+> if no branch-sampling events are active, BRBE won't record anything. I
+> do not think it makes sense to record whatever happens to be present,
+> without filtering. Regardless, BRBE won't be recording if you don't have
+> events. so this doesn't seem to make sense.
 
-The current mapping incorrectly includes the addresses of multiple
-following IP like the eInk interface at 0x27900000. This has not
-been detected by the DT tooling as none of the extra mapped IP is
-described in the upstream RK3576 DT so far.
+In the expected usage of this bpf helper, perf_events are expected to
+be created with the correct filtering.
 
-> Fixes: 57b1ce903966 ("arm64: dts: rockchip: Add rk3576 SoC base DT")
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
+From 856c02dbce4f ("bpf: Introduce helper bpf_get_branch_snapshot")
 
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+    Introduce bpf_get_branch_snapshot(), which allows tracing program to ge=
+t
+    branch trace from hardware (e.g. Intel LBR). To use the feature, the
+    user need to create perf_event with proper branch_record filtering
+    on each cpu, and then calls bpf_get_branch_snapshot in the bpf function=
+.
+    On Intel CPUs, VLBR event (raw event 0x1b00) can be use for this.
 
-Greetings,
+>
+> > - Handles all BRBE record types (complete, source-only, target-only)
+> > - Complies with ARM ARM synchronization requirements (ISB barriers per
+> >   rule PPBZP)
+> > - Reuses existing BRBE infrastructure (select_brbe_bank,
+> >   __read_brbe_regset, brbe_set_perf_entry_type, etc.)
+>
+> This duplicates other code (e.g. the body of
+> brbe_read_filtered_entries()), and I don't think this is justified.
 
--- Sebastian
+Ack.
 
->  arch/arm64/boot/dts/rockchip/rk3576.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/d=
-ts/rockchip/rk3576.dtsi
-> index 6284e7bdc442..b375015f0662 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> @@ -1271,7 +1271,7 @@ power-domain@RK3576_PD_VO1 {
-> =20
->  		gpu: gpu@27800000 {
->  			compatible =3D "rockchip,rk3576-mali", "arm,mali-bifrost";
-> -			reg =3D <0x0 0x27800000 0x0 0x200000>;
-> +			reg =3D <0x0 0x27800000 0x0 0x20000>;
->  			assigned-clocks =3D <&scmi_clk SCMI_CLK_GPU>;
->  			assigned-clock-rates =3D <198000000>;
->  			clocks =3D <&cru CLK_GPU>;
-> --=20
-> 2.51.1
->=20
+>
+> >
+> > Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+> > ---
+> >
+> > This patch is only compile tested as I don't have access to hardware wi=
+th BRBE.
+> >
+> > ---
+> >  drivers/perf/arm_brbe.c  | 95 ++++++++++++++++++++++++++++++++++++++++
+> >  drivers/perf/arm_brbe.h  |  9 ++++
+> >  drivers/perf/arm_pmuv3.c |  5 ++-
+> >  3 files changed, 108 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/perf/arm_brbe.c b/drivers/perf/arm_brbe.c
+> > index ba554e0c846c..cda7bf522c06 100644
+> > --- a/drivers/perf/arm_brbe.c
+> > +++ b/drivers/perf/arm_brbe.c
+> > @@ -803,3 +803,98 @@ void brbe_read_filtered_entries(struct perf_branch=
+_stack *branch_stack,
+> >  done:
+> >       branch_stack->nr =3D nr_filtered;
+> >  }
+> > +
+> > +/*
+> > + * ARM-specific callback invoked through perf_snapshot_branch_stack st=
+atic
+> > + * call, defined in include/linux/perf_event.h. See its definition for=
+ API
+> > + * details. It's up to caller to provide enough space in *entries* to =
+fit all
+> > + * branch records, otherwise returned result will be truncated to *cnt=
+* entries.
+> > + *
+> > + * This is similar to brbe_read_filtered_entries but optimized for sna=
+pshot mode:
+> > + * - No filtering based on event attributes (captures everything)
+> > + * - Minimal branches to avoid polluting the branch buffer
+> > + * - Direct register reads without event-specific processing
+> > + */
+>
+> As above I don't think these differences are necessary nor do I think we
+> should be duplicating this.
 
---gh72f5z6wmtbfhva
-Content-Type: application/pgp-signature; name="signature.asc"
+Ack.
 
------BEGIN PGP SIGNATURE-----
+>
+> > +int arm_brbe_snapshot_branch_stack(struct perf_branch_entry *entries, =
+unsigned int cnt)
+> > +{
+> > +     unsigned long flags;
+> > +     int nr_hw, nr_banks, nr_copied =3D 0;
+> > +     u64 brbidr, brbfcr, brbcr;
+> > +
+> > +     /*
+> > +      * The sequence of steps to freeze BRBE should be completely inli=
+ned
+> > +      * and contain no branches to minimize contamination of branch sn=
+apshot.
+> > +      */
+> > +     local_irq_save(flags);
+>
+> The PMU overflow interrupt can be delivered as a pNMI, so this can race
+> with that. Disabling interrupts is not sufficient.
 
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmlcD+sACgkQ2O7X88g7
-+prTtQ//dy/wZmBaqUEGaS9zX4E6AXNwW8NHd8I6RwQHDHAbbbkPNkI66IxfKeBo
-nWasz2zmeCym7reEoKvRwNw9h2sofpHJzvPV/EMEOdgaBo4ene8LeTQ1wfBnXNZi
-KsTX4cYGDK5YcHeXK5eCPGAZO7ihGRY8vYy9U5xeT91nKbcBGFdG6dLfYsnwbaBf
-5CpTmk3RPsDqtXr02hd5d+5/ZSkDE0dD1bLRrYhA14sP0UG3j3UciLlhCMi0DOaU
-eljF7vne4wbqpAPYmiqvpEYxhjfeS50WuWqjFBdBQhzUq5788dvh59WS7jPylx9X
-0e2No3O3uWHN7s9+hcj070dAOJlxPIqVhoofsqeqHh49KUKFu8MHvzrA//iorxg+
-G36wh9A5YTKehH1MBZGDvMz4qpRPWiaPRsqB6/BS+iBXZoFBnp5S8aKjG34xWebK
-rXXCE9Nt3TVFJhe55ng42Xl9vLWQZ39vzy1ycNt4KV8wRWFAhKcBvLGOhztoClRV
-m7iAHBFkXmNAQZHA6vSkM0a2hZjau2sYXTzDMUQjoiVXA2mYGq6iholyVGwQz4MZ
-n+Lcsj+CnBLt7UvxwCXnyzrkf4YIF18F0adMrkl6Ff9IjOnGxJRs3GYRiT5A+9vZ
-p+u6xmCBl5IdWMq/q3RB2bYfP3kh5hbDbGHkfJvhslCfkCjM8RQ=
-=jLgq
------END PGP SIGNATURE-----
+In that case this implementation is completely broken, Do you have
+suggestions about how this should be implemented?
+The use case is to find out how the execution reached a bpf program by
+looking at the Branch records. Do you think BRBE can be used to fulfil
+this?
 
---gh72f5z6wmtbfhva--
+>
+> If this is only called within a perf event overflow handler, then we
+> already have the necessary serialization.
+>
+> > +
+> > +     /* Save current BRBE configuration */
+> > +     brbfcr =3D read_sysreg_s(SYS_BRBFCR_EL1);
+> > +     brbcr =3D read_sysreg_s(SYS_BRBCR_EL1);
+> > +
+> > +     /* Pause BRBE to freeze the buffer */
+> > +     write_sysreg_s(brbfcr | BRBFCR_EL1_PAUSED, SYS_BRBFCR_EL1);
+> > +     isb();
+> > +
+> > +     /* Read BRBIDR to determine number of records */
+> > +     brbidr =3D read_sysreg_s(SYS_BRBIDR0_EL1);
+> > +     if (!valid_brbidr(brbidr))
+> > +             goto out_restore;
+> > +
+> > +     nr_hw =3D FIELD_GET(BRBIDR0_EL1_NUMREC_MASK, brbidr);
+> > +     nr_banks =3D DIV_ROUND_UP(nr_hw, BRBE_BANK_MAX_ENTRIES);
+> > +
+> > +     /* Read branch records from BRBE banks */
+> > +     for (int bank =3D 0; bank < nr_banks; bank++) {
+> > +             int nr_remaining =3D nr_hw - (bank * BRBE_BANK_MAX_ENTRIE=
+S);
+> > +             int nr_this_bank =3D min(nr_remaining, BRBE_BANK_MAX_ENTR=
+IES);
+> > +
+> > +             select_brbe_bank(bank);
+> > +
+> > +             for (int i =3D 0; i < nr_this_bank; i++) {
+> > +                     struct brbe_regset bregs;
+> > +                     struct perf_branch_entry *entry;
+> > +
+> > +                     if (nr_copied >=3D cnt)
+> > +                             goto out_restore;
+> > +
+> > +                     if (!__read_brbe_regset(&bregs, i))
+> > +                             goto out_restore;
+> > +
+> > +                     entry =3D &entries[nr_copied];
+> > +                     perf_clear_branch_entry_bitfields(entry);
+> > +
+> > +                     /* Simple conversion without filtering */
+> > +                     if (brbe_record_is_complete(bregs.brbinf)) {
+> > +                             entry->from =3D bregs.brbsrc;
+> > +                             entry->to =3D bregs.brbtgt;
+> > +                     } else if (brbe_record_is_source_only(bregs.brbin=
+f)) {
+> > +                             entry->from =3D bregs.brbsrc;
+> > +                             entry->to =3D 0;
+> > +                     } else if (brbe_record_is_target_only(bregs.brbin=
+f)) {
+> > +                             entry->from =3D 0;
+> > +                             entry->to =3D bregs.brbtgt;
+> > +                     }
+> > +
+> > +                     brbe_set_perf_entry_type(entry, bregs.brbinf);
+> > +                     entry->cycles =3D brbinf_get_cycles(bregs.brbinf)=
+;
+> > +
+> > +                     if (!brbe_record_is_target_only(bregs.brbinf)) {
+> > +                             entry->mispred =3D brbinf_get_mispredict(=
+bregs.brbinf);
+> > +                             entry->predicted =3D !entry->mispred;
+> > +                     }
+> > +
+> > +                     if (!brbe_record_is_source_only(bregs.brbinf))
+> > +                             entry->priv =3D brbinf_get_perf_priv(breg=
+s.brbinf);
+> > +
+> > +                     nr_copied++;
+> > +             }
+> > +     }
+> > +
+> > +out_restore:
+> > +     /* Restore BRBE to its previous state */
+> > +     write_sysreg_s(brbcr, SYS_BRBCR_EL1);
+> > +     isb();
+> > +     write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
+> > +     local_irq_restore(flags);
+> > +     return nr_copied;
+> > +}
+>
+> As above, this is duplicating a lot of logic we already have. If we
+> really need this function, we should be sharing much more logic with
+> brbe_read_filtered_entries(), if not using that directly.
+>
+> Mark.
 
