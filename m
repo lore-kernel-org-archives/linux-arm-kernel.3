@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B3E2CE9D70
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 16:04:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84F42CE9D70
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 16:06:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U3nHOZfz6ERNMvpf+fjCFaLHajoPuWnBKT1DjY8pFVc=; b=iuL5EBuUfJcqC9F2zzShaKKAbM
-	fVpW8A8s5SUmSM8wdTIplJ/tsPvRbyqKy+tNiH7fPBq1C7Czn7NqZhAivNNo5m/x3f0bNyaJiOOHA
-	ENg2DiHBvOBan6V+sKGHwmkKiKY3SQR8kOuy4sx6D32vHqPkfYUkkaVxJFx5K0mlc1iOxabHcAmzA
-	f8GAr015AwqL5xGqAy6rgQAVQ0oEV3sDhc0zdSjeKOJIDUUjU6L8Uaz6gdxohnZx9P+Wo1dpN1w3Q
-	9Je5rgrTC5XHZvTuZUBmxwadnqrnZ958zeOCVYcBk/XJSvcmS9uAjmPSnMCeqUUsZ/iNLSJBzDJlp
-	yLJbB5kQ==;
+	bh=7d0ks2LjFKNH8dZMTthihk28QPu+B1ebpjG73cJj+r0=; b=F3z+WQHdLBGZR1oZteyWOJmAVA
+	FFTnPHw5DtglVsNl3zINwRV4ONLPSCDwb6qsSIHkma3Y0YW4OYpj5g2ucxDjFKlPQO+YriMCM6VcF
+	NY3BNOUPtw7YK3N/rwzmid25tlLLZ9trArXu2Mu/nkKnwPx+siF95HEhhEYhYtx8bXoZ0ax3yhcsP
+	/GTOt09VcCmwK6cJNzdleLBt4xfw14NRObwBH+a0cC3zB2ob16vYYdKFADheMt4AVGMhSzzSV/UJi
+	hQf+mHpJ41TJShV/l47of7jUKspaaJDgXb7XuhDcKOX14VQparVOhyyomacf+L+pfas386pu+vLWv
+	WvVyV0NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd9XU-0000000DSV3-3T60;
-	Tue, 06 Jan 2026 16:04:08 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd9XS-0000000DSUa-3qdZ;
-	Tue, 06 Jan 2026 16:04:08 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-152.bb.dnainternet.fi [81.175.209.152])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 6AE8F82A;
-	Tue,  6 Jan 2026 17:03:43 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1767715423;
-	bh=5G/+nUhJD0Wn816WxDxaa6K8L80DgvEIRkS+FfcW+74=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IV/Klcb5cF30mwZuL3Xqo2dsqL608TBQV3KhGnzWuUmpY359rjWeB061Wc1jKsGlm
-	 k11UCba1V8fRCRvzqs3l4MHUijg9ir4X+hNkwrYMZl2qF59KvRpKn1B9T5lXGYaYH1
-	 g2RU442RZ/w/dIWO6kdXlLzHFzBr5iWYjhfQEJOY=
-Date: Tue, 6 Jan 2026 18:03:46 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Daniel Scally <dan.scally@ideasonboard.com>,
-	Dafna Hirschfeld <dafna@fastmail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] media: rkisp1: request/free irqs in PM runtime ops
-Message-ID: <20260106160346.GE26157@pendragon.ideasonboard.com>
-References: <20260105-rkisp1-irqs-v1-1-922f6a94a2e2@ideasonboard.com>
- <3ea77c79-20b9-423d-88b6-115b1188845e@ideasonboard.com>
+	id 1vd9Zu-0000000DSgn-0zvn;
+	Tue, 06 Jan 2026 16:06:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vd9Zr-0000000DSgS-2ZFu
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Jan 2026 16:06:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F40B6497;
+	Tue,  6 Jan 2026 08:06:26 -0800 (PST)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 18DB33F6A8;
+	Tue,  6 Jan 2026 08:06:31 -0800 (PST)
+Date: Tue, 6 Jan 2026 16:06:29 +0000
+From: Joey Gouly <joey.gouly@arm.com>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH v2 18/36] KVM: arm64: gic-v5: Implement PPI interrupt
+ injection
+Message-ID: <20260106160629.GC1982@e124191.cambridge.arm.com>
+References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
+ <20251219155222.1383109-19-sascha.bischoff@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <3ea77c79-20b9-423d-88b6-115b1188845e@ideasonboard.com>
+In-Reply-To: <20251219155222.1383109-19-sascha.bischoff@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_080407_100279_C930E7D1 
-X-CRM114-Status: GOOD (  55.65  )
+X-CRM114-CacheID: sfid-20260106_080635_735119_DED67373 
+X-CRM114-Status: GOOD (  48.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,254 +72,426 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 06, 2026 at 06:01:38PM +0200, Tomi Valkeinen wrote:
-> Hi,
+On Fri, Dec 19, 2025 at 03:52:42PM +0000, Sascha Bischoff wrote:
+> This change introduces interrupt injection for PPIs for GICv5-based
+> guests.
 > 
-> On 05/01/2026 18:19, Daniel Scally wrote:
-> > The rkisp1 driver tracks whether the IRQ handlers should take any
-> > action through the use of an "irqs_enabled" flag which is set true
-> > at the end of .runtime_resume() and false at the start of
-> > .runtime_suspend(). In .runtime_suspend(), after setting the flag,
-> > there's then a short window during which the hardware has not yet
-> > been disabled by the clock APIs but interrupts remain enabled. If an
-> > interrupt is triggered during that window the IRQ handlers will return
-> > IRQ_NONE and fail to clear the ISP's IRQ reset registers.
-> > 
-> > Instead, delay calling request_irq() from .probe() to the end of the
-> > .runtime_resume() callback, and call free_irq() at the start of the
-> > .runtime_suspend() callback. This will prevent the interrupt handlers
-> > being called at all for the device once .runtime_suspend() has been
-> > called for it.
+> The lifecycle of PPIs is largely managed by the hardware for a GICv5
+> system. The hypervisor injects pending state into the guest by using
+> the ICH_PPI_PENDRx_EL2 registers. These are used by the hardware to
+> pick a Highest Priority Pending Interrupt (HPPI) for the guest based
+> on the enable state of each individual interrupt. The enable state and
+> priority for each interrupt are provided by the guest itself (through
+> writes to the PPI registers).
 > 
-> Shouldn't we usually always properly disable the IP before suspend? I've
-> seen IPs that definitely did not like at all cutting the clocks
-> arbitrarily when it's active.
+> When Direct Virtual Interrupt (DVI) is set for a particular PPI, the
+> hypervisor is even able to skip the injection of the pending state
+> altogether - it all happens in hardware.
+> 
+> The result of the above is that no AP lists are required for GICv5,
+> unlike for older GICs. Instead, for PPIs the ICH_PPI_* registers
+> fulfil the same purpose for all 128 PPIs. Hence, as long as the
+> ICH_PPI_* registers are populated prior to guest entry, and merged
+> back into the KVM shadow state on exit, the PPI state is preserved,
+> and interrupts can be injected.
+> 
+> When injecting the state of a PPI the state is merged into the KVM's
+> shadow state using the set_pending_state irq_op. The directly sets the
+> relevant bit in the shadow ICH_PPI_PENDRx_EL2, which is presented to
+> the guest (and GICv5 hardware) on next guest entry. The
+> queue_irq_unlock irq_op is required to kick the vCPU to ensure that it
+> seems the new state. The result is that no AP lists are used for
+> private interrupts on GICv5.
+> 
+> Prior to entering the guest, vgic_v5_flush_ppi_state is called from
+> kvm_vgic_flush_hwstate. The effectively snapshots the shadow PPI
+> pending state (twice - an entry and an exit copy) in order to track
+> any changes. These changes can come from a guest consuming an
+> interrupt or from a guest making an Edge-triggered interrupt pending.
+> 
+> When returning from running a guest, the guest's PPI state is merged
+> back into KVM's shadow state in vgic_v5_merge_ppi_state from
+> kvm_vgic_sync_hwstate. The Enable and Active state is synced back for
+> all PPIs, and the pending state is synced back for Edge PPIs (Level is
+> driven directly by the devices generating said levels). The incoming
+> pending state from the guest is merged with KVM's shadow state to
+> avoid losing any incoming interrupts.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic-v5.c | 159 ++++++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/vgic/vgic.c    |  46 +++++++---
+>  arch/arm64/kvm/vgic/vgic.h    |  47 ++++++++--
+>  include/kvm/arm_vgic.h        |   3 +
+>  4 files changed, 235 insertions(+), 20 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+> index 46c70dfc7bb08..cb3dd872d16a6 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
+> @@ -56,6 +56,165 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
+>  	return 0;
+>  }
+>  
+> +static bool vgic_v5_ppi_set_pending_state(struct kvm_vcpu *vcpu,
+> +					  struct vgic_irq *irq)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if;
+> +	const u64 id_bit = BIT_ULL(irq->intid % 64);
+> +	const u32 reg = FIELD_GET(GICV5_HWIRQ_ID, irq->intid) / 64;
+> +
+> +	if (!vcpu || !irq)
+> +		return false;
+> +
+> +	/* Skip injecting the state altogether */
+> +	if (irq->directly_injected)
+> +		return true;
+> +
+> +	cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +
+> +	if (irq_is_pending(irq))
+> +		cpu_if->vgic_ppi_pendr[reg] |= id_bit;
+> +	else
+> +		cpu_if->vgic_ppi_pendr[reg] &= ~id_bit;
+> +
+> +	return true;
+> +}
+> +
+> +/*
+> + * For GICv5, the PPIs are mostly directly managed by the hardware. We
+> + * (the hypervisor) handle the pending, active, enable state
+> + * save/restore, but don't need the PPIs to be queued on a per-VCPU AP
+> + * list. Therefore, sanity check the state, unlock, and return.
+> + */
+> +static bool vgic_v5_ppi_queue_irq_unlock(struct kvm *kvm, struct vgic_irq *irq,
+> +					 unsigned long flags)
+> +	__releases(&irq->irq_lock)
+> +{
+> +	struct kvm_vcpu *vcpu;
+> +
+> +	lockdep_assert_held(&irq->irq_lock);
+> +
+> +	if (WARN_ON_ONCE(!__irq_is_ppi(KVM_DEV_TYPE_ARM_VGIC_V5, irq->intid)))
+> +		goto out_unlock_fail;
+> +
+> +	vcpu = irq->target_vcpu;
+> +	if (WARN_ON_ONCE(!vcpu))
+> +		goto out_unlock_fail;
+> +
+> +	raw_spin_unlock_irqrestore(&irq->irq_lock, flags);
+> +
+> +	/* Directly kick the target VCPU to make sure it sees the IRQ */
+> +	kvm_make_request(KVM_REQ_IRQ_PENDING, vcpu);
+> +	kvm_vcpu_kick(vcpu);
+> +
+> +	return true;
+> +
+> +out_unlock_fail:
+> +	raw_spin_unlock_irqrestore(&irq->irq_lock, flags);
+> +
+> +	return false;
+> +}
+> +
+> +static struct irq_ops vgic_v5_ppi_irq_ops = {
+> +	.set_pending_state = vgic_v5_ppi_set_pending_state,
+> +	.queue_irq_unlock = vgic_v5_ppi_queue_irq_unlock,
+> +};
+> +
+> +void vgic_v5_set_ppi_ops(struct vgic_irq *irq)
+> +{
+> +	if (WARN_ON(!irq))
+> +		return;
+> +
+> +	scoped_guard(raw_spinlock, &irq->irq_lock) {
+> +		if (!WARN_ON(irq->ops))
+> +			irq->ops = &vgic_v5_ppi_irq_ops;
+> +	}
+> +}
+> +
+> +/*
+> + * Detect any PPIs state changes, and propagate the state with KVM's
+> + * shadow structures.
+> + */
+> +void vgic_v5_fold_ppi_state(struct kvm_vcpu *vcpu)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +	int i, reg;
+> +
+> +	for (reg = 0; reg < 2; reg++) {
+> +		unsigned long changed_bits;
+> +		const unsigned long enabler = cpu_if->vgic_ich_ppi_enabler_exit[reg];
+> +		const unsigned long activer = cpu_if->vgic_ppi_activer_exit[reg];
+> +		const unsigned long pendr = cpu_if->vgic_ppi_pendr_exit[reg];
+> +
+> +		/*
+> +		 * Track what changed across enabler, activer, pendr, but mask
+> +		 * with ~DVI.
+> +		 */
+> +		changed_bits = cpu_if->vgic_ich_ppi_enabler_entry[reg] ^ enabler;
+> +		changed_bits |= cpu_if->vgic_ppi_activer_entry[reg] ^ activer;
+> +		changed_bits |= cpu_if->vgic_ppi_pendr_entry[reg] ^ pendr;
+> +		changed_bits &= ~cpu_if->vgic_ppi_dvir[reg];
+> +
+> +		for_each_set_bit(i, &changed_bits, 64) {
+> +			struct vgic_irq *irq;
+> +			u32 intid;
+> +
+> +			intid = FIELD_PREP(GICV5_HWIRQ_TYPE, GICV5_HWIRQ_TYPE_PPI);
+> +			intid |= FIELD_PREP(GICV5_HWIRQ_ID, reg * 64 + i);
+> +
+> +			irq = vgic_get_vcpu_irq(vcpu, intid);
+> +
+> +			scoped_guard(raw_spinlock, &irq->irq_lock) {
+> +				irq->enabled = !!(enabler & BIT(i));
+> +				irq->active = !!(activer & BIT(i));
+> +
+> +				/* This is an OR to avoid losing incoming edges! */
+> +				if (irq->config == VGIC_CONFIG_EDGE)
+> +					irq->pending_latch |= !!(pendr & BIT(i));
+> +			}
+> +
+> +			vgic_put_irq(vcpu->kvm, irq);
+> +		}
+> +
+> +		/* Re-inject the exit state as entry state next time! */
+> +		cpu_if->vgic_ich_ppi_enabler_entry[reg] = enabler;
+> +		cpu_if->vgic_ppi_activer_entry[reg] = activer;
+> +
+> +		/*
+> +		 * Pending state is a bit different. We only propagate back
+> +		 * pending state for Edge interrupts. Moreover, this is OR'd
+> +		 * with the incoming state to make sure we don't lose incoming
+> +		 * edges. Use the (inverse) HMR to mask off all Level bits, and
+> +		 * OR.
+> +		 */
+> +		cpu_if->vgic_ppi_pendr[reg] |= pendr & ~cpu_if->vgic_ppi_hmr[reg];
+> +	}
+> +}
+> +
+> +void vgic_v5_flush_ppi_state(struct kvm_vcpu *vcpu)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +
+> +	/*
+> +	 * We're about to enter the guest. Copy the shadow state to the pending
+> +	 * reg that will be written to the ICH_PPI_PENDRx_EL2 regs. While the
+> +	 * guest is running we track any incoming changes to the pending state in
+> +	 * vgic_ppi_pendr. The incoming changes are merged with the outgoing
+> +	 * changes on the return path.
+> +	 */
+> +	cpu_if->vgic_ppi_pendr_entry[0] = cpu_if->vgic_ppi_pendr[0];
+> +	cpu_if->vgic_ppi_pendr_entry[1] = cpu_if->vgic_ppi_pendr[1];
+> +
+> +	/*
+> +	 * Make sure that we can correctly detect "edges" in the PPI
+> +	 * state. There's a path where we never actually enter the guest, and
+> +	 * failure to do this risks losing pending state
+> +	 */
+> +	cpu_if->vgic_ppi_pendr_exit[0] = cpu_if->vgic_ppi_pendr[0];
+> +	cpu_if->vgic_ppi_pendr_exit[1] = cpu_if->vgic_ppi_pendr[1];
+> +
+> +}
+> +
+>  /*
+>   * Not all PPIs are guaranteed to be implemented for
+>   * GICv5. Deterermine which ones are, and generate a mask. This is
+> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+> index ac8cb0270e1e4..cb5d43b34462b 100644
+> --- a/arch/arm64/kvm/vgic/vgic.c
+> +++ b/arch/arm64/kvm/vgic/vgic.c
+> @@ -105,6 +105,14 @@ struct vgic_irq *vgic_get_vcpu_irq(struct kvm_vcpu *vcpu, u32 intid)
+>  	if (WARN_ON(!vcpu))
+>  		return NULL;
+>  
+> +	if (vgic_is_v5(vcpu->kvm) &&
+> +	    __irq_is_ppi(KVM_DEV_TYPE_ARM_VGIC_V5, intid)) {
+> +		u32 int_num = FIELD_GET(GICV5_HWIRQ_ID, intid);
+> +
+> +		int_num = array_index_nospec(int_num, VGIC_V5_NR_PRIVATE_IRQS);
+> +		return &vcpu->arch.vgic_cpu.private_irqs[int_num];
+> +	}
+> +
+>  	/* SGIs and PPIs */
+>  	if (intid < VGIC_NR_PRIVATE_IRQS) {
+>  		intid = array_index_nospec(intid, VGIC_NR_PRIVATE_IRQS);
+> @@ -258,10 +266,12 @@ struct kvm_vcpu *vgic_target_oracle(struct vgic_irq *irq)
+>  	 * If the distributor is disabled, pending interrupts shouldn't be
+>  	 * forwarded.
+>  	 */
+> -	if (irq->enabled && irq_is_pending(irq)) {
+> -		if (unlikely(irq->target_vcpu &&
+> -			     !irq->target_vcpu->kvm->arch.vgic.enabled))
+> -			return NULL;
+> +	if (irq_is_enabled(irq) && irq_is_pending(irq)) {
+> +		if (irq->target_vcpu) {
+> +			if (!vgic_is_v5(irq->target_vcpu->kvm) &&
+> +			    unlikely(!irq->target_vcpu->kvm->arch.vgic.enabled))
+> +				return NULL;
+> +		}
 
-Yes we should. The driver should have real system suspend/resume
-handlers that stop and restart streaming.
+Don't understand this, can you explain?
 
-> And I don't think clk disable should be considered "disabling the
-> hardware". The clocks may not even be disabled at that time, if they're
-> shared clocks or always on clocks. So if the driver assumes that after
-> clk disable call it won't get any interrupts... I don't think that right.
-> 
-> If we can't sensibly disable the IP, I think we can at least mask the
-> IP's interrupts in its interrupt enable register (which we probably
-> should do even if we can disable the IP), and wait for any possible irq
-> handler to stop running. After that we won't get any interrupts,
-> regardless of the clocks.
-> 
->  Tomi
-> 
-> > Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> > ---
-> > We noticed this problem when testing hibernation with the streams
-> > running. In a typical use-case the stream might be stopped before the
-> > runtime PM suspend callback is called, and so the problem is avoided,
-> > but when hibernated with active streams there are sufficient interrupts
-> > coming in to reliably land one in the window between the irqs_enabled
-> > flag being set to false and the hardware being disabled through
-> > clk_bulk_disable_unprepare().
-> > 
-> > I'm under the impression that requesting the IRQs when the device is
-> > in use in the manner of this patch and releasing the when it is not
-> > in use is preferred over requesting them in the .probe() function -
-> > possibly an impression I picked up from Linux Device Drivers. It
-> > doesn't seem to be a particularly common model though, so I thought
-> > I'd flag the method here.
-> > ---
-> >  .../platform/rockchip/rkisp1/rkisp1-capture.c      |  3 -
-> >  .../media/platform/rockchip/rkisp1/rkisp1-common.h |  2 -
-> >  .../media/platform/rockchip/rkisp1/rkisp1-csi.c    |  3 -
-> >  .../media/platform/rockchip/rkisp1/rkisp1-dev.c    | 82 +++++++++++++++-------
-> >  .../media/platform/rockchip/rkisp1/rkisp1-isp.c    |  3 -
-> >  5 files changed, 57 insertions(+), 36 deletions(-)
-> > 
-> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
-> > index 6dcefd144d5abe358323e37ac6133c6134ac636e..510d1e8d8bbc86e8b8be3579571e308e5ad9f260 100644
-> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
-> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
-> > @@ -820,9 +820,6 @@ irqreturn_t rkisp1_capture_isr(int irq, void *ctx)
-> >  	unsigned int i;
-> >  	u32 status;
-> >  
-> > -	if (!rkisp1->irqs_enabled)
-> > -		return IRQ_NONE;
-> > -
-> >  	status = rkisp1_read(rkisp1, RKISP1_CIF_MI_MIS);
-> >  	if (!status)
-> >  		return IRQ_NONE;
-> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> > index 5e6a4d5f6fd12baf45a0083eff75de1095162b2d..2a5f6f69b217cdba2fa7c4d1f230ede5aff49149 100644
-> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> > @@ -507,7 +507,6 @@ struct rkisp1_debug {
-> >   * @debug:	   debug params to be exposed on debugfs
-> >   * @info:	   version-specific ISP information
-> >   * @irqs:          IRQ line numbers
-> > - * @irqs_enabled:  the hardware is enabled and can cause interrupts
-> >   */
-> >  struct rkisp1_device {
-> >  	void __iomem *base_addr;
-> > @@ -532,7 +531,6 @@ struct rkisp1_device {
-> >  	struct rkisp1_debug debug;
-> >  	const struct rkisp1_info *info;
-> >  	int irqs[RKISP1_NUM_IRQS];
-> > -	bool irqs_enabled;
-> >  };
-> >  
-> >  /*
-> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
-> > index ddc6182f3e4bdacdd1962c86f6259334b16aa505..bfc33365ad9d09ccace4ccbb2b19a2fbe1b77eb2 100644
-> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
-> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
-> > @@ -196,9 +196,6 @@ irqreturn_t rkisp1_csi_isr(int irq, void *ctx)
-> >  	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
-> >  	u32 val, status;
-> >  
-> > -	if (!rkisp1->irqs_enabled)
-> > -		return IRQ_NONE;
-> > -
-> >  	status = rkisp1_read(rkisp1, RKISP1_CIF_MIPI_MIS);
-> >  	if (!status)
-> >  		return IRQ_NONE;
-> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-> > index 1791c02a40ae18205f5eb2fd6edca6cda6b459bf..6fa76423bacf3e92cbbb4ef1ceb55e194b88d963 100644
-> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-> > @@ -307,28 +307,62 @@ static int rkisp1_subdev_notifier_register(struct rkisp1_device *rkisp1)
-> >   * Power
-> >   */
-> >  
-> > -static int __maybe_unused rkisp1_runtime_suspend(struct device *dev)
-> > +static void rkisp1_free_irqs(struct rkisp1_device *rkisp1)
-> >  {
-> > -	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
-> > +	for (unsigned int i = 0; i < ARRAY_SIZE(rkisp1->irqs); i++) {
-> > +		if (rkisp1->irqs[i] == -1)
-> > +			continue;
-> >  
-> > -	rkisp1->irqs_enabled = false;
-> > -	/* Make sure the IRQ handler will see the above */
-> > -	mb();
-> > +		if (irq_has_action(rkisp1->irqs[i]))
-> > +			free_irq(rkisp1->irqs[i], rkisp1->dev);
-> > +	}
-> > +}
-> >  
-> > -	/*
-> > -	 * Wait until any running IRQ handler has returned. The IRQ handler
-> > -	 * may get called even after this (as it's a shared interrupt line)
-> > -	 * but the 'irqs_enabled' flag will make the handler return immediately.
-> > -	 */
-> > -	for (unsigned int il = 0; il < ARRAY_SIZE(rkisp1->irqs); ++il) {
-> > -		if (rkisp1->irqs[il] == -1)
-> > +static int rkisp1_request_irqs(struct rkisp1_device *rkisp1)
-> > +{
-> > +	const struct rkisp1_info *info = rkisp1->info;
-> > +	int ret;
-> > +
-> > +	for (unsigned int irqn = 0; irqn < ARRAY_SIZE(rkisp1->irqs); irqn++) {
-> > +		unsigned int isrn;
-> > +
-> > +		if (rkisp1->irqs[irqn] == -1)
-> >  			continue;
-> >  
-> > -		/* Skip if the irq line is the same as previous */
-> > -		if (il == 0 || rkisp1->irqs[il - 1] != rkisp1->irqs[il])
-> > -			synchronize_irq(rkisp1->irqs[il]);
-> > +		if (irq_has_action(rkisp1->irqs[irqn]))
-> > +			continue;
-> > +
-> > +		for (isrn = 0; isrn < info->isr_size; isrn++)
-> > +			if ((info->isrs[isrn].line_mask & BIT(irqn)))
-> > +				break;
-> > +
-> > +		if (isrn == info->isr_size) {
-> > +			dev_err(rkisp1->dev, "Failed to find IRQ handler\n");
-> > +			return -EINVAL;
-> > +		}
-> > +
-> > +		ret = request_irq(rkisp1->irqs[irqn], info->isrs[isrn].isr,
-> > +				  IRQF_SHARED, dev_driver_string(rkisp1->dev),
-> > +				  rkisp1->dev);
-> > +		if (ret) {
-> > +			dev_err(rkisp1->dev, "Failed to request IRQ\n");
-> > +			goto err_free_irqs;
-> > +		}
-> >  	}
-> >  
-> > +	return 0;
-> > +
-> > +err_free_irqs:
-> > +	rkisp1_free_irqs(rkisp1);
-> > +	return ret;
-> > +}
-> > +
-> > +static int __maybe_unused rkisp1_runtime_suspend(struct device *dev)
-> > +{
-> > +	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
-> > +
-> > +	rkisp1_free_irqs(rkisp1);
-> > +
-> >  	clk_bulk_disable_unprepare(rkisp1->clk_size, rkisp1->clks);
-> >  	return pinctrl_pm_select_sleep_state(dev);
-> >  }
-> > @@ -345,11 +379,16 @@ static int __maybe_unused rkisp1_runtime_resume(struct device *dev)
-> >  	if (ret)
-> >  		return ret;
-> >  
-> > -	rkisp1->irqs_enabled = true;
-> > -	/* Make sure the IRQ handler will see the above */
-> > -	mb();
-> > +	ret = rkisp1_request_irqs(rkisp1);
-> > +	if (ret)
-> > +		goto err_clk_disable;
-> >  
-> >  	return 0;
-> > +
-> > +err_clk_disable:
-> > +	clk_bulk_disable_unprepare(rkisp1->clk_size, rkisp1->clks);
-> > +
-> > +	return ret;
-> >  }
-> >  
-> >  static const struct dev_pm_ops rkisp1_pm_ops = {
-> > @@ -694,13 +733,6 @@ static int rkisp1_probe(struct platform_device *pdev)
-> >  			if (info->isrs[i].line_mask & BIT(il))
-> >  				rkisp1->irqs[il] = irq;
-> >  		}
-> > -
-> > -		ret = devm_request_irq(dev, irq, info->isrs[i].isr, IRQF_SHARED,
-> > -				       dev_driver_string(dev), dev);
-> > -		if (ret) {
-> > -			dev_err(dev, "request irq failed: %d\n", ret);
-> > -			return ret;
-> > -		}
-> >  	}
-> >  
-> >  	ret = rkisp1_init_clocks(rkisp1);
-> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> > index 2311672cedb1b6c9dd7f1b883adcac1516a685ae..c6b1ecd2d0c260f6739726c9f32562b98ca31364 100644
-> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> > @@ -1106,9 +1106,6 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
-> >  	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
-> >  	u32 status, isp_err;
-> >  
-> > -	if (!rkisp1->irqs_enabled)
-> > -		return IRQ_NONE;
-> > -
-> >  	status = rkisp1_read(rkisp1, RKISP1_CIF_ISP_MIS);
-> >  	if (!status)
-> >  		return IRQ_NONE;
-> > 
-> > ---
-> > base-commit: ee5b462b97162dbb6c536e18a37b3048f6520019
-> > change-id: 20260105-rkisp1-irqs-8af5a1e0b887
+Thanks,
+Joey
 
--- 
-Regards,
-
-Laurent Pinchart
+>  
+>  		return irq->target_vcpu;
+>  	}
+> @@ -836,9 +846,11 @@ static void vgic_prune_ap_list(struct kvm_vcpu *vcpu)
+>  		vgic_release_deleted_lpis(vcpu->kvm);
+>  }
+>  
+> -static inline void vgic_fold_lr_state(struct kvm_vcpu *vcpu)
+> +static void vgic_fold_state(struct kvm_vcpu *vcpu)
+>  {
+> -	if (kvm_vgic_global_state.type == VGIC_V2)
+> +	if (vgic_is_v5(vcpu->kvm))
+> +		vgic_v5_fold_ppi_state(vcpu);
+> +	else if (kvm_vgic_global_state.type == VGIC_V2)
+>  		vgic_v2_fold_lr_state(vcpu);
+>  	else
+>  		vgic_v3_fold_lr_state(vcpu);
+> @@ -1045,8 +1057,10 @@ void kvm_vgic_sync_hwstate(struct kvm_vcpu *vcpu)
+>  	if (can_access_vgic_from_kernel())
+>  		vgic_save_state(vcpu);
+>  
+> -	vgic_fold_lr_state(vcpu);
+> -	vgic_prune_ap_list(vcpu);
+> +	vgic_fold_state(vcpu);
+> +
+> +	if (!vgic_is_v5(vcpu->kvm))
+> +		vgic_prune_ap_list(vcpu);
+>  }
+>  
+>  /* Sync interrupts that were deactivated through a DIR trap */
+> @@ -1070,6 +1084,17 @@ static inline void vgic_restore_state(struct kvm_vcpu *vcpu)
+>  		__vgic_v3_restore_state(&vcpu->arch.vgic_cpu.vgic_v3);
+>  }
+>  
+> +static void vgic_flush_state(struct kvm_vcpu *vcpu)
+> +{
+> +	if (vgic_is_v5(vcpu->kvm)) {
+> +		vgic_v5_flush_ppi_state(vcpu);
+> +		return;
+> +	}
+> +
+> +	scoped_guard(raw_spinlock, &vcpu->arch.vgic_cpu.ap_list_lock)
+> +		vgic_flush_lr_state(vcpu);
+> +}
+> +
+>  /* Flush our emulation state into the GIC hardware before entering the guest. */
+>  void kvm_vgic_flush_hwstate(struct kvm_vcpu *vcpu)
+>  {
+> @@ -1106,13 +1131,12 @@ void kvm_vgic_flush_hwstate(struct kvm_vcpu *vcpu)
+>  
+>  	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
+>  
+> -	scoped_guard(raw_spinlock, &vcpu->arch.vgic_cpu.ap_list_lock)
+> -		vgic_flush_lr_state(vcpu);
+> +	vgic_flush_state(vcpu);
+>  
+>  	if (can_access_vgic_from_kernel())
+>  		vgic_restore_state(vcpu);
+>  
+> -	if (vgic_supports_direct_irqs(vcpu->kvm))
+> +	if (vgic_supports_direct_irqs(vcpu->kvm) && !vgic_is_v5(vcpu->kvm))
+>  		vgic_v4_commit(vcpu);
+>  }
+>  
+> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+> index d5d9264f0a1e9..978d7f8426361 100644
+> --- a/arch/arm64/kvm/vgic/vgic.h
+> +++ b/arch/arm64/kvm/vgic/vgic.h
+> @@ -132,6 +132,28 @@ static inline bool irq_is_pending(struct vgic_irq *irq)
+>  		return irq->pending_latch || irq->line_level;
+>  }
+>  
+> +/* Requires the irq_lock to be held by the caller. */
+> +static inline bool irq_is_enabled(struct vgic_irq *irq)
+> +{
+> +	if (irq->enabled)
+> +		return true;
+> +
+> +	/*
+> +	 * We always consider GICv5 interrupts as enabled as we can
+> +	 * always inject them. The state is handled by the hardware,
+> +	 * and the hardware will only signal the interrupt to the
+> +	 * guest once the guest enables it.
+> +	 */
+> +	if (irq->target_vcpu) {
+> +		u32 vgic_model = irq->target_vcpu->kvm->arch.vgic.vgic_model;
+> +
+> +		if (vgic_model == KVM_DEV_TYPE_ARM_VGIC_V5)
+> +			return true;
+> +	}
+> +
+> +	return false;
+> +}
+> +
+>  static inline bool vgic_irq_is_mapped_level(struct vgic_irq *irq)
+>  {
+>  	return irq->config == VGIC_CONFIG_LEVEL && irq->hw;
+> @@ -364,7 +386,10 @@ void vgic_debug_destroy(struct kvm *kvm);
+>  
+>  int vgic_v5_probe(const struct gic_kvm_info *info);
+>  void vgic_v5_get_implemented_ppis(void);
+> +void vgic_v5_set_ppi_ops(struct vgic_irq *irq);
+>  int vgic_v5_set_ppi_dvi(struct kvm_vcpu *vcpu, u32 irq, bool dvi);
+> +void vgic_v5_flush_ppi_state(struct kvm_vcpu *vcpu);
+> +void vgic_v5_fold_ppi_state(struct kvm_vcpu *vcpu);
+>  void vgic_v5_load(struct kvm_vcpu *vcpu);
+>  void vgic_v5_put(struct kvm_vcpu *vcpu);
+>  void vgic_v5_set_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcr);
+> @@ -433,15 +458,6 @@ void vgic_its_invalidate_all_caches(struct kvm *kvm);
+>  int vgic_its_inv_lpi(struct kvm *kvm, struct vgic_irq *irq);
+>  int vgic_its_invall(struct kvm_vcpu *vcpu);
+>  
+> -bool system_supports_direct_sgis(void);
+> -bool vgic_supports_direct_msis(struct kvm *kvm);
+> -bool vgic_supports_direct_sgis(struct kvm *kvm);
+> -
+> -static inline bool vgic_supports_direct_irqs(struct kvm *kvm)
+> -{
+> -	return vgic_supports_direct_msis(kvm) || vgic_supports_direct_sgis(kvm);
+> -}
+> -
+>  int vgic_v4_init(struct kvm *kvm);
+>  void vgic_v4_teardown(struct kvm *kvm);
+>  void vgic_v4_configure_vsgis(struct kvm *kvm);
+> @@ -481,6 +497,19 @@ static inline bool vgic_is_v3(struct kvm *kvm)
+>  	return kvm_vgic_global_state.type == VGIC_V3 || vgic_is_v3_compat(kvm);
+>  }
+>  
+> +bool system_supports_direct_sgis(void);
+> +bool vgic_supports_direct_msis(struct kvm *kvm);
+> +bool vgic_supports_direct_sgis(struct kvm *kvm);
+> +
+> +static inline bool vgic_supports_direct_irqs(struct kvm *kvm)
+> +{
+> +	/* GICv5 always supports direct IRQs */
+> +	if (vgic_is_v5(kvm))
+> +		return true;
+> +
+> +	return vgic_supports_direct_msis(kvm) || vgic_supports_direct_sgis(kvm);
+> +}
+> +
+>  int vgic_its_debug_init(struct kvm_device *dev);
+>  void vgic_its_debug_destroy(struct kvm_device *dev);
+>  
+> diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+> index 500709bd62c8d..b5180edbd1165 100644
+> --- a/include/kvm/arm_vgic.h
+> +++ b/include/kvm/arm_vgic.h
+> @@ -32,6 +32,9 @@
+>  #define VGIC_MIN_LPI		8192
+>  #define KVM_IRQCHIP_NUM_PINS	(1020 - 32)
+>  
+> +/* GICv5 constants */
+> +#define VGIC_V5_NR_PRIVATE_IRQS	128
+> +
+>  #define is_v5_type(t, i)	(FIELD_GET(GICV5_HWIRQ_TYPE, (i)) == (t))
+>  
+>  #define __irq_is_sgi(t, i)						\
+> -- 
+> 2.34.1
 
