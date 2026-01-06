@@ -4,164 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB42C47BC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 07:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06EDAC47BC5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 07:47:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dtvVfSW3sRZbLON5zW66Z5TmPMmANXuSS/2VLh6VV1s=; b=VXboQeVeCduyP4g/joF+AB3Bq2
-	/7BvLoc5Om3Q+TJf83iEnMFu45aYsE3Y02B2RfUOLx6KY4mmtipvIzpo9DRATMs131j7mE2oGK1Yk
-	1r5dbxTOgeSoGlPRKFY3I7ETxjBYgc1KVY6fvpZ9cXvXclhoynu0q6nkXc2fALsGN987MAOP3pcSK
-	HUgxbARQ9pNIGxjzadlYYYdxUsfkRCPExrYDvWQYRAX1/RiSSQRFrTEperaTap4O+9UpXlG2Zybr/
-	/lEyrKk+rfM5Q/Hc5apDFj8hp9MIQ3+ON57rY3ojPEB2GWMQokgEmboqfRZGNBmqcs/VeLIlQahKJ
-	u57WAAIQ==;
+	bh=2D727HwYQiKquCSqeI1Wdcks3hjmQNXRwSl79hacYQc=; b=Ie9gnwCbHEKzsynMKNC0ApsSXj
+	9Gfbu+CFHtD3SbtoDTPHccQlEzKbct1YxXVH3OVYgpaaYc+jHR0GgIOt9dwJJ4CDuFFfP7vciB3Lh
+	/GIeAPMzSEbnxti447Fm65V4imYBZGcdt7oDx03gYCzQGMey7IkC0maHF/tANlNpRO3uMdax1PZlI
+	1ZlVAhetD/gXGG/hGLAqNtxwSjKvnAdz9KokKpfpVL6ani44r2Trmv36OJLduzinuuPuzamv2SJdx
+	SvMJ8GfSlh5p74QcHy6vC/0dZcmBArQbEOhTQLi/7XOO1KBkeQOsIrLRwsnHmQYc0UjKda9Tkq4TO
+	Toq9mLuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd1hH-0000000CXSd-0pak;
-	Tue, 06 Jan 2026 07:41:43 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1vd1mr-0000000CYDb-0NpK;
+	Tue, 06 Jan 2026 07:47:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd1hE-0000000CXRG-0qI5
+	id 1vd1mp-0000000CYBb-2KVA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 07:41:41 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 4BBD1338B8;
-	Tue,  6 Jan 2026 07:41:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1767685298; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=dtvVfSW3sRZbLON5zW66Z5TmPMmANXuSS/2VLh6VV1s=;
-	b=IVIbWsKrS2sheHINYs+fbTb/SQqoDW6j/oKvigOf1b2zXUBsEZEd2Ei1yqvTA+ffTnJMtl
-	jtQWDa8oOqytfO6bX/pfA3/nj8R78tF/Qlr9GrE5Rsx17Zb1rJDSXzJV6UV5D890mumJ0T
-	YPL32LfeQxNZiTW+/4Wj4SVcFCnsQ/M=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1767685298;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=dtvVfSW3sRZbLON5zW66Z5TmPMmANXuSS/2VLh6VV1s=;
-	b=piig4lAgjPtqfk68d50HzFwxKKnR7aXqoyVj8a+unN1bvODMGASQu8VptGDNCp374g4e8u
-	00jWD4OZuWPWtLCw==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=IVIbWsKr;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=piig4lAg
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1767685298; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=dtvVfSW3sRZbLON5zW66Z5TmPMmANXuSS/2VLh6VV1s=;
-	b=IVIbWsKrS2sheHINYs+fbTb/SQqoDW6j/oKvigOf1b2zXUBsEZEd2Ei1yqvTA+ffTnJMtl
-	jtQWDa8oOqytfO6bX/pfA3/nj8R78tF/Qlr9GrE5Rsx17Zb1rJDSXzJV6UV5D890mumJ0T
-	YPL32LfeQxNZiTW+/4Wj4SVcFCnsQ/M=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1767685298;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=dtvVfSW3sRZbLON5zW66Z5TmPMmANXuSS/2VLh6VV1s=;
-	b=piig4lAgjPtqfk68d50HzFwxKKnR7aXqoyVj8a+unN1bvODMGASQu8VptGDNCp374g4e8u
-	00jWD4OZuWPWtLCw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id DDDBA3EA63;
-	Tue,  6 Jan 2026 07:41:37 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id i6RYNLG8XGlSCwAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 06 Jan 2026 07:41:37 +0000
-Message-ID: <5f570a3b-7bee-43e0-9a36-3d106984fec6@suse.de>
-Date: Tue, 6 Jan 2026 08:41:37 +0100
+	Tue, 06 Jan 2026 07:47:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A3BC260147;
+	Tue,  6 Jan 2026 07:47:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27AC2C116C6;
+	Tue,  6 Jan 2026 07:47:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767685646;
+	bh=JMy7HveBG/Hvay9PrFz8hIdQiHB0fgpsWfolz0ISj1o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BFohZBo/m+HGAjcrGa4q2BYVtAqyR3aWmHsvLwTIZYJez6uauneJpplO/2GcRW8Zb
+	 IUFAheOwJmym8/rSmODYMnSC5j2EdbP38CM6tcz9KoB9IRQ0EtxKByPiBs1f/04hfd
+	 K38a57wtg1q+BMKDaNK9ijMrEO1VBt74M15/JsQSEpE/dKodFpfgkAi/osDT1vFngg
+	 2inxLFuVsumphUkHnnVgvjTxFQI//ci+N1XQiy4hhhERHSd3tPLdXDzS/9/3xhHFIW
+	 xB8Lnk5UtaaPluNRt4LzcssrPbi6UnUqbEfwvNOrGmFpj5fV1YwidJ/4aDsfZJ8QZW
+	 86JgJXEGinYuQ==
+Message-ID: <d160b86e-f4a0-4a74-b53d-00dbd35a0228@kernel.org>
+Date: Tue, 6 Jan 2026 08:47:22 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] drm: xlnx: zynqmp_kms: 16 bpp fixes for Xorg startup
- on AMD KV260
-To: Mikko Rapeli <mikko.rapeli@linaro.org>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Michal Simek <michal.simek@amd.com>,
- Bill Mills <bill.mills@linaro.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>
-References: <20251205123751.2257694-1-mikko.rapeli@linaro.org>
- <533168f1-1655-4947-9032-b08463f502d7@ideasonboard.com>
- <aUVFUx55XTjb_2nO@nuoska> <aUkIQjKpd3MhNHjk@nuoska>
+Subject: =?UTF-8?B?UmU6IOWbnuWkjTog5Zue5aSNOiDlm57lpI06IFtQQVRDSCB2MyAxLzJd?=
+ =?UTF-8?Q?_dt-bindings=3A_arm=3A_cix=3A_add_OrangePi_6_Plus_board?=
+To: Gary Yang <gary.yang@cixtech.com>
+Cc: Peter Chen <peter.chen@cixtech.com>, Fugang Duan
+ <fugang.duan@cixtech.com>, "robh@kernel.org" <robh@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "linux-cix-kernel-upstream@cixtech.com"
+ <linux-cix-kernel-upstream@cixtech.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20260104075400.1673101-1-gary.yang@cixtech.com>
+ <20260104075400.1673101-2-gary.yang@cixtech.com>
+ <20260105-excellent-uakari-of-joy-f0dfa4@quoll>
+ <PUZPR06MB588755A9FB6B42AAA870E30BEF86A@PUZPR06MB5887.apcprd06.prod.outlook.com>
+ <63454553-01df-4c40-aad3-7ea64bef685e@kernel.org>
+ <PUZPR06MB5887263D5B0A6DB373816925EF87A@PUZPR06MB5887.apcprd06.prod.outlook.com>
+ <33a70735-8058-4c2c-91f4-2a3ed0e0274d@kernel.org>
+ <PUZPR06MB588702988BAC0F34DFDCD6ECEF87A@PUZPR06MB5887.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <aUkIQjKpd3MhNHjk@nuoska>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <PUZPR06MB588702988BAC0F34DFDCD6ECEF87A@PUZPR06MB5887.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4BBD1338B8
-X-Spamd-Result: default: False [-4.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RCVD_TLS_ALL(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[13];
-	MIME_TRACE(0.00)[0:+];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[lists.freedesktop.org,lists.infradead.org,vger.kernel.org,ideasonboard.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,amd.com,linaro.org];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,linaro.org:email,suse.de:dkim,suse.de:mid];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received,2a07:de40:b281:104:10:150:64:97:from];
-	DKIM_TRACE(0.00)[suse.de:+]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_234140_630576_4D3313E0 
-X-CRM114-Status: GOOD (  20.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,75 +129,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
-
-Am 22.12.25 um 09:58 schrieb Mikko Rapeli:
-> Hi,
->
-> On Fri, Dec 19, 2025 at 02:30:11PM +0200, Mikko Rapeli wrote:
->> On Fri, Dec 19, 2025 at 01:59:14PM +0200, Tomi Valkeinen wrote:
->>> On 05/12/2025 14:37, Mikko Rapeli wrote:
->>>> Currently on default yocto images Xorg fails to start on AMD KV260
->>>> because 24/32 color depth gets detected but does not actually work.
->>>>
->>>> These two patches fix the issue and now 16 bpp gets detected
->>>> and Xorg starts and draws on external HDMI display using
->>>> kernel.org based linux-yocto kernel.
->>>>
->>>> Anatoliy Klymenko (1):
->>>>    drm: xlnx: zynqmp_kms: Init fbdev with 16 bit color
->>>>
->>>> Mikko Rapeli (1):
->>>>    drm: xlnx: zynqmp_kms: set preferred_depth to 16 bpp
->>>>
->>>>   drivers/gpu/drm/xlnx/zynqmp_kms.c | 3 ++-
->>>>   1 file changed, 2 insertions(+), 1 deletion(-)
->>>>
->>> Did you notice the few already sent serieses on the list where the topic
->>> has been discussed?
->>> [PATCH] drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888
->>> [PATCH 0/3] drm: zynqmp: Make the video plane primary
->> Oh I wasn't aware of these.
+On 06/01/2026 08:41, Gary Yang wrote:
+> Hi Krzysztof:
+> 
+> Thanks for you commets
+> 
+>> EXTERNAL EMAIL
 >>
->>> Or is there something else on KV260 that messes up the 24 bit color?
->> These look very similar and likely fix the X11 startup. I will give them
->> a try.
-> Right, now I've tested:
->
->   * these patches from Anatoliy and me to help X11 use 16bpp mode by default
->     and removes the need to manually setup Xorg for 16bpp
->   * "drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888" which enables the X11 default
->     24bpp to work, no need to set Xorg config to 16bpp
->   * "drm: zynqmp: Make the video plane primary" which also fixes the X11 default
->     24bpp to work, no need to set Xorg config to 16bpp
->
-> All of these fix HDMI graphics output on AMD KV260 board with yocto genericarm64 machine
-> and core-image-sato image which includes Xorg. The graphics rendering is still
-> very slow but I think that is a different problem.
->
-> I guess the last series from Sean Anderson is moving forward so I'll
-> reply to that thread separately.
+>> On 06/01/2026 05:52, Gary Yang wrote:
+>>> Hi Krzysztof:
+>>>
+>>> Thanks for your comments
+>>>
+>>>> EXTERNAL EMAIL
+>>>>
+>>>> On 05/01/2026 09:49, Gary Yang wrote:
+>>>>> Hi Krzysztof:
+>>>>>
+>>>>> Thanks for your comments
+>>>>>
+>>>>>> EXTERNAL EMAIL
+>>>>>>
+>>>>>> On Sun, Jan 04, 2026 at 03:53:59PM +0800, Gary Yang wrote:
+>>>>>>> OrangePi 6 Plus adopts CIX CD8180/CD8160 SoC, built-in 12-core
+>>>>>>> 64-bit processor + NPU processor,integrated graphics processor,
+>>>>>>> equipped with 16GB/32GB/64GB LPDDR5, and provides two M.2 KEY-M
+>>>>>>> interfaces 2280 for NVMe SSD,as well as SPI FLASH and TF slots to
+>>>>>>> meet the needs of fast read/write and high-capacity storage
+>>>>>>>
+>>>>>>> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+>>>>>>> ---
+>>>>>>>  Documentation/devicetree/bindings/arm/cix.yaml | 11 +++++++++--
+>>>>>>>  1 file changed, 9 insertions(+), 2 deletions(-)
+>>>>>>>
+>>>>>>> diff --git a/Documentation/devicetree/bindings/arm/cix.yaml
+>>>>>>> b/Documentation/devicetree/bindings/arm/cix.yaml
+>>>>>>> index 114dab4bc4d2..9e132e609b7b 100644
+>>>>>>> --- a/Documentation/devicetree/bindings/arm/cix.yaml
+>>>>>>> +++ b/Documentation/devicetree/bindings/arm/cix.yaml
+>>>>>>> @@ -16,9 +16,16 @@ properties:
+>>>>>>>    compatible:
+>>>>>>>      oneOf:
+>>>>>>>
+>>>>>>> -      - description: Radxa Orion O6
+>>>>>>> +      - description: Radxa Orion O6 board
+>>>>>>>          items:
+>>>>>>> -          - const: radxa,orion-o6
+>>>>>>> +          - enum:
+>>>>>>> +              - radxa,orion-o6
+>>>>>>> +          - const: cix,sky1
+>>>>>>> +
+>>>>>>> +      - description: Xunlong orangepi 6 plus board
+>>>>>>> +        items:
+>>>>>>> +          - enum:
+>>>>>>> +              - xunlong,orangepi-6-plus
+>>>>>>
+>>>>>> Previous patch was correct, not this one.
+>>>>>>
+>>>>>> <form letter>
+>>>>>> This is a friendly reminder during the review process.
+>>>>>>
+>>>>>> It looks like you received a tag and forgot to add it.
+>>>>>>
+>>>>>> If you do not know the process, here is a short explanation:
+>>>>>> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+>>>>>> versions of patchset, under or above your Signed-off-by tag, unless
+>>>>>> patch changed significantly (e.g. new properties added to the DT
+>>>>>> bindings). Tag is "received", when provided in a message replied to
+>>>>>> you on the mailing list. Tools like b4 can help here. However,
+>>>>>> there's no
+>>>> need to repost patches *only* to add the tags.
+>>>>>> The upstream maintainer will do that for tags received on the
+>>>>>> version they apply.
+>>>>>>
+>>>>>> Please read:
+>>>>>> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/pro
+>>>>>> ce
+>>>>>> ss/sub
+>>>>>> mitting-patches.rst#L577
+>>>>>>
+>>>>>> If a tag was not added on purpose, please state why and what changed.
+>>>>>> </form letter>
+>>>>>>
+>>>>>> Read last sentence and linked documentation. Where did you explain
+>>>>>> ignoring/dropping my tag?
+>>>>>>
+>>>>>
+>>>>> Yes, the previous version was acked by you before.
+>>>>
+>>>> I stressed what I expect twice. In form letter and later explicitly.
+>>>> You still ignored it.
+>>>>
+>>>>>
+>>>>> When apply it, we found that orangepi 6 plus and Radxa Orion O6
+>>>>> belongs
+>>>> the different boards.
+>>>>>
+>>>>> So we need to add a new item for it. Like these from qcom.yaml
+>>>>>
+>>>>>       - description: Qualcomm Technologies, Inc. Distributed Unit
+>>>>> 1000
+>>>> platform
+>>>>>         items:
+>>>>>           - enum:
+>>>>>               - qcom,qdu1000-idp
+>>>>>               - qcom,qdu1000-x100
+>>>>>           - const: qcom,qdu1000
+>>>>>
+>>>>>       - description: Qualcomm Technologies, Inc. Radio Unit 1000
+>> platform
+>>>>>         items:
+>>>>>           - enum:
+>>>>>               - qcom,qru1000-idp
+>>>>>           - const: qcom,qru1000
+>>>>
+>>>> No, look at SoCs. Different SocS.
+>>>>
+>>>
+>>> Please Look at rockchip.yaml, the same Socs, and the different boards
+>>>
+>>>       - description: 96boards RK3399 Ficus (ROCK960 Enterprise Edition)
+>>>         items:
+>>>           - const: vamrs,ficus
+>>>           - const: rockchip,rk3399
+>>>
+>>>       - description: 96boards RK3399 Rock960 (ROCK960 Consumer
+>> Edition)
+>>>         items:
+>>>           - const: vamrs,rock960
+>>>           - const: rockchip,rk3399
+>>>
+>>> For the different boards，please give your professional
+>>> suggestions，Thanks a lot
+>>
+>> I gave you already.
+>>
+> 
+> We find these codes below from qcom.yaml, Can we do the same things?
 
-Just want to say that the series here improves xlnx and makes it a 
-'better' driver. IMHO the changes should be merged independently from 
-what happens with the other series.
+Open your binding. How many SKUs you have? ZERO.
 
-Best regards
-Thomas
+Why do you ask if you can add more SKUs? To make the bindings fake? I
+already told you what you have to do and you completely ignored it.
+Previous code was correct, but you need to fix description. And look how
+Qualcomm or IMX organizes this file.
 
->
-> Tested-by: Mikko Rapeli <mikko.rapeli@linaro.org>
->
-> Cheers,
-> -Mikko
+I finished responding here, because you just don't bother to read my
+replies.
 
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
-
-
+Best regards,
+Krzysztof
 
