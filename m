@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D212CEFCE4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 17:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEC4FCEFCE1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 17:43:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g9v2zSVNhGh0879lcjq26W3+3WXrFPqbhfXum8a+f64=; b=lFB9dxEiN6lpZ0w8eJH9e8tC6A
-	r5vgWJpc4uIwCHeTHxY4Y6JVxXKDgW74MeU+Pfh/3AvFrTBWQgDEpIlc+dIvRcUbLpa42XA4vID68
-	MCv6qa7212AfNe017eZsEkctFG+5+f4uQ6Nw+ax0irzVgV6xshajNUdi+0JcoVq4Bwusu2raPSPOs
-	tQsji4wSW8V0N+2m4hijGDb0ut7+cdK5VjmqddYoDt5cJYn71iIkexFU9TCbfdPP7Od/ymUsoO597
-	3fZsMDId/ALLgP04mJKdakvpxpVg162Z3eCaluUrSZoOHRrYFIIk75+RdseUzn2v89gWmt8RoHr4F
-	JZ+WUsCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Uem1PYoLyulo/MUF23qZO/dNEnjzQ9As9kztGwIxewQ=; b=d4rnyUtp+FIGThsjuMpH0Iwlzb
+	AFAjH3UnjQXYugddm+gFZ2w816QpJzyI+eNjq65G9hrtAO5PiuJCjut4bybYyXP2TWz1cja32FiTf
+	l6xWmUDZ9Xi5iXD0kAWcE/lyYvehBGUH4bQSiYDjY6aooms0IC93XhxwCdOYau2VnpxLnelZFA2ah
+	VogdDEGZOoPQjiLlGfrTCWCnw3iXh9Fu15a60troON37AXLQO8FmHHlLjRNUwkiQRPwmByqJGW9Kd
+	iRuEXkI5B/ovQzC9yU8TjNIHZbDWSv5gibgD3sp2QsgFOGFSe7Ot1171yVnZcxPZiqPGHfXVjMAdP
+	uMCkuwNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdAzr-0000000Da7R-1kPY;
-	Tue, 06 Jan 2026 17:37:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdAzo-0000000Da5O-1sqp
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 17:37:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D67BA497;
-	Tue,  6 Jan 2026 09:37:20 -0800 (PST)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 257753F5A1;
-	Tue,  6 Jan 2026 09:37:26 -0800 (PST)
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: broonie@kernel.org,
-	catalin.marinas@arm.com,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	tabba@google.com,
-	will@kernel.org
-Subject: [PATCH 3/3] KVM: arm64: Remove ISB after writing FPEXC32_EL2
-Date: Tue,  6 Jan 2026 17:37:07 +0000
-Message-Id: <20260106173707.3292074-4-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260106173707.3292074-1-mark.rutland@arm.com>
-References: <20260106173707.3292074-1-mark.rutland@arm.com>
-MIME-Version: 1.0
+	id 1vdB5U-0000000Datm-1WpK;
+	Tue, 06 Jan 2026 17:43:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdB5R-0000000DatF-2Sia;
+	Tue, 06 Jan 2026 17:43:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DBC0E434FA;
+	Tue,  6 Jan 2026 17:43:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FF69C116C6;
+	Tue,  6 Jan 2026 17:43:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767721395;
+	bh=knYO0dVBtKILflMNQYIaYPLoiqqfWTfUH8gCTse05RE=;
+	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
+	b=Fm19qNEumPDXY1AVuxiNPc5H1ZrdFIFe8+BXOsTcO9NopdwkpsjKcrZNt+VSKzafn
+	 2IvPjQvnzJQpfvS5aTgE2Y2ckiVpWI2hRJEnQs0Pg0dhz6u8nJhNIB2jcUvOAQrTIf
+	 kH5zIH9uZYdd47qG99G6513q0kEM795b1yo3JMXldLM2GmN+6btkrOxR0EbbAZ1FCY
+	 f0cazx/FvGVgIP9L1Ct9UAVDsXLWVXPdfV6BMmFHH4ze0dX3tkPAhJbksx9Pauzf1d
+	 Xa96eiHRr/HvLuZD/onk+lo2+/E/NxA/dhg2QbJpAE8glTfO8qdt0KSV10PWE5fuZ8
+	 5r7xcMcvU0Bmg==
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 06 Jan 2026 11:43:14 -0600
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+ devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>
+To: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <20260106-mtk-fix-mt7623-pinctl-name-v1-0-33817c7f78ee@baylibre.com>
+References: <20260106-mtk-fix-mt7623-pinctl-name-v1-0-33817c7f78ee@baylibre.com>
+Message-Id: <176772122105.2350532.2584006959358435109.robh@kernel.org>
+Subject: Re: [PATCH 0/2] arm: dts: mediatek: fix pinctl node names
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_093729_092243_B061EBBE 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20260106_094317_672023_3FA5DC44 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,42 +74,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The value of FPEX32_EL2 has no effect on execution in AArch64 state, and
-consequently there's no need for an ISB after writing to it in the hyp
-code (which executes in AArch64 state). When performing an exception
-return to AArch32 state, the exception return will provide the necessary
-context synchronization event.
 
-Remove the redundant ISB.
+On Tue, 06 Jan 2026 09:20:54 -0600, David Lechner wrote:
+> While passing by, I noticed that the pinctrl nodes in a couple of dtsi
+> files did not match the addresses in their reg properties. Here are some
+> patches to fix that.
+> 
+> Signed-off-by: David Lechner <dlechner@baylibre.com>
+> ---
+> David Lechner (2):
+>       arm: dts: mediatek: mt7623: fix pinctrl node name
+>       arm: dts: mediatek: mt8135: fix pinctrl node name
+> 
+>  arch/arm/boot/dts/mediatek/mt7623.dtsi | 2 +-
+>  arch/arm/boot/dts/mediatek/mt8135.dtsi | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
+> ---
+> base-commit: 6cd6c12031130a349a098dbeb19d8c3070d2dfbe
+> change-id: 20260106-mtk-fix-mt7623-pinctl-name-f8593953bed7
+> 
+> Best regards,
+> --
+> David Lechner <dlechner@baylibre.com>
+> 
+> 
+> 
 
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
-Cc: Will Deacon <will@kernel.org>
----
- arch/arm64/kvm/hyp/include/hyp/switch.h | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 8dce3da85da35..91aa1862349cb 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -59,10 +59,8 @@ static inline void __activate_traps_fpsimd32(struct kvm_vcpu *vcpu)
- 	 * If FP/ASIMD is not implemented, FPEXC is UNDEFINED and any access to
- 	 * it will cause an exception.
- 	 */
--	if (vcpu_el1_is_32bit(vcpu) && system_supports_fpsimd()) {
-+	if (vcpu_el1_is_32bit(vcpu) && system_supports_fpsimd())
- 		write_sysreg(1 << 30, fpexc32_el2);
--		isb();
--	}
- }
- 
- static inline void __activate_cptr_traps_nvhe(struct kvm_vcpu *vcpu)
--- 
-2.30.2
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: 6cd6c12031130a349a098dbeb19d8c3070d2dfbe (use --merge-base to override)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/mediatek/' for 20260106-mtk-fix-mt7623-pinctl-name-v1-0-33817c7f78ee@baylibre.com:
+
+arch/arm/boot/dts/mediatek/mt7623a-rfb-emmc.dtb: pinctrl@1000b000 (mediatek,mt7623-pinctrl): 'cir-default', 'i2c0-default', 'i2c1-alt', 'i2c1-default', 'i2c2-alt', 'i2c2-default', 'i2s0-default', 'i2s1-default', 'keys-alt', 'leds-alt', 'mmc0', 'mmc0default', 'mmc1', 'mmc1default', 'nanddefault', 'pcie_pin_default', 'pwm-default', 'spi0-default', 'spi1-default', 'spi2-default', 'uart0-default', 'uart1-default', 'uart2-alt', 'uart2-default' do not match any of the regexes: '^pinctrl-[0-9]+$', 'pins$'
+	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt65xx-pinctrl.yaml
+arch/arm/boot/dts/mediatek/mt7623a-rfb-nand.dtb: pinctrl@1000b000 (mediatek,mt7623-pinctrl): 'cir-default', 'i2c0-default', 'i2c1-alt', 'i2c1-default', 'i2c2-alt', 'i2c2-default', 'i2s0-default', 'i2s1-default', 'keys-alt', 'leds-alt', 'mmc0', 'mmc0default', 'mmc1', 'mmc1default', 'nanddefault', 'pcie_pin_default', 'pwm-default', 'spi0-default', 'spi1-default', 'spi2-default', 'uart0-default', 'uart1-default', 'uart2-alt', 'uart2-default' do not match any of the regexes: '^pinctrl-[0-9]+$', 'pins$'
+	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt65xx-pinctrl.yaml
+arch/arm/boot/dts/mediatek/mt7623n-rfb-emmc.dtb: pinctrl@1000b000 (mediatek,mt7623-pinctrl): 'cir-default', 'hdmi-default', 'hdmi_ddc-default', 'i2c0-default', 'i2c1-alt', 'i2c1-default', 'i2c2-alt', 'i2c2-default', 'i2s0-default', 'i2s1-default', 'keys-alt', 'leds-alt', 'mmc0', 'mmc0default', 'mmc1', 'mmc1default', 'nanddefault', 'pcie_pin_default', 'pwm-default', 'spi0-default', 'spi1-default', 'spi2-default', 'uart0-default', 'uart1-default', 'uart2-alt', 'uart2-default' do not match any of the regexes: '^pinctrl-[0-9]+$', 'pins$'
+	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt65xx-pinctrl.yaml
+arch/arm/boot/dts/mediatek/mt7623n-bananapi-bpi-r2.dtb: pinctrl@1000b000 (mediatek,mt7623-pinctrl): 'cir-default', 'hdmi-default', 'hdmi_ddc-default', 'i2c0-default', 'i2c1-alt', 'i2c1-default', 'i2c2-alt', 'i2c2-default', 'i2s0-default', 'i2s1-default', 'keys-alt', 'leds-alt', 'mmc0', 'mmc0default', 'mmc1', 'mmc1default', 'musb', 'nanddefault', 'pcie_pin_default', 'pwm-default', 'spi0-default', 'spi1-default', 'spi2-default', 'uart0-default', 'uart1-default', 'uart2-alt', 'uart2-default' do not match any of the regexes: '^pinctrl-[0-9]+$', 'pins$'
+	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt65xx-pinctrl.yaml
+
+
+
+
 
 
