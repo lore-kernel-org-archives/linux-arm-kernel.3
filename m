@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0394ECE9D45
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:23:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47083CE9D5C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vcNxrx3fJDmh6sYBz05+3MlW36bJiS8k3kuleTky+Wc=; b=r8U1s6sqDeIKGnveeH4rdtASGc
-	gqYpr+BP6S/OqDoT6i2hzBvIdDZEgM0sjC7t6Og3nlDQrGrnwkEvlWSCibspRv7TdbGAZ95vN9IoW
-	qZEylnDSgV9esJIEB7zOukFHqCeGeXqK63NuytD5KaemP/B1/d4QYL2TyhnmQiXlCYBA9tsY3ufBX
-	dnIHBXliMOdP38gBDlyH3IsdXopbQ9zAEq/qy+QqDnihdvmR4yeKwoRtLf2+tpM6eQ+hybIkEXKez
-	6jgl9Olrt/iz2aEE4AIBItzw2XPQGoRzAKPJLJtHPdmdPVUz+nFBbZBdKmQP0jSFmdWoOlfx108yu
-	5Fphj9Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WfYfd1PzaMaipLKoSbmZze99juo76um6Ea96kj/deqg=; b=P1RqKGe2yA1VLlyZ2EkeVlsVmI
+	lVoEgCklGYjE/W3ci1OT/NooNfplxok7qQ2kbm+bAe32++xdyjzE3cXqy3tZU+ogQ7dE7p42HPL9J
+	3i/3ckV1D91xtc8bUzdvLs/UFmAHVaE85LnDAHyGpJyfIGLfpO3eMhNST72gPqNbiF6y4yCWdvaWq
+	wV30+YBKJy0fzqT6mkhg/P37wtIXJ0QD7MnmY5Ji7y7KEAovJxwuoCVP5XxJwjQDxg9mz/7bs9wJX
+	dPxoO16+XAOiZd4J+EGxVC2xuzAVLHrX7+FNj8C3SEcXUj+DqlXY4clhmZ1hS8H5I9Ywgoic+LdIi
+	ngG1kxRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8tx-0000000DOqG-1AbQ;
-	Tue, 06 Jan 2026 15:23:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8tu-0000000DOpD-34lr
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 15:23:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D4771497;
-	Tue,  6 Jan 2026 07:23:04 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C79833F5A1;
-	Tue,  6 Jan 2026 07:23:06 -0800 (PST)
-Message-ID: <db799d84-53be-41ea-97a4-f11e03d7f517@arm.com>
-Date: Tue, 6 Jan 2026 15:23:05 +0000
+	id 1vd8wH-0000000DP2U-3Jao;
+	Tue, 06 Jan 2026 15:25:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vd8wG-0000000DP2L-3naK;
+	Tue, 06 Jan 2026 15:25:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=WfYfd1PzaMaipLKoSbmZze99juo76um6Ea96kj/deqg=; b=QEdpsuNl7ia0un9wF36SttoObu
+	nxQEI5WIklTjmDfhrXDmpkPWlxy8UkL6Iqr3LpMakwafmglnFlnXsR5VXVC58V/ZHYkv6AMaKolqx
+	/cVr5UJwW1UKZEMlstf6VqpxSWes3tMyHVBIc7W0cJpBdY7idKsO/hNVuRMW8C2V6W76GEHI2hfis
+	9LOA40VS74ERDGDEfcydRZnoxE/Xdw8aWQhtCvTN5o2OjkX/+pXncxFEUdmVzLQxJFtvjWUBMr1AT
+	do7k2fi00jp3bllKENz1pIemqqzAvW+cZB4IfzbmjRFj6rGMZHixTPqAj4H63R0U2vBEtx8//4DEg
+	K94AiDUw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vd8wE-00000009xZY-3ZDj;
+	Tue, 06 Jan 2026 15:25:39 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 5D63E30056B; Tue, 06 Jan 2026 16:25:38 +0100 (CET)
+Date: Tue, 6 Jan 2026 16:25:38 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: Keke Ming <ming.jvle@gmail.com>, mhiramat@kernel.org,
+	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+	tsbogend@alpha.franken.de, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, akpm@linux-foundation.org,
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 0/5] uprobes: transition from kmap_atomic to
+ kmap_local_page
+Message-ID: <20260106152538.GA3707891@noisy.programming.kicks-ass.net>
+References: <20260103084243.195125-1-ming.jvle@gmail.com>
+ <aVj146EunyaOQzxO@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 23/45] arm_mpam: resctrl: Add rmid index helpers
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-References: <20251219181147.3404071-1-ben.horgan@arm.com>
- <20251219181147.3404071-24-ben.horgan@arm.com>
- <20260106112115.00000201@huawei.com>
- <316c5635-75af-4ebb-ad2c-fab0742beb20@arm.com>
- <20260106140447.0000602b@huawei.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20260106140447.0000602b@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_072314_903669_177FEE71 
-X-CRM114-Status: GOOD (  15.88  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aVj146EunyaOQzxO@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,92 +75,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
-
-On 1/6/26 14:04, Jonathan Cameron wrote:
-> On Tue, 6 Jan 2026 11:33:44 +0000
-> Ben Horgan <ben.horgan@arm.com> wrote:
+On Sat, Jan 03, 2026 at 11:56:35AM +0100, Oleg Nesterov wrote:
+> On 01/03, Keke Ming wrote:
+> >
+> > Keke Ming (5):
+> >   riscv/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
+> >   arm64/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
+> >   mips/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
+> >   arm/uprobes: use kmap_local_page() in arch_uprobe_copy_ixol()
+> >   uprobes: use kmap_local_page() for temporary page mappings
+> >
+> >  arch/arm/probes/uprobes/core.c     |  4 ++--
+> >  arch/arm64/kernel/probes/uprobes.c |  4 ++--
+> >  arch/mips/kernel/uprobes.c         |  4 ++--
+> >  arch/riscv/kernel/probes/uprobes.c |  4 ++--
+> >  kernel/events/uprobes.c            | 12 ++++++------
+> >  5 files changed, 14 insertions(+), 14 deletions(-)
 > 
->> Hi Jonathan,
->>
->> On 1/6/26 11:21, Jonathan Cameron wrote:
->>> On Fri, 19 Dec 2025 18:11:25 +0000
->>> Ben Horgan <ben.horgan@arm.com> wrote:
->>>   
->>>> From: James Morse <james.morse@arm.com>
->>>>
->>>> Because MPAM's pmg aren't identical to RDT's rmid, resctrl handles some
->>>> data structures by index. This allows x86 to map indexes to RMID, and MPAM
->>>> to map them to partid-and-pmg.
->>>>
->>>> Add the helpers to do this.
->>>>
->>>> Signed-off-by: James Morse <james.morse@arm.com>
->>>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>  
->>> one comment inline.
->>> I messed around with GENMASK + field_prep()/field_get() - new
->>> versions of these with no need for runtime constant masks, but
->>> it ended up as not that much more readable than what you have here.
->>>
->>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>  
->>>> ---
->>>> Changes since rfc:
->>>> Use ~0U instead of ~0 in lhs of left shift
->>>> ---
->>>>  drivers/resctrl/mpam_resctrl.c | 28 ++++++++++++++++++++++++++++
->>>>  include/linux/arm_mpam.h       |  3 +++
->>>>  2 files changed, 31 insertions(+)
->>>>
->>>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
->>>> index 4275b1a85887..bdbc5504964b 100644
->>>> --- a/drivers/resctrl/mpam_resctrl.c
->>>> +++ b/drivers/resctrl/mpam_resctrl.c
->>>> @@ -120,6 +120,34 @@ u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
->>>>  	return mpam_partid_max + 1;
->>>>  }
->>>>  
->>>> +u32 resctrl_arch_system_num_rmid_idx(void)
->>>> +{
->>>> +	u8 closid_shift = fls(mpam_pmg_max);
->>>> +	u32 num_partid = resctrl_arch_get_num_closid(NULL);
->>>> +
->>>> +	return num_partid << closid_shift;  
->>>
->>> Given I think you restrict mpam_pmg_max to be power of 2 elsewhere,
->>> doesn't this end up the same as something like
->>> 	return mpam_pmg_max * resctrl_arch_get_num_closid(NULL);
->>> Maybe its worth keeping it in the form you have here as
->>> it sort of provides documentation for how you pack those IDs  
->>
->> We only warn if (mpam_pmg_max + 1) is a power of 2 and so I'll keep this
->> as it is, although yours is equivalent in the expected case.
+> Thanks,
 > 
-> Do the resulting 'holes' in the values that are valid here cause
-> trouble it isn't power of 2? 
+> Acked-by: Oleg Nesterov <oleg@redhat.com>
 
-Theoretically they are a problem, and if resctrl allocates them then we
-would get invalid pmg values which can cause msc error interrupts.
-However, I don't know of any platforms where pmg_max is more than 1.
-
-Anyhow, I'll look into using multiplication in these rmid arch helpers
-rather than just shifting to avoid leaving these holes.
-
-> 
->>
->>>   
->>>> +}  
->>>   
->>
->> Thanks,
->>
->> Ben
->>
->>
-> 
-
--- 
-Thanks,
-
-Ben
-
+Let me go stick them in tip/perf/core
 
