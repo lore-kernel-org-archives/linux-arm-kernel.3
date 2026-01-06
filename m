@@ -4,92 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 104C4CE9D63
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:44:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE2BCE9D65
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mz1wbrQcnjuO79QSOtWIYJrTAe9ZLjIXP7SQUWoez/I=; b=jZEDQY3SGRRV1tNduhgK3Pxmmb
-	dWfobUabk9w+CzwG1y7GAls4Eu8VQk1xZYE0bmrlI3rT9Q6qwp2u639LagiajG+La4pmLgqXmBGss
-	rAfo5HIEsRXpOMS6yzgqsWNqxrRjxCPvJt9Xu5xat6zzdtf5Mws2MtbADaVJ3ZMGMMXssfMMYloiS
-	zwMfbhs/2ABXxoNr2HE7osWql61iSf0PyqDlB3GOezoxSmWu9KmVVzg8F0VH9ZaxGqbOCxOfM7Dh+
-	YqP6/P5wJGA6KihkSxrdXE4iXAaFAKV4qTXZ535JqhT9mguKg8ht2GaEnAswLZd3N5cWBfMNUnEym
-	BftQghLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d3BPDyxdSzmRlY82TYRVSEMIt1MGjPO4hr8vKGfT55g=; b=D0r80hApsDLmnszZ0Q6SEtkKQV
+	K6TSANxO6MJ2ycdHN5rWahnM45Mj1/iK86K+29V6jRaDEVpofVfaK8ibAOKRhWDi5n14ApOp0SHY7
+	mubqcC+RbYKkT+PpfWc/TWXsj81F+Fdnme0i2SoEtuLN9Kt2pNVc6iv4wm5hBoRJxalsFlxr9gbpz
+	IIbx2qWgeT22xSQ6kI0BYoI6Hg/vtYYb1pUJm5CjMpOdjnDIwLm8krWh+c4zN1urNXcJJ7SinIUbC
+	lV7xo15593xBhQWuwc8uTIV11+MYFNsDFXy4vrP+zjam1tq+VRcbwZGIwjZWcxduO8kkL+l/shdGl
+	Xa3GBiAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd9EF-0000000DQS0-3s89;
-	Tue, 06 Jan 2026 15:44:15 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1vd9Er-0000000DQZ1-19ee;
+	Tue, 06 Jan 2026 15:44:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd9ED-0000000DQRO-29j6
+	id 1vd9Ep-0000000DQXs-24hg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 15:44:14 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-59b685d2b79so684072e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 07:44:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767714251; x=1768319051; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=mz1wbrQcnjuO79QSOtWIYJrTAe9ZLjIXP7SQUWoez/I=;
-        b=W5NQCZ3zNqG+9GtXh8f9byB3mSQmZQ4TCoo6tzBvAG33WSMPFNfFiPFuo9tRNX3LEl
-         ypunMThepTyrRjoau3nL37+KLnt2g+NjBnsJtVY6Arg8QjldKQhDqEQgkYqB1NINs5kM
-         gHcaBprz9ww2hHHAf0GyATiYe2nSJ+keeV0xVFrMuONYVjEd9T5suGdmvqC+TysXxmS+
-         FyAYLN2fuQ2kKRDr+ZYARUblMquTmn9Qtlav27mr5ry27QK1+5gf73O5VE9tduZ2ZAnT
-         +sLkk+Q8IxLkFNlIjEHZrTOQGOxI/DMZzogjLTftlQ3ShV0yJZ48Fon1yDlJZX+whioo
-         WgpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767714251; x=1768319051;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mz1wbrQcnjuO79QSOtWIYJrTAe9ZLjIXP7SQUWoez/I=;
-        b=bFxbGWJOzaQAiGlTWEn2iSwQcMU+JvZ7TGLpVaLmhbDUIjWfRYfO9udRYvFtpQhatZ
-         HDO8VsQmLe2UtDL4SWv8wFyfhzjpVxK/n6pQf17UW4L5JX3Y9oSVvMLCct+pkw7cGFvT
-         4sxOLHFcusPKt90xiRZ5NhXU7Z5Gn4voKcKgGWmMT+VAwKTrjzWdEsvt5TOeDA9YcN1t
-         gblGIaQis08azrS5H+jiW2RaxSmKOijePaA+RkJffYcdT1L0yzh+Wfo3FmU1MFQsW3XW
-         Ene1/f04D3ZQfi0WPuIBI6wKy0Nz57jFFPsIxRsFQuN5t2ZhM5T+P/zgEPph/xdn2rXL
-         p/rQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX6EHrTSr+OhhsXn2DtFiFhU4YIRWHe+hIoGResifqXuNA8l/b8MKLR188KzvBvaWGhqade7t1hlfkeBYGi1IPC@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPSPSc42h8jVGRQmHUtU5+R7rRkm2PLy9wa7ZyYlbrH83hnndw
-	tv5zeHmxnmSUX9UrAknWNk0L3LKKBjVHq55ij7Y7kMV4Js7DhpvR6DdDrsSBRpmNRA==
-X-Gm-Gg: AY/fxX6S0yBo+oNI5LwyPWbB6tgO0oTcUu1CiGSeVE3ARql7QFAh1yXVGX9oKmfgbfV
-	zok9wSfWc3mj7+lho+dhX41phpaGg3nkABXun4evOlO+MBWU+A31OgxeJbq3GrDJNVYIAdFqwoU
-	GSo6VhV6FaErXyhJ8ifzVUx0OaKvdtkg7G4A9Ep9mvmsr+tZGFMEYZlyl5quiZdpxD+lyWzwycY
-	ySw67IA6bO/5v5YA8BJBsBqpEvbcQ4BBxHmSGHIalHQotLCS6HJ5gEh9OqVdlSkHk1TXw0eIeNY
-	c2cKYMkouRwbFgie/HX4wDd237KWH7SsjlrHvEWZPD267cHDSBHUJge9tfQaFVnZ7WlSSIftFkz
-	Inp39BMoy+CaNH9UraRqhqPA0xXvm7VNio2x8KqulxzIvoo7k5ZYY22hzR6mzKyZtO3Q48iL32O
-	rewOfq1wqeRGkPBW1/eBy9wL7GljhWT53240BvrIgr1l6oJB25
-X-Google-Smtp-Source: AGHT+IGkS9tlwTbYGvATESU7hxY01HF7hmBh1v9elXEG0+a5tz+AGtmUgQ/CHKlyCMpkq2RD6my7zw==
-X-Received: by 2002:a05:6512:4010:b0:595:8313:3bce with SMTP id 2adb3069b0e04-59b6520ead1mr1016775e87.5.1767714251076;
-        Tue, 06 Jan 2026 07:44:11 -0800 (PST)
-Received: from google.com (228.231.88.34.bc.googleusercontent.com. [34.88.231.228])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59b65b89842sm649851e87.0.2026.01.06.07.44.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jan 2026 07:44:10 -0800 (PST)
-Date: Tue, 6 Jan 2026 15:44:06 +0000
-From: Quentin Perret <qperret@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Fuad Tabba <tabba@google.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 20/30] KVM: arm64: Introduce hypercall to force reclaim
- of a protected page
-Message-ID: <avfs64mpioh4ckdo3gokndinpjdrgfzz2pjhkyyh65v6spuai3@nz4zih4rbv6m>
-References: <20260105154939.11041-1-will@kernel.org>
- <20260105154939.11041-21-will@kernel.org>
+	Tue, 06 Jan 2026 15:44:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DAA004330F
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Jan 2026 15:44:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB687C19424
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Jan 2026 15:44:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767714290;
+	bh=46IA74TgsYCX1Wdt8aKcLKb4RYOUhDJz4Bq8eqM3rvM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=M8aqSayh9x7eugOCav2bUStC3irU102ypWSH1a6+VxK2JM94lSG/3mPDBBxdNg9dB
+	 9caq4toXi+Ry3NHUpkGyP1fQsyXrE/u/eg6vxmWii3ry1BRwJeD/GYRdrDlQYq3p8b
+	 blArfXe2ZBxKN9qSAGwjrnmeGrKQoLrpyXvsBlgJ0C1U1koKUQuVL2I0Da2AHS9/2Q
+	 nHmJYt5vnHBuYlKzJja8nOpzuFBgsi3KUjttuiq5obuTJOTtU9Er9Jap/arRWt7EYL
+	 B95bFMEQ5Gj9f72+BsMunNYp1hqO/Cs/89rPiVCyWV5ZtDeuHGPqu9dw1Tqrr7VgMi
+	 Pbm03B+uBiMsA==
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-b804646c718so164353766b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 07:44:50 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVDTeUCHlbLEnWXJqTmcFJ9igM1YqJjXMrInPymmum2QW4DEkroSLoO5jMNRf/FaEV/IdvMLZZMywlrXtfwTOsJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywhm5cO8YGpCEgi9rjPg5VBfhBY3VuHIDZEzIQg5CTFVgQMAVNv
+	z4QtyVgW9r/7UR5CnIgTJSaXTQo1aJ2bVF4PXchiWIjJ0CPx+Rvq+np77sea9uXfuNnEwVzcmzI
+	w9QzL3g3tB5oPs0oMUGg4w1vPGwJwtQ==
+X-Google-Smtp-Source: AGHT+IHFeow7GaX738Pcre7r5od5Yqad8UB8G/TYGPsM6GH9pPZ2ShOPoXiLIEj59XKYnsYmNR7ZxCR17dGzQ8eR6p8=
+X-Received: by 2002:a17:907:d7c9:b0:b84:1fef:32a0 with SMTP id
+ a640c23a62f3a-b8426a422femr330026266b.6.1767714289311; Tue, 06 Jan 2026
+ 07:44:49 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260105154939.11041-21-will@kernel.org>
+References: <20251226141116.1379601-1-coxu@redhat.com>
+In-Reply-To: <20251226141116.1379601-1-coxu@redhat.com>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 6 Jan 2026 09:44:37 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqLEsUV34tMZWSMc6w-xDV=M0JpOmS95TxrtbbBMRoD3Jw@mail.gmail.com>
+X-Gm-Features: AQt7F2oZXv_EGI4J1ibbdla2HKndc4TqmJiiAssIWbaMzvfSFkjDSKLgEAqcVKc
+Message-ID: <CAL_JsqLEsUV34tMZWSMc6w-xDV=M0JpOmS95TxrtbbBMRoD3Jw@mail.gmail.com>
+Subject: Re: [PATCH] arm64/kdump: pass dm-crypt keys to kdump kernel
+To: Coiby Xu <coxu@redhat.com>
+Cc: kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>, Baoquan he <bhe@redhat.com>, 
+	Dave Young <dyoung@redhat.com>, Kairui Song <ryncsn@gmail.com>, Pingfan Liu <kernelfans@gmail.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE" <devicetree@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_074413_586484_3E950267 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20260106_074451_574157_0A84BF87 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,36 +88,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +static int host_stage2_decode_gfn_meta(kvm_pte_t pte, struct pkvm_hyp_vm **vm,
-> +				       u64 *gfn)
-> +{
-> +	pkvm_handle_t handle;
-> +	u64 meta;
-> +
-> +	if (kvm_pte_valid(pte))
-> +		return -EINVAL;
+On Fri, Dec 26, 2025 at 8:11=E2=80=AFAM Coiby Xu <coxu@redhat.com> wrote:
+>
+> Based on the CONFIG_CRASH_DM_CRYPT feature, this patch adds
+> LUKS-encrypted device dump target support to ARM64 by addressing two
+> challenges [1],
+>  - Kdump kernel may not be able to decrypt the LUKS partition. For some
+>    machines, a system administrator may not have a chance to enter the
+>    password to decrypt the device in kdump initramfs after the 1st kernel
+>    crashes
+>
+>  - LUKS2 by default use the memory-hard Argon2 key derivation function
+>    which is quite memory-consuming compared to the limited memory reserve=
+d
+>    for kdump.
+>
+> 1st kernel will add device tree property dmcryptkeys as similar to
+> elfcorehdr to pass the memory address of the stored info of dm-crypt
+> keys to the kdump kernel.
 
-Nit:
+Is there not any security issue with putting the key into the DT? The
+DT is provided to userspace. There's provisions already to not expose
+"security-*" properties to userspace (see __of_add_property_sysfs).
+Though I think that has a hole in that the FDT is also provided as-is.
+However, I don't even know who or what uses these properties.
 
-I can't think of any cases where we'd end up returning -EINVAL here that
-isn't indicative of a major problem (e.g taking a stage-2 perm fault we
-don't expect) given that we've extensively checked the state of the page
-already. Upgrade to WARN()? It's fatal, but the system is unlikely to
-make much more progress if we return cleanly anyways, so we might as
-well make it obvious where things went wrong.
-
-> +	if (FIELD_GET(KVM_INVALID_PTE_OWNER_MASK, pte) != PKVM_ID_GUEST)
-> +		return -EPERM;
-> +
-> +	meta = FIELD_GET(KVM_INVALID_PTE_EXTRA_MASK, pte);
-> +	handle = FIELD_GET(KVM_HOST_INVALID_PTE_GUEST_HANDLE_MASK, meta);
-> +	*vm = get_vm_by_handle(handle);
-> +	if (!*vm) {
-> +		/* We probably raced with teardown; try again */
-> +		return -EAGAIN;
-> +	}
-> +
-> +	*gfn = FIELD_GET(KVM_HOST_INVALID_PTE_GUEST_GFN_MASK, meta);
-> +	return 0;
-> +}
+Rob
 
