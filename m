@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E8BCEFCE2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:29:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6191CEFCEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:30:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C6qFHxqoWBG7IV6u8Cbs7on3ylcj5l0UA0SsRBcTYU4=; b=0X7NqKdbhw3WakGAuAbRlqRveJ
-	36lrvQ3lQaQhu+uhvya0X/11EYfVTn8Ftq8m6NehD8ito05Kw1tugNNkEs8kR5MYFP6pUrxm1znFs
-	ETY+VNIo/DrDx3/an2LmkhSQYUEyis8rW4Y28Y7gHNgfbO1HYNrXC2I37jRMSsVX1fYatHsSq65q1
-	P2kTMmm6mI6Pwtx3/fs2VnPAu4VWjTK8rc+ejaVh8CrHc14TFz6FFwK5mZMpZjr+pPMB+BZC30EgS
-	CwT7kmK1NAAY7WuUD7O32RbCcggN7g4wXNjpxWbP9ClR7UFoTenrh6jXMvyMPvMdriSIaa5sKbawW
-	E7LLtrug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VOU0S7R/C48eCf5z1Erg51Ghwrl71NJ7rBkIRjm+AWQ=; b=U1AJMBJYa1u8OOOwWA7rrMqEWA
+	34POKXBJEws4UYi/qyVzx+PKwpQGbfL7B6oRhiOqChQN1SLKxmQCs6i05ZqbfLgOht9B/LVpdk3xN
+	tKjQnrmIDiIWxcWAWtaIbC2v+fiH/vi3PLyvvIhgMialnC5Zt3QaEqxCPjKYg5Rg9DZrWACgFkHW4
+	NLfqewrxlRrfhiP66//FSjQPlp9Ix9SOK9BNOFzoIA6rs32e119xfQrd+cEtmfwTvdi+ZSbTScDO5
+	tzbWE1seuZ5FjcAZpWjq0WVZlOcJqlXuCuCBUU02pLHH7yurLEcFG17IFbJxLxv5fRYGocbIwO5WD
+	5GZyry3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBno-0000000DgCC-41ht;
-	Tue, 06 Jan 2026 18:29:08 +0000
+	id 1vdBoe-0000000DgUh-0Kj8;
+	Tue, 06 Jan 2026 18:30:00 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBnm-0000000DgBP-2wzY
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 18:29:06 +0000
+	id 1vdBod-0000000DgUT-1ogu;
+	Tue, 06 Jan 2026 18:29:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 113EB60144;
-	Tue,  6 Jan 2026 18:29:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3793EC116C6;
-	Tue,  6 Jan 2026 18:29:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D9DAF60147;
+	Tue,  6 Jan 2026 18:29:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78291C116C6;
+	Tue,  6 Jan 2026 18:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767724145;
-	bh=viOFB4/yDJPmlUVK9aA8lHxdD5KZeK3qCbk9U703L4E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SyQv0/FVAuHmLLwaUjLZZIbKRJ0Ehmu9FcOAuL/Te9JbKsrsAcuaCb+Hh5YGxuW6G
-	 VkVl8ulqlqE9lEttQE8XxMTMSYEK1D96atzzOY+t6d3yb53OVWzVVs2F2Ptfg7EOAU
-	 zeGB/Vs5BjrBO6KddnnwOZJag4OPAytBPKke+X49hvirea36YlOw3RKtTaZ/hhidQ8
-	 Rn1333x7VB3pOwB+julHkI3YIxt7CFmNBtmk40LsDlrG0YeDPkkm45Pe7DCpPKl1hw
-	 WOFU9KcQzE2WHLhzt+ILx6VR9mPYNNg+IHyLj4uk6TMckdb/PicweYTbTqAwAu5Mp3
-	 yFArfhjPITKdA==
-Message-ID: <da2988cf-8f4b-4f85-a915-d83ebcb9923e@kernel.org>
-Date: Tue, 6 Jan 2026 19:29:00 +0100
+	s=k20201202; t=1767724198;
+	bh=wNVX7IulzCBkQzn3kkWj0KnrC5s7RfNjvq83HQ/7WuY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ef8YQM2LNQq6eiBNXSz7SThHvlUBz987WkGv56drRGEP4fiXfCduAAzcpj9vZvZcU
+	 3bgSps3+biPcyABJQNg5exqJCTVu7nRpD+08OWWBrZ8unXslaT62EkjnEeaAzZMTY9
+	 MQxoScxhA/goVPXQLN5PLULCszRq/6J9Q5zTM9x3pD98WgRz8KPQuTOQYyHda6Yb+7
+	 4p+ftJhsbM4YmXtxJpSXeNwTWnl/A3cmrYwqohaqebrzhtcEbEL7zt8FNrf6tNoyKh
+	 orlYfnOFCrgpyjaKU7PA+sb9R3NRYfRpIq43N3MvTdlJl7RjmjpbaL/wm61iz7JpN4
+	 RJfsAaXDJeHUg==
+Date: Tue, 6 Jan 2026 12:29:57 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: conor+dt@kernel.org, linux-kernel@vger.kernel.org, krzk@kernel.org,
+	linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org,
+	devicetree@vger.kernel.org, rogerq@kernel.org, sjakhade@cadence.com,
+	vkoul@kernel.org, srk@ti.com, linux-phy@lists.infradead.org,
+	neil.armstrong@linaro.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: phy: Add PHY_TYPE_XAUI definition
+Message-ID: <176772419699.2512006.6478554353373580831.robh@kernel.org>
+References: <20260104114422.2868321-1-s-vadapalli@ti.com>
+ <20260104114422.2868321-2-s-vadapalli@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: fsl: qbman: fix race condition in qman_destroy_fq
-To: Richard Genoud <richard.genoud@bootlin.com>,
- Marco Crivellari <marco.crivellari@suse.com>, Kees Cook <kees@kernel.org>,
- Roy Pledge <roy.pledge@nxp.com>, Claudiu Manoil <claudiu.manoil@nxp.com>,
- Scott Wood <oss@buserror.net>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20251223072549.397625-1-richard.genoud@bootlin.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <20251223072549.397625-1-richard.genoud@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260104114422.2868321-2-s-vadapalli@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,99 +72,38 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-Le 23/12/2025 à 08:25, Richard Genoud a écrit :
-> [Vous ne recevez pas souvent de courriers de richard.genoud@bootlin.com. Découvrez pourquoi ceci est important à https://aka.ms/LearnAboutSenderIdentification ]
+On Sun, 04 Jan 2026 17:14:17 +0530, Siddharth Vadapalli wrote:
+> From: Swapnil Jakhade <sjakhade@cadence.com>
 > 
-> When QMAN_FQ_FLAG_DYNAMIC_FQID is set, there's a race condition between
-> fq_table[fq->idx] state and freeing/allocating from the pool and
-> WARN_ON(fq_table[fq->idx]) in qman_create_fq() gets triggered.
+> XAUI (eXtended Attachment Unit Interface) is a high-speed serial interface
+> standard for 10 Gigabit Ethernet (10GbE). It uses four lanes with each
+> lane operating at 3.125 Gbps (totaling 10 Gbps), to extend the XGMII
+> interface across circuit boards, commonly used in backplanes for
+> networking switches and high-performance computing. XAUI is defined as a
+> standardized instantiation of XGMII Extender in the IEEE 802.3
+> specification.
 > 
-> Indeed, we can have:
->           Thread A                             Thread B
->      qman_destroy_fq()                    qman_create_fq()
->        qman_release_fqid()
->          qman_shutdown_fq()
->          gen_pool_free()
->             -- At this point, the fqid is available again --
->                                             qman_alloc_fqid()
->             -- so, we can get the just-freed fqid in thread B --
->                                             fq->fqid = fqid;
->                                             fq->idx = fqid * 2;
->                                             WARN_ON(fq_table[fq->idx]);
->                                             fq_table[fq->idx] = fq;
->       fq_table[fq->idx] = NULL;
+> Add definition for XAUI PHY type.
 > 
-> And adding some logs between qman_release_fqid() and
-> fq_table[fq->idx] = NULL makes the WARN_ON() trigger a lot more.
-> 
-> To prevent that, ensure that fq_table[fq->idx] is set to NULL before
-> gen_pool_free() is called by using smp_wmb().
-
-You dismantle/reimplement qman_release_fqid(). Is that the only possible 
-approach ?
-Isn't it possible to just clear fq_table[fq->idx] _before_ calling 
-qman_release_fqid() ?
-
-> 
-> Fixes: c535e923bb97 ("soc/fsl: Introduce DPAA 1.x QMan device driver")
-> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+> Signed-off-by: Swapnil Jakhade <sjakhade@cadence.com>
+> [s-vadapalli: added detailed description of XAUI in the commit message]
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 > ---
->   drivers/soc/fsl/qbman/qman.c | 24 ++++++++++++++++++++++--
->   1 file changed, 22 insertions(+), 2 deletions(-)
 > 
-> NB: I'm not 100% sure of the need of a barrier here, since even without
-> it, the WARN_ON() wasn't triggered any more.
+> v1 of this patch is at:
+> https://lore.kernel.org/r/20251224054905.763399-2-s-vadapalli@ti.com/
+> Changes since v1:
+> - The commit message has been updated to provide a detailed description of
+>   XAUI based on feedback from Krzysztof at:
+>   https://lore.kernel.org/r/20251227-airborne-energetic-kingfisher-adc4fb@quoll/
 > 
-> diff --git a/drivers/soc/fsl/qbman/qman.c b/drivers/soc/fsl/qbman/qman.c
-> index 6b392b3ad4b1..39a3e7aab6ff 100644
-> --- a/drivers/soc/fsl/qbman/qman.c
-> +++ b/drivers/soc/fsl/qbman/qman.c
-> @@ -1827,6 +1827,8 @@ EXPORT_SYMBOL(qman_create_fq);
+> Regards,
+> Siddharth.
 > 
->   void qman_destroy_fq(struct qman_fq *fq)
->   {
-> +       int leaked;
-> +
->          /*
->           * We don't need to lock the FQ as it is a pre-condition that the FQ be
->           * quiesced. Instead, run some checks.
-> @@ -1834,11 +1836,29 @@ void qman_destroy_fq(struct qman_fq *fq)
->          switch (fq->state) {
->          case qman_fq_state_parked:
->          case qman_fq_state_oos:
-> -               if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID))
-> -                       qman_release_fqid(fq->fqid);
-> +               /*
-> +                * There's a race condition here on releasing the fqid,
-> +                * setting the fq_table to NULL, and freeing the fqid.
-> +                * To prevent it, this order should be respected:
-> +                */
-> +               if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID)) {
-> +                       leaked = qman_shutdown_fq(fq->fqid);
-> +                       if (leaked)
-> +                               pr_debug("FQID %d leaked\n", fq->fqid);
-> +               }
+>  include/dt-bindings/phy/phy.h | 1 +
+>  1 file changed, 1 insertion(+)
 > 
->                  DPAA_ASSERT(fq_table[fq->idx]);
->                  fq_table[fq->idx] = NULL;
-> +
-> +               if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID) && !leaked) {
-> +                       /*
-> +                        * fq_table[fq->idx] should be set to null before
-> +                        * freeing fq->fqid otherwise it could by allocated by
-> +                        * qman_alloc_fqid() while still being !NULL
-> +                        */
-> +                       smp_wmb();
-> +                       gen_pool_free(qm_fqalloc, fq->fqid | DPAA_GENALLOC_OFF, 1);
-> +               }
->                  return;
->          default:
->                  break;
-> 
-> base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
-> --
-> 2.47.3
-> 
+
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
