@@ -4,77 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E049CEFD01
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 20:32:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34568CEFD10
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 21:11:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d5EH9CN/M6xoNGKrm1WaBtVLEC1EjhpBswnHDX8iinE=; b=z4+KcatoPBbCBPvgd4VsoNO5B+
-	2W0ImuETj6LZglFh638+jvj1V+xSx8+vyzQqW/JQGdwsB/AqcPswmHdXl+MnXdIc/GsbWa6QKoxGL
-	tk6SZmQNtr9vKd1RWHMr2lLWma1R7XmuxZCksUAU6luKLCJ7tL5BJIiYT3pgsw6LskcAOk4RIw2bz
-	97cj3w3ExAobZUBTjavCqtMfqJF+ywLxWxHcQFAy5wxzjmyg61Y/P9uI/wFWQLu2RdfGkH729WR7B
-	G6VBaoPIt193Abe+nPstMarGCA4XwyQFQLONVcWixYjrTV7Zqo2rRd02eRRuZiv617j6yUY4BivHX
-	37cjuiDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QhN1WAuMMr05B3KPSfvPQnFSaJ788oFx+QDIhlRIVYE=; b=e85Z2YMXmPRTB+lzs9Hao/IeOj
+	0e43tTd4a6MaHEtsbFbroYFmzcsGAWznZBZ8x6W6K+ZnydyD3kZEHI20tlviSSC/swbZ0SjMXe30T
+	0DXBmIUWJCSAjPfG3zEDOL4mRQdJMmA2SxaAvxeDU39vsU6/+yE5LpZahMytaExEIfokIpC1CDFN9
+	/+pKVKGKO3necHI/jAGgUnDnP9RzW1vXjCN5n7DNYxw/5X+ofEBmsFb9OrOJfUwO0ql/jdWPwD49h
+	glp0i18Xi2l3se+O3qxx1GltYS++t6eoH/4aLQ8anLltKyRsYsRimrnRrsNKa+q8Og3AHgIQ7zeQA
+	At7yqFqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdDj4-0000000DpQm-0laT;
-	Tue, 06 Jan 2026 20:32:22 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vdELC-0000000DqqO-1WnX;
+	Tue, 06 Jan 2026 21:11:46 +0000
+Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdDiw-0000000DpIc-39e9
+	id 1vdEL8-0000000Dqph-3IY8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 20:32:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=d5EH9CN/M6xoNGKrm1WaBtVLEC1EjhpBswnHDX8iinE=; b=qr8AxN13eHBoD4TVFJjpyYkmwF
-	Hr00Jt6HTI0dW2oF/sKHMaXwJbFqpEhE5p7PUbOAni1c9wIxkDvADfVLh7a95bm/OkmdGRqE2GHGV
-	kD1uVdHga8OTi+qc3FoImoqD2cZMJ8xsHFZqNlnDJ3C/RtnogfmhcNdaoyQkTvbPbpI2A0Ll22HMC
-	2hlkl7Y6PMZ2XCl3GatmA2Zphal7njNKb7O4wbmYpL0gN8p6dXyf8KUtrrgcXlBe71e0TPRu5ehmK
-	nDPf7xPozvUoFk3NI9e1K8DT6zaw09iZEFmhP1zp296y+ZMH+Bg8ViUn2/0F7Rb7ZkZiOJTCJnVmF
-	89M9JOXg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:33442 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vdDih-0000000012h-21MF;
-	Tue, 06 Jan 2026 20:31:59 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vdDif-00000002E27-239W;
-	Tue, 06 Jan 2026 20:31:57 +0000
-In-Reply-To: <aV1w9yxPwL990yZJ@shell.armlinux.org.uk>
-References: <aV1w9yxPwL990yZJ@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 9/9] net: stmmac: remove unused definitions
+	Tue, 06 Jan 2026 21:11:44 +0000
+Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-88a34450f19so13779676d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 13:11:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1767733901; x=1768338701; darn=lists.infradead.org;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=QhN1WAuMMr05B3KPSfvPQnFSaJ788oFx+QDIhlRIVYE=;
+        b=AYVuBmXv8swR9f7E6gxklqJm9uLW9xcY/wlai7CnG4WLG3KDnC2qPLhafqRI/zIK3r
+         mULVDeEgmT1yjV9LdHKvaoPRcUmfSuSNG6/BF7l+S1FyVml4NpufjojrbmiSBi0c+opm
+         QFrDXzhOTYWTaeTH1qNqSBSayGGKzuUV0fsfpGAIPIuADyZ+eiWVrbAeVZoOz6+dmocQ
+         6Df2gxlV0mDWKFThs3cVA7q+pK/PNItI+E2yQ332MkzvQLpJS0GpLLMspvqpBuioKr/a
+         nVjwoDKnIhhWhoM1vkD2hFQrldGWsdVeo7oEgsOO7kcAIOhfV+zXV4+3DwMZ6ue/vOby
+         PywQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767733901; x=1768338701;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=QhN1WAuMMr05B3KPSfvPQnFSaJ788oFx+QDIhlRIVYE=;
+        b=usqy/UpxZvFbulwlWuIjQvAHYVr21Qz8MZbYF5AbtsQJgTODh4rGeCPEVvUmc0JRQz
+         ik7wDwj0mtN+Sr2C1qnBjlWwlil1KWyfxiYt9EJLuidqNKGVsfPQ+QchXDfy5cVxdNWh
+         WqZdOM0fUDu9PMp/lajcA04+rBTqjRIUdhQKwMOzJzPRhGKHgR5qaocFVRkOmd7DA2z3
+         qJL+wXKg7ACxiemv3py052uKXHFMJEsq0sjbd0HxcW6eaN5amUZ1wDKBpW2vVU8JRgaH
+         NBvfjXHRGXZIDfh3jhL7lAwOHI1xiSAw1Blbh8VMRtVFImjtAuUlA0vUdxdGrLS/KRV1
+         L9wg==
+X-Forwarded-Encrypted: i=1; AJvYcCVEO4FcjAifJC4TzFIsdDdC0JKMzsFnux9FS9T5AwN3ls4ihFWMGcTyNLtiUp+xZ1yTStsucWWfXytZgF0/122y@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6gwzV/DKZuZPFd3iLoHwf2qhapCTQgrMlPv3n/PICxQibfoJq
+	mf9CqVv2E+behRPZBUpbmmPqNXiC4eG/QTEmLNDYWojhrfaB2B9o91sjWO0FCTD0zvE=
+X-Gm-Gg: AY/fxX5LGtqe5KYY/OlltNvQ/IZ10UBR6jCF0Czgcox2G0Ye3zaEs68yXn++ksXOUEe
+	C+sJ4IyffiUyOLgaKGdmj+23OLGMCRnrHMB9Bc/EBINyHC01XA9ShiKA9Nm5jU3tAiqB+tT5GU1
+	oxI5ozZ+wrk58ohqTFFb9tG+SXfVGtdUFybV3M7r56anG1P9oK+sGDhAMWIxqSkGVbda8JST6lr
+	t0yFfiMzJS3pkQqJb4F046JIVO+igzsXC1EX6KdoLrzAPZzeC2mhvdDBdJDk5lYSksTE2BvyRWh
+	T5MHhAmIlhe2c1RMMBZRYEG1FvXx8A59974jAGzPLChMzLDH90DM/DsVZgvUJrkpVx8czy/aX3A
+	4e9sWSMN8/KTHrI0V5SIc54fLmyvAVBA6fbu8eT4eJLe8ihvZ0i0AfHfDFX4PPGXM91TVzoq71A
+	HN1RpXfoIdEbIyG3+E
+X-Google-Smtp-Source: AGHT+IGkuyCRu/Q0Kl0G1KNS2qkhBKE92qfOqtUSoW0GG/DuxCV7QpwSsCvsAQoK2tmgoaaLEgC0Kw==
+X-Received: by 2002:a05:6214:3c8f:b0:88a:2c78:d625 with SMTP id 6a1803df08f44-89084257197mr4038516d6.48.1767733901288;
+        Tue, 06 Jan 2026 13:11:41 -0800 (PST)
+Received: from ?IPv6:2606:6d00:17:7b4b::5ac? ([2606:6d00:17:7b4b::5ac])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89077234c96sm20302746d6.27.2026.01.06.13.11.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Jan 2026 13:11:40 -0800 (PST)
+Message-ID: <e792da7b15eb4f58820f4c44dc695ddfe40d5007.camel@ndufresne.ca>
+Subject: Re: [PATCH v2 2/4] dt-bindings: media: mediatek-jpeg-decoder: add
+ MT8189 compatible string
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Jianhua Lin <jianhua.lin@mediatek.com>, mchehab@kernel.org,
+ robh@kernel.org, 	krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, 	angelogioacchino.delregno@collabora.com
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+ sirius.wang@mediatek.com, 	vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
+Date: Tue, 06 Jan 2026 16:11:38 -0500
+In-Reply-To: <20251224031721.9942-3-jianhua.lin@mediatek.com>
+References: <20251224031721.9942-1-jianhua.lin@mediatek.com>
+	 <20251224031721.9942-3-jianhua.lin@mediatek.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-eEh22EQQUYjPOaWs78RQ"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vdDif-00000002E27-239W@rmk-PC.armlinux.org.uk>
-Date: Tue, 06 Jan 2026 20:31:57 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_123215_364224_295D25DD 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20260106_131142_847945_9B3184F7 
+X-CRM114-Status: GOOD (  30.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,413 +119,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Potentially unused definitions were discovered using:
 
-$ for m in $(grep '#define ' $header | sed -e 's,#define[  ]*\([^  ]*\)[   ].*,\1,;s,(.*,,'); do if ! grep -q $m *.c; then echo $m; fi; done
+--=-eEh22EQQUYjPOaWs78RQ
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Each was verified, and then removed where truly unused.
+Hi,
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Le mercredi 24 d=C3=A9cembre 2025 =C3=A0 11:17 +0800, Jianhua Lin a =C3=A9c=
+rit=C2=A0:
+> Compared to the previous generation IC, the MT8189 uses 34-bit iova
+> address-space (16GB) and requires a single clock configuration.
+> Therefore, add "mediatek,mt8189-jpgdec" compatible to the binding documen=
+t.
+> Additionally, it corrects the inheritance for MT8188, aligning it
+> with MT8189 due to their shared architecture and 34-bit iova address
+> space (16GB) and singlesingle clock requirement.
+
+singlesingle -> single
+
+> Previously, MT8188 was incorrectly defined alongside SoCs with 32-bit
+> iova address-space (4GB), such as "mediatek,mt2701-jpgdec". This mismatch
+> results in an ABI break, as MT8188 cannot function correctly under
+> the 32-bit iova address-space (4GB) configuration.
+
+Was already mentioned earlier, badly introduce DT code create an ABI, and f=
+ixing
+it is the ABI break, not the other way around. The MT8188 issue should be f=
+ixed
+on its own, with proper Fixes: tag.
+
+>=20
+> Key changes include:
+> - Introducing "mediatek,mt8189-jpgdec" as a new compatible string to
+> =C2=A0 represent the correct architecture.
+> - Updating MT8188 to inherit from MT8189, ensuring proper support for
+
+It is odd to have older chips inherit from newer one, should be reversed
+assuming you can fix MT8188. See more comment below.
+
+> =C2=A0 34-bit iova address-space (16GB) and simplifying clock configurati=
+on.
+> - Add property "mediatek,larb" for MT8189 requirements.
+> - Improved formatting for better readability and consistency.
+
+Do style change in it own commit, I don't mixing reformating, with fixed an=
+d new
+feature in one patch will create much interest in your set from the DT
+maintainers. So please break this into at least 3 patches.
+
+> These changes ensure that both MT8188 and MT8189 are correctly supported
+> with the necessary 34-bit iova address-space (16GB), while maintaining
+> compatibility with their shared architecture.
+>=20
+> Extensive internal review and testing have been conducted to validate
+> these changes and ensure compliance with DT binding standards.
+
+This last paragraph does not seem relevant as a commit message. Consider re=
+ading
+this message in 5 years, would it be useful, and answer is not, since we ca=
+n't
+see the review and testing process.
+
+>=20
+> Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
+> ---
+> =C2=A0.../bindings/media/mediatek-jpeg-decoder.yaml | 50 ++++++++++++++++=
 ---
- .../net/ethernet/stmicro/stmmac/dwmac100.h    | 29 ----------
- .../net/ethernet/stmicro/stmmac/dwmac1000.h   | 54 +------------------
- .../net/ethernet/stmicro/stmmac/dwmac4_dma.h  | 44 ---------------
- .../net/ethernet/stmicro/stmmac/dwmac_dma.h   | 23 --------
- 4 files changed, 1 insertion(+), 149 deletions(-)
+> =C2=A01 file changed, 44 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/media/mediatek-jpeg-decode=
+r.yaml b/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
+> index a4aacd3eb189..814b53ef46e7 100644
+> --- a/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
+> +++ b/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
+> @@ -17,13 +17,19 @@ properties:
+> =C2=A0=C2=A0=C2=A0=C2=A0 oneOf:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - items:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - enum:
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 - mediatek,mt8173-jpgdec
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 - mediatek,mt2701-jpgdec
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 - mediatek,mt8173-jpgdec
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac100.h b/drivers/net/ethernet/stmicro/stmmac/dwmac100.h
-index eae929955ad7..547863cb982f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac100.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac100.h
-@@ -30,59 +30,30 @@
- #define MAC_VLAN2	0x00000024	/* VLAN2 Tag */
- 
- /* MAC CTRL defines */
--#define MAC_CONTROL_RA	0x80000000	/* Receive All Mode */
--#define MAC_CONTROL_BLE	0x40000000	/* Endian Mode */
- #define MAC_CONTROL_HBD	0x10000000	/* Heartbeat Disable */
- #define MAC_CONTROL_PS	0x08000000	/* Port Select */
--#define MAC_CONTROL_DRO	0x00800000	/* Disable Receive Own */
--#define MAC_CONTROL_EXT_LOOPBACK 0x00400000	/* Reserved (ext loopback?) */
- #define MAC_CONTROL_OM	0x00200000	/* Loopback Operating Mode */
- #define MAC_CONTROL_F	0x00100000	/* Full Duplex Mode */
- #define MAC_CONTROL_PM	0x00080000	/* Pass All Multicast */
- #define MAC_CONTROL_PR	0x00040000	/* Promiscuous Mode */
- #define MAC_CONTROL_IF	0x00020000	/* Inverse Filtering */
--#define MAC_CONTROL_PB	0x00010000	/* Pass Bad Frames */
- #define MAC_CONTROL_HO	0x00008000	/* Hash Only Filtering Mode */
- #define MAC_CONTROL_HP	0x00002000	/* Hash/Perfect Filtering Mode */
--#define MAC_CONTROL_LCC	0x00001000	/* Late Collision Control */
--#define MAC_CONTROL_DBF	0x00000800	/* Disable Broadcast Frames */
--#define MAC_CONTROL_DRTY	0x00000400	/* Disable Retry */
--#define MAC_CONTROL_ASTP	0x00000100	/* Automatic Pad Stripping */
--#define MAC_CONTROL_BOLMT_10	0x00000000	/* Back Off Limit 10 */
--#define MAC_CONTROL_BOLMT_8	0x00000040	/* Back Off Limit 8 */
--#define MAC_CONTROL_BOLMT_4	0x00000080	/* Back Off Limit 4 */
--#define MAC_CONTROL_BOLMT_1	0x000000c0	/* Back Off Limit 1 */
--#define MAC_CONTROL_DC		0x00000020	/* Deferral Check */
--#define MAC_CONTROL_TE		0x00000008	/* Transmitter Enable */
--#define MAC_CONTROL_RE		0x00000004	/* Receiver Enable */
- 
- #define MAC_CORE_INIT (MAC_CONTROL_HBD)
- 
- /* MAC FLOW CTRL defines */
- #define MAC_FLOW_CTRL_PT_MASK	GENMASK(31, 16)	/* Pause Time Mask */
--#define MAC_FLOW_CTRL_PASS	0x00000004	/* Pass Control Frames */
- #define MAC_FLOW_CTRL_ENABLE	0x00000002	/* Flow Control Enable */
--#define MAC_FLOW_CTRL_PAUSE	0x00000001	/* Flow Control Busy ... */
--
--/* MII ADDR  defines */
--#define MAC_MII_ADDR_WRITE	0x00000002	/* MII Write */
--#define MAC_MII_ADDR_BUSY	0x00000001	/* MII Busy */
- 
- /*----------------------------------------------------------------------------
-  * 				DMA BLOCK defines
-  *---------------------------------------------------------------------------*/
- 
- /* DMA Bus Mode register defines */
--#define DMA_BUS_MODE_DBO	0x00100000	/* Descriptor Byte Ordering */
--#define DMA_BUS_MODE_BLE	0x00000080	/* Big Endian/Little Endian */
- #define DMA_BUS_MODE_PBL_MASK	GENMASK(13, 8)	/* Programmable Burst Len */
--#define DMA_BUS_MODE_DSL_MASK	GENMASK(6, 2)	/* Descriptor Skip Length */
--#define DMA_BUS_MODE_BAR_BUS	0x00000002	/* Bar-Bus Arbitration */
- #define DMA_BUS_MODE_DEFAULT	0x00000000
- 
--/* DMA Control register defines */
--#define DMA_CONTROL_SF		0x00200000	/* Store And Forward */
--
- /* Transmit Threshold Control */
- enum ttc_control {
- 	DMA_CONTROL_TTC_DEFAULT = 0x00000000,	/* Threshold is 32 DWORDS */
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
-index 17e013e97607..b3135df0a359 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
-@@ -20,15 +20,11 @@
- #define GMAC_FLOW_CTRL		0x00000018	/* Flow Control */
- #define GMAC_VLAN_TAG		0x0000001c	/* VLAN Tag */
- #define GMAC_DEBUG		0x00000024	/* GMAC debug register */
--#define GMAC_WAKEUP_FILTER	0x00000028	/* Wake-up Frame Filter */
- 
- #define GMAC_INT_STATUS		0x00000038	/* interrupt status register */
--#define GMAC_INT_STATUS_PMT	BIT(3)
--#define GMAC_INT_STATUS_MMCIS	BIT(4)
- #define GMAC_INT_STATUS_MMCRIS	BIT(5)
- #define GMAC_INT_STATUS_MMCTIS	BIT(6)
- #define GMAC_INT_STATUS_MMCCSUM	BIT(7)
--#define GMAC_INT_STATUS_TSTAMP	BIT(9)
- #define GMAC_INT_STATUS_LPIIS	BIT(10)
- 
- /* interrupt mask register */
-@@ -89,8 +85,6 @@ enum power_event {
- 
- /* GMAC Configuration defines */
- #define GMAC_CONTROL_2K 0x08000000	/* IEEE 802.3as 2K packets */
--#define GMAC_CONTROL_TC	0x01000000	/* Transmit Conf. in RGMII/SGMII */
--#define GMAC_CONTROL_WD	0x00800000	/* Disable Watchdog on receive */
- #define GMAC_CONTROL_JD	0x00400000	/* Jabber disable */
- #define GMAC_CONTROL_BE	0x00200000	/* Frame Burst Enable */
- #define GMAC_CONTROL_JE	0x00100000	/* Jumbo frame */
-@@ -102,41 +96,25 @@ enum inter_frame_gap {
- #define GMAC_CONTROL_DCRS	0x00010000	/* Disable carrier sense */
- #define GMAC_CONTROL_PS		0x00008000	/* Port Select 0:GMI 1:MII */
- #define GMAC_CONTROL_FES	0x00004000	/* Speed 0:10 1:100 */
--#define GMAC_CONTROL_DO		0x00002000	/* Disable Rx Own */
- #define GMAC_CONTROL_LM		0x00001000	/* Loop-back mode */
- #define GMAC_CONTROL_DM		0x00000800	/* Duplex Mode */
- #define GMAC_CONTROL_IPC	0x00000400	/* Checksum Offload */
--#define GMAC_CONTROL_DR		0x00000200	/* Disable Retry */
--#define GMAC_CONTROL_LUD	0x00000100	/* Link up/down */
--#define GMAC_CONTROL_ACS	0x00000080	/* Auto Pad/FCS Stripping */
--#define GMAC_CONTROL_DC		0x00000010	/* Deferral Check */
--#define GMAC_CONTROL_TE		0x00000008	/* Transmitter Enable */
--#define GMAC_CONTROL_RE		0x00000004	/* Receiver Enable */
- 
- #define GMAC_CORE_INIT (GMAC_CONTROL_JD | GMAC_CONTROL_PS | \
- 			GMAC_CONTROL_BE | GMAC_CONTROL_DCRS)
- 
- /* GMAC Frame Filter defines */
- #define GMAC_FRAME_FILTER_PR	0x00000001	/* Promiscuous Mode */
--#define GMAC_FRAME_FILTER_HUC	0x00000002	/* Hash Unicast */
- #define GMAC_FRAME_FILTER_HMC	0x00000004	/* Hash Multicast */
--#define GMAC_FRAME_FILTER_DAIF	0x00000008	/* DA Inverse Filtering */
- #define GMAC_FRAME_FILTER_PM	0x00000010	/* Pass all multicast */
--#define GMAC_FRAME_FILTER_DBF	0x00000020	/* Disable Broadcast frames */
- #define GMAC_FRAME_FILTER_PCF	0x00000080	/* Pass Control frames */
--#define GMAC_FRAME_FILTER_SAIF	0x00000100	/* Inverse Filtering */
--#define GMAC_FRAME_FILTER_SAF	0x00000200	/* Source Address Filter */
- #define GMAC_FRAME_FILTER_HPF	0x00000400	/* Hash or perfect Filter */
- #define GMAC_FRAME_FILTER_RA	0x80000000	/* Receive all mode */
--/* GMII ADDR  defines */
--#define GMAC_MII_ADDR_WRITE	0x00000002	/* MII Write */
--#define GMAC_MII_ADDR_BUSY	0x00000001	/* MII Busy */
- /* GMAC FLOW CTRL defines */
- #define GMAC_FLOW_CTRL_PT_MASK	GENMASK(31, 16)	/* Pause Time Mask */
- #define GMAC_FLOW_CTRL_UP	0x00000008	/* Unicast pause frame enable */
- #define GMAC_FLOW_CTRL_RFE	0x00000004	/* Rx Flow Control Enable */
- #define GMAC_FLOW_CTRL_TFE	0x00000002	/* Tx Flow Control Enable */
--#define GMAC_FLOW_CTRL_FCB_BPA	0x00000001	/* Flow Control Busy ... */
- 
- /* DEBUG Register defines */
- /* MTL TxStatus FIFO */
-@@ -145,14 +123,12 @@ enum inter_frame_gap {
- #define GMAC_DEBUG_TWCSTS	BIT(22) /* MTL Tx FIFO Write Controller */
- /* MTL Tx FIFO Read Controller Status */
- #define GMAC_DEBUG_TRCSTS_MASK	GENMASK(21, 20)
--#define GMAC_DEBUG_TRCSTS_IDLE	0
- #define GMAC_DEBUG_TRCSTS_READ	1
- #define GMAC_DEBUG_TRCSTS_TXW	2
- #define GMAC_DEBUG_TRCSTS_WRITE	3
- #define GMAC_DEBUG_TXPAUSED	BIT(19) /* MAC Transmitter in PAUSE */
- /* MAC Transmit Frame Controller Status */
- #define GMAC_DEBUG_TFCSTS_MASK	GENMASK(18, 17)
--#define GMAC_DEBUG_TFCSTS_IDLE	0
- #define GMAC_DEBUG_TFCSTS_WAIT	1
- #define GMAC_DEBUG_TFCSTS_GEN_PAUSE	2
- #define GMAC_DEBUG_TFCSTS_XFER	3
-@@ -176,9 +152,6 @@ enum inter_frame_gap {
- 
- /*--- DMA BLOCK defines ---*/
- /* DMA Bus Mode register defines */
--#define DMA_BUS_MODE_DA		0x00000002	/* Arbitration scheme */
--#define DMA_BUS_MODE_DSL_MASK	0x0000007c	/* Descriptor Skip Length */
--#define DMA_BUS_MODE_DSL_SHIFT	2		/*   (in DWORDS)      */
- /* Programmable burst length (passed thorugh platform)*/
- #define DMA_BUS_MODE_PBL_MASK	GENMASK(13, 8)	/* Programmable Burst Len */
- #define DMA_BUS_MODE_ATDS	0x00000080	/* Alternate Descriptor Size */
-@@ -197,16 +170,9 @@ enum rx_tx_priority_ratio {
- #define DMA_BUS_MODE_AAL	0x02000000
- 
- /* DMA CRS Control and Status Register Mapping */
--#define DMA_HOST_TX_DESC	  0x00001048	/* Current Host Tx descriptor */
--#define DMA_HOST_RX_DESC	  0x0000104c	/* Current Host Rx descriptor */
--/*  DMA Bus Mode register defines */
--#define DMA_BUS_PR_RATIO_MASK	  0x0000c000	/* Rx/Tx priority ratio */
--#define DMA_BUS_PR_RATIO_SHIFT	  14
--#define DMA_BUS_FB	  	  0x00010000	/* Fixed Burst */
- 
- /* DMA operation mode defines (start/stop tx/rx are placed in common header)*/
- /* Disable Drop TCP/IP csum error */
--#define DMA_CONTROL_DT		0x04000000
- #define DMA_CONTROL_RSF		0x02000000	/* Receive Store and Forward */
- #define DMA_CONTROL_DFF		0x01000000	/* Disaable flushing */
- /* Threshold for Activating the FC */
-@@ -238,8 +204,6 @@ enum ttc_control {
- #define DMA_CONTROL_TC_TX_MASK	0xfffe3fff
- 
- #define DMA_CONTROL_EFC		0x00000100
--#define DMA_CONTROL_FEF		0x00000080
--#define DMA_CONTROL_FUF		0x00000040
- 
- /* Receive flow control activation field
-  * RFA field in DMA control register, bits 23,10:9
-@@ -276,20 +240,8 @@ enum ttc_control {
-  */
- 
- #define RFA_FULL_MINUS_1K	0x00000000
--#define RFA_FULL_MINUS_2K	0x00000200
--#define RFA_FULL_MINUS_3K	0x00000400
--#define RFA_FULL_MINUS_4K	0x00000600
--#define RFA_FULL_MINUS_5K	0x00800000
--#define RFA_FULL_MINUS_6K	0x00800200
--#define RFA_FULL_MINUS_7K	0x00800400
--
--#define RFD_FULL_MINUS_1K	0x00000000
-+
- #define RFD_FULL_MINUS_2K	0x00000800
--#define RFD_FULL_MINUS_3K	0x00001000
--#define RFD_FULL_MINUS_4K	0x00001800
--#define RFD_FULL_MINUS_5K	0x00400000
--#define RFD_FULL_MINUS_6K	0x00400800
--#define RFD_FULL_MINUS_7K	0x00401000
- 
- enum rtc_control {
- 	DMA_CONTROL_RTC_64 = 0x00000000,
-@@ -302,10 +254,6 @@ enum rtc_control {
- #define DMA_CONTROL_OSF	0x00000004	/* Operate on second frame */
- 
- /* MMC registers offset */
--#define GMAC_MMC_CTRL      0x100
--#define GMAC_MMC_RX_INTR   0x104
--#define GMAC_MMC_TX_INTR   0x108
--#define GMAC_MMC_RX_CSUM_OFFLOAD   0x208
- #define GMAC_EXTHASH_BASE  0x500
- 
- /* PTP and timestamping registers */
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-index e8f103cb6cd5..5f1e2916f099 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-@@ -24,7 +24,6 @@
- 
- #define DMA_SYS_BUS_MODE		0x00001004
- 
--#define DMA_BUS_MODE_SPH		BIT(24)
- #define DMA_BUS_MODE_PBL		BIT(16)
- #define DMA_BUS_MODE_RPBL_MASK		GENMASK(21, 16)
- #define DMA_BUS_MODE_MB			BIT(14)
-@@ -32,24 +31,6 @@
- 
- #define DMA_STATUS			0x00001008
- 
--#define DMA_STATUS_MAC			BIT(17)
--#define DMA_STATUS_MTL			BIT(16)
--#define DMA_STATUS_CHAN7		BIT(7)
--#define DMA_STATUS_CHAN6		BIT(6)
--#define DMA_STATUS_CHAN5		BIT(5)
--#define DMA_STATUS_CHAN4		BIT(4)
--#define DMA_STATUS_CHAN3		BIT(3)
--#define DMA_STATUS_CHAN2		BIT(2)
--#define DMA_STATUS_CHAN1		BIT(1)
--#define DMA_STATUS_CHAN0		BIT(0)
--
--#define DMA_DEBUG_STATUS_0		0x0000100c
--#define DMA_DEBUG_STATUS_1		0x00001010
--#define DMA_DEBUG_STATUS_2		0x00001014
--
--#define DMA_DEBUG_STATUS_TS_MASK	0xf
--#define DMA_DEBUG_STATUS_RS_MASK	0xf
--
- #define DMA_AXI_BUS_MODE		0x00001028
- 
- #define DMA_AXI_EN_LPI			BIT(31)
-@@ -58,16 +39,10 @@
- #define DMA_AXI_RD_OSR_LMT		GENMASK(19, 16)
- 
- #define DMA_SYS_BUS_MB			BIT(14)
--#define DMA_AXI_1KBBE			BIT(13)
- #define DMA_SYS_BUS_AAL			DMA_AXI_AAL
- #define DMA_SYS_BUS_EAME		BIT(11)
- #define DMA_SYS_BUS_FB			BIT(0)
- 
--#define DMA_BURST_LEN_DEFAULT		(DMA_AXI_BLEN256 | DMA_AXI_BLEN128 | \
--					DMA_AXI_BLEN64 | DMA_AXI_BLEN32 | \
--					DMA_AXI_BLEN16 | DMA_AXI_BLEN8 | \
--					DMA_AXI_BLEN4)
--
- #define DMA_TBS_CTRL			0x00001050
- 
- #define DMA_TBS_FTOS			GENMASK(31, 8)
-@@ -91,12 +66,9 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
- 	return addr;
- }
- 
--#define DMA_CHAN_REG_NUMBER		17
--
- #define DMA_CHAN_CONTROL(addrs, x)	dma_chanx_base_addr(addrs, x)
- 
- #define DMA_CONTROL_SPH			BIT(24)
--#define DMA_CONTROL_MSS_MASK		GENMASK(13, 0)
- 
- #define DMA_CHAN_TX_CONTROL(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x4)
- 
-@@ -125,16 +97,8 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
- #define DMA_CHAN_INTR_ENA_AIE		BIT(15)
- #define DMA_CHAN_INTR_ENA_NIE_4_10	BIT(15)
- #define DMA_CHAN_INTR_ENA_AIE_4_10	BIT(14)
--#define DMA_CHAN_INTR_ENA_CDE		BIT(13)
- #define DMA_CHAN_INTR_ENA_FBE		BIT(12)
--#define DMA_CHAN_INTR_ENA_ERE		BIT(11)
--#define DMA_CHAN_INTR_ENA_ETE		BIT(10)
--#define DMA_CHAN_INTR_ENA_RWE		BIT(9)
--#define DMA_CHAN_INTR_ENA_RSE		BIT(8)
--#define DMA_CHAN_INTR_ENA_RBUE		BIT(7)
- #define DMA_CHAN_INTR_ENA_RIE		BIT(6)
--#define DMA_CHAN_INTR_ENA_TBUE		BIT(2)
--#define DMA_CHAN_INTR_ENA_TSE		BIT(1)
- #define DMA_CHAN_INTR_ENA_TIE		BIT(0)
- 
- #define DMA_CHAN_INTR_NORMAL		(DMA_CHAN_INTR_ENA_NIE | \
-@@ -173,9 +137,6 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
- 
- /* Interrupt status per channel */
- #define DMA_CHAN_STATUS_REB		GENMASK(21, 19)
--#define DMA_CHAN_STATUS_REB_SHIFT	19
--#define DMA_CHAN_STATUS_TEB		GENMASK(18, 16)
--#define DMA_CHAN_STATUS_TEB_SHIFT	16
- #define DMA_CHAN_STATUS_NIS		BIT(15)
- #define DMA_CHAN_STATUS_AIS		BIT(14)
- #define DMA_CHAN_STATUS_CDE		BIT(13)
-@@ -209,11 +170,6 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
- 					 DMA_CHAN_STATUS_TI | \
- 					 DMA_CHAN_STATUS_MSK_COMMON)
- 
--#define DMA_CHAN0_DBG_STAT_TPS		GENMASK(15, 12)
--#define DMA_CHAN0_DBG_STAT_TPS_SHIFT	12
--#define DMA_CHAN0_DBG_STAT_RPS		GENMASK(11, 8)
--#define DMA_CHAN0_DBG_STAT_RPS_SHIFT	8
--
- int dwmac4_dma_reset(void __iomem *ioaddr);
- void dwmac4_enable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
- 			   u32 chan, bool rx, bool tx);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
-index a57ecef098e3..e1c37ac2c99d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
-@@ -22,13 +22,9 @@
- #define DMA_TX_BASE_ADDR	0x00001010	/* Transmit List Base */
- 
- #define DMA_STATUS		0x00001014	/* Status Register */
--#define DMA_STATUS_GLPII	0x40000000	/* GMAC LPI interrupt */
- #define DMA_STATUS_GPI		0x10000000	/* PMT interrupt */
- #define DMA_STATUS_GMI		0x08000000	/* MMC interrupt */
- #define DMA_STATUS_GLI		0x04000000	/* GMAC Line interface int */
--#define DMA_STATUS_EB_MASK	0x00380000	/* Error Bits Mask */
--#define DMA_STATUS_EB_TX_ABORT	0x00080000	/* Error Bits - TX Abort */
--#define DMA_STATUS_EB_RX_ABORT	0x00100000	/* Error Bits - RX Abort */
- #define DMA_STATUS_TS_MASK	GENMASK(22, 20)	/* Transmit Process State */
- #define DMA_STATUS_RS_MASK	GENMASK(19, 17)	/* Receive Process State */
- #define DMA_STATUS_NIS	0x00010000	/* Normal Interrupt Summary */
-@@ -79,9 +75,7 @@
- /* DMA Normal interrupt */
- #define DMA_INTR_ENA_NIE 0x00010000	/* Normal Summary */
- #define DMA_INTR_ENA_TIE 0x00000001	/* Transmit Interrupt */
--#define DMA_INTR_ENA_TUE 0x00000004	/* Transmit Buffer Unavailable */
- #define DMA_INTR_ENA_RIE 0x00000040	/* Receive Interrupt */
--#define DMA_INTR_ENA_ERE 0x00004000	/* Early Receive */
- 
- #define DMA_INTR_NORMAL	(DMA_INTR_ENA_NIE | DMA_INTR_ENA_RIE | \
- 			DMA_INTR_ENA_TIE)
-@@ -89,14 +83,7 @@
- /* DMA Abnormal interrupt */
- #define DMA_INTR_ENA_AIE 0x00008000	/* Abnormal Summary */
- #define DMA_INTR_ENA_FBE 0x00002000	/* Fatal Bus Error */
--#define DMA_INTR_ENA_ETE 0x00000400	/* Early Transmit */
--#define DMA_INTR_ENA_RWE 0x00000200	/* Receive Watchdog */
--#define DMA_INTR_ENA_RSE 0x00000100	/* Receive Stopped */
--#define DMA_INTR_ENA_RUE 0x00000080	/* Receive Buffer Unavailable */
- #define DMA_INTR_ENA_UNE 0x00000020	/* Tx Underflow */
--#define DMA_INTR_ENA_OVE 0x00000010	/* Receive Overflow */
--#define DMA_INTR_ENA_TJE 0x00000008	/* Transmit Jabber */
--#define DMA_INTR_ENA_TSE 0x00000002	/* Transmit Stopped */
- 
- #define DMA_INTR_ABNORMAL	(DMA_INTR_ENA_AIE | DMA_INTR_ENA_FBE | \
- 				DMA_INTR_ENA_UNE)
-@@ -128,8 +115,6 @@ static inline u32 dma_chan_base_addr(u32 base, u32 chan)
- #define DMA_CHAN_STATUS(chan)	dma_chan_base_addr(DMA_STATUS, chan)
- #define DMA_CHAN_CONTROL(chan)	dma_chan_base_addr(DMA_CONTROL, chan)
- #define DMA_CHAN_INTR_ENA(chan)	dma_chan_base_addr(DMA_INTR_ENA, chan)
--#define DMA_CHAN_MISSED_FRAME_CTR(chan)	\
--				dma_chan_base_addr(DMA_MISSED_FRAME_CTR, chan)
- #define DMA_CHAN_RX_WATCHDOG(chan)	\
- 				dma_chan_base_addr(DMA_RX_WATCHDOG, chan)
- 
-@@ -145,14 +130,6 @@ static inline u32 dma_chan_base_addr(u32 base, u32 chan)
- #define DMA_AXI_WR_OSR_LMT	GENMASK(23, 20)
- #define DMA_AXI_RD_OSR_LMT	GENMASK(19, 16)
- 
--#define DMA_AXI_OSR_MAX		0xf
--#define DMA_AXI_MAX_OSR_LIMIT ((DMA_AXI_OSR_MAX << DMA_AXI_WR_OSR_LMT_SHIFT) | \
--			       (DMA_AXI_OSR_MAX << DMA_AXI_RD_OSR_LMT_SHIFT))
--#define DMA_BURST_LEN_DEFAULT	(DMA_AXI_BLEN256 | DMA_AXI_BLEN128 | \
--				 DMA_AXI_BLEN64 | DMA_AXI_BLEN32 | \
--				 DMA_AXI_BLEN16 | DMA_AXI_BLEN8 | \
--				 DMA_AXI_BLEN4)
--
- #define	DMA_AXI_1KBBE		BIT(13)
- 
- #define DMA_AXI_UNDEF		BIT(0)
--- 
-2.47.3
+I guess you sorted these, this is the type of style change that makes revie=
+wer
+unhappy, do this cleanup on it own.
 
+One thing the driver implementation tells me is that mediatek,mt8173-jpgdec=
+ is
+not different from mediatek,mt2701-jpgdec, so in theory, the DTS should hav=
+e
+aimed for the second item and an implementation of:
+
+  compatible =3D "mediatek,mt8173-jpgdec", "mediatek,mt2701-jpgdec";
+
+That just shows the screw-up started a while ago, I'm not saying to change =
+that
+now.
+
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - items:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - enum:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 - mediatek,mt8189-jpgdec
+
+That one make no sense, if you want to allow this compatible alone, put it =
+the
+very first item, its meant for that. Though, considering the chronology, it
+would be logical to say that MT8189 is based on MT8188. If we go that way,
+MT8188 should get added into the single item choice and the enum/const pair
+shoudl be reversed.
+
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - items:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - enum:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 - mediatek,mt7623-jpgdec
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 - mediatek,mt8188-jpgdec
+
+This must be kept, its unfortunate, but its in the ABI.
+
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: med=
+iatek,mt2701-jpgdec
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - items:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - enum:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 - mediatek,mt8188-jpgdec
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: mediatek=
+,mt8189-jpgdec
+
+This would be reversed.
+
+On the implementation side, in code, you'd introduce a variants that matche=
+s
+mediatek,mt8188-jpgdec, this will ensure the driver now works properly with=
+ past
+DTS.
+
+Then in DTS, which is not my domain here at all, what is appropriate will d=
+epend
+on what happens if you assume MT8188 is same as MT2701. In my personal opin=
+ion,
+if that is unusable or worse crash or hang the systems, I'd drop the broken
+"mediatek,mt2701-jpgdec" so it won't probe anymore on older drivers. If its
+usable / used in some ways, e.g. if it work on 4GB systems, you'll have to =
+leave
+it this way, since you'd regress some users.
+
+The rest is a bit over my head, I've a simple users of DT like you, but
+hopefully these hints are good enough to un-lock the situation. Notice the
+chronology logic needs to be applied down below too.
+
+> =C2=A0
+> =C2=A0=C2=A0 reg:
+> =C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
+> @@ -32,13 +38,16 @@ properties:
+> =C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
+> =C2=A0
+> =C2=A0=C2=A0 clocks:
+> +=C2=A0=C2=A0=C2=A0 minItems: 1
+> =C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 2
+> -=C2=A0=C2=A0=C2=A0 minItems: 2
+> =C2=A0
+> =C2=A0=C2=A0 clock-names:
+> -=C2=A0=C2=A0=C2=A0 items:
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: jpgdec-smi
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: jpgdec
+
+So what happened once the driver on MT8188 tried to enable jpgdec-smi clock=
+ ?
+This is relevant to what can and cannot be changed, was it completely unusa=
+ble ?
+
+regards,
+Nicolas
+
+> +=C2=A0=C2=A0=C2=A0 minItems: 1
+> +=C2=A0=C2=A0=C2=A0 maxItems: 2
+> +
+> +=C2=A0 mediatek,larb:
+> +=C2=A0=C2=A0=C2=A0 $ref: /schemas/types.yaml#/definitions/phandle
+> +=C2=A0=C2=A0=C2=A0 description: a phandle to the smi_larb node.
+> =C2=A0
+> =C2=A0=C2=A0 power-domains:
+> =C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
+> @@ -51,6 +60,35 @@ properties:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Documentation/devicetree/bindings/io=
+mmu/mediatek,iommu.yaml for details.
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Ports are according to the HW.
+> =C2=A0
+> +allOf:
+> +=C2=A0 - if:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enum:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 - mediatek,mt2701-jpgdec
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 - mediatek,mt8173-jpgdec
+> +
+> +=C2=A0=C2=A0=C2=A0 then:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-names:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - con=
+st: jpgdec-smi
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - con=
+st: jpgdec
+> +
+> +=C2=A0 - if:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enum:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 - mediatek,mt8189-jpgdec
+> +
+> +=C2=A0=C2=A0=C2=A0 then:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-names:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - con=
+st: jpgdec
+> +
+> =C2=A0required:
+> =C2=A0=C2=A0 - compatible
+> =C2=A0=C2=A0 - reg
+
+--=-eEh22EQQUYjPOaWs78RQ
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaV16iwAKCRDZQZRRKWBy
+9IFvAP9gJU9igmAjidakuJKz0akdpOjt4yNcvs8FjB1MMY98fQEA1nsKZhTWxs1n
+ad7uFPYE7mdheCU2tU4bBl/ournlIQs=
+=cORP
+-----END PGP SIGNATURE-----
+
+--=-eEh22EQQUYjPOaWs78RQ--
 
