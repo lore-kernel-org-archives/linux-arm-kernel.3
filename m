@@ -4,94 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A27ECE9D79
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 16:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4843CE9D78
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 16:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vzik8nXSR3mn/i9DyKHW0aMjXX+S/DWXAlyIvVyk9CI=; b=ndeM4wVgqmgyYe5CJewDsYZQB4
-	xlfZgmiNQFhHypfqhHW6Z29oxSnhnJ2QR6rUkuCM0chgO+GjyZrCaz8blp8/APq1WUQeM6FVoPrch
-	zvRQfamwrK8jjFvK+JDkLXXDQUxeYTHA8+4FPH4xyTkAq95n8Cq+Q+GyJvMZJglwJFYoBSaUk9SOU
-	9oUC7zzNoU0oNAeYTD7TwVJ4G/PXP42pfh+yGgzG9pkObYv5VUteieEsJ5+rv6ley0tb1lRbJBxsG
-	cFhGb+8VgVI8WMrytGddT/rPL9n1+d2pHx3GBPDvS27c/r+HFPu1j/HHjMScc49CdRisgvvRPDkUg
-	COqyWv0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=t4rigtaUVzceNduvRfRUzk6xTb5cP2dmlDOzJ8N2oLQ=; b=e7r7Lk8bboOPmuIbzhotkWvRof
+	DD7abNy749Zh8k1MR2T3Xpr+/xRnkmex33zVHGeCwrbBQ9L892xmlLp0kc89Z8BNndjY8143ueKE2
+	x0CyQKOcCbT8pnf8GGDk1dTXbCN+aDgwwS0+uD3kCXX5N+Nrs+Z/UlWjrzj8RceyVDhMb8oJLgYYK
+	qS24sbfMWiXvYrfg6L8cEUC2nXrn10zfJXuO8mr3fPdSJFVVd0Aue5ng8JMloQJCgQSIJjlvtBay0
+	3bqrfLTqr8Omh3queihLHIXGP3Re70q3yNCmX4w/r2QZlT8Ggv4pcOe268JClum6T77frEZ8wIYzZ
+	F5wC2Xow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd9uH-0000000DU48-2o4O;
-	Tue, 06 Jan 2026 16:27:41 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1vd9uc-0000000DU8L-4BJ1;
+	Tue, 06 Jan 2026 16:28:02 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd9uF-0000000DU3T-1COj
+	id 1vd9ua-0000000DU7m-42mW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 16:27:40 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6505d3b84bcso1763303a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 08:27:38 -0800 (PST)
+	Tue, 06 Jan 2026 16:28:02 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-7c6e815310aso932723a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 08:28:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1767716857; x=1768321657; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vzik8nXSR3mn/i9DyKHW0aMjXX+S/DWXAlyIvVyk9CI=;
-        b=gmljXUzF0D1jK9Kv6oCdeCLZXcdDHzNKW8eFE+Yii3uWR4ja2sdIeLwwfxXD12SsRy
-         CNuTPIvN7GtWEtxDohnLaEAZPkhgRpYHWG4xsUQOwSIw0OksWzH7mH2y33IHCPoQH9X8
-         xKa+Gpuh1682lvhAN8euRdM6gl2VAb/szBHOj/zgEbQNfJlCHcWNsh30m2Qrn8xxQrFA
-         RUTq878vf6Y/lqiLJ1erZQ5oVCmmS5VYZSzK93tSs/o5WoHZOtInnkCBQdaIXx5OLwve
-         e37aMGLBRbLbd+Kwn90ezP+KhGY1DUWELiFj+6QlOIxBl3QhklM3TrxwSem09Io4D3Uq
-         G4+Q==
+        d=chromium.org; s=google; t=1767716879; x=1768321679; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=t4rigtaUVzceNduvRfRUzk6xTb5cP2dmlDOzJ8N2oLQ=;
+        b=ab1g9+YymkvrbrBYbuJgSPFhHIwFz+Glbnz82fSeHUt7//LwBB1MUdxdtU9PNx2SNd
+         j3du46nilRyBHtTqAhhWIjnc+tIivbhd4WCUdhZOLQM7vEqbkAXk1Kz7NUZCzpiT4cqe
+         8/HOsO8ws6pTZIU7sDGLaagBeMf2MQU/j0lEg=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767716857; x=1768321657;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vzik8nXSR3mn/i9DyKHW0aMjXX+S/DWXAlyIvVyk9CI=;
-        b=BctmQ/ZDihf6Vx7/ooiW5QXvqHVh0B76z7k64dPEUmb8Pnn6wFxz4o8+fxr/GqRJkr
-         iNbkoB8bbIm0raLxoEbrATCEQimDMHSUoaQ3DGiuB6eh0Sq7zPOeJ4rkqKBxGAHqN/mT
-         qqyyXiuOZDskacK507m53RFfEaloOJTHZpI5grY2BGYdDUi2opq/sT9rZLVHsee92mMn
-         rkRSmRbgbgWYvVfBfgmh8qDHf90DMYaBrBddm1A2rJI3BTMz7/yXbpSbPEaqukaagXiO
-         1n7qEzEosoACFP05gFCOzzDfc5bcupnDeBCS72//ZPVWk8qWdutGNpeSFv5WWLPTEfCg
-         VWWg==
-X-Forwarded-Encrypted: i=1; AJvYcCWi5Tl69QEvJ3JPTRKwqr9RERGFtgpECWdwahB7Omq0NWYZM/Mek8Hd0XO2hzlLfsNbPYj8xaJR9DKCKeqIvnnw@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfAQ+GC87xISL59B6iteO29sPQU8ZDXKMGBLLN6RVtwM0O6e8N
-	1/fDOsn7tuCpej9tj6eRxTYwmCeoe2iZG2dMwIn6S5kAQfTX4uv9pqApBd2EGPoeqrg=
-X-Gm-Gg: AY/fxX6tUODr7vmz33K84UgJiHnWtaZP6pP+MDNMYYVHbEOhSYcRcLvxc7Yr0zllASc
-	S0TnTZ7MzQ0R0NrErHI3rXD09xZpwal4c79kpJjEc62JkBbFUrh2XNu+i9f+sOsXpfJmzD9Eb5u
-	U7C9V/DiP9Iad2iVnwYQYnT4X/mPhaPrpraCa7sy80hqMU/odCHyaTVlsBGB+wDmSElc4WAwx2g
-	ZBtJQ5SEcw6wl1GqajijGyESdMZSvBnPCY+/L45VS/11wb22vLThmLJLgw+Do/j4pZH8u1uAH4S
-	pJUgLS9q8G46YTI6xfIUbBg0LXZCbaE8rMj6dMoIm9Zq90FtN3OmnsssY/BAsFW3Mi6Be816+ME
-	wtKLW7yBvFGUn6s17BzXCDpC99ARAt+8W4Mp/bmHIitBipZQcLOkisikPxTPuTwjwZOwPOA49qe
-	Y2eDAyq8lIFku511vx1HnyXk/EJzQ=
-X-Google-Smtp-Source: AGHT+IFAk9Nui8g2Wvca+PO/+8m/8D82to1wW+PFqJUMRDqkKSTBkNs3hxMpJZxnAFqxb/4tZ/EvCQ==
-X-Received: by 2002:a05:6402:210b:b0:641:15d:6b97 with SMTP id 4fb4d7f45d1cf-6507921efbemr2995418a12.2.1767716856825;
-        Tue, 06 Jan 2026 08:27:36 -0800 (PST)
-Received: from localhost ([2a02:8071:b783:6940:1d24:d58d:2b65:c291])
-        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-6507b9d51c5sm2493981a12.14.2026.01.06.08.27.35
+        d=1e100.net; s=20230601; t=1767716879; x=1768321679;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=t4rigtaUVzceNduvRfRUzk6xTb5cP2dmlDOzJ8N2oLQ=;
+        b=DwyNXZ1cxxIBdogcqzqmMsYZBm8wNF8/aMGWDy849Q5PnK13/TxJ5JC9cQK773TmMM
+         C2zTiBeu9h45F0tPdM8cvEJl6662w1vf6vEgstx82fdgHCDn2avlt5mazk2zPpzrDxhZ
+         X4Yv27cjKtqu2nijEhMzFV/+M+u/7MTUcA380Jop+yeVQ1IjRifLwDrXEq51qM7f++QY
+         vTi6rbayd2seweseKmO2NpRAhrbpgePWR4bB9VJ5Ul9blJDw+w7I/9pzD3u/bCsW0SiE
+         GTHYzzAoTslYOmYZxX3KWfTeN8d3dGJ0REWkcw1Wpl4qXZuPsx1tJDgiNN7sY47kTcKi
+         PIDg==
+X-Gm-Message-State: AOJu0Yzj8Yu8V4y/5UinPGXwyCRb40+W5ZeK84sPDEjxOsNaShaL4+zG
+	yDtEB6SCjv0Mg9YzAja+tlESERKYW7i/D3yKjALuMHfkAYPU4DL5zZZwY6oe/LnGMFCpYSNG2Ix
+	X9j0=
+X-Gm-Gg: AY/fxX5AhsJeSZ15483Uhie2espUySHpTKGkQroCgRQE/yFtoIUgEJjxljbIPj9flrw
+	flBVMdwu5hffCIFpR5tHK9qf3/TVv+9ayEMOxM+WP03VI1l5rF8HYZhQiURwrQpXFoZcXQXT4GY
+	lRuhKKW2BEN/zZ2qK6lBXWEWikxWIy1GoLoq3rVvrDTLIiGMcT563vEZqF0b2BNxxIgLThbLqxO
+	d+rK0skAqHO2WB6fst3uKB7cYBxvJ8FLRsjATrQIzje4tU3FFHFKTeO/Sk3kHvwrcJWpSOZcmgy
+	VPimyED1z8kpN4DUM0+aimq1i8TC3UykEiuXIOCf/G61AnT+OykZwZjDV8Bvay5i1F8jiCMrDqV
+	5oclhNzXy+u0uvjiEAS2eEppuWoc7E+Nk5CSNRaZv9uE2ql2w0pfwkdNi8uCMqyst9vhJ1Fft2X
+	2yomVt
+X-Google-Smtp-Source: AGHT+IF7S2rg0m1Mda0gZnWPSOfNwohMrdwCkO13UjUZrEBZyn1R34tSjJPAZbTcfxGrtDjxpyXlJA==
+X-Received: by 2002:a05:6830:3141:b0:7ca:c9db:5436 with SMTP id 46e09a7af769-7ce4662cc2amr2707815a34.8.1767716877599;
+        Tue, 06 Jan 2026 08:27:57 -0800 (PST)
+Received: from chromium.org ([73.34.74.121])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7ce478af8b2sm1630951a34.15.2026.01.06.08.27.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jan 2026 08:27:36 -0800 (PST)
-Date: Tue, 6 Jan 2026 17:27:34 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Richard GENOUD <richard.genoud@bootlin.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, Joao Schim <joao@schimsalabim.eu>
-Subject: Re: [PATCH v2 2/4] pwm: sun50i: Add H616 PWM support
-Message-ID: <mu3ciykmtxoaa24mdw7mofpdapbii23qrubw6uzptszok43tta@tq3rguupehwe>
-References: <20251217082504.80226-1-richard.genoud@bootlin.com>
- <20251217082504.80226-3-richard.genoud@bootlin.com>
- <en7wscywn3xpw7cxvc2ngwrmjfciglzxgaje5qc5ngiehrjufh@jbvgp2neyzzx>
- <9c55d591-a280-4ed7-91b1-0c867cfff658@bootlin.com>
+        Tue, 06 Jan 2026 08:27:56 -0800 (PST)
+From: Simon Glass <sjg@chromium.org>
+To: linux-arm-kernel@lists.infradead.org
+Cc: =?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+	=?UTF-8?q?J=20=2E=20Neusch=C3=A4fer?= <j.ne@posteo.net>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Tom Rini <trini@konsulko.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Simon Glass <sjg@chromium.org>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	David Sterba <dsterba@suse.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Terrell <terrelln@fb.com>,
+	Nicolas Schier <nsc@kernel.org>,
+	Petr Mladek <pmladek@suse.com>,
+	linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v9 0/6] scripts/make_fit: Support ramdisks and faster operations
+Date: Tue,  6 Jan 2026 09:27:30 -0700
+Message-ID: <20260106162738.2605574-1-sjg@chromium.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xoh64gb6ddxqpmu6"
-Content-Disposition: inline
-In-Reply-To: <9c55d591-a280-4ed7-91b1-0c867cfff658@bootlin.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_082739_367077_D8C8510B 
-X-CRM114-Status: GOOD (  46.31  )
+X-CRM114-CacheID: sfid-20260106_082801_006305_C47B8F45 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,201 +111,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series updates 'make image.fit' to support adding a ramdisk to the
+FIT, provided as a parameter.
 
---xoh64gb6ddxqpmu6
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 2/4] pwm: sun50i: Add H616 PWM support
-MIME-Version: 1.0
+It also includes a few performance improvement, so that building a FIT
+from ~450MB of kernel/module/devicetree files only takes a few seconds
+on a modern machine.
 
-Hello Richard,
+For this version I have dropped inclusion of built modules, as there is
+still more discussion to happen in that area.
 
-On Tue, Jan 06, 2026 at 12:19:59PM +0100, Richard GENOUD wrote:
-> Le 24/12/2025 =E0 10:54, Uwe Kleine-K=F6nig a =E9crit :
-> > this patch isn't checkpatch clean.
->=20
-> Yes, I've seen that.
-> It's because checkpatch doesn't detect that PWM_XY_SRC_MUX/GATE/DIV are
-> structures
-> If I unwrap PWM_XY_SRC_MUX/GATE/DIV and PWM_X_DIV, checkpatch doesn't
-> complain anymore (indeed, do/while loops are not allowed at file-scope)
+Changes in v9:
+- Rename the variable to FIT_EXTRA_ARGS
 
-At least add parenthesis around usages of _reg. (And if you know that
-checkpatch points out things that you don't agree to, preempting the
-critic in the cover letter is a good idea.)
+Changes in v8:
+- Drop erroneous line 'kbuild: Allow adding modules into the FIT ...'
 
-> I can drop PWM_XY_SRC_MUX/GATE/DIV PWM_X_DIV and declare the structures
-> directly under PWM_XY_CLK_SRC() and PWM_X_CLK() if you prefer, but I
-> find it less readable than the current form.
+Changes in v7:
+- Add a note about the " -> ' change
+- Add a new patch with the MAKE_FIT_FLAGS change
+- Mention xz as well, in the commit message
+- Drop patch 'scripts/make_fit: Provide a way to add built modules'
+- Drop patch 'kbuild: Split out module targets into a variable'
+- Drop patch 'kbuild: Allow adding modules into the FIT ramdisk'
 
-No strong feeling here.
-=20
-> > On Wed, Dec 17, 2025 at 09:25:02AM +0100, Richard Genoud wrote:
-> > > +#define PWM_XY_SRC_GATE(_pair, _reg)			\
-> > > +struct clk_gate gate_xy_##_pair =3D {			\
-> > > +	.reg =3D (void *)_reg,				\
-> > > +	.bit_idx =3D PWM_XY_CLK_CR_GATE_BIT,		\
-> > > +	.hw.init =3D &(struct clk_init_data){		\
-> > > +		.ops =3D  &clk_gate_ops,			\
-> > > +	}						\
-> >=20
-> > I would consider
-> >=20
-> > 	.hw.init.ops =3D ...;
-> >=20
-> > and
-> >=20
-> > 	.hw =3D {
-> > 		.init =3D {
-> > 			.ops =3D ...;
-> > 		},
-> > 	},
-> >=20
-> > natural here. The middleway you chose looks strange to me.
->=20
-> Actually, it's:
-> 	.hw.init->ops =3D ... ;
-> That's why I used this middleway construct.
+Changes in v6:
+- Drop the load address for ramdisk, as it is not needed
+- Bring back the ramdisk 'compression' property, set to 'none'
 
-Ah I see. Then it's fine for me.
+Changes in v5:
+- Fix 'use' typo
 
-> > > +#define PWM_XY_SRC_MUX(_pair, _reg)			\
-> > > +struct clk_mux mux_xy_##_pair =3D {			\
-> > > +	.reg =3D (void *)_reg,				\
-> > > +	.shift =3D PWM_XY_CLK_CR_SRC_SHIFT,		\
-> > > +	.mask =3D PWM_XY_CLK_CR_SRC_MASK,			\
-> >=20
-> > Huh, why does this structure has both a shift and a mask value? What is
-> > the difference between
-> >=20
-> > 	.shift =3D 7,
-> > 	.mask =3D 1,
-> >=20
-> > and
-> >=20
-> > 	.shift =3D 0,
-> > 	.mask =3D 1 << 7,
-> >=20
-> > ? If the latter is equivalent, you could just pass
-> > H616_PWM_XY_CLK_CR_SRC and get rid of the extra definitions for _SHIFT
-> > and _MASK.
-> >=20
-> Unfortunately, struct clk_mux wants a shift and an unshifted mask, and
-> according to:
-> https://elixir.bootlin.com/linux/v6.18.3/source/drivers/clk/clk-mux.c#L93=
--L94
-> using a 0 shift and mask =3D 1 << 7 won't work.
+Changes in v4:
+- Update the commit message
 
-How annoying, I put that on my todo list ...
+Changes in v3:
+- Move the ramdisk chunk into the correct patch
+- Add a comment at the top of the file about the -r option
+- Count the ramdisk in the total files
+- Update the commit message
 
-> > > +static inline struct h616_pwm_chip *to_h616_pwm_chip(struct pwm_chip=
- *chip)
-> >=20
-> > It probably doesn't help much, but conceptually this could be
-> >=20
-> > 	static inline struct h616_pwm_chip *to_h616_pwm_chip(const struct pwm_=
-chip *chip)
-> >=20
-> Indeed, I'll add that.
+Changes in v2:
+- Don't compress the ramdisk as it is already compressed
 
-If you rename it to h616_pwm_from_chip it even has the driver specific
-prefix.
+Simon Glass (6):
+  scripts/make_fit: Speed up operation
+  scripts/make_fit: Support an initial ramdisk
+  scripts/make_fit: Move dtb processing into a function
+  kbuild: Support a FIT_EXTRA_ARGS environment variable
+  scripts/make_fit: Support a few more parallel compressors
+  scripts/make_fit: Compress dtbs in parallel
 
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static int h616_pwm_calc(struct pwm_chip *chip, unsigned int idx,
-> > > +			 const struct pwm_state *state)
-> > > +{
-> > > +	struct h616_pwm_chip *h616chip =3D to_h616_pwm_chip(chip);
-> > > +	struct h616_pwm_channel *chan =3D &h616chip->channels[idx];
-> > > +	unsigned int cnt, duty_cnt;
-> > > +	unsigned long max_rate;
-> > > +	long calc_rate;
-> > > +	u64 duty, period, freq;
-> > > +
-> > > +	duty =3D state->duty_cycle;
-> > > +	period =3D state->period;
-> > > +
-> > > +	max_rate =3D clk_round_rate(chan->pwm_clk, UINT32_MAX);
-> >=20
-> > Huh, is this an artificial limitation? Do you rely on how clk_round_rate
-> > picks the return value? (I.e. nearest value? nearest time? round up?
-> > round down?)
->=20
-> What I want to achieve here is to handle the lowest possible period case.
-> Without the bypass, the lowest period is build with the highest clock,
-> duty cycle =3D 1 and period cycle =3D 2 (0x10001 in period register)
-> So, if the input clock is 100MHz, we have a lowest period of 20ns.
-> Now, if we enable the bypass, the period register is ignored and we direc=
-tly
-> have the 100MHz clock as PWM output, that can act as a 10ns period with 5=
-ns
-> duty
-> So the logic here is to detect this specific lowest period case that can =
-be
-> achieved by enabling the bypass.
-> For that, the highest clock is retrieved and compared to the wanted period
-> and duty.
->=20
-> Now, I learned the hard way that clk_round_rate() is actually limited to a
-> 32 bits value:
-> clk_round_rate() calls at one point clk_divider_bestdiv() that uses
-> DIV_ROUND_UP_ULL() which in turn uses do_div(n,base):
->   do_div - returns 2 values: calculate remainder and update new dividend
->   @n: uint64_t dividend (will be updated)
->   @base: uint32_t divisor
-> So, in order to get the exact highest clock rate, I use clk_round_rate()
-> with U32_MAX.
+ scripts/Makefile.lib |   2 +-
+ scripts/make_fit.py  | 179 ++++++++++++++++++++++++++++++++++---------
+ 2 files changed, 145 insertions(+), 36 deletions(-)
 
-IMHO this should be addressed in the clk framework. And until this
-happend the code in the pwm driver needs a verbose comment.
-=20
-> > > +	dev_dbg(pwmchip_parent(chip), "period=3D%llu cnt=3D%u duty=3D%llu d=
-uty_cnt=3D%u\n",
-> > > +		period, cnt, duty, duty_cnt);
-> >=20
-> > This is little helpful without the input parameters.
-> >=20
-> as
-> 	duty =3D state->duty_cycle;
-> 	period =3D state->period;
-> The input parameters are there, right?
-> But I can add the missing idx.
+-- 
+2.43.0
 
-Today I agree, don't know why I missed that. It would be nice to stick
-to the format that e.g. pwm-stm32 uses for the input parameters to make
-me notice even on busy days that the input parameters are there :-)
-
-> > > +	for (unsigned int i =3D 0; i < data->npwm; i++) {
-> >=20
-> > Huh, AFAIK we're not using declarations in for loops in the kernel.
->
-> Actually, I've read somewhere (in LWN I guess) that Linus seems ok with t=
-hat,
-> but I'll remove it if you prefer.
-
-If you find your source again, I'd be interested.
-
-Best regards
-Uwe
-
---xoh64gb6ddxqpmu6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmldN/QACgkQj4D7WH0S
-/k6a3wf/dyB2OrJF/DAgW2HOZ0tlnIpsQAvUNWwXN8AM1HMaPt4MSdhAioirsfN0
-/Aw1KjjVBKXpdbfo2twmv9ZSbREgKxIH6hske49hZVlubzdGwbSkxy61kdL6j1xG
-odksjFrtzafYhMt8gC4tAmdSdigtAGF146BBSyrRksobpo4mySFMYUIQmQMnZIM7
-znYdQIuYbtMsTkZ7B+uSveguzBgoDPvlzA6E4n6as9mATma6EW5GNw0WOqcdioQt
-kh74bbrr+qilk1uS7x7AaMS5HPqL3R0/qiZpxobJkXoSUn36WRqEAGWGmvs1XoYt
-5E9L+65geD1aHNOvvn5S3ezdcebtyA==
-=mAfF
------END PGP SIGNATURE-----
-
---xoh64gb6ddxqpmu6--
+base-commit: 7f98ab9da046865d57c102fd3ca9669a29845f67
+branch: fita9
 
