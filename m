@@ -4,58 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D81ECEFCF0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:53:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78B7DCEFCF2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:56:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oYO5p75UGgbGYm00blLvxwY4qfzPbnXHml3ls2BGkb0=; b=yQg97nuZpF7wr6rsqDvD9PLhbk
-	PhBHx8d1WqjabEbXL485sVCUGVb6XvSAK1I5hWh35S8xi8oDzJihbN3PipD+/HiErf3DhL2VN8p7s
-	4UmTbqotLTRxK4VNBIoKMf5OTmN24Jt2Z2utJ0cOdye73ZxtnzT63OMVf1mUo2Xe04J+uA9A6E9Pl
-	33Evq+EvNaiIVDh6XlkaHG66Lb9MxNkAoIJVdkI6WL8cQwKMaRd4iiRXkVHIqQmhV4Ag5bqRmjAjw
-	9s58cHhg6qYq6OhsvWBB1jteD5YSaNq/xoEvjj0f7etRMFDFGviIG17J06YWP8tYFvNHWFva5D0Ry
-	dnJG1Mtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d6ZqofRoqmgTnNauKm6sFOfSm31A4/KwcDgHVfKLaRY=; b=tapJHcg09Z04Dw9KeJtt+sM5GZ
+	dbD4W/boLplD0ezzVGh92fMD5uRnjnt8v9+tblOoNXFKrX3jA6K8HY0RuH+7jihUQwnn7ZbMMtRl5
+	8Ac22e48cLTrco2gvqRJ9cZ3XrzAIXKNONjh2q76CdSneqZX6bWinCPCkSAaqviJRsT1P9N5YZQ5N
+	innSqJbLnYoTj8jCGBNeybuh6z6c8pPu6fB6zDHn52g6OdJ9LTVD9v0uWQs9JiY/vABL3kpJkeSD/
+	JCpcFACrRbMiAeHx9AtfJyn1Zo6Lh32Vyc2zafO+TPgD0VcW3Rhd8FX/3iTxHQCeRRzRRF7Ox+q+I
+	Hmk11M/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdCAv-0000000Diox-3Nx9;
-	Tue, 06 Jan 2026 18:53:01 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vdCEX-0000000Dj4S-2q68;
+	Tue, 06 Jan 2026 18:56:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdCAs-0000000DioV-3QoI;
-	Tue, 06 Jan 2026 18:53:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=oYO5p75UGgbGYm00blLvxwY4qfzPbnXHml3ls2BGkb0=; b=Eps9U6h0eO3F9Yk1f/nHDeanUD
-	j+4USqm9bCRG/fAm+n39Sa3TQtaF/7vCKAtxQ9YXzkIP5tZeuxJTzq/y0eY2gRPlWP6mWVeRSu1js
-	l8d37K5Q2zKK98KdZ087U1NdgvnO2Z7YpxLCgqUg5aR9ruRPGcGEkwED+sFO9baxR4OI1uNCN/+tJ
-	GwaXrlxbw9ytJilp79JSRhN0Bkw4g+yHIilWUT0VQBGXZtEf0vB+ooTgzoYsXrMt84R0igoAYpLgP
-	epz5yrl5uP2PMtS92d1ih+JDAhHjUhDyEEBSGIw2kMyXdPvJL6izYs9iTheV90yW+FXrfQo2GYHfM
-	jGUF7DCQ==;
-Received: from [194.95.143.137] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vdCAq-001Hmr-6q; Tue, 06 Jan 2026 19:52:56 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: enable NPU on rk3588-tiger
-Date: Tue, 06 Jan 2026 19:52:56 +0100
-Message-ID: <4495583.CbtlEUcBR6@phil>
-In-Reply-To: <de401340-be1c-4354-b6c8-c86d6f724c73@cherry.de>
-References: <20250812085213.1071106-1-heiko@sntech.de>
- <de401340-be1c-4354-b6c8-c86d6f724c73@cherry.de>
+	id 1vdCEV-0000000Dj48-09Ff
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Jan 2026 18:56:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3BEBA400F6;
+	Tue,  6 Jan 2026 18:56:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7797C116C6;
+	Tue,  6 Jan 2026 18:56:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767725802;
+	bh=LduUB26pqvfRWwO/AQnMn2xvKfD83Q491hi3Si0/eTE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=O7UYc8/er3SZhgPFplrgYknT7fHXZYlsfSu+zbpw09l6h64m0lsumOAnus9UW3NLY
+	 IxiV5KetvlvsVbEjQQWwDw6hDv++aBdmoKYCE4/zbhaEt+4jRjsmVQmsyXapLP8BKV
+	 f6LTXtPMubMZoHY0CPtEGTEsbu+rwtF1Wzo3mYy4ujPoJj2i+SRpx9DJANxV7q8T5s
+	 WVE4nOuo3HyGW+cq7jaUkvb3QcGCHus+Jxa771y3Ohl2NpBzJkn2AduqKN2xaOl8p4
+	 dm4cYLnuh4VowqN76IeJq9YJjW4lguDxTRnbVpkEqXupAhTIt26uyfnzM/njRkljRl
+	 k8yl9CawPYnig==
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+To: Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] bus: fsl-mc: add missing fsl_mc_bus_dpdbg_type declaration
+Date: Tue,  6 Jan 2026 19:54:21 +0100
+Message-ID: <fd30e197df618be4444f9d2172ba794e5f49ae87.1767725589.git.chleroy@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1061; i=chleroy@kernel.org; h=from:subject:message-id; bh=LduUB26pqvfRWwO/AQnMn2xvKfD83Q491hi3Si0/eTE=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWTGRsVV5IVdLIxf8G/+Vp0t85MnT7gt2GpVJfDPWMv8W pfnUp6jHaUsDGJcDLJiiizH/3PvmtH1JTV/6i59mDmsTCBDGLg4BWAiBc8Y/vtxfrWXz3zMOElf t2azSIuuhL3Bs289O1MZIuLyL+1X+sPwP5T3lvC62wkxxwRLrY1v594V71hgI/dTVWV/05zAh+o VzAA=
+X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_105258_876920_EE922013 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20260106_105643_091964_99DFB9A7 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,37 +76,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 28. November 2025, 11:32:17 Mitteleurop=C3=A4ische Normalzeit s=
-chrieb Quentin Schulz:
-> Hi Heiko,
->=20
-> On 8/12/25 10:52 AM, Heiko Stuebner wrote:
-> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> >=20
-> > Enable the NPU cores and their mmus and wire up the supply-regulator.
-> > The regulator itself was already defined, but it does not need to be
-> > always on - the npu can control it.
-> >=20
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
->=20
-> Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
-> Tested-by: Quentin Schulz <quentin.schulz@cherry.de>
->=20
-> I still have the same remark about regulator-boot-on but this isn't a=20
-> blocker per-se.
->=20
-> The Oops I alluded to in my answer to the Jaguar patch is triggered by=20
-> making DRM_ACCEL_ROCKET driver built-in instead of as a module. I'm not=20
-> sure how much I will debug this on my side, I'll prolly just report this=
-=20
-> on the ML in a few hours.
+Fix following sparse warning:
 
-Just for people stumbling over this, the cause is the pm-domains
-being on on boot and the iommu after probing disabling the domain.
+  CHECK   drivers/bus/fsl-mc/fsl-mc-bus.c
+drivers/bus/fsl-mc/fsl-mc-bus.c:435:26: warning: symbol 'fsl_mc_bus_dpdbg_type' was not declared. Should it be static?
 
-See discussion in
-https://lore.kernel.org/linux-rockchip/20251216055247.13150-1-rmxpzlb@gmail=
-=2Ecom/
+As it is exported it can't be static. So declare it in mc.h like
+all other similar objects.
 
+Fixes: e70ba1b06c26 ("bus: fsl-mc: add the dpdbg device type")
+Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+---
+ include/linux/fsl/mc.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/linux/fsl/mc.h b/include/linux/fsl/mc.h
+index 897d6211c1635..28441a456bb48 100644
+--- a/include/linux/fsl/mc.h
++++ b/include/linux/fsl/mc.h
+@@ -451,6 +451,7 @@ extern const struct device_type fsl_mc_bus_dpdcei_type;
+ extern const struct device_type fsl_mc_bus_dpaiop_type;
+ extern const struct device_type fsl_mc_bus_dpci_type;
+ extern const struct device_type fsl_mc_bus_dpdmai_type;
++extern const struct device_type fsl_mc_bus_dpdbg_type;
+ 
+ static inline bool is_fsl_mc_bus_dprc(const struct fsl_mc_device *mc_dev)
+ {
+-- 
+2.49.0
 
 
