@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CCDCDC178
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 12:08:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF63CDC176
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 12:08:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w9I/jUaisALRbSBs8lHvx7CCynd3NvwTO3bVLOWCTg4=; b=KaGdVDzuApLooMqToiqUa2QMxV
-	8+usMElcggrBi7mHahqEwtt8Vxtj80jFFmWLBXnA6DdQCe5uAZadKlcRsXCcqqwQhYFoFKNqZmc8j
-	CJJTV52NxUJ3W7CJyJaw52ARThYK2Dth7ZrR/6u8CevB7RQx35jdzdNokKejM2bxUP7Tn1MDjHPOz
-	DsljJ2xli30S8fPW7OL4KkhK8cTbnaJbAIkkVOYx/RPoSMq8RAaPIPDQJKAvHPXuvyfewrg3s7mju
-	7AT/HY5wlzMfVNYUAO4YLKrpNitjmc7GH+2px3zse9Q5U9I5rOKsixobD22vQt0MpLmJ5HqTh8L7O
-	g3pjJnjw==;
+	bh=+z6Cv0rbs+hl+ByXHl3yHG2o0KY4gjhqkKS+jwP76go=; b=R/NEIejyfDbaDvly84kyvp32Ro
+	+F1E+nk0szlSPVwzi4qkN2DdQ37rVEACy82Xh/LV4f/UEOWsXJRM0B6UCklHNfaNjpdKPiMeX2ps1
+	WL6NbYNFB5Teiy1w9uEFys0kzcc5UhZ+3PeP5kWOYSlbX7SdJkRqXYI4+ENwe+boxup9RZ8hLn5vd
+	ejAXUIqgDUq7eHITyA+iwcym4XzfRNnuTtobemiX6wv2BQrFkMe2+gBryAoA+PavALkZibgHoQUzd
+	4Mp+xh6UdsYBN2S3gWUKn0h0ro/LPI1fFpTLif0zWFMRvQqC3d23fhG3tAmUplR6AiziKXBwB4ph/
+	N5QXMiig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd5rT-0000000CxIN-29j8;
-	Tue, 06 Jan 2026 12:08:31 +0000
+	id 1vd5rV-0000000CxKm-3UYr;
+	Tue, 06 Jan 2026 12:08:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd5rQ-0000000CxGE-3wd5
+	id 1vd5rT-0000000CxIq-3eIF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 12:08:30 +0000
+	Tue, 06 Jan 2026 12:08:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 95C6A497;
-	Tue,  6 Jan 2026 04:08:21 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1C5C41595;
+	Tue,  6 Jan 2026 04:08:24 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 44E383F5A1;
-	Tue,  6 Jan 2026 04:08:26 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C04CC3F5A1;
+	Tue,  6 Jan 2026 04:08:28 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 06 Jan 2026 12:07:57 +0000
-Subject: [PATCH RESEND v4 7/8] perf report: Update document for SIMD flags
+Date: Tue, 06 Jan 2026 12:07:58 +0000
+Subject: [PATCH RESEND v4 8/8] perf arm_spe: Improve SIMD flags setting
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260106-perf_support_arm_spev1-3-v4-7-b887bb999f6e@arm.com>
+Message-Id: <20260106-perf_support_arm_spev1-3-v4-8-b887bb999f6e@arm.com>
 References: <20260106-perf_support_arm_spev1-3-v4-0-b887bb999f6e@arm.com>
 In-Reply-To: <20260106-perf_support_arm_spev1-3-v4-0-b887bb999f6e@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -51,16 +51,16 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1767701288; l=1398;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1767701288; l=3573;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=gR5em95jkVY3/iuQLYqrGqJMKIzk5efq2xG/AUglxV4=;
- b=AKpwXefmFsisKFUkzutM3l9KOt+j7n5qcSW/dDe+qDl7mbG4g9l5OVCT/Bsk50+9A/d4TjAAq
- p1isgHarN5VD0YMxZsFDee3DsFnibo/h+yxXDOGu0WIrRf8IuPoZq7J
+ bh=1jZaP4IQ7K4aruUjUiI7SLKS88QFa+Wto9bZT2h4OCw=;
+ b=LDTA4Zp5J+n5P2+AvfmXclonaHt7/xaFOIedWm5Tgf5clPsEAFMCNfRSUrVSop42GB6oPQ5Qx
+ yF5ysupcebLBiinvOmjMl9N/v86qZTrEH7FFqbR83/Nik2wCUSDzyrE
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_040829_250846_F1B61605 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20260106_040832_044101_4909100C 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,31 +75,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update SIMD architecture and predicate flags.
+Fill in ASE and SME operations for the SIMD arch field.
+
+Also set the predicate flags for SVE and SME, but differences between
+them: SME does not have a predicate flag, so the setting is based on
+events. SVE provides a predicate flag to indicate whether the predicate
+is disabled, which allows it to be distinguished into four cases: full
+predicates, empty predicates, fully predicated, and disabled predicates.
+
+After:
+
+    perf report -s +simd
+    ...
+    0.06%     0.06%  sve-test  sve-test               [.] setz                                        [p] SVE
+    0.06%     0.06%  sve-test  [kernel.kallsyms]      [k] do_raw_spin_lock
+    0.06%     0.06%  sve-test  sve-test               [.] getz                                        [p] SVE
+    0.06%     0.06%  sve-test  [kernel.kallsyms]      [k] timekeeping_advance
+    0.06%     0.06%  sve-test  sve-test               [.] getz                                        [d] SVE
+    0.06%     0.06%  sve-test  [kernel.kallsyms]      [k] update_load_avg
+    0.06%     0.06%  sve-test  sve-test               [.] getz                                        [e] SVE
+    0.05%     0.05%  sve-test  sve-test               [.] setz                                        [e] SVE
+    0.05%     0.05%  sve-test  [kernel.kallsyms]      [k] update_curr
+    0.05%     0.05%  sve-test  sve-test               [.] setz                                        [d] SVE
+    0.05%     0.05%  sve-test  [kernel.kallsyms]      [k] do_raw_spin_unlock
+    0.05%     0.05%  sve-test  [kernel.kallsyms]      [k] timekeeping_update_from_shadow.constprop.0
+    0.05%     0.05%  sve-test  sve-test               [.] getz                                        [f] SVE
+    0.05%     0.05%  sve-test  sve-test               [.] setz                                        [f] SVE
 
 Reviewed-by: James Clark <james.clark@linaro.org>
 Reviewed-by: Ian Rogers <irogers@google.com>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/Documentation/perf-report.txt | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ tools/perf/util/arm-spe.c | 26 ++++++++++++++++++++------
+ 1 file changed, 20 insertions(+), 6 deletions(-)
 
-diff --git a/tools/perf/Documentation/perf-report.txt b/tools/perf/Documentation/perf-report.txt
-index acef3ff4178eff66e8f876ae16cdac7b1387f07b..f361081a65dbe9cead539c7cb81d6ed86eb0acc6 100644
---- a/tools/perf/Documentation/perf-report.txt
-+++ b/tools/perf/Documentation/perf-report.txt
-@@ -136,7 +136,10 @@ OPTIONS
- 	- addr: (Full) virtual address of the sampled instruction
- 	- retire_lat: On X86, this reports pipeline stall of this instruction compared
- 	  to the previous instruction in cycles. And currently supported only on X86
--	- simd: Flags describing a SIMD operation. "e" for empty Arm SVE predicate. "p" for partial Arm SVE predicate
-+	- simd: Flags describing a SIMD operation. The architecture type can be Arm's
-+	  ASE (Advanced SIMD extension), SVE, SME. It provides an extra tag for
-+	  predicate: "e" for empty predicate, "p" for partial predicate, "d" for
-+	  predicate disabled, and "f" for full predicate.
- 	- type: Data type of sample memory access.
- 	- typeoff: Offset in the data type of sample memory access.
- 	- symoff: Offset in the symbol.
+diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+index 8e9004213e163a46fcacecb4ee32e199a0ec50b2..0a20591d49e821357d3d9ac559874179f1d4f378 100644
+--- a/tools/perf/util/arm-spe.c
++++ b/tools/perf/util/arm-spe.c
+@@ -353,12 +353,26 @@ static struct simd_flags arm_spe__synth_simd_flags(const struct arm_spe_record *
+ 
+ 	if (record->op & ARM_SPE_OP_SVE)
+ 		simd_flags.arch |= SIMD_OP_FLAGS_ARCH_SVE;
+-
+-	if (record->type & ARM_SPE_SVE_PARTIAL_PRED)
+-		simd_flags.pred |= SIMD_OP_FLAGS_PRED_PARTIAL;
+-
+-	if (record->type & ARM_SPE_SVE_EMPTY_PRED)
+-		simd_flags.pred |= SIMD_OP_FLAGS_PRED_EMPTY;
++	else if (record->op & ARM_SPE_OP_SME)
++		simd_flags.arch |= SIMD_OP_FLAGS_ARCH_SME;
++	else if (record->op & (ARM_SPE_OP_ASE | ARM_SPE_OP_SIMD_FP))
++		simd_flags.arch |= SIMD_OP_FLAGS_ARCH_ASE;
++
++	if (record->op & ARM_SPE_OP_SVE) {
++		if (!(record->op & ARM_SPE_OP_PRED))
++			simd_flags.pred = SIMD_OP_FLAGS_PRED_DISABLED;
++		else if (record->type & ARM_SPE_SVE_PARTIAL_PRED)
++			simd_flags.pred = SIMD_OP_FLAGS_PRED_PARTIAL;
++		else if (record->type & ARM_SPE_SVE_EMPTY_PRED)
++			simd_flags.pred = SIMD_OP_FLAGS_PRED_EMPTY;
++		else
++			simd_flags.pred = SIMD_OP_FLAGS_PRED_FULL;
++	} else {
++		if (record->type & ARM_SPE_SVE_PARTIAL_PRED)
++			simd_flags.pred = SIMD_OP_FLAGS_PRED_PARTIAL;
++		else if (record->type & ARM_SPE_SVE_EMPTY_PRED)
++			simd_flags.pred = SIMD_OP_FLAGS_PRED_EMPTY;
++	}
+ 
+ 	return simd_flags;
+ }
 
 -- 
 2.34.1
