@@ -4,94 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C43EDCE9D65
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 030E0CE9D66
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vwkvkcWyxTfbsBLkYMdbStPrn+nfObXSdUlXH9TTP/A=; b=ig5eXjuf4GNXKhPTQ7fUBYTTXE
-	drsCMrbKI+kaH7sFgAvhMuwQz6LYNHjVZMW9bOJtDpf12PB4HeTDvZxq309ke/UKJsDfbpgwYU6dH
-	ne/8pYhbfoeKjZRayawwmwmh1TDH3Lwy4ZsXTrwUOyIJq36KX/JwgdGY33RtEn3NlZjlUAuayb3gz
-	wtcApTxQI+5EjGLsTmA6jP/BoGMTZcrFOt2MBX+18TUvxRMvC2tzZHl1JEpBmbm42vKR+vFY7kKbY
-	uCGcmtVfY5lv9MiNG23GQQs2iCKIQLIa+Rsrm2rf+o5Z3NI0agNH2ZzO2hZjuP7WKW9ymzEYbJkc7
-	FKCzZkAg==;
+	bh=iQTUy1kZhVd6QFKYgDUasG/BXOAj1nBI7IAdTwgQh4k=; b=SRnNi64sMe1lm5hG0Wy25GIc0F
+	kRg1vnFu6azFJue/dkJUEhmrp5b6zpg3vRLyY4lGFYqJAKCaW7FhWAOuCDDBsCNYh30KBNG9UZ1HT
+	zy/YNZJ5fZ/jL4oPRXBigH/3DnmUCb+lZzrD9vBUslLQa6VuUm7aYU2fzSETE8AxqeEUm4sJnAqSZ
+	h2rf/62BMRpryCiq2xRMuJfhJ5QkcEA9t0wea8VmUd7MaMjxbWZS5a1ptLWhW6f/TanQKhar5AS2a
+	byEcy1EFICBXg/gDqAkgW64vDC9jHt/eQXt4iq1b8tAR75DBdt9uzrLE16fdSW5gEwpcweU/HQiOt
+	OBuDmQ3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd9Fl-0000000DQjk-3p40;
-	Tue, 06 Jan 2026 15:45:50 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vd9G7-0000000DQnf-1bA1;
+	Tue, 06 Jan 2026 15:46:11 +0000
+Received: from mail-ot1-f53.google.com ([209.85.210.53])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd9Fj-0000000DQjI-1QXc
+	id 1vd9G5-0000000DQnC-2x9F
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 15:45:48 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47d493a9b96so6723675e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 07:45:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767714345; x=1768319145; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vwkvkcWyxTfbsBLkYMdbStPrn+nfObXSdUlXH9TTP/A=;
-        b=YmhV43htB5gX6G5kQ3G0nuQec6yY36aM+IltOXzQQJIXyUtv/m7JyeIlaL2rxJmFzA
-         HT8L0hZEwKtpwEeYda94JlfFFxFQgh4acl0NAmfVAJ5dYzfoWy8HVLbzFPHrply/u/Zr
-         pvK9BDzQ3bokOMr0gTMyLQo/Ej3aRpZIvOcL6A0p9UaQK8ZE+neTkq6hCoptcKtVjnzQ
-         1dcTxsm9rJZQfAQpdDfOwb+BJj764P6UpgzngRqapxEOY2NqtAQiToMc4Nxv9Ld38eIj
-         3b+UBQb5LIxHHHtniXlg/r2eOItoDZrWp5nMd67j1bUE2l+QN5QXjIop5AK0nrToDWsZ
-         VApw==
+	Tue, 06 Jan 2026 15:46:10 +0000
+Received: by mail-ot1-f53.google.com with SMTP id 46e09a7af769-7c7613db390so600564a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 07:46:09 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767714345; x=1768319145;
+        d=1e100.net; s=20230601; t=1767714368; x=1768319168;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vwkvkcWyxTfbsBLkYMdbStPrn+nfObXSdUlXH9TTP/A=;
-        b=VpaicVsGgqDpa4m14SD5opbeAXd43sYNUnI1SrhysOX0ilMcaIYo2GWcW3BY+ZLjgH
-         eCwpGeRYINPOtqtZDMH2H9aZyzFhFQs99QiPXErygsQsgjeuFrTqy5ngmb2iCNKOBdRs
-         qtZjSvPGZJdnROeQW9QTwuFg072IIKJoXDKskN0LJiy2SaJyYj6MitKTiwV8OWUqbX+x
-         hZkVKvf6GGRXWG+jegMbMFvSEx3eWMgLEs2A8zStIn2MsQkd19XVN9UYMnsQNtfQk7eb
-         Nhf/LR7xUAA+m46/2OVYZG9QYYYIhPI3eXsTGIqQ2JyiuxVDUxB4j+plk4G/WqZ+IQ74
-         +UsA==
-X-Forwarded-Encrypted: i=1; AJvYcCVfut9RPKE9twOdlLqedh7HYPmX7naNoDEJ4usQwqqrJDSM57bQC6NCHXxYlxAzPvqpN4+SjRldy0jVMh5w5S1P@lists.infradead.org
-X-Gm-Message-State: AOJu0YzijibE9j7IRQ0h5XGbhfIBvniiOSsnm38zmiMPI1zKC0tZHto0
-	MaD2IpmtiEmgk4ZuCMh2VhDrE8vthb4AHn6bdcfs/O1eAJJ3XnG7M0EDgozLbXzTTg==
-X-Gm-Gg: AY/fxX5wmOTMXHABsswT3OY6TeDfuD9UMUOWsdZHdNBXeZ3z9UJ+EE3NMd+5kyaoqV0
-	EO6RyKhhB1FpOBD+2ai1a5SACwN5aNSLH8oAdtPMqt9IjwCXcTEdFXMlDeH4rLeip63brJdHfdt
-	tiNz0BgPuWoPbchkcJIqvAkCLvOQFqtCHt5D2l0Q6lApds2edCq5KkmYLMuEZqoKhJTjNqsebna
-	UDFdoJfcDwmUi9bzIL2SAQ4oaP9qZXkJNb4vDwrQVT2lmm94MxVF3gjduGrBEBqlDKCuvvD3E8W
-	rKEbf8Q9sGaUk4x6xft6c1gqRN3oJuzSwP5Z6BAI+fN80bh+UDcAHydVG385ULUUnf4BKzGlb1A
-	Gaclty7ESGQUo5/nSoKTDotvObDe3xzrIslPGzIBT+IpyZfPCE6pP/jPMe94cPioFOBLGowuhJh
-	vRV9y6yDz+0h3hjeMXlrXkUBDhN6dxXLRhOvvPkt+GLeZajfF2/g==
-X-Google-Smtp-Source: AGHT+IFtTU8v0TC6GJrNdhgpjBrqhdm4O/5Wgr4IoH2l3qKTodlEKzvW1qkwoysFQFNCHokEYgD4gA==
-X-Received: by 2002:a05:600c:4e16:b0:477:63b5:6f3a with SMTP id 5b1f17b1804b1-47d7f09d505mr43410595e9.27.1767714344644;
-        Tue, 06 Jan 2026 07:45:44 -0800 (PST)
-Received: from google.com (44.145.34.34.bc.googleusercontent.com. [34.34.145.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d7f4184cbsm53680785e9.6.2026.01.06.07.45.44
+        bh=iQTUy1kZhVd6QFKYgDUasG/BXOAj1nBI7IAdTwgQh4k=;
+        b=qsnXxJYipjlnepeYFDVhLEwwkCscV5vCCU3CXIQb4CDMyHsKqmDIaVD6xdTZcvz0Qz
+         LA2aElYLuY1aTEe6q4sec9/QS1g0w2d94sIpjU0y7vcJBkCTU8jRiNRnLsKxaW3EiLDe
+         1+ulRqIo11EKGDVmWiFX16Q/jbXg6/1Axj6xGgsBX0SF5v7h83td37MrkI0Jdhaf775E
+         S9RCGU7mTZ/MTSNiGqpHYM6ENKPii3MlQMVk0bMfeU2UaDbme6WAeAZp4sgbZfinbpxm
+         QASk1nKQ+78bbZknhW/RKh+BUzh9YwVu6ozGg2Y4tK5c+feC2Khu/DG/o53uqJLZcDoe
+         xIXw==
+X-Forwarded-Encrypted: i=1; AJvYcCVxpazGTEFLjTVfTJe2V4DW+L1+KFxXAhrNyP1EpY+Vq0UrYhvXabhcGOhQCdEGuGOo2zhshwh+/Fo9cbrUEwPP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw75s2spS6aoNFaJdIKrdJBnXAgDUmi5PARcXhnDrQ3CSPnBJg9
+	ZFzw5zr1cgBbCYp5ddLJjoKwq4J5Gz1nfzB6HmFPNdWF4KcpemPVQyHZ
+X-Gm-Gg: AY/fxX6ept4ToxT93sl3hwerHy+dAchrU3ZHnQtVMXNU+pdEVOp1BprgsEJl/bQf3Tz
+	tyjdaSLgwUXuiq4CnWCbOiVneKIXBFUlv3qAWrrG1QlI79Gw8v1MZiYOHVhv3w2Va/rmPTy88VW
+	T1NSCiN7MNvsPslLBNmR9MH2ZTpkY256lpZEeIpp7g1iaspExRuQiFEhKgQP35yQs2tb28Fgquc
+	gu7cgrUvE79MbBEY/jgaTfMEmo4UKDEkqehxNhuXANgY2riUt0j9YU6mzSdwfP4C8nrF4a4gN+W
+	fDLnPuPjuBq66CFZH+MGdfL9Uqn8MsyH1iKnc437DaswWNwOjLH+akLwHB+PBZ3hkGrCM+lhzSd
+	mdnDJWRnrvXf3wphxC1+Mf58LMC/oVjijx1yMQiPg1yw4iTmysCsld26OgHM4votnOvvZ12mB7b
+	PDZYQGHm5iy7EfdWGX3Nxy
+X-Google-Smtp-Source: AGHT+IEDVtPF+jdII9GyQUl1ZSSEpCxWJpHOx5hPHx7PAH7getQJEBbENhpATdFTeDD/D3J2rXVxsQ==
+X-Received: by 2002:a05:6830:668c:b0:7c7:1e8a:c9d8 with SMTP id 46e09a7af769-7ce46745fcamr2517821a34.36.1767714368554;
+        Tue, 06 Jan 2026 07:46:08 -0800 (PST)
+Received: from gmail.com ([2a03:2880:10ff::])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7ce478029a6sm1603103a34.3.2026.01.06.07.46.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jan 2026 07:45:44 -0800 (PST)
-Date: Tue, 6 Jan 2026 15:45:40 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 24/30] KVM: arm64: Implement the MEM_SHARE hypercall for
- protected VMs
-Message-ID: <aV0uJDtZwbu2iKhs@google.com>
-References: <20260105154939.11041-1-will@kernel.org>
- <20260105154939.11041-25-will@kernel.org>
+        Tue, 06 Jan 2026 07:46:08 -0800 (PST)
+Date: Tue, 6 Jan 2026 07:46:06 -0800
+From: Breno Leitao <leitao@debian.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Laura Abbott <labbott@redhat.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, kernel-team@meta.com, 
+	puranjay@kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: Disable branch profiling for all arm64 code
+Message-ID: <cllfyxsg4gkyg65j3bko2fncibwmr2wqzzs2255qp6l3vupev7@2ke5cv6iqpow>
+References: <20260106-annotated-v2-1-fb7600ebd47f@debian.org>
+ <aVz-NHMG7rSJ9u1N@J2N7QTR9R3>
+ <tj43kozcibuidfzoqzrvk6gsxylddfpyftkdiy7xb2zm7yncx5@z33xu7tavuts>
+ <aV0qxGioAXxkh6QD@J2N7QTR9R3>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260105154939.11041-25-will@kernel.org>
+In-Reply-To: <aV0qxGioAXxkh6QD@J2N7QTR9R3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_074547_410866_85F2CFDB 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20260106_074609_743541_A585FF40 
+X-CRM114-Status: GOOD (  25.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,40 +93,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[...]
-
-> @@ -952,6 +1004,7 @@ bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code)
->  	case ARM_SMCCC_VENDOR_HYP_KVM_FEATURES_FUNC_ID:
->  		val[0] = BIT(ARM_SMCCC_KVM_FUNC_FEATURES);
->  		val[0] |= BIT(ARM_SMCCC_KVM_FUNC_HYP_MEMINFO);
-> +		val[0] |= BIT(ARM_SMCCC_KVM_FUNC_MEM_SHARE);
->  		break;
->  	case ARM_SMCCC_VENDOR_HYP_KVM_HYP_MEMINFO_FUNC_ID:
->  		if (smccc_get_arg1(vcpu) ||
-> @@ -962,6 +1015,14 @@ bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code)
->  
->  		val[0] = PAGE_SIZE;
->  		break;
-> +	case ARM_SMCCC_VENDOR_HYP_KVM_MEM_SHARE_FUNC_ID:
-> +		if (smccc_get_arg2(vcpu) ||
-> +		    smccc_get_arg3(vcpu)) {
-> +			break;
-> +		}
-
-I wonder if that shouldn't go into pkvm_memshare_call(): that function has the
-knowledge of the argument content since we pass vcpu.
-
-Otherwise:
-
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-
-> +
-> +		handled = pkvm_memshare_call(val, vcpu, exit_code);
-> +		break;
->  	default:
->  		/* Punt everything else back to the host, for now. */
->  		handled = false;
-> -- 
-> 2.52.0.351.gbe84eed79e-goog
+On Tue, Jan 06, 2026 at 03:31:16PM +0000, Mark Rutland wrote:
+> On Tue, Jan 06, 2026 at 06:05:37AM -0800, Breno Leitao wrote:
+> > On Tue, Jan 06, 2026 at 12:21:47PM +0000, Mark Rutland wrote:
+> > > On Tue, Jan 06, 2026 at 02:16:35AM -0800, Breno Leitao wrote:
+> > > > The arm64 kernel doesn't boot with annotated branches
+> > > > (PROFILE_ANNOTATED_BRANCHES) enabled and CONFIG_DEBUG_VIRTUAL together.
+> > > > 
+> > > > Bisecting it, I found that disabling branch profiling in arch/arm64/mm
+> > > > solved the problem. Narrowing down a bit further, I found that
+> > > > physaddr.c is the file that needs to have branch profiling disabled to
+> > > > get the machine to boot.
+> > > > 
+> > > > I suspect that it might invoke some ftrace helper very early in the boot
+> > > > process and ftrace is still not enabled(!?).
+> > > > 
+> > > > Rather than playing whack-a-mole with individual files, disable branch
+> > > > profiling for the entire arch/arm64 tree, similar to what x86 already
+> > > > does in arch/x86/Kbuild.
+> > > > 
+> > > > Cc: stable@vger.kernel.org
+> > > > Fixes: ec6d06efb0bac ("arm64: Add support for CONFIG_DEBUG_VIRTUAL")
+> > > > Signed-off-by: Breno Leitao <leitao@debian.org>
+> > > 
+> > > I don't think ec6d06efb0bac is to blame here, and CONFIG_DEBUG_VIRTUAL
+> > > is unsound in a number of places, so I'd prefer to remove that Fixes tag
+> > > and backport this for all stable trees.
+> > 
+> > That is fair, thanks for the review.
+> > 
+> > Should I submit a new version without the fixes tag, or, do you guys do
+> > it while merging the patch?
 > 
+> I assume that Catalin or Will can handle that when applying (if they
+> agree with me); no need to respin.
+
+Thanks Mark.
 
