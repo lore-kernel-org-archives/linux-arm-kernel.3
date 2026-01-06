@@ -4,125 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E207CDC19F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 13:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6001C47BF2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 13:54:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Q+EbBMdORcMNNAGzctaUYJJ1+TjSsaPa24Zlu9XsnoM=; b=uh9SQFKGeEIINAtmXBBrsWOcGu
-	xHQl/zTWLMh+rylB6g1jAY6yDJFnHNDuaDHltsKY5ZXIjz1kQ3wI3jrCWbBCBd1HZpqweQds11lVE
-	1zrw39fU1HkLptEmoekebeGzKkneJ7whH4XDd6X0/KMGLKekZciStIQ/K7nnC+oaLaPZNHH7+85R1
-	TBl81fXZgj2IdUuBghQpOKcc+vBPwodyAGXikGnm7qu4R7kRok0vi1GlWTYYRqEkVoVI15L2cYnf1
-	mrC1Mrum0w/LReqOfT7jk7nLUsjMXW8pRU3O1QZ43zkHSSNfqylHA6AtB4n2xIZ2onJZInuFF57/f
-	rh43ZN/A==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OMKGc2m0zzBAL9kpiP8F1zvM8UEUNPmY/Risd157zN0=; b=z3NX2nCldos5P4ug0qYS4Xe6GD
+	16fULSDml1jyQB/zj8KVBIwEn3NErz8WcmqKKGLuFOOYdw9m2wgIbYi6Xx3XquXYE/0ChTHTZU9e5
+	Rb1qWogu4tkIjmp0UlbHO1sfqLkG/atTNa1mWfFHE/3oIr9ZpbGEiIYf6wVFCq6nhlyJX/BFvbnO0
+	VHFfvgfWdEHFKRs2oGJMiqGHVo/ZjztKSZzrx+BD1VDxj8g/4ayphqyNcZ4pvvvSXMNCMRDvuJhn3
+	nBNhLzta0MWKRQ57UCUAvThNRBLOdxJe80+W+9sbPXEIiCikigv3K73mgqQ5bD7pXkS+dgmkfyMh0
+	H72mCDQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd7Jr-0000000D7IX-2RB4;
-	Tue, 06 Jan 2026 13:41:55 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vd7WG-0000000DE9s-3dda;
+	Tue, 06 Jan 2026 13:54:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd7Jo-0000000D7I9-0bp4
+	id 1vd7WF-0000000DE9g-2mf0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 13:41:53 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6069WZDW4091260
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 6 Jan 2026 13:41:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=Q+EbBMdORcMNNAGzctaUYJJ1+TjSsaPa24Z
-	lu9XsnoM=; b=CNdGM1BHzOodLvt5wPAM3mf1dwGGoU4Hc3RsoPe6N2cusGhrrxS
-	xKVtJJFkhA3D+a/Lq8bw2jSvufSSK5titcntH1hRl+b0JVkVrVKGzgVnn6geQjg2
-	uNmc6UdD6+1gQFyVIOldHPbYk2p0R3Nl+L9a9nccAQ0RoWz2sFG0XJXnY0ouYldS
-	E+No7HzQZ0GEKYc8inDLlpIumzJQxLzVX47OjbDRUPWR+12R4ZJ5YvcMA1zaWVDZ
-	YC/3OWdd4MEwvEBOY9XuzBe8pefz8JLoFbhQiVj9R9RLb7RPfiPNTLNtfaG2yA9H
-	1QfeNjdlisad2JGAl7fvW3GUf6frBXgL08Q==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bgyun8msj-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 13:41:50 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4ee416413a8so11842581cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 05:41:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767706910; x=1768311710; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q+EbBMdORcMNNAGzctaUYJJ1+TjSsaPa24Zlu9XsnoM=;
-        b=REc+pyTU1J2Cy2xbrA5BG54GIAKHGsh0KuGECLYDB3BpollYFuLQuF7/aSONYb6nGX
-         uQIM7B3OktnXr/p9t93Vr8H/EcCICHu84l3XVITpPDOO4QqfbVVkSBDFEQxFMAgAX+iS
-         PgbY927yRTDr3UxXJM4ALzp0fbfoo4LkxHw1pgzOLIgP7YwsXOav5f78sK43/l5dXpek
-         mfsdaA24uXahm0w6dfz41opQ6UYTqTkW+JnLzwj8wTF9ZxKk5UFo0oBt7ZPdaZIJZYpC
-         eIP0r9Ygk60lhMa67monhWRoe9FCixG1O95B1n3pDdoiCrCj9f9MQMohjx+9zgiS8/7D
-         QpWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767706910; x=1768311710;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Q+EbBMdORcMNNAGzctaUYJJ1+TjSsaPa24Zlu9XsnoM=;
-        b=KTnNKDCMuxWPj7h3PFmDr2vqbf+2MJT3WiAEl6ANtmvQIr2+mBuaYuL4pW+Wdyx6Tr
-         WTPRvA4sd3zT+XlLn0FP3sqvc5ntfHDnfa57g31jDhf5pXJgebX5Q2Yo4otfE8R/4/om
-         IFBrffG32WFpVN1/saSMfkaEuj9nSoTFdTkaQbdpsEQ0HSLPfGRzD+QN6MZEE2sSZgC1
-         wMEqxxdwesW7Jn4dxSBgaDD0sL3MOYiGAlnj557yIHX3nG12y+B3Um11B4rrXrSVTetp
-         CgT884YI6LHqi1rOf52Kmv4jWY4iiwy6KJs/HwS0+GVs3e8L2Xidxs68SySpKuT8eyiW
-         bxOA==
-X-Gm-Message-State: AOJu0YwgzKKBo4epY1KOJdAESoVPlXbGRhJoP5Zc2gIBRNpnCBoV27W0
-	ExO9OmfrRJX5zyHSRWL0wJP13D9Pnzll00aJiikImoW4aIBdCZVdwL2cKXrED3xFV51RJ0inmST
-	LSOfU/WmPYeRoD71MeB2W+xgNswJR/kO2CJFD5OVzHxMmJsXahfHNNTp7r4hBON5K55h96ffXXT
-	mlqw==
-X-Gm-Gg: AY/fxX7VMyvBITYwfetpTXPsQy30jjtO47ZdDnUb2emWWkH8yNiZAwJaY2KObV7ncvy
-	RfgPNkGW/cKcuaVZZswT+mi/VK1yPa7drkRu96U40jBaa2Z5GPEwPB2npACItVH2wctTicY3dhq
-	KusXCLPcsq1ji3h+hf4XB31whmQdaTrAA76vz93ya+LcthCuQKrawb3fU6ra6uvYKKIle9V68pR
-	ldZEn+NQuw5yfzLHYWn8z8mCiVvfCj2QGDV/r5wYieBe+2lsEq71fTXxZALsVs4UA22YKbFjw8v
-	OOUrRctLN34aFvoDyUz+2nrNT2s1MIkr8F+6oW450dM+ag/lx2gGbsPc3N/itA6DWl1NS7sF86U
-	rvb3p0tFD9uuPAM08bL95zMoZNQCxauXaVQIAVJg=
-X-Received: by 2002:a05:622a:2298:b0:4f1:bbaf:c5d3 with SMTP id d75a77b69052e-4ffa77de986mr30341891cf.59.1767706910203;
-        Tue, 06 Jan 2026 05:41:50 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IE9O/Y6IUM42PPHVAKBn/I+rMLQPR3/OerWV8MU9bPamAukuZ4DFoHXldy6yo3R10P4l1fSwQ==
-X-Received: by 2002:a05:622a:2298:b0:4f1:bbaf:c5d3 with SMTP id d75a77b69052e-4ffa77de986mr30341611cf.59.1767706909774;
-        Tue, 06 Jan 2026 05:41:49 -0800 (PST)
-Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:3980:9f91:8651:f23b])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0dabcbsm4248368f8f.7.2026.01.06.05.41.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jan 2026 05:41:49 -0800 (PST)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: [PATCH] arm64: Kconfig: drop unneeded dependency on OF_GPIO
-Date: Tue,  6 Jan 2026 14:41:48 +0100
-Message-ID: <20260106134148.48257-1-bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA2MDExOSBTYWx0ZWRfX2DPwtZ5CtaYo
- bZD0SN05+4o1XXdzTr0NWuMC0V3RMl+6Y9DLaNvvunMNdlrCfJlXMY1Qbu9UsfgvJuVR15fxlM6
- PAoqrras6Vgo5GTqaWv5IUorALNl87tBszd+MiOnvXBnOkKeeq9THiUuByTIUi4x8Kjo1VeNARS
- q2jTl6t6Xua6JAWy0MzYhOY1Q9nmtkpzF9mH7OGq7QAVJgN7rrKiLqS5/b2Z/Ip7SHBA3LepoTF
- Wvx+Yh4ADudtZ+YTocuR1thFQK6lRS6um7p5lBQw8CDWYexqETg24QT4SgAmq0IGZqLVxkxUqcO
- 912K001936AFJeUVZAxzRVN81v55vfWoi/LuC5vrGN6I4aUbKXGAEYGybHcRGIOcHfQl+q+/cNB
- brDYQdmyEs9U5DvGTBBlGiyrVW7iT8aizJjTNitxnhlF2AUsJX++ORhZZdPwDoS2M0Gidq9Sw3e
- oeGP49B8nlaRq8hJI4A==
-X-Authority-Analysis: v=2.4 cv=YqIChoYX c=1 sm=1 tr=0 ts=695d111e cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=vUbySO9Y5rIA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8
- a=W5IJ7m-aJTlBmcj5y3YA:9 a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-GUID: az2SAbOq3DarIzlYtZZww39T_mP_Tz-2
-X-Proofpoint-ORIG-GUID: az2SAbOq3DarIzlYtZZww39T_mP_Tz-2
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-06_01,2026-01-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 impostorscore=0 bulkscore=0 malwarescore=0
- phishscore=0 adultscore=0 clxscore=1015 lowpriorityscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601060119
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_054152_301111_B0A8BCFF 
-X-CRM114-Status: GOOD (  13.69  )
+	Tue, 06 Jan 2026 13:54:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F11D60144;
+	Tue,  6 Jan 2026 13:54:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1ED33C116C6;
+	Tue,  6 Jan 2026 13:54:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767707682;
+	bh=ga+M/2DyrKHDPq3klxkY7Kx5M/XnEgu0cyltA0WyEOg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=OJt2KVgIvIa2R8WGGkU6haFmDbO9NGaBDhfzRQOQ+Xm/4627RFLoyEz9yHxAqkpvX
+	 V3Z/nVorulih+ihvwj8vE+MQ7h5An531c6jgAHLxsrNqP07wr5RgsCrVHKLiDuVJPZ
+	 6LD+3udgLppuESw5RKshihohqW7Zk2KElqcJFSHdbkEJ7o17ODc7KQn6TGFmpSwTxN
+	 Q+jI6w8brCk7f135xxGR9JajF4exHpADOYGP5hiQa0H4yEyqWGa5+GdVDAKdFpxUaj
+	 wxcHrfrUs9T0FmCFlgMXoQ/izNhWvMH6VfVkiAHwY1S04dK5Q8dr9jj4Sj6QgBmzIv
+	 TApUQvcA03Meg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vd7WB-0000000HMAk-3YIC;
+	Tue, 06 Jan 2026 13:54:39 +0000
+Date: Tue, 06 Jan 2026 13:54:39 +0000
+Message-ID: <86h5syn8ww.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Lukas Bulwahn <lbulwahn@redhat.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Vegard Nossum <vegard.nossum@oracle.com>,
+	Kees Cook <kees@kernel.org>,
+	kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Lukas Bulwahn <lukas.bulwahn@redhat.com>
+Subject: Re: [PATCH] arm64: Kconfig: deprecate redundant ARM64_USE_LSE_ATOMICS
+In-Reply-To: <aVwkIYMyoe7OpeUh@willie-the-truck>
+References: <20251223110730.121239-1-lukas.bulwahn@redhat.com>
+	<aVwkIYMyoe7OpeUh@willie-the-truck>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, lbulwahn@redhat.com, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, arnd@arndb.de, vegard.nossum@oracle.com, kees@kernel.org, kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org, lukas.bulwahn@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,28 +90,310 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-OF_GPIO is selected automatically on all OF systems. Any symbols it
-controls also provide stubs so there's really no reason to select it
-explicitly.
+On Mon, 05 Jan 2026 20:50:41 +0000,
+Will Deacon <will@kernel.org> wrote:
+>=20
+> [+Marc]
+>=20
+> On Tue, Dec 23, 2025 at 12:07:30PM +0100, Lukas Bulwahn wrote:
+> > From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+> >=20
+> > Currently, the config options ARM64_USE_LSE_ATOMICS and ARM64_LSE_ATOMI=
+CS
+> > are equivalent, i.e., ARM64_LSE_ATOMICS is true if and only if
+> > ARM64_USE_LSE_ATOMICS is true.
+> >=20
+> > Prior to commit 395af861377d ("arm64: Move the LSE gas support detectio=
+n to
+> > Kconfig")---included in v5.6-rc1---only the config option ARM64_LSE_ATO=
+MICS
+> > was defined, and the check for gas support was done in the Makefile. Th=
+is
+> > mentioned commit then introduces the config option ARM64_USE_LSE_ATOMIC=
+S to
+> > be the promptable option, and changes the semantics of ARM64_LSE_ATOMIC=
+S to
+> > check for the gas support.
+> >=20
+> > Note that there is then some minor refactoring in commit 2decad92f473
+> > ("arm64: mte: Ensure TIF_MTE_ASYNC_FAULT is set atomically"), putting t=
+his
+> > gas support check into its own config option AS_HAS_LSE_ATOMICS, but the
+> > logic remains the same. Since every binutils version defined suitable f=
+or
+> > kernel compilation then eventually included the required support, the
+> > config option AS_HAS_LSE_ATOMICS and the dependency was dropped with
+> > commit 2555d4c68720 ("arm64: drop binutils version checks"). This then
+> > makes ARM64_USE_LSE_ATOMICS and ARM64_LSE_ATOMICS equivalent. Hence, one
+> > of the two config options can be dropped now.
+> >=20
+> > Considerations for the decision which config option to drop:
+> >=20
+> >   - ARM64_USE_LSE_ATOMICS is promptable by the user since its introduct=
+ion
+> >     in 2020. So there might be some Kconfig fragments that define this
+> >     config option and expect that this then implies ARM64_LSE_ATOMICS t=
+o be
+> >     set. However, within the kernel tree, there is no existing config f=
+ile
+> >     referring to that option. So, it is unlikely to be widely used.
+> >   - ARM64_LSE_ATOMICS is used in nine places within the arm64 directory=
+ in
+> >     the current kernel tree.
+> >   - ARM64_USE_LSE_ATOMICS is the only config option that contains the i=
+nfix
+> >     string _USE_ to enable support and use of an arm64 architectural
+> >     feature. However, there is not a very stringent and consistent nami=
+ng
+> >     convention for Kconfig options throughout the kernel tree anyway.
+> >   - The use of the transitional attribute allows to simplify transition=
+ing
+> >     to a different Kconfig symbol name, but also adds some intermediate
+> >     definition to be removed later eventually.
+> >=20
+> > After thoughtful consideration, keep ARM_LSE_ATOMICS and remove
+> > ARM64_USE_LSE_ATOMICS in a two-step approach, first deprecate
+> > ARM64_USE_LSE_ATOMICS with the transitional attribute here and then plan
+> > to completely remove it in two or three years with a further dedicated
+> > commit then.
+>=20
+> Marc was talking about removing ARM64_LSE_ATOMICS entirely the other day
+> after it bit him with a KVM change. If all supported assemblers understand
+> the LSE instructions, let's just do that?
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+That'd be my preferred option. Having config options for things that
+we can detect and patch at runtime makes coverage a lot more difficult
+than it should be. I'd also love to kill CONFIG_ARM64_PAN, for
+example. In any case, here's my take on this, based on -rc4.
+
+Thanks,
+
+	M.
+
+=46rom 3ab18194eefd2017fb1cea6764adb0634f5946da Mon Sep 17 00:00:00 2001
+From: Marc Zyngier <maz@kernel.org>
+Date: Tue, 6 Jan 2026 13:44:14 +0000
+Subject: [PATCH] arm64: Unconditionally enable LSE support
+
+LSE atomics have been in the architecture since ARMv8.1 (released in
+2014), and are hopefully supported by all modern toolchains.
+
+Drop the optional nature of LSE support in the kernel, and always
+compile the support in, as this really is very little code. LL/SC
+still is the default, and the switch to LSE is done dynamically.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/Kconfig.platforms | 1 -
- 1 file changed, 1 deletion(-)
+ arch/arm64/Kconfig             | 16 ----------------
+ arch/arm64/include/asm/insn.h  | 23 -----------------------
+ arch/arm64/include/asm/lse.h   |  9 ---------
+ arch/arm64/kernel/cpufeature.c |  2 --
+ arch/arm64/kvm/at.c            |  7 -------
+ arch/arm64/lib/insn.c          |  2 --
+ arch/arm64/net/bpf_jit_comp.c  |  7 -------
+ 7 files changed, 66 deletions(-)
 
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index fff14807c965..933281bb6139 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -244,7 +244,6 @@ config ARCH_MVEBU
- 	select MVEBU_ODMI
- 	select MVEBU_PIC
- 	select MVEBU_SEI
--	select OF_GPIO
- 	select PINCTRL
- 	select PINCTRL_ARMADA_37XX
- 	select PINCTRL_ARMADA_AP806
--- 
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 93173f0a09c7d..b6f57cc1e4df8 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1873,22 +1873,6 @@ config ARM64_PAN
+ 	  The feature is detected at runtime, and will remain as a 'nop'
+ 	  instruction if the cpu does not implement the feature.
+=20
+-config ARM64_LSE_ATOMICS
+-	bool
+-	default ARM64_USE_LSE_ATOMICS
+-
+-config ARM64_USE_LSE_ATOMICS
+-	bool "Atomic instructions"
+-	default y
+-	help
+-	  As part of the Large System Extensions, ARMv8.1 introduces new
+-	  atomic instructions that are designed specifically to scale in
+-	  very large systems.
+-
+-	  Say Y here to make use of these instructions for the in-kernel
+-	  atomic routines. This incurs a small overhead on CPUs that do
+-	  not support these instructions.
+-
+ endmenu # "ARMv8.1 architectural features"
+=20
+ menu "ARMv8.2 architectural features"
+diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+index e1d30ba99d016..f463a654a2bbd 100644
+--- a/arch/arm64/include/asm/insn.h
++++ b/arch/arm64/include/asm/insn.h
+@@ -671,7 +671,6 @@ u32 aarch64_insn_gen_extr(enum aarch64_insn_variant var=
+iant,
+ 			  enum aarch64_insn_register Rn,
+ 			  enum aarch64_insn_register Rd,
+ 			  u8 lsb);
+-#ifdef CONFIG_ARM64_LSE_ATOMICS
+ u32 aarch64_insn_gen_atomic_ld_op(enum aarch64_insn_register result,
+ 				  enum aarch64_insn_register address,
+ 				  enum aarch64_insn_register value,
+@@ -683,28 +682,6 @@ u32 aarch64_insn_gen_cas(enum aarch64_insn_register re=
+sult,
+ 			 enum aarch64_insn_register value,
+ 			 enum aarch64_insn_size_type size,
+ 			 enum aarch64_insn_mem_order_type order);
+-#else
+-static inline
+-u32 aarch64_insn_gen_atomic_ld_op(enum aarch64_insn_register result,
+-				  enum aarch64_insn_register address,
+-				  enum aarch64_insn_register value,
+-				  enum aarch64_insn_size_type size,
+-				  enum aarch64_insn_mem_atomic_op op,
+-				  enum aarch64_insn_mem_order_type order)
+-{
+-	return AARCH64_BREAK_FAULT;
+-}
+-
+-static inline
+-u32 aarch64_insn_gen_cas(enum aarch64_insn_register result,
+-			 enum aarch64_insn_register address,
+-			 enum aarch64_insn_register value,
+-			 enum aarch64_insn_size_type size,
+-			 enum aarch64_insn_mem_order_type order)
+-{
+-	return AARCH64_BREAK_FAULT;
+-}
+-#endif
+ u32 aarch64_insn_gen_dmb(enum aarch64_insn_mb_type type);
+ u32 aarch64_insn_gen_dsb(enum aarch64_insn_mb_type type);
+ u32 aarch64_insn_gen_mrs(enum aarch64_insn_register result,
+diff --git a/arch/arm64/include/asm/lse.h b/arch/arm64/include/asm/lse.h
+index 3129a5819d0e0..1e77c45bb0a83 100644
+--- a/arch/arm64/include/asm/lse.h
++++ b/arch/arm64/include/asm/lse.h
+@@ -4,8 +4,6 @@
+=20
+ #include <asm/atomic_ll_sc.h>
+=20
+-#ifdef CONFIG_ARM64_LSE_ATOMICS
+-
+ #define __LSE_PREAMBLE	".arch_extension lse\n"
+=20
+ #include <linux/compiler_types.h>
+@@ -27,11 +25,4 @@
+ #define ARM64_LSE_ATOMIC_INSN(llsc, lse)				\
+ 	ALTERNATIVE(llsc, __LSE_PREAMBLE lse, ARM64_HAS_LSE_ATOMICS)
+=20
+-#else	/* CONFIG_ARM64_LSE_ATOMICS */
+-
+-#define __lse_ll_sc_body(op, ...)		__ll_sc_##op(__VA_ARGS__)
+-
+-#define ARM64_LSE_ATOMIC_INSN(llsc, lse)	llsc
+-
+-#endif	/* CONFIG_ARM64_LSE_ATOMICS */
+ #endif	/* __ASM_LSE_H */
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index c840a93b9ef95..547ccf28f2893 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2560,7 +2560,6 @@ static const struct arm64_cpu_capabilities arm64_feat=
+ures[] =3D {
+ 		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, PAN, PAN3)
+ 	},
+ #endif /* CONFIG_ARM64_EPAN */
+-#ifdef CONFIG_ARM64_LSE_ATOMICS
+ 	{
+ 		.desc =3D "LSE atomic instructions",
+ 		.capability =3D ARM64_HAS_LSE_ATOMICS,
+@@ -2568,7 +2567,6 @@ static const struct arm64_cpu_capabilities arm64_feat=
+ures[] =3D {
+ 		.matches =3D has_cpuid_feature,
+ 		ARM64_CPUID_FIELDS(ID_AA64ISAR0_EL1, ATOMIC, IMP)
+ 	},
+-#endif /* CONFIG_ARM64_LSE_ATOMICS */
+ 	{
+ 		.desc =3D "Virtualization Host Extensions",
+ 		.capability =3D ARM64_HAS_VIRT_HOST_EXTN,
+diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+index 53bf70126f81d..6cbcec041a9dd 100644
+--- a/arch/arm64/kvm/at.c
++++ b/arch/arm64/kvm/at.c
+@@ -1700,7 +1700,6 @@ int __kvm_find_s1_desc_level(struct kvm_vcpu *vcpu, u=
+64 va, u64 ipa, int *level)
+ 	}
+ }
+=20
+-#ifdef CONFIG_ARM64_LSE_ATOMICS
+ static int __lse_swap_desc(u64 __user *ptep, u64 old, u64 new)
+ {
+ 	u64 tmp =3D old;
+@@ -1725,12 +1724,6 @@ static int __lse_swap_desc(u64 __user *ptep, u64 old=
+, u64 new)
+=20
+ 	return ret;
+ }
+-#else
+-static int __lse_swap_desc(u64 __user *ptep, u64 old, u64 new)
+-{
+-	return -EINVAL;
+-}
+-#endif
+=20
+ static int __llsc_swap_desc(u64 __user *ptep, u64 old, u64 new)
+ {
+diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
+index 4e298baddc2e5..cc5b40917d0dd 100644
+--- a/arch/arm64/lib/insn.c
++++ b/arch/arm64/lib/insn.c
+@@ -611,7 +611,6 @@ u32 aarch64_insn_gen_load_store_ex(enum aarch64_insn_re=
+gister reg,
+ 					    state);
+ }
+=20
+-#ifdef CONFIG_ARM64_LSE_ATOMICS
+ static u32 aarch64_insn_encode_ldst_order(enum aarch64_insn_mem_order_type=
+ type,
+ 					  u32 insn)
+ {
+@@ -755,7 +754,6 @@ u32 aarch64_insn_gen_cas(enum aarch64_insn_register res=
+ult,
+ 	return aarch64_insn_encode_register(AARCH64_INSN_REGTYPE_RS, insn,
+ 					    value);
+ }
+-#endif
+=20
+ u32 aarch64_insn_gen_add_sub_imm(enum aarch64_insn_register dst,
+ 				 enum aarch64_insn_register src,
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index b6eb7a465ad24..5ce82edc508e4 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -776,7 +776,6 @@ static int emit_atomic_ld_st(const struct bpf_insn *ins=
+n, struct jit_ctx *ctx)
+ 	return 0;
+ }
+=20
+-#ifdef CONFIG_ARM64_LSE_ATOMICS
+ static int emit_lse_atomic(const struct bpf_insn *insn, struct jit_ctx *ct=
+x)
+ {
+ 	const u8 code =3D insn->code;
+@@ -843,12 +842,6 @@ static int emit_lse_atomic(const struct bpf_insn *insn=
+, struct jit_ctx *ctx)
+=20
+ 	return 0;
+ }
+-#else
+-static inline int emit_lse_atomic(const struct bpf_insn *insn, struct jit_=
+ctx *ctx)
+-{
+-	return -EINVAL;
+-}
+-#endif
+=20
+ static int emit_ll_sc_atomic(const struct bpf_insn *insn, struct jit_ctx *=
+ctx)
+ {
+--=20
 2.47.3
 
+
+--=20
+Without deviation from the norm, progress is not possible.
 
