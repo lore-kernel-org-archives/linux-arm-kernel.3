@@ -4,92 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFB3DCE9D45
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:20:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AAF0CE9D4C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Id7mMU47XER2g8M01+ksD3/e3xj34gH+ioyx6b+UIXs=; b=sbSSuMrvQgHNzh7DGOl9YG4p/J
-	JUILWZvC+uFZdS90CKIgBz8k6kgsjJtOy7nV3YZuyvcsegAUPYK1H+d18+bLG8oGuxVZfIfVfIaLP
-	S/No9qSgW8gzs0WTn54ZKRpQV16zcoJRLXmUnJobYGmF4uXWJY4WenAFDVMTbtGh+cv/N/vETQoPU
-	UR/JF8JNOGAEsBd8a8/A1D8K085q7gObPw/Frl/p6KVbAg7lYtyzmmqpTf0cIUvWHU/U21qflrnuE
-	lKtnu7fQ/UZFMqsUGSQyrUkDSI7nBW5xdkK1tZn2Ej4D0YigPgZ5r4/zG4hRHmxkz+nAqsgCmWYub
-	DliTbvbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9mRFZgchHX2jb8eFhmYCpM7vKuPhTwBiqRXcoqsSVBI=; b=eGS1Eq+yg2M1hM
+	y7YRmX/a15LFswdxi6A/tk0MahFDxfdqV/Onnnispca3NE4HJhDC7KXfpULUI3z/4gVUXW8F90RYr
+	qosJyCn0M9azUh1733gpkLDikdF7YSRpl1/xojQqOUHtz1xjK6L5aBKmwVjBPBh/kMx5uEWcji0PO
+	g3EK44tRiOWqcAfZ/Tm4YL9Qn9y6dw92RZlGEIXQJAdZZsrnJhnv/WvZvz8Cuxvw1m2iyHOa5sYnq
+	TPCFEYkULT7gPI2/KrS5EPhiatN16CxiN6OfyDXl6iaVzrYyDNnk45n5/XV7MnXq7/xe0/oZETcT1
+	l86BhAHYn9wVGgVsIVzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8rF-0000000DOCR-0BHe;
-	Tue, 06 Jan 2026 15:20:29 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1vd8sD-0000000DOSP-0RHm;
+	Tue, 06 Jan 2026 15:21:34 +0000
+Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8r8-0000000DOBd-04rY
+	id 1vd8s9-0000000DOPc-23FL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 15:20:27 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-37b9d8122fdso8330181fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 07:20:21 -0800 (PST)
+	Tue, 06 Jan 2026 15:21:27 +0000
+Received: by mail-oi1-x22a.google.com with SMTP id 5614622812f47-44ffed84cccso310878b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 07:21:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767712820; x=1768317620; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Id7mMU47XER2g8M01+ksD3/e3xj34gH+ioyx6b+UIXs=;
-        b=UX8Ywl4v8xwIxBFS4pmHIDp5gu7GijDPRmVsmtK7H+Y9gFA4hNzQgu7S4tibd1wkmE
-         IntcNqLO451X0yuxhVHy7h60dNHIASFiybrz6+oxmsR5p0cQgCmeztTOSMBS80bWWbQC
-         uv8x6luCxGAQAfio1t4QQ8dN+nuoEfroezsU0ElE7SxBqdMaK2yR7eROCSqIri7+UHNk
-         f4gpwB5lCg7Dbv0FoGYJTso9rrYTjtFb6ivv908OJ77v9DMDLbi+HMmPrLfAs1m/lyta
-         udsJsh438dN5IJ78CCmhBazAG65lFk8osPZJmwO4xKykIeo0WZQHV59bM2q6W34U6lhC
-         cbNg==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1767712881; x=1768317681; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9mRFZgchHX2jb8eFhmYCpM7vKuPhTwBiqRXcoqsSVBI=;
+        b=dmdBJKeYuluzYC9wXukavI8TWmRvM6cWY4wbFWFDn5VnghCdTM0lxJ+/yoEFVKvCRS
+         QI9r1zjLJO7O0nGxzVC3HXktphfwOfrNC9LKqvCWzpdvZvKmWpdM2vqeXHCC9MZqlE8A
+         N41wrZ0WC3Pu+9UNT3v5FjofI4GDD676gi4nzf91FZ54Bjf67stRLOp/4ZBe/57E1+oN
+         XblLOP00EE/8VxONrRaON67PiJHs1qgNPU2m4fV1HZdEhrPOyzA2ZnGCCEXrjwuG6gy8
+         JvpLMhNNxCxEwwIRwuq4LoPEXWKwsi73zSrHgviGJcPTY/MayVxkEI9tzYNciFWaxib4
+         B2hw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767712820; x=1768317620;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Id7mMU47XER2g8M01+ksD3/e3xj34gH+ioyx6b+UIXs=;
-        b=CEzFv1hhuJvc1Ph9M+4zfhbOMRAQllucAL0qz4N0wUMo5tH+Bzeb4ysVWsUFwJN9o4
-         5yCcIfROFdSVo69xqkU3EbFMjqfxWI36GjWktR/LJ1jZSH0wuV8eaixxialnX7GRCw45
-         UMhUft1zYa3dZz3WYIKFRiY3gGXOl3+4F7els0IZfm+ckh6P6qf1O0uLPNr4x+m1Y/VA
-         +d4SOyPX7FTljQliKfCDCzybuhILKUNvoqyxnWcrvcATM8txMtJ2vQgCvR0eVDfGQii/
-         WHq3F5Ir2tV0Gm95oU/D7pObXf2M/a8pjOj6Z240vKkIDra4ITUdfaznI4lVf1AAWAzR
-         QxgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV27N4I1nw6OmiZwdj/Hnr1DNmPqTvyWlTTtsDKjk6rXFKTbxoeuf5niE/crIG4ZxB9raSKw7FaKT+8Gdc64Guh@lists.infradead.org
-X-Gm-Message-State: AOJu0YymzpJZu1FN8zTD10Uyze7HrUCXzHB/zJaQrpF1Th7mbWGBjgUu
-	8RDlt8OVHaTuMh4aBh6sO3WWFyK0tmcII2Q2NeF2j20aEqu0YG2gJWEj2PgMQJzb9g==
-X-Gm-Gg: AY/fxX5tss504V1m/IXUjeThLYJmE68c5Vqqaj9IZYh18BkLQ++etI/n8+UCWql7kvg
-	IkhxdGfFDywGEKIXwsNepZ5FxP5n4jvsuv+78JdaAPRvkxRnbePNN+1sBCu4jHj1bivl6shvpIW
-	KT2gLLnBcNj47Zmwtnqvt8AbR45HJI8YCJmx5t+OxD5vMfpP4UqeSAIMi61LoNZuGUt1Laj9Ld3
-	r7xiNyGzvb/fxa1NaQjLTt4IGuxjCAnMg+7Neyk5Q4/cG3cCIQT4oLcCX2rpZbjNEBgfm+0+6bp
-	+SmpP0OGhNZeF0CTdshJ9ZYUhvX9VxtigAFKwjBvl3hfzzv1DigQAVZkXmUyTb5L4ygdiJd5Dcu
-	TOzRo3fPYZMKpWURiGCxaNZ4i12h2Kwtou4Q1nYSvDzD07YLFHtvseePqM9ZBDzsymA3qi6NkOR
-	rqMTuVPeU3DK8ChQlfC7OyWIvdVIlmxWBtyyb5A/k8Eu79pd2U
-X-Google-Smtp-Source: AGHT+IFU9XgMuYZOygAp7IsVsq2f35QvR9jvRwZzMLfy3bby4dhwHBGD9DFQoSjkX9BMOAy+TSw0oA==
-X-Received: by 2002:a2e:a10d:0:b0:36b:b0eb:9d64 with SMTP id 38308e7fff4ca-382eaac9251mr8967191fa.30.1767712819609;
-        Tue, 06 Jan 2026 07:20:19 -0800 (PST)
-Received: from google.com (228.231.88.34.bc.googleusercontent.com. [34.88.231.228])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-382fc17b990sm716001fa.40.2026.01.06.07.20.18
+        d=1e100.net; s=20230601; t=1767712881; x=1768317681;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9mRFZgchHX2jb8eFhmYCpM7vKuPhTwBiqRXcoqsSVBI=;
+        b=heuYAnMCJmSJj5QJrzMmD9Tz68c+Q+3gkRiYus6Vu7Dkg4vWR6Ea4F4eupeNmdoqJj
+         z4YPUAWZ2vFbkoB0BZrylRHtenWQh7LeHFy4/c8z+IqTF0ztJP5DxzstBweBZZ7k70R5
+         GmWEdbuRoKh9qLS3BVKDdkN/rL1vRr3oWju43yq9Llk7MrMFPXID0PXZHdkF5NYhZXpm
+         /Aiavt8dkpKpcRUghMAaRXiq3ZQDvDO2LfPURkds3B8mBJO84b4TW4g0YoxBQ4yHPTgA
+         RHTWooLZ7oE3KozEOyn0gGX5064l0duYMnQGLMU7qAM0Rk+jAakSK8HRxQQe4BdwBhea
+         UUtw==
+X-Forwarded-Encrypted: i=1; AJvYcCWDrm4rG029lxxr+oLVtrLc20fSLlZIvtQJ9q+PjVd/j0VKoB/YEjkCf/tTUXsPlrSfs7gZ1MPueaNZASTBCQx/@lists.infradead.org
+X-Gm-Message-State: AOJu0YykcfXGHxRcwxqNmXHBRanrYoXCEpzModP80fpSYPhBPDWI4bl/
+	E9c6fRUD/xlbYlwM+5fgPQLX9DvAS9v9Dd661OsCrPcHIFWsQvZLBsaJB10nwVrSB/c=
+X-Gm-Gg: AY/fxX7k8Fp+uZXFSyRC8q9bIL2DHrzc6muvcoXKmFA0ku+0S7hLrzoGuAhA8WRnHMH
+	JbCQgj+YnmCqyhkYyOfxOVKv616QhrEijwMnR3AXAZhNFYpACebDojq6cIswKfwwQRoY336Go7v
+	zB+vVotWYut9EJI3/j1ZFNXO6x+1gXF33Hn+pWhtgVeNUb4Fhc9/Q/qA05hx0Ewoi7V1BrqGcsK
+	1K0hCNPGtLIfbdUch+LhMiofC6NxfTdErNJJDOpW5VnU65vSLv+sb5g7FXUlukpyuMOCiMb94uj
+	hOyT5bD2JcWVVhNoJjhpvjZkWYylev5R9sWIq12LEVXuOJvPODI6/BOOpVspqtlFPEi2W2x7UV8
+	jjhR0R46whUdPrwxoCPBXOyD88SLb0IxuTdNU/J5dlItsPMmESFuxP+HTzIsY03xUXzM2ph9j7u
+	DAqhzIq9tVKoY9JEw=
+X-Google-Smtp-Source: AGHT+IGjEHbpqU6LY4RJ8+CevaCM+RJCZaili7qB1Q46krb/sk3v4K9+clY3lM6bvdg7eEwxH/iBxQ==
+X-Received: by 2002:a05:6808:1793:b0:450:d504:9295 with SMTP id 5614622812f47-45a5b2b3b89mr2066823b6e.44.1767712881182;
+        Tue, 06 Jan 2026 07:21:21 -0800 (PST)
+Received: from [127.0.1.1] ([2600:8803:e7e4:500:7f98:2205:4ba4:3e65])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-45a5e17cd81sm1041992b6e.2.2026.01.06.07.21.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jan 2026 07:20:19 -0800 (PST)
-Date: Tue, 6 Jan 2026 15:20:15 +0000
-From: Quentin Perret <qperret@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Fuad Tabba <tabba@google.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 17/30] KVM: arm64: Generalise
- kvm_pgtable_stage2_set_owner()
-Message-ID: <rm55zbvakwmh5ny25bosf3jjiehfubcm2st5q4porsmnffuod5@edygmhqq2ckn>
-References: <20260105154939.11041-1-will@kernel.org>
- <20260105154939.11041-18-will@kernel.org>
+        Tue, 06 Jan 2026 07:21:20 -0800 (PST)
+From: David Lechner <dlechner@baylibre.com>
+Subject: [PATCH 0/2] arm: dts: mediatek: fix pinctl node names
+Date: Tue, 06 Jan 2026 09:20:54 -0600
+Message-Id: <20260106-mtk-fix-mt7623-pinctl-name-v1-0-33817c7f78ee@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260105154939.11041-18-will@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MSQqAMAwAvyI5G6gt1uUr4sElalCrtEUE8e8GT
+ 8PAMA8E8kwB6uQBTxcHPpxIliYwLJ2bCXkUB620VZmyuMcVJ76FhdUGT3ZD3NB1O+FU5pWpctP
+ TWIAMTk9S/vOmfd8P6g9gGmwAAAA=
+X-Change-ID: 20260106-mtk-fix-mt7623-pinctl-name-f8593953bed7
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ David Lechner <dlechner@baylibre.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=694; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=/TeDlw/cAEB006wcLjZMrKPIkG2WYcBLIBb1X30w/es=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBpXShbReLW6cOm6xpd2RjcDVAWadQN7gSIS90HC
+ 0BDe/zrsQiJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaV0oWwAKCRDCzCAB/wGP
+ wCIaB/0fD0W9zZkaM75mQbeaPzXPA0VsiPREgfVmLDS/kx2YcuNqR3QeWd3VI/OZG3lu1JhTZeu
+ gr726LqIwSLRbF/uyfc4GbWrQHxRL8mj6g9g4UGuovmonCzNnzYZRoaEoiDPlkmh2lVRUfRNNlp
+ YdJUAWvD3YyVz4HvnDje9jJGl9Bk7jhNTZeZCsrYH4wOaKrOFpPDbJVVysjebH2Vdq2ckXeKbPT
+ rB12pXOAVZhvk1mA87CO51/5vokOEyt9rtUi7kHjJjmEIykvIhJlOyDomh0aaFVDkE3HcKkN5+c
+ MUXSc5zYcmO0ypk/lNkCytfhQf+IyAAz4DVPJsqPv7Hlo3D1
+X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
+ fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_072022_100433_E322D74B 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20260106_072125_793799_1F34465B 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,42 +116,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday 05 Jan 2026 at 15:49:25 (+0000), Will Deacon wrote:
->  /**
-> - * kvm_pgtable_stage2_set_owner() - Unmap and annotate pages in the IPA space to
-> - *				    track ownership.
-> + * kvm_pgtable_stage2_annotate() - Unmap and annotate pages in the IPA space
-> + *				   to track ownership (and more).
->   * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_init*().
->   * @addr:	Base intermediate physical address to annotate.
->   * @size:	Size of the annotated range.
->   * @mc:		Cache of pre-allocated and zeroed memory from which to allocate
->   *		page-table pages.
-> - * @owner_id:	Unique identifier for the owner of the page.
-> + * @annotation:	A 62-bit value that will be stored in the page tables.
-> + *		@annotation[0] and @annotation[63] must be 0.
-> + * 		@annotation[62:1] is stored in the page tables.
->   *
->   * By default, all page-tables are owned by identifier 0. This function can be
->   * used to mark portions of the IPA space as owned by other entities. When a
-> @@ -673,8 +678,8 @@ int kvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
->   *
->   * Return: 0 on success, negative error code on failure.
->   */
-> -int kvm_pgtable_stage2_set_owner(struct kvm_pgtable *pgt, u64 addr, u64 size,
-> -				 void *mc, u8 owner_id);
-> +int kvm_pgtable_stage2_annotate(struct kvm_pgtable *pgt, u64 addr, u64 size,
-> +				void *mc, kvm_pte_t annotation);
+While passing by, I noticed that the pinctrl nodes in a couple of dtsi
+files did not match the addresses in their reg properties. Here are some
+patches to fix that.
 
-While we're on this topic, perhaps we could go one step further and 'type'
-the annotation itself? For instance have a 'type' and 'meta' parameter
-directly at the kvm_pgatble_stage2_annotate() level instead of leaving
-that up to the callers. This would allow to have one place to allocate
-annotation 'types' (donated pages, locked PTE, MMIO guard, ...) and one
-way to serialize/deserialize them. That 'type' would be stored in top 2
-or 3 bits of the PTE for instance, and decoding of the 'meta' field would
-be dependant on the type value. Thoughts?
+Signed-off-by: David Lechner <dlechner@baylibre.com>
+---
+David Lechner (2):
+      arm: dts: mediatek: mt7623: fix pinctrl node name
+      arm: dts: mediatek: mt8135: fix pinctrl node name
 
-Thanks,
-Quentin
+ arch/arm/boot/dts/mediatek/mt7623.dtsi | 2 +-
+ arch/arm/boot/dts/mediatek/mt8135.dtsi | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+---
+base-commit: 6cd6c12031130a349a098dbeb19d8c3070d2dfbe
+change-id: 20260106-mtk-fix-mt7623-pinctl-name-f8593953bed7
+
+Best regards,
+-- 
+David Lechner <dlechner@baylibre.com>
+
 
