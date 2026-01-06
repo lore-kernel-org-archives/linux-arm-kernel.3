@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FB3BCDC192
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 12:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F071ECDC192
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 12:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oRMkA/Ca563y0+dy1t5I/0e9W9y6rU2HQmmd09ZD4+8=; b=mh5NxDbYAIM/Y2R2m2Q5ofJlIA
-	SCg6+/2cJvWPSL6xVdcoJj68UetSy9KHpb/gFUDVZRyLo2zS52Rf2X4+zMfalPBUPrrEsQ3SSyjk9
-	OnSLqwi0IkQV9fHo0QQYQF43Xx4bBd+Zjt1Xw48LLJwe8sk86n06p0jQh+B1N3jWquwuPHenM0S06
-	elnQDc5wMO5DBexFBn4Px93Oc1hK/9dihMK1CDBJpSBsLNvS+IuT6lPzi+ygf71DWjt+aylxUiubU
-	3oW2uA0F7nwvptOCiomSNRiUJqQxjol4aS3JNeeWIj8YxwmYeYIsJOaGqM/HmmquMFFDyxb9ZomfH
-	AkxrwiJQ==;
+	bh=xsT4usbspAuLjRoX9Zvkc98UvH2b0yQkPaftYv84D4o=; b=F3q2/xXIQhOUoKe1/cFPzN2/SC
+	RzLwfm+4Zw0mg0IULS20hfek+0y0iqOmZJUMxenm3K5c/SxSmorBn/9xZ0Ezaz2ChNLAfxOViX10T
+	yYymFol5G6NB0lMFPnS0eMRxNIU0PpbD3utlc2uOnsBkFAjJCyfchKXyrbUvjl8EyoW2UQTgH/iA1
+	LJs/+OkrIPWeN4r5DhsYTltdq5eqC+kvhobSfrglV/TQOnhdg2GH8jTs5mNygD1f+5mZo4XgvVqR+
+	0lVCzhMUcdC9Ax4Q7lB+xbk8C6DQqg7uPRv9E5w3quXVfbvYq+wr6CTBoKgr7iNHuW5OeAndoaK4L
+	8Th2Ap4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd6PL-0000000D17N-2Nle;
-	Tue, 06 Jan 2026 12:43:33 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vd6XW-0000000D1Sv-1izI;
+	Tue, 06 Jan 2026 12:51:58 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd6PK-0000000D17H-12aq
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 06 Jan 2026 12:43:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=oRMkA/Ca563y0+dy1t5I/0e9W9y6rU2HQmmd09ZD4+8=; b=fF8x1implaMTwmDC1WueQdrygX
-	hcp2Jzf/RJx5Vzset7UUh3RO0L/rISk8A28NzSvDhKtM+KuzehXVbdI6XKw1XyKJ9zk99lU9ACzmz
-	ps1tMiWLfwcFAuz1KVztHAKzPhJY77fcfFUiYzYoge4bvvx9pKlRj4h+FfrbuhZMvhsy11PXQNACB
-	e+9UYVgjmYoMI/Gnx+rjnEq2YOn0ecUTgl4m7qpqMsbThPBPAG6n+3vDgQz3LBhrNiALCbrFmxVTu
-	AynL8hzMi0+ECj6C1VSYyxSUJTWMGVt0W/9ccLrJLC90FS97UHXrepDcMzj9P48L3wT/3enG9ZnSs
-	uVWcN5zA==;
-Received: from 2001-1c00-8d85-5700-266e-96ff-fe07-7dcc.cable.dynamic.v6.ziggo.nl ([2001:1c00:8d85:5700:266e:96ff:fe07:7dcc] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd6PH-0000000BmZ5-1z2W;
-	Tue, 06 Jan 2026 12:43:27 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 0D77630039E; Tue, 06 Jan 2026 13:43:26 +0100 (CET)
-Date: Tue, 6 Jan 2026 13:43:26 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Boqun Feng <boqun.feng@gmail.com>, Will Deacon <will@kernel.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Miguel Ojeda <ojeda@kernel.org>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	FUJITA Tomonori <fujita.tomonori@gmail.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Lyude Paul <lyude@redhat.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Anna-Maria Behnsen <anna-maria@linutronix.de>,
-	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	rust-for-linux@vger.kernel.org, linux-fsdevel@vger.kernel.org
+	id 1vd6XT-0000000D1SY-1TFr
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Jan 2026 12:51:56 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-47a83800743so15389155e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 04:51:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1767703913; x=1768308713; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xsT4usbspAuLjRoX9Zvkc98UvH2b0yQkPaftYv84D4o=;
+        b=11mMILqd3v1Fjl4EwUDpEu/k4necoJrgpSdJHBUlfmvDB7cTAXdW3p31Kf1yw7CB7o
+         liRERkkOVHznxpftX2lFzd2ufFXyw71J0NrSoeTYZjI20frtezPXBZ2FWr7Qa9w13hM+
+         NKrl43uQX5T7Emqs2ctpswUvlswUaa1YgnpRHEjKfsTsmzIF5Qe2dj3zsphbKKPOHdi6
+         C5qq1o6zqMmKV/1w/oAFyruEFdKw6XVLEFNZWM3Xq1JKoN3hqiBhC0fHgCyTRCGoD94R
+         mR7hvUQ5l+BvffrUOGBIF/1w/o5AiBqAUWKXOkVUkKEweViHILX9B0L/bt+KnefAas7y
+         4e9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767703913; x=1768308713;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xsT4usbspAuLjRoX9Zvkc98UvH2b0yQkPaftYv84D4o=;
+        b=QxVBAJRTc0nfdZGP8PQ3TCHVpszgAskuCIOsl0PclaMPfyrN54SY5NAEVt6ktqOT2h
+         foa25ZM3iU2QJDiG1jUr0t2nEAen0nSSL7b+kt83ENFqszBaFzPZ9Xhcp+VjjR8rkArT
+         aL34ahv0kSQRufePtYyH5fZOXuSXDzDncRYvg3zNDMuoZxeRJVRbqO7TvvOE1CRM4GfM
+         PARYkqXkrY+G9I1/5rkzl9jMSafT3qcaAI483WMwJQeGg1gFsefVWEFjoYJNJqcOTJx5
+         D7mhG5NvfxjRLG0EQGddrKgenkrW1sk8a3GuaebcYgak7yaR55GNkQcf2ooFZWbl1K/F
+         pBeg==
+X-Forwarded-Encrypted: i=1; AJvYcCWe51tGyFcWHCL6mk/AHc4JRZTwmCNCS3xBLJwB/8vS2wCUNVdrxZh0hh9ms+5fe4tS54tjG3vZhFDP+7t5Jx0+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+PM5iuKU6rWT/W0S4/pXGf7bod6uiOdhk88WQz30PB1NcsJet
+	YqZ81ZmqLafrAY4wur0IomRg0mrDGyCmWx3drftus1PENaJ4racXaBU/JtVXWKpeAvuhoqwSOmt
+	qg/YfPuHbWpent38C6A==
+X-Google-Smtp-Source: AGHT+IG3HimmS8tgW4GY2wron0bO12GBXSVrxQ4BKNHos90Wwn9m7SbT5K/3H7Ao0w4qXUIF0pRAaTdapSCG7vU=
+X-Received: from wmv18.prod.google.com ([2002:a05:600c:26d2:b0:475:dadb:c8f2])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:81ca:b0:471:5c0:94fc with SMTP id 5b1f17b1804b1-47d7f41069bmr28735145e9.6.1767703913011;
+ Tue, 06 Jan 2026 04:51:53 -0800 (PST)
+Date: Tue, 6 Jan 2026 12:51:52 +0000
+In-Reply-To: <20260106124326.GY3707891@noisy.programming.kicks-ass.net>
+Mime-Version: 1.0
+References: <20251231-rwonce-v1-0-702a10b85278@google.com> <20251231-rwonce-v1-3-702a10b85278@google.com>
+ <20260106124326.GY3707891@noisy.programming.kicks-ass.net>
+Message-ID: <aV0FaEjA7fe3NPAX@google.com>
 Subject: Re: [PATCH 3/5] rust: sync: support using bool with READ_ONCE
-Message-ID: <20260106124326.GY3707891@noisy.programming.kicks-ass.net>
-References: <20251231-rwonce-v1-0-702a10b85278@google.com>
- <20251231-rwonce-v1-3-702a10b85278@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251231-rwonce-v1-3-702a10b85278@google.com>
+From: Alice Ryhl <aliceryhl@google.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Boqun Feng <boqun.feng@gmail.com>, Will Deacon <will@kernel.org>, 
+	Richard Henderson <richard.henderson@linaro.org>, Matt Turner <mattst88@gmail.com>, 
+	Magnus Lindholm <linmag7@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Miguel Ojeda <ojeda@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?B?QmrDtnJu?= Roy Baron" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	FUJITA Tomonori <fujita.tomonori@gmail.com>, Frederic Weisbecker <frederic@kernel.org>, 
+	Lyude Paul <lyude@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Anna-Maria Behnsen <anna-maria@linutronix.de>, John Stultz <jstultz@google.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, linux-kernel@vger.kernel.org, 
+	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	rust-for-linux@vger.kernel.org, linux-fsdevel@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260106_045155_408062_F88D4B45 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,61 +101,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 31, 2025 at 12:22:27PM +0000, Alice Ryhl wrote:
-> Normally it is undefined behavior for a bool to take any value other
-> than 0 or 1. However, in the case of READ_ONCE(some_bool) is used, this
-> UB seems dangerous and unnecessary. I can easily imagine some Rust code
-> that looks like this:
+On Tue, Jan 06, 2026 at 01:43:26PM +0100, Peter Zijlstra wrote:
+> On Wed, Dec 31, 2025 at 12:22:27PM +0000, Alice Ryhl wrote:
+> > +/// Read an integer as a boolean once.
+> > +///
+> > +/// Returns `true` if the value behind the pointer is non-zero. Otherwise returns `false`.
+> > +///
+> > +/// # Safety
+> > +///
+> > +/// It must be safe to `READ_ONCE` the `ptr` with type `u8`.
+> > +#[inline(always)]
+> > +#[track_caller]
+> > +unsafe fn read_once_bool(ptr: *const bool) -> bool {
+> > +    // Implement `read_once_bool` in terms of `read_once_1`. The arch-specific logic is inside
+> > +    // of `read_once_1`.
+> > +    //
+> > +    // SAFETY: It is safe to `READ_ONCE` the `ptr` with type `u8`.
+> > +    let byte = unsafe { read_once_1(ptr.cast::<u8>()) };
+> > +    byte != 0u8
+> > +}
 > 
-> 	if READ_ONCE(&raw const (*my_c_struct).my_bool_field) {
-> 	    ...
-> 	}
-> 
-> And by making an analogy to what the equivalent C code is, anyone
-> writing this probably just meant to treat any non-zero value as true.
-> 
-> For WRITE_ONCE no special logic is required.
-> 
-> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
-> ---
->  rust/kernel/sync/rwonce.rs | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
-> 
-> diff --git a/rust/kernel/sync/rwonce.rs b/rust/kernel/sync/rwonce.rs
-> index a1660e43c9ef94011812d1816713cf031a73de1d..73477f53131926996614df573b2d50fff98e624f 100644
-> --- a/rust/kernel/sync/rwonce.rs
-> +++ b/rust/kernel/sync/rwonce.rs
-> @@ -163,6 +163,7 @@ unsafe fn write_once(ptr: *mut Self, val: Self) {
->  // sizes, so picking the wrong helper should lead to a build error.
->  
->  impl_rw_once_type! {
-> +    bool, read_once_bool, write_once_1;
->      u8,   read_once_1, write_once_1;
->      i8,   read_once_1, write_once_1;
->      u16,  read_once_2, write_once_2;
-> @@ -186,3 +187,21 @@ unsafe fn write_once(ptr: *mut Self, val: Self) {
->      usize, read_once_8, write_once_8;
->      isize, read_once_8, write_once_8;
->  }
-> +
-> +/// Read an integer as a boolean once.
-> +///
-> +/// Returns `true` if the value behind the pointer is non-zero. Otherwise returns `false`.
-> +///
-> +/// # Safety
-> +///
-> +/// It must be safe to `READ_ONCE` the `ptr` with type `u8`.
-> +#[inline(always)]
-> +#[track_caller]
-> +unsafe fn read_once_bool(ptr: *const bool) -> bool {
-> +    // Implement `read_once_bool` in terms of `read_once_1`. The arch-specific logic is inside
-> +    // of `read_once_1`.
-> +    //
-> +    // SAFETY: It is safe to `READ_ONCE` the `ptr` with type `u8`.
-> +    let byte = unsafe { read_once_1(ptr.cast::<u8>()) };
-> +    byte != 0u8
-> +}
+> Does this hardcode that sizeof(_Bool) == 1? There are ABIs where this is
+> not the case.
 
-Does this hardcode that sizeof(_Bool) == 1? There are ABIs where this is
-not the case.
+Hm, it hardcodes that the Rust type called bool is sizeof(_) == 1.
+Presumably bindgen will not translate _Bool to bool when it appears in C
+types on such platforms. But I don't really know - I have not looked
+into this case.
+
+Alice
 
