@@ -4,80 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 861BFC47BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 09:24:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3350AC47BCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 09:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GnwfbAHF0PCbdtqYfWOE4YUYyRoOfTU/WzuQ296CXfU=; b=cjfU/pxZwtOIOHH61Gy4Bkmnk6
-	DKIGA7UEdo5vX0clxUJnUh7s8rl0YV0VD26sCj8nv0wzTJ/wRI7xmz6hzd5CN0fHk/mIXVVg9U8MT
-	38Gz3UHxq6K+G3KiCbIZZjhVaxxdUfxGMSOjbSsR8f1V75Tunf4mjT9mxtyRv1ZljAHyT04neHuqB
-	EhpayS6G8G0PYxJPRLBuQAO9RyvdZno9x8zTAd31BIZxKf38Jr5vEWdBrVYnnEeN2nkDc4pch1S+B
-	Tnzuovts1FHVjZNgjoOwuJ86MJ5GRKLBcP4zELNPZvA0sYHOFG3r68m1/XwtYi6I1VUdbTO3QXXEX
-	O12qbATA==;
+	bh=imxO/QkRe1WjdrPX4D4chSpD9AzacTKTZxKUlB+RnnM=; b=pDyGUfC4ZNKWb5XZV+T2+wM7Wk
+	Q926M5TuZi/7YhFLLW+C/Gxk6oMYFSmGOldefxPd40Fy8BOmmlB96clr/6yo1AxIcsbMsLVBB/gdv
+	U6It4NOjf6HxTC9IoZi4CLCMNjuWc38WKL7sQJl/4VbrFxjpnvKd3RARLUlNtyp5F1OO9P3xYq280
+	UutVNqOX5ybGal67fF10YkSyEeSWx7onD1cDMXGVPjDgW9WB4nt3MtCjH2jfVUPX2C00sCjx+WYc0
+	v6njDGFPpfd43AnTFnWAVpx1/LPl/9k++wL9XVdx79OpQQ9c6YAp6stgSCONJmuiz/FZpK3F6co4C
+	bhJnnevA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd3Ir-0000000Ci7Z-43A4;
-	Tue, 06 Jan 2026 09:24:37 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1vd3R0-0000000Cj0P-0LNF;
+	Tue, 06 Jan 2026 09:33:02 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd3Im-0000000Chzt-1wko
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 09:24:35 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4775f51ce36so8971445e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 01:24:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767691470; x=1768296270; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GnwfbAHF0PCbdtqYfWOE4YUYyRoOfTU/WzuQ296CXfU=;
-        b=YbgPRwn2MCdvr7gVUXuaLgwl8s6uQjyx65olSTeyrRmGv6huY/X9kTIrmYY48tvkyw
-         Esfjtzzc81Ds/WGVSrz9Me8anIXJBdo+4cQKgHWxvbh427XUP+ZUBKl1JMHRH5m9xZ8t
-         8K91J2Tc+jeQv/b/ZusvTvg+XCNf1ntldQSsnK5/qK9iyAiLMb3+uCTR7nOOuDXyedWX
-         B6MEeJUC8pTlUDoYgY6s9+e+qSiuf38kcS1/+QQ/iyx2uFS7egHf24GFcwLVAN/65RH/
-         F3z3mnvPmxalWCQgE7tot2weQc0X6otwL81IuQgWVCyWljMb3CWjK0b0I5ghGqyPuIGq
-         slbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767691470; x=1768296270;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GnwfbAHF0PCbdtqYfWOE4YUYyRoOfTU/WzuQ296CXfU=;
-        b=GYsylRHDY6o+O9Iqoux46XKEMwQvLacxWM828w+QtowfjGvBUN2ijEonsbnykGI3kt
-         YMHJcETFhOxNhJnwvrIPKuZ2rInmlsRh2zYL485T9qkkS1c5sv3Rz1L/lKo/AFg7SI3z
-         y1Hr+vTxmi/S+GeLh0AqIgluObkE/yotyQFpmCELv/Tb7dZOaKkFKbeSSfg45oaqyejp
-         WMDGTbfsFLv3G9Q8GJs4LhrOiIxFJf3MMGpT/f3Qs3zgbiczoMUkJ0oLJkDxVOEhPVxp
-         NdVXoTFF9V+RRtcvPeE3P4yb33QA8sqHpv9OH6Mou8ZyBBYg9CZo9TBy5BlCIELnPvxq
-         Ag5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWdKFLbj7/SzTji27tgKTASldvw6FAbxOY9zd6U21vc9+Jd4ESD+1SFCKH8Pkwum2EyjE08b2iiGhqr79E/UdDO@lists.infradead.org
-X-Gm-Message-State: AOJu0YwY3hdyqrttCNDrQAyA9d/LsDZCeJfk42taBQUM898czJ1Rmism
-	HrW+RENOeTjjU/hrD5Osh2fKEcBVk/DxF4FJjS/w945s4/+YDoMLRErwvYhQFRjxAhAO1zg9gn9
-	Ntw==
-X-Google-Smtp-Source: AGHT+IFcux+MH2/SnWRN59yd/EeqV0PSeYuceHIifCar56w5WkrXGG2T9nSrUb58DNoCU0or4EnrLtHc9A==
-X-Received: from wmbdn5.prod.google.com ([2002:a05:600c:6545:b0:477:9fac:c456])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:a16:b0:477:58af:a91d
- with SMTP id 5b1f17b1804b1-47d7f06b874mr27945865e9.5.1767691470261; Tue, 06
- Jan 2026 01:24:30 -0800 (PST)
-Date: Tue,  6 Jan 2026 09:24:24 +0000
-In-Reply-To: <20260106092425.1529428-1-tabba@google.com>
-Mime-Version: 1.0
-References: <20260106092425.1529428-1-tabba@google.com>
-X-Mailer: git-send-email 2.52.0.351.gbe84eed79e-goog
-Message-ID: <20260106092425.1529428-5-tabba@google.com>
-Subject: [PATCH v3 4/5] KVM: selftests: Move page_align() to shared header
-From: Fuad Tabba <tabba@google.com>
-To: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, 
-	pbonzini@redhat.com, shuah@kernel.org, anup@brainfault.org, 
-	itaru.kitayama@fujitsu.com, andrew.jones@linux.dev, tabba@google.com
-Content-Type: text/plain; charset="UTF-8"
+	id 1vd3Qx-0000000Cizs-14vs;
+	Tue, 06 Jan 2026 09:33:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AoMEuR8azlt4SmNgYl0aMVtQNIntBtE/PJSW8aReZ1SV+uxmrSjixVXHKSP8tLvCXu4QFLf3WkX2DTMSEHs1icqAs2z9Sb0FxeBe/epwTn9e5SzI3nSobKXH09ZnUo1dtIr/ZpRqXYdLEjmlj60hJcquLxB2YJ11H1QUNRP8zOIk8l/vTvwPf6ITgpXlHfHIjzcMjcsEKL3bluw4Ops6uTcpL15S5r/jDjSgmu7DSQEbSOLxyZfVtw9kz/NznR2CYhGUf/TyxivKTBibhPMH+qb/33GmSh3znkbG8VqA8JeXGpWf0oOBNU1nCECgCwHNC0pUZQNLji08gOX+rrLg+Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=imxO/QkRe1WjdrPX4D4chSpD9AzacTKTZxKUlB+RnnM=;
+ b=cdZs3MljAfdM9JJVyMRFF0sjzu1AjIO+XidynsAnu0GpNnfhuNjxydA4wvTQYOuZKfE6MmUQ7rKB+qWDHs0xyNVHkmS36pevVBr/8/xmwZnBRyc0/e5IbITIH8nJ9LJeZy2uu1Vu72akR6DxhF/PXOblUzi3bv5i0XfPZ7b7mnhAGsEbjwEamkd0bL1oflVjjI1OKnchuKiezAXg/36YCRjVjiUspsaMerdBTxo9CvW2HBhgGhhyKXbE0a3FUVPNCYvNXg3OES2LJM9ZMy3unYMjqu4FbVN3AiDW5pqHsMMdKulyhsumG08OZ4iUPesb0xsr4ulpBqVAvhTUix4YCQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=imxO/QkRe1WjdrPX4D4chSpD9AzacTKTZxKUlB+RnnM=;
+ b=DyFl48l0kysN7VtVXvcIPWTqOLsLV5HksL9wHfl/IsHS3O/w/WE/z53HXcb7XKdLvXVKTbSYmRB7ivLMbsE+cXrYfU0tAkhpeLHhytflEWYvhIarFSBlh4FQC03XMAIl+DtYv8ruon8agTas2GaLRiB2pHvlx7bKElhTGIufy/DnaCKEAhYt6QZ04L9YAlMpLT2j1a+A2jCCPvFqcfcdTnN+e6NcSpnxoFhqTvD5Jlr5+2QKIw7GedDvM/7nQe2uxU8YstrOuDTocYI2Ul4VXh/K6C11Mlgi874o4HURq1wb3s28C9brPkPP+lWnbC13eRRb5fHhyg5l15KkfuedUA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
+ by TY1PPF52C9F4C99.apcprd03.prod.outlook.com (2603:1096:408::a56) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.5; Tue, 6 Jan
+ 2026 09:32:50 +0000
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::ac4e:718:3b03:3123]) by TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::ac4e:718:3b03:3123%4]) with mapi id 15.20.9478.005; Tue, 6 Jan 2026
+ 09:32:50 +0000
+Message-ID: <7dc8a830-5863-412c-bcf3-498f47b35615@amlogic.com>
+Date: Tue, 6 Jan 2026 17:32:46 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pinctrl: meson: amlogic-a4: mark the GPIO controller as
+ sleeping
+Content-Language: en-US
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+ Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+ Linus Walleij <linusw@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260106085253.20858-1-bartosz.golaszewski@oss.qualcomm.com>
+ <10d5df9b-842c-45d3-8821-d4ca0c364e97@linaro.org>
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+In-Reply-To: <10d5df9b-842c-45d3-8821-d4ca0c364e97@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: TP0P295CA0003.TWNP295.PROD.OUTLOOK.COM (2603:1096:910:2::9)
+ To TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|TY1PPF52C9F4C99:EE_
+X-MS-Office365-Filtering-Correlation-Id: 24b69425-3252-448d-b5de-08de4d068f60
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?M2pJTW9Xby94cUovVHhuaDl2aWlpeTd1SFN6RmlnbkdYSmcvZURBdnFSdmhJ?=
+ =?utf-8?B?Z0U2alQ2T1VkclpEQWV3LzJlZml2Y2IwUUhuZFpReUJKRzUwMno0Tk96ZWFv?=
+ =?utf-8?B?Z0VKR0VJTUJXeVVlRnRIRHZFNUZhZGo4U2QxS0VYdXlIVG1KWEQrRy9XUk83?=
+ =?utf-8?B?TjZJcUgwdEhtYnV3SDU0a3VWeDROaW9YYXZtSHRmZ2FOajlrQ01kRWdwTEds?=
+ =?utf-8?B?TGRaUEV0dE5ENWJjZkNjalpVNjFmNWRDVGJ2Wm1nUEpsUkg0aVh3dmpKWXZN?=
+ =?utf-8?B?ZmpTNzlCQUZSQXFkeElHUVJkTktPUU5hd2ZES1RaUk5tZjArNlVkZVg1bEk4?=
+ =?utf-8?B?STQyQTlzQUdOamN5RmZEQnJFZ1JQZ1RQNXFwUjMyeTJvbkNaSTFQQW93eEto?=
+ =?utf-8?B?TkxUTDVrcERGR2ZNOTlXOWlEaTJsMkpFVlVsQ1NHUTYwMk5TblFyS1d1ZHpY?=
+ =?utf-8?B?VlAycEkzaHlzSTE3ZlVpcll6OHpTWE5DYVhpVEJyYkRVUWNGZU9EY3dZZTU2?=
+ =?utf-8?B?aWtLN1UrTkxJSjVsRERJN21HZHA3SVBraGpaTVlqL0lHTWlNY1R0bzRDb2pC?=
+ =?utf-8?B?TzEvN3k4KzRHL1NvYTFlTDB1UXlpT0ZnWk95Nm4wYm1lOWF2Q29uenVzRkdT?=
+ =?utf-8?B?NE9YdVVHWDk1aGd6SnczMm9TZVlnWU5jOENhRXVuelhPNFNTYzNISUFYOEh3?=
+ =?utf-8?B?T0x6U1FOOGZpTUJLUUVLNEtmUVVVaGNCZko3Um02Q2hXVklpOG1WVG1IYTJ5?=
+ =?utf-8?B?TnhNRDBZdTQ2QU0yZW90Zm5ydEpNR2RNRGpaR3ViUFZGa2FsZERvVTljVXhH?=
+ =?utf-8?B?RW5WVjE3YjJ6SkpRQ2lvTDdHZ1VseHpiNlprQnhURk5Ec1JZYStycXZRNlN6?=
+ =?utf-8?B?dWJDYURMVUw3QmZNaWZBYlV5MHJjNGtpS2tlZEpZVkFvMkhEQVZvQ1c4UW9J?=
+ =?utf-8?B?b200VXlUWkNvdU05MHlQRjBJMjIvYk1EVkN2OCs1YmxFRFA5dVpiUTJ4ZWRF?=
+ =?utf-8?B?SnZFRFRZVlNGSDZHTVRWWko1T3BkZ05BV2dFUEdGdysxeHY5dWdrQnNEQ08r?=
+ =?utf-8?B?d2ZKdDZHVkJwRlVDRjRUZENYYTA0NjFEN0FJRVdMVnl0aWpvc1htUXIwZTVY?=
+ =?utf-8?B?TnczeXVzdEtrKzZHSnFGTWRUSjVnekJkTmg0RnRtQldFOTVaRnB2Yyt1NHZC?=
+ =?utf-8?B?Q3dzQk8vcjd0WTZFcGNIdjBiVkZIdXBmc2s1ZHRCMFBCdEt5ZWs4SHJ0Rm54?=
+ =?utf-8?B?MG94VFVoL1JaMFh6d05yd3BmR2V3cXNCdVN5MTdtUVVVVTc5bE5vSGtTaE9R?=
+ =?utf-8?B?ZTJKOHBPMWJJLzhMa0RtZEY1dnRESHFoYzFwalZHamlDVTRIWGtrWVVyY3hD?=
+ =?utf-8?B?VmNxM3d6Y2lNancxYXZwYndqcjlESWdrWXkyTVpNWmFFbEZidGlVTFR6cTFW?=
+ =?utf-8?B?Z2syNjA2ZWI2UGh2YnhSc1FYa3gxSGNldXhRSDFXTG5iQVRYNHdpNllORWVQ?=
+ =?utf-8?B?QWt5YjByckszY2NFZkgyNE5WSVJFV3k1c0dWeTdGYTBhbUlNZzBVTzJ0OGtj?=
+ =?utf-8?B?emFnRGpFQVBaVWoyYjQ5ZzByVjVIdkxPaXpZT0ZvNEM2R0tFRmx4cjh6K0VO?=
+ =?utf-8?B?dTF4QzZDVnJtTW9vQStHSTR4Q3JySEx6RDdHME1WM2JrVzU0UkMrbXkvWU9r?=
+ =?utf-8?B?QUlNTHE3dHRjbnJJQmk2TllMZXoxN2VueXhZME8wL2JnN2tOcHBBSXpYcW5Q?=
+ =?utf-8?B?a3VyTHN3Q0FHc1NDdXdoUUhudDRnQnRZMU5tdFBjNDRSbUZBYlhqb0tub0tU?=
+ =?utf-8?B?aXA4dDl3NDMvSnRuRk4zNENQbmdINlQ4RTUzMkYyYUV6UXpvR0tUdjRVa0Vv?=
+ =?utf-8?B?ZUpsRUhJeVZ5Tzg3Y3BBd2YvVDI1MWRpcGc4aFlWd1pHVnNtQjZVcGF0SGV6?=
+ =?utf-8?B?cDU4UVlkeHA5M3FLeDdjeDFOOUdTSW9Bb0NvQkREOFJGRis2RmVYNkhBOXp5?=
+ =?utf-8?B?MW9iRFMxc1p3PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZzVDZnNwSjJjSGUwWGlTNzFwTmRGRDVtZC83ZFhzZytzZE1UL1FvN1FaWk0y?=
+ =?utf-8?B?N2MwTFh5dkFPRm5paTM0VlBlcUo0Q0p6M3JqU1ZLc1llejFtc1YxbnpVNExO?=
+ =?utf-8?B?aVl3bmxoUUNuV2k2bFBvOHJYR1VUbEFKTnBiNDVvR3AzTmxWSlBMemt6Vitx?=
+ =?utf-8?B?VHBnZVJ4K3pqSkxHQ25TS3lJZVlUbzZiaEtCamVxMnVzcVJBaTcwWDJENDll?=
+ =?utf-8?B?N1VOcnNLWHZ0VmxGTU0xWmViQWlqM0xGYmpteVNJRHlUOUkya0dsN1g4bW9C?=
+ =?utf-8?B?aGFwcU1OTzlvV1JRaTViWjBTK2RzemVmb21adnRnN0FudTZNTlBCdEhDK2pJ?=
+ =?utf-8?B?ZkRxZXV6aFFiMlVnd0R4N0dvS1ZIbWphZTA3ZkRDcjZXdTgyMlNIOEJNWHBq?=
+ =?utf-8?B?a3VpY2IxTEN4bWVWTnpLMmViQmxHVFB6UlpueTl1d1U4UGtPaWFzRnZXOWV5?=
+ =?utf-8?B?RGdGYW5MQ0YzZVRqVUtJMDFmNTg1eDdSMVFUaWhQS3FYR1I1QmZjb0swZWNF?=
+ =?utf-8?B?cy9RekdUTEJleXF0cHdZUDQxYlJrMTlJb01KZTkvNzlZZThjK2dwdG9XaXp4?=
+ =?utf-8?B?Ky81VXN3QURpUkwvVDFhaWpUbTJZNm9pUEtjbkI4S21XUk5abzFOeUd1TGNq?=
+ =?utf-8?B?bUlFOENySHVGL05uWUxDZ0lpbXRRN3RwYzcvRmtUZW8yM3cvdHcreENlYSsr?=
+ =?utf-8?B?b05oVUxMdXJtbHhEMXhiOC9CMWJDVklYRWdvT2hydTFSd3o0dEFYcXJUZkVZ?=
+ =?utf-8?B?NC8vU0dZblNscDdlOUxyeEtkZms5ampEUElXNGNTRWt6bGlmSVVEWXFKazRq?=
+ =?utf-8?B?Y2hCQVpPbjhZTmIzY3FaQ1BENWtTdlZIamFjWUs3dWVlQ01JNmNTYzBaUml6?=
+ =?utf-8?B?ZkNSc3c2SzR2QUtvT1NvRXFoN2hMQzFmMXlaZWx2MFYxNy9DQ2IzL1hZS3p2?=
+ =?utf-8?B?QjVFcUNjblR6ZnJTQVJTSlFWTlFGL1JqV2JvVzNHVEJnS1pyNFJ2SEJ2ZGhJ?=
+ =?utf-8?B?OWlWTU9KckZQcHhtSmx5UFc5bkJURFZoaUU0OWdBejRUczV3VGFWUko2TklB?=
+ =?utf-8?B?ZlFXK0xZTy91SnFiQVJtQVFzd0luZjhmWWpGdVpoQ2hqZVltVUtybXNmSW4y?=
+ =?utf-8?B?VUNqY3RzRVdlSytwbnFmQ2VCTG85VDhEUFpSM0Q4Q095NVJRaEZnQ0IrQUhY?=
+ =?utf-8?B?M3ExUHp3aTdYeGZrai8wOUswbXl3RHhkZjYyMTNrL2NjT1ZsZ3A5M2Vuanhm?=
+ =?utf-8?B?OG9UM3BPak9Vd1V4YWtBSWVtWDdOMGVvUklnTG9qRlBMZlB6MUIyT3VqQlRR?=
+ =?utf-8?B?SGhvSFdHM3A2eWJQM25TRldhcnJBSlBiSU1lV0pWNjhoSlgvZlpPQUw4bksw?=
+ =?utf-8?B?eC9ONndnQ3hramtCQVB3QkJQcGNmQXRsMnEvcjRFTm81cWpoYXY3bENQWXA2?=
+ =?utf-8?B?eCtPQllmTUFhRk1sK1BrRkV6K0pNSElmNU9KbVRWZCtNQWY0eEE1dVc4eFVD?=
+ =?utf-8?B?Sm4wWlZMWjIxdkRxVmpwSEdVOTduQmtBNXNIYmdjaDJJUXFUdmNqQVhUUWdM?=
+ =?utf-8?B?SnJYN3hDbzZZV0NBMWsweUd3VkRmME85RjBnN0NNSGk4MFVFa0kwZW1OMlp1?=
+ =?utf-8?B?Tlp0bTIrazlJZXpHbllJY284MjlRb1B5K1dJam9CdW5LclVNaTNsZ2dVVkFG?=
+ =?utf-8?B?d3NLLzZTNHNLUHdya3VLZnlPalAxVFQ4UGNkazVYUUdHdnFVVWEzU09kOVNk?=
+ =?utf-8?B?Y0t1K1QydE9MSXdMcWQyS1IvNkJ3dXRIZU8wRUJIWlpNSGRaL2F4S0oySzIr?=
+ =?utf-8?B?c2RDODFnYWdrYUtYcSsycHAycU05WktNMU90aU8rWG1OYy90MHhtUTloSnFK?=
+ =?utf-8?B?Yi9mekdteVpqWWlXVEVwT3JUaGUxS0MyV0VFbDB4VzdCWmNHclp6c0c0dE1E?=
+ =?utf-8?B?alNXQU1IOVM2YmIybHM2WEFJa0pqa05OL2lrOUVuZFhEQlBCQThsandEd2pX?=
+ =?utf-8?B?cEhFNWtEY3BBUjFVZi9ERmFLamN0d0lVS0wxbXVoMDdJamJmZk5PbFFpTXk0?=
+ =?utf-8?B?My9uU1lKRGJDanJkV1ZTVlEyVHJmRkZnZHZBL3hoem5LUk5EbG5Cb1NqNVN2?=
+ =?utf-8?B?U3k2VXVEWUpTMGtuQVVmSGlkaS9hYWEvalhRTW41Z01yVTZSTGxMdDh5T3pk?=
+ =?utf-8?B?MU1qK25lcTQ1ZW9mSzUrSXlVM0EzUE5vMG43YytJa1FnTDdMSHhTRDNKa1VI?=
+ =?utf-8?B?dGhWMVBRMDNMVXNCd1lRMGJ4ckNLaU1EQnF0VktOU1VBYXBxRnkvODFNS3Vi?=
+ =?utf-8?B?OW54anBVZDRCZ0U0cFBGVXltZFk3dGNkb2IrWG9FakNNRXR5cVMydz09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 24b69425-3252-448d-b5de-08de4d068f60
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2026 09:32:50.4976
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jQwpO05x+QBvFl0CD5beWKniLhFSaOvMbtnp1cxAnIiwqg7QcxQviWqB10w6/Z+CSYe5gcY6SFv+ADXs5iW7s6Y7Iiw+n6sZzjeNcoERM4c=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY1PPF52C9F4C99
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_012432_524536_34525137 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20260106_013259_309732_10B2B281 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,68 +185,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To avoid code duplication, move page_align() to the shared `kvm_util.h`
-header file.
+Hi Bartosz,
+    Could you explain the reproduction method for this problem ?
 
-No functional change intended.
-
-Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
- tools/testing/selftests/kvm/include/kvm_util.h    | 5 +++++
- tools/testing/selftests/kvm/lib/arm64/processor.c | 5 -----
- tools/testing/selftests/kvm/lib/riscv/processor.c | 5 -----
- 3 files changed, 5 insertions(+), 10 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index 81f4355ff28a..dabbe4c3b93f 100644
---- a/tools/testing/selftests/kvm/include/kvm_util.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -1258,6 +1258,11 @@ static inline int __vm_disable_nx_huge_pages(struct kvm_vm *vm)
- 	return __vm_enable_cap(vm, KVM_CAP_VM_DISABLE_NX_HUGE_PAGES, 0);
- }
- 
-+static inline uint64_t page_align(struct kvm_vm *vm, uint64_t v)
-+{
-+	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
-+}
-+
- /*
-  * Arch hook that is invoked via a constructor, i.e. before exeucting main(),
-  * to allow for arch-specific setup that is common to all tests, e.g. computing
-diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
-index 607a4e462984..143632917766 100644
---- a/tools/testing/selftests/kvm/lib/arm64/processor.c
-+++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-@@ -21,11 +21,6 @@
- 
- static vm_vaddr_t exception_handlers;
- 
--static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
--{
--	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
--}
--
- static uint64_t pgd_index(struct kvm_vm *vm, vm_vaddr_t gva)
- {
- 	unsigned int shift = (vm->pgtable_levels - 1) * (vm->page_shift - 3) + vm->page_shift;
-diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-index d5e8747b5e69..f8ff4bf938d9 100644
---- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-@@ -26,11 +26,6 @@ bool __vcpu_has_ext(struct kvm_vcpu *vcpu, uint64_t ext)
- 	return !ret && !!value;
- }
- 
--static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
--{
--	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
--}
--
- static uint64_t pte_addr(struct kvm_vm *vm, uint64_t entry)
- {
- 	return ((entry & PGTBL_PTE_ADDR_MASK) >> PGTBL_PTE_ADDR_SHIFT) <<
--- 
-2.52.0.351.gbe84eed79e-goog
-
+On 2026/1/6 16:55, Neil Armstrong wrote:
+> The GPIO controller is configured as non-sleeping but it uses generic
+> pinctrl helpers which use a mutex for synchronization. This will cause
+> lockdep splats when used together with shared GPIOs going through the
+> GPIO shared proxy driver.
+> 
+> Fixes: 6e9be3abb78c ("pinctrl: Add driver support for Amlogic SoCs")
+> Cc: stable@vger.kernel.org
+> Reported-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+> Closes: 
+> https://lore.kernel.org/all/CAFBinCAc7CO8gfNQakCu3LfkYXuyTd2iRpMRm8EKXSL0mwOnJw@mail.gmail.com/
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> ---
+>    drivers/pinctrl/meson/pinctrl-amlogic-a4.c | 2 +-
+>    1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c 
+> b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
+> index d9e3a8d5932a..ded7b218e2ec 100644
+> --- a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
+> +++ b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
+> @@ -893,7 +893,7 @@ static const struct gpio_chip aml_gpio_template = {
+>        .direction_input        = aml_gpio_direction_input,
+>        .direction_output       = aml_gpio_direction_output,
+>        .get_direction          = aml_gpio_get_direction,
+> -     .can_sleep              = false,
+> +     .can_sleep              = true,
+>    };
+> 
+>    static void init_bank_register_bit(struct aml_pinctrl *info,
 
