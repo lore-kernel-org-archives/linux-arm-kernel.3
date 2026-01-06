@@ -4,76 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE2BCE9D65
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:44:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C43EDCE9D65
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d3BPDyxdSzmRlY82TYRVSEMIt1MGjPO4hr8vKGfT55g=; b=D0r80hApsDLmnszZ0Q6SEtkKQV
-	K6TSANxO6MJ2ycdHN5rWahnM45Mj1/iK86K+29V6jRaDEVpofVfaK8ibAOKRhWDi5n14ApOp0SHY7
-	mubqcC+RbYKkT+PpfWc/TWXsj81F+Fdnme0i2SoEtuLN9Kt2pNVc6iv4wm5hBoRJxalsFlxr9gbpz
-	IIbx2qWgeT22xSQ6kI0BYoI6Hg/vtYYb1pUJm5CjMpOdjnDIwLm8krWh+c4zN1urNXcJJ7SinIUbC
-	lV7xo15593xBhQWuwc8uTIV11+MYFNsDFXy4vrP+zjam1tq+VRcbwZGIwjZWcxduO8kkL+l/shdGl
-	Xa3GBiAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vwkvkcWyxTfbsBLkYMdbStPrn+nfObXSdUlXH9TTP/A=; b=ig5eXjuf4GNXKhPTQ7fUBYTTXE
+	drsCMrbKI+kaH7sFgAvhMuwQz6LYNHjVZMW9bOJtDpf12PB4HeTDvZxq309ke/UKJsDfbpgwYU6dH
+	ne/8pYhbfoeKjZRayawwmwmh1TDH3Lwy4ZsXTrwUOyIJq36KX/JwgdGY33RtEn3NlZjlUAuayb3gz
+	wtcApTxQI+5EjGLsTmA6jP/BoGMTZcrFOt2MBX+18TUvxRMvC2tzZHl1JEpBmbm42vKR+vFY7kKbY
+	uCGcmtVfY5lv9MiNG23GQQs2iCKIQLIa+Rsrm2rf+o5Z3NI0agNH2ZzO2hZjuP7WKW9ymzEYbJkc7
+	FKCzZkAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd9Er-0000000DQZ1-19ee;
-	Tue, 06 Jan 2026 15:44:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vd9Fl-0000000DQjk-3p40;
+	Tue, 06 Jan 2026 15:45:50 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd9Ep-0000000DQXs-24hg
+	id 1vd9Fj-0000000DQjI-1QXc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 15:44:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DAA004330F
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Jan 2026 15:44:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB687C19424
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Jan 2026 15:44:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767714290;
-	bh=46IA74TgsYCX1Wdt8aKcLKb4RYOUhDJz4Bq8eqM3rvM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=M8aqSayh9x7eugOCav2bUStC3irU102ypWSH1a6+VxK2JM94lSG/3mPDBBxdNg9dB
-	 9caq4toXi+Ry3NHUpkGyP1fQsyXrE/u/eg6vxmWii3ry1BRwJeD/GYRdrDlQYq3p8b
-	 blArfXe2ZBxKN9qSAGwjrnmeGrKQoLrpyXvsBlgJ0C1U1koKUQuVL2I0Da2AHS9/2Q
-	 nHmJYt5vnHBuYlKzJja8nOpzuFBgsi3KUjttuiq5obuTJOTtU9Er9Jap/arRWt7EYL
-	 B95bFMEQ5Gj9f72+BsMunNYp1hqO/Cs/89rPiVCyWV5ZtDeuHGPqu9dw1Tqrr7VgMi
-	 Pbm03B+uBiMsA==
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-b804646c718so164353766b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 07:44:50 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVDTeUCHlbLEnWXJqTmcFJ9igM1YqJjXMrInPymmum2QW4DEkroSLoO5jMNRf/FaEV/IdvMLZZMywlrXtfwTOsJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywhm5cO8YGpCEgi9rjPg5VBfhBY3VuHIDZEzIQg5CTFVgQMAVNv
-	z4QtyVgW9r/7UR5CnIgTJSaXTQo1aJ2bVF4PXchiWIjJ0CPx+Rvq+np77sea9uXfuNnEwVzcmzI
-	w9QzL3g3tB5oPs0oMUGg4w1vPGwJwtQ==
-X-Google-Smtp-Source: AGHT+IHFeow7GaX738Pcre7r5od5Yqad8UB8G/TYGPsM6GH9pPZ2ShOPoXiLIEj59XKYnsYmNR7ZxCR17dGzQ8eR6p8=
-X-Received: by 2002:a17:907:d7c9:b0:b84:1fef:32a0 with SMTP id
- a640c23a62f3a-b8426a422femr330026266b.6.1767714289311; Tue, 06 Jan 2026
- 07:44:49 -0800 (PST)
+	Tue, 06 Jan 2026 15:45:48 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47d493a9b96so6723675e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 07:45:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1767714345; x=1768319145; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=vwkvkcWyxTfbsBLkYMdbStPrn+nfObXSdUlXH9TTP/A=;
+        b=YmhV43htB5gX6G5kQ3G0nuQec6yY36aM+IltOXzQQJIXyUtv/m7JyeIlaL2rxJmFzA
+         HT8L0hZEwKtpwEeYda94JlfFFxFQgh4acl0NAmfVAJ5dYzfoWy8HVLbzFPHrply/u/Zr
+         pvK9BDzQ3bokOMr0gTMyLQo/Ej3aRpZIvOcL6A0p9UaQK8ZE+neTkq6hCoptcKtVjnzQ
+         1dcTxsm9rJZQfAQpdDfOwb+BJj764P6UpgzngRqapxEOY2NqtAQiToMc4Nxv9Ld38eIj
+         3b+UBQb5LIxHHHtniXlg/r2eOItoDZrWp5nMd67j1bUE2l+QN5QXjIop5AK0nrToDWsZ
+         VApw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767714345; x=1768319145;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vwkvkcWyxTfbsBLkYMdbStPrn+nfObXSdUlXH9TTP/A=;
+        b=VpaicVsGgqDpa4m14SD5opbeAXd43sYNUnI1SrhysOX0ilMcaIYo2GWcW3BY+ZLjgH
+         eCwpGeRYINPOtqtZDMH2H9aZyzFhFQs99QiPXErygsQsgjeuFrTqy5ngmb2iCNKOBdRs
+         qtZjSvPGZJdnROeQW9QTwuFg072IIKJoXDKskN0LJiy2SaJyYj6MitKTiwV8OWUqbX+x
+         hZkVKvf6GGRXWG+jegMbMFvSEx3eWMgLEs2A8zStIn2MsQkd19XVN9UYMnsQNtfQk7eb
+         Nhf/LR7xUAA+m46/2OVYZG9QYYYIhPI3eXsTGIqQ2JyiuxVDUxB4j+plk4G/WqZ+IQ74
+         +UsA==
+X-Forwarded-Encrypted: i=1; AJvYcCVfut9RPKE9twOdlLqedh7HYPmX7naNoDEJ4usQwqqrJDSM57bQC6NCHXxYlxAzPvqpN4+SjRldy0jVMh5w5S1P@lists.infradead.org
+X-Gm-Message-State: AOJu0YzijibE9j7IRQ0h5XGbhfIBvniiOSsnm38zmiMPI1zKC0tZHto0
+	MaD2IpmtiEmgk4ZuCMh2VhDrE8vthb4AHn6bdcfs/O1eAJJ3XnG7M0EDgozLbXzTTg==
+X-Gm-Gg: AY/fxX5wmOTMXHABsswT3OY6TeDfuD9UMUOWsdZHdNBXeZ3z9UJ+EE3NMd+5kyaoqV0
+	EO6RyKhhB1FpOBD+2ai1a5SACwN5aNSLH8oAdtPMqt9IjwCXcTEdFXMlDeH4rLeip63brJdHfdt
+	tiNz0BgPuWoPbchkcJIqvAkCLvOQFqtCHt5D2l0Q6lApds2edCq5KkmYLMuEZqoKhJTjNqsebna
+	UDFdoJfcDwmUi9bzIL2SAQ4oaP9qZXkJNb4vDwrQVT2lmm94MxVF3gjduGrBEBqlDKCuvvD3E8W
+	rKEbf8Q9sGaUk4x6xft6c1gqRN3oJuzSwP5Z6BAI+fN80bh+UDcAHydVG385ULUUnf4BKzGlb1A
+	Gaclty7ESGQUo5/nSoKTDotvObDe3xzrIslPGzIBT+IpyZfPCE6pP/jPMe94cPioFOBLGowuhJh
+	vRV9y6yDz+0h3hjeMXlrXkUBDhN6dxXLRhOvvPkt+GLeZajfF2/g==
+X-Google-Smtp-Source: AGHT+IFtTU8v0TC6GJrNdhgpjBrqhdm4O/5Wgr4IoH2l3qKTodlEKzvW1qkwoysFQFNCHokEYgD4gA==
+X-Received: by 2002:a05:600c:4e16:b0:477:63b5:6f3a with SMTP id 5b1f17b1804b1-47d7f09d505mr43410595e9.27.1767714344644;
+        Tue, 06 Jan 2026 07:45:44 -0800 (PST)
+Received: from google.com (44.145.34.34.bc.googleusercontent.com. [34.34.145.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d7f4184cbsm53680785e9.6.2026.01.06.07.45.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Jan 2026 07:45:44 -0800 (PST)
+Date: Tue, 6 Jan 2026 15:45:40 +0000
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Will Deacon <will@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH 24/30] KVM: arm64: Implement the MEM_SHARE hypercall for
+ protected VMs
+Message-ID: <aV0uJDtZwbu2iKhs@google.com>
+References: <20260105154939.11041-1-will@kernel.org>
+ <20260105154939.11041-25-will@kernel.org>
 MIME-Version: 1.0
-References: <20251226141116.1379601-1-coxu@redhat.com>
-In-Reply-To: <20251226141116.1379601-1-coxu@redhat.com>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 6 Jan 2026 09:44:37 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqLEsUV34tMZWSMc6w-xDV=M0JpOmS95TxrtbbBMRoD3Jw@mail.gmail.com>
-X-Gm-Features: AQt7F2oZXv_EGI4J1ibbdla2HKndc4TqmJiiAssIWbaMzvfSFkjDSKLgEAqcVKc
-Message-ID: <CAL_JsqLEsUV34tMZWSMc6w-xDV=M0JpOmS95TxrtbbBMRoD3Jw@mail.gmail.com>
-Subject: Re: [PATCH] arm64/kdump: pass dm-crypt keys to kdump kernel
-To: Coiby Xu <coxu@redhat.com>
-Cc: kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>, Baoquan he <bhe@redhat.com>, 
-	Dave Young <dyoung@redhat.com>, Kairui Song <ryncsn@gmail.com>, Pingfan Liu <kernelfans@gmail.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Saravana Kannan <saravanak@google.com>, 
-	open list <linux-kernel@vger.kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE" <devicetree@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260105154939.11041-25-will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_074451_574157_0A84BF87 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20260106_074547_410866_85F2CFDB 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,30 +106,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 26, 2025 at 8:11=E2=80=AFAM Coiby Xu <coxu@redhat.com> wrote:
->
-> Based on the CONFIG_CRASH_DM_CRYPT feature, this patch adds
-> LUKS-encrypted device dump target support to ARM64 by addressing two
-> challenges [1],
->  - Kdump kernel may not be able to decrypt the LUKS partition. For some
->    machines, a system administrator may not have a chance to enter the
->    password to decrypt the device in kdump initramfs after the 1st kernel
->    crashes
->
->  - LUKS2 by default use the memory-hard Argon2 key derivation function
->    which is quite memory-consuming compared to the limited memory reserve=
-d
->    for kdump.
->
-> 1st kernel will add device tree property dmcryptkeys as similar to
-> elfcorehdr to pass the memory address of the stored info of dm-crypt
-> keys to the kdump kernel.
+[...]
 
-Is there not any security issue with putting the key into the DT? The
-DT is provided to userspace. There's provisions already to not expose
-"security-*" properties to userspace (see __of_add_property_sysfs).
-Though I think that has a hole in that the FDT is also provided as-is.
-However, I don't even know who or what uses these properties.
+> @@ -952,6 +1004,7 @@ bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code)
+>  	case ARM_SMCCC_VENDOR_HYP_KVM_FEATURES_FUNC_ID:
+>  		val[0] = BIT(ARM_SMCCC_KVM_FUNC_FEATURES);
+>  		val[0] |= BIT(ARM_SMCCC_KVM_FUNC_HYP_MEMINFO);
+> +		val[0] |= BIT(ARM_SMCCC_KVM_FUNC_MEM_SHARE);
+>  		break;
+>  	case ARM_SMCCC_VENDOR_HYP_KVM_HYP_MEMINFO_FUNC_ID:
+>  		if (smccc_get_arg1(vcpu) ||
+> @@ -962,6 +1015,14 @@ bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code)
+>  
+>  		val[0] = PAGE_SIZE;
+>  		break;
+> +	case ARM_SMCCC_VENDOR_HYP_KVM_MEM_SHARE_FUNC_ID:
+> +		if (smccc_get_arg2(vcpu) ||
+> +		    smccc_get_arg3(vcpu)) {
+> +			break;
+> +		}
 
-Rob
+I wonder if that shouldn't go into pkvm_memshare_call(): that function has the
+knowledge of the argument content since we pass vcpu.
+
+Otherwise:
+
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+
+> +
+> +		handled = pkvm_memshare_call(val, vcpu, exit_code);
+> +		break;
+>  	default:
+>  		/* Punt everything else back to the host, for now. */
+>  		handled = false;
+> -- 
+> 2.52.0.351.gbe84eed79e-goog
+> 
 
