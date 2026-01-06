@@ -4,62 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E0EACEFCFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 19:26:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40361CEFCF8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 19:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e8Uv8ViAxWsHdMXcBt3qZfhJJPVyoN2bV3IhBd0MKqI=; b=xnKeDIrUo7PV/ZAeQSQSXmYcNn
-	3NuipPb144d1oUcvRrjljgE9AxRAT21bIRQayO6wIMi4Lg/4qDhf/oWWvkf+bS5d6lr+BlZU9sWtr
-	AxKrv58zg9fnFgftvndQ4Gr1F1XY5sRAoquAfN91LsfueEHuGYR/5EnFuf2nyON3FOGraoxvKE8//
-	w7K8HteWFWHGKxxqQM/zDCDfhZPqC8F/TFM32hGSX78okAEqEV2NY1HC/b4VZkB71SlCLmvGg5hy+
-	NHzQyUxEGmbK3rQ0o7cSxmGqmBe9rradPTxZ2k4mPRlUUqybN9/gpQ7QIPY0TWPCUF7YUFiELpjnw
-	h6DqaRpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h+fw2uOH7rfXDKHv296LmegV1D5QyXRSiBc8OZxA9qs=; b=tXzIG9pzBlLAfNj2EJFHC455aK
+	X2/fQR8I+DMfuFP8tAqW9AFldleEUDyBcq0Vk9wMnDXnYCVj+L72LAWt4cLHI19my0Qt3BoG8lawP
+	O1rYorLAabnXu8zddVuG77hgSjjCKdfTCNgpBEyYjnzSzGOYDGwA8meBtKxrRCm+7GNKeRCIAGwzl
+	QatoU5k9lfK0mbRLUzvGOnsCRzHLJ1DGTY9YBiU+9oDP3uoUqy1gNZF9n9Mtsl7M0Q4U0JANKJVI0
+	e3N21Hi5VFs/2m80599EgqF5dggAdqTYTK4xPX8e89vkblEnJHKrX4N89CqpizbTzZYgOersXYabS
+	jW9RsbYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdChM-0000000DkpM-1NKz;
-	Tue, 06 Jan 2026 19:26:32 +0000
-Received: from out-173.mta1.migadu.com ([2001:41d0:203:375::ad])
+	id 1vdCk6-0000000Dkz5-3iIE;
+	Tue, 06 Jan 2026 19:29:22 +0000
+Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdChI-0000000Dkop-2Sce
+	id 1vdCk4-0000000Dkyj-009P
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 19:26:30 +0000
-Message-ID: <97983e82-698a-4042-9417-f9d9c1247e77@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1767727584;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=e8Uv8ViAxWsHdMXcBt3qZfhJJPVyoN2bV3IhBd0MKqI=;
-	b=Fj1XaccsM8tAaJ6yXQgYuvaedm/5E8T3WwjZ5YHl5OcO+68ianotJqnNyrWaqLLtvFkFET
-	r53GUxCF5eZ5muXC6P8OHoUe4qQZmjwMi77Vqy5u3ZAtx5C4s9jp+2reo5ZXw/GxG1vRC5
-	q5M1rHfdrurF1GM/WDhuzbca4MhqB9I=
-Date: Tue, 6 Jan 2026 14:26:00 -0500
+	Tue, 06 Jan 2026 19:29:21 +0000
+Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-121b14efeb8so797615c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 11:29:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1767727758; x=1768332558; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=h+fw2uOH7rfXDKHv296LmegV1D5QyXRSiBc8OZxA9qs=;
+        b=pfNseN4Wvbg0N6RTUJm6UpYswG3n9MHgvDy4H/UbM4IrUJEVNVw4sp+aRgq4U9iPRa
+         V7FFItuR5Aix9bZuL3XZ26fPBP3o4H33aajB3q97luj88HblUmlg1REYyNkHCLlhk1G5
+         9sQyhlbqPgVaQuSWENXP463swxKcchWUAJLN2D1muzncCApJBQIAIMAPb7HYYHcCOWwh
+         XQvDMB1wqypk12QfuoyXJGPkwU3vJMS1YSNv5jyukqb1pZPCOkP0T3rtBXlDc/kT9m1A
+         exrxbCrt7nCzykXK1XAH6xSO0POy9RybsOnmUYN+nZBtpXCQX1y3utifBByJFAPKdRqj
+         r2Xw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767727758; x=1768332558;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=h+fw2uOH7rfXDKHv296LmegV1D5QyXRSiBc8OZxA9qs=;
+        b=v5Mh4Fo5Rhtki/FlzTiv7LJ1HEazz7jzqaKYuiT0VdfVzpZMfhmmJMD2JAi1Yil3uo
+         jC2Dy8uJG4s/FKSHvb6AQdM3KYv/mCzplyocKnE0zh2WS2JOKtZ0gaATbWwFkemOeRlQ
+         hfmHP1waP7jifSyyKxa6WHFCAmG/dWrnj5hcoYmnbkUyg/yqqkB2dMPdUOIDOeHJm+lB
+         ooj91fdVKphk+XhSrket8At/uhe25FVkMCibuaXHu6RclRB7asxcnjvNWcQf6nBiBDi4
+         f6smuzPMyuDNsJcYiqj+JoAA406ocqrp7cQW3oXNa64y+CYk6WV8GQODlHujR7jk8Eoc
+         DTtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWYjQuepfqD0ACgn253NdS7C3KUDEqztE8mZmu29Vpc7kOgnzDR3hWyz+KABnMWRavO1zTQ5uVI4FiVTQnB/kPX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9XZ5SHWl0wnCvfnIp1PeNPIqwX91cbCiFEp0Y1sb7y7VucxTm
+	jPKTeFg/hQM+oX6KA5WTOvDtF1lcklUS4Tex2zbRV9fy3pDdvgZpv+XlZ4edyMVa5f0TtfM9/69
+	jDIKiLQ61+YfqpoSSHO/qquT/rnefO+pVQQkW3heM
+X-Gm-Gg: AY/fxX5KyCvXACNKcg4J8N9i+q1VnflpE0Se1OtjVIzAQLB5HTiISbiA8HpholIzolf
+	1zmQTCC/jzPNXX3WOvu6WXZEuT3FqqGpmsIbEGyJM3w5mo/F7iFCFFMATTeKPwHSRz4ndS1uVzf
+	ZmB+DCNGYqasEBOybCakAGPAXMBSjMR2P7BOif+LXfFtUPE0SL+TGQhuyfkweZH2DQtqcVs+vVA
+	X3J15sv/lB+DSc0YKN97FI630i57CjWe3iIeIACuBRTsCd0Kn5BVqc2IttRfjZGKxHkOta4L2VA
+	/Cs+kZm4ZRf+2/segri6W2w1TSY=
+X-Google-Smtp-Source: AGHT+IFiRHskLlnG7qWHcNDWY2mzjvXiWOgQovcFApO+FbQQhWbtyFRZOSXWqcX9YSAeO4iVY5BbmjGIzs+tTyqeQvA=
+X-Received: by 2002:a05:7022:4199:b0:11b:ca88:c4f7 with SMTP id
+ a92af1059eb24-121f8b67cc0mr18897c88.40.1767727757907; Tue, 06 Jan 2026
+ 11:29:17 -0800 (PST)
 MIME-Version: 1.0
-Subject: Re: [RFC PATCH 2/2] net: axienet: Fix resource release ordering
-To: Suraj Gupta <suraj.gupta2@amd.com>, mturquette@baylibre.com,
- sboyd@kernel.org, radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, michal.simek@amd.com
-Cc: linux@armlinux.org.uk, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260102085454.3439195-1-suraj.gupta2@amd.com>
- <20260102085454.3439195-3-suraj.gupta2@amd.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <20260102085454.3439195-3-suraj.gupta2@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+References: <20251231-rwonce-v1-0-702a10b85278@google.com> <20251231151216.23446b64.gary@garyguo.net>
+ <aVXFk0L-FegoVJpC@google.com> <OFUIwAYmy6idQxDq-A3A_s2zDlhfKE9JmkSgcK40K8okU1OE_noL1rN6nUZD03AX6ixo4Xgfhi5C4XLl5RJlfA==@protonmail.internalid>
+ <aVXKP8vQ6uAxtazT@tardis-2.local> <87fr8ij4le.fsf@t14s.mail-host-address-is-not-set>
+ <aV0JkZdrZn97-d7d@tardis-2.local> <20260106145622.GB3707837@noisy.programming.kicks-ass.net>
+ <7fa2c07e-acf9-4f9a-b056-4d4254ea61e5@paulmck-laptop>
+In-Reply-To: <7fa2c07e-acf9-4f9a-b056-4d4254ea61e5@paulmck-laptop>
+From: Marco Elver <elver@google.com>
+Date: Tue, 6 Jan 2026 20:28:41 +0100
+X-Gm-Features: AQt7F2pduEl0iy3ZX0HLxlaIYaHR9bRxCAH-5viQta6DXK6OToIwGPr_JhTocFA
+Message-ID: <CANpmjNPdnuCNTfo=q5VPxAfdvpeAt8DhesQu0jy+9ZpH3DcUnQ@mail.gmail.com>
+Subject: Re: [PATCH 0/5] Add READ_ONCE and WRITE_ONCE to Rust
+To: paulmck@kernel.org
+Cc: Peter Zijlstra <peterz@infradead.org>, Boqun Feng <boqun.feng@gmail.com>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Gary Guo <gary@garyguo.net>, Will Deacon <will@kernel.org>, 
+	Richard Henderson <richard.henderson@linaro.org>, Matt Turner <mattst88@gmail.com>, 
+	Magnus Lindholm <linmag7@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Miguel Ojeda <ojeda@kernel.org>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	FUJITA Tomonori <fujita.tomonori@gmail.com>, Frederic Weisbecker <frederic@kernel.org>, 
+	Lyude Paul <lyude@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Anna-Maria Behnsen <anna-maria@linutronix.de>, John Stultz <jstultz@google.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, linux-kernel@vger.kernel.org, 
+	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	rust-for-linux@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	kasan-dev@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_112628_782620_6B8F1176 
-X-CRM114-Status: GOOD (  25.04  )
+X-CRM114-CacheID: sfid-20260106_112920_044937_916A13EE 
+X-CRM114-Status: GOOD (  28.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,220 +112,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/2/26 03:54, Suraj Gupta wrote:
-> From: Sean Anderson <sean.anderson@linux.dev>
-> 
-> Device-managed resources are released after manually-managed resources.
-> Therefore, once any manually-managed resource is acquired, all further
-> resources must be manually-managed too.
-> 
-> Convert all resources before the MDIO bus is created into device-managed
-> resources. In all cases but one there are already devm variants available.
-> 
-> Fixes: 46aa27df8853 ("net: axienet: Use devm_* calls")
-> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-> Co-developed-by: Suraj Gupta <suraj.gupta2@amd.com>
-> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
-> ---
->  .../net/ethernet/xilinx/xilinx_axienet_main.c | 83 ++++++-------------
->  1 file changed, 27 insertions(+), 56 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index 284031fb2e2c..998bacd508b8 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -2787,7 +2787,7 @@ static int axienet_probe(struct platform_device *pdev)
->  	int addr_width = 32;
->  	u32 value;
->  
-> -	ndev = alloc_etherdev(sizeof(*lp));
-> +	ndev = devm_alloc_etherdev(&pdev->dev, sizeof(*lp));
->  	if (!ndev)
->  		return -ENOMEM;
->  
-> @@ -2815,41 +2815,32 @@ static int axienet_probe(struct platform_device *pdev)
->  	seqcount_mutex_init(&lp->hw_stats_seqcount, &lp->stats_lock);
->  	INIT_DEFERRABLE_WORK(&lp->stats_work, axienet_refresh_stats);
->  
-> -	lp->axi_clk = devm_clk_get_optional(&pdev->dev, "s_axi_lite_clk");
-> +	lp->axi_clk = devm_clk_get_optional_enabled(&pdev->dev,
-> +						    "s_axi_lite_clk");
->  	if (!lp->axi_clk) {
->  		/* For backward compatibility, if named AXI clock is not present,
->  		 * treat the first clock specified as the AXI clock.
->  		 */
-> -		lp->axi_clk = devm_clk_get_optional(&pdev->dev, NULL);
-> -	}
-> -	if (IS_ERR(lp->axi_clk)) {
-> -		ret = PTR_ERR(lp->axi_clk);
-> -		goto free_netdev;
-> -	}
-> -	ret = clk_prepare_enable(lp->axi_clk);
-> -	if (ret) {
-> -		dev_err(&pdev->dev, "Unable to enable AXI clock: %d\n", ret);
-> -		goto free_netdev;
-> +		lp->axi_clk = devm_clk_get_optional_enabled(&pdev->dev, NULL);
->  	}
-> +	if (IS_ERR(lp->axi_clk))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(lp->axi_clk),
-> +				     "could not get AXI clock\n");
->  
->  	lp->misc_clks[0].id = "axis_clk";
->  	lp->misc_clks[1].id = "ref_clk";
->  	lp->misc_clks[2].id = "mgt_clk";
->  
-> -	ret = devm_clk_bulk_get_optional(&pdev->dev, XAE_NUM_MISC_CLOCKS, lp->misc_clks);
-> -	if (ret)
-> -		goto cleanup_clk;
-> -
-> -	ret = clk_bulk_prepare_enable(XAE_NUM_MISC_CLOCKS, lp->misc_clks);
-> +	ret = devm_clk_bulk_get_optional_enable(&pdev->dev, XAE_NUM_MISC_CLOCKS,
-> +						lp->misc_clks);
->  	if (ret)
-> -		goto cleanup_clk;
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				     "could not get/enable misc. clocks\n");
->  
->  	/* Map device registers */
->  	lp->regs = devm_platform_get_and_ioremap_resource(pdev, 0, &ethres);
-> -	if (IS_ERR(lp->regs)) {
-> -		ret = PTR_ERR(lp->regs);
-> -		goto cleanup_clk;
-> -	}
-> +	if (IS_ERR(lp->regs))
-> +		return PTR_ERR(lp->regs);
->  	lp->regs_start = ethres->start;
->  
->  	/* Setup checksum offload, but default to off if not specified */
-> @@ -2918,19 +2909,17 @@ static int axienet_probe(struct platform_device *pdev)
->  			lp->phy_mode = PHY_INTERFACE_MODE_1000BASEX;
->  			break;
->  		default:
-> -			ret = -EINVAL;
-> -			goto cleanup_clk;
-> +			return -EINVAL;
->  		}
->  	} else {
->  		ret = of_get_phy_mode(pdev->dev.of_node, &lp->phy_mode);
->  		if (ret)
-> -			goto cleanup_clk;
-> +			return ret;
->  	}
->  	if (lp->switch_x_sgmii && lp->phy_mode != PHY_INTERFACE_MODE_SGMII &&
->  	    lp->phy_mode != PHY_INTERFACE_MODE_1000BASEX) {
->  		dev_err(&pdev->dev, "xlnx,switch-x-sgmii only supported with SGMII or 1000BaseX\n");
-> -		ret = -EINVAL;
-> -		goto cleanup_clk;
-> +		return -EINVAL;
->  	}
->  
->  	if (!of_property_present(pdev->dev.of_node, "dmas")) {
-> @@ -2945,7 +2934,7 @@ static int axienet_probe(struct platform_device *pdev)
->  				dev_err(&pdev->dev,
->  					"unable to get DMA resource\n");
->  				of_node_put(np);
-> -				goto cleanup_clk;
-> +				return ret;
->  			}
->  			lp->dma_regs = devm_ioremap_resource(&pdev->dev,
->  							     &dmares);
-> @@ -2962,19 +2951,17 @@ static int axienet_probe(struct platform_device *pdev)
->  		}
->  		if (IS_ERR(lp->dma_regs)) {
->  			dev_err(&pdev->dev, "could not map DMA regs\n");
-> -			ret = PTR_ERR(lp->dma_regs);
-> -			goto cleanup_clk;
-> +			return PTR_ERR(lp->dma_regs);
->  		}
->  		if (lp->rx_irq <= 0 || lp->tx_irq <= 0) {
->  			dev_err(&pdev->dev, "could not determine irqs\n");
-> -			ret = -ENOMEM;
-> -			goto cleanup_clk;
-> +			return -ENOMEM;
->  		}
->  
->  		/* Reset core now that clocks are enabled, prior to accessing MDIO */
->  		ret = __axienet_device_reset(lp);
->  		if (ret)
-> -			goto cleanup_clk;
-> +			return ret;
->  
->  		/* Autodetect the need for 64-bit DMA pointers.
->  		 * When the IP is configured for a bus width bigger than 32 bits,
-> @@ -3001,14 +2988,13 @@ static int axienet_probe(struct platform_device *pdev)
->  		}
->  		if (!IS_ENABLED(CONFIG_64BIT) && lp->features & XAE_FEATURE_DMA_64BIT) {
->  			dev_err(&pdev->dev, "64-bit addressable DMA is not compatible with 32-bit architecture\n");
-> -			ret = -EINVAL;
-> -			goto cleanup_clk;
-> +			return -EINVAL;
->  		}
->  
->  		ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(addr_width));
->  		if (ret) {
->  			dev_err(&pdev->dev, "No suitable DMA available\n");
-> -			goto cleanup_clk;
-> +			return ret;
->  		}
->  		netif_napi_add(ndev, &lp->napi_rx, axienet_rx_poll);
->  		netif_napi_add(ndev, &lp->napi_tx, axienet_tx_poll);
-> @@ -3018,15 +3004,12 @@ static int axienet_probe(struct platform_device *pdev)
->  
->  		lp->eth_irq = platform_get_irq_optional(pdev, 0);
->  		if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO) {
-> -			ret = lp->eth_irq;
-> -			goto cleanup_clk;
-> +			return lp->eth_irq;
->  		}
->  		tx_chan = dma_request_chan(lp->dev, "tx_chan0");
-> -		if (IS_ERR(tx_chan)) {
-> -			ret = PTR_ERR(tx_chan);
-> -			dev_err_probe(lp->dev, ret, "No Ethernet DMA (TX) channel found\n");
-> -			goto cleanup_clk;
-> -		}
-> +		if (IS_ERR(tx_chan))
-> +			return dev_err_probe(lp->dev, PTR_ERR(tx_chan),
-> +					     "No Ethernet DMA (TX) channel found\n");
->  
->  		cfg.reset = 1;
->  		/* As name says VDMA but it has support for DMA channel reset */
-> @@ -3034,7 +3017,7 @@ static int axienet_probe(struct platform_device *pdev)
->  		if (ret < 0) {
->  			dev_err(&pdev->dev, "Reset channel failed\n");
->  			dma_release_channel(tx_chan);
-> -			goto cleanup_clk;
-> +			return ret;
->  		}
->  
->  		dma_release_channel(tx_chan);
-> @@ -3139,13 +3122,6 @@ static int axienet_probe(struct platform_device *pdev)
->  		put_device(&lp->pcs_phy->dev);
->  	if (lp->mii_bus)
->  		axienet_mdio_teardown(lp);
-> -cleanup_clk:
-> -	clk_bulk_disable_unprepare(XAE_NUM_MISC_CLOCKS, lp->misc_clks);
-> -	clk_disable_unprepare(lp->axi_clk);
-> -
-> -free_netdev:
-> -	free_netdev(ndev);
-> -
->  	return ret;
->  }
->  
-> @@ -3163,11 +3139,6 @@ static void axienet_remove(struct platform_device *pdev)
->  		put_device(&lp->pcs_phy->dev);
->  
->  	axienet_mdio_teardown(lp);
-> -
-> -	clk_bulk_disable_unprepare(XAE_NUM_MISC_CLOCKS, lp->misc_clks);
-> -	clk_disable_unprepare(lp->axi_clk);
-> -
-> -	free_netdev(ndev);
->  }
->  
->  static void axienet_shutdown(struct platform_device *pdev)
+On Tue, 6 Jan 2026 at 19:18, 'Paul E. McKenney' via kasan-dev
+<kasan-dev@googlegroups.com> wrote:
+> On Tue, Jan 06, 2026 at 03:56:22PM +0100, Peter Zijlstra wrote:
+> > On Tue, Jan 06, 2026 at 09:09:37PM +0800, Boqun Feng wrote:
+> >
+> > > Some C code believes a plain write to a properly aligned location is
+> > > atomic (see KCSAN_ASSUME_PLAIN_WRITES_ATOMIC, and no, this doesn't mean
+> > > it's recommended to assume such), and I guess that's the case for
+> > > hrtimer, if it's not much a trouble you can replace the plain write with
+> > > WRITE_ONCE() on C side ;-)
+> >
+> > GCC used to provide this guarantee, some of the older code was written
+> > on that. GCC no longer provides that guarantee (there are known cases
+> > where it breaks and all that) and newer code should not rely on this.
+> >
+> > All such places *SHOULD* be updated to use READ_ONCE/WRITE_ONCE.
+>
+> Agreed!
+>
+> In that vein, any objections to the patch shown below?
 
-Reviewed-by: Sean Anderson <sean.anderson@linux.dev>
+I'd be in favor, as that's what we did in the very initial version of
+KCSAN (we started strict and then loosened things up).
 
-I think you should resend this without RFC now that the merge window is open.
+However, the fallout will be even more perceived "noise", despite
+being legitimate data races. These config knobs were added after much
+discussion in 2019/2020, somewhere around this discussion (I think
+that's the one that spawned KCSAN_REPORT_VALUE_CHANGE_ONLY, can't find
+the source for KCSAN_ASSUME_PLAIN_WRITES_ATOMIC):
+https://lore.kernel.org/all/CAHk-=wgu-QXU83ai4XBnh7JJUo2NBW41XhLWf=7wrydR4=ZP0g@mail.gmail.com/
+
+While the situation has gotten better since 2020, we still have latent
+data races that need some thought (given papering over things blindly
+with *ONCE is not right either). My recommendation these days is to
+just set CONFIG_KCSAN_STRICT=y for those who care (although I'd wish
+everyone cared the same amount :-)).
+
+Should you feel the below change is appropriate for 2026, feel free to
+carry it (consider this my Ack).
+
+However, I wasn't thinking of tightening the screws until the current
+set of known data races has gotten to a manageable amount (say below
+50)
+https://syzkaller.appspot.com/upstream?manager=ci2-upstream-kcsan-gce
+Then again, on syzbot the config can remain unchanged.
+
+Thanks,
+-- Marco
+
+>                                                         Thanx, Paul
+>
+> ------------------------------------------------------------------------
+>
+> diff --git a/lib/Kconfig.kcsan b/lib/Kconfig.kcsan
+> index 4ce4b0c0109cb..e827e24ab5d42 100644
+> --- a/lib/Kconfig.kcsan
+> +++ b/lib/Kconfig.kcsan
+> @@ -199,7 +199,7 @@ config KCSAN_WEAK_MEMORY
+>
+>  config KCSAN_REPORT_VALUE_CHANGE_ONLY
+>         bool "Only report races where watcher observed a data value change"
+> -       default y
+> +       default n
+>         depends on !KCSAN_STRICT
+>         help
+>           If enabled and a conflicting write is observed via a watchpoint, but
+> @@ -208,7 +208,7 @@ config KCSAN_REPORT_VALUE_CHANGE_ONLY
+>
+>  config KCSAN_ASSUME_PLAIN_WRITES_ATOMIC
+>         bool "Assume that plain aligned writes up to word size are atomic"
+> -       default y
+> +       default n
+>         depends on !KCSAN_STRICT
+>         help
+>           Assume that plain aligned writes up to word size are atomic by
+>
 
