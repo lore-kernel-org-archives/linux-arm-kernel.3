@@ -4,184 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 752A6CDC170
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 12:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 469FDCDC18E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 12:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2NnnKNwnyP2x439F1aNH1wfglgdNvOkBMAUaEC6sb9s=; b=1e7zOOEbvja7Gh1KcywLLaOaTf
-	NmY6qZrXn3E3LAyyQgjJcOThvEuQCfVLnsQig1G6pU8INmX87HZsRZo/136i1Sf2GhJs1x0xhjI93
-	LKyssumiF62+++hYme5B673X2NQZtFBOjtR7g88+Tw11M6TmtA5hfULURxqTt+zvNVVc8cciSKRf3
-	Rqnu0ufoPHzyYIkcI4lCzlI48GZmtRmA3o/FeFec89BqzJq3PZnTztDfjSsitx6v6cUi7DPabDrSi
-	47Nx72QHQF2B87NnWA1E/dkbpqu1bRlKVv8PaHnv9QWspQ/kF9zvgT/wCVVbVKV/ZJgG4LBhDGsz8
-	YBYMcB5A==;
+	bh=5EtEdiow1kF21Deszkjq7KrV6ShuDCebRb8GXYCOhjY=; b=Cb6T8gvfoJ61PT2eHTUulw4fLD
+	KTGalHL++YVW74snvKN3VCfVnqvU5m+z6B0w25HsWRPV1ISVQyKLvqWeVq5HFIQ4AYSu3/x4fhlFj
+	kz2avhJZTbGQjuZaexewcyc5l5zmKb9/S2KhekLeX/KWDW6OkA9ZyOQm2JXBRTErP9B5JJVf7N4hw
+	ZvMcuqNgu0nsl3/VO85DtXXPDoIpeMFpJuMQNdkyR42gqqzOgAqoYKy66xo0PiClMBNMYpbFFUXSy
+	wPcVbcOVQbWStwPAcdhppREm4U2uGx3UpTMFvKr+lD2Jacm0002CAs9DvZ4Y7RoHvw+QJd43x9+gW
+	x9zUDbDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd5xp-0000000CyLA-0aiQ;
-	Tue, 06 Jan 2026 12:15:05 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1vd62a-0000000Cyv8-1yOO;
+	Tue, 06 Jan 2026 12:20:00 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd5xm-0000000CyIN-0DJ6
+	id 1vd62X-0000000Cyum-0Nn5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 12:15:03 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 606C7hjr1375371;
-	Tue, 6 Jan 2026 13:14:55 +0100
-Received: from duzpr83cu001.outbound.protection.outlook.com (mail-northeuropeazon11012048.outbound.protection.outlook.com [52.101.66.48])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4besdkse71-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 06 Jan 2026 13:14:55 +0100 (CET)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F/94DOs+AKzintzMA9zdKftkkhIi9tg36pPtwzJ1fnAv3S98bWYpUAxwm1h4eb2dmUTQersrkg0aZ3iDQSo/u8+s9cBX+6igFqRgxQa49Wh5GGguCJdTEmywAWA10Jw2BekYCde+KXJs0jmi02cYgNjzmaG3PU/riObr0xNDiaEV2hX4jw9r9/kXFY8CuN9P6JlzPdnVepI/T4BO1d83rMrjo6WsBlzakEP7mqApGZnOxMm5KraLJymU5Y+3ocHq/+Pu8e5SdRdin97tu+iRjMns+NOeMxDS3DCcaO6XX7dFzh1ZKu4SBmgYJnMqLyMK4WJsCteq1psKS0UmXz6E5g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2NnnKNwnyP2x439F1aNH1wfglgdNvOkBMAUaEC6sb9s=;
- b=dSJKNbX7chfbGxS2gSNsH9PAoToRT2Zry5T0WwfRYphky/NxsrvBtNGS0i709PYjT/VbSxKlDQ2+un2SI/LOrtglM4Aay7VkSUqyZKSZrzRCP50hSl8KVCKDAxd6HzSoHoSuYzhMckBRD5CnPTjOH0EoUW4RBoC3J87NRLA59lucoZmgIKeaagKBfnilT/w9NALilToQVjQil6kC5oqy6DjcIZDBLLH9usiaCYhtXvd16I78dd43+X8UPTZOoHIymaWArEDq7hfUeIJ0KFKodbLN1XPF4QCEdtGuewwNTV7n5ImeWuHVrcygSNc6JUHyOUdyIWpzbF/IsMBlvxXbDw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=lists.infradead.org
- smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
- header.from=foss.st.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2NnnKNwnyP2x439F1aNH1wfglgdNvOkBMAUaEC6sb9s=;
- b=hgIbNMvNiHgMkZJ/Q+TzSN1X7Hdnmk+2+1woOSb2miCmBDHXE/ab1LT9KH17pE+fs95qEtbO+Q409BhZAu8a7XYuXpoCXBsyWZOvcr9ii3Ye4R/iAyPKoAR/BjRcP2FslrYk4zBHWpivnYa4u/1wUiYp2h2XAhRNycssyshl7xDO5D3G3KC+d9pd6zP5bES5vdMFpgdx6x8vS2CXXYJJ0nJu5fulT/yGneMz1OfAIlhRjyVQoVQAq/vRnsORUAgHvTo5rdXius+IPvMkjeu+k/RY2dHiRhoAevwUZ3WX2FkRvi0k6X7pkplPTQ53acekS0PfbihzrnpZ4eS7gadSwA==
-Received: from AM0P190CA0015.EURP190.PROD.OUTLOOK.COM (2603:10a6:208:190::25)
- by VI1PR10MB3629.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:13e::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.5; Tue, 6 Jan
- 2026 12:14:52 +0000
-Received: from AMS1EPF0000004D.eurprd04.prod.outlook.com
- (2603:10a6:208:190:cafe::57) by AM0P190CA0015.outlook.office365.com
- (2603:10a6:208:190::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9478.4 via Frontend Transport; Tue, 6
- Jan 2026 12:14:43 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- AMS1EPF0000004D.mail.protection.outlook.com (10.167.16.138) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9499.1 via Frontend Transport; Tue, 6 Jan 2026 12:14:50 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Tue, 6 Jan
- 2026 13:16:04 +0100
-Received: from localhost (10.130.74.193) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 6 Jan
- 2026 13:14:50 +0100
-From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Tue, 6 Jan 2026 13:14:19 +0100
-Subject: [PATCH 3/4] drivers: spi: stm32-qspi: avoid __maybe_unused and use
- pm_ptr
+	Tue, 06 Jan 2026 12:19:58 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.107])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dlqwx5Qw4zJ4678;
+	Tue,  6 Jan 2026 20:19:45 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 491D240570;
+	Tue,  6 Jan 2026 20:19:47 +0800 (CST)
+Received: from localhost (10.48.155.65) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 6 Jan
+ 2026 12:19:45 +0000
+Date: Tue, 6 Jan 2026 12:19:44 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
+	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
+	<kobak@nvidia.com>, <lcherian@marvell.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
+	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
+	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
+	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
+	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
+	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>,
+	Zeng Heng <zengheng4@huawei.com>
+Subject: Re: [PATCH v2 25/45] arm_mpam: resctrl: Add support for 'MB'
+ resource
+Message-ID: <20260106121944.0000499e@huawei.com>
+In-Reply-To: <20251219181147.3404071-26-ben.horgan@arm.com>
+References: <20251219181147.3404071-1-ben.horgan@arm.com>
+	<20251219181147.3404071-26-ben.horgan@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260106-spi_st_maybe_unused_removal-v1-3-8f5ca7136e96@foss.st.com>
-References: <20260106-spi_st_maybe_unused_removal-v1-0-8f5ca7136e96@foss.st.com>
-In-Reply-To: <20260106-spi_st_maybe_unused_removal-v1-0-8f5ca7136e96@foss.st.com>
-To: Mark Brown <broonie@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <linux-spi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Alain Volmat
-	<alain.volmat@foss.st.com>
-X-Mailer: b4 0.14.3
-X-Originating-IP: [10.130.74.193]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS1EPF0000004D:EE_|VI1PR10MB3629:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6bd16e8a-f472-46ee-2bfe-08de4d1d314f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TVFoSm83K1U1OEo5ZTk4YUNvR21GMjB4Q05DN0VkeC9wMnhyVUdCbHFNa0Va?=
- =?utf-8?B?ZUZ5ckxZWmRIK2pFbU5KZ2lCM2Z3SzZuWTdyRGd0RWl5aWpQdXpGdXhPeE5z?=
- =?utf-8?B?RmcxZlg4QWl6aVIwc0FDTHVzY24rM1pXa1hjZ21UNnpMcXF3YTJnditZbndG?=
- =?utf-8?B?NktpUHNPa2J1bUd5M0V6a2Q1RG9JdjNSUVp0WlRuMnR2ODNvMFIrcXRjSk1V?=
- =?utf-8?B?NU9ISG8yb3hZZFpmNUF3SDZhR0k4UXIvS01hd09QdC9TMmduQ21JaHNDVlRS?=
- =?utf-8?B?cVEya1MrZXl4YTVCamZpZnZkZE14VGprOEF3TkxtRHgwb2hoaENsNGNvSDRF?=
- =?utf-8?B?YUo1b2tEWmRVN3g5YUVxeE9xTkZGODhlT0FoSC9ld2dDUEV5VHJ1MDNBa0dl?=
- =?utf-8?B?aitxUmU0STlsUXBibmtnSFE3RHZjeDNXTWU1U0xIL2JwakNFSDhnWWY3aXdy?=
- =?utf-8?B?WlkyQit5K1ZSblFhdFRwQjBJN082WWt6RCtyUXJiSXJ0c0V2ZElKNVA1d1Qw?=
- =?utf-8?B?SDhLSUh6K1dMSUljN2dDMFFBc0JXdG1lYXNmdVdrSTFxVzRFbmlNaGJ4RExI?=
- =?utf-8?B?LzFSbUdEdzhXUllZN2V6V0dvT2lKYittRnQ2aWdYSVRRMFAxaW9VdjhGNkk3?=
- =?utf-8?B?V1RsQTE3aTNhRGtlY1U2ODlpNnpsVGsvY2xCMitCWkZNaXBqRnhCK2hpN1ZP?=
- =?utf-8?B?K01XeE5BVlI2MU9XdG0xOHJsUTBWbngrblFtMUtpMC9UMW1Xb1FWYnNCbkJL?=
- =?utf-8?B?eUdkQW5FZFFkaGE5SUVLQVhMQ3NLR1ZyMHJvVEQyU0lsYWNLRklYcjFRRzhN?=
- =?utf-8?B?aTUzdTZNR0ZFSWZnOVBhUTYxQWc0TVYyYzJqaDlQSi9NQzFtWk1oeGRKY3E0?=
- =?utf-8?B?UlFCUjlNRmlndlIwMGNqM215VHcvdDFvY0dzRENWZzVtWFo4QTFydnVWVjhN?=
- =?utf-8?B?UkJ4Y1RFZFpyK01ST21Mb3FSMWxMd0tyV0lZWkVyUGExY0NiTkVsZlFpMW5a?=
- =?utf-8?B?eE1FdnJPTVVNMW00dmVobCtBZlZ4S3NVcGoyK1Y2ZnpRaDg0U2R5RmEzWDEr?=
- =?utf-8?B?RXpYVitDV1A4dUtZek1JQnJsVE5xU3JSaGpFa0ovZnF6S01vYmpVWmltdDFp?=
- =?utf-8?B?dXQyRmNZUU8zY1F2cUJ2V1cwakxBTEtwbmNYWUJOajRkZXBjRUxyQVdlRW9K?=
- =?utf-8?B?aklJVTJ5Q3VHNHloU0Z1YzZYMmtJbGwraUhZK3FWc1dCRVpIbWVFTjYwQ1VU?=
- =?utf-8?B?TFJRMGFNTWdPdXlHQ3hhSHJWWGtWbUlwV25QV1pPU2t6YzhKejlkWkV4TTN5?=
- =?utf-8?B?eVlXelZmNXZjclIwY0luUjVtUUMyZzVVNkMrWk5TNC9GZG11bnltOEZIWEpI?=
- =?utf-8?B?M1dCbVlscDcyd3ArazVxU3pMTU9vMXVGYVJhYyt5THBRT2xhRFdYUnd3ZWF0?=
- =?utf-8?B?d2RTUEQ5WGlTSER4OE81eW1LVTBja1ZqS1pqQzRSbXlKWTYvbEFUOUE5Q2Qv?=
- =?utf-8?B?cTdTVUNnK295MEV3RUtoN3crWnd0SThzMlZHUVJGNGpZNlgwcEpDVG9PN2Zx?=
- =?utf-8?B?UzFXWVBFTXlZY0FqcW1GUlVuZFFHS3NoaUNHZXkxSm9IU0VMSzA1SHZCeDZ4?=
- =?utf-8?B?NXZuN3g1UERuMnhQUktpU29GTDRRNExtc2dXMU9aUC90TGp1WXZyQlFjdTBE?=
- =?utf-8?B?NHNUUVhvc2dwZy9mMTQ3anRMd3MvVFF4VmNVcjVrTDdpTWhtb2luVkhqcUVY?=
- =?utf-8?B?Q3hqc2NTVVNGSlVyNE5TQ1NkVVlyaGhHR1VTak5aUFZxUTMyTS9xcXN5SHpJ?=
- =?utf-8?B?N21kV24rQk9iRkhnaGlrY2t2V2hTNDRGZnV0YTNOQko0R3BXWWNWaUpXRXBS?=
- =?utf-8?B?TjRCUGRWdHZ0VHNqS2xqRkFoM21rTVRlOW5BU2VKSU9XK0R6M2IzVGFHRmFv?=
- =?utf-8?B?bVJ2SW1nd1dNMWs5cWhMcytwejkwWnpIb1JvR2JyeW1pNDFwNzdJODFSV1FJ?=
- =?utf-8?B?NStrUndudXZ1UFpLeldIZVJNR0hBK0pITTlsTmJndmRwVTRDajNHbFFLbSs4?=
- =?utf-8?B?UHMzWlRUZXBISkxOT1hLd0VBSzFPd0FaWGVyRG44N2xjc25WcFVEblgyZ1V4?=
- =?utf-8?Q?V/QM=3D?=
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2026 12:14:50.8965
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6bd16e8a-f472-46ee-2bfe-08de4d1d314f
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF0000004D.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB3629
-X-Proofpoint-GUID: -Xe2e2Rt2WBaMZ-I6cUuUrA7_D9Wv6Ju
-X-Authority-Analysis: v=2.4 cv=Vskuwu2n c=1 sm=1 tr=0 ts=695cfcbf cx=c_pps
- a=ylwhU6uZkk4GPunyVPrrDw==:117 a=uCuRqK4WZKO1kjFMGfU4lQ==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=wL9PcE0S0AMA:10 a=IkcTkHD0fZMA:10
- a=vUbySO9Y5rIA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=7wyQpQe0EkofVtEA0L4A:9
- a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-ORIG-GUID: -Xe2e2Rt2WBaMZ-I6cUuUrA7_D9Wv6Ju
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA2MDEwNiBTYWx0ZWRfX0RtVIKQ2V86v
- cPIh4ZVtk8J+YfVUGvLyZVDkQ269n82LOTw6q6Q9rRIRwJSMzcXU0yBWcpUK9nbYjAN7ymFL46v
- mxK2xeTgcDbfZfFuKzt6MkrT5A5E/Suu/VKfSByGPUrZwbNxcEe3gN9fNI3F0nVLCwd/t7Rdb+e
- W/5xPsutK7vmbvpK31nzSdu+th5syUiZ2PvFNkHgg1d44JhZhCPYoAu4DNcQ+Izve+yPeji1Ans
- ec3MIg6abeSSNiO+lhF4haPgJSSL85cFDY9Hhm8xa7+thjbCoxttXifW2ebwTLTssYjPvZU+KCv
- /8M6qsUyjHtT7Qtnvxwu9OeWQi71tKjAkY4HeltCFWPMWGBNlhquqay2mypWjre++SeEqAhXwvz
- AjymrbXWxn7igLXF9JIkK5d1wUOT+GJNWrR+8cODJGH6ZCA+I5JBB2M2k55FhT/2yMHbAlvt12c
- ttT/s1xl5FF/nGryLLA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-06_01,2026-01-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0
- lowpriorityscore=0 malwarescore=0 impostorscore=0 adultscore=0 bulkscore=0
- clxscore=1015 spamscore=0 priorityscore=1501 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601060106
+X-Originating-IP: [10.48.155.65]
+X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_041502_383588_60E12BDD 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20260106_041957_444450_8D0D2E5B 
+X-CRM114-Status: GOOD (  34.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,76 +84,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch to usage of pm_ptr / SYSTEM_SLEEP_PM_OPS / RUNTIME_PM_OPS
-in order to avoid having to mark the pm related functions as
-__maybe_unused.
+On Fri, 19 Dec 2025 18:11:27 +0000
+Ben Horgan <ben.horgan@arm.com> wrote:
 
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
----
- drivers/spi/spi-stm32-qspi.c | 15 +++++++--------
- 1 file changed, 7 insertions(+), 8 deletions(-)
+> From: James Morse <james.morse@arm.com>
+> 
+> resctrl supports 'MB', as a percentage throttling of traffic somewhere
+> after the L3. This is the control that mba_sc uses, so ideally the class
+> chosen should be as close as possible to the counters used for mba_local.
+> 
+> MB's percentage control should be backed either with the fixed point
 
-diff --git a/drivers/spi/spi-stm32-qspi.c b/drivers/spi/spi-stm32-qspi.c
-index d1df66875809..5354faef936a 100644
---- a/drivers/spi/spi-stm32-qspi.c
-+++ b/drivers/spi/spi-stm32-qspi.c
-@@ -910,7 +910,7 @@ static void stm32_qspi_remove(struct platform_device *pdev)
- 	clk_disable_unprepare(qspi->clk);
- }
- 
--static int __maybe_unused stm32_qspi_runtime_suspend(struct device *dev)
-+static int stm32_qspi_runtime_suspend(struct device *dev)
- {
- 	struct stm32_qspi *qspi = dev_get_drvdata(dev);
- 
-@@ -919,21 +919,21 @@ static int __maybe_unused stm32_qspi_runtime_suspend(struct device *dev)
- 	return 0;
- }
- 
--static int __maybe_unused stm32_qspi_runtime_resume(struct device *dev)
-+static int stm32_qspi_runtime_resume(struct device *dev)
- {
- 	struct stm32_qspi *qspi = dev_get_drvdata(dev);
- 
- 	return clk_prepare_enable(qspi->clk);
- }
- 
--static int __maybe_unused stm32_qspi_suspend(struct device *dev)
-+static int stm32_qspi_suspend(struct device *dev)
- {
- 	pinctrl_pm_select_sleep_state(dev);
- 
- 	return pm_runtime_force_suspend(dev);
- }
- 
--static int __maybe_unused stm32_qspi_resume(struct device *dev)
-+static int stm32_qspi_resume(struct device *dev)
- {
- 	struct stm32_qspi *qspi = dev_get_drvdata(dev);
- 	int ret;
-@@ -957,9 +957,8 @@ static int __maybe_unused stm32_qspi_resume(struct device *dev)
- }
- 
- static const struct dev_pm_ops stm32_qspi_pm_ops = {
--	SET_RUNTIME_PM_OPS(stm32_qspi_runtime_suspend,
--			   stm32_qspi_runtime_resume, NULL)
--	SET_SYSTEM_SLEEP_PM_OPS(stm32_qspi_suspend, stm32_qspi_resume)
-+	RUNTIME_PM_OPS(stm32_qspi_runtime_suspend, stm32_qspi_runtime_resume, NULL)
-+	SYSTEM_SLEEP_PM_OPS(stm32_qspi_suspend, stm32_qspi_resume)
- };
- 
- static const struct of_device_id stm32_qspi_match[] = {
-@@ -974,7 +973,7 @@ static struct platform_driver stm32_qspi_driver = {
- 	.driver	= {
- 		.name = "stm32-qspi",
- 		.of_match_table = stm32_qspi_match,
--		.pm = &stm32_qspi_pm_ops,
-+		.pm = pm_ptr(&stm32_qspi_pm_ops),
- 	},
- };
- module_platform_driver(stm32_qspi_driver);
+either's "or" is missing.  (sentence should include the second choice)
 
--- 
-2.34.1
+> fraction MBW_MAX. The bandwidth portion bitmaps is not used as its tricky
+> to pick which bits to use to avoid contention, and may be possible to
+> expose this as something other than a percentage in the future.
+> 
+> CC: Zeng Heng <zengheng4@huawei.com>
+> Co-developed-by: Dave Martin <Dave.Martin@arm.com>
+> Signed-off-by: Dave Martin <Dave.Martin@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+
+As mentioned in earlier review I'd like an overview doc of the heuristics
+used to map to the resctrl everything is a xeon view of the world.
+
+At least some of our platforms are far enough from this view that the
+heuristics fail (others can provide more info on that than I can).
+That's fine as I'd rather not squash something inappropriate into a
+viewpoint that doesn't fit. Better to leave those for later solutions!
+
+
+Otherwise, just minor comments inline.
+
+Jonathan
+
+> ---
+>  drivers/resctrl/mpam_resctrl.c | 212 ++++++++++++++++++++++++++++++++-
+>  1 file changed, 211 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index a20656e49edc..e376841c5596 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+
+...
+
+> +static u32 get_mba_min(struct mpam_props *cprops)
+> +{
+> +	u32 val = 0;
+> +
+> +	if (mba_class_use_mbw_max(cprops))
+> +		val = mbw_max_to_percent(val, cprops);
+> +	else
+> +		WARN_ON_ONCE(1);
+> +
+> +	return val;
+
+I'd be tempted to handle the error case first to make
+clear this is really just a sanity checking wrapper around the max_to_percent()
+function.
+
+	if (!mba_class_use_mbw_max(cprops)) {
+		WARN_ON_ONCE(1);
+		return 0;
+	}
+
+	return mbw_max_to_percent(val, cprops);
+
+> +}
+
+> +/*
+> + * topology_matches_l3() - Is the provided class the same shape as L3
+> + * @victim:		The class we'd like to pretend is L3.
+> + *
+> + * resctrl expects all the world's a Xeon, and all counters are on the
+> + * L3. We play fast and loose with this, mapping counters on other
+> + * classes - provided the CPU->domain mapping is the same kind of shape.
+> + *
+> + * Using cacheinfo directly would make this work even if resctrl can't
+> + * use the L3 - but cacheinfo can't tell us anything about offline CPUs.
+> + * Using the L3 resctrl domain list also depends on CPUs being online.
+> + * Using the mpam_class we picked for L3 so we can use its domain list
+> + * assumes that there are MPAM controls on the L3.
+> + * Instead, this path eventually uses the mpam_get_cpumask_from_cache_id()
+> + * helper which can tell us about offline CPUs ... but getting the cache_id
+> + * to start with relies on at least one CPU per L3 cache being online at
+> + * boot.
+
+So the usual mess of maxcpus=1 breaks it for anything other than first L3?
+I'm not entirely against that but it may be a little unexpected.
+
+> + *
+> + * Walk the victim component list and compare the affinity mask with the
+> + * corresponding L3. The topology matches if each victim:component's affinity
+> + * mask is the same as the CPU's corresponding L3's. These lists/masks are
+> + * computed from firmware tables so don't change at runtime.
+> + */
+> +static bool topology_matches_l3(struct mpam_class *victim)
+
+
+
+> +
+>  static int mpam_resctrl_control_init(struct mpam_resctrl_res *res,
+>  				     enum resctrl_res_level type)
+>  {
+>  	struct mpam_class *class = res->class;
+> +	struct mpam_props *cprops = &class->props;
+>  	struct rdt_resource *r = &res->resctrl_res;
+>  
+>  	switch (r->rid) {
+> @@ -361,6 +531,20 @@ static int mpam_resctrl_control_init(struct mpam_resctrl_res *res,
+>  		 * 'all the bits' is the correct answer here.
+>  		 */
+>  		r->cache.shareable_bits = resctrl_get_default_ctrl(r);
+> +		break;
+> +	case RDT_RESOURCE_MBA:
+> +		r->alloc_capable = true;
+> +		r->schema_fmt = RESCTRL_SCHEMA_RANGE;
+> +		r->ctrl_scope = RESCTRL_L3_CACHE;
+> +
+> +		r->membw.delay_linear = true;
+> +		r->membw.throttle_mode = THREAD_THROTTLE_UNDEFINED;
+> +		r->membw.min_bw = get_mba_min(cprops);
+> +		r->membw.max_bw = MAX_MBA_BW;
+> +		r->membw.bw_gran = get_mba_granularity(cprops);
+> +
+> +		r->name = "MB";
+> +
+
+Probably should be consistent with either a blank line before break or not.
+That might also make the diff a little nicer.
+
+>  		break;
+>  	default:
+>  		break;
+
 
 
