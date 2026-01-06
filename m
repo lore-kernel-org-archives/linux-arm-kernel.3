@@ -4,100 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92E33CE9D42
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:08:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AE4ECE9D46
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:
-	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hKsffwDmTb+4r5jC/ROuThttSG8MjIGG/prpPNSIElc=; b=O2H4kNtk98u/cxz/+e1lYZfEG1
-	K10T1/cVRasKbRHCRlCODtImEP4oHqzh38uVr+ak/IxU7ejugA7AzElC/NW79k5mMXtA/5rBnThoS
-	fl1x+EB/iGL40Hast5ZDrQcy3G7yuwVgA/Q5WzvaCbfabMvuty4kEN1mhhNpEN6pbQsHSS0qrpL0j
-	LILR0f9USVzUvJw7gVzQsMr40bELXitPJh/OmJD4u39qgXClB+eOr0YeBIFmwfn9vJed5EaYz0ax9
-	pKMDcSisMWoc/a587M0AGx19AEt90JE5y5mE0C/7NqDN2hPFz/LvvAIrdnDqPW77863BdejYnB8+Q
-	2597/uTg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TgDUo9pPwV7ODh8NtC2AzAhmpFySbd6pq90OMCloUm4=; b=UhMRaguEzH8IGklFn2yim31J2Z
+	CqTvFzsG0CF8td6m6gxq6xnt1lwT3O7r7iA3XmJmRFhhQ8S5WuWTZErs+xiMhnCayNGdCZmSJw7Eo
+	DmHBBfKFT8c815piVgTQ94+o4l6DtZBSR5pGjY3y/C1HsrcqO7kT5RpROibyfEv4UookReVmOPVJa
+	4LYbld5vAj4KUzUEXTayhjea6/1Q3rdpf3DZWEbX3Md5By4dTJQcm0HjJM/6/0c55uwnNHfXji1nW
+	UzNWFLGQIyoloJVgPEjAECwJE20gAmpye92EjnvJpRFB1RK6l+YfIavVwTG6qi8LfqLUnF+TkMEtO
+	85y7Wisw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8fj-0000000DN1R-2axJ;
-	Tue, 06 Jan 2026 15:08:37 +0000
-Received: from mail-oa1-x29.google.com ([2001:4860:4864:20::29])
+	id 1vd8gW-0000000DNKv-0Jsc;
+	Tue, 06 Jan 2026 15:09:24 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8fh-0000000DN04-1HcV
+	id 1vd8gT-0000000DNJ8-1yWv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 15:08:34 +0000
-Received: by mail-oa1-x29.google.com with SMTP id 586e51a60fabf-3ec46e3c65bso784927fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 07:08:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767712112; x=1768316912; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hKsffwDmTb+4r5jC/ROuThttSG8MjIGG/prpPNSIElc=;
-        b=Z01XhaVUqgZ1amrjHI76Eq7ROz7jsB2u8nIwdWMxklEJ19lr+4qP39u78j89EW6RKs
-         Z8Gh0frNFSFoq74WcmzMBcn7426uYEq8Yo9Ax+/2zZgiLvs6DMF2nFa16hRaHe8Jug6g
-         7RdG6suzt1fxpBRznf/5sN8WRaLWPZtUullFtzRfVptDpH0qouav1elk43QAXoZUbuZk
-         twBcHhAK+hA7RrxPu0HvxnzvB6mutYtQFZWiEcqXcpnY50jyW9lfTduH0Ab0JJFqDgZC
-         bbu2lmwsdVIfvhoLVK8fDOgSmqSVIyAI+5n+WzsXfAda9hw9WAuyv2lBCSSJ702cyu5p
-         MWAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767712112; x=1768316912;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hKsffwDmTb+4r5jC/ROuThttSG8MjIGG/prpPNSIElc=;
-        b=P+8rWAKIkJjNSWyv0qm1P0QIjXgmI6odhNm1Iu8JvGZnere2hV/dEr6JDEbgmcqxXp
-         bItbiaQFGTfzn639q98siTGt8V8QKvZYjC9U0tlP3cS1ZDTmA2XsJ1KCJa/RZLaycjD1
-         baqoHUyZdEBF72iJEFA0sgHp8w1azLqKPoqazl68/hpMvp68in18ytoLAPc6osooRIlm
-         0lYL92mxQgqBdItCDXSDoCa5mXv/7Colo+giU/jv/MRxksuQL+Q8+Eyyupx2qA+E2/IP
-         gOrL3K2QYUCSmns5Cc6/3LnOBnVpBPCIRIIkWA4uStp+N3CoEfsm/DqfdkMY4pPFirx3
-         kANQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU+Os7LGWC0ldECb7e53X7xpFcjLxCnjoIfLdkGy1RG8bayNQqq2+XShHR+kqe8hSWP2OLoZ0u8sqckm4EoFE1r@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpNmiq5Y18SPreSA7pRnvKyIWaCnx7D61SPks5ak23sK/Hryuw
-	exFbQYGSYVRMUVjM0W/fY2smJ0qGUT4SDRXm4nqhlrYwQKRwjYBINEj2Afr7gQ==
-X-Gm-Gg: AY/fxX5SBao3V877SsJwETV1o8V6msVXbYDpEIJfMe0tkUu4oGAYMl1I208viU6Rksg
-	nRAj3V3Os0m5ZD9TdBe4gtw1nSLqU9quW66xNDk0FvJdXgkp4BOQgidOK02JJSqa2AsdwpEtqsV
-	oTjopxzOiIzG1UOaeLmu8DfFyeYVP/RZ0uUITul5EWnwneY1HIsCP7fTujV6zS64cYKl+1zH4xk
-	tLfllU9Tt3Wi3QVpgwlqJVoQloqGxyJJjkCHpK33hUpiEsBfb7KnjqS5PEV/iKi0KUmXbkzlqRp
-	gh/wqCBPNQd8CQmvkddDHBijG75EPm6Os+h4FjG4qAeytEqgPjU9u1OwVPlfroH9rFRQxkR/9CQ
-	c1oikf9+BAvtWxtLr6AN6UnA4etAnCHuYSrVDQarmAxERxHpTGOp6FMtIUoCMpfOafIMT8/mm3a
-	ym12SJXheBGBL84PbSbLV0RBSav62B/hcInBF9fe+DvKjfmgbHVTL6Zkpq+PHZKA4KaDj25rRcx
-	2MSPg==
-X-Google-Smtp-Source: AGHT+IH/kVjMXJLsPqWXcn8kSZ3ELVQYHHdFG6UtOJC68eA3mthYgJwMef8DW8mEX3Opv7mL8wv7Fw==
-X-Received: by 2002:a17:90a:c888:b0:32e:5d87:8abc with SMTP id 98e67ed59e1d1-34f5f35d5e2mr2098780a91.36.1767706121439;
-        Tue, 06 Jan 2026 05:28:41 -0800 (PST)
-Received: from localhost (p5342157-ipxg23901hodogaya.kanagawa.ocn.ne.jp. [180.39.242.157])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34f5f7b19ebsm2356135a91.3.2026.01.06.05.28.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jan 2026 05:28:41 -0800 (PST)
-Date: Tue, 06 Jan 2026 22:28:26 +0900 (JST)
-Message-Id: <20260106.222826.2155269977755242640.fujita.tomonori@gmail.com>
-To: a.hindborg@kernel.org
-Cc: fujita.tomonori@gmail.com, aliceryhl@google.com, lyude@redhat.com,
- boqun.feng@gmail.com, will@kernel.org, peterz@infradead.org,
- richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com,
- catalin.marinas@arm.com, ojeda@kernel.org, gary@garyguo.net,
- bjorn3_gh@protonmail.com, lossin@kernel.org, tmgross@umich.edu,
- dakr@kernel.org, mark.rutland@arm.com, frederic@kernel.org,
- tglx@linutronix.de, anna-maria@linutronix.de, jstultz@google.com,
- sboyd@kernel.org, viro@zeniv.linux.org.uk, brauner@kernel.org,
- jack@suse.cz, linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, rust-for-linux@vger.kernel.org,
- linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 4/5] rust: hrtimer: use READ_ONCE instead of
- read_volatile
-From: FUJITA Tomonori <fujita.tomonori@gmail.com>
-In-Reply-To: <87ikdej4s1.fsf@t14s.mail-host-address-is-not-set>
-References: <L2dmGLLYJbusZn9axfRubM0hIOSTuny2cW3uyUhOVGvck7lQxTzDe0Xxf8Hw2cLxICT8kdmNAE74e-LV7YrReg==@protonmail.internalid>
-	<20260101.130012.2122315449079707392.fujita.tomonori@gmail.com>
-	<87ikdej4s1.fsf@t14s.mail-host-address-is-not-set>
-Mime-Version: 1.0
-Content-Type: Text/Plain; charset=us-ascii
+	Tue, 06 Jan 2026 15:09:23 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dlvhN685qzHnHBX;
+	Tue,  6 Jan 2026 23:09:08 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3B2D940086;
+	Tue,  6 Jan 2026 23:09:13 +0800 (CST)
+Received: from localhost (10.195.245.156) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 6 Jan
+ 2026 15:09:11 +0000
+Date: Tue, 6 Jan 2026 15:09:07 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
+	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
+	<kobak@nvidia.com>, <lcherian@marvell.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
+	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
+	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
+	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
+	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
+	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>,
+	"Zeng Heng" <zengheng4@huawei.com>
+Subject: Re: [PATCH v2 40/45] arm_mpam: Generate a configuration for min
+ controls
+Message-ID: <20260106150907.0000457b@huawei.com>
+In-Reply-To: <20251219181147.3404071-41-ben.horgan@arm.com>
+References: <20251219181147.3404071-1-ben.horgan@arm.com>
+	<20251219181147.3404071-41-ben.horgan@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+MIME-Version: 1.0
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.195.245.156]
+X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_070833_359015_76F53C34 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20260106_070921_797150_5D3F87C5 
+X-CRM114-Status: GOOD (  32.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,83 +84,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 06 Jan 2026 13:37:34 +0100
-Andreas Hindborg <a.hindborg@kernel.org> wrote:
+On Fri, 19 Dec 2025 18:11:42 +0000
+Ben Horgan <ben.horgan@arm.com> wrote:
 
-> "FUJITA Tomonori" <fujita.tomonori@gmail.com> writes:
+> From: James Morse <james.morse@arm.com>
 > 
->> On Thu, 01 Jan 2026 11:11:23 +0900 (JST)
->> FUJITA Tomonori <fujita.tomonori@gmail.com> wrote:
->>
->>> On Wed, 31 Dec 2025 12:22:28 +0000
->>> Alice Ryhl <aliceryhl@google.com> wrote:
->>>
->>>> Using `READ_ONCE` is the correct way to read the `node.expires` field.
->>>>
->>>> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
->>>> ---
->>>>  rust/kernel/time/hrtimer.rs | 8 +++-----
->>>>  1 file changed, 3 insertions(+), 5 deletions(-)
->>>>
->>>> diff --git a/rust/kernel/time/hrtimer.rs b/rust/kernel/time/hrtimer.rs
->>>> index 856d2d929a00892dc8eaec63cebdf547817953d3..e2b7a26f8aade972356c3eb5f6489bcda3e2e849 100644
->>>> --- a/rust/kernel/time/hrtimer.rs
->>>> +++ b/rust/kernel/time/hrtimer.rs
->>>> @@ -239,11 +239,9 @@ pub fn expires(&self) -> HrTimerInstant<T>
->>>>          // - Timers cannot have negative ktime_t values as their expiration time.
->>>>          // - There's no actual locking here, a racy read is fine and expected
->>>>          unsafe {
->>>> -            Instant::from_ktime(
->>>> -                // This `read_volatile` is intended to correspond to a READ_ONCE call.
->>>> -                // FIXME(read_once): Replace with `read_once` when available on the Rust side.
->>>> -                core::ptr::read_volatile(&raw const ((*c_timer_ptr).node.expires)),
->>>> -            )
->>>> +            Instant::from_ktime(kernel::sync::READ_ONCE(
->>>> +                &raw const (*c_timer_ptr).node.expires,
->>>> +            ))
->>>>          }
->>>
->>> Do we actually need READ_ONCE() here? I'm not sure but would it be
->>> better to call the C-side API?
->>>
->>> diff --git a/rust/helpers/time.c b/rust/helpers/time.c
->>> index 67a36ccc3ec4..73162dea2a29 100644
->>> --- a/rust/helpers/time.c
->>> +++ b/rust/helpers/time.c
->>> @@ -2,6 +2,7 @@
->>>
->>>  #include <linux/delay.h>
->>>  #include <linux/ktime.h>
->>> +#include <linux/hrtimer.h>
->>>  #include <linux/timekeeping.h>
->>>
->>>  void rust_helper_fsleep(unsigned long usecs)
->>> @@ -38,3 +39,8 @@ void rust_helper_udelay(unsigned long usec)
->>>  {
->>>  	udelay(usec);
->>>  }
->>> +
->>> +__rust_helper ktime_t rust_helper_hrtimer_get_expires(const struct hrtimer *timer)
->>> +{
->>> +	return timer->node.expires;
->>> +}
->>
->> Sorry, of course this should be:
->>
->> +__rust_helper ktime_t rust_helper_hrtimer_get_expires(const struct hrtimer *timer)
->> +{
->> +	return hrtimer_get_expires(timer);
->> +}
->>
+> MPAM supports a minimum and maximum control for memory bandwidth. The
+> purpose of the minimum control is to give priority to tasks that are below
+> their minimum value. Resctrl only provides one value for the bandwidth
+> configuration, which is used for the maximum.
 > 
-> This is a potentially racy read. As far as I recall, we determined that
-> using read_once is the proper way to handle the situation.
+> The minimum control is always programmed to zero on hardware that supports
+> it.
 > 
-> I do not think it makes a difference that the read is done by C code.
+> Generate a minimum bandwidth value that is 5% lower than the value provided
+> by resctrl. This means tasks that are not receiving their target bandwidth
+> can be prioritised by the hardware.
 
-What does "racy read" mean here?
+I'm not sure this policy make sense in general as there will be bandwidth
+heavy background tasks where we want to make sure they only use up to X%
+of bandwidth, but don't care if they don't get that.  I guess maybe those
+are always in the %5 or less category so maybe this policy is fine.
+Ah well, can revisit later I guess as long as we keep this as the default
+for any new controls.
 
-The C side doesn't use WRITE_ONCE() or READ_ONCE for node.expires. How
-would using READ_ONCE() on the Rust side make a difference?
+> 
+> For component reset reuse the same calculation so that the default is a
+> value resctrl can set.
+> 
+> CC: Zeng Heng <zengheng4@huawei.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 
+Most, maybe all the other cases have split test from implementation. I'd
+probably do that here just for consistency.
+
+A few things inline.
+
+J
+
+
+
+> ---
+> Add reset_mbw_min
+> Clear min cfg when setting max
+> use mpam_extend_config on component reset
+> ---
+>  drivers/resctrl/mpam_devices.c      | 76 +++++++++++++++++++++++++++--
+>  drivers/resctrl/mpam_internal.h     |  3 ++
+>  drivers/resctrl/mpam_resctrl.c      |  2 +
+>  drivers/resctrl/test_mpam_devices.c | 66 +++++++++++++++++++++++++
+>  4 files changed, 142 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index c20b2757b86b..deea46c2a6c3 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -721,6 +721,13 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>  			mpam_set_feature(mpam_feat_mbw_part, props);
+>  
+>  		props->bwa_wd = FIELD_GET(MPAMF_MBW_IDR_BWA_WD, mbw_features);
+> +
+> +		/*
+> +		 * The BWA_WD field can represent 0-63, but the control fields it
+> +		 * describes have a maximum of 16 bits.
+
+I'm lost to why this only matters now!  Feels like that makes sense way earlier
+in the series. Particularly as that detail confused me no end in the bandwidth
+/ percent calculation patches.
+
+> +		 */
+> +		props->bwa_wd = min(props->bwa_wd, 16);
+> +
+>  		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MAX, mbw_features))
+>  			mpam_set_feature(mpam_feat_mbw_max, props);
+>  
+
+> +static void mpam_extend_config(struct mpam_class *class, struct mpam_config *cfg)
+> +{
+> +	struct mpam_props *cprops = &class->props;
+> +	u16 min, min_hw_granule, delta;
+> +	u16 max_hw_value, res0_bits;
+
+Probably makes sense to drag some of these into the scope below.
+
+> +
+> +	/*
+> +	 * MAX and MIN should be set together. If only one is provided,
+> +	 * generate a configuration for the other. If only one control
+> +	 * type is supported, the other value will be ignored.
+> +	 *
+> +	 * Resctrl can only configure the MAX.
+> +	 */
+> +	if (mpam_has_feature(mpam_feat_mbw_max, cfg) &&
+> +	    !mpam_has_feature(mpam_feat_mbw_min, cfg)) {
+> +		/*
+> +		 * Calculate the values the 'min' control can hold.
+> +		 * e.g. on a platform with bwa_wd = 8, min_hw_granule is 0x00ff
+> +		 * because those bits are RES0. Configurations of this value
+> +		 * are effectively zero. But configurations need to saturate
+> +		 * at min_hw_granule on systems with mismatched bwa_wd, where
+> +		 * the 'less than 0' values are implemented on some MSC, but
+> +		 * not others.
+> +		 */
+> +		res0_bits = 16 - cprops->bwa_wd;
+> +		max_hw_value = ((1 << cprops->bwa_wd) - 1) << res0_bits;
+> +		min_hw_granule = ~max_hw_value;
+> +
+> +		delta = ((5 * MPAMCFG_MBW_MAX_MAX) / 100) - 1;
+> +		if (cfg->mbw_max > delta)
+> +			min = cfg->mbw_max - delta;
+> +		else
+> +			min = 0;
+> +
+> +		cfg->mbw_min = max(min, min_hw_granule);
+> +		mpam_set_feature(mpam_feat_mbw_min, cfg);
+> +	}
+> +}
+> +
+>
 
