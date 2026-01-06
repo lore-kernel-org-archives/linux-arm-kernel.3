@@ -4,87 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34568CEFD10
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 21:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 134A7CEFD0C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 21:17:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QhN1WAuMMr05B3KPSfvPQnFSaJ788oFx+QDIhlRIVYE=; b=e85Z2YMXmPRTB+lzs9Hao/IeOj
-	0e43tTd4a6MaHEtsbFbroYFmzcsGAWznZBZ8x6W6K+ZnydyD3kZEHI20tlviSSC/swbZ0SjMXe30T
-	0DXBmIUWJCSAjPfG3zEDOL4mRQdJMmA2SxaAvxeDU39vsU6/+yE5LpZahMytaExEIfokIpC1CDFN9
-	/+pKVKGKO3necHI/jAGgUnDnP9RzW1vXjCN5n7DNYxw/5X+ofEBmsFb9OrOJfUwO0ql/jdWPwD49h
-	glp0i18Xi2l3se+O3qxx1GltYS++t6eoH/4aLQ8anLltKyRsYsRimrnRrsNKa+q8Og3AHgIQ7zeQA
-	At7yqFqA==;
+	bh=7TV2WRsatUGScTT5wRm1AbQhvqUeZU8Yk5dVGjwGAag=; b=dmw4IeJM2HTGpn7Bw8bmHlUxNw
+	912UwRNTP7GhRFD+gFMSEfsfBH+qvjVwlSY/DCN48H5S6vhifee9MnRKNWZTy0L/St0Y9LBsIqbGI
+	imuF7ugTjLorAryXwIvqyWIHqgYu4dutEh/eK3d44+STBbUqEWgHxLlf8UCO789EWXHiisetNsxyW
+	Z50gfv7MpJTXy0EoZXhJTAiNmYo/BucUKe2XLi10wjf2Qj0cP6MkUwYkAhzx44eepT8AWeE3gAoPL
+	D16zmmbmsNBeXbyn/nE9uaw/ERQmytubPfkuMEqsS8FGNTnBFVo64pOU/A3DNWgVNDoDjs79LyYlS
+	4uSnmANA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdELC-0000000DqqO-1WnX;
-	Tue, 06 Jan 2026 21:11:46 +0000
-Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
+	id 1vdEQL-0000000Dr2R-1tU2;
+	Tue, 06 Jan 2026 21:17:05 +0000
+Received: from mail-qk1-x741.google.com ([2607:f8b0:4864:20::741])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdEL8-0000000Dqph-3IY8
+	id 1vdEQI-0000000Dr23-2U6s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 21:11:44 +0000
-Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-88a34450f19so13779676d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 13:11:42 -0800 (PST)
+	Tue, 06 Jan 2026 21:17:03 +0000
+Received: by mail-qk1-x741.google.com with SMTP id af79cd13be357-8b25ed53fcbso181565585a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 13:17:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1767733901; x=1768338701; darn=lists.infradead.org;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1767734221; x=1768339021; darn=lists.infradead.org;
         h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
          :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=QhN1WAuMMr05B3KPSfvPQnFSaJ788oFx+QDIhlRIVYE=;
-        b=AYVuBmXv8swR9f7E6gxklqJm9uLW9xcY/wlai7CnG4WLG3KDnC2qPLhafqRI/zIK3r
-         mULVDeEgmT1yjV9LdHKvaoPRcUmfSuSNG6/BF7l+S1FyVml4NpufjojrbmiSBi0c+opm
-         QFrDXzhOTYWTaeTH1qNqSBSayGGKzuUV0fsfpGAIPIuADyZ+eiWVrbAeVZoOz6+dmocQ
-         6Df2gxlV0mDWKFThs3cVA7q+pK/PNItI+E2yQ332MkzvQLpJS0GpLLMspvqpBuioKr/a
-         nVjwoDKnIhhWhoM1vkD2hFQrldGWsdVeo7oEgsOO7kcAIOhfV+zXV4+3DwMZ6ue/vOby
-         PywQ==
+        bh=7TV2WRsatUGScTT5wRm1AbQhvqUeZU8Yk5dVGjwGAag=;
+        b=aEDP9tdP+EM+0teqcFjDFkzi8jtoCcV7v6LiEuz+zt+cvzWFXbeS3CbuRTzv/sqMAf
+         1MyGhje+tfR21VLVgTVilk169IJgrhNm3Al+Ll6pt+bFOWIhYgVPQDcdxt6SILzSh5Ek
+         VGQ9Ti/ApnKGuRpmkEspaUYlnf90khSrBhPZVWL8VICceHJxGJCaioBQeg/b2SuoopCP
+         npmtEB8cPe2pwiDRQFUFaQzmZZfkCzLK0YmSQelaWSpuGLeGPuKc/VuU5WIfpQLFhaY1
+         ujThFgZ2LhY0FXBTkWSVZ/8dcdeka8N8KXDuDF6FAHu0eI+36KVe/YVwRLrNKVv5J1s3
+         FooQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767733901; x=1768338701;
+        d=1e100.net; s=20230601; t=1767734221; x=1768339021;
         h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
          :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=QhN1WAuMMr05B3KPSfvPQnFSaJ788oFx+QDIhlRIVYE=;
-        b=usqy/UpxZvFbulwlWuIjQvAHYVr21Qz8MZbYF5AbtsQJgTODh4rGeCPEVvUmc0JRQz
-         ik7wDwj0mtN+Sr2C1qnBjlWwlil1KWyfxiYt9EJLuidqNKGVsfPQ+QchXDfy5cVxdNWh
-         WqZdOM0fUDu9PMp/lajcA04+rBTqjRIUdhQKwMOzJzPRhGKHgR5qaocFVRkOmd7DA2z3
-         qJL+wXKg7ACxiemv3py052uKXHFMJEsq0sjbd0HxcW6eaN5amUZ1wDKBpW2vVU8JRgaH
-         NBvfjXHRGXZIDfh3jhL7lAwOHI1xiSAw1Blbh8VMRtVFImjtAuUlA0vUdxdGrLS/KRV1
-         L9wg==
-X-Forwarded-Encrypted: i=1; AJvYcCVEO4FcjAifJC4TzFIsdDdC0JKMzsFnux9FS9T5AwN3ls4ihFWMGcTyNLtiUp+xZ1yTStsucWWfXytZgF0/122y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6gwzV/DKZuZPFd3iLoHwf2qhapCTQgrMlPv3n/PICxQibfoJq
-	mf9CqVv2E+behRPZBUpbmmPqNXiC4eG/QTEmLNDYWojhrfaB2B9o91sjWO0FCTD0zvE=
-X-Gm-Gg: AY/fxX5LGtqe5KYY/OlltNvQ/IZ10UBR6jCF0Czgcox2G0Ye3zaEs68yXn++ksXOUEe
-	C+sJ4IyffiUyOLgaKGdmj+23OLGMCRnrHMB9Bc/EBINyHC01XA9ShiKA9Nm5jU3tAiqB+tT5GU1
-	oxI5ozZ+wrk58ohqTFFb9tG+SXfVGtdUFybV3M7r56anG1P9oK+sGDhAMWIxqSkGVbda8JST6lr
-	t0yFfiMzJS3pkQqJb4F046JIVO+igzsXC1EX6KdoLrzAPZzeC2mhvdDBdJDk5lYSksTE2BvyRWh
-	T5MHhAmIlhe2c1RMMBZRYEG1FvXx8A59974jAGzPLChMzLDH90DM/DsVZgvUJrkpVx8czy/aX3A
-	4e9sWSMN8/KTHrI0V5SIc54fLmyvAVBA6fbu8eT4eJLe8ihvZ0i0AfHfDFX4PPGXM91TVzoq71A
-	HN1RpXfoIdEbIyG3+E
-X-Google-Smtp-Source: AGHT+IGkuyCRu/Q0Kl0G1KNS2qkhBKE92qfOqtUSoW0GG/DuxCV7QpwSsCvsAQoK2tmgoaaLEgC0Kw==
-X-Received: by 2002:a05:6214:3c8f:b0:88a:2c78:d625 with SMTP id 6a1803df08f44-89084257197mr4038516d6.48.1767733901288;
-        Tue, 06 Jan 2026 13:11:41 -0800 (PST)
+        bh=7TV2WRsatUGScTT5wRm1AbQhvqUeZU8Yk5dVGjwGAag=;
+        b=F9WPrGhm+38NqaviLiWuOZbLaLgtqaGGaNI8mcwwZ2scEjltm9cup8sRygUkvIGNQR
+         EQyvRKTkEU4jTrxwQnEceHXW8dINLf4byw7D3iCBKgHqk/JEK6lCtrtQ+POgQlBE/OwY
+         2chRYD1KcwKgRdxNvPCt/FiwuXSgRYdO2GxVDuXhvmGf+EShSFEuqgLuny4/GLV1GsDe
+         cHXHqkJEuZKUOUe5tGo/uIIbuf8q1rNHtikis3xDcHvPnV92Hbah+DIyGOK7S/hKlB8g
+         aWiSxc/Rr84tznp5A9BL2vmvvvXKkkxphqJqL9d9f4RUH3Y1eVA9cUIN7vpP+uXmtLHQ
+         6Kyg==
+X-Forwarded-Encrypted: i=1; AJvYcCVOy2IJ+SNHv5gKIpWx0cD4VTj4cH8pThqXzn63FJ0siYuy2SBJc7y/sD/0ihiVKjxDq6VYMsKJSyoxhhEaQ20O@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5wgCnwRz0oQ1iyAqKBbFGD0va+JAKoFmTi5dpE5zAZwZvUhHb
+	YZ1NfarVIZFAsD2HR7iq0JCIkTKe8/vIIbBY8Nf+k9r0C3jIGzDErnAQfu+5l85BACEn4m4E5h7
+	IpVJ4Ufc=
+X-Gm-Gg: AY/fxX6afJnnnPKTNpnZIrdRlcL3oOsC5YEexm0XN4zNqkKSSmwxaKdz0HAOtQxm4ex
+	ii89zUT2RJcu8t6JXvBvweOYCJ7a2v0CDwl0oadOEDtzBeNHK+ksVwepSzlOySpsjUWg5jBBQkc
+	4hPB0mzerKUr7VfEK6KL+8Bz1iJJds3u7ig5g6UkHyBbNgVY/tC8v0122xx5vwCWWpzJRPStZWK
+	q9HbucJYxQLessrg3oW8NBtrm0hn43WMkGHCE8aqINFer/fz40dHFWrrioJdZ+UOJkK+xDRoL2o
+	WDgjHkARZcKdauNqENeL+lxamUwGm7mNBHLjT9quhPZco+p0qZIpMYPdNboa8LCYzm+bt2Dg8lH
+	tGZ3gk0NoGVkf8a3AG7xrsetOeCJpMpveHCNXAet1JJei5stGDo/FdD0l8fFdrtU3bz9g+VE7pT
+	deKk+70WKLKmX0GUxf
+X-Google-Smtp-Source: AGHT+IEDtBcDNf5d5I+gsrvmMoXJBR0rE9MDwk2UybQnSIliOc1+CIFRNYrlBfOAksp85cLAttnjyw==
+X-Received: by 2002:a05:620a:1a19:b0:8a3:cd9e:e3fd with SMTP id af79cd13be357-8c389379de1mr33587185a.9.1767734220893;
+        Tue, 06 Jan 2026 13:17:00 -0800 (PST)
 Received: from ?IPv6:2606:6d00:17:7b4b::5ac? ([2606:6d00:17:7b4b::5ac])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89077234c96sm20302746d6.27.2026.01.06.13.11.39
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c37f5438f6sm235814385a.53.2026.01.06.13.16.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jan 2026 13:11:40 -0800 (PST)
-Message-ID: <e792da7b15eb4f58820f4c44dc695ddfe40d5007.camel@ndufresne.ca>
-Subject: Re: [PATCH v2 2/4] dt-bindings: media: mediatek-jpeg-decoder: add
- MT8189 compatible string
+        Tue, 06 Jan 2026 13:17:00 -0800 (PST)
+Message-ID: <71b286c20cd7806d9788043d11958b4eeeaa819b.camel@ndufresne.ca>
+Subject: Re: [PATCH] media: amphion: Drop min_queued_buffers assignment
 From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Jianhua Lin <jianhua.lin@mediatek.com>, mchehab@kernel.org,
- robh@kernel.org, 	krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, 	angelogioacchino.delregno@collabora.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
- sirius.wang@mediatek.com, 	vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
-Date: Tue, 06 Jan 2026 16:11:38 -0500
-In-Reply-To: <20251224031721.9942-3-jianhua.lin@mediatek.com>
-References: <20251224031721.9942-1-jianhua.lin@mediatek.com>
-	 <20251224031721.9942-3-jianhua.lin@mediatek.com>
+To: ming.qian@oss.nxp.com, linux-media@vger.kernel.org
+Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, 
+	sebastian.fricke@collabora.com, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, 	kernel@pengutronix.de, festevam@gmail.com,
+ linux-imx@nxp.com, Frank.li@nxp.com, 	xiahong.bao@nxp.com,
+ eagle.zhou@nxp.com, imx@lists.linux.dev, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Date: Tue, 06 Jan 2026 16:16:58 -0500
+In-Reply-To: <20251223062754.836-1-ming.qian@oss.nxp.com>
+References: <20251223062754.836-1-ming.qian@oss.nxp.com>
 Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
  keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
  /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
@@ -99,12 +97,12 @@ Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
  ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
  bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
 Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-eEh22EQQUYjPOaWs78RQ"
+	protocol="application/pgp-signature"; boundary="=-bX9K4x8lN/AiWznT4ldN"
 User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_131142_847945_9B3184F7 
-X-CRM114-Status: GOOD (  30.84  )
+X-CRM114-CacheID: sfid-20260106_131702_814244_51C77ED2 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,246 +118,70 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-eEh22EQQUYjPOaWs78RQ
+--=-bX9K4x8lN/AiWznT4ldN
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Hi,
-
-Le mercredi 24 d=C3=A9cembre 2025 =C3=A0 11:17 +0800, Jianhua Lin a =C3=A9c=
-rit=C2=A0:
-> Compared to the previous generation IC, the MT8189 uses 34-bit iova
-> address-space (16GB) and requires a single clock configuration.
-> Therefore, add "mediatek,mt8189-jpgdec" compatible to the binding documen=
-t.
-> Additionally, it corrects the inheritance for MT8188, aligning it
-> with MT8189 due to their shared architecture and 34-bit iova address
-> space (16GB) and singlesingle clock requirement.
-
-singlesingle -> single
-
-> Previously, MT8188 was incorrectly defined alongside SoCs with 32-bit
-> iova address-space (4GB), such as "mediatek,mt2701-jpgdec". This mismatch
-> results in an ABI break, as MT8188 cannot function correctly under
-> the 32-bit iova address-space (4GB) configuration.
-
-Was already mentioned earlier, badly introduce DT code create an ABI, and f=
-ixing
-it is the ABI break, not the other way around. The MT8188 issue should be f=
-ixed
-on its own, with proper Fixes: tag.
-
+Le mardi 23 d=C3=A9cembre 2025 =C3=A0 14:27 +0800, ming.qian@oss.nxp.com a =
+=C3=A9crit=C2=A0:
+> From: Ming Qian <ming.qian@oss.nxp.com>
 >=20
-> Key changes include:
-> - Introducing "mediatek,mt8189-jpgdec" as a new compatible string to
-> =C2=A0 represent the correct architecture.
-> - Updating MT8188 to inherit from MT8189, ensuring proper support for
-
-It is odd to have older chips inherit from newer one, should be reversed
-assuming you can fix MT8188. See more comment below.
-
-> =C2=A0 34-bit iova address-space (16GB) and simplifying clock configurati=
-on.
-> - Add property "mediatek,larb" for MT8189 requirements.
-> - Improved formatting for better readability and consistency.
-
-Do style change in it own commit, I don't mixing reformating, with fixed an=
-d new
-feature in one patch will create much interest in your set from the DT
-maintainers. So please break this into at least 3 patches.
-
-> These changes ensure that both MT8188 and MT8189 are correctly supported
-> with the necessary 34-bit iova address-space (16GB), while maintaining
-> compatibility with their shared architecture.
+> The min_queued_buffers field controls when start_streaming() is called
+> by the vb2 core (it delays the callback until at least N buffers are
+> queued). Setting it to 1 affects the timing of start_streaming(), which
+> breaks the seek flow in decoder scenarios and causes test failures.
 >=20
-> Extensive internal review and testing have been conducted to validate
-> these changes and ensure compliance with DT binding standards.
-
-This last paragraph does not seem relevant as a commit message. Consider re=
-ading
-this message in 5 years, would it be useful, and answer is not, since we ca=
-n't
-see the review and testing process.
-
+> The current driver implementation does not rely on this minimum buffer
+> requirement and handles streaming start correctly with the default
+> value of 0, so remove these assignments.
 >=20
-> Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
+> Fixes: 3cd084519c6f ("media: amphion: add vpu v4l2 m2m support")
+> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: stable@vger.kernel.org
+
 > ---
-> =C2=A0.../bindings/media/mediatek-jpeg-decoder.yaml | 50 ++++++++++++++++=
----
-> =C2=A01 file changed, 44 insertions(+), 6 deletions(-)
+> =C2=A0drivers/media/platform/amphion/vpu_v4l2.c | 2 --
+> =C2=A01 file changed, 2 deletions(-)
 >=20
-> diff --git a/Documentation/devicetree/bindings/media/mediatek-jpeg-decode=
-r.yaml b/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
-> index a4aacd3eb189..814b53ef46e7 100644
-> --- a/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
-> +++ b/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
-> @@ -17,13 +17,19 @@ properties:
-> =C2=A0=C2=A0=C2=A0=C2=A0 oneOf:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - items:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - enum:
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 - mediatek,mt8173-jpgdec
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 - mediatek,mt2701-jpgdec
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 - mediatek,mt8173-jpgdec
+> diff --git a/drivers/media/platform/amphion/vpu_v4l2.c
+> b/drivers/media/platform/amphion/vpu_v4l2.c
+> index 47dff9a35bb4..1fb887b9098c 100644
+> --- a/drivers/media/platform/amphion/vpu_v4l2.c
+> +++ b/drivers/media/platform/amphion/vpu_v4l2.c
+> @@ -670,7 +670,6 @@ static int vpu_m2m_queue_init(void *priv, struct vb2_=
+queue
+> *src_vq, struct vb2_q
+> =C2=A0		src_vq->mem_ops =3D &vb2_vmalloc_memops;
+> =C2=A0	src_vq->drv_priv =3D inst;
+> =C2=A0	src_vq->buf_struct_size =3D sizeof(struct vpu_vb2_buffer);
+> -	src_vq->min_queued_buffers =3D 1;
+> =C2=A0	src_vq->dev =3D inst->vpu->dev;
+> =C2=A0	src_vq->lock =3D &inst->lock;
+> =C2=A0	ret =3D vb2_queue_init(src_vq);
+> @@ -687,7 +686,6 @@ static int vpu_m2m_queue_init(void *priv, struct vb2_=
+queue
+> *src_vq, struct vb2_q
+> =C2=A0		dst_vq->mem_ops =3D &vb2_vmalloc_memops;
+> =C2=A0	dst_vq->drv_priv =3D inst;
+> =C2=A0	dst_vq->buf_struct_size =3D sizeof(struct vpu_vb2_buffer);
+> -	dst_vq->min_queued_buffers =3D 1;
+> =C2=A0	dst_vq->dev =3D inst->vpu->dev;
+> =C2=A0	dst_vq->lock =3D &inst->lock;
+> =C2=A0	ret =3D vb2_queue_init(dst_vq);
 
-I guess you sorted these, this is the type of style change that makes revie=
-wer
-unhappy, do this cleanup on it own.
-
-One thing the driver implementation tells me is that mediatek,mt8173-jpgdec=
- is
-not different from mediatek,mt2701-jpgdec, so in theory, the DTS should hav=
-e
-aimed for the second item and an implementation of:
-
-  compatible =3D "mediatek,mt8173-jpgdec", "mediatek,mt2701-jpgdec";
-
-That just shows the screw-up started a while ago, I'm not saying to change =
-that
-now.
-
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - items:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - enum:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 - mediatek,mt8189-jpgdec
-
-That one make no sense, if you want to allow this compatible alone, put it =
-the
-very first item, its meant for that. Though, considering the chronology, it
-would be logical to say that MT8189 is based on MT8188. If we go that way,
-MT8188 should get added into the single item choice and the enum/const pair
-shoudl be reversed.
-
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - items:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - enum:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 - mediatek,mt7623-jpgdec
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 - mediatek,mt8188-jpgdec
-
-This must be kept, its unfortunate, but its in the ABI.
-
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: med=
-iatek,mt2701-jpgdec
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - items:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - enum:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 - mediatek,mt8188-jpgdec
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: mediatek=
-,mt8189-jpgdec
-
-This would be reversed.
-
-On the implementation side, in code, you'd introduce a variants that matche=
-s
-mediatek,mt8188-jpgdec, this will ensure the driver now works properly with=
- past
-DTS.
-
-Then in DTS, which is not my domain here at all, what is appropriate will d=
-epend
-on what happens if you assume MT8188 is same as MT2701. In my personal opin=
-ion,
-if that is unusable or worse crash or hang the systems, I'd drop the broken
-"mediatek,mt2701-jpgdec" so it won't probe anymore on older drivers. If its
-usable / used in some ways, e.g. if it work on 4GB systems, you'll have to =
-leave
-it this way, since you'd regress some users.
-
-The rest is a bit over my head, I've a simple users of DT like you, but
-hopefully these hints are good enough to un-lock the situation. Notice the
-chronology logic needs to be applied down below too.
-
-> =C2=A0
-> =C2=A0=C2=A0 reg:
-> =C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
-> @@ -32,13 +38,16 @@ properties:
-> =C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
-> =C2=A0
-> =C2=A0=C2=A0 clocks:
-> +=C2=A0=C2=A0=C2=A0 minItems: 1
-> =C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 2
-> -=C2=A0=C2=A0=C2=A0 minItems: 2
-> =C2=A0
-> =C2=A0=C2=A0 clock-names:
-> -=C2=A0=C2=A0=C2=A0 items:
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: jpgdec-smi
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: jpgdec
-
-So what happened once the driver on MT8188 tried to enable jpgdec-smi clock=
- ?
-This is relevant to what can and cannot be changed, was it completely unusa=
-ble ?
-
-regards,
-Nicolas
-
-> +=C2=A0=C2=A0=C2=A0 minItems: 1
-> +=C2=A0=C2=A0=C2=A0 maxItems: 2
-> +
-> +=C2=A0 mediatek,larb:
-> +=C2=A0=C2=A0=C2=A0 $ref: /schemas/types.yaml#/definitions/phandle
-> +=C2=A0=C2=A0=C2=A0 description: a phandle to the smi_larb node.
-> =C2=A0
-> =C2=A0=C2=A0 power-domains:
-> =C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
-> @@ -51,6 +60,35 @@ properties:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Documentation/devicetree/bindings/io=
-mmu/mediatek,iommu.yaml for details.
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Ports are according to the HW.
-> =C2=A0
-> +allOf:
-> +=C2=A0 - if:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enum:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 - mediatek,mt2701-jpgdec
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 - mediatek,mt8173-jpgdec
-> +
-> +=C2=A0=C2=A0=C2=A0 then:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-names:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - con=
-st: jpgdec-smi
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - con=
-st: jpgdec
-> +
-> +=C2=A0 - if:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enum:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 - mediatek,mt8189-jpgdec
-> +
-> +=C2=A0=C2=A0=C2=A0 then:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-names:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - con=
-st: jpgdec
-> +
-> =C2=A0required:
-> =C2=A0=C2=A0 - compatible
-> =C2=A0=C2=A0 - reg
-
---=-eEh22EQQUYjPOaWs78RQ
+--=-bX9K4x8lN/AiWznT4ldN
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaV16iwAKCRDZQZRRKWBy
-9IFvAP9gJU9igmAjidakuJKz0akdpOjt4yNcvs8FjB1MMY98fQEA1nsKZhTWxs1n
-ad7uFPYE7mdheCU2tU4bBl/ournlIQs=
-=cORP
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaV17ywAKCRDZQZRRKWBy
+9AJvAQCOUqkKAoFddF4SylaesLlyIFIg1BJfhSG9YtxlQRDd0QEAx2tLbQPMsfkV
+5Q0sfD2HPdhP0VQqRwP28tOY0jXrQgo=
+=Wyl7
 -----END PGP SIGNATURE-----
 
---=-eEh22EQQUYjPOaWs78RQ--
+--=-bX9K4x8lN/AiWznT4ldN--
 
