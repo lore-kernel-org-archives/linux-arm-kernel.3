@@ -4,80 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C042FCEFCE2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E90CEFCE2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:24:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jtFh1RfwhoevH3GL0jAB9uVZgLhflOxObdndOTyXxgU=; b=YaMTQYv2xz+IDDjERMcWVZ66Q/
-	svupTUf4ofZE9whomRQtYxX62KqxFHCo+B5QgJGDl5+vzcaQ/Hc+nmbQlVvplvu3R5NLOuP0Jxah+
-	AYCxAD9dJ9KmT5ig6dgmom5f8yilMlulO5UWyV1xyWY5eO+BHglUx8pmvhwXYaWUWx0kWN4A3bR8f
-	mdHLl1quqJwYwgF8mGWUVXOlEcyUpCfYQ9A9/2/Cu9uGQ3hHv/11GKcqrfiIYpTPT7gnv8ohqQh1j
-	RpADb3ooA8FxGOKvsS8qDp00aCVTyGsiSOndn9eylnngz3Aw2mbE6Y6syTYb+TLmIvIWJUwZqz9m8
-	fL28vxhQ==;
+	bh=vw2AF+cnO7WA+Uc+FpEPiP4GFi07pf0iu01Cj+SSmKw=; b=GoayLHqN/HZHm3b6yq6WVfF251
+	j/nTs4B9Ne1/y0CRGxPSWgWhCTlsM91omBV0nGar9FJYGIAbZzit8EQpl5jshZCUDypR0GfjCp0Bx
+	0aTq/p2to2dRKC0XO+UkStK7j/9h0ZVEOS+t3tMmRyQKSFJe2d2ldVd1EwmNEE9emvUcnSSx0A0H1
+	m1XJCXsGlzt1r3q6VC5PYHrsrMhanSu1lI/jJ41EnsRippdX/8Be+eUfrjG4GfZS7XZZ2Mxm/Md+v
+	k+z54ImOM99NgXGVSD/QFB6k8EGswsjqEywyj6Y51f0XsxnHT/B7zZSJ6x+ZyllMwZtGd4LA6XINS
+	O7z9hkHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBiT-0000000DfQD-0RiI;
-	Tue, 06 Jan 2026 18:23:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdBjg-0000000DfbV-02Nx;
+	Tue, 06 Jan 2026 18:24:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBiQ-0000000DfPi-3rLP;
-	Tue, 06 Jan 2026 18:23:36 +0000
+	id 1vdBje-0000000Dfas-0rbx;
+	Tue, 06 Jan 2026 18:24:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AAA2C43269;
-	Tue,  6 Jan 2026 18:23:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64299C116C6;
-	Tue,  6 Jan 2026 18:23:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6706942A73;
+	Tue,  6 Jan 2026 18:24:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DD87C116C6;
+	Tue,  6 Jan 2026 18:24:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767723812;
-	bh=AhJ1lzOGYQf9Hfp3F9faEN/s8MDeBK5fnyeZLDXT7rA=;
+	s=k20201202; t=1767723889;
+	bh=IqwxW4H8IUPPZK3EaAi+GlNg4T3+lt8kFJ64tmM76u8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JlUhVLsEmPAYT5hY7p1DsA5ueIVR9VHyt+IqJgSD/PH68Vbyyfz71zRJRqdQHkf5w
-	 G38KnsUcV6mftOFazP5ELfmQVveXDmRMETJ30hWnqOgg1W+Ntp4ryrlRo8e8VzD7+C
-	 NhnzEi+CcLTIpX87Y5k2jrcciJxJt/ifBrXT/OMGFl48kaDc9NkkD5GVyAjl2rN9Sg
-	 4OImrlaFa3i1W7zaB5SYaLB6efeOQEYvrjF3RgF0uuTdlq3eBOxaHivrnAlPkVAQSJ
-	 RxMR9H3XFgqwakskfmSU1II/s0V+KZxp2qoG+DExBEj+TpxkSpokCq897qXCbvumUe
-	 VOC22ZvWRYfuQ==
-Date: Tue, 6 Jan 2026 12:23:31 -0600
+	b=T+Xgogpg1Wp7TNMKDYKrQq3HMboaKX3mPD5b0jFOsUnywRSPuBxhq4qccvqS0o1xN
+	 wUCZoXfplvSXeenRq5c7QFFQmEA9AKKI/BEEJF3D/mDpmyNzFB9n9USSJ6+LR1KPr8
+	 wu7h+enj9RwNOaayYb8myNwnpj21NFmLg98P4k5A1gjkyfenp6ee4H0m1k+USrfMuK
+	 J9JGEmlSQS1j7mPBEx4YsvARguUbkL+oKME0LaTskxOpkP8xI2QL6YuXp3Ex8JbnT/
+	 k2NkQ/tlH8k4TvRy+STaBzgbxodcFrWjxDgHm+LyB323coiRzprhtAVdpf4e0PAoum
+	 3CMeg+bnz90MA==
+Date: Tue, 6 Jan 2026 12:24:48 -0600
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: Daniel Golle <daniel@makrotopia.org>,
+Cc: Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Daniel Golle <daniel@makrotopia.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
-	=?iso-8859-1?Q?Bj=F8rn?= Mork <bjorn@mork.no>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Eric Woudstra <ericwouds@gmail.com>, Lee Jones <lee@kernel.org>,
-	devicetree@vger.kernel.org, Eric Dumazet <edumazet@google.com>,
-	linux-mediatek@lists.infradead.org,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Russell King <linux@armlinux.org.uk>, Vinod Koul <vkoul@kernel.org>,
-	linux-phy@lists.infradead.org,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	linux-kernel@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
+	Vinod Koul <vkoul@kernel.org>, Eric Woudstra <ericwouds@gmail.com>,
 	"David S. Miller" <davem@davemloft.net>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
 	Heiner Kallweit <hkallweit1@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>, netdev@vger.kernel.org,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 net-next 02/10] dt-bindings: phy-common-props: create
- a reusable "protocol-names" definition
-Message-ID: <176772381112.2505111.12870885701162521979.robh@kernel.org>
+	Andrew Lunn <andrew@lunn.ch>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Russell King <linux@armlinux.org.uk>,
+	linux-mediatek@lists.infradead.org,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jakub Kicinski <kuba@kernel.org>, Lee Jones <lee@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-phy@lists.infradead.org, Eric Dumazet <edumazet@google.com>,
+	=?iso-8859-1?Q?Bj=F8rn?= Mork <bjorn@mork.no>
+Subject: Re: [PATCH v2 net-next 08/10] dt-bindings: net: pcs:
+ mediatek,sgmiisys: deprecate "mediatek,pnswap"
+Message-ID: <176772388791.2506483.17745230367283833244.robh@kernel.org>
 References: <20260103210403.438687-1-vladimir.oltean@nxp.com>
- <20260103210403.438687-3-vladimir.oltean@nxp.com>
+ <20260103210403.438687-9-vladimir.oltean@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260103210403.438687-3-vladimir.oltean@nxp.com>
+In-Reply-To: <20260103210403.438687-9-vladimir.oltean@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_102334_977344_BABC1006 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260106_102450_282775_4072A82B 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,17 +91,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 03 Jan 2026 23:03:55 +0200, Vladimir Oltean wrote:
-> Other properties also need to be defined per protocol than just
-> tx-p2p-microvolt-names. Create a common definition to avoid copying a 55
-> line property.
+On Sat, 03 Jan 2026 23:04:01 +0200, Vladimir Oltean wrote:
+> Reference the common PHY properties, and update the example to use them.
+> Note that a PCS subnode exists, and it seems a better container of the
+> polarity description than the SGMIISYS node that hosts "mediatek,pnswap".
+> So use that.
 > 
 > Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 > ---
 > v1->v2: none
 > 
->  .../bindings/phy/phy-common-props.yaml        | 34 +++++++++++--------
->  1 file changed, 19 insertions(+), 15 deletions(-)
+>  .../devicetree/bindings/net/pcs/mediatek,sgmiisys.yaml     | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
 > 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
