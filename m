@@ -4,83 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1471C47BDF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 10:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94DA3C47BDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 10:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ys3UwqsdicpE4ouX/5SsJYQhWJLEXWQpBWE5KFHjhMc=; b=1oySd3Wic5enaq1hUn74hLmR+7
-	beN/y9xxo3/X9KHHkwaFQHDcS5iZ0kLzZw61M+2426iwcWYAs0WR7lFRbPAY6Iscp0DDIgcwya5ha
-	7wacopp3CvPtwAdPsn8ysx5K6lBryZDbwfm+lRaybhqSY/zsPuVBUFQkgcje4oAvf2ewKRDou1TDM
-	n3Ju0iR2lxb/DJpU+D9ls6wVKeFv4X9shw3YAg+2CHsQxz9PcuQuCWmDFckLMJ5cvmLitJ53Q8va/
-	LpH9u5Ef9gxEbwXG4+7kfQTB5FUQye05ZcwpO0NqT9ycw/BUd0bDVGXm0fr/azrozeZnBq/2/Rfsq
-	LvdJFRIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uNNcUB7lgyIwf3R57Px+ObUOuuqMHsgwS/LskqhZlIo=; b=ji2LG9IeDxaQN0mDW8rWD4Lgui
+	T5OtAa6KSzC5OmXsMJgXQmyZjBiveIeFFwuIY9CJBB3L6UQ7XyxIBHy8Q4p2hVxwODfTzNWQUllxD
+	YFWFfKb+Wq3bHB1TItuZyi2lOscp4WRRtHgaIqLsEZcPdL9Fa4EcR817sQVrKbw9KG1rq9GjlguLj
+	1h0HabUVVVaJz2BJFgAqhLxlC4SPnlDd9RIFvTEjRN2jLEyE2kQFF3kPyc2KGvlJc4+gLWB82hljI
+	elvS0LlSxowpEaqizjuhwFZrg6G9jeaDyIYa44PlusuADAqScSZBv4ISrP9i+MGkwSkSySMkWrnip
+	6XWn9vIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd457-0000000ClhE-1g9t;
-	Tue, 06 Jan 2026 10:14:29 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vd47P-0000000ClrZ-3rqv;
+	Tue, 06 Jan 2026 10:16:51 +0000
+Received: from mail-ot1-f68.google.com ([209.85.210.68])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd454-0000000ClgW-3qil
+	id 1vd47N-0000000ClrE-03CV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 10:14:28 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dln8H3XltzJ46dw;
-	Tue,  6 Jan 2026 18:14:23 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id DA3514056A;
-	Tue,  6 Jan 2026 18:14:24 +0800 (CST)
-Received: from localhost (10.48.149.114) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 6 Jan
- 2026 10:14:22 +0000
-Date: Tue, 6 Jan 2026 10:14:21 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-CC: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>, "Saravana
- Kannan" <saravanak@google.com>, Nathan Chancellor <nathan@kernel.org>, "Nick
- Desaulniers" <nick.desaulniers+lkml@gmail.com>, Bill Wendling
-	<morbo@google.com>, Justin Stitt <justinstitt@google.com>, Russell King
-	<linux@armlinux.org.uk>, Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>, Krzysztof Kozlowski <krzk@kernel.org>, "Alim
- Akhtar" <alim.akhtar@samsung.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>, "Nicholas Piggin" <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Nipun Gupta
-	<nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>, Abel Vesa
-	<abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Michael Turquette
-	<mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, Shawn Guo
-	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	Vinod Koul <vkoul@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>, "Rafael J. Wysocki"
-	<rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<llvm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-clk@vger.kernel.org>, <imx@lists.linux.dev>,
-	<dmaengine@vger.kernel.org>, <linux-media@vger.kernel.org>,
-	<linux-pm@vger.kernel.org>
-Subject: Re: [PATCH 05/11] powerpc/wii: Simplify with scoped for each OF
- child loop
-Message-ID: <20260106101421.000007ea@huawei.com>
-In-Reply-To: <20260105-of-for-each-compatible-scoped-v1-5-24e99c177164@oss.qualcomm.com>
-References: <20260105-of-for-each-compatible-scoped-v1-0-24e99c177164@oss.qualcomm.com>
-	<20260105-of-for-each-compatible-scoped-v1-5-24e99c177164@oss.qualcomm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 06 Jan 2026 10:16:50 +0000
+Received: by mail-ot1-f68.google.com with SMTP id 46e09a7af769-7c76d855ddbso265122a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 02:16:48 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767694608; x=1768299408;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uNNcUB7lgyIwf3R57Px+ObUOuuqMHsgwS/LskqhZlIo=;
+        b=ff+/I/ah4F7H2mV9Z8dsnnFk1KHXkk2fCcfKUxmvvXBTJA7w07zPgco9rm2Q7LqELd
+         ZquT82uZqbX9Lpi5eg1MVWv/OO1kOUazHQmTp8woVb5ZNeQShHmwNc9ZWUtDgzfwzyhl
+         Zp+jrD24DCQRjRP1kaIHiNlFC1BKXfiQxsA1XVqiRd1upKmCEZ9GQDyEn6CQ9Ps4MXy3
+         QUwS16Tvho0pG3NR9xgA4U2pNDkoXg2goTJuF+CqdkhYzIPVKCwuap8CeTr/YtFiPjXu
+         nKwZSA5OnD2/fFrPeuQXDximXC54X7k4CeAWqlT4vQPa3ObYdfDYHZdmU22vA+QVzqVV
+         25vA==
+X-Gm-Message-State: AOJu0YxcoWXWD/6GTEiTs9ThH/bKTEiS0/euRSfMKNTph+xbxAFm7PGa
+	gF3W5CzY1dUmlz8SRrS1b7PhYpJG+KCi1v0TNub5qt+NFwLzdEOP+gnj
+X-Gm-Gg: AY/fxX4qpVq2MU48r407PdhytR8vFoSuvPrgRNXXOw1NF2ue7XbfGNIXHWY7Wc0uMJP
+	HMaCBsbydWmq2OfZTqeNnLMWBUOmeAZBF2yw02v3InyJtPgsussWiMTuXTyWHX296PQR239Ikxf
+	UPe32Glt/MihiWuDD6yUmGhxOPY81GO1qACKQUxzwShwYgDD2FOnuccBZHmbyMEsbhQxiOHFAJJ
+	npsjp0mWzqTVgs2LtMdnhxL2U1XHxIDpEiY6C01Ec+W/vFdf7caWO4PK6czfTHIoeN7MzVUbnvd
+	YliRrrnUiw/EYbM8/w0X6qL4YYKkZcDNVVfryhB6A/wq7YrhL4QjSDhZ4RcYhqOBpSkzt8VpsL+
+	UYEUMKiA683a3IRMQsJN69OSncKHnTPArSTkVaXVZ+W7dkNSG8d9dSY21mDSDKHL6bSMpPcDd1P
+	arI3/2cLcnLehhiA==
+X-Google-Smtp-Source: AGHT+IHpik8hWyPXo+y5CoXoGZNP7a5BRxyJotM7yoa4j2oD5Z6LvXpzD97F1AyaKuGImA/76c6nUQ==
+X-Received: by 2002:a05:6830:314e:b0:7c7:b28:227c with SMTP id 46e09a7af769-7ce4663ba8dmr1405642a34.4.1767694607636;
+        Tue, 06 Jan 2026 02:16:47 -0800 (PST)
+Received: from localhost ([2a03:2880:10ff:59::])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7ce47832780sm1149346a34.12.2026.01.06.02.16.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Jan 2026 02:16:47 -0800 (PST)
+From: Breno Leitao <leitao@debian.org>
+Date: Tue, 06 Jan 2026 02:16:35 -0800
+Subject: [PATCH v2] arm64: Disable branch profiling for all arm64 code
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.149.114]
-X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Message-Id: <20260106-annotated-v2-1-fb7600ebd47f@debian.org>
+X-B4-Tracking: v=1; b=H4sIAAPhXGkC/yXMwQqFIBAF0F8Z7jqhlAj8lWhhOtW0sFCLB9G/P
+ 6rl2ZwLmZNwhqULiU/JskVY0hXBLy7OrCTAEnSt20abRrkYt+IKB9W1gc1kjA/diIqwJ57k917
+ 98Dkf48q+PAHu+w/4tl4nbQAAAA==
+X-Change-ID: 20251231-annotated-75de3f33cd7b
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Laura Abbott <labbott@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-trace-kernel@vger.kernel.org, Steven Rostedt <rostedt@goodmis.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, kernel-team@meta.com, 
+ puranjay@kernel.org, stable@vger.kernel.org, 
+ Breno Leitao <leitao@debian.org>
+X-Mailer: b4 0.15-dev-47773
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1627; i=leitao@debian.org;
+ h=from:subject:message-id; bh=R0brKy11lWk9rG1Hszq3cr5excGuzAybyASfH2xcz9g=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBpXOEOE3XW9TBI5+gt0t62QrPhBcRn/qigH4pDn
+ 4gtfXOidi6JAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaVzhDgAKCRA1o5Of/Hh3
+ bUDDD/9rIz9FUmTyftcZ2SiYxTdKVB+boYTZiBL/TZMurMwpO/5crdYad5bRGL5PnmNRnAeXZjf
+ 4bJExaoMmBMiuWAyvQvis+Kgdu+xYgXT0mYC9e+ofnCp05M+Yv5GS5f5vATolKFIjKTnu/Xl6cG
+ DPkerSX2xPxChN78jd88Nf/ckcBu3vOkDA4cAtYIRrpN/m3yM6qoukboZHnxNKVOoLV1FQHepcu
+ K5wMSl7Tl/DNZwbD/rvR1VKmO39xdu64RTE9kWrmZ9CQRY6OdsEsNhFeCrTTRO8ELUkVvKf1bVY
+ ImufebVYkB7WsBLoG8pQ9Nvnw1QknNczA8BbYtGKz0EboKTFJauoROuLtb3QLUaycljbGbK8y/W
+ tJUssGjN9WA24lPTVxmN3vmb9gv0/OqmVsrHwt0wF7UvJbUKTr0SqCSZrbXchU8kVyiGUw7K0Y4
+ oLR1uNKGJYHlOxO0fAJZH3QEW3JLiJ3kuN/pbIw5aKZi+WLDgZ37YiRQS66jDV26TfYKdP40ply
+ ERVMouE96PDsf9EjIYu4xRE1dyOhITnjRaPhNThdNXkgm54dBgEkQSx7LGlbeV7Us9pbVThNkV3
+ /9sSDLDoLxAVm6uTFXtDXG/F6GHzX11cLaNJCkS9QIXeLC4NLaACGOLvz2bDIEohjUxyUGPc0jr
+ Pp5K+kknoJuxX8Q==
+X-Developer-Key: i=leitao@debian.org; a=openpgp;
+ fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_021427_112719_5A5C8927 
-X-CRM114-Status: UNSURE (   6.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260106_021649_061954_F1791A04 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,12 +110,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 05 Jan 2026 14:33:43 +0100
-Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> wrote:
+The arm64 kernel doesn't boot with annotated branches
+(PROFILE_ANNOTATED_BRANCHES) enabled and CONFIG_DEBUG_VIRTUAL together.
 
-> Use scoped for-each loop when iterating over device nodes to make code a
-> bit simpler.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Bisecting it, I found that disabling branch profiling in arch/arm64/mm
+solved the problem. Narrowing down a bit further, I found that
+physaddr.c is the file that needs to have branch profiling disabled to
+get the machine to boot.
+
+I suspect that it might invoke some ftrace helper very early in the boot
+process and ftrace is still not enabled(!?).
+
+Rather than playing whack-a-mole with individual files, disable branch
+profiling for the entire arch/arm64 tree, similar to what x86 already
+does in arch/x86/Kbuild.
+
+Cc: stable@vger.kernel.org
+Fixes: ec6d06efb0bac ("arm64: Add support for CONFIG_DEBUG_VIRTUAL")
+Signed-off-by: Breno Leitao <leitao@debian.org>
+---
+Changes in v2:
+- Expand the scope to arch/arm64 instead of just physaddr.c
+- Link to v1: https://lore.kernel.org/all/20251231-annotated-v1-1-9db1c0d03062@debian.org/
+---
+ arch/arm64/Kbuild | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/Kbuild b/arch/arm64/Kbuild
+index 5bfbf7d79c99..d876bc0e5421 100644
+--- a/arch/arm64/Kbuild
++++ b/arch/arm64/Kbuild
+@@ -1,4 +1,8 @@
+ # SPDX-License-Identifier: GPL-2.0-only
++
++# Branch profiling isn't noinstr-safe
++subdir-ccflags-$(CONFIG_TRACE_BRANCH_PROFILING) += -DDISABLE_BRANCH_PROFILING
++
+ obj-y			+= kernel/ mm/ net/
+ obj-$(CONFIG_KVM)	+= kvm/
+ obj-$(CONFIG_XEN)	+= xen/
+
+---
+base-commit: c8ebd433459bcbf068682b09544e830acd7ed222
+change-id: 20251231-annotated-75de3f33cd7b
+
+Best regards,
+--  
+Breno Leitao <leitao@debian.org>
+
 
