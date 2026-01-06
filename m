@@ -4,84 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89600CE9D47
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92E33CE9D42
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:08:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5CgfdWSR+nxpCQEaoYJ8x+78//P4Vl68i6y0D9SpJk0=; b=zLF2p66tcgUyTr7J2Cczz0yTZX
-	tlecvQNzHaGjFpe9PtHRjFJdtW4XYnyUt9PQjpPbt8BWTrxU5lSkSlKQj8OJVOECcoHg55Fq1YUSN
-	TqPOCgX+n1zTfyyDOh7wUhEPGHCoP0zvpJaaAeuCVFis7JhM/luYdl+iwEnwiOYrnEmjZp9CKXk9w
-	hcwL2BrpBKwVlf6Xskn0rqv2eeWjK2K/BuvVlXB/9/tv0/iOzQtK+q9c3B1kCZcETtD7AYnlnZlgg
-	pyhq7dNqStNsqLSe/qffxHbWquGjeSi0GV0GeUcrJ2d+C3OCndGQ88CG6QF/IZEL0OdImiL5pI19B
-	8opZxw9w==;
+	Content-Type:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:
+	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hKsffwDmTb+4r5jC/ROuThttSG8MjIGG/prpPNSIElc=; b=O2H4kNtk98u/cxz/+e1lYZfEG1
+	K10T1/cVRasKbRHCRlCODtImEP4oHqzh38uVr+ak/IxU7ejugA7AzElC/NW79k5mMXtA/5rBnThoS
+	fl1x+EB/iGL40Hast5ZDrQcy3G7yuwVgA/Q5WzvaCbfabMvuty4kEN1mhhNpEN6pbQsHSS0qrpL0j
+	LILR0f9USVzUvJw7gVzQsMr40bELXitPJh/OmJD4u39qgXClB+eOr0YeBIFmwfn9vJed5EaYz0ax9
+	pKMDcSisMWoc/a587M0AGx19AEt90JE5y5mE0C/7NqDN2hPFz/LvvAIrdnDqPW77863BdejYnB8+Q
+	2597/uTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8eT-0000000DMQ7-0Rly;
-	Tue, 06 Jan 2026 15:07:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vd8fj-0000000DN1R-2axJ;
+	Tue, 06 Jan 2026 15:08:37 +0000
+Received: from mail-oa1-x29.google.com ([2001:4860:4864:20::29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8eR-0000000DMPG-1qZn
+	id 1vd8fh-0000000DN04-1HcV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 15:07:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 305106014A
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Jan 2026 15:07:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB5D3C2BCB2
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Jan 2026 15:07:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767712032;
-	bh=IQu1Edy/HWKz08uAYzo3PsbrFyGQXi8NI559zIHsYyQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=LwpLZ4Gv/rLh9TOdLjDFrTwucroei2WbfyfQ748EF/Mixcf1SBZ7zGqZnvN3Cl67f
-	 G3QK9601kjEphYjnk4vmdZbVf3k/2hTZdTTy+LNeVt5x3G++qme34VifB+NJICW3vJ
-	 09c9JKB3N8bg1N+oyoE39OERHvzumzFiSIObvrQx+DaaND/DEPHGRZvAnPS/seHHSo
-	 1+Pxa3g00WVBkt02qKeOUAugvQXcehMej7dfbRiaqJbD+thxrzi1yFRdv5sPnQpBjO
-	 oI0Uiz8GA0cZx2M4JzwK1SkdfPms+hGSpML/mW9cUOjE9JxmPv5KeuXRQN9dP7cxp/
-	 8acHsRKVIWusg==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-596ba05aaecso1085662e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 07:07:12 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWWnnsx1ZFqFTAgWAeCAE4sC5rcUC2Nyd2EAvIyA+x80ttGv+jbdITmvJFMFIpFLUWKXWGzWLmGDOWmFjauHSw3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpruH32LDh9I3pRdBX75wf3EmwL6oaebzAaQ3+HlDK6Pc+YtSy
-	XYRSnMBEDhlmS8Y+9MtIDZRaogvVULD8uY3neL8KXicETs/GIgcuoQDcDkfkxZWOeHmC/iUKCKj
-	mE5uGFH8nSZya3+wxlaVf7bU2Dcq4y3YVmSUOFP2D3w==
-X-Google-Smtp-Source: AGHT+IHAOfkiONe5tfkuIatWxpK+1+BQ2Mtd3EKyiolyupo7EAbMOL0eppnic2LZGQzoSV374+2boUr3vUjOlxckYmM=
-X-Received: by 2002:a05:6512:3f0b:b0:598:eb13:c14e with SMTP id
- 2adb3069b0e04-59b652cb22fmr1135214e87.35.1767712031036; Tue, 06 Jan 2026
- 07:07:11 -0800 (PST)
-MIME-Version: 1.0
-References: <20251228-arm-psci-system_reset2-vendor-reboots-v19-0-ebb956053098@oss.qualcomm.com>
- <20251228-arm-psci-system_reset2-vendor-reboots-v19-6-ebb956053098@oss.qualcomm.com>
- <CAMRc=Me8WQ=aMd-NJ1yzzHzqU8fT1u4eb7as=EjSpZ+Rpv9+rg@mail.gmail.com>
- <87f25d02-2805-9da7-0d7f-05ce8a022d25@oss.qualcomm.com> <CAMRc=McH6jsaKROyMGAhH_gGSiQtqvuVmrUODgtSp0hX8g06=A@mail.gmail.com>
- <466fac7a-e16d-9c49-80bc-c07ba5a5f334@oss.qualcomm.com>
-In-Reply-To: <466fac7a-e16d-9c49-80bc-c07ba5a5f334@oss.qualcomm.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Tue, 6 Jan 2026 16:06:58 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MdNfW9pafvWy8L5iv5StR1b4_jghL7j-08cyPZVeO1Mag@mail.gmail.com>
-X-Gm-Features: AQt7F2phEQiXdqhKlEbA_1Ii19T6QcgYifTgwXE_RDm9f9TtDMKssHYYLEX6HPY
-Message-ID: <CAMRc=MdNfW9pafvWy8L5iv5StR1b4_jghL7j-08cyPZVeO1Mag@mail.gmail.com>
-Subject: Re: [PATCH v19 06/10] power: reset: Add psci-reboot-mode driver
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, 
-	John Stultz <john.stultz@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Moritz Fischer <moritz.fischer@ettus.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	Srinivas Kandagatla <srini@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 06 Jan 2026 15:08:34 +0000
+Received: by mail-oa1-x29.google.com with SMTP id 586e51a60fabf-3ec46e3c65bso784927fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 07:08:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767712112; x=1768316912; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hKsffwDmTb+4r5jC/ROuThttSG8MjIGG/prpPNSIElc=;
+        b=Z01XhaVUqgZ1amrjHI76Eq7ROz7jsB2u8nIwdWMxklEJ19lr+4qP39u78j89EW6RKs
+         Z8Gh0frNFSFoq74WcmzMBcn7426uYEq8Yo9Ax+/2zZgiLvs6DMF2nFa16hRaHe8Jug6g
+         7RdG6suzt1fxpBRznf/5sN8WRaLWPZtUullFtzRfVptDpH0qouav1elk43QAXoZUbuZk
+         twBcHhAK+hA7RrxPu0HvxnzvB6mutYtQFZWiEcqXcpnY50jyW9lfTduH0Ab0JJFqDgZC
+         bbu2lmwsdVIfvhoLVK8fDOgSmqSVIyAI+5n+WzsXfAda9hw9WAuyv2lBCSSJ702cyu5p
+         MWAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767712112; x=1768316912;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hKsffwDmTb+4r5jC/ROuThttSG8MjIGG/prpPNSIElc=;
+        b=P+8rWAKIkJjNSWyv0qm1P0QIjXgmI6odhNm1Iu8JvGZnere2hV/dEr6JDEbgmcqxXp
+         bItbiaQFGTfzn639q98siTGt8V8QKvZYjC9U0tlP3cS1ZDTmA2XsJ1KCJa/RZLaycjD1
+         baqoHUyZdEBF72iJEFA0sgHp8w1azLqKPoqazl68/hpMvp68in18ytoLAPc6osooRIlm
+         0lYL92mxQgqBdItCDXSDoCa5mXv/7Colo+giU/jv/MRxksuQL+Q8+Eyyupx2qA+E2/IP
+         gOrL3K2QYUCSmns5Cc6/3LnOBnVpBPCIRIIkWA4uStp+N3CoEfsm/DqfdkMY4pPFirx3
+         kANQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU+Os7LGWC0ldECb7e53X7xpFcjLxCnjoIfLdkGy1RG8bayNQqq2+XShHR+kqe8hSWP2OLoZ0u8sqckm4EoFE1r@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpNmiq5Y18SPreSA7pRnvKyIWaCnx7D61SPks5ak23sK/Hryuw
+	exFbQYGSYVRMUVjM0W/fY2smJ0qGUT4SDRXm4nqhlrYwQKRwjYBINEj2Afr7gQ==
+X-Gm-Gg: AY/fxX5SBao3V877SsJwETV1o8V6msVXbYDpEIJfMe0tkUu4oGAYMl1I208viU6Rksg
+	nRAj3V3Os0m5ZD9TdBe4gtw1nSLqU9quW66xNDk0FvJdXgkp4BOQgidOK02JJSqa2AsdwpEtqsV
+	oTjopxzOiIzG1UOaeLmu8DfFyeYVP/RZ0uUITul5EWnwneY1HIsCP7fTujV6zS64cYKl+1zH4xk
+	tLfllU9Tt3Wi3QVpgwlqJVoQloqGxyJJjkCHpK33hUpiEsBfb7KnjqS5PEV/iKi0KUmXbkzlqRp
+	gh/wqCBPNQd8CQmvkddDHBijG75EPm6Os+h4FjG4qAeytEqgPjU9u1OwVPlfroH9rFRQxkR/9CQ
+	c1oikf9+BAvtWxtLr6AN6UnA4etAnCHuYSrVDQarmAxERxHpTGOp6FMtIUoCMpfOafIMT8/mm3a
+	ym12SJXheBGBL84PbSbLV0RBSav62B/hcInBF9fe+DvKjfmgbHVTL6Zkpq+PHZKA4KaDj25rRcx
+	2MSPg==
+X-Google-Smtp-Source: AGHT+IH/kVjMXJLsPqWXcn8kSZ3ELVQYHHdFG6UtOJC68eA3mthYgJwMef8DW8mEX3Opv7mL8wv7Fw==
+X-Received: by 2002:a17:90a:c888:b0:32e:5d87:8abc with SMTP id 98e67ed59e1d1-34f5f35d5e2mr2098780a91.36.1767706121439;
+        Tue, 06 Jan 2026 05:28:41 -0800 (PST)
+Received: from localhost (p5342157-ipxg23901hodogaya.kanagawa.ocn.ne.jp. [180.39.242.157])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34f5f7b19ebsm2356135a91.3.2026.01.06.05.28.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Jan 2026 05:28:41 -0800 (PST)
+Date: Tue, 06 Jan 2026 22:28:26 +0900 (JST)
+Message-Id: <20260106.222826.2155269977755242640.fujita.tomonori@gmail.com>
+To: a.hindborg@kernel.org
+Cc: fujita.tomonori@gmail.com, aliceryhl@google.com, lyude@redhat.com,
+ boqun.feng@gmail.com, will@kernel.org, peterz@infradead.org,
+ richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com,
+ catalin.marinas@arm.com, ojeda@kernel.org, gary@garyguo.net,
+ bjorn3_gh@protonmail.com, lossin@kernel.org, tmgross@umich.edu,
+ dakr@kernel.org, mark.rutland@arm.com, frederic@kernel.org,
+ tglx@linutronix.de, anna-maria@linutronix.de, jstultz@google.com,
+ sboyd@kernel.org, viro@zeniv.linux.org.uk, brauner@kernel.org,
+ jack@suse.cz, linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, rust-for-linux@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 4/5] rust: hrtimer: use READ_ONCE instead of
+ read_volatile
+From: FUJITA Tomonori <fujita.tomonori@gmail.com>
+In-Reply-To: <87ikdej4s1.fsf@t14s.mail-host-address-is-not-set>
+References: <L2dmGLLYJbusZn9axfRubM0hIOSTuny2cW3uyUhOVGvck7lQxTzDe0Xxf8Hw2cLxICT8kdmNAE74e-LV7YrReg==@protonmail.internalid>
+	<20260101.130012.2122315449079707392.fujita.tomonori@gmail.com>
+	<87ikdej4s1.fsf@t14s.mail-host-address-is-not-set>
+Mime-Version: 1.0
+Content-Type: Text/Plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260106_070833_359015_76F53C34 
+X-CRM114-Status: GOOD (  20.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,51 +112,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 6, 2026 at 3:45=E2=80=AFPM Shivendra Pratap
-<shivendra.pratap@oss.qualcomm.com> wrote:
->
-> On 1/6/2026 6:04 PM, Bartosz Golaszewski wrote:
-> > On Mon, Jan 5, 2026 at 7:06=E2=80=AFPM Shivendra Pratap
-> > <shivendra.pratap@oss.qualcomm.com> wrote:
-> >>
-> >>>> +static int __init psci_reboot_mode_init(void)
-> >>>> +{
-> >>>> +       struct faux_device *fdev;
-> >>>> +
-> >>>> +       fdev =3D faux_device_create("psci-reboot-mode", NULL, &psci_=
-reboot_mode_ops);
-> >>>> +       if (!fdev)
-> >>>> +               return -ENODEV;
-> >>>
-> >>> This will always create this device for everyone who includes this
-> >>> module. Move the of_find_compatible_node(NULL, NULL, "arm,psci-1.0")
-> >>> call from probe() here instead and don't create the device if it
-> >>> fails.
-> >>
-> >> Ack.
-> >> Will move both calls to init before creating the faux device.
-> >>
-> >> psci_np =3D of_find_compatible_node(NULL, NULL, "arm,psci-1.0");
-> >> and
-> >> np =3D of_find_node_by_name(psci_np, "reboot-mode");
-> >> --
-> >>
-> >
-> > On a second glance - and I may be totally wrong - would it be possible
-> > to switch to using the auxiliary bus and create this device from
-> > drivers/firmware/psci/psci.c? That would be even cleaner.
->
-> Till v17, device was being created in psci.c. Lorenzo wanted to move it
-> outside psci similar to design of cpuidle-psci.
->
-> https://lore.kernel.org/all/aRIfc9iuC2b9DqI+@lpieralisi/
->
+On Tue, 06 Jan 2026 13:37:34 +0100
+Andreas Hindborg <a.hindborg@kernel.org> wrote:
 
-Thanks for the link. Right, there's no actual psci driver binding to a
-struct device, rather we only have a set of functions called very
-early into the boot process.
+> "FUJITA Tomonori" <fujita.tomonori@gmail.com> writes:
+> 
+>> On Thu, 01 Jan 2026 11:11:23 +0900 (JST)
+>> FUJITA Tomonori <fujita.tomonori@gmail.com> wrote:
+>>
+>>> On Wed, 31 Dec 2025 12:22:28 +0000
+>>> Alice Ryhl <aliceryhl@google.com> wrote:
+>>>
+>>>> Using `READ_ONCE` is the correct way to read the `node.expires` field.
+>>>>
+>>>> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
+>>>> ---
+>>>>  rust/kernel/time/hrtimer.rs | 8 +++-----
+>>>>  1 file changed, 3 insertions(+), 5 deletions(-)
+>>>>
+>>>> diff --git a/rust/kernel/time/hrtimer.rs b/rust/kernel/time/hrtimer.rs
+>>>> index 856d2d929a00892dc8eaec63cebdf547817953d3..e2b7a26f8aade972356c3eb5f6489bcda3e2e849 100644
+>>>> --- a/rust/kernel/time/hrtimer.rs
+>>>> +++ b/rust/kernel/time/hrtimer.rs
+>>>> @@ -239,11 +239,9 @@ pub fn expires(&self) -> HrTimerInstant<T>
+>>>>          // - Timers cannot have negative ktime_t values as their expiration time.
+>>>>          // - There's no actual locking here, a racy read is fine and expected
+>>>>          unsafe {
+>>>> -            Instant::from_ktime(
+>>>> -                // This `read_volatile` is intended to correspond to a READ_ONCE call.
+>>>> -                // FIXME(read_once): Replace with `read_once` when available on the Rust side.
+>>>> -                core::ptr::read_volatile(&raw const ((*c_timer_ptr).node.expires)),
+>>>> -            )
+>>>> +            Instant::from_ktime(kernel::sync::READ_ONCE(
+>>>> +                &raw const (*c_timer_ptr).node.expires,
+>>>> +            ))
+>>>>          }
+>>>
+>>> Do we actually need READ_ONCE() here? I'm not sure but would it be
+>>> better to call the C-side API?
+>>>
+>>> diff --git a/rust/helpers/time.c b/rust/helpers/time.c
+>>> index 67a36ccc3ec4..73162dea2a29 100644
+>>> --- a/rust/helpers/time.c
+>>> +++ b/rust/helpers/time.c
+>>> @@ -2,6 +2,7 @@
+>>>
+>>>  #include <linux/delay.h>
+>>>  #include <linux/ktime.h>
+>>> +#include <linux/hrtimer.h>
+>>>  #include <linux/timekeeping.h>
+>>>
+>>>  void rust_helper_fsleep(unsigned long usecs)
+>>> @@ -38,3 +39,8 @@ void rust_helper_udelay(unsigned long usec)
+>>>  {
+>>>  	udelay(usec);
+>>>  }
+>>> +
+>>> +__rust_helper ktime_t rust_helper_hrtimer_get_expires(const struct hrtimer *timer)
+>>> +{
+>>> +	return timer->node.expires;
+>>> +}
+>>
+>> Sorry, of course this should be:
+>>
+>> +__rust_helper ktime_t rust_helper_hrtimer_get_expires(const struct hrtimer *timer)
+>> +{
+>> +	return hrtimer_get_expires(timer);
+>> +}
+>>
+> 
+> This is a potentially racy read. As far as I recall, we determined that
+> using read_once is the proper way to handle the situation.
+> 
+> I do not think it makes a difference that the read is done by C code.
 
-Nevermind this comment
+What does "racy read" mean here?
 
-Bart
+The C side doesn't use WRITE_ONCE() or READ_ONCE for node.expires. How
+would using READ_ONCE() on the Rust side make a difference?
+
 
