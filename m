@@ -4,65 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA81C47BE2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 11:11:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2427EC47BE2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 11:12:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3aifObyyWO4qDqYOgoXP/GPvrGOpHfgscosm8W+9X5o=; b=4oTUuQhoXMQnFF60aYXJE4vutE
-	Ov3HuheHiJ6ZOiJadw+YkUzzGYDc1U1H3pemkeB95HdoGp/TTzPaSFtXa+7WX9xXRnskmIAe0+Jy9
-	Gjtxd5Vuc0jM9RA8CUu5VaC12+yGWGVc+6Z9wFu7RoPRIyImUIjYD2GQJ7nwTD/kVGvF4ykQsxYsO
-	YKusLspVmUFMKx8j4heeK3TgkeOB8qIZt9x09cVWtf+RHjvcIRfXZVcWwY/Ob4sGRZOuKLRZsS2+b
-	ejGJK1TJuodGwYx03FHSJ2CUQCY/1no2qsyVNTstQq2RjpjqzkABs52KNw1FHTSixLvHsfyvWqdGC
-	4t3kWPdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V9SJsn0IaBRHmsN3YyFL5FZJYk6K2cgBjWAKNd98Wh8=; b=ifWFgKjlucZ1XYH/NQOTUceR6N
+	qHCRSwCP0pnXgaHYlgZsAFGx53+rT6BIPqeUTA/+Xf7k/QJ/gNb/BIvKpg5/s7xtho5f1i4lOxY4h
+	oNgkk05NHaY8RLTX4QuZS/DXLb7JRXocjlt8LrptF+4E2EepcY4dyqBeBnRAv/EAgAik3+Rd5p/mP
+	XIacd5IuKw16npIOy5TpVJHGw47QWDW49ky51RVh9KfkKaqvHx0spyl5TM0C9McI26zNRDmJUVZjn
+	jnHFqhR1KdGzv1gnG/2uPEFHuGJzz4SMaLceqGCFBN2cju3Lq1NO4FrmKkmgOxRxVSAKdUSU4XT/X
+	jPNOyjyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd4yI-0000000CqfY-3dqq;
-	Tue, 06 Jan 2026 11:11:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd4yF-0000000Cqeh-3SV8
+	id 1vd4yk-0000000Cqk6-0EDY;
+	Tue, 06 Jan 2026 11:11:58 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vd4yd-0000000Cqiw-0PDN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 11:11:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C7564497;
-	Tue,  6 Jan 2026 03:11:19 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B3AD3F5A1;
-	Tue,  6 Jan 2026 03:11:21 -0800 (PST)
-Message-ID: <397def6c-d730-4e10-8a8b-c7c30c07281f@arm.com>
-Date: Tue, 6 Jan 2026 11:11:19 +0000
+	Tue, 06 Jan 2026 11:11:52 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-430fbb6012bso598563f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 03:11:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767697909; x=1768302709; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=V9SJsn0IaBRHmsN3YyFL5FZJYk6K2cgBjWAKNd98Wh8=;
+        b=U8jz3MvunU80+tHif0xGs0+3qdOw+9thumhXfPan4ursrmnyJXuUpO9WsXqMl796Ou
+         clVfxH6F1LJwmKZyZUDZmDIag6K6wRvBVP2E4h+DUmJf80lugUKLv3aRkTpv5DxhmbVk
+         wICHyc3CpuPIKXBQQR4DX24+zw5cJx/oMsn8WFruPPTJclByp/wUQgRB7osHCSmhIWGU
+         8ULHIWL0fYXzlJbFo3gAyqy2xeiWbDQwgyObnSPEvj991FkEZFZ4CKjtuAN1UBQsakuc
+         /iLaQ7n/k3CWoSbTHcmVRs1N7yYUbWqgYIrNtS7O9EH9vSXxZWzIZzyP1PY9Gx20HPZ+
+         zoww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767697909; x=1768302709;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=V9SJsn0IaBRHmsN3YyFL5FZJYk6K2cgBjWAKNd98Wh8=;
+        b=LaczMGFllPQHLBGuZ02vL3OtA+HpOZmu/9KVN2z6zObxrGeZOFbqpm3RieKN/o9xq8
+         FO4vHX8mOKbn4SIfj3DprocFc3neSVYInANMWek0zMpCZCQh79MV/X2vy+CDfEJvnSVM
+         yKbFLzlF9F6tx78VXfSDdOq4ELdKqdlOwVSOhy8enTvT55enpneWo9SI1On+F0Pj2vzm
+         Mnhu5etCyTiz9lvNScDZm9C1dNgAZfbR8Ml5jO9B+RnS1sB9kJChg0HlTeotUN9/IOZO
+         FDOdiNoDRQepl+K7VM9gnG5vzwPKPyB6YdQMZz8kGbXkHxbe6/eWwd+eSinGxRtCO9NA
+         FT7w==
+X-Forwarded-Encrypted: i=1; AJvYcCUY6MvfChXEWpv68PHcGsZy5tlDOCIM7E5r7z0whCicBeIb0AhkbSodb9mts5DMliish3Q2NKaUorQD09Tpj8bC@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqAzBtPPJpzzkPDN3WKvEJN7XxEsPupADV47xHlUbZkvZ3VXTH
+	bKjCSz9zH5DOmJ8fLRJOQjLeDf5S3ITzP83B+J27ThFNQIuSGuneNKGh
+X-Gm-Gg: AY/fxX7IDnK8P4snjJffIm+wjXJB2vzNheUEG6IzH/JezT0CEEiCOtRWM7SLNAFR0AJ
+	ID8OOWqPcQ0jNfSfYpgOdl05J/LXE3GDxA1MW/03D8ZIgtp4rSuyOErVCOiE3OQHUeTnw/kxTzW
+	HPi6qfqUyXj3FF+cEsEDgV5rW3vvFUPjMbnl47eVVHxJH5aDKOgRf0T+MwcSEuAh673lXQz5LH3
+	vWGerv6uBdEWYGfghJNMYcL71AXhf2iwPQYwTo9VaygOiboSe38bVJBrkrkjEPa+Nhff4w7299q
+	tdRKU58D1IissY4xJaJHrqEFmCbdBVPQc/b7+047qjNXNztys27vYvk7eDbKxmcQEGGlfmIAK+4
+	XTzFncgpQ1uGUu70HkCDpXqqzT4uqakzTje07G/HNGOyhiUuVidTSREYpIeCVPoa+viEHdi0aqr
+	1tZXyrmJSkifu+dRrLS2qhiHubHpxL7pjZtlbpeqR2xQ91AMSO3J3fg9FYb9hEh1hETeE7P9RBO
+	zmI5VhADm/z1YT63hsiHdfi8LyR+w9z
+X-Google-Smtp-Source: AGHT+IHUuYlVORpetXhgVAXfGMDXsPDVfwvE/C/OPeXgrPCsTr8liGY2193dNTUJMH/upS3YC04ZsQ==
+X-Received: by 2002:a05:6000:3105:b0:431:864:d492 with SMTP id ffacd0b85a97d-432bc9efe6bmr3137882f8f.36.1767697908526;
+        Tue, 06 Jan 2026 03:11:48 -0800 (PST)
+Received: from Lord-Beerus.station (net-93-151-204-73.cust.vodafonedsl.it. [93.151.204.73])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd5ee5e3sm3797112f8f.35.2026.01.06.03.11.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Jan 2026 03:11:48 -0800 (PST)
+Date: Tue, 6 Jan 2026 12:11:45 +0100
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Markus Niebel <Markus.Niebel@tq-group.com>,
+	Primoz Fiser <primoz.fiser@norik.com>,
+	Yannic Moog <y.moog@phytec.de>, Josua Mayer <josua@solid-run.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 2/3] arm64: dts: freescale: Add support for Variscite
+ DART-MX95
+Message-ID: <aVzt8XemmIPz18aQ@Lord-Beerus.station>
+References: <20260105102412.6674-1-stefano.r@variscite.com>
+ <20260105102412.6674-3-stefano.r@variscite.com>
+ <aVzjQEhpv4fenAWF@shlinux89>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 03/45] arm_mpam: Use non-atomic bitops when modifying
- feature bitmap
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-References: <20251219181147.3404071-1-ben.horgan@arm.com>
- <20251219181147.3404071-4-ben.horgan@arm.com>
- <20260105163305.00002306@huawei.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20260105163305.00002306@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aVzjQEhpv4fenAWF@shlinux89>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_031127_907894_8A016A6C 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20260106_031151_150380_CD458944 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,39 +115,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
-
-On 1/5/26 16:34, Jonathan Cameron wrote:
-> On Fri, 19 Dec 2025 18:11:05 +0000
-> Ben Horgan <ben.horgan@arm.com> wrote:
-> 
->> In the test__props_mismatch() kunit test we rely on the struct mpam_props
->> being packed to ensure memcmp doesn't consider packing. Making it packed
->> reduces the alignment of the features bitmap and so breaks a requirement
->> for the use of atomics. As we don't rely on the set/clear of these bits
->> being atomic, just make them non-atomic.
-> 
-> oh. That's a bit horrible.
-> 
-> Whilst I guess no one is likely to 'upgrade' these it feels odd enough that
-> I'd be tempted to leave a breadcrumb of a comment next to them on why
-> they must be the non atomic versions.
-
-Sure, I've added the comment:
-
-The non-atomic get/set operations are used because if struct mpam_props
-is packed, the alignment requirements for atomics aren't met.
+Hi Fabio and Peng,
 
 > 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> CM7 support still not landed, and VPU support also not ready in upstream.
+> You may need to drop these reserved nodes.
 > 
-> Jonathan
-> 
-> 
->>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-Thanks,
 
-Ben
+Thank you for the review and feedback. I'll address all the points
+you raised in v4.
 
+I appreciate the work you and the community are doing on i.MX mainline support.
+We at Variscite are starting to be committed to actively contributing upstream,
+and we're happy to help with upstreaming efforts for the i.MX family,
+including driver development and IP block support that may still be missing
+or lagging behind vendor BSP.
+If there are specific areas where we can assist or collaborate,
+please let us know.
+
+Best regards,
+Stefano
 
