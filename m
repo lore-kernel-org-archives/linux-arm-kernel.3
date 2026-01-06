@@ -4,105 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2C99CEFD01
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 19:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D60CEFCFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 20:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k9+aHBxxyMm5uEUryvCGnluoRKqqLv7iqR1X9acm+vo=; b=mzyAbUtZ+9LH19sCCLwRBdtLCi
-	gEyeAOzp1ZKFcaz1ND9IWSrwOS5h8vF2xATUpfFTOJNSvaeTWnvZUiMNZkEIpB9o/nYSND17Pd8eN
-	QeR7vNsMTisPJVY35l42CKSpd4m30YReHUkzzUYM/xiGK7mAGrP5+aeih+OExQlvTK4yR0420SRVK
-	4RcOqMwQNQveFGwpvXrkzBg0oVRS8jAPzAKd0u3/gW4C8wh7AwU4h3prH9NZE4/61zFMpbigmvEsc
-	w7s8v88VWLA0xMZ22WIscBNVYzn1cZWtrNDffflJd6tXDfdv4Cyx4uySdv/KU8PRVu70WcTXfVQR/
-	vte6ofGw==;
+	bh=hDKC/3noErk1Q8ZsV7ssZTkXWKMDpO84KVg5itJCTxs=; b=B6XDY/X095V7tzgQKpQWFqQWTA
+	vkTQHIfyhquJ0c175NwFhMyrD6fPO0MrLnU1yJJtnDfEMjSgFFEJtrv4UsMoHXvOHU0iqIagx0B8Y
+	TGgWj6ZgTRDD903Ds8+QbzTBfxsQ6l7Mi2UdlOqHE5XsIoAD+Wvt0Q5GqBqePYm9EXrcjuSF09KWM
+	naF7cO6iOwG3RAJd6I/TjqB9e4Z+8fdW9h3t8bePC8F3pm8If7VyLp3F2mP+cUX11TMDLvh8FeZag
+	JPITOCKddzfAxxmVLPReEEMJQCsYNEmKwycu/SGonuOjx4AR1QUNYlFhn788sfOpBj+DJ6rALBZK7
+	JQ3st0EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdD3e-0000000DmXF-3eRa;
-	Tue, 06 Jan 2026 19:49:36 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1vdDHF-0000000DndR-1w4Y;
+	Tue, 06 Jan 2026 20:03:37 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdD3b-0000000DmWY-00uk
+	id 1vdDHC-0000000Dnd2-0yL1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 19:49:33 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-4ee147baf7bso59761cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 11:49:30 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1767728970; cv=none;
-        d=google.com; s=arc-20240605;
-        b=BFansM00aVX43wEslY6J7ztkFePQ9JGnWB9uFxV3nUy6xFIVHLdseFdntRzp7fbyTY
-         7WR0/8qMbT18NXY+347/LZrA9lW9E/RivBEaa1kNPYD1e9z5Waei/5BNyCKwu5kVaMMl
-         YM9t3jKiRsPAvZX/vqhJ8rJHejsmW5aOK5w4Fm8zU8Tg8fbBwMMG1GQUq/0ckihZFWdh
-         FNkdJfLRA7muYsccNfc1HSFsJRSMyWP8dY0N0G46oq61P0U8vHvD35goRGw87i81fq79
-         cxtCiHJRAxDCg4nygkXz+9QW5NWEriPVJDHgXFU2+RkYdLzR4qyq3TpXh2Uc5SSY9D53
-         o4Lg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=k9+aHBxxyMm5uEUryvCGnluoRKqqLv7iqR1X9acm+vo=;
-        fh=NbA46iS/EHS4TcQi4JPJ9d0nifLFuG9T19k5dMMEDh8=;
-        b=DNFDGmv73adZxSHZPi7n0/N0RfRvAKtBIImCvRg8kI3zJOpvoOufKMlECt05hh0R2a
-         Ava50jB8rZ9twnyn5jQM3i1RtgULJHzaYCccv4A3hNad0qnLiSDcCC5HZGvdJhgJ3Aqa
-         Ko7tt5DqxwuOLVVn8vQqCUC18GgulfyEn4PUuJOAWBBdP6mDw/NXnDTh2S4JBfQd7YXc
-         CovxbYIFrG0LdD4IsLIsyIBl4xsB8+Psa7dVxN45NsYVafSGm9MiKxsSDOxj+b75Jz6p
-         ojvHy4dWI02MtExxuvcvaVuel3GJeHdAVagyX7FY0J9zav0dqibLyqMJbrb+vI4XZqPj
-         jICQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 06 Jan 2026 20:03:35 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b832c65124cso219059166b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 12:03:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767728970; x=1768333770; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1767729812; x=1768334612; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=k9+aHBxxyMm5uEUryvCGnluoRKqqLv7iqR1X9acm+vo=;
-        b=jjYL9sJlUVfeoEtERe7dcJA1n7L9Dgd3U+fZNXzBPyuop/sEeJHTzI5iunuPXP6lHs
-         pNnxEcfHeklmtMmgENks/SkzBW4gRhEbt1bH4jEoXVXvuFeWuGyc7gV2GLo30iNZmKar
-         bcSeF55kk3CoT2I83QKm7NASN4/9uKWhij6U6Nl0QYQu3eGeasl5b0FqaYVw9Q/Y4Wxu
-         CdwkGfQ5yI+YWdWYJ2ZzkiVL53DKTIAEI/4jz2y+1pSvvShSwSqv6CdCElaXPH1zARaq
-         m7xNEL+PJ0pqP5fWQIdfiaPGANussvWfDUs0U+SYq5x9N/lRwREBJZ0manCLebF8DsaZ
-         Wyzw==
+        bh=hDKC/3noErk1Q8ZsV7ssZTkXWKMDpO84KVg5itJCTxs=;
+        b=XOx5LzBAwZ0IrgX+IBixJVl/BQmBsa7U5hWtl4Qr9oda3GlAqiiU+aS2WXAa1xdZG6
+         SNys8gyPmHFiuFyvg5yEeRU91qj9nhg0mN02wruIGeZRHX/XXe4onfy1B+Vsl/bEM/c3
+         zIOCifSpJvVnB0lhy8H8QOw/Ieu6UyugTX2MdFFHBDTvzC/z5hXEYQpo+rIVRa8RGGI2
+         IWphxE2B+Vt5rva5DLykFj4U+GYQ7cSeLsC2wEvOAVpV7Wg9oqQSVBqSjzA2xRtDJjFO
+         RIOwbXiZwSMjEKXKZAgwLdpsomC69K5oIB7Klps+HdoE/OHNvZEfSc+esz2OM/ubqUAz
+         ln9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767728970; x=1768333770;
+        d=1e100.net; s=20230601; t=1767729812; x=1768334612;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=k9+aHBxxyMm5uEUryvCGnluoRKqqLv7iqR1X9acm+vo=;
-        b=qHvZFSCuT8147Y5DabQ70z/KU37zt/mk4a0mFobkvw0/WQus9p4xp2v4XKzHpCrwCh
-         Fqnfn46f3sDiBpc0JfynSObCheXIVlmAqZaL70bHiC8wWD6TLYlXyvYYB2+QXGjhB7nS
-         nvH/19J8ngGkvxTOtWHe7xF8TPKwwOVfEe1Kkyd6T0Kv4QXV3RPQZeKzPg/jjHXSIS0a
-         HfQcpOVl6+8DNnYh1DIlqsX5/youWAp1euKEIPEW2uQloZlZQkJMBrtfxj4+TVToaF63
-         skdh0DALMzMUihZLeTWLPZtEBZICf46QwVAiWhB8V3T/oyrkjZXy0jpKfZOeKSudoGym
-         eTrw==
-X-Forwarded-Encrypted: i=1; AJvYcCVkVn/rsVhpUNQeNkvt7Il7H8NMsGn9l1/WGLHCbNpmdE9TcDCDNzO4KsvLND8jJjMT/S3iQdvXUmV/gQFa3Rj2@lists.infradead.org
-X-Gm-Message-State: AOJu0YwB096HYtyElhfDFEUM5SRS16VxFks9vYbZrrpWdYZ5WE6cieK9
-	OQGMte1sVdNvMTXVjuafhtRQGbv0PLrBH1pHmbx0VrI/Ay9SoxoIleZQmIHL4e5o9iar+4PGInx
-	iCAIRQaLDwRsK4Z1I/XTYfj0gALs1W+AmdwmwhLqN
-X-Gm-Gg: AY/fxX6P1C+/Tyy677MpLGcm+IhLv5sdByMzHJN23vZVRXwrNgvROq8IWYXbpoHuO1g
-	Y3lngawCtNT/yzbss9CP3YyD+MJxHaQqKNvsVPmwOMAkQBA6BNoIg0U+3WenKg8+MlwTZcsVCew
-	pPovvJ0EuDpxqQCy11tFH31vm3zan6LzfV0fC16Gn/JLzjk5dqUddxBNI4fYEORKbmsdwhMyGbI
-	eEvT4EBAz7CGrKkxQkNb7tVht18PJS1r+PtG/b6uMHJTjLwVKJMYdlI2E/Tt1iA0SAuBqPI
-X-Received: by 2002:ac8:58d3:0:b0:4ff:a98b:c33e with SMTP id
- d75a77b69052e-4ffb3c9bfd7mr1612321cf.6.1767728969218; Tue, 06 Jan 2026
- 11:49:29 -0800 (PST)
+        bh=hDKC/3noErk1Q8ZsV7ssZTkXWKMDpO84KVg5itJCTxs=;
+        b=e8m8xKQpmZG9TzcM7ptWK/WkYZB5rc78iCZ5V3NYxu/AzXy0L9GMHewnDqrHmT4Tsp
+         SAkFvUyuoEvsBaek3Zu5IBnT6W8jjzUncLO93QG1Mq3CeVzRJSLr7UodZsSbMdaEpEIA
+         IAue1pyEFfLKtRp1p16HYKk/EHI5kRzfxFuWkzP5VUuOgwVhME0njSIwYwBvLjoZkSmj
+         xqUlLtlIeg0B6/LKEGV8VmhSLOQPyTY3xIDXZjGNx4xtRv4w8BuSQep2PSL5TtL/7pXZ
+         TjxvWDtA/w3uD2J9hyiUvRKd9fnYgIAIDAijOc0TGHGbkXsx/S9plxrMvvMOBWhBEhka
+         +iqg==
+X-Forwarded-Encrypted: i=1; AJvYcCVaGyHo7U57hjRBP7Z+5JXHSJGywGcA5wp6bew1j/NrMRY8+cesUZ4yaKtH479GfhgcoA7pT+QiccmaI7nrvrmJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxautkbA5xng/2wpznozrrEmkA+3A/ayPuwrgG2NbpqwqZWHgIy
+	FGs/d6ssHkvhOaG8FsZERB1oqNocPyJJOdfnaopLcdm1ZzsQy5Qer1UzYVsAMqIyPc8+7M+I2M7
+	OeOwt5kOryzFrl8uQdO8GJPkHQyNZrVZPmhRNfrvZug==
+X-Gm-Gg: AY/fxX7Q40C4X0MgIs1DxUEiAhw7/JJb94K158/7tvVzPbv1VN8HQUKYd7vJBA+xZo6
+	NMQT9sT6JA7HrcaDvcxob8rABZEoAM15PqY5O9oZBD6JpSgYoFf4FBLJPL8/DhJlQWcXjbAECqW
+	3x9gxeKt+3extQ2+epFQ6yYJg4qj5a9pdB7/kfb8Cs/P7Fu3VX2QcJ08TC0RSeoBkwUcjdZLJj7
+	O9WZvzwcIZ3L9YXkdysC7r/eyNEUAiRhsUOlyrxD8eozRimkeoSym057eooZw+wS5ul+JuV
+X-Google-Smtp-Source: AGHT+IEmmXc6X3lklLmC0mCRNpoBur3TPS2BGNaDYr/bqjA6QRWH7eFRQJKdL8KVJ+yPvHwZtBcG2RvEv+KputuzJWc=
+X-Received: by 2002:a17:907:96a1:b0:b6d:9576:3890 with SMTP id
+ a640c23a62f3a-b8444f9664fmr26102366b.45.1767729811848; Tue, 06 Jan 2026
+ 12:03:31 -0800 (PST)
 MIME-Version: 1.0
-References: <20260106092425.1529428-1-tabba@google.com> <20260106092425.1529428-5-tabba@google.com>
- <aV1mqQtALFIUBHVM@google.com>
-In-Reply-To: <aV1mqQtALFIUBHVM@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 6 Jan 2026 19:48:52 +0000
-X-Gm-Features: AQt7F2oD6imhUH1-IKtVcA97OhzMLb8nSqzV2q_rb-md0NTxT87GehM6m6PIMYQ
-Message-ID: <CA+EHjTw3YBG9HNateXEAYsSUJ625eWGu2OHt-2=Y0=-qzbObWw@mail.gmail.com>
-Subject: Re: [PATCH v3 4/5] KVM: selftests: Move page_align() to shared header
-To: Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org, oliver.upton@linux.dev, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, anup@brainfault.org, 
-	itaru.kitayama@fujitsu.com, andrew.jones@linux.dev
+References: <20251222-automatic-clocks-v7-0-fec86fa89874@linaro.org> <c0eeae31-6951-47ca-8651-868db18d349e@kernel.org>
+In-Reply-To: <c0eeae31-6951-47ca-8651-868db18d349e@kernel.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Tue, 6 Jan 2026 20:03:20 +0000
+X-Gm-Features: AQt7F2oLfa1exLAxy6kjOxPF0LQxcKRjhYroQ-B3HvTQJnB9vgg9Cr5KITN-rwA
+Message-ID: <CADrjBPocyZFz--xCaZahyUA9wwuS7P0E9Gt4Z=53rbT-nEQ7ng@mail.gmail.com>
+Subject: Re: [PATCH v7 0/4] Implement hardware automatic clock gating (HWACG)
+ for gs101
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>, 
+	Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Will McVicker <willmcvicker@google.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+	kernel-team@android.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_114931_934311_E05831FB 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20260106_120334_316156_D036DCBA 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,81 +102,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 6 Jan 2026 at 19:46, Sean Christopherson <seanjc@google.com> wrote:
+Hi Krzysztof,
+
+On Mon, 22 Dec 2025 at 11:50, Krzysztof Kozlowski <krzk@kernel.org> wrote:
 >
-> On Tue, Jan 06, 2026, Fuad Tabba wrote:
-> > To avoid code duplication, move page_align() to the shared `kvm_util.h`
-> > header file.
+> On 22/12/2025 11:22, Peter Griffin wrote:
+> > Hi folks,
 > >
-> > No functional change intended.
+> > This series addresses an issue with Samsung Exynos based upstream clock driver
+> > whereby the upstream clock driver sets all the clock gates into "manual mode"
+> > (which uses a bit that is documented as reserved in the gate registers).
 > >
-> > Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
-> > Signed-off-by: Fuad Tabba <tabba@google.com>
-> > ---
-> >  tools/testing/selftests/kvm/include/kvm_util.h    | 5 +++++
-> >  tools/testing/selftests/kvm/lib/arm64/processor.c | 5 -----
-> >  tools/testing/selftests/kvm/lib/riscv/processor.c | 5 -----
-> >  3 files changed, 5 insertions(+), 10 deletions(-)
-> >
-> > diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-> > index 81f4355ff28a..dabbe4c3b93f 100644
-> > --- a/tools/testing/selftests/kvm/include/kvm_util.h
-> > +++ b/tools/testing/selftests/kvm/include/kvm_util.h
-> > @@ -1258,6 +1258,11 @@ static inline int __vm_disable_nx_huge_pages(struct kvm_vm *vm)
-> >       return __vm_enable_cap(vm, KVM_CAP_VM_DISABLE_NX_HUGE_PAGES, 0);
-> >  }
-> >
-> > +static inline uint64_t page_align(struct kvm_vm *vm, uint64_t v)
 >
-> Maybe vm_page_align()?  So that it's a bit more obvious when reading call sites
-> that the alignment is done with respect to the guest's "base" page size, not the
-> host's page size.
+> Applied.
 
-Yes, that's clearer. I'll fix this.
+Thanks.
 
-Thanks,
-/fuad
+ There were several checkpatch notices/less important warnings
+> of which most were result of existing code but few were introduced.
+> Please be sure you do not introduce new warnings NEXT TIME.
 
-> > +{
-> > +     return (v + vm->page_size - 1) & ~(vm->page_size - 1);
-> > +}
-> > +
-> >  /*
-> >   * Arch hook that is invoked via a constructor, i.e. before exeucting main(),
-> >   * to allow for arch-specific setup that is common to all tests, e.g. computing
-> > diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
-> > index 607a4e462984..143632917766 100644
-> > --- a/tools/testing/selftests/kvm/lib/arm64/processor.c
-> > +++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-> > @@ -21,11 +21,6 @@
-> >
-> >  static vm_vaddr_t exception_handlers;
-> >
-> > -static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
-> > -{
-> > -     return (v + vm->page_size - 1) & ~(vm->page_size - 1);
-> > -}
-> > -
-> >  static uint64_t pgd_index(struct kvm_vm *vm, vm_vaddr_t gva)
-> >  {
-> >       unsigned int shift = (vm->pgtable_levels - 1) * (vm->page_shift - 3) + vm->page_shift;
-> > diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-> > index d5e8747b5e69..f8ff4bf938d9 100644
-> > --- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-> > +++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-> > @@ -26,11 +26,6 @@ bool __vcpu_has_ext(struct kvm_vcpu *vcpu, uint64_t ext)
-> >       return !ret && !!value;
-> >  }
-> >
-> > -static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
-> > -{
-> > -     return (v + vm->page_size - 1) & ~(vm->page_size - 1);
-> > -}
-> > -
-> >  static uint64_t pte_addr(struct kvm_vm *vm, uint64_t entry)
-> >  {
-> >       return ((entry & PGTBL_PTE_ADDR_MASK) >> PGTBL_PTE_ADDR_SHIFT) <<
-> > --
-> > 2.52.0.351.gbe84eed79e-goog
-> >
+Will do.
+
+>
+> Also, DTS cannot be in the middle of the patchset. It's almost always
+> wrong, like in this case as well. This was raised, also by me, multiple
+> times on the lists and it is explicitly documented in submitting
+> patches. Putting it in the middle suggests you try to fix up broken
+> unbisectable things by reordering patches, but you cannot.
+
+Noted. Thanks for pointing this out. I suppose the last time I read
+submitting-patches.rst must have been before Feb 25th 2025 when you
+documented this rule in b31cc6af1bb1 ("docs: dt: submitting-patches:
+Document sending DTS patches")
+
+regards,
+
+Peter
 
