@@ -4,67 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D02CE9D70
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 16:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42BAFCE9D71
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 16:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8n2ThgVzml6oYKdLHrRRtvqoR+e2zHmtT1V6Ff1r+JE=; b=yV+lHUhT4CAdUXIZ66tD0M4rhW
-	wABmcZ3whHqdorUVyn7MGn4VqV1v7c/PsQ7FJZQptXp6aVASiSUI6/iM8WtII7InkKxJ0/G50MvsE
-	4z/r1AGYmhZTfRar7gdc8PdTTIjnB++pqG9lpRBxH3HAgjwmOSAc11Tevhbcqa06sAZOtVvfjDHQT
-	XukkX680o+cuXcO1bdWEl780xWsPQ8v/FJibBSLxiHDyUMrQiuk8zjjGHnhbVCWfK/RuE6rxvZk3G
-	W4rSieHOahNQbRjb4w1JzgsKCb9H2I767GZQgDAvyjuZQ1Codvq9XUvyt7AtQ9mKOHJD4xs6v6tpn
-	irwQ9URA==;
+	bh=ijvRj5IQvA7E8MJOeGeoKr7ihaWLxM9lGImw94Dzq0o=; b=bZHprF0AvzEmRNw/aB6H1o0GQv
+	DPzbk8HMpxhtE1IVjG71XeQp4ts+IqbT0ZhlfzqyBjs36aO2G+YLVQ87ajatPOp2HupxFRBM9pvq1
+	X4HHqYgf0hSl2/9dBh+JioNSB4D3+np6T2oWrC/bMIRn7fo2qe0nUP22cfmBeEiXKKZPuxZJxdhbO
+	k1JajH1F1Dt04YtkRD6KiN6XdRegu38sOp3GE3m9m+MRIDSOV+xGay8OAyZOCBHk4iMznSm4N1UJw
+	QorjhoPJAYx55qdRJVVUWCGZ2/4R0cO2IpaDcc5IIzSgbgq16JXJ7ejeDX/osQYXLzTVg2VEfm9M5
+	Pob4167g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd9Uk-0000000DS7j-3uCO;
-	Tue, 06 Jan 2026 16:01:18 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1vd9VD-0000000DSAs-12Fb;
+	Tue, 06 Jan 2026 16:01:47 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd9Ug-0000000DS6b-0haP
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 16:01:15 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B0C1C10C80C;
-	Tue,  6 Jan 2026 17:00:59 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1767715263;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=8n2ThgVzml6oYKdLHrRRtvqoR+e2zHmtT1V6Ff1r+JE=;
-	b=Csen4RBye+r1zP0n/+ASabPaG7/5k++dxDVZi4nwIjuYW7EkZhTs4WT2z8kavawoiAtOHR
-	MDpMXtmf+7fQpTRNtKAFl8zTr4NLpf/RvNlsozLUFb5zGD3cL86ZCqiNW5rCTFAhkAQ7Tm
-	JeteJsi9xEEghenUPjAPq5JR6Xj4dJ4qQYg2CdbnO2Sosv8uBlaGGvvLTNRGCYKvT96V3m
-	vJgyYFA107QEQpFUKy5qg12xROFCJN2k7dqYjrEoikfJizx6OrFq6orsQIhs9ybP+YRX33
-	PIePmuApoSOfIJLYeb7bDz9kGxGyfdwo6lr50a3Cge8YVu4zPuqsAmsP0qXPEg==
-Message-ID: <d2f5b091-a9c6-428a-9d2c-ada962a4190d@nabladev.com>
-Date: Tue, 6 Jan 2026 17:00:58 +0100
+	id 1vd9VA-0000000DSA2-2qI2;
+	Tue, 06 Jan 2026 16:01:45 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8670855A;
+	Tue,  6 Jan 2026 17:01:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1767715280;
+	bh=x9ExV+mGzYo63ex+BWnlLWPrrnMlew0vGqlEm2oBCQU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LX/XBLjSumabe25wFC7a+4V4MSTYix7R5atLAYAi9oNQzS6XfEK6GBNMRy47rtOZ/
+	 xilaDU9USuzPv1Ltl4EwTPo8WabPZPnWDRWfu5CETNJ6lIBVQE1nwX1VypEaHNNAfx
+	 y1iqGiS6voEWTFa3dFgXLj5v4jsm3pVUIFoDWxSs=
+Message-ID: <3ea77c79-20b9-423d-88b6-115b1188845e@ideasonboard.com>
+Date: Tue, 6 Jan 2026 18:01:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/4] arm64: dts: imx8mn: Add ifm VHIP4 EvalBoard v1 and
- v2
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: linux-arm-kernel@lists.infradead.org, Fedor Ross <fedor.ross@ifm.com>,
- Christian Eggers <ceggers@arri.de>, Conor Dooley <conor+dt@kernel.org>,
- Fabio Estevam <festevam@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Markus Heidelberg <m.heidelberg@cab.de>, Rob Herring <robh@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20251230213401.219808-1-marex@nabladev.com>
- <20251230213401.219808-4-marex@nabladev.com> <aV0eD4t5uQeAokUF@shlinux89>
+Subject: Re: [PATCH] media: rkisp1: request/free irqs in PM runtime ops
+To: Daniel Scally <dan.scally@ideasonboard.com>,
+ Dafna Hirschfeld <dafna@fastmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260105-rkisp1-irqs-v1-1-922f6a94a2e2@ideasonboard.com>
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <aV0eD4t5uQeAokUF@shlinux89>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <20260105-rkisp1-irqs-v1-1-922f6a94a2e2@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_080114_427657_ECB7CDA3 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20260106_080144_866845_ECA302F9 
+X-CRM114-Status: GOOD (  47.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,56 +113,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/6/26 3:37 PM, Peng Fan wrote:
+Hi,
 
-Hello Peng,
-
-> Sorry for jumping in at V4.
-
-Thank you for the review.
-
-> On Tue, Dec 30, 2025 at 10:32:34PM +0100, Marek Vasut wrote:
->> From: Fedor Ross <fedor.ross@ifm.com>
->>
-> ...
+On 05/01/2026 18:19, Daniel Scally wrote:
+> The rkisp1 driver tracks whether the IRQ handlers should take any
+> action through the use of an "irqs_enabled" flag which is set true
+> at the end of .runtime_resume() and false at the start of
+> .runtime_suspend(). In .runtime_suspend(), after setting the flag,
+> there's then a short window during which the hardware has not yet
+> been disabled by the clock APIs but interrupts remain enabled. If an
+> interrupt is triggered during that window the IRQ handlers will return
+> IRQ_NONE and fail to clear the ISP's IRQ reset registers.
 > 
->> +
->> +&ecspi1 {
->> +	pinctrl-names = "default", "cs";
->> +	pinctrl-0 = <&pinctrl_ecspi1>;
->> +	pinctrl-1 = <&pinctrl_ecspi1_cs>;
+> Instead, delay calling request_irq() from .probe() to the end of the
+> .runtime_resume() callback, and call free_irq() at the start of the
+> .runtime_suspend() callback. This will prevent the interrupt handlers
+> being called at all for the device once .runtime_suspend() has been
+> called for it.
+
+Shouldn't we usually always properly disable the IP before suspend? I've
+seen IPs that definitely did not like at all cutting the clocks
+arbitrarily when it's active.
+
+And I don't think clk disable should be considered "disabling the
+hardware". The clocks may not even be disabled at that time, if they're
+shared clocks or always on clocks. So if the driver assumes that after
+clk disable call it won't get any interrupts... I don't think that right.
+
+If we can't sensibly disable the IP, I think we can at least mask the
+IP's interrupts in its interrupt enable register (which we probably
+should do even if we can disable the IP), and wait for any possible irq
+handler to stop running. After that we won't get any interrupts,
+regardless of the clocks.
+
+ Tomi
+
+> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+> ---
+> We noticed this problem when testing hibernation with the streams
+> running. In a typical use-case the stream might be stopped before the
+> runtime PM suspend callback is called, and so the problem is avoided,
+> but when hibernated with active streams there are sufficient interrupts
+> coming in to reliably land one in the window between the irqs_enabled
+> flag being set to false and the hardware being disabled through
+> clk_bulk_disable_unprepare().
 > 
-> Not get the point of using a separate pinctrl for "cs",
-> I not see driver using it, or I may miss someting.
-
-That's a good find, I believe it should be this way, because the 
-pinctrl_ecspi1 is common and pinctrl_ecspi1_cs differs between v1 and v2 
-boards. I'll include this in V5, I hope that looks better ?
-
-  &ecspi1 {
--	pinctrl-names = "default", "cs";
--	pinctrl-0 = <&pinctrl_ecspi1>;
--	pinctrl-1 = <&pinctrl_ecspi1_cs>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_ecspi1>, <&pinctrl_ecspi1_cs>;
-  	/delete-property/ dmas;
-  	/delete-property/ dma-names;
-  };
-
-  &ecspi3 {
--	pinctrl-names = "default", "cs";
--	pinctrl-0 = <&pinctrl_ecspi3>;
--	pinctrl-1 = <&pinctrl_ecspi3_cs>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_ecspi3>, <&pinctrl_ecspi3_cs>;
-  	/delete-property/ dmas;
-  	/delete-property/ dma-names;
-  };
-
->> +	/delete-property/ dmas;
->> +	/delete-property/ dma-names;
+> I'm under the impression that requesting the IRQs when the device is
+> in use in the manner of this patch and releasing the when it is not
+> in use is preferred over requesting them in the .probe() function -
+> possibly an impression I picked up from Linux Device Drivers. It
+> doesn't seem to be a particularly common model though, so I thought
+> I'd flag the method here.
+> ---
+>  .../platform/rockchip/rkisp1/rkisp1-capture.c      |  3 -
+>  .../media/platform/rockchip/rkisp1/rkisp1-common.h |  2 -
+>  .../media/platform/rockchip/rkisp1/rkisp1-csi.c    |  3 -
+>  .../media/platform/rockchip/rkisp1/rkisp1-dev.c    | 82 +++++++++++++++-------
+>  .../media/platform/rockchip/rkisp1/rkisp1-isp.c    |  3 -
+>  5 files changed, 57 insertions(+), 36 deletions(-)
 > 
-> Why disable DMA here?
-The devices on this SPI bus are slow and do only short register IO, so 
-setting up a DMA for that would make the register IO slower, hence PIO only.
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
+> index 6dcefd144d5abe358323e37ac6133c6134ac636e..510d1e8d8bbc86e8b8be3579571e308e5ad9f260 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
+> @@ -820,9 +820,6 @@ irqreturn_t rkisp1_capture_isr(int irq, void *ctx)
+>  	unsigned int i;
+>  	u32 status;
+>  
+> -	if (!rkisp1->irqs_enabled)
+> -		return IRQ_NONE;
+> -
+>  	status = rkisp1_read(rkisp1, RKISP1_CIF_MI_MIS);
+>  	if (!status)
+>  		return IRQ_NONE;
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+> index 5e6a4d5f6fd12baf45a0083eff75de1095162b2d..2a5f6f69b217cdba2fa7c4d1f230ede5aff49149 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+> @@ -507,7 +507,6 @@ struct rkisp1_debug {
+>   * @debug:	   debug params to be exposed on debugfs
+>   * @info:	   version-specific ISP information
+>   * @irqs:          IRQ line numbers
+> - * @irqs_enabled:  the hardware is enabled and can cause interrupts
+>   */
+>  struct rkisp1_device {
+>  	void __iomem *base_addr;
+> @@ -532,7 +531,6 @@ struct rkisp1_device {
+>  	struct rkisp1_debug debug;
+>  	const struct rkisp1_info *info;
+>  	int irqs[RKISP1_NUM_IRQS];
+> -	bool irqs_enabled;
+>  };
+>  
+>  /*
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
+> index ddc6182f3e4bdacdd1962c86f6259334b16aa505..bfc33365ad9d09ccace4ccbb2b19a2fbe1b77eb2 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
+> @@ -196,9 +196,6 @@ irqreturn_t rkisp1_csi_isr(int irq, void *ctx)
+>  	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
+>  	u32 val, status;
+>  
+> -	if (!rkisp1->irqs_enabled)
+> -		return IRQ_NONE;
+> -
+>  	status = rkisp1_read(rkisp1, RKISP1_CIF_MIPI_MIS);
+>  	if (!status)
+>  		return IRQ_NONE;
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> index 1791c02a40ae18205f5eb2fd6edca6cda6b459bf..6fa76423bacf3e92cbbb4ef1ceb55e194b88d963 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> @@ -307,28 +307,62 @@ static int rkisp1_subdev_notifier_register(struct rkisp1_device *rkisp1)
+>   * Power
+>   */
+>  
+> -static int __maybe_unused rkisp1_runtime_suspend(struct device *dev)
+> +static void rkisp1_free_irqs(struct rkisp1_device *rkisp1)
+>  {
+> -	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
+> +	for (unsigned int i = 0; i < ARRAY_SIZE(rkisp1->irqs); i++) {
+> +		if (rkisp1->irqs[i] == -1)
+> +			continue;
+>  
+> -	rkisp1->irqs_enabled = false;
+> -	/* Make sure the IRQ handler will see the above */
+> -	mb();
+> +		if (irq_has_action(rkisp1->irqs[i]))
+> +			free_irq(rkisp1->irqs[i], rkisp1->dev);
+> +	}
+> +}
+>  
+> -	/*
+> -	 * Wait until any running IRQ handler has returned. The IRQ handler
+> -	 * may get called even after this (as it's a shared interrupt line)
+> -	 * but the 'irqs_enabled' flag will make the handler return immediately.
+> -	 */
+> -	for (unsigned int il = 0; il < ARRAY_SIZE(rkisp1->irqs); ++il) {
+> -		if (rkisp1->irqs[il] == -1)
+> +static int rkisp1_request_irqs(struct rkisp1_device *rkisp1)
+> +{
+> +	const struct rkisp1_info *info = rkisp1->info;
+> +	int ret;
+> +
+> +	for (unsigned int irqn = 0; irqn < ARRAY_SIZE(rkisp1->irqs); irqn++) {
+> +		unsigned int isrn;
+> +
+> +		if (rkisp1->irqs[irqn] == -1)
+>  			continue;
+>  
+> -		/* Skip if the irq line is the same as previous */
+> -		if (il == 0 || rkisp1->irqs[il - 1] != rkisp1->irqs[il])
+> -			synchronize_irq(rkisp1->irqs[il]);
+> +		if (irq_has_action(rkisp1->irqs[irqn]))
+> +			continue;
+> +
+> +		for (isrn = 0; isrn < info->isr_size; isrn++)
+> +			if ((info->isrs[isrn].line_mask & BIT(irqn)))
+> +				break;
+> +
+> +		if (isrn == info->isr_size) {
+> +			dev_err(rkisp1->dev, "Failed to find IRQ handler\n");
+> +			return -EINVAL;
+> +		}
+> +
+> +		ret = request_irq(rkisp1->irqs[irqn], info->isrs[isrn].isr,
+> +				  IRQF_SHARED, dev_driver_string(rkisp1->dev),
+> +				  rkisp1->dev);
+> +		if (ret) {
+> +			dev_err(rkisp1->dev, "Failed to request IRQ\n");
+> +			goto err_free_irqs;
+> +		}
+>  	}
+>  
+> +	return 0;
+> +
+> +err_free_irqs:
+> +	rkisp1_free_irqs(rkisp1);
+> +	return ret;
+> +}
+> +
+> +static int __maybe_unused rkisp1_runtime_suspend(struct device *dev)
+> +{
+> +	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
+> +
+> +	rkisp1_free_irqs(rkisp1);
+> +
+>  	clk_bulk_disable_unprepare(rkisp1->clk_size, rkisp1->clks);
+>  	return pinctrl_pm_select_sleep_state(dev);
+>  }
+> @@ -345,11 +379,16 @@ static int __maybe_unused rkisp1_runtime_resume(struct device *dev)
+>  	if (ret)
+>  		return ret;
+>  
+> -	rkisp1->irqs_enabled = true;
+> -	/* Make sure the IRQ handler will see the above */
+> -	mb();
+> +	ret = rkisp1_request_irqs(rkisp1);
+> +	if (ret)
+> +		goto err_clk_disable;
+>  
+>  	return 0;
+> +
+> +err_clk_disable:
+> +	clk_bulk_disable_unprepare(rkisp1->clk_size, rkisp1->clks);
+> +
+> +	return ret;
+>  }
+>  
+>  static const struct dev_pm_ops rkisp1_pm_ops = {
+> @@ -694,13 +733,6 @@ static int rkisp1_probe(struct platform_device *pdev)
+>  			if (info->isrs[i].line_mask & BIT(il))
+>  				rkisp1->irqs[il] = irq;
+>  		}
+> -
+> -		ret = devm_request_irq(dev, irq, info->isrs[i].isr, IRQF_SHARED,
+> -				       dev_driver_string(dev), dev);
+> -		if (ret) {
+> -			dev_err(dev, "request irq failed: %d\n", ret);
+> -			return ret;
+> -		}
+>  	}
+>  
+>  	ret = rkisp1_init_clocks(rkisp1);
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> index 2311672cedb1b6c9dd7f1b883adcac1516a685ae..c6b1ecd2d0c260f6739726c9f32562b98ca31364 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> @@ -1106,9 +1106,6 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
+>  	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
+>  	u32 status, isp_err;
+>  
+> -	if (!rkisp1->irqs_enabled)
+> -		return IRQ_NONE;
+> -
+>  	status = rkisp1_read(rkisp1, RKISP1_CIF_ISP_MIS);
+>  	if (!status)
+>  		return IRQ_NONE;
+> 
+> ---
+> base-commit: ee5b462b97162dbb6c536e18a37b3048f6520019
+> change-id: 20260105-rkisp1-irqs-8af5a1e0b887
+> 
+> Best regards,
+
 
