@@ -4,64 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31FAEC47BC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 08:06:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 399D5C47BC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 08:30:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l1WqPrA7PMfp4dqiVUq/folMhiyG7j6ZuSATIJ+Fy70=; b=Bsoc3sfrfTbbP5+Ba+bNvkNw2d
-	mJz5Z5bz+qDN453h3re7oVY0pnuH02kEOkwxbfeT/m365Azf5EqdLmSxUQVJ1riFZgjZYdTSMb7jN
-	zbM7R33j5/qzrIktQMVrnwR6VFKTLh5x89w4GjXqkH75p4KrcWcliOFbedFpMMRCsjW5H+P6FsVyT
-	wQ9SgsoMFXo7oRvgjJjRmBa2rgtMO6iJ9FnMSCyHftpoxQhrdydjX9UTT84l4LZfRBRARrNGZhdfh
-	AMLaIVIuvMjyoivxj9jZyryZWDIfRtDglzWAROFnNHnCZyvo9PXTdy3mFDpl/M5niqYlk4wE1w5tL
-	cnzAOx2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oKSD+DfZplRgQ3I5P1QWUyAqtr2bHihEFGy3fCMDYBc=; b=2hrj5oMYCyIgFKUx7qJ+YI1imq
+	P2e8TmtOsUGvX9FUwCiGMKQvoayDNqAv46LD5uooP1zaLMg3fKUULwDTxkcJNcBiKUV6tjv8q6fdn
+	ZPZ75KGpkPM4pMzYS+hAlUrKmRQ40H8xlLu9KBnh3H1Vx8qEedfj4aM0rhgveU0eYSXk8eTnQL6pu
+	ECcHxkSScPjpS9LYM+om7lRj/AOpcTLKTDRNdKF3sI2t4DtLni0g8fYtJlT446USM1dZ8WXvNgJel
+	CCYqGwTGX408LIs5ptm2TknycE45v278GurpMSjMNE160JuqeMycgrMiAOf0NR9JCC7MmB2aWgCm8
+	fAU6Xzkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd24i-0000000CacZ-1K7m;
-	Tue, 06 Jan 2026 08:05:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vd2Rr-0000000Cc0z-238C;
+	Tue, 06 Jan 2026 08:29:51 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd24f-0000000Cabp-21u0;
-	Tue, 06 Jan 2026 08:05:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F0784066D;
-	Tue,  6 Jan 2026 08:05:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90659C116C6;
-	Tue,  6 Jan 2026 08:05:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767686752;
-	bh=MhlFTdwsDfjttLwAEC+WP59n2v37830ZfqL8GiFjHlE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lzV+F+tSLv113051K/7/MB6HLDp2meAlNfZy5efM/FPt8Q48hkpMyz9Oi2d3VEUvh
-	 RFkeiW6Yo2OODKd9Tf+6TIA6tx/0BDEr8HcEWklZnKig8r8oeMjK5XVeBCiKAyJc8J
-	 gLyAk4IgdxTrmcAgGWew3eELKzzpHVAIfSZq1MCXLlbVy25QhQe+ETgW0i+SbGoLrj
-	 ZqXE2WB9Cyhk7eS0I/4+TEAaT3IYtf0sLgISDeJZOPBfhKBlhGsxiEqPsctkzRvb5p
-	 5QIuFG9g/81zDjF6ZYW/0tf05f+Ad5FDAdGpBLii27U8QxhsoN2FQGbdO+BS9XxW+m
-	 OqREHwjkEAYTQ==
-Date: Tue, 6 Jan 2026 09:05:49 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Coiby Xu <coxu@redhat.com>
-Cc: kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>, Baoquan he <bhe@redhat.com>, Dave Young <dyoung@redhat.com>, 
-	Kairui Song <ryncsn@gmail.com>, Pingfan Liu <kernelfans@gmail.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE" <devicetree@vger.kernel.org>
-Subject: Re: [PATCH v2] arm64/kdump: pass dm-crypt keys to kdump kernel
-Message-ID: <20260106-mammoth-of-wondrous-blizzard-e30d62@quoll>
-References: <20251226141116.1379601-1-coxu@redhat.com>
- <20260106062231.448170-1-coxu@redhat.com>
+	id 1vd2Rn-0000000Cc0N-399j
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Jan 2026 08:29:49 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B016C591;
+	Tue,  6 Jan 2026 09:29:19 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1767688160;
+	bh=KpPTQvNJFnQ4yu4xi9hT6JDKnGmVNZ1k7c9boA9YXjc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KHQgPPtks4mDAXTkMNVHlQBhuBzK/p5uOM6+5cOi73vtTCgWTQ1PndFZRnB2dg56L
+	 Rj1W+ghUijJlv+JysOMKeBHHApocisYQd0SrPC+kwfffp+iGtxJrGUgPmtJLDJUQ/e
+	 vd/ecZfZZfr3hWOGbCNenu0rtbCbiA3Yd0BP710g=
+Message-ID: <3d214bf3-6b52-4942-95d9-0504fa6f5877@ideasonboard.com>
+Date: Tue, 6 Jan 2026 10:29:37 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260106062231.448170-1-coxu@redhat.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] drm: xlnx: zynqmp_kms: 16 bpp fixes for Xorg startup
+ on AMD KV260
+To: Thomas Zimmermann <tzimmermann@suse.de>,
+ Mikko Rapeli <mikko.rapeli@linaro.org>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Michal Simek <michal.simek@amd.com>,
+ Bill Mills <bill.mills@linaro.org>,
+ Ilias Apalodimas <ilias.apalodimas@linaro.org>
+References: <20251205123751.2257694-1-mikko.rapeli@linaro.org>
+ <533168f1-1655-4947-9032-b08463f502d7@ideasonboard.com>
+ <aUVFUx55XTjb_2nO@nuoska> <aUkIQjKpd3MhNHjk@nuoska>
+ <5f570a3b-7bee-43e0-9a36-3d106984fec6@suse.de>
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Content-Language: en-US
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <5f570a3b-7bee-43e0-9a36-3d106984fec6@suse.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_000553_543865_A63C9DC6 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20260106_002948_654251_98F255FC 
+X-CRM114-Status: GOOD (  23.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,50 +122,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 06, 2026 at 02:22:30PM +0800, Coiby Xu wrote:
-> CONFIG_CRASH_DM_CRYPT has been introduced to support LUKS-encrypted
-> device dump target by addressing two challenges [1],
->  - Kdump kernel may not be able to decrypt the LUKS partition. For some
->    machines, a system administrator may not have a chance to enter the
->    password to decrypt the device in kdump initramfs after the 1st kernel
->    crashes
-> 
->  - LUKS2 by default use the memory-hard Argon2 key derivation function
->    which is quite memory-consuming compared to the limited memory reserved
->    for kdump.
-> 
-> To also enable this feature for ARM64, we only need to add device tree
-> property dmcryptkeys [2] as similar to elfcorehdr to pass the memory
-> address of the stored info of dm-crypt keys to the kdump kernel.
-> 
-> [1] https://lore.kernel.org/all/20250502011246.99238-1-coxu@redhat.com/
-> [2] https://github.com/devicetree-org/dt-schema/pull/181
-> 
-> Cc: Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>
-> Cc: Baoquan he <bhe@redhat.com>
-> Cc: Dave Young <dyoung@redhat.com>
-> Cc: Kairui Song <ryncsn@gmail.com>
-> Cc: Pingfan Liu <kernelfans@gmail.com>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Krzysztof Kozlowski <krzk@kernel.org>
-> Signed-off-by: Coiby Xu <coxu@redhat.com>
-> ---
-> v2
-> - Krzysztof
->   - Use imperative mood for commit message
->   - Add dt-schema ABI Documentation
-> - Don't print dm-crypt keys address via pr_debug
+Hi,
 
-Your changelog should explicitly document that this has external
-dependency on dtschema pull request, so that maintainers know that.
+On 06/01/2026 09:41, Thomas Zimmermann wrote:
+> Hi
+> 
+> Am 22.12.25 um 09:58 schrieb Mikko Rapeli:
+>> Hi,
+>>
+>> On Fri, Dec 19, 2025 at 02:30:11PM +0200, Mikko Rapeli wrote:
+>>> On Fri, Dec 19, 2025 at 01:59:14PM +0200, Tomi Valkeinen wrote:
+>>>> On 05/12/2025 14:37, Mikko Rapeli wrote:
+>>>>> Currently on default yocto images Xorg fails to start on AMD KV260
+>>>>> because 24/32 color depth gets detected but does not actually work.
+>>>>>
+>>>>> These two patches fix the issue and now 16 bpp gets detected
+>>>>> and Xorg starts and draws on external HDMI display using
+>>>>> kernel.org based linux-yocto kernel.
+>>>>>
+>>>>> Anatoliy Klymenko (1):
+>>>>>    drm: xlnx: zynqmp_kms: Init fbdev with 16 bit color
+>>>>>
+>>>>> Mikko Rapeli (1):
+>>>>>    drm: xlnx: zynqmp_kms: set preferred_depth to 16 bpp
+>>>>>
+>>>>>   drivers/gpu/drm/xlnx/zynqmp_kms.c | 3 ++-
+>>>>>   1 file changed, 2 insertions(+), 1 deletion(-)
+>>>>>
+>>>> Did you notice the few already sent serieses on the list where the
+>>>> topic
+>>>> has been discussed?
+>>>> [PATCH] drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888
+>>>> [PATCH 0/3] drm: zynqmp: Make the video plane primary
+>>> Oh I wasn't aware of these.
+>>>
+>>>> Or is there something else on KV260 that messes up the 24 bit color?
+>>> These look very similar and likely fix the X11 startup. I will give them
+>>> a try.
+>> Right, now I've tested:
+>>
+>>   * these patches from Anatoliy and me to help X11 use 16bpp mode by
+>> default
+>>     and removes the need to manually setup Xorg for 16bpp
+>>   * "drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888" which enables
+>> the X11 default
+>>     24bpp to work, no need to set Xorg config to 16bpp
+>>   * "drm: zynqmp: Make the video plane primary" which also fixes the
+>> X11 default
+>>     24bpp to work, no need to set Xorg config to 16bpp
+>>
+>> All of these fix HDMI graphics output on AMD KV260 board with yocto
+>> genericarm64 machine
+>> and core-image-sato image which includes Xorg. The graphics rendering
+>> is still
+>> very slow but I think that is a different problem.
+>>
+>> I guess the last series from Sean Anderson is moving forward so I'll
+>> reply to that thread separately.
+> 
+> Just want to say that the series here improves xlnx and makes it a
+> 'better' driver. IMHO the changes should be merged independently from
+> what happens with the other series.
+I might be missing something, but I don't think I fully agree. Yes, the
+userspace doesn't seem to be able to cope with the current upstream
+driver behavior (even if it's not wrong as such, afaics), so in that
+sense this series is better. But I don't think (almost) anyone really
+wants to use RGB565 if XRGB8888 is an option? And that's what the other
+series is trying to achieve, and that series conflicts with this one.
 
-Also, in the future:
-Do not attach (thread) your patchsets to some other threads (unrelated
-or older versions). This buries them deep in the mailbox and might
-interfere with applying entire sets. See also:
-https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
+So I'd rather try to get a conclusion on Sean's series (or the other one
+from Mike). If that effort fails, we could go with this series as a backup.
 
-Best regards,
-Krzysztof
+ Tomi
 
 
