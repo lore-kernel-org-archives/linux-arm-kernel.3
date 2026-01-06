@@ -4,71 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D40CDC192
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 12:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D5E8CDC188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 12:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oGNIGQVB/nPaK6VTlLDB7Fc6lF6dnUzczd56TbN/izI=; b=QHvNonl0uzOUa7C/sH/ODKCo6l
-	QBiuiUGqm//JWHO2JpMjzrxbdqmZQ4E0HQlHyZyxoieD+b6HB9riAZ+QzuhCUkzC/c1BcuKkko9NO
-	0VTagtXRSdzMDzdl+N8zVHawAhWofq4HiLcMnU2Bh5DGPxVHtWWCIzq/RV2YyrLozw8S360fLJvrh
-	3w01v4pfSiWc5FjolcSMsHyPJYOXTGEK4eb+3Ee8K/YawHZnp2DRNl46Dl6UjgAfhBnKPACjDcla9
-	W7Aygp3t3UKdFCj7H/omKm/K2v2AV7BFvFIsRvfCx/siTM/RwJJeVXZUVjqtEPpRsyZ0O8s2bMp2Y
-	tVZ38/nw==;
+	bh=h38P6grNQ0TKwDHGWJBzjPGM53XcBW+OJ687HIujUPE=; b=Rra1GSNoE7rEUu7Uarirmm0jAI
+	pYh7FrL7tiEfwyhJClCl2Udhfz2GbHccIqdjLeODwPSZgGujDQ6DaXDDz+p+l4CCP8y6c0z7XRTqd
+	5EoF8xxBx9yjDSl2YrBF21rjZ9jHgp7iUNKtjVFo37iMz3OWBKDr62sTpGPkGo1GJF65mfL9VGkzH
+	fJgl47bVpZ9u3MYj/PgEzZ4LwM9/Bp1d3o5CGQaNwABK1VHHe+TKOuyyyA4/xTAYt41rUHTRZZTCL
+	4vCDt30ieDCQMad4P09OJ+GAWh648Ea/vpD1qcU4NFwf2VbnmK+njl2CyQ2lLOIjUre1s2zAL3sV5
+	qcIoR4oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd6D8-0000000D06O-1A6M;
-	Tue, 06 Jan 2026 12:30:54 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vd6EA-0000000D0En-2shB;
+	Tue, 06 Jan 2026 12:31:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd6D2-0000000D04y-48Sb
+	id 1vd6E6-0000000D0EZ-2jCq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 12:30:52 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dlr9W422czJ46qH;
-	Tue,  6 Jan 2026 20:30:39 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1E6BD40086;
-	Tue,  6 Jan 2026 20:30:41 +0800 (CST)
-Received: from localhost (10.48.155.65) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 6 Jan
- 2026 12:30:39 +0000
-Date: Tue, 6 Jan 2026 12:30:37 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
-	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
-	<kobak@nvidia.com>, <lcherian@marvell.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
-	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
-	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
-	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
-	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>
-Subject: Re: [PATCH v2 26/45] arm_mpam: resctrl: Add kunit test for control
- format conversions
-Message-ID: <20260106123037.000039d0@huawei.com>
-In-Reply-To: <20251219181147.3404071-27-ben.horgan@arm.com>
-References: <20251219181147.3404071-1-ben.horgan@arm.com>
-	<20251219181147.3404071-27-ben.horgan@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 06 Jan 2026 12:31:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BBABC6013D
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Jan 2026 12:31:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D6B2C19425
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Jan 2026 12:31:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767702713;
+	bh=hkToN4ECsG3MudPOwQYTR0U4TyBoX8kGNtWHmfV4Vbc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=mOujkwb6bMD8rzDaSHSkYx8OjwEInrJxUuBRj1PQtwd2iVuOFj95TFLz/HIe5m6b4
+	 JFCtSlFDE6EI2w0ZVIbDJ1otvSnulYNoVUf+NRkWGcoFoX8nn36gYVzlRQa8qiUtsT
+	 chJE0COSzraPDn3y+bL4oqPwwnh3W6TFe/TDY2TKMIY3o/cLyofSgpW0Z2kG+Yvs67
+	 l79HG1GTvtrUkxCOt92LR1WXhnZ+Rr5BYxkzarDZ4hC7cnVCXK6RYFnuVp0u5Z1LAV
+	 mgC7wC2iudZM316pRGDMnehBsd9/ci4mnjW8XIBPXQxyqrLAMvAuLq6sHRsEfIo3O7
+	 qcjJakQbt4f3A==
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-37a33b06028so7616921fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 04:31:53 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWImV2sJ0uchuew1hIZLdIOrWZCSlISjwxfbt7bD1vlItGqsv2LPiT4eT9mwf5RSsUG8LrFZo6Vd4iZXJz/Ig6D@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWGrLBW5pPovgLuVZq4QGglR/Zq2M7ZyqHDj/NqxZ/f6gfmtPt
+	MtDKoQjNcUKl9g1OCeda4BtJhESEhWanoXy8871EYJ/C+qGWUlIBx3Mzsl5x4Y3EZJEJOjd/dKS
+	o00l9ujGKwp6vEpG09pcLjUQH9RDXnhCHkzeJq5fEuQ==
+X-Google-Smtp-Source: AGHT+IGAgUkYHb6c2adQeG89MGXDusPgXEG8AgpWKhx2YWzaObHsgiKa1FY1iLZX9m/J51WaZQMV+gh52Wy4JNwMhjo=
+X-Received: by 2002:a2e:a555:0:b0:37f:cb34:2144 with SMTP id
+ 38308e7fff4ca-382eaa6025cmr8054501fa.2.1767702712063; Tue, 06 Jan 2026
+ 04:31:52 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.155.65]
-X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
- dubpeml100005.china.huawei.com (7.214.146.113)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_043049_310591_83BAD6C4 
-X-CRM114-Status: GOOD (  16.33  )
+References: <20251228-arm-psci-system_reset2-vendor-reboots-v19-0-ebb956053098@oss.qualcomm.com>
+ <20251228-arm-psci-system_reset2-vendor-reboots-v19-1-ebb956053098@oss.qualcomm.com>
+ <CAMRc=McEB+yVYxropzsqLExZCU5Pd_iy_=5N3pTxu28-ZX=7_w@mail.gmail.com> <06619e53-7260-7bd2-1954-dd10b92dc354@oss.qualcomm.com>
+In-Reply-To: <06619e53-7260-7bd2-1954-dd10b92dc354@oss.qualcomm.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Tue, 6 Jan 2026 13:31:39 +0100
+X-Gmail-Original-Message-ID: <CAMRc=MfaS=zAXj_YMOyV0DJBULbtysF5VU_mx3BFmhPWSYTnHw@mail.gmail.com>
+X-Gm-Features: AQt7F2pN4gC2sUo7-pfcb6UAcqBXjb_7kw1NmqpeCuPqNOQAqpYTTP5tEx92_QA
+Message-ID: <CAMRc=MfaS=zAXj_YMOyV0DJBULbtysF5VU_mx3BFmhPWSYTnHw@mail.gmail.com>
+Subject: Re: [PATCH v19 01/10] power: reset: reboot-mode: Remove devres based allocations
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, 
+	John Stultz <john.stultz@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Moritz Fischer <moritz.fischer@ettus.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	Srinivas Kandagatla <srini@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,70 +94,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Dec 2025 18:11:28 +0000
-Ben Horgan <ben.horgan@arm.com> wrote:
+On Mon, Jan 5, 2026 at 6:54=E2=80=AFPM Shivendra Pratap
+<shivendra.pratap@oss.qualcomm.com> wrote:
+>
+> >>
+> >>         INIT_LIST_HEAD(&reboot->head);
+> >> @@ -82,19 +87,17 @@ int reboot_mode_register(struct reboot_mode_driver=
+ *reboot)
+> >>                 if (strncmp(prop->name, PREFIX, len))
+> >>                         continue;
+> >>
+> >> -               info =3D devm_kzalloc(reboot->dev, sizeof(*info), GFP_=
+KERNEL);
+> >> +               if (of_property_read_u32(np, prop->name, &magic)) {
+> >
+> > Please use device_property_read_u32() if you have access to a device st=
+ruct.
+>
+> Ack. Can it go in same patch with the fixes tag?
+>
 
-> From: Dave Martin <Dave.Martin@arm.com>
-> 
-> resctrl specifies the format of the control schemes, and these don't match
-> the hardware.
-> 
-> Some of the conversions are a bit hairy - add some kunit tests.
-> 
-> Signed-off-by: Dave Martin <Dave.Martin@arm.com>
-> [morse: squashed enough of Dave's fixes in here that it's his patch now!]
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-I took a fairly quick look at these and they seem sane.
-Very valuable to have these tests.
+I would be fine with it but it's more a question to Sebastian as the mainta=
+iner.
 
-Trivial stuff below and a request to carry the reference over to the
-code rather than just having it in the tests.
-
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-
-> diff --git a/drivers/resctrl/test_mpam_resctrl.c b/drivers/resctrl/test_mpam_resctrl.c
-> new file mode 100644
-> index 000000000000..d0615aa7671c
-> --- /dev/null
-> +++ b/drivers/resctrl/test_mpam_resctrl.c
-
-> +/*
-> + * Mysterious inscriptions taken from ARM DDI 0598D.b,
-> + * "Arm Architecture Reference Manual Supplement - Memory System
-> + * Resource Partitioning and Monitoring (MPAM), for A-profile
-> + * architecture", Section 9.8, "About the fixed-point fractional
-> + * format" (exact percentage entries only):
-
-This is the reference I'd like alongside the conversion code.
-
-> + */
-> +static const struct percent_value_case percent_value_cases[] = {
-> +	/* Architectural cases: */
-> +	{   1,  8,    1 },	{   1, 12,  0x27 },	{   1, 16,  0x28e },
-> +	{  25,  8, 0x3f },	{  25, 12, 0x3ff },	{  25, 16, 0x3fff },
-> +	{  35,  8, 0x58 },	{  35, 12, 0x598 },	{  35, 16, 0x5998 },
-> +	{  45,  8, 0x72 },	{  45, 12, 0x732 },	{  45, 16, 0x7332 },
-> +	{  50,  8, 0x7f },	{  50, 12, 0x7ff },	{  50, 16, 0x7fff },
-> +	{  52,  8, 0x84 },	{  52, 12, 0x850 },	{  52, 16, 0x851d },
-> +	{  55,  8, 0x8b },	{  55, 12, 0x8cb },	{  55, 16, 0x8ccb },
-> +	{  58,  8, 0x93 },	{  58, 12, 0x946 },	{  58, 16, 0x9479 },
-> +	{  75,  8, 0xbf },	{  75, 12, 0xbff },	{  75, 16, 0xbfff },
-> +	{  88,  8, 0xe0 },	{  88, 12, 0xe13 },	{  88, 16, 0xe146 },
-> +	{  95,  8, 0xf2 },	{  95, 12, 0xf32 },	{  95, 16, 0xf332 },
-> +	{ 100,  8, 0xff },	{ 100, 12, 0xfff },	{ 100, 16, 0xffff },
-> +
-This blank line doesn't add anything.
-
-> +};
-> +
-> +static void test_percent_value_desc(const struct percent_value_case *param,
-> +				    char *desc)
-> +{
-> +	snprintf(desc, KUNIT_PARAM_DESC_SIZE,
-> +		 "pc=%d, width=%d, value=0x%.*x\n",
-> +		 param->pc, param->width,
-> +		 DIV_ROUND_UP(param->width, 4), param->value);
-> +}
-
+Bart
 
