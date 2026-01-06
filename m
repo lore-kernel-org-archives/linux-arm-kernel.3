@@ -4,98 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94DA3C47BDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 10:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9899EC47BDF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 10:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uNNcUB7lgyIwf3R57Px+ObUOuuqMHsgwS/LskqhZlIo=; b=ji2LG9IeDxaQN0mDW8rWD4Lgui
-	T5OtAa6KSzC5OmXsMJgXQmyZjBiveIeFFwuIY9CJBB3L6UQ7XyxIBHy8Q4p2hVxwODfTzNWQUllxD
-	YFWFfKb+Wq3bHB1TItuZyi2lOscp4WRRtHgaIqLsEZcPdL9Fa4EcR817sQVrKbw9KG1rq9GjlguLj
-	1h0HabUVVVaJz2BJFgAqhLxlC4SPnlDd9RIFvTEjRN2jLEyE2kQFF3kPyc2KGvlJc4+gLWB82hljI
-	elvS0LlSxowpEaqizjuhwFZrg6G9jeaDyIYa44PlusuADAqScSZBv4ISrP9i+MGkwSkSySMkWrnip
-	6XWn9vIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K3wM9H9bghjhaGJ3WIr5z7nwHDP/RbQ6iL57sgZRsmQ=; b=jXph9k/sUg/lI2pD+V7MghSMP4
+	51NmEDlz2IVLFattfzB1vfxGDRGCoakJBI76s1gLmDFI8kKe1uMqiAVvqIwLnOOJtH8k+BuBvDYYe
+	pZH+CZJxVxJqBCvpIPey489Esa9qdLXmUNYOUKzWT0T2qxoxmjIt/6e3ZXpjsoVMo3MkMbs0CffxG
+	eo5b/qdzALKh1JNzhI/w7oQo/nRdfOtLJmH7rlQnnrhgiygYA7bqQaPXmvrNkfM6O3blTV+x7zfTP
+	p+l5A3AMsrXayuhlHiRXzQ293bkah0TsWBHVSsn2Ehfjl0hUamQ1UVDeNxSXMonaHUEsaXTp3plvq
+	FxiFd4NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd47P-0000000ClrZ-3rqv;
-	Tue, 06 Jan 2026 10:16:51 +0000
-Received: from mail-ot1-f68.google.com ([209.85.210.68])
+	id 1vd47v-0000000Clxe-3dP5;
+	Tue, 06 Jan 2026 10:17:23 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd47N-0000000ClrE-03CV
+	id 1vd47s-0000000ClwZ-0Xp1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 10:16:50 +0000
-Received: by mail-ot1-f68.google.com with SMTP id 46e09a7af769-7c76d855ddbso265122a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 02:16:48 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767694608; x=1768299408;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uNNcUB7lgyIwf3R57Px+ObUOuuqMHsgwS/LskqhZlIo=;
-        b=ff+/I/ah4F7H2mV9Z8dsnnFk1KHXkk2fCcfKUxmvvXBTJA7w07zPgco9rm2Q7LqELd
-         ZquT82uZqbX9Lpi5eg1MVWv/OO1kOUazHQmTp8woVb5ZNeQShHmwNc9ZWUtDgzfwzyhl
-         Zp+jrD24DCQRjRP1kaIHiNlFC1BKXfiQxsA1XVqiRd1upKmCEZ9GQDyEn6CQ9Ps4MXy3
-         QUwS16Tvho0pG3NR9xgA4U2pNDkoXg2goTJuF+CqdkhYzIPVKCwuap8CeTr/YtFiPjXu
-         nKwZSA5OnD2/fFrPeuQXDximXC54X7k4CeAWqlT4vQPa3ObYdfDYHZdmU22vA+QVzqVV
-         25vA==
-X-Gm-Message-State: AOJu0YxcoWXWD/6GTEiTs9ThH/bKTEiS0/euRSfMKNTph+xbxAFm7PGa
-	gF3W5CzY1dUmlz8SRrS1b7PhYpJG+KCi1v0TNub5qt+NFwLzdEOP+gnj
-X-Gm-Gg: AY/fxX4qpVq2MU48r407PdhytR8vFoSuvPrgRNXXOw1NF2ue7XbfGNIXHWY7Wc0uMJP
-	HMaCBsbydWmq2OfZTqeNnLMWBUOmeAZBF2yw02v3InyJtPgsussWiMTuXTyWHX296PQR239Ikxf
-	UPe32Glt/MihiWuDD6yUmGhxOPY81GO1qACKQUxzwShwYgDD2FOnuccBZHmbyMEsbhQxiOHFAJJ
-	npsjp0mWzqTVgs2LtMdnhxL2U1XHxIDpEiY6C01Ec+W/vFdf7caWO4PK6czfTHIoeN7MzVUbnvd
-	YliRrrnUiw/EYbM8/w0X6qL4YYKkZcDNVVfryhB6A/wq7YrhL4QjSDhZ4RcYhqOBpSkzt8VpsL+
-	UYEUMKiA683a3IRMQsJN69OSncKHnTPArSTkVaXVZ+W7dkNSG8d9dSY21mDSDKHL6bSMpPcDd1P
-	arI3/2cLcnLehhiA==
-X-Google-Smtp-Source: AGHT+IHpik8hWyPXo+y5CoXoGZNP7a5BRxyJotM7yoa4j2oD5Z6LvXpzD97F1AyaKuGImA/76c6nUQ==
-X-Received: by 2002:a05:6830:314e:b0:7c7:b28:227c with SMTP id 46e09a7af769-7ce4663ba8dmr1405642a34.4.1767694607636;
-        Tue, 06 Jan 2026 02:16:47 -0800 (PST)
-Received: from localhost ([2a03:2880:10ff:59::])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7ce47832780sm1149346a34.12.2026.01.06.02.16.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jan 2026 02:16:47 -0800 (PST)
-From: Breno Leitao <leitao@debian.org>
-Date: Tue, 06 Jan 2026 02:16:35 -0800
-Subject: [PATCH v2] arm64: Disable branch profiling for all arm64 code
+	Tue, 06 Jan 2026 10:17:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ise01Y67pR+NlVZpcgRlReipk8poG62MOu3b2o6CyeK3Qanp9QzxUoRPPtvplrj0iMTxw23XWvbYrgulm1CVOC7LrupdJVynoarVd+WH4n06yKMLaylA5pjxhKa0xEYhfwbp7SBsRLqEAoFqxtKG6M/HLfXyKdz5HjPiZa1IztyMORZ9yvu4x+tmCMEmJuMsM479OXiFV88HPJocM1VIyvKla4MHWzYjXuBCq7jlYAGnqatWSoTyCbqfI1F8vn2smNa8Bq0apHz0h5v2DpzLqPSUQqHVi77Np66d3fkrcP1e18DnB10/KY0P3FPyD9vJjqAw59HWjT7yE6AYSkw6Qg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=K3wM9H9bghjhaGJ3WIr5z7nwHDP/RbQ6iL57sgZRsmQ=;
+ b=x1QvsKe4tYYuZqX+sGtLxisq3kS40VWnaS43VhqDqtCTfDSyjqrq38gCBXeU4qISf3Q4eGWRG7o1anU+6/kitAowl2EnN1GDjLljlMan0YqI1heoa/JIXjLopkVVQltZ3cuGXvbipRpeKHEJmV4n76of7oQ/f/hRI3RML8r9QYZZx08crpsW34+7AKgYwpdcElahimKboJmZDRTngzvPjZau6fu3hE/A32/T+7KhFM2uTTwGsM3tzSqd8dqQAE5EgXkBhNKMuHGCkRFg7WcZmKHx3iajq/6Veujkylje64ejvvr9LnbHr9OjFjvCKn6RXVI7IDxYLAlpUUphh2VPhw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=K3wM9H9bghjhaGJ3WIr5z7nwHDP/RbQ6iL57sgZRsmQ=;
+ b=TPGSCQOYFkRvsLthCf7crn4XYNFpwCutz1AwSwFH9g41medtnSFFSV8rRwtzPCIoJLsk6e1MKYzXdFiH2d1sMd/8q9rzJmZVU9wa82NZlvzdfs7d+ULGPM+2NZyM2pBXbpxNQ6Lr0CSGFQTmNrGEODE55Beec0RSp2UoYFgautebZS1O2QQDImArOhI5CD63kSoRupMm0B27CZGvkq54//kzJhjZBPHGcTFaXMywucgTaWOTpYuMyMMAYX/13Q8Lqc3R11VWaoWTsTJnnrj3bWpmyiXrT4J7w2tyyS/Tr1BdkAMBCmatHHTCibolUNxG+bG848wZAwYRpjKczrQUsQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
+ by DUZPR04MB9900.eurprd04.prod.outlook.com (2603:10a6:10:4da::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.5; Tue, 6 Jan
+ 2026 10:17:15 +0000
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::b1b9:faa9:901b:c197]) by DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::b1b9:faa9:901b:c197%4]) with mapi id 15.20.9478.004; Tue, 6 Jan 2026
+ 10:17:15 +0000
+Date: Tue, 6 Jan 2026 18:18:44 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/1] arm64: dts: imx8mp-skov: add pinctrl-name 'reset' to
+ fix CHECK_DTB warning
+Message-ID: <aVzhhH4BRFC7XlAL@shlinux89>
+References: <20251229165127.4006134-1-Frank.Li@nxp.com>
+ <20260105111448.slm2yqiwivx2t3vh@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260105111448.slm2yqiwivx2t3vh@pengutronix.de>
+X-ClientProxiedBy: SGBP274CA0013.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b0::25)
+ To DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260106-annotated-v2-1-fb7600ebd47f@debian.org>
-X-B4-Tracking: v=1; b=H4sIAAPhXGkC/yXMwQqFIBAF0F8Z7jqhlAj8lWhhOtW0sFCLB9G/P
- 6rl2ZwLmZNwhqULiU/JskVY0hXBLy7OrCTAEnSt20abRrkYt+IKB9W1gc1kjA/diIqwJ57k917
- 98Dkf48q+PAHu+w/4tl4nbQAAAA==
-X-Change-ID: 20251231-annotated-75de3f33cd7b
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Laura Abbott <labbott@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-trace-kernel@vger.kernel.org, Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, kernel-team@meta.com, 
- puranjay@kernel.org, stable@vger.kernel.org, 
- Breno Leitao <leitao@debian.org>
-X-Mailer: b4 0.15-dev-47773
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1627; i=leitao@debian.org;
- h=from:subject:message-id; bh=R0brKy11lWk9rG1Hszq3cr5excGuzAybyASfH2xcz9g=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBpXOEOE3XW9TBI5+gt0t62QrPhBcRn/qigH4pDn
- 4gtfXOidi6JAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaVzhDgAKCRA1o5Of/Hh3
- bUDDD/9rIz9FUmTyftcZ2SiYxTdKVB+boYTZiBL/TZMurMwpO/5crdYad5bRGL5PnmNRnAeXZjf
- 4bJExaoMmBMiuWAyvQvis+Kgdu+xYgXT0mYC9e+ofnCp05M+Yv5GS5f5vATolKFIjKTnu/Xl6cG
- DPkerSX2xPxChN78jd88Nf/ckcBu3vOkDA4cAtYIRrpN/m3yM6qoukboZHnxNKVOoLV1FQHepcu
- K5wMSl7Tl/DNZwbD/rvR1VKmO39xdu64RTE9kWrmZ9CQRY6OdsEsNhFeCrTTRO8ELUkVvKf1bVY
- ImufebVYkB7WsBLoG8pQ9Nvnw1QknNczA8BbYtGKz0EboKTFJauoROuLtb3QLUaycljbGbK8y/W
- tJUssGjN9WA24lPTVxmN3vmb9gv0/OqmVsrHwt0wF7UvJbUKTr0SqCSZrbXchU8kVyiGUw7K0Y4
- oLR1uNKGJYHlOxO0fAJZH3QEW3JLiJ3kuN/pbIw5aKZi+WLDgZ37YiRQS66jDV26TfYKdP40ply
- ERVMouE96PDsf9EjIYu4xRE1dyOhITnjRaPhNThdNXkgm54dBgEkQSx7LGlbeV7Us9pbVThNkV3
- /9sSDLDoLxAVm6uTFXtDXG/F6GHzX11cLaNJCkS9QIXeLC4NLaACGOLvz2bDIEohjUxyUGPc0jr
- Pp5K+kknoJuxX8Q==
-X-Developer-Key: i=leitao@debian.org; a=openpgp;
- fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|DUZPR04MB9900:EE_
+X-MS-Office365-Filtering-Correlation-Id: 86ecc363-9e84-421f-4a6f-08de4d0cc395
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|19092799006|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?t1wnOjPXDQnFGBkTQXu8opmgHC6ca9k/jW8LKWkyO4T5n3BYAUiCYZWpZjjp?=
+ =?us-ascii?Q?2M7E2Zh9odBzhkLb63LAO73ZXf6yLIDmYhuIDqyg8tA7L8QRe1faMjYJ1sbw?=
+ =?us-ascii?Q?Om77AED4wIzqbkT/4MexYnxoCIt+nE1ruqeZm2kQTONDsi8IFiQdKMcey5Wu?=
+ =?us-ascii?Q?qWByMy0LbvB8BR004cd8WLgsl9q2ZawUgkQtm9PjSMHVWxcZWEYuEtcmkIzf?=
+ =?us-ascii?Q?wtgvTLWD2PZTLagnIrBCK87TkoBxCEytmTZFnlZXBjjq0n/5U3EtLhWRhZrD?=
+ =?us-ascii?Q?8mIoOBzbiWc/ofUlVpnCAivoXxjC6ppmn6lYXN1amZ/CMSTPKWTjpzJrNUNv?=
+ =?us-ascii?Q?Jg6xkuG2FDqqVQy9Bfu2Huf9UD3mCZPks+TigccmIYnr7MVRmqVT8quo7DgS?=
+ =?us-ascii?Q?WzJ8aG8xIlh1tlzyhAo+Pzs7qnXXW8JcmR6ap/KF8v1h5RbrukS1uuqm2rBg?=
+ =?us-ascii?Q?d2ee19210JqZQZh7fMwaRG4iR79IrBMmCpu9fuBsMmykEJjZXiT6tbdamwhL?=
+ =?us-ascii?Q?48XcAF9vB5n4o9ptuzJvlxIWyH/ZziJ1FtV+gpgcH6KbXdS3WrtFcmJf8F7M?=
+ =?us-ascii?Q?Bp2NEeV1+ycNmStiB5CQ53sZEJHZYfCM9i3G+R/zWBDUW5NKvbLVcw9UbKtl?=
+ =?us-ascii?Q?IfXMCRZc4KMqUL4uKEWYCooa+5X4vFM0KKjRHalNQv3vItvxdNysienpBPVH?=
+ =?us-ascii?Q?AHE46KYqgT7cK5zgfAS/PZQUh3KF5kKWhyo83sCMotwSY+C1zDZTqPCFx3tj?=
+ =?us-ascii?Q?uUK+yDEYHftewMvFrP4Qpul7t6yESRjpUWMCpznwHi01pa+qkfpvK/HGTf9/?=
+ =?us-ascii?Q?veaih3W7L/FwjKYq8K9yP4Wb0/P2wiBrqpIB09C+nfzvI2AwxGBucIPmLmtl?=
+ =?us-ascii?Q?z0osidKMNsKxwLVc/+zEpysJVTzxHMdlj+rcg7Iqc7/H7Hahg7cQpGU+iJNr?=
+ =?us-ascii?Q?b1N6wbFQ4Yksu611Kgu9fgdf1DWMAU2H5dBEciBD726+M4YRiPgwgiqXtHZY?=
+ =?us-ascii?Q?uFF9IDjQzXqKWzzNVkRBYqtRaUs6EndDZSLITe0eQqBx5scO/zA98qYjOIt5?=
+ =?us-ascii?Q?BGfoAEc2FqBichww2sLIrHdjgJZ+yKc8uhLijSNBB44FxXZKpwPazwgb8XWK?=
+ =?us-ascii?Q?WL7efJ1gAqJo+BAqbPnexZx2tOSjj/xKyoetIYizYKy7XPMwVsPgSoRg6Tka?=
+ =?us-ascii?Q?gkg17pgUBnucpLNZGAqP4ZNudfMNJIFKp8j6yIwkWeSIK8gFYTNGlMJV8wUT?=
+ =?us-ascii?Q?XqFAC2UdwYmXObsWJZ6Zs+h6bfQR4ggdTJyxgtjVH01KXrF+3Yqz2M0mFuNH?=
+ =?us-ascii?Q?qUqdsbW4ZyNn4QaXpj22WSzjaZPLrzTkNYyjjhlfJMQ46huIx4K2qF9bnfUq?=
+ =?us-ascii?Q?Ns0VI814jN4Vr3qNz5gz7uEbbY0jiKmWFh4RdRsFebmNGRZNJiHs4RHMiEc9?=
+ =?us-ascii?Q?egzBMKVHVuK9DYshubnxkRt4LmhAZMlp?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aizF1kxOhg5h0dKy5WwS0XBzChT7LMBnbSOG+VSc0FIn9KtUhnxGe7GctgXy?=
+ =?us-ascii?Q?xr5JJOewX7cRJacu1zBnJtw0/Xyvi46joEjJ6fZq/bv6sTze4k64wtvYKW+e?=
+ =?us-ascii?Q?G87xqnxrEC/IyzUmhmiDX4EJdsGS/5fHuzUJPTWOCsF4rVzcz/G/TpNp1XI7?=
+ =?us-ascii?Q?KQdNr/gn3tOQd9T2ECdWjYSiMQdCl5JdX1Gmbz6f6A3O9a6N5byq0cgWd1vy?=
+ =?us-ascii?Q?ZmxjH/jUKbJbjQxfLNpx8m+VX+JQd613kfm+lGisiF6zL/hnyfx80mXAdt93?=
+ =?us-ascii?Q?kXCE9Uyo7GwjCWpYw1zQv2eZuMI9nLAZNumKUbYOBS3ug8Z6lK2L2b9xEouJ?=
+ =?us-ascii?Q?bvxgTYnLu56cBC1WL/ay4dunmk4hZKgo4QaffGVsU5YFMmCLtNsh3Qhws6M8?=
+ =?us-ascii?Q?w+WvuVxlRIDDb3pXcuFukDRsA0xTaZY+J16/b/pKdpFENyngVlrJnfhT3QYn?=
+ =?us-ascii?Q?R0iGgZkL9QCIwzbiy7IeyagpMwoCVyyRjjHDjnghvpGmj4xEelCaGdpEOPvL?=
+ =?us-ascii?Q?QbZaZSyjnykpYIVt8RmtmlZVxro+FosGu864HuVtVgYn6twB4qPfRpvTi897?=
+ =?us-ascii?Q?61pK2xN4bgE7UCkP4MXXcskOybCN9Q+nYbOlOLInKDiPB95qC9Ngg96rmtjd?=
+ =?us-ascii?Q?SM7fvcvp4uXemmrf+uuOPZsqyO3i9iJ8UYvOhuxDSRJi3BgGf2INWYIMDWz8?=
+ =?us-ascii?Q?so55ahMb345TTV2j0LWez9DVNVLMTFBdE67r93xx1jaIhuvLc7b6qH+9HtIA?=
+ =?us-ascii?Q?eKOXXqCriFDYyfB5tE6FvjbTvTRya0uOP0Jl0mFkXsFgXn2rKvmQGNq13RrP?=
+ =?us-ascii?Q?lD/bdO0/9O3dj3bJhluP3ezMpFYyLY7J3iHazdIqgltcA89mG5ZhEKzYd2ON?=
+ =?us-ascii?Q?ECI03SGt4Dxs0VWQcQAt7RmZkN3+v5f0cN6HTaULr3JG6eJlrsOVvh9UCbcb?=
+ =?us-ascii?Q?psUYYS4LnO5Rs1VqqzDXtpk7yifj0zJTrPUMlSp2BALugwHwY4oHbEovhrl5?=
+ =?us-ascii?Q?1O0BeyDrif1lBVdR14Fsj+xC6rV3OoN94l7i/wGlTzUCbSqhIbxl4F0a2yRL?=
+ =?us-ascii?Q?af/qh+yQpJ7JFswOn7rGoUJV08rP0+8jZqkWIIlRXBzGy7bzk3Qf9P424EqZ?=
+ =?us-ascii?Q?6Qgm7OoXM981ZaMhOxzgfDjE/BvNznpI7eLYv0lzQmoAXamgE9luwd6GAzQr?=
+ =?us-ascii?Q?mJ+gsuH2+gZs4bSZzWZk7AD1UORgoA6816a3NI6cBOUVtIEFZi6kYAbs+7El?=
+ =?us-ascii?Q?+fh9OU3Q7nAytzlSNEtqqBWcIuM9WVok8WUcFus4OSjKV/69TC1508ZDJ//m?=
+ =?us-ascii?Q?uAxvUhBqEqL5ymjnGPeEwsKIVtVJEJJroERjPQBkeWsnZ20Eg8qAKtDOMx3h?=
+ =?us-ascii?Q?Y2C6gVipZh4rqDKcxMSjttcFtKCS124k5Eg6uGKDKrvhgfb/6ZF5jN5iNDRS?=
+ =?us-ascii?Q?GdovzHUDq+faIePNxdWmh93yjcMcZXlEI8gzK+3GJr4rzifS+DhIs1a0YWML?=
+ =?us-ascii?Q?guPpZnqfxM0yyFSUAWTOmi7IRKbqNRp65x8yt24eGwBfRL5N2fQleZsTDLa5?=
+ =?us-ascii?Q?QZ4/y97RosFAJtVM/LPC/eDsf32XfDO8Is6PlZ2C6kmrI6z4JytERQTOMrcM?=
+ =?us-ascii?Q?9h7k7dm+2KDDShLNqi8UjXY2yQRPB9hUhfDkK89HTsnO/HE+Cj91lKqSDsxa?=
+ =?us-ascii?Q?UubABQgyYF5/gYtgC8vzpIFaTEMtDbcrMEjfPtBjN/wYnt8VOGv/uPLoQTZ+?=
+ =?us-ascii?Q?7TtoQbIuSA=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 86ecc363-9e84-421f-4a6f-08de4d0cc395
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2026 10:17:15.1159
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sJwwS49QOskOjMo7znKeMHcoLJlsGx0oSBjwKduo4S5LV6YUZZ0441LkBqT8qyk1Giw4NPJ8sftUaRCZ6eTdkw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9900
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_021649_061954_F1791A04 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20260106_021720_170319_982B1351 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,52 +170,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm64 kernel doesn't boot with annotated branches
-(PROFILE_ANNOTATED_BRANCHES) enabled and CONFIG_DEBUG_VIRTUAL together.
+Hi Marco,
 
-Bisecting it, I found that disabling branch profiling in arch/arm64/mm
-solved the problem. Narrowing down a bit further, I found that
-physaddr.c is the file that needs to have branch profiling disabled to
-get the machine to boot.
+On Mon, Jan 05, 2026 at 12:14:48PM +0100, Marco Felsch wrote:
+>Hi Frank,
+>
+>On 25-12-29, Frank Li wrote:
+>> Add pinctrl-name 'reset' to fix below CHECK_DTB warnings:
+>>   arch/arm64/boot/dts/freescale/imx8mp-skov-basic.dtb: switch@5f (microchip,ksz9893): pinctrl-names: ['default'] is too short
+>> 	from schema $id: http://devicetree.org/schemas/net/dsa/microchip,ksz.yaml#
+>> 
+>> The commit (e469b87e0fb0d dt-bindings: net: dsa: microchip: Add strap
+>> description to set SPI mode" force use two pinctrl-name 'default' and
+>> 'reset'. switch@5f doesn't use SPI, so it is safe to use the same pinctrl
+>> setting for both.
+>
+>please see:
+>- https://lore.kernel.org/all/20251112084717.ea7fchu7jcz6dzsi@pengutronix.de/
+>
+>I stumbled over the same warning, but came to the conclusion, that the
+>dt-bindings should be fixed instead of workaround broken bindings within
+>the dtb.
 
-I suspect that it might invoke some ftrace helper very early in the boot
-process and ftrace is still not enabled(!?).
+If reset is optional, the dt-bindings should include "minItems:1" per my
+understanding.
 
-Rather than playing whack-a-mole with individual files, disable branch
-profiling for the entire arch/arm64 tree, similar to what x86 already
-does in arch/x86/Kbuild.
+But..
 
-Cc: stable@vger.kernel.org
-Fixes: ec6d06efb0bac ("arm64: Add support for CONFIG_DEBUG_VIRTUAL")
-Signed-off-by: Breno Leitao <leitao@debian.org>
----
-Changes in v2:
-- Expand the scope to arch/arm64 instead of just physaddr.c
-- Link to v1: https://lore.kernel.org/all/20251231-annotated-v1-1-9db1c0d03062@debian.org/
----
- arch/arm64/Kbuild | 4 ++++
- 1 file changed, 4 insertions(+)
+>
+>> -		pinctrl-names = "default";
+>> -		pinctrl-0 = <&pinctrl_switch>;
+>> +		pinctrl-names = "default", "reset";
+>> +		pinctrl-0 = <&pinctrl_switch>, <&pinctrl_switch>;
 
-diff --git a/arch/arm64/Kbuild b/arch/arm64/Kbuild
-index 5bfbf7d79c99..d876bc0e5421 100644
---- a/arch/arm64/Kbuild
-+++ b/arch/arm64/Kbuild
-@@ -1,4 +1,8 @@
- # SPDX-License-Identifier: GPL-2.0-only
-+
-+# Branch profiling isn't noinstr-safe
-+subdir-ccflags-$(CONFIG_TRACE_BRANCH_PROFILING) += -DDISABLE_BRANCH_PROFILING
-+
- obj-y			+= kernel/ mm/ net/
- obj-$(CONFIG_KVM)	+= kvm/
- obj-$(CONFIG_XEN)	+= xen/
+Per checking
+https://elixir.bootlin.com/linux/v6.18.3/source/drivers/net/dsa/microchip/ksz_common.c#L5372
 
----
-base-commit: c8ebd433459bcbf068682b09544e830acd7ed222
-change-id: 20251231-annotated-75de3f33cd7b
+seems "reset" is required in driver.
 
-Best regards,
---  
-Breno Leitao <leitao@debian.org>
+Regards
+Peng
 
+>>  		reset-gpios = <&gpio5 1 GPIO_ACTIVE_LOW>;
+>>  		reg = <0x5f>;
+>>  
+>> -- 
+>> 2.34.1
+>> 
+>> 
+>> 
+>
+>-- 
+>#gernperDu 
+>#CallMeByMyFirstName
+>
+>Pengutronix e.K.                           |                             |
+>Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+>31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+>Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
