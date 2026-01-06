@@ -4,117 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06EDAC47BC5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 07:47:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5168FC47BC5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 07:59:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2D727HwYQiKquCSqeI1Wdcks3hjmQNXRwSl79hacYQc=; b=Ie9gnwCbHEKzsynMKNC0ApsSXj
-	9Gfbu+CFHtD3SbtoDTPHccQlEzKbct1YxXVH3OVYgpaaYc+jHR0GgIOt9dwJJ4CDuFFfP7vciB3Lh
-	/GIeAPMzSEbnxti447Fm65V4imYBZGcdt7oDx03gYCzQGMey7IkC0maHF/tANlNpRO3uMdax1PZlI
-	1ZlVAhetD/gXGG/hGLAqNtxwSjKvnAdz9KokKpfpVL6ani44r2Trmv36OJLduzinuuPuzamv2SJdx
-	SvMJ8GfSlh5p74QcHy6vC/0dZcmBArQbEOhTQLi/7XOO1KBkeQOsIrLRwsnHmQYc0UjKda9Tkq4TO
-	Toq9mLuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/xT86fGyU8vR02LLDSOIv3YTUgVfPlh7wnV/Q4AOSXA=; b=kVhitP8KkUV1rP63cGIvCxtz9k
+	ByA9H5v7gNyQHPbploed49Jo6ZnGXmhi9iwe8hwO0NwgS7uXCqkVmBgtTv8JrcCZid4paz0ABGNeH
+	1iduMU66jViuWQaZuEeFzG/oAIwm86CUTNIu60unrosQTIEqUdmzJXA9ejwGeSKNLpF+VPFdGutlr
+	S3gRfaKspkJQfsai2+aT90nHFoe2bTuZoHsfKnUWTQK7x/0VbYAUcqf+IUYq3hQDSZChThK9mV4XZ
+	xHU2u6gvQqbeEzHMoj2sEDlyd+/gqHrWdwujMttFtO/JY1ZfHRo1sFA6UmS4sXuecyZvPhvYfvJa9
+	BCMFUakA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd1mr-0000000CYDb-0NpK;
-	Tue, 06 Jan 2026 07:47:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vd1y4-0000000CZy2-17EE;
+	Tue, 06 Jan 2026 07:59:04 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd1mp-0000000CYBb-2KVA
+	id 1vd1y1-0000000CZxd-2zBJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 07:47:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A3BC260147;
-	Tue,  6 Jan 2026 07:47:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27AC2C116C6;
-	Tue,  6 Jan 2026 07:47:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767685646;
-	bh=JMy7HveBG/Hvay9PrFz8hIdQiHB0fgpsWfolz0ISj1o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BFohZBo/m+HGAjcrGa4q2BYVtAqyR3aWmHsvLwTIZYJez6uauneJpplO/2GcRW8Zb
-	 IUFAheOwJmym8/rSmODYMnSC5j2EdbP38CM6tcz9KoB9IRQ0EtxKByPiBs1f/04hfd
-	 K38a57wtg1q+BMKDaNK9ijMrEO1VBt74M15/JsQSEpE/dKodFpfgkAi/osDT1vFngg
-	 2inxLFuVsumphUkHnnVgvjTxFQI//ci+N1XQiy4hhhERHSd3tPLdXDzS/9/3xhHFIW
-	 xB8Lnk5UtaaPluNRt4LzcssrPbi6UnUqbEfwvNOrGmFpj5fV1YwidJ/4aDsfZJ8QZW
-	 86JgJXEGinYuQ==
-Message-ID: <d160b86e-f4a0-4a74-b53d-00dbd35a0228@kernel.org>
-Date: Tue, 6 Jan 2026 08:47:22 +0100
+	Tue, 06 Jan 2026 07:59:03 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4779cc419b2so5468685e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 23:59:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1767686339; x=1768291139; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:date:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/xT86fGyU8vR02LLDSOIv3YTUgVfPlh7wnV/Q4AOSXA=;
+        b=DK8p6TzzM2SAySDY/ie+w/RCWN83swCFa6tNJk28JLja//uqEIEx2BWZBTIIYovWBA
+         Ufmnp15w6Py4rpemz4LvxWWbYjtJhIl4tDVIR9cJa0KDXyFVB3QpmqM4UaNqgNqgQG8l
+         7O16xw1Qlb5NjDVGVoc3O8Mr6Z/e5cHPX/lCmfto7kfChEW7ouM6zpsdTcOeT3hmHPrp
+         Q/8ROapOwZ9OQGdmUZ767Zs5NVfQN86J/UfTOmC5FOe15fB2oiBZK33KQXQ7sfGDBGUl
+         OWjbYGK/dYxD4TF3fl/bi2dYcU4Ejr0U2LiYZLhQLhWXSAFoyM/pFS1asI4dXswj7k9z
+         goUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767686339; x=1768291139;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=/xT86fGyU8vR02LLDSOIv3YTUgVfPlh7wnV/Q4AOSXA=;
+        b=VNIehTQxRSzC+/Vu8HQsjx4+ZZ7cd/OtntZBicWoZpPVmMk5BrKknDRJau32eq7QXl
+         mcIQaIjnF/OKh0DzELBaHzUPEipBbNmG2hHyaG/FQDYOxrv323VIFSUQvPB2dwKaKWsH
+         WccxQXcSY4LYf2MPbuHGz+rP0SlSvIA6lNjJJjn8al/kyHzirsHvwu3d0fX5GKfffhYt
+         VuVifuoqqADqKaGPpZm4vi83Xb8f274VvOH4Wldu32DOZFrAeNL7KztmYf0OYnp1+o1M
+         qQr7MhaNl8ua19dkjUfq9BmwpdgislBbfQ1JiieCNKFFsjHkGpUUr1x0lm/ktGkINk0W
+         r6wA==
+X-Forwarded-Encrypted: i=1; AJvYcCUQ3UI3H8UMkTcbYqH35iA6y5rrdDYEdhaQwZ8M3shz125gZlSpRUsWXmPmjmef8Hk5CrLDcA2sbbfIQG24xpgT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeeiDEgP6D4D5sxaNe/2VKqQGTU+QzjtXu3UThgf7KalXsmuAM
+	4Cu67b1U5UGCYbphasoegzn2hey+5y7RUrovATzztl1UHfHMmo9nsPLjxyNAfK085rM=
+X-Gm-Gg: AY/fxX7wZ3uCghVvTaOz6pywwF/qHe3p0KTsZsuR04xIXNUxfTrAx/97HwSZRT24Vvt
+	x/PXSfIu+pRJUr/UE2FLiYOe7l8Ajk6x4jPW2g26NEEaCBT2cXXUCBiiWMAveYXBRYEFXItMT7D
+	3UWcSCTkKwbABd3Oik18Ly6PUKpaOX6sbhwJeLzY5uNwqd1DrB+u4wF6YDfRTNiFajgRZk/LdVu
+	MO2VPnLzTsSUCEl4WVmEiJhRPMLJbI3b1RzJH/IRsW3g1udXhsSWAM1Mq5ih0+qMYzw+23B9X6b
+	uqodpiGrNfIr3LkzXzq/ZtVYaG465ZZQn/2F/KW0NzKlgcuCg1hu+Fgpg88OqWpK8R9wTYtRtba
+	+iqFcZS3qWB9K8amngjEdRA4z29L7klV/WKi/Gx0o/7lUEpMd2lY9S5ghareGVg8t/ZniCEds+d
+	ZSzAOFGvaK/yPSSNJfWmKV76uV7gRjl/CeE5psjBKU4A==
+X-Google-Smtp-Source: AGHT+IHBJ6fsCXy9NO/d28W93MTm63DgHduveSL/TEkdamQz+BL02b7OzR0NOgGoMHSHrSsYeON5Iw==
+X-Received: by 2002:a05:600c:444d:b0:477:97c7:9be7 with SMTP id 5b1f17b1804b1-47d7f0671fdmr23249935e9.1.1767686339113;
+        Mon, 05 Jan 2026 23:58:59 -0800 (PST)
+Received: from r1chard (1-164-79-94.dynamic-ip.hinet.net. [1.164.79.94])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-819c59da826sm1286179b3a.46.2026.01.05.23.58.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Jan 2026 23:58:58 -0800 (PST)
+From: Richard Lyu <richard.lyu@suse.com>
+X-Google-Original-From: Richard Lyu <r1chard@r1chard>
+Date: Tue, 6 Jan 2026 15:58:54 +0800
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Ben Horgan <ben.horgan@arm.com>, linux-efi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, ardb@kernel.org,
+	catalin.marinas@arm.com, will@kernel.org, Mark.Rutland@arm.com
+Subject: Re: [PATCH v1] arm64/efi: Don't fail check current_in_efi() if
+ preemptible
+Message-ID: <aVzAvqv8JnjrjJbF@r1chard>
+References: <20260105135847.1585034-1-ben.horgan@arm.com>
+ <aVvPIdREAdweYqZf@e129823.arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: =?UTF-8?B?UmU6IOWbnuWkjTog5Zue5aSNOiDlm57lpI06IFtQQVRDSCB2MyAxLzJd?=
- =?UTF-8?Q?_dt-bindings=3A_arm=3A_cix=3A_add_OrangePi_6_Plus_board?=
-To: Gary Yang <gary.yang@cixtech.com>
-Cc: Peter Chen <peter.chen@cixtech.com>, Fugang Duan
- <fugang.duan@cixtech.com>, "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "linux-cix-kernel-upstream@cixtech.com"
- <linux-cix-kernel-upstream@cixtech.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20260104075400.1673101-1-gary.yang@cixtech.com>
- <20260104075400.1673101-2-gary.yang@cixtech.com>
- <20260105-excellent-uakari-of-joy-f0dfa4@quoll>
- <PUZPR06MB588755A9FB6B42AAA870E30BEF86A@PUZPR06MB5887.apcprd06.prod.outlook.com>
- <63454553-01df-4c40-aad3-7ea64bef685e@kernel.org>
- <PUZPR06MB5887263D5B0A6DB373816925EF87A@PUZPR06MB5887.apcprd06.prod.outlook.com>
- <33a70735-8058-4c2c-91f4-2a3ed0e0274d@kernel.org>
- <PUZPR06MB588702988BAC0F34DFDCD6ECEF87A@PUZPR06MB5887.apcprd06.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <PUZPR06MB588702988BAC0F34DFDCD6ECEF87A@PUZPR06MB5887.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aVvPIdREAdweYqZf@e129823.arm.com>
+User-Agent: Mutt/2.2.13 (2024-03-09)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260105_235901_770326_A6A3994E 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,154 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/01/2026 08:41, Gary Yang wrote:
-> Hi Krzysztof:
+This change is good to me.
+Reviewed-by: Richard Lyu <richard.lyu@suse.com>
+
+On 2026/01/05 14:48, Yeoreum Yun wrote:
+> LGTM. feel free to add:
+> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > 
-> Thanks for you commets
+> > As EFI runtime services can now be run without disabling preemption remove
+> > the check for non preemptible in current_in_efi(). Without this change,
+> > firmware errors that were previously recovered from by
+> > __efi_runtime_kernel_fixup_exception() will lead to a kernel oops.
+> >
+> > Fixes: a5baf582f4c0 ("arm64/efi: Call EFI runtime services without disabling preemption")
+> > Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> > ---
+> > On the partner platform I was testing on this issue caused the boot to fail.
+> > ---
+> >  arch/arm64/include/asm/efi.h | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm64/include/asm/efi.h b/arch/arm64/include/asm/efi.h
+> > index aa91165ca140..e8a9783235cb 100644
+> > --- a/arch/arm64/include/asm/efi.h
+> > +++ b/arch/arm64/include/asm/efi.h
+> > @@ -45,7 +45,7 @@ void arch_efi_call_virt_teardown(void);
+> >   * switching to the EFI runtime stack.
+> >   */
+> >  #define current_in_efi()						\
+> > -	(!preemptible() && efi_rt_stack_top != NULL &&			\
+> > +	(efi_rt_stack_top != NULL &&					\
+> >  	 on_task_stack(current, READ_ONCE(efi_rt_stack_top[-1]), 1))
+> >
+> >  #define ARCH_EFI_IRQ_FLAGS_MASK (PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
+> > --
+> > 2.43.0
+> >
 > 
->> EXTERNAL EMAIL
->>
->> On 06/01/2026 05:52, Gary Yang wrote:
->>> Hi Krzysztof:
->>>
->>> Thanks for your comments
->>>
->>>> EXTERNAL EMAIL
->>>>
->>>> On 05/01/2026 09:49, Gary Yang wrote:
->>>>> Hi Krzysztof:
->>>>>
->>>>> Thanks for your comments
->>>>>
->>>>>> EXTERNAL EMAIL
->>>>>>
->>>>>> On Sun, Jan 04, 2026 at 03:53:59PM +0800, Gary Yang wrote:
->>>>>>> OrangePi 6 Plus adopts CIX CD8180/CD8160 SoC, built-in 12-core
->>>>>>> 64-bit processor + NPU processor,integrated graphics processor,
->>>>>>> equipped with 16GB/32GB/64GB LPDDR5, and provides two M.2 KEY-M
->>>>>>> interfaces 2280 for NVMe SSD,as well as SPI FLASH and TF slots to
->>>>>>> meet the needs of fast read/write and high-capacity storage
->>>>>>>
->>>>>>> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
->>>>>>> ---
->>>>>>>  Documentation/devicetree/bindings/arm/cix.yaml | 11 +++++++++--
->>>>>>>  1 file changed, 9 insertions(+), 2 deletions(-)
->>>>>>>
->>>>>>> diff --git a/Documentation/devicetree/bindings/arm/cix.yaml
->>>>>>> b/Documentation/devicetree/bindings/arm/cix.yaml
->>>>>>> index 114dab4bc4d2..9e132e609b7b 100644
->>>>>>> --- a/Documentation/devicetree/bindings/arm/cix.yaml
->>>>>>> +++ b/Documentation/devicetree/bindings/arm/cix.yaml
->>>>>>> @@ -16,9 +16,16 @@ properties:
->>>>>>>    compatible:
->>>>>>>      oneOf:
->>>>>>>
->>>>>>> -      - description: Radxa Orion O6
->>>>>>> +      - description: Radxa Orion O6 board
->>>>>>>          items:
->>>>>>> -          - const: radxa,orion-o6
->>>>>>> +          - enum:
->>>>>>> +              - radxa,orion-o6
->>>>>>> +          - const: cix,sky1
->>>>>>> +
->>>>>>> +      - description: Xunlong orangepi 6 plus board
->>>>>>> +        items:
->>>>>>> +          - enum:
->>>>>>> +              - xunlong,orangepi-6-plus
->>>>>>
->>>>>> Previous patch was correct, not this one.
->>>>>>
->>>>>> <form letter>
->>>>>> This is a friendly reminder during the review process.
->>>>>>
->>>>>> It looks like you received a tag and forgot to add it.
->>>>>>
->>>>>> If you do not know the process, here is a short explanation:
->>>>>> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
->>>>>> versions of patchset, under or above your Signed-off-by tag, unless
->>>>>> patch changed significantly (e.g. new properties added to the DT
->>>>>> bindings). Tag is "received", when provided in a message replied to
->>>>>> you on the mailing list. Tools like b4 can help here. However,
->>>>>> there's no
->>>> need to repost patches *only* to add the tags.
->>>>>> The upstream maintainer will do that for tags received on the
->>>>>> version they apply.
->>>>>>
->>>>>> Please read:
->>>>>> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/pro
->>>>>> ce
->>>>>> ss/sub
->>>>>> mitting-patches.rst#L577
->>>>>>
->>>>>> If a tag was not added on purpose, please state why and what changed.
->>>>>> </form letter>
->>>>>>
->>>>>> Read last sentence and linked documentation. Where did you explain
->>>>>> ignoring/dropping my tag?
->>>>>>
->>>>>
->>>>> Yes, the previous version was acked by you before.
->>>>
->>>> I stressed what I expect twice. In form letter and later explicitly.
->>>> You still ignored it.
->>>>
->>>>>
->>>>> When apply it, we found that orangepi 6 plus and Radxa Orion O6
->>>>> belongs
->>>> the different boards.
->>>>>
->>>>> So we need to add a new item for it. Like these from qcom.yaml
->>>>>
->>>>>       - description: Qualcomm Technologies, Inc. Distributed Unit
->>>>> 1000
->>>> platform
->>>>>         items:
->>>>>           - enum:
->>>>>               - qcom,qdu1000-idp
->>>>>               - qcom,qdu1000-x100
->>>>>           - const: qcom,qdu1000
->>>>>
->>>>>       - description: Qualcomm Technologies, Inc. Radio Unit 1000
->> platform
->>>>>         items:
->>>>>           - enum:
->>>>>               - qcom,qru1000-idp
->>>>>           - const: qcom,qru1000
->>>>
->>>> No, look at SoCs. Different SocS.
->>>>
->>>
->>> Please Look at rockchip.yaml, the same Socs, and the different boards
->>>
->>>       - description: 96boards RK3399 Ficus (ROCK960 Enterprise Edition)
->>>         items:
->>>           - const: vamrs,ficus
->>>           - const: rockchip,rk3399
->>>
->>>       - description: 96boards RK3399 Rock960 (ROCK960 Consumer
->> Edition)
->>>         items:
->>>           - const: vamrs,rock960
->>>           - const: rockchip,rk3399
->>>
->>> For the different boards，please give your professional
->>> suggestions，Thanks a lot
->>
->> I gave you already.
->>
+> --
+> Sincerely,
+> Yeoreum Yun
 > 
-> We find these codes below from qcom.yaml, Can we do the same things?
-
-Open your binding. How many SKUs you have? ZERO.
-
-Why do you ask if you can add more SKUs? To make the bindings fake? I
-already told you what you have to do and you completely ignored it.
-Previous code was correct, but you need to fix description. And look how
-Qualcomm or IMX organizes this file.
-
-I finished responding here, because you just don't bother to read my
-replies.
-
-Best regards,
-Krzysztof
 
