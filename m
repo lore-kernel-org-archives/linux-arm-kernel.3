@@ -4,89 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A844C47BF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 14:18:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BC2EC47BF5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 14:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6L9I4jifURuPkyw0SLiCyDPtPtIna92lXXuS2wPgV5A=; b=W6S8LXeTBACT9v8UJy81kObik2
-	UL1XsTM+wGSZK+qTDHaEFPQAbOGfm8t5Wc5ozMFFkwjnjwA5vUR5+vK0ge40oBLL4wVIoibAJoiDy
-	FftbxqdZbJwF/5w7FbSKJN7b+2ldd15Z/R55QdewO3GtiCTbUdYhEWU8C5+s/oyS/jSFry3WGoYjr
-	VgjxbrumEGsLRSp9j7ML979R91/5VgY9d7mfkHtA9P00P+8ChdgIoix4oPfhxtW5v76AAtSFvwrSj
-	SUlsrhYDtq5UvU7n3Y0DPIYpntpYK0Z9TAHZxQZSh9c0YVGD0H38enkOIXBurslj7QIKOC1ArZgHM
-	eD2OZktQ==;
+	bh=PDyomPMwSX0nUznUeSpIGPTPKXqo/Pa069JTwjCcRpo=; b=Z52XJDUSfg1SUtbjG7TeWZ513z
+	Egdkpmltu8WLo5dq69S/i0ETzvNNQ5+udO2THp63ofGt1LKVqnVNAk1nf/k+iydBYpa1nHlGNu5Ma
+	FRAvfYljoZcBJhML0LYRC/m4gbjBkg19gUV/mqrvojilcVMy8b6KjG+QQBdDKjdDOe/HsETeGlEsH
+	hFVu3BTeUcz+5aVFx2z/fynR/Zl9QHMxT5zE+pgsCbqTyr2GKH9d02XN51w/xtCY3zE94LUiU2qdD
+	mS+EgBIOAUkHdFbZ6yOxTkU1NcJA0F0XVLB8CHCY49yAy3JFKCPpxCuQ+kLYq3EmPTiGZh3WlTZhO
+	UyHV7DxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd7t3-0000000DGZS-01PC;
-	Tue, 06 Jan 2026 14:18:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vd7tX-0000000DGhW-08oo;
+	Tue, 06 Jan 2026 14:18:47 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd7sw-0000000DGXO-1g2e
+	id 1vd7tT-0000000DGgJ-2Uqu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 14:18:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AD7CF443CA
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Jan 2026 14:18:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 935D6C2BCAF
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Jan 2026 14:18:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767709087;
-	bh=9Ym168jY0juUmceNY7e8j0i+6pSJU5pRFOBf6YtVzDo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=bOOHiz+z351DggBlKZJG1l4SIBZi5rGrJuMJFrTSuCC2bhYg3GVmw+EzTJ8+4o8d6
-	 mfYKrjdZQleutU3LNIOJvytnRti1+tJxYEb5+FMc6i0af14bQLGN0lgtW7mtsU2Nzu
-	 6ryFz4M8Vn1p9iUNI1fLTWCa+m4bpeR2lNFEDKERvGn1VG6CP12akkl/4e/LRbhqaQ
-	 62Twt75lEl7bQuHsNLBEHkd+BPwKedPvj2JfLdCbCO/vQwTZc6DBtiCiXsT/Efz4cM
-	 7UiMgJqXCVK8SCkbDxCkKvsHQiwcHjxf2pPEiyTaEp11J2cA9WDICgY+7wYxuhNMRE
-	 KZcuMKroFvL4g==
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-37d056f5703so8412201fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 06:18:07 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUuBDWfConTR3413hrM5XWYKexkkDoGCvz1jma6lFYEd8ECe3JlUn/PjULwQc3JtXha5BireUB2nS++HthZjZkL@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDBo8PmXz70RpVR8EYVY/Q3Y24SeDBuCtF6dRcus5BW2S2YFKx
-	Ltt3NxH/q7U6QKrHtYHzi3IxUQyhW/MAJpggpLy5ZKjqNLeEUSXjsjj1VSmrZciSjEW/FN0wNs8
-	E/9oL+P/GzY4jRyhwBj6h2ieZoBKdV7HuP2gKGxbkFg==
-X-Google-Smtp-Source: AGHT+IGMmSz6Ltdahe1rVY6f+YVLJmMwESu8W203AziADCClkRGLN7rkSW5dIW6LKxsDjFSC7ntBorz6/82D0HbV854=
-X-Received: by 2002:a2e:bc15:0:b0:37a:9558:5bda with SMTP id
- 38308e7fff4ca-382eaa05568mr8077901fa.14.1767709085885; Tue, 06 Jan 2026
- 06:18:05 -0800 (PST)
+	Tue, 06 Jan 2026 14:18:45 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-477632b0621so6158565e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 06:18:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1767709120; x=1768313920; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PDyomPMwSX0nUznUeSpIGPTPKXqo/Pa069JTwjCcRpo=;
+        b=Is7VFiU++Zf3zYDfgqdwVVlkFZkNDf3SmgTn69oKBstcrsrQ8bLzBI4dfsqJCCTOR7
+         dUFFGajW9NVC2QNjnktM/kWbvt/iAhAUN9eNGr9zmlQ0lAOnaE3AhUCCrB+f3kvrv16a
+         +F8QCXl6MFmBPlxNrX+N7yp17UdOPh+54/pX5MGmO88CtQkQzz9HzE1slOaI7GdHma/E
+         DODiwt2SWKGGrkzJ02MvwqQtFn6xARZL4LaGDee/BcG1O5jLR9QcOpQYEE2cK1M8yyDK
+         +IwA7sSfOUrKHMXrvCFtsAH+eWZsYfMqkWlDjQYu7sQwPLSbxw7vIJI5ILD615ftz6bl
+         M8BA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767709120; x=1768313920;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=PDyomPMwSX0nUznUeSpIGPTPKXqo/Pa069JTwjCcRpo=;
+        b=BDqT7SJtpDe0BvXSjw11gKNP0m70cjMotyhANA8+OPeq8Ac4FB1cByc2F5kjl/EQNc
+         Z0LOpwY5cq8a2KKaa71a2MiM1mFyy5X2okuwRZrWi7W/SbNTBs0k0o1zBywpKg7dU9a/
+         QkJJCeo9SLSmC7Ym6t9PsC2n4tX2Odpho/m2vttnhx3wvt4HZbRqDYTgpzfNZS8tfP5v
+         NH6lBxfp+2unIg8j7ahHQkoI22bAM1SDdtOih/UGLmwQEUw7NdzZ4m9nSXRjfTfkG0RX
+         SJICs/5tEd6qw2ha/ckV3RdX5HD38tG48wVBqKyyF3536897F6eCg/ZMLrdpcbb0x/Dh
+         1hMg==
+X-Forwarded-Encrypted: i=1; AJvYcCV91ahMgQOb50JjOu3A2SErh4o8SbrgoJpl4cHSHNgLlrB0JfnhSJCKiuAy2B/kph965QMlCnqrIRxEc5JLP9fb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3PdZ2vCoLpvPmNT/FaZ26PIttUF1IDV5s5Bix6oC47ZlNqhip
+	2PW7BxX0gTNtr4bXSgY8S5tnBirSbcKAsxmaYiIE7PMGCGP3iKy8IgItRWvtB66Lbbc=
+X-Gm-Gg: AY/fxX5h/3osOgHQGjprNCEgbqYgudyRmqOyXsMJuC29qqpagt/CpyUzkcgaYVKzW7o
+	pk7uHNSsjjbEnyhXuO/IWuPiCQRPy534Q/f869sUvbmyn4rVnH2Fl/IbUZSsdHb38rcA2Y/ynL9
+	iBugQGgdCPB3RJif5CPTR426FYO9wIYbLK254VFhwpyaAxuqinJyslOVUFUEdP1AN7IXMfwl70W
+	6Fgb4GCS/WbXiJi8EliAfnBUhgN4xd/vHDmUu7mMEYyIyUXKSKSQdoM3SNQFJjqgQhJfVOjup01
+	2znEr2GLssMy/o5uIBgqCtYYX+F0P7u82Y/xqRFNnCobJ8uSPWFUzRgR3M/Z4rX4Cz+YWWUW5oQ
+	L/GcEmBIieGnVIfnZ1fTufnBMDafWbsqRgc4DnMsspKwsr6ThmHhKJ31SO215JoZzQeEgyaTwbC
+	ErYESive2k+H9YbzMS6lZ/
+X-Google-Smtp-Source: AGHT+IG4RoI4YqTRfLqMtHqERY+dKFavuI8R+zT2rhNFCJf6Ipd0EyH0ZjVfMEfxdwK/NE7/Y+RH/w==
+X-Received: by 2002:a05:600c:1d8c:b0:46e:4b79:551 with SMTP id 5b1f17b1804b1-47d7f0a324emr36773525e9.31.1767709120058;
+        Tue, 06 Jan 2026 06:18:40 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:e488:b673:7409:68d0])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-47d7f7035f2sm43558785e9.12.2026.01.06.06.18.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Jan 2026 06:18:39 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: linux-amlogic@lists.infradead.org,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	jian.hu@amlogic.com
+Subject: Re: [PATCH v1 0/3] clk: meson: small fixes for HDMI PLL OD
+Date: Tue,  6 Jan 2026 15:18:23 +0100
+Message-ID: <176770907988.1004563.13571465521875416136.b4-ty@baylibre.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260105204710.447779-1-martin.blumenstingl@googlemail.com>
+References: <20260105204710.447779-1-martin.blumenstingl@googlemail.com>
 MIME-Version: 1.0
-References: <20251223-i2c-adap-dev-config-v1-0-4829b1cf0834@oss.qualcomm.com>
- <20251223-i2c-adap-dev-config-v1-6-4829b1cf0834@oss.qualcomm.com> <CAMuHMdW5ffiW_vEuDjV5bnmTeduhoqph7t8rsaFEVO7RXOM8jg@mail.gmail.com>
-In-Reply-To: <CAMuHMdW5ffiW_vEuDjV5bnmTeduhoqph7t8rsaFEVO7RXOM8jg@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Tue, 6 Jan 2026 15:17:54 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MctSufFn4Ku_8KBHmThvNOXo94DJDep-hzBem1yGw4wkg@mail.gmail.com>
-X-Gm-Features: AQt7F2rlYGWw0wYVcdfcu_38DzK8jJE5ZLbWHuaZHuyFfl6BwHPNSW4tcfiCMeQ
-Message-ID: <CAMRc=MctSufFn4Ku_8KBHmThvNOXo94DJDep-hzBem1yGw4wkg@mail.gmail.com>
-Subject: Re: [PATCH 06/12] i2c: rcar: set device parent and of_node through
- the adapter struct
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>, 
-	Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>, Andi Shyti <andi.shyti@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Vignesh R <vigneshr@ti.com>, 
-	Aaro Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik <jmkrzyszt@gmail.com>, 
-	Tony Lindgren <tony@atomide.com>, Andreas Kemnade <andreas@kemnade.info>, 
-	Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Patrice Chotard <patrice.chotard@foss.st.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>, linux-i2c@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	linux-rpi-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_061810_478340_217788F6 
-X-CRM114-Status: GOOD (  21.25  )
+X-CRM114-CacheID: sfid-20260106_061843_882423_4BA042C6 
+X-CRM114-Status: UNSURE (   6.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,70 +105,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 6, 2026 at 10:14=E2=80=AFAM Geert Uytterhoeven <geert@linux-m68=
-k.org> wrote:
->
-> Hi Bartosz,
->
-> On Tue, 23 Dec 2025 at 11:05, Bartosz Golaszewski
-> <bartosz.golaszewski@oss.qualcomm.com> wrote:
-> > Configure the parent device and the OF-node using dedicated fields in
-> > struct i2c_adapter and avoid dereferencing the internal struct device.
-> >
-> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.co=
-m>
->
-> Thanks for your patch!
->
-> > --- a/drivers/i2c/busses/i2c-rcar.c
-> > +++ b/drivers/i2c/busses/i2c-rcar.c
-> > @@ -1149,8 +1149,8 @@ static int rcar_i2c_probe(struct platform_device =
-*pdev)
-> >         adap->algo =3D &rcar_i2c_algo;
-> >         adap->class =3D I2C_CLASS_DEPRECATED;
-> >         adap->retries =3D 3;
-> > -       adap->dev.parent =3D dev;
-> > -       adap->dev.of_node =3D dev->of_node;
-> > +       adap->parent =3D dev;
-> > +       adap->of_node =3D dev->of_node;
-> >         adap->bus_recovery_info =3D &rcar_i2c_bri;
-> >         adap->quirks =3D &rcar_i2c_quirks;
-> >         i2c_set_adapdata(adap, priv);
->
->     [....]
->     ret =3D rcar_i2c_clock_calculate(priv);
->     [...]
->     ret =3D i2c_add_numbered_adapter(adap);
->
-> As rcar_i2c_clock_calculate() uses rcar_i2c_priv_to_dev(priv):
->
->     #define rcar_i2c_priv_to_dev(p)         ((p)->adap.dev.parent)
->
-> I believe this will deference dev.parent before it is initialized by
-> the newly added code in i2c_register_adapter().
->
-> Let's check...
->
->     Unable to handle kernel NULL pointer dereference at virtual
-> address 0000024c when read
->     [0000024c] *pgd=3D80000040004003, *pmd=3D00000000
->     Internal error: Oops: 206 [#1] SMP ARM
->     Modules linked in:
->     CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Not tainted
-> 6.19.0-rc3-koelsch-04401-g9e22366a23cd #2288 NONE
->     Hardware name: Generic R-Car Gen2 (Flattened Device Tree)
->     PC is at device_property_read_u32_array+0x0/0x14
->     LR is at i2c_parse_timing+0x14/0x30
->     [...]
->     Call trace:
->      device_property_read_u32_array from i2c_parse_timing+0x14/0x30
->      i2c_parse_timing from i2c_parse_fw_timings+0x28/0x12c
->      i2c_parse_fw_timings from rcar_i2c_probe+0x1cc/0x534
->      rcar_i2c_probe from platform_probe+0x58/0x90
->
+Applied to clk-meson (clk-meson-next), thanks!
 
-Thanks for the heads-up. I'm still waiting for Wolfram to decide if
-these changes will be accepted or not before sending a v2.
+[1/3] clk: meson: gxbb: Limit the HDMI PLL OD to /4 on GXL/GXM SoCs
+      https://github.com/BayLibre/clk-meson/commit/5b1a43950fd3
+[2/3] clk: meson: g12a: Limit the HDMI PLL OD to /4
+      https://github.com/BayLibre/clk-meson/commit/7aa6c24697ef
+[3/3] clk: meson: gxbb: use the existing HHI_HDMI_PLL_CNTL3 macro
+      https://github.com/BayLibre/clk-meson/commit/2fe1ef40b58c
 
-Bartosz
+Best regards,
+--
+Jerome
 
