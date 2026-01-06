@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6191CEFCEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:30:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6561BCEFCE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VOU0S7R/C48eCf5z1Erg51Ghwrl71NJ7rBkIRjm+AWQ=; b=U1AJMBJYa1u8OOOwWA7rrMqEWA
-	34POKXBJEws4UYi/qyVzx+PKwpQGbfL7B6oRhiOqChQN1SLKxmQCs6i05ZqbfLgOht9B/LVpdk3xN
-	tKjQnrmIDiIWxcWAWtaIbC2v+fiH/vi3PLyvvIhgMialnC5Zt3QaEqxCPjKYg5Rg9DZrWACgFkHW4
-	NLfqewrxlRrfhiP66//FSjQPlp9Ix9SOK9BNOFzoIA6rs32e119xfQrd+cEtmfwTvdi+ZSbTScDO5
-	tzbWE1seuZ5FjcAZpWjq0WVZlOcJqlXuCuCBUU02pLHH7yurLEcFG17IFbJxLxv5fRYGocbIwO5WD
-	5GZyry3A==;
+	bh=ORXGOhaoUPxiSNnRknjvw/jwxTx3eVJGmvTdNcJm7WI=; b=TN3duWy/oiMc1WoMMvBJp1QqMk
+	Amogp+FojXtbew+g1JsgMGcHk1jeD+unMKAqKOJ+7ltbyXFy0pGza3p7P9IZpbvMUa61CUrajLErM
+	OCGWP5/Xg9tdAePAPCN58T1GlU6VQdwkpmVM6QOC+071zvMLWFTt90FqLVr5UQk3WQS9L/J2vIdSj
+	FcxWwZQU2yirzFmfaejQRQhg7e5RdCyu6F//PJfDcdyflyqAgLl2mtpTiCsJXAqVy/oIB9HJmu2dS
+	VApxGudGLg5SvXlOj+tMl9oE572m+ffZ/4cS7ez0ts/mS6sQmmgIeXo0GjkyeV7+QqBRzFIIzdHkw
+	ufUj3BpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBoe-0000000DgUh-0Kj8;
-	Tue, 06 Jan 2026 18:30:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdBpc-0000000Dgcz-3KUD;
+	Tue, 06 Jan 2026 18:31:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBod-0000000DgUT-1ogu;
-	Tue, 06 Jan 2026 18:29:59 +0000
+	id 1vdBpb-0000000Dgcn-3Ske;
+	Tue, 06 Jan 2026 18:30:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D9DAF60147;
-	Tue,  6 Jan 2026 18:29:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78291C116C6;
-	Tue,  6 Jan 2026 18:29:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E221F60146;
+	Tue,  6 Jan 2026 18:30:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D66EC116C6;
+	Tue,  6 Jan 2026 18:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767724198;
-	bh=wNVX7IulzCBkQzn3kkWj0KnrC5s7RfNjvq83HQ/7WuY=;
+	s=k20201202; t=1767724258;
+	bh=j3qYVdPPtQj7nJ6L9su6FYxFtx1ULd6M1YMn3jzqG1s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ef8YQM2LNQq6eiBNXSz7SThHvlUBz987WkGv56drRGEP4fiXfCduAAzcpj9vZvZcU
-	 3bgSps3+biPcyABJQNg5exqJCTVu7nRpD+08OWWBrZ8unXslaT62EkjnEeaAzZMTY9
-	 MQxoScxhA/goVPXQLN5PLULCszRq/6J9Q5zTM9x3pD98WgRz8KPQuTOQYyHda6Yb+7
-	 4p+ftJhsbM4YmXtxJpSXeNwTWnl/A3cmrYwqohaqebrzhtcEbEL7zt8FNrf6tNoyKh
-	 orlYfnOFCrgpyjaKU7PA+sb9R3NRYfRpIq43N3MvTdlJl7RjmjpbaL/wm61iz7JpN4
-	 RJfsAaXDJeHUg==
-Date: Tue, 6 Jan 2026 12:29:57 -0600
+	b=cVUNTnScjx9U13l0GiA6oDagtHlYJ+115kprdo0k5eSD2WN7/1FmZb3prYZusi8yv
+	 pqe47XT9I1GQbsqIyUYBO9Y10CIPbHWOWTzgNCWQylTYmUdUe2VjvO+RUG21PgHLcs
+	 OC66YnuftXr01LCENL8kRQaUT7IoatIgvdyRGJM/3M2BlRqJj7CPCfx+xWlbr2Tarn
+	 KMJuJZ0/1GqnW1EBTvQsr3A9kRoPZ/qFGMB/fDOcvUH5k/fsI3fHGLnQ4ff863bM0l
+	 95r0WUv1lvm3A1Ndwt4S7fq5ptXoYS+z5FALY+jUFlreeTyRObSLJ4dFf7MJL03EHR
+	 azjZmRORK8GpQ==
+Date: Tue, 6 Jan 2026 12:30:57 -0600
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: conor+dt@kernel.org, linux-kernel@vger.kernel.org, krzk@kernel.org,
-	linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org,
-	devicetree@vger.kernel.org, rogerq@kernel.org, sjakhade@cadence.com,
-	vkoul@kernel.org, srk@ti.com, linux-phy@lists.infradead.org,
-	neil.armstrong@linaro.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: phy: Add PHY_TYPE_XAUI definition
-Message-ID: <176772419699.2512006.6478554353373580831.robh@kernel.org>
-References: <20260104114422.2868321-1-s-vadapalli@ti.com>
- <20260104114422.2868321-2-s-vadapalli@ti.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: conor+dt@kernel.org, krzk+dt@kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	uwe@kleine-koenig.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 4/5] dt-bindings: arm: rockchip: add TS133 to
+ RK356x-based QNAP NAS devices
+Message-ID: <176772425740.2513273.11038899818156080578.robh@kernel.org>
+References: <20260104191448.2693309-1-heiko@sntech.de>
+ <20260104191448.2693309-5-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260104114422.2868321-2-s-vadapalli@ti.com>
+In-Reply-To: <20260104191448.2693309-5-heiko@sntech.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,36 +71,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 04 Jan 2026 17:14:17 +0530, Siddharth Vadapalli wrote:
-> From: Swapnil Jakhade <sjakhade@cadence.com>
+On Sun, 04 Jan 2026 20:14:47 +0100, Heiko Stuebner wrote:
+> QNAP builds a number of variants of the RK356x-based NAS design.
 > 
-> XAUI (eXtended Attachment Unit Interface) is a high-speed serial interface
-> standard for 10 Gigabit Ethernet (10GbE). It uses four lanes with each
-> lane operating at 3.125 Gbps (totaling 10 Gbps), to extend the XGMII
-> interface across circuit boards, commonly used in backplanes for
-> networking switches and high-performance computing. XAUI is defined as a
-> standardized instantiation of XGMII Extender in the IEEE 802.3
-> specification.
+> Add the 1-bay TS133 variant.
 > 
-> Add definition for XAUI PHY type.
+> This one is a tiny bit special as it is based around the RK3566 variant
+> of the mostly similar RK3566/RK3568 SoCs.
 > 
-> Signed-off-by: Swapnil Jakhade <sjakhade@cadence.com>
-> [s-vadapalli: added detailed description of XAUI in the commit message]
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 > ---
-> 
-> v1 of this patch is at:
-> https://lore.kernel.org/r/20251224054905.763399-2-s-vadapalli@ti.com/
-> Changes since v1:
-> - The commit message has been updated to provide a detailed description of
->   XAUI based on feedback from Krzysztof at:
->   https://lore.kernel.org/r/20251227-airborne-energetic-kingfisher-adc4fb@quoll/
-> 
-> Regards,
-> Siddharth.
-> 
->  include/dt-bindings/phy/phy.h | 1 +
->  1 file changed, 1 insertion(+)
+>  .../devicetree/bindings/arm/rockchip.yaml          | 14 +++++++++-----
+>  1 file changed, 9 insertions(+), 5 deletions(-)
 > 
 
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
