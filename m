@@ -4,70 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7DB3CEFCE1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 17:36:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 758EACEFCE4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 17:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=po+Od5bE1OZ7eQisdGEoZ72OFB4fHKeOv7mSVkFNL3I=; b=3qQJ+TZeahnantVCLXyTfH2nVi
-	Mu2nBBLF8/MNcUn1BBDH+WLadBPQN9dFBJRkOeLCAiswrrzeqqm/CxxO1OGS7bAPoIU7KEuAdpEwI
-	R+sH48sjJ8WC3GWj2LJdJMLXVic/6DGlAJMs2H9n4d3jFv4W/D3ui38oZTo7r5cJkd1FzV/GOPudc
-	b2PiSMsG8KqEVYfnfCYlZVChyrtgnyNBKRNOcJcc+IgG+sKSAOvr7fetwewzQVkYhjkB9PRPsj0AC
-	nkTPbHUl7L7gxeDwyMnV/uZ9qEMtMJYtNE46TlEtOSdHuukI97bwB4LgfhRb6jCGDqquIEhIY2CZp
-	9x/Y1uVg==;
+	bh=xD3fJ0ULXFcU30vunTHh9fi9bkTdQX9nc8XHIX8JrL0=; b=f+vIgOX102JLJMrwbVAkoJBd7n
+	Ztjb4TGrxxb9jMOIwScnl/6Btir129FzODaBFAZM30A5izyzSINc3XDhUW9a4d+T/Zl2vD+O0KyQC
+	Sps9rpef/jtszU1fWMGHZxq/tKf+3JyzhXQ5mYp/Vay3Hg8HIO9uGMPY6ZjrZ8Oy2mpoArBjnyRbX
+	QDF1F0OgzkUsf6ob39p2WttZtRwE2OztMOZfIjnldahU5bGD+inhZsv0/TrmYtsDWwLsip79qVFOd
+	+Beze/OJ6mhtKeHmkcVLO9+bgyv3QGRwsSOvQi4iwHeWHYBBRyl4oUG8C7Dz+GNWV3n1Jr4Kixx+M
+	46EeHVXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdAzB-0000000DZux-0bPm;
-	Tue, 06 Jan 2026 17:36:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdAz9-0000000DZuX-1jUS;
-	Tue, 06 Jan 2026 17:36:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3DCDC434FA;
-	Tue,  6 Jan 2026 17:36:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7808AC116C6;
-	Tue,  6 Jan 2026 17:36:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767721006;
-	bh=2bhIEBi52pIagS1gzwrT2nGBXwwpZUgIJ8cVRDzNmRs=;
-	h=From:To:Cc:Subject:Date:From;
-	b=aUcZ6ByDj/EDc5TqP6NwYwESet8oPR96E8Ha+KbhwG++iJCjHHs5649/YILIN6a5i
-	 lGLE59xRuT59pszXonCOTd03/wQSf0UIdugbC2EoY/cRqkdw76MN1otcSzOM2gnGOT
-	 R3PoL0dEo6SZnQlqiGRkk39RTykCHpRlIzpVKpvgxbvu/ahnvc66yMAxpYYkllD+cp
-	 1Du2G2u+74mLsej9bCPE5w93oZi5AMspAQXn4BsTS9FcpNs4KlBM2fpUz+il6A4rHn
-	 5Pp0NFrHCgq77O7kOipx7LrpoMg3jmLN0oCBY4HOcB52TGb5k5NERwZa77xTa0enaf
-	 b+9x5XwTQ0b/w==
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org,
-	Peter Xu <peterx@redhat.com>,
-	Oscar Salvador <osalvador@suse.de>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH RESEND v2] asm-generic: Remove pud_user() from pgtable-nopmd.h
-Date: Tue,  6 Jan 2026 18:34:20 +0100
-Message-ID: <61ef32ebc3ea2e926de2bebecf3b5c3a10989fca.1767720453.git.chleroy@kernel.org>
-X-Mailer: git-send-email 2.49.0
+	id 1vdAzj-0000000Da2d-1jFx;
+	Tue, 06 Jan 2026 17:37:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdAzh-0000000Da1v-0IMW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Jan 2026 17:37:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09D4D497;
+	Tue,  6 Jan 2026 09:37:13 -0800 (PST)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 45A0F3F5A1;
+	Tue,  6 Jan 2026 09:37:18 -0800 (PST)
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: broonie@kernel.org,
+	catalin.marinas@arm.com,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	tabba@google.com,
+	will@kernel.org
+Subject: [PATCH 0/3] KVM: arm64: Trivial FPSIMD cleanups
+Date: Tue,  6 Jan 2026 17:37:04 +0000
+Message-Id: <20260106173707.3292074-1-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2913; i=chleroy@kernel.org; h=from:subject:message-id; bh=2bhIEBi52pIagS1gzwrT2nGBXwwpZUgIJ8cVRDzNmRs=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWTGus913H6oo5FNQlXgwSqpRTHr7m98sNP9nJm6/78fb WWTt/dN6ShlYRDjYpAVU2Q5/p9714yuL6n5U3fpw8xhZQIZwsDFKQATaWNm+B+jI1vqtaJqhUq3 cVqqEX/2FbsHzPnPzv04frwmMPPwXFZGhqkeqflXf2vvPx5Zw80+/62G5qmXl8rF5GvvXmnelLD OlhcA
-X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_093647_490506_AFC7F7C5 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20260106_093721_160342_4832861D 
+X-CRM114-Status: UNSURE (   6.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,75 +67,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 2c8a81dc0cc5 ("riscv/mm: fix two page table check related
-issues") added pud_user() in include/asm-generic/pgtable-nopmd.h
+Hi all,
 
-But pud_user() only exists on ARM64 and RISCV and is not expected
-by any part of MM.
+This series contains a few trivial cleanup patches left over from all
+the FPSIMD/SVE/SME rework last year, all rebased atop v6.19-rc1:
 
-Add the missing definition in arch/riscv/include/asm/pgtable-32.h
-and remove it from asm-generic/pgtable-nopmd.h
+* Patch 1 corrects a comment which I typo'd.
+* Patch 2 repacks some flag indices to be adjacent.
+* Patch 3 removes an unnecssary ISB.
 
-A stub pud_user() is also required for ARM64 after
-commit ed928a3402d8 ("arm64/mm: fix page table check compile
-error for CONFIG_PGTABLE_LEVELS=2")
+I'm sending them now before I forget them for another few months.
 
-Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
-Reviewed-by: Peter Xu <peterx@redhat.com>
-Reviewed-by: Oscar Salvador <osalvador@suse.de>
-Acked-by: Alexandre Ghiti <alexghiti@rivosinc.com> # riscv
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
----
-Who should take this patch ? I expected it to be merged by Arnd as asm-generic maintainer but this is the second time I resend.
+Mark.
 
-Should the patch go via riscv tree instead as the undue pud_user() was initialy introduced by riscv ?
+Mark Rutland (3):
+  KVM: arm64: Fix comment in fpsimd_lazy_switch_to_host()
+  KVM: arm64: Shuffle KVM_HOST_DATA_FLAG_* indices
+  KVM: arm64: Remove ISB after writing FPEXC32_EL2
 
-v2: Change ARM64 pud_user macro to pud_user(pud)
----
- arch/arm64/include/asm/pgtable.h    | 1 +
- arch/riscv/include/asm/pgtable-32.h | 5 +++++
- include/asm-generic/pgtable-nopmd.h | 1 -
- 3 files changed, 6 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_host.h       | 10 +++++-----
+ arch/arm64/kvm/hyp/include/hyp/switch.h |  6 ++----
+ 2 files changed, 7 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 64d5f1d9cce96..a9af0b441b0f9 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -965,6 +965,7 @@ static inline pmd_t *pud_pgtable(pud_t pud)
- 
- #define pud_valid(pud)		false
- #define pud_page_paddr(pud)	({ BUILD_BUG(); 0; })
-+#define pud_user(pud)		false /* Always 0 with folding */
- #define pud_user_exec(pud)	pud_user(pud) /* Always 0 with folding */
- 
- /* Match pmd_offset folding in <asm/generic/pgtable-nopmd.h> */
-diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
-index 00f3369570a83..37878ef374668 100644
---- a/arch/riscv/include/asm/pgtable-32.h
-+++ b/arch/riscv/include/asm/pgtable-32.h
-@@ -36,4 +36,9 @@
- static const __maybe_unused int pgtable_l4_enabled;
- static const __maybe_unused int pgtable_l5_enabled;
- 
-+static inline int pud_user(pud_t pud)
-+{
-+	return 0;
-+}
-+
- #endif /* _ASM_RISCV_PGTABLE_32_H */
-diff --git a/include/asm-generic/pgtable-nopmd.h b/include/asm-generic/pgtable-nopmd.h
-index 8ffd64e7a24cb..b01349a312fa7 100644
---- a/include/asm-generic/pgtable-nopmd.h
-+++ b/include/asm-generic/pgtable-nopmd.h
-@@ -30,7 +30,6 @@ typedef struct { pud_t pud; } pmd_t;
- static inline int pud_none(pud_t pud)		{ return 0; }
- static inline int pud_bad(pud_t pud)		{ return 0; }
- static inline int pud_present(pud_t pud)	{ return 1; }
--static inline int pud_user(pud_t pud)		{ return 0; }
- static inline int pud_leaf(pud_t pud)		{ return 0; }
- static inline void pud_clear(pud_t *pud)	{ }
- #define pmd_ERROR(pmd)				(pud_ERROR((pmd).pud))
 -- 
-2.49.0
+2.30.2
 
 
