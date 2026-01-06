@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F16CEFCE5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 17:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BB58CEFCE5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 17:44:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RSAb30vPwta0L6j5mRlEyTeFIJd6lPuoibY+qgqO0Dk=; b=u7R0iSJMJH3hJ2e35oemAO4rcc
-	E7RtIwlifb+R2AABXCDFXN06Y4wOqkpRTIWBs3CmbnYfUkbvWxvg65JiH03GwvICHu+61+pjYmjuz
-	votp67r/slisrvMzfxHqy/qkpZU9xGfTi4eAgyBWyo3jvzF1NmoYcHMigxPO1ZOqRLZRc+veuCLBL
-	jcTuxVp5FfbL1RH6Cp+bJ6jI2+uS5adRZvo2wm8T84uDa751Lxiep01IDyMYGcJCP1TdlML2dvuGW
-	wDKrQ9rXtkncWZSMSUi4uOL+I2+AVdgzncCANdcJhZNGv0sVZDfKnMz/7ZrnaIj8qTGm3MU5MJT9O
-	lyAb3DIw==;
+	bh=r9TuuH3jGf5ZbOx4MF98tfbStt80GEUYcg9MPLUsmUM=; b=b9q4ee5PfqXMg8DvT1ciHVWXDU
+	AX1We45abPyUDzMGHFUF5caWafmKj2qpZcG8d843lJ20SHDWASzTMH7+I8HQt/ft2XOVuDjaFWe3h
+	2pOZIzbMCPSqVM/R+ZyYKDNipwxnE/wQwudO7FM2/PI1AY5QzSN5YCROfouE/SlgxVbITZLnSAsXv
+	+X/G6SBssuYQL6FKsEJCqVJu/SFJ1eHb7+9K9V41M4YwSignAYpfe3wW/aPWV3Amp+oqxjgrV89M4
+	fLSb/2fxYiT3bfi3Qpnn2ClDuQ1ABL4OgpNJPCpukCcOfvKWQ72ZzfvvSyTPXXnejUi7cHrIBdV+m
+	W6UmF7pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdB6M-0000000Dbgw-2qNI;
-	Tue, 06 Jan 2026 17:44:14 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vdB6Q-0000000Dblb-1VyN;
+	Tue, 06 Jan 2026 17:44:18 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdB6I-0000000Dbat-3dgC
+	id 1vdB6M-0000000Dbg1-3Jm6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 17:44:12 +0000
+	Tue, 06 Jan 2026 17:44:17 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 20845C1E4B2;
-	Tue,  6 Jan 2026 17:43:43 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 4F7184E41FB2;
+	Tue,  6 Jan 2026 17:44:13 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3231460739;
-	Tue,  6 Jan 2026 17:44:09 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B1AFE103C81A7;
-	Tue,  6 Jan 2026 18:44:04 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2365560739;
+	Tue,  6 Jan 2026 17:44:13 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 16BC3103C830C;
+	Tue,  6 Jan 2026 18:44:07 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767721447; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1767721451; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=RSAb30vPwta0L6j5mRlEyTeFIJd6lPuoibY+qgqO0Dk=;
-	b=218m2JFAFbKKWUlQUsn2Wm6w3yVK4viodOWXVZp2fFlwZ445/2JYDQ82c4nchEP1Wc7BEj
-	KOwFsCAfbuLy3cfxgnPZWsaeGn5iU6kuZuZdSZzFqmbHUazQ/Jjb0faP+8EA2XXy54s5Lc
-	aEQr0KVGF+jGmWVwWL3n61fKG5LyfTA/iOzDLdrYO6mmNQAbokLYsPopsmeHJ2UeOer3hx
-	t5NnU4ggEPcb6O8N8a/p1s+sdfIvJ+2CG3BbFah4qebfqmxw30jOhbYJgI3mhtG2VFqa7y
-	OZe6t4UTq383p1fVjwr9S80ZQlSHlfg104GcSYOlJ/da8CDiGeLs+zyhHNotuw==
+	bh=r9TuuH3jGf5ZbOx4MF98tfbStt80GEUYcg9MPLUsmUM=;
+	b=zsJiNwipAGjaEXP65DHeV68VH1CIMFLKCpm7p5t7Yup1WQrCxfZ3LgGGxsOPiwscgKL7g4
+	l6zXSC7jdjfKI/0Lyq0UYbGFU3zDUACmIlUdZSUPH6ijESjxWv+nxFHT9xlhEU6Yd+rYUG
+	fPkcZU9ZrlT/fLdbAb/BNo1RLhAk5xJgFii135Ko84SykZxH+JUzXoRHDh2ipOA+GIob2X
+	VHyK4PTH3jMgdo36daQ1Rf28m3XlDfzbc1ZmahKBe6vmumirNCE2HzNbKtY7IiMMRsDnJP
+	BwqWscamvHHvhyvtFA+HtI7v2UeeenI16lRWDFHQbkmjxwyoUrvkr3q1RHl8IQ==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Tue, 06 Jan 2026 18:42:29 +0100
-Subject: [PATCH v3 13/22] drm/tilcdc: Remove the useless module list
- support
+Date: Tue, 06 Jan 2026 18:42:30 +0100
+Subject: [PATCH v3 14/22] drm/tilcdc: Use drm_module_platform_driver()
+ helper
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260106-feature_tilcdc-v3-13-9bad0f742164@bootlin.com>
+Message-Id: <20260106-feature_tilcdc-v3-14-9bad0f742164@bootlin.com>
 References: <20260106-feature_tilcdc-v3-0-9bad0f742164@bootlin.com>
 In-Reply-To: <20260106-feature_tilcdc-v3-0-9bad0f742164@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -79,8 +79,8 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_094411_439347_9203ABFE 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20260106_094415_009030_AEE9AD19 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,132 +95,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The tilcdc driver previously supported a sub-module system where
-external display drivers (panels, encoders) could register themselves
-through tilcdc_module_init() and be automatically initialized through
-a module list. This infrastructure became unused after the component
-framework support and panel driver was removed.
+Use the drm_module_platform_driver() helper macro to simplify driver
+registration. This macro handles both the platform driver registration
+and the drm_firmware_drivers_only() check, making the custom init/exit
+functions unnecessary.
 
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
 
 Change in v3:
-- Move the removal of module_init/exit in a following patch.
+- New patch split from previous patch of the series.
 ---
- drivers/gpu/drm/tilcdc/tilcdc_drv.c | 29 -----------------------------
- drivers/gpu/drm/tilcdc/tilcdc_drv.h | 27 ---------------------------
- 2 files changed, 56 deletions(-)
+ drivers/gpu/drm/tilcdc/tilcdc_drv.c | 19 ++-----------------
+ 1 file changed, 2 insertions(+), 17 deletions(-)
 
 diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.c b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-index 6a08f50762af9..34d0e81552912 100644
+index 34d0e81552912..a82a2494e23d9 100644
 --- a/drivers/gpu/drm/tilcdc/tilcdc_drv.c
 +++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-@@ -7,7 +7,6 @@
- /* LCDC DRM driver, based on da8xx-fb */
+@@ -20,6 +20,7 @@
+ #include <drm/drm_gem_dma_helper.h>
+ #include <drm/drm_gem_framebuffer_helper.h>
+ #include <drm/drm_mm.h>
++#include <drm/drm_module.h>
+ #include <drm/drm_probe_helper.h>
+ #include <drm/drm_vblank.h>
  
- #include <linux/mod_devicetable.h>
--#include <linux/module.h>
- #include <linux/pinctrl/consumer.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-@@ -34,8 +33,6 @@ enum {
- 	DA850_TILCDC,
+@@ -534,23 +535,7 @@ static struct platform_driver tilcdc_platform_driver = {
+ 	},
  };
  
--static LIST_HEAD(module_list);
--
- static const u32 tilcdc_rev1_formats[] = { DRM_FORMAT_RGB565 };
- 
- static const u32 tilcdc_straight_formats[] = { DRM_FORMAT_RGB565,
-@@ -50,20 +47,6 @@ static const u32 tilcdc_legacy_formats[] = { DRM_FORMAT_RGB565,
- 					     DRM_FORMAT_RGB888,
- 					     DRM_FORMAT_XRGB8888 };
- 
--void tilcdc_module_init(struct tilcdc_module *mod, const char *name,
--		const struct tilcdc_module_ops *funcs)
+-static int __init tilcdc_drm_init(void)
 -{
--	mod->name = name;
--	mod->funcs = funcs;
--	INIT_LIST_HEAD(&mod->list);
--	list_add(&mod->list, &module_list);
+-	if (drm_firmware_drivers_only())
+-		return -ENODEV;
+-
+-	DBG("init");
+-	return platform_driver_register(&tilcdc_platform_driver);
 -}
 -
--void tilcdc_module_cleanup(struct tilcdc_module *mod)
+-static void __exit tilcdc_drm_fini(void)
 -{
--	list_del(&mod->list);
+-	DBG("fini");
+-	platform_driver_unregister(&tilcdc_platform_driver);
 -}
 -
- static int tilcdc_atomic_check(struct drm_device *dev,
- 			       struct drm_atomic_state *state)
- {
-@@ -97,12 +80,6 @@ static const struct drm_mode_config_funcs mode_config_funcs = {
- static void modeset_init(struct drm_device *dev)
- {
- 	struct tilcdc_drm_private *priv = dev->dev_private;
--	struct tilcdc_module *mod;
--
--	list_for_each_entry(mod, &module_list, list) {
--		DBG("loading module: %s", mod->name);
--		mod->funcs->modeset_init(mod, dev);
--	}
+-module_init(tilcdc_drm_init);
+-module_exit(tilcdc_drm_fini);
++drm_module_platform_driver(tilcdc_platform_driver);
  
- 	dev->mode_config.min_width = 0;
- 	dev->mode_config.min_height = 0;
-@@ -474,15 +451,9 @@ static struct drm_info_list tilcdc_debugfs_list[] = {
- 
- static void tilcdc_debugfs_init(struct drm_minor *minor)
- {
--	struct tilcdc_module *mod;
--
- 	drm_debugfs_create_files(tilcdc_debugfs_list,
- 				 ARRAY_SIZE(tilcdc_debugfs_list),
- 				 minor->debugfs_root, minor);
--
--	list_for_each_entry(mod, &module_list, list)
--		if (mod->funcs->debugfs_init)
--			mod->funcs->debugfs_init(mod, minor);
- }
- #endif
- 
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.h b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
-index dafb00908d1d4..60e85e29b1063 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_drv.h
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
-@@ -81,33 +81,6 @@ struct tilcdc_drm_private {
- 	bool irq_enabled;
- };
- 
--/* Sub-module for display.  Since we don't know at compile time what panels
-- * or display adapter(s) might be present (for ex, off chip dvi/tfp410,
-- * hdmi encoder, various lcd panels), the connector/encoder(s) are split into
-- * separate drivers.  If they are probed and found to be present, they
-- * register themselves with tilcdc_register_module().
-- */
--struct tilcdc_module;
--
--struct tilcdc_module_ops {
--	/* create appropriate encoders/connectors: */
--	int (*modeset_init)(struct tilcdc_module *mod, struct drm_device *dev);
--#ifdef CONFIG_DEBUG_FS
--	/* create debugfs nodes (can be NULL): */
--	int (*debugfs_init)(struct tilcdc_module *mod, struct drm_minor *minor);
--#endif
--};
--
--struct tilcdc_module {
--	const char *name;
--	struct list_head list;
--	const struct tilcdc_module_ops *funcs;
--};
--
--void tilcdc_module_init(struct tilcdc_module *mod, const char *name,
--		const struct tilcdc_module_ops *funcs);
--void tilcdc_module_cleanup(struct tilcdc_module *mod);
--
- #define DBG(fmt, ...) DRM_DEBUG(fmt"\n", ##__VA_ARGS__)
- 
- int tilcdc_crtc_create(struct drm_device *dev);
+ MODULE_AUTHOR("Rob Clark <robdclark@gmail.com");
+ MODULE_DESCRIPTION("TI LCD Controller DRM Driver");
 
 -- 
 2.43.0
