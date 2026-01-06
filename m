@@ -4,72 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B43BBCDC19F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 14:05:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AA83C47BF6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 14:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AEcY77X5ZC+o9vowtFbBm72lWwh2bIpFh+f9SPR14Ek=; b=Yrr0EM8lRj1bv5+GlOik5clYUK
-	TqYyWXWsspRw2aeftsLnFQFPd8PBQAlG5ETRZVFBkz0ooQ0ZyrMkJExCWlqcJSAQ112K2645EtOni
-	pKxOqhDkpRHeRWBX/kvDXQAlHXhPWbZ/UE51arHhJSFCWIj8d79LQ8RC4B63p7mBcH3xBffa8PwYY
-	vLpJa8Q1ffGSTpYkApijO2W80Oxvm9U0ypQmYD28shMHbq5R2utavNwj+kjFV8zdSGapXbcKef33V
-	V28WesdLUcW8yMtVvrGlwNaDDcE44vmukoxbDT0RqbNz0aGCo47tff4gaic2qGa0P7VJkOyTNqTps
-	X2bAUD8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tu154TMX/+mXm3su25sIKI5TQFzYMOjfJ7G1hsxByO0=; b=bUEv4f2rZRbYjdokpuJeLxCJwE
+	3jormBUZY7Ab9shkOrEj9eTggvrEfcAyWg13sedRdBiVmXuwF0fAF+pOj9NWdo5tg55JLUEdlMuWO
+	xzXrYWzp4eBN4lkI+wB13PgPH6hOvq67PmBTuN0/lX9PSNcOFVJAZj+KMEVq004vxvJuokhIXpRZh
+	I7u2fLF2Sxz23pcDGvBkoEZubVt5kwkJuRjvzORsRCwMsu0SLJMufGw4Edt+oOlXomJ7JOwaOPwYL
+	2qimPIpqK0QNWt2J41+xkposvdJ+SsTTNzxo5lQMfruycsTHaH+R9b82KQkNzJdGi8ysrLTEdGMyY
+	IKFPlpNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd7g8-0000000DFLy-0nVA;
-	Tue, 06 Jan 2026 14:04:56 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vd7gt-0000000DFTG-3dUV;
+	Tue, 06 Jan 2026 14:05:43 +0000
+Received: from mail-ot1-f42.google.com ([209.85.210.42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd7g5-0000000DFLW-0em2
+	id 1vd7gr-0000000DFRZ-02GP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 14:04:54 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dltG903gZzJ46Zc;
-	Tue,  6 Jan 2026 22:04:49 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id A2E974056F;
-	Tue,  6 Jan 2026 22:04:50 +0800 (CST)
-Received: from localhost (10.195.245.156) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 6 Jan
- 2026 14:04:49 +0000
-Date: Tue, 6 Jan 2026 14:04:47 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
-	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
-	<kobak@nvidia.com>, <lcherian@marvell.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
-	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
-	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
-	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
-	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>
-Subject: Re: [PATCH v2 23/45] arm_mpam: resctrl: Add rmid index helpers
-Message-ID: <20260106140447.0000602b@huawei.com>
-In-Reply-To: <316c5635-75af-4ebb-ad2c-fab0742beb20@arm.com>
-References: <20251219181147.3404071-1-ben.horgan@arm.com>
-	<20251219181147.3404071-24-ben.horgan@arm.com>
-	<20260106112115.00000201@huawei.com>
-	<316c5635-75af-4ebb-ad2c-fab0742beb20@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 06 Jan 2026 14:05:42 +0000
+Received: by mail-ot1-f42.google.com with SMTP id 46e09a7af769-7cac8231d4eso553288a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 06:05:40 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767708340; x=1768313140;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Tu154TMX/+mXm3su25sIKI5TQFzYMOjfJ7G1hsxByO0=;
+        b=PC4vRdw0U/s1aey4HagwTnsfH5k1SIEXy3o1gm1Ue42qmikHKO2beL8PHZa1qN1lWB
+         q9lHeTJXhzmyczUxCqX0cPn23wceaLtKP61Xg/tXtbdDrrh2Idzmst3KTnwyHXy2M0hD
+         WpvCqP7YShjFIV2YeOU7ePqxDh3B0F9XwtI5ipByhLvm9VzW1Gi5LQPbLVNA5YrMh+TO
+         F/h8fUI4YFT3k71st96vmaZHblfuPn1rq/RQ+wuXQb5W5YBt9IFE95fv1CN3JJqoqj7p
+         UeXtyQbCLkCtfGNAbhGvvE62aJiZHD27jZpicslrDuO8X17OqQQMDO1znZRzlMriNwQ4
+         0pVw==
+X-Forwarded-Encrypted: i=1; AJvYcCU0dNPjvo9fmmYJGpDWeKFcfgw8+zS8Adcsm3V5kq7gt/7srE02vf1i++GBesOQJjd3J1mKs4kOF3o+ho26IUUP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzo2ENgWntXZ4QQhfzCW/JEM90zIQYQ6I1gb1BgiDzIkkRhbgXl
+	eoFvIFPvIvTfjNCI33orVZl6VOASEtbs9s7xZ54OkP6ZJ493804gGlI+
+X-Gm-Gg: AY/fxX5KsUf6vZDXSzxsiVGfSKt7MEc37IKlbMPweokgGVQ8UpQmMj6X3JOexZChcHC
+	B1trxigOHRkvy1/ELcq3Y0aCPWX4HHVefOltqj40aF/JRMkU1vXY2oyCuD6G7tRDql/lGhCMBNM
+	GRF9ghTkVZurC5aJ7uAbEDWpmhpuOzWTeX7I0aYSJESd80IOAFkTLiPpn6rOVZE4EqeNCM/IeRi
+	TyGRClOAeGt/VpDCA3KEKpBevPqf8B97WwnaRIKc+oXvYqbQc6Pp8xw2zCUzwdG2MQAj4P1qEq6
+	SHnoXYgNUDd3aggQH8omrfVUqDkTJizB1UXK6kSMFWQqBQONC2BZVqR4O+wqFSN5+U0SCBbWOg2
+	WjCA/5Zq8BcXHrFVhVoat0MV4+LnTP6/6tpPRyliTk5Nv0JtX3tj4VZn3QLdvOpfEa/2hTQPrAp
+	gIbJnYOdtIbtL3cw==
+X-Google-Smtp-Source: AGHT+IFAyCOognsDglACCwRtgGmfQBOzfISqmFQxoBN8Ni16ip7RMf//hSvC9Q3nMRwn6KHPU/PCow==
+X-Received: by 2002:a05:6830:439e:b0:7c7:827f:872b with SMTP id 46e09a7af769-7ce46767c8fmr2483407a34.37.1767708339811;
+        Tue, 06 Jan 2026 06:05:39 -0800 (PST)
+Received: from gmail.com ([2a03:2880:10ff:54::])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7ce47832780sm1459846a34.12.2026.01.06.06.05.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Jan 2026 06:05:39 -0800 (PST)
+Date: Tue, 6 Jan 2026 06:05:37 -0800
+From: Breno Leitao <leitao@debian.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Laura Abbott <labbott@redhat.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, kernel-team@meta.com, 
+	puranjay@kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: Disable branch profiling for all arm64 code
+Message-ID: <tj43kozcibuidfzoqzrvk6gsxylddfpyftkdiy7xb2zm7yncx5@z33xu7tavuts>
+References: <20260106-annotated-v2-1-fb7600ebd47f@debian.org>
+ <aVz-NHMG7rSJ9u1N@J2N7QTR9R3>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.195.245.156]
-X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aVz-NHMG7rSJ9u1N@J2N7QTR9R3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_060453_481964_991E4299 
-X-CRM114-Status: GOOD (  22.43  )
+X-CRM114-CacheID: sfid-20260106_060541_049530_86A64EF8 
+X-CRM114-Status: GOOD (  22.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,75 +91,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 6 Jan 2026 11:33:44 +0000
-Ben Horgan <ben.horgan@arm.com> wrote:
-
-> Hi Jonathan,
-> 
-> On 1/6/26 11:21, Jonathan Cameron wrote:
-> > On Fri, 19 Dec 2025 18:11:25 +0000
-> > Ben Horgan <ben.horgan@arm.com> wrote:
-> >   
-> >> From: James Morse <james.morse@arm.com>
-> >>
-> >> Because MPAM's pmg aren't identical to RDT's rmid, resctrl handles some
-> >> data structures by index. This allows x86 to map indexes to RMID, and MPAM
-> >> to map them to partid-and-pmg.
-> >>
-> >> Add the helpers to do this.
-> >>
-> >> Signed-off-by: James Morse <james.morse@arm.com>
-> >> Signed-off-by: Ben Horgan <ben.horgan@arm.com>  
-> > one comment inline.
-> > I messed around with GENMASK + field_prep()/field_get() - new
-> > versions of these with no need for runtime constant masks, but
-> > it ended up as not that much more readable than what you have here.
+On Tue, Jan 06, 2026 at 12:21:47PM +0000, Mark Rutland wrote:
+> On Tue, Jan 06, 2026 at 02:16:35AM -0800, Breno Leitao wrote:
+> > The arm64 kernel doesn't boot with annotated branches
+> > (PROFILE_ANNOTATED_BRANCHES) enabled and CONFIG_DEBUG_VIRTUAL together.
 > > 
-> > Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>  
-> >> ---
-> >> Changes since rfc:
-> >> Use ~0U instead of ~0 in lhs of left shift
-> >> ---
-> >>  drivers/resctrl/mpam_resctrl.c | 28 ++++++++++++++++++++++++++++
-> >>  include/linux/arm_mpam.h       |  3 +++
-> >>  2 files changed, 31 insertions(+)
-> >>
-> >> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> >> index 4275b1a85887..bdbc5504964b 100644
-> >> --- a/drivers/resctrl/mpam_resctrl.c
-> >> +++ b/drivers/resctrl/mpam_resctrl.c
-> >> @@ -120,6 +120,34 @@ u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
-> >>  	return mpam_partid_max + 1;
-> >>  }
-> >>  
-> >> +u32 resctrl_arch_system_num_rmid_idx(void)
-> >> +{
-> >> +	u8 closid_shift = fls(mpam_pmg_max);
-> >> +	u32 num_partid = resctrl_arch_get_num_closid(NULL);
-> >> +
-> >> +	return num_partid << closid_shift;  
+> > Bisecting it, I found that disabling branch profiling in arch/arm64/mm
+> > solved the problem. Narrowing down a bit further, I found that
+> > physaddr.c is the file that needs to have branch profiling disabled to
+> > get the machine to boot.
 > > 
-> > Given I think you restrict mpam_pmg_max to be power of 2 elsewhere,
-> > doesn't this end up the same as something like
-> > 	return mpam_pmg_max * resctrl_arch_get_num_closid(NULL);
-> > Maybe its worth keeping it in the form you have here as
-> > it sort of provides documentation for how you pack those IDs  
+> > I suspect that it might invoke some ftrace helper very early in the boot
+> > process and ftrace is still not enabled(!?).
+> > 
+> > Rather than playing whack-a-mole with individual files, disable branch
+> > profiling for the entire arch/arm64 tree, similar to what x86 already
+> > does in arch/x86/Kbuild.
+> > 
+> > Cc: stable@vger.kernel.org
+> > Fixes: ec6d06efb0bac ("arm64: Add support for CONFIG_DEBUG_VIRTUAL")
+> > Signed-off-by: Breno Leitao <leitao@debian.org>
 > 
-> We only warn if (mpam_pmg_max + 1) is a power of 2 and so I'll keep this
-> as it is, although yours is equivalent in the expected case.
+> I don't think ec6d06efb0bac is to blame here, and CONFIG_DEBUG_VIRTUAL
+> is unsound in a number of places, so I'd prefer to remove that Fixes tag
+> and backport this for all stable trees.
 
-Do the resulting 'holes' in the values that are valid here cause
-trouble it isn't power of 2? 
+That is fair, thanks for the review.
 
-> 
-> >   
-> >> +}  
-> >   
-> 
-> Thanks,
-> 
-> Ben
-> 
-> 
+Should I submit a new version without the fixes tag, or, do you guys do
+it while merging the patch?
 
+thanks
+--breno
 
