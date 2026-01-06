@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9BC7C47BE0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 10:12:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1471C47BDF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 10:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kvVy5G6bPE2H+HqINsoU9sSGR55p2ti1pM3BmgP1m/g=; b=Oth1AJv5S51WsH0ba4G800tdTF
-	7O431VS7E7rCxoER4Uy/FCxWXHRCK9LZx/80/ainObQjtGPB+3aa5aSdB37Im6EPM4L4jCpGirzH7
-	DtpQ0Kdz6zof5WvWBJtfFX3EGHZINANuK8P8VCGLpfdNWU8nPAm0zlzORwDLM39CL5UV5K5JaA+mA
-	zh8N0vaetoD05GsNF41YVlkJRXnSl0tDbOgKlV8VN/5+dMI8jphMmPFkrP/4GhJC/g8qmjzCTpktS
-	vS2Y6hjj3tgdwsDVxeLiqqkByuczMyh4cDLTFbtN0XRz9ptPhwCwromIe1y+panViFgYcaDkR9TM5
-	Ei9BkEgA==;
+	bh=Ys3UwqsdicpE4ouX/5SsJYQhWJLEXWQpBWE5KFHjhMc=; b=1oySd3Wic5enaq1hUn74hLmR+7
+	beN/y9xxo3/X9KHHkwaFQHDcS5iZ0kLzZw61M+2426iwcWYAs0WR7lFRbPAY6Iscp0DDIgcwya5ha
+	7wacopp3CvPtwAdPsn8ysx5K6lBryZDbwfm+lRaybhqSY/zsPuVBUFQkgcje4oAvf2ewKRDou1TDM
+	n3Ju0iR2lxb/DJpU+D9ls6wVKeFv4X9shw3YAg+2CHsQxz9PcuQuCWmDFckLMJ5cvmLitJ53Q8va/
+	LpH9u5Ef9gxEbwXG4+7kfQTB5FUQye05ZcwpO0NqT9ycw/BUd0bDVGXm0fr/azrozeZnBq/2/Rfsq
+	LvdJFRIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd42u-0000000ClR8-2XdP;
-	Tue, 06 Jan 2026 10:12:12 +0000
+	id 1vd457-0000000ClhE-1g9t;
+	Tue, 06 Jan 2026 10:14:29 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd42r-0000000ClPy-3HYq
+	id 1vd454-0000000ClgW-3qil
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 10:12:10 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dln5f2WCRzJ473W;
-	Tue,  6 Jan 2026 18:12:06 +0800 (CST)
+	Tue, 06 Jan 2026 10:14:28 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.150])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dln8H3XltzJ46dw;
+	Tue,  6 Jan 2026 18:14:23 +0800 (CST)
 Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id B693F4056F;
-	Tue,  6 Jan 2026 18:12:07 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id DA3514056A;
+	Tue,  6 Jan 2026 18:14:24 +0800 (CST)
 Received: from localhost (10.48.149.114) by dubpeml100005.china.huawei.com
  (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 6 Jan
- 2026 10:12:05 +0000
-Date: Tue, 6 Jan 2026 10:12:04 +0000
+ 2026 10:14:22 +0000
+Date: Tue, 6 Jan 2026 10:14:21 +0000
 From: Jonathan Cameron <jonathan.cameron@huawei.com>
 To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 CC: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>, "Saravana
@@ -64,12 +64,12 @@ CC: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>, "Saravana
 	<linux-clk@vger.kernel.org>, <imx@lists.linux.dev>,
 	<dmaengine@vger.kernel.org>, <linux-media@vger.kernel.org>,
 	<linux-pm@vger.kernel.org>
-Subject: Re: [PATCH 04/11] powerpc/fsp2: Simplify with scoped for each OF
+Subject: Re: [PATCH 05/11] powerpc/wii: Simplify with scoped for each OF
  child loop
-Message-ID: <20260106101204.00004a7a@huawei.com>
-In-Reply-To: <20260105-of-for-each-compatible-scoped-v1-4-24e99c177164@oss.qualcomm.com>
+Message-ID: <20260106101421.000007ea@huawei.com>
+In-Reply-To: <20260105-of-for-each-compatible-scoped-v1-5-24e99c177164@oss.qualcomm.com>
 References: <20260105-of-for-each-compatible-scoped-v1-0-24e99c177164@oss.qualcomm.com>
-	<20260105-of-for-each-compatible-scoped-v1-4-24e99c177164@oss.qualcomm.com>
+	<20260105-of-for-each-compatible-scoped-v1-5-24e99c177164@oss.qualcomm.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -78,7 +78,7 @@ X-Originating-IP: [10.48.149.114]
 X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
  dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_021209_965059_4778D827 
+X-CRM114-CacheID: sfid-20260106_021427_112719_5A5C8927 
 X-CRM114-Status: UNSURE (   6.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -95,7 +95,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 05 Jan 2026 14:33:42 +0100
+On Mon, 05 Jan 2026 14:33:43 +0100
 Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> wrote:
 
 > Use scoped for-each loop when iterating over device nodes to make code a
