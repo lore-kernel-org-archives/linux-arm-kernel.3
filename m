@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F027CE9D41
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 14:41:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FDC4CE9D40
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 14:44:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lg9Rt1HeKklkA4y0U78VeQ93uQ/qnZsmQ3EenAnRpxE=; b=QuSLtroox5SsHJ7jiBpHIyc0xN
-	pmdv1tiONzQDQetA6NCi91oi4bQlyC4zIn18JmbjBsd3vZ2LzbtYsxa3jW4Q8TQlRxOWXKg4rU7np
-	A5PUX+AOSzpWszot5n/QHUzWuOhjOnKtTBkY/ZgmgF9dmIuZhs+wGCoiWUgaarIZAQKIoMlTmxpJY
-	7wk+Cy6guHC/Fy9USdp1MWWZ+s3OGHrQvl/wx/QV6XoppDvKhUPtXoDzhcG+R++C6n1dBesw4Bo7b
-	LdJmvrNdif+8wwspvm2YWXLvFWdduIA9hVcn+j3CC4UxXYT27LyWWmWDQ6V9ou0R0nxlvOqLwRbYO
-	ryevF16w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sSeIAWnyrd427SpcdG6in0G+S1beIiHI8s6LkDZVXRw=; b=PyaurR6b3lDljFqXf9RAQYo07d
+	Bf0p5s5m34xWU3FpfIBkk4P51VkmQCCJMTtWfsZV+NTWrSKdT9EDsZagrNSM2hfp0KSHOH5PxIJ3z
+	hvUKf+NGb8AE7ssiztfJGDsqQ3JrOLaFOMAXb9AXI51OvvhM9+YVYi0zaLygjOX9zeIEPAma0jyKB
+	IeVzV5dARCwCbMnZN4wR/tlXFIz4QkBlHQVoor3DAhev2XCpLHh/8qe4TIsQHZ59WL3lY1clBI0K5
+	PnfaW7LpsxSAW4Leg5w2cg0vFmSrw5aPP1lrb9MtiOu5V82+6yxqyr+JqTq4GCxfJbcGhKJusAYUJ
+	nbQa6e1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8F0-0000000DJ2P-194q;
-	Tue, 06 Jan 2026 14:40:58 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1vd8Hq-0000000DJGm-0Huo;
+	Tue, 06 Jan 2026 14:43:54 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8Ev-0000000DJ24-44dA
+	id 1vd8Ho-0000000DJGD-01Bl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 14:40:57 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-59a10df8027so1160415e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 06:40:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767710452; x=1768315252; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lg9Rt1HeKklkA4y0U78VeQ93uQ/qnZsmQ3EenAnRpxE=;
-        b=yjtIIBcvBcZsPa0z2lE/vrl8x94zZam88vBLwoBHOCy+8HVOnmmpAOllK0TFBhy0RC
-         SuTvfksysGYu6m3jEmwVjKBaNOPEeje3Y00klS4GATqIVTigS/a19NsDKJ+Qv1SzgINC
-         ZaZ/Il4I19jSrpSS6d83wdcZsy5NtCrovVfNoD5nRXrL47fwvsL/jPGGXoHbBrqhy81P
-         il/+CVneBsxm2jJrCnV2ErgyPUmcMAFxTXn4qZcwUibHrdb1BzGYCU/nT6nh3zXO4bdz
-         tV5fN7aLjLdmMA6FoNWB3OSImvp7mS2EDlfKvZaFWN+KaTXO0ugCiFcJu5p4BYNtCdlk
-         bBxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767710452; x=1768315252;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lg9Rt1HeKklkA4y0U78VeQ93uQ/qnZsmQ3EenAnRpxE=;
-        b=mAVQmav8Vt17jE0NUTV9uKf3YHX65A26VK9TbwvgbRbN/e8Wwx+q0S4Aw0OSefroXQ
-         RqMTVvkHE3A9pbOx4fZJxXkAYQwvcV/5bW8C0TcvmKEpQVnTSNju8sSo9D+XoImbz9BQ
-         Z4+kLb3jKFjydsGot9WD+X/qB+pCHBWQEAQIQJ8R8dCZUTKp2N8o6Eo9xP2peVripTDo
-         kU4YLasuj32kLeludNZ/q64BPGEMmY7/YI3tTNGXpW6PNJRR0c+AJpCmKbUZPVFhzgEy
-         GwD5ZBq1fuBGZTKYsy4/o4QV0MNWaTg9QHV1Q8/47ZnPeIhfjM9tqXVAfTZ0H3OILcb8
-         8mxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUNtXdbhE3hpAwVDbB9CHW1TTMUBj77EDlXSyccjCCOVBL2PqwMxYh2sgUqW6godDiPnNJ5ptP1dCu51c7809YD@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhEUX0xC/foxFsNBHfJnSZ2RWGb3aQe0JcPuhD75EHzGbc3ubh
-	eQGh+FSQt8NcIoJdwEg/GUViS5mrKwvMycVpfp1GmImO9GtUPwtq1gMVNhvwqCCdMA==
-X-Gm-Gg: AY/fxX74X1A7mYJnYHVrBDGNi45vegwh4g9oGQJjcZCjDZhpOxUDXbw7SOnbn2pj2px
-	sWXg8LQJ3NnILSzIVCBu3z+5YHxhdicbss10cg9gXZhLs04AHk9wg3htlSJY7Bd7NVqpKIrW/9j
-	7iGnqVF+LCWWimIfthtA2HYsmJl1+Xtj3ZFcEmMYteO1tQbzsAcEgpVXyzmZowaT93VGJ4QTtwn
-	Bf5ra8LCbNn0zoqKlyyAzQpOzQy/aWogvVVABM17PNP/ihCGyq7ehq7IhShmpSjphMfFSgj8RdS
-	6wa7eblTA9zUmN0z1jPRN0NHJIIsTB7w+gaZqaHWbRTwZYrk64/qw5yCGJtno4uScCN+l2ZzVaT
-	CvpGe5pbwFYxAlVnUpXwl+O2tzMUtnJKZl2cc3Y9ZKfGdDSmMNgy4+ZDwb3K0hKdlMOy+i9rkaM
-	Cg8IteqEldE8yfBycWJMccXoI04/9a539Yo1wMep37adhs8igU
-X-Google-Smtp-Source: AGHT+IGQmMYGyg67e59L/Ani6cot2XLoJXjG2yxRGQlWaxQkbv8b63wrBDjE/OQoVm5vCXoynokutw==
-X-Received: by 2002:a05:651c:12c2:b0:37b:97ae:6728 with SMTP id 38308e7fff4ca-382eaac9c78mr9558871fa.34.1767710451570;
-        Tue, 06 Jan 2026 06:40:51 -0800 (PST)
-Received: from google.com (228.231.88.34.bc.googleusercontent.com. [34.88.231.228])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-382eb3a0046sm5577981fa.8.2026.01.06.06.40.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jan 2026 06:40:50 -0800 (PST)
-Date: Tue, 6 Jan 2026 14:40:47 +0000
-From: Quentin Perret <qperret@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Fuad Tabba <tabba@google.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 06/30] KVM: arm64: Remove pointless
- is_protected_kvm_enabled() checks from hyp
-Message-ID: <cokixmkyotfs6ts2rqn4xa7iseno6hk34eon76raujupedgsff@hmkoakf5kr44>
-References: <20260105154939.11041-1-will@kernel.org>
- <20260105154939.11041-7-will@kernel.org>
+	Tue, 06 Jan 2026 14:43:53 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.107])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dlv746yytzHnH7K;
+	Tue,  6 Jan 2026 22:43:44 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4EAD740570;
+	Tue,  6 Jan 2026 22:43:49 +0800 (CST)
+Received: from localhost (10.195.245.156) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 6 Jan
+ 2026 14:43:47 +0000
+Date: Tue, 6 Jan 2026 14:43:46 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
+	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
+	<kobak@nvidia.com>, <lcherian@marvell.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
+	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
+	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
+	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
+	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
+	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>
+Subject: Re: [PATCH v2 34/45] arm_mpam: resctrl: Add
+ resctrl_arch_rmid_read() and resctrl_arch_reset_rmid()
+Message-ID: <20260106144346.000053b0@huawei.com>
+In-Reply-To: <20251219181147.3404071-35-ben.horgan@arm.com>
+References: <20251219181147.3404071-1-ben.horgan@arm.com>
+	<20251219181147.3404071-35-ben.horgan@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260105154939.11041-7-will@kernel.org>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.195.245.156]
+X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_064055_787354_D169F717 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20260106_064352_333890_FE3750C7 
+X-CRM114-Status: GOOD (  21.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,23 +83,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday 05 Jan 2026 at 15:49:14 (+0000), Will Deacon wrote:
-> When pKVM is not enabled, the host shouldn't issue pKVM-specific
-> hypercalls and so there's no point checking for this in the EL2
-> hypercall handling code.
+On Fri, 19 Dec 2025 18:11:36 +0000
+Ben Horgan <ben.horgan@arm.com> wrote:
+
+> From: James Morse <james.morse@arm.com>
 > 
-> Remove the redundant is_protected_kvm_enabled() checks.
+> resctrl uses resctrl_arch_rmid_read() to read counters. CDP emulation means
+> the counter may need reading in three different ways. The same goes for
+> reset.
+> 
+> The helpers behind the resctrl_arch_ functions will be re-used for the ABMC
+> equivalent functions.
+> 
+> Add the rounding helper for checking monitor values while we're here.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+Trivial stuff only.
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
-That made me wonder if we should further divide the HVC space to have a
-'pKVM only' range in addition to the privileged/unprivileged split, so
-we could WARN in the core HVC handler in the pretty unlikely event that
-we take a pKVM-only call in {n,h}VHE.
+> ---
+> Changes since rfc:
+> cfg intialisation style
+> code flow at end of read_mon_cdp_safe()
+> ---
+>  drivers/resctrl/mpam_resctrl.c | 159 +++++++++++++++++++++++++++++++++
+>  include/linux/arm_mpam.h       |   5 ++
+>  2 files changed, 164 insertions(+)
+> 
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index 638c84cdcfb6..8a1263986145 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -354,6 +354,165 @@ void resctrl_arch_mon_ctx_free(struct rdt_resource *r,
+>  	resctrl_arch_mon_ctx_free_no_wait(evtid, mon_idx);
+>  }
+>  
+> +static int
+Whilst I don't really care, this does seem inconsistent from other functions
+static int __read_mon(...
+probably for consistent looking code.
 
-But yes there is no point in littering the code with is_protected_kvm_enabled()
-checks all over, so:
+> +__read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
+> +	   enum mpam_device_features mon_type,
+> +	   int mon_idx,
+> +	   enum resctrl_conf_type cdp_type, u32 closid, u32 rmid, u64 *val)
+> +{
+> +	struct mon_cfg cfg;
+> +
+> +	if (!mpam_is_enabled())
+> +		return -EINVAL;
+> +
+> +	/* Shift closid to account for CDP */
+> +	closid = resctrl_get_config_index(closid, cdp_type);
+> +
+> +	if (mon_idx == USE_PRE_ALLOCATED) {
+> +		int mbwu_idx = resctrl_arch_rmid_idx_encode(closid, rmid);
+> +
+> +		mon_idx = mon->mbwu_idx_to_mon[mbwu_idx];
+> +		if (mon_idx == -1) {
+> +			if (mpam_resctrl_abmc_enabled()) {
+> +				/* Report Unassigned */
+> +				return -ENOENT;
+> +			}
+> +			/* Report Unavailable */
+> +			return -EINVAL;
+> +		}
+> +	}
+> +
+> +	if (irqs_disabled()) {
+> +		/* Check if we can access this domain without an IPI */
+> +		return -EIO;
+> +	}
+> +
+> +	cfg = (struct mon_cfg) {
+> +		.mon = mon_idx,
+> +		.match_pmg = true,
+> +		.partid = closid,
+> +		.pmg = rmid,
+> +	};
+> +
+> +	return mpam_msmon_read(mon_comp, &cfg, mon_type, val);
+> +}
 
-    Reviewed-by: Quentin Perret <qperret@google.com>
+> +/* MBWU when not in ABMC mode, and CSU counters. */
+> +int resctrl_arch_rmid_read(struct rdt_resource	*r, struct rdt_mon_domain *d,
 
-Thanks,
-Quentin
+Odd tab before *r.
+
+> +			   u32 closid, u32 rmid, enum resctrl_event_id eventid,
+> +			   u64 *val, void *arch_mon_ctx)
+> +{
+> +	struct mpam_resctrl_dom *l3_dom;
+> +	struct mpam_component *mon_comp;
+> +	u32 mon_idx = *(u32 *)arch_mon_ctx;
+> +	enum mpam_device_features mon_type;
+> +	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
+> +
+> +	resctrl_arch_rmid_read_context_check();
+> +
+> +	if (eventid >= QOS_NUM_EVENTS || !mon->class)
+> +		return -EINVAL;
+> +
+> +	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
+> +	mon_comp = l3_dom->mon_comp[eventid];
+> +
+> +	switch (eventid) {
+> +	case QOS_L3_OCCUP_EVENT_ID:
+> +		mon_type = mpam_feat_msmon_csu;
+> +		break;
+> +	case QOS_L3_MBM_LOCAL_EVENT_ID:
+> +	case QOS_L3_MBM_TOTAL_EVENT_ID:
+> +		mon_type = mpam_feat_msmon_mbwu;
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +
+> +	return read_mon_cdp_safe(mon, mon_comp, mon_type, mon_idx,
+> +				 closid, rmid, val);
+> +}
 
