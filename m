@@ -4,88 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B397FC47BEA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 13:40:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E207CDC19F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 13:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7D3uIbbh3y4PdxfUsXWciCy17l1PafPw+z5MrY1TGKE=; b=sSfKAX8EkERQsJkpOV96siio6Z
-	deOAdSWvM5Qrrl9vnintH4zhGJD+4PfO7YhqsOlOG2lBcslyqgAH8oLT7BH9pK57rqYFAoNbWR5Dd
-	C92/YDyqtQZHTBe+gJQhhux5SqY9RLtsgU6AxNwpidci8l0veBDOPBspIzgriFOTghOX39OfXnIno
-	1lUG9pY2PXfFz8OnnkSt+urUGefK6bYyk4ccHFM8nUqBuqB7pa73GG3bnxuzqjOh/oodyvTvfoO8P
-	/2heJtVQbXSRvy/Er9Op8/ReEpXMAQIt0r9tLfUsa4bc8jnq4W+6cp4PFSTwATJ8e+a+qEMfcVod1
-	PMOm7nzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q+EbBMdORcMNNAGzctaUYJJ1+TjSsaPa24Zlu9XsnoM=; b=uh9SQFKGeEIINAtmXBBrsWOcGu
+	xHQl/zTWLMh+rylB6g1jAY6yDJFnHNDuaDHltsKY5ZXIjz1kQ3wI3jrCWbBCBd1HZpqweQds11lVE
+	1zrw39fU1HkLptEmoekebeGzKkneJ7whH4XDd6X0/KMGLKekZciStIQ/K7nnC+oaLaPZNHH7+85R1
+	TBl81fXZgj2IdUuBghQpOKcc+vBPwodyAGXikGnm7qu4R7kRok0vi1GlWTYYRqEkVoVI15L2cYnf1
+	mrC1Mrum0w/LReqOfT7jk7nLUsjMXW8pRU3O1QZ43zkHSSNfqylHA6AtB4n2xIZ2onJZInuFF57/f
+	rh43ZN/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd7Ic-0000000D7AT-0WYc;
-	Tue, 06 Jan 2026 13:40:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd7IY-0000000D7A6-0tfd
+	id 1vd7Jr-0000000D7IX-2RB4;
+	Tue, 06 Jan 2026 13:41:55 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vd7Jo-0000000D7I9-0bp4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 13:40:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA5E7497;
-	Tue,  6 Jan 2026 05:40:24 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.197.51])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1D1043F6A8;
-	Tue,  6 Jan 2026 05:40:25 -0800 (PST)
-Date: Tue, 6 Jan 2026 13:40:23 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Jens Wiklander <jens.wiklander@linaro.org>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	Olivia Mackall <olivia@selenic.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Sumit Garg <sumit.garg@oss.qualcomm.com>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Jan Kiszka <jan.kiszka@siemens.com>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
-	Michael Chan <michael.chan@broadcom.com>,
-	Pavan Chebbi <pavan.chebbi@broadcom.com>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>,
-	Mimi Zohar <zohar@linux.ibm.com>,
-	David Howells <dhowells@redhat.com>,
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Peter Huewe <peterhuewe@gmx.de>, op-tee@lists.trustedfirmware.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-rtc@vger.kernel.org,
-	linux-efi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	arm-scmi@vger.kernel.org, linux-mips@vger.kernel.org,
-	netdev@vger.kernel.org, linux-integrity@vger.kernel.org,
-	keyrings@vger.kernel.org, linux-security-module@vger.kernel.org,
-	Jason Gunthorpe <jgg@ziepe.ca>
-Subject: Re: [PATCH v2 00/17] tee: Use bus callbacks instead of driver
- callbacks
-Message-ID: <aV0Qx5BOso5co3tm@bogus>
-References: <cover.1765791463.git.u.kleine-koenig@baylibre.com>
- <CAHUa44FrDZbvRvfN8obf80_k=Eqxe9YxHpjaE5jU7nkxPUwfag@mail.gmail.com>
- <20251218135332f323fa91@mail.local>
- <CAHUa44GpW5aO26GDyL9RZub9vVYvVcJ7etwO0yXBN_mUi0W4AA@mail.gmail.com>
- <CAHUa44HqRbCJTXsrTCm0G5iwtkQtq+Si=yOspCjpAn-N2uVSVg@mail.gmail.com>
+	Tue, 06 Jan 2026 13:41:53 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6069WZDW4091260
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 6 Jan 2026 13:41:51 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=Q+EbBMdORcMNNAGzctaUYJJ1+TjSsaPa24Z
+	lu9XsnoM=; b=CNdGM1BHzOodLvt5wPAM3mf1dwGGoU4Hc3RsoPe6N2cusGhrrxS
+	xKVtJJFkhA3D+a/Lq8bw2jSvufSSK5titcntH1hRl+b0JVkVrVKGzgVnn6geQjg2
+	uNmc6UdD6+1gQFyVIOldHPbYk2p0R3Nl+L9a9nccAQ0RoWz2sFG0XJXnY0ouYldS
+	E+No7HzQZ0GEKYc8inDLlpIumzJQxLzVX47OjbDRUPWR+12R4ZJ5YvcMA1zaWVDZ
+	YC/3OWdd4MEwvEBOY9XuzBe8pefz8JLoFbhQiVj9R9RLb7RPfiPNTLNtfaG2yA9H
+	1QfeNjdlisad2JGAl7fvW3GUf6frBXgL08Q==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bgyun8msj-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 13:41:50 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4ee416413a8so11842581cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 05:41:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1767706910; x=1768311710; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Q+EbBMdORcMNNAGzctaUYJJ1+TjSsaPa24Zlu9XsnoM=;
+        b=REc+pyTU1J2Cy2xbrA5BG54GIAKHGsh0KuGECLYDB3BpollYFuLQuF7/aSONYb6nGX
+         uQIM7B3OktnXr/p9t93Vr8H/EcCICHu84l3XVITpPDOO4QqfbVVkSBDFEQxFMAgAX+iS
+         PgbY927yRTDr3UxXJM4ALzp0fbfoo4LkxHw1pgzOLIgP7YwsXOav5f78sK43/l5dXpek
+         mfsdaA24uXahm0w6dfz41opQ6UYTqTkW+JnLzwj8wTF9ZxKk5UFo0oBt7ZPdaZIJZYpC
+         eIP0r9Ygk60lhMa67monhWRoe9FCixG1O95B1n3pDdoiCrCj9f9MQMohjx+9zgiS8/7D
+         QpWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767706910; x=1768311710;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Q+EbBMdORcMNNAGzctaUYJJ1+TjSsaPa24Zlu9XsnoM=;
+        b=KTnNKDCMuxWPj7h3PFmDr2vqbf+2MJT3WiAEl6ANtmvQIr2+mBuaYuL4pW+Wdyx6Tr
+         WTPRvA4sd3zT+XlLn0FP3sqvc5ntfHDnfa57g31jDhf5pXJgebX5Q2Yo4otfE8R/4/om
+         IFBrffG32WFpVN1/saSMfkaEuj9nSoTFdTkaQbdpsEQ0HSLPfGRzD+QN6MZEE2sSZgC1
+         wMEqxxdwesW7Jn4dxSBgaDD0sL3MOYiGAlnj557yIHX3nG12y+B3Um11B4rrXrSVTetp
+         CgT884YI6LHqi1rOf52Kmv4jWY4iiwy6KJs/HwS0+GVs3e8L2Xidxs68SySpKuT8eyiW
+         bxOA==
+X-Gm-Message-State: AOJu0YwgzKKBo4epY1KOJdAESoVPlXbGRhJoP5Zc2gIBRNpnCBoV27W0
+	ExO9OmfrRJX5zyHSRWL0wJP13D9Pnzll00aJiikImoW4aIBdCZVdwL2cKXrED3xFV51RJ0inmST
+	LSOfU/WmPYeRoD71MeB2W+xgNswJR/kO2CJFD5OVzHxMmJsXahfHNNTp7r4hBON5K55h96ffXXT
+	mlqw==
+X-Gm-Gg: AY/fxX7VMyvBITYwfetpTXPsQy30jjtO47ZdDnUb2emWWkH8yNiZAwJaY2KObV7ncvy
+	RfgPNkGW/cKcuaVZZswT+mi/VK1yPa7drkRu96U40jBaa2Z5GPEwPB2npACItVH2wctTicY3dhq
+	KusXCLPcsq1ji3h+hf4XB31whmQdaTrAA76vz93ya+LcthCuQKrawb3fU6ra6uvYKKIle9V68pR
+	ldZEn+NQuw5yfzLHYWn8z8mCiVvfCj2QGDV/r5wYieBe+2lsEq71fTXxZALsVs4UA22YKbFjw8v
+	OOUrRctLN34aFvoDyUz+2nrNT2s1MIkr8F+6oW450dM+ag/lx2gGbsPc3N/itA6DWl1NS7sF86U
+	rvb3p0tFD9uuPAM08bL95zMoZNQCxauXaVQIAVJg=
+X-Received: by 2002:a05:622a:2298:b0:4f1:bbaf:c5d3 with SMTP id d75a77b69052e-4ffa77de986mr30341891cf.59.1767706910203;
+        Tue, 06 Jan 2026 05:41:50 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE9O/Y6IUM42PPHVAKBn/I+rMLQPR3/OerWV8MU9bPamAukuZ4DFoHXldy6yo3R10P4l1fSwQ==
+X-Received: by 2002:a05:622a:2298:b0:4f1:bbaf:c5d3 with SMTP id d75a77b69052e-4ffa77de986mr30341611cf.59.1767706909774;
+        Tue, 06 Jan 2026 05:41:49 -0800 (PST)
+Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:3980:9f91:8651:f23b])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0dabcbsm4248368f8f.7.2026.01.06.05.41.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Jan 2026 05:41:49 -0800 (PST)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: [PATCH] arm64: Kconfig: drop unneeded dependency on OF_GPIO
+Date: Tue,  6 Jan 2026 14:41:48 +0100
+Message-ID: <20260106134148.48257-1-bartosz.golaszewski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHUa44HqRbCJTXsrTCm0G5iwtkQtq+Si=yOspCjpAn-N2uVSVg@mail.gmail.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA2MDExOSBTYWx0ZWRfX2DPwtZ5CtaYo
+ bZD0SN05+4o1XXdzTr0NWuMC0V3RMl+6Y9DLaNvvunMNdlrCfJlXMY1Qbu9UsfgvJuVR15fxlM6
+ PAoqrras6Vgo5GTqaWv5IUorALNl87tBszd+MiOnvXBnOkKeeq9THiUuByTIUi4x8Kjo1VeNARS
+ q2jTl6t6Xua6JAWy0MzYhOY1Q9nmtkpzF9mH7OGq7QAVJgN7rrKiLqS5/b2Z/Ip7SHBA3LepoTF
+ Wvx+Yh4ADudtZ+YTocuR1thFQK6lRS6um7p5lBQw8CDWYexqETg24QT4SgAmq0IGZqLVxkxUqcO
+ 912K001936AFJeUVZAxzRVN81v55vfWoi/LuC5vrGN6I4aUbKXGAEYGybHcRGIOcHfQl+q+/cNB
+ brDYQdmyEs9U5DvGTBBlGiyrVW7iT8aizJjTNitxnhlF2AUsJX++ORhZZdPwDoS2M0Gidq9Sw3e
+ oeGP49B8nlaRq8hJI4A==
+X-Authority-Analysis: v=2.4 cv=YqIChoYX c=1 sm=1 tr=0 ts=695d111e cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=vUbySO9Y5rIA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8
+ a=W5IJ7m-aJTlBmcj5y3YA:9 a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-GUID: az2SAbOq3DarIzlYtZZww39T_mP_Tz-2
+X-Proofpoint-ORIG-GUID: az2SAbOq3DarIzlYtZZww39T_mP_Tz-2
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-06_01,2026-01-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 impostorscore=0 bulkscore=0 malwarescore=0
+ phishscore=0 adultscore=0 clxscore=1015 lowpriorityscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601060119
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_054034_331292_18BA716D 
-X-CRM114-Status: GOOD (  44.73  )
+X-CRM114-CacheID: sfid-20260106_054152_301111_B0A8BCFF 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,126 +137,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 05, 2026 at 10:16:09AM +0100, Jens Wiklander wrote:
-> Hi,
-> 
-> On Thu, Dec 18, 2025 at 5:29 PM Jens Wiklander
-> <jens.wiklander@linaro.org> wrote:
-> >
-> > On Thu, Dec 18, 2025 at 2:53 PM Alexandre Belloni
-> > <alexandre.belloni@bootlin.com> wrote:
-> > >
-> > > On 18/12/2025 08:21:27+0100, Jens Wiklander wrote:
-> > > > Hi,
-> > > >
-> > > > On Mon, Dec 15, 2025 at 3:17 PM Uwe Kleine-König
-> > > > <u.kleine-koenig@baylibre.com> wrote:
-> > > > >
-> > > > > Hello,
-> > > > >
-> > > > > the objective of this series is to make tee driver stop using callbacks
-> > > > > in struct device_driver. These were superseded by bus methods in 2006
-> > > > > (commit 594c8281f905 ("[PATCH] Add bus_type probe, remove, shutdown
-> > > > > methods.")) but nobody cared to convert all subsystems accordingly.
-> > > > >
-> > > > > Here the tee drivers are converted. The first commit is somewhat
-> > > > > unrelated, but simplifies the conversion (and the drivers). It
-> > > > > introduces driver registration helpers that care about setting the bus
-> > > > > and owner. (The latter is missing in all drivers, so by using these
-> > > > > helpers the drivers become more correct.)
-> > > > >
-> > > > > v1 of this series is available at
-> > > > > https://lore.kernel.org/all/cover.1765472125.git.u.kleine-koenig@baylibre.com
-> > > > >
-> > > > > Changes since v1:
-> > > > >
-> > > > >  - rebase to v6.19-rc1 (no conflicts)
-> > > > >  - add tags received so far
-> > > > >  - fix whitespace issues pointed out by Sumit Garg
-> > > > >  - fix shutdown callback to shutdown and not remove
-> > > > >
-> > > > > As already noted in v1's cover letter, this series should go in during a
-> > > > > single merge window as there are runtime warnings when the series is
-> > > > > only applied partially. Sumit Garg suggested to apply the whole series
-> > > > > via Jens Wiklander's tree.
-> > > > > If this is done the dependencies in this series are honored, in case the
-> > > > > plan changes: Patches #4 - #17 depend on the first two.
-> > > > >
-> > > > > Note this series is only build tested.
-> > > > >
-> > > > > Uwe Kleine-König (17):
-> > > > >   tee: Add some helpers to reduce boilerplate for tee client drivers
-> > > > >   tee: Add probe, remove and shutdown bus callbacks to tee_client_driver
-> > > > >   tee: Adapt documentation to cover recent additions
-> > > > >   hwrng: optee - Make use of module_tee_client_driver()
-> > > > >   hwrng: optee - Make use of tee bus methods
-> > > > >   rtc: optee: Migrate to use tee specific driver registration function
-> > > > >   rtc: optee: Make use of tee bus methods
-> > > > >   efi: stmm: Make use of module_tee_client_driver()
-> > > > >   efi: stmm: Make use of tee bus methods
-> > > > >   firmware: arm_scmi: optee: Make use of module_tee_client_driver()
-> > > > >   firmware: arm_scmi: Make use of tee bus methods
-> > > > >   firmware: tee_bnxt: Make use of module_tee_client_driver()
-> > > > >   firmware: tee_bnxt: Make use of tee bus methods
-> > > > >   KEYS: trusted: Migrate to use tee specific driver registration
-> > > > >     function
-> > > > >   KEYS: trusted: Make use of tee bus methods
-> > > > >   tpm/tpm_ftpm_tee: Make use of tee specific driver registration
-> > > > >   tpm/tpm_ftpm_tee: Make use of tee bus methods
-> > > > >
-> > > > >  Documentation/driver-api/tee.rst             | 18 +----
-> > > > >  drivers/char/hw_random/optee-rng.c           | 26 ++----
-> > > > >  drivers/char/tpm/tpm_ftpm_tee.c              | 31 +++++---
-> > > > >  drivers/firmware/arm_scmi/transports/optee.c | 32 +++-----
-> > > > >  drivers/firmware/broadcom/tee_bnxt_fw.c      | 30 ++-----
-> > > > >  drivers/firmware/efi/stmm/tee_stmm_efi.c     | 25 ++----
-> > > > >  drivers/rtc/rtc-optee.c                      | 27 ++-----
-> > > > >  drivers/tee/tee_core.c                       | 84 ++++++++++++++++++++
-> > > > >  include/linux/tee_drv.h                      | 12 +++
-> > > > >  security/keys/trusted-keys/trusted_tee.c     | 17 ++--
-> > > > >  10 files changed, 164 insertions(+), 138 deletions(-)
-> > > > >
-> > > > > base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> > > > > --
-> > > > > 2.47.3
-> > > > >
-> > > >
-> > > > Thank you for the nice cleanup, Uwe.
-> > > >
-> > > > I've applied patch 1-3 to the branch tee_bus_callback_for_6.20 in my
-> > > > tree at https://git.kernel.org/pub/scm/linux/kernel/git/jenswi/linux-tee.git/
-> > > >
-> > > > The branch is based on v6.19-rc1, and I'll try to keep it stable for
-> > > > others to depend on, if needed. Let's see if we can agree on taking
-> > > > the remaining patches via that branch.
-> > >
-> > > 6 and 7 can go through your branch.
-> >
-> > Good, I've added them to my branch now.
-> 
-> This entire patch set should go in during a single merge window. I
-> will not send any pull request until I'm sure all patches will be
-> merged.
-> 
-> So far (if I'm not mistaken), only the patches I've already added to
-> next have appeared next. I can take the rest of the patches, too, but
-> I need OK for the following:
-> 
+OF_GPIO is selected automatically on all OF systems. Any symbols it
+controls also provide stubs so there's really no reason to select it
+explicitly.
 
-[...]
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+---
+ arch/arm64/Kconfig.platforms | 1 -
+ 1 file changed, 1 deletion(-)
 
-> 
-> Sudeep, you seem happy with the following patches
-> - firmware: arm_scmi: optee: Make use of module_tee_client_driver()
-> - firmware: arm_scmi: Make use of tee bus methods
-> OK if I take them via my tree, or would you rather take them yourself?
->
-
-I am happy if you want to take all of them in one go. I think I have
-already acked it. Please shout if you need anything else from me, happy to
-help in anyway to make it easier to handle this change set.
-
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index fff14807c965..933281bb6139 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -244,7 +244,6 @@ config ARCH_MVEBU
+ 	select MVEBU_ODMI
+ 	select MVEBU_PIC
+ 	select MVEBU_SEI
+-	select OF_GPIO
+ 	select PINCTRL
+ 	select PINCTRL_ARMADA_37XX
+ 	select PINCTRL_ARMADA_AP806
 -- 
-Regards,
-Sudeep
+2.47.3
+
 
