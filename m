@@ -4,78 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E90CEFCE2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:24:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A74DFCEFCE2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vw2AF+cnO7WA+Uc+FpEPiP4GFi07pf0iu01Cj+SSmKw=; b=GoayLHqN/HZHm3b6yq6WVfF251
-	j/nTs4B9Ne1/y0CRGxPSWgWhCTlsM91omBV0nGar9FJYGIAbZzit8EQpl5jshZCUDypR0GfjCp0Bx
-	0aTq/p2to2dRKC0XO+UkStK7j/9h0ZVEOS+t3tMmRyQKSFJe2d2ldVd1EwmNEE9emvUcnSSx0A0H1
-	m1XJCXsGlzt1r3q6VC5PYHrsrMhanSu1lI/jJ41EnsRippdX/8Be+eUfrjG4GfZS7XZZ2Mxm/Md+v
-	k+z54ImOM99NgXGVSD/QFB6k8EGswsjqEywyj6Y51f0XsxnHT/B7zZSJ6x+ZyllMwZtGd4LA6XINS
-	O7z9hkHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=beSnFJ8Trwr8NU5yMFnAE91LOqMeda84E52oQhVHrp4=; b=Jnqq2WRPn/g/vHDcBnFLtgcKyv
+	B4EovVhtxFJGRqtMQ3bhH4QXEemBev+dCKbtfZheI1JucJZwLrlvtqwYJLPmE7m8WC9VU1ftw8gmR
+	wK+AogEu0fOnA3GRE/Nw48Zks+POONOvDq6yLQLp4w+Y9gruighxC3WRci4Kdfvze2+HX/fyRNSXU
+	JAEwL+p4vhOorx9uMplR4FWmZoMoSGdeipIq7Jdl4FSvK/M9X6NbdUsEBLhkQZL3QDsNfwDs3QvCx
+	uzICZQER7Xetpw7rX4vU2suVmxrQv62OqHV+u74IJ/S2WP2+mCbe8i29PymMY79UcXHxHB2mwY8lY
+	w/gB+z4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBjg-0000000DfbV-02Nx;
-	Tue, 06 Jan 2026 18:24:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vdBkb-0000000DfkD-25Ud;
+	Tue, 06 Jan 2026 18:25:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBje-0000000Dfas-0rbx;
-	Tue, 06 Jan 2026 18:24:51 +0000
+	id 1vdBka-0000000Dfjy-1NCS
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Jan 2026 18:25:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6706942A73;
-	Tue,  6 Jan 2026 18:24:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DD87C116C6;
-	Tue,  6 Jan 2026 18:24:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7CFDA6013D;
+	Tue,  6 Jan 2026 18:25:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D36CEC116C6;
+	Tue,  6 Jan 2026 18:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767723889;
-	bh=IqwxW4H8IUPPZK3EaAi+GlNg4T3+lt8kFJ64tmM76u8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T+Xgogpg1Wp7TNMKDYKrQq3HMboaKX3mPD5b0jFOsUnywRSPuBxhq4qccvqS0o1xN
-	 wUCZoXfplvSXeenRq5c7QFFQmEA9AKKI/BEEJF3D/mDpmyNzFB9n9USSJ6+LR1KPr8
-	 wu7h+enj9RwNOaayYb8myNwnpj21NFmLg98P4k5A1gjkyfenp6ee4H0m1k+USrfMuK
-	 J9JGEmlSQS1j7mPBEx4YsvARguUbkL+oKME0LaTskxOpkP8xI2QL6YuXp3Ex8JbnT/
-	 k2NkQ/tlH8k4TvRy+STaBzgbxodcFrWjxDgHm+LyB323coiRzprhtAVdpf4e0PAoum
-	 3CMeg+bnz90MA==
-Date: Tue, 6 Jan 2026 12:24:48 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	linux-kernel@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
-	Vinod Koul <vkoul@kernel.org>, Eric Woudstra <ericwouds@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Russell King <linux@armlinux.org.uk>,
-	linux-mediatek@lists.infradead.org,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Jakub Kicinski <kuba@kernel.org>, Lee Jones <lee@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-phy@lists.infradead.org, Eric Dumazet <edumazet@google.com>,
-	=?iso-8859-1?Q?Bj=F8rn?= Mork <bjorn@mork.no>
-Subject: Re: [PATCH v2 net-next 08/10] dt-bindings: net: pcs:
- mediatek,sgmiisys: deprecate "mediatek,pnswap"
-Message-ID: <176772388791.2506483.17745230367283833244.robh@kernel.org>
-References: <20260103210403.438687-1-vladimir.oltean@nxp.com>
- <20260103210403.438687-9-vladimir.oltean@nxp.com>
+	s=k20201202; t=1767723947;
+	bh=slrVtXqGp2rp8qqJMjz0DpynF+Z6Or1Xuns3k46Q1B8=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Rq/W70gkO2HuPi2yJnnK1gFp7NtCie2ZrAlZQ37kEFnObCPHO69ZHUXn7r9VfI+5x
+	 9f0UdgZCrPIYV0/or6CkdnLp0AHqGatHy6Jcjt1z1okYaNQsg5vQUX8iJHfNEK4rje
+	 An7i1I3Z0Gay4gmzHrrxviHMf/XB70zmVfQw7Dgodz2WL4jmCLB+ZMEuaM9N3p2scy
+	 y3/F7Ne8pjcv1A4YF2NM30mC4RNyDbMPeTpbyXRHDD6WQnz1oeAGV17tmge2XC/gmw
+	 VB4yZE/VP/Qap7eqiLDx//H1ajk+74Z7ERkTORw93N8iO3a7pC5F9pGkXpabZfPhZ1
+	 nHQ2mY3eYNFgw==
+From: Mark Brown <broonie@kernel.org>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Alain Volmat <alain.volmat@foss.st.com>
+Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260106-spi_st_maybe_unused_removal-v1-0-8f5ca7136e96@foss.st.com>
+References: <20260106-spi_st_maybe_unused_removal-v1-0-8f5ca7136e96@foss.st.com>
+Subject: Re: [PATCH 0/4] drivers: spi: st: use pm_ptr and remove
+ __maybe_unused
+Message-Id: <176772394559.309686.18171199857083341971.b4-ty@kernel.org>
+Date: Tue, 06 Jan 2026 18:25:45 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260103210403.438687-9-vladimir.oltean@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_102450_282775_4072A82B 
-X-CRM114-Status: GOOD (  11.82  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-47773
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,21 +73,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sat, 03 Jan 2026 23:04:01 +0200, Vladimir Oltean wrote:
-> Reference the common PHY properties, and update the example to use them.
-> Note that a PCS subnode exists, and it seems a better container of the
-> polarity description than the SGMIISYS node that hosts "mediatek,pnswap".
-> So use that.
+On Tue, 06 Jan 2026 13:14:16 +0100, Alain Volmat wrote:
+> Update ST related SPI drivers in order to remove the __maybe_unused
+> statements on pm related functions thanks to the usage of pm_ptr.
 > 
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> ---
-> v1->v2: none
-> 
->  .../devicetree/bindings/net/pcs/mediatek,sgmiisys.yaml     | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Applied to
+
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+
+Thanks!
+
+[1/4] drivers: spi: st: remove __maybe_unused for suspend/resume
+      commit: d4469e4ee5da0a93eabfcb89a8c6ecdf7cf1e9be
+[2/4] drivers: spi: stm32-ospi: avoid __maybe_unused and use pm_ptr
+      commit: 2a2d7187f5a7238582c2bbd4a6da7595c20e55a9
+[3/4] drivers: spi: stm32-qspi: avoid __maybe_unused and use pm_ptr
+      commit: 10a6d7507791a667fe1d327056ac3f72934cc7de
+[4/4] drivers: spi: stm32: avoid __maybe_unused and use pm_ptr
+      commit: 75d208bddcca55ec31481420fbb4d6c9703ba195
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
