@@ -4,72 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AE4ECE9D46
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:09:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0609CE9D47
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TgDUo9pPwV7ODh8NtC2AzAhmpFySbd6pq90OMCloUm4=; b=UhMRaguEzH8IGklFn2yim31J2Z
-	CqTvFzsG0CF8td6m6gxq6xnt1lwT3O7r7iA3XmJmRFhhQ8S5WuWTZErs+xiMhnCayNGdCZmSJw7Eo
-	DmHBBfKFT8c815piVgTQ94+o4l6DtZBSR5pGjY3y/C1HsrcqO7kT5RpROibyfEv4UookReVmOPVJa
-	4LYbld5vAj4KUzUEXTayhjea6/1Q3rdpf3DZWEbX3Md5By4dTJQcm0HjJM/6/0c55uwnNHfXji1nW
-	UzNWFLGQIyoloJVgPEjAECwJE20gAmpye92EjnvJpRFB1RK6l+YfIavVwTG6qi8LfqLUnF+TkMEtO
-	85y7Wisw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IllgvvjBgIQxwiVw1wvuaNE1rugnsiPetfgokk/hnZM=; b=ZXD1QenpMmVYV8QUobo+25XrxG
+	ejr8Cp6AmBrySDXqKerbSDyNKZww+Jv35rEX3CKWKvOLUZXGXU4EMkpE/DmB0oofdg2UKRwoaF0Mg
+	GB/tr7CfbhwDSbj6/BgbpN3wUcWhUIum2p1I0GVYrCmc06k0fsw+edMZvR2VbnArwRMfg+zN/q3d3
+	kTLBT02SKBDYOqcEMYjmNFCFuC2KHvQPp6s8IvmmbDMEupQQhj7OA64lrYpi8Vd0yeEC9F5qIxJdv
+	k2oQEVDRuSMpwkbHz0c6PcclXI9n5oOydAbzx6F7oIXJBw8Lqu7aCJdjyCF1jCYv7x/vrYapEmBD6
+	q7T9YIPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8gW-0000000DNKv-0Jsc;
-	Tue, 06 Jan 2026 15:09:24 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vd8l6-0000000DNf4-1oLz;
+	Tue, 06 Jan 2026 15:14:08 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8gT-0000000DNJ8-1yWv
+	id 1vd8l3-0000000DNea-2i3U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 15:09:23 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dlvhN685qzHnHBX;
-	Tue,  6 Jan 2026 23:09:08 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3B2D940086;
-	Tue,  6 Jan 2026 23:09:13 +0800 (CST)
-Received: from localhost (10.195.245.156) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 6 Jan
- 2026 15:09:11 +0000
-Date: Tue, 6 Jan 2026 15:09:07 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
-	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
-	<kobak@nvidia.com>, <lcherian@marvell.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
-	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
-	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
-	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
-	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>,
-	"Zeng Heng" <zengheng4@huawei.com>
-Subject: Re: [PATCH v2 40/45] arm_mpam: Generate a configuration for min
- controls
-Message-ID: <20260106150907.0000457b@huawei.com>
-In-Reply-To: <20251219181147.3404071-41-ben.horgan@arm.com>
-References: <20251219181147.3404071-1-ben.horgan@arm.com>
-	<20251219181147.3404071-41-ben.horgan@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 06 Jan 2026 15:14:07 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 606EraOb1670665;
+	Tue, 6 Jan 2026 16:13:56 +0100
+Received: from osppr02cu001.outbound.protection.outlook.com (mail-norwayeastazon11013064.outbound.protection.outlook.com [40.107.159.64])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4besdkswyu-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 06 Jan 2026 16:13:56 +0100 (CET)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DbXql3RvDWd2mWSes0F1qalvK1LSIznRjewjm9fNK4zBnBD+e4TWddavh9le5Q0IAKV93esrl9ZdJtDf0tPc9hYZFum2a9diFwdauY66TE8Lz5scedG/JhaD6WnbfJ4Yp7k/xnDAuoq2ShmKGN6ylz/N0VPVmp72LjbcygJg7O3fE5yQDjcvqYeW9emfDV2VfN/+bSHGOet/uivFu616FHHco+A/2pOSIqJjXi3/ONtDqJLGImMYj83AIu3GcJQ0tUuEts10u+O6mVW7yYt99NTi6u/4qCNTaH++g4f2y0WxBcxyfUPsetUTPqhy03WqvTlE0nAAgsh0qB/Hk98eiQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IllgvvjBgIQxwiVw1wvuaNE1rugnsiPetfgokk/hnZM=;
+ b=NFJ0MCjaDwuGDJEpBMBRmLzfx0DyztyVXQiWLAb/+hkm5Tu97ByquAkP5hriMzxiBjvz3InL4aPQYL5fPvsy9LT+BJQ+uthv0FcWIk6eL/aADk0GMz8N2CY1pZoBNj07lOE4SsWSH0RfAaKsNPRhG4BUeivbcvmNwFTgQ1VFr4XbtBsClmXzAia+jrgXcR+fm9u1pkiNtkYjsCCObiPUJtdOPxHILyN8OkxkI0oLvpRLydXnYArUii4vxZNgdHg42nfOIMKdECm1TS8D1uUcmHF39i0NlNfDFsZEsUnhR/AszxijRBP5KM0mGaS0V+wKxuXhddZPKM0udh9oRkfDTQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IllgvvjBgIQxwiVw1wvuaNE1rugnsiPetfgokk/hnZM=;
+ b=TWzR3UBuxd4R4pVlFH/N+ItAuoyiC6YH/bXpNFD8hP9FM3LrxTV8xOgyHF5xf5d2ySXsLEPsPLnDwDflrGs/NpvItb0ZOc/AZlT5dn0bjy3CbmKUGqFYSdmmqumVZL7Zu3BNs7juriL/z8H/pb4gAjT+4WK0qlwArMaT0pszPprA0tRaR3rFnd/GeE1brSk90uH+fhRbuGdG6Xn1qMPgeP6f6FFhMjCeOZsttni5JDzGRgX/arJ9GlnaTeh/nIoHGKQhNIvJPsKQpdnQn3XUaYmpM1mUfsLI9yOVmBF2o1NUYwxCcdLqQsDQf4+3lIHlnHVe+9h5FUkc71ATaDQwfg==
+Received: from AS9PR0301CA0046.eurprd03.prod.outlook.com
+ (2603:10a6:20b:469::6) by DU0PR10MB6980.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:10:418::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.5; Tue, 6 Jan
+ 2026 15:13:53 +0000
+Received: from AMS0EPF00000198.eurprd05.prod.outlook.com
+ (2603:10a6:20b:469:cafe::8b) by AS9PR0301CA0046.outlook.office365.com
+ (2603:10a6:20b:469::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9478.5 via Frontend Transport; Tue, 6
+ Jan 2026 15:13:45 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ AMS0EPF00000198.mail.protection.outlook.com (10.167.16.244) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9499.1 via Frontend Transport; Tue, 6 Jan 2026 15:13:53 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Tue, 6 Jan
+ 2026 16:15:01 +0100
+Received: from gnbcxd0016.gnb.st.com (10.130.77.119) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 6 Jan
+ 2026 16:13:47 +0100
+Date: Tue, 6 Jan 2026 16:13:42 +0100
+From: Alain Volmat <alain.volmat@foss.st.com>
+To: Mark Brown <broonie@kernel.org>
+CC: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        <linux-spi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 0/4] drivers: spi: st: use pm_ptr and remove
+ __maybe_unused
+Message-ID: <20260106151342.GA1667031@gnbcxd0016.gnb.st.com>
+References: <20260106-spi_st_maybe_unused_removal-v1-0-8f5ca7136e96@foss.st.com>
+ <fe48d1c2-07c4-451c-a2e7-338570557e93@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.195.245.156]
-X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <fe48d1c2-07c4-451c-a2e7-338570557e93@sirena.org.uk>
+X-Disclaimer: ce message est personnel / this message is private
+X-Originating-IP: [10.130.77.119]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS0EPF00000198:EE_|DU0PR10MB6980:EE_
+X-MS-Office365-Filtering-Correlation-Id: 528785cb-02f2-42f1-9f7d-08de4d363459
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HsYWA8p5ovDeuLW8c/YR4cDMF0LAWafaJ2CtpTRmjbYopPqnZGA+gR4//d0l?=
+ =?us-ascii?Q?f6fzzfekDSEyFC7njVvtgQzFfMItFZE5bK6/B9JWuM7gVOAB7+yD0j0ifEbi?=
+ =?us-ascii?Q?t7p0hm5855OakUo835HS3eQ3jKW0XXstxk2BCihKlTDzwjMkUgX1naGPUShO?=
+ =?us-ascii?Q?UdA3CDu2whi3/QTZ9jBIJXUhS81PiE3CP6J/dGBdeDF5yjXxWFahU2nW9bqP?=
+ =?us-ascii?Q?79QiKqY1TFWclvD1ayWw9qk+OlAQU0wodBgtec25LHsOQgkexUyPU8xsK6NP?=
+ =?us-ascii?Q?2O19LYLaes2C7I4LuQOy68PKK3o0Pr+iX4qs+Nrmw2VGBQXPY0xQkwNGG0DK?=
+ =?us-ascii?Q?gA/r0Fv+UGAK0Htyr+pesnIJ2DhPe5W2Ei+Sf1NJ5EWPT7x5hqTtJNRa8TWQ?=
+ =?us-ascii?Q?PmtFqxkOA3PTFBKXRqYC5IJVyWcj0JAqE5vo4L1fyOqplbMpA1moPwHcLdOz?=
+ =?us-ascii?Q?iN/kw1OrLOUq2axN7ce1N7TwcDD7sbBBw2d37pBxv4JicUb6/aPcr2D/YhMg?=
+ =?us-ascii?Q?Lu5G2g0IGx3c08bYGYzyX35mH1tDoH6WC0JowaHKgzbyY0cim+incTgV298d?=
+ =?us-ascii?Q?x+Pqg0W+KJxEzMs7yNw/iGlvGhrvIMgP9u9yMdBj1IJP/US14a3aboKfo5pP?=
+ =?us-ascii?Q?fZdu6QXseTBnT1lglb3hmHuhTruqOTK2yf/3/ozp2TiimrFZEtOin++DyP+3?=
+ =?us-ascii?Q?pe71priPbDdQHUkoCkBvwUpWsoERDamxY8Jjy6jI0L5c/BEpN5ujqFEzBgAL?=
+ =?us-ascii?Q?SAc1Msl9rdZfG0swJdPqp4oIKLyu6z8J3CXPRD/Ng2K2PBzv/9ZN4AVzGBhn?=
+ =?us-ascii?Q?njYFl9QFqHZqO4Y2Ujb1Es6wFGVp6xz2zv1rnjnniXN8qYowOhC22VJqLohB?=
+ =?us-ascii?Q?kyqwFIyFHDjrujSsC+erLkunmeWH7LPVKQieaCjWlf+1TNb0hAamd0S55ziW?=
+ =?us-ascii?Q?JSAlGuN9cYQdfQOM8mg0u2wuSCP19uD4uDiUN4neW1KfUPM5cSg41yhQUIN+?=
+ =?us-ascii?Q?yvawrnbJ7C+qwcMAem2IJhqBz4PqYEuGUqRlAElasD9AeKODKCqDgDaTxfsL?=
+ =?us-ascii?Q?/YuKCNP1ADtVTztv0rZ0zlyyjZaXD6RGOusGQ8KNNXie+JXe8cMhIBPaEybt?=
+ =?us-ascii?Q?IXgaeZRa1iAKjirwTND0xnHcUIUS9vi/eJtQKRDReyNkvwpR0n1YY17PYpJh?=
+ =?us-ascii?Q?j0VnE/dbn+wLlPJBhaDLKmAbmqXNyes1rVun+3aPbgkCndk2+KZstYHfvYkG?=
+ =?us-ascii?Q?xOOXl2EUvq9oPVAo/1nCcEdnPOxrNafSoP9H/vP+NZeEZd/At0XzlBCAkx7j?=
+ =?us-ascii?Q?kH3Tryrv+AZoxFvhI1yd9V4mDyBjCqRIVanETijnE+e9LF0lM45dHMBm2PPd?=
+ =?us-ascii?Q?VxqOUA/xYAuaRrVcNseJi8DjRVhw2yBuGNyFOcRvricinIH6e8hjThAaj/Fi?=
+ =?us-ascii?Q?ZoKze8rRMtpFtAiAjygN7ravdD5QW+0jww5/eDKefCWL1LNyU5TcuFxmclev?=
+ =?us-ascii?Q?hmsumF7T2FUsG/Nf2IATcB5azDzXLeRK+xYmSFMBDF826wV0s2uM807OUgNQ?=
+ =?us-ascii?Q?295PP4hG9LIMUim06Mg=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2026 15:13:53.4226
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 528785cb-02f2-42f1-9f7d-08de4d363459
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF00000198.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB6980
+X-Proofpoint-GUID: MhNi8u0PEjg3QtDqrJtRwPhh675l4Wa4
+X-Authority-Analysis: v=2.4 cv=Vskuwu2n c=1 sm=1 tr=0 ts=695d26b4 cx=c_pps
+ a=JRzJ8T7PdTfL/uBtHARA3w==:117 a=uCuRqK4WZKO1kjFMGfU4lQ==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=n5dE7JB0mAkA:10 a=kj9zAlcOel0A:10
+ a=vUbySO9Y5rIA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=nR5M2XifhQzMGXY2llwA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: MhNi8u0PEjg3QtDqrJtRwPhh675l4Wa4
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA2MDEzMiBTYWx0ZWRfXwlYHxy+5sf6W
+ mA1afV7mCJHe3BdBMDZwjP+G21p8d+aEYrHjKNwzKe4Tb2icUiF2BMXxZQd0dpa73v22ihY/C1m
+ Sq+zRU9K+oxfj0OEsGMHKc111Zy1AXCaOif3FEBHU4Mwft6/u9fq0RKKXJ2l+mPEDjqxtTNuq2M
+ Vl5xVu+MuLaJtLhOaAa2Mv9T5RRBJm29szwLoulf/dMFsCHw/+UZ4CUdyLjEAW2iMYnvCA7OLGj
+ t71BwE/W4uRBOOJkIN9+5tR8QB3k14DvNQt1HZGPz3W/xaOygbXGfm8XgdjA4IRoCH3o0yhu1kX
+ W5LmTz5g7Mm9V2RwLMltzGsXi7eR92Hx8mzCV8Vj60Pf0MDHbla/5xx3PdP8dpciwdpTv3KcFHb
+ gWzasJqQReUoqfFSbpVlu4xBtgIzMpHv+BpDDjnovj3JWEKl+aMYgMatzMlLKN947KBQcJtOSUQ
+ 98pD2IGtmcaAqUrH97Q==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-06_01,2026-01-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0
+ lowpriorityscore=0 malwarescore=0 impostorscore=0 adultscore=0 bulkscore=0
+ clxscore=1015 spamscore=0 priorityscore=1501 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601060132
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_070921_797150_5D3F87C5 
-X-CRM114-Status: GOOD (  32.71  )
+X-CRM114-CacheID: sfid-20260106_071406_195424_1577CF1E 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,123 +185,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Dec 2025 18:11:42 +0000
-Ben Horgan <ben.horgan@arm.com> wrote:
+Hi Mark,
 
-> From: James Morse <james.morse@arm.com>
+On Tue, Jan 06, 2026 at 12:22:21PM +0000, Mark Brown wrote:
+> On Tue, Jan 06, 2026 at 01:14:16PM +0100, Alain Volmat wrote:
+> > Update ST related SPI drivers in order to remove the __maybe_unused
+> > statements on pm related functions thanks to the usage of pm_ptr.
 > 
-> MPAM supports a minimum and maximum control for memory bandwidth. The
-> purpose of the minimum control is to give priority to tasks that are below
-> their minimum value. Resctrl only provides one value for the bandwidth
-> configuration, which is used for the maximum.
-> 
-> The minimum control is always programmed to zero on hardware that supports
-> it.
-> 
-> Generate a minimum bandwidth value that is 5% lower than the value provided
-> by resctrl. This means tasks that are not receiving their target bandwidth
-> can be prioritised by the hardware.
+> Please submit patches using subject lines reflecting the style for the
+> subsystem, this makes it easier for people to identify relevant patches.
+> Look at what existing commits in the area you're changing are doing and
+> make sure your subject lines visually resemble what they're doing.
+> There's no need to resubmit to fix this alone.
 
-I'm not sure this policy make sense in general as there will be bandwidth
-heavy background tasks where we want to make sure they only use up to X%
-of bandwidth, but don't care if they don't get that.  I guess maybe those
-are always in the %5 or less category so maybe this policy is fine.
-Ah well, can revisit later I guess as long as we keep this as the default
-for any new controls.
+oups, sorry I missed that indeed. Thanks for your help for this issue.
 
-> 
-> For component reset reuse the same calculation so that the default is a
-> value resctrl can set.
-> 
-> CC: Zeng Heng <zengheng4@huawei.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+Regards,
 
-Most, maybe all the other cases have split test from implementation. I'd
-probably do that here just for consistency.
-
-A few things inline.
-
-J
-
-
-
-> ---
-> Add reset_mbw_min
-> Clear min cfg when setting max
-> use mpam_extend_config on component reset
-> ---
->  drivers/resctrl/mpam_devices.c      | 76 +++++++++++++++++++++++++++--
->  drivers/resctrl/mpam_internal.h     |  3 ++
->  drivers/resctrl/mpam_resctrl.c      |  2 +
->  drivers/resctrl/test_mpam_devices.c | 66 +++++++++++++++++++++++++
->  4 files changed, 142 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index c20b2757b86b..deea46c2a6c3 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -721,6 +721,13 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->  			mpam_set_feature(mpam_feat_mbw_part, props);
->  
->  		props->bwa_wd = FIELD_GET(MPAMF_MBW_IDR_BWA_WD, mbw_features);
-> +
-> +		/*
-> +		 * The BWA_WD field can represent 0-63, but the control fields it
-> +		 * describes have a maximum of 16 bits.
-
-I'm lost to why this only matters now!  Feels like that makes sense way earlier
-in the series. Particularly as that detail confused me no end in the bandwidth
-/ percent calculation patches.
-
-> +		 */
-> +		props->bwa_wd = min(props->bwa_wd, 16);
-> +
->  		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MAX, mbw_features))
->  			mpam_set_feature(mpam_feat_mbw_max, props);
->  
-
-> +static void mpam_extend_config(struct mpam_class *class, struct mpam_config *cfg)
-> +{
-> +	struct mpam_props *cprops = &class->props;
-> +	u16 min, min_hw_granule, delta;
-> +	u16 max_hw_value, res0_bits;
-
-Probably makes sense to drag some of these into the scope below.
-
-> +
-> +	/*
-> +	 * MAX and MIN should be set together. If only one is provided,
-> +	 * generate a configuration for the other. If only one control
-> +	 * type is supported, the other value will be ignored.
-> +	 *
-> +	 * Resctrl can only configure the MAX.
-> +	 */
-> +	if (mpam_has_feature(mpam_feat_mbw_max, cfg) &&
-> +	    !mpam_has_feature(mpam_feat_mbw_min, cfg)) {
-> +		/*
-> +		 * Calculate the values the 'min' control can hold.
-> +		 * e.g. on a platform with bwa_wd = 8, min_hw_granule is 0x00ff
-> +		 * because those bits are RES0. Configurations of this value
-> +		 * are effectively zero. But configurations need to saturate
-> +		 * at min_hw_granule on systems with mismatched bwa_wd, where
-> +		 * the 'less than 0' values are implemented on some MSC, but
-> +		 * not others.
-> +		 */
-> +		res0_bits = 16 - cprops->bwa_wd;
-> +		max_hw_value = ((1 << cprops->bwa_wd) - 1) << res0_bits;
-> +		min_hw_granule = ~max_hw_value;
-> +
-> +		delta = ((5 * MPAMCFG_MBW_MAX_MAX) / 100) - 1;
-> +		if (cfg->mbw_max > delta)
-> +			min = cfg->mbw_max - delta;
-> +		else
-> +			min = 0;
-> +
-> +		cfg->mbw_min = max(min, min_hw_granule);
-> +		mpam_set_feature(mpam_feat_mbw_min, cfg);
-> +	}
-> +}
-> +
->
+Alain
 
