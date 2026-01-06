@@ -4,82 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F56CD042A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 01:37:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 943C3CD0430
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 03:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vZdZ6z94WkwXLP8aTircs4WcG7hRxfUszazs7DfQTcA=; b=J4/iiLspMbN/XQTE+zZd6cNdaD
-	sDHiyip9XZl/tGRZIjVYcBWYTPCuTP4P/g17VZ4jOmLfFxczx9xzowC0dyJQ1Av8y9ul9EO00haoP
-	uUgYlx/wqdo38VdMgKI/qgN6+Tjd9eqFWF6nNfrrV8x1HMQSV0DK6u5Fg+9DBeWt3UcbzSUIP/qda
-	QdY0fBfqDaAsZ+zMA1EpKMqJgyuhUD8rN9diV8g+EyH3xlQVB+IiwmHZndeRRIhqhF5s8Q0qs5G6W
-	YYeIFBBq+nDJh4utHp4Vor9iTK1sydmN6sFvn1160ELFbgc/AiHM5SJZX0WGqtdGcBwJcxNk6/I+s
-	xJJQojZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=df8np2uEIXmaXEkqGXMCaoRv9VuNrEKRw9S2nvWPR4k=; b=r4BVq6tpapDqVQ7mGjlPG5PKr1
+	vA/btWjoup3s6jTLWjm2tgb4LBtasyc3uFStW62VpJ1yQ6Wiz2AxUInOZ2xHXhCxcuzxHWhbjsWb/
+	5Zm05JW/9/X/5kjwIyaSpiiLFLALMyK2F4aX9ER77EAYGcrNQGQ4AJFYsIZlKadHpR6dVb9Adi+7q
+	v3QbIDrOCliBLxAp41/0/e6r7zgA0oqg/tuSvOyilSZcTOlRpkZ0dR7SeJyVYplrzuTj3rfsdu9jn
+	nIrzjzP0ycluoFdtZrN8ygTJflZZBUvAMmAbnrP7fjPXMB5k06QGon80oFeXEOvPaZ4kOql29De69
+	BChzpxEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcw0d-0000000CK3Q-2dhw;
-	Tue, 06 Jan 2026 01:37:19 +0000
-Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcw0Z-0000000CK2v-1CDt
+	id 1vcxhh-0000000CNSN-3NqT;
+	Tue, 06 Jan 2026 03:25:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vcxhf-0000000CNRU-0NHZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 01:37:18 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4dlYgR559sz9t8l;
-	Tue,  6 Jan 2026 02:37:07 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1767663427;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vZdZ6z94WkwXLP8aTircs4WcG7hRxfUszazs7DfQTcA=;
-	b=QReAPE7ke0wiZOzVxM3a+dKfeWMTiR+P+pxZJKx7eZrI6m3p9b4JzkT6PL8iTPFl0+fs8z
-	PetcKAB7TzuBlZsmok6+/WjeLB3cgzvhDxU17sxj1Rv+Sst7sjLimqPs2mCLrcFHvfvA94
-	Zt1C2XyL8R7kneUy6RN4xvOxQZa25ZERMcOBFCOXAjfAbdwNxEdhRZ3hVJ+fnzayfmUokX
-	kkCoJEqCB3tk8Oc+JJXYp3P8JCr1CqJDtkAzyiXPZIjQUswuHYH9EdZb7wZY2YYNc8QAje
-	FemL8DTDplAylFvImKRL0m/B4m4LQVK4GixZR/ntkLC/vQ3x6unQokSD8o71Jw==
-Message-ID: <9912e2dc-50cc-464d-8372-b3b79334ac67@mailbox.org>
-Date: Tue, 6 Jan 2026 02:36:18 +0100
+	Tue, 06 Jan 2026 03:25:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 033A5497;
+	Mon,  5 Jan 2026 19:25:42 -0800 (PST)
+Received: from localhost (a079125.arm.com [10.164.21.37])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 034CE3F694;
+	Mon,  5 Jan 2026 19:25:47 -0800 (PST)
+Date: Tue, 6 Jan 2026 08:55:44 +0530
+From: Linu Cherian <linu.cherian@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Marc Zyngier <maz@kernel.org>, Dev Jain <dev.jain@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 09/13] arm64: mm: Refactor flush_tlb_page() to use
+ __tlbi_level_asid()
+Message-ID: <aVyAuMxJQ2mXpFd1@a079125.arm.com>
+References: <20251216144601.2106412-1-ryan.roberts@arm.com>
+ <20251216144601.2106412-10-ryan.roberts@arm.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 07/14] drm/imx: dc: Add DPR channel support
-To: Liu Ying <victor.liu@oss.nxp.com>, Liu Ying <victor.liu@nxp.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
-References: <20251016-imx8-dc-prefetch-v4-0-dfda347cb3c5@nxp.com>
- <20251016-imx8-dc-prefetch-v4-7-dfda347cb3c5@nxp.com>
- <174bdb5a-b5a8-4856-a0ac-8caaaefde136@mailbox.org>
- <24f99c46-ca5d-43cc-a2eb-a6e5029e9f86@nxp.com>
- <500852c9-2cd5-4897-a139-4e93988f5469@mailbox.org>
- <df8751ba-7215-4635-98b0-ca659ec786cd@nxp.com>
- <de695268-1241-4658-871c-30dbf068ad92@mailbox.org>
- <3d622f3c-ddd4-4feb-bc88-a1eea7dd936d@oss.nxp.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <3d622f3c-ddd4-4feb-bc88-a1eea7dd936d@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: o3msartdmiogq9p5x1ggudos8skw5gfh
-X-MBO-RS-ID: f3f8d579d449a7f2514
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251216144601.2106412-10-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_173715_479498_0117B8BE 
-X-CRM114-Status: GOOD (  42.23  )
+X-CRM114-CacheID: sfid-20260105_192551_166064_189E4E46 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,140 +69,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/14/25 11:03 AM, Liu Ying wrote:
-
-Hello Liu,
-
-sorry for my late reply.
-
->>>>>>> +++ b/drivers/gpu/drm/imx/dc/Kconfig
->>>>>>> @@ -1,6 +1,7 @@
->>>>>>>      config DRM_IMX8_DC
->>>>>>>          tristate "Freescale i.MX8 Display Controller Graphics"
->>>>>>>          depends on DRM && COMMON_CLK && OF && (ARCH_MXC || COMPILE_TEST)
->>>>>>> +    depends on IMX_SCU
->>>>>> Can the SCU dependency be made optional,
->>>>>
->>>>> I don't think this can be done.  If you grep 'depends on IMX_SCU' in
->>>>> kernel, you may find a handful of existing dependancies.
->>>>
->>>> Sure, I do not dispute this part.
->>>>
->>>> But the SCU dependency can be contained in a component of this driver,
->>>> which is not used by MX95, and used only by MX8Q . Then there will be
->>>> no problem.
->>>
->>> Which component?  You mean PRG and DPRC?
->>>
->>> If we add something like CONFIG_DRM_IMX8_DC_PRG and make CONFIG_DRM_IMX8_DC_PRG
->>> depend on SCU, then should we make CONFIG_DRM_IMX8_DC depend on
->>> CONFIG_DRM_IMX8_DC_PRG?  That's yet another dependency.
->>
->> I would say, if possible, put the SCU-dependent parts behind
->> CONFIG_DRM_IMX8_DC_PRG symbol, and make that symbol configurable via
->> Kconfig . Users of iMX95-only can turn it off, generic kernel config
->> should keep it on.
+On Tue, Dec 16, 2025 at 02:45:54PM +0000, Ryan Roberts wrote
+> Now that we have __tlbi_level_asid(), let's refactor the
+> *flush_tlb_page*() variants to use it rather than open coding.
 > 
-> Both i.MX8 and i.MX95 would use arm64 defconfig.  Most distros if not all
-> would use that to generate a single kernel image + modules for i.MX8 and
-> i.MX95.  We can't presume that __most__ users would change the configs
-> for i.MX95.
-
-That wasn't my point. My point was, make it possible to compile the PRG 
-parts out if they aren't needed (and with them, SCU support). If I build 
-the kernel for iMX95, I don't need iMX8Q support in, so I can turn MX8Q 
-support off alongside the SCU parts. The clean way to do that is to keep 
-the SCU-dependent parts in dedicated file(s), which may or may not be 
-compiled in. For generic kernel builds, they should be compiled in and 
-decide at runtime, whether or not they should be used of course.
-
-[...]
-
->>>>> Like I replied to your i.MX95 DC patch series's cover letter, SCU accesses
->>>>> registers via Cortex-M core instead of Cortex-A core IIUC.  I really don't
->>>>> know how to abstract IMX_SCU out, especially via regmap.
->>>>
->>>> The simplest way would be to use regmap_config .reg_read and .reg_write ,
->>>> if there is no better way.
->>>
->>> Can you shed more light on this?  Any examples?
->>
->> I'll just reply to this part, because that is probably the most relevant
->> to this whole conversation.
->>
->> git grep '\.reg_write' drivers -> drivers/hwmon/aspeed-pwm-tacho.c as a
->> simple example.
->>
->> Then such a reg_write implementation can do:
->>
->> if (SCU)
->>    use SCU accessor
->> else
->>    use writel() or so
+> The emitted tlbi(s) is/are intended to be exactly the same as before; no
+> TTL hint is provided. Although the spec for flush_tlb_page() allows for
+> setting the TTL hint to 3, it turns out that
+> flush_tlb_fix_spurious_fault_pmd() depends on
+> local_flush_tlb_page_nonotify() to invalidate the level 2 entry. This
+> will be fixed separately.
 > 
-> Thanks for the example, it makes regmap idea a bit more clear.  But, how
-> would you pass the SCU flag to .reg_write?  I hope i.MX95 code path won't
-> see any information about SCU.
-
-You could have one regmap for MX8Q and one regmap for MX95. For the 
-register IO in the driver which uses regmap, either regmap is still only 
-a generic regmap, no matter what the hardware accessor in that regmap 
-are. Therefore most of the code can be generic (use generic regmap) and 
-only the probe code decides which regmap (MX8Q SCU regmap or MX95 
-regmap) is going to be used by the driver.
-
-> Also, IMO, wrapping SCU with regmap is abusing the regmap API.
-> How would you pass the resource, ctrl and val parameters to .reg_write?
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> ---
+>  arch/arm64/include/asm/tlbflush.h | 12 ++----------
+>  1 file changed, 2 insertions(+), 10 deletions(-)
 > 
-> int imx_sc_misc_set_control(struct imx_sc_ipc *ipc, u32 resource,
->                              u8 ctrl, u32 val)
-> 
-> Regarding the 'else' clause, I don't think we can use writel(), because
-> SCU accesses registers via Cortex-M core, not Cortex-A core(I mentioned
-> this before).  I don't see anything we can put under the 'else' clause.
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> index 3b72a71feac0..37c782ddc149 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -327,12 +327,8 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
+>  static inline void __local_flush_tlb_page_nonotify_nosync(struct mm_struct *mm,
+>  							  unsigned long uaddr)
+>  {
+> -	unsigned long addr;
+> -
+>  	dsb(nshst);
+> -	addr = __TLBI_VADDR(uaddr, ASID(mm));
+> -	__tlbi(vale1, addr);
+> -	__tlbi_user(vale1, addr);
+> +	__tlbi_level_asid(vale1, uaddr, TLBI_TTL_UNKNOWN, ASID(mm));
+>  }
+>  
+>  static inline void local_flush_tlb_page_nonotify(struct vm_area_struct *vma,
+> @@ -354,12 +350,8 @@ static inline void local_flush_tlb_page(struct vm_area_struct *vma,
+>  static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
+>  					   unsigned long uaddr)
+>  {
+> -	unsigned long addr;
+> -
+>  	dsb(ishst);
+> -	addr = __TLBI_VADDR(uaddr, ASID(mm));
+> -	__tlbi(vale1is, addr);
+> -	__tlbi_user(vale1is, addr);
+> +	__tlbi_level_asid(vale1is, uaddr, TLBI_TTL_UNKNOWN, ASID(mm));
+>  	mmu_notifier_arch_invalidate_secondary_tlbs(mm, uaddr & PAGE_MASK,
+>  						(uaddr & PAGE_MASK) + PAGE_SIZE);
+>  }
 
-You could have one regmap definition for MX8Q/SCU and one for MX95, and 
-at probe time, select which of those is going to be used. That could 
-work I think ?
+Reviewed-by: Linu Cherian <linu.cherian@arm.com>
 
->>>>>> so iMX95 support can be added into the driver easily too ?
->>>>>
->>>>> Like I replied to your i.MX95 DC patch series, I think i.MX95 DC support
->>>>> can be in drivers/gpu/drm/imx/dc, but it should be in a separate module
->>>>> (something like imx95_dc_drm) plus an additional common module(like
->>>>> imx_dc_drm_common).
->>>> This design part is something I do not fully understand. Sure, it can be
->>>> two modules, but in the end, the result would have to be capable of being
->>>> compiled into single kernel binary if both modules would be =y in Kconfig
->>>> anyway.
->>>
->>> This is something like imx8qm_ldb, imx8qxp_ldb and imx_ldb_helper modules -
->>> DRM_IMX8QM_LDB and DRM_IMX8QXP_LDB select DRM_IMX_LDB_HELPER.
->>>
->>> Note you may make CONFIG_DRM_IMX8QM_LDB=y and CONFIG_DRM_IMX8QXP_LDB=m with
->>> CONFIG_DRM_IMX_LDB_HELPER=y.
->> Do we have to make it this complicated right from the start ?
-> 
-> I don't think imx_dc_drm_common would make it complicated, but instead it
-> makes drivers simple and easy to maintain.
-> 
->> Maybe we can start simple, with one module, and then split it up if it turns
->> out to be unsuitable ?
-> 
-> Hmm, maybe it's time to split it up now, because:
-> 1) Your below patch has already been adding DB to CRTC function.
->     See dc_db_shdtokgen() in dc_crtc_atomic_enable(), which certainly breaks
->     i.MX8 DC.  To avoid that, you'll add branches to the atomic enable
->     callback, which is something I don't want.
-
-Can we have separate atomic_enable() callback for MX8Q and MX95 for 
-example ?
-
-> https://patchwork.freedesktop.org/patch/680085/?series=155784&rev=1
-> 
-> 2) This patch series is trying to add i.MX8 DC prefetch engine support.
->     i.MX95 really doesn't embed the prefetch engine.  And I hope i.MX95 code
->     path doesn't need to know the prefetch engine/SCU existence or non-existence.
-I think the prefetch code can be contained in a single file and called 
-only if the SoC is MX8Q, that shouldn't be difficult to do ?
 
