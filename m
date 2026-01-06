@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8490CEFCEC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F1FCEFCE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ul/5td8H1T0x+QBQqzJlZ3+F27WPL+8FDqm/WVZypV8=; b=EkjM6ocIXIFJGnjhmr/+Ft4xhi
-	9Zhc8g85uM4cNCNpZmP2S66lmYilvk74Rki0CMzefyGbwbk5aw/fAQypaIN4STmMTI3+D6s3ADML0
-	kcB8FgnGnREFsEMOMmUSNjW8J5shfm4uLGiHo5OJi2UbxunwyB5qBSgc1yeW/aVKAZ3CBt3IaTdPU
-	W4owxu1r8Z8rWU8CjDp+WvJV3l9AwqecMMOVHH4saR0F5Uog7zrFA8lLqoZgLOl46riUgPyRiGJNW
-	gRz9WLuxOenTbfsAvQQr12oVxJ7+E1Xp3j9vF2sDYyAwNAFanudGk7Si0rNpKtcaSsJJaOWzJU8Nv
-	avN8dm+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e5uMBPgWqQKYiPZcHvKgmfyzuuv8hWaEwurLE79aR40=; b=G1leoxfwVIAagxLYC3JAGRT2PK
+	iMhwiL5MfTReQrZKscj55md2GPbcn6R9zjjKZ/d6mmmj0tgBBqGB6kq3vz3aTJBHDeIEdoXAdEU85
+	KdhNgwGK99SQcKm42lRsl2ble9GQ6Hh/d1OHKGmfYRHLiAZp5T4MuWVDwDjVYiQGGE7nd15JiR2Is
+	H2gbgx6TcRJEA2xiSWFgvGLAuahLn3mq48utsxG7JmoB+Szimvhs6GR+xBzlz3FWe97uT71UYfpZM
+	RAHAz1D6yNaL6x+qggbAOde709Hf8ZKSwRuQI25WIz1v3oR5z/AlR8l+ZxFGan203+XEmKKVCC5ru
+	iBZCQXQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBtA-0000000DgpY-2DSA;
-	Tue, 06 Jan 2026 18:34:40 +0000
-Received: from sinmsgout02.his.huawei.com ([119.8.177.37])
+	id 1vdBtE-0000000DgqP-3T8s;
+	Tue, 06 Jan 2026 18:34:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBt7-0000000Dgoo-0isq
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 18:34:38 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Ul/5td8H1T0x+QBQqzJlZ3+F27WPL+8FDqm/WVZypV8=;
-	b=2KSl/TJPDX29+8svmEC66f04S29aghk7Uv7DbwFp8cwfR1wWv1La8ecfxy0KA/dO5BYh3JBMr
-	nZKZufxv6O+oKUdlwZOeVW0uNjHALJCwMYXspV6xhQHSJtfyxDv6gdVagjz2YrtQERtIb/Rm45Q
-	lpH3EQ7YXW3xaD+rIuOiN3k=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.33])
-	by sinmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dm0Bw1ty3z1vnHR;
-	Wed,  7 Jan 2026 02:32:24 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dm0FJ3m2PzJ46bL;
-	Wed,  7 Jan 2026 02:34:28 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 758FA40565;
-	Wed,  7 Jan 2026 02:34:30 +0800 (CST)
-Received: from localhost (10.195.245.156) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 6 Jan
- 2026 18:34:29 +0000
-Date: Tue, 6 Jan 2026 18:34:28 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd
-	<nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
-	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Timothy Hayes
-	<Timothy.Hayes@arm.com>
-Subject: Re: [PATCH v2 09/36] KVM: arm64: gic-v5: Detect implemented PPIs on
- boot
-Message-ID: <20260106183428.0000346b@huawei.com>
-In-Reply-To: <20251219155222.1383109-10-sascha.bischoff@arm.com>
-References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
-	<20251219155222.1383109-10-sascha.bischoff@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1vdBtD-0000000Dgps-1u3q;
+	Tue, 06 Jan 2026 18:34:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7DCCE6013D;
+	Tue,  6 Jan 2026 18:34:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 152C5C19423;
+	Tue,  6 Jan 2026 18:34:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767724482;
+	bh=H2v0nUt8N0vGGdbmlYiAAvAo4Pe4F33fRgeEAFY94/w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tvWl1oMzdgHT/lp0TV4rEcJ8KSAX5uz4aKUNJUZM/9Fw2AhxQvWxlDCsW9dkPhYuG
+	 kGtfrzLYii0Dcs1IFsDE/r35PWpspaWSHEmpmKHAfQJqfDhPXGzXN+AcQX8FhIqlLr
+	 S2GlvwkqAR3eWJn5OSXGBcUlSVjtK1ySUFYR4Kgo65YrR5qEKgsHgrkkR2f7wo7gAc
+	 NZkIgfrl/22DVK+m33EFyTZD7ElvUBBegC0B1jErirr8Pd+5OcPFoF8AW/bmY+Xn3F
+	 +Cdh7YwsMaezrL2EGPygsauQDaw4lqwaPo/WVcRONNnDOBN1dCWVBK8U4GCSoWgqiD
+	 dMz6zwvCP1HZA==
+Date: Tue, 6 Jan 2026 12:34:41 -0600
+From: Rob Herring <robh@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next 1/2] dt-bindings: net: airoha: npu: Add BA
+ memory region
+Message-ID: <20260106183441.GA2514063-robh@kernel.org>
+References: <20260105-airoha-ba-memory-region-v1-0-5b07a737c7a7@kernel.org>
+ <20260105-airoha-ba-memory-region-v1-1-5b07a737c7a7@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.195.245.156]
-X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
- dubpeml100005.china.huawei.com (7.214.146.113)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_103437_437918_B77B2E81 
-X-CRM114-Status: GOOD (  10.41  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260105-airoha-ba-memory-region-v1-1-5b07a737c7a7@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,22 +75,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Dec 2025 15:52:38 +0000
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-
-> It is expected that most GICv5 implementations will only implement a
-> subset of the PPIs. GICv5 supports up to 128 PPIs in total, where the
-> first 64 are architecturally defined, and the second 64 are
-> implementation defined. This limitation applies to both physical and
-> virtual PPIs as the same set is implemented in each case, and
-> therefore KVM needs to determine a mask of implemented PPIs during
-> early KVM init.
+On Mon, Jan 05, 2026 at 10:02:56AM +0100, Lorenzo Bianconi wrote:
+> Introduce Block Ack memory region used by NPU MT7996 (Eagle) offloading.
 > 
-> The check involves writing all of the ICH_PPI_ENABLERx_EL2 bits and
-> reading those back again to determine which are stateful. If the bits
-> are stateful, the PPIs are implemented. Else, they are not.
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml | 11 +++++++++--
+>  1 file changed, 9 insertions(+), 2 deletions(-)
 > 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
+> index 59c57f58116b568092446e6cfb7b6bd3f4f47b82..b3a2b36f6a121f90acf88a07b0f1733fa6da08a8 100644
+> --- a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
+> +++ b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
+> @@ -50,6 +50,12 @@ properties:
+>            - description: NPU wlan offload RX buffers region
+>            - description: NPU wlan offload TX buffers region
+>            - description: NPU wlan offload TX packet identifiers region
+> +      - items:
+> +          - description: NPU firmware binary region
+> +          - description: NPU wlan offload RX buffers region
+> +          - description: NPU wlan offload TX buffers region
+> +          - description: NPU wlan offload TX packet identifiers region
+> +          - description: NPU wlan Block Ack buffers region
 
+This oneOf can be simplified to just this last entry plus 'minItems: 1'. 
+Sure that allows 2 or 3 entries, but nothing defines when 1, 4, or 5 
+entries is valid or not.
+
+>  
+>    memory-region-names:
+>      items:
+> @@ -57,6 +63,7 @@ properties:
+>        - const: pkt
+>        - const: tx-pkt
+>        - const: tx-bufid
+> +      - const: ba
+>  
+>  required:
+>    - compatible
+> @@ -93,7 +100,7 @@ examples:
+>                       <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>,
+>                       <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
+>          memory-region = <&npu_firmware>, <&npu_pkt>, <&npu_txpkt>,
+> -                        <&npu_txbufid>;
+> -        memory-region-names = "firmware", "pkt", "tx-pkt", "tx-bufid";
+> +                        <&npu_txbufid>, <&npu_ba>;
+> +        memory-region-names = "firmware", "pkt", "tx-pkt", "tx-bufid", "ba";
+>        };
+>      };
+> 
+> -- 
+> 2.52.0
+> 
 
