@@ -4,66 +4,196 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A3C1C47BE1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 16:43:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54413CE9D7B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 16:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yZw3WZZYm28dE9HQYeQea/Sbj/eWbFcqNoZFr1t7j3E=; b=QR3mh2I6LHFRBkHOMHNo+eD+3A
-	/TwCJ78IyODLRUGzijDdGNum6h6VmMvYPd5yITugoiJU9fENCBPuUpv93byEj+Brkit6S/4b/C+Pv
-	SfQyEqKzQJeYCIozeuT2/tVKZgZVduZgYrcY3pTUoqxvF20tNJDEG1tZEzt5RN7gStZAHqAQSX89c
-	WlHig1AoEEwg4UBIPiAzp1s3NnQ/fVn0HQ6oiXk0PcOaSovV/jp/VnbaYN/+xrorVIZrfL+fzuHMW
-	vSZWCX9aGDNRGZJb5hcmcjKFSe4oi0u3nJfZ5x5FEtOkf6Q/wRMl/kcFzi71bBZxar+p8euCq6ITv
-	45dxWEUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wn67vVi4gfCcHGxL4z728Pxv+oRWEagvqzSCdj9MQ9o=; b=ZEv/1Mn0/DmtAYg78K6frLq79F
+	t4eOjoc1L5zHQnyXrfLlIe8FLcHHhfW1KTj7HDt7RMDTfAVJA7RIG0jYcBF93g3bQY5zd/xMjtQru
+	SlAJ+CAVUNVcbYmElfsFCJrFvOnKczKseg5UcbvGxb7BnxQQ9QTlKd/u7z/awESM8VWvBkKKtjahB
+	lfr+6p7lofgGQZybAMpdSjtMmy1y5/Z5/VUusKA02BhyWy2TJpKhdLFt4Qc8sr0PNlFycm8SJ6xqA
+	xDvsizccopEv+/+NGh1L1FcmVe1P/6wkdNFflEDIlJi84SDnqiHWA5HDw0R8ciuvdeI8W8vGvPtXv
+	wGeSKtog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdA9Q-0000000DW1D-2BIy;
-	Tue, 06 Jan 2026 16:43:20 +0000
-Received: from out-188.mta0.migadu.com ([2001:41d0:1004:224b::bc])
+	id 1vdAJB-0000000DWpt-0hy7;
+	Tue, 06 Jan 2026 16:53:25 +0000
+Received: from mail-westeuropeazon11010038.outbound.protection.outlook.com ([52.101.69.38] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdA9O-0000000DVws-1Hws
+	id 1vdAJ7-0000000DWpY-40L9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 16:43:19 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1767717795;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yZw3WZZYm28dE9HQYeQea/Sbj/eWbFcqNoZFr1t7j3E=;
-	b=hYQwyQJjaehQX638QU04nMw0O9SL2XsmknEL14fxotw0BZ3t3e+XOY3BH1fsGpjNFO0Str
-	IPvjbMHyGLvtebPz1PlLPivalacV6q0vdrGhxivOTUkKasCLwF9rZ9tm3a7ZGNreG035jc
-	4cf0bwTKuv2f1bph4miWnuaA2s5HuYg=
-From: Sean Anderson <sean.anderson@linux.dev>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	dri-devel@lists.freedesktop.org
-Cc: Simona Vetter <simona@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	linux-kernel@vger.kernel.org,
-	Maxime Ripard <mripard@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Michal Simek <michal.simek@amd.com>,
-	Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Mike Looijmans <mike.looijmans@topic.nl>,
-	Sean Anderson <sean.anderson@linux.dev>
-Subject: [PATCH v2 4/4] drm: zynqmp: Add blend mode property to graphics plane
-Date: Tue,  6 Jan 2026 11:42:47 -0500
-Message-Id: <20260106164247.472544-5-sean.anderson@linux.dev>
-In-Reply-To: <20260106164247.472544-1-sean.anderson@linux.dev>
-References: <20260106164247.472544-1-sean.anderson@linux.dev>
+	Tue, 06 Jan 2026 16:53:23 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=TkBl5B7gbsy9UKIREcGMdXSFCK3XBvbv1aPW6UWm+DGTOeXwqqIuybDWMCBWQXcIF+eeAmtqDfjEu7jJ0f4H1vAN133QHBjZEdUwv1RctrzQ+5GYiyxV8mZ9ya0iXbgIE10GgHl08hvZNO/6jZPqRRL5lFwfAp0ow4g4ZZTvhOw3e6NJz7gMVzD9VRnVNQm4ym+wiuXj+OV4uXGo9tvn0z+ytmp9BvBUlKR3IS08QZEhJf893vh31PBVKYB1lTb8Vl+Qr4b2JLKIdM+2Dk+kApX8wl2aYc8QxLKehoz4T6nIrX/ISotrP5nmyoLTPukMZVNMZ3liYea7ut/e7D4n+w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wn67vVi4gfCcHGxL4z728Pxv+oRWEagvqzSCdj9MQ9o=;
+ b=zEqQwReN3lkC4MSQFVq+j1b60AvpiBH5URKOn2jvHJOEr70v/KzktIqNmug/ZGufz7En8jlEnm/yEgX6cRg3+U11IA9eV5xxH5+ZHyGf/lKtqvE+vnVe/TF97shzuwyYviryPnh1xndQ/gsttfrIzmay2S0mOm73PAmYeQm9wHs5DBis2rkX+EduDxxhU5LJUFoNTFuAupgAjAUuyZ+SPilsdjvqlSva+8Gog5eGkDB2FNKbFNolru2cTDGbpwEdq+cGvxqjaWO/q0nvK/DNuvQCyhJZmWWhD5BQ73B5FwOIjqsCLsC6SIAuOG74c0urMb8vLBTHU3sO86FhpBpyUw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wn67vVi4gfCcHGxL4z728Pxv+oRWEagvqzSCdj9MQ9o=;
+ b=sErae/WlDJp/Mh8CR2CrX1HSQKEzGjhyrBx/CDX2zVFcNdOCgyFnPthHMHX4ZFGa5TCO+1Aby8/SV2z7He0l9HZL/b+aQJo+cBasuLIjU4G4H+7icNdynqBSZOq1ADBqLaycUTjpaJjPNDX9AogDw6ZBZjoUZ+qHsgMbF9Pc+hs=
+Received: from DU2PR04CA0342.eurprd04.prod.outlook.com (2603:10a6:10:2b4::21)
+ by GV2PR08MB11314.eurprd08.prod.outlook.com (2603:10a6:150:2c8::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.2; Tue, 6 Jan
+ 2026 16:53:15 +0000
+Received: from DU6PEPF0000A7E2.eurprd02.prod.outlook.com
+ (2603:10a6:10:2b4:cafe::ad) by DU2PR04CA0342.outlook.office365.com
+ (2603:10a6:10:2b4::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.2 via Frontend Transport; Tue, 6
+ Jan 2026 16:53:13 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU6PEPF0000A7E2.mail.protection.outlook.com (10.167.8.42) with Microsoft SMTP
+ Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.1 via
+ Frontend Transport; Tue, 6 Jan 2026 16:53:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aN3xqglpIaLtBwD28nwSIa+eWRlPeIQdKTPq40I1Oy0rFjteIeQbFvFDfsRsTH2rkwOhaShpktaGaABF7jfpG4x8KJfeCexAWcHQSMGf8XJ67DkO5yDjveE3KvjQ0ANgo4IA64KPBgllbWfkMMMnK2SI2CYiCswqTsMeHBqGAcIsoTfFPycTDi+HO1ws13C/ivpAKtzaToW4d60HiivcccTtieaDKbcFxTPV/5h+9ep7vfeNVoBIQ3LeYy9yCBeFeXdKMgoHPpCe0M5g2K0wvjevIk/8Sxzt6WVSh5eBhWeXJI1p81ATBlI+eLwIU1uwGuL9BlgVjJDlbXTZ3pxHmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wn67vVi4gfCcHGxL4z728Pxv+oRWEagvqzSCdj9MQ9o=;
+ b=LqHgFj5n8jOOfHCMj+5J3VUmzDo/+4eoCzq7pNpS2/3DxkF2Rsm/m1QbWX2u+ptPt0ns/gX5QFOFa9dZKDoB1Zi5+pNxgORtZPcEVUv8c2h42d8dwimW6HyNmcfhHqJyPrAimE23naWiv5f51B05U3MyBzz/3WMj7f6RAwMGbsQTKp8v93RKnK/1h30FBIoAsi6dw2sYoAfZWuVE0GCeepyaD8Ed0qXMs/RlZtZLRLvvWv+pnpDJlVjn2UZhpc8Gf1paWrToKc3FF1NYgERDOXKWWlQ8/J0e1Wzl6kVRdHqkCou1gMhaf4cPufX7FZPNhr3NkkS0mtxoxHGIIMIuvQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wn67vVi4gfCcHGxL4z728Pxv+oRWEagvqzSCdj9MQ9o=;
+ b=sErae/WlDJp/Mh8CR2CrX1HSQKEzGjhyrBx/CDX2zVFcNdOCgyFnPthHMHX4ZFGa5TCO+1Aby8/SV2z7He0l9HZL/b+aQJo+cBasuLIjU4G4H+7icNdynqBSZOq1ADBqLaycUTjpaJjPNDX9AogDw6ZBZjoUZ+qHsgMbF9Pc+hs=
+Received: from AS8PR08MB6744.eurprd08.prod.outlook.com (2603:10a6:20b:397::10)
+ by DBBPR08MB10483.eurprd08.prod.outlook.com (2603:10a6:10:535::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9456.14; Tue, 6 Jan
+ 2026 16:52:11 +0000
+Received: from AS8PR08MB6744.eurprd08.prod.outlook.com
+ ([fe80::c07d:23d6:efa7:7ddb]) by AS8PR08MB6744.eurprd08.prod.outlook.com
+ ([fe80::c07d:23d6:efa7:7ddb%6]) with mapi id 15.20.9478.004; Tue, 6 Jan 2026
+ 16:52:11 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
+CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
+	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>
+Subject: [PATCH] KVM: arm64: gic: Check for vGICv3 when clearing TWI
+Thread-Topic: [PATCH] KVM: arm64: gic: Check for vGICv3 when clearing TWI
+Thread-Index: AQHcfyzNcmwPrlV5OUioeIpzLE3NuA==
+Date: Tue, 6 Jan 2026 16:52:10 +0000
+Message-ID: <20260106165154.3321753-1-sascha.bischoff@arm.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.34.1
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: AS8PR08MB6744:EE_|DBBPR08MB10483:EE_|DU6PEPF0000A7E2:EE_|GV2PR08MB11314:EE_
+X-MS-Office365-Filtering-Correlation-Id: b55f57cc-c90f-4228-2def-08de4d441563
+x-checkrecipientrouted: true
+nodisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024|38070700021;
+X-Microsoft-Antispam-Message-Info-Original: =?iso-8859-1?Q?79ZwStmWT4l+tmmCeJVEIhY982RB8jcAlCOTZnu4Cv610CjBTa0QUMWOZr?=
+ =?iso-8859-1?Q?eHFs8z2KTxle+Ht5SaIdV3zTNjxr+aC185GWPKKaXifaZJMBl1mIqwu8Hu?=
+ =?iso-8859-1?Q?Oh1mXkki/GkxGqig/A1E4MXRRfClzzPThKMV9QART+O6bSCKURGrBBkLcB?=
+ =?iso-8859-1?Q?Y3pzxYHUtbDBLwPW8Ryhhxq+Xq3gNvJYiK4XiS5InwpBeK/jzSvdmycmfz?=
+ =?iso-8859-1?Q?Cwu/QRx2mTEhquFDMNcZg93q3tu0ys6BvGdmLMxlEat54ccDm97amsJZFp?=
+ =?iso-8859-1?Q?7PSnXgRcwNoQAoWu1FWu2rjTVE8H0Y9o1nXtmOaP7z68muk5qF16I87fii?=
+ =?iso-8859-1?Q?TrmZ66XkXU1e2r/HI/sLvTW/a/0SF1lZWTl5qvM8OnDsyoozHITex6P1ES?=
+ =?iso-8859-1?Q?jh7Ub5Nw7tihq9azlEg0HfQWqfKJkNeXiPqqWgejAYhczc0yB0HJBot/wu?=
+ =?iso-8859-1?Q?jO0mQ8IbkdEyK/7kHtoeg5nxJgMU5GRG9XMjd8h+vkpLyodG88JIyGRcFo?=
+ =?iso-8859-1?Q?A4G8IwCdRxgkK0eQU32UMQXKciRKzjzgrTB9Bh5ETUoMHtbTq0S8RKK+/m?=
+ =?iso-8859-1?Q?1bSYEpIs0sZguhFyu0M16l0C4B+ARudtqd3f/Tc4BkbkUTv/H6uurEpgxf?=
+ =?iso-8859-1?Q?qsr5i+dECOy6oglrzpeDiMBbLOtG7T9qDYYmIwSenpcNm1eLJ5f30Ru28R?=
+ =?iso-8859-1?Q?WDKjhrlIloKlaEnq75yBZxVqp3Aqozm8+vy27hGmdsDs8GVU2wuKAv2iZ3?=
+ =?iso-8859-1?Q?BA/R3VfCU0lKu120wUua3mx3n7FPHzZ2MdnYGqhIhY8eMnuI+eharEocR8?=
+ =?iso-8859-1?Q?O3/xiZu373qnF/6yI+dDE0IXVKZ3HKduQQV7aL5GHo4YG4F+rgGMpSdVx2?=
+ =?iso-8859-1?Q?OWvJklvRqelEN7hBYLB++bY4eEV7mFzIgulgjSxfM9NIQIUENvOUAyyBEX?=
+ =?iso-8859-1?Q?cqfa++nu1OqA1t8ShzfgRGGn0VTsW7L19QlckOeQEFHcPIZybMzoPqmZEe?=
+ =?iso-8859-1?Q?E2K9KaCTSq0KQNOF8eYOgl2XTPcmPhEAzaprfVd4x+I9z/2BNuPdeLV1LK?=
+ =?iso-8859-1?Q?86lJAmUSlhG5ra9VxwlxcDgPkiGn5Ki0sHUSnEwI4Y8cPvsSSVec+UIvY4?=
+ =?iso-8859-1?Q?+G3sVbhvy2UWto2pz4aIbbs7jpv+aTG2CNRbpTIAA4WXtMAIjopsYZZyGn?=
+ =?iso-8859-1?Q?pfssi1uA679SfT681g2vmTab+kXiwkhgUWy/LyyVSbSe4wWVzSiCYntMcA?=
+ =?iso-8859-1?Q?OasUo5D08gSbg8sWAJONDv890JJFvsUhtIpXQLl7t6zS2iEDW9RfgLYoh/?=
+ =?iso-8859-1?Q?gtPrOdGa3bp0YKyCvwoTWdhDyogV0YiWJZbkb7wEHgtZcSMC2x8qNUROA3?=
+ =?iso-8859-1?Q?tdzy3vNz+yVmi09+W9SrQP+qLUVp6yvn8WbSjlWub3t1M0D6LY/lw2ATcv?=
+ =?iso-8859-1?Q?sHTMmC6n2MplzZpoua0dr3t4sOtvy1Hedl0+33YDuaSodZyr8aHBpQUgnh?=
+ =?iso-8859-1?Q?upBg4v2XF1RPv2XPpTpLh0cX0LVJ4Qd92Mi6i/WY9ZeHRxJR4Pa6g6IDpi?=
+ =?iso-8859-1?Q?G7EgGCT7Ak6aJtzjYpsAXJOjUMVc?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR08MB6744.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB10483
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000A7E2.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 250c531d-823b-40cb-0f9b-08de4d43ef8a
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|376014|1800799024|82310400026|36860700013|14060799003;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?g37lQhRKSDKYYEFJB3CELB2UckHSVVr2jnhTjklKBJmXSpAwBL1iV4bUAd?=
+ =?iso-8859-1?Q?/SX1yT7dOGqhGnmnEakDpoWSCiS2q/gu3snRjKQ7H1QzfrvwO2gDdOcdap?=
+ =?iso-8859-1?Q?VrFe2LAZJnQKZkF+1HZ0ivA2s6h7+imAJ0LGKFDbFjMYbN/V4bTfgnR2C9?=
+ =?iso-8859-1?Q?oGY7zJDJh9/KCSjoJjcYHe2rRbbGoBcxGT/pla0+jgT+iKJJtywo1F30Pq?=
+ =?iso-8859-1?Q?VP4R8HPMuZ7zknx+QcKmPlbGUvt7VCgTl/8RMyrpKcDcHtdS9+62YM5sjg?=
+ =?iso-8859-1?Q?XkqRomk90xspct2DMDXYCs/UxT/QPzTeI9ekZ2XZkn7PLxET5wagVBLX67?=
+ =?iso-8859-1?Q?VKkP/ys7c6uZikqFjZxFXd9F6/Lv3IEgampIMysWbSz/7HKRu8TPwHk7DV?=
+ =?iso-8859-1?Q?j4lLVbIwJCiuNx+42Dcje312cnBwYMWJKzSpLId9DlI7NcY/6hvlZL7Qza?=
+ =?iso-8859-1?Q?3MoSgwI14L7vWKgbZUQkICcBemozEEBmxcfTUHWOegvLd2p/tzit0yCcTQ?=
+ =?iso-8859-1?Q?P+U5LcTHyY+iJNHWksBkk+VPKW38EDc7UqgoUmRkZd2H3qyH2yS4fzxgZO?=
+ =?iso-8859-1?Q?bn1dBPZiSOoD4QUp+IbZOpS/OFnRoW2y5Fepen8DljsufL8VqEDTZzzHIu?=
+ =?iso-8859-1?Q?YVe2aJZUrwepkFfQ5/5y19GlrG/2KycIMtg97YvSYrk2o0sZ3DBg1Mgrav?=
+ =?iso-8859-1?Q?Nk9qbw6S3+qIR+GRW5w8qy4QUtId1i3nw8hxYI5X2u22BxOnSg7cJdmVfw?=
+ =?iso-8859-1?Q?m/OZDsAojRfBmq7mao472J4HJImbpiVNngMNOUKYDCB4vFvA93ihB5dP/8?=
+ =?iso-8859-1?Q?leIvdTrhwTlQCNq9Ifdh2Ou6zaFbVYjA+ktfviIh/1Y7Y/FDWi5CAPNK0g?=
+ =?iso-8859-1?Q?awTVcOvcSx677Inj4IKaxR021b3YqPBVM/LtITaaZ7l2Wmf7yGaLl6CfHR?=
+ =?iso-8859-1?Q?UIi50i3YaA9cyoOVkOo34FJLiA5iQMlwDY0R2UTjCdyQpazI0i/1TAHVmY?=
+ =?iso-8859-1?Q?P8iUrRnuX3QP/w0irxe+RZvcrrYJZ80pO7pEFFE+PZEtdvCgAddHp/mR7N?=
+ =?iso-8859-1?Q?vg3Ke7tv2qzaEGEwu00c7b/LwegcK0bDpfVGhEnclBNtTbwTqv+mN0lvSm?=
+ =?iso-8859-1?Q?abzLd+HykESzY9xmSp7tfbJyJ7KgNp7E/+dafFfdkEiMCATB524PMP9+ej?=
+ =?iso-8859-1?Q?DISTVbhIXfVIKdMItuuySC9h1pxMfsE7Rn7UhEMv5CeGW90G2NVsOELiGO?=
+ =?iso-8859-1?Q?UW92rsTtqneJLcUPdacExQqsyVWo/L5L8WI7zEf4eVXPaGYrvX9NqdY/dC?=
+ =?iso-8859-1?Q?mxhg+soFZf4t5doidmPygjhXRKbiXUh1m96HMPgSp90xaXVhfbOMmhS/lS?=
+ =?iso-8859-1?Q?Wd2AVyEiPyWowzPEZesMVxlj8Dz8L7cnLcr2xfamA8+W9eRkA5uEdeir+5?=
+ =?iso-8859-1?Q?YB0goKXTPXDtj/zeXXWN1L/qjHmepUP8n9ABJU/WQxYt09tw10tRT2yGTo?=
+ =?iso-8859-1?Q?gIz46G0uNO7oQMF9Psq/ddXlMNuQehBNiD711iL0NxY5Cc4UrzyyixCCDk?=
+ =?iso-8859-1?Q?r4l94VD3Tkl1yV5haTuJv4DREL7oab6IPJQapCDImHjCAV/oMGSOMpW2eP?=
+ =?iso-8859-1?Q?wiAe5WaYy/iRo=3D?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(376014)(1800799024)(82310400026)(36860700013)(14060799003);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2026 16:53:14.3834
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b55f57cc-c90f-4228-2def-08de4d441563
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E2.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB11314
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_084318_485170_2FADB913 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20260106_085322_044080_691726AF 
+X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,104 +208,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When global alpha is enabled, per-pixel alpha is ignored. Allow
-userspace to explicitly specify whether to use per-pixel alpha by
-exposing it through the blend mode property. The reference manual
-doesn't say whether the per-pixel alpha is pre-multiplied or not, but
-Anatoliy created a test case that shows alpha is not pre-multiplied [1].
-By default alpha is disabled, since this matches the behavior before
-this patch.
+Explicitly check for the vgic being v3 when disabling TWI. Failure to
+check this can result in using the wrong view of the vgic CPU IF union
+causing undesirable/unexpected behaviour.
 
-[1] https://lore.kernel.org/dri-devel/MW4PR12MB7165CDDB17CF0855EA19AACDE6A6A@MW4PR12MB7165.namprd12.prod.outlook.com/
-
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 ---
+ arch/arm64/kvm/arm.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Changes in v2:
-- Advertise coverage instead of premulti, since that's what the hardware
-  supports.
-- Set default blend mode to none since that's what the default was
-  before this series.
-
- drivers/gpu/drm/xlnx/zynqmp_kms.c | 35 ++++++++++++++++++++++++++++---
- 1 file changed, 32 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/gpu/drm/xlnx/zynqmp_kms.c b/drivers/gpu/drm/xlnx/zynqmp_kms.c
-index 284acb23c53e..aadba00921c1 100644
---- a/drivers/gpu/drm/xlnx/zynqmp_kms.c
-+++ b/drivers/gpu/drm/xlnx/zynqmp_kms.c
-@@ -62,6 +62,13 @@ static int zynqmp_dpsub_plane_atomic_check(struct drm_plane *plane,
- 	if (!new_plane_state->crtc)
- 		return 0;
- 
-+	if (new_plane_state->pixel_blend_mode != DRM_MODE_BLEND_PIXEL_NONE &&
-+	    new_plane_state->alpha >> 8 != 0xff) {
-+		drm_dbg_kms(plane->dev,
-+			    "Plane alpha must be 1.0 when using pixel alpha\n");
-+		return -EINVAL;
-+	}
-+
- 	crtc_state = drm_atomic_get_crtc_state(state, new_plane_state->crtc);
- 	if (IS_ERR(crtc_state))
- 		return PTR_ERR(crtc_state);
-@@ -118,9 +125,13 @@ static void zynqmp_dpsub_plane_atomic_update(struct drm_plane *plane,
- 
- 	zynqmp_disp_layer_update(layer, new_state);
- 
--	if (plane->index == ZYNQMP_DPSUB_LAYER_GFX)
--		zynqmp_disp_blend_set_global_alpha(dpsub->disp, true,
-+	if (plane->index == ZYNQMP_DPSUB_LAYER_GFX) {
-+		bool blend = plane->state->pixel_blend_mode ==
-+			     DRM_MODE_BLEND_PIXEL_NONE;
-+
-+		zynqmp_disp_blend_set_global_alpha(dpsub->disp, blend,
- 						   plane->state->alpha >> 8);
-+	}
- 
- 	/*
- 	 * Unconditionally enable the layer, as it may have been disabled
-@@ -137,11 +148,18 @@ static const struct drm_plane_helper_funcs zynqmp_dpsub_plane_helper_funcs = {
- 	.atomic_disable		= zynqmp_dpsub_plane_atomic_disable,
- };
- 
-+void zynqmp_dpsub_plane_atomic_reset(struct drm_plane *plane)
-+{
-+	drm_atomic_helper_plane_reset(plane);
-+	if (plane->state)
-+		plane->state->pixel_blend_mode = DRM_MODE_BLEND_PIXEL_NONE;
-+}
-+
- static const struct drm_plane_funcs zynqmp_dpsub_plane_funcs = {
- 	.update_plane		= drm_atomic_helper_update_plane,
- 	.disable_plane		= drm_atomic_helper_disable_plane,
- 	.destroy		= drm_plane_cleanup,
--	.reset			= drm_atomic_helper_plane_reset,
-+	.reset			= zynqmp_dpsub_plane_atomic_reset,
- 	.atomic_duplicate_state	= drm_atomic_helper_plane_duplicate_state,
- 	.atomic_destroy_state	= drm_atomic_helper_plane_destroy_state,
- };
-@@ -180,9 +198,20 @@ static int zynqmp_dpsub_create_planes(struct zynqmp_dpsub *dpsub)
- 			return ret;
- 
- 		if (i == ZYNQMP_DPSUB_LAYER_GFX) {
-+			unsigned int blend_modes =
-+				BIT(DRM_MODE_BLEND_PIXEL_NONE) |
-+				BIT(DRM_MODE_BLEND_COVERAGE);
-+			unsigned int def = DRM_MODE_BLEND_COVERAGE;
-+
- 			ret = drm_plane_create_alpha_property(plane);
- 			if (ret)
- 				return ret;
-+
-+			ret = drm_plane_create_blend_mode_default(plane,
-+								  blend_modes,
-+								  def);
-+			if (ret)
-+				return ret;
- 		}
- 	}
- 
--- 
-2.35.1.1320.gc452695387.dirty
-
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 4f80da0c0d1de..620a465248d1b 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -569,6 +569,7 @@ static bool kvm_vcpu_should_clear_twi(struct kvm_vcpu *=
+vcpu)
+ 		return kvm_wfi_trap_policy =3D=3D KVM_WFX_NOTRAP;
+=20
+ 	return single_task_running() &&
++	       vcpu->kvm->arch.vgic.vgic_model =3D=3D KVM_DEV_TYPE_ARM_VGIC_V3 &&
+ 	       (atomic_read(&vcpu->arch.vgic_cpu.vgic_v3.its_vpe.vlpi_count) ||
+ 		vcpu->kvm->arch.vgic.nassgireq);
+ }
+--=20
+2.34.1
 
