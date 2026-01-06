@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9CA5CD0438
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 04:45:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5BDCD0435
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 04:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dDCT9NGfk7JvtO4aM0rDil1BElgW6c62n6tTbq8hh0k=; b=kJV9HdRKQQXATrI3hrdZ3ShzyX
-	ndyhgwjMqFnzBJzTrpjaKE4gHJPkVGobMKegeRlVYEAKmUDTBkb2intsHfrV/a7HSbQTluvCvxDgp
-	/6A3WQhprxP9Oe8hcfPzMhXimKE0Y+f/3zkEVIJLxca3EEUou5mPbmhFewdyCi1b3f6FmZoAMvkrp
-	kY5pMSA9JlGYyPg0hG+hIzcFHfX/6di3N0xxq430SDenQ3mpLMgXaOm5YJmZA+L1ZygKLxJvVOaFl
-	GcXtteVSS6R6Grbid2z/qPxB7bVcs4ppCORysUfVd/tIOyKZmSYmdw2Fizyyb+Z7xG0Lv663FYq6/
-	XMYASVvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D3R7Nk0higy+M+L496dlKL0JkRPkPHocaFGEwXVlvNE=; b=RxGxnu/EgBoZrXQKyCMKu/SC5y
+	4yD6VQWEKb7rJ86OaqnWzYLYpyTWHzNPhOo0S7xftAeD5LL6kjSSXC1JHxoUgJT4+cAjFrEHJcQV3
+	nLnWYhIcOvkpKu6b9mU5EWGCd1PsNOPUQONKPtn8UZUkgecuhjcNbSfbxpsdwqLA05PJGfB1Vl/ez
+	6/SXvZyoLVykkcRNXmwMINAv9io7bU+e3yOSTeyVnR5L9AQnHmP5P8Pwo8glvsRnvUOPcd3SPmqlN
+	dEHXLMxta+8/upaUzMmih5BKFnp06ADpPvNJHjaL5LgaY8ujSZBQGWXO64t3aJMV4s7iRKXkswyC9
+	NxUC2ZVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcywQ-0000000CPVl-3Bwh;
-	Tue, 06 Jan 2026 04:45:10 +0000
-Received: from mx.socionext.com ([202.248.49.38])
+	id 1vcz37-0000000CPoG-24lV;
+	Tue, 06 Jan 2026 04:52:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcywO-0000000CPVN-4A0Y;
-	Tue, 06 Jan 2026 04:45:10 +0000
-Received: from unknown (HELO iyokan3-ex.css.socionext.com) ([172.31.9.54])
-  by mx.socionext.com with ESMTP; 06 Jan 2026 13:45:07 +0900
-Received: from mail.mfilter.local (mail-arc01.css.socionext.com [10.213.46.36])
-	by iyokan3-ex.css.socionext.com (Postfix) with ESMTP id 2AC422091484;
-	Tue,  6 Jan 2026 13:45:07 +0900 (JST)
-Received: from iyokan3.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Tue, 6 Jan 2026 13:45:07 +0900
-Received: from [10.212.247.110] (unknown [10.212.247.110])
-	by iyokan3.css.socionext.com (Postfix) with ESMTP id 66FE810A003;
-	Tue,  6 Jan 2026 13:45:06 +0900 (JST)
-Message-ID: <c60cd68a-d963-40ae-9366-44678490291d@socionext.com>
-Date: Tue, 6 Jan 2026 13:45:09 +0900
+	id 1vcz35-0000000CPnr-059t
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Jan 2026 04:52:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66A32497;
+	Mon,  5 Jan 2026 20:51:53 -0800 (PST)
+Received: from localhost (a079125.arm.com [10.164.21.37])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 63B0B3F694;
+	Mon,  5 Jan 2026 20:51:59 -0800 (PST)
+Date: Tue, 6 Jan 2026 10:21:56 +0530
+From: Linu Cherian <linu.cherian@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Marc Zyngier <maz@kernel.org>, Dev Jain <dev.jain@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 10/13] arm64: mm: Refactor __flush_tlb_range() to take
+ flags
+Message-ID: <aVyU7AoEKJ3OMmUW@a079125.arm.com>
+References: <20251216144601.2106412-1-ryan.roberts@arm.com>
+ <20251216144601.2106412-11-ryan.roberts@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] phy: socionext: usb2: Simplify with scoped for each OF
- child loop
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Masami Hiramatsu <mhiramat@kernel.org>
-References: <20260102124848.64474-2-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Language: en-US
-Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-In-Reply-To: <20260102124848.64474-2-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251216144601.2106412-11-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_204509_150976_1469A53F 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20260105_205203_149895_9386FB11 
+X-CRM114-Status: GOOD (  33.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,97 +69,266 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Ryan,
 
-On 2026/01/02 21:48, Krzysztof Kozlowski wrote:
-> Use scoped for-each loop when iterating over device nodes to make code a
-> bit simpler.
+On Tue, Dec 16, 2025 at 02:45:55PM +0000, Ryan Roberts wrote:
+> We have function variants with "_nosync", "_local", "_nonotify" as well
+> as the "last_level" parameter. Let's generalize and simplify by using a
+> flags parameter to encode all these variants.
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> As a first step, convert the "last_level" boolean parameter to a flags
+> parameter and create the first flag, TLBF_NOWALKCACHE. When present,
+> walk cache entries are not evicted, which is the same as the old
+> last_level=true.
+> 
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 > ---
->   drivers/phy/socionext/phy-uniphier-usb2.c | 28 ++++++++---------------
->   1 file changed, 10 insertions(+), 18 deletions(-)
+>  arch/arm64/include/asm/hugetlb.h  | 12 ++++++------
+>  arch/arm64/include/asm/pgtable.h  |  4 ++--
+>  arch/arm64/include/asm/tlb.h      |  6 +++---
+>  arch/arm64/include/asm/tlbflush.h | 28 ++++++++++++++++------------
+>  arch/arm64/mm/contpte.c           |  5 +++--
+>  arch/arm64/mm/hugetlbpage.c       |  4 ++--
+>  arch/arm64/mm/mmu.c               |  2 +-
+>  7 files changed, 33 insertions(+), 28 deletions(-)
 > 
-> diff --git a/drivers/phy/socionext/phy-uniphier-usb2.c
-> b/drivers/phy/socionext/phy-uniphier-usb2.c
-> index 21c201717d95..c49d432e526b 100644
-> --- a/drivers/phy/socionext/phy-uniphier-usb2.c
-> +++ b/drivers/phy/socionext/phy-uniphier-usb2.c
-> @@ -106,7 +106,7 @@ static const struct phy_ops uniphier_u2phy_ops = {
->   static int uniphier_u2phy_probe(struct platform_device *pdev)
->   {
->   	struct device *dev = &pdev->dev;
-> -	struct device_node *parent, *child;
-> +	struct device_node *parent;
->   	struct uniphier_u2phy_priv *priv = NULL, *next = NULL;
->   	struct phy_provider *phy_provider;
->   	struct regmap *regmap;
-> @@ -129,34 +129,31 @@ static int uniphier_u2phy_probe(struct
-> platform_device *pdev)
->   		return PTR_ERR(regmap);
->   	}
->   
-> -	for_each_child_of_node(dev->of_node, child) {
-> +	for_each_child_of_node_scoped(dev->of_node, child) {
->   		priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> -		if (!priv) {
-> -			ret = -ENOMEM;
-> -			goto out_put_child;
-> -		}
-> +		if (!priv)
-> +			return -ENOMEM;
+> diff --git a/arch/arm64/include/asm/hugetlb.h b/arch/arm64/include/asm/hugetlb.h
+> index 44c1f757bfcf..04af9499faf2 100644
+> --- a/arch/arm64/include/asm/hugetlb.h
+> +++ b/arch/arm64/include/asm/hugetlb.h
+> @@ -73,23 +73,23 @@ static inline void __flush_hugetlb_tlb_range(struct vm_area_struct *vma,
+>  					     unsigned long start,
+>  					     unsigned long end,
+>  					     unsigned long stride,
+> -					     bool last_level)
+> +					     tlbf_t flags)
+>  {
+>  	switch (stride) {
+>  #ifndef __PAGETABLE_PMD_FOLDED
+>  	case PUD_SIZE:
+> -		__flush_tlb_range(vma, start, end, PUD_SIZE, last_level, 1);
+> +		__flush_tlb_range(vma, start, end, PUD_SIZE, 1, flags);
+>  		break;
+>  #endif
+>  	case CONT_PMD_SIZE:
+>  	case PMD_SIZE:
+> -		__flush_tlb_range(vma, start, end, PMD_SIZE, last_level, 2);
+> +		__flush_tlb_range(vma, start, end, PMD_SIZE, 2, flags);
+>  		break;
+>  	case CONT_PTE_SIZE:
+> -		__flush_tlb_range(vma, start, end, PAGE_SIZE, last_level, 3);
+> +		__flush_tlb_range(vma, start, end, PAGE_SIZE, 3, flags);
+>  		break;
+>  	default:
+> -		__flush_tlb_range(vma, start, end, PAGE_SIZE, last_level, TLBI_TTL_UNKNOWN);
+> +		__flush_tlb_range(vma, start, end, PAGE_SIZE, TLBI_TTL_UNKNOWN, flags);
+>  	}
+>  }
+>  
+> @@ -100,7 +100,7 @@ static inline void flush_hugetlb_tlb_range(struct vm_area_struct *vma,
+>  {
+>  	unsigned long stride = huge_page_size(hstate_vma(vma));
+>  
+> -	__flush_hugetlb_tlb_range(vma, start, end, stride, false);
+> +	__flush_hugetlb_tlb_range(vma, start, end, stride, TLBF_NONE);
+>  }
+>  
+>  #endif /* __ASM_HUGETLB_H */
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 64d5f1d9cce9..736747fbc843 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -124,9 +124,9 @@ static inline void arch_leave_lazy_mmu_mode(void)
+>  
+>  /* Set stride and tlb_level in flush_*_tlb_range */
+>  #define flush_pmd_tlb_range(vma, addr, end)	\
+> -	__flush_tlb_range(vma, addr, end, PMD_SIZE, false, 2)
+> +	__flush_tlb_range(vma, addr, end, PMD_SIZE, 2, TLBF_NONE)
+>  #define flush_pud_tlb_range(vma, addr, end)	\
+> -	__flush_tlb_range(vma, addr, end, PUD_SIZE, false, 1)
+> +	__flush_tlb_range(vma, addr, end, PUD_SIZE, 1, TLBF_NONE)
+>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+>  
+>  /*
+> diff --git a/arch/arm64/include/asm/tlb.h b/arch/arm64/include/asm/tlb.h
+> index 8d762607285c..10869d7731b8 100644
+> --- a/arch/arm64/include/asm/tlb.h
+> +++ b/arch/arm64/include/asm/tlb.h
+> @@ -53,7 +53,7 @@ static inline int tlb_get_level(struct mmu_gather *tlb)
+>  static inline void tlb_flush(struct mmu_gather *tlb)
+>  {
+>  	struct vm_area_struct vma = TLB_FLUSH_VMA(tlb->mm, 0);
+> -	bool last_level = !tlb->freed_tables;
+> +	tlbf_t flags = tlb->freed_tables ? TLBF_NONE : TLBF_NOWALKCACHE;
+>  	unsigned long stride = tlb_get_unmap_size(tlb);
+>  	int tlb_level = tlb_get_level(tlb);
+>  
+> @@ -63,13 +63,13 @@ static inline void tlb_flush(struct mmu_gather *tlb)
+>  	 * reallocate our ASID without invalidating the entire TLB.
+>  	 */
+>  	if (tlb->fullmm) {
+> -		if (!last_level)
+> +		if (tlb->freed_tables)
+>  			flush_tlb_mm(tlb->mm);
+>  		return;
+>  	}
+>  
+>  	__flush_tlb_range(&vma, tlb->start, tlb->end, stride,
+> -			  last_level, tlb_level);
+> +			  tlb_level, flags);
+>  }
+>  
+>  static inline void __pte_free_tlb(struct mmu_gather *tlb, pgtable_t pte,
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> index 37c782ddc149..9a37a6a014dc 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -267,16 +267,16 @@ static inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
+>   *		CPUs, ensuring that any walk-cache entries associated with the
+>   *		translation are also invalidated.
+>   *
+> - *	__flush_tlb_range(vma, start, end, stride, last_level, tlb_level)
+> + *	__flush_tlb_range(vma, start, end, stride, last_level, tlb_level, flags)
+
+Minor nit:
+last_level to be removed.
+
+>   *		Invalidate the virtual-address range '[start, end)' on all
+>   *		CPUs for the user address space corresponding to 'vma->mm'.
+>   *		The invalidation operations are issued at a granularity
+> - *		determined by 'stride' and only affect any walk-cache entries
+> - *		if 'last_level' is equal to false. tlb_level is the level at
+> + *		determined by 'stride'. tlb_level is the level at
+>   *		which the invalidation must take place. If the level is wrong,
+>   *		no invalidation may take place. In the case where the level
+>   *		cannot be easily determined, the value TLBI_TTL_UNKNOWN will
+> - *		perform a non-hinted invalidation.
+> + *		perform a non-hinted invalidation. flags may be TLBF_NONE (0) or
+> + *		TLBF_NOWALKCACHE (elide eviction of walk cache entries).
+>   *
+>   *	local_flush_tlb_page(vma, addr)
+>   *		Local variant of flush_tlb_page().  Stale TLB entries may
+> @@ -528,10 +528,14 @@ static inline bool __flush_tlb_range_limit_excess(unsigned long pages,
+>  	return pages >= (MAX_DVM_OPS * stride) >> PAGE_SHIFT;
+>  }
+>  
+> +typedef unsigned __bitwise tlbf_t;
+> +#define TLBF_NONE		((__force tlbf_t)0)
+> +#define TLBF_NOWALKCACHE	((__force tlbf_t)BIT(0))
 > +
->   		priv->regmap = regmap;
->   
->   		priv->vbus = devm_regulator_get_optional(dev, "vbus");
->   		if (IS_ERR(priv->vbus)) {
-> -			if (PTR_ERR(priv->vbus) == -EPROBE_DEFER) {
-> -				ret = PTR_ERR(priv->vbus);
-> -				goto out_put_child;
-> -			}
-> +			if (PTR_ERR(priv->vbus) == -EPROBE_DEFER)
-> +				return PTR_ERR(priv->vbus);
-> +
->   			priv->vbus = NULL;
->   		}
->   
->   		priv->phy = devm_phy_create(dev, child,
-> &uniphier_u2phy_ops);
->   		if (IS_ERR(priv->phy)) {
->   			dev_err(dev, "Failed to create phy\n");
-> -			ret = PTR_ERR(priv->phy);
-> -			goto out_put_child;
-> +			return PTR_ERR(priv->phy);
->   		}
->   
->   		ret = of_property_read_u32(child, "reg", &data_idx);
->   		if (ret) {
->   			dev_err(dev, "Failed to get reg property\n");
-> -			goto out_put_child;
-> +			return ret;
->   		}
->   
->   		if (data_idx < ndatas)
-> @@ -174,11 +171,6 @@ static int uniphier_u2phy_probe(struct
-> platform_device *pdev)
->   	phy_provider = devm_of_phy_provider_register(dev,
->   						
-> uniphier_u2phy_xlate);
->   	return PTR_ERR_OR_ZERO(phy_provider);
-> -
-> -out_put_child:
-> -	of_node_put(child);
-> -
-> -	return ret;
->   }
->   
->   static const struct uniphier_u2phy_soc_data uniphier_pro4_data[] = {
+>  static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
+>  				     unsigned long start, unsigned long end,
+> -				     unsigned long stride, bool last_level,
+> -				     int tlb_level)
+> +				     unsigned long stride, int tlb_level,
+> +				     tlbf_t flags)
+>  {
+>  	unsigned long asid, pages;
+>  
+> @@ -547,7 +551,7 @@ static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
+>  	dsb(ishst);
+>  	asid = ASID(mm);
+>  
+> -	if (last_level)
+> +	if (flags & TLBF_NOWALKCACHE)
+>  		__flush_s1_tlb_range_op(vale1is, start, pages, stride,
+>  				     asid, tlb_level);
+>  	else
+> @@ -559,11 +563,11 @@ static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
+>  
+>  static inline void __flush_tlb_range(struct vm_area_struct *vma,
+>  				     unsigned long start, unsigned long end,
+> -				     unsigned long stride, bool last_level,
+> -				     int tlb_level)
+> +				     unsigned long stride, int tlb_level,
+> +				     tlbf_t flags)
+>  {
+>  	__flush_tlb_range_nosync(vma->vm_mm, start, end, stride,
+> -				 last_level, tlb_level);
+> +				 tlb_level, flags);
+>  	dsb(ish);
+>  }
+>  
+> @@ -591,7 +595,7 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
+>  	 * Set the tlb_level to TLBI_TTL_UNKNOWN because we can not get enough
+>  	 * information here.
+>  	 */
+> -	__flush_tlb_range(vma, start, end, PAGE_SIZE, false, TLBI_TTL_UNKNOWN);
+> +	__flush_tlb_range(vma, start, end, PAGE_SIZE, TLBI_TTL_UNKNOWN, TLBF_NONE);
+>  }
+>  
+>  static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end)
+> @@ -632,7 +636,7 @@ static inline void __flush_tlb_kernel_pgtable(unsigned long kaddr)
+>  static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
+>  		struct mm_struct *mm, unsigned long start, unsigned long end)
+>  {
+> -	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, true, 3);
+> +	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, 3, TLBF_NOWALKCACHE);
+>  }
+>  
+>  static inline bool __pte_flags_need_flush(ptdesc_t oldval, ptdesc_t newval)
+> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> index 589bcf878938..1a12bb728ee1 100644
+> --- a/arch/arm64/mm/contpte.c
+> +++ b/arch/arm64/mm/contpte.c
+> @@ -205,7 +205,8 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
+>  	 */
+>  
+>  	if (!system_supports_bbml2_noabort())
+> -		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
+> +		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, 3,
+> +				  TLBF_NOWALKCACHE);
+>  
+>  	__set_ptes(mm, start_addr, start_ptep, pte, CONT_PTES);
+>  }
+> @@ -527,7 +528,7 @@ int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
+>  		 */
+>  		addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
+>  		__flush_tlb_range_nosync(vma->vm_mm, addr, addr + CONT_PTE_SIZE,
+> -					 PAGE_SIZE, true, 3);
+> +					 PAGE_SIZE, 3, TLBF_NOWALKCACHE);
+>  	}
+>  
+>  	return young;
+> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+> index 1d90a7e75333..7b95663f8c76 100644
+> --- a/arch/arm64/mm/hugetlbpage.c
+> +++ b/arch/arm64/mm/hugetlbpage.c
+> @@ -184,7 +184,7 @@ static pte_t get_clear_contig_flush(struct mm_struct *mm,
+>  	struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
+>  	unsigned long end = addr + (pgsize * ncontig);
+>  
+> -	__flush_hugetlb_tlb_range(&vma, addr, end, pgsize, true);
+> +	__flush_hugetlb_tlb_range(&vma, addr, end, pgsize, TLBF_NOWALKCACHE);
+>  	return orig_pte;
+>  }
+>  
+> @@ -212,7 +212,7 @@ static void clear_flush(struct mm_struct *mm,
+>  	if (mm == &init_mm)
+>  		flush_tlb_kernel_range(saddr, addr);
+>  	else
+> -		__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, true);
+> +		__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, TLBF_NOWALKCACHE);
+>  }
+>  
+>  void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 9ae7ce00a7ef..a17d617a959a 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -2150,7 +2150,7 @@ pte_t modify_prot_start_ptes(struct vm_area_struct *vma, unsigned long addr,
+>  		 */
+>  		if (pte_accessible(vma->vm_mm, pte) && pte_user_exec(pte))
+>  			__flush_tlb_range(vma, addr, nr * PAGE_SIZE,
+> -					  PAGE_SIZE, true, 3);
+> +					  PAGE_SIZE, 3, TLBF_NOWALKCACHE);
+>  	}
+>  
+>  	return pte;
 
-Reviewed-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
 
-Thank you,
+With the above comment fixed:
 
----
-Best Regards
-Kunihiko Hayashi
+Reviewed-by: Linu Cherian <linu.cherian@arm.com>
+
 
