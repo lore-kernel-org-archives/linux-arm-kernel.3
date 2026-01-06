@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B4BC47BEA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 11:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CBF6C47BEA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 11:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mmPgfN1SoV2e1JUHjkwwhh6lu2kxR3smizzCxKzuVro=; b=2fNpYIvpyEpVMHuvv+AtFqcfl7
-	RpOkWK5RvdrhbnjiFHyg2fMGkq8c6YtamH1kL1EJBbQ/+84bvQA1D886n+XVQS70Cik2vGeiDwtVM
-	28RNkB3Q1jtz9XHojvXwoN6da+ZBmY0l6DEVlyCcdsNIVIm8sfue6WdhMd4MVh3T/6sKkzQg0WXE7
-	bxqi9zan75Sp6FThcvmNWZ7c72OMBUOA6XweEbrn91w27Q5m/pwnt0GZtJiMamZckBIYxDtFwhABr
-	zs1okbZS+VcbYJINcdW4kbFfSwB6OsQiA33IxBl+KCB2WPG5U0XEzBmx9O7HNwmXBUAG9Uq7XGQY2
-	gSVVgQxA==;
+	bh=AiwRQZn9VkZjZ94MllXbBD6sVMBrL0OZDsGbDbpkLdo=; b=evBR9+xDXwy4QMdIV65piD3BLh
+	P2nTUHvdS62QXnnPDLB6EIsa9QjPzb1utASNtq0KPo3YrEztTasvZlji5nc9+/wrclfYs9c5e5dpO
+	dGgb5SWagJ74MCBKA2aoyp/6u92rC2PB/KsY7w3+cVWkjCEZ5G6uBDFu2oCqMbxJDQyZSp9+f4SDE
+	gfJW8CHFZJWaMzqEvlPNe5SxgNfqZWR96ZE+Q8XzvUoI2idyxc6FCT61qckwwWPSk9AfraUT5MA4c
+	VBEvOi9IloWuL3A7/yH2WiOfuXAbIZuLXwKp79GVU+b0Hlt4jD0n2BgL6NP8zV4Uc03EPgkCpILEl
+	YwkRQ55A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd56n-0000000CroV-17h3;
-	Tue, 06 Jan 2026 11:20:17 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd56i-0000000Crmr-1JGr
+	id 1vd57y-0000000Cs3i-1AwS;
+	Tue, 06 Jan 2026 11:21:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vd57w-0000000Cs34-0d2M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 11:20:15 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 771C61A268F;
-	Tue,  6 Jan 2026 11:20:06 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 4827E60739;
-	Tue,  6 Jan 2026 11:20:06 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 86DE9103C8615;
-	Tue,  6 Jan 2026 12:20:00 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767698405; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=mmPgfN1SoV2e1JUHjkwwhh6lu2kxR3smizzCxKzuVro=;
-	b=a/5NyA+AQ0G1xCwSN47g7sDReNcZOfX4IvOs/WJnjv+cVLKbd3oo4Q3zsxcIA24q2IHW5P
-	XUDQYacnjDVzT1+2oaXVEg3PR90/cwgylDhM7oy6WGj1tBSDhCF/ZPNuRtx/bGmzPxjfeK
-	sOzUrbuw4ECkiqGfCoOI6j7waCAPM5OQOiYWOQYmBBA+qUUfHO2yLae/BY5iYYa1sA+RRP
-	RppB3Sebs0DOIoSe/gWpKSW8q4fnOqxcIbXCAer/4LMTiRsCV7s22tRLiCU24RIVB6ev+M
-	+vWshTXCsALSr48QFwuth51RHQj0H7GhUFj0V4LOHw4gVgngRIU79Ih+LI9KGg==
-Message-ID: <9c55d591-a280-4ed7-91b1-0c867cfff658@bootlin.com>
-Date: Tue, 6 Jan 2026 12:19:59 +0100
+	Tue, 06 Jan 2026 11:21:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 93F3C1596;
+	Tue,  6 Jan 2026 03:21:20 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F8D83F5A1;
+	Tue,  6 Jan 2026 03:21:22 -0800 (PST)
+Message-ID: <22eadfd1-67f9-470f-8e4e-b9af4dc869e1@arm.com>
+Date: Tue, 6 Jan 2026 11:21:20 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] pwm: sun50i: Add H616 PWM support
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, Joao Schim <joao@schimsalabim.eu>
-References: <20251217082504.80226-1-richard.genoud@bootlin.com>
- <20251217082504.80226-3-richard.genoud@bootlin.com>
- <en7wscywn3xpw7cxvc2ngwrmjfciglzxgaje5qc5ngiehrjufh@jbvgp2neyzzx>
-From: Richard GENOUD <richard.genoud@bootlin.com>
-Content-Language: en-US, fr
-Organization: Bootlin
-In-Reply-To: <en7wscywn3xpw7cxvc2ngwrmjfciglzxgaje5qc5ngiehrjufh@jbvgp2neyzzx>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Subject: Re: [PATCH v2 22/45] arm_mpam: resctrl: Add CDP emulation
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
+References: <20251219181147.3404071-1-ben.horgan@arm.com>
+ <20251219181147.3404071-23-ben.horgan@arm.com>
+ <20260105180700.000037c8@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20260105180700.000037c8@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_032012_927129_E1D3D6C1 
-X-CRM114-Status: GOOD (  37.72  )
+X-CRM114-CacheID: sfid-20260106_032128_308631_09CF0E29 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,1240 +76,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Jonathan,
 
-Le 24/12/2025 à 10:54, Uwe Kleine-König a écrit :
-> Hello,
+On 1/5/26 18:07, Jonathan Cameron wrote:
+> On Fri, 19 Dec 2025 18:11:24 +0000
+> Ben Horgan <ben.horgan@arm.com> wrote:
 > 
-> this patch isn't checkpatch clean.
-
-Yes, I've seen that.
-It's because checkpatch doesn't detect that PWM_XY_SRC_MUX/GATE/DIV are
-structures
-If I unwrap PWM_XY_SRC_MUX/GATE/DIV and PWM_X_DIV, checkpatch doesn't
-complain anymore (indeed, do/while loops are not allowed at file-scope)
-
-I can drop PWM_XY_SRC_MUX/GATE/DIV PWM_X_DIV and declare the structures
-directly under PWM_XY_CLK_SRC() and PWM_X_CLK() if you prefer, but I
-find it less readable than the current form.
-
-> 
-> On Wed, Dec 17, 2025 at 09:25:02AM +0100, Richard Genoud wrote:
->> Add driver for Allwinner H616 PWM controller, supporting up to 6
->> channels.
->> Those channels output can be either a PWM signal output or a clock
->> output, thanks to the bypass.
+>> From: James Morse <james.morse@arm.com>
 >>
->> The channels are paired (0/1, 2/3 and 4/5) and each pair has a
->> prescaler/mux/gate.
->> Moreover, each channel has its own prescaler and bypass.
+>> Intel RDT's CDP feature allows the cache to use a different control value
+>> depending on whether the accesses was for instruction fetch or a data
+>> access. MPAM's equivalent feature is the other way up: the CPU assigns a
+>> different partid label to traffic depending on whether it was instruction
+>> fetch or a data access, which causes the cache to use a different control
+>> value based solely on the partid.
 >>
->> Tested-by: Joao Schim <joao@schimsalabim.eu>
->> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
->> ---
->>   drivers/pwm/Kconfig           |  12 +
->>   drivers/pwm/Makefile          |   1 +
->>   drivers/pwm/pwm-sun50i-h616.c | 892 ++++++++++++++++++++++++++++++++++
->>   3 files changed, 905 insertions(+)
->>   create mode 100644 drivers/pwm/pwm-sun50i-h616.c
+>> MPAM can emulate CDP, with the side effect that the alternative partid is
+>> seen by all MSC, it can't be enabled per-MSC.
 >>
->> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
->> index 6f3147518376..66534e033761 100644
->> --- a/drivers/pwm/Kconfig
->> +++ b/drivers/pwm/Kconfig
->> @@ -736,6 +736,18 @@ config PWM_SUN4I
->>   	  To compile this driver as a module, choose M here: the module
->>   	  will be called pwm-sun4i.
->>   
->> +config PWM_SUN50I_H616
->> +	tristate "Allwinner H616 PWM support"
->> +	depends on ARCH_SUNXI || COMPILE_TEST
->> +	depends on HAS_IOMEM && COMMON_CLK
->> +	help
->> +	  Generic PWM framework driver for Allwinner H616 SoCs.
->> +	  It supports generic PWM, but can also provides a plain clock.
->> +	  The AC300 PHY integrated in H616 SoC needs such a clock.
->> +
->> +	  To compile this driver as a module, choose M here: the module
->> +	  will be called pwm-h616.
->> +
->>   config PWM_SUNPLUS
->>   	tristate "Sunplus PWM support"
->>   	depends on ARCH_SUNPLUS || COMPILE_TEST
->> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
->> index 0dc0d2b69025..a16ae9eef9e5 100644
->> --- a/drivers/pwm/Makefile
->> +++ b/drivers/pwm/Makefile
->> @@ -67,6 +67,7 @@ obj-$(CONFIG_PWM_STM32)		+= pwm-stm32.o
->>   obj-$(CONFIG_PWM_STM32_LP)	+= pwm-stm32-lp.o
->>   obj-$(CONFIG_PWM_STMPE)		+= pwm-stmpe.o
->>   obj-$(CONFIG_PWM_SUN4I)		+= pwm-sun4i.o
->> +obj-$(CONFIG_PWM_SUN50I_H616)	+= pwm-sun50i-h616.o
->>   obj-$(CONFIG_PWM_SUNPLUS)	+= pwm-sunplus.o
->>   obj-$(CONFIG_PWM_TEGRA)		+= pwm-tegra.o
->>   obj-$(CONFIG_PWM_TH1520)	+= pwm_th1520.o
->> diff --git a/drivers/pwm/pwm-sun50i-h616.c b/drivers/pwm/pwm-sun50i-h616.c
->> new file mode 100644
->> index 000000000000..b002ea5935e4
->> --- /dev/null
->> +++ b/drivers/pwm/pwm-sun50i-h616.c
->> @@ -0,0 +1,892 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Driver for Allwinner H616 Pulse Width Modulation Controller
->> + *
->> + * (C) Copyright 2025 Richard Genoud, Bootlin <richard.genoud@bootlin.com>
->> + *
->> + * Based on drivers/pwm/pwm-sun4i.c with Copyright:
->> + *
->> + * Copyright (C) 2014 Alexandre Belloni <alexandre.belloni@bootlin.com>
->> + *
->> + * Limitations:
->> + * - When outputing the source clock directly, the PWM logic is bypassed and the
->> + *   currently running period is not guaranteed to be completed.
->> + * - As the channels are paired (0/1, 2/3, 4/5), they share the same clock
->> + *   source and prescaler(div_m), but they also have their own prescaler(div_k)
->> + *   and bypass.
->> + *
->> + */
->> +
->> +#include <linux/bitfield.h>
->> +#include <linux/bits.h>
->> +#include <linux/clk.h>
->> +#include <linux/clk-provider.h>
->> +#include <linux/delay.h>
->> +#include <linux/device.h>
->> +#include <linux/err.h>
->> +#include <linux/io.h>
->> +#include <linux/math64.h>
->> +#include <linux/module.h>
->> +#include <linux/of.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/pwm.h>
->> +#include <linux/reset.h>
->> +#include <linux/spinlock.h>
->> +#include <linux/time.h>
->> +
->> +#ifndef UINT32_MAX
->> +#define UINT32_MAX 0xffffffffU
->> +#endif
+>> Add the resctrl hooks to turn this on or off. Add the helpers that match a
+>> closid against a task, which need to be aware that the value written to
+>> hardware is not the same as the one resctrl is using.
+>>
+>> Update the 'arm64_mpam_global_default' variable the arch code uses during
+>> context switch to know when the per-cpu value should be used instead.
+>>
+>> Awkwardly, the MB controls don't implement CDP. To emulate this, the MPAM
+>> equivalent needs programming twice by the resctrl glue, as resctrl expects
+>> the bandwidth controls to be applied independently for both data and
+>> instruction-fetch.
+>>
+>> CC: Dave Martin <Dave.Martin@arm.com>
+>> CC: Amit Singh Tomar <amitsinght@marvell.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > 
-> Please include <linux/limits.h> and use U32_MAX.
-OK
+> Minor thing below.
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> 
+> 
+>> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+>> index 5a78299ec464..ba0312b55d9f 100644
+>> --- a/include/linux/arm_mpam.h
+>> +++ b/include/linux/arm_mpam.h
+>> @@ -5,6 +5,7 @@
+>>  #define __LINUX_ARM_MPAM_H
+>>  
+>>  #include <linux/acpi.h>
+>> +#include <linux/resctrl_types.h>
+> 
+> This seems odd as nothing added to the header in this path appears to need it.
+> Maybe should be down in the c file or in a different patch?
+
+Yep, moved it to patch 33, arm_mpam: resctrl: Allow resctrl to allocate
+monitors.
 
 > 
->> +
->> +/* PWM IRQ Enable Register */
->> +#define PWM_IER				0x0
-> 
-> Use a driver specific prefix for your defines. Otherwise these constants
-> look more generic than they are.
-> 
-OK
-
-
->> +/* PWM IRQ Status Register */
->> +#define PWM_ISR				0x4
->> +
->> +/* PWM Capture IRQ Enable Register */
->> +#define PWM_CIER			0x10
->> +
->> +/* PWM Capture IRQ Status Register */
->> +#define PWM_CISR			0x14
->> +
->> +/* PWMCC Pairs Clock Configuration Registers */
->> +#define PWM_XY_CLK_CR(pair)		(0x20 + ((pair) * 0x4))
->> +#define PWM_XY_CLK_CR_SRC_SHIFT		7
->> +#define PWM_XY_CLK_CR_SRC_MASK		1
-> 
-> Please do:
-> 
-> 	#define H616_PWM_XY_CLK_CR_SRC		BIT(7)
-> 
-> and then use the helper functions from bitfield.h
-> 
-That was my initial though, but clk_mux struct wants a shift *and* an
-unshifted mask.
-cf:
-https://elixir.bootlin.com/linux/v6.18.3/source/drivers/clk/clk-mux.c#L93-L94
-
->> +#define PWM_XY_CLK_CR_GATE_BIT		4
->> +#define PWM_XY_CLK_CR_BYPASS_BIT(chan)	((chan) % 2 + 5)
->> +#define PWM_XY_CLK_CR_DIV_M_SHIFT	0
->> +
->> +/* PWMCC Pairs Dead Zone Control Registers */
->> +#define PWM_XY_DZ(pair)			(0x30 + ((pair) * 0x4))
->> +
->> +/* PWM Enable Register */
->> +#define PWM_ENR				0x40
->> +#define PWM_ENABLE(x)			BIT(x)
-> 
-> Please use the full register name as prefix for bitfields.
-> 
-OK
-
-
->> +/* PWM Capture Enable Register */
->> +#define PWM_CER				0x44
->> +
->> +/* PWM Control Register */
->> +#define PWM_CTRL_REG(chan)		(0x60 + (chan) * 0x20)
->> +#define PWM_CTRL_PRESCAL_K_SHIFT	0
->> +#define PWM_CTRL_PRESCAL_K_WIDTH	8
->> +#define PWM_CTRL_ACTIVE_STATE		BIT(8)
->> +
->> +/* PWM Period Register */
->> +#define PWM_PERIOD_REG(ch)		(0x64 + (ch) * 0x20)
->> +#define PWM_PERIOD_MASK			GENMASK(31, 16)
->> +#define PWM_DUTY_MASK			GENMASK(15, 0)
->> +#define PWM_REG_PERIOD(reg)		(FIELD_GET(PWM_PERIOD_MASK, reg) + 1)
->> +#define PWM_REG_DUTY(reg)		FIELD_GET(PWM_DUTY_MASK, reg)
->> +#define PWM_PERIOD(prd)			FIELD_PREP(PWM_PERIOD_MASK, (prd) - 1)
->> +#define PWM_DUTY(dty)			FIELD_PREP(PWM_DUTY_MASK, dty)
->> +#define PWM_PERIOD_MAX			FIELD_MAX(PWM_PERIOD_MASK)
->> +
->> +
->> +/* PWM Count Register */
->> +#define PWM_CNT_REG(x)			(0x68 + (x) * 0x20)
->> +
->> +/* PWM Capture Control Register */
->> +#define PWM_CCR(x)			(0x6c + (x) * 0x20)
->> +
->> +/* PWM Capture Rise Lock Register */
->> +#define PWM_CRLR(x)			(0x70 + (x) * 0x20)
->> +
->> +/* PWM Capture Fall Lock Register */
->> +#define PWM_CFLR(x)			(0x74 + (x) * 0x20)
->> +
->> +#define PWM_PAIR_IDX(chan)		((chan) >> 2)
->> +
->> +/*
->> + * Block diagram of the PWM clock controller:
->> + *
->> + *             _____      ______      ________
->> + * OSC24M --->|     |    |      |    |        |
->> + * APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> PWM_clock_src_xy
->> + *            |_____|    |______|    |________|
->> + *                           ________
->> + *                          |        |
->> + *                       +->| /div_k |---> PWM_clock_x
->> + *                       |  |________|
->> + *                       |    ______
->> + *                       |   |      |
->> + *                       +-->| Gate |----> PWM_bypass_clock_x
->> + *                       |   |______|
->> + * PWM_clock_src_xy -----+   ________
->> + *                       |  |        |
->> + *                       +->| /div_k |---> PWM_clock_y
->> + *                       |  |________|
->> + *                       |    ______
->> + *                       |   |      |
->> + *                       +-->| Gate |----> PWM_bypass_clock_y
->> + *                           |______|
->> + *
->> + * NB: when the bypass is set, all the PWM logic is bypassed.
->> + * So, the duty cycle and polarity can't be modified (we just have a clock).
->> + * The bypass in PWM mode is used to achieve a 1/2 duty cycle with the fastest
->> + * clock.
-> 
-> 1/2 *relative* duty cycle.
-> 
-OK
-
->> + *
->> + * PWM_clock_x/y serve for the PWM purpose.
->> + * PWM_bypass_clock_x/y serve for the clock-provider purpose.
->> + *
->> + */
->> +
->> +/*
->> + * Table used for /div_m (diviser before obtaining PWM_clock_src_xy)
->> + * It's actually CLK_DIVIDER_POWER_OF_TWO, but limited to /256
->> + */
->> +static const struct clk_div_table clk_table_div_m[] = {
->> +	{ .val = 0, .div = 1, },
->> +	{ .val = 1, .div = 2, },
->> +	{ .val = 2, .div = 4, },
->> +	{ .val = 3, .div = 8, },
->> +	{ .val = 4, .div = 16, },
->> +	{ .val = 5, .div = 32, },
->> +	{ .val = 6, .div = 64, },
->> +	{ .val = 7, .div = 128, },
->> +	{ .val = 8, .div = 256, },
->> +	{ .val = 0, .div = 0, }, /* last entry */
->> +};
-> 
-> .div is just 1 << .val, so I would expect you can better use math
-> expressions instead of this table.
-> 
-OK
-
->> +#define PWM_XY_SRC_GATE(_pair, _reg)			\
->> +struct clk_gate gate_xy_##_pair = {			\
->> +	.reg = (void *)_reg,				\
->> +	.bit_idx = PWM_XY_CLK_CR_GATE_BIT,		\
->> +	.hw.init = &(struct clk_init_data){		\
->> +		.ops =  &clk_gate_ops,			\
->> +	}						\
-> 
-> I would consider
-> 
-> 	.hw.init.ops = ...;
-> 
-> and
-> 
-> 	.hw = {
-> 		.init = {
-> 			.ops = ...;
-> 		},
-> 	},
-> 
-> natural here. The middleway you chose looks strange to me.
-
-Actually, it's:
-	.hw.init->ops = ... ;
-That's why I used this middleway construct.
-
-
-> Also s/  / /.
-> 
-OK
-
->> +}
->> +
->> +#define PWM_XY_SRC_MUX(_pair, _reg)			\
->> +struct clk_mux mux_xy_##_pair = {			\
->> +	.reg = (void *)_reg,				\
->> +	.shift = PWM_XY_CLK_CR_SRC_SHIFT,		\
->> +	.mask = PWM_XY_CLK_CR_SRC_MASK,			\
-> 
-> Huh, why does this structure has both a shift and a mask value? What is
-> the difference between
-> 
-> 	.shift = 7,
-> 	.mask = 1,
-> 
-> and
-> 
-> 	.shift = 0,
-> 	.mask = 1 << 7,
-> 
-> ? If the latter is equivalent, you could just pass
-> H616_PWM_XY_CLK_CR_SRC and get rid of the extra definitions for _SHIFT
-> and _MASK.
-> 
-Unfortunately, struct clk_mux wants a shift and an unshifted mask, and
-according to:
-https://elixir.bootlin.com/linux/v6.18.3/source/drivers/clk/clk-mux.c#L93-L94
-using a 0 shift and mask = 1 << 7 won't work.
-
->> +	.flags = CLK_MUX_ROUND_CLOSEST,			\
->> +	.hw.init = &(struct clk_init_data){		\
->> +		.ops =  &clk_mux_ops,			\
->> +	}						\
->> +}
->> +
->> +#define PWM_XY_SRC_DIV(_pair, _reg)			\
->> +struct clk_divider rate_xy_##_pair = {			\
->> +	.reg = (void *)_reg,				\
->> +	.shift = PWM_XY_CLK_CR_DIV_M_SHIFT,		\
->> +	.table = clk_table_div_m,			\
->> +	.hw.init = &(struct clk_init_data){		\
->> +		.ops =  &clk_divider_ops,		\
->> +	}						\
->> +}
->> +
->> +#define PWM_X_DIV(_idx, _reg)				\
->> +struct clk_divider rate_x_##_idx = {			\
->> +	.reg = (void *)_reg,				\
->> +	.shift = PWM_CTRL_PRESCAL_K_SHIFT,		\
->> +	.width = PWM_CTRL_PRESCAL_K_WIDTH,		\
->> +	.hw.init = &(struct clk_init_data){		\
->> +		.ops =  &clk_divider_ops,		\
->> +	}						\
->> +}
->> +
->> +#define PWM_X_BYPASS_GATE(_idx)				\
->> +struct clk_gate gate_x_bypass_##_idx = {		\
->> +	.reg = (void *)PWM_ENR,				\
->> +	.bit_idx = _idx,				\
->> +	.hw.init = &(struct clk_init_data){		\
->> +		.ops =  &clk_gate_ops,			\
->> +	}						\
->> +}
->> +
->> +#define PWM_XY_CLK_SRC(_pair, _reg)			\
->> +	static PWM_XY_SRC_MUX(_pair, _reg);		\
->> +	static PWM_XY_SRC_GATE(_pair, _reg);		\
->> +	static PWM_XY_SRC_DIV(_pair, _reg)
->> +
->> +#define PWM_X_CLK(_idx)					\
->> +	static PWM_X_DIV(_idx, PWM_CTRL_REG(_idx))
->> +
->> +#define PWM_X_BYPASS_CLK(_idx)						\
->> +	PWM_X_BYPASS_GATE(_idx)
->> +
->> +#define REF_CLK_XY_SRC(_pair)						\
->> +	{								\
->> +		.name = "pwm-clk-src" #_pair,				\
->> +		.mux_hw = &mux_xy_##_pair.hw,				\
->> +		.gate_hw = &gate_xy_##_pair.hw,				\
->> +		.rate_hw = &rate_xy_##_pair.hw,				\
->> +	}
->> +
->> +#define REF_CLK_X(_idx, _pair)						\
->> +	{								\
->> +		.name = "pwm-clk" #_idx,				\
->> +		.parent_names = (const char *[]){ "pwm-clk-src" #_pair }, \
->> +		.num_parents = 1,					\
->> +		.rate_hw = &rate_x_##_idx.hw,				\
->> +		.flags = CLK_SET_RATE_PARENT,				\
->> +	}
->> +
->> +#define REF_CLK_BYPASS(_idx, _pair)					\
->> +	{								\
->> +		.name = "pwm-clk-bypass" #_idx,				\
->> +		.parent_names = (const char *[]){ "pwm-clk-src" #_pair }, \
->> +		.num_parents = 1,					\
->> +		.gate_hw = &gate_x_bypass_##_idx.hw,			\
->> +		.flags = CLK_SET_RATE_PARENT,	\
->> +	}
->> +
->> +/*
->> + * PWM_clock_src_xy generation:
->> + *             _____      ______      ________
->> + * OSC24M --->|     |    |      |    |        |
->> + * APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> PWM_clock_src_xy
->> + *            |_____|    |______|    |________|
->> + */
->> +PWM_XY_CLK_SRC(01, PWM_XY_CLK_CR(0));
->> +PWM_XY_CLK_SRC(23, PWM_XY_CLK_CR(1));
->> +PWM_XY_CLK_SRC(45, PWM_XY_CLK_CR(2));
->> +
->> +/*
->> + * PWM_clock_x_div generation:
->> + *                       ________
->> + *                      |        | PWM_clock_x/y
->> + * PWM_clock_src_xy --->| /div_k |--------------->
->> + *                      |________|
->> + */
->> +PWM_X_CLK(0);
->> +PWM_X_CLK(1);
->> +PWM_X_CLK(2);
->> +PWM_X_CLK(3);
->> +PWM_X_CLK(4);
->> +PWM_X_CLK(5);
->> +
->> +/*
->> + * PWM_bypass_clock_xy generation:
->> + *                        ______
->> + *                       |      |
->> + * PWM_clock_src_xy ---->| Gate |-------> PWM_bypass_clock_x
->> + *                       |______|
->> + *
->> + * The gate is actually PWM_ENR register.
->> + */
->> +PWM_X_BYPASS_CLK(0);
->> +PWM_X_BYPASS_CLK(1);
->> +PWM_X_BYPASS_CLK(2);
->> +PWM_X_BYPASS_CLK(3);
->> +PWM_X_BYPASS_CLK(4);
->> +PWM_X_BYPASS_CLK(5);
->> +
->> +struct clk_pwm_data {
->> +	const char *name;
->> +	const char **parent_names;
->> +	unsigned int num_parents;
->> +	struct clk_hw *mux_hw;
->> +	struct clk_hw *rate_hw;
->> +	struct clk_hw *gate_hw;
->> +	unsigned long flags;
->> +};
->> +
->> +#define CLK_BYPASS(h616chip, ch) ((h616chip)->data->npwm + (ch))
->> +#define CLK_XY_SRC_IDX(h616chip, ch) ((h616chip)->data->npwm * 2 + ((ch) >> 1))
->> +static struct clk_pwm_data pwmcc_data[] = {
->> +	REF_CLK_X(0, 01),
->> +	REF_CLK_X(1, 01),
->> +	REF_CLK_X(2, 23),
->> +	REF_CLK_X(3, 23),
->> +	REF_CLK_X(4, 45),
->> +	REF_CLK_X(5, 45),
->> +	REF_CLK_BYPASS(0, 01),
->> +	REF_CLK_BYPASS(1, 01),
->> +	REF_CLK_BYPASS(2, 23),
->> +	REF_CLK_BYPASS(3, 23),
->> +	REF_CLK_BYPASS(4, 45),
->> +	REF_CLK_BYPASS(5, 45),
->> +	REF_CLK_XY_SRC(01),
->> +	REF_CLK_XY_SRC(23),
->> +	REF_CLK_XY_SRC(45),
->> +	{ /* sentinel */ },
->> +};
->> +
->> +enum h616_pwm_mode {
->> +	H616_PWM_MODE_NONE,
->> +	H616_PWM_MODE_PWM,
->> +	H616_PWM_MODE_CLK,
->> +};
->> +
->> +struct h616_pwm_data {
->> +	unsigned int npwm;
->> +};
->> +
->> +struct h616_pwm_channel {
->> +	struct clk *pwm_clk;
->> +	unsigned long rate;
->> +	unsigned int entire_cycles;
->> +	unsigned int active_cycles;
->> +	enum h616_pwm_mode mode;
->> +	bool bypass;
->> +};
->> +
->> +struct clk_pwm_pdata {
->> +	struct clk_hw_onecell_data *hw_data;
->> +	spinlock_t lock;
->> +	void __iomem *reg;
->> +};
->> +
->> +struct h616_pwm_chip {
->> +	struct clk_pwm_pdata *clk_pdata;
->> +	struct h616_pwm_channel *channels;
->> +	struct clk *bus_clk;
->> +	struct reset_control *rst;
->> +	void __iomem *base;
->> +	const struct h616_pwm_data *data;
->> +};
->> +
->> +static inline struct h616_pwm_chip *to_h616_pwm_chip(struct pwm_chip *chip)
-> 
-> It probably doesn't help much, but conceptually this could be
-> 
-> 	static inline struct h616_pwm_chip *to_h616_pwm_chip(const struct pwm_chip *chip)
-> 
-Indeed, I'll add that.
-
->> +{
->> +	return pwmchip_get_drvdata(chip);
->> +}
->> +
->> +static inline u32 h616_pwm_readl(struct h616_pwm_chip *h616chip,
->> +				 unsigned long offset)
->> +{
->> +	return readl(h616chip->base + offset);
->> +}
->> +
->> +static inline void h616_pwm_writel(struct h616_pwm_chip *h616chip,
->> +				   u32 val, unsigned long offset)
->> +{
->> +	writel(val, h616chip->base + offset);
->> +}
->> +
->> +static void h616_pwm_set_bypass(struct h616_pwm_chip *h616chip, unsigned int idx,
->> +				bool en_bypass)
->> +{
->> +	unsigned long flags;
->> +	u32 val;
->> +
->> +	spin_lock_irqsave(&h616chip->clk_pdata->lock, flags);
->> +
->> +	val = h616_pwm_readl(h616chip, PWM_XY_CLK_CR(PWM_PAIR_IDX(idx)));
->> +	if (en_bypass)
->> +		val |= BIT(PWM_XY_CLK_CR_BYPASS_BIT(idx));
->> +	else
->> +		val &= ~BIT(PWM_XY_CLK_CR_BYPASS_BIT(idx));
->> +
->> +	h616_pwm_writel(h616chip, val, PWM_XY_CLK_CR(PWM_PAIR_IDX(idx)));
->> +
->> +	spin_unlock_irqrestore(&h616chip->clk_pdata->lock, flags);
->> +}
->> +
->> +static int h616_pwm_request(struct pwm_chip *chip, struct pwm_device *pwm)
->> +{
->> +	struct h616_pwm_chip *h616chip = to_h616_pwm_chip(chip);
->> +	struct h616_pwm_channel *chan = &h616chip->channels[pwm->hwpwm];
->> +	struct device *dev = pwmchip_parent(chip);
->> +	unsigned long flags;
->> +	int ret = 0;
->> +
->> +	spin_lock_irqsave(&h616chip->clk_pdata->lock, flags);
->> +
->> +	if (chan->mode == H616_PWM_MODE_CLK)
->> +		ret = -EBUSY;
->> +	else
->> +		chan->mode = H616_PWM_MODE_PWM;
->> +
->> +	spin_unlock_irqrestore(&h616chip->clk_pdata->lock, flags);
->> +	if (ret)
->> +		goto out;
-> 
-> You could simplify that to:
-> 
-> 	scoped_guard(spinlock_irqsave, &h616chip->clk_pdata->lock) {
-> 		if (chan->mode == H616_PWM_MODE_CLK)
-> 			return -EBUSY;
-> 		else
-> 			chan->mode = H616_PWM_MODE_PWM;
-> 	}
-> 
-Oh! that's nice!
-
->> +
->> +	ret = clk_prepare_enable(chan->pwm_clk);
->> +	if (ret < 0) {
->> +		dev_err(dev, "Failed to enable clock %s: %d\n",
->> +			__clk_get_name(chan->pwm_clk), ret);
->> +	}
-> 
-> Please no error messages in the runtime callbacks.
-> 
-OK
-
->> +out:
->> +	return ret;
->> +}
->> +
->> +static void h616_pwm_free(struct pwm_chip *chip, struct pwm_device *pwm)
->> +{
->> +	struct h616_pwm_chip *h616chip = to_h616_pwm_chip(chip);
->> +	struct h616_pwm_channel *chan = &h616chip->channels[pwm->hwpwm];
->> +
->> +	clk_disable_unprepare(chan->pwm_clk);
->> +	chan->mode = H616_PWM_MODE_NONE;
->> +}
->> +
->> +static int h616_pwm_get_state(struct pwm_chip *chip,
->> +			      struct pwm_device *pwm,
->> +			      struct pwm_state *state)
->> +{
->> +	struct h616_pwm_chip *h616chip = to_h616_pwm_chip(chip);
->> +	struct h616_pwm_channel *chan = &h616chip->channels[pwm->hwpwm];
->> +	u64 clk_rate, tmp;
->> +	u32 val;
->> +
->> +	clk_rate = clk_get_rate(chan->pwm_clk);
->> +	if (!clk_rate)
->> +		return -EINVAL;
->> +
->> +	val = h616_pwm_readl(h616chip, PWM_ENR);
->> +	state->enabled = !!(PWM_ENABLE(pwm->hwpwm) & val);
->> +
->> +	val = h616_pwm_readl(h616chip, PWM_XY_CLK_CR(PWM_PAIR_IDX(pwm->hwpwm)));
->> +	if (val & BIT(PWM_XY_CLK_CR_BYPASS_BIT(pwm->hwpwm))) {
->> +		/*
->> +		 * When bypass is enabled, the PWM logic is inactive.
->> +		 * The PWM_clock_src_xy is directly routed to PWM_clock_x
->> +		 */
->> +		state->period = DIV_ROUND_UP_ULL(NSEC_PER_SEC, clk_rate);
->> +		state->duty_cycle = DIV_ROUND_UP_ULL(state->period, 2);
->> +		state->polarity = PWM_POLARITY_NORMAL;
->> +		return 0;
->> +	}
->> +
->> +	state->enabled &= !!(BIT(PWM_XY_CLK_CR_GATE_BIT) & val);
->> +
->> +	val = h616_pwm_readl(h616chip, PWM_CTRL_REG(pwm->hwpwm));
->> +	if (val & PWM_CTRL_ACTIVE_STATE)
->> +		state->polarity = PWM_POLARITY_NORMAL;
->> +	else
->> +		state->polarity = PWM_POLARITY_INVERSED;
->> +
->> +	val = h616_pwm_readl(h616chip, PWM_PERIOD_REG(pwm->hwpwm));
->> +
->> +	tmp = NSEC_PER_SEC * PWM_REG_DUTY(val);
->> +	state->duty_cycle = DIV_ROUND_CLOSEST_ULL(tmp, clk_rate);
->> +
->> +	tmp = NSEC_PER_SEC * PWM_REG_PERIOD(val);
->> +	state->period = DIV_ROUND_CLOSEST_ULL(tmp, clk_rate);
-> 
-> This needs to use uprounding. Ideally enabling CONFIG_PWM_DEBUG and
-> extensive testing should catch that error.
-> 
-OK
-
-
->> +
->> +	return 0;
->> +}
->> +
->> +static int h616_pwm_calc(struct pwm_chip *chip, unsigned int idx,
->> +			 const struct pwm_state *state)
->> +{
->> +	struct h616_pwm_chip *h616chip = to_h616_pwm_chip(chip);
->> +	struct h616_pwm_channel *chan = &h616chip->channels[idx];
->> +	unsigned int cnt, duty_cnt;
->> +	unsigned long max_rate;
->> +	long calc_rate;
->> +	u64 duty, period, freq;
->> +
->> +	duty = state->duty_cycle;
->> +	period = state->period;
->> +
->> +	max_rate = clk_round_rate(chan->pwm_clk, UINT32_MAX);
-> 
-> Huh, is this an artificial limitation? Do you rely on how clk_round_rate
-> picks the return value? (I.e. nearest value? nearest time? round up?
-> round down?)
+>>  #include <linux/types.h>
+>>  
+>>  struct mpam_msc;
+>> @@ -56,6 +57,8 @@ void resctrl_arch_set_cpu_default_closid(int cpu, u32 closid);
+>>  void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
+>>  void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid);
+>>  void resctrl_arch_sched_in(struct task_struct *tsk);
+>> +bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid);
+>> +bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
+>>  
+>>  /**
+>>   * mpam_register_requestor() - Register a requestor with the MPAM driver
 > 
 
-What I want to achieve here is to handle the lowest possible period case.
-Without the bypass, the lowest period is build with the highest clock,
-duty cycle = 1 and period cycle = 2 (0x10001 in period register)
-So, if the input clock is 100MHz, we have a lowest period of 20ns.
-Now, if we enable the bypass, the period register is ignored and we directly
-have the 100MHz clock as PWM output, that can act as a 10ns period with 5ns
-duty
-So the logic here is to detect this specific lowest period case that can be
-achieved by enabling the bypass.
-For that, the highest clock is retrieved and compared to the wanted period
-and duty.
+Thanks,
 
-Now, I learned the hard way that clk_round_rate() is actually limited to a
-32 bits value:
-clk_round_rate() calls at one point clk_divider_bestdiv() that uses
-DIV_ROUND_UP_ULL() which in turn uses do_div(n,base):
-   do_div - returns 2 values: calculate remainder and update new dividend
-   @n: uint64_t dividend (will be updated)
-   @base: uint32_t divisor
-So, in order to get the exact highest clock rate, I use clk_round_rate()
-with U32_MAX.
+Ben
 
->> +	dev_dbg(pwmchip_parent(chip), "max_rate: %ld Hz\n", max_rate);
->> +
->> +	if ((period * max_rate >= NSEC_PER_SEC) &&
-> 
-> If period is big, this overflows.
-> 
-Indeed, I'll fix that.
-
-
->> +	    (period * max_rate < 2 * NSEC_PER_SEC) &&
->> +	    (duty * max_rate * 2 >= NSEC_PER_SEC)) {
->> +		/*
->> +		 * If the requested period is to small to be generated by the
->> +		 * PWM, we can just select the highest clock and bypass the
->> +		 * PWM logic
->> +		 */
->> +		dev_dbg(pwmchip_parent(chip), "Setting bypass (period=%lld)\n",
->> +			period);
->> +		freq = div64_u64(NSEC_PER_SEC, period);
->> +		chan->bypass = true;
->> +		duty = period / 2;
-> 
-> You must not round up duty. So if a small period and duty_cycle <
-> period/2 is requested, you have to return an error value. (Note that
-> with waveforms the semantic is a bit different.)
-> 
-OK
-
-
->> +	} else {
->> +		chan->bypass = false;
->> +		freq = div64_u64(NSEC_PER_SEC * (u64)PWM_PERIOD_MAX, period);
->> +		if (freq > UINT32_MAX)
->> +			freq = UINT32_MAX;
->> +	}
->> +
->> +	calc_rate = clk_round_rate(chan->pwm_clk, freq);
->> +	if (calc_rate <= 0) {
->> +		dev_err(pwmchip_parent(chip),
->> +			"Invalid source clock frequency %llu\n", freq);
->> +		return calc_rate ? calc_rate : -EINVAL;
->> +	}
->> +
->> +	dev_dbg(pwmchip_parent(chip), "calc_rate: %ld Hz\n", calc_rate);
->> +
->> +	cnt = mul_u64_u64_div_u64(calc_rate, period, NSEC_PER_SEC);
-> 
-> Please use a better name here, something like period_ticks would be
-> good.
-> 
-OK
-
->> +	if ((cnt == 0) || (cnt > PWM_PERIOD_MAX)) {
->> +		dev_err(pwmchip_parent(chip), "Period out of range\n");
->> +		return -EINVAL;
->> +	}
-> 
-> If the requested value is too big, clamp it to the maximal possible
-> value.
-> 
-OK
-
->> +	duty_cnt = mul_u64_u64_div_u64(calc_rate, duty, NSEC_PER_SEC);
->> +
->> +	if (duty_cnt >= cnt)
->> +		duty_cnt = cnt - 1;
-> 
-> Does that mean the PWM cannot produce a 100% relative duty cycle?
-> 
-Hum, it seems it's a left over from an old code.
-I'll fix that.
-
->> +	dev_dbg(pwmchip_parent(chip), "period=%llu cnt=%u duty=%llu duty_cnt=%u\n",
->> +		period, cnt, duty, duty_cnt);
-> 
-> This is little helpful without the input parameters.
-> 
-as
-	duty = state->duty_cycle;
-	period = state->period;
-The input parameters are there, right?
-But I can add the missing idx.
-
->> +	chan->active_cycles = duty_cnt;
->> +	chan->entire_cycles = cnt;
->> +
->> +	chan->rate = calc_rate;
->> +
->> +	return 0;
->> +}
->> +
->> +static int h616_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
->> +			  const struct pwm_state *state)
->> +{
-> 
-> Please consider implementing .round_waveform_tohw(),
-> .round_waveform_fromhw(), .read_waveform() and .write_waveform() instead
-> of .apply() and .get_state().
-> 
-OK
-
-
->> +	struct h616_pwm_chip *h616chip = to_h616_pwm_chip(chip);
->> +	struct h616_pwm_channel *chan = &h616chip->channels[pwm->hwpwm];
->> +	struct pwm_state cstate;
->> +	unsigned long flags;
->> +	u32 val;
->> +	int ret;
->> +
->> +	ret = h616_pwm_calc(chip, pwm->hwpwm, state);
->> +	if (ret) {
->> +		dev_err(pwmchip_parent(chip), "period exceeds the maximum value\n");
->> +		return ret;
->> +	}
->> +
->> +	pwm_get_state(pwm, &cstate);
-> 
-> Don't call PWM API functions. (h616_pwm_apply() is called by
-> pwm_apply_{might_sleep,atomic} which grabs the chip lock. That
-> pwm_get_state() doesn't is an implementation detail that you should not
-> rely on.) I would prefer that you don't access pwm->state at all but
-> determine the state by looking at the registers.
-> 
-OK
-
->> +	ret = clk_set_rate(chan->pwm_clk, chan->rate);
->> +	if (ret) {
->> +		dev_err(pwmchip_parent(chip), "failed to set PWM %d clock rate to %lu\n",
->> +			pwm->hwpwm, chan->rate);
->> +		return ret;
->> +	}
->> +
->> +	h616_pwm_set_bypass(h616chip, pwm->hwpwm, chan->bypass);
->> +
->> +	/*
->> +	 * If bypass is set, the PWM logic (polarity, duty) can't be applied
->> +	 */
->> +
->> +	if (chan->bypass && (state->polarity == PWM_POLARITY_INVERSED)) {
->> +		dev_warn(pwmchip_parent(chip),
->> +			 "Can't set inversed polarity with bypass enabled\n");
->> +	} else {
->> +		val = h616_pwm_readl(h616chip, PWM_CTRL_REG(pwm->hwpwm));
->> +		val &= ~PWM_CTRL_ACTIVE_STATE;
->> +		if (state->polarity == PWM_POLARITY_NORMAL)
->> +			val |= PWM_CTRL_ACTIVE_STATE;
->> +		h616_pwm_writel(h616chip, val, PWM_CTRL_REG(pwm->hwpwm));
->> +	}
->> +
->> +	if (chan->bypass && (state->duty_cycle * 2 != state->period)) {
->> +		dev_warn(pwmchip_parent(chip),
->> +			 "Can't set a duty cycle with bypass enabled\n");
->> +	}
-> 
-> Please no output in runtime callbacks. (And even then
-> 
-> 	state->period / 2 != state->duty_cycle
-> 
-> would probaly be the nicer check as it also works for uneven periods.)
-> 
-OK
-
->> +
->> +	if (!chan->bypass) {
->> +		val = PWM_DUTY(chan->active_cycles);
->> +		val |= PWM_PERIOD(chan->entire_cycles);
->> +		h616_pwm_writel(h616chip, val, PWM_PERIOD_REG(pwm->hwpwm));
->> +	}
->> +
->> +	if (state->enabled == cstate.enabled)
->> +		return 0;
->> +
->> +	if (cstate.enabled) {
->> +		unsigned long delay_us;
->> +
->> +		/*
->> +		 * We need a full period to elapse before
->> +		 * disabling the channel.
-> 
-> You need a full period between what and disabling? Assuming this is
-> about period and duty setting: Why not skip it if you disable?
-> 
-I'll remove that, it's a leftover from pwm-sun4i.
-
->> +		 */
->> +		delay_us = DIV_ROUND_UP_ULL(cstate.period, NSEC_PER_USEC);
->> +		fsleep(delay_us);
-> 
-> Huu, sleeping while holding a spin_lock and having disabled irqs :-\
-> 
-ouch!
-
->> +	}
->> +
->> +	spin_lock_irqsave(&h616chip->clk_pdata->lock, flags);
->> +
->> +	val = h616_pwm_readl(h616chip, PWM_ENR);
->> +	if (state->enabled)
->> +		val |= PWM_ENABLE(pwm->hwpwm);
->> +	else
->> +		val &= ~PWM_ENABLE(pwm->hwpwm);
->> +	h616_pwm_writel(h616chip, val, PWM_ENR);
->> +
->> +	spin_unlock_irqrestore(&h616chip->clk_pdata->lock, flags);
->> +
->> +	return 0;
->> +}
->> +
->> +static const struct pwm_ops h616_pwm_ops = {
->> +	.apply = h616_pwm_apply,
->> +	.get_state = h616_pwm_get_state,
->> +	.request = h616_pwm_request,
->> +	.free = h616_pwm_free,
->> +};
->> +
->> +static struct clk_hw *h616_pwm_of_clk_get(struct of_phandle_args *clkspec,
->> +					  void *data)
->> +{
->> +	struct h616_pwm_chip *h616chip = data;
->> +	struct clk_hw_onecell_data *hw_data = h616chip->clk_pdata->hw_data;
->> +	unsigned int idx = clkspec->args[0];
->> +	struct h616_pwm_channel *chan;
->> +	struct clk_hw *ret_clk = NULL;
->> +	unsigned long flags;
->> +
->> +	if (idx >= h616chip->data->npwm)
->> +		return ERR_PTR(-EINVAL);
->> +
->> +	chan = &h616chip->channels[idx];
->> +
->> +	spin_lock_irqsave(&h616chip->clk_pdata->lock, flags);
->> +
->> +	if (chan->mode == H616_PWM_MODE_PWM) {
->> +		ret_clk = ERR_PTR(-EBUSY);
->> +	} else {
->> +		chan->mode = H616_PWM_MODE_CLK;
->> +		ret_clk = hw_data->hws[CLK_BYPASS(h616chip, idx)];
->> +	}
->> +	spin_unlock_irqrestore(&h616chip->clk_pdata->lock, flags);
->> +
->> +	if (IS_ERR(ret_clk))
->> +		goto out;
->> +
->> +	chan->bypass = true;
->> +	h616_pwm_set_bypass(h616chip, idx, chan->bypass);
->> +out:
->> +	return ret_clk;
->> +}
->> +
->> +static int h616_add_composite_clk(struct clk_pwm_data *data,
->> +				  void __iomem *reg, spinlock_t *lock,
->> +				  struct device *dev, struct clk_hw **hw)
->> +{
->> +	const struct clk_ops *mux_ops = NULL, *gate_ops = NULL, *rate_ops = NULL;
->> +	struct clk_hw *mux_hw = NULL, *gate_hw = NULL, *rate_hw = NULL;
->> +	struct device_node *node = dev->of_node;
->> +
->> +	if (data->mux_hw) {
->> +		struct clk_mux *mux;
->> +
->> +		mux_hw = data->mux_hw;
->> +		mux = to_clk_mux(mux_hw);
->> +		mux->lock = lock;
->> +		mux_ops = mux_hw->init->ops;
->> +		mux->reg = (u64)mux->reg + reg;
->> +	}
->> +
->> +	if (data->gate_hw) {
->> +		struct clk_gate *gate;
->> +
->> +		gate_hw = data->gate_hw;
->> +		gate = to_clk_gate(gate_hw);
->> +		gate->lock = lock;
->> +		gate_ops = gate_hw->init->ops;
->> +		gate->reg = (u64)gate->reg + reg;
->> +	}
->> +
->> +	if (data->rate_hw) {
->> +		struct clk_divider *rate;
->> +
->> +		rate_hw = data->rate_hw;
->> +		rate = to_clk_divider(rate_hw);
->> +		rate_ops = rate_hw->init->ops;
->> +		rate->lock = lock;
->> +		rate->reg = (u64)rate->reg + reg;
->> +
->> +		if (rate->table) {
->> +			const struct clk_div_table *clkt;
->> +			int table_size = 0;
->> +
->> +			for (clkt = rate->table; clkt->div; clkt++)
->> +				table_size++;
->> +			rate->width = order_base_2(table_size);
->> +		}
->> +	}
->> +
->> +	/*
->> +	 * Retrieve the parent clock names from DTS for pwm-clk-srcxy
->> +	 */
->> +	if (!data->parent_names) {
->> +		data->num_parents = of_clk_get_parent_count(node);
->> +		if (data->num_parents == 0)
->> +			return -ENOENT;
->> +
->> +		data->parent_names = devm_kzalloc(dev,
->> +						  sizeof(*data->parent_names),
->> +						  GFP_KERNEL);
->> +		for (unsigned int i = 0; i < data->num_parents; i++)
->> +			data->parent_names[i] = of_clk_get_parent_name(node, i);
->> +	}
->> +
->> +	*hw = clk_hw_register_composite(dev, data->name, data->parent_names,
->> +					data->num_parents, mux_hw,
->> +					mux_ops, rate_hw, rate_ops,
->> +					gate_hw, gate_ops, data->flags);
->> +
->> +	return PTR_ERR_OR_ZERO(*hw);
->> +}
->> +
->> +static int h616_pwm_init_clocks(struct platform_device *pdev,
->> +				struct h616_pwm_chip *h616chip)
->> +{
->> +	struct clk_pwm_pdata *pdata;
->> +	struct device *dev = &pdev->dev;
->> +	int num_clocks = 0;
->> +	int ret;
->> +
->> +	pdata = devm_kzalloc(dev, sizeof(*pdata), GFP_KERNEL);
->> +	if (!pdata)
->> +		return -ENOMEM;
->> +
->> +	while (pwmcc_data[num_clocks].name)
->> +		num_clocks++;
->> +
->> +	pdata->hw_data = devm_kzalloc(dev, struct_size(pdata->hw_data, hws, num_clocks),
->> +				      GFP_KERNEL);
->> +	if (!pdata->hw_data)
->> +		return -ENOMEM;
->> +
->> +	pdata->hw_data->num = num_clocks;
->> +	pdata->reg = h616chip->base;
->> +
->> +	spin_lock_init(&pdata->lock);
->> +
->> +	for (int i = 0; i < num_clocks; i++) {
->> +		struct clk_hw **hw = &pdata->hw_data->hws[i];
->> +
->> +		ret = h616_add_composite_clk(&pwmcc_data[i], pdata->reg,
->> +					     &pdata->lock, dev, hw);
->> +		if (ret) {
->> +			dev_err_probe(dev, ret,
->> +				      "Failed to register hw clock %s\n",
->> +				      pwmcc_data[i].name);
->> +			for (i--; i >= 0; i--)
->> +				clk_hw_unregister_composite(pdata->hw_data->hws[i]);
->> +			return ret;
->> +		}
->> +	}
->> +
->> +	h616chip->clk_pdata = pdata;
->> +
->> +	return 0;
->> +}
->> +
->> +static int h616_pwm_probe(struct platform_device *pdev)
->> +{
->> +	const struct h616_pwm_data *data;
->> +	struct device *dev = &pdev->dev;
->> +	struct h616_pwm_chip *h616chip;
->> +	struct pwm_chip *chip;
->> +	int ret;
->> +
->> +	data = of_device_get_match_data(dev);
->> +	if (!data)
->> +		return -ENODEV;
-> 
-> error message please. (Or at least a comment that this cannot happen.)
-> 
-OK
-
->> +
->> +	chip = devm_pwmchip_alloc(dev, data->npwm, sizeof(*h616chip));
->> +	if (IS_ERR(chip))
->> +		return dev_err_probe(dev, PTR_ERR(chip),
->> +				     "Failed to allocate pwmchip\n");
->> +
->> +	h616chip = to_h616_pwm_chip(chip);
->> +	h616chip->data = data;
->> +	h616chip->base = devm_platform_ioremap_resource(pdev, 0);
->> +	if (IS_ERR(h616chip->base))
->> +		return dev_err_probe(dev, PTR_ERR(h616chip->base),
->> +				     "Failed to get PWM base address\n");
->> +
->> +	h616chip->bus_clk = devm_clk_get_enabled(dev, "bus");
->> +	if (IS_ERR(h616chip->bus_clk))
->> +		return dev_err_probe(dev, PTR_ERR(h616chip->bus_clk),
->> +				     "Failed to get bus clock\n");
->> +
->> +	h616chip->channels = devm_kmalloc_array(dev, data->npwm,
->> +						sizeof(*(h616chip->channels)),
->> +						GFP_KERNEL);
-> 
-> There is a big amount of allocations here. Would be great to have this
-> reduced to save some memory management overhead and get some cache
-> locality in return.
-> 
-Hum, indeed, I can shrink the struct h616_pwm_channel.
-
->> +	if (!h616chip->channels)
->> +		return dev_err_probe(dev, -ENOMEM,
->> +				     "Failed to allocate %d channels array\n",
->> +				     data->npwm);
->> +
->> +	h616chip->rst = devm_reset_control_get_shared(dev, NULL);
->> +	if (IS_ERR(h616chip->rst))
->> +		return dev_err_probe(dev, PTR_ERR(h616chip->rst),
->> +				     "Failed to get reset control\n");
->> +
->> +	chip->ops = &h616_pwm_ops;
->> +
->> +	ret = h616_pwm_init_clocks(pdev, h616chip);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "Failed to initialize clocks\n");
-> 
-> h616_pwm_init_clocks() already emits error messages.
-> 
-OK, I'll add missing error messages in h616_pwm_init_clocks() and remove
-this one
-
->> +	for (unsigned int i = 0; i < data->npwm; i++) {
-> 
-> Huh, AFAIK we're not using declarations in for loops in the kernel.
-> 
-Actually, I've read somewhere (in LWN I guess) that Linus seems ok with that,
-but I'll remove it if you prefer.
-
->> +		struct h616_pwm_channel *chan = &h616chip->channels[i];
->> +		struct clk_hw **hw = &h616chip->clk_pdata->hw_data->hws[i];
->> +
->> +		chan->pwm_clk = devm_clk_hw_get_clk(dev, *hw, NULL);
->> +		if (IS_ERR(chan->pwm_clk)) {
->> +			ret = dev_err_probe(dev, PTR_ERR(chan->pwm_clk),
->> +					    "Failed to register PWM clock %d\n", i);
->> +			goto err_get_clk;
->> +		}
->> +		chan->mode = H616_PWM_MODE_NONE;
->> +	}
->> +
->> +	ret = devm_of_clk_add_hw_provider(dev, h616_pwm_of_clk_get, h616chip);
->> +	if (ret) {
->> +		dev_err_probe(dev, ret, "Failed to add HW clock provider\n");
->> +		goto err_add_clk_provider;
->> +	}
->> +
->> +	/* Deassert reset */
->> +	ret = reset_control_deassert(h616chip->rst);
->> +	if (ret) {
->> +		dev_err_probe(dev, ret, "Cannot deassert reset control\n");
->> +		goto err_ctrl_deassert;
->> +	}
->> +
->> +	ret = pwmchip_add(chip);
->> +	if (ret < 0) {
->> +		dev_err_probe(dev, ret, "Failed to add PWM chip\n");
->> +		goto err_pwm_add;
->> +	}
->> +
->> +	platform_set_drvdata(pdev, chip);
-> 
-> this is unused.
-> 
-Indeed, I'll remove that.
-
->> +	return 0;
->> +
->> +err_pwm_add:
->> +	reset_control_assert(h616chip->rst);
->> +
->> +err_ctrl_deassert:
->> +err_add_clk_provider:
->> +err_get_clk:
->> +	for (int i = 0; i < h616chip->clk_pdata->hw_data->num; i++)
->> +		clk_hw_unregister_composite(h616chip->clk_pdata->hw_data->hws[i]);
->> +
->> +	return ret;
->> +}
-> 
-> You need to implement a .remove() callback to not leak resources (or use
-> devm functions).
-> 
-OK
-
->> +
->> +static const struct h616_pwm_data sun50i_h616_pwm_data = {
->> +	.npwm = 6,
->> +};
->> +
->> +static const struct of_device_id h616_pwm_dt_ids[] = {
->> +	{
->> +		.compatible = "allwinner,sun50i-h616-pwm",
->> +		.data = &sun50i_h616_pwm_data,
->> +	}, {
->> +		/* sentinel */
->> +	},
-> 
-> no , here.
-> 
-OK
-
->> +};
->> +MODULE_DEVICE_TABLE(of, h616_pwm_dt_ids);
->> +
->> +
-> 
-> A single empty line is enough here.
-> 
-OK
-
->> +static struct platform_driver h616_pwm_driver = {
->> +	.driver = {
->> +		.name = "h616-pwm",
->> +		.of_match_table = h616_pwm_dt_ids,
->> +	},
->> +	.probe = h616_pwm_probe,
->> +};
->> +module_platform_driver(h616_pwm_driver);
->> +
->> +MODULE_AUTHOR("Richard Genoud <richard.genoud@bootlin.com>");
->> +MODULE_DESCRIPTION("Allwinner H616 PWM driver");
->> +MODULE_LICENSE("GPL");
-> 
-> Best regards
-> Uwe
-
-Thanks for this review!
-
-Regards,
-Richard
 
