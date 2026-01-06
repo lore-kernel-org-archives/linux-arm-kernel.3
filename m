@@ -4,163 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9244CEFCE4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 17:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7DB3CEFCE1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 17:36:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jzSTS8fbRs1wSAGF7WUmIraz4oEVJgEJtLyxFPfHdeY=; b=Gw+94AB5zkKFRN8TfyeMuaqv0D
-	lMNgS/wMBIpv9Usfy3nPuuQeOieSFaxLPRhU4X6byDtP0Orz0SyJqONF9qoQly5I80vslrmhzxc6Z
-	qL4sRtpqc5fjnM0qVQXItQZxu5g9pzbOsP8Ph0VA3hMoPQJLXgoTKrb/fJ3eLfhSZtlKxU8ErAo0T
-	Ry3H7ONf6MH5+a+Xsk30C6+FN/lqoWWfTovaEPuDfqU0379zvv0DN8tDKU5FzMOjH61ugkc0zC5aP
-	jmkeq+2s8evV/3Ju+BT9yoKItnTvUvHBpHvgDm7N7xFpFYg0CjWukYweaPLkf4NkSAqZgsNHmmJd3
-	6xr9WKCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=po+Od5bE1OZ7eQisdGEoZ72OFB4fHKeOv7mSVkFNL3I=; b=3qQJ+TZeahnantVCLXyTfH2nVi
+	Mu2nBBLF8/MNcUn1BBDH+WLadBPQN9dFBJRkOeLCAiswrrzeqqm/CxxO1OGS7bAPoIU7KEuAdpEwI
+	R+sH48sjJ8WC3GWj2LJdJMLXVic/6DGlAJMs2H9n4d3jFv4W/D3ui38oZTo7r5cJkd1FzV/GOPudc
+	b2PiSMsG8KqEVYfnfCYlZVChyrtgnyNBKRNOcJcc+IgG+sKSAOvr7fetwewzQVkYhjkB9PRPsj0AC
+	nkTPbHUl7L7gxeDwyMnV/uZ9qEMtMJYtNE46TlEtOSdHuukI97bwB4LgfhRb6jCGDqquIEhIY2CZp
+	9x/Y1uVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdAx2-0000000DZmT-2xsn;
-	Tue, 06 Jan 2026 17:34:36 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vdAzB-0000000DZux-0bPm;
+	Tue, 06 Jan 2026 17:36:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdAwz-0000000DZm8-44Wf
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 17:34:35 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6069W7fh4090703
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 6 Jan 2026 17:34:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=jzSTS8fbRs1wSAGF7WUmIraz
-	4oEVJgEJtLyxFPfHdeY=; b=jh0WVdvT/iHJCW9ccrMMRQSXa8S7RznjJF2rwsEN
-	YKwyXrzMt1PfUGji8KYBTIfsqkOYc3GpQakVO9XP2+xjmyL6iXyXAFfb71sInSdv
-	kWR7WbHq4o4RAv6mIDMxZHsbokci3U62YI6Paaf3X2NngzaBz4EKYYB4U667tyq7
-	fn1r6oK0Nid52Eg2ESQNbj+OEW++qF/UfR9bcvHyZIrWkZcaUrFsLyPAiE/LR2Pd
-	sydRPjtTZOWB7NNLg+Yzs9VHBMmrEhJ8R9K14MnudQhdrTihKF8rlaiHEKxKmnro
-	t1+GLHOBC15gk5klSTnDod8Ij2r5Jn4z9szjZqTb4BWpoQ==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bgyun9c9s-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 17:34:32 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4edaf9e48ecso35209101cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 09:34:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767720872; x=1768325672; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jzSTS8fbRs1wSAGF7WUmIraz4oEVJgEJtLyxFPfHdeY=;
-        b=hWAWavqgVGFxilAtN/u5mRAWrEb9yDI1qvc8cM8SHKFRznAcpnpS01MYSg3YhtYAO1
-         kya6ey4qE0y2NRiWVcths9evDlQINj+Lr8HSm9KcXOEKpNzmt6/TgxOB7mIFbm7JECDh
-         Fsnw3tskA4mCnT8h2GFmuLCL0hOvEYR1QMYdJI7Y07VE46mIHznDJdWf9GAKDt4+Qf44
-         BqKKAcwfnwc1wRbwQyOmgs5my9tQ5wowNbFKIf/ZpsQN4b3+Y/17TbUs4Izib+cxYCop
-         9pwPc1qDc4FKyXuRW8h9feQbAS2tAilQmXx79pZ7QeVbMDQQHLOQyEmPOvPMYlGM2LKr
-         0Mlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767720872; x=1768325672;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jzSTS8fbRs1wSAGF7WUmIraz4oEVJgEJtLyxFPfHdeY=;
-        b=TlIyHdJINbB89yiOPutISj2i/70+DWwnBapxWWl6ivdHq2fyUZwgR3CIuxihkFnBlX
-         j4Pf8bJscRsAVlHuFOLPq9mzvBL8w9VCcZnjsna5PfEB2tNGHY1mu/08pWeJWJYGhREU
-         XJvvhI4Kd+b0F5Hm4rR4j60NI0avmIajfQzuAJMvelrP9DbAEoTfpd5oGGetegcBFSsc
-         L20n3iYsZKX3M+uIbQS+qoJsonl9KeRWflLoHpjhz8zBnFH4qzWtHjyZnZoy9kDt446/
-         U5iOmuufmxa+gNp+pkLwJFwywoarkW7DhtnFsB4Foyd3ehd9vqUR0DKHu8J0WyI8J4Oa
-         ppFg==
-X-Forwarded-Encrypted: i=1; AJvYcCXXVmab5knUWIO2os1CFhpuFuRacnNwPhZ84bTNgKwJZuoCYsKol9VnbBkvgYPlkhGzmZ0FAvFV2H2wlFOt+u3g@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9sZP7ZtKmAbJQDSg/4Z/+b/Z5iRycR6eV01IfJJ1Xrl1oVIun
-	qEr/tEXMqt3KMVJ6AygPoAhVsh2JOa+fumNZ8yWqkyPABNDBs/9Of7wD5K7nj6WmaKfqqv5hdmk
-	OHK4ntbq/V0EfdSw2bdd0SkuzS6TSAP4Aa1BxhJCXxcmO60za4Mk33HXqgNwKIYyKoUjAOlAsQb
-	jVSg==
-X-Gm-Gg: AY/fxX5TA7K3+niUVCrIkImE3xsXCyQIXkV8G38Nn9fGQYzj5hpCqxADYAhRRiozm8V
-	U1xjIqKD/2CvAECKeBzfSMVZwPaiuyxN6NdsVchYxNnLywgfiXxHLQdXOneM4uSxDrKRNFJAWRI
-	YLsowvlHf4CBfV68T5GsBKUVbZD6JTPjDDJVoeNFkG56mbHroLNDYBljWyfFMjS7iiEQDwqF+sM
-	7NX2EPJKFwKwy6Ae20xAOsJ1GEhek2NWPNByrtRl9EGixhAhCKxseD3P19LkuFl1A/XVS2aL31v
-	I65Ae9NVLesWhlwUmKiIQ9pyObru/e4FNdYZNS8UM257IKAOz+gwYnNBH3cV85eVp6PU6YDCjta
-	lepbWzkJ3ilaLgMPeXU5U
-X-Received: by 2002:ac8:57cb:0:b0:4f1:b9fc:eeda with SMTP id d75a77b69052e-4ffa77597abmr57402791cf.37.1767720871914;
-        Tue, 06 Jan 2026 09:34:31 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFsS5Q8M4Ax4uLqCekfjuM/TS7dC5bAY2/2l4KJvBIfjf+72ZUp+kPt+lte2C5fe//DuAlvyA==
-X-Received: by 2002:ac8:57cb:0:b0:4f1:b9fc:eeda with SMTP id d75a77b69052e-4ffa77597abmr57402111cf.37.1767720871283;
-        Tue, 06 Jan 2026 09:34:31 -0800 (PST)
-Received: from oss.qualcomm.com ([86.121.7.10])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6507bf6d5absm2551707a12.33.2026.01.06.09.34.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jan 2026 09:34:30 -0800 (PST)
-Date: Tue, 6 Jan 2026 19:34:28 +0200
-From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>,
-        Saravana Kannan <saravanak@google.com>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-        Bill Wendling <morbo@google.com>,
-        Justin Stitt <justinstitt@google.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Nicolas Ferre <nicolas.ferre@microchip.com>,
-        Alexandre Belloni <alexandre.belloni@bootlin.com>,
-        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        Nipun Gupta <nipun.gupta@amd.com>,
-        Nikhil Agarwal <nikhil.agarwal@amd.com>,
-        Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, Vinod Koul <vkoul@kernel.org>,
-        Sylwester Nawrocki <s.nawrocki@samsung.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Viresh Kumar <viresh.kumar@linaro.org>, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, llvm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org,
-        linux-samsung-soc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        linux-clk@vger.kernel.org, imx@lists.linux.dev,
-        dmaengine@vger.kernel.org, linux-media@vger.kernel.org,
-        linux-pm@vger.kernel.org
-Subject: Re: [PATCH v2 07/11] clk: imx: imx27: Simplify with scoped for each
- OF child loop
-Message-ID: <pbmxwpyohpq3pi552pjwwgfe5wcj7qq7fx6lofpod5mq4bvmwj@sn4yfn74sgiz>
-References: <20260106-of-for-each-compatible-scoped-v2-0-05eb948d91f2@oss.qualcomm.com>
- <20260106-of-for-each-compatible-scoped-v2-7-05eb948d91f2@oss.qualcomm.com>
+	id 1vdAz9-0000000DZuX-1jUS;
+	Tue, 06 Jan 2026 17:36:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3DCDC434FA;
+	Tue,  6 Jan 2026 17:36:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7808AC116C6;
+	Tue,  6 Jan 2026 17:36:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767721006;
+	bh=2bhIEBi52pIagS1gzwrT2nGBXwwpZUgIJ8cVRDzNmRs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=aUcZ6ByDj/EDc5TqP6NwYwESet8oPR96E8Ha+KbhwG++iJCjHHs5649/YILIN6a5i
+	 lGLE59xRuT59pszXonCOTd03/wQSf0UIdugbC2EoY/cRqkdw76MN1otcSzOM2gnGOT
+	 R3PoL0dEo6SZnQlqiGRkk39RTykCHpRlIzpVKpvgxbvu/ahnvc66yMAxpYYkllD+cp
+	 1Du2G2u+74mLsej9bCPE5w93oZi5AMspAQXn4BsTS9FcpNs4KlBM2fpUz+il6A4rHn
+	 5Pp0NFrHCgq77O7kOipx7LrpoMg3jmLN0oCBY4HOcB52TGb5k5NERwZa77xTa0enaf
+	 b+9x5XwTQ0b/w==
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Arnd Bergmann <arnd@arndb.de>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org,
+	Peter Xu <peterx@redhat.com>,
+	Oscar Salvador <osalvador@suse.de>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH RESEND v2] asm-generic: Remove pud_user() from pgtable-nopmd.h
+Date: Tue,  6 Jan 2026 18:34:20 +0100
+Message-ID: <61ef32ebc3ea2e926de2bebecf3b5c3a10989fca.1767720453.git.chleroy@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260106-of-for-each-compatible-scoped-v2-7-05eb948d91f2@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA2MDE1MiBTYWx0ZWRfX37nRIYeOyH5r
- /9+aWwQ8/hmIg24ftT+ZYqckDeRYB51AyBZ27b6LTMmyfNgYYO+aAzbPO5VAP4T5ipfwxq4HI5q
- h2ymHjwA+KIXlQ1TplmB6h1YIFnQNUaAzrLekrBxmw0HcBR6Il3GsyjXtT4f7ADKd6nqAcqEppG
- VqRhPjwv4tbwCDj//AdzP6scrEEif6ZNWIVVHrJ5wtIxgYveuqzVNYfjrCLej+wjq5OnHWU7HCB
- bam/tB6D+EXa2jhSKv4Krm98nreXUAKOyQYaZ7aSiVmcNI7py4EI9kPyd5uDfspNBAFIjoybkUl
- TN51FAUtm6jGzXPcbevmTaUt5trbObR/DXeNT66Ni2qaNJy/FdDsqjJILUwWxe2+oUR+yzWCXp3
- /OQ+QbKEC4sTPv3iQ8zZ13Le4bQJF0kuelGiC6DjbooT1BwgW0E5AP6NhTcjbechA+flOyYrV5Y
- 7B6Bz5NBlTMpZhb4pzA==
-X-Authority-Analysis: v=2.4 cv=YqIChoYX c=1 sm=1 tr=0 ts=695d47a8 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=hZ5Vz02otkLiOpJ15TJmsQ==:17
- a=kj9zAlcOel0A:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=8AirrxEcAAAA:8 a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8
- a=_Ixbbux_C5oTi3JCwyIA:9 a=CjuIK1q_8ugA:10 a=a_PwQJl-kcHnX1M80qC6:22
- a=ST-jHhOKWsTCqRlWije3:22
-X-Proofpoint-GUID: 7TQhK2qFWSOKsH5CZDY8x1a3jTyfuxvH
-X-Proofpoint-ORIG-GUID: 7TQhK2qFWSOKsH5CZDY8x1a3jTyfuxvH
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-06_01,2026-01-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 impostorscore=0 bulkscore=0 malwarescore=0
- phishscore=0 adultscore=0 clxscore=1011 lowpriorityscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601060152
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2913; i=chleroy@kernel.org; h=from:subject:message-id; bh=2bhIEBi52pIagS1gzwrT2nGBXwwpZUgIJ8cVRDzNmRs=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWTGus913H6oo5FNQlXgwSqpRTHr7m98sNP9nJm6/78fb WWTt/dN6ShlYRDjYpAVU2Q5/p9714yuL6n5U3fpw8xhZQIZwsDFKQATaWNm+B+jI1vqtaJqhUq3 cVqqEX/2FbsHzPnPzv04frwmMPPwXFZGhqkeqflXf2vvPx5Zw80+/62G5qmXl8rF5GvvXmnelLD OlhcA
+X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_093434_129727_A1EB8604 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20260106_093647_490506_AFC7F7C5 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,12 +82,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-01-06 10:15:17, Krzysztof Kozlowski wrote:
-> Use scoped for-each loop when iterating over device nodes to make code a
-> bit simpler.
-> 
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Commit 2c8a81dc0cc5 ("riscv/mm: fix two page table check related
+issues") added pud_user() in include/asm-generic/pgtable-nopmd.h
 
-Acked-by: Abel Vesa <abelvesa@kernel.org>
+But pud_user() only exists on ARM64 and RISCV and is not expected
+by any part of MM.
+
+Add the missing definition in arch/riscv/include/asm/pgtable-32.h
+and remove it from asm-generic/pgtable-nopmd.h
+
+A stub pud_user() is also required for ARM64 after
+commit ed928a3402d8 ("arm64/mm: fix page table check compile
+error for CONFIG_PGTABLE_LEVELS=2")
+
+Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+Reviewed-by: Peter Xu <peterx@redhat.com>
+Reviewed-by: Oscar Salvador <osalvador@suse.de>
+Acked-by: Alexandre Ghiti <alexghiti@rivosinc.com> # riscv
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+---
+Who should take this patch ? I expected it to be merged by Arnd as asm-generic maintainer but this is the second time I resend.
+
+Should the patch go via riscv tree instead as the undue pud_user() was initialy introduced by riscv ?
+
+v2: Change ARM64 pud_user macro to pud_user(pud)
+---
+ arch/arm64/include/asm/pgtable.h    | 1 +
+ arch/riscv/include/asm/pgtable-32.h | 5 +++++
+ include/asm-generic/pgtable-nopmd.h | 1 -
+ 3 files changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 64d5f1d9cce96..a9af0b441b0f9 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -965,6 +965,7 @@ static inline pmd_t *pud_pgtable(pud_t pud)
+ 
+ #define pud_valid(pud)		false
+ #define pud_page_paddr(pud)	({ BUILD_BUG(); 0; })
++#define pud_user(pud)		false /* Always 0 with folding */
+ #define pud_user_exec(pud)	pud_user(pud) /* Always 0 with folding */
+ 
+ /* Match pmd_offset folding in <asm/generic/pgtable-nopmd.h> */
+diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
+index 00f3369570a83..37878ef374668 100644
+--- a/arch/riscv/include/asm/pgtable-32.h
++++ b/arch/riscv/include/asm/pgtable-32.h
+@@ -36,4 +36,9 @@
+ static const __maybe_unused int pgtable_l4_enabled;
+ static const __maybe_unused int pgtable_l5_enabled;
+ 
++static inline int pud_user(pud_t pud)
++{
++	return 0;
++}
++
+ #endif /* _ASM_RISCV_PGTABLE_32_H */
+diff --git a/include/asm-generic/pgtable-nopmd.h b/include/asm-generic/pgtable-nopmd.h
+index 8ffd64e7a24cb..b01349a312fa7 100644
+--- a/include/asm-generic/pgtable-nopmd.h
++++ b/include/asm-generic/pgtable-nopmd.h
+@@ -30,7 +30,6 @@ typedef struct { pud_t pud; } pmd_t;
+ static inline int pud_none(pud_t pud)		{ return 0; }
+ static inline int pud_bad(pud_t pud)		{ return 0; }
+ static inline int pud_present(pud_t pud)	{ return 1; }
+-static inline int pud_user(pud_t pud)		{ return 0; }
+ static inline int pud_leaf(pud_t pud)		{ return 0; }
+ static inline void pud_clear(pud_t *pud)	{ }
+ #define pmd_ERROR(pmd)				(pud_ERROR((pmd).pud))
+-- 
+2.49.0
+
 
