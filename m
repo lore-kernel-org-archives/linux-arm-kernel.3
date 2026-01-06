@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6524CEFD12
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 21:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E382CEFD15
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 21:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7AvG0msAbo2Y83aHAD2fhIUaGZrg+4t+Ti3xDsgkl6M=; b=VCgRleKOkupMkzdmI5qgO5gfHN
-	L2QnTen0SYuAT6B0WYUTskYkkU4uaUFeknw8VnJbcDhBBuEJ+c4mdIWGuBqtR1P7l0g4lffaI0GoK
-	8v1QNuoldjYxJAlWkiFLzIdUq5P8TomB3Z3phAONxUQ0dgIo6oaJbtKkkvsnRAaGa9BYMlU7JFEYR
-	38pRHGKWvy2UsrOgXTkmQ7HvqqTiAClvoYr97cso3za/dVBelLiY0n4aFRIeyK0TStOe+rop56pSJ
-	Bmg4NTBOOK8xFJTUFZndgAgbX7dozF3vyWmynYipo+4JnYv8KgKsk0XithP9pkDJ1QThxRxFPeJts
-	pkJGXiWQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oBHaApQtC04T9moDxD3c+2ckkQCoO8PAwV8aYj1W34k=; b=ar7Unno0gJA60pGn4jgun9GLux
+	t5vGDrE4RIdghMMZQWRirPQuMPnzpzdEA6dl5nBKyMX68TeaIwfBE8mzD6cMN1kVdbhPROn73pY71
+	KYgV6mcn9huxC3Scp2TNFh/etV2rHp72pYBf9LjsRS4OWXqCOFrPwKMG/xVtixUAdQixnN+EubfwV
+	N2cF15ldNJxwjebEOZp1NBkDHvM9eh5VhqOscOQu3uA9IqH8gX33h0T7hqKAixx0QkAbvWKjZj3G+
+	M+icxg1JBm16Kc6xwZ4YD7r+spfDJ8dICbPeCDY0pt6FKecKmrr/+1krI24aiDRI1SWbkNt+sBntH
+	kRQaCdqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdEen-0000000Ds4v-2CSr;
-	Tue, 06 Jan 2026 21:32:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdEpw-0000000DsXj-2Gav;
+	Tue, 06 Jan 2026 21:43:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdEek-0000000Ds4X-2fZh
+	id 1vdEpu-0000000DsXd-3deb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 21:31:59 +0000
+	Tue, 06 Jan 2026 21:43:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A5EDF43D26;
-	Tue,  6 Jan 2026 21:31:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C3B4C116C6;
-	Tue,  6 Jan 2026 21:31:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 05B1A6013C
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Jan 2026 21:43:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1222C2BC86
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Jan 2026 21:43:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767735117;
-	bh=c0S+UPILWQZ/bfTmY0vB12LguAXEd/SuBL+v3igeD1U=;
-	h=From:To:Cc:Subject:Date:From;
-	b=jL0mkEceaEmkQMi7RsnupTDbuwGDxnHWFEKBV4+1cihn6nHCd/hFhNNB1wWCV9Ms4
-	 P9jdDj+Wd8VqHCbvQC70qQtN87CwUjSn5VBRysgkS3WD6zj1DvVLO0V/Lcgw6pSbEP
-	 7WOfcUjN4vzFaG+RAs3lt5z5OUHopp0yTgnmQ6a91LATBLhEpOpjSiREDn5/pjsm/U
-	 xwNjsv+xwgWse8vlOQq1uY5ssLSoyUApBxTrcuVzs5NYxrW44qFLBQXME/MA5qBua5
-	 DkO+SWgfJshZc36iavjQOJCw9cBWHO3EBrrQyyBwfgoLj6UngEpB3WZ3vgxOqjULUy
-	 8UvbOFtZN+znQ==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Eddie James <eajames@linux.ibm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: dts: aspeed: ibm: Use non-deprecated AT25 properties
-Date: Tue,  6 Jan 2026 15:31:51 -0600
-Message-ID: <20260106213153.2766411-1-robh@kernel.org>
-X-Mailer: git-send-email 2.51.0
+	s=k20201202; t=1767735809;
+	bh=AbF1eOY89KhXmRJMDsJG8KEK/8SWy/YP0fH0ODncTA4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=cZhV1TK/rp3f5Bt8aOXeN14taQ4noYvV6auOfn2+dSCUTE795qZzWyBzTIJ9jt3W0
+	 XGC9cQI2WBImBapS4jWDp0eEVslWePAur+dGXKqt3n6hBi4oK198vn9IiWABR+Qw1U
+	 dFOc3ZI0HNidZBVrw8ZETUHrpy4K1mYLm5QIWXuU9StPeo1WvhT9NeFMgk6LsJt1xq
+	 89qOTrWvvUll1tJzLcHlRL76jZXLYyZiYU1qmkPb+XyoPhYcSoFq7qc4YqYsJKU/q6
+	 AUBCT8Pll7tsa+tk8TSWU+hPukw30eFhI6dMWbgG3Gx5krEfmphDOGGv98Se9p6EGZ
+	 8gZ107YULPhSw==
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-b727f452fffso18971566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 13:43:29 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXwvjYcYZnaKxT/22c2TpUKCUiSvvDxiMfi27YDxtJLwFhKQpZPzBwxihHl7ZL1PQohhtUSGahFfbKXOPa6uZ7X@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSjXmwliM/a7jiN6BMsQbQBcXJMG/fN28qROGwDzgBtZYctCmT
+	sjqWT95hv8VrNuvMf6JHmaDZYzk0rKkZFeEL9/+8W+5T+m6/1OZdb7OeAqLWTdf9voC/axT/fQ0
+	xZDIWlZT/9o5ehp+Mks3Zz5InDRq4og==
+X-Google-Smtp-Source: AGHT+IFxhMpPIoUMMMgZYzU2Daw/YU+xq9ktCivIKXSJwd/AoywlJ3PqutPpN9e8sIAT/rTKCPU1AW4EfzAUlBh+O3s=
+X-Received: by 2002:a17:907:9550:b0:b7f:fa5d:53d with SMTP id
+ a640c23a62f3a-b8429b96f7dmr302576966b.30.1767735808153; Tue, 06 Jan 2026
+ 13:43:28 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_133158_714470_B616022C 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+References: <20251229165127.4006134-1-Frank.Li@nxp.com>
+In-Reply-To: <20251229165127.4006134-1-Frank.Li@nxp.com>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 6 Jan 2026 15:43:16 -0600
+X-Gmail-Original-Message-ID: <CAL_Jsq+6+y5POyWmQnkMB6PJWvH-Gt-qAiJO5gk9N2L5GZT8SQ@mail.gmail.com>
+X-Gm-Features: AQt7F2oDZcdOwHwx-niPp0Zu_2KEnB_1S_Vt1fCBf44bR_3pWueL-Rt34VmPsjI
+Message-ID: <CAL_Jsq+6+y5POyWmQnkMB6PJWvH-Gt-qAiJO5gk9N2L5GZT8SQ@mail.gmail.com>
+Subject: Re: [PATCH 1/1] arm64: dts: imx8mp-skov: add pinctrl-name 'reset' to
+ fix CHECK_DTB warning
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, 
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,606 +86,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The at25,* properties have been deprecated since 2012. These platforms
-weren't upstream until 2020 and 2023, so it should be safe to switch
-over to the "new" properties and just drop the deprecated ones.
+On Mon, Dec 29, 2025 at 10:51=E2=80=AFAM Frank Li <Frank.Li@nxp.com> wrote:
+>
+> Add pinctrl-name 'reset' to fix below CHECK_DTB warnings:
+>   arch/arm64/boot/dts/freescale/imx8mp-skov-basic.dtb: switch@5f (microch=
+ip,ksz9893): pinctrl-names: ['default'] is too short
+>         from schema $id: http://devicetree.org/schemas/net/dsa/microchip,=
+ksz.yaml#
+>
+> The commit (e469b87e0fb0d dt-bindings: net: dsa: microchip: Add strap
+> description to set SPI mode" force use two pinctrl-name 'default' and
+> 'reset'. switch@5f doesn't use SPI, so it is safe to use the same pinctrl
+> setting for both.
+>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi b/arch/a=
+rm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+> index 020f20c8ce667..7d2fc5fdd3bd1 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+> @@ -373,8 +373,8 @@ &i2c4 {
+>
+>         switch: switch@5f {
+>                 compatible =3D "microchip,ksz9893";
+> -               pinctrl-names =3D "default";
+> -               pinctrl-0 =3D <&pinctrl_switch>;
+> +               pinctrl-names =3D "default", "reset";
+> +               pinctrl-0 =3D <&pinctrl_switch>, <&pinctrl_switch>;
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../dts/aspeed/aspeed-bmc-ibm-everest.dts     | 128 +++++++++---------
- .../arm/boot/dts/aspeed/ibm-power10-dual.dtsi |  64 ++++-----
- .../arm/boot/dts/aspeed/ibm-power10-quad.dtsi |  64 ++++-----
- 3 files changed, 128 insertions(+), 128 deletions(-)
+I guess this is getting dropped anyways, but this is completely wrong.
+"reset" entry here corresponds to pinctrl-1 property. pinctrl-N
+properties can have any number of phandles, but those are all one
+name.
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts
-index 5a0975d52492..561633d31039 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts
-@@ -2806,13 +2806,13 @@ cfam4_spi0: spi@0 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -2823,13 +2823,13 @@ cfam4_spi1: spi@20 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -2840,13 +2840,13 @@ cfam4_spi2: spi@40 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -2857,13 +2857,13 @@ cfam4_spi3: spi@60 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 		};
-@@ -3181,13 +3181,13 @@ cfam5_spi0: spi@0 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -3198,13 +3198,13 @@ cfam5_spi1: spi@20 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -3215,13 +3215,13 @@ cfam5_spi2: spi@40 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -3232,13 +3232,13 @@ cfam5_spi3: spi@60 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 		};
-@@ -3556,13 +3556,13 @@ cfam6_spi0: spi@0 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -3573,13 +3573,13 @@ cfam6_spi1: spi@20 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -3590,13 +3590,13 @@ cfam6_spi2: spi@40 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -3607,13 +3607,13 @@ cfam6_spi3: spi@60 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 		};
-@@ -3931,13 +3931,13 @@ cfam7_spi0: spi@0 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -3948,13 +3948,13 @@ cfam7_spi1: spi@20 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -3965,13 +3965,13 @@ cfam7_spi2: spi@40 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -3982,13 +3982,13 @@ cfam7_spi3: spi@60 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 		};
-diff --git a/arch/arm/boot/dts/aspeed/ibm-power10-dual.dtsi b/arch/arm/boot/dts/aspeed/ibm-power10-dual.dtsi
-index 06fac236773f..79eaf442c5bf 100644
---- a/arch/arm/boot/dts/aspeed/ibm-power10-dual.dtsi
-+++ b/arch/arm/boot/dts/aspeed/ibm-power10-dual.dtsi
-@@ -88,13 +88,13 @@ cfam0_spi0: spi@0 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -105,13 +105,13 @@ cfam0_spi1: spi@20 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -122,13 +122,13 @@ cfam0_spi2: spi@40 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -139,13 +139,13 @@ cfam0_spi3: spi@60 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 		};
-@@ -257,13 +257,13 @@ cfam1_spi0: spi@0 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -274,13 +274,13 @@ cfam1_spi1: spi@20 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -291,13 +291,13 @@ cfam1_spi2: spi@40 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -308,13 +308,13 @@ cfam1_spi3: spi@60 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 		};
-diff --git a/arch/arm/boot/dts/aspeed/ibm-power10-quad.dtsi b/arch/arm/boot/dts/aspeed/ibm-power10-quad.dtsi
-index 9501f66d0030..a54be7d0af0b 100644
---- a/arch/arm/boot/dts/aspeed/ibm-power10-quad.dtsi
-+++ b/arch/arm/boot/dts/aspeed/ibm-power10-quad.dtsi
-@@ -739,13 +739,13 @@ cfam2_spi0: spi@0 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -756,13 +756,13 @@ cfam2_spi1: spi@20 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -773,13 +773,13 @@ cfam2_spi2: spi@40 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -790,13 +790,13 @@ cfam2_spi3: spi@60 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 		};
-@@ -1114,13 +1114,13 @@ cfam3_spi0: spi@0 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -1131,13 +1131,13 @@ cfam3_spi1: spi@20 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -1148,13 +1148,13 @@ cfam3_spi2: spi@40 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 
-@@ -1165,13 +1165,13 @@ cfam3_spi3: spi@60 {
- 				#size-cells = <0>;
- 
- 				eeprom@0 {
--					at25,byte-len = <0x80000>;
--					at25,addr-mode = <4>;
--					at25,page-size = <256>;
--
- 					compatible = "atmel,at25";
- 					reg = <0>;
- 					spi-max-frequency = <1000000>;
-+
-+					address-width = <24>;
-+					pagesize = <256>;
-+					size = <0x80000>;
- 				};
- 			};
- 		};
--- 
-2.51.0
-
+Rob
 
