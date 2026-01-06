@@ -4,82 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBEA6C47BE2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 10:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09F13C47BDF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 10:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=80JGuCaryORikQJCv6k0KCMTsV9HvIMB99VFFcCg9cM=; b=Fy03qyhNQGj6vY3qfi1kceOFGc
-	YrhQ5g1PA4CnCOkjYS8Kjv65nSqvwtHhNMIPzDy8msHOR+Hjmnt2NXBRD8w8z94k/SOlZFn/f4ot4
-	d1ZaM18+nCPdE3TLQwzNBdWFJe0ZivzdmOTNdG3OixsaW65Pb28sUh6AHOQImZMLzlc9LVMdoUy2C
-	7zpVt0KqFtuq++YctkZ2UVovV31L7ahAZF04M9NaGDEA1xeEvH8CQJGB3X8GLOvpODNmHnBP2H5bw
-	NxXqowys4EKDjwxBp1w7eZfFoe4FQozK/LOPplH+vu1+SDlJ5qiM2bJfg4A6Izp4UgzxYccwwbvzO
-	Ef9fz5Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=atD3VIlCvaC0SU1jrdSRDKT7JB5lBfuYtrlzYH4zMKE=; b=lS+WCg10ZSgeggGrET6BxpJMa+
+	EvKqDkI7A4VJ4PpDD8N6GWuVUlBH808Y0zt70v727ylcr8WuZv7sBmiFDNM+cMZSBpbS2O8BIRBG0
+	xLET7D21+XBokMEreSRkUch2BTw4EhbDdNlicd6kL0C24N4qkMypU4vOrRhMJO0UvqBfK07V0p3XJ
+	ZmceUtpb16QKHhJifh/p5QC8+fDHnpjqdsgb/vo6Qc/I0zTwMazDIf7M4r3R0+On1v4yOLDWbz3Tn
+	vIHN2QWOafb7SL78zoBlVKiqQdV/tA3GIS77QCDypcy8ajOZsgbvHnPyNDbxA7C3P85wW/RZpRmFC
+	h3+anHPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd4CQ-0000000Cmfl-1oD4;
-	Tue, 06 Jan 2026 10:22:02 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vd4DO-0000000Cmn1-3UHc;
+	Tue, 06 Jan 2026 10:23:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd4CN-0000000Cmf0-2UdQ
+	id 1vd4DN-0000000Cmms-3VQc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 10:22:00 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.107])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dlnJs33ywzJ46sy;
-	Tue,  6 Jan 2026 18:21:49 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id CBDD740570;
-	Tue,  6 Jan 2026 18:21:50 +0800 (CST)
-Received: from localhost (10.48.149.114) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 6 Jan
- 2026 10:21:48 +0000
-Date: Tue, 6 Jan 2026 10:21:46 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-CC: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>, "Saravana
- Kannan" <saravanak@google.com>, Nathan Chancellor <nathan@kernel.org>, "Nick
- Desaulniers" <nick.desaulniers+lkml@gmail.com>, Bill Wendling
-	<morbo@google.com>, Justin Stitt <justinstitt@google.com>, Russell King
-	<linux@armlinux.org.uk>, Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>, Krzysztof Kozlowski <krzk@kernel.org>, "Alim
- Akhtar" <alim.akhtar@samsung.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>, "Nicholas Piggin" <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Nipun Gupta
-	<nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>, Abel Vesa
-	<abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Michael Turquette
-	<mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, Shawn Guo
-	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	Vinod Koul <vkoul@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>, "Rafael J. Wysocki"
-	<rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<llvm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-clk@vger.kernel.org>, <imx@lists.linux.dev>,
-	<dmaengine@vger.kernel.org>, <linux-media@vger.kernel.org>,
-	<linux-pm@vger.kernel.org>
-Subject: Re: [PATCH 07/11] clk: imx: imx27: Simplify with scoped for each OF
- child loop
-Message-ID: <20260106102146.00005bfb@huawei.com>
-In-Reply-To: <20260105-of-for-each-compatible-scoped-v1-7-24e99c177164@oss.qualcomm.com>
-References: <20260105-of-for-each-compatible-scoped-v1-0-24e99c177164@oss.qualcomm.com>
-	<20260105-of-for-each-compatible-scoped-v1-7-24e99c177164@oss.qualcomm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 06 Jan 2026 10:23:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A3B8560148;
+	Tue,  6 Jan 2026 10:23:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAB1BC116C6;
+	Tue,  6 Jan 2026 10:22:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767694980;
+	bh=coo59hx6eOu0vGs3Mvf5pYDqS+tTCWWQ6cQTmjAtPpY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Mcz3AnU23rCd7g3gAAoHuH2oXu847Aljn2Lu4uQGu+fOUwY98XYRy56C4NQ2xr/6H
+	 n3fDnSqJiEiZTRkdxhwqdYAz7+f70bW/89W3L6qv6lHSXbZ/jSXNbb8zzzdGDhX8mg
+	 d+hwEDGyB4Psr9wOQEs3oB0le+O72YKBXNM75qXJrXXaTnZRkgoC7dlmZTSNFuJTo4
+	 FR7DSFp7QCbJSZEF2w83sGjnfzva4fij8UUB/Ds/Tx8PsEwbCl02XICAcwFwHB6tAa
+	 9h2RV1+kXH6cDZtyAy07bcKSF6827rsrcl0Bp1RybJHH+TBtyItACp4/+Cd7uYIkXE
+	 tOzIc1SD/c60w==
+Date: Tue, 6 Jan 2026 11:22:57 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Sean Nyekjaer <sean@geanix.com>
+Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	linux-pwm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] pwm: stm32: handle polarity change when PWM is enabled
+Message-ID: <kemjjoyrhqglqq4p2j6kygspevq2mdbiujtnksw4rkdapoqcfy@zte2c7fhqvn3>
+References: <20260106-stm32-pwm-v1-1-33e9e8a9fc33@geanix.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.149.114]
-X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
- dubpeml100005.china.huawei.com (7.214.146.113)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_022159_921878_443B1033 
-X-CRM114-Status: GOOD (  17.57  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="adci6bclvlmizahh"
+Content-Disposition: inline
+In-Reply-To: <20260106-stm32-pwm-v1-1-33e9e8a9fc33@geanix.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,53 +71,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 05 Jan 2026 14:33:45 +0100
-Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> wrote:
 
-> Use scoped for-each loop when iterating over device nodes to make code a
-> bit simpler.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-This is one that had me thinking for a (short) while about what pattern
-required this double match was there for.  A comment would have been useful!
+--adci6bclvlmizahh
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] pwm: stm32: handle polarity change when PWM is enabled
+MIME-Version: 1.0
 
-Ah well, nothing to do with your patch which is good.
+Hello Sean,
 
-Jonathan
-
-> 
+On Tue, Jan 06, 2026 at 08:01:57AM +0100, Sean Nyekjaer wrote:
+> After commit 7346e7a058a2 ("pwm: stm32: Always do lazy disabling"),
+> polarity changes are ignored. Updates to the TIMx_CCER CCxP bits are
+> ignored by the hardware when the master output is enabled via the
+> TIMx_BDTR MOE bit.
+>=20
+> Handle polarity changes by temporarily disabling the PWM when required,
+> in line with apply() implementations used by other PWM drivers.
+>=20
+> Fixes: 7346e7a058a2 ("pwm: stm32: Always do lazy disabling")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Sean Nyekjaer <sean@geanix.com>
 > ---
-> 
-> Depends on first patch.
+> This patch is only applicable for stable tree's <=3D 6.12
+> How to explicitly state that and what is the procedure?
+
+I haven't checked in detail yet but I wonder if the problem also exists
+in newer kernels. Also I think that changing the polarity with the
+hardware on happend before 7346e7a058a2; in that case you blamed the
+wrong commit.
+
+So even if we decide to apply a small targetted fix for the issue you
+report to stable without an equivalent commit in mainline (due to the
+rework the driver saw in v6.13-rc1~157^2~9^2~3 ("pwm: stm32:
+Implementation of the waveform callbacks")), I refuse to do that if the
+problem still exists in mainline.
+
 > ---
->  drivers/clk/imx/clk-imx27.c | 7 ++-----
->  1 file changed, 2 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/clk/imx/clk-imx27.c b/drivers/clk/imx/clk-imx27.c
-> index 99618ded0939..f2f0d3fe5c52 100644
-> --- a/drivers/clk/imx/clk-imx27.c
-> +++ b/drivers/clk/imx/clk-imx27.c
-> @@ -171,17 +171,14 @@ static void __init _mx27_clocks_init(unsigned long fref)
->  
->  static void __init mx27_clocks_init_dt(struct device_node *np)
->  {
-> -	struct device_node *refnp;
->  	u32 fref = 26000000; /* default */
->  
-> -	for_each_compatible_node(refnp, NULL, "fixed-clock") {
-> +	for_each_compatible_node_scoped(refnp, NULL, "fixed-clock") {
->  		if (!of_device_is_compatible(refnp, "fsl,imx-osc26m"))
->  			continue;
->  
-> -		if (!of_property_read_u32(refnp, "clock-frequency", &fref)) {
-> -			of_node_put(refnp);
-> +		if (!of_property_read_u32(refnp, "clock-frequency", &fref))
->  			break;
-> -		}
+>  drivers/pwm/pwm-stm32.c | 14 +++++++++++---
+>  1 file changed, 11 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/pwm/pwm-stm32.c b/drivers/pwm/pwm-stm32.c
+> index eb24054f9729734da21eb96f2e37af03339e3440..d5f79e87a0653e1710d46e6bf=
+9268a59638943fe 100644
+> --- a/drivers/pwm/pwm-stm32.c
+> +++ b/drivers/pwm/pwm-stm32.c
+> @@ -452,15 +452,23 @@ static int stm32_pwm_apply(struct pwm_chip *chip, s=
+truct pwm_device *pwm,
+> =20
+>  	enabled =3D pwm->state.enabled;
+> =20
+> +	if (state->polarity !=3D pwm->state.polarity) {
+> +		if (enabled) {
+> +			stm32_pwm_disable(priv, pwm->hwpwm);
+> +			enabled =3D false;
+> +		}
+> +
+> +		ret =3D stm32_pwm_set_polarity(priv, pwm->hwpwm, state->polarity);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+>  	if (!state->enabled) {
+>  		if (enabled)
+>  			stm32_pwm_disable(priv, pwm->hwpwm);
+>  		return 0;
 >  	}
->  
->  	ccm = of_iomap(np, 0);
-> 
+> =20
+> -	if (state->polarity !=3D pwm->state.polarity)
+> -		stm32_pwm_set_polarity(priv, pwm->hwpwm, state->polarity);
+> -
+>  	ret =3D stm32_pwm_config(priv, pwm->hwpwm,
+>  			       state->duty_cycle, state->period);
+>  	if (ret)
 
+I would prefer the following change:
+
+diff --git a/drivers/pwm/pwm-stm32.c b/drivers/pwm/pwm-stm32.c
+index eb24054f9729..5f118c20f1ca 100644
+--- a/drivers/pwm/pwm-stm32.c
++++ b/drivers/pwm/pwm-stm32.c
+@@ -452,12 +452,16 @@ static int stm32_pwm_apply(struct pwm_chip *chip, str=
+uct pwm_device *pwm,
+=20
+ 	enabled =3D pwm->state.enabled;
+=20
+-	if (!state->enabled) {
++	/* The hardware must be disabled to honor polarity changes. */
++	if (!state->enabled || state->polarity !=3D pwm->state.polarity) {
+ 		if (enabled)
+ 			stm32_pwm_disable(priv, pwm->hwpwm);
+-		return 0;
++		enabled =3D false;
+ 	}
+=20
++	if (!state->enabled)
++		return 0;
++
+ 	if (state->polarity !=3D pwm->state.polarity)
+ 		stm32_pwm_set_polarity(priv, pwm->hwpwm, state->polarity);
+=20
+Maybe it's just me, but I think the resulting code is simpler with this
+hunk.
+
+I have hardware using this driver, will set it up later this week for
+testing.
+
+Best regards
+Uwe
+
+--adci6bclvlmizahh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmlc4n4ACgkQj4D7WH0S
+/k4PPQgAmawyHAcyv863JANknfAFeEAdQkQ06D1C/9LZyoVJJ7f5ozR8gwqQ+WDj
+MyfVx+Te/oM2rj8Hz94OPihbcEo2aM0VVmWPgcthdcHGBGGPf907/Emts0L9TZi9
+vWQIGys5Mc8DSJWB71krKZSngEEIup8AVQqoUxQIkLRTai7wPr5dH4P/BSe/eXRi
+OgD+EV4ToZQUQl2VnaHakcqKTiDsE5C1KFFCnKwKhHT0YfdYb89BbjT6U9uKL/kc
+BezmtEMe3rKH33czeKLwnKX0WXXCxY7zbHNgsA/Ukr5ZvrrUmlp/3Z+2n9xnnIGe
+qEl/4av0tDgRaS2c+bcGCpfoYo8BJA==
+=dPiB
+-----END PGP SIGNATURE-----
+
+--adci6bclvlmizahh--
 
