@@ -4,88 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72170CEFCEC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:43:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD03FCEFCEC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:43:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q9kRQb6TCp9mLA5G8uSGQS65VbTtuKHR0kMxDo1y8mc=; b=E0HoDWKg0NhpzqdjOENU5p2bEo
-	RqamPqLWTbhFs0Ohr6lA4CV1dNSCSliZ2tmzca0lLqsgQDtzAC3JuBw0/AujPTYXgusD/ZNVj5utm
-	l78xCUIfu4+YasvAdd/vkwsl5iIbrHw4s9U+Wv0b3RiOerXeJCKbNspNqBqAmyFdm579EO0Xl2kCc
-	WtELgXNoVfbh6Tq3F8GkXdTuUHb4fDt2ppAimknnRG6hKavdbUlaERESmC/K21PgyW48qX2k3Hrm7
-	xA0VXu5qiZ2K8hXxpqSmmuIb4VM5ARW+VQ7iTBsGElLy8XA/dRNw6YPFo3SBl0gsSawgV+d2UhsCT
-	MDTG84EQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CPZANbv0STzLtH3a80Pr5HXtHvD2VOOOrggZl0/fcv8=; b=l9KpcUJ4KeMRao1V2T1Mbs8eYq
+	FTTJfgjeg9jCRcrODJaRq7SXF+qCbFjTx+QUdkzMgrpXfFsjxoryAZu7G92QzwUZ6sEW0E8MK8v41
+	nRPysbFtXJrNiMUpUs9RRGH5pwMIiSVg/jHgZ/mgoWXtQsgAUNtPajGIO8IFp4S1reKIzn7Sj0lGC
+	ehWcJVN/CyRz9XzN7ZC1W47q++/gBoWozRg2PsVqv9MncvtcB6e8TuvUo2+8if2/+8R5/dagzWTGC
+	JmhFPr9Q/VvWPHrZdqarjiEf3O3bPGSxhb21rr0ywsaZEM/PZCqRkgqO5VzE+WLSwtyOPm07Rdr07
+	jkRaO5Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdC1c-0000000DiBQ-1gxJ;
-	Tue, 06 Jan 2026 18:43:24 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1vdC1t-0000000DiEF-2zcg;
+	Tue, 06 Jan 2026 18:43:41 +0000
+Received: from sinmsgout02.his.huawei.com ([119.8.177.37])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdC1Z-0000000DiAz-3O4Q
+	id 1vdC1o-0000000DiCG-23zn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 18:43:22 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-431054c09e3so707866f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 10:43:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767724999; x=1768329799; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=q9kRQb6TCp9mLA5G8uSGQS65VbTtuKHR0kMxDo1y8mc=;
-        b=J31NIWshMIIl4NJfWapONjqILNBuC+OtcVGpFQd31hYNDAFgEQuIPtveISP5DvwOPE
-         TlMp4tM1x+Gfh2ZI+LYh81yYF1xpLIJ2/F9Rm2DtHxt/SyujKoVijRV+mGw3m5T00sf0
-         wmRdZFSCdbmQivAJtHEPjnjzFX5yujbN1/fIbIKxY1xn8VWCZrP+n5r9D3C8Uq7aDf0D
-         5sF1I1wIL95/mH4mdyG4VeHuHC3vh3CoxzOmtoTEJJbXUQBVX3mAu7ZWj8Ybkv7wXW23
-         HlrWCC5qf483V/XIqlBngynfMoeYQOjAShSuZGkU1edCyZMRpR0822cPZVXduHOCBoaz
-         cq7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767724999; x=1768329799;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=q9kRQb6TCp9mLA5G8uSGQS65VbTtuKHR0kMxDo1y8mc=;
-        b=loS9KZJh4MsxSIFE1GpzeJGd9BSdQsNep5IAeUKQ4SQf8Y782qx4/3xyDvUFSM4j0Z
-         bzY9TlUAIWB0xd7Bch7ZD1nYGyblF293dIZp0SqYKzihGlw8kjQr24V9kSEpvm4gypuw
-         yAmSOnVRHGmMkhV4Hf3v/mztb2QOOnrrGEYmIPH8aRwiQecSmESKJ/8HWWVgLQ7YHpaM
-         JUuiL40g71iEiImuhjobfyDFHXNdHyB1ItIAuxgL2Pp+K43UzGq99QQvFSOwQ9HP1QuL
-         Tr3/YW68GYHnj0ZhqSosRPvY+gxmA74qllb+ltOXnC1nU8W0P5p4CUwKRvWW1bUMEC0Q
-         oZ5g==
-X-Forwarded-Encrypted: i=1; AJvYcCXtfnvQzREKdNY+O/NfHfia8BM9eY7IufSsSUDYQ12b3TzvDqrucqzXgOyGl2VoHOR9teVaN+invJNhkEMXFKwE@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvLuhNqUnzTpvDD9dhSCAhTj6Eqy7i/0qJQ0YR0ZpRNqYZq9FA
-	tl73fbwgcBo3Kx4CNT7ZtmRo2NUwUgBNaKg7AZ3jCMS1PN+8ROodCgg19xTPsEKc4G+pDDkzu+8
-	66Kwh7bufFWxSiuyAnA==
-X-Google-Smtp-Source: AGHT+IGVcCDObMivGZ6ItRLBNbRjswIjQ3SNYuJmmzi0+OqW9p2tg/ybCzvxMsorncSHo3wGn72koB3zTO666Zo=
-X-Received: from wrbgv17.prod.google.com ([2002:a05:6000:4611:b0:430:f5d7:f015])
- (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:2c0e:b0:431:752:671e with SMTP id ffacd0b85a97d-432c363280fmr199767f8f.15.1767724998951;
- Tue, 06 Jan 2026 10:43:18 -0800 (PST)
-Date: Tue, 6 Jan 2026 18:43:17 +0000
-In-Reply-To: <20260106152300.7fec3847.gary@garyguo.net>
-Mime-Version: 1.0
-References: <20251231-rwonce-v1-0-702a10b85278@google.com> <20251231-rwonce-v1-4-702a10b85278@google.com>
- <20260101.111123.1233018024195968460.fujita.tomonori@gmail.com>
- <L2dmGLLYJbusZn9axfRubM0hIOSTuny2cW3uyUhOVGvck7lQxTzDe0Xxf8Hw2cLxICT8kdmNAE74e-LV7YrReg==@protonmail.internalid>
- <20260101.130012.2122315449079707392.fujita.tomonori@gmail.com>
- <87ikdej4s1.fsf@t14s.mail-host-address-is-not-set> <20260106152300.7fec3847.gary@garyguo.net>
-Message-ID: <aV1XxWbXwkdM_AdA@google.com>
-Subject: Re: [PATCH 4/5] rust: hrtimer: use READ_ONCE instead of read_volatile
-From: Alice Ryhl <aliceryhl@google.com>
-To: Gary Guo <gary@garyguo.net>
-Cc: Andreas Hindborg <a.hindborg@kernel.org>, FUJITA Tomonori <fujita.tomonori@gmail.com>, lyude@redhat.com, 
-	boqun.feng@gmail.com, will@kernel.org, peterz@infradead.org, 
-	richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com, 
-	catalin.marinas@arm.com, ojeda@kernel.org, bjorn3_gh@protonmail.com, 
-	lossin@kernel.org, tmgross@umich.edu, dakr@kernel.org, mark.rutland@arm.com, 
-	frederic@kernel.org, tglx@linutronix.de, anna-maria@linutronix.de, 
-	jstultz@google.com, sboyd@kernel.org, viro@zeniv.linux.org.uk, 
-	brauner@kernel.org, jack@suse.cz, linux-kernel@vger.kernel.org, 
-	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	rust-for-linux@vger.kernel.org, linux-fsdevel@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
+	Tue, 06 Jan 2026 18:43:40 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=CPZANbv0STzLtH3a80Pr5HXtHvD2VOOOrggZl0/fcv8=;
+	b=Ti/Cnbq3Wap4TdpoBsmDo7OUQ/W8DNZ1jPFaI8gBzFKMtHOud505NkRbTi0R0KmxwnFyDO1hI
+	gcupkrbCdKSxjaM0xu278dJRfXk8wikYzs2p6Mgx8LTNmtx9qhJPS0QHAd6PyFECgAz4hVmlJZh
+	1a9hvWXIT4m36vmfhBzN0kw=
+Received: from frasgout.his.huawei.com (unknown [172.18.146.33])
+	by sinmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dm0P45zMsz1vnvh;
+	Wed,  7 Jan 2026 02:41:12 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.18.224.150])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dm0RS4LKXzJ4680;
+	Wed,  7 Jan 2026 02:43:16 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 90B1C40565;
+	Wed,  7 Jan 2026 02:43:18 +0800 (CST)
+Received: from localhost (10.195.245.156) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 6 Jan
+ 2026 18:43:17 +0000
+Date: Tue, 6 Jan 2026 18:43:13 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd
+	<nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
+	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
+	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Timothy Hayes
+	<Timothy.Hayes@arm.com>
+Subject: Re: [PATCH v2 07/36] KVM: arm64: gic: Introduce interrupt type
+ helpers
+Message-ID: <20260106184313.00002a8c@huawei.com>
+In-Reply-To: <20251219155222.1383109-8-sascha.bischoff@arm.com>
+References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
+	<20251219155222.1383109-8-sascha.bischoff@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+MIME-Version: 1.0
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.195.245.156]
+X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_104321_855716_E6FB6926 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20260106_104338_981865_161049D2 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,33 +89,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 06, 2026 at 03:23:00PM +0000, Gary Guo wrote:
-> On Tue, 06 Jan 2026 13:37:34 +0100
-> Andreas Hindborg <a.hindborg@kernel.org> wrote:
+On Fri, 19 Dec 2025 15:52:38 +0000
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+
+> GICv5 has moved from using interrupt ranges for different interrupt
+> types to using some of the upper bits of the interrupt ID to denote
+> the interrupt type. This is not compatible with older GICs (which rely
+> on ranges of interrupts to determine the type), and hence a set of
+> helpers is introduced. These helpers take a struct kvm*, and use the
+> vgic model to determine how to interpret the interrupt ID.
 > 
-> > "FUJITA Tomonori" <fujita.tomonori@gmail.com> writes:
-> > >
-> > > Sorry, of course this should be:
-> > >
-> > > +__rust_helper ktime_t rust_helper_hrtimer_get_expires(const struct hrtimer *timer)
-> > > +{
-> > > +	return hrtimer_get_expires(timer);
-> > > +}
-> > >  
-> > 
-> > This is a potentially racy read. As far as I recall, we determined that
-> > using read_once is the proper way to handle the situation.
-> > 
-> > I do not think it makes a difference that the read is done by C code.
+> Helpers are introduced for PPIs, SPIs, and LPIs. Additionally, a
+> helper is introduced to determine if an interrupt is private - SGIs
+> and PPIs for older GICs, and PPIs only for GICv5.
 > 
-> If that's the case I think the C code should be fixed by inserting the
-> READ_ONCE?
+> The helpers are plumbed into the core vgic code, as well as the Arch
+> Timer and PMU code.
+> 
+> There should be no functional changes as part of this change.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+Hi Sascha,
 
-I maintain my position that if this is what you recommend C code does,
-it's confusing to not make the same recommendation for Rust abstractions
-to the same thing.
+A bit of bikeshedding / 'valuable' naming feedback to end the day.
+Otherwise LGTM.
 
-After all, nothing is stopping you from calling atomic_read() in C too.
+> diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+> index b261fb3968d03..6778f676eaf08 100644
+> --- a/include/kvm/arm_vgic.h
+> +++ b/include/kvm/arm_vgic.h
+...
 
-Alice
+>  enum vgic_type {
+>  	VGIC_V2,		/* Good ol' GICv2 */
+> @@ -418,8 +488,12 @@ u64 vgic_v3_get_misr(struct kvm_vcpu *vcpu);
+>  
+>  #define irqchip_in_kernel(k)	(!!((k)->arch.vgic.in_kernel))
+>  #define vgic_initialized(k)	((k)->arch.vgic.initialized)
+> -#define vgic_valid_spi(k, i)	(((i) >= VGIC_NR_PRIVATE_IRQS) && \
+> +#define vgic_valid_nv5_spi(k, i)	(((i) >= VGIC_NR_PRIVATE_IRQS) && \
+>  			((i) < (k)->arch.vgic.nr_spis + VGIC_NR_PRIVATE_IRQS))
+> +#define vgic_valid_v5_spi(k, i)	(irq_is_spi(k, i) && \
+> +				 (FIELD_GET(GICV5_HWIRQ_ID, i) < (k)->arch.vgic.nr_spis))
+> +#define vgic_valid_spi(k, i) (vgic_is_v5(k) ?				\
+> +			      vgic_valid_v5_spi(k, i) : vgic_valid_nv5_spi(k, i))
+
+nv is a little awkward as a name as immediately makes me thinking
+nested virtualization instead of not v5 (which I guess is the thinking behind that?)
+
+Probably just me and naming it v23 will break if we get to GIC version 23 :)
+nv5 breaks when we get GICv6 ;)
+
+
+>  
+>  bool kvm_vcpu_has_pending_irqs(struct kvm_vcpu *vcpu);
+>  void kvm_vgic_sync_hwstate(struct kvm_vcpu *vcpu);
+
 
