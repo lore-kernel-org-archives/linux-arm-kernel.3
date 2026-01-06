@@ -4,93 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BC2EC47BF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 14:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3CD0C47BFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 14:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PDyomPMwSX0nUznUeSpIGPTPKXqo/Pa069JTwjCcRpo=; b=Z52XJDUSfg1SUtbjG7TeWZ513z
-	Egdkpmltu8WLo5dq69S/i0ETzvNNQ5+udO2THp63ofGt1LKVqnVNAk1nf/k+iydBYpa1nHlGNu5Ma
-	FRAvfYljoZcBJhML0LYRC/m4gbjBkg19gUV/mqrvojilcVMy8b6KjG+QQBdDKjdDOe/HsETeGlEsH
-	hFVu3BTeUcz+5aVFx2z/fynR/Zl9QHMxT5zE+pgsCbqTyr2GKH9d02XN51w/xtCY3zE94LUiU2qdD
-	mS+EgBIOAUkHdFbZ6yOxTkU1NcJA0F0XVLB8CHCY49yAy3JFKCPpxCuQ+kLYq3EmPTiGZh3WlTZhO
-	UyHV7DxQ==;
+	bh=ivpx0ue4IdwF9+KAKAp0Do2EevIiye9biquOhr4AH6w=; b=VuxyY8dcqZw9rcihKCBrUL4tm2
+	ysLj9RZzPx8QHB3jteLKWDLEjjESAayYJVGtlDk2xrlOQJhQ3ZgrHOeHXlkmiwqK6UAkOSQ2w6d9R
+	kNau5PU8OJbwNSSQ8YzrVhXBIdD9fDPoEFJgp4gGUHic7PO3vg455KMrX7oYm1lfe5j6lVNG/DeHU
+	dMatnuSc3hC31VUOlAZe/+sx3EWPKUkhn02mGSJg5j3qSz3dlhEyvaqjUIE0+4koBjAJXDzrmux2u
+	sJk7+eaG1KaR+ZJAVkCAVi7omT/5qKQwQyVf2XLO0Ulnj3AHmYPH8ihsC6LzB/v5qqmK4wa/Z3+3l
+	U2L4VpPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd7tX-0000000DGhW-08oo;
-	Tue, 06 Jan 2026 14:18:47 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1vd7x4-0000000DH8I-46vx;
+	Tue, 06 Jan 2026 14:22:26 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd7tT-0000000DGgJ-2Uqu
+	id 1vd7x1-0000000DH7v-1p2x
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 14:18:45 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-477632b0621so6158565e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 06:18:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1767709120; x=1768313920; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PDyomPMwSX0nUznUeSpIGPTPKXqo/Pa069JTwjCcRpo=;
-        b=Is7VFiU++Zf3zYDfgqdwVVlkFZkNDf3SmgTn69oKBstcrsrQ8bLzBI4dfsqJCCTOR7
-         dUFFGajW9NVC2QNjnktM/kWbvt/iAhAUN9eNGr9zmlQ0lAOnaE3AhUCCrB+f3kvrv16a
-         +F8QCXl6MFmBPlxNrX+N7yp17UdOPh+54/pX5MGmO88CtQkQzz9HzE1slOaI7GdHma/E
-         DODiwt2SWKGGrkzJ02MvwqQtFn6xARZL4LaGDee/BcG1O5jLR9QcOpQYEE2cK1M8yyDK
-         +IwA7sSfOUrKHMXrvCFtsAH+eWZsYfMqkWlDjQYu7sQwPLSbxw7vIJI5ILD615ftz6bl
-         M8BA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767709120; x=1768313920;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=PDyomPMwSX0nUznUeSpIGPTPKXqo/Pa069JTwjCcRpo=;
-        b=BDqT7SJtpDe0BvXSjw11gKNP0m70cjMotyhANA8+OPeq8Ac4FB1cByc2F5kjl/EQNc
-         Z0LOpwY5cq8a2KKaa71a2MiM1mFyy5X2okuwRZrWi7W/SbNTBs0k0o1zBywpKg7dU9a/
-         QkJJCeo9SLSmC7Ym6t9PsC2n4tX2Odpho/m2vttnhx3wvt4HZbRqDYTgpzfNZS8tfP5v
-         NH6lBxfp+2unIg8j7ahHQkoI22bAM1SDdtOih/UGLmwQEUw7NdzZ4m9nSXRjfTfkG0RX
-         SJICs/5tEd6qw2ha/ckV3RdX5HD38tG48wVBqKyyF3536897F6eCg/ZMLrdpcbb0x/Dh
-         1hMg==
-X-Forwarded-Encrypted: i=1; AJvYcCV91ahMgQOb50JjOu3A2SErh4o8SbrgoJpl4cHSHNgLlrB0JfnhSJCKiuAy2B/kph965QMlCnqrIRxEc5JLP9fb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3PdZ2vCoLpvPmNT/FaZ26PIttUF1IDV5s5Bix6oC47ZlNqhip
-	2PW7BxX0gTNtr4bXSgY8S5tnBirSbcKAsxmaYiIE7PMGCGP3iKy8IgItRWvtB66Lbbc=
-X-Gm-Gg: AY/fxX5h/3osOgHQGjprNCEgbqYgudyRmqOyXsMJuC29qqpagt/CpyUzkcgaYVKzW7o
-	pk7uHNSsjjbEnyhXuO/IWuPiCQRPy534Q/f869sUvbmyn4rVnH2Fl/IbUZSsdHb38rcA2Y/ynL9
-	iBugQGgdCPB3RJif5CPTR426FYO9wIYbLK254VFhwpyaAxuqinJyslOVUFUEdP1AN7IXMfwl70W
-	6Fgb4GCS/WbXiJi8EliAfnBUhgN4xd/vHDmUu7mMEYyIyUXKSKSQdoM3SNQFJjqgQhJfVOjup01
-	2znEr2GLssMy/o5uIBgqCtYYX+F0P7u82Y/xqRFNnCobJ8uSPWFUzRgR3M/Z4rX4Cz+YWWUW5oQ
-	L/GcEmBIieGnVIfnZ1fTufnBMDafWbsqRgc4DnMsspKwsr6ThmHhKJ31SO215JoZzQeEgyaTwbC
-	ErYESive2k+H9YbzMS6lZ/
-X-Google-Smtp-Source: AGHT+IG4RoI4YqTRfLqMtHqERY+dKFavuI8R+zT2rhNFCJf6Ipd0EyH0ZjVfMEfxdwK/NE7/Y+RH/w==
-X-Received: by 2002:a05:600c:1d8c:b0:46e:4b79:551 with SMTP id 5b1f17b1804b1-47d7f0a324emr36773525e9.31.1767709120058;
-        Tue, 06 Jan 2026 06:18:40 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:e488:b673:7409:68d0])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-47d7f7035f2sm43558785e9.12.2026.01.06.06.18.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jan 2026 06:18:39 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: linux-amlogic@lists.infradead.org,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: Jerome Brunet <jbrunet@baylibre.com>,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	jian.hu@amlogic.com
-Subject: Re: [PATCH v1 0/3] clk: meson: small fixes for HDMI PLL OD
-Date: Tue,  6 Jan 2026 15:18:23 +0100
-Message-ID: <176770907988.1004563.13571465521875416136.b4-ty@baylibre.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260105204710.447779-1-martin.blumenstingl@googlemail.com>
-References: <20260105204710.447779-1-martin.blumenstingl@googlemail.com>
+	Tue, 06 Jan 2026 14:22:25 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.150])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dltfH2tCfzHnHCH;
+	Tue,  6 Jan 2026 22:22:15 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id AF6F140539;
+	Tue,  6 Jan 2026 22:22:19 +0800 (CST)
+Received: from localhost (10.195.245.156) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 6 Jan
+ 2026 14:22:17 +0000
+Date: Tue, 6 Jan 2026 14:22:14 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
+	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
+	<kobak@nvidia.com>, <lcherian@marvell.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
+	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
+	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
+	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
+	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
+	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>
+Subject: Re: [PATCH v2 29/45] arm_mpam: resctrl: Pre-allocate free running
+ monitors
+Message-ID: <20260106142214.0000686c@huawei.com>
+In-Reply-To: <20251219181147.3404071-30-ben.horgan@arm.com>
+References: <20251219181147.3404071-1-ben.horgan@arm.com>
+	<20251219181147.3404071-30-ben.horgan@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.195.245.156]
+X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_061843_882423_4BA042C6 
-X-CRM114-Status: UNSURE (   6.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260106_062223_783984_9CAE570A 
+X-CRM114-Status: GOOD (  27.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,16 +83,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Applied to clk-meson (clk-meson-next), thanks!
+On Fri, 19 Dec 2025 18:11:31 +0000
+Ben Horgan <ben.horgan@arm.com> wrote:
 
-[1/3] clk: meson: gxbb: Limit the HDMI PLL OD to /4 on GXL/GXM SoCs
-      https://github.com/BayLibre/clk-meson/commit/5b1a43950fd3
-[2/3] clk: meson: g12a: Limit the HDMI PLL OD to /4
-      https://github.com/BayLibre/clk-meson/commit/7aa6c24697ef
-[3/3] clk: meson: gxbb: use the existing HHI_HDMI_PLL_CNTL3 macro
-      https://github.com/BayLibre/clk-meson/commit/2fe1ef40b58c
+> From: James Morse <james.morse@arm.com>
+> 
+> When there are enough monitors, the resctrl mbm local and total files can
+> be exposed. These need all the monitors that resctrl may use to be
+> allocated up front.
+> 
+> Add helpers to do this.
+> 
+> If a different candidate class is discovered, the old array should be
+> free'd and the allocated monitors returned to the driver.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 
-Best regards,
---
-Jerome
+See below.  Maybe there isn't a nicer way to handle the error
+cases in counter_update_class() but I think it can be improved at least
+a little.
+
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index 51caf3b82392..bea16bc096f7 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+
+> +
+>  static void counter_update_class(enum resctrl_event_id evt_id,
+>  				 struct mpam_class *class)
+The stuff below is very much a case of me trying to figure out a nicer
+code flow in here and stumbling a bit over what it can be, however
+I do think this function would benefit from another look.
+
+>  {
+> -	struct mpam_class *existing_class = mpam_resctrl_counters[evt_id].class;
+> +	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[evt_id];
+> +	struct mpam_class *existing_class = mon->class;
+> +	u16 num_mbwu_mon = class->props.num_mbwu_mon;
+> +	int *existing_array = mon->mbwu_idx_to_mon;
+>  
+>  	if (existing_class) {
+>  		if (class->level == 3) {
+> @@ -576,8 +624,40 @@ static void counter_update_class(enum resctrl_event_id evt_id,
+>  		}
+>  	}
+>  
+> -	mpam_resctrl_counters[evt_id].class = class;
+> +	pr_debug("Updating event %u to use class %u\n", evt_id, class->level);
+> +	mon->class = class;
+>  	exposed_mon_capable = true;
+> +
+> +	if (evt_id == QOS_L3_OCCUP_EVENT_ID)
+> +		return;
+> +
+> +	/* Might not need all the monitors */
+> +	num_mbwu_mon = __mpam_monitors_free_running(num_mbwu_mon);
+> +	if (!num_mbwu_mon) {
+
+For the below suggestion would need duplicate setting 
+		mon->class = class;
+here (which is the one disadvantage I can see in setting it later than
+currently.  One option would be to flip the logic here and
+not exit early, allowing sharing of that statement after the
+rest of the code.
+	if (num_mbw_mon) {
+		stuff to allocate array.
+	} else {
+		pr_debug("Not pre-allocating...);
+	}
+	mon->class = class;
+}
+
+
+
+> +		pr_debug("Not pre-allocating free-running counters\n");
+> +		return;
+> +	}
+> +
+> +	/*
+> +	 * This is the pre-allocated free-running monitors path. It always
+> +	 * allocates one monitor per PARTID * PMG.
+> +	 */
+> +	WARN_ON_ONCE(num_mbwu_mon != resctrl_arch_system_num_rmid_idx());
+> +
+> +	mon->mbwu_idx_to_mon = __alloc_mbwu_array(class, num_mbwu_mon);
+
+This might be cleaner with a local so as to avoid setting and reverting on error.
+Also, does anything stop mon->class being set after this?
+Seems like that would be cleaner.
+
+	int *new_array; // up top obviously.
+
+	new_array = __alloc_mbwu_array(class, num_mbwu_mon);
+	if (IS_ERR(new_array)) {
+		pr_debug("Failed to allocate MBWU array\n");
+		return;
+	}
+
+//this bit less obviously a good idea.
+	if (mon->mbwu_idx_to_mon) {
+		pr_debug("Releasing previous class %u's monitors\n",
+			 mon->mbwu_idx_to_mon->level);
+		__free_mbwu_mon(mon->class, mon->mbwu_idx_to_mon, num_mbwu_mon);
+		kfree(mon->mbwu_idx_to_mon);
+	}
+//so maybe skip that bit.
+//Anyhow aim is to set these only after we know we are good carry on.
+	mon->mbwu_idx_to_mon = new_array;
+	mon->class = class;
+
+
+Some parts of this might make sense without going the whole way. Maybe
+just setting the array late and leaving the class set early then
+reverting that on error.
+
+
+> +	if (IS_ERR(mon->mbwu_idx_to_mon)) {
+> +		pr_debug("Failed to allocate MBWU array\n");
+> +		mon->class = existing_class;
+> +		mon->mbwu_idx_to_mon = existing_array;
+> +		return;
+> +	}
+> +
+> +	if (existing_array) {
+> +		pr_debug("Releasing previous class %u's monitors\n",
+> +			 existing_class->level);
+> +		__free_mbwu_mon(existing_class, existing_array, num_mbwu_mon);
+> +		kfree(existing_array);
+> +	}
+>  }
+>  
+>  static void mpam_resctrl_pick_counters(void)
+
 
