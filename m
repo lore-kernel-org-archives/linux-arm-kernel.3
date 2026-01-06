@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB97CEFD01
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 20:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0717CEFD01
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 20:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ow5Q2oTlOwpy0d3Ggl1dyllFWj7dmZKHddfFehUm0pg=; b=NF+Ip1xyPmoQquOjl8lQZ+PXa2
-	F/DL6ddyVV7Nx9i4UPjp2kpGLS2Dyq/54LmEwsli9oXuC8/CYD4OPaPOmd9YISK7eZ5X34sHe/5Hd
-	+03txZgldqhjfAjUV3ZEOtKt2/VtEbKhuC57qJTVDXswwjxfqtEInY1i7SyhxcHBX6WPDhf3g5yrj
-	tN5JEbh45o9twKxw7wKC8MKLcsOvm/V1ibpmKwF2Ouah10m1VWG6GQVg0BEwtcDI+IfmjCtui8voL
-	oSDdBHYqR+F+yMme3adNdgk90Z5GUgyaiE3FAp8PT65he3+54sBVXZl/FtFOpT+9sjaxNxjm8AgCw
-	brRBG6gw==;
+	bh=DlaMolTnmoyru2QWdXRs/qQwh1y0/qtF6ho6FZ81efs=; b=vENO4PgMKH3L5FTRQUN/3p6bmw
+	p0Kg8BtLE+Mf6qk+6KRujVEgHg3iHDEyD2CgfiVS6qRE54gTqWpo7OW9Teq34SR9PWRxr3c9GSQP5
+	dsRsOD0emVYNnmgNr3Ir5Ys39qMbI9ioEGV3YBRNhJUo/Y5Lg4NH8HPTdQNCfhoHakE9H8z5xKInc
+	VbQwPv27BEP6IdVyINXMmMx/InzaGmkF+vq+QfViux/vp19gVLwucDQLT+SrCQvCXAwN+cVLYo2XX
+	fNqYIpiyEDfwJPt/dN+1kIg4nvslQMzZ5XkLOMBvKpkeXjrYS5ZZm7TFTNftTAw/HcipLS+wVwAnl
+	TdKDZdcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdDiI-0000000Dowm-3ILc;
-	Tue, 06 Jan 2026 20:31:34 +0000
+	id 1vdDiQ-0000000Dozg-0MFo;
+	Tue, 06 Jan 2026 20:31:42 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdDiG-0000000DovY-3yKB
+	id 1vdDiO-0000000DoyE-0akv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 20:31:34 +0000
+	Tue, 06 Jan 2026 20:31:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Ow5Q2oTlOwpy0d3Ggl1dyllFWj7dmZKHddfFehUm0pg=; b=M1fFK2Q6InDyrObeQZFE36jNAa
-	9K9cm2S3n/9KCCGPT1VcGzK+Nd0ueI5kB79WiwO/0/bvOs3GBQQ8GetQZl3nPFYIktVjyVhG06mG+
-	82LDz+Ip2sDFrSXins7vZ08+LKV/U38zDMgDlIZfmdRks9XNw0PHqmiTTN6PPESu/ghV+Pyy3KhaH
-	ZwCdNrLVllm6rFBytaDO3m2UEMXGvU6ILPt83isZVBGjoyyR75ChqWnO/mcmp7G7tRh2B+kc2Npds
-	sXZRcbTabaht3NHHvTpC/n4vrx4A0M0kmfxGbzLd3sFMahgHHRGMttL9Ut0C3pRK7Lj3mfDrecF5U
-	n1B1SP4Q==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:46294 helo=rmk-PC.armlinux.org.uk)
+	bh=DlaMolTnmoyru2QWdXRs/qQwh1y0/qtF6ho6FZ81efs=; b=mbQzOL++6Ez8wbDG1fxNOXfnlk
+	oPzSrgGTbcAfbSKJVoNjVY7wSS07aObSS550BIzvcuijXY1XURfMPVrj3F2JiTx3nsrRAnkoMyU8K
+	rRe4Oayy32lS+q+EwHIGBPWH8zdVOD9OG4n03TqPRfn6lst68qSInJrXOwr19j+g2aOmqq32umtgz
+	w1yEs6iX/DvTDbLQEVOhTcdxHGtuOVcX6aOQtvUD0N4Bt0MrzFgaHii1K6kCDZPZft6k+BYcHHQ3d
+	PnjU5SBCTh5jerAGZ10dBUMVzS1MVhNSlsSLr5ZUJDtOh4T9JJfoMRTvlL5ne8QxhQ3/8GiyFvF8C
+	+deBSzkw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:38080 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vdDiB-00000000113-2ukq;
-	Tue, 06 Jan 2026 20:31:27 +0000
+	id 1vdDiH-0000000011N-1Uek;
+	Tue, 06 Jan 2026 20:31:33 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vdDiA-00000002E1W-2X6U;
-	Tue, 06 Jan 2026 20:31:26 +0000
+	id 1vdDiF-00000002E1d-30rR;
+	Tue, 06 Jan 2026 20:31:31 +0000
 In-Reply-To: <aV1w9yxPwL990yZJ@shell.armlinux.org.uk>
 References: <aV1w9yxPwL990yZJ@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -65,17 +65,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 3/9] net: stmmac: dwmac4: fix PTP message type field
- extraction
+Subject: [PATCH net-next 4/9] net: stmmac: descs: fix buffer 1 off-by-one
+ error
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vdDiA-00000002E1W-2X6U@rmk-PC.armlinux.org.uk>
-Date: Tue, 06 Jan 2026 20:31:26 +0000
+Message-Id: <E1vdDiF-00000002E1d-30rR@rmk-PC.armlinux.org.uk>
+Date: Tue, 06 Jan 2026 20:31:31 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_123132_988834_27BCB41A 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20260106_123140_178285_8327F356 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,43 +90,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In dwmac4_wrback_get_rx_status(), the code extracts the PTP message
-type from receive descriptor 1 using the dwmac enhanced descriptor
-definitions:
+norm_set_tx_desc_len_on_ring() incorrectly tests the buffer length,
+leading to a length of 2048 being squeezed into a bitfield covering
+bits 10:0 - which results in the buffer 1 size being zero.
 
-	message_type = (rdes1 & ERDES4_MSG_TYPE_MASK) >> 8;
-
-This is defined as:
-
- #define ERDES4_MSG_TYPE_MASK            GENMASK(11, 8)
-
-The correct definition is RDES1_PTP_MSG_TYPE_MASK, which is also
-defined as:
-
- #define RDES1_PTP_MSG_TYPE_MASK         GENMASK(11, 8)
-
-Use the correct definition, converting to use FIELD_GET() to extract
-it without needing an open-coded shift right that is dependent on the
-mask definition.
+If this field is zero, buffer 1 is ignored, and thus is equivalent
+to transmitting a zero length buffer.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../net/ethernet/stmicro/stmmac/descs_com.h   | 26 ++++++++++++-------
+ 1 file changed, 17 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
-index aac68dc28dc1..c84b26d51760 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
-@@ -108,7 +108,7 @@ static int dwmac4_wrback_get_rx_status(struct stmmac_extra_stats *x,
- 		ret = discard_frame;
- 	}
+diff --git a/drivers/net/ethernet/stmicro/stmmac/descs_com.h b/drivers/net/ethernet/stmicro/stmmac/descs_com.h
+index 40f7f2da9c5e..cb3bfc1571f9 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/descs_com.h
++++ b/drivers/net/ethernet/stmicro/stmmac/descs_com.h
+@@ -39,15 +39,19 @@ static inline void enh_desc_end_tx_desc_on_ring(struct dma_desc *p, int end)
+ 		p->des0 &= cpu_to_le32(~ETDES0_END_RING);
+ }
  
--	message_type = (rdes1 & ERDES4_MSG_TYPE_MASK) >> 8;
-+	message_type = FIELD_GET(RDES1_PTP_MSG_TYPE_MASK, rdes1);
++/* The maximum buffer 1 size is 8KiB - 1. However, we limit to 4KiB. */
+ static inline void enh_set_tx_desc_len_on_ring(struct dma_desc *p, int len)
+ {
+-	if (unlikely(len > BUF_SIZE_4KiB)) {
+-		p->des1 |= cpu_to_le32((((len - BUF_SIZE_4KiB)
++	unsigned int buffer1_max_length = BUF_SIZE_4KiB;
++
++	if (unlikely(len > buffer1_max_length)) {
++		p->des1 |= cpu_to_le32((((len - buffer1_max_length)
+ 					<< ETDES1_BUFFER2_SIZE_SHIFT)
+-			    & ETDES1_BUFFER2_SIZE_MASK) | (BUF_SIZE_4KiB
++			    & ETDES1_BUFFER2_SIZE_MASK) | (buffer1_max_length
+ 			    & ETDES1_BUFFER1_SIZE_MASK));
+-	} else
++	} else {
+ 		p->des1 |= cpu_to_le32((len & ETDES1_BUFFER1_SIZE_MASK));
++	}
+ }
  
- 	if (rdes1 & RDES1_IP_HDR_ERROR) {
- 		x->ip_hdr_err++;
+ /* Normal descriptors */
+@@ -73,16 +77,20 @@ static inline void ndesc_end_tx_desc_on_ring(struct dma_desc *p, int end)
+ 		p->des1 &= cpu_to_le32(~TDES1_END_RING);
+ }
+ 
++/* The maximum buffer 1 size is 2KiB - 1, limited by the mask width */
+ static inline void norm_set_tx_desc_len_on_ring(struct dma_desc *p, int len)
+ {
+-	if (unlikely(len > BUF_SIZE_2KiB)) {
+-		unsigned int buffer1 = (BUF_SIZE_2KiB - 1)
+-					& TDES1_BUFFER1_SIZE_MASK;
+-		p->des1 |= cpu_to_le32((((len - buffer1)
++	unsigned int buffer1_max_length = BUF_SIZE_2KiB - 1;
++
++	if (unlikely(len > buffer1_max_length)) {
++		unsigned int buffer1 = buffer1_max_length &
++				       TDES1_BUFFER1_SIZE_MASK;
++		p->des1 |= cpu_to_le32((((len - buffer1_max_length)
+ 					<< TDES1_BUFFER2_SIZE_SHIFT)
+ 				& TDES1_BUFFER2_SIZE_MASK) | buffer1);
+-	} else
++	} else {
+ 		p->des1 |= cpu_to_le32((len & TDES1_BUFFER1_SIZE_MASK));
++	}
+ }
+ 
+ /* Specific functions used for Chain mode */
 -- 
 2.47.3
 
