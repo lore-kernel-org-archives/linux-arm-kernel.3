@@ -4,147 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34E8DCD042B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 01:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F56CD042A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 01:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cEML6pOrA849wZuEgdOsJGjlKLmi52IL7r85pj59rk4=; b=rrePjS9nE3bkseMyCW/T5hJ3El
-	lyrIMfqdMzNXRJ/YyzwHkwdVp604rZJTqWSaSmv6u8aywNrRdPCH4jTlE8loB4XML8Jc8Bcj/2yVl
-	PJzo1/zAhIzaNaeJSZL0Di+HJz2OiQyQCMbSGs5j2kzYGRURywdRFqkXcS9EFznvOBj7fm7rO5nwG
-	ozI+N+OUYPG1vTab/PdgFhvYstfGRglTngULT3zE8nvD3Na9U9m1X6q5pFcgE3B14aJdPAGmPhDiI
-	8AhP6KqUYTBUhdtjnJhNYVLGgmiakIsG020IWPPWSeyoV+P/OZLwTGMpRhgRX4HbYYfZr+3wal9TO
-	bsG1Zucw==;
+	bh=vZdZ6z94WkwXLP8aTircs4WcG7hRxfUszazs7DfQTcA=; b=J4/iiLspMbN/XQTE+zZd6cNdaD
+	sDHiyip9XZl/tGRZIjVYcBWYTPCuTP4P/g17VZ4jOmLfFxczx9xzowC0dyJQ1Av8y9ul9EO00haoP
+	uUgYlx/wqdo38VdMgKI/qgN6+Tjd9eqFWF6nNfrrV8x1HMQSV0DK6u5Fg+9DBeWt3UcbzSUIP/qda
+	QdY0fBfqDaAsZ+zMA1EpKMqJgyuhUD8rN9diV8g+EyH3xlQVB+IiwmHZndeRRIhqhF5s8Q0qs5G6W
+	YYeIFBBq+nDJh4utHp4Vor9iTK1sydmN6sFvn1160ELFbgc/AiHM5SJZX0WGqtdGcBwJcxNk6/I+s
+	xJJQojZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcvta-0000000CJhj-0EgP;
-	Tue, 06 Jan 2026 01:30:02 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vcw0d-0000000CK3Q-2dhw;
+	Tue, 06 Jan 2026 01:37:19 +0000
+Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcvtY-0000000CJh2-12gK
+	id 1vcw0Z-0000000CK2v-1CDt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 01:30:01 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6060ocWe2107394
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 6 Jan 2026 01:29:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	cEML6pOrA849wZuEgdOsJGjlKLmi52IL7r85pj59rk4=; b=LayIF0Q7t2nolf+a
-	NdwcSYzm2SBMHKdiMK/cOY+kVgcsBBOpRyiA6Iz7jY9UBcAkogn32PPfm/bsKd06
-	idKq5o2YYVdebufB2FQZCrBm4ZOfgw2oO+QsZ7HjCEJGbutW4XILAae5IJg4kD45
-	g5ArZdHc4ZqbMf6S59PqccTrmpKzbXyfQFjcxSQkk7Hin0qGb66RyxQfZ3WAx1fQ
-	xZmWqwcvVpazkZzYpeuuSoWx3CYGMKVtuoKomwU1KwGhngGBB1uVG0B9fJebAYrW
-	9j6XhwIBGLHV8G+lFTOnAKnc7SfYTWGLDZM2adcK461BFzdoBsPA+grmziZDIpF/
-	ffBPQA==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bgr7382va-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 01:29:59 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2a0d43fcb2fso14152935ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 17:29:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767662999; x=1768267799; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=cEML6pOrA849wZuEgdOsJGjlKLmi52IL7r85pj59rk4=;
-        b=hkk4eosxNno/UbtrI3FY6dU7Gu/YNB0GIZKAv+SksXxkYDwBMfWTNFSKjag+49HF+7
-         mznJaFIk+gcYClf70qgTqXrG8nunaaMgHsuhcqy/wHfTNx0KPvkrBFYiv3KgMYOTOQEx
-         DSVQ0F9wsFj4oVFV8KfXf7JPcIjbgMQMeo/dggzd1u8dG4SVLqFDrK51+NWpn9RY0eCV
-         K2PKh+DtP06btC2FrtXxvzIDHrNxb+JArRWPo5s+XPrMC5vBBchzfmXYaoUGCTaiBBZN
-         Gf6w0gplwZKsiwA0CRTVFZIu9/cGmKlIT/QxPxV6j6QuDTGpwd5zFysxaenLpOUabLCC
-         3fCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767662999; x=1768267799;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cEML6pOrA849wZuEgdOsJGjlKLmi52IL7r85pj59rk4=;
-        b=u/s64r19dlKspLQAUYMtUIddwDQ5+0nCWPUB9pgESqZVTYop9Z8DUVrsIQyQROe7jt
-         SM8ntQlGRMVvjH7Pj0GqasopMC2QxwTj0b30rqfJeCSTipKIMlo6KeeLfkcoGQO0mkyP
-         KN8rfrviyKp11chr8DwoEBoV0acHvnV0bA6uJBVzZCfOAWr/FS7r+z8uYG6idWtHH7gW
-         XsZgICWosteiTFvZlVU76Wl54fDbGFc0828q5dBRUIA1rk1getzv90kWg1r5zIM1+mEC
-         4YvmjbmAWfaowxucXU4wq20IzmAKPvvBLCDZpB5CWJolVJpKr1mFCERSZVHBVmuKbmjX
-         fHhw==
-X-Forwarded-Encrypted: i=1; AJvYcCVwJYsDWW/DNEIJKd4s18sQ6dUetOtpWLoxrX9cPuwGFi6VDcC+rgGErba0ADlJWW006GeiV4isJ+4tQmHyUmDp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzV3bevpg9CtqrMtAiCrMjI+7Pdxsx3xosYDlQ/8dvOU6O4lCHf
-	jk/mlaiZcFBp+kFiBsjjIAuq7uFmajgHOqUfsbhTSZpPOlrtyUTK05U2memsrZCO/L4qWJIZQJW
-	q9RPM604j/24kqk6OrovXazyU0RokOhI8wFUTu7iwwzF+cOELxW1SDP1gIQ8XNOQFKwXD+beWFD
-	rOGA==
-X-Gm-Gg: AY/fxX6t8RKhbCE/4/7PBIJYyFmCXWtILUw2/x4AMzpPmj/CVZ9PtIoHvUWObU/GX0w
-	tweMFB+ECa3xZaoAJif9M2uqNWet97wXzCmxd5aVINZsKgK2FZwheMnZdxinW+wkdN6TroBg8F7
-	fJvBYK96QWcWWi3ON7vjdWWyuBEWlEVUZiFAzjvn4fQ3VMOokeDqBT3lJRVFQVtRuRFuTOYJjVy
-	rJ7Fs7Xxzp5Sq5yeCwrMUdj3feTg0cQXd5BOJbpM/c9X+EUxKFVTIdjKRQlSvp7xXulkzLirta2
-	zpcRbCluh2iKEbznk99kR7dPApxnE7k7mxOQGv0ZP7ztaI2BuAthPHTnDcR+10Y3xxodT/fp5xW
-	vQE/aRnGSTBYFMqRfYyin8Mb98emYwASqYfBxDv9+eIgig2g/fbI8Lg6ICYi5tTtnzyl1VeujAS
-	4=
-X-Received: by 2002:a17:903:2342:b0:298:344:1229 with SMTP id d9443c01a7336-2a3e2e1e544mr12112965ad.55.1767662998862;
-        Mon, 05 Jan 2026 17:29:58 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IG5+7CG5xgC4gLsroYKzxVVsBNnVADKYWQW7AEKJd7RNZaU9tSR1esDn4MXfLTh2KoFIFE6zQ==
-X-Received: by 2002:a17:903:2342:b0:298:344:1229 with SMTP id d9443c01a7336-2a3e2e1e544mr12112765ad.55.1767662998367;
-        Mon, 05 Jan 2026 17:29:58 -0800 (PST)
-Received: from [10.133.33.149] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3cd495dsm4208955ad.96.2026.01.05.17.29.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 Jan 2026 17:29:57 -0800 (PST)
-Message-ID: <3618ea01-1fc4-4fc8-a0d7-23336c633435@oss.qualcomm.com>
-Date: Tue, 6 Jan 2026 09:29:50 +0800
+	Tue, 06 Jan 2026 01:37:18 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4dlYgR559sz9t8l;
+	Tue,  6 Jan 2026 02:37:07 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1767663427;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vZdZ6z94WkwXLP8aTircs4WcG7hRxfUszazs7DfQTcA=;
+	b=QReAPE7ke0wiZOzVxM3a+dKfeWMTiR+P+pxZJKx7eZrI6m3p9b4JzkT6PL8iTPFl0+fs8z
+	PetcKAB7TzuBlZsmok6+/WjeLB3cgzvhDxU17sxj1Rv+Sst7sjLimqPs2mCLrcFHvfvA94
+	Zt1C2XyL8R7kneUy6RN4xvOxQZa25ZERMcOBFCOXAjfAbdwNxEdhRZ3hVJ+fnzayfmUokX
+	kkCoJEqCB3tk8Oc+JJXYp3P8JCr1CqJDtkAzyiXPZIjQUswuHYH9EdZb7wZY2YYNc8QAje
+	FemL8DTDplAylFvImKRL0m/B4m4LQVK4GixZR/ntkLC/vQ3x6unQokSD8o71Jw==
+Message-ID: <9912e2dc-50cc-464d-8372-b3b79334ac67@mailbox.org>
+Date: Tue, 6 Jan 2026 02:36:18 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] arm64: dts: qcom: monaco: Add CTCU and ETR nodes
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Konrad Dybcio
- <konrad.dybcio@oss.qualcomm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-References: <20251103-enable-ctcu-for-monaco-v4-0-92ff83201584@oss.qualcomm.com>
- <20251103-enable-ctcu-for-monaco-v4-2-92ff83201584@oss.qualcomm.com>
+Subject: Re: [PATCH v4 07/14] drm/imx: dc: Add DPR channel support
+To: Liu Ying <victor.liu@oss.nxp.com>, Liu Ying <victor.liu@nxp.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
+References: <20251016-imx8-dc-prefetch-v4-0-dfda347cb3c5@nxp.com>
+ <20251016-imx8-dc-prefetch-v4-7-dfda347cb3c5@nxp.com>
+ <174bdb5a-b5a8-4856-a0ac-8caaaefde136@mailbox.org>
+ <24f99c46-ca5d-43cc-a2eb-a6e5029e9f86@nxp.com>
+ <500852c9-2cd5-4897-a139-4e93988f5469@mailbox.org>
+ <df8751ba-7215-4635-98b0-ca659ec786cd@nxp.com>
+ <de695268-1241-4658-871c-30dbf068ad92@mailbox.org>
+ <3d622f3c-ddd4-4feb-bc88-a1eea7dd936d@oss.nxp.com>
 Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20251103-enable-ctcu-for-monaco-v4-2-92ff83201584@oss.qualcomm.com>
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <3d622f3c-ddd4-4feb-bc88-a1eea7dd936d@oss.nxp.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=QrxTHFyd c=1 sm=1 tr=0 ts=695c6597 cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=li7pXvKEtyOYx0Cqe80A:9
- a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-ORIG-GUID: EcHFTmxd1hzxlaBSa0XZim4NCceXQYmP
-X-Proofpoint-GUID: EcHFTmxd1hzxlaBSa0XZim4NCceXQYmP
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA2MDAxMCBTYWx0ZWRfX37T8U23tBkOZ
- m495qNJZCDRcmFDJ+fBuaur9F16cpGhE7HJ+VG2Iy/nc10unOI4vc2fHgDLmg+JjGDq7q8tMrot
- lov0/pTF+sYJyTQfx8UFdCdV3ouzv54l2lhO3Be4/DZ7z4PnW/ne35Sg4spwOgw9FJe14wtH2ED
- LqXk30k7YWhrcaCVDRbJpxhIbFGv26hh1co9XoImBSPkg/9/mdudw/UjzD1bBZj0aMvZdqzG6Iz
- elBZVsVzfBCFsZSO7VE8Rhe45MVOh1pg9MLG/v+8xkgEF8HkieZ569sbG86GlQIK6x8I8T42Yun
- M2B+L0se0vVRgYvt3wgBmtlMsvgTGtsq8jBE5ZWYuvdFIcdNwce19CEuNhqMUzN7Zma6OGrqrP0
- 4i7wml6mtnVh9Fh75wyvvgzJy/0l+964nZgH/w0M9rGRs/UBcWTwcEm4t9+761As0LIFXPjQ45K
- eNCC+q+2bnj5OuCTRFA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-05_02,2026-01-05_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 bulkscore=0 malwarescore=0 suspectscore=0 spamscore=0
- adultscore=0 clxscore=1015 lowpriorityscore=0 priorityscore=1501 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601060010
+X-MBO-RS-META: o3msartdmiogq9p5x1ggudos8skw5gfh
+X-MBO-RS-ID: f3f8d579d449a7f2514
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_173000_300134_7634E3D0 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20260105_173715_479498_0117B8BE 
+X-CRM114-Status: GOOD (  42.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,198 +94,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 11/14/25 11:03 AM, Liu Ying wrote:
 
+Hello Liu,
 
-On 11/3/2025 3:06 PM, Jie Gan wrote:
-> Add CTCU and ETR nodes in DT to enable expected functionalities.
+sorry for my late reply.
+
+>>>>>>> +++ b/drivers/gpu/drm/imx/dc/Kconfig
+>>>>>>> @@ -1,6 +1,7 @@
+>>>>>>>      config DRM_IMX8_DC
+>>>>>>>          tristate "Freescale i.MX8 Display Controller Graphics"
+>>>>>>>          depends on DRM && COMMON_CLK && OF && (ARCH_MXC || COMPILE_TEST)
+>>>>>>> +    depends on IMX_SCU
+>>>>>> Can the SCU dependency be made optional,
+>>>>>
+>>>>> I don't think this can be done.  If you grep 'depends on IMX_SCU' in
+>>>>> kernel, you may find a handful of existing dependancies.
+>>>>
+>>>> Sure, I do not dispute this part.
+>>>>
+>>>> But the SCU dependency can be contained in a component of this driver,
+>>>> which is not used by MX95, and used only by MX8Q . Then there will be
+>>>> no problem.
+>>>
+>>> Which component?  You mean PRG and DPRC?
+>>>
+>>> If we add something like CONFIG_DRM_IMX8_DC_PRG and make CONFIG_DRM_IMX8_DC_PRG
+>>> depend on SCU, then should we make CONFIG_DRM_IMX8_DC depend on
+>>> CONFIG_DRM_IMX8_DC_PRG?  That's yet another dependency.
+>>
+>> I would say, if possible, put the SCU-dependent parts behind
+>> CONFIG_DRM_IMX8_DC_PRG symbol, and make that symbol configurable via
+>> Kconfig . Users of iMX95-only can turn it off, generic kernel config
+>> should keep it on.
 > 
+> Both i.MX8 and i.MX95 would use arm64 defconfig.  Most distros if not all
+> would use that to generate a single kernel image + modules for i.MX8 and
+> i.MX95.  We can't presume that __most__ users would change the configs
+> for i.MX95.
 
-Gentle ping, this patch should go through QCOM tree.
+That wasn't my point. My point was, make it possible to compile the PRG 
+parts out if they aren't needed (and with them, SCU support). If I build 
+the kernel for iMX95, I don't need iMX8Q support in, so I can turn MX8Q 
+support off alongside the SCU parts. The clean way to do that is to keep 
+the SCU-dependent parts in dedicated file(s), which may or may not be 
+compiled in. For generic kernel builds, they should be compiled in and 
+decide at runtime, whether or not they should be used of course.
 
-> Acked-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->   arch/arm64/boot/dts/qcom/monaco.dtsi | 153 +++++++++++++++++++++++++++++++++++
->   1 file changed, 153 insertions(+)
+[...]
+
+>>>>> Like I replied to your i.MX95 DC patch series's cover letter, SCU accesses
+>>>>> registers via Cortex-M core instead of Cortex-A core IIUC.  I really don't
+>>>>> know how to abstract IMX_SCU out, especially via regmap.
+>>>>
+>>>> The simplest way would be to use regmap_config .reg_read and .reg_write ,
+>>>> if there is no better way.
+>>>
+>>> Can you shed more light on this?  Any examples?
+>>
+>> I'll just reply to this part, because that is probably the most relevant
+>> to this whole conversation.
+>>
+>> git grep '\.reg_write' drivers -> drivers/hwmon/aspeed-pwm-tacho.c as a
+>> simple example.
+>>
+>> Then such a reg_write implementation can do:
+>>
+>> if (SCU)
+>>    use SCU accessor
+>> else
+>>    use writel() or so
 > 
-> diff --git a/arch/arm64/boot/dts/qcom/monaco.dtsi b/arch/arm64/boot/dts/qcom/monaco.dtsi
-> index 816fa2af8a9a..1966dfad2dcc 100644
-> --- a/arch/arm64/boot/dts/qcom/monaco.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/monaco.dtsi
-> @@ -2483,6 +2483,35 @@ lpass_ag_noc: interconnect@3c40000 {
->   			qcom,bcm-voters = <&apps_bcm_voter>;
->   		};
->   
-> +		ctcu@4001000 {
-> +			compatible = "qcom,qcs8300-ctcu", "qcom,sa8775p-ctcu";
-> +			reg = <0x0 0x04001000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb";
-> +
-> +			in-ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@0 {
-> +					reg = <0>;
-> +
-> +					ctcu_in0: endpoint {
-> +						remote-endpoint = <&etr0_out>;
-> +					};
-> +				};
-> +
-> +				port@1 {
-> +					reg = <1>;
-> +
-> +					ctcu_in1: endpoint {
-> +						remote-endpoint = <&etr1_out>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
->   		stm@4002000 {
->   			compatible = "arm,coresight-stm", "arm,primecell";
->   			reg = <0x0 0x04002000 0x0 0x1000>,
-> @@ -2677,6 +2706,122 @@ qdss_funnel_out: endpoint {
->   			};
->   		};
->   
-> +		replicator@4046000 {
-> +			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
-> +			reg = <0x0 0x04046000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			in-ports {
-> +				port {
-> +					qdss_rep_in: endpoint {
-> +						remote-endpoint = <&swao_rep_out0>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +				port {
-> +					qdss_rep_out0: endpoint {
-> +						remote-endpoint = <&etr_rep_in>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		tmc@4048000 {
-> +			compatible = "arm,coresight-tmc", "arm,primecell";
-> +			reg = <0x0 0x04048000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +			iommus = <&apps_smmu 0x04c0 0x00>;
-> +
-> +			arm,scatter-gather;
-> +
-> +			in-ports {
-> +				port {
-> +					etr0_in: endpoint {
-> +						remote-endpoint = <&etr_rep_out0>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +				port {
-> +					etr0_out: endpoint {
-> +						remote-endpoint = <&ctcu_in0>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		replicator@404e000 {
-> +			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
-> +			reg = <0x0 0x0404e000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			in-ports {
-> +				port {
-> +					etr_rep_in: endpoint {
-> +						remote-endpoint = <&qdss_rep_out0>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@0 {
-> +					reg = <0>;
-> +
-> +					etr_rep_out0: endpoint {
-> +						remote-endpoint = <&etr0_in>;
-> +					};
-> +				};
-> +
-> +				port@1 {
-> +					reg = <1>;
-> +
-> +					etr_rep_out1: endpoint {
-> +						remote-endpoint = <&etr1_in>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		tmc@404f000 {
-> +			compatible = "arm,coresight-tmc", "arm,primecell";
-> +			reg = <0x0 0x0404f000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +			iommus = <&apps_smmu 0x04a0 0x40>;
-> +
-> +			arm,scatter-gather;
-> +			arm,buffer-size = <0x400000>;
-> +
-> +			in-ports {
-> +				port {
-> +					etr1_in: endpoint {
-> +						remote-endpoint = <&etr_rep_out1>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +				port {
-> +					etr1_out: endpoint {
-> +						remote-endpoint = <&ctcu_in1>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
->   		tpdm@4841000 {
->   			compatible = "qcom,coresight-tpdm", "arm,primecell";
->   			reg = <0x0 0x04841000 0x0 0x1000>;
-> @@ -3106,6 +3251,14 @@ out-ports {
->   				#address-cells = <1>;
->   				#size-cells = <0>;
->   
-> +				port@0 {
-> +					reg = <0>;
-> +
-> +					swao_rep_out0: endpoint {
-> +						remote-endpoint = <&qdss_rep_in>;
-> +					};
-> +				};
-> +
->   				port@1 {
->   					reg = <1>;
->   
-> 
+> Thanks for the example, it makes regmap idea a bit more clear.  But, how
+> would you pass the SCU flag to .reg_write?  I hope i.MX95 code path won't
+> see any information about SCU.
 
+You could have one regmap for MX8Q and one regmap for MX95. For the 
+register IO in the driver which uses regmap, either regmap is still only 
+a generic regmap, no matter what the hardware accessor in that regmap 
+are. Therefore most of the code can be generic (use generic regmap) and 
+only the probe code decides which regmap (MX8Q SCU regmap or MX95 
+regmap) is going to be used by the driver.
+
+> Also, IMO, wrapping SCU with regmap is abusing the regmap API.
+> How would you pass the resource, ctrl and val parameters to .reg_write?
+> 
+> int imx_sc_misc_set_control(struct imx_sc_ipc *ipc, u32 resource,
+>                              u8 ctrl, u32 val)
+> 
+> Regarding the 'else' clause, I don't think we can use writel(), because
+> SCU accesses registers via Cortex-M core, not Cortex-A core(I mentioned
+> this before).  I don't see anything we can put under the 'else' clause.
+
+You could have one regmap definition for MX8Q/SCU and one for MX95, and 
+at probe time, select which of those is going to be used. That could 
+work I think ?
+
+>>>>>> so iMX95 support can be added into the driver easily too ?
+>>>>>
+>>>>> Like I replied to your i.MX95 DC patch series, I think i.MX95 DC support
+>>>>> can be in drivers/gpu/drm/imx/dc, but it should be in a separate module
+>>>>> (something like imx95_dc_drm) plus an additional common module(like
+>>>>> imx_dc_drm_common).
+>>>> This design part is something I do not fully understand. Sure, it can be
+>>>> two modules, but in the end, the result would have to be capable of being
+>>>> compiled into single kernel binary if both modules would be =y in Kconfig
+>>>> anyway.
+>>>
+>>> This is something like imx8qm_ldb, imx8qxp_ldb and imx_ldb_helper modules -
+>>> DRM_IMX8QM_LDB and DRM_IMX8QXP_LDB select DRM_IMX_LDB_HELPER.
+>>>
+>>> Note you may make CONFIG_DRM_IMX8QM_LDB=y and CONFIG_DRM_IMX8QXP_LDB=m with
+>>> CONFIG_DRM_IMX_LDB_HELPER=y.
+>> Do we have to make it this complicated right from the start ?
+> 
+> I don't think imx_dc_drm_common would make it complicated, but instead it
+> makes drivers simple and easy to maintain.
+> 
+>> Maybe we can start simple, with one module, and then split it up if it turns
+>> out to be unsuitable ?
+> 
+> Hmm, maybe it's time to split it up now, because:
+> 1) Your below patch has already been adding DB to CRTC function.
+>     See dc_db_shdtokgen() in dc_crtc_atomic_enable(), which certainly breaks
+>     i.MX8 DC.  To avoid that, you'll add branches to the atomic enable
+>     callback, which is something I don't want.
+
+Can we have separate atomic_enable() callback for MX8Q and MX95 for 
+example ?
+
+> https://patchwork.freedesktop.org/patch/680085/?series=155784&rev=1
+> 
+> 2) This patch series is trying to add i.MX8 DC prefetch engine support.
+>     i.MX95 really doesn't embed the prefetch engine.  And I hope i.MX95 code
+>     path doesn't need to know the prefetch engine/SCU existence or non-existence.
+I think the prefetch code can be contained in a single file and called 
+only if the SoC is MX8Q, that shouldn't be difficult to do ?
 
