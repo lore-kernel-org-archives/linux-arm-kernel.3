@@ -4,95 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FEE2CD0438
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 05:05:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3987CD0438
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 05:19:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fFZdK8UUvenzvPm6N9koDU/fxnR0ekW5TI24xZDY6kc=; b=elSEztMEerRpxFfnYvc0SannrY
-	qf0TBfDgT64Ms8Ubveft0dNzl+0xsk7TnPKU6gIJ4cAYlintO+y+fbL9V5VU5EULFt10x8/I2qIuX
-	4E4/pjkJiZy0RsB8Kv6gv85h4EcvgIU8O0w+HiAHeIjnECGcsCK+YpcOsVxsx5/L+rw8v8w2ydXSS
-	fLTmQfqkK7S8rdBIIFpHSCQWhTeodRLs4SiaY82laFUAqNLh/1ICLYZsau9LsjXcMHp0TvNfUGApT
-	rkyliwdynZ9/SUmlpSAYAC/Bo/nJaYbZNZ/fdMrCjTcfyjU9kpGpo9d9/Gbr/mlgqeiZPiyConHIc
-	sGZManvA==;
+	bh=ECD/Gw311pK5j9heXLLxvC+4KGv1c1Hn58Q6Vbk6fiw=; b=TD9AWnw9mEWCl6ny1fh04uANyy
+	7+RJN0nNSNIwUMmxeOrjQNuq6bWCG/+1VCiZa5ZEtYcNJTLKxHPbqRLHk131+6zKS9cwZYzUIYCdv
+	a3LHcySKovdZOooeHF2gs0/FVzMEdgrRJzI68lvHd3q+1njqMYgZUPXuY17psk+hif9VsvwVrBubh
+	/sgCHzBMHbPu1W/izKmiTZWgwzrNeGXF0Lw+WFhCMFJFnFB+6xEJCU2r3OGr26YXQSKvQMVx5ODYN
+	rV52/hOOU43nLglu1d7Vdzavjy9yNbpRyQVl4ldr9vkUenLY+tGeAOQFv6LEJQQcpRqhp9xPAtIqr
+	8P4HyfPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vczGH-0000000CQgs-0eR0;
-	Tue, 06 Jan 2026 05:05:41 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1vczTn-0000000CRG7-0RZA;
+	Tue, 06 Jan 2026 05:19:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vczGE-0000000CQfg-0Yxz
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 05:05:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=fFZdK8UUvenzvPm6N9koDU/fxnR0ekW5TI24xZDY6kc=; 
-	b=YCBTmcleUU2N0rXwpVT4Xw527tlZr0N7PHGhoRYbFxi0V1yz0MspEiuaUgluwOHJi7UgUWJeaCo
-	aI+V2pDwpQLlu76KzkCMgTJfa8l73o4xERcZiC67fI6SQ38NHKqBernGbeIoTm6iaacIGzGhOr5GY
-	a7chkrDVBcwvZvi4K0hkD8kW9kADwG6VB2ySGSO7s2ZMuzQq0jjPbzgahByLEVKD7zpOn7S8o+0U3
-	CubE9wpUlCoN7q0wO2G+XJMN/qiJZ8rSECQv2HK4BVh6Uiw6J4b5giymeUTqeEWc7scenPFiItIlz
-	iOppOn/L0OnchT/HUMcryCLJmTDYf6itFTjw==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1vczEy-00EaCi-33;
-	Tue, 06 Jan 2026 13:04:22 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Tue, 06 Jan 2026 13:04:20 +0800
-Date: Tue, 6 Jan 2026 13:04:20 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Jens Wiklander <jens.wiklander@linaro.org>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	Olivia Mackall <olivia@selenic.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Sumit Garg <sumit.garg@oss.qualcomm.com>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Jan Kiszka <jan.kiszka@siemens.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
-	Michael Chan <michael.chan@broadcom.com>,
-	Pavan Chebbi <pavan.chebbi@broadcom.com>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>,
-	Mimi Zohar <zohar@linux.ibm.com>,
-	David Howells <dhowells@redhat.com>,
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Peter Huewe <peterhuewe@gmx.de>, op-tee@lists.trustedfirmware.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-rtc@vger.kernel.org,
-	linux-efi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	arm-scmi@vger.kernel.org, linux-mips@vger.kernel.org,
-	netdev@vger.kernel.org, linux-integrity@vger.kernel.org,
-	keyrings@vger.kernel.org, linux-security-module@vger.kernel.org,
-	Jason Gunthorpe <jgg@ziepe.ca>
-Subject: Re: [PATCH v2 00/17] tee: Use bus callbacks instead of driver
- callbacks
-Message-ID: <aVyX1GXxdJXv438W@gondor.apana.org.au>
-References: <cover.1765791463.git.u.kleine-koenig@baylibre.com>
- <CAHUa44FrDZbvRvfN8obf80_k=Eqxe9YxHpjaE5jU7nkxPUwfag@mail.gmail.com>
- <20251218135332f323fa91@mail.local>
- <CAHUa44GpW5aO26GDyL9RZub9vVYvVcJ7etwO0yXBN_mUi0W4AA@mail.gmail.com>
- <CAHUa44HqRbCJTXsrTCm0G5iwtkQtq+Si=yOspCjpAn-N2uVSVg@mail.gmail.com>
+	id 1vczTk-0000000CRFr-0SDv;
+	Tue, 06 Jan 2026 05:19:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 073FA6011E;
+	Tue,  6 Jan 2026 05:19:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7117FC116C6;
+	Tue,  6 Jan 2026 05:19:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767676774;
+	bh=h2nYGKojRr759U41EwbB4BsmLSlNtVAL8aBfQlF4xTY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Fn7eNbq+r0jsnqP0Mix+RIWDvZUr1tdAgbjsrEGr2Ms9oW27hgMlnJw0ZkpSpIB7H
+	 VFVpNZUQpOrDUTBWHMpyZi9/eKY0Qb+AnhG52J5zL8WWqo88g/p5j0J5Zy85RsIztz
+	 P2mn8L1AGv1qK0pNNdB/HsIJIkBXeXj+VG0BiSfhQJOHcPXQkEZQG6mMUihoezwrSB
+	 w8K6ZeXkX1jI/ZfTN4Zm7awLzTo9nbMlCOwvaMpLHDKzcXwj3pixaITdVMhWoVjGKB
+	 KrSBHZeR6A15yHPveYgjG/D2gFY70Y8Q5JReXwCWQqbWYvWeEnIvCRk91nnGFYGIc8
+	 dYoNqcI1m3mfg==
+Date: Tue, 6 Jan 2026 10:49:19 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Sumit Kumar <sumit.kumar@oss.qualcomm.com>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Richard Zhu <hongxing.zhu@nxp.com>, 
+	Lucas Stach <l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Yue Wang <yue.wang@amlogic.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Greentime Hu <greentime.hu@sifive.com>, 
+	Samuel Holland <samuel.holland@sifive.com>, Chuanhua Lei <lchuanhua@maxlinear.com>, 
+	Marek Vasut <marek.vasut+renesas@gmail.com>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Pratyush Anand <pratyush.anand@gmail.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, 
+	linux-amlogic@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-tegra@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/2] PCI: dwc: Add multi-port controller support
+Message-ID: <m5ukeugo2lazipljqpubyvm7j3xk2j5o7i2xgdbkkhii57xmyk@lh32qdzjhe4n>
+References: <20260105-dt-parser-v1-0-b11c63cb5e2c@oss.qualcomm.com>
+ <20260105-dt-parser-v1-2-b11c63cb5e2c@oss.qualcomm.com>
+ <aVvkmkd5mWPmxeiS@ryzen>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CAHUa44HqRbCJTXsrTCm0G5iwtkQtq+Si=yOspCjpAn-N2uVSVg@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_210538_829578_EC2321CA 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aVvkmkd5mWPmxeiS@ryzen>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,18 +87,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 05, 2026 at 10:16:09AM +0100, Jens Wiklander wrote:
->
-> Herbert, you seem happy with the following patches
-> - hwrng: optee - Make use of module_tee_client_driver()
-> - hwrng: optee - Make use of tee bus methods
-> OK if I take them via my tree, or would you rather take them yourself?
+On Mon, Jan 05, 2026 at 05:19:38PM +0100, Niklas Cassel wrote:
+> On Mon, Jan 05, 2026 at 05:57:55PM +0530, Sumit Kumar wrote:
+> > The current DesignWare PCIe RC implementation supports only the controller
+> > (Host Bridge) node for specifying the Root Port properties in an assumption
+> > that the underlying platform only supports a single root Port per
+> > controller instance. This limits support for multi-port controllers where
+> > different ports may have different lane configurations and speed limits.
+> > 
+> > Introduce a separate dw_pcie_port structure to enable multi-port support.
+> > Each Root Port can have independent lane count, speed limit through pcie@N
+> > child nodes in device tree. Add dw_pcie_parse_root_ports()
+> > API to parse these child nodes.
+> > 
+> > Equalization presets and link width detection currently use common DBI
+> > space for all the root ports. Per-port DBI space assignment for these
+> > features will be added in future.
+> > 
+> > Signed-off-by: Sumit Kumar <sumit.kumar@oss.qualcomm.com>
+> 
+> Hello Sumit,
+> 
+> Is there a reason why you represent this as a list of ports rather than a
+> simple array?
+> 
+> The number of ports is known by parsing the device tree, so it should be
+> static, no?
+> 
+> At least to me, this seem similar to e.g. how a gpio_device has multiple
+> gpio_descriptors "struct gpio_desc *descs":
+> https://github.com/torvalds/linux/blob/master/drivers/gpio/gpiolib.h#L68C1-L68C26
+> 
+> A list is usually used for something that is dynamic.
+> I don't think that the number of ports to a PCIe controller will be dynamic.
+> 
+> I can see that struct qcom_pcie in pcie-qcom.c has struct list_head ports,
+> but that does not necessarily mean that we need to have a list of ports in
+> pcie-designware-host.c. (pcie-qcom could also be modified to have an array
+> of ports if there is a desire for similar design pattern.)
+> 
 
-Feel free to take them through your tree.
+Only reason why I went with lists in pcie-qcom is flexibility. There are useful
+helpers available for traversing the lists and they seem much more elegant to
+use rather than manually traversing the array in C.
 
-Thanks,
+But to be frank, I don't really care which one is used as there is going to be
+only a handful of ports at max anyway and there is not much overhead.
+
+- Mani
+
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+மணிவண்ணன் சதாசிவம்
 
