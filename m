@@ -4,180 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D09EECE9D42
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 14:54:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64683CE9D42
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 14:55:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ueSVVcN9cEdPunhqT6KED9YcVykYTq6rxAhF0E5oo1c=; b=2r4rV2Pt38LVl6HvN7DnMGcWla
-	IZnJPYVTAZnKWQwIbw3CyHHiobi3xNpSZEgjN4RF4JcL6EL+L9aWMfYwu+avS+rf//3o0k3XmXuAY
-	8/h1S33aZUdxuiP1vEaNE1UOYGrzsVWpJEXkPkbvn4oJZFqy7omsisjxVW1x1iTMTWU7l6Pwo7zMT
-	lmAWZmMWH4bKPLM4K9c0Xqjh5H6htln0UjANf9iOh+iEUemP53a1JbxkDg+rfJ3If6gWfxhW1iIMD
-	tF7kfq2AoY6hy2Z5K600YoN8ZKUrzOcEl1sJw+rBqPpgvX4tU9xDjRx7DsM8gNveH2ef628+xFFfJ
-	ItDY78fw==;
+	bh=Jp2FJp4mip9k/yNPjJbmpok2wWGuJgO5Pl2nOe2MRoU=; b=SwDxAsKbZUB+EwjLnnEEXrr4MP
+	Wm8VkeKAJX1ZjsIARfqkGCfo3vUaAhDV9OH3bEmslN2ETHT2sQDreD11MjVQEY6waA7sYiINlriON
+	dJyFgbuv2wZRV9+kK07/9UHZb6SmQlSwVy/YxZhGPhul6HHBI/ChLTZMwCv+0RELqdXLo3dLYiY9p
+	LaalkC+Eqd0SFeqmX7HmrH+doe890m0/prd9vQ9ZBXTfCv2OxRLvC5YDTfLL6nQJCx/P6uahZ5xBd
+	vadnXWmVom8q5hySZ0eEB/UBoxgewkqZS92HH5Il+BGtyMhpPKVu1wOZMK9ozRR+71KPMd3lTcR7b
+	blTYSDQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8SP-0000000DLIV-0fof;
-	Tue, 06 Jan 2026 14:54:49 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vd8TC-0000000DLQw-3WKf;
+	Tue, 06 Jan 2026 14:55:38 +0000
+Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8SM-0000000DLHp-2On3
+	id 1vd8T9-0000000DLPY-2Cac
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 14:54:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o43iJvuAypowN0gV+vUOZtY3QP1d/kBxF99VsLWR5KlLHyt2sd3ZTLwvZEaofvHPSF+GKCjghUFeyHqO9XYjHdOccAZR542As9TTFW0+5J+BD3OfmvxNC0G7ZCSWzfE4E8Bqitn2SURGIuL6V2ipuSbKfzIWXBKaN4anreyqa0UfQ6t3J9bj7dwQdW0ujKBJK3XH3ELyJ7wiKN2XsiTGnjLPL8Rj2gHKEmTbrv9/bXHDt9wkZdIn0mvCVvlgbNbCc6ZKOomrVmW1d18qiahirmhP4N+E5OxZz/vTAg3fj1Pg5UG6d3LDud925VQUKm9nAhTHlSn2G7sJ31dnBwUqWQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ueSVVcN9cEdPunhqT6KED9YcVykYTq6rxAhF0E5oo1c=;
- b=eiDyEg1mYo0ZNc+L0gZ4Ab1wRXObo5J1l+VxzOxe39BYa8wYLmcBVFZ+eD+ieoMDTopv0RdDjndg/E3J04eSWOAzsyWKwgZJuG15EdnEyOfB0o4fpBMz4q748gscrX68rlPE5iHBAZ7YkzibjRAkvFpac/T41+2NrrnBAIAPbe+83Br7JPyPqEj/90pO5z2+nEZmDrCYMF2r6eTvpqaHVIYwlDEmmh0xZ8iRBI75QScIKmxuFrsYuBVePzh/gcSMs9tCttQTNIrivtapEDJ/Ksn4YouPV7OozhYhoYH2LyYlL5zo8Nf1Po9mO7d2JPFNnXQVydU2rllxYZvLRgXy/Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ueSVVcN9cEdPunhqT6KED9YcVykYTq6rxAhF0E5oo1c=;
- b=RbkzeZ9pZ0YCA1AVhyiRC6mV96SLLirLK8z5+rOnHML+V7oy3zW7PV+NS5sxZQL9YJiPu4tbBOR49tv5mjw9+gWCU/mxbRNbyM1ixkjsYNRaXwj4iHAWCHAOO1BzYuryTiLmECK5MG2KxeBISxrDXHhYUW42SfSr6g8e7X5+S1TtImH9IMW7JTSnm7S7ODGQAKXpK6xoCWMFi5inOLBIsXr9tGcvefMKA+XMNEIWaRi5RabYfoT96jI/PMLLB8grp4AeaqWV5qGu8zZ8rAL0+0NwrtEAqs2B4DgAcmSTnL8pbvlmQhb7vQh9YUaTJ2u8fL7rSx5VKEFfIWrH2uia6w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by AS1PR04MB9333.eurprd04.prod.outlook.com (2603:10a6:20b:4df::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Tue, 6 Jan
- 2026 14:54:42 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9478.004; Tue, 6 Jan 2026
- 14:54:41 +0000
-Date: Tue, 6 Jan 2026 09:54:29 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Nipun Gupta <nipun.gupta@amd.com>,
-	Nikhil Agarwal <nikhil.agarwal@amd.com>,
-	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Vinod Koul <vkoul@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	llvm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-clk@vger.kernel.org, imx@lists.linux.dev,
-	dmaengine@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Subject: Re: [PATCH v2 08/11] clk: imx: imx31: Simplify with scoped for each
- OF child loop
-Message-ID: <aV0iJcNTffrX70/A@lizhi-Precision-Tower-5810>
-References: <20260106-of-for-each-compatible-scoped-v2-0-05eb948d91f2@oss.qualcomm.com>
- <20260106-of-for-each-compatible-scoped-v2-8-05eb948d91f2@oss.qualcomm.com>
+	Tue, 06 Jan 2026 14:55:36 +0000
+Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-88a35a00502so8701226d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 06:55:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767711334; x=1768316134; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:feedback-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Jp2FJp4mip9k/yNPjJbmpok2wWGuJgO5Pl2nOe2MRoU=;
+        b=kfgqFiOyquK5HRtEAJK1+0yTe9ioUyaTKVdbwgfzTG8U6Irpg2VRT1oXfJ2qe+40P5
+         HgHQNslS1Z9fuXKL8TkLeelfw4e5tZ07eyNLxnFRGAMXsgCvtUDvFto4yCls1krkurjA
+         AFD2ZjDeqzdFDawyILWR1JBxzWUICv7zAmzihQA0vubs6vY43nZh9aZwob95V7u/4qv6
+         UA8f+2GpfyUTjlOuFMrLqTOUWlHvV59I8JKFu3RpC7mRquEKPjcWhJL26YB6kOT7rqul
+         8rDw3B1Zr6Pl8XwqAbwnb0gYK2IU2Pid4163DYuWzEXAvJlVlan4+H+nvlJE1Odsoizk
+         sfGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767711334; x=1768316134;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:feedback-id:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Jp2FJp4mip9k/yNPjJbmpok2wWGuJgO5Pl2nOe2MRoU=;
+        b=rA/3AeHaegzuCg6UBM7vx5dN7Wrj+qlrHQVBEkufvpA2mn/sPgUdqy6YM0rbcycpv9
+         MSFMxkI88LVPijirhlt93b4OtEVy8iyR8U89PPiSL5PNU1cIMZd2FcTCYCfIzhULkIzw
+         k5qB1abEOJSRm7dtwJKwtdjDV/fI355CeSUeClB07QE0FxuYoy6dhxFosb9RaTbDbxEa
+         YDC6MOGHTJvXPf69reCFABthjwv+wEKXFTZNU5btv4bLX3axskTaUHf2pB5u4bPiNNYd
+         SBN620+unb7r4JqeH/6Uwaq+KkXvzXe3fOY4wCcYKdgrPBPoYOugGevt4uweJaK8fyof
+         Nu5A==
+X-Forwarded-Encrypted: i=1; AJvYcCWUMx66l1qfUISsJkw95fWORx8+VuOv4HpATYuBI+imwZ2Y2pcdO1Kj1X+YPab1VbKppb8Z5WyV57l8AMEEcDY4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUlfFHsVHXW7v1oP/IpFOu/PJ83R7a3E7JCXgB03PN/f059LBd
+	LfsjV9C1zT93QsLS9dXFnTfEjidAOl0m91N9BcPS1YZpTQNAGDkYYJHuImSpbWhS
+X-Gm-Gg: AY/fxX61vmowhsXbYfaC9h4ZPW03T7Hs0UVJsOlJpwv7NE1uuJPlcvWP2waqryDAX0O
+	Qawu5saYF7XHdxGc38FMkTN9qDvLkqjzIkn7j2sNbYlfaaZdYrEguagNJXz+HV5ALnUf/VDCS3s
+	giy7p1dL83z6B8a/Oe5gX5JrfegAmnG39BikjR2wQhyy4K9FA75Bd+0+ZIAwFCLkVFStY2H8ulU
+	Yy/ue1G1/Z7dv3dvx4BUL3dzud7h6Cj4uwn+32wCKyB6HgP7BtFh2Ls0GznpSaaOdHrOQObC73p
+	Qr0qo4u4seSYGt6aj4NCPZBuWN+ER5LHraj5Rwr4EWL8Sz2QQP+JKWCY8WTHxd2d4Z3N9DeP6tL
+	3Dt2lG4qyM1JMcq3uFhkKUzIjIRaC1CeLcFFOwW3kyK+OxpvDeYjDEgNXdQSiWjHQQkQGCTUbbh
+	DwBaonhZHfYOSDe+ZfxbddF+b8i87HtdE2icvkNmVnF6zn5HMtF4986gXSdpSr3oRt6JOsbtpIm
+	4tfxgZHg/GSaBY=
+X-Google-Smtp-Source: AGHT+IG5y3ihX/nTQRrfdnHMzNLd9H06QzeACVIIpJzxoRgRUvLgvocrP0wK6dPyXld6Qki9Sw/yPg==
+X-Received: by 2002:a05:620a:288c:b0:8ba:3d82:de2d with SMTP id af79cd13be357-8c37eba72a1mr370948885a.67.1767704008339;
+        Tue, 06 Jan 2026 04:53:28 -0800 (PST)
+Received: from fauth-a2-smtp.messagingengine.com (fauth-a2-smtp.messagingengine.com. [103.168.172.201])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c37f4b917dsm164759585a.17.2026.01.06.04.53.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Jan 2026 04:53:27 -0800 (PST)
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 1A164F4006A;
+	Tue,  6 Jan 2026 07:53:27 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Tue, 06 Jan 2026 07:53:27 -0500
+X-ME-Sender: <xms:xwVdaeSwbODV7JqbJ70h7aGUkLI7HOUIqGtt0UjiY610MF7ckv8YEg>
+    <xme:xwVdaTtqxf6X0AeSmMq2jiMUHiapXLUuSuZyJ5C68VWdlE2GQRJ4aEWMigN514O-Z
+    BWYgOWPHY2GeXQDqo442If5_P2j_xb-eKTigT9gEv78i-Ij-tjV0A>
+X-ME-Received: <xmr:xwVdaXZb5P9ZpRNJkzh2SnpqGPacj89O-78H8b7BMQL9JrV7xyey9juS>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddutddtvdefucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujgesthdtredttddtvdenucfhrhhomhepuehoqhhunhcu
+    hfgvnhhguceosghoqhhunhdrfhgvnhhgsehgmhgrihhlrdgtohhmqeenucggtffrrghtth
+    gvrhhnpeehudfgudffffetuedtvdehueevledvhfelleeivedtgeeuhfegueevieduffei
+    vdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegsoh
+    hquhhnodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdeiledvgeehtdeigedq
+    udejjeekheehhedvqdgsohhquhhnrdhfvghngheppehgmhgrihhlrdgtohhmsehfihigmh
+    gvrdhnrghmvgdpnhgspghrtghpthhtohepfedupdhmohguvgepshhmthhpohhuthdprhgt
+    phhtthhopegrrdhhihhnuggsohhrgheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprg
+    hlihgtvghrhihhlhesghhoohhglhgvrdgtohhmpdhrtghpthhtohepfihilhhlsehkvghr
+    nhgvlhdrohhrghdprhgtphhtthhopehpvghtvghriiesihhnfhhrrgguvggrugdrohhrgh
+    dprhgtphhtthhopehrihgthhgrrhgurdhhvghnuggvrhhsohhnsehlihhnrghrohdrohhr
+    ghdprhgtphhtthhopehmrghtthhsthekkeesghhmrghilhdrtghomhdprhgtphhtthhope
+    hlihhnmhgrghejsehgmhgrihhlrdgtohhmpdhrtghpthhtoheptggrthgrlhhinhdrmhgr
+    rhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehojhgvuggrsehkvghrnhgvlhdroh
+    hrgh
+X-ME-Proxy: <xmx:xwVdae9J9x8NVgALl-fYcI0QyRYoJ8m4It2cassa207a7v4AO5AS5w>
+    <xmx:xwVdaRDZBNB3WNQx4PzUXkrUELWrCDwMSb-w1jqBFkK0Cfzgn4_t8w>
+    <xmx:xwVdaSspqARYw-uR9irVFm2eOEvEv4sQoz9Uj2_d1Kyqx7WVrftBdw>
+    <xmx:xwVdaTY_Z8cWkR_hhc-sOC9FlhMGZEOlJUBtP3nKJNhE-HvXSTqXtA>
+    <xmx:xwVdaQ2LGWFdzBBPz915RcVkKGU6vZncXMNXyt0GIVzyJMw7Lo_LJt7k>
+Feedback-ID: iad51458e:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 6 Jan 2026 07:53:26 -0500 (EST)
+Date: Tue, 6 Jan 2026 20:53:24 +0800
+From: Boqun Feng <boqun.feng@gmail.com>
+To: Andreas Hindborg <a.hindborg@kernel.org>
+Cc: Alice Ryhl <aliceryhl@google.com>, Will Deacon <will@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Matt Turner <mattst88@gmail.com>,	Magnus Lindholm <linmag7@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Miguel Ojeda <ojeda@kernel.org>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,	Mark Rutland <mark.rutland@arm.com>,
+	FUJITA Tomonori <fujita.tomonori@gmail.com>,
+	Frederic Weisbecker <frederic@kernel.org>,	Lyude Paul <lyude@redhat.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,	rust-for-linux@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 2/5] rust: sync: add READ_ONCE and WRITE_ONCE
+Message-ID: <aV0FxCRzXFrNLZik@tardis-2.local>
+References: <20251231-rwonce-v1-0-702a10b85278@google.com>
+ <AaMhgQBVJNQ-lfS70C2wyfbsXmJnxoK2QB0Qn6z77hc-gErX1ZpvLzFO-EJrFXKRQml2Qfqe87TLzFwYybVb1g==@protonmail.internalid>
+ <20251231-rwonce-v1-2-702a10b85278@google.com>
+ <87ldiaj560.fsf@t14s.mail-host-address-is-not-set>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260106-of-for-each-compatible-scoped-v2-8-05eb948d91f2@oss.qualcomm.com>
-X-ClientProxiedBy: SJ0P220CA0010.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:41b::14) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|AS1PR04MB9333:EE_
-X-MS-Office365-Filtering-Correlation-Id: 733dfd87-1595-4562-b354-08de4d3385e0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|7416014|376014|1800799024|366016|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HA9Sz1N/dOp6NdCUIi9r8U1PlKF5H1QeN4SiUhYbRVmvdhTwiaQY4NgGtods?=
- =?us-ascii?Q?MRY5o4XPj22NA6z2OyBqAa36PWaXuL0ryX7zwGv1vdS600u31uZNOEzy4hVK?=
- =?us-ascii?Q?qbGadavQDQ03qYcn+rI22O1C3zVtN6FGQWf7pGI4E2z/sZkA966vnDwuL27G?=
- =?us-ascii?Q?rxROMfBOeJfpXlbUqpz+Vr6arKgvQajEQgYQD4WzRVAP1UX/lJLH654pLW4f?=
- =?us-ascii?Q?ahcBpB3+7JAChO5fQMpcStsOnaqHHd3sxQbOjx3uqYg2yt+OLUdR85KH6KRI?=
- =?us-ascii?Q?KgI39e4X+x7SYO8cmsMclzIu2Ayy2muRxDQZkuZQeTVuf4Om5g32Hoa5flYj?=
- =?us-ascii?Q?4FBMTwHLpL7eDhcHRr+aX6H2NHxam6icYQK5yolc9aq6/hw77xyRfoCALgEH?=
- =?us-ascii?Q?YfFBL2tNLWx9aVG7AMyWvsc1f4+jZH4oLvwP3xGNcmSxdRHo/zLgJvIXkNYH?=
- =?us-ascii?Q?ZpV76aqh93Nx9w85fBMbXJ3tSlceUZi9960XI4aeIbw2JvKSijJDJKlojH6R?=
- =?us-ascii?Q?5bucyfWZoejYoQ7TxsOJwG7WPxgDRHqcd+ivc3CCJcHJbW75X3UAzbOOJKi3?=
- =?us-ascii?Q?6HruXVdE2E61+FyxWQzbwDf1+evLfASVSgKeCDESsdgLmsZe0VOYcIhQYthQ?=
- =?us-ascii?Q?f5+RttmXCbwz9Vkg96NQ34UHLTz611vq5OBLdUTqYODa0Pru0h9YXYw3wBgs?=
- =?us-ascii?Q?mYtosgn66gi3+BKnzpf9a79wiZHh+p1pC/bFGjanQJFE7nrzUV3r/4sICyOv?=
- =?us-ascii?Q?zZ+4N5kf6HzBp/t8bzhzRQCEk6L9i9fnKf1tabxDcoSXMgmZkGT4G5e9g1VS?=
- =?us-ascii?Q?KKrwbYS8Aljkvi1PsdBMXaI8CJZ5h3ZvXpWfgYh79wwNwPaONHjaYlDiUoLs?=
- =?us-ascii?Q?t6QHR1518Wv/yZgJVm2nxnepEkU01bvE8reHzLF30Kj6b2HSnfhKt4MEE8lD?=
- =?us-ascii?Q?k1e9yCRxpwtUUQsC/R3cFmB3+a+wOhrCiGpccnWHXkrTXCJfnZSDv+T52hzZ?=
- =?us-ascii?Q?Ikq0Hkq+TIQDYxoei+y+/9DOTnFuem5klgyYV0HO1zqaqvBcA72PvNa6ze3q?=
- =?us-ascii?Q?fKmBQUkgTbkObgcC8pU+ZDlIq0gzjZvtt9Y/GETML1bj22S6Udm0gl3z1YpR?=
- =?us-ascii?Q?Z+GkchQYMk6Glp/YenIqeBMHS4BoWSa2gHpkB+LGQ/GUog9fc/abRAePZuJ9?=
- =?us-ascii?Q?+dYrY3hzKkNZDDFZUJPPPcHwbdrjX1Ua5NebTb1H7FhRdTnmHErVIBYwdxB2?=
- =?us-ascii?Q?BDvNlL9Q+d7ujqJ4infHU4QwUqx9e1gB/k5vhSvQM9WpjESDVybMs3MwPfp3?=
- =?us-ascii?Q?WPYSLgsyL5X0SN0pDakidq2xVbZ/vSujDY5xPBAWTjch3gDRFMkZrK5ivz9M?=
- =?us-ascii?Q?sAL0tH3ti37QY15w67NZgsr4zMaEUsolitXM+QyK+bCx2qKq3nqmWaU9Pj50?=
- =?us-ascii?Q?6E6tOHeMI9E9SfQlzs3GW5hayySdDlC+WyzJGRo2S13UoeXiZJm9+z+NY+Yg?=
- =?us-ascii?Q?KFPfA1sr1I3ieKYis7DEIGdhBs5Q3frDW5UM?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(7416014)(376014)(1800799024)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ioLG/wsHyZhYkV0T/k0ugQvxsPp7zwHPxVHCrBWU9ld0DtoXpVinB7sgt0fn?=
- =?us-ascii?Q?PqQlYyTFAk6C0AecJMweaUHmKSTpe4bBfQVa6NwV18pfX1k1kFgVj15+16OC?=
- =?us-ascii?Q?Ssm2axSWs6f2CSfnRYzQGPnNgeYuur5dcG/3ptRQQrejvcaDklq99y3Aao/7?=
- =?us-ascii?Q?Fx3+Z56o/8JOPAdTrEW28LISpqPuYbjGCws/E0NearflrqO4GMIeuqaqNHmP?=
- =?us-ascii?Q?dajnOEh0ZlwQF3w8Agm73PBQiiE3F4xQHk+OEaMgOd5fKvR37KDaiHbCvUGc?=
- =?us-ascii?Q?ZJoeC5uVLAh6vOzkxs41KMEEB+gcaGG3DwV7NJ1GRP54iHYykXf0pjsmM/WG?=
- =?us-ascii?Q?rjpPu4senIFMN5hudzTjRPtXE2hWkKz6RDnd+dg9039VpZuGDm1pueHBecC3?=
- =?us-ascii?Q?hyjhNi8sVSfmx640dWDAbwJ4WYcelQ1n2VwvyeIocYQqSNgdE7CQy+7VVpVY?=
- =?us-ascii?Q?unmxeg+5biK6zRBdjRCNeqNWpDRXbtKBuQ3MwKqr9MUjAnnNdl3oX/wZ9d+u?=
- =?us-ascii?Q?qodUSVjbS5ja6b7NXpttIi8yUICcDsLaGprcXs1Qk9R614wxHW/6B4mcCmjk?=
- =?us-ascii?Q?uxpRHAW62Q+YtzGSK75lNXgtrT8XX5fjh6Q+CFdnX1VONv/vkWoua00cR04z?=
- =?us-ascii?Q?5p2+UwLWTulKCerGuiUg8aSBtnnArtDg+tKOqLVG5JpkMmVmuTErYh3ECMjk?=
- =?us-ascii?Q?8TMf7gz5aWn+CVv3VeDE1qoVd16t1SGktNeOFLzrXwsPlW75/eGYAXF2gxsF?=
- =?us-ascii?Q?Xc5/yUCziavRDm+VjY+Ft80T3gRLUwoYHdpWe+WcBbrSgjORAh4ea5sMK/lF?=
- =?us-ascii?Q?gaVqNZPfqCWHTFwmbu5NhNYDqELSU/BI1G13OnYE4DDFc6vyRpOM96BLmE5n?=
- =?us-ascii?Q?Ty0GObaJ/MTpwpE44L5ZXX2YOh7v7yirDgKK7ZgdTT5HkGZhWY/pX7t3TvZ+?=
- =?us-ascii?Q?QcDo7C1rLJZYJZjVhAHoLvn3yRJaxyNm+aMZvV7RT3D1a2yD3GJd4KWwhUWc?=
- =?us-ascii?Q?2KX6EdRXPD3V/LJXzR4Q0iWenvpGvHctMBEntcIQhX/GHC128il2nlFT+HkX?=
- =?us-ascii?Q?91JyCAfsn3QgI10AgF+VMzfvzIOOuXMDy486m9+ZduDwZq3OOmDwTd6b7RRk?=
- =?us-ascii?Q?UUdu7e8VyfgYcY8PvRNGdEDGnz3EbPCs51HT8AxuUxOQ11YPlTqmV3b/PUjd?=
- =?us-ascii?Q?W+LYG3XOE7v4RQLaQr4KFxxMxOwDFQ781+U2BslXu9RSh63D1+d1/obib77f?=
- =?us-ascii?Q?w6EnAgcrntsxF/f/n3bOXagejQVzLPvxwNe8U7pYuDPZ8tRuYPpCtvemA4zK?=
- =?us-ascii?Q?iPYcXaANdOIfRFZL5FuttEZIFixFgSUEwvp2IMlZ0L0uiuV+J87+GPIhJcYs?=
- =?us-ascii?Q?DeDckCEkUGnOCxthLSvN2or6i09wD/ptr0NYgDrgNYolg1ZnD0Wast9+tzS7?=
- =?us-ascii?Q?TyWAl3Z3X/R8TujTwrYUQWMiAtU3iB0lkxN0Zap6R2bpTLTDIgDdZcYA1drV?=
- =?us-ascii?Q?8a+ZIiQDWtY9G8KAgZdXzxVH3DUH6sFf70CLbElR0KOuTbJHbYNbNiijnNvV?=
- =?us-ascii?Q?Pleb7Ga3chWWbktABdTr6CiNyKjX21oaiNwC5m3W2JjQnqcSU034KjdQ8zby?=
- =?us-ascii?Q?+xpF3vjZ7CWrcq5m47MMxDsNyqNe3xaCXoFz0/Vss6tioJl7Yb+X38mVKWxG?=
- =?us-ascii?Q?H9RX1PMtW0Psg4vQzUk4m8mX0lL4lXLLdr+6xvzY3iZMReNE?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 733dfd87-1595-4562-b354-08de4d3385e0
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2026 14:54:41.9154
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nTouVkb+bDapdy4KmQ551ijFJWIWzF4cYL3NavsOxq5xXONskenvlJlfkK8OUYYiUWUaIPd+K/3AzsIADJhKpw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9333
+In-Reply-To: <87ldiaj560.fsf@t14s.mail-host-address-is-not-set>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_065446_618018_B04D5776 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20260106_065535_586127_9AD1BDB7 
+X-CRM114-Status: GOOD (  41.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,47 +155,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 06, 2026 at 10:15:18AM +0100, Krzysztof Kozlowski wrote:
-> Use scoped for-each loop when iterating over device nodes to make code a
-> bit simpler.
->
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
->
-> Depends on first patch.
-> ---
->  drivers/clk/imx/clk-imx31.c | 7 ++-----
->  1 file changed, 2 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/clk/imx/clk-imx31.c b/drivers/clk/imx/clk-imx31.c
-> index 4c8d9ff0b2ad..962eccac63ce 100644
-> --- a/drivers/clk/imx/clk-imx31.c
-> +++ b/drivers/clk/imx/clk-imx31.c
-> @@ -123,18 +123,15 @@ static void __init _mx31_clocks_init(void __iomem *base, unsigned long fref)
->
->  static void __init mx31_clocks_init_dt(struct device_node *np)
->  {
-> -	struct device_node *osc_np;
->  	u32 fref = 26000000; /* default */
->  	void __iomem *ccm;
->
-> -	for_each_compatible_node(osc_np, NULL, "fixed-clock") {
-> +	for_each_compatible_node_scoped(osc_np, NULL, "fixed-clock") {
->  		if (!of_device_is_compatible(osc_np, "fsl,imx-osc26m"))
->  			continue;
->
-> -		if (!of_property_read_u32(osc_np, "clock-frequency", &fref)) {
-> -			of_node_put(osc_np);
-> +		if (!of_property_read_u32(osc_np, "clock-frequency", &fref))
->  			break;
-> -		}
->  	}
->
->  	ccm = of_iomap(np, 0);
->
-> --
-> 2.51.0
->
+On Tue, Jan 06, 2026 at 01:29:11PM +0100, Andreas Hindborg wrote:
+> "Alice Ryhl" <aliceryhl@google.com> writes:
+> 
+> > There are currently a few places in the kernel where we use volatile
+> > reads when we really should be using `READ_ONCE`. To make it possible to
+> > replace these with proper `READ_ONCE` calls, introduce a Rust version of
+> > `READ_ONCE`.
+> >
+> > I've written the code to use Rust's volatile ops directly when possible.
+> > This results in a small amount of code duplication, but I think it makes
+> > sense for READ_ONCE and WRITE_ONCE to be implemented in pure Rust when
+> > possible. Otherwise they would unconditionally be a function call unless
+> > you have a system where you can perform cross-language inlining.
+> >
+> > I considered these functions in the bindings crate instead of kernel
+> > crate. I actually think it would make a lot of sense. But it implies
+> > some annoying complications on old compilers since the #![feature()]
+> > invocations in kernel/lib.rs do not apply in the bindings crate.
+> >
+> > For now, we do not support using READ_ONCE on compound types even if
+> > they have the right size. This can be added later.
+> >
+> > This fails checkpatch due to a misordered MAINTAINERS entry, but this is
+> > a pre-existing problem.
+> >
+> > Signed-off-by: Alice Ryhl <aliceryhl@google.com>
+> > ---
+> >  MAINTAINERS                |   2 +
+> >  rust/helpers/helpers.c     |   1 +
+> >  rust/helpers/rwonce.c      |  34 ++++++++
+> >  rust/kernel/sync.rs        |   2 +
+> >  rust/kernel/sync/rwonce.rs | 188 +++++++++++++++++++++++++++++++++++++++++++++
+> >  5 files changed, 227 insertions(+)
+> >
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index 12f49de7fe036c2439c00f9f4c67b2219d72a4c3..1d0cae158fe2cc7d99b6a64c11176b635e2d14e4 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -4117,9 +4117,11 @@ F:	arch/*/include/asm/atomic*.h
+> >  F:	include/*/atomic*.h
+> >  F:	include/linux/refcount.h
+> >  F:	scripts/atomic/
+> > +F:	rust/helpers/rwonce.c
+> >  F:	rust/kernel/sync/atomic.rs
+> >  F:	rust/kernel/sync/atomic/
+> >  F:	rust/kernel/sync/refcount.rs
+> > +F:	rust/kernel/sync/rwonce.rs
+> >
+> >  ATTO EXPRESSSAS SAS/SATA RAID SCSI DRIVER
+> >  M:	Bradley Grove <linuxdrivers@attotech.com>
+> > diff --git a/rust/helpers/helpers.c b/rust/helpers/helpers.c
+> > index 79c72762ad9c4b473971e6210c9577860d2e2b08..28b79ca7844fb744e5ad128238824921c055ec82 100644
+> > --- a/rust/helpers/helpers.c
+> > +++ b/rust/helpers/helpers.c
+> > @@ -48,6 +48,7 @@
+> >  #include "rcu.c"
+> >  #include "refcount.c"
+> >  #include "regulator.c"
+> > +#include "rwonce.c"
+> >  #include "scatterlist.c"
+> >  #include "security.c"
+> >  #include "signal.c"
+> > diff --git a/rust/helpers/rwonce.c b/rust/helpers/rwonce.c
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..55c621678cd632e728cb925b6a4a2e34e2fc4884
+> > --- /dev/null
+> > +++ b/rust/helpers/rwonce.c
+> > @@ -0,0 +1,34 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +
+> > +/*
+> > + * Copyright (C) 2025 Google LLC.
+> > + */
+> > +
+> > +#ifdef CONFIG_ARCH_USE_CUSTOM_READ_ONCE
+> > +
+> > +__rust_helper u8 rust_helper_read_once_1(const u8 *ptr)
+> > +{
+> > +	return READ_ONCE(*ptr);
+> > +}
+> > +
+> > +__rust_helper u16 rust_helper_read_once_2(const u16 *ptr)
+> > +{
+> > +	return READ_ONCE(*ptr);
+> > +}
+> > +
+> > +__rust_helper u32 rust_helper_read_once_4(const u32 *ptr)
+> > +{
+> > +	return READ_ONCE(*ptr);
+> > +}
+> > +
+> > +__rust_helper u64 rust_helper_read_once_8(const u64 *ptr)
+> > +{
+> > +	return READ_ONCE(*ptr);
+> > +}
+> > +
+> > +__rust_helper void *rust_helper_read_once_ptr(void * const *ptr)
+> > +{
+> > +	return READ_ONCE(*ptr);
+> > +}
+> > +
+> > +#endif
+> > diff --git a/rust/kernel/sync.rs b/rust/kernel/sync.rs
+> > index 5df87e2bd212e192b8a67644bd99f05b9d4afd75..a5bf7bdc3fa8a044786eafae39fe8844aeeef057 100644
+> > --- a/rust/kernel/sync.rs
+> > +++ b/rust/kernel/sync.rs
+> > @@ -20,6 +20,7 @@
+> >  pub mod poll;
+> >  pub mod rcu;
+> >  mod refcount;
+> > +pub mod rwonce;
+> >  mod set_once;
+> >
+> >  pub use arc::{Arc, ArcBorrow, UniqueArc};
+> > @@ -30,6 +31,7 @@
+> >  pub use lock::spinlock::{new_spinlock, SpinLock, SpinLockGuard};
+> >  pub use locked_by::LockedBy;
+> >  pub use refcount::Refcount;
+> > +pub use rwonce::{READ_ONCE, WRITE_ONCE};
+> >  pub use set_once::SetOnce;
+> >
+> >  /// Represents a lockdep class. It's a wrapper around C's `lock_class_key`.
+> > diff --git a/rust/kernel/sync/rwonce.rs b/rust/kernel/sync/rwonce.rs
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..a1660e43c9ef94011812d1816713cf031a73de1d
+> > --- /dev/null
+> > +++ b/rust/kernel/sync/rwonce.rs
+> > @@ -0,0 +1,188 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +
+> > +// Copyright (C) 2025 Google LLC.
+> > +
+> > +//! Rust version of the raw `READ_ONCE`/`WRITE_ONCE` functions.
+> > +//!
+> > +//! C header: [`include/asm-generic/rwonce.h`](srctree/include/asm-generic/rwonce.h)
+> > +
+> > +/// Read the pointer once.
+> > +///
+> > +/// # Safety
+> > +///
+> > +/// It must be safe to `READ_ONCE` the `ptr` with this type.
+> > +#[inline(always)]
+> > +#[must_use]
+> > +#[track_caller]
+> > +#[expect(non_snake_case)]
+> 
+> I really do not think we need to have screaming snake case here. I
+> understand that this is what the macro looks like in C code, but we do
+> not need to carry that over.
+> 
+
+We should really do a atomic_load and atomic_store (implemented by
+Atomic::from_ptr()) to those usages:
+
+    unsafe atomic_load<T: AtomicType, O: AcquireOrRelaxed>(ptr: *mut T, ordering: O) -> T {
+        Atomic::from_ptr(ptr).load(ordering)
+    }
+
+    unsafe atomic_store<T: AtomicType, O: AcquireOrRelaxed>(ptr: *mut T, v: T, ordering: O) {
+        Atomic::from_ptr(ptr).store(v, ordering);
+    }
+
+This unifies the underlying implementation and clarify the atomicity of
+these operations.
+
+Regards,
+Boqun
+
+> 
+> Best regards,
+> Andreas Hindborg
+> 
 
