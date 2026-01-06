@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB624C47BEA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 11:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98316C47BEA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 11:19:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NiOEwZUs9si4TYzocCkrKHzTqQqlZCvEzusmp4XL24k=; b=JMGttMVPbKOnLKLcwgKqDQwN3n
-	1AWQU35LJaOe0UT9sWHLiI8eQTaRxFHDlST0s0AbytvEN+g/hxH4rr+VJCpvcwqqosl+1Zb5g59Hg
-	YaVG5sD6wCRheR72augQC50NrLsMLpt3R1WZtHMAx2v/QX23SLm1fLm+LD9PK3QggL/x2Uhlgw74W
-	eO9gq0DOYzcjNHzZvSM3svrnue3GSdS+8fTxpG1dq3k3CvQvzWgku8BUEPCxWa5Z4cLF0xcEJqRjy
-	ZkkV6alKMKqQC/G0Q3dbYOhBjXBradsaZCc1lFje64OexIbgvcaFHiMaN2f/gAXGlzb5HuFXxRNKp
-	m4miB5eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OHBDyXVIOAL9+6Fn2E8SrqGH6lc+RtsJ2XKqh2jPvJs=; b=EB2TQO6mkHvbv4PQNTXwcyRrGw
+	I11nx0knH1H27Xj8MlAtxijd30fv0wRXHslpCM4d+x7FPvK0yKbnv7BFgY7yvUYlEzbka9g1SlhNE
+	22J9QIRR7KEJpRUvinbiD+0a+xlGAi8/4ZwusM87SPvzegLTd14pDZxWDWqizq+gtjpxf12CC1pvi
+	M1afpJQyZQs3G1biLBLfAzfVf4oD6CxXr3zkSw2CNXGM7WeIGdFMwswQc6sdhmChy9RG+IAVCQJoZ
+	d4p132bqh7pIuzcLEBRyAYOgkJwjyrDW/uNPyfNt/nd8MX9ffiw9tNYb0OYMUSbfY1fwao8cXGn9a
+	UMJN0jTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd538-0000000CrGn-2Lop;
-	Tue, 06 Jan 2026 11:16:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd536-0000000CrGK-44lZ;
-	Tue, 06 Jan 2026 11:16:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0A45060148;
-	Tue,  6 Jan 2026 11:16:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 528DEC116C6;
-	Tue,  6 Jan 2026 11:16:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767698187;
-	bh=KAZTfW562W1oYvg6yLMZiwveTP/LAQQ3kkh1Vqc/32Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z1K0/H+XpY/nY87i0BbOhrc0NiRe8qTneWo9Kclay0A+/ZiYEVXM8rM2Ru8hsNf8y
-	 PxNWW770aUY0dfnswiMYnNUyiXyMopWxWKymiXrW+XiA+s5Y09ERidRRZG782OYHhD
-	 4chf+I3fc+I8JmctmpRXqsR1iNYjVBnbR4j2HQFYpy59lZTrFG7rUnvWhWWj//5go4
-	 LXdUEq9t2WGgtOv7/a88UHej4y9EJJGE/vb9oors6pxeMGccynmmEkVG5rYPDW4Rsq
-	 79BH7p4Wrb3LzWNxaEbPknCyslDbxH1Y7TENlLw78noR/6XK39CD77/BuMLy05qqQB
-	 oJUN+EE7CvPnw==
-Date: Tue, 6 Jan 2026 12:16:16 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Sumit Kumar <sumit.kumar@oss.qualcomm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Yue Wang <yue.wang@amlogic.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Chuanhua Lei <lchuanhua@maxlinear.com>,
-	Marek Vasut <marek.vasut+renesas@gmail.com>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Pratyush Anand <pratyush.anand@gmail.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
-	linux-amlogic@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-tegra@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/2] PCI: dwc: Add multi-port controller support
-Message-ID: <aVzvANWTavhabhEB@ryzen>
-References: <20260105-dt-parser-v1-0-b11c63cb5e2c@oss.qualcomm.com>
- <20260105-dt-parser-v1-2-b11c63cb5e2c@oss.qualcomm.com>
- <aVvkmkd5mWPmxeiS@ryzen>
- <m5ukeugo2lazipljqpubyvm7j3xk2j5o7i2xgdbkkhii57xmyk@lh32qdzjhe4n>
- <aVzqMqTUWIuKhgmC@fedora>
+	id 1vd56E-0000000Crgp-1lK7;
+	Tue, 06 Jan 2026 11:19:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vd56B-0000000Crg2-3rpR
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Jan 2026 11:19:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E01A91595;
+	Tue,  6 Jan 2026 03:19:31 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC3AE3F5A1;
+	Tue,  6 Jan 2026 03:19:33 -0800 (PST)
+Message-ID: <4152d2bb-098c-48db-94f0-a90306700266@arm.com>
+Date: Tue, 6 Jan 2026 11:19:32 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aVzqMqTUWIuKhgmC@fedora>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 18/45] arm_mpam: resctrl: Implement
+ resctrl_arch_reset_all_ctrls()
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
+References: <20251219181147.3404071-1-ben.horgan@arm.com>
+ <20251219181147.3404071-19-ben.horgan@arm.com>
+ <20260105175154.00002041@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20260105175154.00002041@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260106_031940_014756_9C1401F0 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,25 +77,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 06, 2026 at 11:55:46AM +0100, Niklas Cassel wrote:
-> For iterating, to avoid manually traversing the array, we could do like
-> libata and create a simple macro, e.g. ata_qc_for_each():
-> https://github.com/torvalds/linux/blob/v6.19-rc4/drivers/ata/libata-eh.c#L851-L854
-> https://github.com/torvalds/linux/blob/v6.19-rc4/include/linux/libata.h#L1657-L1659
+Hi Jonathan,
+
+On 1/5/26 17:51, Jonathan Cameron wrote:
+> On Fri, 19 Dec 2025 18:11:20 +0000
+> Ben Horgan <ben.horgan@arm.com> wrote:
 > 
-> And at least personally, I think my brain will parse dw_pcie_port_for_each() { }
-> faster than it parses list_for_each_entry(port, &pcie->ports, list) { },
-> since it is more unique, but perhaps I am the weird one here :)
+>> From: James Morse <james.morse@arm.com>
+>>
+>> We already have a helper for resetting an mpam class and component.  Hook
+>> it up to resctrl_arch_reset_all_ctrls() and the domain offline path.
+>>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> I left all the context as my one comment on this is I don't see a reason
+> to expose mpam_reset_class()  Only the _locked() variant ever seems to be
+> used outside of mpam_devices.c
+> 
+>> ---
 
-Or... for_each_dw_pcie_port()
+>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+>> index 554e4887ba81..b9a739abb101 100644
+>> --- a/drivers/resctrl/mpam_internal.h
+>> +++ b/drivers/resctrl/mpam_internal.h
+>> @@ -389,6 +389,13 @@ extern u8 mpam_pmg_max;
+>>  void mpam_enable(struct work_struct *work);
+>>  void mpam_disable(struct work_struct *work);
+>>  
+>> +/* Reset all the RIS in a class, optionally while holding cpus_read_lock() */
+>> +void mpam_reset_class_locked(struct mpam_class *class);
+>> +void mpam_reset_class(struct mpam_class *class);
+> 
+> Not clear from this patch why we need to expose mpam_reset_class()
 
-We also don't need to supply an integer to the macro, we could do like e.g.
-for_each_nhlt_endpoint():
-https://github.com/torvalds/linux/blob/v6.19-rc4/include/acpi/nhlt.h#L63-L64
-
-which has does "for (unsigned int __i = 0; " in the macro.
+Good spot. That's not required in this series, so I will stop exposing it.
 
 
-Kind regards,
-Niklas
+Thanks,
+
+Ben
+
 
