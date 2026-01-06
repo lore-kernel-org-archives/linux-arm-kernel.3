@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEC4FCEFCE1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 17:43:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA8C9CEFCE1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 17:43:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uem1PYoLyulo/MUF23qZO/dNEnjzQ9As9kztGwIxewQ=; b=d4rnyUtp+FIGThsjuMpH0Iwlzb
-	AFAjH3UnjQXYugddm+gFZ2w816QpJzyI+eNjq65G9hrtAO5PiuJCjut4bybYyXP2TWz1cja32FiTf
-	l6xWmUDZ9Xi5iXD0kAWcE/lyYvehBGUH4bQSiYDjY6aooms0IC93XhxwCdOYau2VnpxLnelZFA2ah
-	VogdDEGZOoPQjiLlGfrTCWCnw3iXh9Fu15a60troON37AXLQO8FmHHlLjRNUwkiQRPwmByqJGW9Kd
-	iRuEXkI5B/ovQzC9yU8TjNIHZbDWSv5gibgD3sp2QsgFOGFSe7Ot1171yVnZcxPZiqPGHfXVjMAdP
-	uMCkuwNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fbSfNwB1WkSY2iPd/6BPZFGgPTacQL14qwc+lCPe/vo=; b=OjmAJjIfwCzUdbV0z/Tad8s75E
+	4PAAx93i3O3voYAqfne41jvjGGoNtMoglLuXEVQ4R/Q9OdxssauergDWqr0dy+gUSBfmtS/iEslLv
+	DvY2kbFAeL3qTM7+MYGlpWhDz4oFTwDEWj87rKKVSIwGb3jLzEDBPY6o96lDcyNa/A/EEfSKgI36t
+	xZNEum8DaE41EFb0Akwj+v03KpXkakfYgdu21bRj7ItJfoiOtlMBz2LuTczCLzuPNXhmZSnWHGeF+
+	9uo7X58viz5GhpgJYPTmSWF7CpTqinyBV1hBiobn7ECwgr29bAt52fSzvscVX4a7KhLQMT+BuUm98
+	MJASh57g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdB5U-0000000Datm-1WpK;
-	Tue, 06 Jan 2026 17:43:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vdB5b-0000000DaxW-35It;
+	Tue, 06 Jan 2026 17:43:27 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdB5R-0000000DatF-2Sia;
-	Tue, 06 Jan 2026 17:43:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DBC0E434FA;
-	Tue,  6 Jan 2026 17:43:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FF69C116C6;
-	Tue,  6 Jan 2026 17:43:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767721395;
-	bh=knYO0dVBtKILflMNQYIaYPLoiqqfWTfUH8gCTse05RE=;
-	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
-	b=Fm19qNEumPDXY1AVuxiNPc5H1ZrdFIFe8+BXOsTcO9NopdwkpsjKcrZNt+VSKzafn
-	 2IvPjQvnzJQpfvS5aTgE2Y2ckiVpWI2hRJEnQs0Pg0dhz6u8nJhNIB2jcUvOAQrTIf
-	 kH5zIH9uZYdd47qG99G6513q0kEM795b1yo3JMXldLM2GmN+6btkrOxR0EbbAZ1FCY
-	 f0cazx/FvGVgIP9L1Ct9UAVDsXLWVXPdfV6BMmFHH4ze0dX3tkPAhJbksx9Pauzf1d
-	 Xa96eiHRr/HvLuZD/onk+lo2+/E/NxA/dhg2QbJpAE8glTfO8qdt0KSV10PWE5fuZ8
-	 5r7xcMcvU0Bmg==
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 06 Jan 2026 11:43:14 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1vdB5Y-0000000DavZ-2c3T
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Jan 2026 17:43:26 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 38BDB1A26A7;
+	Tue,  6 Jan 2026 17:43:23 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C3A0C60739;
+	Tue,  6 Jan 2026 17:43:22 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 447E5103C81A0;
+	Tue,  6 Jan 2026 18:43:17 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1767721401; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=fbSfNwB1WkSY2iPd/6BPZFGgPTacQL14qwc+lCPe/vo=;
+	b=tvVwcC8UeJJh49uRdXVrnooCOXaJTZfK1m8Plsrf3n5nVyMnlI57ZJl2k5kkE2QSivkkU6
+	PB4jCWb0GXCAaeB83P8Zag1qGn89K/gEkdfWDxj7n84oz2oynIUlUYcVTKRbkLIdfjJQpm
+	brtFLpJwORGZZZik7HjQo8ZDx+fLAsY7QG0Ndi7xmWJ2O5y8SZeU1PkNYoRQJLIL4gqLkG
+	pkGgVQbY9f+eCeebDIxMiyf67VdlPOdUbj6Bj+HzscZ4jOxyNUviL8Yx5IJ5i3jhLynQKJ
+	UWe+pqCkeQatyHy2V0lFgHAZOk/fal34bFAo6SIQ8rOptq3th2ObvjQLoY5EZQ==
+From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
+Date: Tue, 06 Jan 2026 18:42:17 +0100
+Subject: [PATCH v3 01/22] dt-bindings: display: tilcdc: Convert to DT
+ schema
 MIME-Version: 1.0
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
- devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>
-To: David Lechner <dlechner@baylibre.com>
-In-Reply-To: <20260106-mtk-fix-mt7623-pinctl-name-v1-0-33817c7f78ee@baylibre.com>
-References: <20260106-mtk-fix-mt7623-pinctl-name-v1-0-33817c7f78ee@baylibre.com>
-Message-Id: <176772122105.2350532.2584006959358435109.robh@kernel.org>
-Subject: Re: [PATCH 0/2] arm: dts: mediatek: fix pinctl node names
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260106-feature_tilcdc-v3-1-9bad0f742164@bootlin.com>
+References: <20260106-feature_tilcdc-v3-0-9bad0f742164@bootlin.com>
+In-Reply-To: <20260106-feature_tilcdc-v3-0-9bad0f742164@bootlin.com>
+To: Jyri Sarha <jyri.sarha@iki.fi>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Tony Lindgren <tony@atomide.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: Markus Schneider-Pargmann <msp@baylibre.com>, 
+ Bajjuri Praneeth <praneeth@ti.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Miguel Gazquez <miguel.gazquez@bootlin.com>, 
+ Herve Codina <herve.codina@bootlin.com>, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
+ "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_094317_672023_3FA5DC44 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20260106_094324_935548_B1D1B579 
+X-CRM114-Status: GOOD (  22.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,66 +95,215 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Convert the device tree binding documentation for tilcdc
+from plain text to DT binding schema.
 
-On Tue, 06 Jan 2026 09:20:54 -0600, David Lechner wrote:
-> While passing by, I noticed that the pinctrl nodes in a couple of dtsi
-> files did not match the addresses in their reg properties. Here are some
-> patches to fix that.
-> 
-> Signed-off-by: David Lechner <dlechner@baylibre.com>
-> ---
-> David Lechner (2):
->       arm: dts: mediatek: mt7623: fix pinctrl node name
->       arm: dts: mediatek: mt8135: fix pinctrl node name
-> 
->  arch/arm/boot/dts/mediatek/mt7623.dtsi | 2 +-
->  arch/arm/boot/dts/mediatek/mt8135.dtsi | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
-> ---
-> base-commit: 6cd6c12031130a349a098dbeb19d8c3070d2dfbe
-> change-id: 20260106-mtk-fix-mt7623-pinctl-name-f8593953bed7
-> 
-> Best regards,
-> --
-> David Lechner <dlechner@baylibre.com>
-> 
-> 
-> 
+Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
+---
+Change in v3:
+- Rename binding file to ti,am33xx-tilcdc.yaml.
+- Use generic node name and drop unused label.
+---
+ .../bindings/display/tilcdc/ti,am33xx-tilcdc.yaml  | 100 +++++++++++++++++++++
+ .../devicetree/bindings/display/tilcdc/tilcdc.txt  |  82 -----------------
+ 2 files changed, 100 insertions(+), 82 deletions(-)
 
+diff --git a/Documentation/devicetree/bindings/display/tilcdc/ti,am33xx-tilcdc.yaml b/Documentation/devicetree/bindings/display/tilcdc/ti,am33xx-tilcdc.yaml
+new file mode 100644
+index 0000000000000..eb0ebb678fa87
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/tilcdc/ti,am33xx-tilcdc.yaml
+@@ -0,0 +1,100 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++# Copyright 2025 Bootlin
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/tilcdc/ti,am33xx-tilcdc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: TI LCD Controller, found on AM335x, DA850, AM18x and OMAP-L138
++
++maintainers:
++  - Kory Maincent <kory.maincent@bootlin.com>
++
++properties:
++  compatible:
++    enum:
++      - ti,am33xx-tilcdc
++      - ti,da850-tilcdc
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  port:
++    $ref: /schemas/graph.yaml#/properties/port
++
++  ti,hwmods:
++    $ref: /schemas/types.yaml#/definitions/string
++    description:
++      Name of the hwmod associated to the LCDC
++
++  max-bandwidth:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      The maximum pixels per second that the memory interface / lcd
++      controller combination can sustain
++    # maximum: 2048*2048*60
++    maximum: 251658240
++
++  max-width:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      The maximum horizontal pixel width supported by the lcd controller.
++    maximum: 2048
++
++  max-pixelclock:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      The maximum pixel clock that can be supported by the lcd controller
++      in KHz.
++
++  blue-and-red-wiring:
++    enum: [straight, crossed]
++    description:
++      This property deals with the LCDC revision 2 (found on AM335x)
++      color errata [1].
++       - "straight" indicates normal wiring that supports RGB565,
++         BGR888, and XBGR8888 color formats.
++       - "crossed" indicates wiring that has blue and red wires
++         crossed. This setup supports BGR565, RGB888 and XRGB8888
++         formats.
++       - If the property is not present or its value is not recognized
++         the legacy mode is assumed. This configuration supports RGB565,
++         RGB888 and XRGB8888 formats. However, depending on wiring, the red
++         and blue colors are swapped in either 16 or 24-bit color modes.
++
++       [1] There is an errata about AM335x color wiring. For 16-bit color
++       mode the wires work as they should (LCD_DATA[0:4] is for Blue[3:7]),
++       but for 24 bit color modes the wiring of blue and red components is
++       crossed and LCD_DATA[0:4] is for Red[3:7] and LCD_DATA[11:15] is
++       for Blue[3-7]. For more details see section 3.1.1 in AM335x
++       Silicon Errata
++       https://www.ti.com/general/docs/lit/getliterature.tsp?baseLiteratureNumber=sprz360
++
++required:
++  - compatible
++  - interrupts
++  - reg
++  - port
++
++additionalProperties: false
++
++examples:
++  - |
++    display-controller@4830e000 {
++        compatible = "ti,am33xx-tilcdc";
++        reg = <0x4830e000 0x1000>;
++        interrupt-parent = <&intc>;
++        interrupts = <36>;
++        ti,hwmods = "lcdc";
++
++        blue-and-red-wiring = "crossed";
++
++        port {
++            endpoint {
++                remote-endpoint = <&hdmi_0>;
++            };
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.txt b/Documentation/devicetree/bindings/display/tilcdc/tilcdc.txt
+deleted file mode 100644
+index 3b3d0bbfcfff4..0000000000000
+--- a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.txt
++++ /dev/null
+@@ -1,82 +0,0 @@
+-Device-Tree bindings for tilcdc DRM driver
+-
+-Required properties:
+- - compatible: value should be one of the following:
+-    - "ti,am33xx-tilcdc" for AM335x based boards
+-    - "ti,da850-tilcdc" for DA850/AM18x/OMAP-L138 based boards
+- - interrupts: the interrupt number
+- - reg: base address and size of the LCDC device
+-
+-Recommended properties:
+- - ti,hwmods: Name of the hwmod associated to the LCDC
+-
+-Optional properties:
+- - max-bandwidth: The maximum pixels per second that the memory
+-   interface / lcd controller combination can sustain
+- - max-width: The maximum horizontal pixel width supported by
+-   the lcd controller.
+- - max-pixelclock: The maximum pixel clock that can be supported
+-   by the lcd controller in KHz.
+- - blue-and-red-wiring: Recognized values "straight" or "crossed".
+-   This property deals with the LCDC revision 2 (found on AM335x)
+-   color errata [1].
+-    - "straight" indicates normal wiring that supports RGB565,
+-      BGR888, and XBGR8888 color formats.
+-    - "crossed" indicates wiring that has blue and red wires
+-      crossed. This setup supports BGR565, RGB888 and XRGB8888
+-      formats.
+-    - If the property is not present or its value is not recognized
+-      the legacy mode is assumed. This configuration supports RGB565,
+-      RGB888 and XRGB8888 formats. However, depending on wiring, the red
+-      and blue colors are swapped in either 16 or 24-bit color modes.
+-
+-Optional nodes:
+-
+- - port/ports: to describe a connection to an external encoder. The
+-   binding follows Documentation/devicetree/bindings/graph.txt and
+-   supports a single port with a single endpoint.
+-
+- - See also Documentation/devicetree/bindings/display/tilcdc/panel.txt and
+-   Documentation/devicetree/bindings/display/bridge/ti,tfp410.yaml for connecting
+-   tfp410 DVI encoder or lcd panel to lcdc
+-
+-[1] There is an errata about AM335x color wiring. For 16-bit color mode
+-    the wires work as they should (LCD_DATA[0:4] is for Blue[3:7]),
+-    but for 24 bit color modes the wiring of blue and red components is
+-    crossed and LCD_DATA[0:4] is for Red[3:7] and LCD_DATA[11:15] is
+-    for Blue[3-7]. For more details see section 3.1.1 in AM335x
+-    Silicon Errata:
+-    https://www.ti.com/general/docs/lit/getliterature.tsp?baseLiteratureNumber=sprz360
+-
+-Example:
+-
+-	fb: fb@4830e000 {
+-		compatible = "ti,am33xx-tilcdc", "ti,da850-tilcdc";
+-		reg = <0x4830e000 0x1000>;
+-		interrupt-parent = <&intc>;
+-		interrupts = <36>;
+-		ti,hwmods = "lcdc";
+-
+-		blue-and-red-wiring = "crossed";
+-
+-		port {
+-			lcdc_0: endpoint {
+-				remote-endpoint = <&hdmi_0>;
+-			};
+-		};
+-	};
+-
+-	tda19988: tda19988 {
+-		compatible = "nxp,tda998x";
+-		reg = <0x70>;
+-
+-		pinctrl-names = "default", "off";
+-		pinctrl-0 = <&nxp_hdmi_bonelt_pins>;
+-		pinctrl-1 = <&nxp_hdmi_bonelt_off_pins>;
+-
+-		port {
+-			hdmi_0: endpoint {
+-				remote-endpoint = <&lcdc_0>;
+-			};
+-		};
+-	};
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: 6cd6c12031130a349a098dbeb19d8c3070d2dfbe (use --merge-base to override)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/mediatek/' for 20260106-mtk-fix-mt7623-pinctl-name-v1-0-33817c7f78ee@baylibre.com:
-
-arch/arm/boot/dts/mediatek/mt7623a-rfb-emmc.dtb: pinctrl@1000b000 (mediatek,mt7623-pinctrl): 'cir-default', 'i2c0-default', 'i2c1-alt', 'i2c1-default', 'i2c2-alt', 'i2c2-default', 'i2s0-default', 'i2s1-default', 'keys-alt', 'leds-alt', 'mmc0', 'mmc0default', 'mmc1', 'mmc1default', 'nanddefault', 'pcie_pin_default', 'pwm-default', 'spi0-default', 'spi1-default', 'spi2-default', 'uart0-default', 'uart1-default', 'uart2-alt', 'uart2-default' do not match any of the regexes: '^pinctrl-[0-9]+$', 'pins$'
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt65xx-pinctrl.yaml
-arch/arm/boot/dts/mediatek/mt7623a-rfb-nand.dtb: pinctrl@1000b000 (mediatek,mt7623-pinctrl): 'cir-default', 'i2c0-default', 'i2c1-alt', 'i2c1-default', 'i2c2-alt', 'i2c2-default', 'i2s0-default', 'i2s1-default', 'keys-alt', 'leds-alt', 'mmc0', 'mmc0default', 'mmc1', 'mmc1default', 'nanddefault', 'pcie_pin_default', 'pwm-default', 'spi0-default', 'spi1-default', 'spi2-default', 'uart0-default', 'uart1-default', 'uart2-alt', 'uart2-default' do not match any of the regexes: '^pinctrl-[0-9]+$', 'pins$'
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt65xx-pinctrl.yaml
-arch/arm/boot/dts/mediatek/mt7623n-rfb-emmc.dtb: pinctrl@1000b000 (mediatek,mt7623-pinctrl): 'cir-default', 'hdmi-default', 'hdmi_ddc-default', 'i2c0-default', 'i2c1-alt', 'i2c1-default', 'i2c2-alt', 'i2c2-default', 'i2s0-default', 'i2s1-default', 'keys-alt', 'leds-alt', 'mmc0', 'mmc0default', 'mmc1', 'mmc1default', 'nanddefault', 'pcie_pin_default', 'pwm-default', 'spi0-default', 'spi1-default', 'spi2-default', 'uart0-default', 'uart1-default', 'uart2-alt', 'uart2-default' do not match any of the regexes: '^pinctrl-[0-9]+$', 'pins$'
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt65xx-pinctrl.yaml
-arch/arm/boot/dts/mediatek/mt7623n-bananapi-bpi-r2.dtb: pinctrl@1000b000 (mediatek,mt7623-pinctrl): 'cir-default', 'hdmi-default', 'hdmi_ddc-default', 'i2c0-default', 'i2c1-alt', 'i2c1-default', 'i2c2-alt', 'i2c2-default', 'i2s0-default', 'i2s1-default', 'keys-alt', 'leds-alt', 'mmc0', 'mmc0default', 'mmc1', 'mmc1default', 'musb', 'nanddefault', 'pcie_pin_default', 'pwm-default', 'spi0-default', 'spi1-default', 'spi2-default', 'uart0-default', 'uart1-default', 'uart2-alt', 'uart2-default' do not match any of the regexes: '^pinctrl-[0-9]+$', 'pins$'
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt65xx-pinctrl.yaml
-
-
-
-
+-- 
+2.43.0
 
 
