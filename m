@@ -4,90 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D60CEFCFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 20:03:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BBA2CEFD01
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 20:07:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hDKC/3noErk1Q8ZsV7ssZTkXWKMDpO84KVg5itJCTxs=; b=B6XDY/X095V7tzgQKpQWFqQWTA
-	vkTQHIfyhquJ0c175NwFhMyrD6fPO0MrLnU1yJJtnDfEMjSgFFEJtrv4UsMoHXvOHU0iqIagx0B8Y
-	TGgWj6ZgTRDD903Ds8+QbzTBfxsQ6l7Mi2UdlOqHE5XsIoAD+Wvt0Q5GqBqePYm9EXrcjuSF09KWM
-	naF7cO6iOwG3RAJd6I/TjqB9e4Z+8fdW9h3t8bePC8F3pm8If7VyLp3F2mP+cUX11TMDLvh8FeZag
-	JPITOCKddzfAxxmVLPReEEMJQCsYNEmKwycu/SGonuOjx4AR1QUNYlFhn788sfOpBj+DJ6rALBZK7
-	JQ3st0EQ==;
+	bh=i8pW4V3E/xkCy1IV+t45Sv4m8qVNjfXs4He412ZSu50=; b=esZG28P0qO5NuDpdXEkoi0GrRk
+	mq3Ao9CsqtYWIFC0Zp9o7ejuG4Jr7j0NRXyBgn5+OtLZyWzaqIxQDcG1ofNNn1RCS6/iH2r4t7aBS
+	G6v7agUYpdiVmF2bvRXEJdpMYZyOh9xp8B8oaPt/qWLuNPq2ZFWtdWdlrmyjN+owOojVDPlTqfTiU
+	lMtWJGPUT4lCzhP+VHleKx485hWKiNnN9PekhBH0GB38Occ3lfrSiESI54W0xwUa5GEarZMzOl3S6
+	mj+SRX68tZewvKBW5Fq8l6gaGPLQz4HgeHH9tm8VSMMU7f/DEw9Xk0b/zJiUB14rxgQbzZvxm+21q
+	Jen9HkNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdDHF-0000000DndR-1w4Y;
-	Tue, 06 Jan 2026 20:03:37 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1vdDKz-0000000Dnmb-0bsr;
+	Tue, 06 Jan 2026 20:07:29 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdDHC-0000000Dnd2-0yL1
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 20:03:35 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b832c65124cso219059166b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 12:03:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767729812; x=1768334612; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=hDKC/3noErk1Q8ZsV7ssZTkXWKMDpO84KVg5itJCTxs=;
-        b=XOx5LzBAwZ0IrgX+IBixJVl/BQmBsa7U5hWtl4Qr9oda3GlAqiiU+aS2WXAa1xdZG6
-         SNys8gyPmHFiuFyvg5yEeRU91qj9nhg0mN02wruIGeZRHX/XXe4onfy1B+Vsl/bEM/c3
-         zIOCifSpJvVnB0lhy8H8QOw/Ieu6UyugTX2MdFFHBDTvzC/z5hXEYQpo+rIVRa8RGGI2
-         IWphxE2B+Vt5rva5DLykFj4U+GYQ7cSeLsC2wEvOAVpV7Wg9oqQSVBqSjzA2xRtDJjFO
-         RIOwbXiZwSMjEKXKZAgwLdpsomC69K5oIB7Klps+HdoE/OHNvZEfSc+esz2OM/ubqUAz
-         ln9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767729812; x=1768334612;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hDKC/3noErk1Q8ZsV7ssZTkXWKMDpO84KVg5itJCTxs=;
-        b=e8m8xKQpmZG9TzcM7ptWK/WkYZB5rc78iCZ5V3NYxu/AzXy0L9GMHewnDqrHmT4Tsp
-         SAkFvUyuoEvsBaek3Zu5IBnT6W8jjzUncLO93QG1Mq3CeVzRJSLr7UodZsSbMdaEpEIA
-         IAue1pyEFfLKtRp1p16HYKk/EHI5kRzfxFuWkzP5VUuOgwVhME0njSIwYwBvLjoZkSmj
-         xqUlLtlIeg0B6/LKEGV8VmhSLOQPyTY3xIDXZjGNx4xtRv4w8BuSQep2PSL5TtL/7pXZ
-         TjxvWDtA/w3uD2J9hyiUvRKd9fnYgIAIDAijOc0TGHGbkXsx/S9plxrMvvMOBWhBEhka
-         +iqg==
-X-Forwarded-Encrypted: i=1; AJvYcCVaGyHo7U57hjRBP7Z+5JXHSJGywGcA5wp6bew1j/NrMRY8+cesUZ4yaKtH479GfhgcoA7pT+QiccmaI7nrvrmJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxautkbA5xng/2wpznozrrEmkA+3A/ayPuwrgG2NbpqwqZWHgIy
-	FGs/d6ssHkvhOaG8FsZERB1oqNocPyJJOdfnaopLcdm1ZzsQy5Qer1UzYVsAMqIyPc8+7M+I2M7
-	OeOwt5kOryzFrl8uQdO8GJPkHQyNZrVZPmhRNfrvZug==
-X-Gm-Gg: AY/fxX7Q40C4X0MgIs1DxUEiAhw7/JJb94K158/7tvVzPbv1VN8HQUKYd7vJBA+xZo6
-	NMQT9sT6JA7HrcaDvcxob8rABZEoAM15PqY5O9oZBD6JpSgYoFf4FBLJPL8/DhJlQWcXjbAECqW
-	3x9gxeKt+3extQ2+epFQ6yYJg4qj5a9pdB7/kfb8Cs/P7Fu3VX2QcJ08TC0RSeoBkwUcjdZLJj7
-	O9WZvzwcIZ3L9YXkdysC7r/eyNEUAiRhsUOlyrxD8eozRimkeoSym057eooZw+wS5ul+JuV
-X-Google-Smtp-Source: AGHT+IEmmXc6X3lklLmC0mCRNpoBur3TPS2BGNaDYr/bqjA6QRWH7eFRQJKdL8KVJ+yPvHwZtBcG2RvEv+KputuzJWc=
-X-Received: by 2002:a17:907:96a1:b0:b6d:9576:3890 with SMTP id
- a640c23a62f3a-b8444f9664fmr26102366b.45.1767729811848; Tue, 06 Jan 2026
- 12:03:31 -0800 (PST)
+	id 1vdDKu-0000000DnmB-2cTx;
+	Tue, 06 Jan 2026 20:07:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1767730040;
+	bh=6vCvCpWevWY66jWQqRM/QOQ6GVMd9id6Itqb4gvVzdk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=BaPnK1NxjtdpF/Dn8oFg1gj90KZdYCLea3LJNrpuGZCgmLRknjkeOjF/QJTfGFURT
+	 3GmViWfd7J6vyutO1xSqDHXjV7iPuxKsfkBNRVcKsSgS4hsOKPZZ/vLSv4PFs094g2
+	 9jFf3FJyU2TbcTvs8pB2aGoLSFFJDJM/EaH9oDb8sHvUd6Hh76xPcxpJdNPQERW6st
+	 HfWDvgzJcViZ8DpFyg+IIyI9tq8bmgsHfpIFu1vAJiEQuDPLplkA5vP4SAeOUDsCkO
+	 c0YvGwUmZKMcxNavo6S7071ui01HsryQ1U2slYKErDImJXwpsP9P9mN5pg3EjTMQZs
+	 rAQF284RmGF6w==
+Received: from [IPv6:2606:6d00:17:7b4b::5ac] (unknown [IPv6:2606:6d00:17:7b4b::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3C17C17E0CB0;
+	Tue,  6 Jan 2026 21:07:18 +0100 (CET)
+Message-ID: <70d2b73a4ec06bef75d7f4ad415ad654cf80ecf6.camel@collabora.com>
+Subject: Re: [PATCH v10 5/7] media: verisilicon: AV1: Restore IOMMU context
+ before decoding a frame
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, joro@8bytes.org, 
+	will@kernel.org, robin.murphy@arm.com, robh@kernel.org, krzk+dt@kernel.org,
+ 	conor+dt@kernel.org, heiko@sntech.de, p.zabel@pengutronix.de,
+ mchehab@kernel.org
+Cc: iommu@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org, 
+	kernel@collabora.com
+Date: Tue, 06 Jan 2026 15:07:15 -0500
+In-Reply-To: <20251215085349.10155-6-benjamin.gaignard@collabora.com>
+References: <20251215085349.10155-1-benjamin.gaignard@collabora.com>
+	 <20251215085349.10155-6-benjamin.gaignard@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-NsLgZPrOWbKHfJXnykTm"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-References: <20251222-automatic-clocks-v7-0-fec86fa89874@linaro.org> <c0eeae31-6951-47ca-8651-868db18d349e@kernel.org>
-In-Reply-To: <c0eeae31-6951-47ca-8651-868db18d349e@kernel.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Tue, 6 Jan 2026 20:03:20 +0000
-X-Gm-Features: AQt7F2oLfa1exLAxy6kjOxPF0LQxcKRjhYroQ-B3HvTQJnB9vgg9Cr5KITN-rwA
-Message-ID: <CADrjBPocyZFz--xCaZahyUA9wwuS7P0E9Gt4Z=53rbT-nEQ7ng@mail.gmail.com>
-Subject: Re: [PATCH v7 0/4] Implement hardware automatic clock gating (HWACG)
- for gs101
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>, 
-	Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
-	Will McVicker <willmcvicker@google.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
-	kernel-team@android.com
-Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_120334_316156_D036DCBA 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20260106_120724_898141_3A601BDA 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,41 +94,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
 
-On Mon, 22 Dec 2025 at 11:50, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On 22/12/2025 11:22, Peter Griffin wrote:
-> > Hi folks,
-> >
-> > This series addresses an issue with Samsung Exynos based upstream clock driver
-> > whereby the upstream clock driver sets all the clock gates into "manual mode"
-> > (which uses a bit that is documented as reserved in the gate registers).
-> >
->
-> Applied.
+--=-NsLgZPrOWbKHfJXnykTm
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thanks.
+Hi,
 
- There were several checkpatch notices/less important warnings
-> of which most were result of existing code but few were introduced.
-> Please be sure you do not introduce new warnings NEXT TIME.
+Le lundi 15 d=C3=A9cembre 2025 =C3=A0 09:53 +0100, Benjamin Gaignard a =C3=
+=A9crit=C2=A0:
+> AV1 is a stateless decoder which means multiple AV1 bitstreams could be
+> decoded at the same time using the same hardware block. Before decoding
+> a frame it is needed to restore the iommu tables to avoid mixing decode
+> contexts.
+>=20
+> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 
-Will do.
+With the config fix you mentioned earlier, you can add my Rb in the next
+revision please.
 
->
-> Also, DTS cannot be in the middle of the patchset. It's almost always
-> wrong, like in this case as well. This was raised, also by me, multiple
-> times on the lists and it is explicitly documented in submitting
-> patches. Putting it in the middle suggests you try to fix up broken
-> unbisectable things by reordering patches, but you cannot.
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-Noted. Thanks for pointing this out. I suppose the last time I read
-submitting-patches.rst must have been before Feb 25th 2025 when you
-documented this rule in b31cc6af1bb1 ("docs: dt: submitting-patches:
-Document sending DTS patches")
+> ---
+> changes in version 10:
+> - Fix build as module issue when Verisilicon video decoder is built-in.
+>=20
+> =C2=A0drivers/media/platform/verisilicon/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 |=C2=A0 1 +
+> =C2=A0.../verisilicon/rockchip_vpu981_hw_av1_dec.c=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 | 15 +++++++++++++++
+> =C2=A02 files changed, 16 insertions(+)
+>=20
+> diff --git a/drivers/media/platform/verisilicon/Kconfig b/drivers/media/p=
+latform/verisilicon/Kconfig
+> index 3272a24db71d..e64bc8b55235 100644
+> --- a/drivers/media/platform/verisilicon/Kconfig
+> +++ b/drivers/media/platform/verisilicon/Kconfig
+> @@ -49,6 +49,7 @@ config VIDEO_HANTRO_ROCKCHIP
+> =C2=A0	bool "Hantro VPU Rockchip support"
+> =C2=A0	depends on VIDEO_HANTRO
+> =C2=A0	depends on ARCH_ROCKCHIP || COMPILE_TEST
+> +	select VSI_IOMMU
+> =C2=A0	default y
+> =C2=A0	help
+> =C2=A0	=C2=A0 Enable support for RK3288, RK3328, and RK3399 SoCs.
+> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_de=
+c.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> index e4703bb6be7c..d9e68e0ded68 100644
+> --- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> +++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> @@ -5,6 +5,9 @@
+> =C2=A0 * Author: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> =C2=A0 */
+> =C2=A0
+> +#include <linux/iommu.h>
+> +#include <linux/vsi-iommu.h>
+> +
+> =C2=A0#include <media/v4l2-mem2mem.h>
+> =C2=A0#include "hantro.h"
+> =C2=A0#include "hantro_v4l2.h"
+> @@ -2095,12 +2098,24 @@ rockchip_vpu981_av1_dec_set_output_buffer(struct =
+hantro_ctx *ctx)
+> =C2=A0	hantro_write_addr(vpu, AV1_TILE_OUT_MV, mv_addr);
+> =C2=A0}
+> =C2=A0
+> +static void rockchip_vpu981_av1_restore_iommu(struct hantro_ctx *ctx)
+> +{
+> +	struct iommu_domain *domain;
+> +
+> +	/* Before decoding any frame iommu context need to be restored */
+> +	domain =3D iommu_get_domain_for_dev(ctx->dev->v4l2_dev.dev);
+> +	if (domain)
+> +		vsi_iommu_restore_ctx(domain);
+> +}
+> +
+> =C2=A0int rockchip_vpu981_av1_dec_run(struct hantro_ctx *ctx)
+> =C2=A0{
+> =C2=A0	struct hantro_dev *vpu =3D ctx->dev;
+> =C2=A0	struct vb2_v4l2_buffer *vb2_src;
+> =C2=A0	int ret;
+> =C2=A0
+> +	rockchip_vpu981_av1_restore_iommu(ctx);
+> +
+> =C2=A0	hantro_start_prepare_run(ctx);
+> =C2=A0
+> =C2=A0	ret =3D rockchip_vpu981_av1_dec_prepare_run(ctx);
 
-regards,
+--=-NsLgZPrOWbKHfJXnykTm
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
-Peter
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaV1rcwAKCRDZQZRRKWBy
+9D3iAP4vmq6NU5wkVXjJbhK2nVtJnaeTvw32c9vlufHhZ1L3FQD/YCmEiCWo2Nbq
+RsSiwxIPnq6ptHDWPcgpHrAsxpfPuw0=
+=mryd
+-----END PGP SIGNATURE-----
+
+--=-NsLgZPrOWbKHfJXnykTm--
 
