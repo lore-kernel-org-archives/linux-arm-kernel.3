@@ -4,94 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41437CE9D78
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 16:26:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A27ECE9D79
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 16:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w+Ejsdv+4cSG7ZPhph+YM70TsgyLaB5ykH3UcPAAKxY=; b=S0/MIAu5K16AhNHK1oq03sZYAv
-	a3BB9UyuyKJzGZgmfkAHSgFPlX5ibdgikxo5rGn+L71wBr6HRM2b1fBnmP3j6HlOGDomO3+GHAd+5
-	oGQQcvJKdsDRLSMfHRjFzuOhHYsyfaQTbhHHG8+mNf3EdD67Y0s4z/xjV0oO+DnpTnO8ikgCo2TgQ
-	DlPyNIemyZ7AoBe4rOEZvjxgHq4BpCayFakhWUf9iUgSiYLvWzwJDJ7Y5Tz1lohTbrOcd7QVD4cqn
-	UCLC2jw/E3qNmJ/2gtLp3KSDV9Lp70NkiioUbqSf+20LyBJrsz05+5PPLUa//zWf6yjkPn5TR9pEQ
-	hYChUCyQ==;
+	bh=vzik8nXSR3mn/i9DyKHW0aMjXX+S/DWXAlyIvVyk9CI=; b=ndeM4wVgqmgyYe5CJewDsYZQB4
+	xlfZgmiNQFhHypfqhHW6Z29oxSnhnJ2QR6rUkuCM0chgO+GjyZrCaz8blp8/APq1WUQeM6FVoPrch
+	zvRQfamwrK8jjFvK+JDkLXXDQUxeYTHA8+4FPH4xyTkAq95n8Cq+Q+GyJvMZJglwJFYoBSaUk9SOU
+	9oUC7zzNoU0oNAeYTD7TwVJ4G/PXP42pfh+yGgzG9pkObYv5VUteieEsJ5+rv6ley0tb1lRbJBxsG
+	cFhGb+8VgVI8WMrytGddT/rPL9n1+d2pHx3GBPDvS27c/r+HFPu1j/HHjMScc49CdRisgvvRPDkUg
+	COqyWv0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd9tU-0000000DTwf-2xqf;
-	Tue, 06 Jan 2026 16:26:52 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1vd9uH-0000000DU48-2o4O;
+	Tue, 06 Jan 2026 16:27:41 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd9tS-0000000DTw6-1WiK
+	id 1vd9uF-0000000DU3T-1COj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 16:26:51 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-477ba2c1ca2so12075215e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 08:26:49 -0800 (PST)
+	Tue, 06 Jan 2026 16:27:40 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6505d3b84bcso1763303a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 08:27:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767716808; x=1768321608; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1767716857; x=1768321657; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=w+Ejsdv+4cSG7ZPhph+YM70TsgyLaB5ykH3UcPAAKxY=;
-        b=CLLzOvzJPS1ozv6kHd1cNHL9Q0fR2vcXFatS/TwXUku144CuyZibU2zrqCX9Ph9k6T
-         aSiBIi8arnrPxfaxjHtFRj+5Pd3tmJeT7YHJHuRmJrljk0kCOeAIKv8axOBt2YhZwQNs
-         ygq30zMTC4CItwNgEVDDaBJiIMb/GMYsVPCrnu326Xk5iLdhjHJ0q3EU+8Uyb7TEWVT/
-         pjcARQv2qXYg3hAdSSwP9YIJ+OWgYawXZ7dMvVD8gqcFI7jq1JGU3S6w6qP6ShbuSLyE
-         FazUhFGmqS7ih6UfNw6cJGVilCLRsrSzmL74/c2WlQyAWGGeX/kVOcNxRzD86fvw4qb7
-         rsNQ==
+        bh=vzik8nXSR3mn/i9DyKHW0aMjXX+S/DWXAlyIvVyk9CI=;
+        b=gmljXUzF0D1jK9Kv6oCdeCLZXcdDHzNKW8eFE+Yii3uWR4ja2sdIeLwwfxXD12SsRy
+         CNuTPIvN7GtWEtxDohnLaEAZPkhgRpYHWG4xsUQOwSIw0OksWzH7mH2y33IHCPoQH9X8
+         xKa+Gpuh1682lvhAN8euRdM6gl2VAb/szBHOj/zgEbQNfJlCHcWNsh30m2Qrn8xxQrFA
+         RUTq878vf6Y/lqiLJ1erZQ5oVCmmS5VYZSzK93tSs/o5WoHZOtInnkCBQdaIXx5OLwve
+         e37aMGLBRbLbd+Kwn90ezP+KhGY1DUWELiFj+6QlOIxBl3QhklM3TrxwSem09Io4D3Uq
+         G4+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767716808; x=1768321608;
+        d=1e100.net; s=20230601; t=1767716857; x=1768321657;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=w+Ejsdv+4cSG7ZPhph+YM70TsgyLaB5ykH3UcPAAKxY=;
-        b=gPZ/G3l8pP0L/AV9xAwTU3WaVbZjKo946F02jwToBrNg8hML+0EYQbTJNhQdmQqkxP
-         vxX1v6vT1HZQ6vbRqHV+546KJoGFyF28eKvMknog5gqGDetChZkX/9KAa/aVrQEZkw4g
-         VM0DQgEDcbR6lCHRwjsB7bTEfWOU66xSTEyDRFToU25sB0eIFqgJuC+Lc89CPLuNwSUY
-         L1j+0bTa5eQ4cNtQwPBFKmT8z/0S7OvKjIPOOygjIwc4H57Jjyg8ypi++hj5MLLTT3XM
-         5ZkYQyDd5SEJcbHMGxLOr6y3YMR9XdlRuS6bZo8tGQT/0clYTIptu4JYkLFo2ew5s0Zn
-         LAlQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWJHbctlFujF1ezuCjNLBeFFNjDGvkyfmEuMNI7exJrvLZFjqBKY5pxawmHLcMfk0cXib8D8ZH328movyqiOM1i@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKnco97n789khekR3251YJtidkYy4shoPpIVe4Ot3Bd2eSG7to
-	pIm2e0pdYFw9mVr9M03Z7MRMcraNbcokuVtjbqHBk004n58CkVi4zAP6xuUwGt292A==
-X-Gm-Gg: AY/fxX7lebtu5I/7STVn1ISYSz7ONecffturkmqNrgYhaejIyNd1DjKujWwSEArdfsP
-	+g/ozRF/CQY6Lq72jt8t+SB0yK5tgBSlRNLvZAZGxirCaRur32VWngdjgcdUWCzs1ILNq+Isw+g
-	GbQKISyPYzzDWFlT0DFd50qcA/XYJ5mysUWJE9iX9D8i25V4xxLepK3elgr2z3ovdepXKuSD6kq
-	4xRlgg7bRYKG5LWaPbXTnfl79WclUUqVTVRBLpLwspzfecI3r8GpLCj6q3aebirDQ/ipstpBwdm
-	vPOGIUyHveY+P0NLkLMhXSEPK52HklKxXci3jCO03L+Sn2VpAZi72I4QVhn/W/zpB8Q7KD10Xgc
-	6DB5v4dJzOzmV3tBeDdmy/vxKnJ9Wk7W5LhryYphDE9R1gHS9N2DLYMWQTcvAfhJz4ZuXdg1tRJ
-	faYInPL43Z0VDWGISQx1MoR2GSEOizP2MO4nh6gczQk5UOPYoM1A==
-X-Google-Smtp-Source: AGHT+IF7hlGyFV379hs3oKbqbIx8gkC6RYZlwJeShX+Gt9MMQwN8OR3S6eiOzaGyxDfGnvr8mxiw5w==
-X-Received: by 2002:a05:600c:8216:b0:476:4efc:8ed4 with SMTP id 5b1f17b1804b1-47d7f073134mr38448755e9.11.1767716808352;
-        Tue, 06 Jan 2026 08:26:48 -0800 (PST)
-Received: from google.com (44.145.34.34.bc.googleusercontent.com. [34.34.145.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d7f410c25sm57181765e9.2.2026.01.06.08.26.47
+        bh=vzik8nXSR3mn/i9DyKHW0aMjXX+S/DWXAlyIvVyk9CI=;
+        b=BctmQ/ZDihf6Vx7/ooiW5QXvqHVh0B76z7k64dPEUmb8Pnn6wFxz4o8+fxr/GqRJkr
+         iNbkoB8bbIm0raLxoEbrATCEQimDMHSUoaQ3DGiuB6eh0Sq7zPOeJ4rkqKBxGAHqN/mT
+         qqyyXiuOZDskacK507m53RFfEaloOJTHZpI5grY2BGYdDUi2opq/sT9rZLVHsee92mMn
+         rkRSmRbgbgWYvVfBfgmh8qDHf90DMYaBrBddm1A2rJI3BTMz7/yXbpSbPEaqukaagXiO
+         1n7qEzEosoACFP05gFCOzzDfc5bcupnDeBCS72//ZPVWk8qWdutGNpeSFv5WWLPTEfCg
+         VWWg==
+X-Forwarded-Encrypted: i=1; AJvYcCWi5Tl69QEvJ3JPTRKwqr9RERGFtgpECWdwahB7Omq0NWYZM/Mek8Hd0XO2hzlLfsNbPYj8xaJR9DKCKeqIvnnw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfAQ+GC87xISL59B6iteO29sPQU8ZDXKMGBLLN6RVtwM0O6e8N
+	1/fDOsn7tuCpej9tj6eRxTYwmCeoe2iZG2dMwIn6S5kAQfTX4uv9pqApBd2EGPoeqrg=
+X-Gm-Gg: AY/fxX6tUODr7vmz33K84UgJiHnWtaZP6pP+MDNMYYVHbEOhSYcRcLvxc7Yr0zllASc
+	S0TnTZ7MzQ0R0NrErHI3rXD09xZpwal4c79kpJjEc62JkBbFUrh2XNu+i9f+sOsXpfJmzD9Eb5u
+	U7C9V/DiP9Iad2iVnwYQYnT4X/mPhaPrpraCa7sy80hqMU/odCHyaTVlsBGB+wDmSElc4WAwx2g
+	ZBtJQ5SEcw6wl1GqajijGyESdMZSvBnPCY+/L45VS/11wb22vLThmLJLgw+Do/j4pZH8u1uAH4S
+	pJUgLS9q8G46YTI6xfIUbBg0LXZCbaE8rMj6dMoIm9Zq90FtN3OmnsssY/BAsFW3Mi6Be816+ME
+	wtKLW7yBvFGUn6s17BzXCDpC99ARAt+8W4Mp/bmHIitBipZQcLOkisikPxTPuTwjwZOwPOA49qe
+	Y2eDAyq8lIFku511vx1HnyXk/EJzQ=
+X-Google-Smtp-Source: AGHT+IFAk9Nui8g2Wvca+PO/+8m/8D82to1wW+PFqJUMRDqkKSTBkNs3hxMpJZxnAFqxb/4tZ/EvCQ==
+X-Received: by 2002:a05:6402:210b:b0:641:15d:6b97 with SMTP id 4fb4d7f45d1cf-6507921efbemr2995418a12.2.1767716856825;
+        Tue, 06 Jan 2026 08:27:36 -0800 (PST)
+Received: from localhost ([2a02:8071:b783:6940:1d24:d58d:2b65:c291])
+        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-6507b9d51c5sm2493981a12.14.2026.01.06.08.27.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jan 2026 08:26:47 -0800 (PST)
-Date: Tue, 6 Jan 2026 16:26:44 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 13/30] KVM: arm64: Introduce
- __pkvm_reclaim_dying_guest_page()
-Message-ID: <aV03xOYPTdurX2k4@google.com>
-References: <20260105154939.11041-1-will@kernel.org>
- <20260105154939.11041-14-will@kernel.org>
+        Tue, 06 Jan 2026 08:27:36 -0800 (PST)
+Date: Tue, 6 Jan 2026 17:27:34 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Richard GENOUD <richard.genoud@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, Joao Schim <joao@schimsalabim.eu>
+Subject: Re: [PATCH v2 2/4] pwm: sun50i: Add H616 PWM support
+Message-ID: <mu3ciykmtxoaa24mdw7mofpdapbii23qrubw6uzptszok43tta@tq3rguupehwe>
+References: <20251217082504.80226-1-richard.genoud@bootlin.com>
+ <20251217082504.80226-3-richard.genoud@bootlin.com>
+ <en7wscywn3xpw7cxvc2ngwrmjfciglzxgaje5qc5ngiehrjufh@jbvgp2neyzzx>
+ <9c55d591-a280-4ed7-91b1-0c867cfff658@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xoh64gb6ddxqpmu6"
 Content-Disposition: inline
-In-Reply-To: <20260105154939.11041-14-will@kernel.org>
+In-Reply-To: <9c55d591-a280-4ed7-91b1-0c867cfff658@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_082650_460819_371B1B21 
-X-CRM114-Status: GOOD (  27.69  )
+X-CRM114-CacheID: sfid-20260106_082739_367077_D8C8510B 
+X-CRM114-Status: GOOD (  46.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,216 +106,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 05, 2026 at 03:49:21PM +0000, Will Deacon wrote:
-> To enable reclaim of pages from a protected VM during teardown,
-> introduce a new hypercall to reclaim a single page from a protected
-> guest that is in the dying state.
-> 
-> Since the EL2 code is non-preemptible, the new hypercall deliberately
-> acts on a single page at a time so as to allow EL1 to reschedule
-> frequently during the teardown operation.
-> 
-> Co-developed-by: Quentin Perret <qperret@google.com>
-> Signed-off-by: Quentin Perret <qperret@google.com>
-> Signed-off-by: Will Deacon <will@kernel.org>
 
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+--xoh64gb6ddxqpmu6
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 2/4] pwm: sun50i: Add H616 PWM support
+MIME-Version: 1.0
 
-> ---
->  arch/arm64/include/asm/kvm_asm.h              |  1 +
->  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  1 +
->  arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |  1 +
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  9 +++
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 79 +++++++++++++++++++
->  arch/arm64/kvm/hyp/nvhe/pkvm.c                | 14 ++++
->  6 files changed, 105 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-> index cad3ba5e1c5a..f14f845aeedd 100644
-> --- a/arch/arm64/include/asm/kvm_asm.h
-> +++ b/arch/arm64/include/asm/kvm_asm.h
-> @@ -86,6 +86,7 @@ enum __kvm_host_smccc_func {
->  	__KVM_HOST_SMCCC_FUNC___pkvm_unreserve_vm,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_init_vm,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_init_vcpu,
-> +	__KVM_HOST_SMCCC_FUNC___pkvm_reclaim_dying_guest_page,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_start_teardown_vm,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_finalize_teardown_vm,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> index 9c0cc53d1dc9..cde38a556049 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> @@ -41,6 +41,7 @@ int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
->  int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
->  int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
->  int __pkvm_host_donate_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu);
-> +int __pkvm_host_reclaim_page_guest(u64 gfn, struct pkvm_hyp_vm *vm);
->  int __pkvm_host_share_guest(u64 pfn, u64 gfn, u64 nr_pages, struct pkvm_hyp_vcpu *vcpu,
->  			    enum kvm_pgtable_prot prot);
->  int __pkvm_host_unshare_guest(u64 gfn, u64 nr_pages, struct pkvm_hyp_vm *hyp_vm);
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> index 04c7ca703014..506831804f64 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> @@ -74,6 +74,7 @@ int __pkvm_init_vm(struct kvm *host_kvm, unsigned long vm_hva,
->  int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
->  		     unsigned long vcpu_hva);
->  
-> +int __pkvm_reclaim_dying_guest_page(pkvm_handle_t handle, u64 gfn);
->  int __pkvm_start_teardown_vm(pkvm_handle_t handle);
->  int __pkvm_finalize_teardown_vm(pkvm_handle_t handle);
->  
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index a5ee1103ce1f..b1940e639ad3 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -570,6 +570,14 @@ static void handle___pkvm_init_vcpu(struct kvm_cpu_context *host_ctxt)
->  	cpu_reg(host_ctxt, 1) = __pkvm_init_vcpu(handle, host_vcpu, vcpu_hva);
->  }
->  
-> +static void handle___pkvm_reclaim_dying_guest_page(struct kvm_cpu_context *host_ctxt)
-> +{
-> +	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
-> +	DECLARE_REG(u64, gfn, host_ctxt, 2);
-> +
-> +	cpu_reg(host_ctxt, 1) = __pkvm_reclaim_dying_guest_page(handle, gfn);
-> +}
-> +
->  static void handle___pkvm_start_teardown_vm(struct kvm_cpu_context *host_ctxt)
->  {
->  	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
-> @@ -622,6 +630,7 @@ static const hcall_t host_hcall[] = {
->  	HANDLE_FUNC(__pkvm_unreserve_vm),
->  	HANDLE_FUNC(__pkvm_init_vm),
->  	HANDLE_FUNC(__pkvm_init_vcpu),
-> +	HANDLE_FUNC(__pkvm_reclaim_dying_guest_page),
->  	HANDLE_FUNC(__pkvm_start_teardown_vm),
->  	HANDLE_FUNC(__pkvm_finalize_teardown_vm),
->  	HANDLE_FUNC(__pkvm_vcpu_load),
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> index ae126ab9febf..edbfe0e3dc58 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> @@ -725,6 +725,32 @@ static int __guest_check_page_state_range(struct pkvm_hyp_vm *vm, u64 addr,
->  	return check_page_state_range(&vm->pgt, addr, size, &d);
->  }
->  
-> +static int get_valid_guest_pte(struct pkvm_hyp_vm *vm, u64 ipa, kvm_pte_t *ptep, u64 *physp)
-> +{
-> +	kvm_pte_t pte;
-> +	u64 phys;
-> +	s8 level;
-> +	int ret;
-> +
-> +	ret = kvm_pgtable_get_leaf(&vm->pgt, ipa, &pte, &level);
-> +	if (ret)
-> +		return ret;
-> +	if (!kvm_pte_valid(pte))
-> +		return -ENOENT;
-> +	if (level != KVM_PGTABLE_LAST_LEVEL)
-> +		return -E2BIG;
-> +
-> +	phys = kvm_pte_to_phys(pte);
-> +	ret = check_range_allowed_memory(phys, phys + PAGE_SIZE);
-> +	if (WARN_ON(ret))
-> +		return ret;
-> +
-> +	*ptep = pte;
-> +	*physp = phys;
-> +
-> +	return 0;
-> +}
-> +
->  int __pkvm_host_share_hyp(u64 pfn)
->  {
->  	u64 phys = hyp_pfn_to_phys(pfn);
-> @@ -958,6 +984,59 @@ static int __guest_check_transition_size(u64 phys, u64 ipa, u64 nr_pages, u64 *s
->  	return 0;
->  }
->  
-> +static void hyp_poison_page(phys_addr_t phys)
-> +{
-> +	void *addr = hyp_fixmap_map(phys);
-> +
-> +	memset(addr, 0, PAGE_SIZE);
-> +	/*
-> +	 * Prefer kvm_flush_dcache_to_poc() over __clean_dcache_guest_page()
-> +	 * here as the latter may elide the CMO under the assumption that FWB
-> +	 * will be enabled on CPUs that support it. This is incorrect for the
-> +	 * host stage-2 and would otherwise lead to a malicious host potentially
-> +	 * being able to read the contents of newly reclaimed guest pages.
-> +	 */
-> +	kvm_flush_dcache_to_poc(addr, PAGE_SIZE);
-> +	hyp_fixmap_unmap();
-> +}
-> +
-> +int __pkvm_host_reclaim_page_guest(u64 gfn, struct pkvm_hyp_vm *vm)
-> +{
-> +	u64 ipa = hyp_pfn_to_phys(gfn);
-> +	kvm_pte_t pte;
-> +	u64 phys;
-> +	int ret;
-> +
-> +	host_lock_component();
-> +	guest_lock_component(vm);
-> +
-> +	ret = get_valid_guest_pte(vm, ipa, &pte, &phys);
-> +	if (ret)
-> +		goto unlock;
-> +
-> +	switch (guest_get_page_state(pte, ipa)) {
-> +	case PKVM_PAGE_OWNED:
-> +		WARN_ON(__host_check_page_state_range(phys, PAGE_SIZE, PKVM_NOPAGE));
-> +		hyp_poison_page(phys);
-> +		break;
-> +	case PKVM_PAGE_SHARED_OWNED:
-> +		WARN_ON(__host_check_page_state_range(phys, PAGE_SIZE, PKVM_PAGE_SHARED_BORROWED));
-> +		break;
-> +	default:
-> +		ret = -EPERM;
-> +		goto unlock;
-> +	}
-> +
-> +	WARN_ON(kvm_pgtable_stage2_unmap(&vm->pgt, ipa, PAGE_SIZE));
-> +	WARN_ON(host_stage2_set_owner_locked(phys, PAGE_SIZE, PKVM_ID_HOST));
-> +
-> +unlock:
-> +	guest_unlock_component(vm);
-> +	host_unlock_component();
-> +
-> +	return ret;
-> +}
-> +
->  int __pkvm_host_donate_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu)
->  {
->  	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index 7f8191f96fc3..9f0997150cf5 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -832,6 +832,20 @@ teardown_donated_memory(struct kvm_hyp_memcache *mc, void *addr, size_t size)
->  	unmap_donated_memory_noclear(addr, size);
->  }
->  
-> +int __pkvm_reclaim_dying_guest_page(pkvm_handle_t handle, u64 gfn)
-> +{
-> +	struct pkvm_hyp_vm *hyp_vm;
-> +	int ret = -EINVAL;
-> +
-> +	hyp_spin_lock(&vm_table_lock);
-> +	hyp_vm = get_vm_by_handle(handle);
-> +	if (hyp_vm && hyp_vm->kvm.arch.pkvm.is_dying)
-> +		ret = __pkvm_host_reclaim_page_guest(gfn, hyp_vm);
-> +	hyp_spin_unlock(&vm_table_lock);
-> +
-> +	return ret;
-> +}
-> +
->  int __pkvm_start_teardown_vm(pkvm_handle_t handle)
->  {
->  	struct pkvm_hyp_vm *hyp_vm;
-> -- 
-> 2.52.0.351.gbe84eed79e-goog
-> 
+Hello Richard,
+
+On Tue, Jan 06, 2026 at 12:19:59PM +0100, Richard GENOUD wrote:
+> Le 24/12/2025 =E0 10:54, Uwe Kleine-K=F6nig a =E9crit :
+> > this patch isn't checkpatch clean.
+>=20
+> Yes, I've seen that.
+> It's because checkpatch doesn't detect that PWM_XY_SRC_MUX/GATE/DIV are
+> structures
+> If I unwrap PWM_XY_SRC_MUX/GATE/DIV and PWM_X_DIV, checkpatch doesn't
+> complain anymore (indeed, do/while loops are not allowed at file-scope)
+
+At least add parenthesis around usages of _reg. (And if you know that
+checkpatch points out things that you don't agree to, preempting the
+critic in the cover letter is a good idea.)
+
+> I can drop PWM_XY_SRC_MUX/GATE/DIV PWM_X_DIV and declare the structures
+> directly under PWM_XY_CLK_SRC() and PWM_X_CLK() if you prefer, but I
+> find it less readable than the current form.
+
+No strong feeling here.
+=20
+> > On Wed, Dec 17, 2025 at 09:25:02AM +0100, Richard Genoud wrote:
+> > > +#define PWM_XY_SRC_GATE(_pair, _reg)			\
+> > > +struct clk_gate gate_xy_##_pair =3D {			\
+> > > +	.reg =3D (void *)_reg,				\
+> > > +	.bit_idx =3D PWM_XY_CLK_CR_GATE_BIT,		\
+> > > +	.hw.init =3D &(struct clk_init_data){		\
+> > > +		.ops =3D  &clk_gate_ops,			\
+> > > +	}						\
+> >=20
+> > I would consider
+> >=20
+> > 	.hw.init.ops =3D ...;
+> >=20
+> > and
+> >=20
+> > 	.hw =3D {
+> > 		.init =3D {
+> > 			.ops =3D ...;
+> > 		},
+> > 	},
+> >=20
+> > natural here. The middleway you chose looks strange to me.
+>=20
+> Actually, it's:
+> 	.hw.init->ops =3D ... ;
+> That's why I used this middleway construct.
+
+Ah I see. Then it's fine for me.
+
+> > > +#define PWM_XY_SRC_MUX(_pair, _reg)			\
+> > > +struct clk_mux mux_xy_##_pair =3D {			\
+> > > +	.reg =3D (void *)_reg,				\
+> > > +	.shift =3D PWM_XY_CLK_CR_SRC_SHIFT,		\
+> > > +	.mask =3D PWM_XY_CLK_CR_SRC_MASK,			\
+> >=20
+> > Huh, why does this structure has both a shift and a mask value? What is
+> > the difference between
+> >=20
+> > 	.shift =3D 7,
+> > 	.mask =3D 1,
+> >=20
+> > and
+> >=20
+> > 	.shift =3D 0,
+> > 	.mask =3D 1 << 7,
+> >=20
+> > ? If the latter is equivalent, you could just pass
+> > H616_PWM_XY_CLK_CR_SRC and get rid of the extra definitions for _SHIFT
+> > and _MASK.
+> >=20
+> Unfortunately, struct clk_mux wants a shift and an unshifted mask, and
+> according to:
+> https://elixir.bootlin.com/linux/v6.18.3/source/drivers/clk/clk-mux.c#L93=
+-L94
+> using a 0 shift and mask =3D 1 << 7 won't work.
+
+How annoying, I put that on my todo list ...
+
+> > > +static inline struct h616_pwm_chip *to_h616_pwm_chip(struct pwm_chip=
+ *chip)
+> >=20
+> > It probably doesn't help much, but conceptually this could be
+> >=20
+> > 	static inline struct h616_pwm_chip *to_h616_pwm_chip(const struct pwm_=
+chip *chip)
+> >=20
+> Indeed, I'll add that.
+
+If you rename it to h616_pwm_from_chip it even has the driver specific
+prefix.
+
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> > > +static int h616_pwm_calc(struct pwm_chip *chip, unsigned int idx,
+> > > +			 const struct pwm_state *state)
+> > > +{
+> > > +	struct h616_pwm_chip *h616chip =3D to_h616_pwm_chip(chip);
+> > > +	struct h616_pwm_channel *chan =3D &h616chip->channels[idx];
+> > > +	unsigned int cnt, duty_cnt;
+> > > +	unsigned long max_rate;
+> > > +	long calc_rate;
+> > > +	u64 duty, period, freq;
+> > > +
+> > > +	duty =3D state->duty_cycle;
+> > > +	period =3D state->period;
+> > > +
+> > > +	max_rate =3D clk_round_rate(chan->pwm_clk, UINT32_MAX);
+> >=20
+> > Huh, is this an artificial limitation? Do you rely on how clk_round_rate
+> > picks the return value? (I.e. nearest value? nearest time? round up?
+> > round down?)
+>=20
+> What I want to achieve here is to handle the lowest possible period case.
+> Without the bypass, the lowest period is build with the highest clock,
+> duty cycle =3D 1 and period cycle =3D 2 (0x10001 in period register)
+> So, if the input clock is 100MHz, we have a lowest period of 20ns.
+> Now, if we enable the bypass, the period register is ignored and we direc=
+tly
+> have the 100MHz clock as PWM output, that can act as a 10ns period with 5=
+ns
+> duty
+> So the logic here is to detect this specific lowest period case that can =
+be
+> achieved by enabling the bypass.
+> For that, the highest clock is retrieved and compared to the wanted period
+> and duty.
+>=20
+> Now, I learned the hard way that clk_round_rate() is actually limited to a
+> 32 bits value:
+> clk_round_rate() calls at one point clk_divider_bestdiv() that uses
+> DIV_ROUND_UP_ULL() which in turn uses do_div(n,base):
+>   do_div - returns 2 values: calculate remainder and update new dividend
+>   @n: uint64_t dividend (will be updated)
+>   @base: uint32_t divisor
+> So, in order to get the exact highest clock rate, I use clk_round_rate()
+> with U32_MAX.
+
+IMHO this should be addressed in the clk framework. And until this
+happend the code in the pwm driver needs a verbose comment.
+=20
+> > > +	dev_dbg(pwmchip_parent(chip), "period=3D%llu cnt=3D%u duty=3D%llu d=
+uty_cnt=3D%u\n",
+> > > +		period, cnt, duty, duty_cnt);
+> >=20
+> > This is little helpful without the input parameters.
+> >=20
+> as
+> 	duty =3D state->duty_cycle;
+> 	period =3D state->period;
+> The input parameters are there, right?
+> But I can add the missing idx.
+
+Today I agree, don't know why I missed that. It would be nice to stick
+to the format that e.g. pwm-stm32 uses for the input parameters to make
+me notice even on busy days that the input parameters are there :-)
+
+> > > +	for (unsigned int i =3D 0; i < data->npwm; i++) {
+> >=20
+> > Huh, AFAIK we're not using declarations in for loops in the kernel.
+>
+> Actually, I've read somewhere (in LWN I guess) that Linus seems ok with t=
+hat,
+> but I'll remove it if you prefer.
+
+If you find your source again, I'd be interested.
+
+Best regards
+Uwe
+
+--xoh64gb6ddxqpmu6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmldN/QACgkQj4D7WH0S
+/k6a3wf/dyB2OrJF/DAgW2HOZ0tlnIpsQAvUNWwXN8AM1HMaPt4MSdhAioirsfN0
+/Aw1KjjVBKXpdbfo2twmv9ZSbREgKxIH6hske49hZVlubzdGwbSkxy61kdL6j1xG
+odksjFrtzafYhMt8gC4tAmdSdigtAGF146BBSyrRksobpo4mySFMYUIQmQMnZIM7
+znYdQIuYbtMsTkZ7B+uSveguzBgoDPvlzA6E4n6as9mATma6EW5GNw0WOqcdioQt
+kh74bbrr+qilk1uS7x7AaMS5HPqL3R0/qiZpxobJkXoSUn36WRqEAGWGmvs1XoYt
+5E9L+65geD1aHNOvvn5S3ezdcebtyA==
+=mAfF
+-----END PGP SIGNATURE-----
+
+--xoh64gb6ddxqpmu6--
 
