@@ -4,80 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4044CDC19C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 13:11:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3143CDC19E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 13:22:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R5WqJw4AQBIS4eFg6BiDdOXfZJV5yEOYXWQBUvQEjh4=; b=W8YI651/5qVNYHL8UIW3ZaIw4K
-	CElSfpDCxV/tGwyU70Ltkx8iaf5yGQ+o6hdDmoirXBSUBrF+GWvUTxT7/iC9jfwoPfT0XpFchP3Gv
-	mG2RgXd3A1BmqxPVdBIe3a5Abar9mYCpZRRgwPKYudO8i2fA/jL+O+zhK+ujrrhb76Y+VjY3/mN9g
-	1i1uQTiCGyEiECMRkHI0r4l0v7KOWZBA3RhlVWepnWBG3BQrti+tRBEb5rkB+SHVRwH/IPTrUF7Za
-	D45xxl3sOh8xRuBaSMVjxA4buj7uN/hwYmd9fAppGoN5LVvRF8Ad2DwU5xiVAgrdbPBRLyPvoeJWt
-	U5V8AZ8A==;
+	bh=AnaTrYgO4HShbHNfxp0Gz+GzpJfxlGJKnBUzxWHLg+w=; b=upc15dReIoeYaHVddhuNA25sPe
+	E2cb35pdysElACYKXX1fZ4LxPki3Id5mdgTA1/LpOrhWnpvC1qfCWEf/7adEydUpR5WdYSPet0pEt
+	HQN8FSU51DK08NpXKUU8eXFzjx5aMO+MgMUbc2Et6L2dVOlXVGtQajKAXvfY8E3pL/Td1Eq7mxUa6
+	nmMXEMRwNDjo9a+oTH4uKN7UPROE3UqgOlXa7tGBhZP4C3G9RSS26y7s9Lkr5P/T22MlSSry5kpiC
+	WngyBeMp5iUwWpXvQSe8Fto62OWZAVW4a4U4U4F5g1kbHGpAqZVbu0sKfQ1bilW2TQXJ1ru8EO0/E
+	t6qTjzFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd6qQ-0000000D4AZ-126X;
-	Tue, 06 Jan 2026 13:11:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vd70j-0000000D5H9-2vzv;
+	Tue, 06 Jan 2026 13:22:09 +0000
+Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd6qN-0000000D498-0xU6;
-	Tue, 06 Jan 2026 13:11:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8E7C144019;
-	Tue,  6 Jan 2026 13:11:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B83DC116C6;
-	Tue,  6 Jan 2026 13:11:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767705084;
-	bh=up2iff1BZxa94kRdGC8JpHKlWbcnvKvXoZYjbXT7JJI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=n9VSxyA6dLZYidFmR3YKrnuiZmFCzcB/BXSKq32qKyENyNq4aYaGeJAl6It6ZWDae
-	 fNHETbHe0yBHeHjen+HujqOr71J0UL8kKlDhPZPwBXLp5KOJzvtamRwgbC1dTWtzoU
-	 dU8zDzs8a3uCTCqPdqAaHawnWUWhg0/LDiK9aM5Vnv5eyd/YlNschdxUR68oCwFSuq
-	 lsb+Yem3dGUbajGYyEcIG1jGg3tb4MFgBauIq1kXi/bjkYNnEjRcZYahTuLaT6sg8S
-	 43n3wc587dSole11rjV87w4Lq2gF90tg+wVYlie+AZg/u/3/SL0a3CFyoH3K0toWyp
-	 KnseknnkVQXOg==
-Date: Tue, 6 Jan 2026 18:41:09 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Sumit Kumar <sumit.kumar@oss.qualcomm.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Richard Zhu <hongxing.zhu@nxp.com>, 
-	Lucas Stach <l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Yue Wang <yue.wang@amlogic.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Greentime Hu <greentime.hu@sifive.com>, 
-	Samuel Holland <samuel.holland@sifive.com>, Chuanhua Lei <lchuanhua@maxlinear.com>, 
-	Marek Vasut <marek.vasut+renesas@gmail.com>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Pratyush Anand <pratyush.anand@gmail.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-amlogic@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-tegra@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/2] PCI: dwc: Add multi-port controller support
-Message-ID: <5gne3bureusi45sy4zqr2zrfvt4ba4uxgnsfdnjeh2eno5zspe@ldvhq2nilsan>
-References: <20260105-dt-parser-v1-0-b11c63cb5e2c@oss.qualcomm.com>
- <20260105-dt-parser-v1-2-b11c63cb5e2c@oss.qualcomm.com>
- <aVvkmkd5mWPmxeiS@ryzen>
- <m5ukeugo2lazipljqpubyvm7j3xk2j5o7i2xgdbkkhii57xmyk@lh32qdzjhe4n>
- <aVzqMqTUWIuKhgmC@fedora>
+	id 1vd70h-0000000D5GV-1qUH
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 06 Jan 2026 13:22:08 +0000
+Received: by mail-ed1-x543.google.com with SMTP id 4fb4d7f45d1cf-64b560e425eso1283315a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 05:22:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767705725; x=1768310525; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AnaTrYgO4HShbHNfxp0Gz+GzpJfxlGJKnBUzxWHLg+w=;
+        b=jKMJyIzdPXm0SOJxsWGHX+nYwBjWxEIcoB4749rO/9Ruy+aIlfaLHAifnpe/dZLTvM
+         4+kB2tbB9KumLTle3nNLxlg9tvg9H570a5Kk6cO72Jn66iJrtaRCR1QK3lAFhqv/zRFR
+         c0f0IQCT1eifY1sUjp1FZou/G222l/oSICT4G9+JwBjJHDYDTQ0IJ+hGcW5cwDk4ORO1
+         +ikEM34J0wt2a0FRGaVR5HjtraENncA1LuPW5w3O6ufEHn0Hciak971oTtfy8Q2AYhoy
+         iUoZvJwZh+4u2+vfmPf8IXiGKK7zPnYo9UJu7mmW5IPHohpB4j2vqj/Pj1Er/nJz+S+H
+         ufHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767705725; x=1768310525;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=AnaTrYgO4HShbHNfxp0Gz+GzpJfxlGJKnBUzxWHLg+w=;
+        b=KQxYF3BPz3ZzJ0o8spPGt256ZtaEWD/QnEULJ9AGSf6R/U5rLMwuLV2xZW+HUAEsIu
+         YcbFkeurNLdUWY35fFubSYXFTiiUED0zXPHJSB+/MqXp+7gwJCL9vBLc6+J885ZFcFOS
+         ijmds9XhOG79fxaAAKWxKlhfyjhFUz6maB31l762wZbC9IECRPUhiJtCpDpKQRxbpwW2
+         ooyosdhq6NDKt2846t81bDiP7EvExFO7OUCbq+KTnJkXsYhrGo/7330ZJurEl22/G4lc
+         LnT5LnyswR5KtLynWTE27NJ8DjHg30ZnxA39Ac59ICurA4mLgJVzx3Op8y+P2XeUwQz9
+         epPA==
+X-Forwarded-Encrypted: i=1; AJvYcCU6zOMNYOsnIlVtWsp8foTlbjgZpgHV6nxl9U8sZMpk8APpQpg+QO7uC0+pte02FKRbAkDx5y7iHXG59bSdfiHW@lists.infradead.org
+X-Gm-Message-State: AOJu0YzyUlPMveDL7+GJUKXmKYi5QmlyjXLtGZPyUujEOFuBxzJZy2+P
+	C4Po496lN6H5IeXmyfHPD4hRZHdGBwYxOSIN5f2ccrIm7M6kxLIm//Wb
+X-Gm-Gg: AY/fxX7YtJMr5jHIYPO+jGjJ6NQccEJ1QOhn8X+i9pt+5hFV2B+0maQ1ZKl0Ajq9xa+
+	BIQVIwDALVBEVVLx829wbzYrSwxI/dj/stwZhascCuEyTEevCSlFkvLqfwoZNuRMae4ErROixee
+	1Mvbho8VJ1f3XDv3HCjmgvTqlfG+wSe6JWgvS+EtqPfBeleYABPdbLqjSICsQYQC/fp7Hi4OjJv
+	9YNGjykJnwRGZXr0zWWoQd0BtXZ+qBca5Le3Wt8/6noYVbowEmxm84T/3o6ipyYEYgbAgm47lH0
+	U6nODGoSLPvGcAdMmS3/Anx/FQCxf5exMsb1p1CgKBZNfh6QtdACAE+frXvrukhxnQUzie8Irqv
+	flcZ/horpyP7cOPS+5it8XXFiLbSm7LcQaCsSUrHeORpLOmqQf2C4QFUrNDgnQ3RkJNWtaxe/Zq
+	lwvs/otzkv2Q==
+X-Google-Smtp-Source: AGHT+IGOQUwp29CuBStqL9lweYRQ0EBUwNwC7bXQ4+jGDqmOepHg0UTslUPPgNQcAc0Gl4FJ2lkzvg==
+X-Received: by 2002:a17:907:7242:b0:b7a:1bdd:3311 with SMTP id a640c23a62f3a-b8426c4a81cmr316783366b.62.1767705724583;
+        Tue, 06 Jan 2026 05:22:04 -0800 (PST)
+Received: from localhost ([185.92.221.13])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b842a2cffa4sm225646466b.30.2026.01.06.05.22.04
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Tue, 06 Jan 2026 05:22:04 -0800 (PST)
+Date: Tue, 6 Jan 2026 13:22:03 +0000
+From: Wei Yang <richard.weiyang@gmail.com>
+To: Baolin Wang <baolin.wang@linux.alibaba.com>
+Cc: akpm@linux-foundation.org, david@kernel.org, catalin.marinas@arm.com,
+	will@kernel.org, lorenzo.stoakes@oracle.com, ryan.roberts@arm.com,
+	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org,
+	surenb@google.com, mhocko@suse.com, riel@surriel.com,
+	harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
+	baohua@kernel.org, dev.jain@arm.com, linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 5/5] mm: rmap: support batched unmapping for file
+ large folios
+Message-ID: <20260106132203.kdxfvootlkxzex2l@master>
+References: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
+ <142919ac14d3cf70cba370808d85debe089df7b4.1766631066.git.baolin.wang@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aVzqMqTUWIuKhgmC@fedora>
+In-Reply-To: <142919ac14d3cf70cba370808d85debe089df7b4.1766631066.git.baolin.wang@linux.alibaba.com>
+User-Agent: NeoMutt/20170113 (1.7.2)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_051127_341934_DAABC5DF 
-X-CRM114-Status: GOOD (  43.63  )
+X-CRM114-CacheID: sfid-20260106_052207_499169_410E14BB 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,105 +104,98 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 06, 2026 at 11:55:46AM +0100, Niklas Cassel wrote:
-> On Tue, Jan 06, 2026 at 10:49:19AM +0530, Manivannan Sadhasivam wrote:
-> > On Mon, Jan 05, 2026 at 05:19:38PM +0100, Niklas Cassel wrote:
-> > > On Mon, Jan 05, 2026 at 05:57:55PM +0530, Sumit Kumar wrote:
-> > > > The current DesignWare PCIe RC implementation supports only the controller
-> > > > (Host Bridge) node for specifying the Root Port properties in an assumption
-> > > > that the underlying platform only supports a single root Port per
-> > > > controller instance. This limits support for multi-port controllers where
-> > > > different ports may have different lane configurations and speed limits.
-> > > > 
-> > > > Introduce a separate dw_pcie_port structure to enable multi-port support.
-> > > > Each Root Port can have independent lane count, speed limit through pcie@N
-> > > > child nodes in device tree. Add dw_pcie_parse_root_ports()
-> > > > API to parse these child nodes.
-> > > > 
-> > > > Equalization presets and link width detection currently use common DBI
-> > > > space for all the root ports. Per-port DBI space assignment for these
-> > > > features will be added in future.
-> > > > 
-> > > > Signed-off-by: Sumit Kumar <sumit.kumar@oss.qualcomm.com>
-> > > 
-> > > Hello Sumit,
-> > > 
-> > > Is there a reason why you represent this as a list of ports rather than a
-> > > simple array?
-> > > 
-> > > The number of ports is known by parsing the device tree, so it should be
-> > > static, no?
-> > > 
-> > > At least to me, this seem similar to e.g. how a gpio_device has multiple
-> > > gpio_descriptors "struct gpio_desc *descs":
-> > > https://github.com/torvalds/linux/blob/master/drivers/gpio/gpiolib.h#L68C1-L68C26
-> > > 
-> > > A list is usually used for something that is dynamic.
-> > > I don't think that the number of ports to a PCIe controller will be dynamic.
-> > > 
-> > > I can see that struct qcom_pcie in pcie-qcom.c has struct list_head ports,
-> > > but that does not necessarily mean that we need to have a list of ports in
-> > > pcie-designware-host.c. (pcie-qcom could also be modified to have an array
-> > > of ports if there is a desire for similar design pattern.)
-> > > 
-> > 
-> > Only reason why I went with lists in pcie-qcom is flexibility. There are useful
-> > helpers available for traversing the lists and they seem much more elegant to
-> > use rather than manually traversing the array in C.
-> > 
-> > But to be frank, I don't really care which one is used as there is going to be
-> > only a handful of ports at max anyway and there is not much overhead.
+On Fri, Dec 26, 2025 at 02:07:59PM +0800, Baolin Wang wrote:
+>Similar to folio_referenced_one(), we can apply batched unmapping for file
+>large folios to optimize the performance of file folios reclamation.
+>
+>Barry previously implemented batched unmapping for lazyfree anonymous large
+>folios[1] and did not further optimize anonymous large folios or file-backed
+>large folios at that stage. As for file-backed large folios, the batched
+>unmapping support is relatively straightforward, as we only need to clear
+>the consecutive (present) PTE entries for file-backed large folios.
+>
+>Performance testing:
+>Allocate 10G clean file-backed folios by mmap() in a memory cgroup, and try to
+>reclaim 8G file-backed folios via the memory.reclaim interface. I can observe
+>75% performance improvement on my Arm64 32-core server (and 50%+ improvement
+>on my X86 machine) with this patch.
+>
+>W/o patch:
+>real    0m1.018s
+>user    0m0.000s
+>sys     0m1.018s
+>
+>W/ patch:
+>real	0m0.249s
+>user	0m0.000s
+>sys	0m0.249s
+>
+>[1] https://lore.kernel.org/all/20250214093015.51024-4-21cnbao@gmail.com/T/#u
+>Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+>Acked-by: Barry Song <baohua@kernel.org>
+>Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+>---
+> mm/rmap.c | 7 ++++---
+> 1 file changed, 4 insertions(+), 3 deletions(-)
+>
+>diff --git a/mm/rmap.c b/mm/rmap.c
+>index 985ab0b085ba..e1d16003c514 100644
+>--- a/mm/rmap.c
+>+++ b/mm/rmap.c
+>@@ -1863,9 +1863,10 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
+> 	end_addr = pmd_addr_end(addr, vma->vm_end);
+> 	max_nr = (end_addr - addr) >> PAGE_SHIFT;
 > 
-> Personally, when I see lists, I automatically think of something that is
-> dynamic, so using lists for something static just looks a little bit out of
-> place IMHO.
+>-	/* We only support lazyfree batching for now ... */
+>-	if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
+>+	/* We only support lazyfree or file folios batching for now ... */
+>+	if (folio_test_anon(folio) && folio_test_swapbacked(folio))
+> 		return 1;
+>+
+> 	if (pte_unused(pte))
+> 		return 1;
 > 
-> Technically, the difference is speed. If we want a specific element, we
-> will need to traverse the list. With an array, we can access the element
-> directly. However, looking at the current patch, it seems like it never
-> looks for a specific port, it always does an operation for all ports.
-> So from a speed perspective, it doesn't matter, at least not for now.
-> 
+>@@ -2231,7 +2232,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+> 			 *
+> 			 * See Documentation/mm/mmu_notifier.rst
+> 			 */
+>-			dec_mm_counter(mm, mm_counter_file(folio));
+>+			add_mm_counter(mm, mm_counter_file(folio), -nr_pages);
+> 		}
+> discard:
+> 		if (unlikely(folio_test_hugetlb(folio))) {
+>-- 
+>2.47.3
+>
 
-Yes. I don't envision the driver doing element based lookup even in the future.
+Hi, Baolin
 
-> 
-> One advantage I can see, instead of doing:
-> 
-> +	struct dw_pcie_port *port = list_first_entry(&pci->pp.ports,
-> +						struct dw_pcie_port, list);
-> +	return dw_pcie_wait_for_link(pci, port);
-> 
-> for drivers with only one port (most drivers), we could just instead do:
-> 
-> +	return dw_pcie_wait_for_link(pci, pci->pp.port);
-> 
-> To simply get the first element in the array. No need to sprinkle
-> list_first_entry() everywhere in all the drivers if they just have one port.
-> 
-> 
-> For iterating, to avoid manually traversing the array, we could do like
-> libata and create a simple macro, e.g. ata_qc_for_each():
-> https://github.com/torvalds/linux/blob/v6.19-rc4/drivers/ata/libata-eh.c#L851-L854
-> https://github.com/torvalds/linux/blob/v6.19-rc4/include/linux/libata.h#L1657-L1659
-> 
+When reading your patch, I come up one small question.
 
-I specifically do not want to introduce custom helpers. That's one of my primary
-motivation for using lists :)
+Current try_to_unmap_one() has following structure:
 
-> And at least personally, I think my brain will parse dw_pcie_port_for_each() { }
-> faster than it parses list_for_each_entry(port, &pcie->ports, list) { },
-> since it is more unique, but perhaps I am the weird one here :)
-> 
+    try_to_unmap_one()
+        while (page_vma_mapped_walk(&pvmw)) {
+            nr_pages = folio_unmap_pte_batch()
 
-Arrays for sure will allow us to do O(1) lookups, but considering that we will
-only be traversing the ports from the start, I still prefer using lists.
+            if (nr_pages = folio_nr_pages(folio))
+                goto walk_done;
+        }
 
-- Mani
+I am thinking what if nr_pages > 1 but nr_pages != folio_nr_pages().
+
+If my understanding is correct, page_vma_mapped_walk() would start from
+(pvmw->address + PAGE_SIZE) in next iteration, but we have already cleared to
+(pvmw->address + nr_pages * PAGE_SIZE), right?
+
+Not sure my understanding is correct, if so do we have some reason not to
+skip the cleared range?
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Wei Yang
+Help you, Help me
 
