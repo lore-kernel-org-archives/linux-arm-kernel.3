@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84300CE9D7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 16:41:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4DD6CE9D7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 16:43:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u47ezWgdZ/l2XymEjX1GzYxHxCY/fCO5iwgMnLtLa0w=; b=N5gxvD5W3v8Hn1to6AqIikMpRY
-	7whCPnthUHofgZxBgE8hMjWZFNeSI182OY3wg0e0KjlTGght56DdswGCtOUqqdXErZf371+DZpmpj
-	0AgM25+q1R7LjPGZsnezRUpdBqf5LaJdUIFFHTGR0fC1ZmkkXyqQRxnVbYE6W/4tl66Y5vDqbUyRL
-	0l7pYFO0me0p2TSwkS3aR5Nfn9Ukv4eioC211w4OMpChf73uIIMqNNmLrnf3eWAEzW69WFNdp49do
-	pKunVrhLThWhB6oKDN9u957UYbSfsawMsvYeLlPW2XyJcnVyMPGDSGfVWm4vPm/1iSikDpJRtR0bK
-	ObhL/kdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hLJ5TSFgVxNb97ViY0bF75+yIlZ7EweJuk9FX1+8Rs8=; b=LjGcMrZw2GnxJGcbzlgssCAkBg
+	5T4Btt6T/lekt+pEW2ZhL8hbMzbEPg8mIj0zN35BazWiKPMrs1YRGu3XILK3ug7jdxslpdXGuoYSt
+	7a/uVluwwX4FfQJwS8qcpI9Y4RTjieb0WWBsULk0w4G/O1Mccez7Guu7sp7W+Z60PY2UoETZ5m5Fi
+	Y+qKfphMx9R1ZQsjkU+JGKct/CBiHrz2/Prbcx9ftMDRefEkw6kFiJs1A3sjtCBz6kTWKh+kCJCny
+	fRhcyaomJrycBcBLBV0Q9zVtavC2NCwc0iEsG1fJFMRvDGCo025tFgyPhgG9ozmQGlpcYYvndyGBI
+	AYwYNUrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdA7V-0000000DVSr-0Xvq;
-	Tue, 06 Jan 2026 16:41:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdA9I-0000000DVvh-3KGx;
+	Tue, 06 Jan 2026 16:43:12 +0000
+Received: from out-177.mta0.migadu.com ([91.218.175.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdA7T-0000000DVRW-2TKj
+	id 1vdA9G-0000000DVv1-1Hog
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 16:41:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C76C96014D;
-	Tue,  6 Jan 2026 16:41:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40264C19424;
-	Tue,  6 Jan 2026 16:41:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767717678;
-	bh=ze09838bu4tgioSjBEqALwERPyBGKXw8MzIwdv5zFGY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QVXwrdpjRxTlKijpAHvck0fcvXPwrVxZcxwi2UyVL0cQ4ZxkPJ/5QnQMJK+9T0W88
-	 p90vDS2NWetnNMSAg/7uOoejUa330IJitHPLPJyfEIULJM2mhae6+i3NRwRMY9PCKi
-	 sDb8MhBVb5D/1nPb8Juz2VEvWz3f13GuWqohRWbVfjZmA5WCbI4fRBH3lAuDQOxQpf
-	 pQFYXpuJ6XjxCpZVH6iFOIw65f4Sl/HNdgHKNUCZgtv1WLB38yP5vAKxUpIJpzVbG6
-	 V1HBo0Wuw1+m8vAzKxswsIlV4x91v6M48Pkiu1IsYNpEINpUW+fTAFTtlNVpHhL75H
-	 JhYrrKwPbT3Ig==
-From: Mark Brown <broonie@kernel.org>
-Date: Tue, 06 Jan 2026 16:35:45 +0000
-Subject: [PATCH v4 5/5] KVM: selftests: arm64: Use is_aarch32_id_reg() in
- test_vm_ftr_id_regs()
+	Tue, 06 Jan 2026 16:43:12 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1767717785;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=hLJ5TSFgVxNb97ViY0bF75+yIlZ7EweJuk9FX1+8Rs8=;
+	b=eversUs4uq7J0CoDWipujPj+7P8CGr5Ig60nfSJn2W1JXdDo0egx9IDjsqZfW/c06CTFVW
+	sGpdkXyGeFavWav8XbSXYLpHMOzp5+Vlr6Yq6DekMzXAaPtyaIxJr/h2Nj5ZO4PBz55uMk
+	DvmORhgPPjoA7X4/D3Lej6NaIMNtNi0=
+From: Sean Anderson <sean.anderson@linux.dev>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	dri-devel@lists.freedesktop.org
+Cc: Simona Vetter <simona@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	linux-kernel@vger.kernel.org,
+	Maxime Ripard <mripard@kernel.org>,
+	David Airlie <airlied@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Michal Simek <michal.simek@amd.com>,
+	Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Mike Looijmans <mike.looijmans@topic.nl>,
+	Sean Anderson <sean.anderson@linux.dev>
+Subject: [PATCH v2 0/4] drm: zynqmp: Make the video plane primary
+Date: Tue,  6 Jan 2026 11:42:43 -0500
+Message-Id: <20260106164247.472544-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260106-kvm-arm64-set-id-regs-aarch64-v4-5-c7ef4551afb3@kernel.org>
-References: <20260106-kvm-arm64-set-id-regs-aarch64-v4-0-c7ef4551afb3@kernel.org>
-In-Reply-To: <20260106-kvm-arm64-set-id-regs-aarch64-v4-0-c7ef4551afb3@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, 
- Oliver Upton <oupton@kernel.org>
-Cc: Ben Horgan <ben.horgan@arm.com>, linux-arm-kernel@lists.infradead.org, 
- kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-47773
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1148; i=broonie@kernel.org;
- h=from:subject:message-id; bh=ze09838bu4tgioSjBEqALwERPyBGKXw8MzIwdv5zFGY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpXTsdxCQGJi+W81ZooYRjsa6d9nw9aQbV7Isdo
- 0qUUg6pwlaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaV07HQAKCRAk1otyXVSH
- 0DXLB/0cXvjbU+zB17kgrZhMg1U0LcQUAP3jU78hE6JW/2AxfQk3FGYKuHLAU35CW7RPJAn+UFW
- R/kcXTN0X6QvAQzE28x99PfulzNjaiAzzrE2XAF72ljHq5FLMoiFM8LCytx3z0oz0VBBTaHDBBy
- GjtYk/60l2OFUZ0k0xmBi9R5eO+SLe2J/qEx6YVCO3+4zz4iiWsdZMrZZAfQ/ioG9B/ZaRcmn8d
- MRaKsNEfAUhN6cv3JNHPG9byRn9JSCerGCTJtQPGABp7T6O43CCBRoBrSmz867KaZka4ci1Jdui
- c5eYwZLQ8ajj+3Gzj8Ab77ihqbjYAeU8MO7B0iWk9pQeP4vb
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260106_084310_659292_E9183011 
+X-CRM114-Status: UNSURE (   7.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,30 +76,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-test_vm_ftr_id_regs() uses a simplified check for 32 bit ID registers since
-it knows it will only run on ID registers. For clarity update this to use
-the newly added is_aarch32_id_reg(), there should be no functional change.
+The graphics plane does not support XRGB8888, which is the default mode
+X uses for 24-bit color. Because of this, X must be set to use 16-bit
+color, which has a measurable performance penalty. Make the video plane
+the primary plane as it natively supports XRGB8888. An alternative
+approach to add XRGB8888 to the graphics plane is discussed in [1], as
+well as in patch 2.
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- tools/testing/selftests/kvm/arm64/set_id_regs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+[1] https://lore.kernel.org/dri-devel/20250627145058.6880-1-mike.looijmans@topic.nl/
 
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index 908b3c8947d9..f703c6cfe132 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -503,7 +503,7 @@ static void test_vm_ftr_id_regs(struct kvm_vcpu *vcpu, bool aarch64_only)
- 
- 		for (int j = 0;  ftr_bits[j].type != FTR_END; j++) {
- 			/* Skip aarch32 reg on aarch64 only system, since they are RAZ/WI. */
--			if (aarch64_only && sys_reg_CRm(reg_id) < 4) {
-+			if (aarch64_only && is_aarch32_id_reg(reg_id)) {
- 				ksft_print_msg("%s on AARCH64 only system\n",
- 					       ftr_bits[j].name);
- 				ksft_test_result_skip("%s invalid write rejected\n",
+Changes in v2:
+- Allow specifying blend mode default
+- Advertise coverage instead of premulti, since that's what the hardware
+  supports.
+- Set default blend mode to none since that's what the default was
+  before this series.
+
+Sean Anderson (4):
+  drm/drm_blend: Allow specifying blend mode default
+  drm: zynqmp: Check property creation status
+  drm: zynqmp: Make the video plane primary
+  drm: zynqmp: Add blend mode property to graphics plane
+
+ drivers/gpu/drm/drm_blend.c       | 22 ++++++-------
+ drivers/gpu/drm/xlnx/zynqmp_kms.c | 53 +++++++++++++++++++++++++------
+ include/drm/drm_blend.h           | 26 +++++++++++++--
+ 3 files changed, 78 insertions(+), 23 deletions(-)
 
 -- 
-2.47.3
+2.35.1.1320.gc452695387.dirty
 
 
