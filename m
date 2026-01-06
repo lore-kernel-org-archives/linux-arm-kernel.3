@@ -4,196 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54413CE9D7B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 16:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF781CE9D7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 16:58:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wn67vVi4gfCcHGxL4z728Pxv+oRWEagvqzSCdj9MQ9o=; b=ZEv/1Mn0/DmtAYg78K6frLq79F
-	t4eOjoc1L5zHQnyXrfLlIe8FLcHHhfW1KTj7HDt7RMDTfAVJA7RIG0jYcBF93g3bQY5zd/xMjtQru
-	SlAJ+CAVUNVcbYmElfsFCJrFvOnKczKseg5UcbvGxb7BnxQQ9QTlKd/u7z/awESM8VWvBkKKtjahB
-	lfr+6p7lofgGQZybAMpdSjtMmy1y5/Z5/VUusKA02BhyWy2TJpKhdLFt4Qc8sr0PNlFycm8SJ6xqA
-	xDvsizccopEv+/+NGh1L1FcmVe1P/6wkdNFflEDIlJi84SDnqiHWA5HDw0R8ciuvdeI8W8vGvPtXv
-	wGeSKtog==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=W+yaMBdttipWH+qCj6rq+qhgb8Gvgy18kNC7/oWi2sk=; b=1/sVMvj7gTmCNr
+	6YUoySVLoIJ+Ucz5HL9JYDQWAg5yszqeIGTYElq3Z4tvDA+5nLohA21q9W6o82sNrjNEvZjrhX4AS
+	6ojWlCAatGWSHdfb1yh69MJW7vSpMgHH/z3rFDvgz1QpdwyelFRIwYkzD2mrV9R9OpRwcf2XQamiL
+	imIMJzZX1lFfY2ntLAlXUqB3wM01i2fg/LF4gDGWMEi3iCWutWnc0IHEWtkCvga8hk7oxZsu3he9O
+	q9Yt256yPiSjzGbyGoVOe5tv1ECFUI/OrGJaR+ORuaxYzy0IUEFupnEMthIrFd/hb4A5/rLOK1rNh
+	amSPZqRzlQojNDPXC0ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdAJB-0000000DWpt-0hy7;
-	Tue, 06 Jan 2026 16:53:25 +0000
-Received: from mail-westeuropeazon11010038.outbound.protection.outlook.com ([52.101.69.38] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vdAOF-0000000DX3y-1iOe;
+	Tue, 06 Jan 2026 16:58:39 +0000
+Received: from mail-lf1-f48.google.com ([209.85.167.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdAJ7-0000000DWpY-40L9
+	id 1vdAOC-0000000DX3X-3Yb3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 16:53:23 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=TkBl5B7gbsy9UKIREcGMdXSFCK3XBvbv1aPW6UWm+DGTOeXwqqIuybDWMCBWQXcIF+eeAmtqDfjEu7jJ0f4H1vAN133QHBjZEdUwv1RctrzQ+5GYiyxV8mZ9ya0iXbgIE10GgHl08hvZNO/6jZPqRRL5lFwfAp0ow4g4ZZTvhOw3e6NJz7gMVzD9VRnVNQm4ym+wiuXj+OV4uXGo9tvn0z+ytmp9BvBUlKR3IS08QZEhJf893vh31PBVKYB1lTb8Vl+Qr4b2JLKIdM+2Dk+kApX8wl2aYc8QxLKehoz4T6nIrX/ISotrP5nmyoLTPukMZVNMZ3liYea7ut/e7D4n+w==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wn67vVi4gfCcHGxL4z728Pxv+oRWEagvqzSCdj9MQ9o=;
- b=zEqQwReN3lkC4MSQFVq+j1b60AvpiBH5URKOn2jvHJOEr70v/KzktIqNmug/ZGufz7En8jlEnm/yEgX6cRg3+U11IA9eV5xxH5+ZHyGf/lKtqvE+vnVe/TF97shzuwyYviryPnh1xndQ/gsttfrIzmay2S0mOm73PAmYeQm9wHs5DBis2rkX+EduDxxhU5LJUFoNTFuAupgAjAUuyZ+SPilsdjvqlSva+8Gog5eGkDB2FNKbFNolru2cTDGbpwEdq+cGvxqjaWO/q0nvK/DNuvQCyhJZmWWhD5BQ73B5FwOIjqsCLsC6SIAuOG74c0urMb8vLBTHU3sO86FhpBpyUw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wn67vVi4gfCcHGxL4z728Pxv+oRWEagvqzSCdj9MQ9o=;
- b=sErae/WlDJp/Mh8CR2CrX1HSQKEzGjhyrBx/CDX2zVFcNdOCgyFnPthHMHX4ZFGa5TCO+1Aby8/SV2z7He0l9HZL/b+aQJo+cBasuLIjU4G4H+7icNdynqBSZOq1ADBqLaycUTjpaJjPNDX9AogDw6ZBZjoUZ+qHsgMbF9Pc+hs=
-Received: from DU2PR04CA0342.eurprd04.prod.outlook.com (2603:10a6:10:2b4::21)
- by GV2PR08MB11314.eurprd08.prod.outlook.com (2603:10a6:150:2c8::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.2; Tue, 6 Jan
- 2026 16:53:15 +0000
-Received: from DU6PEPF0000A7E2.eurprd02.prod.outlook.com
- (2603:10a6:10:2b4:cafe::ad) by DU2PR04CA0342.outlook.office365.com
- (2603:10a6:10:2b4::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.2 via Frontend Transport; Tue, 6
- Jan 2026 16:53:13 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU6PEPF0000A7E2.mail.protection.outlook.com (10.167.8.42) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.1 via
- Frontend Transport; Tue, 6 Jan 2026 16:53:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aN3xqglpIaLtBwD28nwSIa+eWRlPeIQdKTPq40I1Oy0rFjteIeQbFvFDfsRsTH2rkwOhaShpktaGaABF7jfpG4x8KJfeCexAWcHQSMGf8XJ67DkO5yDjveE3KvjQ0ANgo4IA64KPBgllbWfkMMMnK2SI2CYiCswqTsMeHBqGAcIsoTfFPycTDi+HO1ws13C/ivpAKtzaToW4d60HiivcccTtieaDKbcFxTPV/5h+9ep7vfeNVoBIQ3LeYy9yCBeFeXdKMgoHPpCe0M5g2K0wvjevIk/8Sxzt6WVSh5eBhWeXJI1p81ATBlI+eLwIU1uwGuL9BlgVjJDlbXTZ3pxHmg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wn67vVi4gfCcHGxL4z728Pxv+oRWEagvqzSCdj9MQ9o=;
- b=LqHgFj5n8jOOfHCMj+5J3VUmzDo/+4eoCzq7pNpS2/3DxkF2Rsm/m1QbWX2u+ptPt0ns/gX5QFOFa9dZKDoB1Zi5+pNxgORtZPcEVUv8c2h42d8dwimW6HyNmcfhHqJyPrAimE23naWiv5f51B05U3MyBzz/3WMj7f6RAwMGbsQTKp8v93RKnK/1h30FBIoAsi6dw2sYoAfZWuVE0GCeepyaD8Ed0qXMs/RlZtZLRLvvWv+pnpDJlVjn2UZhpc8Gf1paWrToKc3FF1NYgERDOXKWWlQ8/J0e1Wzl6kVRdHqkCou1gMhaf4cPufX7FZPNhr3NkkS0mtxoxHGIIMIuvQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wn67vVi4gfCcHGxL4z728Pxv+oRWEagvqzSCdj9MQ9o=;
- b=sErae/WlDJp/Mh8CR2CrX1HSQKEzGjhyrBx/CDX2zVFcNdOCgyFnPthHMHX4ZFGa5TCO+1Aby8/SV2z7He0l9HZL/b+aQJo+cBasuLIjU4G4H+7icNdynqBSZOq1ADBqLaycUTjpaJjPNDX9AogDw6ZBZjoUZ+qHsgMbF9Pc+hs=
-Received: from AS8PR08MB6744.eurprd08.prod.outlook.com (2603:10a6:20b:397::10)
- by DBBPR08MB10483.eurprd08.prod.outlook.com (2603:10a6:10:535::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9456.14; Tue, 6 Jan
- 2026 16:52:11 +0000
-Received: from AS8PR08MB6744.eurprd08.prod.outlook.com
- ([fe80::c07d:23d6:efa7:7ddb]) by AS8PR08MB6744.eurprd08.prod.outlook.com
- ([fe80::c07d:23d6:efa7:7ddb%6]) with mapi id 15.20.9478.004; Tue, 6 Jan 2026
- 16:52:11 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
-	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>
-Subject: [PATCH] KVM: arm64: gic: Check for vGICv3 when clearing TWI
-Thread-Topic: [PATCH] KVM: arm64: gic: Check for vGICv3 when clearing TWI
-Thread-Index: AQHcfyzNcmwPrlV5OUioeIpzLE3NuA==
-Date: Tue, 6 Jan 2026 16:52:10 +0000
-Message-ID: <20260106165154.3321753-1-sascha.bischoff@arm.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.34.1
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: AS8PR08MB6744:EE_|DBBPR08MB10483:EE_|DU6PEPF0000A7E2:EE_|GV2PR08MB11314:EE_
-X-MS-Office365-Filtering-Correlation-Id: b55f57cc-c90f-4228-2def-08de4d441563
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024|38070700021;
-X-Microsoft-Antispam-Message-Info-Original: =?iso-8859-1?Q?79ZwStmWT4l+tmmCeJVEIhY982RB8jcAlCOTZnu4Cv610CjBTa0QUMWOZr?=
- =?iso-8859-1?Q?eHFs8z2KTxle+Ht5SaIdV3zTNjxr+aC185GWPKKaXifaZJMBl1mIqwu8Hu?=
- =?iso-8859-1?Q?Oh1mXkki/GkxGqig/A1E4MXRRfClzzPThKMV9QART+O6bSCKURGrBBkLcB?=
- =?iso-8859-1?Q?Y3pzxYHUtbDBLwPW8Ryhhxq+Xq3gNvJYiK4XiS5InwpBeK/jzSvdmycmfz?=
- =?iso-8859-1?Q?Cwu/QRx2mTEhquFDMNcZg93q3tu0ys6BvGdmLMxlEat54ccDm97amsJZFp?=
- =?iso-8859-1?Q?7PSnXgRcwNoQAoWu1FWu2rjTVE8H0Y9o1nXtmOaP7z68muk5qF16I87fii?=
- =?iso-8859-1?Q?TrmZ66XkXU1e2r/HI/sLvTW/a/0SF1lZWTl5qvM8OnDsyoozHITex6P1ES?=
- =?iso-8859-1?Q?jh7Ub5Nw7tihq9azlEg0HfQWqfKJkNeXiPqqWgejAYhczc0yB0HJBot/wu?=
- =?iso-8859-1?Q?jO0mQ8IbkdEyK/7kHtoeg5nxJgMU5GRG9XMjd8h+vkpLyodG88JIyGRcFo?=
- =?iso-8859-1?Q?A4G8IwCdRxgkK0eQU32UMQXKciRKzjzgrTB9Bh5ETUoMHtbTq0S8RKK+/m?=
- =?iso-8859-1?Q?1bSYEpIs0sZguhFyu0M16l0C4B+ARudtqd3f/Tc4BkbkUTv/H6uurEpgxf?=
- =?iso-8859-1?Q?qsr5i+dECOy6oglrzpeDiMBbLOtG7T9qDYYmIwSenpcNm1eLJ5f30Ru28R?=
- =?iso-8859-1?Q?WDKjhrlIloKlaEnq75yBZxVqp3Aqozm8+vy27hGmdsDs8GVU2wuKAv2iZ3?=
- =?iso-8859-1?Q?BA/R3VfCU0lKu120wUua3mx3n7FPHzZ2MdnYGqhIhY8eMnuI+eharEocR8?=
- =?iso-8859-1?Q?O3/xiZu373qnF/6yI+dDE0IXVKZ3HKduQQV7aL5GHo4YG4F+rgGMpSdVx2?=
- =?iso-8859-1?Q?OWvJklvRqelEN7hBYLB++bY4eEV7mFzIgulgjSxfM9NIQIUENvOUAyyBEX?=
- =?iso-8859-1?Q?cqfa++nu1OqA1t8ShzfgRGGn0VTsW7L19QlckOeQEFHcPIZybMzoPqmZEe?=
- =?iso-8859-1?Q?E2K9KaCTSq0KQNOF8eYOgl2XTPcmPhEAzaprfVd4x+I9z/2BNuPdeLV1LK?=
- =?iso-8859-1?Q?86lJAmUSlhG5ra9VxwlxcDgPkiGn5Ki0sHUSnEwI4Y8cPvsSSVec+UIvY4?=
- =?iso-8859-1?Q?+G3sVbhvy2UWto2pz4aIbbs7jpv+aTG2CNRbpTIAA4WXtMAIjopsYZZyGn?=
- =?iso-8859-1?Q?pfssi1uA679SfT681g2vmTab+kXiwkhgUWy/LyyVSbSe4wWVzSiCYntMcA?=
- =?iso-8859-1?Q?OasUo5D08gSbg8sWAJONDv890JJFvsUhtIpXQLl7t6zS2iEDW9RfgLYoh/?=
- =?iso-8859-1?Q?gtPrOdGa3bp0YKyCvwoTWdhDyogV0YiWJZbkb7wEHgtZcSMC2x8qNUROA3?=
- =?iso-8859-1?Q?tdzy3vNz+yVmi09+W9SrQP+qLUVp6yvn8WbSjlWub3t1M0D6LY/lw2ATcv?=
- =?iso-8859-1?Q?sHTMmC6n2MplzZpoua0dr3t4sOtvy1Hedl0+33YDuaSodZyr8aHBpQUgnh?=
- =?iso-8859-1?Q?upBg4v2XF1RPv2XPpTpLh0cX0LVJ4Qd92Mi6i/WY9ZeHRxJR4Pa6g6IDpi?=
- =?iso-8859-1?Q?G7EgGCT7Ak6aJtzjYpsAXJOjUMVc?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR08MB6744.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 06 Jan 2026 16:58:38 +0000
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-597d712c0a7so1211109e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 08:58:35 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767718714; x=1768323514;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=W+yaMBdttipWH+qCj6rq+qhgb8Gvgy18kNC7/oWi2sk=;
+        b=YmT4Yjv1yGIww7J44xz19rRPyjy/Cw9Z72WGTlHRcDo6VdUteaLOWEMAXZWNSnQ308
+         y+oUBmsN5WhrsBANUUXxXDdDc92pJjmZxdfd5oIZhucE7ugjoyl/hT3GfiI0xPJwDvqK
+         Uy7/TMPaCYysxgQpj6IL5sjCmOC6mn7TdbG1LwL9SBRSSJyI/UFuJ8Y02ATKj8X5m/2v
+         cEpjOSiGGvu257snWj5JIkQntjgSmzRTANB0YaJkwDVvRqICqd867RKUD8Z9mIPgQ3eS
+         kV2iYUwswu+Zno7nmAlPL5GgGrvbyGqLFcuGmafei6H0g/JFub8qCa8vG/H45nMx4eiK
+         +LFw==
+X-Forwarded-Encrypted: i=1; AJvYcCWgPvLMvZqE1Oowx36dDOD0ceFFUcr7JvAqESKmG6YWmKqkp5Vs1rONHVkAkuHihx/ptx4w0Uphi2SZnvnQAzpL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2a1kL/fnfCjtcabp3m7vXfe5vsGzDubjgFpB54UtDf0RRiA58
+	QFZIWESamw6xxbKkBI8Q2ujZeC4QQc13/1EEK80bDk1pHtjqV1b1jtdDgiTwMnPB
+X-Gm-Gg: AY/fxX7BzthG6tqNoRn8pVA2RRI6HIAzLVkvRS0OUNYiMlUhraVtR+c1wI6iIw70P/t
+	Yi5tJrc8vkHkU5n66icvavHRJJ4/sM3SRjtsxoKSHuv6K6zOntQmw/I4GWSFtPwrB+hwT1toQa7
+	EqAtzUvU5GmNhA7V0lbzHspawCsHmGXtO8S2K/tSC3apTuWtUfEz3IEuM7RpC9IGtmEsJGIzix1
+	dCWAOZRY6Vly9hNDIxykPMvUIH2PdhWR2fOo0GumcbFpV1E3O+BSPb8GWhZ2yJkhjAlL+pMgFM5
+	rNs+dYs3h4nFVBMXQMpP1A8y1QVcc6ZUaMc2eYQWlcAb+nL59Z4aXiT+xF8EQ+VVBP8b6ZIwbuR
+	99xn3ShjBaTP4dcq2ZHQ1LmgD/vyRnd0YkR/p+pBt+QwhVByi3MWXDVv7rW0Jtkpj3HfmGIiNXr
+	CcioOTJo1FUKvrm4iBcsiIZRjbgJmsZOSYQp69qK/UzrPwTddxqBAQFg==
+X-Google-Smtp-Source: AGHT+IGkf1MN1xi8ic1R2hQlsdU/vmkq/U9ogf1Nkw04WOMt7KYdmWsdoOFlKMhp1DAB0DaoCazpMQ==
+X-Received: by 2002:ac2:4c52:0:b0:598:eacd:ceb2 with SMTP id 2adb3069b0e04-59b65279ecfmr1158659e87.7.1767718713795;
+        Tue, 06 Jan 2026 08:58:33 -0800 (PST)
+Received: from mail-lj1-f176.google.com (mail-lj1-f176.google.com. [209.85.208.176])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59b65d69750sm688210e87.76.2026.01.06.08.58.33
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 06 Jan 2026 08:58:33 -0800 (PST)
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-382fe06aa94so448661fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 08:58:33 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVg4jwdUWz3WUupmuih7TOvJWlAvuwu/NV+DrWq+U8pSrO0gO17Q0gOoZm0HqbMbU1B1HHY1CbDkcPbVdBSbqA5@lists.infradead.org
+X-Received: by 2002:a05:651c:154a:b0:382:fb5b:391a with SMTP id
+ 38308e7fff4ca-382fb5b3d74mr3007881fa.39.1767718713265; Tue, 06 Jan 2026
+ 08:58:33 -0800 (PST)
 MIME-Version: 1.0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB10483
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000A7E2.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 250c531d-823b-40cb-0f9b-08de4d43ef8a
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|376014|1800799024|82310400026|36860700013|14060799003;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?g37lQhRKSDKYYEFJB3CELB2UckHSVVr2jnhTjklKBJmXSpAwBL1iV4bUAd?=
- =?iso-8859-1?Q?/SX1yT7dOGqhGnmnEakDpoWSCiS2q/gu3snRjKQ7H1QzfrvwO2gDdOcdap?=
- =?iso-8859-1?Q?VrFe2LAZJnQKZkF+1HZ0ivA2s6h7+imAJ0LGKFDbFjMYbN/V4bTfgnR2C9?=
- =?iso-8859-1?Q?oGY7zJDJh9/KCSjoJjcYHe2rRbbGoBcxGT/pla0+jgT+iKJJtywo1F30Pq?=
- =?iso-8859-1?Q?VP4R8HPMuZ7zknx+QcKmPlbGUvt7VCgTl/8RMyrpKcDcHtdS9+62YM5sjg?=
- =?iso-8859-1?Q?XkqRomk90xspct2DMDXYCs/UxT/QPzTeI9ekZ2XZkn7PLxET5wagVBLX67?=
- =?iso-8859-1?Q?VKkP/ys7c6uZikqFjZxFXd9F6/Lv3IEgampIMysWbSz/7HKRu8TPwHk7DV?=
- =?iso-8859-1?Q?j4lLVbIwJCiuNx+42Dcje312cnBwYMWJKzSpLId9DlI7NcY/6hvlZL7Qza?=
- =?iso-8859-1?Q?3MoSgwI14L7vWKgbZUQkICcBemozEEBmxcfTUHWOegvLd2p/tzit0yCcTQ?=
- =?iso-8859-1?Q?P+U5LcTHyY+iJNHWksBkk+VPKW38EDc7UqgoUmRkZd2H3qyH2yS4fzxgZO?=
- =?iso-8859-1?Q?bn1dBPZiSOoD4QUp+IbZOpS/OFnRoW2y5Fepen8DljsufL8VqEDTZzzHIu?=
- =?iso-8859-1?Q?YVe2aJZUrwepkFfQ5/5y19GlrG/2KycIMtg97YvSYrk2o0sZ3DBg1Mgrav?=
- =?iso-8859-1?Q?Nk9qbw6S3+qIR+GRW5w8qy4QUtId1i3nw8hxYI5X2u22BxOnSg7cJdmVfw?=
- =?iso-8859-1?Q?m/OZDsAojRfBmq7mao472J4HJImbpiVNngMNOUKYDCB4vFvA93ihB5dP/8?=
- =?iso-8859-1?Q?leIvdTrhwTlQCNq9Ifdh2Ou6zaFbVYjA+ktfviIh/1Y7Y/FDWi5CAPNK0g?=
- =?iso-8859-1?Q?awTVcOvcSx677Inj4IKaxR021b3YqPBVM/LtITaaZ7l2Wmf7yGaLl6CfHR?=
- =?iso-8859-1?Q?UIi50i3YaA9cyoOVkOo34FJLiA5iQMlwDY0R2UTjCdyQpazI0i/1TAHVmY?=
- =?iso-8859-1?Q?P8iUrRnuX3QP/w0irxe+RZvcrrYJZ80pO7pEFFE+PZEtdvCgAddHp/mR7N?=
- =?iso-8859-1?Q?vg3Ke7tv2qzaEGEwu00c7b/LwegcK0bDpfVGhEnclBNtTbwTqv+mN0lvSm?=
- =?iso-8859-1?Q?abzLd+HykESzY9xmSp7tfbJyJ7KgNp7E/+dafFfdkEiMCATB524PMP9+ej?=
- =?iso-8859-1?Q?DISTVbhIXfVIKdMItuuySC9h1pxMfsE7Rn7UhEMv5CeGW90G2NVsOELiGO?=
- =?iso-8859-1?Q?UW92rsTtqneJLcUPdacExQqsyVWo/L5L8WI7zEf4eVXPaGYrvX9NqdY/dC?=
- =?iso-8859-1?Q?mxhg+soFZf4t5doidmPygjhXRKbiXUh1m96HMPgSp90xaXVhfbOMmhS/lS?=
- =?iso-8859-1?Q?Wd2AVyEiPyWowzPEZesMVxlj8Dz8L7cnLcr2xfamA8+W9eRkA5uEdeir+5?=
- =?iso-8859-1?Q?YB0goKXTPXDtj/zeXXWN1L/qjHmepUP8n9ABJU/WQxYt09tw10tRT2yGTo?=
- =?iso-8859-1?Q?gIz46G0uNO7oQMF9Psq/ddXlMNuQehBNiD711iL0NxY5Cc4UrzyyixCCDk?=
- =?iso-8859-1?Q?r4l94VD3Tkl1yV5haTuJv4DREL7oab6IPJQapCDImHjCAV/oMGSOMpW2eP?=
- =?iso-8859-1?Q?wiAe5WaYy/iRo=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(376014)(1800799024)(82310400026)(36860700013)(14060799003);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jan 2026 16:53:14.3834
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b55f57cc-c90f-4228-2def-08de4d441563
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E2.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB11314
+References: <20251217082504.80226-1-richard.genoud@bootlin.com>
+ <20251217082504.80226-3-richard.genoud@bootlin.com> <en7wscywn3xpw7cxvc2ngwrmjfciglzxgaje5qc5ngiehrjufh@jbvgp2neyzzx>
+ <9c55d591-a280-4ed7-91b1-0c867cfff658@bootlin.com> <mu3ciykmtxoaa24mdw7mofpdapbii23qrubw6uzptszok43tta@tq3rguupehwe>
+In-Reply-To: <mu3ciykmtxoaa24mdw7mofpdapbii23qrubw6uzptszok43tta@tq3rguupehwe>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Wed, 7 Jan 2026 00:58:20 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67O8xKUfXg2Xr0+G72upPsp6V=OpXeej8T8JeJf5sWk=A@mail.gmail.com>
+X-Gm-Features: AQt7F2oUlgvIASVJbB18PqSaF_gWeVAJrv7ZCEFYwIRXVXpnDHSC_HjANB0daRE
+Message-ID: <CAGb2v67O8xKUfXg2Xr0+G72upPsp6V=OpXeej8T8JeJf5sWk=A@mail.gmail.com>
+Subject: Re: [PATCH v2 2/4] pwm: sun50i: Add H616 PWM support
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Richard GENOUD <richard.genoud@bootlin.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Joao Schim <joao@schimsalabim.eu>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_085322_044080_691726AF 
-X-CRM114-Status: UNSURE (   7.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260106_085836_934180_453D2980 
+X-CRM114-Status: GOOD (  52.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -205,31 +100,214 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Explicitly check for the vgic being v3 when disabling TWI. Failure to
-check this can result in using the wrong view of the vgic CPU IF union
-causing undesirable/unexpected behaviour.
+On Wed, Jan 7, 2026 at 12:27=E2=80=AFAM Uwe Kleine-K=C3=B6nig
+<u.kleine-koenig@baylibre.com> wrote:
+>
+> Hello Richard,
+>
+> On Tue, Jan 06, 2026 at 12:19:59PM +0100, Richard GENOUD wrote:
+> > Le 24/12/2025 =C3=A0 10:54, Uwe Kleine-K=C3=B6nig a =C3=A9crit :
+> > > this patch isn't checkpatch clean.
+> >
+> > Yes, I've seen that.
+> > It's because checkpatch doesn't detect that PWM_XY_SRC_MUX/GATE/DIV are
+> > structures
+> > If I unwrap PWM_XY_SRC_MUX/GATE/DIV and PWM_X_DIV, checkpatch doesn't
+> > complain anymore (indeed, do/while loops are not allowed at file-scope)
+>
+> At least add parenthesis around usages of _reg. (And if you know that
+> checkpatch points out things that you don't agree to, preempting the
+> critic in the cover letter is a good idea.)
+>
+> > I can drop PWM_XY_SRC_MUX/GATE/DIV PWM_X_DIV and declare the structures
+> > directly under PWM_XY_CLK_SRC() and PWM_X_CLK() if you prefer, but I
+> > find it less readable than the current form.
+>
+> No strong feeling here.
+>
+> > > On Wed, Dec 17, 2025 at 09:25:02AM +0100, Richard Genoud wrote:
+> > > > +#define PWM_XY_SRC_GATE(_pair, _reg)                     \
+> > > > +struct clk_gate gate_xy_##_pair =3D {                      \
+> > > > + .reg =3D (void *)_reg,                            \
+> > > > + .bit_idx =3D PWM_XY_CLK_CR_GATE_BIT,              \
+> > > > + .hw.init =3D &(struct clk_init_data){             \
+> > > > +         .ops =3D  &clk_gate_ops,                  \
+> > > > + }                                               \
+> > >
+> > > I would consider
+> > >
+> > >     .hw.init.ops =3D ...;
+> > >
+> > > and
+> > >
+> > >     .hw =3D {
+> > >             .init =3D {
+> > >                     .ops =3D ...;
+> > >             },
+> > >     },
+> > >
+> > > natural here. The middleway you chose looks strange to me.
+> >
+> > Actually, it's:
+> >       .hw.init->ops =3D ... ;
+> > That's why I used this middleway construct.
+>
+> Ah I see. Then it's fine for me.
+>
+> > > > +#define PWM_XY_SRC_MUX(_pair, _reg)                      \
+> > > > +struct clk_mux mux_xy_##_pair =3D {                        \
+> > > > + .reg =3D (void *)_reg,                            \
+> > > > + .shift =3D PWM_XY_CLK_CR_SRC_SHIFT,               \
+> > > > + .mask =3D PWM_XY_CLK_CR_SRC_MASK,                 \
+> > >
+> > > Huh, why does this structure has both a shift and a mask value? What =
+is
+> > > the difference between
+> > >
+> > >     .shift =3D 7,
+> > >     .mask =3D 1,
+> > >
+> > > and
+> > >
+> > >     .shift =3D 0,
+> > >     .mask =3D 1 << 7,
+> > >
+> > > ? If the latter is equivalent, you could just pass
+> > > H616_PWM_XY_CLK_CR_SRC and get rid of the extra definitions for _SHIF=
+T
+> > > and _MASK.
+> > >
+> > Unfortunately, struct clk_mux wants a shift and an unshifted mask, and
+> > according to:
+> > https://elixir.bootlin.com/linux/v6.18.3/source/drivers/clk/clk-mux.c#L=
+93-L94
+> > using a 0 shift and mask =3D 1 << 7 won't work.
+>
+> How annoying, I put that on my todo list ...
+>
+> > > > +static inline struct h616_pwm_chip *to_h616_pwm_chip(struct pwm_ch=
+ip *chip)
+> > >
+> > > It probably doesn't help much, but conceptually this could be
+> > >
+> > >     static inline struct h616_pwm_chip *to_h616_pwm_chip(const struct=
+ pwm_chip *chip)
+> > >
+> > Indeed, I'll add that.
+>
+> If you rename it to h616_pwm_from_chip it even has the driver specific
+> prefix.
+>
+> > > > +
+> > > > + return 0;
+> > > > +}
+> > > > +
+> > > > +static int h616_pwm_calc(struct pwm_chip *chip, unsigned int idx,
+> > > > +                  const struct pwm_state *state)
+> > > > +{
+> > > > + struct h616_pwm_chip *h616chip =3D to_h616_pwm_chip(chip);
+> > > > + struct h616_pwm_channel *chan =3D &h616chip->channels[idx];
+> > > > + unsigned int cnt, duty_cnt;
+> > > > + unsigned long max_rate;
+> > > > + long calc_rate;
+> > > > + u64 duty, period, freq;
+> > > > +
+> > > > + duty =3D state->duty_cycle;
+> > > > + period =3D state->period;
+> > > > +
+> > > > + max_rate =3D clk_round_rate(chan->pwm_clk, UINT32_MAX);
+> > >
+> > > Huh, is this an artificial limitation? Do you rely on how clk_round_r=
+ate
+> > > picks the return value? (I.e. nearest value? nearest time? round up?
+> > > round down?)
+> >
+> > What I want to achieve here is to handle the lowest possible period cas=
+e.
+> > Without the bypass, the lowest period is build with the highest clock,
+> > duty cycle =3D 1 and period cycle =3D 2 (0x10001 in period register)
+> > So, if the input clock is 100MHz, we have a lowest period of 20ns.
+> > Now, if we enable the bypass, the period register is ignored and we dir=
+ectly
+> > have the 100MHz clock as PWM output, that can act as a 10ns period with=
+ 5ns
+> > duty
+> > So the logic here is to detect this specific lowest period case that ca=
+n be
+> > achieved by enabling the bypass.
+> > For that, the highest clock is retrieved and compared to the wanted per=
+iod
+> > and duty.
+> >
+> > Now, I learned the hard way that clk_round_rate() is actually limited t=
+o a
+> > 32 bits value:
+> > clk_round_rate() calls at one point clk_divider_bestdiv() that uses
+> > DIV_ROUND_UP_ULL() which in turn uses do_div(n,base):
+> >   do_div - returns 2 values: calculate remainder and update new dividen=
+d
+> >   @n: uint64_t dividend (will be updated)
+> >   @base: uint32_t divisor
+> > So, in order to get the exact highest clock rate, I use clk_round_rate(=
+)
+> > with U32_MAX.
+>
+> IMHO this should be addressed in the clk framework. And until this
+> happend the code in the pwm driver needs a verbose comment.
+>
+> > > > + dev_dbg(pwmchip_parent(chip), "period=3D%llu cnt=3D%u duty=3D%llu=
+ duty_cnt=3D%u\n",
+> > > > +         period, cnt, duty, duty_cnt);
+> > >
+> > > This is little helpful without the input parameters.
+> > >
+> > as
+> >       duty =3D state->duty_cycle;
+> >       period =3D state->period;
+> > The input parameters are there, right?
+> > But I can add the missing idx.
+>
+> Today I agree, don't know why I missed that. It would be nice to stick
+> to the format that e.g. pwm-stm32 uses for the input parameters to make
+> me notice even on busy days that the input parameters are there :-)
+>
+> > > > + for (unsigned int i =3D 0; i < data->npwm; i++) {
+> > >
+> > > Huh, AFAIK we're not using declarations in for loops in the kernel.
+> >
+> > Actually, I've read somewhere (in LWN I guess) that Linus seems ok with=
+ that,
+> > but I'll remove it if you prefer.
+>
+> If you find your source again, I'd be interested.
 
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
----
- arch/arm64/kvm/arm.c | 1 +
- 1 file changed, 1 insertion(+)
+IIRC Linus said this is the one case that made sense for "declare anywhere"=
+.
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 4f80da0c0d1de..620a465248d1b 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -569,6 +569,7 @@ static bool kvm_vcpu_should_clear_twi(struct kvm_vcpu *=
-vcpu)
- 		return kvm_wfi_trap_policy =3D=3D KVM_WFX_NOTRAP;
-=20
- 	return single_task_running() &&
-+	       vcpu->kvm->arch.vgic.vgic_model =3D=3D KVM_DEV_TYPE_ARM_VGIC_V3 &&
- 	       (atomic_read(&vcpu->arch.vgic_cpu.vgic_v3.its_vpe.vlpi_count) ||
- 		vcpu->kvm->arch.vgic.nassgireq);
- }
---=20
-2.34.1
+I dug up this one:
+
+https://lore.kernel.org/all/CAHk-=3DwgLYqYcw0xv65xrLSR7KDpS_6M+S9737m6NQorH=
+GWsXYQ@mail.gmail.com/
+
+ - quote -
+
+The actual C99 version is the sane one which actually makes it easier
+and clearer to have loop iterators that are clearly just in loop
+scope.
+
+That's a good idea in general, and I have wanted to start using that
+in the kernel even aside from some of the loop construct macros.
+Because putting variables in natural minimal scope is a GoodThing(tm).
+
+ - end quote -
+
+If you look around the kernel, you will see many for loops that are in
+this style now.
+
+
+ChenYu
 
