@@ -4,60 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8747CE9D46
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:06:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89600CE9D47
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 15:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1tHjn8dyUl6mKxT8UKfLFqSI/Tio7YUyFOzKt1CkDyY=; b=pcbfXLbHQ8Y8IYLKsZBbu7h5PB
-	0LFRml9cZIZeNn8jLKdnmiITByyfAEknNS4vV56L00UW5GyY/U3F4rI4Y7O8elgIJsUtP2x8FHu0z
-	pW7URl3/kQDg307H91v0LGIi6/50wL9FgeN+DU6jvzClC+MAQXKLivE2rhuuwt3NEh0gtFFuqOTq0
-	zW5tU946AdYnY66XdHgOlmM+3Q3QX33m1iHYNN147NBqq8xkOWYY3UFQPYUp4u1n0T+iwRER6AouO
-	HSBBkRtQ0nVc3rNjMo43XXX7YuCXxis3LKnMCiJDlCD6vZ9QwD7XFrlFpzf6oQv1OThv2ZUEYd0ZS
-	u7rvPtLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5CgfdWSR+nxpCQEaoYJ8x+78//P4Vl68i6y0D9SpJk0=; b=zLF2p66tcgUyTr7J2Cczz0yTZX
+	tlecvQNzHaGjFpe9PtHRjFJdtW4XYnyUt9PQjpPbt8BWTrxU5lSkSlKQj8OJVOECcoHg55Fq1YUSN
+	TqPOCgX+n1zTfyyDOh7wUhEPGHCoP0zvpJaaAeuCVFis7JhM/luYdl+iwEnwiOYrnEmjZp9CKXk9w
+	hcwL2BrpBKwVlf6Xskn0rqv2eeWjK2K/BuvVlXB/9/tv0/iOzQtK+q9c3B1kCZcETtD7AYnlnZlgg
+	pyhq7dNqStNsqLSe/qffxHbWquGjeSi0GV0GeUcrJ2d+C3OCndGQ88CG6QF/IZEL0OdImiL5pI19B
+	8opZxw9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8dZ-0000000DMFZ-1vN9;
-	Tue, 06 Jan 2026 15:06:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd8dW-0000000DMF3-2OhC
+	id 1vd8eT-0000000DMQ7-0Rly;
+	Tue, 06 Jan 2026 15:07:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vd8eR-0000000DMPG-1qZn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 15:06:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C7304497;
-	Tue,  6 Jan 2026 07:06:09 -0800 (PST)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C9B7A3F5A1;
-	Tue,  6 Jan 2026 07:06:14 -0800 (PST)
-Date: Tue, 6 Jan 2026 15:06:12 +0000
-From: Joey Gouly <joey.gouly@arm.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH v2 27/36] KVM: arm64: gic-v5: Mandate architected PPI for
- PMU emulation on GICv5
-Message-ID: <20260106150612.GB1982@e124191.cambridge.arm.com>
-References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
- <20251219155222.1383109-28-sascha.bischoff@arm.com>
+	Tue, 06 Jan 2026 15:07:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 305106014A
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Jan 2026 15:07:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB5D3C2BCB2
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  6 Jan 2026 15:07:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767712032;
+	bh=IQu1Edy/HWKz08uAYzo3PsbrFyGQXi8NI559zIHsYyQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=LwpLZ4Gv/rLh9TOdLjDFrTwucroei2WbfyfQ748EF/Mixcf1SBZ7zGqZnvN3Cl67f
+	 G3QK9601kjEphYjnk4vmdZbVf3k/2hTZdTTy+LNeVt5x3G++qme34VifB+NJICW3vJ
+	 09c9JKB3N8bg1N+oyoE39OERHvzumzFiSIObvrQx+DaaND/DEPHGRZvAnPS/seHHSo
+	 1+Pxa3g00WVBkt02qKeOUAugvQXcehMej7dfbRiaqJbD+thxrzi1yFRdv5sPnQpBjO
+	 oI0Uiz8GA0cZx2M4JzwK1SkdfPms+hGSpML/mW9cUOjE9JxmPv5KeuXRQN9dP7cxp/
+	 8acHsRKVIWusg==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-596ba05aaecso1085662e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 07:07:12 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWWnnsx1ZFqFTAgWAeCAE4sC5rcUC2Nyd2EAvIyA+x80ttGv+jbdITmvJFMFIpFLUWKXWGzWLmGDOWmFjauHSw3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpruH32LDh9I3pRdBX75wf3EmwL6oaebzAaQ3+HlDK6Pc+YtSy
+	XYRSnMBEDhlmS8Y+9MtIDZRaogvVULD8uY3neL8KXicETs/GIgcuoQDcDkfkxZWOeHmC/iUKCKj
+	mE5uGFH8nSZya3+wxlaVf7bU2Dcq4y3YVmSUOFP2D3w==
+X-Google-Smtp-Source: AGHT+IHAOfkiONe5tfkuIatWxpK+1+BQ2Mtd3EKyiolyupo7EAbMOL0eppnic2LZGQzoSV374+2boUr3vUjOlxckYmM=
+X-Received: by 2002:a05:6512:3f0b:b0:598:eb13:c14e with SMTP id
+ 2adb3069b0e04-59b652cb22fmr1135214e87.35.1767712031036; Tue, 06 Jan 2026
+ 07:07:11 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251219155222.1383109-28-sascha.bischoff@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_070618_751579_2610E190 
-X-CRM114-Status: GOOD (  22.99  )
+References: <20251228-arm-psci-system_reset2-vendor-reboots-v19-0-ebb956053098@oss.qualcomm.com>
+ <20251228-arm-psci-system_reset2-vendor-reboots-v19-6-ebb956053098@oss.qualcomm.com>
+ <CAMRc=Me8WQ=aMd-NJ1yzzHzqU8fT1u4eb7as=EjSpZ+Rpv9+rg@mail.gmail.com>
+ <87f25d02-2805-9da7-0d7f-05ce8a022d25@oss.qualcomm.com> <CAMRc=McH6jsaKROyMGAhH_gGSiQtqvuVmrUODgtSp0hX8g06=A@mail.gmail.com>
+ <466fac7a-e16d-9c49-80bc-c07ba5a5f334@oss.qualcomm.com>
+In-Reply-To: <466fac7a-e16d-9c49-80bc-c07ba5a5f334@oss.qualcomm.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Tue, 6 Jan 2026 16:06:58 +0100
+X-Gmail-Original-Message-ID: <CAMRc=MdNfW9pafvWy8L5iv5StR1b4_jghL7j-08cyPZVeO1Mag@mail.gmail.com>
+X-Gm-Features: AQt7F2phEQiXdqhKlEbA_1Ii19T6QcgYifTgwXE_RDm9f9TtDMKssHYYLEX6HPY
+Message-ID: <CAMRc=MdNfW9pafvWy8L5iv5StR1b4_jghL7j-08cyPZVeO1Mag@mail.gmail.com>
+Subject: Re: [PATCH v19 06/10] power: reset: Add psci-reboot-mode driver
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, 
+	John Stultz <john.stultz@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Moritz Fischer <moritz.fischer@ettus.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	Srinivas Kandagatla <srini@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,84 +96,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Question,
+On Tue, Jan 6, 2026 at 3:45=E2=80=AFPM Shivendra Pratap
+<shivendra.pratap@oss.qualcomm.com> wrote:
+>
+> On 1/6/2026 6:04 PM, Bartosz Golaszewski wrote:
+> > On Mon, Jan 5, 2026 at 7:06=E2=80=AFPM Shivendra Pratap
+> > <shivendra.pratap@oss.qualcomm.com> wrote:
+> >>
+> >>>> +static int __init psci_reboot_mode_init(void)
+> >>>> +{
+> >>>> +       struct faux_device *fdev;
+> >>>> +
+> >>>> +       fdev =3D faux_device_create("psci-reboot-mode", NULL, &psci_=
+reboot_mode_ops);
+> >>>> +       if (!fdev)
+> >>>> +               return -ENODEV;
+> >>>
+> >>> This will always create this device for everyone who includes this
+> >>> module. Move the of_find_compatible_node(NULL, NULL, "arm,psci-1.0")
+> >>> call from probe() here instead and don't create the device if it
+> >>> fails.
+> >>
+> >> Ack.
+> >> Will move both calls to init before creating the faux device.
+> >>
+> >> psci_np =3D of_find_compatible_node(NULL, NULL, "arm,psci-1.0");
+> >> and
+> >> np =3D of_find_node_by_name(psci_np, "reboot-mode");
+> >> --
+> >>
+> >
+> > On a second glance - and I may be totally wrong - would it be possible
+> > to switch to using the auxiliary bus and create this device from
+> > drivers/firmware/psci/psci.c? That would be even cleaner.
+>
+> Till v17, device was being created in psci.c. Lorenzo wanted to move it
+> outside psci similar to design of cpuidle-psci.
+>
+> https://lore.kernel.org/all/aRIfc9iuC2b9DqI+@lpieralisi/
+>
 
-On Fri, Dec 19, 2025 at 03:52:45PM +0000, Sascha Bischoff wrote:
-> Make it mandatory to use the architected PPI when running a GICv5
-> guest. Attempts to set anything other than the architected PPI (23)
-> are rejected.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/pmu-emul.c | 14 ++++++++++++--
->  include/kvm/arm_pmu.h     |  5 ++++-
->  2 files changed, 16 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-> index afc838ea2503e..2d3b50dec6c5d 100644
-> --- a/arch/arm64/kvm/pmu-emul.c
-> +++ b/arch/arm64/kvm/pmu-emul.c
-> @@ -962,8 +962,13 @@ static int kvm_arm_pmu_v3_init(struct kvm_vcpu *vcpu)
->  		if (!vgic_initialized(vcpu->kvm))
->  			return -ENODEV;
->  
-> -		if (!kvm_arm_pmu_irq_initialized(vcpu))
-> -			return -ENXIO;
-> +		if (!kvm_arm_pmu_irq_initialized(vcpu)) {
-> +			/* Use the architected irq number for GICv5. */
-> +			if (vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V5)
-> +				vcpu->arch.pmu.irq_num = KVM_ARMV8_PMU_GICV5_IRQ;
-> +			else
-> +				return -ENXIO;
-> +		}
+Thanks for the link. Right, there's no actual psci driver binding to a
+struct device, rather we only have a set of functions called very
+early into the boot process.
 
-This relaxes the KVM_ARM_VCPU_PMU_V3_INIT uAPI to not need
-KVM_ARM_VCPU_PMU_V3_IRQ to be called first for gic-v5, right?
+Nevermind this comment
 
-Maybe that's intentional, but it should be mentioned in the commit and maybe
-even in the docs (Documentation/virt/kvm/devices/vcpu.rst)?
-
-Thanks,
-Joey
-
->  
->  		ret = kvm_vgic_set_owner(vcpu, vcpu->arch.pmu.irq_num,
->  					 &vcpu->arch.pmu);
-> @@ -988,6 +993,11 @@ static bool pmu_irq_is_valid(struct kvm *kvm, int irq)
->  	unsigned long i;
->  	struct kvm_vcpu *vcpu;
->  
-> +	/* On GICv5, the PMUIRQ is architecturally mandated to be PPI 23 */
-> +	if (kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V5 &&
-> +	    irq != KVM_ARMV8_PMU_GICV5_IRQ)
-> +		return false;
-> +
->  	kvm_for_each_vcpu(i, vcpu, kvm) {
->  		if (!kvm_arm_pmu_irq_initialized(vcpu))
->  			continue;
-> diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
-> index 96754b51b4116..0a36a3d5c8944 100644
-> --- a/include/kvm/arm_pmu.h
-> +++ b/include/kvm/arm_pmu.h
-> @@ -12,6 +12,9 @@
->  
->  #define KVM_ARMV8_PMU_MAX_COUNTERS	32
->  
-> +/* PPI #23 - architecturally specified for GICv5 */
-> +#define KVM_ARMV8_PMU_GICV5_IRQ		0x20000017
-> +
->  #if IS_ENABLED(CONFIG_HW_PERF_EVENTS) && IS_ENABLED(CONFIG_KVM)
->  struct kvm_pmc {
->  	u8 idx;	/* index into the pmu->pmc array */
-> @@ -38,7 +41,7 @@ struct arm_pmu_entry {
->  };
->  
->  bool kvm_supports_guest_pmuv3(void);
-> -#define kvm_arm_pmu_irq_initialized(v)	((v)->arch.pmu.irq_num >= VGIC_NR_SGIS)
-> +#define kvm_arm_pmu_irq_initialized(v)	((v)->arch.pmu.irq_num != 0)
->  u64 kvm_pmu_get_counter_value(struct kvm_vcpu *vcpu, u64 select_idx);
->  void kvm_pmu_set_counter_value(struct kvm_vcpu *vcpu, u64 select_idx, u64 val);
->  void kvm_pmu_set_counter_value_user(struct kvm_vcpu *vcpu, u64 select_idx, u64 val);
-> -- 
-> 2.34.1
+Bart
 
