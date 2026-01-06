@@ -4,95 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C165CEFCE1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 17:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4EECCEFCE1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 17:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8xb4A0lF/nE9BbVopKVIphYtrXelnEWlhg1lys9zj5g=; b=AMlWSoNtJzB3b9M4rLU9m+bPDg
-	5e+jTxUVE+jKWbPO+0biENxJ21H69eolcj3hOh0ESIaa3eBxqEto/ha+ZVhCUjC8qgkUlEF5J1B3W
-	+bBcKdUek46ilmfR8sQaAF+uGwg0x+TyI2v0EKgOrCtCkHUlM3rcGaChlmDOcc5ZoGix7Q08Ip0kp
-	dc0c8EydXVFIDldFPsJEGePdm7yxo1BaLj/nnPZA4wVVfZCiyQGwZth2D1u8IHaBxVJFSbsmW1sZL
-	cDhTHeY1KyT3grWTkn9WZ73PU8jHf/oFT81r4o5PJQn5zJngYN7ujyVJLXWAh0pvOgZPMpE1QxL0/
-	AY9uvvEQ==;
+	bh=tR7f3o3xDPesUQHU2saQhPf2QeydtE64EkpRoTZj7tk=; b=htbe5tG2GEyXk7IFlXmQ7WGQk+
+	xNU9bhMTjjsn7wIi/SqPB6m1QdPG8+HAxg3Lh+VB5Zh9I1JhI81aeBxLyxZgwaU4BCgBlAAGKAqW/
+	xyiT3+A6LrsdaPnP7GRrjExqXZ1sZQtEnwySZRTcX9H99k5z8+OuVKWdtImOfuiKo2DZ4+bo7JNCO
+	ZSxo4u0vby3B5Nz/O7eE/7JgMrQON33qFRSmpGIi1zJ8tDb8uJQ8kwDsfS0AdEIwpQUU746TMC57f
+	tKuyunzZ7VeInjMCF8D5BLFz8jV7gNgnv6+8jdWgAPHb2LiumqIjl7NBoxcqtH/R4XZxkn4nGHbSY
+	spS+v97g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdAo5-0000000DZNI-3AHD;
-	Tue, 06 Jan 2026 17:25:21 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vdAuP-0000000DZe9-0YvF;
+	Tue, 06 Jan 2026 17:31:53 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdAo2-0000000DZMw-32kl
+	id 1vdAuM-0000000DZdl-2TyN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 17:25:19 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-47bdbc90dcaso8980555e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 09:25:17 -0800 (PST)
+	Tue, 06 Jan 2026 17:31:51 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 606Ghq57364609
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 6 Jan 2026 17:31:49 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=tR7f3o3xDPesUQHU2saQhPf2
+	QeydtE64EkpRoTZj7tk=; b=g7Tf7qlmPp+umH1OgIEt2FQrpO5qwZlUUNF3FQZl
+	HX1biqamPP+S3QFifEQzy9jaf2AY6vUJoF35oiXAOiRcf7HT/JpD4/pZg72K+t3C
+	meDtBuSkuPUtpQRnlMI+BCeSgCLoRWGj5N8RRhOo6SsvbQAXRKQ5aOtEhqcE4YPR
+	ygNhShsgBjdp+RDjAGGEWH+YOvuR9jhO2qYJ+ElfM8hMEzKhE2ZNzViBqTb49Tjw
+	g8keG8le3o/HfvDI8obGawr+Rnl4TKuHIH1Kg8+DmX3jYJUlfvHZ3VLXqFo4lL1H
+	x1kiM89xYc8xh3TUYxYELjFWUpGO4KxiTuAZ++/yYVIrPQ==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bh660r4rr-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 17:31:49 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4ee1b7293e7so43819731cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 09:31:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767720316; x=1768325116; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=8xb4A0lF/nE9BbVopKVIphYtrXelnEWlhg1lys9zj5g=;
-        b=Bi8NsN8km2scIVRdkhvFTnbSmJLWUvG1FXlJK5kZt10182hzDqG6HY2npXBJ/WWJ45
-         xUqzhdg8rVY4aPDckX8Qe3sT64Ew5DjwoJRq5+UdO//AXSPQSVx3Z/flbHl8gUlgB7hF
-         TnNygC7FF3hS9NlDHlXrNMkoESZB3FwyT5/8vTxZpH6YYQkEeQ031ktci2aVGWDRFYX9
-         SKgzdOTKpKpfkXxqA+5sZfserJTSythEhCiSYx7AZKVM5bcyITJxmidLPah0IKb8SzVD
-         els570jsapOkhojBzFZbo+LPacHvju2Zkd6uEVC4AmNowI/AVDp33V7FbYfpcJwiv0dP
-         mZIw==
+        d=oss.qualcomm.com; s=google; t=1767720708; x=1768325508; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=tR7f3o3xDPesUQHU2saQhPf2QeydtE64EkpRoTZj7tk=;
+        b=I5zjJ1jXx2hMikohC5LEk1Jfb89EP9NfPr3hX0auSEBsksVEUMaB4HhOfgX8kpd9lj
+         ytVrj6dkuP835RSXgz7RpNKkKAw38pXlLAtjbyxuyzEo8I6SfzL3Rn9U7Ug6c+V8Q67J
+         he+jukY5SgMUg0ZCKKhs1sNt5obWrCcHeAVWCtJJVCBvRRgkhht26mHlrQcXsSEP6ok9
+         4vKSJDkFmFzEbKRmBjvydTQ+Nw90miVDyhI8Z8Bxv/JTEvffDX1kBCT+8qmzmnmOWZpe
+         U4kP2aeyhFvn/DaIFnvsBeuKIuQlP8n1k1foGE1vSeB1eWeErJqbWajPUPTWhk7q36V9
+         oqRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767720316; x=1768325116;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8xb4A0lF/nE9BbVopKVIphYtrXelnEWlhg1lys9zj5g=;
-        b=jABYRGQBtsExwFADbCqoz+rLANF2mJlwnZfH3bmhnH9eLAYSK5k3WpIa2kXL7VVwTX
-         TlsrVa26RSc0KbL/1Q8ynjdQguLzMeIQzDaZRNMqtEIWs8ZuUVoMlQd0888O37xAkTGu
-         PshAIOf30YUr15O4f5GqnxDmEl4h7JOrm4n1lVM+a53KXbqaJ662L9+FuCplIYHPKm7a
-         KOLrqLxHjzLuBFk+WF73h/V5RDFMzxAz0e0vai3cN58pHXUFw1A9mqeOZyfToTfjKooZ
-         cmOj6ZZfGxGeEe2MgpvSJ9d0NnylkuV1n8KogySXwJCgJjm7rkOqP7jqI1edhyZWG6Hc
-         BjLw==
-X-Forwarded-Encrypted: i=1; AJvYcCVsoDOgyEnVxWh+kSMOfC08JWMSCBhwcXAj5n2kOZU5NUiTrYOw9X2N6vQFrPhD1HTUBkZ75YKqccbJaWJ6e5NX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwOX37E1nXLj2spmTt88wsDfFTOaDs1b5HHXQKRKTvc7H8JH9e
-	zh3XR/n7tbDhyJCdrqDH2gunPLeQ5MMGMagjpNfIZKUFp5mCI7TWqMLA
-X-Gm-Gg: AY/fxX79vTAqDfhV0TxnKZcGiloLuod6ZyE/npaFPh8lMgokXZKNsp+C6HrzZYyk5Dz
-	tWaXa+Y5OGE7B8mobpn8enPY38PNiYgRPuPvqJpO4H8tA+j3jeLeigklsceD+ER41Vy9uwHrrpN
-	lHm7CVc3suxkc1RhFQzK19tVzowKojbFCfa1CbQRUQV2XZI1kBaQD5zMlbSDKrv6Kb9bYVRYc00
-	puESO38Vehz3KVPVh8BA4uXOPpwB5UZQ6uDq8FoC7cj/oWS3brBBpc1aa6NpNpbyynk6GEUCjS1
-	eaTiybI5nxi13GP5Hk/SMTRioRjkjuyRGGT1DK0ZxKTHqbv+8AC17ozvhSLVOW4l1QzQfcRKvdJ
-	SrerHBAq1QvJmwyLMsN9HmDtsxz9UxXE982ZQA65HXNWQW92p3cfxb8fCoCWEFySmXg8Axl0hhA
-	yUQ13NzHUAI1ulO3i6/puv2CXl9Uiq1jjC2e8pvHt7JdsNhZFycoaMuKXQXNof6ueXCbM=
-X-Google-Smtp-Source: AGHT+IEvK8nZQ8Bc8MX50o5ptPX6sBLi3/yAGjyPkCLCTY4+WRgF1rxL2hZZbDdIz4icxskuPIqEFQ==
-X-Received: by 2002:a05:600c:1d24:b0:479:2a09:9262 with SMTP id 5b1f17b1804b1-47d7f077676mr42759535e9.9.1767720316324;
-        Tue, 06 Jan 2026 09:25:16 -0800 (PST)
-Received: from 0.1.2.1.2.0.a.2.dynamic.cust.swisscom.net ([2a02:1210:8642:2b00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d7f9d8576sm24429935e9.1.2026.01.06.09.25.15
+        d=1e100.net; s=20230601; t=1767720708; x=1768325508;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tR7f3o3xDPesUQHU2saQhPf2QeydtE64EkpRoTZj7tk=;
+        b=MoCemj276EZHcdMOrKEk8UNAnSdiMbxmPOjtcum1NLQbi7GSA5h7rYvzp1PAfCl8Wm
+         NXsHGLdcNfGLBFIL6wSfoOx/LNOle/NHC2gnrQlDRKaq6TMz6RkLJAhhKXDctBr9FK0i
+         O/g7kMM1s3nIsNnidw59Fk50vfp0c4MgcXUrunz7BNqyJVBdtFMHmL/mSE2nZLrS1ml+
+         4+4UvffliOkZfi8xaxksp50Va8qLvfMZmDXgvNmDC3anKApRtTmqZblyPuc7PLzERQ/7
+         MUUpB6eS8hnxK5u6iwkPlFBkXAa5h6abdbOCz+MXHxXCcUPpDDe44VV0KQgmz+SXH+JK
+         9uJg==
+X-Forwarded-Encrypted: i=1; AJvYcCWAxPaeFmcDiOdEeZ6q5XK+5SMVPDpCxav+ZiSnI3THWzhSRRM/CYEbH/Oncve78g1uws8LyCZw6IGDA1hHCaiL@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCYjh7HYbKtpBRs7uqmBQg+NVtNGVXJ90IPWIDLOv/VO97Biwl
+	uqTUar4TEL6gSzxMuf795QhXI+cR9IoBd/BWWQ+1Ziwhf26wSn0jYALggWYYh7L2BjA7H8g5U0v
+	ZTAL2JA55UwbS4J84d/5aCIMWfrOMZWlUh/alv5XvwU1Rs9MAkhjO/co14b6FqwTBC825NHavlT
+	RKcg==
+X-Gm-Gg: AY/fxX6UniUhEuH9gBOeSpe/YKo1AzG0U+U8AKfbI/U7GBcSC4zsI+APqcGKUDtb/us
+	iI05h/5d4/7MQmghObGJREKyXjDra+Bv4X4/QNmHEYM6ShT7SNrrb9i+fO+4MhrH3y7fjvkwZj7
+	JV6PJy5Zrq4YiCp/PnvGxaoSBpciRR916hbsjW4c3qk5azJcV3zi76hWph/UCtuL9iDcTiWPZ6w
+	7tgXr57sN5cNwpMOeZWuHjzi3sq3oYWaVwAuvdU4wbsD+9jyogZS+ZgTOG3AeDgBsgWfxSV/NWq
+	OHdt1QZz5SLfScqi/RkKqvuqgJDenjQKpaa0ZjbBLI5s4b2gE4iAEvnwSGM9Fd4wx1FHVg3bdDL
+	n4Pfs1532FliZYP8qwyKp
+X-Received: by 2002:a05:622a:60a:b0:4ec:f969:cabc with SMTP id d75a77b69052e-4ffa76a115emr42211191cf.10.1767720708536;
+        Tue, 06 Jan 2026 09:31:48 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHjf7OwaOn3HaZf8IWNrZ2eDSIxGAY9pKKIzvqd/zwCSP5LN8zraKCLgL67UkescNPyjj5pgA==
+X-Received: by 2002:a05:622a:60a:b0:4ec:f969:cabc with SMTP id d75a77b69052e-4ffa76a115emr42210511cf.10.1767720707970;
+        Tue, 06 Jan 2026 09:31:47 -0800 (PST)
+Received: from oss.qualcomm.com ([86.121.7.10])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b842a51183asm282053766b.49.2026.01.06.09.31.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jan 2026 09:25:15 -0800 (PST)
-Message-ID: <979eb1054dbe116c2c8bb9920e94e3a93db5346c.camel@gmail.com>
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62a7-sk: Disable mmc Schmitt
- Trigger
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>, Nishanth Menon
-	 <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo
-	 <kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
- Dhruva Gole <d-gole@ti.com>, Sebin Francis <sebin.francis@ti.com>, Kendall
- Willis <k-willis@ti.com>,  Akashdeep Kaur	 <a-kaur@ti.com>,
- linux-arm-kernel@lists.infradead.org, 	devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Tue, 06 Jan 2026 18:25:15 +0100
-In-Reply-To: <20260106-topic-am62a-mmc-pinctrl-v6-19-next-v1-1-1190ac29aadb@baylibre.com>
-References: <20260106-topic-am62a-mmc-pinctrl-v6-19-next-v1-1-1190ac29aadb@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.2 
+        Tue, 06 Jan 2026 09:31:47 -0800 (PST)
+Date: Tue, 6 Jan 2026 19:31:44 +0200
+From: Abel Vesa <abel.vesa@oss.qualcomm.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>,
+        Saravana Kannan <saravanak@google.com>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+        Bill Wendling <morbo@google.com>,
+        Justin Stitt <justinstitt@google.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Nicolas Ferre <nicolas.ferre@microchip.com>,
+        Alexandre Belloni <alexandre.belloni@bootlin.com>,
+        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Alim Akhtar <alim.akhtar@samsung.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Nipun Gupta <nipun.gupta@amd.com>,
+        Nikhil Agarwal <nikhil.agarwal@amd.com>,
+        Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+        Sylwester Nawrocki <s.nawrocki@samsung.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Viresh Kumar <viresh.kumar@linaro.org>, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, llvm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org,
+        linux-samsung-soc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        linux-clk@vger.kernel.org, imx@lists.linux.dev,
+        dmaengine@vger.kernel.org, linux-media@vger.kernel.org,
+        linux-pm@vger.kernel.org
+Subject: Re: [PATCH v2 08/11] clk: imx: imx31: Simplify with scoped for each
+ OF child loop
+Message-ID: <x2md7iusj467bjmmysckbkehooua3he652qqwr3yzaoka4sjm4@pk6uy7hq2lku>
+References: <20260106-of-for-each-compatible-scoped-v2-0-05eb948d91f2@oss.qualcomm.com>
+ <20260106-of-for-each-compatible-scoped-v2-8-05eb948d91f2@oss.qualcomm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260106-of-for-each-compatible-scoped-v2-8-05eb948d91f2@oss.qualcomm.com>
+X-Authority-Analysis: v=2.4 cv=MNptWcZl c=1 sm=1 tr=0 ts=695d4705 cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=hZ5Vz02otkLiOpJ15TJmsQ==:17
+ a=kj9zAlcOel0A:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=8AirrxEcAAAA:8 a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8
+ a=_Ixbbux_C5oTi3JCwyIA:9 a=CjuIK1q_8ugA:10 a=dawVfQjAaf238kedN5IG:22
+ a=ST-jHhOKWsTCqRlWije3:22
+X-Proofpoint-ORIG-GUID: TIXUxmLg0I9LS30H-x_-n2Y1d9WWgNwA
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA2MDE1MiBTYWx0ZWRfX1O9pcknTk+6k
+ +goTYymdkxit5wnpO+/4EkVZdmAh5H+pd9x13Usu4zmIkiqPxirOwPAhyAzgAFojWJCElpnlWs9
+ GTnlT0cO7q5LZQHEYoUzunRNRnc2/DbxobzuJeyT4POULZ4qvPHSn+tGIO3Di13eLvQuo8cyD5d
+ uCA5QJDO7GOcgBlrd1t9gnEu8dvMlVQUY1o3IqVnbJARyn03vLR3QWca9i9B1bzBceXNGmU5DGG
+ LZtlwdvXR6HIfZyJi01ujs+nGIRnMlG869KOI36W8k6n8p0kZtwGv9aVIOHqqmgKAUI4AH0cVHt
+ PkvEX+M6ygneFcTWpXMX64W3782fujg3HJPOhU/jWY3QzmVEShXkW6wSauwYh109LFXnlUYeSit
+ b+tGg0hBxsX8LKGXWx+rSdY9YcSR/J590+v3JG08YHIB8/JoJaC+jvrRXxQ07b62Untk4P9DTgM
+ xu9lUjCORveO3q0fe2A==
+X-Proofpoint-GUID: TIXUxmLg0I9LS30H-x_-n2Y1d9WWgNwA
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-06_01,2026-01-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 priorityscore=1501 lowpriorityscore=0 impostorscore=0
+ malwarescore=0 adultscore=0 clxscore=1011 bulkscore=0 phishscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
+ definitions=main-2601060152
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_092518_828558_EF85F279 
-X-CRM114-Status: GOOD (  21.91  )
+X-CRM114-CacheID: sfid-20260106_093150_634577_9DB7F3AB 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,135 +176,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Markus,
+On 26-01-06 10:15:18, Krzysztof Kozlowski wrote:
+> Use scoped for-each loop when iterating over device nodes to make code a
+> bit simpler.
+> 
+> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-I'm sorry my patch has caused regression for your use-case!
-
-I think we would need to discuss this with TI via our FAE, because the chan=
-ge
-in question has both been discussed with former FAE and the technical team
-behind, and adopted in TI SDK.
-
-Or have you already discused this with corresponding TI HW team?
-
-Which hardware is affected, is it the official SK-AM62A-LP?
-Is MMC2 the SD-card?
-
-On Tue, 2026-01-06 at 17:22 +0100, Markus Schneider-Pargmann (TI.com) wrote=
-:
-> Remove Schmitt Trigger from mmc pins. With Schmitt Trigger enabled
-> u-boot SPL is not able to read u-boot from mmc:
->=20
-> =C2=A0=C2=A0=C2=A0 Trying to boot from MMC2
-> =C2=A0=C2=A0=C2=A0 Error reading cluster
-> =C2=A0=C2=A0=C2=A0 spl_load_image_fat: error reading image u-boot.img, er=
-r - -22
-> =C2=A0=C2=A0=C2=A0 Error: -22
-> =C2=A0=C2=A0=C2=A0 SPL: Unsupported Boot Device!
-> =C2=A0=C2=A0=C2=A0 SPL: failed to boot from all boot devices
-> =C2=A0=C2=A0=C2=A0 ### ERROR ### Please RESET the board ###
->=20
-> I bisected this issue between u-boot v2025.10 and v2026.01 and found the
-> devicetree merge to be the problem. At a closer look I found the
-> k3-pinctrl.h changes. Disabling the Schmitt Trigger fixes the u-boot SPL
-> failure to read from mmc.
->=20
-> Fixes: 5b272127884b ("arm64: dts: ti: k3-pinctrl: Enable Schmitt Trigger =
-by default")
-> Signed-off-by: Markus Schneider-Pargmann (TI.com) <msp@baylibre.com>
-> ---
-> =C2=A0arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 36 ++++++++++++++++------=
------------
-> =C2=A01 file changed, 18 insertions(+), 18 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dt=
-s/ti/k3-am62a7-sk.dts
-> index e99bdbc2e0cbdf858f1631096f9c2a086191bab3..9129045c8bbd3a83dba6ff6f2=
-148a3624b91b546 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> @@ -315,30 +315,30 @@ AM62AX_IOPAD(0x0b4, PIN_INPUT_PULLUP, 1) /* (K24) G=
-PMC0_CSn3.I2C2_SDA */
-> =C2=A0
-> =C2=A0	main_mmc0_pins_default: main-mmc0-default-pins {
-> =C2=A0		pinctrl-single,pins =3D <
-> -			AM62AX_IOPAD(0x220, PIN_INPUT, 0) /* (Y3) MMC0_CMD */
-> -			AM62AX_IOPAD(0x218, PIN_INPUT, 0) /* (AB1) MMC0_CLKLB */
-> -			AM62AX_IOPAD(0x21c, PIN_INPUT, 0) /* (AB1) MMC0_CLK */
-
-according to datasheet, MMC0_CLK should have address 0x218 and it's the bal=
-l AB7.
-MMC0_CLKLB is not present in the datasheet and AB1 is actually VSS. 0x21C a=
-ddress
-is not documented.
-
-Something is not right here...
-
-OK, grepping TRM for CLKLB, one can conclude that 0x21c is actually MMC0_CL=
-KLB.
-
-Could you please try to modify 0x21c address only? Does it solve the boot p=
-roblem?
-
-> -			AM62AX_IOPAD(0x214, PIN_INPUT, 0) /* (AA2) MMC0_DAT0 */
-> -			AM62AX_IOPAD(0x210, PIN_INPUT_PULLUP, 0) /* (AA1) MMC0_DAT1 */
-> -			AM62AX_IOPAD(0x20c, PIN_INPUT_PULLUP, 0) /* (AA3) MMC0_DAT2 */
-> -			AM62AX_IOPAD(0x208, PIN_INPUT_PULLUP, 0) /* (Y4) MMC0_DAT3 */
-> -			AM62AX_IOPAD(0x204, PIN_INPUT_PULLUP, 0) /* (AB2) MMC0_DAT4 */
-> -			AM62AX_IOPAD(0x200, PIN_INPUT_PULLUP, 0) /* (AC1) MMC0_DAT5 */
-> -			AM62AX_IOPAD(0x1fc, PIN_INPUT_PULLUP, 0) /* (AD2) MMC0_DAT6 */
-> -			AM62AX_IOPAD(0x1f8, PIN_INPUT_PULLUP, 0) /* (AC2) MMC0_DAT7 */
-
-All the rest actually have ST enabled on PoR according to TRM and I suppose=
- BootROM
-would have had hard times booting from the affected MMC device if it would =
-not be
-the correct setting?
-
-> +			AM62AX_IOPAD(0x220, PIN_INPUT_NOST, 0) /* (Y3) MMC0_CMD */
-> +			AM62AX_IOPAD(0x218, PIN_INPUT_NOST, 0) /* (AB1) MMC0_CLKLB */
-> +			AM62AX_IOPAD(0x21c, PIN_INPUT_NOST, 0) /* (AB1) MMC0_CLK */
-> +			AM62AX_IOPAD(0x214, PIN_INPUT_NOST, 0) /* (AA2) MMC0_DAT0 */
-> +			AM62AX_IOPAD(0x210, PIN_INPUT_PULLUP_NOST, 0) /* (AA1) MMC0_DAT1 */
-> +			AM62AX_IOPAD(0x20c, PIN_INPUT_PULLUP_NOST, 0) /* (AA3) MMC0_DAT2 */
-> +			AM62AX_IOPAD(0x208, PIN_INPUT_PULLUP_NOST, 0) /* (Y4) MMC0_DAT3 */
-> +			AM62AX_IOPAD(0x204, PIN_INPUT_PULLUP_NOST, 0) /* (AB2) MMC0_DAT4 */
-> +			AM62AX_IOPAD(0x200, PIN_INPUT_PULLUP_NOST, 0) /* (AC1) MMC0_DAT5 */
-> +			AM62AX_IOPAD(0x1fc, PIN_INPUT_PULLUP_NOST, 0) /* (AD2) MMC0_DAT6 */
-> +			AM62AX_IOPAD(0x1f8, PIN_INPUT_PULLUP_NOST, 0) /* (AC2) MMC0_DAT7 */
-> =C2=A0		>;
-> =C2=A0		bootph-all;
-> =C2=A0	};
-> =C2=A0
-> =C2=A0	main_mmc1_pins_default: main-mmc1-default-pins {
-> =C2=A0		pinctrl-single,pins =3D <
-> -			AM62AX_IOPAD(0x23c, PIN_INPUT, 0) /* (A21) MMC1_CMD */
-> -			AM62AX_IOPAD(0x234, PIN_INPUT, 0) /* (B22) MMC1_CLK */
-> -			AM62AX_IOPAD(0x230, PIN_INPUT, 0) /* (A22) MMC1_DAT0 */
-> -			AM62AX_IOPAD(0x22c, PIN_INPUT, 0) /* (B21) MMC1_DAT1 */
-> -			AM62AX_IOPAD(0x228, PIN_INPUT, 0) /* (C21) MMC1_DAT2 */
-> -			AM62AX_IOPAD(0x224, PIN_INPUT, 0) /* (D22) MMC1_DAT3 */
-> -			AM62AX_IOPAD(0x240, PIN_INPUT, 0) /* (D17) MMC1_SDCD */
-
-All of these have ST enabled on PoR, according to TRM.
-
-> +			AM62AX_IOPAD(0x23c, PIN_INPUT_NOST, 0) /* (A21) MMC1_CMD */
-> +			AM62AX_IOPAD(0x234, PIN_INPUT_NOST, 0) /* (B22) MMC1_CLK */
-> +			AM62AX_IOPAD(0x230, PIN_INPUT_NOST, 0) /* (A22) MMC1_DAT0 */
-> +			AM62AX_IOPAD(0x22c, PIN_INPUT_NOST, 0) /* (B21) MMC1_DAT1 */
-> +			AM62AX_IOPAD(0x228, PIN_INPUT_NOST, 0) /* (C21) MMC1_DAT2 */
-> +			AM62AX_IOPAD(0x224, PIN_INPUT_NOST, 0) /* (D22) MMC1_DAT3 */
-> +			AM62AX_IOPAD(0x240, PIN_INPUT_NOST, 0) /* (D17) MMC1_SDCD */
-> =C2=A0		>;
-> =C2=A0		bootph-all;
-> =C2=A0	};
->=20
-> ---
-> base-commit: 6cd6c12031130a349a098dbeb19d8c3070d2dfbe
-> change-id: 20260106-topic-am62a-mmc-pinctrl-v6-19-next-2f3e5563fbb5
->=20
-> Best regards,
-
---=20
-Alexander Sverdlin.
+Acked-by: Abel Vesa <abelvesa@kernel.org>
 
