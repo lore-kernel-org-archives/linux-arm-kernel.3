@@ -4,103 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2427EC47BE2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 11:12:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 028D9C47BE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 11:15:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V9SJsn0IaBRHmsN3YyFL5FZJYk6K2cgBjWAKNd98Wh8=; b=ifWFgKjlucZ1XYH/NQOTUceR6N
-	qHCRSwCP0pnXgaHYlgZsAFGx53+rT6BIPqeUTA/+Xf7k/QJ/gNb/BIvKpg5/s7xtho5f1i4lOxY4h
-	oNgkk05NHaY8RLTX4QuZS/DXLb7JRXocjlt8LrptF+4E2EepcY4dyqBeBnRAv/EAgAik3+Rd5p/mP
-	XIacd5IuKw16npIOy5TpVJHGw47QWDW49ky51RVh9KfkKaqvHx0spyl5TM0C9McI26zNRDmJUVZjn
-	jnHFqhR1KdGzv1gnG/2uPEFHuGJzz4SMaLceqGCFBN2cju3Lq1NO4FrmKkmgOxRxVSAKdUSU4XT/X
-	jPNOyjyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cEUiTTbWiZZR3z0ycn6OKxX6DZDHRuSPnczV6TwQHdo=; b=NNAy5rqUaDWtIF8E3SgPsGfOsZ
+	tz8og1OYPJtXVKzEyiEyLtM0k8z/7yqZ+9F/p10PRJviTplWfK0z/eIczmCoa+2R1/dQ0YXtezEN0
+	YIkw+oB8zxE3b6zu84Xzu6UFLvW62nWDiemiep3dxpGAzeCnqyDHj2RAn67qeN6RUDT7xp+s2tYA3
+	hYerLXeicIHcZGwErDjZmeaD6i6GTapm5a8n0tLy4LY0uLfg1qsOYuCDiDSxwo9Vh9cY7mVVFhyv7
+	73+OIiRSdfdGqEe/WyoK4/LGgAeg4VZgE0iFccqB9wvxtD8DTYibRGLjn2cG51V0hubSdaSSxZtGq
+	yQif6/lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd4yk-0000000Cqk6-0EDY;
-	Tue, 06 Jan 2026 11:11:58 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd4yd-0000000Cqiw-0PDN
+	id 1vd51h-0000000Cr3T-3VwR;
+	Tue, 06 Jan 2026 11:15:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vd51f-0000000Cr2b-0pdG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 11:11:52 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-430fbb6012bso598563f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 03:11:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767697909; x=1768302709; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=V9SJsn0IaBRHmsN3YyFL5FZJYk6K2cgBjWAKNd98Wh8=;
-        b=U8jz3MvunU80+tHif0xGs0+3qdOw+9thumhXfPan4ursrmnyJXuUpO9WsXqMl796Ou
-         clVfxH6F1LJwmKZyZUDZmDIag6K6wRvBVP2E4h+DUmJf80lugUKLv3aRkTpv5DxhmbVk
-         wICHyc3CpuPIKXBQQR4DX24+zw5cJx/oMsn8WFruPPTJclByp/wUQgRB7osHCSmhIWGU
-         8ULHIWL0fYXzlJbFo3gAyqy2xeiWbDQwgyObnSPEvj991FkEZFZ4CKjtuAN1UBQsakuc
-         /iLaQ7n/k3CWoSbTHcmVRs1N7yYUbWqgYIrNtS7O9EH9vSXxZWzIZzyP1PY9Gx20HPZ+
-         zoww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767697909; x=1768302709;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=V9SJsn0IaBRHmsN3YyFL5FZJYk6K2cgBjWAKNd98Wh8=;
-        b=LaczMGFllPQHLBGuZ02vL3OtA+HpOZmu/9KVN2z6zObxrGeZOFbqpm3RieKN/o9xq8
-         FO4vHX8mOKbn4SIfj3DprocFc3neSVYInANMWek0zMpCZCQh79MV/X2vy+CDfEJvnSVM
-         yKbFLzlF9F6tx78VXfSDdOq4ELdKqdlOwVSOhy8enTvT55enpneWo9SI1On+F0Pj2vzm
-         Mnhu5etCyTiz9lvNScDZm9C1dNgAZfbR8Ml5jO9B+RnS1sB9kJChg0HlTeotUN9/IOZO
-         FDOdiNoDRQepl+K7VM9gnG5vzwPKPyB6YdQMZz8kGbXkHxbe6/eWwd+eSinGxRtCO9NA
-         FT7w==
-X-Forwarded-Encrypted: i=1; AJvYcCUY6MvfChXEWpv68PHcGsZy5tlDOCIM7E5r7z0whCicBeIb0AhkbSodb9mts5DMliish3Q2NKaUorQD09Tpj8bC@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqAzBtPPJpzzkPDN3WKvEJN7XxEsPupADV47xHlUbZkvZ3VXTH
-	bKjCSz9zH5DOmJ8fLRJOQjLeDf5S3ITzP83B+J27ThFNQIuSGuneNKGh
-X-Gm-Gg: AY/fxX7IDnK8P4snjJffIm+wjXJB2vzNheUEG6IzH/JezT0CEEiCOtRWM7SLNAFR0AJ
-	ID8OOWqPcQ0jNfSfYpgOdl05J/LXE3GDxA1MW/03D8ZIgtp4rSuyOErVCOiE3OQHUeTnw/kxTzW
-	HPi6qfqUyXj3FF+cEsEDgV5rW3vvFUPjMbnl47eVVHxJH5aDKOgRf0T+MwcSEuAh673lXQz5LH3
-	vWGerv6uBdEWYGfghJNMYcL71AXhf2iwPQYwTo9VaygOiboSe38bVJBrkrkjEPa+Nhff4w7299q
-	tdRKU58D1IissY4xJaJHrqEFmCbdBVPQc/b7+047qjNXNztys27vYvk7eDbKxmcQEGGlfmIAK+4
-	XTzFncgpQ1uGUu70HkCDpXqqzT4uqakzTje07G/HNGOyhiUuVidTSREYpIeCVPoa+viEHdi0aqr
-	1tZXyrmJSkifu+dRrLS2qhiHubHpxL7pjZtlbpeqR2xQ91AMSO3J3fg9FYb9hEh1hETeE7P9RBO
-	zmI5VhADm/z1YT63hsiHdfi8LyR+w9z
-X-Google-Smtp-Source: AGHT+IHUuYlVORpetXhgVAXfGMDXsPDVfwvE/C/OPeXgrPCsTr8liGY2193dNTUJMH/upS3YC04ZsQ==
-X-Received: by 2002:a05:6000:3105:b0:431:864:d492 with SMTP id ffacd0b85a97d-432bc9efe6bmr3137882f8f.36.1767697908526;
-        Tue, 06 Jan 2026 03:11:48 -0800 (PST)
-Received: from Lord-Beerus.station (net-93-151-204-73.cust.vodafonedsl.it. [93.151.204.73])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd5ee5e3sm3797112f8f.35.2026.01.06.03.11.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jan 2026 03:11:48 -0800 (PST)
-Date: Tue, 6 Jan 2026 12:11:45 +0100
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Markus Niebel <Markus.Niebel@tq-group.com>,
-	Primoz Fiser <primoz.fiser@norik.com>,
-	Yannic Moog <y.moog@phytec.de>, Josua Mayer <josua@solid-run.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 2/3] arm64: dts: freescale: Add support for Variscite
- DART-MX95
-Message-ID: <aVzt8XemmIPz18aQ@Lord-Beerus.station>
-References: <20260105102412.6674-1-stefano.r@variscite.com>
- <20260105102412.6674-3-stefano.r@variscite.com>
- <aVzjQEhpv4fenAWF@shlinux89>
+	Tue, 06 Jan 2026 11:15:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B7E4497;
+	Tue,  6 Jan 2026 03:14:50 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C6373F5A1;
+	Tue,  6 Jan 2026 03:14:52 -0800 (PST)
+Message-ID: <1837fd2e-8795-4a26-b961-fdef59afd03f@arm.com>
+Date: Tue, 6 Jan 2026 11:14:50 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aVzjQEhpv4fenAWF@shlinux89>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/45] arm64: mpam: Context switch the MPAM registers
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
+References: <20251219181147.3404071-1-ben.horgan@arm.com>
+ <20251219181147.3404071-8-ben.horgan@arm.com>
+ <20260105170451.00005669@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20260105170451.00005669@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_031151_150380_CD458944 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20260106_031459_345187_5EF487CD 
+X-CRM114-Status: GOOD (  45.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,24 +76,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fabio and Peng,
+Hi Jonathan,
+
+On 1/5/26 17:04, Jonathan Cameron wrote:
+> On Fri, 19 Dec 2025 18:11:09 +0000
+> Ben Horgan <ben.horgan@arm.com> wrote:
+> 
+>> From: James Morse <james.morse@arm.com>
+>>
+>> MPAM allows traffic in the SoC to be labeled by the OS, these labels are
+>> used to apply policy in caches and bandwidth regulators, and to monitor
+>> traffic in the SoC. The label is made up of a PARTID and PMG value. The x86
+>> equivalent calls these CLOSID and RMID, but they don't map precisely.
+>>
+>> MPAM has two CPU system registers that is used to hold the PARTID and PMG
+>> values that traffic generated at each exception level will use. These can
+>> be set per-task by the resctrl file system. (resctrl is the defacto
+>> interface for controlling this stuff).
+>>
+>> Add a helper to switch this.
+>>
+>> struct task_struct's separate CLOSID and RMID fields are insufficient to
+>> implement resctrl using MPAM, as resctrl can change the PARTID (CLOSID) and
+>> PMG (sort of like the RMID) separately. On x86, the rmid is an independent
+>> number, so a race that writes a mismatched closid and rmid into hardware is
+>> benign. On arm64, the pmg bits extend the partid.
+>> (i.e. partid-5 has a pmg-0 that is not the same as partid-6's pmg-0).  In
+>> this case, mismatching the values will 'dirty' a pmg value that resctrl
+>> believes is clean, and is not tracking with its 'limbo' code.
+>>
+>> To avoid this, the partid and pmg are always read and written as a pair.
+>> Instead of making struct task_struct's closid and rmid fields an
+>> endian-unsafe union, add the value to struct thread_info and always use
+>> READ_ONCE()/WRITE_ONCE() when accessing this field.
+> I'm still hammering on this one ;)
+> 
+> The comment below is better way of putting that it would basically leave
+> some fields that look like they can be used which can't. Given they
+> are under ifdef CONFIG_X86_CPU_RESCTRL anyway it would be very odd
+> to use a union. Would just be a new appropriately ifdef protected variable
+> right next to them in the file.  I'd be tempted to just drop the bit
+> about union and say why it makes sense to instead put it in
+> struct thread_info (basically because it's arch specific and we can
+> avoid even more ifdef mess?)
+> 
+> 
+>>
+>> Resctrl allows a per-cpu 'default' value to be set, this overrides the
+>> values when scheduling a task in the default control-group, which has
+>> PARTID 0. The way 'code data prioritisation' gets emulated means the
+>> register value for the default group needs to be a variable.
+>>
+>> The current system register value is kept in a per-cpu variable to avoid
+>> writing to the system register if the value isn't going to change.  Writes
+>> to this register may reset the hardware state for regulating bandwidth.
+>>
+>> Finally, there is no reason to context switch these registers unless there
+>> is a driver changing the values in struct task_struct. Hide the whole thing
+>> behind a static key. This also allows the driver to disable MPAM in
+>> response to errors reported by hardware. Move the existing static key to
+>> belong to the arch code, as in the future the MPAM driver may become a
+>> loadable module.
+>>
+>> All this should depend on whether there is an MPAM driver, hide it behind
+>> CONFIG_ARM64_MPAM.
+>>
+>> CC: Amit Singh Tomar <amitsinght@marvell.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>> ---
+>> CONFIG_MPAM -> CONFIG_ARM64_MPAM in commit message
+>> Remove extra DECLARE_STATIC_KEY_FALSE
+>> Function name in comment, __mpam_sched_in() -> mpam_thread_switch()
+>> Remove unused headers
+>> Expand comment (Jonathan)
+>> ---
+>>  arch/arm64/Kconfig                   |  2 +
+>>  arch/arm64/include/asm/mpam.h        | 73 ++++++++++++++++++++++++++++
+>>  arch/arm64/include/asm/thread_info.h |  3 ++
+>>  arch/arm64/kernel/Makefile           |  1 +
+>>  arch/arm64/kernel/mpam.c             | 13 +++++
+>>  arch/arm64/kernel/process.c          |  7 +++
+>>  drivers/resctrl/mpam_devices.c       |  2 -
+>>  drivers/resctrl/mpam_internal.h      |  4 +-
+>>  8 files changed, 101 insertions(+), 4 deletions(-)
+>>  create mode 100644 arch/arm64/include/asm/mpam.h
+>>  create mode 100644 arch/arm64/kernel/mpam.c
+>>
+> 
+>> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
+>> new file mode 100644
+>> index 000000000000..2ab3dca6977c
+>> --- /dev/null
+>> +++ b/arch/arm64/include/asm/mpam.h
+> 
+>> +/*
+>> + * The resctrl filesystem writes to the partid/pmg values for threads and CPUs,
+>> + * which may race with reads in mpam_thread_switch(). Ensure only one of the old
+>> + * or new values are used. Particular care should be taken with the pmg field as
+>> + * mpam_thread_switch() may read a partid and pmg that don't match, causing this
+>> + * value to be stored with cache allocations, despite being considered 'free' by
+>> + * resctrl.
+>> + *
+>> + * A value in struct thread_info is used instead of struct task_struct as the
+>> + * cpu's u64 register format is used. In struct task_struct there are two u32,
+>> + * rmid and closid for the x86 case, but as we can't use them here do something
+>> + * else. Creating a union would mean only accesses from the created u64 would be
+>> + * endian safe and so be less clear.
+> 
+> I'd just put this as something:
+>   * The closid and rmid in task_struct can't be directly reused as a u64 is needed.
+>   * As such, a suitable variable in struct thread_info is used instead with the
+>   * benefit of that being clearly an architecture specific location.
+> 
+> or be more cynical and keep it for the patch description only. To me location
+> of this u64 doesn't really feel like a design decision we need to record for the ages.
+> 
+> With something like the suggested text, or the paragraph just dropped
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+
+Thanks! I've just dropped this comment as it seems like more trouble
+than it's worth and updated the paragraph in the commit message to read:
+
+"To avoid this, the partid and pmg are always read and written as a
+pair. This requires a new u64 field. In struct task_struct there are two
+u32, rmid and closid for the x86 case, but as we can't use them here do
+something else. Add this new field, mpam_partid_pmg, to struct
+thread_info to avoid adding more architecture specific code to struct
+task_struct. Always use READ_ONCE()/WRITE_ONCE() when accessing this field."
 
 > 
-> CM7 support still not landed, and VPU support also not ready in upstream.
-> You may need to drop these reserved nodes.
+>> + */
+>> +static inline u64 mpam_get_regval(struct task_struct *tsk)
+>> +{
+>> +#ifdef CONFIG_ARM64_MPAM
+>> +	return READ_ONCE(task_thread_info(tsk)->mpam_partid_pmg);
+>> +#else
+>> +	return 0;
+>> +#endif
+>> +}
+> 
 > 
 
-Thank you for the review and feedback. I'll address all the points
-you raised in v4.
+Thanks,
 
-I appreciate the work you and the community are doing on i.MX mainline support.
-We at Variscite are starting to be committed to actively contributing upstream,
-and we're happy to help with upstreaming efforts for the i.MX family,
-including driver development and IP block support that may still be missing
-or lagging behind vendor BSP.
-If there are specific areas where we can assist or collaborate,
-please let us know.
+Ben
 
-Best regards,
-Stefano
 
