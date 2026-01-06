@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A0F2CDC188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 12:37:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4256BCDC188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 12:41:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=awUw0Ws8QfjW/2qqBU/Hjhunv198l7ND4md8D63+u5c=; b=tecZcQUag5APhmXOzPktNsJFmg
-	L5R5NqYjKzDOwj/JM/sdnlfXwceyaVkwnPo7DJvGi+KzbDVFUofT945IHf66COZf41j1oZdz50nR4
-	ApbsM8svgR0BbH8ys7P0XgVyn17+5bfVdsFEQcqv5lJcLKG5TpejG0HxasVpwRpiw9ffcOhlHv6Hi
-	iMQ4T9l0TwLOH32818AZ/Q/WuNV7dEne2V10KHAXv0Xo759S9EBvuPWSiL2EAV3XWstYO3tO0lsVB
-	jP9W89qOxEyi4McDQx8z5Ef7Q1yXmBAWyX7cinOcGBmspj17CYurHPs1Y9NowxMQlBwmckp9R1iHR
-	GfNuzPeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dPABeBIeVhF/DQJjJWFjMystDgcPnTgn8cl/ckUVE3A=; b=qbcCyfQy2yyz3NuWvIBy40205e
+	YSStKjfvFGX1BUE4rTNQwSf598dzlB87jJzUODJ09mEWBWOfGhkrOKY/xIbQ4/RZc6buX75CRbdRp
+	OQiQC5X/cYVFnl/I8SmrmZymZdnh+anSMThkSEwF0PlXb9R+6OC7rzDHjWmvwLTrKRUtxgry64iEJ
+	xEeHuYTFxcoeCj21p6MfUbseFSKKJymW+HeqEcdhcppmQrQJdMfHqYexXC8La6Zj1BIt8QpKREkhD
+	nGeSgRdbqtxKwANRywSnHJg/Qxe27nI8OXAjWlOoTaSThLwITVk+4Ug2yhwmjGRZte2BVdeQYoSjv
+	dEfYUH8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd6Jt-0000000D0c3-2g8w;
-	Tue, 06 Jan 2026 12:37:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vd6N5-0000000D0yz-05CU;
+	Tue, 06 Jan 2026 12:41:11 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd6Jr-0000000D0bU-1MyL
+	id 1vd6N0-0000000D0yD-1twK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 12:37:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D8AAE404B3;
-	Tue,  6 Jan 2026 12:37:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77A41C116C6;
-	Tue,  6 Jan 2026 12:37:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767703070;
-	bh=hm9zTszigCDx9gXEHsPwQEmbW0HRLieX7v57e0V8bhU=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=REzzIMiHLlAJ8/yX7SNtNUN34UI9sPJRaGpdk92DO+zLYJno2Yi7Pd4gD6O6eNRke
-	 7aVNJxQGRk0pFIgebjhJZgYpA/yxeQG7V10i16poDvU0Y0JORkJLC0VHoEQyZYvJbn
-	 Qs62maLF3+GbGq5mvC5TOyQx6hf7IaZtCtDL0GzQPoNYbZqwhl+9y7WGtaka52XZdW
-	 7uMM5+OAhmjqspJ0AJXxpXtN/vjJUFi7K5oKqGB9K4XYM1g7amRHfipjlQAqgZdBi0
-	 akH2hyYQFnXFyOAYlWAnkREJmQ92SKxUHavk2gbwuiX10Wc3Ibm3ymXS+cC8iKU3VZ
-	 RU/xEGefwO3KQ==
-From: Andreas Hindborg <a.hindborg@kernel.org>
-To: FUJITA Tomonori <fujita.tomonori@gmail.com>, fujita.tomonori@gmail.com
-Cc: aliceryhl@google.com, lyude@redhat.com, boqun.feng@gmail.com,
- will@kernel.org, peterz@infradead.org, richard.henderson@linaro.org,
- mattst88@gmail.com, linmag7@gmail.com, catalin.marinas@arm.com,
- ojeda@kernel.org, gary@garyguo.net, bjorn3_gh@protonmail.com,
- lossin@kernel.org, tmgross@umich.edu, dakr@kernel.org,
- mark.rutland@arm.com, frederic@kernel.org, tglx@linutronix.de,
- anna-maria@linutronix.de, jstultz@google.com, sboyd@kernel.org,
- viro@zeniv.linux.org.uk, brauner@kernel.org, jack@suse.cz,
- linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, rust-for-linux@vger.kernel.org,
- linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 4/5] rust: hrtimer: use READ_ONCE instead of read_volatile
-In-Reply-To: <20260101.130012.2122315449079707392.fujita.tomonori@gmail.com>
-References: <20251231-rwonce-v1-0-702a10b85278@google.com>
- <20251231-rwonce-v1-4-702a10b85278@google.com>
- <20260101.111123.1233018024195968460.fujita.tomonori@gmail.com>
- <L2dmGLLYJbusZn9axfRubM0hIOSTuny2cW3uyUhOVGvck7lQxTzDe0Xxf8Hw2cLxICT8kdmNAE74e-LV7YrReg==@protonmail.internalid>
- <20260101.130012.2122315449079707392.fujita.tomonori@gmail.com>
-Date: Tue, 06 Jan 2026 13:37:34 +0100
-Message-ID: <87ikdej4s1.fsf@t14s.mail-host-address-is-not-set>
+	Tue, 06 Jan 2026 12:41:10 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dlrPM6DFRzHnH53;
+	Tue,  6 Jan 2026 20:40:55 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0C97C40086;
+	Tue,  6 Jan 2026 20:41:00 +0800 (CST)
+Received: from localhost (10.48.155.65) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 6 Jan
+ 2026 12:40:58 +0000
+Date: Tue, 6 Jan 2026 12:40:56 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
+	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
+	<kobak@nvidia.com>, <lcherian@marvell.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
+	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
+	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
+	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
+	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
+	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>
+Subject: Re: [PATCH v2 27/45] arm_mpam: resctrl: Add support for csu
+ counters
+Message-ID: <20260106124056.00002d3d@huawei.com>
+In-Reply-To: <20251219181147.3404071-28-ben.horgan@arm.com>
+References: <20251219181147.3404071-1-ben.horgan@arm.com>
+	<20251219181147.3404071-28-ben.horgan@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.155.65]
+X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_043751_408721_D5DB9B9D 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20260106_044108_835704_757E4A84 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,79 +83,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"FUJITA Tomonori" <fujita.tomonori@gmail.com> writes:
+On Fri, 19 Dec 2025 18:11:29 +0000
+Ben Horgan <ben.horgan@arm.com> wrote:
 
-> On Thu, 01 Jan 2026 11:11:23 +0900 (JST)
-> FUJITA Tomonori <fujita.tomonori@gmail.com> wrote:
->
->> On Wed, 31 Dec 2025 12:22:28 +0000
->> Alice Ryhl <aliceryhl@google.com> wrote:
->>
->>> Using `READ_ONCE` is the correct way to read the `node.expires` field.
->>>
->>> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
->>> ---
->>>  rust/kernel/time/hrtimer.rs | 8 +++-----
->>>  1 file changed, 3 insertions(+), 5 deletions(-)
->>>
->>> diff --git a/rust/kernel/time/hrtimer.rs b/rust/kernel/time/hrtimer.rs
->>> index 856d2d929a00892dc8eaec63cebdf547817953d3..e2b7a26f8aade972356c3eb5f6489bcda3e2e849 100644
->>> --- a/rust/kernel/time/hrtimer.rs
->>> +++ b/rust/kernel/time/hrtimer.rs
->>> @@ -239,11 +239,9 @@ pub fn expires(&self) -> HrTimerInstant<T>
->>>          // - Timers cannot have negative ktime_t values as their expiration time.
->>>          // - There's no actual locking here, a racy read is fine and expected
->>>          unsafe {
->>> -            Instant::from_ktime(
->>> -                // This `read_volatile` is intended to correspond to a READ_ONCE call.
->>> -                // FIXME(read_once): Replace with `read_once` when available on the Rust side.
->>> -                core::ptr::read_volatile(&raw const ((*c_timer_ptr).node.expires)),
->>> -            )
->>> +            Instant::from_ktime(kernel::sync::READ_ONCE(
->>> +                &raw const (*c_timer_ptr).node.expires,
->>> +            ))
->>>          }
->>
->> Do we actually need READ_ONCE() here? I'm not sure but would it be
->> better to call the C-side API?
->>
->> diff --git a/rust/helpers/time.c b/rust/helpers/time.c
->> index 67a36ccc3ec4..73162dea2a29 100644
->> --- a/rust/helpers/time.c
->> +++ b/rust/helpers/time.c
->> @@ -2,6 +2,7 @@
->>
->>  #include <linux/delay.h>
->>  #include <linux/ktime.h>
->> +#include <linux/hrtimer.h>
->>  #include <linux/timekeeping.h>
->>
->>  void rust_helper_fsleep(unsigned long usecs)
->> @@ -38,3 +39,8 @@ void rust_helper_udelay(unsigned long usec)
->>  {
->>  	udelay(usec);
->>  }
->> +
->> +__rust_helper ktime_t rust_helper_hrtimer_get_expires(const struct hrtimer *timer)
->> +{
->> +	return timer->node.expires;
->> +}
->
-> Sorry, of course this should be:
->
-> +__rust_helper ktime_t rust_helper_hrtimer_get_expires(const struct hrtimer *timer)
-> +{
-> +	return hrtimer_get_expires(timer);
-> +}
->
-
-This is a potentially racy read. As far as I recall, we determined that
-using read_once is the proper way to handle the situation.
-
-I do not think it makes a difference that the read is done by C code.
-
-
-Best regards,
-Andreas Hindborg
-
+> From: James Morse <james.morse@arm.com>
+> 
+> resctrl exposes a counter via a file named llc_occupancy. This isn't really
+> a counter as its value goes up and down, this is a snapshot of the cache
+> storage usage monitor.
+> 
+> Add some picking code to find a cache as close as possible to the L3 that
+> supports the CSU monitor.
+> 
+> If there is an L3, but it doesn't have any controls, force the L3 resource
+> to exist. The existing topology_matches_l3() and
+> mpam_resctrl_domain_hdr_init() code will ensure this looks like the L3,
+> even if the class belongs to a later cache.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
