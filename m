@@ -4,87 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DD2CEFCE7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF9CCEFCE2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 18:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W7MtjLRkxuXa/oxgkoHv/9IRUda5kTR8D5KCIwmfrHA=; b=LiSecbFj3559SrsXBe3QE6SUQb
-	U/E3WCk+j9XQR/IqxySGWGJQ+EC2xpvXBlouAxtJnVbZxGP6/be0SWkT9fiR4p8rXUa0waTdWx4j9
-	BNrW/6PfOjyFH3ARCCMKBr6ikQZV5+LXvftMq5JsUHytsL9iAD7OyFhzvlNBMQRJtVtY/2jn45yaJ
-	HaELCOKuVBMgic1b1V0S4SUy/Dg0PDYwyXjxnZhOpuAICvUwE0/ZeDLZpn6GmXOyJsjCifocO7ISH
-	5I+nov2+qzztOH6a4HtaGSeqgLZsUIYg0NaFs3tjXsLhPE/kPaCzazCEBnJxnmXc1yCsgGGXDp3jQ
-	EN97Cw5w==;
+	bh=ddFu/kMbyT+MIg9x7LiNThzvSZy/m4CVQMOwZpgjoG4=; b=u/sPQIr18otppbpTEorF1xYN3A
+	Q/JzAvSNrGBsc66cOMDCyVtxQS9TADGXzSrhG5FK+sujTg1nAXQboBcOuz9Drp2gpCRKgCJQoccp4
+	gfvBGYfmRazx45kOkm/4nOPlbdE22tbvWV9i2Wb2gz91JxcF30DXWwiMT6dDeU5XLRwCzJ2BTuTxm
+	8/Qy0NnjCcZc4ZQwasiCXdiU9XkmpEQZOkNeRe7D5a1oxZrFFE84IWZVtUh4kE1xegsr98GMKmYqM
+	b48WCEonrJBzjPkjhE4dqOGDyl/7AO+Mefwpi/sC47w4OXmUQsBRGvB0rXAsW4w0Ga/gTA7PW7qq3
+	vJx5DJrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBdf-0000000Deuz-0372;
-	Tue, 06 Jan 2026 18:18:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdBhu-0000000DfKV-10au;
+	Tue, 06 Jan 2026 18:23:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdBdd-0000000Deul-1m5e
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 18:18:37 +0000
+	id 1vdBhs-0000000DfKJ-3uKB;
+	Tue, 06 Jan 2026 18:23:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C7D3F60007;
-	Tue,  6 Jan 2026 18:18:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74CC6C116C6;
-	Tue,  6 Jan 2026 18:18:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6A4F960008;
+	Tue,  6 Jan 2026 18:22:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1B6BC116C6;
+	Tue,  6 Jan 2026 18:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767723516;
-	bh=bO8klnJTIuS36gg4GjV1n5g1dixU1LM1E0r280+OdQo=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
-	b=tzz8m5doGvbrAN0e/5sV7Gi9HpRCFgI7iTC1PeibUA7LxcoVnPfYBUSqOrXWcQw/7
-	 BN6Y7+O93ECYj7PMpIaSx0SaJmlujXs0QZ+3c6AOlbe55DrUQ49H3bdQ/KSiqm/KnE
-	 U7olZ5CxaLUADwizq/DqCqg6hTeFKElqfhepBfMQa/LtVeryxqYO6NNJrwXqZDOaYJ
-	 UG4MbWW14RAvx97mXtzBg6kNsiQ1qSmjXr+FryUFE2Ure4eAaWcy4Ly/ENn3yOwGXd
-	 tPq5mREwkkbbjWQHiFKqKTTi04flj8/xK0Akn29F9JPrf1xjXtoFBmhBAkye0uetpx
-	 INtcG2/fIFNAA==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id D8D24CE0F95; Tue,  6 Jan 2026 10:18:35 -0800 (PST)
-Date: Tue, 6 Jan 2026 10:18:35 -0800
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Boqun Feng <boqun.feng@gmail.com>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Gary Guo <gary@garyguo.net>,
-	Will Deacon <will@kernel.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	FUJITA Tomonori <fujita.tomonori@gmail.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Lyude Paul <lyude@redhat.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Anna-Maria Behnsen <anna-maria@linutronix.de>,
-	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+	s=k20201202; t=1767723779;
+	bh=ZMHIVMxJvP0SqJXp+jI2tHR/1Nef4l7GGKt6yBgh3HY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ga0uyPT6NQN7Ta4jenmNcBrxk43grsKtrsOVSkQZFE46z5RgZcMT110WPd78kSA2s
+	 3UTnNsUnsk02AGOrUzaBDvqzb/gYzXCQZ3JmQ0v8pXnRFKQm+tHT+RSkchrCvHsW1U
+	 KfIUuCFkRnm9izYSbiWxdMnKWKPBROEWdqWgJtjN1P3ChIZQhlI79qgJg6CGrddt5Y
+	 Ntdi3+K2/axG8qaHcnbhfQ64TNPxivq5Lu8X+TzmfrcML0O8zcYeUDRCPny7nkmBLH
+	 stb+oz6/4/o8M94sZiL7w7gfy4wPVYT0cXlYSmGIi1GHl1oPUx3EVDhS2SxLcdN7b3
+	 3YO9gdj3v/Slg==
+Date: Tue, 6 Jan 2026 12:22:58 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: Conor Dooley <conor+dt@kernel.org>, Eric Dumazet <edumazet@google.com>,
+	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
+	linux-phy@lists.infradead.org, linux-mediatek@lists.infradead.org,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	linux-kernel@vger.kernel.org, Eric Woudstra <ericwouds@gmail.com>,
+	devicetree@vger.kernel.org,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Lee Jones <lee@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	=?iso-8859-1?Q?Bj=F8rn?= Mork <bjorn@mork.no>,
 	linux-arm-kernel@lists.infradead.org,
-	rust-for-linux@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	kasan-dev@googlegroups.com
-Subject: Re: [PATCH 0/5] Add READ_ONCE and WRITE_ONCE to Rust
-Message-ID: <7fa2c07e-acf9-4f9a-b056-4d4254ea61e5@paulmck-laptop>
-References: <20251231-rwonce-v1-0-702a10b85278@google.com>
- <20251231151216.23446b64.gary@garyguo.net>
- <aVXFk0L-FegoVJpC@google.com>
- <OFUIwAYmy6idQxDq-A3A_s2zDlhfKE9JmkSgcK40K8okU1OE_noL1rN6nUZD03AX6ixo4Xgfhi5C4XLl5RJlfA==@protonmail.internalid>
- <aVXKP8vQ6uAxtazT@tardis-2.local>
- <87fr8ij4le.fsf@t14s.mail-host-address-is-not-set>
- <aV0JkZdrZn97-d7d@tardis-2.local>
- <20260106145622.GB3707837@noisy.programming.kicks-ass.net>
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH v2 net-next 03/10] dt-bindings: phy-common-props: ensure
+ protocol-names are unique
+Message-ID: <176772377743.2503618.2171230504388641306.robh@kernel.org>
+References: <20260103210403.438687-1-vladimir.oltean@nxp.com>
+ <20260103210403.438687-4-vladimir.oltean@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260106145622.GB3707837@noisy.programming.kicks-ass.net>
+In-Reply-To: <20260103210403.438687-4-vladimir.oltean@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,53 +85,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 06, 2026 at 03:56:22PM +0100, Peter Zijlstra wrote:
-> On Tue, Jan 06, 2026 at 09:09:37PM +0800, Boqun Feng wrote:
+
+On Sat, 03 Jan 2026 23:03:56 +0200, Vladimir Oltean wrote:
+> Rob Herring points out that "The default for .*-names is the entries
+> don't have to be unique.":
+> https://lore.kernel.org/linux-phy/20251204155219.GA1533839-robh@kernel.org/
 > 
-> > Some C code believes a plain write to a properly aligned location is
-> > atomic (see KCSAN_ASSUME_PLAIN_WRITES_ATOMIC, and no, this doesn't mean
-> > it's recommended to assume such), and I guess that's the case for
-> > hrtimer, if it's not much a trouble you can replace the plain write with
-> > WRITE_ONCE() on C side ;-)
+> Let's use uniqueItems: true to make sure the schema enforces this. It
+> doesn't make sense in this case to have duplicate properties for the
+> same SerDes protocol.
 > 
-> GCC used to provide this guarantee, some of the older code was written
-> on that. GCC no longer provides that guarantee (there are known cases
-> where it breaks and all that) and newer code should not rely on this.
+> Note that this can only be done with the $defs + $ref pattern as
+> established by the previous commit. When the tx-p2p-microvolt-names
+> constraints were expressed directly under "properties", it would have
+> been validated by the string-array meta-schema, which does not support
+> the 'uniqueItems' keyword as can be seen below.
 > 
-> All such places *SHOULD* be updated to use READ_ONCE/WRITE_ONCE.
+> properties:tx-p2p-microvolt-names: Additional properties are not allowed ('uniqueItems' was unexpected)
+>         from schema $id: http://devicetree.org/meta-schemas/string-array.yaml
+> 
+> Suggested-by: Rob Herring <robh@kernel.org>
+> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+> ---
+> v1->v2: patch is new
+> 
+>  Documentation/devicetree/bindings/phy/phy-common-props.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
 
-Agreed!
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-In that vein, any objections to the patch shown below?
-
-							Thanx, Paul
-
-------------------------------------------------------------------------
-
-diff --git a/lib/Kconfig.kcsan b/lib/Kconfig.kcsan
-index 4ce4b0c0109cb..e827e24ab5d42 100644
---- a/lib/Kconfig.kcsan
-+++ b/lib/Kconfig.kcsan
-@@ -199,7 +199,7 @@ config KCSAN_WEAK_MEMORY
- 
- config KCSAN_REPORT_VALUE_CHANGE_ONLY
- 	bool "Only report races where watcher observed a data value change"
--	default y
-+	default n
- 	depends on !KCSAN_STRICT
- 	help
- 	  If enabled and a conflicting write is observed via a watchpoint, but
-@@ -208,7 +208,7 @@ config KCSAN_REPORT_VALUE_CHANGE_ONLY
- 
- config KCSAN_ASSUME_PLAIN_WRITES_ATOMIC
- 	bool "Assume that plain aligned writes up to word size are atomic"
--	default y
-+	default n
- 	depends on !KCSAN_STRICT
- 	help
- 	  Assume that plain aligned writes up to word size are atomic by
 
