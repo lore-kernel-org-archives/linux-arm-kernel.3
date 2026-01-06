@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02BD5CDC16B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F10CDC167
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 11:57:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,34 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zqtG6QtAGLZq6DpB0s/SsTs5Lu6FnnGxvJXZth4C8sU=; b=SuaO3cUNOMJbGghDlJ8HHS/1AL
-	eaSuJLjs6zAkSR/t9zAbmfEI//6F1zTxgrqzE31NCVCjTKO55YJVo5vrjCJvwXVQP0Pf3lVcjvHC3
-	gj4SIiUSwQIaIaU7apZybri2M4Vj7JPO4QzMnPTyTZT2s/z2sJVJvncPm/A3G2CxN0oUc3DTdsk36
-	8XcpJg5kHDda6NbSMbf84p6EV3TTBTsfaKKiAHnbS2v9kEvrk39FivrzNtVfdm8wVZ5IK8V/3XcUJ
-	R7nkjNHu2dveuKfSpPLrKt9M2cQMo43BAiPkzCjrACEUdZCaBUlqVWh+loIn8NRz9rzkYv6jNh4v/
-	uBMMcSGg==;
+	bh=FUiGqyq8EicU/VGJltA5Q9dM21fMJHQvRf1ZJK1EA+k=; b=ZaHlOKF+mZWlErP7pEsS8mAEn1
+	5U5HfLW2db2eOtCnrEg1QzlR2R7+HcIO9nOp6MhEw69OD63yuIgLOazP8PxlUlkNg6AdEdI2kQ+ZK
+	j9tOiJf8uU12HbT8PUaOa+AWdFer0qB8gwNNTxN5b6SKih1n6q2I0n1j9liCf19nukeGX6KK9E68K
+	4YPgNNgxfIVs8VrxQzEtx0XU+MQWQZlEL0w6lvnnyzB3Zun30+PnndBB6KE4IDJaoIU4yVwbRwvZo
+	A4iXOyiHkflERmvYA99EG9XWcgnSOnWYASq15nOARn6CxwCwiAlxu9EDh9dJZZjb1jR2TQcl209Qn
+	V/b8S07w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd5gg-0000000Cvo7-23oE;
-	Tue, 06 Jan 2026 11:57:22 +0000
+	id 1vd5gi-0000000Cvpt-1Jxp;
+	Tue, 06 Jan 2026 11:57:24 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vd5ge-0000000CvnC-1IF4
+	id 1vd5gg-0000000Cvo6-1w6u
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 11:57:21 +0000
+	Tue, 06 Jan 2026 11:57:23 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6DABC1595;
-	Tue,  6 Jan 2026 03:57:12 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC4FC497;
+	Tue,  6 Jan 2026 03:57:14 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1CC523F5A1;
-	Tue,  6 Jan 2026 03:57:16 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9833E3F5A1;
+	Tue,  6 Jan 2026 03:57:19 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 06 Jan 2026 11:56:46 +0000
-Subject: [PATCH v4 1/8] perf/uapi: Extend data source fields
+Date: Tue, 06 Jan 2026 11:56:47 +0000
+Subject: [PATCH v4 2/8] tools/include: Sync uapi/linux/perf.h with the
+ kernel sources
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260106-perf_support_arm_spev1-3-v4-1-bb2d143b3860@arm.com>
+Message-Id: <20260106-perf_support_arm_spev1-3-v4-2-bb2d143b3860@arm.com>
 References: <20260106-perf_support_arm_spev1-3-v4-0-bb2d143b3860@arm.com>
 In-Reply-To: <20260106-perf_support_arm_spev1-3-v4-0-bb2d143b3860@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -51,16 +52,17 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1767700634; l=3220;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1767700634; l=2534;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=P0am1qH8J7egjiMzSssp5KMflYyuaqqSh7NHMmr7PGQ=;
- b=sr2DpbURJ76yWoJjlFmf7HyERIMUQxOxZc3HWsIpG5JK4HVmmRUmny1oox/koCQB0wxk//jaZ
- 4hdgLYoWzZfD425RifoQZk8IzgR42lxKkSlJNMmCMNO7wBcbH2i1yDN
+ bh=V6y0SoXTw05gZ4AQFBmKuxPmY2xbkTB5YwFjB4ldzqE=;
+ b=WZX8uMpD56G6SxBix8keLcDoEGbezROSSZxAgRwiWz8TU7tO7v74dfrtKm9kmdqMYEL5bPBLJ
+ x78NkB3RgUUDENfsBVFZDuwIJ2+Il9Yal6pl4YlXfaSWDq864988Sk6
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_035720_484978_E466DC46 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20260106_035722_621429_E230FA97 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,31 +77,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Arm CPUs introduce several new types of memory operations, like MTE tag
-accessing, system register access for nested virtualization, memcpy &
-memset, and Guarded Control Stack (GCS).
-
-For memory operation details, Arm SPE provides information like data
-(parallel) processing, floating-point, predicated, atomic, exclusive,
-acquire/release, gather/scatter, and conditional.
-
-This commit introduces a field 'mem_op_ext' for extended operation type.
-The extended operation type can be combined with the existed operation
-type to express a memory type, for examples, a PERF_MEM_OP_GCS type can
-be set along with PERF_MEM_OP_LOAD to present a load operation for
-GCS register access.
-
-Bit fields are also added to represent detailed operation attributes.
+Sync for extended memory operation bit fields.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- include/uapi/linux/perf_event.h | 32 ++++++++++++++++++++++++++++++--
+ tools/include/uapi/linux/perf_event.h | 32 ++++++++++++++++++++++++++++++--
  1 file changed, 30 insertions(+), 2 deletions(-)
 
-diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_event.h
+diff --git a/tools/include/uapi/linux/perf_event.h b/tools/include/uapi/linux/perf_event.h
 index c44a8fb3e4181c91a1e6e3a40e23fcf1de421af3..3d2c5ee9282efc4a2310f554443082f1d0027889 100644
---- a/include/uapi/linux/perf_event.h
-+++ b/include/uapi/linux/perf_event.h
+--- a/tools/include/uapi/linux/perf_event.h
++++ b/tools/include/uapi/linux/perf_event.h
 @@ -1330,14 +1330,32 @@ union perf_mem_data_src {
  			mem_snoopx  :  2, /* Snoop mode, ext */
  			mem_blk     :  3, /* Access blocked */
