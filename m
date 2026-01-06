@@ -4,84 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E376ECEFD03
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 19:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2C99CEFD01
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 Jan 2026 19:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pntXy9Hj0WqvRGVZav4oj27VTA9+7WcxJK6ERgbcGK8=; b=x1YcUHQjYVGds5
-	25h1g/cFzQjIEKspR2zeGHnBtFm+U818M/kKJXr31wB4+Os8cFgQNCctaqY6dCJmo2r1DtirmpM0W
-	vKnZjcTfX60xJ8DHTCy63YMnQZDCG1WOT5JWWJWBRuK9SxGimIFyAd6Nl8eDube2zQ2GNkaqEoALk
-	77ndGm31KLy8VGGNuuwsDn2D6pTliCzAJVgS6bX/YWUQr8tQizogPxcDqt61XPtCRSzd064VOJlT3
-	MznSwH7eeYldbiDO6OMm3cZw0SCmtWVtLfm8nsY7Ig4EUY+Sat4xdN9AxoA0gmOaQ5Oyz0L8TJMaK
-	QOti14Rpr7zmnui4mbhw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k9+aHBxxyMm5uEUryvCGnluoRKqqLv7iqR1X9acm+vo=; b=mzyAbUtZ+9LH19sCCLwRBdtLCi
+	gEyeAOzp1ZKFcaz1ND9IWSrwOS5h8vF2xATUpfFTOJNSvaeTWnvZUiMNZkEIpB9o/nYSND17Pd8eN
+	QeR7vNsMTisPJVY35l42CKSpd4m30YReHUkzzUYM/xiGK7mAGrP5+aeih+OExQlvTK4yR0420SRVK
+	4RcOqMwQNQveFGwpvXrkzBg0oVRS8jAPzAKd0u3/gW4C8wh7AwU4h3prH9NZE4/61zFMpbigmvEsc
+	w7s8v88VWLA0xMZ22WIscBNVYzn1cZWtrNDffflJd6tXDfdv4Cyx4uySdv/KU8PRVu70WcTXfVQR/
+	vte6ofGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdD20-0000000DmOy-1Vga;
-	Tue, 06 Jan 2026 19:47:52 +0000
-Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
+	id 1vdD3e-0000000DmXF-3eRa;
+	Tue, 06 Jan 2026 19:49:36 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdD1x-0000000DmOT-1tp9
+	id 1vdD3b-0000000DmWY-00uk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 Jan 2026 19:47:50 +0000
-Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-8887f43b224so16144546d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 11:47:49 -0800 (PST)
+	Tue, 06 Jan 2026 19:49:33 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-4ee147baf7bso59761cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 11:49:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1767728970; cv=none;
+        d=google.com; s=arc-20240605;
+        b=BFansM00aVX43wEslY6J7ztkFePQ9JGnWB9uFxV3nUy6xFIVHLdseFdntRzp7fbyTY
+         7WR0/8qMbT18NXY+347/LZrA9lW9E/RivBEaa1kNPYD1e9z5Waei/5BNyCKwu5kVaMMl
+         YM9t3jKiRsPAvZX/vqhJ8rJHejsmW5aOK5w4Fm8zU8Tg8fbBwMMG1GQUq/0ckihZFWdh
+         FNkdJfLRA7muYsccNfc1HSFsJRSMyWP8dY0N0G46oq61P0U8vHvD35goRGw87i81fq79
+         cxtCiHJRAxDCg4nygkXz+9QW5NWEriPVJDHgXFU2+RkYdLzR4qyq3TpXh2Uc5SSY9D53
+         o4Lg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=k9+aHBxxyMm5uEUryvCGnluoRKqqLv7iqR1X9acm+vo=;
+        fh=NbA46iS/EHS4TcQi4JPJ9d0nifLFuG9T19k5dMMEDh8=;
+        b=DNFDGmv73adZxSHZPi7n0/N0RfRvAKtBIImCvRg8kI3zJOpvoOufKMlECt05hh0R2a
+         Ava50jB8rZ9twnyn5jQM3i1RtgULJHzaYCccv4A3hNad0qnLiSDcCC5HZGvdJhgJ3Aqa
+         Ko7tt5DqxwuOLVVn8vQqCUC18GgulfyEn4PUuJOAWBBdP6mDw/NXnDTh2S4JBfQd7YXc
+         CovxbYIFrG0LdD4IsLIsyIBl4xsB8+Psa7dVxN45NsYVafSGm9MiKxsSDOxj+b75Jz6p
+         ojvHy4dWI02MtExxuvcvaVuel3GJeHdAVagyX7FY0J9zav0dqibLyqMJbrb+vI4XZqPj
+         jICQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767728868; x=1768333668; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pntXy9Hj0WqvRGVZav4oj27VTA9+7WcxJK6ERgbcGK8=;
-        b=Gp9kRpbUxs94mhoBqRLfDqoK4vWg0Qu0AGeM4nMI1ppCyi/YhxacHH0tSz7JYgisnD
-         eN+VEPuYNrC2uJKtUexhssTIAfE9WLSKoLA9XxjhnsU460VL2QuBSSFOnPZevRhJaPJS
-         7/sViRxU3v+DYEMMvfFvJi8Q6iOfRO8Vpxt5s3rhnoBkTcAHmfzqhG1B5p6aLn0pUKXg
-         PVIgkLs4shb5mg+6L47WK7J+5tusa1xEYy4y8oDPVQMQBWnL1xpzw4955JH+/TwdMxpv
-         vKrowg95PUmNXybSR5H2LqNqpeJqEB+qRs6I4fQ77UX4rO7zac5yb0MW+Ax9UTo/B/As
-         I8IQ==
+        d=google.com; s=20230601; t=1767728970; x=1768333770; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=k9+aHBxxyMm5uEUryvCGnluoRKqqLv7iqR1X9acm+vo=;
+        b=jjYL9sJlUVfeoEtERe7dcJA1n7L9Dgd3U+fZNXzBPyuop/sEeJHTzI5iunuPXP6lHs
+         pNnxEcfHeklmtMmgENks/SkzBW4gRhEbt1bH4jEoXVXvuFeWuGyc7gV2GLo30iNZmKar
+         bcSeF55kk3CoT2I83QKm7NASN4/9uKWhij6U6Nl0QYQu3eGeasl5b0FqaYVw9Q/Y4Wxu
+         CdwkGfQ5yI+YWdWYJ2ZzkiVL53DKTIAEI/4jz2y+1pSvvShSwSqv6CdCElaXPH1zARaq
+         m7xNEL+PJ0pqP5fWQIdfiaPGANussvWfDUs0U+SYq5x9N/lRwREBJZ0manCLebF8DsaZ
+         Wyzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767728868; x=1768333668;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=pntXy9Hj0WqvRGVZav4oj27VTA9+7WcxJK6ERgbcGK8=;
-        b=WUMNp+O5b5z4iXoWNE5Tf1U/WxDbolrBYBfpsnHgnQi71Zut/VzGIe4UVs4ItNqfL/
-         4rr3Le8eDfyfTcW1EX+vandfw7fEm1Z4sd2j0Ad+PoFWEPeRK/T9U7ZkEmfcfRAxxwve
-         eLAC1KgiT582GqdZ0zOS0AYzI6Uha1xIJ0y5yTu5vnnvEsfc54sDE3sey4Ss9IK4nO1P
-         9c3lEgbLA/hb+saaYfaaXFPbAiZjq3sfRZPzC/vJLiab7Cu5om6F1PzytxqsoBDJJMpk
-         8kA2BiOej1xsKwnnaKjNUqWWXws1MHQ3YH7QIJXStcYvV1696B9P9CF/yhU1j6ODVT75
-         Z1NA==
-X-Forwarded-Encrypted: i=1; AJvYcCUYqnA3E4uHbYsAALzCUnSKvtpwUlwVVVQxQ0CVnB0mdB8nQjd9RmY6wAGMDUgmv6zQ0nCJ6yYZh+f4N63wPHsU@lists.infradead.org
-X-Gm-Message-State: AOJu0YymblB7kEYuny6BeGshS/L04Zja/Balw2JT+TMUcCl6cH6qgNEB
-	cyQSY+/P4IsSif9vfoFttaXMyUW6+v1ms+mFiqiafX1FT9dnt83CV0ykVPZiR0s8MAu3oXknw5w
-	nmhasHxhVO0U3HPViPvWe71o1GZWkpbY=
-X-Gm-Gg: AY/fxX6VFBEmSTgwqecPSxFFQ1CM2uYTcU6oQI8PiIwZLEOyRA7KgKdCL8YBZ6nGswV
-	I4pvbaJ2Y7fP633++QRCB7MfRoN3lpSO4zPRxOkzlwutyJDh+/ufEsTa+tfRhH8TPXS6Ogy6jvl
-	RpgqKqSwIn3YUVsHi9DqW10WAa7yZJ5ATFDJn2ArKhTh66nzs9grdF/b11Ilay9+5jqIZPKlP4G
-	EKQP4UFq+kV8K5pSZtNgi7WuzQUDhM6U3p8imYG2bDHCAokcWmQEmbhCThzQF1hohPB1Q==
-X-Google-Smtp-Source: AGHT+IEsDozTTuOpHzQH0xjAygijM9mAO6rgCGg7RgPz/1lUD4/ZMIEqkH9QqpKy9eDQlYCqtEtPfalOfqOAQTgTldI=
-X-Received: by 2002:a05:6214:622:b0:890:5973:a567 with SMTP id
- 6a1803df08f44-890841e56d5mr1480896d6.12.1767728867862; Tue, 06 Jan 2026
- 11:47:47 -0800 (PST)
+        d=1e100.net; s=20230601; t=1767728970; x=1768333770;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=k9+aHBxxyMm5uEUryvCGnluoRKqqLv7iqR1X9acm+vo=;
+        b=qHvZFSCuT8147Y5DabQ70z/KU37zt/mk4a0mFobkvw0/WQus9p4xp2v4XKzHpCrwCh
+         Fqnfn46f3sDiBpc0JfynSObCheXIVlmAqZaL70bHiC8wWD6TLYlXyvYYB2+QXGjhB7nS
+         nvH/19J8ngGkvxTOtWHe7xF8TPKwwOVfEe1Kkyd6T0Kv4QXV3RPQZeKzPg/jjHXSIS0a
+         HfQcpOVl6+8DNnYh1DIlqsX5/youWAp1euKEIPEW2uQloZlZQkJMBrtfxj4+TVToaF63
+         skdh0DALMzMUihZLeTWLPZtEBZICf46QwVAiWhB8V3T/oyrkjZXy0jpKfZOeKSudoGym
+         eTrw==
+X-Forwarded-Encrypted: i=1; AJvYcCVkVn/rsVhpUNQeNkvt7Il7H8NMsGn9l1/WGLHCbNpmdE9TcDCDNzO4KsvLND8jJjMT/S3iQdvXUmV/gQFa3Rj2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwB096HYtyElhfDFEUM5SRS16VxFks9vYbZrrpWdYZ5WE6cieK9
+	OQGMte1sVdNvMTXVjuafhtRQGbv0PLrBH1pHmbx0VrI/Ay9SoxoIleZQmIHL4e5o9iar+4PGInx
+	iCAIRQaLDwRsK4Z1I/XTYfj0gALs1W+AmdwmwhLqN
+X-Gm-Gg: AY/fxX6P1C+/Tyy677MpLGcm+IhLv5sdByMzHJN23vZVRXwrNgvROq8IWYXbpoHuO1g
+	Y3lngawCtNT/yzbss9CP3YyD+MJxHaQqKNvsVPmwOMAkQBA6BNoIg0U+3WenKg8+MlwTZcsVCew
+	pPovvJ0EuDpxqQCy11tFH31vm3zan6LzfV0fC16Gn/JLzjk5dqUddxBNI4fYEORKbmsdwhMyGbI
+	eEvT4EBAz7CGrKkxQkNb7tVht18PJS1r+PtG/b6uMHJTjLwVKJMYdlI2E/Tt1iA0SAuBqPI
+X-Received: by 2002:ac8:58d3:0:b0:4ff:a98b:c33e with SMTP id
+ d75a77b69052e-4ffb3c9bfd7mr1612321cf.6.1767728969218; Tue, 06 Jan 2026
+ 11:49:29 -0800 (PST)
 MIME-Version: 1.0
-References: <20251226225254.46197-1-21cnbao@gmail.com> <20251226225254.46197-6-21cnbao@gmail.com>
- <20251227200933.GO11869@unreal> <CAGsJ_4yA83-K7PXiEtyidzF_j6qqKkt92z485KBS9+zGe_rjnw@mail.gmail.com>
- <20251228145041.GS11869@unreal> <CAGsJ_4yex5MKQkGtFr2zUcg4h0PtsFs2QVcE_NSfiyOn4qBzhQ@mail.gmail.com>
- <de876e61-42c5-414d-b439-2f9196c6c128@arm.com>
-In-Reply-To: <de876e61-42c5-414d-b439-2f9196c6c128@arm.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Wed, 7 Jan 2026 08:47:36 +1300
-X-Gm-Features: AQt7F2rGhHEzeZcOruGijVOJFT9sChymTkhWX1JfhRWGcohbyfQWWuu1bqdVJW0
-Message-ID: <CAGsJ_4xYqseJMFXOU39JJW4Lk2ZHXAnRJLhZdVuFLxAi=Dy5sw@mail.gmail.com>
-Subject: Re: [PATCH v2 5/8] dma-mapping: Support batch mode for dma_direct_sync_sg_for_*
-To: Robin Murphy <robin.murphy@arm.com>
+References: <20260106092425.1529428-1-tabba@google.com> <20260106092425.1529428-5-tabba@google.com>
+ <aV1mqQtALFIUBHVM@google.com>
+In-Reply-To: <aV1mqQtALFIUBHVM@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 6 Jan 2026 19:48:52 +0000
+X-Gm-Features: AQt7F2oD6imhUH1-IKtVcA97OhzMLb8nSqzV2q_rb-md0NTxT87GehM6m6PIMYQ
+Message-ID: <CA+EHjTw3YBG9HNateXEAYsSUJ625eWGu2OHt-2=Y0=-qzbObWw@mail.gmail.com>
+Subject: Re: [PATCH v3 4/5] KVM: selftests: Move page_align() to shared header
+To: Sean Christopherson <seanjc@google.com>
+Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org, oliver.upton@linux.dev, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, anup@brainfault.org, 
+	itaru.kitayama@fujitsu.com, andrew.jones@linux.dev
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_114749_501953_9584C2B0 
-X-CRM114-Status: GOOD (  30.44  )
+X-CRM114-CacheID: sfid-20260106_114931_934311_E05831FB 
+X-CRM114-Status: GOOD (  19.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,139 +114,84 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Tangquan Zheng <zhengtangquan@oppo.com>, Ryan Roberts <ryan.roberts@arm.com>, Leon Romanovsky <leon@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>, iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>, xen-devel@lists.xenproject.org, will@kernel.org, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 7, 2026 at 8:12=E2=80=AFAM Robin Murphy <robin.murphy@arm.com> =
-wrote:
+On Tue, 6 Jan 2026 at 19:46, Sean Christopherson <seanjc@google.com> wrote:
 >
-> On 2026-01-06 6:41 pm, Barry Song wrote:
-> > On Mon, Dec 29, 2025 at 3:50=E2=80=AFAM Leon Romanovsky <leon@kernel.or=
-g> wrote:
-> >>
-> >> On Sun, Dec 28, 2025 at 09:52:05AM +1300, Barry Song wrote:
-> >>> On Sun, Dec 28, 2025 at 9:09=E2=80=AFAM Leon Romanovsky <leon@kernel.=
-org> wrote:
-> >>>>
-> >>>> On Sat, Dec 27, 2025 at 11:52:45AM +1300, Barry Song wrote:
-> >>>>> From: Barry Song <baohua@kernel.org>
-> >>>>>
-> >>>>> Instead of performing a flush per SG entry, issue all cache
-> >>>>> operations first and then flush once. This ultimately benefits
-> >>>>> __dma_sync_sg_for_cpu() and __dma_sync_sg_for_device().
-> >>>>>
-> >>>>> Cc: Leon Romanovsky <leon@kernel.org>
-> >>>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> >>>>> Cc: Will Deacon <will@kernel.org>
-> >>>>> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-> >>>>> Cc: Robin Murphy <robin.murphy@arm.com>
-> >>>>> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> >>>>> Cc: Ard Biesheuvel <ardb@kernel.org>
-> >>>>> Cc: Marc Zyngier <maz@kernel.org>
-> >>>>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> >>>>> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> >>>>> Cc: Suren Baghdasaryan <surenb@google.com>
-> >>>>> Cc: Tangquan Zheng <zhengtangquan@oppo.com>
-> >>>>> Signed-off-by: Barry Song <baohua@kernel.org>
-> >>>>> ---
-> >>>>>   kernel/dma/direct.c | 14 +++++++-------
-> >>>>>   1 file changed, 7 insertions(+), 7 deletions(-)
-> >>>>
-> >>>> <...>
-> >>>>
-> >>>>> -             if (!dev_is_dma_coherent(dev)) {
-> >>>>> +             if (!dev_is_dma_coherent(dev))
-> >>>>>                        arch_sync_dma_for_device(paddr, sg->length,
-> >>>>>                                        dir);
-> >>>>> -                     arch_sync_dma_flush();
-> >>>>> -             }
-> >>>>>        }
-> >>>>> +     if (!dev_is_dma_coherent(dev))
-> >>>>> +             arch_sync_dma_flush();
-> >>>>
-> >>>> This patch should be squashed into the previous one. You introduced
-> >>>> arch_sync_dma_flush() there, and now you are placing it elsewhere.
-> >>>
-> >>> Hi Leon,
-> >>>
-> >>> The previous patch replaces all arch_sync_dma_for_* calls with
-> >>> arch_sync_dma_for_* plus arch_sync_dma_flush(), without any
-> >>> functional change. The subsequent patches then implement the
-> >>> actual batching. I feel this is a better approach for reviewing
-> >>> each change independently. Otherwise, the previous patch would
-> >>> be too large.
-> >>
-> >> Don't worry about it. Your patches are small enough.
+> On Tue, Jan 06, 2026, Fuad Tabba wrote:
+> > To avoid code duplication, move page_align() to the shared `kvm_util.h`
+> > header file.
 > >
-> > My hardware does not require a bounce buffer, but I am concerned that
-> > this patch may be incorrect for systems that do require one.
+> > No functional change intended.
 > >
-> > Now it is:
+> > Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > ---
+> >  tools/testing/selftests/kvm/include/kvm_util.h    | 5 +++++
+> >  tools/testing/selftests/kvm/lib/arm64/processor.c | 5 -----
+> >  tools/testing/selftests/kvm/lib/riscv/processor.c | 5 -----
+> >  3 files changed, 5 insertions(+), 10 deletions(-)
 > >
-> > void dma_direct_sync_sg_for_cpu(struct device *dev,
-> >                  struct scatterlist *sgl, int nents, enum dma_data_dire=
-ction dir)
-> > {
-> >          struct scatterlist *sg;
-> >          int i;
+> > diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+> > index 81f4355ff28a..dabbe4c3b93f 100644
+> > --- a/tools/testing/selftests/kvm/include/kvm_util.h
+> > +++ b/tools/testing/selftests/kvm/include/kvm_util.h
+> > @@ -1258,6 +1258,11 @@ static inline int __vm_disable_nx_huge_pages(struct kvm_vm *vm)
+> >       return __vm_enable_cap(vm, KVM_CAP_VM_DISABLE_NX_HUGE_PAGES, 0);
+> >  }
 > >
-> >          for_each_sg(sgl, sg, nents, i) {
-> >                  phys_addr_t paddr =3D dma_to_phys(dev, sg_dma_address(=
-sg));
-> >
-> >                  if (!dev_is_dma_coherent(dev))
-> >                          arch_sync_dma_for_cpu(paddr, sg->length, dir);
-> >
-> >                  swiotlb_sync_single_for_cpu(dev, paddr, sg->length, di=
-r);
-> >
-> >                  if (dir =3D=3D DMA_FROM_DEVICE)
-> >                          arch_dma_mark_clean(paddr, sg->length);
-> >          }
-> >
-> >          if (!dev_is_dma_coherent(dev)) {
-> >                  arch_sync_dma_flush();
-> >                  arch_sync_dma_for_cpu_all();
-> >          }
-> > }
-> >
-> > Should we call swiotlb_sync_single_for_cpu() and
-> > arch_dma_mark_clean() after the flush to ensure the CPU sees the
-> > latest data and that the memcpy is correct? I mean:
+> > +static inline uint64_t page_align(struct kvm_vm *vm, uint64_t v)
 >
-> Yes, this and the equivalents in the later patches are broken for all
-> the sync_for_cpu and unmap paths which may end up bouncing (beware some
-> of them get a bit fiddly) - any cache maintenance *must* be completed
-> before calling SWIOTLB. As for mark_clean, IIRC that was an IA-64 thing,
-> and appears to be entirely dead now.
+> Maybe vm_page_align()?  So that it's a bit more obvious when reading call sites
+> that the alignment is done with respect to the guest's "base" page size, not the
+> host's page size.
 
-Thanks, Robin. Personally, I would prefer an approach like the one below=E2=
-=80=94
-that is, not optimizing the bounce buffer cases, as they are already slow
-due to hardware limitations with memcpy, and optimizing them would make
-the code quite messy.
+Yes, that's clearer. I'll fix this.
 
-diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
-index 550a1a13148d..a4840f7e8722 100644
---- a/kernel/dma/direct.c
-+++ b/kernel/dma/direct.c
-@@ -423,8 +423,11 @@ void dma_direct_sync_sg_for_cpu(struct device *dev,
-        for_each_sg(sgl, sg, nents, i) {
-                phys_addr_t paddr =3D dma_to_phys(dev, sg_dma_address(sg));
+Thanks,
+/fuad
 
--               if (!dev_is_dma_coherent(dev))
-+               if (!dev_is_dma_coherent(dev)) {
-                        arch_sync_dma_for_cpu(paddr, sg->length, dir);
-+                       if (unlikely(dev->dma_io_tlb_mem))
-+                               arch_sync_dma_flush();
-+               }
-
-                swiotlb_sync_single_for_cpu(dev, paddr, sg->length, dir);
-
-I=E2=80=99d like to check with you, Leon, and Marek on your views about thi=
-s.
-
-Thanks
-Barry
+> > +{
+> > +     return (v + vm->page_size - 1) & ~(vm->page_size - 1);
+> > +}
+> > +
+> >  /*
+> >   * Arch hook that is invoked via a constructor, i.e. before exeucting main(),
+> >   * to allow for arch-specific setup that is common to all tests, e.g. computing
+> > diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
+> > index 607a4e462984..143632917766 100644
+> > --- a/tools/testing/selftests/kvm/lib/arm64/processor.c
+> > +++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
+> > @@ -21,11 +21,6 @@
+> >
+> >  static vm_vaddr_t exception_handlers;
+> >
+> > -static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
+> > -{
+> > -     return (v + vm->page_size - 1) & ~(vm->page_size - 1);
+> > -}
+> > -
+> >  static uint64_t pgd_index(struct kvm_vm *vm, vm_vaddr_t gva)
+> >  {
+> >       unsigned int shift = (vm->pgtable_levels - 1) * (vm->page_shift - 3) + vm->page_shift;
+> > diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
+> > index d5e8747b5e69..f8ff4bf938d9 100644
+> > --- a/tools/testing/selftests/kvm/lib/riscv/processor.c
+> > +++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
+> > @@ -26,11 +26,6 @@ bool __vcpu_has_ext(struct kvm_vcpu *vcpu, uint64_t ext)
+> >       return !ret && !!value;
+> >  }
+> >
+> > -static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
+> > -{
+> > -     return (v + vm->page_size - 1) & ~(vm->page_size - 1);
+> > -}
+> > -
+> >  static uint64_t pte_addr(struct kvm_vm *vm, uint64_t entry)
+> >  {
+> >       return ((entry & PGTBL_PTE_ADDR_MASK) >> PGTBL_PTE_ADDR_SHIFT) <<
+> > --
+> > 2.52.0.351.gbe84eed79e-goog
+> >
 
