@@ -4,54 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF165CD5829
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 10:11:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12662CD5829
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 10:12:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nLo5mMEOcMbZUZ6Jh/Mn79SnYr28oLkbPsBN/KseRbo=; b=AE1izUsHaMToew/jahMTbwQSMH
-	c5IqrzqrRdnXW6lqQJDVPmg39y+ffddEMbrel6gtc7serL//jjvma76v+O/tnUJ6rz9NSCf/2WTDt
-	PKDcm83jYPRmD44VLKLBYj+uRexxUrXncmGEShrOce/RyggDzh7o3KIfBQoUiG7D9FVHwIschIeet
-	bpQnBcKlAQdO0CawiLb2n1Bo2IJHmfm2O0/JyRWABMnrP6Fx4Frdw9d+HDoQdiHpByhAEJ1qMT4vS
-	Kf+rmxdALjMx/v7mwFA+vIvDNHdplxlg/Pi7n8mcFwJQdvQBlC+ojuH/K9cnRM1IRPlk0pdYjSgb7
-	xHbGk47Q==;
+	bh=sg9GrpFwcJPLCJYcGzVjo/orWzMdNASBa8R+8NicMwo=; b=AdWYNeaUmKHgEqu8Jqss8K+65B
+	dL+kbFyI3FRulgCvseI0nrHGhQgQufelYPDlxrw23tBnAZH1xvt3Z14Ja6nuD+kh661m4qsFBAtTf
+	oSmsqJBi4eh2Eb9HXVVNAffZnZJYEX19nEEJAgcI1zP5bHugI2MbuChU+PMIcJHeEERt6X6CkJNdI
+	rGALVcKicJhP9Fv3pTHSvck2JMlJNias+k4LYkgskGDUUjgFdoqQtmR8jVR+OuDDJK9yzVPZZsJCj
+	aoe5H5oRhrAAPlRm+TglxfvTVDyswwX/uPBi0kXv98E0qkn25D7+ZhxPM+2G03xQS0FcWSt1rQk+B
+	0yzq5t2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQVw-0000000EfnG-47oG;
-	Wed, 07 Jan 2026 10:11:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQVu-0000000Efl6-2vK2
+	id 1vdQWE-0000000Efrq-2JjV;
+	Wed, 07 Jan 2026 10:11:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdQWC-0000000Efr0-0pSy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 10:11:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 26362497;
-	Wed,  7 Jan 2026 02:11:29 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 12D673F6A8;
-	Wed,  7 Jan 2026 02:11:34 -0800 (PST)
-Date: Wed, 7 Jan 2026 10:11:29 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64/mm: Assert NR_BM_PUD_TABLES for bm_pud[]
-Message-ID: <aV4xUe0A4zMhPxU0@J2N7QTR9R3>
-References: <20260107061606.3160088-1-anshuman.khandual@arm.com>
- <d3579c85-8cac-4e83-94a7-b6dcab72b7a1@arm.com>
- <32030401-06d3-40ad-a0b6-fbd366092f2b@arm.com>
+	Wed, 07 Jan 2026 10:11:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 833C344301;
+	Wed,  7 Jan 2026 10:11:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F0F1C4CEF7;
+	Wed,  7 Jan 2026 10:11:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767780715;
+	bh=089y2IDoSCjwqehlq3MO4nDE6Ee9AOzoaarffxPZP/s=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=YBursUu1NUOpLsViKALRQCFu+cSwuV4OxKTINf6fkb6mUbGc6nvmhTWHuh6spFkzE
+	 INghZ7oIQgn06bdINirmASKob38X3/FQsHUos8z/Xn7bcthvscIJcqUbPb3+FjL+/U
+	 3E0fqmhrcfTO4rKTfv3QtJ1pWum/y/w2qVsra9MuD5zoB4rtYP8x1nFK6NOwu5If1Z
+	 653EBTSVQm8E2YTO/WNT33ONMhyv8e2vPKCOryv86s6+Ui7EaThW7NvnjO40Mq30Mg
+	 RDQLbFljrB5dGEyE5k0viEwo1r1OMiZ91h+5c1rSEtbeaKWG7VRciDGTveaSCpCJ+T
+	 IGfPZNStfJXeA==
+From: Andreas Hindborg <a.hindborg@kernel.org>
+To: FUJITA Tomonori <fujita.tomonori@gmail.com>
+Cc: fujita.tomonori@gmail.com, aliceryhl@google.com, lyude@redhat.com,
+ boqun.feng@gmail.com, will@kernel.org, peterz@infradead.org,
+ richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com,
+ catalin.marinas@arm.com, ojeda@kernel.org, gary@garyguo.net,
+ bjorn3_gh@protonmail.com, lossin@kernel.org, tmgross@umich.edu,
+ dakr@kernel.org, mark.rutland@arm.com, frederic@kernel.org,
+ tglx@linutronix.de, anna-maria@linutronix.de, jstultz@google.com,
+ sboyd@kernel.org, viro@zeniv.linux.org.uk, brauner@kernel.org,
+ jack@suse.cz, linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, rust-for-linux@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 4/5] rust: hrtimer: use READ_ONCE instead of read_volatile
+In-Reply-To: <20260106.222826.2155269977755242640.fujita.tomonori@gmail.com>
+References: <L2dmGLLYJbusZn9axfRubM0hIOSTuny2cW3uyUhOVGvck7lQxTzDe0Xxf8Hw2cLxICT8kdmNAE74e-LV7YrReg==@protonmail.internalid>
+ <20260101.130012.2122315449079707392.fujita.tomonori@gmail.com>
+ <87ikdej4s1.fsf@t14s.mail-host-address-is-not-set>
+ <20260106.222826.2155269977755242640.fujita.tomonori@gmail.com>
+Date: Wed, 07 Jan 2026 11:11:43 +0100
+Message-ID: <87cy3livfk.fsf@t14s.mail-host-address-is-not-set>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <32030401-06d3-40ad-a0b6-fbd366092f2b@arm.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_021138_772115_E08D0B97 
-X-CRM114-Status: GOOD (  22.73  )
+X-CRM114-CacheID: sfid-20260107_021156_277539_A16D0B97 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,63 +82,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 02:37:51PM +0530, Anshuman Khandual wrote:
-> 
-> 
-> On 07/01/26 2:03 PM, Ryan Roberts wrote:
-> > On 07/01/2026 06:16, Anshuman Khandual wrote:
-> >> There is an implicit assumption about bm_pud[] being single entry PUD table
-> >> just like bp_pmd[] which is a single entry PMD table. Though only the later
-> >> gets asserted via NR_BM_PMD_TABLES. Hence let's add a similar check for PUD
-> >> table as well.
-> >>
-> >> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> >> Cc: Will Deacon <will@kernel.org>
-> >> Cc: linux-arm-kernel@lists.infradead.org
-> >> Cc: linux-kernel@vger.kernel.org
-> >> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> >> ---
-> >>  arch/arm64/mm/fixmap.c | 3 +++
-> >>  1 file changed, 3 insertions(+)
-> >>
-> >> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-> >> index c5c5425791da..e02594be8b8e 100644
-> >> --- a/arch/arm64/mm/fixmap.c
-> >> +++ b/arch/arm64/mm/fixmap.c
-> >> @@ -23,8 +23,11 @@ static_assert(FIXADDR_TOT_START > PCI_IO_END);
-> >>  	SPAN_NR_ENTRIES(FIXADDR_TOT_START, FIXADDR_TOP, PMD_SHIFT)
-> >>  #define NR_BM_PMD_TABLES \
-> >>  	SPAN_NR_ENTRIES(FIXADDR_TOT_START, FIXADDR_TOP, PUD_SHIFT)
-> >> +#define NR_BM_PUD_TABLES \
-> >> +	SPAN_NR_ENTRIES(FIXADDR_TOT_START, FIXADDR_TOP, P4D_SHIFT)
-> >>  
-> >>  static_assert(NR_BM_PMD_TABLES == 1);
-> >> +static_assert(NR_BM_PUD_TABLES == 1);
-> > 
-> > But if there is only one PMD table, there must only be one PUD table (and one
-> > P4D table, and one PGD table) by definition. So I don't think this is checking
-> > anything that the existing PMD table check is not.
-> 
-> Agreed but should not this check help tighten this code up given that bm_pud[]
-> array gets used for possible PUD entries ?
+FUJITA Tomonori <fujita.tomonori@gmail.com> writes:
 
-An assert isn't going to help with code generation, so this patch alone is not
-useful. When I last looked at actually ommiting the table in various
-configurations, it was more trouble than it was worth.
+> On Tue, 06 Jan 2026 13:37:34 +0100
+> Andreas Hindborg <a.hindborg@kernel.org> wrote:
+>
+>> "FUJITA Tomonori" <fujita.tomonori@gmail.com> writes:
+>> 
+>>> On Thu, 01 Jan 2026 11:11:23 +0900 (JST)
+>>> FUJITA Tomonori <fujita.tomonori@gmail.com> wrote:
+>>>
+>>>> On Wed, 31 Dec 2025 12:22:28 +0000
+>>>> Alice Ryhl <aliceryhl@google.com> wrote:
+>>>>
+>>>>> Using `READ_ONCE` is the correct way to read the `node.expires` field.
+>>>>>
+>>>>> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
+>>>>> ---
+>>>>>  rust/kernel/time/hrtimer.rs | 8 +++-----
+>>>>>  1 file changed, 3 insertions(+), 5 deletions(-)
+>>>>>
+>>>>> diff --git a/rust/kernel/time/hrtimer.rs b/rust/kernel/time/hrtimer.rs
+>>>>> index 856d2d929a00892dc8eaec63cebdf547817953d3..e2b7a26f8aade972356c3eb5f6489bcda3e2e849 100644
+>>>>> --- a/rust/kernel/time/hrtimer.rs
+>>>>> +++ b/rust/kernel/time/hrtimer.rs
+>>>>> @@ -239,11 +239,9 @@ pub fn expires(&self) -> HrTimerInstant<T>
+>>>>>          // - Timers cannot have negative ktime_t values as their expiration time.
+>>>>>          // - There's no actual locking here, a racy read is fine and expected
+>>>>>          unsafe {
+>>>>> -            Instant::from_ktime(
+>>>>> -                // This `read_volatile` is intended to correspond to a READ_ONCE call.
+>>>>> -                // FIXME(read_once): Replace with `read_once` when available on the Rust side.
+>>>>> -                core::ptr::read_volatile(&raw const ((*c_timer_ptr).node.expires)),
+>>>>> -            )
+>>>>> +            Instant::from_ktime(kernel::sync::READ_ONCE(
+>>>>> +                &raw const (*c_timer_ptr).node.expires,
+>>>>> +            ))
+>>>>>          }
+>>>>
+>>>> Do we actually need READ_ONCE() here? I'm not sure but would it be
+>>>> better to call the C-side API?
+>>>>
+>>>> diff --git a/rust/helpers/time.c b/rust/helpers/time.c
+>>>> index 67a36ccc3ec4..73162dea2a29 100644
+>>>> --- a/rust/helpers/time.c
+>>>> +++ b/rust/helpers/time.c
+>>>> @@ -2,6 +2,7 @@
+>>>>
+>>>>  #include <linux/delay.h>
+>>>>  #include <linux/ktime.h>
+>>>> +#include <linux/hrtimer.h>
+>>>>  #include <linux/timekeeping.h>
+>>>>
+>>>>  void rust_helper_fsleep(unsigned long usecs)
+>>>> @@ -38,3 +39,8 @@ void rust_helper_udelay(unsigned long usec)
+>>>>  {
+>>>>  	udelay(usec);
+>>>>  }
+>>>> +
+>>>> +__rust_helper ktime_t rust_helper_hrtimer_get_expires(const struct hrtimer *timer)
+>>>> +{
+>>>> +	return timer->node.expires;
+>>>> +}
+>>>
+>>> Sorry, of course this should be:
+>>>
+>>> +__rust_helper ktime_t rust_helper_hrtimer_get_expires(const struct hrtimer *timer)
+>>> +{
+>>> +	return hrtimer_get_expires(timer);
+>>> +}
+>>>
+>> 
+>> This is a potentially racy read. As far as I recall, we determined that
+>> using read_once is the proper way to handle the situation.
+>> 
+>> I do not think it makes a difference that the read is done by C code.
+>
+> What does "racy read" mean here?
+>
+> The C side doesn't use WRITE_ONCE() or READ_ONCE for node.expires. How
+> would using READ_ONCE() on the Rust side make a difference?
 
-As Ryan said, we deliberately only added the assert for the PMD level,
-and it's sufficient as-is. That happened in commit:
+Data races like this are UB in Rust. As far as I understand, using this
+READ_ONCE implementation or a relaxed atomic read would make the read
+well defined. I am not aware if this is only the case if all writes to
+the location from C also use atomic operations or WRITE_ONCE. @Boqun?
 
-  414c109bdf49 ("arm64: mm: always map fixmap at page granularity")
 
-... where the commit message said:
+Best regards,
+Andreas Hindborg
 
-    Our VA layout means that the fixmap will always fall within a single PMD
-    table (and consequently, within a single PUD/P4D/PGD entry), which we
-    can verify at compile time with a static_assert(). With that assert a
-    number of runtime warnings become impossible, and are removed.
 
-Please leave this as-is.
-
-Mark.
 
