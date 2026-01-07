@@ -4,109 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E5B6D0D16D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 19:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF9CD0D16E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 19:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bWQBkRucMfj+8IZule2bckxNws/YyczMOLNESP4WNJk=; b=GTIjcXzCoEmmkH6tnDuNPaaT+x
-	3dtOrZRqKEQUw2CHTWsOYuh9szy5ptes5KozF9eQ3hTw2ree+H0hKUkgxPpidZLH4Zn7Oy3KdLpou
-	hFbAhhGFPqK7AqMRZnlhbxaec0so4Jj5rsgkqVE69ac8O3rWCoDQseu2Yyc5FRjUo95vBrum/NvJL
-	YDRU1d31kfieG03TcHSXS++8RTTGzG2RqS2LCvUz/HoeqQGAXauDFZO2NBBPwI8EnntXPiIXkjOVD
-	w6CDRWsLbYzik768dTg6BdF03mLqzD0jWKgJib5Lq/ZUxqsdeJoqRO3UpHxs5vi7MOgc/LEiZvQOJ
-	qRa9JFRw==;
+	bh=f9FvMPHUqKvtHDYxdf8Thb1/AY4EZhT/PAo+dwG1D20=; b=3eI00ZpJ4Qdqh+ZJrEy+AQPmnx
+	6SU5+mqtxSw93xYJDU400lZWFaMULgDbT0SU1i77/evTdvuDA7V1KEh/gNgZPoQTvbcbAXM8ZByfk
+	idWdKy/0GEQzDUYPGNx/Y6mm4r12GCBFNOQWz3MSDgD4vczyErrvyn5PlFO3Cvndt62Be0Gp8iXv9
+	xQiTyu2SbYC6xI1Vx8Oy9YYGQh7MRSspm0GPZBIxvIvohnxCxd1clL0hOnCQ4eIoREQ027PUt9LmH
+	yMejoHcV/acbQR4v5/sV+gvhAhhn31+4siGm/PqT8LgGncXdOA+aZJaR0ALXpB3TZcvmMoWUlegqF
+	YycJf+aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZAp-0000000FXZt-2CaZ;
-	Wed, 07 Jan 2026 19:26:27 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1vdZL4-0000000FYJ9-2if5;
+	Wed, 07 Jan 2026 19:37:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZAn-0000000FXYh-0q2U
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 19:26:26 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-4ee243b98caso481161cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 11:26:25 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1767813984; cv=none;
-        d=google.com; s=arc-20240605;
-        b=F7G+sx7L8MwpDRbei7qXl+1ztHrEJpOHO8Va0La/HE+1n8AOus9deXxYStaBpc1Mwo
-         jLD7nQJxueEptdJ0QDlDJkdDsqXL+PMQ/wRC8w52sWbDhQ0IsvZqA54ljeoaEY7Zc2t8
-         eurE7hDDYY0N0ShDqNN2Db2QmPsYbTtM36oBqU6z8raDGfUOPtlfRMGlnGeS0WrbnMLs
-         WVCKkL2qk1M96BDh4WWZenjqO3b9/xZhnHUMu3AgPHl6lDRQUHnG11LOsYCZZMPPAgDw
-         ICqAGzZFSBwhQBuByRZx9R8dwTQQOziyFVXCGLOBNRIG9Tx0Taoc2KcEw7mXwFRMWWi8
-         WLUA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=bWQBkRucMfj+8IZule2bckxNws/YyczMOLNESP4WNJk=;
-        fh=1D+qR31N4bKRDw8NVM61JwQ+l5wpHFRKQ1F308nUS+Q=;
-        b=EiU4baXzuhZe+AK5PUPQBbvIb0yMEPQIsR23tcolmZCegnavMk9uzdAVyIultAvYRa
-         WEd72EMO7R/BAZMVJGFoG2yJJJBZnQ358kJmPMe8QQms8b6FYhxMQRqNAMm4S9bdjqmj
-         4WyVv8HF0bRW1mtcgWuiuZmJC2FcTf7h+ZpY+2eHjBS8Joh2iGv0VQh8yu0n2a9mpPY1
-         wehflbFzNKGkalLVNWgNV8HrhbamSImfThQTHleEqoF2Z8ccknX7/OZtOYZrfu1Sptib
-         QtTuO+L9jUREDYW9FFLElW4Wq/u6TUvVn0WmDeEbcsS6QaSoi6cLML/vz4mxrvBP0qFQ
-         orWQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767813984; x=1768418784; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=bWQBkRucMfj+8IZule2bckxNws/YyczMOLNESP4WNJk=;
-        b=z0gIDBk8FL8jtBUCj7d/yjibMUeYfwoFvrcE61Mz3d+rR5E1xnGQNtgH8YYmN7qzxS
-         jvhA07BE9ILT5L6JfBrLLmGS+Wxpkr7W4nvMXsWZsvVcF0JyOOxlmfznyBrRoXER7aPS
-         i1iLNG4K8AYib/5AOqkA772UE+J0LAQQtiuvOngnmwiIzpEGD6GlGro2MzPvaFNwEnoG
-         YA7MsCkDOVLCVM4D1OwuPdzGandgPiMAVZlS9pAckFo4vtuexNHJ2sgapbo39D+M/+f9
-         NDTNCXtk6PMYoERSf92LfMiM0K360VaLpMznhBgARZJyQftwQZjjBgzv1ucwM+7TGrDM
-         wfpA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767813984; x=1768418784;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bWQBkRucMfj+8IZule2bckxNws/YyczMOLNESP4WNJk=;
-        b=LBVqf+rgyBCt3bkJ3q1Qmrph9yPotBgKEKromfX6eyWzjUVG4GdCYoo4T000RCpjzL
-         n4THW5lZhLSKia8f6VbY6m3Uj/QBhqn/2Lb3VE7eCbIcGcCNDk4AjQ9BGEGfjn+Z//vI
-         seGQVIdWtYT30OXBRWT4diSLeJqaPRdNrj038QlhBJ0W12bcIQcQzLBnMkP2JtFPeM1/
-         roxKe8cz3wP88Ir5D6XzFprpL997tqVUjsFqcJGJhtYCivCTh4i2hZ1X1lWQaCpvOoFa
-         19eYLxACm1XqQ6cygqO7NvmZOy41EQsMGuBUhUlS+/ckD8CGlF1T+keqHvyqDx5w9w/a
-         eB9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWvEsqWHFLYtbksPiwx4Mz3rWcjm+6CtijMEQBfe77MAyMSOJ9doRx5WCtoO+uPf/TGJoXNKBtnrzb00M+07n3c@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7GiPQm8x0i4RwG7lYRkEV0bqJ/9vIQ/CVF7jV3E+V2HSecPCI
-	uEm5b2br0a2b8lkMA4jv9LzbP+GUB33dve5Z5Na9eRDtF4aV6AUcQeFPoHqsYDBVbgeEpuXWY/S
-	5mJZIxu+0yhsXwayExPT5Vac6V3EjhTdN/oO1jPAF
-X-Gm-Gg: AY/fxX5j2BfoPJWm/Nvu9eAWxV4zK+pqXpphglZ6SbPBfjFPKp9L0gne+OK+/VCV7jW
-	NRweFdsxX9aSWrZFwKDU3grqyzcKzznWNWEBoB5l+sqvekIhZw4FgJQhPEuGsF9H5c80UVLSpIY
-	1UFH3Tnae4Ifn6Oct94KGD5Naqyl0+1w2D73cSdojPc+ZAx8X3RPMLjG1GlMJ/Rz/XbOSMvgRpm
-	n9huVAGYbMsgMYHpcByz/F9W09/QM6fxIBwiKkAf62O0faP3cgs0Y/g0WBzvv4BXjla3diF
-X-Received: by 2002:ac8:7d0a:0:b0:4ed:ff77:1a87 with SMTP id
- d75a77b69052e-4ffbf94a082mr1122261cf.19.1767813983752; Wed, 07 Jan 2026
- 11:26:23 -0800 (PST)
+	id 1vdZL1-0000000FYIe-1LAN;
+	Wed, 07 Jan 2026 19:37:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 687C6441ED;
+	Wed,  7 Jan 2026 19:36:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0753C19422;
+	Wed,  7 Jan 2026 19:36:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1767814618;
+	bh=wGXfb/h9dHEqo4OYJ7lobK5I8Wv+t9L3leil/n6O8Iw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IgJxdSAeZ/7+lfhqGZ9rBlTXNIozisFIcAkxXqUcopcqhT47BBzZNAXGHXN2S1cuz
+	 sE3S/4D8e2LgW/CFYURXyeLn59O+LRgHFLBPpDv+3F5osve2zP01H3o5Q1WQsnXmQw
+	 djJgIz4O/wMvzdiDAuqVNLsW2SkI8XFnTtMPhuCo=
+Date: Wed, 7 Jan 2026 20:36:55 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: joaopeixoto@osyx.tech
+Cc: linux-kernel@vger.kernel.org, ajd@linux.ibm.com, alex@ghiti.fr,
+	aou@eecs.berkeley.edu, bagasdotme@gmail.com,
+	catalin.marinas@arm.com, conor+dt@kernel.org, corbet@lwn.net,
+	dan.j.williams@intel.com, davidmcerdeira@osyx.tech,
+	devicetree@vger.kernel.org, dev@kael-k.io, haren@linux.ibm.com,
+	heiko@sntech.de, jose@osyx.tech, kever.yang@rock-chips.com,
+	krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	maddy@linux.ibm.com, mani@kernel.org, nathan@kernel.org,
+	neil.armstrong@linaro.org, palmer@dabbelt.com, pjw@kernel.org,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, robh@kernel.org,
+	will@kernel.org
+Subject: Re: [PATCH 5/6] virt: bao: Move BAO_IPCSHMEM_HYPERCALL_ID to common
+ header
+Message-ID: <2026010704-heaviness-quality-f543@gregkh>
+References: <20251224135217.25350-1-joaopeixoto@osyx.tech>
+ <20260107162829.416885-1-joaopeixoto@osyx.tech>
+ <20260107162829.416885-6-joaopeixoto@osyx.tech>
 MIME-Version: 1.0
-References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org> <20251223-kvm-arm64-sme-v9-5-8be3867cb883@kernel.org>
-In-Reply-To: <20251223-kvm-arm64-sme-v9-5-8be3867cb883@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Wed, 7 Jan 2026 19:25:47 +0000
-X-Gm-Features: AQt7F2qO0uzZBb7qE9TqF-7WKMNBoVsC6m-23DUQhmoLKw26Bq83cmx6SM9OSu4
-Message-ID: <CA+EHjTycP4Wz0V7S8hzWygpeXGzeehTL8RFfit7Eaq4rT+Eu+Q@mail.gmail.com>
-Subject: Re: [PATCH v9 05/30] arm64/fpsimd: Determine maximum virtualisable
- SME vector length
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, Peter Maydell <peter.maydell@linaro.org>, 
-	Eric Auger <eric.auger@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260107162829.416885-6-joaopeixoto@osyx.tech>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_112625_249344_4F7995BF 
-X-CRM114-Status: GOOD (  22.19  )
+X-CRM114-CacheID: sfid-20260107_113700_453704_44F84416 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,81 +81,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+On Wed, Jan 07, 2026 at 04:28:28PM +0000, joaopeixoto@osyx.tech wrote:
+> From: João Peixoto <joaopeixoto@osyx.tech>
+> 
+> Move the IPC shared-memory hypercall ID from architecture-specific
+> headers into include/linux/bao.h.
 
-On Tue, 23 Dec 2025 at 01:21, Mark Brown <broonie@kernel.org> wrote:
->
-> As with SVE we can only virtualise SME vector lengths that are supported by
-> all CPUs in the system, implement similar checks to those for SVE. Since
-> unlike SVE there are no specific vector lengths that are architecturally
-> required the handling is subtly different, we report a system where this
-> happens with a maximum vector length of -1.
->
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+That says _what_ you did, but not why you did it :(
+
+I have no idea why this is needed at all, sorry.
+
+> Signed-off-by: João Peixoto <joaopeixoto@osyx.tech>
 > ---
->  arch/arm64/kernel/fpsimd.c | 23 ++++++++++++++++++++++-
->  1 file changed, 22 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-> index f4e8cee00198..22f8397c67f0 100644
-> --- a/arch/arm64/kernel/fpsimd.c
-> +++ b/arch/arm64/kernel/fpsimd.c
-> @@ -1257,7 +1257,8 @@ void cpu_enable_sme(const struct arm64_cpu_capabilities *__always_unused p)
->  void __init sme_setup(void)
->  {
->         struct vl_info *info = &vl_info[ARM64_VEC_SME];
-> -       int min_bit, max_bit;
-> +       DECLARE_BITMAP(tmp_map, SVE_VQ_MAX);
-> +       int min_bit, max_bit, b;
->
->         if (!system_supports_sme())
->                 return;
-> @@ -1288,12 +1289,32 @@ void __init sme_setup(void)
->          */
->         set_sme_default_vl(find_supported_vector_length(ARM64_VEC_SME, 32));
->
-> +       bitmap_andnot(tmp_map, info->vq_partial_map, info->vq_map,
-> +                     SVE_VQ_MAX);
-> +
-> +       b = find_last_bit(tmp_map, SVE_VQ_MAX);
-> +       if (b >= SVE_VQ_MAX)
-> +               /* All VLs virtualisable */
-> +               info->max_virtualisable_vl = SVE_VQ_MAX;
-> +       else if (b == SVE_VQ_MAX - 1)
-> +               /* No virtualisable VLs */
-> +               info->max_virtualisable_vl = -1;
+>  arch/arm/include/asm/bao.h           | 5 ++---
+>  arch/arm64/include/asm/bao.h         | 5 ++---
+>  arch/riscv/include/asm/bao.h         | 7 +++----
+>  drivers/virt/bao/ipcshmem/ipcshmem.c | 5 +----
+>  include/linux/bao.h                  | 3 +++
+>  5 files changed, 11 insertions(+), 14 deletions(-)
+> 
+> diff --git a/arch/arm/include/asm/bao.h b/arch/arm/include/asm/bao.h
+> index 5ece9ecb1455..7d13591fe669 100644
+> --- a/arch/arm/include/asm/bao.h
+> +++ b/arch/arm/include/asm/bao.h
+> @@ -16,14 +16,13 @@
+>  #include <linux/arm-smccc.h>
+>  #include <linux/bao.h>
+>  
+> -static inline unsigned long bao_ipcshmem_hypercall(unsigned long hypercall_id,
+> -						   unsigned long ipcshmem_id)
+> +static inline unsigned long bao_ipcshmem_hypercall(unsigned long ipcshmem_id)
 
-I'm not sure about -1 as the "No virtualisable VLs" value. Unless I've
-missed something, this value gets used without being checked,
-potentially even assigned to an unsigned int:
+This does not match what you said you were doing in the changelog :(
 
-> kvm_max_vl[ARM64_VEC_SME] = sme_max_virtualisable_vl();
-
-Cheers,
-/fuad
-
-
-> +       else
-> +               info->max_virtualisable_vl = sve_vl_from_vq(__bit_to_vq(b +  1));
-> +
-> +       if (info->max_virtualisable_vl > info->max_vl)
-> +               info->max_virtualisable_vl = info->max_vl;
-> +
->         pr_info("SME: minimum available vector length %u bytes per vector\n",
->                 info->min_vl);
->         pr_info("SME: maximum available vector length %u bytes per vector\n",
->                 info->max_vl);
->         pr_info("SME: default vector length %u bytes per vector\n",
->                 get_sme_default_vl());
-> +
-> +       /* KVM decides whether to support mismatched systems. Just warn here: */
-> +       if (info->max_virtualisable_vl < info->max_vl)
-> +               pr_warn("SME: unvirtualisable vector lengths present\n");
->  }
->
->  void sme_suspend_exit(void)
->
-> --
-> 2.47.3
->
 
