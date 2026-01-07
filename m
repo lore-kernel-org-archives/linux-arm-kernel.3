@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E9DCD582C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 10:10:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAAB0CD582D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 10:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9mtrdQXsmfpf1uRi6c7IZnrJmMwda+Bb18Mgv5ItycQ=; b=ZQUt6nigtGVXLNE/Uu+4oZckbt
-	Mvuha95smI7y2X9CqnpYhnO/PvI9t7cMabkQvDURDx9zKdYevp6u/Dpd8LpzXd6SO5krI9ttILrnd
-	OPfFzgus1dJ2KV7duI3ULa0n25I9WCP1vWd1644YeJyvy4RRsCLnLOhMQhGTdFmGqx68x1sdB+pDz
-	iMODBte+0MQzhOpRkmbPvxpMGsD5QtwkGxy9O6CpGaV+2OXs5lDjqKQXzdEqshKzqp87iangD3Hgs
-	meF57p66MQfRE/hibY9uvJoBWZgWz/nXejFMOo0Eik9Qcp5MCmfv4HXde1JYwAW3hzY5uZPitRkQf
-	7fFu1oQw==;
+	bh=ALumBkGddtKvNohcCnsa7ZVOi9b8CPlq1/XdAqXopd8=; b=vPr49iEkBUpVbUtfCM4LgnVbJY
+	rkWfHpxtg9qBtfOAsrWrGymtnhdFZ2INrDx5UdlTeeAKRkSrlyCosqIH06xJ0JT/0zuwuGbtOlXGW
+	c3QhnCbGy0R4e5UDdrFjUhdmEZ7u8vKvCkdmJgBaYqsgfdJ9iDb0zngFj2z7/Cj++L1FyovDDcPIR
+	gLYD6ycxE6AVOA1PSYILNGcHnqecN/5RQhnmijh09zbGgmg1OXuHAOOQhkm+M7VVM5YJB9O6B3xF8
+	3w6KvTUs+7SnA9wCF5kkpX+oeM63StZle3ckLBzfGga2zT/NgVSs9wue+0TXjqfqm8z9pzd9TxlVb
+	DMv/doMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQUk-0000000EewF-1kCX;
-	Wed, 07 Jan 2026 10:10:26 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vdQUm-0000000EezT-14wB;
+	Wed, 07 Jan 2026 10:10:28 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQUd-0000000EeoB-1ynp;
-	Wed, 07 Jan 2026 10:10:21 +0000
+	id 1vdQUg-0000000EeqQ-25Q8;
+	Wed, 07 Jan 2026 10:10:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1767780616;
-	bh=heh+k/1ODoaxXv2R5HPjXJm6oybJcbQZVD3EyshC35g=;
+	s=mail; t=1767780619;
+	bh=kfoyO6mLrJT+5jwg7vHiUeoqvatV7KVxcH5i/FCsdRc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=g3drNsqCfLOG4CMOxQngKvicV6GqzdiWPcHhxGLuVfk4uGgRmb7pFD9JS3hmjw8Mz
-	 cxCthxs2rq04xvO1hIGiw4q2NQtljENHBaKifBl/tXC6VtpYyaDJUhylHUkMGnKv2o
-	 WaILfC65aUypDXHqxLvXmGf6p/Tpl3uTiAgDrolXsOcyiPITOZMNdIvHBw+SExopnX
-	 UQp2A6SGDG/BH0zpvPMArDny11buqefzjtjSdNvVgj5Uhp02lQWk9mJ15oa42hM5dP
-	 93U/T6cDw6lsscRbGmNTJVOAwIop2GcaLDBcGDeqI2RjHQckJ1XYNJuc4L7bEI149L
-	 HKWn/qY89U8Gg==
+	b=ACCm6TYmcyzu/GYMm3AhxMcG8OHrYxyaC6iWb2Skj903U+DZvSlbbfNaOva32Uqdh
+	 h9/b3Ecl6xgR/TW9GgHdC0xao16/Ebryvi0Kfo+SHhHa6Lf5qrCtNhCZH1yCLao3g+
+	 N8GEsqi6qJNwYXQ7DfFZlg/3BqwZgnmB6d+mhMptwOE/aSY9Gaog+iJ2pmalA8RByT
+	 /SS5EaXV4X3Ts7MhlCQEVU99mUyA3wqr7ePdThasYIaI708eDJHZCktd6SzzOv5aVH
+	 WbHteMEzAXX4uiB9/bKFyFDBnIgSil5O0laFRi7hnt5sHN/dqe+h0w0MavYUvJ5+CH
+	 spOkz1OFfn0EQ==
 Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:7e36:2305:d47f:6e43])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9D8A717E1514;
-	Wed,  7 Jan 2026 11:10:15 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A635417E36C3;
+	Wed,  7 Jan 2026 11:10:18 +0100 (CET)
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 To: joro@8bytes.org,
 	will@kernel.org,
@@ -61,19 +61,19 @@ Cc: iommu@lists.linux.dev,
 	linux-rockchip@lists.infradead.org,
 	linux-media@vger.kernel.org,
 	kernel@collabora.com,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v11 2/7] dt-bindings: iommu: verisilicon: Add binding for VSI IOMMU
-Date: Wed,  7 Jan 2026 11:09:52 +0100
-Message-ID: <20260107101005.84039-3-benjamin.gaignard@collabora.com>
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Subject: [PATCH v11 7/7] arm64: defconfig: enable Verisilicon IOMMU for Rockchip RK3588
+Date: Wed,  7 Jan 2026 11:09:57 +0100
+Message-ID: <20260107101005.84039-8-benjamin.gaignard@collabora.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260107101005.84039-1-benjamin.gaignard@collabora.com>
 References: <20260107101005.84039-1-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_021019_664263_92CBBB90 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20260107_021022_694472_CA3BCCB0 
+X-CRM114-Status: UNSURE (   8.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,94 +88,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a device tree binding for the Verisilicon (VSI) IOMMU.
-This IOMMU sits in front of hardware encoder and decoder
-blocks on SoCs using Verisilicon IP, such as the Rockchip RK3588.
+Enable Verisilicon IOMMU used by Rockchip RK3588 AV1 hardware codec.
+This hardware block could be found in Radxa Rock 5B board.
 
 Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../bindings/iommu/verisilicon,iommu.yaml     | 71 +++++++++++++++++++
- 1 file changed, 71 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
-new file mode 100644
-index 000000000000..d3ce9e603b61
---- /dev/null
-+++ b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
-@@ -0,0 +1,71 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/iommu/verisilicon,iommu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Verisilicon IOMMU
-+
-+maintainers:
-+  - Benjamin Gaignard <benjamin.gaignard@collabora.com>
-+
-+description: |+
-+  A Versilicon iommu translates io virtual addresses to physical addresses for
-+  its associated video decoder.
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: rockchip,rk3588-av1-iommu
-+      - const: verisilicon,iommu-1.2
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: Core clock
-+      - description: Interface clock
-+
-+  clock-names:
-+    items:
-+      - const: core
-+      - const: iface
-+
-+  "#iommu-cells":
-+    const: 0
-+
-+  power-domains:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - "#iommu-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    bus {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      iommu@fdca0000 {
-+        compatible = "rockchip,rk3588-av1-iommu","verisilicon,iommu-1.2";
-+        reg = <0x0 0xfdca0000 0x0 0x600>;
-+        interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH 0>;
-+        clocks = <&cru ACLK_AV1>, <&cru PCLK_AV1>;
-+        clock-names = "core", "iface";
-+        #iommu-cells = <0>;
-+      };
-+    };
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 45288ec9eaf7..4751f7fa8bb0 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1525,6 +1525,7 @@ CONFIG_ARM_SMMU=y
+ CONFIG_ARM_SMMU_V3=y
+ CONFIG_MTK_IOMMU=y
+ CONFIG_QCOM_IOMMU=y
++CONFIG_VSI_IOMMU=y
+ CONFIG_REMOTEPROC=y
+ CONFIG_IMX_REMOTEPROC=y
+ CONFIG_MTK_SCP=m
 -- 
 2.43.0
 
