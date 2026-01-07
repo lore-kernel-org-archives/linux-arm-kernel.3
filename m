@@ -4,77 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 244A0CF6BEF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82E4CD0D143
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:45:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IkZNkEWJiIzQP6nFkM8MXtoymSNqfy192edAVWu80uY=; b=NcqjVpMm7dwXz3Vi0aEJuf5wRN
-	afS4MEa5vyV7frqip81elDTlKK9icjTkqt4bjJifUWWo+x9gkJGQRqUFQwCzxBWguNMetFe676+Lg
-	YrTndEqOyzwjJ7C2VIhYtTF4QJ6wlevmRh1Jy0gLLqL1xdMN9yDhW6eCQhrZiOo+A1dVW49VAlEOa
-	dceXBtKDCXBl6TAtx3nEZVMsrRkiZE+54ISq3S38ysEUP0wpmt0zy83XusRAs3YmVIPmtxsMlbwTH
-	sH0owORJsGF5h4KtG5j3Qp6sr7qLthLuUZ65KdPRlEe1w8ltAJY3Jicb1EqpyomtHK/BWnE664m7s
-	HtaqUvqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qLkvOO+qC3zK0iKw1gp+kVwwYm0NKQXVyrT9aghy2UI=; b=UhMGlnG8fIH+DGhNZXh2XvMfPh
+	0eMmEzdmzRpcvVxhH6j/G0VGU7N2QAOIHtJuPQeqrnXr6fH5hB4dKcJ45fS0UnErJ2IeHcD7w2Dp0
+	UY7yjlMGHs8g7l+X15PVVHKNPt9L4N9kAk3Lj0J39/E1rsF4PPsmP4t4Xcf72yueN3+epTcHZmMZ3
+	NVDbHafK4oLhMd3nmu0kxJZbfWZRIsrKROS5Re5R53ON6GBvJ1I8XPwyT90AmddIvAuIaaPdN+gA0
+	woaMHkRRRtZq802itJkwktverREue+laIzEKsAFf6OCkAgtjoA/jAeSXeRN17RSzVZioE3bCwyoIf
+	l6U594JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWZK-0000000FJh8-25mQ;
-	Wed, 07 Jan 2026 16:39:34 +0000
-Received: from sinmsgout01.his.huawei.com ([119.8.177.36])
+	id 1vdWew-0000000FJyB-0Pqs;
+	Wed, 07 Jan 2026 16:45:22 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWYp-0000000FJgJ-42Ig
+	id 1vdWer-0000000FJxn-3RxP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 16:39:33 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=IkZNkEWJiIzQP6nFkM8MXtoymSNqfy192edAVWu80uY=;
-	b=UMjGj3Sk++uQFhfm7fbcP2jPPrx69x67g6ehTav5r/4BsndGjVpj6m9L9E69L6axgH1i21FJw
-	qOh9/3bSdzrfQ0BOU7BhX7YED6hBuYn67uoASFz2m6gA4PDKVfx/egqsMX9toQrs5EASwjd2A+a
-	NBh15YGvwXDPjcSY4tqK+6Q=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.32])
-	by sinmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4dmYZg0n9dz1P6gZ;
-	Thu,  8 Jan 2026 00:36:26 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dmYdH5RMWzHnGcw;
-	Thu,  8 Jan 2026 00:38:43 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3B31640569;
-	Thu,  8 Jan 2026 00:38:50 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 7 Jan
- 2026 16:38:49 +0000
-Date: Wed, 7 Jan 2026 16:38:47 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd
-	<nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
-	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Timothy Hayes
-	<Timothy.Hayes@arm.com>
-Subject: Re: [PATCH v2 35/36] KVM: arm64: selftests: Introduce a minimal
- GICv5 PPI selftest
-Message-ID: <20260107163847.00000fe9@huawei.com>
-In-Reply-To: <20251219155222.1383109-36-sascha.bischoff@arm.com>
-References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
-	<20251219155222.1383109-36-sascha.bischoff@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Wed, 07 Jan 2026 16:45:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tWLuQzauuu7WqsIe328nwB0Onmgnr5gG1KoIULfWhcYkjKhMY5k0d611qa9dId2ju0SDhqUJbYnrcOcCXvL2uWztQsxXi7SxdNrSedNgfslQTsOEiVW2BXfhCKo11fqTkj/ZVzHoL5np9yud5JS8XLxfKcu4dzrEdJJSa+JRp90gctg683LFk/p0umtgwfwqChGF2WRakTp9nZUie/5utnuA5yT/M4H/nN17ylsX8eDrXTTq7ipIfBjxuezunRaH6WbkPtwcen7nH+iuIvfzOz3nSKATteHJgzCID+KTy0VPiCxj36bsvQjDLPOLpOhrS72OWE9lhAdYuX0b2e+PQg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qLkvOO+qC3zK0iKw1gp+kVwwYm0NKQXVyrT9aghy2UI=;
+ b=vzM4/aXBA5x6puubSVjyAOvwfpfHTi7nEDXN8Z6WaYIbJ4eIyqXNFrSkuOBE8YXVlQ5kR5t3yXFNuhZpFHmh0nE0SdcT/hY6nL3pESYSWbbfEskEdXlBH6Ci6LDWUAbE6aWopRuJaA5jdEfyBPISwqUWVDG4WcaWzQfvxKJy2JQOb0J5+XYVTf1raIkBkd+dYx7ztTqJYgm9Hm2+oq1TWKAP4TV8cadrpDL9n7/iV4yPKb+M7M/DZvrlEKr4p54wvlnsVvQNs/YUJ8angjt4NonFMYBrbqDshFkKHTWOFIv/Z4tkU1/oWPduJ7fdhg+1mGAdncjMNC9h0kkOKSMaCw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qLkvOO+qC3zK0iKw1gp+kVwwYm0NKQXVyrT9aghy2UI=;
+ b=JVRxTFbSuEpT03ch4YqI4efTwcXb3xipCTMOwSKD/N61W70ZZ9OPkjUQViZSPsA5Y9M5Eg5rAaLQ68rl6hMIsn2bWA+LtZmpRhgY2FWl8rkj41nT7fYmdvFEfcluTHbciIXu84R7Q5114omAFtISwhrs0btS8CebdqzDJdfwVt0=
+Received: from BYAPR02CA0037.namprd02.prod.outlook.com (2603:10b6:a03:54::14)
+ by BN0PR10MB5144.namprd10.prod.outlook.com (2603:10b6:408:127::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.2; Wed, 7 Jan
+ 2026 16:45:11 +0000
+Received: from SJ1PEPF00001CDD.namprd05.prod.outlook.com
+ (2603:10b6:a03:54:cafe::17) by BYAPR02CA0037.outlook.office365.com
+ (2603:10b6:a03:54::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.2 via Frontend Transport; Wed, 7
+ Jan 2026 16:45:11 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ SJ1PEPF00001CDD.mail.protection.outlook.com (10.167.242.5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9499.1 via Frontend Transport; Wed, 7 Jan 2026 16:45:10 +0000
+Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 7 Jan
+ 2026 10:45:05 -0600
+Received: from DFLE209.ent.ti.com (10.64.6.67) by DFLE205.ent.ti.com
+ (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 7 Jan
+ 2026 10:45:04 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE209.ent.ti.com
+ (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 7 Jan 2026 10:45:04 -0600
+Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 607Gj4XL910213;
+	Wed, 7 Jan 2026 10:45:04 -0600
+Date: Wed, 7 Jan 2026 10:45:04 -0600
+From: Bryan Brattlof <bb@ti.com>
+To: Kendall Willis <k-willis@ti.com>
+CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Tero
+ Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Dhruva
+ Gole" <d-gole@ti.com>, <vishalm@ti.com>, <sebin.francis@ti.com>,
+	<msp@baylibre.com>, <khilman@baylibre.com>, <a-kaur@ti.com>,
+	<s-kochidanadu@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 0/3] arm64: boot: dts: ti: k3-am62l: allow WKUP UART
+ wakeup from LPM
+Message-ID: <20260107164504.ehvbfizg7ybbvv2e@bryanbrattlof.com>
+X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
+References: <20260106-wkup-uart-wakeup-v2-0-fb4cbd56c827@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+In-Reply-To: <20260106-wkup-uart-wakeup-v2-0-fb4cbd56c827@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CDD:EE_|BN0PR10MB5144:EE_
+X-MS-Office365-Filtering-Correlation-Id: e2665969-bda0-4318-4bdc-08de4e0c1f1a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700013;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?aFFQZFhoSVFkd21VQy9YTXZhV09UTnRuMjdUcVhKamhGN2JBV3dVTWZHdmZo?=
+ =?utf-8?B?czhNL3M4MlFVaEwxK2Y5K01KcjhLZ0IwaDlCZnJjOUpzbDJ6UXlmd3ZLZmJP?=
+ =?utf-8?B?cGtUYmxsY0JEckFuTEFmTEs5SDBmR21DUldZalBFYUlKRXRkbG5JMC9lcEF5?=
+ =?utf-8?B?ZTMwZjNGTk43Y3ZIb09aekNQQXlBaVRvb3F0ZVZPbTFYOHRBM2pxdlcwT0dx?=
+ =?utf-8?B?bWNVaCszdnlMVk04T0NRdUkrbURHb1V0QkNLRDhjb1RQWkI3bGV5R0hZVkVJ?=
+ =?utf-8?B?ek5mZ2ZlUUxFL29Lam9pRG5XSnMycWtLZ1ZDYUJhZEszQlhKcFRlU2tURkNi?=
+ =?utf-8?B?VGlWWTZWZm1ncUVXamZmRHppUlpnUHk1aDUwbnUyT1NLUWs5ekxJMnQ4aXJz?=
+ =?utf-8?B?Ujd4Y3pOMFB4Um1kQXV4Z2pXVnJ6ZFQwRXhuWGVsWi95a0FVZWZudzZQREhk?=
+ =?utf-8?B?WlJMclVqbk42MHZvaThzVlhicGFLZUJTNzNDYkRJWVZuSjRzQzdFWWtvNE5a?=
+ =?utf-8?B?cm9WWWo0eUQrSUtCS3JEak5RUDhGWEMzRzRhL2RHOCtwMFd1YjlXMXljWlpW?=
+ =?utf-8?B?L09xSWpLQ3dkUktYTmFYWXF1cUhVQjBsbExHdmhGOUlnSUJ6Z3RDeWhjWHhl?=
+ =?utf-8?B?b1AxdVJmekE0c3hFWnJXRE95ZkFjOVBqb3lNUk00SWRjcS8wdG9LL2d4Z2Za?=
+ =?utf-8?B?ejI1d1h1ekdLTnRIT2ZPdGJFa3FBMjJEOVdpNGdTZ29Gb1ByYmkrTDRjUHNI?=
+ =?utf-8?B?Ri9zc0FqQ0h2K0JINVMra3lWU2I2ck9VaDF3Z2l6Mk9OcnBDWE92U1l2R2JN?=
+ =?utf-8?B?djR4OHhYN1JlcXFiaFhWOXFBZXZuWE9RWUw0dDdTWjA0cjVWZDRWemJjZmU1?=
+ =?utf-8?B?cXJDR0J3VEZKbWVvQW12b1h2QTFNMENYS0J0YnIrZUpMQldKOWtJL3BpdWdm?=
+ =?utf-8?B?L2dtV3Y4SnVGUGlwOTc3eTVuVmlEQ21ROHU0TytvYm11eWFjeTBTNVdncld2?=
+ =?utf-8?B?NnZQSEo2S2tIQWpRbTVqMDV0bm5hS1E3eGQ5MHNyYUVkSlRBQXY3RFFNUjlU?=
+ =?utf-8?B?KzZMbWRJZFBoT0lqUlVMQ05NSDdiTEZhUnNMOHhGNDRHU21ENEt6OXdOZDBJ?=
+ =?utf-8?B?RU9CcDM2NGFXZmJEby9jaU1rMmZxU0xQSE1VRFB6ajVYZTVwM1cvU0l2RnN1?=
+ =?utf-8?B?WTV1aDBiMGtkRUFZd2puaHRHMGxLckN3N0pCQithMUd0SnMzME50YVN1cHdD?=
+ =?utf-8?B?NTRLTkRRUUxFb3owdmZuNnI0VUVuS1FzMlZLV2tjeEtEN2FaWmhBaWFrZDNT?=
+ =?utf-8?B?c3FiOXh6eGx3b3NoQmtkMStvekt3MUE2V1dqZ1R2N2doVkFLdnhyMCtUTnVV?=
+ =?utf-8?B?M1BkeVlTdmxadWtjL0hJeXdoMVB4Z1lzRjl5SUlzSCtmbEFua0JiRTNURGFT?=
+ =?utf-8?B?YnpucnRuQlp2QXNtVHV5OWRVQmgxY3BWQ2hWY29FM0p4S2dSQ3Q0eGMwamNY?=
+ =?utf-8?B?TXdRZXFMcy92WWJUSStqY0FTNjNVNC80VHRjbHdtQzlNWk90NGoxVHlJT3o1?=
+ =?utf-8?B?QW5yRWJJT0swSmMxeDVJTmtXTzc5ZmVxSnR2K3c5a0hUc0FQODZ2TWk3d1lJ?=
+ =?utf-8?B?dG5Lb3ZFOTh0ZDExMWxzbm1qL0RZYWpRbFI1aStGL0w1OXlLK0Z3SUpBZGlh?=
+ =?utf-8?B?VDc3K2NTRG95VDRGaGtKTU93S01sN0UxMXJaZjkyNU9mdFpwcW5iRHJmaTd4?=
+ =?utf-8?B?Kzg5U1orTFBBdDQraGJjZSt2UTJSNDNwUisyTmlPSUhMOXRsOE03SlNHZEhn?=
+ =?utf-8?B?eXBPNncvM21xdkI3RHJFNjFSaU02dEZYejdad0NxS0ZQSEtrOWtzNytKcHcv?=
+ =?utf-8?B?K1doR0wybDBRWjE1S1RVTHF4K2ZIM3ExU1NRQ0xCKzZtdHZaTnZXUVZEVXgx?=
+ =?utf-8?B?Y0xQSUlBMEQyemFyWlZjVTBWSm1UclhNSGVUWXV0T2tWaTZPZE11R0ZPRnN2?=
+ =?utf-8?B?VWNLYml5dkYyTXNpQzgvcEJwTEc2TmIrd2liTjQ1d3QrdnN2Smk0TnZ3eWJS?=
+ =?utf-8?B?RGtraC9PRjIyb1BsYmVVVEtuekRhbVBQNUp6VjFKQWQyL2c0aTN2UXk5SXh6?=
+ =?utf-8?Q?mQQo=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jan 2026 16:45:10.0311
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e2665969-bda0-4318-4bdc-08de4e0c1f1a
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CDD.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB5144
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_083906_835511_02620BDC 
-X-CRM114-Status: GOOD (  30.06  )
+X-CRM114-CacheID: sfid-20260107_084517_973140_6643984F 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,243 +168,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Dec 2025 15:52:48 +0000
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-
-> This basic selftest creates a vgic_v5 device (if supported), and tests
-> that one of the PPI interrupts works as expected with a basic
-> single-vCPU guest.
+On January  6, 2026 thus sayeth Kendall Willis:
+> K3 TI AM62L SoC supports wakeup from WKUP UART when the SoC is in the
+> DeepSleep low power mode. To allow wakeup from WKUP UART the target-module
+> device tree node is enabled. The ti-sysc interconnect target module driver
+> is used to configure the the SYSCONFIG related registers. In this case,
+> the interconnect target module node configures the WKUP UART to be able to
+> wakeup from system suspend. The SYSC register is used to enable wakeup
+> from system suspend for the WKUP UART. Refer to 14.7.2.5 UART in the
+> AM62L Techincal Reference Manual for registers referenced [1].
 > 
-> Upon starting, the guest enables interrupts. That means that it is
-> initialising all PPIs to have reasonable priorities, but marking them
-> as disabled. Then the priority mask in the ICC_PCR_EL1 is set, and
-> interrupts are enable in ICC_CR0_EL1. At this stage the guest is able
-> to recieve interrupts. The first IMPDEF PPI (64) is enabled and
-> kvm_irq_line is used to inject the state into the guest.
-> 
-> The guest's interrupt handler has an explicit WFI in order to ensure
-> that the guest skips WFI when there are pending and enabled PPI
-> interrupts.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Hi Sascha,
+> Previous TI SoCs configure the WKUP UART to wakeup from system suspend
+> using the ti-sysc interconnect target module driver. Refer to commit
+> ce27f7f9e328 ("arm64: dts: ti: k3-am62-wakeup: Configure ti-sysc for
+> wkup_uart0") for an example of this.
 
-A few comments inline.
+I think I may be confused. What is setting the pinmux for the wkup_uart 
+to allow us to trigger the wake event? It looks like they reset to GPIO 
+pins if not set. Is firmware doing this?
 
-> diff --git a/tools/testing/selftests/kvm/arm64/vgic_v5.c b/tools/testing/selftests/kvm/arm64/vgic_v5.c
-> new file mode 100644
-> index 0000000000000..5879fbd71042d
-> --- /dev/null
-> +++ b/tools/testing/selftests/kvm/arm64/vgic_v5.c
-> @@ -0,0 +1,248 @@
-
-> +static void test_vgic_v5_ppis(uint32_t gic_dev_type)
-> +{
-> +	struct ucall uc;
-> +	struct kvm_vcpu *vcpus[NR_VCPUS];
-> +	struct vm_gic v;
-> +	int ret, i;
-> +
-> +	v.gic_dev_type = gic_dev_type;
-> +	v.vm = __vm_create(VM_SHAPE_DEFAULT, NR_VCPUS, 0);
-> +
-> +	v.gic_fd = kvm_create_device(v.vm, gic_dev_type);
-> +
-> +	for (i = 0; i < NR_VCPUS; ++i)
-> +		vcpus[i] = vm_vcpu_add(v.vm, i, guest_code);
-> +
-> +	vm_init_descriptor_tables(v.vm);
-> +	vm_install_exception_handler(v.vm, VECTOR_IRQ_CURRENT, guest_irq_handler);
-> +
-> +	for (i = 0; i < NR_VCPUS; i++)
-> +		vcpu_init_descriptor_tables(vcpus[i]);
-> +
-> +	kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-> +			    KVM_DEV_ARM_VGIC_CTRL_INIT, NULL);
-> +
-> +	while (1) {
-> +		ret = run_vcpu(vcpus[0]);
-> +
-> +		switch (get_ucall(vcpus[0], &uc)) {
-> +		case UCALL_SYNC:
-> +			/*
-> +			 * The guest is ready for the next level
-> +			 * change. Set high if ready, and lower if it
-
-Odd line wrap. Go to 80 chars.
-
-> +			 * has been consumed.
-> +			 */
-> +			if (uc.args[1] == GUEST_CMD_IS_READY ||
-> +			    uc.args[1] == GUEST_CMD_IRQ_DIEOI) {
-> +				u64 irq = 64;
-> +				bool level = uc.args[1] == GUEST_CMD_IRQ_DIEOI ? 0 : 1;
-> +
-> +				irq &= KVM_ARM_IRQ_NUM_MASK;
-Can use FIELD_PREP in tools. Seems likely to be useful here.
-
-> +				irq |= KVM_ARM_IRQ_TYPE_PPI << KVM_ARM_IRQ_TYPE_SHIFT;
-> +
-> +				_kvm_irq_line(v.vm, irq, level);
-> +			} else if (uc.args[1] == GUEST_CMD_IS_AWAKE) {
-> +				pr_info("Guest skipping WFI due to pending IRQ\n");
-> +			} else if (uc.args[1] == GUEST_CMD_IRQ_CDIA) {
-> +				pr_info("Guest acknowledged IRQ\n");
-> +			}
-> +
-> +			continue;
-> +		case UCALL_ABORT:
-> +			REPORT_GUEST_ASSERT(uc);
-> +			break;
-> +		case UCALL_DONE:
-> +			goto done;
-> +		default:
-> +			TEST_FAIL("Unknown ucall %lu", uc.cmd);
-> +		}
-> +	}
-> +
-> +done:
-> +	TEST_ASSERT(ret == 0, "Failed to test GICv5 PPIs");
-> +
-> +	vm_gic_destroy(&v);
-> +}
-> +
-> +/*
-> + * Returns 0 if it's possible to create GIC device of a given type (V2 or V3).
-
-Comment needs an update given you pass in v5
-
-Maybe worth pulling this out as a library function for both sets of tests.
-If not, rip out the v2, v3 code from here and the type parameter as that is
-all code that will bit rot.
-
-> + */
-> +int test_kvm_device(uint32_t gic_dev_type)
-> +{
-> +	struct kvm_vcpu *vcpus[NR_VCPUS];
-> +	struct vm_gic v;
-> +	uint32_t other;
-> +	int ret;
-> +
-> +	v.vm = vm_create_with_vcpus(NR_VCPUS, guest_code, vcpus);
-> +
-> +	/* try to create a non existing KVM device */
-> +	ret = __kvm_test_create_device(v.vm, 0);
-> +	TEST_ASSERT(ret && errno == ENODEV, "unsupported device");
-> +
-> +	/* trial mode */
-> +	ret = __kvm_test_create_device(v.vm, gic_dev_type);
-> +	if (ret)
-> +		return ret;
-> +	v.gic_fd = kvm_create_device(v.vm, gic_dev_type);
-> +
-> +	ret = __kvm_create_device(v.vm, gic_dev_type);
-> +	TEST_ASSERT(ret < 0 && errno == EEXIST, "create GIC device twice");
-> +
-> +	/* try to create the other gic_dev_types */
-> +	other = KVM_DEV_TYPE_ARM_VGIC_V2;
-> +	if (!__kvm_test_create_device(v.vm, other)) {
-> +		ret = __kvm_create_device(v.vm, other);
-> +		TEST_ASSERT(ret < 0 && (errno == EINVAL || errno == EEXIST),
-> +				"create GIC device while other version exists");
-> +	}
-> +
-> +	other = KVM_DEV_TYPE_ARM_VGIC_V3;
-> +	if (!__kvm_test_create_device(v.vm, other)) {
-> +		ret = __kvm_create_device(v.vm, other);
-> +		TEST_ASSERT(ret < 0 && (errno == EINVAL || errno == EEXIST),
-> +				"create GIC device while other version exists");
-> +	}
-> +
-> +	other = KVM_DEV_TYPE_ARM_VGIC_V5;
-> +	if (!__kvm_test_create_device(v.vm, other)) {
-> +		ret = __kvm_create_device(v.vm, other);
-> +		TEST_ASSERT(ret < 0 && (errno == EINVAL || errno == EEXIST),
-> +				"create GIC device while other version exists");
-> +	}
-> +
-> +	vm_gic_destroy(&v);
-> +
-> +	return 0;
-> +}
-
-> +
-> +int main(int ac, char **av)
-> +{
-> +	int ret;
-> +	int pa_bits;
-> +	int cnt_impl = 0;
-> +
-> +	test_disable_default_vgic();
-> +
-> +	pa_bits = vm_guest_mode_params[VM_MODE_DEFAULT].pa_bits;
-> +	max_phys_size = 1ULL << pa_bits;
-> +
-> +	ret = test_kvm_device(KVM_DEV_TYPE_ARM_VGIC_V5);
-> +	if (!ret) {
-> +		pr_info("Running VGIC_V5 tests.\n");
-> +		run_tests(KVM_DEV_TYPE_ARM_VGIC_V5);
-> +		cnt_impl++;
-> +	} else {
-> +		pr_info("No GICv5 support; Not running GIC_v5 tests.\n");
-> +		exit(KSFT_SKIP);
-> +	}
-
-Flip to exit early on no device.
-
-	if (ret) {
-		pr_info("..);
-		exit(KSFT_SKIP);
-	}
-
-	pr_info(...);
-	run_tests(...
-..
-
-	return 0;
-
-> +
-> +	return 0;
-> +}
-> +
-> +
-
-Bonus blank line at end of file. One is fine.
-
-> diff --git a/tools/testing/selftests/kvm/include/arm64/gic_v5.h b/tools/testing/selftests/kvm/include/arm64/gic_v5.h
-> new file mode 100644
-> index 0000000000000..5daaa84318bb1
-> --- /dev/null
-> +++ b/tools/testing/selftests/kvm/include/arm64/gic_v5.h
-> @@ -0,0 +1,148 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +
-> +#ifndef __SELFTESTS_GIC_V5_H
-> +#define __SELFTESTS_GIC_V5_H
-> +
-> +#include <asm/barrier.h>
-> +#include <asm/sysreg.h>
-> +
-> +#include <linux/bitfield.h>
-> +
-> +#include "processor.h"
-
-> +
-> +/* Definitions for GICR CDIA */
-> +#define GICV5_GIC_CDIA_VALID_MASK	BIT_ULL(32)
-> +#define GICV5_GICR_CDIA_VALID(r)	FIELD_GET(GICV5_GIC_CDIA_VALID_MASK, r)
-> +#define GICV5_GIC_CDIA_TYPE_MASK	GENMASK_ULL(31, 29)
-> +#define GICV5_GIC_CDIA_ID_MASK		GENMASK_ULL(23, 0)
-> +#define GICV5_GIC_CDIA_INTID		GENMASK_ULL(31, 0)
-> +
-> +/* Definitions for GICR CDNMIA */
-> +#define GICV5_GIC_CDNMIA_VALID_MASK	BIT_ULL(32)
-> +#define GICV5_GICR_CDNMIA_VALID(r)	FIELD_GET(GICV5_GIC_CDNMIA_VALID_MASK, r)
-> +#define GICV5_GIC_CDNMIA_TYPE_MASK	GENMASK_ULL(31, 29)
-> +#define GICV5_GIC_CDNMIA_ID_MASK	GENMASK_ULL(23, 0)
-
-If we are updating the sysreg.h ones, remember to add R here as well.
-
-
-
+~Bryan
 
