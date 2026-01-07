@@ -4,80 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA15ECFD629
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 13:14:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DEDECFD627
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 13:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z8r3jhEkERM/j9025rqzIp7DIcuzLrYHrvr0V9IN768=; b=ocohpb7uokQR4c1IUit6H07RYF
-	gmMQ63Y95QT6yHBKQECBgLqBMcP1vh4FM+iruFZJlgNT+E+h5SmGIaqsDP5ubkDw1O0uOA/GeazLg
-	aKnwxhgYb1XoAwuV8wEbq+hHPHkVYWP/ONb+kfAxFLd7VHILFktoDGRP5eIe3L/wvtZmgHCHhCiDM
-	vupAlDyYFEOC2nOWNSb9n6HJjLNtXwqbuKGhblLIaI9lJJUHuYnIhlr+YLuMI4zdjqUzlhkyp75TQ
-	SHrPv9aDu/BfTT9VMFF2F2D9iH5GMCboTBkpjq8TJOzavl7PVHiI3LcHYAmCXI71cbBsYlhixxl/2
-	aKLsrTdQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uiuFEMVhLQzsZBUqUxkpOUhBhplelb8rYWj42WEz2LI=; b=ol/yyMPpvYaIoK
+	yGzwVeKliG1YgMqzZeRgQstcEHO9plYvS5GGv2dyDukziKATrEY4mxy4/tGSRfKPDYUXNeMiYutO+
+	deqzQL0JVVwd5U724PgPm3fyE0yuArRQaDin5kOyXOLg5myhewLdrZSRKMPjHSZ8WbjsTtJLb1yWB
+	vsh3PxmiCKrBduwD3hS+TCOKnMHpulKEVozNuHynaDmWhKun8aKDhIPIZqUvNKmmFqvsT4a9+Ne1r
+	S3npwxbRekxdvUaxhb0XSCu61Qm8LH2tby6Z3BjvN8xT2UnGTI4PBZM9yYTMKxfZh1VH+rJgIhILO
+	JCI5wmDysL6LTfIZNLZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdTMn-0000000Eync-0L6C;
-	Wed, 07 Jan 2026 13:14:25 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdTMj-0000000Eyit-2sWf
+	id 1vdTPJ-0000000EzTS-18aO;
+	Wed, 07 Jan 2026 13:17:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdTPG-0000000EzT7-2HXY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 13:14:23 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 11E01C1EC8B;
-	Wed,  7 Jan 2026 13:13:54 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2DFA7606F8;
-	Wed,  7 Jan 2026 13:14:20 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 40055103C821A;
-	Wed,  7 Jan 2026 14:14:14 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767791658; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=z8r3jhEkERM/j9025rqzIp7DIcuzLrYHrvr0V9IN768=;
-	b=VPL/1gShHDsKx9jMEWgIqLrVVM7kCFpCsvxC4qNSIJb3iL6T3s56oIpAjStpykLoAUSHAS
-	d7vvs+y0WliMB/fzjw+qOpFrV+zPFwUHp3YLtBXTfZ9Uts98xj6KWgMb7I8xU9Simjifig
-	OIIx3UrO38SoY3MESGgwWiPhD5K9Ez9db6UGwyiVa80VMW0G4k9zN4SzdeEcZi6OROnUM7
-	434KVNJYaz8Ib/K303k1qdCQlKQ+YpXc54zgN5s2V/jDr1s5rp8tf2sGOWIso0oesLN2qo
-	wb1ZtWfQKj3Iy2amidNZTo2v9ndsRzBt3FV80e+FsBD3rbXJMV7IRHP1E8eadw==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 07 Jan 2026 14:13:03 +0100
-Subject: [PATCH 12/12] drm/bridge: samsung-dsim: samsung_dsim_host_attach:
- convert to of_drm_find_and_get_bridge()
+	Wed, 07 Jan 2026 13:17:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C02F497;
+	Wed,  7 Jan 2026 05:16:50 -0800 (PST)
+Received: from [10.57.48.49] (unknown [10.57.48.49])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A0A33F5A1;
+	Wed,  7 Jan 2026 05:16:54 -0800 (PST)
+Message-ID: <551bb2e3-d7c7-4949-a9bd-ce0cf70e7134@arm.com>
+Date: Wed, 7 Jan 2026 13:16:52 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-12-283d7bba061a@bootlin.com>
-References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-0-283d7bba061a@bootlin.com>
-In-Reply-To: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-0-283d7bba061a@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Philippe Cornu <philippe.cornu@st.com>, benjamin.gaignard@linaro.org, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Adrien Grassein <adrien.grassein@gmail.com>, Liu Ying <victor.liu@nxp.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
- Jagan Teki <jagan@amarulasolutions.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/8] dma-mapping: Support batch mode for
+ dma_direct_sync_sg_for_*
+To: Barry Song <21cnbao@gmail.com>
+References: <20251226225254.46197-1-21cnbao@gmail.com>
+ <20251226225254.46197-6-21cnbao@gmail.com> <20251227200933.GO11869@unreal>
+ <CAGsJ_4yA83-K7PXiEtyidzF_j6qqKkt92z485KBS9+zGe_rjnw@mail.gmail.com>
+ <20251228145041.GS11869@unreal>
+ <CAGsJ_4yex5MKQkGtFr2zUcg4h0PtsFs2QVcE_NSfiyOn4qBzhQ@mail.gmail.com>
+ <de876e61-42c5-414d-b439-2f9196c6c128@arm.com>
+ <CAGsJ_4xYqseJMFXOU39JJW4Lk2ZHXAnRJLhZdVuFLxAi=Dy5sw@mail.gmail.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <CAGsJ_4xYqseJMFXOU39JJW4Lk2ZHXAnRJLhZdVuFLxAi=Dy5sw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_051422_013123_7879E7F7 
-X-CRM114-Status: GOOD (  18.95  )
+X-CRM114-CacheID: sfid-20260107_051658_660465_E0662524 
+X-CRM114-Status: GOOD (  25.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,116 +66,147 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Tangquan Zheng <zhengtangquan@oppo.com>, Ryan Roberts <ryan.roberts@arm.com>, Leon Romanovsky <leon@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>, iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>, xen-devel@lists.xenproject.org, will@kernel.org, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-of_drm_find_bridge() is deprecated. Move to its replacement
-of_drm_find_and_get_bridge() which gets a bridge reference, and ensure it
-is put when done. Also switch to the drm_bridge::next_bridge pointer.
+On 2026-01-06 7:47 pm, Barry Song wrote:
+> On Wed, Jan 7, 2026 at 8:12 AM Robin Murphy <robin.murphy@arm.com> wrote:
+>>
+>> On 2026-01-06 6:41 pm, Barry Song wrote:
+>>> On Mon, Dec 29, 2025 at 3:50 AM Leon Romanovsky <leon@kernel.org> wrote:
+>>>>
+>>>> On Sun, Dec 28, 2025 at 09:52:05AM +1300, Barry Song wrote:
+>>>>> On Sun, Dec 28, 2025 at 9:09 AM Leon Romanovsky <leon@kernel.org> wrote:
+>>>>>>
+>>>>>> On Sat, Dec 27, 2025 at 11:52:45AM +1300, Barry Song wrote:
+>>>>>>> From: Barry Song <baohua@kernel.org>
+>>>>>>>
+>>>>>>> Instead of performing a flush per SG entry, issue all cache
+>>>>>>> operations first and then flush once. This ultimately benefits
+>>>>>>> __dma_sync_sg_for_cpu() and __dma_sync_sg_for_device().
+>>>>>>>
+>>>>>>> Cc: Leon Romanovsky <leon@kernel.org>
+>>>>>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>>>>>>> Cc: Will Deacon <will@kernel.org>
+>>>>>>> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+>>>>>>> Cc: Robin Murphy <robin.murphy@arm.com>
+>>>>>>> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>>>>>> Cc: Ard Biesheuvel <ardb@kernel.org>
+>>>>>>> Cc: Marc Zyngier <maz@kernel.org>
+>>>>>>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+>>>>>>> Cc: Ryan Roberts <ryan.roberts@arm.com>
+>>>>>>> Cc: Suren Baghdasaryan <surenb@google.com>
+>>>>>>> Cc: Tangquan Zheng <zhengtangquan@oppo.com>
+>>>>>>> Signed-off-by: Barry Song <baohua@kernel.org>
+>>>>>>> ---
+>>>>>>>    kernel/dma/direct.c | 14 +++++++-------
+>>>>>>>    1 file changed, 7 insertions(+), 7 deletions(-)
+>>>>>>
+>>>>>> <...>
+>>>>>>
+>>>>>>> -             if (!dev_is_dma_coherent(dev)) {
+>>>>>>> +             if (!dev_is_dma_coherent(dev))
+>>>>>>>                         arch_sync_dma_for_device(paddr, sg->length,
+>>>>>>>                                         dir);
+>>>>>>> -                     arch_sync_dma_flush();
+>>>>>>> -             }
+>>>>>>>         }
+>>>>>>> +     if (!dev_is_dma_coherent(dev))
+>>>>>>> +             arch_sync_dma_flush();
+>>>>>>
+>>>>>> This patch should be squashed into the previous one. You introduced
+>>>>>> arch_sync_dma_flush() there, and now you are placing it elsewhere.
+>>>>>
+>>>>> Hi Leon,
+>>>>>
+>>>>> The previous patch replaces all arch_sync_dma_for_* calls with
+>>>>> arch_sync_dma_for_* plus arch_sync_dma_flush(), without any
+>>>>> functional change. The subsequent patches then implement the
+>>>>> actual batching. I feel this is a better approach for reviewing
+>>>>> each change independently. Otherwise, the previous patch would
+>>>>> be too large.
+>>>>
+>>>> Don't worry about it. Your patches are small enough.
+>>>
+>>> My hardware does not require a bounce buffer, but I am concerned that
+>>> this patch may be incorrect for systems that do require one.
+>>>
+>>> Now it is:
+>>>
+>>> void dma_direct_sync_sg_for_cpu(struct device *dev,
+>>>                   struct scatterlist *sgl, int nents, enum dma_data_direction dir)
+>>> {
+>>>           struct scatterlist *sg;
+>>>           int i;
+>>>
+>>>           for_each_sg(sgl, sg, nents, i) {
+>>>                   phys_addr_t paddr = dma_to_phys(dev, sg_dma_address(sg));
+>>>
+>>>                   if (!dev_is_dma_coherent(dev))
+>>>                           arch_sync_dma_for_cpu(paddr, sg->length, dir);
+>>>
+>>>                   swiotlb_sync_single_for_cpu(dev, paddr, sg->length, dir);
+>>>
+>>>                   if (dir == DMA_FROM_DEVICE)
+>>>                           arch_dma_mark_clean(paddr, sg->length);
+>>>           }
+>>>
+>>>           if (!dev_is_dma_coherent(dev)) {
+>>>                   arch_sync_dma_flush();
+>>>                   arch_sync_dma_for_cpu_all();
+>>>           }
+>>> }
+>>>
+>>> Should we call swiotlb_sync_single_for_cpu() and
+>>> arch_dma_mark_clean() after the flush to ensure the CPU sees the
+>>> latest data and that the memcpy is correct? I mean:
+>>
+>> Yes, this and the equivalents in the later patches are broken for all
+>> the sync_for_cpu and unmap paths which may end up bouncing (beware some
+>> of them get a bit fiddly) - any cache maintenance *must* be completed
+>> before calling SWIOTLB. As for mark_clean, IIRC that was an IA-64 thing,
+>> and appears to be entirely dead now.
+> 
+> Thanks, Robin. Personally, I would prefer an approach like the one below—
+> that is, not optimizing the bounce buffer cases, as they are already slow
+> due to hardware limitations with memcpy, and optimizing them would make
+> the code quite messy.
+> 
+> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+> index 550a1a13148d..a4840f7e8722 100644
+> --- a/kernel/dma/direct.c
+> +++ b/kernel/dma/direct.c
+> @@ -423,8 +423,11 @@ void dma_direct_sync_sg_for_cpu(struct device *dev,
+>          for_each_sg(sgl, sg, nents, i) {
+>                  phys_addr_t paddr = dma_to_phys(dev, sg_dma_address(sg));
+> 
+> -               if (!dev_is_dma_coherent(dev))
+> +               if (!dev_is_dma_coherent(dev)) {
+>                          arch_sync_dma_for_cpu(paddr, sg->length, dir);
+> +                       if (unlikely(dev->dma_io_tlb_mem))
+> +                               arch_sync_dma_flush();
+> +               }
+> 
+>                  swiotlb_sync_single_for_cpu(dev, paddr, sg->length, dir);
+> 
+> I’d like to check with you, Leon, and Marek on your views about this.
 
-This needs to handle both cases: when of_drm_find_panel() succeeds and when
-it fails.
+That doesn't work, since dma_io_tlb_mem is always initialised if a 
+SWIOTLB buffer exists at all. Similarly I think the existing 
+dma_need_sync tracking is also too coarse, as that's also always going 
+to be true for a non-coherent device.
 
-In the 'else' case (i.e. when of_drm_find_panel() fails), just switch to
-of_drm_find_and_get_bridge() to ensure the bridge is not freed while in use
-in the function tail, when it is stored in dsi->bridge.next_bridge.
+Really this flush wants to be after the swiotlb_find_pool() check in the 
+swiotlb_tbl_unmap_single()/__swiotlb_sync_single_for_cpu() paths, as 
+that's the only point we know for sure it's definitely needed for the 
+given address. It would then be rather fiddly to avoid 
+potentially-redundant flushes for the non-sg cases (and the final 
+segment of an sg), but as you already mentioned, if it's limited to 
+cases when we *are* already paying the cost of bouncing anyway, perhaps 
+one extra DSB isn't *too* bad if it means zero impact to the 
+non-bouncing paths.
 
-In the 'then' case (i.e. when of_drm_find_panel() succeeds),
-devm_drm_panel_bridge_add() already increments the refcount using devres
-which ties the bridge allocation lifetime to the device lifetime, so we
-would not need to do anything. However to have the same behaviour in both
-branches take an additional reference here, so that the bridge needs to be
-put whichever branch is taken without more complicated logic. Ensure to
-clear the bridge pointer however, to avoid calling drm_bridge_put() on an
-ERR_PTR.
-
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
----
- drivers/gpu/drm/bridge/samsung-dsim.c | 19 ++++++++++++-------
- include/drm/bridge/samsung-dsim.h     |  1 -
- 2 files changed, 12 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bridge/samsung-dsim.c
-index d6ef64e68623..e10c01672efd 100644
---- a/drivers/gpu/drm/bridge/samsung-dsim.c
-+++ b/drivers/gpu/drm/bridge/samsung-dsim.c
-@@ -1828,7 +1828,7 @@ static int samsung_dsim_attach(struct drm_bridge *bridge,
- {
- 	struct samsung_dsim *dsi = bridge_to_dsi(bridge);
- 
--	return drm_bridge_attach(encoder, dsi->out_bridge, bridge,
-+	return drm_bridge_attach(encoder, dsi->bridge.next_bridge, bridge,
- 				 flags);
- }
- 
-@@ -1886,7 +1886,7 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
- {
- 	struct samsung_dsim *dsi = host_to_dsi(host);
- 	const struct samsung_dsim_plat_data *pdata = dsi->plat_data;
--	struct drm_bridge *next_bridge;
-+	struct drm_bridge *next_bridge __free(drm_bridge_put) = NULL;
- 	struct device *dev = dsi->dev;
- 	struct device_node *np = dev->of_node;
- 	struct device_node *remote;
-@@ -1926,10 +1926,14 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
- 	panel = of_drm_find_panel(remote);
- 	if (!IS_ERR(panel)) {
- 		next_bridge = devm_drm_panel_bridge_add(dev, panel);
--		if (IS_ERR(next_bridge))
-+		if (IS_ERR(next_bridge)) {
- 			ret = PTR_ERR(next_bridge);
-+			next_bridge = NULL; // Inhibit the cleanup action on an ERR_PTR
-+		} else {
-+			drm_bridge_get(next_bridge);
-+		}
- 	} else {
--		next_bridge = of_drm_find_bridge(remote);
-+		next_bridge = of_drm_find_and_get_bridge(remote);
- 		if (!next_bridge)
- 			ret = -EINVAL;
- 	}
-@@ -1969,7 +1973,7 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
- 	dsi->lanes = device->lanes;
- 	dsi->format = device->format;
- 	dsi->mode_flags = device->mode_flags;
--	dsi->out_bridge = next_bridge;
-+	dsi->bridge.next_bridge = drm_bridge_get(next_bridge);
- 
- 	return 0;
- }
-@@ -1988,8 +1992,6 @@ static int samsung_dsim_host_detach(struct mipi_dsi_host *host,
- 	struct samsung_dsim *dsi = host_to_dsi(host);
- 	const struct samsung_dsim_plat_data *pdata = dsi->plat_data;
- 
--	dsi->out_bridge = NULL;
--
- 	if (pdata->host_ops && pdata->host_ops->detach)
- 		pdata->host_ops->detach(dsi, device);
- 
-@@ -1997,6 +1999,9 @@ static int samsung_dsim_host_detach(struct mipi_dsi_host *host,
- 
- 	drm_bridge_remove(&dsi->bridge);
- 
-+	drm_bridge_put(dsi->bridge.next_bridge);
-+	dsi->bridge.next_bridge = NULL;
-+
- 	return 0;
- }
- 
-diff --git a/include/drm/bridge/samsung-dsim.h b/include/drm/bridge/samsung-dsim.h
-index 31d7ed589233..03005e474704 100644
---- a/include/drm/bridge/samsung-dsim.h
-+++ b/include/drm/bridge/samsung-dsim.h
-@@ -100,7 +100,6 @@ struct samsung_dsim_plat_data {
- struct samsung_dsim {
- 	struct mipi_dsi_host dsi_host;
- 	struct drm_bridge bridge;
--	struct drm_bridge *out_bridge;
- 	struct device *dev;
- 	struct drm_display_mode mode;
- 
-
--- 
-2.52.0
-
+Thanks,
+Robin.
 
