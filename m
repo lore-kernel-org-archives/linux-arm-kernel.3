@@ -4,72 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C7A8CFD62A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 13:05:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31010CFD626
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 13:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zbeN6veyBsnJXwhFnHq/E++8EqnB+Vxb96PGx9jh/pQ=; b=ZY+4QD5UCjYW+05Q8EZAwJO7fU
-	0AdP0HphrIv94Y6blYKHzwoBrVJWUMcKq3XU3X3fGdDeFLxlObCRZaNRTzCkJy7FZZj1TNQ5aRuo0
-	QufJOpuYuyipFbup2TJrpXEFLkiJPji9yzUy3B374PcH3HjcMXHdil++wZEvF0isqegOKDHnWLGte
-	gXsSf2kZcgOThVIAhfZCO+KQc8Er5xMyyZTd99cvbow3M4vz/D6X9ytmlX2TlCOopSIh2Zw93CjNy
-	Tfo+YDOX/RMX7IOrWUBu2wepFGSP8bWms8q0rNWmJ++Iw+/3asW41j42GeKBSnpPFx+Nfs/HJr6Ad
-	XyG0oS6g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/6/7zEjl1v9ZVxgb94JYXoUenLxDhgfv7BOcFf4jkQ8=; b=yj+cyQ4B3ETViX
+	uo3w7u+VzLPM81j3160N2pRIZtAp1+eSnPo/FhGCzxwWFyYkFjEyWdj8L7pocgDcJXBv3kJqBWkba
+	mBdtasak8AW1sAOMmIBArMF+aArGLAmgD/wyFWDK3qgf+/Dm61GGDGNvbNddllqj2Gpv4vfSDgb/Y
+	NC3NM5U+KxhB2xUWdA9sNv5Tzdkf6TMl/1wHCv3U4vkdThYISTjC+la+btBVhy7I3F5pbjG3voLnY
+	4qiihJLhmipYpputiWZUIHx20QSUtN2+tbLn4LPWarBfP1CVsXyQWhr9LiuPfylpe82TrSZ4NCbnA
+	e+rmZzOudDkWSYu1cc1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdTEA-0000000Ex6Y-0e5r;
-	Wed, 07 Jan 2026 13:05:30 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vdTLx-0000000EyBJ-1pWh;
+	Wed, 07 Jan 2026 13:13:33 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdTE4-0000000Ex1c-364j;
-	Wed, 07 Jan 2026 13:05:26 +0000
+	id 1vdTLt-0000000EyAu-3uGt
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Jan 2026 13:13:31 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 8126FC1EC92;
-	Wed,  7 Jan 2026 13:04:56 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id B1EE41A26D8;
+	Wed,  7 Jan 2026 13:13:27 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9F772606F8;
-	Wed,  7 Jan 2026 13:05:22 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BA835103C873E;
-	Wed,  7 Jan 2026 14:05:20 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7EAFA606F8;
+	Wed,  7 Jan 2026 13:13:27 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7BE8E103C821A;
+	Wed,  7 Jan 2026 14:13:16 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767791121; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=zbeN6veyBsnJXwhFnHq/E++8EqnB+Vxb96PGx9jh/pQ=;
-	b=lWrkF9GSBlwT5WwjIrJ9TOFk3IsntDlxprTL54vzRz54XOAtyuJZi3klPX5atMpEEmvOyk
-	El0roSJp5z20SqmXU3oyLxnth8Zqe3alS2KduFKQBQjR26nh+brdhA3TpmhJuv68BS3o+a
-	nRCyP8+eVuQqEWrHz4BEV2h/gdtxUIZ4Q0Ro6SAduQSfWSD4Lz2X+NtQTqQDxhCGT53vQ2
-	GAnfoGmhkXOXbQDbwRzXwQSw8voIFDuDEUwEiU1Z/1egq0Wp8AB01D3c+kpcCuwrUgj2dR
-	PLZSDL/p4qF6xbk/N/4cOlhexrRJYw+ovoCEK297up3OMPsb5ZjwyC8tFgoNMA==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-Date: Wed, 07 Jan 2026 14:04:55 +0100
-Subject: [PATCH v3 4/4] mtd: physmap: Add support for RAM reserved memory
- regions
+	t=1767791605; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=/6/7zEjl1v9ZVxgb94JYXoUenLxDhgfv7BOcFf4jkQ8=;
+	b=dYsutHAaJcpAzsYO8Pen87tXlqWFzho5PghJp7MFXwoxlDfSycJAjKWX9cm1BWjSM/2grF
+	ko5DlJF8QTdMecr+4piqX0YiOx/8AMpktt80Xg+BJ4S+eOZ2Otm8GyOh7mU115qeQ589pv
+	xntnqIDYySfiE1Rn4BmBQNUk4QFGseZPYCRJFeMoCTL8I2QxImvo7h3buUcUrpMsTUcGyH
+	pjIyVC40HCn+fFO13cLJUubKwlC/6ds5W7djAAlNILCFJ0y2zOGl5bPQ2Sisaoo2yVOATp
+	ZaZFz3Zt67cJsV5U3NpgjP0BG5TFjBiP2IqEK5sFHfQgK55qSgYRCyY43aDPvA==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: [PATCH 00/12] drm/bridge: convert users of of_drm_find_bridge(),
+ part 2
+Date: Wed, 07 Jan 2026 14:12:51 +0100
+Message-Id: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-0-283d7bba061a@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260107-mtd-memregion-v3-4-f9fc9107b992@bootlin.com>
-References: <20260107-mtd-memregion-v3-0-f9fc9107b992@bootlin.com>
-In-Reply-To: <20260107-mtd-memregion-v3-0-f9fc9107b992@bootlin.com>
-To: Rob Herring <robh@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
- =?utf-8?q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
- =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
- Gregory CLEMENT <gregory.clement@bootlin.com>
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIANNbXmkC/y2NUQrCMBAFr1L224BZMahXEQlNsqkLNambVITSu
+ xu1nzMP3ixQSJgKXLoFhF5cOKcGeteBv/dpIMWhMeAejxrxoII8lBMObenHMXs1UJ3m+vU2Rxs
+ 5BbvtqDR645x35nQ20C4nocjvX+56+7PQc27Vusl1/QCqbC9hkwAAAA==
+X-Change-ID: 20251223-drm-bridge-alloc-getput-drm_of_find_bridge-2-12c6bbcb6896
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Philippe Cornu <philippe.cornu@st.com>, benjamin.gaignard@linaro.org, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Adrien Grassein <adrien.grassein@gmail.com>, Liu Ying <victor.liu@nxp.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
+ Jagan Teki <jagan@amarulasolutions.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, stable@vger.kernel.org
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_050525_067632_2B371A27 
-X-CRM114-Status: GOOD (  22.49  )
+X-CRM114-CacheID: sfid-20260107_051330_128463_BFCC2663 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,159 +93,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MTD fixed-partitions can now be exposed for reserved RAM regions, not
-just ROM reg regions. This is achieved by using the new compatible
-property (mtd-mem or mtd-memro) previously introduced in the reserved
-memory region node.
+This series converts all DRM bridge drivers (*) from the now deprecated
+of_drm_find_bridge() to its replacement of_drm_find_and_get_bridge() which
+allows correct bridge refcounting. It also converts per-driver
+"next_bridge" pointers to the unified drm_bridge::next_bridge which puts
+the reference automatically on bridge deallocation.
 
-Based on the work of Muhammad Musa <muhammad.musa@intel.com>
-Signed-off-by: Gregory CLEMENT <gregory.clement@bootlin.com>
+This is part of the work to support hotplug of DRM bridges. The grand plan
+was discussed in [0].
+
+Here's the work breakdown (➜ marks the current series):
+
+ 1. ➜ add refcounting to DRM bridges struct drm_bridge,
+      based on devm_drm_bridge_alloc()
+    A. ✔ add new alloc API and refcounting (v6.16)
+    B. ✔ convert all bridge drivers to new API (v6.17)
+    C. ✔ kunit tests (v6.17)
+    D. ✔ add get/put to drm_bridge_add/remove() + attach/detach()
+         and warn on old allocation pattern (v6.17)
+    E. ➜ add get/put on drm_bridge accessors
+       1. ✔ drm_bridge_chain_get_first_bridge(), add cleanup action (v6.18)
+       2. ✔ drm_bridge_get_prev_bridge() (v6.18)
+       3. ✔ drm_bridge_get_next_bridge() (v6.19)
+       4. ✔ drm_for_each_bridge_in_chain() (v6.19)
+       5. ✔ drm_bridge_connector_init (v6.19)
+       6. … protect encoder bridge chain with a mutex
+       7. ➜ of_drm_find_bridge
+          a. ✔… add of_drm_get_bridge(), convert basic direct users
+	        (v6.20?, one driver still pending)
+	  b. ➜ convert direct of_drm_get_bridge() users, part 2
+	  c.   convert direct of_drm_get_bridge() users, part 3
+	  d.   convert direct of_drm_get_bridge() users, part 4
+	  e.   convert bridge-only drm_of_find_panel_or_bridge() users
+       8. drm_of_find_panel_or_bridge, *_of_get_bridge
+       9. ✔ enforce drm_bridge_add before drm_bridge_attach (v6.19)
+    F. ✔ debugfs improvements
+       1. ✔ add top-level 'bridges' file (v6.16)
+       2. ✔ show refcount and list lingering bridges (v6.19)
+ 2. … handle gracefully atomic updates during bridge removal
+    A. ✔ Add drm_dev_enter/exit() to protect device resources (v6.20?)
+    B. … protect private_obj removal from list
+ 3. … DSI host-device driver interaction
+ 4. ✔ removing the need for the "always-disconnected" connector
+ 5. finish the hotplug bridge work, moving code to the core and potentially
+    removing the hotplug-bridge itself (this needs to be clarified as
+    points 1-3 are developed)
+
+[0] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com/#t
+
+This work is a continuation of the work to correctly handle bridge
+refcounting for existing of_drm_find_bridge(). The ground work is in:
+
+  - commit 293a8fd7721a ("drm/bridge: add of_drm_find_and_get_bridge()")
+  - commit 9da0e06abda8 ("drm/bridge: deprecate of_drm_find_bridge()")
+  - commit 3fdeae134ba9 ("drm/bridge: add next_bridge pointer to struct drm_bridge")
+
+The whole conversion is split in multiple series to make the review process
+a bit smoother. Parts 3 and 4 are converting non-bridge drivers (mostly
+encoders).
+
+(*) One bridge driver (synopsys/dw-hdmi) is converted in another series,
+    together with its (non-bridge) users. Additionally this series converts
+    drm_of_panel_bridge_remove() which is a special case, and has a bugfix
+    for it too.
+
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/mtd/maps/physmap-core.c | 73 +++++++++++++++++++++++++++++++++--------
- drivers/of/platform.c           |  2 ++
- 2 files changed, 62 insertions(+), 13 deletions(-)
+Luca Ceresoli (12):
+      drm: of: drm_of_panel_bridge_remove(): fix device_node leak
+      drm: of: drm_of_panel_bridge_remove(): convert to of_drm_find_and_get_bridge()
+      drm/bridge: sii902x: convert to of_drm_find_and_get_bridge()
+      drm/bridge: thc63lvd1024: convert to of_drm_find_and_get_bridge()
+      drm/bridge: tfp410: convert to of_drm_find_and_get_bridge()
+      drm/bridge: tpd12s015: convert to of_drm_find_and_get_bridge()
+      drm/bridge: lt8912b: convert to of_drm_find_and_get_bridge()
+      drm/bridge: imx8mp-hdmi-pvi: convert to of_drm_find_and_get_bridge()
+      drm/bridge: imx8qxp-ldb: convert to of_drm_find_and_get_bridge()
+      drm/bridge: samsung-dsim: samsung_dsim_host_attach: use a temporary variable for the next bridge
+      drm/bridge: samsung-dsim: samsung_dsim_host_attach: don't use the bridge pointer as an error indicator
+      drm/bridge: samsung-dsim: samsung_dsim_host_attach: convert to of_drm_find_and_get_bridge()
 
-diff --git a/drivers/mtd/maps/physmap-core.c b/drivers/mtd/maps/physmap-core.c
-index 2bd7a1af898c9..cc7d08a413c78 100644
---- a/drivers/mtd/maps/physmap-core.c
-+++ b/drivers/mtd/maps/physmap-core.c
-@@ -39,6 +39,7 @@
- #include <linux/mtd/cfi_endian.h>
- #include <linux/io.h>
- #include <linux/of.h>
-+#include <linux/of_reserved_mem.h>
- #include <linux/pm_runtime.h>
- #include <linux/gpio/consumer.h>
- 
-@@ -263,6 +264,14 @@ static const struct of_device_id of_flash_match[] = {
- 		.type = "rom",
- 		.compatible = "direct-mapped"
- 	},
-+	{
-+		.compatible = "mtd-mem",
-+		.data = "map_ram",
-+	},
-+	{
-+		.compatible = "mtd-memro",
-+		.data = "map_rom",
-+	},
- 	{ /* sentinel */ },
- };
- MODULE_DEVICE_TABLE(of, of_flash_match);
-@@ -348,10 +357,19 @@ static int physmap_flash_of_init(struct platform_device *dev)
- 
- 	map_indirect = of_property_read_bool(dp, "no-unaligned-direct-access");
- 
--	err = of_property_read_u32(dp, "bank-width", &bankwidth);
--	if (err) {
--		dev_err(&dev->dev, "Can't get bank width from device tree\n");
--		return err;
-+	if ((of_device_is_compatible(dp, "mtd-mem")) ||
-+	    (of_device_is_compatible(dp, "mtd-memro"))) {
-+		/*
-+		 * When using reserved memory region from DRAM we use
-+		 * the defaullt 32 bits acces
-+		 */
-+		bankwidth = 4;
-+	} else {
-+		err = of_property_read_u32(dp, "bank-width", &bankwidth);
-+		if (err) {
-+			dev_err(&dev->dev, "Can't get bank width from device tree\n");
-+			return err;
-+		}
- 	}
- 
- 	if (of_property_read_bool(dp, "big-endian"))
-@@ -446,8 +464,9 @@ static int physmap_flash_pdata_init(struct platform_device *dev)
- static int physmap_flash_probe(struct platform_device *dev)
- {
- 	struct physmap_flash_info *info;
--	int err = 0;
--	int i;
-+	struct resource *res_array;
-+	int err = 0, is_rsvd_mem = 0, nreg = 0;
-+	int i, curr_reg;
- 
- 	if (!dev->dev.of_node && !dev_get_platdata(&dev->dev))
- 		return -EINVAL;
-@@ -459,9 +478,13 @@ static int physmap_flash_probe(struct platform_device *dev)
- 	while (platform_get_resource(dev, IORESOURCE_MEM, info->nmaps))
- 		info->nmaps++;
- 
--	if (!info->nmaps)
--		return -ENODEV;
--
-+	if (!info->nmaps) {
-+		info->nmaps = of_reserved_mem_region_total_count(dev->dev.of_node);
-+		if (info->nmaps > 0)
-+			is_rsvd_mem = 1;
-+		else
-+			return -ENODEV;
-+	}
- 	info->maps = devm_kzalloc(&dev->dev,
- 				  sizeof(*info->maps) * info->nmaps,
- 				  GFP_KERNEL);
-@@ -503,7 +526,23 @@ static int physmap_flash_probe(struct platform_device *dev)
- 	for (i = 0; i < info->nmaps; i++) {
- 		struct resource *res;
- 
--		info->maps[i].virt = devm_platform_get_and_ioremap_resource(dev, i, &res);
-+		if (is_rsvd_mem) {
-+			if (nreg <= i) {
-+				int cnt = of_reserved_mem_region_to_resource_array(&dev->dev,
-+							   dev->dev.of_node, i, &res_array);
-+				if (cnt < 0) {
-+					err = cnt;
-+					goto err_out;
-+				}
-+				nreg += cnt;
-+				curr_reg = 0;
-+			}
-+			res = &res_array[curr_reg++];
-+			info->maps[i].virt = devm_ioremap_resource(&dev->dev, res);
-+		} else {
-+			info->maps[i].virt = devm_platform_get_and_ioremap_resource(dev, i, &res);
-+		}
-+
- 		if (IS_ERR(info->maps[i].virt)) {
- 			err = PTR_ERR(info->maps[i].virt);
- 			goto err_out;
-@@ -519,9 +558,17 @@ static int physmap_flash_probe(struct platform_device *dev)
- 			info->maps[i].phys = res->start;
- 
- 		info->win_order = fls64(resource_size(res)) - 1;
--		info->maps[i].size = BIT(info->win_order +
--					 (info->gpios ?
--					  info->gpios->ndescs : 0));
-+		/* When using a memory region, the size is not necessarily a
-+		 * power of 2, so win_order is not applicable. Since GPIOs are
-+		 * unavailable in this context, directly using the region's size
-+		 * is safe.
-+		 */
-+		if (is_rsvd_mem)
-+			info->maps[i].size = resource_size(res);
-+		else
-+			info->maps[i].size = BIT(info->win_order +
-+						 (info->gpios ?
-+						  info->gpios->ndescs : 0));
- 
- 		info->maps[i].map_priv_1 = (unsigned long)dev;
- 
-diff --git a/drivers/of/platform.c b/drivers/of/platform.c
-index f77cb19973a5d..23ea5a723aa7f 100644
---- a/drivers/of/platform.c
-+++ b/drivers/of/platform.c
-@@ -496,6 +496,8 @@ static const struct of_device_id reserved_mem_matches[] = {
- 	{ .compatible = "ramoops" },
- 	{ .compatible = "nvmem-rmem" },
- 	{ .compatible = "google,open-dice" },
-+	{ .compatible = "mtd-memro" },
-+	{ .compatible = "mtd-mem" },
- 	{}
- };
- 
+ drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pvi.c | 15 +++++++-------
+ drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c     |  3 ++-
+ drivers/gpu/drm/bridge/lontium-lt8912b.c     | 31 ++++++++++++++--------------
+ drivers/gpu/drm/bridge/samsung-dsim.c        | 28 ++++++++++++++++---------
+ drivers/gpu/drm/bridge/sii902x.c             |  7 +++----
+ drivers/gpu/drm/bridge/thc63lvd1024.c        |  7 +++----
+ drivers/gpu/drm/bridge/ti-tfp410.c           | 27 ++++++++++++------------
+ drivers/gpu/drm/bridge/ti-tpd12s015.c        |  8 +++----
+ include/drm/bridge/samsung-dsim.h            |  1 -
+ include/drm/drm_of.h                         |  6 +++++-
+ 10 files changed, 69 insertions(+), 64 deletions(-)
+---
+base-commit: 2bcba510a612cea32b8a536eedeabd7fcb413cd0
+change-id: 20251223-drm-bridge-alloc-getput-drm_of_find_bridge-2-12c6bbcb6896
 
+Best regards,
 -- 
-2.51.0
+Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 
