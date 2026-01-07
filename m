@@ -4,88 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B87A4D0D141
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 17:03:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B97D0D141
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 17:14:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vT259SsZbBCgS5jej5uTjBYNLE5xMiwzYalV9DvjFlw=; b=TvcvVPFjbOA3Mi6ebMqaqh4TPc
-	kxkvn1hZPRCtZ6PRcTW2L822FobetXNqQk2pQHui6EWXvtGt20pYsaRD7G8I206J4hRodK3D+JPpp
-	zR1NPDNXB6GWhNJcS7p2/yD2hB19DME18qlB92+5bcZn5Bhfw3qiB4dlajQGAB+mG+H8Z7JpAhsEj
-	aUZWhfbdr6LuBF66Z9dyKEd1CuWf26TMTgufUB90Hye+idsFEqlsO5P4gueHsiKAh2XMw+j6gvVQH
-	ZZU0XAnIge2TN5PHq8GwBrGyF4wIGI7YcGSA1O4PO1ESyJ7Qv2NheY3v47t48Zd7Lg1YaaX6QNgFS
-	WBCq1i/Q==;
+	bh=3hbwAqQmwcKkcTQlzwNL4cPS7/2BgqWyWqgU0a+KMdc=; b=nEMgQiOR/qfmYdsSR4gi/R4a0g
+	KLWztRwt+qzKBL0BwqAO27ycHzbGOAUATW1g91H7TpLNcWt95cocLXTC9FX1Oj19Qx1FWypDOjhxF
+	8dIvCtqY8mlz9M0t5uwluUrt34KK/4vYuVUvsq5i0mqMVMfUiVsNSUwffDLCojWZOmLrQfeqFRH2q
+	a2Z7sFUEdFn/nhiSgoItEXMNjEeSNOwja2Z2QtS+eghGchiIQ9WxgHP4N+XUKBOy8vKbxlanYU8f7
+	8cNm40JNnrxxQgXOPLb3wErsNtZSl1bqCtN3oiNah7ss9iCjARwQvYL36mpmd67aa/uXlEc/phAf+
+	xyOIwk+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWwZ-0000000FLr9-0rGc;
-	Wed, 07 Jan 2026 17:03:35 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vdX6t-0000000FMJ7-1IR9;
+	Wed, 07 Jan 2026 17:14:15 +0000
+Received: from smtprelay0010.hostedemail.com ([216.40.44.10] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWwV-0000000FLqN-1txw;
-	Wed, 07 Jan 2026 17:03:32 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id BC30FC1EC96;
-	Wed,  7 Jan 2026 17:02:52 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A6BA7606F8;
-	Wed,  7 Jan 2026 17:03:18 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E9A49103C821A;
-	Wed,  7 Jan 2026 18:03:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767805397; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=vT259SsZbBCgS5jej5uTjBYNLE5xMiwzYalV9DvjFlw=;
-	b=qjl+IH9e6WT/WJbluQMom7WhOSZz91qsguJk+YcCF1ezNfyjR88kSE3TKuk68Dg37xmHw6
-	XCEK9Mppq0OQq3vc09h0WDsUQxgQoZKm+M/+U+3MgdY0Eb/MK9G6UG+ZlB8NXiAEBbZ6Pi
-	xP9Oxci+bX3nmJSR9oU2MukZpebnHYoGLphjaIxE7AW3mpS/83hzxfcjIax6cip9cRD7lZ
-	Uex/OGHArOy4i/tiS6i8OdbUklSoD4vZR2GIC0hRgcGA3SbizduiTm0dV2HMFCrUGQiGZt
-	cUleZVAvrJ72aqzu/SfKPKbcZV9e9srbSuH73i8GFot6Kr2H131NFf/nJYQ26g==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 07 Jan 2026 18:03:05 +0100
-Message-Id: <DFIIPIQDRAXW.3FOJY73IY5UZ9@bootlin.com>
-Subject: Re: [PATCH 3/6] drm/imx/dw-hdmi: convert to
- of_drm_find_and_get_bridge()
-Cc: "Hui Pu" <Hui.Pu@gehealthcare.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
- <linux-kernel@vger.kernel.org>, <linux-amlogic@lists.infradead.org>,
- <linux-arm-kernel@lists.infradead.org>, <imx@lists.linux.dev>,
- <linux-mediatek@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
- <linux-renesas-soc@vger.kernel.org>
-To: "Philipp Zabel" <p.zabel@pengutronix.de>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Kevin Hilman"
- <khilman@baylibre.com>, "Jerome Brunet" <jbrunet@baylibre.com>, "Martin
- Blumenstingl" <martin.blumenstingl@googlemail.com>, "Shawn Guo"
- <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
- <festevam@gmail.com>, "Chun-Kuang Hu" <chunkuang.hu@kernel.org>, "Matthias
- Brugger" <matthias.bgg@gmail.com>, "AngeloGioacchino Del Regno"
- <angelogioacchino.delregno@collabora.com>, "Inki Dae"
- <inki.dae@samsung.com>, "Seung-Woo Kim" <sw0312.kim@samsung.com>, "Kyungmin
- Park" <kyungmin.park@samsung.com>, "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Alim Akhtar" <alim.akhtar@samsung.com>, "Laurent Pinchart"
- <laurent.pinchart+renesas@ideasonboard.com>, "Tomi Valkeinen"
- <tomi.valkeinen+renesas@ideasonboard.com>, "Kieran Bingham"
- <kieran.bingham+renesas@ideasonboard.com>, "Geert Uytterhoeven"
- <geert+renesas@glider.be>, "Magnus Damm" <magnus.damm@gmail.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.20.1
-References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-0-ef48a517828e@bootlin.com> <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-3-ef48a517828e@bootlin.com> <3e87a26d067de694273daaf011a50f1a2e7718f1.camel@pengutronix.de>
-In-Reply-To: <3e87a26d067de694273daaf011a50f1a2e7718f1.camel@pengutronix.de>
-X-Last-TLS-Session-Version: TLSv1.3
+	id 1vdX6q-0000000FMIl-2bhT
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Jan 2026 17:14:13 +0000
+Received: from omf10.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay02.hostedemail.com (Postfix) with ESMTP id 0F98113AE00;
+	Wed,  7 Jan 2026 17:14:08 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf10.hostedemail.com (Postfix) with ESMTPA id 6B0F92F;
+	Wed,  7 Jan 2026 17:14:05 +0000 (UTC)
+Date: Wed, 7 Jan 2026 12:14:32 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Will Deacon <will@kernel.org>
+Cc: Jiri Olsa <jolsa@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+ Mahe Tardy <mahe.tardy@gmail.com>, Peter Zijlstra <peterz@infradead.org>,
+ bpf@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, x86@kernel.org, Yonghong Song
+ <yhs@fb.com>, Song Liu <songliubraving@fb.com>, Andrii Nakryiko
+ <andrii@kernel.org>, Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH bpf-next 1/2] arm64/ftrace,bpf: Fix partial regs after
+ bpf_prog_run
+Message-ID: <20260107121432.73fccf84@gandalf.local.home>
+In-Reply-To: <aV6PZKx9g_hCz4ZW@willie-the-truck>
+References: <20260107093256.54616-1-jolsa@kernel.org>
+	<aV5qpZwxgVRu2Q8w@willie-the-truck>
+	<20260107110814.1dfc9ec0@gandalf.local.home>
+	<aV6PZKx9g_hCz4ZW@willie-the-truck>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: 6B0F92F
+X-Stat-Signature: x699t8kczy5smeco8119n45nwyhjh7kg
+X-Rspamd-Server: rspamout08
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1/eu39LNRtM+1f1vTfX4QNOH6R7Y6POl28=
+X-HE-Tag: 1767806045-271552
+X-HE-Meta: U2FsdGVkX18bqAQ0pJDQFkJKpjD++ZFbUeHomqsNgRoCLor9V56o+Khto2aWB3wznp+gQ2/oE2h1SOvfL+LLrlkN8aerHgOvhp5QuGzQDrvm8wjk50Vo4f6vq+oc6JWvx2wiBBzZ2hZX5Vemc4FHjU/IDUy/Tv1J3di6HgNaVO+5rGvw/ktLj+UOI0+sMf/7CG5uwpl58yJgEdq7b+/+n+w28TiwBvwDT6ffskoAc39+I3kyasYoO2BbRAlNIeUQLEo/HDQr/sh/1PtHym0b+3rwzF5Hx7Cmjngd+TGtg5So6tMt07t6JeHSCHNk9YNPXZgETTRo6t3rcmtjaBukt9lCCBuUE+hd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_090331_629526_F3AA10BD 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20260107_091412_724834_F16473AF 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,45 +77,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Philipp,
+On Wed, 7 Jan 2026 16:52:52 +0000
+Will Deacon <will@kernel.org> wrote:
 
-On Wed Jan 7, 2026 at 5:34 PM CET, Philipp Zabel wrote:
-> On Mi, 2026-01-07 at 17:22 +0100, Luca Ceresoli wrote:
->> of_drm_find_bridge() is deprecated. Move to its replacement
->> of_drm_find_and_get_bridge() which gets a bridge reference, and ensure i=
-t
->> is put when done.
->>
->> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
->> ---
->>  drivers/gpu/drm/imx/ipuv3/dw_hdmi-imx.c | 3 ++-
->>  1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/gpu/drm/imx/ipuv3/dw_hdmi-imx.c b/drivers/gpu/drm/i=
-mx/ipuv3/dw_hdmi-imx.c
->> index 07e5f96202d4..95f629d97bce 100644
->> --- a/drivers/gpu/drm/imx/ipuv3/dw_hdmi-imx.c
->> +++ b/drivers/gpu/drm/imx/ipuv3/dw_hdmi-imx.c
->> @@ -241,7 +241,7 @@ static int dw_hdmi_imx_probe(struct platform_device =
-*pdev)
->>  	if (IS_ERR(hdmi->hdmi))
->>  		return PTR_ERR(hdmi->hdmi);
->>
->> -	hdmi->bridge =3D of_drm_find_bridge(np);
->> +	hdmi->bridge =3D of_drm_find_and_get_bridge(np);
->>  	if (!hdmi->bridge) {
->>  		dev_err(hdmi->dev, "Unable to find bridge\n");
->>  		dw_hdmi_remove(hdmi->hdmi);
->
-> The component_add() error path below this is missing a
-> drm_bridge_put().
+> diff --git a/include/linux/ftrace_regs.h b/include/linux/ftrace_regs.h
+> index 15627ceea9bc..3ebd8cdac7c6 100644
+> --- a/include/linux/ftrace_regs.h
+> +++ b/include/linux/ftrace_regs.h
+> @@ -33,6 +33,15 @@ struct ftrace_regs;
+>  #define ftrace_regs_get_frame_pointer(fregs) \
+>         frame_pointer(&arch_ftrace_regs(fregs)->regs)
+>  
+> +#else
+> +
+> +static __always_inline void
+> +ftrace_partial_regs_update(const struct ftrace_regs *fregs, struct pt_regs *regs)
+> +{
+> +       ftrace_regs_set_instruction_pointer(fregs, instruction_pointer(regs));
+> +       ftrace_regs_set_return_value(fregs, regs_return_value(regs));
+> +}
+> +
+>  #endif /* HAVE_ARCH_FTRACE_REGS */
+>  
+>  /* This can be overridden by the architectures */
 
-Right! Thanks for reviewing, fix queued for v2.
+Hmm, maybe that would work. Of course you forgot to add the helper for the
+!HAVE_ARCH_FTRACE_REGS case ;-)
 
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- Steve
 
