@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40DCCCF6BE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 02:10:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7142CF6BE3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 02:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OCoNnL0pkWlIUOJf8axnqI/f/TrbWMLSBPFzbA+Aqnk=; b=Vz2y0yApm9wWQ+Tt2HDXO03R7Q
-	TgkhFM22mTTXUV6GE5w913Hvw2KFywSh3yPzq9mZn/0xdX99nzQzwX4v/rs1DX0Knt6yNQN/UVGKm
-	R9qwNHzs6HCHJlVSnAVoT68cjpy78k24zrda2dd6mi13BIlbDfOrsSQ3nEgbqhUSSKJu9dK6p5mDB
-	uDNKxAWBUjIftH8o2BRu0pf8BolGcTYcnNWK65PvZS0lHnTL/fTUGfLKDiHxDtLYXQk5m4z+IorzV
-	GhRDC8I2eVPEX02Bwp75r4syMF1Nf5GHTnLFB+NZP8pk4cNlUL7V9MrQyKP6qWAQswnGCoOg2E+WL
-	1EWrD+jw==;
+	bh=GODWTnll3gv54pyxhg5fcxPf5nv/jUJE+yJJ3lkoc/U=; b=LfmBPAEOCXRTdUrUYqjpJd1bYc
+	s5uaeVRzMZlOYfrTu7puKdUdMB9VlH+/ABy9nQeZh6afwO0enTe46PQXcrnJuD61DGd226CTPWeKI
+	j93soEGsxLKKRpzj+zGOP/jJF24rsyx7v3ac2UBKpiDKusOAZ3oC2mvj5TLxD5qsMVVQXEg3f0gTQ
+	d06SMl/mrkzcA6fqFxMWDUXfDtU9ubNpEtzWrEH/mH4s3uCIkxLKwXIaDqDvu4G9PYbnBCveyVtXw
+	XBYxd9H+xvO8SWZbE6HeW72BV6iQEO6+t4W5Up7mQebsX/K8ez6s+Y2ejbTqqNgolihudERJp6TEJ
+	T6LxOq8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdJ01-0000000E2CY-071c;
+	id 1vdJ01-0000000E2Dg-2lQ6;
 	Wed, 07 Jan 2026 02:10:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdIzx-0000000E28u-0phW;
-	Wed, 07 Jan 2026 02:10:10 +0000
+	id 1vdIzy-0000000E29b-0tHS;
+	Wed, 07 Jan 2026 02:10:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DA216443E3;
-	Wed,  7 Jan 2026 02:10:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2AB1C19423;
-	Wed,  7 Jan 2026 02:10:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E052C443E8;
+	Wed,  7 Jan 2026 02:10:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A372CC116C6;
+	Wed,  7 Jan 2026 02:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767751808;
-	bh=bEeV9AIXgJUOiv5AAurKGQy27HtWNurlRvp9L2dNDu4=;
+	s=k20201202; t=1767751809;
+	bh=P1nkQlwmHCB4ptKpTcMysgD54OQnmfZucCNh/Rw44NM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=W+ZaIDIWVB7W1ksneiAra3uH9lBBnY5kdOY8CLWWRPa+3zEtRyhdRNpsmHHwnAOx/
-	 Eut9VJX+3RZnK7J6UMsNLlLUomPlnJVSg7c1i4NrgYJRv9auRibQ6H5a9lUvz0LPlw
-	 +cCLzlofTVDNtEJRRYIRymPn4eXUCgo94Hh0o8s9x78O4O10XAjcWobDVxzaHcI7Td
-	 Qqup66vbMj4s7IcwQpsXwGwUJ8pGMDN32QKkLvfzrlrovhBEy5I3OFWDYum7acsGaZ
-	 P7La+QY3HhtWMmk7vb+B9TL8lTJgXG8DKbSQmL0fKieIHp9wYStOLbfmS/KJQXXxMD
-	 vSas1R/oYVisQ==
+	b=Nt7J2x57XD42gESqOOQZA3WLIBVGvcDmyrHPNjEav6/k5cST1RrjBrzzpItd3tWbo
+	 /dvvf5v5l6kcr4plhg3rcfFneCUeGZknqL2eYCbN8CRKXv7tPczu1sZxrUqaveg5lF
+	 wVhZn2Y4QJ7Pp2Y5c9WT3ZB2GPhLhS6zz+d6nBBsrsqp9eI3fkfegTHZp61SBZhQ2h
+	 YUXEShQ/DmRvTVXzJgmP0tco1+Rmt38hE9qjTUTHL+d0pf/atYrssPBwdR1WW/JrNu
+	 rWWwcFO/l+xkwzBpM5ji7egDJ9FVcU7X9shFDAAo7e0cx5QvlT3Lzl4kvwhkrsJ/Tx
+	 n6x64WXSthdvg==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Tue, 06 Jan 2026 20:09:41 -0600
-Subject: [PATCH 02/13] ARM: dts: broadcom: bcm2835-rpi: Move non simple-bus
+Date: Tue, 06 Jan 2026 20:09:42 -0600
+Subject: [PATCH 03/13] arm64: dts: broadcom: bcm2712: Move non simple-bus
  nodes to root level
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260106-dt-dtbs-broadcom-fixes-v1-2-ba45874e4553@kernel.org>
+Message-Id: <20260106-dt-dtbs-broadcom-fixes-v1-3-ba45874e4553@kernel.org>
 References: <20260106-dt-dtbs-broadcom-fixes-v1-0-ba45874e4553@kernel.org>
 In-Reply-To: <20260106-dt-dtbs-broadcom-fixes-v1-0-ba45874e4553@kernel.org>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -60,8 +60,8 @@ Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_181009_281608_0F473182 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20260106_181010_334556_57B4F241 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,69 +77,107 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 The 'gpu' and 'firmware' nodes are not MMIO devices, so they should not be
-under a 'simple-bus'. Additionally, the "raspberrypi,bcm2835-power" node
-is part of the firmware, so move it under the /firmware node.
+under a 'simple-bus'.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- arch/arm/boot/dts/broadcom/bcm2835-common.dtsi |  7 ++++---
- arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi    | 16 ++++++++--------
- 2 files changed, 12 insertions(+), 11 deletions(-)
+ .../boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts  | 49 ++++++++++------------
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi          |  8 ++--
+ 2 files changed, 26 insertions(+), 31 deletions(-)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi b/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
-index 9261b67dbee1..1e76b290510d 100644
---- a/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
-@@ -141,9 +141,10 @@ v3d: v3d@7ec00000 {
- 			interrupts = <1 10>;
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts
+index 04738bf281eb..7d4742ebe247 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts
++++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts
+@@ -44,6 +44,28 @@ power_button: power-button {
  		};
- 
--		vc4: gpu {
--			compatible = "brcm,bcm2835-vc4";
--		};
-+	};
-+
-+	vc4: gpu {
-+		compatible = "brcm,bcm2835-vc4";
  	};
- };
  
-diff --git a/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi b/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
-index e9bf41b9f5c1..9ab70b519a63 100644
---- a/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
-@@ -1,15 +1,13 @@
- #include <dt-bindings/power/raspberrypi-power.h>
- 
- / {
--	soc {
--		firmware: firmware {
--			compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
--			mboxes = <&mailbox>;
 +	firmware: firmware {
 +		compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
++
 +		mboxes = <&mailbox>;
- 
--			firmware_clocks: clocks {
--				compatible = "raspberrypi,firmware-clocks";
--				#clock-cells = <1>;
--			};
++
 +		firmware_clocks: clocks {
 +			compatible = "raspberrypi,firmware-clocks";
 +			#clock-cells = <1>;
- 		};
- 
- 		power: power {
-@@ -17,7 +15,9 @@ power: power {
- 			firmware = <&firmware>;
- 			#power-domain-cells = <1>;
- 		};
++		};
++
++		reset: reset {
++			compatible = "raspberrypi,firmware-reset";
++			#reset-cells = <1>;
++		};
++
++		power: power {
++			compatible = "raspberrypi,bcm2835-power";
++			firmware = <&firmware>;
++			#power-domain-cells = <1>;
++		};
 +	};
++
+ 	sd_io_1v8_reg: sd-io-1v8-reg {
+ 		compatible = "regulator-gpio";
+ 		regulator-name = "vdd-sd-io";
+@@ -189,33 +211,6 @@ wifi: wifi@1 {
+ 	};
+ };
  
-+	soc {
- 		vchiq: mailbox@7e00b840 {
- 			compatible = "brcm,bcm2835-vchiq";
- 			reg = <0x7e00b840 0x3c>;
+-&soc {
+-	firmware: firmware {
+-		compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
+-		#address-cells = <1>;
+-		#size-cells = <1>;
+-
+-		mboxes = <&mailbox>;
+-		dma-ranges;
+-
+-		firmware_clocks: clocks {
+-			compatible = "raspberrypi,firmware-clocks";
+-			#clock-cells = <1>;
+-		};
+-
+-		reset: reset {
+-			compatible = "raspberrypi,firmware-reset";
+-			#reset-cells = <1>;
+-		};
+-	};
+-
+-	power: power {
+-		compatible = "raspberrypi,bcm2835-power";
+-		firmware = <&firmware>;
+-		#power-domain-cells = <1>;
+-	};
+-};
+-
+ /* uarta communicates with the BT module */
+ &uarta {
+ 	uart-has-rtscts;
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+index d57a9b1bff70..330a121ebfcb 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
++++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+@@ -508,10 +508,6 @@ axi: axi {
+ 			     <0x18 0x00000000  0x18 0x00000000  0x04 0x00000000>,
+ 			     <0x1c 0x00000000  0x1c 0x00000000  0x04 0x00000000>;
+ 
+-		vc4: gpu {
+-			compatible = "brcm,bcm2712-vc6";
+-		};
+-
+ 		pcie0: pcie@1000100000 {
+ 			compatible = "brcm,bcm2712-pcie";
+ 			reg = <0x10 0x00100000 0x00 0x9310>;
+@@ -648,6 +644,10 @@ mip1: msi-controller@1000131000 {
+ 		};
+ 	};
+ 
++	vc4: gpu {
++		compatible = "brcm,bcm2712-vc6";
++	};
++
+ 	timer {
+ 		compatible = "arm,armv8-timer";
+ 		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) |
 
 -- 
 2.51.0
