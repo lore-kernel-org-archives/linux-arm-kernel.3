@@ -4,76 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA96ECD583B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 11:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20520CD583B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 11:21:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R2ekXdwkRaQOz3Sz8euHH7R8sRGKGoQ61Xj6VYJaUFo=; b=wlxNKu9pKAgSJbPtm+xAru+3Z9
-	oKvX0WLGVb/7xV82ijjm7n46lYO4NfjX/Du2B1yIVFIlnpRnzAeG7kyBfcX7Mb3gp8JjOVxwPiu4M
-	rMh9ONcDfI4xVa5nTdw2ZCbdgp000vjazB4CWnm9FYpwZbvyd7z/DZip2N/KFuBqFRJ0j9hvTBcp4
-	ThaE3f4DDObGi1/fWDlWqz4GJ1jP7gZn908OLRkypnOLaPiJXi7udOPVKnR9EhzNCoNlXeJsjHSB3
-	NCNjb0tISTUG+xHBJ5J6UUxfHu521FZZ9lt4noAe5FYjacb+w9mhKDbINRvXTT5YpHRLLNn0U/DiP
-	bRiA3b0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FJ5/twNgy2ZWEt+iRSu8Mm9csHD3onk56fEFg77xoOQ=; b=2XoFT0xCSO97dE0oinVFhy4/0y
+	mT/hWf/3X2QeuiApYIyIS8XhqPC5NRjO8s/CPXKy4qOYvh7dPtDYva5EX718Rz1fDNO33yvhAJg8R
+	h4Ulq56G8rypc6oJEl/mw0Z+RzTcAt8m/4883XFbbii3zYqZtnvEbZfWHUYVoJf4E5MLqZgnJVVhP
+	Yfd68Veyn4ViMXrgq6HfEt93/yI6ZMDWX84yX7psYPgu50fzacYI7CTbxTfONmPc0rn7HJJTQpWUi
+	XMtfWIFjAXN/9bcNqMbajAthhVvjDVZ71T7P7B0meSTlkJOFybVjLbJKO31ofJaMQdChdfjcNjWuV
+	4mAIieHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdRZd-0000000EomQ-0Q3Y;
-	Wed, 07 Jan 2026 11:19:33 +0000
-Received: from sinmsgout02.his.huawei.com ([119.8.177.37])
+	id 1vdRbB-0000000Ep2q-0vAR;
+	Wed, 07 Jan 2026 11:21:09 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdRZZ-0000000Eolh-46tq
+	id 1vdRb8-0000000Ep1X-24sQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 11:19:31 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=R2ekXdwkRaQOz3Sz8euHH7R8sRGKGoQ61Xj6VYJaUFo=;
-	b=RR2OQnXMbTS/HVamxAIuS9XrpdZf8asUYRx9ouGYFlJ0jf+C0JB+qXwNh1m29HysXLAYNkZ9P
-	y17RdxnYQm7UenfQxVnyMb+hjXIxUjgd7O2+NnJXTzW6fKu8Yufm7egOx8nfNLGw6Uxvot8WNBa
-	flu/arIx3XDvKl0Z5dLw2SY=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.33])
-	by sinmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dmQVL1HMVz1vp2G;
-	Wed,  7 Jan 2026 19:17:14 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.107])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dmQXk0SNczJ46mZ;
-	Wed,  7 Jan 2026 19:19:18 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2D57A40570;
-	Wed,  7 Jan 2026 19:19:21 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 7 Jan
- 2026 11:19:20 +0000
-Date: Wed, 7 Jan 2026 11:19:18 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd
-	<nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
-	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Timothy Hayes
-	<Timothy.Hayes@arm.com>
-Subject: Re: [PATCH v2 11/36] KVM: arm64: gic-v5: Support GICv5 FGTs & FGUs
-Message-ID: <20260107111918.000037f7@huawei.com>
-In-Reply-To: <20251219155222.1383109-12-sascha.bischoff@arm.com>
-References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
-	<20251219155222.1383109-12-sascha.bischoff@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Wed, 07 Jan 2026 11:21:08 +0000
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id A455414000B1;
+	Wed,  7 Jan 2026 06:21:01 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-03.internal (MEProxy); Wed, 07 Jan 2026 06:21:01 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1767784861;
+	 x=1767871261; bh=FJ5/twNgy2ZWEt+iRSu8Mm9csHD3onk56fEFg77xoOQ=; b=
+	gNTxIn6o0vLiIqn7NKJdAfMfnSnurSps+MYY3FDMH8Xm0Vj0vWn+w6dC1LTaF8wf
+	sre4G98Oto0k7VLDON/dBxVK25KMW8QOOfRyTovYXXX7ywNVnO1TRdDRdyy5Xkqz
+	RXwfkDJB468Hw5tET9mpSlJfk8fI2oMfGkNhv47FPQD4QFxXVHNDpD8gEjSvGoQQ
+	heoHqRHJloXZxwp7MBHZj04NKnT2MeoT1Dszi/4pjzcLzdlfaqWBJS11AZaP94Vt
+	LDUc9zDoq20/QE3PCgNlNS99sGlhLIDCF3FMn4yAdGSx5j9+lAM4T/PVS+0XVujF
+	nZLsmeZFrCSzmt0SAPf1Vg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1767784861; x=
+	1767871261; bh=FJ5/twNgy2ZWEt+iRSu8Mm9csHD3onk56fEFg77xoOQ=; b=p
+	qKWX8P+xyXT1dcbRLA6w5Y+GuQOe08ljJLP8QmhsrleVBlWRGMjUfFCr9rVPfDq1
+	o8Rdk6nTXv7mnj4HGX4YCLjGEe/mYbIr0wC2+L0RjndBBRppeWwb7/RtCFm5a54D
+	H3MX0YAfyy7OjIlv6UaIDTF+3nmfr7NoEJNYLEXzw4Hi6ZTEbcl/Kuxy+/4PLNRa
+	FiVvYq/urT5ZKqavbtqjh89pk2wVWMscSPH5p13h2dZ5hC+hnfLntQkm/q1smGm4
+	zgKT/c39u8rsJEuvZurdgfad9S/092hv6dGL+kJH1sivx4JtdRRURDvFS2TKPIWU
+	DQrmGiEuaYCq88nb7VgFg==
+X-ME-Sender: <xms:nUFeaYNoWs3Ty9YmjiRWIRXm-l4YvFzs7HaZ5EwUn0yfpZtAKB__7w>
+    <xme:nUFeafbnya0RQhUwlPCOAE07T3sIVDg-Ffs0LfcAEhh181dHadH3JmMTyogrpz0HE
+    eKZTn_C8_iSY8b8NajEGATJE2ALOCCJTph5ZGVwDxwl2gldt_9kjkA>
+X-ME-Received: <xmr:nUFeaf_DLVl0Qkb1GI8F6XDE3ZI_PvSxRRGhlDcVSF-89PBZRJZVNL-LkBxHmZcjUiMz5luDNsqN5Sl8cUC2YMkuN1i5nZ1qjgo>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddutddvleegucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggugfgjsehtkeertddttdejnecuhfhrohhmpeflrghnnhgv
+    ucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepue
+    fgfefhvdeuvdffteegueevlefhtdffgeefhefgffehtdegffefveetieeutdetnecuffho
+    mhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
+    grmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruhdrnhgvthdpnhgspghrtghpthhtohep
+    ledpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepphhiohhtrhesmhgrshhlohifsh
+    hkihdrgiihiidprhgtphhtthhopehtohifihhntghhvghnmhhisehgmhgrihhlrdgtohhm
+    pdhrtghpthhtoheprhhosghinhdrmhhurhhphhihsegrrhhmrdgtohhmpdhrtghpthhtoh
+    eptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopeifihhl
+    lheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhvvghnsehkvghrnhgvlhdrohhrgh
+    dprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhr
+    ghdprhgtphhtthhopegrshgrhhhisehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpth
+    htoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggu
+    rdhorhhg
+X-ME-Proxy: <xmx:nUFeaYR0c1_pM5k3VMYDRi_2hxs1iwf1T1wj6kvQemIeL9TZ8BpLrw>
+    <xmx:nUFeaRdtLbSPJFSf68wGjcFa0j0me1WX-fGtaEjF6Da8ebfwP_W4Ug>
+    <xmx:nUFeaSQeAzuP6lKSlHCvjwvQEQwLgCDA_uoirMNtuVtnj4rXui4WZA>
+    <xmx:nUFeaVIFtkpavl357KPL5-JKi8Kh6lgTJkEZiBQuRFJGa9ObhUbFcw>
+    <xmx:nUFeaTBm2xl0W7VsPiP4MJnWJi8UJM0w3oVn6QFXWgfD3gF_07-Sj2J3>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 7 Jan 2026 06:21:00 -0500 (EST)
+Date: Wed, 7 Jan 2026 12:20:59 +0100
+From: Janne Grunau <j@jannau.net>
+To: Piotr =?utf-8?Q?Mas=C5=82owski?= <piotr@maslowski.xyz>
+Cc: Nick Chan <towinchenmi@gmail.com>, Robin Murphy <robin.murphy@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Sven Peter <sven@kernel.org>,
+	linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] arm64: defconfig: Enable Apple Silicon drivers
+Message-ID: <20260107112059.GB4068972@robin.jannau.net>
+References: <20251231-arch-arm64-apple-defconfig-v1-0-4ff19805ba39@jannau.net>
+ <20251231-arch-arm64-apple-defconfig-v1-2-4ff19805ba39@jannau.net>
+ <DFCLU67GQO86.1NY037FRPJ4E2@maslowski.xyz>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <DFCLU67GQO86.1NY037FRPJ4E2@maslowski.xyz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_031930_910242_41A62736 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20260107_032107_049456_ED9FEF55 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,77 +120,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Dec 2025 15:52:39 +0000
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+On Wed, Dec 31, 2025 at 07:14:13PM +0100, Piotr Masłowski wrote:
+> Hello, I'm not a kernel developer so this might be entirely irrelevant,
+> but while browsing the list I noticed something you might've missed:
+> 
+> On Wed Dec 31, 2025 at 16:42 CET, Janne Grunau wrote:
+> > From: Sven Peter <sven@kernel.org>
+> >
+> > Enable drivers for hardware present on Apple Silicon machines. None of
+> > these drivers are critical so build them as modules.
+> [...]
+> > Link: https://lore.kernel.org/asahi/20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org/
+> > Signed-off-by: Sven Peter <sven@kernel.org>
+> > Signed-off-by: Janne Grunau <j@jannau.net>
+> >
+> > ---
+> > Changes compared to the original submission:
+> > - Remove AIC and APPLE_PMGR_PWRSTATE as those are selected by ARCH_APPLE
+> > - Add new macsmc drivers (mfd, reset, hwmon, rtc and gpio)
+> > - Add BACKLIGHT_APPLE_DWI, DRM_PANEL_SUMMIT and NVMEM_APPLE_SPMI
+> >   (suggested by Nick Chan)
+> 
+> What about DRM_ADP which Nick also mentioned?
+> 
+> > - Add PWM_APPLE and APPLE_M1_CPU_PMU
+> [...]
+> 
+> I tried to check whether it had possibly been taken care of elsewhere,
+> but I didn't find anything related on the mailing list(s) nor in the repo.
 
-> Extend the existing FGT/FGU infrastructure to include the GICv5 trap
-> registers (ICH_HFGRTR_EL2, ICH_HFGWTR_EL2, ICH_HFGITR_EL2). This
-> involves mapping the trap registers and their bits to the
-> corresponding feature that introduces them (FEAT_GCIE for all, in this
-> case), and mapping each trap bit to the system register/instruction
-> controlled by it.
->=20
-> As of this change, none of the GICv5 instructions or register accesses
-> are being trapped.
->=20
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Hi Sascha,
+Good catch, I missed it in Nick's list. Comma or new line separated
+entries would have been easier to read. I also missed the network and
+bluetooth devices:
 
-Superficial stuff only on code flow to make it easier to extend next
-time.
+- BRCMFMAC_PCIE
+- BT_HCIBCM4377
+- TIGON3
+- AQTION
 
-Jonathan
+Missing as well although only in linux-next is PHY_APPLE_ATC
 
+What is the merge policy for defconfig changes? If this can be merged
+for v6.19 I won't bother with a v2 and add them later in a subsequent
+change.
 
-> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-> index 3845b188551b6..5f57dc07cc482 100644
-> --- a/arch/arm64/kvm/config.c
-> +++ b/arch/arm64/kvm/config.c
+If it will be picked up only for the next cycle (v7.0?) I'll send a v2
+with the missing configs. Any advise how to deal with PHY_APPLE_ATC? It
+depends on commit 8e98ca1e74db ("phy: apple: Add Apple Type-C PHY")
+currently only in
+https://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git/log/?h=next
 
-> @@ -1511,11 +1595,19 @@ void kvm_vcpu_load_fgt(struct kvm_vcpu *vcpu)
->  	__compute_fgt(vcpu, HAFGRTR_EL2);
-> =20
->  	if (!cpus_have_final_cap(ARM64_HAS_FGT2))
-> -		return;
-> +		goto skip_fgt2;
-
-Nicer to avoid more complex code flow and just make the next
-block an if.
-
-	if (cpus_have_final_cap(ARM64_HAS_FGT2)) {
-		__compute_fgt(vcpu, HFGRTR2_EL2);
-		__compute_fgt(vcpu, HFGWTR2_EL2);
-		__compute_fgt(vcpu, HFGITR2_EL2);
-		__compute_fgt(vcpu, HDFGRTR2_EL2);
-		__compute_fgt(vcpu, HDFGWTR2_EL2);
-	}
-> =20
->  	__compute_fgt(vcpu, HFGRTR2_EL2);
->  	__compute_fgt(vcpu, HFGWTR2_EL2);
->  	__compute_fgt(vcpu, HFGITR2_EL2);
->  	__compute_fgt(vcpu, HDFGRTR2_EL2);
->  	__compute_fgt(vcpu, HDFGWTR2_EL2);
-> +
-> +skip_fgt2:
-> +	if (!cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF))
-Given the above shows this code sometimes gets extended I'd
-be tempted to just go with
-	if (cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF)) {
-		__compute_fgt(vcpu, ICH_HFGRTR_EL2);
-		__compute_fgt(vcpu, ICH_HFGWTR_EL2);
-		__compute_fgt(vcpu, ICH_HFGITR_EL2);
-	}
-
-=46rom the start and avoid future churn or goto nasties.
-
->=09
-> +		return;
-> +
-> +	__compute_fgt(vcpu, ICH_HFGRTR_EL2);
-> +	__compute_fgt(vcpu, ICH_HFGWTR_EL2);
-> +	__compute_fgt(vcpu, ICH_HFGITR_EL2);
->  }
-
-
-
+Janne
 
