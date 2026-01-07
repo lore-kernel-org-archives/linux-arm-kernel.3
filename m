@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69169CFD640
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 14:09:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5824CFD641
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 14:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
 	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
 	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PZWDOBLRey6Z9yX+RyF83GqTHUzZPfvvBMqFhTb+pZg=; b=THvd4NzEXmRjupZ9fCS5hDqfSZ
-	qgDi39LpOGZBlyzbRby2t3ilaH9DG3paJQZGxYYjmr2CaszoA/HnJhfNJ5CATD2JGYcQ/vJwcuFAw
-	Wdpge6DO9DcQQ+TLZNLWwdLiIrqNyJgxKmjanG1HF6kwLWKyhtT8Umimv+0EndwocjuIyqpxO+Kc1
-	5raLy4Oxfp4aNfjhVO1HPkf6TEBotJwqfL1ecUdkN477g3gMONsgwBB83LmlOUzixsxhwKieu15Gd
-	LSBWVLT2T7kugft+cpEiF8ccLUWcbV9yP4uKCN2yIkPjTuFFrI3BjhTb9n4flN1LJFEPkSPN2L9Q7
-	euyGmeAw==;
+	bh=AtifbZ9dlYB5B7pMnTwF6U4zuHUg4AAtxUwmlBGabgM=; b=c4Hse9OAt5fAKzgCvyvc5xea8v
+	qHHSGcHdtOZLnLGeupjJiIOtqjqPciNvkrDObJ29L4fmxC9o9o/jTfk7AhFpXqSu0ptc8foOq/wBk
+	8i4WzaDApxVOoxKdeJatAip3Nw2qzo9sC4gJZYh1T4DEdyM6DJFJ0QIqK2gUZaCAX23024MYN9E1r
+	I72Fnc9zQOfwZx2BlZx6g/30nWCyqXKB2dTh2HpOngRzRzrPKED/0D1oNBMcHP+grPxYSVR9Cz1Az
+	innfb1dOOOg8OY10wtuNr117R3g+fsUJgeauWaA0Awj8pto9gUzmXgCqyDJ3jym6raGZWtHMvsU1H
+	IAoJflyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdUDh-0000000F3jy-12M0;
-	Wed, 07 Jan 2026 14:09:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdUGO-0000000F42S-0PHK;
+	Wed, 07 Jan 2026 14:11:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdUDg-0000000F3jn-11UB
+	id 1vdUGM-0000000F42H-37QH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 14:09:04 +0000
+	Wed, 07 Jan 2026 14:11:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 500DB60018;
-	Wed,  7 Jan 2026 14:09:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4990DC4CEF1;
-	Wed,  7 Jan 2026 14:09:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2A2DA60051;
+	Wed,  7 Jan 2026 14:11:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54AF1C4CEF1;
+	Wed,  7 Jan 2026 14:11:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767794942;
-	bh=PZWDOBLRey6Z9yX+RyF83GqTHUzZPfvvBMqFhTb+pZg=;
+	s=k20201202; t=1767795109;
+	bh=AtifbZ9dlYB5B7pMnTwF6U4zuHUg4AAtxUwmlBGabgM=;
 	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
-	b=GrPQ+prQOkX4BEgihC3kMMyG17wnhrSstZOLnQqhZ6YxGPgNVxNzO9jWwat+cRVab
-	 YGij8q6a7bz/LWjIjWmcwvp6BWxpKKVc9XXYetlswpDBnQb4wbV0L1i7g2HW2ATEBW
-	 KuzxcHzluA9oP5Vhbb2SsPp5J1X9cpdarnFrhtHopxt8scZm93r11XFzve7R35Luw8
-	 7iSpo71PthPlVmkmcLOo5dQ8mIkp4hToG2zAP7+WoR/LQe2Hl8JX0i40O/AgTdSJH0
-	 VYGGgVpsT90VnW0ypGc2ZqLlW5NW/xfnW2dze6eGtP5l5oaxfSJm2xPQK+GI40qTO9
-	 8koUD5HgnSc9Q==
-Message-ID: <af317ef80c6bf8e670df3d6dbabacdeb@kernel.org>
-Date: Wed, 07 Jan 2026 14:09:00 +0000
+	b=PoFOS6yjUEp/Ku0PSbiog971JRBJ6PZ+3kCcXxXM1T112J2ja/3UUNB4br3ITj3W/
+	 w3nnqpjHkxMXf+QrPvuC7rUWRI61Rz5WxYZ1w3WwqgDNiO+cCYBiErps8kCL0gvqmq
+	 w/s2tFI5q+155Wg4qsZDAVdfSSmI4I19zeD35/nje+HnET5gANiuiYuJ/KRoxGbO7F
+	 pOcCMkZjhmWsl75ovylLNFpKpz9T1JwaMn4y6YscdE+AEEHZVeD7YSgmFoI+9z/6r9
+	 spNLpw0XB21LPI499Uh7VVARGJbmLtONgj322D/1PbSl9bNyE4Mp34cCU6R2SQwE9Q
+	 tSoamu4lgUnkg==
+Message-ID: <8f4ea75e3ee9d192f0fe649338827581@kernel.org>
+Date: Wed, 07 Jan 2026 14:11:47 +0000
 From: "Maxime Ripard" <mripard@kernel.org>
 To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH 10/12] drm/bridge: samsung-dsim:
- samsung_dsim_host_attach: use a temporary variable for the next bridge
-In-Reply-To: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-10-283d7bba061a@bootlin.com>
-References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-10-283d7bba061a@bootlin.com>
+Subject: Re: [PATCH 11/12] drm/bridge: samsung-dsim:
+ samsung_dsim_host_attach: don't use the bridge pointer as an error
+ indicator
+In-Reply-To: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-11-283d7bba061a@bootlin.com>
+References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-11-283d7bba061a@bootlin.com>
 Cc: benjamin.gaignard@linaro.org, dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, "Adrien
  Grassein" <adrien.grassein@gmail.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "David
  Airlie" <airlied@gmail.com>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Inki
@@ -77,7 +78,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 7 Jan 2026 14:13:01 +0100, Luca Ceresoli wrote:
+On Wed, 7 Jan 2026 14:13:02 +0100, Luca Ceresoli wrote:
 > In preparation to handle refcounting of the out_bridge, we need to ensure
 > the out_bridge pointer contains either a valid bridge pointer or NULL, not
 > an ERR_PTR. Otherwise calls such as drm_bridge_get/put() would try to
