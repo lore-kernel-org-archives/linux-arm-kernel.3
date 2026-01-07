@@ -4,57 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27380CFD658
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81058CFD658
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3g3VrAehq1DtdyJEabqqf3fDXyycbpVTX+V8NEpPD+w=; b=aYkvyOEWAgmc2/IST4xh+14XzD
-	90jqNl4vrmesMorVB7aamKiMoAUo0vo0MADwPdewFuW+oF61syS3sJJP+l1If1g9lFftju+5I/NZj
-	zVua1XXwwfzYQw47asPPrJKockQ7cj8jplMB1eHAay5Y3wa7WMu3iwo1j0Le2dHKhutYuE2e6sMPG
-	XrDDc81ByDaVISU/R3ln4ypsufS+96MN0+lV9jpsHCGbtySbNf/w2AKhuF3FQxw2IlThWf42VHm0r
-	ol3vEWuQXYE96dXPADKZdKwRBdnHed6AkX8iUwHEzejx8nVhwgbsV0x4QIT4UYGvIIL3fUSHTXVWl
-	CBC9Co4A==;
+	bh=rLNmlAAGr7TuPBBTeFNGFzl2DnbKRD5hQNYyEJ23Rlk=; b=pGKv1Gqwf31g4vZzlZAqOSj6MA
+	yxeecHWLnYc3RDb5nsOgmWXQSWA9ZGb9tw2rukUPenn8XdaNqIJ+F00aipI9miqHP9QLStuz/EjGk
+	QeWCe8vQLdzCScmhxN4PxxdsxxGHdqr171unhxlYggvQ1VkPYw0otgJaKDdzqw53wwtpepq9/r/EA
+	3mbM7uWiTIWGZwp7LE7r5HfhEpN+hGSUxOjwheNO2wOPrkh5+5IvNF195pf35lA8b6YCgEJMD3Vdp
+	RdT72I4uEiMRgwrU9Shhov0pCZmBKIsmLeduGxfq4pvX+d0jE5wCwD/45UlmKJOnYro1qFLmgExIi
+	H7u7joPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdW2y-0000000FECs-0q8o;
-	Wed, 07 Jan 2026 16:06:09 +0000
-Received: from mail-244120.protonmail.ch ([109.224.244.120])
+	id 1vdW4i-0000000FENv-0tX4;
+	Wed, 07 Jan 2026 16:07:58 +0000
+Received: from smtprelay0017.hostedemail.com ([216.40.44.17] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdW2u-0000000FEC6-1H3c
+	id 1vdW4f-0000000FENZ-45Zl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 16:06:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=geanix.com;
-	s=protonmail2; t=1767801959; x=1768061159;
-	bh=3g3VrAehq1DtdyJEabqqf3fDXyycbpVTX+V8NEpPD+w=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=KziO1atL1h1acJHJ/nknbCs7ObEO1ICTzusYp85opcS3th6hdnJOb1o4kr0TijZCW
-	 gkhu7tFC8I7wgheAOzmlMPheEO3Vn+u63B2Cnp/yXsw6rQNg0wJb6BNYtc3uHZIWsL
-	 AaxXJS008BZ//21a/Gnj6s0FxhPv2f7lwd5eFndRSDdDpI2VSkakvsqplsOlIHikut
-	 B5ryQdmRlp1cJ0MAG5WuAAQQneDWMIj4OAPUenerwhgDyj8OIpbDJHEXgMW6CY3VWt
-	 JF0d4fK0d0qnlJGeqT3/pEwO8waDmIg8sXCwTJBRZ3lFc8G+qzAAnv8dcjiTbTzh5H
-	 vFaIwAf3sTkGw==
-Date: Wed, 07 Jan 2026 16:05:56 +0000
-To: =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-From: Sean Nyekjaer <sean@geanix.com>
-Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-pwm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] pwm: stm32: handle polarity change when PWM is enabled
-Message-ID: <fwaodg2ovh7j47ifwjhgeppxs3oiqht5ecbs7bmfbi7j6djejs@shwokpcmutr3>
-In-Reply-To: <nwhixocvhii27jvcyg7ex5emewntgfhyxa4ds5vo2dphe7xfe4@ibjsjdd5fgmn>
-References: <20260106-stm32-pwm-v1-1-33e9e8a9fc33@geanix.com> <kemjjoyrhqglqq4p2j6kygspevq2mdbiujtnksw4rkdapoqcfy@zte2c7fhqvn3> <2e2iahbzcepbzwgk7xeta2afxmycfjgv2zofzngqjvp4on46r2@mzpi4bz4uqie> <nwhixocvhii27jvcyg7ex5emewntgfhyxa4ds5vo2dphe7xfe4@ibjsjdd5fgmn>
-Feedback-ID: 134068486:user:proton
-X-Pm-Message-ID: 57d8dde4371b846314f7e2b8b867b714e4f3c48f
+	Wed, 07 Jan 2026 16:07:55 +0000
+Received: from omf06.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay07.hostedemail.com (Postfix) with ESMTP id DB827160420;
+	Wed,  7 Jan 2026 16:07:50 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf06.hostedemail.com (Postfix) with ESMTPA id 301EF2000E;
+	Wed,  7 Jan 2026 16:07:48 +0000 (UTC)
+Date: Wed, 7 Jan 2026 11:08:14 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Will Deacon <will@kernel.org>
+Cc: Jiri Olsa <jolsa@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+ Mahe Tardy <mahe.tardy@gmail.com>, Peter Zijlstra <peterz@infradead.org>,
+ bpf@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, x86@kernel.org, Yonghong Song
+ <yhs@fb.com>, Song Liu <songliubraving@fb.com>, Andrii Nakryiko
+ <andrii@kernel.org>, Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH bpf-next 1/2] arm64/ftrace,bpf: Fix partial regs after
+ bpf_prog_run
+Message-ID: <20260107110814.1dfc9ec0@gandalf.local.home>
+In-Reply-To: <aV5qpZwxgVRu2Q8w@willie-the-truck>
+References: <20260107093256.54616-1-jolsa@kernel.org>
+	<aV5qpZwxgVRu2Q8w@willie-the-truck>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: qy4j19qy53bj957cygb9gkss444jbwzi
+X-Rspamd-Server: rspamout04
+X-Rspamd-Queue-Id: 301EF2000E
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX19Psz/3Po3Wu+zE9EFiNolFBPIekU7NMl0=
+X-HE-Tag: 1767802068-600516
+X-HE-Meta: U2FsdGVkX19MpXNmjRTzf5eqNvutq13fH6LNi6K+gfHE6MtwcqV9v17WFTdDoZ8hnovtbZRxIDPYuPGSnvVQCPErohKxIFTHtJ3uDJi0CJvWrwxOSPNMwdbhjophPBLCXWhG8yHdzUuQ6JTsnRw2906L0DpujHMONSJT/3aVtTdaEybCmKF1nYcXDFg6NwiuJoCoPl+iio7bxppqMkJx2nyNMjvkNM2F5DGs1OoayfjqZtxfFwAIADNBVxZv81v1kVsEIr92L9frvqK9SgbPTxiFrrSFhOXnUVht2QY/GD9Sh0hUXlym1QLlWvB0Jke+Gl3j9N4ImY5uAJYWmYknfOXC8irHT0XR
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_080605_226647_62520A20 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20260107_080754_093411_C5749A7E 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,77 +75,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe,
+On Wed, 7 Jan 2026 14:16:05 +0000
+Will Deacon <will@kernel.org> wrote:
 
-On Wed, Jan 07, 2026 at 04:54:46PM +0100, Uwe Kleine-K=C3=B6nig wrote:
-> Hey Sean,
->=20
-> On Tue, Jan 06, 2026 at 11:30:34AM +0000, Sean Nyekjaer wrote:
-> > On Tue, Jan 06, 2026 at 11:22:57AM +0100, Uwe Kleine-K=C3=B6nig wrote:
-> > > On Tue, Jan 06, 2026 at 08:01:57AM +0100, Sean Nyekjaer wrote:
-> > > > After commit 7346e7a058a2 ("pwm: stm32: Always do lazy disabling"),
-> > > > polarity changes are ignored. Updates to the TIMx_CCER CCxP bits ar=
-e
-> > > > ignored by the hardware when the master output is enabled via the
-> > > > TIMx_BDTR MOE bit.
-> > > [...]
-> > > I have hardware using this driver, will set it up later this week for
-> > > testing.
-> >=20
-> > Very cool, looking forward to hear if you can re-produce.
->=20
-> I cannot. I have:
->=20
-> =09# uname -r
-> =096.11.0-rc1-00028-geb18504ca5cf-dirty
->=20
-> (the -dirty is only from enabling the pwm for my machine, no driver
-> changes)
->=20
-> =09# cat /sys/kernel/debug/pwm
-> =090: platform/40001000.timer:pwm, 4 PWM devices
-> =09...
-> =09 pwm-3   (sysfs               ): requested enabled period: 313720 ns d=
-uty: 10000 ns polarity: normal
->=20
-> and pulseview/sigrok detects 3.187251% with a period of 313.8 =C2=B5s.
->=20
-> After
->=20
-> =09echo inversed > /sys/class/pwm/pwmchip0/pwm3/polarity
->=20
-> the output changes to
->=20
-> =09# cat /sys/kernel/debug/pwm
-> =090: platform/40001000.timer:pwm, 4 PWM devices
-> =09...
-> =09 pwm-3   (sysfs               ): requested enabled period: 313720 ns d=
-uty: 10000 ns polarity: inverse
->=20
-> and pulseview/sigrok claims 96.812749% with a period of 313.8 =C2=B5s.
-> So the polarity change happend as expected.
->=20
-> This is on an st,stm32mp135f-dk board.
->=20
-> Where is the difference to your observations?
->=20
+> I still don't understand why we need anything new in the arch code for this.
+> 
+> We've selected HAVE_ARCH_FTRACE_REGS and we implement
+> ftrace_regs_set_instruction_pointer() and ftrace_regs_set_return_value()
+> so the core code already has everything it needs to make this work
+> without additional arch support.
 
-Thanks for taking a look!
-I'm using the PWM for a backlight. With this [0] in my dts:
+I believe the issue is that the BPF code takes a pt_regs and does the
+update directly with that, and not the ftrace_regs.
 
-[0]:
-=09backlight: backlight {
-=09=09compatible =3D "pwm-backlight";
-=09=09pwms =3D <&pwm4 0 125000 PWM_POLARITY_INVERTED>;
-=09=09brightness-levels =3D <102 235 255>;
-=09=09default-brightness-level =3D <80>;
-=09=09num-interpolated-steps =3D <100>;
-=09=09enable-gpios =3D <&gpiof 12 GPIO_ACTIVE_LOW>;
-=09status =3D "okay";
-=09};
+I'm guessing this is due to BPF programs modifying the pt_regs directly,
+and BPF programs do not yet understand ftrace_regs?
 
-Maybe that is doing something differently.
+Because arm64 requires making a copy of pt_regs as the ftrace_regs has a
+different layout, and the ftrace_regs is what does the changes, if the
+pt_regs passed to the BPF program modifies the values it needs a way to
+propagate that back to the ftrace_regs.
 
-/Sean
-
+-- Steve
 
