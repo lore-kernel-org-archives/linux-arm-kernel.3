@@ -4,70 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5670ACD5854
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 11:47:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A5ACD5854
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 11:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wWSUwJheS3EsmAMi+m9CiXPo/0+Wu/2LswozlR119YA=; b=ZnDeVkyehh0dMgnqeeKQPF3/9P
-	ZOMRgSe9qAnjY92CdZoy0N1QF28phYxw8gFEc3RNbEH3uwpCOquIl6gV4B3N8IyxQLuoVe0VX0wH1
-	TScERrFvnwO7y8m/QolZZhBdlpx/4g9QxQQK0aWsypuaudcOOeQeOsFtnsrbubSoYbSMA7Sy6kvxq
-	9zY8XIVSBFvXuTa4MjyKZew7IMrQdyur2S5koMBd89sSVLHljCxAaYTbR1aTlACJs3AusrdbbpkFM
-	bxAMfDcOOjhuyhjA52RySm+oI84mhn1D2blJFJDTKGP3f/ShNR2r8UQ9QIpdnZoQunGMDo0xJ9nsK
-	LvGwFTAw==;
+	bh=eFhWg0yXknfBYjAjhY49eGT0he703gFuxz0J4Ryn4Hc=; b=XvlmrzddXGhtqWPgdYrZU8nDPp
+	r3HE5RIL6eTRHhaV0Xk4DFiDqIYKac2vaYkocMYcyIrzHD7hBC3x/sPwDW23OUfuFbPQSpdRyW2HV
+	2anieBQ5yt86O/SXL0PUfCAALB2fPJ7N17ZejA2mPwX3yoj+mRncKqCe5RcWQ2HX9u4f50tx/yWSf
+	/aC5LsFQnt1f8DwejwG3RWlLw/iksQDmKPYn1QZwhzBCF1QeQs6QeASQHqYrQoKzDJpGRWmGpkzAi
+	3ZI/1BF8X9dZ15v9p6bIIHqdS4dP/GwOtFXYxWGJa+cxReEU0l9ncSY4qo5ozFT/RCpH5DUDguMwM
+	jb2Gum+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdS0b-0000000Eqf8-1NqI;
-	Wed, 07 Jan 2026 11:47:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vdS4i-0000000EqwA-1kcs;
+	Wed, 07 Jan 2026 11:51:40 +0000
+Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdS0a-0000000Eqf2-2KUI
+	id 1vdS4g-0000000Eqvi-1F7y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 11:47:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A72F160007;
-	Wed,  7 Jan 2026 11:47:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E27BC4CEF7;
-	Wed,  7 Jan 2026 11:47:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767786443;
-	bh=DbwTdP4jDDEoLRymmPjZBvZFpaB6/3NUZbTNMK7TrhE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Rcl2csMnB6fun62KvYW7R8q6mrwH2Y3ZHyS9XmSrAooaYob23EatHJ8bnJmkYMNC0
-	 IJ23o9xHxk31/exhmLeNcEEmd3C2LDHRuULaz+fOHJn+2hzKZwaz5T4NfCWhZZz7Vl
-	 4QEnhBmqPHkUVzYSE7SvoeueAKDXz/T1cGUUuP5pRXvMxHqt7Pp10nl83viknXsyWC
-	 xfS+f6AmQQLLktViVf8y68WsClclGSQcfYQLbzdLhgoTlM9hBK1iDNJvAd8aFUPPml
-	 xludPXekC5s+OeWxvKqrgQ/7y7QXMK6lCQMdbupd4uYJucc0f9pCvceNqcJcoSVyIg
-	 I+s2aRpyoo8Gw==
-Date: Wed, 7 Jan 2026 17:17:09 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Kees Cook <kees@kernel.org>, 
-	Mika Westerberg <westeri@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andy Shevchenko <andy@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Alexey Klimov <alexey.klimov@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Subject: Re: [PATCH v4 00/10] gpio: improve support for shared GPIOs
-Message-ID: <uc7utm7tbtmkk6osaoydibd5evtpm246sjrpkx3lpclpk4srea@a4g65oduswau>
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
- <fimuvblfy2cmn7o4wzcxjzrux5mwhvlvyxfsgeqs6ore2xg75i@ax46d3sfmdux>
+	Wed, 07 Jan 2026 11:51:39 +0000
+Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-8907f0b447aso15789586d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 03:51:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767786697; x=1768391497; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:feedback-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eFhWg0yXknfBYjAjhY49eGT0he703gFuxz0J4Ryn4Hc=;
+        b=MSbWObIQebMHKXMh9nMsDM75Z3X24ZTRScv9Zjlu3ePMJlV+sFhBCzJcBmzDCJjsVV
+         xHrojnjfoEwEY2YsbEd+1vTkSI+80qYuXR0ovbIhBMe/iYU/xTnSnHtIZyXd4h9l6yno
+         QTYhiEAu2PDRAzcEVaAwcLt6gQAAKaFoFNgbEtL/N0VtjI4iERrbDZvBzqjyeUQMC0Fg
+         a1APZ87YCwd+p8AZ3k4L8HCw7anlj+5FifLBi9h5DRRs3Ke/g7kz80nmHFZUMuOfkRlT
+         4F1z42AHbjf8jviibTLR7cZ3iyAXixDYa4Ud2F9/d8kUlI34Oc8hH0Mx9Q+RMqMr497c
+         IyqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767786697; x=1768391497;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:feedback-id:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=eFhWg0yXknfBYjAjhY49eGT0he703gFuxz0J4Ryn4Hc=;
+        b=GvTourJOFit3xW5PynF5b/FPuRZuPKSz+G3JnCP8fn3XqYM2al0KIzzLR+wqt1M7Td
+         pqbw5tg1z3QuPdDsMU2BUV6AsTcB+URy1WcpyaDFXVjPA+znRKEWSLgnSKiKBsBCLN89
+         GnhdeBKuddJv4XJXhvrxdVsU1lPRIkNOdDqVysGILIdBk8SgRGiiP0EkPi1l2R7U6ne3
+         1uUOIrKxBLReWGI8KDQv4oean3YPA04MynsfIuBWwpTVCCxnd6qq99LmlOziW8no1jD+
+         HyPP9AjEIYgV70fqCyEJMMK6mlK11i2XbjxZaJoq5BG00hsL3MDYkjfK7GTuI09sGgzp
+         Ds4g==
+X-Forwarded-Encrypted: i=1; AJvYcCUeaScS3H5JG37wR3jFZ0ZmJA0WS1UQ79JMr5YpqO0HMB3JHtQLHD0YmF2vWMfe2R6SvlO02cGV+oDGlgJCnm2M@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFwbbn+y4OaQSsUW/ZcZy/dGJHYlQiNYb7dG35vtDwkQOUCLKY
+	5CRYDvPGBZEh3UI62DATcR1u8F0ONH9lSmLnj5AhoR4FugEGWSWIjgOm
+X-Gm-Gg: AY/fxX7ulCgSXBw9z61szKRyATCei4Wo9mUVRY34X9mrVCMeXQZjH5oxXkiA9DL34FO
+	X3Ow3bPefbtaX0G8+oxapOCQo+XKatgSt+zpCJniUJZ2XTHUzamqv5r/VxCNuszLHSpRbWyYA3Z
+	EANv8oFN+zovtgG2tGuAaDgf+eYUSJLwAELoE09t2CqGQAa1F2zAeemt5UfDGe23h/ov7teaUOu
+	JAFhlfPOr92AZ3ea9bplp4vjCtSA1R9Gg5ERS/PCURapuejQPIfKZhEvR0zQZ9ulg2Mpqm7RZYa
+	wHDXbH1yoNIIz5Ue4C8zX9Mx4AOKy13m3Hh7Wbeaj7+7+5Q65XFcbsEFRIyu/7eWzr2Sv/xkruk
+	72bOmOqiJSPFnV6BawUPZoEKu1oNsH3GydJCHrbGuqMuaDcKZuuFkK4b3bJeeXBsDxxHe/aVTWD
+	CQ+3mk66Y6urLWYzT6jpZpLhCs9/An5bDPCeN+B+z69NvjfO7YTwOxqNd6SBip+q47ju7YXt0Kv
+	faP3JDoaoMwQkfUuINGughp7w==
+X-Google-Smtp-Source: AGHT+IFH0acmgHQ6EWCtnqhwKaHJRPHfquNTd9/V7OoNJZcXx2+Bls4fC+zwkD99ObEzyVSuRYfHAQ==
+X-Received: by 2002:ad4:5dc8:0:b0:88a:306b:f05a with SMTP id 6a1803df08f44-890841a56d1mr24709466d6.24.1767786696474;
+        Wed, 07 Jan 2026 03:51:36 -0800 (PST)
+Received: from fauth-a1-smtp.messagingengine.com (fauth-a1-smtp.messagingengine.com. [103.168.172.200])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89077253305sm33343796d6.41.2026.01.07.03.51.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 Jan 2026 03:51:36 -0800 (PST)
+Received: from phl-compute-12.internal (phl-compute-12.internal [10.202.2.52])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 340D0F40068;
+	Wed,  7 Jan 2026 06:51:35 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-12.internal (MEProxy); Wed, 07 Jan 2026 06:51:35 -0500
+X-ME-Sender: <xms:x0heaf_XjM8EldP7mZl_zowHomLP-0MXv_xDds5LsWx_DjphFQPC-w>
+    <xme:x0heabpSfCmlgyjpQXDGdqjqwuVdgkxFRolmdFXVbMUQGWXNBgJTxzz7sVaZD5S0w
+    km2S3EclWZgFtLJn1jwilL12tkxP9Kd0txl2zn-9hO5j2YylnNqLA>
+X-ME-Received: <xmr:x0heaYlzu_tFXU4QxcfYGOCxoupKaRJNgKb9kawPSvS-OpSF9EjGFZUt>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddutddvleelucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujgesthdtredttddtvdenucfhrhhomhepuehoqhhunhcu
+    hfgvnhhguceosghoqhhunhdrfhgvnhhgsehgmhgrihhlrdgtohhmqeenucggtffrrghtth
+    gvrhhnpedtteeluedtteevuedttdduvefhffdvgeduffefleeuheevtddugfdvveeigedu
+    geenucffohhmrghinhepvgigphhirhgvshdrhhhofienucevlhhushhtvghrufhiiigvpe
+    dtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegsohhquhhnodhmvghsmhhtphgruhhthhhp
+    vghrshhonhgrlhhithihqdeiledvgeehtdeigedqudejjeekheehhedvqdgsohhquhhnrd
+    hfvghngheppehgmhgrihhlrdgtohhmsehfihigmhgvrdhnrghmvgdpnhgspghrtghpthht
+    ohepfedupdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrrdhhihhnuggsohhrgh
+    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfhhujhhithgrrdhtohhmohhnohhrihes
+    ghhmrghilhdrtghomhdprhgtphhtthhopegrlhhitggvrhihhhhlsehgohhoghhlvgdrtg
+    homhdprhgtphhtthhopehlhihuuggvsehrvgguhhgrthdrtghomhdprhgtphhtthhopeif
+    ihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepphgvthgvrhiisehinhhfrhgrug
+    gvrggurdhorhhgpdhrtghpthhtoheprhhitghhrghrugdrhhgvnhguvghrshhonheslhhi
+    nhgrrhhordhorhhgpdhrtghpthhtohepmhgrthhtshhtkeeksehgmhgrihhlrdgtohhmpd
+    hrtghpthhtoheplhhinhhmrghgjeesghhmrghilhdrtghomh
+X-ME-Proxy: <xmx:x0heaQacsUW0VmkipHTcgOP7bzaqt_FAwgGghK4qfmqIeaGBHJ4FIQ>
+    <xmx:x0headt2TuVedR_biaKOaZiD9V9dQ9scTL5ryadW6DQKUU173jY_jg>
+    <xmx:x0heaZq66LkmUtgAaxDhfccsF2mnCj3uLyV3TTIAsrFDbBgTIIV_Lw>
+    <xmx:x0heaXnl4kpjDj3sVzT5Vi3EOgsLlwv6aJOBq3fVP2TrLU9YiwZKLA>
+    <xmx:x0heaZSH49OXE6qcQRj4fsclvKNnwvgMD-Sq42Nmr6vDCcC-Is5bcBLF>
+Feedback-ID: iad51458e:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 7 Jan 2026 06:51:34 -0500 (EST)
+Date: Wed, 7 Jan 2026 19:51:29 +0800
+From: Boqun Feng <boqun.feng@gmail.com>
+To: Andreas Hindborg <a.hindborg@kernel.org>
+Cc: FUJITA Tomonori <fujita.tomonori@gmail.com>, aliceryhl@google.com,
+	lyude@redhat.com, will@kernel.org, peterz@infradead.org,
+	richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com,
+	catalin.marinas@arm.com, ojeda@kernel.org, gary@garyguo.net,
+	bjorn3_gh@protonmail.com, lossin@kernel.org, tmgross@umich.edu,
+	dakr@kernel.org, mark.rutland@arm.com, frederic@kernel.org,
+	tglx@linutronix.de, anna-maria@linutronix.de, jstultz@google.com,
+	sboyd@kernel.org, viro@zeniv.linux.org.uk, brauner@kernel.org,
+	jack@suse.cz, linux-kernel@vger.kernel.org,
+	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	rust-for-linux@vger.kernel.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 4/5] rust: hrtimer: use READ_ONCE instead of read_volatile
+Message-ID: <aV5IwaxcIF4XJvg3@tardis-2.local>
+References: <L2dmGLLYJbusZn9axfRubM0hIOSTuny2cW3uyUhOVGvck7lQxTzDe0Xxf8Hw2cLxICT8kdmNAE74e-LV7YrReg==@protonmail.internalid>
+ <20260101.130012.2122315449079707392.fujita.tomonori@gmail.com>
+ <87ikdej4s1.fsf@t14s.mail-host-address-is-not-set>
+ <20260106.222826.2155269977755242640.fujita.tomonori@gmail.com>
+ <87cy3livfk.fsf@t14s.mail-host-address-is-not-set>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <fimuvblfy2cmn7o4wzcxjzrux5mwhvlvyxfsgeqs6ore2xg75i@ax46d3sfmdux>
+In-Reply-To: <87cy3livfk.fsf@t14s.mail-host-address-is-not-set>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260107_035138_349025_89F68A0D 
+X-CRM114-Status: GOOD (  22.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,82 +148,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025 at 06:27:13PM +0200, Dmitry Baryshkov wrote:
-> On Wed, Nov 12, 2025 at 02:55:29PM +0100, Bartosz Golaszewski wrote:
-> > Bjorn, Konrad: I should have Cc'ed you on v1 but I just went with what
-> > came out of b4 --auto-to-cc. It only gave me arm-msm. :( Patch 7 from
-> > this series however impacts Qualcomm platforms. It's a runtime dependency
-> > of patches 8 and 9. Would you mind Acking it so that I can take it into
-> > an immutable branch that I'll make available to Mark Brown for him to
-> > take patches 8-10 through the ASoC and regulator trees for v6.19?
-> > 
-> > Problem statement: GPIOs are implemented as a strictly exclusive
-> > resource in the kernel but there are lots of platforms on which single
-> > pin is shared by multiple devices which don't communicate so need some
-> > way of properly sharing access to a GPIO. What we have now is the
-> > GPIOD_FLAGS_BIT_NONEXCLUSIVE flag which was introduced as a hack and
-> > doesn't do any locking or arbitration of access - it literally just hand
-> > the same GPIO descriptor to all interested users.
-> > 
-> > The proposed solution is composed of three major parts: the high-level,
-> > shared GPIO proxy driver that arbitrates access to the shared pin and
-> > exposes a regular GPIO chip interface to consumers, a low-level shared
-> > GPIOLIB module that scans firmware nodes and creates auxiliary devices
-> > that attach to the proxy driver and finally a set of core GPIOLIB
-> > changes that plug the former into the GPIO lookup path.
-> > 
-> > The changes are implemented in a way that allows to seamlessly compile
-> > out any code related to sharing GPIOs for systems that don't need it.
-> > 
-> > The practical use-case for this are the powerdown GPIOs shared by
-> > speakers on Qualcomm db845c platform, however I have also extensively
-> > tested it using gpio-virtuser on arm64 qemu with various DT
-> > configurations.
-> > 
-> > I'm Cc'ing some people that may help with reviewing/be interested in
-> > this: OF maintainers (because the main target are OF systems initially),
-> > Mark Brown because most users of GPIOD_FLAGS_BIT_NONEXCLUSIVE live
-> > in audio or regulator drivers and one of the goals of this series is
-> > dropping the hand-crafted GPIO enable counting via struct
-> > regulator_enable_gpio in regulator core), Andy and Mika because I'd like
-> > to also cover ACPI (even though I don't know about any ACPI platform that
-> > would need this at the moment, I think it makes sense to make the
-> > solution complete), Dmitry (same thing but for software nodes), Mani
-> > (because you have a somewhat related use-case for the PERST# signal and
-> > I'd like to hear your input on whether this is something you can use or
-> > maybe it needs a separate, implicit gpio-perst driver similar to what
-> > Krzysztof did for reset-gpios) and Greg (because I mentioned this to you
-> > last week in person and I also use the auxiliary bus for the proxy
-> > devices).
+On Wed, Jan 07, 2026 at 11:11:43AM +0100, Andreas Hindborg wrote:
+> FUJITA Tomonori <fujita.tomonori@gmail.com> writes:
 > 
-> Hi,
+[...]
+> >>>
+> >> 
+> >> This is a potentially racy read. As far as I recall, we determined that
+> >> using read_once is the proper way to handle the situation.
+> >> 
+> >> I do not think it makes a difference that the read is done by C code.
+> >
+> > What does "racy read" mean here?
+> >
+> > The C side doesn't use WRITE_ONCE() or READ_ONCE for node.expires. How
+> > would using READ_ONCE() on the Rust side make a difference?
 > 
-> I'm sorry if this was already reported and fixed. On Qualcomm RB5
-> platform with this patchset in place I'm getting the following backtrace
-> (and then a lockup):
+> Data races like this are UB in Rust. As far as I understand, using this
+> READ_ONCE implementation or a relaxed atomic read would make the read
+> well defined. I am not aware if this is only the case if all writes to
+> the location from C also use atomic operations or WRITE_ONCE. @Boqun?
 > 
 
-On Rb3Gen2 this breaks UFS:
+I took a look into this, the current C code is probably fine (i.e.
+without READ_ONCE() or WRITE_ONCE()) because the accesses are
 
-	ufshcd-qcom 1d84000.ufshc: cannot find GPIO chip gpiolib_shared.proxy.4, deferring
+1) protected by timer base locking or
+2) in a timer callback which provides exclusive accesses to .expires as
+   well. Note that hrtimer_cancel() doesn't need to access .expires, so
+   a timer callback racing with a hrtimer_cancel() is fine.
 
-But MMC acquired the GPIO successfully,
+(I may miss one or two cases, but most of the cases are fine)
 
-	sdhci_msm 8804000.mmc: Got CD GPIO
+The problem in Rust code is that HrTimer::expires() is a pub function,
+so in 2) a HrTimer::expires() can race with hrtimer_forward(), which
+causes data races.
 
-But I can see gpiochips registered as well:
+We either change hrtimer C code to support such a usage (against data
+races) or change the usage of this HrTimer::expires() function. Using
+READ_ONCE() here won't work. (Yes, we could say assuming all plain
+writes on .expires in C are atomic as some other code does, but hrtimer
+doesn't rely on this, so I don't think we should either)
 
-(initramfs) ls /dev/gpio*
-crw------- 1 0 0 254,0 /dev/gpiochip0
-crw------- 1 0 0 254,1 /dev/gpiochip1
-crw------- 1 0 0 254,2 /dev/gpiochip2
-crw------- 1 0 0 254,3 /dev/gpiochip3
-crw------- 1 0 0 254,4 /dev/gpiochip4
+Regards,
+Boqun
 
-Let me know if you need more info.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+> 
+> Best regards,
+> Andreas Hindborg
+> 
+> 
 
