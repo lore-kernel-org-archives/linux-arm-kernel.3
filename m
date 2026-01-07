@@ -4,160 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5C8DCFD626
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 13:21:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 732B5CFD62A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 13:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:
+	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=js9vOdGwDOtrz/HNGFuhKMtQ9O5QjU14j2FRmChcdtk=; b=uAABSvDbI+vr8yZ0agrXd/5N5S
-	95eWomYSDVZ3Tjry062gevUOXhh9gUL7v3xcuDn5kif2eCrQP7pggpl5RrQE2OzIa5XM60o2bLvte
-	h2BrLOgv02XZmGY7Dnb5TiA/pUpTjjXmECn7vN5HzOAX2GS9PrJ/dLE5OhZ6BVgLsIDQSEhJDDdPV
-	2ZP/OpexrO9ySpr3ViCVN9kga6vHDCQcDhFNe5HgbDbkN573aiW4GFQlIq4t/RTcmuCqJsFjTRO9N
-	VmDEPobbkSHKbAa4IFahWgYen5FyhndvXrr4kkjbbzi5XEgQ3GbAT7OaqQUdyMWl/vuXW8OzOty8L
-	OLi4BoUQ==;
+	bh=eVyX/saFSHkwOAT/HfR9J/XxoKvZtdkuCzZLxL4WCSA=; b=EzkpckGyV/jhUceBJCgI+xNAmU
+	QCtbe7Un3GfTOnhtl399tEYcRlYl1EBzcA89RSBJHyTPYXFhm5TItwdBADyXFoDT0SyOFK2GQlc0W
+	4nldlnCWiMIqbnaKsAzZE37TNnyDf/vxW/AxbDq8O21FuOWUFSZVIIZgJyOSRsrtQt3hVXoe8tr38
+	UZNuQ1VTIdNL2Qu5CSveWy64pgEAFE1mZSf7UEnmtP6suHMwIHk8k46vNREgQ7IbDVgqRIvm0XFE2
+	hR0dttSykb6h7VUIyPS8YF1Ul/vhNPCx3yCPCn6Y9s9XeqPXDCG/anmVe9lD1BuWY0jx8CXI9BKWf
+	9z+LYDjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdTTy-0000000EzsN-0QUR;
-	Wed, 07 Jan 2026 13:21:50 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vdTUx-0000000F039-1t70;
+	Wed, 07 Jan 2026 13:22:51 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdTTw-0000000Ezrb-0JHC
+	id 1vdTUt-0000000F02J-1YL5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 13:21:49 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 607BMRBh3152513
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 7 Jan 2026 13:21:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=js9vOdGwDOtrz/HNGFuhKMtQ
-	9O5QjU14j2FRmChcdtk=; b=kG3/1cJ1P7ELpcYi4U9ELqLxZVjt72LrO+o8b368
-	fi93VpPDiEfi+45Q2CtKwzWuPFKqWY+Mh2EiPw5vd8Vpm2XRAuWkxK31fv+YNbrk
-	OSJ4rpTVpu9hHJ7SkXwiYFRpfkTeY9luQTuQ2KYP2RGa+UHizmcikgcC/Zs/WuwF
-	kfShAdfmGYD4ImRzKeBScibWpKKQLsGDz07GG52n2IAAbm5UrKb3Ois9v/A5PYBF
-	mcHPsICzCwQTnNNr+3AxzepT3h5cb29NlRt3Z5jjNDBDNULEmobYyiKrsOtWKWt+
-	IOpcqT84fcn771H2LtNgspTmUV0Pw4g90RXS66kMNU24Dg==
-Received: from mail-ua1-f69.google.com (mail-ua1-f69.google.com [209.85.222.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bhpjar9r9-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 13:21:47 +0000 (GMT)
-Received: by mail-ua1-f69.google.com with SMTP id a1e0cc1a2514c-93f5a368daeso2331276241.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 05:21:47 -0800 (PST)
+	Wed, 07 Jan 2026 13:22:50 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-8b2ec756de0so211523085a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 05:22:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767792106; x=1768396906; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=js9vOdGwDOtrz/HNGFuhKMtQ9O5QjU14j2FRmChcdtk=;
-        b=Mw/9wQztdhpnv2N7+mz/JFs/M/i963v84TY/ASZMZlHkoI3rR0b3dljwegpsN+eKWB
-         RBgItYzxOSv8KFPP3DaoQjLvZIax2TaqoumBkXjuui6eElJB7q7nfd9X0Pb6Rv+6VDSB
-         18D/SFZg6Ejxsi6+2+ps9xMU+JKLSbcZ+etrIa88IuM3MhCOon1mVyTEhl8vcCr96eiU
-         phibJlAV29lANZ0AGFvh1vq1gklIZZlmoa0Pbi6FpvJI6k0zeZ4yI48EaONReXYcTBeV
-         GS7nXDut07qnl+Jh4DO6DHrGfSyFpoU6+wjGtJt5nEIyEi8yFwW/gzDFwu6Dxlf9qr8w
-         aIGQ==
+        d=gmail.com; s=20230601; t=1767792166; x=1768396966; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eVyX/saFSHkwOAT/HfR9J/XxoKvZtdkuCzZLxL4WCSA=;
+        b=DQhtlkwQkWv6qFcsgRwxwZS4bKpWNdlb5ijCJRddV9BlH5U5bNSMhs0AVG6e452Qx3
+         FAm1NZ1wJi3v933vzzplzsJC4gw6magOA0gkCbzaqRHfeBWA43Gpm5umjwjcqz/mnGdR
+         TvpZBJ7DwRS9MTlRbWH0rf+PRgwc17KuWKRx3JsFIBcHaXjfFjTXH22sgFvLLI7I67S1
+         TzqjG7s6OwsGogZbYSW+96hiEhVWS0YER4BQztIjjoaMJmtGcvy5CO25fEnCjlkGnwIM
+         1jpitgrhntZTcEJBbSzP//XieKE6c/qUPfGfOzm5iTylZMRR9lC9EkvGh2FFXMDOJj3m
+         Fa1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767792106; x=1768396906;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1767792166; x=1768396966;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=js9vOdGwDOtrz/HNGFuhKMtQ9O5QjU14j2FRmChcdtk=;
-        b=fPphh9sd3qsFykhok4I/JhSot8wJyqeOCOFZ8xD+SHVLrtlze+bpiBme479fEmj1Gh
-         Puq2AgYpi/Rob0FeOKySyeoiwl9E9bAvlhxdTT7fTLYgSGHE8n5TKm4VsX3/OevRgSF2
-         PwWBzh8T2aKYotFBazpx9+e4Ko3xcbhDewoCOyUGvbMsuH0Z4HsAUu5KD9YseNj/Kh4y
-         fvFH31By+shWDPtbUjGTiBU27NxSI2qv6PYM90LewtcdQp5ex7xARGP0nVs3F+ER4rAw
-         L4VAyVbIc6zQiD6n9wF6NluJPYfScFb4tQe32JaVogvH8325dMYjzzool6IUTr0mE4sz
-         0sZA==
-X-Forwarded-Encrypted: i=1; AJvYcCUJZ1T9FOjsFYVijA2Pqdt7Oqm2agHmzvYoAi4x989rjs34ZG7SmyPnVDDvSuaAjsTG2sO3fkj2+nYQxYxk8GQ6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7c6hwyxbK+MmtvtwHMfGCDoYsq7Ux6I86pUYXxVUi3jq5Qa+0
-	gKmU2rsWqj3a4N8vnjh9F5k8YJ/mRmjpbD1KTak10GhzGKs/JHqNnVyX2HMnhdxBWQnAd1sq5u9
-	F9SsbxDwHulvyxsKTKOWQ1BoSXbaZquwnVWDKG/r8CukpNNI31f/7iqA7Sc0QnQmg90k8go6p1d
-	KIbg==
-X-Gm-Gg: AY/fxX7VCZNCLycctNfcdhGRS9WGLdXm6ySYpbd6mdGVxwmG4wwbmaz6S0J16UIHij/
-	gfFekJcqTehDb+JLQXnrpbCLCgmwp+SwKE2iqnvH4SSx7MxQb6ZK68orEbIPyeQ+Rc/rtgUH1hR
-	Sn6fZuyiu8ElGJ5gPh9AcmIFoJEW8wXpaY9RrF20ZfmjGvfacbnkb4aqCzqr10LYgFc/kWTy8Y+
-	UdbmpgbNtCkr2tpFEVZSR8scwrcu+oLnIvhmBzSxWKX7mIYw8nrG4/Gldw2+t4krLn7BVBWg0Iz
-	VqG8yLjVWvVYU2E5G64Hp206gtNqrh2WOW2Chka4gyu8+MvM41s+rObdgOGx7P4dBgm4MZsg1z9
-	F+EnOjmTl0nwIAkWyHtUjnBCvYD/ebNPD+PYTC4o5FrNOnFPJjfkGw1gJ6FFwfTXJRetPIK7hdA
-	YXaOS3l3e1UhSNNpSpXK0ou8I=
-X-Received: by 2002:a05:6102:32d3:b0:5de:a2d2:8076 with SMTP id ada2fe7eead31-5ec752dbfd5mr2097444137.0.1767792104915;
-        Wed, 07 Jan 2026 05:21:44 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IF2NXBDg7wVXP/zTsrowEn5NsyiVqeMK7cDHudpgAqGMWRN5e4UR1GPSBvYkE7wBgLCTq0Y4g==
-X-Received: by 2002:a05:6102:32d3:b0:5de:a2d2:8076 with SMTP id ada2fe7eead31-5ec752dbfd5mr2097376137.0.1767792102812;
-        Wed, 07 Jan 2026 05:21:42 -0800 (PST)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-382eb8dadd1sm10295211fa.34.2026.01.07.05.21.40
+        bh=eVyX/saFSHkwOAT/HfR9J/XxoKvZtdkuCzZLxL4WCSA=;
+        b=SxGfumek5ejJ1JXYhcajiBXEpdq+UWIx5CyHIR/FfzgzJhaPh5N6nBMqvzeSNR6e8X
+         I0Cc89GFLWRllKzQePTTEsdtcD9HifCoqM7TW8x4BgEVmnXMoB2yBKGabwx8Y1oq/uXz
+         PA6fUZsjQQa+j4zVwFoQhtomtJJYIIDHY5i63HnUGbPh+o2inLhnNx/Ye9g1BjQjhfok
+         tpvzKWy5/L/h2ym6A9eJ23tjhgnFCSAScEyJJ2lwjCQz/lZqJN65+uVMQ5fcTS/snrsJ
+         jcXC8nnrwRZHrXkOkxXtwv+mfkG/e8TPirqzZGG1NXgqZXIsXVe6EOBRS8mWeX+4llYX
+         G8ww==
+X-Forwarded-Encrypted: i=1; AJvYcCW3Lu8CPPLXKZFwPz27DdrtLewilrtJr4klQw3LwPFmgHSoMYBqPE/FLLc+yk1daYL7lqEgALUiXR1Ui/Ae2Hx9@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBEObG2qTcHxkHCwQxfQcR90drqu6b8UQtQ8kP01ecGZeJO9hM
+	UXeXY0Q9D/30sVPuz9n2K9OHL3lpnfcPQ1u+WiAWdt3F5wa+n9pg2uPBzj+pBw==
+X-Gm-Gg: AY/fxX4n4cZzu5Tcgd4wjzKpyFrwSv2HRyu94O1G/Ahj71CGFLSJsnasQ/M0r+2PUZu
+	Ze7AvhRXpP1BSZ61zO/j5LZEG02y7usvQzdoJl37b5yC6Iejd7me1sfMRA7BhhUtxuws7Ujc4ak
+	zAORxma5+GzWX/44lW7Dj/53rINrAS/wzCEpwSeIJII1s0I0CE2MAUvbx5+PCiGbsnHoDMph/1M
+	yDcpxPEhCf75Z84sySzH92aQ0amTxrE1ztyN9vDep6PbeOPH6q0KPoRT2MgiDrZHUs/JAABdxkx
+	6xbjjA7Nuj/wjAiu3eihJNyEFLsjvRfpfAAgp//h3XdPFvjw2dwO5cwBZqHw8bDNbbt8ucsUa66
+	N2OF1nkZ8EEBT1khMX4r7Ozo3cwdp53sTZXr7RE12HeWBWtLWPZO+EUJ8x5c1eqcwP7ufvq3qqo
+	PJvHa28IfS24VP161w3xlMNMhdxHa2SHIotXHZ4dY7n6XxEhX4HUwVDS3zE/mav+JVpXslHLgOY
+	i8hqw==
+X-Google-Smtp-Source: AGHT+IFka4564yGsxxmwys4Mn7+GTaVT5Y+gqGfi+/kEB3nv8HFKvSn2ve0Sd55L7DEx3kGPj6korQ==
+X-Received: by 2002:a17:903:2291:b0:2a2:d2e8:9f25 with SMTP id d9443c01a7336-2a3ee47f0a8mr18571915ad.33.1767784973602;
+        Wed, 07 Jan 2026 03:22:53 -0800 (PST)
+Received: from localhost (p5342157-ipxg23901hodogaya.kanagawa.ocn.ne.jp. [180.39.242.157])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3cc88e3sm48170855ad.75.2026.01.07.03.22.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Jan 2026 05:21:40 -0800 (PST)
-Date: Wed, 7 Jan 2026 15:21:38 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Dave Stevenson <dave.stevenson@raspberrypi.com>,
-        =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
-        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-        Chen-Yu Tsai <wens@kernel.org>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Samuel Holland <samuel@sholland.org>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>, Liu Ying <victor.liu@nxp.com>,
-        Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Sandy Huang <hjc@rock-chips.com>,
-        Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
-        Andy Yan <andy.yan@rock-chips.com>, dri-devel@lists.freedesktop.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-sunxi@lists.linux.dev, linux-mediatek@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
-        linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v3 07/10] drm/display: hdmi_state_helper: reject Audio IF
- updates if it's not supported
-Message-ID: <mccxwmemwxp4fcyjiu3zofuydk5ahmhnluqucwau5a6aiw67xr@52gynmrblml3>
-References: <20251224-limit-infoframes-2-v3-0-7fd3cacfefed@oss.qualcomm.com>
- <20251224-limit-infoframes-2-v3-7-7fd3cacfefed@oss.qualcomm.com>
- <20260107-fascinating-boa-of-fertility-1886a0@houat>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260107-fascinating-boa-of-fertility-1886a0@houat>
-X-Authority-Analysis: v=2.4 cv=efMwvrEH c=1 sm=1 tr=0 ts=695e5deb cx=c_pps
- a=UbhLPJ621ZpgOD2l3yZY1w==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=3wq6KaL0rsEoTcXXugkA:9 a=CjuIK1q_8ugA:10
- a=TOPH6uDL9cOC6tEoww4z:22
-X-Proofpoint-ORIG-GUID: MvWn57V04oNJ44ayhRC4UWBh_4iR3izt
-X-Proofpoint-GUID: MvWn57V04oNJ44ayhRC4UWBh_4iR3izt
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA3MDEwMiBTYWx0ZWRfX2onItd0FXGy4
- uDOUstuJIBt15RXKK/6NkWYPFy+hWpVXzuLhcgl/09poPRFkFgdWt8LScJgmFbifG7BjKMz3J6Z
- 12jG3vFsQ1NPvP/vUicgkCTzVyDKMrpzXkncYC05CSdIQ7Ai2sn2FdNzZmBc0OLh5UCCcjTDKCf
- flRMFsnxdkgbQUZwavwvGiEmvYSPkdWnymuggMDRYDBm9b16dy9MXpijOo3lpARVu6qr2f2eT3w
- ofd1j4p+yGktE0heePCka3YAPt9d/V81BJZMLSDJowHQFizuOa5LBzwWwhX5ATxRUSKbP7jscPm
- zWkle8CBCnoaIrtc78+BqSDOTOK2nKR4aHW2/kzMMQIzV0WygkilXBaQU8yyP7lX7LMcwp2c+mS
- D6QHt/vS+kSuWV51JNKYoFtYmj3vsdJSA86UklFHYKpqG1iNgKRqDPvAo+W85GBRvESoesYAJEf
- ib9oXuUPRJ6sVowokvg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-07_01,2026-01-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 lowpriorityscore=0 spamscore=0 priorityscore=1501
- adultscore=0 phishscore=0 malwarescore=0 clxscore=1015 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601070102
+        Wed, 07 Jan 2026 03:22:53 -0800 (PST)
+Date: Wed, 07 Jan 2026 20:22:45 +0900 (JST)
+Message-Id: <20260107.202245.559061117523678561.fujita.tomonori@gmail.com>
+To: a.hindborg@kernel.org
+Cc: fujita.tomonori@gmail.com, aliceryhl@google.com, lyude@redhat.com,
+ boqun.feng@gmail.com, will@kernel.org, peterz@infradead.org,
+ richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com,
+ catalin.marinas@arm.com, ojeda@kernel.org, gary@garyguo.net,
+ bjorn3_gh@protonmail.com, lossin@kernel.org, tmgross@umich.edu,
+ dakr@kernel.org, mark.rutland@arm.com, frederic@kernel.org,
+ tglx@linutronix.de, anna-maria@linutronix.de, jstultz@google.com,
+ sboyd@kernel.org, viro@zeniv.linux.org.uk, brauner@kernel.org,
+ jack@suse.cz, linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, rust-for-linux@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 4/5] rust: hrtimer: use READ_ONCE instead of
+ read_volatile
+From: FUJITA Tomonori <fujita.tomonori@gmail.com>
+In-Reply-To: <87cy3livfk.fsf@t14s.mail-host-address-is-not-set>
+References: <87ikdej4s1.fsf@t14s.mail-host-address-is-not-set>
+	<20260106.222826.2155269977755242640.fujita.tomonori@gmail.com>
+	<87cy3livfk.fsf@t14s.mail-host-address-is-not-set>
+Mime-Version: 1.0
+Content-Type: Text/Plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_052148_111451_06BEBC8F 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20260107_052248_927821_AB18C411 
+X-CRM114-Status: GOOD (  22.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,26 +112,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 01:50:51PM +0100, Maxime Ripard wrote:
-> Hi,
-> 
-> On Wed, Dec 24, 2025 at 03:02:56AM +0200, Dmitry Baryshkov wrote:
-> > Updating the InfoFrame if it can not be sent over the wire makes no
-> > sense. Change drm_atomic_helper_connector_hdmi_update_audio_infoframe()
-> > and drm_atomic_helper_connector_hdmi_clear_audio_infoframe() to return
-> > an error if Audio InfoFrame callbacks are not implemented.
-> > 
-> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> 
-> IIRC, audio infoframes are mandatory if you send audio over the cable,
-> so maybe we should do like you did for drmm_connector_hdmi_init and
-> error in drm_connector_hdmi_audio_init if we don't have the proper
-> write_infoframe hook set?
+On Wed, 07 Jan 2026 11:11:43 +0100
+Andreas Hindborg <a.hindborg@kernel.org> wrote:
 
-HDMI hosts can be sending Audio InfoFrames in some other way (think
-about LT9611UXC, which manages infoframes on its own).
+> FUJITA Tomonori <fujita.tomonori@gmail.com> writes:
+> 
+>> On Tue, 06 Jan 2026 13:37:34 +0100
+>> Andreas Hindborg <a.hindborg@kernel.org> wrote:
+>>
+>>> "FUJITA Tomonori" <fujita.tomonori@gmail.com> writes:
+>>> 
+>>>> On Thu, 01 Jan 2026 11:11:23 +0900 (JST)
+>>>> FUJITA Tomonori <fujita.tomonori@gmail.com> wrote:
+>>>>
+>>>>> On Wed, 31 Dec 2025 12:22:28 +0000
+>>>>> Alice Ryhl <aliceryhl@google.com> wrote:
+>>>>>
+>>>>>> Using `READ_ONCE` is the correct way to read the `node.expires` field.
+>>>>>>
+>>>>>> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
+>>>>>> ---
+>>>>>>  rust/kernel/time/hrtimer.rs | 8 +++-----
+>>>>>>  1 file changed, 3 insertions(+), 5 deletions(-)
+>>>>>>
+>>>>>> diff --git a/rust/kernel/time/hrtimer.rs b/rust/kernel/time/hrtimer.rs
+>>>>>> index 856d2d929a00892dc8eaec63cebdf547817953d3..e2b7a26f8aade972356c3eb5f6489bcda3e2e849 100644
+>>>>>> --- a/rust/kernel/time/hrtimer.rs
+>>>>>> +++ b/rust/kernel/time/hrtimer.rs
+>>>>>> @@ -239,11 +239,9 @@ pub fn expires(&self) -> HrTimerInstant<T>
+>>>>>>          // - Timers cannot have negative ktime_t values as their expiration time.
+>>>>>>          // - There's no actual locking here, a racy read is fine and expected
+>>>>>>          unsafe {
+>>>>>> -            Instant::from_ktime(
+>>>>>> -                // This `read_volatile` is intended to correspond to a READ_ONCE call.
+>>>>>> -                // FIXME(read_once): Replace with `read_once` when available on the Rust side.
+>>>>>> -                core::ptr::read_volatile(&raw const ((*c_timer_ptr).node.expires)),
+>>>>>> -            )
+>>>>>> +            Instant::from_ktime(kernel::sync::READ_ONCE(
+>>>>>> +                &raw const (*c_timer_ptr).node.expires,
+>>>>>> +            ))
+>>>>>>          }
+>>>>>
+>>>>> Do we actually need READ_ONCE() here? I'm not sure but would it be
+>>>>> better to call the C-side API?
+>>>>>
+>>>>> diff --git a/rust/helpers/time.c b/rust/helpers/time.c
+>>>>> index 67a36ccc3ec4..73162dea2a29 100644
+>>>>> --- a/rust/helpers/time.c
+>>>>> +++ b/rust/helpers/time.c
+>>>>> @@ -2,6 +2,7 @@
+>>>>>
+>>>>>  #include <linux/delay.h>
+>>>>>  #include <linux/ktime.h>
+>>>>> +#include <linux/hrtimer.h>
+>>>>>  #include <linux/timekeeping.h>
+>>>>>
+>>>>>  void rust_helper_fsleep(unsigned long usecs)
+>>>>> @@ -38,3 +39,8 @@ void rust_helper_udelay(unsigned long usec)
+>>>>>  {
+>>>>>  	udelay(usec);
+>>>>>  }
+>>>>> +
+>>>>> +__rust_helper ktime_t rust_helper_hrtimer_get_expires(const struct hrtimer *timer)
+>>>>> +{
+>>>>> +	return timer->node.expires;
+>>>>> +}
+>>>>
+>>>> Sorry, of course this should be:
+>>>>
+>>>> +__rust_helper ktime_t rust_helper_hrtimer_get_expires(const struct hrtimer *timer)
+>>>> +{
+>>>> +	return hrtimer_get_expires(timer);
+>>>> +}
+>>>>
+>>> 
+>>> This is a potentially racy read. As far as I recall, we determined that
+>>> using read_once is the proper way to handle the situation.
+>>> 
+>>> I do not think it makes a difference that the read is done by C code.
+>>
+>> What does "racy read" mean here?
+>>
+>> The C side doesn't use WRITE_ONCE() or READ_ONCE for node.expires. How
+>> would using READ_ONCE() on the Rust side make a difference?
+> 
+> Data races like this are UB in Rust. As far as I understand, using this
+> READ_ONCE implementation or a relaxed atomic read would make the read
+> well defined. I am not aware if this is only the case if all writes to
+> the location from C also use atomic operations or WRITE_ONCE. @Boqun?
 
--- 
-With best wishes
-Dmitry
+The C side updates node.expires without WRITE_ONCE()/atomics so a
+Rust-side READ_ONCE() can still observe a torn value; I think that
+this is still a data race / UB from Rust's perspective.
+
+And since expires is 64-bit, WRITE_ONCE() on 32-bit architectures does
+not inherently guarantee tear-free stores either.
+
+I think that the expires() method should follow the same safety
+requirements as raw_forward(): it should only be considered safe when
+holding exclusive access to hrtimer or within the context of the timer
+callback. Under those conditions, it would be fine to call C's
+hrtimer_get_expires().
+
 
