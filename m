@@ -4,158 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE6B9D0D171
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 21:45:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB8D0D0D171
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 21:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+5GrSwV93wyzCmfyY+CfgJ/wayiOSfDT9fXhh8GQkUU=; b=w3HkFVTzqSt9cg+2RkHoiH6YCK
-	yojAbK/mzjo+FnXUvYTlUFbsHHpHhD8bzHANmHu9UsyRI0/613T5Pe4aIxj/WYnNLgFf4Q+W4a4O8
-	XdMfjGI87o6x+ApAruVE+amqiaPvbxHSsJgDGiW6h1CxrgWm+LGJZzbxRxQN0st3uY5Ymy8tCHAnw
-	gGdmlpuB4jxkhZLDYLEctQE+SHt3Wjy57DKWQDDfh9OO95vP2/UnzB/yezAGjNM5tEmZ6Is+oGliZ
-	8RcQALkD9hGf2U0y8gyufSSGauqpEj+gkPbVdx/rv1TAaNcEr2s/0y6BFni6bywYtvas0PmFrwUvd
-	u+WiYD4A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CWbYS1PWWwziLddhvpqLVmHnAcvw25qM8FhFwh1XOz8=; b=lMoXCEyFoYipxIeaTHNZ/WzMYc
+	OTfhi6j3uO8EbpcRHfrqtlBDyIGZgYxZB3c9HB4znhjARSG2fAhc6t/yf1guPlZmDnonHZqNrVFgX
+	cLjBWDrg3EhKZ/j3ItE92malNEsgrE9H6huGDXNmz6B4MlbrVgHPlT0LNCFjCgP1yJJQuCdOC2byh
+	K3dcMt9DEsVfScr/tED5/j9zWfF3CHJoLpGnlg2C2EE1KhaUXclU3FKZmGlmUTCrZZpTDeh/uZSe9
+	z2seRrqbgp94gIpih1acfiV1Ua7rNyiMyo1YaHyKyS9F9HDh1BUNjzW9AuD/Hja7qWcqlbNHF95jf
+	KchCJaZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdbKz-0000000FfzT-2sjv;
-	Wed, 07 Jan 2026 21:45:05 +0000
-Received: from mail-westus2azon11010046.outbound.protection.outlook.com ([52.101.46.46] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1vdbVs-0000000FgPy-3WEH;
+	Wed, 07 Jan 2026 21:56:20 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdbKw-0000000Ffz5-39mO
+	id 1vdbVn-0000000FgPJ-3vZ0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 21:45:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VZj9hZXBei5urA2rnxF0jNI4uJqq5EDaGldTVoQOHcAwBPnJWc8mICBRJZTqJt97rZ3fOit5nZPzDOJRqfVnYQVN5VTzp8YQaL3HeEZ9tXDH4D42RH1SDQBz19jFwHxABZbQq1VQR19EdKI4HmPfB2UsOmRrZuNugfp5PkTKMbvoHCS9nqmwbwObdeUQ21Um5SzHpnw/FZyBP3fylwGrqfatkGXVgg6ZMyv9xJOK84PW+t20B336NB0tJqxWKIovdwO0NnYAoAgBHCV4NUXTq3/IxKiKL6SRMOjX2dtulcwMbzJGOtkNX6dwizgOfRb9VuUBnts6pG/fUhoRTgYYGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+5GrSwV93wyzCmfyY+CfgJ/wayiOSfDT9fXhh8GQkUU=;
- b=KAK3RgzZzYD1nKKYLaNw+3mgdDEPcydCyfxhLZmf96zExaXz/lzo6/s5R2YysECCVxHQGlCaO+eig9+DT771LXZQX1/yNzlZgg6Cn8wROKpDao8IkQ8Js/13+N/BuChn2vNUVlyENonzPFnobfyhj8CrnswKmc3jQ03Q4KMpbL7wMadsA85A5KtHlUu61Vdupp1HuBYMKxS8TVL/0p8EsHPA9Ak2QFHlOGi/JuBy9baxx532X5aK8we6g8rzq/AKPB6Bbj9hKDSw8jB8o33tRaaQRQiW5PEd8GNPI3UTpjlGkOhPNDCmTodoU3dTWQhvRLBSrEr5fJkkmemgxj/BEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+5GrSwV93wyzCmfyY+CfgJ/wayiOSfDT9fXhh8GQkUU=;
- b=sI1n6DfppPfJMp1C7UCGQUWArepCBjFz/1MQb+n8WmU41EDOptSa+qZvP+KBJdQELp1b56tdguL+sLnUgtGf6RlwwIZHSSgKj3oOGDsi+wudmpVFNU4KppxLOdeREejJxtGzBvzO0TvFOPdLQUovpAROlVcu3TvLRWZAbSZEhCQ=
-Received: from BN9PR03CA0654.namprd03.prod.outlook.com (2603:10b6:408:13b::29)
- by BN0PR10MB5047.namprd10.prod.outlook.com (2603:10b6:408:12a::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.2; Wed, 7 Jan
- 2026 21:44:57 +0000
-Received: from BN3PEPF0000B370.namprd21.prod.outlook.com
- (2603:10b6:408:13b:cafe::ec) by BN9PR03CA0654.outlook.office365.com
- (2603:10b6:408:13b::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.2 via Frontend Transport; Wed, 7
- Jan 2026 21:44:55 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BN3PEPF0000B370.mail.protection.outlook.com (10.167.243.167) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.0 via Frontend Transport; Wed, 7 Jan 2026 21:44:55 +0000
-Received: from DFLE200.ent.ti.com (10.64.6.58) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 7 Jan
- 2026 15:44:55 -0600
-Received: from DFLE201.ent.ti.com (10.64.6.59) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 7 Jan
- 2026 15:44:55 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 7 Jan 2026 15:44:55 -0600
-Received: from [128.247.81.19] (uda0506412.dhcp.ti.com [128.247.81.19])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 607LisWB1271943;
-	Wed, 7 Jan 2026 15:44:54 -0600
-Message-ID: <c7dfe4a3-1bf5-4e50-b4b7-8752aa9ef1f5@ti.com>
-Date: Wed, 7 Jan 2026 15:44:54 -0600
+	Wed, 07 Jan 2026 21:56:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1767822973;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=CWbYS1PWWwziLddhvpqLVmHnAcvw25qM8FhFwh1XOz8=;
+	b=b8d9bpf39MmmctW/Evz386oDsv15UZ9Lg7kYsmaELu4kOGcRGzLHdpMh0BzDqD7cDJB7XJ
+	QT9J0eU4xpt2cpbY5BCBZcogxO2uBaZugX7aznOcM9eQUmx7wyhDbYOMIYcMUxcH/sV4KT
+	AxHN/fWEMfZg4/BvwxknJF+BC62CgwQ=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-319-ONoBIn6kOfaA6fo4rpJTXA-1; Wed,
+ 07 Jan 2026 16:54:34 -0500
+X-MC-Unique: ONoBIn6kOfaA6fo4rpJTXA-1
+X-Mimecast-MFC-AGG-ID: ONoBIn6kOfaA6fo4rpJTXA_1767822873
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C2B3C1800447;
+	Wed,  7 Jan 2026 21:54:32 +0000 (UTC)
+Received: from llong-thinkpadp16vgen1.westford.csb (unknown [10.22.81.77])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 4A62618007D2;
+	Wed,  7 Jan 2026 21:54:30 +0000 (UTC)
+From: Waiman Long <longman@redhat.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev,
+	Waiman Long <longman@redhat.com>
+Subject: [PATCH] irqchip/gic-v3-its: Don't acquire rt_spin_lock in allocate_vpe_l1_table()
+Date: Wed,  7 Jan 2026 16:53:53 -0500
+Message-ID: <20260107215353.75612-1-longman@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/3] arm64: boot: dts: ti: k3-am62l: allow WKUP UART
- wakeup from LPM
-To: Bryan Brattlof <bb@ti.com>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Tero
- Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Dhruva
- Gole" <d-gole@ti.com>, <vishalm@ti.com>, <sebin.francis@ti.com>,
-	<msp@baylibre.com>, <khilman@baylibre.com>, <a-kaur@ti.com>,
-	<s-kochidanadu@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-References: <20260106-wkup-uart-wakeup-v2-0-fb4cbd56c827@ti.com>
- <20260107164504.ehvbfizg7ybbvv2e@bryanbrattlof.com>
-Content-Language: en-US
-From: Kendall Willis <k-willis@ti.com>
-In-Reply-To: <20260107164504.ehvbfizg7ybbvv2e@bryanbrattlof.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B370:EE_|BN0PR10MB5047:EE_
-X-MS-Office365-Filtering-Correlation-Id: bddb9b1c-85d8-4824-e634-08de4e35ff64
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cm1GdVFPa3JpR1dhZXV1RmdXRSsveG9jTUx6Wkt5dDVyUGMzeVlqb0lIN08x?=
- =?utf-8?B?TUp6R0o3RHhlREFjQmw2VytDSm9iY3Q3V0s0QVNrdE10MlV6U1NvMTBHb2tS?=
- =?utf-8?B?M3F3LzBRYXhFb0dJakUyYmpBSUZjMjVlTFZBZU9UNUxoTlhvQkJSVjlHTWpM?=
- =?utf-8?B?a0NwRm4xR0JWN0JqS1lET2xXYnFONzhrK2ZpaW0rcnpzV0ZlWVRYUVNIRXBP?=
- =?utf-8?B?NWRZRnJPRTNETWhVSjVRTDlCcG5ySTF2WStPdDBSU0MyWDVLZ0NnQ1gveWJC?=
- =?utf-8?B?MExKc0x5ZzZidVlZbGZHYmlFTWFzaCthU0RWd2F3bkQ0RjMvdm5rOVBsdmFh?=
- =?utf-8?B?S2tnck5hZ2xYYThjREdxV1lUd0IxYS9EWUlkS1FMQTk0ekF0Y0VMSTRTQWhG?=
- =?utf-8?B?Ykk4UVJ4aXRqZzVQOGxYZm9kZDJQbGtIeTRoT0ZENnpGODJIaWNVbmNTL0hi?=
- =?utf-8?B?MzZtKzk3QUU5RVU4K25ESkN2RWp4UEZxR1pWdGwrK0xxYlJGVCtNMFFBZ3pW?=
- =?utf-8?B?VW5UYkF0cEgrNU93ZUh4bzVraGdZUlFXVlhOUDloNnIzU0NnWWxDZ2tReUQ3?=
- =?utf-8?B?MVRyUysrTmVXZHZyeDNiNnEzcW5aM2lnNUVndmxRWXUraHZrb093eGdMWWg0?=
- =?utf-8?B?RUlLREI2ejlia1lVN0xFM3RtZUgzUkFwd0lNWXFTbHZJREZCYlRGdnBnMWM1?=
- =?utf-8?B?WWFycFdSRmVzcXRyeHA2Q0U3ZWNHSmE3b24vU3Jmc24yeE9yWVlrZUx6NDFJ?=
- =?utf-8?B?ZmdLWHFhTEp4bUkxdXBLcndJK1Y2ekExUTg3Z0o4M084TVBDeHR1dy83UEwz?=
- =?utf-8?B?M055bjJrU2h0UlQ4NlREbzlkcXcyZmYwQ3dmcFhtZUdCMUNxODliSUx1U3o5?=
- =?utf-8?B?K3BSR1ZyZlI3N2FNN1ZnR3pJb1RXaTdQQVp3Skg1YmRRQ1JNYm1Xa29lMENL?=
- =?utf-8?B?T1FXMFlMeFlSTFlURDZyZDl2d0JpcWNWTzZHR2t6akMvRk1vRGV4ZVoyOFl6?=
- =?utf-8?B?N1hLVktDcTg3VnMvMFBQcXBMMVU1YkVJam03QThLZ0kyUys1Z2ZqUzZXQkpX?=
- =?utf-8?B?Rk1KSjNoQlZqVXF3Vmo3bzhVVlQ4T1BEd29Qb08rTFQ0bnRTZVlLZktJUWZt?=
- =?utf-8?B?WXU0MzFxZkQvZUZEUVRGQTVLa3RRa3Fvdm51alBrcUlvQ0Q4UVlKR1JWeXhF?=
- =?utf-8?B?VVhWTzdXU21ub2tWTUNETWVqRjFrcm5QdUFManU3b1R4M0tuekZVR1ltNHJZ?=
- =?utf-8?B?eXVLdEFUc0hxSWtyV2pDMWQxK3FseVYvQ3lUSU9wVXIxc0JQRnhzSzhub2J2?=
- =?utf-8?B?V0g1YytXUXpETzRFUlNnSXNrbGw3RzRkUkp2RDRCeGJmSU8rVm1nL1JhN0tj?=
- =?utf-8?B?aDFPMjE2ekRGVm5ETmZJYzE5S2JyT20yZ3owMHEzTzJ5OW1ZRjlSOXFuVUZ6?=
- =?utf-8?B?R1B4ekZIamVEK3RXVFh4WStZSTJCRFVoMXdXTk5iTmljQUU2d0k4VGd0LzVG?=
- =?utf-8?B?YmprbXhpWEZ1US9YMW8wdG5pU0hUWFMwcFpoNWpHY2p2bDhEOTZLMkZzVnB4?=
- =?utf-8?B?M3A1aHhoWTNpblZLWVJOQXNHSzZpdXpWbURzR0N5SjlMK0RBY0RxUThpQlZn?=
- =?utf-8?B?VmJSQU5YMGozTjZ0clNMMEpBbmZjQjBVR05Cc0J0dFkwQnFkcElVRlJzNnNq?=
- =?utf-8?B?M2tldTRxVnFGV1I5QXEvUFJSV25adXdqc2Z0aWZSSVlrSkFNMWJQQ0Fva0hw?=
- =?utf-8?B?T0hUUm5DUUhhaTRBUXh5M1ZhRUZOa2RRR0dOMXVkMTFCYUFjYU1xNERXYmla?=
- =?utf-8?B?TEkyM0VsRU5mY2QzU1BBbExOWEFseGZmYU81dVcwNEp6aUx3S3hlQlNpdk1N?=
- =?utf-8?B?RFVoUVU0bW52dVZ3a0luVUlYcmtKMk15TEJCWWxMUnRxT3h4bHM0cXRyenpv?=
- =?utf-8?B?U2tFVUtFVmpOVmIzRk03MFVzVEx5eVVBbGdTbW11aXc4M0tML3BiT1FIR1N0?=
- =?utf-8?B?a1NOOExWS2hBeWoyWHdlQ1cwZ1ZPVEU2d2hESTJ1ZnZvajBVcGEwM291ajZ4?=
- =?utf-8?B?b01TbEQ4RW1QbVZSaTVRNzZkNGM2bG1CeGgxK25HUG1TNTMrR01LSDVFcERF?=
- =?utf-8?Q?k4sw=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jan 2026 21:44:55.7110
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bddb9b1c-85d8-4824-e634-08de4e35ff64
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B370.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB5047
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_134502_879960_0E4605B2 
-X-CRM114-Status: GOOD (  13.70  )
+X-CRM114-CacheID: sfid-20260107_135616_134207_1866C660 
+X-CRM114-Status: GOOD (  19.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,35 +85,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/7/26 10:45, Bryan Brattlof wrote:
-> On January  6, 2026 thus sayeth Kendall Willis:
->> K3 TI AM62L SoC supports wakeup from WKUP UART when the SoC is in the
->> DeepSleep low power mode. To allow wakeup from WKUP UART the target-module
->> device tree node is enabled. The ti-sysc interconnect target module driver
->> is used to configure the the SYSCONFIG related registers. In this case,
->> the interconnect target module node configures the WKUP UART to be able to
->> wakeup from system suspend. The SYSC register is used to enable wakeup
->> from system suspend for the WKUP UART. Refer to 14.7.2.5 UART in the
->> AM62L Techincal Reference Manual for registers referenced [1].
->>
->> Previous TI SoCs configure the WKUP UART to wakeup from system suspend
->> using the ti-sysc interconnect target module driver. Refer to commit
->> ce27f7f9e328 ("arm64: dts: ti: k3-am62-wakeup: Configure ti-sysc for
->> wkup_uart0") for an example of this.
-> 
-> I think I may be confused. What is setting the pinmux for the wkup_uart
-> to allow us to trigger the wake event? It looks like they reset to GPIO
-> pins if not set. Is firmware doing this?
+When running a PREEMPT_RT debug kernel on a 2-socket Grace arm64 system,
+the following bug report was produced at bootup time.
 
-On AM62L, the WKUP UART pinmux is initially set by TFA so that it is set 
-to the UART pins, not GPIO. The target-module node sets the WKUP UART 
-SYSC register so that wakeup is enabled.
+  BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
+  in_atomic(): 1, irqs_disabled(): 1, non_block: 0, pid: 0, name: swapper/72
+  preempt_count: 1, expected: 0
+  RCU nest depth: 1, expected: 1
+   :
+  CPU: 72 UID: 0 PID: 0 Comm: swapper/72 Tainted: G        W           6.19.0-rc4-test+ #4 PREEMPT_{RT,(full)}
+  Tainted: [W]=WARN
+  Call trace:
+    :
+   rt_spin_lock+0xe4/0x408
+   rmqueue_bulk+0x48/0x1de8
+   __rmqueue_pcplist+0x410/0x650
+   rmqueue.constprop.0+0x6a8/0x2b50
+   get_page_from_freelist+0x3c0/0xe68
+   __alloc_frozen_pages_noprof+0x1dc/0x348
+   alloc_pages_mpol+0xe4/0x2f8
+   alloc_frozen_pages_noprof+0x124/0x190
+   allocate_slab+0x2f0/0x438
+   new_slab+0x4c/0x80
+   ___slab_alloc+0x410/0x798
+   __slab_alloc.constprop.0+0x88/0x1e0
+   __kmalloc_cache_noprof+0x2dc/0x4b0
+   allocate_vpe_l1_table+0x114/0x788
+   its_cpu_init_lpis+0x344/0x790
+   its_cpu_init+0x60/0x220
+   gic_starting_cpu+0x64/0xe8
+   cpuhp_invoke_callback+0x438/0x6d8
+   __cpuhp_invoke_callback_range+0xd8/0x1f8
+   notify_cpu_starting+0x11c/0x178
+   secondary_start_kernel+0xc8/0x188
+   __secondary_switched+0xc0/0xc8
 
-Best,
-Kendall
+This is due to the fact that allocate_vpe_l1_table() will call
+kzalloc() to allocate a cpumask_t when the first CPU of the
+second node of the 72-cpu Grace system is being called from the
+CPUHP_AP_MIPS_GIC_TIMER_STARTING state inside the starting section of
+the CPU hotplug bringup pipeline where interrupt is disabled. This is an
+atomic context where sleeping is not allowed and acquiring a sleeping
+rt_spin_lock within kzalloc() may lead to system hang in case there is
+a lock contention.
 
-> 
-> ~Bryan
+To work around this issue, a static buffer is used for cpumask
+allocation when running a PREEMPT_RT kernel via the newly introduced
+vpe_alloc_cpumask() helper. The static buffer is currently set to be
+4 kbytes in size. As only one cpumask is needed per node, the current
+size should be big enough as long as (cpumask_size() * nr_node_ids)
+is not bigger than 4k.
 
+Signed-off-by: Waiman Long <longman@redhat.com>
+---
+ drivers/irqchip/irq-gic-v3-its.c | 26 +++++++++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index ada585bfa451..9185785524dc 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -2896,6 +2896,30 @@ static bool allocate_vpe_l2_table(int cpu, u32 id)
+ 	return true;
+ }
+ 
++static void *vpe_alloc_cpumask(void)
++{
++	/*
++	 * With PREEMPT_RT kernel, we can't call any k*alloc() APIs as they
++	 * may acquire a sleeping rt_spin_lock in an atomic context. So use
++	 * a pre-allocated buffer instead.
++	 */
++	if (IS_ENABLED(CONFIG_PREEMPT_RT)) {
++		static unsigned long mask_buf[512];
++		static atomic_t	alloc_idx;
++		int idx, mask_size = cpumask_size();
++		int nr_cpumasks = sizeof(mask_buf)/mask_size;
++
++		/*
++		 * Fetch an allocation index and if it points to a buffer within
++		 * mask_buf[], return that. Fall back to kzalloc() otherwise.
++		 */
++		idx = atomic_fetch_inc(&alloc_idx);
++		if (idx < nr_cpumasks)
++			return &mask_buf[idx * mask_size/sizeof(long)];
++	}
++	return kzalloc(sizeof(cpumask_t), GFP_ATOMIC);
++}
++
+ static int allocate_vpe_l1_table(void)
+ {
+ 	void __iomem *vlpi_base = gic_data_rdist_vlpi_base();
+@@ -2927,7 +2951,7 @@ static int allocate_vpe_l1_table(void)
+ 	if (val & GICR_VPROPBASER_4_1_VALID)
+ 		goto out;
+ 
+-	gic_data_rdist()->vpe_table_mask = kzalloc(sizeof(cpumask_t), GFP_ATOMIC);
++	gic_data_rdist()->vpe_table_mask = vpe_alloc_cpumask();
+ 	if (!gic_data_rdist()->vpe_table_mask)
+ 		return -ENOMEM;
+ 
+-- 
+2.52.0
 
 
