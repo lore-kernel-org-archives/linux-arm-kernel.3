@@ -4,81 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11E8CF6BFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 08:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B761CCF6C00
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 08:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JOTgDoBhNMdzi3z1A9Z2+FORb7HFHRG/+HJpEV/ok1g=; b=GBD7KaI8sYsnCJzXJA9+TMYBFU
-	FejijWDrnun0uXQPVJ7F5KS/XsvaQ9HMMSzYxvBymXbj/IN/b8HXsfrYsJDtfEzIaF32Mnie2jqZG
-	mvmVuMi8tSgkemeEOfa7mcsPbyOAhFTOOiWsV8SiFPYaUurzCc1NjJ4WwugW5MYzoNp5VCwY2n5De
-	yv7P8vHpIyjIA6zb43uGcElPg1GhvwzP6qrT9oAHCGVH6F6LqdbB8KCh5rISHN/YAV04tls9wrfkv
-	KrV1nnrhJtNju5q3P3Xm7KIetZTrPAhomBKFulqZBHDfa7HfEFNAfN231qv/u0Ke3tFChhZf4ItTv
-	pO/mZ0Iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d/4bEhMAA/Lq621Ht53wLdkDnJEdjsOX6U7Ixyo4114=; b=ykKUz+JRnYMn7lTH1eBZ3TkiOy
+	b9X0zk197wrB/AJSOgrlpn07ekKisFQUKvvVrrJLGy9cdPkO/y+Yrut7m4oRhc+apcJq9yX/FSl90
+	Jsa4SbcEdiQJi5n2AUgryIV26qDWLqRBpOwmnXYqAmA1HN/hyVRwW3uWPm1qKe8tvkZMnA11nb4pg
+	pw6k3Vio8+dqDRnWrr5v2pC3fOWB9DGhFRVNtI3Z726+a23VaoGerdDLVAkQH5802Kkg9L+ygpxnB
+	TvpnWad2DSHS2OG3idvGjFvHVWDqrEQxWHANo/Zua2Fa4ntA1hZB+FJptPP+JIVEvo3BEqlEUW41j
+	hG9TxEGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdOyy-0000000EQYq-1Je8;
-	Wed, 07 Jan 2026 08:33:32 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdOyx-0000000EQYR-1Hwl
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 07 Jan 2026 08:33:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=JOTgDoBhNMdzi3z1A9Z2+FORb7HFHRG/+HJpEV/ok1g=; b=m8ClonE8SiqkHzbifDO+8o7toM
-	2EgeQurGzjarlRA5KjwgkUjrroYRQJR7ZBml5WG6UC4Pkc8KuvDXqKovGCvXCY+JHx1ASTpLuXVBj
-	AElKdNr/nykpwNKDKPRC70RyBq/ZxonicWL40WWXyukyJlrEgzhh85EuYOv+jG/54OAOnyR+Grejl
-	ZPB2lD83x55AEGDX/alzAM9BiMjlF1FK5iWKmg9sGyqKC9GL4uKSrEOWDaLqPqZXko8fiiT9Dp34H
-	lZwA6D0bIbgeRLtD50ONkxTVXrDVSaNGKCVMlLdohuXF9L/AzvDDY8DQClFhh2XIkdcxQ9AlDJ2Kq
-	i5N7FD5Q==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdOyu-0000000D7oI-319K;
-	Wed, 07 Jan 2026 08:33:28 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 696B3300329; Wed, 07 Jan 2026 09:33:27 +0100 (CET)
-Date: Wed, 7 Jan 2026 09:33:27 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Gary Guo <gary@garyguo.net>
-Cc: Alice Ryhl <aliceryhl@google.com>, Boqun Feng <boqun.feng@gmail.com>,
-	Will Deacon <will@kernel.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	FUJITA Tomonori <fujita.tomonori@gmail.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Lyude Paul <lyude@redhat.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Anna-Maria Behnsen <anna-maria@linutronix.de>,
-	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	rust-for-linux@vger.kernel.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 3/5] rust: sync: support using bool with READ_ONCE
-Message-ID: <20260107083327.GB272712@noisy.programming.kicks-ass.net>
-References: <20251231-rwonce-v1-0-702a10b85278@google.com>
- <20251231-rwonce-v1-3-702a10b85278@google.com>
- <20260106124326.GY3707891@noisy.programming.kicks-ass.net>
- <20260106181201.22806712.gary@garyguo.net>
+	id 1vdOzG-0000000EQcZ-2aaC;
+	Wed, 07 Jan 2026 08:33:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdOzD-0000000EQbG-1F7m
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Jan 2026 08:33:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 306A4497;
+	Wed,  7 Jan 2026 00:33:36 -0800 (PST)
+Received: from [10.57.95.107] (unknown [10.57.95.107])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D5EEC3F6A8;
+	Wed,  7 Jan 2026 00:33:41 -0800 (PST)
+Message-ID: <d3579c85-8cac-4e83-94a7-b6dcab72b7a1@arm.com>
+Date: Wed, 7 Jan 2026 08:33:39 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260106181201.22806712.gary@garyguo.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/mm: Assert NR_BM_PUD_TABLES for bm_pud[]
+Content-Language: en-GB
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org
+References: <20260107061606.3160088-1-anshuman.khandual@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260107061606.3160088-1-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260107_003347_375875_F52B93DA 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,30 +65,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 06, 2026 at 06:12:01PM +0000, Gary Guo wrote:
-> On Tue, 6 Jan 2026 13:43:26 +0100
-> Peter Zijlstra <peterz@infradead.org> wrote:
-
-> > Does this hardcode that sizeof(_Bool) == 1? There are ABIs where this is
-> > not the case.
+On 07/01/2026 06:16, Anshuman Khandual wrote:
+> There is an implicit assumption about bm_pud[] being single entry PUD table
+> just like bp_pmd[] which is a single entry PMD table. Though only the later
+> gets asserted via NR_BM_PMD_TABLES. Hence let's add a similar check for PUD
+> table as well.
 > 
-> Hi Peter,
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  arch/arm64/mm/fixmap.c | 3 +++
+>  1 file changed, 3 insertions(+)
 > 
-> Do you have a concrete example on which ABI/arch this is not true?
-> 
-> I know that the C spec doesn't mandate _Bool and char are of the same size
-> but we have tons of assumptions that is not guaranteed by standard C..
+> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+> index c5c5425791da..e02594be8b8e 100644
+> --- a/arch/arm64/mm/fixmap.c
+> +++ b/arch/arm64/mm/fixmap.c
+> @@ -23,8 +23,11 @@ static_assert(FIXADDR_TOT_START > PCI_IO_END);
+>  	SPAN_NR_ENTRIES(FIXADDR_TOT_START, FIXADDR_TOP, PMD_SHIFT)
+>  #define NR_BM_PMD_TABLES \
+>  	SPAN_NR_ENTRIES(FIXADDR_TOT_START, FIXADDR_TOP, PUD_SHIFT)
+> +#define NR_BM_PUD_TABLES \
+> +	SPAN_NR_ENTRIES(FIXADDR_TOT_START, FIXADDR_TOP, P4D_SHIFT)
+>  
+>  static_assert(NR_BM_PMD_TABLES == 1);
+> +static_assert(NR_BM_PUD_TABLES == 1);
 
-Darwin/PowerPC famously has sizeof(_Bool) == 4
+But if there is only one PMD table, there must only be one PUD table (and one
+P4D table, and one PGD table) by definition. So I don't think this is checking
+anything that the existing PMD table check is not.
 
-Win32: Visual C++ 4.2 (and earlier) had sizeof(bool)==4 (they mapped
-bool to int), while Visual C++ 5.0 introduced a native _Bool and moved
-to 1 byte.
+Thanks,
+Ryan
 
-Early RISC CPUs (MIPS, PowerPC, Alpha) had severe penalties for byte
-access and their compilers would've had sizeof(bool)=={4,8}.
-
-I think AVR/Arduino also has sizeof(bool) == sizeof(int) which is 2.
-
+>  
+>  #define __BM_TABLE_IDX(addr, shift) \
+>  	(((addr) >> (shift)) - (FIXADDR_TOT_START >> (shift)))
 
 
