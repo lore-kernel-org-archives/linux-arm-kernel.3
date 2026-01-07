@@ -4,63 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB5FED0D17C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 23:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88631D0D17C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 23:30:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rR1fnvTTjB0CTE6RfkOtCAeY2jGW4kIZ+UMk8iaKGdI=; b=sL3xWyXWkp8BCuHMOqn4MD4TON
-	k/Wm7sBzqWEnQ0H2dvIpDggtsDYK9JV5pHYmsnOYu8MmZjXPZlNEXuD57TKkEiinCnUWpU0jiomRv
-	BRBz3mqNrjPqUmReZU4GJwKwmF5i6oOcpXaPPnHL0kDZ0EPzyjyTn78bybJj4b4FJjyI1Cpn+rNz0
-	3C55+hJ/DmEdB+4WlN7o+NgrUHrF3XDG6n4CsprXoPRKZFQ9rJj9uA6zbnt0MWwTZK3iA+tURD4/Y
-	1uNvx1nHxZoaMTdRiQGrSsngu/ZmYSzFVhFEoHtuWBLHtHDGVqTKdwsR8vuP8FQ1gSwSA3ZeJSxC5
-	uQKvH5Fw==;
+	bh=DYDDOptSKozzHAsa2V9R60bnAHolTMznW5UT887n1uM=; b=eaipRoRGVWK8h7cYawrNX1cp2h
+	wKWGRZRJVVKhontaH0QiBTA2JUIBGxl7VFCRrHQQt2GfK65G+yNeHzdsjXQ0/B0gbdmphVVwNyDzJ
+	gYDa4D1UgBOZvEwOQZ0yP7r8kGB62LGTv/oKRgDjRJLAo1urDSd3VINcVxMCacq39FC3FFd+RoS6V
+	at9OZTrx5sUfzXmfpjGP1LCTmRwJTDNWIZ5WfYsrW8aSFQVZ1ohJqRVKn2/0j0mLDJnjiL0sFdM5F
+	cgkJKbtkG4bw0HL4EN/3jEgl+nAAifF/J4Nz4GY0UBneGd1KysVnMAlh9CCvK8bKpgjPf3XSSekoC
+	bfcZK+FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdcj3-0000000FjTB-43tp;
-	Wed, 07 Jan 2026 23:14:01 +0000
-Received: from out-180.mta1.migadu.com ([2001:41d0:203:375::b4])
+	id 1vdcz4-0000000FkMA-3lSU;
+	Wed, 07 Jan 2026 23:30:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdcj0-0000000FjRU-2A5Y
+	id 1vdcyq-0000000FkJu-0agH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 23:14:01 +0000
-Date: Wed, 7 Jan 2026 23:12:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1767827632;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rR1fnvTTjB0CTE6RfkOtCAeY2jGW4kIZ+UMk8iaKGdI=;
-	b=u5Bh4aFM/DJ6EI3tKWN9ieFoB4g6EEjw1qSeYhK/tQ+6PGvPQrzcSVID7cPg1+zCvC6KFm
-	XbMjwJ3hL72SpmGfx9q0LV4fstFFuDLFPPm5Dw+mLKGD28qAisxn74YyTOvcRrbHUMU5DQ
-	sLtTKWYIAxdxWioTvQMqczCGjCOTVFs=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Yosry Ahmed <yosry.ahmed@linux.dev>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 16/21] KVM: selftests: Add support for nested NPTs
-Message-ID: <fj2wis2dluwtlaawrelfj25ldsk35dpbytytd2koemnv2va4np@feeu6in4gjjg>
-References: <20251230230150.4150236-1-seanjc@google.com>
- <20251230230150.4150236-17-seanjc@google.com>
+	Wed, 07 Jan 2026 23:30:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 36C0841A36;
+	Wed,  7 Jan 2026 23:30:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E29CC4CEF1;
+	Wed,  7 Jan 2026 23:30:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767828616;
+	bh=JJUKBnRRM9z3Ei4dz7JLCEY8pd+eY/BXxSmSJZTydcU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FD9BLnDOkE5gza7p0aI13xDJW1xjmBlp99SMKC13B/Vu4oiy+78aPYh+cbVuLnYGy
+	 Fl7pXOjBsyLlmELBlm+4tVm4lT63RyIqyfDl24wlumHGuh2jgrHdHOEDbXU7Y+iG4J
+	 /cHcKtewu+hEeQy6sIPWCWmwhQ3xTmh8+irt2gmFHTE1PNT3SnQzutRbgCHg4kMkqJ
+	 1v0+eyQaw8MBLlsvVmyyPvKgWUeroyNXlpAAQskjsL5sHDX2UY4zCFhfUJoa3jI8OP
+	 30a4z9OUHiAqzAQ4p/IXy7EOUGqDGWTd1vqf2YxHqqwsrhtrrNFsIBVPovzyz95bcV
+	 p1KJ2zvhxZYtA==
+Date: Thu, 8 Jan 2026 00:30:13 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chen Ridong <chenridong@huawei.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+	linux-mm@kvack.org, linux-pci@vger.kernel.org,
+	netdev@vger.kernel.org, Jinhui Guo <guojinhui.liam@bytedance.com>
+Subject: Re: [PATCH 01/33] PCI: Prepare to protect against concurrent
+ isolated cpuset change
+Message-ID: <aV7sheFKQWb23lsc@pavilion.home>
+References: <20260101221359.22298-2-frederic@kernel.org>
+ <20260107190534.GA441483@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20251230230150.4150236-17-seanjc@google.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260107190534.GA441483@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_151359_709995_82A20BED 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20260107_153023_683213_5EAB704A 
+X-CRM114-Status: GOOD (  19.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,203 +100,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 30, 2025 at 03:01:45PM -0800, Sean Christopherson wrote:
-> From: Yosry Ahmed <yosry.ahmed@linux.dev>
+Le Wed, Jan 07, 2026 at 01:05:34PM -0600, Bjorn Helgaas a écrit :
+> [+cc Jinhui]
 > 
-> Implement nCR3 and NPT initialization functions, similar to the EPT
-> equivalents, and create common TDP helpers for enablement checking and
-> initialization. Enable NPT for nested guests by default if the TDP MMU
-> was initialized, similar to VMX.
+> On Thu, Jan 01, 2026 at 11:13:26PM +0100, Frederic Weisbecker wrote:
+> > HK_TYPE_DOMAIN will soon integrate cpuset isolated partitions and
+> > therefore be made modifiable at runtime. Synchronize against the cpumask
+> > update using RCU.
+> > 
+> > The RCU locked section includes both the housekeeping CPU target
+> > election for the PCI probe work and the work enqueue.
+> > 
+> > This way the housekeeping update side will simply need to flush the
+> > pending related works after updating the housekeeping mask in order to
+> > make sure that no PCI work ever executes on an isolated CPU. This part
+> > will be handled in a subsequent patch.
+> > 
+> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 > 
-> Reuse the PTE masks from the main MMU in the NPT MMU, except for the C
-> and S bits related to confidential VMs.
+> Just FYI, Jinhui posted a series that touches this same code and might
+> need some coordination:
 > 
-> Signed-off-by: Yosry Ahmed <yosry.ahmed@linux.dev>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-
-Funny story, I missed a teeny tiny part here..
-
-diff --git a/tools/testing/selftests/kvm/lib/x86/svm.c b/tools/testing/selftests/kvm/lib/x86/svm.c
-index 18e9e9089643..2e5c480c9afd 100644
---- a/tools/testing/selftests/kvm/lib/x86/svm.c
-+++ b/tools/testing/selftests/kvm/lib/x86/svm.c
-@@ -46,6 +46,9 @@ vcpu_alloc_svm(struct kvm_vm *vm, vm_vaddr_t *p_svm_gva)
-        svm->msr_gpa = addr_gva2gpa(vm, (uintptr_t)svm->msr);
-        memset(svm->msr_hva, 0, getpagesize());
-
-+       if (vm->stage2_mmu.pgd_created)
-+               svm->ncr3_gpa = vm->stage2_mmu.pgd;
-+
-        *p_svm_gva = svm_gva;
-        return svm;
- }
-
----
-
-The good news is that the test still passes after we start ACTUALLY
-USING the nested NPT :)
-
-> ---
->  .../selftests/kvm/include/x86/processor.h     |  2 ++
->  .../selftests/kvm/include/x86/svm_util.h      |  9 ++++++++
->  .../testing/selftests/kvm/lib/x86/memstress.c |  4 ++--
->  .../testing/selftests/kvm/lib/x86/processor.c | 15 +++++++++++++
->  tools/testing/selftests/kvm/lib/x86/svm.c     | 21 +++++++++++++++++++
->  .../selftests/kvm/x86/vmx_dirty_log_test.c    |  4 ++--
->  6 files changed, 51 insertions(+), 4 deletions(-)
+>   https://lore.kernel.org/r/20260107175548.1792-1-guojinhui.liam@bytedance.com
 > 
-> diff --git a/tools/testing/selftests/kvm/include/x86/processor.h b/tools/testing/selftests/kvm/include/x86/processor.h
-> index d134c886f280..deb471fb9b51 100644
-> --- a/tools/testing/selftests/kvm/include/x86/processor.h
-> +++ b/tools/testing/selftests/kvm/include/x86/processor.h
-> @@ -1477,6 +1477,8 @@ void __virt_pg_map(struct kvm_vm *vm, struct kvm_mmu *mmu, uint64_t vaddr,
->  void virt_map_level(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr,
->  		    uint64_t nr_bytes, int level);
->  
-> +void vm_enable_tdp(struct kvm_vm *vm);
-> +bool kvm_cpu_has_tdp(void);
->  void tdp_map(struct kvm_vm *vm, uint64_t nested_paddr, uint64_t paddr, uint64_t size);
->  void tdp_identity_map_default_memslots(struct kvm_vm *vm);
->  void tdp_identity_map_1g(struct kvm_vm *vm,  uint64_t addr, uint64_t size);
-> diff --git a/tools/testing/selftests/kvm/include/x86/svm_util.h b/tools/testing/selftests/kvm/include/x86/svm_util.h
-> index b74c6dcddcbd..5d7c42534bc4 100644
-> --- a/tools/testing/selftests/kvm/include/x86/svm_util.h
-> +++ b/tools/testing/selftests/kvm/include/x86/svm_util.h
-> @@ -27,6 +27,9 @@ struct svm_test_data {
->  	void *msr; /* gva */
->  	void *msr_hva;
->  	uint64_t msr_gpa;
-> +
-> +	/* NPT */
-> +	uint64_t ncr3_gpa;
->  };
->  
->  static inline void vmmcall(void)
-> @@ -57,6 +60,12 @@ struct svm_test_data *vcpu_alloc_svm(struct kvm_vm *vm, vm_vaddr_t *p_svm_gva);
->  void generic_svm_setup(struct svm_test_data *svm, void *guest_rip, void *guest_rsp);
->  void run_guest(struct vmcb *vmcb, uint64_t vmcb_gpa);
->  
-> +static inline bool kvm_cpu_has_npt(void)
-> +{
-> +	return kvm_cpu_has(X86_FEATURE_NPT);
-> +}
-> +void vm_enable_npt(struct kvm_vm *vm);
-> +
->  int open_sev_dev_path_or_exit(void);
->  
->  #endif /* SELFTEST_KVM_SVM_UTILS_H */
-> diff --git a/tools/testing/selftests/kvm/lib/x86/memstress.c b/tools/testing/selftests/kvm/lib/x86/memstress.c
-> index 3319cb57a78d..407abfc34909 100644
-> --- a/tools/testing/selftests/kvm/lib/x86/memstress.c
-> +++ b/tools/testing/selftests/kvm/lib/x86/memstress.c
-> @@ -82,9 +82,9 @@ void memstress_setup_nested(struct kvm_vm *vm, int nr_vcpus, struct kvm_vcpu *vc
->  	int vcpu_id;
->  
->  	TEST_REQUIRE(kvm_cpu_has(X86_FEATURE_VMX));
-> -	TEST_REQUIRE(kvm_cpu_has_ept());
-> +	TEST_REQUIRE(kvm_cpu_has_tdp());
->  
-> -	vm_enable_ept(vm);
-> +	vm_enable_tdp(vm);
->  	for (vcpu_id = 0; vcpu_id < nr_vcpus; vcpu_id++) {
->  		vcpu_alloc_vmx(vm, &vmx_gva);
->  
-> diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
-> index 29e7d172f945..a3a4c9a4cbcb 100644
-> --- a/tools/testing/selftests/kvm/lib/x86/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/x86/processor.c
-> @@ -8,7 +8,9 @@
->  #include "kvm_util.h"
->  #include "pmu.h"
->  #include "processor.h"
-> +#include "svm_util.h"
->  #include "sev.h"
-> +#include "vmx.h"
->  
->  #ifndef NUM_INTERRUPTS
->  #define NUM_INTERRUPTS 256
-> @@ -472,6 +474,19 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
->  	}
->  }
->  
-> +void vm_enable_tdp(struct kvm_vm *vm)
-> +{
-> +	if (kvm_cpu_has(X86_FEATURE_VMX))
-> +		vm_enable_ept(vm);
-> +	else
-> +		vm_enable_npt(vm);
-> +}
-> +
-> +bool kvm_cpu_has_tdp(void)
-> +{
-> +	return kvm_cpu_has_ept() || kvm_cpu_has_npt();
-> +}
-> +
->  void __tdp_map(struct kvm_vm *vm, uint64_t nested_paddr, uint64_t paddr,
->  	       uint64_t size, int level)
->  {
-> diff --git a/tools/testing/selftests/kvm/lib/x86/svm.c b/tools/testing/selftests/kvm/lib/x86/svm.c
-> index d239c2097391..8e4795225595 100644
-> --- a/tools/testing/selftests/kvm/lib/x86/svm.c
-> +++ b/tools/testing/selftests/kvm/lib/x86/svm.c
-> @@ -59,6 +59,22 @@ static void vmcb_set_seg(struct vmcb_seg *seg, u16 selector,
->  	seg->base = base;
->  }
->  
-> +void vm_enable_npt(struct kvm_vm *vm)
-> +{
-> +	struct pte_masks pte_masks;
-> +
-> +	TEST_ASSERT(kvm_cpu_has_npt(), "KVM doesn't supported nested NPT");
-> +
-> +	/*
-> +	 * NPTs use the same PTE format, but deliberately drop the C-bit as the
-> +	 * per-VM shared vs. private information is only meant for stage-1.
-> +	 */
-> +	pte_masks = vm->mmu.arch.pte_masks;
-> +	pte_masks.c = 0;
-> +
-> +	tdp_mmu_init(vm, vm->mmu.pgtable_levels, &pte_masks);
-> +}
-> +
->  void generic_svm_setup(struct svm_test_data *svm, void *guest_rip, void *guest_rsp)
->  {
->  	struct vmcb *vmcb = svm->vmcb;
-> @@ -102,6 +118,11 @@ void generic_svm_setup(struct svm_test_data *svm, void *guest_rip, void *guest_r
->  	vmcb->save.rip = (u64)guest_rip;
->  	vmcb->save.rsp = (u64)guest_rsp;
->  	guest_regs.rdi = (u64)svm;
-> +
-> +	if (svm->ncr3_gpa) {
-> +		ctrl->nested_ctl |= SVM_NESTED_CTL_NP_ENABLE;
-> +		ctrl->nested_cr3 = svm->ncr3_gpa;
-> +	}
->  }
->  
->  /*
-> diff --git a/tools/testing/selftests/kvm/x86/vmx_dirty_log_test.c b/tools/testing/selftests/kvm/x86/vmx_dirty_log_test.c
-> index 370f8d3117c2..032ab8bf60a4 100644
-> --- a/tools/testing/selftests/kvm/x86/vmx_dirty_log_test.c
-> +++ b/tools/testing/selftests/kvm/x86/vmx_dirty_log_test.c
-> @@ -93,7 +93,7 @@ static void test_vmx_dirty_log(bool enable_ept)
->  	/* Create VM */
->  	vm = vm_create_with_one_vcpu(&vcpu, l1_guest_code);
->  	if (enable_ept)
-> -		vm_enable_ept(vm);
-> +		vm_enable_tdp(vm);
->  
->  	vcpu_alloc_vmx(vm, &vmx_pages_gva);
->  	vcpu_args_set(vcpu, 1, vmx_pages_gva);
-> @@ -170,7 +170,7 @@ int main(int argc, char *argv[])
->  
->  	test_vmx_dirty_log(/*enable_ept=*/false);
->  
-> -	if (kvm_cpu_has_ept())
-> +	if (kvm_cpu_has_tdp())
->  		test_vmx_dirty_log(/*enable_ept=*/true);
->  
->  	return 0;
-> -- 
-> 2.52.0.351.gbe84eed79e-goog
-> 
+> IIUC, Jinhui's series adds some more NUMA smarts in the driver core
+> sync probing path and removes corresponding NUMA code from the PCI
+> core probe path.
+
+I see. I can't drop my change, otherwise my series alone could crash
+dereferencing garbage. But Jinhui's series removes the need for my changes.
+
+So an unpleasant conflict will happen in -next (and if everything goes well,
+further in next merge window) and it should be resolved with simply ignoring
+my changes and only apply those of Jinhui.
+
+Should we inform Linux Next people ahead?
+
+Thanks for making me notice!
+
+-- 
+Frederic Weisbecker
+SUSE Labs
 
