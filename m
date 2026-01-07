@@ -4,89 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A18DCF6BFB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 08:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65B9BCF6BF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 08:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GMHhwOjApnNmIM/IGLBoV1hrqPEAl7/n8Dd5Zu2tbRI=; b=YCZiipcQtsciIYyw5u1VisFg9i
-	969mc+ExiFwR3zThLUPmqGxDXgQq9XR7zpWHy2z0PQujDAWyZdnRSCy0wbNyX3xj7zIrh1CZ9gLyR
-	0N8tMnFtV0+PQkgfNDx9gHJ+AfXLkQtjX7Umon8kIe5XjGWFxUmiyRiJsIv48Pa/tWLtuelJC24FQ
-	7t80Fz5QMZ3uh6uKTn/GRco0BCnVgbPNuPP/uXaLQ92K1s03fJXVx/wQo62hJuCR8SkB9K6slN1rr
-	xH0+tauKc42g6DV/MXkI9FhTwFXzhSWYOkGRBSaJ7qghtshO/eGxaYvfm1zmQufECPcY5rRnhMaD7
-	kJIEdl4A==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qugGupbuLuQZHC/ObrVWEf0IOnY90j2BdMV7Fr/z0ho=; b=AYM4SKub2Q4niIk57JphvWAynT
+	hHYwWJKH9JBKxJxzqilckM+VHIBKP0oblOtALYQh309uTS/GEW2PzpukeWFNioOHSyHhV5A0GKCqa
+	Y9EzQiDLlIzoicAZcDKbfqcr6hJKcLFz7tpmCWr3vman3HLk8UBKwbYUgGAMxcc4b57EXmZIhFRTJ
+	2w6m1VsTbjzsR/wgMbxsa9NTJqkwEr0118VSIozGGrWhqNiVPQlq672g4DPdMb6XZDDMA9VDSSH1f
+	nKdBoTbNJVo8Spdemf6ob9rhdB7AAJvJ8ejUk/rEvQiK6dVz7jCcBWgtPRiT/9dN8S0NdCFu94Icl
+	n9YzUH2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdOfA-0000000EMvn-0f2e;
-	Wed, 07 Jan 2026 08:13:04 +0000
-Received: from dilbert.mork.no ([2a01:4f9:c010:a439::d])
+	id 1vdOh0-0000000ENF5-1acQ;
+	Wed, 07 Jan 2026 08:14:58 +0000
+Received: from mx-relay60-hz1.antispameurope.com ([94.100.133.230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdOf7-0000000EMvC-2jCG;
-	Wed, 07 Jan 2026 08:13:03 +0000
-Authentication-Results: dilbert.mork.no;
-	dkim=pass (1024-bit key; secure) header.d=mork.no header.i=@mork.no header.a=rsa-sha256 header.s=b header.b=ankoLIDO;
-	dkim-atps=neutral
-Received: from canardo.dyn.mork.no ([IPv6:2a01:799:10e2:d900:0:0:0:1])
-	(authenticated bits=0)
-	by dilbert.mork.no (8.18.1/8.18.1) with ESMTPSA id 6078CTcF325307
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
-	Wed, 7 Jan 2026 08:12:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mork.no; s=b;
-	t=1767773549; bh=GMHhwOjApnNmIM/IGLBoV1hrqPEAl7/n8Dd5Zu2tbRI=;
-	h=From:To:Cc:Subject:References:Date:Message-ID:From;
-	b=ankoLIDOlBbWRMEwsPRzbCSIiwL+79ngKEnXu1Sw/jG25R6BG0iCcr78w5FCqaLGe
-	 qL/S5kvI5XRfoQJA0iBOuWGsaC+rhmo2TMFDiqI9zl8XQfc9y9CM/Fniri9jDTFzTJ
-	 IVvvoNkkDHUzvcXmdsNBSxYtQTJfH5vU5ssD3dH4=
-Received: from miraculix.mork.no ([IPv6:2a01:799:10e2:d90a:6f50:7559:681d:630c])
-	(authenticated bits=0)
-	by canardo.dyn.mork.no (8.18.1/8.18.1) with ESMTPSA id 6078CTBl1975768
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
-	Wed, 7 Jan 2026 09:12:29 +0100
-Received: (nullmailer pid 651874 invoked by uid 1000);
-	Wed, 07 Jan 2026 08:12:28 -0000
-From: =?utf-8?Q?Bj=C3=B8rn_Mork?= <bjorn@mork.no>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org,
-        Daniel Golle <daniel@makrotopia.org>,
-        Horatiu Vultur <horatiu.vultur@microchip.com>,
-        Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-        Russell King <linux@armlinux.org.uk>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Eric Woudstra <ericwouds@gmail.com>,
-        Marek =?utf-8?Q?Beh=C3=BAn?= <kabel@kernel.org>,
-        Lee Jones <lee@kernel.org>,
-        Patrice Chotard <patrice.chotard@foss.st.com>
-Subject: Re: [PATCH v2 net-next 05/10] phy: add phy_get_rx_polarity() and
- phy_get_tx_polarity()
-In-Reply-To: <20260103210403.438687-6-vladimir.oltean@nxp.com> (Vladimir
-	Oltean's message of "Sat, 3 Jan 2026 23:03:58 +0200")
-Organization: m
-References: <20260103210403.438687-1-vladimir.oltean@nxp.com>
-	<20260103210403.438687-6-vladimir.oltean@nxp.com>
-Date: Wed, 07 Jan 2026 09:12:28 +0100
-Message-ID: <87jyxtaljn.fsf@miraculix.mork.no>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1vdOgu-0000000ENCx-1D0y
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Jan 2026 08:14:55 +0000
+ARC-Authentication-Results: i=1; mx-gate60-hz1.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=qugGupbuLuQZHC/ObrVWEf0IOnY90j2BdMV7Fr/z0ho=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1767773676;
+ b=iET0XR07iH/jMBb+5XXMRaKptdIJQkjkF9VWB4jRIFDS2YUVR32oQ/vHV5RZjRBUVxsyZLrJ
+ RNl4zUySkbWHZNREdZPSQt6rlTYkJmBjgkY906j4KX+iBvTpu8YEeUWfBbfC7vbae+I2ziDyLgm
+ B5k4UQ0XvDJGOQSwa06F8xurmshod7o4w4sGqEXAuAByOEUDuss40BagKV95cf6wubsDEL7239C
+ KNFZClxydTGq5+EYtR+ToztrQtefDc46YllU7GXRPSxEBLFxGnuwlcRCPrgTvBUIDuxAWEDRUyo
+ gs++7i8mxSaOdJoXi2Y3wk5dZlb2Qy1WMmDKMIy7/+4Vw==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1767773676;
+ b=Rbdv2LJQdg8XPRSlcklA+KGYfCDJuDI9X8OeFuKHl1PiHL7MznnoMc3aOdMwUKntSkscaDkL
+ K1wwpEIkIWkXM5CxnxhLXKcQcapMaPJjKo/ZZVnsOKp0ca/Ka2OmRisw3fhMhLUSYCBb8LcNVdo
+ v/1nK8oPkG86lU60Pd68Bqag7VsqO4RaqxmttyrlnjHSoXtmd23ocpZiUO651A6/9d7YDz5RGQp
+ RvSPeak46iBiGmausLPvX1yOTtghp/FS18wcMELDKEkapWlQiLuVIAOc01ubljcwRtPASRCwgnx
+ ot8TsC8LzYrNMO16ydil60WWD1qiJFW5QbSt6h5JJe0dA==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay60-hz1.antispameurope.com;
+ Wed, 07 Jan 2026 09:14:36 +0100
+Received: from schifferm-ubuntu.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: matthias.schiffer@ew.tq-group.com)
+	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id B030C220D37;
+	Wed,  7 Jan 2026 09:14:21 +0100 (CET)
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	linux@ew.tq-group.com,
+	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Subject: [PATCH v5 0/2] TQ-Systems TQMa62xx SoM and MBa62xx board
+Date: Wed,  7 Jan 2026 09:14:00 +0100
+Message-ID: <cover.1767627010.git.matthias.schiffer@ew.tq-group.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Virus-Scanned: clamav-milter 1.4.3 at canardo.mork.no
-X-Virus-Status: Clean
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: matthias.schiffer@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: matthias.schiffer@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay60-hz1.antispameurope.com with 4dmLRL38j6z28w5w
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 772d89e85c1e185e9e888a8d7af96ee7
+X-cloud-security: scantime:1.844
+DKIM-Signature: a=rsa-sha256;
+ bh=qugGupbuLuQZHC/ObrVWEf0IOnY90j2BdMV7Fr/z0ho=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1767773675; v=1;
+ b=A6RToKOWouKes5qmvwx4uTjWXVYm11mKGsrlS/KqyMwfCpxLAIJkKJiqeHpPEoGX8AWvbCBA
+ c+C8Dng/OftHaw7/uCD3B93KmYXrQYvpkGaI24GekGkT7jXx2fNBgmBnjNG9IYgdPqd5BXChtQw
+ UniKjHfHGQWUGW0LiKKipEzfDhW/KRHj7AxtcOnQeNZ4hBWIRL32RTWWluWuGCrQvHBz03a+oZs
+ Henc8hGjV1V/nbXPcEglUQBqO+SKIU7scx5SZ1XKiBZomNbgW5iOHU0WmTNWowo8DWtVd8yYoCG
+ 0r8BAxZzig7cJpTpofyIKzhPa7d7nrGF2We8iucs+XQKQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_001302_021549_AB69A425 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20260107_001452_602095_238BF927 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,71 +115,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Vladimir Oltean <vladimir.oltean@nxp.com> writes:
+This adds Device Trees for our AM62x-based SoM TQMa62xx and its
+reference carrier board MBa62xx.
 
-> +static int fwnode_get_u32_prop_for_name(struct fwnode_handle *fwnode,
-> +					const char *name,
-> +					const char *props_title,
-> +					const char *names_title,
-> +					unsigned int default_val,
-> +					unsigned int *val)
-> +{
-> +	int err, n_props, n_names, idx =3D -1;
-> +	u32 *props;
-> +
-> +	if (!name) {
-> +		pr_err("Lookup key inside \"%s\" is mandatory\n", names_title);
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (!fwnode) {
-> +		*val =3D default_val;
-> +		return 0;
-> +	}
-> +
-> +	err =3D fwnode_property_count_u32(fwnode, props_title);
-> +	if (err < 0)
-> +		return err;
-> +	if (err =3D=3D 0) {
-> +		*val =3D default_val;
-> +		return 0;
-> +	}
-> +	n_props =3D err;
+Not yet included are overlays to enable LVDS display output and MIPI-CSI
+camera input.
 
-I tried using this in the air_en8811h driver and started wondering if I
-have misunderstood something.
+Changes in v5:
+- Rebase onto latest ti-k3-dts-next
 
-The problem I have is that fwnode_property_count_u32() returns -EINVAL
-if props_title is missing.  So if you have a node with the legacy
-"airoha,pnswap-rx" property instead of "rx-polarity", or more common: no
-polariy property at all, then we see -EINVAL returned from
-phy_get_rx_polarity().  Which is propagated back to config_init() and
-the phy fails to attach.  That can't be the intention?
+Changes in v4:
+- Rebase onto latest ti-k3-dts-next
+- Reorder boot phase tags after other standard DT properties
+- Add missing supply regulators in SPI-NOR flash and USB hub
+- Set status = "okay" in &cpsw3g, as it is disabled in k3-am62-main.dtsi
+  now
+- Add disabled 1400MHz OPP entry (will be enabled by bootloader if
+  supported by PMIC configuration)
+- Update copyright years in new files
 
-The behaviour I expected is described by this test:
+Changes in v3:
+- Rebased onto ti-k3-dt-for-v6.18
+- 3 of the 5 patches in v2 have been applied already and are dropped
+- Include k3-am62-ti-ipc-firmware.dtsi, drop now redundant configuration
+- Change node name for MCU reserved memory to 'memory'
+- Use rgmii-id PHY mode
+- Drop now redundant ti,rx-internal-delay
+- Update simple-audio-card,name to match other TQ SOMs with compatible
+  configuration
+- Reference dss_pins in dss node (actual display support will be added
+  in a follow-up patch series)
+- Consistently use GPIO_ACTIVE_HIGH define
+- Drop unneeded usb0 quirk flags
+- Add boot phase tags
 
+Changes in v2:
+- Collected acks and reviews
+- Rebased onto v6.13-rc1
 
-/* Test: tx-polarity property is missing */
-static void phy_test_tx_polarity_is_missing(struct kunit *test)
-{
-	static const struct property_entry entries[] =3D {
-		{}
-	};
-	struct fwnode_handle *node;
-	unsigned int val;
-	int ret;
+Matthias Schiffer (2):
+  dt-bindings: arm: ti: Add compatible for AM625-based TQMa62xx SOM
+    family and carrier board
+  arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and MBa62xx carrier board
+    Device Trees
 
-	node =3D fwnode_create_software_node(entries, NULL);
-	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, node);
+ .../devicetree/bindings/arm/ti/k3.yaml        |   7 +
+ arch/arm64/boot/dts/ti/Makefile               |   1 +
+ .../boot/dts/ti/k3-am625-tqma62xx-mba62xx.dts | 930 ++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi | 331 +++++++
+ 4 files changed, 1269 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-tqma62xx-mba62xx.dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi
 
-	ret =3D phy_get_manual_tx_polarity(node, "sgmi", &val);
-	KUNIT_EXPECT_EQ(test, ret, 0);
-	KUNIT_EXPECT_EQ(test, val, PHY_POL_NORMAL);
-
-	fwnode_remove_software_node(node);
-}
-
-
-
-Bj=C3=B8rn
+-- 
+TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht München, HRB 105018
+Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+https://www.tq-group.com/
 
