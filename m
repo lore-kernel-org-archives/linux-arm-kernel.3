@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D86CF6BE1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4630CF6BE1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A0u5SYt+BNXlIZdFfEjj61qYNlvbBJNuvhZPcQM27Gc=; b=uvoFJ/AnggRVtF+kAzFfE/APF8
-	WEcZNrPQTZjD7TOHwCjygRLfn11W9Mgt7y5Xzj2CyiBC/ZAz+XjgiP6ydqOhyvdF+r2tFlkFFsiQ7
-	PYg1cJfidx+Qbi76BBoAOmy54OLd8imIp5MqNuTkklPM3AWZqTT6uzp6CffrsHoNoLgQ2uWuA288I
-	OHAL7tXWYmni2ZuZDVLGgkW6x6xpa/xb0Tdn3N0wzkpJFpdS7+mSNIQ9DIPEzHogoqTRkY6RjviYF
-	1cvl8X2tAJ+uUsI9vzE/0lHYhTVZyPUUcvdrXeWjFBYI8szQi5ebOkG/HgJDXcYBeo9J/0F6mSa5m
-	erzhgJOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yhHVpmm6cn0Evt8+6jEIvC0I0kxkUKhVIQcPiY5EtAs=; b=sNzdtbuRzwMHZs1YVXaw3VMDyT
+	RHyf4u+aoh74dEVQTdyl30r+FmektphqaB2dV+KLP9gIYaK2ikXOokI2ztUIq3eoo0AGMysr6zKX7
+	ZYf9IKZpx9SvwDBprvzqPPb7DGMdZ1jr6PzWsNywDt9W27K1BdYwfBgF7TMiWkV090EWDCG7JVv85
+	39SaRF8keZdoNnK10BU12W/26V1+usL8rDk34dGdvtoWHN2IxxTWwKNSQ+nBG8clVL32gd97D/uL9
+	DNkcNC9xT2z2Cu52u3gnWJsR0t27xyBhFe/LlB3nrDthGJNQ0Vsusikv6UEpsMhWrt2l01+QxLKHT
+	Xv7UTS6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWVd-0000000FJQP-1D2c;
-	Wed, 07 Jan 2026 16:35:45 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vdWWW-0000000FJXk-3s3C;
+	Wed, 07 Jan 2026 16:36:40 +0000
+Received: from smtprelay0010.hostedemail.com ([216.40.44.10] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWVX-0000000FJOx-07GT
+	id 1vdWWU-0000000FJX0-1lRk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 16:35:42 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vdWUn-00061q-3g; Wed, 07 Jan 2026 17:34:53 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vdWUh-009XX9-1v;
-	Wed, 07 Jan 2026 17:34:47 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vdWUh-00000000FuG-1qqY;
-	Wed, 07 Jan 2026 17:34:47 +0100
-Message-ID: <3e87a26d067de694273daaf011a50f1a2e7718f1.camel@pengutronix.de>
-Subject: Re: [PATCH 3/6] drm/imx/dw-hdmi: convert to
- of_drm_find_and_get_bridge()
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>, Andrzej Hajda	
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman	 <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl	
- <martin.blumenstingl@googlemail.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam	 <festevam@gmail.com>, Chun-Kuang Hu
- <chunkuang.hu@kernel.org>, Matthias Brugger	 <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno	 <angelogioacchino.delregno@collabora.com>, Inki
- Dae <inki.dae@samsung.com>,  Seung-Woo Kim <sw0312.kim@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski	
- <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Laurent Pinchart	
- <laurent.pinchart+renesas@ideasonboard.com>, Tomi Valkeinen	
- <tomi.valkeinen+renesas@ideasonboard.com>, Kieran Bingham	
- <kieran.bingham+renesas@ideasonboard.com>, Geert Uytterhoeven	
- <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Thomas Petazzoni
-	 <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	linux-mediatek@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Date: Wed, 07 Jan 2026 17:34:47 +0100
-In-Reply-To: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-3-ef48a517828e@bootlin.com>
-References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-0-ef48a517828e@bootlin.com>
-	 <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-3-ef48a517828e@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Wed, 07 Jan 2026 16:36:39 +0000
+Received: from omf03.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay06.hostedemail.com (Postfix) with ESMTP id 02B501AACE2;
+	Wed,  7 Jan 2026 16:36:34 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf03.hostedemail.com (Postfix) with ESMTPA id 8B1E560010;
+	Wed,  7 Jan 2026 16:36:31 +0000 (UTC)
+Date: Wed, 7 Jan 2026 11:36:58 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Vincent Donnefort <vdonnefort@google.com>, mhiramat@kernel.org,
+ mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org,
+ oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+ yuzenghui@huawei.com, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, jstultz@google.com,
+ qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org,
+ kernel-team@android.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v9 28/30] KVM: arm64: Add hyp_enter/hyp_exit events to
+ nVHE/pKVM hyp
+Message-ID: <20260107113658.6647b6c3@gandalf.local.home>
+In-Reply-To: <86a4ypmqts.wl-maz@kernel.org>
+References: <20251202093623.2337860-1-vdonnefort@google.com>
+	<20251202093623.2337860-29-vdonnefort@google.com>
+	<86a4ypmqts.wl-maz@kernel.org>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: x4udjx1eez5trx587ipsm619xq7kn66b
+X-Rspamd-Server: rspamout04
+X-Rspamd-Queue-Id: 8B1E560010
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX18n7XnQ6iyL5ktIei/Ah4wQyDbpnc0P5VQ=
+X-HE-Tag: 1767803791-100275
+X-HE-Meta: U2FsdGVkX1/WAY6vrp1YLOm63QkIip39ElanvjPPfuAOYqR+0PkitkXdNF5vduNxqH7hbx3vdax6KDhWUUbUzPnwPxG1z8Z0TlKFsIxXu7dhnp2VWqZmb4yU/UoDH28iIi8dNGBfsDkc+lvfIV7LaHyZ/3jxiOvPhXAbnIUMhsKFjD0BXdEetZrT819q59iAG/O8xNdvnLyFydVhkFuVHmYHZG8BTASmkQ2T4JY0UkeHgr1wAZcZM8xdwBZlOZyAGjL7LkebHfTcc46WCKEqthpCHTzQVqT1WTVOMyIwg7l5VKfiu/Z8tJ+5uCFbw+BFHjoLKy58JmxxsBFO2gbK16jf26jTMygn
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_083541_027047_B8D354F2 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20260107_083638_518317_F4616F38 
+X-CRM114-Status: UNSURE (   7.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,35 +78,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2026-01-07 at 17:22 +0100, Luca Ceresoli wrote:
-> of_drm_find_bridge() is deprecated. Move to its replacement
-> of_drm_find_and_get_bridge() which gets a bridge reference, and ensure it
-> is put when done.
->=20
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> ---
->  drivers/gpu/drm/imx/ipuv3/dw_hdmi-imx.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/gpu/drm/imx/ipuv3/dw_hdmi-imx.c b/drivers/gpu/drm/im=
-x/ipuv3/dw_hdmi-imx.c
-> index 07e5f96202d4..95f629d97bce 100644
-> --- a/drivers/gpu/drm/imx/ipuv3/dw_hdmi-imx.c
-> +++ b/drivers/gpu/drm/imx/ipuv3/dw_hdmi-imx.c
-> @@ -241,7 +241,7 @@ static int dw_hdmi_imx_probe(struct platform_device *=
-pdev)
->  	if (IS_ERR(hdmi->hdmi))
->  		return PTR_ERR(hdmi->hdmi);
-> =20
-> -	hdmi->bridge =3D of_drm_find_bridge(np);
-> +	hdmi->bridge =3D of_drm_find_and_get_bridge(np);
->  	if (!hdmi->bridge) {
->  		dev_err(hdmi->dev, "Unable to find bridge\n");
->  		dw_hdmi_remove(hdmi->hdmi);
+On Wed, 07 Jan 2026 14:37:35 +0000
+Marc Zyngier <maz@kernel.org> wrote:
 
-The component_add() error path below this is missing a
-drm_bridge_put().
+> > +static const char *__hyp_enter_exit_reason_str(u8 reason);
+> > +
+> >  #include <asm/kvm_define_hypevents.h>
+> >  
+> > +static const char *__hyp_enter_exit_reason_str(u8 reason)  
+> 
+> That's one ugly hack... :-(
 
-regards
-Philipp
+This is basically the way TRACE_EVENT()s are created.
+
+Have a look at include/trace/trace_event.h and include/trace/define_event.h
+
+But I have to warn you. You may need to wear ugly hack proof glasses ;-)
+
+-- Steve
 
