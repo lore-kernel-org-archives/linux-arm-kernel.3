@@ -4,150 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26F23CD583B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 11:38:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9021FCD585D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 11:40:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cTH/4ZeodwA/Q+RzWHaBeEgtNJJIoFwg96ta/DUybCQ=; b=3ziFxix87k36N+Uh7VTSTZzKfx
-	qtLPhellt5zUbLHgJNgtm9RFRLWlzZe2z8wIb/2BpVuE5mehCQMEXBO0wEZfKOwsLKzwSO/nCSUwH
-	KzMKv9gFHPSoX98GZ9v8cAZiJkHYyHylmtZwpkR+dUWOTokUX7Md1+R4NB7PX1Fp6MFDcdID8Q9lO
-	W71UZtCF4UCt1svs//YTGMEMqlaZG8tK+BwPNK5acker9dbJLMOuf0h4xhY72Wkxz1WeT+LwYlaUq
-	JtZbDytmBfjkTAUI/zQDqn4Q2UwYCpeRP1xfKcGPpLvzra1e9laczA5bQhtUC2e/E3NWg+hAhc8ft
-	4YvjW97Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+eDzB+NxPTMSfU1QkUTyVqhC+G+UiTkNvq2nlq1j3r4=; b=fBNjhMO3dxwM8GziPCwm9sGjb1
+	1qAwBJXNgZQsxAUJeD9MSivBPYPQLVq072DFSKnzI4lTn6OuxWg2MU89zlzYNKnpW7CmZ/B07Hs0E
+	RotmKMtZP47tSxgeIYc+0ZphBA1t+4dWjyXzRMXf61jnTRRfq17c+ByAqCJoM8oDHEn4zAHzk91Iw
+	wifWsiytK3rlG2glZUtD3jEv6+KwTwrq/1sPSWbtTmyoI4HLvASsWh4R/br+ysb4MfYlGXsl41n//
+	YDo6+hT7bi8GsBa5yGyKoOGLtIhYVwd2uUxLRJg1eIsfeba/tli4FmBAPjErGLjOUBNGqkqcuAlX5
+	1l6iLf8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdRs2-0000000Eq9B-2vpD;
-	Wed, 07 Jan 2026 11:38:34 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vdRtm-0000000EqJH-0oLx;
+	Wed, 07 Jan 2026 11:40:22 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdRs0-0000000Eq8d-0Q7S
+	id 1vdRti-0000000EqIb-0rgD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 11:38:33 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6078ZNIb1979616
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 7 Jan 2026 11:38:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=cTH/4ZeodwA/Q+RzWHaBeEgt
-	NJJIoFwg96ta/DUybCQ=; b=OZOLRGdbF+iM/6nGiViEWp6GUVmJ1jbNqw8BDRKy
-	GVRMBFHZbDKcdByXYp9f1Y2L25UOk6U1YXqXadHLdz/z6ORpu9vLR8zZhBkwKGv0
-	4mf88z583y1k7VTLxclG4zVIwN5BUB7tSbEziwxi5nFlnVmX310ppbpU9wK2POSi
-	FtahubmmKFvcRx9S1MBjShx+9W2JSed33cU1hsKMs47z3+lNhBE7GGcWrqGheKN4
-	PKKtVkDbi3ovCo9yDiUukmkP1wbwDW4HA2wnDkfd5sm4jZXr7o+jUqbWSRs3zC07
-	7cesJYcAew9cWh60c+O4JnZEsS7p/3MqLFuEyNNFXy3rDA==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bhdavhw72-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 11:38:31 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4ed69f9ce96so66336951cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 03:38:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767785910; x=1768390710; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cTH/4ZeodwA/Q+RzWHaBeEgtNJJIoFwg96ta/DUybCQ=;
-        b=d7UN2Zz1iJp9sUA7m3erUzAk5ry+i7X12mOi+58c/ZFZOi1aTHBLAvHF93aHsMFTz8
-         khR1kyRTiYa7I/y7QR1xt9SJlrCchGQdP27Gh+pUJAj8DcnW5GJ39tAVJEK0ii3h4BfL
-         yMEAUlZUJNXfTuCTWUtX2OMXh0ur+cUXpYRjN8wTMEn3DktP5lMWupLj1h2DX3qzVoXr
-         VhjOSmzZtUiiFgnTfKXTghYDvDwFpedbJI3cXxTaooAldUfJpBJ/WAUoGKETJCCjyH7x
-         gvXaky+Q0jUxfPoqdzL0JApDeF95zReVdwFoXgHL72iZtFbYzjlBGVDuyHkLZuITn4Hp
-         nRXw==
+	Wed, 07 Jan 2026 11:40:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1767786016;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+eDzB+NxPTMSfU1QkUTyVqhC+G+UiTkNvq2nlq1j3r4=;
+	b=S1qnzs8F6L7SzcQUxIi03q1mEZzNxyz1EMSVnO+iEpNTNKozyKaDuSLro/GhqwEyssa/nN
+	ngQ/qZ9A8HLv/CxKPSuFlCVr+YKjDgesGaLSXu3w2RmGc95loHN18bso9a3xqkK3UimETY
+	DKPljSRzXZ/ykJtPQ7e1HfjfSFEAnUk=
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com
+ [209.85.210.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-553-g-EInV2GM7OZSoraYN2l_g-1; Wed, 07 Jan 2026 06:40:12 -0500
+X-MC-Unique: g-EInV2GM7OZSoraYN2l_g-1
+X-Mimecast-MFC-AGG-ID: g-EInV2GM7OZSoraYN2l_g_1767786012
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-7d24bbb9278so3846268b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 03:40:12 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767785910; x=1768390710;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cTH/4ZeodwA/Q+RzWHaBeEgtNJJIoFwg96ta/DUybCQ=;
-        b=AN3Q6ZRwWneET/PkrA9yKAXugMgSo1vH0AM3nvoMZyAgJqwJ9utIKtHTngpj9Lu7H8
-         +RL+IigI1DA55s5nn9hxYxokm4PLpCxcRVOKP8rf5Z69T8cy2lFuzimJLa1fWIMQ+yk/
-         HV5iMFTqIXCFvqdl8EXptmoM3duiyyhhaijMjMyut4X6aaIZ3TIYQBjWyJCtO/dcxVXK
-         xs4xofV8X+4+5NGCw+JCYPX8QYU5BTSDh+JL/Op0DTe02MVOFoQfeyzMNZkeUqOP4tSQ
-         C06rsPmO1acsJ7nfGpmS+Ols2ICWMf7FPWzseggE/SLV7T2L65IcKAjd0NL3JMLlC6j6
-         GU4A==
-X-Forwarded-Encrypted: i=1; AJvYcCXIaN/uAyYbPPeX/SNlu++bRKhq/kymtEoWs52jMHiG6pp+h7nUxyYx5CYWjZZJwX4Rb8IS6gIMLK4TsKb022GH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmFAjED4MDcZOT8aA6hRozU0osVY7uQb1p2o9bTJG5vJ2UEael
-	PXoWlew5zTCEx3KoYJxWPULMASaUDCr7xrKFefUaaQfcWxq+FImfmFyf53kCHFHWr+Gb0KCyK4k
-	tPmWJmwRf8T3O+VQoHuZm3D9pgmXJUZ+LzeHDjznmxHhSBYi+fiyuITPe/7Bd9XftZo0ckpXxgx
-	/WAA==
-X-Gm-Gg: AY/fxX4y6qjMwQI0KKRMbSAjzxM+Dx+2NYtDJg6xfG/MGwLBpOy6nLR3e9gKM6C3l5K
-	Fg4eGNDY2rJQTTywluYN6ubsuRmSBP6cjAFu6CkpNmrsT4lweUKPSdtNEHcSFP5OB8DyAk6h9ym
-	m0CHwbUIEV5EwZ3Jk5QbM0T17aZYB9NwmOkG+uwbdNHqOqx9Moro2byUNCOq5nz1GIsPmoLjXhU
-	1+RpCrhAGHiDvq8Iw8yP/N9tvHP1sEn1DOxmwDeMO+YDFmYV5Z/b9AgsewVpolYwKyDUI7i3c/H
-	uf6TlK8jMkUST+bprT+R65fxAP3oOdeU7GKA/t3uf/NBE8WlPmXGKVsV3SpL5ws4KoYWb/UxCAS
-	5JV8XPNjunn9d1NaB7okij6/vYF/YROpEC3Fj4fqJut1C9E4d3XLq/NQJvwyRqEZLK7mvJ4M7LM
-	7eVXfZTkUsIuE26oeobPAUnSI=
-X-Received: by 2002:a05:622a:20e:b0:4f4:e15e:528f with SMTP id d75a77b69052e-4ffb49c7d3emr28885741cf.62.1767785910420;
-        Wed, 07 Jan 2026 03:38:30 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFfaBxfXO0EARRWs+zjZ9c7H9zOXqTKVd04HB62R5Cos9qRCEQe2HmgxwEezgO5LrfADT4Gyg==
-X-Received: by 2002:a05:622a:20e:b0:4f4:e15e:528f with SMTP id d75a77b69052e-4ffb49c7d3emr28885451cf.62.1767785910039;
-        Wed, 07 Jan 2026 03:38:30 -0800 (PST)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59b65b89842sm1242653e87.0.2026.01.07.03.38.28
+        d=1e100.net; s=20230601; t=1767786012; x=1768390812;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+eDzB+NxPTMSfU1QkUTyVqhC+G+UiTkNvq2nlq1j3r4=;
+        b=qHTUKydRg+osMdU0ncZIVA3I3E8WZ3Z6TJvSaHq2B1xjVgFzG/evXyl58c8ZJT2/AU
+         xueFWHqVXtQIi4peFR/v+k4E1nA5lqzOYdsjKc8r8jRGATYrVpcBP3Ee2PdcfHbFdR7f
+         +YnOVDWbKFa62u0qBONZB/dnnSpuntipYI6FSMgjHrr4NFeEMYpjDeywkdkI08sBNGxC
+         t6QsediDy18q/LLU/TOW2aj9nukiI7X7P+rwkuftLCHHzFDf1YMMWaRoMIn+/vBpYecG
+         99Hljrzc560sLr1PltkqAIo5kFjoTOr4OL5sTP+JJVgzz0kGyLXCmTkroG2r3Z7suF0h
+         ekzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWGiFazH+eEaoZJRczJYJkUu0wVEaYL4Z2gKKyqtrjNtWK79eC34GUAS2JW27vRJqtZzVLzp3uvakQSXMYdrszS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyR1LJ5NNVkD2LYbE9xfjV6n8LA9+poH2e3GC7A33mD806puKUJ
+	0E6rGX5/+yV0s+b166/Z/zEUk/ksISzT9GY5ZnFbwrR4k+7qSUkrfrvSRyfMs01K18rTYLq28to
+	bfMdaeI79h63+riWI1mEQ2PeTDlBorMGJFhc5LCebEPoNq1HVm0eErka3R/LJbNms8cSwpaR2hg
+	Lc
+X-Gm-Gg: AY/fxX6mRAFV9hcp5JZgoxslgsQFrY4r+81KXSjDdLb4ddEciiSncp+Amd5XHLd29+2
+	z72liNcK4FeBNRhFT5Xd7EV6+eXKST4yFHBblF7RpbZ7YOjxyfELr8tLo6cN4tZB6sKCTftohx0
+	8KAFqjy8+aODdiAN/cxawOPfXTJuETgyR0e+h5VX6lPK3fXj7lQEwg4P37pCtSvaHwJTA2KxMZi
+	/1LaXhN+Hwt3wutKzNhPDr+qRRvjm9GmU40W4v7dHgNsJ1u92UaowN+m3SzSXObnhpHAkr1FE/l
+	oNP4ei83/cbU/w+5xbz/FeUj7syOHUEmZTmn4tPrLjAzobYbwxUATioIbULvxy99tyI7YvMerM6
+	c
+X-Received: by 2002:a05:6a00:1d20:b0:7aa:3642:2173 with SMTP id d2e1a72fcca58-81b7de5a491mr2214376b3a.31.1767786011723;
+        Wed, 07 Jan 2026 03:40:11 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEGXM4qkZ9fSQv6m8Rd/JdXyBCGgbb2bJvKNCFco+IWIxgyQ+1wvGxJ3YwuXhQ9Ytpo9HhqWA==
+X-Received: by 2002:a05:6a00:1d20:b0:7aa:3642:2173 with SMTP id d2e1a72fcca58-81b7de5a491mr2214356b3a.31.1767786011263;
+        Wed, 07 Jan 2026 03:40:11 -0800 (PST)
+Received: from localhost ([209.132.188.88])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-819c59df961sm4792767b3a.47.2026.01.07.03.40.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Jan 2026 03:38:29 -0800 (PST)
-Date: Wed, 7 Jan 2026 13:38:27 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v3 02/11] clk: qcom: clk-alpha-pll: Add support for
- controlling Pongo EKO_T PLL
-Message-ID: <7lbw6rrrsxitcldgahf2wwqklzy3nvcmem7aylsw5yvbsbom2b@lgel7iicehrf>
-References: <20260107-kaanapali-mmcc-v3-v3-0-8e10adc236a8@oss.qualcomm.com>
- <20260107-kaanapali-mmcc-v3-v3-2-8e10adc236a8@oss.qualcomm.com>
+        Wed, 07 Jan 2026 03:40:10 -0800 (PST)
+Date: Wed, 7 Jan 2026 19:39:24 +0800
+From: Coiby Xu <coxu@redhat.com>
+To: Rob Herring <robh@kernel.org>
+Cc: kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>, Baoquan he <bhe@redhat.com>, Dave Young <dyoung@redhat.com>, 
+	Kairui Song <ryncsn@gmail.com>, Pingfan Liu <kernelfans@gmail.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE" <devicetree@vger.kernel.org>
+Subject: Re: [PATCH] arm64/kdump: pass dm-crypt keys to kdump kernel
+Message-ID: <aV49pPV3OViTDe8c@Rk>
+References: <20251226141116.1379601-1-coxu@redhat.com>
+ <CAL_JsqLEsUV34tMZWSMc6w-xDV=M0JpOmS95TxrtbbBMRoD3Jw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+In-Reply-To: <CAL_JsqLEsUV34tMZWSMc6w-xDV=M0JpOmS95TxrtbbBMRoD3Jw@mail.gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 7HxTV3v9c3RMX9JcvWfxD0i3Uig0OSDX6V0p4KH02oc_1767786012
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Disposition: inline
-In-Reply-To: <20260107-kaanapali-mmcc-v3-v3-2-8e10adc236a8@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA3MDA5MiBTYWx0ZWRfX6xSWmq779vNN
- zx/fd5+HdTxMMwmRQYaz01W/Wh68Iz9FvI87NF2OGHSqxFtxySq+16ZYpNLj60dcpHF/2sefO+r
- /y0n0pxdEokPjEsbOXApHOUEWRmYWSJk6LEKb+jw1ydr+v8XFVWh783G1bqcjz0HXkOXAymwPHO
- 0R2C8czSjRS/pBKiuaqk44fQnk36FCnGOmn2yKN60zWEYxUStp9uZ/EsqkuQJ+YpGnTxPjhcTZX
- RdI3KxyUJO2KrL1/BgETbP5Nq8R8+prCzBT6zSVPdIw6VykrID0VlY629JvTgYFtFL+XlE3He42
- PY6bSuIJFmf4Er1Z6bHcsgoAzq+CEmPNsVTqTGMgfU4hgGJmRZvBRHWwLCHRo4OykJLKIP/CWN1
- RQMT0iThMwVk18MSIfxXcSudHZgGoER10X4PQxOsAgvKZWAdtzR86p8kgHSNbjiUIq2aG6ApWWS
- usFP4uFdxKeDK48cHYQ==
-X-Proofpoint-ORIG-GUID: 94ofzYzuImj3IJzrepUs_Wrz-Aq6U4QC
-X-Authority-Analysis: v=2.4 cv=comWUl4i c=1 sm=1 tr=0 ts=695e45b7 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=Rar_LHnIVK7gKg-YXgkA:9 a=CjuIK1q_8ugA:10
- a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-GUID: 94ofzYzuImj3IJzrepUs_Wrz-Aq6U4QC
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-07_01,2026-01-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 adultscore=0 priorityscore=1501
- phishscore=0 malwarescore=0 bulkscore=0 clxscore=1015 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
- definitions=main-2601070092
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_033832_260240_8599C49A 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20260107_034018_311170_16D2579B 
+X-CRM114-Status: GOOD (  20.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,26 +116,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 03:13:05PM +0530, Taniya Das wrote:
-> Add clock ops for Pongo EKO_T PLL, add the pll ops for supporting
+On Tue, Jan 06, 2026 at 09:44:37AM -0600, Rob Herring wrote:
+>On Fri, Dec 26, 2025 at 8:11 AM Coiby Xu <coxu@redhat.com> wrote:
+>>
+>> Based on the CONFIG_CRASH_DM_CRYPT feature, this patch adds
+>> LUKS-encrypted device dump target support to ARM64 by addressing two
+>> challenges [1],
+>>  - Kdump kernel may not be able to decrypt the LUKS partition. For some
+>>    machines, a system administrator may not have a chance to enter the
+>>    password to decrypt the device in kdump initramfs after the 1st kernel
+>>    crashes
+>>
+>>  - LUKS2 by default use the memory-hard Argon2 key derivation function
+>>    which is quite memory-consuming compared to the limited memory reserved
+>>    for kdump.
+>>
+>> 1st kernel will add device tree property dmcryptkeys as similar to
+>> elfcorehdr to pass the memory address of the stored info of dm-crypt
+>> keys to the kdump kernel.
+>
+>Is there not any security issue with putting the key into the DT? The
+>DT is provided to userspace. There's provisions already to not expose
+>"security-*" properties to userspace (see __of_add_property_sysfs).
+>Though I think that has a hole in that the FDT is also provided as-is.
+>However, I don't even know who or what uses these properties.
+>
+>Rob
 
-Nit: PLL
+Hi Rob,
 
-> the PLL.
-> 
-> Signed-off-by: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
-> ---
->  drivers/clk/qcom/clk-alpha-pll.h | 2 ++
->  1 file changed, 2 insertions(+)
-> 
+Thanks for raising the concern! If I understand DT correctly, this
+property is only accessible to the kexec'ed kdump kernel. A new DT is
+allocated and set up by of_kexec_alloc_and_setup_fdt. Btw, to be
+precise, it's putting the memory address where the key is stored but
+not the key itself into DT. The key is stored in the memory exclusively
+reserved for kdump. For more info on by who and how this property will
+used, I've created a dt-schema pull request as suggested by Krzysztof,
+https://github.com/devicetree-org/dt-schema/pull/181
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+And yes, there is no need for even userspace of the kdump kernel to
+access it. So this idea of "security-*" properties/__of_add_property_sysfs
+seems desirable. Thanks for bringing it up! I'll give it a try.
 
-> 
 
 -- 
-With best wishes
-Dmitry
+Best regards,
+Coiby
+
 
