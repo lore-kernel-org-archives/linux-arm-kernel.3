@@ -4,221 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CEBCF6C1D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 09:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 270B7CF6C1F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 09:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NEcwjfUIcwHuZjEObgbRK91TIznoJrUEtmbwjSwwH+I=; b=Z1BH5f2C404AvWd3brmAiGwXeL
-	Vm/PDZ7JUOu3ZClBZquRgiGt5T/JmkIVgv7mQgnMo1btXi/TZ5e6uTk3ZqixDUKRHdimh7y6CQZqx
-	98obTR+mrubwyiAK0S3967n6TXrdL7RIpd0jxOgOB7RgrwNsP0RQuPkITGvy8tqQQGf2C5IZWO+6n
-	9cf8O5p8dyP/qpcO8Y2oOFliXOwYg4w+vwSiw+fS+ntyCmI8EtN9R3+d5mjMardpLJoJ9IQtO8YlE
-	Ck3htbaB1pWQAOwJdbx3pQdDsMdVJVAlBvYD53sgYEGnZ/85DLmUUASLxGzYZsLCO4f1NxR91HCVZ
-	tcyw1UFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gJ29vmPQ/ukN7U65dl2KKv0O9PB5zVwuQMGVoX2Yrsg=; b=mwGVZ6xCjazGweVhVM7YJvgR9a
+	2nW5eSVKLiMGrCMsIcWERuTcjBWdoTKDoXXCBjXNYFv2vy3MRBlWvy6TCiQ3erMm8t4FqIzPzq5RU
+	e8CWTyFNXMV5PQA12tHkqMM53s0o4hwWoBnldwSiE0DqES0Y2a2Q4H7LAKhD9XcIdGHnZLy4LgYvY
+	JyiVlcJLmVgRK7GNCAoxgx27aD0MnOouIwAcOcsxfkxXe9hAnz0NkBBnJByhq/MCUBEu45oyZ7R6R
+	/m/H7LE1T4+lECTE4yRfHEZepN/0Ily0MpmyVsm6/9U320olWBu9K95TAl8JAz8qKAcNTs7UdybTE
+	A6Aq4C2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQBG-0000000Eayb-1lRA;
-	Wed, 07 Jan 2026 09:50:18 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vdQBm-0000000Eb5T-37WU;
+	Wed, 07 Jan 2026 09:50:50 +0000
+Received: from mail-m49248.qiye.163.com ([45.254.49.248])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQBC-0000000EaxW-3Lsc
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 09:50:16 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=gg/BkimUalqjGDCv+mUKl6UHlQRYQhECJskIui1A2S4ntmifRlEFTQp82NdVtxH8HIrFdVSx73w2QKMgE2EyC86qXEoVVD9oJtxn5JiWwteXjQwi1kU/6RmGAvAVf+bYM0aYhq6WvA+4gfRlli7YSUfwBizr5aynAopc1joHNCCVNyiICaw6xVzt59KmzV7K929lYJhzxzGagOVEMbAKx6rgMMncAhs46hqo5KraABB0dYFNe1xW+Sdzw6OSAMcwloayac+wbAXe3rW+MHGRIXIVVxzwhMBojUCO6QZHvcRuY9FNjuoS7lk4cyAfkZ2IcO9kl2Y72cBce74/0R0WZw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NEcwjfUIcwHuZjEObgbRK91TIznoJrUEtmbwjSwwH+I=;
- b=KrTIQlJNV4v8OAXFGhCzRNhK0HtRXKQnwyPIt8uHMTVBYsr6ix1+x4Fy3S8O4IIrywzXhnNjsZQWsNJOG97l09QWSXOLgdtUWEl/BDVMwN5UOyRiwHrfpuRUtDgn+Mqb+B4deMWY8MXjrXdJ9nsxiMe5IBUSHdTaGFruBITw9/T3YQXubBzjNX991Q9iKYnQVLo3xk4BjaCuK/PFauYOdPPbAwY8AM5QPFDVOYjeFycIb5Bib3OyBjnl4Fk8NnRfZg1runo0v68KWiTD517lVSYw3T5a/4wXdsYRs5CTSRh8vQT4fGD4UHR02c4VcetJ3858wL26jAgIZgq6RO9eKQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=huawei.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NEcwjfUIcwHuZjEObgbRK91TIznoJrUEtmbwjSwwH+I=;
- b=mg0Fk33cWMQJphFTvarV3eo6FQnMMOnaESimr6VetoyT/nl60slx5tDEPCM+F28EUBX9vdiv0KMua3uiQhzcA1Vn7QlskePEi9pGPxG05tVkCDFfRefa8PbroWX4g0xUFPX7rkJjDQkwvAkDyIHpMv5lu8MwCYjNra/ZjVpnCQU=
-Received: from DU2PR04CA0227.eurprd04.prod.outlook.com (2603:10a6:10:2b1::22)
- by AM8PR08MB6593.eurprd08.prod.outlook.com (2603:10a6:20b:364::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.5; Wed, 7 Jan
- 2026 09:50:08 +0000
-Received: from DU6PEPF0000A7E2.eurprd02.prod.outlook.com
- (2603:10a6:10:2b1:cafe::5a) by DU2PR04CA0227.outlook.office365.com
- (2603:10a6:10:2b1::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.2 via Frontend Transport; Wed, 7
- Jan 2026 09:50:02 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU6PEPF0000A7E2.mail.protection.outlook.com (10.167.8.42) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.1 via
- Frontend Transport; Wed, 7 Jan 2026 09:50:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vlWX8DSEWz4KtAP26XbvO5Fnwrv4o1LDouLExXuWER+4HSdpxy8DTEdn4ZpfsyGSPOdF/MFcyx4CJf9tmb8rdDFlj/FYTTPRiU5w+0U3eFj5Hljj7ntXWw0e+PYOha6xrmeVjPEPKSyseCRBsi3TEFx0cz4/iL2YIyhjzqSdoYtiZE3OTbaY4xCmFC7i9B42m6bfo2XhuVX4ttdwp7XkMlwmh/VjFO3K9mgNrRZKOpoiFQKfZmA0lt0vumD/ffR/3bTVCKRePQpYa7Y+opWtkRroMoEx8Ze21d2l0i9MprFcD81UOCPaoRa/mQM5i5rlj5G9CU9TWF72NmvIuKHr7w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NEcwjfUIcwHuZjEObgbRK91TIznoJrUEtmbwjSwwH+I=;
- b=QkAqJ45amBWsj/Ob9Aoyhon7E++X4mXxBoaXmAyyiuF9dw1pPkdihNHSaj5QAF86ylBh8/rITFAzU2zYS14igd3b4a2Dl90DDKso+qvMoAHMhHSwbPRukfgE2CdBnUE9+rlqwPzS/xwdwrroPqRjbi91ZZyi1JBelK6liqiLbFiBHTko39RGtFLCPkY4jaTLIO0oHasc3Uxz8YiXQEIs4qzoEhZBUZko9lWcXXeR+U3LrZEYTU+6y+Bh1zkgQaHGuPnACD+vo+VZa+1oE7EsEa8Bjnim/3iwFWB2N0Aos9TLEXcUigBoyfIjB9x+gMahEjNLQ2f+9HJMvLZUstE2cg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NEcwjfUIcwHuZjEObgbRK91TIznoJrUEtmbwjSwwH+I=;
- b=mg0Fk33cWMQJphFTvarV3eo6FQnMMOnaESimr6VetoyT/nl60slx5tDEPCM+F28EUBX9vdiv0KMua3uiQhzcA1Vn7QlskePEi9pGPxG05tVkCDFfRefa8PbroWX4g0xUFPX7rkJjDQkwvAkDyIHpMv5lu8MwCYjNra/ZjVpnCQU=
-Received: from AS8PR08MB6744.eurprd08.prod.outlook.com (2603:10a6:20b:397::10)
- by AS8PR08MB8611.eurprd08.prod.outlook.com (2603:10a6:20b:563::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.2; Wed, 7 Jan
- 2026 09:48:59 +0000
-Received: from AS8PR08MB6744.eurprd08.prod.outlook.com
- ([fe80::c07d:23d6:efa7:7ddb]) by AS8PR08MB6744.eurprd08.prod.outlook.com
- ([fe80::c07d:23d6:efa7:7ddb%6]) with mapi id 15.20.9499.002; Wed, 7 Jan 2026
- 09:48:59 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: Joey Gouly <Joey.Gouly@arm.com>
-CC: "yuzenghui@huawei.com" <yuzenghui@huawei.com>, Timothy Hayes
-	<Timothy.Hayes@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, nd
-	<nd@arm.com>, "peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvm@vger.kernel.org"
-	<kvm@vger.kernel.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>
-Subject: Re: [PATCH v2 27/36] KVM: arm64: gic-v5: Mandate architected PPI for
- PMU emulation on GICv5
-Thread-Topic: [PATCH v2 27/36] KVM: arm64: gic-v5: Mandate architected PPI for
- PMU emulation on GICv5
-Thread-Index: AQHccP+EO8ljQOSF00aJPJpJBfjFS7VFWf4AgAE5swA=
-Date: Wed, 7 Jan 2026 09:48:59 +0000
-Message-ID: <4278ecdbb1413e460cce8c7abfbdd70ad6c80ade.camel@arm.com>
-References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
-	 <20251219155222.1383109-28-sascha.bischoff@arm.com>
-	 <20260106150612.GB1982@e124191.cambridge.arm.com>
-In-Reply-To: <20260106150612.GB1982@e124191.cambridge.arm.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1.1 
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: AS8PR08MB6744:EE_|AS8PR08MB8611:EE_|DU6PEPF0000A7E2:EE_|AM8PR08MB6593:EE_
-X-MS-Office365-Filtering-Correlation-Id: 83b9103b-24a8-45bb-5054-08de4dd223be
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024|38070700021;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?NEpvNXNkYXFScFVRUTVtMzRuN1k2STBvMHlURWs5UE9wbWJ6SFpUYytacmNu?=
- =?utf-8?B?NjBEZzVyWkZGcVh3SHRlWm5tVkVZb0ZUL0c2SElEcXpPaEQxdXBOT3VHYzMx?=
- =?utf-8?B?N0RtWUY5TzFmWEI1UHJRczZvblpsZmw3S1hpWllEZlVpdS9CeFFULzNxQ2xP?=
- =?utf-8?B?TVJ3bnRnM3JicHdZbWJLZWZQUFREaEVyRmxOTDR0ekRwd21HTjMxTGlhUGZP?=
- =?utf-8?B?K1VicnVQaXpVQmkwOHpoV25OeHF6OXlBRjFLM2g2b3dXMFE5d3NoU0VXK2Qw?=
- =?utf-8?B?dXRPTE0wZTlQUEZldEgzblY3YzBkcmtNTzRDRkdRWkpObDlTanRNc1ZoYmdm?=
- =?utf-8?B?Y3E2bXFTTjFhbFRMSFJiSlhIemR4SlNwQ2Fsdy9HSzFmb0l2M1ZJdncvSXZi?=
- =?utf-8?B?ZnU1RkF3dDAvNTVQc3RZZXF5ZS9lbUllZHlqd2VyTjdjOGJFc21GM3pxWjUy?=
- =?utf-8?B?alR0UW9sZDZwMHJqZ3hvbFdhRVdaODgrVFJ1Sis2d0JEZ3VRUzRVdTVnUDly?=
- =?utf-8?B?eGE1aDV6c3JsWGh3QkhCMFliVTg1dkZTUHhQbktXRVFGTGZ1bHp6SHRsL3h6?=
- =?utf-8?B?eXR4UHdTa041T1ZFKzRCL3lMeWkyb2NFb2M1c3Jhd3pITHZ6RmFHK055QVcy?=
- =?utf-8?B?N2sxU0JldkFPc0o0R3FuWTNtQkFGeTNvNnRlSGMwWmVMYStxMWZYUy91Y1hS?=
- =?utf-8?B?SS8xcTVoejg2RUJHK0FzR3dSTjlFNG5NZHllUWcrZm5tVUZTZW1oZDJXTEg5?=
- =?utf-8?B?b0VWdnE0dUlXYVU5Y1JJT09mTys3Rmg2VngwZHJXd05JQUd2U1hmRDFvRGFr?=
- =?utf-8?B?enk0UDJnNExGaWZYV1lzWGxEZG1SVkJYWDEyYU0xOFJ5Uk1EcmhsV3BDeGNq?=
- =?utf-8?B?ZmIzSzM0SnBDalF5cDJzYVlWellQQnFQL2lMWFJOUUJuU0ptV05xeGhha3Zn?=
- =?utf-8?B?VDlhRDh2dnU1UnlJWHFkZEZBOWhRYXZhK1UrWjdMaUNlZzRwb1c3VVMxZFRh?=
- =?utf-8?B?YUV2ZDhXbWV6VFlMbGc5NmVyMUxZaTZEa1V3OXZwRVU0RVFOYk4xcURYSk1S?=
- =?utf-8?B?cC96OTY5QklIb0pwdFd3UENuc3ZjcHFoVU44ellaV3QxYTRqOUZNYmc1ZWRE?=
- =?utf-8?B?NzJINXVQZnBFMFV1YnY5VFFoTDZEVjZYc1FMOHRpSGtSV25kSE1ZaW1zaXVX?=
- =?utf-8?B?QjNBaXQrbXFFdk5KOXRYNXA4bUhNeXlROFJtalFaUk5mZEVGQWZQak5BZnpS?=
- =?utf-8?B?WDBBc0xZNkNROUdEUkZKUHg3TzhFaHpoNHJ6Rm91NjVPbzdnV3FEbk5GcWNZ?=
- =?utf-8?B?WFZHV25mMFY5WnVwbVRFQjhVSjIvNlkrTFMyMWx2NnNSWi9ZcTFGMy9RTDJk?=
- =?utf-8?B?V0lPRXpzNDN4QVd4QVpiWEtYbVRsY0tTZXVzZS84L3dqYlR1cDZ0SzIyaERq?=
- =?utf-8?B?am5SdUMvVVVHMXVJc3RlMDZUNmp5K2VyU0YwYllmdkE1cW9kMFRLaEhPOWRB?=
- =?utf-8?B?NDg0V2gyT1dNcHdGTWc2WVNqWTVES2xKNU93VFZML2dxTUpjMDUzdEtYMkxj?=
- =?utf-8?B?OVRseEpna3dvQnUrOVkvckxCN3BheXI0UmhrNEJaZHBwUEVweGdzRko5U2Y4?=
- =?utf-8?B?aWUra3dIUzdxa1NUUXlXd3pRUXRqcmovcm1oSFA1R0cvUEVuRUhtV3B1ZkFk?=
- =?utf-8?B?bkxmK0Fwc2dwMFNUc2tRNXVJU0dvcHRJK2M1dXNMcDF6YXR5bHFLa1gyVzA2?=
- =?utf-8?B?OUxjaHdiZGtJVnZjRzdQUTd5TWNrbjVHb1pYeHZrTlJmSm54blNJcFJvaEhJ?=
- =?utf-8?B?ZXlzK2kvV0VEZ3NvTW1wWGNPcGVCcy94MWdVYUkrS2VvSVAxbGs5R2Q2K0Jz?=
- =?utf-8?B?RWNMYjE3ZlFIVmxKZHZiM1VaTE5SVE1pVmRYQ1Q0VEQ2a2lXRFBLakJ3TVhY?=
- =?utf-8?B?NFFtMTlZUTBIV1R0cnBQTlFjM1B2SHNrM1YybVZJZWZZQlEyeW9QOGFlR0I0?=
- =?utf-8?B?eWVKU0RyMXl6cUlCRXhzWDVPNHROMFd6NWpQcEJzUUFLZzZOaVJTWDRHcmpZ?=
- =?utf-8?Q?x2FwLK?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR08MB6744.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <3C93A8679978CB478F1DF3CF8D7DB64B@eurprd08.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1vdQBj-0000000Eb3U-3KzS;
+	Wed, 07 Jan 2026 09:50:49 +0000
+Received: from [172.16.12.51] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2fcf59e8a;
+	Wed, 7 Jan 2026 17:50:39 +0800 (GMT+08:00)
+Message-ID: <37faeb47-37ef-4dda-80e4-8eb88b4dbf21@rock-chips.com>
+Date: Wed, 7 Jan 2026 17:50:38 +0800
 MIME-Version: 1.0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB8611
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000A7E2.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 42eab895-ab9a-4074-e3f5-08de4dd1fb90
-X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|36860700013|82310400026|1800799024|376014|35042699022;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?S3IzMzVWL1ZjT0tkR1hSY3ZrOXNJWldUL0d3aXYwdmJ1REQ1MFJQaFdIeGJ0?=
- =?utf-8?B?b3ZEQUhpQlRndmQzUHp1b2dRbWNzNG9ZVm40R1luaERISUR4QWhuQlpGR3Yr?=
- =?utf-8?B?Yzk4UkxJd1JnNElUMmlJcGNWd2pwQXMwZlJ6aGhZaERRSUZVOWF6VGpKU0tK?=
- =?utf-8?B?LzFaM2VOVXc5RzBWWFhrQUZkZEJTQnJTTFBWM2ltUE0zYllxcG1OYUNJZ0hQ?=
- =?utf-8?B?alYrUjNJMnRwci9uK0wxTEExa0sweFZyR0t5Y1BHbWl0NFpIWi81bkNDS1U1?=
- =?utf-8?B?Y0hVakVJYk93enBCNy9XWjhZVEJxT1hpUkRPMzRVN2xJWlZoTFdqRWFyZjhl?=
- =?utf-8?B?VTdTNDFWWitFOENNMzEyWkRXa3hZWUowK3VDWXN6UnVCay9BT29vb0VlZDlS?=
- =?utf-8?B?eXpBNnNISHNPbVoxSnRyWWd2eElaSTNkMUJSRUNHY3JFckRRYnFuS3lLR1Vs?=
- =?utf-8?B?RE8ybDkyRER0Yk1SUDVDZXI4dkx5Vyt0am5obGloWVU0aTlYWHlEb0tHMFZT?=
- =?utf-8?B?cUtJaDZ5eWRoNE5UVVpvWC80Vzh3R0s2WWVNNWg4blZkUDJhVXZlVWQzSEFZ?=
- =?utf-8?B?SEMyWnlGd1ZCdlN1TDFlNDZMTjVzaE84WERKQkxYQjJUR29UKy9Sa2dvemRh?=
- =?utf-8?B?ZHR2b09zbVBPY29PL1BtbVRtTlVUTUs2VVE4enRiTnlHcGc4N1JzbXVGNzVK?=
- =?utf-8?B?Y0FqOWpkbFFTRFQyME9aNUpwTnhQUmg4ZnAyTmZOZUlBR0w1MlVBK2d3Tmdn?=
- =?utf-8?B?MHpkMUtTTnBMbjV4NFVMWlVNZk9rOUtMSmYwZ3c3M3dIOEFQTTUrbVkwOUVJ?=
- =?utf-8?B?dTJBT0h2SGxuaXcycElRMHRQYXZ6d0FUQ3BmRjJlRDJueXl4bDZlWnhjZ3Rn?=
- =?utf-8?B?aEE1SGMwREYvUzVyVCtCazhNcEhXeHVSdU5IdEJZUDZrYnFhZ0czVXpzS2V6?=
- =?utf-8?B?eVgrbFp1VnlJRFV6LytuNklibkh2SGk2QlEwcGh5alJPUGpQQ0ZTSWMxNnM5?=
- =?utf-8?B?SmQzZnltdEZWcXh2VktZZnNwSnhJM3JGZFprdjZScDdkQjZFcHJSYXZuMEd5?=
- =?utf-8?B?YmZOS1hrNHJjTEtNb2tEUmxtYkswejd5eHg3MldIQlZmWWs4UzNuRGZJNnlx?=
- =?utf-8?B?aEEvTkd2RVROQW55Zm5QbTMrMUpjbnhwNW10NnAxZlcrVndzRHdvejZrdWt6?=
- =?utf-8?B?NUVvNnhxTHNTRklEYk8wU1p2MHBWUVZjT3FkMTRWUGd3U2VIUlUxY2U2L0Y4?=
- =?utf-8?B?SFZDVjd1bGRwanRNMSsrYXZIbFRnTlRnS1BWL0tCeDUxYWNWWGw4bUwzQkZp?=
- =?utf-8?B?ZFJFeDA1R0N4R3NZNXVoWHNiSEw5YndIRnY0djRWanBNMmFHRW9XYWk3TVpo?=
- =?utf-8?B?a3VRbTd1a3BQc0tucG5sbG1vcnhjNkw0T3NJSEtRcnJTZlFTMHlIWG82YVpa?=
- =?utf-8?B?UVN6OHVSRE5BMm9EUVFwdER3ZjdyTkFjSGU5dUJBcVpRc1BKR0ZycDk2b1RC?=
- =?utf-8?B?dzlndWh3d3QySnpsWWhSazVLaTlQbXNGOWFHekpqWjhWazR1YlVjZXc4T2tS?=
- =?utf-8?B?RW9nRkcwa05PTkphVjcwR2d3UDZ6S2tuWVdLTW12L0Q1MXVlNWNwRU9mYmtF?=
- =?utf-8?B?NHlYZW53Y3c1aDdoSUxLUGRKVU1PZUJVNFpwejNvaEUvYXBLN0NEckE4M2t4?=
- =?utf-8?B?ckJIRFZaZkpGNVlGdno0eHFoWEFib1VhNEpPeXU2bys1bzM4MzVkcGtnZW9m?=
- =?utf-8?B?OTVUZm5obG51bjMrS2Qrd0QybjlicFk2aUZ3MDU2WC9IMTRoQWR1bnlLRGR6?=
- =?utf-8?B?T0EvS2lDTzlkRGFsTkdzUThtWjRBdjROVkhCdEl4bUtBN0tVa2V5WURMeWNp?=
- =?utf-8?B?YmIyeFVJUGw2UXZwOVdWSzVJMDduZUwzVzVieENITWVZNm9CbG5DODZWYWVm?=
- =?utf-8?B?U1BOR05IQ3dlT1hFZCt5aWZaU2FFdDdGSHEwNUdiOGg3Yi8zV0lHN21IaEJm?=
- =?utf-8?B?ZTRkckVDMldXa29SREdzMnlHeXQzZ09mbC9LZ1I4QmJYOTdDR3p6YzNPdFI3?=
- =?utf-8?B?ekRHdHY5UnlyMUx0a09NK2F3UUdGbUN1d1ZwZGw3RkwxYWlFQkxsU3JOUzNP?=
- =?utf-8?Q?5WP4=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(36860700013)(82310400026)(1800799024)(376014)(35042699022);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jan 2026 09:50:07.0115
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 83b9103b-24a8-45bb-5054-08de4dd223be
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E2.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR08MB6593
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add rk3576 evb2 board
+To: Alexey Charkov <alchark@gmail.com>, Chaoyi Chen <kernel@airkyi.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Quentin Schulz <quentin.schulz@cherry.de>,
+ Kever Yang <kever.yang@rock-chips.com>, Jonas Karlman <jonas@kwiboo.se>,
+ John Clark <inindev@gmail.com>, FUKAUMI Naoki <naoki@radxa.com>,
+ Jimmy Hon <honyuenkwun@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
+ Michael Riesch <michael.riesch@collabora.com>,
+ Peter Robinson <pbrobinson@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260107070322.323-1-kernel@airkyi.com>
+ <20260107070322.323-3-kernel@airkyi.com>
+ <CABjd4Yw1Dqsa9EsMRFT8LOvyU8QN1C8VP+j0tY6h1uJhhXRSSw@mail.gmail.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <CABjd4Yw1Dqsa9EsMRFT8LOvyU8QN1C8VP+j0tY6h1uJhhXRSSw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9b97dd915703abkunm7f43c40ddca48f
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGhhJTVZISR8YT0pPQ0lPGUlWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=coBE8/g0RMK+gqbJ8rXNfM09N7CXjdkvVqA5CUHBP0KvVmvqdIgZQFJf8r2J0tujQ/Gi3BznCwfz4fOeSu3jEObMIe5ahDGEyzkFMmkYBXH4AdjP/DzkBZN/zPKFL/VQYoDtlmzXTGv8rvDoWiGhX6ytlYaU4k0zFPBRXAHNihg=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=gJ29vmPQ/ukN7U65dl2KKv0O9PB5zVwuQMGVoX2Yrsg=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_015015_128061_59F33225 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20260107_015048_058338_A477A985 
+X-CRM114-Status: GOOD (  23.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -233,67 +82,238 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyMDI2LTAxLTA2IGF0IDE1OjA2ICswMDAwLCBKb2V5IEdvdWx5IHdyb3RlOg0KPiBR
-dWVzdGlvbiwNCj4gDQo+IE9uIEZyaSwgRGVjIDE5LCAyMDI1IGF0IDAzOjUyOjQ1UE0gKzAwMDAs
-IFNhc2NoYSBCaXNjaG9mZiB3cm90ZToNCj4gPiBNYWtlIGl0IG1hbmRhdG9yeSB0byB1c2UgdGhl
-IGFyY2hpdGVjdGVkIFBQSSB3aGVuIHJ1bm5pbmcgYSBHSUN2NQ0KPiA+IGd1ZXN0LiBBdHRlbXB0
-cyB0byBzZXQgYW55dGhpbmcgb3RoZXIgdGhhbiB0aGUgYXJjaGl0ZWN0ZWQgUFBJICgyMykNCj4g
-PiBhcmUgcmVqZWN0ZWQuDQo+ID4gDQo+ID4gU2lnbmVkLW9mZi1ieTogU2FzY2hhIEJpc2Nob2Zm
-IDxzYXNjaGEuYmlzY2hvZmZAYXJtLmNvbT4NCj4gPiAtLS0NCj4gPiDCoGFyY2gvYXJtNjQva3Zt
-L3BtdS1lbXVsLmMgfCAxNCArKysrKysrKysrKystLQ0KPiA+IMKgaW5jbHVkZS9rdm0vYXJtX3Bt
-dS5owqDCoMKgwqAgfMKgIDUgKysrKy0NCj4gPiDCoDIgZmlsZXMgY2hhbmdlZCwgMTYgaW5zZXJ0
-aW9ucygrKSwgMyBkZWxldGlvbnMoLSkNCj4gPiANCj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm02
-NC9rdm0vcG11LWVtdWwuYyBiL2FyY2gvYXJtNjQva3ZtL3BtdS1lbXVsLmMNCj4gPiBpbmRleCBh
-ZmM4MzhlYTI1MDNlLi4yZDNiNTBkZWM2YzVkIDEwMDY0NA0KPiA+IC0tLSBhL2FyY2gvYXJtNjQv
-a3ZtL3BtdS1lbXVsLmMNCj4gPiArKysgYi9hcmNoL2FybTY0L2t2bS9wbXUtZW11bC5jDQo+ID4g
-QEAgLTk2Miw4ICs5NjIsMTMgQEAgc3RhdGljIGludCBrdm1fYXJtX3BtdV92M19pbml0KHN0cnVj
-dCBrdm1fdmNwdQ0KPiA+ICp2Y3B1KQ0KPiA+IMKgCQlpZiAoIXZnaWNfaW5pdGlhbGl6ZWQodmNw
-dS0+a3ZtKSkNCj4gPiDCoAkJCXJldHVybiAtRU5PREVWOw0KPiA+IMKgDQo+ID4gLQkJaWYgKCFr
-dm1fYXJtX3BtdV9pcnFfaW5pdGlhbGl6ZWQodmNwdSkpDQo+ID4gLQkJCXJldHVybiAtRU5YSU87
-DQo+ID4gKwkJaWYgKCFrdm1fYXJtX3BtdV9pcnFfaW5pdGlhbGl6ZWQodmNwdSkpIHsNCj4gPiAr
-CQkJLyogVXNlIHRoZSBhcmNoaXRlY3RlZCBpcnEgbnVtYmVyIGZvcg0KPiA+IEdJQ3Y1LiAqLw0K
-PiA+ICsJCQlpZiAodmNwdS0+a3ZtLT5hcmNoLnZnaWMudmdpY19tb2RlbCA9PQ0KPiA+IEtWTV9E
-RVZfVFlQRV9BUk1fVkdJQ19WNSkNCj4gPiArCQkJCXZjcHUtPmFyY2gucG11LmlycV9udW0gPQ0K
-PiA+IEtWTV9BUk1WOF9QTVVfR0lDVjVfSVJROw0KPiA+ICsJCQllbHNlDQo+ID4gKwkJCQlyZXR1
-cm4gLUVOWElPOw0KPiA+ICsJCX0NCj4gDQo+IFRoaXMgcmVsYXhlcyB0aGUgS1ZNX0FSTV9WQ1BV
-X1BNVV9WM19JTklUIHVBUEkgdG8gbm90IG5lZWQNCj4gS1ZNX0FSTV9WQ1BVX1BNVV9WM19JUlEg
-dG8gYmUgY2FsbGVkIGZpcnN0IGZvciBnaWMtdjUsIHJpZ2h0Pw0KPiANCj4gTWF5YmUgdGhhdCdz
-IGludGVudGlvbmFsLCBidXQgaXQgc2hvdWxkIGJlIG1lbnRpb25lZCBpbiB0aGUgY29tbWl0DQo+
-IGFuZCBtYXliZQ0KPiBldmVuIGluIHRoZSBkb2NzIChEb2N1bWVudGF0aW9uL3ZpcnQva3ZtL2Rl
-dmljZXMvdmNwdS5yc3QpPw0KPiANCj4gVGhhbmtzLA0KPiBKb2V5DQoNCkhpIEpvZXksDQoNClRo
-YXQncyBhIGdvb2QgcG9pbnQgLSBpdCBkb2VzIHJlbGF4IHRoYXQuDQoNCkknbGwgZ28gYW5kIGJ1
-bXAgdGhhdCBkb2N1bWVudGF0aW9uLiBJbiBhZGRpdGlvbiwgaXQgc2hvdWxkIGJlDQpkb2N1bWVu
-dGVkIHRoYXQgR0lDdjUgcmVxdWlyZXMgdGhlIGFyY2hpdGVjdGVkIFBQSSB0byBiZSB1c2VkDQpp
-cnJlc3BlY3RpdmUgb2YgbWFraW5nIHRoZSBJUlEgaW5pdCBvcHRpb25hbCwgc28gd2lsbCBjYWxs
-IHRoYXQgb3V0DQp0b28uDQoNClRoYW5rcywNClNhc2NoYQ0KDQo+IA0KPiA+IMKgDQo+ID4gwqAJ
-CXJldCA9IGt2bV92Z2ljX3NldF9vd25lcih2Y3B1LCB2Y3B1LQ0KPiA+ID5hcmNoLnBtdS5pcnFf
-bnVtLA0KPiA+IMKgCQkJCQkgJnZjcHUtPmFyY2gucG11KTsNCj4gPiBAQCAtOTg4LDYgKzk5Mywx
-MSBAQCBzdGF0aWMgYm9vbCBwbXVfaXJxX2lzX3ZhbGlkKHN0cnVjdCBrdm0gKmt2bSwNCj4gPiBp
-bnQgaXJxKQ0KPiA+IMKgCXVuc2lnbmVkIGxvbmcgaTsNCj4gPiDCoAlzdHJ1Y3Qga3ZtX3ZjcHUg
-KnZjcHU7DQo+ID4gwqANCj4gPiArCS8qIE9uIEdJQ3Y1LCB0aGUgUE1VSVJRIGlzIGFyY2hpdGVj
-dHVyYWxseSBtYW5kYXRlZCB0byBiZQ0KPiA+IFBQSSAyMyAqLw0KPiA+ICsJaWYgKGt2bS0+YXJj
-aC52Z2ljLnZnaWNfbW9kZWwgPT0gS1ZNX0RFVl9UWVBFX0FSTV9WR0lDX1Y1DQo+ID4gJiYNCj4g
-PiArCcKgwqDCoCBpcnEgIT0gS1ZNX0FSTVY4X1BNVV9HSUNWNV9JUlEpDQo+ID4gKwkJcmV0dXJu
-IGZhbHNlOw0KPiA+ICsNCj4gPiDCoAlrdm1fZm9yX2VhY2hfdmNwdShpLCB2Y3B1LCBrdm0pIHsN
-Cj4gPiDCoAkJaWYgKCFrdm1fYXJtX3BtdV9pcnFfaW5pdGlhbGl6ZWQodmNwdSkpDQo+ID4gwqAJ
-CQljb250aW51ZTsNCj4gPiBkaWZmIC0tZ2l0IGEvaW5jbHVkZS9rdm0vYXJtX3BtdS5oIGIvaW5j
-bHVkZS9rdm0vYXJtX3BtdS5oDQo+ID4gaW5kZXggOTY3NTRiNTFiNDExNi4uMGEzNmEzZDVjODk0
-NCAxMDA2NDQNCj4gPiAtLS0gYS9pbmNsdWRlL2t2bS9hcm1fcG11LmgNCj4gPiArKysgYi9pbmNs
-dWRlL2t2bS9hcm1fcG11LmgNCj4gPiBAQCAtMTIsNiArMTIsOSBAQA0KPiA+IMKgDQo+ID4gwqAj
-ZGVmaW5lIEtWTV9BUk1WOF9QTVVfTUFYX0NPVU5URVJTCTMyDQo+ID4gwqANCj4gPiArLyogUFBJ
-ICMyMyAtIGFyY2hpdGVjdHVyYWxseSBzcGVjaWZpZWQgZm9yIEdJQ3Y1ICovDQo+ID4gKyNkZWZp
-bmUgS1ZNX0FSTVY4X1BNVV9HSUNWNV9JUlEJCTB4MjAwMDAwMTcNCj4gPiArDQo+ID4gwqAjaWYg
-SVNfRU5BQkxFRChDT05GSUdfSFdfUEVSRl9FVkVOVFMpICYmIElTX0VOQUJMRUQoQ09ORklHX0tW
-TSkNCj4gPiDCoHN0cnVjdCBrdm1fcG1jIHsNCj4gPiDCoAl1OCBpZHg7CS8qIGluZGV4IGludG8g
-dGhlIHBtdS0+cG1jIGFycmF5ICovDQo+ID4gQEAgLTM4LDcgKzQxLDcgQEAgc3RydWN0IGFybV9w
-bXVfZW50cnkgew0KPiA+IMKgfTsNCj4gPiDCoA0KPiA+IMKgYm9vbCBrdm1fc3VwcG9ydHNfZ3Vl
-c3RfcG11djModm9pZCk7DQo+ID4gLSNkZWZpbmUga3ZtX2FybV9wbXVfaXJxX2luaXRpYWxpemVk
-KHYpCSgodiktPmFyY2gucG11LmlycV9udW0gPj0NCj4gPiBWR0lDX05SX1NHSVMpDQo+ID4gKyNk
-ZWZpbmUga3ZtX2FybV9wbXVfaXJxX2luaXRpYWxpemVkKHYpCSgodiktPmFyY2gucG11LmlycV9u
-dW0gIT0NCj4gPiAwKQ0KPiA+IMKgdTY0IGt2bV9wbXVfZ2V0X2NvdW50ZXJfdmFsdWUoc3RydWN0
-IGt2bV92Y3B1ICp2Y3B1LCB1NjQNCj4gPiBzZWxlY3RfaWR4KTsNCj4gPiDCoHZvaWQga3ZtX3Bt
-dV9zZXRfY291bnRlcl92YWx1ZShzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsIHU2NA0KPiA+IHNlbGVj
-dF9pZHgsIHU2NCB2YWwpOw0KPiA+IMKgdm9pZCBrdm1fcG11X3NldF9jb3VudGVyX3ZhbHVlX3Vz
-ZXIoc3RydWN0IGt2bV92Y3B1ICp2Y3B1LCB1NjQNCj4gPiBzZWxlY3RfaWR4LCB1NjQgdmFsKTsN
-Cj4gPiAtLSANCj4gPiAyLjM0LjENCg0K
+Hi Alexey,
+
+On 1/7/2026 3:56 PM, Alexey Charkov wrote:
+> Hi Chaoyi,
+> 
+> On Wed, Jan 7, 2026 at 11:04 AM Chaoyi Chen <kernel@airkyi.com> wrote:
+>>
+>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>
+>> General features for rk3576 evb2 board:
+>>     - Rockchip RK3576
+>>     - LPDDR4/4X
+>>     - eMMC5.1
+>>     - RK806-2x2pcs + DiscretePower
+>>     - 1x HDMI2.1 TX / HDMI2.0 RX
+>>     - 1x full size DP1.4 TX (Only 2 Lanes)
+>>     - 2x 10/100/1000M Ethernet
+>>     - 5x SATA3.0 7Pin Slot
+>>     - 2x USB3.2 Gen1 Host
+>>     - 3x USB2.0 Host
+>>     - WIFI/BT
+>>     - ...
+>>
+>> Tested with eMMC/SDMMC/HDMI/USB/Ethernet/WIFI/BT module.
+>>
+>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>> ---
+>>
+>> Changes in v2:
+>> - Enable hdmi_sound and sai6.
+>> - Add more cpu-supply.
+>> - Use regulator to control sata power.
+>> - Remove "cap-mmc-highspeed" prop in sdmmc.
+>> - Add regulator supply for ufshc.
+>> - Add the missing vcc3v3_hubreset regulator.
+>> - Add otg capability for usb_drd0_dwc3.
+>>
+>>  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>>  .../boot/dts/rockchip/rk3576-evb2-v10.dts     | 997 ++++++++++++++++++
+>>  2 files changed, 998 insertions(+)
+>>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+>> index c7617e06e1c1..cff95657d406 100644
+>> --- a/arch/arm64/boot/dts/rockchip/Makefile
+>> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+>> @@ -153,6 +153,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-io-expander.dtbo
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-armsom-sige5.dtb
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-armsom-sige5-v1.2-wifibt.dtbo
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-evb1-v10.dtb
+>> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-evb2-v10.dtb
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-luckfox-omni3576.dtb
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-nanopi-m5.dtb
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-roc-pc.dtb
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
+>> new file mode 100644
+>> index 000000000000..52788c514ec0
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
+>> @@ -0,0 +1,997 @@
+>> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+>> +/*
+>> + * Copyright (c) 2025 Rockchip Electronics Co., Ltd.
+>> + *
+>> + */
+>> +
+>> +/dts-v1/;
+>> +
+>> +#include <dt-bindings/gpio/gpio.h>
+>> +#include <dt-bindings/input/input.h>
+>> +#include <dt-bindings/pinctrl/rockchip.h>
+>> +#include <dt-bindings/soc/rockchip,vop2.h>
+>> +#include "rk3576.dtsi"
+>> +
+>> +/ {
+>> +       model = "Rockchip RK3576 EVB2 V10 Board";
+>> +       compatible = "rockchip,rk3576-evb2-v10", "rockchip,rk3576";
+>> +
+>> +       aliases {
+>> +               ethernet0 = &gmac0;
+>> +               ethernet1 = &gmac1;
+>> +       };
+>> +
+>> +       chosen: chosen {
+>> +               stdout-path = "serial0:1500000n8";
+>> +       };
+>> +
+>> +       adc_keys: adc-keys {
+>> +               compatible = "adc-keys";
+>> +               io-channels = <&saradc 1>;
+>> +               io-channel-names = "buttons";
+>> +               keyup-threshold-microvolt = <1800000>;
+>> +               poll-interval = <100>;
+>> +
+>> +               button-back {
+>> +                       label = "back";
+>> +                       linux,code = <KEY_BACK>;
+>> +                       press-threshold-microvolt = <1235000>;
+>> +               };
+>> +
+>> +               button-menu {
+>> +                       label = "menu";
+>> +                       linux,code = <KEY_MENU>;
+>> +                       press-threshold-microvolt = <890000>;
+>> +               };
+>> +
+>> +               button-vol-down {
+>> +                       label = "volume down";
+>> +                       linux,code = <KEY_VOLUMEDOWN>;
+>> +                       press-threshold-microvolt = <417000>;
+>> +               };
+>> +
+>> +               button-vol-up {
+>> +                       label = "volume up";
+>> +                       linux,code = <KEY_VOLUMEUP>;
+>> +                       press-threshold-microvolt = <17000>;
+>> +               };
+>> +       };
+>> +
+>> +       hdmi-con {
+>> +               compatible = "hdmi-connector";
+>> +               type = "a";
+>> +
+>> +               port {
+>> +                       hdmi_con_in: endpoint {
+>> +                               remote-endpoint = <&hdmi_out_con>;
+>> +                       };
+>> +               };
+>> +       };
+>> +
+>> +       leds: leds {
+>> +               compatible = "gpio-leds";
+>> +
+>> +               work_led: led-0 {
+>> +                       gpios = <&gpio0 RK_PB4 GPIO_ACTIVE_HIGH>;
+>> +                       linux,default-trigger = "heartbeat";
+>> +               };
+>> +       };
+>> +
+>> +       sdio_pwrseq: sdio-pwrseq {
+>> +               compatible = "mmc-pwrseq-simple";
+>> +               pinctrl-names = "default";
+>> +               pinctrl-0 = <&wifi_pwren>;
+>> +
+>> +               /*
+>> +                * On the module itself this is one of these (depending
+>> +                * on the actual card populated):
+>> +                * - SDIO_RESET_L_WL_REG_ON
+>> +                * - PDN (power down when low)
+>> +                */
+>> +               post-power-on-delay-ms = <200>;
+>> +               reset-gpios = <&gpio1 RK_PC6 GPIO_ACTIVE_LOW>;
+>> +       };
+>> +
+>> +       vbus5v0_typec: regulator-vbus5v0-typec {
+>> +               compatible = "regulator-fixed";
+>> +               regulator-name = "vbus5v0_typec";
+> 
+> This might better be renamed, given that last time you mentioned this
+> board doesn't have a Type-C connector. Perhaps regulator-vbus5v0-otg?
+> 
+
+Sorry, I missed this part. I will fix it in v3.
+
+>> +               regulator-min-microvolt = <5000000>;
+>> +               regulator-max-microvolt = <5000000>;
+>> +               enable-active-high;
+>> +               gpio = <&gpio0 RK_PD1 GPIO_ACTIVE_HIGH>;
+>> +               vin-supply = <&vcc5v0_device>;
+>> +               pinctrl-names = "default";
+>> +               pinctrl-0 = <&usb_otg0_pwren>;
+>> +       };
+>> +
+>> +       vcc12v_dcin: regulator-vcc12v-dcin {
+>> +               compatible = "regulator-fixed";
+>> +               regulator-name = "vcc12v_dcin";
+>> +               regulator-always-on;
+>> +               regulator-boot-on;
+>> +               regulator-min-microvolt = <12000000>;
+>> +               regulator-max-microvolt = <12000000>;
+>> +       };
+>> +
+>> +       vcc1v2_ufs_vccq_s0: regulator-vcc1v2-ufs-vccq-s0 {
+>> +               compatible = "regulator-fixed";
+>> +               regulator-name = "vcc1v2_ufs_vccq_s0";
+>> +               regulator-boot-on;
+>> +               regulator-always-on;
+>> +               regulator-min-microvolt = <1200000>;
+>> +               regulator-max-microvolt = <1200000>;
+>> +               vin-supply = <&vcc_sys>;
+>> +       };
+>> +
+>> +       vcc1v8_ufs_vccq2_s0: regulator-vcc1v8-ufs-vccq2-s0 {
+>> +               compatible = "regulator-fixed";
+>> +               regulator-name = "vcc1v8_ufs_vccq2_s0";
+>> +               regulator-boot-on;
+>> +               regulator-always-on;
+>> +               regulator-min-microvolt = <1800000>;
+>> +               regulator-max-microvolt = <1800000>;
+>> +               vin-supply = <&vcc_1v8_s3>;
+>> +       };
+>> +
+>> +       vcc3v3_hubreset: vcc3v3-hubreset {
+>> +               compatible = "regulator-fixed";
+>> +               regulator-name = "vcc3v3_hubreset";
+>> +               regulator-boot-on;
+>> +               regulator-always-on;
+> 
+> If this regulator supplies a soldered-on discrete hub and is required
+> to power it up, won't it be better to describe the hub in the device
+> tree (see binding at [1]), make the regulator its supply, and perhaps
+> drop the "regulator-boot-on/regulator-always-on" annotation here,
+> letting the regulator core deal with its enabling instead?
+> 
+> [1] https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/usb/usb-device.yaml
+
+Yes. I will try to do this in v3. Thank you!
+
+> 
+> [snip]
+> 
+> Other than these, LGTM - thanks for addressing my comments from v1!
+> Feel free to include my:
+> 
+> Reviewed-by: Alexey Charkov <alchark@gmail.com>
+> 
+> Best regards,
+> Alexey
+> 
+> 
+
+-- 
+Best, 
+Chaoyi
 
