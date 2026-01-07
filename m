@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4065DCDC198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 09:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD4D7CDC198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 09:44:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ONv0dzy9BraFiB+TBKyhUqYoYWxp7ST7mWMojgH7ofw=; b=ldH0xPBy9PTXAm68NRHtJPQjIf
-	c8UyIoDqEa5V3o6lhvf7QGLFuQLeDV6r0f55mYWTtSQsw9153VprhwD1nTFncLkVJRS7kM+cxEkhF
-	XGpYIij3yykO44zbwPukAe2kyeOcUSX1FbKC0xAKaB5fyCLoDLi49OGqS4i03/DZbwKkl2KU1T6ah
-	4RWn99Bk4cEvDGyshpeL2Vy4pZhehcRwc9fQDYhhsqfill3QTuoSOOu+DyW1hnNfpb15CH6R8lOpM
-	ruH793T+BYiu/m3YO3GJ7g78lMhELcFbTuyNGsH3l8Xn3XlLR92UfzFHQayPpfr2U/hHHz9CukQJI
-	kV1M/4AA==;
+	bh=OKH6QwyBnTx/S2RWmV87LLJJbPjEJCMBmvP99Qy/THo=; b=21QTck0Q4ZIrNRH+vZWPn8BGe3
+	ytaYryvPdyNeo6EGfhaFM3aq5pcFbo5lrJo+YVBWRS10+/YJuEpS17+8XrukMlcUUW4i1DfdN4dkR
+	NIaShZhh3zKQ94D3cd0QFhxQ7TrnuWKR4ii3Zlw0Wlsj5yJVxb6lgID6Ra5JQIKZ76ruUmQRu5qM6
+	eL7TYWrKkuWsVA85twssSOSb1bNn13eaJSMeTGkclTfU4nmbYMJqWpibCk86Fz/R3einWT2b8u+Bp
+	945Rric+nDillEmZouZe6vGnw8sBpLhBUv0e8LWFtkVkNWrH8LIbufL43RYlsFGuZXKFta1uovBp0
+	qTI0zk6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQ52-0000000EZ9h-07Wt;
-	Wed, 07 Jan 2026 09:43:52 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vdQ54-0000000EZB7-1OAQ;
+	Wed, 07 Jan 2026 09:43:54 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQ4v-0000000EZ58-1oRZ
+	id 1vdQ51-0000000EZ8z-0UQA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 09:43:50 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6073YbIZ3888906
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 7 Jan 2026 09:43:44 GMT
+	Wed, 07 Jan 2026 09:43:52 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6074mw0O1462508
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 7 Jan 2026 09:43:50 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ONv0dzy9BraFiB+TBKyhUqYoYWxp7ST7mWMojgH7ofw=; b=Ozuw9KO+XLGIjCyq
-	9yEL5vyXjHzQBj1MmyqlWtdpct72F5AqBBYcSwHQdP2CqsqriZB8JwKdW1OuFpn+
-	1wYpL5xlhlnrjzR/ucFEjrM1aY6HWRiMdznSBe6htuU3L03ymf498WrVRB+5PwQO
-	wfR5DrdD0WyO36Eun1YyIF5xFvJ/VlJ/Ro/sqA3l6NnX4xzpwqj+uL1zqtRrPuX3
-	jZCVzGLWEXYG/f9BeX8VmrUB1bmHO8pY+CxcTugbknXdHQhA5ivQzzAp+ta+j1GR
-	V3BIUNFktjjMEeDKW+hUrKB1ohPRSWrK2U3TQojtTVoejnwl83KC2Gzqzf1nalkl
-	S6aE/w==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bh6a0jt3e-1
+	OKH6QwyBnTx/S2RWmV87LLJJbPjEJCMBmvP99Qy/THo=; b=Lbfo2pQ07D5vHOVY
+	AaV5+WwW1vpUIXy6w1TwWV/YqT5bo7KNZmkgLMrM53X88BSM3KGG31yHcTbxP2Qy
+	r/iYTj+aWMXkscqOuthx1q+s4dynyAh8nRvQfdPXStkQU/fKtc9T8puzcRghlb85
+	wCSte8e3PnwXLkKbPV9ukytrhYGbJxULe9U/G60cixoVCw6fGyTbMC+EPABTV3pw
+	yEXMEkMys49yvBZTEK+5xjbsMvEuoR/x/yGNSdFzkr8ehP1/a1wwXIPo3ckHAu7b
+	Q+8Af4GGPosj8ke59aleIsi2ogJbGSjH2CeP5waz1QmPMenp1NeLM/DQ7ZWNYy+4
+	5mC/kQ==
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bh0vm3t78-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 09:43:44 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-34c64cd48a8so2945964a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 01:43:44 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 09:43:50 +0000 (GMT)
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-7b9321b9312so3961297b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 01:43:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767779023; x=1768383823; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1767779030; x=1768383830; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ONv0dzy9BraFiB+TBKyhUqYoYWxp7ST7mWMojgH7ofw=;
-        b=b0foks8xHo60I+BrTL9yyBqd5BOAC9dYRWTVsy80qrpPVckZaLsLiVbgxf+guIrdD5
-         lSg16C2KQcFzl6ShOwFnXXuHvn+y1VMY4JDhnzlhbjNaE7aW8NQeEl2L5Vwxa8CWd1bg
-         YEDiztM4HnldeSkPCCrowkR77Q6bfDHD2rI/seGuDAXlDL9OXK7cYPxT+kej7b9C4v7c
-         R7PBdG7nhFDNPr5XoYAAQMxVGpTD8Z13gx/FljDCWxvZ3y5WTeqyGWlHrVCGC/3PzONZ
-         j7r6OfTLc72SuSx1C6f7eZvTYx/EeUhwmV0Z6gWIv7NY62lZeWLucRga5oLbQU1ntt5P
-         nE9w==
+        bh=OKH6QwyBnTx/S2RWmV87LLJJbPjEJCMBmvP99Qy/THo=;
+        b=f0WYjm5Vf2M1cKRDzQ9vqcv6XRFgvH4oDibkzZd3F/auJnkHwXgNf0396IqgIQdy5I
+         VwaC6NMqn1fdEqbCAXU0wueGQj8vM3tICOvQufcq+JXG/DWPj8IpFCRRDV8zxmVzug5A
+         4CK3VPPVIOsgE/i06Vu7in98lKgnUGFQHtmjTGUaTMVdp5fQb9zpdea86SzKd6y49iWy
+         GXUxTByVkmiRHdVlrhg3wLxzWKlKZEzkv7qRu7AdaJMOWQsTnbkxYlLytdL72JSH1eoq
+         vZLZaqoiOn4eJwSJ0wcLOEZN65llxhCKbuJ5fePmvNKzasoWtHOmqtL0A8HDwVKyTlY0
+         6h4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767779023; x=1768383823;
+        d=1e100.net; s=20230601; t=1767779030; x=1768383830;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=ONv0dzy9BraFiB+TBKyhUqYoYWxp7ST7mWMojgH7ofw=;
-        b=mWA8md7R4EYOWlbyH3PLJcQRD3UkWA/imAFL/UiXoChyzt9ZdVulZ6teA18xsUJzgn
-         5+ZmQ5GMS8Lc/4PtyTDACJ21fxK8k4lCQDHOhExhghRriCR6G9FlWR0Sh1W8GqEXG/Ch
-         ZtRxGfjqfVFr2lcLzpYa0ggdZN0/2niNEa+iLChkuNlfxA1F9WBJ3Q9/b0BUIQhx04T1
-         VS0bWfVri4kVSHbe8qN6uV/M1ZjkFTefmP/kKqpO4f7gdBu+997UPlZin4ojgJAI54I3
-         MWQtWtX6QYGwILNWryKrIRBsx7kiG+KVsVRQPOgxM4rf778Csj8JS+n2bJmAjv9GcXJq
-         1XVA==
-X-Forwarded-Encrypted: i=1; AJvYcCUAFgRUMLALuFGuRifoetwjwTBzuubllbCwSO1MHz7VhEWUvvO7ZUPdhvCCXs0ebG9uJbL/MIJriY4LqfRP2Ev6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5lLAHcwApYkSLa1KP7E5C7SlhPQjJ36OJ8bpTSyX7irdPVrfH
-	TYgAUHogxP0a1uuLdU8vivL6qy+UORUeo9B99JEPXTsCOooy5YWJa/RWo6jKpStseEda31Zfd4L
-	NR+NdgeuYu9Rn9Z3tTew/Ic8N0kwFDsihm3wo+kMfei/qeBCjl58nnbsy/ccq2Z8ydQbrAIdZP4
-	DGikWOS2KrPQ==
-X-Gm-Gg: AY/fxX6/VJiSUPcqmc6jYMCSJlCalfc17qAOHcJf9o4zWwKAeCQeJkbXo09+Xx+iwDT
-	WiTTqO1USESNFqUzh0T93D1tRkwXMMekZDV565zRNPrWmBOF815NhfdaBxtixST9PHFz8PJ5dAO
-	U7fyKPHdn7tkdfIf6t+CCeCFBRSjFgajwStXS+ZmK0FOTUqXFKPc6kDIcasnhI3EUy5mkdxBp8O
-	dpgqBjNZ4saZiX6e0XZx6oPxkm9rF7wlKZ8QF8XvYX9b6HLAWUtDqjdtWtUqMXy+94U+ykiQwkU
-	XLZSz5KEgYqrIOyAtzbOolsVbswxmVeTRE5DUV99Lf2pZeaA9cr6S8eJmed/X6F3pfnLAH8am47
-	UXCSqpUGdyXdF61mAzs/NPtY9drMWwa0gHg==
-X-Received: by 2002:a05:6a21:99a8:b0:366:14ac:e20c with SMTP id adf61e73a8af0-3898fa66b18mr1776778637.74.1767779023049;
-        Wed, 07 Jan 2026 01:43:43 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IF0AnOJy4NH19DQo79E8i5R6u4z0mklQ6JkIdwaoZ6T/2epP4OoF3d39rajQElEH1uLuGzY+w==
-X-Received: by 2002:a05:6a21:99a8:b0:366:14ac:e20c with SMTP id adf61e73a8af0-3898fa66b18mr1776749637.74.1767779022553;
-        Wed, 07 Jan 2026 01:43:42 -0800 (PST)
+        bh=OKH6QwyBnTx/S2RWmV87LLJJbPjEJCMBmvP99Qy/THo=;
+        b=GDcmxDekBhtH6Gep1x7Rfc9KsUGEvrqMexMj+5WszjOb04xnEqM+tYvejmgyNvxPES
+         SHwXcjipcK09rqDi6rD4+zpEJ3SXCKitQL65YVIbnlq/llh9ehc8GQHI6js5ux/Apdaq
+         UIhkxPzHiA7kNUP8ihALgI0yO0gOquES6T7cjIsqyxBOqjRT0xRob/9ZkF2LonQOqlCw
+         uMkYYA9pKAewudv+D0JbzWhGEX/GGJJ0eL56g5T+bxiT8NO0o1uUmc0TxZFi39ThOEiD
+         ibvH4H4NlopKMSXfff66uyTJOnDIvQVKSKYB9YVV2V0IplcWrDdCiqAqNxVxbidw1NBV
+         o/7A==
+X-Forwarded-Encrypted: i=1; AJvYcCXrf8N5xUzjYBUDo42NRIiwIg8yILuC2NSAIGzBHRqqxbajbrocaBqY38hP4iuCOTATRXoOYw1nKeLPYYiLfV0v@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQtIWFlD7N5qCZ0MWMi2K+rCPXuab9gZ8KvmFJ/IXcOwW58Lii
+	XNq5yBLgvKqm3S/vlvLzWYHiXluZu6AZMNBvRJHFg4MHoI6tnPXCshyZW5jLoKtQb3yZLrwIp1X
+	Drv5YQLdjKS/vDk0m/ZyatyymY+PgLmxwbUX2ymzNppa42XbDRPeCj5Mp+dVQItgajyTG8LGF8F
+	h9yA3sFyvWeQ==
+X-Gm-Gg: AY/fxX6WOsAUC2DNm1wyJZCFDcdwG0jFNL6KgYpOPEmkw/m74P+O6MeiGrsVNo60EXd
+	q/JrhA129i38T6aFkH6WLbelvgDYWSz53WgezxF4UPEsR5q4jJMGIrFeiwdU+KX4k9oD2EC4jOn
+	dEEDNQx4dcrEQy88I7ontojuvTflG6Fo0G1jhn+eyb03DXdLdOKCGRW3PSryObtLFKswGqHYrdM
+	PsWqWl/3kCoZITON083xQikp7qiXKd0nnnQwd8xO2o5nzjR59bKkSKINAe0Q1HvUvH7yf/MjWLX
+	aKFuOUmo1ZxX8qSNnVq3o1dh5ZRilXHtTj09ZLaLCRkDNZHR9lDk/R+oEltapeInm9XRRCVTFSL
+	l4zixiuYjzLD+yCs7TnWYXoFjz0hOXWOkCg==
+X-Received: by 2002:a05:6a00:4187:b0:7f6:4922:89d3 with SMTP id d2e1a72fcca58-81b7d85ececmr1803810b3a.17.1767779029595;
+        Wed, 07 Jan 2026 01:43:49 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE/pqC6H8MGqDxRq+fjVSP39qlm5v0pyLNBFluukJ825Haoee2Rp0skheV3Yp/6uFPPKQUEyQ==
+X-Received: by 2002:a05:6a00:4187:b0:7f6:4922:89d3 with SMTP id d2e1a72fcca58-81b7d85ececmr1803783b3a.17.1767779029105;
+        Wed, 07 Jan 2026 01:43:49 -0800 (PST)
 Received: from hu-tdas-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-819bafe9568sm4472944b3a.15.2026.01.07.01.43.36
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-819bafe9568sm4472944b3a.15.2026.01.07.01.43.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Jan 2026 01:43:42 -0800 (PST)
+        Wed, 07 Jan 2026 01:43:48 -0800 (PST)
 From: Taniya Das <taniya.das@oss.qualcomm.com>
-Date: Wed, 07 Jan 2026 15:13:06 +0530
-Subject: [PATCH v3 03/11] clk: qcom: clk-alpha-pll: Add support for
- controlling Rivian PLL
+Date: Wed, 07 Jan 2026 15:13:07 +0530
+Subject: [PATCH v3 04/11] dt-bindings: clock: qcom: document Kaanapali
+ DISPCC clock controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260107-kaanapali-mmcc-v3-v3-3-8e10adc236a8@oss.qualcomm.com>
+Message-Id: <20260107-kaanapali-mmcc-v3-v3-4-8e10adc236a8@oss.qualcomm.com>
 References: <20260107-kaanapali-mmcc-v3-v3-0-8e10adc236a8@oss.qualcomm.com>
 In-Reply-To: <20260107-kaanapali-mmcc-v3-v3-0-8e10adc236a8@oss.qualcomm.com>
 To: Bjorn Andersson <andersson@kernel.org>,
@@ -120,35 +120,37 @@ Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
         linux-arm-kernel@lists.infradead.org,
         Taniya Das <taniya.das@oss.qualcomm.com>,
         Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Krzysztof Kozlowski <krzk@kernel.org>
 X-Mailer: b4 0.15-dev-aa3f6
-X-Proofpoint-ORIG-GUID: oBU0Z8uZDd6qVYuLo2CbhfZjzyJplHNN
-X-Proofpoint-GUID: oBU0Z8uZDd6qVYuLo2CbhfZjzyJplHNN
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA3MDA3OCBTYWx0ZWRfX7PwmJs9FxbtE
- KuDQ//0F32LkA6JZO6XEfVDUuBcPlMT9b8CzZ9B/nsSH5B7ODAbxRSP1Zoy1e8O4gOjjOLtXrTG
- f8Y5GY2eaYW5itGYkOHIKBJ4Mt6DLIzu3BcBJK+5kh28wOTn6u20hDlH5csMU/nztY2ugpv5MlG
- Ugr+n4qSq2E+AmAZgPKp3/jEOihvRb3Gp7wIE0fmwmtHU6HJi0/6CriYyMkV6YXNGL8XynN0cC3
- GlpRYd1ADURkzSvA19M1Mgj6S1ONomH26mNQFIMtUGWbHSYDJ6d/1BV3wQF1AyoeSJdiVYkZk4a
- 3AQgqcUCi7KBe5XBn3CQkl2oxbTzbygEfvShnMTizaKzjl5KG+S/8D7eFhfywJ5qKiE55wbPq8S
- rD2+X3WUrj2U6hr2KK3hYErSIdWZjSZ/fKPiCZxkjtsR3s4lzN8Dgpt86jyYqVubmRjRLZsMnIc
- c7lib6Kgcj1NOgx+XcA==
-X-Authority-Analysis: v=2.4 cv=MtdfKmae c=1 sm=1 tr=0 ts=695e2ad0 cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+X-Authority-Analysis: v=2.4 cv=Pa3yRyhd c=1 sm=1 tr=0 ts=695e2ad6 cx=c_pps
+ a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
  a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=fFf9reVGpRxvdFVPZdQA:9
- a=QEXdDO2ut3YA:10 a=mQ_c8vxmzFEMiUWkPHU9:22
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8
+ a=T4V0RJRh0Es9bX5-c24A:9 a=QEXdDO2ut3YA:10 a=2VI0MkxyNR6bbpdq8BZq:22
+ a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-GUID: NnY7FXuaEFdFDhDVDxjyyLTGi9Ey-jEj
+X-Proofpoint-ORIG-GUID: NnY7FXuaEFdFDhDVDxjyyLTGi9Ey-jEj
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA3MDA3OCBTYWx0ZWRfX+e99mIaqe7bT
+ vuycNHPmyb78yFi3Zedt/qE8kgEdPt61clerLsBO9NuIIaIm5aNjMpyezWaQkNnDFWuQBElX6b7
+ U+7GYLLkrOI3vi+oXYRlKTGYrVw9PO2lQN6K9Qwe5wt5sufnKjZ9BKKo4ZsooVSVnzFGxf8YLY3
+ /C4osfnfkOd6mWbXKHDHQyE+B+F+1pyGbOJjg4zBl0uux2CzRMXE3q1OfmDcs7AjI5zUrvcRxws
+ YnoLcnGt4NJvrNNbqgMNmfKFrIcXSsqfUgRmNhor8YtsjsJt4trQhRlDL4cpJmKbwVWNPEzZ024
+ U1OkqAGNblHOLP0D1F99R1WVFva3jnrO0yXW3LlGgynEpzqDcNcH2kwwqFhitjperzfm2oT0fFY
+ +htazvQ+MB1UKQl/FAaFyTvJPQgocIifrmziTYzEyqT25+LJzjL9/ZkllAufBqJF8pGTV/h9Fnb
+ YSZDJMFJwLl+NZq4l5g==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2026-01-06_03,2026-01-06_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 phishscore=0 adultscore=0 bulkscore=0
- priorityscore=1501 clxscore=1015 impostorscore=0 spamscore=0
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
+ impostorscore=0 clxscore=1015 priorityscore=1501 lowpriorityscore=0
+ spamscore=0 adultscore=0 suspectscore=0 phishscore=0 malwarescore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
  definitions=main-2601070078
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_014345_805415_7F3A48B4 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20260107_014351_172981_FC7AC5A5 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,72 +165,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add clock ops for Rivian ELU and EKO_T PLLs, add the register offsets
-for the Rivian ELU PLL. Since ELU and EKO_T shared the same offsets and
-PLL ops, reuse the Rivian EKO_T enum.
+Document device tree bindings for display clock controller for
+Qualcomm Kaanapali SoC.
 
 Signed-off-by: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
 ---
- drivers/clk/qcom/clk-alpha-pll.c | 14 ++++++++++++++
- drivers/clk/qcom/clk-alpha-pll.h |  4 ++++
- 2 files changed, 18 insertions(+)
+ .../bindings/clock/qcom,sm8550-dispcc.yaml         |   2 +
+ include/dt-bindings/clock/qcom,kaanapali-dispcc.h  | 109 +++++++++++++++++++++
+ 2 files changed, 111 insertions(+)
 
-diff --git a/drivers/clk/qcom/clk-alpha-pll.c b/drivers/clk/qcom/clk-alpha-pll.c
-index 6f50f0c4b984e991982ee8914a496c00c4ee063b..3fbdee6e67f9c82a2b93f2624a112934f01686d5 100644
---- a/drivers/clk/qcom/clk-alpha-pll.c
-+++ b/drivers/clk/qcom/clk-alpha-pll.c
-@@ -243,6 +243,19 @@ const u8 clk_alpha_pll_regs[][PLL_OFF_MAX_REGS] = {
- 		[PLL_OFF_TEST_CTL] = 0x28,
- 		[PLL_OFF_TEST_CTL_U] = 0x2c,
- 	},
-+	[CLK_ALPHA_PLL_TYPE_RIVIAN_ELU] = {
-+		[PLL_OFF_OPMODE] = 0x04,
-+		[PLL_OFF_STATUS] = 0x0c,
-+		[PLL_OFF_L_VAL] = 0x10,
-+		[PLL_OFF_USER_CTL] = 0x14,
-+		[PLL_OFF_USER_CTL_U] = 0x18,
-+		[PLL_OFF_CONFIG_CTL] = 0x1c,
-+		[PLL_OFF_CONFIG_CTL_U] = 0x20,
-+		[PLL_OFF_CONFIG_CTL_U1] = 0x24,
-+		[PLL_OFF_CONFIG_CTL_U2] = 0x28,
-+		[PLL_OFF_TEST_CTL] = 0x2c,
-+		[PLL_OFF_TEST_CTL_U] = 0x30,
-+	},
- 	[CLK_ALPHA_PLL_TYPE_DEFAULT_EVO] = {
- 		[PLL_OFF_L_VAL] = 0x04,
- 		[PLL_OFF_ALPHA_VAL] = 0x08,
-@@ -3006,6 +3019,7 @@ void qcom_clk_alpha_pll_configure(struct clk_alpha_pll *pll, struct regmap *regm
- 		clk_taycan_elu_pll_configure(pll, regmap, pll->config);
- 		break;
- 	case CLK_ALPHA_PLL_TYPE_RIVIAN_EVO:
-+	case CLK_ALPHA_PLL_TYPE_RIVIAN_ELU:
- 		clk_rivian_evo_pll_configure(pll, regmap, pll->config);
- 		break;
- 	case CLK_ALPHA_PLL_TYPE_TRION:
-diff --git a/drivers/clk/qcom/clk-alpha-pll.h b/drivers/clk/qcom/clk-alpha-pll.h
-index fc55a42fac2ffe589ba270010eb47c0816832ca7..da7d3d75592373cb2df472b9976f8c7063dc5021 100644
---- a/drivers/clk/qcom/clk-alpha-pll.h
-+++ b/drivers/clk/qcom/clk-alpha-pll.h
-@@ -32,6 +32,8 @@ enum {
- 	CLK_ALPHA_PLL_TYPE_TAYCAN_ELU,
- 	CLK_ALPHA_PLL_TYPE_TAYCAN_EKO_T = CLK_ALPHA_PLL_TYPE_TAYCAN_ELU,
- 	CLK_ALPHA_PLL_TYPE_RIVIAN_EVO,
-+	CLK_ALPHA_PLL_TYPE_RIVIAN_ELU,
-+	CLK_ALPHA_PLL_TYPE_RIVIAN_EKO_T = CLK_ALPHA_PLL_TYPE_RIVIAN_ELU,
- 	CLK_ALPHA_PLL_TYPE_DEFAULT_EVO,
- 	CLK_ALPHA_PLL_TYPE_BRAMMO_EVO,
- 	CLK_ALPHA_PLL_TYPE_STROMER,
-@@ -210,6 +212,8 @@ extern const struct clk_ops clk_alpha_pll_postdiv_lucid_evo_ops;
- extern const struct clk_ops clk_alpha_pll_pongo_elu_ops;
- #define clk_alpha_pll_pongo_eko_t_ops clk_alpha_pll_pongo_elu_ops
- extern const struct clk_ops clk_alpha_pll_rivian_evo_ops;
-+#define clk_alpha_pll_rivian_elu_ops clk_alpha_pll_rivian_evo_ops
-+#define clk_alpha_pll_rivian_eko_t_ops clk_alpha_pll_rivian_evo_ops
- #define clk_alpha_pll_postdiv_rivian_evo_ops clk_alpha_pll_postdiv_fabia_ops
+diff --git a/Documentation/devicetree/bindings/clock/qcom,sm8550-dispcc.yaml b/Documentation/devicetree/bindings/clock/qcom,sm8550-dispcc.yaml
+index 30e4b46315752b93754ab2f946c684e13b06ab93..591ce91b8d54dd6f78a66d029882bcd94b53beda 100644
+--- a/Documentation/devicetree/bindings/clock/qcom,sm8550-dispcc.yaml
++++ b/Documentation/devicetree/bindings/clock/qcom,sm8550-dispcc.yaml
+@@ -15,6 +15,7 @@ description: |
+   domains on SM8550, SM8650, SM8750 and few other platforms.
  
- extern const struct clk_ops clk_alpha_pll_regera_ops;
+   See also:
++  - include/dt-bindings/clock/qcom,kaanapali-dispcc.h
+   - include/dt-bindings/clock/qcom,sm8550-dispcc.h
+   - include/dt-bindings/clock/qcom,sm8650-dispcc.h
+   - include/dt-bindings/clock/qcom,sm8750-dispcc.h
+@@ -23,6 +24,7 @@ description: |
+ properties:
+   compatible:
+     enum:
++      - qcom,kaanapali-dispcc
+       - qcom,sar2130p-dispcc
+       - qcom,sm8550-dispcc
+       - qcom,sm8650-dispcc
+diff --git a/include/dt-bindings/clock/qcom,kaanapali-dispcc.h b/include/dt-bindings/clock/qcom,kaanapali-dispcc.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..05146f9dfe077a0841c253b7fc0b6e76347f8e3a
+--- /dev/null
++++ b/include/dt-bindings/clock/qcom,kaanapali-dispcc.h
+@@ -0,0 +1,109 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#ifndef _DT_BINDINGS_CLK_QCOM_DISP_CC_KAANAPALI_H
++#define _DT_BINDINGS_CLK_QCOM_DISP_CC_KAANAPALI_H
++
++/* DISP_CC clocks */
++#define DISP_CC_ESYNC0_CLK					0
++#define DISP_CC_ESYNC0_CLK_SRC					1
++#define DISP_CC_ESYNC1_CLK					2
++#define DISP_CC_ESYNC1_CLK_SRC					3
++#define DISP_CC_MDSS_ACCU_SHIFT_CLK				4
++#define DISP_CC_MDSS_AHB1_CLK					5
++#define DISP_CC_MDSS_AHB_CLK					6
++#define DISP_CC_MDSS_AHB_CLK_SRC				7
++#define DISP_CC_MDSS_AHB_SWI_CLK				8
++#define DISP_CC_MDSS_AHB_SWI_DIV_CLK_SRC			9
++#define DISP_CC_MDSS_BYTE0_CLK					10
++#define DISP_CC_MDSS_BYTE0_CLK_SRC				11
++#define DISP_CC_MDSS_BYTE0_DIV_CLK_SRC				12
++#define DISP_CC_MDSS_BYTE0_INTF_CLK				13
++#define DISP_CC_MDSS_BYTE1_CLK					14
++#define DISP_CC_MDSS_BYTE1_CLK_SRC				15
++#define DISP_CC_MDSS_BYTE1_DIV_CLK_SRC				16
++#define DISP_CC_MDSS_BYTE1_INTF_CLK				17
++#define DISP_CC_MDSS_DPTX0_AUX_CLK				18
++#define DISP_CC_MDSS_DPTX0_AUX_CLK_SRC				19
++#define DISP_CC_MDSS_DPTX0_CRYPTO_CLK				20
++#define DISP_CC_MDSS_DPTX0_LINK_CLK				21
++#define DISP_CC_MDSS_DPTX0_LINK_CLK_SRC				22
++#define DISP_CC_MDSS_DPTX0_LINK_DIV_CLK_SRC			23
++#define DISP_CC_MDSS_DPTX0_LINK_INTF_CLK			24
++#define DISP_CC_MDSS_DPTX0_PIXEL0_CLK				25
++#define DISP_CC_MDSS_DPTX0_PIXEL0_CLK_SRC			26
++#define DISP_CC_MDSS_DPTX0_PIXEL1_CLK				27
++#define DISP_CC_MDSS_DPTX0_PIXEL1_CLK_SRC			28
++#define DISP_CC_MDSS_DPTX0_USB_ROUTER_LINK_INTF_CLK		29
++#define DISP_CC_MDSS_DPTX1_AUX_CLK				30
++#define DISP_CC_MDSS_DPTX1_AUX_CLK_SRC				31
++#define DISP_CC_MDSS_DPTX1_CRYPTO_CLK				32
++#define DISP_CC_MDSS_DPTX1_LINK_CLK				33
++#define DISP_CC_MDSS_DPTX1_LINK_CLK_SRC				34
++#define DISP_CC_MDSS_DPTX1_LINK_DIV_CLK_SRC			35
++#define DISP_CC_MDSS_DPTX1_LINK_INTF_CLK			36
++#define DISP_CC_MDSS_DPTX1_PIXEL0_CLK				37
++#define DISP_CC_MDSS_DPTX1_PIXEL0_CLK_SRC			38
++#define DISP_CC_MDSS_DPTX1_PIXEL1_CLK				39
++#define DISP_CC_MDSS_DPTX1_PIXEL1_CLK_SRC			40
++#define DISP_CC_MDSS_DPTX1_USB_ROUTER_LINK_INTF_CLK		41
++#define DISP_CC_MDSS_DPTX2_AUX_CLK				42
++#define DISP_CC_MDSS_DPTX2_AUX_CLK_SRC				43
++#define DISP_CC_MDSS_DPTX2_CRYPTO_CLK				44
++#define DISP_CC_MDSS_DPTX2_LINK_CLK				45
++#define DISP_CC_MDSS_DPTX2_LINK_CLK_SRC				46
++#define DISP_CC_MDSS_DPTX2_LINK_DIV_CLK_SRC			47
++#define DISP_CC_MDSS_DPTX2_LINK_INTF_CLK			48
++#define DISP_CC_MDSS_DPTX2_PIXEL0_CLK				49
++#define DISP_CC_MDSS_DPTX2_PIXEL0_CLK_SRC			50
++#define DISP_CC_MDSS_DPTX2_PIXEL1_CLK				51
++#define DISP_CC_MDSS_DPTX2_PIXEL1_CLK_SRC			52
++#define DISP_CC_MDSS_DPTX3_AUX_CLK				53
++#define DISP_CC_MDSS_DPTX3_AUX_CLK_SRC				54
++#define DISP_CC_MDSS_DPTX3_CRYPTO_CLK				55
++#define DISP_CC_MDSS_DPTX3_LINK_CLK				56
++#define DISP_CC_MDSS_DPTX3_LINK_CLK_SRC				57
++#define DISP_CC_MDSS_DPTX3_LINK_DIV_CLK_SRC			58
++#define DISP_CC_MDSS_DPTX3_LINK_INTF_CLK			59
++#define DISP_CC_MDSS_DPTX3_PIXEL0_CLK				60
++#define DISP_CC_MDSS_DPTX3_PIXEL0_CLK_SRC			61
++#define DISP_CC_MDSS_ESC0_CLK					62
++#define DISP_CC_MDSS_ESC0_CLK_SRC				63
++#define DISP_CC_MDSS_ESC1_CLK					64
++#define DISP_CC_MDSS_ESC1_CLK_SRC				65
++#define DISP_CC_MDSS_MDP1_CLK					66
++#define DISP_CC_MDSS_MDP_CLK					67
++#define DISP_CC_MDSS_MDP_CLK_SRC				68
++#define DISP_CC_MDSS_MDP_LUT1_CLK				69
++#define DISP_CC_MDSS_MDP_LUT_CLK				70
++#define DISP_CC_MDSS_MDP_SS_IP_CLK				71
++#define DISP_CC_MDSS_NON_GDSC_AHB_CLK				72
++#define DISP_CC_MDSS_PCLK0_CLK					73
++#define DISP_CC_MDSS_PCLK0_CLK_SRC				74
++#define DISP_CC_MDSS_PCLK1_CLK					75
++#define DISP_CC_MDSS_PCLK1_CLK_SRC				76
++#define DISP_CC_MDSS_PCLK2_CLK					77
++#define DISP_CC_MDSS_PCLK2_CLK_SRC				78
++#define DISP_CC_MDSS_VSYNC1_CLK					79
++#define DISP_CC_MDSS_VSYNC_CLK					80
++#define DISP_CC_MDSS_VSYNC_CLK_SRC				81
++#define DISP_CC_OSC_CLK						82
++#define DISP_CC_OSC_CLK_SRC					83
++#define DISP_CC_PLL0						84
++#define DISP_CC_PLL1						85
++#define DISP_CC_PLL2						86
++#define DISP_CC_SLEEP_CLK					87
++#define DISP_CC_XO_CLK						88
++
++/* DISP_CC power domains */
++#define DISP_CC_MDSS_CORE_GDSC					0
++#define DISP_CC_MDSS_CORE_INT2_GDSC				1
++
++/* DISP_CC resets */
++#define DISP_CC_MDSS_CORE_BCR					0
++#define DISP_CC_MDSS_CORE_INT2_BCR				1
++#define DISP_CC_MDSS_RSCC_BCR					2
++
++#endif
 
 -- 
 2.34.1
