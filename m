@@ -4,55 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96DE2D0D143
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C525BD0D144
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CbT8XOkYcdMPnoZ82FJoEtPgqYxFFb5mjLUN404iVdo=; b=oVh/nws4Peo+1YSI+RAmM7fgLf
-	gg4Bm7MS1YaJBxnmgnZ+k+boBRg1Fn0VQt6c3QRf/TL7qovUdzRczpAwcbOA7iMPiRIeeo1Hqp4OS
-	S7o+SzOovBbPgtPx5UobBHrWwOq+yPqS4A0GWjtwtxLpLlQd7rLWkjy1Lnk6m6RK7rVkQjFxVVjfv
-	8a1LKNU3Ef/dLwXP5NinbOtwaOXiF2VhYCn02snM7/Y78B/CdrLKMqIdteAchbqBSC7CiGn1m+Vql
-	bcxaB3QrwWNMHQwHWzTLOzJBH6PvZbbzL4FNzLNhVSxM+4xDb6R6KiyU/XezbfWHr5oQwE0yCoc4O
-	k/dh7m+Q==;
+	bh=otEyuX3K80BYoIYcGZRsH2ma7v0aBo0pa0q/PC9OwEc=; b=dv3Y6uwheRv4lNasHD8nn3KiBp
+	G1YOQ4KGTNpYGmX1omLJ5QN9pUX8fFBuLsiQ/w0ovJVdTd9dfUbVHacBCiqct/9vN1yYbKKAcdvlO
+	FAKx8z17T8O1nshJk1aUOG2jjy7FZJbkKdvERz12SkjsNxxvU/BmXNY2Keut51ofLBjtq6Aec8QL/
+	M0Rw6G4GQ2ZEePLfPF5R+XibCuO3CSgzFfU+2pKavrRnz4Hr7GO3HhFjVMO7nYnngt3VK4eKMustw
+	fcY9TDYRyFzRWfuVdBpXvKG2EDmWwWVHUZf8m4sJYVR1dV5BzAhMEPOumLTFCBI5he+wKK8mIVjzJ
+	vrLYRjtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWnZ-0000000FLB0-3qEK;
-	Wed, 07 Jan 2026 16:54:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWnX-0000000FLAc-45Fr
+	id 1vdWqm-0000000FLK6-251D;
+	Wed, 07 Jan 2026 16:57:38 +0000
+Received: from 013.lax.mailroute.net ([199.89.1.16])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdWqk-0000000FLJd-1Oao
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 16:54:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 45325497;
-	Wed,  7 Jan 2026 08:54:08 -0800 (PST)
-Received: from [10.57.46.202] (unknown [10.57.46.202])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B76E33F6A8;
-	Wed,  7 Jan 2026 08:54:11 -0800 (PST)
-Message-ID: <846e1998-b508-4433-9db6-3a52ff23552f@arm.com>
-Date: Wed, 7 Jan 2026 17:54:09 +0100
+	Wed, 07 Jan 2026 16:57:35 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by 013.lax.mailroute.net (Postfix) with ESMTP id 4dmZ302H1KzlkMXq;
+	Wed,  7 Jan 2026 16:57:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1767805049; x=1770397050; bh=otEyuX3K80BYoIYcGZRsH2ma
+	7v0aBo0pa0q/PC9OwEc=; b=4Gz+qQLUWeQghZ89CLQ7HDYP9UBzHMpIxZxNjLGV
+	eF/OXUHveY0GAGbgGzeKaFF+8MJqQ7Sn/QYFZ1COR7UaltAm/Ie13ySSdUn8A247
+	M4+0vuftzuSUc/GySb8DJQ0jGwDIrSsQ0977F+zaes1+hN3OVnNDqYZhMiLJdV4N
+	VUuY3XT+WK6iud72WiPrsTgtM8NiCzdXjxw/FnwuVfoSXAFd57Stsx4OheJQBs39
+	dFaTdA5MC/NUg1Q8Mky0sdnVSJYccU/7v6aL1lpKVFrkgqWlSvubshF0IKCfdFLz
+	UADbbFmwoQh8q7Ou2dacubHK9wicONo7ElVA7u+6zTZ59w==
+X-Virus-Scanned: by MailRoute
+Received: from 013.lax.mailroute.net ([127.0.0.1])
+ by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id DYajElaLYGq5; Wed,  7 Jan 2026 16:57:29 +0000 (UTC)
+Received: from [100.119.48.131] (unknown [104.135.180.219])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4dmZ2t4N9Yzm73Bk;
+	Wed,  7 Jan 2026 16:57:26 +0000 (UTC)
+Message-ID: <7c3c2687-12c8-452d-86d7-78b3168a8f01@acm.org>
+Date: Wed, 7 Jan 2026 08:57:25 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: fix cleared E0POE bit after
- cpu_suspend()/resume()
-To: Yeoreum Yun <yeoreum.yun@arm.com>, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: rafael@kernel.org, pavel@kernel.org, catalin.marinas@arm.com,
- will@kernel.org, anshuman.khandual@arm.com, ryan.roberts@arm.com,
- yang@os.amperecomputing.com, joey.gouly@arm.com, stable@vger.kernel.org
-References: <20260107162115.3292205-1-yeoreum.yun@arm.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260107162115.3292205-1-yeoreum.yun@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v2] scsi: ufs: exynos: call phy_notify_state() from
+ hibern8 callbacks
+To: Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-scsi@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kernel-team@android.com, andre.draszik@linaro.org, willmcvicker@google.com,
+ tudor.ambarus@linaro.org, jyescas@google.com
+References: <20260107-ufs-exynos-phy_notify_pmstate-v2-1-2b823a25208b@linaro.org>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <20260107-ufs-exynos-phy_notify_pmstate-v2-1-2b823a25208b@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_085416_054817_33960819 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20260107_085734_435605_B741B97B 
+X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,83 +91,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/01/2026 17:21, Yeoreum Yun wrote:
-> TCR2_ELx.E0POE is set during smp_init().
-> However, this bit is not reprogrammed when the CPU enters suspension and
-> later resumes via cpu_resume(), as __cpu_setup() does not re-enable E0POE
-> and there is no save/restore logic for the TCR2_ELx system register.
->
-> As a result, the E0POE feature no longer works after cpu_resume().
->
-> To address this, save and restore TCR2_EL1 in the cpu_suspend()/cpu_resume()
-> path, rather than adding related logic to __cpu_setup(), taking into account
-> possible future extensions of the TCR2_ELx feature.
->
-> Cc: stable@vger.kernel.org
-> Fixes: bf83dae90fbc ("arm64: enable the Permission Overlay Extension for EL0")
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->
-> Patch History
-> ==============
-> from v1 to v2:
->   - following @Kevin Brodsky suggestion.
->   - https://lore.kernel.org/all/20260105200707.2071169-1-yeoreum.yun@arm.com/
->
-> NOTE:
->   This patch based on v6.19-rc4
-> ---
->  arch/arm64/include/asm/suspend.h | 2 +-
->  arch/arm64/mm/proc.S             | 8 ++++++++
->  2 files changed, 9 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/include/asm/suspend.h b/arch/arm64/include/asm/suspend.h
-> index e65f33edf9d6..e9ce68d50ba4 100644
-> --- a/arch/arm64/include/asm/suspend.h
-> +++ b/arch/arm64/include/asm/suspend.h
-> @@ -2,7 +2,7 @@
->  #ifndef __ASM_SUSPEND_H
->  #define __ASM_SUSPEND_H
->
-> -#define NR_CTX_REGS 13
-> +#define NR_CTX_REGS 14
->  #define NR_CALLEE_SAVED_REGS 12
->
->  /*
-> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-> index 01e868116448..5d907ce3b6d3 100644
-> --- a/arch/arm64/mm/proc.S
-> +++ b/arch/arm64/mm/proc.S
-> @@ -110,6 +110,10 @@ SYM_FUNC_START(cpu_do_suspend)
->  	 * call stack.
->  	 */
->  	str	x18, [x0, #96]
-> +alternative_if ARM64_HAS_TCR2
-> +	mrs	x2, REG_TCR2_EL1
-> +	str	x2, [x0, #104]
-> +alternative_else_nop_endif
->  	ret
->  SYM_FUNC_END(cpu_do_suspend)
->
-> @@ -144,6 +148,10 @@ SYM_FUNC_START(cpu_do_resume)
->  	msr	tcr_el1, x8
->  	msr	vbar_el1, x9
->  	msr	mdscr_el1, x10
-> +alternative_if ARM64_HAS_TCR2
-> +	ldr	x2, [x0, #104]
-> +	msr	REG_TCR2_EL1, x2
-> +alternative_else_nop_endif
+On 1/7/26 5:51 AM, Peter Griffin wrote:
+> +	union phy_notify phystate = {
+> +		.ufs_state = PHY_UFS_HIBERN8_EXIT
+> +	};
 
-Maybe this could be pushed further down cpu_do_resume, next to DISR_EL1
-maybe (since it's also conditional)? Otherwise the diff LGTM:
+Should this be declared 'static const'?
 
-Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> +		phy_notify_state(ufs->phy, phystate);
 
-- Kevin
+Can you please ask the maintainer of include/linux/phy/phy.h why
+phy_notify is a union since it only has a single member? From that
+header file:
 
->  	msr	sctlr_el1, x12
->  	set_this_cpu_offset x13
-> --
-> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
->
+union phy_notify {
+	enum phy_ufs_state ufs_state;
+};
+
+> +	union phy_notify phystate = {
+> +		.ufs_state = PHY_UFS_HIBERN8_ENTER
+> +	};
+
+Same question here: should this be declared 'static const'?
+
+Thanks,
+
+Bart.
 
