@@ -4,53 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A4BD0D163
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 18:54:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B90AED0D16B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 19:05:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uuSJqpZaH2QhA3iIANu4E7xN2malXmvke17n9OdaCSs=; b=1/wUD2/w6U3U4SakU1H77OsaH4
-	1fjVuiWhx+HzfrYc5IumB2yBXAOpxZrw59dcPgJTMz4dNqTcMzRv+gacJV9UnPADR7OR9VaekHCjr
-	t6pIfsxzZssZnJgNf2jpGfL+4ATZAnqy72zj5rrvXz+Dx8QEGwxjOFOfrqb4Gmasv22u8vC1c9u/z
-	teRJygzYTzC0i/5GnJCUEAvMhPDjiLCohqJPTCcj9LN1cDfiN6fxz75urRmQhGbdIbH06EJrtZgBf
-	f+wtVc+BOvmw88nQ/FiMcIdOkS/OAnYDsRQONclulLDZZRNspLIMEu/ExydnaoLO3qFIul2JZsvEN
-	u6hBZ/7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=MldaEfbjcVC2b7Y9Q7MdTrFDUGsg6SwZoadzt/x4YTI=; b=AZXyDttWtQMZkR
+	dJbk8rxZTyfoGXE0KFd2Kxam2lHjXkjHIWGXL1V3cyeL0zerWzSdcOu4cpt5ezxoLy3eiPytF8Lrr
+	uJiHjONyvEPW5vfnTd8O1Xmp6MlbBC36c6Nb/F5h9r9955VAxmm4n71RGP+UwE1dIIGVlh3mdl7By
+	CwXs1LcmiqFy2dFI56edAC29yYcDyRvoVAt1RkTUkTeYuKPpXtvILdhTud0klDyOc3KoEWT/ulo42
+	lpjT0W8y+LrFxoillDMleqemasU1Uf3Gyy/ENhMPqBvfvaMkyNRGwmAqAy1ntyvbyzckTHaRyxcCv
+	Tl+QgxwCizHgmVnZybcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdYfj-0000000FV2X-0G8Z;
-	Wed, 07 Jan 2026 18:54:19 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdYff-0000000FV2K-03q8;
-	Wed, 07 Jan 2026 18:54:15 +0000
-Message-ID: <df12062e-27ef-454d-b35b-526a88b5c7fa@infradead.org>
-Date: Wed, 7 Jan 2026 10:54:13 -0800
+	id 1vdYqf-0000000FVXd-2Bnv;
+	Wed, 07 Jan 2026 19:05:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdYqe-0000000FVXN-2wR8
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Jan 2026 19:05:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B20A96000A;
+	Wed,  7 Jan 2026 19:05:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F10CC4CEF1;
+	Wed,  7 Jan 2026 19:05:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767812735;
+	bh=cXrxAzv98+rTuAo6AZR2IpL01l/GgbnBK6hzUkgo918=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=A4RHJTdVg2eo8w4IuucYp7SsRoCH3YT//hVw93Zkkrf5yuY7VdVHzXn5p17rzjL12
+	 qFhnYO1sBxAF8pzvUHMpneAhxajxGMSSn/P5eWKV8DgEr+V8cC0I0it/mxBoIwnpzA
+	 ZTG5e65Y87dMZvAKJQ5K5dt9Ppt1bkZCnEZg46y9U/FleUdZZwCi/IwOgRoSRZueGl
+	 wWU3xb2cH5R7JKWBRu+isqhIrXzOJQiW5H8Z0OLzuYO0YHMw3moiytq6UZetkvnrs/
+	 q+BCtxWtQqAd1Xg6v3hFI08liH2/hzx+9bPTHbu7bb9UT4hw/68aVlXtLjWeg5+mZk
+	 TljZ3k+3lL8bg==
+Date: Wed, 7 Jan 2026 13:05:34 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Frederic Weisbecker <frederic@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Michal =?utf-8?Q?Koutn=C3=BD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chen Ridong <chenridong@huawei.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+	linux-mm@kvack.org, linux-pci@vger.kernel.org,
+	netdev@vger.kernel.org, Jinhui Guo <guojinhui.liam@bytedance.com>
+Subject: Re: [PATCH 01/33] PCI: Prepare to protect against concurrent
+ isolated cpuset change
+Message-ID: <20260107190534.GA441483@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/6] virt: bao: Add Bao IPC shared memory driver
-To: joaopeixoto@osyx.tech, linux-kernel@vger.kernel.org
-Cc: ajd@linux.ibm.com, alex@ghiti.fr, aou@eecs.berkeley.edu,
- bagasdotme@gmail.com, catalin.marinas@arm.com, conor+dt@kernel.org,
- corbet@lwn.net, dan.j.williams@intel.com, davidmcerdeira@osyx.tech,
- devicetree@vger.kernel.org, dev@kael-k.io, gregkh@linuxfoundation.org,
- haren@linux.ibm.com, heiko@sntech.de, jose@osyx.tech,
- kever.yang@rock-chips.com, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-riscv@lists.infradead.org, maddy@linux.ibm.com, mani@kernel.org,
- nathan@kernel.org, neil.armstrong@linaro.org, palmer@dabbelt.com,
- pjw@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com, robh@kernel.org,
- will@kernel.org
-References: <20251224135217.25350-1-joaopeixoto@osyx.tech>
- <20260107162829.416885-1-joaopeixoto@osyx.tech>
- <20260107162829.416885-3-joaopeixoto@osyx.tech>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20260107162829.416885-3-joaopeixoto@osyx.tech>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260101221359.22298-2-frederic@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,45 +94,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+[+cc Jinhui]
 
+On Thu, Jan 01, 2026 at 11:13:26PM +0100, Frederic Weisbecker wrote:
+> HK_TYPE_DOMAIN will soon integrate cpuset isolated partitions and
+> therefore be made modifiable at runtime. Synchronize against the cpumask
+> update using RCU.
+> 
+> The RCU locked section includes both the housekeeping CPU target
+> election for the PCI probe work and the work enqueue.
+> 
+> This way the housekeeping update side will simply need to flush the
+> pending related works after updating the housekeeping mask in order to
+> make sure that no PCI work ever executes on an isolated CPU. This part
+> will be handled in a subsequent patch.
+> 
+> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 
-On 1/7/26 8:28 AM, joaopeixoto@osyx.tech wrote:
-> diff --git a/drivers/virt/bao/ipcshmem/Kconfig b/drivers/virt/bao/ipcshmem/Kconfig
-> new file mode 100644
-> index 000000000000..966bb75aa495
-> --- /dev/null
-> +++ b/drivers/virt/bao/ipcshmem/Kconfig
-> @@ -0,0 +1,8 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +config BAO_SHMEM
-> +	tristate "Bao hypervisor shared memory support"
-> +	help
-> +	This enables support for Bao shared memory communication.
-> +	It allows the kernel to interface with guests running under
-> +	the Bao hypervisor, providing a character device interface
-> +	for exchanging data through dedicated shared-memory regions.
+Just FYI, Jinhui posted a series that touches this same code and might
+need some coordination:
 
-Please follow Documentation/process/coding-style.rst:
+  https://lore.kernel.org/r/20260107175548.1792-1-guojinhui.liam@bytedance.com
 
-10) Kconfig configuration files
--------------------------------
+IIUC, Jinhui's series adds some more NUMA smarts in the driver core
+sync probing path and removes corresponding NUMA code from the PCI
+core probe path.
 
-For all of the Kconfig* configuration files throughout the source tree,
-the indentation is somewhat different.  Lines under a ``config`` definition
-are indented with one tab, while help text is indented an additional two
-spaces.  Example::
-
-  config AUDIT
-	bool "Auditing support"
-	depends on NET
-	help
-	  Enable auditing infrastructure that can be used with another
-	  kernel subsystem, such as SELinux (which requires this for
-	  logging of avc messages output).  Does not do system-call
-	  auditing without CONFIG_AUDITSYSCALL.
-
-
--- 
-~Randy
-
+Bjorn
 
