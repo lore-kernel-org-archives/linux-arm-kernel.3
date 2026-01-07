@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD6FCFD63E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 14:16:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B02D5CFD641
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 14:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XrkTKIbyXsEGWqGI67Oim2UGb68eybLwM9OyxxOtW3A=; b=mkE+v3vae2NgklDVsNjD+JWfPM
-	Cvzvj0wR9wyLcmLoTtdxbT6CBfAC43MIwG3b+LHj3fJkum+sDaN+v4VjkMimJIGv+GUp1NkXcfJ6B
-	wXgzwS4ZtiTtmPAIWzKJes2Cy+TGd6PCJ06GkTi7rXmtCwcNqrMlXE7zYMxiulXyaEvJonsVOFBkB
-	vwKfCnFdPEOYtX4PvrgjdK5UqFuX90mHOIC2DgETDUgQ1eFOPbEpPXgyA0p5Pc71cIdzF1xwyoviH
-	COTQah0mMEg4txREi7fH43zJ4zGg/gv/TVFKJ5nYS0CojzDE+tuZX2WXFg4kQcJWYvsXMDQId0Lly
-	CR0mxXog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZmdGc8RmqCWZSrmEh+UMwLfS0doFBmXM9vWAXEyLvms=; b=0Hmb0NO37/n1Ew5DbC+L9o3d84
+	iB0Rn40DuHl5uqenbujk5p33oQ7M/eI9YvIw8wzX4S02Vfp0Ps1cX2ONCR2/I50OHyD6do3ylTzog
+	8khHNFUnLt5FlThK+jYcFfYmlPeXK/4OM4HqoHPbWoPDVlmuTDKuqVm+MPcKDdESEuVxZ9J8SNLod
+	BMdYB1mi8+oFGNSNRineNS6i0kaWGzxyEurpcQWmwfoAx+3wGIci+cmrtd2HpfItlkEJaPV9zQkTh
+	U7FIbVd6MvCWVIlbWMUtbyZmEDa7+idQtGLH0sUOBp7t1rDO/VIYeqA4z2rmLvQU0t3No+RjH/3K2
+	b7vpDLTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdUKc-0000000F4NU-0BEv;
-	Wed, 07 Jan 2026 14:16:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdUKi-0000000F4PJ-3aSJ;
+	Wed, 07 Jan 2026 14:16:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdUKa-0000000F4NN-1Amn
+	id 1vdUKh-0000000F4P2-3iaH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 14:16:12 +0000
+	Wed, 07 Jan 2026 14:16:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 66E4A60007;
-	Wed,  7 Jan 2026 14:16:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 911F4C4CEF1;
-	Wed,  7 Jan 2026 14:16:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0FC516001A
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Jan 2026 14:16:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9CE4C19422
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Jan 2026 14:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767795371;
-	bh=Hfk0xs9mtMTgHWqYqiIZSwai97YK7tXfeXKFSxGISsw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cOew/IROfm9qzOOTQIlOisZOSH2KDoX3TgEbHyuflgqC5Z5szpbbIyuEetC1flL6Y
-	 SYTDzqJW12y5zkLVrJYPlpNkw9Wxr3Wl6b6qFj2lSry637N+RjGLs1BNZp3EX/T67s
-	 doWTIk3TUg3TiyRXTEGzUuGaNUaYKOTU75qGJxUFaPkUDAdFQlmbe0SXBxJB+IQaq8
-	 a1gL6Qy83KbVAlQgf6RA1sokeiZ2VtjnXC/YcLo3oT9GhG7GFW01i8XXcMFp9YP8Ju
-	 1t/kHF5utWwL9fzUqEQ285i3g1aeqr3Kn+MnpolB5I9wfd2ytmGhbMHTjmxNF/kKxZ
-	 YCtS4FD8oCXVw==
-Date: Wed, 7 Jan 2026 14:16:05 +0000
-From: Will Deacon <will@kernel.org>
-To: Jiri Olsa <jolsa@kernel.org>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Mahe Tardy <mahe.tardy@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>, bpf@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
-	Yonghong Song <yhs@fb.com>, Song Liu <songliubraving@fb.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH bpf-next 1/2] arm64/ftrace,bpf: Fix partial regs after
- bpf_prog_run
-Message-ID: <aV5qpZwxgVRu2Q8w@willie-the-truck>
-References: <20260107093256.54616-1-jolsa@kernel.org>
+	s=k20201202; t=1767795378;
+	bh=ZmdGc8RmqCWZSrmEh+UMwLfS0doFBmXM9vWAXEyLvms=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=b0ddnArRLffghGDl9H67g9looF/o7iEk6VfWuNHhEw9p1mkK2qEuKd+TbVJzMEzuQ
+	 ZWJgT0buOiaB38fRrktWid8LBGswC5XsJVTwcSCXfQztIP+nwOEe2QspYPGQ/FUsl/
+	 6of8LkIvO3zHtEjliTYSSkHCmwzlySuNmH8HWnIBcbUwTEtcDPJ5e5o/UwkqkdNDrS
+	 75Pmvj97Gm0CO4MbmcUNZcw3J9H+AqhfyYYLxldAn9DO/4M6yf7MtXNHdp3OMeSB4h
+	 G1akDAskW40Gh7Bj5k1lBlw+/GjwR5B9jKBlETiFCKByaGSSijE8LJqVn4H+ud/dzs
+	 HR4yihWji0AiA==
+Received: by mail-yx1-f48.google.com with SMTP id 956f58d0204a3-6467bed0d2fso2115278d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 06:16:18 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXNBWtdJ8Flj2rMpXnYra882hwd3xNFT78Y+z2Uj3JgLVEB8aiQj3oLh4lWv/cZX6b5urWz6BuXrCSs4bzGEapV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8qNXsKm73JEwom1gQ7Kkc33wWJy+kuHg2tmud3gr8V+lk8wdl
+	5RF8XfMmiHoXBqE/velp2NbMlX+BQ4gT8ZwqBWL36z+00tNFdBvY0ciS1sNGfiupI4vQXd3PEHm
+	xxUStJZQLv797OUlBuCiHC4YrA9RV1iA=
+X-Google-Smtp-Source: AGHT+IFxG+Miu6GVJ6Vzdd/NVjY5a4LS9F0nizqhKCukNOAT0QGmncWBX5ttR8rNDEh4eEbH8NRqqqLm0PLu+hAnXf8=
+X-Received: by 2002:a53:c706:0:b0:646:a1ba:7168 with SMTP id
+ 956f58d0204a3-64716c3c83emr1880656d50.67.1767795378130; Wed, 07 Jan 2026
+ 06:16:18 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260107093256.54616-1-jolsa@kernel.org>
+References: <20251217-imx952-pin-v1-0-2747f09144dd@nxp.com>
+In-Reply-To: <20251217-imx952-pin-v1-0-2747f09144dd@nxp.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 7 Jan 2026 15:16:07 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkvYffZ_QRyk6VwuM4bMQVpfxdS8s6DhupXxB1eVU9Mfg@mail.gmail.com>
+X-Gm-Features: AQt7F2o1liqmjroptcTd4AFvMzhvkZhes7jvwtRZbA4ijFlbrYVTv9IpNfFQgCo
+Message-ID: <CAD++jLkvYffZ_QRyk6VwuM4bMQVpfxdS8s6DhupXxB1eVU9Mfg@mail.gmail.com>
+Subject: Re: [PATCH 0/2] pinctrl: imx: Support i.MX952 and update for i.MX94
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Cristian Marussi <cristian.marussi@arm.com>, linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	arm-scmi@vger.kernel.org, Peng Fan <peng.fan@nxp.com>, 
+	Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,68 +86,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 10:32:55AM +0100, Jiri Olsa wrote:
-> Mahe reported issue with bpf_override_return helper not working when
-> executed from kprobe.multi bpf program on arm.
-> 
-> The problem is that on arm we use alternate storage for pt_regs object
-> that is passed to bpf_prog_run and if any register is changed (which
-> is the case of bpf_override_return) it's not propagated back to actual
-> pt_regs object.
-> 
-> Fixing this by introducing and calling ftrace_partial_regs_update function
-> to propagate the values of changed registers (ip and stack).
-> 
-> Fixes: b9b55c8912ce ("tracing: Add ftrace_partial_regs() for converting ftrace_regs to pt_regs")
-> Reported-by: Mahe Tardy <mahe.tardy@gmail.com>
-> Signed-off-by: Jiri Olsa <jolsa@kernel.org>
-> ---
-> v1 changes:
->  - used ftrace_partial_regs_update with comments from Steven
-> 
->  arch/arm64/include/asm/ftrace.h | 24 ++++++++++++++++++++++++
->  include/linux/ftrace.h          |  3 +++
->  kernel/trace/bpf_trace.c        |  1 +
->  3 files changed, 28 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/ftrace.h b/arch/arm64/include/asm/ftrace.h
-> index 1621c84f44b3..177c7bbf3b84 100644
-> --- a/arch/arm64/include/asm/ftrace.h
-> +++ b/arch/arm64/include/asm/ftrace.h
-> @@ -157,6 +157,30 @@ ftrace_partial_regs(const struct ftrace_regs *fregs, struct pt_regs *regs)
->  	return regs;
->  }
->  
-> +/*
-> + * ftrace_partial_regs_update - update the original ftrace_regs from regs
-> + * @fregs: The ftrace_regs to update from @regs
-> + * @regs: The partial regs from ftrace_partial_regs() that was updated
-> + *
-> + * Some architectures have the partial regs living in the ftrace_regs
-> + * structure, whereas other architectures need to make a different copy
-> + * of the @regs. If a partial @regs is retrieved by ftrace_partial_regs() and
-> + * if the code using @regs updates a field (like the instruction pointer or
-> + * stack pointer) it may need to propagate that change to the original @fregs
-> + * it retrieved the partial @regs from. Use this function to guarantee that
-> + * update happens.
-> + */
-> +static __always_inline void
-> +ftrace_partial_regs_update(const struct ftrace_regs *fregs, struct pt_regs *regs)
-> +{
-> +	struct __arch_ftrace_regs *afregs = arch_ftrace_regs(fregs);
-> +
-> +	if (afregs->pc != regs->pc) {
-> +		afregs->pc = regs->pc;
-> +		afregs->regs[0] = regs->regs[0];
-> +	}
-> +}
+On Wed, Dec 17, 2025 at 3:41=E2=80=AFAM Peng Fan (OSS) <peng.fan@oss.nxp.co=
+m> wrote:
 
-I still don't understand why we need anything new in the arch code for this.
+> Patch 1:
+> For the changes to i.MX94, some pins' mux options are not controlled by
+> IOMUXC, they are controlled in WAKUPMIX BLK CTRL. SM extends the pinctrl
+> protocol, by adding a new cfg option.
+>
+> Patch 2:
+> Similar as i.MX95 and i.MX94, i.MX952 IOMUXC is also managed by System
+> Manager(SM) and exposed to Linux through SCMI pinctrl protocol.
+>
+> i.MX952's select input register offset is different, so need to update
+> driver to include it.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-We've selected HAVE_ARCH_FTRACE_REGS and we implement
-ftrace_regs_set_instruction_pointer() and ftrace_regs_set_return_value()
-so the core code already has everything it needs to make this work
-without additional arch support.
+Patches applied for Linux v7.0!
 
-Will
+Yours,
+Linus Walleij
 
