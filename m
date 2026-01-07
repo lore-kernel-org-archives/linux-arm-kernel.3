@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBC33D0D15D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 18:18:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B84D0D15D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 18:21:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NLxJzEAuCES3geMqNvzFCMY6goF2EGqYqOkgiIUgsAU=; b=X1nYEP3rIVYfWxSqsZ2CgHNUtj
-	FpEl+7sx7VwPZyMh00bLfwxCQOeJwTGvDcLellTko1L3XVpTLFqAfWPTuUE0F3u4wNZb8eUGTpKgG
-	GeMhet6OfEVu2TSWW1ktatZ9rPgG7rK7tAN3tw1oasQkDQHtZOJf2Uqhy6OVCLu7GvYXqcC+XonjD
-	nUOfyr8inm083/xKZdOIQXYZRagm4ix4ngAnafD23dTxCefDOQaKUFWemIeGtW78Ee1eorNSHnSDq
-	wF/xlakxI1RgUeOD8kHdN/gqz1ArCrD/KvbUaX4InQ44XkSC02ZIJYWzoGIwZaGo2UfulgRdOziHj
-	ohn4BcRA==;
+	bh=W5Vr6Z68+YUvw+sbuFS68eDExSAWvvLu1iZkFCGEGn0=; b=bum/RBwnT54QXn2LIXHIkbtKYe
+	QblcTpRvWbgvOXbLfvBFz7XtfMFeI6ephwsIt6XkX1hL2FhbbxBWeT4c7abdvAKWb/JqKrxsiaJvz
+	DEClTZAiffGm6hGgzDpbAdgzor9iVv5UkmLKR62nU3Xogkf86wBLpDS9Tq/EeZRN5LgMlX22zxrPw
+	YsYpfcMsp/aKiAL9bJNbFsF6qq6SbMJorKaluesN1sZv0Klzl4gQNKK11hMQXLZ0IHjyipLp1LFRr
+	IpGanNC4aUQAbveeQeobKa8Au8AdpjX1DfxYD5onb45mWnzorVtVqjvhs4e1sMp7zR2xNTDCRKOJN
+	hV6ydSGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdY6w-0000000FTBW-3mhe;
-	Wed, 07 Jan 2026 18:18:22 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vdY9x-0000000FTWL-37lx;
+	Wed, 07 Jan 2026 18:21:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdY6u-0000000FTAo-2Qwi;
-	Wed, 07 Jan 2026 18:18:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=NLxJzEAuCES3geMqNvzFCMY6goF2EGqYqOkgiIUgsAU=; b=S6jwNDPK2SZ61UorwD/NvWswSi
-	BxM8CrcEXgskDOl2oXdOG6EdiBXrBNAS9WcwjeiqLoJ2ZItdWcXZkpRsjYv8F7EjBVoZUvzSh5U3G
-	pgGd8gCiCmWoapbpGZUsQBCSg67jXnq/KMey+NR3mPGF3oSv0zBiydCw1Z52G8KP5ees=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vdY6V-001qIX-6H; Wed, 07 Jan 2026 19:17:55 +0100
-Date: Wed, 7 Jan 2026 19:17:55 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Jonas Karlman <jonas@kwiboo.se>, John Clark <inindev@gmail.com>,
-	FUKAUMI Naoki <naoki@radxa.com>, Jimmy Hon <honyuenkwun@gmail.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Michael Riesch <michael.riesch@collabora.com>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add rk3576 evb2 board
-Message-ID: <b5a3470c-aa03-42d0-a575-b705f709f8e6@lunn.ch>
-References: <20260107070322.323-1-kernel@airkyi.com>
- <20260107070322.323-3-kernel@airkyi.com>
+	id 1vdY9t-0000000FTVt-01cR
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Jan 2026 18:21:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A84DC43F1F;
+	Wed,  7 Jan 2026 18:21:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18DF4C4CEF1;
+	Wed,  7 Jan 2026 18:21:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767810083;
+	bh=K0mOaK6BrY9bp5EA2JCjimH1+UowvkU5HtroT5tTmeY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=fnpYcOAFd1CAyjEFU/csaLKLhUVevIiWnhmwJZdEFp/zvUygqh33qZniJxvJBCYZJ
+	 o+7xlLYJQdysc7eSo0234crmyas7izpzLskgTCEvsHSAlrDUSsCGj8TM/j1wVgaLZC
+	 y8mWqukCK5fBsMvUd6I6TFl2XbYUsJZSCr30mJbUyJc6VedZ7BerKwt/L/KVdCkKPW
+	 o6lIl6RBWc9+2qn2gkAsD7eqki0gO83LROGjROrlch9UcNlTVoIOngROYYfOMSQKQ4
+	 Qp17m52Yq+or7B7UeMBUpKdETNeWLgfDHm7JBb9HnSR90pe9JZ1hs88oDq5XpiDHKz
+	 zlCVkqCm6V7sg==
+From: Andreas Hindborg <a.hindborg@kernel.org>
+To: FUJITA Tomonori <fujita.tomonori@gmail.com>
+Cc: fujita.tomonori@gmail.com, aliceryhl@google.com, lyude@redhat.com,
+ boqun.feng@gmail.com, will@kernel.org, peterz@infradead.org,
+ richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com,
+ catalin.marinas@arm.com, ojeda@kernel.org, gary@garyguo.net,
+ bjorn3_gh@protonmail.com, lossin@kernel.org, tmgross@umich.edu,
+ dakr@kernel.org, mark.rutland@arm.com, frederic@kernel.org,
+ tglx@linutronix.de, anna-maria@linutronix.de, jstultz@google.com,
+ sboyd@kernel.org, viro@zeniv.linux.org.uk, brauner@kernel.org,
+ jack@suse.cz, linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, rust-for-linux@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 4/5] rust: hrtimer: use READ_ONCE instead of read_volatile
+In-Reply-To: <20260107.202245.559061117523678561.fujita.tomonori@gmail.com>
+References: <87ikdej4s1.fsf@t14s.mail-host-address-is-not-set>
+ <20260106.222826.2155269977755242640.fujita.tomonori@gmail.com>
+ <87cy3livfk.fsf@t14s.mail-host-address-is-not-set>
+ <WXFPsf9COQPV_obKoZg2bYwPL3k9TT0oBL3uxNppUFaIj5hxEX9UokzS_DJ5Kg5kXDzLrZ9ihALTZcf6ehljGw==@protonmail.internalid>
+ <20260107.202245.559061117523678561.fujita.tomonori@gmail.com>
+Date: Wed, 07 Jan 2026 19:21:11 +0100
+Message-ID: <87ms2pgu7c.fsf@t14s.mail-host-address-is-not-set>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260107070322.323-3-kernel@airkyi.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_101820_618985_3FB693AA 
-X-CRM114-Status: UNSURE (   7.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260107_102125_105979_2E4406EC 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,14 +83,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +&gmac0 {
-> +	clock_in_out = "output";
-> +	phy-mode = "rgmii-rxid";
+"FUJITA Tomonori" <fujita.tomonori@gmail.com> writes:
 
-rgmii-rxid is odd. Does the PCB really have an extra long TX clock
-line, but a short RX clock line?
+> On Wed, 07 Jan 2026 11:11:43 +0100
+> Andreas Hindborg <a.hindborg@kernel.org> wrote:
+>
+>> FUJITA Tomonori <fujita.tomonori@gmail.com> writes:
+>>
+>>> On Tue, 06 Jan 2026 13:37:34 +0100
+>>> Andreas Hindborg <a.hindborg@kernel.org> wrote:
+>>>
+>>>> "FUJITA Tomonori" <fujita.tomonori@gmail.com> writes:
+>>>>
+>>>>> On Thu, 01 Jan 2026 11:11:23 +0900 (JST)
+>>>>> FUJITA Tomonori <fujita.tomonori@gmail.com> wrote:
+>>>>>
+>>>>>> On Wed, 31 Dec 2025 12:22:28 +0000
+>>>>>> Alice Ryhl <aliceryhl@google.com> wrote:
+>>>>>>
+>>>>>>> Using `READ_ONCE` is the correct way to read the `node.expires` field.
+>>>>>>>
+>>>>>>> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
+>>>>>>> ---
+>>>>>>>  rust/kernel/time/hrtimer.rs | 8 +++-----
+>>>>>>>  1 file changed, 3 insertions(+), 5 deletions(-)
+>>>>>>>
+>>>>>>> diff --git a/rust/kernel/time/hrtimer.rs b/rust/kernel/time/hrtimer.rs
+>>>>>>> index 856d2d929a00892dc8eaec63cebdf547817953d3..e2b7a26f8aade972356c3eb5f6489bcda3e2e849 100644
+>>>>>>> --- a/rust/kernel/time/hrtimer.rs
+>>>>>>> +++ b/rust/kernel/time/hrtimer.rs
+>>>>>>> @@ -239,11 +239,9 @@ pub fn expires(&self) -> HrTimerInstant<T>
+>>>>>>>          // - Timers cannot have negative ktime_t values as their expiration time.
+>>>>>>>          // - There's no actual locking here, a racy read is fine and expected
+>>>>>>>          unsafe {
+>>>>>>> -            Instant::from_ktime(
+>>>>>>> -                // This `read_volatile` is intended to correspond to a READ_ONCE call.
+>>>>>>> -                // FIXME(read_once): Replace with `read_once` when available on the Rust side.
+>>>>>>> -                core::ptr::read_volatile(&raw const ((*c_timer_ptr).node.expires)),
+>>>>>>> -            )
+>>>>>>> +            Instant::from_ktime(kernel::sync::READ_ONCE(
+>>>>>>> +                &raw const (*c_timer_ptr).node.expires,
+>>>>>>> +            ))
+>>>>>>>          }
+>>>>>>
+>>>>>> Do we actually need READ_ONCE() here? I'm not sure but would it be
+>>>>>> better to call the C-side API?
+>>>>>>
+>>>>>> diff --git a/rust/helpers/time.c b/rust/helpers/time.c
+>>>>>> index 67a36ccc3ec4..73162dea2a29 100644
+>>>>>> --- a/rust/helpers/time.c
+>>>>>> +++ b/rust/helpers/time.c
+>>>>>> @@ -2,6 +2,7 @@
+>>>>>>
+>>>>>>  #include <linux/delay.h>
+>>>>>>  #include <linux/ktime.h>
+>>>>>> +#include <linux/hrtimer.h>
+>>>>>>  #include <linux/timekeeping.h>
+>>>>>>
+>>>>>>  void rust_helper_fsleep(unsigned long usecs)
+>>>>>> @@ -38,3 +39,8 @@ void rust_helper_udelay(unsigned long usec)
+>>>>>>  {
+>>>>>>  	udelay(usec);
+>>>>>>  }
+>>>>>> +
+>>>>>> +__rust_helper ktime_t rust_helper_hrtimer_get_expires(const struct hrtimer *timer)
+>>>>>> +{
+>>>>>> +	return timer->node.expires;
+>>>>>> +}
+>>>>>
+>>>>> Sorry, of course this should be:
+>>>>>
+>>>>> +__rust_helper ktime_t rust_helper_hrtimer_get_expires(const struct hrtimer *timer)
+>>>>> +{
+>>>>> +	return hrtimer_get_expires(timer);
+>>>>> +}
+>>>>>
+>>>>
+>>>> This is a potentially racy read. As far as I recall, we determined that
+>>>> using read_once is the proper way to handle the situation.
+>>>>
+>>>> I do not think it makes a difference that the read is done by C code.
+>>>
+>>> What does "racy read" mean here?
+>>>
+>>> The C side doesn't use WRITE_ONCE() or READ_ONCE for node.expires. How
+>>> would using READ_ONCE() on the Rust side make a difference?
+>>
+>> Data races like this are UB in Rust. As far as I understand, using this
+>> READ_ONCE implementation or a relaxed atomic read would make the read
+>> well defined. I am not aware if this is only the case if all writes to
+>> the location from C also use atomic operations or WRITE_ONCE. @Boqun?
+>
+> The C side updates node.expires without WRITE_ONCE()/atomics so a
+> Rust-side READ_ONCE() can still observe a torn value; I think that
+> this is still a data race / UB from Rust's perspective.
+>
+> And since expires is 64-bit, WRITE_ONCE() on 32-bit architectures does
+> not inherently guarantee tear-free stores either.
+>
+> I think that the expires() method should follow the same safety
+> requirements as raw_forward(): it should only be considered safe when
+> holding exclusive access to hrtimer or within the context of the timer
+> callback. Under those conditions, it would be fine to call C's
+> hrtimer_get_expires().
 
-Try changing this to rgmii-id, and drop the tx_delay property.
+We can make it safe, please see my comment here [1].
 
-	Andrew
+Best regards,
+Andreas Hindborg
+
+[1] https://lore.kernel.org/r/87v7hdh9m4.fsf@t14s.mail-host-address-is-not-set
+
 
