@@ -4,102 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6647BCF6C1F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 09:43:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66AFFCDC198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 09:43:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=l6RdcxF0KkuoMThTWV/0U3PjiCm3+6V4PEqv1V5VmIM=; b=3ShTTxF8q44xKk
-	VW8ioopMSGDWiBz5SIVhS/6k1b+1lLewBuiUSMDI7Majk4feBjQcycDmUnhBYL1ZwcqMl2rwq9K5w
-	AtmWqgZ30U7jmYsZMt2UVtmkEf6havMolPRpigpKgbv0ByqYPZ4MjMDg8U/6eFTlx9eTDnoBTkugv
-	cQssK57qRwebuz6pRx1FWK5r+K/G1De/UaXwsCrM1gQPzLQejTaV7JnUUl4ZxOLZVSLwYSbcmCtJj
-	K+ZttK+2bhk5vPBMxkkWw5IXzdQ1Rrpk704YNu7YkVeLJken5OQAWZ5+qDA5J+3zX2cqduvkAIAqq
-	MiD4FDwu//3cLswx+n1Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XNAIbN5I0fCUsYofWx4o+kJjxaJJuy6D9amY9U12/wQ=; b=tjLtolpmXwIdvwf1wKMwShLOEU
+	09+yl5O8NtoEs25OUgqwtdqg3CmOdzVPol6YNckEBATMqmvLP721c+lc9QHBRlgnUliwj7B4r4uDJ
+	rNoxphhgnBS5lD7P/LIgo2qxJWB5umCOXfLlSNb2bDV4YcnLv9iV6vCCRmNlbBWWjeJ2/SrvutKms
+	l/xTCzUn8sUgd5cCpmhyhHPaJQYMZ6CKaK6U8nr1Rs9as/esGZAU037K4iNB1tA0pDABkMUvcbTLD
+	dssE2sbVnmWbIiG9aN6ZViCNgSJjDJWmx2uMkGb8RqfsUPqDk54RVhmXDPJEdEyziJh3a/UTMvVYq
+	3hBPo4Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQ4f-0000000EYyX-3fHl;
-	Wed, 07 Jan 2026 09:43:29 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vdQ4j-0000000EZ02-2xwm;
+	Wed, 07 Jan 2026 09:43:33 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQ4d-0000000EYy4-0Ksi
+	id 1vdQ4h-0000000EYyp-3X6c
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 09:43:28 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6078dpad2577895
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 7 Jan 2026 09:43:25 GMT
+	Wed, 07 Jan 2026 09:43:32 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6079CKc72453915
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 7 Jan 2026 09:43:31 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=l6RdcxF0KkuoMThTWV/0U3
-	PjiCm3+6V4PEqv1V5VmIM=; b=bVBEMGcww4Vw7b/c9KYdn7pvMqA4Tcdx8irdqG
-	mzf1riG3iQ0XlX0ZlwbBzRBQM7ZrRUGp5n+13S86FKN2q4QS6sxTVHuWZUWGAO9r
-	9lEUlf5IudA8uVWFSYsUqhbHR2Zy2C51c5PSxb4HwYmQa8jPilcy0SLsFQkVcLno
-	xkfkYz49ekF8qo+LXA8+CCBTOJYVuHSm8DyxvtLIanHO5nL8IDBT/3G3jVOfl+gl
-	B/VA5iUTeSH/9HhgkVAzuXSNGvotvF+d3QL1ExXYu/aj9g4z8NHQJs4axaeGG4Zq
-	HU/SQvdHqdIqfhVlp2FoXgU20BGKsGRcUlDK5IWxxkZH9VGA==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bhm658772-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	XNAIbN5I0fCUsYofWx4o+kJjxaJJuy6D9amY9U12/wQ=; b=I18PnfuipaqPS9wX
+	kF9iKeVqVxwr/RMebUMxFldv4ahClAXpe+Fg+56naXfIltprBLc1G+gFIVD/QhcD
+	iDHjCi2dqQSqny8BsV3J+pyga2YvqeDDrll+fmFr4ag7ekC7U9aK0Evj8gXtYmca
+	/8CHnwKGTLjLHU6AIVGYZhDVAIhv7nhOzFqjwOHreGrMGb4ZVQdONcmnOZ2TDRYx
+	rQZ2f30PyIy66ikpRdw+NbdC4g31a97seoSY1jt40JyvQcTofvYYxfvYObUQPzXt
+	qamYSDbSiXx/1CLZUzrIPy0SmwdJ44jdMkQjF1IjEAOVaEyDOVC6lxUnZ1tHSuBn
+	+od1sg==
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bhmnbg3ex-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 09:43:25 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-34c21341f56so4477446a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 01:43:24 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 09:43:31 +0000 (GMT)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-7aa9f595688so2664170b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 01:43:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767779004; x=1768383804; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=l6RdcxF0KkuoMThTWV/0U3PjiCm3+6V4PEqv1V5VmIM=;
-        b=UJn+by8IWlIeg6xee0AgXLBQNtAHaTR2zN3aGfcFrKuk1dgUT8o5zIymNYBwSh0VVo
-         phICRtHz1eX6VRGFKnBfuRRISCFg+8NzgPEQivX6F8aHZBNAoveaYq5XLo1jXcYHTIjm
-         42UcLLNGs2GGTei9Vp3B6eEOUVRjeyz60hujDjetw9qSM5u18GqTc1dZsb8+n3zSgQ4o
-         5YoxePKRBYc1qefn0kGsQ71AqjqFHmz0iO7Y8d9Xiez+6tED15EnsHdO9s8G9+sGlO7f
-         +JB632fG8kyyieCgSBT+/dr6fQ/S7pTA2wbbBM1rhX20NUKiiyaF40GNiTJJ2M5mHlzQ
-         T4WA==
+        d=oss.qualcomm.com; s=google; t=1767779010; x=1768383810; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XNAIbN5I0fCUsYofWx4o+kJjxaJJuy6D9amY9U12/wQ=;
+        b=NbokwT5R1+EYYotNzvtYbBJ/85pOQz8PZXdNTBMH9xDuBuRDlYLMRc0CLQZbcl/xnd
+         CXJj5qM+/wDgSVUCzISFtVt9ceNCoeAgGHnjv6w/QVioYjY6fpWfUouhYcM46l/XnDCa
+         Xa6THb3I/Ina7rx7Sm/3ei6NmF+Gi7eWKquOn/cCNLQuLrhPm/MNOMcctc9vAun8DHeb
+         HkRyxwEoY5pI1KVM/bJQGpLE4Vw6yP6JjxzO+qkbw/cYrxWmknTorinHGJdF2rJq8yya
+         YKqsjJVPaYWwOng0FEPmF+60AUQoxEwvI0M4cWAiikUQu5TZNE2UmCRshvZhq0EXMBwF
+         3p9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767779004; x=1768383804;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=l6RdcxF0KkuoMThTWV/0U3PjiCm3+6V4PEqv1V5VmIM=;
-        b=ABuYjjfR0Y1TucJVSlb/LzUaP0M5RwjhXgx5ubrhHbslQnPsUcbnZoKhJnQxO8/MYi
-         RJWfHCmmKPTkTYxvjFF+cNEv0vznLPsaB/W1V1cguG+37I76vuvENEgEsBmF8eiU/JS0
-         KF8CFUmFz8yykTUp5vK28cwUchMfbYVzjavUGr22ltDdVu32Y4bItZ9CAUfl6rFeH2nx
-         MOqA+Y0r+qVoU7u0d6zP9/YCCJHKXGgk929H4T6o6U8zBS9F46jmfeBSAG06B0/sfbVQ
-         Tuyz47yNmYOyRswZoEdozvSAITPzAGr9wbId+Gwtn+BETqLjc823TBsBt7CKm53MvyQN
-         F8xg==
-X-Forwarded-Encrypted: i=1; AJvYcCVKiIu3ER3wuUorsiFfeaGq9OJiZWO5thwmlfTGilmXQgUCrRdLR+9rBBYYUaVxFwoiLTnrYR2WcJ+kiYavZso8@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQjfaPC0M8t1gWpKzO7Us50lbCZiX90H9SEHUX1MItHf6g+bGt
-	csi04dLv2bHC0mAgYVdzcZWhj2PCEjIQdyxm30FNOAse49RSttQdRc7gHglbCHPJM122FDpNi/3
-	N2/Y0gYLmihiIEJeeSJzjvwwk0Ya+1P7XV7FdP4a4G2xjwNMoZA5UdeC/zUuN0MwO0V+MLY6/Oc
-	NGKMM16cG/8w==
-X-Gm-Gg: AY/fxX4zoDz6t05wc0FIoYyfGLJyPu5LCi1Hghdy+RENgab7L8aujwuBOv5c/RbaqGQ
-	SlA+Si3RRw1jyb9WtJ7NJEXSWOT2kBZi034kjbTLFpqHqx3ENd9PggeH6sc7B7f4Oa8N27eWnmy
-	Bylh8WNc/S5rw4/9xtMomopJivKqn3QRSRw/gssnmOa7sBwcoVwxqJMA7arES/uNG7dKYbt8wxl
-	PziWUgE8VCUdoPZP2ZXy0ZRxfAbaoIsfs0RQijTCmaGqrc+t0UqDzf+CdF0lz8VUlVcwBwJx1uL
-	UferhInepRDpfqQo5B0TFqY1lw+qBZzbAr3ss4vN1JVYAwiBFjy0QI5mNfaGD6xSnKWp75rk9/F
-	UXVwU+zPnBCrhj9RJ3CJH6s/zRNkz0inPRA==
-X-Received: by 2002:a17:90b:4a07:b0:339:ec9c:b275 with SMTP id 98e67ed59e1d1-34f68c308camr1992723a91.6.1767779003904;
-        Wed, 07 Jan 2026 01:43:23 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IE9utHaerxlmRKQBS/EdaJNmJ7bFN1nMsGjL366kf8cZMjULjE7RzNmpNRtkBxRkq0JoaMtcg==
-X-Received: by 2002:a17:90b:4a07:b0:339:ec9c:b275 with SMTP id 98e67ed59e1d1-34f68c308camr1992696a91.6.1767779003444;
-        Wed, 07 Jan 2026 01:43:23 -0800 (PST)
+        d=1e100.net; s=20230601; t=1767779010; x=1768383810;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=XNAIbN5I0fCUsYofWx4o+kJjxaJJuy6D9amY9U12/wQ=;
+        b=TrGOy5aCQk2FaSDtZBSzHCepU3gMF4ZkTTgr1lq26tql3K0Z23AHpV2g74HNW/1drN
+         eUrIK4EcWqrA3Xf/CskYeTwrke6xqEZzrZug6CTR/PE5MkVvJO0IhRHuTiJUdB9UZwxk
+         DSIDbK6nwwqowv9B6Gd+fjVYLOO69K83U6cmR3UIcOO4rwOM1IJe+SiL+zOPT/sqO7Ie
+         8pZEpXOUFllexMMCes4yAcfWx6dZmZsS5keZWay34WgrHX/CmFHlWRjlrcs3fDvGQRVk
+         Ky8BEFQ1soZTAoXf6jRd6W4E2sr110hSQuxlev8ejQQlAGISSFzsCpSG8jqEIGDMKXPr
+         wDRg==
+X-Forwarded-Encrypted: i=1; AJvYcCXQUxFb3a7TdRWvQeCR1Dkb6MAtb/lpcx8rbN2aJqvnQwRdUYY+dt+x7vbLJSouqLKYNkFAvlulG9gic4oiCjpe@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywe5R+WynmKXkwVWzi5eGcdsm20alGLzPtZ5LQpgios0T0MoYhA
+	qDne9cftWewaVsiXn+f/M+QaIygWmL2s8DVSs6s9hs95PGfEFPIrhn/xAM6KW1Ch/YkHUnDkiZ6
+	Ov3MCr8ZVx7mTjexXYtN6wLbd9au7/vuBYO4hdBxFHJzsVexLJ9S3TG4xm+drV6L+5NzF0bHfaV
+	5vvUt33YddDw==
+X-Gm-Gg: AY/fxX7d0X+sg4G5oSISvCCg2UFHe14dYyWmbOjSIt3oHZGujb9JmxRQgS+7DcUUeU0
+	N6kaY3w5C1EsaYv2724ZKgMgpPcjcH9KV9sVzQaTzZ5lQSCgYbXUrxeC/yB8289MukuLk6ET8ba
+	7PORmU77JJHoPuhNEtTkprRUaLB9zLQZTITQ2/RKP5UpxO+PVO/cyO5w1GRV0zEnOAN9S67JzTj
+	srB8Q7tyrXHAFZlITnKjsX+mgRjNpmR8CMgkDFR0CdHdusGdUAbDKPk1csByd7Sh6r7Qj7kFKkm
+	s0hFdHMc+CToTQGo+AVhM//nWQub7ZUTI164KDP8zrgfXbaCeE5vY0acktXDQNkMIoHO/mfGgc4
+	bCLwJsoFAl783QPgvqZPXK3qMRVP/lczWyw==
+X-Received: by 2002:a05:6a00:8007:b0:7f6:5158:5b49 with SMTP id d2e1a72fcca58-81b7de5c201mr1814974b3a.19.1767779010375;
+        Wed, 07 Jan 2026 01:43:30 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEMv8PnJ3CXFfRzrWhWCZsWCgO5o82SPURinQIFa1qFxjuJZcsiNvT/2i/W8Cd0JCfLWwcqdQ==
+X-Received: by 2002:a05:6a00:8007:b0:7f6:5158:5b49 with SMTP id d2e1a72fcca58-81b7de5c201mr1814953b3a.19.1767779009939;
+        Wed, 07 Jan 2026 01:43:29 -0800 (PST)
 Received: from hu-tdas-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-819bafe9568sm4472944b3a.15.2026.01.07.01.43.16
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-819bafe9568sm4472944b3a.15.2026.01.07.01.43.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Jan 2026 01:43:23 -0800 (PST)
+        Wed, 07 Jan 2026 01:43:29 -0800 (PST)
 From: Taniya Das <taniya.das@oss.qualcomm.com>
-Subject: [PATCH v3 00/11] Add support for Multimedia Clock controllers for
- Kaanapali
-Date: Wed, 07 Jan 2026 15:13:03 +0530
-Message-Id: <20260107-kaanapali-mmcc-v3-v3-0-8e10adc236a8@oss.qualcomm.com>
+Date: Wed, 07 Jan 2026 15:13:04 +0530
+Subject: [PATCH v3 01/11] clk: qcom: clk-alpha-pll: Update the PLL support
+ for cal_l
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKcqXmkC/x3MMQqAMAxA0atIZgNRsaBXEYfYRg1qlRaKIN7d4
- viG/x+IElQi9MUDQZJGPX1GUxZgV/aLoLpsqKk2VFGLG7Pni3fF47AWU4NuImvIGWfmDnJ3BZn
- 1/p/D+L4fuMB+e2MAAAA=
-X-Change-ID: 20260105-kaanapali-mmcc-v3-db0c60d6d6f9
+Message-Id: <20260107-kaanapali-mmcc-v3-v3-1-8e10adc236a8@oss.qualcomm.com>
+References: <20260107-kaanapali-mmcc-v3-v3-0-8e10adc236a8@oss.qualcomm.com>
+In-Reply-To: <20260107-kaanapali-mmcc-v3-v3-0-8e10adc236a8@oss.qualcomm.com>
 To: Bjorn Andersson <andersson@kernel.org>,
         Michael Turquette <mturquette@baylibre.com>,
         Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -121,37 +121,34 @@ Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
         Taniya Das <taniya.das@oss.qualcomm.com>,
         Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
         Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 X-Mailer: b4 0.15-dev-aa3f6
-X-Authority-Analysis: v=2.4 cv=XpL3+FF9 c=1 sm=1 tr=0 ts=695e2abd cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA3MDA3OCBTYWx0ZWRfXxqJHIh1rc7oG
+ hgY+TGwzg/3kza7cVsxEPONpX9cnetgBZoBpMrOFAbv9SITmbHXq6L6mH2tVKZfixOXZFZ4hpQh
+ 0qPE6w/r0Fkd3+erB1IA3Cm5PWq8t54htfPrJyMmgbyXDfRvg/Y2kSh9wQyCRY/Wkx26diWa7BL
+ GuQnO9skft4gxe6LkhlpFmM1/LbGu0zY6d53oOt4Xx0BtjlBoV5jAyrChTcsRvcvsn0XP6wpPQ9
+ 6BD6zmbvrRMEcvGLCKoLKw53dyIBr+7vQICJfpbiYgFjPl9Q8HfdPVPcJkHIgGdO7Cozwn108wS
+ WvVB05cuPQPGMMKQ2LSLnQDLybUyraDiMgJtmiOq494m4NDvDaHbZmvIV1ItkIYYiWrBR4FL8vU
+ Nr985eRlzN52sYrAgvw/lE3DOZJIByvzL/fhlNT7EGC164clV/H0kulfQw+QYFraYFxOYxa0gJr
+ 8MPAvy+5V4SBBaCBBnQ==
+X-Proofpoint-GUID: D96W5iw_UitYhPgCYDZt7OwLZJiZN8_l
+X-Authority-Analysis: v=2.4 cv=eIkeTXp1 c=1 sm=1 tr=0 ts=695e2ac3 cx=c_pps
+ a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
  a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=AqjRrIuq8FlCCJD4mHwA:9 a=QEXdDO2ut3YA:10 a=rl5im9kqc5Lf4LNbBjHf:22
-X-Proofpoint-ORIG-GUID: 1VzU30rZieHkOQybUnqwvBefoGJfhC-n
-X-Proofpoint-GUID: 1VzU30rZieHkOQybUnqwvBefoGJfhC-n
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA3MDA3OCBTYWx0ZWRfX/uMDjrd0+Avn
- KEq6bSaudumSv1Vkk6C3TMQYxbAQk7XKetKPygDXKNwkV9miTlmwk+Kbq52WcCLC8X0aC/ZNSRQ
- 6162WlAHaIdhTjZ4Fw4MyYC1XOhy6VOvdXcFYjnjS0p1PVg1dyCdZ97PiSzS4D2lpogUHwnX9Hu
- C7ItHiBOuYpReXOhF0JvSfmBr2h/sY6tT5FmzNh5FO6V8hv1mLufkQaCx4RJv9390U+dTv6NhpP
- Syn83sAvsK1ZwTp3a0bMBm18tX2/xjLZw88UDAkVL58g5E2ZewACdBrXgOTcY5JDnREXyVCpXjd
- QkbDBZ47fUyD5jCho5Jcq1cTh6dQ+dg8+HXeeFaAZKA1gTnQXFYfSbaYSCAavEVh5a+KXReeD+O
- QRUZLHwK9sizlWLQdSrUt0ayBTcoFNM1RfHcqs6iyHUkQWMp6gHVf3P/yhQgzDIZn1cBVOMRbXb
- yGrZItyVgP1DFJMv8zg==
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=QKPxMsH92d9TYhJkRyAA:9
+ a=QEXdDO2ut3YA:10 a=IoOABgeZipijB_acs4fv:22
+X-Proofpoint-ORIG-GUID: D96W5iw_UitYhPgCYDZt7OwLZJiZN8_l
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2026-01-06_03,2026-01-06_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 bulkscore=0 clxscore=1015 suspectscore=0 priorityscore=1501
- adultscore=0 spamscore=0 impostorscore=0 lowpriorityscore=0 phishscore=0
+ priorityscore=1501 clxscore=1015 malwarescore=0 suspectscore=0 phishscore=0
+ impostorscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601070078
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_014327_252880_FAA971C3 
-X-CRM114-Status: GOOD (  18.12  )
+X-CRM114-CacheID: sfid-20260107_014331_895887_321B04D0 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,82 +163,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Display clock controller, Video, Camera and GPU
-clock controller for the Qualcomm Kaanapali SoC.
+Recent QCOM PLLs require the CAL_L field to be programmed according to
+specific hardware recommendations, rather than using the legacy default
+value of 0x44. Hardcoding this value can lead to suboptimal or incorrect
+behavior on newer platforms.
 
-Changes in v3:
- - Add RB tag for CAMCC dt-bindings [Krzysztof]
- - Add more description, commit message for the newly added GX Clock controller
-   for GPUCC dt-bindings. Update the complete region for the controller. [Krzysztof]
- - Add RB tag for display clock controller [Konrad]
- - Fix the below for the Video clock controller
-	- use lowercase for mem_enable/mem_ack reg.
-	- use GENMASK for mem_enable_ack_mask.
-	- fix the indentation issue.
-	- update to use regmap_set_bits().
- - Fix the below for gx clock controller
-	- update offset for gdsc as per new mapping
-	- update regmap_config as per new mapping
- - Link to v2: https://lore.kernel.org/lkml/20251125-kaanapali-mmcc-v2-v2-0-fb44e78f300b@oss.qualcomm.com/
+To address this, introduce a `cal_l` field in the PLL configuration
+structure, allowing CAL_L to be set explicitly based on platform
+requirements. This improves flexibility and ensures correct PLL
+initialization across different hardware variants.
 
-Changes in v2:
- - bring in the PLL related code from https://lore.kernel.org/all/20250924-knp-clk-v1-0-29b02b818782@oss.qualcomm.com/
-   to this series.
- - Add RB tag for DISPCC dt-bindings [Krzysztof]
- - Remove the patch 'Remove sc8280xp camcc to from sm8450 camcc' as this
-   series has no functional dependency.
- - Add RB tag for VIDEOCC dt-bindings [Krzysztof , Bryan D]
- - Add RB tag for GPUCC dt-bindings [Bryan D]
- - Fix the commit log for camera cc driver and add RB tag [Byran D]
- - Add comment for using 'ACCU_CFG_MASK' in video cc driver [Bryan D]
- - Describe GXCLKCTL the newly introduced clock controller in the commit
-   log [Bjorn]
- - Move the 'gx_clkctl' driver from subsys initlevel to module.
- - Link to v1: https://lore.kernel.org/lkml/20250924-knp-mmclk-v1-0-d7ea96b4784a@oss.qualcomm.com/
-
+Signed-off-by: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
 ---
-Taniya Das (11):
-      clk: qcom: clk-alpha-pll: Update the PLL support for cal_l
-      clk: qcom: clk-alpha-pll: Add support for controlling Pongo EKO_T PLL
-      clk: qcom: clk-alpha-pll: Add support for controlling Rivian PLL
-      dt-bindings: clock: qcom: document Kaanapali DISPCC clock controller
-      dt-bindings: clock: qcom: Add support for CAMCC for Kaanapali
-      dt-bindings: clock: qcom: Add Kaanapali video clock controller
-      dt-bindings: clock: qcom: document the Kaanapali GPU Clock Controller
-      clk: qcom: dispcc: Add support for display clock controller Kaanapali
-      clk: qcom: camcc: Add support for camera clock controller for Kaanapali
-      clk: qcom: Add support for VideoCC driver for Kaanapali
-      clk: qcom: Add support for GPUCC and GXCLK for Kaanapali
+ drivers/clk/qcom/clk-alpha-pll.c | 6 +++++-
+ drivers/clk/qcom/clk-alpha-pll.h | 1 +
+ 2 files changed, 6 insertions(+), 1 deletion(-)
 
- .../bindings/clock/qcom,kaanapali-gxclkctl.yaml    |   63 +
- .../bindings/clock/qcom,sm8450-camcc.yaml          |    6 +
- .../bindings/clock/qcom,sm8450-gpucc.yaml          |    2 +
- .../bindings/clock/qcom,sm8450-videocc.yaml        |    3 +
- .../bindings/clock/qcom,sm8550-dispcc.yaml         |    2 +
- drivers/clk/qcom/Kconfig                           |   38 +
- drivers/clk/qcom/Makefile                          |    4 +
- drivers/clk/qcom/cambistmclkcc-kaanapali.c         |  437 ++++
- drivers/clk/qcom/camcc-kaanapali.c                 | 2661 ++++++++++++++++++++
- drivers/clk/qcom/clk-alpha-pll.c                   |   20 +-
- drivers/clk/qcom/clk-alpha-pll.h                   |    7 +
- drivers/clk/qcom/dispcc-kaanapali.c                | 1956 ++++++++++++++
- drivers/clk/qcom/gpucc-kaanapali.c                 |  482 ++++
- drivers/clk/qcom/gxclkctl-kaanapali.c              |   76 +
- drivers/clk/qcom/videocc-kaanapali.c               |  821 ++++++
- .../clock/qcom,kaanapali-cambistmclkcc.h           |   33 +
- include/dt-bindings/clock/qcom,kaanapali-camcc.h   |  147 ++
- include/dt-bindings/clock/qcom,kaanapali-dispcc.h  |  109 +
- include/dt-bindings/clock/qcom,kaanapali-gpucc.h   |   47 +
- .../dt-bindings/clock/qcom,kaanapali-gxclkctl.h    |   13 +
- include/dt-bindings/clock/qcom,kaanapali-videocc.h |   58 +
- 21 files changed, 6984 insertions(+), 1 deletion(-)
----
-base-commit: f8f97927abf7c12382dddc93a144fc9df7919b77
-change-id: 20260105-kaanapali-mmcc-v3-db0c60d6d6f9
+diff --git a/drivers/clk/qcom/clk-alpha-pll.c b/drivers/clk/qcom/clk-alpha-pll.c
+index 6aeba40358c11e44c5f39d15f149d62149393cd3..6f50f0c4b984e991982ee8914a496c00c4ee063b 100644
+--- a/drivers/clk/qcom/clk-alpha-pll.c
++++ b/drivers/clk/qcom/clk-alpha-pll.c
+@@ -2338,7 +2338,11 @@ void clk_lucid_evo_pll_configure(struct clk_alpha_pll *pll, struct regmap *regma
+ 		return;
+ 	}
+ 
+-	lval |= TRION_PLL_CAL_VAL << LUCID_EVO_PLL_CAL_L_VAL_SHIFT;
++	if (config->cal_l)
++		lval |= config->cal_l << LUCID_EVO_PLL_CAL_L_VAL_SHIFT;
++	else
++		lval |= TRION_PLL_CAL_VAL << LUCID_EVO_PLL_CAL_L_VAL_SHIFT;
++
+ 	clk_alpha_pll_write_config(regmap, PLL_L_VAL(pll), lval);
+ 	clk_alpha_pll_write_config(regmap, PLL_ALPHA_VAL(pll), config->alpha);
+ 	clk_alpha_pll_write_config(regmap, PLL_CONFIG_CTL(pll), config->config_ctl_val);
+diff --git a/drivers/clk/qcom/clk-alpha-pll.h b/drivers/clk/qcom/clk-alpha-pll.h
+index 0903a05b18ccc68c9f8de5c7405bb197bf8d3d1d..ec5b4e4810300fa787420356bb073c24bb05da62 100644
+--- a/drivers/clk/qcom/clk-alpha-pll.h
++++ b/drivers/clk/qcom/clk-alpha-pll.h
+@@ -128,6 +128,7 @@ struct clk_alpha_pll_postdiv {
+ 
+ struct alpha_pll_config {
+ 	u32 l;
++	u32 cal_l;
+ 	u32 alpha;
+ 	u32 alpha_hi;
+ 	u32 config_ctl_val;
 
-Best regards,
 -- 
-Taniya Das <taniya.das@oss.qualcomm.com>
+2.34.1
 
 
