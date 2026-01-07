@@ -4,77 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 147FBCFD65A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:22:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 168C3CFD65F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:22:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xadTztksFTVn2im+cWJVadEdaf24OWXXzLmCMbGLiYQ=; b=MO8y7BzRecvtUoIb/S4+/VC44R
-	q4JGnzh+5weSotE3+D9ZvNAEdkCsBhVkUYxPKd7Mg4yxLe37aRhFT7QLfs7aVNcM9zb1JOd4ao1xU
-	U4sMvFuqqazQZJP/wPKrLT/diSqYhfJsQXpp7++1xIwMWJqbH5zjGJ4L/x1t+IOdXEgrxMyuYNV+0
-	M6e95Y1nyQI128O7lk42NknMaoS31dRiUDoc5PUqBFLWXYnKkfSkQiH3oUh/b9t51PFU+EI6Fd3g0
-	z0l6eHuWV1hsSPFzyYhBPwnOChL2T3UCdUzuQxq89ZAqGvOQPnvW6TiQTobfrPej3dDX40vHWf/2q
-	n9EzMGog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JdLe8UY54Ycj4piloj+rsekA1/AGyqvm+QpBgA+1OYI=; b=pzVQOvmsykLHoI
+	K2AbU3bE68DEsaYtKHsxdlgZpWXZ1qS3+YLQIC5K6PBT1mAwrNrh6Kg3ZR2cL1BbJYYq54roOhhTS
+	WoBdEzfpT4Ei94SqbJTNksIzr6T2dGDsryKs6JH+iEGO6vfUWgQkJdXjRpNIHqKU9biMJ2v9E/xnA
+	5P6VqPuOp1BKpMZv/vJxnkGzN+OWMygPmquYxhLgHZyMDuOqrjIcjB1y3zV3EdlLYPl4QSB23eGxb
+	g8S2gRZjCwPyN/3vPO87KmxIzSR17WvC62NWuSzxhvzIi7C44gtwgcV4Sqd/p2aHDS1h4Izx914S1
+	eN4uuRZ2L1WnSz9gJTrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWIK-0000000FFzZ-1Nq2;
-	Wed, 07 Jan 2026 16:22:00 +0000
-Received: from sinmsgout01.his.huawei.com ([119.8.177.36])
+	id 1vdWIp-0000000FG7P-39mv;
+	Wed, 07 Jan 2026 16:22:31 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWIH-0000000FFyB-2GY2
+	id 1vdWIh-0000000FG4q-0xd8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 16:21:58 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=xadTztksFTVn2im+cWJVadEdaf24OWXXzLmCMbGLiYQ=;
-	b=uSP1mgVRHj/kzZz0H4vCQq9XlMlnL+FmkErAnpAs/AI5ghQbDYpaKf3JSj0yYG+yrbQzNAmwW
-	0QzGK2CW5s07CmWq8VhqZ5VN+qoWoPS2JRBD4iOh0zSOtXD2OZkj3d/n5NPeu5Vgza0G1hnibJY
-	45d7Syw8q/i2CekMc8KCU+M=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.32])
-	by sinmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4dmYBx6y0rz1P7Kb;
-	Thu,  8 Jan 2026 00:19:21 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dmYFZ4vwszHnGfP;
-	Thu,  8 Jan 2026 00:21:38 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 222D440086;
-	Thu,  8 Jan 2026 00:21:45 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 7 Jan
- 2026 16:21:44 +0000
-Date: Wed, 7 Jan 2026 16:21:42 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd
-	<nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
-	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Timothy Hayes
-	<Timothy.Hayes@arm.com>
-Subject: Re: [PATCH v2 32/36] irqchip/gic-v5: Check if impl is virt capable
-Message-ID: <20260107162142.00007e3f@huawei.com>
-In-Reply-To: <20251219155222.1383109-33-sascha.bischoff@arm.com>
-References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
-	<20251219155222.1383109-33-sascha.bischoff@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Wed, 07 Jan 2026 16:22:29 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id DD5054E41FDE;
+	Wed,  7 Jan 2026 16:22:19 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 96426606F8;
+	Wed,  7 Jan 2026 16:22:19 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 81AB8103C87CB;
+	Wed,  7 Jan 2026 17:22:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1767802937; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=JdLe8UY54Ycj4piloj+rsekA1/AGyqvm+QpBgA+1OYI=;
+	b=ZJ/XqDa0OSr4NYaLF8zcX+MPxD7NKgB+Hnw1y/rmL1ezS6TIK3DjMcoiPkOfBvWHC/bUOj
+	gT7MIWvzWZ9cM3gWVjHaA2EsfQ76m7OiPjoGL3hbQVVn3NsxrMTripI10GGBdeogG9daJw
+	pjLmjhL17iBrYq1psBENAaWnS46q7xyXsOR5hhAMD1mJPtXaT6gctPkjCKmQGYW/uUEIcs
+	NiJSg1LN9O1HqzipnBoPU+bH5wfTXsoNYms2T01h4vpLHHY+ZIdJfqR9+qQaWYQy1cNghr
+	zGzKHLAYHJCK7ubwgRrghHeOBIzLRAyrTK63Zl/Wm68beHX1TYgd1NG8KQHxrw==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: [PATCH 0/6] drm/bridge: convert users of of_drm_find_bridge(),
+ part 3
+Date: Wed, 07 Jan 2026 17:21:58 +0100
+Message-Id: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-0-ef48a517828e@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIACeIXmkC/y2NUQrCMBAFr1L224W0iiFeRSTEZLcu1KRsWhFK7
+ 24UP+cNzNugkgpVuHQbKL2kSskN+kMH8RHySCipMQxmOJveWEz6xLtKaiZMU4k40jKvy3f3hT1
+ LTv7vj3hi5ywFG61jaMlZieX9u7ve9v0D/wtEBn4AAAA=
+X-Change-ID: 20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-4f997ea7c79f
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
+ Kyungmin Park <kyungmin.park@samsung.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
+ Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>, 
+ Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Magnus Damm <magnus.damm@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev, linux-mediatek@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_082157_867122_08133593 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260107_082225_052856_C746146E 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,17 +105,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Dec 2025 15:52:47 +0000
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+This series converts many DRM drivers from the now deprecated
+of_drm_find_bridge() to its replacement of_drm_find_and_get_bridge() which
+allows correct bridge refcounting. Where applicable it also converts
+per-driver "next_bridge" pointers to the unified drm_bridge::next_bridge
+which puts the reference automatically on bridge deallocation.
 
-> Now that there is support for creating a GICv5-based guest with KVM,
-> check that the hardware itself supports virtualisation, skipping the
-> setting of struct gic_kvm_info if not.
-> 
-> Note: If native GICv5 virt is not supported, then nor is
-> FEAT_GCIE_LEGACY, so we are able to skip altogether.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+This is part of the work to support hotplug of DRM bridges. The grand plan
+was discussed in [0].
+
+Here's the work breakdown (➜ marks the current series):
+
+ 1. ➜ add refcounting to DRM bridges struct drm_bridge,
+      based on devm_drm_bridge_alloc()
+    A. ✔ add new alloc API and refcounting (v6.16)
+    B. ✔ convert all bridge drivers to new API (v6.17)
+    C. ✔ kunit tests (v6.17)
+    D. ✔ add get/put to drm_bridge_add/remove() + attach/detach()
+         and warn on old allocation pattern (v6.17)
+    E. ➜ add get/put on drm_bridge accessors
+       1. ✔ drm_bridge_chain_get_first_bridge(), add cleanup action (v6.18)
+       2. ✔ drm_bridge_get_prev_bridge() (v6.18)
+       3. ✔ drm_bridge_get_next_bridge() (v6.19)
+       4. ✔ drm_for_each_bridge_in_chain() (v6.19)
+       5. ✔ drm_bridge_connector_init (v6.19)
+       6. … protect encoder bridge chain with a mutex
+       7. ➜ of_drm_find_bridge
+          a. ✔… add of_drm_get_bridge(), convert basic direct users
+	        (v6.20?, one driver still pending)
+	  b. … convert direct of_drm_get_bridge() users, part 2
+	  c. ➜ convert direct of_drm_get_bridge() users, part 3
+	  d.   convert direct of_drm_get_bridge() users, part 4
+	  e.   convert bridge-only drm_of_find_panel_or_bridge() users
+       8. drm_of_find_panel_or_bridge, *_of_get_bridge
+       9. ✔ enforce drm_bridge_add before drm_bridge_attach (v6.19)
+    F. ✔ debugfs improvements
+       1. ✔ add top-level 'bridges' file (v6.16)
+       2. ✔ show refcount and list lingering bridges (v6.19)
+ 2. … handle gracefully atomic updates during bridge removal
+    A. ✔ Add drm_dev_enter/exit() to protect device resources (v6.20?)
+    B. … protect private_obj removal from list
+ 3. … DSI host-device driver interaction
+ 4. ✔ removing the need for the "always-disconnected" connector
+ 5. finish the hotplug bridge work, moving code to the core and potentially
+    removing the hotplug-bridge itself (this needs to be clarified as
+    points 1-3 are developed)
+
+[0] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com/#t
+
+This work is a continuation of the work to correctly handle bridge
+refcounting for existing of_drm_find_bridge(). The ground work is in:
+
+ - commit 293a8fd7721a ("drm/bridge: add of_drm_find_and_get_bridge()")
+ - commit 9da0e06abda8 ("drm/bridge: deprecate of_drm_find_bridge()")
+ - commit 3fdeae134ba9 ("drm/bridge: add next_bridge pointer to struct drm_bridge")
+
+The whole conversion is split in multiple series to make the review process
+a bit smoother:
+
+ - Part 2: mostly drivers in drivers/gpu/drm/bridge [2]
+ - Part 3: other drivers, low-medium complexity [this series]
+ - Part 4: other drivers, complex (not sent yet)
+
+[2] https://lore.kernel.org/all/20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-0-283d7bba061a@bootlin.com/
+
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+Luca Ceresoli (6):
+      drm/bridge: dw-hdmi: convert to of_drm_find_and_get_bridge()
+      drm/meson/dw-hdmi: convert to of_drm_find_and_get_bridge()
+      drm/imx/dw-hdmi: convert to of_drm_find_and_get_bridge()
+      drm/mediatek: mtk_hdmi*: convert to of_drm_find_and_get_bridge()
+      drm/exynos: hdmi: convert to of_drm_find_and_get_bridge()
+      drm: rcar-du: lvds: convert to of_drm_find_and_get_bridge()
+
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi.c   |  7 +++----
+ drivers/gpu/drm/exynos/exynos_hdmi.c        |  4 +++-
+ drivers/gpu/drm/imx/ipuv3/dw_hdmi-imx.c     |  3 ++-
+ drivers/gpu/drm/mediatek/mtk_hdmi.c         |  4 ++--
+ drivers/gpu/drm/mediatek/mtk_hdmi_common.c  |  4 ++--
+ drivers/gpu/drm/mediatek/mtk_hdmi_common.h  |  1 -
+ drivers/gpu/drm/mediatek/mtk_hdmi_v2.c      |  4 ++--
+ drivers/gpu/drm/meson/meson_dw_hdmi.c       |  6 +++++-
+ drivers/gpu/drm/renesas/rcar-du/rcar_lvds.c | 10 +++++++++-
+ 9 files changed, 28 insertions(+), 15 deletions(-)
+---
+base-commit: faeb4ff6d6e41c42741fd1df8e1d0b80f9452403
+change-id: 20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-4f997ea7c79f
+
+Best regards,
+-- 
+Luca Ceresoli <luca.ceresoli@bootlin.com>
+
 
