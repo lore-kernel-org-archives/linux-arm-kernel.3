@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 778A0D0D144
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C4AED0D144
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 17:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uuglz8S+pA8sy4GWfmZBnELNc4Pq6WJZTM15q05Jzo4=; b=QJDqJbNWeSzbXTBfJAVq2Z4+A6
-	GqdjsGlmbt5hvXidoee4oUPDftgbem3lOIhKGoA1IsocHSLQENlm/uivWTx7wgPM2CF9HChajBCxf
-	No4DZKf2hqHC//WwWRXDfL2D7lH/qZ/+B6x2McM688Jr9ly1l9MwALxOpGOM/yyJD7RBHbayh1rVS
-	1FEykqhbHj211iHG4VhJyPnVJxhd8f0lqzfMUX0VQgzU1VRgE6Nz3lG6h34QZyV5Lfwhz1niSvR+d
-	zrb8MJhrpo7A16AiL6u+n74Bgqahqll4g72ZoltWbWVEDD3XDf8+QdgzQ7je/RVW9zCzmMLVLy36C
-	YJrWRiXA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vgrEnHqzzfakQhmmHFp1B1QvY5RJkQVdELnl1PwxAIY=; b=NT/NCnGei8IiKnYF5/OtGWx/ls
+	/R5HF5lSGpe5upEXIr7GI7enxf+2OJUNt52+h4hsKGxKuo9DiFhzKUtBMfVL4sYTCm2/VyR7gtvHr
+	lJV9vDD12PSgYjljct+NWkla7DFkxMM3YD3tNHzmWdIBnp5ifWfrN9CTQ38a5DcRVzu3HI0XB8o0L
+	PrqsNsITOug4Q9RM4wJxeBxmTPC/tfh7oYa5TXbbw4rsbjKI8FXx92UhbUcER0EtsRqlem1MOaNUf
+	jxMayVdeGUT/r3Tr/ltJ+hKLcYBpvYtfnD3MYaE/BuF9QjqBEQiL3u1yKpeGHQs0FTv8kadIUTy5x
+	XOwkKJZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWsQ-0000000FLR4-2S4K;
-	Wed, 07 Jan 2026 16:59:18 +0000
-Received: from smtprelay0017.hostedemail.com ([216.40.44.17] helo=relay.hostedemail.com)
+	id 1vdWuj-0000000FLbV-2qu1;
+	Wed, 07 Jan 2026 17:01:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWsO-0000000FLQh-1npO
+	id 1vdWuh-0000000FLbM-0TIf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 16:59:17 +0000
-Received: from omf11.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay04.hostedemail.com (Postfix) with ESMTP id D6C631A0474;
-	Wed,  7 Jan 2026 16:59:12 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf11.hostedemail.com (Postfix) with ESMTPA id 790192002C;
-	Wed,  7 Jan 2026 16:59:09 +0000 (UTC)
-Date: Wed, 7 Jan 2026 11:59:36 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Vincent Donnefort <vdonnefort@google.com>, mhiramat@kernel.org,
- mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org,
- oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
- yuzenghui@huawei.com, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, jstultz@google.com,
- qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org,
- kernel-team@android.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 00/30] Tracefs support for pKVM
-Message-ID: <20260107115936.4f4a8965@gandalf.local.home>
-In-Reply-To: <867bttmmzw.wl-maz@kernel.org>
-References: <20251202093623.2337860-1-vdonnefort@google.com>
-	<867bttmmzw.wl-maz@kernel.org>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Wed, 07 Jan 2026 17:01:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AA6B360052;
+	Wed,  7 Jan 2026 17:01:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A560AC4CEF1;
+	Wed,  7 Jan 2026 17:01:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767805297;
+	bh=vuaqU2+UQa4l4XhYPSEtsdBqZ8uggdOI/bePQ2STgaY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Iw6UZ1+AlwPE2wJXj+So//chZoABFSb5yRd/9WbZVA/sRFCFoQMD2M19860rAYM7H
+	 hMjQHTYiqYGSjlrfUzvgIABY6IrRC+5qIOKkNL54rRoXVOnwg/g7XpyESJKL5auk5F
+	 OajAbL5Qgg0/xhzH3/wmCo74J5BVsE04ycVT7Ek3EA8OlBr0xK6lugLRblKdoGCji/
+	 eNfQeOYHNfWBHw3EsTeiBO41ME5AOnucvNX4C6IwCcgWFiY5OlVRvU5SqBRDTBTP1I
+	 9P9xZWVpTOK3fCCcJXkZO3sVZ2eBEINu2umEIFnkMRbLnQ9VwOk5TXXdcolxVGc1pr
+	 uWVEKZPIEtsOQ==
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+To: Qiang Zhao <qiang.zhao@nxp.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/2] soc: fsl: qe: Add an interrupt controller for QUICC Engine Ports
+Date: Wed,  7 Jan 2026 17:59:09 +0100
+Message-ID: <63f19db21a91729d91b3df336a56a7eb4206e561.1767804922.git.chleroy@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: 44shsiadfkcuojskzj7atpzqz4f1uwqm
-X-Rspamd-Server: rspamout01
-X-Rspamd-Queue-Id: 790192002C
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX19LQ9MFuL2LaCgUQAtwlkXmJZlyiYnSKhM=
-X-HE-Tag: 1767805149-424335
-X-HE-Meta: U2FsdGVkX18MLNG4uKP17KPandcrOvhgFIeJTSOG5VxsbSslz/R9wG2Hsx0QalMvyVcXnpgQTOoOScyZerqNlskwc42IA1hV0ImsJbTcdkGJofwc5uG1wlHcJIORHfl5vYLAL/FXL/tWm0jGSydjqQc+fRan7we14dHrIVnHBVZCS8WmVhNEQ6GZ0m8zDamLgi5cAJcIZU608Qg3QVo5sT2LS20XQ2MTA335YRO0jTXzAx/cFk7OcVSNFcY2jwRU2v6XUh3vKC2P6jk2IIGwNFfOvwxzBhYnOVtLslkmOw7QNfW2rAGcItsSp4JdPW0ETvSfxDfcErPvz1emNfCoBmKyuO8R+p+f
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_085916_547983_AF6CB372 
-X-CRM114-Status: GOOD (  10.25  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4650; i=chleroy@kernel.org; h=from:subject:message-id; bh=vuaqU2+UQa4l4XhYPSEtsdBqZ8uggdOI/bePQ2STgaY=; b=kA0DAAoW3ZBwJryrz1MByyZiAGlekN2hmvl0ztk5l6yfmzkQAIaMYnQXJOHvwuN12GB/flln2 Ih1BAAWCgAdFiEEx/8LupiK9GVvlbov3ZBwJryrz1MFAmlekN0ACgkQ3ZBwJryrz1N/CgEAgAcp PTV+B0XR6jcVncX1fS3p7ZnbCrVLnZT+QwsvN8oA/itwjwkP30YCZ6zOjJZRVUhs73PAiNQ556g UMG3TJboC
+X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,21 +74,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 07 Jan 2026 16:00:19 +0000
-Marc Zyngier <maz@kernel.org> wrote:
+The QUICC Engine provides interrupts for a few I/O ports. This is
+handled via a separate interrupt ID and managed via a triplet of
+dedicated registers hosted by the SoC.
 
-> I quite like the shape of this now, at least for the KVM side of
-> things. The comments I have can be addressed down the line, and don't
-> impact the actual functionality.
-> 
-> Now, the first 18 patches definitely need acks from the relevant
-> maintainers before I can queue this.
-> 
-> Steven?
+Implement an interrupt driver for it so that those IRQs can then
+be linked to the related GPIOs.
 
-Yeah, it's on my todo list to finish my review.
+Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+---
+ drivers/soc/fsl/qe/Makefile      |   2 +-
+ drivers/soc/fsl/qe/qe_ports_ic.c | 142 +++++++++++++++++++++++++++++++
+ 2 files changed, 143 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/soc/fsl/qe/qe_ports_ic.c
 
-Thanks,
+diff --git a/drivers/soc/fsl/qe/Makefile b/drivers/soc/fsl/qe/Makefile
+index ec8506e131136..901a9c40d5eb7 100644
+--- a/drivers/soc/fsl/qe/Makefile
++++ b/drivers/soc/fsl/qe/Makefile
+@@ -11,4 +11,4 @@ obj-$(CONFIG_UCC_SLOW)	+= ucc_slow.o
+ obj-$(CONFIG_UCC_FAST)	+= ucc_fast.o
+ obj-$(CONFIG_QE_TDM)	+= qe_tdm.o
+ obj-$(CONFIG_QE_USB)	+= usb.o
+-obj-$(CONFIG_QE_GPIO)	+= gpio.o
++obj-$(CONFIG_QE_GPIO)	+= gpio.o qe_ports_ic.o
+diff --git a/drivers/soc/fsl/qe/qe_ports_ic.c b/drivers/soc/fsl/qe/qe_ports_ic.c
+new file mode 100644
+index 0000000000000..61dd09fec6f6e
+--- /dev/null
++++ b/drivers/soc/fsl/qe/qe_ports_ic.c
+@@ -0,0 +1,142 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * QUICC ENGINE I/O Ports Interrupt Controller
++ *
++ * Copyright (c) 2025 Christophe Leroy CS GROUP France (christophe.leroy@csgroup.eu)
++ */
++
++#include <linux/irq.h>
++#include <linux/irqdomain.h>
++#include <linux/platform_device.h>
++
++/* QE IC registers offset */
++#define CEPIER		0x0c
++#define CEPIMR		0x10
++#define CEPICR		0x14
++
++struct qepic_data {
++	void __iomem *reg;
++	struct irq_domain *host;
++};
++
++static void qepic_mask(struct irq_data *d)
++{
++	struct qepic_data *data = irq_data_get_irq_chip_data(d);
++
++	clrbits32(data->reg + CEPIMR, 1 << (31 - irqd_to_hwirq(d)));
++}
++
++static void qepic_unmask(struct irq_data *d)
++{
++	struct qepic_data *data = irq_data_get_irq_chip_data(d);
++
++	setbits32(data->reg + CEPIMR, 1 << (31 - irqd_to_hwirq(d)));
++}
++
++static void qepic_end(struct irq_data *d)
++{
++	struct qepic_data *data = irq_data_get_irq_chip_data(d);
++
++	out_be32(data->reg + CEPIER, 1 << (31 - irqd_to_hwirq(d)));
++}
++
++static int qepic_set_type(struct irq_data *d, unsigned int flow_type)
++{
++	struct qepic_data *data = irq_data_get_irq_chip_data(d);
++	unsigned int vec = (unsigned int)irqd_to_hwirq(d);
++
++	switch (flow_type & IRQ_TYPE_SENSE_MASK) {
++	case IRQ_TYPE_EDGE_FALLING:
++		setbits32(data->reg + CEPICR, 1 << (31 - vec));
++		return 0;
++	case IRQ_TYPE_EDGE_BOTH:
++	case IRQ_TYPE_NONE:
++		clrbits32(data->reg + CEPICR, 1 << (31 - vec));
++		return 0;
++	}
++	return -EINVAL;
++}
++
++static struct irq_chip qepic = {
++	.name = "QEPIC",
++	.irq_mask = qepic_mask,
++	.irq_unmask = qepic_unmask,
++	.irq_eoi = qepic_end,
++	.irq_set_type = qepic_set_type,
++};
++
++static int qepic_get_irq(struct irq_desc *desc)
++{
++	struct qepic_data *data = irq_desc_get_handler_data(desc);
++	u32 event = in_be32(data->reg + CEPIER);
++
++	if (!event)
++		return -1;
++
++	return irq_find_mapping(data->host, 32 - ffs(event));
++}
++
++static void qepic_cascade(struct irq_desc *desc)
++{
++	generic_handle_irq(qepic_get_irq(desc));
++}
++
++static int qepic_host_map(struct irq_domain *h, unsigned int virq, irq_hw_number_t hw)
++{
++	irq_set_chip_data(virq, h->host_data);
++	irq_set_chip_and_handler(virq, &qepic, handle_fasteoi_irq);
++	return 0;
++}
++
++static const struct irq_domain_ops qepic_host_ops = {
++	.map = qepic_host_map,
++};
++
++static int qepic_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct qepic_data *data;
++	int irq;
++
++	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
++	if (!data)
++		return -ENOMEM;
++
++	data->reg = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(data->reg))
++		return PTR_ERR(data->reg);
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
++	data->host = irq_domain_add_linear(dev->of_node, 32, &qepic_host_ops, data);
++	if (!data->host)
++		return -ENODEV;
++
++	irq_set_handler_data(irq, data);
++	irq_set_chained_handler(irq, qepic_cascade);
++
++	return 0;
++}
++
++static const struct of_device_id qepic_match[] = {
++	{
++		.compatible = "fsl,mpc8323-qe-ports-ic",
++	},
++	{},
++};
++
++static struct platform_driver qepic_driver = {
++	.driver	= {
++		.name		= "qe_ports_ic",
++		.of_match_table	= qepic_match,
++	},
++	.probe	= qepic_probe,
++};
++
++static int __init qepic_init(void)
++{
++	return platform_driver_register(&qepic_driver);
++}
++arch_initcall(qepic_init);
+-- 
+2.49.0
 
--- Steve
 
