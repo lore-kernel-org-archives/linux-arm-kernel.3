@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F5FCFD65B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:09:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B0DCFD658
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e5IbqEz5mr4wxl5S1XL1pTXse7zZi1lcxr+VuF8a5xA=; b=UgrOhyPPmq3hJ2EFBGYgS1DYuA
-	MR2i3MlxvYvpOteaySVSOKVTQPqmSyTkcAcll8LKmPKyEEJNnmYFYyYaUxv4flTSBcWq6ZBRBlE63
-	iCwQ+ZyP8fA3TwDOpBo//zJ1s9yUhowDYe8yhFjynsdcQUn65lKvmpdjWT/VRdk0/tFx6Zl7iFlvG
-	vVC1zQ5FuNu8XMIVaTBh+v3DjXgz2P7KCtRGWYe7t6bMez7MGHvi/Q+mLuTXzU2pxWksIebrfOUdQ
-	1UN6gyAn7HkB/T1mmNp65Zs5Oj5QWZIam6kbPxQgtaBXFJV/+u8fOSiih53gNYhtKQx0G2ijuVvw0
-	QE4PKUVg==;
+	bh=2fXML/dALDTSSCEBUpE6tWTFQcKKDTeMrff70+8h2hc=; b=sZ/39MjTK+FT9NX6Zi1ovx6uig
+	CDxwts9n0dOqBL4Xtnu4QnlilkA0HmQvD3VK8BT25yMQHA7OPND/CydLgfNP7zwlaBJ7RV1PwuUJQ
+	d5a760RMrgqoh08oAU7ZH6fxsNwjr+Qp2OECoRvX5nNY4gaME0EpmQH7dP8AP4V51XPAv98PaWbUr
+	xbl9K73PsleOLIzVGzpMzhQFkCdCzbEjWjdekqfh33Ez1aR3MFOc7ZQoHAG0fJAJS7zsfiE5U8B9i
+	Cp+vbB4xZr5hxTzEQcNjyLjNYnU2Y6Q+N5k0z5bK1QRA8eOiuvEkUqGog/j39Kue8jUbLvWyMl377
+	+igjHUHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdW5o-0000000FEUU-3yEl;
-	Wed, 07 Jan 2026 16:09:04 +0000
-Received: from sinmsgout01.his.huawei.com ([119.8.177.36])
+	id 1vdW6s-0000000FEd5-3RTe;
+	Wed, 07 Jan 2026 16:10:10 +0000
+Received: from smtprelay0017.hostedemail.com ([216.40.44.17] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdW5m-0000000FETG-1dKK
+	id 1vdW6p-0000000FEcR-2X2I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 16:09:04 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=e5IbqEz5mr4wxl5S1XL1pTXse7zZi1lcxr+VuF8a5xA=;
-	b=cCvUJgDOC6LAP9IqYwxSvtr+AjbiGNJkRw9VOuAF4Hr6D+kJwG68NMWAIE0iG4S7EBEo1p4ny
-	3x0AjIKalpRk+g6lIp37cLvRTtvqmSQ/sJFraf/URr1SnqBHnet9QgRZkL3JcmgagP5z5e4GZR7
-	HwQR/VVsubyEtAXTDG50oGw=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.32])
-	by sinmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4dmXvx4YJXz1P7H7;
-	Thu,  8 Jan 2026 00:06:21 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dmXyZ27CDzHnGdT;
-	Thu,  8 Jan 2026 00:08:38 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id B46A940086;
-	Thu,  8 Jan 2026 00:08:44 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 7 Jan
- 2026 16:08:43 +0000
-Date: Wed, 7 Jan 2026 16:08:42 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd
-	<nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
-	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Timothy Hayes
-	<Timothy.Hayes@arm.com>
-Subject: Re: [PATCH v2 26/36] KVM: arm64: gic-v5: Bump arch timer for GICv5
-Message-ID: <20260107160842.00003c8e@huawei.com>
-In-Reply-To: <20251219155222.1383109-27-sascha.bischoff@arm.com>
-References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
-	<20251219155222.1383109-27-sascha.bischoff@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Wed, 07 Jan 2026 16:10:09 +0000
+Received: from omf04.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay06.hostedemail.com (Postfix) with ESMTP id 65CB31AAD5F;
+	Wed,  7 Jan 2026 16:10:05 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf04.hostedemail.com (Postfix) with ESMTPA id DA1A12002D;
+	Wed,  7 Jan 2026 16:10:02 +0000 (UTC)
+Date: Wed, 7 Jan 2026 11:10:29 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Laura Abbott
+ <labbott@redhat.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Masami
+ Hiramatsu <mhiramat@kernel.org>, kernel-team@meta.com, puranjay@kernel.org,
+ stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: Disable branch profiling for all arm64 code
+Message-ID: <20260107111029.28e0c52b@gandalf.local.home>
+In-Reply-To: <frfmxk2ifpf5shcws42q3eeykb3xyflxocbic6junm7mzvmqik@vktwefe2zmw7>
+References: <20260106-annotated-v2-1-fb7600ebd47f@debian.org>
+	<aVz-NHMG7rSJ9u1N@J2N7QTR9R3>
+	<aVz-6WozGIxGiTUR@J2N7QTR9R3>
+	<20260106111142.1c123f12@gandalf.local.home>
+	<frfmxk2ifpf5shcws42q3eeykb3xyflxocbic6junm7mzvmqik@vktwefe2zmw7>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+X-Stat-Signature: khippqaiyx8cd5m1dse5kww4arzqhpxh
+X-Rspamd-Server: rspamout01
+X-Rspamd-Queue-Id: DA1A12002D
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX186ZkSD32iPpRx5ow4Xmjt+UAgCjzMt04s=
+X-HE-Tag: 1767802202-773670
+X-HE-Meta: U2FsdGVkX19vKCXb5K+qpusqOqSjw8DJI3OWGz/LwzFg+F+VEV1dTBh8MA6eTmVsqAqy8P1lCIp7g8VSiwdNyXJjA4k+cwHYlU7CJMArTtnVhzZ3IS59JSgTxf/pcV2CD9mQ1DrzxMjnApWld23yV0xKpCfnvlZXe0bAskSnFshPdP05mS3lJ9ddA2RDCsU5Wx7+v/t84oEnQkGzpG1lAZ+yxThfxovX52OJgA6WTBBWjWgtq698VQxEcteo9G7Az+M19vhLRRv2bZvYgTPGqs1UPWdTP4oQGu2IXrCgTeWgUgCiQv4sevX86v+/U2CLaAKbrKzqDAaYwrGGd7UCLgp4R2muFF2gJuFDYEwHtDtmgQ/2a1TTbw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_080902_907336_E2A27653 
-X-CRM114-Status: GOOD (  45.53  )
+X-CRM114-CacheID: sfid-20260107_081007_701592_90751759 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,229 +77,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Dec 2025 15:52:45 +0000
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+On Wed, 7 Jan 2026 01:37:36 -0800
+Breno Leitao <leitao@debian.org> wrote:
 
-> Now that GICv5 has arrived, the arch timer requires some TLC to
-> address some of the key differences introduced with GICv5.
+> I am starting to look and remove some of these likely/unlikely hint that
+> are 100% wrong on some very sane configuration (arm64 baremetal hosts
+> running a webserver).
 > 
-> For PPIs on GICv5, the set_pending_state and queue_irq_unlock irq_ops
-> are used as AP lists are not required at all for GICv5. The arch timer
-> also introduces an irq_op - get_input_level. Extend the
-> arch-timer-provided irq_ops to include the two PPI ops for vgic_v5
-> guests.
+> So far, these are the fixes I have in flight now.
 > 
-> When possible, DVI (Direct Virtual Interrupt) is set for PPIs when
-> using a vgic_v5, which directly inject the pending state in to the
+>  * https://lore.kernel.org/all/20260105-dcache-v1-1-f0d904b4a7c2@debian.org/
+>  * https://lore.kernel.org/all/20260106-blk_unlikely-v1-1-90fb556a6776@debian.org/
+>  * https://lore.kernel.org/all/20260105-annotated_idle-v1-1-10ddf0771b58@debian.org/
 
-into ?
+Nice. Thanks for letting me know. I'm happy to see that someone besides me
+is using the annotated branch profiler to fix real issues in the kernel.
 
-> guest. This means that the host never sees the interrupt for the guest
-> for these interrupts. This has two impacts.
-> 
-> * First of all, the kvm_cpu_has_pending_timer check is updated to
->   explicitly check if the timers are expected to fire.
-> 
-> * Secondly, for mapped timers (which use DVI) they must be masked on
->   the host prior to entering a GICv5 guest, and unmasked on the return
->   path. This is handled in set_timer_irq_phys_masked.
-> 
-> The final, but rather important, change is that the architected PPIs
-> for the timers are made mandatory for a GICv5 guest. Attempts to set
-> them to anything else are actively rejected. Once a vgic_v5 is
-> initialised, the arch timer PPIs are also explicitly reinitialised to
-> ensure the correct GICv5-compatible PPIs are used - this also adds in
-> the GICv5 PPI type to the intid.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Various comments inline. 
+I would love it if more people did the same. Anyway, please advertise this
+as much as possible. If it shows that it is helping to fix real bugs, maybe
+it would attract the interest of more developers, and more importantly, it
+keeps the tooling in place. I'm constantly fighting to keep it from being
+removed from the kernel :-p
 
-J
-> ---
->  arch/arm64/kvm/arch_timer.c     | 110 ++++++++++++++++++++++++++------
->  arch/arm64/kvm/vgic/vgic-init.c |   9 +++
->  arch/arm64/kvm/vgic/vgic-v5.c   |   8 +--
->  include/kvm/arm_arch_timer.h    |   7 +-
->  include/kvm/arm_vgic.h          |   4 ++
->  5 files changed, 115 insertions(+), 23 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-> index 6f033f6644219..78d66a67b34ac 100644
-> --- a/arch/arm64/kvm/arch_timer.c
-> +++ b/arch/arm64/kvm/arch_timer.c
-
-
->  void kvm_timer_sync_nested(struct kvm_vcpu *vcpu)
-> @@ -1034,12 +1079,15 @@ void kvm_timer_vcpu_reset(struct kvm_vcpu *vcpu)
->  	if (timer->enabled) {
->  		for (int i = 0; i < nr_timers(vcpu); i++)
->  			kvm_timer_update_irq(vcpu, false,
-> -					     vcpu_get_timer(vcpu, i));
-> +					vcpu_get_timer(vcpu, i));
-
-Unrelated change, and a bad one at that!
-
-
->  
->  		if (irqchip_in_kernel(vcpu->kvm)) {
-> -			kvm_vgic_reset_mapped_irq(vcpu, timer_irq(map.direct_vtimer));
-> +			kvm_vgic_reset_mapped_irq(
-> +				vcpu, timer_irq(map.direct_vtimer));
-
-Also unrelated and not a good change.
-
->  			if (map.direct_ptimer)
-> -				kvm_vgic_reset_mapped_irq(vcpu, timer_irq(map.direct_ptimer));
-> +				kvm_vgic_reset_mapped_irq(
-> +					vcpu,
-> +					timer_irq(map.direct_ptimer));
-
-Leave all these alone.
-
->  		}
->  	}
->  
-> @@ -1092,10 +1140,19 @@ void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
->  		      HRTIMER_MODE_ABS_HARD);
->  }
->  
-> +/*
-> + * This is always called during kvm_arch_init_vm, but will also be
-> + * called from kvm_vgic_create if we have a vGICv5.
-> + */
->  void kvm_timer_init_vm(struct kvm *kvm)
->  {
-> +	/*
-> +	 * Set up the default PPIs - note that we adjust them based on
-> +	 * the model of the GIC as GICv5 uses a different way to
-> +	 * describing interrupts.
-> +	 */
->  	for (int i = 0; i < NR_KVM_TIMERS; i++)
-> -		kvm->arch.timer_data.ppi[i] = default_ppi[i];
-> +		kvm->arch.timer_data.ppi[i] = get_vgic_ppi(kvm, default_ppi[i]);
->  }
->  
->  void kvm_timer_cpu_up(void)
-> @@ -1347,6 +1404,7 @@ static int kvm_irq_init(struct arch_timer_kvm_info *info)
->  		}
->  
->  		arch_timer_irq_ops.flags |= VGIC_IRQ_SW_RESAMPLE;
-> +		arch_timer_irq_ops_vgic_v5.flags |= VGIC_IRQ_SW_RESAMPLE;
->  		WARN_ON(irq_domain_push_irq(domain, host_vtimer_irq,
->  					    (void *)TIMER_VTIMER));
->  	}
-> @@ -1497,10 +1555,13 @@ static bool timer_irqs_are_valid(struct kvm_vcpu *vcpu)
->  			break;
->  
->  		/*
-> -		 * We know by construction that we only have PPIs, so
-> -		 * all values are less than 32.
-> +		 * We know by construction that we only have PPIs, so all values
-> +		 * are less than 32 for non-GICv5 vgics. On GICv5, they are
-
-VGICs maybe?  It's not consistent in existing comments in this file though.
-
-> +		 * architecturally defined to be under 32 too. However, we mask
-> +		 * off most of the bits as we might be presented with a GICv5
-> +		 * style PPI where the type is encoded in the top-bits.
->  		 */
-> -		ppis |= BIT(irq);
-> +		ppis |= BIT(irq & 0x1f);
->  	}
->  
->  	valid = hweight32(ppis) == nr_timers(vcpu);
-> @@ -1538,7 +1599,9 @@ int kvm_timer_enable(struct kvm_vcpu *vcpu)
->  {
->  	struct arch_timer_cpu *timer = vcpu_timer(vcpu);
->  	struct timer_map map;
-> +	struct irq_ops *ops;
->  	int ret;
-> +	int irq;
-Might as well put irq on same line as ret
-
->  
->  	if (timer->enabled)
->  		return 0;
-> @@ -1556,20 +1619,22 @@ int kvm_timer_enable(struct kvm_vcpu *vcpu)
->  		return -EINVAL;
->  	}
->  
-> +	ops = vgic_is_v5(vcpu->kvm) ? &arch_timer_irq_ops_vgic_v5 :
-> +				      &arch_timer_irq_ops;
-> +
->  	get_timer_map(vcpu, &map);
->  
-> -	ret = kvm_vgic_map_phys_irq(vcpu,
-> -				    map.direct_vtimer->host_timer_irq,
-> -				    timer_irq(map.direct_vtimer),
-> -				    &arch_timer_irq_ops);
-> +	irq = timer_irq(map.direct_vtimer);
-> +	ret = kvm_vgic_map_phys_irq(vcpu, map.direct_vtimer->host_timer_irq,
-> +				    irq, ops);
-
-As irq is only used with this value in here, I'd avoid having the local variable
-that changes meaning.
-
-	ret = kvm_vgic_map_phys_irq(vcpu, map.direct_vtimer->host_timer_irq,
-				    timer_irq(map.direct_vtimer), ops);
->  	if (ret)
->  		return ret;
->  
->  	if (map.direct_ptimer) {
-> +		irq = timer_irq(map.direct_ptimer);
->  		ret = kvm_vgic_map_phys_irq(vcpu,
->  					    map.direct_ptimer->host_timer_irq,
-> -					    timer_irq(map.direct_ptimer),
-> -					    &arch_timer_irq_ops);
-> +					    irq, ops);
-As above
-					    timer_irq(map.direct_ptimer), ops);
-
-Doesn't make it much harder to read and avoids the local variable
-being needed.
->  	}
->  
->  	if (ret)
-> @@ -1627,6 +1692,15 @@ int kvm_arm_timer_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->  		goto out;
->  	}
->  
-> +	/*
-> +	 * The PPIs for the Arch Timers arch architecturally defined for
-> +	 * GICv5. Reject anything that changes them from the specified value.
-> +	 */
-> +	if (vgic_is_v5(vcpu->kvm) && vcpu->kvm->arch.timer_data.ppi[idx] != irq) {
-> +		ret = -EINVAL;
-> +		goto out;
-
-Whilst you are here, maybe throw some guard() magic dust at this and do a direct return?
-Or leave it for someone else who has more spare time ;)
-
-> +	}
-> +
->  	/*
->  	 * We cannot validate the IRQ unicity before we run, so take it at
->  	 * face value. The verdict will be given on first vcpu run, for each
-
-> diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
-> index 7310841f45121..6cb9c20f9db65 100644
-> --- a/include/kvm/arm_arch_timer.h
-> +++ b/include/kvm/arm_arch_timer.h
-
->  
->  struct arch_timer_context {
-> @@ -130,6 +132,9 @@ void kvm_timer_init_vhe(void);
->  #define timer_vm_data(ctx)		(&(timer_context_to_vcpu(ctx)->kvm->arch.timer_data))
->  #define timer_irq(ctx)			(timer_vm_data(ctx)->ppi[arch_timer_ctx_index(ctx)])
->  
-> +#define get_vgic_ppi(k, i) (((k)->arch.vgic.vgic_model != KVM_DEV_TYPE_ARM_VGIC_V5) ? \
-> +				(i) : ((i) | FIELD_PREP(GICV5_HWIRQ_TYPE, GICV5_HWIRQ_TYPE_PPI)))
-
-Similar to earlier comment I'd use FIELD_PREP() for i as well but not that important
-I'm just lazy about remembering where the numbers go.
-
-
-
->  
-
+-- Steve
 
