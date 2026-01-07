@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B97D0D141
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 17:14:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5C0BD0D145
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 17:21:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3hbwAqQmwcKkcTQlzwNL4cPS7/2BgqWyWqgU0a+KMdc=; b=nEMgQiOR/qfmYdsSR4gi/R4a0g
-	KLWztRwt+qzKBL0BwqAO27ycHzbGOAUATW1g91H7TpLNcWt95cocLXTC9FX1Oj19Qx1FWypDOjhxF
-	8dIvCtqY8mlz9M0t5uwluUrt34KK/4vYuVUvsq5i0mqMVMfUiVsNSUwffDLCojWZOmLrQfeqFRH2q
-	a2Z7sFUEdFn/nhiSgoItEXMNjEeSNOwja2Z2QtS+eghGchiIQ9WxgHP4N+XUKBOy8vKbxlanYU8f7
-	8cNm40JNnrxxQgXOPLb3wErsNtZSl1bqCtN3oiNah7ss9iCjARwQvYL36mpmd67aa/uXlEc/phAf+
-	xyOIwk+w==;
+	bh=hwcnYIMg4p/wxTYG2J5mPwCBb8Jlp4L/ffmhwtbSJMM=; b=U78CiLTjQcrTavayGK6zvR6hqW
+	LhkQiyoEOcTchaDFt/KEx4pNAUWevENAYGzuO7WUoiH5HRJiforSmxT1fW/XItSMp8dwdj0UHXFxl
+	Vk1gAeuln6YvzXeZqXewJiZJT7ZdDoIZzQ14ZQBNfMK3Ka8HvxsFYyl663DwBJtZ8U/O3/Dl81zQ/
+	c0BSI6y130vK+LZjZgIKlc1snD66QMSKP8q4GIV4NtUqT8yb3mKr3tToYIgMStwif6FPg9L3kXiGw
+	O1/lBNMM6sXjwNDuhBVoYHBwvEaW/zg3cg++VYDb70oul4OGJPlp4ASedGO7gbjT6x0gNdJgWi/Dk
+	aoG/GOWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdX6t-0000000FMJ7-1IR9;
-	Wed, 07 Jan 2026 17:14:15 +0000
-Received: from smtprelay0010.hostedemail.com ([216.40.44.10] helo=relay.hostedemail.com)
+	id 1vdXEB-0000000FMxf-0XJn;
+	Wed, 07 Jan 2026 17:21:47 +0000
+Received: from mail-4319.protonmail.ch ([185.70.43.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdX6q-0000000FMIl-2bhT
+	id 1vdXE6-0000000FMx3-3lxa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 17:14:13 +0000
-Received: from omf10.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay02.hostedemail.com (Postfix) with ESMTP id 0F98113AE00;
-	Wed,  7 Jan 2026 17:14:08 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf10.hostedemail.com (Postfix) with ESMTPA id 6B0F92F;
-	Wed,  7 Jan 2026 17:14:05 +0000 (UTC)
-Date: Wed, 7 Jan 2026 12:14:32 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Will Deacon <will@kernel.org>
-Cc: Jiri Olsa <jolsa@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
- Mahe Tardy <mahe.tardy@gmail.com>, Peter Zijlstra <peterz@infradead.org>,
- bpf@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org, Yonghong Song
- <yhs@fb.com>, Song Liu <songliubraving@fb.com>, Andrii Nakryiko
- <andrii@kernel.org>, Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH bpf-next 1/2] arm64/ftrace,bpf: Fix partial regs after
- bpf_prog_run
-Message-ID: <20260107121432.73fccf84@gandalf.local.home>
-In-Reply-To: <aV6PZKx9g_hCz4ZW@willie-the-truck>
-References: <20260107093256.54616-1-jolsa@kernel.org>
-	<aV5qpZwxgVRu2Q8w@willie-the-truck>
-	<20260107110814.1dfc9ec0@gandalf.local.home>
-	<aV6PZKx9g_hCz4ZW@willie-the-truck>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Wed, 07 Jan 2026 17:21:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail; t=1767806500; x=1768065700;
+	bh=hwcnYIMg4p/wxTYG2J5mPwCBb8Jlp4L/ffmhwtbSJMM=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=cUiiqkxD5RWdKaZpoFfblPMOx3+CSszdr0z0LqbhwzR5RB1Fv2mU1H1pXDD93ngaP
+	 PGr5mWeBr2x3wuS7p7+6jXmbIxnA/LrIbO5uAXKq+AdCYAoLtD86CZqJE5sdRVw+JW
+	 +XF6i1+utW4sv6hKKBgeX2rmKXhkd6Mx8ML33XpUWCVlC6oTc51BLeuU0Hu8/5SeyT
+	 JBma0QcOV201HmZBm1dxFSecC8e7n1mGgF4aN5RTsSQ+RWkCpWCW8KREz/+ztFgxgD
+	 W2eyKHHp/S9flZp8GyzK6r5JBwNRxhf7HuLZbS6O1mdb/ITZlrLy/R9NyVhYXDh7RH
+	 xy8HlTmgVHCqw==
+Date: Wed, 07 Jan 2026 17:21:38 +0000
+To: Michal Simek <michal.simek@amd.com>
+From: kylebonnici <kylebonnici@proton.me>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sai Krishna Potthuri <lakshmi.sai.krishna.potthuri@xilinx.com>, Peter Korsgaard <peter@korsgaard.com>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Kyle Bonnici <kylebonnici@hotmail.com>
+Subject: Re: [PATCH] Coding Style: Format arch/arm/boot/dts/xilinx
+Message-ID: <o8y30D8GjOUPC9Rfl9zl5DcR8KOH7XCc3nbb0KcWZ1FGxHgzDtgt-tFZ8GEbT_C_5JeLbLfjgsSExFtoZ4s9DFPJ-mq1tcy4k9gp9mJ7HQs=@proton.me>
+In-Reply-To: <f514d490-75d8-408e-99ba-ee44916395fc@amd.com>
+References: <20251218125034.248-1-kylebonnici@proton.me> <5262fa29-4094-4c5d-be3f-2c73ee322ef6@amd.com> <zUWWtNtMhwr9_g1C6mdaGPvyls1-H_tCHfdMuWC35MYUzv88iiaEzS9RTUiucp4QU_RhvuTGiNcl_GV684b6h4-DmdnKPeCLGKB1RHEG6G8=@proton.me> <f514d490-75d8-408e-99ba-ee44916395fc@amd.com>
+Feedback-ID: 172426429:user:proton
+X-Pm-Message-ID: b2577ab4b27c7a4271bd8399374e50e0d35f26c2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: 6B0F92F
-X-Stat-Signature: x699t8kczy5smeco8119n45nwyhjh7kg
-X-Rspamd-Server: rspamout08
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1/eu39LNRtM+1f1vTfX4QNOH6R7Y6POl28=
-X-HE-Tag: 1767806045-271552
-X-HE-Meta: U2FsdGVkX18bqAQ0pJDQFkJKpjD++ZFbUeHomqsNgRoCLor9V56o+Khto2aWB3wznp+gQ2/oE2h1SOvfL+LLrlkN8aerHgOvhp5QuGzQDrvm8wjk50Vo4f6vq+oc6JWvx2wiBBzZ2hZX5Vemc4FHjU/IDUy/Tv1J3di6HgNaVO+5rGvw/ktLj+UOI0+sMf/7CG5uwpl58yJgEdq7b+/+n+w28TiwBvwDT6ffskoAc39+I3kyasYoO2BbRAlNIeUQLEo/HDQr/sh/1PtHym0b+3rwzF5Hx7Cmjngd+TGtg5So6tMt07t6JeHSCHNk9YNPXZgETTRo6t3rcmtjaBukt9lCCBuUE+hd
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_091412_724834_F16473AF 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20260107_092145_002500_9D451EFA 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,32 +69,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 7 Jan 2026 16:52:52 +0000
-Will Deacon <will@kernel.org> wrote:
 
-> diff --git a/include/linux/ftrace_regs.h b/include/linux/ftrace_regs.h
-> index 15627ceea9bc..3ebd8cdac7c6 100644
-> --- a/include/linux/ftrace_regs.h
-> +++ b/include/linux/ftrace_regs.h
-> @@ -33,6 +33,15 @@ struct ftrace_regs;
->  #define ftrace_regs_get_frame_pointer(fregs) \
->         frame_pointer(&arch_ftrace_regs(fregs)->regs)
->  
-> +#else
-> +
-> +static __always_inline void
-> +ftrace_partial_regs_update(const struct ftrace_regs *fregs, struct pt_regs *regs)
-> +{
-> +       ftrace_regs_set_instruction_pointer(fregs, instruction_pointer(regs));
-> +       ftrace_regs_set_return_value(fregs, regs_return_value(regs));
-> +}
-> +
->  #endif /* HAVE_ARCH_FTRACE_REGS */
->  
->  /* This can be overridden by the architectures */
 
-Hmm, maybe that would work. Of course you forgot to add the helper for the
-!HAVE_ARCH_FTRACE_REGS case ;-)
+Hi,
 
--- Steve
+On 1/7/26 08:49, Michal wrote:
+>=20
+>=20
+> Hi,
+>=20
+> On 1/6/26 21:28, kylebonnici wrote:
+>=20
+> > Hi,
+>=20
+>=20
+> first of all please don't do top posting.
+
+Noted=20
+
+>=20
+> > Thanks for the feedback.
+> >=20
+> > with regard to subject I am not sure in what subsystem file formatting =
+would go (especially if we run it on even more files and more systems are m=
+odified) Your guidance would be appreciated.
+>=20
+>=20
+> arm: xilinx:
+>=20
+> or for 64 bit version
+>=20
+> arm64: xilinx:
+
+At this point how does one go about changing subject ? by creating a new pa=
+tch or is there some other process?
+
+>=20
+> > With regard to improving the line wrapping, can you share some examples=
+ so that I can start looking on improving this?
+>=20
+>=20
+>=20
+> run it over zynqmp.dtsi file
+> And focus on pcie node
+>=20
+> @@ -958,8 +979,10 @@ pcie: pcie@fd0e0000 {
+> <0x0 0xfd480000 0x0 0x1000>,
+>=20
+> <0x80 0x00000000 0x0 0x10000000>;
+>=20
+> reg-names =3D "breg", "pcireg", "cfg";
+> - ranges =3D <0x02000000 0x00000000 0xe0000000 0x00000000
+> 0xe0000000 0x00000000 0x10000000>,/* non-prefetchable memory */
+>=20
+> - <0x43000000 0x00000006 0x00000000 0x00000006
+> 0x00000000 0x00000002 0x00000000>;/* prefetchable memory */
+>=20
+> + ranges =3D <0x02000000 0x00000000 0xe0000000 0x00000000
+> 0xe0000000 0x00000000
+> + 0x10000000>,/* non-prefetchable memory */
+>=20
+> + <0x43000000 0x00000006 0x00000000 0x00000006
+> 0x00000000 0x00000002
+> + 0x00000000>;/* prefetchable memory */
+>=20
+> bus-range =3D <0x00 0xff>;
+>=20
+>=20
+> 1. sometimes commens are using space,tab or nothing. Same style would be =
+useful.
+
+Comments are currently untouched when the comment first token is not the fi=
+rst token on the line.=20
+
+This is because some users wanted comments to align within a property value=
+s e.g. `foo =3D <...> /* ...*/\n,<...>; /* ...*/`and some wanted to also al=
+ign comments across multiple properties in the same node. Hence no rule on =
+how this should be formatted was reached when this tool was applied to form=
+at the  Zephyr project.=20
+
+I am open to discuss some rule that can be followed and looking applying th=
+at.
+
+> 2. last cell on next line looks weird to me. I think you can decode
+> address-cells/size-cells for ranges and do indentation base on it.
+
+This is not necessarily always possible with out parsing the full context i=
+.e all the includes from the root of this context.
+
+Reasons:=20
+- This values found in this node in this file might be overridden by some l=
+ater definition.
+
+- The omission of these values can mean a value of 2 and 1 respectively or =
+again these may have been defined in some other instance in the full dts co=
+ntext.
+
+Currently the rule to wrap is a follows:=20
+  - Wrap Value (e.g ...., <0xf00 (0xc - 0xb) 0xaa>) > if value length + ind=
+entation exceeds the wrap column
+  - Wrap Expression (e.g. ...(0xc - 0xb) 0xaa>, Note that expression are wr=
+apped outside in when we have nested expressions and nested expression will=
+ be indented to be aligned with the parent expression group > if value leng=
+th + indentation exceeds the wrap column,
+  - Warp Value e.g ....0xaa>
+>=20
+> > To run on more files I will wait for feedback from Rob, Krzysztof and C=
+onor.
+>=20
+>=20
+> yep.
+>=20
+> Thanks,
+> Michal
 
