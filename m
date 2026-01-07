@@ -4,148 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90692CFD65D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:18:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC960CFD65A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HwZBs/pI4tqrM+YdLcnJrTnMDuBq2S6J78a0HWSkjHk=; b=lXgHJNMgL9qzugnBcGz1ny6chN
-	+fi7RIm5YEvucPwAqA7wCAIJl/z6IYfXTxQmB6i3f5WGQS/ZrFc5LR/kycaMtAoKRunTdLdRhPmOn
-	JzcSwEsZGCW1BNGenO2ZmOKXFvM0rO7DxCmNGzxFE44jmEBO7uGCV73xUNQkhMbN14dcGQJLsWg6t
-	LPE2/wGunV6dC7S0eLsDcKcuLVNOzWwrbxsDCwe3Z2dEwYK9V6QCbC4d1WkNi3I5mBu1AAT/JGNAU
-	ecrGN/zozTNm/qG/znui/24S0casQ2XfojY7blVm1HMfTo7UGTJFAwIT40UvGOgvvOCWb8dDNvf8w
-	qxzgqyFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aky2/51RduZBuBKf+FKa+EmDr7pgEdWUv3WBf9Rvpyk=; b=YZNcl0cjNwEcXJrf5tEI1tOhZd
+	WyyAvR2tMELyajM8YyRZ1WBi+jRk3a3XeGiLh8ShvtuueKthC4gF/aEZz1JNohMuESU6Ue4S7Wqnm
+	dRN307VWgu/8r938gznhtsS4Cjl1p0VoxNT7huvf7v3s9JhsyritIohcH1ROJ6wZ6365CfMG6zSLP
+	xL4mxp9E4VxX9bg2h+9A1acmjLKHectlGLqfFBAE4t0H3UOg8xPkT3dTfb4X70hlpDc577LV8oBmR
+	7SfENHHUStYq9S10W7sSBMykP8Bd2Pw5sV6ezNCd6obVDDSB7Hv9/JujXbwMuYijkWB/NjuYzGIJT
+	XxCooVzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWFF-0000000FFRq-0Mjv;
-	Wed, 07 Jan 2026 16:18:49 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vdWFw-0000000FFal-2hoq;
+	Wed, 07 Jan 2026 16:19:32 +0000
+Received: from sinmsgout01.his.huawei.com ([119.8.177.36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWFC-0000000FFR8-4AkG
+	id 1vdWFs-0000000FFYa-14g1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 16:18:48 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 607FkusD1979616
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 7 Jan 2026 16:18:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=HwZBs/pI4tqrM+YdLcnJrTnM
-	DuBq2S6J78a0HWSkjHk=; b=pEqxtVM7ihUy+zNFC6MGh7WxN7cbgbo08zA/hynY
-	4qHlzmqRIEP0uOC/QZOS03kyXGH5cV6Jg1Zs7DorHDtEsn0pmksseXi9TztcuRcz
-	HFPBO+TTEU1Gnn6x5m4n2gwHD97Qb0AYcPFYKpv/prYihzGuaHkWbGECD3AwA8YM
-	hiuQ/x2DQg9FmXWIk3V+jB8rYHeA3S2OhQBI5+7mslQFkWvaG2HKPwWA4rmbB1Yz
-	Ra7FvnhBpgzwyhxD2jxvUV4l8utAzuJszDeEqpfnZabgaz+OIHGPgEWeXvBGAeMf
-	e1rQPyb225OO+q0LrD2i9CW+DPXQ2nljlVewAoQl6AikJg==
-Received: from mail-vs1-f71.google.com (mail-vs1-f71.google.com [209.85.217.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bhdavjrv4-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 16:18:45 +0000 (GMT)
-Received: by mail-vs1-f71.google.com with SMTP id ada2fe7eead31-5dfc092492eso2111643137.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 08:18:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767802725; x=1768407525; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HwZBs/pI4tqrM+YdLcnJrTnMDuBq2S6J78a0HWSkjHk=;
-        b=jUbKFJNEO3yz0epwM5trvLoUV+q4TSQdHUzBAaEzeCZ1wXJoazw5i3/OsUbjnc9wUs
-         wGcBUhO0livMqp3aldHxMh6BvVbOKoaBcWjA3IF6HmjlmCmOlaXg8qYIFeB6VnnWvCMm
-         XkpT0iIZ/1fv3jpi7+jxLGq6y8JmMUIUOTNGVkUEhZaAlZ1WU9nBqtGOwcZG2GYK0RXC
-         nsx3GuPl1XxM5xjfOQDubCGsUfUrYwsk+kSB8tBevHCPF87e261sUs/bOaPShMnKGPjM
-         sfX/Uf5s0pt/u5bjkGF+N+oaBGCpscGXpK8H3gnQ+GO0evbUqkl7SbwYuJoniA8ZE/1G
-         CThw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767802725; x=1768407525;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=HwZBs/pI4tqrM+YdLcnJrTnMDuBq2S6J78a0HWSkjHk=;
-        b=OVKH/6Ap7MoSazqafYa18SFBPJNLQN94Izcv4GPx6VjbyS5l68lfk5RiWgmiw3ee9m
-         eeXQZzLfWV/GiX6mGFZdVlC8pK5xtitcUMPUWiDRdO8VyIvSQ8lDcCUXHrL4NkAHITwT
-         xUFBjamoD431+cZhgYoHY4Nwbg/bbZOobsNcJbuKWRFleyoRcCn8FY3Vu5SU3f3v9ohN
-         gMtYKpa64Z5dH7LNPoVzrw2uoIn+/gOqxV42HqY2K4+hBtEwCqVvHn9zOJki3uijMkJE
-         M4nPtpnGbw1Z1q0XF2c5OXv21NCrX7jJ2feopdt4A8mjxKOMKz9CHi/Jfx33mZlt/GHQ
-         22aw==
-X-Forwarded-Encrypted: i=1; AJvYcCXMtjz5FIaQrRWJrXwtJSa1/W+OyQ/7Om/wk0ui7vWp4iuEzNkDFSFRMFUfsi3aBeqgNzmPl3vEDRg4C9CNMWMy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0i2WFMMTzqzupoRpsaIpN48x2eSUHmdpXrWEckiI8rPk4EqyG
-	a5uoPvBXeTghvyCE2CsL1DzRtpTU8zvFP6TSzFKpkssVJAhzBbB++0d8gLCG6oQLYdbi42NclAE
-	fa7ohHkoIaLHNA/MTXVQ4ekNZj2ysQv247gUz0BAXg4/unJ6MS6ENhUqsQQDVeasQO4L5viIR3a
-	0APw==
-X-Gm-Gg: AY/fxX5lrvNShF5b9pYh+CKfXYnBA/mNpl8CssYyV2k/OhYuaG8fsKvhvPn5ahw1WCm
-	IO8XpDXVMQ+XwyyLgNY29Nrw13X0q90TaX+wIlbr9dsjnE1TLEkSZ+ddb7Kflh17uFheWPbV2oD
-	/KMV94YqKGJ7yH7ZghnRw7F/SAvh9fsMSuuvrihn8LenAO6eeQUFTn8sSds9KkSleNRnPqdZhrm
-	rWwzGGw0EfoeY1aUhFjJhHtkkN6h6yVt+8g9KjdIBLiOPZ8neSq0eUtywaKJOYZ3ktARlOIgthE
-	n29lR9nhpPvssgTRFMwlaSp+NUPY1zqV56V8DgYhe/hL1//f2qMVWy1jrpue7Rx/D8Rxcj0RSjz
-	lm00oLQ0a1u1uWEbdjPLjf2cRGtGySVZEZ40IkBx1/oanYhU3lt++0XJtjUoHJlATf+Qmdqm6xb
-	APOgR5fXoC617yBqJwhRstPQM=
-X-Received: by 2002:a05:6102:fa5:b0:5df:b2cd:12b4 with SMTP id ada2fe7eead31-5ecb694854bmr888633137.24.1767802724727;
-        Wed, 07 Jan 2026 08:18:44 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGHB5ZRn1QY/K6daz0KlPYsnYXAnz+5ET9h4x0F463Jjq+1VY5FCZCLE1JA9Bad2LVDmCS3+A==
-X-Received: by 2002:a05:6102:fa5:b0:5df:b2cd:12b4 with SMTP id ada2fe7eead31-5ecb694854bmr888602137.24.1767802723486;
-        Wed, 07 Jan 2026 08:18:43 -0800 (PST)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-382eb8a9c39sm12016941fa.23.2026.01.07.08.18.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Jan 2026 08:18:42 -0800 (PST)
-Date: Wed, 7 Jan 2026 18:18:41 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 11/11] clk: qcom: Add support for GPUCC and GXCLK for
- Kaanapali
-Message-ID: <lsvn2xjz6zxefs772tg26jg2cvfohbjcetrlxfn7mtq6ag5aig@ep6ofq4mrfrh>
-References: <20260107-kaanapali-mmcc-v3-v3-0-8e10adc236a8@oss.qualcomm.com>
- <20260107-kaanapali-mmcc-v3-v3-11-8e10adc236a8@oss.qualcomm.com>
+	Wed, 07 Jan 2026 16:19:30 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=aky2/51RduZBuBKf+FKa+EmDr7pgEdWUv3WBf9Rvpyk=;
+	b=gTJ/W7Z1rc/sjLAinJV92HtJ1Z78MpXhjc67kXnqSkDd7IXHrkfF2LlP2+U09l5d+ArqvZM4X
+	9BpMG+z5vmQ8gV3eMlCQzz1iE+HgoeluCk2KoYvUMVzoJAJWPSG8AjYY5DxmaxF6htbP4H/Vhsd
+	gq3/2aWD9aqx0Ru3OzThdTc=
+Received: from frasgout.his.huawei.com (unknown [172.18.146.32])
+	by sinmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4dmY7y6thqz1P7Hn;
+	Thu,  8 Jan 2026 00:16:46 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dmYBb42kSzHnGdq;
+	Thu,  8 Jan 2026 00:19:03 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0489740086;
+	Thu,  8 Jan 2026 00:19:10 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 7 Jan
+ 2026 16:19:09 +0000
+Date: Wed, 7 Jan 2026 16:19:07 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd
+	<nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
+	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
+	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Timothy Hayes
+	<Timothy.Hayes@arm.com>
+Subject: Re: [PATCH v2 30/36] KVM: arm64: gic-v5: Introduce
+ kvm_arm_vgic_v5_ops and register them
+Message-ID: <20260107161907.000045d8@huawei.com>
+In-Reply-To: <20251219155222.1383109-31-sascha.bischoff@arm.com>
+References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
+	<20251219155222.1383109-31-sascha.bischoff@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260107-kaanapali-mmcc-v3-v3-11-8e10adc236a8@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA3MDEyNyBTYWx0ZWRfXwLbgKYCN/4Kw
- TiDi1js+oYubztRPAKujwOZCeM+rMV2L/JG1Qm0bzPKyiVLoZY10SdSkRxCuOmnzs+oNHc4SqpQ
- KIbxEYGdr/jaIpwE5sACQdCh25L3ZDdWVfVE2iYktSb7FKBE2y7ZOrJdZeyehAOs4x7GDe5sfBq
- d5KMY7xUfBHMAS/g14NP/n1hs+JECEFezimAZ2TMDgL49RrmLMw2m3bMowXhmNvgxXaz1xA1Jey
- lVKVUuDq7yQr0fUm+B8gKsAJm921GFMEgWhlKJSB0wMuF1KbAJqskNewODrNB515EA9l5Nwlih8
- 2z4TUDXJgiVZgI2MoROt+pEdgS6YCVwHilAMavVRZdo2cEb8lJZ6rAj9kIbOwF9NIlB5Fw7Xgt7
- Pzo4l84huC/fg+jwL0oEoiQ+bYXsAftjaZ5IYq7M8IQWjyK04+BgfTvEVVZwCGFacaYi+11lRN+
- 3GhBvNRZC28ZVqgJDmg==
-X-Proofpoint-ORIG-GUID: qmtzA2kycx3L_5n9ZBIwDZRNJPsqZSsw
-X-Authority-Analysis: v=2.4 cv=comWUl4i c=1 sm=1 tr=0 ts=695e8765 cx=c_pps
- a=P2rfLEam3zuxRRdjJWA2cw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=-momvpiiut8LGs_r7JQA:9 a=CjuIK1q_8ugA:10
- a=ODZdjJIeia2B_SHc_B0f:22
-X-Proofpoint-GUID: qmtzA2kycx3L_5n9ZBIwDZRNJPsqZSsw
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-07_02,2026-01-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 adultscore=0 priorityscore=1501
- phishscore=0 malwarescore=0 bulkscore=0 clxscore=1015 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
- definitions=main-2601070127
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_081847_152472_E7E5C03E 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20260107_081929_765004_F8A0E7BF 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,26 +89,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 03:13:14PM +0530, Taniya Das wrote:
-> Support the graphics clock controller for Kaanapali for Graphics SW
-> driver to use the clocks. GXCLKCTL (Graphics GX Clock Controller) is a
-> block dedicated to managing clocks for the GPU subsystem on GX power
-> domain. The GX clock controller driver manages only the GX GDSC and the
-> rest of the resources of the controller are managed by the firmware.
+On Fri, 19 Dec 2025 15:52:46 +0000
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+
+> Only the KVM_DEV_ARM_VGIC_GRP_CTRL->KVM_DEV_ARM_VGIC_CTRL_INIT op is
+> currently supported. All other ops are stubbed out.
 > 
-> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+> Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
+> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+Trivial stuff only from me on this one.
+
+
 > ---
->  drivers/clk/qcom/Kconfig              |   9 +
->  drivers/clk/qcom/Makefile             |   1 +
->  drivers/clk/qcom/gpucc-kaanapali.c    | 482 ++++++++++++++++++++++++++++++++++
->  drivers/clk/qcom/gxclkctl-kaanapali.c |  76 ++++++
->  4 files changed, 568 insertions(+)
+>  arch/arm64/kvm/vgic/vgic-kvm-device.c | 72 +++++++++++++++++++++++++++
+>  include/linux/kvm_host.h              |  1 +
+>  2 files changed, 73 insertions(+)
 > 
+> diff --git a/arch/arm64/kvm/vgic/vgic-kvm-device.c b/arch/arm64/kvm/vgic/vgic-kvm-device.c
+> index b12ba99a423e5..78903182bba08 100644
+> --- a/arch/arm64/kvm/vgic/vgic-kvm-device.c
+> +++ b/arch/arm64/kvm/vgic/vgic-kvm-device.c
+> @@ -336,6 +336,9 @@ int kvm_register_vgic_device(unsigned long type)
+>  			break;
+>  		ret = kvm_vgic_register_its_device();
+>  		break;
+> +	case KVM_DEV_TYPE_ARM_VGIC_V5:
+> +		ret = kvm_register_device_ops(&kvm_arm_vgic_v5_ops,
+> +					      KVM_DEV_TYPE_ARM_VGIC_V5);
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+I'd stick to existing style and have a break for last case as well.
 
+>  	}
+>  
+>  	return ret;
+> @@ -715,3 +718,72 @@ struct kvm_device_ops kvm_arm_vgic_v3_ops = {
+>  	.get_attr = vgic_v3_get_attr,
+>  	.has_attr = vgic_v3_has_attr,
+>  };
+> +
+> +static int vgic_v5_set_attr(struct kvm_device *dev,
+> +			    struct kvm_device_attr *attr)
+> +{
+> +	switch (attr->group) {
+> +	case KVM_DEV_ARM_VGIC_GRP_ADDR:
+> +	case KVM_DEV_ARM_VGIC_GRP_CPU_SYSREGS:
+> +	case KVM_DEV_ARM_VGIC_GRP_NR_IRQS:
+> +		break;
+> +	case KVM_DEV_ARM_VGIC_GRP_CTRL:
+> +		switch (attr->attr) {
+> +		case KVM_DEV_ARM_VGIC_CTRL_INIT:
+> +			return  vgic_set_common_attr(dev, attr);
+bonus space before vgic
 
--- 
-With best wishes
-Dmitry
+> +		default:
+> +			break;
+> +		}
+> +	}
+> +
+> +	return -ENXIO;
+
+I'd do this where you have breaks above. Makes it easier to follow
+code flow. (a tiny bit anyway!)
+Similar for other cases. Style in the file is pretty random wrt to
+errors in switch statements so up to you on which one to pick.
+
+> +}
+
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index d93f75b05ae22..d6082f06ccae3 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -2368,6 +2368,7 @@ void kvm_unregister_device_ops(u32 type);
+>  extern struct kvm_device_ops kvm_mpic_ops;
+>  extern struct kvm_device_ops kvm_arm_vgic_v2_ops;
+>  extern struct kvm_device_ops kvm_arm_vgic_v3_ops;
+> +extern struct kvm_device_ops kvm_arm_vgic_v5_ops;
+>  
+>  #ifdef CONFIG_HAVE_KVM_CPU_RELAX_INTERCEPT
+>  
+
 
