@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92BD0CFD626
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 13:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 683A1CFD626
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 13:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PBLw2S40lXZsCWRUXlFPSLF7ZKeEpxdBnBHyiWpX8NM=; b=1tdm+vHYqejwaFtwiYD/HO/MSJ
-	3RB8u4D1fToJu/qAXn3E3Z3CDeGgfC7KTyQZAeKOkQK6OdMF97bn5XHvrOL6NDK+6En5LmFvi4pUd
-	sFJeXyVg9kYAsq2yWOfeu/Sm0qAJiS80pcHmzRaTa1DduXXtTukZ86sdquiYERbAUWmSqznvTNL7A
-	liLQgahYwUdyCzQrz8c+HNSXC91jzSG4yJe7z+9wYA/l183oT7ouW0HYbD6/cLG1Cn17zSxjk5Zhw
-	M/R1Td/XO7CI4n/TW9K/5eDtzkqQNymv7OPJddxcrpLmab2njHAVhrTNUDgvATYZ5LN2giN8gKBb+
-	Cpchbfxg==;
+	bh=kcPTDN7TfpXL+5tbxQ2V14FG9zJXkIPfnt9CMkeJHG4=; b=T8qWsU9d7MQ/1lMk7LDyS25I80
+	h+tDBwNFqQCqj6UsAGFBjG7CtK8MAe/I0shpxO9WXm4fFV4SaXnt2bF3PkvJr+9uLvw8BznH3xZ1+
+	+XUoRXgL2oFer8Ky5hzx2FIereEx/hwOpHfhMP0W9uO7kVaHEipQXikQjD1rgxv/xqgC/z57tLGGD
+	me2SbRarzhNofNstkPkPdZ4eKgH4v7KCHYd5fhQFg8c8QtGDHyCsHKmFZGLdcXvE88ye9UgIzyfgG
+	WQ1uUrr8y+iweDKrsLFtv/jlmV4h/lQDIjSnckXH7ntlGqrmhKgMok7WJevHGzgxzW8Jl1lzaA3Ki
+	abSCKqrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdTM9-0000000EyGV-3h3r;
-	Wed, 07 Jan 2026 13:13:45 +0000
+	id 1vdTMD-0000000EyIQ-0lea;
+	Wed, 07 Jan 2026 13:13:49 +0000
 Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdTM6-0000000EyEd-2Pnh
+	id 1vdTMA-0000000EyGC-2jdH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 13:13:43 +0000
+	Wed, 07 Jan 2026 13:13:47 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id EF2A8C1EC90;
-	Wed,  7 Jan 2026 13:13:14 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 0150CC1EC8B;
+	Wed,  7 Jan 2026 13:13:19 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 16CEC606F8;
-	Wed,  7 Jan 2026 13:13:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 55DC3103C8740;
-	Wed,  7 Jan 2026 14:13:35 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1C945606F8;
+	Wed,  7 Jan 2026 13:13:45 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1F64A103C8741;
+	Wed,  7 Jan 2026 14:13:39 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767791619; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1767791623; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=PBLw2S40lXZsCWRUXlFPSLF7ZKeEpxdBnBHyiWpX8NM=;
-	b=kHzad9vXzEwUE2BmbEnu0SjASKxFslKat9qDMqZAG/D+JHO/BN7FnI2C9e0nNVyMaAhV4P
-	FrJ6PAOr3k9W8n5jcyOQR3xgO1a1QhCPkTfEDtJEOPQq0wijrfNyHqoyhPy00rxaZgOhvM
-	QQd+OK3QKtydqgwOdYdv/hDsIS95rvJjsYT1hVWCVNAoocYOkr+R0linDC9XfV7/0tZff6
-	8k7vdPTqKpss2Pa0q/o3YtQUJ7xeR/Y1dXGLH8OEI4KLBsxrlMVXSDyBTTzxYssRvKJ8eY
-	IhkFCaGyEKNBgjHHM4OlMKCJUC5KWEPCpRjTMEm7ranXbuVaMmNzcQgDo5Po8Q==
+	bh=kcPTDN7TfpXL+5tbxQ2V14FG9zJXkIPfnt9CMkeJHG4=;
+	b=dfq0fNtOTSUa9Ae1iTqDZCcgA0P+8l1KsU+tx56jFXhdxp3NbglAEKOkeS+qqhJCjOM05w
+	B1sJJ40Emdj3FCPgFIpcYEvxDqoMPFwIA9l1LFbzxql6wtkOJKfn7Rl0gqi2IP3pXf42Qt
+	fqkSi6AlE5KOW7Rlwm3Ksz6ABMZFaL7Z7/35mTrvHrRFrPu3KDMnBMKU1sHsJ0PZ8FBQsK
+	bIiHH0XXyEDvSJULVP+F8pmizTaMxUpDdQufVzWFLf71pMZZ8HqpidQsqm3UZ2lkhg1/Mk
+	KP1mcGlA+a0f4/wDR45L2cVEBghP1XBBFAb8VkvcOmJz0zKlkiDWFFp1QfByiw==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 07 Jan 2026 14:12:54 +0100
-Subject: [PATCH 03/12] drm/bridge: sii902x: convert to
+Date: Wed, 07 Jan 2026 14:12:55 +0100
+Subject: [PATCH 04/12] drm/bridge: thc63lvd1024: convert to
  of_drm_find_and_get_bridge()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-3-283d7bba061a@bootlin.com>
+Message-Id: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-4-283d7bba061a@bootlin.com>
 References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-0-283d7bba061a@bootlin.com>
 In-Reply-To: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-0-283d7bba061a@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -76,8 +76,8 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_051342_759784_BF138CCA 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20260107_051346_845678_75C72FA8 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,42 +98,42 @@ is put when done by using the drm_bridge::next_bridge pointer.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/gpu/drm/bridge/sii902x.c | 7 +++----
+ drivers/gpu/drm/bridge/thc63lvd1024.c | 7 +++----
  1 file changed, 3 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/sii902x.c b/drivers/gpu/drm/bridge/sii902x.c
-index 1f0aba28ad1e..12497f5ce4ff 100644
---- a/drivers/gpu/drm/bridge/sii902x.c
-+++ b/drivers/gpu/drm/bridge/sii902x.c
-@@ -175,7 +175,6 @@ struct sii902x {
- 	struct i2c_client *i2c;
- 	struct regmap *regmap;
+diff --git a/drivers/gpu/drm/bridge/thc63lvd1024.c b/drivers/gpu/drm/bridge/thc63lvd1024.c
+index 2cb7cd0c0608..c804222846c3 100644
+--- a/drivers/gpu/drm/bridge/thc63lvd1024.c
++++ b/drivers/gpu/drm/bridge/thc63lvd1024.c
+@@ -32,7 +32,6 @@ struct thc63_dev {
+ 	struct gpio_desc *oe;
+ 
  	struct drm_bridge bridge;
--	struct drm_bridge *next_bridge;
- 	struct drm_connector connector;
- 	struct gpio_desc *reset_gpio;
- 	struct i2c_mux_core *i2cmux;
-@@ -421,7 +420,7 @@ static int sii902x_bridge_attach(struct drm_bridge *bridge,
- 	int ret;
+-	struct drm_bridge *next;
  
- 	if (flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR)
--		return drm_bridge_attach(encoder, sii902x->next_bridge,
-+		return drm_bridge_attach(encoder, sii902x->bridge.next_bridge,
- 					 bridge, flags);
+ 	struct drm_bridge_timings timings;
+ };
+@@ -48,7 +47,7 @@ static int thc63_attach(struct drm_bridge *bridge,
+ {
+ 	struct thc63_dev *thc63 = to_thc63(bridge);
  
- 	drm_connector_helper_add(&sii902x->connector,
-@@ -1204,9 +1203,9 @@ static int sii902x_probe(struct i2c_client *client)
- 			return -ENODEV;
- 		}
+-	return drm_bridge_attach(encoder, thc63->next, bridge, flags);
++	return drm_bridge_attach(encoder, thc63->bridge.next_bridge, bridge, flags);
+ }
  
--		sii902x->next_bridge = of_drm_find_bridge(remote);
-+		sii902x->bridge.next_bridge = of_drm_find_and_get_bridge(remote);
- 		of_node_put(remote);
--		if (!sii902x->next_bridge)
-+		if (!sii902x->bridge.next_bridge)
- 			return dev_err_probe(dev, -EPROBE_DEFER,
- 					     "Failed to find remote bridge\n");
+ static enum drm_mode_status thc63_mode_valid(struct drm_bridge *bridge,
+@@ -132,9 +131,9 @@ static int thc63_parse_dt(struct thc63_dev *thc63)
+ 		return -ENODEV;
  	}
+ 
+-	thc63->next = of_drm_find_bridge(remote);
++	thc63->bridge.next_bridge = of_drm_find_and_get_bridge(remote);
+ 	of_node_put(remote);
+-	if (!thc63->next)
++	if (!thc63->bridge.next_bridge)
+ 		return -EPROBE_DEFER;
+ 
+ 	endpoint = of_graph_get_endpoint_by_regs(thc63->dev->of_node,
 
 -- 
 2.52.0
