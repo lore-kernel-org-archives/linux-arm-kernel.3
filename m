@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6131BCE9D48
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 12:17:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8207CEFD1E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 12:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2/k7aRIMSsRlFmo4uSbFPpMf5BgB8CzmDNkN1SVEfQc=; b=LfUs12469DTd+rvXrBtmuzyknD
-	8PMQDSD5KK2Rp9OAYU0kPijIVceUVO77usHsbCUJtxd2t7XrBrwMy+1+T0McfllG829rd5XCUDcde
-	6e2KXgnvExLaI4FuxSiSwAtosfyeVsm2bWd6ffwJF5e/OGOmX5aT2QK1Ngp4RE1G6CL37iIYPHeg2
-	mwR+PcvQs9UDvaQuqreDTrofV1j93nefSj6kIJ/zShnhFy3mPCikLVAIvkRpH2aZcO0CU7Vvee1+Q
-	+Y4ujKNC9eU+TypEnu/4hU1ePcs3057v0ihRhroYcrSc06tBKQkHcyJ3pvChy8+TkqZ4zpxNTsVZl
-	NpV9Te/A==;
+	bh=xyxOVVnJKKmmJxMZsTyn7vn2lBMNGNuEjeeeFoSFD1A=; b=H45b2+CVeJmIQXowcS62c19G/0
+	UfpUCPg1jZ40i8WQVDyJ86KE+iIRgw7R/dfYsTWoSgbEmaMKe0N3tmpXU2MRj0ysj4Vfa9DOHViSd
+	B8oz88+2tu6nibNbp6i0PfgEXAzrFvNHIrAxZldbUKoG/QuR/zMqlyENPvmwDxMe99/Kb6tokPQGz
+	ZierKaJbrehGFOAl/jEbZC6eqTSzygGXqD44SuuOLmNUblYsIr0tb1Rjia8seY7y7hs4wRbxF8Sh5
+	3CtDHTQddkVxSIFlMLa41jG/I4CD5y7Uc4cD074GSd563JA98AxkisPlMmixvL0rPjjnFfqXOtoqF
+	ZZ7JpTSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdSTC-0000000EsnE-3kJP;
-	Wed, 07 Jan 2026 12:16:58 +0000
-Received: from sinmsgout01.his.huawei.com ([119.8.177.36])
+	id 1vdSUX-0000000Esxs-2gjF;
+	Wed, 07 Jan 2026 12:18:21 +0000
+Received: from out-188.mta0.migadu.com ([2001:41d0:1004:224b::bc])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdST5-0000000EsmS-0qGi
+	id 1vdSUU-0000000EswU-3OOe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 12:16:55 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=2/k7aRIMSsRlFmo4uSbFPpMf5BgB8CzmDNkN1SVEfQc=;
-	b=fphM9sz76LXP1qBy6IXllFB6u1bhkKCguaF4iI1BUY5jX8pxr0FW6FtNb0STaafF/R6Gn6gMT
-	1lEk6xHr3nhSZfUDWhrRco7JB8BBaKCQprCpVopAER8fQv0U5oOnVh3z1HutxdGIXy+utraf4O+
-	+p6oqJp4hiZTGHiRBzAl+t0=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.33])
-	by sinmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4dmRm63xNTz1P7S0;
-	Wed,  7 Jan 2026 20:14:14 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dmRpn6007zJ46Df;
-	Wed,  7 Jan 2026 20:16:33 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 01D6A4056F;
-	Wed,  7 Jan 2026 20:16:37 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 7 Jan
- 2026 12:16:35 +0000
-Date: Wed, 7 Jan 2026 12:16:34 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd
-	<nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
-	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Timothy Hayes
-	<Timothy.Hayes@arm.com>
-Subject: Re: [PATCH v2 16/36] KVM: arm64: gic-v5: Implement direct injection
- of PPIs
-Message-ID: <20260107121634.00000c13@huawei.com>
-In-Reply-To: <20251219155222.1383109-17-sascha.bischoff@arm.com>
-References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
-	<20251219155222.1383109-17-sascha.bischoff@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+	Wed, 07 Jan 2026 12:18:20 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1767788286;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xyxOVVnJKKmmJxMZsTyn7vn2lBMNGNuEjeeeFoSFD1A=;
+	b=ADvw8/KkVnrrBg9xwWqTARss2+6AB6k1ESvzoORAXmCmGq2JXxtqo8stEoZE1W90OuQYp+
+	ZK3JtyON8mB11BqNNmFFktvl0N2HllrV/ujbW2oqVCsAMPDPlSgKFhc036D31nKlnJNKtW
+	DlCm2e96B8QcQpXyJ1+DXz37DH8sjsJboyTWrW8pvpIB+WpEOXwvkDid7hFv5bQHNFLf46
+	8AR1HpYJriKeGY5zqOl7wE9xEYU9XNLPnR8+lfY0gC07Yg0IkfMQh2kZrSq6HwwEsq02u9
+	+lD5gCn6npxDWl1Cwu/lnQbYGtUpx6Nby/ZckSxEXFOCAWSABHgIbC7Q+s/oog==
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 07 Jan 2026 13:18:00 +0100
+Message-Id: <DFICN8TKUFBH.1V8WHTIQ5BE2J@cknow-tech.com>
+Cc: "Robert Mader" <robert.mader@collabora.com>, <kernel@collabora.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, "Matt Roper"
+ <matthew.d.roper@intel.com>
+Subject: Re: [PATCH v3 0/4] Introduce BACKGROUND_COLOR DRM CRTC property
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
+ Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Sandy
+ Huang" <hjc@rock-chips.com>, =?utf-8?q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, "Andy Yan" <andy.yan@rock-chips.com>, "Louis Chauvet"
+ <louis.chauvet@bootlin.com>, "Haneen Mohammed" <hamohammed.sa@gmail.com>,
+ "Melissa Wen" <melissa.srw@gmail.com>
+References: <20251118-rk3588-bgcolor-v3-0-a2cc909428ea@collabora.com>
+In-Reply-To: <20251118-rk3588-bgcolor-v3-0-a2cc909428ea@collabora.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_041653_044781_2B2BC416 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20260107_041819_122533_BF07990E 
+X-CRM114-Status: GOOD (  17.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,39 +80,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Dec 2025 15:52:41 +0000
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+Hi,
 
-> GICv5 is able to directly inject PPI pending state into a guest using
-> a mechanism called DVI whereby the pending bit for a paticular PPI is
-> driven directly by the physically-connected hardware. This mechanism
-> itself doesn't allow for any ID translation, so the host interrupt is
-> directly mapped into a guest with the same interrupt ID.
-> 
-> When mapping a virtual interrupt to a physical interrupt via
-> kvm_vgic_map_irq for a GICv5 guest, check if the interrupt itself is a
-> PPI or not. If it is, and the host's interrupt ID matches that used
-> for the guest DVI is enabled, and the interrupt itself is marked as
-> directly_injected.
-> 
-> When the interrupt is unmapped again, this process is reversed, and
-> DVI is disabled for the interrupt again.
-> 
-> Note: the expectation is that a directly injected PPI is disabled on
-> the host while the guest state is loaded. The reason is that although
-> DVI is enabled to drive the guest's pending state directly, the host
-> pending state also remains driven. In order to avoid the same PPI
-> firing on both the host and the guest, the host's interrupt must be
-> disabled (masked). This is left up to the code that owns the device
-> generating the PPI as this needs to be handled on a per-VM basis. One
-> VM might use DVI, while another might not, in which case the physical
-> PPI should be enabled for the latter.
-> 
-> Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+On Tue Nov 18, 2025 at 12:51 AM CET, Cristian Ciocaltea wrote:
+> Some display controllers can be hardware-configured to present non-black
+> colors for pixels which are not covered by any plane (or are exposed
+> through transparent regions of higher planes).
+> ...
+> The subsequent patches add background color support to VKMS and the VOP2
+> display controller used in the RK3568, RK3576, and RK3588 Rockchip SoC
+> families.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cristian provided a helper script which would show a test pattern and
+then iterate through setting Red, Green, Blue background color and then
+set it back to the original value.
 
+I first tested this on a Rock 5B (RK3588).
+Without this patch set, the background color was Black with every
+iteration. But with this patch set, I did see a Red, Green and Blue
+background color, after which it was set back to Black.
 
+diederik@rock5b:~$ grep -E "^Changing prop|^Read BACKGROUND_COLOR" bgcol-te=
+st-bash-user.log
+Read BACKGROUND_COLOR prop (ARGB64): 0xffff000000000000
+Changing prop value to: 0xffff00000000ffff
+Read BACKGROUND_COLOR prop (ARGB64): 0xffff00000000ffff
+Changing prop value to 0xffffffff00000000
+Read BACKGROUND_COLOR prop (ARGB64): 0xffffffff00000000
+Changing prop value to 0xffff0000ffff0000
+Read BACKGROUND_COLOR prop (ARGB64): 0xffff0000ffff0000
+Changing prop value to 0xffff00000000ffff
+Read BACKGROUND_COLOR prop (ARGB64): 0xffff00000000ffff
+Changing prop value to: 0xffff000000000000
+Read BACKGROUND_COLOR prop (ARGB64): 0xffff000000000000
+
+I then did the same test on a Quartz64-B (RK3566) and that too showed a
+Red, Green and Blue background color and then was set back to Black.
+
+diederik@quartz64b:~$ grep -E "^Changing prop|^Read BACKGROUND_COLOR" bgcol=
+-test-bash-user-q64b.log
+Read BACKGROUND_COLOR prop (ARGB64): 0xffff000000000000
+Changing prop value to: 0xffff00000000ffff
+Read BACKGROUND_COLOR prop (ARGB64): 0xffff00000000ffff
+Changing prop value to 0xffffffff00000000
+Read BACKGROUND_COLOR prop (ARGB64): 0xffffffff00000000
+Changing prop value to 0xffff0000ffff0000
+Read BACKGROUND_COLOR prop (ARGB64): 0xffff0000ffff0000
+Changing prop value to 0xffff00000000ffff
+Read BACKGROUND_COLOR prop (ARGB64): 0xffff00000000ffff
+Changing prop value to: 0xffff000000000000
+Read BACKGROUND_COLOR prop (ARGB64): 0xffff000000000000
+
+So this patch set does what it is supposed to do, so feel free to add:
+
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>
+
+Cheers,
+  Diederik
+
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+> Changes in v3:
+> - Added new patches:
+>   * uapi: Provide DIV_ROUND_CLOSEST()
+>   * drm/vkms: Support setting custom background color
+> - Improved DRM_ARGB64_{PREP|GET}*() helpers by using a conversion ratio
+>   for better color approximation when dealing with less than 16 bits of
+>   precision
+> - Mentioned the IGT test in the cover letter while documenting the
+>   validation results; also dropped references to the now useless
+>   modetest wrapper script and its generated report
+> - Rebased series onto latest drm-misc-next
+> - Link to v2: https://lore.kernel.org/r/20251013-rk3588-bgcolor-v2-0-25cc=
+3810ba8c@collabora.com
+>
+> Changes in v2:
+> - Improved uAPI consistency and readability by introducing
+>   DRM_ARGB64_PREP*() and DRM_ARGB64_GET*() helper macros
+> - Updated several code comment sections
+> - Referenced the counterpart Weston support in the cover letter
+> - Rebased series onto v6.18-rc1
+> - Link to v1: https://lore.kernel.org/r/20250902-rk3588-bgcolor-v1-0-fd97=
+df91d89f@collabora.com
+>
+> ---
+> Cristian Ciocaltea (4):
+>       uapi: Provide DIV_ROUND_CLOSEST()
+>       drm: Add CRTC background color property
+>       drm/vkms: Support setting custom background color
+>       drm/rockchip: vop2: Support setting custom background color
+>
+>  drivers/gpu/drm/drm_atomic_state_helper.c    |  1 +
+>  drivers/gpu/drm/drm_atomic_uapi.c            |  4 ++
+>  drivers/gpu/drm/drm_blend.c                  | 39 ++++++++++++++--
+>  drivers/gpu/drm/drm_mode_config.c            |  6 +++
+>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 13 +++++-
+>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  4 ++
+>  drivers/gpu/drm/vkms/vkms_composer.c         | 10 ++++-
+>  drivers/gpu/drm/vkms/vkms_crtc.c             |  3 ++
+>  include/drm/drm_blend.h                      |  4 +-
+>  include/drm/drm_crtc.h                       | 12 +++++
+>  include/drm/drm_mode_config.h                |  5 +++
+>  include/linux/math.h                         | 18 +-------
+>  include/uapi/drm/drm_mode.h                  | 67 ++++++++++++++++++++++=
+++++++
+>  include/uapi/linux/const.h                   | 17 +++++++
+>  14 files changed, 178 insertions(+), 25 deletions(-)
+> ---
+> base-commit: 92c49b3f4df8f9acfa95551ef38fc00c675319fd
+> change-id: 20250829-rk3588-bgcolor-c1a7b9a507bc
 
