@@ -4,70 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12662CD5829
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 10:12:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82446CD5822
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 10:23:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sg9GrpFwcJPLCJYcGzVjo/orWzMdNASBa8R+8NicMwo=; b=AdWYNeaUmKHgEqu8Jqss8K+65B
-	dL+kbFyI3FRulgCvseI0nrHGhQgQufelYPDlxrw23tBnAZH1xvt3Z14Ja6nuD+kh661m4qsFBAtTf
-	oSmsqJBi4eh2Eb9HXVVNAffZnZJYEX19nEEJAgcI1zP5bHugI2MbuChU+PMIcJHeEERt6X6CkJNdI
-	rGALVcKicJhP9Fv3pTHSvck2JMlJNias+k4LYkgskGDUUjgFdoqQtmR8jVR+OuDDJK9yzVPZZsJCj
-	aoe5H5oRhrAAPlRm+TglxfvTVDyswwX/uPBi0kXv98E0qkn25D7+ZhxPM+2G03xQS0FcWSt1rQk+B
-	0yzq5t2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5sCdqnj/RCGcOZ4N1FNFLLmFTy7auxTIhL2QEEcNqFg=; b=kgVHxnQDAcAKmw9U+6dsILaH1s
+	jvtAHpqrXMsIyKzdll6yH7L5We9fS4IYkoHjWF4cXi7EnZ++5npJg/qTTd+NcUwKYf6O0kxsYm4Fq
+	ECeyUejJSNstSmGkuk9pR17v/r+6QjVyDdFyNrc0XCkblRiGUAQJovo3ESdSMqCrotFSgrwxSoKdZ
+	dnhaWt80vn3pwlCxG+x+hzHewJeUzgqTRBaQcZjWXgZX8Q2nM34Zku7IM3rY/TvTOXrOjVPPqaMf0
+	Q5PbcqZjYGj5NsyFSV2Un06SXegaJXvHGiLFsq1EyA3mvGGuUxBGxfQUYzXiolDe30rf/wynnjPIe
+	tzUvNrlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQWE-0000000Efrq-2JjV;
-	Wed, 07 Jan 2026 10:11:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vdQgr-0000000EhKA-0rcM;
+	Wed, 07 Jan 2026 10:22:57 +0000
+Received: from smtp-out3.simply.com ([94.231.106.210])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQWC-0000000Efr0-0pSy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 10:11:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 833C344301;
-	Wed,  7 Jan 2026 10:11:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F0F1C4CEF7;
-	Wed,  7 Jan 2026 10:11:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767780715;
-	bh=089y2IDoSCjwqehlq3MO4nDE6Ee9AOzoaarffxPZP/s=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=YBursUu1NUOpLsViKALRQCFu+cSwuV4OxKTINf6fkb6mUbGc6nvmhTWHuh6spFkzE
-	 INghZ7oIQgn06bdINirmASKob38X3/FQsHUos8z/Xn7bcthvscIJcqUbPb3+FjL+/U
-	 3E0fqmhrcfTO4rKTfv3QtJ1pWum/y/w2qVsra9MuD5zoB4rtYP8x1nFK6NOwu5If1Z
-	 653EBTSVQm8E2YTO/WNT33ONMhyv8e2vPKCOryv86s6+Ui7EaThW7NvnjO40Mq30Mg
-	 RDQLbFljrB5dGEyE5k0viEwo1r1OMiZ91h+5c1rSEtbeaKWG7VRciDGTveaSCpCJ+T
-	 IGfPZNStfJXeA==
-From: Andreas Hindborg <a.hindborg@kernel.org>
-To: FUJITA Tomonori <fujita.tomonori@gmail.com>
-Cc: fujita.tomonori@gmail.com, aliceryhl@google.com, lyude@redhat.com,
- boqun.feng@gmail.com, will@kernel.org, peterz@infradead.org,
- richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com,
- catalin.marinas@arm.com, ojeda@kernel.org, gary@garyguo.net,
- bjorn3_gh@protonmail.com, lossin@kernel.org, tmgross@umich.edu,
- dakr@kernel.org, mark.rutland@arm.com, frederic@kernel.org,
- tglx@linutronix.de, anna-maria@linutronix.de, jstultz@google.com,
- sboyd@kernel.org, viro@zeniv.linux.org.uk, brauner@kernel.org,
- jack@suse.cz, linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, rust-for-linux@vger.kernel.org,
- linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 4/5] rust: hrtimer: use READ_ONCE instead of read_volatile
-In-Reply-To: <20260106.222826.2155269977755242640.fujita.tomonori@gmail.com>
-References: <L2dmGLLYJbusZn9axfRubM0hIOSTuny2cW3uyUhOVGvck7lQxTzDe0Xxf8Hw2cLxICT8kdmNAE74e-LV7YrReg==@protonmail.internalid>
- <20260101.130012.2122315449079707392.fujita.tomonori@gmail.com>
- <87ikdej4s1.fsf@t14s.mail-host-address-is-not-set>
- <20260106.222826.2155269977755242640.fujita.tomonori@gmail.com>
-Date: Wed, 07 Jan 2026 11:11:43 +0100
-Message-ID: <87cy3livfk.fsf@t14s.mail-host-address-is-not-set>
+	id 1vdQgn-0000000EhIq-2zM6;
+	Wed, 07 Jan 2026 10:22:55 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by smtp.simply.com (Simply.com) with ESMTP id 4dmPHX1tZwz1DDr1;
+	Wed,  7 Jan 2026 11:22:48 +0100 (CET)
+Received: from [10.10.15.21] (h-98-128-223-123.NA.cust.bahnhof.se [98.128.223.123])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by smtp.simply.com (Simply.com) with ESMTPSA id 4dmPHS5YrMz1DDdR;
+	Wed,  7 Jan 2026 11:22:44 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gaisler.com;
+	s=simplycom2; t=1767781367;
+	bh=5sCdqnj/RCGcOZ4N1FNFLLmFTy7auxTIhL2QEEcNqFg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=GapqslJRt7PAo/OPdy40/uiS8yl/fdKamd8Ti7v8KhTSWM+dyJpM0kA09WqDkvmTF
+	 JDac2AP0hk4IXLuaOc19G85CIClqVXmQFScccHC7rgNcYdl16DovAFndj0u/scyZuZ
+	 rFnlzmQeoXkgQ81qRhHQTXrNih6T2iluIH43PJMds/ZZIo6rm/VM9YDeYihibbVdmg
+	 uDvdrF41naRrcWhAD/3/BJoa7qr9vCUPqLxuLP48CDDioxfF0rw5/F8n0Js/OfpQsy
+	 f1VR1SCUMB9l0JY24lstr5qvSKP50VGC6KkhF0cw5Ng7hX+p9V4PT5L0p7hEJpFlek
+	 UmVwAHzAgacCA==
+Message-ID: <836139d1-1425-4381-bb84-6c2654a4d239@gaisler.com>
+Date: Wed, 7 Jan 2026 11:22:44 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/19] printk cleanup - part 3
+To: Marcos Paulo de Souza <mpdesouza@suse.com>,
+ Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jason Wessel <jason.wessel@windriver.com>,
+ Daniel Thompson <danielt@kernel.org>,
+ Douglas Anderson <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>,
+ Steven Rostedt <rostedt@goodmis.org>, John Ogness
+ <john.ogness@linutronix.de>, Sergey Senozhatsky <senozhatsky@chromium.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Kees Cook <kees@kernel.org>,
+ Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli"
+ <gpiccoli@igalia.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
+ Laurentiu Tudor <laurentiu.tudor@nxp.com>
+Cc: linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
+ netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
+References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+Content-Language: en-US
+From: Andreas Larsson <andreas@gaisler.com>
+In-Reply-To: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_021156_277539_A16D0B97 
-X-CRM114-Status: GOOD (  18.46  )
+X-CRM114-CacheID: sfid-20260107_022254_112878_CE421115 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,95 +103,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FUJITA Tomonori <fujita.tomonori@gmail.com> writes:
+On 2025-12-27 13:16, Marcos Paulo de Souza wrote:
+> The parts 1 and 2 can be found here [1] and here[2].
+> 
+> The changes proposed in this part 3 are mostly to clarify the usage of
+> the interfaces for NBCON, and use the printk helpers more broadly.
+> Besides it, it also introduces a new way to register consoles
+> and drop thes the CON_ENABLED flag. It seems too much, but in reality
+> the changes are not complex, and as the title says, it's basically a
+> cleanup without changing the functional changes.
 
-> On Tue, 06 Jan 2026 13:37:34 +0100
-> Andreas Hindborg <a.hindborg@kernel.org> wrote:
->
->> "FUJITA Tomonori" <fujita.tomonori@gmail.com> writes:
->> 
->>> On Thu, 01 Jan 2026 11:11:23 +0900 (JST)
->>> FUJITA Tomonori <fujita.tomonori@gmail.com> wrote:
->>>
->>>> On Wed, 31 Dec 2025 12:22:28 +0000
->>>> Alice Ryhl <aliceryhl@google.com> wrote:
->>>>
->>>>> Using `READ_ONCE` is the correct way to read the `node.expires` field.
->>>>>
->>>>> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
->>>>> ---
->>>>>  rust/kernel/time/hrtimer.rs | 8 +++-----
->>>>>  1 file changed, 3 insertions(+), 5 deletions(-)
->>>>>
->>>>> diff --git a/rust/kernel/time/hrtimer.rs b/rust/kernel/time/hrtimer.rs
->>>>> index 856d2d929a00892dc8eaec63cebdf547817953d3..e2b7a26f8aade972356c3eb5f6489bcda3e2e849 100644
->>>>> --- a/rust/kernel/time/hrtimer.rs
->>>>> +++ b/rust/kernel/time/hrtimer.rs
->>>>> @@ -239,11 +239,9 @@ pub fn expires(&self) -> HrTimerInstant<T>
->>>>>          // - Timers cannot have negative ktime_t values as their expiration time.
->>>>>          // - There's no actual locking here, a racy read is fine and expected
->>>>>          unsafe {
->>>>> -            Instant::from_ktime(
->>>>> -                // This `read_volatile` is intended to correspond to a READ_ONCE call.
->>>>> -                // FIXME(read_once): Replace with `read_once` when available on the Rust side.
->>>>> -                core::ptr::read_volatile(&raw const ((*c_timer_ptr).node.expires)),
->>>>> -            )
->>>>> +            Instant::from_ktime(kernel::sync::READ_ONCE(
->>>>> +                &raw const (*c_timer_ptr).node.expires,
->>>>> +            ))
->>>>>          }
->>>>
->>>> Do we actually need READ_ONCE() here? I'm not sure but would it be
->>>> better to call the C-side API?
->>>>
->>>> diff --git a/rust/helpers/time.c b/rust/helpers/time.c
->>>> index 67a36ccc3ec4..73162dea2a29 100644
->>>> --- a/rust/helpers/time.c
->>>> +++ b/rust/helpers/time.c
->>>> @@ -2,6 +2,7 @@
->>>>
->>>>  #include <linux/delay.h>
->>>>  #include <linux/ktime.h>
->>>> +#include <linux/hrtimer.h>
->>>>  #include <linux/timekeeping.h>
->>>>
->>>>  void rust_helper_fsleep(unsigned long usecs)
->>>> @@ -38,3 +39,8 @@ void rust_helper_udelay(unsigned long usec)
->>>>  {
->>>>  	udelay(usec);
->>>>  }
->>>> +
->>>> +__rust_helper ktime_t rust_helper_hrtimer_get_expires(const struct hrtimer *timer)
->>>> +{
->>>> +	return timer->node.expires;
->>>> +}
->>>
->>> Sorry, of course this should be:
->>>
->>> +__rust_helper ktime_t rust_helper_hrtimer_get_expires(const struct hrtimer *timer)
->>> +{
->>> +	return hrtimer_get_expires(timer);
->>> +}
->>>
->> 
->> This is a potentially racy read. As far as I recall, we determined that
->> using read_once is the proper way to handle the situation.
->> 
->> I do not think it makes a difference that the read is done by C code.
->
-> What does "racy read" mean here?
->
-> The C side doesn't use WRITE_ONCE() or READ_ONCE for node.expires. How
-> would using READ_ONCE() on the Rust side make a difference?
+Hi,
 
-Data races like this are UB in Rust. As far as I understand, using this
-READ_ONCE implementation or a relaxed atomic read would make the read
-well defined. I am not aware if this is only the case if all writes to
-the location from C also use atomic operations or WRITE_ONCE. @Boqun?
+Patches 7-17 all say "replacing the CON_ENABLE flag" in their
+descriptions, which should rather be "replacing the CON_ENABLED flag".
 
-
-Best regards,
-Andreas Hindborg
-
+Cheers,
+Andreas
 
 
