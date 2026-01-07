@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C47D2CD5854
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 11:45:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5670ACD5854
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 11:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Qoymrb5thtThb1eekmb44aNodNWzRugEYQRQdnUQZ8=; b=ef92u4jAdARLoA8GT71ObIoB5y
-	YOCy3AXGng+wDrveRIoKml2geuSkCwnQcuvd/jyFAiC4P1bN2ZWbWrMb1SOBSpbPOgqhq93oI5O8R
-	ERDzH3VlNAQOPsgvZyiy/8+iHWV4Ss/BXTeX+V3nmirbsLVuZ54LEliQVpO8voySDBgcsFEUUbprB
-	ajv8otilzK3EFovgvRuNbf9pxCGBiXHYO44dH2drqzhsbCN70TJ83th6gQxKTwRsVihLSTHRKDs91
-	N2Kp4XgneOfdfs+Ra6a7yqX8HMS3VIqeBuziflruLMmq69kp9OyRPGYKHNUjyJ9iDkyFJmiBY5eZz
-	OLQkQCyQ==;
+	bh=wWSUwJheS3EsmAMi+m9CiXPo/0+Wu/2LswozlR119YA=; b=ZnDeVkyehh0dMgnqeeKQPF3/9P
+	ZOMRgSe9qAnjY92CdZoy0N1QF28phYxw8gFEc3RNbEH3uwpCOquIl6gV4B3N8IyxQLuoVe0VX0wH1
+	TScERrFvnwO7y8m/QolZZhBdlpx/4g9QxQQK0aWsypuaudcOOeQeOsFtnsrbubSoYbSMA7Sy6kvxq
+	9zY8XIVSBFvXuTa4MjyKZew7IMrQdyur2S5koMBd89sSVLHljCxAaYTbR1aTlACJs3AusrdbbpkFM
+	bxAMfDcOOjhuyhjA52RySm+oI84mhn1D2blJFJDTKGP3f/ShNR2r8UQ9QIpdnZoQunGMDo0xJ9nsK
+	LvGwFTAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdRyI-0000000EqWk-3LkJ;
-	Wed, 07 Jan 2026 11:45:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdS0b-0000000Eqf8-1NqI;
+	Wed, 07 Jan 2026 11:47:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdRyI-0000000EqWe-0mzj
+	id 1vdS0a-0000000Eqf2-2KUI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 11:45:02 +0000
+	Wed, 07 Jan 2026 11:47:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4303D6000A;
-	Wed,  7 Jan 2026 11:45:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98FDDC4CEF7;
-	Wed,  7 Jan 2026 11:44:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A72F160007;
+	Wed,  7 Jan 2026 11:47:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E27BC4CEF7;
+	Wed,  7 Jan 2026 11:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767786301;
-	bh=U78ONRWmwz2WH/BhLsJ/KDqiXNz0V6xhHYfAOq6nW7M=;
+	s=k20201202; t=1767786443;
+	bh=DbwTdP4jDDEoLRymmPjZBvZFpaB6/3NUZbTNMK7TrhE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KHmLJTvwbkEgKWAHytU4pXHG45MFBbx9IxlV1oUeeyYDJOKamHdPBPbdD+ory6KXy
-	 zDV25YkbE3RgIgJuMbGp/FFSdatXOQjhIsYxrFFFow1C4NfMWc2PphS5Oo4OOxGdMh
-	 Ais7luwAxY0q1r042+FOg4Kj9PMQKvApGVdGY9SS5QuJLZStdO9UBwUDp5fhjWkw+9
-	 zeQyuvv4lS9czEq3mqnV0PVUxtTIIStu3a2kOdasaqAVhanVRiPy4vNO5X+Smug1SD
-	 19YN8Sb3QfysNMnpVDDr9APvY1FIdB0XwN5tbrxiTpudd1vqZHLtt8t+Zus0tmMqV1
-	 d4I+41lHm7fQg==
-Date: Wed, 7 Jan 2026 11:44:55 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 4/5] KVM: selftests: arm64: Skip all 32 bit IDs when
- set_id_regs is aarch64 only
-Message-ID: <e1907b3a-416e-42d1-a682-4ea514572b64@sirena.org.uk>
-References: <20260106-kvm-arm64-set-id-regs-aarch64-v4-0-c7ef4551afb3@kernel.org>
- <20260106-kvm-arm64-set-id-regs-aarch64-v4-4-c7ef4551afb3@kernel.org>
- <4cb1ad60-f8cc-4efd-9c9d-9ae52001e547@arm.com>
+	b=Rcl2csMnB6fun62KvYW7R8q6mrwH2Y3ZHyS9XmSrAooaYob23EatHJ8bnJmkYMNC0
+	 IJ23o9xHxk31/exhmLeNcEEmd3C2LDHRuULaz+fOHJn+2hzKZwaz5T4NfCWhZZz7Vl
+	 4QEnhBmqPHkUVzYSE7SvoeueAKDXz/T1cGUUuP5pRXvMxHqt7Pp10nl83viknXsyWC
+	 xfS+f6AmQQLLktViVf8y68WsClclGSQcfYQLbzdLhgoTlM9hBK1iDNJvAd8aFUPPml
+	 xludPXekC5s+OeWxvKqrgQ/7y7QXMK6lCQMdbupd4uYJucc0f9pCvceNqcJcoSVyIg
+	 I+s2aRpyoo8Gw==
+Date: Wed, 7 Jan 2026 17:17:09 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Kees Cook <kees@kernel.org>, 
+	Mika Westerberg <westeri@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andy Shevchenko <andy@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Alexey Klimov <alexey.klimov@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Subject: Re: [PATCH v4 00/10] gpio: improve support for shared GPIOs
+Message-ID: <uc7utm7tbtmkk6osaoydibd5evtpm246sjrpkx3lpclpk4srea@a4g65oduswau>
+References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
+ <fimuvblfy2cmn7o4wzcxjzrux5mwhvlvyxfsgeqs6ore2xg75i@ax46d3sfmdux>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="u4ub/+ka66XeoUsW"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <4cb1ad60-f8cc-4efd-9c9d-9ae52001e547@arm.com>
-X-Cookie: Is there life before breakfast?
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <fimuvblfy2cmn7o4wzcxjzrux5mwhvlvyxfsgeqs6ore2xg75i@ax46d3sfmdux>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,45 +82,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Nov 26, 2025 at 06:27:13PM +0200, Dmitry Baryshkov wrote:
+> On Wed, Nov 12, 2025 at 02:55:29PM +0100, Bartosz Golaszewski wrote:
+> > Bjorn, Konrad: I should have Cc'ed you on v1 but I just went with what
+> > came out of b4 --auto-to-cc. It only gave me arm-msm. :( Patch 7 from
+> > this series however impacts Qualcomm platforms. It's a runtime dependency
+> > of patches 8 and 9. Would you mind Acking it so that I can take it into
+> > an immutable branch that I'll make available to Mark Brown for him to
+> > take patches 8-10 through the ASoC and regulator trees for v6.19?
+> > 
+> > Problem statement: GPIOs are implemented as a strictly exclusive
+> > resource in the kernel but there are lots of platforms on which single
+> > pin is shared by multiple devices which don't communicate so need some
+> > way of properly sharing access to a GPIO. What we have now is the
+> > GPIOD_FLAGS_BIT_NONEXCLUSIVE flag which was introduced as a hack and
+> > doesn't do any locking or arbitration of access - it literally just hand
+> > the same GPIO descriptor to all interested users.
+> > 
+> > The proposed solution is composed of three major parts: the high-level,
+> > shared GPIO proxy driver that arbitrates access to the shared pin and
+> > exposes a regular GPIO chip interface to consumers, a low-level shared
+> > GPIOLIB module that scans firmware nodes and creates auxiliary devices
+> > that attach to the proxy driver and finally a set of core GPIOLIB
+> > changes that plug the former into the GPIO lookup path.
+> > 
+> > The changes are implemented in a way that allows to seamlessly compile
+> > out any code related to sharing GPIOs for systems that don't need it.
+> > 
+> > The practical use-case for this are the powerdown GPIOs shared by
+> > speakers on Qualcomm db845c platform, however I have also extensively
+> > tested it using gpio-virtuser on arm64 qemu with various DT
+> > configurations.
+> > 
+> > I'm Cc'ing some people that may help with reviewing/be interested in
+> > this: OF maintainers (because the main target are OF systems initially),
+> > Mark Brown because most users of GPIOD_FLAGS_BIT_NONEXCLUSIVE live
+> > in audio or regulator drivers and one of the goals of this series is
+> > dropping the hand-crafted GPIO enable counting via struct
+> > regulator_enable_gpio in regulator core), Andy and Mika because I'd like
+> > to also cover ACPI (even though I don't know about any ACPI platform that
+> > would need this at the moment, I think it makes sense to make the
+> > solution complete), Dmitry (same thing but for software nodes), Mani
+> > (because you have a somewhat related use-case for the PERST# signal and
+> > I'd like to hear your input on whether this is something you can use or
+> > maybe it needs a separate, implicit gpio-perst driver similar to what
+> > Krzysztof did for reset-gpios) and Greg (because I mentioned this to you
+> > last week in person and I also use the auxiliary bus for the proxy
+> > devices).
+> 
+> Hi,
+> 
+> I'm sorry if this was already reported and fixed. On Qualcomm RB5
+> platform with this patchset in place I'm getting the following backtrace
+> (and then a lockup):
+> 
 
---u4ub/+ka66XeoUsW
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Rb3Gen2 this breaks UFS:
 
-On Wed, Jan 07, 2026 at 09:54:58AM +0000, Ben Horgan wrote:
+	ufshcd-qcom 1d84000.ufshc: cannot find GPIO chip gpiolib_shared.proxy.4, deferring
 
-> Not touched in this patch but the check for aarch64_only looks suspect to me.
+But MMC acquired the GPIO successfully,
 
-> From main()
-> val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR0_EL1));
-> el0 = FIELD_GET(ID_AA64PFR0_EL1_EL0, val);
-> aarch64_only = (el0 == ID_AA64PFR0_EL1_EL0_IMP);
+	sdhci_msm 8804000.mmc: Got CD GPIO
 
-> As we are concerned with system registers that are accessible from EL1 and higher
-> should this not be checking ID_AA64PFR0_EL1_EL1 rather than ID_AA64PFR0_EL1_EL0?
-> Not sure if it makes sense for the two to be different though.
+But I can see gpiochips registered as well:
 
-The affected registers are ID registers so they're always physically
-readable, the entire ID space is always accessible (the otherwise
-unspecified registers read as zero), and if you think about it for a
-system with AArch32 only at EL0 you still need to know what the EL0
-features are from EL1.  Like you say it's a preexisting thing either
-way.
+(initramfs) ls /dev/gpio*
+crw------- 1 0 0 254,0 /dev/gpiochip0
+crw------- 1 0 0 254,1 /dev/gpiochip1
+crw------- 1 0 0 254,2 /dev/gpiochip2
+crw------- 1 0 0 254,3 /dev/gpiochip3
+crw------- 1 0 0 254,4 /dev/gpiochip4
 
---u4ub/+ka66XeoUsW
-Content-Type: application/pgp-signature; name="signature.asc"
+Let me know if you need more info.
 
------BEGIN PGP SIGNATURE-----
+- Mani
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmleRzcACgkQJNaLcl1U
-h9AVJgf+Mn/sKDgmo66c5NvxoCXjOoZfe7OcF1vxptR4Xhi48ZKjiIIfsvbXBmO4
-t0/y5Qrj32kojFEURmi4jDtycN6dUxXRrzJtiwoyUMYGnJGFx2bjPvWytAmcpYiH
-wZ1Zjcvyje2tyCxxS8sZ9W86uwjtEb9nR+T1cythwqdQDAb7odZ9Dp8h5jnv/3I6
-DtuUA+3f7H0dUWr15UGFTolCAP3Si3VISKgLTpolcT/rKMA+An9fYfYbt5OzA2r0
-NLqvIMHKMTIXG/EReN6q1DaKEI0Sn0/ymrMdEMb5xglL+7Myd96RM4lxw4zZISXl
-ZeHydmawsPpyhxY3Fn5cySG+pvAV4g==
-=RS5q
------END PGP SIGNATURE-----
-
---u4ub/+ka66XeoUsW--
+-- 
+மணிவண்ணன் சதாசிவம்
 
