@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA0AD0D16F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 20:14:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6081D0D170
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 20:35:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V3exSa+w/ruCuNom7Q+pCI3QLZZsVFpkCvUgONvIs0Q=; b=kxarbdoky5A/9rfkxauUiJWQ2b
-	IrtheX38LSW7/iqRDIeo1+jzf58AdP3u3/+5dnDvkYVH4nG1z+R7WORpdDBcpciAB+n6BarSYBODb
-	uz6ukWKM9cizaiufxY7MdFFMwq8YvByALfy66I570/RwmqrJFoI/bIX0L5RgkO7KdjgIMD53kbyZd
-	6U1H6EIPpjiQxGpbGQMVXbRqp2sJ20U+NNf40K2B2H0ILs7co3sio2doOgt+KWeXZEcfY1lY0HT2O
-	CNrOh9MncpzqSKiS5trkY6YL7+MgcLwnuL7HZcMiYMbo/JyLemSb893JuaLnTyfIIdN/gdIcrvfTP
-	mVd4Ft6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6uf35lkjp6D5y+g4oz8zOhU333GjfAcRx8LnY6QG1eo=; b=2SEJ1xyvPRfFC3KRJPooo1JxOA
+	V+b3bCj8rawrVOqOoFtK27YArRDGwjJ5tq9sDWIzoCvVyOE4BJHekNcD1hJtmH8VcwQcB0X9HEvPW
+	tnQ2MYtIS/VSEN1PSFPUjVfvWx1i3NbHC3ffHJzCdttV/kW8Qb1a4f/YR929YPnrwKeFiZp2czDa7
+	3T417Xia+Ka4cnZpdDJ5+z1iUVR3sE3zgdHyGP3aAFBXijDDbvbgX68vUb/ymGTMXE2c3Ba6u2m/m
+	EgHijfHF1TZgS6boXEZc70/6gdv1m9pX1ibRjUbhKps5OtD5EAs7VT7UnpXMeUwltIEtSLeCBWv0Q
+	HwtRnMTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZul-0000000Fb3y-1rVD;
-	Wed, 07 Jan 2026 20:13:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vdaFF-0000000FcZc-3tSC;
+	Wed, 07 Jan 2026 20:35:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZuh-0000000Fb2s-22ym
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 20:13:53 +0000
+	id 1vdaFD-0000000FcZ4-3BJ8;
+	Wed, 07 Jan 2026 20:35:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 26AC940571;
-	Wed,  7 Jan 2026 20:13:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D7C0C4CEF1;
-	Wed,  7 Jan 2026 20:13:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 523C841A19;
+	Wed,  7 Jan 2026 20:35:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EE70C4CEF1;
+	Wed,  7 Jan 2026 20:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767816829;
-	bh=uxvX44J65a3nDY+0umcnprVifPJuXrT1Tg8RR+gfdRo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uvMYhz6oZ4NCbtyu8Id9MwSVb19F0sRVD2zj1B7feJgUiHjW5IGjh2e47/6cFpfbs
-	 qtjFxxIBVhjIAyHhmVqFB/Qj8+Ak+NiLIqDCvEH3sj6q2Ep1aXFwy4E9Q1BqDV8NX8
-	 B9/98pwjqnK73NUXOJUvdq7qkKj/G+MkPHc9whWjM2bC1QuLBorzKtS8oc2BU+cyAm
-	 m8hIZ7aAsoDiEGA35ZQG+Jo/M901YFHMFKYGWQWOakxwqItlAmo8wKOtZX99HdMf/q
-	 FRcnV13MYM6P+0brrDxpYF7FYsz0hVHuamx29b7Cj+qIfEVfChnQrMWWDFeBiqZX7S
-	 vdNAoDay6bUHg==
-Message-ID: <08351d85-606f-4409-a02a-369584786c0c@kernel.org>
-Date: Wed, 7 Jan 2026 21:13:44 +0100
+	s=k20201202; t=1767818101;
+	bh=vKhxxji3EawjSoSR0eYv3ESIoEzWRCnC8y7NrYlJoHw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DrImanlqQNEn8WqBqIPDAFwBghL1vkzPQ/Yb/fhl9jwCjpo9Bg2qJ2Kq56c0SOIJx
+	 XEq9YTZ4bNnlJ32sMsDOJyCAA415rqCFHPJ7Dq2SsLw42f/fMNCOIFsQbOa7OX1FO9
+	 cAXQtLJFygLKYp7EN85FvAo1cTsL5Ecvw0H3zHsLl5Yrwztkyk39kw0qOFSu/VrFZR
+	 MMPySeQMcrSYFQxLrUZAnxci5iKikOA5vfK8QjUZRpKaDP3xX2C8Q6OVKsFJOL6dBa
+	 vhyLQoEaQyvNP5SsYFkgsjtLwS9Zzx7yYNwFMHF4ryuQvbweSoz0KM95lJYISZHhOv
+	 9TjiuqgHfQufQ==
+Date: Wed, 7 Jan 2026 12:34:58 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Holger Dengler <dengler@linux.ibm.com>
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org,
+	Harald Freudenberger <freude@linux.ibm.com>,
+	linux-crypto@vger.kernel.org
+Subject: Re: [PATCH 15/36] lib/crypto: s390/aes: Migrate optimized code into
+ library
+Message-ID: <20260107203458.GA2200@quark>
+References: <20260105051311.1607207-1-ebiggers@kernel.org>
+ <20260105051311.1607207-16-ebiggers@kernel.org>
+ <167cbd49-e0ba-4b1d-a724-e64ab6ee863c@linux.ibm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: defconfig: Enable Apple Silicon drivers
-To: Janne Grunau <j@jannau.net>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>
-Cc: Nick Chan <towinchenmi@gmail.com>, Robin Murphy <robin.murphy@arm.com>,
- linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
- =?UTF-8?Q?Piotr_Mas=C5=82owski?= <piotr@maslowski.xyz>,
- linux-arm-kernel@lists.infradead.org
-References: <20251231-arch-arm64-apple-defconfig-v1-0-4ff19805ba39@jannau.net>
- <20251231-arch-arm64-apple-defconfig-v1-2-4ff19805ba39@jannau.net>
- <DFCLU67GQO86.1NY037FRPJ4E2@maslowski.xyz>
- <20260107112059.GB4068972@robin.jannau.net>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20260107112059.GB4068972@robin.jannau.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <167cbd49-e0ba-4b1d-a724-e64ab6ee863c@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_121352_639672_AE4D3CFD 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260107_123503_819286_86DB39AD 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,26 +79,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-
-On 07.01.26 12:20, Janne Grunau wrote:
-[...]
+On Wed, Jan 07, 2026 at 08:41:02AM +0100, Holger Dengler wrote:
+> Hi Eric,
 > 
-> What is the merge policy for defconfig changes? If this can be merged
-> for v6.19 I won't bother with a v2 and add them later in a subsequent
-> change.
+> first of all: happy New Year! ANd thanks for the series.
+> 
+> On 05/01/2026 06:12, Eric Biggers wrote:
+> > Implement aes_preparekey_arch(), aes_encrypt_arch(), and 
+> > aes_decrypt_arch() using the CPACF AES instructions.
+> 
+> I'm not sure, it it makes sense to implement this on s390 at all. The CPACF
+> instructions cover full modes of operations and are  to process more
+> than one cipher-block-size (*). For single-block operations, the performance
+> might be worth than using the generic functions. I will look into it and do
+> some performance tests. If there is a possibility to plug-in to the level
+> where the modes of operation are implemented, it would make much more sense
+> for s390.
+> 
+> (*) Yes, it's a bit uncommon, but the CPACF instructions on s390 can process
+> multiple block with a single instruction call! They are so called long running
+> instructions.
 
+I'm happy to drop the CPACF single-block AES code if it's not
+worthwhile.  I included it only because arch/s390/crypto/ already has
+such code.  Since I'm making it so that the crypto_cipher API simply
+wraps the library API, if this code is not brought into the library it
+will effectively be dropped.  You had pushed back the last time I
+proposed dropping one of the s390 optimizations, even a fairly minor one
+(https://lore.kernel.org/linux-crypto/51fc91b6-3a6e-44f7-ae93-aef0bcb48964@linux.ibm.com/).
 
-I'll pick up the defconfig change this cycle and sent it upstream. We 
-can then follow up next cycle with the missings ones and PHY_APPLE_ATC 
-which should be in Torvald's tree by then.
+But I have no way to test or benchmark the s390 code myself.  If the
+CPACF single-block AES en/decryption code isn't worthwhile, there's no
+reason to keep it, so I'll remove it.
 
-Not sure about the Kconfig.platforms change though, does that go through 
-the SoC tree or the arm64 tree?
+As for AES modes, later patchsets are going to introduce
+architecture-optimized AES modes into the library, and the traditional
+crypto API for those modes will similarly be reimplemented on top of it.
+This patchset just focuses on the existing library API for key expansion
+and single block en/decryption as a first step.  (As with the
+traditional API, single block en/decryption is needed as a fallback to
+handle any modes that don't have a standalone implementation.)
 
-
-Sven
-
-
+- Eric
 
