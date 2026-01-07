@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6081D0D170
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 20:35:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADD50D0D176
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 21:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6uf35lkjp6D5y+g4oz8zOhU333GjfAcRx8LnY6QG1eo=; b=2SEJ1xyvPRfFC3KRJPooo1JxOA
-	V+b3bCj8rawrVOqOoFtK27YArRDGwjJ5tq9sDWIzoCvVyOE4BJHekNcD1hJtmH8VcwQcB0X9HEvPW
-	tnQ2MYtIS/VSEN1PSFPUjVfvWx1i3NbHC3ffHJzCdttV/kW8Qb1a4f/YR929YPnrwKeFiZp2czDa7
-	3T417Xia+Ka4cnZpdDJ5+z1iUVR3sE3zgdHyGP3aAFBXijDDbvbgX68vUb/ymGTMXE2c3Ba6u2m/m
-	EgHijfHF1TZgS6boXEZc70/6gdv1m9pX1ibRjUbhKps5OtD5EAs7VT7UnpXMeUwltIEtSLeCBWv0Q
-	HwtRnMTw==;
+	bh=OAl4mT9ClQ66ApYDdRh37vRFtfRzA3LnN8VwrWYqNtE=; b=V3WwSjm6olmBSe59N2kCm8b/8t
+	9RxNnuw9ukT+AVVC9/j+rHbxrLKPeBcauWLmqbdU5b0tIg0AsNmP9vwAGVzsyTzCubQ+l8hjSdGSx
+	VPet22VPhU0WEIajDPdySKRo0ZCD2uqW6SOVMHcTghz5thZDpQhiqAi35ZOtodC3c+fBQ7rr2cuI+
+	ZavrTxDrxYKh0muhSMq68n52Ajp65KXYIivFK0uvAkiIOBvfFq+5a3RtgHocNExrQaJEf36oBp5LT
+	H/wogbn+5dYnGIUu4Ys3b29hAPuill5t9hHBG+MAPY0xXfv5ZNj2JdhR8+o83ykQINsbiyzF/+1H+
+	gZMXtbQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdaFF-0000000FcZc-3tSC;
-	Wed, 07 Jan 2026 20:35:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdawy-0000000FeqY-2LBi;
+	Wed, 07 Jan 2026 21:20:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdaFD-0000000FcZ4-3BJ8;
-	Wed, 07 Jan 2026 20:35:05 +0000
+	id 1vdawv-0000000Fepv-28pB
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Jan 2026 21:20:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 523C841A19;
-	Wed,  7 Jan 2026 20:35:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EE70C4CEF1;
-	Wed,  7 Jan 2026 20:35:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2165C40760;
+	Wed,  7 Jan 2026 21:20:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8764C4CEF1;
+	Wed,  7 Jan 2026 21:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767818101;
-	bh=vKhxxji3EawjSoSR0eYv3ESIoEzWRCnC8y7NrYlJoHw=;
+	s=k20201202; t=1767820811;
+	bh=XppcCCr54iQac7uOZIwfkqrMvFp+4S0tQ8tyUXRWq2c=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DrImanlqQNEn8WqBqIPDAFwBghL1vkzPQ/Yb/fhl9jwCjpo9Bg2qJ2Kq56c0SOIJx
-	 XEq9YTZ4bNnlJ32sMsDOJyCAA415rqCFHPJ7Dq2SsLw42f/fMNCOIFsQbOa7OX1FO9
-	 cAXQtLJFygLKYp7EN85FvAo1cTsL5Ecvw0H3zHsLl5Yrwztkyk39kw0qOFSu/VrFZR
-	 MMPySeQMcrSYFQxLrUZAnxci5iKikOA5vfK8QjUZRpKaDP3xX2C8Q6OVKsFJOL6dBa
-	 vhyLQoEaQyvNP5SsYFkgsjtLwS9Zzx7yYNwFMHF4ryuQvbweSoz0KM95lJYISZHhOv
-	 9TjiuqgHfQufQ==
-Date: Wed, 7 Jan 2026 12:34:58 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Holger Dengler <dengler@linux.ibm.com>
-Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org,
-	Harald Freudenberger <freude@linux.ibm.com>,
-	linux-crypto@vger.kernel.org
-Subject: Re: [PATCH 15/36] lib/crypto: s390/aes: Migrate optimized code into
- library
-Message-ID: <20260107203458.GA2200@quark>
-References: <20260105051311.1607207-1-ebiggers@kernel.org>
- <20260105051311.1607207-16-ebiggers@kernel.org>
- <167cbd49-e0ba-4b1d-a724-e64ab6ee863c@linux.ibm.com>
+	b=H1wVe3lEekvn4ymad67HRPhWzdiop2wQhGm26cdCqx22b1BvLmgKeiSJ4/2uH71Bn
+	 NOSQBLa/jH3ephtfi22M1EbcgBH/vO+GRoJLFfXA8OgufwHw+O3Wj327xQW1T4+oCY
+	 fQ2HJaNKOvqXq9+JUr2fxEEo5liSzvjZ0eOi3IEOHEhDgLcbPxychrLr7G8/Gy3jcU
+	 Yt/Qi+hfQMoFvzx7hjK9Dpgo4RvPmtUaU1zafl9XSkW0oj+bax07P1yvJa+eaQk2vf
+	 VJNLqbURkMbkuw4T6kPr893I3Q5bI54FJGkdGbfGc39h6gS/WF+C24EosePea9gppA
+	 6WVMSOTzlHmWA==
+Date: Wed, 7 Jan 2026 21:20:06 +0000
+From: Will Deacon <will@kernel.org>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, skolothumtho@nvidia.com,
+	praan@google.com, xueshuai@linux.alibaba.com, smostafa@google.com
+Subject: Re: [PATCH rc v5 1/4] iommu/arm-smmu-v3: Add update_safe bits to fix
+ STE update sequence
+Message-ID: <aV7OBrH-TDiGRblt@willie-the-truck>
+References: <cover.1766093909.git.nicolinc@nvidia.com>
+ <58f5af553fa7c3b5fd16f1eb13a81ae428f85678.1766093909.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <167cbd49-e0ba-4b1d-a724-e64ab6ee863c@linux.ibm.com>
+In-Reply-To: <58f5af553fa7c3b5fd16f1eb13a81ae428f85678.1766093909.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_123503_819286_86DB39AD 
-X-CRM114-Status: GOOD (  20.65  )
+X-CRM114-CacheID: sfid-20260107_132013_594218_DC4E5E9D 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,46 +75,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 08:41:02AM +0100, Holger Dengler wrote:
-> Hi Eric,
+On Thu, Dec 18, 2025 at 01:41:56PM -0800, Nicolin Chen wrote:
+> From: Jason Gunthorpe <jgg@nvidia.com>
 > 
-> first of all: happy New Year! ANd thanks for the series.
+> C_BAD_STE was observed when updating nested STE from an S1-bypass mode to
+> an S1DSS-bypass mode. As both modes enabled S2, the used bit is slightly
+> different than the normal S1-bypass and S1DSS-bypass modes. As a result,
+> fields like MEV and EATS in S2's used list marked the word1 as a critical
+> word that requested a STE.V=0. This breaks a hitless update.
 > 
-> On 05/01/2026 06:12, Eric Biggers wrote:
-> > Implement aes_preparekey_arch(), aes_encrypt_arch(), and 
-> > aes_decrypt_arch() using the CPACF AES instructions.
+> However, both MEV and EATS aren't critical in terms of STE update. One
+> controls the merge of the events and the other controls the ATS that is
+> managed by the driver at the same time via pci_enable_ats().
 > 
-> I'm not sure, it it makes sense to implement this on s390 at all. The CPACF
-> instructions cover full modes of operations and are  to process more
-> than one cipher-block-size (*). For single-block operations, the performance
-> might be worth than using the generic functions. I will look into it and do
-> some performance tests. If there is a possibility to plug-in to the level
-> where the modes of operation are implemented, it would make much more sense
-> for s390.
+> Add an arm_smmu_get_ste_update_safe() to allow STE update algorithm to
+> relax those fields, avoiding the STE update breakages.
 > 
-> (*) Yes, it's a bit uncommon, but the CPACF instructions on s390 can process
-> multiple block with a single instruction call! They are so called long running
-> instructions.
+> After this change, entry_set has no caller checking its return value, so
+> change it to void.
+> 
+> Note that this change is required by both MEV and EATS fields, which were
+> introduced in different kernel versions. So add get_update_safe() first.
+> MEV and EATS will be added to arm_smmu_get_ste_update_safe() separately.
+> 
+> Fixes: 1e8be08d1c91 ("iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  2 ++
+>  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 18 ++++++++++---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 27 ++++++++++++++-----
+>  3 files changed, 37 insertions(+), 10 deletions(-)
 
-I'm happy to drop the CPACF single-block AES code if it's not
-worthwhile.  I included it only because arch/s390/crypto/ already has
-such code.  Since I'm making it so that the crypto_cipher API simply
-wraps the library API, if this code is not brought into the library it
-will effectively be dropped.  You had pushed back the last time I
-proposed dropping one of the s390 optimizations, even a fairly minor one
-(https://lore.kernel.org/linux-crypto/51fc91b6-3a6e-44f7-ae93-aef0bcb48964@linux.ibm.com/).
+Hmm. So this appears to ignore the safe bits entirely, whereas the
+rationale for the change is that going from {MEV,EATS} disabled to
+enabled is safe (which I agree with). So what prevents an erroneous
+hitless STE update when going from {MEV,EATS} enabled to disabled after
+this change?
 
-But I have no way to test or benchmark the s390 code myself.  If the
-CPACF single-block AES en/decryption code isn't worthwhile, there's no
-reason to keep it, so I'll remove it.
-
-As for AES modes, later patchsets are going to introduce
-architecture-optimized AES modes into the library, and the traditional
-crypto API for those modes will similarly be reimplemented on top of it.
-This patchset just focuses on the existing library API for key expansion
-and single block en/decryption as a first step.  (As with the
-traditional API, single block en/decryption is needed as a fallback to
-handle any modes that don't have a standalone implementation.)
-
-- Eric
+Will
 
