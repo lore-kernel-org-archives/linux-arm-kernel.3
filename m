@@ -4,87 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94124CF6BFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 08:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C470CF6C04
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 08:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UybR8h6LJ7X/dgWxJlHGwPKuKCGXzpl1N/omiIktehk=; b=4f+uPmuSWCUsK4M9OkDXwzo6xf
-	WwO0RWfQBKI6yQHzWieT7eir/yh9XslkYylHEOm4LzN6ai7Du+T3JlItdUy4KJGHrbcPbAFA8A9Sk
-	/lxJBtmJVUTqyc5YgEkSML2REihqUEOErkK6biAKf1JdnfWJJydpyK2wKxzVBHd9D7vnM98rzk3kg
-	8C1o03ah+ko9SNCdtqhqumqjWR/zIomOIdcOLwMp+HCqG2HQusZxnx9BjCA+sbuMp3bi5hva4LNQ5
-	b3mDqPE2hQSUUng8W/MFKQzF77ramgCByfvNqTGyDDySPs/ahysn7kaGHs2w5Bh2N+zbyHcIqKjsJ
-	8vtRSR+w==;
+	bh=FSoaLhIuH1Zi1XVYK4RuIJm0c576Z9PwEYpKMgsWAtA=; b=znjJCuxY9mAlgRH2iKp6oaMb4E
+	nyA0d5akMXTP1pBUQYnSg3m+wPB+xZrAByeQuXfNfqhqQaG5vB5hTZioUgJICANzOhz3mY3kWnozU
+	bhq9GNLwGro4w6J7ke0QrKoH+UmuFPcdajHTcPa1d35dVxRvBQzz+KFm5X2AqKKTnqy3AxxZa1sdl
+	k/67LxU86n4v/WUPZxOk+vjITUj0TEpWwWe5i96YkKe+MlDYjxOn3L620SJCCj9anDIlKgh+iQDr7
+	rC5JLo8Wc+Yn9+cGAx3RPZj7Pt6H+fapsF6eWug3qbzBrEQ34DsZI1qW5V3qn+HX/HeykzExs3wrR
+	KpdBreRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdP8Y-0000000ERoE-3wQb;
-	Wed, 07 Jan 2026 08:43:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vdPEr-0000000ESNv-11Yr;
+	Wed, 07 Jan 2026 08:49:57 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdP8Y-0000000ERnd-18uw
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 07 Jan 2026 08:43:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=UybR8h6LJ7X/dgWxJlHGwPKuKCGXzpl1N/omiIktehk=; b=fTZpoVptxZ/3tmwLvBwSdnL2AS
-	U8jHIbhl6dXo7juEQx0yz8jmkvjflFZRAri/iPtz52WmUV4PJh1G5QVK0fwDIa63YmTM2UPDH41wE
-	ie90xZf1RVXoqk1IGR7h81Vh5Ry/LnENCUozWvynA6/m7jt5dyK088VnOJ6YO3WBkxbIGuhgalysk
-	m2yF1vWOvcnLJGKQDrY5lG5b3wh3ljIUFHb7tLd8LhhIImdxRfsiBURiOudgppLnXWWlDB2jIlvV8
-	iLiZaM/4qqHzpWhlp0xxAoPk4VtKuKOrsVO7iu+l49kvMn+tE/GWHD+oF8byJ5pQqVyYo2V+dPEeI
-	oBTcbjmA==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdP8V-0000000B0RI-14Mc;
-	Wed, 07 Jan 2026 08:43:23 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 29E43300329; Wed, 07 Jan 2026 09:43:22 +0100 (CET)
-Date: Wed, 7 Jan 2026 09:43:22 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: "Paul E. McKenney" <paulmck@kernel.org>
-Cc: Boqun Feng <boqun.feng@gmail.com>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Gary Guo <gary@garyguo.net>,
-	Will Deacon <will@kernel.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	FUJITA Tomonori <fujita.tomonori@gmail.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Lyude Paul <lyude@redhat.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Anna-Maria Behnsen <anna-maria@linutronix.de>,
-	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	rust-for-linux@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	kasan-dev@googlegroups.com
-Subject: Re: [PATCH 0/5] Add READ_ONCE and WRITE_ONCE to Rust
-Message-ID: <20260107084322.GC272712@noisy.programming.kicks-ass.net>
-References: <20251231-rwonce-v1-0-702a10b85278@google.com>
- <20251231151216.23446b64.gary@garyguo.net>
- <aVXFk0L-FegoVJpC@google.com>
- <OFUIwAYmy6idQxDq-A3A_s2zDlhfKE9JmkSgcK40K8okU1OE_noL1rN6nUZD03AX6ixo4Xgfhi5C4XLl5RJlfA==@protonmail.internalid>
- <aVXKP8vQ6uAxtazT@tardis-2.local>
- <87fr8ij4le.fsf@t14s.mail-host-address-is-not-set>
- <aV0JkZdrZn97-d7d@tardis-2.local>
- <20260106145622.GB3707837@noisy.programming.kicks-ass.net>
- <7fa2c07e-acf9-4f9a-b056-4d4254ea61e5@paulmck-laptop>
+	id 1vdPEn-0000000ESNN-33es
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Jan 2026 08:49:55 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-595910c9178so1552858e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 00:49:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1767775791; x=1768380591; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=FSoaLhIuH1Zi1XVYK4RuIJm0c576Z9PwEYpKMgsWAtA=;
+        b=HWoas72wzjE0PSgUi3E3Ih/m4i6YfHmafAFzXky0kpdpwftcO2jQW6riYNZWaX6pHX
+         YMlAsuHU2dF2H2FOSibuBgM6cA9vHA69WxNJFLU1owAUQhd954PQ09jnec6tfb88Z9wx
+         AuVE4PY6sUcVHn/81unEFHsHhsYRMeMP6clYgLTWK4j8n1lYz7ToVEN0oQsjTemAeQRY
+         PNWHvHL+1UO7t7MG+rCG84hvlAiN+3Hn2rO1WqfwYa/5Zx3dJTocluYFJUPVEW2PajO1
+         ZhzxP5gDzpBy8M5Wwm/Vn1VGJJxQOP4rLpcxVx8Fqx0OXwSMypd0oGRUVv+dqTzhc7DM
+         u/mA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767775791; x=1768380591;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=FSoaLhIuH1Zi1XVYK4RuIJm0c576Z9PwEYpKMgsWAtA=;
+        b=Z3AHJsu/Fgk+NF1HeIwQ0yWX32vwOIZsrszKXNHrws1WMEOgtrfP7md8Qd0gZ3bvWK
+         dhGjI+yD9Rn1/FoluDO69ndBZz8NI62q0BGrBdGgA55vbYuxm5tPYnZABPlMjZOo47nq
+         lTO5PbmDiYEKrKvaqOpzQ/lFXWEpuEv1s2lnCjYH6PeSnRG6cr/tgArXqmbEjEPyt9x+
+         4NRmxsrgwdI9It1UCMjsbZ2nr6Cf+JQ7LegOKtNi0YsFt+2Pf3qB8YXU1vrTVCbBofvr
+         958LTR9NV7sZoXPSrzDLe7Kh06qc1vKsVDEC3suYZ85HzfUXHloa3//YlB4xFVOqC+Pk
+         ESaw==
+X-Forwarded-Encrypted: i=1; AJvYcCVng6S0g1xaNjThwdmVnPE9F7l8wAeeUlGNTDnpkRzfeq3P2qzN4oAcpREU7Z0uQ73Pmrlu2F55mX5wpsWT3mhq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxScJwYf5Zxj43Yyc+FtebDI1xFnDUgEEzO87IhcMSwUhT7tcmI
+	TTnix0AzdjMLnNf55CphSQMXs9USPjOsvEjIIU/2okSTkrKptThDi18t28X5zh2DNUU=
+X-Gm-Gg: AY/fxX4whwPfCUE5SR2VZwHxZv1N3a/P4bSFXGMyrN/cY2Lv1eMmkRdvacLKFBArTbJ
+	twI7TDeKWfoVftvvkQMiwOV3PrhMK7+1mYa2ASuvUPzGUUT7Qc61vzkEmONUrt+7WT/EVhOH6GV
+	dg0drEQyotxm1MhCCmDBgsx+HxvFmNFZJm7C3r95TKc4CcY32gT+LyWwgxAcza8YfGrUR2q+P1y
+	Lh6urWDliJ/nkIyt+QbN7qOV3h+uMfuzopPO+rb8h/oY7+THRV5ErT+XkBXMPfRwF0im9dxObb6
+	+lJqjR7Pn3iXVJGToNSnts7Wif+yHQw9uUevbpjxY9d8Y81najC5o/vLAj+4aWNZgyTEqvqXaPK
+	JivCa2kxckG/wSmupcJMLvlmbka7zE9qFG2eW2QVKLRazKiyIonIUaQigP4Uxha7GWA7vp7ONZt
+	rQsvTU1rM3UskwnBpAao3sbtusbTH/Yg/8eflDShxpk0UgqstwseYyDnw=
+X-Google-Smtp-Source: AGHT+IHBRlwXMZFBuxQXKLXYYbkgbRfzLpPmGOcIsytMeFZO2+c0XT3T+QaaepM7xLEpCuNQUQL4eg==
+X-Received: by 2002:a05:6512:3c88:b0:598:ef90:3e87 with SMTP id 2adb3069b0e04-59b6ef0c18dmr524880e87.18.1767775791133;
+        Wed, 07 Jan 2026 00:49:51 -0800 (PST)
+Received: from nuoska (87-100-249-247.bb.dnainternet.fi. [87.100.249.247])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59b65cea814sm1176668e87.12.2026.01.07.00.49.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 Jan 2026 00:49:50 -0800 (PST)
+Date: Wed, 7 Jan 2026 10:49:48 +0200
+From: Mikko Rapeli <mikko.rapeli@linaro.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Michal Simek <michal.simek@amd.com>,
+	Bill Mills <bill.mills@linaro.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>
+Subject: Re: [PATCH 0/2] drm: xlnx: zynqmp_kms: 16 bpp fixes for Xorg startup
+ on AMD KV260
+Message-ID: <aV4eLJfqeNqnDVxn@nuoska>
+References: <20251205123751.2257694-1-mikko.rapeli@linaro.org>
+ <533168f1-1655-4947-9032-b08463f502d7@ideasonboard.com>
+ <aUVFUx55XTjb_2nO@nuoska>
+ <aUkIQjKpd3MhNHjk@nuoska>
+ <5f570a3b-7bee-43e0-9a36-3d106984fec6@suse.de>
+ <3d214bf3-6b52-4942-95d9-0504fa6f5877@ideasonboard.com>
+ <aV4SsKZ5eiayh18n@nuoska>
+ <e53eeee6-8c6a-4ab7-b62f-2491efe19aeb@suse.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <7fa2c07e-acf9-4f9a-b056-4d4254ea61e5@paulmck-laptop>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <e53eeee6-8c6a-4ab7-b62f-2491efe19aeb@suse.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260107_004953_824693_ED168C81 
+X-CRM114-Status: GOOD (  51.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,52 +116,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 06, 2026 at 10:18:35AM -0800, Paul E. McKenney wrote:
-> On Tue, Jan 06, 2026 at 03:56:22PM +0100, Peter Zijlstra wrote:
-> > On Tue, Jan 06, 2026 at 09:09:37PM +0800, Boqun Feng wrote:
-> > 
-> > > Some C code believes a plain write to a properly aligned location is
-> > > atomic (see KCSAN_ASSUME_PLAIN_WRITES_ATOMIC, and no, this doesn't mean
-> > > it's recommended to assume such), and I guess that's the case for
-> > > hrtimer, if it's not much a trouble you can replace the plain write with
-> > > WRITE_ONCE() on C side ;-)
-> > 
-> > GCC used to provide this guarantee, some of the older code was written
-> > on that. GCC no longer provides that guarantee (there are known cases
-> > where it breaks and all that) and newer code should not rely on this.
-> > 
-> > All such places *SHOULD* be updated to use READ_ONCE/WRITE_ONCE.
-> 
-> Agreed!
-> 
-> In that vein, any objections to the patch shown below?
+Hi,
 
-Not really; although it would of course be nice if that were accompanied
-with a pile of cleanup patches taking out the worst offenders or
-somesuch ;-)
-
-> ------------------------------------------------------------------------
+On Wed, Jan 07, 2026 at 09:32:28AM +0100, Thomas Zimmermann wrote:
+> Am 07.01.26 um 09:00 schrieb Mikko Rapeli:
+> > On Tue, Jan 06, 2026 at 10:29:37AM +0200, Tomi Valkeinen wrote:
+> > > On 06/01/2026 09:41, Thomas Zimmermann wrote:
+> > > > Am 22.12.25 um 09:58 schrieb Mikko Rapeli:
+> > > > > On Fri, Dec 19, 2025 at 02:30:11PM +0200, Mikko Rapeli wrote:
+> > > > > > On Fri, Dec 19, 2025 at 01:59:14PM +0200, Tomi Valkeinen wrote:
+> > > > > > > On 05/12/2025 14:37, Mikko Rapeli wrote:
+> > > > > > > > Currently on default yocto images Xorg fails to start on AMD KV260
+> > > > > > > > because 24/32 color depth gets detected but does not actually work.
+> > > > > > > > 
+> > > > > > > > These two patches fix the issue and now 16 bpp gets detected
+> > > > > > > > and Xorg starts and draws on external HDMI display using
+> > > > > > > > kernel.org based linux-yocto kernel.
+> > > > > > > > 
+> > > > > > > > Anatoliy Klymenko (1):
+> > > > > > > >     drm: xlnx: zynqmp_kms: Init fbdev with 16 bit color
+> > > > > > > > 
+> > > > > > > > Mikko Rapeli (1):
+> > > > > > > >     drm: xlnx: zynqmp_kms: set preferred_depth to 16 bpp
+> > > > > > > > 
+> > > > > > > >    drivers/gpu/drm/xlnx/zynqmp_kms.c | 3 ++-
+> > > > > > > >    1 file changed, 2 insertions(+), 1 deletion(-)
+> > > > > > > > 
+> > > > > > > Did you notice the few already sent serieses on the list where the
+> > > > > > > topic
+> > > > > > > has been discussed?
+> > > > > > > [PATCH] drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888
+> > > > > > > [PATCH 0/3] drm: zynqmp: Make the video plane primary
+> > > > > > Oh I wasn't aware of these.
+> > > > > > 
+> > > > > > > Or is there something else on KV260 that messes up the 24 bit color?
+> > > > > > These look very similar and likely fix the X11 startup. I will give them
+> > > > > > a try.
+> > > > > Right, now I've tested:
+> > > > > 
+> > > > >    * these patches from Anatoliy and me to help X11 use 16bpp mode by
+> > > > > default
+> > > > >      and removes the need to manually setup Xorg for 16bpp
+> > > > >    * "drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888" which enables
+> > > > > the X11 default
+> > > > >      24bpp to work, no need to set Xorg config to 16bpp
+> > > > >    * "drm: zynqmp: Make the video plane primary" which also fixes the
+> > > > > X11 default
+> > > > >      24bpp to work, no need to set Xorg config to 16bpp
+> > > > > 
+> > > > > All of these fix HDMI graphics output on AMD KV260 board with yocto
+> > > > > genericarm64 machine
+> > > > > and core-image-sato image which includes Xorg. The graphics rendering
+> > > > > is still
+> > > > > very slow but I think that is a different problem.
+> > > > > 
+> > > > > I guess the last series from Sean Anderson is moving forward so I'll
+> > > > > reply to that thread separately.
+> > > > Just want to say that the series here improves xlnx and makes it a
+> > > > 'better' driver. IMHO the changes should be merged independently from
+> > > > what happens with the other series.
+> > > I might be missing something, but I don't think I fully agree. Yes, the
+> > > userspace doesn't seem to be able to cope with the current upstream
+> > > driver behavior (even if it's not wrong as such, afaics), so in that
+> > > sense this series is better. But I don't think (almost) anyone really
+> > > wants to use RGB565 if XRGB8888 is an option? And that's what the other
+> > > series is trying to achieve, and that series conflicts with this one.
+> > > 
+> > > So I'd rather try to get a conclusion on Sean's series (or the other one
+> > > from Mike). If that effort fails, we could go with this series as a backup.
+> > I did testing of all three different patch series'es on AMD KV260 and
+> > did not find any performance difference between them. The Xorg
+> > rendering is still very slow to an external HDMI display.
+> > 
+> > I don't have an opinion on the graphics formats but just want something
+> > out to a display by default. I think there is a lot more to fix to get
+> > the performance into usable state.
 > 
-> diff --git a/lib/Kconfig.kcsan b/lib/Kconfig.kcsan
-> index 4ce4b0c0109cb..e827e24ab5d42 100644
-> --- a/lib/Kconfig.kcsan
-> +++ b/lib/Kconfig.kcsan
-> @@ -199,7 +199,7 @@ config KCSAN_WEAK_MEMORY
->  
->  config KCSAN_REPORT_VALUE_CHANGE_ONLY
->  	bool "Only report races where watcher observed a data value change"
-> -	default y
-> +	default n
->  	depends on !KCSAN_STRICT
->  	help
->  	  If enabled and a conflicting write is observed via a watchpoint, but
-> @@ -208,7 +208,7 @@ config KCSAN_REPORT_VALUE_CHANGE_ONLY
->  
->  config KCSAN_ASSUME_PLAIN_WRITES_ATOMIC
->  	bool "Assume that plain aligned writes up to word size are atomic"
-> -	default y
-> +	default n
->  	depends on !KCSAN_STRICT
->  	help
->  	  Assume that plain aligned writes up to word size are atomic by
+> I briefly looked through the xlnx driver and found several things to try.
+> 
+> * The update code in [1] appears to always update the whole buffer. Setting
+> drm_plane_enable_fb_damage_clips() for the planes will enable damage
+> handling. Then flushing only the damaged areas might improve performance.
+> 
+> * The driver could set drm_device.mode_config.prefer_shadow to make Xorg use
+> a shadow buffer in user space. This often works for devices with discrete
+> VRAM.  IDK if non-X compositors also benefit from this.
+> 
+> * If the hardware supports it, setting non-coherent DMA mappings could
+> enable caching on the memory buffers. The driver would then have to enable
+> damage clips and flush caches by itself where necessary.
+> 
+> Best regards
+> Thomas
+> 
+> [1] https://elixir.bootlin.com/linux/v6.18.3/source/drivers/gpu/drm/xlnx/zynqmp_disp.c#L1109
+
+There is also the official AMD/Xilinx kernel tree with a lot more patches
+which have not been upstreamed yet:
+
+https://github.com/Xilinx/linux-xlnx/commits/master/drivers/gpu/drm/xlnx
+
+I wasn't sure which of these changes fix the X11 startup issues but came up
+with the 16bit patches since they are so simple and avoid doing the same
+in Xorg config file.
+
+Would be nice to get these AMD patches upstreamed, for example one subsystem
+at a time.
+
+Cheers,
+
+-Mikko
 
