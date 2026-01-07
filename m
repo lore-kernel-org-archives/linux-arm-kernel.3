@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5585ED0D16C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 19:26:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E5B6D0D16D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 19:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DwyOUMrzmFja205ZMg1MEdCnMMj8lyhbUqchQTaZ7Og=; b=PWQgPkg8L2f5m+hP2On9EBrbJZ
-	eIHAseDDhbtlb2QsD4k3dCaxNILNR//EnGFv9LidUly8rLUd0XI04AAlX+0BM6Jr/dgYF+l1njlMH
-	6kg4wUJWmljIbY8Vprmgks6I2JUEAD4xD5wTt5jJObP6feIg4JKVeoHJWw8GK0pk1x88JpZKUTmiE
-	+q1jMTW/5G+QuFpkwqM5oQtpJR8Dgt6jbw/ERO7BOkdJyeSv8WVEc6YywbT8Y6G5sIjTEFzvXPW73
-	j64VNbfEIA9uIU8hhRXUmvawjLT8470ySyA+rf3icQzZSVHtsMbnVtOUCvgRo5zlug5jm++gJ3upY
-	SelIpqXA==;
+	bh=bWQBkRucMfj+8IZule2bckxNws/YyczMOLNESP4WNJk=; b=GTIjcXzCoEmmkH6tnDuNPaaT+x
+	3dtOrZRqKEQUw2CHTWsOYuh9szy5ptes5KozF9eQ3hTw2ree+H0hKUkgxPpidZLH4Zn7Oy3KdLpou
+	hFbAhhGFPqK7AqMRZnlhbxaec0so4Jj5rsgkqVE69ac8O3rWCoDQseu2Yyc5FRjUo95vBrum/NvJL
+	YDRU1d31kfieG03TcHSXS++8RTTGzG2RqS2LCvUz/HoeqQGAXauDFZO2NBBPwI8EnntXPiIXkjOVD
+	w6CDRWsLbYzik768dTg6BdF03mLqzD0jWKgJib5Lq/ZUxqsdeJoqRO3UpHxs5vi7MOgc/LEiZvQOJ
+	qRa9JFRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZAM-0000000FXQq-0Ym1;
-	Wed, 07 Jan 2026 19:25:58 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1vdZAp-0000000FXZt-2CaZ;
+	Wed, 07 Jan 2026 19:26:27 +0000
+Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZAI-0000000FXO1-1hnq
+	id 1vdZAn-0000000FXYh-0q2U
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 19:25:55 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-4edb8d6e98aso720171cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 11:25:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1767813953; cv=none;
+	Wed, 07 Jan 2026 19:26:26 +0000
+Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-4ee243b98caso481161cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 11:26:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1767813984; cv=none;
         d=google.com; s=arc-20240605;
-        b=T1qhh6NMdxBOBvdmIM1ICOtLNSSkaa3LPQiqxQrZH8PADj4VEo0qHKaQi40CrddInv
-         BgDBgVdXaFOiDwkfak9IfYkRbxb8bc5PboFa6mNyR6ngz1EdmEpCzcBd1EXWnd/+J5j1
-         exE2BEuqigoRa0I/MfgZ6LkBKjH1+1CaafCCmp0oVY5+FFjN3jPuRe2ryCgE9uk4WMbh
-         TQxlxUg+q9Cahot5NfxmUp0it66zVG4MDWSCdjJGqrtcx28uTIo0syY425Sc4eeZuDAS
-         tzw7L5XnoSgn5ViZfecRYpG/SLQwhMuQmHoX0i31plfr15xgCahhzKG/JPUNeH4eOgdl
-         bZYw==
+        b=F7G+sx7L8MwpDRbei7qXl+1ztHrEJpOHO8Va0La/HE+1n8AOus9deXxYStaBpc1Mwo
+         jLD7nQJxueEptdJ0QDlDJkdDsqXL+PMQ/wRC8w52sWbDhQ0IsvZqA54ljeoaEY7Zc2t8
+         eurE7hDDYY0N0ShDqNN2Db2QmPsYbTtM36oBqU6z8raDGfUOPtlfRMGlnGeS0WrbnMLs
+         WVCKkL2qk1M96BDh4WWZenjqO3b9/xZhnHUMu3AgPHl6lDRQUHnG11LOsYCZZMPPAgDw
+         ICqAGzZFSBwhQBuByRZx9R8dwTQQOziyFVXCGLOBNRIG9Tx0Taoc2KcEw7mXwFRMWWi8
+         WLUA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=DwyOUMrzmFja205ZMg1MEdCnMMj8lyhbUqchQTaZ7Og=;
-        fh=U90T7TgfaCg1HGGmcPsbNC/Zh/Kct1c1KDFOPGlZuKw=;
-        b=M/CTosBy9lBDehsbnrGn2MlNMomK4JBZFgyFo9Hid6f/2YJV0jvHOihrwTd5XZBiBU
-         TzGb/hLvN9VyHhTtVjhigbpyVzf3a1jMIBWtkpHT63JRPBXDJet+9b5k1NeiFVfR37R9
-         +TxhBanKAgITEKaZpG3ZtE+RbG2uBwAySwCrTcYLVjpqLTza0f5GXvO7lndJkJOEu45g
-         eWh4wyks85WQpH+wJD3fgz6XS9LTIcBIVo75/Aw3CZ6vDdZSdSm5I1quNC70TfjMb8N7
-         w4ADPt/zSDhYNytvW7fRyfTVnHQzvpvlCuRQreryVqFJ0x3paFu2uah7ATOODE7ugbpG
-         wmcw==;
+        bh=bWQBkRucMfj+8IZule2bckxNws/YyczMOLNESP4WNJk=;
+        fh=1D+qR31N4bKRDw8NVM61JwQ+l5wpHFRKQ1F308nUS+Q=;
+        b=EiU4baXzuhZe+AK5PUPQBbvIb0yMEPQIsR23tcolmZCegnavMk9uzdAVyIultAvYRa
+         WEd72EMO7R/BAZMVJGFoG2yJJJBZnQ358kJmPMe8QQms8b6FYhxMQRqNAMm4S9bdjqmj
+         4WyVv8HF0bRW1mtcgWuiuZmJC2FcTf7h+ZpY+2eHjBS8Joh2iGv0VQh8yu0n2a9mpPY1
+         wehflbFzNKGkalLVNWgNV8HrhbamSImfThQTHleEqoF2Z8ccknX7/OZtOYZrfu1Sptib
+         QtTuO+L9jUREDYW9FFLElW4Wq/u6TUvVn0WmDeEbcsS6QaSoi6cLML/vz4mxrvBP0qFQ
+         orWQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767813953; x=1768418753; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1767813984; x=1768418784; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=DwyOUMrzmFja205ZMg1MEdCnMMj8lyhbUqchQTaZ7Og=;
-        b=sus7Iw237Hgfr3+quWhIRepUkail6I72VT16iIGZ94+GJHyiwUZvzi671P0HNraFsa
-         5T6fYpy6wVARPPXE8kqRIR9RCeGDshftEwnp2vIo9SwlzDqDk7Nr6bHbmtaVJlrsgctB
-         +aBJZXfqLyO2EswZ/zgY39KiVxq+9tlaFEowOxqCEWPLYglroOKIW3b2tS1FNI9Dpt/L
-         +jO7Ok0fUi0NCLHxjXfDEoX2Cnn4VrcJcAW/V7J4SFETpIAOs6G2FNJX9P61EhfCc7Gy
-         tXAQVKJz3bUZ6XjXuu53Sr3IrWdsMyuEZsraUHw49m4ND0a+Aflve1/E3ljO2vQBU0Vo
-         HpGg==
+        bh=bWQBkRucMfj+8IZule2bckxNws/YyczMOLNESP4WNJk=;
+        b=z0gIDBk8FL8jtBUCj7d/yjibMUeYfwoFvrcE61Mz3d+rR5E1xnGQNtgH8YYmN7qzxS
+         jvhA07BE9ILT5L6JfBrLLmGS+Wxpkr7W4nvMXsWZsvVcF0JyOOxlmfznyBrRoXER7aPS
+         i1iLNG4K8AYib/5AOqkA772UE+J0LAQQtiuvOngnmwiIzpEGD6GlGro2MzPvaFNwEnoG
+         YA7MsCkDOVLCVM4D1OwuPdzGandgPiMAVZlS9pAckFo4vtuexNHJ2sgapbo39D+M/+f9
+         NDTNCXtk6PMYoERSf92LfMiM0K360VaLpMznhBgARZJyQftwQZjjBgzv1ucwM+7TGrDM
+         wfpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767813953; x=1768418753;
+        d=1e100.net; s=20230601; t=1767813984; x=1768418784;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=DwyOUMrzmFja205ZMg1MEdCnMMj8lyhbUqchQTaZ7Og=;
-        b=AWviyTRO3Znqk+Lc9PWkSBpBxJqgrI8eIhGKP6sOlrw8JqhcDaYn4aSoZHAmbcKwRi
-         SX6+tWaj/3IQZdTCRZLVK6xvUEdncQGsUAxf16s5dULNNEbEPLo51HdUYO+HVP6FXqAS
-         W0dSoa6QA8BFdr7kw194/naxCfYt8Q6La9GCtTIC56JD5imEXyw0VJbjKXK5OveooSZ6
-         E80aMNt6qKxJsXZK8zZx6xfYYzKgHSRernO7GoohMbP3cNKpOcZrAVc/EnNli3BSVX5d
-         yvbPDlMd+bKbpNilO2Q2eqHTVdRkrxpc6xq7E0d0wJ2wqhawBXyzOGIDs5Wd+cGSD/Qz
-         fOwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWGk7aKTd29lwqoGWZFaTVNTq8CSoule51U/6YeJeyCVn4Ok10o6rM2YZ02JeIvvXvTe4pNyJbV2vu6aKqjqNQ5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkBVRdzDG8ffuIpdan0pVhv3oN3mIx+yRJ0ocJP8hUnFqcRXok
-	5R6+zzU7AJD1s6Hc53yvXtY/ku1hGGbKbPYENop+cqngkSZsAVMtLA57V+mCC1m1oziYRTggrRX
-	PN3HMzdPr5+p8hpfyx7J0mGA/1aE+EW0aoY03a+zp
-X-Gm-Gg: AY/fxX5Hi8CFS/kX6oeOY3n0Ofld5djCxPNZexp7y14DjErCVl6AufBWoC8TdgIVdTT
-	w5rNqMpjCcISYBx0b5MtwLKrZ9H7wCvCFhk+pDGrKxDu84KIEK7QkLS+yjNI/O7UfC8VRNwVJOt
-	KtvJ3prY23mw6xikvkrjl91FoRWJfXLuIPI+r485h7dP9TB0z5roJBnLlMuhaQakOpF5mAIStfd
-	Tkdv4C/4onJ7IHkGtSCZvFZs6txH2XXRcGJhEy/D+RNcSOS2bdHjhjnMDwTm9nPMMAsnWJS7sUn
-	koOFojs=
-X-Received: by 2002:ac8:5e06:0:b0:4f3:5474:3cb9 with SMTP id
- d75a77b69052e-4ffb3e48178mr14762551cf.14.1767813952742; Wed, 07 Jan 2026
- 11:25:52 -0800 (PST)
+        bh=bWQBkRucMfj+8IZule2bckxNws/YyczMOLNESP4WNJk=;
+        b=LBVqf+rgyBCt3bkJ3q1Qmrph9yPotBgKEKromfX6eyWzjUVG4GdCYoo4T000RCpjzL
+         n4THW5lZhLSKia8f6VbY6m3Uj/QBhqn/2Lb3VE7eCbIcGcCNDk4AjQ9BGEGfjn+Z//vI
+         seGQVIdWtYT30OXBRWT4diSLeJqaPRdNrj038QlhBJ0W12bcIQcQzLBnMkP2JtFPeM1/
+         roxKe8cz3wP88Ir5D6XzFprpL997tqVUjsFqcJGJhtYCivCTh4i2hZ1X1lWQaCpvOoFa
+         19eYLxACm1XqQ6cygqO7NvmZOy41EQsMGuBUhUlS+/ckD8CGlF1T+keqHvyqDx5w9w/a
+         eB9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWvEsqWHFLYtbksPiwx4Mz3rWcjm+6CtijMEQBfe77MAyMSOJ9doRx5WCtoO+uPf/TGJoXNKBtnrzb00M+07n3c@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7GiPQm8x0i4RwG7lYRkEV0bqJ/9vIQ/CVF7jV3E+V2HSecPCI
+	uEm5b2br0a2b8lkMA4jv9LzbP+GUB33dve5Z5Na9eRDtF4aV6AUcQeFPoHqsYDBVbgeEpuXWY/S
+	5mJZIxu+0yhsXwayExPT5Vac6V3EjhTdN/oO1jPAF
+X-Gm-Gg: AY/fxX5j2BfoPJWm/Nvu9eAWxV4zK+pqXpphglZ6SbPBfjFPKp9L0gne+OK+/VCV7jW
+	NRweFdsxX9aSWrZFwKDU3grqyzcKzznWNWEBoB5l+sqvekIhZw4FgJQhPEuGsF9H5c80UVLSpIY
+	1UFH3Tnae4Ifn6Oct94KGD5Naqyl0+1w2D73cSdojPc+ZAx8X3RPMLjG1GlMJ/Rz/XbOSMvgRpm
+	n9huVAGYbMsgMYHpcByz/F9W09/QM6fxIBwiKkAf62O0faP3cgs0Y/g0WBzvv4BXjla3diF
+X-Received: by 2002:ac8:7d0a:0:b0:4ed:ff77:1a87 with SMTP id
+ d75a77b69052e-4ffbf94a082mr1122261cf.19.1767813983752; Wed, 07 Jan 2026
+ 11:26:23 -0800 (PST)
 MIME-Version: 1.0
-References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org> <20251223-kvm-arm64-sme-v9-4-8be3867cb883@kernel.org>
-In-Reply-To: <20251223-kvm-arm64-sme-v9-4-8be3867cb883@kernel.org>
+References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org> <20251223-kvm-arm64-sme-v9-5-8be3867cb883@kernel.org>
+In-Reply-To: <20251223-kvm-arm64-sme-v9-5-8be3867cb883@kernel.org>
 From: Fuad Tabba <tabba@google.com>
-Date: Wed, 7 Jan 2026 19:25:15 +0000
-X-Gm-Features: AQt7F2r6YVCRnMI_bYmOfq7HyyiGhMeA9fZkYBf6xbcFUjdNaJYVtQzKKg3T4fA
-Message-ID: <CA+EHjTzDxJsLi315RF43g14psdv44YOuxk6dP6SLgFz4WaY4Hw@mail.gmail.com>
-Subject: Re: [PATCH v9 04/30] arm64/fpsimd: Check enable bit for FA64 when
- saving EFI state
+Date: Wed, 7 Jan 2026 19:25:47 +0000
+X-Gm-Features: AQt7F2qO0uzZBb7qE9TqF-7WKMNBoVsC6m-23DUQhmoLKw26Bq83cmx6SM9OSu4
+Message-ID: <CA+EHjTycP4Wz0V7S8hzWygpeXGzeehTL8RFfit7Eaq4rT+Eu+Q@mail.gmail.com>
+Subject: Re: [PATCH v9 05/30] arm64/fpsimd: Determine maximum virtualisable
+ SME vector length
 To: Mark Brown <broonie@kernel.org>
 Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
 	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -106,8 +105,8 @@ Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
 	Eric Auger <eric.auger@redhat.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_112554_450897_7F9372F1 
-X-CRM114-Status: GOOD (  19.67  )
+X-CRM114-CacheID: sfid-20260107_112625_249344_4F7995BF 
+X-CRM114-Status: GOOD (  22.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,59 +121,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Mark,
+
 On Tue, 23 Dec 2025 at 01:21, Mark Brown <broonie@kernel.org> wrote:
 >
-> Currently when deciding if we need to save FFR when in streaming mode prior
-> to EFI calls we check if FA64 is supported by the system. Since KVM guest
-> support will mean that FA64 might be enabled and disabled at runtime switch
-> to checking if traps for FA64 are enabled in SMCR_EL1 instead.
+> As with SVE we can only virtualise SME vector lengths that are supported by
+> all CPUs in the system, implement similar checks to those for SVE. Since
+> unlike SVE there are no specific vector lengths that are architecturally
+> required the handling is subtly different, we report a system where this
+> happens with a maximum vector length of -1.
 >
 > Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  arch/arm64/kernel/fpsimd.c | 23 ++++++++++++++++++++++-
+>  1 file changed, 22 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+> index f4e8cee00198..22f8397c67f0 100644
+> --- a/arch/arm64/kernel/fpsimd.c
+> +++ b/arch/arm64/kernel/fpsimd.c
+> @@ -1257,7 +1257,8 @@ void cpu_enable_sme(const struct arm64_cpu_capabilities *__always_unused p)
+>  void __init sme_setup(void)
+>  {
+>         struct vl_info *info = &vl_info[ARM64_VEC_SME];
+> -       int min_bit, max_bit;
+> +       DECLARE_BITMAP(tmp_map, SVE_VQ_MAX);
+> +       int min_bit, max_bit, b;
+>
+>         if (!system_supports_sme())
+>                 return;
+> @@ -1288,12 +1289,32 @@ void __init sme_setup(void)
+>          */
+>         set_sme_default_vl(find_supported_vector_length(ARM64_VEC_SME, 32));
+>
+> +       bitmap_andnot(tmp_map, info->vq_partial_map, info->vq_map,
+> +                     SVE_VQ_MAX);
+> +
+> +       b = find_last_bit(tmp_map, SVE_VQ_MAX);
+> +       if (b >= SVE_VQ_MAX)
+> +               /* All VLs virtualisable */
+> +               info->max_virtualisable_vl = SVE_VQ_MAX;
+> +       else if (b == SVE_VQ_MAX - 1)
+> +               /* No virtualisable VLs */
+> +               info->max_virtualisable_vl = -1;
 
-Reviewed-by: Fuad Tabba <tabba@google.com>
+I'm not sure about -1 as the "No virtualisable VLs" value. Unless I've
+missed something, this value gets used without being checked,
+potentially even assigned to an unsigned int:
+
+> kvm_max_vl[ARM64_VEC_SME] = sme_max_virtualisable_vl();
 
 Cheers,
 /fuad
 
 
-> ---
->  arch/arm64/kernel/fpsimd.c | 9 +++++++--
->  1 file changed, 7 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-> index 887fce177c92..f4e8cee00198 100644
-> --- a/arch/arm64/kernel/fpsimd.c
-> +++ b/arch/arm64/kernel/fpsimd.c
-> @@ -1948,6 +1948,11 @@ static bool efi_sm_state;
->   * either doing something wrong or you need to propose some refactoring.
->   */
->
-> +static bool fa64_enabled(void)
-> +{
-> +       return read_sysreg_s(SYS_SMCR_EL1) & SMCR_ELx_FA64;
-> +}
+> +       else
+> +               info->max_virtualisable_vl = sve_vl_from_vq(__bit_to_vq(b +  1));
 > +
->  /*
->   * __efi_fpsimd_begin(): prepare FPSIMD for making an EFI runtime services call
->   */
-> @@ -1980,7 +1985,7 @@ void __efi_fpsimd_begin(void)
->                                  * Unless we have FA64 FFR does not
->                                  * exist in streaming mode.
->                                  */
-> -                               if (!system_supports_fa64())
-> +                               if (!fa64_enabled())
->                                         ffr = !(svcr & SVCR_SM_MASK);
->                         }
+> +       if (info->max_virtualisable_vl > info->max_vl)
+> +               info->max_virtualisable_vl = info->max_vl;
+> +
+>         pr_info("SME: minimum available vector length %u bytes per vector\n",
+>                 info->min_vl);
+>         pr_info("SME: maximum available vector length %u bytes per vector\n",
+>                 info->max_vl);
+>         pr_info("SME: default vector length %u bytes per vector\n",
+>                 get_sme_default_vl());
+> +
+> +       /* KVM decides whether to support mismatched systems. Just warn here: */
+> +       if (info->max_virtualisable_vl < info->max_vl)
+> +               pr_warn("SME: unvirtualisable vector lengths present\n");
+>  }
 >
-> @@ -2028,7 +2033,7 @@ void __efi_fpsimd_end(void)
->                                          * Unless we have FA64 FFR does not
->                                          * exist in streaming mode.
->                                          */
-> -                                       if (!system_supports_fa64())
-> +                                       if (!fa64_enabled())
->                                                 ffr = false;
->                                 }
->                         }
+>  void sme_suspend_exit(void)
 >
 > --
 > 2.47.3
