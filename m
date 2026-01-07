@@ -4,54 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4EBCD0D168
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 18:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30816D0D167
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 18:38:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rXeevR2UaTG44xNQSoZ0T+KZIWK8KrLh9KmrPdzbWMo=; b=s7KpMvSCvpkWF7ArB5ErlZDYPu
-	DhNZr7XVZAL+HtH6Ixfi3stjxAjChPxlFAmaaO3orWzTXwDziCB6ExR+crgMNzb7QvjA35Z3R+eKF
-	y0l2nRrFFoPebszR7lXGjTuJD6PxuNR4MeZWZgdipNTsYotisp7Ggk5p2AbluQhQ4bUztCOLMJwtm
-	gIvRkkuC56u2BxHQ92A1VTTzaj50HPfMoLSleiPSqtmIgFkrMbOFfCpVwZlrOtI/o0qU657sztyNf
-	JtTP2dXCkdxSeIfSVOhhj6Ao432UE3LM5KkOa3o5FcFzsDs7sM2MXWJwKkSB8/BjWoz+9qBRpdHV0
-	RtJb3Y9g==;
+	bh=kuhF89bWBhm7HgJK1LVPoL0NBYmH2Ch8HSY3AUhlEyY=; b=yYq4aLHcnRWOoQmNLCIYS26DwI
+	5cOtFlv+5WsBuOTO7eLQ+9pIcR+jlzo/tbt2O3+R1yWdVaHofg+6EeRRtl0Am9MdIolrkLhLF4Mwq
+	REfLJGMOhh++wGPZKlPFlsTHHZNFm0X6fJY9fcOYfX4ZBJLXN4rVdWpjyExpMSXQCYhzlY8B4QtjJ
+	1WItbIbnzbpOiw5sWFaAOAj0actqZNXp+Hijo4PmS8wlfyr5IZRdYHhIG2d7Xl6DxbcJyqcBhHUKB
+	litXwtMT0o4XF+UZrMcJd41iEdSB6c3cDTrxcjGTqA3qFs6IJHD8KOnhe6Wt1kmRRzbTQsr0osLse
+	86RHuwNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdYQX-0000000FUFm-1wIL;
-	Wed, 07 Jan 2026 18:38:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdYQZ-0000000FUGZ-3BGo;
+	Wed, 07 Jan 2026 18:38:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdYQV-0000000FUF8-2OXT
+	id 1vdYQX-0000000FUFR-0lQx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 18:38:36 +0000
+	Wed, 07 Jan 2026 18:38:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7B87F43668;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7AAA64360E;
+	Wed,  7 Jan 2026 18:38:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92277C4CEF7;
 	Wed,  7 Jan 2026 18:38:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11763C19423;
-	Wed,  7 Jan 2026 18:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767811114;
-	bh=UnoGgK3rZulvQ7+7qKRL2PAUxy2h9dm7tc2RPR5H5pk=;
+	s=k20201202; t=1767811116;
+	bh=4gA87dpy4WxHWsQQHfKYdtr3VgTSzDJcgdqZ1ZKqS5U=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Zjtv75C8bU6LOSZ3PZHsIZhImci8OB9N3l4n+g4QJw9+EZUskkZVAM1UPtmIWq8qD
-	 9y/QTHTfTxYeOHOawoKRbbL6WzEkQNUcZ9t+s6O58Apsi/7VGvWziIs5WaDXdB3xIT
-	 ZZ4PTBLu72sZtSwmLEO3QscMYE8XJSixFJRNEqmKAKNd+EAEgG7e2pE1qc+hBXwn3x
-	 7R8UKQBuL2Q0mUw7X6NTXCKWmje4q8fy/C+ZG61+QtwTbCNWAZOHIOYRNySKRWDYn1
-	 iIPWudv/JqxQTi8ZwuwCYId8saayD+UOlRFVcAhLT7cLWzNCC0xoZEU1dm//iCbSlV
-	 khtt+7PhnJH5g==
+	b=tQVaYSRrv57g3xq+kAmlC19X9l1YrEqk2QaB2GpoZTPFVevg3P3KkXc25r2GpHX8l
+	 ZObuwh7UZNmDoOnfmOlnyT/EFy9uhNPFrvrh3w0dG2Zjq+nLl2mYdAK5vL/CgFm2vs
+	 ZfuS2TgIGTuZ3VzQC0CfesccxDi7Z9+o45yJzO+JnyUTsgIhEbZLNc58LNsVhYBpUN
+	 bPH8qSM7xgULMJQ1KCY9XXYxm3g7Y7CumXp7WvPgip4nMI/pNVyKKTW/0zQUEkVfwb
+	 0JWT/LBEYHwITDg2rfoa3IyUD51V6P+R+vMy+9XU5LBNIX5l+wzkZK2+T+v5RTjMcv
+	 XuKDvuik7uCsA==
 From: Bjorn Andersson <andersson@kernel.org>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
 	Jagadeesh Kona <quic_jkona@quicinc.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
 	Taniya Das <taniya.das@oss.qualcomm.com>
 Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
 	Imran Shaik <imran.shaik@oss.qualcomm.com>,
@@ -61,20 +63,25 @@ Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
 	linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: (subset) [PATCH 0/3] Add the support for SM8750 Camera clock controller
-Date: Wed,  7 Jan 2026 12:38:21 -0600
-Message-ID: <176781109968.3262943.4143830345398842895.b4-ty@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: (subset) [PATCH v3 00/11] Add support for Multimedia Clock controllers for Kaanapali
+Date: Wed,  7 Jan 2026 12:38:22 -0600
+Message-ID: <176781109972.3262943.12550481124214869830.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20251202-sm8750_camcc-v1-0-b3f7ef6723f1@oss.qualcomm.com>
-References: <20251202-sm8750_camcc-v1-0-b3f7ef6723f1@oss.qualcomm.com>
+In-Reply-To: <20260107-kaanapali-mmcc-v3-v3-0-8e10adc236a8@oss.qualcomm.com>
+References: <20260107-kaanapali-mmcc-v3-v3-0-8e10adc236a8@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_103835_632501_FA6477CE 
-X-CRM114-Status: UNSURE (   9.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260107_103837_260385_427398B4 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,23 +97,43 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 02 Dec 2025 15:56:24 +0530, Taniya Das wrote:
-> Support the Camera clock controller for SM8750 Qualcomm SoC.
->  - The camera MCLK BIST clock controller, which is required
->    for functional MCLKs.
->  - The camera CC (clock controller) for managing camera-related
->     clocks.
->   - Additionally, the Rivian ELU PLL is utilized within the
->     SM8750 clock controller, so support for this PLL is also added.
+On Wed, 07 Jan 2026 15:13:03 +0530, Taniya Das wrote:
+> Add support for Display clock controller, Video, Camera and GPU
+> clock controller for the Qualcomm Kaanapali SoC.
+> 
+> Changes in v3:
+>  - Add RB tag for CAMCC dt-bindings [Krzysztof]
+>  - Add more description, commit message for the newly added GX Clock controller
+>    for GPUCC dt-bindings. Update the complete region for the controller. [Krzysztof]
+>  - Add RB tag for display clock controller [Konrad]
+>  - Fix the below for the Video clock controller
+> 	- use lowercase for mem_enable/mem_ack reg.
+> 	- use GENMASK for mem_enable_ack_mask.
+> 	- fix the indentation issue.
+> 	- update to use regmap_set_bits().
+>  - Fix the below for gx clock controller
+> 	- update offset for gdsc as per new mapping
+> 	- update regmap_config as per new mapping
+>  - Link to v2: https://lore.kernel.org/lkml/20251125-kaanapali-mmcc-v2-v2-0-fb44e78f300b@oss.qualcomm.com/
 > 
 > [...]
 
 Applied, thanks!
 
-[1/3] clk: qcom: clk-alpha-pll: Add support for Rivian ELU PLL
-      (no commit info)
-[3/3] clk: qcom: camcc: Add camera clock controller driver for SM8750 SoC
-      commit: f9580bafd39cff31bd51031e8784ea44acddf20e
+[01/11] clk: qcom: clk-alpha-pll: Update the PLL support for cal_l
+        commit: 0f85ef379064b50ad573c6af4c0ffd39673f6968
+[02/11] clk: qcom: clk-alpha-pll: Add support for controlling Pongo EKO_T PLL
+        commit: 6d3e77facbce8e684321d9ba65137a76f2575372
+[03/11] clk: qcom: clk-alpha-pll: Add support for controlling Rivian PLL
+        commit: a419f7bfb714703b9c12fab387b60cb0e0f7ec47
+[08/11] clk: qcom: dispcc: Add support for display clock controller Kaanapali
+        commit: 6c6750b7061ca5b12deaeb246439b5b64a84f9c1
+[09/11] clk: qcom: camcc: Add support for camera clock controller for Kaanapali
+        commit: 92aae35f667cd62359f5938e3259dc72e080e28c
+[10/11] clk: qcom: Add support for VideoCC driver for Kaanapali
+        commit: a4ceaf4b18dd4310c17852efbf880e1c5cd5dc36
+[11/11] clk: qcom: Add support for GPUCC and GXCLK for Kaanapali
+        commit: 685ec348339b118bec728458d0bc3b3e7da1ef0d
 
 Best regards,
 -- 
