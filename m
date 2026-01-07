@@ -4,57 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DEDECFD627
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 13:17:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4AC6CFD62A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 13:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uiuFEMVhLQzsZBUqUxkpOUhBhplelb8rYWj42WEz2LI=; b=ol/yyMPpvYaIoK
-	yGzwVeKliG1YgMqzZeRgQstcEHO9plYvS5GGv2dyDukziKATrEY4mxy4/tGSRfKPDYUXNeMiYutO+
-	deqzQL0JVVwd5U724PgPm3fyE0yuArRQaDin5kOyXOLg5myhewLdrZSRKMPjHSZ8WbjsTtJLb1yWB
-	vsh3PxmiCKrBduwD3hS+TCOKnMHpulKEVozNuHynaDmWhKun8aKDhIPIZqUvNKmmFqvsT4a9+Ne1r
-	S3npwxbRekxdvUaxhb0XSCu61Qm8LH2tby6Z3BjvN8xT2UnGTI4PBZM9yYTMKxfZh1VH+rJgIhILO
-	JCI5wmDysL6LTfIZNLZQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ybZzrBFEg2MshHiemxOnuaZSjBO/uei+ZdjkQT+qLRs=; b=hyVME9nmeI4Qh//AH0tuanCuKF
+	goXbFGYxHLV412EbU/MV9SXdkmK80Hr0LHT5d532sF3S5WFYcR99QVtN9IIOrSirUEBkviXeP9fnN
+	sqbb3xCtlVutzVshrTZumxqOwjaL8CTPhHNSjZZAs1NveFou7anzc9FnC7e45IHrffqAt1LHUJ9d5
+	qxhPJFEKCuwKRDBjadq/XAxOJinUhfJtqSW8j4diBCRSrTbyDRfnz9i0J9HmbBQL7bWxThojaRz3Z
+	GqbvQ6e2r9xhRfIFHvZDi4JY+NkkW5IERcfZ88xvErW2x8bO3a4mUkDBSovGRh/fLGOiofd175q8g
+	wWK1GWNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdTPJ-0000000EzTS-18aO;
-	Wed, 07 Jan 2026 13:17:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdTPG-0000000EzT7-2HXY
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 13:17:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C02F497;
-	Wed,  7 Jan 2026 05:16:50 -0800 (PST)
-Received: from [10.57.48.49] (unknown [10.57.48.49])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A0A33F5A1;
-	Wed,  7 Jan 2026 05:16:54 -0800 (PST)
-Message-ID: <551bb2e3-d7c7-4949-a9bd-ce0cf70e7134@arm.com>
-Date: Wed, 7 Jan 2026 13:16:52 +0000
+	id 1vdTSm-0000000Ezfp-0s7h;
+	Wed, 07 Jan 2026 13:20:36 +0000
+Received: from mail-m155101.qiye.163.com ([101.71.155.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdTSj-0000000Ezf6-1PiQ;
+	Wed, 07 Jan 2026 13:20:35 +0000
+Received: from localhost.localdomain (unknown [116.25.95.147])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2fd482091;
+	Wed, 7 Jan 2026 21:20:18 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: jonas@kwiboo.se
+Cc: amadeus@jmu.edu.cn,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	heiko@sntech.de,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 1/1] arm64: dts: rockchip: Enable PCIe for ArmSoM Sige1
+Date: Wed,  7 Jan 2026 21:20:09 +0800
+Message-Id: <20260107132009.123287-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <1c5005b7-ceb9-4915-ad58-a9aa86cce394@kwiboo.se>
+References: <1c5005b7-ceb9-4915-ad58-a9aa86cce394@kwiboo.se>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/8] dma-mapping: Support batch mode for
- dma_direct_sync_sg_for_*
-To: Barry Song <21cnbao@gmail.com>
-References: <20251226225254.46197-1-21cnbao@gmail.com>
- <20251226225254.46197-6-21cnbao@gmail.com> <20251227200933.GO11869@unreal>
- <CAGsJ_4yA83-K7PXiEtyidzF_j6qqKkt92z485KBS9+zGe_rjnw@mail.gmail.com>
- <20251228145041.GS11869@unreal>
- <CAGsJ_4yex5MKQkGtFr2zUcg4h0PtsFs2QVcE_NSfiyOn4qBzhQ@mail.gmail.com>
- <de876e61-42c5-414d-b439-2f9196c6c128@arm.com>
- <CAGsJ_4xYqseJMFXOU39JJW4Lk2ZHXAnRJLhZdVuFLxAi=Dy5sw@mail.gmail.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <CAGsJ_4xYqseJMFXOU39JJW4Lk2ZHXAnRJLhZdVuFLxAi=Dy5sw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9b989d848603a2kunmc5e16d964410
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDShpIVhlMGR5PHUIaS0tIHlYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSk1VSU5VQk5VSk9MWVdZFhoPEhUdFFlBWU9LSFVKS0lCTUtKVUpLS1VLWQ
+	Y+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_051658_660465_E0662524 
-X-CRM114-Status: GOOD (  25.78  )
+X-CRM114-CacheID: sfid-20260107_052033_621896_EAB42BD3 
+X-CRM114-Status: UNSURE (   5.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,147 +68,19 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Tangquan Zheng <zhengtangquan@oppo.com>, Ryan Roberts <ryan.roberts@arm.com>, Leon Romanovsky <leon@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>, iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>, xen-devel@lists.xenproject.org, will@kernel.org, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-01-06 7:47 pm, Barry Song wrote:
-> On Wed, Jan 7, 2026 at 8:12 AM Robin Murphy <robin.murphy@arm.com> wrote:
->>
->> On 2026-01-06 6:41 pm, Barry Song wrote:
->>> On Mon, Dec 29, 2025 at 3:50 AM Leon Romanovsky <leon@kernel.org> wrote:
->>>>
->>>> On Sun, Dec 28, 2025 at 09:52:05AM +1300, Barry Song wrote:
->>>>> On Sun, Dec 28, 2025 at 9:09 AM Leon Romanovsky <leon@kernel.org> wrote:
->>>>>>
->>>>>> On Sat, Dec 27, 2025 at 11:52:45AM +1300, Barry Song wrote:
->>>>>>> From: Barry Song <baohua@kernel.org>
->>>>>>>
->>>>>>> Instead of performing a flush per SG entry, issue all cache
->>>>>>> operations first and then flush once. This ultimately benefits
->>>>>>> __dma_sync_sg_for_cpu() and __dma_sync_sg_for_device().
->>>>>>>
->>>>>>> Cc: Leon Romanovsky <leon@kernel.org>
->>>>>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
->>>>>>> Cc: Will Deacon <will@kernel.org>
->>>>>>> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
->>>>>>> Cc: Robin Murphy <robin.murphy@arm.com>
->>>>>>> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>>>>>> Cc: Ard Biesheuvel <ardb@kernel.org>
->>>>>>> Cc: Marc Zyngier <maz@kernel.org>
->>>>>>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
->>>>>>> Cc: Ryan Roberts <ryan.roberts@arm.com>
->>>>>>> Cc: Suren Baghdasaryan <surenb@google.com>
->>>>>>> Cc: Tangquan Zheng <zhengtangquan@oppo.com>
->>>>>>> Signed-off-by: Barry Song <baohua@kernel.org>
->>>>>>> ---
->>>>>>>    kernel/dma/direct.c | 14 +++++++-------
->>>>>>>    1 file changed, 7 insertions(+), 7 deletions(-)
->>>>>>
->>>>>> <...>
->>>>>>
->>>>>>> -             if (!dev_is_dma_coherent(dev)) {
->>>>>>> +             if (!dev_is_dma_coherent(dev))
->>>>>>>                         arch_sync_dma_for_device(paddr, sg->length,
->>>>>>>                                         dir);
->>>>>>> -                     arch_sync_dma_flush();
->>>>>>> -             }
->>>>>>>         }
->>>>>>> +     if (!dev_is_dma_coherent(dev))
->>>>>>> +             arch_sync_dma_flush();
->>>>>>
->>>>>> This patch should be squashed into the previous one. You introduced
->>>>>> arch_sync_dma_flush() there, and now you are placing it elsewhere.
->>>>>
->>>>> Hi Leon,
->>>>>
->>>>> The previous patch replaces all arch_sync_dma_for_* calls with
->>>>> arch_sync_dma_for_* plus arch_sync_dma_flush(), without any
->>>>> functional change. The subsequent patches then implement the
->>>>> actual batching. I feel this is a better approach for reviewing
->>>>> each change independently. Otherwise, the previous patch would
->>>>> be too large.
->>>>
->>>> Don't worry about it. Your patches are small enough.
->>>
->>> My hardware does not require a bounce buffer, but I am concerned that
->>> this patch may be incorrect for systems that do require one.
->>>
->>> Now it is:
->>>
->>> void dma_direct_sync_sg_for_cpu(struct device *dev,
->>>                   struct scatterlist *sgl, int nents, enum dma_data_direction dir)
->>> {
->>>           struct scatterlist *sg;
->>>           int i;
->>>
->>>           for_each_sg(sgl, sg, nents, i) {
->>>                   phys_addr_t paddr = dma_to_phys(dev, sg_dma_address(sg));
->>>
->>>                   if (!dev_is_dma_coherent(dev))
->>>                           arch_sync_dma_for_cpu(paddr, sg->length, dir);
->>>
->>>                   swiotlb_sync_single_for_cpu(dev, paddr, sg->length, dir);
->>>
->>>                   if (dir == DMA_FROM_DEVICE)
->>>                           arch_dma_mark_clean(paddr, sg->length);
->>>           }
->>>
->>>           if (!dev_is_dma_coherent(dev)) {
->>>                   arch_sync_dma_flush();
->>>                   arch_sync_dma_for_cpu_all();
->>>           }
->>> }
->>>
->>> Should we call swiotlb_sync_single_for_cpu() and
->>> arch_dma_mark_clean() after the flush to ensure the CPU sees the
->>> latest data and that the memcpy is correct? I mean:
->>
->> Yes, this and the equivalents in the later patches are broken for all
->> the sync_for_cpu and unmap paths which may end up bouncing (beware some
->> of them get a bit fiddly) - any cache maintenance *must* be completed
->> before calling SWIOTLB. As for mark_clean, IIRC that was an IA-64 thing,
->> and appears to be entirely dead now.
-> 
-> Thanks, Robin. Personally, I would prefer an approach like the one below—
-> that is, not optimizing the bounce buffer cases, as they are already slow
-> due to hardware limitations with memcpy, and optimizing them would make
-> the code quite messy.
-> 
-> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
-> index 550a1a13148d..a4840f7e8722 100644
-> --- a/kernel/dma/direct.c
-> +++ b/kernel/dma/direct.c
-> @@ -423,8 +423,11 @@ void dma_direct_sync_sg_for_cpu(struct device *dev,
->          for_each_sg(sgl, sg, nents, i) {
->                  phys_addr_t paddr = dma_to_phys(dev, sg_dma_address(sg));
-> 
-> -               if (!dev_is_dma_coherent(dev))
-> +               if (!dev_is_dma_coherent(dev)) {
->                          arch_sync_dma_for_cpu(paddr, sg->length, dir);
-> +                       if (unlikely(dev->dma_io_tlb_mem))
-> +                               arch_sync_dma_flush();
-> +               }
-> 
->                  swiotlb_sync_single_for_cpu(dev, paddr, sg->length, dir);
-> 
-> I’d like to check with you, Leon, and Marek on your views about this.
+Hi,
 
-That doesn't work, since dma_io_tlb_mem is always initialised if a 
-SWIOTLB buffer exists at all. Similarly I think the existing 
-dma_need_sync tracking is also too coarse, as that's also always going 
-to be true for a non-coherent device.
+> This matches what I currently have in my pending to do final test and
+> then sent out branch at [1], so this is:
 
-Really this flush wants to be after the swiotlb_find_pool() check in the 
-swiotlb_tbl_unmap_single()/__swiotlb_sync_single_for_cpu() paths, as 
-that's the only point we know for sure it's definitely needed for the 
-given address. It would then be rather fiddly to avoid 
-potentially-redundant flushes for the non-sg cases (and the final 
-segment of an sg), but as you already mentioned, if it's limited to 
-cases when we *are* already paying the cost of bouncing anyway, perhaps 
-one extra DSB isn't *too* bad if it means zero impact to the 
-non-bouncing paths.
+> [1] https://github.com/Kwiboo/linux-rockchip/commits/next-20251219-rk3528/
+
+Thanks for sharing. Do you have time to submit the USB support
+patches for RK3528?
 
 Thanks,
-Robin.
+Chukun
 
