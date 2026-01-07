@@ -4,70 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D63FD0D151
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 18:07:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F05D0D156
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 18:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KVnFyWI3XmBy2ECGm4gBncQSZeXqWuMVRZiY/Le/cAk=; b=jzwsvED3f5BdIDpA0ERYf0pojj
-	NnMKQ0+V1wOICAUe9QeS8BztK1/JHx59/uGi3SYqDP8KvRALywrqbwIO9tjD63BWmDzSr+eZg0heo
-	HAq5mbeHTEhygiej+aUGl//AX9Jr28VxUR7btCnjTey9Nec/v+QzK2AmPyKwO+pGuhR5l5jwmbuXJ
-	deH0+IzU7+FlITca70iYs+dPBf4LZf9Uglp42bobM5DNZaU/SCk+kxFvch3nc2VmlSpQdF+had9l7
-	TzA3Nt8l8r2puSs1nNKaL+oYSBTbpxnqsz/wD4rqNj1P+SQ8RbdWfixfp/7TDIWnQ7E0XvPqJq0LL
-	MQBi7D8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BIqLjn51aED1/Lm5zg6AD5xfAD+qOTigjklYX/QagP4=; b=ybtiAgAtX7oskVDDHXa1PzVaQl
+	TduqirCSwaTVxIq0yyvnjISg+m8SBXf3qniIjLFqB/6OiFCm6uaT4tdtGpDDKvXs7T3QbUyPyGbRu
+	6cU8oOme/GWZIIWjtZfCYg7+sGRiA77p6pZfr8B1iLi/axHi9wZfZ4a1Vz29PR/xsa4Ix82+snxaC
+	mW0iaxo6AYI4h/GRIHX2HMp+o1jyNxAKDQeJxBgnrGhLNpW/eB9HPu0is3KoaNTLZgankER1lgcsu
+	XBbwvdWNl9qewyQEGJV/J2ICszuesjob00OHNFjc1fxUhkHbr6YNKVG0WluC9SdmnYC6ZyBgyxrbS
+	SuQqtIzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdXw7-0000000FQI1-02vA;
-	Wed, 07 Jan 2026 18:07:11 +0000
+	id 1vdXz6-0000000FQjo-3CNN;
+	Wed, 07 Jan 2026 18:10:16 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdXw5-0000000FQH6-0n2a
+	id 1vdXz3-0000000FQjf-3E3a
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 18:07:09 +0000
+	Wed, 07 Jan 2026 18:10:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4A89B6000A;
-	Wed,  7 Jan 2026 18:07:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3965C4CEF7;
-	Wed,  7 Jan 2026 18:07:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 168666001A;
+	Wed,  7 Jan 2026 18:10:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF3C1C4CEF1;
+	Wed,  7 Jan 2026 18:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767809228;
-	bh=oNcSmCCo6OmuWND+0r77rlCdula2pNWul2/J8cKG+ds=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JNQLSvawA48QJAdE66h/J77r8y5wuM22zBMpOGo4VoIQARbwom8bEZLo2GzzrVqdX
-	 CeF+DN9ZSqa8rQHfnT+DXHc03SShDMl97XfHWY37ANuSyBW+I13QkO3J+ZBZqITcjj
-	 Dg/JQikoT7llNwQ43bTBDGWffrp0Yt/ECuJiCFZfcGqadeZCDlyp6YQumF/fAljAc4
-	 wE/PiU8a4qkYtsDlQo/bw+6XBLqfpZLZyRDBKxYWMzQZ7bldI44S5qhDWGJ2c4BkVp
-	 bl7wTMcDGEccYw9cu83DzCt81w5v2Gv6s9lz5JdtZh/9x/AN5wnG3THyv7tTny57DO
-	 Z37yhLUIjwGKQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	s=k20201202; t=1767809412;
+	bh=PFsvF3uhSGjY1eiFSePwQw+5Hfbwu2S30URjOMhpGsE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=dY0zi4TfG9yoBqj5WUxApBt37f1tTN5BXtN2X6Z/BNba0Busula53kHvnSWeyjrlN
+	 Qtqh6LUX7CidrZvbZu4ZR5WZzOndVn+Py7MwOaWO7u4rqwfmCwgLrjGQhsWcz6Ts81
+	 mAgze10yov4ht+GNCEM5czqo//D72gkEYCvZ1YguC9dhAFqVveyUUHjojjjECnISbd
+	 psOPCqdunIsq+CaRHQONXLrnCV8JBs/XL8hCh9Hv8gJDamUs9lmQuGOP8kO1l8r48U
+	 PLllmQLS0y0b9dVUga37praImpd13A8tYh8HMcCr+Ml1MrOr8S3AbYQpXrpuolXQWM
+	 XcvZlVDOaEesw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vdXw1-00000000A9B-2sao;
-	Wed, 07 Jan 2026 18:07:05 +0000
+	id 1vdXz0-00000000AIB-38GO;
+	Wed, 07 Jan 2026 18:10:10 +0000
+Date: Wed, 07 Jan 2026 18:10:10 +0000
+Message-ID: <865x9dmgzh.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: Will Deacon <will@kernel.org>,
+To: Will Deacon <will@kernel.org>
+Cc: Lukas Bulwahn <lbulwahn@redhat.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
 	Mark Rutland <mark.rutland@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH 1/3] arm64: Unconditionally enable LSE support
-Date: Wed,  7 Jan 2026 18:06:59 +0000
-Message-ID: <20260107180701.2858276-2-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260107180701.2858276-1-maz@kernel.org>
-References: <20260107180701.2858276-1-maz@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Arnd Bergmann <arnd@arndb.de>,
+	Vegard Nossum <vegard.nossum@oracle.com>,
+	Kees Cook <kees@kernel.org>,
+	kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Lukas Bulwahn <lukas.bulwahn@redhat.com>
+Subject: Re: [PATCH] arm64: Kconfig: deprecate redundant ARM64_USE_LSE_ATOMICS
+In-Reply-To: <aV6CpBCvr37mcv7W@willie-the-truck>
+References: <20251223110730.121239-1-lukas.bulwahn@redhat.com>
+	<aVwkIYMyoe7OpeUh@willie-the-truck>
+	<86h5syn8ww.wl-maz@kernel.org>
+	<aV6CpBCvr37mcv7W@willie-the-truck>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Rcpt-To: will@kernel.org, lbulwahn@redhat.com, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, arnd@arndb.de, vegard.nossum@oracle.com, kees@kernel.org, kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org, lukas.bulwahn@redhat.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,208 +91,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LSE atomics have been in the architecture since ARMv8.1 (released in
-2014), and are hopefully supported by all modern toolchains.
+On Wed, 07 Jan 2026 15:58:28 +0000,
+Will Deacon <will@kernel.org> wrote:
+> 
+> On Tue, Jan 06, 2026 at 01:54:39PM +0000, Marc Zyngier wrote:
+> > On Mon, 05 Jan 2026 20:50:41 +0000,
+> > Will Deacon <will@kernel.org> wrote:
+> > > 
+> > > [+Marc]
+> > > 
+> > > On Tue, Dec 23, 2025 at 12:07:30PM +0100, Lukas Bulwahn wrote:
+> > > > From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+> > > > 
+> > > > Currently, the config options ARM64_USE_LSE_ATOMICS and ARM64_LSE_ATOMICS
+> > > > are equivalent, i.e., ARM64_LSE_ATOMICS is true if and only if
+> > > > ARM64_USE_LSE_ATOMICS is true.
+> > > > 
+> > > > Prior to commit 395af861377d ("arm64: Move the LSE gas support detection to
+> > > > Kconfig")---included in v5.6-rc1---only the config option ARM64_LSE_ATOMICS
+> > > > was defined, and the check for gas support was done in the Makefile. This
+> > > > mentioned commit then introduces the config option ARM64_USE_LSE_ATOMICS to
+> > > > be the promptable option, and changes the semantics of ARM64_LSE_ATOMICS to
+> > > > check for the gas support.
+> > > > 
+> > > > Note that there is then some minor refactoring in commit 2decad92f473
+> > > > ("arm64: mte: Ensure TIF_MTE_ASYNC_FAULT is set atomically"), putting this
+> > > > gas support check into its own config option AS_HAS_LSE_ATOMICS, but the
+> > > > logic remains the same. Since every binutils version defined suitable for
+> > > > kernel compilation then eventually included the required support, the
+> > > > config option AS_HAS_LSE_ATOMICS and the dependency was dropped with
+> > > > commit 2555d4c68720 ("arm64: drop binutils version checks"). This then
+> > > > makes ARM64_USE_LSE_ATOMICS and ARM64_LSE_ATOMICS equivalent. Hence, one
+> > > > of the two config options can be dropped now.
+> > > > 
+> > > > Considerations for the decision which config option to drop:
+> > > > 
+> > > >   - ARM64_USE_LSE_ATOMICS is promptable by the user since its introduction
+> > > >     in 2020. So there might be some Kconfig fragments that define this
+> > > >     config option and expect that this then implies ARM64_LSE_ATOMICS to be
+> > > >     set. However, within the kernel tree, there is no existing config file
+> > > >     referring to that option. So, it is unlikely to be widely used.
+> > > >   - ARM64_LSE_ATOMICS is used in nine places within the arm64 directory in
+> > > >     the current kernel tree.
+> > > >   - ARM64_USE_LSE_ATOMICS is the only config option that contains the infix
+> > > >     string _USE_ to enable support and use of an arm64 architectural
+> > > >     feature. However, there is not a very stringent and consistent naming
+> > > >     convention for Kconfig options throughout the kernel tree anyway.
+> > > >   - The use of the transitional attribute allows to simplify transitioning
+> > > >     to a different Kconfig symbol name, but also adds some intermediate
+> > > >     definition to be removed later eventually.
+> > > > 
+> > > > After thoughtful consideration, keep ARM_LSE_ATOMICS and remove
+> > > > ARM64_USE_LSE_ATOMICS in a two-step approach, first deprecate
+> > > > ARM64_USE_LSE_ATOMICS with the transitional attribute here and then plan
+> > > > to completely remove it in two or three years with a further dedicated
+> > > > commit then.
+> > > 
+> > > Marc was talking about removing ARM64_LSE_ATOMICS entirely the other day
+> > > after it bit him with a KVM change. If all supported assemblers understand
+> > > the LSE instructions, let's just do that?
+> > 
+> > That'd be my preferred option. Having config options for things that
+> > we can detect and patch at runtime makes coverage a lot more difficult
+> > than it should be. I'd also love to kill CONFIG_ARM64_PAN, for
+> > example. In any case, here's my take on this, based on -rc4.
+> > 
+> > Thanks,
+> > 
+> > 	M.
+> > 
+> > From 3ab18194eefd2017fb1cea6764adb0634f5946da Mon Sep 17 00:00:00 2001
+> > From: Marc Zyngier <maz@kernel.org>
+> > Date: Tue, 6 Jan 2026 13:44:14 +0000
+> > Subject: [PATCH] arm64: Unconditionally enable LSE support
+> > 
+> > LSE atomics have been in the architecture since ARMv8.1 (released in
+> > 2014), and are hopefully supported by all modern toolchains.
+> > 
+> > Drop the optional nature of LSE support in the kernel, and always
+> > compile the support in, as this really is very little code. LL/SC
+> > still is the default, and the switch to LSE is done dynamically.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/Kconfig             | 16 ----------------
+> >  arch/arm64/include/asm/insn.h  | 23 -----------------------
+> >  arch/arm64/include/asm/lse.h   |  9 ---------
+> >  arch/arm64/kernel/cpufeature.c |  2 --
+> >  arch/arm64/kvm/at.c            |  7 -------
+> >  arch/arm64/lib/insn.c          |  2 --
+> >  arch/arm64/net/bpf_jit_comp.c  |  7 -------
+> >  7 files changed, 66 deletions(-)
+> 
+> I think we should go ahead with this.
+> 
+> Initially, I thought we'd need some surgery to cpufeature.c so that
+> cpus_have_final_cap() could take the _likely_ path for LSE but it looks
+> like that's only relevant for KVM's AT handling and the common atomic_t
+> APIs use alternative_has_cap_likely() already.
+> 
+> If we do something similar for PAN, then system_uses_hw_pan() probably
+> wants the polarity switching from unlikely to likely.
 
-Drop the optional nature of LSE support in the kernel, and always
-compile the support in, as this really is very little code. LL/SC
-still is the default, and the switch to LSE is done dynamically.
+Ack. Series posted at [1].
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/Kconfig             | 16 ----------------
- arch/arm64/include/asm/insn.h  | 23 -----------------------
- arch/arm64/include/asm/lse.h   |  9 ---------
- arch/arm64/kernel/cpufeature.c |  2 --
- arch/arm64/kvm/at.c            |  7 -------
- arch/arm64/lib/insn.c          |  2 --
- arch/arm64/net/bpf_jit_comp.c  |  7 -------
- 7 files changed, 66 deletions(-)
+Thanks,
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 93173f0a09c7d..b6f57cc1e4df8 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1873,22 +1873,6 @@ config ARM64_PAN
- 	  The feature is detected at runtime, and will remain as a 'nop'
- 	  instruction if the cpu does not implement the feature.
- 
--config ARM64_LSE_ATOMICS
--	bool
--	default ARM64_USE_LSE_ATOMICS
--
--config ARM64_USE_LSE_ATOMICS
--	bool "Atomic instructions"
--	default y
--	help
--	  As part of the Large System Extensions, ARMv8.1 introduces new
--	  atomic instructions that are designed specifically to scale in
--	  very large systems.
--
--	  Say Y here to make use of these instructions for the in-kernel
--	  atomic routines. This incurs a small overhead on CPUs that do
--	  not support these instructions.
--
- endmenu # "ARMv8.1 architectural features"
- 
- menu "ARMv8.2 architectural features"
-diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-index e1d30ba99d016..f463a654a2bbd 100644
---- a/arch/arm64/include/asm/insn.h
-+++ b/arch/arm64/include/asm/insn.h
-@@ -671,7 +671,6 @@ u32 aarch64_insn_gen_extr(enum aarch64_insn_variant variant,
- 			  enum aarch64_insn_register Rn,
- 			  enum aarch64_insn_register Rd,
- 			  u8 lsb);
--#ifdef CONFIG_ARM64_LSE_ATOMICS
- u32 aarch64_insn_gen_atomic_ld_op(enum aarch64_insn_register result,
- 				  enum aarch64_insn_register address,
- 				  enum aarch64_insn_register value,
-@@ -683,28 +682,6 @@ u32 aarch64_insn_gen_cas(enum aarch64_insn_register result,
- 			 enum aarch64_insn_register value,
- 			 enum aarch64_insn_size_type size,
- 			 enum aarch64_insn_mem_order_type order);
--#else
--static inline
--u32 aarch64_insn_gen_atomic_ld_op(enum aarch64_insn_register result,
--				  enum aarch64_insn_register address,
--				  enum aarch64_insn_register value,
--				  enum aarch64_insn_size_type size,
--				  enum aarch64_insn_mem_atomic_op op,
--				  enum aarch64_insn_mem_order_type order)
--{
--	return AARCH64_BREAK_FAULT;
--}
--
--static inline
--u32 aarch64_insn_gen_cas(enum aarch64_insn_register result,
--			 enum aarch64_insn_register address,
--			 enum aarch64_insn_register value,
--			 enum aarch64_insn_size_type size,
--			 enum aarch64_insn_mem_order_type order)
--{
--	return AARCH64_BREAK_FAULT;
--}
--#endif
- u32 aarch64_insn_gen_dmb(enum aarch64_insn_mb_type type);
- u32 aarch64_insn_gen_dsb(enum aarch64_insn_mb_type type);
- u32 aarch64_insn_gen_mrs(enum aarch64_insn_register result,
-diff --git a/arch/arm64/include/asm/lse.h b/arch/arm64/include/asm/lse.h
-index 3129a5819d0e0..1e77c45bb0a83 100644
---- a/arch/arm64/include/asm/lse.h
-+++ b/arch/arm64/include/asm/lse.h
-@@ -4,8 +4,6 @@
- 
- #include <asm/atomic_ll_sc.h>
- 
--#ifdef CONFIG_ARM64_LSE_ATOMICS
--
- #define __LSE_PREAMBLE	".arch_extension lse\n"
- 
- #include <linux/compiler_types.h>
-@@ -27,11 +25,4 @@
- #define ARM64_LSE_ATOMIC_INSN(llsc, lse)				\
- 	ALTERNATIVE(llsc, __LSE_PREAMBLE lse, ARM64_HAS_LSE_ATOMICS)
- 
--#else	/* CONFIG_ARM64_LSE_ATOMICS */
--
--#define __lse_ll_sc_body(op, ...)		__ll_sc_##op(__VA_ARGS__)
--
--#define ARM64_LSE_ATOMIC_INSN(llsc, lse)	llsc
--
--#endif	/* CONFIG_ARM64_LSE_ATOMICS */
- #endif	/* __ASM_LSE_H */
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index c840a93b9ef95..547ccf28f2893 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2560,7 +2560,6 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, PAN, PAN3)
- 	},
- #endif /* CONFIG_ARM64_EPAN */
--#ifdef CONFIG_ARM64_LSE_ATOMICS
- 	{
- 		.desc = "LSE atomic instructions",
- 		.capability = ARM64_HAS_LSE_ATOMICS,
-@@ -2568,7 +2567,6 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.matches = has_cpuid_feature,
- 		ARM64_CPUID_FIELDS(ID_AA64ISAR0_EL1, ATOMIC, IMP)
- 	},
--#endif /* CONFIG_ARM64_LSE_ATOMICS */
- 	{
- 		.desc = "Virtualization Host Extensions",
- 		.capability = ARM64_HAS_VIRT_HOST_EXTN,
-diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index 53bf70126f81d..6cbcec041a9dd 100644
---- a/arch/arm64/kvm/at.c
-+++ b/arch/arm64/kvm/at.c
-@@ -1700,7 +1700,6 @@ int __kvm_find_s1_desc_level(struct kvm_vcpu *vcpu, u64 va, u64 ipa, int *level)
- 	}
- }
- 
--#ifdef CONFIG_ARM64_LSE_ATOMICS
- static int __lse_swap_desc(u64 __user *ptep, u64 old, u64 new)
- {
- 	u64 tmp = old;
-@@ -1725,12 +1724,6 @@ static int __lse_swap_desc(u64 __user *ptep, u64 old, u64 new)
- 
- 	return ret;
- }
--#else
--static int __lse_swap_desc(u64 __user *ptep, u64 old, u64 new)
--{
--	return -EINVAL;
--}
--#endif
- 
- static int __llsc_swap_desc(u64 __user *ptep, u64 old, u64 new)
- {
-diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
-index 4e298baddc2e5..cc5b40917d0dd 100644
---- a/arch/arm64/lib/insn.c
-+++ b/arch/arm64/lib/insn.c
-@@ -611,7 +611,6 @@ u32 aarch64_insn_gen_load_store_ex(enum aarch64_insn_register reg,
- 					    state);
- }
- 
--#ifdef CONFIG_ARM64_LSE_ATOMICS
- static u32 aarch64_insn_encode_ldst_order(enum aarch64_insn_mem_order_type type,
- 					  u32 insn)
- {
-@@ -755,7 +754,6 @@ u32 aarch64_insn_gen_cas(enum aarch64_insn_register result,
- 	return aarch64_insn_encode_register(AARCH64_INSN_REGTYPE_RS, insn,
- 					    value);
- }
--#endif
- 
- u32 aarch64_insn_gen_add_sub_imm(enum aarch64_insn_register dst,
- 				 enum aarch64_insn_register src,
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index b6eb7a465ad24..5ce82edc508e4 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -776,7 +776,6 @@ static int emit_atomic_ld_st(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 	return 0;
- }
- 
--#ifdef CONFIG_ARM64_LSE_ATOMICS
- static int emit_lse_atomic(const struct bpf_insn *insn, struct jit_ctx *ctx)
- {
- 	const u8 code = insn->code;
-@@ -843,12 +842,6 @@ static int emit_lse_atomic(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 
- 	return 0;
- }
--#else
--static inline int emit_lse_atomic(const struct bpf_insn *insn, struct jit_ctx *ctx)
--{
--	return -EINVAL;
--}
--#endif
- 
- static int emit_ll_sc_atomic(const struct bpf_insn *insn, struct jit_ctx *ctx)
- {
+	M.
+
+[1] https://lore.kernel.org/r/20260107180701.2858276-1-maz@kernel.org
+
 -- 
-2.47.3
-
+Without deviation from the norm, progress is not possible.
 
