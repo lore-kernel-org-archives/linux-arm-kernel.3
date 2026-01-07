@@ -4,89 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93DE1D0D16C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 19:18:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E1CDD0D16C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 19:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9zgx4q5hyau69tIgZgl//mOMTpmrD6yq0HBEGOQs49s=; b=kCS/559KiQfjibhkXZVmzMtxMd
-	mUDaz9SUXP2ZXlrjjIpwHAYwMW4ugiP7CNhFawKORAO4fg4mWT5X+k07uEqRe1qqJDoe1E20Ub9OH
-	JWDhsyzBBjgDAx3xYVxtTr1qBOo8JrtzVfNwcc14oNsB2CWL9Lx0nesWZrIL9jjsaYo5J2EI0jjs7
-	pL4koIif3oXduAM/c3/cAeNPe4GOBJq2+BGOBxGU1PqLVNuAoOMXWiSyc0bMZBp7KfqpAlLjcZOU5
-	vhkbKKylhoWX8W0tiZu0M2TlO3nO7CKgaRczIlRDFoSJHXyG91RudFPQwimomEdjnMRhtfbtQCN13
-	v8Z36qjw==;
+	bh=sdQze0tFMfdCcZRE+Fz1xsHkvoih7BkzLiCp0crO/Bc=; b=dGyYW3HFSHEetjMp07Y19mWFKO
+	WnZtbjPpDQuhJODbOhBnjH3z8hAtZI4QtbpPxtnYg0YBVRmoiLoGE96rT49YKmWXb6P5AxkRkZgut
+	sajOVHU6LRDomIV/cP9Hw82O2NpIfpIo7B30wtjmRIrGtHEp6qiqMOwqhG+oaLn9kXyXozU7iYj57
+	c7MtRTvzTX8Qrq3HNKngGtlNKTO5s0hTTQAZs7hUpKcGKtWF6UFfOxedDStuAvx+OraVUATu2fnJj
+	S/7HSiTRO9Utui4frn+yQSCmW19jGzYnxPUFnmCqW25+GwOiQ5B/LzO/47t/tFw66O37tgCGLqA9L
+	y4QFtOOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZ31-0000000FWZf-0gkf;
-	Wed, 07 Jan 2026 19:18:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vdZ9z-0000000FXKU-2UyI;
+	Wed, 07 Jan 2026 19:25:35 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZ2z-0000000FWZO-23zC
+	id 1vdZ9x-0000000FXJg-0e99
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 19:18:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C78246000A;
-	Wed,  7 Jan 2026 19:17:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71A9EC4CEF1;
-	Wed,  7 Jan 2026 19:17:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767813469;
-	bh=wpCUsEx/DAHll49wE1QSK9nxwuSDleQeOJqWpzlb4qE=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
-	b=WT7SW+oWUw8i87keBl/9o7xZic/L29/iJY5sM9Id1OuuX5PJyeq/uc9ECaDB4/6lY
-	 NbAWzGSGVcYtQTMpQEY+mpGZltDKXtX74HeL132Y/g79cFBclirgmZJy6159WyGeHZ
-	 a/03BCqdmPa9RLfu4Dbjx9M808/OS1hEaDn1NGgMdiy1cQT6lL6BHJlt1tDbQGDSZE
-	 4apMzmpkQpCeLaQKzgmoxfyfQfkd04rQdCNC2OSFuJ0YaIRksXBcoijyvc7w+F0min
-	 8f7Vr/B2oekSry31eXkDamQlKaasOGoUWZhHcsTLo9t0yvWkkIZ45V+qlo2+UyTlUw
-	 9zJ8Stsvf6FUw==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id E32B1CE098B; Wed,  7 Jan 2026 11:17:48 -0800 (PST)
-Date: Wed, 7 Jan 2026 11:17:48 -0800
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Boqun Feng <boqun.feng@gmail.com>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Gary Guo <gary@garyguo.net>,
-	Will Deacon <will@kernel.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	FUJITA Tomonori <fujita.tomonori@gmail.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Lyude Paul <lyude@redhat.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Anna-Maria Behnsen <anna-maria@linutronix.de>,
-	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	rust-for-linux@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	kasan-dev@googlegroups.com
-Subject: Re: [PATCH 0/5] Add READ_ONCE and WRITE_ONCE to Rust
-Message-ID: <be85a8be-2def-48b4-9bee-9c2a8c063608@paulmck-laptop>
-References: <20251231-rwonce-v1-0-702a10b85278@google.com>
- <20251231151216.23446b64.gary@garyguo.net>
- <aVXFk0L-FegoVJpC@google.com>
- <OFUIwAYmy6idQxDq-A3A_s2zDlhfKE9JmkSgcK40K8okU1OE_noL1rN6nUZD03AX6ixo4Xgfhi5C4XLl5RJlfA==@protonmail.internalid>
- <aVXKP8vQ6uAxtazT@tardis-2.local>
- <87fr8ij4le.fsf@t14s.mail-host-address-is-not-set>
- <aV0JkZdrZn97-d7d@tardis-2.local>
- <20260106145622.GB3707837@noisy.programming.kicks-ass.net>
- <7fa2c07e-acf9-4f9a-b056-4d4254ea61e5@paulmck-laptop>
- <20260107084322.GC272712@noisy.programming.kicks-ass.net>
+	Wed, 07 Jan 2026 19:25:34 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-4ee147baf7bso575651cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 11:25:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1767813930; cv=none;
+        d=google.com; s=arc-20240605;
+        b=bOJhl9lssZbA3hNlbxhvPCQLoL1tgM/1OAruzEYr3wMRlMTXm3Mu/8rj+ThjqqWVTN
+         aSSazIF4lOZ5xsPaG6npPzbIHR8CP6JE2xcLtK7e1OrxeoBzO3X+7/1KfLbYK4F6MzSC
+         p+HhDbuIZpU8K9oeojeOADRGEgblH/ExAaKhTcmcDucwesbMjCpJbDCDBytTiahwIi6m
+         63Zfq0gcS6eN00gVB5/CHWWa3TlJyC835lbifCZiI96SfIuuAeBlMYSFNN1ATpXcu2Q+
+         PK19KmDLj7XBrClxQcsE1lEA9QNZnTTwLF8naoDXXcux2qw16iAwJEuKj+gAIaFL0Fdx
+         7XhQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=sdQze0tFMfdCcZRE+Fz1xsHkvoih7BkzLiCp0crO/Bc=;
+        fh=lwpKxMXMEOHdLdajXm8/aiT5JwXFfhQFU71eh3muezI=;
+        b=DK96sf2HWgPpCZg53w2yMmFoVxywI1awEDc5NLFwxWj+bDNL33a3n2pVIY1fq/AwJZ
+         zihxRRic+ZqSMjQ/BXCn0rrXeSnga5NAA/Ys1GgNGwQFttPxBkr5VxLg+zJNIW7dpGLw
+         PO2MfD2h3DKbkyA/TrBJ+j0addcmUKOzBnqhYlbOMk7kB+EWrnyhdHYa7s0JNrP8SY6q
+         6BXDzZ6l6WTQZw9dgxPc3e578nH5JxdFDSvDGnY1gKe7Z7yEMf6Y4/cqfcdBan/F53vw
+         9hRBOh4B7D0E9WrrLZrteYroHy5WykZ3jzX28/p39aRfJtFhLq23l4IyyjZFm2y1C0oW
+         q1+g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1767813930; x=1768418730; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=sdQze0tFMfdCcZRE+Fz1xsHkvoih7BkzLiCp0crO/Bc=;
+        b=iLEgCBoKmFsBmmtU7MpJS4dv6b04s9OFxOhOua0XlJLjLYA5Yvd7rM5V7znQWm93zC
+         hrrIFwyNqCRVKNEO1FW2MDn8enZelQ820wGCilE7SE9uBnUcTzcnjGONTD/cJotLoYgs
+         OCTMOLtEfP5V+nrcUOuQML2dUk1zpmQVqeYP5uDORI1mJ08yGY3O2kUqpNFotcR20J3G
+         3iz5imG0RO7X1PPfJcF4srdJwj+z3aLdBwCheuYUOUA44Y45Lv5bLWgd8h2aQj0Uy0GM
+         nbePegs/Q5brw9Rin1yIcVNBGxkaHAersbOQRChsiEiuj/7ieDLKUWMRlGOBO/qt84C3
+         03LQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767813930; x=1768418730;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sdQze0tFMfdCcZRE+Fz1xsHkvoih7BkzLiCp0crO/Bc=;
+        b=hIYG8wHC7TfsQ8QLmhE0qqFfXuqg3TLwBKR63dfho/Lnt5IrXq0aTyqtxHXziy1Tq9
+         SJ9qnmMbsaxa9RqUgjV5LtPPD5t9TX3x0ZiKnDgvvYarIv+6dOe5Zsth1jEj5PVLJtaQ
+         xt3QjpqNqdCycDqobODDQ3qr1nIEcQp34MvbaiVUsvZgM2lttMKU6B/wCfPggMXLDaut
+         05BKjflW1MA7UbwFzGO3N2OyFfWC2NwkbT+fLMzaxcixXYEtS2IK8bCxyweubQi9eTi1
+         YvrY8jcMtLTou46gcMcZj1Z833rPwHw7B6+SJTqYUyojxxzJUf6gYkj0NQqUHfLKSYB+
+         b5iA==
+X-Forwarded-Encrypted: i=1; AJvYcCViOrCeArRnqAh/EAJtrS4+Ac5JtymEsSrdBkzpaWAdGvbgtzDxy2AbqiWweH1BME9T/hTj7lyoNYY7jznstJVq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2INippFsKNdU9Ss8iRMfvhr3Ez3f4tjqFOshaVRB4t5UNOSRZ
+	lPrlTx8BKzOGYkJb+yWMWnRiUdC6u3wUxtTj6hGJZMqrcs8jrus+XVxPNe4RInRPhccLnMzsG5M
+	iWy49EfWTmAQL5cRJeNMNdG3SJ4CR+tu9ze5fklu5
+X-Gm-Gg: AY/fxX5k6hhO+G7pBiDkFBmsPGOjOJHnFg9+9oST2kvn3odT/eYW9OErIg31jY/I23b
+	z5Uvf/ESNOL5UoBQ/LRCYC67nfWGzRTr3N8WdmaOiM9yK4wsWMiNOv/LQm1HuLiakCNelMnPZII
+	gkBWdaZlbnpQl3mi4kLJcUi5o3m4HAjfBalaQhLF9h8HtHcebltyguhw2mSqWtxhWlnJS2cGOwc
+	OCsbJg9h/739b+gYFvP6N5yBH/59DcfVfVbWur3rDDZT8ArSOftxVrzKoQyUU6yQXwBIh8i
+X-Received: by 2002:a05:622a:5cc:b0:4ff:7d0c:c1cf with SMTP id
+ d75a77b69052e-4ffb3aa6b6bmr15709851cf.0.1767813929956; Wed, 07 Jan 2026
+ 11:25:29 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260107084322.GC272712@noisy.programming.kicks-ass.net>
+References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org> <20251223-kvm-arm64-sme-v9-1-8be3867cb883@kernel.org>
+In-Reply-To: <20251223-kvm-arm64-sme-v9-1-8be3867cb883@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Wed, 7 Jan 2026 19:24:52 +0000
+X-Gm-Features: AQt7F2osm9O_NLuokFKY_-m1ya4_XJF8FlJHLjM1yNQTzxjP3vc84G0MiN9eNTY
+Message-ID: <CA+EHjTwsX9+3XZBZo8PHvaP24fVxBKSdg_raJGL46nX5hE-4rA@mail.gmail.com>
+Subject: Re: [PATCH v9 01/30] arm64/sysreg: Update SMIDR_EL1 to DDI0601 2025-06
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, Peter Maydell <peter.maydell@linaro.org>, 
+	Eric Auger <eric.auger@redhat.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260107_112533_205095_8ADBF0CB 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,61 +117,58 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 09:43:22AM +0100, Peter Zijlstra wrote:
-> On Tue, Jan 06, 2026 at 10:18:35AM -0800, Paul E. McKenney wrote:
-> > On Tue, Jan 06, 2026 at 03:56:22PM +0100, Peter Zijlstra wrote:
-> > > On Tue, Jan 06, 2026 at 09:09:37PM +0800, Boqun Feng wrote:
-> > > 
-> > > > Some C code believes a plain write to a properly aligned location is
-> > > > atomic (see KCSAN_ASSUME_PLAIN_WRITES_ATOMIC, and no, this doesn't mean
-> > > > it's recommended to assume such), and I guess that's the case for
-> > > > hrtimer, if it's not much a trouble you can replace the plain write with
-> > > > WRITE_ONCE() on C side ;-)
-> > > 
-> > > GCC used to provide this guarantee, some of the older code was written
-> > > on that. GCC no longer provides that guarantee (there are known cases
-> > > where it breaks and all that) and newer code should not rely on this.
-> > > 
-> > > All such places *SHOULD* be updated to use READ_ONCE/WRITE_ONCE.
-> > 
-> > Agreed!
-> > 
-> > In that vein, any objections to the patch shown below?
-> 
-> Not really; although it would of course be nice if that were accompanied
-> with a pile of cleanup patches taking out the worst offenders or
-> somesuch ;-)
+On Tue, 23 Dec 2025 at 01:21, Mark Brown <broonie@kernel.org> wrote:
+>
+> Update the definiton of SMIDR_EL1 in the sysreg definition to reflect the
 
-Careful what you ask for.  You might get it...  ;-)
+nit: definiton->definition
 
-							Thanx, Paul
+> information in DD0601 2025-06. This includes somewhat more generic ways of
+> describing the sharing of SMCUs, more information on supported priorities
+> and provides additional resolution for describing affinity groups.
+>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 
-> > ------------------------------------------------------------------------
-> > 
-> > diff --git a/lib/Kconfig.kcsan b/lib/Kconfig.kcsan
-> > index 4ce4b0c0109cb..e827e24ab5d42 100644
-> > --- a/lib/Kconfig.kcsan
-> > +++ b/lib/Kconfig.kcsan
-> > @@ -199,7 +199,7 @@ config KCSAN_WEAK_MEMORY
-> >  
-> >  config KCSAN_REPORT_VALUE_CHANGE_ONLY
-> >  	bool "Only report races where watcher observed a data value change"
-> > -	default y
-> > +	default n
-> >  	depends on !KCSAN_STRICT
-> >  	help
-> >  	  If enabled and a conflicting write is observed via a watchpoint, but
-> > @@ -208,7 +208,7 @@ config KCSAN_REPORT_VALUE_CHANGE_ONLY
-> >  
-> >  config KCSAN_ASSUME_PLAIN_WRITES_ATOMIC
-> >  	bool "Assume that plain aligned writes up to word size are atomic"
-> > -	default y
-> > +	default n
-> >  	depends on !KCSAN_STRICT
-> >  	help
-> >  	  Assume that plain aligned writes up to word size are atomic by
+It matches the spec.
+
+Reviewed-by: Fuad Tabba <tabba@google.com>
+
+Cheers,
+/fuad
+
+
+
+> ---
+>  arch/arm64/tools/sysreg | 8 ++++++--
+>  1 file changed, 6 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index 8921b51866d6..6bf143bfe57c 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -3660,11 +3660,15 @@ Field   3:0     BS
+>  EndSysreg
+>
+>  Sysreg SMIDR_EL1       3       1       0       0       6
+> -Res0   63:32
+> +Res0   63:60
+> +Field  59:56   NSMC
+> +Field  55:52   HIP
+> +Field  51:32   AFFINITY2
+>  Field  31:24   IMPLEMENTER
+>  Field  23:16   REVISION
+>  Field  15      SMPS
+> -Res0   14:12
+> +Field  14:13   SH
+> +Res0   12
+>  Field  11:0    AFFINITY
+>  EndSysreg
+>
+>
+> --
+> 2.47.3
+>
 
