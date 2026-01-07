@@ -4,159 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81CDBCF6BE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 01:33:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41659CF6BE3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 01:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Yvaxtyl35o7SohoL990uyQhSLKN/4wm0iR3iMVBqbw=; b=N2X3/SbXkVt5mnrt2DdoASqV++
-	WSd3tPyrMVwIusuXFBB/aHvBNz18GRdLjmO5/Ubo1m245ys+4qaetRBO++6XieIzKTBWNsKCX/vEL
-	D8YoJO0e2Vz9YK90R6TFs0XdgcLUG/zXRJqyxrd3b20dCSOplL945dqX+sN6FAA0mu36z0bdv6qV6
-	aAg5mXtZRsvIclrCIKjB/qEi55LPpkCmMifs+MBm8wUpnPdVjnItcYiirAY31F9M1jiz0R2FQBXDQ
-	3AYLDiw229TdHdbR5928gmmFvTTHtYjc5S0k7GpSmYjjokGWclnm49CuCN4WB5BYo8SCdbkmFreO5
-	Ku0xKS3A==;
+	bh=IeLz8B+FFA+xmUGLHkiMAf9w6+beNxbYkBoeeKfR+nQ=; b=yYzRmQvHHfT29lu4yUcKP9iH9g
+	Ua3PPB2h5RL+qVaVgklULdTMLfvZkYJM1vwkUXSRlNSVYK5YZ2guRzFVVlShk8Yh4geAcRtptWr4T
+	eH99sXU5vHvKYgablDwcUkESgqcgfx497zadrNOUQcUg8+b3G7gE2xjx4Ug/xm8twhVnsVrFmO7gf
+	dMGtzGhmPeetionrqZDc6PtawPB8cKf4EK4PSAkH+GhwCtDIZiQkTbisOMFoVcOCKGEXIjFOqFGHH
+	NsqPNE7Ly/1fQYTkbHnqLQO2UpYkhAfMIlfHvW9IuUZYC7FfzOi4cy+miKQ/D1yMTk7ZCXC9xE3KE
+	1/mTTN9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdIQN-0000000E0yA-3tjW;
-	Wed, 07 Jan 2026 01:33:23 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vdIch-0000000E1Wv-1n2j;
+	Wed, 07 Jan 2026 01:46:07 +0000
+Received: from mail-ej1-x643.google.com ([2a00:1450:4864:20::643])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdIQL-0000000E0xn-0F0d
+	id 1vdIce-0000000E1WY-3hFy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 01:33:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rCWbNKDUpCauvHuN/iqvzGogX6x7CVksLyCLsl2phuG2YZgslkOPOVCUCFxne7YfWqLqmdTk0b7974dWLmFhfKZgIp9CQLi+SyaX1VDDRqr+2RXTvEOx/syotJ/IPc77J/ciK9dm2+z2SLhdMQ4xdFxGIyC3q6fbw+f1cmIK9s2xQ7XoEBacWtjvFvW3Kd7nlItP8v+4ONZxTi5+9vDmgIYvNmySDNo6US5JlWbdbVlLp5SZqMRjVdt4pEPhWqjY97nwAKUPKDC4S3iLzuP00BxghiQr77DKJHqnRnJIpS/mFQCTDCVdEQ94T4/VrXI5G4TBiy4/M4nlcNdCVJ/Xsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7Yvaxtyl35o7SohoL990uyQhSLKN/4wm0iR3iMVBqbw=;
- b=Gt7vzBxwMRDUQYvfYJ3tgfRhUVTs1IBKUT9LrhGS+ZKnejME6P9JUbk8RjaXgp14qSfGsKEQLTsrVuThvyqS5/n7/z9xbtbMPBy+fgiKZo9H51AhJs6R8UuIVemhHuzhnjOMQ9NWeXuguFAC+Ct306w25Lb0YIm+TE8o0C7YpAJL5l4ZMOoEEPBp2txhqopxEP3wrtyOfW0BBhwfkPMr0oO69Le/NPf0jxVqO0ky4jwbidVzyoe72KFD6Zy3YAlZJaiUN3NPaf2McycUVQzr25vo7AtcRWRpuoYKdZPno0GmfJchz2LQdLDRtX5OymcCpWSdKU45+mjXXaiRzUCHiw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7Yvaxtyl35o7SohoL990uyQhSLKN/4wm0iR3iMVBqbw=;
- b=p+CHMskXZNxI7FH7DOGSZzVSiY5awNI0Cx3hDPnY9OaoUZwBDSZFy7qnpajGn7IxQeXHd5he0wE1/6ofJepYdoRjhakyCVaACGoum9q/VpEfd5mqbtmvOFhWT4uq7bYfmNueFV6O3ixqs5I96k+aebP7o3D3+BDTfNH7QdIXZt6w/VZJe29H3RcJ3lFYySwON297QIpeTKH1O/d4QBEtBrrARSqo6+SmUCieB6PfUSYyJiOffM7vdECHvE6u4OZoSOCcuBi9xy/I767JYbYPmimCxlwUDfHtK5Ho7EIzFV1P+1O3mMK7oF7fE6SKZK2rlKrXKJmxLSmaKBdmmO9Sag==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by MRWPR04MB11491.eurprd04.prod.outlook.com (2603:10a6:501:76::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.2; Wed, 7 Jan
- 2026 01:33:16 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9499.002; Wed, 7 Jan 2026
- 01:33:16 +0000
-Date: Wed, 7 Jan 2026 09:34:47 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>, Shawn Guo <shawnguo@kernel.org>
-Cc: Peng Fan <peng.fan@nxp.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/2] firmware: arm_scmi/imx: Support dump syslog
-Message-ID: <aV24N72FoGeGwgqm@shlinux89>
-References: <20251029-sm-syslog-v3-v3-0-64e14a6e3f87@nxp.com>
- <aUCy5+vAPzDGeux3@shlinux89>
- <aVuzVNmG2l-igiEB@nxa18884-linux.ap.freescale.net>
- <aV0uVXXbxKQ5qzLD@bogus>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aV0uVXXbxKQ5qzLD@bogus>
-X-ClientProxiedBy: SI2P153CA0017.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:140::10) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Wed, 07 Jan 2026 01:46:06 +0000
+Received: by mail-ej1-x643.google.com with SMTP id a640c23a62f3a-b7cf4a975d2so267268366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 17:46:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767750363; x=1768355163; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-transfer-encoding
+         :content-disposition:mime-version:references:reply-to:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=IeLz8B+FFA+xmUGLHkiMAf9w6+beNxbYkBoeeKfR+nQ=;
+        b=Iqc+GJ604uerg93RGRoKuKW8HvrulnvLaSt/ps8EP+MImsXokewUQ5k9UX6G2qhOB1
+         F5MaRLT9Wdwpia1ChtrYHzOBznHrCPE6aSJiJax0bqglfo+Ie4+UCzrvZ5yYNEM85WRJ
+         1Ev97SeZDygbIppfooLwzHxuglPeHk862F2s0WI0p2+kd1z5M75C8Xf3C4TQnE0yBu4x
+         B8nZF09ZKjMpbGmqw4iszlrqG64S+zVguTzE5bxMprzzO0MFGZTfdALqnoqO/v29F+NT
+         OxOHKx6c0rW9VqsaA6gEjbCoFXIawbjCMCRBzBljmCA76o+AFt/dbG1hZPvFaSzgt/ld
+         B3YA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767750363; x=1768355163;
+        h=user-agent:in-reply-to:content-transfer-encoding
+         :content-disposition:mime-version:references:reply-to:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=IeLz8B+FFA+xmUGLHkiMAf9w6+beNxbYkBoeeKfR+nQ=;
+        b=such0SRb1xHTVR9vaHwk06S6iv2eWYXjbSGyMEDevn2QjWjveo6t4TU4EP00PQLUnp
+         VV3LjJou5OKBXQeQ06BFQEKqsPVE8H4Ti/VTmrMDQzGRQPVtKQzBm0khX8st1Add+6to
+         BfpaOgiEvrxp5P5LAepvw0v2CuiaVF6q1jGcSjz3N/rdJTPtv96gfanOncWN72n+0Q38
+         1HdHlyNpTH5cvlJK75jzW/Q0kJd+PJhKsHtKJf3QB9qVXuPA78yBsb8Ccso0zfRmfRZX
+         eCdY58L35K0Hqyjdv760G47rcNh7Yjky46HfvkFuYTTRBisemcvsjfxC/4p6kcEg2DjE
+         a4TQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW9Hol5C0ZQ5XDNuzRScbfHwOIFE2fWWXoKYdV1rw6m9GTw9DZMcJOALi4nfv9imzejm0/xju3GA2ca0PCPOZOF@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJdzWv+OXPg1A8tWVqIE7AK5+K0N0Xbk/Jf1InQrSkTr/r252e
+	ovlY7g+6rzG5cOWFsQ7flGxXJw/U4QJ62kuX7HgwdEto5TvBiHxVg8Ck
+X-Gm-Gg: AY/fxX4jFnfyV9fYaci6NdYQwd6nqqilCi7EyR4JvdBm/YEzMbn05+62ykxjmEfP2y5
+	pW2K3klbXrNe1UEhraJ9uhka0zEus8/dJwS6H7NVSNHNI4hNlhV8cJmKWKMIDAi8/my4nEF/YYg
+	tIBnMnevEdegJlVPz8d9A2Nonh0AfrF+IczfDgx9GxGtOFhkrqGVywrGkBADzlvlIZB/sgBpiMV
+	kMTBb3nOvGA3nmyoS1FF9ZCsBDwNblqBaKVawK5Yv9ORnYQtnlvrsldqRGax1LxqO7QMX/DFzak
+	3cAYtWQnH1QGVR7FWJPh5Uddhbok2YL5fr9giGNRme7w7LoTioaDfPpOxRqr1zonvaRL+TH8JY2
+	koZhAEGiFfc0wkURvcDO2MFpQgFks/HLbN5UwGTNp+/7CPx7BrDnMfFE4ag13Lww3nDcle7Ifk0
+	BL/j+R/zZK6csD9qXDqKB5
+X-Google-Smtp-Source: AGHT+IFeA6mkv79CriXKt6qQAcQGV8CynmdXfqBxQvsbb+Aj2IP7Z2BA07re20HuxUP8m4dAAyg8xw==
+X-Received: by 2002:a17:906:ef02:b0:b80:751:ee62 with SMTP id a640c23a62f3a-b8444c8e95bmr98318966b.14.1767750362536;
+        Tue, 06 Jan 2026 17:46:02 -0800 (PST)
+Received: from localhost ([185.92.221.13])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b842a230db0sm375951066b.2.2026.01.06.17.46.01
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Tue, 06 Jan 2026 17:46:02 -0800 (PST)
+Date: Wed, 7 Jan 2026 01:46:01 +0000
+From: Wei Yang <richard.weiyang@gmail.com>
+To: Barry Song <21cnbao@gmail.com>
+Cc: Wei Yang <richard.weiyang@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	akpm@linux-foundation.org, david@kernel.org,
+	catalin.marinas@arm.com, will@kernel.org,
+	lorenzo.stoakes@oracle.com, ryan.roberts@arm.com,
+	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org,
+	surenb@google.com, mhocko@suse.com, riel@surriel.com,
+	harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
+	dev.jain@arm.com, linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 5/5] mm: rmap: support batched unmapping for file
+ large folios
+Message-ID: <20260107014601.dxvq6b7ljgxwg7iu@master>
+References: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
+ <142919ac14d3cf70cba370808d85debe089df7b4.1766631066.git.baolin.wang@linux.alibaba.com>
+ <20260106132203.kdxfvootlkxzex2l@master>
+ <CAGsJ_4yKRtyADU2ZxUMgvqdrhAEL4SpZxCMRt28gNJfUf--5zQ@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|MRWPR04MB11491:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2510514d-c25c-4b25-5503-08de4d8cbb27
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|19092799006|7416014|376014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xlUVTwNRKXijHtCfTqF8F/VSsqpzuxG+IFbixbmOqQMbVTnmttgQKjj8H2Zj?=
- =?us-ascii?Q?z0drreyWFQNCNqx952tGjOpt/z6aoViJk2qfOoxvWwjO+nqLfK+0wR4noxI0?=
- =?us-ascii?Q?/OrrOl71gg2YIpY8enoWUEGcr+zlvBhYmxxQCtoFTvBAiU7w+s30TuNrBepK?=
- =?us-ascii?Q?lcvnzPkKFtLuLsO7DZLu5kT4BQ/bu+4gQUGmMbs4eVp5sNytpXBDeL2K0BYR?=
- =?us-ascii?Q?OkdBKblSHVNqoxwlegBKFsH42YTcNzSkUOgYdgtq/Tm6G2zLJXvrxXUDcLIs?=
- =?us-ascii?Q?5IDW4jSvwd0t9h/AhBPMIe7aNTXEbk4pvH2UKt0By/tB+Dfml1bpxeemEg/x?=
- =?us-ascii?Q?7KMSp/tbeuLeNVn68J0KZ0QykzDVRMF+rb0QE5nPT3PSf/hjAtT39s4Ag/dH?=
- =?us-ascii?Q?ZwgsxgpqAJYTxZUtJx6bvb5UiWILZsuRaskG9zJSZ+q/fk9ztGbOBZbfw7yH?=
- =?us-ascii?Q?ALq/F/4UPV8kR4N+l9QbPkTxg1rM0eBTCRA06I557ShZoHUu8V29fK69Y7/D?=
- =?us-ascii?Q?zi0jS7ftSDF0nCbJms/J/7UGlF63/SgKPIfCvixd3NHhIs48s62x9rWc7BM7?=
- =?us-ascii?Q?zX8IsuQH87KPDHc0/hiqSQlIq1E26GuSX9JyUHG7o7HVVvKP0jUrwboN2jxH?=
- =?us-ascii?Q?uJk3zQVKZrn/VcQmar9bjs7xnVb64oge4vASxNGyyYmUWF1tXlpshcGmT4OF?=
- =?us-ascii?Q?xWf8onVQ2Q+nChdjCLDdWIXQO6cF16kzpU55yiqHzVLH6Hndy0pBg54aRNDk?=
- =?us-ascii?Q?g1Q8lG2ZZUG6oS8YUgn9N7Bk579kWEmf3dgDKbm/krLcHHhiaLf3FgDjSnh1?=
- =?us-ascii?Q?87+ZdI8ZFdA4kL2X9x7D8eW0rWMaHjN5Atu7Rh2UjC181UEITxBf3ofeeKPw?=
- =?us-ascii?Q?P4y3ffrYVCz9yeB9Kw3LgKoU+2WmHYnNQ8+dxeA8oDJupe7ER6fh6VfgEciI?=
- =?us-ascii?Q?/eOLr+1+IxQxNh4lVYpeMZQKEn6d1jPJFq2t9/WEgpX7BmyOSGp9gNMd35jU?=
- =?us-ascii?Q?F4ei3pKfqpSQGKrI6NFC3VsVvsQIf64dIyq5e/0dLnUbpG75rgOjxHgNy+Ah?=
- =?us-ascii?Q?Ct4vpIS499TfJLDI/Do4ZBZTR/CRszfAc8rfKM8VcM6ZEZT0umFaoW0goFG1?=
- =?us-ascii?Q?Al/deLQ/1fEXPxb948dYq9EC0IE1QP5l+mxXLavMVutaxHJxQ0E0sjQMv7Em?=
- =?us-ascii?Q?7WSaS5G4u4h1cueeoOAn2HhlgxXV5AGjRiysxNYKGk0qKcb+r21tQmF+vX2i?=
- =?us-ascii?Q?9M5Ogl+YAKqq/x0KySWzkJjwL/2MV1GZKc0eL+juciwSE6Q8NJqgbKW9hVPW?=
- =?us-ascii?Q?eXtd22Za7EkAgJz2l+VgTa1hYvOkfxi8rdYebOXDisXBsZLcP4/5VhgUU4fw?=
- =?us-ascii?Q?TkXt652Agc3tYbLaNGH/kMFQ4ihNqD218QPijvuTrDFI3fBtSP/7NZ0M58K0?=
- =?us-ascii?Q?1DWE9WLIVBUZWceoduxnnjZNBAgEiRUtD39d6IVXoRHmTmMNYsNMEyhuUar3?=
- =?us-ascii?Q?5uwoz4cVHDk5XB7OoczItVPB1SOKGXF6ycSS?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(19092799006)(7416014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ic7/ElnISWq3lOdRwGjAuTFVut98B8FLClmn4JBCclTO/CwDImCWiBMQhfxd?=
- =?us-ascii?Q?/S2FhdisoVj9n1l0/BByEoOFIyXNiKEn+8XzxraPh7FUDmeyNOf7ZIUNX+kD?=
- =?us-ascii?Q?bG47ngp/wwVTStcH/Ehp2ax8DXA7wLYQlW9vuYDKB55W2cqmsmjovYIOJtbP?=
- =?us-ascii?Q?+ITvUBdsV39C6zzDu+zKuRd89ZYhwe2W8Hf+zE87kg+cjz9Tq1GOevY6cTrC?=
- =?us-ascii?Q?mq4SOcXYeHrfXuKXcvZfKJTPIFRFdxq2RRdtDvVUT8jyYcVfFe0Bo7cmFnhQ?=
- =?us-ascii?Q?pv9iI6RKDwV6PPHe4emFFcdSnYzF0jquOEkvL2eL89vMDcCBiryY59+YODRo?=
- =?us-ascii?Q?mE31YCenLLkB0E3g2Zc9nJg82OkwiHSf7n6aqOv4OVoJ/nio//mamUO779UZ?=
- =?us-ascii?Q?H+4IzQLVNFxIZs5r9lwiy1+H1kYCX+Kvip2BekPBUcgNxlDb+HW56QLQHnP2?=
- =?us-ascii?Q?JvjtBUO5K1ehxvtURyR8Ty2XbDiVooSRULsWxUSAhM824vwPYmt5+3iXHilE?=
- =?us-ascii?Q?ZA6Dj2X1QjddIVvsfqJgskn1AYVdhnNJIWLdPHlMc+LoErRCaYxlIXKQe1Fr?=
- =?us-ascii?Q?a9DNGDN2K36c4JJZLw6BFstK6iiZtI1Z6DLPJVeOQNv0nSnGMUQZ1fd+EF1c?=
- =?us-ascii?Q?XsArQluDEwE7b44p1AGyS2iaiwOsZ0PU4tjYhOu+5c1OwQGBTcpFJe8njJ81?=
- =?us-ascii?Q?fMaCV+uTbkhCqHOpRVIhDrUv2DAWyUNuEY4yexG5NNeF7kYqe3hNHPgox5RT?=
- =?us-ascii?Q?fz5uFzG27NK6jhcBwZvZeAgzzyo1merp4Jt1w6VJnTfO3Z4dZdBnqdTrKDSr?=
- =?us-ascii?Q?G+QQt5qoz0Bz5d3snu5Ty7huGdNlAAiYkpbUSNpMB0HzSwHNl0/Amo4NaVCT?=
- =?us-ascii?Q?AVRXUwWmWAEmsuTxpWDmOWer0LIXQq+/sdguA3E5o0VhmA5KRawmsTjZ+Tmt?=
- =?us-ascii?Q?mZ08we5K/PB3U6rrKa/PqoknDhqGXxqEJDNm67sT+tdDo3+URabAFSecQKUq?=
- =?us-ascii?Q?ElO+GorR8PcrEX5lIHSxQ0rYspWG2hJuuvDAegygmaEAbetHqxKBSM48AmVr?=
- =?us-ascii?Q?Ze62XHxHMEhhrWATdyuB4QQUJda8fqqrHgMelwgVM+Gk2kMgqB8QVDYx0LFk?=
- =?us-ascii?Q?JeP7vCUJI53saJQJnPCec5wcGOS4Hu2O4EUBAJepUy8AVtJU3Pov2S9WfOtx?=
- =?us-ascii?Q?rLbViLWHfWqnsvi2ExaPfBoth4iUHWtrbdxyknkvpo/N+bwB+PKqzfGnEp9T?=
- =?us-ascii?Q?b7cJFGWY2lSyzZdgr0mTDP0d2AywENrgj+CIJLI3qsfj4dUg6MgtlqxQ888m?=
- =?us-ascii?Q?++I4P59N5/Y5j4suh8UZVzqFDmDfsUEMRCGqLWsiiEuUBLkOfELxhbVu9zND?=
- =?us-ascii?Q?TNphdNDiIo0/QpAuw/qM+I1pP1wNrIquak2XUanQskVEwCNP7928CWjfdsgr?=
- =?us-ascii?Q?VqYmIgh4OU/ptbqfGzIY7elOz6xXfqXiYPv4rI4O+1ySrbiXn8X496Qt2BbR?=
- =?us-ascii?Q?f7WRHc4Qd4/Klo2JCXE8oVUg2T1UDiZBXrnhoC7katdPf6dN7VlM8hS87L2C?=
- =?us-ascii?Q?RtTu1dm33ca2IT7V1AoIUJmS9zDGRgHc+PlmkaedTVftNOq1VJfQLbokh7Vk?=
- =?us-ascii?Q?jajlgTsb8RvrhBHplSyQY66nqOi+xPMtSCNCF5fsUVKVwrvaQ1/PTtGZElQT?=
- =?us-ascii?Q?b8qJOPVCZ5NNUd1klUp97mj4akUMv6mYcjBYEbUZ8rKmG9kbSte7afdV2KsQ?=
- =?us-ascii?Q?EdG3uKEAAQ=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2510514d-c25c-4b25-5503-08de4d8cbb27
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jan 2026 01:33:16.5253
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kCwSI5gu3thJHxKUrzMzSKN2zIMQTjlvssxkJoVLqUDKjrf091XclzG+VeKAoLvWgc1OJR42FJ6Zsjce0a/S3w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR04MB11491
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGsJ_4yKRtyADU2ZxUMgvqdrhAEL4SpZxCMRt28gNJfUf--5zQ@mail.gmail.com>
+User-Agent: NeoMutt/20170113 (1.7.2)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_173321_119972_5D8A29E2 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20260106_174605_070579_EE8F0867 
+X-CRM114-Status: GOOD (  27.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,39 +111,150 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 06, 2026 at 03:46:29PM +0000, Sudeep Holla wrote:
->On Mon, Jan 05, 2026 at 08:49:24PM +0800, Peng Fan wrote:
->> Hi Sudeep,
->> 
->> Hope you're doing well. Apologies for following up again, but this v3 patchset
->> has been pending for quite some time. I wanted to check if everything looks
->> good on your end.
->> 
+On Wed, Jan 07, 2026 at 10:29:25AM +1300, Barry Song wrote:
+>On Wed, Jan 7, 2026 at 2:22 AM Wei Yang <richard.weiyang@gmail.com> wrote:
+>>
+>> On Fri, Dec 26, 2025 at 02:07:59PM +0800, Baolin Wang wrote:
+>> >Similar to folio_referenced_one(), we can apply batched unmapping for file
+>> >large folios to optimize the performance of file folios reclamation.
+>> >
+>> >Barry previously implemented batched unmapping for lazyfree anonymous large
+>> >folios[1] and did not further optimize anonymous large folios or file-backed
+>> >large folios at that stage. As for file-backed large folios, the batched
+>> >unmapping support is relatively straightforward, as we only need to clear
+>> >the consecutive (present) PTE entries for file-backed large folios.
+>> >
+>> >Performance testing:
+>> >Allocate 10G clean file-backed folios by mmap() in a memory cgroup, and try to
+>> >reclaim 8G file-backed folios via the memory.reclaim interface. I can observe
+>> >75% performance improvement on my Arm64 32-core server (and 50%+ improvement
+>> >on my X86 machine) with this patch.
+>> >
+>> >W/o patch:
+>> >real    0m1.018s
+>> >user    0m0.000s
+>> >sys     0m1.018s
+>> >
+>> >W/ patch:
+>> >real   0m0.249s
+>> >user   0m0.000s
+>> >sys    0m0.249s
+>> >
+>> >[1] https://lore.kernel.org/all/20250214093015.51024-4-21cnbao@gmail.com/T/#u
+>> >Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+>> >Acked-by: Barry Song <baohua@kernel.org>
+>> >Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+>> >---
+>> > mm/rmap.c | 7 ++++---
+>> > 1 file changed, 4 insertions(+), 3 deletions(-)
+>> >
+>> >diff --git a/mm/rmap.c b/mm/rmap.c
+>> >index 985ab0b085ba..e1d16003c514 100644
+>> >--- a/mm/rmap.c
+>> >+++ b/mm/rmap.c
+>> >@@ -1863,9 +1863,10 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
+>> >       end_addr = pmd_addr_end(addr, vma->vm_end);
+>> >       max_nr = (end_addr - addr) >> PAGE_SHIFT;
+>> >
+>> >-      /* We only support lazyfree batching for now ... */
+>> >-      if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
+>> >+      /* We only support lazyfree or file folios batching for now ... */
+>> >+      if (folio_test_anon(folio) && folio_test_swapbacked(folio))
+>> >               return 1;
+>> >+
+>> >       if (pte_unused(pte))
+>> >               return 1;
+>> >
+>> >@@ -2231,7 +2232,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+>> >                        *
+>> >                        * See Documentation/mm/mmu_notifier.rst
+>> >                        */
+>> >-                      dec_mm_counter(mm, mm_counter_file(folio));
+>> >+                      add_mm_counter(mm, mm_counter_file(folio), -nr_pages);
+>> >               }
+>> > discard:
+>> >               if (unlikely(folio_test_hugetlb(folio))) {
+>> >--
+>> >2.47.3
+>> >
+>>
+>> Hi, Baolin
+>>
+>> When reading your patch, I come up one small question.
+>>
+>> Current try_to_unmap_one() has following structure:
+>>
+>>     try_to_unmap_one()
+>>         while (page_vma_mapped_walk(&pvmw)) {
+>>             nr_pages = folio_unmap_pte_batch()
+>>
+>>             if (nr_pages = folio_nr_pages(folio))
+>>                 goto walk_done;
+>>         }
+>>
+>> I am thinking what if nr_pages > 1 but nr_pages != folio_nr_pages().
+>>
+>> If my understanding is correct, page_vma_mapped_walk() would start from
+>> (pvmw->address + PAGE_SIZE) in next iteration, but we have already cleared to
+>> (pvmw->address + nr_pages * PAGE_SIZE), right?
+>>
+>> Not sure my understanding is correct, if so do we have some reason not to
+>> skip the cleared range?
 >
->Yes overall it looks good to me.
-
-Thanks a lot.
-
+>I don’t quite understand your question. For nr_pages > 1 but not equal
+>to nr_pages, page_vma_mapped_walk will skip the nr_pages - 1 PTEs inside.
 >
-...
->> Alternatively, I can ask Shawn to pick patch 2 if you only intend to take patch 1.
+>take a look:
 >
->I think that would break build or need to wait for another cycle.
->I can ack if it can be routed via i.MX tree or need ACK to pick it up myself.
-
-Shawn,
-
-Do you plan to pick the two patches with Sudeep's Ack in patch 1? Or
-you prefer to route the patches via SCMI tree with your Ack?
-
-Thanks,
-Peng
-
+>next_pte:
+>                do {
+>                        pvmw->address += PAGE_SIZE;
+>                        if (pvmw->address >= end)
+>                                return not_found(pvmw);
+>                        /* Did we cross page table boundary? */
+>                        if ((pvmw->address & (PMD_SIZE - PAGE_SIZE)) == 0) {
+>                                if (pvmw->ptl) {
+>                                        spin_unlock(pvmw->ptl);
+>                                        pvmw->ptl = NULL;
+>                                }
+>                                pte_unmap(pvmw->pte);
+>                                pvmw->pte = NULL;
+>                                pvmw->flags |= PVMW_PGTABLE_CROSSED;
+>                                goto restart;
+>                        }
+>                        pvmw->pte++;
+>                } while (pte_none(ptep_get(pvmw->pte)));
 >
->-- 
->Regards,
->Sudeep
+
+Yes, we do it in page_vma_mapped_walk() now. Since they are pte_none(), they
+will be skipped.
+
+I mean maybe we can skip it in try_to_unmap_one(), for example:
+
+diff --git a/mm/rmap.c b/mm/rmap.c
+index 9e5bd4834481..ea1afec7c802 100644
+--- a/mm/rmap.c
++++ b/mm/rmap.c
+@@ -2250,6 +2250,10 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+ 		 */
+ 		if (nr_pages == folio_nr_pages(folio))
+ 			goto walk_done;
++		else {
++			pvmw.address += PAGE_SIZE * (nr_pages - 1);
++			pvmw.pte += nr_pages - 1;
++		}
+ 		continue;
+ walk_abort:
+ 		ret = false;
+
+Not sure this is reasonable.
+
+
+-- 
+Wei Yang
+Help you, Help me
 
