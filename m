@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F05D0D156
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 18:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88D38D0D157
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 18:11:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BIqLjn51aED1/Lm5zg6AD5xfAD+qOTigjklYX/QagP4=; b=ybtiAgAtX7oskVDDHXa1PzVaQl
-	TduqirCSwaTVxIq0yyvnjISg+m8SBXf3qniIjLFqB/6OiFCm6uaT4tdtGpDDKvXs7T3QbUyPyGbRu
-	6cU8oOme/GWZIIWjtZfCYg7+sGRiA77p6pZfr8B1iLi/axHi9wZfZ4a1Vz29PR/xsa4Ix82+snxaC
-	mW0iaxo6AYI4h/GRIHX2HMp+o1jyNxAKDQeJxBgnrGhLNpW/eB9HPu0is3KoaNTLZgankER1lgcsu
-	XBbwvdWNl9qewyQEGJV/J2ICszuesjob00OHNFjc1fxUhkHbr6YNKVG0WluC9SdmnYC6ZyBgyxrbS
-	SuQqtIzg==;
+	bh=IdKzkTxj9PTCi1cKdPFw9rGaA7Z5dzLAEvj5bo/sqKk=; b=v38qFMaQIoo2t60l5OdruPMbeg
+	D+NFWb8f/ojEE5PE6YlLJdf90R9IhQgJZ305MdPVk5uuswTYxKq/AMfnCrCoPiPVtVwok57MZiaw6
+	kLYOA+Vv+mDqcws+v8ccteqioX2Z5TN8F3dVi4VyWqy9CRHRwCld5zt+aZTCGd4MqUt9eQcZ6KmRy
+	PRZG1zXUxtalXRdbqm72SAhRlOWDpE4OxT9SykEheXEHro7e8U0YrerzfZRZEWYCh/VM7k8taEwEl
+	T8N3RXlxvTuctlFtfVeE+sypIJ2iVqfG77db4VKFWDW/ngIsaKXuMztyV1m+Cpm+NwcNTtm763P2e
+	40pIC6hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdXz6-0000000FQjo-3CNN;
-	Wed, 07 Jan 2026 18:10:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdY01-0000000FQpR-0Xf9;
+	Wed, 07 Jan 2026 18:11:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdXz3-0000000FQjf-3E3a
+	id 1vdY00-0000000FQpG-0mT8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 18:10:14 +0000
+	Wed, 07 Jan 2026 18:11:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 168666001A;
-	Wed,  7 Jan 2026 18:10:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF3C1C4CEF1;
-	Wed,  7 Jan 2026 18:10:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 88F1860007;
+	Wed,  7 Jan 2026 18:11:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8804DC4CEF1;
+	Wed,  7 Jan 2026 18:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767809412;
-	bh=PFsvF3uhSGjY1eiFSePwQw+5Hfbwu2S30URjOMhpGsE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=dY0zi4TfG9yoBqj5WUxApBt37f1tTN5BXtN2X6Z/BNba0Busula53kHvnSWeyjrlN
-	 Qtqh6LUX7CidrZvbZu4ZR5WZzOndVn+Py7MwOaWO7u4rqwfmCwgLrjGQhsWcz6Ts81
-	 mAgze10yov4ht+GNCEM5czqo//D72gkEYCvZ1YguC9dhAFqVveyUUHjojjjECnISbd
-	 psOPCqdunIsq+CaRHQONXLrnCV8JBs/XL8hCh9Hv8gJDamUs9lmQuGOP8kO1l8r48U
-	 PLllmQLS0y0b9dVUga37praImpd13A8tYh8HMcCr+Ml1MrOr8S3AbYQpXrpuolXQWM
-	 XcvZlVDOaEesw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vdXz0-00000000AIB-38GO;
-	Wed, 07 Jan 2026 18:10:10 +0000
-Date: Wed, 07 Jan 2026 18:10:10 +0000
-Message-ID: <865x9dmgzh.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: Lukas Bulwahn <lbulwahn@redhat.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Vegard Nossum <vegard.nossum@oracle.com>,
-	Kees Cook <kees@kernel.org>,
-	kernel-janitors@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Lukas Bulwahn <lukas.bulwahn@redhat.com>
-Subject: Re: [PATCH] arm64: Kconfig: deprecate redundant ARM64_USE_LSE_ATOMICS
-In-Reply-To: <aV6CpBCvr37mcv7W@willie-the-truck>
-References: <20251223110730.121239-1-lukas.bulwahn@redhat.com>
-	<aVwkIYMyoe7OpeUh@willie-the-truck>
-	<86h5syn8ww.wl-maz@kernel.org>
-	<aV6CpBCvr37mcv7W@willie-the-truck>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: will@kernel.org, lbulwahn@redhat.com, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, arnd@arndb.de, vegard.nossum@oracle.com, kees@kernel.org, kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org, lukas.bulwahn@redhat.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1767809471;
+	bh=yTNbHm4Elx5+p4958R6MqgcPSCwr1JI4nhgkqFvSTQk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cfK1G1cTgD2fle+eiVWG8uWGL3DLjptNzOtIstqyjt6/KrCcdkcRIYkLMAFg5sqfU
+	 23DJAQ6Ihpdb0VBgZEj5n4w3P/+Tfctp8rOxcqAdwIfRgsibuGYiVVhEMNkpf5BavK
+	 hAE9zfUD/PvELOxL1BnKLd1mySP9UBmDoUgW70rAsQSmNsdrNvRd3AB9QCLwRqAK+j
+	 oxVc3cTy7pQnwCk8nZBquR6VX65USIoYM8/BhK/axE/pa5A6txZuUFQ/C+KsYl/Wdl
+	 MWyiwSl+/46epZ2ay12CbjJus5BTD4FfLSnKm9atA3rN+Tu5UGRZsB7JumYPu4T/PH
+	 iTN8bHn/qzmQA==
+Date: Wed, 7 Jan 2026 19:11:07 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Robert Marko <robert.marko@sartura.hr>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, 
+	herbert@gondor.apana.org.au, davem@davemloft.net, vkoul@kernel.org, lee@kernel.org, 
+	andrew+netdev@lunn.ch, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
+	linusw@kernel.org, Steen.Hegelund@microchip.com, daniel.machon@microchip.com, 
+	UNGLinuxDriver@microchip.com, olivia@selenic.com, radu_nicolae.pirea@upb.ro, 
+	richard.genoud@bootlin.com, gregkh@linuxfoundation.org, jirislaby@kernel.org, 
+	broonie@kernel.org, lars.povlsen@microchip.com, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	dmaengine@vger.kernel.org, linux-i2c@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-spi@vger.kernel.org, linux-serial@vger.kernel.org, 
+	linux-usb@vger.kernel.org, luka.perkov@sartura.hr, 
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v4 05/15] dt-bindings: i2c: atmel,at91sam: add
+ microchip,lan9691-i2c
+Message-ID: <aV6hp9_AbKm9IAP9@zenone.zhora.eu>
+References: <20251229184004.571837-1-robert.marko@sartura.hr>
+ <20251229184004.571837-6-robert.marko@sartura.hr>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251229184004.571837-6-robert.marko@sartura.hr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,116 +81,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 07 Jan 2026 15:58:28 +0000,
-Will Deacon <will@kernel.org> wrote:
-> 
-> On Tue, Jan 06, 2026 at 01:54:39PM +0000, Marc Zyngier wrote:
-> > On Mon, 05 Jan 2026 20:50:41 +0000,
-> > Will Deacon <will@kernel.org> wrote:
-> > > 
-> > > [+Marc]
-> > > 
-> > > On Tue, Dec 23, 2025 at 12:07:30PM +0100, Lukas Bulwahn wrote:
-> > > > From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
-> > > > 
-> > > > Currently, the config options ARM64_USE_LSE_ATOMICS and ARM64_LSE_ATOMICS
-> > > > are equivalent, i.e., ARM64_LSE_ATOMICS is true if and only if
-> > > > ARM64_USE_LSE_ATOMICS is true.
-> > > > 
-> > > > Prior to commit 395af861377d ("arm64: Move the LSE gas support detection to
-> > > > Kconfig")---included in v5.6-rc1---only the config option ARM64_LSE_ATOMICS
-> > > > was defined, and the check for gas support was done in the Makefile. This
-> > > > mentioned commit then introduces the config option ARM64_USE_LSE_ATOMICS to
-> > > > be the promptable option, and changes the semantics of ARM64_LSE_ATOMICS to
-> > > > check for the gas support.
-> > > > 
-> > > > Note that there is then some minor refactoring in commit 2decad92f473
-> > > > ("arm64: mte: Ensure TIF_MTE_ASYNC_FAULT is set atomically"), putting this
-> > > > gas support check into its own config option AS_HAS_LSE_ATOMICS, but the
-> > > > logic remains the same. Since every binutils version defined suitable for
-> > > > kernel compilation then eventually included the required support, the
-> > > > config option AS_HAS_LSE_ATOMICS and the dependency was dropped with
-> > > > commit 2555d4c68720 ("arm64: drop binutils version checks"). This then
-> > > > makes ARM64_USE_LSE_ATOMICS and ARM64_LSE_ATOMICS equivalent. Hence, one
-> > > > of the two config options can be dropped now.
-> > > > 
-> > > > Considerations for the decision which config option to drop:
-> > > > 
-> > > >   - ARM64_USE_LSE_ATOMICS is promptable by the user since its introduction
-> > > >     in 2020. So there might be some Kconfig fragments that define this
-> > > >     config option and expect that this then implies ARM64_LSE_ATOMICS to be
-> > > >     set. However, within the kernel tree, there is no existing config file
-> > > >     referring to that option. So, it is unlikely to be widely used.
-> > > >   - ARM64_LSE_ATOMICS is used in nine places within the arm64 directory in
-> > > >     the current kernel tree.
-> > > >   - ARM64_USE_LSE_ATOMICS is the only config option that contains the infix
-> > > >     string _USE_ to enable support and use of an arm64 architectural
-> > > >     feature. However, there is not a very stringent and consistent naming
-> > > >     convention for Kconfig options throughout the kernel tree anyway.
-> > > >   - The use of the transitional attribute allows to simplify transitioning
-> > > >     to a different Kconfig symbol name, but also adds some intermediate
-> > > >     definition to be removed later eventually.
-> > > > 
-> > > > After thoughtful consideration, keep ARM_LSE_ATOMICS and remove
-> > > > ARM64_USE_LSE_ATOMICS in a two-step approach, first deprecate
-> > > > ARM64_USE_LSE_ATOMICS with the transitional attribute here and then plan
-> > > > to completely remove it in two or three years with a further dedicated
-> > > > commit then.
-> > > 
-> > > Marc was talking about removing ARM64_LSE_ATOMICS entirely the other day
-> > > after it bit him with a KVM change. If all supported assemblers understand
-> > > the LSE instructions, let's just do that?
-> > 
-> > That'd be my preferred option. Having config options for things that
-> > we can detect and patch at runtime makes coverage a lot more difficult
-> > than it should be. I'd also love to kill CONFIG_ARM64_PAN, for
-> > example. In any case, here's my take on this, based on -rc4.
-> > 
-> > Thanks,
-> > 
-> > 	M.
-> > 
-> > From 3ab18194eefd2017fb1cea6764adb0634f5946da Mon Sep 17 00:00:00 2001
-> > From: Marc Zyngier <maz@kernel.org>
-> > Date: Tue, 6 Jan 2026 13:44:14 +0000
-> > Subject: [PATCH] arm64: Unconditionally enable LSE support
-> > 
-> > LSE atomics have been in the architecture since ARMv8.1 (released in
-> > 2014), and are hopefully supported by all modern toolchains.
-> > 
-> > Drop the optional nature of LSE support in the kernel, and always
-> > compile the support in, as this really is very little code. LL/SC
-> > still is the default, and the switch to LSE is done dynamically.
-> > 
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  arch/arm64/Kconfig             | 16 ----------------
-> >  arch/arm64/include/asm/insn.h  | 23 -----------------------
-> >  arch/arm64/include/asm/lse.h   |  9 ---------
-> >  arch/arm64/kernel/cpufeature.c |  2 --
-> >  arch/arm64/kvm/at.c            |  7 -------
-> >  arch/arm64/lib/insn.c          |  2 --
-> >  arch/arm64/net/bpf_jit_comp.c  |  7 -------
-> >  7 files changed, 66 deletions(-)
-> 
-> I think we should go ahead with this.
-> 
-> Initially, I thought we'd need some surgery to cpufeature.c so that
-> cpus_have_final_cap() could take the _likely_ path for LSE but it looks
-> like that's only relevant for KVM's AT handling and the common atomic_t
-> APIs use alternative_has_cap_likely() already.
-> 
-> If we do something similar for PAN, then system_uses_hw_pan() probably
-> wants the polarity switching from unlikely to likely.
+Hi Robert,
 
-Ack. Series posted at [1].
+On Mon, Dec 29, 2025 at 07:37:46PM +0100, Robert Marko wrote:
+> Document Microchip LAN969x I2C compatible.
+> 
+> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Acked-by: Andi Shyti <andi.shyti@kernel.org>
+
+Just this patch merged to i2c/i2c-host.
 
 Thanks,
+Andi
 
-	M.
-
-[1] https://lore.kernel.org/r/20260107180701.2858276-1-maz@kernel.org
-
--- 
-Without deviation from the norm, progress is not possible.
+> ---
+> Changes in v4:
+> * Pick Acked-by from Andi
+> 
+> Changes in v3:
+> * Pick Acked-by from Conor
+> 
+>  Documentation/devicetree/bindings/i2c/atmel,at91sam-i2c.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/i2c/atmel,at91sam-i2c.yaml b/Documentation/devicetree/bindings/i2c/atmel,at91sam-i2c.yaml
+> index e61cdb5b16ef..c83674c3183b 100644
+> --- a/Documentation/devicetree/bindings/i2c/atmel,at91sam-i2c.yaml
+> +++ b/Documentation/devicetree/bindings/i2c/atmel,at91sam-i2c.yaml
+> @@ -26,6 +26,7 @@ properties:
+>                - microchip,sam9x60-i2c
+>        - items:
+>            - enum:
+> +              - microchip,lan9691-i2c
+>                - microchip,sama7d65-i2c
+>                - microchip,sama7g5-i2c
+>                - microchip,sam9x7-i2c
+> -- 
+> 2.52.0
+> 
 
