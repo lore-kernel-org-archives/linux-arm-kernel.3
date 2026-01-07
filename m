@@ -4,55 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E9AAD0D167
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 18:38:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4EBCD0D168
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 18:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5YStlvoMyp3D1rDkthx7NRI4dHTFWH4LsKNyR03+KYk=; b=3CUUFikMXJHvn+tUR5qkpv+B7u
-	KsKBh4tpviTij0fHbBULMoCWGiBApIBtDiQM4vHPo0I6bParYOfr4G5t7r8fWNK9oI02vmQ0QaBH7
-	U5/WLK5cyTMq0wDrd0v7U+jyMnO8zuJK/dyKOsolnVkSkzUEucklST8M7+xXCRVmo5AQJjScyvg7N
-	wY2kr9IjMeFfla+wMi6PYciIO7xdsQiatZXgpqAuPSnFjlWEG48mzEiNHa2WwxlH76at6t0MKJp45
-	QoXvQkvhvS1g5eTH9+E/bDSFGalXU95Fy5CExuOt3Fwegesl1Qni0ZgyHy5LkW9ltZKw6wpW+yiJC
-	oAS/DZLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rXeevR2UaTG44xNQSoZ0T+KZIWK8KrLh9KmrPdzbWMo=; b=s7KpMvSCvpkWF7ArB5ErlZDYPu
+	DhNZr7XVZAL+HtH6Ixfi3stjxAjChPxlFAmaaO3orWzTXwDziCB6ExR+crgMNzb7QvjA35Z3R+eKF
+	y0l2nRrFFoPebszR7lXGjTuJD6PxuNR4MeZWZgdipNTsYotisp7Ggk5p2AbluQhQ4bUztCOLMJwtm
+	gIvRkkuC56u2BxHQ92A1VTTzaj50HPfMoLSleiPSqtmIgFkrMbOFfCpVwZlrOtI/o0qU657sztyNf
+	JtTP2dXCkdxSeIfSVOhhj6Ao432UE3LM5KkOa3o5FcFzsDs7sM2MXWJwKkSB8/BjWoz+9qBRpdHV0
+	RtJb3Y9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdYQG-0000000FUDe-0hKB;
-	Wed, 07 Jan 2026 18:38:20 +0000
-Received: from gentwo.org ([62.72.0.81])
+	id 1vdYQX-0000000FUFm-1wIL;
+	Wed, 07 Jan 2026 18:38:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdYQE-0000000FUDJ-14lp
+	id 1vdYQV-0000000FUF8-2OXT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 18:38:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
-	s=default; t=1767811095;
-	bh=5YStlvoMyp3D1rDkthx7NRI4dHTFWH4LsKNyR03+KYk=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=r794LcGWBOzod1LBOrN3R/7j6NffWyCEoatW+NI0eI16GSA6WhQmKb3a+ERw1FDxf
-	 7OEy0eZqouln9BqhuoPJ2mT2A+lIAGc/tHrCTptEBt4awB56VBBi/MNds1M0kXMejB
-	 LVBsUrNNfuH5GkIPzbWUAGaz9on28RtfibglAHrQ=
-Received: by gentwo.org (Postfix, from userid 1003)
-	id 4A387402BE; Wed, 07 Jan 2026 10:38:15 -0800 (PST)
-Received: from localhost (localhost [127.0.0.1])
-	by gentwo.org (Postfix) with ESMTP id 47DC740193;
-	Wed, 07 Jan 2026 10:38:15 -0800 (PST)
-Date: Wed, 7 Jan 2026 10:38:15 -0800 (PST)
-From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-To: Yang Shi <yang@os.amperecomputing.com>
-cc: catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com, 
-    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [v5 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-In-Reply-To: <20260107002944.2940963-1-yang@os.amperecomputing.com>
-Message-ID: <c529f8dc-db3e-5a43-b98a-73ffe8343165@gentwo.org>
-References: <20260107002944.2940963-1-yang@os.amperecomputing.com>
+	Wed, 07 Jan 2026 18:38:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B87F43668;
+	Wed,  7 Jan 2026 18:38:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11763C19423;
+	Wed,  7 Jan 2026 18:38:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767811114;
+	bh=UnoGgK3rZulvQ7+7qKRL2PAUxy2h9dm7tc2RPR5H5pk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Zjtv75C8bU6LOSZ3PZHsIZhImci8OB9N3l4n+g4QJw9+EZUskkZVAM1UPtmIWq8qD
+	 9y/QTHTfTxYeOHOawoKRbbL6WzEkQNUcZ9t+s6O58Apsi/7VGvWziIs5WaDXdB3xIT
+	 ZZ4PTBLu72sZtSwmLEO3QscMYE8XJSixFJRNEqmKAKNd+EAEgG7e2pE1qc+hBXwn3x
+	 7R8UKQBuL2Q0mUw7X6NTXCKWmje4q8fy/C+ZG61+QtwTbCNWAZOHIOYRNySKRWDYn1
+	 iIPWudv/JqxQTi8ZwuwCYId8saayD+UOlRFVcAhLT7cLWzNCC0xoZEU1dm//iCbSlV
+	 khtt+7PhnJH5g==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+	Jagadeesh Kona <quic_jkona@quicinc.com>,
+	Taniya Das <taniya.das@oss.qualcomm.com>
+Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+	Imran Shaik <imran.shaik@oss.qualcomm.com>,
+	Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+	linux-arm-msm@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: (subset) [PATCH 0/3] Add the support for SM8750 Camera clock controller
+Date: Wed,  7 Jan 2026 12:38:21 -0600
+Message-ID: <176781109968.3262943.4143830345398842895.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20251202-sm8750_camcc-v1-0-b3f7ef6723f1@oss.qualcomm.com>
+References: <20251202-sm8750_camcc-v1-0-b3f7ef6723f1@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_103818_360005_7E4C3C2C 
-X-CRM114-Status: UNSURE (   4.68  )
+X-CRM114-CacheID: sfid-20260107_103835_632501_FA6477CE 
+X-CRM114-Status: UNSURE (   9.56  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,7 +89,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LGTM
 
-Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
+On Tue, 02 Dec 2025 15:56:24 +0530, Taniya Das wrote:
+> Support the Camera clock controller for SM8750 Qualcomm SoC.
+>  - The camera MCLK BIST clock controller, which is required
+>    for functional MCLKs.
+>  - The camera CC (clock controller) for managing camera-related
+>     clocks.
+>   - Additionally, the Rivian ELU PLL is utilized within the
+>     SM8750 clock controller, so support for this PLL is also added.
+> 
+> [...]
+
+Applied, thanks!
+
+[1/3] clk: qcom: clk-alpha-pll: Add support for Rivian ELU PLL
+      (no commit info)
+[3/3] clk: qcom: camcc: Add camera clock controller driver for SM8750 SoC
+      commit: f9580bafd39cff31bd51031e8784ea44acddf20e
+
+Best regards,
+-- 
+Bjorn Andersson <andersson@kernel.org>
 
