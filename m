@@ -4,70 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5343FCF6C0E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 09:03:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FCA1CF6C12
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 09:05:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lnlpbCgmTxtOTglNGqjyaNJHb6k8FcV3Z6TUh/kkeRY=; b=SP3BBAf6S8SWae5VT6rESAAhoH
-	H4zs8tyCEbYtcovZgvJTuUjFpWTHjBS7HbdVsepPvcJ2gBp09LoqrcOBI7PjVpg+2NpiC6sOdZ9lG
-	g5UQIn18gE3rwuAcxrP23tKrUbHZseyoGIp5/8GPNBzpx3ncKJmrk5zgWXnj8jnz/pa8b43PuOnac
-	4zmQ7Hv/dkvgSBD6vfvEcTlbdQrOIoMPoOWScb57gr1Ct8YPPq03IHp9ldtT0A1p1JY3dV0NsBCVn
-	YIbeaP0qLyzvIIh/9bBZ0Ldn2Un4HkOXTCkNeMaSipUKpv/BK457dNN9kLg5fpOy0nR71do3EZcBH
-	HaU4QIZg==;
+	bh=p39iNntMLOx9UO7KZPFUtfRegxn2BFsNmVKOlVvoshY=; b=ZiYNwiwLGj7n14XfL88DSOba7g
+	az3m2D8GOtZ/fiojPYa85tmTvfBRKt8OJ5BupgzxICz5vSjL41zd1mW53DFDuY0OvWJTt1gk1eh4i
+	XD9dZDrG+f4CHfG0KhhicGDNpiSinKqvL0K2lsIwARhahfeI9tyBqZRLaNqRgYRFx/C5+TMgY88D3
+	mq6NdW5+9Wexu4P96GfNPm1GICnF1iqqIpRw2sPoHL8QGT90ve6nDhp63xsxEDzjIejNcgdIzhvAY
+	k2qXaaUE+y9D8nxrrdekXbihZl9iVt5zHEJOD0q6Ozxy8Khz4eIFo3ShSLaJwkf/kSFujWN/jbeZN
+	fMuWZBsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdPRn-0000000ETY6-1Ygx;
-	Wed, 07 Jan 2026 09:03:19 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vdPTa-0000000ETo3-1Ftq;
+	Wed, 07 Jan 2026 09:05:10 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdPRk-0000000ETX5-1UzW
+	id 1vdPTW-0000000ETmR-3Hmy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 09:03:18 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 8FEA34E41FC6;
-	Wed,  7 Jan 2026 09:03:14 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 60AD6606F8;
-	Wed,  7 Jan 2026 09:03:14 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BE474103C86DE;
-	Wed,  7 Jan 2026 10:03:01 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767776585; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=lnlpbCgmTxtOTglNGqjyaNJHb6k8FcV3Z6TUh/kkeRY=;
-	b=IpBgUSpAyMC7CqPdKAOn+LjZDHc/4mwnVF8nyWXFl1gh2i7nNLmQRUwxjDLVi+GcZjZNTU
-	FlVUT3eDuIprIT1rq+qBwii5qcu07LUd3VCZpETkXdyHHYc/SB0NV57oBykWQAI4XCRE4h
-	H1AMXafJsLcq2LFw8S2Bmx746Qu8FG3ieY1iwUdrbMhtuTr/Q111xpc8QPN7kKlbXKBc+B
-	vx7qe6A/zWEPu558hsz+SpXlI267uyhPD3hbvuvJ0xm6QR7BNgzYuCBKeAOfHPY3hO/hQ4
-	+eHpMB/ZUfAMLXtmwy6dxg8cz185UH3iuJe6YQ9K+2PE4W4Ea46IjRVkh6UfIw==
-Message-ID: <9a8eeb82-c40a-421c-8d57-dbbe317c270d@bootlin.com>
-Date: Wed, 7 Jan 2026 10:03:00 +0100
+	Wed, 07 Jan 2026 09:05:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fOtCBNLQs2yfeC9SoOnCSGwiIJTxNcVGthQOvx9CN5WWCxN0FrHlYk7tfxVveM6e/SN29Kw+985nBBjmxXt+v5LgxHZl6NDJ7/EQvL1ASocSgSaW0LbgK2wXHuMksCMhuEx2MKT16VGbnyagZFQM0seAqZhj+ug8bJRGUhb4MSNnJZG7k8VZnIQ3HEAKRpqe9HyZD7GDWJbSswjeZpP0qbcRY9YNNz7BngI+t7zY7BhpLIM9yBwH/1ZktZrxVu6byPeXC8RFQoqtw33SxcP6BoqlTwpZFKFclmxzD+3pqIT5K/lKWaaNUVbqs7S1o49fWAn4cx9ONaLizZVm+jds6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=p39iNntMLOx9UO7KZPFUtfRegxn2BFsNmVKOlVvoshY=;
+ b=YmHgP3wYQVbcMpr1sLPgPfhKp0kPL1oPBqJPcx+psRwIV7bcNopU0CceLUteOvEs/Zr3527FD71VZGq4Xd+R7pagIKBjCLVl02Xp0/79SYJSVnzIlN9auEDQ/nbuQui5QG+HGyxWq32ZSRleTTDF0u2s6Vmm31LNkr0f5C/8sieRhDeXh/pTc8tNBSK/7Mht59llloeam26vrDm3tODXuxLUrV/Td9A6yZsnJyUIgBy6o7CJrp8ccvN5ZK1WKqwzSIM4v6+k5M8D5UTVWVVnNoxWJMJihX0HI4GPWVhfWDpQ2mOuMXRsdadUgjD0jI2vmpufJUgepgcGgauHOw1KIA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 165.85.157.49) smtp.rcpttodomain=lists.infradead.org
+ smtp.mailfrom=gehealthcare.com; dmarc=fail (p=quarantine sp=quarantine
+ pct=100) action=quarantine header.from=gehealthcare.com; dkim=none (message
+ not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gehealthcare.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=p39iNntMLOx9UO7KZPFUtfRegxn2BFsNmVKOlVvoshY=;
+ b=AGsmLxQpYVd6XyOiGhckWRqH0geYVxryYZ6fIa8AZw7TmrDWINJZNqcSG+2pvtQyP5Jkp4XQ4sQogCVsEMr9kOPu0x7OdIUooTCmVB9jFDrkEheH5fx24U1Q0usaVi179ipL4LUetYoX8XfQaDNioLdjYPynvMhB4m2tK6Nj50VdmTKbul/Zf/xsAm/G9rz4TZaDzFYrFDJkCUY2b9IvWvWp8409ZMWr9O9JrYoYufu7Y7iTpD/jr+QRoYfnwzNEeIaryiSJnBj5H6REDwFefN1p/ZdAirXDtfVaF7hWeYHXfQ67V9MEv1QhIUqBkuZUsPrbI4Pf1fJZ7T34PcjrDg==
+Received: from CH0PR03CA0273.namprd03.prod.outlook.com (2603:10b6:610:e6::8)
+ by BL1PPF5D00EFC05.namprd22.prod.outlook.com (2603:10b6:20f:fc04::f27) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.2; Wed, 7 Jan
+ 2026 09:05:00 +0000
+Received: from CH3PEPF0000000D.namprd04.prod.outlook.com
+ (2603:10b6:610:e6:cafe::33) by CH0PR03CA0273.outlook.office365.com
+ (2603:10b6:610:e6::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.2 via Frontend Transport; Wed, 7
+ Jan 2026 09:04:55 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 165.85.157.49)
+ smtp.mailfrom=gehealthcare.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=gehealthcare.com;
+Received-SPF: Fail (protection.outlook.com: domain of gehealthcare.com does
+ not designate 165.85.157.49 as permitted sender)
+ receiver=protection.outlook.com; client-ip=165.85.157.49;
+ helo=atlrelay2.compute.ge-healthcare.net;
+Received: from atlrelay2.compute.ge-healthcare.net (165.85.157.49) by
+ CH3PEPF0000000D.mail.protection.outlook.com (10.167.244.43) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9499.1 via Frontend Transport; Wed, 7 Jan 2026 09:04:59 +0000
+Received: from [127.0.0.1] (zoo10.fihel.lab.ge-healthcare.net [10.168.174.92])
+	by builder1.fihel.lab.ge-healthcare.net (Postfix) with ESMTP id 3A05BE57C8;
+	Wed,  7 Jan 2026 11:04:56 +0200 (EET)
+Message-ID: <0c3ebcfe-dc45-4e52-a86e-cc776b3bcae2@gehealthcare.com>
+Date: Wed, 7 Jan 2026 11:04:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: fsl: qbman: fix race condition in qman_destroy_fq
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Marco Crivellari <marco.crivellari@suse.com>, Kees Cook <kees@kernel.org>,
- Roy Pledge <roy.pledge@nxp.com>, Claudiu Manoil <claudiu.manoil@nxp.com>,
- Scott Wood <oss@buserror.net>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+Subject: Re: [PATCH 1/2] watchdog: imx2_wdt: Allow to continue in low power
+ mode
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: wim@linux-watchdog.org, linux@roeck-us.net, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+ linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-References: <20251223072549.397625-1-richard.genoud@bootlin.com>
- <da2988cf-8f4b-4f85-a915-d83ebcb9923e@kernel.org>
-From: Richard GENOUD <richard.genoud@bootlin.com>
-Content-Language: en-US, fr
-Organization: Bootlin
-In-Reply-To: <da2988cf-8f4b-4f85-a915-d83ebcb9923e@kernel.org>
+References: <20251229145000.421426-1-nandor.han@gehealthcare.com>
+ <20251229145000.421426-2-nandor.han@gehealthcare.com>
+ <20251230-pastoral-enigmatic-chamois-b65343@quoll>
+Content-Language: en-US
+From: Nandor Han <nandor.han@gehealthcare.com>
+In-Reply-To: <20251230-pastoral-enigmatic-chamois-b65343@quoll>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF0000000D:EE_|BL1PPF5D00EFC05:EE_
+X-MS-Office365-Filtering-Correlation-Id: 23a08908-2ee2-4653-f84b-08de4dcbd5be
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|82310400026|1800799024|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TG1Sek16S0h5RUtucEZrRzhvNXlLRllJZHZ2b1dmVmYwQlJKcHlLYk9jbGtF?=
+ =?utf-8?B?d1BWUWJqZmw2cHp1aGVSblhmc1BJM1A2Vy9zcDhMak9TYklzQlBuUkRhOU1x?=
+ =?utf-8?B?WkZMb3ErS24rQ0RxK2tqMGVxSTJ6NjFWeXZDY1ozY05EK3FicjJFbzNNdXFn?=
+ =?utf-8?B?allaYWxBY3djbFVhK3JsYVl1czdidUJFSTdMWFovNlpVNkNFZUFPTHRTSEh5?=
+ =?utf-8?B?RHcyQS8xalRjQVY3aUdKTEsrbHAveVlJeUt0VjFJc0lBdnliWUFEK3drdEd6?=
+ =?utf-8?B?bEZRc2FwWmszMWpheDJVRXg0UXZ3akhXR2JTTHhyYUcwT3RCd2NPZDYrUTVq?=
+ =?utf-8?B?Y2M0RFpQYTlDdisvbkdjeGZGQlJzeUR2OHhESit3aFlUOHg3a2dQZVpwbDFR?=
+ =?utf-8?B?dmtLTUJ5VEcvTjlJSUxVci9LM2FUYytFOGVWa3l4eDJISVpJTzlqd2ZyRmp4?=
+ =?utf-8?B?cjloM1FnSTRkT3NCK0Z3bnVDTnhrNGxZVUptRWRMSkFpZEs1WVh2OU9QUjBo?=
+ =?utf-8?B?cG9ZbTZEdlNxZklXek1Fd2lOZlcveVVuR3R1YjRPNlMzRzQyS0ZDaytrTzhF?=
+ =?utf-8?B?OTQ2ZWlIZ0VJNXJlVEpoUGVtZ3Fpdjdla3g2TmFvYm5ZTXF1R2VweGZ3czRh?=
+ =?utf-8?B?UDJQeFMzY0hGYmhHY3I0SzZzTUZsZ3JpZGVEbDllbkQ1dmtjTHpIWDJVR0lP?=
+ =?utf-8?B?dXF6SERGMjVySEprK1dZZXZZV1JpZStqTnlsTjE1UllCMzkwUGJFSmJyM3d4?=
+ =?utf-8?B?b3FBL0o2YnI2YnNFbGJjMWIrOU9SeXNITTZ4SFpuNzlJd1duSE9TUC9OcTBP?=
+ =?utf-8?B?c1ZxNkZIT1BqMkJ3czRGeUMza1BHdFMrNHh5d1ZFZnlnTkp4bjYrVDIycWhh?=
+ =?utf-8?B?b1Q0RmdLakEydlcwQlY1ZmlRK0pnekl6bHo0V2xzNGZad1RTTkRpMURVZTd3?=
+ =?utf-8?B?cENydWsvZVJjaGhMb043ZlRDUksxaVJLcGRoaGlFUHU3Y3FseXdnN1V3ZDA1?=
+ =?utf-8?B?U1A4by9OK203VmVVTVVLWWJWbkRBREhSNDNRQWFFaEl6Q1QxdFZMcDJlQmlH?=
+ =?utf-8?B?S3ZWc3RMMFlNOThMZEJhbUlKTFlmM1NuYjcrNUhNLzlublJiZmlGMHVhY3FF?=
+ =?utf-8?B?VmZ1bWxYaEdmanExQ0tjM0ZuL2lUQWlVTGt5RkRzZWRWOWxGR0R2bDAwSnpP?=
+ =?utf-8?B?Q3RWWGphRVQ5RjY2VmJDR1pUNmE2ZkQxY3BqSncwMjVINWN6V0RjSHJSSlY5?=
+ =?utf-8?B?VmhQNHU5anJqMTJSN2ZudmFrZEJYS0RMeUxSRkE5ZkxSV3BsRHdjTkMwcmJi?=
+ =?utf-8?B?djFtaGFneTRONTZDU3JyTE9yeUJhL3phNEwzeGFXQlNaL0UvdlRPckY3YzdG?=
+ =?utf-8?B?S2N2RjQ4ZnBMdnNoMnBsemxtQU1scklOay9JaHJLN01pQXdOMmtkWW5kOWZv?=
+ =?utf-8?B?UDRpKzZDUjY3M3ZTRTVFQWMrNUN1SjdRdmVnVUJLTGtkcFk1K3JmZmk4WDQz?=
+ =?utf-8?B?UEtHd2Nyd2xJalhCN1JlN0MyZ1dXN3FYemdyckt6R20zNDhMWlNxTzc5NnU4?=
+ =?utf-8?B?cjlPVERSV1A4aTVvTWNpdHB5RU0wT0xHNkJvNWE4VVRlUlRzNjJZcU1RYkNu?=
+ =?utf-8?B?WDAwdHdOVG9lajdHcXdFSXovYk1BckdHRFRwV293NHpNbHJaTmJ2TEg2S2JI?=
+ =?utf-8?B?VFRJdWFTWWpIcDV3NXMvS1RiR0ZPUmFzeTVGUGIyUm9UWFdpYm9aSDVIMk9u?=
+ =?utf-8?B?allKT3VxQ1Qra01IcGFlTzNESlhTdnNLdWxGeEVYOFc3VHVKMzJZbzlUZUhM?=
+ =?utf-8?B?Q01IRVUyMzNuZTc3R01ubFh1bnBpRlZoaGNHRHN6ZSsvanVxczRPZERHYU1z?=
+ =?utf-8?B?YlN3Y3RKWDhIVCtiTzNvZFU4dHp3VWVlUUU3SGtIMGxzalJrQ05CMXNMK1Bw?=
+ =?utf-8?B?QTRaakVjTm4vWVlSUXNjYXNVM3cyQlRIVzMybGpXOWk1eG12Z1VoL2F6SzM0?=
+ =?utf-8?B?d09UNEZPRnZBR09NS2c4dnNaRDNET2RVRDl5K0oyeDZ5T3k3bkNDUWdmMnhF?=
+ =?utf-8?B?ZzRKbkFzOENCK0EwME9XdXBwUjRCMzFISkRnS253T3pyRkQwakpyby9aOGNP?=
+ =?utf-8?Q?Ea9I=3D?=
+X-Forefront-Antispam-Report: CIP:165.85.157.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:atlrelay2.compute.ge-healthcare.net;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(82310400026)(1800799024)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: gehealthcare.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jan 2026 09:04:59.1796
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 23a08908-2ee2-4653-f84b-08de4dcbd5be
+X-MS-Exchange-CrossTenant-Id: 9a309606-d6ec-4188-a28a-298812b4bbbf
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=9a309606-d6ec-4188-a28a-298812b4bbbf;Ip=[165.85.157.49];Helo=[atlrelay2.compute.ge-healthcare.net]
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-CH3PEPF0000000D.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PPF5D00EFC05
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_010316_668891_F3DB807F 
-X-CRM114-Status: GOOD (  24.17  )
+X-CRM114-CacheID: sfid-20260107_010506_835933_D6FC844F 
+X-CRM114-Status: GOOD (  14.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,140 +160,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christophe,
 
-Le 06/01/2026 à 19:29, Christophe Leroy (CS GROUP) a écrit :
-> 
-> 
-> Le 23/12/2025 à 08:25, Richard Genoud a écrit :
->> [Vous ne recevez pas souvent de courriers de 
->> richard.genoud@bootlin.com. Découvrez pourquoi ceci est important à 
->> https://aka.ms/LearnAboutSenderIdentification ]
+On 12/30/25 14:35, Krzysztof Kozlowski wrote:
+> CAUTION: This email originated from outside of GE HealthCare. Only open links or attachments if you trust the sender. Report suspicious emails using Outlook’s “Report” button.
+>
+> On Mon, Dec 29, 2025 at 04:49:59PM +0200, Nandor Han wrote:
+>> By default, the driver suspends the watchdog in low power modes (STOP
+>> and DOZE). In some situations this is not desired.
 >>
->> When QMAN_FQ_FLAG_DYNAMIC_FQID is set, there's a race condition between
->> fq_table[fq->idx] state and freeing/allocating from the pool and
->> WARN_ON(fq_table[fq->idx]) in qman_create_fq() gets triggered.
+>> Add the possibility to configure the continuation of the watchdog timer
+>> in the above mentioned low power modes.
 >>
->> Indeed, we can have:
->>           Thread A                             Thread B
->>      qman_destroy_fq()                    qman_create_fq()
->>        qman_release_fqid()
->>          qman_shutdown_fq()
->>          gen_pool_free()
->>             -- At this point, the fqid is available again --
->>                                             qman_alloc_fqid()
->>             -- so, we can get the just-freed fqid in thread B --
->>                                             fq->fqid = fqid;
->>                                             fq->idx = fqid * 2;
->>                                             WARN_ON(fq_table[fq->idx]);
->>                                             fq_table[fq->idx] = fq;
->>       fq_table[fq->idx] = NULL;
+>> Note:
+>> Please be advised that the difference between the variable name and the
+>> device tree option has been intentionally selected to uphold the
+>> prevailing driver functionality. This ensures that the watchdog remains
+>> suspended by default in low power mode, while also facilitating a clear
+>> and intelligible device tree option name.
 >>
->> And adding some logs between qman_release_fqid() and
->> fq_table[fq->idx] = NULL makes the WARN_ON() trigger a lot more.
->>
->> To prevent that, ensure that fq_table[fq->idx] is set to NULL before
->> gen_pool_free() is called by using smp_wmb().
-> 
-> You dismantle/reimplement qman_release_fqid(). Is that the only possible 
-> approach ?
-> Isn't it possible to just clear fq_table[fq->idx] _before_ calling 
-> qman_release_fqid() ?
-> 
-I'm afraid that clearing fq_table[fq->idx] before calling
-qman_release_fqid() will create another race condition:
-In qm_mr_process_task() we have:
-			case QM_MR_VERB_FQRN:
-			case QM_MR_VERB_FQRL:
-				/* Lookup in the retirement table */
-				fq = fqid_to_fq(qm_fqid_get(&msg->fq));
-				if (WARN_ON(!fq))
-					break;
-				fq_state_change(p, fq, msg, verb);
-				if (fq->cb.fqs)
-					fq->cb.fqs(p, fq, msg);
-				break;
-https://elixir.bootlin.com/linux/v6.19-rc4/source/drivers/soc/fsl/qbman/qman.c#L1509-L1518
-with fqid_to_fq(fqid) expanding to fq_table[fqid * 2];
+> Please organize the patch documenting the compatible (DT bindings)
+> before the patch using that compatible.
+> See also: https://elixir.bootlin.com/linux/v6.14-rc6/source/Documentation/devicetree/bindings/submitting-patches.rst#L46
+>
+> Best regards,
+> Krzysztof
 
-Is it possible for those "cases" (QM_MR_VERB_FQRN/QM_MR_VERB_FQRL) to
-happen after fq_table[fq->idx] is cleared and before qman_shutdown_fq()
-is called?
-In doubt, I chose the safe side, but I'm not 100% sure it can happen.
-
-
-Thanks!
+Thanks Krzysztof for the suggestion, I will take a look over the doc.
 
 Regards,
-Richard
->>
->> Fixes: c535e923bb97 ("soc/fsl: Introduce DPAA 1.x QMan device driver")
->> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
->> ---
->>   drivers/soc/fsl/qbman/qman.c | 24 ++++++++++++++++++++++--
->>   1 file changed, 22 insertions(+), 2 deletions(-)
->>
->> NB: I'm not 100% sure of the need of a barrier here, since even without
->> it, the WARN_ON() wasn't triggered any more.
->>
->> diff --git a/drivers/soc/fsl/qbman/qman.c b/drivers/soc/fsl/qbman/qman.c
->> index 6b392b3ad4b1..39a3e7aab6ff 100644
->> --- a/drivers/soc/fsl/qbman/qman.c
->> +++ b/drivers/soc/fsl/qbman/qman.c
->> @@ -1827,6 +1827,8 @@ EXPORT_SYMBOL(qman_create_fq);
->>
->>   void qman_destroy_fq(struct qman_fq *fq)
->>   {
->> +       int leaked;
->> +
->>          /*
->>           * We don't need to lock the FQ as it is a pre-condition that 
->> the FQ be
->>           * quiesced. Instead, run some checks.
->> @@ -1834,11 +1836,29 @@ void qman_destroy_fq(struct qman_fq *fq)
->>          switch (fq->state) {
->>          case qman_fq_state_parked:
->>          case qman_fq_state_oos:
->> -               if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID))
->> -                       qman_release_fqid(fq->fqid);
->> +               /*
->> +                * There's a race condition here on releasing the fqid,
->> +                * setting the fq_table to NULL, and freeing the fqid.
->> +                * To prevent it, this order should be respected:
->> +                */
->> +               if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID)) {
->> +                       leaked = qman_shutdown_fq(fq->fqid);
->> +                       if (leaked)
->> +                               pr_debug("FQID %d leaked\n", fq->fqid);
->> +               }
->>
->>                  DPAA_ASSERT(fq_table[fq->idx]);
->>                  fq_table[fq->idx] = NULL;
->> +
->> +               if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID) && !leaked) {
->> +                       /*
->> +                        * fq_table[fq->idx] should be set to null before
->> +                        * freeing fq->fqid otherwise it could by 
->> allocated by
->> +                        * qman_alloc_fqid() while still being !NULL
->> +                        */
->> +                       smp_wmb();
->> +                       gen_pool_free(qm_fqalloc, fq->fqid | 
->> DPAA_GENALLOC_OFF, 1);
->> +               }
->>                  return;
->>          default:
->>                  break;
->>
->> base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
->> -- 
->> 2.47.3
->>
-> 
+Nandor
 
 
--- 
-Richard Genoud, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
