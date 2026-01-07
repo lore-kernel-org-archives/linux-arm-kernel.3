@@ -4,114 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DFFDCF6BF5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 07:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B463BCF6BF4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 07:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1OZUwcKFlVEp1Wy+fiQBJUjbSRrLG01ise870K7kToI=; b=ebs0e2emo/YKHJkUeyJ0WjTRDJ
-	2QWBX6euZlYA2QTXzB/Qm00orz3jS9qEzFFkg6w4h3CvbjSJa3nBySaIJYyCDaepKElFHdHOHXjla
-	LjcnGPaJmSIByoOJpaCnjKxryQ0tqWItKp0zmkixKzPN9n+4DRalIrGa+c3td78LufSdpcqfJ1ltY
-	16BduyZIsdftxrPMuPLmWkdhvpdbz2G8kmtvYhRvzPH/D6Gwc2SNMz20GZaFh2zouvmwJt5vKP3yN
-	hG/kP3C5u8nNG6p/n3JqPgBmnqwpIbTcjUSsrGd/4S3F7WFCI0zZD+uCm1efDTMQTeHCYPhc/nteu
-	JP8ZFu4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Kkt4BN1qE8URamoqgKiZSyZuDf5XmvueUtedgUf6C4E=; b=22K+lUp9PtvFoJKWZi+cSL9xV4
+	1JOSP0lNdz1l6c3oBcyMPZYZ7sV1/pwVxJXM9HbNyPnY6V7/gbRV56kWGyL6RvKG0woTCuC3I/ycE
+	ude1J+NN4SuTzK4fuD4d/ItmLMfSwA8yDPn7+6rmNrbEe2c23L0DlSt37Ra6yOXMxobX3Xrruia6o
+	mKKIUb/VIrvmE39nAfL6/ARHYcTE/y4pETV93pVTWI6Ewy6FzGzy7J6sR49gtXw6sEBpqcSWwENOd
+	6RkZSU1qLv5zTIyMUjuDNsIASTCWZ+pdJN8WRdgOp/I8qIicX4DHkPXry/UINMRmGSVjNF2qWz7BN
+	uv4aHBvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdOBL-0000000EIvP-2XoO;
-	Wed, 07 Jan 2026 07:42:15 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vdODJ-0000000EJGT-1hvn;
+	Wed, 07 Jan 2026 07:44:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdOBI-0000000EIud-2AC4;
-	Wed, 07 Jan 2026 07:42:13 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 606JHNFG010621;
-	Wed, 7 Jan 2026 07:41:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=1OZUwc
-	KFlVEp1Wy+fiQBJUjbSRrLG01ise870K7kToI=; b=bFsXPVWQffGEjgz43qR9SU
-	oK9i1gKcGibfmctolAf0Q95wRmnUngUTNHd2zM2G59babPu8XdgILHMZoDz0wTAq
-	4eYjSWZgPNgZWVYDTk+OnX/6LCj5+1HiBQ/iP/uakjlCDMjjRGVBsfez5YEDAbXO
-	/cxf/ovbbw7QTTH/ZgMhjz10jPo4lJbKXYM40fkI70r7pVtga2xeU1Vi249nCNK4
-	KaHEo1JhOt7nZ/TTwFjtbW4SoR59yMc9EOw/EB/PI5a86kvDMKfglBi5kb05SFED
-	GVS7bn13G3twfi4Y3S0a7SRsE3R8CbgFviQmZjdfEB1rnMvxqrwaawJSzuiM3WDw
-	==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4beshexq7s-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 07 Jan 2026 07:41:05 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 6073cmdh005264;
-	Wed, 7 Jan 2026 07:41:05 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4bfexk7rkb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 07 Jan 2026 07:41:04 +0000
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6077f2aR16122176
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 7 Jan 2026 07:41:03 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id CF7732004E;
-	Wed,  7 Jan 2026 07:41:02 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8A3312004B;
-	Wed,  7 Jan 2026 07:41:02 +0000 (GMT)
-Received: from [9.111.198.188] (unknown [9.111.198.188])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed,  7 Jan 2026 07:41:02 +0000 (GMT)
-Message-ID: <167cbd49-e0ba-4b1d-a724-e64ab6ee863c@linux.ibm.com>
-Date: Wed, 7 Jan 2026 08:41:02 +0100
+	id 1vdODH-0000000EJFd-2vpb
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Jan 2026 07:44:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C9EBE4195F;
+	Wed,  7 Jan 2026 07:44:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 201D6C4CEF7;
+	Wed,  7 Jan 2026 07:44:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1767771854;
+	bh=wtepG4ALMqKiyvEt0jTluSuqHX787/roVKJbXsbF/j0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qkiAXa7S+dmxh6XiyOJ+dURPUcCWvD6eKm660lGoJceLJX0suxTera4dNqRcaUlgh
+	 w9+nwLM9cKZEZ5CTRWMDiezR/GE+amG8FjIGCKiGt7ayLbrignoWbYr41YE+01mW7J
+	 hxisgmoRvkbvxh7x2Li1OKcsBiQ986t3XZURBOtc=
+Date: Wed, 7 Jan 2026 08:44:11 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] bus: fsl-mc: add missing fsl_mc_bus_dpdbg_type
+ declaration
+Message-ID: <2026010738-collie-quarters-5ceb@gregkh>
+References: <fd30e197df618be4444f9d2172ba794e5f49ae87.1767725589.git.chleroy@kernel.org>
+ <2026010755-registrar-agreeably-a626@gregkh>
+ <a65f4add-f052-4c51-85e9-317b42802df1@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 15/36] lib/crypto: s390/aes: Migrate optimized code into
- library
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-        "Jason A . Donenfeld" <Jason@zx2c4.com>,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        sparclinux@vger.kernel.org, x86@kernel.org,
-        Harald Freudenberger <freude@linux.ibm.com>,
-        linux-crypto@vger.kernel.org
-References: <20260105051311.1607207-1-ebiggers@kernel.org>
- <20260105051311.1607207-16-ebiggers@kernel.org>
-From: Holger Dengler <dengler@linux.ibm.com>
-Content-Language: en-US
-In-Reply-To: <20260105051311.1607207-16-ebiggers@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA3MDA1NyBTYWx0ZWRfX2Ar3kzLBShn/
- kdRHVYkMALEAtFOLTrFv3UfaLcyHGNcf2FudjUR/NeyXQ7HAsrwQwlYZneMJ2N2uGvAupQRk1e/
- TSguKGdM8P/wi3igdzTYXCbt1TuRtcriMIpKGz1q+34bvm2mFZxURCDAEFZ7ryUhKJA/DdD2MAp
- 3o8LQKFDglWsyiT4LMj68s0SN7DVxC4u641BbU+DyD+pblgwJ0jw1Pe5/qmd6ArnP1Z100oAPvL
- a6Add51rNovhsAzGHW4iUYS/l7vtFWxtXxTJVz7G0slY/W7koj28QBNWoTI0rf38mxOrTtj1UCV
- N+zXBL+vzIKjyQNF3RLFspYinN9vgfuVJpQ0nkXy/1ShtyuR4fKH4FNlzq/G6QmdwxV0SdyQavG
- GIgvHZEtzy4g9sk9HKKrGeBGxWK2zEF1eq+89TivB8tIEmzU7X8E2C3eipi9+Bwb9ZDpNNfyMTV
- 7YxdoBUyksPo7u0Y7Rw==
-X-Proofpoint-GUID: ucJZtlyWTiqD4d7TJcTXL99WK-bHXMG1
-X-Proofpoint-ORIG-GUID: ucJZtlyWTiqD4d7TJcTXL99WK-bHXMG1
-X-Authority-Analysis: v=2.4 cv=AOkvhdoa c=1 sm=1 tr=0 ts=695e0e11 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=w46-cfdy0MOtRbFV-QQA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-06_03,2026-01-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 spamscore=0 adultscore=0 malwarescore=0 impostorscore=0
- clxscore=1011 suspectscore=0 bulkscore=0 phishscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2512120000 definitions=main-2601070057
+In-Reply-To: <a65f4add-f052-4c51-85e9-317b42802df1@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_234212_679196_2285DF1D 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20260106_234415_771194_39D47C94 
+X-CRM114-Status: GOOD (  23.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,41 +74,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Eric,
-
-first of all: happy New Year! ANd thanks for the series.
-
-On 05/01/2026 06:12, Eric Biggers wrote:
-> Implement aes_preparekey_arch(), aes_encrypt_arch(), and 
-> aes_decrypt_arch() using the CPACF AES instructions.
-
-I'm not sure, it it makes sense to implement this on s390 at all. The CPACF
-instructions cover full modes of operations and are optimized to process more
-than one cipher-block-size (*). For single-block operations, the performance
-might be worth than using the generic functions. I will look into it and do
-some performance tests. If there is a possibility to plug-in to the level
-where the modes of operation are implemented, it would make much more sense
-for s390.
-
-(*) Yes, it's a bit uncommon, but the CPACF instructions on s390 can process
-multiple block with a single instruction call! They are so called long running
-instructions.
-
-> Then, remove the superseded "aes-s390" crypto_cipher.
+On Wed, Jan 07, 2026 at 08:39:41AM +0100, Christophe Leroy (CS GROUP) wrote:
+> Hi Ioana,
 > 
-> The result is that both the AES library and crypto_cipher APIs use the 
-> CPACF AES instructions, whereas previously only crypto_cipher did (and it 
-> wasn't enabled by default, which this commit fixes as well).
+> Le 07/01/2026 ‡ 06:30, Greg Kroah-Hartman a Ècrit†:
+> > On Tue, Jan 06, 2026 at 07:54:21PM +0100, Christophe Leroy (CS GROUP) wrote:
+> > > Fix following sparse warning:
+> > > 
+> > >    CHECK   drivers/bus/fsl-mc/fsl-mc-bus.c
+> > > drivers/bus/fsl-mc/fsl-mc-bus.c:435:26: warning: symbol 'fsl_mc_bus_dpdbg_type' was not declared. Should it be static?
+> > > 
+> > > As it is exported it can't be static. So declare it in mc.h like
+> > > all other similar objects.
+> > > 
+> > > Fixes: e70ba1b06c26 ("bus: fsl-mc: add the dpdbg device type")
+> > > Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+> > > ---
+> > >   include/linux/fsl/mc.h | 1 +
+> > >   1 file changed, 1 insertion(+)
+> > > 
+> > > diff --git a/include/linux/fsl/mc.h b/include/linux/fsl/mc.h
+> > > index 897d6211c1635..28441a456bb48 100644
+> > > --- a/include/linux/fsl/mc.h
+> > > +++ b/include/linux/fsl/mc.h
+> > > @@ -451,6 +451,7 @@ extern const struct device_type fsl_mc_bus_dpdcei_type;
+> > >   extern const struct device_type fsl_mc_bus_dpaiop_type;
+> > >   extern const struct device_type fsl_mc_bus_dpci_type;
+> > >   extern const struct device_type fsl_mc_bus_dpdmai_type;
+> > > +extern const struct device_type fsl_mc_bus_dpdbg_type;
+> > 
+> > As it's obviously not used anywhere, this should not be the fix, please
+> > just mark it static and remove the EXPORT_SYMBOL_GPL() as well.
 > 
-> Note that this preserves the optimization where the AES key is stored in 
-> raw form rather than expanded form.  CPACF just takes the raw key.
+> What's your opinion here as Maintainer of this driver, what should we do ?
 > 
-> Signed-off-by: Eric Biggers <ebiggers@kernel.org> --- arch/s390/crypto/
+> Greg is right that it is nowhere used, and it is the same for several other
+> types, the only difference being that they have a matching
+> is_fsl_mc_bus_dp..() helper that hides the type, but not all helpers are
+> used, and many of them are not used outside drivers/bus/fsl-mc/ which cannot
+> be built as a module:
 
--- Mit freundlichen Gr√º√üen / Kind regards
-Holger Dengler
---
-IBM Systems, Linux on IBM Z Development
-dengler@linux.ibm.com
+Anything that does not need to be exported (i.e. not used by anything
+else in the kernel tree), should be made static.
 
+thanks,
+
+greg k-h
 
