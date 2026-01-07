@@ -4,79 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0171CD5826
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 09:57:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3902CCD5823
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 09:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=O03c43fGSEZQVQFtpxF/DS+c2fwG8qAt2Ztdrucq5N4=; b=MQV9suThggw5f7
-	orSt2JEkDrY10pS21lY+j4HML8BbYi4ZIQoaNkRAU9r95cE6S/EoPMdLlUk2u2bwL/by73eykunyE
-	AloK4185rBbN4A45Ug1q9wUgzNyL7R/qt15z5MKXjz1+YGqcVgYgEPyEIziCCaY55Qp6Wn09P83HY
-	5IEbpdC1HsRp9MeNVI18DEX2gIS6L13z3KSM2knvh59YSQFHLjxvP2OuA7r5CO4HQoBFF4DEvimBS
-	JoA2Xcx2AZic3eghyBm2Lj5CpRz8g+hl/xh/NOzJuFTDtZ0MDt3tCXpYDVWevvlokoFyjPKRypEpD
-	YxYgpMUjYoGI8vKZCQBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=izEt2/WHjpbUY6bvrm2DFgvpbob63v2XG6b5/OiY5fc=; b=R9W55uBm/Lo/ZTnRUXwzCZW3By
+	q4/EHa4DTmh7e34LKemboXsS2V7gOOKejWwU08sxAjl1mYbL4nNhTTzG8gXkS7LETpjwk3yIrM/XD
+	KP31jWYdjBPI28D244bz+yJCsllKIeBRW+3mXxrcD+YlrlbW3ITs7eT2MI07u8hU3hL4uty3cjXhf
+	w0epgRhbjNIhlF8jSP5eQCXRAO1mkgXX5FXyS7ed0b3BGHusrWKUXMqCIKbfpC1Rm7pI5joEFohFc
+	hB5oXIpGTqg7O8QmgJ+Jbc91I7Hb4Xho9IuYWmrSlKi5sfBM6uotIqv+WVs684CO1IwP+Su58yIoY
+	gV35tQrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQI4-0000000EcBW-1PO1;
-	Wed, 07 Jan 2026 09:57:20 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vdQIB-0000000EcHW-27zH;
+	Wed, 07 Jan 2026 09:57:27 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQHx-0000000Ec5s-1N5J
+	id 1vdQI9-0000000EcF4-0b5V
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 09:57:16 +0000
+	Wed, 07 Jan 2026 09:57:26 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 88F14C1EC90;
-	Wed,  7 Jan 2026 09:56:29 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id B70CC1A26DC;
+	Wed,  7 Jan 2026 09:57:23 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A0D83606F8;
-	Wed,  7 Jan 2026 09:56:55 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CD731103C86EC;
-	Wed,  7 Jan 2026 10:56:48 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 88429606F8;
+	Wed,  7 Jan 2026 09:57:23 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E7BC0103C870F;
+	Wed,  7 Jan 2026 10:57:14 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767779814; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=O03c43fGSEZQVQFtpxF/DS+c2fwG8qAt2Ztdrucq5N4=;
-	b=ttIFfJExO8R0+j/MBjTDXlt5oCnOVH/dS3CH5t+Tm8HuEe72JjygFxkgrptLvYiaLQPzmc
-	BoYNiCTleSaPninD3b+ypiOm2QAl/QEhgRAtT8xdaeR6iTX+jIYY7o6/QFUPNRCYd57eLr
-	JI3Yobl7llt8iKmvlcQQnmCYuj6vcLKvK60+1q2Uati53oMgpeRBBGfJ5BF2jj5vjrbAt8
-	YaGkNlkwclCfhQnnq/qZUm9EhPI0sCkfqdkkBbj2LQqBWreFgDvZWggdGH8PRDCHd5FNYZ
-	oiqDWOVtWMzsarBt5Jd/dkxi9IGnIwiSM9Llgk4kXXgoNKKpmfbaSUXUmvhRkA==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: [PATCH v4 0/4] drm/bridge: add of_drm_find_and_get_bridge() and a
- managed *next_bridge, deprecate of_drm_find_bridge()
-Date: Wed, 07 Jan 2026 10:56:25 +0100
-Message-Id: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-0-a62b4399a6bf@bootlin.com>
+	t=1767779842; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=izEt2/WHjpbUY6bvrm2DFgvpbob63v2XG6b5/OiY5fc=;
+	b=2UzXf6HcDzAgbztIJOykxawHaptLE25s9Qc4dGZepcyM+1O6as1FwDlGlxF8q1micYDkff
+	7bEKF3deZbVQX/7P7NDrMGD1+0+65WOFYpO/i4BrS4U6YdUeRazLG35r8Hca7NKoi8wBJo
+	40RXHmUlCEO7ELu9SUIhiGLhcKW9KkAwmNkBsG8Zguj4NHDwcZL2x0uNKK/GAqHBePss3u
+	7cjdQxtDhsvYllsXWbFa9/E7jKJliP1IEV8j44ADSBZB51q+SVNvV0/99LDACYipr5vr5M
+	vNZAhYLEw9FSdhyjtqWuG10meoqdFiOZsl7nL3SzPnKFxAf7AFpwrgzo2y6kDw==
+Date: Wed, 7 Jan 2026 10:57:11 +0100
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Andrew Davis <afd@ti.com>
+Cc: Jyri Sarha <jyri.sarha@iki.fi>, Tomi Valkeinen
+ <tomi.valkeinen@ideasonboard.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Russell
+ King <linux@armlinux.org.uk>, "Bartosz Golaszewski" <brgl@bgdev.pl>, Tony
+ Lindgren <tony@atomide.com>, Andrzej Hajda <andrzej.hajda@intel.com>, Neil
+ Armstrong <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, Markus
+ Schneider-Pargmann <msp@baylibre.com>, Bajjuri Praneeth <praneeth@ti.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Louis Chauvet
+ <louis.chauvet@bootlin.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, Miguel Gazquez
+ <miguel.gazquez@bootlin.com>, Herve Codina <herve.codina@bootlin.com>,
+ <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-omap@vger.kernel.org>
+Subject: Re: [PATCH v3 05/22] drm/tilcdc: Convert legacy panel binding via
+ DT overlay at boot time
+Message-ID: <20260107105711.695a9c12@kmaincent-XPS-13-7390>
+In-Reply-To: <897ee11b-442c-4d09-95fa-f3cb9cec612b@ti.com>
+References: <20260106-feature_tilcdc-v3-0-9bad0f742164@bootlin.com>
+	<20260106-feature_tilcdc-v3-5-9bad0f742164@bootlin.com>
+	<897ee11b-442c-4d09-95fa-f3cb9cec612b@ti.com>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAMktXmkC/5XN0Q6CIBTG8VdpXEcDRMGueo/WHAjk2VQcmqs53
- z10tWpdefmds/3+E+ptANuj425CwY7Qg2/j4PsdKivVXi0GEzdihKWUUoFNaLAOYOJH1bUv8dU
- O3W1Y7oV3hYPWFK+/4DlJkkxwLg2KYBesg/saO1/irqAffHis7ZEu13cm35IZKSaYGJ1LJZzlg
- p+090MN7aH0DVpCI/vCmdyEs4hL6aSiRNhSsX88+eCMZpvwJOI6pVnqlJYklb/4PM9PvZGf7KA
- BAAA=
-X-Change-ID: 20251117-drm-bridge-alloc-getput-drm_of_find_bridge-74903367448d
-To: Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_015714_950676_27122BFB 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20260107_015725_323151_7DF09D07 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,92 +96,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This v4 contains the leftovers of the v3 series that deprecated
-of_drm_find_bridge(), added a replacement which handles bridge refcounting,
-and converted some of the direct users. All patches have been applied
-except the imx8qxp-pixel-link ones, which still need a review for the first
-patch.
+On Tue, 6 Jan 2026 13:38:37 -0600
+Andrew Davis <afd@ti.com> wrote:
 
-@Liu, patch 1 is waiting for a review and it's non-trivial, it would be
-nice if you could have a look at that one at least.
+> On 1/6/26 11:42 AM, Kory Maincent (TI.com) wrote:
+> > To maintain backward compatibility while removing the deprecated
+> > tilcdc_panel driver, add a tilcdc_panel_legacy subdriver that converts
+> > the legacy "ti,tilcdc,panel" devicetree binding to the standard
+> > panel-dpi binding at early boot.
 
-This is part of the work to support hotplug of DRM bridges. The grand plan
-was discussed in [0].
+...
 
-Here's the work breakdown (➜ marks the current series):
+> > +	dtbo_start =3D __dtbo_tilcdc_panel_legacy_begin;
+> > +	dtbo_size =3D __dtbo_tilcdc_panel_legacy_end -
+> > +		    __dtbo_tilcdc_panel_legacy_begin;
+> > +
+> > +	ret =3D of_overlay_fdt_apply(dtbo_start, dtbo_size, &ovcs_id, NULL);
+> > +	if (ret)
+> > +		return ret; =20
+>=20
+> Looking over the users of `of_overlay_fdt_apply()` they all seem
+> to start with a begin and end address, then have to convert to start
+> and size. I wonder if this function should be converted to just take
+> begin and end addresses instead.. (not a problem for this series, just
+> thinking out loud).
 
- 1. ➜ add refcounting to DRM bridges struct drm_bridge,
-      based on devm_drm_bridge_alloc()
-    A. ✔ add new alloc API and refcounting (v6.16)
-    B. ✔ convert all bridge drivers to new API (v6.17)
-    C. ✔ kunit tests (v6.17)
-    D. ✔ add get/put to drm_bridge_add/remove() + attach/detach()
-         and warn on old allocation pattern (v6.17)
-    E. ➜ add get/put on drm_bridge accessors
-       1. ✔ drm_bridge_chain_get_first_bridge(), add cleanup action (v6.18)
-       2. ✔ drm_bridge_get_prev_bridge() (v6.18)
-       3. ✔ drm_bridge_get_next_bridge() (v6.19)
-       4. ✔ drm_for_each_bridge_in_chain() (v6.19)
-       5. ✔ drm_bridge_connector_init (v6.19)
-       6. … protect encoder bridge chain with a mutex
-       7. ➜ of_drm_find_bridge()
-          a. ➜✔… add of_drm_get_bridge(), convert basic direct users
-	         (v6.20?, one driver still pending)
-	  b. convert other direct users
-	  c. convert bridge-only drm_of_find_panel_or_bridge() users
-       8. drm_of_find_panel_or_bridge, *_of_get_bridge
-       9. ✔ enforce drm_bridge_add before drm_bridge_attach (v6.19)
-    F. ✔ debugfs improvements
-       1. ✔ add top-level 'bridges' file (v6.16)
-       2. ✔ show refcount and list lingering bridges (v6.19)
- 2. … handle gracefully atomic updates during bridge removal
-    A. ✔ Add drm_dev_enter/exit() to protect device resources (v6.20?)
-    B. … protect private_obj removal from list
- 3. … DSI host-device driver interaction
- 4. ✔ removing the need for the "always-disconnected" connector
- 5. finish the hotplug bridge work, moving code to the core and potentially
-    removing the hotplug-bridge itself (this needs to be clarified as
-    points 1-3 are developed)
+Indeed, I think you are right.
 
-[0] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com/#t
-
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
----
-Changes in v4:
-- Added review trailers
-- Link to v3: https://lore.kernel.org/r/20251216-drm-bridge-alloc-getput-drm_of_find_bridge-v3-0-b5165fab8058@bootlin.com
-
-Changes in v3:
-- Completely rewrote using the __drm_bridge_free() idea to prevent
-  use-after-free of the next_bridge for the common cases
-- Added needed cleanups to the imx8qxp-pixel-link and imx8qxp-pxl2dpi
-  drivers
-- Removed various patches converting simple cases, to reduce the number of
-  e-mails sent; will be moved to the follow-up series
-- Link to v2: https://lore.kernel.org/r/20251128-drm-bridge-alloc-getput-drm_of_find_bridge-v2-0-88f8a107eca2@bootlin.com
-
-Changes in v2:
-- All patches: renamed drm_of_find_bridge() -> of_drm_get_bridge()
-- Various fixes and improvements to patches 1-6, see individual patches
-  changelog
-- Removed bouncing recipient: Edmund Dea <edmund.j.dea@intel.com>
-- Link to v1: https://lore.kernel.org/r/20251119-drm-bridge-alloc-getput-drm_of_find_bridge-v1-0-0db98a7fe474@bootlin.com
-
----
-Luca Ceresoli (4):
-      drm/bridge: imx8qxp-pixel-link: simplify logic to find next bridge
-      drm/bridge: imx8qxp-pixel-link: simplify freeing of the remote device_node
-      drm/bridge: imx8qxp-pixel-link: imx8qxp_pixel_link_find_next_bridge: return int, not ERR_PTR
-      drm/bridge: imx8qxp-pixel-link: get/put the next bridge
-
- drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c | 53 ++++++++++++-------------
- 1 file changed, 25 insertions(+), 28 deletions(-)
----
-base-commit: f12ad2e5233a1a30b3bd6fe1e784b3544caa2383
-change-id: 20251117-drm-bridge-alloc-getput-drm_of_find_bridge-74903367448d
-
-Best regards,
--- 
-Luca Ceresoli <luca.ceresoli@bootlin.com>
-
+Regards,
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
