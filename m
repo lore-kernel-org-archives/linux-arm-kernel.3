@@ -4,67 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C13CD5829
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 10:05:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 900D0CD582B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 10:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HxNde3KR94/N4DZv16if/hks/1v+RCJgcAMk3nISRpw=; b=fTQOEhnfZ2gs5BuV7AXHifc3iS
-	RMD69+VeMnqVn8Zu/4WoeGNavmESQnHJksqsY3WF+peXTLWS8qoNrIXg3rAXveVaPxEPdqFcp0cwj
-	jdtuWDd5BgqA66uPvkVSPn6Bq/0Axo6GmPumL48oV8QQMtCmr/TJRghP5soU423CoKyZOL6mkgucc
-	8nlfVzgTZ/c1/gTimu4gAImu6byOfYG1CakmeFYRjk6PyW3AAW6F5k25OyfhYeg87eFKufqrDe32d
-	9NTr8fGqq8Yt3+2iRT+5G4bPfaF5if/pwpP+ny644exV2JGwFXRs0qXyhL5kpcNjKr4a+DzcdrdmB
-	FSMXS/mA==;
+	bh=jlJd04IJAS1HvHJY+KzvdyuK4R/B+6CWZR4nebThois=; b=GvPaeMTvo7B+bq2b52N9ZRLrFu
+	9chLY89hnEZZ6INhpRwSUIA9m+4r3r1EGKXlngdGjwIs0QbJzg2DU2k8BWeW/aoumJyGP+a10yLE2
+	+gsQVedJWul0duUqc3iOjksKrQH56mfIX6ZP6uw/pM0BV8P1OlCO/xcU0nfnqer7AW8HmdrV9uyKB
+	7saLT4iTovLeSkTgoK/TmHr2PLQXLwoHS+95xcv2z5NPFTJILeu8lyw2RixHMwLF5v8iC/lFcPf2n
+	VzgUQkyeayrCzoSLJcvnJHoqZ4HviljRB/cq97+AyNR2Uju1MJd5KORjnVyYzpM1H0VxooWoiAf/2
+	EnPJNcWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQPd-0000000EdvQ-1lPn;
-	Wed, 07 Jan 2026 10:05:09 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vdQUf-0000000EeqP-0Bg9;
+	Wed, 07 Jan 2026 10:10:21 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQPZ-0000000Edti-1InP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 10:05:08 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dmNtr3skPzJ46DQ;
-	Wed,  7 Jan 2026 18:04:52 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8D57B40565;
-	Wed,  7 Jan 2026 18:04:55 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 7 Jan
- 2026 10:04:54 +0000
-Date: Wed, 7 Jan 2026 10:04:52 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-CC: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Robert Moore <robert.moore@intel.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>, Marc
- Zyngier <maz@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	<linux-acpi@vger.kernel.org>, <acpica-devel@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-pci@vger.kernel.org>
-Subject: Re: [PATCH v2 3/7] irqdomain: Add parent field to struct
- irqchip_fwid
-Message-ID: <20260107100452.00004b6f@huawei.com>
-In-Reply-To: <aV4gH/yHaOmOtK0J@lpieralisi>
-References: <20251218-gicv5-host-acpi-v2-0-eec76cd1d40b@kernel.org>
-	<20251218-gicv5-host-acpi-v2-3-eec76cd1d40b@kernel.org>
-	<20260105120108.00002016@huawei.com>
-	<aV4gH/yHaOmOtK0J@lpieralisi>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1vdQUc-0000000Eenw-2uuv;
+	Wed, 07 Jan 2026 10:10:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1767780615;
+	bh=kzz1stJ/eG8rdi6weyOcBPC+8rDtte6uRtWAAV5e9pQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=iak5027g0+u2kscZzr7GCHrAOEzDyo9EvhydvzaYnmf8wbaALa35nPI6iCDxk7ngI
+	 /5btIx5qtOgtU0563xmZ5wyqtnZIiFVDGEJNkbPboqeE37ZzyJPcMKzWTRFgldj780
+	 5LYmKT2Jtg5dSJe4YaT915prHlAzWFtU0QHEOq7zc7PztgK3Q3/fAemstedBZye9Fq
+	 T6w4dc9WlzB73GKAMY3Qw9FCuSzhgzsxpRfXha41GNr+LykiTRuKwqBjOOyER9voNm
+	 RI67BkzrP4Q2YCshRF0SWRxilhwoDtZz2cfzPOfcI/Pqn2gjVlOTTITMgVyjcai9lC
+	 BKbEw376s9QqA==
+Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:7e36:2305:d47f:6e43])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: benjamin.gaignard)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 02CDE17E150D;
+	Wed,  7 Jan 2026 11:10:14 +0100 (CET)
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	nicolas.dufresne@collabora.com,
+	p.zabel@pengutronix.de,
+	mchehab@kernel.org
+Cc: iommu@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-media@vger.kernel.org,
+	kernel@collabora.com,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v11 1/7] dt-bindings: vendor-prefixes: Add Verisilicon
+Date: Wed,  7 Jan 2026 11:09:51 +0100
+Message-ID: <20260107101005.84039-2-benjamin.gaignard@collabora.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260107101005.84039-1-benjamin.gaignard@collabora.com>
+References: <20260107101005.84039-1-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_020505_646118_FFBD3EB1 
-X-CRM114-Status: GOOD (  34.73  )
+X-CRM114-CacheID: sfid-20260107_021018_907686_E16DE283 
+X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,105 +89,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 7 Jan 2026 09:58:07 +0100
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+Verisilicon Microelectronics is a company based in Shanghai, China,
+developping hardware blocks for SoC.
 
-> On Mon, Jan 05, 2026 at 12:01:08PM +0000, Jonathan Cameron wrote:
-> > On Thu, 18 Dec 2025 11:14:29 +0100
-> > Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> >   
-> > > The GICv5 driver IRQ domain hierarchy requires adding a parent field to
-> > > struct irqchip_fwid so that core code can reference a fwnode_handle parent
-> > > for a given fwnode.
-> > > 
-> > > Add a parent field to struct irqchip_fwid and update the related kernel API
-> > > functions to initialize and handle it.
-> > > 
-> > > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > > Cc: Thomas Gleixner <tglx@linutronix.de>
-> > > Cc: Marc Zyngier <maz@kernel.org>  
-> > Hi Lorenzo,
-> > 
-> > Happy new year.  
-> 
-> Happy New Year !
-> 
-> > > ---
-> > >  include/linux/irqdomain.h | 30 ++++++++++++++++++++++++++----
-> > >  kernel/irq/irqdomain.c    | 14 +++++++++++++-
-> > >  2 files changed, 39 insertions(+), 5 deletions(-)
-> > > 
-> > > diff --git a/include/linux/irqdomain.h b/include/linux/irqdomain.h
-> > > index 62f81bbeb490..b9df84b447a1 100644
-> > > --- a/include/linux/irqdomain.h
-> > > +++ b/include/linux/irqdomain.h
-> > > @@ -257,7 +257,8 @@ static inline void irq_domain_set_pm_device(struct irq_domain *d, struct device
-> > >  
-> > >  #ifdef CONFIG_IRQ_DOMAIN
-> > >  struct fwnode_handle *__irq_domain_alloc_fwnode(unsigned int type, int id,
-> > > -						const char *name, phys_addr_t *pa);
-> > > +						const char *name, phys_addr_t *pa,
-> > > +						struct fwnode_handle *parent);
-> > >  
-> > >  enum {
-> > >  	IRQCHIP_FWNODE_REAL,
-> > > @@ -267,18 +268,39 @@ enum {
-> > >  
-> > >  static inline struct fwnode_handle *irq_domain_alloc_named_fwnode(const char *name)
-> > >  {
-> > > -	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED, 0, name, NULL);
-> > > +	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED, 0, name, NULL, NULL);
-> > > +}
-> > > +
-> > > +static inline
-> > > +struct fwnode_handle *irq_domain_alloc_named_fwnode_parent(const char *name,
-> > > +							   struct fwnode_handle *parent)  
-> > 
-> > The name of this makes me think it's allocating the named fwnode parent, rather that
-> > the named fwnode + setting it's parent.
-> > 
-> > There aren't all that many calls to irq_domain_named_fwnode(), maybe to avoid challenge
-> > of a new name, just add the parameter to all of them? (25ish)  Mind you the current
-> > pattern for similar cases is a helper, so maybe not.  
-> 
-> Similar cases ? Have you got anything specific I can look into ?
+https://verisilicon.com/
 
-I meant all the different irq_domain_alloc_xxxxx variants that call
-__irq_domain_alloc_fwnode() with a subset of parameters set to NULL.
+Add their name to the list of vendors.
 
-That seems to say there is a precedence for making the presence of the parameter
-part of the name rather than requiring callers to set the ones they don't want to
-NULL.  So it argues for a helper like this one just for consistency.
+Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-> 
-> > Or go with something similar to named and have
-> > 
-> > irq_domain_alloc_named_parented_fwnode()?  
-> 
-> Or I can add a set_parent() helper (though that's a bit of churn IMO) ?
-> 
-> If Thomas has a preference I will follow that, all of the above is doable
-> for me.
-
-Agreed. Let's see what Thomas prefers (i.e. make the decision his problem ;)
-
-Jonathan
-
-> 
-> > I'm not that bothered though if you think the current naming is the best we can do.  
-> 
-> I think you have a point - as per my comment above.
-> 
-> Thanks,
-> Lorenzo
-> 
-> > Jonathan
-> >   
-> > > +{
-> > > +	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED, 0, name, NULL, parent);
-> > >  }  
-> > 
-> >   
-> 
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index c7591b2aec2a..ce5c413948b1 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1745,6 +1745,8 @@ patternProperties:
+     description: Variscite Ltd.
+   "^vdl,.*":
+     description: Van der Laan b.v.
++  "^verisilicon,.*":
++    description: VeriSilicon Microelectronics
+   "^vertexcom,.*":
+     description: Vertexcom Technologies, Inc.
+   "^via,.*":
+-- 
+2.43.0
 
 
