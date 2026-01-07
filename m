@@ -4,62 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D756ACFD658
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:03:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27380CFD658
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:06:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dvyu8ngHIrvDt5M9MmXXt9nxxx7mdNT/GJSNCYaUTJU=; b=r9WnGzYjCNxGNqnGrgUscvb//8
-	IM7An6nA4DF54E69myYG3enuiOmfpi4dFDUqU7A9SJjh1K/d+GUR2m2L3MUI7nTJkO6aai/kuy3rT
-	QVaYwqSDbI+GmC+c1j8dNf9SyxiQ0dZ7q+MPICTPKQZVJk3hJ1wlpiEwawgjVbswLACDAcbniedfz
-	cqEQ/k5EZFu3DlWS8twtEMdgjJJRmhfTYR7+myt0xyHXcYjRTtiRYeuhbBlOiplWE/yXlQOaZYLrD
-	qvxrYAO6QXg+Mky7PAWS8IaCbY3wo0Rt0My7rrxyyJa7r+9s58X7OmwLISu9E6hfBUMvgOCf53s90
-	4Gy1NrMQ==;
+	bh=3g3VrAehq1DtdyJEabqqf3fDXyycbpVTX+V8NEpPD+w=; b=aYkvyOEWAgmc2/IST4xh+14XzD
+	90jqNl4vrmesMorVB7aamKiMoAUo0vo0MADwPdewFuW+oF61syS3sJJP+l1If1g9lFftju+5I/NZj
+	zVua1XXwwfzYQw47asPPrJKockQ7cj8jplMB1eHAay5Y3wa7WMu3iwo1j0Le2dHKhutYuE2e6sMPG
+	XrDDc81ByDaVISU/R3ln4ypsufS+96MN0+lV9jpsHCGbtySbNf/w2AKhuF3FQxw2IlThWf42VHm0r
+	ol3vEWuQXYE96dXPADKZdKwRBdnHed6AkX8iUwHEzejx8nVhwgbsV0x4QIT4UYGvIIL3fUSHTXVWl
+	CBC9Co4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdW0U-0000000FDtz-0HAR;
-	Wed, 07 Jan 2026 16:03:34 +0000
-Received: from smtprelay0017.hostedemail.com ([216.40.44.17] helo=relay.hostedemail.com)
+	id 1vdW2y-0000000FECs-0q8o;
+	Wed, 07 Jan 2026 16:06:09 +0000
+Received: from mail-244120.protonmail.ch ([109.224.244.120])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdW0R-0000000FDtB-1PTr
+	id 1vdW2u-0000000FEC6-1H3c
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 16:03:32 +0000
-Received: from omf04.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay06.hostedemail.com (Postfix) with ESMTP id BDE121A5130;
-	Wed,  7 Jan 2026 16:03:28 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf04.hostedemail.com (Postfix) with ESMTPA id E70AC20023;
-	Wed,  7 Jan 2026 16:03:25 +0000 (UTC)
-Date: Wed, 7 Jan 2026 11:03:52 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Jiri Olsa <jolsa@kernel.org>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Will Deacon <will@kernel.org>,
- Mahe Tardy <mahe.tardy@gmail.com>, Peter Zijlstra <peterz@infradead.org>,
- bpf@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org, Yonghong Song
- <yhs@fb.com>, Song Liu <songliubraving@fb.com>, Andrii Nakryiko
- <andrii@kernel.org>, Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH bpf-next 1/2] arm64/ftrace,bpf: Fix partial regs after
- bpf_prog_run
-Message-ID: <20260107110352.3fd7ddda@gandalf.local.home>
-In-Reply-To: <20260107093256.54616-1-jolsa@kernel.org>
-References: <20260107093256.54616-1-jolsa@kernel.org>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Wed, 07 Jan 2026 16:06:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=geanix.com;
+	s=protonmail2; t=1767801959; x=1768061159;
+	bh=3g3VrAehq1DtdyJEabqqf3fDXyycbpVTX+V8NEpPD+w=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=KziO1atL1h1acJHJ/nknbCs7ObEO1ICTzusYp85opcS3th6hdnJOb1o4kr0TijZCW
+	 gkhu7tFC8I7wgheAOzmlMPheEO3Vn+u63B2Cnp/yXsw6rQNg0wJb6BNYtc3uHZIWsL
+	 AaxXJS008BZ//21a/Gnj6s0FxhPv2f7lwd5eFndRSDdDpI2VSkakvsqplsOlIHikut
+	 B5ryQdmRlp1cJ0MAG5WuAAQQneDWMIj4OAPUenerwhgDyj8OIpbDJHEXgMW6CY3VWt
+	 JF0d4fK0d0qnlJGeqT3/pEwO8waDmIg8sXCwTJBRZ3lFc8G+qzAAnv8dcjiTbTzh5H
+	 vFaIwAf3sTkGw==
+Date: Wed, 07 Jan 2026 16:05:56 +0000
+To: =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+From: Sean Nyekjaer <sean@geanix.com>
+Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-pwm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] pwm: stm32: handle polarity change when PWM is enabled
+Message-ID: <fwaodg2ovh7j47ifwjhgeppxs3oiqht5ecbs7bmfbi7j6djejs@shwokpcmutr3>
+In-Reply-To: <nwhixocvhii27jvcyg7ex5emewntgfhyxa4ds5vo2dphe7xfe4@ibjsjdd5fgmn>
+References: <20260106-stm32-pwm-v1-1-33e9e8a9fc33@geanix.com> <kemjjoyrhqglqq4p2j6kygspevq2mdbiujtnksw4rkdapoqcfy@zte2c7fhqvn3> <2e2iahbzcepbzwgk7xeta2afxmycfjgv2zofzngqjvp4on46r2@mzpi4bz4uqie> <nwhixocvhii27jvcyg7ex5emewntgfhyxa4ds5vo2dphe7xfe4@ibjsjdd5fgmn>
+Feedback-ID: 134068486:user:proton
+X-Pm-Message-ID: 57d8dde4371b846314f7e2b8b867b714e4f3c48f
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Server: rspamout07
-X-Rspamd-Queue-Id: E70AC20023
-X-Stat-Signature: 13qo46g6zpia7f3nofbp81nnodino9w7
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1957k6O/UsmSN3vUac32Bo7sXZIZwwkaaU=
-X-HE-Tag: 1767801805-671253
-X-HE-Meta: U2FsdGVkX18RsKY0dngVyvOKbOnb578X+xSZkEOG7hLLVWfcT997CreYeXdTXjiUBbrnEpEplun5zUoX/yIde/2G7I0khiiwc2+9R3i83hE5x9MaXQsj752xyWlfb1torPzACnrRGbNQRBs76gmyhpH81bHqH6l5Ph89iZObGEZbEZGFPfhDP4wmX4UEQOSAmpy+EanvESqs05MZHmkt+EhdhXlEt4bxk4hAlAIcQw42HV/JXn0BV2+43E+XurhE5vtIgIOTTqPOPf6C1dvfnCE7BZArazcQzYY63MXPU9eCBeI0YhZEhYxCQn/Q3+/MgFzPmaLc5W8Wh67jl6agKZJpPxz16ltc
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_080331_437486_50A553B9 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20260107_080605_226647_62520A20 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,46 +69,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed,  7 Jan 2026 10:32:55 +0100
-Jiri Olsa <jolsa@kernel.org> wrote:
+Hi Uwe,
 
-> diff --git a/arch/arm64/include/asm/ftrace.h b/arch/arm64/include/asm/ftrace.h
-> index 1621c84f44b3..177c7bbf3b84 100644
-> --- a/arch/arm64/include/asm/ftrace.h
-> +++ b/arch/arm64/include/asm/ftrace.h
-> @@ -157,6 +157,30 @@ ftrace_partial_regs(const struct ftrace_regs *fregs, struct pt_regs *regs)
->  	return regs;
->  }
->  
+On Wed, Jan 07, 2026 at 04:54:46PM +0100, Uwe Kleine-K=C3=B6nig wrote:
+> Hey Sean,
+>=20
+> On Tue, Jan 06, 2026 at 11:30:34AM +0000, Sean Nyekjaer wrote:
+> > On Tue, Jan 06, 2026 at 11:22:57AM +0100, Uwe Kleine-K=C3=B6nig wrote:
+> > > On Tue, Jan 06, 2026 at 08:01:57AM +0100, Sean Nyekjaer wrote:
+> > > > After commit 7346e7a058a2 ("pwm: stm32: Always do lazy disabling"),
+> > > > polarity changes are ignored. Updates to the TIMx_CCER CCxP bits ar=
+e
+> > > > ignored by the hardware when the master output is enabled via the
+> > > > TIMx_BDTR MOE bit.
+> > > [...]
+> > > I have hardware using this driver, will set it up later this week for
+> > > testing.
+> >=20
+> > Very cool, looking forward to hear if you can re-produce.
+>=20
+> I cannot. I have:
+>=20
+> =09# uname -r
+> =096.11.0-rc1-00028-geb18504ca5cf-dirty
+>=20
+> (the -dirty is only from enabling the pwm for my machine, no driver
+> changes)
+>=20
+> =09# cat /sys/kernel/debug/pwm
+> =090: platform/40001000.timer:pwm, 4 PWM devices
+> =09...
+> =09 pwm-3   (sysfs               ): requested enabled period: 313720 ns d=
+uty: 10000 ns polarity: normal
+>=20
+> and pulseview/sigrok detects 3.187251% with a period of 313.8 =C2=B5s.
+>=20
+> After
+>=20
+> =09echo inversed > /sys/class/pwm/pwmchip0/pwm3/polarity
+>=20
+> the output changes to
+>=20
+> =09# cat /sys/kernel/debug/pwm
+> =090: platform/40001000.timer:pwm, 4 PWM devices
+> =09...
+> =09 pwm-3   (sysfs               ): requested enabled period: 313720 ns d=
+uty: 10000 ns polarity: inverse
+>=20
+> and pulseview/sigrok claims 96.812749% with a period of 313.8 =C2=B5s.
+> So the polarity change happend as expected.
+>=20
+> This is on an st,stm32mp135f-dk board.
+>=20
+> Where is the difference to your observations?
+>=20
 
-See my reply in the other email thread:
+Thanks for taking a look!
+I'm using the PWM for a backlight. With this [0] in my dts:
 
-  https://lore.kernel.org/all/20260107105316.2b70a308@gandalf.local.home/
+[0]:
+=09backlight: backlight {
+=09=09compatible =3D "pwm-backlight";
+=09=09pwms =3D <&pwm4 0 125000 PWM_POLARITY_INVERTED>;
+=09=09brightness-levels =3D <102 235 255>;
+=09=09default-brightness-level =3D <80>;
+=09=09num-interpolated-steps =3D <100>;
+=09=09enable-gpios =3D <&gpiof 12 GPIO_ACTIVE_LOW>;
+=09status =3D "okay";
+=09};
 
--- Steve
+Maybe that is doing something differently.
 
+/Sean
 
-> +/*
-> + * ftrace_partial_regs_update - update the original ftrace_regs from regs
-> + * @fregs: The ftrace_regs to update from @regs
-> + * @regs: The partial regs from ftrace_partial_regs() that was updated
-> + *
-> + * Some architectures have the partial regs living in the ftrace_regs
-> + * structure, whereas other architectures need to make a different copy
-> + * of the @regs. If a partial @regs is retrieved by ftrace_partial_regs() and
-> + * if the code using @regs updates a field (like the instruction pointer or
-> + * stack pointer) it may need to propagate that change to the original @fregs
-> + * it retrieved the partial @regs from. Use this function to guarantee that
-> + * update happens.
-> + */
-> +static __always_inline void
-> +ftrace_partial_regs_update(const struct ftrace_regs *fregs, struct pt_regs *regs)
-> +{
-> +	struct __arch_ftrace_regs *afregs = arch_ftrace_regs(fregs);
-> +
-> +	if (afregs->pc != regs->pc) {
-> +		afregs->pc = regs->pc;
-> +		afregs->regs[0] = regs->regs[0];
-> +	}
-> +}
 
