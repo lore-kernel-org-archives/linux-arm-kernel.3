@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B608CFD632
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 13:29:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10CD3CFD62A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 13:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
 	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
 	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pn+kqCPWueZrmt5TpLjDJUYpXBBfe00TA3BTkYqMUmM=; b=Cf+wZ/RAA0n+dXsbuF2IpAR8Zt
-	Z0btV0Zi7o9i/cjjl6Hy4sOvQu2eVQra6CMVIkcU0WSpk1P/zyZhcpZIjWrQYktG3lhihaQKq/hkC
-	lt6mHdHUdqOFMpQn8USV6nqJV/xeVpqbJ1QeAMQyNGW5lmnhfflJyPumWerIcnqFUcQi2uDxCkUYG
-	bw/OoqBMYG9iGOTaUCprxSEd5k6ItQNreDzDg6vcn9yqZrhBf1ywbzE27GYqV4scBkO4fliwobAe5
-	JX6bgYOwhVc2+1ooSgWmWq3fIePjOnRCjbHmBuwTqLX1lUaLju51VoBgk4c6pvmaNZgwKQ6pgHaph
-	6hut7acw==;
+	bh=eRal9aRJEBMws0AwIbeE+xWsj4dyQhrtTO2oF039rMA=; b=KRiMkoiF/1Xs5Cp10EiGK4sGOE
+	WByx78oNzi+XUR4BRY8K85kXskn37so7mrsqiZORLJCXRgowKCzDlEjrX13dxIhM0+umr9FDLQDGn
+	xWuMH8WuKo3eJnAKa1GP3GneBPr2H9+Wi9NOYRfBUFVktMYk6KBWCojCPjUIwHHlJ3CKFyU9mer5O
+	WyW+AmoF5QNSrlH8+4tQU5rVBFOM3zgC4y/OWL+JmpiVd8HfJ7gSwle9uX7Q2CtZow8PJ9SKs3eg9
+	o06q3SW8gRHp2kZBtx54V7Y4wVpinxT5f0VNn+Kqsbtabw/M0U35aXo8GHrpfdpebLXL2aLrfxMa8
+	etsRdq0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdTaw-0000000F0bk-1vak;
-	Wed, 07 Jan 2026 13:29:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdTff-0000000F0ut-1AXg;
+	Wed, 07 Jan 2026 13:33:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdTav-0000000F0am-0BYA;
-	Wed, 07 Jan 2026 13:29:02 +0000
+	id 1vdTfd-0000000F0uZ-1D3C
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Jan 2026 13:33:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5998841AC6;
-	Wed,  7 Jan 2026 13:29:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7015C4CEF7;
-	Wed,  7 Jan 2026 13:28:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7FA8D41765;
+	Wed,  7 Jan 2026 13:33:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D683CC4CEF7;
+	Wed,  7 Jan 2026 13:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767792540;
-	bh=PK1j6ce4GGTcpSge6J8AMXbZ8tvdblBxTwzpEYOUGQg=;
+	s=k20201202; t=1767792832;
+	bh=eRal9aRJEBMws0AwIbeE+xWsj4dyQhrtTO2oF039rMA=;
 	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
-	b=TwpQDEJFw9eder+ACSMDQ+hh2IXQJhWM0qJedRQIGlwhlYpFPOIDu3w6JzkhZmfY5
-	 v7cTyCpq5tlIbdCoMzYuktDk9LGEXCaxX9PvaXYDi4AcoHI5jSuVxSAO1q6Aehh2rL
-	 J0fb80OArKVpkly5vd3OjFrcmDkHa0OZlI5XLW4L6Cjutsqn3t2x5K80tG4JzT3TWD
-	 l7lIzuapfxCX7EwlxlEkujyT3ZJhmNgvCOVh0c2BeIKs1+AEVAKzR0nuF/6G+Jf3Jt
-	 ukrAVsD7OELbx2WZjiav5Qp8x4PeztEzKyp0g/WkepHIoYQuMxPA5/AJVMZvzEl/36
-	 V53gwahHgJWZA==
-Message-ID: <5418c64c7c32a5bd651b097a47d28e00@kernel.org>
-Date: Wed, 07 Jan 2026 13:28:57 +0000
+	b=ZsLZbs7o8rWvOy1KXRQEHXUY+OZNgKMmY0wLvJ8iieksy79lUKP2qpEbtYYjj18AN
+	 E7Xd9oiOs9XbNxr+4a9Ia06cop1T+OsmXvlKomwA1JcpOKqFyXILxvBcNGcMq38DZp
+	 HKbwnC7jmd/ik1tz4BPGB9OR3OcTMLK9ETrR22i4v2rVF8AKst/eJmHg3pizbZ0FCZ
+	 ciyGXWN51TABOpmO5w4SPjJ/n0kYXGAld0XeeODer6T7xx+Q6wEGXzip1eGcNwjLeM
+	 P+aBsWtH1MwJXQHaAnU27itZ5joYHKy6ZNad+h2Z7Sx4DhaMZt9mwn9z9kKmC5JLUb
+	 KNZlEazVnbbrQ==
+Message-ID: <7e796e122dcbce9a8d7678db9bbfc89d@kernel.org>
+Date: Wed, 07 Jan 2026 13:33:49 +0000
 From: "Maxime Ripard" <mripard@kernel.org>
-To: "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>
-Subject: Re: [PATCH v3 09/10] drm/display: bridge_connector: dynamically
- generate HDMI callbacks
-In-Reply-To: <20251224-limit-infoframes-2-v3-9-7fd3cacfefed@oss.qualcomm.com>
-References: <20251224-limit-infoframes-2-v3-9-7fd3cacfefed@oss.qualcomm.com>
-Cc: dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, "Abhinav
- Kumar" <abhinav.kumar@linux.dev>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Andy
- Yan" <andy.yan@rock-chips.com>, "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>, "Chen-Yu
- Tsai" <wens@kernel.org>, "Chun-Kuang Hu" <chunkuang.hu@kernel.org>, "Dave
- Stevenson" <dave.stevenson@raspberrypi.com>, "David Airlie" <airlied@gmail.com>, "Dmitry
- Baryshkov" <lumag@kernel.org>, =?utf-8?b?SGVpa28gU3TDvGJuZXI=?= <heiko@sntech.de>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, "Jessica Zhang" <jesszhan0024@gmail.com>, "Jonas
- Karlman" <jonas@kwiboo.se>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liu
- Ying" <victor.liu@nxp.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marijn
- Suijten" <marijn.suijten@somainline.org>, "Matthias Brugger" <matthias.bgg@gmail.com>, "Maxime
- Ripard" <mripard@kernel.org>, =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, "Philipp Zabel" <p.zabel@pengutronix.de>, "Raspberry
- Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Rob Clark" <robin.clark@oss.qualcomm.com>, "Robert
- Foss" <rfoss@kernel.org>, "Samuel Holland" <samuel@sholland.org>, "Sandy
- Huang" <hjc@rock-chips.com>, "Sean Paul" <sean@poorly.run>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
- Zimmermann" <tzimmermann@suse.de>
-Content-Transfer-Encoding: 7bit
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH 01/12] drm: of: drm_of_panel_bridge_remove(): fix
+ device_node leak
+In-Reply-To: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-1-283d7bba061a@bootlin.com>
+References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-1-283d7bba061a@bootlin.com>
+Cc: benjamin.gaignard@linaro.org, dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org, "Adrien
+ Grassein" <adrien.grassein@gmail.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "David
+ Airlie" <airlied@gmail.com>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Inki
+ Dae" <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, "Jonas Karlman" <jonas@kwiboo.se>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liu Ying" <victor.liu@nxp.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maxime
+ Ripard" <mripard@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, "Philippe Cornu" <philippe.cornu@st.com>, "Robert
+ Foss" <rfoss@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Shawn
+ Guo" <shawnguo@kernel.org>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_052901_108237_713A9B21 
-X-CRM114-Status: UNSURE (   6.15  )
+X-CRM114-CacheID: sfid-20260107_053353_351582_D28E1CE8 
+X-CRM114-Status: UNSURE (   6.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,13 +81,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 24 Dec 2025 03:02:58 +0200, Dmitry Baryshkov wrote:
-> The rest of the DRM framework uses presence of the callbacks to check if
-> the particular infoframe is supported. Register HDMI callbacks
-> dynamically, basing on the corresponding drm_bridge ops.
-> 
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> 
+On Wed, 7 Jan 2026 14:12:52 +0100, Luca Ceresoli wrote:
+> drm_of_panel_bridge_remove() uses of_graph_get_remote_node() to get a
+> device_node but does not put the node reference.
+>=20
+> Fixes: c70087e8f16f ("drm/drm_of: add drm_of_panel_bridge_remove function=
+")
+> Cc: stable@vger.kernel.org # v4.15
+>=20
 > [ ... ]
 
 Acked-by: Maxime Ripard <mripard@kernel.org>
