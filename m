@@ -4,64 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FA67D0D171
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 21:59:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ACF4D0D171
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 22:08:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yEq3eoJFjUljkKJGjcb41gP5QSegiR/2h7As4v/kLKc=; b=tzDPEo4NNNpUe9viqPr3eU8h3i
-	2QmrBBucMc9LgztMYi3TFU2rJUv8YSJtr3JbS5b847Qb0D3q/izXcilwswl9SZSJVuKUeiXdgoeSS
-	SNS/Bes20SQF5Cnai2iH7ChuDs0Ce3BR0Ejbksj3fWlnJJ0Pe2EGTins7E23ULFXU1mIwIBOB0DEN
-	ZqHMCTrDygR49EpnZEV7qnwqOt+0EmcNpRwrfQ2vGcRrTVS2suxTXMZX9d8vL7AtGoHePkE6CKhlY
-	/PBgBzrvG9S1XcvPS3PtUQvzr9RrhXIzgNhpmdlH+nIeiYfItGPrEFek+1HJlTOiBFxF8GAyDUlpe
-	2Jo6Jtew==;
+	bh=CAnAv/LJnBSH5Dae/YwF15GHzEwiA2Hav/HN+MtxZkw=; b=nNVi/mtktDKoiJTIXulrZY+U9a
+	9xfy1uxK+YI8fClB7Sa7cH2winzLBMvASYghJPDfKLkxzegs2yWQWAR4ZjAJRTfNnPLT6ePfzs24y
+	QQPWDaMPk1Uk7I6JDAEwsoTDTvqVIYlQhDvxk3W1G3FLdeRkj2LtfgSHW3st38OLVbYfroDU5BcX8
+	gFRY2fjK1P6iceu1loufVengRGEZnS/xDLcM43z8RORRDTbNGMvDj/EXsjhmfp2+dIY9I0aIRbEkU
+	zIZXZkDjUflqUh7xiFrNUWrlkNJI0sRGJJ8jQ9z9VumVHL4H11Yfm4CskF5BSX8gUBDIvEuIBY+lW
+	CzWJftog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdbYt-0000000Fgn7-37rv;
-	Wed, 07 Jan 2026 21:59:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vdbh4-0000000Fh7g-3Dbb;
+	Wed, 07 Jan 2026 22:07:54 +0000
+Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdbYs-0000000Fgmv-3OiL
+	id 1vdbh1-0000000Fh7L-0XRb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 21:59:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C30B460007;
-	Wed,  7 Jan 2026 21:59:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 601BBC4CEF1;
-	Wed,  7 Jan 2026 21:59:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767823165;
-	bh=jkRGEmXj8A9PUTqs9joDQ6ARfY3aQfH/gvw8Rj5b87o=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dIEI2AFtMwtI1cxjEEelpcoqlQ4KJ9tYoFvYue/duTtQRU3jq2cXtmPiVjB4Dgalq
-	 KsgZCwLQf6shBUYv1lhpC6u1o/t9rfL4Hr8t+vtocTliGHxg61MnxdDNUx8g6lzHZM
-	 d3nxaUtpcTEJ7Ej50ib6pFP1wBm2LWFOFMUfHV0GzFG60B65Yppkg0UxOpZq/ZxxqY
-	 DF0PT6RA5XbSTFIpcOcgp4XmpCTctt2+IeawTozG2etcEZEz8XXQMG69WnhUrNvHck
-	 PnsRKxnvSoSo+HTn8XLprDDYa6rXGvG/8UX4rC++M05sKj+vlIztH684iJIeDy/5NR
-	 AMM9FFFQWDKcw==
-From: Will Deacon <will@kernel.org>
-To: iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Mostafa Saleh <smostafa@google.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	robin.murphy@arm.com,
-	joro@8bytes.org,
-	Tomasz Nowicki <tnowicki@google.com>
-Subject: Re: [PATCH RESEND] iommu/arm-smmu-v3: Remove IAS
-Date: Wed,  7 Jan 2026 21:59:11 +0000
-Message-ID: <176782095435.3284849.16107001420143134229.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260102205353.2725509-1-smostafa@google.com>
-References: <20260102205353.2725509-1-smostafa@google.com>
+	Wed, 07 Jan 2026 22:07:52 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id BB5EF1D000BB;
+	Wed,  7 Jan 2026 17:07:45 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Wed, 07 Jan 2026 17:07:46 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1767823665;
+	 x=1767910065; bh=CAnAv/LJnBSH5Dae/YwF15GHzEwiA2Hav/HN+MtxZkw=; b=
+	C29YWTciMfXwBD4cOVmgUgjFp4qwDAUtrKmB1O5Luq88MnHcUqGnxzUVCvyIZkNE
+	q426bOB859Dte5NbSdNGxEvfgqE8XAaBeN7FXl8Tat6czz9ZwNAVEOJGoLSlTV7R
+	+L0Elgyuq2oT4eVhm8lCLiJH3/rU+Lkn9V34ZabmzCkE+hk/Mx98vG3/dOdty4O9
+	eyVQpSTu1v3x3xirBaazz+a7J+AI12SqedCr6JpHkKbl8o9sXGqjnY5ZUciQE4/d
+	5rZx/dQHF0P1Qn1R5LBqDe4079SdfavrbkB2DxMEH7MEKJdqLejGUJnyyZ5fnWRA
+	Rir88/LDn6OSyWDA+VH2BA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1767823665; x=
+	1767910065; bh=CAnAv/LJnBSH5Dae/YwF15GHzEwiA2Hav/HN+MtxZkw=; b=K
+	1sb18mGLVllhcekE6stdN/s3CZ9HbWawIH3QiDATvp52a4BTlPCkFUwyk7vVDFfV
+	P5pWBVA2RprGpcvohlHAdemVdPYp8ZE3zx6o59GpN/fNv6CqlCgM0YqJxBUSjtZ7
+	Z1/JlQQSkKolgp7jR7uM/J4IpwjXs5tUI8w430D/YB3UyPPmqnVleOcwmDXdlSWe
+	nLqZaEfPlysKovkLDlosomRNJKEb2VwuugN769TPimgKTR5wxH+WTk3EHqR7komJ
+	CIBw6WHRQc2UJd6327X4J2oeUjyh6QaUzuG2IGvgHKuqq+ySVcNYHI+kP5JgGKZL
+	9Bhop2uAs1VcGk1GvYwLw==
+X-ME-Sender: <xms:MdleaS6IGX4ez3oVOiAk_mXHi6sUkVofqfrP3DmqTgG2t6l1KjHqvg>
+    <xme:MdleaWsjL-txPMUuYbZofuX8DYUhgfJMq1w1BPtprMEFYHqEuhs_gqWVj05pF4D13
+    jrz9QHqYVzbvsNhKOgfyrfYGrVdb6MbbRBZNme1syCvNb8Ped47WA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddutdegvdefucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddupdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtg
+    hpthhtohepmhgrrhhkrdhruhhtlhgrnhgusegrrhhmrdgtohhmpdhrtghpthhtohepkhgv
+    vghssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrgiisehkvghrnhgvlhdrohhrgh
+    dprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhu
+    gidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtg
+    hpthhtohepvhgvghgrrhgurdhnohhsshhumhesohhrrggtlhgvrdgtohhmpdhrtghpthht
+    oheplhgsuhhlfigrhhhnsehrvgguhhgrthdrtghomhdprhgtphhtthhopehluhhkrghsrd
+    gsuhhlfigrhhhnsehrvgguhhgrthdrtghomh
+X-ME-Proxy: <xmx:MdleaaisiOkxXIfDELq7a1mY3wzv0c8Uz7pF7pr0OHanZxjZH5YLEA>
+    <xmx:MdleaW3eYdLg89neg5zDFnrdQw3D-Wlu-zB3ABNyhYM4XGeR4ElafQ>
+    <xmx:MdleadfbTtyPx4Y5xyC8TL-mHDzVLTepoFQ6aszKQHaThYKDcfo6BQ>
+    <xmx:MdleacwB-fWJ5gwo4ZCmjfqYfR9Bll3OwGF54N_UPwIStcvPoSjeXw>
+    <xmx:MdleaXetcZpqDh7T36yAsJHrsdFoop2jdPFMy4zN2ChgziLSHCdSoeMd>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 3027F700069; Wed,  7 Jan 2026 17:07:45 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+X-ThreadId: A8i1WEG3jGmR
+Date: Wed, 07 Jan 2026 23:07:03 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Will Deacon" <will@kernel.org>, "Marc Zyngier" <maz@kernel.org>
+Cc: "Lukas Bulwahn" <lbulwahn@redhat.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ linux-arm-kernel@lists.infradead.org, "Mark Rutland" <mark.rutland@arm.com>,
+ "Vegard Nossum" <vegard.nossum@oracle.com>, "Kees Cook" <kees@kernel.org>,
+ kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org,
+ "Lukas Bulwahn" <lukas.bulwahn@redhat.com>
+Message-Id: <7b7ac65c-773e-48fe-a335-c49b6ef9a0e8@app.fastmail.com>
+In-Reply-To: <aV6CpBCvr37mcv7W@willie-the-truck>
+References: <20251223110730.121239-1-lukas.bulwahn@redhat.com>
+ <aVwkIYMyoe7OpeUh@willie-the-truck> <86h5syn8ww.wl-maz@kernel.org>
+ <aV6CpBCvr37mcv7W@willie-the-truck>
+Subject: Re: [PATCH] arm64: Kconfig: deprecate redundant ARM64_USE_LSE_ATOMICS
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260107_140751_501042_60E34EA3 
+X-CRM114-Status: GOOD (  21.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,28 +120,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 02 Jan 2026 20:53:52 +0000, Mostafa Saleh wrote:
-> The driver only supports AArch64 page tables where OAS == IAS.
-> 
-> Remove the extra IAS tracking for AArch32 as this feature was
-> never implemented and that was creating BAD_STEs for SMMUv3
-> with stage-2 and OAS < 40.
-> 
-> Further discussion on this in:
-> https://lore.kernel.org/linux-iommu/20251130194506.593700-1-smostafa@google.com/
-> 
-> [...]
+On Wed, Jan 7, 2026, at 16:58, Will Deacon wrote:
+> On Tue, Jan 06, 2026 at 01:54:39PM +0000, Marc Zyngier wrote:
+>> On Mon, 05 Jan 2026 20:50:41 +0000, Will Deacon <will@kernel.org> wrote:
+>> Subject: [PATCH] arm64: Unconditionally enable LSE support
+>> 
+>> LSE atomics have been in the architecture since ARMv8.1 (released in
+>> 2014), and are hopefully supported by all modern toolchains.
+>> 
+>> Drop the optional nature of LSE support in the kernel, and always
+>> compile the support in, as this really is very little code. LL/SC
+>> still is the default, and the switch to LSE is done dynamically.
+>> 
+>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+>> ---
+>>  arch/arm64/Kconfig             | 16 ----------------
+>>  arch/arm64/include/asm/insn.h  | 23 -----------------------
+>>  arch/arm64/include/asm/lse.h   |  9 ---------
+>>  arch/arm64/kernel/cpufeature.c |  2 --
+>>  arch/arm64/kvm/at.c            |  7 -------
+>>  arch/arm64/lib/insn.c          |  2 --
+>>  arch/arm64/net/bpf_jit_comp.c  |  7 -------
+>>  7 files changed, 66 deletions(-)
+>
+> I think we should go ahead with this.
+>
+> Initially, I thought we'd need some surgery to cpufeature.c so that
+> cpus_have_final_cap() could take the _likely_ path for LSE but it looks
+> like that's only relevant for KVM's AT handling and the common atomic_t
+> APIs use alternative_has_cap_likely() already.
 
-Applied to iommu (arm/smmu/updates), thanks!
+I'm not entirely convinced by the direction. Removing compile-time
+options and complexity from #ifdef blocks is clearly an advantage,
+but I'm a bit worried about at least the ARM64_USE_LSE_ATOMICS 
+option still being valuable.
 
-[1/1] iommu/arm-smmu-v3: Remove IAS
-      https://git.kernel.org/iommu/c/5ac66ed8417f
+The boot-time patching for all atomics adds complexity as well, and
+being able to configure it out can be helpful in a number of
+scenarios:
 
-Cheers,
--- 
-Will
+- I've seen several scenarios where code size is extremely important,
+  and being able to compile out any runtime-detected features 
+  saves some space. In a defconfig kernel, this is about 1.1% of .text.
+  Being able to select just the LSE version without the patching
+  may be even more valuable these days, but almost
+  all embedded systems I see are still ARMv8.0 (Cortex-A53 and
+  Cortex-A35) without LSE.
+- We have an experimental patch set for CONFIG_XIP_KERNEL on arm64,
+  which inherently requires not patching at all, and requires
+  the opposite patches for other features and errata workarounds.
+- The amount of nested macros and inline functions for the arm64
+  atomics is large enough to slow down compilation, #including
+  linux/spinlock.h shouldn't really result in >1MB of preprocessed
+  source code. (this is a much harder problem to solve)
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+      Arnd
 
