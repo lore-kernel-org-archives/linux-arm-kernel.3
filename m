@@ -4,101 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4811ED0D15A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 18:16:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7A35D0D15D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 18:16:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FuvKMsYdeHCb+qiex5eN4gaDeI4nVkcPpNxIVMGnEFs=; b=W1xT806myopc2tdfQDXkjhPfpi
-	qrxbHy05gXwSJWRYOdezQauHM/lIR4X5DQR2izBhurr7uE/pSvpQRPNhTzZ3K5r64MBxjwe6m6sGi
-	gS3Pw/DdR2We6wRTG6NXoYNpdM9x6E1eQBv4ygYMiWtZtmifAjMkMWSDnWxN66NamCckfGv3xT7HS
-	91unAtqy7xywN7M3EfmI0OpX4Q/SjuEMmSFadKoVoveE3y1z53JjjzXxj6z+S3Odi7xHhGOInLsS7
-	uW69xGZDqRD096TigLzXd40cwgo/wTiW9JiuR1NXVEyxc4CRPbGMcCuZ3tD6fRjuBChCE15fbx5VN
-	BB0ONnLg==;
+	bh=/G9oYIZxPHvtNlgDHuyoJcBPsfPtNnxLcd1dUJtcS+o=; b=uwy4oJY8jxFX76tmWYlV5J6Cvi
+	lKrsBCPEfZh/qYCjedpQdztAM28aGyR+I4fHGAZrgMor+Yq0YuOm3N43YI6J58H1xdsLh3Bq7LH7x
+	a3x5mpJQ/v/xNKpPmG5hCK0oa62l6u7mapEQL04rFKyvnj3dMz00uebL9qkNsoNFWMyqiJ3awoCa6
+	mAlddx8/214IneEUNrcBIXyZ9uLjXCiHKdotxsHkBUnISuUnZAVj8urUeWBsTIZLFHyhGXKwOHSBB
+	GIasQ1THpGUmaNW+kThJ753mZRXqN1XQ5f1kbTWQLDozql6BrOY0swok3YSLJ3tNGuFYNoxS5U2Xy
+	gCdNmO5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdY52-0000000FSLJ-0F3S;
-	Wed, 07 Jan 2026 18:16:24 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vdY55-0000000FSQA-1mai;
+	Wed, 07 Jan 2026 18:16:32 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdY3v-0000000FRPF-1pCt
+	id 1vdY3v-0000000FRPJ-0vTZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 18:15:38 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 607H7bsT3672885
+	Wed, 07 Jan 2026 18:15:40 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 607HiOKb218397
 	for <linux-arm-kernel@lists.infradead.org>; Wed, 7 Jan 2026 18:15:14 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	FuvKMsYdeHCb+qiex5eN4gaDeI4nVkcPpNxIVMGnEFs=; b=k5gYSI5I8dYAg17d
-	fM5dOuknFoyC2v0PhhCcQJy5+WYmkaFXDf6UMm2EZAvqWe4PeRQlmErsiIPsumpW
-	in/oAbaL16QkUWySHp9122buDOe66yeR+FWY2W9pm1pyNMCL9XIVOxw1jiXIy10Z
-	b2rFMNQDtpmySyLiiWrz/ovTSBcd/EoniUTuKfFtxmoPje3jymd0OVP/TOQL21/8
-	DR0aQJPIw7VvRe87OUkIAwv0cY7mlToaJtoxlnrYab9Vb8/BrU7tiYHoykcYN+Ey
-	3QZ4a2nrlQ09bXti4056YjQbVoGpM//9sWpUq2cuGSYOu1QovfEpiz4ysWexp6sx
-	RWp74Q==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bhum507y0-1
+	/G9oYIZxPHvtNlgDHuyoJcBPsfPtNnxLcd1dUJtcS+o=; b=ZQwobCkpTW2MdBiK
+	cBSDmjNESFPC0lk+Ot4ZAVWIN/bSnuzmsbA4F2uN8J/GQsy8hcO9jNjNHs6g6zLG
+	5gZ3dJBpP9n0UhuZajKT+SEyRoundu9vt/qUnjFcUSnolLqEq2y6K0Is0GA3/NLT
+	tZyppf48BtIr600EFVphrKgfiWKAWG9zJs5MBuskH74x9pnxtHSmERdXjSUYGTLU
+	ILP8qV+uM7amINTT0Pkcuo6r5naipuJnFftjcvKP9VuDv4E0See5HRp9QKTXKGDE
+	4F+UBimIU7IV/TQZrx+6Wjb5KyBbh/RamvtahhRj/K5rz5HDyJjsnuAMHnBnOgyB
+	QZ6OdA==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bhn809mhb-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
 	for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 18:15:14 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8b2217a9c60so308933685a.3
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8c38129a433so604509285a.2
         for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 10:15:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767809714; x=1768414514; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1767809713; x=1768414513; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=FuvKMsYdeHCb+qiex5eN4gaDeI4nVkcPpNxIVMGnEFs=;
-        b=hdtmtdPwn6IjZId9S7GfEbkLWyPl0DM068syQdDfnikK9kd8FeS67VzD4gnQEpLlKU
-         zdKe99DR9bAgLwSRMWalYaF3rWg1QJvZjEBTXk/HulYCyP2IK6NqS61u2Ocn3V+q+USC
-         kgSCjXITDtaIVJKVBTme2q2Mir4+IwMxKXZpnWDCBjugsNF2H3V6U+Zh2GAyCpCJ8NVF
-         5qBJIYL+SaxttR3o0wX3blRO/lqmeNK5TetMJV6Azsb/ix8jaRddgnuAT+6xmQbRL5ju
-         2CCd2VyO8aYa/sh0lSFLU14lP1pCHzAiRk/0/pHLjejgrMOJT6V94G4t34p6OmfGSZMv
-         NxvQ==
+        bh=/G9oYIZxPHvtNlgDHuyoJcBPsfPtNnxLcd1dUJtcS+o=;
+        b=Kw9EQhAY41dYjTJn4e2VCcnrBuzl6az5FtHojBwc0wSVodCf1LpRIcs/igQn33EfPk
+         AuL0TwZM1I+gCndiog1OYbcjmRoeZNECktbGPLEcCbHDARai3Y8o3RxctUzwX5MkLnD1
+         qcGjRNPgdUNkLIH7ETMo68h73LOcO4HMl+z4ycHiMEdiDLI71cp72RYjebbQnmViwtc7
+         GK4wxZmoU6If35txZsRtNK2XBkSykKtvwZxuveLmYe5S1Eqw7TNtUETYBHnhac6bv60i
+         CxoNtqTmwnmaQdF6zMYL8Sl0SN6IpF0mNe/qQ+3pS0srowsgJS/0fR2eUzkEiAACjlJZ
+         ydPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767809714; x=1768414514;
+        d=1e100.net; s=20230601; t=1767809713; x=1768414513;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=FuvKMsYdeHCb+qiex5eN4gaDeI4nVkcPpNxIVMGnEFs=;
-        b=YkIBpSwZ++NffGz9fhapDXWUR9hn1bYXB7FAzkhy8KB36Vbn2vaTFzch5X1xPBIwia
-         mgDVDIiRhJJ2TBVvzBZ5ZJBsHNLG1PjirRlMhYnXlz1d1W0X6LLfG7j/JXyGW3lsj596
-         L00idZXWsWw4Jwz5j0gKZJZL5tySDe9QM3k+T1ZYMBlrJG/8kuW3IOHFK7yHpNaAIw2A
-         6SBgMAOuWoHe8t0LjyxUJqmuAUQNS6iQiWJoUvUCKnSq6KYBOOdQhe4AVF5oDYaoYR6P
-         TAIgRR1q5oUONb1gDk0PNBnsxj+gzmV265hW0f6F5ubdUj3Q23uCrEGenzHLzICKK+xn
-         i1HQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVflgqnWH/ag9OvEAv60Oo/DNTlDI1lf8Oz7L90YYOzcTpdd850IVAlKpiNxwXWjiiifilLaUzEOX8eEyXwUS8G@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7y2YM8koTk7ybb02nNImSdYbCSAuMs06qbQ5eLuAIgtRFm7tm
-	K1IEJk+qatU9wO9590MxBG8qvEOUvRujywxFawKYEQBR+F9HPHkPoqyG6gADU2znZqgynkJ6Dn8
-	KkPA9Fgo8lwf6RWAQExEyyLY1khUHF924/qAl8u5NQglQ/7W6GJByAaQcIKgzRyfUBFdgEiQ0UY
-	rz5g==
-X-Gm-Gg: AY/fxX5Fmq3gxOswy6jgTwaNBuQr3PS9Yl8fbqb2XZx84BqzBHlKoX5q000LsWHqJvm
-	PSlniOUx3x5uwHdP36axJcK6K/wPEjJ2Y42mK8UPpUtqJV7pusLfBrDPgj7rZk7Sjw4ZoQjpYHq
-	oTaPh2DSNnDlaXq2g9tY1zu7h1SM0h2SSZ8UhQD2Jg2LM6SfClVUms/VPdtzBr+3Ha0MMlKm4cS
-	psYydE8pbNNXIb7R49HTHl+aI3nUNb32DpOWWpUrw5Ojs9eytMXOxKL2wQaUbmZrYROWmL6ehq+
-	x9lThlYhRu5kfsUy+AMfKivadtaZdJWkgQcy8J5cQ/t/NA5TI2PWvWGyp1AJD6wyAOVBEmzVU8o
-	illUx68UXEkUQ3qJHy+I6Wgwer8YMZZ0ijq3nlYxU6HbgaP79GxxKSIoCJ0e+KyrTj/m2qFwPCi
-	PEyXH0NtTs3zYrWaoajWuG7aY=
-X-Received: by 2002:a05:620a:698b:b0:8b8:dd7f:f032 with SMTP id af79cd13be357-8c38941bec9mr417350785a.78.1767809713434;
-        Wed, 07 Jan 2026 10:15:13 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHoPBA8+usgh8WzBjQcdgLKsyd4pGWZrSMVrhAynD9c1OqnfO2wCskwOefNw7pH9SByyRIHiA==
-X-Received: by 2002:a05:620a:698b:b0:8b8:dd7f:f032 with SMTP id af79cd13be357-8c38941bec9mr417342485a.78.1767809712676;
+        bh=/G9oYIZxPHvtNlgDHuyoJcBPsfPtNnxLcd1dUJtcS+o=;
+        b=ZFppWG2m7EVJxVnqKPBdcZGt34UUkcdoPghmr7SSDi5SZapV+yTaQlZgtVMlfQ6p8E
+         /2dHivxyVLf63G/cwTCrrG6BUQMxTa+B6mbriffLuONrgXUXiVmDq3Kbj2ZikwOu9zIY
+         JIPbMVmn4Do7QnF2ogGNxE0xtDXoHVdxb+uzhHaWa7+O59oWwJZ6yJG9CEJIs/j4ys/c
+         Ple2hGrZ8FlxqmChwdMF9OP8Phcf7kV/5PvcYPxdZ1oXlAar3yHJFAMGnnAxEhBRgFH5
+         OHIljuMNmV9grhENF/Rv/mqneCQYkGzuFmHz73tVjPNskrMrMpemWUUcvf0FKYI/JnRq
+         Vbmg==
+X-Forwarded-Encrypted: i=1; AJvYcCVLnBDwKZA0I5Smr/ELIx4oeGJF+OK8O3pt5k6FkA6XfAKvSg7r+cxWl+1HYOnDwXPynLMVuuInOQF/L29i25ps@lists.infradead.org
+X-Gm-Message-State: AOJu0YwW3xdf7NIroL7DrPNaQ9sq1kY3tug9OirLde/j9rUe5mNyf7gt
+	/L7mJf90zFrW787Nw2HDZnHfvxl/iZCmkw7GYKxhpX6j6bmgTqHDGrf6VKnm191bBCUAyY1Ki24
+	Z/IDE++k3XZb359gc79Sl5uvT1P6RPbwm8OSIogtxl3oi7+JlXZXVkeJ1rHNcXW3cHwHWx7Rog2
+	xMHw==
+X-Gm-Gg: AY/fxX62IKNGX23cpSzVXFHs5VgR66luN3+g+WLlBNjRrr9CpvOse1iBiGdmzQXqbv8
+	io7r8LVvrSeiyPqKT9ofa2+KabuFGEsHKsEX7A8/gOgd2WLYwFJm1DJt4stq7Jc68BOK0akCeeX
+	CkfJQ3tT3BRkBmQO6wA2J9bbhx0+ZKcJoWyNbNw0ydQbFSya9KuRAEaMg8xVr6DAOC1rnSbY+6p
+	vP1JNmeoAGnN4KUipGv9wurLWNuPNRglWRvipgoUj3dkl1NV2VZ5TYjHM1TCilGM+ufBEsbWk6z
+	HQCs1FK79eEmeUTXZpG5lrpURhPbKY8SczxgJQNFPWL2gqawCq6SPhxeJ9aWXU3q6v2CmnCV5HE
+	M1sNVy3K39xRmMlRh21RSy2Z9p76ltACbJLlM7zV5iwZZjYfW0AyGCG9H+J3W8ubhGb9F4aIdDW
+	QIF+YMvp1jQPo9IIaYkJJSF/o=
+X-Received: by 2002:a05:620a:40d4:b0:8c0:f13e:42ee with SMTP id af79cd13be357-8c389420351mr442720185a.88.1767809712323;
         Wed, 07 Jan 2026 10:15:12 -0800 (PST)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59b65d6988asm1436884e87.80.2026.01.07.10.15.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+X-Google-Smtp-Source: AGHT+IHBRowqaOMG1FOaqGi9pLMNYxVafY2/thMkhgmNvOZZ083Yq6iefukoR+kl3+0wFUVHPYuSVg==
+X-Received: by 2002:a05:620a:40d4:b0:8c0:f13e:42ee with SMTP id af79cd13be357-8c389420351mr442710385a.88.1767809711036;
         Wed, 07 Jan 2026 10:15:11 -0800 (PST)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59b65d6988asm1436884e87.80.2026.01.07.10.15.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 Jan 2026 10:15:10 -0800 (PST)
 From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Wed, 07 Jan 2026 20:15:03 +0200
-Subject: [PATCH v4 06/10] drm/display: hdmi_state_helper: split InfoFrame
- functions per type
+Date: Wed, 07 Jan 2026 20:15:02 +0200
+Subject: [PATCH v4 05/10] drm/bridge: refactor HDMI InfoFrame callbacks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260107-limit-infoframes-2-v4-6-213d0d3bd490@oss.qualcomm.com>
+Message-Id: <20260107-limit-infoframes-2-v4-5-213d0d3bd490@oss.qualcomm.com>
 References: <20260107-limit-infoframes-2-v4-0-213d0d3bd490@oss.qualcomm.com>
 In-Reply-To: <20260107-limit-infoframes-2-v4-0-213d0d3bd490@oss.qualcomm.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
@@ -133,44 +132,44 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
         linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
         freedreno@lists.freedesktop.org, linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=35452;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=59639;
  i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=h+8kSKyyCVYvuPI9clygzcqBDU+O9Zth6ETXqpeby+g=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBpXqKkW8YHXV5Ify/ZnGCs1fh2rPNCIYw+Hww1v
- 6TTYyGVo26JATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaV6ipAAKCRCLPIo+Aiko
- 1XMACACCiORH8/VxHuARR4jC9zTWC4weknBPdzh2/dczrn7LnTslSIwwzW/YqMKowkAyvx4QZL4
- Kb9P3cbOnPag/CQdL1Q3wUxPvZMXfhb8+607lpgm2mUUyYvX/zHZrCfzWqQLk6JGqwz4zBg2NUj
- ov1WzfAwXe/UUbwjf+QF6GX4MbBhopo7f86SYAMTe3Fizo5s+4a2jSzeyJxdRGN7WHXr0gSypg3
- koy7NKvt0CRrmph4Ov0bc33YNOeIIk08bklKxwzRhOdynycd+YLuete7Jnneqhf1CD+skA7GY9L
- aKpqoR7OgtZJJm7LITmUXvLy6CBc0SFmJdjXZp3oj0cDWXEB
+ bh=rrAYuYRkoLgiZDcEXYJBgQ4P9j2sq4poijx+pmGceSA=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBpXqKkEZbNZ/Br4hx1XBX2GgPBWTb5SY6twy3gh
+ XbZk6d6I9KJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaV6ipAAKCRCLPIo+Aiko
+ 1VwMB/9sl/uLZB5vpOyqv9+DWDFFLjZoLVZME2yljS7sx0rinb4UEdksU9xR3QKb/D2OcsS9g5e
+ GlH/bvxyFUj9cfGEtSJOW8udZAlgl9QU+pC6ZjeBmzlYrkvpFGYk2lSdt3ILbSY+Y2PPLLL5PTH
+ cCsCKCumyB4sIoDVBdxubiGMo/Qh8n1AYm7RDS/8x4VL4TrYIcd5hhiVSzONg8egGqEWo0r0T/T
+ usq8dVMwmN47s0YAP5yDVi+irL2PMe/PKZDwTNJrDuCl3FELqpNcVuzqvlY3GKTGcGyil1LfIJx
+ 3yW1Gz9Oktxu3vnScRM1iRcppsEpdL5xHbEThO42FyWn+Z3R
 X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
  fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Proofpoint-GUID: F9oo2Bi27lBNJiXuOgbzMRUqAlh4yjH_
-X-Proofpoint-ORIG-GUID: F9oo2Bi27lBNJiXuOgbzMRUqAlh4yjH_
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA3MDE0NCBTYWx0ZWRfX+zyl/oFgsMWR
- oiPiQ7FWRRXYITkzRtzDzHG1+jD2+IViee2P7TskSomQzNnoU42WTIClyJWJ4TSr6omwXCXf/If
- iXpF9LlQaq+VwIv1q8WObZwk6crmfqN10Bt7ymoFWshoKVbSjqUdWSdrI7r+1q6UmR2Ft455saP
- jjMZ7FvIJjLGMbgZIl3FBgQ53Znfo/ICgH+YkephSAVhy9gigX3CfwTPmezAd6+dbTTUgrHETA8
- XKFJ1IDW0zpHzvxomLcLkjTGJcY0teZnZmQbhY4ZjCsVFLNIK+7m90Zwgh3GDGBsM/7YW1uN7Vt
- gCeCqjztT9aFkP0cJLIQUqqSV2BhfjWI6jjNdmLjSemN+m77zOI9tIwVPhS48VKYNMZ7BHtTQ+v
- R4I8Td1jdEsYOqOpo8pKpU94Y7Bp3srfFUHuMpdkhEOpqwV5Wbqjtf5FzmMAx+ggU8Xzb8pIiLT
- WLzjVUr/JhHGGy22L/w==
-X-Authority-Analysis: v=2.4 cv=KNZXzVFo c=1 sm=1 tr=0 ts=695ea2b2 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+X-Authority-Analysis: v=2.4 cv=OtJCCi/t c=1 sm=1 tr=0 ts=695ea2b2 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
  a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=bATBssBWj1biXikgvRQA:9 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=GAiaypzmODBVVc3kIZ8A:9 a=QEXdDO2ut3YA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-GUID: wHvhZTR71_n2cGvY1hh0KuswYCueniDb
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA3MDE0NCBTYWx0ZWRfXwB255cZhDlys
+ AxjeyPZbBZY2L+Daft8J5jYb69eT4f4u+iPIlwfqjSjL3PSMBNeOL6uo2w2ENLFVc12JsxfbBK9
+ QnjQJAr/62oMQ1UVDokyVsNf+aNzZxu3r3y4cS8Bw07fo07f2Z3H6vUuEOgNQIra7krgrz6phY+
+ 0P+rA+Z59iSXYssilR8XbKUh29Ar74crQcRe8R6954QY9P3Lsuxs5JWkf1MXgUcpoVkAv94rwyA
+ uiLbyvuviMzBPRnPefbCTcUC1fBEZdZR+WRe75wRWU8/nWAMOPpDpvDKTpPVdNl0i8cscbv+8sI
+ T+rlEPYGqyJPAclrC3CDsoxQ6XqIJYhS05GhI1wtzSZeQrcv3wmh+Llj3ndWDmgzH3aTd+QS92J
+ hvhFKT2PtkN8etBt9Aqr15uMe/l6il+h9VZ+lsIUHAvZ/0KhJLwTDbpcFvRx7bDo0lcX8HImWL7
+ YCL4uybMssCu4GMozGw==
+X-Proofpoint-ORIG-GUID: wHvhZTR71_n2cGvY1hh0KuswYCueniDb
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2026-01-07_03,2026-01-06_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 priorityscore=1501 clxscore=1015 impostorscore=0
- phishscore=0 adultscore=0 suspectscore=0 bulkscore=0 lowpriorityscore=0
+ impostorscore=0 spamscore=0 phishscore=0 malwarescore=0 priorityscore=1501
+ adultscore=0 bulkscore=0 lowpriorityscore=0 clxscore=1015 suspectscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601070144
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_101523_522404_A8D6AC32 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20260107_101523_613986_4DA1D845 
+X-CRM114-Status: GOOD (  19.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,1032 +184,1643 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Havign a single set of InfoFrame callbacks doesn't provide enough
-information to the DRM framework about the InfoFrame types that are
-actually supported. Also it's not really future-proof: it provides a way
-to program only a single Vendor-Specific frame, however we might need to
-support multiple VSIs at the same time (e.g. HDMI vs HDMI Forum
-VSIs).
+Having only a single set of callbacks, hdmi_clear_infoframe and
+hdmi_write_infoframe, bridge drivers don't have an easy way to signal to
+the DRM framework, which InfoFrames are actually supported by the
+hardware and by the driver and which are not. Also, it makes it
+extremely easy for HDMI bridge drivers to skip implementing the
+seemingly required InfoFrames (e.g. HDMI VSI). Last, but not least,
+those callbacks take a single 'type' parameter, which makes it
+impossible to implement support for multiple VSIs (which will be
+required once we start working on HDMI Forum VSI).
 
-Provide separate sets of callbacks, one per the InfoFrame type.
+Split the callbacks into a per-InfoFrame-kind pairs, letting the bridge
+drivers actually signal supported features. The implementation follows
+the overall drm_bridge design, where the bridge has a single
+drm_bridge_funcs implementation and signals, which functions are to be
+called using the drm_bridge->ops flags.
+
+The AVI and HDMI VSI are assumed to be required for a normal HDMI
+operation (with the drivers getting a drm_warn_once() stub
+implementation if one is missing). The Audio InfoFrame is handled by the
+existing DRM_BRIDGE_OP_HDMI_AUDIO, while the SPD and HDR DRM InfoFrames
+got new drm_bridge_ops values.
 
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 ---
- drivers/gpu/drm/display/drm_bridge_connector.c     | 206 ++++++++++++++++-----
- drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  86 ++++-----
- drivers/gpu/drm/drm_connector.c                    |   6 +-
- drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |  39 ++--
- drivers/gpu/drm/tests/drm_connector_test.c         |  14 +-
- drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 102 +++++-----
- drivers/gpu/drm/vc4/vc4_hdmi.c                     |  82 +++++++-
- include/drm/drm_connector.h                        | 105 ++++++++---
- 8 files changed, 455 insertions(+), 185 deletions(-)
+ drivers/gpu/drm/bridge/adv7511/adv7511_drv.c   | 180 +++++++++++++----------
+ drivers/gpu/drm/bridge/inno-hdmi.c             |  41 +++---
+ drivers/gpu/drm/bridge/ite-it6263.c            |  95 ++++++------
+ drivers/gpu/drm/bridge/lontium-lt9611.c        | 143 ++++++++++--------
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c   | 110 +++++++++-----
+ drivers/gpu/drm/display/drm_bridge_connector.c |  70 ++++++++-
+ drivers/gpu/drm/mediatek/mtk_hdmi_common.c     |   8 +-
+ drivers/gpu/drm/mediatek/mtk_hdmi_v2.c         | 110 +++++++-------
+ drivers/gpu/drm/msm/hdmi/hdmi_bridge.c         | 195 +++++++++++++------------
+ drivers/gpu/drm/rockchip/rk3066_hdmi.c         |  47 +++---
+ include/drm/drm_bridge.h                       | 127 ++++++++++++++--
+ 11 files changed, 705 insertions(+), 421 deletions(-)
 
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index d38519e3923e..ca6a72a4cf80 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -401,8 +401,7 @@ drm_bridge_connector_tmds_char_rate_valid(const struct drm_connector *connector,
- 		return MODE_OK;
+diff --git a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
+index b9be86541307..1050bb62280b 100644
+--- a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
++++ b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
+@@ -887,88 +887,111 @@ static const struct drm_edid *adv7511_bridge_edid_read(struct drm_bridge *bridge
+ 	return adv7511_edid_read(adv, connector);
  }
  
--static int drm_bridge_connector_clear_infoframe(struct drm_connector *connector,
--						enum hdmi_infoframe_type type)
-+static int drm_bridge_connector_clear_avi_infoframe(struct drm_connector *connector)
+-static int adv7511_bridge_hdmi_clear_infoframe(struct drm_bridge *bridge,
+-					       enum hdmi_infoframe_type type)
++static int adv7511_bridge_hdmi_clear_audio_infoframe(struct drm_bridge *bridge)
  {
- 	struct drm_bridge_connector *bridge_connector =
- 		to_drm_bridge_connector(connector);
-@@ -412,35 +411,70 @@ static int drm_bridge_connector_clear_infoframe(struct drm_connector *connector,
- 	if (!bridge)
- 		return -EINVAL;
+ 	struct adv7511 *adv7511 = bridge_to_adv7511(bridge);
  
 -	switch (type) {
--	case HDMI_INFOFRAME_TYPE_AVI:
--		/* required */
--		return bridge->funcs->hdmi_clear_avi_infoframe(bridge);
--	case HDMI_INFOFRAME_TYPE_VENDOR:
--		/* required */
--		return bridge->funcs->hdmi_clear_hdmi_infoframe(bridge);
 -	case HDMI_INFOFRAME_TYPE_AUDIO:
--		if (bridge->ops & DRM_BRIDGE_OP_HDMI_AUDIO)
--			return bridge->funcs->hdmi_clear_audio_infoframe(bridge);
+-		adv7511_packet_disable(adv7511, ADV7511_PACKET_ENABLE_AUDIO_INFOFRAME);
 -		break;
--	case HDMI_INFOFRAME_TYPE_DRM:
--		if (bridge->ops & DRM_BRIDGE_OP_HDMI_HDR_DRM_INFOFRAME)
--			return bridge->funcs->hdmi_clear_hdr_drm_infoframe(bridge);
+-	case HDMI_INFOFRAME_TYPE_AVI:
+-		adv7511_packet_disable(adv7511, ADV7511_PACKET_ENABLE_AVI_INFOFRAME);
 -		break;
 -	case HDMI_INFOFRAME_TYPE_SPD:
--		if (bridge->ops & DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME)
--			return bridge->funcs->hdmi_clear_spd_infoframe(bridge);
+-		adv7511_packet_disable(adv7511, ADV7511_PACKET_ENABLE_SPD);
+-		break;
+-	case HDMI_INFOFRAME_TYPE_VENDOR:
+-		adv7511_packet_disable(adv7511, ADV7511_PACKET_ENABLE_SPARE1);
+-		break;
+-	default:
+-		drm_dbg_driver(adv7511->bridge.dev, "Unsupported HDMI InfoFrame %x\n", type);
 -		break;
 -	}
-+	return bridge->funcs->hdmi_clear_avi_infoframe(bridge);
-+}
-+
-+static int drm_bridge_connector_write_avi_infoframe(struct drm_connector *connector,
-+						    const u8 *buffer, size_t len)
-+{
-+	struct drm_bridge_connector *bridge_connector =
-+		to_drm_bridge_connector(connector);
-+	struct drm_bridge *bridge;
-+
-+	bridge = bridge_connector->bridge_hdmi;
-+	if (!bridge)
-+		return -EINVAL;
-+
-+	return bridge->funcs->hdmi_write_avi_infoframe(bridge, buffer, len);
-+}
++	adv7511_packet_disable(adv7511, ADV7511_PACKET_ENABLE_AUDIO_INFOFRAME);
  
--	drm_dbg_driver(connector->dev, "Unsupported HDMI InfoFrame %x\n", type);
-+static int drm_bridge_connector_clear_hdmi_infoframe(struct drm_connector *connector)
-+{
-+	struct drm_bridge_connector *bridge_connector =
-+		to_drm_bridge_connector(connector);
-+	struct drm_bridge *bridge;
+ 	return 0;
+ }
+ 
+-static int adv7511_bridge_hdmi_write_infoframe(struct drm_bridge *bridge,
+-					       enum hdmi_infoframe_type type,
+-					       const u8 *buffer, size_t len)
++static int adv7511_bridge_hdmi_clear_avi_infoframe(struct drm_bridge *bridge)
+ {
+ 	struct adv7511 *adv7511 = bridge_to_adv7511(bridge);
+ 
+-	switch (type) {
+-	case HDMI_INFOFRAME_TYPE_AUDIO:
+-		/* send current Audio infoframe values while updating */
+-		regmap_update_bits(adv7511->regmap, ADV7511_REG_INFOFRAME_UPDATE,
+-				   BIT(5), BIT(5));
+-
+-		/* The Audio infoframe id is not configurable */
+-		regmap_bulk_write(adv7511->regmap, ADV7511_REG_AUDIO_INFOFRAME_VERSION,
+-				  buffer + 1, len - 1);
+-
+-		/* use Audio infoframe updated info */
+-		regmap_update_bits(adv7511->regmap, ADV7511_REG_INFOFRAME_UPDATE,
+-				   BIT(5), 0);
+-
+-		adv7511_packet_enable(adv7511, ADV7511_PACKET_ENABLE_AUDIO_INFOFRAME);
+-		break;
+-	case HDMI_INFOFRAME_TYPE_AVI:
+-		/* send current AVI infoframe values while updating */
+-		regmap_update_bits(adv7511->regmap, ADV7511_REG_INFOFRAME_UPDATE,
+-				   BIT(6), BIT(6));
+-
+-		/* The AVI infoframe id is not configurable */
+-		regmap_bulk_write(adv7511->regmap, ADV7511_REG_AVI_INFOFRAME_VERSION,
+-				  buffer + 1, len - 1);
+-
+-		regmap_write(adv7511->regmap, ADV7511_REG_AUDIO_INFOFRAME_LENGTH, 0x2);
+-		regmap_write(adv7511->regmap, ADV7511_REG_AUDIO_INFOFRAME(1), 0x1);
+-
+-		/* use AVI infoframe updated info */
+-		regmap_update_bits(adv7511->regmap, ADV7511_REG_INFOFRAME_UPDATE,
+-				   BIT(6), 0);
+-
+-		adv7511_packet_enable(adv7511, ADV7511_PACKET_ENABLE_AVI_INFOFRAME);
+-		break;
+-	case HDMI_INFOFRAME_TYPE_SPD:
+-		adv7511_packet_disable(adv7511, ADV7511_PACKET_ENABLE_SPD);
+-		regmap_bulk_write(adv7511->regmap_packet, ADV7511_PACKET_SPD(0),
+-				  buffer, len);
+-		adv7511_packet_enable(adv7511, ADV7511_PACKET_ENABLE_SPD);
+-		break;
+-	case HDMI_INFOFRAME_TYPE_VENDOR:
+-		adv7511_packet_disable(adv7511, ADV7511_PACKET_ENABLE_SPARE1);
+-		regmap_bulk_write(adv7511->regmap_packet, ADV7511_PACKET_SPARE1(0),
+-				  buffer, len);
+-		adv7511_packet_enable(adv7511, ADV7511_PACKET_ENABLE_SPARE1);
+-		break;
+-	default:
+-		drm_dbg_driver(adv7511->bridge.dev, "Unsupported HDMI InfoFrame %x\n", type);
+-		break;
+-	}
++	adv7511_packet_disable(adv7511, ADV7511_PACKET_ENABLE_AVI_INFOFRAME);
 +
-+	bridge = bridge_connector->bridge_hdmi;
-+	if (!bridge)
-+		return -EINVAL;
-+
-+	return bridge->funcs->hdmi_clear_hdmi_infoframe(bridge);
++	return 0;
 +}
 +
-+static int drm_bridge_connector_write_hdmi_infoframe(struct drm_connector *connector,
++static int adv7511_bridge_hdmi_clear_spd_infoframe(struct drm_bridge *bridge)
++{
++	struct adv7511 *adv7511 = bridge_to_adv7511(bridge);
++
++	adv7511_packet_disable(adv7511, ADV7511_PACKET_ENABLE_SPD);
++
++	return 0;
++}
++
++static int adv7511_bridge_hdmi_clear_hdmi_infoframe(struct drm_bridge *bridge)
++{
++	struct adv7511 *adv7511 = bridge_to_adv7511(bridge);
++
++	adv7511_packet_disable(adv7511, ADV7511_PACKET_ENABLE_SPARE1);
++
++	return 0;
++}
++
++static int adv7511_bridge_hdmi_write_audio_infoframe(struct drm_bridge *bridge,
 +						     const u8 *buffer, size_t len)
 +{
-+	struct drm_bridge_connector *bridge_connector =
-+		to_drm_bridge_connector(connector);
-+	struct drm_bridge *bridge;
++	struct adv7511 *adv7511 = bridge_to_adv7511(bridge);
 +
-+	bridge = bridge_connector->bridge_hdmi;
-+	if (!bridge)
-+		return -EINVAL;
++	/* send current Audio infoframe values while updating */
++	regmap_update_bits(adv7511->regmap, ADV7511_REG_INFOFRAME_UPDATE,
++			   BIT(5), BIT(5));
 +
-+	return bridge->funcs->hdmi_write_hdmi_infoframe(bridge, buffer, len);
-+}
++	/* The Audio infoframe id is not configurable */
++	regmap_bulk_write(adv7511->regmap, ADV7511_REG_AUDIO_INFOFRAME_VERSION,
++			  buffer + 1, len - 1);
 +
-+static int drm_bridge_connector_clear_audio_infoframe(struct drm_connector *connector)
-+{
-+	struct drm_bridge_connector *bridge_connector =
-+		to_drm_bridge_connector(connector);
-+	struct drm_bridge *bridge;
++	/* use Audio infoframe updated info */
++	regmap_update_bits(adv7511->regmap, ADV7511_REG_INFOFRAME_UPDATE,
++			   BIT(5), 0);
 +
-+	bridge = bridge_connector->bridge_hdmi;
-+	if (!bridge)
-+		return -EINVAL;
-+
-+	if (bridge->ops & DRM_BRIDGE_OP_HDMI_AUDIO)
-+		return bridge->funcs->hdmi_clear_audio_infoframe(bridge);
-+
-+	drm_dbg_driver(connector->dev, "Unsupported HDMI Audio InfoFrame\n");
- 
- 	return 0;
- }
- 
--static int drm_bridge_connector_write_infoframe(struct drm_connector *connector,
--						enum hdmi_infoframe_type type,
--						const u8 *buffer, size_t len)
-+static int drm_bridge_connector_write_audio_infoframe(struct drm_connector *connector,
-+						      const u8 *buffer, size_t len)
- {
- 	struct drm_bridge_connector *bridge_connector =
- 		to_drm_bridge_connector(connector);
-@@ -450,28 +484,84 @@ static int drm_bridge_connector_write_infoframe(struct drm_connector *connector,
- 	if (!bridge)
- 		return -EINVAL;
- 
--	switch (type) {
--	case HDMI_INFOFRAME_TYPE_AVI:
--		/* required */
--		return bridge->funcs->hdmi_write_avi_infoframe(bridge, buffer, len);
--	case HDMI_INFOFRAME_TYPE_VENDOR:
--		/* required */
--		return bridge->funcs->hdmi_write_hdmi_infoframe(bridge, buffer, len);
--	case HDMI_INFOFRAME_TYPE_AUDIO:
--		if (bridge->ops & DRM_BRIDGE_OP_HDMI_AUDIO)
--			return bridge->funcs->hdmi_write_audio_infoframe(bridge, buffer, len);
--		break;
--	case HDMI_INFOFRAME_TYPE_DRM:
--		if (bridge->ops & DRM_BRIDGE_OP_HDMI_HDR_DRM_INFOFRAME)
--			return bridge->funcs->hdmi_write_hdr_drm_infoframe(bridge, buffer, len);
--		break;
--	case HDMI_INFOFRAME_TYPE_SPD:
--		if (bridge->ops & DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME)
--			return bridge->funcs->hdmi_write_spd_infoframe(bridge, buffer, len);
--		break;
--	}
-+	if (bridge->ops & DRM_BRIDGE_OP_HDMI_AUDIO)
-+		return bridge->funcs->hdmi_write_audio_infoframe(bridge, buffer, len);
-+
-+	drm_dbg_driver(connector->dev, "Unsupported HDMI Audio InfoFrame\n");
++	adv7511_packet_enable(adv7511, ADV7511_PACKET_ENABLE_AUDIO_INFOFRAME);
 +
 +	return 0;
 +}
 +
-+static int drm_bridge_connector_clear_hdr_drm_infoframe(struct drm_connector *connector)
++static int adv7511_bridge_hdmi_write_avi_infoframe(struct drm_bridge *bridge,
++						   const u8 *buffer, size_t len)
 +{
-+	struct drm_bridge_connector *bridge_connector =
-+		to_drm_bridge_connector(connector);
-+	struct drm_bridge *bridge;
++	struct adv7511 *adv7511 = bridge_to_adv7511(bridge);
 +
-+	bridge = bridge_connector->bridge_hdmi;
-+	if (!bridge)
-+		return -EINVAL;
++	/* send current AVI infoframe values while updating */
++	regmap_update_bits(adv7511->regmap, ADV7511_REG_INFOFRAME_UPDATE,
++			   BIT(6), BIT(6));
 +
-+	if (bridge->ops & DRM_BRIDGE_OP_HDMI_HDR_DRM_INFOFRAME)
-+		return bridge->funcs->hdmi_clear_hdr_drm_infoframe(bridge);
++	/* The AVI infoframe id is not configurable */
++	regmap_bulk_write(adv7511->regmap, ADV7511_REG_AVI_INFOFRAME_VERSION,
++			  buffer + 1, len - 1);
 +
-+	drm_dbg_driver(connector->dev, "Unsupported HDMI HDR DRM InfoFrame\n");
++	regmap_write(adv7511->regmap, ADV7511_REG_AUDIO_INFOFRAME_LENGTH, 0x2);
++	regmap_write(adv7511->regmap, ADV7511_REG_AUDIO_INFOFRAME(1), 0x1);
++
++	/* use AVI infoframe updated info */
++	regmap_update_bits(adv7511->regmap, ADV7511_REG_INFOFRAME_UPDATE,
++			   BIT(6), 0);
++
++	adv7511_packet_enable(adv7511, ADV7511_PACKET_ENABLE_AVI_INFOFRAME);
 +
 +	return 0;
 +}
 +
-+static int drm_bridge_connector_write_hdr_drm_infoframe(struct drm_connector *connector,
-+							const u8 *buffer, size_t len)
++static int adv7511_bridge_hdmi_write_spd_infoframe(struct drm_bridge *bridge,
++						   const u8 *buffer, size_t len)
 +{
-+	struct drm_bridge_connector *bridge_connector =
-+		to_drm_bridge_connector(connector);
-+	struct drm_bridge *bridge;
++	struct adv7511 *adv7511 = bridge_to_adv7511(bridge);
 +
-+	bridge = bridge_connector->bridge_hdmi;
-+	if (!bridge)
-+		return -EINVAL;
-+
-+	if (bridge->ops & DRM_BRIDGE_OP_HDMI_HDR_DRM_INFOFRAME)
-+		return bridge->funcs->hdmi_write_hdr_drm_infoframe(bridge, buffer, len);
-+
-+	drm_dbg_driver(connector->dev, "Unsupported HDMI HDR DRM InfoFrame\n");
++	adv7511_packet_disable(adv7511, ADV7511_PACKET_ENABLE_SPD);
++	regmap_bulk_write(adv7511->regmap_packet, ADV7511_PACKET_SPD(0),
++			  buffer, len);
++	adv7511_packet_enable(adv7511, ADV7511_PACKET_ENABLE_SPD);
 +
 +	return 0;
 +}
 +
-+static int drm_bridge_connector_clear_spd_infoframe(struct drm_connector *connector)
-+{
-+	struct drm_bridge_connector *bridge_connector =
-+		to_drm_bridge_connector(connector);
-+	struct drm_bridge *bridge;
-+
-+	bridge = bridge_connector->bridge_hdmi;
-+	if (!bridge)
-+		return -EINVAL;
-+
-+	if (bridge->ops & DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME)
-+		return bridge->funcs->hdmi_clear_spd_infoframe(bridge);
-+
-+	drm_dbg_driver(connector->dev, "Unsupported HDMI SPD InfoFrame\n");
-+
-+	return 0;
-+}
-+
-+static int drm_bridge_connector_write_spd_infoframe(struct drm_connector *connector,
++static int adv7511_bridge_hdmi_write_hdmi_infoframe(struct drm_bridge *bridge,
 +						    const u8 *buffer, size_t len)
 +{
-+	struct drm_bridge_connector *bridge_connector =
-+		to_drm_bridge_connector(connector);
-+	struct drm_bridge *bridge;
++	struct adv7511 *adv7511 = bridge_to_adv7511(bridge);
 +
-+	bridge = bridge_connector->bridge_hdmi;
-+	if (!bridge)
-+		return -EINVAL;
-+
-+	if (bridge->ops & DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME)
-+		return bridge->funcs->hdmi_write_spd_infoframe(bridge, buffer, len);
- 
--	drm_dbg_driver(connector->dev, "Unsupported HDMI InfoFrame %x\n", type);
-+	drm_dbg_driver(connector->dev, "Unsupported HDMI SPD InfoFrame\n");
++	adv7511_packet_disable(adv7511, ADV7511_PACKET_ENABLE_SPARE1);
++	regmap_bulk_write(adv7511->regmap_packet, ADV7511_PACKET_SPARE1(0),
++			  buffer, len);
++	adv7511_packet_enable(adv7511, ADV7511_PACKET_ENABLE_SPARE1);
  
  	return 0;
  }
-@@ -492,9 +582,27 @@ drm_bridge_connector_read_edid(struct drm_connector *connector)
+@@ -986,8 +1009,14 @@ static const struct drm_bridge_funcs adv7511_bridge_funcs = {
+ 	.atomic_reset = drm_atomic_helper_bridge_reset,
  
- static const struct drm_connector_hdmi_funcs drm_bridge_connector_hdmi_funcs = {
- 	.tmds_char_rate_valid = drm_bridge_connector_tmds_char_rate_valid,
--	.clear_infoframe = drm_bridge_connector_clear_infoframe,
--	.write_infoframe = drm_bridge_connector_write_infoframe,
- 	.read_edid = drm_bridge_connector_read_edid,
-+	.avi = {
-+		.clear_infoframe = drm_bridge_connector_clear_avi_infoframe,
-+		.write_infoframe = drm_bridge_connector_write_avi_infoframe,
-+	},
-+	.hdmi = {
-+		.clear_infoframe = drm_bridge_connector_clear_hdmi_infoframe,
-+		.write_infoframe = drm_bridge_connector_write_hdmi_infoframe,
-+	},
-+	.audio = {
-+		.clear_infoframe = drm_bridge_connector_clear_audio_infoframe,
-+		.write_infoframe = drm_bridge_connector_write_audio_infoframe,
-+	},
-+	.hdr_drm = {
-+		.clear_infoframe = drm_bridge_connector_clear_hdr_drm_infoframe,
-+		.write_infoframe = drm_bridge_connector_write_hdr_drm_infoframe,
-+	},
-+	.spd = {
-+		.clear_infoframe = drm_bridge_connector_clear_spd_infoframe,
-+		.write_infoframe = drm_bridge_connector_write_spd_infoframe,
-+	},
- };
+ 	.hdmi_tmds_char_rate_valid = adv7511_bridge_hdmi_tmds_char_rate_valid,
+-	.hdmi_clear_infoframe = adv7511_bridge_hdmi_clear_infoframe,
+-	.hdmi_write_infoframe = adv7511_bridge_hdmi_write_infoframe,
++	.hdmi_clear_audio_infoframe = adv7511_bridge_hdmi_clear_audio_infoframe,
++	.hdmi_write_audio_infoframe = adv7511_bridge_hdmi_write_audio_infoframe,
++	.hdmi_clear_avi_infoframe = adv7511_bridge_hdmi_clear_avi_infoframe,
++	.hdmi_write_avi_infoframe = adv7511_bridge_hdmi_write_avi_infoframe,
++	.hdmi_clear_spd_infoframe = adv7511_bridge_hdmi_clear_spd_infoframe,
++	.hdmi_write_spd_infoframe = adv7511_bridge_hdmi_write_spd_infoframe,
++	.hdmi_clear_hdmi_infoframe = adv7511_bridge_hdmi_clear_hdmi_infoframe,
++	.hdmi_write_hdmi_infoframe = adv7511_bridge_hdmi_write_hdmi_infoframe,
  
- static int drm_bridge_connector_audio_startup(struct drm_connector *connector)
-diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-index a561f124be99..5a3817271d91 100644
---- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-+++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-@@ -891,21 +891,21 @@ drm_hdmi_connector_mode_valid(struct drm_connector *connector,
- }
- EXPORT_SYMBOL(drm_hdmi_connector_mode_valid);
+ 	.hdmi_audio_startup = adv7511_hdmi_audio_startup,
+ 	.hdmi_audio_prepare = adv7511_hdmi_audio_prepare,
+@@ -1322,7 +1351,8 @@ static int adv7511_probe(struct i2c_client *i2c)
  
--static int clear_device_infoframe(struct drm_connector *connector,
--				  enum hdmi_infoframe_type type)
-+static int clear_infoframe(struct drm_connector *connector,
-+			   const struct drm_connector_infoframe_funcs *funcs,
-+			   const char *type)
- {
--	const struct drm_connector_hdmi_funcs *funcs = connector->hdmi.funcs;
- 	struct drm_device *dev = connector->dev;
- 	int ret;
+ 	adv7511->bridge.ops = DRM_BRIDGE_OP_DETECT |
+ 		DRM_BRIDGE_OP_EDID |
+-		DRM_BRIDGE_OP_HDMI;
++		DRM_BRIDGE_OP_HDMI |
++		DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME;
+ 	if (adv7511->i2c_main->irq)
+ 		adv7511->bridge.ops |= DRM_BRIDGE_OP_HPD;
  
--	drm_dbg_kms(dev, "Clearing infoframe type 0x%x\n", type);
-+	drm_dbg_kms(dev, "Clearing %s InfoFrame\n", type);
- 
--	if (!funcs || !funcs->clear_infoframe) {
-+	if (!funcs->clear_infoframe) {
- 		drm_dbg_kms(dev, "Function not implemented, bailing.\n");
- 		return 0;
- 	}
- 
--	ret = funcs->clear_infoframe(connector, type);
-+	ret = funcs->clear_infoframe(connector);
- 	if (ret) {
- 		drm_dbg_kms(dev, "Call failed: %d\n", ret);
- 		return ret;
-@@ -914,39 +914,28 @@ static int clear_device_infoframe(struct drm_connector *connector,
- 	return 0;
+diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
+index ab4572eb8395..a26b99b101c4 100644
+--- a/drivers/gpu/drm/bridge/inno-hdmi.c
++++ b/drivers/gpu/drm/bridge/inno-hdmi.c
+@@ -584,34 +584,22 @@ static void inno_hdmi_init_hw(struct inno_hdmi *hdmi)
+ 	hdmi_modb(hdmi, HDMI_STATUS, m_MASK_INT_HOTPLUG, v_MASK_INT_HOTPLUG(1));
  }
  
--static int clear_infoframe(struct drm_connector *connector,
--			   struct drm_connector_hdmi_infoframe *old_frame)
--{
--	int ret;
--
--	ret = clear_device_infoframe(connector, old_frame->data.any.type);
--	if (ret)
--		return ret;
--
--	return 0;
--}
--
--static int write_device_infoframe(struct drm_connector *connector,
--				  union hdmi_infoframe *frame)
-+static int write_infoframe(struct drm_connector *connector,
-+			   const struct drm_connector_infoframe_funcs *funcs,
-+			   const char *type,
-+			   struct drm_connector_hdmi_infoframe *new_frame)
+-static int inno_hdmi_bridge_clear_infoframe(struct drm_bridge *bridge,
+-					    enum hdmi_infoframe_type type)
++static int inno_hdmi_bridge_clear_avi_infoframe(struct drm_bridge *bridge)
  {
--	const struct drm_connector_hdmi_funcs *funcs = connector->hdmi.funcs;
- 	struct drm_device *dev = connector->dev;
- 	u8 buffer[HDMI_INFOFRAME_SIZE(MAX)];
- 	int ret;
- 	int len;
- 
--	drm_dbg_kms(dev, "Writing infoframe type %x\n", frame->any.type);
-+	drm_dbg_kms(dev, "Writing %s InfoFrame\n", type);
- 
--	if (!funcs || !funcs->write_infoframe) {
-+	if (!funcs->write_infoframe) {
- 		drm_dbg_kms(dev, "Function not implemented, bailing.\n");
--		return -EINVAL;
-+		return 0; /* XXX: temporal until we stop generating unsupported frames */
- 	}
- 
--	len = hdmi_infoframe_pack(frame, buffer, sizeof(buffer));
-+	len = hdmi_infoframe_pack(&new_frame->data, buffer, sizeof(buffer));
- 	if (len < 0)
- 		return len;
- 
--	ret = funcs->write_infoframe(connector, frame->any.type, buffer, len);
-+	ret = funcs->write_infoframe(connector, buffer, len);
- 	if (ret) {
- 		drm_dbg_kms(dev, "Call failed: %d\n", ret);
- 		return ret;
-@@ -955,27 +944,17 @@ static int write_device_infoframe(struct drm_connector *connector,
- 	return 0;
- }
- 
--static int write_infoframe(struct drm_connector *connector,
--			   struct drm_connector_hdmi_infoframe *new_frame)
--{
--	int ret;
--
--	ret = write_device_infoframe(connector, &new_frame->data);
--	if (ret)
--		return ret;
--
--	return 0;
--}
--
- static int write_or_clear_infoframe(struct drm_connector *connector,
-+				    const struct drm_connector_infoframe_funcs *funcs,
-+				    const char *type,
- 				    struct drm_connector_hdmi_infoframe *old_frame,
- 				    struct drm_connector_hdmi_infoframe *new_frame)
- {
- 	if (new_frame->set)
--		return write_infoframe(connector, new_frame);
-+		return write_infoframe(connector, funcs, type, new_frame);
- 
- 	if (old_frame->set && !new_frame->set)
--		return clear_infoframe(connector, old_frame);
-+		return clear_infoframe(connector, funcs, type);
- 
- 	return 0;
- }
-@@ -995,6 +974,7 @@ static int write_or_clear_infoframe(struct drm_connector *connector,
- int drm_atomic_helper_connector_hdmi_update_infoframes(struct drm_connector *connector,
- 						       struct drm_atomic_state *state)
- {
-+	const struct drm_connector_hdmi_funcs *funcs = connector->hdmi.funcs;
- 	struct drm_connector_state *old_conn_state =
- 		drm_atomic_get_old_connector_state(state, connector);
- 	struct drm_connector_state *new_conn_state =
-@@ -1005,9 +985,15 @@ int drm_atomic_helper_connector_hdmi_update_infoframes(struct drm_connector *con
- 	if (!info->is_hdmi)
- 		return 0;
- 
-+	if (!funcs) {
-+		drm_dbg_kms(connector->dev, "Function not implemented, bailing.\n");
-+		return -EINVAL;
-+	}
-+
- 	mutex_lock(&connector->hdmi.infoframes.lock);
- 
- 	ret = write_or_clear_infoframe(connector,
-+				       &funcs->avi, "AVI",
- 				       &old_conn_state->hdmi.infoframes.avi,
- 				       &new_conn_state->hdmi.infoframes.avi);
- 	if (ret)
-@@ -1015,18 +1001,21 @@ int drm_atomic_helper_connector_hdmi_update_infoframes(struct drm_connector *con
- 
- 	if (connector->hdmi.infoframes.audio.set) {
- 		ret = write_infoframe(connector,
-+				      &funcs->audio, "Audio",
- 				      &connector->hdmi.infoframes.audio);
- 		if (ret)
- 			goto out;
- 	}
- 
- 	ret = write_or_clear_infoframe(connector,
-+				       &funcs->hdr_drm, "HDR DRM",
- 				       &old_conn_state->hdmi.infoframes.hdr_drm,
- 				       &new_conn_state->hdmi.infoframes.hdr_drm);
- 	if (ret)
- 		goto out;
- 
- 	ret = write_or_clear_infoframe(connector,
-+				       &funcs->spd, "SPD",
- 				       &old_conn_state->hdmi.infoframes.spd,
- 				       &new_conn_state->hdmi.infoframes.spd);
- 	if (ret)
-@@ -1034,6 +1023,7 @@ int drm_atomic_helper_connector_hdmi_update_infoframes(struct drm_connector *con
- 
- 	if (info->has_hdmi_infoframe) {
- 		ret = write_or_clear_infoframe(connector,
-+					       &funcs->hdmi, "HDMI-VS",
- 					       &old_conn_state->hdmi.infoframes.hdmi,
- 					       &new_conn_state->hdmi.infoframes.hdmi);
- 		if (ret)
-@@ -1062,6 +1052,7 @@ int
- drm_atomic_helper_connector_hdmi_update_audio_infoframe(struct drm_connector *connector,
- 							struct hdmi_audio_infoframe *frame)
- {
-+	const struct drm_connector_hdmi_funcs *funcs = connector->hdmi.funcs;
- 	struct drm_connector_hdmi_infoframe *infoframe =
- 		&connector->hdmi.infoframes.audio;
- 	struct drm_display_info *info = &connector->display_info;
-@@ -1070,12 +1061,17 @@ drm_atomic_helper_connector_hdmi_update_audio_infoframe(struct drm_connector *co
- 	if (!info->is_hdmi)
- 		return 0;
- 
-+	if (!funcs) {
-+		drm_dbg_kms(connector->dev, "Function not implemented, bailing.\n");
-+		return -EINVAL;
-+	}
-+
- 	mutex_lock(&connector->hdmi.infoframes.lock);
- 
- 	memcpy(&infoframe->data, frame, sizeof(infoframe->data));
- 	infoframe->set = true;
- 
--	ret = write_infoframe(connector, infoframe);
-+	ret = write_infoframe(connector, &funcs->audio, "Audio", infoframe);
- 
- 	mutex_unlock(&connector->hdmi.infoframes.lock);
- 
-@@ -1097,6 +1093,7 @@ EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_update_audio_infoframe);
- int
- drm_atomic_helper_connector_hdmi_clear_audio_infoframe(struct drm_connector *connector)
- {
-+	const struct drm_connector_hdmi_funcs *funcs = connector->hdmi.funcs;
- 	struct drm_connector_hdmi_infoframe *infoframe =
- 		&connector->hdmi.infoframes.audio;
- 	struct drm_display_info *info = &connector->display_info;
-@@ -1105,11 +1102,16 @@ drm_atomic_helper_connector_hdmi_clear_audio_infoframe(struct drm_connector *con
- 	if (!info->is_hdmi)
- 		return 0;
- 
-+	if (!funcs) {
-+		drm_dbg_kms(connector->dev, "Function not implemented, bailing.\n");
-+		return -EINVAL;
-+	}
-+
- 	mutex_lock(&connector->hdmi.infoframes.lock);
- 
- 	infoframe->set = false;
- 
--	ret = clear_infoframe(connector, infoframe);
-+	ret = clear_infoframe(connector, &funcs->audio, "Audio");
- 
- 	memset(&infoframe->data, 0, sizeof(infoframe->data));
- 
-diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-index 40e025712c9b..4f5b27fab475 100644
---- a/drivers/gpu/drm/drm_connector.c
-+++ b/drivers/gpu/drm/drm_connector.c
-@@ -600,8 +600,10 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
- 	if (!(max_bpc == 8 || max_bpc == 10 || max_bpc == 12))
- 		return -EINVAL;
- 
--	if (!hdmi_funcs->clear_infoframe ||
--	    !hdmi_funcs->write_infoframe)
-+	if (!hdmi_funcs->avi.clear_infoframe ||
-+	    !hdmi_funcs->avi.write_infoframe ||
-+	    !hdmi_funcs->hdmi.clear_infoframe ||
-+	    !hdmi_funcs->hdmi.write_infoframe)
- 		return -EINVAL;
- 
- 	ret = drmm_connector_init(dev, connector, funcs, connector_type, ddc);
-diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
-index 6263ee15880a..a50f260c73e4 100644
---- a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
-+++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
-@@ -40,27 +40,19 @@
- #define drm_connector_to_sun4i_hdmi(c)		\
- 	container_of_const(c, struct sun4i_hdmi, connector)
- 
--static int sun4i_hdmi_clear_infoframe(struct drm_connector *connector,
--				      enum hdmi_infoframe_type type)
-+static int sun4i_hdmi_clear_avi_infoframe(struct drm_connector *connector)
- {
- 	drm_warn_once(connector->dev, "clearing of AVI infoframe is not implemented\n");
- 
- 	return 0;
- }
- 
--static int sun4i_hdmi_write_infoframe(struct drm_connector *connector,
--				      enum hdmi_infoframe_type type,
--				      const u8 *buffer, size_t len)
-+static int sun4i_hdmi_write_avi_infoframe(struct drm_connector *connector,
-+					  const u8 *buffer, size_t len)
- {
- 	struct sun4i_hdmi *hdmi = drm_connector_to_sun4i_hdmi(connector);
- 	int i;
+ 	struct inno_hdmi *hdmi = bridge_to_inno_hdmi(bridge);
  
 -	if (type != HDMI_INFOFRAME_TYPE_AVI) {
--		drm_err(connector->dev,
--			"Unsupported infoframe type: %u\n", type);
+-		drm_err(bridge->dev, "Unsupported infoframe type: %u\n", type);
 -		return 0;
 -	}
 -
- 	for (i = 0; i < len; i++)
- 		writeb(buffer[i], hdmi->base + SUN4I_HDMI_AVI_INFOFRAME_REG(i));
+ 	hdmi_writeb(hdmi, HDMI_CONTROL_PACKET_BUF_INDEX, INFOFRAME_AVI);
  
-@@ -68,6 +60,21 @@ static int sun4i_hdmi_write_infoframe(struct drm_connector *connector,
- 
+ 	return 0;
  }
  
-+static int sun4i_hdmi_clear_hdmi_infoframe(struct drm_connector *connector)
+-static int inno_hdmi_bridge_write_infoframe(struct drm_bridge *bridge,
+-					    enum hdmi_infoframe_type type,
+-					    const u8 *buffer, size_t len)
++static int inno_hdmi_bridge_write_avi_infoframe(struct drm_bridge *bridge,
++						const u8 *buffer, size_t len)
+ {
+ 	struct inno_hdmi *hdmi = bridge_to_inno_hdmi(bridge);
+ 	ssize_t i;
+ 
+-	if (type != HDMI_INFOFRAME_TYPE_AVI) {
+-		drm_err(bridge->dev, "Unsupported infoframe type: %u\n", type);
+-		return 0;
+-	}
+-
+-	inno_hdmi_bridge_clear_infoframe(bridge, type);
++	inno_hdmi_bridge_clear_avi_infoframe(bridge);
+ 
+ 	for (i = 0; i < len; i++)
+ 		hdmi_writeb(hdmi, HDMI_CONTROL_PACKET_ADDR + i, buffer[i]);
+@@ -619,6 +607,21 @@ static int inno_hdmi_bridge_write_infoframe(struct drm_bridge *bridge,
+ 	return 0;
+ }
+ 
++static int inno_hdmi_bridge_clear_hdmi_infoframe(struct drm_bridge *bridge)
 +{
-+	drm_warn_once(connector->dev, "HDMI VSI not implemented\n");
++	drm_warn_once(bridge->encoder->dev, "HDMI VSI not implemented\n");
 +
 +	return 0;
 +}
 +
-+static int sun4i_hdmi_write_hdmi_infoframe(struct drm_connector *connector,
++static int inno_hdmi_bridge_write_hdmi_infoframe(struct drm_bridge *bridge,
++						 const u8 *buffer, size_t len)
++{
++	drm_warn_once(bridge->encoder->dev, "HDMI VSI not implemented\n");
++
++	return 0;
++}
++
+ static int inno_hdmi_config_video_csc(struct inno_hdmi *hdmi,
+ 				      struct drm_connector *connector,
+ 				      struct drm_display_mode *mode)
+@@ -883,8 +886,10 @@ static const struct drm_bridge_funcs inno_hdmi_bridge_funcs = {
+ 	.atomic_disable = inno_hdmi_bridge_atomic_disable,
+ 	.detect = inno_hdmi_bridge_detect,
+ 	.edid_read = inno_hdmi_bridge_edid_read,
+-	.hdmi_clear_infoframe = inno_hdmi_bridge_clear_infoframe,
+-	.hdmi_write_infoframe = inno_hdmi_bridge_write_infoframe,
++	.hdmi_clear_avi_infoframe = inno_hdmi_bridge_clear_avi_infoframe,
++	.hdmi_write_avi_infoframe = inno_hdmi_bridge_write_avi_infoframe,
++	.hdmi_clear_hdmi_infoframe = inno_hdmi_bridge_clear_hdmi_infoframe,
++	.hdmi_write_hdmi_infoframe = inno_hdmi_bridge_write_hdmi_infoframe,
+ 	.mode_valid = inno_hdmi_bridge_mode_valid,
+ };
+ 
+diff --git a/drivers/gpu/drm/bridge/ite-it6263.c b/drivers/gpu/drm/bridge/ite-it6263.c
+index 2eb8fba7016c..3991fb76143c 100644
+--- a/drivers/gpu/drm/bridge/ite-it6263.c
++++ b/drivers/gpu/drm/bridge/ite-it6263.c
+@@ -759,61 +759,62 @@ it6263_hdmi_tmds_char_rate_valid(const struct drm_bridge *bridge,
+ 	return MODE_OK;
+ }
+ 
+-static int it6263_hdmi_clear_infoframe(struct drm_bridge *bridge,
+-				       enum hdmi_infoframe_type type)
++static int it6263_hdmi_clear_avi_infoframe(struct drm_bridge *bridge)
+ {
+ 	struct it6263 *it = bridge_to_it6263(bridge);
+ 
+-	switch (type) {
+-	case HDMI_INFOFRAME_TYPE_AVI:
+-		regmap_write(it->hdmi_regmap, HDMI_REG_AVI_INFOFRM_CTRL, 0);
+-		break;
+-	case HDMI_INFOFRAME_TYPE_VENDOR:
+-		regmap_write(it->hdmi_regmap, HDMI_REG_PKT_NULL_CTRL, 0);
+-		break;
+-	default:
+-		dev_dbg(it->dev, "unsupported HDMI infoframe 0x%x\n", type);
+-	}
++	regmap_write(it->hdmi_regmap, HDMI_REG_AVI_INFOFRM_CTRL, 0);
++
++	return 0;
++}
++
++static int it6263_hdmi_clear_hdmi_infoframe(struct drm_bridge *bridge)
++{
++	struct it6263 *it = bridge_to_it6263(bridge);
++
++	regmap_write(it->hdmi_regmap, HDMI_REG_PKT_NULL_CTRL, 0);
+ 
+ 	return 0;
+ }
+ 
+-static int it6263_hdmi_write_infoframe(struct drm_bridge *bridge,
+-				       enum hdmi_infoframe_type type,
+-				       const u8 *buffer, size_t len)
++static int it6263_hdmi_write_avi_infoframe(struct drm_bridge *bridge,
++					   const u8 *buffer, size_t len)
+ {
+ 	struct it6263 *it = bridge_to_it6263(bridge);
+ 	struct regmap *regmap = it->hdmi_regmap;
+ 
+-	switch (type) {
+-	case HDMI_INFOFRAME_TYPE_AVI:
+-		/* write the first AVI infoframe data byte chunk(DB1-DB5) */
+-		regmap_bulk_write(regmap, HDMI_REG_AVI_DB1,
+-				  &buffer[HDMI_INFOFRAME_HEADER_SIZE],
+-				  HDMI_AVI_DB_CHUNK1_SIZE);
+-
+-		/* write the second AVI infoframe data byte chunk(DB6-DB13) */
+-		regmap_bulk_write(regmap, HDMI_REG_AVI_DB6,
+-				  &buffer[HDMI_INFOFRAME_HEADER_SIZE +
+-					  HDMI_AVI_DB_CHUNK1_SIZE],
+-				  HDMI_AVI_DB_CHUNK2_SIZE);
+-
+-		/* write checksum */
+-		regmap_write(regmap, HDMI_REG_AVI_CSUM, buffer[3]);
+-
+-		regmap_write(regmap, HDMI_REG_AVI_INFOFRM_CTRL,
+-			     ENABLE_PKT | REPEAT_PKT);
+-		break;
+-	case HDMI_INFOFRAME_TYPE_VENDOR:
+-		/* write header and payload */
+-		regmap_bulk_write(regmap, HDMI_REG_PKT_HB(0), buffer, len);
+-
+-		regmap_write(regmap, HDMI_REG_PKT_NULL_CTRL,
+-			     ENABLE_PKT | REPEAT_PKT);
+-		break;
+-	default:
+-		dev_dbg(it->dev, "unsupported HDMI infoframe 0x%x\n", type);
+-	}
++	/* write the first AVI infoframe data byte chunk(DB1-DB5) */
++	regmap_bulk_write(regmap, HDMI_REG_AVI_DB1,
++			  &buffer[HDMI_INFOFRAME_HEADER_SIZE],
++			  HDMI_AVI_DB_CHUNK1_SIZE);
++
++	/* write the second AVI infoframe data byte chunk(DB6-DB13) */
++	regmap_bulk_write(regmap, HDMI_REG_AVI_DB6,
++			  &buffer[HDMI_INFOFRAME_HEADER_SIZE +
++				  HDMI_AVI_DB_CHUNK1_SIZE],
++			  HDMI_AVI_DB_CHUNK2_SIZE);
++
++	/* write checksum */
++	regmap_write(regmap, HDMI_REG_AVI_CSUM, buffer[3]);
++
++	regmap_write(regmap, HDMI_REG_AVI_INFOFRM_CTRL,
++		     ENABLE_PKT | REPEAT_PKT);
++
++	return 0;
++}
++
++static int it6263_hdmi_write_hdmi_infoframe(struct drm_bridge *bridge,
++					    const u8 *buffer, size_t len)
++{
++	struct it6263 *it = bridge_to_it6263(bridge);
++	struct regmap *regmap = it->hdmi_regmap;
++
++	/* write header and payload */
++	regmap_bulk_write(regmap, HDMI_REG_PKT_HB(0), buffer, len);
++
++	regmap_write(regmap, HDMI_REG_PKT_NULL_CTRL,
++		     ENABLE_PKT | REPEAT_PKT);
++
+ 
+ 	return 0;
+ }
+@@ -830,8 +831,10 @@ static const struct drm_bridge_funcs it6263_bridge_funcs = {
+ 	.edid_read = it6263_bridge_edid_read,
+ 	.atomic_get_input_bus_fmts = it6263_bridge_atomic_get_input_bus_fmts,
+ 	.hdmi_tmds_char_rate_valid = it6263_hdmi_tmds_char_rate_valid,
+-	.hdmi_clear_infoframe = it6263_hdmi_clear_infoframe,
+-	.hdmi_write_infoframe = it6263_hdmi_write_infoframe,
++	.hdmi_clear_avi_infoframe = it6263_hdmi_clear_avi_infoframe,
++	.hdmi_write_avi_infoframe = it6263_hdmi_write_avi_infoframe,
++	.hdmi_clear_hdmi_infoframe = it6263_hdmi_clear_hdmi_infoframe,
++	.hdmi_write_hdmi_infoframe = it6263_hdmi_write_hdmi_infoframe,
+ };
+ 
+ static int it6263_probe(struct i2c_client *client)
+diff --git a/drivers/gpu/drm/bridge/lontium-lt9611.c b/drivers/gpu/drm/bridge/lontium-lt9611.c
+index a2d032ee4744..0628d8e737ab 100644
+--- a/drivers/gpu/drm/bridge/lontium-lt9611.c
++++ b/drivers/gpu/drm/bridge/lontium-lt9611.c
+@@ -843,84 +843,96 @@ lt9611_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
+ #define LT9611_INFOFRAME_AUDIO	0x02
+ #define LT9611_INFOFRAME_AVI	0x08
+ #define LT9611_INFOFRAME_SPD	0x10
+-#define LT9611_INFOFRAME_VENDOR	0x20
++#define LT9611_INFOFRAME_HDMI	0x20
+ 
+-static int lt9611_hdmi_clear_infoframe(struct drm_bridge *bridge,
+-				       enum hdmi_infoframe_type type)
++static int lt9611_hdmi_clear_audio_infoframe(struct drm_bridge *bridge)
+ {
+ 	struct lt9611 *lt9611 = bridge_to_lt9611(bridge);
+-	unsigned int mask;
+ 
+-	switch (type) {
+-	case HDMI_INFOFRAME_TYPE_AUDIO:
+-		mask = LT9611_INFOFRAME_AUDIO;
+-		break;
++	regmap_update_bits(lt9611->regmap, 0x843d, LT9611_INFOFRAME_AUDIO, 0);
+ 
+-	case HDMI_INFOFRAME_TYPE_AVI:
+-		mask = LT9611_INFOFRAME_AVI;
+-		break;
++	return 0;
++}
+ 
+-	case HDMI_INFOFRAME_TYPE_SPD:
+-		mask = LT9611_INFOFRAME_SPD;
+-		break;
++static int lt9611_hdmi_clear_avi_infoframe(struct drm_bridge *bridge)
++{
++	struct lt9611 *lt9611 = bridge_to_lt9611(bridge);
+ 
+-	case HDMI_INFOFRAME_TYPE_VENDOR:
+-		mask = LT9611_INFOFRAME_VENDOR;
+-		break;
++	regmap_update_bits(lt9611->regmap, 0x843d, LT9611_INFOFRAME_AVI, 0);
+ 
+-	default:
+-		drm_dbg_driver(lt9611->bridge.dev, "Unsupported HDMI InfoFrame %x\n", type);
+-		mask = 0;
+-		break;
+-	}
++	return 0;
++}
++
++static int lt9611_hdmi_clear_spd_infoframe(struct drm_bridge *bridge)
++{
++	struct lt9611 *lt9611 = bridge_to_lt9611(bridge);
+ 
+-	if (mask)
+-		regmap_update_bits(lt9611->regmap, 0x843d, mask, 0);
++	regmap_update_bits(lt9611->regmap, 0x843d, LT9611_INFOFRAME_SPD, 0);
+ 
+ 	return 0;
+ }
+ 
+-static int lt9611_hdmi_write_infoframe(struct drm_bridge *bridge,
+-				       enum hdmi_infoframe_type type,
+-				       const u8 *buffer, size_t len)
++static int lt9611_hdmi_clear_hdmi_infoframe(struct drm_bridge *bridge)
++{
++	struct lt9611 *lt9611 = bridge_to_lt9611(bridge);
++
++	regmap_update_bits(lt9611->regmap, 0x843d, LT9611_INFOFRAME_HDMI, 0);
++
++	return 0;
++}
++
++static int lt9611_hdmi_write_audio_infoframe(struct drm_bridge *bridge,
++					     const u8 *buffer, size_t len)
+ {
+ 	struct lt9611 *lt9611 = bridge_to_lt9611(bridge);
+-	unsigned int mask, addr;
+ 	int i;
+ 
+-	switch (type) {
+-	case HDMI_INFOFRAME_TYPE_AUDIO:
+-		mask = LT9611_INFOFRAME_AUDIO;
+-		addr = 0x84b2;
+-		break;
+-
+-	case HDMI_INFOFRAME_TYPE_AVI:
+-		mask = LT9611_INFOFRAME_AVI;
+-		addr = 0x8440;
+-		break;
+-
+-	case HDMI_INFOFRAME_TYPE_SPD:
+-		mask = LT9611_INFOFRAME_SPD;
+-		addr = 0x8493;
+-		break;
+-
+-	case HDMI_INFOFRAME_TYPE_VENDOR:
+-		mask = LT9611_INFOFRAME_VENDOR;
+-		addr = 0x8474;
+-		break;
+-
+-	default:
+-		drm_dbg_driver(lt9611->bridge.dev, "Unsupported HDMI InfoFrame %x\n", type);
+-		mask = 0;
+-		break;
+-	}
++	for (i = 0; i < len; i++)
++		regmap_write(lt9611->regmap, 0x84b2 + i, buffer[i]);
+ 
+-	if (mask) {
+-		for (i = 0; i < len; i++)
+-			regmap_write(lt9611->regmap, addr + i, buffer[i]);
++	regmap_update_bits(lt9611->regmap, 0x843d, LT9611_INFOFRAME_AUDIO, LT9611_INFOFRAME_AUDIO);
+ 
+-		regmap_update_bits(lt9611->regmap, 0x843d, mask, mask);
+-	}
++	return 0;
++}
++
++static int lt9611_hdmi_write_avi_infoframe(struct drm_bridge *bridge,
 +					   const u8 *buffer, size_t len)
 +{
-+	drm_warn_once(connector->dev, "HDMI VSI not implemented\n");
++	struct lt9611 *lt9611 = bridge_to_lt9611(bridge);
++	int i;
++
++	for (i = 0; i < len; i++)
++		regmap_write(lt9611->regmap, 0x8440 + i, buffer[i]);
++
++	regmap_update_bits(lt9611->regmap, 0x843d, LT9611_INFOFRAME_AVI, LT9611_INFOFRAME_AVI);
 +
 +	return 0;
 +}
 +
- static void sun4i_hdmi_disable(struct drm_encoder *encoder,
- 			       struct drm_atomic_state *state)
- {
-@@ -244,8 +251,14 @@ static struct i2c_adapter *sun4i_hdmi_get_ddc(struct device *dev)
- 
- static const struct drm_connector_hdmi_funcs sun4i_hdmi_hdmi_connector_funcs = {
- 	.tmds_char_rate_valid	= sun4i_hdmi_connector_clock_valid,
--	.clear_infoframe	= sun4i_hdmi_clear_infoframe,
--	.write_infoframe	= sun4i_hdmi_write_infoframe,
-+	.avi = {
-+		.clear_infoframe	= sun4i_hdmi_clear_avi_infoframe,
-+		.write_infoframe	= sun4i_hdmi_write_avi_infoframe,
-+	},
-+	.hdmi = {
-+		.clear_infoframe	= sun4i_hdmi_clear_hdmi_infoframe,
-+		.write_infoframe	= sun4i_hdmi_write_hdmi_infoframe,
-+	},
- };
- 
- static const struct drm_connector_helper_funcs sun4i_hdmi_connector_helper_funcs = {
-diff --git a/drivers/gpu/drm/tests/drm_connector_test.c b/drivers/gpu/drm/tests/drm_connector_test.c
-index f356ea695ae7..86860ad0861c 100644
---- a/drivers/gpu/drm/tests/drm_connector_test.c
-+++ b/drivers/gpu/drm/tests/drm_connector_test.c
-@@ -25,22 +25,26 @@ struct drm_connector_init_priv {
- 	struct i2c_adapter ddc;
- };
- 
--static int accept_infoframe_clear_infoframe(struct drm_connector *connector,
--					    enum hdmi_infoframe_type type)
-+static int accept_infoframe_clear_infoframe(struct drm_connector *connector)
- {
- 	return 0;
- }
- 
- static int accept_infoframe_write_infoframe(struct drm_connector *connector,
--					    enum hdmi_infoframe_type type,
- 					    const u8 *buffer, size_t len)
- {
- 	return 0;
- }
- 
- static const struct drm_connector_hdmi_funcs dummy_hdmi_funcs = {
--	.clear_infoframe = accept_infoframe_clear_infoframe,
--	.write_infoframe = accept_infoframe_write_infoframe,
-+	.avi = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = accept_infoframe_write_infoframe,
-+	},
-+	.hdmi = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = accept_infoframe_write_infoframe,
-+	},
- };
- 
- static const struct drm_connector_funcs dummy_funcs = {
-diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-index cfa14a6eb97f..1c60947a13a1 100644
---- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-+++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-@@ -78,22 +78,26 @@ static int set_connector_edid(struct kunit *test, struct drm_connector *connecto
- 	return ret;
- }
- 
--static int accept_infoframe_clear_infoframe(struct drm_connector *connector,
--					    enum hdmi_infoframe_type type)
-+static int accept_infoframe_clear_infoframe(struct drm_connector *connector)
- {
- 	return 0;
- }
- 
- static int accept_infoframe_write_infoframe(struct drm_connector *connector,
--					    enum hdmi_infoframe_type type,
- 					    const u8 *buffer, size_t len)
- {
- 	return 0;
- }
- 
- static const struct drm_connector_hdmi_funcs dummy_connector_hdmi_funcs = {
--	.clear_infoframe = accept_infoframe_clear_infoframe,
--	.write_infoframe = accept_infoframe_write_infoframe,
-+	.avi = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = accept_infoframe_write_infoframe,
-+	},
-+	.hdmi = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = accept_infoframe_write_infoframe,
-+	},
- };
- 
- static enum drm_mode_status
-@@ -106,8 +110,14 @@ reject_connector_tmds_char_rate_valid(const struct drm_connector *connector,
- 
- static const struct drm_connector_hdmi_funcs reject_connector_hdmi_funcs = {
- 	.tmds_char_rate_valid	= reject_connector_tmds_char_rate_valid,
--	.clear_infoframe = accept_infoframe_clear_infoframe,
--	.write_infoframe = accept_infoframe_write_infoframe,
-+	.avi = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = accept_infoframe_write_infoframe,
-+	},
-+	.hdmi = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = accept_infoframe_write_infoframe,
-+	},
- };
- 
- static enum drm_mode_status
-@@ -120,8 +130,14 @@ reject_100mhz_connector_tmds_char_rate_valid(const struct drm_connector *connect
- 
- static const struct drm_connector_hdmi_funcs reject_100mhz_connector_hdmi_funcs = {
- 	.tmds_char_rate_valid	= reject_100mhz_connector_tmds_char_rate_valid,
--	.clear_infoframe = accept_infoframe_clear_infoframe,
--	.write_infoframe = accept_infoframe_write_infoframe,
-+	.avi = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = accept_infoframe_write_infoframe,
-+	},
-+	.hdmi = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = accept_infoframe_write_infoframe,
-+	},
- };
- 
- static int dummy_connector_get_modes(struct drm_connector *connector)
-@@ -2449,19 +2465,21 @@ static void drm_test_check_infoframes(struct kunit *test)
- 	drm_modeset_acquire_fini(&ctx);
- }
- 
--static int reject_avi_infoframe_write_infoframe(struct drm_connector *connector,
--						enum hdmi_infoframe_type type,
--						const u8 *buffer, size_t len)
-+static int reject_infoframe_write_infoframe(struct drm_connector *connector,
++static int lt9611_hdmi_write_spd_infoframe(struct drm_bridge *bridge,
++					   const u8 *buffer, size_t len)
++{
++	struct lt9611 *lt9611 = bridge_to_lt9611(bridge);
++	int i;
++
++	for (i = 0; i < len; i++)
++		regmap_write(lt9611->regmap, 0x8493 + i, buffer[i]);
++
++	regmap_update_bits(lt9611->regmap, 0x843d, LT9611_INFOFRAME_SPD, LT9611_INFOFRAME_SPD);
++
++	return 0;
++}
++
++static int lt9611_hdmi_write_hdmi_infoframe(struct drm_bridge *bridge,
 +					    const u8 *buffer, size_t len)
- {
--	if (type == HDMI_INFOFRAME_TYPE_AVI)
--		return -EOPNOTSUPP;
--
--	return 0;
-+	return -EOPNOTSUPP;
++{
++	struct lt9611 *lt9611 = bridge_to_lt9611(bridge);
++	int i;
++
++	for (i = 0; i < len; i++)
++		regmap_write(lt9611->regmap, 0x8474 + i, buffer[i]);
++
++	regmap_update_bits(lt9611->regmap, 0x843d, LT9611_INFOFRAME_HDMI, LT9611_INFOFRAME_HDMI);
+ 
+ 	return 0;
+ }
+@@ -1003,8 +1015,14 @@ static const struct drm_bridge_funcs lt9611_bridge_funcs = {
+ 	.atomic_get_input_bus_fmts = lt9611_atomic_get_input_bus_fmts,
+ 
+ 	.hdmi_tmds_char_rate_valid = lt9611_hdmi_tmds_char_rate_valid,
+-	.hdmi_write_infoframe = lt9611_hdmi_write_infoframe,
+-	.hdmi_clear_infoframe = lt9611_hdmi_clear_infoframe,
++	.hdmi_write_audio_infoframe = lt9611_hdmi_write_audio_infoframe,
++	.hdmi_clear_audio_infoframe = lt9611_hdmi_clear_audio_infoframe,
++	.hdmi_write_avi_infoframe = lt9611_hdmi_write_avi_infoframe,
++	.hdmi_clear_avi_infoframe = lt9611_hdmi_clear_avi_infoframe,
++	.hdmi_write_spd_infoframe = lt9611_hdmi_write_spd_infoframe,
++	.hdmi_clear_spd_infoframe = lt9611_hdmi_clear_spd_infoframe,
++	.hdmi_write_hdmi_infoframe = lt9611_hdmi_write_hdmi_infoframe,
++	.hdmi_clear_hdmi_infoframe = lt9611_hdmi_clear_hdmi_infoframe,
+ 
+ 	.hdmi_audio_startup = lt9611_hdmi_audio_startup,
+ 	.hdmi_audio_prepare = lt9611_hdmi_audio_prepare,
+@@ -1132,7 +1150,8 @@ static int lt9611_probe(struct i2c_client *client)
+ 	lt9611->bridge.of_node = client->dev.of_node;
+ 	lt9611->bridge.ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID |
+ 			     DRM_BRIDGE_OP_HPD | DRM_BRIDGE_OP_MODES |
+-			     DRM_BRIDGE_OP_HDMI | DRM_BRIDGE_OP_HDMI_AUDIO;
++			     DRM_BRIDGE_OP_HDMI | DRM_BRIDGE_OP_HDMI_AUDIO |
++			     DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME;
+ 	lt9611->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
+ 	lt9611->bridge.vendor = "Lontium";
+ 	lt9611->bridge.product = "LT9611";
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index fe4c026280f0..f57307dd61c8 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -26,6 +26,7 @@
+ #include <drm/drm_connector.h>
+ #include <drm/drm_edid.h>
+ #include <drm/drm_modes.h>
++#include <drm/drm_print.h>
+ 
+ #include <media/cec.h>
+ 
+@@ -933,57 +934,85 @@ dw_hdmi_qp_bridge_tmds_char_rate_valid(const struct drm_bridge *bridge,
+ 	return MODE_OK;
  }
  
- static const struct drm_connector_hdmi_funcs reject_avi_infoframe_hdmi_funcs = {
--	.clear_infoframe = accept_infoframe_clear_infoframe,
--	.write_infoframe = reject_avi_infoframe_write_infoframe,
-+	.avi = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = reject_infoframe_write_infoframe,
-+	},
-+	.hdmi = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = accept_infoframe_write_infoframe,
-+	},
+-static int dw_hdmi_qp_bridge_clear_infoframe(struct drm_bridge *bridge,
+-					     enum hdmi_infoframe_type type)
++static int dw_hdmi_qp_bridge_clear_avi_infoframe(struct drm_bridge *bridge)
+ {
+ 	struct dw_hdmi_qp *hdmi = bridge->driver_private;
+ 
+-	switch (type) {
+-	case HDMI_INFOFRAME_TYPE_AVI:
+-		dw_hdmi_qp_mod(hdmi, 0, PKTSCHED_AVI_TX_EN | PKTSCHED_GCP_TX_EN,
+-			       PKTSCHED_PKT_EN);
+-		break;
++	dw_hdmi_qp_mod(hdmi, 0, PKTSCHED_AVI_TX_EN | PKTSCHED_GCP_TX_EN,
++		       PKTSCHED_PKT_EN);
+ 
+-	case HDMI_INFOFRAME_TYPE_DRM:
+-		dw_hdmi_qp_mod(hdmi, 0, PKTSCHED_DRMI_TX_EN, PKTSCHED_PKT_EN);
+-		break;
++	return 0;
++}
+ 
+-	case HDMI_INFOFRAME_TYPE_AUDIO:
+-		dw_hdmi_qp_mod(hdmi, 0,
+-			       PKTSCHED_ACR_TX_EN |
+-			       PKTSCHED_AUDS_TX_EN |
+-			       PKTSCHED_AUDI_TX_EN,
+-			       PKTSCHED_PKT_EN);
+-		break;
+-	default:
+-		dev_dbg(hdmi->dev, "Unsupported infoframe type %x\n", type);
+-	}
++static int dw_hdmi_qp_bridge_clear_hdmi_infoframe(struct drm_bridge *bridge)
++{
++	/* FIXME: add support for this InfoFrame */
++
++	drm_warn_once(bridge->encoder->dev, "HDMI VSI not supported\n");
+ 
+ 	return 0;
+ }
+ 
+-static int dw_hdmi_qp_bridge_write_infoframe(struct drm_bridge *bridge,
+-					     enum hdmi_infoframe_type type,
+-					     const u8 *buffer, size_t len)
++static int dw_hdmi_qp_bridge_clear_hdr_drm_infoframe(struct drm_bridge *bridge)
+ {
+ 	struct dw_hdmi_qp *hdmi = bridge->driver_private;
+ 
+-	dw_hdmi_qp_bridge_clear_infoframe(bridge, type);
++	dw_hdmi_qp_mod(hdmi, 0, PKTSCHED_DRMI_TX_EN, PKTSCHED_PKT_EN);
+ 
+-	switch (type) {
+-	case HDMI_INFOFRAME_TYPE_AVI:
+-		return dw_hdmi_qp_config_avi_infoframe(hdmi, buffer, len);
++	return 0;
++}
+ 
+-	case HDMI_INFOFRAME_TYPE_DRM:
+-		return dw_hdmi_qp_config_drm_infoframe(hdmi, buffer, len);
++static int dw_hdmi_qp_bridge_clear_audio_infoframe(struct drm_bridge *bridge)
++{
++	struct dw_hdmi_qp *hdmi = bridge->driver_private;
+ 
+-	case HDMI_INFOFRAME_TYPE_AUDIO:
+-		return dw_hdmi_qp_config_audio_infoframe(hdmi, buffer, len);
++	dw_hdmi_qp_mod(hdmi, 0,
++		       PKTSCHED_ACR_TX_EN |
++		       PKTSCHED_AUDS_TX_EN |
++		       PKTSCHED_AUDI_TX_EN,
++		       PKTSCHED_PKT_EN);
+ 
+-	default:
+-		dev_dbg(hdmi->dev, "Unsupported infoframe type %x\n", type);
+-		return 0;
+-	}
++	return 0;
++}
++
++static int dw_hdmi_qp_bridge_write_avi_infoframe(struct drm_bridge *bridge,
++						 const u8 *buffer, size_t len)
++{
++	struct dw_hdmi_qp *hdmi = bridge->driver_private;
++
++	dw_hdmi_qp_bridge_clear_avi_infoframe(bridge);
++
++	return dw_hdmi_qp_config_avi_infoframe(hdmi, buffer, len);
++}
++
++static int dw_hdmi_qp_bridge_write_hdmi_infoframe(struct drm_bridge *bridge,
++						  const u8 *buffer, size_t len)
++{
++	dw_hdmi_qp_bridge_clear_hdmi_infoframe(bridge);
++
++	/* FIXME: add support for the HDMI VSI */
++
++	return 0;
++}
++
++static int dw_hdmi_qp_bridge_write_hdr_drm_infoframe(struct drm_bridge *bridge,
++						     const u8 *buffer, size_t len)
++{
++	struct dw_hdmi_qp *hdmi = bridge->driver_private;
++
++	dw_hdmi_qp_bridge_clear_hdr_drm_infoframe(bridge);
++
++	return dw_hdmi_qp_config_drm_infoframe(hdmi, buffer, len);
++}
++
++static int dw_hdmi_qp_bridge_write_audio_infoframe(struct drm_bridge *bridge,
++						   const u8 *buffer, size_t len)
++{
++	struct dw_hdmi_qp *hdmi = bridge->driver_private;
++
++	dw_hdmi_qp_bridge_clear_audio_infoframe(bridge);
++
++	return dw_hdmi_qp_config_audio_infoframe(hdmi, buffer, len);
+ }
+ 
+ #ifdef CONFIG_DRM_DW_HDMI_QP_CEC
+@@ -1168,8 +1197,14 @@ static const struct drm_bridge_funcs dw_hdmi_qp_bridge_funcs = {
+ 	.detect = dw_hdmi_qp_bridge_detect,
+ 	.edid_read = dw_hdmi_qp_bridge_edid_read,
+ 	.hdmi_tmds_char_rate_valid = dw_hdmi_qp_bridge_tmds_char_rate_valid,
+-	.hdmi_clear_infoframe = dw_hdmi_qp_bridge_clear_infoframe,
+-	.hdmi_write_infoframe = dw_hdmi_qp_bridge_write_infoframe,
++	.hdmi_clear_avi_infoframe = dw_hdmi_qp_bridge_clear_avi_infoframe,
++	.hdmi_write_avi_infoframe = dw_hdmi_qp_bridge_write_avi_infoframe,
++	.hdmi_clear_hdmi_infoframe = dw_hdmi_qp_bridge_clear_hdmi_infoframe,
++	.hdmi_write_hdmi_infoframe = dw_hdmi_qp_bridge_write_hdmi_infoframe,
++	.hdmi_clear_hdr_drm_infoframe = dw_hdmi_qp_bridge_clear_hdr_drm_infoframe,
++	.hdmi_write_hdr_drm_infoframe = dw_hdmi_qp_bridge_write_hdr_drm_infoframe,
++	.hdmi_clear_audio_infoframe = dw_hdmi_qp_bridge_clear_audio_infoframe,
++	.hdmi_write_audio_infoframe = dw_hdmi_qp_bridge_write_audio_infoframe,
+ 	.hdmi_audio_startup = dw_hdmi_qp_audio_enable,
+ 	.hdmi_audio_shutdown = dw_hdmi_qp_audio_disable,
+ 	.hdmi_audio_prepare = dw_hdmi_qp_audio_prepare,
+@@ -1282,6 +1317,7 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ 			   DRM_BRIDGE_OP_EDID |
+ 			   DRM_BRIDGE_OP_HDMI |
+ 			   DRM_BRIDGE_OP_HDMI_AUDIO |
++			   DRM_BRIDGE_OP_HDMI_HDR_DRM_INFOFRAME |
+ 			   DRM_BRIDGE_OP_HPD;
+ 	hdmi->bridge.of_node = pdev->dev.of_node;
+ 	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index 57a0cceabd34..d38519e3923e 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -412,7 +412,30 @@ static int drm_bridge_connector_clear_infoframe(struct drm_connector *connector,
+ 	if (!bridge)
+ 		return -EINVAL;
+ 
+-	return bridge->funcs->hdmi_clear_infoframe(bridge, type);
++	switch (type) {
++	case HDMI_INFOFRAME_TYPE_AVI:
++		/* required */
++		return bridge->funcs->hdmi_clear_avi_infoframe(bridge);
++	case HDMI_INFOFRAME_TYPE_VENDOR:
++		/* required */
++		return bridge->funcs->hdmi_clear_hdmi_infoframe(bridge);
++	case HDMI_INFOFRAME_TYPE_AUDIO:
++		if (bridge->ops & DRM_BRIDGE_OP_HDMI_AUDIO)
++			return bridge->funcs->hdmi_clear_audio_infoframe(bridge);
++		break;
++	case HDMI_INFOFRAME_TYPE_DRM:
++		if (bridge->ops & DRM_BRIDGE_OP_HDMI_HDR_DRM_INFOFRAME)
++			return bridge->funcs->hdmi_clear_hdr_drm_infoframe(bridge);
++		break;
++	case HDMI_INFOFRAME_TYPE_SPD:
++		if (bridge->ops & DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME)
++			return bridge->funcs->hdmi_clear_spd_infoframe(bridge);
++		break;
++	}
++
++	drm_dbg_driver(connector->dev, "Unsupported HDMI InfoFrame %x\n", type);
++
++	return 0;
+ }
+ 
+ static int drm_bridge_connector_write_infoframe(struct drm_connector *connector,
+@@ -427,7 +450,30 @@ static int drm_bridge_connector_write_infoframe(struct drm_connector *connector,
+ 	if (!bridge)
+ 		return -EINVAL;
+ 
+-	return bridge->funcs->hdmi_write_infoframe(bridge, type, buffer, len);
++	switch (type) {
++	case HDMI_INFOFRAME_TYPE_AVI:
++		/* required */
++		return bridge->funcs->hdmi_write_avi_infoframe(bridge, buffer, len);
++	case HDMI_INFOFRAME_TYPE_VENDOR:
++		/* required */
++		return bridge->funcs->hdmi_write_hdmi_infoframe(bridge, buffer, len);
++	case HDMI_INFOFRAME_TYPE_AUDIO:
++		if (bridge->ops & DRM_BRIDGE_OP_HDMI_AUDIO)
++			return bridge->funcs->hdmi_write_audio_infoframe(bridge, buffer, len);
++		break;
++	case HDMI_INFOFRAME_TYPE_DRM:
++		if (bridge->ops & DRM_BRIDGE_OP_HDMI_HDR_DRM_INFOFRAME)
++			return bridge->funcs->hdmi_write_hdr_drm_infoframe(bridge, buffer, len);
++		break;
++	case HDMI_INFOFRAME_TYPE_SPD:
++		if (bridge->ops & DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME)
++			return bridge->funcs->hdmi_write_spd_infoframe(bridge, buffer, len);
++		break;
++	}
++
++	drm_dbg_driver(connector->dev, "Unsupported HDMI InfoFrame %x\n", type);
++
++	return 0;
+ }
+ 
+ static const struct drm_edid *
+@@ -709,8 +755,20 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
+ 		if (bridge->ops & DRM_BRIDGE_OP_HDMI) {
+ 			if (bridge_connector->bridge_hdmi)
+ 				return ERR_PTR(-EBUSY);
+-			if (!bridge->funcs->hdmi_write_infoframe ||
+-			    !bridge->funcs->hdmi_clear_infoframe)
++			if (!bridge->funcs->hdmi_write_avi_infoframe ||
++			    !bridge->funcs->hdmi_clear_avi_infoframe ||
++			    !bridge->funcs->hdmi_write_hdmi_infoframe ||
++			    !bridge->funcs->hdmi_clear_hdmi_infoframe)
++				return ERR_PTR(-EINVAL);
++
++			if (bridge->ops & DRM_BRIDGE_OP_HDMI_HDR_DRM_INFOFRAME &&
++			    (!bridge->funcs->hdmi_write_hdr_drm_infoframe ||
++			     !bridge->funcs->hdmi_clear_hdr_drm_infoframe))
++				return ERR_PTR(-EINVAL);
++
++			if (bridge->ops & DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME &&
++			    (!bridge->funcs->hdmi_write_spd_infoframe ||
++			     !bridge->funcs->hdmi_clear_spd_infoframe))
+ 				return ERR_PTR(-EINVAL);
+ 
+ 			bridge_connector->bridge_hdmi = drm_bridge_get(bridge);
+@@ -732,7 +790,9 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
+ 			    !bridge->hdmi_audio_spdif_playback)
+ 				return ERR_PTR(-EINVAL);
+ 
+-			if (!bridge->funcs->hdmi_audio_prepare ||
++			if (!bridge->funcs->hdmi_write_audio_infoframe ||
++			    !bridge->funcs->hdmi_clear_audio_infoframe ||
++			    !bridge->funcs->hdmi_audio_prepare ||
+ 			    !bridge->funcs->hdmi_audio_shutdown)
+ 				return ERR_PTR(-EINVAL);
+ 
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+index e78eb0876f16..c599ba767093 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+@@ -433,9 +433,11 @@ struct mtk_hdmi *mtk_hdmi_common_probe(struct platform_device *pdev)
+ 	hdmi->bridge.ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID
+ 			 | DRM_BRIDGE_OP_HPD;
+ 
+-	if (ver_conf->bridge_funcs->hdmi_write_infoframe &&
+-	    ver_conf->bridge_funcs->hdmi_clear_infoframe)
+-		hdmi->bridge.ops |= DRM_BRIDGE_OP_HDMI;
++	/* Only v2 support OP_HDMI now and it we know that it also support SPD */
++	if (ver_conf->bridge_funcs->hdmi_write_avi_infoframe &&
++	    ver_conf->bridge_funcs->hdmi_clear_avi_infoframe)
++		hdmi->bridge.ops |= DRM_BRIDGE_OP_HDMI |
++				    DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME;
+ 
+ 	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
+ 	hdmi->bridge.ddc = hdmi->ddc_adpt;
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+index c272e1e74b7d..d0e4440b7491 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+@@ -145,8 +145,11 @@ static inline u32 mtk_hdmi_v2_format_hw_packet(const u8 *buffer, u8 len)
+ 	return val;
+ }
+ 
+-static void mtk_hdmi_v2_hw_write_audio_infoframe(struct mtk_hdmi *hdmi, const u8 *buffer)
++static int mtk_hdmi_v2_hdmi_write_audio_infoframe(struct drm_bridge *bridge,
++						  const u8 *buffer, size_t len)
+ {
++	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
++
+ 	regmap_clear_bits(hdmi->regs, TOP_INFO_EN, AUD_EN | AUD_EN_WR);
+ 	regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, AUD_RPT_EN);
+ 
+@@ -158,10 +161,15 @@ static void mtk_hdmi_v2_hw_write_audio_infoframe(struct mtk_hdmi *hdmi, const u8
+ 
+ 	regmap_set_bits(hdmi->regs, TOP_INFO_RPT, AUD_RPT_EN);
+ 	regmap_set_bits(hdmi->regs, TOP_INFO_EN, AUD_EN | AUD_EN_WR);
++
++	return 0;
+ }
+ 
+-static void mtk_hdmi_v2_hw_write_avi_infoframe(struct mtk_hdmi *hdmi, const u8 *buffer)
++static int mtk_hdmi_v2_hdmi_write_avi_infoframe(struct drm_bridge *bridge,
++						const u8 *buffer, size_t len)
+ {
++	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
++
+ 	regmap_clear_bits(hdmi->regs, TOP_INFO_EN, AVI_EN_WR | AVI_EN);
+ 	regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, AVI_RPT_EN);
+ 
+@@ -175,10 +183,15 @@ static void mtk_hdmi_v2_hw_write_avi_infoframe(struct mtk_hdmi *hdmi, const u8 *
+ 
+ 	regmap_set_bits(hdmi->regs, TOP_INFO_RPT, AVI_RPT_EN);
+ 	regmap_set_bits(hdmi->regs, TOP_INFO_EN, AVI_EN_WR | AVI_EN);
++
++	return 0;
+ }
+ 
+-static void mtk_hdmi_v2_hw_write_spd_infoframe(struct mtk_hdmi *hdmi, const u8 *buffer)
++static int mtk_hdmi_v2_hdmi_write_spd_infoframe(struct drm_bridge *bridge,
++						const u8 *buffer, size_t len)
+ {
++	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
++
+ 	regmap_clear_bits(hdmi->regs, TOP_INFO_EN, SPD_EN_WR | SPD_EN);
+ 	regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, SPD_RPT_EN);
+ 
+@@ -194,10 +207,15 @@ static void mtk_hdmi_v2_hw_write_spd_infoframe(struct mtk_hdmi *hdmi, const u8 *
+ 
+ 	regmap_set_bits(hdmi->regs, TOP_INFO_EN, SPD_EN_WR | SPD_EN);
+ 	regmap_set_bits(hdmi->regs, TOP_INFO_RPT, SPD_RPT_EN);
++
++	return 0;
+ }
+ 
+-static void mtk_hdmi_v2_hw_write_vendor_infoframe(struct mtk_hdmi *hdmi, const u8 *buffer)
++static int mtk_hdmi_v2_hdmi_write_hdmi_infoframe(struct drm_bridge *bridge,
++						 const u8 *buffer, size_t len)
+ {
++	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
++
+ 	regmap_clear_bits(hdmi->regs, TOP_INFO_EN, VSIF_EN_WR | VSIF_EN);
+ 	regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, VSIF_RPT_EN);
+ 
+@@ -213,6 +231,8 @@ static void mtk_hdmi_v2_hw_write_vendor_infoframe(struct mtk_hdmi *hdmi, const u
+ 
+ 	regmap_set_bits(hdmi->regs, TOP_INFO_EN, VSIF_EN_WR | VSIF_EN);
+ 	regmap_set_bits(hdmi->regs, TOP_INFO_RPT, VSIF_RPT_EN);
++
++	return 0;
+ }
+ 
+ static void mtk_hdmi_yuv420_downsampling(struct mtk_hdmi *hdmi, bool enable)
+@@ -255,7 +275,7 @@ static int mtk_hdmi_v2_setup_audio_infoframe(struct mtk_hdmi *hdmi)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	mtk_hdmi_v2_hw_write_audio_infoframe(hdmi, buffer);
++	mtk_hdmi_v2_hdmi_write_audio_infoframe(&hdmi->bridge, buffer, sizeof(buffer));
+ 
+ 	return 0;
+ }
+@@ -1132,60 +1152,42 @@ static int mtk_hdmi_v2_hdmi_tmds_char_rate_valid(const struct drm_bridge *bridge
+ 		return MODE_OK;
+ }
+ 
+-static int mtk_hdmi_v2_hdmi_clear_infoframe(struct drm_bridge *bridge,
+-					    enum hdmi_infoframe_type type)
++static int mtk_hdmi_v2_hdmi_clear_audio_infoframe(struct drm_bridge *bridge)
+ {
+ 	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
+ 
+-	switch (type) {
+-	case HDMI_INFOFRAME_TYPE_AUDIO:
+-		regmap_clear_bits(hdmi->regs, TOP_INFO_EN, AUD_EN_WR | AUD_EN);
+-		regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, AUD_RPT_EN);
+-		break;
+-	case HDMI_INFOFRAME_TYPE_AVI:
+-		regmap_clear_bits(hdmi->regs, TOP_INFO_EN, AVI_EN_WR | AVI_EN);
+-		regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, AVI_RPT_EN);
+-		break;
+-	case HDMI_INFOFRAME_TYPE_SPD:
+-		regmap_clear_bits(hdmi->regs, TOP_INFO_EN, SPD_EN_WR | SPD_EN);
+-		regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, SPD_RPT_EN);
+-		break;
+-	case HDMI_INFOFRAME_TYPE_VENDOR:
+-		regmap_clear_bits(hdmi->regs, TOP_INFO_EN, VSIF_EN_WR | VSIF_EN);
+-		regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, VSIF_RPT_EN);
+-		break;
+-	case HDMI_INFOFRAME_TYPE_DRM:
+-	default:
+-		break;
+-	};
++	regmap_clear_bits(hdmi->regs, TOP_INFO_EN, AUD_EN_WR | AUD_EN);
++	regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, AUD_RPT_EN);
+ 
+ 	return 0;
+ }
+ 
+-static int mtk_hdmi_v2_hdmi_write_infoframe(struct drm_bridge *bridge,
+-					    enum hdmi_infoframe_type type,
+-					    const u8 *buffer, size_t len)
++static int mtk_hdmi_v2_hdmi_clear_avi_infoframe(struct drm_bridge *bridge)
+ {
+ 	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
+ 
+-	switch (type) {
+-	case HDMI_INFOFRAME_TYPE_AUDIO:
+-		mtk_hdmi_v2_hw_write_audio_infoframe(hdmi, buffer);
+-		break;
+-	case HDMI_INFOFRAME_TYPE_AVI:
+-		mtk_hdmi_v2_hw_write_avi_infoframe(hdmi, buffer);
+-		break;
+-	case HDMI_INFOFRAME_TYPE_SPD:
+-		mtk_hdmi_v2_hw_write_spd_infoframe(hdmi, buffer);
+-		break;
+-	case HDMI_INFOFRAME_TYPE_VENDOR:
+-		mtk_hdmi_v2_hw_write_vendor_infoframe(hdmi, buffer);
+-		break;
+-	case HDMI_INFOFRAME_TYPE_DRM:
+-	default:
+-		dev_err(hdmi->dev, "Unsupported HDMI infoframe type %u\n", type);
+-		break;
+-	};
++	regmap_clear_bits(hdmi->regs, TOP_INFO_EN, AVI_EN_WR | AVI_EN);
++	regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, AVI_RPT_EN);
++
++	return 0;
++}
++
++static int mtk_hdmi_v2_hdmi_clear_spd_infoframe(struct drm_bridge *bridge)
++{
++	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
++
++	regmap_clear_bits(hdmi->regs, TOP_INFO_EN, SPD_EN_WR | SPD_EN);
++	regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, SPD_RPT_EN);
++
++	return 0;
++}
++
++static int mtk_hdmi_v2_hdmi_clear_hdmi_infoframe(struct drm_bridge *bridge)
++{
++	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
++
++	regmap_clear_bits(hdmi->regs, TOP_INFO_EN, VSIF_EN_WR | VSIF_EN);
++	regmap_clear_bits(hdmi->regs, TOP_INFO_RPT, VSIF_RPT_EN);
+ 
+ 	return 0;
+ }
+@@ -1329,8 +1331,14 @@ static const struct drm_bridge_funcs mtk_v2_hdmi_bridge_funcs = {
+ 	.hpd_enable = mtk_hdmi_v2_hpd_enable,
+ 	.hpd_disable = mtk_hdmi_v2_hpd_disable,
+ 	.hdmi_tmds_char_rate_valid = mtk_hdmi_v2_hdmi_tmds_char_rate_valid,
+-	.hdmi_clear_infoframe = mtk_hdmi_v2_hdmi_clear_infoframe,
+-	.hdmi_write_infoframe = mtk_hdmi_v2_hdmi_write_infoframe,
++	.hdmi_clear_audio_infoframe = mtk_hdmi_v2_hdmi_clear_audio_infoframe,
++	.hdmi_write_audio_infoframe = mtk_hdmi_v2_hdmi_write_audio_infoframe,
++	.hdmi_clear_avi_infoframe = mtk_hdmi_v2_hdmi_clear_avi_infoframe,
++	.hdmi_write_avi_infoframe = mtk_hdmi_v2_hdmi_write_avi_infoframe,
++	.hdmi_clear_spd_infoframe = mtk_hdmi_v2_hdmi_clear_spd_infoframe,
++	.hdmi_write_spd_infoframe = mtk_hdmi_v2_hdmi_write_spd_infoframe,
++	.hdmi_clear_hdmi_infoframe = mtk_hdmi_v2_hdmi_clear_hdmi_infoframe,
++	.hdmi_write_hdmi_infoframe = mtk_hdmi_v2_hdmi_write_hdmi_infoframe,
+ 	.debugfs_init = mtk_hdmi_v2_debugfs_init,
  };
  
- /*
-@@ -2552,19 +2570,19 @@ static void drm_test_check_reject_avi_infoframe(struct kunit *test)
- 	drm_modeset_acquire_fini(&ctx);
+diff --git a/drivers/gpu/drm/msm/hdmi/hdmi_bridge.c b/drivers/gpu/drm/msm/hdmi/hdmi_bridge.c
+index 46fd58646d32..98cd490e7ab0 100644
+--- a/drivers/gpu/drm/msm/hdmi/hdmi_bridge.c
++++ b/drivers/gpu/drm/msm/hdmi/hdmi_bridge.c
+@@ -54,9 +54,80 @@ static void power_off(struct drm_bridge *bridge)
+ #define SPD_IFRAME_LINE_NUMBER 1
+ #define VENSPEC_IFRAME_LINE_NUMBER 3
+ 
+-static int msm_hdmi_config_avi_infoframe(struct hdmi *hdmi,
+-					 const u8 *buffer, size_t len)
++static int msm_hdmi_bridge_clear_avi_infoframe(struct drm_bridge *bridge)
+ {
++	struct hdmi_bridge *hdmi_bridge = to_hdmi_bridge(bridge);
++	struct hdmi *hdmi = hdmi_bridge->hdmi;
++	u32 val;
++
++	val = hdmi_read(hdmi, REG_HDMI_INFOFRAME_CTRL0);
++	val &= ~(HDMI_INFOFRAME_CTRL0_AVI_SEND |
++		 HDMI_INFOFRAME_CTRL0_AVI_CONT);
++	hdmi_write(hdmi, REG_HDMI_INFOFRAME_CTRL0, val);
++
++	val = hdmi_read(hdmi, REG_HDMI_INFOFRAME_CTRL1);
++	val &= ~HDMI_INFOFRAME_CTRL1_AVI_INFO_LINE__MASK;
++	hdmi_write(hdmi, REG_HDMI_INFOFRAME_CTRL1, val);
++
++	return 0;
++}
++
++static int msm_hdmi_bridge_clear_audio_infoframe(struct drm_bridge *bridge)
++{
++	struct hdmi_bridge *hdmi_bridge = to_hdmi_bridge(bridge);
++	struct hdmi *hdmi = hdmi_bridge->hdmi;
++	u32 val;
++
++	val = hdmi_read(hdmi, REG_HDMI_INFOFRAME_CTRL0);
++	val &= ~(HDMI_INFOFRAME_CTRL0_AUDIO_INFO_SEND |
++		 HDMI_INFOFRAME_CTRL0_AUDIO_INFO_CONT |
++		 HDMI_INFOFRAME_CTRL0_AUDIO_INFO_SOURCE |
++		 HDMI_INFOFRAME_CTRL0_AUDIO_INFO_UPDATE);
++	hdmi_write(hdmi, REG_HDMI_INFOFRAME_CTRL0, val);
++
++	val = hdmi_read(hdmi, REG_HDMI_INFOFRAME_CTRL1);
++	val &= ~HDMI_INFOFRAME_CTRL1_AUDIO_INFO_LINE__MASK;
++	hdmi_write(hdmi, REG_HDMI_INFOFRAME_CTRL1, val);
++
++	return 0;
++}
++
++static int msm_hdmi_bridge_clear_spd_infoframe(struct drm_bridge *bridge)
++{
++	struct hdmi_bridge *hdmi_bridge = to_hdmi_bridge(bridge);
++	struct hdmi *hdmi = hdmi_bridge->hdmi;
++	u32 val;
++
++	val = hdmi_read(hdmi, REG_HDMI_GEN_PKT_CTRL);
++	val &= ~(HDMI_GEN_PKT_CTRL_GENERIC1_SEND |
++		 HDMI_GEN_PKT_CTRL_GENERIC1_CONT |
++		 HDMI_GEN_PKT_CTRL_GENERIC1_LINE__MASK);
++	hdmi_write(hdmi, REG_HDMI_GEN_PKT_CTRL, val);
++
++	return 0;
++}
++
++static int msm_hdmi_bridge_clear_hdmi_infoframe(struct drm_bridge *bridge)
++{
++	struct hdmi_bridge *hdmi_bridge = to_hdmi_bridge(bridge);
++	struct hdmi *hdmi = hdmi_bridge->hdmi;
++	u32 val;
++
++	val = hdmi_read(hdmi, REG_HDMI_GEN_PKT_CTRL);
++	val &= ~(HDMI_GEN_PKT_CTRL_GENERIC0_SEND |
++		 HDMI_GEN_PKT_CTRL_GENERIC0_CONT |
++		 HDMI_GEN_PKT_CTRL_GENERIC0_UPDATE |
++		 HDMI_GEN_PKT_CTRL_GENERIC0_LINE__MASK);
++	hdmi_write(hdmi, REG_HDMI_GEN_PKT_CTRL, val);
++
++	return 0;
++}
++
++static int msm_hdmi_bridge_write_avi_infoframe(struct drm_bridge *bridge,
++					       const u8 *buffer, size_t len)
++{
++	struct hdmi_bridge *hdmi_bridge = to_hdmi_bridge(bridge);
++	struct hdmi *hdmi = hdmi_bridge->hdmi;
+ 	u32 buf[4] = {};
+ 	u32 val;
+ 	int i;
+@@ -67,6 +138,8 @@ static int msm_hdmi_config_avi_infoframe(struct hdmi *hdmi,
+ 		return -EINVAL;
+ 	}
+ 
++	msm_hdmi_bridge_clear_avi_infoframe(bridge);
++
+ 	/*
+ 	 * the AVI_INFOx registers don't map exactly to how the AVI infoframes
+ 	 * are packed according to the spec. The checksum from the header is
+@@ -93,9 +166,11 @@ static int msm_hdmi_config_avi_infoframe(struct hdmi *hdmi,
+ 	return 0;
  }
  
--static int reject_hdr_infoframe_write_infoframe(struct drm_connector *connector,
--						enum hdmi_infoframe_type type,
--						const u8 *buffer, size_t len)
+-static int msm_hdmi_config_audio_infoframe(struct hdmi *hdmi,
+-					   const u8 *buffer, size_t len)
++static int msm_hdmi_bridge_write_audio_infoframe(struct drm_bridge *bridge,
++						 const u8 *buffer, size_t len)
+ {
++	struct hdmi_bridge *hdmi_bridge = to_hdmi_bridge(bridge);
++	struct hdmi *hdmi = hdmi_bridge->hdmi;
+ 	u32 val;
+ 
+ 	if (len != HDMI_INFOFRAME_SIZE(AUDIO)) {
+@@ -104,6 +179,8 @@ static int msm_hdmi_config_audio_infoframe(struct hdmi *hdmi,
+ 		return -EINVAL;
+ 	}
+ 
++	msm_hdmi_bridge_clear_audio_infoframe(bridge);
++
+ 	hdmi_write(hdmi, REG_HDMI_AUDIO_INFO0,
+ 		   buffer[3] |
+ 		   buffer[4] << 8 |
+@@ -126,9 +203,11 @@ static int msm_hdmi_config_audio_infoframe(struct hdmi *hdmi,
+ 	return 0;
+ }
+ 
+-static int msm_hdmi_config_spd_infoframe(struct hdmi *hdmi,
+-					 const u8 *buffer, size_t len)
++static int msm_hdmi_bridge_write_spd_infoframe(struct drm_bridge *bridge,
++					       const u8 *buffer, size_t len)
+ {
++	struct hdmi_bridge *hdmi_bridge = to_hdmi_bridge(bridge);
++	struct hdmi *hdmi = hdmi_bridge->hdmi;
+ 	u32 buf[7] = {};
+ 	u32 val;
+ 	int i;
+@@ -139,6 +218,8 @@ static int msm_hdmi_config_spd_infoframe(struct hdmi *hdmi,
+ 		return -EINVAL;
+ 	}
+ 
++	msm_hdmi_bridge_clear_spd_infoframe(bridge);
++
+ 	/* checksum gets written together with the body of the frame */
+ 	hdmi_write(hdmi, REG_HDMI_GENERIC1_HDR,
+ 		   buffer[0] |
+@@ -159,9 +240,11 @@ static int msm_hdmi_config_spd_infoframe(struct hdmi *hdmi,
+ 	return 0;
+ }
+ 
+-static int msm_hdmi_config_hdmi_infoframe(struct hdmi *hdmi,
+-					  const u8 *buffer, size_t len)
++static int msm_hdmi_bridge_write_hdmi_infoframe(struct drm_bridge *bridge,
++						const u8 *buffer, size_t len)
+ {
++	struct hdmi_bridge *hdmi_bridge = to_hdmi_bridge(bridge);
++	struct hdmi *hdmi = hdmi_bridge->hdmi;
+ 	u32 buf[7] = {};
+ 	u32 val;
+ 	int i;
+@@ -173,6 +256,8 @@ static int msm_hdmi_config_hdmi_infoframe(struct hdmi *hdmi,
+ 		return -EINVAL;
+ 	}
+ 
++	msm_hdmi_bridge_clear_hdmi_infoframe(bridge);
++
+ 	/* checksum gets written together with the body of the frame */
+ 	hdmi_write(hdmi, REG_HDMI_GENERIC0_HDR,
+ 		   buffer[0] |
+@@ -194,90 +279,6 @@ static int msm_hdmi_config_hdmi_infoframe(struct hdmi *hdmi,
+ 	return 0;
+ }
+ 
+-static int msm_hdmi_bridge_clear_infoframe(struct drm_bridge *bridge,
+-					   enum hdmi_infoframe_type type)
 -{
--	if (type == HDMI_INFOFRAME_TYPE_DRM)
--		return -EOPNOTSUPP;
+-	struct hdmi_bridge *hdmi_bridge = to_hdmi_bridge(bridge);
+-	struct hdmi *hdmi = hdmi_bridge->hdmi;
+-	u32 val;
+-
+-	switch (type) {
+-	case HDMI_INFOFRAME_TYPE_AVI:
+-		val = hdmi_read(hdmi, REG_HDMI_INFOFRAME_CTRL0);
+-		val &= ~(HDMI_INFOFRAME_CTRL0_AVI_SEND |
+-			 HDMI_INFOFRAME_CTRL0_AVI_CONT);
+-		hdmi_write(hdmi, REG_HDMI_INFOFRAME_CTRL0, val);
+-
+-		val = hdmi_read(hdmi, REG_HDMI_INFOFRAME_CTRL1);
+-		val &= ~HDMI_INFOFRAME_CTRL1_AVI_INFO_LINE__MASK;
+-		hdmi_write(hdmi, REG_HDMI_INFOFRAME_CTRL1, val);
+-
+-		break;
+-
+-	case HDMI_INFOFRAME_TYPE_AUDIO:
+-		val = hdmi_read(hdmi, REG_HDMI_INFOFRAME_CTRL0);
+-		val &= ~(HDMI_INFOFRAME_CTRL0_AUDIO_INFO_SEND |
+-			 HDMI_INFOFRAME_CTRL0_AUDIO_INFO_CONT |
+-			 HDMI_INFOFRAME_CTRL0_AUDIO_INFO_SOURCE |
+-			 HDMI_INFOFRAME_CTRL0_AUDIO_INFO_UPDATE);
+-		hdmi_write(hdmi, REG_HDMI_INFOFRAME_CTRL0, val);
+-
+-		val = hdmi_read(hdmi, REG_HDMI_INFOFRAME_CTRL1);
+-		val &= ~HDMI_INFOFRAME_CTRL1_AUDIO_INFO_LINE__MASK;
+-		hdmi_write(hdmi, REG_HDMI_INFOFRAME_CTRL1, val);
+-
+-		break;
+-
+-	case HDMI_INFOFRAME_TYPE_SPD:
+-		val = hdmi_read(hdmi, REG_HDMI_GEN_PKT_CTRL);
+-		val &= ~(HDMI_GEN_PKT_CTRL_GENERIC1_SEND |
+-			 HDMI_GEN_PKT_CTRL_GENERIC1_CONT |
+-			 HDMI_GEN_PKT_CTRL_GENERIC1_LINE__MASK);
+-		hdmi_write(hdmi, REG_HDMI_GEN_PKT_CTRL, val);
+-
+-		break;
+-
+-	case HDMI_INFOFRAME_TYPE_VENDOR:
+-		val = hdmi_read(hdmi, REG_HDMI_GEN_PKT_CTRL);
+-		val &= ~(HDMI_GEN_PKT_CTRL_GENERIC0_SEND |
+-			 HDMI_GEN_PKT_CTRL_GENERIC0_CONT |
+-			 HDMI_GEN_PKT_CTRL_GENERIC0_UPDATE |
+-			 HDMI_GEN_PKT_CTRL_GENERIC0_LINE__MASK);
+-		hdmi_write(hdmi, REG_HDMI_GEN_PKT_CTRL, val);
+-
+-		break;
+-
+-	default:
+-		drm_dbg_driver(hdmi_bridge->base.dev, "Unsupported infoframe type %x\n", type);
+-	}
 -
 -	return 0;
 -}
 -
- static const struct drm_connector_hdmi_funcs reject_hdr_infoframe_hdmi_funcs = {
--	.clear_infoframe = accept_infoframe_clear_infoframe,
--	.write_infoframe = reject_hdr_infoframe_write_infoframe,
-+	.avi = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = accept_infoframe_write_infoframe,
-+	},
-+	.hdmi = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = accept_infoframe_write_infoframe,
-+	},
-+	.hdr_drm = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = reject_infoframe_write_infoframe,
-+	},
- };
- 
- /*
-@@ -2800,19 +2818,19 @@ static void drm_test_check_reject_hdr_infoframe_bpc_10(struct kunit *test)
- 	drm_modeset_acquire_fini(&ctx);
- }
- 
--static int reject_audio_infoframe_write_infoframe(struct drm_connector *connector,
--						  enum hdmi_infoframe_type type,
--						  const u8 *buffer, size_t len)
+-static int msm_hdmi_bridge_write_infoframe(struct drm_bridge *bridge,
+-					   enum hdmi_infoframe_type type,
+-					   const u8 *buffer, size_t len)
 -{
--	if (type == HDMI_INFOFRAME_TYPE_AUDIO)
--		return -EOPNOTSUPP;
+-	struct hdmi_bridge *hdmi_bridge = to_hdmi_bridge(bridge);
+-	struct hdmi *hdmi = hdmi_bridge->hdmi;
 -
--	return 0;
+-	msm_hdmi_bridge_clear_infoframe(bridge, type);
+-
+-	switch (type) {
+-	case HDMI_INFOFRAME_TYPE_AVI:
+-		return msm_hdmi_config_avi_infoframe(hdmi, buffer, len);
+-	case HDMI_INFOFRAME_TYPE_AUDIO:
+-		return msm_hdmi_config_audio_infoframe(hdmi, buffer, len);
+-	case HDMI_INFOFRAME_TYPE_SPD:
+-		return msm_hdmi_config_spd_infoframe(hdmi, buffer, len);
+-	case HDMI_INFOFRAME_TYPE_VENDOR:
+-		return msm_hdmi_config_hdmi_infoframe(hdmi, buffer, len);
+-	default:
+-		drm_dbg_driver(hdmi_bridge->base.dev, "Unsupported infoframe type %x\n", type);
+-		return 0;
+-	}
 -}
 -
- static const struct drm_connector_hdmi_funcs reject_audio_infoframe_hdmi_funcs = {
--	.clear_infoframe = accept_infoframe_clear_infoframe,
--	.write_infoframe = reject_audio_infoframe_write_infoframe,
-+	.avi = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = accept_infoframe_write_infoframe,
-+	},
-+	.hdmi = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = accept_infoframe_write_infoframe,
-+	},
-+	.audio = {
-+		.clear_infoframe = accept_infoframe_clear_infoframe,
-+		.write_infoframe = reject_infoframe_write_infoframe,
-+	},
- };
+ static void msm_hdmi_set_timings(struct hdmi *hdmi,
+ 				 const struct drm_display_mode *mode);
  
- /*
-diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
-index 4cfb7ebc0c81..9fe605a42df7 100644
---- a/drivers/gpu/drm/vc4/vc4_hdmi.c
-+++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
-@@ -727,6 +727,66 @@ static int vc4_hdmi_write_infoframe(struct drm_connector *connector,
- 	return ret;
+@@ -462,8 +463,14 @@ static const struct drm_bridge_funcs msm_hdmi_bridge_funcs = {
+ 	.hpd_enable = msm_hdmi_hpd_enable,
+ 	.hpd_disable = msm_hdmi_hpd_disable,
+ 	.hdmi_tmds_char_rate_valid = msm_hdmi_bridge_tmds_char_rate_valid,
+-	.hdmi_clear_infoframe = msm_hdmi_bridge_clear_infoframe,
+-	.hdmi_write_infoframe = msm_hdmi_bridge_write_infoframe,
++	.hdmi_clear_audio_infoframe = msm_hdmi_bridge_clear_audio_infoframe,
++	.hdmi_write_audio_infoframe = msm_hdmi_bridge_write_audio_infoframe,
++	.hdmi_clear_avi_infoframe = msm_hdmi_bridge_clear_avi_infoframe,
++	.hdmi_write_avi_infoframe = msm_hdmi_bridge_write_avi_infoframe,
++	.hdmi_clear_spd_infoframe = msm_hdmi_bridge_clear_spd_infoframe,
++	.hdmi_write_spd_infoframe = msm_hdmi_bridge_write_spd_infoframe,
++	.hdmi_clear_hdmi_infoframe = msm_hdmi_bridge_clear_hdmi_infoframe,
++	.hdmi_write_hdmi_infoframe = msm_hdmi_bridge_write_hdmi_infoframe,
+ 	.hdmi_audio_prepare = msm_hdmi_bridge_audio_prepare,
+ 	.hdmi_audio_shutdown = msm_hdmi_bridge_audio_shutdown,
+ };
+diff --git a/drivers/gpu/drm/rockchip/rk3066_hdmi.c b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
+index 997429115068..9066ee2d1dff 100644
+--- a/drivers/gpu/drm/rockchip/rk3066_hdmi.c
++++ b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
+@@ -158,35 +158,33 @@ static void rk3066_hdmi_set_power_mode(struct rk3066_hdmi *hdmi, int mode)
+ 		hdmi->tmdsclk = DEFAULT_PLLA_RATE;
  }
  
-+static int vc4_hdmi_clear_avi_infoframe(struct drm_connector *connector)
-+{
-+	return vc4_hdmi_clear_infoframe(connector, HDMI_INFOFRAME_TYPE_AVI);
-+}
-+
-+static int vc4_hdmi_clear_hdmi_infoframe(struct drm_connector *connector)
-+{
-+	return vc4_hdmi_clear_infoframe(connector, HDMI_INFOFRAME_TYPE_VENDOR);
-+}
-+
-+static int vc4_hdmi_clear_audio_infoframe(struct drm_connector *connector)
-+{
-+	return vc4_hdmi_clear_infoframe(connector, HDMI_INFOFRAME_TYPE_AUDIO);
-+}
-+
-+static int vc4_hdmi_clear_hdr_drm_infoframe(struct drm_connector *connector)
-+{
-+	return vc4_hdmi_clear_infoframe(connector, HDMI_INFOFRAME_TYPE_DRM);
-+}
-+
-+static int vc4_hdmi_clear_spd_infoframe(struct drm_connector *connector)
-+{
-+	return vc4_hdmi_clear_infoframe(connector, HDMI_INFOFRAME_TYPE_SPD);
-+}
-+
-+static int vc4_hdmi_write_avi_infoframe(struct drm_connector *connector,
-+					const u8 *buffer, size_t len)
-+{
-+	return vc4_hdmi_write_infoframe(connector, HDMI_INFOFRAME_TYPE_AVI,
-+					buffer, len);
-+}
-+
-+static int vc4_hdmi_write_hdmi_infoframe(struct drm_connector *connector,
-+					 const u8 *buffer, size_t len)
-+{
-+	return vc4_hdmi_write_infoframe(connector, HDMI_INFOFRAME_TYPE_VENDOR,
-+					buffer, len);
-+}
-+
-+static int vc4_hdmi_write_audio_infoframe(struct drm_connector *connector,
-+					  const u8 *buffer, size_t len)
-+{
-+	return vc4_hdmi_write_infoframe(connector, HDMI_INFOFRAME_TYPE_AUDIO,
-+					buffer, len);
-+}
-+
-+static int vc4_hdmi_write_hdr_drm_infoframe(struct drm_connector *connector,
-+					    const u8 *buffer, size_t len)
-+{
-+	return vc4_hdmi_write_infoframe(connector, HDMI_INFOFRAME_TYPE_DRM,
-+					buffer, len);
-+}
-+
-+static int vc4_hdmi_write_spd_infoframe(struct drm_connector *connector,
-+					const u8 *buffer, size_t len)
-+{
-+	return vc4_hdmi_write_infoframe(connector, HDMI_INFOFRAME_TYPE_SPD,
-+					buffer, len);
-+}
-+
- #define SCRAMBLING_POLLING_DELAY_MS	1000
+-static int rk3066_hdmi_bridge_clear_infoframe(struct drm_bridge *bridge,
+-					      enum hdmi_infoframe_type type)
++static int rk3066_hdmi_bridge_clear_avi_infoframe(struct drm_bridge *bridge)
+ {
+ 	struct rk3066_hdmi *hdmi = bridge_to_rk3066_hdmi(bridge);
  
- static void vc4_hdmi_enable_scrambling(struct drm_encoder *encoder)
-@@ -1684,8 +1744,26 @@ vc4_hdmi_connector_clock_valid(const struct drm_connector *connector,
- 
- static const struct drm_connector_hdmi_funcs vc4_hdmi_hdmi_connector_funcs = {
- 	.tmds_char_rate_valid	= vc4_hdmi_connector_clock_valid,
--	.clear_infoframe	= vc4_hdmi_clear_infoframe,
--	.write_infoframe	= vc4_hdmi_write_infoframe,
-+	.avi = {
-+		.clear_infoframe = vc4_hdmi_clear_avi_infoframe,
-+		.write_infoframe = vc4_hdmi_write_avi_infoframe,
-+	},
-+	.hdmi = {
-+		.clear_infoframe = vc4_hdmi_clear_hdmi_infoframe,
-+		.write_infoframe = vc4_hdmi_write_hdmi_infoframe,
-+	},
-+	.audio = {
-+		.clear_infoframe = vc4_hdmi_clear_audio_infoframe,
-+		.write_infoframe = vc4_hdmi_write_audio_infoframe,
-+	},
-+	.hdr_drm = {
-+		.clear_infoframe = vc4_hdmi_clear_hdr_drm_infoframe,
-+		.write_infoframe = vc4_hdmi_write_hdr_drm_infoframe,
-+	},
-+	.spd = {
-+		.clear_infoframe = vc4_hdmi_clear_spd_infoframe,
-+		.write_infoframe = vc4_hdmi_write_spd_infoframe,
-+	},
- };
- 
- #define WIFI_2_4GHz_CH1_MIN_FREQ	2400000000ULL
-diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-index 4543833acdec..7eaec37ae1c7 100644
---- a/include/drm/drm_connector.h
-+++ b/include/drm/drm_connector.h
-@@ -1222,44 +1222,24 @@ struct drm_connector_cec_funcs {
- };
- 
- /**
-- * struct drm_connector_hdmi_funcs - drm_hdmi_connector control functions
-+ * struct drm_connector_infoframe_funcs - InfoFrame-related functions
-  */
--struct drm_connector_hdmi_funcs {
--	/**
--	 * @tmds_char_rate_valid:
--	 *
--	 * This callback is invoked at atomic_check time to figure out
--	 * whether a particular TMDS character rate is supported by the
--	 * driver.
--	 *
--	 * The @tmds_char_rate_valid callback is optional.
--	 *
--	 * Returns:
--	 *
--	 * Either &drm_mode_status.MODE_OK or one of the failure reasons
--	 * in &enum drm_mode_status.
--	 */
--	enum drm_mode_status
--	(*tmds_char_rate_valid)(const struct drm_connector *connector,
--				const struct drm_display_mode *mode,
--				unsigned long long tmds_rate);
+-	if (type != HDMI_INFOFRAME_TYPE_AVI) {
+-		drm_err(bridge->dev, "Unsupported infoframe type: %u\n", type);
+-		return 0;
+-	}
 -
-+struct drm_connector_infoframe_funcs {
- 	/**
- 	 * @clear_infoframe:
- 	 *
- 	 * This callback is invoked through
- 	 * @drm_atomic_helper_connector_hdmi_update_infoframes during a
- 	 * commit to clear the infoframes into the hardware. It will be
--	 * called multiple times, once for every disabled infoframe
--	 * type.
-+	 * called once for each frame type to be disabled.
- 	 *
--	 * The @clear_infoframe callback is mandatory.
-+	 * The @clear_infoframe callback is mandatory for AVI and HDMI-VS
-+	 * InfoFrame types.
- 	 *
- 	 * Returns:
- 	 * 0 on success, a negative error code otherwise
- 	 */
--	int (*clear_infoframe)(struct drm_connector *connector,
--			       enum hdmi_infoframe_type type);
-+	int (*clear_infoframe)(struct drm_connector *connector);
+ 	hdmi_writeb(hdmi, HDMI_CP_BUF_INDEX, HDMI_INFOFRAME_AVI);
+ 
+ 	return 0;
+ }
+ 
+ static int
+-rk3066_hdmi_bridge_write_infoframe(struct drm_bridge *bridge,
+-				   enum hdmi_infoframe_type type,
+-				   const u8 *buffer, size_t len)
++rk3066_hdmi_bridge_clear_hdmi_infoframe(struct drm_bridge *bridge)
++{
++	/* FIXME: add support for this InfoFrame */
++
++	drm_warn_once(bridge->encoder->dev, "HDMI VSI not supported\n");
++
++	return 0;
++}
++
++static int
++rk3066_hdmi_bridge_write_avi_infoframe(struct drm_bridge *bridge,
++				       const u8 *buffer, size_t len)
+ {
+ 	struct rk3066_hdmi *hdmi = bridge_to_rk3066_hdmi(bridge);
+ 	ssize_t i;
+ 
+-	if (type != HDMI_INFOFRAME_TYPE_AVI) {
+-		drm_err(bridge->dev, "Unsupported infoframe type: %u\n", type);
+-		return 0;
+-	}
+-
+-	rk3066_hdmi_bridge_clear_infoframe(bridge, type);
++	rk3066_hdmi_bridge_clear_avi_infoframe(bridge);
+ 
+ 	for (i = 0; i < len; i++)
+ 		hdmi_writeb(hdmi, HDMI_CP_BUF_ACC_HB0 + i * 4, buffer[i]);
+@@ -194,6 +192,17 @@ rk3066_hdmi_bridge_write_infoframe(struct drm_bridge *bridge,
+ 	return 0;
+ }
+ 
++static int
++rk3066_hdmi_bridge_write_hdmi_infoframe(struct drm_bridge *bridge,
++					const u8 *buffer, size_t len)
++{
++	rk3066_hdmi_bridge_clear_hdmi_infoframe(bridge);
++
++	/* FIXME: add support for this InfoFrame */
++
++	return 0;
++}
++
+ static int rk3066_hdmi_config_video_timing(struct rk3066_hdmi *hdmi,
+ 					   struct drm_display_mode *mode)
+ {
+@@ -493,8 +502,10 @@ static const struct drm_bridge_funcs rk3066_hdmi_bridge_funcs = {
+ 	.atomic_disable = rk3066_hdmi_bridge_atomic_disable,
+ 	.detect = rk3066_hdmi_bridge_detect,
+ 	.edid_read = rk3066_hdmi_bridge_edid_read,
+-	.hdmi_clear_infoframe = rk3066_hdmi_bridge_clear_infoframe,
+-	.hdmi_write_infoframe = rk3066_hdmi_bridge_write_infoframe,
++	.hdmi_clear_avi_infoframe = rk3066_hdmi_bridge_clear_avi_infoframe,
++	.hdmi_write_avi_infoframe = rk3066_hdmi_bridge_write_avi_infoframe,
++	.hdmi_clear_hdmi_infoframe = rk3066_hdmi_bridge_clear_hdmi_infoframe,
++	.hdmi_write_hdmi_infoframe = rk3066_hdmi_bridge_write_hdmi_infoframe,
+ 	.mode_valid = rk3066_hdmi_bridge_mode_valid,
+ };
+ 
+diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+index 3e6cbfa9dc44..73c23fece792 100644
+--- a/include/drm/drm_bridge.h
++++ b/include/drm/drm_bridge.h
+@@ -785,29 +785,113 @@ struct drm_bridge_funcs {
+ 				     unsigned long long tmds_rate);
  
  	/**
- 	 * @write_infoframe:
-@@ -1267,18 +1247,42 @@ struct drm_connector_hdmi_funcs {
- 	 * This callback is invoked through
- 	 * @drm_atomic_helper_connector_hdmi_update_infoframes during a
- 	 * commit to program the infoframes into the hardware. It will
--	 * be called multiple times, once for every updated infoframe
+-	 * @hdmi_clear_infoframe:
++	 * @hdmi_clear_avi_infoframe:
+ 	 *
+ 	 * This callback clears the infoframes in the hardware during commit.
+-	 * It will be called multiple times, once for every disabled infoframe
 -	 * type.
-+	 * be called for every updated infoframe type.
  	 *
--	 * The @write_infoframe callback is mandatory.
-+	 * The @write_infoframe callback is mandatory for AVI and HDMI-VS
-+	 * InfoFrame types.
- 	 *
- 	 * Returns:
- 	 * 0 on success, a negative error code otherwise
+ 	 * This callback is optional but it must be implemented by bridges that
+ 	 * set the DRM_BRIDGE_OP_HDMI flag in their &drm_bridge->ops.
  	 */
- 	int (*write_infoframe)(struct drm_connector *connector,
--			       enum hdmi_infoframe_type type,
- 			       const u8 *buffer, size_t len);
- 
-+};
+-	int (*hdmi_clear_infoframe)(struct drm_bridge *bridge,
+-				    enum hdmi_infoframe_type type);
++	int (*hdmi_clear_avi_infoframe)(struct drm_bridge *bridge);
 +
-+/**
-+ * struct drm_connector_hdmi_funcs - drm_hdmi_connector control functions
-+ */
-+struct drm_connector_hdmi_funcs {
 +	/**
-+	 * @tmds_char_rate_valid:
++	 * @hdmi_write_avi_infoframe:
 +	 *
-+	 * This callback is invoked at atomic_check time to figure out
-+	 * whether a particular TMDS character rate is supported by the
-+	 * driver.
++	 * Program the infoframe into the hardware.
 +	 *
-+	 * The @tmds_char_rate_valid callback is optional.
-+	 *
-+	 * Returns:
-+	 *
-+	 * Either &drm_mode_status.MODE_OK or one of the failure reasons
-+	 * in &enum drm_mode_status.
++	 * This callback is optional but it must be implemented by bridges that
++	 * set the DRM_BRIDGE_OP_HDMI flag in their &drm_bridge->ops.
 +	 */
-+	enum drm_mode_status
-+	(*tmds_char_rate_valid)(const struct drm_connector *connector,
-+				const struct drm_display_mode *mode,
-+				unsigned long long tmds_rate);
++	int (*hdmi_write_avi_infoframe)(struct drm_bridge *bridge,
++					const u8 *buffer, size_t len);
++
++	/**
++	 * @hdmi_clear_hdmi_infoframe:
++	 *
++	 * This callback clears the infoframes in the hardware during commit.
++	 *
++	 * This callback is optional but it must be implemented by bridges that
++	 * set the DRM_BRIDGE_OP_HDMI flag in their &drm_bridge->ops.
++	 */
++	int (*hdmi_clear_hdmi_infoframe)(struct drm_bridge *bridge);
 +
  	/**
- 	 * @read_edid:
+-	 * @hdmi_write_infoframe:
++	 * @hdmi_write_hdmi_infoframe:
  	 *
-@@ -1293,6 +1297,47 @@ struct drm_connector_hdmi_funcs {
- 	 * Valid EDID on success, NULL in case of failure.
+-	 * Program the infoframe into the hardware. It will be called multiple
+-	 * times, once for every updated infoframe type.
++	 * Program the infoframe into the hardware.
+ 	 *
+ 	 * This callback is optional but it must be implemented by bridges that
+ 	 * set the DRM_BRIDGE_OP_HDMI flag in their &drm_bridge->ops.
  	 */
- 	const struct drm_edid *(*read_edid)(struct drm_connector *connector);
+-	int (*hdmi_write_infoframe)(struct drm_bridge *bridge,
+-				    enum hdmi_infoframe_type type,
+-				    const u8 *buffer, size_t len);
++	int (*hdmi_write_hdmi_infoframe)(struct drm_bridge *bridge,
++					    const u8 *buffer, size_t len);
 +
 +	/**
-+	 * @avi:
++	 * @hdmi_clear_hdr_drm_infoframe:
 +	 *
-+	 * Set of callbacks for handling the AVI InfoFrame. These callbacks are
-+	 * mandatory.
++	 * This callback clears the infoframes in the hardware during commit.
++	 *
++	 * This callback is optional but it must be implemented by bridges that
++	 * set the DRM_BRIDGE_OP_HDMI_HDR_DRM_INFOFRAME flag in their
++	 * &drm_bridge->ops.
 +	 */
-+	struct drm_connector_infoframe_funcs avi;
++	int (*hdmi_clear_hdr_drm_infoframe)(struct drm_bridge *bridge);
 +
 +	/**
-+	 * @hdmi:
++	 * @hdmi_write_hdr_drm_infoframe:
 +	 *
-+	 * Set of callbacks for handling the HDMI Vendor-Specific InfoFrame.
-+	 * These callbacks are mandatory.
++	 * Program the infoframe into the hardware.
++	 *
++	 * This callback is optional but it must be implemented by bridges that
++	 * set the DRM_BRIDGE_OP_HDMI_HDR_DRM_INFOFRAME flag in their
++	 * &drm_bridge->ops.
 +	 */
-+	struct drm_connector_infoframe_funcs hdmi;
++	int (*hdmi_write_hdr_drm_infoframe)(struct drm_bridge *bridge,
++					const u8 *buffer, size_t len);
 +
 +	/**
-+	 * @audio:
++	 * @hdmi_clear_spd_infoframe:
 +	 *
-+	 * Set of callbacks for handling the Audio InfoFrame. These callbacks
-+	 * are optional, but they are required for drivers which use
-+	 * drm_atomic_helper_connector_hdmi_update_audio_infoframe().
++	 * This callback clears the infoframes in the hardware during commit.
++	 *
++	 * This callback is optional but it must be implemented by bridges that
++	 * set the DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME flag in their
++	 * &drm_bridge->ops.
 +	 */
-+	struct drm_connector_infoframe_funcs audio;
++	int (*hdmi_clear_spd_infoframe)(struct drm_bridge *bridge);
 +
 +	/**
-+	 * @hdr_drm:
++	 * @hdmi_write_spd_infoframe:
 +	 *
-+	 * Set of callbacks for handling the HDR DRM InfoFrame. These callbacks
-+	 * are mandatory if HDR output is to be supported.
++	 * Program the infoframe into the hardware.
++	 *
++	 * This callback is optional but it must be implemented by bridges that
++	 * set the DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME flag in their
++	 * &drm_bridge->ops.
 +	 */
-+	struct drm_connector_infoframe_funcs hdr_drm;
++	int (*hdmi_write_spd_infoframe)(struct drm_bridge *bridge,
++					const u8 *buffer, size_t len);
 +
 +	/**
-+	 * @spd:
++	 * @hdmi_clear_audio_infoframe:
 +	 *
-+	 * Set of callbacks for handling the SPD InfoFrame. These callbacks are
-+	 * optional.
++	 * This callback clears the infoframes in the hardware during commit.
++	 *
++	 * This callback is optional but it must be implemented by bridges that
++	 * set the DRM_BRIDGE_OP_HDMI_AUDIO flag in their &drm_bridge->ops.
 +	 */
-+	struct drm_connector_infoframe_funcs spd;
++	int (*hdmi_clear_audio_infoframe)(struct drm_bridge *bridge);
++
++	/**
++	 * @hdmi_write_audio_infoframe:
++	 *
++	 * Program the infoframe into the hardware.
++	 *
++	 * This callback is optional but it must be implemented by bridges that
++	 * set the DRM_BRIDGE_OP_HDMI_AUDIO flag in their &drm_bridge->ops.
++	 */
++	int (*hdmi_write_audio_infoframe)(struct drm_bridge *bridge,
++					  const u8 *buffer, size_t len);
+ 
+ 	/**
+ 	 * @hdmi_audio_startup:
+@@ -1063,7 +1147,11 @@ enum drm_bridge_ops {
+ 	/**
+ 	 * @DRM_BRIDGE_OP_HDMI: The bridge provides HDMI connector operations,
+ 	 * including infoframes support. Bridges that set this flag must
+-	 * implement the &drm_bridge_funcs->write_infoframe callback.
++	 * provide HDMI-related information and implement the
++	 * &drm_bridge_funcs->clear_avi_infoframe,
++	 * &drm_bridge_funcs->write_avi_infoframe,
++	 * &drm_bridge_funcs->clear_hdmi_infoframe and
++	 * &drm_bridge_funcs->write_hdmi_infoframe callbacks.
+ 	 *
+ 	 * Note: currently there can be at most one bridge in a chain that sets
+ 	 * this bit. This is to simplify corresponding glue code in connector
+@@ -1075,6 +1163,9 @@ enum drm_bridge_ops {
+ 	 * Bridges that set this flag must implement the
+ 	 * &drm_bridge_funcs->hdmi_audio_prepare and
+ 	 * &drm_bridge_funcs->hdmi_audio_shutdown callbacks.
++	 * If the bridge implements @DRM_BRIDGE_OP_HDMI, it also must implement
++	 * &drm_bridge_funcs->hdmi_write_audio_infoframe and
++	 * &drm_bridge_funcs->hdmi_cleaer_audio_infoframe callbacks.
+ 	 *
+ 	 * Note: currently there can be at most one bridge in a chain that sets
+ 	 * this bit. This is to simplify corresponding glue code in connector
+@@ -1106,6 +1197,18 @@ enum drm_bridge_ops {
+ 	 * to be present.
+ 	 */
+ 	DRM_BRIDGE_OP_HDMI_CEC_ADAPTER = BIT(8),
++	/**
++	 * @DRM_BRIDGE_OP_HDMI_HDR_DRM_INFOFRAME: The bridge supports
++	 * &drm_bridge_funcs->hdmi_write_hdr_drm_infoframe and
++	 * &drm_bridge_funcs->hdmi_clear_hdr_drm_infoframe callbacks.
++	 */
++	DRM_BRIDGE_OP_HDMI_HDR_DRM_INFOFRAME = BIT(9),
++	/**
++	 * @DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME: The bridge supports
++	 * &drm_bridge_funcs->hdmi_write_spd_infoframe and
++	 * &drm_bridge_funcs->hdmi_clear_spd_infoframe callbacks.
++	 */
++	DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME = BIT(10),
  };
  
  /**
