@@ -4,57 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23990CD5823
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 09:57:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CC67CD5824
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 09:57:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4eSvWQJN7si0FwL7aqZMNra0heK9Zgm49vvu+8HpRlc=; b=4VZtTWq8DIpRucTVy/4Dw72a/m
-	/9SV3i1luLsJl6+ffkM4ejUrpAWMbGa+f+CQWrTTORa/mIccRRqgooYZBDpcPuaq9YHXn1ojhVmdL
-	Wu8F4iC3U8lXVjQrr6V8blSYbIK8zysfV76C3Qidj1L6F6gMk87yGE4r76CwZVCTdUA+Fltw4U0+b
-	L5WSrDTCGuU52trJ+Cz0pWKHg/xxrD7ohk/ByyTosSoTOggfa8StTZc8QW9BKHxqQYH8LdMO2o9dQ
-	Q3jipg/WZ+nHVN//oxuGg6sBMidaoqZ7BHG+WurZehRVZwPPlvgVGiDM+LY/NLc1hTXII+aSncjcU
-	kqu1qEwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kg0Uw3LRVfNHDM/aCR6pFV93DPSIETQ7K2PCrzE/Fng=; b=g5VL9HDB2QEHcmNkFts+7Z/GW2
+	WCr8rnMZKpKbOZonr3rFA9vPmehfTVZeCUTrCCcBn2Q6Y4G7GPj2c++4d/NN7VrOdHjeeOi0Lw9iL
+	MRBHLm0JdIQF81VpOjnPfnrXcrr2KsNAl+LSpXR0SCIyrR8PQckrQpllO2hSr1KKoatA2vBYFxDkO
+	+hzQU3iazL4ue/9i6vZaVT00tO6zRL7Msz5F2cmLcoHdvkdwXDJXmFYhlRRHYD4VWuufFI0Hovw4G
+	L2Gd0xVmCh6fYzvQmP1sZe3sF8Tn2iuYt08GVGEOolz7vQyazN1TRqb728wFkzOmQLMOfFmE1/zQd
+	bthSzLpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQHt-0000000Ec4g-1HUy;
-	Wed, 07 Jan 2026 09:57:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQHq-0000000Ec3z-3HxO
+	id 1vdQHv-0000000Ec5x-0eAn;
+	Wed, 07 Jan 2026 09:57:11 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdQHs-0000000Ec3o-0vlI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 09:57:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D7456497;
-	Wed,  7 Jan 2026 01:56:58 -0800 (PST)
-Received: from localhost (a079125.arm.com [10.164.21.37])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CDA773F6A8;
-	Wed,  7 Jan 2026 01:57:04 -0800 (PST)
-Date: Wed, 7 Jan 2026 15:27:01 +0530
-From: Linu Cherian <linu.cherian@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Marc Zyngier <maz@kernel.org>, Dev Jain <dev.jain@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 12/13] arm64: mm: Wrap flush_tlb_page() around
- ___flush_tlb_range()
-Message-ID: <aV4t7YajY8omwVHf@a079125.arm.com>
-References: <20251216144601.2106412-1-ryan.roberts@arm.com>
- <20251216144601.2106412-13-ryan.roberts@arm.com>
+	Wed, 07 Jan 2026 09:57:09 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id E60371A26E2;
+	Wed,  7 Jan 2026 09:57:03 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B9C0960734;
+	Wed,  7 Jan 2026 09:57:03 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5FDB7103C8715;
+	Wed,  7 Jan 2026 10:57:00 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1767779822; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=kg0Uw3LRVfNHDM/aCR6pFV93DPSIETQ7K2PCrzE/Fng=;
+	b=rYnPVNBLZYpCqpKk3jfP1C3fIOxJbc/uPxJX55MAzfCVcUAF77Qrt4M2/TvzAWre2/cnZH
+	MxSmRRIqTSTX6PhkXPJTIJ8jqIWDdsUFh0TyORZ+P11SCsV6OieT7s06IFrjYOhcwH0WqT
+	zFM5Td2WtFhW55sH6IcW/tbGANs+v/ULB233DgjC3N2leYIMVdxel4qyZ8EcSO3kTpaAER
+	B7yhRtvSuFGf1e3hLaOCINZuZuwY6NuOEN/ISSUfkbhNjFGJrvY2ygzdAMjVA465fVAXT4
+	77PvsXWkeC6vngnMed0PIEotNVrEGjwp07xyB0OoE/aohRu2/6pAEIJ8MzAT/w==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Wed, 07 Jan 2026 10:56:28 +0100
+Subject: [PATCH v4 3/4] drm/bridge: imx8qxp-pixel-link:
+ imx8qxp_pixel_link_find_next_bridge: return int, not ERR_PTR
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251216144601.2106412-13-ryan.roberts@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-3-a62b4399a6bf@bootlin.com>
+References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-0-a62b4399a6bf@bootlin.com>
+In-Reply-To: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-0-a62b4399a6bf@bootlin.com>
+To: Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_015706_922455_A66FEF33 
-X-CRM114-Status: GOOD (  30.20  )
+X-CRM114-CacheID: sfid-20260107_015708_397938_CF8C52DD 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,177 +88,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In preparation for using bridge->next_bridge, we need to ensure that it
+will never contain anything but NULL or a valid bridge pointer. Current
+code stores an ERR_PTR when imx8qxp_pixel_link_find_next_bridge() errors
+out. Instead of fixing that after the facts in the caller, change the
+function to internally set pl->next_bridge and just return an int error
+value.
 
-On Tue, Dec 16, 2025 at 02:45:57PM +0000, Ryan Roberts wrote:
-> Flushing a page from the tlb is just a special case of flushing a range.
-> So let's rework flush_tlb_page() so that it simply wraps
-> ___flush_tlb_range(). While at it, let's also update the API to take the
-> same flags that we use when flushing a range. This allows us to delete
-> all the ugly "_nosync", "_local" and "_nonotify" variants.
-> 
-> Thanks to constant folding, all of the complex looping and tlbi-by-range
-> options get eliminated so that the generated code for flush_tlb_page()
-> looks very similar to the previous version.
-> 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
->  arch/arm64/include/asm/pgtable.h  |  6 +--
->  arch/arm64/include/asm/tlbflush.h | 81 ++++++++++---------------------
->  arch/arm64/mm/fault.c             |  2 +-
->  3 files changed, 29 insertions(+), 60 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index 736747fbc843..b96a7ca465a1 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -136,10 +136,10 @@ static inline void arch_leave_lazy_mmu_mode(void)
->   * entries exist.
->   */
->  #define flush_tlb_fix_spurious_fault(vma, address, ptep)	\
-> -	local_flush_tlb_page_nonotify(vma, address)
-> +	__flush_tlb_page(vma, address, TLBF_NOBROADCAST | TLBF_NONOTIFY)
->  
->  #define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)	\
-> -	local_flush_tlb_page_nonotify(vma, address)
-> +	__flush_tlb_page(vma, address, TLBF_NOBROADCAST | TLBF_NONOTIFY)
->  
->  /*
->   * ZERO_PAGE is a global shared page that is always zero: used
-> @@ -1351,7 +1351,7 @@ static inline int __ptep_clear_flush_young(struct vm_area_struct *vma,
->  		 * context-switch, which provides a DSB to complete the TLB
->  		 * invalidation.
->  		 */
-> -		flush_tlb_page_nosync(vma, address);
-> +		__flush_tlb_page(vma, address, TLBF_NOSYNC);
->  	}
->  
->  	return young;
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index ee747e66bbef..fa5aee990742 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -256,10 +256,7 @@ static inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
->   *		unmapping pages from vmalloc/io space.
->   *
->   *	flush_tlb_page(vma, addr)
-> - *		Invalidate a single user mapping for address 'addr' in the
-> - *		address space corresponding to 'vma->mm'.  Note that this
-> - *		operation only invalidates a single, last-level page-table
-> - *		entry and therefore does not affect any walk-caches.
-> + *		Equivalent to __flush_tlb_page(..., flags=TLBF_NONE)
->   *
->   *
->   *	Next, we have some undocumented invalidation routines that you probably
-> @@ -287,13 +284,14 @@ static inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
->   *		TLBF_NOSYNC (don't issue trailing dsb) and TLBF_NOBROADCAST
->   *		(only perform the invalidation for the local cpu).
->   *
-> - *	local_flush_tlb_page(vma, addr)
-> - *		Local variant of flush_tlb_page().  Stale TLB entries may
-> - *		remain in remote CPUs.
-> - *
-> - *	local_flush_tlb_page_nonotify(vma, addr)
-> - *		Same as local_flush_tlb_page() except MMU notifier will not be
-> - *		called.
-> + *	__flush_tlb_page(vma, addr, flags)
-> + *		Invalidate a single user mapping for address 'addr' in the
-> + *		address space corresponding to 'vma->mm'.  Note that this
-> + *		operation only invalidates a single, last-level page-table entry
-> + *		and therefore does not affect any walk-caches. flags may contain
-> + *		any combination of TLBF_NONOTIFY (don't call mmu notifiers),
-> + *		TLBF_NOSYNC (don't issue trailing dsb) and TLBF_NOBROADCAST
-> + *		(only perform the invalidation for the local cpu).
->   *
->   *	Finally, take a look at asm/tlb.h to see how tlb_flush() is implemented
->   *	on top of these routines, since that is our interface to the mmu_gather
-> @@ -327,51 +325,6 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
->  	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
->  }
->  
-> -static inline void __local_flush_tlb_page_nonotify_nosync(struct mm_struct *mm,
-> -							  unsigned long uaddr)
-> -{
-> -	dsb(nshst);
-> -	__tlbi_level_asid(vale1, uaddr, TLBI_TTL_UNKNOWN, ASID(mm));
-> -}
-> -
-> -static inline void local_flush_tlb_page_nonotify(struct vm_area_struct *vma,
-> -						 unsigned long uaddr)
-> -{
-> -	__local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
-> -	dsb(nsh);
-> -}
-> -
-> -static inline void local_flush_tlb_page(struct vm_area_struct *vma,
-> -					unsigned long uaddr)
-> -{
-> -	__local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
-> -	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, uaddr & PAGE_MASK,
-> -						(uaddr & PAGE_MASK) + PAGE_SIZE);
-> -	dsb(nsh);
-> -}
-> -
-> -static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
-> -					   unsigned long uaddr)
-> -{
-> -	dsb(ishst);
-> -	__tlbi_level_asid(vale1is, uaddr, TLBI_TTL_UNKNOWN, ASID(mm));
-> -	mmu_notifier_arch_invalidate_secondary_tlbs(mm, uaddr & PAGE_MASK,
-> -						(uaddr & PAGE_MASK) + PAGE_SIZE);
-> -}
-> -
-> -static inline void flush_tlb_page_nosync(struct vm_area_struct *vma,
-> -					 unsigned long uaddr)
-> -{
-> -	return __flush_tlb_page_nosync(vma->vm_mm, uaddr);
-> -}
-> -
-> -static inline void flush_tlb_page(struct vm_area_struct *vma,
-> -				  unsigned long uaddr)
-> -{
-> -	flush_tlb_page_nosync(vma, uaddr);
-> -	dsb(ish);
-> -}
-> -
->  static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
->  {
->  	/*
-> @@ -618,6 +571,22 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
->  	__flush_tlb_range(vma, start, end, PAGE_SIZE, TLBI_TTL_UNKNOWN, TLBF_NONE);
->  }
->  
-> +static inline void __flush_tlb_page(struct vm_area_struct *vma,
-> +				    unsigned long uaddr, tlbf_t flags)
-> +{
-> +	unsigned long start = round_down(uaddr, PAGE_SIZE);
-> +	unsigned long end = start + PAGE_SIZE;
-> +
-> +	___flush_tlb_range(vma, start, end, PAGE_SIZE, TLBI_TTL_UNKNOWN,
-> +			   TLBF_NOWALKCACHE | flags);
-> +}
-> +
-> +static inline void flush_tlb_page(struct vm_area_struct *vma,
-> +				  unsigned long uaddr)
-> +{
-> +	__flush_tlb_page(vma, uaddr, TLBF_NONE);
-> +}
-> +
->  static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end)
->  {
->  	const unsigned long stride = PAGE_SIZE;
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index be9dab2c7d6a..f91aa686f142 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -239,7 +239,7 @@ int __ptep_set_access_flags(struct vm_area_struct *vma,
->  	 * flush_tlb_fix_spurious_fault().
->  	 */
->  	if (dirty)
-> -		local_flush_tlb_page(vma, address);
-> +		__flush_tlb_page(vma, address, TLBF_NOBROADCAST);
->  	return 1;
->  }
+No functional changes.
 
-Reviewed-by: Linu Cherian <linu.cherian@arm.com>
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+ drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c b/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c
+index 0c5ed06eee1b..91e4f4d55469 100644
+--- a/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c
++++ b/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c
+@@ -256,8 +256,7 @@ static int imx8qxp_pixel_link_disable_all_controls(struct imx8qxp_pixel_link *pl
+ 	return imx8qxp_pixel_link_disable_sync(pl);
+ }
+ 
+-static struct drm_bridge *
+-imx8qxp_pixel_link_find_next_bridge(struct imx8qxp_pixel_link *pl)
++static int imx8qxp_pixel_link_find_next_bridge(struct imx8qxp_pixel_link *pl)
+ {
+ 	struct device_node *np = pl->dev->of_node;
+ 	struct device_node *port;
+@@ -282,7 +281,7 @@ imx8qxp_pixel_link_find_next_bridge(struct imx8qxp_pixel_link *pl)
+ 
+ 	if (!found_port) {
+ 		DRM_DEV_ERROR(pl->dev, "no available output port\n");
+-		return ERR_PTR(-ENODEV);
++		return -ENODEV;
+ 	}
+ 
+ 	for (reg = 0; reg < PL_MAX_NEXT_BRIDGES; reg++) {
+@@ -300,7 +299,7 @@ imx8qxp_pixel_link_find_next_bridge(struct imx8qxp_pixel_link *pl)
+ 
+ 		struct drm_bridge *next_bridge = of_drm_find_bridge(remote);
+ 		if (!next_bridge)
+-			return ERR_PTR(-EPROBE_DEFER);
++			return -EPROBE_DEFER;
+ 
+ 		/*
+ 		 * Select the next bridge with companion PXL2DPI if
+@@ -311,8 +310,9 @@ imx8qxp_pixel_link_find_next_bridge(struct imx8qxp_pixel_link *pl)
+ 	}
+ 
+ 	pl->mst_addr = port_id - 1;
++	pl->next_bridge = selected_bridge;
+ 
+-	return selected_bridge;
++	return 0;
+ }
+ 
+ static int imx8qxp_pixel_link_bridge_probe(struct platform_device *pdev)
+@@ -368,9 +368,9 @@ static int imx8qxp_pixel_link_bridge_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	pl->next_bridge = imx8qxp_pixel_link_find_next_bridge(pl);
+-	if (IS_ERR(pl->next_bridge))
+-		return PTR_ERR(pl->next_bridge);
++	ret = imx8qxp_pixel_link_find_next_bridge(pl);
++	if (ret)
++		return ret;
+ 
+ 	platform_set_drvdata(pdev, pl);
+ 
+
+-- 
+2.52.0
 
 
