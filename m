@@ -4,88 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16372D0D16D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 19:48:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4230D0D16C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 19:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/K6KAgx2Put0DT9sjsubOZBw59h5KUnRoaOh5hbz8NI=; b=uztxghJkXose4a733rCn6/4kxp
-	E0/2PJXYv4BP/scXIPVzWC8xZeujeyDOQxgWg226MN0hcUadqR7AaA1iTywMtVq87mYzAumJDld6U
-	xwcUz2Pq3LBp3ymxNUar6N3zGUdcAfWduU7/kQNUrlJofQ2ZF8c2tG1glOlN8MUE2zzuhthCnbADr
-	wZWEDlZ/1Zl0fOo6HPPmDc9POfZp2SmVfF0xNUg3tzU2UR6USsj8vRShWk1wO0i95YrLfjXmR3RYG
-	0TWLorDWfp8nj8m5nU657PzEnTJ0nBsT9esRbhGc9pANWcHJIrstlNpEjQSnBgn2KL8mJ2YBx5rTj
-	Lp5Y7DUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2QqZL3oUpHcdBvI4ZTdse92cHVkW+oj84c+RVYbNOFs=; b=NjajPKa/egbx+ehqnE34FTKPQC
+	RXKXER9Mdsj1qqihiiDKlNCXhhyKZMS7+aUfbaUDXwPcQlUfbHI5BrVk9t9SQP5I0NEMKEJHJZAHR
+	9/bx4Ri0mWgWYPSsWmjN2EccoZDR8LBEBjP3VyLX8VsfL5btAfWJZ/SpSwWh5oASYw7zyIk35I3We
+	/u2bBS0ra2bYP4mzGWDpRpQY5dTpuIIe1XR+VtzVniQHoKre+ZRPjLB/kENZhykY+Dpie7qXdBJkZ
+	gT1aByUg1Tnq8vfj3eWkRmWx/UbhBt9OPJ6A+0FQpS1m0FUJe/h1hU7IJNZ/5rM6C/I0gODKUcI3H
+	hJUJ+eHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZVt-0000000FZRy-0vLj;
-	Wed, 07 Jan 2026 19:48:14 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1vdZeX-0000000FZqm-1AFb;
+	Wed, 07 Jan 2026 19:57:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZVq-0000000FZRV-2Sye
+	id 1vdZeV-0000000FZqE-03ID
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 19:48:11 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b832c65124cso391441466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 11:48:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767815288; x=1768420088; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=/K6KAgx2Put0DT9sjsubOZBw59h5KUnRoaOh5hbz8NI=;
-        b=E1KbUehw9XgJsGcBUtlJ73Uoy/4BX/xMQvJ4KWjMlinTcDQVBPh9L91SiznDKW+Svw
-         TtY6rz08IEtQLyLKAwVfVwA1PibSvfrCFfHJx+3Bb8XFu0KtngmiWOharLMIpIm5sfJ6
-         J5INiJP9nSre+4t0Jis5Y8HWU2jif/yMx3FFHIP6kJKFyXThmAf6e3DpIfPMRqzlnnxH
-         U3tIg2AG2nsFeRpHuiz60BSHBC5nfRAhfBNbU29Q5X/QQ7utQi05pp/2f3VnsgI+fCpt
-         k6tpaKDJwY9oovmJuDcdBGlmqZoMsLRZ6u08d1+FMsWCly6MV/z1MdEUIsLJMQo0sRwR
-         o7Lg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767815288; x=1768420088;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/K6KAgx2Put0DT9sjsubOZBw59h5KUnRoaOh5hbz8NI=;
-        b=uOUnMz1HXXYItE+MECG0sJQEohbzXUfrBpNvrpkNUKi6tT6zuCpyDT3IOZyRV4qgC0
-         yOoqxxKgpc9a6WixJJEa8oubhN+482LzC4MhzvSsvB2NZE5q/0KBTlnppUtRlUkEWEVw
-         T0XAlyN/XbIBrv6pWskxX/EyzcXgAJLN9t23sWE5g6RJvc/+WHvWJ3l+icOmLrU04xHU
-         BEbSCCALrs+1mqAfYiFsNLFwxwJ1brrqQozSnM1YX52Doytm4M78GN4kZRHd86sUe0NW
-         Rc5I04BFtURxClNUBXYQBhJPqEeJP2ce6QYDIuO1WiNeqgoGXfFMDgiirR9xDpn/Lct/
-         DxEw==
-X-Forwarded-Encrypted: i=1; AJvYcCWICEzoNweB4Eux0ZHwgFeaqotjvLj7OL5ElH0N/KIi+iYAUmW0ZcdodCrGjlSCUqQSLjf7VrN0JgDP3CjtOK2R@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAF+T2th/Xpnw6mkF8xS3YIJ5CJ9dRFzRz7khru59YUTqRkp5h
-	JZ8orw6q8157qtXQV3pkbvMwC13RG99TWVT1hwPRim3kczf/63A/lEYBiaH0+BBJSuTEarUTDKQ
-	4eayvqef6uuhfS6X3g/21RFf6OQUA3E4xiWMrTe49ug==
-X-Gm-Gg: AY/fxX5skG7fpK438iyQCby/TfeRssKEhq4Kqq0yhgHNRyTBVpkVU9DosVEmLxIPRm3
-	7tW6wlARGyEbswErZdEHdFrp4xyMxqgnlMOteTnhm/lnrBiMI8keci9eCjrvr2RffCLcrbUkdN9
-	wkqRU1Lp5I1Pd0xi2Zn6PHS13hzzd9q40KZ594bYdgKuGJ4KIFY2qQq7NLTraS7VYlSlpbdkNp/
-	5yLUvkHGBr/qSPIE9zDLzfQUWj9eq5EoPSngn39dhGZZhT1WxUZZnIGXXfK0JDU1QyTn5F7
-X-Google-Smtp-Source: AGHT+IFS8rYL/AwaODNRa7WfZUsg/Y0giyG2o55Sn1z5plGBNfdHP68B1+vhS5dmZFmSvNPRKxpxiwnrMPyF8mdrh24=
-X-Received: by 2002:a17:907:6d10:b0:b83:246c:d125 with SMTP id
- a640c23a62f3a-b8444f4afa7mr340640866b.41.1767815288230; Wed, 07 Jan 2026
- 11:48:08 -0800 (PST)
+	Wed, 07 Jan 2026 19:57:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B93B343474
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Jan 2026 19:57:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94194C2BC86
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  7 Jan 2026 19:57:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767815823;
+	bh=+VBjyrmdJBHXv8hFipAjm6s+ntR7S0VRhaAQ6AcLC0g=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=o/6eo/5zs0RzXoNw5Ej9A45/1N5wStTrAkCwQJWGqcoSZmcUnd0Z+L8dzDyqux/GG
+	 ger8d/1SVEIuBfiPbwUxUkYxfVj0akHUvCUlocVWEA8dJaJC5vdVoWraq4QHCwzVZi
+	 c6OnRnVP8IR4n3fzJ8l/g30EYVO2t76gGhU9k8apkzF3INh5cvFLIt4EPOYZYEygP6
+	 c1Hw+qRhRR6Ojb0vcyb12O2+HtxkUvGGQAKCcLcYSYMG88umzmcSGlWd+3DLCdiYp6
+	 qebF5+mJkvX8Xyu98keGoBpNtnJgsfXLvLQGeJaYIMd+0ehCz09TPbUe7YoOkSWy2l
+	 hWDVOXgWQQT1g==
+Received: by mail-oa1-f48.google.com with SMTP id 586e51a60fabf-3eae4e590a4so1254010fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 11:57:03 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXsFBoN9hZan1pY+YAMBSzf4wMsOZr+LyElKSS+RAiIk4iFTrKbPHdgEcoH+F89OFDtdjSjpTNEEyhZnxAwezXw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOYhhXMcVCxc987hbrY1LLtDfIdi725muhccdv9TCr1D+2JAED
+	8uGniZZz5/R3AyOOND+9JHOF/tl50cPNULI/OEYEERSKaKaEp+sn10teqotWp9xmUKRJ2khWZcK
+	VUVEFMZZBSjKe3tgrO1sZOWK5nBcTwbs=
+X-Google-Smtp-Source: AGHT+IGD121X1TOzfCHSPDnImhpxYxlydTwNjoEEqXnErTuAQNSSQWGE9TltWwcuH40GRao6lXf2ebmHYSFBy+rTjm0=
+X-Received: by 2002:a4a:da4c:0:b0:65b:387a:835f with SMTP id
+ 006d021491bc7-65f54ef230dmr1210110eaf.31.1767815822629; Wed, 07 Jan 2026
+ 11:57:02 -0800 (PST)
 MIME-Version: 1.0
-References: <20260107-ufs-exynos-phy_notify_pmstate-v2-1-2b823a25208b@linaro.org>
- <7c3c2687-12c8-452d-86d7-78b3168a8f01@acm.org>
-In-Reply-To: <7c3c2687-12c8-452d-86d7-78b3168a8f01@acm.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 7 Jan 2026 19:47:56 +0000
-X-Gm-Features: AQt7F2p6LRb1LMUUf4aCL3KFPPbvN25P8eOfMmuUIQfOW1bNMu_kGMWDfFVqouI
-Message-ID: <CADrjBPrAr2QKej+aVQQua=DKEWNdkdLtPV_7L95Hj7L+kTv-Hg@mail.gmail.com>
-Subject: Re: [PATCH v2] scsi: ufs: exynos: call phy_notify_state() from
- hibern8 callbacks
-To: Bart Van Assche <bvanassche@acm.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>, 
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	"Martin K. Petersen" <martin.petersen@oracle.com>, Krzysztof Kozlowski <krzk@kernel.org>, linux-scsi@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel-team@android.com, 
-	andre.draszik@linaro.org, willmcvicker@google.com, tudor.ambarus@linaro.org, 
-	jyescas@google.com
+References: <20251223072119.3372582-1-zhanjie9@hisilicon.com> <20251223072119.3372582-2-zhanjie9@hisilicon.com>
+In-Reply-To: <20251223072119.3372582-2-zhanjie9@hisilicon.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Wed, 7 Jan 2026 20:56:50 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0h_1nM3S93prH60VPkicQSdH_gzh7VkXHNCzfLq-aLP-Q@mail.gmail.com>
+X-Gm-Features: AQt7F2qmAPuD1J1j6UNwANWUUqw4-V9DUtSrJcD5sPI_qu_DLnXIVN8OvdSsCC8
+Message-ID: <CAJZ5v0h_1nM3S93prH60VPkicQSdH_gzh7VkXHNCzfLq-aLP-Q@mail.gmail.com>
+Subject: Re: [PATCH v5 1/3] ACPI: CPPC: Factor out and export per-cpu cppc_perf_ctrs_in_pcc_cpu()
+To: Jie Zhan <zhanjie9@hisilicon.com>
+Cc: viresh.kumar@linaro.org, rafael@kernel.org, ionela.voinescu@arm.com, 
+	beata.michalska@arm.com, pierre.gondois@arm.com, zhenglifeng1@huawei.com, 
+	linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com, 
+	jonathan.cameron@huawei.com, prime.zeng@hisilicon.com, yubowen8@huawei.com, 
+	lihuisong@huawei.com, zhangpengjie2@huawei.com, wangzhi12@huawei.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_114810_634025_CB9B72AF 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20260107_115707_089512_0E26DFCE 
+X-CRM114-Status: GOOD (  21.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,50 +87,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bart,
-
-Thanks for your review feedback.
-
-On Wed, 7 Jan 2026 at 16:57, Bart Van Assche <bvanassche@acm.org> wrote:
+On Tue, Dec 23, 2025 at 8:23=E2=80=AFAM Jie Zhan <zhanjie9@hisilicon.com> w=
+rote:
 >
-> On 1/7/26 5:51 AM, Peter Griffin wrote:
-> > +     union phy_notify phystate = {
-> > +             .ufs_state = PHY_UFS_HIBERN8_EXIT
-> > +     };
+> Factor out cppc_perf_ctrs_in_pcc_cpu() for checking whether per-cpu CPC
+> regs are defined in PCC channels, and export it out for further use.
 >
-> Should this be declared 'static const'?
+> Reviewed-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+> Reviewed-by: Pierre Gondois <pierre.gondois@arm.com>
+> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
 
-Yes, good point, I can update that.
+Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
 
+and I'd prefer Viresh to take care of this along with the other two
+patches in the series.
+
+> ---
+>  drivers/acpi/cppc_acpi.c | 48 ++++++++++++++++++++++------------------
+>  include/acpi/cppc_acpi.h |  5 +++++
+>  2 files changed, 32 insertions(+), 21 deletions(-)
 >
-> > +             phy_notify_state(ufs->phy, phystate);
+> diff --git a/drivers/acpi/cppc_acpi.c b/drivers/acpi/cppc_acpi.c
+> index e66e20d1f31b..22d7fd669a6c 100644
+> --- a/drivers/acpi/cppc_acpi.c
+> +++ b/drivers/acpi/cppc_acpi.c
+> @@ -1423,6 +1423,32 @@ int cppc_get_perf_caps(int cpunum, struct cppc_per=
+f_caps *perf_caps)
+>  }
+>  EXPORT_SYMBOL_GPL(cppc_get_perf_caps);
 >
-> Can you please ask the maintainer of include/linux/phy/phy.h why
-> phy_notify is a union since it only has a single member? From that
-> header file:
+> +/**
+> + * cppc_perf_ctrs_in_pcc_cpu - Check if any perf counters of a CPU are i=
+n PCC.
+> + * @cpu: CPU on which to check perf counters.
+> + *
+> + * Return: true if any of the counters are in PCC regions, false otherwi=
+se
+> + */
+> +bool cppc_perf_ctrs_in_pcc_cpu(unsigned int cpu)
+> +{
+> +       struct cpc_desc *cpc_desc =3D per_cpu(cpc_desc_ptr, cpu);
+> +       struct cpc_register_resource *ref_perf_reg;
+> +
+> +       /*
+> +        * If reference perf register is not supported then we should use=
+ the
+> +        * nominal perf value
+> +        */
+> +       ref_perf_reg =3D &cpc_desc->cpc_regs[REFERENCE_PERF];
+> +       if (!CPC_SUPPORTED(ref_perf_reg))
+> +               ref_perf_reg =3D &cpc_desc->cpc_regs[NOMINAL_PERF];
+> +
+> +       return CPC_IN_PCC(&cpc_desc->cpc_regs[DELIVERED_CTR]) ||
+> +               CPC_IN_PCC(&cpc_desc->cpc_regs[REFERENCE_CTR]) ||
+> +               CPC_IN_PCC(&cpc_desc->cpc_regs[CTR_WRAP_TIME]) ||
+> +               CPC_IN_PCC(ref_perf_reg);
+> +}
+> +EXPORT_SYMBOL_GPL(cppc_perf_ctrs_in_pcc_cpu);
+> +
+>  /**
+>   * cppc_perf_ctrs_in_pcc - Check if any perf counters are in a PCC regio=
+n.
+>   *
+> @@ -1437,27 +1463,7 @@ bool cppc_perf_ctrs_in_pcc(void)
+>         int cpu;
 >
-> union phy_notify {
->         enum phy_ufs_state ufs_state;
-> };
-
-Originally in v1 it was proposed as an enum. Some feedback from Mani
-was to have it as an 'int state' and let drivers pass their own link
-state values to support multiple peripherals. Vinod (phy maintainer)
-wanted to lock it down to stop any API abuse (see
-https://lore.kernel.org/all/aICKM-ebp9SMAkZ_@vaman/). So we ended up
-on a union with peripheral specific values (of which currently UFS is
-the only member, but the expectation is more will be added for other
-peripheral types).
+>         for_each_online_cpu(cpu) {
+> -               struct cpc_register_resource *ref_perf_reg;
+> -               struct cpc_desc *cpc_desc;
+> -
+> -               cpc_desc =3D per_cpu(cpc_desc_ptr, cpu);
+> -
+> -               if (CPC_IN_PCC(&cpc_desc->cpc_regs[DELIVERED_CTR]) ||
+> -                   CPC_IN_PCC(&cpc_desc->cpc_regs[REFERENCE_CTR]) ||
+> -                   CPC_IN_PCC(&cpc_desc->cpc_regs[CTR_WRAP_TIME]))
+> -                       return true;
+> -
+> -
+> -               ref_perf_reg =3D &cpc_desc->cpc_regs[REFERENCE_PERF];
+> -
+> -               /*
+> -                * If reference perf register is not supported then we sh=
+ould
+> -                * use the nominal perf value
+> -                */
+> -               if (!CPC_SUPPORTED(ref_perf_reg))
+> -                       ref_perf_reg =3D &cpc_desc->cpc_regs[NOMINAL_PERF=
+];
+> -
+> -               if (CPC_IN_PCC(ref_perf_reg))
+> +               if (cppc_perf_ctrs_in_pcc_cpu(cpu))
+>                         return true;
+>         }
 >
-> > +     union phy_notify phystate = {
-> > +             .ufs_state = PHY_UFS_HIBERN8_ENTER
-> > +     };
+> diff --git a/include/acpi/cppc_acpi.h b/include/acpi/cppc_acpi.h
+> index 13fa81504844..4bcdcaf8bf2c 100644
+> --- a/include/acpi/cppc_acpi.h
+> +++ b/include/acpi/cppc_acpi.h
+> @@ -154,6 +154,7 @@ extern int cppc_get_perf_ctrs(int cpu, struct cppc_pe=
+rf_fb_ctrs *perf_fb_ctrs);
+>  extern int cppc_set_perf(int cpu, struct cppc_perf_ctrls *perf_ctrls);
+>  extern int cppc_set_enable(int cpu, bool enable);
+>  extern int cppc_get_perf_caps(int cpu, struct cppc_perf_caps *caps);
+> +extern bool cppc_perf_ctrs_in_pcc_cpu(unsigned int cpu);
+>  extern bool cppc_perf_ctrs_in_pcc(void);
+>  extern unsigned int cppc_perf_to_khz(struct cppc_perf_caps *caps, unsign=
+ed int perf);
+>  extern unsigned int cppc_khz_to_perf(struct cppc_perf_caps *caps, unsign=
+ed int freq);
+> @@ -204,6 +205,10 @@ static inline int cppc_get_perf_caps(int cpu, struct=
+ cppc_perf_caps *caps)
+>  {
+>         return -EOPNOTSUPP;
+>  }
+> +static inline bool cppc_perf_ctrs_in_pcc_cpu(unsigned int cpu)
+> +{
+> +       return false;
+> +}
+>  static inline bool cppc_perf_ctrs_in_pcc(void)
+>  {
+>         return false;
+> --
+> 2.33.0
 >
-> Same question here: should this be declared 'static const'?
-
-Will update to 'static const'.
-
-Thanks,
-
-Peter
 
