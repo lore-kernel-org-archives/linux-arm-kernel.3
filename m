@@ -4,74 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9FF6CD5858
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 11:13:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65874CD5859
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 11:13:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+UyEK0vF3C3Q/jyos3wyCIrYUOHaPc+9+bz9NivukNs=; b=jJOtezmD549Cr1dS6oXtg6ubTC
-	frcOLe38/ET6kmLAZ895BPDoWUnr/j3sb1jL6ttnWa9k/NF+4pySlMQ/qmqA958pUWYed/5LR5X9u
-	RZ5KxUSybfHgfwZFyUMjLvuRI3mO3WTurD/UWmpSnilfd6TCmDcl7brayVnKEIGqHg3BEZWRngTQu
-	iSaTR3FYjRxeQRixqsD2mbA0OdU7XrFk0eVaabH8Ur6h/2xgYSkc5qc+p+lp2gTex/zDpjnyhTkoj
-	RUcEibj13V11t1HJoaiZbnaIfS1cqM7UyG1ln4pAY8blcZ6Hj4+VPn+HTbA3zsU9idccQky5rIt/Y
-	6XqpSqCA==;
+	bh=WDDIS7/jopYjSzBHg9vIsUWy3M2h103FOZRdVLDX6a0=; b=gmFf3gFKbcWPPfEPMGR2E7Q+SO
+	Z3yHOoRQ/akRU2W8hdYVkxW1dpcB5bL83m1OTQ5C7mcgldwh7/9pCrc2TDOj8Kooud6SXbYZnJ9Hr
+	j1GuDCWYiUQkzACV3WSl+JPAPtE1e22JqNHisLcOyI3w4TLDuXq5U5LMDav7YJcCbfspsx3s8r1ml
+	PGsR7rCzYRkHBuZOI4GbYfgXav/dnzMIPASkv6gCK5G4PSgM3Yqdi+GCOro8VKxvFowzR5f+oGAN9
+	zkJhsFWK8DfM8mGlpRj3CBiXLhwBw6Ivl7bmkdIZOVzzKr1fWAlhyyzZUjAqFlQF4FrF7CSjcmztX
+	6B0sTHXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdRTX-0000000EnJo-2hvS;
-	Wed, 07 Jan 2026 11:13:15 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vdRTa-0000000EnNO-27ST;
+	Wed, 07 Jan 2026 11:13:18 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdRTK-0000000En64-0I44;
+	id 1vdRTK-0000000En67-24FA;
 	Wed, 07 Jan 2026 11:13:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1767784373;
-	bh=DbSOCynyDvnE/e3vHm8GEhOwbb5PB1Nfg88znTvQaiM=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=W6q1nskXfX5PjoYpJLftDVjqj1y+hyscci0ClWTsUeF684v46qRqJ3GZAl/sNq68N
-	 mJ8iTFsXr4rYmM7mNSsDW5J5tyuPfJ3iFck4DSwtMEJtEvSGPXvSYX5gdCU0DW8Igd
-	 zx+8idKnbzGWG17VkWnZJ1zg2MpR7xC2PdWQ8tCV541qmAkh3Q1qlkxz86fPUDiTVG
-	 c3HX9YWXhRLv4ZZOWXhVkyDTmncqs9H4A46PY+NvIPwyMDw1iKhUFa2qKA85sRu10Z
-	 kg9rMUdvPt05iyKhbRmedsgHpdKGeyynfE3IJYjckADYMJ38GTCONIdSIoU72f7SCx
-	 +ZPdOITrrKKNQ==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	s=mail; t=1767784376;
+	bh=8FREetWQYfqgzhDiO9WBTIlqJFhiC73BzMP7I3w1vQc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GRFfT5q7chGTiJfUlB0pDh1C0QfcIXq0VIpGD486V4WCNjYPtUCBK2n4z8cK/+gJg
+	 AXu+aPT0e1AI8x39N3DehXiiPKzEBTHGe8vF+QYTuWmi/eMgxLTijgE4Ij1SV61oXJ
+	 JQILbpQWZSmIevaa7U71+9xVJzb9AtYMaqdbH5oPE0pI9E4pOyRVYyD5JQhpYU6T5T
+	 7CIXHUXlqmBwQZU1FleXw/R/QABRaWCo1gArUqm8NUaGYKOcuLHuZ8UmfdAOLA4/dR
+	 jLX6m91ad4A6+MChEJXsrg5CrFM5wi3qyoqO6xOpg/GCeZJT1eAsBi5jKj6qCzd1+0
+	 O0N3TRJDRYhZw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1BFD617E1529;
-	Wed,  7 Jan 2026 12:12:53 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Guillaume Ranquet <granquet@baylibre.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: kernel@collabora.com, Krzysztof Kozlowski <krzk@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-In-Reply-To: <20251217-mtk-genio-evk-hdmi-support-v2-0-a994976bb39a@collabora.com>
-References: <20251217-mtk-genio-evk-hdmi-support-v2-0-a994976bb39a@collabora.com>
-Subject: Re: (subset) [PATCH v2 00/12] Add HDMI support for Mediatek Genio
- 510/700/1200-EVK and Radxa NIO-12L boards
-Message-Id: <176778437305.39195.15751055338499377518.b4-ty@collabora.com>
-Date: Wed, 07 Jan 2026 12:12:53 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3E06217E152C;
+	Wed,  7 Jan 2026 12:12:55 +0100 (CET)
+Message-ID: <98320300-04dc-4575-9e8b-22b85374b663@collabora.com>
+Date: Wed, 7 Jan 2026 12:12:54 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/8] dt-bindings: PCI: mediatek-gen3: Add MT7981 PCIe
+ compatible
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Ryder Lee <ryder.lee@mediatek.com>,
+ Jianjun Wang <jianjun.wang@mediatek.com>, Bjorn Helgaas
+ <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Lee Jones <lee@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+ linux-pci@vger.kernel.org
+Cc: kernel@collabora.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org,
+ netdev@vger.kernel.org, Daniel Golle <daniel@makrotopia.org>,
+ Bryan Hinton <bryan@bryanhinton.com>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Sjoerd Simons <sjoerd@collabora.com>
+References: <20251223-openwrt-one-network-v5-0-7d1864ea3ad5@collabora.com>
+ <20251223-openwrt-one-network-v5-1-7d1864ea3ad5@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20251223-openwrt-one-network-v5-1-7d1864ea3ad5@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_031302_286110_3A708BEC 
-X-CRM114-Status: UNSURE (   8.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260107_031302_713871_2DF17E09 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,37 +94,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 Dec 2025 11:18:59 +0100, Louis-Alexis Eyraud wrote:
-> This patch series adds and enables the HDMI output support for the
-> following boards:
-> - Mediatek Genio 510-EVK (MT8370)
-> - Mediatek Genio 700-EVK (MT8390)
-> - Mediatek Genio 1200-EVK (MT8395)
-> - Radxa NIO-12L (MT8395)
+Il 23/12/25 13:37, Sjoerd Simons ha scritto:
+> Add compatible string for MediaTek MT7981 PCIe Gen3 controller.
+> The MT7981 PCIe controller is compatible with the MT8192 PCIe
+> controller.
 > 
-> [...]
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
 
-Applied to v6.19-next/dts64, thanks!
+I picked all of the DTS patches in this series, because this is ready to merge.
 
-[04/12] arm64: dts: mediatek: mt8195: Add DPI1, HDMI, HDMI PHY/DDC nodes
-        commit: 506dc2f1a56399c26d1c5fd3c19f82c723314531
-[05/12] arm64: dts: mediatek: mt8188: Add DPI1, HDMI, HDMI PHY/DDC nodes
-        commit: 91f6d6ce9b173d358eb911b42f784b003009a7aa
-[06/12] arm64: dts: mediatek: mt8390-genio-common: Enable HDMI output
-        commit: f7777c4ebd72054d50344bd89a29f6f181ec90b5
-[07/12] arm64: dts: mediatek: mt8390-genio-common: Add HDMI sound output support
-        commit: 12f5294e2fbefda844b5ba24889a40dfc4f914b5
-[08/12] arm64: dts: mediatek: mt8395-radxa-nio-12l: Enable HDMI output
-        commit: bdd288b89d4dd615bfb12f0dab2c17aa783a0256
-[09/12] arm64: dts: mediatek: mt8395-radxa-nio-12l: Add HDMI sound output support
-        commit: bdb4652f1951e4c4bed7f869ec9eb49322cffdb8
-[10/12] arm64: dts: mediatek: mt8395-genio-common: Enable HDMI output
-        commit: 1e9cc416a8d29681682f2d34fff1a34fb353b9f9
-[11/12] arm64: dts: mediatek: mt8395-genio-common: Add HDMI sound output support
-        commit: 0309ce7e7a49b67e40d9b9d054826bc1e6eaef17
+PCI maintainers, please, can you pick this one?
 
-Cheers,
+Thanks,
 Angelo
+
+> ---
+> V1 -> V2: Improve commit subject
+> ---
+>   Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml b/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
+> index 0278845701ce..4db700fc36ba 100644
+> --- a/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
+> +++ b/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
+> @@ -48,6 +48,7 @@ properties:
+>       oneOf:
+>         - items:
+>             - enum:
+> +              - mediatek,mt7981-pcie
+>                 - mediatek,mt7986-pcie
+>                 - mediatek,mt8188-pcie
+>                 - mediatek,mt8195-pcie
+> 
+
 
 
 
