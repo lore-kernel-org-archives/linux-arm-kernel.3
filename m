@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD054CFD625
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 12:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75270CFD625
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 12:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r0NeZC/pHEtlRh37aQj6dDTMwXa5LfzwEtbGEIHtFjY=; b=FQH1FSdHmLf5kN5GCKVCPJ3478
-	LJwYXoGSgGTPhsRaxcDLuROnr61PnSb1qvlQFmHyPa21SvnWVe++/QIwU3poWQv6FPf5P9GBB9jhK
-	wLUjjYofTOR6JtWgyC9CvvEou5KORJJL0X47wT2n/QegrDXV27c1a8I6S6kK4HYYZDCJfnR4hD6ke
-	SNAcKCEX9ZS2H1tuhO0tn0LOzC21ZTLnIBmc1XqMRLWNiqXqcSLdehsqe58BzEqNH6mm0Wudc7mOY
-	pMGK74iG+KQQU/6m95xsQIahlRN7iYFkqjiWuR2CE9LXu3Y/anUdtIxf6zdhb1s4s9kFSjhB/Towl
-	XaPIBVHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tHSrZXqTclvnCa4GZfb7eNQ5vNhESQnZrK3L8ntXphs=; b=MjcL+snDF29mEIvbzQAQqjaNFa
+	XlokICgfj0wDsXdi0BX8/sbnw3VPbjGN/Kr1/1LQi21cl8IosD4VB32jgm4DbQzX7j0+eMTEi+AmS
+	9X82Wj0/jvmD7JyfdlFYC+gN4xPs9m5H5QSbkPqytQ8UfFibdwC5gD6AZNNMLk+HPTpYp/kjyy5tb
+	E/FsdzZ5UOxpzA7X7GNizywV0W0dsyv9xCE06dxe6UtdgwCZBoIjahrrQjPSwjRLfW6cewzHcb0i6
+	SDJPRcnh6sZbIykc4h1pOl5aBQkekdEUyFUvC4FR3P1bRTsE0UlgP1UyTjhSs8NGbPOLareSH2QJa
+	XMgJWUcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdSxm-0000000EvTq-0Own;
-	Wed, 07 Jan 2026 12:48:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdSzZ-0000000EveN-2Ijw;
+	Wed, 07 Jan 2026 12:50:25 +0000
+Received: from sinmsgout02.his.huawei.com ([119.8.177.37])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdSxl-0000000EvTg-0SeE
+	id 1vdSzW-0000000Eve2-3jsZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 12:48:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E3C7560053;
-	Wed,  7 Jan 2026 12:48:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBDB2C4CEF7;
-	Wed,  7 Jan 2026 12:48:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767790111;
-	bh=c/HpMKil4LDUjoIp/ILJnH3Hu0rasSC2VibPeOS9My4=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=Sk1YYJkxtmSEHqfW/Eujcd7Gp5imBFvnC7aVVhamxlpivL0Lp6kQI9MVVqDrrLZdd
-	 EWGM+13g1z1D8V45W2TxLBJtENi6/WUTwC4f2TdAqUPlg8aVvQhO3uClTpk5jj9a4c
-	 xi7vrRPbWBq2Sqluu5rk10y2OdAn51/ZhgeBRis18TEsfNi0aKoCyLu4ANrbf/UwFW
-	 +XRHfs0FFUgMQO71X0Yrss/ewy7iclNxEcCcppjQv4kD/jDigaHfrbVsbEOUBZO+yN
-	 4zb9A2uyPc+0+lvlyxn0EMz1JofE56TDF5B3yG4aM4ljwTyXmACAgiWWgQm3xzhIMS
-	 xjYwyPtKjQTLg==
-From: Andreas Hindborg <a.hindborg@kernel.org>
-To: Boqun Feng <boqun.feng@gmail.com>
-Cc: FUJITA Tomonori <fujita.tomonori@gmail.com>, aliceryhl@google.com,
- lyude@redhat.com, will@kernel.org, peterz@infradead.org,
- richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com,
- catalin.marinas@arm.com, ojeda@kernel.org, gary@garyguo.net,
- bjorn3_gh@protonmail.com, lossin@kernel.org, tmgross@umich.edu,
- dakr@kernel.org, mark.rutland@arm.com, frederic@kernel.org,
- tglx@linutronix.de, anna-maria@linutronix.de, jstultz@google.com,
- sboyd@kernel.org, viro@zeniv.linux.org.uk, brauner@kernel.org,
- jack@suse.cz, linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, rust-for-linux@vger.kernel.org,
- linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 4/5] rust: hrtimer: use READ_ONCE instead of read_volatile
-In-Reply-To: <aV5IwaxcIF4XJvg3@tardis-2.local>
-References: <L2dmGLLYJbusZn9axfRubM0hIOSTuny2cW3uyUhOVGvck7lQxTzDe0Xxf8Hw2cLxICT8kdmNAE74e-LV7YrReg==@protonmail.internalid>
- <20260101.130012.2122315449079707392.fujita.tomonori@gmail.com>
- <87ikdej4s1.fsf@t14s.mail-host-address-is-not-set>
- <20260106.222826.2155269977755242640.fujita.tomonori@gmail.com>
- <87cy3livfk.fsf@t14s.mail-host-address-is-not-set>
- <aV5IwaxcIF4XJvg3@tardis-2.local>
-Date: Wed, 07 Jan 2026 13:48:19 +0100
-Message-ID: <87v7hdh9m4.fsf@t14s.mail-host-address-is-not-set>
+	Wed, 07 Jan 2026 12:50:24 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=tHSrZXqTclvnCa4GZfb7eNQ5vNhESQnZrK3L8ntXphs=;
+	b=EM0bNlUocvKvjhjCoZ2Gad/Wz8EGPsQ1QLv4h5+wFvfSfD6QgqKa4xib9r1fY/1Do3jaEtG+S
+	j89Mrsf1gXnR9jsLR5GXXrLWerCG+wpoGFfVPXIRUJACvqAIX31auLhdcItgSuisQAUddfGLJS4
+	Tfa0GrYANFzTxwEDP6IKRus=
+Received: from frasgout.his.huawei.com (unknown [172.18.146.32])
+	by sinmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dmSW44YNbz1vp50;
+	Wed,  7 Jan 2026 20:48:00 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.18.224.107])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dmSYP3JcKzHnGk2;
+	Wed,  7 Jan 2026 20:50:01 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9777F40571;
+	Wed,  7 Jan 2026 20:50:07 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 7 Jan
+ 2026 12:50:06 +0000
+Date: Wed, 7 Jan 2026 12:50:05 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd
+	<nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
+	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
+	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Timothy Hayes
+	<Timothy.Hayes@arm.com>
+Subject: Re: [PATCH v2 18/36] KVM: arm64: gic-v5: Implement PPI interrupt
+ injection
+Message-ID: <20260107125005.000056dc@huawei.com>
+In-Reply-To: <20251219155222.1383109-19-sascha.bischoff@arm.com>
+References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
+	<20251219155222.1383109-19-sascha.bischoff@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260107_045023_460302_D8BC7146 
+X-CRM114-Status: GOOD (  47.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,63 +89,291 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Boqun Feng <boqun.feng@gmail.com> writes:
+On Fri, 19 Dec 2025 15:52:42 +0000
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
 
-> On Wed, Jan 07, 2026 at 11:11:43AM +0100, Andreas Hindborg wrote:
->> FUJITA Tomonori <fujita.tomonori@gmail.com> writes:
->> 
-> [...]
->> >>>
->> >> 
->> >> This is a potentially racy read. As far as I recall, we determined that
->> >> using read_once is the proper way to handle the situation.
->> >> 
->> >> I do not think it makes a difference that the read is done by C code.
->> >
->> > What does "racy read" mean here?
->> >
->> > The C side doesn't use WRITE_ONCE() or READ_ONCE for node.expires. How
->> > would using READ_ONCE() on the Rust side make a difference?
->> 
->> Data races like this are UB in Rust. As far as I understand, using this
->> READ_ONCE implementation or a relaxed atomic read would make the read
->> well defined. I am not aware if this is only the case if all writes to
->> the location from C also use atomic operations or WRITE_ONCE. @Boqun?
->> 
->
-> I took a look into this, the current C code is probably fine (i.e.
-> without READ_ONCE() or WRITE_ONCE()) because the accesses are
->
-> 1) protected by timer base locking or
-> 2) in a timer callback which provides exclusive accesses to .expires as
->    well. Note that hrtimer_cancel() doesn't need to access .expires, so
->    a timer callback racing with a hrtimer_cancel() is fine.
->
-> (I may miss one or two cases, but most of the cases are fine)
->
-> The problem in Rust code is that HrTimer::expires() is a pub function,
-> so in 2) a HrTimer::expires() can race with hrtimer_forward(), which
-> causes data races.
->
-> We either change hrtimer C code to support such a usage (against data
-> races) or change the usage of this HrTimer::expires() function. Using
-> READ_ONCE() here won't work. (Yes, we could say assuming all plain
-> writes on .expires in C are atomic as some other code does, but hrtimer
-> doesn't rely on this, so I don't think we should either)
+> This change introduces interrupt injection for PPIs for GICv5-based
+> guests.
+> 
+> The lifecycle of PPIs is largely managed by the hardware for a GICv5
+> system. The hypervisor injects pending state into the guest by using
+> the ICH_PPI_PENDRx_EL2 registers. These are used by the hardware to
+> pick a Highest Priority Pending Interrupt (HPPI) for the guest based
+> on the enable state of each individual interrupt. The enable state and
+> priority for each interrupt are provided by the guest itself (through
+> writes to the PPI registers).
+> 
+> When Direct Virtual Interrupt (DVI) is set for a particular PPI, the
+> hypervisor is even able to skip the injection of the pending state
+> altogether - it all happens in hardware.
+> 
+> The result of the above is that no AP lists are required for GICv5,
+> unlike for older GICs. Instead, for PPIs the ICH_PPI_* registers
+> fulfil the same purpose for all 128 PPIs. Hence, as long as the
+> ICH_PPI_* registers are populated prior to guest entry, and merged
+> back into the KVM shadow state on exit, the PPI state is preserved,
+> and interrupts can be injected.
+> 
+> When injecting the state of a PPI the state is merged into the KVM's
+> shadow state using the set_pending_state irq_op. The directly sets the
+> relevant bit in the shadow ICH_PPI_PENDRx_EL2, which is presented to
+> the guest (and GICv5 hardware) on next guest entry. The
+> queue_irq_unlock irq_op is required to kick the vCPU to ensure that it
+> seems the new state. The result is that no AP lists are used for
+> private interrupts on GICv5.
+> 
+> Prior to entering the guest, vgic_v5_flush_ppi_state is called from
+> kvm_vgic_flush_hwstate. The effectively snapshots the shadow PPI
+> pending state (twice - an entry and an exit copy) in order to track
+> any changes. These changes can come from a guest consuming an
+> interrupt or from a guest making an Edge-triggered interrupt pending.
+> 
+> When returning from running a guest, the guest's PPI state is merged
+> back into KVM's shadow state in vgic_v5_merge_ppi_state from
+> kvm_vgic_sync_hwstate. The Enable and Active state is synced back for
+> all PPIs, and the pending state is synced back for Edge PPIs (Level is
+> driven directly by the devices generating said levels). The incoming
+> pending state from the guest is merged with KVM's shadow state to
+> avoid losing any incoming interrupts.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+Minor things inline
 
-I don't think we should change the C code, I think the Rust API is
-simply wrong. The function should have same constraints as
-`forward_now`, ie. call while having exclusive access to the timer
-(during setup for instance), or in callback context.
+> ---
+>  arch/arm64/kvm/vgic/vgic-v5.c | 159 ++++++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/vgic/vgic.c    |  46 +++++++---
+>  arch/arm64/kvm/vgic/vgic.h    |  47 ++++++++--
+>  include/kvm/arm_vgic.h        |   3 +
+>  4 files changed, 235 insertions(+), 20 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+> index 46c70dfc7bb08..cb3dd872d16a6 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
+> @@ -56,6 +56,165 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
+>  	return 0;
+>  }
+>  
+> +static bool vgic_v5_ppi_set_pending_state(struct kvm_vcpu *vcpu,
+> +					  struct vgic_irq *irq)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if;
+> +	const u64 id_bit = BIT_ULL(irq->intid % 64);
 
-We should change it to take `self: Pin<&mut Self>` and add it on
-`HrTimerCallbackContext` as well.
+Obviously the % 64 means other bits of irq->intid above the HWIRQ_ID
+field don't matter, but this still seems a little odd.  I'd extract
+the field first, then use that for the reg and id_bit or just
+do those inline where they are used.
 
-@Tomo, do you know of any users of this function?
+	const u32 hwirq_id = FIELD_GET(GICV5_HWIRQ_ID, irq->intid);
+
+	if (irq_is_pending(irq))
+		cpu_if->vgic_ppi_pendr[hwirq_id / 64] |= hwirq_id % 64;
+..
+
+Which matches style you used for similar cases in earlier patches.
+
+> +	const u32 reg = FIELD_GET(GICV5_HWIRQ_ID, irq->intid) / 64;
+> +
+> +	if (!vcpu || !irq)
+> +		return false;
+> +
+> +	/* Skip injecting the state altogether */
+> +	if (irq->directly_injected)
+> +		return true;
+> +
+> +	cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +
+> +	if (irq_is_pending(irq))
+> +		cpu_if->vgic_ppi_pendr[reg] |= id_bit;
+> +	else
+> +		cpu_if->vgic_ppi_pendr[reg] &= ~id_bit;
+> +
+> +	return true;
+> +}
 
 
-Best regards,
-Andreas Hindborg
+> +void vgic_v5_set_ppi_ops(struct vgic_irq *irq)
+> +{
+> +	if (WARN_ON(!irq))
+> +		return;
+> +
+> +	scoped_guard(raw_spinlock, &irq->irq_lock) {
+Not checked on for whether code ends up outside this lock. If not
+use a guard(raw_spinlock)(&irq->irq_lock);
 
+> +		if (!WARN_ON(irq->ops))
+> +			irq->ops = &vgic_v5_ppi_irq_ops;
+> +	}
+> +}
+> +
+> +/*
+> + * Detect any PPIs state changes, and propagate the state with KVM's
+> + * shadow structures.
+> + */
+> +void vgic_v5_fold_ppi_state(struct kvm_vcpu *vcpu)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +	int i, reg;
+> +
+> +	for (reg = 0; reg < 2; reg++) {
+It's now considered fine to declare loop variables in the loop and always
+nice to limit their scope.
+
+	for (int reg = 0; reg < 2...
+
+> +		unsigned long changed_bits;
+> +		const unsigned long enabler = cpu_if->vgic_ich_ppi_enabler_exit[reg];
+> +		const unsigned long activer = cpu_if->vgic_ppi_activer_exit[reg];
+> +		const unsigned long pendr = cpu_if->vgic_ppi_pendr_exit[reg];
+
+...
+
+> +
+> +void vgic_v5_flush_ppi_state(struct kvm_vcpu *vcpu)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +
+> +	/*
+> +	 * We're about to enter the guest. Copy the shadow state to the pending
+> +	 * reg that will be written to the ICH_PPI_PENDRx_EL2 regs. While the
+> +	 * guest is running we track any incoming changes to the pending state in
+> +	 * vgic_ppi_pendr. The incoming changes are merged with the outgoing
+> +	 * changes on the return path.
+> +	 */
+> +	cpu_if->vgic_ppi_pendr_entry[0] = cpu_if->vgic_ppi_pendr[0];
+> +	cpu_if->vgic_ppi_pendr_entry[1] = cpu_if->vgic_ppi_pendr[1];
+> +
+> +	/*
+> +	 * Make sure that we can correctly detect "edges" in the PPI
+> +	 * state. There's a path where we never actually enter the guest, and
+> +	 * failure to do this risks losing pending state
+> +	 */
+> +	cpu_if->vgic_ppi_pendr_exit[0] = cpu_if->vgic_ppi_pendr[0];
+> +	cpu_if->vgic_ppi_pendr_exit[1] = cpu_if->vgic_ppi_pendr[1];
+> +
+Drop this blank line.
+
+> +}
+
+> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+> index ac8cb0270e1e4..cb5d43b34462b 100644
+> --- a/arch/arm64/kvm/vgic/vgic.c
+> +++ b/arch/arm64/kvm/vgic/vgic.c
+
+> @@ -258,10 +266,12 @@ struct kvm_vcpu *vgic_target_oracle(struct vgic_irq *irq)
+>  	 * If the distributor is disabled, pending interrupts shouldn't be
+>  	 * forwarded.
+>  	 */
+> -	if (irq->enabled && irq_is_pending(irq)) {
+> -		if (unlikely(irq->target_vcpu &&
+> -			     !irq->target_vcpu->kvm->arch.vgic.enabled))
+> -			return NULL;
+> +	if (irq_is_enabled(irq) && irq_is_pending(irq)) {
+> +		if (irq->target_vcpu) {
+
+Just from a readability point of view, maybe clearer to get rid of
+the 'else# path for this one first.
+
+		if (!irq->target_vcpu)
+			return NULL;
+
+		if (!vgic_is_v5(irq->target_vcpu->kvm) &&
+		    unlikely(!irq->target_vcpu->kvm->arch.vgic.enabled))
+			return NULL;
+
+		return irq->target_vcpu;
+
+Though I see this code might go away anyway...
+
+> +			if (!vgic_is_v5(irq->target_vcpu->kvm) &&
+> +			    unlikely(!irq->target_vcpu->kvm->arch.vgic.enabled))
+> +				return NULL;
+> +		}
+>  
+>  		return irq->target_vcpu;
+>  	}
+
+
+
+>  /* Flush our emulation state into the GIC hardware before entering the guest. */
+>  void kvm_vgic_flush_hwstate(struct kvm_vcpu *vcpu)
+>  {
+> @@ -1106,13 +1131,12 @@ void kvm_vgic_flush_hwstate(struct kvm_vcpu *vcpu)
+>  
+>  	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
+>  
+> -	scoped_guard(raw_spinlock, &vcpu->arch.vgic_cpu.ap_list_lock)
+> -		vgic_flush_lr_state(vcpu);
+> +	vgic_flush_state(vcpu);
+>  
+>  	if (can_access_vgic_from_kernel())
+>  		vgic_restore_state(vcpu);
+>  
+> -	if (vgic_supports_direct_irqs(vcpu->kvm))
+> +	if (vgic_supports_direct_irqs(vcpu->kvm) && !vgic_is_v5(vcpu->kvm))
+
+This feels like a somewhat backwards check.
+No function to check it vgic_is_v4? Similar cases elsewhere.
+
+>  		vgic_v4_commit(vcpu);
+>  }
+>  
+> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+> index d5d9264f0a1e9..978d7f8426361 100644
+> --- a/arch/arm64/kvm/vgic/vgic.h
+> +++ b/arch/arm64/kvm/vgic/vgic.h
+> @@ -132,6 +132,28 @@ static inline bool irq_is_pending(struct vgic_irq *irq)
+>  		return irq->pending_latch || irq->line_level;
+>  }
+>  
+> +/* Requires the irq_lock to be held by the caller. */
+
+Can you use a lockdep notation to make that explicit?
+
+> +static inline bool irq_is_enabled(struct vgic_irq *irq)
+> +{
+> +	if (irq->enabled)
+> +		return true;
+> +
+> +	/*
+> +	 * We always consider GICv5 interrupts as enabled as we can
+> +	 * always inject them. The state is handled by the hardware,
+> +	 * and the hardware will only signal the interrupt to the
+> +	 * guest once the guest enables it.
+
+With my fussy reviewer hat on, that's wrapped a bit early.  Go up
+to 80 chars for comments.
+
+> +	 */
+> +	if (irq->target_vcpu) {
+> +		u32 vgic_model = irq->target_vcpu->kvm->arch.vgic.vgic_model;
+> +
+> +		if (vgic_model == KVM_DEV_TYPE_ARM_VGIC_V5)
+> +			return true;
+> +	}
+> +
+> +	return false;
+> +}
+
+> diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+> index 500709bd62c8d..b5180edbd1165 100644
+> --- a/include/kvm/arm_vgic.h
+> +++ b/include/kvm/arm_vgic.h
+> @@ -32,6 +32,9 @@
+>  #define VGIC_MIN_LPI		8192
+>  #define KVM_IRQCHIP_NUM_PINS	(1020 - 32)
+>  
+> +/* GICv5 constants */
+> +#define VGIC_V5_NR_PRIVATE_IRQS	128
+
+You have earlier checks against this value (there was one around PPI DVI setup 
+a few patches back).  So probably better to pull the define earlier and
+use it there as well?
+
+> +
+>  #define is_v5_type(t, i)	(FIELD_GET(GICV5_HWIRQ_TYPE, (i)) == (t))
+>  
+>  #define __irq_is_sgi(t, i)						\
 
 
