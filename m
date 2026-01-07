@@ -4,102 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E959CF6BF7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 08:01:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA6A6CF6BF7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 08:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VhnBpr7196+FOJUvDq4alYkgMDcX0xTE5ToCjAvUb4M=; b=qUrj2ZkqU4XpU4D/80Sm3Fk7xm
-	urMrJpwBy9SCySnP6/w/akeBHG9txtEqdEeU5beY2PIuLpHkSViRv7clZ6Q1DMts37qVx6ZXm130+
-	umBtnP9KLtnPYtfYLEdnFTy5FqypJIw6vtYuYFKdr4z9e9bc6au6Eh8flMSl0iCa514r7T40MdK3m
-	nHDKB0TZI12whrUKm0sGJed3l1zgM5kFuEHf8nBK8wHTKDU62c5igmJFQN1F5kFc3A8yK/FaXVTVm
-	AGE8sSBVLN+SCpXxZjOr1LjnwkdPA09zzTPLYNFePLZNPAyOlOKp9GMy9lBuO4Pa+Y67V+RIpuXxx
-	yNveGwhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qklSymOx8b7DPZqt61Vm1wR4K2JrijRNY9E4Uen5KtY=; b=0+QzydWdld6KMjGrykumZZXege
+	RRGXINxhO051+Yh9TjONVBYMl3wWghylVmw9Z127c2hpEhSG6F1sj93T0f1dAGHBQ2bZbxAG/4cXZ
+	SycwSOxSYE1bN+doBnjpHojQHMj/nG+DOpWl6L7Z94uliY+79aBztimKjqICUAx5hAjbnHdVkkb8/
+	idmrLVBhovOm4EWFSov6r4bDVoG1P/COWNOi/uXW527+/oD7k78OIBsRqlmyj31+8PD57kWNToTa7
+	LkR7m0bWn3vbD1x3DhNNvwofiQTmJtlp3pfOqRPm3RM8DMp4T4yl2UCIt3JOyg6QkaatNx+3UfGpS
+	JRQE1ulw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdOTR-0000000ELSC-2WaV;
-	Wed, 07 Jan 2026 08:00:57 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1vdOUo-0000000ELgw-1IvX;
+	Wed, 07 Jan 2026 08:02:22 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdOTP-0000000ELRR-3wIs
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 08:00:57 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-59b6f52eea8so431709e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 00:00:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767772852; x=1768377652; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=VhnBpr7196+FOJUvDq4alYkgMDcX0xTE5ToCjAvUb4M=;
-        b=mQA7tmp3Gz1r0LROzZZclJW/QroOuaJh+xUF/1ENKsPxobBZr5iY5QEQqC9rblrSIv
-         nt0xD1DtIjTf+dASMBZJKj1Jibj9uuPPn3ZbPLzrn5NPkC8q+CKqs/0QwJ36mslEguYY
-         XFpSwwy0NQrgQ+8QKFFSlcNEhVD8Svnzff+eX3rv8tRdbKCK2Z5jFhGZ25v4LYVR6441
-         qjj3OZvhO0DFVQrijHrdxu2Hx65IPxk77IZgo0ZD1sgMN9XEjraZcg+V0/Mv1yMyJ7Z1
-         JFZT2Nq8mAsZbAL5OU4C7Xs/aHl/9sOt760kCtK++sFQGHSM0MdRcNtze1drbH59jBq9
-         LULg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767772852; x=1768377652;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VhnBpr7196+FOJUvDq4alYkgMDcX0xTE5ToCjAvUb4M=;
-        b=Jt5zP8+X1ilcv32GjBrJThnSKMCb5u+Cww7NnSLDjjEuPIrRekRz8NMoBjtT2w3NRR
-         HKkSNoj1Lm+rg/bEhj0ht5HSbtpfmh5I6VupaYipNOp8UPpjDVTtTdv50QrQMAmmhq16
-         70sG2eLmHWld9kjVB/xNTJUCFB6f0+9dz4V43l/A0kQXmAhn0puErC5UzJHS+0UVT1qn
-         vZ03N1orHf91tzpm7fbaZuB3/FyzpFIIbaZbgfmPedgGuuH9ce+ccbJ3KmSNHnJSVi99
-         XJXSu6ptXwyZdx/oXZjH2qGWDpNFKNy26h25DLXjwzip6pwjkxboX9gMjJ38wXdBptov
-         hw/w==
-X-Forwarded-Encrypted: i=1; AJvYcCW/6ANnX6cEhCgBITew4dsVkTE6gpgWd4tOST+I/6JMuN80xeMxOQ8IOoE8NLaZTJQLaJEW2PDvVg9+Y8EBWfkQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUp56e8LdvaijQfwG+konN4Xu2sevX05mDJdCPuaR2wlruaav+
-	wS5WgfVoq835Uj5Lemi34qJAIj7ecjjLtJ9FV+UzdFPVK/ZroXo39ym9Yj3R7lHEz7s=
-X-Gm-Gg: AY/fxX66NAdgm8vjYzp5PgfR8R7EGURQ00Mf/MxOQ+eQ0ZHv52y5RynhGtwdHqCDh+R
-	c4S2I0Kx7tJBBaLD/1kP+tPU9CT5HSV/odwEV9/Cm/vF2KaNplHa3JY7S/BUlS5pAYBZ1YT5ieh
-	eMf+5gnFi5HZFMA51eVKeqh/SSsbXRM3WQAwPBh3Q2tK7IP13o5ZlXMe10vuzq8006mJP5m0Jpz
-	ijJ1NHMOiWZZD9lQA2uVEl5kObkPBBdKZFA7eQYTeSzVpXhXqCQw2zUAmWWVizd+OhbZIRnZb5y
-	2L2YZlOgRg/mYVlFNJ884HUO4vLmNPYOGGxlXp3QiDLBoQ9HD9Zqp57IkpNfBdU8LlqxSOlGnD+
-	Izy1MqWyNsRAtckeacqPqgqveko3CS/N/WXjETSMt/XprRcEUNC/FoNWJ0takgYJiRkbYzlEtto
-	pmuHuCyREdMUjELKugb6O1Tgp8SQc6l0+g44tK7RJHc2zt1jlWtSjPTVA=
-X-Google-Smtp-Source: AGHT+IGP9An1nYsAtOO925vmyDQ8zlULnKIWzpU5EiZN7i69pmtbFARTzBugqgf6PV60tIxYNMlI5A==
-X-Received: by 2002:a05:6512:131e:b0:59b:2670:aa5 with SMTP id 2adb3069b0e04-59b6f0420c0mr461240e87.37.1767772851534;
-        Wed, 07 Jan 2026 00:00:51 -0800 (PST)
-Received: from nuoska (87-100-249-247.bb.dnainternet.fi. [87.100.249.247])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59b65cea814sm1150596e87.12.2026.01.07.00.00.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Jan 2026 00:00:50 -0800 (PST)
-Date: Wed, 7 Jan 2026 10:00:48 +0200
-From: Mikko Rapeli <mikko.rapeli@linaro.org>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Thomas Zimmermann <tzimmermann@suse.de>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Michal Simek <michal.simek@amd.com>,
-	Bill Mills <bill.mills@linaro.org>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>
-Subject: Re: [PATCH 0/2] drm: xlnx: zynqmp_kms: 16 bpp fixes for Xorg startup
- on AMD KV260
-Message-ID: <aV4SsKZ5eiayh18n@nuoska>
-References: <20251205123751.2257694-1-mikko.rapeli@linaro.org>
- <533168f1-1655-4947-9032-b08463f502d7@ideasonboard.com>
- <aUVFUx55XTjb_2nO@nuoska>
- <aUkIQjKpd3MhNHjk@nuoska>
- <5f570a3b-7bee-43e0-9a36-3d106984fec6@suse.de>
- <3d214bf3-6b52-4942-95d9-0504fa6f5877@ideasonboard.com>
+	id 1vdOUl-0000000ELfQ-44ed;
+	Wed, 07 Jan 2026 08:02:21 +0000
+X-UUID: 2d478fb0eb9f11f08b17dd397dc63300-20260107
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=qklSymOx8b7DPZqt61Vm1wR4K2JrijRNY9E4Uen5KtY=;
+	b=biH+tF4KtyoIuB2/hlVec7TGfpxCbLIrysSXF/x7SDK/Vra3Yta6jGudkkHQXAhpOFlzTm4RS2Xepa4w98vzI2gog2NtBxgsSnwFei/MJqsNYyNYleBWsZmM5UYrEJnVnAqesgOtgirSv5ly2Sp8/fif4UrJCLka2ROWgX+aSz0=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.9,REQID:4958cc64-9d0c-4027-ba35-38c23f356a19,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:5047765,CLOUDID:e83f83a3-8254-477a-9e2b-7810cc6892cc,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 2d478fb0eb9f11f08b17dd397dc63300-20260107
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
+	(envelope-from <ot_zhangchao.zhang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 239857961; Wed, 07 Jan 2026 01:02:14 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Wed, 7 Jan 2026 16:02:11 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Wed, 7 Jan 2026 16:02:10 +0800
+From: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
+To: Marcel Holtmann <marcel@holtmann.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, Luiz Von Dentz <luiz.dentz@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+CC: Krzysztof Kozlowski <krzk@kernel.org>, Sean Wang <sean.wang@mediatek.com>,
+	Deren Wu <deren.Wu@mediatek.com>, Chris Lu <chris.lu@mediatek.com>, Hao Qin
+	<Hao.qin@mediatek.com>, linux-bluetooth <linux-bluetooth@vger.kernel.org>,
+	linux-kernel <linux-kernel@vger.kernel.org>, linux-arm-kernel
+	<linux-arm-kernel@lists.infradead.org>, linux-mediatek
+	<linux-mediatek@lists.infradead.org>, Zhangchao Zhang
+	<ot_zhangchao.zhang@mediatek.com>
+Subject: [PATCH] Bluetooth:btusb:MT7922:Add VID/PID 0e8d/e0d8
+Date: Wed, 7 Jan 2026 16:01:54 +0800
+Message-ID: <20260107080154.2635403-1-ot_zhangchao.zhang@mediatek.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <3d214bf3-6b52-4942-95d9-0504fa6f5877@ideasonboard.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_000056_023122_0B307872 
-X-CRM114-Status: GOOD (  37.48  )
+X-CRM114-CacheID: sfid-20260107_000220_018122_1C2AB8AA 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,89 +89,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+	Notice:this object is not reachable from any branch.
 
-On Tue, Jan 06, 2026 at 10:29:37AM +0200, Tomi Valkeinen wrote:
-> Hi,
-> 
-> On 06/01/2026 09:41, Thomas Zimmermann wrote:
-> > Hi
-> > 
-> > Am 22.12.25 um 09:58 schrieb Mikko Rapeli:
-> >> Hi,
-> >>
-> >> On Fri, Dec 19, 2025 at 02:30:11PM +0200, Mikko Rapeli wrote:
-> >>> On Fri, Dec 19, 2025 at 01:59:14PM +0200, Tomi Valkeinen wrote:
-> >>>> On 05/12/2025 14:37, Mikko Rapeli wrote:
-> >>>>> Currently on default yocto images Xorg fails to start on AMD KV260
-> >>>>> because 24/32 color depth gets detected but does not actually work.
-> >>>>>
-> >>>>> These two patches fix the issue and now 16 bpp gets detected
-> >>>>> and Xorg starts and draws on external HDMI display using
-> >>>>> kernel.org based linux-yocto kernel.
-> >>>>>
-> >>>>> Anatoliy Klymenko (1):
-> >>>>>    drm: xlnx: zynqmp_kms: Init fbdev with 16 bit color
-> >>>>>
-> >>>>> Mikko Rapeli (1):
-> >>>>>    drm: xlnx: zynqmp_kms: set preferred_depth to 16 bpp
-> >>>>>
-> >>>>>   drivers/gpu/drm/xlnx/zynqmp_kms.c | 3 ++-
-> >>>>>   1 file changed, 2 insertions(+), 1 deletion(-)
-> >>>>>
-> >>>> Did you notice the few already sent serieses on the list where the
-> >>>> topic
-> >>>> has been discussed?
-> >>>> [PATCH] drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888
-> >>>> [PATCH 0/3] drm: zynqmp: Make the video plane primary
-> >>> Oh I wasn't aware of these.
-> >>>
-> >>>> Or is there something else on KV260 that messes up the 24 bit color?
-> >>> These look very similar and likely fix the X11 startup. I will give them
-> >>> a try.
-> >> Right, now I've tested:
-> >>
-> >>   * these patches from Anatoliy and me to help X11 use 16bpp mode by
-> >> default
-> >>     and removes the need to manually setup Xorg for 16bpp
-> >>   * "drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888" which enables
-> >> the X11 default
-> >>     24bpp to work, no need to set Xorg config to 16bpp
-> >>   * "drm: zynqmp: Make the video plane primary" which also fixes the
-> >> X11 default
-> >>     24bpp to work, no need to set Xorg config to 16bpp
-> >>
-> >> All of these fix HDMI graphics output on AMD KV260 board with yocto
-> >> genericarm64 machine
-> >> and core-image-sato image which includes Xorg. The graphics rendering
-> >> is still
-> >> very slow but I think that is a different problem.
-> >>
-> >> I guess the last series from Sean Anderson is moving forward so I'll
-> >> reply to that thread separately.
-> > 
-> > Just want to say that the series here improves xlnx and makes it a
-> > 'better' driver. IMHO the changes should be merged independently from
-> > what happens with the other series.
-> I might be missing something, but I don't think I fully agree. Yes, the
-> userspace doesn't seem to be able to cope with the current upstream
-> driver behavior (even if it's not wrong as such, afaics), so in that
-> sense this series is better. But I don't think (almost) anyone really
-> wants to use RGB565 if XRGB8888 is an option? And that's what the other
-> series is trying to achieve, and that series conflicts with this one.
-> 
-> So I'd rather try to get a conclusion on Sean's series (or the other one
-> from Mike). If that effort fails, we could go with this series as a backup.
+Add VID 0e8d & PID e0d8 for Mediatek MT7922 USB Bluetooth chip.
 
-I did testing of all three different patch series'es on AMD KV260 and
-did not find any performance difference between them. The Xorg
-rendering is still very slow to an external HDMI display.
+The information in /sys/kernel/debug/usb/devices about the Bluetooth
+device is listed as the below.
 
-I don't have an opinion on the graphics formats but just want something
-out to a display by default. I think there is a lot more to fix to get
-the performance into usable state.
+T:  Bus=06 Lev=01 Prnt=01 Port=00 Cnt=01 Dev#=  2 Spd=480  MxCh= 0
+D:  Ver= 2.10 Cls=ef(misc ) Sub=02 Prot=01 MxPS=64 #Cfgs=  1
+P:  Vendor=0e8d ProdID=e0d8 Rev= 1.00
+S:  Manufacturer=MediaTek Inc.
+S:  Product=Wireless_Device
+S:  SerialNumber=000000000
+C:* #Ifs= 3 Cfg#= 1 Atr=e0 MxPwr=100mA
+A:  FirstIf#= 0 IfCount= 3 Cls=e0(wlcon) Sub=01 Prot=01
+I:* If#= 0 Alt= 0 #EPs= 3 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
+E:  Ad=81(I) Atr=03(Int.) MxPS=  16 Ivl=125us
+E:  Ad=82(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=02(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+I:* If#= 1 Alt= 0 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
+E:  Ad=83(I) Atr=01(Isoc) MxPS=   0 Ivl=1ms
+E:  Ad=03(O) Atr=01(Isoc) MxPS=   0 Ivl=1ms
+I:  If#= 1 Alt= 1 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
+E:  Ad=83(I) Atr=01(Isoc) MxPS=   9 Ivl=1ms
+E:  Ad=03(O) Atr=01(Isoc) MxPS=   9 Ivl=1ms
+I:  If#= 1 Alt= 2 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
+E:  Ad=83(I) Atr=01(Isoc) MxPS=  17 Ivl=1ms
+E:  Ad=03(O) Atr=01(Isoc) MxPS=  17 Ivl=1ms
+I:  If#= 1 Alt= 3 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
+E:  Ad=83(I) Atr=01(Isoc) MxPS=  25 Ivl=1ms
+E:  Ad=03(O) Atr=01(Isoc) MxPS=  25 Ivl=1ms
+I:  If#= 1 Alt= 4 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
+E:  Ad=83(I) Atr=01(Isoc) MxPS=  33 Ivl=1ms
+E:  Ad=03(O) Atr=01(Isoc) MxPS=  33 Ivl=1ms
+I:  If#= 1 Alt= 5 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
+E:  Ad=83(I) Atr=01(Isoc) MxPS=  49 Ivl=1ms
+E:  Ad=03(O) Atr=01(Isoc) MxPS=  49 Ivl=1ms
+I:  If#= 1 Alt= 6 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
+E:  Ad=83(I) Atr=01(Isoc) MxPS=  63 Ivl=1ms
+E:  Ad=03(O) Atr=01(Isoc) MxPS=  63 Ivl=1ms
+I:  If#= 2 Alt= 0 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
+E:  Ad=8a(I) Atr=03(Int.) MxPS=  64 Ivl=125us
+E:  Ad=0a(O) Atr=03(Int.) MxPS=  64 Ivl=125us
+I:* If#= 2 Alt= 1 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
+E:  Ad=8a(I) Atr=03(Int.) MxPS= 512 Ivl=125us
+E:  Ad=0a(O) Atr=03(Int.) MxPS= 512 Ivl=125us
 
-Cheers,
+Signed-off-by: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
+Reviewed-by: Hao Qin <Hao.qin@mediatek.com>
+---
+ drivers/bluetooth/btusb.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
--Mikko
+diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
+index 646de80c7e7b..6d15d0608380 100644
+--- a/drivers/bluetooth/btusb.c
++++ b/drivers/bluetooth/btusb.c
+@@ -677,6 +677,8 @@ static const struct usb_device_id quirks_table[] = {
+ 	/* MediaTek MT7922A Bluetooth devices */
+ 	{ USB_DEVICE(0x0489, 0xe0d8), .driver_info = BTUSB_MEDIATEK |
+ 						     BTUSB_WIDEBAND_SPEECH },
++	{ USB_DEVICE(0x0e8d, 0xe0d8), .driver_info = BTUSB_MEDIATEK |
++						     BTUSB_WIDEBAND_SPEECH },
+ 	{ USB_DEVICE(0x0489, 0xe0d9), .driver_info = BTUSB_MEDIATEK |
+ 						     BTUSB_WIDEBAND_SPEECH },
+ 	{ USB_DEVICE(0x0489, 0xe0e2), .driver_info = BTUSB_MEDIATEK |
+-- 
+2.45.2
+
 
