@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A0BCD582A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 10:04:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C13CD5829
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 10:05:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vfngUEu+5lUJU0zdatrZqi6JxVQ6DnTxJ3QXwkR4q8g=; b=1orNoEfhj2yKk4jp58Qbl3xZvI
-	eb7EihjEHkmrWbuliZgEMgrgCd7uKhuG/xPSR6DOMkhfzLflTaWpEuxsHysricFAekagSLrAgLy8d
-	wDPiualCl9bSDW4HNKFvos3rctPkl9jV6CmUlg0sg4ACJiR259Eo+h0oapxitcqy+smDQ41yawkL1
-	G5eimmJLf0UNSZ2ChXJV2TcgnJkd9QQOIQUsDYWFGh6GuPYeSjNno5VEgwz5yJ8KSujYhLq91+ITl
-	J9d2HRhMzktZY5AFa5DAsybRf8ca5ICRVeOTFXXDI2ARJ1BXEX0gwVlD3x64tvdXt+SG4PDwtC+05
-	JaJzWesg==;
+	bh=HxNde3KR94/N4DZv16if/hks/1v+RCJgcAMk3nISRpw=; b=fTQOEhnfZ2gs5BuV7AXHifc3iS
+	RMD69+VeMnqVn8Zu/4WoeGNavmESQnHJksqsY3WF+peXTLWS8qoNrIXg3rAXveVaPxEPdqFcp0cwj
+	jdtuWDd5BgqA66uPvkVSPn6Bq/0Axo6GmPumL48oV8QQMtCmr/TJRghP5soU423CoKyZOL6mkgucc
+	8nlfVzgTZ/c1/gTimu4gAImu6byOfYG1CakmeFYRjk6PyW3AAW6F5k25OyfhYeg87eFKufqrDe32d
+	9NTr8fGqq8Yt3+2iRT+5G4bPfaF5if/pwpP+ny644exV2JGwFXRs0qXyhL5kpcNjKr4a+DzcdrdmB
+	FSMXS/mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQPN-0000000Edqp-0U0I;
-	Wed, 07 Jan 2026 10:04:53 +0000
-Received: from mail-m1973188.qiye.163.com ([220.197.31.88])
+	id 1vdQPd-0000000EdvQ-1lPn;
+	Wed, 07 Jan 2026 10:05:09 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQPK-0000000Edpr-0urD;
-	Wed, 07 Jan 2026 10:04:51 +0000
-Received: from [172.16.12.51] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2fcfe245c;
-	Wed, 7 Jan 2026 18:04:43 +0800 (GMT+08:00)
-Message-ID: <daa61083-ddc6-4454-9bea-d4ea2a4a9d91@rock-chips.com>
-Date: Wed, 7 Jan 2026 18:04:42 +0800
+	id 1vdQPZ-0000000Edti-1InP
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Jan 2026 10:05:08 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.150])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dmNtr3skPzJ46DQ;
+	Wed,  7 Jan 2026 18:04:52 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8D57B40565;
+	Wed,  7 Jan 2026 18:04:55 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 7 Jan
+ 2026 10:04:54 +0000
+Date: Wed, 7 Jan 2026 10:04:52 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+CC: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Robert Moore <robert.moore@intel.com>, Thomas Gleixner <tglx@linutronix.de>,
+	Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>, Marc
+ Zyngier <maz@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	<linux-acpi@vger.kernel.org>, <acpica-devel@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-pci@vger.kernel.org>
+Subject: Re: [PATCH v2 3/7] irqdomain: Add parent field to struct
+ irqchip_fwid
+Message-ID: <20260107100452.00004b6f@huawei.com>
+In-Reply-To: <aV4gH/yHaOmOtK0J@lpieralisi>
+References: <20251218-gicv5-host-acpi-v2-0-eec76cd1d40b@kernel.org>
+	<20251218-gicv5-host-acpi-v2-3-eec76cd1d40b@kernel.org>
+	<20260105120108.00002016@huawei.com>
+	<aV4gH/yHaOmOtK0J@lpieralisi>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add rk3576 evb2 board
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Chaoyi Chen <kernel@airkyi.com>, Alexey Charkov <alchark@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Quentin Schulz
- <quentin.schulz@cherry.de>, Kever Yang <kever.yang@rock-chips.com>,
- Jonas Karlman <jonas@kwiboo.se>, John Clark <inindev@gmail.com>,
- FUKAUMI Naoki <naoki@radxa.com>, Jimmy Hon <honyuenkwun@gmail.com>,
- Dragan Simic <dsimic@manjaro.org>,
- Michael Riesch <michael.riesch@collabora.com>,
- Peter Robinson <pbrobinson@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260107070322.323-1-kernel@airkyi.com>
- <20260107070322.323-3-kernel@airkyi.com>
- <CABjd4Yw1Dqsa9EsMRFT8LOvyU8QN1C8VP+j0tY6h1uJhhXRSSw@mail.gmail.com>
- <2437891.BjyWNHgNrj@diego>
- <881548f1-7dd9-40bb-9267-e5a03fb97820@rock-chips.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <881548f1-7dd9-40bb-9267-e5a03fb97820@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9b97ea758003abkunmda7f342cdcde1e
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR4YH1ZCS0seSUodHk4dSBlWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=Csu+8ZE0U7sudqThazPqJ8qMKRTtF2M9R7Hmzm4Mr6Lw+8GhdhviTKYJo4Fs0F6WMWa/wMp4HBDl5Y9fOd75QotUsQ5FM2aCbH0edvtdUPH9i3y91mzTdKKUvVcZ3/8KWOhpx7e4cmi5ZJ7GbEsJEMybXJ8M/HS2hGcXlf5Bwv0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=vfngUEu+5lUJU0zdatrZqi6JxVQ6DnTxJ3QXwkR4q8g=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_020450_497179_6D68E276 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20260107_020505_646118_FFBD3EB1 
+X-CRM114-Status: GOOD (  34.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,142 +79,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 7 Jan 2026 09:58:07 +0100
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 
-On 1/7/2026 5:57 PM, Chaoyi Chen wrote:
-> Hi Heiko,
+> On Mon, Jan 05, 2026 at 12:01:08PM +0000, Jonathan Cameron wrote:
+> > On Thu, 18 Dec 2025 11:14:29 +0100
+> > Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> >   
+> > > The GICv5 driver IRQ domain hierarchy requires adding a parent field to
+> > > struct irqchip_fwid so that core code can reference a fwnode_handle parent
+> > > for a given fwnode.
+> > > 
+> > > Add a parent field to struct irqchip_fwid and update the related kernel API
+> > > functions to initialize and handle it.
+> > > 
+> > > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> > > Cc: Thomas Gleixner <tglx@linutronix.de>
+> > > Cc: Marc Zyngier <maz@kernel.org>  
+> > Hi Lorenzo,
+> > 
+> > Happy new year.  
 > 
-> On 1/7/2026 4:21 PM, Heiko Stübner wrote:
->> Am Mittwoch, 7. Januar 2026, 08:56:04 Mitteleuropäische Normalzeit schrieb Alexey Charkov:
->>> Hi Chaoyi,
->>>
->>> On Wed, Jan 7, 2026 at 11:04 AM Chaoyi Chen <kernel@airkyi.com> wrote:
->>>>
->>>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>>>
->>>> General features for rk3576 evb2 board:
->>>>     - Rockchip RK3576
->>>>     - LPDDR4/4X
->>>>     - eMMC5.1
->>>>     - RK806-2x2pcs + DiscretePower
->>>>     - 1x HDMI2.1 TX / HDMI2.0 RX
->>>>     - 1x full size DP1.4 TX (Only 2 Lanes)
->>>>     - 2x 10/100/1000M Ethernet
->>>>     - 5x SATA3.0 7Pin Slot
->>>>     - 2x USB3.2 Gen1 Host
->>>>     - 3x USB2.0 Host
->>>>     - WIFI/BT
->>>>     - ...
->>>>
->>>> Tested with eMMC/SDMMC/HDMI/USB/Ethernet/WIFI/BT module.
->>>>
->>>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>
->> [...]
->>
->>>> +       vbus5v0_typec: regulator-vbus5v0-typec {
->>>> +               compatible = "regulator-fixed";
->>>> +               regulator-name = "vbus5v0_typec";
->>>
->>> This might better be renamed, given that last time you mentioned this
->>> board doesn't have a Type-C connector. Perhaps regulator-vbus5v0-otg?
->>
->> Alternatively a comment above it.
->>
->> I.e. regulator-naming should always follow the naming used in the
->> schematics, so that it gets easier to reference between schematics
->> and devicetree.
->>
+> Happy New Year !
 > 
-> Thanks for the explanation. I will fix this in v3.
+> > > ---
+> > >  include/linux/irqdomain.h | 30 ++++++++++++++++++++++++++----
+> > >  kernel/irq/irqdomain.c    | 14 +++++++++++++-
+> > >  2 files changed, 39 insertions(+), 5 deletions(-)
+> > > 
+> > > diff --git a/include/linux/irqdomain.h b/include/linux/irqdomain.h
+> > > index 62f81bbeb490..b9df84b447a1 100644
+> > > --- a/include/linux/irqdomain.h
+> > > +++ b/include/linux/irqdomain.h
+> > > @@ -257,7 +257,8 @@ static inline void irq_domain_set_pm_device(struct irq_domain *d, struct device
+> > >  
+> > >  #ifdef CONFIG_IRQ_DOMAIN
+> > >  struct fwnode_handle *__irq_domain_alloc_fwnode(unsigned int type, int id,
+> > > -						const char *name, phys_addr_t *pa);
+> > > +						const char *name, phys_addr_t *pa,
+> > > +						struct fwnode_handle *parent);
+> > >  
+> > >  enum {
+> > >  	IRQCHIP_FWNODE_REAL,
+> > > @@ -267,18 +268,39 @@ enum {
+> > >  
+> > >  static inline struct fwnode_handle *irq_domain_alloc_named_fwnode(const char *name)
+> > >  {
+> > > -	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED, 0, name, NULL);
+> > > +	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED, 0, name, NULL, NULL);
+> > > +}
+> > > +
+> > > +static inline
+> > > +struct fwnode_handle *irq_domain_alloc_named_fwnode_parent(const char *name,
+> > > +							   struct fwnode_handle *parent)  
+> > 
+> > The name of this makes me think it's allocating the named fwnode parent, rather that
+> > the named fwnode + setting it's parent.
+> > 
+> > There aren't all that many calls to irq_domain_named_fwnode(), maybe to avoid challenge
+> > of a new name, just add the parameter to all of them? (25ish)  Mind you the current
+> > pattern for similar cases is a helper, so maybe not.  
 > 
->>
->>>> +               regulator-min-microvolt = <5000000>;
->>>> +               regulator-max-microvolt = <5000000>;
->>>> +               enable-active-high;
->>>> +               gpio = <&gpio0 RK_PD1 GPIO_ACTIVE_HIGH>;
->>>> +               vin-supply = <&vcc5v0_device>;
->>>> +               pinctrl-names = "default";
->>>> +               pinctrl-0 = <&usb_otg0_pwren>;
->>>> +       };
->>>> +
->>>> +       vcc12v_dcin: regulator-vcc12v-dcin {
->>>> +               compatible = "regulator-fixed";
->>>> +               regulator-name = "vcc12v_dcin";
->>>> +               regulator-always-on;
->>>> +               regulator-boot-on;
->>>> +               regulator-min-microvolt = <12000000>;
->>>> +               regulator-max-microvolt = <12000000>;
->>>> +       };
->>>> +
->>>> +       vcc1v2_ufs_vccq_s0: regulator-vcc1v2-ufs-vccq-s0 {
->>>> +               compatible = "regulator-fixed";
->>>> +               regulator-name = "vcc1v2_ufs_vccq_s0";
->>>> +               regulator-boot-on;
->>>> +               regulator-always-on;
->>>> +               regulator-min-microvolt = <1200000>;
->>>> +               regulator-max-microvolt = <1200000>;
->>>> +               vin-supply = <&vcc_sys>;
->>>> +       };
->>>> +
->>>> +       vcc1v8_ufs_vccq2_s0: regulator-vcc1v8-ufs-vccq2-s0 {
->>>> +               compatible = "regulator-fixed";
->>>> +               regulator-name = "vcc1v8_ufs_vccq2_s0";
->>>> +               regulator-boot-on;
->>>> +               regulator-always-on;
->>>> +               regulator-min-microvolt = <1800000>;
->>>> +               regulator-max-microvolt = <1800000>;
->>>> +               vin-supply = <&vcc_1v8_s3>;
->>>> +       };
->>>> +
->>>> +       vcc3v3_hubreset: vcc3v3-hubreset {
->>>> +               compatible = "regulator-fixed";
->>>> +               regulator-name = "vcc3v3_hubreset";
->>>> +               regulator-boot-on;
->>>> +               regulator-always-on;
->>>
->>> If this regulator supplies a soldered-on discrete hub and is required
->>> to power it up, won't it be better to describe the hub in the device
->>> tree (see binding at [1]), make the regulator its supply, and perhaps
->>> drop the "regulator-boot-on/regulator-always-on" annotation here,
->>> letting the regulator core deal with its enabling instead?
->>>
->>> [1] https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/usb/usb-device.yaml
->>
->> Yep, it would be nicer to it this way.
->> A live example can be found in the Rock 5 ITX [2]
->>
->> [2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts#n1266
-> 
-> Thank you for the great example. BTW the hub used here is CH344. It
-> looks like we need to add a new binding :)
->
+> Similar cases ? Have you got anything specific I can look into ?
 
-Typo... It is WCH CH334.
+I meant all the different irq_domain_alloc_xxxxx variants that call
+__irq_domain_alloc_fwnode() with a subset of parameters set to NULL.
 
->>
->>
->> Heiko
->>
->>
->>> [snip]
->>>
->>> Other than these, LGTM - thanks for addressing my comments from v1!
->>> Feel free to include my:
->>>
->>> Reviewed-by: Alexey Charkov <alchark@gmail.com>
->>>
->>> Best regards,
->>> Alexey
->>>
->>
->>
->>
->>
->>
->>
+That seems to say there is a precedence for making the presence of the parameter
+part of the name rather than requiring callers to set the ones they don't want to
+NULL.  So it argues for a helper like this one just for consistency.
+
+> 
+> > Or go with something similar to named and have
+> > 
+> > irq_domain_alloc_named_parented_fwnode()?  
+> 
+> Or I can add a set_parent() helper (though that's a bit of churn IMO) ?
+> 
+> If Thomas has a preference I will follow that, all of the above is doable
+> for me.
+
+Agreed. Let's see what Thomas prefers (i.e. make the decision his problem ;)
+
+Jonathan
+
+> 
+> > I'm not that bothered though if you think the current naming is the best we can do.  
+> 
+> I think you have a point - as per my comment above.
+> 
+> Thanks,
+> Lorenzo
+> 
+> > Jonathan
+> >   
+> > > +{
+> > > +	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED, 0, name, NULL, parent);
+> > >  }  
+> > 
+> >   
 > 
 
--- 
-Best, 
-Chaoyi
 
