@@ -4,91 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82446CD5822
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 10:23:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AFBBCD583F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 10:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5sCdqnj/RCGcOZ4N1FNFLLmFTy7auxTIhL2QEEcNqFg=; b=kgVHxnQDAcAKmw9U+6dsILaH1s
-	jvtAHpqrXMsIyKzdll6yH7L5We9fS4IYkoHjWF4cXi7EnZ++5npJg/qTTd+NcUwKYf6O0kxsYm4Fq
-	ECeyUejJSNstSmGkuk9pR17v/r+6QjVyDdFyNrc0XCkblRiGUAQJovo3ESdSMqCrotFSgrwxSoKdZ
-	dnhaWt80vn3pwlCxG+x+hzHewJeUzgqTRBaQcZjWXgZX8Q2nM34Zku7IM3rY/TvTOXrOjVPPqaMf0
-	Q5PbcqZjYGj5NsyFSV2Un06SXegaJXvHGiLFsq1EyA3mvGGuUxBGxfQUYzXiolDe30rf/wynnjPIe
-	tzUvNrlw==;
+	bh=PMgf5hJ4IKNNMz4AXzwjIZRiRJuMg1ZSImwzAOyBx7g=; b=IVujCO5vmmyf1/FRW+USue58lQ
+	rWBfn5ynoTTsyjBIb+EqBpUr2YDCB9TT+T85+VUTqo+yF6g3TJpDx9pakr6n2qPzLrHIa/z6mEjhj
+	Zo/IvwA6Oja2kGTySw8t9o1M81IXcfN0IiHMBuUYqav2P2rSHkLNs6JUfuO/k6BGDsD7a54NMgGNl
+	NBw72IzevURVDKonMCTcRSNF0wllNplSapIye5VKq4dZt+ZJBL00Pwk+fI1hszEmL4JeSCmwWmrZo
+	f6ZupvTTZkqZdH3xZBqpTSTFHeSnwgmtdX1kxuAaSMCi2m7Qdi68T/TSKd6W81zxrikcmdJo1OO6z
+	DN3tuBpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQgr-0000000EhKA-0rcM;
-	Wed, 07 Jan 2026 10:22:57 +0000
-Received: from smtp-out3.simply.com ([94.231.106.210])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdQgn-0000000EhIq-2zM6;
-	Wed, 07 Jan 2026 10:22:55 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by smtp.simply.com (Simply.com) with ESMTP id 4dmPHX1tZwz1DDr1;
-	Wed,  7 Jan 2026 11:22:48 +0100 (CET)
-Received: from [10.10.15.21] (h-98-128-223-123.NA.cust.bahnhof.se [98.128.223.123])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by smtp.simply.com (Simply.com) with ESMTPSA id 4dmPHS5YrMz1DDdR;
-	Wed,  7 Jan 2026 11:22:44 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gaisler.com;
-	s=simplycom2; t=1767781367;
-	bh=5sCdqnj/RCGcOZ4N1FNFLLmFTy7auxTIhL2QEEcNqFg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=GapqslJRt7PAo/OPdy40/uiS8yl/fdKamd8Ti7v8KhTSWM+dyJpM0kA09WqDkvmTF
-	 JDac2AP0hk4IXLuaOc19G85CIClqVXmQFScccHC7rgNcYdl16DovAFndj0u/scyZuZ
-	 rFnlzmQeoXkgQ81qRhHQTXrNih6T2iluIH43PJMds/ZZIo6rm/VM9YDeYihibbVdmg
-	 uDvdrF41naRrcWhAD/3/BJoa7qr9vCUPqLxuLP48CDDioxfF0rw5/F8n0Js/OfpQsy
-	 f1VR1SCUMB9l0JY24lstr5qvSKP50VGC6KkhF0cw5Ng7hX+p9V4PT5L0p7hEJpFlek
-	 UmVwAHzAgacCA==
-Message-ID: <836139d1-1425-4381-bb84-6c2654a4d239@gaisler.com>
-Date: Wed, 7 Jan 2026 11:22:44 +0100
+	id 1vdQng-0000000Ei23-0DGM;
+	Wed, 07 Jan 2026 10:30:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdQnb-0000000Ei1U-37mz
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Jan 2026 10:29:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 41A4D497;
+	Wed,  7 Jan 2026 02:29:47 -0800 (PST)
+Received: from [10.57.49.120] (unknown [10.57.49.120])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6DAC43F6A8;
+	Wed,  7 Jan 2026 02:29:51 -0800 (PST)
+Message-ID: <f555454a-3eb9-4537-8f69-66ec36931966@arm.com>
+Date: Wed, 7 Jan 2026 11:29:48 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/19] printk cleanup - part 3
-To: Marcos Paulo de Souza <mpdesouza@suse.com>,
- Richard Weinberger <richard@nod.at>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jason Wessel <jason.wessel@windriver.com>,
- Daniel Thompson <danielt@kernel.org>,
- Douglas Anderson <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>,
- Steven Rostedt <rostedt@goodmis.org>, John Ogness
- <john.ogness@linutronix.de>, Sergey Senozhatsky <senozhatsky@chromium.org>,
- Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Kees Cook <kees@kernel.org>,
- Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli"
- <gpiccoli@igalia.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
- Laurentiu Tudor <laurentiu.tudor@nxp.com>
-Cc: linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
- kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
- netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
-References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
-Content-Language: en-US
-From: Andreas Larsson <andreas@gaisler.com>
-In-Reply-To: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+Subject: Re: [PATCH] arm64: fix cleared E0POE bit after cpu_suspend()/resume()
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, rafael@kernel.org, pavel@kernel.org,
+ catalin.marinas@arm.com, will@kernel.org, anshuman.khandual@arm.com,
+ ryan.roberts@arm.com, yang@os.amperecomputing.com, joey.gouly@arm.com
+References: <20260105200707.2071169-1-yeoreum.yun@arm.com>
+ <af65f271-5af9-432d-bec9-e44638db9b9f@arm.com>
+ <aV4uDW2p+WBCitwl@e129823.arm.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <aV4uDW2p+WBCitwl@e129823.arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_022254_112878_CE421115 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20260107_022957_491401_1CA3C300 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,22 +68,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-12-27 13:16, Marcos Paulo de Souza wrote:
-> The parts 1 and 2 can be found here [1] and here[2].
-> 
-> The changes proposed in this part 3 are mostly to clarify the usage of
-> the interfaces for NBCON, and use the printk helpers more broadly.
-> Besides it, it also introduces a new way to register consoles
-> and drop thes the CON_ENABLED flag. It seems too much, but in reality
-> the changes are not complex, and as the title says, it's basically a
-> cleanup without changing the functional changes.
+On 07/01/2026 10:57, Yeoreum Yun wrote:
+>>> @@ -97,8 +97,11 @@ SYM_FUNC_START(cpu_do_suspend)
+>>>  	mrs	x9, mdscr_el1
+>>>  	mrs	x10, oslsr_el1
+>>>  	mrs	x11, sctlr_el1
+>>> -	get_this_cpu_offset x12
+>>> -	mrs	x13, sp_el0
+>>> +alternative_if ARM64_HAS_TCR2
+>>> +	mrs	x12, REG_TCR2_EL1
+>>> +alternative_else_nop_endif
+>>> +	get_this_cpu_offset x13
+>>> +	mrs	x14, sp_el0
+>>>  	stp	x2, x3, [x0]
+>>>  	stp	x4, x5, [x0, #16]
+>>>  	stp	x6, x7, [x0, #32]
+>>> @@ -109,7 +112,7 @@ SYM_FUNC_START(cpu_do_suspend)
+>>>  	 * Save x18 as it may be used as a platform register, e.g. by shadow
+>>>  	 * call stack.
+>>>  	 */
+>>> -	str	x18, [x0, #96]
+>>> +	stp	x14, x18, [x0, #96]
+>> If TCR2_EL1 isn't supported, we store and reload an unused arbitrary
+>> value. I think it'd be better to make it all conditional and add it at
+>> the end, something like:
+>>
+>>     alternative_if ARM64_HAS_TCR2
+>>         mrs    x2, REG_TCR2_EL1
+>>         str    x2, [x0, #104]
+>>     alternative_else_nop_endif
+>>
+>> Same idea on the resume path. This also avoids the noise of renaming
+>> existing registers.
+> IMHO, I think it would be better to sustain the change since
+> it seems more simpler to maintain  and x12 is temporary regsiter
+> so leaking whatever was in x12 does not really feel like a concern...
 
-Hi,
+Leaking is not a concern, but I don't think it's really easier to
+maintain. We can have all the conditional registers grouped together,
+like DISR_EL1 and soon SCTLR2_EL1. This avoids renaming a bunch of
+registers every time we save/restore a new register here.
 
-Patches 7-17 all say "replacing the CON_ENABLE flag" in their
-descriptions, which should rather be "replacing the CON_ENABLED flag".
-
-Cheers,
-Andreas
-
+- Kevin
 
