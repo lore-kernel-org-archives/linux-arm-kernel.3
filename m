@@ -4,66 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 880DACF6BF6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 07:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E44FCF6BF7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 07:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=irE4wdTNuGIHnnFsC0xlCTe5CnrzyeBcSYWPnoMRuV8=; b=u8dTxiNDc4QdO7Eo3jKQITak8n
-	7pQBBgKpmNLLbNhljfgVpS7FQRz3sS79mQhpDx/sgX+1vEBUrX3uzpooKy6mCNGhAexDK2jDZTl7X
-	oKSBxu5zInNiZiLXjGva2VDXXaC3kCe/vatApFLyAQhs5oSKJwKcrSo2WYvoxYxSAK1uzwvgGiv1y
-	BqTqyLFNKvI5NvQpC5pzjwbZmMuHXjxkpFnJiJcAo7un1t7PzuIEOEBF7RSEFgKvMoAUyXLvEqv3F
-	eTF9ZZodq83jnTUcQpkVHvgZ0hCQUufqKE9Yeausok1lIHuS7ytQAveI2R3eIJhQELJL/1Swhm6t2
-	gnQ+Mw7w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3DTASrcB9a3DtGhsTNpuRZ4W40+TvLvMMvh2+yPKPS4=; b=q7PKfFQADLcHJXwhgArHW1Ndv+
+	KaUaZCD5Ix012bY/r9sDUzr6IvR0BXpTy+kLlPTKjZI7svjMa9V7BcFeUBIxeXiIpEYj6XFPKNW9h
+	AH8yh5OESAonHf2Y50dSGWprM5d+6g+mbY/MOtyq50jwL16Wgp0/29jmWudGYWMNf3JTOKl5xr9RM
+	vw8VZWlSaF07qLg9kT0tAN71NAwngqhEy8XWedYmpFJ/unHi+heClUewVhiQAHyNe9+ayqu5auiBF
+	nRFaDxj4Ohpa1+hC1UJ7iqRu45M1GXmsUCTR4t/blBFzH1dqz+M104ZJarClpkh8vHtKdFGqCV8Ih
+	id+fLC6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdON4-0000000EKUI-2Ke2;
-	Wed, 07 Jan 2026 07:54:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vdOOx-0000000EKpR-3sv9;
+	Wed, 07 Jan 2026 07:56:19 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdON1-0000000EKTU-3Nxu
+	id 1vdOOv-0000000EKoa-0Uyx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 07:54:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B8392405D3;
-	Wed,  7 Jan 2026 07:54:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 366ADC4CEF7;
-	Wed,  7 Jan 2026 07:54:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767772458;
-	bh=IJfaPCj/Ro7N4LJzkmqwZpte1m5fLCvqEg3Yi9qSa/Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JegFElB4jfM6lIyqKfOUEJmukL5QcBuXQQCS1oWKX/mXqRH1La+ORK7qxKkRK97t1
-	 UpXoiQVQFSfboQKHgYUuMFwg/5O3Rd81m1mG1lk7kajHvCCddaxg9zzvFJFzoCL5M9
-	 DB6ldMtJc38E38hDgUAxRo6vz9wGXGEZncuXsCbDdWtoTWUNsvsd4MSZexskkOMrAG
-	 lmjCcWVP9uN1Gd7GSKAeLe0jYdbbdrZESH7yo63D9W5zhX9y49sK2mWwfo/1mCDcpC
-	 q+MP/ZYycMVhRnWG5yZ04253/4EDluvRHL7pltvITIR6/dH3lj7namEjrQJew9TpUd
-	 W2sBYSB/ZcG2Q==
-Date: Wed, 7 Jan 2026 09:54:14 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: Barry Song <21cnbao@gmail.com>
-Subject: Re: [PATCH v2 5/8] dma-mapping: Support batch mode for
- dma_direct_sync_sg_for_*
-Message-ID: <20260107075414.GA11783@unreal>
-References: <20251226225254.46197-1-21cnbao@gmail.com>
- <20251226225254.46197-6-21cnbao@gmail.com>
- <20251227200933.GO11869@unreal>
- <CAGsJ_4yA83-K7PXiEtyidzF_j6qqKkt92z485KBS9+zGe_rjnw@mail.gmail.com>
- <20251228145041.GS11869@unreal>
- <CAGsJ_4yex5MKQkGtFr2zUcg4h0PtsFs2QVcE_NSfiyOn4qBzhQ@mail.gmail.com>
- <de876e61-42c5-414d-b439-2f9196c6c128@arm.com>
- <CAGsJ_4xYqseJMFXOU39JJW4Lk2ZHXAnRJLhZdVuFLxAi=Dy5sw@mail.gmail.com>
+	Wed, 07 Jan 2026 07:56:18 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4f1ab2ea5c1so23733201cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 23:56:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767772575; x=1768377375; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3DTASrcB9a3DtGhsTNpuRZ4W40+TvLvMMvh2+yPKPS4=;
+        b=iExBQrwABnPVWuCLxxeODyFdSQjnQgQh6w2t0h7KviVrScgcDOLk6AQjwtHUoe9MCT
+         Pm4KxsOjF4QUVglccvXZYKE4X9GtksA4zTQQp+kdiyygY/nCrnKFwKhqlJmn38BZDUVh
+         uetWta7SNv7dvD1Ys2jIV2BmkWYwp2/q3yLe/FCq5QJBPYgx09k+2K5j5afKjbHb1BmQ
+         imNlKfW8rRncXTzlVaQtRf3hQwmAYZl4pmV55yy60mW5HRoTT+0oEr+5kR+GV1PPIt5s
+         VBFtGaRChKhULF1mb5qMZcPoTFdYnHO/JrCeqRsMYNhFcYGql7KDlvu9S3UxSeJ5vKxt
+         SRSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767772575; x=1768377375;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=3DTASrcB9a3DtGhsTNpuRZ4W40+TvLvMMvh2+yPKPS4=;
+        b=wmkOVSglgL6E5sjweFYrxZbHqPNA2wXCQViIsoXzCD45u7aMX/Cbhm2eHlfHeVNUiw
+         gHgvbtoLhae1jaxnhy8xq3lUOnf/kqtRvT9NohzmJXPykY+CiFIQbmryfzVWsImXu8yP
+         tyR3J6u2dn4qVOhOZsT7lakve0bJK0qaBx9Br4K9kz4v7T3Yb7zV/mjrLxCq1b8Hj1/A
+         3ZMv0WhuW3ydTEErxGdM7FKALL0by78BRn/VcWXLbamo771nIGDFT3fTo7Rr6sDAlZL3
+         1jRyMLs3CmR05md6LNdagLNdi2wbpd7o1Xbz9OkHF2riC5W6BP9zfNVSw1xJy4rOxKIk
+         w9rA==
+X-Forwarded-Encrypted: i=1; AJvYcCUK5XNCUAEpOEalh52kHKtasmgmbc+DOjemekTvgM2dhZ5nlFBRedcivywQ0xNvxIXYbssRwW/9VAIwa+SgS4v8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXS9/oqTEEgEUwMHfXvvZD4SS/mPtf570eyUwLOFiu6TStXUzl
+	620o/HAn+VLkd33z2EXoO62FBsDmweXwZ8GEcbgZGUFaUg5HAh6S9nSm95vDXrzR6npTuvDDS5e
+	m71xQy/gYA2rlsdrRmu6MU/66TdQ5bNo=
+X-Gm-Gg: AY/fxX7IXC25BZkd+8+e0zXopbGFZEOksspJYOtRVAQ/Q7GmK0YJ0nVDU1rAfdKyNkf
+	7Mr5tR9qVVOqShL+gGsiZfBz/Z+phoVIbAyO0MhF9BJ74PylUfA95Mprs4Z09/TJBYpnC0Cj5WR
+	8ED2e9ELswNp3ZrdNlXcSr8q11wMXKxT60c/a/HDQZCGkNBi5GMpuId8i2u6XY9o+Is1ZRx0yzy
+	lh6KS7tfDCDJyqohmoq20b6SdDawOLSgphQ63oOqWC5VCH4RmCWR7vxoR/WyZIuoVn7o5K+F/s7
+	Qjbqt8AwUO2lrH+1LUKbUG8OXyVX
+X-Google-Smtp-Source: AGHT+IHFjV7kLM1AiPWQgyoWq7uzV4cDoyZWDBntrvU7I8gWA/YGDgMa+xWIQA+sod3Jk8qpYeR1jqdWdafYaaPwS9s=
+X-Received: by 2002:a05:622a:2505:b0:4ec:f452:4ec0 with SMTP id
+ d75a77b69052e-4ffb4a5857amr21112681cf.69.1767772575278; Tue, 06 Jan 2026
+ 23:56:15 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGsJ_4xYqseJMFXOU39JJW4Lk2ZHXAnRJLhZdVuFLxAi=Dy5sw@mail.gmail.com>
+References: <20260107070322.323-1-kernel@airkyi.com> <20260107070322.323-3-kernel@airkyi.com>
+In-Reply-To: <20260107070322.323-3-kernel@airkyi.com>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Wed, 7 Jan 2026 11:56:04 +0400
+X-Gm-Features: AQt7F2pb6U4UIptyLijHrQWFaH6FXNXWfSGKkmab3Sdn6tukcH2624J-11Az_XM
+Message-ID: <CABjd4Yw1Dqsa9EsMRFT8LOvyU8QN1C8VP+j0tY6h1uJhhXRSSw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add rk3576 evb2 board
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Quentin Schulz <quentin.schulz@cherry.de>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	Kever Yang <kever.yang@rock-chips.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	John Clark <inindev@gmail.com>, FUKAUMI Naoki <naoki@radxa.com>, Jimmy Hon <honyuenkwun@gmail.com>, 
+	Dragan Simic <dsimic@manjaro.org>, Michael Riesch <michael.riesch@collabora.com>, 
+	Peter Robinson <pbrobinson@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, Andy Yan <andy.yan@rock-chips.com>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_235419_893364_4356668C 
-X-CRM114-Status: GOOD (  37.06  )
+X-CRM114-CacheID: sfid-20260106_235617_172241_B2FB489C 
+X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,144 +101,231 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Tangquan Zheng <zhengtangquan@oppo.com>, Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>, iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>, xen-devel@lists.xenproject.org, Robin Murphy <robin.murphy@arm.com>, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 08:47:36AM +1300, Barry Song wrote:
-> On Wed, Jan 7, 2026 at 8:12 AM Robin Murphy <robin.murphy@arm.com> wrote:
-> >
-> > On 2026-01-06 6:41 pm, Barry Song wrote:
-> > > On Mon, Dec 29, 2025 at 3:50 AM Leon Romanovsky <leon@kernel.org> wrote:
-> > >>
-> > >> On Sun, Dec 28, 2025 at 09:52:05AM +1300, Barry Song wrote:
-> > >>> On Sun, Dec 28, 2025 at 9:09 AM Leon Romanovsky <leon@kernel.org> wrote:
-> > >>>>
-> > >>>> On Sat, Dec 27, 2025 at 11:52:45AM +1300, Barry Song wrote:
-> > >>>>> From: Barry Song <baohua@kernel.org>
-> > >>>>>
-> > >>>>> Instead of performing a flush per SG entry, issue all cache
-> > >>>>> operations first and then flush once. This ultimately benefits
-> > >>>>> __dma_sync_sg_for_cpu() and __dma_sync_sg_for_device().
-> > >>>>>
-> > >>>>> Cc: Leon Romanovsky <leon@kernel.org>
-> > >>>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > >>>>> Cc: Will Deacon <will@kernel.org>
-> > >>>>> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-> > >>>>> Cc: Robin Murphy <robin.murphy@arm.com>
-> > >>>>> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> > >>>>> Cc: Ard Biesheuvel <ardb@kernel.org>
-> > >>>>> Cc: Marc Zyngier <maz@kernel.org>
-> > >>>>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> > >>>>> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> > >>>>> Cc: Suren Baghdasaryan <surenb@google.com>
-> > >>>>> Cc: Tangquan Zheng <zhengtangquan@oppo.com>
-> > >>>>> Signed-off-by: Barry Song <baohua@kernel.org>
-> > >>>>> ---
-> > >>>>>   kernel/dma/direct.c | 14 +++++++-------
-> > >>>>>   1 file changed, 7 insertions(+), 7 deletions(-)
-> > >>>>
-> > >>>> <...>
-> > >>>>
-> > >>>>> -             if (!dev_is_dma_coherent(dev)) {
-> > >>>>> +             if (!dev_is_dma_coherent(dev))
-> > >>>>>                        arch_sync_dma_for_device(paddr, sg->length,
-> > >>>>>                                        dir);
-> > >>>>> -                     arch_sync_dma_flush();
-> > >>>>> -             }
-> > >>>>>        }
-> > >>>>> +     if (!dev_is_dma_coherent(dev))
-> > >>>>> +             arch_sync_dma_flush();
-> > >>>>
-> > >>>> This patch should be squashed into the previous one. You introduced
-> > >>>> arch_sync_dma_flush() there, and now you are placing it elsewhere.
-> > >>>
-> > >>> Hi Leon,
-> > >>>
-> > >>> The previous patch replaces all arch_sync_dma_for_* calls with
-> > >>> arch_sync_dma_for_* plus arch_sync_dma_flush(), without any
-> > >>> functional change. The subsequent patches then implement the
-> > >>> actual batching. I feel this is a better approach for reviewing
-> > >>> each change independently. Otherwise, the previous patch would
-> > >>> be too large.
-> > >>
-> > >> Don't worry about it. Your patches are small enough.
-> > >
-> > > My hardware does not require a bounce buffer, but I am concerned that
-> > > this patch may be incorrect for systems that do require one.
-> > >
-> > > Now it is:
-> > >
-> > > void dma_direct_sync_sg_for_cpu(struct device *dev,
-> > >                  struct scatterlist *sgl, int nents, enum dma_data_direction dir)
-> > > {
-> > >          struct scatterlist *sg;
-> > >          int i;
-> > >
-> > >          for_each_sg(sgl, sg, nents, i) {
-> > >                  phys_addr_t paddr = dma_to_phys(dev, sg_dma_address(sg));
-> > >
-> > >                  if (!dev_is_dma_coherent(dev))
-> > >                          arch_sync_dma_for_cpu(paddr, sg->length, dir);
-> > >
-> > >                  swiotlb_sync_single_for_cpu(dev, paddr, sg->length, dir);
-> > >
-> > >                  if (dir == DMA_FROM_DEVICE)
-> > >                          arch_dma_mark_clean(paddr, sg->length);
-> > >          }
-> > >
-> > >          if (!dev_is_dma_coherent(dev)) {
-> > >                  arch_sync_dma_flush();
-> > >                  arch_sync_dma_for_cpu_all();
-> > >          }
-> > > }
-> > >
-> > > Should we call swiotlb_sync_single_for_cpu() and
-> > > arch_dma_mark_clean() after the flush to ensure the CPU sees the
-> > > latest data and that the memcpy is correct? I mean:
-> >
-> > Yes, this and the equivalents in the later patches are broken for all
-> > the sync_for_cpu and unmap paths which may end up bouncing (beware some
-> > of them get a bit fiddly) - any cache maintenance *must* be completed
-> > before calling SWIOTLB. As for mark_clean, IIRC that was an IA-64 thing,
-> > and appears to be entirely dead now.
-> 
-> Thanks, Robin. Personally, I would prefer an approach like the one below—
-> that is, not optimizing the bounce buffer cases, as they are already slow
-> due to hardware limitations with memcpy, and optimizing them would make
-> the code quite messy.
-> 
-> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
-> index 550a1a13148d..a4840f7e8722 100644
-> --- a/kernel/dma/direct.c
-> +++ b/kernel/dma/direct.c
-> @@ -423,8 +423,11 @@ void dma_direct_sync_sg_for_cpu(struct device *dev,
->         for_each_sg(sgl, sg, nents, i) {
->                 phys_addr_t paddr = dma_to_phys(dev, sg_dma_address(sg));
-> 
-> -               if (!dev_is_dma_coherent(dev))
-> +               if (!dev_is_dma_coherent(dev)) {
->                         arch_sync_dma_for_cpu(paddr, sg->length, dir);
-> +                       if (unlikely(dev->dma_io_tlb_mem))
-> +                               arch_sync_dma_flush();
-> +               }
-> 
->                 swiotlb_sync_single_for_cpu(dev, paddr, sg->length, dir);
-> 
-> I’d like to check with you, Leon, and Marek on your views about this.
+Hi Chaoyi,
 
-I agree with your point that the non‑SWIOTLB path is the performant one and
-should be preferred. My concern is that you are accessing the
-dma_io_tlb_mem variable directly from direct.c, which looks like a layer
-violation.
+On Wed, Jan 7, 2026 at 11:04=E2=80=AFAM Chaoyi Chen <kernel@airkyi.com> wro=
+te:
+>
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>
+> General features for rk3576 evb2 board:
+>     - Rockchip RK3576
+>     - LPDDR4/4X
+>     - eMMC5.1
+>     - RK806-2x2pcs + DiscretePower
+>     - 1x HDMI2.1 TX / HDMI2.0 RX
+>     - 1x full size DP1.4 TX (Only 2 Lanes)
+>     - 2x 10/100/1000M Ethernet
+>     - 5x SATA3.0 7Pin Slot
+>     - 2x USB3.2 Gen1 Host
+>     - 3x USB2.0 Host
+>     - WIFI/BT
+>     - ...
+>
+> Tested with eMMC/SDMMC/HDMI/USB/Ethernet/WIFI/BT module.
+>
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> ---
+>
+> Changes in v2:
+> - Enable hdmi_sound and sai6.
+> - Add more cpu-supply.
+> - Use regulator to control sata power.
+> - Remove "cap-mmc-highspeed" prop in sdmmc.
+> - Add regulator supply for ufshc.
+> - Add the missing vcc3v3_hubreset regulator.
+> - Add otg capability for usb_drd0_dwc3.
+>
+>  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>  .../boot/dts/rockchip/rk3576-evb2-v10.dts     | 997 ++++++++++++++++++
+>  2 files changed, 998 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/=
+rockchip/Makefile
+> index c7617e06e1c1..cff95657d406 100644
+> --- a/arch/arm64/boot/dts/rockchip/Makefile
+> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> @@ -153,6 +153,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3568-wolfvision-pf=
+5-io-expander.dtbo
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3576-armsom-sige5.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3576-armsom-sige5-v1.2-wifibt.dtbo
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3576-evb1-v10.dtb
+> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3576-evb2-v10.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3576-luckfox-omni3576.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3576-nanopi-m5.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3576-roc-pc.dtb
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts b/arch/arm6=
+4/boot/dts/rockchip/rk3576-evb2-v10.dts
+> new file mode 100644
+> index 000000000000..52788c514ec0
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
+> @@ -0,0 +1,997 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (c) 2025 Rockchip Electronics Co., Ltd.
+> + *
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/input/input.h>
+> +#include <dt-bindings/pinctrl/rockchip.h>
+> +#include <dt-bindings/soc/rockchip,vop2.h>
+> +#include "rk3576.dtsi"
+> +
+> +/ {
+> +       model =3D "Rockchip RK3576 EVB2 V10 Board";
+> +       compatible =3D "rockchip,rk3576-evb2-v10", "rockchip,rk3576";
+> +
+> +       aliases {
+> +               ethernet0 =3D &gmac0;
+> +               ethernet1 =3D &gmac1;
+> +       };
+> +
+> +       chosen: chosen {
+> +               stdout-path =3D "serial0:1500000n8";
+> +       };
+> +
+> +       adc_keys: adc-keys {
+> +               compatible =3D "adc-keys";
+> +               io-channels =3D <&saradc 1>;
+> +               io-channel-names =3D "buttons";
+> +               keyup-threshold-microvolt =3D <1800000>;
+> +               poll-interval =3D <100>;
+> +
+> +               button-back {
+> +                       label =3D "back";
+> +                       linux,code =3D <KEY_BACK>;
+> +                       press-threshold-microvolt =3D <1235000>;
+> +               };
+> +
+> +               button-menu {
+> +                       label =3D "menu";
+> +                       linux,code =3D <KEY_MENU>;
+> +                       press-threshold-microvolt =3D <890000>;
+> +               };
+> +
+> +               button-vol-down {
+> +                       label =3D "volume down";
+> +                       linux,code =3D <KEY_VOLUMEDOWN>;
+> +                       press-threshold-microvolt =3D <417000>;
+> +               };
+> +
+> +               button-vol-up {
+> +                       label =3D "volume up";
+> +                       linux,code =3D <KEY_VOLUMEUP>;
+> +                       press-threshold-microvolt =3D <17000>;
+> +               };
+> +       };
+> +
+> +       hdmi-con {
+> +               compatible =3D "hdmi-connector";
+> +               type =3D "a";
+> +
+> +               port {
+> +                       hdmi_con_in: endpoint {
+> +                               remote-endpoint =3D <&hdmi_out_con>;
+> +                       };
+> +               };
+> +       };
+> +
+> +       leds: leds {
+> +               compatible =3D "gpio-leds";
+> +
+> +               work_led: led-0 {
+> +                       gpios =3D <&gpio0 RK_PB4 GPIO_ACTIVE_HIGH>;
+> +                       linux,default-trigger =3D "heartbeat";
+> +               };
+> +       };
+> +
+> +       sdio_pwrseq: sdio-pwrseq {
+> +               compatible =3D "mmc-pwrseq-simple";
+> +               pinctrl-names =3D "default";
+> +               pinctrl-0 =3D <&wifi_pwren>;
+> +
+> +               /*
+> +                * On the module itself this is one of these (depending
+> +                * on the actual card populated):
+> +                * - SDIO_RESET_L_WL_REG_ON
+> +                * - PDN (power down when low)
+> +                */
+> +               post-power-on-delay-ms =3D <200>;
+> +               reset-gpios =3D <&gpio1 RK_PC6 GPIO_ACTIVE_LOW>;
+> +       };
+> +
+> +       vbus5v0_typec: regulator-vbus5v0-typec {
+> +               compatible =3D "regulator-fixed";
+> +               regulator-name =3D "vbus5v0_typec";
 
-You likely need to introduce an is_swiotlb_something() helper for this.
+This might better be renamed, given that last time you mentioned this
+board doesn't have a Type-C connector. Perhaps regulator-vbus5v0-otg?
 
-BTW, please send a v3 instead of posting incremental follow‑ups.
-It's hard to track the changes across multiple small additions.
+> +               regulator-min-microvolt =3D <5000000>;
+> +               regulator-max-microvolt =3D <5000000>;
+> +               enable-active-high;
+> +               gpio =3D <&gpio0 RK_PD1 GPIO_ACTIVE_HIGH>;
+> +               vin-supply =3D <&vcc5v0_device>;
+> +               pinctrl-names =3D "default";
+> +               pinctrl-0 =3D <&usb_otg0_pwren>;
+> +       };
+> +
+> +       vcc12v_dcin: regulator-vcc12v-dcin {
+> +               compatible =3D "regulator-fixed";
+> +               regulator-name =3D "vcc12v_dcin";
+> +               regulator-always-on;
+> +               regulator-boot-on;
+> +               regulator-min-microvolt =3D <12000000>;
+> +               regulator-max-microvolt =3D <12000000>;
+> +       };
+> +
+> +       vcc1v2_ufs_vccq_s0: regulator-vcc1v2-ufs-vccq-s0 {
+> +               compatible =3D "regulator-fixed";
+> +               regulator-name =3D "vcc1v2_ufs_vccq_s0";
+> +               regulator-boot-on;
+> +               regulator-always-on;
+> +               regulator-min-microvolt =3D <1200000>;
+> +               regulator-max-microvolt =3D <1200000>;
+> +               vin-supply =3D <&vcc_sys>;
+> +       };
+> +
+> +       vcc1v8_ufs_vccq2_s0: regulator-vcc1v8-ufs-vccq2-s0 {
+> +               compatible =3D "regulator-fixed";
+> +               regulator-name =3D "vcc1v8_ufs_vccq2_s0";
+> +               regulator-boot-on;
+> +               regulator-always-on;
+> +               regulator-min-microvolt =3D <1800000>;
+> +               regulator-max-microvolt =3D <1800000>;
+> +               vin-supply =3D <&vcc_1v8_s3>;
+> +       };
+> +
+> +       vcc3v3_hubreset: vcc3v3-hubreset {
+> +               compatible =3D "regulator-fixed";
+> +               regulator-name =3D "vcc3v3_hubreset";
+> +               regulator-boot-on;
+> +               regulator-always-on;
 
-Thanks.
-> 
-> Thanks
-> Barry
+If this regulator supplies a soldered-on discrete hub and is required
+to power it up, won't it be better to describe the hub in the device
+tree (see binding at [1]), make the regulator its supply, and perhaps
+drop the "regulator-boot-on/regulator-always-on" annotation here,
+letting the regulator core deal with its enabling instead?
+
+[1] https://github.com/torvalds/linux/blob/master/Documentation/devicetree/=
+bindings/usb/usb-device.yaml
+
+[snip]
+
+Other than these, LGTM - thanks for addressing my comments from v1!
+Feel free to include my:
+
+Reviewed-by: Alexey Charkov <alchark@gmail.com>
+
+Best regards,
+Alexey
 
