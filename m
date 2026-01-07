@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9B27CF6BE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 02:10:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40DCCCF6BE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 02:10:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x2DHeMQkHYMFJhq9X+Pz1ctIzS9G9OE6WfPGhm75v/8=; b=SBk8/TRUTxX2UtR0CERRYl2c0m
-	Ne+hfmK1iyteMoC6XLT+REBfhWcBb4kZdMETzd3p/yjWdDzffqupIoHsVwhdqkDyQm4M2pFdIzkrF
-	U1I/dHlv7Ao6xZXEWZSKGDIPnULgNk2KnJH5QRAkIMj+mB1fiIRT9NQreeHir14M3Mqfll+7hekKl
-	TaL7Jj3yRVf1rIrQ0MUQDXP6NF/USur6Sxt6Olt998aqpbo6zfk3ZuDgGgGNDf/E2MopRh3oCPDPf
-	IAAhP2Ryd4ZvVH5nO9byyi2FGrnnXJEqtPJoyB3a+UbuBXhcxUkCbwDWKhscUg9uuAeXvGzjC7mKD
-	KSh3DNGA==;
+	bh=OCoNnL0pkWlIUOJf8axnqI/f/TrbWMLSBPFzbA+Aqnk=; b=Vz2y0yApm9wWQ+Tt2HDXO03R7Q
+	TgkhFM22mTTXUV6GE5w913Hvw2KFywSh3yPzq9mZn/0xdX99nzQzwX4v/rs1DX0Knt6yNQN/UVGKm
+	R9qwNHzs6HCHJlVSnAVoT68cjpy78k24zrda2dd6mi13BIlbDfOrsSQ3nEgbqhUSSKJu9dK6p5mDB
+	uDNKxAWBUjIftH8o2BRu0pf8BolGcTYcnNWK65PvZS0lHnTL/fTUGfLKDiHxDtLYXQk5m4z+IorzV
+	GhRDC8I2eVPEX02Bwp75r4syMF1Nf5GHTnLFB+NZP8pk4cNlUL7V9MrQyKP6qWAQswnGCoOg2E+WL
+	1EWrD+jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdIzy-0000000E29c-0Veb;
-	Wed, 07 Jan 2026 02:10:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdJ01-0000000E2CY-071c;
+	Wed, 07 Jan 2026 02:10:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdIzw-0000000E28F-2DsU;
-	Wed, 07 Jan 2026 02:10:09 +0000
+	id 1vdIzx-0000000E28u-0phW;
+	Wed, 07 Jan 2026 02:10:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CAB5E439AD;
-	Wed,  7 Jan 2026 02:10:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8883CC116C6;
-	Wed,  7 Jan 2026 02:10:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DA216443E3;
+	Wed,  7 Jan 2026 02:10:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2AB1C19423;
+	Wed,  7 Jan 2026 02:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767751807;
-	bh=drRQe3NWFXClnpfXO5Sw+DqmbJPg9S9PQx1y8wKVjHY=;
+	s=k20201202; t=1767751808;
+	bh=bEeV9AIXgJUOiv5AAurKGQy27HtWNurlRvp9L2dNDu4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=l+M5VrCTEDKLEZ7wvlQIqCFRRUSETN+4aEp6xKWQrymDO3CDHQ9ANQeSnIfqbXAbt
-	 HLnMwBvgYy6JmP8mhhpH0MP0Yfyeh3UiIs2a/6qrMLjAsN5rvFlYbcLlLOSlU5FH1S
-	 1ojqukJ6hwg5hpIkMbbfr6N68ezkBPMfzVwntrrmjSmKVI7WFSOg+eWgKLdMPoo6BU
-	 vTOmIjAWm1aYVt1xwQUsLXcGAjq/rTTn8wwU0HKQwZZm2qrhj6bAaj0NvE8WQAfHx3
-	 aXWU2ss+3K7HupmvSS2yq/+66Wter123fjh2wOGnYj+UIN1ai7QOiim+6QN76Qmb2N
-	 8tWU+AS8CBfeA==
+	b=W+ZaIDIWVB7W1ksneiAra3uH9lBBnY5kdOY8CLWWRPa+3zEtRyhdRNpsmHHwnAOx/
+	 Eut9VJX+3RZnK7J6UMsNLlLUomPlnJVSg7c1i4NrgYJRv9auRibQ6H5a9lUvz0LPlw
+	 +cCLzlofTVDNtEJRRYIRymPn4eXUCgo94Hh0o8s9x78O4O10XAjcWobDVxzaHcI7Td
+	 Qqup66vbMj4s7IcwQpsXwGwUJ8pGMDN32QKkLvfzrlrovhBEy5I3OFWDYum7acsGaZ
+	 P7La+QY3HhtWMmk7vb+B9TL8lTJgXG8DKbSQmL0fKieIHp9wYStOLbfmS/KJQXXxMD
+	 vSas1R/oYVisQ==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Tue, 06 Jan 2026 20:09:40 -0600
-Subject: [PATCH 01/13] ARM: dts: broadcom: bcm2711: Fix 'simple-bus' node
- names
+Date: Tue, 06 Jan 2026 20:09:41 -0600
+Subject: [PATCH 02/13] ARM: dts: broadcom: bcm2835-rpi: Move non simple-bus
+ nodes to root level
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260106-dt-dtbs-broadcom-fixes-v1-1-ba45874e4553@kernel.org>
+Message-Id: <20260106-dt-dtbs-broadcom-fixes-v1-2-ba45874e4553@kernel.org>
 References: <20260106-dt-dtbs-broadcom-fixes-v1-0-ba45874e4553@kernel.org>
 In-Reply-To: <20260106-dt-dtbs-broadcom-fixes-v1-0-ba45874e4553@kernel.org>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -60,8 +60,8 @@ Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_181008_597555_DCABBD54 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20260106_181009_281608_0F473182 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,36 +76,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix 'simple-bus' node names to follow the defined pattern. Nodes with 'reg'
-or 'ranges' addresses should also have a unit-address.
+The 'gpu' and 'firmware' nodes are not MMIO devices, so they should not be
+under a 'simple-bus'. Additionally, the "raspberrypi,bcm2835-power" node
+is part of the firmware, so move it under the /firmware node.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- arch/arm/boot/dts/broadcom/bcm2711.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm/boot/dts/broadcom/bcm2835-common.dtsi |  7 ++++---
+ arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi    | 16 ++++++++--------
+ 2 files changed, 12 insertions(+), 11 deletions(-)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm2711.dtsi b/arch/arm/boot/dts/broadcom/bcm2711.dtsi
-index c06d9f5e53c8..5e3b4bb39396 100644
---- a/arch/arm/boot/dts/broadcom/bcm2711.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm2711.dtsi
-@@ -415,7 +415,7 @@ ddc1: i2c@7ef09500 {
- 	 * The firmware will find whether the emmc2bus alias is defined, and if
- 	 * so, it'll edit the dma-ranges property below accordingly.
- 	 */
--	emmc2bus: emmc2bus {
-+	emmc2bus: emmc2-bus@fe000000 {
- 		compatible = "simple-bus";
- 		#address-cells = <2>;
- 		#size-cells = <1>;
-@@ -542,7 +542,7 @@ l2: l2-cache0 {
+diff --git a/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi b/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
+index 9261b67dbee1..1e76b290510d 100644
+--- a/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
+@@ -141,9 +141,10 @@ v3d: v3d@7ec00000 {
+ 			interrupts = <1 10>;
  		};
- 	};
  
--	scb {
-+	scb-bus@fc000000 {
- 		compatible = "simple-bus";
- 		#address-cells = <2>;
- 		#size-cells = <1>;
+-		vc4: gpu {
+-			compatible = "brcm,bcm2835-vc4";
+-		};
++	};
++
++	vc4: gpu {
++		compatible = "brcm,bcm2835-vc4";
+ 	};
+ };
+ 
+diff --git a/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi b/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
+index e9bf41b9f5c1..9ab70b519a63 100644
+--- a/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
+@@ -1,15 +1,13 @@
+ #include <dt-bindings/power/raspberrypi-power.h>
+ 
+ / {
+-	soc {
+-		firmware: firmware {
+-			compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
+-			mboxes = <&mailbox>;
++	firmware: firmware {
++		compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
++		mboxes = <&mailbox>;
+ 
+-			firmware_clocks: clocks {
+-				compatible = "raspberrypi,firmware-clocks";
+-				#clock-cells = <1>;
+-			};
++		firmware_clocks: clocks {
++			compatible = "raspberrypi,firmware-clocks";
++			#clock-cells = <1>;
+ 		};
+ 
+ 		power: power {
+@@ -17,7 +15,9 @@ power: power {
+ 			firmware = <&firmware>;
+ 			#power-domain-cells = <1>;
+ 		};
++	};
+ 
++	soc {
+ 		vchiq: mailbox@7e00b840 {
+ 			compatible = "brcm,bcm2835-vchiq";
+ 			reg = <0x7e00b840 0x3c>;
 
 -- 
 2.51.0
