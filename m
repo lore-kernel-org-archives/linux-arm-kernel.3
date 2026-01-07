@@ -4,63 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D92CFD65E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D86CF6BE1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LEHmC+4c2dAZ0TAm3QDoCR6Tt4NogRVHOqnlUG9CaIU=; b=N5JEFWkm6buTXgEh7mZ+7HVggU
-	1kRqaf1/xpmmbHp0kxlvRCmT+Z003HjuHausFgAkc6A7lgjzSWT19acv2TuiLBE1UwKtWmOUYuuws
-	ioyNW3WfUlxg2J4wC4CX/gwjeqNx0aEoOx5LBnE8hdffb1SDIR8SHu8/xL5nmYdXHKU4mtFf0S1Rr
-	zrPXxtg814lK1SHdnNpHW4XJB7IJ8SyQscSozI/YpTSKz6MLcFc5kMvXnhTzm/tanTidb7jwjzfB1
-	vzAXAw9hlRIy+Ifx2ZeAImv0aI48L3PyeBjaZIWufQevyhFz30uOU01C522JQJSaFf/N3SeN6SF2w
-	L6epG6pQ==;
+	bh=A0u5SYt+BNXlIZdFfEjj61qYNlvbBJNuvhZPcQM27Gc=; b=uvoFJ/AnggRVtF+kAzFfE/APF8
+	WEcZNrPQTZjD7TOHwCjygRLfn11W9Mgt7y5Xzj2CyiBC/ZAz+XjgiP6ydqOhyvdF+r2tFlkFFsiQ7
+	PYg1cJfidx+Qbi76BBoAOmy54OLd8imIp5MqNuTkklPM3AWZqTT6uzp6CffrsHoNoLgQ2uWuA288I
+	OHAL7tXWYmni2ZuZDVLGgkW6x6xpa/xb0Tdn3N0wzkpJFpdS7+mSNIQ9DIPEzHogoqTRkY6RjviYF
+	1cvl8X2tAJ+uUsI9vzE/0lHYhTVZyPUUcvdrXeWjFBYI8szQi5ebOkG/HgJDXcYBeo9J/0F6mSa5m
+	erzhgJOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWTt-0000000FJEV-0dD5;
-	Wed, 07 Jan 2026 16:33:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vdWVd-0000000FJQP-1D2c;
+	Wed, 07 Jan 2026 16:35:45 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWTs-0000000FJEJ-2237
+	id 1vdWVX-0000000FJOx-07GT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 16:33:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 90BD36000A;
-	Wed,  7 Jan 2026 16:33:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8966CC4CEF1;
-	Wed,  7 Jan 2026 16:33:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767803635;
-	bh=WmWZBR3qZNNjQFP+VxnmCTmNhfkitwmDjgm+bpwc6KA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JQjsH7jjzEOMh+NzlZcnrEdADGCJJIxJZN7laW2VI8p5q+R1QTKR+JDMHOEZY08cb
-	 WIcsEzdKjUlhQ3aJ1+NJgBauqORDgkX/Kg15AONFGN/g+bw/aR4jyGVz65EjXhvq2f
-	 lXmynqhZBxA/SH8nwJGx4niEPtEFAdrAIy8qIDsoxJEmp7auFXiVqgL6EpgS32B+Jl
-	 3Ec14JWh4Txt90r28e+3rqmxPsWOdGKYi1wHTV/GL0Wu1k5teQnFsgTb2ze02s9TLY
-	 lNM1bz1HWJbOQnZL5f0lxzaaXINEocyqXmemb1HugN0Gq5QXgL3Hz+utGafb3Cj1JA
-	 wa6PZPI8SIc1Q==
-Date: Wed, 7 Jan 2026 16:33:49 +0000
-From: Will Deacon <will@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Lucas Wei <lucaswei@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, sjadavani@google.com,
-	kernel test robot <lkp@intel.com>, stable@vger.kernel.org,
-	kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	robin.murphy@arm.com, smostafa@google.com
-Subject: Re: [PATCH v2] arm64: errata: Workaround for SI L1 downstream
- coherency issue
-Message-ID: <aV6K7QnUa7jDpKw-@willie-the-truck>
-References: <20251229033621.996546-1-lucaswei@google.com>
- <87o6ndduye.wl-maz@kernel.org>
+	Wed, 07 Jan 2026 16:35:42 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vdWUn-00061q-3g; Wed, 07 Jan 2026 17:34:53 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vdWUh-009XX9-1v;
+	Wed, 07 Jan 2026 17:34:47 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vdWUh-00000000FuG-1qqY;
+	Wed, 07 Jan 2026 17:34:47 +0100
+Message-ID: <3e87a26d067de694273daaf011a50f1a2e7718f1.camel@pengutronix.de>
+Subject: Re: [PATCH 3/6] drm/imx/dw-hdmi: convert to
+ of_drm_find_and_get_bridge()
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>, Andrzej Hajda	
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman	 <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst	
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl	
+ <martin.blumenstingl@googlemail.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Fabio Estevam	 <festevam@gmail.com>, Chun-Kuang Hu
+ <chunkuang.hu@kernel.org>, Matthias Brugger	 <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno	 <angelogioacchino.delregno@collabora.com>, Inki
+ Dae <inki.dae@samsung.com>,  Seung-Woo Kim <sw0312.kim@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski	
+ <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Laurent Pinchart	
+ <laurent.pinchart+renesas@ideasonboard.com>, Tomi Valkeinen	
+ <tomi.valkeinen+renesas@ideasonboard.com>, Kieran Bingham	
+ <kieran.bingham+renesas@ideasonboard.com>, Geert Uytterhoeven	
+ <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Thomas Petazzoni
+	 <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linux-mediatek@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Date: Wed, 07 Jan 2026 17:34:47 +0100
+In-Reply-To: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-3-ef48a517828e@bootlin.com>
+References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-0-ef48a517828e@bootlin.com>
+	 <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-3-ef48a517828e@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87o6ndduye.wl-maz@kernel.org>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260107_083541_027047_B8D354F2 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,78 +102,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Marc,
+On Mi, 2026-01-07 at 17:22 +0100, Luca Ceresoli wrote:
+> of_drm_find_bridge() is deprecated. Move to its replacement
+> of_drm_find_and_get_bridge() which gets a bridge reference, and ensure it
+> is put when done.
+>=20
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> ---
+>  drivers/gpu/drm/imx/ipuv3/dw_hdmi-imx.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/gpu/drm/imx/ipuv3/dw_hdmi-imx.c b/drivers/gpu/drm/im=
+x/ipuv3/dw_hdmi-imx.c
+> index 07e5f96202d4..95f629d97bce 100644
+> --- a/drivers/gpu/drm/imx/ipuv3/dw_hdmi-imx.c
+> +++ b/drivers/gpu/drm/imx/ipuv3/dw_hdmi-imx.c
+> @@ -241,7 +241,7 @@ static int dw_hdmi_imx_probe(struct platform_device *=
+pdev)
+>  	if (IS_ERR(hdmi->hdmi))
+>  		return PTR_ERR(hdmi->hdmi);
+> =20
+> -	hdmi->bridge =3D of_drm_find_bridge(np);
+> +	hdmi->bridge =3D of_drm_find_and_get_bridge(np);
+>  	if (!hdmi->bridge) {
+>  		dev_err(hdmi->dev, "Unable to find bridge\n");
+>  		dw_hdmi_remove(hdmi->hdmi);
 
-On Thu, Jan 01, 2026 at 06:55:05PM +0000, Marc Zyngier wrote:
-> On Mon, 29 Dec 2025 03:36:19 +0000,
-> Lucas Wei <lucaswei@google.com> wrote:
-> > diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-> > index 8cb3b575a031..5c0ab6bfd44a 100644
-> > --- a/arch/arm64/kernel/cpu_errata.c
-> > +++ b/arch/arm64/kernel/cpu_errata.c
-> > @@ -141,6 +141,30 @@ has_mismatched_cache_type(const struct arm64_cpu_capabilities *entry,
-> >  	return (ctr_real != sys) && (ctr_raw != sys);
-> >  }
-> >  
-> > +#ifdef CONFIG_ARM64_ERRATUM_4311569
-> > +static DEFINE_STATIC_KEY_FALSE(arm_si_l1_workaround_4311569);
-> > +static int __init early_arm_si_l1_workaround_4311569_cfg(char *arg)
-> > +{
-> > +	static_branch_enable(&arm_si_l1_workaround_4311569);
-> > +	pr_info("Enabling cache maintenance workaround for ARM SI-L1 erratum 4311569\n");
-> > +
-> > +	return 0;
-> > +}
-> > +early_param("arm_si_l1_workaround_4311569", early_arm_si_l1_workaround_4311569_cfg);
-> > +
-> > +/*
-> > + * We have some earlier use cases to call cache maintenance operation functions, for example,
-> > + * dcache_inval_poc() and dcache_clean_poc() in head.S, before making decision to turn on this
-> > + * workaround. Since the scope of this workaround is limited to non-coherent DMA agents, its
-> > + * safe to have the workaround off by default.
-> > + */
-> > +static bool
-> > +need_arm_si_l1_workaround_4311569(const struct arm64_cpu_capabilities *entry, int scope)
-> > +{
-> > +	return static_branch_unlikely(&arm_si_l1_workaround_4311569);
-> > +}
-> > +#endif
-> 
-> But this isn't a detection mechanism. That's relying on the user
-> knowing they are dealing with broken hardware. How do they find out?
+The component_add() error path below this is missing a
+drm_bridge_put().
 
-Sadly, I'm not aware of a mechanism to detect this reliably at runtime
-but adding Robin in case he knows of one. Linux generally doesn't need
-to worry about the SLC, so we'd have to add something to DT to detect
-it and even then I don't know whether it's something that is typically
-exposed to non-secure...
-
-We also need the workaround to be up early enough that drivers don't
-run into issues, so that would probably involve invasive surgery in the
-DT parsing code.
-
-> You don't even call out what platform is actually affected...
-
-Well, it's an Android phone :)
-
-More generally, it's going to be anything with an Arm "SI L1" configured
-to work with non-coherent DMA agents below it. Christ knows whose bright
-idea it was to put "L1" in the name of the thing containing the system
-cache.
-
-> The other elephant in the room is virtualisation: how does a guest
-> performing CMOs deals with this? How does it discover the that the
-> host is broken? I also don't see any attempt to make KVM handle the
-> erratum on behalf of the guest...
-
-A guest shouldn't have to worry about the problem, as it only affects
-clean to PoC for non-coherent DMA agents that reside downstream of the
-SLC in the interconnect. Since VFIO doesn't permit assigning
-non-coherent devices to a guest, guests shouldn't ever need to push
-writes that far (and FWB would cause bigger problems if that was
-something we wanted to support)
-
-+Mostafa to keep me honest on the VFIO front.
-
-Will
+regards
+Philipp
 
