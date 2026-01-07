@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 484A8D0D145
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 17:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0951ED0D145
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 17:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zDMvlleZwMR2aomNCyTDedhI75Th/j2D5bFQKhUurrs=; b=1yDG/apT6Sr9zbhcJR9L+L2p/O
-	iOsfTIDaUlm8HMcYqiwREveidlOT4vHs9IJNkHrqGrTp8Dh4IIZFi8vP/dafcUhPYQCDtaUqRrtxR
-	HnSvtHnLLDYotDs2lw1SSem/5tHJUHZ0QkguzyxwoG7VP324Ge0bro3Zmv5tXwt/geD5TUnQiXvQQ
-	en/ATIXhdzxcNAZlrO121ZU9+IRrfSgBI1Sz7du2T/4lw7h9XHOOi2nY/3yL09EfYDxjcEFEH6pHI
-	Pg0EmY4qRlCiU7TqDNQk0K/m4p6fmJ2b2kXB/cDsFMTcDic/aDM+WRUxsbkiBsLcvsKiH1YDUAa6e
-	HbPJD5UA==;
+	bh=NvrNfQ5ZK0gxsmbD5PcSDWK+cO5x+iJha8St6cmcRNg=; b=NZdhUMgaR7cgeH2bNSyLgn4+MZ
+	om0COzXkOlhs9EclJMGvpxx6bmbNHm6lciEgcNcX3Kx2PXk17e3cO64NE+e5BfM450Ud7o5seGDDH
+	NorHu8Hj81CxLI56LVNJBl+X1GJ9xd0fty/JmLwMamaBkJsCZScl4rvWgsvqkeeKkQUJ868ky6n++
+	QZQaDtqTS7FhfGY+x1xyWLXoOHMcWnwJ7dhud3ee4KlDs94VUZB7gGGoQ264B/RrVxsg7jFvEz2UG
+	tVwh9dfi3Ly9VW6Nqd52VAqHIXG2bU1ehBIUjUd2dTO5FDy0B2yUWLmWiZzp1bW9sol4cnBGRj12i
+	1RKHrL8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdXkN-0000000FPOH-3wXt;
-	Wed, 07 Jan 2026 17:55:03 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vdXlB-0000000FPcR-1JJW;
+	Wed, 07 Jan 2026 17:55:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdXkL-0000000FPLQ-2XCn;
-	Wed, 07 Jan 2026 17:55:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1767808498;
-	bh=FskVu4bMK9X3YY1c0FaKoNF9nvaMiNegDxZbSfSbmrA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jnhuDG/3RzbHLW1cDYXDpDfODx6dx6Z0mYekdHtI7n6ljoYmOpR8UdCzieAdPOkqV
-	 tWZDw6yi12pV926Ako6rRlA2ep5ppnD6bKo99VWcrCjnGJzLlluGHtGGfu6puAuSrN
-	 FuPx33eXiiGxXNUiFRKJMVSbgJeTeEh0eDXgWlXK1jIGLP8IFJ7JL5VCT3YitdAXkJ
-	 j6LXSlvEblONUjRt6BQIOs/1qxupairXBfjIWNgpuuh9+pasqr5JkFkg7H/HILq+Be
-	 JJN0+7rpNy5fmD1jghz1i8dnQrE/fL7tShPWd+RO3kf0wcoVkWRjU9XFMS1v7wo17H
-	 R4FYG+jdDqdvA==
-Received: from [192.168.1.90] (unknown [82.79.138.145])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7F0CC17E13F6;
-	Wed,  7 Jan 2026 18:54:57 +0100 (CET)
-Message-ID: <0cce5e09-1947-46b4-8ffc-1aa880accc9a@collabora.com>
-Date: Wed, 7 Jan 2026 19:54:56 +0200
+	id 1vdXl9-0000000FPbU-3WFR
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 07 Jan 2026 17:55:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=NvrNfQ5ZK0gxsmbD5PcSDWK+cO5x+iJha8St6cmcRNg=; b=GVqRnTvCkdCDnItkZEA2mO3l24
+	A6yB7jFK1NWPGS/ACeHBu7I11beR0PP0+USg8/0SNmRkEba08E0y025mC4YOvkpfyxt/pWeCdQ2oE
+	76/+MHGFNAsbR+5r5Pv39ru14uAzkCeFzV1uYO4bVuhqJ6diHsom5ucHs+fgplObsO/COF82qOAKc
+	PnBmm8xG/wZklbHvCCn+uaaV6UcCA6WP2v9Q1/o5/W8qjYyZoeuRf0a8Qx7tYWYqBUFndy7I9AjHZ
+	rpV7F+KHNiPNb5Xk4I0v+93wqwP/LTcB1vQQXY4Il7hmmhBi4lTOANI8odMccbnLZ+OCCNApA5jpP
+	ueyTx62Q==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdXl6-0000000BpvB-0S3P
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 07 Jan 2026 17:55:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F046497;
+	Wed,  7 Jan 2026 09:55:38 -0800 (PST)
+Received: from [10.57.48.49] (unknown [10.57.48.49])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A1A763F5A1;
+	Wed,  7 Jan 2026 09:55:42 -0800 (PST)
+Message-ID: <7cd7b4f0-7aa5-4ca0-adc6-44d968c1ed48@arm.com>
+Date: Wed, 7 Jan 2026 17:55:40 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/4] Introduce BACKGROUND_COLOR DRM CRTC property
-To: Diederik de Haas <diederik@cknow-tech.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Louis Chauvet <louis.chauvet@bootlin.com>,
- Haneen Mohammed <hamohammed.sa@gmail.com>,
- Melissa Wen <melissa.srw@gmail.com>
-Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Matt Roper <matthew.d.roper@intel.com>
-References: <20251118-rk3588-bgcolor-v3-0-a2cc909428ea@collabora.com>
- <DFICN8TKUFBH.1V8WHTIQ5BE2J@cknow-tech.com>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <DFICN8TKUFBH.1V8WHTIQ5BE2J@cknow-tech.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v2] arm64: errata: Workaround for SI L1 downstream
+ coherency issue
+To: Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>
+Cc: Lucas Wei <lucaswei@google.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ sjadavani@google.com, kernel test robot <lkp@intel.com>,
+ stable@vger.kernel.org, kernel-team@android.com,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, smostafa@google.com
+References: <20251229033621.996546-1-lucaswei@google.com>
+ <87o6ndduye.wl-maz@kernel.org> <aV6K7QnUa7jDpKw-@willie-the-truck>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <aV6K7QnUa7jDpKw-@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_095501_872497_8C86343E 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20260107_175548_924871_CD40A573 
+X-CRM114-Status: GOOD (  31.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,68 +85,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Diederik,
+On 2026-01-07 4:33 pm, Will Deacon wrote:
+> Hey Marc,
+> 
+> On Thu, Jan 01, 2026 at 06:55:05PM +0000, Marc Zyngier wrote:
+>> On Mon, 29 Dec 2025 03:36:19 +0000,
+>> Lucas Wei <lucaswei@google.com> wrote:
+>>> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+>>> index 8cb3b575a031..5c0ab6bfd44a 100644
+>>> --- a/arch/arm64/kernel/cpu_errata.c
+>>> +++ b/arch/arm64/kernel/cpu_errata.c
+>>> @@ -141,6 +141,30 @@ has_mismatched_cache_type(const struct arm64_cpu_capabilities *entry,
+>>>   	return (ctr_real != sys) && (ctr_raw != sys);
+>>>   }
+>>>   
+>>> +#ifdef CONFIG_ARM64_ERRATUM_4311569
+>>> +static DEFINE_STATIC_KEY_FALSE(arm_si_l1_workaround_4311569);
+>>> +static int __init early_arm_si_l1_workaround_4311569_cfg(char *arg)
+>>> +{
+>>> +	static_branch_enable(&arm_si_l1_workaround_4311569);
+>>> +	pr_info("Enabling cache maintenance workaround for ARM SI-L1 erratum 4311569\n");
+>>> +
+>>> +	return 0;
+>>> +}
+>>> +early_param("arm_si_l1_workaround_4311569", early_arm_si_l1_workaround_4311569_cfg);
+>>> +
+>>> +/*
+>>> + * We have some earlier use cases to call cache maintenance operation functions, for example,
+>>> + * dcache_inval_poc() and dcache_clean_poc() in head.S, before making decision to turn on this
+>>> + * workaround. Since the scope of this workaround is limited to non-coherent DMA agents, its
+>>> + * safe to have the workaround off by default.
+>>> + */
+>>> +static bool
+>>> +need_arm_si_l1_workaround_4311569(const struct arm64_cpu_capabilities *entry, int scope)
+>>> +{
+>>> +	return static_branch_unlikely(&arm_si_l1_workaround_4311569);
+>>> +}
+>>> +#endif
+>>
+>> But this isn't a detection mechanism. That's relying on the user
+>> knowing they are dealing with broken hardware. How do they find out?
+> 
+> Sadly, I'm not aware of a mechanism to detect this reliably at runtime
+> but adding Robin in case he knows of one. Linux generally doesn't need
+> to worry about the SLC, so we'd have to add something to DT to detect
+> it and even then I don't know whether it's something that is typically
+> exposed to non-secure...
+> 
+> We also need the workaround to be up early enough that drivers don't
+> run into issues, so that would probably involve invasive surgery in the
+> DT parsing code.
 
-On 1/7/26 2:18 PM, Diederik de Haas wrote:
-> Hi,
-> 
-> On Tue Nov 18, 2025 at 12:51 AM CET, Cristian Ciocaltea wrote:
->> Some display controllers can be hardware-configured to present non-black
->> colors for pixels which are not covered by any plane (or are exposed
->> through transparent regions of higher planes).
->> ...
->> The subsequent patches add background color support to VKMS and the VOP2
->> display controller used in the RK3568, RK3576, and RK3588 Rockchip SoC
->> families.
-> 
-> Cristian provided a helper script which would show a test pattern and
-> then iterate through setting Red, Green, Blue background color and then
-> set it back to the original value.
-> 
-> I first tested this on a Rock 5B (RK3588).
-> Without this patch set, the background color was Black with every
-> iteration. But with this patch set, I did see a Red, Green and Blue
-> background color, after which it was set back to Black.
-> 
-> diederik@rock5b:~$ grep -E "^Changing prop|^Read BACKGROUND_COLOR" bgcol-test-bash-user.log
-> Read BACKGROUND_COLOR prop (ARGB64): 0xffff000000000000
-> Changing prop value to: 0xffff00000000ffff
-> Read BACKGROUND_COLOR prop (ARGB64): 0xffff00000000ffff
-> Changing prop value to 0xffffffff00000000
-> Read BACKGROUND_COLOR prop (ARGB64): 0xffffffff00000000
-> Changing prop value to 0xffff0000ffff0000
-> Read BACKGROUND_COLOR prop (ARGB64): 0xffff0000ffff0000
-> Changing prop value to 0xffff00000000ffff
-> Read BACKGROUND_COLOR prop (ARGB64): 0xffff00000000ffff
-> Changing prop value to: 0xffff000000000000
-> Read BACKGROUND_COLOR prop (ARGB64): 0xffff000000000000
-> 
-> I then did the same test on a Quartz64-B (RK3566) and that too showed a
-> Red, Green and Blue background color and then was set back to Black.
-> 
-> diederik@quartz64b:~$ grep -E "^Changing prop|^Read BACKGROUND_COLOR" bgcol-test-bash-user-q64b.log
-> Read BACKGROUND_COLOR prop (ARGB64): 0xffff000000000000
-> Changing prop value to: 0xffff00000000ffff
-> Read BACKGROUND_COLOR prop (ARGB64): 0xffff00000000ffff
-> Changing prop value to 0xffffffff00000000
-> Read BACKGROUND_COLOR prop (ARGB64): 0xffffffff00000000
-> Changing prop value to 0xffff0000ffff0000
-> Read BACKGROUND_COLOR prop (ARGB64): 0xffff0000ffff0000
-> Changing prop value to 0xffff00000000ffff
-> Read BACKGROUND_COLOR prop (ARGB64): 0xffff00000000ffff
-> Changing prop value to: 0xffff000000000000
-> Read BACKGROUND_COLOR prop (ARGB64): 0xffff000000000000
-> 
-> So this patch set does what it is supposed to do, so feel free to add:
-> 
-> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
+Indeed even if we did happen to know where the interconnect registers 
+are, I'm not sure there's any ID bit for the relevant configuration 
+option, plus that still wouldn't be accurate anyway - it's fine to have 
+a downstream cache/PoS *without* any back-door observers, so the actual 
+problematic condition we need to detect is outside the SI IP altogether. 
+It's a matter of SoC-level integration, so AFAICS the realistic options 
+are likely to be:
 
-Thanks for taking the time to test this!
+  - SMCCC SOC_ID (if available early enough)
+  - Match a top-level SoC/platform compatible out of the flat DT
+  - Just trust that affected platforms' bootloaders will know to add the 
+command-line option :/
 
-Please note there's a newer revision of the series:
+>> You don't even call out what platform is actually affected...
+> 
+> Well, it's an Android phone :)
+> 
+> More generally, it's going to be anything with an Arm "SI L1" configured
+> to work with non-coherent DMA agents below it. Christ knows whose bright
+> idea it was to put "L1" in the name of the thing containing the system
+> cache.
 
-https://lore.kernel.org/all/20251219-rk3588-bgcolor-v4-0-2ff1127ea757@collabora.com/
+I'm still thankful the Neoverse product line skipped "MMU S1" and "MMU 
+S2"...
 
-Regards,
-Cristian
+>> The other elephant in the room is virtualisation: how does a guest
+>> performing CMOs deals with this? How does it discover the that the
+>> host is broken? I also don't see any attempt to make KVM handle the
+>> erratum on behalf of the guest...
+> 
+> A guest shouldn't have to worry about the problem, as it only affects
+> clean to PoC for non-coherent DMA agents that reside downstream of the
+> SLC in the interconnect. Since VFIO doesn't permit assigning
+> non-coherent devices to a guest, guests shouldn't ever need to push
+> writes that far (and FWB would cause bigger problems if that was
+> something we wanted to support)
+> 
+> +Mostafa to keep me honest on the VFIO front.
+
+I don't think we actually prevent non-coherent devices being assigned, 
+we just rely on the IOMMU supporting IOMMU_CAP_CACHE_COHERENCY. Thus if 
+there's an I/O-coherent SMMU then it could end up being permitted, 
+however I would hope that either the affected devices are not behind 
+such an SMMU, or at least that if the SMMU imposes cacheable attributes 
+then that prevents traffic from taking the back-door path to RAM.
+
+Thanks,
+Robin.
 
