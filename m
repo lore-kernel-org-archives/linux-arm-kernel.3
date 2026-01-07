@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A865CFD62E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 13:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E55CFD636
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 13:45:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t5YunGd1CL633ttkiMZxmBZVpk41cVRg4uqkSooAV28=; b=MANL5lf251yb7HcIe7rQM8LRYY
-	+7tURTLYm58HOH8JbrT8jZhQQ07J+GvCnQxntGEuCamiUXjFXu3uGuK66bFjSgLbNiI+NNjThVNZO
-	9l9WVytAvwIXsvq4xctL9asKVV6zG44CbSUXztxvtNs8A9XUnBdyl0T1RnZ0ffjLrNN5NGRC/JshN
-	DsMkZOFEH2RiIsPBz4QgxSCBnMNo3QH8QL+fapOSJy5Wib6R4WJ5EpEFE7qYyymO1PKbSSQINajD4
-	9hYxSn3eNah2w02z1R8AfhVqJZ14KoRlYGAlQWitqnT6q2aiV2KL9yM2VXVqOEUqv7fLNCEuI7r06
-	8yWWpPaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f50r9o/apZYEhSlUpxuAT6n0HCDC8jD1nc1uCfC4uoo=; b=fTiLTD8BLQbj1qC/1LWcPdPYAb
+	IXGBh+Am5mWTu7PQEWMB++k9V46BOXVuG0DLIrKZlH70JBoz30GmWk2cHWi67tR9YeffjEeraiCjJ
+	1RPTuwFoodSkTkqiqezUKfhFmackEtIEZn+b1fHxQvq+3mgGVDrlpQ86aEnlJY0H2qwJ3reno0D9r
+	Mgj6uz/QqqLhCKj/fsNCiCaN3fSieQyRfc5rVM5+hMWds5g2YP/czwkRYhW2PSRHCM0WJqIZci3K6
+	OJiTTmaZSZIxH/ft+1/EbOygDiCAcaawmnccS270QSqHGVfS5tBojyvZKjoLnbXwV+Nja3w4Ma+nv
+	Cp7OnG1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdTkm-0000000F1VV-1JuG;
-	Wed, 07 Jan 2026 13:39:12 +0000
+	id 1vdTqe-0000000F1r0-0YCO;
+	Wed, 07 Jan 2026 13:45:16 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdTkl-0000000F1VG-49Om
+	id 1vdTqd-0000000F1qs-18vJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 13:39:12 +0000
+	Wed, 07 Jan 2026 13:45:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1735B60007;
-	Wed,  7 Jan 2026 13:39:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4099FC19422;
-	Wed,  7 Jan 2026 13:39:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 432986000A;
+	Wed,  7 Jan 2026 13:45:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6149C4CEF7;
+	Wed,  7 Jan 2026 13:45:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767793150;
-	bh=t5YunGd1CL633ttkiMZxmBZVpk41cVRg4uqkSooAV28=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
-	b=gpQFfuqEEYKQKlLqHGJP0hUPiN/wFzN0LobJxctZZG+aB3h5sUALbzol+oOYxF/Db
-	 gOo75IpjBigBtkbdlAY4Tvv/qAuU8a/MFoz14u39FlkHF9u6Id96ihQlREWeyq7U4V
-	 NqJlxsRhknjOn6iNIJUq9UdCtBukUVuwregcmm+y0JMypfoUfVcLJaCV1zqFf3vkPv
-	 tw1wZqz02VjP7OTdku0MG9GzdpLApCUOHqBaHYzDzJpfgdn+cwrUbgxkcvWpIpvnZ/
-	 q/L2tJjVt02YbrGDDdf0ADek3Hbadm/uhl75tTJMH2XlBCXv4xHkqUzvWYjjDMAR3w
-	 4AH744epiwbMQ==
-Message-ID: <1ad5e0f651f8a0813b5f1c320e93eca4@kernel.org>
-Date: Wed, 07 Jan 2026 13:39:08 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH 06/12] drm/bridge: tpd12s015: convert to
- of_drm_find_and_get_bridge()
-In-Reply-To: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-6-283d7bba061a@bootlin.com>
-References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-6-283d7bba061a@bootlin.com>
-Cc: benjamin.gaignard@linaro.org, dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, "Adrien
- Grassein" <adrien.grassein@gmail.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "David
- Airlie" <airlied@gmail.com>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Inki
- Dae" <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, "Jonas Karlman" <jonas@kwiboo.se>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liu Ying" <victor.liu@nxp.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maxime
- Ripard" <mripard@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, "Philippe Cornu" <philippe.cornu@st.com>, "Robert
- Foss" <rfoss@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Shawn
- Guo" <shawnguo@kernel.org>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas Zimmermann" <tzimmermann@suse.de>
-Content-Transfer-Encoding: quoted-printable
+	s=k20201202; t=1767793514;
+	bh=FUnu2/d32Z+rAwqi5Nbaz8wsPSyg/MoQclwAm3YXqJk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=itAl+snnQm40572JvVmDdz8fg0UKD82AkqmTnYzf0FqWfkzJSUt0WvzaReVRrJJ6h
+	 tcVIJ36cfg7wOZJxuEo4QQi4XI9UziTM88AFs/dLEspvRUANEw1qFwfaHDfyTpQyrY
+	 htNZP/BPlGFclpvjzFxaEF5Jewz7fMmxrsyvz1YoQJyKb5RztrkKM8lk7ZI0W11Orw
+	 gasKTLhSTJcXU97+VdtxTxi4j7q8FS2YgLDEL9foemX5/udIE5TQBbEUX44jq0ZQEa
+	 IANNpcfJuWELF5OFxMIO8orhEG4cpTIGTUpCe0d3HwoPr/SJY5njTSzlGgBAS3VXFB
+	 7HB12GuhC2CvA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vdTqZ-000000005dY-2U3q;
+	Wed, 07 Jan 2026 13:45:11 +0000
+Date: Wed, 07 Jan 2026 13:45:11 +0000
+Message-ID: <86cy3lmt94.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	jstultz@google.com,
+	qperret@google.com,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	kernel-team@android.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v9 21/30] KVM: arm64: Initialise hyp_nr_cpus for nVHE hyp
+In-Reply-To: <20251202093623.2337860-22-vdonnefort@google.com>
+References: <20251202093623.2337860-1-vdonnefort@google.com>
+	<20251202093623.2337860-22-vdonnefort@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jstultz@google.com, qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org, kernel-team@android.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,17 +95,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 7 Jan 2026 14:12:57 +0100, Luca Ceresoli wrote:
-> of_drm_find_bridge() is deprecated. Move to its replacement
-> of_drm_find_and_get_bridge() which gets a bridge reference, and ensure it
-> is put when done by using the drm_bridge::next_bridge pointer.
->=20
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
->=20
-> [ ... ]
+On Tue, 02 Dec 2025 09:36:14 +0000,
+Vincent Donnefort <vdonnefort@google.com> wrote:
+> 
+> Knowing the number of CPUs is necessary for determining the boundaries
+> of per-cpu variables, which will be used for upcoming hypervisor
+> tracing. hyp_nr_cpus which stores this value, is only initialised for
+> the pKVM hypervisor. Make it accessible for the nVHE hypervisor as well.
+> 
+> With the kernel now responsible for initialising hyp_nr_cpus, the
+> nr_cpus parameter is no longer needed in __pkvm_init.
+> 
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> 
+> diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
+> index e6be1f5d0967..b169d85458f9 100644
+> --- a/arch/arm64/include/asm/kvm_hyp.h
+> +++ b/arch/arm64/include/asm/kvm_hyp.h
+> @@ -128,8 +128,7 @@ void __noreturn __hyp_do_panic(struct kvm_cpu_context *host_ctxt, u64 spsr,
+>  #ifdef __KVM_NVHE_HYPERVISOR__
+>  void __pkvm_init_switch_pgd(phys_addr_t pgd, unsigned long sp,
+>  		void (*fn)(void));
+> -int __pkvm_init(phys_addr_t phys, unsigned long size, unsigned long nr_cpus,
+> -		unsigned long *per_cpu_base, u32 hyp_va_bits);
+> +int __pkvm_init(phys_addr_t phys, unsigned long size, unsigned long *per_cpu_base, u32 hyp_va_bits);
+>  void __noreturn __host_enter(struct kvm_cpu_context *host_ctxt);
+>  #endif
+>  
+> @@ -146,5 +145,6 @@ extern u64 kvm_nvhe_sym(id_aa64smfr0_el1_sys_val);
+>  extern unsigned long kvm_nvhe_sym(__icache_flags);
+>  extern unsigned int kvm_nvhe_sym(kvm_arm_vmid_bits);
+>  extern unsigned int kvm_nvhe_sym(kvm_host_sve_max_vl);
+> +extern unsigned long kvm_nvhe_sym(hyp_nr_cpus);
+>  
+>  #endif /* __ARM64_KVM_HYP_H__ */
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 052bf0d4d0b0..7ba427f9608c 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -35,6 +35,7 @@
+>  #include <asm/kvm_arm.h>
+>  #include <asm/kvm_asm.h>
+>  #include <asm/kvm_emulate.h>
+> +#include <asm/kvm_hyp.h>
+>  #include <asm/kvm_mmu.h>
+>  #include <asm/kvm_nested.h>
+>  #include <asm/kvm_pkvm.h>
+> @@ -2396,7 +2397,7 @@ static int __init do_pkvm_init(u32 hyp_va_bits)
+>  	preempt_disable();
+>  	cpu_hyp_init_context();
+>  	ret = kvm_call_hyp_nvhe(__pkvm_init, hyp_mem_base, hyp_mem_size,
+> -				num_possible_cpus(), kern_hyp_va(per_cpu_base),
+> +				kern_hyp_va(per_cpu_base),
+>  				hyp_va_bits);
+>  	cpu_hyp_init_features();
+>  
+> @@ -2605,6 +2606,8 @@ static int __init init_hyp_mode(void)
+>  		kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu] = (unsigned long)page_addr;
+>  	}
+>  
+> +	kvm_nvhe_sym(hyp_nr_cpus) = num_possible_cpus();
 
-Acked-by: Maxime Ripard <mripard@kernel.org>
+Is num_possible_cpus() always the correct thing to do? Given that pKVM
+doesn't support late onlining, this really should be the number of
+online CPUs.
 
-Thanks!
-Maxime
+Probably not a big deal, but worth thinking about it.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
