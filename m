@@ -4,57 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBF84CFD642
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 14:44:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7AA1CFD642
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 14:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6H8gpQwI1s7Zi9ax0A0QaFOEFUuLgbrlyL5uRKTHwoI=; b=ddquacif7KjygBOuwfr0Rrmu9k
-	1VxhoxXX6yoXiqOmantvp7gDlUpbhUlTp419uaJ3kNsUvtrdmsSPDm/rh0stfShzFgeDtNrHw8VXd
-	dhzYvymaZNB+AIytww5Kp53a8+vWDdA//1QpV+Fk4DPpL4ZQR+j5ei5z4h7vaL73IOMBH8QBHJpnJ
-	pS8587EtbOOGOmkYEgkOt/Re4f1Eyvw13ZEZSFecRe2DMXaph1KMFc7L0u0PsmDeKIjOPiANaxNo0
-	NUhkEthUfd2+GCZkpd3qpZ7R/bLIk4Gu112mqqVh1a5cfNiKVnsJ9NV+Qc7rLfw0Zv4hjdWO1TiXo
-	H+A5K3hA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nTlOT3AM4kdk7PxlNs3Skb2xq4/lCpkf95bKd6Z7IFA=; b=LYqTvO+fKCo9fdgz/t4PgjpPMQ
+	6e7/WYEgz4+lQQ+Xrq3k75cKtvxeRW7yySBg+rrLRxY0bKWF+m4/kKjTb8KiMjQDlbJK8jIU5kKAa
+	1zC0DaHYb1gd96RxH95EyvsLUEBnA3sY9AOPcxewwGWnoqfMC1WyRRp7FFSpIEvUOUIEfUs36+GDP
+	TuHz5z6CoVV2IFwg2DCzwX1IA472XBcxAalUmm3lZnO/fXvvlq5c+iOVwQ2oW+aXz9jwJvVPAqjlK
+	nQ8VaTJ9CvM0N3yYHv7q8NKjVetk69Y0/RZWjVJZ3j0CBWQYL+UhtQwEf/tHVJi0U/yGYkzzfFBQ2
+	ga10PKGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdUmH-0000000F77C-2nXQ;
-	Wed, 07 Jan 2026 14:44:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdUmD-0000000F76p-2TPw
+	id 1vdUn9-0000000F7C0-06uS;
+	Wed, 07 Jan 2026 14:45:43 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdUn5-0000000F7BE-0hVk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 14:44:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 229F7497;
-	Wed,  7 Jan 2026 06:44:36 -0800 (PST)
-Received: from localhost (a079125.arm.com [10.164.21.37])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 21E253F6A8;
-	Wed,  7 Jan 2026 06:44:41 -0800 (PST)
-Date: Wed, 7 Jan 2026 20:14:38 +0530
-From: Linu Cherian <linu.cherian@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Marc Zyngier <maz@kernel.org>, Dev Jain <dev.jain@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 13/13] arm64: mm: Provide level hint for
- flush_tlb_page()
-Message-ID: <aV5xVhE1sf4l0gRf@a079125.arm.com>
-References: <20251216144601.2106412-1-ryan.roberts@arm.com>
- <20251216144601.2106412-14-ryan.roberts@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251216144601.2106412-14-ryan.roberts@arm.com>
+	Wed, 07 Jan 2026 14:45:41 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 616CD1A26E0;
+	Wed,  7 Jan 2026 14:45:36 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3334A606F8;
+	Wed,  7 Jan 2026 14:45:36 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 54B3D103C87C1;
+	Wed,  7 Jan 2026 15:45:26 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1767797135; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=nTlOT3AM4kdk7PxlNs3Skb2xq4/lCpkf95bKd6Z7IFA=;
+	b=mwG58V21Feidw7j15RkZ1DlmeBnygryUTg12PFyeun6SbL9UTMeQuBa/8vHS1eHFd8029L
+	gUBiXaA5jWnwZ2IoTRm9A0ijTAesUa4m5wNMBnTmFh/kEfP25+oWQuPHZcFzPm52arShlN
+	Z6LgEDcsgolgB1iwvYzSEO7kLDdcRqlxXrCocxejFHvB+d3UGfDMa3mipAFKt/h/EQuM9/
+	vMFxUGBzyLB/mtlmKx5GPM6T8Ub5eDu524wcrnK1htz4OoOxRzvVkBhGLLVU2p/DojiX3V
+	E3WLiGA8J/pTx5Gb0zznUhkhDBxNE2CLn0CfTKOwLLdUB8Mgwhp5crAsU6ogSg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 07 Jan 2026 15:45:24 +0100
+Message-Id: <DFIFS3S64SGO.3UGHYN3F6HHRQ@bootlin.com>
+Subject: Re: [PATCH 09/12] drm/bridge: imx8qxp-ldb: convert to
+ of_drm_find_and_get_bridge()
+Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>,
+ "Simona Vetter" <simona@ffwll.ch>, "Philippe Cornu"
+ <philippe.cornu@st.com>, <benjamin.gaignard@linaro.org>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Adrien Grassein"
+ <adrien.grassein@gmail.com>, "Liu Ying" <victor.liu@nxp.com>, "Shawn Guo"
+ <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
+ <festevam@gmail.com>, "Inki Dae" <inki.dae@samsung.com>, "Jagan Teki"
+ <jagan@amarulasolutions.com>, "Marek Szyprowski"
+ <m.szyprowski@samsung.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+ <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
+To: "Maxime Ripard" <mripard@kernel.org>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.20.1
+References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-0-283d7bba061a@bootlin.com> <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-9-283d7bba061a@bootlin.com> <20260107-weightless-adaptable-wildebeest-a3ed6f@houat>
+In-Reply-To: <20260107-weightless-adaptable-wildebeest-a3ed6f@houat>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_064445_690015_F7ADC3AB 
-X-CRM114-Status: GOOD (  21.79  )
+X-CRM114-CacheID: sfid-20260107_064539_342898_7DE48AA1 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,63 +91,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Maxime,
 
+Thanks for the blazingly fast review of the entire series!
 
-On Tue, Dec 16, 2025 at 02:45:58PM +0000, Ryan Roberts wrote:
-> Previously tlb invalidations issued by __flush_tlb_page() did not
-> contain a level hint. But the function is clearly only ever targeting
-> level 3 tlb entries and its documentation agrees:
-> 
->   | this operation only invalidates a single, last-level page-table
->   | entry and therefore does not affect any walk-caches
-> 
-> However, it turns out that the function was actually being used to
-> invalidate a level 2 mapping via flush_tlb_fix_spurious_fault_pmd(). The
-> bug was benign because the level hint was not set so the HW would still
-> invalidate the PMD mapping, and also because the TLBF_NONOTIFY flag was
-> set, the bounds of the mapping were never used for anything else.
-> 
-> Now that we have the new and improved range-invalidation API, it is
-> trival to fix flush_tlb_fix_spurious_fault_pmd() to explicitly flush the
-> whole range (locally, without notification and last level only). So
-> let's do that, and then update __flush_tlb_page() to hint level 3.
-> 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
->  arch/arm64/include/asm/pgtable.h  | 5 +++--
->  arch/arm64/include/asm/tlbflush.h | 2 +-
->  2 files changed, 4 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index b96a7ca465a1..61f57647361a 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -138,8 +138,9 @@ static inline void arch_leave_lazy_mmu_mode(void)
->  #define flush_tlb_fix_spurious_fault(vma, address, ptep)	\
->  	__flush_tlb_page(vma, address, TLBF_NOBROADCAST | TLBF_NONOTIFY)
->  
-> -#define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)	\
-> -	__flush_tlb_page(vma, address, TLBF_NOBROADCAST | TLBF_NONOTIFY)
-> +#define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)			\
-> +	__flush_tlb_range(vma, address, address + PMD_SIZE, PMD_SIZE, 2,	\
-> +			  TLBF_NOBROADCAST | TLBF_NONOTIFY | TLBF_NOWALKCACHE)
->  
->  /*
->   * ZERO_PAGE is a global shared page that is always zero: used
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index fa5aee990742..f24211b51df3 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -577,7 +577,7 @@ static inline void __flush_tlb_page(struct vm_area_struct *vma,
->  	unsigned long start = round_down(uaddr, PAGE_SIZE);
->  	unsigned long end = start + PAGE_SIZE;
->  
-> -	___flush_tlb_range(vma, start, end, PAGE_SIZE, TLBI_TTL_UNKNOWN,
-> +	___flush_tlb_range(vma, start, end, PAGE_SIZE, 3,
->  			   TLBF_NOWALKCACHE | flags);
->  }
+On Wed Jan 7, 2026 at 3:08 PM CET, Maxime Ripard wrote:
+> Hi,
+>
+> On Wed, Jan 07, 2026 at 02:13:00PM +0100, Luca Ceresoli wrote:
+>> of_drm_find_bridge() is deprecated. Move to its replacement
+>> of_drm_find_and_get_bridge() which gets a bridge reference, and ensure i=
+t
+>> is put when done.
+>>
+>> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+>> ---
+>>  drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c | 3 ++-
+>>  1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c b/drivers/gpu/drm/=
+bridge/imx/imx8qxp-ldb.c
+>> index 122502968927..6b80d798b27a 100644
+>> --- a/drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c
+>> +++ b/drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c
+>> @@ -552,7 +552,7 @@ static int imx8qxp_ldb_parse_dt_companion(struct imx=
+8qxp_ldb *imx8qxp_ldb)
+>>  		goto out;
+>>  	}
+>>
+>> -	imx8qxp_ldb->companion =3D of_drm_find_bridge(companion_port);
+>> +	imx8qxp_ldb->companion =3D of_drm_find_and_get_bridge(companion_port);
+>>  	if (!imx8qxp_ldb->companion) {
+>>  		ret =3D -EPROBE_DEFER;
+>>  		DRM_DEV_DEBUG_DRIVER(dev,
+>> @@ -679,6 +679,7 @@ static void imx8qxp_ldb_remove(struct platform_devic=
+e *pdev)
+>>  	struct ldb *ldb =3D &imx8qxp_ldb->base;
+>>
+>>  	ldb_remove_bridge_helper(ldb);
+>> +	drm_bridge_put(imx8qxp_ldb->companion);
+>
+> the companion bridge is used in pretty much every KMS hook, we need to
+> put the reference in destroy.
 
+Ouch, indeed! Will fix in v2.
 
-Reviewed-by: Linu Cherian <linu.cherian@arm.com>
+Luca
 
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
