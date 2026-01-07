@@ -4,68 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 410B2D0D16C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 19:43:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D931D0D16D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 19:46:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xRTbJOKwkZYdpEZZY1w1lPpqDpzoRzUFJtgND5Kkiuo=; b=0QtM4x3IpB//cncbck6m3eXH66
-	e4NVoUcyAF4sAuO8BReSXVH3SzHEmR3ZyFZBZoVN1AYGvs5J/x0Q7N+jaUkpGA+SlRKNSaGb6Zx+K
-	KrkSgTlCxOlPR7Oe3KYupTglSE35lOz5uRKz0qJFrbu+HVe3BM2e6SrfcmJKi3xO4LlYXEE01pbWW
-	oKhuMd2V6yMz/LwJ1zisZi6V31xU6tXz+r2xcgwiyM0l/eoOhZbZhf79GTW3SjOUUI88T61ewQZgd
-	2WR8C5U1KAXCfnIQcd810f/96mf66oyixkGdkcBiEQDLQbGqmA05S8TRMujfZjwn2FVMC7hXMOOp5
-	vjgyl2ow==;
+	bh=CE3ABoMb+Vlizhz6kCziTM3FHPDucALbbiym7WlJ74E=; b=f/c+RfxBsic3dHB8Fwbped3nx/
+	dcd9L9P3uw0lDzddQgl7xLw58vA1SLIx7R079mTSFXvc5v2GCmfsWfGri2XGp9I9GLGwkKimAf4sP
+	gV/0l/rxSCTSwWNazjAYeEhn67e6WhhyaoIDDkimngcY18325ZNrgD80gIyXZyLOaYry1zqasGaeE
+	vYewlVvFoovtHqWXSUDm5/8iiP0tboBP18Y67Jkpwmk8TSDEY71PRmqRql2DD53u6AQQ6ZKb3M8Va
+	TiSjBY3wMXaAKJTuE5g5gJd/mYtmNHV1uEf//THpZwLX3FyQFR5ydhmZFnFLV+8/XQnFz4LS6UZZh
+	kxji7pUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZQr-0000000FZ2X-0TV8;
-	Wed, 07 Jan 2026 19:43:01 +0000
-Received: from out-174.mta0.migadu.com ([91.218.175.174])
+	id 1vdZTi-0000000FZEB-2x71;
+	Wed, 07 Jan 2026 19:45:58 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdZQo-0000000FZ1h-0ktn
+	id 1vdZTZ-0000000FZCV-2Z2n
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 19:42:59 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1767814965;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xRTbJOKwkZYdpEZZY1w1lPpqDpzoRzUFJtgND5Kkiuo=;
-	b=fOmNBsdQH3r8E465w1m0/hb7SvFn25larE0IcdL+p1lfYSACDzHb5rx1GxekuQfFPZg0n0
-	PacZa6h2gPIF1ZxVPSGMo8o3KJ81ZOAK7ScRXXRrHDVDxAHWgZZ7lhna3gLX7vG6u8LQHe
-	n9x5hBQZKAYarCTcs5jQRetHJujtp+aT9f2s/kgAzJSQk3SXMH8zHAHYodXdgdHnwyNnPI
-	ZXMyckftmevLGOp1LZw7xy5097Jl+7EQreUBjVLzWtZMsgLARl+VRDT1EE/5r0Ukd6+Njj
-	FmOmX3riFNYkP6h1MYdGzFQEIDDUtOkIdavKfqFuoqTgm5TKFVwFKTzh61GQjQ==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 07 Jan 2026 20:42:37 +0100
-Message-Id: <DFIM3O2VB0ZR.2D0W676YS74KG@cknow-tech.com>
-To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Sandy
- Huang" <hjc@rock-chips.com>, =?utf-8?q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, "Andy Yan" <andy.yan@rock-chips.com>, "Louis Chauvet"
- <louis.chauvet@bootlin.com>, "Haneen Mohammed" <hamohammed.sa@gmail.com>,
- "Melissa Wen" <melissa.srw@gmail.com>
-Cc: "Robert Mader" <robert.mader@collabora.com>, <kernel@collabora.com>,
- <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, "Matt Roper"
- <matthew.d.roper@intel.com>
-Subject: Re: [PATCH v4 0/4] Introduce BACKGROUND_COLOR DRM CRTC property
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-References: <20251219-rk3588-bgcolor-v4-0-2ff1127ea757@collabora.com>
-In-Reply-To: <20251219-rk3588-bgcolor-v4-0-2ff1127ea757@collabora.com>
-X-Migadu-Flow: FLOW_OUT
+	Wed, 07 Jan 2026 19:45:54 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-b7cf4a975d2so422875466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 11:45:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1767815147; x=1768419947; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CE3ABoMb+Vlizhz6kCziTM3FHPDucALbbiym7WlJ74E=;
+        b=aTgAZg9BXhDHZtjbrnFV2Khtbu+9JSGnelq+Q4N+ph6gpXiYZCHE1HKkVLpklBmdnF
+         r8TomdR5+tBT7iMRDFBjp3iaQ5YHdOdebdHiy9q9fR9/xQSK7/cJnBlw8DJ10x1eX1KU
+         vUSr2eFLio+CDwOpV98n7xzy/Fq5V2eFGqQT0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767815147; x=1768419947;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=CE3ABoMb+Vlizhz6kCziTM3FHPDucALbbiym7WlJ74E=;
+        b=JrB96mqgpQkx+ikpbJgfMsUcHcvVDvaoeUrpkYJ/QHM03pixNvTQbbIIb+ge797skD
+         vQKPxDShQrAOHIg5WOr2mQRYmOG0AyuxCRGRwvQdjdxE0WZ41es+IOOeisp5DFrJDNo6
+         rm6Rge/jkmQ4mut35uSY21XmLwLM7ATREYFyuMWzb0/VAHPNeLf6rR6l0+9OGAlEqd0o
+         P5mkglDhs+V5t/q0jfiWUZ66B9HI7wAJ+KBTH//olkJuXrPsRM8u4+xPCZZOeVdplJF+
+         QIML9+34seqMVeHZP0WK+C6k5yMuuWg5OiG/2zCPNlIcAeYcwU50uhcCig3y+oJsXROL
+         6l8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUkrU59fxNoT6qw3vyqhOvYEi4fb2yQFNxvvGzj03LOgvrL6zExRyGAUDiiNZ9eQG9S8Yzrk0Acja2ZnU1Jd9fp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxiOjoMrjDXdAVq4DWjqmZWFacL1bmLcg8jCCdb9ta7c5OCed7
+	VZ4XyZ0wPdzKG8Rd0EE8WICSvjAJ88I5o8RQojTgTMWdieiiaipcbPHxh3cUTab9mVc=
+X-Gm-Gg: AY/fxX7SKScLU+K43NeMg5BbNtBq+dTB50W7Ax2rBVMK0z4er2pPv2wtef6w76a9FDu
+	wVaW85UYD2WHI7/2Zdbj6WKz+baCX0lYld2tagTpSEaG6D6gZj+OUE9/t7+998xIzgdPH6fh+KX
+	/UTyM/Qa5wnHQjMDfI8xDpeCXReZg4pagj5JtUuqCkEWvMu79bCWayKna2Ds2eCuHAg75Cqpwzs
+	cXsc972JL5GROaHPyE788Wn1RL19oEJWlTPHn/K8J5GIjwyc6c1xqUtDx4JNVMtntl7lEqN3B8a
+	CpvX4XeweX/r4PVo8IL3PtztUxyMEXiKmep1NQvbKOnSCYKq3ixl6ekrnpuA+h446ohifA88Shr
+	paPKaDGnmUBXrfYUqVlWfOG9CaX5+c6MOK0YLK7n5T+tmLOiPtz73mYweMOHGL+x+qQCkCuYnPO
+	FqEXIDpvh/E3UjrmEzo6eWgwkbXT0bcOCvwhV0123mD7j22LKLJIjxQgBa2u5PKVjkj/DOmYHOO
+	vcKPhJeZEpnNiEgGW5aZpdneul6f3rne8E=
+X-Google-Smtp-Source: AGHT+IFQ1zeeMjHCI/Trkv1q4PKObKTS13+fRskV7eQs/QQ1YzbP9PGEh8tMjNP2uYGa5sBa/tjusQ==
+X-Received: by 2002:a17:907:d0a:b0:b76:d734:d459 with SMTP id a640c23a62f3a-b844506436fmr387336366b.57.1767815147362;
+        Wed, 07 Jan 2026 11:45:47 -0800 (PST)
+Received: from dario-ThinkPad-P14s-Gen-5.amarulasolutions.com ([2.196.41.122])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b842a233fb3sm591201066b.12.2026.01.07.11.45.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 Jan 2026 11:45:46 -0800 (PST)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH 2/2] arm64: dts: st: add TAMP-NVRAM support for STM32MP25
+Date: Wed,  7 Jan 2026 20:45:33 +0100
+Message-ID: <20260107194541.1843999-2-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260107194541.1843999-1-dario.binacchi@amarulasolutions.com>
+References: <20260107194541.1843999-1-dario.binacchi@amarulasolutions.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_114258_357170_88D2E7DD 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20260107_114549_663762_F737D795 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,129 +105,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri Dec 19, 2025 at 10:46 PM CET, Cristian Ciocaltea wrote:
-> Some display controllers can be hardware-configured to present non-black
-> colors for pixels which are not covered by any plane (or are exposed
-> through transparent regions of higher planes).
-> ...
-> The subsequent patches add background color support to VKMS and the VOP2
-> display controller used in the RK3568, RK3576, and RK3588 Rockchip SoC
-> families.
+Add the TAMP node along with its NVRAM child node and define the
+fixed-layout for fwu_info and boot_mode registers.
 
-As previously reported against the v3, while I actually tested v4 ...
+The TAMP (Tamper and backup registers) block is a system controller that
+provides access to backup registers as NVMEM storage that persists across
+reboots.
 
-Cristian provided a helper script which would show a test pattern and
-then iterate through setting Red, Green, Blue background color and then
-set it back to the original value.
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
-I first tested this on a Rock 5B (RK3588).
-Without this patch set, the background color was Black with every
-iteration. But with this patch set, I did see a Red, Green and Blue
-background color, after which it was set back to Black.
+---
 
-diederik@rock5b:~$ grep -E "^Changing prop|^Read BACKGROUND_COLOR" bgcol-te=
-st-bash-user.log
-Read BACKGROUND_COLOR prop (ARGB64): 0xffff000000000000
-Changing prop value to: 0xffff00000000ffff
-Read BACKGROUND_COLOR prop (ARGB64): 0xffff00000000ffff
-Changing prop value to 0xffffffff00000000
-Read BACKGROUND_COLOR prop (ARGB64): 0xffffffff00000000
-Changing prop value to 0xffff0000ffff0000
-Read BACKGROUND_COLOR prop (ARGB64): 0xffff0000ffff0000
-Changing prop value to 0xffff00000000ffff
-Read BACKGROUND_COLOR prop (ARGB64): 0xffff00000000ffff
-Changing prop value to: 0xffff000000000000
-Read BACKGROUND_COLOR prop (ARGB64): 0xffff000000000000
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
 
-I then did the same test on a Quartz64-B (RK3566) and that too showed a
-Red, Green and Blue background color and then was set back to Black.
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index a8e6e0f77b83..c7839e732f31 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -2084,6 +2084,32 @@ rtc: rtc@46000000 {
+ 			status = "disabled";
+ 		};
+ 
++		tamp: tamp@46010000 {
++			compatible = "st,stm32-tamp", "syscon", "simple-mfd";
++			#address-cells = <1>;
++			#size-cells = <1>;
++			reg = <0x46010000 0x400>;
++			ranges;
++
++			nvram: nvram@46010100 {
++				compatible = "st,stm32mp25-tamp-nvram";
++				reg = <0x46010100 0x200>;
++				nvmem-layout {
++					compatible = "fixed-layout";
++					#address-cells = <1>;
++					#size-cells = <1>;
++
++					fwu_info: tamp-bkp@c0 {
++						reg = <0xc0 0x4>;
++					};
++
++					boot_mode: tamp-bkp@180 {
++						reg = <0x180 0x4>;
++					};
++				};
++			};
++		};
++
+ 		pinctrl_z: pinctrl@46200000 {
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
+-- 
+2.43.0
 
-diederik@quartz64b:~$ grep -E "^Changing prop|^Read BACKGROUND_COLOR" bgcol=
--test-bash-user-q64b.log
-Read BACKGROUND_COLOR prop (ARGB64): 0xffff000000000000
-Changing prop value to: 0xffff00000000ffff
-Read BACKGROUND_COLOR prop (ARGB64): 0xffff00000000ffff
-Changing prop value to 0xffffffff00000000
-Read BACKGROUND_COLOR prop (ARGB64): 0xffffffff00000000
-Changing prop value to 0xffff0000ffff0000
-Read BACKGROUND_COLOR prop (ARGB64): 0xffff0000ffff0000
-Changing prop value to 0xffff00000000ffff
-Read BACKGROUND_COLOR prop (ARGB64): 0xffff00000000ffff
-Changing prop value to: 0xffff000000000000
-Read BACKGROUND_COLOR prop (ARGB64): 0xffff000000000000
-
-So this patch set does what it is supposed to do, so feel free to add:
-
-Tested-by: Diederik de Haas <diederik@cknow-tech.com>
-
-Cheers,
-  Diederik
-
->
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
-> Changes in v4:
-> - Switched to simple bit-shifting approach when performing the bpc
->   conversion in the vop2 driver, to avoid the expensive division since
->   we shouldn't be concerned anymore about the precision (Chaoyi)
-> - Rebased series onto latest drm-misc-next
-> - Link to v3: https://lore.kernel.org/r/20251118-rk3588-bgcolor-v3-0-a2cc=
-909428ea@collabora.com
->
-> Changes in v3:
-> - Added new patches:
->   * uapi: Provide DIV_ROUND_CLOSEST()
->   * drm/vkms: Support setting custom background color
-> - Improved DRM_ARGB64_{PREP|GET}*() helpers by using a conversion ratio
->   for better color approximation when dealing with less than 16 bits of
->   precision
-> - Mentioned the IGT test in the cover letter while documenting the
->   validation results; also dropped references to the now useless
->   modetest wrapper script and its generated report
-> - Rebased series onto latest drm-misc-next
-> - Link to v2: https://lore.kernel.org/r/20251013-rk3588-bgcolor-v2-0-25cc=
-3810ba8c@collabora.com
->
-> Changes in v2:
-> - Improved uAPI consistency and readability by introducing
->   DRM_ARGB64_PREP*() and DRM_ARGB64_GET*() helper macros
-> - Updated several code comment sections
-> - Referenced the counterpart Weston support in the cover letter
-> - Rebased series onto v6.18-rc1
-> - Link to v1: https://lore.kernel.org/r/20250902-rk3588-bgcolor-v1-0-fd97=
-df91d89f@collabora.com
->
-> ---
-> Cristian Ciocaltea (4):
->       uapi: Provide DIV_ROUND_CLOSEST()
->       drm: Add CRTC background color property
->       drm/vkms: Support setting custom background color
->       drm/rockchip: vop2: Support setting custom background color
->
->  drivers/gpu/drm/drm_atomic_state_helper.c    |  1 +
->  drivers/gpu/drm/drm_atomic_uapi.c            |  4 ++
->  drivers/gpu/drm/drm_blend.c                  | 39 ++++++++++++++--
->  drivers/gpu/drm/drm_mode_config.c            |  6 +++
->  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 13 +++++-
->  drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  4 ++
->  drivers/gpu/drm/vkms/vkms_composer.c         | 10 ++++-
->  drivers/gpu/drm/vkms/vkms_crtc.c             |  3 ++
->  include/drm/drm_blend.h                      |  4 +-
->  include/drm/drm_crtc.h                       | 12 +++++
->  include/drm/drm_mode_config.h                |  5 +++
->  include/linux/math.h                         | 18 +-------
->  include/uapi/drm/drm_mode.h                  | 67 ++++++++++++++++++++++=
-++++++
->  include/uapi/linux/const.h                   | 17 +++++++
->  14 files changed, 178 insertions(+), 25 deletions(-)
-> ---
-> base-commit: 8e7460eac786c72f48c4e04ce9be692b939428ce
-> change-id: 20250829-rk3588-bgcolor-c1a7b9a507bc
->
->
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
-
+base-commit: f0b9d8eb98dfee8d00419aa07543bdc2c1a44fb1
+branch: stm32-tamp-nvram
 
