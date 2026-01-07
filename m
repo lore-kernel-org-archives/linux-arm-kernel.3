@@ -4,65 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6980D0D143
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:53:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96DE2D0D143
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 16:54:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CzdT4LNR7504Y+BrGqwCeK7rZnSgwTwnSN4cseQ/E9g=; b=SOGqwv2WmOwKzFY/inlIRF9Dg+
-	QTDhKtReAlnjPJ7uw3QrzwPUDx4+hCKmYbsdC0vEcXWnsskN6iycxFuhGxBDt8lBpyuRpmINrZeQZ
-	nMSQt76uB+zdH0W5bJ3gYHZYKr37ADuGy1Ml6h9qU3rR/jw9y/e7LPjDlNuZL92h5RqPhYbhu7sB2
-	HaCBJcvptLr4wf/dsz5wE79aOMOi2k58yaOWMA57ZeOMJAAMgBlAfv0Pt3Tfm7jT5y6ILozTF7mma
-	WNeFBTQEGVCSW4kll11yqMeVLvPgHM5iE7OMl2exZ8NPcZN50MwbmIAUffaTLWwlmJ5KyP9dr8xsO
-	GTWoFtJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CbT8XOkYcdMPnoZ82FJoEtPgqYxFFb5mjLUN404iVdo=; b=oVh/nws4Peo+1YSI+RAmM7fgLf
+	gg4Bm7MS1YaJBxnmgnZ+k+boBRg1Fn0VQt6c3QRf/TL7qovUdzRczpAwcbOA7iMPiRIeeo1Hqp4OS
+	S7o+SzOovBbPgtPx5UobBHrWwOq+yPqS4A0GWjtwtxLpLlQd7rLWkjy1Lnk6m6RK7rVkQjFxVVjfv
+	8a1LKNU3Ef/dLwXP5NinbOtwaOXiF2VhYCn02snM7/Y78B/CdrLKMqIdteAchbqBSC7CiGn1m+Vql
+	bcxaB3QrwWNMHQwHWzTLOzJBH6PvZbbzL4FNzLNhVSxM+4xDb6R6KiyU/XezbfWHr5oQwE0yCoc4O
+	k/dh7m+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWmL-0000000FL3G-1x6y;
-	Wed, 07 Jan 2026 16:53:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdWmJ-0000000FL2o-13y8
+	id 1vdWnZ-0000000FLB0-3qEK;
+	Wed, 07 Jan 2026 16:54:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdWnX-0000000FLAc-45Fr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 16:52:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4D00B6000A;
-	Wed,  7 Jan 2026 16:52:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F72FC4CEF1;
-	Wed,  7 Jan 2026 16:52:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767804777;
-	bh=Shd5mmE6P/nw2xrOG+cMibnmSWeGIUUuJFYBTbfi5iI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JnoEz4JtCLop4X4PmitW0XkO8WuKzicKzFLLTRTvi8ez8CGlhK54G4YScYsh9Ny5S
-	 4FeGWKN/7H+ylfe6GSdmvtSgPm0tx2MGAM0ncv1D7TgCEOPZWHM/6w5grHuSm9RQrQ
-	 rKRxdpls3RItooMiVVpE8eSHq/vRIf1Hg2bqtKZpZlYzdAVFuXzQn//ya/AQaFQnAp
-	 JoVf+NygHhhbt/Dl9xa/Jk+iqK6u+8VeUw6zK+Liy2ipvCRPW+HbFjImnISDkwWLZC
-	 XDTnAOHFZTietBXOkVibkpFNiEzUwSPjq1jomQ+E6bomd+y+5+VA/X1e65HUBkUqNX
-	 xLkxAWB3iaMeA==
-Date: Wed, 7 Jan 2026 16:52:52 +0000
-From: Will Deacon <will@kernel.org>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Jiri Olsa <jolsa@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
-	Mahe Tardy <mahe.tardy@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>, bpf@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
-	Yonghong Song <yhs@fb.com>, Song Liu <songliubraving@fb.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH bpf-next 1/2] arm64/ftrace,bpf: Fix partial regs after
- bpf_prog_run
-Message-ID: <aV6PZKx9g_hCz4ZW@willie-the-truck>
-References: <20260107093256.54616-1-jolsa@kernel.org>
- <aV5qpZwxgVRu2Q8w@willie-the-truck>
- <20260107110814.1dfc9ec0@gandalf.local.home>
+	Wed, 07 Jan 2026 16:54:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 45325497;
+	Wed,  7 Jan 2026 08:54:08 -0800 (PST)
+Received: from [10.57.46.202] (unknown [10.57.46.202])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B76E33F6A8;
+	Wed,  7 Jan 2026 08:54:11 -0800 (PST)
+Message-ID: <846e1998-b508-4433-9db6-3a52ff23552f@arm.com>
+Date: Wed, 7 Jan 2026 17:54:09 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260107110814.1dfc9ec0@gandalf.local.home>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: fix cleared E0POE bit after
+ cpu_suspend()/resume()
+To: Yeoreum Yun <yeoreum.yun@arm.com>, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: rafael@kernel.org, pavel@kernel.org, catalin.marinas@arm.com,
+ will@kernel.org, anshuman.khandual@arm.com, ryan.roberts@arm.com,
+ yang@os.amperecomputing.com, joey.gouly@arm.com, stable@vger.kernel.org
+References: <20260107162115.3292205-1-yeoreum.yun@arm.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260107162115.3292205-1-yeoreum.yun@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260107_085416_054817_33960819 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,59 +67,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 11:08:14AM -0500, Steven Rostedt wrote:
-> On Wed, 7 Jan 2026 14:16:05 +0000
-> Will Deacon <will@kernel.org> wrote:
-> 
-> > I still don't understand why we need anything new in the arch code for this.
-> > 
-> > We've selected HAVE_ARCH_FTRACE_REGS and we implement
-> > ftrace_regs_set_instruction_pointer() and ftrace_regs_set_return_value()
-> > so the core code already has everything it needs to make this work
-> > without additional arch support.
-> 
-> I believe the issue is that the BPF code takes a pt_regs and does the
-> update directly with that, and not the ftrace_regs.
-> 
-> I'm guessing this is due to BPF programs modifying the pt_regs directly,
-> and BPF programs do not yet understand ftrace_regs?
-> 
-> Because arm64 requires making a copy of pt_regs as the ftrace_regs has a
-> different layout, and the ftrace_regs is what does the changes, if the
-> pt_regs passed to the BPF program modifies the values it needs a way to
-> propagate that back to the ftrace_regs.
+On 07/01/2026 17:21, Yeoreum Yun wrote:
+> TCR2_ELx.E0POE is set during smp_init().
+> However, this bit is not reprogrammed when the CPU enters suspension and
+> later resumes via cpu_resume(), as __cpu_setup() does not re-enable E0POE
+> and there is no save/restore logic for the TCR2_ELx system register.
+>
+> As a result, the E0POE feature no longer works after cpu_resume().
+>
+> To address this, save and restore TCR2_EL1 in the cpu_suspend()/cpu_resume()
+> path, rather than adding related logic to __cpu_setup(), taking into account
+> possible future extensions of the TCR2_ELx feature.
+>
+> Cc: stable@vger.kernel.org
+> Fixes: bf83dae90fbc ("arm64: enable the Permission Overlay Extension for EL0")
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>
+> Patch History
+> ==============
+> from v1 to v2:
+>   - following @Kevin Brodsky suggestion.
+>   - https://lore.kernel.org/all/20260105200707.2071169-1-yeoreum.yun@arm.com/
+>
+> NOTE:
+>   This patch based on v6.19-rc4
+> ---
+>  arch/arm64/include/asm/suspend.h | 2 +-
+>  arch/arm64/mm/proc.S             | 8 ++++++++
+>  2 files changed, 9 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/include/asm/suspend.h b/arch/arm64/include/asm/suspend.h
+> index e65f33edf9d6..e9ce68d50ba4 100644
+> --- a/arch/arm64/include/asm/suspend.h
+> +++ b/arch/arm64/include/asm/suspend.h
+> @@ -2,7 +2,7 @@
+>  #ifndef __ASM_SUSPEND_H
+>  #define __ASM_SUSPEND_H
+>
+> -#define NR_CTX_REGS 13
+> +#define NR_CTX_REGS 14
+>  #define NR_CALLEE_SAVED_REGS 12
+>
+>  /*
+> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+> index 01e868116448..5d907ce3b6d3 100644
+> --- a/arch/arm64/mm/proc.S
+> +++ b/arch/arm64/mm/proc.S
+> @@ -110,6 +110,10 @@ SYM_FUNC_START(cpu_do_suspend)
+>  	 * call stack.
+>  	 */
+>  	str	x18, [x0, #96]
+> +alternative_if ARM64_HAS_TCR2
+> +	mrs	x2, REG_TCR2_EL1
+> +	str	x2, [x0, #104]
+> +alternative_else_nop_endif
+>  	ret
+>  SYM_FUNC_END(cpu_do_suspend)
+>
+> @@ -144,6 +148,10 @@ SYM_FUNC_START(cpu_do_resume)
+>  	msr	tcr_el1, x8
+>  	msr	vbar_el1, x9
+>  	msr	mdscr_el1, x10
+> +alternative_if ARM64_HAS_TCR2
+> +	ldr	x2, [x0, #104]
+> +	msr	REG_TCR2_EL1, x2
+> +alternative_else_nop_endif
 
-Sure, but isn't that exactly what selecting HAVE_ARCH_FTRACE_REGS says,
-and so any other architecture (i.e. riscv) using a separate structure
-will run into the same problem?
+Maybe this could be pushed further down cpu_do_resume, next to DISR_EL1
+maybe (since it's also conditional)? Otherwise the diff LGTM:
 
-In other words, add the helper to the core code along the lines of the
-diff below (purely untested, just to illustrate what I'm trying to get
-at).
+Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
 
-Will
+- Kevin
 
---->8
-
-diff --git a/include/linux/ftrace_regs.h b/include/linux/ftrace_regs.h
-index 15627ceea9bc..3ebd8cdac7c6 100644
---- a/include/linux/ftrace_regs.h
-+++ b/include/linux/ftrace_regs.h
-@@ -33,6 +33,15 @@ struct ftrace_regs;
- #define ftrace_regs_get_frame_pointer(fregs) \
-        frame_pointer(&arch_ftrace_regs(fregs)->regs)
- 
-+#else
-+
-+static __always_inline void
-+ftrace_partial_regs_update(const struct ftrace_regs *fregs, struct pt_regs *regs)
-+{
-+       ftrace_regs_set_instruction_pointer(fregs, instruction_pointer(regs));
-+       ftrace_regs_set_return_value(fregs, regs_return_value(regs));
-+}
-+
- #endif /* HAVE_ARCH_FTRACE_REGS */
- 
- /* This can be overridden by the architectures */
-
+>  	msr	sctlr_el1, x12
+>  	set_this_cpu_offset x13
+> --
+> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+>
 
