@@ -4,91 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C009CFD64E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 15:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BFC0CFD657
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 15:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/SR2gLuU1H5541mPq9C4V04vstpLOPeBOnMkn3dWO/g=; b=zH9oCidPneFM2FfEolzlDAuql+
-	RHP6zeLs13yvJvhp9Mbf1X0MC/3x34mM/IDbCvRr9+Ieq/NO+Wi7d0bVQGKPdL62vupfBg8EMJS9l
-	RBZ1ht/NAEXDkScYiPb56xqn1Ba0tF9EFgvTS2FIEDCx3Qw1YRTp+3Ot8IU43DfhZo9ATl9XINUSH
-	NnSLgctA+QltCx1miYJd7oURtUBKAU+ksxZOzXVhQs/ltLLoQZ13XFJ6KYfSdtNB5i7ilGkUXY2GM
-	P6j5EQZkln9ln3RGaT0bWpu/q3JBckhPpTaMrgSkurCUUviTTqUBlglUHPe7jwtijekN6QHvE8IfB
-	an/BGIcg==;
+	bh=nw40Ir4jfJwmv2oYtiB2Ib1feWYXGu6tc5nPrdPFnms=; b=2lRI1RsIQiURappqEUp6iSSBjL
+	OnidbPuaok5xzBxPNMqtnTgrrO5f69xeVfDtx1XumdWl9+UqGJH8f2ixaQYJVWhuQyU/zqn/Xhf9f
+	czS2ziAwzGzHYU44GytdhSbVkM/xypiiJoN2vI+oYqAwDpX5xPLMqR/NYP2K34M0hOfzJufEMW+cc
+	OxMyosJJyafoSNg35OxsyhSFVsNOSKMzrbGpd5ugSKc09WMWJZSTFfUFHK6yFVNIDxi3yebMmb1Yf
+	xXpYXo4DBjj2qhtI3F8AAY5rnoq8zqK8kZubq0IjLj2oPUgimRAmW7MqAxHYR0ZqQRWxqdyATGuGI
+	WZp7/APQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdVZc-0000000FBEm-2xpp;
-	Wed, 07 Jan 2026 15:35:53 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1vdVe8-0000000FBVf-2DQm;
+	Wed, 07 Jan 2026 15:40:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdVZW-0000000FBEB-0TgR
+	id 1vdVe6-0000000FBVK-1U2L
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 15:35:47 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2a0a95200e8so14373325ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 07:35:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767800141; x=1768404941; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/SR2gLuU1H5541mPq9C4V04vstpLOPeBOnMkn3dWO/g=;
-        b=lix0ou2nUg/xVrrZry2/3VB/Vqc4wnruMvlWWU02BdDQo09CdZEXjfJGyRHNIfo6jt
-         vH9uW09UE2viGehGqYwoPDIA+jKskV5Asz6yknCbiMvtVCDodwsOqQk7J5AUarGF+lF9
-         YDFnwHriLvTyHCfEKw6GHYbzQa98krxLSUOPVsL/HJCSwH/QXHjNfYEILqRkicWSNEKM
-         TxGBRh8B2wdAguyJJNE87V7nyod74GR0Aw/tgzog8yM4iO014ncqifEOnzyRMDXiz6ss
-         DNxEakGk80TJJD/PbSbBzs5zR8ok33kghna1YXvx0rO5zzoBuRt6vSTf1fwm/zsuJsMx
-         a1LQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767800141; x=1768404941;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/SR2gLuU1H5541mPq9C4V04vstpLOPeBOnMkn3dWO/g=;
-        b=YCO14xc5QBBAC5tpNEPFFyR45xV/IjzZsYg09PidL+6q8kYaO6awJbrFYGsbj24Hzp
-         TNtOQoNuRAJcoHSO3T72WOsSM/FuEgUykupMLxEw3Z45x8VfubE/TMdAwmCIPG7KvP3O
-         pJkY7Ej/GSw7lSdpNn/7/6Crwdv7NJiJ/7OH1t7bUyM2hhZqA9frMS/WPaQpWkcsb7Xs
-         zwLP3g/vW35Ior9xVv4dO+NoqAoTBdEfP2tr+2mBMMEHYh+8GR4EznRq1GaValfIebm9
-         Os18frPnpQw+PBYdAuwSC4KXsbTHp59bAM+0SJfItXW+m4EFtnDPwbHDtvY/lw21dmNB
-         2aUA==
-X-Forwarded-Encrypted: i=1; AJvYcCV9nPpHSh2lNApC1j0YqKPzNw+c9mJUu8mfouFEcUO8e9Bj/I/Joy7VP5lHPrP9AG9CUEiT3jSpcHeSvApgCxQA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwflDo+5rU68bHRN5iJ/OZvg5/A07Ke24K7wnAA24eEwDX4J4jH
-	DjNxR1VPWHnMK8SacbUsBZJQq9+5DRdj0WDDowXz643DMqxYnrdZ++g/wcFuTKTN+mA=
-X-Gm-Gg: AY/fxX62qctZRO+85W5zZLJ/MP1g+ugXwfAfqAKQWUZLbkxFTvlde9dACVEtPXFX43R
-	vEgNBwR2tBVbweRobOtlQRHHizr8Q95mPmpM4hcUsexfkFxIwAv2rdPuqj0M1d8SEOaPp+9+U+t
-	maiJGS+u3pCJ3lwALUA0XIEPVKaZjoMpeNBAiWJLApEOSezoRK/c8vMMUdYizaDxBbMWwL1uWAe
-	OuphUs+Yx9yxP+BnF31cCsbBhbfsrRIDFjJRY65rmaaoJFKr/ItFFHeiu2ZYtpXW9Tqv97xhPN9
-	peKnKidTFbx65yopT5gVi38Vv+/s6HDH3uy4m7rSlJrQTNohI6PQ2exe7Z1FTkq7g/H+qxQVQkw
-	B3gA4iTCE9ibEk0s+ZYg2pXrYJFHYJMrzpb6pmFiYKOmwQylSQoIHQuWtaspbvO4QTLJwDTo0Eu
-	vCrjaDZJDfpipHuQ==
-X-Google-Smtp-Source: AGHT+IGBvG5WmQSIVwy8pD5KbvRQIOMKna1wirHJXxpWkWLnZtjO89ZkOS60V0d1bqeYUMlW/GSgnw==
-X-Received: by 2002:a17:903:1105:b0:2a0:cb8d:2ed6 with SMTP id d9443c01a7336-2a3ee4d9b4bmr18514405ad.51.1767800140725;
-        Wed, 07 Jan 2026 07:35:40 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:9510:cc09:7589:5527])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-819c52f88casm5317448b3a.34.2026.01.07.07.35.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Jan 2026 07:35:40 -0800 (PST)
-Date: Wed, 7 Jan 2026 08:35:37 -0700
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Beleswar Padhi <b-padhi@ti.com>
-Cc: andersson@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, nm@ti.com, vigneshr@ti.com, kristo@kernel.org,
-	afd@ti.com, u-kumar1@ti.com, hnagalla@ti.com,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: remoteproc: Add HSM M4F core on TI
- K3 SoCs
-Message-ID: <aV59SdFU15HpLHeO@p14s>
-References: <20260106104755.948086-1-b-padhi@ti.com>
- <20260106104755.948086-2-b-padhi@ti.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260106104755.948086-2-b-padhi@ti.com>
+	Wed, 07 Jan 2026 15:40:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9FCA043F0D;
+	Wed,  7 Jan 2026 15:40:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74DE2C4CEF1;
+	Wed,  7 Jan 2026 15:40:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767800425;
+	bh=Xr0NRyAzk4dBNy+oJhpszKz1ke0Az0ldJi1gPQPAEJg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=LOZErcX2LYG0+yb4trCkM6SjaIIN5aaC/qd8DDOyfR5SLQ/PZzt5cNQGiJbB4sKXV
+	 z2zwYcX+CqTPLMmFU/MLMGeWLkRaSXpVjzn9Z/gwSOOgJZoRQ3r5BNi52MEOefOoXk
+	 JvLwu1LCzhZ8dBq1BiH5c+L1hU3T1cT/u3wutxBumRGaqUv9S9zQ0bjQ/ePba4pZeM
+	 KYbWDbWJulDpTC00SC42AqKS/mco6qzTP8QXZ24aO+BDQ6FMd3fWep/5uploOzLEjF
+	 Iz+JQN2yL+xK+U195UXvwR3pQkI6tmiQxe+gux1Qfmhzky257VUJTaVhHBtK2L2WKB
+	 NFcb+0IoxSijg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vdVe2-000000007Z8-3nQ6;
+	Wed, 07 Jan 2026 15:40:23 +0000
+Date: Wed, 07 Jan 2026 15:40:22 +0000
+Message-ID: <868qe9mnx5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	jstultz@google.com,
+	qperret@google.com,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	kernel-team@android.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v9 29/30] KVM: arm64: Add selftest event support to nVHE/pKVM hyp
+In-Reply-To: <20251202093623.2337860-30-vdonnefort@google.com>
+References: <20251202093623.2337860-1-vdonnefort@google.com>
+	<20251202093623.2337860-30-vdonnefort@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jstultz@google.com, qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org, kernel-team@android.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_073544_250885_D3A8EEEC 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20260107_074026_455702_A332BAB2 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,118 +98,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 06, 2026 at 04:17:53PM +0530, Beleswar Padhi wrote:
-> Some of the TI K3 family of SoCs have a HSM (High Security Module) M4F
-> core in the Wakeup Voltage Domain which could be used to run secure
-> services like Authentication. Add the device tree bindings document for
-> this HSM M4F core.
+On Tue, 02 Dec 2025 09:36:22 +0000,
+Vincent Donnefort <vdonnefort@google.com> wrote:
 > 
-> The added example illustrates the DT node for the HSM core present on K3
-> J722S SoC.
+> Add a selftest event that can be triggered from a `write_event` tracefs
+> file. This intends to be used by trace remote selftests.
 > 
-> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
-> ---
-> v2: Changelog:
-> [Krzysztof Kozlowski]:
->  1. Update commit msg to remove redundant "bindings".
->  2. Update filename to match compatible.
->  3. Remove "address-cells" & "size-cells" property. These belong to the
->     device's parent node.
->  4. Drop description from firmware-name property.
->  5. Fix indentation for DT example.
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 > 
-> Link to v1:
-> https://lore.kernel.org/all/20251231165102.950644-2-b-padhi@ti.com/
-> 
->  .../bindings/remoteproc/ti,hsm-m4fss.yaml     | 72 +++++++++++++++++++
->  1 file changed, 72 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/remoteproc/ti,hsm-m4fss.yaml
-> 
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index 37c015b54ff6..e2de7ad64938 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -96,6 +96,7 @@ enum __kvm_host_smccc_func {
+>  	__KVM_HOST_SMCCC_FUNC___tracing_update_clock,
+>  	__KVM_HOST_SMCCC_FUNC___tracing_reset,
+>  	__KVM_HOST_SMCCC_FUNC___tracing_enable_event,
+> +	__KVM_HOST_SMCCC_FUNC___tracing_write_event,
+>  };
+>  
+>  #define DECLARE_KVM_VHE_SYM(sym)	extern char sym[]
+> diff --git a/arch/arm64/include/asm/kvm_hypevents.h b/arch/arm64/include/asm/kvm_hypevents.h
+> index 268b3cd7a1b2..c276fd28e0bf 100644
+> --- a/arch/arm64/include/asm/kvm_hypevents.h
+> +++ b/arch/arm64/include/asm/kvm_hypevents.h
+> @@ -42,4 +42,15 @@ HYP_EVENT(hyp_exit,
+>  	),
+>  	HE_PRINTK("reason=%s", __hyp_enter_exit_reason_str(__entry->reason))
+>  );
+> +
+> +HYP_EVENT(selftest,
+> +	HE_PROTO(u64 id),
+> +	HE_STRUCT(
+> +		he_field(u64, id)
+> +	),
+> +	HE_ASSIGN(
+> +		__entry->id = id;
+> +	),
+> +	RE_PRINTK("id=%llu", __entry->id)
 
-I have applied this patch- Nishanth and Vignesh should handle the .dsti files.
+Not strictly related to this patch, but I find that the trace itself
+lacks context. For example:
+
+[001]	  323.847422: hyp_enter reason=hvc
+[001]	  323.847423: hyp_exit reason=eret_host
+[001]	  323.847688: hyp_enter reason=hvc
+[001]	  323.847688: hyp_exit reason=eret_host
+[001]	  323.847706: hyp_enter reason=hvc
+[001]	  323.847707: hyp_exit reason=eret_host
+[001]	  323.847722: hyp_enter reason=hvc
+[001]	  323.847723: hyp_exit reason=eret_host
+
+That's all fine as long as I'm dealing with a single guest, or even
+with a single vcpu. Trying to trace multiple guests, or even multiple
+vcpus makes the whole thing completely unusable, because I have no
+idea what I'm looking at.
+
+To make this useful, having some context provided by the host really
+is required.
 
 Thanks,
-Mathieu
 
-> diff --git a/Documentation/devicetree/bindings/remoteproc/ti,hsm-m4fss.yaml b/Documentation/devicetree/bindings/remoteproc/ti,hsm-m4fss.yaml
-> new file mode 100644
-> index 0000000000000..9244e60acee37
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/remoteproc/ti,hsm-m4fss.yaml
-> @@ -0,0 +1,72 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/remoteproc/ti,hsm-m4fss.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: TI K3 HSM M4F processor subsystems
-> +
-> +maintainers:
-> +  - Beleswar Padhi <b-padhi@ti.com>
-> +
-> +description: |
-> +  Some K3 family SoCs have a HSM (High Security Module) M4F core in the
-> +  Wakeup Voltage Domain which could be used to run secure services like
-> +  Authentication. Some of those are J721S2, J784S4, J722S, AM62X.
-> +
-> +$ref: /schemas/arm/keystone/ti,k3-sci-common.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - ti,hsm-m4fss
-> +
-> +  reg:
-> +    items:
-> +      - description: SRAM0_0 internal memory region
-> +      - description: SRAM0_1 internal memory region
-> +      - description: SRAM1 internal memory region
-> +
-> +  reg-names:
-> +    items:
-> +      - const: sram0_0
-> +      - const: sram0_1
-> +      - const: sram1
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  firmware-name:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - resets
-> +  - firmware-name
-> +  - ti,sci
-> +  - ti,sci-dev-id
-> +  - ti,sci-proc-ids
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        remoteproc@43c00000 {
-> +            compatible = "ti,hsm-m4fss";
-> +            reg = <0x00 0x43c00000 0x00 0x20000>,
-> +                  <0x00 0x43c20000 0x00 0x10000>,
-> +                  <0x00 0x43c30000 0x00 0x10000>;
-> +            reg-names = "sram0_0", "sram0_1", "sram1";
-> +            resets = <&k3_reset 225 1>;
-> +            firmware-name = "hsm.bin";
-> +            ti,sci = <&sms>;
-> +            ti,sci-dev-id = <225>;
-> +            ti,sci-proc-ids = <0x80 0xff>;
-> +        };
-> +    };
-> -- 
-> 2.34.1
-> 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
