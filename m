@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7142CF6BE3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 02:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83FD2CF6BE3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 02:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GODWTnll3gv54pyxhg5fcxPf5nv/jUJE+yJJ3lkoc/U=; b=LfmBPAEOCXRTdUrUYqjpJd1bYc
-	s5uaeVRzMZlOYfrTu7puKdUdMB9VlH+/ABy9nQeZh6afwO0enTe46PQXcrnJuD61DGd226CTPWeKI
-	j93soEGsxLKKRpzj+zGOP/jJF24rsyx7v3ac2UBKpiDKusOAZ3oC2mvj5TLxD5qsMVVQXEg3f0gTQ
-	d06SMl/mrkzcA6fqFxMWDUXfDtU9ubNpEtzWrEH/mH4s3uCIkxLKwXIaDqDvu4G9PYbnBCveyVtXw
-	XBYxd9H+xvO8SWZbE6HeW72BV6iQEO6+t4W5Up7mQebsX/K8ez6s+Y2ejbTqqNgolihudERJp6TEJ
-	T6LxOq8w==;
+	bh=5oRKHoRfokbEEDzQO6/g/zod77+qmAQWPDM1DzTwZiU=; b=5BxiemH3fG4qI2dWt4Y2xk9K06
+	k10kX0NMVD510bWI5xEDBrXBbJ9vC93tHx6WdSf2tevZ4+JdRIZBzX0tHgAbT/QGWJ/9ZwPuAC3Kk
+	tukfG0rpx4D3hs96h/rRbtmQGhINxw1Fa37AvWv15Rln4cAjjzx0J+yLVhaVFIfBkYUu9yQrtSvlX
+	Uwn90xvTqEuuAhI9SGF7qFn8PL8nZvWAnbmhnUri38+G8Olw5kDNeRxQ7+GeN9NSJmfNu6b3VaIVu
+	6zMhKUGrS/O6L9V6b9tZl57q646JArlsFaS3Yz6DUykp8mmMd8kQSToJnc/avkqFGNt4qGD2F02ZL
+	ngDb94kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdJ01-0000000E2Dg-2lQ6;
-	Wed, 07 Jan 2026 02:10:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdJ04-0000000E2HD-48eM;
+	Wed, 07 Jan 2026 02:10:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdIzy-0000000E29b-0tHS;
-	Wed, 07 Jan 2026 02:10:11 +0000
+	id 1vdIzz-0000000E2AY-18MO;
+	Wed, 07 Jan 2026 02:10:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E052C443E8;
-	Wed,  7 Jan 2026 02:10:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A372CC116C6;
-	Wed,  7 Jan 2026 02:10:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EF8D3443F4;
+	Wed,  7 Jan 2026 02:10:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA3BFC19423;
+	Wed,  7 Jan 2026 02:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767751809;
-	bh=P1nkQlwmHCB4ptKpTcMysgD54OQnmfZucCNh/Rw44NM=;
+	s=k20201202; t=1767751810;
+	bh=YrnlD7633PVliJ61smTwoQ8PijcGS3rXVJe9bcmSyts=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Nt7J2x57XD42gESqOOQZA3WLIBVGvcDmyrHPNjEav6/k5cST1RrjBrzzpItd3tWbo
-	 /dvvf5v5l6kcr4plhg3rcfFneCUeGZknqL2eYCbN8CRKXv7tPczu1sZxrUqaveg5lF
-	 wVhZn2Y4QJ7Pp2Y5c9WT3ZB2GPhLhS6zz+d6nBBsrsqp9eI3fkfegTHZp61SBZhQ2h
-	 YUXEShQ/DmRvTVXzJgmP0tco1+Rmt38hE9qjTUTHL+d0pf/atYrssPBwdR1WW/JrNu
-	 rWWwcFO/l+xkwzBpM5ji7egDJ9FVcU7X9shFDAAo7e0cx5QvlT3Lzl4kvwhkrsJ/Tx
-	 n6x64WXSthdvg==
+	b=SGH21g2HP1Fq/dTQaW6QN1EVjl9N+MD6l3/VUqh9+prH1RPMpFZ7h+qrjeHmlDE0j
+	 P61oeE+PSz5ijUaiH4unB0e9HslGtad5cHf494Tu5wY88vvQTSnO2cYFjxyvn9G+cV
+	 7NdbY3fgL2e7la9lsKkdRQBdhAvyNcoPeT+Kz/62C2jz0+cRBi7Ode/XJgAVGYYcGO
+	 KWFz7B542smI+bLR1WhBsW4KMRS6vL+IlNdGaQraLo6DRQ0dmjpPIbi5KbFq++/oMT
+	 2DCfmuBqE7+oIF3JIL6OsztIGbHYsZwBpGqpxEMVk8r61goI/OKO8tef8kVhwhnOYH
+	 p6m4dVhw/ViQQ==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Tue, 06 Jan 2026 20:09:42 -0600
-Subject: [PATCH 03/13] arm64: dts: broadcom: bcm2712: Move non simple-bus
- nodes to root level
+Date: Tue, 06 Jan 2026 20:09:43 -0600
+Subject: [PATCH 04/13] arm64: dts: broadcom: Remove unused and undocumented
+ nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260106-dt-dtbs-broadcom-fixes-v1-3-ba45874e4553@kernel.org>
+Message-Id: <20260106-dt-dtbs-broadcom-fixes-v1-4-ba45874e4553@kernel.org>
 References: <20260106-dt-dtbs-broadcom-fixes-v1-0-ba45874e4553@kernel.org>
 In-Reply-To: <20260106-dt-dtbs-broadcom-fixes-v1-0-ba45874e4553@kernel.org>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -60,8 +60,8 @@ Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_181010_334556_57B4F241 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20260106_181011_373044_B56A4FD6 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,108 +76,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'gpu' and 'firmware' nodes are not MMIO devices, so they should not be
-under a 'simple-bus'.
+The "silabs,si3226x" and "brcm,bdc-v0.16" nodes have no documentation
+and no driver in the kernel, so remove them. They can be added back with
+proper documentation if there is a need for them.
+
+Note that if both USB ports have similar memory maps in relationship to
+their USB PHY nodes, it looks like the device controller should have
+been at 0x12000, not 0x21000?
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts  | 49 ++++++++++------------
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi          |  8 ++--
- 2 files changed, 26 insertions(+), 31 deletions(-)
+ arch/arm64/boot/dts/broadcom/northstar2/ns2-svk.dts   | 16 ----------------
+ .../boot/dts/broadcom/stingray/stingray-usb.dtsi      | 19 -------------------
+ 2 files changed, 35 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts
-index 04738bf281eb..7d4742ebe247 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts
-@@ -44,6 +44,28 @@ power_button: power-button {
- 		};
- 	};
+diff --git a/arch/arm64/boot/dts/broadcom/northstar2/ns2-svk.dts b/arch/arm64/boot/dts/broadcom/northstar2/ns2-svk.dts
+index 5939d342aec7..f06472edd4a1 100644
+--- a/arch/arm64/boot/dts/broadcom/northstar2/ns2-svk.dts
++++ b/arch/arm64/boot/dts/broadcom/northstar2/ns2-svk.dts
+@@ -106,22 +106,6 @@ &uart3 {
  
-+	firmware: firmware {
-+		compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
-+
-+		mboxes = <&mailbox>;
-+
-+		firmware_clocks: clocks {
-+			compatible = "raspberrypi,firmware-clocks";
-+			#clock-cells = <1>;
-+		};
-+
-+		reset: reset {
-+			compatible = "raspberrypi,firmware-reset";
-+			#reset-cells = <1>;
-+		};
-+
-+		power: power {
-+			compatible = "raspberrypi,bcm2835-power";
-+			firmware = <&firmware>;
-+			#power-domain-cells = <1>;
-+		};
-+	};
-+
- 	sd_io_1v8_reg: sd-io-1v8-reg {
- 		compatible = "regulator-gpio";
- 		regulator-name = "vdd-sd-io";
-@@ -189,33 +211,6 @@ wifi: wifi@1 {
- 	};
+ &ssp0 {
+ 	status = "okay";
+-
+-	slic@0 {
+-		compatible = "silabs,si3226x";
+-		reg = <0>;
+-		spi-max-frequency = <5000000>;
+-		spi-cpha;
+-		spi-cpol;
+-		pl022,interface = <0>;
+-		pl022,slave-tx-disable = <0>;
+-		pl022,com-mode = <0>;
+-		pl022,rx-level-trig = <1>;
+-		pl022,tx-level-trig = <1>;
+-		pl022,ctrl-len = <11>;
+-		pl022,wait-state = <0>;
+-		pl022,duplex = <0>;
+-	};
  };
  
--&soc {
--	firmware: firmware {
--		compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
--		#address-cells = <1>;
--		#size-cells = <1>;
--
--		mboxes = <&mailbox>;
--		dma-ranges;
--
--		firmware_clocks: clocks {
--			compatible = "raspberrypi,firmware-clocks";
--			#clock-cells = <1>;
--		};
--
--		reset: reset {
--			compatible = "raspberrypi,firmware-reset";
--			#reset-cells = <1>;
--		};
--	};
--
--	power: power {
--		compatible = "raspberrypi,bcm2835-power";
--		firmware = <&firmware>;
--		#power-domain-cells = <1>;
--	};
--};
--
- /* uarta communicates with the BT module */
- &uarta {
- 	uart-has-rtscts;
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-index d57a9b1bff70..330a121ebfcb 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-@@ -508,10 +508,6 @@ axi: axi {
- 			     <0x18 0x00000000  0x18 0x00000000  0x04 0x00000000>,
- 			     <0x1c 0x00000000  0x1c 0x00000000  0x04 0x00000000>;
- 
--		vc4: gpu {
--			compatible = "brcm,bcm2712-vc6";
--		};
--
- 		pcie0: pcie@1000100000 {
- 			compatible = "brcm,bcm2712-pcie";
- 			reg = <0x10 0x00100000 0x00 0x9310>;
-@@ -648,6 +644,10 @@ mip1: msi-controller@1000131000 {
+ &ssp1 {
+diff --git a/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi b/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi
+index ac4f7b8f9273..3fa9e57185b2 100644
+--- a/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi
++++ b/arch/arm64/boot/dts/broadcom/stingray/stingray-usb.dtsi
+@@ -31,16 +31,6 @@ xhci0: usb@1000 {
+ 			status = "disabled";
  		};
- 	};
  
-+	vc4: gpu {
-+		compatible = "brcm,bcm2712-vc6";
-+	};
-+
- 	timer {
- 		compatible = "arm,armv8-timer";
- 		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) |
+-		bdc0: usb@2000 {
+-			compatible = "brcm,bdc-v0.16";
+-			reg = <0x0 0x00002000 0x0 0x1000>;
+-			interrupts = <GIC_SPI 259 IRQ_TYPE_LEVEL_HIGH>;
+-			phys = <&usbphy0 0>, <&usbphy0 1>;
+-			phy-names = "phy0", "phy1";
+-			dma-coherent;
+-			status = "disabled";
+-		};
+-
+ 		usbphy1: usb-phy@10000 {
+ 			compatible = "brcm,sr-usb-combo-phy";
+ 			reg = <0x0 0x00010000 0x0 0x100>;
+@@ -65,13 +55,4 @@ xhci1: usb@11000 {
+ 			status = "disabled";
+ 		};
+ 
+-		bdc1: usb@21000 {
+-			compatible = "brcm,bdc-v0.16";
+-			reg = <0x0 0x00021000 0x0 0x1000>;
+-			interrupts = <GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>;
+-			phys = <&usbphy2>;
+-			phy-names = "phy0";
+-			dma-coherent;
+-			status = "disabled";
+-		};
+ 	};
 
 -- 
 2.51.0
