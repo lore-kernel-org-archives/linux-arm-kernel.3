@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D0F0CFD621
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 12:46:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D949CFD620
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 12:47:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=U0JgeuAbQemw+voiZWQUuLEiKQcI3Vhyv7bAQJFPmdE=; b=Sws/URlsB6KTzBD5zaf0xg7C3p
-	/5hxy/fo56rY/P+PaWAVxVxQJebSv3XzSQlUuqzvA4JOH5hCQLt7oWeEPngkqKHfl5Lgy/jMQQ2ab
-	BdwOytvUNmTxYKsjy8NGMn0UTw+p9pclDzCyr8sYxhvSCtqH69QzeD3GbuEQJY80Ou+aOVwH7JXrs
-	OaNwGCSYropeVucrcTJn0YcSMIkT615KNDFOt3MlgRNzPLBCboqCLMwL53dMkM8JDAs7BtVLF/sDE
-	TC9iLzgXJgHYbN+M1LnOcpciJaCXdn2O+w4aqy4Bct19klTnOiXbUn5GhwVD15jJi85HA53EZ+pL1
-	QkSTuEsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BKnix1J6rDpZMfV4pAl9g55evDLMb0SWr/a5c7qFs2k=; b=frl9lFbPxgSgkK1gYZCB8qPh9/
+	IkBKkSy4aHcJn3wPVSwOeAD91BZh4uLIQshA/T9C8T6+Y4uHjsbCeSxrGj1V8nmKOaD+9g3Tf9iZS
+	/wGaE6M6z56hJbFhQQknKieJAxQTBwel8dDTXsquupgVZZ6kOSf0RzhW/6iw25czricO+QQtZYkid
+	RkCT0DdnxQQoQcj+syptLrHZnpFcNpwVycS910WoRmp6g9AZgVbbSFEByOJweKqbNoeW/QzsaTdMC
+	AbeYSrE/kx6go8oAnAXADxLSA6fvPDMad3AeISxE6ITz0gfSmr/+J5N/ciJM9TFzPtrRdd13TwT8/
+	9G7wmrRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdSvS-0000000EvEh-1DWC;
-	Wed, 07 Jan 2026 12:46:10 +0000
+	id 1vdSx5-0000000EvMS-3FtN;
+	Wed, 07 Jan 2026 12:47:51 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdSvP-0000000EvE7-2K9W
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 12:46:08 +0000
+	id 1vdSx1-0000000EvM0-2X0q;
+	Wed, 07 Jan 2026 12:47:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5BD3843E74;
-	Wed,  7 Jan 2026 12:46:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3771DC4CEF7;
-	Wed,  7 Jan 2026 12:46:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2F74744180;
+	Wed,  7 Jan 2026 12:47:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85D26C4CEF7;
+	Wed,  7 Jan 2026 12:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767789965;
-	bh=syl65owdP/RoGcNFHCnmuoWpmj3uNZRH9TwzlTpjGms=;
-	h=From:To:Cc:Subject:Date:From;
-	b=rJIQXrmD2xnnqMZ65SkCCDm7c0xLAcMx7CHgIa4bV4T/EZwd5+9CW/iaI+TmDj5/y
-	 KwhVL0Ha+NwsHueK4axzL6PoUFENR222xJOG87+WGqaBTJ8a9QNbCUKHWAvrZ3mCOJ
-	 6tjyt/8ky3XsyAW3nxIYEFFkRD8v9Y1U3oe5VRsEaOxCoU/P0N5wn7DuA23HwxpsFT
-	 JeXP8UVM/XUoh8AStF5S1X+cG1vT76wye+zILPfuj24CfDVzSD9Mz+fk4r+/IulhnF
-	 BzVVkjEUxvYklmKhp5bB9jbB6DZnyuJxog4lgU21ov3TRUMpes4mIn/LKchTg07c1w
-	 yuV5hEZmEm4bw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vdSvK-000000004LB-3tNb;
-	Wed, 07 Jan 2026 12:46:03 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: [PATCH] KVM: arm64: Don't blindly set set PSTATE.PAN on guest exit
-Date: Wed,  7 Jan 2026 12:46:00 +0000
-Message-ID: <20260107124600.2736328-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, mark.rutland@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1767790067;
+	bh=187QeaYOCJ9bxj/owdya1F/qotNUlNFLu04+ah4+UhQ=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
+	b=OOWbVaP4Grpkvk8qeJu/gFqhaeXjRRFxPHKu84aFwOgDLJW/sm33qZ4VvDqenf5dr
+	 WpKlTlqmt3ddOxc91KUW9clzq/di0sQuAnKbESTGAJRGMGm2acjxzynTEekuxDmE4I
+	 71QvDceGfrwauXBlfv/AAx+dxKRshIyq3o8iqcboVDrcWSIClEHZqxH/+x2QRUirpV
+	 FeyQkUIi95ml+FwsDw4X0/4gDPTNvdEAdodTmsgEVv066v3rJKDB+DdVqLjhRj0Dx9
+	 2F3PMmS07tCcm9KWspeKNPibyk0Hy50fVF8uBeudxl3cl9DyINHHracdJJ17q3zyG4
+	 FFLJ/1tRZ89gw==
+Message-ID: <6ae21650d05e50b1d13d72617d6897c4@kernel.org>
+Date: Wed, 07 Jan 2026 12:47:44 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>
+Subject: Re: [PATCH v3 10/10] drm/debug: don't register files for
+ unsupported HDMI InfoFrames
+In-Reply-To: <20251224-limit-infoframes-2-v3-10-7fd3cacfefed@oss.qualcomm.com>
+References: <20251224-limit-infoframes-2-v3-10-7fd3cacfefed@oss.qualcomm.com>
+Cc: dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, "Abhinav
+ Kumar" <abhinav.kumar@linux.dev>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Andy
+ Yan" <andy.yan@rock-chips.com>, "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>, "Chen-Yu
+ Tsai" <wens@kernel.org>, "Chun-Kuang Hu" <chunkuang.hu@kernel.org>, "Dave
+ Stevenson" <dave.stevenson@raspberrypi.com>, "David Airlie" <airlied@gmail.com>, "Dmitry
+ Baryshkov" <lumag@kernel.org>, =?utf-8?b?SGVpa28gU3TDvGJuZXI=?= <heiko@sntech.de>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, "Jessica Zhang" <jesszhan0024@gmail.com>, "Jonas
+ Karlman" <jonas@kwiboo.se>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liu
+ Ying" <victor.liu@nxp.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marijn
+ Suijten" <marijn.suijten@somainline.org>, "Matthias Brugger" <matthias.bgg@gmail.com>, "Maxime
+ Ripard" <mripard@kernel.org>, =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, "Philipp Zabel" <p.zabel@pengutronix.de>, "Raspberry
+ Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Rob Clark" <robin.clark@oss.qualcomm.com>, "Robert
+ Foss" <rfoss@kernel.org>, "Samuel Holland" <samuel@sholland.org>, "Sandy
+ Huang" <hjc@rock-chips.com>, "Sean Paul" <sean@poorly.run>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_044607_644000_91DEAB4E 
-X-CRM114-Status: GOOD (  20.28  )
+X-CRM114-CacheID: sfid-20260107_044747_685388_C4F41755 
+X-CRM114-Status: UNSURE (   6.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,122 +84,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We set PSTATE.PAN to 1 on exiting from a guest if PAN support has
-been compiled in and that it exists on the HW. However, this is not
-necessarily correct.
+On Wed, 24 Dec 2025 03:02:59 +0200, Dmitry Baryshkov wrote:
+> Having debugfs files for the InfoFrames that are not supported by the
+> driver is confusing, stop registering those in the debugfs.
+> 
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-In a nVHE configuration, there is no notion of PAN at EL2, so setting
-PSTATE.PAN to anything is pointless.
+Acked-by: Maxime Ripard <mripard@kernel.org>
 
-Furthermore, not setting PAN to 0 when CONFIG_ARM64_PAN isn't set
-means we run with the *guest's* PSTATE.PAN (which might be set to 1),
-and we will explode on the next userspace access. Yes, the architecture
-is delightful in that particular corner.
-
-Fix the whole thing by always setting PAN to something when running
-VHE (which implies PAN support), and only ignore it when running nVHE.
-
-Reported-by: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/include/asm/kvm_asm.h |  2 ++
- arch/arm64/include/asm/sysreg.h  |  3 ++-
- arch/arm64/kernel/image-vars.h   |  1 +
- arch/arm64/kvm/hyp/entry.S       |  4 +++-
- arch/arm64/kvm/va_layout.c       | 28 ++++++++++++++++++++++++++++
- 5 files changed, 36 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index a1ad12c72ebf1..ce516d8187b1b 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -300,6 +300,8 @@ void kvm_get_kimage_voffset(struct alt_instr *alt,
- 	__le32 *origptr, __le32 *updptr, int nr_inst);
- void kvm_compute_final_ctr_el0(struct alt_instr *alt,
- 	__le32 *origptr, __le32 *updptr, int nr_inst);
-+void kvm_pan_patch_el2_entry(struct alt_instr *alt,
-+			     __le32 *origptr, __le32 *updptr, int nr_inst);
- void __noreturn __cold nvhe_hyp_panic_handler(u64 esr, u64 spsr, u64 elr_virt,
- 	u64 elr_phys, u64 par, uintptr_t vcpu, u64 far, u64 hpfar);
- 
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 129a5349e9984..939f9c5bbae67 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -91,7 +91,8 @@
-  */
- #define pstate_field(op1, op2)		((op1) << Op1_shift | (op2) << Op2_shift)
- #define PSTATE_Imm_shift		CRm_shift
--#define SET_PSTATE(x, r)		__emit_inst(0xd500401f | PSTATE_ ## r | ((!!x) << PSTATE_Imm_shift))
-+#define ENCODE_PSTATE(x, r)		(0xd500401f | PSTATE_ ## r | ((!!x) << PSTATE_Imm_shift))
-+#define SET_PSTATE(x, r)		__emit_inst(ENCODE_PSTATE(x, r))
- 
- #define PSTATE_PAN			pstate_field(0, 4)
- #define PSTATE_UAO			pstate_field(0, 3)
-diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-index 85bc629270bd9..211f0e2e55e21 100644
---- a/arch/arm64/kernel/image-vars.h
-+++ b/arch/arm64/kernel/image-vars.h
-@@ -86,6 +86,7 @@ KVM_NVHE_ALIAS(kvm_patch_vector_branch);
- KVM_NVHE_ALIAS(kvm_update_va_mask);
- KVM_NVHE_ALIAS(kvm_get_kimage_voffset);
- KVM_NVHE_ALIAS(kvm_compute_final_ctr_el0);
-+KVM_NVHE_ALIAS(kvm_pan_patch_el2_entry);
- KVM_NVHE_ALIAS(spectre_bhb_patch_loop_iter);
- KVM_NVHE_ALIAS(spectre_bhb_patch_loop_mitigation_enable);
- KVM_NVHE_ALIAS(spectre_bhb_patch_wa3);
-diff --git a/arch/arm64/kvm/hyp/entry.S b/arch/arm64/kvm/hyp/entry.S
-index 9f4e8d68ab505..d1ccddf9e87d9 100644
---- a/arch/arm64/kvm/hyp/entry.S
-+++ b/arch/arm64/kvm/hyp/entry.S
-@@ -126,7 +126,9 @@ SYM_INNER_LABEL(__guest_exit, SYM_L_GLOBAL)
- 
- 	add	x1, x1, #VCPU_CONTEXT
- 
--	ALTERNATIVE(nop, SET_PSTATE_PAN(1), ARM64_HAS_PAN, CONFIG_ARM64_PAN)
-+	alternative_cb ARM64_ALWAYS_SYSTEM, kvm_pan_patch_el2_entry
-+	nop
-+	alternative_cb_end
- 
- 	// Store the guest regs x2 and x3
- 	stp	x2, x3,   [x1, #CPU_XREG_OFFSET(2)]
-diff --git a/arch/arm64/kvm/va_layout.c b/arch/arm64/kvm/va_layout.c
-index 91b22a014610b..bf888d150dc79 100644
---- a/arch/arm64/kvm/va_layout.c
-+++ b/arch/arm64/kvm/va_layout.c
-@@ -296,3 +296,31 @@ void kvm_compute_final_ctr_el0(struct alt_instr *alt,
- 	generate_mov_q(read_sanitised_ftr_reg(SYS_CTR_EL0),
- 		       origptr, updptr, nr_inst);
- }
-+
-+void kvm_pan_patch_el2_entry(struct alt_instr *alt,
-+			     __le32 *origptr, __le32 *updptr, int nr_inst)
-+{
-+	/*
-+	 * If we're running at EL1 without hVHE, then SCTLR_EL2.SPAN means
-+	 * nothing to us (it is RES1), and we don't need to set PSTATE.PAN
-+	 * to anything useful.
-+	 */
-+	if (!is_kernel_in_hyp_mode() && !cpus_have_cap(ARM64_KVM_HVHE))
-+		return;
-+
-+	/*
-+	 * Leap of faith: at this point, we must be running VHE one way or
-+	 * another, and FEAT_PAN is required to be implemented. If KVM
-+	 * explodes at runtime because your system does not abide by this
-+	 * requirement, call your favourite HW vendor, they have screwed up.
-+	 *
-+	 * We don't expect hVHE to access any userspace mapping, so always
-+	 * set PSTATE.PAN on enty. Same thing if we have PAN enabled on an
-+	 * EL2 kernel. Only force it to 0 if we have not configured PAN in
-+	 * the kernel (and you know this is really silly).
-+	 */
-+	if (cpus_have_cap(ARM64_KVM_HVHE) || IS_ENABLED(CONFIG_ARM64_PAN))
-+		*updptr = cpu_to_le32(ENCODE_PSTATE(1, PAN));
-+	else
-+		*updptr = cpu_to_le32(ENCODE_PSTATE(0, PAN));
-+}
--- 
-2.47.3
-
+Thanks!
+Maxime
 
