@@ -4,102 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41659CF6BE3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 01:46:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0138CF6BE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  7 Jan 2026 02:09:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IeLz8B+FFA+xmUGLHkiMAf9w6+beNxbYkBoeeKfR+nQ=; b=yYzRmQvHHfT29lu4yUcKP9iH9g
-	Ua3PPB2h5RL+qVaVgklULdTMLfvZkYJM1vwkUXSRlNSVYK5YZ2guRzFVVlShk8Yh4geAcRtptWr4T
-	eH99sXU5vHvKYgablDwcUkESgqcgfx497zadrNOUQcUg8+b3G7gE2xjx4Ug/xm8twhVnsVrFmO7gf
-	dMGtzGhmPeetionrqZDc6PtawPB8cKf4EK4PSAkH+GhwCtDIZiQkTbisOMFoVcOCKGEXIjFOqFGHH
-	NsqPNE7Ly/1fQYTkbHnqLQO2UpYkhAfMIlfHvW9IuUZYC7FfzOi4cy+miKQ/D1yMTk7ZCXC9xE3KE
-	1/mTTN9g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rs9i/dpcFls+6gnrrGAaTSrNpo/sLIYIwNh6FKmNBtQ=; b=eWi+O5oHfQPoJgWD1rg6TEQYGH
+	Xbajv5zCiwkQZso5I7SvI4ii+1zd1Drn4M7NFSO4f2JMZwM/t8FtHAEfbF4ZkeQP+uNqr+P8VTM1T
+	0FhYprgPGDqNKBNWQ69UfnlPJ8jIHpoMg9LOGCURILbnnMy6RtA4SPu/hRl/9BkKyAbadfWNo2KEs
+	dqOZNyqSqCm36YP9RAj7cyl3YykgHY50O1jNEhK/9pSwa1xWNbV3KaX4Bs6YmAX/7TY9u9QhcuV/N
+	8I6nr6P4uPa65w+0/cKKjmxD9i+etVspLxWXE9Y9hQityI70rQG/wecoInOjt1srffQFbfK861f57
+	bYN/XATg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdIch-0000000E1Wv-1n2j;
-	Wed, 07 Jan 2026 01:46:07 +0000
-Received: from mail-ej1-x643.google.com ([2a00:1450:4864:20::643])
+	id 1vdIz0-0000000E23E-1gVG;
+	Wed, 07 Jan 2026 02:09:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdIce-0000000E1WY-3hFy
+	id 1vdIyx-0000000E22r-1q3l
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 07 Jan 2026 01:46:06 +0000
-Received: by mail-ej1-x643.google.com with SMTP id a640c23a62f3a-b7cf4a975d2so267268366b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 Jan 2026 17:46:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767750363; x=1768355163; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-transfer-encoding
-         :content-disposition:mime-version:references:reply-to:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=IeLz8B+FFA+xmUGLHkiMAf9w6+beNxbYkBoeeKfR+nQ=;
-        b=Iqc+GJ604uerg93RGRoKuKW8HvrulnvLaSt/ps8EP+MImsXokewUQ5k9UX6G2qhOB1
-         F5MaRLT9Wdwpia1ChtrYHzOBznHrCPE6aSJiJax0bqglfo+Ie4+UCzrvZ5yYNEM85WRJ
-         1Ev97SeZDygbIppfooLwzHxuglPeHk862F2s0WI0p2+kd1z5M75C8Xf3C4TQnE0yBu4x
-         B8nZF09ZKjMpbGmqw4iszlrqG64S+zVguTzE5bxMprzzO0MFGZTfdALqnoqO/v29F+NT
-         OxOHKx6c0rW9VqsaA6gEjbCoFXIawbjCMCRBzBljmCA76o+AFt/dbG1hZPvFaSzgt/ld
-         B3YA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767750363; x=1768355163;
-        h=user-agent:in-reply-to:content-transfer-encoding
-         :content-disposition:mime-version:references:reply-to:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IeLz8B+FFA+xmUGLHkiMAf9w6+beNxbYkBoeeKfR+nQ=;
-        b=such0SRb1xHTVR9vaHwk06S6iv2eWYXjbSGyMEDevn2QjWjveo6t4TU4EP00PQLUnp
-         VV3LjJou5OKBXQeQ06BFQEKqsPVE8H4Ti/VTmrMDQzGRQPVtKQzBm0khX8st1Add+6to
-         BfpaOgiEvrxp5P5LAepvw0v2CuiaVF6q1jGcSjz3N/rdJTPtv96gfanOncWN72n+0Q38
-         1HdHlyNpTH5cvlJK75jzW/Q0kJd+PJhKsHtKJf3QB9qVXuPA78yBsb8Ccso0zfRmfRZX
-         eCdY58L35K0Hqyjdv760G47rcNh7Yjky46HfvkFuYTTRBisemcvsjfxC/4p6kcEg2DjE
-         a4TQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW9Hol5C0ZQ5XDNuzRScbfHwOIFE2fWWXoKYdV1rw6m9GTw9DZMcJOALi4nfv9imzejm0/xju3GA2ca0PCPOZOF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJdzWv+OXPg1A8tWVqIE7AK5+K0N0Xbk/Jf1InQrSkTr/r252e
-	ovlY7g+6rzG5cOWFsQ7flGxXJw/U4QJ62kuX7HgwdEto5TvBiHxVg8Ck
-X-Gm-Gg: AY/fxX4jFnfyV9fYaci6NdYQwd6nqqilCi7EyR4JvdBm/YEzMbn05+62ykxjmEfP2y5
-	pW2K3klbXrNe1UEhraJ9uhka0zEus8/dJwS6H7NVSNHNI4hNlhV8cJmKWKMIDAi8/my4nEF/YYg
-	tIBnMnevEdegJlVPz8d9A2Nonh0AfrF+IczfDgx9GxGtOFhkrqGVywrGkBADzlvlIZB/sgBpiMV
-	kMTBb3nOvGA3nmyoS1FF9ZCsBDwNblqBaKVawK5Yv9ORnYQtnlvrsldqRGax1LxqO7QMX/DFzak
-	3cAYtWQnH1QGVR7FWJPh5Uddhbok2YL5fr9giGNRme7w7LoTioaDfPpOxRqr1zonvaRL+TH8JY2
-	koZhAEGiFfc0wkURvcDO2MFpQgFks/HLbN5UwGTNp+/7CPx7BrDnMfFE4ag13Lww3nDcle7Ifk0
-	BL/j+R/zZK6csD9qXDqKB5
-X-Google-Smtp-Source: AGHT+IFeA6mkv79CriXKt6qQAcQGV8CynmdXfqBxQvsbb+Aj2IP7Z2BA07re20HuxUP8m4dAAyg8xw==
-X-Received: by 2002:a17:906:ef02:b0:b80:751:ee62 with SMTP id a640c23a62f3a-b8444c8e95bmr98318966b.14.1767750362536;
-        Tue, 06 Jan 2026 17:46:02 -0800 (PST)
-Received: from localhost ([185.92.221.13])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b842a230db0sm375951066b.2.2026.01.06.17.46.01
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Tue, 06 Jan 2026 17:46:02 -0800 (PST)
-Date: Wed, 7 Jan 2026 01:46:01 +0000
-From: Wei Yang <richard.weiyang@gmail.com>
-To: Barry Song <21cnbao@gmail.com>
-Cc: Wei Yang <richard.weiyang@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	akpm@linux-foundation.org, david@kernel.org,
-	catalin.marinas@arm.com, will@kernel.org,
-	lorenzo.stoakes@oracle.com, ryan.roberts@arm.com,
-	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org,
-	surenb@google.com, mhocko@suse.com, riel@surriel.com,
-	harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
-	dev.jain@arm.com, linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 5/5] mm: rmap: support batched unmapping for file
- large folios
-Message-ID: <20260107014601.dxvq6b7ljgxwg7iu@master>
-References: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
- <142919ac14d3cf70cba370808d85debe089df7b4.1766631066.git.baolin.wang@linux.alibaba.com>
- <20260106132203.kdxfvootlkxzex2l@master>
- <CAGsJ_4yKRtyADU2ZxUMgvqdrhAEL4SpZxCMRt28gNJfUf--5zQ@mail.gmail.com>
+	Wed, 07 Jan 2026 02:09:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D00A342AA5;
+	Wed,  7 Jan 2026 02:09:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 580F7C116C6;
+	Wed,  7 Jan 2026 02:09:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767751742;
+	bh=zc/jxjcF6joL67iBKRqLw1dlXUV+eOqt9LCpxQHLzMc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=A1b36/RosaUrz9qbTDLKQ62OAD4gm9IcmjQIlcNRiShtU9MzbZXy1XefApwe2k0+z
+	 onpGCQtMZ09mvbgAbucuBe1aAwisrNQfj7lSX1KWo2HLMEySiAhU2+FTxxtoN3OpkD
+	 HZnQ0pGCspxYd1QrKr0D45hVjSWP2kVv7yAMkeNG0eokPZhchrFrwvjR58uMj6q8YU
+	 8S2VkCjZQWIbWBTmvrpLF4SQ/9AmFXWjP20Q+6qLM77E26gxx/kjwd3dkf6YELhEsU
+	 kBzxvC6oeR92xzw/5iOo19C+jFG5paCR2QeOyYriiH9B/3gFsg31rXE/B808+b4RNh
+	 zi8Ez0t4BSuNg==
+Message-ID: <8435a4f3-9afc-46fd-a6d5-9b86a417e01c@kernel.org>
+Date: Tue, 6 Jan 2026 20:09:00 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGsJ_4yKRtyADU2ZxUMgvqdrhAEL4SpZxCMRt28gNJfUf--5zQ@mail.gmail.com>
-User-Agent: NeoMutt/20170113 (1.7.2)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] dt-bindings: net: altr,socfpga-stmmac: deprecate
+ 'stmmaceth-ocp'
+To: Rob Herring <robh@kernel.org>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Mamta Shukla <mamta.shukla@leica-geosystems.com>,
+ Ahmad Fatoum <a.fatoum@pengutronix.de>,
+ bsp-development.geo@leica-geosystems.com,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20260105-remove_ocp-v2-0-4fa2bda09521@kernel.org>
+ <20260105-remove_ocp-v2-3-4fa2bda09521@kernel.org>
+ <20260106190126.GA2537154-robh@kernel.org>
+Content-Language: en-US
+From: Dinh Nguyen <dinguyen@kernel.org>
+In-Reply-To: <20260106190126.GA2537154-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260106_174605_070579_EE8F0867 
-X-CRM114-Status: GOOD (  27.41  )
+X-CRM114-CacheID: sfid-20260106_180907_522285_68212822 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,150 +86,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 10:29:25AM +1300, Barry Song wrote:
->On Wed, Jan 7, 2026 at 2:22 AM Wei Yang <richard.weiyang@gmail.com> wrote:
+
+
+On 1/6/26 13:01, Rob Herring wrote:
+> On Mon, Jan 05, 2026 at 06:08:22AM -0600, Dinh Nguyen wrote:
+>> Make the reset name 'stmmaceth-ocp' as deprecated and to use 'ahb' going
+>> forward.
 >>
->> On Fri, Dec 26, 2025 at 02:07:59PM +0800, Baolin Wang wrote:
->> >Similar to folio_referenced_one(), we can apply batched unmapping for file
->> >large folios to optimize the performance of file folios reclamation.
->> >
->> >Barry previously implemented batched unmapping for lazyfree anonymous large
->> >folios[1] and did not further optimize anonymous large folios or file-backed
->> >large folios at that stage. As for file-backed large folios, the batched
->> >unmapping support is relatively straightforward, as we only need to clear
->> >the consecutive (present) PTE entries for file-backed large folios.
->> >
->> >Performance testing:
->> >Allocate 10G clean file-backed folios by mmap() in a memory cgroup, and try to
->> >reclaim 8G file-backed folios via the memory.reclaim interface. I can observe
->> >75% performance improvement on my Arm64 32-core server (and 50%+ improvement
->> >on my X86 machine) with this patch.
->> >
->> >W/o patch:
->> >real    0m1.018s
->> >user    0m0.000s
->> >sys     0m1.018s
->> >
->> >W/ patch:
->> >real   0m0.249s
->> >user   0m0.000s
->> >sys    0m0.249s
->> >
->> >[1] https://lore.kernel.org/all/20250214093015.51024-4-21cnbao@gmail.com/T/#u
->> >Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->> >Acked-by: Barry Song <baohua@kernel.org>
->> >Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
->> >---
->> > mm/rmap.c | 7 ++++---
->> > 1 file changed, 4 insertions(+), 3 deletions(-)
->> >
->> >diff --git a/mm/rmap.c b/mm/rmap.c
->> >index 985ab0b085ba..e1d16003c514 100644
->> >--- a/mm/rmap.c
->> >+++ b/mm/rmap.c
->> >@@ -1863,9 +1863,10 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
->> >       end_addr = pmd_addr_end(addr, vma->vm_end);
->> >       max_nr = (end_addr - addr) >> PAGE_SHIFT;
->> >
->> >-      /* We only support lazyfree batching for now ... */
->> >-      if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
->> >+      /* We only support lazyfree or file folios batching for now ... */
->> >+      if (folio_test_anon(folio) && folio_test_swapbacked(folio))
->> >               return 1;
->> >+
->> >       if (pte_unused(pte))
->> >               return 1;
->> >
->> >@@ -2231,7 +2232,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
->> >                        *
->> >                        * See Documentation/mm/mmu_notifier.rst
->> >                        */
->> >-                      dec_mm_counter(mm, mm_counter_file(folio));
->> >+                      add_mm_counter(mm, mm_counter_file(folio), -nr_pages);
->> >               }
->> > discard:
->> >               if (unlikely(folio_test_hugetlb(folio))) {
->> >--
->> >2.47.3
->> >
+>> Signed-off-by: Dinh Nguyen <dinguyen@kernel.org>
+>> ---
+>>   .../devicetree/bindings/net/altr,socfpga-stmmac.yaml          | 11 +++++++++--
+>>   1 file changed, 9 insertions(+), 2 deletions(-)
 >>
->> Hi, Baolin
->>
->> When reading your patch, I come up one small question.
->>
->> Current try_to_unmap_one() has following structure:
->>
->>     try_to_unmap_one()
->>         while (page_vma_mapped_walk(&pvmw)) {
->>             nr_pages = folio_unmap_pte_batch()
->>
->>             if (nr_pages = folio_nr_pages(folio))
->>                 goto walk_done;
->>         }
->>
->> I am thinking what if nr_pages > 1 but nr_pages != folio_nr_pages().
->>
->> If my understanding is correct, page_vma_mapped_walk() would start from
->> (pvmw->address + PAGE_SIZE) in next iteration, but we have already cleared to
->> (pvmw->address + nr_pages * PAGE_SIZE), right?
->>
->> Not sure my understanding is correct, if so do we have some reason not to
->> skip the cleared range?
->
->I don’t quite understand your question. For nr_pages > 1 but not equal
->to nr_pages, page_vma_mapped_walk will skip the nr_pages - 1 PTEs inside.
->
->take a look:
->
->next_pte:
->                do {
->                        pvmw->address += PAGE_SIZE;
->                        if (pvmw->address >= end)
->                                return not_found(pvmw);
->                        /* Did we cross page table boundary? */
->                        if ((pvmw->address & (PMD_SIZE - PAGE_SIZE)) == 0) {
->                                if (pvmw->ptl) {
->                                        spin_unlock(pvmw->ptl);
->                                        pvmw->ptl = NULL;
->                                }
->                                pte_unmap(pvmw->pte);
->                                pvmw->pte = NULL;
->                                pvmw->flags |= PVMW_PGTABLE_CROSSED;
->                                goto restart;
->                        }
->                        pvmw->pte++;
->                } while (pte_none(ptep_get(pvmw->pte)));
+>> diff --git a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
+>> index fc445ad5a1f1..4ba06a955fe2 100644
+>> --- a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
+>> +++ b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
+>> @@ -13,8 +13,6 @@ description:
+>>     This binding describes the Altera SOCFPGA SoC implementation of the
+>>     Synopsys DWMAC for the Cyclone5, Arria5, Stratix10, Agilex5 and Agilex7
+>>     families of chips.
+>> -  # TODO: Determine how to handle the Arria10 reset-name, stmmaceth-ocp, that
+>> -  # does not validate against net/snps,dwmac.yaml.
+>>   
+>>   select:
+>>     properties:
+>> @@ -84,6 +82,15 @@ properties:
+>>         - sgmii
+>>         - 1000base-x
+>>   
+>> +  resets:
+>> +    minItems: 1
+> 
+> That's already the min in the referenced schema.
 >
 
-Yes, we do it in page_vma_mapped_walk() now. Since they are pte_none(), they
-will be skipped.
+Yeah, I had to add this, else it would fail the 'make dt_binding_check 
+DT_SCHEMA_FILES'.
 
-I mean maybe we can skip it in try_to_unmap_one(), for example:
+>> +
+>> +  reset-names:
+>> +    deprecated: true
+>> +    items:
+>> +      - const: stmmaceth-ocp
+> 
+> This says stmmaceth-ocp is the 1st entry, but it is the 2nd.
+> 
+> You can't really fix this to validate a DT using stmmaceth-ocp. I would
+> just drop this. So that leaves this with just dropping the TODO.
 
-diff --git a/mm/rmap.c b/mm/rmap.c
-index 9e5bd4834481..ea1afec7c802 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -2250,6 +2250,10 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 		 */
- 		if (nr_pages == folio_nr_pages(folio))
- 			goto walk_done;
-+		else {
-+			pvmw.address += PAGE_SIZE * (nr_pages - 1);
-+			pvmw.pte += nr_pages - 1;
-+		}
- 		continue;
- walk_abort:
- 		ret = false;
+Got it.
 
-Not sure this is reasonable.
+Thanks,
+Dinh
 
-
--- 
-Wei Yang
-Help you, Help me
 
