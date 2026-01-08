@@ -4,156 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4CE4CFD635
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 08:13:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FE93CF6BE5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 08:13:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EOpKu29gbkhYCVM6ymo6QJshbyqZrRec0zE9f0B29aI=; b=DUyqZqJGn92X0qNw6RE6MZaJLH
-	E+Qr51fnngz+pDOCsMdVr4YzOK0kVsQZadDsdVPt3oGVJSw8BF4GfLZ2BUsdBYYNmj979L9g/bcDd
-	EIb5cBNYVkmaqK3kBqk+iX5h8FuhpEbOm9TArtN9Xsynrt1bRugTQLUVNxUXf61ySLog0iZMj5NVr
-	AE/tULgzMTN//7tqPNZBXPmzbHuQ0hPvSU2jxX7c0r8GSWYJ6YjuJU8Pm7S3AOZgHgp2Mv0aPKG7U
-	wQp9iP24/Y12hiaRp9oEH4ZD728GLzu2m9Lh/Uzm7d9mVOLIBe/F5XGmLrEtzVGJWoocAGKtWNBjO
-	P5CErHTQ==;
+	bh=JjdnKLGbGj7ApxflVZeMDcDhVr+BADzqrFCPwgCMEBo=; b=2eDWvC/AZXpA+SSWCDU10AuI5F
+	55jQOE5OTawjhwuKQyLkYAbmQykWDZBeOqQttHWolXlb/srBiS+XcTUtEaMXpAFpzdSPMNKugpmiM
+	ijorq7ABbnHq2GTPBk6KV0Rux/g/DzLBgACtAxEh95uy0IiwkuxRqscfd05sTAUxAgIVgaTGEMzgs
+	BbSzNEzaofxh4yPR20foTYw+jCWXsh7uN+tbWZqRgD58usQD6QzTWLUbOMKibzVhJDxdj1ZgZr8ts
+	I9r1ZK6+rBINk2XYGSUR2fIiH6vcFj0XK0/7vNjteW06v1nT1+M1O/RWV6wATs48wCqZEf94/ieY5
+	30RCFbJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdl98-0000000GEs3-3C10;
-	Thu, 08 Jan 2026 08:13:30 +0000
-Received: from mail-francecentralazon11013047.outbound.protection.outlook.com ([40.107.162.47] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vdl9A-0000000GEth-1YW9;
+	Thu, 08 Jan 2026 08:13:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdl96-0000000GEpP-0lxJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 08:13:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Gee/YYCWDNTlbuh4SYdY+EOfMumFz3lW8T7yF91R3g/B9VfMQw2VegFYUEcso8b+aV89TgBFbn63vbpm/2yXd5v/HzzRU924jhxKSLr46eAwlkgWT++WFpYQRXND0DCfjROxYjHiTogM8dzrI0Zq5g6Th+QjFGHzqMK/Sqj81NYcoM5a2e+qAaJgzSoQo1FUg8x4kHY+lbHUfeLdd41chS5jY+PG7VbgGBZVQTH9s9NOF9ntj3WVd2JIiLQfTOKREMEDZFJa70WghGmtok2xuF3xczXqRLFhnXk5CK60kdmPgp9hsdNOu/2qLF1RVwib6LG/BMx56dHScSsqBg5wbg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EOpKu29gbkhYCVM6ymo6QJshbyqZrRec0zE9f0B29aI=;
- b=KgA+xelYb0zKhM5xbii0kDgmj1UIZ1b9QKYh7txY7w1AjBGZ3YyOZLVxQ4VkNhKICSff87jHkUWOLMD8iDwaHOIDwLbODLz3UwbxroSewfgoOMhOJjwPF8Cu80UoCKdnWcZ3gcMjuQy0+26BlDYU5dG54vwik8lQa9ozpixX0t+PjFVS8cI24tR/Wq1ZQT8vpqE2w+WMaJLmrPwLifrXFEdM0+sONYi6QjVteHbNL7cS57GOk20QFT69pYk4GgAjuvJiYlFHYSasO1kxSS4uiUB59MLB/tjbuVus8UIcUgazozhNZZ5FzKq+93DYIrm3y9QzE9NPEKoTezq990HJpQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EOpKu29gbkhYCVM6ymo6QJshbyqZrRec0zE9f0B29aI=;
- b=knVmbH/Mejyal0Sh/DOrHO2irUUHvyUXTu/drODDlFlNyeHq+acEDzBdo2GFBl5b9ZEX7KQlXtltFixOKeM5OcLllAOfjJfMPs5UbvRx34hKGi+XXSKSoumIBxZUJwTs8LpcnYtOm7imbzXoDJa+yc2W8xigTxdfjVyTWddLlrZmEJfle/6HjPqHS9Dtb5Ba9IR+9l1Vf1+jZxP8uKDswmsBCckrA84ISwk9SC020Nn36RpefNcUGmo4BIUbY06mRT0oODvn+MTY2VTbKcmhRx3x1Bkj1mQdbjlfGDpw9RB2fYbYSg852B5ctYjlBKFT+WCBOTFWbp1NTcy4coBAgA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by AM0PR04MB11916.eurprd04.prod.outlook.com (2603:10a6:20b:6fc::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.3; Thu, 8 Jan
- 2026 08:13:24 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce%5]) with mapi id 15.20.9478.004; Thu, 8 Jan 2026
- 08:13:24 +0000
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Thinh.Nguyen@synopsys.com,
-	gregkh@linuxfoundation.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	jun.li@nxp.com
-Subject: [PATCH v3 3/3] usb: dwc3: imx8mp: disable auto suspend for host role
-Date: Thu,  8 Jan 2026 16:14:33 +0800
-Message-Id: <20260108081433.2119328-3-xu.yang_2@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260108081433.2119328-1-xu.yang_2@nxp.com>
-References: <20260108081433.2119328-1-xu.yang_2@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR01CA0194.apcprd01.prod.exchangelabs.com
- (2603:1096:4:189::22) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|AM0PR04MB11916:EE_
-X-MS-Office365-Filtering-Correlation-Id: defdffb1-c19a-4145-482c-08de4e8dcb4a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|19092799006|376014|7416014|1800799024|366016|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BVYCV4HxgbfGeSerjxPIrVATfwerRzKmK4gmyAl2lDnJ21s0lNpnDiO7+mPK?=
- =?us-ascii?Q?U5C8S+syvZna//7oheBmmbB5smnFk9qLl25ckDDAQQNszNhzsbYbh6L0XPx9?=
- =?us-ascii?Q?y/Z2c/nxjwlSmcXrOb8q3/45ISgZ18PC69euf+NTOrkg8c/UtLCk+zrdwq0c?=
- =?us-ascii?Q?3BJUqd2LUxd4CvjXTreTJbAch96spvDSqS+Nn83KClufxLMaVVvBp3PiuPjr?=
- =?us-ascii?Q?v2QWVN4dn896gnYElIgc0NXiZ0a5VmGmIBSLnkYKFRmS/8AVQAMLOHT7Heyt?=
- =?us-ascii?Q?oFnqstkQWjXKPrD/xxBKgFWF19JiQVRka5fCpae7rOs2yUyk/3EPrAfAvwar?=
- =?us-ascii?Q?FKmZXjaVAZEVlNMnA5E2F5M8kHVj9H1r1tjXGNc6B1/RUYVHac4Zs3qztRXh?=
- =?us-ascii?Q?VW6Rwd5Smdkp6tn/HMa6WSpBgGCvMYGHv9qTTw2fJq163P3Teh1m8E7xdjug?=
- =?us-ascii?Q?DbwLMY1bDdYU97h27iFfiKQU9DkefMk4mQbpwxgWgP68tGaIYv3w3uv7YuJc?=
- =?us-ascii?Q?f2xkif3O49I8mPh95P8ch/quonKzuSSPoHRKVZuiJoHJnNFsEbaRXm412T1f?=
- =?us-ascii?Q?wUm5A0tELshzVB/SVb7MlndROTl9jCYYRcIqUpQHzjfrKzmQmmad78lvfeSV?=
- =?us-ascii?Q?M5fLBWPWkwq9aW4ltqkz9vqKbUEzIma0uWLo9N6VylL0mfAs2JMTX2zUyYo/?=
- =?us-ascii?Q?dTZ8U0BMxDsQLBprgnE1JcvxdRXoGeokNPigr+uWznFwJqnMyeK/UWvV8PL6?=
- =?us-ascii?Q?G8XxmVlaUZpuNOKCp8i8DWB5dt+F/CotLaEr3+NERbNC3gaL9bdMpfodX4U/?=
- =?us-ascii?Q?m+Fv4zK5hB28NS0wnoAcHoSBojosBJdWwun2IWWYPHzkGk2NbRBStTuI7750?=
- =?us-ascii?Q?wCKwl65R/HpvC6mw+VvN2NOBBRSWrRlyVy1rt2pXHqTC4s7MGBRlswHmvzq1?=
- =?us-ascii?Q?sBC3jUfJUtBjPrmwF+FiW1IvnXJDwMzAU2ufSJX7oKkJPj/znjofWbHLlTLp?=
- =?us-ascii?Q?btmohPka2y7+YRRUKeRtuExN+3YcLS+wfwfW2sXn+Gok+xPjTiTTD2R9jkY0?=
- =?us-ascii?Q?E/sIra0rDqxPbKPqT0g02oKEN8lKFIOIEhsTXUF0Ruih74lZ7yQZ/qHo4BTP?=
- =?us-ascii?Q?ebSKkjflV9rw0Y8h6roxw7tAxGBjnwcl8WUcTtcBS1bzIZ5Gg9zmlKM0k5ou?=
- =?us-ascii?Q?gWRaJmkTa8kKjATyYtagKb/PdDyMQVDIW/dAnAVzZUGdN23MNKab0vjB3XeC?=
- =?us-ascii?Q?9b4kZrV7GueTt3R2Q0HAYmoxANLHbTdatacJmfaAm9nH76lVbnW80mkRPvJT?=
- =?us-ascii?Q?BtZdl0gbyZLCPHcEwgVIK1JhoHxr+WqXk6VizpJSLutKarQqqNs85u1c0ue/?=
- =?us-ascii?Q?tvqz312fpi4WoS6etr0YL1L96MB5M6B8BYKzRZ28LYZNRZga5AKHNnT8S/Do?=
- =?us-ascii?Q?fknnrULs8mv0vO7Xbvmi2E6rQoeeTm0VhVRPaWJzOJ/aKqjj2XLmq4QdaATp?=
- =?us-ascii?Q?sh4zs+3VdiAx0vHZez0TdCvKEh/Sg00DWvd1?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(19092799006)(376014)(7416014)(1800799024)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?w9eD3mcrNFq5PKosqTwrv/S4m/rmrbXjyJP+9GQKQa5MLSESY32NfzUclwAn?=
- =?us-ascii?Q?aw/xD0Oheisdis0fae8xKxAXpcsfLjF8rGfYF4aH2p2M/K38DoAiGVn8R99X?=
- =?us-ascii?Q?fRgAnGVd9KIWz35OE352gv6RAcoqIg4AmZJk98XAQ8J5yC+nfkHjXH6uGxU2?=
- =?us-ascii?Q?vDTCP0PUKu6dMdwAnJhr5bFB9t4kybVNVN/Zcd9VlSE2of9C3qliuQGs5PAj?=
- =?us-ascii?Q?nDcsZxvu4VG/dKWSE2+Mcpa/Eozgp4TONhoAeZTvS26nDzTmw6zeXJ9WuKxe?=
- =?us-ascii?Q?nxHVYwxcIdDkf1FVfWUBjvz469Z3aMvzGEjRqKcpTxQwi0J6KHu4BY3u94pI?=
- =?us-ascii?Q?Jdd3V0JyCmmsWzgqRpB/nIb6b+aPcKshQL2f+0o1R4c0OliWVqTcwcH5PzyB?=
- =?us-ascii?Q?TRgR8AsZv69pXmOmk46TB4zKocjPZoMQpU1G8jrlT5jVMCNRS5ovU6aWKve+?=
- =?us-ascii?Q?c1toxhthRR7vSjnmrSC9T6MsM4zoT1uRWxMTt0myn11AV4S0qMVjbIu8em3w?=
- =?us-ascii?Q?wBQ2W7N8zd3hmIQYigVGZev0B5DDNKSUTZ4WNps2KdlCKMuxf1FZiE5vA6qD?=
- =?us-ascii?Q?ndtcx5m1yfHH8p9a9c0XbF6jTqzuW6uwzAiLquhzQUkzGzCpxtaqvGMyN3oy?=
- =?us-ascii?Q?LwjbzjR4mo0yDz7ExIK9rSu5Qck6xrdizSuIhf6WajcxFfDd36zLpnV4IIWt?=
- =?us-ascii?Q?dVbUIUY+Vuj8k706UQq+sqjpgsR9tVfNGRk4UOPeA8h69L7x08KpMhkOKCnL?=
- =?us-ascii?Q?JUsrrE3zi/izzeElwFbK79VHLCoW5tsWcaG+qPA28Jc8cIf0akjjcDEeh+Bk?=
- =?us-ascii?Q?4scwLCBRg7i6Iw0W2q006Go9FaMWM4YlTLbDWD/blHTjkZiHEtFan2mjcp3W?=
- =?us-ascii?Q?jHBbrsUemSZMzsQL3heDcLT3/lJCsPtBiq+F0d6Q5c3kMl7hsr7yRyOO+xy7?=
- =?us-ascii?Q?0a4e46y7w6i1/a1TCiZWokVLV7YRcJQPbYrRArL5WbBc6fwekoFvEnn6OCTK?=
- =?us-ascii?Q?ixJqA2UbyS75IxaD2O114z7ItM0bwb+0HX/FmRHFwGxgFrZJ+GxrHfl6/0um?=
- =?us-ascii?Q?Db/4yxSpx3IQu7vAtJNEV92EKhSVb+1pp+btiDTjw6W0qljZpNhx7PzgpxpC?=
- =?us-ascii?Q?vyEIivgfnUtwa6vvUfB5JtINDMtsAIfxB+yhbZgt4cz1S2qHegJ+CmKa8eJO?=
- =?us-ascii?Q?ARXCzFsySGnUIqbKrFWckQWaedMmMlwmU7+4DoTGjAIcCr7H5WvhyDpgIunP?=
- =?us-ascii?Q?Cx7GtxcdZ0USHOCwljuAdPNj5fKSTyaRWmk8QJIaZzA0waNj3GPxvs+vNmrP?=
- =?us-ascii?Q?xulpKDgjKWecNv4e/8YinB9AXA1mvTTe5N4mG/ncmShxBhv5nP9U944B41WR?=
- =?us-ascii?Q?MOGtOrx4x22+yKZStfmLJQnIVRRAtkwX/a1YnT1wX6ZW8kCBls4te1d8SxK/?=
- =?us-ascii?Q?U077helNqqUD+RHKxnZEMI1WDdE6khJ4tWXqb7geZrSZOhBb+B4gZZ88fxfV?=
- =?us-ascii?Q?PimXqZpRNmVkoIi4obdx7YMJ4diDrexAUKzFtIRfHLk+z86ufXvWCT8RndpA?=
- =?us-ascii?Q?2rP9nvEhS+BniLfmJSCAG5YkK1AvuM+Y/iZ0rDJSEbTYTJc0erPPFl+sKXII?=
- =?us-ascii?Q?Gdi9sfc5U7OeVMyLQ4yV083/QpEkfkiSVAXz/JKQO5pYdKQLoi6SOBHvtHHX?=
- =?us-ascii?Q?pVXWKvFPwuUhvXhETGtRd22SyNivFBFyN63YHBLqzau5BZvv6fvZX7TTEhVF?=
- =?us-ascii?Q?Nl/vIuTkpg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: defdffb1-c19a-4145-482c-08de4e8dcb4a
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2026 08:13:24.3396
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8QispXB7PnGonDUNjRWr0KLz/2xAfxEQpCyFCRcBJgDnWu9cp/ZudRDVoGjIlZhGLxG57WNLU92sZ38It2Z7Wg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB11916
+	id 1vdl97-0000000GEqx-1k04;
+	Thu, 08 Jan 2026 08:13:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0338D43D2B;
+	Thu,  8 Jan 2026 08:13:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56AC3C116C6;
+	Thu,  8 Jan 2026 08:13:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767860008;
+	bh=JjdnKLGbGj7ApxflVZeMDcDhVr+BADzqrFCPwgCMEBo=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
+	b=fT2RheeeyulRtIaXyF3201Qt5BhwBo7XvngYPkZjouAH5rC29/xeoDEQWqABBtMbM
+	 oBFYI8EID8htHkTJ+FAmIT67qBNv2IB+5sUf/zLALlMpRAbAJVSOTwMXVnyzFe054N
+	 O+qkIvUPO6LCBTRdfTb4T9repPmsFFbei8WmKKbgZ8guYKcPYN2iRkdOFIBJSZQEcn
+	 YwIs50hD2nwvGUreu1EKXUSvL9D32ISEmSYYBmWx4aJz8jA2/Lh6nY5RMbbWCzXLiw
+	 uOejMPLt83ngJIYaR4REPDEk8229SFro8gNgxHAgK2oITPYhzpy1gM7kP4/sjE2UL6
+	 YIG1QgrroOhBQ==
+Message-ID: <c7665bbfcb73ac5eb5a5d7f311485503@kernel.org>
+Date: Thu, 08 Jan 2026 08:13:26 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH 4/6] drm/mediatek: mtk_hdmi*: convert to
+ of_drm_find_and_get_bridge()
+In-Reply-To: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-4-ef48a517828e@bootlin.com>
+References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-4-ef48a517828e@bootlin.com>
+Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, "Alim
+ Akhtar" <alim.akhtar@samsung.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "AngeloGioacchino
+ Del Regno" <angelogioacchino.delregno@collabora.com>, "Chun-Kuang Hu" <chunkuang.hu@kernel.org>, "David
+ Airlie" <airlied@gmail.com>, "Fabio Estevam" <festevam@gmail.com>, "Geert
+ Uytterhoeven" <geert+renesas@glider.be>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Inki
+ Dae" <inki.dae@samsung.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jerome
+ Brunet" <jbrunet@baylibre.com>, "Jonas Karlman" <jonas@kwiboo.se>, "Kevin
+ Hilman" <khilman@baylibre.com>, "Kieran Bingham" <kieran.bingham+renesas@ideasonboard.com>, "Krzysztof
+ Kozlowski" <krzk@kernel.org>, "Kyungmin Park" <kyungmin.park@samsung.com>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Laurent Pinchart" <laurent.pinchart+renesas@ideasonboard.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Magnus Damm" <magnus.damm@gmail.com>, "Martin
+ Blumenstingl" <martin.blumenstingl@googlemail.com>, "Matthias Brugger" <matthias.bgg@gmail.com>, "Maxime
+ Ripard" <mripard@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, "Philipp Zabel" <p.zabel@pengutronix.de>, "Robert
+ Foss" <rfoss@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Seung-Woo
+ Kim" <sw0312.kim@samsung.com>, "Shawn Guo" <shawnguo@kernel.org>, "Simona
+ Vetter" <simona@ffwll.ch>, "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>, "Tomi Valkeinen" <tomi.valkeinen+renesas@ideasonboard.com>
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_001328_228021_0754701E 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20260108_001329_469743_60355C9C 
+X-CRM114-Status: UNSURE (   5.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,84 +86,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Do dwc3 core auto suspend enable for device and disable for host
-, this can make sure dwc3 core device auto suspend setting is
-correct all the time, the background of disable dwc3 core device
-auto suspend is to make its parent device suspend immediately
-(so wakeup enable can be enabled) after xhci-plat device suspended,
-for device mode, we keep the dwc3 core device auto suspend is to
-give some wait for gadget to be enumerated.
+On Wed, 7 Jan 2026 17:22:02 +0100, Luca Ceresoli wrote:
+> of_drm_find_bridge() is deprecated. Move to its replacement
+> of_drm_find_and_get_bridge() which gets a bridge reference, and ensure it
+> is put when done by using the drm_bridge::next_bridge pointer.
+>=20
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+>=20
+> [ ... ]
 
-Note: It's a temporary solution until we switch to using the new
-      flatten model.
+Acked-by: Maxime Ripard <mripard@kernel.org>
 
-Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-
----
-Changes in v3:
- - add A-b tag
-Changes in v2:
- - add a note suggested by Thinh
----
- drivers/usb/dwc3/dwc3-imx8mp.c | 31 +++++++++++++++++++++++++++++++
- 1 file changed, 31 insertions(+)
-
-diff --git a/drivers/usb/dwc3/dwc3-imx8mp.c b/drivers/usb/dwc3/dwc3-imx8mp.c
-index b0f5266af954..b3d7252bd910 100644
---- a/drivers/usb/dwc3/dwc3-imx8mp.c
-+++ b/drivers/usb/dwc3/dwc3-imx8mp.c
-@@ -158,11 +158,31 @@ static irqreturn_t dwc3_imx8mp_interrupt(int irq, void *_dwc3_imx)
- 	return IRQ_HANDLED;
- }
- 
-+static void dwc3_imx_pre_set_role(struct dwc3 *dwc, enum usb_role role)
-+{
-+	if (role == USB_ROLE_HOST)
-+		/*
-+		 * For xhci host, we need disable dwc core auto
-+		 * suspend, because during this auto suspend delay(5s),
-+		 * xhci host RUN_STOP is cleared and wakeup is not
-+		 * enabled, if device is inserted, xhci host can't
-+		 * response the connection.
-+		 */
-+		pm_runtime_dont_use_autosuspend(dwc->dev);
-+	else
-+		pm_runtime_use_autosuspend(dwc->dev);
-+}
-+
-+struct dwc3_glue_ops dwc3_imx_glue_ops = {
-+	.pre_set_role   = dwc3_imx_pre_set_role,
-+};
-+
- static int dwc3_imx8mp_probe(struct platform_device *pdev)
- {
- 	struct device		*dev = &pdev->dev;
- 	struct device_node	*node = dev->of_node;
- 	struct dwc3_imx8mp	*dwc3_imx;
-+	struct dwc3		*dwc3;
- 	struct resource		*res;
- 	int			err, irq;
- 
-@@ -240,6 +260,17 @@ static int dwc3_imx8mp_probe(struct platform_device *pdev)
- 		goto depopulate;
- 	}
- 
-+	dwc3 = platform_get_drvdata(dwc3_imx->dwc3_pdev);
-+	if (!dwc3) {
-+		err = dev_err_probe(dev, -EPROBE_DEFER, "failed to get dwc3 platform data\n");
-+		goto depopulate;
-+	}
-+
-+	dwc3->glue_ops = &dwc3_imx_glue_ops;
-+
-+	if (dwc3->dr_mode == USB_DR_MODE_HOST)
-+		pm_runtime_dont_use_autosuspend(dwc3->dev);
-+
- 	err = devm_request_threaded_irq(dev, irq, NULL, dwc3_imx8mp_interrupt,
- 					IRQF_ONESHOT, dev_name(dev), dwc3_imx);
- 	if (err) {
--- 
-2.34.1
-
+Thanks!
+Maxime
 
