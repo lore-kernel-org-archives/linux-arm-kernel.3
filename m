@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD66CD1D478
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29687D1D480
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:14:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qLwdKD9+THR7f76zVdSxWsoTvAlSVBVoYg2rjN7iJDs=; b=r6K7awav3hv3Fzy5k5VGaHqi53
-	NRj3ryLEx751xJpHuqdKDIMY5udR8UCvpjMghLnp3H0Eydt14OnCuqfR8su/BkBf/H9wNl2/0e7Ud
-	xrfGtabWqC8MvzPXwYDyA9ysPN7RcD5ya3OsVnMQzEsDdFemq7dcYLsVAMOyGvuwh0BTEkJ6fwq7L
-	B1ERY3tkqhaapW/g8Av+BPdobn3x4st6BGkfxkTaJTp2o6fxtZtmN1wvYlI+EQG5CQMfxHt6wFAtx
-	x5V79Hx7HyiDinHvpFFKj+1fAAInuIIC4icYHoTLlaAXDW0GnPcNpOL/Jg4gr8UOGD4WckoOVKjV/
-	qHHRwkGg==;
+	bh=3XPT4kyKYWC9XCoQvOsKcAG5FlkifczPZ175KiALfnE=; b=BJbqM8pKJLa5PR58mapZ8iB/jd
+	ElznvBwl5iDrh2ZZeblWQgqhLajgd+SJzOjCj/MFc7gj/5sg2PM3h+7yph58oWPQIHdFlavVmCK1O
+	JSOFL9C07IGVk+KTvc9tPaE3qCQWd6P3nYhho3o3BD6qMzxuSP+InvOtXJyeZwSNmybo7TP5KaXop
+	g8OC52LQ4qDhA9UuxbfC4O+7QYiHaHYFNpWDDPGOyHxVP2WC6XA1nFSMLPjccbZGbiAk4sILYAxi5
+	wxI1nhK1dPcNIQ4HdRDrEcV7cEDAaJhjLQS0HYhkvJEBE1Sf4MJUME5AgnpRafPTLKsKrIbTOOWRG
+	+McUGbqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdsdZ-000000004nB-2VNP;
-	Thu, 08 Jan 2026 16:13:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdse7-000000004zx-1nvA;
+	Thu, 08 Jan 2026 16:13:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdsdW-000000004lV-34pH
+	id 1vdse5-000000004yu-2ofp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 16:13:22 +0000
+	Thu, 08 Jan 2026 16:13:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3067960138;
-	Thu,  8 Jan 2026 16:13:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0682C19422;
-	Thu,  8 Jan 2026 16:13:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DB6B460147;
+	Thu,  8 Jan 2026 16:13:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9442CC116D0;
+	Thu,  8 Jan 2026 16:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767888801;
-	bh=S72kyJ6OhWOaTjMtM11JCMPxODXaSQCVVNaJHWk9JJA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KTiQ4gykw+qZEp0IC5oOch0G+UQQMj+WxxSfjOYba3ju/faZXuP+5CggeYNv+KaTE
-	 9kgDZOuFCQ1kQgU7hi08Rux3iXqUReWgB3AZyePUL5UNRWqNMHOR5JqNObSPKZhNIj
-	 a5YQv1RJ6fa2j758A2Gx5QtX1rEbDvFCUQUy6nv6YR3U0oCM6dWLDYQEh1jB+5tIvQ
-	 lpXU0aUUZWQWJjod/zZVFMdaRhd2J8lHMlPLj/RUV2KAhEKzof9wuogHiEdAR0DqM7
-	 sClSS6fFSj9qqVOnyFws3SmfXHckf1trDEg44R5IZUl+hEGoJmxQChVzeqfBuODltL
-	 Zq7IPPWskPVsw==
-Date: Thu, 8 Jan 2026 17:13:16 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Robert Moore <robert.moore@intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
-	acpica-devel@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v2 6/7] irqchip/gic-v5: Add ACPI ITS probing
-Message-ID: <aV/XnJg7CPBpbXnR@lpieralisi>
-References: <20251218-gicv5-host-acpi-v2-0-eec76cd1d40b@kernel.org>
- <20251218-gicv5-host-acpi-v2-6-eec76cd1d40b@kernel.org>
- <20260105135545.00003a59@huawei.com>
+	s=k20201202; t=1767888836;
+	bh=yO7nRgy8tI+sRMJz6/yC4t4URWFzwpDFIL9yzGc2m44=;
+	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
+	b=RQC8fbYRNJVwcWjV4up2h8TBUcYNAHrg9X5SJzMk92vqtljEo2xVRz1Xv7zO//6u/
+	 NCun1aOW2ZAyFx1FdRhdHPN3T/j3cKeN9GgX0yNWPte80TXuye396bUqbpqgolkH8c
+	 aWglifRM2QIP57vy88IlYjE7AU3zr52mtb6IuKwQYTyOOO1pQiWTbhtPq9xvCUm3nC
+	 7Zik2bNxfB5KGXdZi57GkFlU9sFCbgCu3+8ZFJ0Zi3+QrQ5VCM5gho8d9JkKpslLCH
+	 K949RluPRgwY/zztYuJJWGUm1nSGRWBNeSk3gg7wqiutc++FBLmO5j1v8kVEi2qrGk
+	 sGlM6qNsbOz3A==
+From: Rob Herring <robh@kernel.org>
+Date: Thu, 08 Jan 2026 10:13:55 -0600
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260105135545.00003a59@huawei.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Heiko Stuebner <heiko@sntech.de>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Manivannan Sadhasivam <mani@kernel.org>, linux-kernel@vger.kernel.org, 
+ Gunho Lee <gunho.lee@lge.com>, Kael D'Alcamo <dev@kael-k.io>, 
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Chanho Min <chanho.min@lge.com>
+In-Reply-To: <20260108082213.6545-1-chanho.min@lge.com>
+References: <20260108082213.6545-1-chanho.min@lge.com>
+Message-Id: <176788870880.376475.13308764226546768133.robh@kernel.org>
+Subject: Re: [PATCH 0/3] arm64: dts: Initial support for LG1215 TV SoC
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,116 +74,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 05, 2026 at 01:55:45PM +0000, Jonathan Cameron wrote:
-> On Thu, 18 Dec 2025 11:14:32 +0100
-> Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> 
-> > On ACPI ARM64 systems the GICv5 ITS configuration and translate frames
-> > are described in the MADT table.
-> > 
-> > Refactor the current GICv5 ITS driver code to share common functions
-> > between ACPI and OF and implement ACPI probing in the GICv5 ITS driver.
-> > 
-> > Add iort_msi_xlate() to map a device ID and retrieve an MSI controller
-> > fwnode node for ACPI systems and update pci_msi_map_rid_ctlr_node() to
-> > use it in its ACPI code path.
-> > 
-> > Add the required functions to IORT code for deviceID retrieval and IRQ
-> > domain registration and look-up so that the GICv5 ITS driver in an
-> > ACPI based system can be successfully probed.
-> > 
-> > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > Cc: Thomas Gleixner <tglx@linutronix.de>
-> > Cc: Hanjun Guo <guohanjun@huawei.com>
-> > Cc: Sudeep Holla <sudeep.holla@arm.com>
-> > Cc: Marc Zyngier <maz@kernel.org>
-> Hi Lorenzo,
-> 
-> Diff was in a rather unfriendly mood on this one and smashing the xlate
-> on top of the wrong function (wrt to what was being replaced).
-> 
-> Ah well. Only one minor comment inline.  Not really my area of expertise
-> beyond wanting this to move forwards quickly but none the less,
-> 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> 
-> > ---
-> >  drivers/acpi/arm64/iort.c                |  95 +++++++++++++++++-----
-> >  drivers/irqchip/irq-gic-its-msi-parent.c |  39 ++++-----
-> >  drivers/irqchip/irq-gic-v5-irs.c         |   7 +-
-> >  drivers/irqchip/irq-gic-v5-its.c         | 132 ++++++++++++++++++++++++++++++-
-> >  drivers/pci/msi/irqdomain.c              |   2 +
-> >  include/linux/acpi_iort.h                |  10 ++-
-> >  include/linux/irqchip/arm-gic-v5.h       |   1 +
-> >  7 files changed, 241 insertions(+), 45 deletions(-)
-> > 
-> > diff --git a/drivers/acpi/arm64/iort.c b/drivers/acpi/arm64/iort.c
-> > index 65f0f56ad753..17dbe66da804 100644
-> > --- a/drivers/acpi/arm64/iort.c
-> > +++ b/drivers/acpi/arm64/iort.c
-> > @@ -595,45 +595,45 @@ u32 iort_msi_map_id(struct device *dev, u32 input_id)
-> >  }
-> >
-> > +/**
-> > + * iort_pmsi_get_msi_info() - Get the device id and translate frame PA for a device
-> > + * @dev: The device for which the mapping is to be done.
-> > + * @dev_id: The device ID found.
-> > + * @pa: optional pointer to store translate frame address.
-> > + *
-> > + * Returns: 0 for successful devid and pa retrieval, -ENODEV on error
-> > + */
-> > +int iort_pmsi_get_msi_info(struct device *dev, u32 *dev_id, phys_addr_t *pa)
-> > +{
-> > +	struct acpi_iort_node *node, *parent = NULL;
-> > +	struct acpi_iort_its_group *its;
-> > +	int i, index;
-> > +
-> > +	node = iort_find_dev_node(dev);
-> > +	if (!node)
-> > +		return -ENODEV;
-> > +
-> > +	index = iort_get_id_mapping_index(node);
-> > +	/* if there is a valid index, go get the dev_id directly */
-> > +	if (index >= 0) {
-> > +		parent = iort_node_get_id(node, dev_id, index);
-> > +	} else {
-> > +		for (i = 0; i < node->mapping_count; i++) {
-> > +			parent = iort_node_map_platform_id(node, dev_id,
-> > +						      IORT_MSI_TYPE, i);
-> > +			if (parent)
-> > +				break;
-> > +		}
-> > +	}
-> > +
-> Another borderline comment on what I think is a small readabilty
-> improvement.
-> 
-> I'd handle the only error case that would otherwise use the ternary below
-> here
-> 	if (!parent)
-> 		return -ENODEV;
-> 
-> 	if (pa) {
-> 		...
-> 	}
-> 	return 0;
 
-Updated.
-
-Thanks,
-Lorenzo
-
-> > +	if (parent && pa) {
-> > +		int ret;
-> > +
-> > +		its = (struct acpi_iort_its_group *)node->node_data;
-> > +		ret = iort_find_its_base(its->identifiers[0], pa);
-> > +		if (ret)
-> > +			return ret;
-> > +	}
-> > +
-> > +	return parent ? 0 : -ENODEV;
-> > +}
+On Thu, 08 Jan 2026 17:22:10 +0900, Chanho Min wrote:
+> This patch series adds initial device tree support for the LG1215
+> TV SoC and its reference board.
+> 
+> Series overview:
+>   1/3 - dt-bindings: vendor-prefixes: Add 'lge' prefix for LG Electronics
+>   2/3 - dt-bindings: arm: lge: Add compatible for LG1215 SoC and ref board
+>   3/3 - arm64: dts: lg: Initial support for LG1215 SoC and reference board
+> 
+>  .../devicetree/bindings/arm/lge.yaml          |   5 +
+>  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+>  arch/arm64/boot/dts/lg/Makefile               |   1 +
+>  arch/arm64/boot/dts/lg/lg1215-ref.dts         |  51 +++
+>  arch/arm64/boot/dts/lg/lg1215.dtsi            | 304 ++++++++++++++++++
+>  5 files changed, 363 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/lg/lg1215-ref.dts
+>  create mode 100644 arch/arm64/boot/dts/lg/lg1215.dtsi
 > 
 > 
+> 
+
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/next-20260108 (best guess, 2/3 blobs matched)
+ Base: tags/next-20260108 (use --merge-base to override)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/lg/' for 20260108082213.6545-1-chanho.min@lge.com:
+
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: / (lge,lg1215-ref): opp_table@0: 'anyOf' conditional failed, one must be fixed:
+	'reg' is a required property
+	'ranges' is a required property
+	from schema $id: http://devicetree.org/schemas/root-node.yaml
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: cpu@0 (arm,cortex-a78): Unevaluated properties are not allowed ('l2-cache@0' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/cpus.yaml
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: cpu@100 (arm,cortex-a78): Unevaluated properties are not allowed ('l2-cache@100' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/cpus.yaml
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: cpu@200 (arm,cortex-a78): Unevaluated properties are not allowed ('l2-cache@200' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/cpus.yaml
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: cpu@300 (arm,cortex-a78): Unevaluated properties are not allowed ('l2-cache@300' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/cpus.yaml
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: opp_table@0 (operating-points-v2): $nodename:0: 'opp_table@0' does not match '^opp-table(-[a-z0-9]+)?$'
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: opp_table@0 (operating-points-v2): Unevaluated properties are not allowed ('opp-default', 'opp-shared' were unexpected)
+	from schema $id: http://devicetree.org/schemas/opp/opp-v2.yaml
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: clk-bus (fixed-factor-clock): 'clock-names' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/clock/fixed-factor-clock.yaml
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: soc (simple-bus): dwmac-axi-config: 'ranges' is a required property
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: amba (simple-bus): $nodename:0: 'amba' does not match '^([a-z][a-z0-9\-]+-bus|bus|localbus|soc|axi|ahb|apb)(@.+)?$'
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: watchdog@fd200000 (arm,sp805): clock-names:0: 'wdog_clk' was expected
+	from schema $id: http://devicetree.org/schemas/watchdog/arm,sp805.yaml
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: watchdog@fd200000 (arm,sp805): clock-names: ['apb_pclk'] is too short
+	from schema $id: http://devicetree.org/schemas/watchdog/arm,sp805.yaml
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: watchdog@fd200000 (arm,sp805): clocks: [[13]] is too short
+	from schema $id: http://devicetree.org/schemas/watchdog/arm,sp805.yaml
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: dma@ff200000 (arm,pl080): '#dma-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/dma/arm-pl08x.yaml
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: dma@ff200000 (arm,pl080): $nodename:0: 'dma@ff200000' does not match '^dma-controller(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/dma/arm-pl08x.yaml
+arch/arm64/boot/dts/lg/lg1215-ref.dtb: dma@ff200000 (arm,pl080): '#dma-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/dma/arm-pl08x.yaml
+
+
+
+
+
 
