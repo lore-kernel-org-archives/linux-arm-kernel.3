@@ -4,64 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D19D1D481
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:12:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CCA4D1D478
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GxLi7LJub88w48tq67sxh33w6E8fai98ldoD/R9Ur9Y=; b=XQ7kWfU53oolJFicdfhjIDAIDn
-	MlOSIMg/2M8CRtJ1MjgOEfLmXjRWbP3O6VY0ofm9zxThsqPmssl12cQYJDUKFi6VVSkYgmAqs8Dfd
-	fYVQVFv+7LlQQxrSRNTNGZyZ4EgV7ak8L3x8D//FhaBUtJcwcElYyyIEqFp/5pMh/iYcwwvyomWz9
-	E9Bz93X3X2UsMkoxCCHYP2NSHvofhRdmdfCYgBr65WtA+0i5pP08UdEYO7j4YBYN8jw5dj5nqsx3B
-	CdV01l9kJIuEry5Hh9BXi5wR5X1bqztktbvv9Cp0rodm6CN9NVMFE0+XMRdcmk6TpIXnuKYc08vRa
-	1NvZcmAA==;
+	bh=qVx1Pmb9HLkNG7ClGLxQqKnyvErGfcGgXlwYJqfn76g=; b=HnMJGELhVklP+1kwswSDQEeicY
+	h45HRybw78U/2IT15F/ZkCOMZzNjO0RnQo+Obe9yv+zh6QjXrUOCfAKT6wewLosIbwMghoH6WcS1Y
+	BbLwqqx8q7xsbIBD2VcKjd/UV5LTm6qaVw7p15xJHbSo1Lv4CJ7teqoWvcwZhFTstoyNQHpuaKTXc
+	DcaV34tsEh40WLvSGWZJLm5bzPem/LtRPN3+GG21WZ5ImWX6tHr6kwqI3Uc5eDeyyJoWvswjrOX6l
+	AQ33OTagx422tuQGrvCeM5zUvUAcQ0H0wRPGOYtkiOmbTUOI7ZrZMVjzd6V1IZqQRlYH9QYqpx51N
+	uPyCLFaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdscp-000000004bh-3QgK;
-	Thu, 08 Jan 2026 16:12:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdsdV-000000004ku-1Gmc;
+	Thu, 08 Jan 2026 16:13:21 +0000
+Received: from mail-centralusazon11011039.outbound.protection.outlook.com ([52.101.62.39] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdscn-000000004an-2mPe
+	id 1vdsdS-000000004ju-14wc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 16:12:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BE04B60130;
-	Thu,  8 Jan 2026 16:12:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5884EC116C6;
-	Thu,  8 Jan 2026 16:12:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767888756;
-	bh=V8O17syXNsMLoXA54yd13fKCVCjHzEoJ999ub7lM/Pg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B9LRzVav2GO4CMduUYKdZsdpdXOgcXSJqjTduv7EcQ1UIyAY8wCV0GBdpAy3q3C+P
-	 bhKc240hjb3u/t7nVUzARqu1oiuDzY5mK/m0x8s86Ag1QG2X4pM1xA0KJezfVtr73f
-	 Grb+0t0Zt6S9FwjVht7Z2EiSK+voxc2nzI301ool3EByVIB6bTL2YCaQPOvGT8idp8
-	 1zECHh0pS3E0KhVJW1MNZVB0so5vnVZIAyCQeXNMTWwdZhcvhM5lfIKp4tr23d+kBQ
-	 EGlmUBW3BiRN+vXsxuV5Q0NFJsWF/08l7R/VYrUy7avgTn7snbgG5O5tOVBmE2y7W4
-	 oUA9wpdkLg60g==
-Date: Thu, 8 Jan 2026 17:12:30 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Robert Moore <robert.moore@intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
-	acpica-devel@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v2 7/7] irqchip/gic-v5: Add ACPI IWB probing
-Message-ID: <aV/XbgUrjLVGM40O@lpieralisi>
-References: <20251218-gicv5-host-acpi-v2-0-eec76cd1d40b@kernel.org>
- <20251218-gicv5-host-acpi-v2-7-eec76cd1d40b@kernel.org>
- <20260105153521.00007e46@huawei.com>
-MIME-Version: 1.0
+	Thu, 08 Jan 2026 16:13:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wPLY0aGLbBNYQBfJPDpEp6lAhch/8IZAdT7EYB1KwolX0SoynBzuywPWyS5er7+IKabLvXOt1UiRj65bBv4mAtXw19qkowZELNKIUzJNvfb2JLJG5VzK9JRPjc6ch4KUvlAnvXhCaAQeOgtsS+2zjBp9aOaBZV2R5Fp1tT9JaigUgK0964qEdNRGCqKsKgKT8o61hVJRcFHq3Wxc4ivQ1qQYCOY5DE2Lo4eH+QZGmF6mQhM4LIer87u4AlLuSg1/rnQL/rb+P5VjIPXbTRUi7Hp2KhevJhJx3NNcBk6km5xPngmimXagJYIFrRuLurX+Bm328l5jQMynz5a083Wk7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qVx1Pmb9HLkNG7ClGLxQqKnyvErGfcGgXlwYJqfn76g=;
+ b=ZRDbtZmA2gXrfFMA6xXWwNBPzS/jq0+PDAymxL1yLeCda74Hb8VuAN1p53jQSiggjf61RRcXx4ukUG8SAxel8lkNpW9xvRHhP477EedAOmM/oJ16P31BjsWWvdrztLfFtRfWJ0IZXCwmZnQEyEWIUzos2a3kJ6wn03DEOg+yTt8Hix+WhfDCXvNjAhw8v0ph6zatRkvyK3y8NyFjCI6vXVJurahKfl+KXREGpxqGOn+1Jw18YHazekMI3W1kUojVUSNIoFxOdQbkyE819pcBtv9Gz4Qmfpul5kyhiMXdnaY3stfdFnrtHOvAnH5LeHkvV+grWpt91Rv5f+NPFdR7OA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qVx1Pmb9HLkNG7ClGLxQqKnyvErGfcGgXlwYJqfn76g=;
+ b=Sr4nM87KtHPSTyRcwQdfNPPxEGg1QVp8kFHC2yOaeWB9Ek8CtIltO7UVY1KI3UukixdmlseN0I1U/X/qMQ9hX9mGe8bjD2eo8fv6YCz55qvIXSjPYMpwqr3poF93pX4NOZjunFrBaGRLo3GEP4n135r5RNwGHruade8qOMv3ksA4kxvXl9S8UdoIocl3E2uyinBa0b4AysOsG+ySU92/+KMvjecVici/p+Oerydu1X16sY/zO7RQJn6X657fb2VLBrNIOFrzJemB2gaR3RYov1VIg80DGSP1P3eREv8FbU6ScMJbP5Z/6sqtAuEORBX8a4dHLVghDVrvRDBFoQkTXA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by CH1PPFD8936FA16.namprd12.prod.outlook.com (2603:10b6:61f:fc00::624) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.3; Thu, 8 Jan
+ 2026 16:13:11 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9499.002; Thu, 8 Jan 2026
+ 16:13:11 +0000
+Date: Thu, 8 Jan 2026 12:13:10 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Will Deacon <will@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Lucas Wei <lucaswei@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, sjadavani@google.com,
+	kernel test robot <lkp@intel.com>, stable@vger.kernel.org,
+	kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	smostafa@google.com
+Subject: Re: [PATCH v2] arm64: errata: Workaround for SI L1 downstream
+ coherency issue
+Message-ID: <20260108161310.GE23056@nvidia.com>
+References: <20251229033621.996546-1-lucaswei@google.com>
+ <87o6ndduye.wl-maz@kernel.org>
+ <aV6K7QnUa7jDpKw-@willie-the-truck>
+ <7cd7b4f0-7aa5-4ca0-adc6-44d968c1ed48@arm.com>
+ <aV_KqiaDf9-2NcxH@willie-the-truck>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260105153521.00007e46@huawei.com>
+In-Reply-To: <aV_KqiaDf9-2NcxH@willie-the-truck>
+X-ClientProxiedBy: MN2PR02CA0027.namprd02.prod.outlook.com
+ (2603:10b6:208:fc::40) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH1PPFD8936FA16:EE_
+X-MS-Office365-Filtering-Correlation-Id: 46214563-5815-4497-8009-08de4ed0d1d6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TAz+vUgxY8nc/vcDn7HKQ8Qssl6P/UnyeUzwld/XGDrxfRObTGwLmyoFQSjv?=
+ =?us-ascii?Q?uANQpFHI2xFK4Y7tgNjKeRPhKe+eVZWuMBBdvFmku1Ory0lZru7rcA5GEwhO?=
+ =?us-ascii?Q?AmIXqm6zD/E1XZ/obJfBWkPFP0/JEXax1nJjXOo2Y6aD4wib4A8G5YuJyqri?=
+ =?us-ascii?Q?74OzdEPuZfTmw20viNtjDTUm0nb2iBMQDoRVa/9tgzm7x/anZNavV0SYPwt3?=
+ =?us-ascii?Q?9dwPmnDH7HeecjIisQxxG0PteihptBh784C7VlPiyTUOpa4sU2TvWyELvSAy?=
+ =?us-ascii?Q?0ZqIjgo0dPWj0+XlJOJocLchevuGhNP5Thimve3vOx+62fyI9iBG+g50fPLW?=
+ =?us-ascii?Q?nk2QCCpizyOLr+zHJjE2HUVB0V31hKlzN9VN8Un04/hlPKUulH5NX77m/Wo8?=
+ =?us-ascii?Q?iAfJ1buFcCzivMTeABeG673fma87JPl72gjJhgLhCtERA8yS7igeT5afzGGk?=
+ =?us-ascii?Q?xA4IFYQqXh+pDo37dmzE4nocg98DhF9EgVQKodo0fX0tp+RAb6eCW6VK/a6V?=
+ =?us-ascii?Q?Zu5ZSdPrqNon/Eai3GOIBfikqNx+JCL6qzxIRsyEmFt8BGyPjxaclCNwSQi8?=
+ =?us-ascii?Q?4cgjRKmikie+N7Cq/f6ZlYH3P0xkYeX9TTfnGfSU0rhPSi0RtfSyPSZfacro?=
+ =?us-ascii?Q?ky0JXoA4Og1S1qkAupHYddVQrQfNZLv1rvUYcZkqrU3ai+8+Y87+gAKxDppB?=
+ =?us-ascii?Q?IL7Zb+iQZcs7bCCk75AXCD23hbMhuQfJTIXaZjVd6u+udb9TAByjbx5wK1Fd?=
+ =?us-ascii?Q?6OLThvhXtl4VpCc3gbUcslIJYtCyTQfpc/qsVd0xbffw+vwHb/2p66foqA/N?=
+ =?us-ascii?Q?1YYZgaSp+BQzFd3+ShVGBL2WEjISgXACtAhyIx0udyNfJWq5QTeToXq3DhfZ?=
+ =?us-ascii?Q?21hbbVR/AcV+c/FFwlodGQKhDsVF2tGjMrZRuOj3woDcc/PQwIs+jXM5Orff?=
+ =?us-ascii?Q?6cAWsb5Emfai2dSSw2MoR6xOeGv58wfg8MDSChKP3jSWeHf0SXtblaX2imqM?=
+ =?us-ascii?Q?KIicYeEFL2qqcO15JqkiDFlnUGO7v92SWnpkmRDcGkZ/EdaJ7yZJpG0LiDaC?=
+ =?us-ascii?Q?yRtQI1xp4m1UHHXDyORDyQH9IUUvkHzHEYuVZBBMT3DVdSyguXqBqR6N16uR?=
+ =?us-ascii?Q?/UB4eFjSiIpRoK8NdZ9m9TZw25SJ6GURdBlQ1AOoB3krY1MgGu8tPb1yXTYL?=
+ =?us-ascii?Q?l0crTD4G60o6WIAyXTNEqIeQ0Qw3v7xWXJGDmuxItKp/vU5XkZByDGPUZ6ET?=
+ =?us-ascii?Q?TmgYB6kUy6LyDA1zkX4FgEbmySs0yXkP8UKY7E+4bk9DQ/kPPeDdGY7ZbFGo?=
+ =?us-ascii?Q?kcj9b7S/Dn3JBgn4NbEMkn1n7gKnHJ5s5TgTw25KX9SymW/JNhCiSmO4gsqh?=
+ =?us-ascii?Q?qj9nSmnWhNdn62XVpgtKfJZkvF+t8GGiPvLCsD0G43Mb+JRxTysSl4rRdlcf?=
+ =?us-ascii?Q?WOUjU+JsHiFLw6n7zqmFPz2ZgAKN5AZu?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vq9mvy1NTi4YRkKBRIXHV4X6XoZbXuuQuevu2ec8wDQj1UGxEAVI3f6XgdSn?=
+ =?us-ascii?Q?LzO6L0aq7keJL245+CWEQVKVVKksXFAhZWJS2pkFc0sNAdfJqnLUbZQ54EjX?=
+ =?us-ascii?Q?Bu3qMBvugKBnUuZq7j9tC2pfN/JBctWERETHbcnH4vYrEB9bmZeRB1WUc2Sa?=
+ =?us-ascii?Q?9YlVzhk5PULJ3xsqADhON6knq5nvhFW6y8+xKaL+LI/G1FZF1l901rSK+lxh?=
+ =?us-ascii?Q?EBA3AfR6Ottbj9R9uj8bF/Ac+cd4m77FNh9JRbXM8bpKN9u8/muihD5KAwhI?=
+ =?us-ascii?Q?SWeSh7IhQIv2cZKuTPVarLRLs3YwNWdvC3tP+FyyA/delcH+xwp98NhGHs8l?=
+ =?us-ascii?Q?g8E9+atSMvObNZglo/KtgL5SHOEOIz+wh1sxaYiPus6JYzv3SSJJBj8tvy1t?=
+ =?us-ascii?Q?6jeCgy8somh82oyfvgWc6/qiQVziM0xmRVxw/71xyieI49abk8gMeSV4DjXl?=
+ =?us-ascii?Q?IrAh2jKWeGYsVSR8IWT9dfh0anknowt/Jl8xEy6hr2eTjxYYw1SrnuJPd1k+?=
+ =?us-ascii?Q?445Ds7uuEAkMr+502CwTpTpu50c0WH6emqWvL18lNuuZXn/oWy82v4/5vWVj?=
+ =?us-ascii?Q?BqBzfJ/Pt9vILLfQUzlo2T9oceV9224dnVZ9mNR3l3JS75g1REYtr2cDNUDg?=
+ =?us-ascii?Q?AaFpqzMJkQ9gactlb7BWyUZXKpRqo9FLMDrYHvWZzD6QSBQEBAaNA/HBVcyr?=
+ =?us-ascii?Q?gIdE3OdmOWT396UACpTKm3q8fXb+YuT+luPR5PKh4NTtEq1Oz+F+SiqyhJge?=
+ =?us-ascii?Q?F4o87xCjRBbWTaW5mSx+cVtqY8r16CuKuNClxKURPJTVCSUyqGQ31sX9fQey?=
+ =?us-ascii?Q?IPmzFyWgen9Q6B+kqd/+7gETqF3e/gSYL6DuWPZ9pecQNp22CS7jGidew238?=
+ =?us-ascii?Q?nUtwsOcXKEkKAhGfk2KpqU/Ooky7eufLa8xzgKtJWDI7pisYkuV+AcLDcz9U?=
+ =?us-ascii?Q?eQTbJi5WNIZ3rcykLLBv7vVFOJJTqQk4RXimJZpcMsxJ8s0dCtaaQr6Cm45Z?=
+ =?us-ascii?Q?nlLFjed8ccla6Nsghl9cRpFZWEqSFG1JhY1I64R7rplhTixcgQLUnUi1TwXS?=
+ =?us-ascii?Q?QwljW4a+E37iHyVcT6S6jdhIC8j8UX/hILBJCIkC+GGZpq5+hAZLz4piq6qq?=
+ =?us-ascii?Q?ygGKiAGnGichWxWW9E+84MHQHuE2nXOQ4NFc8rY34apTVTeduiwYgeGpeqbS?=
+ =?us-ascii?Q?6UrIAL4qsoR/COqV2okJdbsnr1zp/YpPrPBX5Uv8btZPCjBo6n3mMfjuuB0X?=
+ =?us-ascii?Q?qoey0Im5ANvKKwt7dW4quTWHoowTI62/1yGek2o0FYnkXEkNTq6c+U+1d8jq?=
+ =?us-ascii?Q?rYxcC3a32qRvPYPGmAP0M/ajdEvh+PmsNrwBEbKJNdOlA7Rh+hwCyQ0lbGyR?=
+ =?us-ascii?Q?4WJzYjga3NI4ueOEhuIJsTd63e8RLM6QSnDzu5r9V418Cz2Cuj860AI0oF2J?=
+ =?us-ascii?Q?Z+dj4KFSlHdIzqL9iff1fXn6G4dAFB1hWPi2GOTWHiv7VI+PwKA+OGeBej5H?=
+ =?us-ascii?Q?Nm96n9CykeJAIO/VtWlT2O+UxjdQoAVOph9umpqknIWKnq6vggQO7h9vnekz?=
+ =?us-ascii?Q?uZNspEP8jsuos2Wyjqgv45JcuYUPcwJLCtIhhNIbrwy9NnR1l2NRmsgc3wyQ?=
+ =?us-ascii?Q?MAmVUB05mYQ6fp8CJaBBzJ4RyLuhw5nMun0r25zQOB8owSAMjb1Q9sgMcQK+?=
+ =?us-ascii?Q?Hp9AHKgMUe0RBK36bjjT+8O4Jh1hyyihrmZehCOAGQyL6tOgkQxRj4WqV4lz?=
+ =?us-ascii?Q?BUVp0GwpmA=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 46214563-5815-4497-8009-08de4ed0d1d6
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2026 16:13:11.5596
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BFZEjb4pHRR06BgXHkdisiuI49wgUoSNbZMxIzp3KQfrndsdG8UqjyjH7dBMdTju
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPFD8936FA16
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260108_081318_304274_4FE98977 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,149 +170,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 05, 2026 at 03:35:21PM +0000, Jonathan Cameron wrote:
-> On Thu, 18 Dec 2025 11:14:33 +0100
-> Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> 
-> > To probe an IWB in an ACPI based system it is required:
-> > 
-> > - to implement the IORT functions handling the IWB IORT node and create
-> >   functions to retrieve IWB firmware information
-> > - to augment the driver to match the DSDT ACPI "ARMH0003" device and
-> >   retrieve the IWB wire and trigger mask from the GSI interrupt descriptor
-> >   in the IWB msi_domain_ops.msi_translate() function
-> > 
-> > Make the required driver changes to enable IWB probing in ACPI systems.
-> > 
-> > The GICv5 GSI format requires special handling for IWB routed IRQs.
-> > 
-> > Add IWB GSI detection to the top level driver gic_v5_get_gsi_domain_id()
-> > function so that the correct IRQ domain for a GSI can be detected by
-> > parsing the GSI and check whether it is an IWB-backed IRQ or not.
-> > 
-> > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > Cc: Thomas Gleixner <tglx@linutronix.de>
-> > Cc: Hanjun Guo <guohanjun@huawei.com>
-> > Cc: Sudeep Holla <sudeep.holla@arm.com>
-> > Cc: Marc Zyngier <maz@kernel.org>
-> A couple of trivial comments inline. Overall this series looks in a good
-> state to me.
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> 
-> > ---
-> >  drivers/acpi/arm64/iort.c          | 95 ++++++++++++++++++++++++++++++++------
-> >  drivers/irqchip/irq-gic-v5-iwb.c   | 42 +++++++++++++----
-> >  drivers/irqchip/irq-gic-v5.c       |  4 ++
-> >  include/linux/acpi_iort.h          |  1 +
-> >  include/linux/irqchip/arm-gic-v5.h |  6 +++
-> >  5 files changed, 123 insertions(+), 25 deletions(-)
-> > 
-> > diff --git a/drivers/acpi/arm64/iort.c b/drivers/acpi/arm64/iort.c
-> > index 17dbe66da804..4b0b753db738 100644
-> > --- a/drivers/acpi/arm64/iort.c
-> > +++ b/drivers/acpi/arm64/iort.c
-> 
-> > @@ -317,12 +325,28 @@ static acpi_status iort_match_node_callback(struct acpi_iort_node *node,
-> >  	return status;
-> >  }
-> >  
-> > +static acpi_status iort_match_iwb_callback(struct acpi_iort_node *node, void *context)
-> > +{
-> > +	acpi_status status = AE_NOT_FOUND;
-> > +	u32 *id = context;
-> > +
-> > +	if (node->type == ACPI_IORT_NODE_IWB) {
-> > +		struct acpi_iort_iwb *iwb;
-> > +
-> > +		iwb = (struct acpi_iort_iwb *)node->node_data;
-> > +		status = iwb->iwb_index == *id ? AE_OK : AE_NOT_FOUND;
-> > +	}
-> > +
-> > +	return status;
-> Simpler flow with a quick exclusion of wrong nodes.
-> 	if (node->type != ACPI_IORT_NODE_IWB)
-> 		return AE_NOT_FOUND;
-> 	....
-> 	iwb = ...
-> 	
-> Also not sure I'd use a ternary here given it's only slightly more code
-> as more readable.
-> 	if (iwb->iwb_index != *id)
-> 		return AE_NOT_FOUND;
-> 
-> 	return AE_OK;
+On Thu, Jan 08, 2026 at 03:18:02PM +0000, Will Deacon wrote:
+> I think IOMMU_CAP_CACHE_COHERENCY is supposed to indicate whether or not
+> the endpoint devices are coherent (i.e. whether IOMMU_CACHE makes
+> sense)
 
-Updated.
+Yes, that's broadly right.
 
-> > +}
-> 
-> 
-> > diff --git a/drivers/irqchip/irq-gic-v5-iwb.c b/drivers/irqchip/irq-gic-v5-iwb.c
-> > index ad9fdc14d1c6..c7d5fd34d053 100644
-> > --- a/drivers/irqchip/irq-gic-v5-iwb.c
-> > +++ b/drivers/irqchip/irq-gic-v5-iwb.c
-> > @@ -4,6 +4,7 @@
-> >   */
-> >  #define pr_fmt(fmt)	"GICv5 IWB: " fmt
-> >  
-> > +#include <linux/acpi.h>
-> >  #include <linux/init.h>
-> >  #include <linux/kernel.h>
-> >  #include <linux/msi.h>
-> > @@ -136,18 +137,31 @@ static int gicv5_iwb_irq_domain_translate(struct irq_domain *d, struct irq_fwspe
-> >  					  irq_hw_number_t *hwirq,
-> >  					  unsigned int *type)
-> >  {
-> > -	if (!is_of_node(fwspec->fwnode))
-> > -		return -EINVAL;
-> > +	if (is_of_node(fwspec->fwnode)) {
-> >  
-> > -	if (fwspec->param_count < 2)
-> > -		return -EINVAL;
-> > +		if (fwspec->param_count < 2)
-> > +			return -EINVAL;
-> >  
-> > -	/*
-> > -	 * param[0] is be the wire
-> > -	 * param[1] is the interrupt type
-> > -	 */
-> > -	*hwirq = fwspec->param[0];
-> > -	*type = fwspec->param[1] & IRQ_TYPE_SENSE_MASK;
-> > +		/*
-> > +		 * param[0] is be the wire
-> > +		 * param[1] is the interrupt type
-> > +		 */
-> > +		*hwirq = fwspec->param[0];
-> > +		*type = fwspec->param[1] & IRQ_TYPE_SENSE_MASK;
-> 
-> As below, FIELD_GET() would improve reviewability a little.
-> 
-> 
-> > +	}
-> > +
-> > +	if (is_acpi_device_node(fwspec->fwnode)) {
-> > +
-> > +		if (fwspec->param_count < 2)
-> > +			return -EINVAL;
-> > +
-> > +		/*
-> > +		 * Extract the wire from param[0]
-> > +		 * param[1] is the interrupt type
-> > +		 */
-> > +		*hwirq = FIELD_GET(GICV5_GSI_IWB_WIRE, fwspec->param[0]);
-> > +		*type = fwspec->param[1] & IRQ_TYPE_SENSE_MASK;
-> 
-> I'd prefer this FIELD_GET() for this as well so there is no need to
-> go sanity check that it is the lowest bits.
+VFIO/iommufd does not do any cache flushing for their own mappings, so
+if the guest can use DMA to cause cache incoherence for those mappings
+nothing will clean it up and you get the general problems that come
+with that.
 
-It is a common pattern in the kernel, that's why I am not convinced that
-changing just this instance would improve much.
+Broadly IOMMU_CACHE (which IOMMU_CAP_CACHE_COHERENCY says works), in
+common non-hostile cases, prevents incoherence.
 
-Thanks,
-Lorenzo
+Since it is not complete against hostile guests, we also have
+IOMMU_CAP_ENFORCE_CACHE_COHERENCY which is supposed to mean that if
+VFIO sets IOMMU_CACHE then there is no way for the VM to bypass the
+cache with DMA (including PCI no-snoop TLPs, incomming attributes and
+so on).
 
-> 
-> > +	}
-> >  
-> >  	return 0;
+There ARM story here is not great, but with admin care you can create VMs
+that are safe, and CANWBS server HW is just completely safe. Like has
+been said in this thread Linux just can't tell the safe/unsafe cases
+apart in ARM land, so we are punting this on the admin to deal with.
+
+eg a PCI device that never issues a no-snoop TLP is safe under weaker
+IOMMU_CAP_CACHE_COHERENCY HW, but some integrated GPU masquerading as
+a PCIe device is probably not.
+
+> but it's true that, for the SMMU, we tie this to the coherency of the
+> SMMU itself so it is a bit sketchy. There's an interesting thread between
+> Mostafa and Jason about it:
+
+I've tried a few times to inject the ACPI per-PCI device coherency
+flags into the logic and failed every time ..
+
+The stated purpose of VFIO is to not allow incoherent devices in VFIO,
+so if an admin manages to do this through one of the holes we
+don't/can't check then it is admin error :(
+
+> But, that aside, FWB throws a pretty big spanner in the works if we want
+> to assign non-coherent devices.
+
+Yes, at least guest operating under FWB wouldn't have a working
+dma_alloc_coherent() so the VM would be pretty broken. No VMM can set
+the ACPI/DT to mark devices as non-coherent in the VM for this
+reason..
+
+I gather Mostafa is trying to make pkvm support non-coherent devices,
+I assume he is giving up FWB and stuff as well to make it work.
+
+Jason
 
