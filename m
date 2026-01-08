@@ -4,66 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE86FD1D484
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 18:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B9BD1D478
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 18:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mHJvd2lOsd2wbBTE/hRKRyHsP8VtLimAvA5l0WDsuuI=; b=t4IK2ZbneWfXB9qYcNZFVQWHrH
-	XVyN1mhU4Xkb3HfTnUx3eWnUAV4EOU8j8QcJxu1tcrF/NS2nVO1kDuJe1o4e1bg9E3mkas88Vm12H
-	1THxMdlyaVFlVmWZZNWs9yZeAmuTxPsQuGjkla1waGaYc99H9CGZPIy42YbUrr0uDTg6TpsNu8H8D
-	oHSmbTWSVdX+uGPx8kuf6aNYrnoMQh4CaL34M/5xs4Ec1nXvWyqoe3B30sDwljpXO2dJVGIaWgLe5
-	CSgrspLfll3zk6Z3y6TOHBFr2vb0gqXfB9m+ayPn0LEYXrUPf0jT0F5tLL5A2qg/kk6/M3eQ0oVkn
-	nZh5ERAg==;
+	bh=z/4beaYzl3Rh77NFdzRlgvkLllj5ILTeDvKtxiqNa68=; b=4hz7Zg4ni/wHYA58Msu3RW+jo2
+	A3y+Or0pGSeuagTzkuCFRjXpBQ+T+SzWg5FLFoWLyWZX+HUpW4jZg6L0ioT8E6voF3e89vJlrnnBp
+	m3Vlod3H5BwUYkCfdvVW5WN+lFLZy4Y2kmmFjs/0GLx66H7cgQahZt/MACWjli7konATuOwulkoL7
+	cjzcr0NzbxWV1RC302MKRGrbp3GId1xuHFPRZ/2fCDTbmFV7LNTgWRRN4812o65oLhEVqpG/sTOcn
+	aK2NPv3AGN8Xc2fj7A0vw9j42gaPVT6mykD1bNNq77f9bpDASCUdZuGKFgC73e5eBUyhVjQqRero2
+	8j1eQ/IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vduKl-00000000XeK-1k0U;
-	Thu, 08 Jan 2026 18:02:07 +0000
-Received: from out-171.mta1.migadu.com ([2001:41d0:203:375::ab])
+	id 1vduMV-00000000Y71-0iZl;
+	Thu, 08 Jan 2026 18:03:55 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vduKj-00000000Xd1-0zAX
+	id 1vduMS-00000000Y5y-2GZb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 18:02:06 +0000
-Date: Thu, 8 Jan 2026 18:01:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1767895312;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mHJvd2lOsd2wbBTE/hRKRyHsP8VtLimAvA5l0WDsuuI=;
-	b=NNiC6X1eiOY1vt6ur7HKIpfzt3j34lWx44WxF9qrMQ5c0WFv9a2bOfOsrRs6zKXmr/lF6h
-	vtAYr4ZuDCheAMhLpUV9ZRWeQ7lEFkUNKHB27ih+ISXEEIjcAi84GXchAP8LsvKNkNsN3y
-	ANpKS595tEqqGM/bSu9MKaO2JENVkck=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Yosry Ahmed <yosry.ahmed@linux.dev>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 21/21] KVM: selftests: Test READ=>WRITE dirty logging
- behavior for shadow MMU
-Message-ID: <gzyjze3wszmrwxdwnudij6nfqdxzihm37uappfqxorfjy5vatf@hffzaobbm3g7>
-References: <20251230230150.4150236-1-seanjc@google.com>
- <20251230230150.4150236-22-seanjc@google.com>
- <t7dcszq3quhqprdcqz7keykxbmqf62pdelqrkeilpbmsrnuji5@a3lplybmlbwf>
- <aV_cLAlz4v1VOkDt@google.com>
+	Thu, 08 Jan 2026 18:03:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zErlWlOsMn9dH175yHGU/pCgywm+wZ/iEyK+rJpXhA1p1f52kXaRdRTfr1es7EkuEe9JS71+386/eGrm4oYIONcTMcK4DlLjon2iMBq1ENmFzZhnbIh7qo3u82Iak1HWBgHhfNpqbl5kMtC1Z03KSPAbKvECEiX+1TvjdpwOrv4rUYn3z63Yu8tsorXLovS3RYnMsQvW9sU6uYsYVApKEgYagvLAWGQvkxc1DBy6DAkb0mWQHnqFZ9eTLQMCi2KFjzolB22bHXgA22ulVB3WpZVa8RKvktQP1WsdC2eTRtr/hAL55y6ho5CnfBaGrZa6+eh9ZNSoqhlf3nmnAk8m4A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z/4beaYzl3Rh77NFdzRlgvkLllj5ILTeDvKtxiqNa68=;
+ b=f6dy1ulo63naaQeSSw8zQE/p74EBpRDAO1/yIxE4eqoHUAdjOHnVaHGiBl5afKAckDFmSsk7EK7GOABPMA6NzCsBBpUU+zdBjhS6X/Hd+fLaRoXD6LwFKRAtizLnxABJ5KuFkwWfeL29UGxvBdad+W7fOy3wAQbbs/UfAnJS/cKCCCYqpklo/KJKpQylpw7iBUDydOcno8qNNLR/V2EszGU0tSJmfeStukOnqkFYG9NfGZef6DR5pBxyPyxFSzZpqLFm/UwR9cXGNxIPSceWz4hVbtQtoOo8LIxwsxp/POfGamnJHLYNPYNybvVmhDaAln4GRaivqYxnvTDwAnInag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=z/4beaYzl3Rh77NFdzRlgvkLllj5ILTeDvKtxiqNa68=;
+ b=kD8xIrafyZ/ogsCJd/1vWEpCx56tAh1l9BWMjQ8pLp9kJs9fiOUY+0Jm5yVJcnh8wvvhS29wufDJLin7X/ryiHaxlxhBQIZhSr1L5CWKxj8csQVNtrJ2KnAaFytrf+yJcbf7b6a4hGloBp8Thz9/FRyj+7XpnacG3IDhFrwQbfw=
+Received: from BYAPR04CA0005.namprd04.prod.outlook.com (2603:10b6:a03:40::18)
+ by DM6PR10MB4124.namprd10.prod.outlook.com (2603:10b6:5:218::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.4; Thu, 8 Jan
+ 2026 18:03:48 +0000
+Received: from CO1PEPF000075F2.namprd03.prod.outlook.com
+ (2603:10b6:a03:40:cafe::c6) by BYAPR04CA0005.outlook.office365.com
+ (2603:10b6:a03:40::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.3 via Frontend Transport; Thu, 8
+ Jan 2026 18:03:49 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ CO1PEPF000075F2.mail.protection.outlook.com (10.167.249.41) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.1 via Frontend Transport; Thu, 8 Jan 2026 18:03:48 +0000
+Received: from DLEE207.ent.ti.com (157.170.170.95) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 8 Jan
+ 2026 12:03:42 -0600
+Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE207.ent.ti.com
+ (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 8 Jan
+ 2026 12:03:41 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 8 Jan 2026 12:03:41 -0600
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 608I3fDN2778777;
+	Thu, 8 Jan 2026 12:03:41 -0600
+Date: Thu, 8 Jan 2026 12:03:41 -0600
+From: Nishanth Menon <nm@ti.com>
+To: Kendall Willis <k-willis@ti.com>
+CC: Bryan Brattlof <bb@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Tero
+ Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Dhruva
+ Gole" <d-gole@ti.com>, <vishalm@ti.com>, <sebin.francis@ti.com>,
+	<msp@baylibre.com>, <khilman@baylibre.com>, <a-kaur@ti.com>,
+	<s-kochidanadu@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 0/3] arm64: boot: dts: ti: k3-am62l: allow WKUP UART
+ wakeup from LPM
+Message-ID: <20260108180341.t2q6msdh5plbrjf4@parabola>
+References: <20260106-wkup-uart-wakeup-v2-0-fb4cbd56c827@ti.com>
+ <20260107164504.ehvbfizg7ybbvv2e@bryanbrattlof.com>
+ <c7dfe4a3-1bf5-4e50-b4b7-8752aa9ef1f5@ti.com>
+ <20260108170545.cfez6dvwkft2z3jh@bryanbrattlof.com>
+ <afac4fe3-1dbc-4c8a-a0f1-6e25666eabb4@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <aV_cLAlz4v1VOkDt@google.com>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <afac4fe3-1dbc-4c8a-a0f1-6e25666eabb4@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000075F2:EE_|DM6PR10MB4124:EE_
+X-MS-Office365-Filtering-Correlation-Id: 758d7ca2-db51-4e07-da5e-08de4ee045b4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|34020700016|36860700013|1800799024|34070700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Aohk3fK3NsAVl7P+TX954jCsZDGAUnRrk6ap4AYyY+SlxBSA5jT0SFaJmiTZ?=
+ =?us-ascii?Q?eTNqc1nLu57L2Y7Nb1WZMUPMyJ48aZXdActMuLeax0TCBaU0lvCxsNZ4VyUY?=
+ =?us-ascii?Q?DsYMi2L1M/krfK6ffoY9dWX34NX5BJ+SYIeCZDj2aulyXtxDX0wJSOf5Xm8V?=
+ =?us-ascii?Q?bfpfAkA2hvV53XOf1kU11yrKGyIzgFj7wFF3PyfGbuCi++rRUjJ4JV5NJYNP?=
+ =?us-ascii?Q?CdhTMDTzfeWmwJCN/aqfAFWYFhNVBVHuJLEyl48VIWkAoOqmKmW8aRaaQ4LA?=
+ =?us-ascii?Q?oyv1yM1hmnqF+Q5i/KRUZ5ZAA0NK6tzLqyWB0kf9rBze0D+/91MQDYfouORK?=
+ =?us-ascii?Q?B7twwa/wqZ1DeT3hMIU3WNlOgB0N05tF+r8zEqpvssUWIk7d3bHxrkx1RLuY?=
+ =?us-ascii?Q?jbKGj9O6TEVqxDfpWoQkm7CnZA/b81XQOMps7xwg/ftIICjAI55COtJT6147?=
+ =?us-ascii?Q?Qsk3E/PND+4xQxyZ6she367OTRNyL+etFmyTAt0qQUa2watfINZ009/bo/nv?=
+ =?us-ascii?Q?v4cljZ+6MkRNA5na2tEfUx+Ish2kK1/jAb4ldx3bsTtK+BxeANYnZRKi23kO?=
+ =?us-ascii?Q?XC3eXDvbVjfJ+G1FUBPDbp/69Slnm/dBJp4cR7KR+S+wXi76cqe4EWe5A1Ql?=
+ =?us-ascii?Q?HUV8d9+CvDAt4Q0AZNpggL/F0mRKcTtVoceFJRo0iqJg1AaFqAXcGcS2Gs9Y?=
+ =?us-ascii?Q?oveILMVhcTOgaklMBauKkz1y7yXCZaKKtviFQ8U7bObozfhpWgv+FH9OFUpq?=
+ =?us-ascii?Q?e1qJFXK7jXHARRjomsFS1caLcnPFHeRcyMYI/yyYdTBar7ZVLL9hhowb7akC?=
+ =?us-ascii?Q?E4S9JRKugkBIRWZJhHT+JdEwvKx6cLLtX6ZghJ1KsApBmlqczIuGx4+Col6Z?=
+ =?us-ascii?Q?dHMvRiDg0Zzb8iUHiMvNQkzbN2Om58c6V8h1bEPO2BdJo89J88zW4/UK7FoF?=
+ =?us-ascii?Q?A8wrbwJVo18PsZF3pwB5VuEJQb4PZmy+BfmnIiBjH8sB34cAUAulbiiTNgbC?=
+ =?us-ascii?Q?ZZ6Rtt55ybc4BdTQCUrT7Y3k8dEva0nQvNPh+XhlboMPuC7tU5zueFXRyqdN?=
+ =?us-ascii?Q?oambQRGgtRn86iPx156eSg4qODbmVOdjPTAE2KHP+XyxUkFg81riHILheRXX?=
+ =?us-ascii?Q?06hEB/HEnxglCkdepb0rZH++1YxAJg2CzTgtP1t+et/hVHD76lzmPymxveYm?=
+ =?us-ascii?Q?YNCI/GCqGBoC2LaXWNzs0Ukl3VoolZFtOpKiuTSOmymHOFJrgFpaSGz0zjfO?=
+ =?us-ascii?Q?bbfdhF9uW/yMjSJMXvxFYlbl0oJvIc0LJ8pRjzmW0duRQVFh9HApGRcLkG4u?=
+ =?us-ascii?Q?7N6zcaRnmE28beI43RQAU6Uvju1tX2fmRZB913OKWFc9vNlIoEvdK+kmPsia?=
+ =?us-ascii?Q?VbuyFSCs5jIb9IeBvxd8qvdJgca3t+cSuNF4tkAvZOHK3JPtP4yO46y/TnvI?=
+ =?us-ascii?Q?yFoqb6ctUMcEBW6xLCqMpJviihidFr4WAPlr3Wut2VuyLdOESN38hAuwncFw?=
+ =?us-ascii?Q?hZCYeHyBxr1phGuZFrkU2qkdzkCBncImTNZgWk06DOUJ8ePk+2ynmFEaRGgf?=
+ =?us-ascii?Q?FdCXux6tkzDLH51QfGc=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(34020700016)(36860700013)(1800799024)(34070700014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2026 18:03:48.1293
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 758d7ca2-db51-4e07-da5e-08de4ee045b4
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000075F2.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR10MB4124
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_100205_417271_ECA08306 
-X-CRM114-Status: GOOD (  42.39  )
+X-CRM114-CacheID: sfid-20260108_100352_582475_929FA97D 
+X-CRM114-Status: GOOD (  30.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,213 +162,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 08, 2026 at 08:32:44AM -0800, Sean Christopherson wrote:
-> On Fri, Jan 02, 2026, Yosry Ahmed wrote:
-> > On Tue, Dec 30, 2025 at 03:01:50PM -0800, Sean Christopherson wrote:
-> > >  	WRITE_ONCE(*b, 1);
-> > > -	GUEST_SYNC(true);
-> > > +	GUEST_SYNC(2 | TEST_SYNC_WRITE_FAULT);
-> > >  	WRITE_ONCE(*b, 1);
-> > > -	GUEST_SYNC(true);
-> > > -	GUEST_SYNC(false);
-> > > +	GUEST_SYNC(2 | TEST_SYNC_WRITE_FAULT);
-> > > +	READ_ONCE(*b);
-> > > +	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
-> > > +	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
+On 11:52-20260108, Kendall Willis wrote:
+> On 1/8/26 11:05, Bryan Brattlof wrote:
+> > On January  7, 2026 thus sayeth Kendall Willis:
+> > > On 1/7/26 10:45, Bryan Brattlof wrote:
+> > > > On January  6, 2026 thus sayeth Kendall Willis:
+> > > > > K3 TI AM62L SoC supports wakeup from WKUP UART when the SoC is in the
+> > > > > DeepSleep low power mode. To allow wakeup from WKUP UART the target-module
+> > > > > device tree node is enabled. The ti-sysc interconnect target module driver
+> > > > > is used to configure the the SYSCONFIG related registers. In this case,
+> > > > > the interconnect target module node configures the WKUP UART to be able to
+> > > > > wakeup from system suspend. The SYSC register is used to enable wakeup
+> > > > > from system suspend for the WKUP UART. Refer to 14.7.2.5 UART in the
+> > > > > AM62L Techincal Reference Manual for registers referenced [1].
+> > > > > 
+> > > > > Previous TI SoCs configure the WKUP UART to wakeup from system suspend
+> > > > > using the ti-sysc interconnect target module driver. Refer to commit
+> > > > > ce27f7f9e328 ("arm64: dts: ti: k3-am62-wakeup: Configure ti-sysc for
+> > > > > wkup_uart0") for an example of this.
+> > > > 
+> > > > I think I may be confused. What is setting the pinmux for the wkup_uart
+> > > > to allow us to trigger the wake event? It looks like they reset to GPIO
+> > > > pins if not set. Is firmware doing this?
+> > > 
+> > > On AM62L, the WKUP UART pinmux is initially set by TFA so that it is set to
+> > > the UART pins, not GPIO. The target-module node sets the WKUP UART SYSC
+> > > register so that wakeup is enabled.
+> > > 
 > > 
-> > Instead of hardcoding 0 and 2 here, which IIUC correspond to the
-> > physical addresses 0xc0000000 and 0xc0002000, as well as indices in
-> > host_test_mem, can we make the overall definitions a bit more intuitive?
+> > Nice however should we mark the UART in the board file as reserved for
+> > TFA or is it free to be used by Linux and only during the low power
+> > modes after Linux is asleep will it be used by TFA?
 > > 
-> > For example:
-> > 
-> > #define GUEST_GPA_START		0xc0000000
-> > #define GUEST_PAGE1_IDX		0
-> > #define GUEST_PAGE2_IDX		1
-> > #define GUEST_GPA_PAGE1		(GUEST_GPA_START + GUEST_PAGE1_IDX * PAGE_SIZE)
-> > #define GUEST_GPA_PAGE2		(GUEST_GPA_START + GUEST_PAGE2_IDX * PAGE_SIZE)
-> > 
-> > /* Mapped to GUEST_GPA_PAGE1 and GUEST_GPA_PAGE2 */
-> > #define GUEST_GVA_PAGE1		0xd0000000
-> > #define GUEST_GVA_PAGE2		0xd0002000
-> > 
-> > /* Mapped to GUEST_GPA_PAGE1 and GUEST_GPA_PAGE2 using TDP in L1 */
-> > #define GUEST_GVA_NESTED_PAGE1  0xd0001000
-> > #define GUEST_GVA_NESTED_PAGE2	0xd0003000
-> > 
-> > Then in L2 code, we can explicitly take in the GVA of page1 and page2
-> > and use the definitions above in the GUEST_SYNC() calls, for example:
-> > 
-> > static void l2_guest_code(u64 *page1_gva, u64 *page2_gva)
-> > {
-> >         READ_ONCE(*page1_gva);
-> >         GUEST_SYNC(GUEST_PAGE1_IDX | TEST_SYNC_READ_FAULT);
-> >         WRITE_ONCE(*page1_gva, 1);
-> >         GUEST_SYNC(GUEST_PAGE1_IDX | TEST_SYNC_WRITE_FAULT);
-> > 	...
-> > }
-> > 
-> > and we can explicitly read page1 and page2 from the host (instead of
-> > using host_test_mem).
-> > 
-> > Alternatively, we can pass in the guest GVA directly into GUEST_SYNC(),
-> > and use the lower bits for TEST_SYNC_READ_FAULT, TEST_SYNC_WRITE_FAULT,
-> > and TEST_SYNC_NO_FAULT.
-> >
-> > WDYT?
+> > ~Bryan
 > 
-> I fiddled with this a bunch and came up with the below.  It's more or less what
-> you're suggesting, but instead of interleaving the aliases, it simply puts them
-> at a higher base.  That makes pulling the page frame number out of the GVA much
-> cleaner, as it's simply arithmetic instead of weird masking and shifting magic.
+> Sorry for the confusion, I said earlier that the WKUP UART could be used by
+> firmware, but that is not to say it is specifically reserved by the firmware
+> in general. TFA sets the WKUP UART pins, but it does not use the WKUP UART
+> for anything else. The only exception for TFA using the WKUP UART is if the
+> user chooses to use the WKUP UART for TFA debugging [1].
 > 
-> --
-> From: Sean Christopherson <seanjc@google.com>
-> Date: Wed, 7 Jan 2026 14:38:32 -0800
-> Subject: [PATCH] KVM: selftests: Test READ=>WRITE dirty logging behavior for
->  shadow MMU
+> All of this to say that the WKUP UART *can* be used by Linux, it does not
+> need to be reserved for firmware.
 > 
-> Update the nested dirty log test to validate KVM's handling of READ faults
-> when dirty logging is enabled.  Specifically, set the Dirty bit in the
-> guest PTEs used to map L2 GPAs, so that KVM will create writable SPTEs
-> when handling L2 read faults.  When handling read faults in the shadow MMU,
-> KVM opportunistically creates a writable SPTE if the mapping can be
-> writable *and* the gPTE is dirty (or doesn't support the Dirty bit), i.e.
-> if KVM doesn't need to intercept writes in order to emulate Dirty-bit
-> updates.
-> 
-> To actually test the L2 READ=>WRITE sequence, e.g. without masking a false
-> pass by other test activity, route the READ=>WRITE and WRITE=>WRITE
-> sequences to separate L1 pages, and differentiate between "marked dirty
-> due to a WRITE access/fault" and "marked dirty due to creating a writable
-> SPTE for a READ access/fault".  The updated sequence exposes the bug fixed
-> by KVM commit 1f4e5fc83a42 ("KVM: x86: fix nested guest live migration
-> with PML") when the guest performs a READ=>WRITE sequence with dirty guest
-> PTEs.
-> 
-> Opportunistically tweak and rename the address macros, and add comments,
-> to make it more obvious what the test is doing.  E.g. NESTED_TEST_MEM1
-> vs. GUEST_TEST_MEM doesn't make it all that obvious that the test is
-> creating aliases in both the L2 GPA and GVA address spaces, but only when
-> L1 is using TDP to run L2.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  .../selftests/kvm/include/x86/processor.h     |   1 +
->  .../testing/selftests/kvm/lib/x86/processor.c |   7 +
->  .../selftests/kvm/x86/nested_dirty_log_test.c | 188 +++++++++++++-----
->  3 files changed, 145 insertions(+), 51 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/kvm/include/x86/processor.h b/tools/testing/selftests/kvm/include/x86/processor.h
-> index ab29b1c7ed2d..8945c9eea704 100644
-> --- a/tools/testing/selftests/kvm/include/x86/processor.h
-> +++ b/tools/testing/selftests/kvm/include/x86/processor.h
-> @@ -1483,6 +1483,7 @@ bool kvm_cpu_has_tdp(void);
->  void tdp_map(struct kvm_vm *vm, uint64_t nested_paddr, uint64_t paddr, uint64_t size);
->  void tdp_identity_map_default_memslots(struct kvm_vm *vm);
->  void tdp_identity_map_1g(struct kvm_vm *vm,  uint64_t addr, uint64_t size);
-> +uint64_t *tdp_get_pte(struct kvm_vm *vm, uint64_t l2_gpa);
->  
->  /*
->   * Basic CPU control in CR0
-> diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
-> index ab869a98bbdc..fab18e9be66c 100644
-> --- a/tools/testing/selftests/kvm/lib/x86/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/x86/processor.c
-> @@ -390,6 +390,13 @@ static uint64_t *__vm_get_page_table_entry(struct kvm_vm *vm,
->  	return virt_get_pte(vm, mmu, pte, vaddr, PG_LEVEL_4K);
->  }
->  
-> +uint64_t *tdp_get_pte(struct kvm_vm *vm, uint64_t l2_gpa)
 
-nested_paddr is the name used by tdp_map(), maybe use that here as well
-(and in the header)?
+If you are going to use it for linux wakeup, then why dont we enable it for
+linux? what TFA does or not should not dictate device tree unless it is
+a hardware description - provide the full description in dt.
 
-> +{
-> +	int level = PG_LEVEL_4K;
-> +
-> +	return __vm_get_page_table_entry(vm, &vm->stage2_mmu, l2_gpa, &level);
-> +}
-> +
->  uint64_t *vm_get_pte(struct kvm_vm *vm, uint64_t vaddr)
->  {
->  	int level = PG_LEVEL_4K;
-[..]
-> @@ -133,35 +220,50 @@ static void test_dirty_log(bool nested_tdp)
->  
->  	/* Add an extra memory slot for testing dirty logging */
->  	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
-> -				    GUEST_TEST_MEM,
-> +				    TEST_MEM_BASE,
->  				    TEST_MEM_SLOT_INDEX,
->  				    TEST_MEM_PAGES,
->  				    KVM_MEM_LOG_DIRTY_PAGES);
->  
->  	/*
-> -	 * Add an identity map for GVA range [0xc0000000, 0xc0002000).  This
-> +	 * Add an identity map for GVA range [0xc0000000, 0xc0004000).  This
->  	 * affects both L1 and L2.  However...
->  	 */
-> -	virt_map(vm, GUEST_TEST_MEM, GUEST_TEST_MEM, TEST_MEM_PAGES);
-> +	virt_map(vm, TEST_MEM_BASE, TEST_MEM_BASE, TEST_MEM_PAGES);
->  
->  	/*
-> -	 * ... pages in the L2 GPA range [0xc0001000, 0xc0003000) will map to
-> -	 * 0xc0000000.
-> +	 * ... pages in the L2 GPA ranges [0xc0001000, 0xc0002000) and
-> +	 * [0xc0003000, 0xc0004000) will map to 0xc0000000 and 0xc0001000
-> +	 * respectively.
-
-Are these ranges correct? I thought L2 GPA range [0xc0002000,
-0xc0004000) will map to [0xc0000000, 0xc0002000).
-
-Also, perhaps it's better to express those in terms of the macros?
-
-L2 GPA range [TEST_MEM_ALIAS_BASE, TEST_MEM_ALIAS_BASE + 2*PAGE_SIZE)
-will map to [TEST_MEM_BASE, TEST_MEM_BASE + 2*PAGE_SIZE)?
-
->  	 *
->  	 * When TDP is disabled, the L2 guest code will still access the same L1
->  	 * GPAs as the TDP enabled case.
-> +	 *
-> +	 * Set the Dirty bit in the PTEs used by L2 so that KVM will create
-> +	 * writable SPTEs when handling read faults (if the Dirty bit isn't
-> +	 * set, KVM must intercept the next write to emulate the Dirty bit
-> +	 * update).
->  	 */
->  	if (nested_tdp) {
-> +		vm_vaddr_t gva0 = TEST_GUEST_ADDR(TEST_MEM_ALIAS_BASE, 0);
-> +		vm_vaddr_t gva1 = TEST_GUEST_ADDR(TEST_MEM_ALIAS_BASE, 1);
-
-Why are these gvas? Should these be L2 GPAs?
-
-Maybe 'uint64_t l2_gpa0' or 'uint64_t nested_paddr0'?
-
-Also maybe add TEST_ALIAS_GPA() macro to keep things consistent?
-
-> +
->  		tdp_identity_map_default_memslots(vm);
-> -		tdp_map(vm, NESTED_TEST_MEM1, GUEST_TEST_MEM, PAGE_SIZE);
-> -		tdp_map(vm, NESTED_TEST_MEM2, GUEST_TEST_MEM, PAGE_SIZE);
-> +		tdp_map(vm, gva0, TEST_GPA(0), PAGE_SIZE);
-> +		tdp_map(vm, gva1, TEST_GPA(1), PAGE_SIZE);
-> +
-> +		*tdp_get_pte(vm, gva0) |= PTE_DIRTY_MASK(&vm->stage2_mmu);
-> +		*tdp_get_pte(vm, gva1) |= PTE_DIRTY_MASK(&vm->stage2_mmu);
-> +	} else {
-> +		*vm_get_pte(vm, TEST_GVA(0)) |= PTE_DIRTY_MASK(&vm->mmu);
-> +		*vm_get_pte(vm, TEST_GVA(1)) |= PTE_DIRTY_MASK(&vm->mmu);
->  	}
->  
->  	bmap = bitmap_zalloc(TEST_MEM_PAGES);
-> -	host_test_mem = addr_gpa2hva(vm, GUEST_TEST_MEM);
->  
->  	while (!done) {
-> -		memset(host_test_mem, 0xaa, TEST_MEM_PAGES * PAGE_SIZE);
-> +		memset(TEST_HVA(vm, 0), 0xaa, TEST_MEM_PAGES * PAGE_SIZE);
-> +
->  		vcpu_run(vcpu);
->  		TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_IO);
->  
-[..]
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
