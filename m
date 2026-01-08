@@ -4,90 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7772D148AE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 07:04:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05AA7D148B3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 07:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EAN8+Ciqh5L4w3kAbltziKsgSCvOxXNi49H+2aGyv4Y=; b=zkK8Qyd/GFhfBTfE1zpH1HSlWs
-	MBGOI+jpIcG3nvrrNvwtGox4vtUJnfJR8Nku9iIfeG9tdSt3peuPRToIFj9Ct7Kq/Jf22ZXPpsgf8
-	ui8rxobCSBDPPQZEwbDkPRSW70HDVl0iZ84cdvAbzVGl8fgeIwWtUk5xL7kNZ4v+qCIM4v5yyJSXS
-	n6Taq4x1X2sa8ck8Q82FeRCZ/RRrTCmZfVEIAwCVsVFNt3O5fJYme3da2pZDBzgSAKPfRnQQGdc4P
-	mAZY64GsO4auo5sTJyyWtsDymD1ygP++uObH3QxdxUUYh9RDEdAnzQRGL8nsEvj7VuFtF/d5NKAyV
-	hRQl4w8w==;
+	bh=w0/cSpUe+jDr+8mlVfQEeowGuJ5hrCv9cMD4OiGr0dA=; b=2zcExVTyeWVv/RawGuBcyGjhgK
+	vz4Ppa/sAnvOfa2fil7MiDTIkBikkI4l4F0hT+Spw8EaiuEU83f5Xp/a+L88bmOHiZb4zzm1XkyPk
+	1jFup4yHJfDoVUUdjPVrbjroAJ2QLvJ42sr2xozbI8FQF4l0/g3B/ol4aVT1j8VraMTy+DWVnsnwZ
+	foaROzowtyixYuNWjCO8MZYGMSSFKmHfPvztuCnbejhIwbHC5pS6IqeTDPq2GVd2fpjxUGW7gMVGj
+	8UzbpMdksuQKfdfP3hTFtQbU4fweG+YKg2c+8PgwJD8GzVeIl8BJIjvNqLz+dO3sMcQO5v+oog0r/
+	DinrMe8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdk4d-0000000G3Ls-2IM4;
-	Thu, 08 Jan 2026 07:04:47 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1vdkFV-0000000G4Jb-3oeR;
+	Thu, 08 Jan 2026 07:16:01 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdk4a-0000000G3L1-2qc7
+	id 1vdkFT-0000000G4J8-2t7P
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 07:04:46 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-64ba74e6892so4669173a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 23:04:44 -0800 (PST)
+	Thu, 08 Jan 2026 07:16:01 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-64b4b35c812so4575951a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 07 Jan 2026 23:15:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767855883; x=1768460683; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EAN8+Ciqh5L4w3kAbltziKsgSCvOxXNi49H+2aGyv4Y=;
-        b=TddIoUJ9F5MeZSH7T6hpKnJpOQ0hK7SuRwtsj3tWYNXGz7UpYdAsjzlMmM50OxqT5N
-         zkYNq5w1hb3KqzYy6jaQy6NL8SNyEIboKEzCZG7J2Ga4VzVKNf+EMCqVrAfk5PXmSEMe
-         14uDi7FQyut/TMNbM5tgML5WX+N7QE5rOfztaI31chB5zzg1i9GUmlgMDaxQtn8OGpjT
-         J5kd5Wr7HuHE1/qNEZKQwVo4Yz0/QTo66f3ZFX95LKuYRs0uRKY3rJzamtSMTUTtzema
-         f5McU/Jfz6/0D+8LY9OrIkAtX2SMygTS/Tb/yJVXJiAzui0AXkhpce8nMnG+PyQyKq7M
-         i6Rg==
+        d=tuxon.dev; s=google; t=1767856557; x=1768461357; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=w0/cSpUe+jDr+8mlVfQEeowGuJ5hrCv9cMD4OiGr0dA=;
+        b=bEYPg92hhlGvtbYgOZSxcImrA6+Yr6V3zD2u7F3BoDTdSC8kp54UmJCKhfPhrWHd42
+         tfXZKStFw9eGjehnfc125Hi3B/4pUIWwQZhbecdCpK1D1OE5dJaZkvU9xljukbrI9IMW
+         SrRKTEnPZL0DbI7P297a87bhIQsSJ+2ZHlYIv8u6RHpSRm/ZhWHNp5WMhUOx6kpAvOre
+         +1Dgo7q6rlHTXWe8uqWPVo4NAgmKM5fWIiUIRqB47KZgPIwZDanhdhC/sik1RVldozhD
+         9piiJiM1zNYj3pGsSbM3oz+FBwPqjTylg1kW9KxkAbXCjsFjDDXXwWfFBQzpdMB3NURw
+         JDqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767855883; x=1768460683;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=EAN8+Ciqh5L4w3kAbltziKsgSCvOxXNi49H+2aGyv4Y=;
-        b=RFF2C/YRMozVOXvWg9CTcB+dEQR7yfGJiMm53GmQytUdCSrIMx8PxiWNV+ATfiQqbF
-         k8vP2+WXKYOQ6Qd+OdntCCW6cCROk9v/6zFAa+KF5F53FY5qBFg5rmEe/Uq5sMfR+j29
-         t+8w8gOpHl80FK+oTWql0Wn8FLrKq+3Br+9O8HC9MOpEF+C+K6p08Gy4UJ+auxgEa9JR
-         9UKHEbYgC+7N+wT6o09hx9B+nMTcnai0wYe+VOBtpbkLm/FWe9z924w0FGqFi5eoL+IG
-         NDEoivfSsMJqmI9RVb7srYcyXC1uIu7GBBVRoI94sakthsrsk8U0FJzOkBe6mvNZWreo
-         5w4w==
-X-Forwarded-Encrypted: i=1; AJvYcCWIlNYuje90smv0tQNBzqfhrGD77X2hoIBZoGyzVPwQz1KMd+ANk7zTgZEN9rNAp1/xbIkflwC7CecgIZg0pytR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHmKdVwkHA7/KvmpTaCjTh9f9z65TUEH3Ajmz9s94IliN3Y0ZI
-	OJqXHJVUWLB5uKlidx2yTIU5IS61hGfXcrqiZ1QYixyjTbkYqXEkH9140NIdyK9XlCeECRgxuEe
-	sOGgDnxb9585JvspBVjMK4QVjLIrMzh4=
-X-Gm-Gg: AY/fxX4W+FfZ/hEYCvZKbqoVdhfOiXvwdGw0KLI90R8sphY5EB9CDhx5MpNWqqrxevn
-	buQdLvRK7SogEFDUjZWhAThzKEvZWQEUtFj2dKQocQ3OIUAAR/rT4vyz2Jcwg1nLAv7MEXwzYDj
-	Ek0T7McEkqWsO58UkkjsiwmSHaZvG7dlXu8IzjEL3xrENtVw4PzvCmwcPfVO5VL5wuzPgkiQ30T
-	gTJkJNgQq94QcG6cdx3UtBkzh/QvoaPoRwwGs9ul0vzWsm9rGr87DNuiqvndcgRHnF82vDdQa7Z
-	1A==
-X-Google-Smtp-Source: AGHT+IGBP1Y/NBrrCMuhwkVQ6AO2ojqKOG+H99YGlpDe1e8ewtDuvZGEnWtYEQt6lSgwqc5HalftMS2UQQytGVd5v6I=
-X-Received: by 2002:a05:6402:3593:b0:64c:69e6:ad3e with SMTP id
- 4fb4d7f45d1cf-65097e8e43fmr4488123a12.33.1767855882738; Wed, 07 Jan 2026
- 23:04:42 -0800 (PST)
+        d=1e100.net; s=20230601; t=1767856557; x=1768461357;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=w0/cSpUe+jDr+8mlVfQEeowGuJ5hrCv9cMD4OiGr0dA=;
+        b=w8ePSoa3czifqjaBJDVQwUwZm6bO6pMyHilGme3I67ZZcw/6UPqA5NJe6pqw42zpbS
+         aYcyzXpsKNA8UWelgGtCU3P+OTW04LUYNOceRpsOPaPK2aUHfvEU12UE4nwk/KKVbu+g
+         pqY9aNJ3Gs9qbQGG+qZiQ1np6B9vPp+Znunq+MSxwhzRi38XhmIilF4t3yN/XB96Qwba
+         nVwj3YQCFyRWLm9P0ndkrMCqO4uRVjXy/GK89Uim0O61+nz+DVK6KPNO3FJHLYShpdMf
+         7yQa3PUc49kuK65bEVq0WQnYnymmCRgIZmZwASETxLZw/gVIaA4wFoGDBt9DkC7cOdv3
+         1+Rw==
+X-Gm-Message-State: AOJu0YyLrK5k+a87//T4BSKnY2ZbuyO+/jgz8doKdDQMqJpRkhQaTr5p
+	jlmCFZ6vQqnFsWajxgFeMl6disrlMa6w3f581ajduWkZZy0ZvCHBe15c2Me8MiJEdYY=
+X-Gm-Gg: AY/fxX5daTiibkm3MyCApq1ikjpY5xTNTgax2LWxFSLK7Pt9IsmaE78/5N4TYE2uuWG
+	yje7Ul8EopmVGaMKkb0JXxDwSxWg5waZ69LfBJMLvS6PMVyLXNB6woLToAb43Rraxi7rDcrfXnn
+	mC3rP1KnIPTCRj8m7BSj9qXjb/qvuEdVoDlf6kn1Y4XriVrJoGdf1knDxoTO4lY8k6C9DfH7kpp
+	EYmxlldWHYuhE7nMbiGONy9TMbWNwbRFt6xzcMr2IaLTzfK8Apx4R9feoty5BuWizrRVNlifWzY
+	ypSGU9heDpxBrNANenbkfJNWnNIi1Ur3iRdF+wW3xx1/Ir7c7HbXG2Jf32p7ap97HPTxwFu17hM
+	1qk81FL8NyZnImj0CmEjjPAv0Eyi0qb+nVL5Q8Uw64t5BgGO5YrO7NaqawdLxAY9IosrVQKgBJP
+	pzPfCejsnyokADqjq+3gtum7Lj
+X-Google-Smtp-Source: AGHT+IFqeAdT3XRWDHO4Gx5qxuUZmeOKltliXy+K8Lkc/WtNBQtg8EEJ2lzyy2IW5Zo2A6voGFKc8w==
+X-Received: by 2002:a05:6402:3554:b0:64b:416a:cb48 with SMTP id 4fb4d7f45d1cf-65097e4d8a0mr4615529a12.19.1767856557108;
+        Wed, 07 Jan 2026 23:15:57 -0800 (PST)
+Received: from [10.116.161.247] ([213.233.110.144])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6507b22c3absm6856743a12.0.2026.01.07.23.15.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 07 Jan 2026 23:15:55 -0800 (PST)
+Message-ID: <6d94b650-bcdd-4e5d-a607-5285d42b26ef@tuxon.dev>
+Date: Thu, 8 Jan 2026 09:15:54 +0200
 MIME-Version: 1.0
-References: <20260102131819.123745-1-linux.amoon@gmail.com> <ald3sxdzggbhqvpc7ra7x5nkf36xoamgwfumz5r4jwgirdzyes@nwvka2h256f6>
-In-Reply-To: <ald3sxdzggbhqvpc7ra7x5nkf36xoamgwfumz5r4jwgirdzyes@nwvka2h256f6>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Thu, 8 Jan 2026 12:34:25 +0530
-X-Gm-Features: AQt7F2rxp4OBghS7YFRzpcNM61eouESYIn1a5kIjLPye8P3AweeGw4bjR-rsO54
-Message-ID: <CANAwSgTAHUXkZXxe_Y0KTssqqvKZAiOe2ZwiFV4EJ8k9sj00Ng@mail.gmail.com>
-Subject: Re: [PATCH v2] PCI: dw-rockchip: Add runtime PM support to Rockchip PCIe
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Hans Zhang <18255117159@163.com>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>, 
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: lan966x: Fix the access to the PHYs for pcb8290
+To: Horatiu Vultur <horatiu.vultur@microchip.com>,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20251119134750.394655-1-horatiu.vultur@microchip.com>
+Content-Language: en-US
+From: claudiu beznea <claudiu.beznea@tuxon.dev>
+In-Reply-To: <20251119134750.394655-1-horatiu.vultur@microchip.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_230444_740294_83AD497D 
-X-CRM114-Status: GOOD (  23.01  )
+X-CRM114-CacheID: sfid-20260107_231559_893895_41EBB327 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,95 +103,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Manivannan,
 
-Thanks for your review comments.
 
-On Tue, 6 Jan 2026 at 19:06, Manivannan Sadhasivam <mani@kernel.org> wrote:
->
-> On Fri, Jan 02, 2026 at 06:47:50PM +0530, Anand Moon wrote:
-> > Add runtime powwe manageement functionality into the Rockchip DesignWar=
-e
-> > PCIe controller driver. Calling devm_pm_runtime_enable() during device
-> > probing allows the controller to report its runtime PM status, enabling
-> > power management controls to be applied consistently across the entire
-> > connected PCIe hierarchy.
-> >
-> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> > ---
-> > v2:
-> >    improve the commit message
-> >    Drop the .remove patch
-> >    Drop the disable_pm_runtime
-> > v1:
-> >  https://lore.kernel.org/all/20251027145602.199154-3-linux.amoon@gmail.=
-com/
-> > ---
-> >  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 17 +++++++++++++++++
-> >  1 file changed, 17 insertions(+)
-> >
-> > diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pc=
-i/controller/dwc/pcie-dw-rockchip.c
-> > index f8605fe61a415..2498ff5146a5a 100644
-> > --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> > +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> > @@ -20,6 +20,7 @@
-> >  #include <linux/of_irq.h>
-> >  #include <linux/phy/phy.h>
-> >  #include <linux/platform_device.h>
-> > +#include <linux/pm_runtime.h>
-> >  #include <linux/regmap.h>
-> >  #include <linux/reset.h>
-> >
-> > @@ -709,6 +710,20 @@ static int rockchip_pcie_probe(struct platform_dev=
-ice *pdev)
-> >       if (ret)
-> >               goto deinit_phy;
-> >
-> > +     ret =3D pm_runtime_set_suspended(dev);
-> > +     if (ret)
-> > +             goto deinit_clk;
->
-> Seriously? Why do you need this? Default PM status is 'suspended'.
-These changes were part of my work on suspend/resume capabilities
->
-> > +
-> > +     ret =3D devm_pm_runtime_enable(dev);
-> > +     if (ret) {
-> > +             ret =3D dev_err_probe(dev, ret, "Failed to enable runtime=
- PM\n");
-> > +             goto deinit_clk;
-> > +     }
-> > +
-> > +     ret =3D pm_runtime_resume_and_get(dev);
-> > +     if (ret)
-> > +             goto deinit_clk;
-> > +
-> >       switch (data->mode) {
-> >       case DW_PCIE_RC_TYPE:
-> >               ret =3D rockchip_pcie_configure_rc(pdev, rockchip);
-> > @@ -730,6 +745,8 @@ static int rockchip_pcie_probe(struct platform_devi=
-ce *pdev)
-> >
-> >  deinit_clk:
-> >       clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
-> > +     pm_runtime_disable(dev);
->
-> You used devm_ for enable.
->
-> > +     pm_runtime_no_callbacks(dev);
->
-> Why? Where is pm_runtime_put()? Please read Documentation/power/runtime_p=
-m.rst.
->
-Ok, I will study and update the changes.
-> - Mani
->
-> --
-> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
-=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
-=E0=AF=8D
+On 11/19/25 15:47, Horatiu Vultur wrote:
+> The problem is that the MDIO controller can't detect any of the PHYs.
+> The reason is that the lan966x is not pulling high the GPIO 53 that is
+> connected to the PHYs reset GPIO. Without doing this the PHYs are kept
+> in reset. The mdio controller framework has the possiblity to control a
+> GPIO to release the reset of the PHYs. So take advantage of this and set
+> line to be high before accessing the PHYs.
+> 
+> Signed-off-by: Horatiu Vultur <horatiu.vultur@microchip.com>
 
-Thanks
--Anand
+Applied to at91-fixes, thanks!
+
 
