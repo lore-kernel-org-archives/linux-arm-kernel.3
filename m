@@ -4,84 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF97D1D478
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:10:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F92D1D478
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9t7RCksMujyX8swqWhQFyBcp3/5sZoVMAXP5liIPnO4=; b=VpaLQExBJNmnkTv3wiAqdOhugm
-	+itIPlORtBlqxdKV3OtUg3qsW+rLyj2Z+zUGkAqMMOT0sTO3kgCFmfql/UodDNovvHOXHNSoPKrqJ
-	JSDDCFFif9h/6qnlaH2K1/CoRgR6le5W7erz9uME1AQEFC22kAd+ZZhSww+L7ONGn9f8fCkDLjWLx
-	/ON0RBVQqV7UoIYXn76hfgflHos5E/IzfjU//Ej/Tyjj/iWOQ4kM9VwTP5SoC2eOsDh07c9W6jnEc
-	qxIjMg79cI3TQ2cAbelDfuNwI7aY0w8dUIql1qgMbbK4/mvSAudxglaMvjgBMwnuIOBJlc/GUMOoS
-	aBz0l2iA==;
+	bh=008RIx5L0bRyfXgeGCleWk9iDvAxmUaY7E4jqAHt8/I=; b=ZVCvQNGvrGryRGK4/0XWd7SFIM
+	vNnENNua5owteZw14z6wEmnuRXuKhi2u0z1QSETa0/8dwbR92yFL/bBoWPbXN/3owVNd9rM5SUc7T
+	u6k4JtfFpGlgf0f12rSooi2vpWDm7d67FrR/sXJEg7Bli9DckTGVoh/uVEig0vmC2IKxbx3zdkq+Q
+	Mj1pPeOrEYbyrvAh3xppfG9KLka3KnvYFm8BMTvkZRZVSx46uXFw+3AdCTKtxc+b1xKX8syiHeTPN
+	CE7tlSgzIMFLoDxr66n7e3DBr85SkbMvdFWjt4G5mBTFZ6Va7++9cXAzmnx1ao1PY3/trKnd7CD+r
+	tGT8MwvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdsaq-000000004BK-0Lj9;
-	Thu, 08 Jan 2026 16:10:36 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdsae-0000000049Z-1yDw
+	id 1vdsb1-000000004Dm-1kiC;
+	Thu, 08 Jan 2026 16:10:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdsay-000000004Co-3Szl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 16:10:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=9t7RCksMujyX8swqWhQFyBcp3/5sZoVMAXP5liIPnO4=; b=MUkuf7d4NGuYAxwkVk9mclIZTv
-	rQkxwMcTmvPhz/Kw12SRCpYrQqIrghTkAih2KJBlTQo1HL0t49AXbFxUMnWSEnYh8/au6xX3OgSm+
-	Gdz/GE2hMy9Q/PNkbAGPAdwXozpQpeqMwvm56lget2bUVOTy6JWwu2Rg0QB8whV/FgcnHdMDVCj9q
-	838POOGOoyKQPyiuetEPrUTs3m5GKgZJkcQS5I6SQVWtfkTm6pXayDHWOv7Ki+NPx9yTJ4emGhWji
-	KCOjGpln/bNT4P2649CWeMQkBW2X5bT4wfktefrIul/Yf3WGxZNHpDXBMe6KtKWyOoU7adosVGaHH
-	EmItGm0w==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54696)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vdsaN-000000002ps-3OJZ;
-	Thu, 08 Jan 2026 16:10:07 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vdsaJ-000000002TW-45kC;
-	Thu, 08 Jan 2026 16:10:03 +0000
-Date: Thu, 8 Jan 2026 16:10:03 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Dinh Nguyen <dinguyen@kernel.org>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Mamta Shukla <mamta.shukla@leica-geosystems.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	bsp-development.geo@leica-geosystems.com,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] net: stmmac: socfpga: add call to assert/deassert
- ahb reset line
-Message-ID: <aV_W2yLmnHrTvbTP@shell.armlinux.org.uk>
-References: <20260108-remove_ocp-v3-0-ea0190244b4c@kernel.org>
- <20260108-remove_ocp-v3-1-ea0190244b4c@kernel.org>
+	Thu, 08 Jan 2026 16:10:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 27899497;
+	Thu,  8 Jan 2026 08:10:34 -0800 (PST)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 491613F5A1;
+	Thu,  8 Jan 2026 08:10:38 -0800 (PST)
+Date: Thu, 8 Jan 2026 16:10:31 +0000
+From: Joey Gouly <joey.gouly@arm.com>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH v2 19/36] KVM: arm64: gic-v5: Check for pending PPIs
+Message-ID: <20260108161031.GA223579@e124191.cambridge.arm.com>
+References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
+ <20251219155222.1383109-20-sascha.bischoff@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260108-remove_ocp-v3-1-ea0190244b4c@kernel.org>
+In-Reply-To: <20251219155222.1383109-20-sascha.bischoff@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_081031_075594_6B6555DF 
-X-CRM114-Status: GOOD (  27.56  )
+X-CRM114-CacheID: sfid-20260108_081044_947030_320B08BF 
+X-CRM114-Status: GOOD (  34.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,87 +71,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 08, 2026 at 07:08:09AM -0600, Dinh Nguyen wrote:
-> The "stmmaceth-ocp" reset line of stmmac controller on the SoCFPGA
-> platform is essentially the "ahb" reset on the standard stmmac
-> controller. But since stmmaceth-ocp has already been introduced into
-> the wild, we cannot just remove support for it. But what we can do is
-> to support both "stmmaceth-ocp" and "ahb" reset names. Going forward we
-> will be using "ahb", but in order to not break ABI, we will be call reset
-> assert/de-assert both ahb and stmmaceth-ocp.
+Small nit,
+
+On Fri, Dec 19, 2025 at 03:52:42PM +0000, Sascha Bischoff wrote:
+> This change allows KVM to check for pending PPI interrupts. This has
+> two main components:
 > 
-> The ethernet hardware on SoCFPGA requires either the stmmaceth-ocp or
-> ahb reset to be asserted every time before changing the phy mode, then
-> de-asserted when the phy mode has been set.
+> First of all, the effective priority mask is calculated.  This is a
+> combination of the priority mask in the VPEs ICC_PCR_EL1.PRIORITY and
+> the currently running priority as determined from the VPE's
+> ICH_APR_EL1. If an interrupt's prioirity is greater than or equal to
+> the effective priority mask, it can be signalled. Otherwise, it
+> cannot.
+> 
+> Secondly, any Enabled and Pending PPIs must be checked against this
+> compound priority mask. The reqires the PPI priorities to by synced
+> back to the KVM shadow state - this is skipped in general operation as
+> it isn't required and is rather expensive. If any Enabled and Pending
+> PPIs are of sufficient priority to be signalled, then there are
+> pending PPIs. Else, there are not.  This ensures that a VPE is not
+> woken when it cannot actually process the pending interrupts.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic-v5.c | 121 ++++++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/vgic/vgic.c    |   5 +-
+>  arch/arm64/kvm/vgic/vgic.h    |   1 +
+>  3 files changed, 126 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+> index cb3dd872d16a6..c7ecc4f40b1e5 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
+> @@ -56,6 +56,31 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
+>  	return 0;
+>  }
+>  
+> +static u32 vgic_v5_get_effective_priority_mask(struct kvm_vcpu *vcpu)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +	u32 highest_ap, priority_mask;
+> +
+> +	/*
+> +	 * Counting the number of trailing zeros gives the current
+> +	 * active priority. Explicitly use the 32-bit version here as
+> +	 * we have 32 priorities. 0x20 then means that there are no
+> +	 * active priorities.
+> +	 */
+> +	highest_ap = cpu_if->vgic_apr ? __builtin_ctz(cpu_if->vgic_apr) : 32;
+> +
+> +	/*
+> +	 * An interrupt is of sufficient priority if it is equal to or
+> +	 * greater than the priority mask. Add 1 to the priority mask
+> +	 * (i.e., lower priority) to match the APR logic before taking
+> +	 * the min. This gives us the lowest priority that is masked.
+> +	 */
+> +	priority_mask = FIELD_GET(FEAT_GCIE_ICH_VMCR_EL2_VPMR, cpu_if->vgic_vmcr);
+> +	priority_mask = min(highest_ap, priority_mask + 1);
+> +
+> +	return priority_mask;
+> +}
+> +
+>  static bool vgic_v5_ppi_set_pending_state(struct kvm_vcpu *vcpu,
+>  					  struct vgic_irq *irq)
+>  {
+> @@ -131,6 +156,102 @@ void vgic_v5_set_ppi_ops(struct vgic_irq *irq)
+>  	}
+>  }
+>  
+> +
+> +/*
+> + * Sync back the PPI priorities to the vgic_irq shadow state
+> + */
+> +static void vgic_v5_sync_ppi_priorities(struct kvm_vcpu *vcpu)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +	int i, reg;
+> +
+> +	/* We have 16 PPI Priority regs */
+> +	for (reg = 0; reg < 16; reg++) {
+> +		const unsigned long priorityr = cpu_if->vgic_ppi_priorityr[reg];
+> +
+> +		for (i = 0; i < 8; ++i) {
+> +			struct vgic_irq *irq;
+> +			u32 intid;
+> +			u8 priority;
+> +
+> +			priority = (priorityr >> (i * 8)) & 0x1f;
+> +
+> +			intid = FIELD_PREP(GICV5_HWIRQ_TYPE, GICV5_HWIRQ_TYPE_PPI);
+> +			intid |= FIELD_PREP(GICV5_HWIRQ_ID, reg * 8 + i);
+> +
+> +			irq = vgic_get_vcpu_irq(vcpu, intid);
+> +
+> +			scoped_guard(raw_spinlock, &irq->irq_lock)
+> +				irq->priority = priority;
+> +
+> +			vgic_put_irq(vcpu->kvm, irq);
+> +		}
+> +	}
+> +}
+> +
+> +bool vgic_v5_has_pending_ppi(struct kvm_vcpu *vcpu)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +	int i, reg;
+> +	unsigned int priority_mask;
+> +
+> +	/* If no pending bits are set, exit early */
+> +	if (likely(!cpu_if->vgic_ppi_pendr[0] && !cpu_if->vgic_ppi_pendr[1]))
+> +		return false;
+> +
+> +	priority_mask = vgic_v5_get_effective_priority_mask(vcpu);
+> +
+> +	/* If the combined priority mask is 0, nothing can be signalled! */
+> +	if (!priority_mask)
+> +		return false;
+> +
+> +	/* The shadow priority is only updated on demand, sync it across first */
+> +	vgic_v5_sync_ppi_priorities(vcpu);
+> +
+> +	for (reg = 0; reg < 2; reg++) {
+> +		unsigned long possible_bits;
+> +		const unsigned long enabler = cpu_if->vgic_ich_ppi_enabler_exit[reg];
+> +		const unsigned long pendr = cpu_if->vgic_ppi_pendr_exit[reg];
+> +		bool has_pending = false;
+> +
+> +		/* Check all interrupts that are enabled and pending */
+> +		possible_bits = enabler & pendr;
+> +
+> +		/*
+> +		 * Optimisation: pending and enabled with no active priorities
+> +		 */
+> +		if (possible_bits && priority_mask > 0x1f)
+> +			return true;
+> +
+> +		for_each_set_bit(i, &possible_bits, 64) {
+> +			struct vgic_irq *irq;
+> +			u32 intid;
+> +
+> +			intid = FIELD_PREP(GICV5_HWIRQ_TYPE, GICV5_HWIRQ_TYPE_PPI);
+> +			intid |= FIELD_PREP(GICV5_HWIRQ_ID, reg * 64 + i);
+> +
+> +			irq = vgic_get_vcpu_irq(vcpu, intid);
+> +
+> +			scoped_guard(raw_spinlock, &irq->irq_lock) {
+> +				/*
+> +				 * We know that the interrupt is
+> +				 * enabled and pending, so only check
+> +				 * the priority.
+> +				 */
+> +				if (irq->priority <= priority_mask)
+> +					has_pending = true;
+> +			}
+> +
+> +			vgic_put_irq(vcpu->kvm, irq);
+> +
+> +			if (has_pending)
+> +				return true;
+> +		}
+> +	}
+> +
+> +	return false;
+> +}
+> +
+>  /*
+>   * Detect any PPIs state changes, and propagate the state with KVM's
+>   * shadow structures.
+> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+> index cb5d43b34462b..dfec6ed7936ed 100644
+> --- a/arch/arm64/kvm/vgic/vgic.c
+> +++ b/arch/arm64/kvm/vgic/vgic.c
+> @@ -1180,9 +1180,12 @@ int kvm_vgic_vcpu_pending_irq(struct kvm_vcpu *vcpu)
+>  	unsigned long flags;
+>  	struct vgic_vmcr vmcr;
+>  
+> -	if (!vcpu->kvm->arch.vgic.enabled)
+> +	if (!vcpu->kvm->arch.vgic.enabled && !vgic_is_v5(vcpu->kvm))
+>  		return false;
+>  
+> +	if (vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V5)
 
-This is not SoCFPGA specific. The dwmac core only samples its
-phy_intf_sel_i signals when coming out of reset, and then latches
-that as the operating mode.
+        if (vgic_is_v5(vcpu->kvm))
 
-Currently, the dwmac core driver does not support dynamically changing
-plat_dat->phy_interface at runtime. That may change in the future, but
-as it requires a hardware reset which will clear out the PTP state, it
-would need consideration of that effect.
+Otherwise:
 
-The SoCFPGA driver only calls the set_phy_mode() methods from
-socfpga_dwmac_init(), which in turn is called from the plat_dat->init
-hook. This will be called from:
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
-1. When stmmac_dvr_probe() is called, prior to allocating any
-   resources, and prior to the core driver's first call to:
-   reset_control_deassert(priv->plat->stmmac_ahb_rst);
-
-2. As plat_dat->resume is not populated by the glue driver, the init
-   hook will also be called when resuming from stmmac_resume().
-
-Lastly, nothing in the main driver corrently writes to ->phy_interface.
-
-I would like to see the platform glue drivers using more of what is
-in the core driver, rather than re-inventing it, so I support the
-idea of getting rid of dwmac->stmmac_ocp_rst.
-
-What I suggest is to get rid of dwmac->stmmac_ocp_rst now.
-devm_stmmac_probe_config_dt() will parse the device tree, looking for
-the "ahb" reset, and assigning that to plat->stmmac_ahb_rst. If it
-doesn't exist, then plat->stmmac-ahb_rst will be NULL.
-
-So, in socfpga_dwmac_probe(), do something like this:
-
-	struct reset_control *ocp_rst;
-...
-	if (!plat_dat->stmmac_ahb_rst) {
-		ocp_rst = devm_reset_control_get_optional(dev, "stmmaceth-ocp");
-		if (IS_ERR(ocp_rst))
-			return dev_err_probe(dev, PTR_ERR(ocp_rst),
-					     "failed to get ocp reset");
-
-		if (ocp_rst)
-			dev_warn(dev, "ocp reset is deprecated, please update device tree.\n");
-
-		plat_dat->stmmac_ahb_rst = ocp_rst;
-	}
-
-Then, change all remaining instances of dwmac->stmmac_ocp_rst to
-dwmac->plat_dat->stmmac_ahb_rst... and job done. You have compatibility
-with device trees that use "ahb", and with device trees that use
-"stmmaceth-ocp".
-
-Given that struct socfpga_dwmac contains the plat_dat pointer, rather
-than copying plat_dat->stmmac_rst to your private structure, please
-use the one in the plat_dat structure.
-
-The next question I have is - do you need to assert both the AHB reset
-and stmmac_rst to set the PHY interface mode? I don't see a dependency
-between these two resets in the socfpga code - the driver doesn't treat
-them as nested. It asserts the AHB reset _then_ the stmmac reset, and
-then releases them in the same order rather than reverse order. This
-suggests there's no interdependence between them, and probably it's
-only necessary to assert the stmmac core's reset (stmmac_rst).
-
-So, maybe the driver can leave the handling of plat_dat->stmmac_ahb_rst
-to the stmmac core code?
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> +		return vgic_v5_has_pending_ppi(vcpu);
+> +
+>  	if (vcpu->arch.vgic_cpu.vgic_v3.its_vpe.pending_last)
+>  		return true;
+>  
+> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+> index 978d7f8426361..65c031da83e78 100644
+> --- a/arch/arm64/kvm/vgic/vgic.h
+> +++ b/arch/arm64/kvm/vgic/vgic.h
+> @@ -388,6 +388,7 @@ int vgic_v5_probe(const struct gic_kvm_info *info);
+>  void vgic_v5_get_implemented_ppis(void);
+>  void vgic_v5_set_ppi_ops(struct vgic_irq *irq);
+>  int vgic_v5_set_ppi_dvi(struct kvm_vcpu *vcpu, u32 irq, bool dvi);
+> +bool vgic_v5_has_pending_ppi(struct kvm_vcpu *vcpu);
+>  void vgic_v5_flush_ppi_state(struct kvm_vcpu *vcpu);
+>  void vgic_v5_fold_ppi_state(struct kvm_vcpu *vcpu);
+>  void vgic_v5_load(struct kvm_vcpu *vcpu);
+> -- 
+> 2.34.1
 
