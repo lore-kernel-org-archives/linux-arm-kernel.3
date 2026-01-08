@@ -4,61 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D716BD232C3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 23:06:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 714A7D232C3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 23:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uaUygdp8Qaksb9PlYCaqN/ZkAvongzDotSyp0Bvv+80=; b=Uyh3LYb5jsx8atjHEAIYtRD1CB
-	5RdEg+01yoJRZk7r+bMnoXh+blel17jCdAI2B7/iiiS/yWaUEKaB0EkN+8G7nBK9WY/l7eswzyCKq
-	ZjX4lyAVgC2SGs5+LlulpZK9bHOu/zzwfVdcHRy29JaxWQXhBsxJ4qVK34En00HxOV7Qec8B0ZTfp
-	N5HX3CUrSGJVC+T+c6M6l+L9wDB0aFJsTKpqEKsR+bwUn3KbH3ZwHMUkT8yph/Qk/xiuWiotGP/s9
-	zci1ADloOeNtm+DJHzziPDnmBCg5DsmLETzmKnpMiVLClMTFOdeItNSlIn6LwUlIKvzYJmS1qeggv
-	lTHXXW6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6l9v8ZMlfNxyxG1ibHy0twzxy+vM4AyFu7lMDFfdGvg=; b=3t9/ZRBHQcI3tOnHoYPx86mlY0
+	wcN8zq8yqtHPuywtE16V4sg+uJmYiUdhOdzFS7cZWZCOlpLsjiZAobTQp8bJUYd4uoLhJK5OzdzV0
+	+WgTu05PDzX8uwOf7PoYSZ3Yos428tD8PZroBPisfaOKXFx5yaI0QrU71Cj7MUMjHoRum+YaR1A5B
+	cTkFcFa3ZcgZvEDlTc/8zm+M+6R7rwjRnNrCSuR7KHDrYwESAbIr+n2If0lgxe6mqddiiWEC1W9Xh
+	6DeZvrxdxlRkN+hjSq/CKcZ6+g9UiYO39q0iojhgnlip5g584y0Nhr3NTyIYc5KOi/ZFNi3JwLmFV
+	wZMPiCdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdz5M-00000000ybR-2cfr;
-	Thu, 08 Jan 2026 23:06:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdz6D-00000000ysa-0ufU;
+	Thu, 08 Jan 2026 23:07:25 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdz5K-00000000yZy-0JWv;
-	Thu, 08 Jan 2026 23:06:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B0011434B3;
-	Thu,  8 Jan 2026 23:06:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41775C116C6;
-	Thu,  8 Jan 2026 23:06:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767913589;
-	bh=ABBMH1UHHf+tRlKLCHLUwhxw0iM+Uf9Jba+4eLCHBk0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=HOshuotxq+DVquM67uUimF5/XIr5Vu0XCZ5UA+1D2F+sCbh8Tkd3w/uONYBIF2FVx
-	 oII7o7lQh4L7AGNP3QuEyfPGHgQl8j8tIiP2qtmI2O8SbOR5t7VWZkqJy9kyYTXcf3
-	 UV9YxgwcSEaVsbdTvqSv0Wpou5hZf27mpdhotwF2DbbHguGywrJgrI1OdvokHGzjBQ
-	 zlBpZNy1lEjlxHmE67FUb5ETvJL9iIqZHc1XElnXFpN4p3ecaXnnmZvxZ/uYjkBLDr
-	 vMFm83JEA+17E3wwVp7upHW4y73Txv4dXUuFZDbB4fszBjnnZxDBIMFieE/hNTEGfr
-	 Rzggp8PC9haSg==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: Fix gpio pinctrl node names
-Date: Thu,  8 Jan 2026 17:06:23 -0600
-Message-ID: <20260108230623.1349310-1-robh@kernel.org>
-X-Mailer: git-send-email 2.51.0
+	id 1vdz69-00000000yrb-0gmC;
+	Thu, 08 Jan 2026 23:07:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1767913641; x=1799449641;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=itGA0sAQwkPSQyy1yeJi6PWO4Tl6/tvseQT9XB4Mn5A=;
+  b=UEp/ZWtA8kgiABgGhuU7EEtJ/tyFUFiGmzks7tT445z/pkbZxOouhUZ3
+   dF6h1/NnHO99Vwx6+rQ1gYc4cbkDyGcIC9qXmSHP4T/J06TW1xQD1C0Oz
+   NYd7ciLUojhbmGDWFgHOhUyHXy1NZB3jGF1unv3thx4bhpuzKVIR/fRRy
+   lTBUTx1D+AAMeefMlAwjt8inCf1eUGflJcS/Cstcm0H4gu0MQuP7wEAcl
+   nDY3263f1OJam4Ey0aGNNmcjdaZ/OTO6IHHeHrxOG+RHJbHX+SuX59IhG
+   Zb26cELjWupIn0B4x8rsMOD2s9ngmhELw488ZxMIBJdeu4p/Vi/OzxMYJ
+   w==;
+X-CSE-ConnectionGUID: JvLqN3dTSJ2/JJXiYvXZ9A==
+X-CSE-MsgGUID: S6/7n4DkQq6eOLJXyxoFfQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11665"; a="73157329"
+X-IronPort-AV: E=Sophos;i="6.21,211,1763452800"; 
+   d="scan'208";a="73157329"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2026 15:07:17 -0800
+X-CSE-ConnectionGUID: PqpvMJrqRf2bmyWem2ZD+Q==
+X-CSE-MsgGUID: tOCliOBfSSSbGqMoN5xf/Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,211,1763452800"; 
+   d="scan'208";a="234498168"
+Received: from igk-lkp-server01.igk.intel.com (HELO 92b2e8bd97aa) ([10.211.93.152])
+  by fmviesa001.fm.intel.com with ESMTP; 08 Jan 2026 15:07:13 -0800
+Received: from kbuild by 92b2e8bd97aa with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vdz5z-000000001sK-1qLo;
+	Thu, 08 Jan 2026 23:07:11 +0000
+Date: Fri, 9 Jan 2026 00:06:25 +0100
+From: kernel test robot <lkp@intel.com>
+To: Gregory CLEMENT <gregory.clement@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	=?iso-8859-1?Q?Beno=EEt?= Monin <benoit.monin@bootlin.com>,
+	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
+	Gregory CLEMENT <gregory.clement@bootlin.com>
+Subject: Re: [PATCH v3 2/4] of: reserved_mem: Support multiple 'reg' entries
+ for memory-region
+Message-ID: <202601090005.f0WEJEKH-lkp@intel.com>
+References: <20260107-mtd-memregion-v3-2-f9fc9107b992@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260107-mtd-memregion-v3-2-f9fc9107b992@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_150630_131158_8DE056BC 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260108_150721_217062_1939EE98 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,48 +100,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pinctrl node names "gpios" or with "-gpio" suffix collide with GPIO
-property names creating false warnings. Add a "-pins?" suffix to avoid
-the issue.
+Hi Gregory,
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi        | 2 +-
- arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+kernel test robot noticed the following build warnings:
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
-index 587e89d7fc5e..8299e9d10c7c 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
-@@ -483,7 +483,7 @@ &pinctrl {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&q7_thermal_pin &bios_disable_override_hog_pin>;
- 
--	gpios {
-+	gpio-pins {
- 		bios_disable_override_hog_pin: bios-disable-override-hog-pin {
- 			rockchip,pins =
- 				<3 RK_PD5 RK_FUNC_GPIO &pcfg_pull_down>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts b/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts
-index f95fd92d58ba..d9ff777b4913 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts
-@@ -537,11 +537,11 @@ pmic_int_l: pmic-int-l {
- 			rockchip,pins = <1 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>;
- 		};
- 
--		vsel1_gpio: vsel1-gpio {
-+		vsel1_gpio: vsel1-gpio-pin {
- 			rockchip,pins = <1 RK_PC1 RK_FUNC_GPIO &pcfg_pull_down>;
- 		};
- 
--		vsel2_gpio: vsel2-gpio {
-+		vsel2_gpio: vsel2-gpio-pin {
- 			rockchip,pins = <1 RK_PB6 RK_FUNC_GPIO &pcfg_pull_down>;
- 		};
- 	};
+[auto build test WARNING on 8f0b4cce4481fb22653697cced8d0d04027cb1e8]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Gregory-CLEMENT/of-reserved_mem-Fix-placement-of-__free-annotation/20260107-211455
+base:   8f0b4cce4481fb22653697cced8d0d04027cb1e8
+patch link:    https://lore.kernel.org/r/20260107-mtd-memregion-v3-2-f9fc9107b992%40bootlin.com
+patch subject: [PATCH v3 2/4] of: reserved_mem: Support multiple 'reg' entries for memory-region
+config: arm64-allnoconfig-bpf (https://download.01.org/0day-ci/archive/20260109/202601090005.f0WEJEKH-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project f43d6834093b19baf79beda8c0337ab020ac5f17)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260109/202601090005.f0WEJEKH-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601090005.f0WEJEKH-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/of/of_reserved_mem.c:317:7: warning: variable 'err' is uninitialized when used here [-Wuninitialized]
+     317 |                 if (err == -ENOENT && of_get_flat_dt_prop(child, "size", NULL)) {
+         |                     ^~~
+   drivers/of/of_reserved_mem.c:300:10: note: initialize the variable 'err' to silence this warning
+     300 |                 int err, ret;
+         |                        ^
+         |                         = 0
+   1 warning generated.
+
+
+vim +/err +317 drivers/of/of_reserved_mem.c
+
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  278  
+54c180e73ffa3e Rob Herring        2024-03-11  279  /*
+54c180e73ffa3e Rob Herring        2024-03-11  280   * fdt_scan_reserved_mem() - scan a single FDT node for reserved memory
+54c180e73ffa3e Rob Herring        2024-03-11  281   */
+54c180e73ffa3e Rob Herring        2024-03-11  282  int __init fdt_scan_reserved_mem(void)
+54c180e73ffa3e Rob Herring        2024-03-11  283  {
+54c180e73ffa3e Rob Herring        2024-03-11  284  	int node, child;
+00c9a452a235c6 Oreoluwa Babatunde 2024-10-08  285  	int dynamic_nodes_cnt = 0, count = 0;
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  286  	int dynamic_nodes[MAX_RESERVED_REGIONS];
+54c180e73ffa3e Rob Herring        2024-03-11  287  	const void *fdt = initial_boot_params;
+54c180e73ffa3e Rob Herring        2024-03-11  288  
+54c180e73ffa3e Rob Herring        2024-03-11  289  	node = fdt_path_offset(fdt, "/reserved-memory");
+54c180e73ffa3e Rob Herring        2024-03-11  290  	if (node < 0)
+54c180e73ffa3e Rob Herring        2024-03-11  291  		return -ENODEV;
+54c180e73ffa3e Rob Herring        2024-03-11  292  
+54c180e73ffa3e Rob Herring        2024-03-11  293  	if (__reserved_mem_check_root(node) != 0) {
+54c180e73ffa3e Rob Herring        2024-03-11  294  		pr_err("Reserved memory: unsupported node format, ignoring\n");
+54c180e73ffa3e Rob Herring        2024-03-11  295  		return -EINVAL;
+54c180e73ffa3e Rob Herring        2024-03-11  296  	}
+54c180e73ffa3e Rob Herring        2024-03-11  297  
+54c180e73ffa3e Rob Herring        2024-03-11  298  	fdt_for_each_subnode(child, fdt, node) {
+54c180e73ffa3e Rob Herring        2024-03-11  299  		const char *uname;
+8be14ac8dccc70 Gregory CLEMENT    2026-01-07  300  		int err, ret;
+54c180e73ffa3e Rob Herring        2024-03-11  301  
+54c180e73ffa3e Rob Herring        2024-03-11  302  		if (!of_fdt_device_is_available(fdt, child))
+54c180e73ffa3e Rob Herring        2024-03-11  303  			continue;
+54c180e73ffa3e Rob Herring        2024-03-11  304  
+54c180e73ffa3e Rob Herring        2024-03-11  305  		uname = fdt_get_name(fdt, child, NULL);
+54c180e73ffa3e Rob Herring        2024-03-11  306  
+8be14ac8dccc70 Gregory CLEMENT    2026-01-07  307  		ret = __reserved_mem_reserve_reg(child, uname);
+8be14ac8dccc70 Gregory CLEMENT    2026-01-07  308  		if (ret > 0)
+8be14ac8dccc70 Gregory CLEMENT    2026-01-07  309  			count += ret;
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  310  		/*
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  311  		 * Save the nodes for the dynamically-placed regions
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  312  		 * into an array which will be used for allocation right
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  313  		 * after all the statically-placed regions are reserved
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  314  		 * or marked as no-map. This is done to avoid dynamically
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  315  		 * allocating from one of the statically-placed regions.
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  316  		 */
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08 @317  		if (err == -ENOENT && of_get_flat_dt_prop(child, "size", NULL)) {
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  318  			dynamic_nodes[dynamic_nodes_cnt] = child;
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  319  			dynamic_nodes_cnt++;
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  320  		}
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  321  	}
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  322  	for (int i = 0; i < dynamic_nodes_cnt; i++) {
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  323  		const char *uname;
+00c9a452a235c6 Oreoluwa Babatunde 2024-10-08  324  		int err;
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  325  
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  326  		child = dynamic_nodes[i];
+8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  327  		uname = fdt_get_name(fdt, child, NULL);
+00c9a452a235c6 Oreoluwa Babatunde 2024-10-08  328  		err = __reserved_mem_alloc_size(child, uname);
+00c9a452a235c6 Oreoluwa Babatunde 2024-10-08  329  		if (!err)
+00c9a452a235c6 Oreoluwa Babatunde 2024-10-08  330  			count++;
+54c180e73ffa3e Rob Herring        2024-03-11  331  	}
+00c9a452a235c6 Oreoluwa Babatunde 2024-10-08  332  	total_reserved_mem_cnt = count;
+54c180e73ffa3e Rob Herring        2024-03-11  333  	return 0;
+54c180e73ffa3e Rob Herring        2024-03-11  334  }
+54c180e73ffa3e Rob Herring        2024-03-11  335  
+
 -- 
-2.51.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
