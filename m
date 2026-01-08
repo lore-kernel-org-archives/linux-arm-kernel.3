@@ -4,97 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 077B9D185CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:52:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 748BAD185C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:52:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J+qnn6TED72I3GKeAKAScex0MpQZJdmQn7zb+oUHHi4=; b=1Kl49a1WNLDLEgGOSQENly1D+V
-	RAuF5N54CjhwTXV4oiC/gnpS/xgGLoParkdDM/JnOG9gKBYv/MMi3QEucF+cCZtr+7tpnktGBHPR5
-	qftSb4QlZ0M2cSVcBoO7kAOZNqnn3cdqnhXvH2g9qWwfY81JH7YJLZTjmRPx4mXsH1eXnhc5/bK5X
-	OBdXzRS/07KleZNmAPUIqMPkaTvZjbDpaXjnvYevW6xQ0KioCpekXAs6iTfuEG3LuaY4f+AU0ZaNz
-	xmST++iUrjaz9uQWKmgVufi2b+hsHk6Cm/Bq73WrbAfv7aiPaBalC+KhoiQlds4LzGwhT/kqUuQbO
-	pKC+zEjQ==;
+	bh=WlI6u/5oNvVqPDYWnCWn3kBiMPmGfQfGJduj3SAQtlA=; b=ZY5V3ISSwYy3WN/Nu4sUvvbUTo
+	OreiX1aX3B7eV9td7DaR9/aDXus9vMKvd2Be/LQY8WRDAv5BOUhkpurkDKYqMqMUwGMN20oiPMal/
+	/nOTyISPh342d3PQgjydjVG4zmEbtjN+D/E9Gk4af+Bc2JhAvD9SIHxFYqsGr6weWh25eibtMlj6E
+	FPvLE7q9nFK05ZlxZAmgDGZsU1ZXXvY6m/hhb1qJRt76CfIsnJeXAnsLYOkmYuK7t4Tb48PKost6P
+	6hZXgmWw61Iw2CaAETbWN3E60pTA7OK9qKjOZicdqnUfF1twaZZBGdqiXbJUBUR8NeST1xx0DPujy
+	tivMO+JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdncw-0000000Giat-12Uq;
-	Thu, 08 Jan 2026 10:52:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vdnd6-0000000Gin3-0a6Y;
+	Thu, 08 Jan 2026 10:52:36 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdncl-0000000GiM6-3wS3
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 08 Jan 2026 10:52:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=J+qnn6TED72I3GKeAKAScex0MpQZJdmQn7zb+oUHHi4=; b=j/LxuvKaZI7AymqlzPzw4zglOb
-	7nVNLS6NaKWTYzg0QXm368jqSPBWrG3Cx2PzVVK5J0qa+VsWFqsQouxEldHH0tBJfeccb7MiFiMXD
-	srKmUuHn27exfnz2xjobLFxou7mgK8VagICdL8dB40UKUmbmrSbZOj9Jn8bZw9pCT9MpkXcolycJY
-	Qo6cim6rljeAXTsqFxPRA7inH0l+u0jKJfnBF1/W6AkeA+6EH+yJ78Qc2SWU5ODbzfQlhqP2rNsqh
-	4wK0aA+s8M9VOb8ReyIrITSLgzZWlXyeDoogf1PJZHmCFWeYbX6vo8VIxWUqUHCy72R8SQT7OsnVj
-	dPIHdjRg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdnci-0000000Cy6G-1qrU
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 10:52:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA494497;
-	Thu,  8 Jan 2026 02:52:02 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A27633F6A8;
-	Thu,  8 Jan 2026 02:52:02 -0800 (PST)
-Message-ID: <adcc278e-6be6-4658-821a-eb8995d65512@arm.com>
-Date: Thu, 8 Jan 2026 10:52:00 +0000
+	id 1vdncm-0000000GiMU-0dn5;
+	Thu, 08 Jan 2026 10:52:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1767869525; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=V85e3k7s50vtPAK02iqpdOBRa2VXuLeIv0T9+4Pd62Sp/7ufkiBhcPwW3G3P67hwwZcR5QsI+P980ppzKrjekdVSJ6S59/vKoZ+NHo9hLn8f4sChht87KWeGi8LPFNQHMCI4XHnGE+YLVzikPL/BmogFaZtgmvAtGD/tM1Vi/Yw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1767869525; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=WlI6u/5oNvVqPDYWnCWn3kBiMPmGfQfGJduj3SAQtlA=; 
+	b=SkPfKMY43paPpf2aPPrLhe95uJlf4I1G75sZdaaeTVsn3XHamOzDaC+BME4rH3e/VNgGN7ITErI8pa9uInQpY4eqHOBZZIttoi2rbP1auRnujFrY7023rHiQxeZIaCuHZprj1x/d5Gc9zZcbk5k05M7hiyGSccEEv16afXR+Ll0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1767869525;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=WlI6u/5oNvVqPDYWnCWn3kBiMPmGfQfGJduj3SAQtlA=;
+	b=AIOj9TMcqaXrguE/eeM57X/Or1syMB71PNoISL67ecBQ4ZlQDXtAv5hIvjPacfSh
+	OsGwuKKKP/pKaIl4UAe1JQ4P/E0vs9WY/GQAqKnqgC6qYUYCEYJOy0IjQwAbjTkbDvE
+	6hobMHiifz0TtekuRa8vP+EbmZWFk7B49u/p9aFM=
+Received: by mx.zohomail.com with SMTPS id 1767869523702213.87407455318748;
+	Thu, 8 Jan 2026 02:52:03 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Thu, 08 Jan 2026 11:49:40 +0100
+Subject: [PATCH v5 21/24] scsi: ufs: mediatek: Rework hardware version
+ reading
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 27/45] arm_mpam: resctrl: Add support for csu counters
-To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
-Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
- "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
- "baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
- "carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
- "dave.martin@arm.com" <dave.martin@arm.com>,
- "david@kernel.org" <david@kernel.org>,
- "dfustini@baylibre.com" <dfustini@baylibre.com>,
- "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
- "gshan@redhat.com" <gshan@redhat.com>,
- "james.morse@arm.com" <james.morse@arm.com>,
- "jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
- "kobak@nvidia.com" <kobak@nvidia.com>,
- "lcherian@marvell.com" <lcherian@marvell.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "peternewman@google.com" <peternewman@google.com>,
- "punit.agrawal@oss.qualcomm.com" <punit.agrawal@oss.qualcomm.com>,
- "quic_jiles@quicinc.com" <quic_jiles@quicinc.com>,
- "reinette.chatre@intel.com" <reinette.chatre@intel.com>,
- "rohit.mathew@arm.com" <rohit.mathew@arm.com>,
- "scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
- "sdonthineni@nvidia.com" <sdonthineni@nvidia.com>,
- "xhao@linux.alibaba.com" <xhao@linux.alibaba.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>,
- "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>,
- "joey.gouly@arm.com" <joey.gouly@arm.com>,
- "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
- "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>
-References: <20251219181147.3404071-1-ben.horgan@arm.com>
- <20251219181147.3404071-28-ben.horgan@arm.com>
- <OSZPR01MB87980DA8A2534414337384608B85A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <OSZPR01MB87980DA8A2534414337384608B85A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260108-mt8196-ufs-v5-21-49215157ec41@collabora.com>
+References: <20260108-mt8196-ufs-v5-0-49215157ec41@collabora.com>
+In-Reply-To: <20260108-mt8196-ufs-v5-0-49215157ec41@collabora.com>
+To: Alim Akhtar <alim.akhtar@samsung.com>, 
+ Avri Altman <avri.altman@wdc.com>, Bart Van Assche <bvanassche@acm.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Peter Wang <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ "Martin K. Petersen" <martin.petersen@oracle.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, Chaotian Jing <Chaotian.Jing@mediatek.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
+ kernel@collabora.com, linux-scsi@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-phy@lists.infradead.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_105212_925204_0D7DCA61 
-X-CRM114-Status: GOOD (  20.99  )
+X-CRM114-CacheID: sfid-20260108_025216_429402_447F5B7A 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,101 +94,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shaopeng,
+Split assignment to the host struct out from the read function, and
+utilise bitfield helpers to simplify the code. Also move the debug print
+out of the legacy version helper, which means it no longer has to take a
+struct ufs_hba as an input, and can be rewritten as a pure function.
 
-On 1/8/26 10:44, Shaopeng Tan (Fujitsu) wrote:
-> Hello Ben,
-> 
->> From: James Morse <james.morse@arm.com>
->>
->> resctrl exposes a counter via a file named llc_occupancy. This isn't really
->> a counter as its value goes up and down, this is a snapshot of the cache
->> storage usage monitor.
->>
->> Add some picking code to find a cache as close as possible to the L3 that
->> supports the CSU monitor.
->>
->> If there is an L3, but it doesn't have any controls, force the L3 resource
->> to exist. The existing topology_matches_l3() and
->> mpam_resctrl_domain_hdr_init() code will ensure this looks like the L3,
->> even if the class belongs to a later cache.
->>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->> Changes since rfc:
->> Allow csu counters however many partid or pmg there are
->> else if -> if
->> reduce scope of local variables
->> drop has_csu
->> ---
->>  drivers/resctrl/mpam_internal.h |   6 ++
->>  drivers/resctrl/mpam_resctrl.c  | 148 ++++++++++++++++++++++++++++++++
->>  2 files changed, 154 insertions(+)
-[...]
->> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
->> index f8d8c241797a..5fde610cc9d7 100644
->> --- a/drivers/resctrl/mpam_resctrl.c
->> +++ b/drivers/resctrl/mpam_resctrl.c
-[...]
->>  
->> +static void mpam_resctrl_monitor_init(struct mpam_resctrl_mon *mon,
->> +                                     enum resctrl_event_id type)
->> +{
->> +       struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
->> +       struct rdt_resource *l3 = &res->resctrl_res;
->> +
->> +       lockdep_assert_cpus_held();
->> +
->> +       /* There also needs to be an L3 cache present */
->> +       if (get_cpu_cacheinfo_id(smp_processor_id(), 3) == -1)
->> +               return;
->> +
->> +       /*
->> +        * If there are no MPAM resources on L3, force it into existence.
->> +        * topology_matches_l3() already ensures this looks like the L3.
->> +        * The domain-ids will be fixed up by mpam_resctrl_domain_hdr_init().
->> +        */
->> +       if (!res->class) {
->> +               pr_warn_once("Faking L3 MSC to enable counters.\n");
->> +               res->class = mpam_resctrl_counters[type].class;
->> +       }
->> +
->> +       /* Called multiple times!, once per event type */
->> +       if (exposed_mon_capable) {
->> +               l3->mon_capable = true;
->> +
->> +               /* Setting name is necessary on monitor only platforms */
->> +               l3->name = "L3";
->> +               l3->mon_scope = RESCTRL_L3_CACHE;
->> +
->> +               resctrl_enable_mon_event(type);
->> +
->> +               /*
->> +                * Unfortunately, num_rmid doesn't mean anything for
->> +                * mpam, and its exposed to user-space!
->> +                * num-rmid is supposed to mean the number of groups
->> +                * that can be created, both control or monitor groups.
->> +                * For mpam, each control group has its own pmg/rmid
->> +                * space.
->> +                */
->> +               l3->mon.num_rmid = 1;
->> +       }
->> +}
-> 
-> Dave posted the following patch, Will you apply it?
-> https://lore.kernel.org/lkml/20250820131621.54983-1-Dave.Martin@arm.com/
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ drivers/ufs/host/ufs-mediatek.c | 65 +++++++++++++++++++++--------------------
+ 1 file changed, 33 insertions(+), 32 deletions(-)
 
-Thanks for the reminder. I'll squash that into this patch.
+diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+index 66bff5e623e9..fbfa23abbb87 100644
+--- a/drivers/ufs/host/ufs-mediatek.c
++++ b/drivers/ufs/host/ufs-mediatek.c
+@@ -797,50 +797,47 @@ static void ufs_mtk_mcq_set_irq_affinity(struct ufs_hba *hba, unsigned int cpu)
+ 	dev_dbg(hba->dev, "set irq %d affinity to CPU %d\n", irq, _cpu);
+ }
+ 
+-static bool ufs_mtk_is_legacy_chipset(struct ufs_hba *hba, u32 hw_ip_ver)
++static bool __pure ufs_mtk_is_legacy_chipset(u32 hw_ip_ver)
+ {
+-	bool is_legacy = false;
+-
+ 	switch (hw_ip_ver) {
+ 	case IP_LEGACY_VER_MT6893:
+ 	case IP_LEGACY_VER_MT6781:
+ 		/* can add other legacy chipset ID here accordingly */
+-		is_legacy = true;
+-		break;
+-	default:
+-		break;
++		return true;
+ 	}
+-	dev_dbg(hba->dev, "IP version 0x%x, legacy = %s", hw_ip_ver,
+-		str_true_false(is_legacy));
+ 
+-	return is_legacy;
++	return false;
+ }
+ 
+-/*
+- * HW version format has been changed from 01MMmmmm to 1MMMmmmm, since
+- * project MT6878. In order to perform correct version comparison,
+- * version number is changed by SW for the following projects.
+- * IP_VER_MT6983	0x00360000 to 0x10360000
+- * IP_VER_MT6897	0x01440000 to 0x10440000
+- * IP_VER_MT6989	0x01450000 to 0x10450000
+- * IP_VER_MT6991	0x01460000 to 0x10460000
++#define MTK_UFS_VER_PREFIX_M (0xFF << 24)
++
++/**
++ * ufs_mtk_get_hw_ip_version - read and return adjusted hardware version
++ * @hba: pointer to this device's &struct ufs_hba
++ *
++ * Reads, transforms and returns the hardware version.
++ *
++ * Since MT6878, the versioning scheme was changed from 01MMmmmm to 1MMMmmmm.
++ * In order to support version comparisons across these different versioning
++ * schemes, this function transforms the older style to the newer one.
++ *
++ * For example:
++ *  MT6983 is transformed from 0x00360000 to 0x10360000
++ *  MT6897 is transformed from 0x01440000 to 0x10440000
++ *  MT6989 is transformed from 0x01450000 to 0x10450000
++ *  MT6991 is transformed from 0x01460000 to 0x10460000
++ *
++ * Returns a u32 representing the hardware version.
+  */
+-static void ufs_mtk_get_hw_ip_version(struct ufs_hba *hba)
++static u32 ufs_mtk_get_hw_ip_version(struct ufs_hba *hba)
+ {
+-	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
+-	u32 hw_ip_ver;
++	u32 version = ufshcd_readl(hba, REG_UFS_MTK_IP_VER);
++	u32 prefix = FIELD_GET(MTK_UFS_VER_PREFIX_M, version);
+ 
+-	hw_ip_ver = ufshcd_readl(hba, REG_UFS_MTK_IP_VER);
++	if (prefix <= 1)
++		FIELD_MODIFY(MTK_UFS_VER_PREFIX_M, &version, BIT(28));
+ 
+-	if (((hw_ip_ver & (0xFF << 24)) == (0x1 << 24)) ||
+-	    ((hw_ip_ver & (0xFF << 24)) == 0)) {
+-		hw_ip_ver &= ~(0xFF << 24);
+-		hw_ip_ver |= (0x1 << 28);
+-	}
+-
+-	host->ip_ver = hw_ip_ver;
+-
+-	host->legacy_ip_ver = ufs_mtk_is_legacy_chipset(hba, hw_ip_ver);
++	return version;
+ }
+ 
+ static void ufs_mtk_get_controller_version(struct ufs_hba *hba)
+@@ -1191,7 +1188,11 @@ static int ufs_mtk_init(struct ufs_hba *hba)
+ 
+ 	ufs_mtk_setup_clocks(hba, true, POST_CHANGE);
+ 
+-	ufs_mtk_get_hw_ip_version(hba);
++	host->ip_ver = ufs_mtk_get_hw_ip_version(hba);
++	host->legacy_ip_ver = ufs_mtk_is_legacy_chipset(host->ip_ver);
++
++	dev_dbg(hba->dev, "IP version 0x%x, legacy = %s", host->ip_ver,
++		str_true_false(host->legacy_ip_ver));
+ 
+ 	return 0;
+ 
 
-> 
-> Best regards,
-> Shaopeng TAN
-> 
-> 
-
-Thanks,
-
-Ben
+-- 
+2.52.0
 
 
