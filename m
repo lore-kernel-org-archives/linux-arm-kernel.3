@@ -4,74 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5054AD1D47D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 15:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C960D1D478
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 15:59:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ATux80J8Ny+n16jjoym3ITCaMCjEXn3NTCg6Mdz0asY=; b=XlVGUB9ByUm0/YrEZmolJ+yr3t
-	Q599hjED6urV6anNjVLMZsCvSrsvfdOgeD0B7Mwuh/xq1KCSOqh1Avk4424vbP5zjcjJer+L2eVXz
-	uzUGaS1ltC4IEtGPCk+0+pwIu9wPW2spKlcl2MHi08l+5YE46T2F736nVTkc/0ZKqRz5UqhbAy+aT
-	bJKigyuKZYnae69+HSa5s8xmsKkjpZ1no9pOPOXD9LkLOakDh+9c5FryZ5nVxOE+W8TGgAPmbukdy
-	ZM4sM0CC1eqTf+jTzapY6X/me6/ZvAvmcgBUN/vq2ssn/0CApWGLhOzLyQjctROOhM5jWjDM1InNv
-	d7SN3snA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=DM6GekgR27UIfqMM/65ZN7iVDIrYS8A+2pLLoQa5ukg=; b=d0MCFz+7z7EmS0ixMpu2SYjd9m
+	+oJ6d2MfhnpKIlvSWtpLsRv4kBzfUHP2mt3aC2VLexrN2PO2xLM+n+kko6YeOYRrZHIPLmojm5aK9
+	3w/NoQ38WTZ8cbSQimY196VL75qO+u3cjmwkOMS+HASyi5vcbWIaQy2OCsuCly/RoIqJqR5o8jSFv
+	h2I8Ui8bgAFuOuHSF/Ij8CZ9Xz3ocJzUZJWlus7trdVLVKlumwWfxXcuCPIfoN2oSu/AUJMazY7yu
+	yPwd7kpHa1gFgstoToDgDdNYdnBctYGE1Fq/X57A4zuXF+Tx/fMFdS5gQyt7oRh1xsRV4w86X1zlz
+	qqtBYXHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdsOH-000000000rj-1cuW;
-	Thu, 08 Jan 2026 15:57:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdsPX-0000000019V-3K6z;
+	Thu, 08 Jan 2026 15:58:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdsOG-000000000rI-3ey2
+	id 1vdsPV-0000000018p-0o6Y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 15:57:36 +0000
+	Thu, 08 Jan 2026 15:58:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 52CB060132;
-	Thu,  8 Jan 2026 15:57:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E3F9C116C6;
-	Thu,  8 Jan 2026 15:57:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767887856;
-	bh=iQ8rrKAjkcgXBG7XLBNg/l9mT/9ufxiMSqzt1QWzGdc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KVqoIYbJP02PJTKnx446NUd3M2a4Ep19Dg9tIX7oreQpKKsd0WMGyTFUJ1sDhiXWY
-	 0KtS2dh6VfgyUiSD3OiTxpJZuxbKYxR/1hBRHWLrheX8ST7mB39HkyvpUsmPfrqN88
-	 zi6iOhwIStpoif0an8L2fuMSf78ynLUxFwnTboH07mvxdH5xzvVP2Pa/PObcK+/jFt
-	 5f0Go3ejIGh1XNrnasudUdmrt3GrXSY1SW6VzhXuIQObithqCt61PeKuSTMW7jw8O3
-	 U/OdvxARLkNQXqgRv4AUcd1QcZtEXws/csV64jdEvNo1pOhtcobf51yh7jVdB467pq
-	 wLj1opru/g8eg==
-Date: Thu, 8 Jan 2026 15:57:24 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v9 02/30] arm64/fpsimd: Update FA64 and ZT0 enables when
- loading SME state
-Message-ID: <e50b4923-ee45-43de-9d4e-344546c635bb@sirena.org.uk>
-References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
- <20251223-kvm-arm64-sme-v9-2-8be3867cb883@kernel.org>
- <CA+EHjTxdSnpFHkm6o85EtjQjAWemBfcv9Oq6omWyrrMdkOuuVA@mail.gmail.com>
- <3c8b4a5e-89f4-47e0-9a5d-24399407db0c@sirena.org.uk>
- <CA+EHjTxLkLjPj=1vwDqROXOUXi2LhOQb90WP6dFaTiYG1nWovA@mail.gmail.com>
+	by sea.source.kernel.org (Postfix) with ESMTP id 32D6E405E3;
+	Thu,  8 Jan 2026 15:58:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD0C9C116C6;
+	Thu,  8 Jan 2026 15:58:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1767887932;
+	bh=59UGg20+a8O/utg7jkDZv98IzGuoXpfkweM7G+15fCY=;
+	h=Subject:To:Cc:From:Date:In-Reply-To:From;
+	b=zngMsS34cLX0kYuzhDo4C7C9VTnmdi+kizMAUdNstjtHf8cRjkWHUXYpyB/6/63W3
+	 FI2zRPcEDPntQn6AZ5tNt9N/0NudnPfGqIK0WGlt+9UAfsL/5e1P2Wz9+wEStv5JqC
+	 ItVBGx0pEpEdRnhquO153j9eF4wkLjlw86+uKrg8=
+Subject: Patch "KVM: arm64: sys_regs: disable -Wuninitialized-const-pointer warning" has been added to the 5.10-stable tree
+To: alexandru.elisei@arm.com,catalin.marinas@arm.com,cov@codeaurora.org,gregkh@linuxfoundation.org,joey.gouly@arm.com,justinstitt@google.com,kvmarm@lists.cs.columbia.edu,linux-arm-kernel@lists.infradead.org,llvm@lists.linux.dev,maz@kernel.org,nathan@kernel.org,oliver.upton@linux.dev,suzuki.poulose@arm.com,will@kernel.org,yuzenghui@huawei.com
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Thu, 08 Jan 2026 16:57:53 +0100
+In-Reply-To: <20251204-b4-stable-disable-uninit-ptr-warn-5-15-v1-1-41212e2c6409@google.com>
+Message-ID: <2026010853-fineness-stopwatch-0bd4@gregkh>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="KOrZZL+m63ovft+Q"
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTxLkLjPj=1vwDqROXOUXi2LhOQb90WP6dFaTiYG1nWovA@mail.gmail.com>
-X-Cookie: If you suspect a man, don't employ him.
+Content-Type: text/plain; charset=ANSI_X3.4-1968
+Content-Transfer-Encoding: 8bit
+X-stable: commit
+X-Patchwork-Hint: ignore 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260108_075853_284685_59A7B181 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,61 +69,82 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---KOrZZL+m63ovft+Q
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+This is a note to let you know that I've just added the patch titled
 
-On Thu, Jan 08, 2026 at 02:09:34PM +0000, Fuad Tabba wrote:
-> On Thu, 8 Jan 2026 at 11:54, Mark Brown <broonie@kernel.org> wrote:
-> > On Wed, Jan 07, 2026 at 07:25:04PM +0000, Fuad Tabba wrote:
-> > > On Tue, 23 Dec 2025 at 01:21, Mark Brown <broonie@kernel.org> wrote:
+    KVM: arm64: sys_regs: disable -Wuninitialized-const-pointer warning
 
-> > > Should we also preserve the remaining old bits from SMCR_EL1, i.e.,
-> > > copy over the bits that aren't
-> > > SMCR_ELx_LEN_MASK|SMCR_ELx_FA64|SMCR_ELx_EZT0? For now they are RES0,
-> > > but that could change.
+to the 5.10-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
-> > My thinking here is that any new bits are almost certainly going to need
-> > explicit support (like with the addition of ZT0) and that copying them
-> > forward without understanding is more likely to lead to a bug like
-> > exposing state we didn't mean to than clearing them will.
+The filename of the patch is:
+     kvm-arm64-sys_regs-disable-wuninitialized-const-pointer-warning.patch
+and it can be found in the queue-5.10 subdirectory.
 
-> I understand the 'secure by default' intent for enable bits, but I'm
-> concerned that this implementation changes the current behavior of the
-> host kernel, which isn't mentioned in the commit message. Previously,
-> both the feature enablement code (cpu_enable_fa64) and the vector
-> length setting code (sme_set_vq/write_vl) performed a RMW, preserving
-> existing bits in SMCR_EL1. This new macro zeroes out any bits not
-> explicitly tracked here.
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
 
-The behaviour is unchanged since we're always choosing the same value in
-the end, it's just a question of rearranging when do it which is the
-explicit goal of the change.  There won't be a change in behaviour until
-later on in the series when we start potentially choosing other settings
-for KVM guests.
 
-> In terms of copying them over, if they were set from the beginning,
-> doesn't that mean that that explicit support was already added?
+From justinstitt@google.com  Thu Jan  8 16:52:32 2026
+From: Justin Stitt <justinstitt@google.com>
+Date: Thu, 04 Dec 2025 12:44:48 -0800
+Subject: KVM: arm64: sys_regs: disable -Wuninitialized-const-pointer warning
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,  Alexandru Elisei <alexandru.elisei@arm.com>, Joey Gouly <joey.gouly@arm.com>,  Suzuki K Poulose <suzuki.poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,  Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,  Nathan Chancellor <nathan@kernel.org>, Christopher Covington <cov@codeaurora.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,  linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org,  Justin Stitt <justinstitt@google.com>
+Message-ID: <20251204-b4-stable-disable-uninit-ptr-warn-5-15-v1-1-41212e2c6409@google.com>
 
-That's a bit circular, with the new interface if someone updates the
-kernel to set some new bits they're going to have to update this code as
-part of that.  A part of the goal here is to make it harder to make a
-mistake with remembering what needs to be updatd when.
+From: Justin Stitt <justinstitt@google.com>
 
---KOrZZL+m63ovft+Q
-Content-Type: application/pgp-signature; name="signature.asc"
+A new warning in Clang 22 [1] complains that @clidr passed to
+get_clidr_el1() is an uninitialized const pointer. get_clidr_el1()
+doesn't really care since it casts away the const-ness anyways -- it is
+a false positive.
 
------BEGIN PGP SIGNATURE-----
+|  ../arch/arm64/kvm/sys_regs.c:2838:23: warning: variable 'clidr' is uninitialized when passed as a const pointer argument here [-Wuninitialized-const-pointer]
+|   2838 |         get_clidr_el1(NULL, &clidr); /* Ugly... */
+|        |                              ^~~~~
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlf0+QACgkQJNaLcl1U
-h9DQbgf/VzVntYNXV0km5HLDgB/SG9k64BqiNt0fbx3g83qjVtQuNw5OJfx/AI40
-3CRrW3Hr1lIspMdVhwa+8lv5cpSyGzWnLWbmRJBVb6v++Hsslg9O824KM1LtRJqZ
-herBG1MKR8P2+yGtEt2cxbABtHH3ONEEFdEIOiGDAH7jkRY36Gfwx6QwV8/QA+Ey
-81r9gsksZDexFnwMz51S8jMdplvo3wMaDOQnytnH3YzQ9vC0B3Gfre+cAjqF2b99
-xN9M8G1+jCOiBeLIDPIEXCC0RPPOJb+mEpy6yUcn7l3k4AaReGbGrqBPtboVRUFT
-dB+n4q24DpQwRk1kIs62RHkorXoV/A==
-=Ud9D
------END PGP SIGNATURE-----
+This patch isn't needed for anything past 6.1 as this code section was
+reworked in Commit 7af0c2534f4c ("KVM: arm64: Normalize cache
+configuration"). Since there is no upstream equivalent, this patch just
+needs to be applied to 5.15.
 
---KOrZZL+m63ovft+Q--
+Disable this warning for sys_regs.o with an iron fist as it doesn't make
+sense to waste maintainer's time or potentially break builds by
+backporting large changelists from 6.2+.
+
+Cc: stable@vger.kernel.org
+Fixes: 7c8c5e6a9101e ("arm64: KVM: system register handling")
+Link: https://github.com/llvm/llvm-project/commit/00dacf8c22f065cb52efb14cd091d441f19b319e [1]
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+Signed-off-by: Justin Stitt <justinstitt@google.com>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ arch/arm64/kvm/Makefile | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+index 989bb5dad2c8..109cca425d3e 100644
+--- a/arch/arm64/kvm/Makefile
++++ b/arch/arm64/kvm/Makefile
+@@ -25,3 +25,6 @@ kvm-y := $(KVM)/kvm_main.o $(KVM)/coalesced_mmio.o $(KVM)/eventfd.o \
+ 	 vgic/vgic-its.o vgic/vgic-debug.o
+ 
+ kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o
++
++# Work around a false positive Clang 22 -Wuninitialized-const-pointer warning
++CFLAGS_sys_regs.o := $(call cc-disable-warning, uninitialized-const-pointer)
+
+---
+base-commit: 8bb7eca972ad531c9b149c0a51ab43a417385813
+change-id: 20250728-b4-stable-disable-uninit-ptr-warn-5-15-c0c9db3df206
+
+Best regards,
+--
+Justin Stitt <justinstitt@google.com>
+
+
+
+Patches currently in stable-queue which might be from justinstitt@google.com are
+
+queue-5.10/kvm-arm64-sys_regs-disable-wuninitialized-const-pointer-warning.patch
 
