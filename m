@@ -4,80 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC81CD0D17F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 14:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5287AD1488B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 14:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NEsUz8dDoVvIufOrHK9ZWcVVWyNJnijW++HS0aXtJXQ=; b=3DXrGfn3zHRV7xF9kgluQdRnlw
-	14saOAQOKDl3ZNldJdoRQAOqIIATo2umqgjmFeF4TOaMV1HGjtxRMpw0jUkWPpzB/QTw0COvuIpzo
-	HZVPB97N1iD2HuCyvCerK8k0487K6LYcgsjCyFPvQTxKP3+GdyY5k0sg52jKA/R1DavV87tdCxlhv
-	On3EEB6uolMURsP7dZ766uRiXAT8PjIEKblnxB/eD+TBYcEdAP8xhMEr7cuo1c0QNDtBdF3pZZAS8
-	9LUNCZcjCE/tkydtvEVJicXGfQ5u1Evj5X5ggxaUOhhzGwMhgNJi5B5bAIlzrQXTMwMTvDa65T2+p
-	MlqY8GXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dKsZk5STRUk0X4Pv4cc5SZyi6XswPBivoY5uNi8SKAU=; b=J4QnUvolr6DqsmN6vCmuN0OKeM
+	Zl/EwNSo6Ww/e9YEiMw12NTfeyTQHjxiy3ro6z6pj2T5IqY0DXBeLTTsXWV98/Pi8dmXirZBzeW8q
+	lonE2If+DLeONrh2Xc4Qdi+HCWWg8lhStWJST8MAQZO4ks7bMeyGmc6fd5jsHnBdAPtf6ksQFN+hL
+	YwiN9PQjb3BW8EXUQwNXlTII4GgK6jJD/PICt6+md2+XFlLVbfo0CFFKPbhzzq3AOsSTqkT6YgfWq
+	oPZxz/BnIh0UqVLX8hHZFV0eYgM9UR+3wzu25WSuBdOYvLQ09YZd2f70wi3Myuc3dOIFiy1sX+4dL
+	XqFAepKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdqxA-0000000HLGa-26wM;
-	Thu, 08 Jan 2026 14:25:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vdr4B-0000000HMI1-3be1;
+	Thu, 08 Jan 2026 14:32:47 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdqx8-0000000HLFz-2lv2
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 08 Jan 2026 14:25:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=NEsUz8dDoVvIufOrHK9ZWcVVWyNJnijW++HS0aXtJXQ=; b=lPNWkBq6ZuiCbmEaH4tioTKx9C
-	pt0UStiAMltTdBf7Aky/GGb4gESK1x7ZD42gw4F+by0VM/E1oPTOmr+YyYPlrUCDy7h4rv2FThlTq
-	H6FwEv2/LJmE1J+IFmVj8waz9mmIQYaNJpWqJShTuywhpbIZH2GEDhOY00zm5JROT4FBjSjONpAo9
-	b6LXyvWaZiVPcxwQE69lVk37Lne37941MLn6r2j9VVeBA10oUwuNNpKXeZ5rR6be4hqXDjwLM4rah
-	Qa2YRqwFOUuXg1x71SvEaxgeF+G+cmOWPo54ATGELvU44+UxBZaVCPN8Xx3Ys7Esh/JHoUZlLgquh
-	qV3XdSaA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdqx4-0000000DMjC-2y5f
+	id 1vdr49-0000000HMHf-1V9D
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 14:25:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E18C9497;
-	Thu,  8 Jan 2026 06:25:17 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C03A93F5A1;
-	Thu,  8 Jan 2026 06:25:17 -0800 (PST)
-Message-ID: <7dc49b72-603c-4756-9f38-d5037a3a6206@arm.com>
-Date: Thu, 8 Jan 2026 14:25:15 +0000
+	Thu, 08 Jan 2026 14:32:46 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-477bf34f5f5so25780655e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 06:32:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767882763; x=1768487563; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dKsZk5STRUk0X4Pv4cc5SZyi6XswPBivoY5uNi8SKAU=;
+        b=We4jMELSr131CCxS6/mejvLYxsNBKqiOmKyph6aA1kM4v9+ybFmDk6QR7O0Z7YCOf9
+         PcvDYjFHb6cuVHKml/a7eLTdpi7vvEjf7I99z0m78Gt95Pa10GBMNI8pIKsv8+sK9h96
+         aw22VgVkiYGex2JAavFN69P7KDWgiFqrI5dp3fI7mslCFyQXzxCk6Bbu9+Pg7eZU1Qaf
+         ZmzFmV2ZknPhm/BXern5lS9oyrJs2XmXctFIlgh/I1fROS8Cv08SYWHWdlHOF/Dm79VY
+         WoC4W0IztBCxMH4jZlYp9+LGIkBN5uEpS2uMopV2FsJ0l2POUs7W7JjWX76N7epck/Dd
+         ZIoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767882763; x=1768487563;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dKsZk5STRUk0X4Pv4cc5SZyi6XswPBivoY5uNi8SKAU=;
+        b=SbiiYqLCDt00rEpZF8nA0iBf9lcil0DvjYH/VsqWGTySMrS7DtVC/9h0vZGlKcpr+M
+         riSyWWjshiLNahXKXyjhwwnDjiUG3SCHJr9MwI2zc2VeRhdrEQBcf93ubFZ9eyOxjc/H
+         OXjnTYTdw+JNIRmZfWTmErhERhLN7ZBXAw6LUefAIcdhnuYtg6nJajCS19r5DFpcBSR2
+         bpechbwkBGiwumKOXN5P/eJpyMwYUMswoLmqks+Tcj68z8x8Lue3g2Ug9jvl5MRucIJD
+         Z0ICJSaShF/I9lv7qmMAtlaeV2UWs5+Ij0KlFHE1aIdAF9x1T8iFaRoW5UnHpa9oEVK/
+         ge9A==
+X-Forwarded-Encrypted: i=1; AJvYcCUV7saO9Qb33N1MbSvi1JJAQFlTtf4hMZGm2XOgbTLPjTnmYXUXMbN8HBD5dwaGZb6YdTZb1FeuSxgu+n1j2FB5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaObbigofAb15TagGcSWmzOR1ITGqBtvzfvBXtuTqJTKq6Hv+q
+	GL7WDmK/fGLMjkNjsFH3R0pdRv/7q5A5N8UKOkkrXwbGZNFjrk0gCZk6
+X-Gm-Gg: AY/fxX5P4/SFqC5lHsdEZxeE9yy35BicZpSbINTBuLTOxSz7FwoObYdNb9IgNUkN02K
+	FJtNmqCnEKok+bvQzuMk6sv7aBmFl4DUZqLeyI5NjT+b6KsbLbMtiZ3o+UYz9xOouvrn0CuPGxk
+	ba+zVyKZRgcnBV1Z/YmMqhONNfFLnAhjrprmsEVHgQ9KNrc0cfvPWMO7PQA/I9b7YJqEl2EBqDf
+	gVeZiYGhcrEoTch6mRvc891MaNFNpV2yF1FMQvuxXU50l/XHfmS4UGijCs87pNCG/D7AUlbat3Z
+	I4lGXlw5K/oiL4NKnT/Wc8Wi2kEXoUzVNY+CoxD2agPMXZAp9EOME8/uSrMdR7qKsA6H36JXm1B
+	Ml8l1bvHoIDW/cFDWwQ1ebhxZiITbojoZ2RdIwUW8OExwlJuC76dpEFati0UpmRIlPdzJreYVq3
+	M=
+X-Google-Smtp-Source: AGHT+IGnDsY3fisUw/PeO5pgI1mNCLBNotubRxiPg3jCybSey6S3sceqOXla0zwMBu7+42vl1Y5nvA==
+X-Received: by 2002:a05:600c:4ed1:b0:47d:18b0:bb9a with SMTP id 5b1f17b1804b1-47d84b54031mr77169965e9.33.1767882763275;
+        Thu, 08 Jan 2026 06:32:43 -0800 (PST)
+Received: from krava ([176.74.159.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d7f41eb3bsm159970735e9.7.2026.01.08.06.32.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 Jan 2026 06:32:42 -0800 (PST)
+From: Jiri Olsa <olsajiri@gmail.com>
+X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
+Date: Thu, 8 Jan 2026 15:32:40 +0100
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Will Deacon <will@kernel.org>,
+	Mahe Tardy <mahe.tardy@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>, bpf@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+	Yonghong Song <yhs@fb.com>, Song Liu <songliubraving@fb.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH bpf-next 1/2] arm64/ftrace,bpf: Fix partial regs after
+ bpf_prog_run
+Message-ID: <aV_ACGtNHRfheAme@krava>
+References: <20260107093256.54616-1-jolsa@kernel.org>
+ <20260107110352.3fd7ddda@gandalf.local.home>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 29/45] arm_mpam: resctrl: Pre-allocate free running
- monitors
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-References: <20251219181147.3404071-1-ben.horgan@arm.com>
- <20251219181147.3404071-30-ben.horgan@arm.com>
- <20260106142214.0000686c@huawei.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20260106142214.0000686c@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260107110352.3fd7ddda@gandalf.local.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_142527_157825_CC57F4DA 
-X-CRM114-Status: GOOD (  33.15  )
+X-CRM114-CacheID: sfid-20260108_063245_436265_D0B68FDC 
+X-CRM114-Status: GOOD (  23.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,183 +107,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+On Wed, Jan 07, 2026 at 11:03:52AM -0500, Steven Rostedt wrote:
+> On Wed,  7 Jan 2026 10:32:55 +0100
+> Jiri Olsa <jolsa@kernel.org> wrote:
+> 
+> > diff --git a/arch/arm64/include/asm/ftrace.h b/arch/arm64/include/asm/ftrace.h
+> > index 1621c84f44b3..177c7bbf3b84 100644
+> > --- a/arch/arm64/include/asm/ftrace.h
+> > +++ b/arch/arm64/include/asm/ftrace.h
+> > @@ -157,6 +157,30 @@ ftrace_partial_regs(const struct ftrace_regs *fregs, struct pt_regs *regs)
+> >  	return regs;
+> >  }
+> >  
+> 
+> See my reply in the other email thread:
+> 
+>   https://lore.kernel.org/all/20260107105316.2b70a308@gandalf.local.home/
 
-On 1/6/26 14:22, Jonathan Cameron wrote:
-> On Fri, 19 Dec 2025 18:11:31 +0000
-> Ben Horgan <ben.horgan@arm.com> wrote:
-> 
->> From: James Morse <james.morse@arm.com>
->>
->> When there are enough monitors, the resctrl mbm local and total files can
->> be exposed. These need all the monitors that resctrl may use to be
->> allocated up front.
->>
->> Add helpers to do this.
->>
->> If a different candidate class is discovered, the old array should be
->> free'd and the allocated monitors returned to the driver.
->>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> 
-> See below.  Maybe there isn't a nicer way to handle the error
-> cases in counter_update_class() but I think it can be improved at least
-> a little.
-> 
->> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
->> index 51caf3b82392..bea16bc096f7 100644
->> --- a/drivers/resctrl/mpam_resctrl.c
->> +++ b/drivers/resctrl/mpam_resctrl.c
-> 
->> +
->>  static void counter_update_class(enum resctrl_event_id evt_id,
->>  				 struct mpam_class *class)
-> The stuff below is very much a case of me trying to figure out a nicer
-> code flow in here and stumbling a bit over what it can be, however
-> I do think this function would benefit from another look.
-> 
->>  {
->> -	struct mpam_class *existing_class = mpam_resctrl_counters[evt_id].class;
->> +	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[evt_id];
->> +	struct mpam_class *existing_class = mon->class;
->> +	u16 num_mbwu_mon = class->props.num_mbwu_mon;
->> +	int *existing_array = mon->mbwu_idx_to_mon;
->>  
->>  	if (existing_class) {
->>  		if (class->level == 3) {
->> @@ -576,8 +624,40 @@ static void counter_update_class(enum resctrl_event_id evt_id,
->>  		}
->>  	}
->>  
->> -	mpam_resctrl_counters[evt_id].class = class;
->> +	pr_debug("Updating event %u to use class %u\n", evt_id, class->level);
->> +	mon->class = class;
->>  	exposed_mon_capable = true;
->> +
->> +	if (evt_id == QOS_L3_OCCUP_EVENT_ID)
->> +		return;
->> +
->> +	/* Might not need all the monitors */
->> +	num_mbwu_mon = __mpam_monitors_free_running(num_mbwu_mon);
->> +	if (!num_mbwu_mon) {
-> 
-> For the below suggestion would need duplicate setting 
-> 		mon->class = class;
-> here (which is the one disadvantage I can see in setting it later than
-> currently.  One option would be to flip the logic here and
-> not exit early, allowing sharing of that statement after the
-> rest of the code.
-> 	if (num_mbw_mon) {
-> 		stuff to allocate array.
-> 	} else {
-> 		pr_debug("Not pre-allocating...);
-> 	}
-> 	mon->class = class;
-> }
-> 
-> 
-> 
->> +		pr_debug("Not pre-allocating free-running counters\n");
->> +		return;
->> +	}
->> +
->> +	/*
->> +	 * This is the pre-allocated free-running monitors path. It always
->> +	 * allocates one monitor per PARTID * PMG.
->> +	 */
->> +	WARN_ON_ONCE(num_mbwu_mon != resctrl_arch_system_num_rmid_idx());
->> +
->> +	mon->mbwu_idx_to_mon = __alloc_mbwu_array(class, num_mbwu_mon);
-> 
-> This might be cleaner with a local so as to avoid setting and reverting on error.
-> Also, does anything stop mon->class being set after this?
-> Seems like that would be cleaner.
-> 
-> 	int *new_array; // up top obviously.
-> 
-> 	new_array = __alloc_mbwu_array(class, num_mbwu_mon);
-> 	if (IS_ERR(new_array)) {
-> 		pr_debug("Failed to allocate MBWU array\n");
-> 		return;
-> 	}
-> 
-> //this bit less obviously a good idea.
-> 	if (mon->mbwu_idx_to_mon) {
-> 		pr_debug("Releasing previous class %u's monitors\n",
-> 			 mon->mbwu_idx_to_mon->level);
-> 		__free_mbwu_mon(mon->class, mon->mbwu_idx_to_mon, num_mbwu_mon);
-> 		kfree(mon->mbwu_idx_to_mon);
-> 	}
-> //so maybe skip that bit.
-> //Anyhow aim is to set these only after we know we are good carry on.
-> 	mon->mbwu_idx_to_mon = new_array;
-> 	mon->class = class;
-> 
-> 
-> Some parts of this might make sense without going the whole way. Maybe
-> just setting the array late and leaving the class set early then
-> reverting that on error.
-> 
-> 
+ah ok, thanks
 
-I was considering moving the memory allocation out of the conditional but 
-didn't get anywhere better with that idea so I've taken your suggestion and 
-included the csu case as well.
+jirka
 
-	pr_debug("Updating event %u to use class %u\n", evt_id, class->level);
-
-	/* Might not need all the monitors */
-	num_mbwu_mon = __mpam_monitors_free_running(num_mbwu_mon);
-
-	if (evt_id != QOS_L3_OCCUP_EVENT_ID && !num_mbwu_mon) {
-		/*
-		 * This is the pre-allocated free-running monitors path. It always
-		 * allocates one monitor per PARTID * PMG.
-		 */
-		WARN_ON_ONCE(num_mbwu_mon != resctrl_arch_system_num_rmid_idx());
-
-		new_array = __alloc_mbwu_array(class, num_mbwu_mon);
-		if (IS_ERR(new_array)) {
-			pr_debug("Failed to allocate MBWU array\n");
-			return;
-		}
-		mon->mbwu_idx_to_mon = new_array;
-
-		if (existing_array) {
-			pr_debug("Releasing previous class %u's monitors\n",
-				 existing_class->level);
-			__free_mbwu_mon(existing_class, existing_array, num_mbwu_mon);
-			kfree(existing_array);
-		}
-	} else if (evt_id != QOS_L3_OCCUP_EVENT_ID) {
-		pr_debug("Not pre-allocating free-running counters\n");
-	}
-
-	exposed_mon_capable = true;
-	mon->class = class;
-
-
->> +	if (IS_ERR(mon->mbwu_idx_to_mon)) {
->> +		pr_debug("Failed to allocate MBWU array\n");
->> +		mon->class = existing_class;
->> +		mon->mbwu_idx_to_mon = existing_array;
->> +		return;
->> +	}
->> +
->> +	if (existing_array) {
->> +		pr_debug("Releasing previous class %u's monitors\n",
->> +			 existing_class->level);
->> +		__free_mbwu_mon(existing_class, existing_array, num_mbwu_mon);
->> +		kfree(existing_array);
->> +	}
->>  }
->>  
->>  static void mpam_resctrl_pick_counters(void)
 > 
- 
-Thanks,
-
-Ben
-
+> -- Steve
+> 
+> 
+> > +/*
+> > + * ftrace_partial_regs_update - update the original ftrace_regs from regs
+> > + * @fregs: The ftrace_regs to update from @regs
+> > + * @regs: The partial regs from ftrace_partial_regs() that was updated
+> > + *
+> > + * Some architectures have the partial regs living in the ftrace_regs
+> > + * structure, whereas other architectures need to make a different copy
+> > + * of the @regs. If a partial @regs is retrieved by ftrace_partial_regs() and
+> > + * if the code using @regs updates a field (like the instruction pointer or
+> > + * stack pointer) it may need to propagate that change to the original @fregs
+> > + * it retrieved the partial @regs from. Use this function to guarantee that
+> > + * update happens.
+> > + */
+> > +static __always_inline void
+> > +ftrace_partial_regs_update(const struct ftrace_regs *fregs, struct pt_regs *regs)
+> > +{
+> > +	struct __arch_ftrace_regs *afregs = arch_ftrace_regs(fregs);
+> > +
+> > +	if (afregs->pc != regs->pc) {
+> > +		afregs->pc = regs->pc;
+> > +		afregs->regs[0] = regs->regs[0];
+> > +	}
+> > +}
 
