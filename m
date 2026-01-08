@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE366CF6A85
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 08:38:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 008CECF6A86
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 08:44:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Subject:From:To:
+	In-Reply-To:References:Content-Type:Message-Id:Cc:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lHhK7J9UwVHyDp7OnI2aJtOUELVCPGvnzkrrcOsH38Q=; b=ZafbotqXkHlAYzXsE+fwCVXymC
-	RyalwZfpQ6osJUK7deXzDZVnzQfXwTNUuA9cGmxAv9pbJ1y76mI39FXMDIlDo4wxw1tb/uxVFN0j9
-	Kh1OlGGd5RyomLJGfD9frUqce/vBqrYtUNSV801qtvvfGm/h9DAFS+00eqrKJYn0WCxr+sD99aDLl
-	OKwh5Xt6xIgHzZNoSceUn+nM5rbjuIGzW0H3QVGwsPacC5YoqZW3z6GGH+KXCzEsVNgzRNmSNqNRO
-	Wm+nnbOSCWl/IaCZAr563/UEFaXkXxtjfza1h5BXc1281wvSbyMl5nChZC6psABDpI4HPGODtdvEA
-	jmsFPCQQ==;
+	bh=N1FuXjS01s3YMgMgzoZhF0uCB3O/s+D9Jm9fJvlCcWo=; b=SpZ6C/V1PNoz91ajpKIjT0cUev
+	FVVAfA3dAbQcYiTkjsJnLwXucg/gkiBT/Dagm7QqwInI5vTpCno37gdf/cEeL6XvsHWGrpdQvzg7x
+	wL8tlu0S7bT4LEr35pl5kRnHqVTqXaNoPFx+KDJIGz8OrILOEteqM26w1u7MXnL0klaa2+G2lrz8F
+	9nf4XoSjLCvj4wtLZUJQe0oNpfUhqB/udb4Cdzj+0BveIrmYsY31EgeIeMMAXy4y4laDwXrRkpQL1
+	RgWpZUqLJbGKtrQgYdoZenoIchi7G0N2W5RgyiuWLZqI7VeONLqUFwqvyapP5LlxJT5Dp6KD/vAKE
+	EfC0NwDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdlX8-0000000GJKm-1ZcZ;
-	Thu, 08 Jan 2026 08:38:18 +0000
-Received: from mail-m3289.qiye.163.com ([220.197.32.89])
+	id 1vdlcr-0000000GKZ9-2ots;
+	Thu, 08 Jan 2026 08:44:13 +0000
+Received: from sg-1-105.ptr.blmpb.com ([118.26.132.105])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdlX3-0000000GJIO-25YG;
-	Thu, 08 Jan 2026 08:38:16 +0000
-Received: from [172.16.12.51] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2fef36141;
-	Thu, 8 Jan 2026 16:38:07 +0800 (GMT+08:00)
-Message-ID: <6f55c325-6b2a-4fe9-a487-5f1ae7969d9d@rock-chips.com>
-Date: Thu, 8 Jan 2026 16:38:06 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add rk3576 evb2 board
-To: Alexey Charkov <alchark@gmail.com>, Chaoyi Chen <kernel@airkyi.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Quentin Schulz <quentin.schulz@cherry.de>,
- Kever Yang <kever.yang@rock-chips.com>, Jonas Karlman <jonas@kwiboo.se>,
- John Clark <inindev@gmail.com>, FUKAUMI Naoki <naoki@radxa.com>,
- Jimmy Hon <honyuenkwun@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
- Michael Riesch <michael.riesch@collabora.com>,
- Peter Robinson <pbrobinson@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260107070322.323-1-kernel@airkyi.com>
- <20260107070322.323-3-kernel@airkyi.com>
- <b5a3470c-aa03-42d0-a575-b705f709f8e6@lunn.ch>
- <CABjd4YzsjZXe16XWgrHRG5shNA_DQJF45i1roahvfAfV4xdU0Q@mail.gmail.com>
- <a545fec0-cb30-489a-b5e6-4ee87dcab41c@rock-chips.com>
- <5FFFBA7FAF5745A7+e0381969-800a-4bf6-9aac-81cffa3469a1@airkyi.com>
- <CABjd4YxwD_q_FrEuPw_GY+vG6700Vd_weWqdcFn2C3V0fqpO-Q@mail.gmail.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <CABjd4YxwD_q_FrEuPw_GY+vG6700Vd_weWqdcFn2C3V0fqpO-Q@mail.gmail.com>
+	id 1vdlco-0000000GKXR-0vod
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Jan 2026 08:44:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1767861839; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=N1FuXjS01s3YMgMgzoZhF0uCB3O/s+D9Jm9fJvlCcWo=;
+ b=I7EVdV8+EOk9KvCmJ2bXtrKDnFFxQSlMQ3PDAEY+DGJZDgmBzdwHX0bFiCbNnRx8cpI9r5
+ mP/6+1GR4WW6p801cbjP5ynNt6mULVvbNzlk8IelP8eVQhtW0/WXeISYz0OiAIAClZ+ouA
+ 4DVMrUmFIeGScfZm6Ygi4e5d4/+Az/ERBFY4+EV3OtSc0HdrhZEwgpxPqrpfvXd/f2GK1r
+ /rHYz6iFmAGpTcmeeMMtAS7CWY9Y8QV5Nd3xQSyAiaVIeXhAhQAc4eWNApSBBaJMBuFq4T
+ lSrGJDa5L7aJmJ35pXojg2S2tq3O8f/U4BkyzLulRHj3kETpAyfLbTg8Pz0rsw==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Cc: <akpm@linux-foundation.org>, <axboe@kernel.dk>, <bhelgaas@google.com>, 
+	<catalin.marinas@arm.com>, <cgroups@vger.kernel.org>, 
+	<chenridong@huawei.com>, <dakr@kernel.org>, <davem@davemloft.net>, 
+	<edumazet@google.com>, <frederic@kernel.org>, <gmonaco@redhat.com>, 
+	<gregkh@linuxfoundation.org>, <guojinhui.liam@bytedance.com>, 
+	<hannes@cmpxchg.org>, <horms@kernel.org>, <jiangshanlai@gmail.com>, 
+	<kuba@kernel.org>, <linux-arm-kernel@lists.infradead.org>, 
+	<linux-block@vger.kernel.org>, <linux-kernel@vger.kernel.org>, 
+	<linux-mm@kvack.org>, <linux-pci@vger.kernel.org>, <longman@redhat.com>, 
+	<marco.crivellari@suse.com>, <mhocko@suse.com>, <mingo@redhat.com>, 
+	<mkoutny@suse.com>, <muchun.song@linux.dev>, <netdev@vger.kernel.org>, 
+	<pabeni@redhat.com>, <pauld@redhat.com>, <peterz@infradead.org>, 
+	<rafael@kernel.org>, <roman.gushchin@linux.dev>, 
+	<shakeel.butt@linux.dev>, <tglx@linutronix.de>, <tj@kernel.org>, 
+	<vbabka@suse.cz>, <will@kernel.org>
+Message-Id: <20260108084326.1952-1-guojinhui.liam@bytedance.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9b9cc1866103abkunm0e048bb5117cfb
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxhJQlZKTElOQx1OQk0YS01WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUJNS0
-	pVSktLVUtZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=f79xQ8sZlvCVy2PFQxXZd70Z/gMMUfuu39/WzLEApaY/LtlnAlZLpyn8o0o7YdTMMF9rsFmxcNn+HU/BGHd8baUJbHmZ7Q7uLAgllFhWoZP56g9OZ17+f6gWldn6XDzL8XE03FG4Ba7H2AOQmequz04zyPDk5B86vAscguWQsL4=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=lHhK7J9UwVHyDp7OnI2aJtOUELVCPGvnzkrrcOsH38Q=;
-	h=date:mime-version:subject:message-id:from;
+References: <20260107190534.GA441483@bhelgaas>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20260107190534.GA441483@bhelgaas>
+To: <helgaas@kernel.org>
+From: "Jinhui Guo" <guojinhui.liam@bytedance.com>
+Subject: Re: [PATCH 01/33] PCI: Prepare to protect against concurrent isolated cpuset change
+Date: Thu,  8 Jan 2026 16:43:26 +0800
+X-Original-From: Jinhui Guo <guojinhui.liam@bytedance.com>
+X-Lms-Return-Path: <lba+2695f6e4d+913318+lists.infradead.org+guojinhui.liam@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_003813_743821_3B55AF1C 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20260108_004410_486067_2B39A5B1 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,91 +82,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/8/2026 4:11 PM, Alexey Charkov wrote:
-> On Thu, Jan 8, 2026 at 12:02 PM Chaoyi Chen <kernel@airkyi.com> wrote:
->>
->> On 1/8/2026 3:42 PM, Chaoyi Chen wrote:
->>> Hello Alexey, Andrew,
->>>
->>> On 1/8/2026 2:53 PM, Alexey Charkov wrote:
->>>> On Wed, Jan 7, 2026 at 10:18 PM Andrew Lunn <andrew@lunn.ch> wrote:
->>>>>
->>>>>> +&gmac0 {
->>>>>> +     clock_in_out = "output";
->>>>>> +     phy-mode = "rgmii-rxid";
->>>>>
->>>>> rgmii-rxid is odd. Does the PCB really have an extra long TX clock
->>>>> line, but a short RX clock line?
->>>>>
->>>>> Try changing this to rgmii-id, and drop the tx_delay property.
->>>>
->>>> Actually it would be great if Rockchip could clarify the delay
->>>> duration introduced by a single delay element in GMAC-IOMUX delay
->>>> lines, which are controlled in the GMAC driver by the {tx,rx}_delay
->>>> properties. Maybe we could then switch to using
->>>> {tx,rx}_internal_delay_ps for fine-tuning the delays on the GMAC side
->>>> as envisaged in DT bindings [1], and use phy-mode = "rgmii-id"
->>>> throughout. Chaoyi, any chance you could ask around in your hardware
->>>> team?
->>>>
->>>> Currently though removing the delays at GMAC side altogether causes
->>>> unstable link operation - see [2] for example.
->>>>
->>>> [1] https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L342-L347
->>>> [2] https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/commit/372f3e9ae62cc62cdf2543391ea57be6bb548a0c
->>>
->>> Sorry, this problem has been discussed many times before. It's because
->>> the gmac on the Rockchip platform currently relies on setting the
->>> corresponding delay via phy-mode [3].
->>>
->>> [3] https://lore.kernel.org/all/mqoyjn7mnq6tmt6n6oev4wa3herjaxlupml2fmcampwiajvj4a@r5zs4d3jdm5p/
->>>
->>> The delay introduced by the delay line is not absolute. In reality,
->>> it depends on factors such as the chip's design and process technology.
->>>
->>> And for RK3576, you can assume that:
->>>
->>>       time(ns) = 0.0579 * delay_line_count + 0.105
->>>
->>> For example, tx_delay = <0x20> means:
->>>
->>>       time = 0.0579 * 0x20 + 0.105 ns = 1.9578 ns
->>>
->>> And I believe {tx,rx}_internal_delay_ps is indeed a good idea.
->>> I'll try to add them in v3. Thanks.
->>>
->>
->> I've also see some dt that use {tx,rx}_internal_delay_ps inside the PHY,
->> and compared to doing it in the MAC, which one is the better choice?
-> 
-> Your PHY defaults to 1950ps in rgmii-id [1], so adding anything on top
-> of that on GMAC side would land you with a longer total TX delay than
-> you currently get according to the coefficients you've just posted
-> (1784.1ps). I would say go for "tx-internal-delay-ps = <1800>" on the
-> PHY side for the closest match.
-> 
-> [1] https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/net/motorcomm%2Cyt8xxx.yaml#L36
+On Wed Jan 7, 2026 at 13:05:34 -0600, Bjorn Helgaas worte:
+> [+cc Jinhui]
+>=20
+> On Thu, Jan 01, 2026 at 11:13:26PM +0100, Frederic Weisbecker wrote:
+> > HK_TYPE_DOMAIN will soon integrate cpuset isolated partitions and
+> > therefore be made modifiable at runtime. Synchronize against the cpumas=
+k
+> > update using RCU.
+> >=20
+> > The RCU locked section includes both the housekeeping CPU target
+> > election for the PCI probe work and the work enqueue.
+> >=20
+> > This way the housekeeping update side will simply need to flush the
+> > pending related works after updating the housekeeping mask in order to
+> > make sure that no PCI work ever executes on an isolated CPU. This part
+> > will be handled in a subsequent patch.
+> >=20
+> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+>=20
+> Just FYI, Jinhui posted a series that touches this same code and might
+> need some coordination:
+>=20
+>   https://lore.kernel.org/r/20260107175548.1792-1-guojinhui.liam@bytedanc=
+e.com
+>=20
+> IIUC, Jinhui's series adds some more NUMA smarts in the driver core
+> sync probing path and removes corresponding NUMA code from the PCI
+> core probe path.
 
-Ah, I thought it was something like this:
+Hi Bjorn,
 
-&gmac0 {
-	phy-mode = "rgmii";
-	tx-internal-delay-ps = <1784>;
-};
+Thanks for pointing out the series.
 
-But what you actually said was this:
+I=E2=80=99ll resolve the conflicts and send a new patchset once this one is=
+ merged.
 
-&mdio1 {
-	rgmii_phy: ethernet-phy@1 {
-		compatible = "ethernet-phy-ieee802.3-c22";
-		reg = <0x1>;
-		tx-internal-delay-ps = <1784>;
-	};
-};
-
-These two `tx-internal-delay-ps` things shouldn't be the same, right?
-
--- 
-Best, 
-Chaoyi
+Best Regards,
+Jinhui
 
