@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D4ED1D494
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 21:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A8BD1D494
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 21:17:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
 	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RBYDw4jtntgqBTWPIcvzRYHJL2SPvYBI1QtaKE/TrD8=; b=I7Tlgl4UkKPeIsSt0vM9d2HDuN
-	aXf0tIOTfqykgRhdhYFNcHBogbHo3xRA+B8ejjhVcBt3N2nm737rY227a1uwBsy/HF1AkMcGf4ZRE
-	lNHoFXjs+heNEftyBD9sq1WK8L/fOLAgN9HvUkV80MNT2B5k3KlWqbewgeWlh4yzL9QF8aD1N8vDf
-	5F7VReBo7tzBrccUhGrXOR+LVAqtk4IER9OyafDJQYhr+XA8dvQOqGN6aaqBfhKM1Ann57Gxuon2a
-	DZRbTrXSbhxVLQgo4JypD0y5J7LYEXly62YCK45XAIfIb19mRWB/NW+NmhtXc9NCxYUS0iOX6KfTZ
-	u1ivHhFg==;
+	bh=isTuYgACeBQ4FzUudAdIXG1/HC4FrJOsqYZ+hDA0p/A=; b=nJNa/V/dtqgs0lW4jt9XIyJEDb
+	ztSqKuLIsectOWw9/Qe+g0LezoRhFDluZWffgxlGsu/QubsM8569KeBh5XJbUdl7p/c9XIZXmxRAS
+	RbVoyLyebHHjORJWxY9u+sx6MQOsRK2qjomxB+V0zSSUUV1loQR64jNK+lB/ZDFVnp1EJBO7xOgp+
+	+LmbbQ2jIYopHH90igBEvzOSCa4k2yi9iR7SFjSmwJq3SK4cjms2hP1Ttlv0a9iRMxPMDAywmeSkl
+	2S7UewsTlfSlIRI7LD2JzIlqh/TJjcVlQ4TONvSua9utuY+7WOjxd6mGsxdNJriB3+PJqCbmiL3/q
+	SshQNTew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdxNs-00000000sRR-0ALx;
-	Thu, 08 Jan 2026 21:17:32 +0000
+	id 1vdxO0-00000000sVV-0gR2;
+	Thu, 08 Jan 2026 21:17:42 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdxNp-00000000sQO-3Hy8
+	id 1vdxNx-00000000sT8-1zT0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 21:17:31 +0000
+	Thu, 08 Jan 2026 21:17:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1767907048;
+	s=mimecast20190719; t=1767907056;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=RBYDw4jtntgqBTWPIcvzRYHJL2SPvYBI1QtaKE/TrD8=;
-	b=HuJwp+AYHHE5MiWgtr/+oCN/XgqVpa3LM/QQ5nKGfgqYnjD5M10+jeLAebmyjeMS4PMTNL
-	v4Qa54Vdm9TqmdD/tcC669qUbXHWtJ2kRKrcvbcq5XcgoEKnLJE4NqP4x9gkkRiuL6kGtE
-	lrZywVSmZIZDTndRxwwzqH+8YR0CVGI=
+	bh=isTuYgACeBQ4FzUudAdIXG1/HC4FrJOsqYZ+hDA0p/A=;
+	b=MjejmpfvGaBdVxYFD0AP1Bcj2NW8rTxDpeB5qP6kL1syzrEkynSb4y3LlPE5Y3IwPUdKCk
+	w4Np/wTgddIpq96oep6PagKfE9YJ7R4VjQNYHaOktNLELmCGdT5zbN4ICoKs7chGuKCtE0
+	oV7bQA6cfIMMYv3GEAne5A2BUhR2W+Q=
 Received: from mail-vs1-f71.google.com (mail-vs1-f71.google.com
  [209.85.217.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-623-VwSBt0e-OjyXAczQ9Kh28w-1; Thu, 08 Jan 2026 16:17:27 -0500
-X-MC-Unique: VwSBt0e-OjyXAczQ9Kh28w-1
-X-Mimecast-MFC-AGG-ID: VwSBt0e-OjyXAczQ9Kh28w_1767907047
-Received: by mail-vs1-f71.google.com with SMTP id ada2fe7eead31-5eea4536b99so1120220137.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 13:17:27 -0800 (PST)
+ us-mta-203-VEuqkTLnOI-rLIi-i0PUfQ-1; Thu, 08 Jan 2026 16:17:35 -0500
+X-MC-Unique: VEuqkTLnOI-rLIi-i0PUfQ-1
+X-Mimecast-MFC-AGG-ID: VEuqkTLnOI-rLIi-i0PUfQ_1767907055
+Received: by mail-vs1-f71.google.com with SMTP id ada2fe7eead31-5ed079ef8dfso4071837137.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 13:17:35 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767907047; x=1768511847;
+        d=1e100.net; s=20230601; t=1767907054; x=1768511854;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=RBYDw4jtntgqBTWPIcvzRYHJL2SPvYBI1QtaKE/TrD8=;
-        b=hfcbXFQ1Tu2DdeFGAlgK/fBxS0kknFHBpx8FGBVwmGfG9dWGHZ6B60wJKnpAQHlg0E
-         q9pGpPVwY2ekfrIRc+iI3rssPBuBu4R+nUxj7B6wwbVVuV47Td/AF8/3nwI8SPav5vWJ
-         2EYmRGeeAVo6wEld/VJjQOmTJyGfdW/YEk4Mo0ShmK+AyAP2jGQMlLLttXddQDQlco+s
-         k7/NoAHVYo92g97jzGzx4yf+Wf2QdtsdEE7lEUoJAM6+m1qluPreWbHas3b4fKsdt99s
-         8hndn2bKTYXRFg9zGjdKPmGhqUvYcq4KyeYj8a17NYePq1C8Q+9WwaCUveT/xG+3phYc
-         CCHw==
-X-Forwarded-Encrypted: i=1; AJvYcCXfL/6c67YXteecnKY8jzwTy1N2PD/FRHmJ+7vJSo/tpPb3iH5pAnbRZFcjKA4+Up1tTacbtUj5c7XET5pyGLVk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDkQ6QakD30TTvIw5MfmDcrZ3XzJN5Bj/EtQXYrl89TQQ1Ty+O
-	l4jZXueli4Z9nWIkab32Vvz3kmIm8lqAYkJtSovUD3rRd6x9LGBSnx2jWl6bUbxUM+k3FKxQnG0
-	xtjMG58dLFqoEBpSva8ZD6aQuevpN335uLCwp8d/Ux3fKakXXzEdmwnkPk5W4Zu61Sw8mXCGLC/
-	sM
-X-Gm-Gg: AY/fxX7LwO3IXEAQXZVH20i1qFJjG/EH9MgD8uGZaJ5mYeuc/qcxrZ7THMLrrfiPOsH
-	sGTNC0uHhwueMQ5B3r6A9A6KWlUo7r08dJWtEVgEn7+AWP8qWN+Qe7dLPh5I/OnbT9sPADd3jxb
-	1Y4Lf4d5vifClsTLk95M7j3VIdV00Kwlbdgu2438neqjM4mSOPD71f5GmpyA6QApcf1I+LpUV5Q
-	SOqsj7bqt/iIsSnu1D0Ujb1Vjv76U6HFRjYDD29ltLyTsqwLm1578JOOIK9Vy+qIyZKIUitxd4/
-	sWxRN/qKQJHR0/GDBf9t8HC2Be6T0v6Jx37JXaOUggYNB0j9aX9RusPIwpKFx1rhrTk6whrKIun
-	awHHJfYizn3Xc/jE=
-X-Received: by 2002:a05:6102:f85:b0:5df:c33d:6e54 with SMTP id ada2fe7eead31-5ecb1e6f41fmr2971661137.3.1767907047323;
-        Thu, 08 Jan 2026 13:17:27 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHNwWf0onPsPTub4yUrXc/8gn5GVOhb2j2Ehx3Pvq6hJSQ86k2qUyrPeRzAHK7SxONIWAACBA==
-X-Received: by 2002:a05:6102:f85:b0:5df:c33d:6e54 with SMTP id ada2fe7eead31-5ecb1e6f41fmr2971651137.3.1767907046907;
-        Thu, 08 Jan 2026 13:17:26 -0800 (PST)
+        bh=isTuYgACeBQ4FzUudAdIXG1/HC4FrJOsqYZ+hDA0p/A=;
+        b=MGUSZT2yu66gCsEAy9nNGTBbn2BjCsSkEpLpxTanniyMLHifx9U0WcMWZRNu8Htv7G
+         Fab0tdCjRPAhEzsFmVqQXQGutEuWlKHZmEPORf3eXoe/sIzQh51sKMzPPmXV7qRN+hPA
+         uA7w6FUl8UcxXgCj8S46pgv88tyPDRNbNTVSVhkbrC6HMxMhPKV+Of8vc9Knc/ea12Ra
+         aejKmt+QM5mfs1U6A347geKz6vgYy3qErgXNJjduGLti2mSHs2WhYj0ZrhkBQ66mTZKW
+         rfH6+TRX93zTMQCvchwBZcoiZX4su9r9ENrcwJiCFcFoyj0xtfQsbx6wuaKazhzoNDbR
+         V7Iw==
+X-Forwarded-Encrypted: i=1; AJvYcCWZu4oJ9NG/4Ol/cQEWTKue5E2F2h1pKDUEE8q6TeMV2tjVbzjh44ticnFKwPK8W2Chf6QnKWvso400zEfLUtQ0@lists.infradead.org
+X-Gm-Message-State: AOJu0YwodbXeIztK7uDGFGloM6U5TxMXJWU1xEcvdB0uqTO6ryg1MFOT
+	pWWXVPYxpm2tmm+RnDYO1IE71Ygol8ne1z/TyTgr49fdv9agULFM9tFOrKD/58TVsaksTZ+j887
+	FeIsmnLWcx+tOBB/0MKcuw5iW6aJMLLRWTTMt+S+Jr266KRxQbuDW+nIt37HxIexERfniIraHsP
+	t0
+X-Gm-Gg: AY/fxX5usmAip8hkCU21bP08LuT4RzaLcsYj3G+uwwU71RGcoTu2OKGfdJIVGT6WFNd
+	yf5OXBj7AU4ivV2FDDVjND5tVVvpHgUdTa9ZEtoz+j78kSDt03s7aPQzW4NX27i0k3+4nRtyurU
+	SpDpC17Fqqicib1RQtGl4RiJ9GKhz31kL4++1OQCWdR0jvYivUAVpQSxynNrYGII8gcBpp3WB5L
+	kwkAZ8O/YdFozW4/3URmV/HQaJYPYHTYe8eyLT1wMuQTZbq7HKqZQ5cVQQhdL864ClIN1Tg9RCR
+	2hve99GLhoWLUjsNxu3pJOa06b4al0zNafFRj4VksuZsDadsY/BvVhb7jD1Xe49ZN9iwrcIykFb
+	MnSWYy1zplwA8lCU=
+X-Received: by 2002:a05:6102:604a:b0:5ee:9f71:a17c with SMTP id ada2fe7eead31-5ee9f71a37bmr1208256137.14.1767907053810;
+        Thu, 08 Jan 2026 13:17:33 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IG4oKtCzCZndKrddm3vS5yqzMlQVx1nyfHkPTEyP4m4LPypluHrmg5ASUY2ZnBplJ4DMuaw1A==
+X-Received: by 2002:a05:6102:604a:b0:5ee:9f71:a17c with SMTP id ada2fe7eead31-5ee9f71a37bmr1208245137.14.1767907053507;
+        Thu, 08 Jan 2026 13:17:33 -0800 (PST)
 Received: from [10.30.226.224] ([2600:382:811f:d757:daa5:b867:12a3:9d12])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5ec77064e86sm7623329137.7.2026.01.08.13.17.21
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5ec77064e86sm7623329137.7.2026.01.08.13.17.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Jan 2026 13:17:26 -0800 (PST)
+        Thu, 08 Jan 2026 13:17:32 -0800 (PST)
 From: Brian Masney <bmasney@redhat.com>
-Date: Thu, 08 Jan 2026 16:16:22 -0500
-Subject: [PATCH 04/27] clk: actions: owl-composite: convert from
- owl_divider_helper_round_rate() to divider_determine_rate()
+Date: Thu, 08 Jan 2026 16:16:23 -0500
+Subject: [PATCH 05/27] clk: actions: owl-divider: convert from
+ divider_round_rate() to divider_determine_rate()
 MIME-Version: 1.0
-Message-Id: <20260108-clk-divider-round-rate-v1-4-535a3ed73bf3@redhat.com>
+Message-Id: <20260108-clk-divider-round-rate-v1-5-535a3ed73bf3@redhat.com>
 References: <20260108-clk-divider-round-rate-v1-0-535a3ed73bf3@redhat.com>
 In-Reply-To: <20260108-clk-divider-round-rate-v1-0-535a3ed73bf3@redhat.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -93,23 +93,23 @@ Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  Manivannan Sadhasivam <mani@kernel.org>, 
  linux-arm-kernel@lists.infradead.org, linux-actions@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1444; i=bmasney@redhat.com;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2917; i=bmasney@redhat.com;
  s=20250903; h=from:subject:message-id;
- bh=oUlYy3bQgFH6fzS/3MtHKlbPpAXM91oV6I4JsmoLqZM=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGDIT5LZNVbC3CrDOT217EXJqI9Ne4XMhQefWP1OYu2P7r
- MOLjcQqO0pZGMS4GGTFFFmW5BoVRKSusr13R5MFZg4rE8gQBi5OAZjI5BuMDJObVXpuGXl57amS
- l2BSj1vwJku5kld2uajlBmXJAIXsSEaGqXyCzj4/7VU/RbYxez003Hx3jkx+V8L/Ls+Vc//tyCt
- nBwA=
+ bh=nzjUX2UpZ2i1eeMykuusgP1Jrs5n5Ls+16scH6BzdF0=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGDIT5LapmYZvChNsD23gXmzdcGBl0oKn5atL5O7JN19sP
+ HJYIeVARykLgxgXg6yYIsuSXKOCiNRVtvfuaLLAzGFlAhnCwMUpABM5sYfhr8DqkoLHH7hmVTYV
+ e5QlzFNaMi+pt4z/9w2ekzceXr6YYMnwz3zzo7IbEk4KAQ95bE4KXOZLct3+0a6Nj2v1C6ccoQ4
+ 7NgA=
 X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
  fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: FwVXZfZ6ZxK8UTZTUPFfVdZOI6FCG-oAjjGkV5t0T8Q_1767907047
+X-Mimecast-MFC-PROC-ID: tk_dXTmut5nQl58LAQhVQSGqcLh3LTgmpDXPjl82Uts_1767907055
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_131729_896375_4590DC33 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20260108_131737_620859_0DD80AE6 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,11 +124,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-owl_divider_helper_round_rate() is just a wrapper for
-divider_round_rate(), which is deprecated. Let's migrate to
-divider_determine_rate() instead so that this deprecated API can be
-removed.
+The divider_round_rate() function is now deprecated, so let's migrate
+to divider_determine_rate() instead so that this deprecated API can be
+removed. Additionally, owl_divider_helper_round_rate() is no longer used,
+so let's drop that from the header file as well.
 
+Note that when the main function itself was migrated to use
+determine_rate, this was mistakenly converted to:
+
+    req->rate = divider_round_rate(...)
+
+This is invalid in the case when an error occurs since it can set the
+rate to a negative value.
+
+Fixes: 1b04e12a8bcc ("clk: actions: owl-divider: convert from round_rate() to determine_rate()")
 Signed-off-by: Brian Masney <bmasney@redhat.com>
 
 ---
@@ -137,32 +146,59 @@ To: Manivannan Sadhasivam <mani@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-actions@lists.infradead.org
 ---
- drivers/clk/actions/owl-composite.c | 11 +++--------
- 1 file changed, 3 insertions(+), 8 deletions(-)
+ drivers/clk/actions/owl-divider.c | 17 ++---------------
+ drivers/clk/actions/owl-divider.h |  5 -----
+ 2 files changed, 2 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/clk/actions/owl-composite.c b/drivers/clk/actions/owl-composite.c
-index 00b74f8bc4375a8f42e9b54c7bf1affe91e1074a..9540444307d6c960af200ec13e7c60abd47ffc85 100644
---- a/drivers/clk/actions/owl-composite.c
-+++ b/drivers/clk/actions/owl-composite.c
-@@ -57,15 +57,10 @@ static int owl_comp_div_determine_rate(struct clk_hw *hw,
- 				       struct clk_rate_request *req)
- {
- 	struct owl_composite *comp = hw_to_owl_comp(hw);
--	long rate;
--
--	rate = owl_divider_helper_round_rate(&comp->common, &comp->rate.div_hw,
--					     req->rate, &req->best_parent_rate);
--	if (rate < 0)
--		return rate;
-+	struct owl_divider_hw *div = &comp->rate.div_hw;
+diff --git a/drivers/clk/actions/owl-divider.c b/drivers/clk/actions/owl-divider.c
+index 118f1393c6780f287d26736b2547a8b43751655a..316ace80e87e3b1c22a4011e725644cf37668e5e 100644
+--- a/drivers/clk/actions/owl-divider.c
++++ b/drivers/clk/actions/owl-divider.c
+@@ -13,26 +13,13 @@
  
--	req->rate = rate;
+ #include "owl-divider.h"
+ 
+-long owl_divider_helper_round_rate(struct owl_clk_common *common,
+-				const struct owl_divider_hw *div_hw,
+-				unsigned long rate,
+-				unsigned long *parent_rate)
+-{
+-	return divider_round_rate(&common->hw, rate, parent_rate,
+-				  div_hw->table, div_hw->width,
+-				  div_hw->div_flags);
+-}
+-
+ static int owl_divider_determine_rate(struct clk_hw *hw,
+ 				      struct clk_rate_request *req)
+ {
+ 	struct owl_divider *div = hw_to_owl_divider(hw);
+ 
+-	req->rate = owl_divider_helper_round_rate(&div->common, &div->div_hw,
+-						  req->rate,
+-						  &req->best_parent_rate);
+-
 -	return 0;
-+	return divider_determine_rate(&comp->common.hw, req, div->table,
-+				      div->width, div->div_flags);
++	return divider_determine_rate(hw, req, div->div_hw.table,
++				      div->div_hw.width, div->div_hw.div_flags);
  }
  
- static unsigned long owl_comp_div_recalc_rate(struct clk_hw *hw,
+ unsigned long owl_divider_helper_recalc_rate(struct owl_clk_common *common,
+diff --git a/drivers/clk/actions/owl-divider.h b/drivers/clk/actions/owl-divider.h
+index d76f58782c52885a66c96e8bf13b0dea3ba51efd..1d3bb4e5898a3ccf729894533ae194ac4c34b6e3 100644
+--- a/drivers/clk/actions/owl-divider.h
++++ b/drivers/clk/actions/owl-divider.h
+@@ -56,11 +56,6 @@ static inline struct owl_divider *hw_to_owl_divider(struct clk_hw *hw)
+ 	return container_of(common, struct owl_divider, common);
+ }
+ 
+-long owl_divider_helper_round_rate(struct owl_clk_common *common,
+-				const struct owl_divider_hw *div_hw,
+-				unsigned long rate,
+-				unsigned long *parent_rate);
+-
+ unsigned long owl_divider_helper_recalc_rate(struct owl_clk_common *common,
+ 					 const struct owl_divider_hw *div_hw,
+ 					 unsigned long parent_rate);
 
 -- 
 2.52.0
