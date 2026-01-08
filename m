@@ -4,66 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFBACF6AB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 09:58:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B63CF6ABC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xw0NwZCrR0WSJW93hxw8/ZUBh2voqqzop5Iy/IpI4c8=; b=n3xD7EF3vXVZ3NwebvnlN59Nu4
-	i6MSgVdQbce9QqM1Mt05fL3BmotCJLALGyHOJOnEy/2Za7mCRXZjx+WC4103ox671cvYjd6crVXkT
-	TSMbOH3gWyuFfdw2bjtqK2Tx1ZpnLHqRUdz3pRmrjdTdmyw8kG+bgN0iy67QkTePneKLuiN3eu9FL
-	dpTvJ1GjzseAyU62gGA2V2Zf/1FMLRQ/LerbJvkHi2JmiyYZ+wydWLJhIReRbrHPZh4lws8CFczzZ
-	0RmIV/NopZfaR28kXTQY4O1pvIvzDRc4CsMjrVVkmnfIiIqsSUW28MmcONo3zCyeObvu004lomV5u
-	dgvwLftQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EtxSHFpLqB7ioSnqgZWbLv/bt0VfeV59UPguvPLIa6E=; b=0Wh1JCzWFmA55SrCG58+yTvkfV
+	4CT05vojqBFS50gRaQG1Z0zEnYpd0HWOB7oszibmP6zIyN7EgDgeL0aH5TsNF65gMsMuixEFW4Tyu
+	B8cJCUqzWWl+BqAT8VrqfLBVtuxx98LOQZo4BdQxcvksoBm7NCMpt0iWguRWaSRcsUtDYrRonqjt3
+	NIRJigF1BfE7P16F0WBCj+Z5bLtGObCWxZ6Qb6nacp4Ajk/WVwZ7/J1n/1B6484tFHcb6eJtIGLfK
+	4dnADqkQT1vqzxcwdp8MMmyoBKEg0xmGqyV4gQmKHzVoma5qeBE0+tFn9ZddXryrw/wbRBn+yUYdP
+	Vr9/tk8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdmmy-0000000GXbL-0AW2;
-	Thu, 08 Jan 2026 09:58:44 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vdmtO-0000000GYhk-0Mhm;
+	Thu, 08 Jan 2026 10:05:22 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdmmu-0000000GXZs-1GkO;
-	Thu, 08 Jan 2026 09:58:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1767866316;
-	bh=1HLus0gTh6HnY5z+TPOce04w/1dZcg2TITZXXvEJlVg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=D1FXVa++Qs4BCQAij0CNaHgFbcCTZNl9Vc0FcUIJ9Nl0DLkY+LgT6We4i1cd+rVbk
-	 wKV+FLM+EWFf1h3oFDjw5Xa2wj9M7p9SphujPZ1Rc+ukrLKCwX+3n7DjblSqhkbnUk
-	 IBYbkT1ovSbsc7/CrFvpteMuw8SSmqvco0z9uFuN13qMYfBe8g8KwhJIIefwRXUYOo
-	 hidffgXI8S0IW8tn6o+sE287/vb7pMi10So8rEg+xogb8pfP4bsYxRNLRtlFDxQ/vi
-	 lDI1oyNXdLkcH+k5deXK28sTa+ScoHsiTh9/InnH1jKi8scxrZegWs8jp2HZTKKusU
-	 hhlgjxj4j+N+g==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5B95917E0181;
-	Thu,  8 Jan 2026 10:58:36 +0100 (CET)
-Message-ID: <a952746a-89f9-494e-bbb0-e4aed5c1cedc@collabora.com>
-Date: Thu, 8 Jan 2026 10:58:36 +0100
+	id 1vdmtI-0000000GYgF-3E3C;
+	Thu, 08 Jan 2026 10:05:20 +0000
+Received: from localhost.localdomain (unknown [116.25.95.147])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2ff22eba1;
+	Thu, 8 Jan 2026 18:00:05 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH 1/1] arm64: dts: rockchip: remove RTC for Radxa E52C
+Date: Thu,  8 Jan 2026 18:00:00 +0800
+Message-Id: <20260108100000.110354-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/5] Add support for Ezurio MediaTek platforms
-To: Gary Bisson <bisson.gary@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Sean Wang <sean.wang@mediatek.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20251203-review-v5-0-b26d5512c6af@gmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20251203-review-v5-0-b26d5512c6af@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9b9d0c920d03a2kunma72a4f0f41da4
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaGElJVkIZTEtCTE9MQxhNT1YeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSk1VSU5VQk5VSk9MWVdZFhoPEhUdFFlBWU9LSFVKS0hKTkxOVUpLS1VKQk
+	tLWQY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_015840_503896_83CD87BE 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20260108_020517_176377_E3C45E44 
+X-CRM114-Status: UNSURE (   7.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,93 +70,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 03/12/25 22:20, Gary Bisson ha scritto:
-> This series adds support for Ezurio MediaTek platforms called
-> "Tungsten". It includes support for MT8370-based Tungsten 510 and
-> MT8390-based Tungsten 700 SOMs.
-> 
+According to the Radxa E52C Schematic [1], both the i2c5 bus and the
+hym8563 chip are marked as NC. Remove them to avoid the following log:
 
-All patches applied to v6.19-next/dts64 after fixing a merge issue in Makefile.
+rtc-hym8563 5-0051: could not init device, -110
+rtc-hym8563 5-0051: probe with driver rtc-hym8563 failed with error -110
 
-Thanks!
+[1] https://dl.radxa.com/e/e52c/hw/radxa_e52c_v1.2_schematic.pdf
 
+Fixes: 9be4171219b6 ("arm64: dts: rockchip: Add Radxa E52C")
+Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+---
+ .../boot/dts/rockchip/rk3582-radxa-e52c.dts   | 24 -------------------
+ 1 file changed, 24 deletions(-)
 
-> Changes in v2:
-> - Use b4 to cc all maintainers properly
-> - Squashed patches 2/3 together
-> - Updated dts node names to be generic
-> 
-> Changes in v3:
-> - Added per-commit changelog
-> - Added missing Acked-by on 1st patch
-> - Link to v2: https://lore.kernel.org/r/20251201-review-v2-0-dc2df44eec7e@gmail.com
-> 
-> Changes in v4:
-> - Fixed remaining DTB warnings
-> - Link to v3: https://lore.kernel.org/r/20251201-review-v3-0-07f9af7341fd@gmail.com
-> 
-> Changes in v5:
-> - Fixed DTB per Angelo's comments
-> - Added a MT8188 patch for easier mmc eint interrupt change
-> - Link to v4: https://lore.kernel.org/r/20251202-review-v4-0-93f5cd2a0d4a@gmail.com
-> 
-> Regards,
-> 
-> Gary Bisson (5):
->    dt-bindings: vendor-prefixes: Add Ezurio LLC
->    dt-bindings: arm: mediatek: Add Ezurio Tungsten entries
->    arm64: dts: mediatek: mt8188: switch mmc nodes to interrupts-extended
->    arm64: dts: mediatek: add device tree for Tungsten 510 board
->    arm64: dts: mediatek: add device tree for Tungsten 700 board
-> 
->   .../devicetree/bindings/arm/mediatek.yaml     |    2 +
->   .../devicetree/bindings/vendor-prefixes.yaml  |    2 +
->   arch/arm64/boot/dts/mediatek/Makefile         |    2 +
->   arch/arm64/boot/dts/mediatek/mt8188.dtsi      |    6 +-
->   .../dts/mediatek/mt8370-tungsten-smarc.dts    |   14 +
->   .../dts/mediatek/mt8390-tungsten-smarc.dts    |   22 +
->   .../dts/mediatek/mt8390-tungsten-smarc.dtsi   | 1489 +++++++++++++++++
->   7 files changed, 1534 insertions(+), 3 deletions(-)
->   create mode 100644 arch/arm64/boot/dts/mediatek/mt8370-tungsten-smarc.dts
->   create mode 100644 arch/arm64/boot/dts/mediatek/mt8390-tungsten-smarc.dts
->   create mode 100644 arch/arm64/boot/dts/mediatek/mt8390-tungsten-smarc.dtsi
-> 
-> --
-> 2.43.0
-> 
-> ---
-> To: Rob Herring <robh@kernel.org>
-> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> To: Conor Dooley <conor+dt@kernel.org>
-> To: Matthias Brugger <matthias.bgg@gmail.com>
-> To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> To: Sean Wang <sean.wang@mediatek.com>
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-mediatek@lists.infradead.org
-> 
-> ---
-> Gary Bisson (5):
->        dt-bindings: vendor-prefixes: Add Ezurio LLC
->        dt-bindings: arm: mediatek: Add Ezurio Tungsten entries
->        arm64: dts: mediatek: mt8188: switch mmc nodes to interrupts-extended
->        arm64: dts: mediatek: add device tree for Tungsten 510 board
->        arm64: dts: mediatek: add device tree for Tungsten 700 board
-> 
->   .../devicetree/bindings/arm/mediatek.yaml          |    2 +
->   .../devicetree/bindings/vendor-prefixes.yaml       |    2 +
->   arch/arm64/boot/dts/mediatek/Makefile              |    2 +
->   arch/arm64/boot/dts/mediatek/mt8188.dtsi           |    6 +-
->   .../boot/dts/mediatek/mt8370-tungsten-smarc.dts    |   14 +
->   .../boot/dts/mediatek/mt8390-tungsten-smarc.dts    |   22 +
->   .../boot/dts/mediatek/mt8390-tungsten-smarc.dtsi   | 1489 ++++++++++++++++++++
->   7 files changed, 1534 insertions(+), 3 deletions(-)
-> ---
-> base-commit: 7d0a66e4bb9081d75c82ec4957c50034cb0ea449
-> change-id: 20251201-review-750072579991
-> 
-> Best regards,
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts b/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
+index 854c118418eb..c24ff264cae2 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
+@@ -266,24 +266,6 @@ regulator-state-mem {
+ 	};
+ };
+ 
+-&i2c5 {
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&i2c5m2_xfer>;
+-	status = "okay";
+-
+-	rtc@51 {
+-		compatible = "haoyu,hym8563";
+-		reg = <0x51>;
+-		#clock-cells = <0>;
+-		clock-output-names = "rtcic_32kout";
+-		interrupt-parent = <&gpio0>;
+-		interrupts = <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&rtc_int_l>;
+-		wakeup-source;
+-	};
+-};
+-
+ &pcie2x1l1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pcie20x1_1_perstn_m1>;
+@@ -329,12 +311,6 @@ vcc_5v0_pwren_h: vcc-5v0-pwren-h {
+ 		};
+ 	};
+ 
+-	rtc {
+-		rtc_int_l: rtc-int-l {
+-			rockchip,pins = <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
+-		};
+-	};
+-
+ 	usb {
+ 		usb_otg_pwren_h: usb-otg-pwren-h {
+ 			rockchip,pins = <0 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>;
+-- 
+2.25.1
 
 
