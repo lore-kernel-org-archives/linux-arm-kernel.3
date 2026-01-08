@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C8DCD185CC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7BA3D185D6
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:57:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,49 +12,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q09rDRFSIpK0iNPSMzfdzpCn5bc8ERCcYezMZ0/CVhs=; b=yEnD0qhB2nVG//GwzJX+JiqAsF
-	S+rJp7+mfHtxvXlVij8wngiirWFlthrreoiwiUgpqaDwx9jswQN7m8ZtnagLzl4a8MoFfePTRylAr
-	kyVb0L77bLQySZ8OY1FGkWzWRqjJdUSh0E2rkl91X5QX9qz1i5Mq7I7SzA3DZyk30+rJ1twzK+U1w
-	lADSX34TiYdiSNrZ7MGtqebdyI0LeifGYy27dUF8ldIcqSO4DSBzQ3TcnNsENSe0adsxNVndwbQpE
-	dl/JSJfufkNl4ztvsxftLkRJEcrxJ0JKzpfzvZrOhZs24q/DuhGV+TM/8tDpne+imBx/Wi2jYWG5E
-	Jip3uWSQ==;
+	bh=GBrcLNK2f4oHT4S63vlKaLvf/r/Hu0nN/iP/LTtqCcg=; b=vCgt0qjNxed7IF4AsRbNIYPZb1
+	RGd58YpjZHOUe1BeGiZM3qO4atpUjeEV8WhsdKKYeK7SifFebQytnm4SXDWYLfpcj1gFqNv1vtX/n
+	+v+Eo0dcICQSmlrJ5EnCRRgdwh8F9LBoYQlQTHlQ1FBfzQDO6DlZhTIq3ivYOIZNd3a/dmAnMaJLP
+	M6o89H8huMU7XmZobJElmUab4OeppukfUSshfPpGf/tBExSb0lwljqEMRedkVui8h11gSbs8Pi1/e
+	moInjdxNO+o4GsFqVZ31GDxvfaJzbBn9ZVSIbcFSIgmJFtx2S/PNT8dJcRBAx3ICyYjyF7dOjNjN2
+	Q8ffDuXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdnhK-0000000Gknv-1ICO;
+	id 1vdnhK-0000000Gkog-3OYu;
 	Thu, 08 Jan 2026 10:56:58 +0000
 Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdngy-0000000GkN8-0x2v;
+	id 1vdngx-0000000GkK8-3IY5;
 	Thu, 08 Jan 2026 10:56:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
   t=1767869796; x=1799405796;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=JkZzb5FMsjRx+/pIEY8nwVKtWJam+umuXTVqJZGjOp8=;
-  b=EDg8/iGJU+qXuWOYR0+pFqNMDo3FLzwl5oU+oXU6WxnIBANL4hkDGVAW
-   ONlXAoUmyjKEN7shK1uy4IIWC4kOCLo7NtQFG989QtsEMp0EeMA0Rm5UY
-   xtVXyCddBkEr+6SbH/qdxwWCYFj89d21Lw4pVwDfTH0gITmcZE4op3Mm8
-   JZg4v1oPECWRxxVIuK+UrH7ZM2DLcNDG2wyNAox2vLmJDe0yv5fDKaRn4
-   65LijUDGh9mQrkriYNJIx9fim+s771pZ2VUZJci9LRQ1QcfAJv6b1ROCj
-   HDc7hC6xRKv3E6M0m739NDRyih9TE1rffgcq0tUlIOXA4AJerh6FFbCHJ
-   g==;
-X-CSE-ConnectionGUID: MRM5wyIAStOz5eq758z0xA==
-X-CSE-MsgGUID: Mzr01EiQRvqXAtopyOFLfw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11664"; a="79886197"
+  bh=AVsEaLmI7GtsoKPxvWrWR94lD6aGbAJMgKiJV4Biyag=;
+  b=Y20wu63POTqRUHuIFn2mW2DSgAsBbwPVY1MWUcbvEuSZwDSNDryQA9HE
+   okdDWnwnooVCiMJsOQ8n6vMqgX8KMjQsx4mY543cQm1tzhDay8kc2X1e8
+   o5as/LfedH3bYx6ZDisABKpcEoZNSfyYni/pOcOA6WKwt2YzJinYTOOwP
+   2N4XIla0kuqqgNlOQyOGk3j4B22iC+po47GzsKG4raCmwhdaVWzvEkV/k
+   zdBv4BRIXMoyI9PSkExL6RENiLcykiOxnUT18P4+WI3MVgQXhkaTSZniW
+   T68fwXm1LvOpKR8HqtFrZKp0jMn1GLOZMjoH/7pMHVArfhzn2o8fUUG24
+   w==;
+X-CSE-ConnectionGUID: pmxnOnCESn6a00cYiMu4DQ==
+X-CSE-MsgGUID: 0LzPZMqvQzCY3NKKI4i4sg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11664"; a="79886180"
 X-IronPort-AV: E=Sophos;i="6.21,210,1763452800"; 
-   d="scan'208";a="79886197"
+   d="scan'208";a="79886180"
 Received: from fmviesa006.fm.intel.com ([10.60.135.146])
   by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2026 02:56:33 -0800
-X-CSE-ConnectionGUID: VnnfhRgjSYCs8skcpQaDCw==
-X-CSE-MsgGUID: rNjUhju1SVGKmK0UNPsR3w==
+X-CSE-ConnectionGUID: 601UvqCKTx6wLpXwlbDKHQ==
+X-CSE-MsgGUID: 9ZAmcWIfTjWGSX4K+MEYhA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.21,210,1763452800"; 
-   d="scan'208";a="203091234"
+   d="scan'208";a="203091233"
 Received: from black.igk.intel.com ([10.91.253.5])
   by fmviesa006.fm.intel.com with ESMTP; 08 Jan 2026 02:56:27 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id 67E50A6; Thu, 08 Jan 2026 11:56:20 +0100 (CET)
+	id 54E70A1; Thu, 08 Jan 2026 11:56:20 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Bjorn Andersson <andersson@kernel.org>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
@@ -84,17 +84,18 @@ Cc: Olivier Dautricourt <olivierdautricourt@gmail.com>,
 	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>,
 	Michal Simek <michal.simek@amd.com>,
 	Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v5 09/13] dmaengine: qcom: adm: use sg_nents_for_dma() helper
-Date: Thu,  8 Jan 2026 11:50:20 +0100
-Message-ID: <20260108105619.3513561-10-andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v5 05/13] dmaengine: dw-axi-dmac: use sg_nents_for_dma() helper
+Date: Thu,  8 Jan 2026 11:50:16 +0100
+Message-ID: <20260108105619.3513561-6-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260108105619.3513561-1-andriy.shevchenko@linux.intel.com>
 References: <20260108105619.3513561-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_025636_316999_B345B589 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20260108_025635_875733_D0BD4EBE 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,34 +115,33 @@ Instead of open coded variant let's use recently introduced helper.
 Reviewed-by: Bjorn Andersson <andersson@kernel.org>
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/dma/qcom/qcom_adm.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/dma/qcom/qcom_adm.c b/drivers/dma/qcom/qcom_adm.c
-index 6be54fddcee1..490edad20ae6 100644
---- a/drivers/dma/qcom/qcom_adm.c
-+++ b/drivers/dma/qcom/qcom_adm.c
-@@ -390,16 +390,15 @@ static struct dma_async_tx_descriptor *adm_prep_slave_sg(struct dma_chan *chan,
- 	}
+diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+index b23536645ff7..493c2a32b0fe 100644
+--- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
++++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+@@ -850,7 +850,7 @@ dw_axi_dma_chan_prep_slave_sg(struct dma_chan *dchan, struct scatterlist *sgl,
+ 	unsigned int loop = 0;
+ 	struct scatterlist *sg;
+ 	size_t axi_block_len;
+-	u32 len, num_sgs = 0;
++	u32 len, num_sgs;
+ 	unsigned int i;
+ 	dma_addr_t mem;
+ 	int status;
+@@ -867,9 +867,7 @@ dw_axi_dma_chan_prep_slave_sg(struct dma_chan *dchan, struct scatterlist *sgl,
+ 	if (axi_block_len == 0)
+ 		return NULL;
  
- 	/* iterate through sgs and compute allocation size of structures */
--	for_each_sg(sgl, sg, sg_len, i) {
--		if (achan->slave.device_fc) {
-+	if (achan->slave.device_fc) {
-+		for_each_sg(sgl, sg, sg_len, i) {
- 			box_count += DIV_ROUND_UP(sg_dma_len(sg) / burst,
- 						  ADM_MAX_ROWS);
- 			if (sg_dma_len(sg) % burst)
- 				single_count++;
--		} else {
--			single_count += DIV_ROUND_UP(sg_dma_len(sg),
--						     ADM_MAX_XFER);
- 		}
-+	} else {
-+		single_count = sg_nents_for_dma(sgl, sg_len, ADM_MAX_XFER);
- 	}
- 
- 	async_desc = kzalloc(sizeof(*async_desc), GFP_NOWAIT);
+-	for_each_sg(sgl, sg, sg_len, i)
+-		num_sgs += DIV_ROUND_UP(sg_dma_len(sg), axi_block_len);
+-
++	num_sgs = sg_nents_for_dma(sgl, sg_len, axi_block_len);
+ 	desc = axi_desc_alloc(num_sgs);
+ 	if (unlikely(!desc))
+ 		goto err_desc_get;
 -- 
 2.50.1
 
