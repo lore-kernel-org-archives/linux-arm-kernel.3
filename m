@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ABA2D185F1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 13:30:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 967DAD185F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 13:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JF2KX5qn5UagctlZYWCeoUykeAPlMkAzR1cuXy/5z4M=; b=r2xnV5tuzYUIn6jh3/IVRLhGHH
-	BVMW667Js6XvK/IgY3uA+9ctLEeYxGGdCPppS6jVYeMiuZFqokbf2AZ6+6ziqu+wIy7601JSbycms
-	KVzC6vs0Rhaiv3LYldT8lRjDfVG4CtQ838EKNCA7MB8i6OmXkk63PB0xeuNzppYa00ORQMnTMIozV
-	2aPeYh9YKRo8Ir5dNzjTNWc6QXS0m0vAy+xWgeFNZEPpPfUiUWrHsmhKvixDaooDmuCd32ZA/TZEj
-	JvJNpkaDJjj5Kt/s/c9HAMU4yH+MTwg95dYAlm9OMSfHSwz1KEYFmvNA+CWGkt0Fa7h4j4MXLNs3d
-	bBZ02zwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ndFWMjzooieb5xyGu4cJGAmspejtFb892UHQx8ZDIZg=; b=cFyuxmghlncyYiF7xaUXXb6S7I
+	lw5s23EScNiTBzK1auoeNueK9PxuM6d2WIGlb2dEnA4kTTl+PiPbeTYaqmZvuuGNaDjPRvyEIs02W
+	39MNj0jbUcblRJoyswdsuiXwYw0DuMVRvR2E7hqHUVvBxsoCsjS5QFY/CbSSmVNJZ980XRD5GdkZP
+	vIgrB2/k6lfNu5OeAGGwVwRO1RG278omcUdZBJiRn/4HGAnnn5H5HAtKKwDkZE7aLlDksWJRAooDB
+	9RXe41CqJ5gxqPfAR4iLCbFkoJk7aH0DUHZ2j5tTn7UJxG06pGvuyAXLTyEHgJlsw6E2x22f12GJZ
+	iWx7vWGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdq5O-0000000HAJg-02DF;
-	Thu, 08 Jan 2026 13:29:58 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vdq8x-0000000HAv8-2jgn;
+	Thu, 08 Jan 2026 13:33:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdq5L-0000000HAIZ-2AZu;
-	Thu, 08 Jan 2026 13:29:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1767878991;
-	bh=sIlDWrOUP2JFRN9/cVJwfUTM671Pu56/TH4sEK7QQsI=;
-	h=From:To:Cc:Subject:Date:From;
-	b=aTnFmhZ0lSs1xmPq401SxkkAYGNmeLx0XA7Dwma72H/04axAzuApv70rFYE6IeyTL
-	 hctJxmdxCIhurkVDaneGBSdYWiBTB0m177T4vwZ0csGZccXdjlp17XYsvly5q53aK7
-	 H7R19w5yIkLQf26oNRd/yqEbpatxVYinEcl/VD41AMLvuS9LKtK7WR59a69Wa2/inN
-	 UavydTX76RcsGvPp18Juddycr6zEx4DQtQr+/F2L87G9EG96xaeLDcT6T53Q0y0eqN
-	 vIb4qf6sA/J3BBZHfQgxYB6J6E0Jpp78uX6uvoibnxsmp6wotO5nfJ2S9W1g0o22DH
-	 VrJyg7tQH4/Kg==
-Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:5c27:a8a7:cb3e:bb4f])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 74A4B17E0DB7;
-	Thu,  8 Jan 2026 14:29:51 +0100 (CET)
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-To: nicolas.dufresne@collabora.com,
-	p.zabel@pengutronix.de,
-	mchehab@kernel.org,
-	heiko@sntech.de
-Cc: linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel@collabora.com,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Jianfeng Liu <liujianfeng1994@gmail.com>
-Subject: [PATCH] media: verisilicon: AV1: Set IDR flag for intra_only frame type
-Date: Thu,  8 Jan 2026 14:29:46 +0100
-Message-ID: <20260108132946.74853-1-benjamin.gaignard@collabora.com>
-X-Mailer: git-send-email 2.43.0
+	id 1vdq8w-0000000HAuf-386I
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Jan 2026 13:33:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D9B3960136
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 13:33:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 918D4C2BC9E
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 13:33:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767879217;
+	bh=ndFWMjzooieb5xyGu4cJGAmspejtFb892UHQx8ZDIZg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=r/EdmpCVAgDo4biXkfjQarc2stbaiMWQEmRJ1angulctDwmO0To9YiVUXM47LcQAz
+	 9JumEOXs+aGTeBjDskczURd/bqn3+g8H8y7vfo3tMeTr29Nx1pLHPn7QruMeppGtW2
+	 DiQTYhRsJAjxAjVZHz5qn+ScVq6zT8sjyj3u4MaK9IanNX94b0iWq7c6IGjmYSqr9g
+	 Q7dLbBjzeQo0oxuHwhpjzYikcdjeEmq6dhNPvJDYpcgQY32A4kTqVez6TOT/+P1oe7
+	 egLt3HUrsxgq1X0SFmgaYPyOxXYSB6nyKKEGnKDLg6yNn1eIYBdDHU5IPtXEHyZI51
+	 QAiIbX0qWNS2A==
+Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-7e1651ae0d5so2051549b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 05:33:37 -0800 (PST)
+X-Gm-Message-State: AOJu0YzFg5h4X3vU1qONUUKBARR611CK4f9s1Bf/V+SV1Sd+9sQbM+hL
+	0OIST2LR6a5LQPPjbp9QNO3RirVg9Mv4pKEsClj2nGybZlytXgPukBEEi3fQDLWu3ZmhSpp9uQl
+	kkfkSV60R+yItK8JXVSPc6+xiT9pbsBs=
+X-Google-Smtp-Source: AGHT+IGHIvVUprNBdrwsC9Pu7WwhWkbld3sZP0htQ2g4aAHDfX7s6G/JSDmknZne1WKYYALnNgfSsY07pebvo+Z3TWg=
+X-Received: by 2002:a05:6a20:4308:b0:366:14b2:30e with SMTP id
+ adf61e73a8af0-3898f9cd7ddmr6454679637.65.1767879217085; Thu, 08 Jan 2026
+ 05:33:37 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_052955_743157_B07A8A55 
-X-CRM114-Status: UNSURE (   8.98  )
-X-CRM114-Notice: Please train this message.
+References: <20251211040935.1288349-2-ardb@kernel.org> <CALxfFW4gyv3gSc1JhkPNqk4LL6S6gZbDRJx2y21PFZ8-8_9s_A@mail.gmail.com>
+In-Reply-To: <CALxfFW4gyv3gSc1JhkPNqk4LL6S6gZbDRJx2y21PFZ8-8_9s_A@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 8 Jan 2026 14:33:25 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXG+6CYVSV-2ZSqrEm+B=az+54=fNwHpC_6qQZ-z2=3Zgw@mail.gmail.com>
+X-Gm-Features: AQt7F2oKLqFPgsT5ujde-bH1gL-fZZo30xTo_SHI9xAc2C3fpX2TG9hkL1r-C9c
+Message-ID: <CAMj1kXG+6CYVSV-2ZSqrEm+B=az+54=fNwHpC_6qQZ-z2=3Zgw@mail.gmail.com>
+Subject: Re: [RFC PATCH] arm64: Bring back linear map randomization using
+ PArange override
+To: Seth Jenkins <sethjenkins@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org, 
+	mark.rutland@arm.com, catalin.marinas@arm.com, will@kernel.org, 
+	kees@kernel.org, Liz Prucka <lizprucka@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,31 +80,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Intra_only frame could be considered as a key frame so Instantaneous
-Decoding Refresh (IDR) flag must be set of the both case and not only
-for key frames.
+On Tue, 16 Dec 2025 at 19:14, Seth Jenkins <sethjenkins@google.com> wrote:
+>
+> > This is posted as an RFC because there are obvious shortcomings to this
+> > approach. However, before I spend more time on this, I'd like to gauge
+> > if there is any consensus that bringing this back is a good idea.
+> I may be a minority, but I do think bringing this back is a good idea.
+> It has now been 9+ years since hardware side channels for bypassing
+> KASLR were discovered, and it still appears that real-world attackers
+> overwhelmingly prefer alternative strategies - such as this one.
+>
+> I'm under no illusion that if we just do this one thing KASLR will be
+> secure again, but I think this patch would still have a meaningful
+> real-world impact in terms of making exploits significantly harder to
+> write.
+>
 
-Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Reported-by: Jianfeng Liu <liujianfeng1994@gmail.com>
-Fixes: 727a400686a2c ("media: verisilicon: Add Rockchip AV1 decoder")
----
- drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thanks for the feedback.
 
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-index 1605cfd55d36..3a8123bbe144 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-@@ -2047,7 +2047,7 @@ static void rockchip_vpu981_av1_dec_set_parameters(struct hantro_ctx *ctx)
- 			 !!(ctrls->frame->quantization.flags
- 			    & V4L2_AV1_QUANTIZATION_FLAG_DELTA_Q_PRESENT));
- 
--	hantro_reg_write(vpu, &av1_idr_pic_e, !ctrls->frame->frame_type);
-+	hantro_reg_write(vpu, &av1_idr_pic_e, IS_INTRA(ctrls->frame->frame_type));
- 	hantro_reg_write(vpu, &av1_quant_base_qindex, ctrls->frame->quantization.base_q_idx);
- 	hantro_reg_write(vpu, &av1_bit_depth_y_minus8, ctx->bit_depth - 8);
- 	hantro_reg_write(vpu, &av1_bit_depth_c_minus8, ctx->bit_depth - 8);
--- 
-2.43.0
+I was hoping to get some other views on this matter, but sending the
+patch during plumbers and right before the holidays probably didn't
+help in that regard, I'm afraid.
 
+Any thoughts on the desirability of this feature wrt randomization of
+the placement of vmlinux in physical memory? AIUI, the main issue
+being addressed here is predictable placement of statically allocated
+kernel objects in the virtual address space, which could be solved in
+either way. Or are there other concerns here?
+
+Just trying to elicit as much input as possible on the list, so the
+maintainers can make an informed decision.
+
+Thanks,
+Ard.
 
