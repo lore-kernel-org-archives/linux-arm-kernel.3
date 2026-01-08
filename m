@@ -4,72 +4,202 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33252D185C2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:42:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF4D7D185C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:42:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rkQu0ywfCqJZE+WsNbm/KDvp35VhTZ7L4bvh8V9tH10=; b=HstN6t+GqCeniqZ4bUE0V+MDKW
-	qIgutGROGr04Trl+FJ/k4qvlLK16onxk+cnFlgjE9PEKh612e3BYJfHTIhJ5ksQt4RVeoa0bnwf5D
-	L5t8xFDjhK87a16ppzQkjAaJc5ct80Lpy/rQisvq/Al93z/dTRtHz6gG6xxhcQqI/mxe8n/HW9aWq
-	Sha3KpiR65HqxrMUMh0ocnwMP89KwJCU8Dvf9lVU2Z8424CSTKNtZPxgEJ5wIRoiiXNOb0hbgHqfm
-	2J9KmSPmcRnVSVe46v+ItbzPwp2hRk9fTzV0rfytuF5GsfZ4cNJop2tAOiTAjyanpsnYdJVK26Crq
-	oFTwI6tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UsbvEg/IN7D5g3lsspBtjyfTCq5j2GyZiLE1o941TDA=; b=Y9xJsFFDLWxj2PONclV1hRckHj
+	7lWQh5SHmp2bC4lScB/tytyUDj4AcI6XjoHUOxEP0RzH4D/icCPrq7pWizP9iLQECyWXjTFe494mh
+	jBpW0NxBSV7kVgpE08OWSurZ1ET7HkRHTNYhMdt2ykpE29iHiymESl9mulixxoXXw0eo3r3MkyDmi
+	14onjNd0RQPHSTQydhi7zTs58omjtx6XA8OTrdcXuP2wy89U+JcKPaElZlhtZVmQdMm3E/q/kM0Bk
+	kIPLVZiFibqsJUrmnGwMDHePXRc+KiVVAZx/GcbgkJLYp5ej87E/pLBAlfG+dWlY+NLZR1C9Vs0Ly
+	GEtR5mgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdnSu-0000000Gexy-12HC;
-	Thu, 08 Jan 2026 10:42:04 +0000
-Received: from mail-m155116.qiye.163.com ([101.71.155.116])
+	id 1vdnTb-0000000GfBt-1p3p;
+	Thu, 08 Jan 2026 10:42:47 +0000
+Received: from mail-japanwestazlp170100003.outbound.protection.outlook.com ([2a01:111:f403:c407::3] helo=OS0P286CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdnSp-0000000GewM-1aQ5;
-	Thu, 08 Jan 2026 10:42:02 +0000
-Received: from [172.16.12.51] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2ff3a2c57;
-	Thu, 8 Jan 2026 18:41:47 +0800 (GMT+08:00)
-Message-ID: <c6fac95c-dd7a-4fdc-a93f-8ebac731d499@rock-chips.com>
-Date: Thu, 8 Jan 2026 18:41:46 +0800
+	id 1vdnTY-0000000GfAp-414C
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Jan 2026 10:42:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RqguplJcvoiXhuAdmgN7VG9xEhM9seNbj8wLk9ZuQlLyB7h6u/td0VBV/Ykwq0YBUs0IHCbow44LLEmBl+r6jd9rTnFxNtggKrLK5nNWpAI1f/fmhiAy8Ty7EJBV9xQCjhIAG5i4Ld4pa9pEQ1Mm72otK4ZEJE3Efyw4COfJ4ZNEiX7ORlWteDa8Klj/ROqG6WG3PAI4uSdXj1g+Wv5ZFzBE2dzOR8Bwan1VChMPblrVB05SguMKwOimCyxtmZQiugyQGppLtn5KwKqpOub8P6NMjyy9USwmrFAODNBOYUII4hWwTXBk0aV2PrvYVpT5trP4CgGemDnoIM3/jYGEwQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UsbvEg/IN7D5g3lsspBtjyfTCq5j2GyZiLE1o941TDA=;
+ b=H8jHK16K3qmrtmi4ZctU+qgbKUdo/HUeOJyoe5kRnP8AQoEmEFheT72Qkn41ZKPZ/S/S5MV+VsoFKzw7J8fsdoEkeHrOEJfMEfieY+MU5qYswN9+osvqaFszil4GGGG5vJ5HxNH99ahHGKLc2v9U7tlPcAH3DFQAhXEnlX6RBGhWIq6F4l5Mqvq4Fy+9otiXAz6oJtT7fwQ6zPfwZwe+8+9NbJSpLPikuV5/f0whIqrOzVw014JV01LCMjX6yduJ47QEpWGFy2KHZdy9MXFOHV2/2gqMZEsGfBpv7oomp1bxJ0EHjHJ8hmD7mGQGx/T8cQzpfBx/wSpRcy9D7ZE7wQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UsbvEg/IN7D5g3lsspBtjyfTCq5j2GyZiLE1o941TDA=;
+ b=K00QH0g5PyxHXcRi6N4WgrYI43gXMe08jWVmeDBveHC4t9AFIh4uFrPkpE0wcM1CXULgiW4FwSlKvPYV5ys3J9MDhZwpFUTofeQwZP1c3f0eLfCuOyoa198z4kKMLf8XWhiOWTMFOB8+9pbQysF6DXmMdzbipMgSzmexYCg+D5ytvl1lvxVV608igdVHAeNsQEVMwnQhTd3ILBViHRjMKcO3f8aIuJYijdQm8vxhXbgW/EhiqnoLDpCZbbWjcVQxaj7I8YekSwKzWCLPgINzHSZkXGuuAfJfv/eJgsBY6nxi6XE4Q45o5OIXiVaTDZ3BtanY3CxIxH4COKapoLoYJQ==
+Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com (2603:1096:604:15f::6)
+ by TY4PR01MB15081.jpnprd01.prod.outlook.com (2603:1096:405:280::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.0; Thu, 8 Jan
+ 2026 10:42:38 +0000
+Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com
+ ([fe80::e366:d390:4474:8cfa]) by OSZPR01MB8798.jpnprd01.prod.outlook.com
+ ([fe80::e366:d390:4474:8cfa%6]) with mapi id 15.20.9520.001; Thu, 8 Jan 2026
+ 10:42:38 +0000
+From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+To: Ben Horgan <ben.horgan@arm.com>
+CC: "amitsinght@marvell.com" <amitsinght@marvell.com>,
+	"baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
+	"baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
+	"carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
+	"dave.martin@arm.com" <dave.martin@arm.com>, "david@kernel.org"
+	<david@kernel.org>, "dfustini@baylibre.com" <dfustini@baylibre.com>,
+	"fenghuay@nvidia.com" <fenghuay@nvidia.com>, "gshan@redhat.com"
+	<gshan@redhat.com>, "james.morse@arm.com" <james.morse@arm.com>,
+	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
+	"kobak@nvidia.com" <kobak@nvidia.com>, "lcherian@marvell.com"
+	<lcherian@marvell.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "peternewman@google.com"
+	<peternewman@google.com>, "punit.agrawal@oss.qualcomm.com"
+	<punit.agrawal@oss.qualcomm.com>, "quic_jiles@quicinc.com"
+	<quic_jiles@quicinc.com>, "reinette.chatre@intel.com"
+	<reinette.chatre@intel.com>, "rohit.mathew@arm.com" <rohit.mathew@arm.com>,
+	"scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
+	"sdonthineni@nvidia.com" <sdonthineni@nvidia.com>, "xhao@linux.alibaba.com"
+	<xhao@linux.alibaba.com>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+	"corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>,
+	"oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com"
+	<joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, Zeng Heng
+	<zengheng4@huawei.com>, "dave.martin@arm.com" <dave.martin@arm.com>
+Subject: Re: [PATCH v2 25/45] arm_mpam: resctrl: Add support for 'MB' resource
+Thread-Topic: [PATCH v2 25/45] arm_mpam: resctrl: Add support for 'MB'
+ resource
+Thread-Index: AQHccRNFfpG5gKgmjkanwRk8L+U/wLVINKC3
+Date: Thu, 8 Jan 2026 10:42:38 +0000
+Message-ID: <OSZPR01MB8798E323F3DC4A528C411FB58B85A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+References: <20251219181147.3404071-1-ben.horgan@arm.com>
+ <20251219181147.3404071-26-ben.horgan@arm.com>
+In-Reply-To: <20251219181147.3404071-26-ben.horgan@arm.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=True;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2026-01-08T10:42:38.383Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=1;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSZPR01MB8798:EE_|TY4PR01MB15081:EE_
+x-ms-office365-filtering-correlation-id: fa4a44d2-a37e-487c-6f6d-08de4ea2a4a7
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014|38070700021|1580799027;
+x-microsoft-antispam-message-info: =?iso-2022-jp?B?R0Z4eURDWm5tL2pPUE5BT1ZoM05BTmRvaXk5VHlnVEJJUVJ1cFZETFE0?=
+ =?iso-2022-jp?B?cVpjU1ZUTlZQM2hXaDZaSnhhZVJHQXVVU0ttcFZuckNMZ2pxc2VxYlBU?=
+ =?iso-2022-jp?B?UTQyNVFhdVNYSDV6d0xXQVVIaGJiZjFWeDBodFRXNHNmcUdOMlJMaWVl?=
+ =?iso-2022-jp?B?eU1UREdybzE4UXM3V2M0c0xSSjVZOEVBMENyOHd0dm9qb3lpcG9kQldC?=
+ =?iso-2022-jp?B?bUZHemw4ZFdESS85RGFUWXFtd215TGlYTlozbGM1dWZpSTFLWUNRR2N1?=
+ =?iso-2022-jp?B?SmJqSmh1SFBLQXlTbzRkY0pMVm5ia2tLNy8vTVFqdFZBS2VxVERWQlhX?=
+ =?iso-2022-jp?B?b21LWjBjMkZJZi9HaGdSaHI3Y2c0Z0lCc1hRMzNaOUpOOW1LNHFXNDhI?=
+ =?iso-2022-jp?B?UEU0bGVrai9rMkFaY25Nc2VVRmQ1WWZUdC8vcVRIbDQ2MWZrV0UyM0Fn?=
+ =?iso-2022-jp?B?emtiQlRoMGpySHNOWXNGWXJEdzRPdkduMjZZMlFwK2lwYTV0MnljRmNV?=
+ =?iso-2022-jp?B?TUxWZWYrN1MveWhVcU5JL0tDaldTdGpaNVlCMnIyMHZCWDB2ZXNwaW5Q?=
+ =?iso-2022-jp?B?MFlWS1haRXlHNzB0VUNQZ1gyOVhIWEsxelVtSkYyYUd5VHErOE04cEZB?=
+ =?iso-2022-jp?B?ay9KL0tlZytqL0N5RFl0STMwOXFPMXNSL2pCSC9ad3ZZajkxQjM2eXZD?=
+ =?iso-2022-jp?B?bFl6OWxsQ2FqUTRiRVZkanFPRmhDVkpiSThSbDRNb3FXK2REV0JRVFpC?=
+ =?iso-2022-jp?B?bUh5eVNLNXZZQmQ5NE1rVUZITFhOdjNSbkR4TVdYOGU5RG5RUklNcDl5?=
+ =?iso-2022-jp?B?ay94aW5BN25Wd1lQSmFsSWVDY1BiK3FjQ1RaNktDTFRpamIyR21WVlR4?=
+ =?iso-2022-jp?B?SVBGU3hMeTVDVXNiSHZQRHlxVnB1QS8xQ0NydmQ4RVpSVk55c3l1NWZ3?=
+ =?iso-2022-jp?B?anBGL2lzVCtPRnc4YlBXQ0lSY2lyWldnS0hvanZmTTl4MDdmVXBHdmZu?=
+ =?iso-2022-jp?B?Y2ZpSmxjUHRRbE1yU2hqd3FpWjUrQzZYZnh6NkRJMnFRUldKVGpabG0w?=
+ =?iso-2022-jp?B?TmEzUndocmJDRnJNdk0rZ1hQdkJPRlVtd2J4cUhjWTRCRU5MYlorTGVC?=
+ =?iso-2022-jp?B?OHA4dkJtQmpkdlRMOTVxdi9JcFNySTVlQWEwdlNwWXAwQzNyY25YQWFs?=
+ =?iso-2022-jp?B?L3Q0VGlmV25zVlh0OXhXMWFpMFFodWFpU2liWWh4NGJ2bkdpR0dhOVV2?=
+ =?iso-2022-jp?B?Z1AvQXFqUzVSREwwSEc5ZHBYcDEzZm51OXBTdWhNUVZ1djZOVytzODBh?=
+ =?iso-2022-jp?B?ZFZKSVZGZ283UHhQTStUR0I5QU9JelY5TmptN0l4cXI0ZmdXaVY2ODh6?=
+ =?iso-2022-jp?B?UTgxZ01IZXVmekJnUFZVaFhscmloaEdKNUxUTWQ1djYyK0UrU2paby9I?=
+ =?iso-2022-jp?B?Q0JKd1FPRitKN1JzOENZL3ozSCs5OG5zaGROUUpGdXBnWHJkTFQ1L0Y3?=
+ =?iso-2022-jp?B?SkdvUmJaYkhiNkp3bDhDY1dCQVVuL3NvaE9lMm8rb1hPOHkwM2Q3QURG?=
+ =?iso-2022-jp?B?U2FYNXFIcjkzalJxQ3IxRm9pYitsN1ljT29qTDA5TURsR3lhcVBMVUZG?=
+ =?iso-2022-jp?B?N1ZRdkZuNGxKaWJHeTU3SEhqL0V2ZDJnS0ZrS1lHVmRQaWs0SkRmRnNF?=
+ =?iso-2022-jp?B?Z0FGS2xabkQwYktUSVFuSjZheDB6cmplKysvM3lMZjZZdnZoYWtFZkxU?=
+ =?iso-2022-jp?B?RHVLcS92MklMTVpHUE1NNGZoNmJZNEtFM2ZVTXdjWTkyalVNRFE1QVNW?=
+ =?iso-2022-jp?B?V0NTWDF5aVJ5eFJJT1RXZlNGUE5aRmNTYWNVZTAwbGtsY2dJakJZSDBy?=
+ =?iso-2022-jp?B?QjRNYjdvS0t2TFhJMTlqR2Fpd2tCVHdmUWpSek1leEhpN0huN21lbFMz?=
+ =?iso-2022-jp?B?UkNONXR3cFgyRGRDbmJpY2FPWk1PaGx5SVVSRzJQQ0o4UmVyYkVsQzd0?=
+ =?iso-2022-jp?B?bGE1N0s5K3haSENiLy9pUUhMTVlaR05kbHR4M3dndDVvTjQ1VnZ0aFBE?=
+ =?iso-2022-jp?B?VHpLdHFaanJvNkN5b0J4U2R3ME43R2syYVNkMGpYbEJIQnNyUlRuZnEz?=
+ =?iso-2022-jp?B?SFo4Q0NuRi9LZm10QlBEZFNnMC9NOEFETHJCbUN0TGt1SkZENUNkM0xE?=
+ =?iso-2022-jp?B?ZDI4Zk9mTVZ6Zk50V1BsZjlDNUp4OEVIL3k0T1dIWVQ4Mlo2VGlVVjNN?=
+ =?iso-2022-jp?B?bFBUQT09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSZPR01MB8798.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014)(38070700021)(1580799027);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?VzV5VXorVDlpaGNZanduM0dGMUFybWtBanUrZUdGOWk2eHRlWkFlc3NT?=
+ =?iso-2022-jp?B?Wk9oR2FPZ1ZOdmYvYjVzSjNxV0RQdmpJWDU3OUthbmw0c1ltcVVmaFRx?=
+ =?iso-2022-jp?B?MUZLTXBmTVJYZ1V6cDMzRVIvUUZBVnRLa2ZnbldzVkNRV242c1NweEUr?=
+ =?iso-2022-jp?B?ZU5ldk05ZkpPL0szUk4reTdQbi9HL1pOUmF6YUNhM0ZHRGVITHJFYjJU?=
+ =?iso-2022-jp?B?RmZLeWdxUW12d28zWWllM3BVNlMvUU5WNnR0MTB5TmdjaWJ2U2k3dU9Q?=
+ =?iso-2022-jp?B?OWE5SE9LMk40S0ExZUtXVDFza2tVN2g3Ryt3dmxLSFFTOTY3ZXMvNFJn?=
+ =?iso-2022-jp?B?amZqd1AyekpXOGZ4cndRSDc5WXBEYTBsOUR2ZEs3dzdtNVRUMXk0RnVi?=
+ =?iso-2022-jp?B?MGlFS0M0N3dkWUlEbnVGVFBJSm1VR0M2bDc0anp3UytCZEVlaC91NGF1?=
+ =?iso-2022-jp?B?d2lWMDZGdmVVTFZKbkgxWHlZM3k4RDhpMzNuQ24yK0h4cm5VZzl2Z1hJ?=
+ =?iso-2022-jp?B?TUREc1NWUFJmakhCdFhUQXVsUG1rSDFMWHZWZUUybklYOUdvaVg0Y2Rr?=
+ =?iso-2022-jp?B?aWNUWjJ5bzd6SksxQ29SWFJ6ZjI5SXpIc1hrb1o4KzU5Slhxd3VRdnFO?=
+ =?iso-2022-jp?B?cnoxVlo0K3dyeXFxZWtseENYRDIxYVF3ZnlQMUJTSVU0cHRxMWNPOTFB?=
+ =?iso-2022-jp?B?QmxKd09zc2ptYnVEVzVEWFZsTnVyaUdhTzd1bkY5dTdmWCtqaWVja3RP?=
+ =?iso-2022-jp?B?R1ZWTDBrZHJsa3ZaQjNhaG5oVDFlUkxrNHFvYk1reDVOb3dEeVVpMTNZ?=
+ =?iso-2022-jp?B?Q0Zna1dYOEszMUYweFdmQUtmWjNiT2c5NjhoT3N2WHFrMW0rd2hGYUJ0?=
+ =?iso-2022-jp?B?WFAvN1c4cG5yblBGdStpMmd6WjhWei8wOEpCbmxPZUdqQWljTU5oc21D?=
+ =?iso-2022-jp?B?Rm9oRnFFZVF3SnRodm91ckFQcC9iUkQ5MUVKUGFCWHhGaEhGMC9iUStt?=
+ =?iso-2022-jp?B?aE5RVndzYTlzYlpCOTVJR3MvSXF3eWNDejNnT09seHhpS3o1OXVPTVZY?=
+ =?iso-2022-jp?B?Z3k3dmFkcGxyOENBajZSZk1xVnZUcFR1eG10cUFWS0xONTVFcFZja0Nh?=
+ =?iso-2022-jp?B?Qk1LYmk3WjRXQ1RvSXg1MXJCSVhYSzNqTldrZjh4SlhkVXZwV1Flay9K?=
+ =?iso-2022-jp?B?SnlGaGI5SUtQeG5GZjY5MFNFSjcySGZsT2tQMDAxcFkrcGR6MUtZTjNC?=
+ =?iso-2022-jp?B?dFpTTWtGdElrdWxxVmowNmZ2MDl0OUZOenJoakNKSk5pN2g1NWtZVFox?=
+ =?iso-2022-jp?B?REF0aURoWVBpd0dNaUhrM1FPbjhPeGwzUDZ2Tmx4OVUxa1ZMRUtNYzdX?=
+ =?iso-2022-jp?B?T2VSZkZhZWREZEkxdzlUMjhVOU9nckdtT25peW55eDZjcEF6ZURlLzNh?=
+ =?iso-2022-jp?B?WGdXL1NoUktKYkNtTnhUMExPMHRkeHRZYWlzOG92aXlyWkZNdVYrajJ3?=
+ =?iso-2022-jp?B?Q1c0amdsejVsMkNCOWc3QzRjTGFnOU0rZCs1RjRDUzNMeEJ4Z3JpU2JI?=
+ =?iso-2022-jp?B?dGFOR0hLMmpreUxjSVlkQitmRG9nM3pNZm1IL2p4dDZFSzNTWFAvWE45?=
+ =?iso-2022-jp?B?NGFaWTdKS1FQZ2U4b1RpNVd5TG1LbkpCcWIxOHJ3dDhFbithNW9FZTBK?=
+ =?iso-2022-jp?B?UXh0TitYM2E3aFczbkduTTZTNHZlU21Vd3h5alVvSTBiMzY5UWlRRm8x?=
+ =?iso-2022-jp?B?aE9sMHhxKzVvVE9jdDVOaVZ6cWJLOUQ3cDhNQzFEMWxJUnFVcGprVUdK?=
+ =?iso-2022-jp?B?dXpWbG1lb3NWNEVHdXdweWZWTDRuakwxMlh6RG5XaE1Sd2t5bE5nc0kw?=
+ =?iso-2022-jp?B?WnBkeWEzM2R0ZzBiWno3djJvVTZOTFBRazdKU3dsbi9QQUJSVldiNzd3?=
+ =?iso-2022-jp?B?RzJaa25SazVOUStUSEppcnNzcmcvQmhJclBVNzJYOEJmeDlxM2ZWVjVp?=
+ =?iso-2022-jp?B?SndyRmdST3Q0TDVSTU9MQVd0Y2FYc2NTMzQ5a0IwemUySEFrNHlFdkNN?=
+ =?iso-2022-jp?B?OEVPcnV4YVllYVpGSThyUzJYelIwT3hqejVnNTNhSTR5eFJ5N3ZoTHZF?=
+ =?iso-2022-jp?B?bm91cTZtWEpzUjUremV6WjNTUkRZMUY4R3orL3dFaGVCQlNzT0l1WjJs?=
+ =?iso-2022-jp?B?OUVZR0xodzFrejdxVjNDSTdIZlVxN05CY1lsQk51bU9OYUNiejJZd0th?=
+ =?iso-2022-jp?B?YkJYdTFBYW02Z2RoSzlwbUQ3NG5qd09nYW9NZHJCYnRIb2ZBaDNxMkpp?=
+ =?iso-2022-jp?B?OW1WUmZRcEFURndEbFJKNkEzLzR2Y0xMdVZ1WEE4SnhvdEJScDFOd2Y1?=
+ =?iso-2022-jp?B?c3BmS0hCUVdzMytYS1MzaEZJdnZINS9sem9PcERoTEZ2RkZvQlB1dXU5?=
+ =?iso-2022-jp?B?dHJOZnFNYzJtUnpVOFJjbkhuUlJDdG1EL2F0UjlrSTVYQW1nODlVWmhM?=
+ =?iso-2022-jp?B?UEU1ZmkxRkRUY1BsQ3BLY0pjV1QrNmlwYkZ5QT09?=
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add rk3576 evb2 board
-To: Quentin Schulz <quentin.schulz@cherry.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Kever Yang <kever.yang@rock-chips.com>, Jonas Karlman <jonas@kwiboo.se>,
- John Clark <inindev@gmail.com>, FUKAUMI Naoki <naoki@radxa.com>,
- Jimmy Hon <honyuenkwun@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
- Michael Riesch <michael.riesch@collabora.com>,
- Peter Robinson <pbrobinson@gmail.com>, Alexey Charkov <alchark@gmail.com>,
- Shawn Lin <shawn.lin@rock-chips.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Andy Yan <andy.yan@rock-chips.com>, Chaoyi Chen <kernel@airkyi.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260107070322.323-1-kernel@airkyi.com>
- <20260107070322.323-3-kernel@airkyi.com>
- <afe968a0-f14b-423d-81a7-c1046d2b32bb@cherry.de>
- <1b08bc47-70be-48fb-a05e-1101e633a776@rock-chips.com>
- <0d99140e-8f57-4a7a-a492-92efa30292d8@cherry.de>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <0d99140e-8f57-4a7a-a492-92efa30292d8@cherry.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9b9d32bee703abkunmbf4c270613cd5e
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ09JSFYZGBkeHxgYQkJJSk1WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=L1nQBYywUwxdSotoHvJ/6KJvzPK4O/1TyunGOLwEFOiieurKqEntt9HT5ltPIF6PQEJ0TivS0yH+cR1SqlPfp7wg1kmC9JDepjy84i4Q6LOOg++QM/3oPZl99+kefEJFdD74t8iWu1eDfnHc0JyHP8LvuWCDm4Mu29Hwkn0pC5k=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=rkQu0ywfCqJZE+WsNbm/KDvp35VhTZ7L4bvh8V9tH10=;
-	h=date:mime-version:subject:message-id:from;
+X-OriginatorOrg: fujitsu.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB8798.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa4a44d2-a37e-487c-6f6d-08de4ea2a4a7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Jan 2026 10:42:38.6697
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: gx7dF/nxP5aZ3/lMrsuYIOFKSD56f49f5mRvCeu0oEiapdJ57rT5U3lGUs2SPx6CxoXlgMXrNi+7IGbN+AxI+ykXa0IwbIPKmlF/50ZOSFM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4PR01MB15081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_024200_811910_F626C1D2 
-X-CRM114-Status: GOOD (  30.47  )
+X-CRM114-CacheID: sfid-20260108_024245_119730_784473A7 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,142 +214,362 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Quentin,
-
-On 1/8/2026 6:07 PM, Quentin Schulz wrote:
-> Hi Chaoyi,
-> 
-> On 1/8/26 7:27 AM, Chaoyi Chen wrote:
->> Hi Quentin,
->>
->> Thank you for your patient review.
->>
->> On 1/7/2026 11:46 PM, Quentin Schulz wrote:
->>> Hi Chaoyi,
->>>
->>> On 1/7/26 8:03 AM, Chaoyi Chen wrote:
-> 
-> [...]
-> 
->>>> +        stdout-path = "serial0:1500000n8";
->>>> +    };
->>>> +
->>>> +    adc_keys: adc-keys {
->>>
->>> Are we expecting to extend this node from another DT? Why the label?
->>>
->>> Won't comment on all other labeled-but-no-phandle-use instances, please check.
->>>
->>
->> I think one exception is the regulator labels. Even though their
->> phandles are unused, they match the names on the schematic, so it
->> seems meaningful to keep them.
->>
-> 
-> Can't you use the regulator-name property for that? Or a comment if you realllly want it to be somewhere in the DTS? If I remember correctly, labels make it to the DTB when building it with symbols (-@, enabled whenever there's a DTSO for the board; see __symbols__ node when decompiling), this will unnecessarily bloat the final DTB.
->
-
-Oh, it make sense.
-
->>>> +    vcc3v3_rtc_s5: regulator-vcc3v3-rtc-s5 {
->>>> +        compatible = "regulator-fixed";
->>>> +        regulator-name = "vcc3v3_rtc_s5";
->>>> +        regulator-boot-on;
->>>> +        regulator-always-on;
->>>> +        regulator-min-microvolt = <3300000>;
->>>> +        regulator-max-microvolt = <3300000>;
->>>> +        vin-supply = <&vcc_sys>;
->>>
->>> If this is for the rtc, shouldn't we declare this dependency in the RTC device node and not have it always-on?
->>>
->>
->> I checked other boards that use the hym8563 device and couldn't find
->> a similar approach. Could you give an example?
->>
-> 
-> If this is truly always on by hardware design, then I guess it's "fine". That other boards aren't doing isn't much of an argument, as they may not need it. Typically, you could need to update the driver (and its binding) to accept and control power supplies so that you can link the two together in the device tree. I'm assuming for an RTC it doesn't make much sense to have its power supply controllable as it likely needs to be powered even when the device is turned off (otherwise the RTC stops counting :) ).
->
-
-Yes, this seems unnecessary, which is why I'm asking if you've
-encountered similar designs before.
-
->>>> +    };
->>>> +
->>>> +    vcc3v3_sata_pwren: vcc3v3-sata-pwren {
->>>> +        compatible = "regulator-fixed";
->>>> +        regulator-name = "vcc3v3_sata_pwren";
->>>> +        enable-active-high;
->>>> +        regulator-boot-on;
->>>> +        regulator-always-on;
->>>
->>> Why do we have this always-on? Seems like we're missing a dependency on this regulator in the SATA controller?
->>>
->>
->> In v1 we set the pinctrl inside the SATA node. To keep the pins from
->> being reused by mistake we added this regulator in v2.
->>
-> 
-> This is a controllable regulator, which seems to be dedicated to SATA (from the name of it). Why isn't it something that the SATA controller controls?
-> 
-> You have ahci-supply, target-supply and phy-supply in ahci-common.yaml DT binding that may be appropriate for this regulator.
->
-
-Thank you for provide these info. I will try to add them in v3.
-
-> The issue is if this regulator is probed *after* your SATA device, SATA probably won't work. Imagine REGULATOR_FIXED_VOLTAGE=m (or even =n, but then you likely have other issues) and your SATA controller driver is built-in, this will be broken.
-> 
-> Remove the always-on and set the proper link in the SATA controller device node so that this is handled properly.
->
-
-Oh! I did overlook that point! I will try to do it in v3.
-
->>>> +        gpio = <&gpio4 RK_PC7 GPIO_ACTIVE_HIGH>;
->>>> +        pinctrl-names = "default";
->>>> +        pinctrl-0 = <&satapm_pwren>;
->>>> +    };
->>>> +
->>>> +    vcc5v0_device: regulator-vcc5v0-device {
->>>> +        compatible = "regulator-fixed";
->>>> +        regulator-name = "vcc5v0_device";
->>>> +        regulator-always-on;
->>>> +        regulator-boot-on;
->>>> +        regulator-min-microvolt = <5000000>;
->>>> +        regulator-max-microvolt = <5000000>;
->>>> +        vin-supply = <&vcc12v_dcin>;
->>>> +    };
->>>> +
->>>> +    vcc5v0_host: regulator-vcc5v0-host {
->>>> +        compatible = "regulator-fixed";
->>>> +        regulator-name = "vcc5v0_host";
->>>> +        regulator-boot-on;
->>>> +        regulator-always-on;
->>>> +        regulator-min-microvolt = <5000000>;
->>>> +        regulator-max-microvolt = <5000000>;
->>>> +        enable-active-high;
->>>> +        gpio = <&gpio0 RK_PC3 GPIO_ACTIVE_HIGH>;
->>>> +        vin-supply = <&vcc5v0_device>;
->>>> +        pinctrl-names = "default";
->>>> +        pinctrl-0 = <&usb_host_pwren>;
->>>> +    };
->>>> +
->>>
->>> I assume both of the above are related to USB operating in host or device mode? Maybe there's a way to have something more useful to the user in regulator-name (and possibly the regulator node name) so that they have an idea what this pertains to?
->>
->> It's a good idea. Actually, we have two regulators here, one for USB0
->> and another for USB1. I'll try to rename them in v2.
->>
-> 
-> Are you sure? vcc5v0_device is a supply for vcc5v0_host, so it'd be odd that in order for USB1 to work, you need USB0 powered?
-
-No, the "vcc5v0_device" serves as the vin-supply for both
-"VCC5V0_USB3_HOST0" and "VCC5V0_USB3_HOST1". 
-And "VCC5V0_USB3_HOSTx" is supply for USB VBUS.
-
-All the names marked here are those shown in the schematic. As you
-suggested, it would be better to set regulator-name to the schematic
-name "VCC5V0_USB3_HOSTx" and use "usbx_vbus" for the label.
-
--- 
-Best, 
-Chaoyi
+Hello Ben,=0A=
+=0A=
+> From: James Morse <james.morse@arm.com>=0A=
+> =0A=
+> resctrl supports 'MB', as a percentage throttling of traffic somewhere=0A=
+> after the L3. This is the control that mba_sc uses, so ideally the class=
+=0A=
+> chosen should be as close as possible to the counters used for mba_local.=
+=0A=
+> =0A=
+> MB's percentage control should be backed either with the fixed point=0A=
+> fraction MBW_MAX. The bandwidth portion bitmaps is not used as its tricky=
+=0A=
+> to pick which bits to use to avoid contention, and may be possible to=0A=
+> expose this as something other than a percentage in the future.=0A=
+> =0A=
+> CC: Zeng Heng <zengheng4@huawei.com>=0A=
+> Co-developed-by: Dave Martin <Dave.Martin@arm.com>=0A=
+> Signed-off-by: Dave Martin <Dave.Martin@arm.com>=0A=
+> Signed-off-by: James Morse <james.morse@arm.com>>=0A=
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>=0A=
+> ---=0A=
+>  drivers/resctrl/mpam_resctrl.c | 212 ++++++++++++++++++++++++++++++++-=
+=0A=
+>  1 file changed, 211 insertions(+), 1 deletion(-)=0A=
+> =0A=
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctr=
+l.c=0A=
+> index a20656e49edc..e376841c5596 100644=0A=
+> --- a/drivers/resctrl/mpam_resctrl.c=0A=
+> +++ b/drivers/resctrl/mpam_resctrl.c=0A=
+> @@ -247,6 +247,33 @@ static bool cache_has_usable_cpor(struct mpam_class =
+*class)=0A=
+>          return class->props.cpbm_wd <=3D 32;=0A=
+>  }=0A=
+>  =0A=
+> +static bool mba_class_use_mbw_max(struct mpam_props *cprops)=0A=
+> +{=0A=
+> +       return (mpam_has_feature(mpam_feat_mbw_max, cprops) &&=0A=
+> +               cprops->bwa_wd);=0A=
+> +}=0A=
+> +=0A=
+> +static bool class_has_usable_mba(struct mpam_props *cprops)=0A=
+> +{=0A=
+> +       return mba_class_use_mbw_max(cprops);=0A=
+> +}=0A=
+> +=0A=
+> +/*=0A=
+> + * Calculate the worst-case percentage change from each implemented step=
+=0A=
+> + * in the control.=0A=
+> + */=0A=
+> +static u32 get_mba_granularity(struct mpam_props *cprops)=0A=
+> +{=0A=
+> +       if (!mba_class_use_mbw_max(cprops))=0A=
+> +               return 0;=0A=
+> +=0A=
+> +       /*=0A=
+> +        * bwa_wd is the number of bits implemented in the 0.xxx=0A=
+> +        * fixed point fraction. 1 bit is 50%, 2 is 25% etc.=0A=
+> +        */=0A=
+> +       return DIV_ROUND_UP(MAX_MBA_BW, 1 << cprops->bwa_wd);=0A=
+> +}=0A=
+> +=0A=
+>  /*=0A=
+>   * Each fixed-point hardware value architecturally represents a range=0A=
+>   * of values: the full range 0% - 100% is split contiguously into=0A=
+> @@ -287,6 +314,96 @@ static u16 percent_to_mbw_max(u8 pc, struct mpam_pro=
+ps *cprops)=0A=
+>          return val;=0A=
+>  }=0A=
+>  =0A=
+> +static u32 get_mba_min(struct mpam_props *cprops)=0A=
+> +{=0A=
+> +       u32 val =3D 0;=0A=
+> +=0A=
+> +       if (mba_class_use_mbw_max(cprops))=0A=
+> +               val =3D mbw_max_to_percent(val, cprops);=0A=
+> +       else=0A=
+> +               WARN_ON_ONCE(1);=0A=
+> +=0A=
+> +       return val;=0A=
+> +}=0A=
+> +=0A=
+> +/* Find the L3 cache that has affinity with this CPU */=0A=
+> +static int find_l3_equivalent_bitmask(int cpu, cpumask_var_t tmp_cpumask=
+)=0A=
+> +{=0A=
+> +       u32 cache_id =3D get_cpu_cacheinfo_id(cpu, 3);=0A=
+> +=0A=
+> +       lockdep_assert_cpus_held();=0A=
+> +=0A=
+> +       return mpam_get_cpumask_from_cache_id(cache_id, 3, tmp_cpumask);=
+=0A=
+> +}=0A=
+> +=0A=
+> +/*=0A=
+> + * topology_matches_l3() - Is the provided class the same shape as L3=0A=
+> + * @victim:            The class we'd like to pretend is L3.=0A=
+> + *=0A=
+> + * resctrl expects all the world's a Xeon, and all counters are on the=
+=0A=
+> + * L3. We play fast and loose with this, mapping counters on other=0A=
+> + * classes - provided the CPU->domain mapping is the same kind of shape.=
+=0A=
+> + *=0A=
+> + * Using cacheinfo directly would make this work even if resctrl can't=
+=0A=
+> + * use the L3 - but cacheinfo can't tell us anything about offline CPUs.=
+=0A=
+> + * Using the L3 resctrl domain list also depends on CPUs being online.=
+=0A=
+> + * Using the mpam_class we picked for L3 so we can use its domain list=
+=0A=
+> + * assumes that there are MPAM controls on the L3.=0A=
+> + * Instead, this path eventually uses the mpam_get_cpumask_from_cache_id=
+()=0A=
+> + * helper which can tell us about offline CPUs ... but getting the cache=
+_id=0A=
+> + * to start with relies on at least one CPU per L3 cache being online at=
+=0A=
+> + * boot.=0A=
+> + *=0A=
+> + * Walk the victim component list and compare the affinity mask with the=
+=0A=
+> + * corresponding L3. The topology matches if each victim:component's aff=
+inity=0A=
+> + * mask is the same as the CPU's corresponding L3's. These lists/masks a=
+re=0A=
+> + * computed from firmware tables so don't change at runtime.=0A=
+> + */=0A=
+> +static bool topology_matches_l3(struct mpam_class *victim)=0A=
+> +{=0A=
+> +       int cpu, err;=0A=
+> +       struct mpam_component *victim_iter;=0A=
+> +       cpumask_var_t __free(free_cpumask_var) tmp_cpumask;=0A=
+> +=0A=
+> +       if (!alloc_cpumask_var(&tmp_cpumask, GFP_KERNEL))=0A=
+> +               return false;=0A=
+> +=0A=
+> +       guard(srcu)(&mpam_srcu);=0A=
+> +       list_for_each_entry_srcu(victim_iter, &victim->components, class_=
+list,=0A=
+> +                                srcu_read_lock_held(&mpam_srcu)) {=0A=
+> +               if (cpumask_empty(&victim_iter->affinity)) {=0A=
+> +                       pr_debug("class %u has CPU-less component %u - ca=
+n't match L3!\n",=0A=
+> +                                victim->level, victim_iter->comp_id);=0A=
+> +                       return false;=0A=
+> +               }=0A=
+> +=0A=
+> +               cpu =3D cpumask_any(&victim_iter->affinity);=0A=
+> +               if (WARN_ON_ONCE(cpu >=3D nr_cpu_ids))=0A=
+> +                       return false;=0A=
+> +=0A=
+> +               cpumask_clear(tmp_cpumask);=0A=
+> +               err =3D find_l3_equivalent_bitmask(cpu, tmp_cpumask);=0A=
+> +               if (err) {=0A=
+> +                       pr_debug("Failed to find L3's equivalent componen=
+t to class %u component %u\n",=0A=
+> +                                victim->level, victim_iter->comp_id);=0A=
+> +                       return false;=0A=
+> +               }=0A=
+> +=0A=
+> +               /* Any differing bits in the affinity mask? */=0A=
+> +               if (!cpumask_equal(tmp_cpumask, &victim_iter->affinity)) =
+{=0A=
+> +                       pr_debug("class %u component %u has Mismatched CP=
+U mask with L3 equivalent\n"=0A=
+> +                                "L3:%*pbl !=3D victim:%*pbl\n",=0A=
+> +                                victim->level, victim_iter->comp_id,=0A=
+> +                                cpumask_pr_args(tmp_cpumask),=0A=
+> +                                cpumask_pr_args(&victim_iter->affinity))=
+;=0A=
+> +=0A=
+> +                       return false;=0A=
+> +               }=0A=
+> +       }=0A=
+> +=0A=
+> +       return true;=0A=
+> +}=0A=
+> +=0A=
+>  /* Test whether we can export MPAM_CLASS_CACHE:{2,3}? */=0A=
+>  static void mpam_resctrl_pick_caches(void)=0A=
+>  {=0A=
+> @@ -329,10 +446,63 @@ static void mpam_resctrl_pick_caches(void)=0A=
+>          }=0A=
+>  }=0A=
+>  =0A=
+> +static void mpam_resctrl_pick_mba(void)=0A=
+> +{=0A=
+> +       struct mpam_class *class, *candidate_class =3D NULL;=0A=
+> +       struct mpam_resctrl_res *res;=0A=
+> +=0A=
+> +       lockdep_assert_cpus_held();=0A=
+> +=0A=
+> +       guard(srcu)(&mpam_srcu);=0A=
+> +       list_for_each_entry_srcu(class, &mpam_classes, classes_list,=0A=
+> +                                srcu_read_lock_held(&mpam_srcu)) {=0A=
+> +               struct mpam_props *cprops =3D &class->props;=0A=
+> +=0A=
+> +               if (class->level < 3) {=0A=
+> +                       pr_debug("class %u is before L3\n", class->level)=
+;=0A=
+> +                       continue;=0A=
+> +               }=0A=
+> +=0A=
+> +               if (!class_has_usable_mba(cprops)) {=0A=
+> +                       pr_debug("class %u has no bandwidth control\n",=
+=0A=
+> +                                class->level);=0A=
+> +                       continue;=0A=
+> +               }=0A=
+> +=0A=
+> +               if (!cpumask_equal(&class->affinity, cpu_possible_mask)) =
+{=0A=
+> +                       pr_debug("class %u has missing CPUs\n", class->le=
+vel);=0A=
+> +                       continue;=0A=
+> +               }=0A=
+> +=0A=
+> +               if (!topology_matches_l3(class)) {=0A=
+> +                       pr_debug("class %u topology doesn't match L3\n",=
+=0A=
+> +                                class->level);=0A=
+> +                       continue;=0A=
+> +               }=0A=
+> +=0A=
+> +               /*=0A=
+> +                * mba_sc reads the mbm_local counter, and waggles the MB=
+A=0A=
+> +                * controls. mbm_local is implicitly part of the L3, pick=
+ a=0A=
+> +                * resource to be MBA that as close as possible to the L3=
+.=0A=
+> +                */=0A=
+> +               if (!candidate_class || class->level < candidate_class->l=
+evel)=0A=
+> +                       candidate_class =3D class;=0A=
+> +       }=0A=
+> +=0A=
+> +       if (candidate_class) {=0A=
+> +               pr_debug("selected class %u to back MBA\n",=0A=
+> +                        candidate_class->level);=0A=
+> +               res =3D &mpam_resctrl_controls[RDT_RESOURCE_MBA];=0A=
+> +               res->class =3D candidate_class;=0A=
+> +               exposed_alloc_capable =3D true;=0A=
+> +       }=0A=
+> +}=0A=
+> +=0A=
+>  static int mpam_resctrl_control_init(struct mpam_resctrl_res *res,=0A=
+>                                       enum resctrl_res_level type)=0A=
+>  {=0A=
+>          struct mpam_class *class =3D res->class;=0A=
+> +       struct mpam_props *cprops =3D &class->props;=0A=
+>          struct rdt_resource *r =3D &res->resctrl_res;=0A=
+>  =0A=
+>          switch (r->rid) {=0A=
+> @@ -361,6 +531,20 @@ static int mpam_resctrl_control_init(struct mpam_res=
+ctrl_res *res,=0A=
+>                   * 'all the bits' is the correct answer here.=0A=
+>                   */=0A=
+>                  r->cache.shareable_bits =3D resctrl_get_default_ctrl(r);=
+=0A=
+> +               break;=0A=
+> +       case RDT_RESOURCE_MBA:=0A=
+> +               r->alloc_capable =3D true;=0A=
+> +               r->schema_fmt =3D RESCTRL_SCHEMA_RANGE;=0A=
+> +               r->ctrl_scope =3D RESCTRL_L3_CACHE;=0A=
+=0A=
+Could you please elaborate why RESCTRL_L3_CACHE is required here?=0A=
+=0A=
+Best regards,=0A=
+Shaopeng TAN=0A=
+=0A=
+> +               r->membw.delay_linear =3D true;=0A=
+> +               r->membw.throttle_mode =3D THREAD_THROTTLE_UNDEFINED;=0A=
+> +               r->membw.min_bw =3D get_mba_min(cprops);=0A=
+> +               r->membw.max_bw =3D MAX_MBA_BW;=0A=
+> +               r->membw.bw_gran =3D get_mba_granularity(cprops);=0A=
+> +=0A=
+> +               r->name =3D "MB";=0A=
+> +=0A=
+>                  break;=0A=
+>          default:=0A=
+>                  break;=0A=
+> @@ -376,7 +560,17 @@ static int mpam_resctrl_pick_domain_id(int cpu, stru=
+ct mpam_component *comp)=0A=
+>          if (class->type =3D=3D MPAM_CLASS_CACHE)=0A=
+>                  return comp->comp_id;=0A=
+>  =0A=
+> -       /* TODO: repaint domain ids to match the L3 domain ids */=0A=
+> +       if (topology_matches_l3(class)) {=0A=
+> +               /* Use the corresponding L3 component ID as the domain ID=
+ */=0A=
+> +               int id =3D get_cpu_cacheinfo_id(cpu, 3);=0A=
+> +=0A=
+> +               /* Implies topology_matches_l3() made a mistake */=0A=
+> +               if (WARN_ON_ONCE(id =3D=3D -1))=0A=
+> +                       return comp->comp_id;=0A=
+> +=0A=
+> +               return id;=0A=
+> +       }=0A=
+> +=0A=
+>          /*=0A=
+>           * Otherwise, expose the ID used by the firmware table code.=0A=
+>           */=0A=
+> @@ -418,6 +612,12 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, =
+struct rdt_ctrl_domain *d,=0A=
+>          case RDT_RESOURCE_L3:=0A=
+>                  configured_by =3D mpam_feat_cpor_part;=0A=
+>                  break;=0A=
+> +       case RDT_RESOURCE_MBA:=0A=
+> +               if (mpam_has_feature(mpam_feat_mbw_max, cprops)) {=0A=
+> +                       configured_by =3D mpam_feat_mbw_max;=0A=
+> +                       break;=0A=
+> +               }=0A=
+> +               fallthrough;=0A=
+>          default:=0A=
+>                  return resctrl_get_default_ctrl(r);=0A=
+>          }=0A=
+> @@ -429,6 +629,8 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, s=
+truct rdt_ctrl_domain *d,=0A=
+>          switch (configured_by) {=0A=
+>          case mpam_feat_cpor_part:=0A=
+>                  return cfg->cpbm;=0A=
+> +       case mpam_feat_mbw_max:=0A=
+> +               return mbw_max_to_percent(cfg->mbw_max, cprops);=0A=
+>          default:=0A=
+>                  return resctrl_get_default_ctrl(r);=0A=
+>          }=0A=
+> @@ -473,6 +675,13 @@ int resctrl_arch_update_one(struct rdt_resource *r, =
+struct rdt_ctrl_domain *d,=0A=
+>                  cfg.cpbm =3D cfg_val;=0A=
+>                  mpam_set_feature(mpam_feat_cpor_part, &cfg);=0A=
+>                  break;=0A=
+> +       case RDT_RESOURCE_MBA:=0A=
+> +               if (mpam_has_feature(mpam_feat_mbw_max, cprops)) {=0A=
+> +                       cfg.mbw_max =3D percent_to_mbw_max(cfg_val, cprop=
+s);=0A=
+> +                       mpam_set_feature(mpam_feat_mbw_max, &cfg);=0A=
+> +                       break;=0A=
+> +               }=0A=
+> +               fallthrough;=0A=
+>          default:=0A=
+>                  return -EINVAL;=0A=
+>          }=0A=
+> @@ -754,6 +963,7 @@ int mpam_resctrl_setup(void)=0A=
+>  =0A=
+>          /* Find some classes to use for controls */=0A=
+>          mpam_resctrl_pick_caches();=0A=
+> +       mpam_resctrl_pick_mba();=0A=
+>  =0A=
+>          /* Initialise the resctrl structures from the classes */=0A=
+>          for (enum resctrl_res_level i =3D 0; i < RDT_NUM_RESOURCES; i++)=
+ {=0A=
+> --=0A=
+> 2.43.0=0A=
 
