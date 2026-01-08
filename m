@@ -4,78 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04E93CF6ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:27:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FDE2CF6C15
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DEmcuElp0UQkGJCO6KQWjXnV/POLT0WxyNyLSZSnVYI=; b=kqLT0Sg5+iaTMIbpWlslB1gW4x
-	tL5aYVNB9qTmhw8r+C9DrUS5LXToURyGKnOc1C0cIuvNGIcKTxSoUxOXRCnD9JpracTj9XBGEGPCN
-	q5AElEYuJT6+X8wdGgB0WoBJIM0c8B6j0l4zLPITva3+mrFM4KI38f+GgyKLd967hZbQzaH2n7PEb
-	rnhqvgT9JPqDAm5W1JGS3utHFb4jOilwvgg8Apj4bP8iZLSCCGQzuC0KeEJMYuuSzNig+R7rt/Pz7
-	fY5GHihr+ZGpSxHPtciRUtJfsMDklYa5mmc+E9EVAZ95MUcrsu8V/iA11stTSzDquoPusYBIOlnfB
-	A9bVuOAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Os/KBcqKoPx7couqn3OqVcK6He3fnr7cEJqFU1UgtS0=; b=CmgXUe2rZF0tAnS1zxmAkV78ds
+	nqusxMIS7GNNt6Zex14JyeEVUrHGeRz8p3RfwmPTBYfbla/ICrfEl6j3seYCxSqCCQAiGkCUOsIDG
+	TbBX2SiGcYy/4kgRiymLtl7sE5IE2/QyOjz2edXafky9yk7IENMFCXqjfDmG10tesVq7v35is/qMq
+	zgZNxLokLogD6nZxGhSuWVYAR2JOizeJpKgbmtpYef1mkizuHw0O6iHIHtgaxC1rrQAkM7tVuM5m1
+	9zUhe8Kpg0JWVWx4LDuf2T3Pa72R0ayqyMoWBQL2c0x95Zq4ya9h+VNMpJv/UJ9UjDZwHawrITMOf
+	cDo3DU3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdnEK-0000000Gcc7-375D;
-	Thu, 08 Jan 2026 10:27:00 +0000
-Received: from sinmsgout03.his.huawei.com ([119.8.177.38])
+	id 1vdnFi-0000000Gcrl-0ues;
+	Thu, 08 Jan 2026 10:28:26 +0000
+Received: from mail-francecentralazon11013036.outbound.protection.outlook.com ([40.107.162.36] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdnEH-0000000Gcb1-43ez
+	id 1vdnFf-0000000GcqY-0Bkn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 10:26:59 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=DEmcuElp0UQkGJCO6KQWjXnV/POLT0WxyNyLSZSnVYI=;
-	b=flRF/P2IsumUov+UukeIGuQd42cQFPlHBQi38PU20DD9lRCVhiwqBWcxv0uiHC3db8wha37C9
-	cct0QUglVjOSoLZyJsDkJAHuqKT5j090f5kxfJaDnojlqlW7H71yFtEwtb3fIY/xtIjoahVt7jm
-	Q3BsJYXwDEr9qooEl2u/itw=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.32])
-	by sinmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4dn1HG440CzN1Jm;
-	Thu,  8 Jan 2026 18:24:42 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dn1KZ0TMyzHnGjN;
-	Thu,  8 Jan 2026 18:26:42 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 026654056A;
-	Thu,  8 Jan 2026 18:26:50 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 8 Jan
- 2026 10:26:49 +0000
-Date: Thu, 8 Jan 2026 10:26:47 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-CC: "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, Timothy Hayes <Timothy.Hayes@arm.com>, "Suzuki
- Poulose" <Suzuki.Poulose@arm.com>, nd <nd@arm.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvm@vger.kernel.org"
-	<kvm@vger.kernel.org>, Joey Gouly <Joey.Gouly@arm.com>, "maz@kernel.org"
-	<maz@kernel.org>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>
-Subject: Re: [PATCH v2 08/36] KVM: arm64: Introduce kvm_call_hyp_nvhe_res()
-Message-ID: <20260108102647.00004a2d@huawei.com>
-In-Reply-To: <5ef0d810c4619b941d5c74e79401ce584193604d.camel@arm.com>
-References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
-	<20251219155222.1383109-9-sascha.bischoff@arm.com>
-	<20260107103044.00000df0@huawei.com>
-	<5ef0d810c4619b941d5c74e79401ce584193604d.camel@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 08 Jan 2026 10:28:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mTj2HOKq1EKSdHnayOXYGe/bwbt/9YhULgHj+Z78EgAGm1uyZNPS100V1CdrdLnhqecRBpewjLRLO5yErbyIVIedSH5jT+MllG1ZK7O+ITEn/x/oRiNJrHK637mOHpxp8l58eT+onKYPaq6HBmLjau3Z+JC4aiFMD53pXpbxBtx/itd4fvDpnQZo0ZiNsErFN/kvpSnplpae/gnnXJdDPAp987y12poguQ/ifaSO4Nxgkx74RVHiOSPnOa00TRJA4oDj9x8vcSOyto6y9voI63pt1k8o03AgGsPbk6uODwBnjONh3bIPPpSKClK+rWEEu5t4nBzv9+3vjPDy/reVDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Os/KBcqKoPx7couqn3OqVcK6He3fnr7cEJqFU1UgtS0=;
+ b=hhk6wKGVcHAMf4QbfosYFH9WQxD3ESbGpVw8uWhfaad6yhgaHwxmQwoiHcsgVxqzzccVaO2/VweMUGplfXywmULgi+RWl1rVSTo4NPSDig9FEhxJc+xAgiJ91DL9uwDQVP7QG9TTMIh21u7F6+KYbsYX5XRpEtAxI8NROw25mvrqDMrGjUPdAwm/YJ0bRMrCV1ADns2l26nkEZbCk4wuOxlJOqh2wFpcFGE5pxottsgyk/OdLy1avC+Y7kVSr/hFSJJ+WQJf96WrwVofn1F/lM4UAK20F8rFWea50UCP2cAkURmV8KGceJAETdk1IUzBOy9KMnFv4eK6d0PsgzQ/cQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Os/KBcqKoPx7couqn3OqVcK6He3fnr7cEJqFU1UgtS0=;
+ b=L+cahRrJMcH/mwrud9VztbXCrpdVoQeUGJGCVtn7+CjpzMiUWmM2jGIfL7JoiA+bs+l+W5fT8M1Suj1ACtraSOG3ckVGkL7xzq0cFAO/r/V5ivSImrTsv0N8fhxmD89cYA0bvzYF9osG6G6Qu1LxP7r64iY4MeyA2ZeCODBTdTl0a9i6S6LS5dBBOhU/TYQJ6hd6LVwZLooHBL4575Q4qvGj2WaKT68KO0fHDjgFMQEc9eX86CLZm0R2gRSdGPbog64m7KhKP749mu18wByCHKX7bmE6ovMYMrLhUO05kPfdubpd2i5NIg1kfv6bUTN223rrcsW1z8HWHDiDu2FQ0A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
+ by AS1PR04MB9311.eurprd04.prod.outlook.com (2603:10a6:20b:4dd::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.2; Thu, 8 Jan
+ 2026 10:28:13 +0000
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::b1b9:faa9:901b:c197]) by DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::b1b9:faa9:901b:c197%4]) with mapi id 15.20.9499.003; Thu, 8 Jan 2026
+ 10:28:13 +0000
+Date: Thu, 8 Jan 2026 18:29:36 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v5 4/5] remoteproc: imx_rproc: Add support for System
+ Manager API
+Message-ID: <aV+HEAzwNSOCUx88@shlinux89>
+References: <20251218-imx95-rproc-2025-12-18-v5-0-b56a27d4158f@nxp.com>
+ <20251218-imx95-rproc-2025-12-18-v5-4-b56a27d4158f@nxp.com>
+ <aV6ow9dGUNaPDqZg@p14s>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aV6ow9dGUNaPDqZg@p14s>
+X-ClientProxiedBy: SI2PR02CA0034.apcprd02.prod.outlook.com
+ (2603:1096:4:195::9) To DB9PR04MB8461.eurprd04.prod.outlook.com
+ (2603:10a6:10:2cf::20)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="ISO-8859-1"
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|AS1PR04MB9311:EE_
+X-MS-Office365-Filtering-Correlation-Id: 65129cdb-a4d8-422a-4175-08de4ea0a01c
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|52116014|7416014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mNXeoyhjoC2VdNB3t3pdgmTIlDtJ6+OjfoJhvVQm5xejuiRcoshG5V+iynsx?=
+ =?us-ascii?Q?l/gs+woLsaGumPespaYOz/1tVAXZ1dNNs9A/1UUz/Cv2Ebqf1YXsNq+Q0BSS?=
+ =?us-ascii?Q?NhYGGKklD0iF5DsJ8Rm9Gnc1S8oidHDs4Sfnc1TZnyp+NQNRz+Q0XL7ZoSvc?=
+ =?us-ascii?Q?+vAvWxl/ZJSbOf4vi+8I2qbw4OpkhtMInW2kk3HcXvC6RWQZrRpWZl7gPPmp?=
+ =?us-ascii?Q?Ls3N7AHlpqW7bsoWRxaEBWQvhCz/muwtDXSpSmk/pBzfP6a5siE16TTjbqN5?=
+ =?us-ascii?Q?HYnTMIzjWcyUtLbu0dTKUuZgYcRgf2Vl8aj9TGU9oUNazAzGCLWDVk9JJIsg?=
+ =?us-ascii?Q?dos075dyJAEehd/vQRzpNcl7Wa5L7IWT7KqLzG4RsGXMRuHX3KsnzEBCVE4F?=
+ =?us-ascii?Q?SDsO8s/FkTwP8Ryq3VYIMOrFW3s9gZlIEg1xctzOLQUW7WrBvH/WCAEUPWMw?=
+ =?us-ascii?Q?bNlBLt1qbf52fNqPVpMV9IeDu5FF5THtUoBbb1geVLs+0+p8hyHZvX8vuprg?=
+ =?us-ascii?Q?Ru8GFpqKSif9fzKXHHngoUzjA+U1+BkmPRGGjr02h7gjJRgdlPKGgUZDQvF/?=
+ =?us-ascii?Q?3/sVBONZhfLp7A6M/BIm7q5uB0T4kwtZ7qPR77/QcvfslGDFIH2qFqPr34jP?=
+ =?us-ascii?Q?X9ZZTnDI5lvAtT/2tbFX6WUQ7aavM5SzldRv615xNks/gkGNgI2k4vA53qi/?=
+ =?us-ascii?Q?OHWjeIthM8ywap/Jg0UEmbJpl5czGsbsskmi2mm4xZM6gTEezztGZYAxAJUZ?=
+ =?us-ascii?Q?YbfQ0xNX6HEEvrbvEW3va1nJbc6Zjqyl50iBex43PE2e7EjIXT8v6JOhHNJy?=
+ =?us-ascii?Q?tjxos+cJNPoW781/wtZLIZE2HsKx4Ve5fOqZ7glflJBuny8FPdS9EP5Z1svf?=
+ =?us-ascii?Q?XnHiukq/NjE6yJxR/2+Hkp1F98lyqRMmFOOGCf/P1QPPXdzvkIUV8dO66m1O?=
+ =?us-ascii?Q?UbZH7rJlw3FE52cFPyqU/FjvXY3cZKjN9BvFse753Nq9BdmYNemOq/XDO+6X?=
+ =?us-ascii?Q?4FyuYfYWZhFh7CvJn8iR2DKRJgvr/kfqdi+FQ4rFq+/0wbwY8NmS2yicXlWp?=
+ =?us-ascii?Q?oSGCG5O8tRqjAkb+3hcUDnwU+2rz1CPekqjB+ZLlwFdTR0r5Qbenmbk70of1?=
+ =?us-ascii?Q?m6pExGQJNxaoAgwoLXNvbkQfgOecWFRoJWsYZImYFpKB6BLw/c0zx5UChBf5?=
+ =?us-ascii?Q?ezEOOKnc6KCiJEtfcbajohtGFGydWciss5oKK4jlka22gsLUcbbHMH/ptCtn?=
+ =?us-ascii?Q?vxDBPO5Kom98o2bdsQ0WKfHV8aHWUGFBSbZShmE0Ix147D6veYwg2tOsk2TQ?=
+ =?us-ascii?Q?7x1cvOe+2w4owaWeEnRySjD/a4brnkRq/RP25AyhWQLPa5b0W0kCLbHW9oiN?=
+ =?us-ascii?Q?BXXQzjB9L8LeaTrXp/aGJvVfPxFNMWeBYS/vZyYWXMfKdQbTUupoKRvdDgIk?=
+ =?us-ascii?Q?lw4BlJAmnc1vXTzsJ4uNiPIS75ATj3Y/iAMdeT01Mcd+kpQPTvyYl3GpYMOi?=
+ =?us-ascii?Q?H5XejDafHV2LnWOduLuQjJ1t6GNAuePvUWqc?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?S4vJZLC1Kp6wZ4JZUCJxibxPK9HjqOGojtTrrjLhmdm1IeRrtBgPnUdw9KH7?=
+ =?us-ascii?Q?QXI8Dru+e/oV9jMvF64wXb5FeoILcBmrHJIo1fLUII9Q8KP/WpE41JMjC2AC?=
+ =?us-ascii?Q?tByOhTWD93PmMmaQ8we3hjg91lbDIlUw1BYJlteVsCrhT5+RildrDxmYF9Vy?=
+ =?us-ascii?Q?eGtgPJsZGgr80Jij5r3AKVcy5vp3oSXUE1Ovgzqb32IEwjgfyVb4e5rc/FtV?=
+ =?us-ascii?Q?bT93/9uh3dEJCGuSXXrVnRvuENa1i6pFTvTiDw5tr9R+24wkrkzK20uAIiqY?=
+ =?us-ascii?Q?5oKsWjJ9BFM0KMrBbDwY3LRs6zPtEFDLbiewTf3O/XK1DKh2ohUja23ujjjy?=
+ =?us-ascii?Q?nrwdVmMQB5eAGcJesLI6AIEGjN5XeUsDzlmhBKjzoUdZSTuGCnTet9JoG29s?=
+ =?us-ascii?Q?g9VR6yLJo6lLzP5FLrHfKdDiN0MSUWLILCARaN1hy/4W8iEMASNVmah4pVO6?=
+ =?us-ascii?Q?WyI1X4s1+0dKFgwYhQgRlxKPddxwyumxtE3AfYsR7qUqNDQGs7vOjFizNCOl?=
+ =?us-ascii?Q?XVthbmXQupwmB6C+RnFAvq+1M6X6gw3ZrBq88K8hQa7va/Lw4ae71OsBKm6H?=
+ =?us-ascii?Q?O4RD66Dcw85FV+kLku/YYthLZki940U9Ec9D0GM06DajvYnOHZEHHfmyljo4?=
+ =?us-ascii?Q?zSQP+4gxi1NShiKi+NMLprscrCq0JwU6zNwUUsj9pR8fGyCrmF8r/hUaMMI6?=
+ =?us-ascii?Q?i0e6X3oADCfreJFnJSP9iGZcLZ9qlJaEoM/fYfAteNmSj8wR4zU0kWiuWp7c?=
+ =?us-ascii?Q?1SdOOU/MsrdhUv7sp664Whj2dMusaAlfWjVE8ILfia1pbpVPIiW55Lit6k8X?=
+ =?us-ascii?Q?/+N4HiJPjICZejR7x+aUZ8X9C5S3Bps9+zpfYR88LQDGBsW7TmTM1/8jfnqk?=
+ =?us-ascii?Q?Dhcx+uYOfCuqZ8Kmdu0kLxQEChUdBQVKDhwmgot5+uN/kCXznrReZogOiVHA?=
+ =?us-ascii?Q?1ESzcGn1qvJpRMec0oqNo+ctnaIL9nOdgugiByu5wl2VSojo+Lv15Gsny6TD?=
+ =?us-ascii?Q?1Xb18xC/lxgx+Lm+1pnPBkzdtncxhg94TLPk7zkt5tU/qlN5QhDIplpd8qYu?=
+ =?us-ascii?Q?5PqXn6H5ZXI6ZBG/0Z+LEq7XdOtXUZ44QWnWSje3sHo49jonJH+MXj2CNcST?=
+ =?us-ascii?Q?5RpXRWLaEV/4Zdwave4oehXKTGRtKwfur4HvdA9vXUgVxDPE7BYlOP+Ozjpw?=
+ =?us-ascii?Q?Iq5Zb03Kk8Jsa5Uqf6o2CNHVHrQekZtQLeQ2DTGZDIERyld/hvVHghXJzzPG?=
+ =?us-ascii?Q?q3na89ROEwrw29Q1oyCMId7aaVSNJTssVpql3YwTvAy0fYODDfApDiHl9WsH?=
+ =?us-ascii?Q?RRtigimRRkw8A9s6CTn9Xs9joWVdLVYN4B316R8m4DrHpgSn8WXERujdvXMo?=
+ =?us-ascii?Q?l3ZONlO9r1SFLYu4R/S6dnuhxpHUohndaXZW3plLx5nF6jXEJUtZOApIhqso?=
+ =?us-ascii?Q?9cxngtibVkQQ0OJVXtr+MAUtje5Q0eARUFRH2X4LM3EG25UwF432kKTyqGQW?=
+ =?us-ascii?Q?r5JJ8NgasmdIY41Rf0q1h31vPjN6bqthn/s1OwfnuMaOOZspO8qlXlB4HaJL?=
+ =?us-ascii?Q?7MhGJVYQXn+eK5Icc5m+Dv/s3JPqdRnLZh+dXtgfTG7SU1saN0STa9j/JqJL?=
+ =?us-ascii?Q?8MmbrarUGYqLV88g4zrgJc4pOAqa76EvLqFAnF6a8dQ7k8dcJmqjA+yRpOFF?=
+ =?us-ascii?Q?wMvS1lPTpz5Tjij6P7tIoKJfL4uGIGSp8Uhe0Cp5Wl+bBwk9ZWLVOVdd2Sod?=
+ =?us-ascii?Q?MioGokoR7w=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 65129cdb-a4d8-422a-4175-08de4ea0a01c
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2026 10:28:13.0640
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: R9LzS9QSl2/0nfxB0E08nlLa2hHekyE6zdcev0J0lTCAVvCdHllmoGFQSzzwu66MYvUGCFlPb9z1U9kYsFMkJQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9311
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_022658_413063_9C7345AE 
-X-CRM114-Status: GOOD (  25.98  )
+X-CRM114-CacheID: sfid-20260108_022823_243309_0A5AEE3B 
+X-CRM114-Status: GOOD (  27.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,110 +173,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 8 Jan 2026 09:48:39 +0000
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+Hi Mathieu,
 
-> On Wed, 2026-01-07 at 10:30 +0000, Jonathan Cameron wrote:
-> > On Fri, 19 Dec 2025 15:52:38 +0000
-> > Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> >  =20
-> > > There are times when it is desirable to have more than one return
-> > > value for a hyp call. Split out kvm_call_hyp_nvhe_res from
-> > > kvm_call_hyp_nvhe such that it is possible to directly provide
-> > > struct
-> > > arm_smccc_res from the calling code. Thereby, additional return
-> > > values
-> > > can be stored in res.a2, etc.
-> > >=20
-> > > Suggested-by: Marc Zyngier <maz@kernel.org>
-> > > Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com> =20
-> > One question inline, mostly because I'm curious rather than a
-> > suggestion
-> > to change anything
-> >=20
-> > Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> >  =20
-> > > ---
-> > > =A0arch/arm64/include/asm/kvm_host.h | 15 ++++++++++-----
-> > > =A01 file changed, 10 insertions(+), 5 deletions(-)
-> > >=20
-> > > diff --git a/arch/arm64/include/asm/kvm_host.h
-> > > b/arch/arm64/include/asm/kvm_host.h
-> > > index b552a1e03848c..971b153b0a3fa 100644
-> > > --- a/arch/arm64/include/asm/kvm_host.h
-> > > +++ b/arch/arm64/include/asm/kvm_host.h
-> > > @@ -1208,14 +1208,19 @@ void kvm_arm_resume_guest(struct kvm *kvm);
-> > > =A0#define vcpu_has_run_once(vcpu)	(!!READ_ONCE((vcpu)->pid))
-> > > =A0
-> > > =A0#ifndef __KVM_NVHE_HYPERVISOR__
-> > > -#define kvm_call_hyp_nvhe(f,
-> > > ...)						\
-> > > +#define kvm_call_hyp_nvhe_res(res, f,
-> > > ...)				\
-> > > =A0	({						=09
-> > > 	\
-> > > -		struct arm_smccc_res
-> > > res;				\
-> > > -
-> > > 									\
-> > > +		struct arm_smccc_res *__res =3D
-> > > res;			\ =20
-> >=20
-> > What's the purpose of the local variable? Type sanity check?
-> > Feels like typecheck() would make the intent clearer.
-> > Meh. Not used anywhere in arch/arm64 so maybe not. =20
->=20
-> Far less exciting, I'm afraid.
->=20
-> It is because of the text substitution that happens. The res here is
-> replaced with &res from kvm_call_hyp_nvhe() and we end up with &res-
-> >a0. Given that -> binds more tightly than &, we end up with the wrong =20
-> thing, and the compiler barfs.
->=20
-> An alternative would be to do:
->=20
-> 	WARN_ON((res)->a0 !=3D SMCCC_RET_SUCCESS);
->=20
-> This removes the need for the local variable. I've got no preference
-> for which version we go with.
+On Wed, Jan 07, 2026 at 11:41:07AM -0700, Mathieu Poirier wrote:
+>On Thu, Dec 18, 2025 at 01:17:38PM +0800, Peng Fan (OSS) wrote:
+>> From: Peng Fan <peng.fan@nxp.com>
+>> 
+...
+>> +/* Linux has permission to handle the Logical Machine of remote cores */
+>> +#define IMX_RPROC_FLAGS_SM_LMM_AVAIL	BIT(0)
+>> +
+>
+>This should be named IMX_RPROC_FLAGS_SM_LMM_CTRL.
 
-Ah fair enough.  Just leave it as it is.
+Fix in V6.
 
-Jonathan
+>
+>>  static int imx_rproc_xtr_mbox_init(struct rproc *rproc, bool tx_block);
+>>  static void imx_rproc_free_mbox(void *data);
+>>  
+...
+>> +static int imx_rproc_sm_lmm_start(struct rproc *rproc)
+>> +{
+>> +	struct imx_rproc *priv = rproc->priv;
+>> +	const struct imx_rproc_dcfg *dcfg = priv->dcfg;
+>> +	struct device *dev = priv->dev;
+>> +	int ret;
+>> +
+>
+>A comment is needed here to say that if the remoteproc core can't start the M7,
+>it will already be handled in imx_rproc_sm_lmm_prepare()
 
->=20
-> Sascha
->=20
-> >=20
-> >=20
-> >  =20
-> > > =A0		arm_smccc_1_1_hvc(KVM_HOST_SMCCC_FUNC(f),=09
-> > > 	\
-> > > -				=A0 ##__VA_ARGS__,
-> > > &res);			\
-> > > -		WARN_ON(res.a0 !=3D
-> > > SMCCC_RET_SUCCESS);			\
-> > > +				=A0 ##__VA_ARGS__,
-> > > __res);		\
-> > > +		WARN_ON(__res->a0 !=3D
-> > > SMCCC_RET_SUCCESS);		\
-> > > +	})
-> > > +
-> > > +#define kvm_call_hyp_nvhe(f,
-> > > ...)					\
-> > > +	({						=09
-> > > 	\
-> > > +		struct arm_smccc_res
-> > > res;				\
-> > > =A0							=09
-> > > 	\
-> > > +		kvm_call_hyp_nvhe_res(&res, f,
-> > > ##__VA_ARGS__);		\
-> > > =A0		res.a1;				=09
-> > > 		\
-> > > =A0	})
-> > > =A0 =20
-> >  =20
->=20
+Add in V6:
+        /*
+         * If the remoteproc core can't start the LM, it will already be
+         * handled in imx_rproc_sm_lmm_prepare().
+         */
 
+>
+>> +	ret = scmi_imx_lmm_reset_vector_set(dcfg->lmid, dcfg->cpuid, 0, 0);
+>> +	if (ret) {
+>> +		dev_err(dev, "Failed to set reset vector lmid(%u), cpuid(%u): %d\n",
+>> +			dcfg->lmid, dcfg->cpuid, ret);
+>> +		return ret;
+>> +	}
+>> +
+>>  
+...
+>> +static int imx_rproc_sm_lmm_prepare(struct rproc *rproc)
+>> +{
+>> +	struct imx_rproc *priv = rproc->priv;
+>> +	const struct imx_rproc_dcfg *dcfg = priv->dcfg;
+>> +	int ret;
+>> +
+>
+>>>>>>>>>>>>
+>
+>> +	/*
+>> +	 * IMX_RPROC_FLAGS_SM_LMM_AVAIL not set indicates Linux is not able
+>> +	 * to start/stop rproc LM, then if rproc is not in detached state,
+>> +	 * prepare should fail. If in detached state, this is in rproc_attach()
+>> +	 * path.
+>> +	 */
+>> +	if (!(priv->flags & IMX_RPROC_FLAGS_SM_LMM_AVAIL))
+>> +		return rproc->state == RPROC_DETACHED ? 0 : -EACCES;
+>
+><<<<<<<<<<<
+>
+>        if (rproc->state == RPROC_DETACHED)
+>                return 0;
+>
+>        if (!(priv->flags & IMX_RPROC_FLAGS_SM_LMM_AVAIL))
+>                return -EACCES;
+>
+><<<<<<<<<<<
+
+Update in v6 with your code snippets.
+
+>> +
+>> +	/* Power on the Logical Machine to make sure TCM is available. */
+>> +	ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_POWER_ON, 0);
+>> +	if (ret) {
+>> +		dev_err(priv->dev, "Failed to power on lmm(%d): %d\n", dcfg->lmid, ret);
+>> +		return ret;
+>> +	}
+>> +
+>> +	dev_info(priv->dev, "lmm(%d) powered on by Linux\n", dcfg->lmid);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>  static int imx_rproc_prepare(struct rproc *rproc)
+>>  {
+>>  	struct imx_rproc *priv = rproc->priv;
+>> @@ -980,6 +1078,93 @@ static int imx_rproc_scu_api_detect_mode(struct rproc *rproc)
+>>  	return 0;
+>>  }
+>>  
+>> +static int imx_rproc_sm_lmm_check(struct rproc *rproc, bool started)
+>> +{
+>> +	struct imx_rproc *priv = rproc->priv;
+>> +	const struct imx_rproc_dcfg *dcfg = priv->dcfg;
+>> +	struct device *dev = priv->dev;
+>> +	int ret;
+>> +
+>> +	/*
+>> +	 * Use power on to do permission check. If rproc is in different LM,
+>> +	 * and linux has permission to handle the LM, set IMX_RPROC_FLAGS_SM_LMM_AVAIL.
+>> +	 */
+>
+>Two things here:
+>(1) This whole comment describes what this function does rather than what the
+>code is doing in the next few lines.  As such it needs to be moved above the
+>function declaration.
+>(2) We know the M7 is in a different LM, otherwise "dcfg->lmid == info.lmid" in
+>imx_rproc_sm_detect_mode() and we would not be here.  As such the comment is
+>wrong.  The only thing this code is doing is check if the remoteproc core is
+>responsible for the M7 lifecycle.
+
+Update in v6:
+/* Check whether remoteproc core is responsible for LM lifecycle */
+static int imx_rproc_sm_lmm_check(struct rproc *rproc, bool started)
+
+>
+>> +	ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_POWER_ON, 0);
+>> +	if (ret) {
+...
+>> +
+>> +
+>
+>>>>>>>>>>>>
+>
+>> +	/* rproc was started before boot Linux and under control of Linux, directly return */
+>> +	if (started) {
+>> +		priv->flags |= IMX_RPROC_FLAGS_SM_LMM_AVAIL;
+>> +		return 0;
+>> +	}
+>> +
+>> +	/* else shutdown the LM to save power */
+>> +	ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_SHUTDOWN, 0);
+>> +	if (ret) {
+>> +		dev_err(dev, "shutdown lmm(%d) failed: %d\n", dcfg->lmid, ret);
+>> +		return ret;
+>> +	}
+>> +
+>> +	priv->flags |= IMX_RPROC_FLAGS_SM_LMM_AVAIL;
+>
+><<<<<<<<<<<
+>
+>        /* Shutdown remote processor if not started */
+>        if (!started) {
+>	        ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_SHUTDOWN, 0);
+>	        if (ret) {
+>		        dev_err(dev, "shutdown lmm(%d) failed: %d\n", dcfg->lmid, ret);
+>		        return ret;
+>	        }
+>        }
+>
+>	priv->flags |= IMX_RPROC_FLAGS_SM_LMM_AVAIL;
+>
+><<<<<<<<<<<
+
+Thanks for your code snippets. Update in v6.
+
+>
+>This patchset would be a lot easier to digest if you had split the support for
+>CPU and LMM protocols in diffent patches.
+
+I appreciate your detailed review and the code snippets you provided. Please
+let me know if you'd prefer that I split the support for LMM
+and CPU into separate patches in v6, or keep them combined as they are.
+
+Thanks,
+Peng.
 
