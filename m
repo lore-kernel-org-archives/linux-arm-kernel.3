@@ -4,189 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99144D1D482
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:41:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4187D1D480
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:41:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WewhM1rYQ1KoHefw2PYBb6NSxRq3Ci+IbRbCTnZ+78A=; b=COzXftueHoLdmuHFuduU+IEnYV
-	VFSfaUt/otriVPyWK01gsnjS+5Yzdl76RHIUYi+0o3Acdr5bHld6sZtz6XBJ7kfBIP9UvqgFHNpTm
-	d0hcMnZTzNg4oUWFUDPv/9ILxj0f0UmLkEsfVia/Fl89TUavFAt5GjlTsrBD8Vaf4fYMXzNSwRu2S
-	NYzrOIx4W0uGddKC9jNFyGitFVth55L1itoVBDFukaXFUGfeSRkE9q/tsSMF2RjLDatE1AW48B7k7
-	m7PPfWPC34fkLnY3INfksL+lI7stTqSvod7v5hpFjYVpFDEF3Ix5+RnooTXVS2SkWkOALLrCk1M4d
-	F1JP5iig==;
+	bh=/DMq1JdTrj2lSEBGLycCuwtg/79ew8kdYLPHQv2qL/U=; b=gZY5nGzOjyyUOXHrG9+MXcq5fM
+	pLzRIPIM/x57imgsvL23hBxosg+09BdQjG0WaNnUucxxrAse/tKD7pe3+pcySUrPrvRe6Ye7x8zS7
+	6gpK0C9NtcLPTUJhRSL3S05aJt9X3aQ80pgTH0ksuEUqAS5Nx33gpj+5YJqtjQHnAYz3EOQdXax4e
+	PB13JpRIK2X025B3jxuaO3yn7LluVQ7gaMvG2Cl3b6y0TN+J1AL7odCIMPPhJjoGuqCgkqpFwAZyn
+	ZOmfh4PELDZ4x6tUDRMQhtokOjEzznmR+e/2E57LO3WRdDF1m9y4YfrWy0or1uhh6Ks2xD/YO00Wl
+	vW7hYMTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdt4F-00000000B0K-3WtB;
-	Thu, 08 Jan 2026 16:41:01 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1vdt4R-00000000B4R-06L3;
+	Thu, 08 Jan 2026 16:41:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdt48-00000000Axz-2doy
+	id 1vdt4L-00000000B2Q-0g72
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 16:40:58 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 608GZf4j3183476;
-	Thu, 8 Jan 2026 17:40:45 +0100
-Received: from db3pr0202cu003.outbound.protection.outlook.com (mail-northeuropeazon11010061.outbound.protection.outlook.com [52.101.84.61])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4bhb7pg2b6-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 08 Jan 2026 17:40:45 +0100 (CET)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oYvSkKjJjL9yaD31ggQHngnNxsA2aaidyWq5TMSXqGIr+VrXa9NO0oOJlS14BMgv0RRBb5wm0ZHGuhlBvgJ33x7sQ1l2yiOqOs3b/QEjO9OPk5RZEBSgmF2IyCI8ADXqsxnL75FNY9fgJM0npYGJ/Jwybvm1eLfcc03woMNAfXaGrnF9MMRHdD8Z/DmZpG6RSOKaeAL8Q1CgPXnBD3niuw/eJPZOo4W89xOOd2NIZuQFGRAnRXaXrU71RSTSJGI35IU2rMz1pVm0nS+WAzTe81txclOjIuTfMqQFWbIVDLQAi1Tv+QpQ3Mbis/TcA0x60splz72w2DrAl29ZiT/nkQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WewhM1rYQ1KoHefw2PYBb6NSxRq3Ci+IbRbCTnZ+78A=;
- b=TKwN1oRJCfSQAHNtka5eN3TSfAHGx/x00wdymyDNxtCC3AWNNEDJLk6q1hameJLJJRE7UkvwnhG6nDLQIlD/23i+HzjHVGF4eO//k8c1qRhnk4enFFgARWj4qmLqRTnDZ0hedSXAy51vN84DUVuIa/aktd9+alUNzf9bGHdC32zLKjmaS1coB13NpTYciLjDJz42aox97ujK8ale5dT8S8ybCyKZzJVSnZLgMNsO1S9B+gxOa5Z1MFdTk7bjzga0y2HBIFCC+egnKf5BAcMhMCrZFWJ3gWm28crFDXwNPeLEliU7KBfYAYRyN04fs/gkSqkBm85o/9rVhIL3n5yWbg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WewhM1rYQ1KoHefw2PYBb6NSxRq3Ci+IbRbCTnZ+78A=;
- b=fZobly6RYNG8UpHzdFUdyxYq8Axul1kLlwTDb6fXVnJO0Bu7+yVrs0iOvms5b+/H9Vk907VYporGA90gNjpvxQFna+FbqX4Zi8eqbMs2Lbu5WpdZmRm07/fuINbj2oNb/FcXfOFUMsShOLSpzS9yuGWNvws3lxsfnLtXfg4Zsuo4+6ke3tmvC5TDBBN4D0wI27S0IjzL2I24rKZoBetU00id0uz6PA7yxj/p2VYmMrF2AjT9opSu9JTy3hGFJVR946YfHRxllFKuue8B4PynV1yHv2YX3wclusmq2t6w9qUvl6EEW8KecOZtGAUhAY271PN0Dso9HxeH/5DlkGj7QQ==
-Received: from DU7P250CA0016.EURP250.PROD.OUTLOOK.COM (2603:10a6:10:54f::24)
- by DB9PR10MB5258.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:33c::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9456.14; Thu, 8 Jan
- 2026 16:40:40 +0000
-Received: from DB1PEPF000509F9.eurprd02.prod.outlook.com
- (2603:10a6:10:54f:cafe::ab) by DU7P250CA0016.outlook.office365.com
- (2603:10a6:10:54f::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9478.4 via Frontend Transport; Thu, 8
- Jan 2026 16:40:36 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DB1PEPF000509F9.mail.protection.outlook.com (10.167.242.155) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9499.1 via Frontend Transport; Thu, 8 Jan 2026 16:40:39 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 8 Jan
- 2026 17:41:56 +0100
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 8 Jan
- 2026 17:40:38 +0100
-Message-ID: <369dbec0-5a15-40ce-a564-9cf8c58357fa@foss.st.com>
-Date: Thu, 8 Jan 2026 17:40:38 +0100
+	Thu, 08 Jan 2026 16:41:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1720A6012B;
+	Thu,  8 Jan 2026 16:41:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA90AC116C6;
+	Thu,  8 Jan 2026 16:41:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767890463;
+	bh=Yyy1lLAACLRbfuMJvJ3yyqitDLgasM+HO+Y9xLOdtZc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kh+u3zqeE2KBGqdnE+U5vLLyfxm1KAk6sZTddCTmfsVSipArC2V0qbECoXVwWT1uy
+	 VJtLZwVYNOyeHTldkJuHi2auGLYPpYJibBxHAAo+D1bWd71jTWP5z15qPy1HG2AICh
+	 m5Ag8MuUT6d51OzJ4I1+q2XbKrmVLv2pSm+kl+ABE/K4UORcdwWGE9IDWWQ+2bl5BD
+	 xc7whlJmJv23JwDMcp559G58pj3zBQsuJ/nLDD856qIjtNfMsDeSoc848vzjogdaC6
+	 2FOgB9bgKIyu1hNoCagZklV0k904zsJrnA8OvaszQRK5rKOGN9fM2KfvdD6BBrz8Ax
+	 uX+T/zhqELdBQ==
+Message-ID: <687a115b-c0bb-43a5-80fb-0d92d80aa970@kernel.org>
+Date: Thu, 8 Jan 2026 17:40:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/5] i2c: st: add power-domains on stm32mp2x and enable
- i2c-analog-filter
-To: Alain Volmat <alain.volmat@foss.st.com>,
-        Andi Shyti
-	<andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Pierre-Yves MORDRET
-	<pierre-yves.mordret@foss.st.com>
-CC: <linux-i2c@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20251215-stm32-i2c-mp2x-dt-updates-v1-0-2738a05a7af8@foss.st.com>
+Subject: Re: [PATCH 2/3] dt-bindings: arm: lge: Add compatible for LG1215 SoC
+ and reference board
+To: Chanho Min <chanho.min@lge.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kever Yang <kever.yang@rock-chips.com>, Kael D'Alcamo <dev@kael-k.io>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Cc: Gunho Lee <gunho.lee@lge.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260108082213.6545-1-chanho.min@lge.com>
+ <20260108082213.6545-3-chanho.min@lge.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20251215-stm32-i2c-mp2x-dt-updates-v1-0-2738a05a7af8@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260108082213.6545-3-chanho.min@lge.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509F9:EE_|DB9PR10MB5258:EE_
-X-MS-Office365-Filtering-Correlation-Id: 52018326-802e-4e20-9c15-08de4ed4a877
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|7416014|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?a3VOZCtVRzdRZEI0TGpsWW9tZW5oemVaTXRWdFpLN3JQQ1d2aW1yQ2FEQ0NG?=
- =?utf-8?B?SUs1TTVBTXVrYTFYd1IwbXVZaVBkdmI4RW5sUUtvOWpwSDMrUnhRODRiSXJt?=
- =?utf-8?B?aWFRRE5XTzR3cUJnMXUrK3RpT2dra0JsR21wSUU3QXZ6RE9OM3RYK3hscHQz?=
- =?utf-8?B?V1Z0aklNRGNabktON1hGbUQxbFlWNTFKSG9jcnhrRytOMzVWeTFETnd0ZjFt?=
- =?utf-8?B?NUhoeE1peE9ZQzVtMjZhdzQzdE1YMUdNcjVCTDBBMXBKU29UL1JLczk5b2pI?=
- =?utf-8?B?ek5rYlZ4L0ZoWG1jaUsxQU9RbENsa3RwN2ExcEhLc0V6VUVNUEJ4NHZXZ2ov?=
- =?utf-8?B?VFZyaU9oOTVoTFY3NlFrb2VzL213VElXYjRlbFFyMTZTYTFZdHd1Mi9QS01Z?=
- =?utf-8?B?TGtlYWJRZ1pFZnhURXF4YjJlUE1rQ1RPcDZvdUZlSEhIbDBRZ0N0eE4xS0sz?=
- =?utf-8?B?amhPcHdpVHdiTDZjMFBLc21HRGtYMHlxMUpqamN2VkxoY2lmNG96cWdpZ0V5?=
- =?utf-8?B?TzVjVmVVVkRVTG1pZDhlTWkxd0hvVENYU0JYNUJuQmZ6NDNsbUxYdUhSYVhp?=
- =?utf-8?B?TkF1dEdGOEZTZmw2KzVQOGxoYVRCTllXRlhOMTd0WEdLR0NSZlFzVXhhNkNz?=
- =?utf-8?B?OSt1RHFGcGtWYVpYZjFwZ2RVSkFZNUprSE01SW8rc2ZIUkFTQjhnK2VRb1Yr?=
- =?utf-8?B?TVViMW5YdFIwRWhieG9iYTkzNUZuSHdmbXBPQVgxMkZ1SmpWd29tS3BaUlNj?=
- =?utf-8?B?VDExS3d4RUpJVFBCSndhYVl0WXk2VzZHU3ZleXJXS2M5dTBGRUJicWJ1SFdO?=
- =?utf-8?B?cXBCd3Y3QlVPcGZjWVZOVmdOWVFFS2Nzck5TaU9tdDI3dnV5bE9tR2hUT0o3?=
- =?utf-8?B?Q0dvSVRJNWI4NXBsTHJpWFpCTytMeWRBWXdNcTFwdFo5VkI0UkVoSXpqVUFa?=
- =?utf-8?B?YXhXSk1YTUNlWGdWT1ZxRFRqeERaOVpCYTNSbDVCRkFBVnJVTUNTVHdrSWNW?=
- =?utf-8?B?cWVxNUtEWUNFcXZxSG5yYTRzZUFZSnZHUktGZmRDb3M3RnVMejdpUEVJNHZU?=
- =?utf-8?B?TlloTTFUK0hFbUQ2S1J3STd3emprRVF0QnVIT0MzelFnV05ZZUV5NllpMnc5?=
- =?utf-8?B?aEtIUFd5ZGcxZmdoOUtHNHJtMmtvbE81azF5ejhnUHNtNFlOcE1mRHFtZ2lC?=
- =?utf-8?B?WFV0M0hDQkVKL2EwS2JIUkQrbG1jallvRWNvUmdGY1RkS1RGNFRyY3dheGhI?=
- =?utf-8?B?bWV5YjZsbVU1cHZ5M1BjN09NQUlSaHBVSHJwUFRyU0VQV2NObGw5TGJsdEky?=
- =?utf-8?B?TmlLVmllandTalFIcjJqbG5GR1UxOHFGNVIxeEI5QTQrbFJmWG5jbmpKYkpX?=
- =?utf-8?B?R0JGc1d5THZjSlBOOWFjeDBZS1k1dWNUL1d6TERnVUZ5SmR2SkwrR1hqajcx?=
- =?utf-8?B?NHVSY1l1V01oUnNUYzZCT3Z0bDNrL0hqcmFCNjhINzF1MCtjMzF6UHIwc1RU?=
- =?utf-8?B?OW0xNmdmWm1EdGNDblJNTXkyaDBrWFhHY1p4SWFYQklaYTg2eWhRUW9SbnlG?=
- =?utf-8?B?RHJJeVZQUkJoUFdlcXNKSDZKY3p5aHQrR2tVNnB4bnRlOVVMMzRXcDhMR3hl?=
- =?utf-8?B?QVhKVWY1M3g5YXRzT3BXWGl4ZElXL09SNm9DZVFiUmdCNmdGanI2d3R5aEI3?=
- =?utf-8?B?ZWxQUWRLOTRjKy9zTlUyZk5sdG93eVNqZEl3ZVArUHN4M2FjYk9heHYyMGJQ?=
- =?utf-8?B?cDZvajYrSU12Lzk2MW12bCtUbUFqS3hPZUJ0M2U5N0F0c29EQmdHLzR6RzAr?=
- =?utf-8?B?a1NCcjRVM0QvbERybHJ3b0tBQkpTSFRZdGVuRC9YM3RsUml5OXRGRS8yZEZD?=
- =?utf-8?B?cndoM3E3aEhNaUtpRWdGWDJ5eUJXL3BoamJqRGFobUdBUmxnT1BTQXQyb1dM?=
- =?utf-8?B?SWpqaUU1SkZlNk9LUDJ4VzVuNUZkRHpxSS83WEQrQnM3cmlnU2lFbGRheFB2?=
- =?utf-8?B?M0ttWm5FcTQ2Z1lVSmhNM3IzSFJibmdmVWRJdTlLWFlmWmVVRGdqQTNHTU1M?=
- =?utf-8?B?RUI2NFdOekJ0RHdrNENmWHRZblRQU21sL0Q4Qk1NNGZkTzFYLzFQZ3RQUitT?=
- =?utf-8?Q?u8WM=3D?=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(7416014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2026 16:40:39.8441
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 52018326-802e-4e20-9c15-08de4ed4a877
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F9.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR10MB5258
-X-Proofpoint-GUID: o4HifvEN3VXqq3PR3QdW27NAvCg7SdVx
-X-Proofpoint-ORIG-GUID: o4HifvEN3VXqq3PR3QdW27NAvCg7SdVx
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA4MDEyMiBTYWx0ZWRfX2jSyZ8eYzPUh
- IwPVbVvSW0aAtR2B4fwOqFsRRvLHgOvLTVxz7HqLUapNvcbgSyCdS0Bv0wBQj/IO4KnZY6wWVlo
- ByP2uSYgMn4Qzplcr4IOd0T7/xcwJcZm89mZaoPFn4YYnrk0i3Q8E/0Bz7yLhaZK0xY/77E1Mc3
- auA56f0hFbC09byVnPg+j4YLeiyvBxSUsai5h8KICxFVr7BHdkpkKVk1E1BQVL8E7yQt2cWgWsx
- Z1ISG4yYE1R23tMDTl1vWcIUyDPAtZjakL50gDUYzRYraOARMB2hrpkxbM2iNZx6mUs3mrTSGl1
- WGY6CTa8UdeMoQZSAm9KRkTBDZrDelpuNOjaQxD+frxgvumv74oReNssTB0Crj6SD+XPONUGNLD
- Ga2GOTqQ/x+k2L7iv2JI5kBDu+Tx8Y6fQu05NBLU4dZhroKDSW7hwIBCDSl9vFTe7J1wcuXhE/I
- Ol+buAJ3fe2bbiqzdJw==
-X-Authority-Analysis: v=2.4 cv=DZ8aa/tW c=1 sm=1 tr=0 ts=695fde0d cx=c_pps
- a=rEC1nn3bwXFCJLmtaBoKug==:117 a=d6reE3nDawwanmLcZTMRXA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=TP8aPCUxYTYA:10 a=IkcTkHD0fZMA:10
- a=vUbySO9Y5rIA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=IGI1-IgJz0Pc51GdehsA:9
- a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-08_03,2026-01-08_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
- bulkscore=0 malwarescore=0 lowpriorityscore=0 suspectscore=0 impostorscore=0
- phishscore=0 clxscore=1011 spamscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601080122
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_084052_967749_9933697D 
-X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,36 +121,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alain
-
-On 12/15/25 13:19, Alain Volmat wrote:
-> This series add the possibility to indicate a power-domains for an i2c
-> instance and set the related property for all i2c instances on
-> stm32mp2x.
-> It also enables by default the i2c-analog-filter on all instances on
-> stm32mp2x.
+On 08/01/2026 09:22, Chanho Min wrote:
+> Add compatible strings for the LG1215 SoC and its reference board
+> (lge,lg1215 and lge,lg1215-ref).
 > 
-> Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+> This SoC is the next SoC following the LG1313 series, developed
+> by LG Electronics.
+> 
+> Signed-off-by: Chanho Min <chanho.min@lge.com>
 > ---
-> Alain Volmat (5):
->        dt-bindings: i2c: st,stm32-i2c: add 'power-domains' property
->        arm64: dts: st: add power-domains in all i2c of stm32mp251.dtsi
->        arm64: dts: st: add power-domains in all i2c of stm32mp231.dtsi
->        arm64: dts: st: enable i2c analog-filter in stm32mp251.dtsi
->        arm64: dts: st: enable i2c analog-filter in stm32mp231.dtsi
+>  Documentation/devicetree/bindings/arm/lge.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
 > 
->   Documentation/devicetree/bindings/i2c/st,stm32-i2c.yaml |  3 +++
->   arch/arm64/boot/dts/st/stm32mp231.dtsi                  |  8 ++++++++
->   arch/arm64/boot/dts/st/stm32mp251.dtsi                  | 16 ++++++++++++++++
->   3 files changed, 27 insertions(+)
-> ---
-> base-commit: a6961e2ced5190c68acd78a7e372de07f565fcd6
-> change-id: 20251214-stm32-i2c-mp2x-dt-updates-e3747a0ab68c
-> 
-> Best regards,
+> diff --git a/Documentation/devicetree/bindings/arm/lge.yaml b/Documentation/devicetree/bindings/arm/lge.yaml
+> index d983ef7fcbd6..25750047131b 100644
+> --- a/Documentation/devicetree/bindings/arm/lge.yaml
+> +++ b/Documentation/devicetree/bindings/arm/lge.yaml
+> @@ -24,5 +24,10 @@ properties:
+>            - const: lge,lg1313-ref
+>            - const: lge,lg1313
+>  
+> +      - description: Boards with LG1215 SoC
+> +        items:
+> +          - const: lge,lg1215-ref
 
-Series applied on stm32-next.
+lg, not lge.
 
-Thanks!
-Alex
+
+Best regards,
+Krzysztof
 
