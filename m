@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE60DCF6A8B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 09:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF9EBCF6A8B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 09:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HKyzPm4qHurOikWWc0pJb/Cw+331eQuG8RJXpdAW4Ug=; b=eVh51sr0+vauTdSd7rkIFPG3Vs
-	U7eq5Xj8wx5PIMADHRF8I6iodekEOnYJA/hQngp+G8kLga1JO34NhE5FBLWY76I8WKtVg4TNsYiKT
-	tsxufzzBTekb2cI0xTJOTCgIQtrYDrvwS58CWflwPETSfC4k9HWvJ6GflysP4BIuK1p9MEEcu3YVI
-	kvXn0+tIBqQP9bvdJ8cjx4sbVfVZwQXx8yGaW42E4gL07GTBb8URtx7AU0I982lTjy1bwuhV1dBqP
-	sJ/65+zNcuzPE4UqJs31PxQRgwQp7ceWsWBT9tCISFHui2DALbHwjJ/Jks21wLJD/4pKXZh/a+XWD
-	SLVmPvyg==;
+	bh=TJJ+nrL2N1NJpqKAWTqW94xxzyWqJzLyWrFoyxVz8eo=; b=mpxCA35fmaemRnELWqYYe4mpUt
+	dVQE2Xcig/KUQn2F/c1fNVtIC+LxqqFebrlpFVa6srTe8v6/ayyRszxd77Pl5ANKpSyYx8sEP61X4
+	Ciuz4PNqd7JEzpA45uhJYKz5BfhwwutUPc+cqBE9m+pmf3mipUKBhdyKh+2DmSqI74M321jiPmXLl
+	yAZYNBC4AbK5kyeuzzSRYXoCX/dP8gOWOugDW2cTmrRDuImN1rxTh5UEk41e3qealHXoSq0KpQdaR
+	tJEip9iaEx21aUGJrBoKIkcok8IkGKEa9zKV/EQbCxmwBDW0WpGY++eq3t5+bjChgSioFIbeUM9F3
+	63uma+8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdmCw-0000000GQej-1jFs;
-	Thu, 08 Jan 2026 09:21:30 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1vdmDU-0000000GQnA-43Sa;
+	Thu, 08 Jan 2026 09:22:04 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdmCk-0000000GQbg-3g2F
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 09:21:22 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4dmzp930JqzLlXJ;
-	Thu,  8 Jan 2026 17:17:53 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id BE82140565;
-	Thu,  8 Jan 2026 17:21:08 +0800 (CST)
-Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 8 Jan 2026 17:21:08 +0800
-Received: from [10.67.121.115] (10.67.121.115) by
- kwepemq200004.china.huawei.com (7.202.195.237) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 8 Jan 2026 17:21:07 +0800
-Message-ID: <16395515-1b66-8d71-abb0-d63db661ee62@hisilicon.com>
-Date: Thu, 8 Jan 2026 17:20:43 +0800
+	id 1vdmDS-0000000GQlr-0blY;
+	Thu, 08 Jan 2026 09:22:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1767864118;
+	bh=HJudoobn0KgMRtwSmg9vjOUMp+h8/0xAejDGR9eBhXg=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=gEXcOA7ehA+8VeAHXaIEK8wYSwb8zYkdfoPaXkUN3VCNKy8uF4aI4NeYbH+jMPCZm
+	 N2uvIzJ6xH2gexU1FRZbD/DAt3zrqyixkluhyU4NKgnbtwG98pedCBJC0P3cKhe1gt
+	 rIymzYG9iKl/PqlXMbYxroOprLCDK2tSlTG2ajh/OACthtM1gyd0F1hOFCk5xfy0Ey
+	 nwyNDefPPEDdtrLj7KQdqMwrQC5IbKFZOz4hJrtyT+HCsD/GhFAfXIfR3lcQyPc9aP
+	 c6dDkShEgpxcfmYkGkADorGMt6t3QRQXFUnD0+5MnrtTUANzrg/slZezzrmwqW7Rcf
+	 9AKC8ADYySc7g==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 65AEB17E0181;
+	Thu,  8 Jan 2026 10:21:58 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+In-Reply-To: <20251209-mtk-socinfo-mt8371-v1-1-155a9df851d0@collabora.com>
+References: <20251209-mtk-socinfo-mt8371-v1-1-155a9df851d0@collabora.com>
+Subject: Re: [PATCH] soc: mediatek: mtk-socinfo: Add entry for MT8371AV/AZA
+ Genio 520
+Message-Id: <176786411835.10140.18238979278102973038.b4-ty@collabora.com>
+Date: Thu, 08 Jan 2026 10:21:58 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: [PATCH v8 0/7] Add support for FEAT_{LS64, LS64_V} and related
- tests
-Content-Language: en-US
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
-	<oliver.upton@linux.dev>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
-	<arnd@arndb.de>, <yuzenghui@huawei.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<yangyccccc@gmail.com>, <prime.zeng@hisilicon.com>, <xuwei5@huawei.com>
-References: <20251223093343.3822498-1-wangzhou1@hisilicon.com>
-From: Zhou Wang <wangzhou1@hisilicon.com>
-In-Reply-To: <20251223093343.3822498-1-wangzhou1@hisilicon.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.115]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemq200004.china.huawei.com (7.202.195.237)
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_012119_256933_87352B81 
-X-CRM114-Status: GOOD (  19.34  )
+X-CRM114-CacheID: sfid-20260108_012202_332143_C775C860 
+X-CRM114-Status: UNSURE (   5.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,122 +76,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/12/23 17:33, Zhou Wang wrote:
-> Armv8.7 introduces single-copy atomic 64-byte loads and stores
-> instructions and its variants named under FEAT_{LS64, LS64_V}.
-> Add support for Armv8.7 FEAT_{LS64, LS64_V}:
-> - Add identifying and enabling in the cpufeature list
-> - Expose the support of FEAT_LS64 to userspace through HWCAP3 and cpuinfo
-> - Add related hwcap test
-> - Handle the trap of unsupported memory (normal/uncacheable) access in a VM
+On Tue, 09 Dec 2025 10:33:20 +0100, Louis-Alexis Eyraud wrote:
+> Add an entry for the MT8371 SoC with commercial name Genio 520.
 > 
-> A real scenario for this feature is that the userspace driver can make use of
-> this to implement direct WQE (workqueue entry) - a mechanism to fill WQE
-> directly into the hardware.
 > 
-> Picked Marc's 2 patches form [1] for handling the LS64 trap in a VM on emulated
-> MMIO and the introduce of KVM_EXIT_ARM_LDST64B.
-> 
-> [1] https://lore.kernel.org/linux-arm-kernel/20240815125959.2097734-1-maz@kernel.org/
 
-Hi,
+Applied to v6.19-next/soc, thanks!
 
-Gentle ping about this series... If there is no more comment, is there a chance to
-take it in this cycle?
+[1/1] soc: mediatek: mtk-socinfo: Add entry for MT8371AV/AZA Genio 520
+      commit: db6dcaeeb60f97ce9765d50035be23c0901d7348
 
-Best,
-Zhou
+Cheers,
+Angelo
 
-> 
-> Tested with updated hwcap test(host in VHE):
-> [root@localhost tmp]# ./hwcap
-> [...]
-> # LS64 present
-> ok 226 cpuinfo_match_LS64
-> ok 227 sigill_LS64
-> ok 228 # SKIP sigbus_LS64
-> # 120 skipped test(s) detected. Consider enabling relevant config options to improve coverage.
-> # Totals: pass:108 fail:0 xfail:0 xpass:0 skip:120 error:0
-> 
-> Tested with updated hwcap test(guest in VHE):
-> root@localhost:/mnt# ./hwcap
-> [...]
-> # LS64 present
-> ok 226 cpuinfo_match_LS64
-> ok 227 sigill_LS64
-> ok 228 # SKIP sigbus_LS64
-> # 120 skipped test(s) detected. Consider enabling relevant config options to improve coverage.
-> # Totals: pass:108 fail:0 xfail:0 xpass:0 skip:120 error:0
-> 
-> Tested nVHE case as well, same log as above.
-> 
-> Change since v7:
-> - Tiny spelling fix in 1/7
-> - Change the order between 5/7 and 6/7
-> - Remove has_ls64, use has_cpuid_feature directly in 6/7
-> - Add Acked-by from Arnd and Oliver
-> - Trap st64bv from EL0 to EL1/EL2
-> - Rebase on v6.19-rc1
-> Link: https://lore.kernel.org/all/20251107072127.448953-1-wangzhou1@hisilicon.com/
-> 
-> Change since v6:
-> - Add exception inject about nested VM in 3/7
-> - Remove __maybe_unused related codes in 7/7, replace to use asm clobber
-> - Add my signoff in each patch
-> - Rebase on v6.18-rc4
-> Link: https://lore.kernel.org/all/20251024090819.4097819-1-wangzhou1@hisilicon.com/
-> 
-> Change since v5:
-> - Rebase on v6.18-rc2 and fix the conflicts
-> - Add more description in elf_hwcaps.rst as suggested by Catalin Marinas
-> Link: https://lore.kernel.org/all/20250818064806.25417-1-yangyicong@huawei.com/
-> 
-> Change since v4:
-> - Rebase on v6.17-rc2 and fix the conflicts
-> Link: https://lore.kernel.org/linux-arm-kernel/20250715081356.12442-1-yangyicong@huawei.com/
-> 
-> Change since v3:
-> - Inject DABT fault for LS64 fault on unsupported memory but with valid memslot
-> Link: https://lore.kernel.org/linux-arm-kernel/20250626080906.64230-1-yangyicong@huawei.com/
-> 
-> Change since v2:
-> - Handle the LS64 fault to userspace and allow userspace to inject LS64 fault
-> - Reorder the patches to make KVM handling prior to feature support
-> Link: https://lore.kernel.org/linux-arm-kernel/20250331094320.35226-1-yangyicong@huawei.com/
-> 
-> Change since v1:
-> - Drop the support for LS64_ACCDATA
-> - handle the DABT of unsupported memory type after checking the memory attributes
-> Link: https://lore.kernel.org/linux-arm-kernel/20241202135504.14252-1-yangyicong@huawei.com/
-> 
-> Marc Zyngier (2):
->   KVM: arm64: Add exit to userspace on {LD,ST}64B* outside of memslots
->   KVM: arm64: Add documentation for KVM_EXIT_ARM_LDST64B
-> 
-> Yicong Yang (5):
->   KVM: arm64: Handle DABT caused by LS64* instructions on unsupported
->     memory
->   arm64: Provide basic EL2 setup for FEAT_{LS64, LS64_V} usage at EL0/1
->   KVM: arm64: Enable FEAT_{LS64, LS64_V} in the supported guest
->   arm64: Add support for FEAT_{LS64, LS64_V}
->   kselftest/arm64: Add HWCAP test for FEAT_LS64
-> 
->  Documentation/arch/arm64/booting.rst      | 12 ++++++
->  Documentation/arch/arm64/elf_hwcaps.rst   |  7 ++++
->  Documentation/virt/kvm/api.rst            | 43 ++++++++++++++++----
->  arch/arm64/include/asm/el2_setup.h        | 12 +++++-
->  arch/arm64/include/asm/esr.h              |  8 ++++
->  arch/arm64/include/asm/hwcap.h            |  1 +
->  arch/arm64/include/asm/kvm_emulate.h      |  7 ++++
->  arch/arm64/include/uapi/asm/hwcap.h       |  1 +
->  arch/arm64/kernel/cpufeature.c            | 28 +++++++++++++
->  arch/arm64/kernel/cpuinfo.c               |  1 +
->  arch/arm64/kvm/inject_fault.c             | 34 ++++++++++++++++
->  arch/arm64/kvm/mmio.c                     | 27 ++++++++++++-
->  arch/arm64/kvm/mmu.c                      | 14 ++++++-
->  arch/arm64/tools/cpucaps                  |  2 +
->  include/uapi/linux/kvm.h                  |  3 +-
->  tools/testing/selftests/arm64/abi/hwcap.c | 49 +++++++++++++++++++++++
->  16 files changed, 238 insertions(+), 11 deletions(-)
-> 
+
 
