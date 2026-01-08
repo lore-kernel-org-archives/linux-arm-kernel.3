@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01203D185D5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73496D185D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g7VLJ0qsYizCH4nUj5cUjJTNxSK7nDD/+BXYqhfrIWQ=; b=3M/AdRHXE1YGmZAtFYeznddB/0
-	yOOEfGEEGtzaWH/oevnEdtzbqMBsTVVdft6hz4kTewdWzagw48rVI2zGS/zlwkSfqXwXeYEwc3hpp
-	YM9nB1eE7EofD6is26bc3vNcys/RFlezBzod6LpcQPjfgc9zwgOHDXFl1cJIFcYrezZmKFQXmEMvn
-	Lwief/z3dFs5ONRb6ni8wo+1Xc3NqRKl5iz4qROd+8Mwqiu17/iwAnH9AQBpKiEozBcXEtU9EMykl
-	tTv2jb9GKCYa7BEShDdAbm/j+SF+ZQQ1a3Yfd+xhFX2vI7gbpITAAfZ7tdWGLuvGao/hvDLoq98gz
-	9Wn1gRCw==;
+	bh=U9R2jXj49146KC+5vfWPPVVZwl1JmffLlWfBTYD6OiU=; b=0Rp3j1NG8mZl3L3qvPGXnz8MMO
+	lBH1jqaxddorMT6Nv2QKL7ZziYF1askgeKdf9SysFaCODs1UsVU2OuzivcrX1HRtuAa+WeWp6j/k/
+	+wJpYlG2/UGPEM5twOmXVXQATrbT3zi92p7VoPzPZ28VaR2bizculKMvcQmNZ0yqn5r4DRVBTAHOB
+	Uq35XVLEjnUcOeJkbd6ZPasBxVRT+U+Ho6A86MICznU48BOkA3Oj0rBGctM5KVajPAqRO8jP6Lp4f
+	Ex2nFiOt1QeqNGYWtLqXoEJBJYAG3vjCkc4Sp6uW+M2jT8IgQaOkMwjffTgbUHlCREV+kWpO0RhOf
+	SFlfgY9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdnh5-0000000GkWA-0Feq;
-	Thu, 08 Jan 2026 10:56:43 +0000
+	id 1vdnhA-0000000Gkad-0J4i;
+	Thu, 08 Jan 2026 10:56:48 +0000
 Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdngw-0000000GkHx-25aO;
-	Thu, 08 Jan 2026 10:56:35 +0000
+	id 1vdngv-0000000GkId-3yxR;
+	Thu, 08 Jan 2026 10:56:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1767869795; x=1799405795;
+  t=1767869794; x=1799405794;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=G7V9+SrifDGfqxju25Hp/oyxgo/fWf9zfXipYvZQzAU=;
-  b=jzpwyzV440LZdnWAnd4EPXQUtKMHr1jtbDmarf504TIXLL41z367oREw
-   N7q+2jdooXJ7q3hZEM9uTGC8XS1C3ojJoKY0hUBgrpmotOuHp1ieLm0Vo
-   RoCDtVYUFRkPgnz2ynR97rkJyxElvuvrdRLlzIPq4DVt2MtNID8tE41Bt
-   azadEWK0eDHdFm8HaI+k1fGp+EhhhZSicpd9BpYoess0ADWFk7ZJR2NJK
-   ITV/Z+b/nQ/3VRVtWLr3JktBS7VUel+wKMKYqT05F7A2Mjet2OGv7KIBf
-   UcywKVh7exIJ4KUYW3KWWgz21XuIk6OADrnZEJv/+jY+a+y/LfTRzRTn+
-   A==;
-X-CSE-ConnectionGUID: dFgy/97fTZy/AqvHhGNJXQ==
-X-CSE-MsgGUID: TnTtbemKRPiA4wGPduGH/A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11664"; a="80354653"
+  bh=aIZKpp2i1U4bYPp+lJpBExBX9TU2DJpWjDWAz41Iejk=;
+  b=OYQqyIfor0fCS0BOAZpKY0jAsel43/yxutY1OZwk87W/RcTeSB32Iiht
+   RvQRuHXREbOJkupNJlqaYf1SMgDap+KqVmKonujuwqSF1ktwNN6hnwcGB
+   UM56RLAZZfHq5Glck2cdnIvWSFt/BwUJ6BO0E8K9uWP2CoOo60D/JKMjz
+   y8a+9u+dbs4izBbD3y83sVCxW1n+CUGALGMuflRRZwj8VCZoaI0/BG+Q1
+   KNi1320NldxfHS8FXxPqb0NeLNPo9WBqEhergPsEzhGsV2GfxOoPXijfN
+   ld+4ze8orGdeyjI6zfdCxszusi/aq4qUy7MWvCt9t+ys5kGy2Mxv1DexY
+   w==;
+X-CSE-ConnectionGUID: +lI/DDc6RQ2gx+drboq0PQ==
+X-CSE-MsgGUID: fXeGR1I8Rwug9xKqHux4eQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11664"; a="80354623"
 X-IronPort-AV: E=Sophos;i="6.21,210,1763452800"; 
-   d="scan'208";a="80354653"
+   d="scan'208";a="80354623"
 Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2026 02:56:34 -0800
-X-CSE-ConnectionGUID: Zwvn7u6hTo6+k7bjfHNITw==
-X-CSE-MsgGUID: 0Pl65cuJQkCkM+DOgQ/NWw==
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2026 02:56:33 -0800
+X-CSE-ConnectionGUID: Gb3DjqCbSMKUzD25zpkYEg==
+X-CSE-MsgGUID: fJjhLUL8TIea3RGk5XNoVw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.21,210,1763452800"; 
-   d="scan'208";a="203615549"
+   d="scan'208";a="203615547"
 Received: from black.igk.intel.com ([10.91.253.5])
   by fmviesa009.fm.intel.com with ESMTP; 08 Jan 2026 02:56:27 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id 71CF7A8; Thu, 08 Jan 2026 11:56:20 +0100 (CET)
+	id 6314CA5; Thu, 08 Jan 2026 11:56:20 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Bjorn Andersson <andersson@kernel.org>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
@@ -84,17 +84,17 @@ Cc: Olivier Dautricourt <olivierdautricourt@gmail.com>,
 	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>,
 	Michal Simek <michal.simek@amd.com>,
 	Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v5 11/13] dmaengine: sa11x0: use sg_nents_for_dma() helper
-Date: Thu,  8 Jan 2026 11:50:22 +0100
-Message-ID: <20260108105619.3513561-12-andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v5 08/13] dmaengine: pxa-dma: use sg_nents_for_dma() helper
+Date: Thu,  8 Jan 2026 11:50:19 +0100
+Message-ID: <20260108105619.3513561-9-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260108105619.3513561-1-andriy.shevchenko@linux.intel.com>
 References: <20260108105619.3513561-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_025634_630395_9AE9965D 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20260108_025634_067984_220B3BEC 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,41 +114,32 @@ Instead of open coded variant let's use recently introduced helper.
 Reviewed-by: Bjorn Andersson <andersson@kernel.org>
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/dma/sa11x0-dma.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ drivers/dma/pxa_dma.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/dma/sa11x0-dma.c b/drivers/dma/sa11x0-dma.c
-index dc1a9a05252e..86f1d7461f56 100644
---- a/drivers/dma/sa11x0-dma.c
-+++ b/drivers/dma/sa11x0-dma.c
-@@ -526,7 +526,7 @@ static struct dma_async_tx_descriptor *sa11x0_dma_prep_slave_sg(
- 	struct sa11x0_dma_chan *c = to_sa11x0_dma_chan(chan);
- 	struct sa11x0_dma_desc *txd;
- 	struct scatterlist *sgent;
--	unsigned i, j = sglen;
-+	unsigned int i, j;
- 	size_t size = 0;
+diff --git a/drivers/dma/pxa_dma.c b/drivers/dma/pxa_dma.c
+index 249296389771..b639c8b51e87 100644
+--- a/drivers/dma/pxa_dma.c
++++ b/drivers/dma/pxa_dma.c
+@@ -970,7 +970,7 @@ pxad_prep_slave_sg(struct dma_chan *dchan, struct scatterlist *sgl,
+ 	struct scatterlist *sg;
+ 	dma_addr_t dma;
+ 	u32 dcmd, dsadr = 0, dtadr = 0;
+-	unsigned int nb_desc = 0, i, j = 0;
++	unsigned int nb_desc, i, j = 0;
  
- 	/* SA11x0 channels can only operate in their native direction */
-@@ -542,10 +542,7 @@ static struct dma_async_tx_descriptor *sa11x0_dma_prep_slave_sg(
+ 	if ((sgl == NULL) || (sg_len == 0))
+ 		return NULL;
+@@ -979,8 +979,7 @@ pxad_prep_slave_sg(struct dma_chan *dchan, struct scatterlist *sgl,
+ 	dev_dbg(&chan->vc.chan.dev->device,
+ 		"%s(): dir=%d flags=%lx\n", __func__, dir, flags);
  
- 	for_each_sg(sg, sgent, sglen, i) {
- 		dma_addr_t addr = sg_dma_address(sgent);
--		unsigned int len = sg_dma_len(sgent);
- 
--		if (len > DMA_MAX_SIZE)
--			j += DIV_ROUND_UP(len, DMA_MAX_SIZE & ~DMA_ALIGN) - 1;
- 		if (addr & DMA_ALIGN) {
- 			dev_dbg(chan->device->dev, "vchan %p: bad buffer alignment: %pad\n",
- 				&c->vc, &addr);
-@@ -553,6 +550,7 @@ static struct dma_async_tx_descriptor *sa11x0_dma_prep_slave_sg(
- 		}
- 	}
- 
-+	j = sg_nents_for_dma(sg, sglen, DMA_MAX_SIZE & ~DMA_ALIGN);
- 	txd = kzalloc(struct_size(txd, sg, j), GFP_ATOMIC);
- 	if (!txd) {
- 		dev_dbg(chan->device->dev, "vchan %p: kzalloc failed\n", &c->vc);
+-	for_each_sg(sgl, sg, sg_len, i)
+-		nb_desc += DIV_ROUND_UP(sg_dma_len(sg), PDMA_MAX_DESC_BYTES);
++	nb_desc = sg_nents_for_dma(sgl, sg_len, PDMA_MAX_DESC_BYTES);
+ 	sw_desc = pxad_alloc_desc(chan, nb_desc + 1);
+ 	if (!sw_desc)
+ 		return NULL;
 -- 
 2.50.1
 
