@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66737D1D48A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 21:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F69D1D495
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 21:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Are9ibJ1bKI6VUEY6W6lemS2RR1hyk8HctqapqrBM6Y=; b=U1iFqJZHV7ai2wYhSpR6mC6h5E
-	7ihsXTHtO1V/yniWeiO7zLKiMIqHRQQN2j+yt9o9aLvL8RknY4915ifvZqsixnT2EvE8D1nG7Jrvq
-	Zkk4WPEQHxpHWKvv1Xa83aGzdhi4owul3r523erNg3jX490rcXV9bhuwhFvOrZRF5wxp6Jebs9mAB
-	vMpxpFzHY95a/eD7H3nNbispRcciMxI/AvC9IAw+GEceBskvG1hpt5dp0MeLZindR54/07V/oarum
-	8W0+Ukc2hNf4GGxUvLiZ1Fmx3AI7EKagazNHbMnKHatcXTOZj26rCI8t/8+RXEER1V5dCFB+0U4/M
-	qk6m2qLg==;
+	bh=CCqVmwEYGvuoO8ZStY2Wfo+Alh/jtZ3DP8KhCBeoYu0=; b=30J8EuP2Kyt3L/dq2mmj+NsIV4
+	05O85mfRa1O8J7w/HkmVNG5Xot8TI5U3OKE75sOm/nCt7rwqS2PliucvGHBKx70Tby9kX0q9zS2+s
+	ce8N2dOhXSPZSg1rMpbK7P6N5YWI9FjtDO11R+nkAOsYp6V5RJYHHG8RIMUFiYgrrWSbkFGE2m7Fc
+	s3S6c7A9bzCdArp1GP5dFTeYXHb0C6403is9FtWmVa1JUDSHKs9uIOmaeLHUf68MpYQfA0IstEohX
+	2VLqlWsOnvq+W0yqeC0n4bAeJ0oU+0TuMnKlGlAs9OORjlB0FaM2UC0OrJY+g3aM1ie8jmFMPOFzP
+	pat6N9lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdxYb-00000000uaQ-33UN;
-	Thu, 08 Jan 2026 21:28:37 +0000
+	id 1vdxff-00000000uyJ-2yIZ;
+	Thu, 08 Jan 2026 21:35:55 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdxYZ-00000000uZy-1VQj
+	id 1vdxfd-00000000uxy-3WKi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 21:28:36 +0000
+	Thu, 08 Jan 2026 21:35:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2D23742E58;
-	Thu,  8 Jan 2026 21:28:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31A44C116C6;
-	Thu,  8 Jan 2026 21:28:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1B75F42E29;
+	Thu,  8 Jan 2026 21:35:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCB41C116C6;
+	Thu,  8 Jan 2026 21:35:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767907714;
-	bh=867MVYqB2USbUxXWc7YOR69zdzsNdxKNzvzgaETZw/w=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=SBX+Q4vpB64LFyZQjZGly1tVIEl03H0JgAaNlYBQaa0c9BdbyQ/CyixCVBdwCz8f1
-	 KvDstoz4Jktk1JC+O/y6FNcawe6dhtMc10QmQ74oyDFWlU72V+4YiR0io7xlB8DkCk
-	 82XA1nOe20ZyQy33ENE8D+o5Gir8YHC2CtmV0W5cezQRBNTpXXpkygykA8UPLJq+5Q
-	 j6pJItlh9JXcxMsckAyecdB/Rjvf3w0JsEz1IJxe78+HOaI5zks1BtsGsRy8favUJ2
-	 4DscJy2HxDmgWI5xYN2ExenjDL0aEQhItiX0aZmqnwqfJko5QhY5JRRjCnuM/jo4zE
-	 HSpJ68xUaDprw==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Paolo Bonzini <pbonzini@redhat.com>, Ankit Soni <Ankit.Soni@amd.com>,
- Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>, Joerg Roedel <joro@8bytes.org>,
- David Woodhouse <dwmw2@infradead.org>, Lu Baolu
- <baolu.lu@linux.intel.com>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, kvm@vger.kernel.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, Sairaj Kodilkar <sarunkod@amd.com>, Vasant
- Hegde <vasant.hegde@amd.com>, Maxim Levitsky <mlevitsk@redhat.com>, Joao
- Martins <joao.m.martins@oracle.com>, Francesco Lavra
- <francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>, Naveen
- Rao <Naveen.Rao@amd.com>, Crystal Wood <crwood@redhat.com>
-Subject: Re: possible deadlock due to irq_set_thread_affinity() calling into
- the scheduler (was Re: [PATCH v3 38/62] KVM: SVM: Take and hold
- ir_list_lock across IRTE updates in IOMMU)
-In-Reply-To: <42513cb3-3c2e-4aa8-b748-23b6656a5096@redhat.com>
-References: <20250611224604.313496-2-seanjc@google.com>
- <20250611224604.313496-40-seanjc@google.com>
- <njhjud3e6wbdftzr3ziyuh5bhyvc5ndt5qvmg7rlvh5isoop2l@f2uxctws2c7d>
- <42513cb3-3c2e-4aa8-b748-23b6656a5096@redhat.com>
-Date: Thu, 08 Jan 2026 22:28:29 +0100
-Message-ID: <874iovu742.ffs@tglx>
+	s=k20201202; t=1767908153;
+	bh=RYTc/j72DSJS6wvoSkh81+TKqgFZgRCTQkO2un1ijM0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Y6S6ftNbmXXW0NysORAKoesBalPZCAHs3vhEl1XKviZ8aGUT+rkYbX+89sY1BH6Bu
+	 IDuaw5rtrfiadKN9BlQdam9Vv9jp3Goe8wpCMxsOugTx3KsG/drreadnhAfoiCOPkQ
+	 J+r6EYbK72MpG+7aSljrzhCKyvgrVLXfAd0hAIRWRpsD7v3c90oczl4D0U/LYegu/i
+	 sKBmG632pcGxeyceXA2jEYF/+QZdSS5yQv6Dduhpb+dCeH6lA4sziidz9QIKST3peM
+	 RciUgkFv1yKETzqr3mr/SPoDiKjV7xPdrnnpoqsb9cCZTjjUvCXkN2QsY7NodcrDjQ
+	 ByslcFSRZ9xvQ==
+Date: Thu, 8 Jan 2026 21:35:45 +0000
+From: Will Deacon <will@kernel.org>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	bpf@vger.kernel.org, arnd@arndb.de, catalin.marinas@arm.com,
+	peterz@infradead.org, akpm@linux-foundation.org,
+	mark.rutland@arm.com, harisokn@amazon.com, cl@gentwo.org,
+	ast@kernel.org, rafael@kernel.org, daniel.lezcano@linaro.org,
+	memxor@gmail.com, zhenglifeng1@huawei.com,
+	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+Subject: Re: [PATCH v8 04/12] arm64: support WFET in
+ smp_cond_relaxed_timeout()
+Message-ID: <aWAjMbSqN2g7v58Z@willie-the-truck>
+References: <20251215044919.460086-1-ankur.a.arora@oracle.com>
+ <20251215044919.460086-5-ankur.a.arora@oracle.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251215044919.460086-5-ankur.a.arora@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_132835_459676_C790731F 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20260108_133553_900022_F775A9BB 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,90 +81,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 22 2025 at 15:09, Paolo Bonzini wrote:
-> On 12/22/25 10:16, Ankit Soni wrote:
->>    ======================================================
->>    WARNING: possible circular locking dependency detected
->>    6.19.0-rc2 #20 Tainted: G            E
->>    ------------------------------------------------------
->>    CPU 58/KVM/28597 is trying to acquire lock:
->>      ff12c47d4b1f34c0 (&irq_desc_lock_class){-.-.}-{2:2}, at: __irq_get_desc_lock+0x58/0xa0
->> 
->>      but task is already holding lock:
->>      ff12c49b28552110 (&svm->ir_list_lock){....}-{2:2}, at: avic_pi_update_irte+0x147/0x270 [kvm_amd]
->> 
->>      which lock already depends on the new lock.
->> 
->>    Chain exists of:
->>      &irq_desc_lock_class --> &rq->__lock --> &svm->ir_list_lock
->> 
->>    Possible unsafe locking scenario:
->> 
->>          CPU0                            CPU1
->>          ----                            ----
->>     lock(&svm->ir_list_lock);
->>                                        lock(&rq->__lock);
->>                                        lock(&svm->ir_list_lock);
->>     lock(&irq_desc_lock_class);
->> 
->>          *** DEADLOCK ***
->> 
->> So lockdep sees:
->> 
->>    &irq_desc_lock_class -> &rq->__lock -> &svm->ir_list_lock
->> 
->> while avic_pi_update_irte() currently holds svm->ir_list_lock and then
->> takes irq_desc_lock via irq_set_vcpu_affinity(), which creates the
->> potential inversion.
->> 
->>    - Is this lockdep warning expected/benign in this code path, or does it
->>      indicate a real potential deadlock between svm->ir_list_lock and
->>      irq_desc_lock with AVIC + irq_bypass + VFIO?
->
-> I'd treat it as a potential (if unlikely) deadlock:
->
-> (a) irq_set_thread_affinity triggers the scheduler via wake_up_process,
-> while irq_desc->lock is taken
->
-> (b) the scheduler calls into KVM with rq_lock taken, and KVM uses
-> ir_list_lock within __avic_vcpu_load/__avic_vcpu_put
->
-> (c) KVM wants to block scheduling for a while and uses ir_list_lock for
-> that purpose, but then takes irq_set_vcpu_affinity takes irq_desc->lock.
->
-> I don't think there's an alternative choice of lock for (c); and there's
-> no easy way to pull the irq_desc->lock out of the IRQ subsystem--in fact
+On Sun, Dec 14, 2025 at 08:49:11PM -0800, Ankur Arora wrote:
+> +#define __CMPWAIT_CASE(w, sfx, sz)						\
+> +static inline void __cmpwait_case_##sz(volatile void *ptr,			\
+> +				       unsigned long val,			\
+> +				       s64 timeout_ns)				\
+> +{										\
+> +	unsigned long tmp;							\
+> +										\
+> +	if (!alternative_has_cap_unlikely(ARM64_HAS_WFXT) || timeout_ns <= 0) {	\
+> +		asm volatile(							\
+> +		"	sevl\n"							\
+> +		"	wfe\n"							\
+> +		"	ldxr" #sfx "\t%" #w "[tmp], %[v]\n"			\
+> +		"	eor	%" #w "[tmp], %" #w "[tmp], %" #w "[val]\n"	\
+> +		"	cbnz	%" #w "[tmp], 1f\n"				\
+> +		"	wfe\n"							\
+> +		"1:"								\
+> +		: [tmp] "=&r" (tmp), [v] "+Q" (*(u##sz *)ptr)			\
+> +		: [val] "r" (val));						\
+> +	} else {								\
+> +		u64 ecycles = arch_timer_read_counter() +			\
+> +				NSECS_TO_CYCLES(timeout_ns);			\
+> +		asm volatile(							\
+> +		"	sevl\n"							\
+> +		"	wfe\n"							\
+> +		"	ldxr" #sfx "\t%" #w "[tmp], %[v]\n"			\
+> +		"	eor	%" #w "[tmp], %" #w "[tmp], %" #w "[val]\n"	\
+> +		"	cbnz	%" #w "[tmp], 2f\n"				\
+> +		"	msr s0_3_c1_c0_0, %[ecycles]\n"				\
+> +		"2:"								\
+> +		: [tmp] "=&r" (tmp), [v] "+Q" (*(u##sz *)ptr)			\
+> +		: [val] "r" (val), [ecycles] "r" (ecycles));			\
+> +	}									\
 
-Don't even think about that.
+Why not have a separate helper for the WFXT version and avoid the runtime
+check on timeout_ns?
 
-> the stickiness of the situation comes from rq->rq_lock and
-> irq_desc->lock being both internal and not leaf.
->
-> Of the three, the most sketchy is (a); notably, __setup_irq() calls
-> wake_up_process outside desc->lock.  Therefore I'd like so much to treat
-> it as a kernel/irq/ bug; and the simplest (perhaps too simple...) fix is
-
-It's not more sketchy than VIRT assuming that it can do what it wants
-under rq->lock. :)
-
-> to drop the wake_up_process().  The only cost is extra latency on the
-> next interrupt after an affinity change.
-
-The real problematic cost is that in an isolation scenario the wakeup
-happens at the next interrupt which might be far into the isolated
-phase. That's why the wakeup is there. See:
-
-  c99303a2d2a2 ("genirq: Wake interrupt threads immediately when changing affinity")
-
-Obviously you did not even bother to look that up otherwise you would
-have CC'ed Crystal and asked her to take a look...
-
-Thanks,
-
-        tglx
-
-
-
-
-
+Will
 
