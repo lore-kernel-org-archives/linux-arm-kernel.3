@@ -4,68 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 967DAD185F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 13:33:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29743D185F1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 13:33:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ndFWMjzooieb5xyGu4cJGAmspejtFb892UHQx8ZDIZg=; b=cFyuxmghlncyYiF7xaUXXb6S7I
-	lw5s23EScNiTBzK1auoeNueK9PxuM6d2WIGlb2dEnA4kTTl+PiPbeTYaqmZvuuGNaDjPRvyEIs02W
-	39MNj0jbUcblRJoyswdsuiXwYw0DuMVRvR2E7hqHUVvBxsoCsjS5QFY/CbSSmVNJZ980XRD5GdkZP
-	vIgrB2/k6lfNu5OeAGGwVwRO1RG278omcUdZBJiRn/4HGAnnn5H5HAtKKwDkZE7aLlDksWJRAooDB
-	9RXe41CqJ5gxqPfAR4iLCbFkoJk7aH0DUHZ2j5tTn7UJxG06pGvuyAXLTyEHgJlsw6E2x22f12GJZ
-	iWx7vWGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=veR9z3VsPIxAIyHsq0lQYRUjw8X7wRPHnBNDDdwkacw=; b=n8OoBMEfjhUsAiUML6yIvqE4Ko
+	idLPlsEbBIDqy12Gs8EuM2oebcwZwAunlleb0+236PQF4OURPP6iBXcZ4g6bgGk7ktBIEn1sb9soH
+	DcqTzNy00n9cuRe3V7C2SSjD46+9CNBjGMpkVhCF8Y8G2SwqcwiS1ODgKIUGvYT/Bu3fsiqxZR2QT
+	DXGpmmPysTjNDlcbPjp9HTNW+gk1XJK6YOaz/D1f+rFq/oL3Iy81qyBfYBrSTy9Zm2nvLy4lPrp9w
+	FSdu6EOLuqEta5cCkqEVerTMf48/cUl6UZ6IFdkmRAkSfjBAdPOfdvukNI6hTFxr8Gul83gcSpS3U
+	/LvVkBfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdq8x-0000000HAv8-2jgn;
-	Thu, 08 Jan 2026 13:33:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdq90-0000000HAx4-3wmC;
+	Thu, 08 Jan 2026 13:33:42 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdq8w-0000000HAuf-386I
+	id 1vdq8v-0000000HAuM-2pgp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 13:33:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D9B3960136
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 13:33:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 918D4C2BC9E
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 13:33:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767879217;
-	bh=ndFWMjzooieb5xyGu4cJGAmspejtFb892UHQx8ZDIZg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=r/EdmpCVAgDo4biXkfjQarc2stbaiMWQEmRJ1angulctDwmO0To9YiVUXM47LcQAz
-	 9JumEOXs+aGTeBjDskczURd/bqn3+g8H8y7vfo3tMeTr29Nx1pLHPn7QruMeppGtW2
-	 DiQTYhRsJAjxAjVZHz5qn+ScVq6zT8sjyj3u4MaK9IanNX94b0iWq7c6IGjmYSqr9g
-	 Q7dLbBjzeQo0oxuHwhpjzYikcdjeEmq6dhNPvJDYpcgQY32A4kTqVez6TOT/+P1oe7
-	 egLt3HUrsxgq1X0SFmgaYPyOxXYSB6nyKKEGnKDLg6yNn1eIYBdDHU5IPtXEHyZI51
-	 QAiIbX0qWNS2A==
-Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-7e1651ae0d5so2051549b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 05:33:37 -0800 (PST)
-X-Gm-Message-State: AOJu0YzFg5h4X3vU1qONUUKBARR611CK4f9s1Bf/V+SV1Sd+9sQbM+hL
-	0OIST2LR6a5LQPPjbp9QNO3RirVg9Mv4pKEsClj2nGybZlytXgPukBEEi3fQDLWu3ZmhSpp9uQl
-	kkfkSV60R+yItK8JXVSPc6+xiT9pbsBs=
-X-Google-Smtp-Source: AGHT+IGHIvVUprNBdrwsC9Pu7WwhWkbld3sZP0htQ2g4aAHDfX7s6G/JSDmknZne1WKYYALnNgfSsY07pebvo+Z3TWg=
-X-Received: by 2002:a05:6a20:4308:b0:366:14b2:30e with SMTP id
- adf61e73a8af0-3898f9cd7ddmr6454679637.65.1767879217085; Thu, 08 Jan 2026
- 05:33:37 -0800 (PST)
-MIME-Version: 1.0
-References: <20251211040935.1288349-2-ardb@kernel.org> <CALxfFW4gyv3gSc1JhkPNqk4LL6S6gZbDRJx2y21PFZ8-8_9s_A@mail.gmail.com>
-In-Reply-To: <CALxfFW4gyv3gSc1JhkPNqk4LL6S6gZbDRJx2y21PFZ8-8_9s_A@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 8 Jan 2026 14:33:25 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXG+6CYVSV-2ZSqrEm+B=az+54=fNwHpC_6qQZ-z2=3Zgw@mail.gmail.com>
-X-Gm-Features: AQt7F2oKLqFPgsT5ujde-bH1gL-fZZo30xTo_SHI9xAc2C3fpX2TG9hkL1r-C9c
-Message-ID: <CAMj1kXG+6CYVSV-2ZSqrEm+B=az+54=fNwHpC_6qQZ-z2=3Zgw@mail.gmail.com>
-Subject: Re: [RFC PATCH] arm64: Bring back linear map randomization using
- PArange override
-To: Seth Jenkins <sethjenkins@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org, 
-	mark.rutland@arm.com, catalin.marinas@arm.com, will@kernel.org, 
-	kees@kernel.org, Liz Prucka <lizprucka@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 08 Jan 2026 13:33:39 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 260511A2702;
+	Thu,  8 Jan 2026 13:33:34 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E7479606B6;
+	Thu,  8 Jan 2026 13:33:33 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2A0A8103C8015;
+	Thu,  8 Jan 2026 14:33:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1767879212; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=veR9z3VsPIxAIyHsq0lQYRUjw8X7wRPHnBNDDdwkacw=;
+	b=sKPwsa9FJ30YXeCceqg/sgl5hl7N1B8vBkjnivZtZ9WLfiad/iUvCpYp5zx7EH5mnAktcS
+	Ukx6sLzq365pfy43i0wXbEVOdcXzZZQpq0S4P/AXGeB0jErgEAE8MI/cWs073s+X6Q6BO0
+	U2rBXKXJUw1Be/qgPhWJfeyCLbj/3cPgEkKlKvb4CuwEBxfW6P4TCMcZ5/aLlK5g3B8sdk
+	3Jh6Ax3CjT4bdTICgvdVo+DssWSbO4INP6ToR3ILqbznkgVqDCtCtlHw7j9ir2CvbGyFdA
+	w2bF6QUnuM0tyBSp5vR7652XvHbchIM4GmarNyGAGcbtlVBhI2IWlgOJtlX/8A==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 08 Jan 2026 14:33:21 +0100
+Message-Id: <DFJ8VHH9BVEZ.2445GF73YTGSO@bootlin.com>
+Cc: "Hui Pu" <Hui.Pu@gehealthcare.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
+ <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>
+To: "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Philippe Cornu"
+ <philippe.cornu@st.com>, <benjamin.gaignard@linaro.org>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Adrien Grassein"
+ <adrien.grassein@gmail.com>, "Liu Ying" <victor.liu@nxp.com>, "Shawn Guo"
+ <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
+ <festevam@gmail.com>, "Inki Dae" <inki.dae@samsung.com>, "Jagan Teki"
+ <jagan@amarulasolutions.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH 10/12] drm/bridge: samsung-dsim:
+ samsung_dsim_host_attach: use a temporary variable for the next bridge
+X-Mailer: aerc 0.20.1
+References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-0-283d7bba061a@bootlin.com> <CGME20260107131416eucas1p22557f62e9d6498e5fdda4e6280cfe793@eucas1p2.samsung.com> <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-10-283d7bba061a@bootlin.com> <be425ab8-1772-46fb-84ee-0c8840c3eef2@samsung.com>
+In-Reply-To: <be425ab8-1772-46fb-84ee-0c8840c3eef2@samsung.com>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260108_053337_851988_54C0DCD9 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,37 +91,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Dec 2025 at 19:14, Seth Jenkins <sethjenkins@google.com> wrote:
+Hi Marek,
+
+On Thu Jan 8, 2026 at 10:26 AM CET, Marek Szyprowski wrote:
+> On 07.01.2026 14:13, Luca Ceresoli wrote:
+>> In preparation to handle refcounting of the out_bridge, we need to ensur=
+e
+>> the out_bridge pointer contains either a valid bridge pointer or NULL, n=
+ot
+>> an ERR_PTR. Otherwise calls such as drm_bridge_get/put() would try to
+>> redeference an ERR_PTR.
+>>
+>> As a preliminary cleanup, add a temporary local 'next_bridge' pointer an=
+d
+>> only copy it in dsi->out_bridge when returning successfully.
+>>
+>> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+>> ---
+>>   drivers/gpu/drm/bridge/samsung-dsim.c | 14 ++++++++------
+>>   1 file changed, 8 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bri=
+dge/samsung-dsim.c
+>> index eabc4c32f6ab..b3003aa49dc3 100644
+>> --- a/drivers/gpu/drm/bridge/samsung-dsim.c
+>> +++ b/drivers/gpu/drm/bridge/samsung-dsim.c
+>> @@ -1886,6 +1886,7 @@ static int samsung_dsim_host_attach(struct mipi_ds=
+i_host *host,
+>>   {
+>>   	struct samsung_dsim *dsi =3D host_to_dsi(host);
+>>   	const struct samsung_dsim_plat_data *pdata =3D dsi->plat_data;
+>> +	struct drm_bridge *next_bridge;
+>>   	struct device *dev =3D dsi->dev;
+>>   	struct device_node *np =3D dev->of_node;
+>>   	struct device_node *remote;
+>> @@ -1924,17 +1925,17 @@ static int samsung_dsim_host_attach(struct mipi_=
+dsi_host *host,
+>>
+>>   	panel =3D of_drm_find_panel(remote);
+>>   	if (!IS_ERR(panel)) {
+>> -		dsi->out_bridge =3D devm_drm_panel_bridge_add(dev, panel);
+>> +		next_bridge =3D devm_drm_panel_bridge_add(dev, panel);
+>>   	} else {
+>> -		dsi->out_bridge =3D of_drm_find_bridge(remote);
+>> -		if (!dsi->out_bridge)
+>> -			dsi->out_bridge =3D ERR_PTR(-EINVAL);
+>> +		next_bridge =3D of_drm_find_bridge(remote);
+>> +		if (!next_bridge)
+>> +			next_bridge =3D ERR_PTR(-EINVAL);
+>>   	}
+>>
+>>   	of_node_put(remote);
+>>
+>> -	if (IS_ERR(dsi->out_bridge)) {
+>> -		ret =3D PTR_ERR(dsi->out_bridge);
+>> +	if (IS_ERR(next_bridge)) {
+>> +		ret =3D PTR_ERR(next_bridge);
+>>   		DRM_DEV_ERROR(dev, "failed to find the bridge: %d\n", ret);
+>>   		return ret;
+>>   	}
+>> @@ -1967,6 +1968,7 @@ static int samsung_dsim_host_attach(struct mipi_ds=
+i_host *host,
+>>   	dsi->lanes =3D device->lanes;
+>>   	dsi->format =3D device->format;
+>>   	dsi->mode_flags =3D device->mode_flags;
+>> +	dsi->out_bridge =3D next_bridge;
+>>
 >
-> > This is posted as an RFC because there are obvious shortcomings to this
-> > approach. However, before I spend more time on this, I'd like to gauge
-> > if there is any consensus that bringing this back is a good idea.
-> I may be a minority, but I do think bringing this back is a good idea.
-> It has now been 9+ years since hardware side channels for bypassing
-> KASLR were discovered, and it still appears that real-world attackers
-> overwhelmingly prefer alternative strategies - such as this one.
+> This assignment is too late, dsi->out_bridge is used (indirectly, by
+> samsung_dsim_attach() called from drm_bridge_attach()) by
 >
-> I'm under no illusion that if we just do this one thing KASLR will be
-> secure again, but I think this patch would still have a meaningful
-> real-world impact in terms of making exploits significantly harder to
-> write.
+> ret =3D pdata->host_ops->attach(dsi, device);
+
+Thanks for testing, reporting, and suggesting a solution. I'm not sure why
+it worked on my setup, but this is indeed a bug.
+
+> a few lines before this assignment, so the following fix has to be added:
 >
+> diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c
+> b/drivers/gpu/drm/bridge/samsung-dsim.c index b3003aa49dc3..f88aa8ab2879
+> 100644 --- a/drivers/gpu/drm/bridge/samsung-dsim.c +++
+> b/drivers/gpu/drm/bridge/samsung-dsim.c @@ -1959,6 +1959,7 @@ static int
+> samsung_dsim_host_attach(struct mipi_dsi_host *host, return ret; } +
+> dsi->out_bridge =3D next_bridge; if (pdata->host_ops &&
+> pdata->host_ops->attach) { ret =3D pdata->host_ops->attach(dsi, device);
+> if (ret) @@ -1968,7 +1969,6 @@ static int
+> samsung_dsim_host_attach(struct mipi_dsi_host *host, dsi->lanes =3D
+> device->lanes; dsi->format =3D device->format; dsi->mode_flags =3D
+> device->mode_flags; - dsi->out_bridge =3D next_bridge; return 0; }
 
-Thanks for the feedback.
+This needed a bit of demangling :) but it looks like a correct solution.
 
-I was hoping to get some other views on this matter, but sending the
-patch during plumbers and right before the holidays probably didn't
-help in that regard, I'm afraid.
+I took a moment to understand why this did not break my setup. The answer
+is I have a fsl,imx8mp-mipi-dsim, which has no .attach set in its
+samsung_dsim_host_ops.
 
-Any thoughts on the desirability of this feature wrt randomization of
-the placement of vmlinux in physical memory? AIUI, the main issue
-being addressed here is predictable placement of statically allocated
-kernel objects in the virtual address space, which could be solved in
-either way. Or are there other concerns here?
+Sorry for the inconvenience. I'm fixing this in v2.
 
-Just trying to elicit as much input as possible on the list, so the
-maintainers can make an informed decision.
+Luca
 
-Thanks,
-Ard.
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
