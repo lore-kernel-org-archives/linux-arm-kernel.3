@@ -4,134 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CD67D185EB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 12:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9229BD185EA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 12:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G3FFiA6z+iNYsA4n7lBKTjiYZbAKlOHYMYN78n5S/o8=; b=fJco2dh/OBut+QqoCkx55q/ESI
-	P1iQuHNuZ37etuxk114ewb6sRTKbRyX/M8LeQWCIond05w9i+RXHhz4hJEwMTbkQOR90jtuMTEbDH
-	l50asBk/HAF/4jCY3Lphul+LAFSsbfjHTHSVrL2zUG0lLCzH6YfIJouujXysNzx1k2dnbKD++eLn4
-	JmZEszWZyYl3kKFSCrtTqhHJ2qyyvOcVahgW7L5b0iNiDQBm+59kY1InCr2QKjtiEg+/GrH8uIqoY
-	RmuUEzdJugRp4RsfWSwxWMMil3hic/E7XoG1m6Aeaw/vDtBOlNdJuDwBJJGnvXLJ2Md5jZj2/wDNM
-	VnViC1jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hif2hvnGrWVjKRMJEAdc4UWKgX381vfN7zL1PT9/Ogg=; b=1an+8yOG9C/Szq2qR7+bqjd4zO
+	H0L02j3QnlIeOEwq5xX+GvBPYyRqpXB2OAzS8e12+SB+kisOTMkcLf1zqaj80kaFHo6Pl5y3P26UU
+	27/keFwKGkqO53RlkkdNlzoZASYpz8Ojr/n0E+cMR3U4GSInMtYnp/JGa9gLUf9bjui6WSIuVcc2R
+	gayCbuvrHjlzeVs/RJTN1jzyXh1RPr2Nvy/5oQ5Dd6fedZdK+vGycrC/8egKFIT7jihTmIgTe0B0J
+	y8zNCIWhBm6VgVB9saJF6I4ItKAbVLYrnRVmLp7GiaRJLyYZbz1ECNcyis5RLKGsSJzfDxN6I5U3c
+	sZLhcvfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdoz2-0000000Gy2G-31S2;
-	Thu, 08 Jan 2026 12:19:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdozD-0000000Gy72-2LDl;
+	Thu, 08 Jan 2026 12:19:31 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdoz0-0000000Gy1F-2mRN;
-	Thu, 08 Jan 2026 12:19:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2911840376;
-	Thu,  8 Jan 2026 12:19:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62D9FC116C6;
-	Thu,  8 Jan 2026 12:19:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767874758;
-	bh=KjsGhf6tGBRyqz1EhCK1fS6iJsnkXaTR6w1ZlTXKRDw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lOKxG2p/FRgp+8OYkLzrCnvz55qNyj0cbW2YWwbQ94LJ1/hC83S5W/bsGtt04ww6j
-	 OQNa0gvzOihQscBfKpdPgpsJek3Kd0XDIzzeyFMu+IxfCfkZUfzQc4RWAcr57Fc6Vp
-	 BdbWBl+gCb7bJTaXG3rxguTciSC/rMZ/e8xN1VSBD/xi26HEjDp3qHHPI7dlh/YExT
-	 /CrFzx1kZuu/0jVn+5iy0r64NaC8zj6as7Kxf8VNEoeee3Uai2IfOwqNjkzGB1O1q1
-	 LryGj12kuCHnZKG/XPysK0cVhxut6TMQ5eAFKE5K1inrUxhOVOYuUtX0SF5quA1BBq
-	 K/UwGXsuYSOWg==
-Message-ID: <1e365223-8e20-4519-b290-d8ecff548d84@kernel.org>
-Date: Thu, 8 Jan 2026 13:19:10 +0100
+	id 1vdoz9-0000000Gy5B-0SNl
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Jan 2026 12:19:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=hif2hvnGrWVjKRMJEAdc4UWKgX381vfN7zL1PT9/Ogg=; b=J+7D1kdkycHTtChi2XvssBNcbU
+	w5KuTSCZfiUJu4wSPTGY27d6eir99M1S+gjGJmPNPyAwMyGhw3SDy/926ebKBNS4wCrdJNSVH5NKO
+	mz3nDx/hqkvsLkJdEzkJIImS17xDlqm6B6CzhyLK3atsP3RRpurPsv7nmr8W6VwOKc2CilVNp00OP
+	VMoG+VJ5xaziRx5Bi0BJ1n+Mkxy+wlqzfBCjSib94EqcaQyEEc2oIpmNSQ172BD4zPRWXhQlAPZGm
+	Mp6Bw3oYJV8R3CI07yVWp9+oXQmXJPk/Yx4eP8B7UWlU8PnJuERzP7HoDFccP4UXBe8MgyLlLrkIo
+	e/u34BWg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56296)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vdoz2-000000002dh-1oTm;
+	Thu, 08 Jan 2026 12:19:20 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vdoyz-000000002L8-3aLA;
+	Thu, 08 Jan 2026 12:19:17 +0000
+Date: Thu, 8 Jan 2026 12:19:17 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 4/9] net: stmmac: descs: fix buffer 1 off-by-one
+ error
+Message-ID: <aV-gxT3Ijk_8cmHS@shell.armlinux.org.uk>
+References: <aV1w9yxPwL990yZJ@shell.armlinux.org.uk>
+ <E1vdDiF-00000002E1d-30rR@rmk-PC.armlinux.org.uk>
+ <4bf4ec53-c972-4009-b827-5083e080f32f@bootlin.com>
+ <aV-X20nSS-JahPr6@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 11/25] scsi: ufs: mediatek: Rework probe function
-To: =?UTF-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>,
- "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
- "robh@kernel.org" <robh@kernel.org>,
- =?UTF-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?= <Chunfeng.Yun@mediatek.com>,
- "kishon@kernel.org" <kishon@kernel.org>,
- "James.Bottomley@HansenPartnership.com"
- <James.Bottomley@HansenPartnership.com>,
- "bvanassche@acm.org" <bvanassche@acm.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- =?UTF-8?B?Q2hhb3RpYW4gSmluZyAo5LqV5pyd5aSpKQ==?=
- <Chaotian.Jing@mediatek.com>, "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
- "nicolas.frattaroli@collabora.com" <nicolas.frattaroli@collabora.com>,
- "vkoul@kernel.org" <vkoul@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "avri.altman@wdc.com" <avri.altman@wdc.com>,
- "martin.petersen@oracle.com" <martin.petersen@oracle.com>,
- "broonie@kernel.org" <broonie@kernel.org>
-Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- "kernel@collabora.com" <kernel@collabora.com>
-References: <20251218-mt8196-ufs-v4-0-ddec7a369dd2@collabora.com>
- <20251218-mt8196-ufs-v4-11-ddec7a369dd2@collabora.com>
- <213d3077835fc86d15579c0a0a91f64fd84b1059.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <213d3077835fc86d15579c0a0a91f64fd84b1059.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aV-X20nSS-JahPr6@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_041918_955633_932EFFF3 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260108_041927_153300_86788AF1 
+X-CRM114-Status: GOOD (  35.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,24 +90,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/01/2026 14:23, Peter Wang (王信友) wrote:
-> On Thu, 2025-12-18 at 13:55 +0100, Nicolas Frattaroli wrote:
->>
->> Remove the ti,syscon-reset cruft.
->>
+On Thu, Jan 08, 2026 at 11:41:15AM +0000, Russell King (Oracle) wrote:
+> On Wed, Jan 07, 2026 at 10:28:30AM +0100, Maxime Chevallier wrote:
+> > Hi Russell,
+> > 
+> > On 06/01/2026 21:31, Russell King (Oracle) wrote:
+> > > norm_set_tx_desc_len_on_ring() incorrectly tests the buffer length,
+> > > leading to a length of 2048 being squeezed into a bitfield covering
+> > > bits 10:0 - which results in the buffer 1 size being zero.
+> > > 
+> > > If this field is zero, buffer 1 is ignored, and thus is equivalent
+> > > to transmitting a zero length buffer.
+> > > 
+> > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > 
+> > Should it be a fix ? I've tried to trigger the bug without success, this
+> > seems to be fairly specific so I'm OK with it going to net-next.
 > 
-> Hi Nicolas,
+> Note that you need hardware that doesn't use enhanced descriptors -
+> which descriptors get used are dependent on the hardware rather than a
+> runtime option.
 > 
-> Why do we need to remove the reset node? If an error occurs and the
+> Note that we have this silly code, which I've brought up in the past:
+> 
+>         if (priv->plat->core_type == DWMAC_CORE_XGMAC)
+>                 ndev->max_mtu = XGMAC_JUMBO_LEN;
+>         else if (priv->plat->enh_desc || priv->synopsys_id >= DWMAC_CORE_4_00)
+>                 ndev->max_mtu = JUMBO_LEN;
+>         else
+>                 ndev->max_mtu = SKB_MAX_HEAD(NET_SKB_PAD + NET_IP_ALIGN);
+> 
+> where the "silly" part is that last line - SKB_MAX_HEAD() is dependent
+> on PAGE_SIZE. So, if you build your kernel for e.g. 64K page sizes, but
+> stmmac doesn't have enhanced descriptor support, ->max_mtu ends up being
+> close to 64K, and you can configure the netdev's MTU to be that large.
+> 
+> Even with a 4KiB page size, max_mtu will certainly be greater than
+> 2KiB.
+> 
+> That means stmmac_xmit() can be called with packets >= 2KiB in length.
+> As stmmac_xmit() has this:
+> 
+>         /* To program the descriptors according to the size of the frame */
+>         if (enh_desc)
+>                 is_jumbo = stmmac_is_jumbo_frm(priv, skb->len, enh_desc);
+> 
+> the code will not treat them as jumbo frames, and thus
+> stmmac_jumbo_frm() will not be called. This means we'll call
+> stmmac_set_desc_addr() and stmmac_prepare_tx_desc() only for each
+> fragment of the skb, which only supports buffer 1 in the descriptor.
+> 
+> There is the possibility for a descriptor to supply the next chunk of
+> the packet in buffer 2 (with its separate length field of the same
+> bit size) but the driver doesn't do that in this path.
+> 
+> So, even if we did get a fragment >= 2KiB, the code would only be able
+> to send up to the maximum size that can fit in the descriptor.
 
-Commit msg should be improved and provide the reason, e.g. because it is
-undocumented and unused ABI.
+Reviewing the docs again, I actually think it's worse than this.
 
-> host 
-> does not perform a reset, it could lead to error recovery failure.
+Consider the case where enh_desc = false, so we're using normal
+descriptors. in stmmac_xmit() is_jumbo will always be false because
+we never check stmmac_is_jumbo_frm() for normal descriptors. Thus,
+we use the paths in stmmac_xmit() which only call
+stmmac_set_desc_addr() and stmmac_prepare_tx_desc().
 
-This is not a reason to use undocumented ABI.
+For normal descriptors, these correspond with ndesc_set_addr() and
+ndesc_prepare_tx_desc().
 
-Best regards,
-Krzysztof
+ndesc_set_addr() sets tdes2 to the address - this is the buffer1 DMA
+address.
+
+In ring mode, ndesc_prepare_tx_desc() calls
+norm_set_tx_desc_len_on_ring() which divides the buffer between the
+buffer1 length and buffer2 length. This means, in theory, that normal
+descriptors can transmit up to 4KiB - 2 split across two 2KiB - 1
+buffers. However, nothing sets tdes3, which is the buffer2 DMA address,
+so either we transmit garbage (I suspect whatever happens to be at
+DMA address zero) or DMA fails.
+
+In chain mode, ndesc_prepare_tx_desc() calls
+norm_set_tx_desc_len_on_chain() which only sets the buffer1 length
+(masking off the bits that don't fit in the field.) This is because
+tdes3 is used to point at the next descriptor, so each normal
+descriptor can only contain buffers up to 2KiB - 1.
+
+This all comes down to the "silly" code that I mentioned previously.
+
+While one can argue that it would be nice to fully fix this, I suspect
+the reality is that almost no one cares, because hardly anyone uses
+"normal" descriptors, especially with more recent hardware.
+
+However, my thoughts more centre around the idiotic max_mtu setting
+that didn't gain any traction when I tried to bring that topic up.
+The simple solution here would be to ensure max_mtu isn't set to
+SKB_MAX_HEAD() but left as the standard setting (thus not allowing
+the MTU to be increased beyond ETH_DATA_LEN, aka 1500) which would
+then prevent buffer1 being anywhere near crossing the 2KiB-1
+threshold.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
