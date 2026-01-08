@@ -4,65 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58516D185FE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 14:33:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4464D1D460
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 14:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rog3MqnILi2w05gDM2K9Bo8d1CiP/9MrnfUSxrtvScE=; b=AB3jaSlHYkP+Ggv79gewransU6
-	+ReNuhjZUo9p2s/pKznaUFI1NWcAetlgOOprg6SBmzZE4TsuGsiiVNrVlB45t2nT8BWIfbGrlo+wg
-	/pafOpS26IGNi+tBsamnwGkzK8cOYJ85+3en/zOIy0lv/QQs0IEoddRkBwczfqoXw5KUZGNlufk+R
-	mcVC9YqbXZjTuTeRA2Y5Tz1Bcf8fdmXn8rD4YyMzalECsf15kzYNI5UfjHB023iUwjiqoebsTKrWe
-	ZH8RmlZTV7tbthMwlNiLh88/W+tRTjVoeP3vpsocn0VEW2zlAfd/7AyuBzFf1+WcHpZIHaRJU3wZI
-	WdwkX3Cg==;
+	bh=xdcDXZFwVNVQ35x4VfoLKdE2HzK1zTeVnCjAhVxyojE=; b=XBggrh+IpYSxY1gupFHgT18c8+
+	dYa4Ne7PUF0QkPTLn44yx7nEyTNVPBeklU6P64tbfe2fvmscpnFk9zz6LNGFrLBhyoT4U8wiTw8gY
+	8ncPl29q1dPPc6kxQBloc3Tk9o4WBuK1L2G+Wf4VjkqM5Kpg+tcj8fxt1r7dRelu4nY8CgV5Ua6x3
+	/UMx0MQhm1An7iCXrvij3b+iY0rGe050DQpPzTdLc2tgeLgWkR0JPXzA+VPS36EelOmVnufvnDq91
+	Rj9vmzqtfeCuf1dx+aqJ4TK8Ko/Q6avwYZHObdVV/zGlpIlKQQyvUtsBgbJarZf/Rmp6B8/hPycjk
+	GRJasDvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdr55-0000000HMX7-1NP0;
-	Thu, 08 Jan 2026 14:33:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdr53-0000000HMVU-0VVN
+	id 1vdr8x-0000000HN9L-3ylZ;
+	Thu, 08 Jan 2026 14:37:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdr8u-0000000HN8a-3Omk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 14:33:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6437B497;
-	Thu,  8 Jan 2026 06:33:30 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 49BB23F5A1;
-	Thu,  8 Jan 2026 06:33:30 -0800 (PST)
-Message-ID: <daa69e3a-29c0-4c21-a4ae-43b2c7b8f8e6@arm.com>
-Date: Thu, 8 Jan 2026 14:33:27 +0000
+	Thu, 08 Jan 2026 14:37:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F08F8443B2
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 14:37:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3ED3C4AF09
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 14:37:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767883059;
+	bh=xdcDXZFwVNVQ35x4VfoLKdE2HzK1zTeVnCjAhVxyojE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=IOyluDY4kJjcYTItdNhuLEPi6rMXyGjrvci6CdqVmLRi/noHz8SDHdVxZzPQOvAA7
+	 +TjZBVKb9i7FsE06x7Geteq/GIK04bG1VN90fz5QHjgjpHrAeDkfHeLN6bbCLjLTVM
+	 Y7dbnON8PfeHExVn4tQzhjDuFe7i1GY1JszHUmLKhVypVIimMnMVAtYT7yDm5GEt5m
+	 ujG2WP//OShFFoAQz56X8iaMPGLzAakG7QLoCAA+QIvWcRp54Ci2hrYfk3MFcd1Jbq
+	 91LRvXSpx0O9vbvPTErNHuF+GElkpM3L5aHeaEJN4Z8jhlzMN7DFvBBItxPWUMCTGV
+	 NcVD0LXUxe+ZQ==
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-382f4aa8dd1so17491221fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 06:37:39 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWbGzOLpvGUvIGGXvyfFpcMhsZczQErK9XE79UNP6nGHbPukJKn2Rtn3AgmyMdApgvvJghaKmS8CMgM+rsd7r9s@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5ilbgc2NIwtw/OtWl6WCi5Ct0Vxos0KEoUkKuFDDZ5OUdTlc+
+	ivZRPl983PQ6orjICJuzdS0SIZhg7CcZazEGK5S9szVSg8USOWFjC1/l17ftOqzU8K65fupECA9
+	pIFyD3X6zHWvSmHwk6/DLVVzuOZHiLDu+d713IKSxig==
+X-Google-Smtp-Source: AGHT+IGAua+w0hZI7dvEczygU3mwU2kIlCKMoSiV+njFMOBaS6ramgIFu7BmUN6yjnHn8hqSM1y6y4DJzIn424D4Hjc=
+X-Received: by 2002:a05:6512:12d1:b0:59b:7c3e:21bc with SMTP id
+ 2adb3069b0e04-59b7c3e2310mr42036e87.46.1767883058441; Thu, 08 Jan 2026
+ 06:37:38 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 30/45] arm_mpam: resctrl: Pre-allocate assignable
- monitors
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-References: <20251219181147.3404071-1-ben.horgan@arm.com>
- <20251219181147.3404071-31-ben.horgan@arm.com>
- <20260106142937.00000e33@huawei.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20260106142937.00000e33@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
+ <20251112-gpio-shared-v4-7-b51f97b1abd8@linaro.org> <66eaf003-c397-4920-b3b7-93ac8a5adfda@oss.qualcomm.com>
+ <CAMRc=McXFTLjE=2-xsx4sodHgd83h822iEBHT7bxcNOQm6OJ3A@mail.gmail.com>
+ <98d69fb9-d3bc-4439-88b4-60f3cdea3422@oss.qualcomm.com> <CAMRc=McmvaM9=K=0NLRcLLmo5ck=m8Fqekh7tBMz6quO9K4opQ@mail.gmail.com>
+ <5151bdfe-7e83-4aa0-b9fc-28209d535e1e@oss.qualcomm.com>
+In-Reply-To: <5151bdfe-7e83-4aa0-b9fc-28209d535e1e@oss.qualcomm.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Thu, 8 Jan 2026 15:37:26 +0100
+X-Gmail-Original-Message-ID: <CAMRc=Mfa=350PWw-wNd3my4SD4DvJn8qDqGdTnTfrGR1XhA85Q@mail.gmail.com>
+X-Gm-Features: AQt7F2oTdt9i_Kj_u8PfWHVcxRqKBe83LD6W2bJ2swryLe_OAXk-Wja4rSdfiH4
+Message-ID: <CAMRc=Mfa=350PWw-wNd3my4SD4DvJn8qDqGdTnTfrGR1XhA85Q@mail.gmail.com>
+Subject: Re: [PATCH v4 07/10] arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
+To: Pankaj Patil <pankaj.patil@oss.qualcomm.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Will Deacon <will@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, Mark Brown <broonie@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_063341_281060_CD03E1E8 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20260108_063740_914153_08AAC39D 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,89 +91,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+On Thu, Jan 8, 2026 at 10:44=E2=80=AFAM Pankaj Patil
+<pankaj.patil@oss.qualcomm.com> wrote:
+>
+> >>>
+> >>> Hi!
+> >>>
+> >>> This is not really the offending commit, it's a recent one in the
+> >>> implementation. The issue should be fixed by the following series[1]
+> >>> that will be in the next next tag. Can you give it a try?
+> >>>
+> >>> Bart
+> >>>
+> >>> [1] https://lore.kernel.org/all/20260106-gpio-shared-fixes-v2-0-c7091=
+d2f7581@oss.qualcomm.com/
+> >>
+> >> With the linked patchset applied I still see the same issue
+> >>
+> >> Pankaj
+> >>
+> >
+> > Is the gpio-shared-proxy module available? If not, can you change the
+> > config to make it built-in like CONFIG_GPIO_SHARED_PROXY=3Dy?
+> >
+> > Bartosz
+>
+> With CONFIG_GPIO_SHARED_PROXY=3Dy the issue remains the same
 
-On 1/6/26 14:29, Jonathan Cameron wrote:
-> On Fri, 19 Dec 2025 18:11:32 +0000
-> Ben Horgan <ben.horgan@arm.com> wrote:
-> 
->> From: James Morse <james.morse@arm.com>
->>
->> When there are not enough monitors, MPAM is able to emulate ABMC by making
->> a smaller number of monitors assignable. These monitors still need to be
->> allocated from the driver, and mapped to whichever control/monitor group
->> resctrl wants to use them with.
->>
->> Add a second array to hold the monitor values indexed by resctrl's cntr_id.
->>
->> When CDP is in use, two monitors are needed so the available number of
->> counters halves. Platforms with one monitor will have zero monitors when
->> CDP is in use.
->>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->> Changes since rfc:
->> Move __free
->> kmalloc -> kcalloc
->>  
-> 
-> Trivial comments only,
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> 
->>  static inline int mpam_alloc_csu_mon(struct mpam_class *class)
->> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
->> index bea16bc096f7..e96d320c219c 100644
->> --- a/drivers/resctrl/mpam_resctrl.c
->> +++ b/drivers/resctrl/mpam_resctrl.c
-> 
->> +/*
->> + * This must run after all event counters have been picked so that any free
->> + * running counters have already been allocated.
->> + */
->> +static int mpam_resctrl_monitor_init_abmc(struct mpam_resctrl_mon *mon)
->> +{
->> +	struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
->> +	struct rdt_resource *l3 = &res->resctrl_res;
->> +	struct mpam_class *class = mon->class;
->> +	u16 num_mbwu_mon;
->> +
->> +	if (mon->mbwu_idx_to_mon) {
->> +		pr_debug("monitors free running\n");
->> +		return 0;
->> +	}
->> +
->> +	int *rmid_array __free(kfree) =
->> +		kcalloc(resctrl_arch_system_num_rmid_idx(), sizeof(int), GFP_KERNEL);
-> 
-> It's a long line, but I'd prefer sizeof(*rmid_array).
-> could use kmalloc_array to avoid zeroing just before you fill it with -1.
+Can you try this patch as well in addition to the other ones and on
+top of current next?
 
-Nice, I hadn't found kmalloc_array().
-
-> 
->> +
->> +	if (!rmid_array) {
->> +		pr_debug("Failed to allocate RMID array\n");
->> +		return -ENOMEM;
->> +	}
->> +	memset(rmid_array, -1, resctrl_arch_system_num_rmid_idx() * sizeof(int));
->> +
->> +	num_mbwu_mon = class->props.num_mbwu_mon;
->> +	mon->assigned_counters = __alloc_mbwu_array(mon->class, num_mbwu_mon);
->> +	if (IS_ERR(mon->assigned_counters))
->> +		return PTR_ERR(mon->assigned_counters);
->> +	mon->mbwu_idx_to_mon = no_free_ptr(rmid_array);
->> +
->> +	mpam_resctrl_monitor_sync_abmc_vals(l3);
->> +
->> +	return 0;
->> +}
-> 
-> 
+https://lore.kernel.org/all/20260108-gpio-shared-false-positive-v1-1-5dbf8d=
+1b2f7d@oss.qualcomm.com/
 
 Thanks,
-
-Ben
-
+Bartosz
 
