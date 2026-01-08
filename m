@@ -4,79 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F42D1489A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 03:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2D6BD1489D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 04:04:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6pxfiPpStKTinNfI3yLuxNFmLirLijh17vubfs0MnKI=; b=EvxWqeF34teXNDyfqEBmFgFbyr
-	i8qK003uqjv0+LrTY/ya/8Pkvuk/ShnTRoobTmflRx+xXKed9BL+XliRxgzbwtoj2zNEk82bNHBnR
-	zWSDIzcQ43OQX3ZrQbUdy5I4oqE3nBKZFYT0/6HYYl0FIr6W+VO67gy6CjSCNwO6EsA05QUR1pdqK
-	owSCnPcqAI44z5KXSiRHeHLBk+XHtPWsloiuizFpdS5lJdOm4pB+2tVzC0c+pU56bqtbhijc0vbvw
-	rdDZ7yrVKB+zXyPTLtZEE0/1rP4e2+O6ynQhYMP5dBiDRQ2jUS0MWAr7xNVoHt4P3t1ha5MHfiUSv
-	XSp5YkYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D9V02DW2g2G4PlWcr2RZd34+cGZ/eCYegzkwqMa89zM=; b=CJJJcfEeroEX4AhbE/KmGlmsXj
+	fTDpx2ag/fioowEVhu1QOMX3RcyWA+VjjqReg7he25idXssUtF6OrF92jKaQ9fCyLyU53Q9TTPBHK
+	eqRhH7MVq1Ji61FJ/7SDy00wIaoQL1TiJDfE3OO/Nycmht51U7umNDa6fBGc6Kxms1vXbQQOWkC3q
+	/7nWcsU9PlZQ1jSR85eucueyP89uVMqrVV57qZKgGZauwNmDOiILdMxtJ967hQ4Hel5Mqbci+tg3h
+	hpVNTn5pv3AiR9pj1KCmEEZr48BTvUG2fY1rh8WlC424G9bi7pexxGMQrEIt7FhPoKcEuyBIHF1Oe
+	PUcYlDjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdgSm-0000000Frtx-0w54;
-	Thu, 08 Jan 2026 03:13:28 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdgSi-0000000Frss-1lrR;
-	Thu, 08 Jan 2026 03:13:25 +0000
-X-UUID: fa5b0c16ec3f11f09f706fa2197c6ceb-20260107
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=6pxfiPpStKTinNfI3yLuxNFmLirLijh17vubfs0MnKI=;
-	b=N7oLt+zLYi0RJ7WZB/tpdu2rN9lcziTFqMkz0jsuz1UICNQeSgrf+gIAYfvG23GqFhKtooXZbgZsqtgu6J4Xd7iWLSTRx3TPmcWs0P6Tt2TPADMI99/vRY+LolYnaEqzYXrqoCiNHAJbWYEq0rZ7JrmvTsqJU8j7M71vyNHIA5M=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.9,REQID:bc385076-fb56-4827-9cac-e3a61f0f20f6,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:1,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:1
-X-CID-META: VersionHash:5047765,CLOUDID:e1268a79-8c8a-4fc4-88c0-3556e7711556,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
-	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: fa5b0c16ec3f11f09f706fa2197c6ceb-20260107
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
-	(envelope-from <dengjun.su@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 611278669; Wed, 07 Jan 2026 20:13:17 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 8 Jan 2026 11:13:14 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Thu, 8 Jan 2026 11:13:14 +0800
-From: Dengjun Su <dengjun.su@mediatek.com>
-To: <linux-kernel@vger.kernel.org>
-CC: <dengjun.su@mediatek.com>, <mike.zhang@mediatek.com>,
-	<haiqiang.gong@mediatek.com>, <peijun.huang@mediatek.com>, Ingo Molnar
-	<mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Juri Lelli
-	<juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt
-	<rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman
-	<mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-Subject: [PATCH] sched/rt: fix incorrect schedstats for rt thread
-Date: Thu, 8 Jan 2026 11:13:07 +0800
-Message-ID: <20260108031309.2754003-1-dengjun.su@mediatek.com>
-X-Mailer: git-send-email 2.43.0
+	id 1vdhFs-0000000FtnY-0W64;
+	Thu, 08 Jan 2026 04:04:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdhFp-0000000Ftn8-1Oav
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Jan 2026 04:04:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 558AA497;
+	Wed,  7 Jan 2026 20:03:58 -0800 (PST)
+Received: from [10.163.83.134] (unknown [10.163.83.134])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 591B73F694;
+	Wed,  7 Jan 2026 20:04:03 -0800 (PST)
+Message-ID: <4f2005ba-ff12-4ad9-bd4c-33cae87bdc78@arm.com>
+Date: Thu, 8 Jan 2026 09:34:00 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/mm: Assert NR_BM_PUD_TABLES for bm_pud[]
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-kernel@vger.kernel.org
+References: <20260107061606.3160088-1-anshuman.khandual@arm.com>
+ <d3579c85-8cac-4e83-94a7-b6dcab72b7a1@arm.com>
+ <32030401-06d3-40ad-a0b6-fbd366092f2b@arm.com> <aV4xUe0A4zMhPxU0@J2N7QTR9R3>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <aV4xUe0A4zMhPxU0@J2N7QTR9R3>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_191324_472430_5BE97D87 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20260107_200409_424702_CC206ECE 
+X-CRM114-Status: GOOD (  17.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,50 +68,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For RT thread, only 'set_next_task_rt' will call
-'update_stats_wait_end_rt' to update schedstats information.
-However, during the RT migration process,
-'update_stats_wait_start_rt' will be called twice, which
-will cause the values of wait_max and wait_sum to be incorrect.
-The specific output as follows:
-$ cat /proc/6046/task/6046/sched | grep wait
-wait_start                                   :             0.000000
-wait_max                                     :        496717.080029
-wait_sum                                     :       7921540.776553
 
-Add 'update_stats_wait_end_rt' in 'update_stats_dequeue_rt' to
-update schedstats information when dequeue_task.
 
-Signed-off-by: Dengjun Su <dengjun.su@mediatek.com>
----
- kernel/sched/rt.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+On 07/01/26 3:41 PM, Mark Rutland wrote:
+> On Wed, Jan 07, 2026 at 02:37:51PM +0530, Anshuman Khandual wrote:
+>>
+>>
+>> On 07/01/26 2:03 PM, Ryan Roberts wrote:
+>>> On 07/01/2026 06:16, Anshuman Khandual wrote:
+>>>> There is an implicit assumption about bm_pud[] being single entry PUD table
+>>>> just like bp_pmd[] which is a single entry PMD table. Though only the later
+>>>> gets asserted via NR_BM_PMD_TABLES. Hence let's add a similar check for PUD
+>>>> table as well.
+>>>>
+>>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>>>> Cc: Will Deacon <will@kernel.org>
+>>>> Cc: linux-arm-kernel@lists.infradead.org
+>>>> Cc: linux-kernel@vger.kernel.org
+>>>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>>>> ---
+>>>>  arch/arm64/mm/fixmap.c | 3 +++
+>>>>  1 file changed, 3 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+>>>> index c5c5425791da..e02594be8b8e 100644
+>>>> --- a/arch/arm64/mm/fixmap.c
+>>>> +++ b/arch/arm64/mm/fixmap.c
+>>>> @@ -23,8 +23,11 @@ static_assert(FIXADDR_TOT_START > PCI_IO_END);
+>>>>  	SPAN_NR_ENTRIES(FIXADDR_TOT_START, FIXADDR_TOP, PMD_SHIFT)
+>>>>  #define NR_BM_PMD_TABLES \
+>>>>  	SPAN_NR_ENTRIES(FIXADDR_TOT_START, FIXADDR_TOP, PUD_SHIFT)
+>>>> +#define NR_BM_PUD_TABLES \
+>>>> +	SPAN_NR_ENTRIES(FIXADDR_TOT_START, FIXADDR_TOP, P4D_SHIFT)
+>>>>  
+>>>>  static_assert(NR_BM_PMD_TABLES == 1);
+>>>> +static_assert(NR_BM_PUD_TABLES == 1);
+>>>
+>>> But if there is only one PMD table, there must only be one PUD table (and one
+>>> P4D table, and one PGD table) by definition. So I don't think this is checking
+>>> anything that the existing PMD table check is not.
+>>
+>> Agreed but should not this check help tighten this code up given that bm_pud[]
+>> array gets used for possible PUD entries ?
+> 
+> An assert isn't going to help with code generation, so this patch alone is not
+> useful. When I last looked at actually ommiting the table in various
+> configurations, it was more trouble than it was worth.
+> 
+> As Ryan said, we deliberately only added the assert for the PMD level,
+> and it's sufficient as-is. That happened in commit:
+> 
+>   414c109bdf49 ("arm64: mm: always map fixmap at page granularity")
+> 
+> ... where the commit message said:
+> 
+>     Our VA layout means that the fixmap will always fall within a single PMD
+>     table (and consequently, within a single PUD/P4D/PGD entry), which we
+>     can verify at compile time with a static_assert(). With that assert a
+>     number of runtime warnings become impossible, and are removed.
+> 
+> Please leave this as-is.
 
-diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
-index f1867fe8e5c5..12f2efddca9f 100644
---- a/kernel/sched/rt.c
-+++ b/kernel/sched/rt.c
-@@ -1302,13 +1302,18 @@ update_stats_dequeue_rt(struct rt_rq *rt_rq, struct sched_rt_entity *rt_se,
- 			int flags)
- {
- 	struct task_struct *p = NULL;
-+	struct rq *rq = rq_of_rt_rq(rt_rq);
- 
- 	if (!schedstat_enabled())
- 		return;
- 
--	if (rt_entity_is_task(rt_se))
-+	if (rt_entity_is_task(rt_se)) {
- 		p = rt_task_of(rt_se);
- 
-+		if (p != rq->curr)
-+			update_stats_wait_end_rt(rt_rq, rt_se);
-+	}
-+
- 	if ((flags & DEQUEUE_SLEEP) && p) {
- 		unsigned int state;
- 
--- 
-2.43.0
-
+Alright, makes sense.
 
