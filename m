@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40916D185DA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 11:33:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2026D185C6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 11:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OcQtblxSNveuTk3QggzUpsbSVblMIv994WWX2UotCoU=; b=AJi+gNbBlpc8pnPn5mSoIO9pJT
-	P5z4Yh21zZ7RYOHuZ5rLTD50R8iiq1SA385/ECK9q4kMeNvguc1WqRLyJCldrD5517405kTRyg6RA
-	2QA+3j6ikDLICH4/t9k5ECa+2V+sBLxx3AePsff2pMAGh5lcLviJAPm5m49CCcsdozAA0JqV9je4z
-	BN3/q51sSb5FVXnatArknlsJvNQzFBNTdu6P8QtXvbFMNCpS/1d/80FEdDVqBxQyjnuLPJlL9HeIl
-	gSXzxWxCMpMjcAS5OHJ0jB5P1YmdQ1qO80VmqXauT8oHRitEvmBWAP+/8piV4KCaeQqpgbLwS9f/5
-	CK+qCJaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=h+PD5I1T9SWnu5gQJxf6wuZ/2pTtA653VoNBiXR/ZCw=; b=JL4ZiaXgVwRl1CzD8Yy2ABPmCw
+	iFYbLYgBr0FWape0dJ6jx6k9KpYrReSgiFDmguTxq0JukiouiUx8LA7kr8rHcvcc7vxHI7Gcdb24l
+	hCuDd0dj+8h9rWtIzHZASTPk1PU9hvStzGic9snOKWAknCJGYQCDT0viFcf3kyBg6OmOgKzKDuzCq
+	OaE2W6veEaMtN8TiVtDhvTX4gVTG7DPvrfS9ZNN2IVubhtRFo/GZ7SaWbM5MWSeQbT6+CPzIyEJP4
+	lMBZ4XICXctVNybsb4owAYGhPXiLXnWs+ZRzhzgulTfEBnwcshIULr4bEXZUoH4aWe3IInvPvLk1V
+	0gLVjdEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdoGS-0000000GrLp-0W4Q;
-	Thu, 08 Jan 2026 11:33:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vdoLw-0000000GsMs-2s84;
+	Thu, 08 Jan 2026 11:38:56 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdoGQ-0000000GrL1-1kZD
+	id 1vdoLu-0000000GsLt-15BP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 11:33:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D6CBE60140;
-	Thu,  8 Jan 2026 11:33:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 314D1C116C6;
-	Thu,  8 Jan 2026 11:33:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767871993;
-	bh=eN+QfHQIO7Pse9zFJrI5udW/vP/pjvyOhr608oKx/xE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=S7SrnItkrXMW/9y7kgKPBTdzC3zvrTpBlT+uGAUUqkdczSAZtVWZDNYG+HFEjN1hC
-	 i6yasWk5CBt7/D7lXRUzRnpKnVS1QY9xThGc6+2MRr1+cCxOImMlevNXp+Bdv1LJ8l
-	 VrBhumfkttUS27cxjIm4SUBaXqdw8tORe3AEtYRxJ46tFH19SG4RLAaWp9vgyANBBE
-	 8dRZ59FLmfrpDoswZz2Fiy3mr4Q+y6a8QouPbuCMjfRMqLJHCcdih2LVEYvy0sRhIQ
-	 o3sjRJUi4s6wHL1WL0Ydozt3QqEg1wgZqeXMOZLqjfgGs3zn+yIv6RxxD93cLBTKCQ
-	 Bj/UTHltTnI4Q==
-Date: Thu, 8 Jan 2026 12:33:10 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Sean Nyekjaer <sean@geanix.com>
-Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	linux-pwm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] pwm: stm32: handle polarity change when PWM is enabled
-Message-ID: <r2jq72u3hfxrl4slgvuei2eobke37apebf67naxrvuabtcvaxe@pamwe3nejqge>
-References: <20260106-stm32-pwm-v1-1-33e9e8a9fc33@geanix.com>
- <kemjjoyrhqglqq4p2j6kygspevq2mdbiujtnksw4rkdapoqcfy@zte2c7fhqvn3>
- <2e2iahbzcepbzwgk7xeta2afxmycfjgv2zofzngqjvp4on46r2@mzpi4bz4uqie>
- <nwhixocvhii27jvcyg7ex5emewntgfhyxa4ds5vo2dphe7xfe4@ibjsjdd5fgmn>
- <fwaodg2ovh7j47ifwjhgeppxs3oiqht5ecbs7bmfbi7j6djejs@shwokpcmutr3>
- <zj2vpruzoeyvyyzxiqcffajyhpmem4q75l6gzgxd4jgaizhrdq@bxuudn4kyvr3>
- <paj3uf6apunonvfz2w2anqmddivjrofmfo5wktygz4r6l7diqf@7gen7gjgyuar>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ljhznkytnrzlaroq"
-Content-Disposition: inline
-In-Reply-To: <paj3uf6apunonvfz2w2anqmddivjrofmfo5wktygz4r6l7diqf@7gen7gjgyuar>
+	Thu, 08 Jan 2026 11:38:55 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-47918084ac1so33853595e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 03:38:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1767872331; x=1768477131; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=h+PD5I1T9SWnu5gQJxf6wuZ/2pTtA653VoNBiXR/ZCw=;
+        b=t/CSF1YWyI15aMSoMC5+RldxoYoLFNp8FTNmOHmou0XSIzGfZoQNpucrfvwkbmKUxv
+         moIi2Keir5hO3RZBOTKcjTdj/LWNxdwkfw6YelIIeB/uBCoGCkFmkHAnpDU7smLa1O7S
+         4pHClL/6zU3+8MFfRp0BM+ZNZBLd1davxPEANUvyPX+RTNUeVTJO/6oBSih9eaOm8Rar
+         Nc2wWhlECbm5e4r6mKnOZVzbxgHkVLpuDDS6F7ZHEPmBO+Dnp5JThOjwJ+tA8nBVt3s4
+         01yQq84c/xoT52m91ZFmQyTm5avxuB38XJ3do2zewYwmbNseCzgT9+LBsdUmjhLuzHLS
+         U4Ng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767872331; x=1768477131;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=h+PD5I1T9SWnu5gQJxf6wuZ/2pTtA653VoNBiXR/ZCw=;
+        b=dmnOKa6wbstob+Six1S7CEo5mGVIUBFwZ6iCd+G/DZ7/6O5I1bOUMZvLvINU+H9ys6
+         UMcUZyUCxlCHtk4ixrL+AbHssrlcq7IMjSVIGfX/8Rwso89XWzL3NleXm1mD1MYC1R5h
+         aV7iZgmpoBAXisMP9PgWyDWyuinhpc3sIiFxye0s84mGIUC175/caVJRIO7Q4KVGe9Ej
+         0nMrug3aSSLRlLzLskbI/F/OeTTN1ngctVgVMiLTRN4xaKih516JESThkjjqTa2KIKn0
+         BRwotvzmFoadTPIMAScjDR+LTQT/KxwF9ahukZslxYvPhkj1VStXC6uHT6E302NMk02I
+         UvHg==
+X-Forwarded-Encrypted: i=1; AJvYcCU6D3x+PZIKFuV9dtnqVBTIVAruZD8x42XIgp1z1yi8n2XrM/hdEKzzNSeSs9Zr3PDRoBwCMsSrP9ESHbnOiM8n@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOF21PuHyY8HPJYZuatnXZjHqh8wgB7dg8PE6tMT4LYHE2xKSs
+	DHfknSuMOaMyuf4uyvH0B3QrvHg/8qhZlB9wxNEEt2PdRPeCBJhkYH+YdxPZJ5mzXmd/SS1ixR/
+	3h05bi+l1lR9HUA==
+X-Google-Smtp-Source: AGHT+IGr16gVlj0tGy6ZbPOm8QxP8OJb1ECy1Lx+gySYdlsvpdFscKv8yCc/e9t5dZ5OMMD/GUP08duGuCyGKw==
+X-Received: from wrbfs2.prod.google.com ([2002:a05:6000:25c2:b0:430:f5a3:57c8])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:4e51:b0:477:7af8:c8ad with SMTP id 5b1f17b1804b1-47d84b39850mr75537675e9.31.1767872331602;
+ Thu, 08 Jan 2026 03:38:51 -0800 (PST)
+Date: Thu,  8 Jan 2026 11:38:46 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.52.0.351.gbe84eed79e-goog
+Message-ID: <20260108113846.56179-1-smostafa@google.com>
+Subject: [PATCH] iommu/io-pgtable-arm: Drop DMA API usage for CMOs
+From: Mostafa Saleh <smostafa@google.com>
+To: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Cc: robin.murphy@arm.com, will@kernel.org, joro@8bytes.org, 
+	Mostafa Saleh <smostafa@google.com>, Jason Gunthorpe <jgg@ziepe.ca>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260108_033854_316735_800978F5 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,84 +90,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+As part of the KVM SMMUv3 series[1], we are trying to factor out
+the kernel specific code from io-pgtable-arm so it can also compile
+for the hypervisor.
 
---ljhznkytnrzlaroq
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] pwm: stm32: handle polarity change when PWM is enabled
-MIME-Version: 1.0
+Jason pointed out that the DMA-API calls are not really needed [2].
 
-Hello Sean,
+Looking more into this. Initially, the io-pgtable API let drivers
+do the CMOs using tlb::flush_pgtable() where drivers were using the
+DMA API (map/unmap_single) only to do CMOs as the low-level cache
+functions won=E2=80=99t be available for modules.
 
-On Thu, Jan 08, 2026 at 06:44:06AM +0000, Sean Nyekjaer wrote:
-> I hope that clarifies things :)
+This was later moved to the core code [3], with possibility to
+convert it to full blown DMA-API code if there was a use case.
 
-It does. I'm convinced the following patch implements a simpler fix:
+However, no such use case appeared, and we can simplify the code
+slightly by doing CMO directly instead of going through the DMA-API
+functions just for CMOs.
 
-diff --git a/drivers/pwm/pwm-stm32.c b/drivers/pwm/pwm-stm32.c
-index eb24054f9729..86e6eb7396f6 100644
---- a/drivers/pwm/pwm-stm32.c
-+++ b/drivers/pwm/pwm-stm32.c
-@@ -458,8 +458,7 @@ static int stm32_pwm_apply(struct pwm_chip *chip, struc=
-t pwm_device *pwm,
- 		return 0;
- 	}
+Although HTTU is not used at the moment, leave the
+arch_sync_dma_for_cpu() in __arm_lpae_free_pages() as this is not a
+hot path.
+
+Removing the DMA-API will also remove some extra checks ensuring that
+the IOMMU can deal with physical addrs. we can add those check at
+page table creation time (Something as use_dma_iommu/is_swiotlb_active
+However, that seemed a little too much as Linux doesn't support such
+topologies anyways.
+
+[1] https://lore.kernel.org/linux-iommu/20251117184815.1027271-1-smostafa@g=
+oogle.com/
+[2] https://lore.kernel.org/linux-iommu/20251216005834.GC31492@ziepe.ca/
+[3] https://lore.kernel.org/linux-iommu/7c5584d3efa61ee6b0b87efb72f24f32852=
+aafb7.1438195011.git.robin.murphy@arm.com/
+
+Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+---
+ drivers/iommu/io-pgtable-arm.c | 39 +++++++---------------------------
+ 1 file changed, 8 insertions(+), 31 deletions(-)
+
+diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.=
+c
+index e6626004b323..0da9195155ec 100644
+--- a/drivers/iommu/io-pgtable-arm.c
++++ b/drivers/iommu/io-pgtable-arm.c
+@@ -15,7 +15,7 @@
+ #include <linux/sizes.h>
+ #include <linux/slab.h>
+ #include <linux/types.h>
+-#include <linux/dma-mapping.h>
++#include <linux/dma-map-ops.h>
 =20
--	if (state->polarity !=3D pwm->state.polarity)
--		stm32_pwm_set_polarity(priv, pwm->hwpwm, state->polarity);
-+	stm32_pwm_set_polarity(priv, pwm->hwpwm, state->polarity);
+ #include <asm/barrier.h>
 =20
- 	ret =3D stm32_pwm_config(priv, pwm->hwpwm,
- 			       state->duty_cycle, state->period);
+@@ -254,7 +254,6 @@ static void *__arm_lpae_alloc_pages(size_t size, gfp_t =
+gfp,
+ {
+ 	struct device *dev =3D cfg->iommu_dev;
+ 	size_t alloc_size;
+-	dma_addr_t dma;
+ 	void *pages;
+=20
+ 	/*
+@@ -271,32 +270,10 @@ static void *__arm_lpae_alloc_pages(size_t size, gfp_=
+t gfp,
+ 	if (!pages)
+ 		return NULL;
+=20
+-	if (!cfg->coherent_walk) {
+-		dma =3D dma_map_single(dev, pages, size, DMA_TO_DEVICE);
+-		if (dma_mapping_error(dev, dma))
+-			goto out_free;
+-		/*
+-		 * We depend on the IOMMU being able to work with any physical
+-		 * address directly, so if the DMA layer suggests otherwise by
+-		 * translating or truncating them, that bodes very badly...
+-		 */
+-		if (dma !=3D virt_to_phys(pages))
+-			goto out_unmap;
+-	}
+-
++	if (!cfg->coherent_walk)
++		arch_sync_dma_for_device(__arm_lpae_dma_addr(pages), size,
++					 DMA_TO_DEVICE);
+ 	return pages;
+-
+-out_unmap:
+-	dev_err(dev, "Cannot accommodate DMA translation for IOMMU page tables\n"=
+);
+-	dma_unmap_single(dev, dma, size, DMA_TO_DEVICE);
+-
+-out_free:
+-	if (cfg->free)
+-		cfg->free(cookie, pages, size);
+-	else
+-		iommu_free_pages(pages);
+-
+-	return NULL;
+ }
+=20
+ static void __arm_lpae_free_pages(void *pages, size_t size,
+@@ -304,8 +281,8 @@ static void __arm_lpae_free_pages(void *pages, size_t s=
+ize,
+ 				  void *cookie)
+ {
+ 	if (!cfg->coherent_walk)
+-		dma_unmap_single(cfg->iommu_dev, __arm_lpae_dma_addr(pages),
+-				 size, DMA_TO_DEVICE);
++		arch_sync_dma_for_cpu(__arm_lpae_dma_addr(pages),
++				      size, DMA_TO_DEVICE);
+=20
+ 	if (cfg->free)
+ 		cfg->free(cookie, pages, size);
+@@ -316,8 +293,8 @@ static void __arm_lpae_free_pages(void *pages, size_t s=
+ize,
+ static void __arm_lpae_sync_pte(arm_lpae_iopte *ptep, int num_entries,
+ 				struct io_pgtable_cfg *cfg)
+ {
+-	dma_sync_single_for_device(cfg->iommu_dev, __arm_lpae_dma_addr(ptep),
+-				   sizeof(*ptep) * num_entries, DMA_TO_DEVICE);
++	arch_sync_dma_for_device(__arm_lpae_dma_addr(ptep),
++				 sizeof(*ptep) * num_entries, DMA_TO_DEVICE);
+ }
+=20
+ static void __arm_lpae_clear_pte(arm_lpae_iopte *ptep, struct io_pgtable_c=
+fg *cfg, int num_entries)
+--=20
+2.52.0.351.gbe84eed79e-goog
 
-While is isn't optimal as it might write the polarity into hardware when
-it's not necessary, the same holds true for the values for duty_cycle
-and period. Compared to your patch this is simple enough to make me ok
-with applying it to 6.12.x (and older stable kernels) without an
-equivalent commit in mainline. (Backporting the waveform stuff is out of
-the question IMNSHO.)
-
-Also I'm still convinced that 7edf7369205b isn't the correct commit to
-blame. This one changes the preconditions for the problem to occur (and
-thus it's plausible that it's the result of your bisection), but even
-before 7edf7369205b the problem can happen with:
-
-	pwm_apply(mypwm, &(struct pwm_state){ .enabled =3D true, .polarity =3D PWM=
-_POLARITY_NORMAL, .period =3D DC, .duty_cycle =3D DC });
-	pwm_apply(mypwm, &(struct pwm_state){ .enabled =3D false, .polarity =3D PW=
-M_POLARITY_INVERSED, .period =3D DC, .duty_cycle =3D DC });
-	pwm_apply(mypwm, &(struct pwm_state){ .enabled =3D true, .polarity =3D PWM=
-_POLARITY_INVERSED, .period =3D DC, .duty_cycle =3D DC });
-
-After the 1st call polarity is configured to normal (unless the bug
-happens already earlier :-), the 2nd disables the hardware without
-configuration of the polarity (before and after 7edf7369205b), and the
-third skips setting of the polarity because state->polarity already
-matches pwm->state.polarity. The original problem exists since=20
-7edf7369205b ("pwm: Add driver for STM32 plaftorm").
-
-Are you able to create an improved patch with these insights in a timely
-manner? (Grab authorship for yourself and honoring my part with a
-Co-developed-by is fine for me.)
-
-Best regards
-Uwe
-
---ljhznkytnrzlaroq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmlflfQACgkQj4D7WH0S
-/k4B2gf+PoC8z8k72vsHufO9Z7qQK5OMzg07sEh4DjJoeiewN8LS7MctFtQ7J7Ks
-zt9/t+w7ZAqegx3cgW46IDW661WTZ8OJujP6dTP/O/AYf/FoCdp1K626zZyzHlti
-bue/YEiVrIcoG5H4ZzOdPukpcYnSUymzaOfbN/+LaBfCVZXnc5y1jbzvHX/7lyMs
-s3+O6tnUw0f1IK4wIvmT49+IJLG727SJwE0isdneut6AERJSumdOM3JnGkciS7yW
-49EZ23jWg+FwM+N68mtMXU4EN75utI2oV9N0aKapEUFv7cCSLVC5H6v5Mwpt9pPx
-mSZNakd34IxbYeawv5NZ96J/OmAPcg==
-=Gl20
------END PGP SIGNATURE-----
-
---ljhznkytnrzlaroq--
 
