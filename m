@@ -4,92 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B682DCF6A8B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 09:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3426CCF6A93
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 09:29:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bl8Y617sotQ73GVR2T1Q+Wa4KgXyXDvatmz5tMSVID0=; b=TyHF2OnZZaaiFJBIhVivt1ariL
-	03X3pRki+qI7DNZQdJf4KMtOH8EYJYIIIx1Nt8lyoxF5U0K7fw7V6rE7skT3gkRfQURUIszVG3v3D
-	pVggCR/gicb50c4Gws1b7gNPvrUFfdNvSHZYj9L3NuoRAlhQ737Xc2UaMDyLQ/BaLaWuxL2R6NfPc
-	TFdnPAJFGLKkYDOek0FwkpPa3PNKTSUTrSiag5CB7uzbErLLuioT9k5iBCHRgmiOlWPwRPcdFLlD/
-	aoKETapRNRCKQ7v7D7C8HMNRHruWZyiaXiCPOiiqijc1gvOjAJNi7t6rFCslT45oehiLKEdmJ6HOU
-	BGoji7Kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wgyaf7c8AXGLI8O5H63ZFuMcPTw+PT3s02F734TTTp0=; b=Lqj4Z7qPbdbY2L9jyiwgeBl+oc
+	xa7yQJcHJpAwNNvcSaboX227UcWTmLv9hskOpi2kpnh/AdlZi3Am6QDAk1i4HiLCRkl8ORFx9qFw7
+	NSMV9CYBET8zUoQNrPiwXLQ81fnnAyuGq084si+65zG0O/y25vJxRzDZPWuOAfeTpQ8WE4cOLOKNX
+	Ifx1Y8WbeNRb7C+7hOhYLY3AFVbvMEOllNg5tkb+KA1UDFUbcgl5KpG4Mm1idtPCsKgJQHjW6MySV
+	MKEqARLKZ0xH3oYweburgLdSIrtiiUlltlpIpdn4RkjN7myooR70l7yDMBMsT5yhbxtIBgxhCPMHi
+	VSlYlQgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdmJt-0000000GSnl-08bl;
-	Thu, 08 Jan 2026 09:28:41 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vdmK7-0000000GSvR-3aSn;
+	Thu, 08 Jan 2026 09:28:55 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdmJr-0000000GSmn-0mjC;
-	Thu, 08 Jan 2026 09:28:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1767864492; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=cRYqTaLZu9/Cz2hhALQrG+OnVMloqPR07D0g1j0Oj9gkB4WLvXduBwrjy3/Wrhd7HTdNahdARXVh3jZkJXhrahAbGx2emEh0OkPisxok95vWOGzXFxQwP3XSRadmpuwr7ZYfUofpWWFfDgjjvvoAYNt7v0R8LFHb53fxacceiPA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1767864492; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Bl8Y617sotQ73GVR2T1Q+Wa4KgXyXDvatmz5tMSVID0=; 
-	b=V2NJcv8cA0trLQndvEx48Dgk0YZc9ADKFw6EoIY0bseVk0qkxp4ze4zlhtsFMh1lQsxO7Rq6n5Jf31OvLVvRsYvmUpD8b9BOVpB63CuDVgkCWQRUuQnb+kztY7fbwZTxN8FiOE4MVob+48K6Z/EBH/Od85N0aIfALnHE8DAr2Oc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1767864491;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=Bl8Y617sotQ73GVR2T1Q+Wa4KgXyXDvatmz5tMSVID0=;
-	b=EMi4YlvrwckuoEXWDPE+n0476n6VI0HuybuzhMEgHluL/U0bj8xY8nYDWEvDWeqU
-	DocuVYtiK0A/HWw/vhT9xhQ6ClQ+SJPEblKV28C7BZ2NuAmZT1L+tk9xXQqt7R/a7+k
-	7F1/FjbybBegbC6pPGEQ6eT0VbpqCIHSzPEgsrS8=
-Received: by mx.zohomail.com with SMTPS id 1767864489427365.0551721336526;
-	Thu, 8 Jan 2026 01:28:09 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
- "robh@kernel.org" <robh@kernel.org>,
- Chunfeng Yun =?UTF-8?B?KOS6keaYpeWzsCk=?= <Chunfeng.Yun@mediatek.com>,
- "kishon@kernel.org" <kishon@kernel.org>,
- "James.Bottomley@HansenPartnership.com"
- <James.Bottomley@hansenpartnership.com>,
- "bvanassche@acm.org" <bvanassche@acm.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- Chaotian Jing =?UTF-8?B?KOS6leacneWkqSk=?= <Chaotian.Jing@mediatek.com>,
- "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
- "vkoul@kernel.org" <vkoul@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "avri.altman@wdc.com" <avri.altman@wdc.com>,
- "martin.petersen@oracle.com" <martin.petersen@oracle.com>,
- "broonie@kernel.org" <broonie@kernel.org>,
- Peter Wang =?UTF-8?B?KOeOi+S/oeWPiyk=?= <peter.wang@mediatek.com>
-Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- "kernel@collabora.com" <kernel@collabora.com>
-Subject: Re: [PATCH v4 12/25] scsi: ufs: mediatek: Remove vendor kernel quirks cruft
-Date: Thu, 08 Jan 2026 10:28:00 +0100
-Message-ID: <13960383.uLZWGnKmhe@workhorse>
-In-Reply-To: <1bbc263bafe14343b2d60a230ae6ce5dadffbf7c.camel@mediatek.com>
-References: <20251218-mt8196-ufs-v4-0-ddec7a369dd2@collabora.com>
- <20251218-mt8196-ufs-v4-12-ddec7a369dd2@collabora.com>
- <1bbc263bafe14343b2d60a230ae6ce5dadffbf7c.camel@mediatek.com>
+	id 1vdmK6-0000000GStk-0Qgu;
+	Thu, 08 Jan 2026 09:28:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1767864530;
+	bh=MYQM/u3EY2aksYdZVVDQjWmMTOdhULDevRcaPw5g3Sk=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=iPc+jDogBmFyzzhHYT7Ep9dE/ld5l0S8ReDISfgBgFcGREHHORiJCcpIJFjRtOgkt
+	 IHE5jIQNC7lrcRE7Ct9V4xUY+wc5M6udotNherABvuZlME+FMu9bwij8zpPFIXXYOV
+	 YR/Q2GuyLyMC6oZAZHI4fLCNqcx3jTFP6Ptbz/jLN2hEHJhXmsNNCoQBBS65pfvNds
+	 Nqp5QPtexTi7+t5h35a9CUYTiZiMlaT1jk97oHZTKH0uOoSYrlfLTzwpq5s51OGvKX
+	 z+bBr89wM3t/bxYCOmT/hkp/2YEgGETyDyz+Jaa9Yk4Z3G16RpztdKNCIARA1HhUH9
+	 7gco2hkuz9pcA==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 073B917E0ED3;
+	Thu,  8 Jan 2026 10:28:49 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Henry Chen <henryc.chen@mediatek.com>, Georgi Djakov <djakov@kernel.org>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org
+In-Reply-To: <20251124-mt8196-dvfsrc-v2-0-d9c1334db9f3@collabora.com>
+References: <20251124-mt8196-dvfsrc-v2-0-d9c1334db9f3@collabora.com>
+Subject: Re: (subset) [PATCH v2 00/13] MediaTek Interconnect Cleanup and
+ MT8196 Enablement
+Message-Id: <176786452995.11151.4722650468329780903.b4-ty@collabora.com>
+Date: Thu, 08 Jan 2026 10:28:49 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_012839_277197_1F6F7A99 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20260108_012854_295260_FBFC7186 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,48 +79,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 6 January 2026 14:25:22 Central European Standard Time Peter Wa=
-ng (=E7=8E=8B=E4=BF=A1=E5=8F=8B) wrote:
-> On Thu, 2025-12-18 at 13:55 +0100, Nicolas Frattaroli wrote:
-> >=20
-> > Both ufs_mtk_vreg_fix_vcc and ufs_mtk_vreg_fix_vccqx look like they
-> > are
-> > vendor kernel hacks to work around existing downstream device trees.
-> > Mainline does not need or want them, so remove them.
-> >=20
->=20
-> Hi Nicolas,
->=20
-> This is a flexible approach to implement one software supporting
-> multiple
-> hardware configurations. Because you cannot guarantee that your SOC
-> will=20
-> always use UFS 2.0 or UFS 3.0, or that the PMIC you use will only have
-> one set.
+On Mon, 24 Nov 2025 12:06:49 +0100, Nicolas Frattaroli wrote:
+> This series is a combination of binding changes, driver cleanups and new
+> driver code to enable the interconnect on the MediaTek MT8196 SoC.
+> 
+> This series currently does not add any users of it (i.e., no bandwidth
+> requests being made in affected device drivers), as the only one I
+> quickly whippd up is in the UFS driver, which is undergoing some major
+> refactoring upstream in a different series of mine.
+> 
+> [...]
 
-By "one software supporting multiple hardware configurations", do you
-mean one device tree? Because if so, I don't think that's a good idea.
-Device tree is meant to describe non-enumerable hardware.
+Applied to v6.19-next/soc, thanks!
 
-Even if you want to make it easier for your customers to ship one image
-for several SKUs, there's better ways to do this than having drivers
-fix up individual DT nodes. The platform firmware like u-boot can choose
-a DT based on differences it can probe. E.g. on Radxa ROCK 5B/5B+ boards,
-we have u-boot choose between the 5B and 5B+ DT based on whether LPDDR5
-is present, as 5B does not have LPDDR5, so as long as u-boot is told it's
-either a ROCK 5B or ROCK 5B+, it can figure out which one specifically based
-on that. Similarly, for whichever boards this is for, there may be
-differences that can be probed to disambiguate between several SKUs of the
-board as long as it's known it must be at least one of those SKUs.
+[02/13] dt-bindings: soc: mediatek: dvfsrc: Document clock
+        commit: 831ee17036e259da23a6313e28a3cbdda221a88c
+[04/13] soc: mediatek: mtk-dvfsrc: Change error check for DVFSRCv4 START cmd
+        commit: 23f1b4922a9135515e37d3bbad766e311845071f
+[05/13] soc: mediatek: mtk-dvfsrc: Add and propagate DVFSRC bandwidth type
+        commit: c2488fecba681d632a3dbb6b2f33c39df2cb7be9
+[06/13] soc: mediatek: mtk-dvfsrc: Add a new callback for calc_dram_bw
+        commit: ddb5862a43b1f40ca0a5cc16882277d8d07b966a
+[07/13] soc: mediatek: mtk-dvfsrc: Write bandwidth to EMI DDR if present
+        commit: 7cf9db2aca552f5f537d46f1e52e0ab08ddc2d64
+[08/13] soc: mediatek: mtk-dvfsrc: Add support for DVFSRCv4 and MT8196
+        commit: 75cf308fee7e4b3038741f96fd90afc3bd871e64
+[09/13] soc: mediatek: mtk-dvfsrc: Get and Enable DVFSRC clock
+        commit: 39aa8c4e762ea9b00d66cc55957527167ed89435
+[10/13] soc: mediatek: mtk-dvfsrc: Rework bandwidth calculations
+        commit: 3da293d70005496317d1ff3a49b89c29dd7c21e8
 
->=20
-> Thanks
-> Peter
->=20
->=20
->=20
-
-
+Cheers,
+Angelo
 
 
 
