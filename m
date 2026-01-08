@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3426CCF6A93
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 09:29:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F01CF6A9B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 09:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wgyaf7c8AXGLI8O5H63ZFuMcPTw+PT3s02F734TTTp0=; b=Lqj4Z7qPbdbY2L9jyiwgeBl+oc
-	xa7yQJcHJpAwNNvcSaboX227UcWTmLv9hskOpi2kpnh/AdlZi3Am6QDAk1i4HiLCRkl8ORFx9qFw7
-	NSMV9CYBET8zUoQNrPiwXLQ81fnnAyuGq084si+65zG0O/y25vJxRzDZPWuOAfeTpQ8WE4cOLOKNX
-	Ifx1Y8WbeNRb7C+7hOhYLY3AFVbvMEOllNg5tkb+KA1UDFUbcgl5KpG4Mm1idtPCsKgJQHjW6MySV
-	MKEqARLKZ0xH3oYweburgLdSIrtiiUlltlpIpdn4RkjN7myooR70l7yDMBMsT5yhbxtIBgxhCPMHi
-	VSlYlQgg==;
+	bh=nlafj51NZlRLZNcCQvX26YM1leQgX4PdSsjSMwzfNK4=; b=pA2nd3YYbf1Xyqr65cUXQqNIjb
+	tj7T+Uig2HtyKfiMgat2QCmaYtUp4mdCA+zriqbYRGijMqjyCSpejV/OFxIu22SdVzVkbYHQsdFtz
+	74uEbu0xEm3vapl7PMpVABkLHF9ZV+9dCSSDa50+zqiaOFhZ9Ofs9cYAzMckOYu0aE7wQfZtnSQHQ
+	tgdB3eTaGa57CDnkEsj56sZXDiBbIMdhT7KNFSQtH5bB16tg5k5h2Pl/aT3KzwjZnapjnrB57HKj3
+	R8Xi6lRGV3vQF5nIX51/RP3r1Z6EtabAzZ5ybSZsLYz6vAEp1Lu7ywkTs5SfYjZ/tSq1PIFIx860Z
+	5kkpkSHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdmK7-0000000GSvR-3aSn;
-	Thu, 08 Jan 2026 09:28:55 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vdmKr-0000000GTCA-2u38;
+	Thu, 08 Jan 2026 09:29:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdmK6-0000000GStk-0Qgu;
-	Thu, 08 Jan 2026 09:28:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1767864530;
-	bh=MYQM/u3EY2aksYdZVVDQjWmMTOdhULDevRcaPw5g3Sk=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=iPc+jDogBmFyzzhHYT7Ep9dE/ld5l0S8ReDISfgBgFcGREHHORiJCcpIJFjRtOgkt
-	 IHE5jIQNC7lrcRE7Ct9V4xUY+wc5M6udotNherABvuZlME+FMu9bwij8zpPFIXXYOV
-	 YR/Q2GuyLyMC6oZAZHI4fLCNqcx3jTFP6Ptbz/jLN2hEHJhXmsNNCoQBBS65pfvNds
-	 Nqp5QPtexTi7+t5h35a9CUYTiZiMlaT1jk97oHZTKH0uOoSYrlfLTzwpq5s51OGvKX
-	 z+bBr89wM3t/bxYCOmT/hkp/2YEgGETyDyz+Jaa9Yk4Z3G16RpztdKNCIARA1HhUH9
-	 7gco2hkuz9pcA==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 073B917E0ED3;
-	Thu,  8 Jan 2026 10:28:49 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Henry Chen <henryc.chen@mediatek.com>, Georgi Djakov <djakov@kernel.org>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org
-In-Reply-To: <20251124-mt8196-dvfsrc-v2-0-d9c1334db9f3@collabora.com>
-References: <20251124-mt8196-dvfsrc-v2-0-d9c1334db9f3@collabora.com>
-Subject: Re: (subset) [PATCH v2 00/13] MediaTek Interconnect Cleanup and
- MT8196 Enablement
-Message-Id: <176786452995.11151.4722650468329780903.b4-ty@collabora.com>
-Date: Thu, 08 Jan 2026 10:28:49 +0100
+	id 1vdmKq-0000000GTBg-0GEF
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Jan 2026 09:29:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1F34F6001A;
+	Thu,  8 Jan 2026 09:29:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D5BCC116C6;
+	Thu,  8 Jan 2026 09:29:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767864578;
+	bh=W8DJmHThBYvxGSmtz4McDRjOmfRywwR7+XCWBWBL1l4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=f+u5DmplBkq203+bl7h8gv/gMn1W3Ksr4DnuBjxBUikh8Isjso1UliWw+z7+Uy3K4
+	 pfedbjT0JAncz0yLgOoDmicTWKkQ3UgggOvxVRkGmjpwsy+4bakGPgtLXGZpXxepcz
+	 pTtGtO1Md+MBlPv1cLaWXioLGd0FbN5YakLkVqJ/yS2en0MCa7QK44Cw38A/WDHrTj
+	 hdoUS0cGjV3cLvne3L3sejbUSY7fwNDS6HU8ZCDJP/Iey7FPNGlWh5Q8OEBrmjlh8o
+	 LZaXsaU7bnQZNW7FCuknupcNZmvMNIYAIo5ZP8fhJ0oSFfwvHrDKfWIhdtzoY1L8t/
+	 PPpIdqb/JcALw==
+Message-ID: <38385033-5bf6-4ee2-b227-f46677136d86@kernel.org>
+Date: Thu, 8 Jan 2026 10:29:33 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] ata: ahci-dwc: Simplify with scoped for each OF
+ child loop
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Niklas Cassel <cassel@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ llvm@lists.linux.dev
+Cc: Jonathan Cameron <jonathan.cameron@huawei.com>
+References: <20260105142944.372959-4-krzysztof.kozlowski@oss.qualcomm.com>
+Content-Language: en-US
+From: Damien Le Moal <dlemoal@kernel.org>
+Organization: Western Digital Research
+In-Reply-To: <20260105142944.372959-4-krzysztof.kozlowski@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_012854_295260_FBFC7186 
-X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,38 +80,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Nov 2025 12:06:49 +0100, Nicolas Frattaroli wrote:
-> This series is a combination of binding changes, driver cleanups and new
-> driver code to enable the interconnect on the MediaTek MT8196 SoC.
+On 1/5/26 15:29, Krzysztof Kozlowski wrote:
+> Use scoped for-each loop when iterating over device nodes and switch to
+> iterating already over available nodes to make code a bit simpler.
 > 
-> This series currently does not add any users of it (i.e., no bandwidth
-> requests being made in affected device drivers), as the only one I
-> quickly whippd up is in the UFS driver, which is undergoing some major
-> refactoring upstream in a different series of mine.
-> 
-> [...]
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Applied to v6.19-next/soc, thanks!
-
-[02/13] dt-bindings: soc: mediatek: dvfsrc: Document clock
-        commit: 831ee17036e259da23a6313e28a3cbdda221a88c
-[04/13] soc: mediatek: mtk-dvfsrc: Change error check for DVFSRCv4 START cmd
-        commit: 23f1b4922a9135515e37d3bbad766e311845071f
-[05/13] soc: mediatek: mtk-dvfsrc: Add and propagate DVFSRC bandwidth type
-        commit: c2488fecba681d632a3dbb6b2f33c39df2cb7be9
-[06/13] soc: mediatek: mtk-dvfsrc: Add a new callback for calc_dram_bw
-        commit: ddb5862a43b1f40ca0a5cc16882277d8d07b966a
-[07/13] soc: mediatek: mtk-dvfsrc: Write bandwidth to EMI DDR if present
-        commit: 7cf9db2aca552f5f537d46f1e52e0ab08ddc2d64
-[08/13] soc: mediatek: mtk-dvfsrc: Add support for DVFSRCv4 and MT8196
-        commit: 75cf308fee7e4b3038741f96fd90afc3bd871e64
-[09/13] soc: mediatek: mtk-dvfsrc: Get and Enable DVFSRC clock
-        commit: 39aa8c4e762ea9b00d66cc55957527167ed89435
-[10/13] soc: mediatek: mtk-dvfsrc: Rework bandwidth calculations
-        commit: 3da293d70005496317d1ff3a49b89c29dd7c21e8
-
-Cheers,
-Angelo
+Applied all 3 patches to for-6.20. Thanks !
 
 
+-- 
+Damien Le Moal
+Western Digital Research
 
