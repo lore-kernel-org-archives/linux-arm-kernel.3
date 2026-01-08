@@ -4,57 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00212D148A3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 06:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4746D148AF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 06:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JvbqfdE84s/Q3OOhKk+KWzNYUT7BCFUTKaN5MZ+iwW8=; b=UeoNNtS/7rVYIJzQPcYGjq3grt
-	0uQpp0ZjigDpIx3NAhLtfq/Hv6kgLa40kk4sV+1eTSIlSQwillvQ3oDockwbn/xno6HPC3Tn39ErE
-	6ODAW7Ee5BWkVNkdBROTGAh/pNSbgzjFATFMHgXyzqw5iv740/Zj6pe26dvtbqHX0G7FUyIe3J8Ar
-	/AHp0nahtsr8wA4Kuq1jG3a+zfIax8QdqOvPNT+rYpjFTJBM5XZjDX0H9ldN4NsskwjAPYCHQ5BTX
-	DFRT0sf0Wj/RxQz/4NJ1vzcILLIpuxmiBIL8hmWL5Udn0+JnDtIMVKuKo+MiKzTkiuJ5JOIzIWPWC
-	VfzVzWmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8rqCsmRtIYHW2VSwwYMVZbqgl3uFyWqrNV4dlfzK4mY=; b=bDGpTEeJvrsINyft98efxOwvZV
+	/7ppvAPffhLJQXV/LAiGXtJs+xZ4Z//bFjTLX9SRJiRCW0gSzdqoso270Cy8hY7DyEhd6NysaWLa4
+	hXexBiXZyZ9QpWiqQGD9taS5ch3xk7vrkHBuiLJN0v2S14MFy7g8Q2d5FBjKgAjF/+IMKzLAePjWw
+	XbN8TzfDlU9mSTGuzO4LOxEfG5OMF6puBbG0qZVOptt0sHSz7EALXDso5ajycnrRRRWd3+xZ2OcQD
+	ayLf+ZiFG1vLW8e+dnguOiULPiJ7PDp8YDONsRs2lfEH70VAcjQfnXh6XU7K03lBSZE+HMAHLMKJ6
+	hYViZlpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdjkm-0000000G0qi-1bfK;
-	Thu, 08 Jan 2026 06:44:18 +0000
-Received: from mail-4317.protonmail.ch ([185.70.43.17])
+	id 1vdjnW-0000000G1I4-24dW;
+	Thu, 08 Jan 2026 06:47:06 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdjki-0000000G0q9-45Xh
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 06:44:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=geanix.com;
-	s=protonmail2; t=1767854649; x=1768113849;
-	bh=JvbqfdE84s/Q3OOhKk+KWzNYUT7BCFUTKaN5MZ+iwW8=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=e5KrIPDzjg1eSWFaPCAMJbQZi9QV6uXXbAp8JUNHoExGxRVbZYfPic5fG1Stk+ety
-	 UglMdcOOJzCoJhMUgZm9hviKfZl3fGbI9RWfijo6ADEua7tzieJTcJ1tEbJcQUAzWH
-	 EkQlM+nAIari9yZuVeKSy6NK1iDvyruNab0gvzuqy+QJiQknsoen5KM5UmFhnc5oPh
-	 CugkPCSuozE+CMdPaeCodhQ4SfuqaPLyya41H1JmE0W7kDRrhYFAX8uOLS2JarTlBF
-	 xV1cyBCoyVEQbwNblQZBlFLihg+w/3mJAMR61vodMHj/+FsiTqZIjZZVXH+ju+oUtf
-	 Aw5U8tsJUWdKA==
-Date: Thu, 08 Jan 2026 06:44:06 +0000
-To: =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-From: Sean Nyekjaer <sean@geanix.com>
-Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-pwm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] pwm: stm32: handle polarity change when PWM is enabled
-Message-ID: <paj3uf6apunonvfz2w2anqmddivjrofmfo5wktygz4r6l7diqf@7gen7gjgyuar>
-In-Reply-To: <zj2vpruzoeyvyyzxiqcffajyhpmem4q75l6gzgxd4jgaizhrdq@bxuudn4kyvr3>
-References: <20260106-stm32-pwm-v1-1-33e9e8a9fc33@geanix.com> <kemjjoyrhqglqq4p2j6kygspevq2mdbiujtnksw4rkdapoqcfy@zte2c7fhqvn3> <2e2iahbzcepbzwgk7xeta2afxmycfjgv2zofzngqjvp4on46r2@mzpi4bz4uqie> <nwhixocvhii27jvcyg7ex5emewntgfhyxa4ds5vo2dphe7xfe4@ibjsjdd5fgmn> <fwaodg2ovh7j47ifwjhgeppxs3oiqht5ecbs7bmfbi7j6djejs@shwokpcmutr3> <zj2vpruzoeyvyyzxiqcffajyhpmem4q75l6gzgxd4jgaizhrdq@bxuudn4kyvr3>
-Feedback-ID: 134068486:user:proton
-X-Pm-Message-ID: 014263d0e98d319b81f8ce02eec1a63633eddc36
+	id 1vdjnT-0000000G1HJ-3Om3;
+	Thu, 08 Jan 2026 06:47:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1767854823; x=1799390823;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=tilklIxwMEG7LlBNKkCVNunz2O6wIypo2AidPBlAcXA=;
+  b=mZmKTZmeZXze6DJveAvQDYAmg27ds2Pa2A9i13C/xI3w56qAx8TGE3oC
+   7HQwK9VhZOxpAsd7hgi5o5t/XFrdjoB64FDJHKBMRi1V/0/VvlF7UGwkl
+   FifqCC3SY0VD1waif4gAkIfZcMKS1NhqDQr6LmXz+h7zZEN85hXMFohS0
+   SqKXLSjw3HRWTGKknN2fphqrCXbh3Ht1YUVvjN4lQyzjfaQzM22MhxlyH
+   SoF2Xj3DDb0aVyEAjDF/OuUoMo/oJOws7Djn2+6BWpIThL/hRRSHgdd9Y
+   utCDXuwttnU0XNks7BPBk9/zA9qoTeJr4g84BHms7yrxDY4zsx3w+pCEk
+   Q==;
+X-CSE-ConnectionGUID: VaUQv7QKTT+wbnFjCTIi+Q==
+X-CSE-MsgGUID: B0jlSUZaR7CvMO3S7IqhXw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11664"; a="71805424"
+X-IronPort-AV: E=Sophos;i="6.21,210,1763452800"; 
+   d="scan'208";a="71805424"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Jan 2026 22:46:58 -0800
+X-CSE-ConnectionGUID: /s35aiAwRTa/0aYKBclYQA==
+X-CSE-MsgGUID: OsRC/1eHSSCTlgJZipdTHA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,210,1763452800"; 
+   d="scan'208";a="233826495"
+Received: from dhhellew-desk2.ger.corp.intel.com (HELO localhost) ([10.245.245.185])
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Jan 2026 22:46:52 -0800
+Date: Thu, 8 Jan 2026 08:46:50 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Thomas Andreatta <thomasandreatta2000@gmail.com>,
+	Caleb Sander Mateos <csander@purestorage.com>,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	Olivier Dautricourt <olivierdautricourt@gmail.com>,
+	Stefan Roese <sr@denx.de>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Lizhi Hou <lizhi.hou@amd.com>, Brian Xu <brian.xu@amd.com>,
+	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH v4 0/13] dmaengine: introduce sg_nents_for_dma() and
+ convert users
+Message-ID: <aV9S2oAsIIIZoYnR@smile.fi.intel.com>
+References: <20251124121202.424072-1-andriy.shevchenko@linux.intel.com>
+ <aUFakHZL8viMN3WR@vaman>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aUFakHZL8viMN3WR@vaman>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260107_224413_904836_31B2CF96 
-X-CRM114-Status: GOOD (  25.30  )
+X-CRM114-CacheID: sfid-20260107_224703_901507_2206F0B9 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,159 +106,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe,
+On Tue, Dec 16, 2025 at 06:41:44PM +0530, Vinod Koul wrote:
+> On 24-11-25, 13:09, Andy Shevchenko wrote:
+> > A handful of the DMAengine drivers use same routine to calculate the number of
+> > SG entries needed for the given DMA transfer. Provide a common helper for them
+> > and convert.
+> > 
+> > I left the new helper on SG level of API because brief grepping shows potential
+> > candidates outside of DMA engine, e.g.:
+> > 
+> >   drivers/crypto/chelsio/chcr_algo.c:154:  nents += DIV_ROUND_UP(less, entlen);
+> >   drivers/spi/spi-stm32.c:1495:  /* Count the number of entries needed */
+> > 
+> > Changelog v4:
+> > - fixed compilation errors (Vinod)
+> 
+> :-(
+> 
+> drivers/dma/altera-msgdma.c: In function ‘msgdma_prep_slave_sg’:
+> drivers/dma/altera-msgdma.c:399:29: error: unused variable ‘sg’ [-Werror=unused-variable]
+> 
+> Clearly your script is not working. I am surprised that you are not able
+> to compile these changes. Bit disappointed tbh!
 
-On Thu, Jan 08, 2026 at 07:05:15AM +0100, Uwe Kleine-K=C3=B6nig wrote:
-> On Wed, Jan 07, 2026 at 04:05:56PM +0000, Sean Nyekjaer wrote:
-> > On Wed, Jan 07, 2026 at 04:54:46PM +0100, Uwe Kleine-K=C3=B6nig wrote:
-> > > On Tue, Jan 06, 2026 at 11:30:34AM +0000, Sean Nyekjaer wrote:
-> > > > On Tue, Jan 06, 2026 at 11:22:57AM +0100, Uwe Kleine-K=C3=B6nig wro=
-te:
-> > > > > On Tue, Jan 06, 2026 at 08:01:57AM +0100, Sean Nyekjaer wrote:
-> > > > > > After commit 7346e7a058a2 ("pwm: stm32: Always do lazy disablin=
-g"),
-> > > > > > polarity changes are ignored. Updates to the TIMx_CCER CCxP bit=
-s are
-> > > > > > ignored by the hardware when the master output is enabled via t=
-he
-> > > > > > TIMx_BDTR MOE bit.
-> > > > > [...]
-> > > > > I have hardware using this driver, will set it up later this week=
- for
-> > > > > testing.
-> > > >=20
-> > > > Very cool, looking forward to hear if you can re-produce.
-> > >=20
-> > > I cannot. I have:
-> > >=20
-> > > =09# uname -r
-> > > =096.11.0-rc1-00028-geb18504ca5cf-dirty
-> > >=20
-> > > (the -dirty is only from enabling the pwm for my machine, no driver
-> > > changes)
-> > >=20
-> > > =09# cat /sys/kernel/debug/pwm
-> > > =090: platform/40001000.timer:pwm, 4 PWM devices
-> > > =09...
-> > > =09 pwm-3   (sysfs               ): requested enabled period: 313720 =
-ns duty: 10000 ns polarity: normal
-> > >=20
-> > > and pulseview/sigrok detects 3.187251% with a period of 313.8 =C2=
-=B5s.
-> > >=20
-> > > After
-> > >=20
-> > > =09echo inversed > /sys/class/pwm/pwmchip0/pwm3/polarity
-> > >=20
-> > > the output changes to
-> > >=20
-> > > =09# cat /sys/kernel/debug/pwm
-> > > =090: platform/40001000.timer:pwm, 4 PWM devices
-> > > =09...
-> > > =09 pwm-3   (sysfs               ): requested enabled period: 313720 =
-ns duty: 10000 ns polarity: inverse
-> > >=20
-> > > and pulseview/sigrok claims 96.812749% with a period of 313.8 =C2=
-=B5s.
-> > > So the polarity change happend as expected.
-> > >=20
-> > > This is on an st,stm32mp135f-dk board.
-> > >=20
-> > > Where is the difference to your observations?
-> > >=20
-> >=20
-> > Thanks for taking a look!
-> > I'm using the PWM for a backlight. With this [0] in my dts:
-> >=20
-> > [0]:
-> > =09backlight: backlight {
-> > =09=09compatible =3D "pwm-backlight";
-> > =09=09pwms =3D <&pwm4 0 125000 PWM_POLARITY_INVERTED>;
-> > =09=09brightness-levels =3D <102 235 255>;
-> > =09=09default-brightness-level =3D <80>;
-> > =09=09num-interpolated-steps =3D <100>;
-> > =09=09enable-gpios =3D <&gpiof 12 GPIO_ACTIVE_LOW>;
-> > =09status =3D "okay";
-> > =09};
-> >=20
-> > Maybe that is doing something differently.
->=20
-> What is the actual problem you have? I assume it's the backlight being
-> off after boot? Does it start working if you disable and reenable?
+This is W=1 build with WERROR=y, yet I agree that I must have tested this as
+well. Sorry, I will do v5 with carefully tested all modules to be compiled
+with `make W=1`.
 
-Yes, no backlight at default brightness. But the range is inverted so a low=
- brightness
-setting i get maximum brightness.
-No, it never enters stm32_pwm_set_polarity().
+-- 
+With Best Regards,
+Andy Shevchenko
 
->=20
-> Can you please boot with
->=20
-> =09trace_event=3Dpwm
->=20
-> on the command line and provide /sys/kernel/debug/tracing/trace from
-> after the problem happend?
-
-Tracing output is the same before and after this patch:
-# tracer: nop
-#
-# entries-in-buffer/entries-written: 2/2   #P:2
-#
-#                                _-----=3D> irqs-off/BH-disabled
-#                               / _----=3D> need-resched
-#                              | / _---=3D> hardirq/softirq
-#                              || / _--=3D> preempt-depth
-#                              ||| / _-=3D> migrate-disable
-#                              |||| /     delay
-#           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
-#              | |         |   |||||     |         |
-    kworker/u5:0-24      [000] .....     1.867389: pwm_apply: 482f1c0e: per=
-iod=3D125000 duty_cycle=3D0 polarity=3D1 enabled=3D0 err=3D0
-     kworker/1:0-22      [001] .....     1.984044: pwm_apply: 482f1c0e: per=
-iod=3D125000 duty_cycle=3D101960 polarity=3D1 enabled=3D1 err=3D0
-
-I have added this diff to the kernel to show what happens:
-diff --git a/drivers/pwm/pwm-stm32.c b/drivers/pwm/pwm-stm32.c
-index 67414b97ef4d..94f6d0f33365 100644
---- a/drivers/pwm/pwm-stm32.c
-+++ b/drivers/pwm/pwm-stm32.c
-@@ -394,6 +394,7 @@ static int stm32_pwm_set_polarity(struct stm32_pwm *pri=
-v, int ch,
- {
- =09u32 mask;
-
-+=09printk("stm32_pwm_set_polarity: %d\n", polarity);
- =09mask =3D TIM_CCER_CC1P << (ch * 4);
- =09if (priv->have_complementary_output)
- =09=09mask |=3D TIM_CCER_CC1NP << (ch * 4);
-@@ -455,6 +456,7 @@ static int stm32_pwm_apply(struct pwm_chip *chip, struc=
-t pwm_device *pwm,
- =09int ret;
-
- =09enabled =3D pwm->state.enabled;
-+=09printk("stm32_pwm_apply: enabled %d, state->polarity %d, pwm->state.pol=
-arity %d\n", enabled, state->polarity, pwm->state.polarity);
-
- =09if (!state->enabled) {
- =09=09if (enabled)
-
-Before this patch:
-root@localhost:~# journalctl -k | grep pwm
-Jan 8 7:30:33 localhost kernel: stm32_pwm_apply: enabled 0, state->polarity=
- 1, pwm->state.polarity 0
-Jan 8 7:30:33 localhost kernel: stm32_pwm_apply: enabled 0, state->polarity=
- 1, pwm->state.polarity 1
-
-After this patch:
-root@localhost:~# journalctl -k | grep pwm
-Jan 8 7:38:33 localhost kernel: stm32_pwm_apply: enabled 0, state->polarity=
- 1, pwm->state.polarity 0
-Jan 8 7:38:33 localhost kernel: stm32_pwm_set_polarity: 1
-Jan 8 7:38:33 localhost kernel: stm32_pwm_apply: enabled 0, state->polarity=
- 1, pwm->state.polarity 1
-
-I hope that clarifies things :)
-
-/Sean
 
 
