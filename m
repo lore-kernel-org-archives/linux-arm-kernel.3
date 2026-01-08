@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B701D185D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:56:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01203D185D5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HH+DD4cIbxf4+sCG5RdVz9NQII+6wY3bzAy1NiV+f20=; b=fKFL+c23NjE871xwUP+LY9qz6W
-	pzQF8qV9yoG033cVQ/19QPe3guVCQwXtv3/riWtKgdCL4yT+5cWdhxlzbvJAELmrtZPsOBGUjgV4t
-	QuEYVzS9pfVWjD2rLaCqawLggFyUcsysmuGon/pZAXTK0LPFjNLsDqD0iF+vMBNGKCqQoMT74K3hl
-	5b58Q6V8Okq8fZkQ4YXHXdKBr6R3btuXz84tegSvTvGB7LEeI53Ee88zqpIPW8OILfSnFj4SEF2EF
-	CqqyOY+IAtzmlx20csaFxUWGF0d7gvWQhWM3ooE0ImQ7etMbsyDdzgB8q/UuEHgaUkJjJhH7pX41F
-	ZEYKeDxQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g7VLJ0qsYizCH4nUj5cUjJTNxSK7nDD/+BXYqhfrIWQ=; b=3M/AdRHXE1YGmZAtFYeznddB/0
+	yOOEfGEEGtzaWH/oevnEdtzbqMBsTVVdft6hz4kTewdWzagw48rVI2zGS/zlwkSfqXwXeYEwc3hpp
+	YM9nB1eE7EofD6is26bc3vNcys/RFlezBzod6LpcQPjfgc9zwgOHDXFl1cJIFcYrezZmKFQXmEMvn
+	Lwief/z3dFs5ONRb6ni8wo+1Xc3NqRKl5iz4qROd+8Mwqiu17/iwAnH9AQBpKiEozBcXEtU9EMykl
+	tTv2jb9GKCYa7BEShDdAbm/j+SF+ZQQ1a3Yfd+xhFX2vI7gbpITAAfZ7tdWGLuvGao/hvDLoq98gz
+	9Wn1gRCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdnh3-0000000GkTy-0vvL;
-	Thu, 08 Jan 2026 10:56:41 +0000
+	id 1vdnh5-0000000GkWA-0Feq;
+	Thu, 08 Jan 2026 10:56:43 +0000
 Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdngt-0000000GkJh-1Tuq;
+	id 1vdngw-0000000GkHx-25aO;
 	Thu, 08 Jan 2026 10:56:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1767869792; x=1799405792;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=R/veCd+MoZYz+/H4HoR6cR9O2PqmUFTICzNu+LpTN+o=;
-  b=TXsD1ipM65a+q/Uew25v7E0vgx3++9fUUFzgvTgHpLaO+OQVnFAlg7I/
-   6ybFMpmWJ521GszE3B/K3KJaQCaOTW0KFXJiyE7e7qfgQM0OdV6GMjB8W
-   kh7YJNH4uKSl69ymcadGjX4sbHt+O9W1AiS8IHZazoUKxi8mUCxtR6E4k
-   4GjRA4eMb6GgQEGN9VZ1ElD88OJZlkETA211GMO4rHxLYXX64+wsslwe4
-   MG5BwZNRO3dDF+2NqBl816MVlrkCN9kwBpYO7Qq+KlrB2f6gLwtaao2yM
-   h3WHWYdkqZb8ttfetXZeRPHKmH+mjL5Yo5tL9AyPdwjW5IyqYFLyjcoYY
-   g==;
-X-CSE-ConnectionGUID: 56j8HOjYSQOxxRQngNaDdw==
-X-CSE-MsgGUID: BDPiHgtzSmSdvEzLZEeE6Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11664"; a="80354585"
+  t=1767869795; x=1799405795;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=G7V9+SrifDGfqxju25Hp/oyxgo/fWf9zfXipYvZQzAU=;
+  b=jzpwyzV440LZdnWAnd4EPXQUtKMHr1jtbDmarf504TIXLL41z367oREw
+   N7q+2jdooXJ7q3hZEM9uTGC8XS1C3ojJoKY0hUBgrpmotOuHp1ieLm0Vo
+   RoCDtVYUFRkPgnz2ynR97rkJyxElvuvrdRLlzIPq4DVt2MtNID8tE41Bt
+   azadEWK0eDHdFm8HaI+k1fGp+EhhhZSicpd9BpYoess0ADWFk7ZJR2NJK
+   ITV/Z+b/nQ/3VRVtWLr3JktBS7VUel+wKMKYqT05F7A2Mjet2OGv7KIBf
+   UcywKVh7exIJ4KUYW3KWWgz21XuIk6OADrnZEJv/+jY+a+y/LfTRzRTn+
+   A==;
+X-CSE-ConnectionGUID: dFgy/97fTZy/AqvHhGNJXQ==
+X-CSE-MsgGUID: TnTtbemKRPiA4wGPduGH/A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11664"; a="80354653"
 X-IronPort-AV: E=Sophos;i="6.21,210,1763452800"; 
-   d="scan'208";a="80354585"
+   d="scan'208";a="80354653"
 Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2026 02:56:28 -0800
-X-CSE-ConnectionGUID: TLQoBmzxTyqlR0Bd+co+kQ==
-X-CSE-MsgGUID: q8cFpDAKSr2AxYqPiM0Nmw==
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2026 02:56:34 -0800
+X-CSE-ConnectionGUID: Zwvn7u6hTo6+k7bjfHNITw==
+X-CSE-MsgGUID: 0Pl65cuJQkCkM+DOgQ/NWw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.21,210,1763452800"; 
-   d="scan'208";a="203615538"
+   d="scan'208";a="203615549"
 Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa009.fm.intel.com with ESMTP; 08 Jan 2026 02:56:21 -0800
+  by fmviesa009.fm.intel.com with ESMTP; 08 Jan 2026 02:56:27 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id 3DE2E98; Thu, 08 Jan 2026 11:56:20 +0100 (CET)
+	id 71CF7A8; Thu, 08 Jan 2026 11:56:20 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Bjorn Andersson <andersson@kernel.org>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
@@ -84,16 +84,17 @@ Cc: Olivier Dautricourt <olivierdautricourt@gmail.com>,
 	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>,
 	Michal Simek <michal.simek@amd.com>,
 	Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v5 00/13] dmaengine: introduce sg_nents_for_dma() and convert users
-Date: Thu,  8 Jan 2026 11:50:11 +0100
-Message-ID: <20260108105619.3513561-1-andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v5 11/13] dmaengine: sa11x0: use sg_nents_for_dma() helper
+Date: Thu,  8 Jan 2026 11:50:22 +0100
+Message-ID: <20260108105619.3513561-12-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260108105619.3513561-1-andriy.shevchenko@linux.intel.com>
+References: <20260108105619.3513561-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_025633_746419_780F6FF0 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260108_025634_630395_9AE9965D 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,75 +109,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Instead of open coded variant let's use recently introduced helper.
 
-A handful of the DMAengine drivers use same routine to calculate the number of
-SG entries needed for the given DMA transfer. Provide a common helper for them
-and convert.
+Reviewed-by: Bjorn Andersson <andersson@kernel.org>
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ drivers/dma/sa11x0-dma.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-I left the new helper on SG level of API because brief grepping shows potential
-candidates outside of DMA engine, e.g.:
-
-  drivers/crypto/chelsio/chcr_algo.c:154:  nents += DIV_ROUND_UP(less, entlen);
-  drivers/spi/spi-stm32.c:1495:  /* Count the number of entries needed */
-
-Changelog v5:
-- fixed W=1 warning (Vinod)
-- `make W=1` the whole folder in allyesconfig and allmodconfig configurations
-
-v4: <20251124121202.424072-1-andriy.shevchenko@linux.intel.com>
-
-Changelog v4:
-- fixed compilation errors (Vinod)
-
-v3: <20251113151603.3031717-1-andriy.shevchenko@linux.intel.com>
-
-Changelog v3:
-- added missed EXPORT_SYMBOL() (Bjorn)
-- left the return type as signed int (as agreed with Bjorn)
-- collected tags (Bjorn)
-
-v2: <20251110103805.3562136-1-andriy.shevchenko@linux.intel.com>
-
-Changelog v2:
-- dropped outdated patches (only 9 years passed :-)
-- rebased on top of the current kernel
-- left API SG wide It might
-
-v1: https://patchwork.kernel.org/project/linux-dmaengine/patch/20161021173535.100245-1-andriy.shevchenko@linux.intel.com/
-
-*** BLURB HERE ***
-
-Andy Shevchenko (13):
-  scatterlist: introduce sg_nents_for_dma() helper
-  dmaengine: altera-msgdma: use sg_nents_for_dma() helper
-  dmaengine: axi-dmac: use sg_nents_for_dma() helper
-  dmaengine: bcm2835-dma: use sg_nents_for_dma() helper
-  dmaengine: dw-axi-dmac: use sg_nents_for_dma() helper
-  dmaengine: k3dma: use sg_nents_for_dma() helper
-  dmaengine: lgm: use sg_nents_for_dma() helper
-  dmaengine: pxa-dma: use sg_nents_for_dma() helper
-  dmaengine: qcom: adm: use sg_nents_for_dma() helper
-  dmaengine: qcom: bam_dma: use sg_nents_for_dma() helper
-  dmaengine: sa11x0: use sg_nents_for_dma() helper
-  dmaengine: sh: use sg_nents_for_dma() helper
-  dmaengine: xilinx: xdma: use sg_nents_for_dma() helper
-
- drivers/dma/altera-msgdma.c                   |  6 ++---
- drivers/dma/bcm2835-dma.c                     | 19 +-------------
- drivers/dma/dma-axi-dmac.c                    |  5 +---
- .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    |  6 ++---
- drivers/dma/k3dma.c                           |  9 ++-----
- drivers/dma/lgm/lgm-dma.c                     |  9 ++-----
- drivers/dma/pxa_dma.c                         |  5 ++--
- drivers/dma/qcom/bam_dma.c                    |  9 ++-----
- drivers/dma/qcom/qcom_adm.c                   |  9 +++----
- drivers/dma/sa11x0-dma.c                      |  6 ++---
- drivers/dma/sh/shdma-base.c                   |  5 ++--
- drivers/dma/xilinx/xdma.c                     |  6 ++---
- include/linux/scatterlist.h                   |  2 ++
- lib/scatterlist.c                             | 26 +++++++++++++++++++
- 14 files changed, 52 insertions(+), 70 deletions(-)
-
+diff --git a/drivers/dma/sa11x0-dma.c b/drivers/dma/sa11x0-dma.c
+index dc1a9a05252e..86f1d7461f56 100644
+--- a/drivers/dma/sa11x0-dma.c
++++ b/drivers/dma/sa11x0-dma.c
+@@ -526,7 +526,7 @@ static struct dma_async_tx_descriptor *sa11x0_dma_prep_slave_sg(
+ 	struct sa11x0_dma_chan *c = to_sa11x0_dma_chan(chan);
+ 	struct sa11x0_dma_desc *txd;
+ 	struct scatterlist *sgent;
+-	unsigned i, j = sglen;
++	unsigned int i, j;
+ 	size_t size = 0;
+ 
+ 	/* SA11x0 channels can only operate in their native direction */
+@@ -542,10 +542,7 @@ static struct dma_async_tx_descriptor *sa11x0_dma_prep_slave_sg(
+ 
+ 	for_each_sg(sg, sgent, sglen, i) {
+ 		dma_addr_t addr = sg_dma_address(sgent);
+-		unsigned int len = sg_dma_len(sgent);
+ 
+-		if (len > DMA_MAX_SIZE)
+-			j += DIV_ROUND_UP(len, DMA_MAX_SIZE & ~DMA_ALIGN) - 1;
+ 		if (addr & DMA_ALIGN) {
+ 			dev_dbg(chan->device->dev, "vchan %p: bad buffer alignment: %pad\n",
+ 				&c->vc, &addr);
+@@ -553,6 +550,7 @@ static struct dma_async_tx_descriptor *sa11x0_dma_prep_slave_sg(
+ 		}
+ 	}
+ 
++	j = sg_nents_for_dma(sg, sglen, DMA_MAX_SIZE & ~DMA_ALIGN);
+ 	txd = kzalloc(struct_size(txd, sg, j), GFP_ATOMIC);
+ 	if (!txd) {
+ 		dev_dbg(chan->device->dev, "vchan %p: kzalloc failed\n", &c->vc);
 -- 
 2.50.1
 
