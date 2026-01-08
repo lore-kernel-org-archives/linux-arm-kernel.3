@@ -4,63 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8716D1D47D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 15:45:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07AEFD1D47D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 15:46:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uCeCeimucjCaP535NGwMJwYj62zTUinDV1/mQx/kINs=; b=Yu7RtYA4SzY58sSA1L39A3V8NG
-	7vM8fIhfAJAW41JUmvHhAdXPloZ3r9xHpbG/Z3gLDrgP1Q1Vc4v//ZwxN6nTG93qcRXbe9XSk2wZk
-	hmi4NRj0R/bQzRglsNhQEAtfsse/5T1MB5/EnTiveDng00Aedzn+VUMJOXnTOZrnTg+533jjdkIaJ
-	1id1t6v9i7FndbtbOSxkeMnGsPGLVeVTAI+0+0jHLw6YFnWH95SQ9JaKDOidwL/ngVOFdXQRBEbVD
-	tyPcP4XpQh43k5gFdQu6TDUzLoU2VULfW58vfk0UKngcxHap5NFNb3+OBbA1YWB2fPJwlVccqc8qN
-	qHvdOpDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uv12hnrwE/xCrwMlzRCr8JMFimc5f//NoJYxZtR1Kb0=; b=oiinWr6m8j5VP4FLu8kYVHdkuc
+	AVimFWrtYCM80PGW79JaWQ7VToFNVbNYBgUSsEdC0eHvL9KT9XARnjGCGCMveQ+gMavIfbIhj6XD8
+	ZxKVmAAcUBwAMu318HUn9wT5hbGWaDPgjY8Jv+Ft9UeM2ucHYOIQDLEXXHxeg93xLNSFWCGkxHe/W
+	i46KpPf2f7vcRLYPWa5NlqQLlTLUfdUUpUyBBycTZ4qqXUoySeqrH9JscS6UZf5ejRHY8LjX+3jED
+	QY2bawoMR0PjaGGcQPvkxxf9uSr1YUqoB2D41GCH7sb9h8aR17cA1HsiKSbtP2TycvR6/W9PdHod2
+	+c/y0dmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdsCd-0000000HZDl-2zhJ;
-	Thu, 08 Jan 2026 15:45:35 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vdsD6-0000000HZMF-1biU;
+	Thu, 08 Jan 2026 15:46:04 +0000
+Received: from mail-westeuropeazon11010023.outbound.protection.outlook.com ([52.101.69.23] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdsCZ-0000000HZCX-1K4B;
-	Thu, 08 Jan 2026 15:45:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=uCeCeimucjCaP535NGwMJwYj62zTUinDV1/mQx/kINs=; b=J9N1uqykG2Qxoxw/g34oGTX3La
-	vHfTxvF1/cGO6CWMSuz8hpUzuWIZjz530wRgbMpzcMjcRBJCC+iwTxZhtDUoFOPgksjigvu443CGc
-	iewuMhbofmOWHOfKL4bzjK5X3tIF6b3chMafqBimDMLr69mDBweMMYbxreQOEtb76y+mEwi9+Dwub
-	Qco76G3yKMStrPYBKKNvuI2EQNNdjxPmlUWWslGGMfvvlgOZy2cxaU4eNL84DForHG0ZjGi6Sh0C2
-	EAgwIgaRiit4M6eXzfADGK1Ob7JOW9bgRoTSo3VzOeYpMwm9AJDaQ1gxBDkwvVPweVq9DCtC0Su3i
-	lI2usngg==;
-Received: from i53875a63.versanet.de ([83.135.90.99] helo=phil..)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vdsCO-001W86-Se; Thu, 08 Jan 2026 16:45:21 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Andy Yan <andyshrk@163.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	hjc@rock-chips.com,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH 1/2] drm/rockchip: vop2: Add delay between poll registers
-Date: Thu,  8 Jan 2026 16:45:19 +0100
-Message-ID: <176788711595.3235249.5659814329200289480.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250718064120.8811-1-andyshrk@163.com>
-References: <20250718064120.8811-1-andyshrk@163.com>
+	id 1vdsD1-0000000HZKP-3PfH
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Jan 2026 15:46:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RaF7AgxGQCF04wmNdxoznyF0JSkhwvo/Z+B68TQ7zloQ+IBBNoZ5AMl4ELadv4CP0VYneT85KdB+Zv8ctyv+h7BDqG/1aegHPf82fX8DCrMX981XeGRDYxwbOILpOl/DMLrmDAbkx79P+49Pr8BBimQ8Inoqpe/+mmys4in+iW0NmmWwL0n/S/DI3H6Dq/OggFT1g8PEOpDCF+LLLId9KiekNgYJkJqrpZt3Tl/aIuCcRGHa6win+DieFbpEEQgA3joQcd78eZMOmLr4xOAmPItiaYMvJQrDi8Wl6zSdO32sGhBU92hOu/xYGE3Kf8di1UMQoM37ipVfUyY5eYpt3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uv12hnrwE/xCrwMlzRCr8JMFimc5f//NoJYxZtR1Kb0=;
+ b=SouOX4m/gn6w53zgrl0iyUwC7z9SF0uElN3w/Dp12/UjoHMw4s8WjiY00b3CN9ZRzs5VL8dUlRpqLS9y3tS2Uy1rOOSMv+of4Wg7ZSKN0vrl2k6aSFEI1SBddr6tlGcUliUnAXje1XK7LpzMHSYLDZZDkiqI5zOKh6mJdw41ow3BipZ03xQVJTjP0LNid/8shyIJYQz26G++Nbehu+58PwD0yp+ZLjo6SuvxiWifGcF3IBh3A026Hdv/51e24+ZxafE0J7oU+L3gIXCg0qjle/LXT5vIHaBYMsalZyZ2dF5wWzaZMMI71UH/Uh7TUO8aynKAdcrdosG7uGn9wq9W9Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uv12hnrwE/xCrwMlzRCr8JMFimc5f//NoJYxZtR1Kb0=;
+ b=mDDozmjn0lY9bwuOIdvFPgiUButRl9Ww9tVucMZjzkYVuREiRNMmYVlYITg8c8hRkacAVCKeDgL0fDxjdlyucDFVTampXSjnTBkCGUQIEMkICd7m+79aFaze8A9ySBediLw8CE9iksmWzeh5bMNYr39he+Evlk04jF8Rp8loZFoj/glyldFPrjPcpx4Blj0EWEFK3MB32Eh+xAPnQh7nLUVY4ASoXjUeKou+FboaaUTfjcrSPec0n86OwqwO7klKMUcY03Y3eFg1hhPMuSzXA3/SHpyQGfsiLcJU4KJlQ5SlWHXoAySTQT518qhpS8o101QhcQtIq3bM29slfQ68Rg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by VI0PR04MB10903.eurprd04.prod.outlook.com (2603:10a6:800:265::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Thu, 8 Jan
+ 2026 15:45:56 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9478.004; Thu, 8 Jan 2026
+ 15:45:55 +0000
+Date: Thu, 8 Jan 2026 10:45:48 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: peter.chen@kernel.org, gregkh@linuxfoundation.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-usb@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	jun.li@nxp.com
+Subject: Re: [PATCH] usb: chipidea: ci_hdrc_imx: use "wakeup" suffix for
+ wakeup interrupt name
+Message-ID: <aV/RLEJQ0PX6DCAn@lizhi-Precision-Tower-5810>
+References: <20260108103521.2139824-1-xu.yang_2@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260108103521.2139824-1-xu.yang_2@nxp.com>
+X-ClientProxiedBy: PH8P223CA0017.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:510:2db::9) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|VI0PR04MB10903:EE_
+X-MS-Office365-Filtering-Correlation-Id: d4bbe116-b6c6-4170-8a2b-08de4ecd02d1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|19092799006|7416014|52116014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hIY8WxiybN9Pi927AmTS9cNEkt+BrAPoxjWy/E7dskB2UuK65DU8pGcepMQ2?=
+ =?us-ascii?Q?dyhKx8DRdNVC9lqd+/l6y2b8XPYNzVSK/CA53ZD/AuLVaK1N4aFlYZ7bEGW6?=
+ =?us-ascii?Q?q5EvvH9qqQLcVavw82U2CmGezBvVAk9zcOgaMXfq1ftAo+nK61Jzjl4EzlcY?=
+ =?us-ascii?Q?Su2rSoVFliNcXBfpC7PHyAIsLWcZKDTo8gCgBdCRJ5wMBcKXAZjtqZ1Tz2GR?=
+ =?us-ascii?Q?qJx8W3ZE0ItBvb4FfkFlLN3WFHAXmqibtFSYXOEhkEWQ87+VsobutZE33M9j?=
+ =?us-ascii?Q?KqixRvk19R9EbjOQS4UhwOsgc7en5ULEY2XKCQ4tiamRaDL8+Iu//D+viojK?=
+ =?us-ascii?Q?H4VQk04bQIrGrIfRzCzyWUexUyShRwZD0PQ6OFLlDlwhOpB+c/NKXTyx0628?=
+ =?us-ascii?Q?3ZMwy0QHcGZTnK/RNQISqDASBQyCR7rpm7ONSC91/9vUBriAuCudoFM4kJMo?=
+ =?us-ascii?Q?hvJKuoWsqBabGB5GuLu4R5IqtbfLjIvSyjady0ch7aFhmvqlZALVyXmD9UV7?=
+ =?us-ascii?Q?K7yt6ERt9HoS/rRcQ5xerqMwULhF855KtHta4oNjJRdLWw7ke+tlUPSkvX51?=
+ =?us-ascii?Q?QGalRaJGKBNGyBY6bT6aqxuhnXjdMr/h4tOKF2briMVOC7/b2hn1IzyUXK1a?=
+ =?us-ascii?Q?9x+UCr2RXcO1fUD71mcTl/fZc0QaQpbTTC6/4+/N7oeja8aAU4ty8fvpImmP?=
+ =?us-ascii?Q?5U3JNdi+oOJOVAi2n1+lUWtWjvSqLXLF1XLh+Cw5L+mYpVOSRIdJ5CGPLZSo?=
+ =?us-ascii?Q?zap9+eV5wHWq7eZnPKHdtj5xpvLfmuy0mTL1Da5XjaCcYjUdZaHk90NazNpG?=
+ =?us-ascii?Q?A/3k7rrbQaxWZ0F7WZsJPcXThsW0Db3XPLQC+g1z7G9sTDNJOCja/8d2c7OE?=
+ =?us-ascii?Q?pQTxtCRHx08OgUDGdgziVOGIqt2JSM8e/+uM/vcDTLLloKJ8bW920OBTDQOT?=
+ =?us-ascii?Q?RjljfAAK4ohG7o8nWySfOdtUKy0Lovt+gixEVnvp+o0FhL+fyy1qkNoWWQjd?=
+ =?us-ascii?Q?+pE5YNe7l4dJVyYiF06vBoNfHANDnAW9z/RPET3gdrOaP/rcfk6TaskaprF/?=
+ =?us-ascii?Q?jyrsbP4KfrlmZPe85QPjv/hnu4JdQlkOWttsf7urQZ9Wx6B7BukdIFtHrLhB?=
+ =?us-ascii?Q?Fywqp4ylBAnFCqKCjEbZibrMnj3JlM1ORpxYGqkxYL3rrNBaKboOW4fVcU9g?=
+ =?us-ascii?Q?H8cMBQVBURu7+gqTa2mRyzc2fiPNtkjqWA43TiV9sjoET3NJ/GE1c3c+ru3u?=
+ =?us-ascii?Q?TcK0P0De4M23dWe9UcrDo0mXF5DqJS1anm0zRarOct/Qvsoh3OAZU0gsudEK?=
+ =?us-ascii?Q?+jSjWH1BUNEMe0hiTTt9ce+Ovm0F7vL2261eLiGgIWssUy2mdh/6Q2f7VD8K?=
+ =?us-ascii?Q?3xFSvEM/cN8ZxxSFqYVD+2PIjDb5OAVU2Xr0w9vRoKhPyzwp6rIi1A4krwFX?=
+ =?us-ascii?Q?qqfB2Xh3xg4NxSbDaQB2Gb2NbolpLF5xGaaHyAgns9T2mrT08hz9ZY+4SE64?=
+ =?us-ascii?Q?ruL7fCTscMSrIn06aqYm8hINYexEtvlUkaCj?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(19092799006)(7416014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jdwZix5g8jVoi+Fo4yh2NuWWdKgwey8ItihePaiCtWurFTRl5+CClB/yfj6A?=
+ =?us-ascii?Q?hFthx4ALt3ytoCBt0dQMouy/1TVtF/8vUyCQFFL9siQiGP+++jb8tJIW8GsT?=
+ =?us-ascii?Q?n62T9WsSCXoFaO5pPkx9yArHo5c18XncmvaQltsZp9Fqrc9gC4hHaHBaQjz6?=
+ =?us-ascii?Q?wUdz4tb4/IT/FUCTDPbaJ2YY3Rkx4c/D+o+fR2Py8x1iokOpACDT1Gm14wxb?=
+ =?us-ascii?Q?RwhCPcW6yhHHqjyScSkeEtXw/6cjhsbUSLZvN8d6uwC/1e8v45NBhuqqKoqI?=
+ =?us-ascii?Q?eU746fB6GwvuppsfsTw8rzjdpywEgzAMj69e0dibNr5IQ2TvR4pea5Oej3Cp?=
+ =?us-ascii?Q?9i6pIxMjvQxAS0GwOex6WxQc7SVxS7YoXMmBOL3H9qwpdV6AeSa96tE8hu4x?=
+ =?us-ascii?Q?l2777hK+5VCjEmcCh1kp3EpAMEeDggnTJyQxT9Klo73ONJPFue5Q0Z6l/iuE?=
+ =?us-ascii?Q?wAREHDp9bQDqm905GkEv9y3CTRziLx5VGLRYbjLVlmzrgjGy0nyAAjM3NuGY?=
+ =?us-ascii?Q?Ia+YCdZI9BCmdOxKgBGx/26ib0eDOvsjKMgWxZJBSzBh67CvHUY9gCuh/rsA?=
+ =?us-ascii?Q?YV/Mc7QBdqVz+pzkXxYGRxAs0AGU0afAxtYVGTzjvSYsvnJzktPHdTNLqX8A?=
+ =?us-ascii?Q?Z91SJiZMKDqCSVpIUqU/LkcRmyD0vvoeNQQfXd/qg2CWMw/SsSHb7s1J7aSV?=
+ =?us-ascii?Q?LYVS2Zy30H0rnvjA/qxp++9BoaST0uRi32vwAD3azqPcHBkxyet1w8k9SKDS?=
+ =?us-ascii?Q?pQ2eEIvxbqx2cUrSvB1P6WhjyOmc47KTj+QwFo2T6oYdz9WcA72cioHf4QVj?=
+ =?us-ascii?Q?nTo26wPU9VOQY2QRB8SNayD6b8B91dnnxwavlpbFdDKsHqxd0e/Gdnb0fssI?=
+ =?us-ascii?Q?3Bah4iUMr0kOS9PRHsnc5dwkLck1bfO7Kv6UlsZ+cKAp99w4HhoHAe43x8/m?=
+ =?us-ascii?Q?uqY1OBWXA1GUXEZjfsYmAaqyqvjRwnqVDc+BAeuAXsNujMt9VfXi1NM70xfG?=
+ =?us-ascii?Q?TKQhM3Dd7UWHQGTaRQxPrpjCic7ps20c++V53tIh6J0zhDkzvA+JIjZd1zGg?=
+ =?us-ascii?Q?C31cvqJvwV2s3vC7b/arVyvKnfsuKSY0b+pY1mWeiUlFevLFhkMJP6bd9YsL?=
+ =?us-ascii?Q?iuw9Czi7vwsrVST4EPiwE92wf3Ls7euGf6xvazoQ/P23R8AV2m8XoaxZ0Mbq?=
+ =?us-ascii?Q?j6nLfFe8EywH8ovxWoTMMt49yuJ0uae81X15BDODEZn5YBaI5wIduPBGXPwh?=
+ =?us-ascii?Q?JbM6QPO3u2GzPWdpi5QlqvrEB8E29NTDHtaWptjmJj42JLoOePysrkzI7OrO?=
+ =?us-ascii?Q?YhvbXef4kfxvSyMKWPr+hU+DRcwLtrtQVQbVVeOY/w7YsX4BZoJkv2eAtb/3?=
+ =?us-ascii?Q?4m0kgefwsrnzjsNascMd1ElxSCfCWYuZRMiQRSeR+typR0/vZVCUr9QiEA8b?=
+ =?us-ascii?Q?fN8KN/eY22w8eB1PvlhCUD3BJSut/Bro7KFZXdCjjdRVddfnhw4Qd6jxEdgB?=
+ =?us-ascii?Q?somfiycFLG2t6Y4ULq+Iwyxo5kUwYCk4EOeigee4O0U8vmVQLMMbDFqwkZrg?=
+ =?us-ascii?Q?mo75NiIJB5uzDNgiyFnOthQX89VxyO1q0in9pU6vd6WZPfRXkwiJSNnRUmE3?=
+ =?us-ascii?Q?2WM3FrDd+TPRQCzOTffgGhMUGz1HyZF5Tqvl22Ng7OQ4wFlGJEQoG8mp3sS1?=
+ =?us-ascii?Q?N5PVudx881gsxWVa4e18Vo07yrerLJUCUJwU5l8hihxylZOsgwAZRjtqJxja?=
+ =?us-ascii?Q?iJ8mzngsIg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d4bbe116-b6c6-4170-8a2b-08de4ecd02d1
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2026 15:45:55.7886
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ErblhvphhqIje5oF+McsIsnFL/E0fRPgUZ9kO6NkWWkNGAbnZhJaIvd/Sb55TRyjhDMZGcIMCanhgpgWiTI7Hg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10903
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_074533_251931_ED27CD40 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20260108_074602_095831_2F501A88 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,25 +163,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jan 08, 2026 at 06:35:21PM +0800, Xu Yang wrote:
+> Currently the wakeup and controller interrupt name are same. It's not
+> easy to find the correct one in /proc/interrupt at the first glance.
+> Rename the wakeup interrupt name for better distinction.
+>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> ---
+>  drivers/usb/chipidea/ci_hdrc_imx.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
+> index d4ee9e16332f..e4345e0eea59 100644
+> --- a/drivers/usb/chipidea/ci_hdrc_imx.c
+> +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
+> @@ -385,6 +385,7 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+>  	const struct ci_hdrc_imx_platform_flag *imx_platform_flag;
+>  	struct device_node *np = pdev->dev.of_node;
+>  	struct device *dev = &pdev->dev;
+> +	const char *irq_name;
+>
+>  	imx_platform_flag = of_device_get_match_data(&pdev->dev);
+>
+> @@ -525,10 +526,11 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+>
+>  	data->wakeup_irq = platform_get_irq_optional(pdev, 1);
+>  	if (data->wakeup_irq > 0) {
+> +		irq_name = devm_kasprintf(dev, GFP_KERNEL, "%s:wakeup", pdata.name);
 
-On Fri, 18 Jul 2025 14:41:13 +0800, Andy Yan wrote:
-> According to the implementation of read_poll_timeout_atomic, if the
-> delay time is 0, it will only use a simple loop based on timeout_us to
-> decrement the count. Therefore, the final timeout time will differ
-> significantly from the setted timteout time. So, here we set a specific
-> delay time to ensure that the calculation of the timeout duration is accurate.
-> 
-> 
-> [...]
+Need check irq_name
 
-Applied, thanks!
+Frank
 
-[1/2] drm/rockchip: vop2: Add delay between poll registers
-      commit: 9fae82450d8a5f9c8fa016cd15186e975609b2ac
-[2/2] drm/rockchip: vop2: Only wait for changed layer cfg done when there is pending cfgdone bits
-      commit: 7f6721b767e219343cfe9a894f5bd869ff5b9d3a
-
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+>  		ret = devm_request_threaded_irq(dev, data->wakeup_irq,
+>  						NULL, ci_wakeup_irq_handler,
+>  						IRQF_ONESHOT | IRQF_NO_AUTOEN,
+> -						pdata.name, data);
+> +						irq_name, data);
+>  		if (ret)
+>  			goto err_clk;
+>  	}
+> --
+> 2.34.1
+>
 
