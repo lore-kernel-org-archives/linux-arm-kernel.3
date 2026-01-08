@@ -4,62 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E50D1D483
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 19:22:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E51D1D478
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 19:43:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dx+UGcerhelmz5eKf/UPFxZV03ERHxJjYWSe2Da3wlw=; b=hKrk50hieFov36MSHV7hlITRzv
-	5ZHP6j4h/DpkdTsuwrGxeYk+5K8j8UzzkdZXQ51YtnBfUd+5feNPTOHN8ijHbd3H4Bz3ySn1B9I8P
-	1WlncaryaXB9/JqWnS4gSIhoS0HmX2TN6Xf71doCJhxORVMGZhQrCN89EVHG636Qdb6QVhQqd/l2t
-	7VgJ/4d6cJBaw/WeSMmkj3ikPkol1bN57grMFNvOHHIMgc5t+kmaxaQGvdaAdhYH0VJ+Wo6Ungbp1
-	tNwDwG14LSFD3ztOrF86ox/V0xrDuOpHWMFVryhqIuiNch5SoHkSpik9Y3bpu4H9/L02oWbdP8K8q
-	NWeofGVQ==;
+	bh=PIEQSGyXoklceQA7be7693cpmUv7wZQIe7ISIB7M0N8=; b=d5C6UjqiVI3kuoixXzt8NO9xvr
+	UD8R+tvP1C6YMDzAd7u6O3drpv9aDx1BMYROluq34WfBufHvMyyRSzl+hbSFcS1shFNLuA0LoP5hM
+	uxE7DcvBw/Qa6yJ0Am1OffXzFXNwqC3CPKIYFUb5AtsgnopTlT12ds2vnKp8LyyVftvROmWeDyhLh
+	Z6mFiVBWzytLADEd4Bqjk9nupT4CAEs1ESdMMgAZRKRHO0h2OxCv/2DziIb5U8DL4iWhEwViJG8E1
+	MWIzu6u87nR68DXCtC0KagO8OJdECh7h9gii+sDOIEwj9tYw2Z6nkNxDWEUh8tkXBeVqXDUCujg8Q
+	Kjpkcogg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdvaQ-00000000kZB-05YH;
-	Thu, 08 Jan 2026 19:22:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdvaN-00000000kXs-3T9l
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 19:22:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EAA0F497;
-	Thu,  8 Jan 2026 11:22:09 -0800 (PST)
-Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 592353F6A8;
-	Thu,  8 Jan 2026 11:22:06 -0800 (PST)
-Date: Thu, 8 Jan 2026 19:22:01 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
-	dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
-	fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
-	jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	peternewman@google.com, punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com, reinette.chatre@intel.com,
-	rohit.mathew@arm.com, scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com, will@kernel.org, corbet@lwn.net,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-Subject: Re: (subset) [PATCH v2 00/45] arm_mpam: Add KVM/arm64 and resctrl
- glue code
-Message-ID: <176790010619.2057507.2252517783260979848.b4-ty@arm.com>
-References: <20251219181147.3404071-1-ben.horgan@arm.com>
+	id 1vdvus-00000000m1V-0n06;
+	Thu, 08 Jan 2026 19:43:30 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdvup-00000000m16-0Uyc;
+	Thu, 08 Jan 2026 19:43:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1767901403;
+	bh=PARMCHULN39OqJTkCrAKqCeTaF3GhUp7Z51iV+p+ep0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=E0aQTZ/+FajpyaTH1Lx7woECPN7VD8iDKQxuKjCbthrqZTTNF8piFMdeYGBA2eNY2
+	 nwBJAWu6sCWdxvY63LB/0wIqaeFwqyug6IPEsNmdgGjPe4bvTv7h3E72jUjOcuCuEu
+	 O0tfOA0Mdrir/NOxx/4LnQVXN3G7S45ewmJJx+xMnpg/yHwC0kBpesd3QP/MijLyuq
+	 0kI+jt31FgYHvsWrgUSwLLBpelwqLKth2lj3AIsOXhbI2jAi7Kd7cxah0BZ9I8AVAj
+	 cIvghqoF6KiFXgA7MEW7WG/Rj+wtinrujRONbOv+pnNpbBEJjiB1bhe3Oa4P/o4xCK
+	 H1a4yau0ZmicQ==
+Received: from [192.168.42.140] (mtl.collabora.ca [66.171.169.34])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3DF4917E0023;
+	Thu,  8 Jan 2026 20:43:22 +0100 (CET)
+Message-ID: <dead1a4383691de7458e629de8808d2518e7415a.camel@collabora.com>
+Subject: Re: [PATCH] media: verisilicon: AV1: Set IDR flag for intra_only
+ frame type
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+	p.zabel@pengutronix.de, mchehab@kernel.org, heiko@sntech.de
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kernel@collabora.com, Jianfeng Liu <liujianfeng1994@gmail.com>
+Date: Thu, 08 Jan 2026 14:43:17 -0500
+In-Reply-To: <20260108132946.74853-1-benjamin.gaignard@collabora.com>
+References: <20260108132946.74853-1-benjamin.gaignard@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-/7N/TlSYMxJmoXRb6zgA"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251219181147.3404071-1-ben.horgan@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_112219_909003_39CDFE70 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20260108_114327_339912_B87B6C70 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,22 +90,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Dec 2025 18:11:02 +0000, Ben Horgan wrote:
-> As James is otherwise engaged this version of the MPAM missing pieces comes
-> from me. I hope this does justice to all his hardwork. The changes that
-> I've brought to this version are the handling of systems with SME, some rework
-> of the KVM parts, a few small bug fixes and some tidying.
-> 
-> This may be the first time you are seeing this series as James spared some
-> of you as the rfc was posted during merge window.
-> 
-> [...]
 
-Applied to arm64 (for-next/fixes), thanks!
+--=-/7N/TlSYMxJmoXRb6zgA
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-[01/45] arm_mpam: Stop using uninitialized variables in __ris_msmon_read()
-        https://git.kernel.org/arm64/c/c2803bd580db
+Le jeudi 08 janvier 2026 =C3=A0 14:29 +0100, Benjamin Gaignard a =C3=A9crit=
+=C2=A0:
+> Intra_only frame could be considered as a key frame so Instantaneous
+> Decoding Refresh (IDR) flag must be set of the both case and not only
+> for key frames.
+>=20
+> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> Reported-by: Jianfeng Liu <liujianfeng1994@gmail.com>
+> Fixes: 727a400686a2c ("media: verisilicon: Add Rockchip AV1 decoder")
 
--- 
-Catalin
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+
+> ---
+> =C2=A0drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c | 2=
+ +-
+> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_de=
+c.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> index 1605cfd55d36..3a8123bbe144 100644
+> --- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> +++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> @@ -2047,7 +2047,7 @@ static void rockchip_vpu981_av1_dec_set_parameters(=
+struct hantro_ctx *ctx)
+> =C2=A0			 !!(ctrls->frame->quantization.flags
+> =C2=A0			=C2=A0=C2=A0=C2=A0 & V4L2_AV1_QUANTIZATION_FLAG_DELTA_Q_PRESENT)=
+);
+> =C2=A0
+> -	hantro_reg_write(vpu, &av1_idr_pic_e, !ctrls->frame->frame_type);
+> +	hantro_reg_write(vpu, &av1_idr_pic_e, IS_INTRA(ctrls->frame->frame_type=
+));
+> =C2=A0	hantro_reg_write(vpu, &av1_quant_base_qindex, ctrls->frame->quanti=
+zation.base_q_idx);
+> =C2=A0	hantro_reg_write(vpu, &av1_bit_depth_y_minus8, ctx->bit_depth - 8)=
+;
+> =C2=A0	hantro_reg_write(vpu, &av1_bit_depth_c_minus8, ctx->bit_depth - 8)=
+;
+
+--=-/7N/TlSYMxJmoXRb6zgA
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaWAI1gAKCRDZQZRRKWBy
+9AaUAQDuIVVUilNFK7PyWBn48YCLBtitf9JFegmpMlAJewrHSQEA+ZlN2CHePiXx
+37D0/89e+JMVXMhs5T4nPsfIemfrYQQ=
+=t8Mi
+-----END PGP SIGNATURE-----
+
+--=-/7N/TlSYMxJmoXRb6zgA--
 
