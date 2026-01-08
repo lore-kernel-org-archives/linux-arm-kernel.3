@@ -4,88 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C96D1D494
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 20:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F3D9D1D48A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 20:31:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ncr9wQixKp0DuZvt8wQRxeDUwFvl6Ym9a7uU4tCK5vA=; b=RVUGH+GMMeSlR+lZVuhTyi0GRP
-	hfPd5/3U39P8zWBqICIxyI9Rfv5dHjbGi8HW3z2YZ7JD6e/iQG+EQIjJezHSBbvbh41Hr1AB/1i9j
-	CuL6jcNrWdxaWeSqPP+iPLkm/PppGnxSfC5S1w9AyYp3p4IZShVTA5RgM6qVLyxuXG0PvdqCakRvA
-	JXIiAdUx7e/LFk+sEPXIBtHeRM1dYoItPMx1o60HnIyw9qaTQ3tocPJeFsKow2+YAz4khfV++Fvva
-	MygcqXJJRlBlvWb9tVVUNAwBL3O5rQ/vhr0yyF/9a+B8yZPfRWYy16M5Zbs8CpQ7F6HOCcnt+Yex2
-	ypKewFdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AGj7qhXpK008hMlORyKsc51bpUvFeBZ/1diAov1l8j8=; b=vE3l1B+KHBfA5FQ1kA9OW/HRF7
+	JG+hbhJDP8fHTsqyMtlsnShycoWuFlNsju7otZQ8YvQJTr+dAy18NN7CR/JjfwOzmrcIhCUy5hnbd
+	Xb1WRrBlVzC/skn2OpTt91pqN9tp4SC2dt7K6hyMN1aZCEAZQ2cgGrsPcgSasDcd7ZmTyX/erLQqy
+	FAeSfvAQVvRbGtcVn3G51x+b/tVAt504UbNB4Ft6VrJULwgOjE2wT/Hi3ZdTqb/NVhQWVCf2kF5Ld
+	lqU69DDPYSgFmqywI4yeHK8qbFeYTM8kOWv1R9WlPG4MUCX9DJ+MC1wbD7qmLXwLQyevc/WffWfOr
+	2HfeL3yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdwd9-00000000pZV-0boV;
-	Thu, 08 Jan 2026 20:29:15 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1vdwfE-00000000qAb-1pFL;
+	Thu, 08 Jan 2026 20:31:24 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdwd6-00000000pYV-3Ols
+	id 1vdwfA-00000000q9n-3UZ6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 20:29:13 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-34c21341f56so7549111a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 12:29:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767904151; x=1768508951; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ncr9wQixKp0DuZvt8wQRxeDUwFvl6Ym9a7uU4tCK5vA=;
-        b=Ej+vC5yU7yywOXnKItyW3jPZYoTWAJ4F4cbEMn1Ag3mlW5ZQQ1faJ4du/uISaWLnvo
-         +sr8zBeNgJ+YDTEEOTH5pdRLrLusgUa3T3JRrC1fLwQnzDkjszh+AeIXTAm1B8gzH82f
-         fLQfMxC24eI8hOTs8MTyYNis9WEvtvETR/cYAseURPuijN9EedjC01ilEutJf6d44NiA
-         oyXMdxOfDiTfC6ccxZ0wNxKWGTAHZR0IpuoF3cRBPZhyMc+MYajA8g0CW68fl3CbFe3l
-         1L38bq34Xp2So8L3nygdATb39VpglY2RP2DqO7JyLBtQv/b5YCG1SvjbDg1ui+xhbI+9
-         Ntfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767904151; x=1768508951;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ncr9wQixKp0DuZvt8wQRxeDUwFvl6Ym9a7uU4tCK5vA=;
-        b=SOg2K/dIe1qn43UiKB0j7lcrfI21sU6/l/oI8gzH17jGwIHz/hlIJLxzZAYmxMuI5x
-         AWizEzCt+lmAnWzJxv7ahjKugdUDuoYv4qHSpR6OYxIoJILPC0cAu9WdAxtUvnEotjN1
-         QQ4yOX67wn+5Z+zUZDDLImViBftMG/KHuJao0GCvrTaMmVU5BjbiBr/FPNALHRXj4GYC
-         5T4G6gWxGReLMINTpXoJAbyv6MPOSoxeY3SXTgmh5IdVT2D3E2On5Zw48pSs/0vJggK1
-         q6uqVCJogqAMx96uWGbZbjJS0kuJwWfPhXQXrTMcyheZcqeXVd70r8a0OqZv+opJ+fmd
-         KpWg==
-X-Forwarded-Encrypted: i=1; AJvYcCXXbF74cQHw9wkzeqjswGmKQWakpgJhTEvz/qryKNBXnQQzTyFDCby2t8e+GfOFO82beXLidHzr2lUHxwNYQ7uv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEwVtjHHidaSgAkh5H4HKvK/Tk0pJN3mvcqLhncyH9EHFoKnLZ
-	UAZ85PsFPwqqxVpHBd5NN2o7YIaZQgzynDknWw8vG6pPQe0GEQmzs00bTsPOiksG7sIh7EZK3Mx
-	0P7CJMg==
-X-Google-Smtp-Source: AGHT+IESJ6DBGvd9XcEdp+Peyz/5rANQAvVoqUp8W0UHChsh0K8dNusc9fRWmWPXBczuvgljaqvYKeQ4Bc0=
-X-Received: from pjop14.prod.google.com ([2002:a17:90a:930e:b0:33b:52d6:e13e])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2647:b0:340:dd2c:a3f5
- with SMTP id 98e67ed59e1d1-34f68c30870mr6773023a91.3.1767904151387; Thu, 08
- Jan 2026 12:29:11 -0800 (PST)
-Date: Thu, 8 Jan 2026 12:29:09 -0800
-In-Reply-To: <3xrew6ag7pefka7wava4z7ht54e6xlpwbywcm2ivsgnkdbahe4@yqzsaxnhedj7>
-Mime-Version: 1.0
-References: <20251230230150.4150236-1-seanjc@google.com> <20251230230150.4150236-22-seanjc@google.com>
- <t7dcszq3quhqprdcqz7keykxbmqf62pdelqrkeilpbmsrnuji5@a3lplybmlbwf>
- <aV_cLAlz4v1VOkDt@google.com> <gzyjze3wszmrwxdwnudij6nfqdxzihm37uappfqxorfjy5vatf@hffzaobbm3g7>
- <aV_3-lhnZ-MoKnjv@google.com> <3xrew6ag7pefka7wava4z7ht54e6xlpwbywcm2ivsgnkdbahe4@yqzsaxnhedj7>
-Message-ID: <aWATlfisv8ZVZi0c@google.com>
-Subject: Re: [PATCH v4 21/21] KVM: selftests: Test READ=>WRITE dirty logging
- behavior for shadow MMU
-From: Sean Christopherson <seanjc@google.com>
-To: Yosry Ahmed <yosry.ahmed@linux.dev>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
+	Thu, 08 Jan 2026 20:31:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1767904281; x=1799440281;
+  h=date:from:to:cc:subject:message-id;
+  bh=QT/V0xKzx2pLDS1l8j7SSIw49lWBs/E6ghTyj/NrpyA=;
+  b=L2zLgXJ1/5zYc2beFNjn9KTGesdBXe5GSbWTFqZ0voh4BN3aDB4kQ1Lo
+   mqa3p7P+puryRlX3YkAhjgm1BDx/6eECWRxR2zWxeNR/uy/PMw9UMe1mQ
+   ClRhA4F1fi5vbvvr1lptnPHL1ge5PTPUCo3mIHTilKVGjpp38QHmFvRy3
+   3mdg3nwV0JAu3+AW+xYGX3NPRowoV7r+7OwZzsIDQVU2VX3radH7gc3Yy
+   Q3dSGf8EHD20egTS0c/bEMH14q8/mD2Dk4XiSWo7eNAqwfCMcRH9PA2Kn
+   BWQUDvW/+6ivNAcNUxX8SKS8zgptLfmmc6DAW0qqWKSAVe01+zcPZ8hmi
+   g==;
+X-CSE-ConnectionGUID: 1kPCrkZHSYSu5dByhMdF7Q==
+X-CSE-MsgGUID: o/W4UA8WR4uX+uYN0ZbzLQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11665"; a="80737760"
+X-IronPort-AV: E=Sophos;i="6.21,211,1763452800"; 
+   d="scan'208";a="80737760"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2026 12:31:20 -0800
+X-CSE-ConnectionGUID: mAJSvk/oRiaozdNlbDjCOA==
+X-CSE-MsgGUID: sMH/yZPqRLCYy8168vTJMw==
+X-ExtLoop1: 1
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa003.fm.intel.com with ESMTP; 08 Jan 2026 12:31:19 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vdwf7-0000000058w-05my;
+	Thu, 08 Jan 2026 20:31:17 +0000
+Date: Fri, 09 Jan 2026 04:30:28 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:for-next] BUILD SUCCESS
+ 3fb76066f882eb337b84861a440a2d563dfa0a27
+Message-ID: <202601090420.HICedDoj-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_122912_869571_61862942 
-X-CRM114-Status: GOOD (  21.29  )
+X-CRM114-CacheID: sfid-20260108_123120_976570_340C1C95 
+X-CRM114-Status: UNSURE (   4.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,52 +81,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 08, 2026, Yosry Ahmed wrote:
-> On Thu, Jan 08, 2026 at 10:31:22AM -0800, Sean Christopherson wrote:
-> > On Thu, Jan 08, 2026, Yosry Ahmed wrote:
-> > > >  	/*
-> > > > -	 * Add an identity map for GVA range [0xc0000000, 0xc0002000).  This
-> > > > +	 * Add an identity map for GVA range [0xc0000000, 0xc0004000).  This
-> > > >  	 * affects both L1 and L2.  However...
-> > > >  	 */
-> > > > -	virt_map(vm, GUEST_TEST_MEM, GUEST_TEST_MEM, TEST_MEM_PAGES);
-> > > > +	virt_map(vm, TEST_MEM_BASE, TEST_MEM_BASE, TEST_MEM_PAGES);
-> > > >  
-> > > >  	/*
-> > > > -	 * ... pages in the L2 GPA range [0xc0001000, 0xc0003000) will map to
-> > > > -	 * 0xc0000000.
-> > > > +	 * ... pages in the L2 GPA ranges [0xc0001000, 0xc0002000) and
-> > > > +	 * [0xc0003000, 0xc0004000) will map to 0xc0000000 and 0xc0001000
-> > > > +	 * respectively.
-> > > 
-> > > Are these ranges correct? I thought L2 GPA range [0xc0002000,
-> > > 0xc0004000) will map to [0xc0000000, 0xc0002000).
-> > 
-> > Gah, no.  I looked at the comments after changing things around, but my eyes had
-> > glazed over by that point.
-> > 
-> > > Also, perhaps it's better to express those in terms of the macros?
-> > > 
-> > > L2 GPA range [TEST_MEM_ALIAS_BASE, TEST_MEM_ALIAS_BASE + 2*PAGE_SIZE)
-> > > will map to [TEST_MEM_BASE, TEST_MEM_BASE + 2*PAGE_SIZE)?
-> > 
-> > Hmm, no, at some point we need to concretely state the addresses, so that people
-> > debugging this know what to expect, i.e. don't have to manually compute the
-> > addresses from the macros in order to debug.
-> 
-> I was trying to avoid a situation where the comment gets out of sync
-> with the macros in a way that gets confusing. Maybe reference both if
-> it's not too verbose?
-> 
-> 	/*
-> 	 * ... pages in the L2 GPA range [0xc0002000, 0xc0004000) at
-> 	 * TEST_MEM_ALIAS_BASE will map to [[0xc0000000, 0xc0002000) at
-> 	 * TEST_MEM_BASE.
-> 	 */
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: 3fb76066f882eb337b84861a440a2d563dfa0a27  soc: document merges
 
-Heh, your solution to a mitigate a comment getting out of sync is to add more
-things to the comment that can get out of sync :-D
+elapsed time: 1623m
 
-Unless you feel very strongly about having the names of the macros in the comments,
-I'd prefer to keep just the raw addresses.
+configs tested: 134
+configs skipped: 3
+
+The following configs have been built successfully.
+More configs may be tested in the coming days.
+
+tested configs:
+alpha                             allnoconfig    gcc-15.1.0
+arc                               allnoconfig    gcc-15.1.0
+arc                     haps_hs_smp_defconfig    gcc-15.1.0
+arc                   randconfig-001-20260108    gcc-9.5.0
+arc                   randconfig-002-20260108    gcc-9.5.0
+arm                               allnoconfig    gcc-15.1.0
+arm                            hisi_defconfig    gcc-15.1.0
+arm                   randconfig-001-20260108    gcc-9.5.0
+arm                   randconfig-002-20260108    gcc-9.5.0
+arm                   randconfig-003-20260108    gcc-9.5.0
+arm                   randconfig-004-20260108    gcc-9.5.0
+arm64                             allnoconfig    gcc-15.1.0
+arm64                 randconfig-001-20260108    gcc-10.5.0
+arm64                 randconfig-002-20260108    gcc-10.5.0
+arm64                 randconfig-003-20260108    gcc-10.5.0
+arm64                 randconfig-004-20260108    gcc-10.5.0
+csky                              allnoconfig    gcc-15.1.0
+csky                  randconfig-001-20260108    gcc-10.5.0
+csky                  randconfig-002-20260108    gcc-10.5.0
+hexagon                           allnoconfig    gcc-15.1.0
+hexagon               randconfig-001-20260108    gcc-8.5.0
+hexagon               randconfig-002-20260108    gcc-8.5.0
+i386                              allnoconfig    gcc-15.1.0
+i386        buildonly-randconfig-001-20260108    clang-20
+i386        buildonly-randconfig-002-20260108    clang-20
+i386        buildonly-randconfig-003-20260108    clang-20
+i386        buildonly-randconfig-004-20260108    clang-20
+i386        buildonly-randconfig-005-20260108    clang-20
+i386        buildonly-randconfig-006-20260108    clang-20
+i386                  randconfig-001-20260108    gcc-14
+i386                  randconfig-002-20260108    gcc-14
+i386                  randconfig-003-20260108    gcc-14
+i386                  randconfig-004-20260108    gcc-14
+i386                  randconfig-005-20260108    gcc-14
+i386                  randconfig-006-20260108    gcc-14
+i386                  randconfig-007-20260108    gcc-14
+i386                  randconfig-011-20260108    gcc-14
+i386                  randconfig-012-20260108    gcc-14
+i386                  randconfig-013-20260108    gcc-14
+i386                  randconfig-014-20260108    gcc-14
+i386                  randconfig-015-20260108    gcc-14
+i386                  randconfig-016-20260108    gcc-14
+i386                  randconfig-017-20260108    gcc-14
+loongarch                         allnoconfig    gcc-15.1.0
+loongarch                           defconfig    clang-19
+loongarch             randconfig-001-20260108    gcc-8.5.0
+loongarch             randconfig-002-20260108    gcc-8.5.0
+m68k                              allnoconfig    gcc-15.1.0
+m68k                       bvme6000_defconfig    gcc-15.1.0
+m68k                                defconfig    clang-19
+m68k                        m5272c3_defconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                          defconfig    clang-19
+mips                              allnoconfig    gcc-15.1.0
+mips                  decstation_64_defconfig    gcc-15.1.0
+mips                      loongson3_defconfig    gcc-15.1.0
+nios2                             allnoconfig    clang-22
+nios2                               defconfig    clang-19
+nios2                 randconfig-001-20260108    gcc-8.5.0
+nios2                 randconfig-002-20260108    gcc-8.5.0
+openrisc                          allnoconfig    clang-22
+openrisc                            defconfig    gcc-15.1.0
+parisc                            allnoconfig    clang-22
+parisc                              defconfig    gcc-15.1.0
+parisc                randconfig-001-20260108    clang-22
+parisc                randconfig-002-20260108    clang-22
+parisc64                            defconfig    clang-19
+powerpc                           allnoconfig    clang-22
+powerpc                  mpc866_ads_defconfig    gcc-15.1.0
+powerpc               randconfig-001-20260108    clang-22
+powerpc               randconfig-002-20260108    clang-22
+powerpc64             randconfig-001-20260108    clang-22
+powerpc64             randconfig-002-20260108    clang-22
+riscv                             allnoconfig    clang-22
+riscv                               defconfig    gcc-15.1.0
+riscv                 randconfig-001-20260108    gcc-13.4.0
+riscv                 randconfig-002-20260108    gcc-13.4.0
+s390                              allnoconfig    clang-22
+s390                                defconfig    gcc-15.1.0
+s390                  randconfig-001-20260108    gcc-13.4.0
+sh                                allnoconfig    clang-22
+sh                                  defconfig    gcc-14
+sh                    randconfig-001-20260108    gcc-13.4.0
+sh                    randconfig-002-20260108    gcc-13.4.0
+sparc                             allnoconfig    clang-22
+sparc                               defconfig    gcc-15.1.0
+sparc                 randconfig-001-20260108    gcc-8.5.0
+sparc                 randconfig-002-20260108    gcc-8.5.0
+sparc64                             defconfig    gcc-14
+sparc64               randconfig-001-20260108    gcc-8.5.0
+sparc64               randconfig-002-20260108    gcc-8.5.0
+um                                allnoconfig    clang-22
+um                                  defconfig    gcc-14
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20260108    gcc-8.5.0
+um                    randconfig-002-20260108    gcc-8.5.0
+um                           x86_64_defconfig    gcc-14
+x86_64                            allnoconfig    clang-22
+x86_64      buildonly-randconfig-001-20260108    gcc-14
+x86_64      buildonly-randconfig-002-20260108    gcc-14
+x86_64      buildonly-randconfig-003-20260108    gcc-14
+x86_64      buildonly-randconfig-004-20260108    gcc-14
+x86_64      buildonly-randconfig-005-20260108    gcc-14
+x86_64      buildonly-randconfig-006-20260108    gcc-14
+x86_64                              defconfig    gcc-14
+x86_64                                  kexec    clang-20
+x86_64                randconfig-001-20260108    gcc-12
+x86_64                randconfig-002-20260108    gcc-12
+x86_64                randconfig-003-20260108    gcc-12
+x86_64                randconfig-004-20260108    gcc-12
+x86_64                randconfig-005-20260108    gcc-12
+x86_64                randconfig-006-20260108    gcc-12
+x86_64                randconfig-011-20260108    clang-20
+x86_64                randconfig-012-20260108    clang-20
+x86_64                randconfig-013-20260108    clang-20
+x86_64                randconfig-014-20260108    clang-20
+x86_64                randconfig-015-20260108    clang-20
+x86_64                randconfig-016-20260108    clang-20
+x86_64                randconfig-071-20260108    gcc-14
+x86_64                randconfig-072-20260108    gcc-14
+x86_64                randconfig-073-20260108    gcc-14
+x86_64                randconfig-074-20260108    gcc-14
+x86_64                randconfig-075-20260108    gcc-14
+x86_64                randconfig-076-20260108    gcc-14
+x86_64                               rhel-9.4    clang-20
+x86_64                           rhel-9.4-bpf    gcc-14
+x86_64                          rhel-9.4-func    clang-20
+x86_64                    rhel-9.4-kselftests    clang-20
+x86_64                         rhel-9.4-kunit    gcc-14
+x86_64                           rhel-9.4-ltp    gcc-14
+xtensa                            allnoconfig    clang-22
+xtensa                randconfig-001-20260108    gcc-8.5.0
+xtensa                randconfig-002-20260108    gcc-8.5.0
+xtensa                    smp_lx200_defconfig    gcc-15.1.0
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
