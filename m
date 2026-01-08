@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B16FD1D46B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 15:05:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECCE5D1D46B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 15:05:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9EwXZJMksVIzhINWOp3QfJncpePrsSVbE9EKBoAo2B8=; b=u43Vnzm3ba111f4LTCDRuMJ6ka
-	dwlTD43JpCAUbLaNGgnfWJX893S9Xrio5/PkHPTjD3tt2uxvx+9o856oC0VqpGoNyH+5fyflaESL4
-	yvdvoOTeD+FFY6NJJy76dzqBrKo63PMFbzP8PzO1V91iLkyJxKU9KSdbUuVkjLfvLZ0jg1cI/ZOXK
-	b1kowHvJ99jPI9OKdJVfXdE4yEUVkLldbMXj1ej0+bPWSy0m2p9Cxkdpu0v0qDV1gZEQwW0uZUZ3H
-	Mp1cxrz09MHQkpfckkNyKymW42IxArKpbYxbZis0sBwsBMJl58gZ/zcHp0Jfs4g3Bh+Brt91sEnOd
-	q3bcdG1A==;
+	bh=tv/GGtQvePSfy8JImBO2Bqakc/7C0eBov0BukOlj/70=; b=DGUa+MEJf2P5QvituXF0hGzox6
+	GfKcA7aGE7ZkcKsxrrPHUEr+JTgx8zzfssS7MSvKaJJxDVALUBiSRbKHhgZ/JajYQSYPcnEeTYDWv
+	Ll/al8TKA7A3Y/UrKPkerKFwwhyde8tXT/RSnQCHMU292OcNBp4VISZfT57itLjB6X3VgqKZrY5PO
+	WH1PNXMjvMu3DrWB7R30HHIeuv6LeBQEhbm54KFrPzt4JQdqPY7MvCC+z8uoxxlmyu8vj40BUKGTA
+	rLo/jvhNS1UwvifZHVs1697hGeBhN5Df4DM6Xx30YAvXhRxgbnZT/zvP9N/Lkd3sE/nCXvJNBmgC6
+	0fVt4WfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdra0-0000000HS55-1UHQ;
-	Thu, 08 Jan 2026 15:05:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vdra5-0000000HSAB-3nnc;
+	Thu, 08 Jan 2026 15:05:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdrZz-0000000HS42-14rX;
-	Thu, 08 Jan 2026 15:05:39 +0000
+	id 1vdra2-0000000HS5u-11Fd;
+	Thu, 08 Jan 2026 15:05:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AD18F60130;
-	Thu,  8 Jan 2026 15:05:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 107E7C116C6;
-	Thu,  8 Jan 2026 15:05:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4002044365;
+	Thu,  8 Jan 2026 15:05:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A3FBC16AAE;
+	Thu,  8 Jan 2026 15:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767884738;
-	bh=DGdHkFD+3L5QgZmRMdpdwL9Bm9MC+Wi93ePEIeYNCWc=;
+	s=k20201202; t=1767884741;
+	bh=JhbaVv1PdLdceMg/5l3s3xkAwxQ3DqsArTD5uFDz5Zw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=g2JcxrpUi7AaJtDoYHHgWuhyywj4wX46R1n4CFdMSn60n61tfDxML2xWNe/uaqIy+
-	 v+5TC+FJT4WMbPcOITX9hjemBnAWhXcZuGGxnNmGpz6Dg93FHdJKmYE9agm8E94Ybo
-	 /whcHcWTofRl2drZLs8KOYE0LtAHCduYAiEr90PApPeLu9DuajqEfQQHaIpZxZTEwO
-	 rsajtsZRLsEwmQHnaUrcIr8C23LKt+GjXSD0ueoyf527rbUnvOkv1EWQc/DHWe2LAp
-	 pHXHVUH/mVJQKFn6ytYom72q1F6PYT8KoTwACa+thpLXKyT5gNkLvE4U83noI84Y5a
-	 eg1qDLGB6p7aQ==
+	b=gDEZETrQ+Z9UPMytldJRovzTnLSjacFXt+Q+B+cfeE+T5YAwNxLbuBmm5nknDN4MH
+	 Rw3oTLL05HaAM2aBlgpZoz9qcS9HLs0A75NgCBSx+0qUpvbJUwQTIbpBXSSBDPsEMU
+	 tQ0eB3FB1ZVHuO3qjursuCtgYn3GGM3rcmd+JmG9xlEeElXrxRSUiiRM53XeTHhULz
+	 cEMd00ikEDxwN0+znh3T3oFeK3heIx+wK8kHlGP0goiSbzSC7Fi0VVz0WpTZCEWWng
+	 didFwhkUaSJ/RiyaKH3KXjQ9FktKJmNlSDStvejhEelIwyOblIeGa1YnR8Sh28AmlL
+	 K36vWk2VSQkBg==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 08 Jan 2026 16:05:07 +0100
-Subject: [PATCH net-next v3 1/2] dt-bindings: net: airoha: npu: Add BA
- memory region
+Date: Thu, 08 Jan 2026 16:05:08 +0100
+Subject: [PATCH net-next v3 2/2] net: airoha: npu: Init BA memory region if
+ provided via DTS
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260108-airoha-ba-memory-region-v3-1-bf1814e5dcc4@kernel.org>
+Message-Id: <20260108-airoha-ba-memory-region-v3-2-bf1814e5dcc4@kernel.org>
 References: <20260108-airoha-ba-memory-region-v3-0-bf1814e5dcc4@kernel.org>
 In-Reply-To: <20260108-airoha-ba-memory-region-v3-0-bf1814e5dcc4@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -59,6 +59,10 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260108_070542_307672_9955F43A 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,58 +77,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce Block Ack memory region used by NPU MT7996 (Eagle) offloading.
+Initialize NPU Block Ack memory region if reserved via DTS.
+Block Ack memory region is used by NPU MT7996 (Eagle) offloading.
 
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- .../devicetree/bindings/net/airoha,en7581-npu.yaml  | 21 +++++++++++----------
- 1 file changed, 11 insertions(+), 10 deletions(-)
+ drivers/net/ethernet/airoha/airoha_npu.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-index 59c57f58116b568092446e6cfb7b6bd3f4f47b82..19860b41286fd42f2a5ed15d5dc75ee0eb00a639 100644
---- a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-+++ b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-@@ -42,14 +42,13 @@ properties:
-       - description: wlan irq line5
+diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+index 22f72c146065998d5450477f664ed308b1569aa3..a56b3780bb627cc393b94210b6b5c72cc95baea3 100644
+--- a/drivers/net/ethernet/airoha/airoha_npu.c
++++ b/drivers/net/ethernet/airoha/airoha_npu.c
+@@ -519,6 +519,14 @@ static int airoha_npu_wlan_init_memory(struct airoha_npu *npu)
+ 	if (err)
+ 		return err;
  
-   memory-region:
--    oneOf:
--      - items:
--          - description: NPU firmware binary region
--      - items:
--          - description: NPU firmware binary region
--          - description: NPU wlan offload RX buffers region
--          - description: NPU wlan offload TX buffers region
--          - description: NPU wlan offload TX packet identifiers region
-+    items:
-+      - description: NPU firmware binary region
-+      - description: NPU wlan offload RX buffers region
-+      - description: NPU wlan offload TX buffers region
-+      - description: NPU wlan offload TX packet identifiers region
-+      - description: NPU wlan Block Ack buffers region
-+    minItems: 1
- 
-   memory-region-names:
-     items:
-@@ -57,6 +56,8 @@ properties:
-       - const: pkt
-       - const: tx-pkt
-       - const: tx-bufid
-+      - const: ba
-+    minItems: 1
- 
- required:
-   - compatible
-@@ -93,7 +94,7 @@ examples:
-                      <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>,
-                      <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
-         memory-region = <&npu_firmware>, <&npu_pkt>, <&npu_txpkt>,
--                        <&npu_txbufid>;
--        memory-region-names = "firmware", "pkt", "tx-pkt", "tx-bufid";
-+                        <&npu_txbufid>, <&npu_ba>;
-+        memory-region-names = "firmware", "pkt", "tx-pkt", "tx-bufid", "ba";
-       };
-     };
++	if (of_property_match_string(npu->dev->of_node, "memory-region-names",
++				     "ba") >= 0) {
++		cmd = WLAN_FUNC_SET_WAIT_DRAM_BA_NODE_ADDR;
++		err = airoha_npu_wlan_set_reserved_memory(npu, 0, "ba", cmd);
++		if (err)
++			return err;
++	}
++
+ 	cmd = WLAN_FUNC_SET_WAIT_IS_FORCE_TO_CPU;
+ 	return airoha_npu_wlan_msg_send(npu, 0, cmd, &val, sizeof(val),
+ 					GFP_KERNEL);
 
 -- 
 2.52.0
