@@ -4,85 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13B2D1D480
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 17:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E3BAD1D480
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 17:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9yBEMTE2mj5bvjjlEmkJZFdS2qwLh2K57I5LFSHJaNQ=; b=jorYZlu+jhV/jF
-	VbKWqYLvaL9bfUASLUTk41SNgCCamatyPOsq3CXdJumWUirJfmFOeVZufJEd2m6AI3bRyIZ3og0Ag
-	csQkso3K23gYKZmF5Lxe0Qdu4/wNALCLhnIFr27iV5kZBYYM2j1JzPum3HSmLAtNPF4QirTkb5SOz
-	VTB4cRtQqPrN3vNPIVt8LytWzn0HQv6sJKZipQDPlorUS6qX87ZKlTm3olChRpfn95PxCOjhNTFTk
-	1hxwQFbuZP/uf+m6R2AanjDQDLPQTDkjUAlzL8FqXcyhVLXzDdDqT9Zw0JXo7VWKd8ucK5iS0xpe6
-	O31Qr7z/dxz0LUlWsRjw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YExCqRFrfDEsaunpy04sLQ8JOdIM85t5EPyjuyqYBAU=; b=vgmoMHn1Os63kPL5J7p5Fzs9mg
+	6O3v/q5aozZpVs9DmwFFvAPOdRsWGHmMcJz3IJVqRff2BvefdlqiO6fo4HBhmz+H8sW4kk7B17edm
+	VG+5fLuf7VO5i09k/W4tVlDnnw/Put1Qr/SkitheveojbIeA1xuwtpr0e3OOP0aovcPsX2xvMU4O9
+	yBCbjUEQcLrdNDe3rb7QmHQlQ/F1VVFaVEeV+kB40lIYw7D6AkL/Cg0KPAIDmxHy19H/rraNPtdPb
+	qTqde2lwsqLlZumpUlw4lQvsh057sdnilHHXtoZEZKrKNaGQPJsJs4QrLvXm2AMMf5h+e8xaV+Nlo
+	VGOUQkkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdtcJ-00000000LAk-0BGh;
-	Thu, 08 Jan 2026 17:16:11 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vdtcN-00000000LFH-0D2l;
+	Thu, 08 Jan 2026 17:16:15 +0000
+Received: from mail-northeuropeazon11011047.outbound.protection.outlook.com ([52.101.65.47] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdtcF-00000000L5w-40QH
+	id 1vdtcI-00000000L8D-3845
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 17:16:09 +0000
+	Thu, 08 Jan 2026 17:16:13 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MOdNSYlPSeriZfQ09+KN3LUxr95zhMD4aTW6y5pMljczq3SVXyAzK3R0pdeXvYu0J2/7ZvipxnII1Se/JqfNKRHAj3gNXF4r92SvCAoW+o9hX/QGrFEagkcOFCgqdsav35milbdR90oum19WOlYTbstnZMA51pAqq7d9Kr04X7jc3/ws/e48tVs6HFZYKAqtwTz1MO2dym+K4TdjBSd2w8xHT0VStzeqkVODILD6iNZk7z4ng2r0TSE4Dpxca2TzK4f6EcwH7/Qu9FxgVsT7OolXylnfXbWE1JdMNkmQh14rUpk7astPAJAXeholkCOAOpYa/moVaeCUifIN2VSkZA==
+ b=jdDkGdhW6YXLHRg+lPEHF52qh99fJiQfvpwTmXA6P215fFaBjVWmg3KSgioAYGs1GrA1mkiLktp7vpJo3+7OLHTVEIq2qPhnfTVUuhMDx7o25NtDLJQKvrSBTEU6sowcFK3AUsXFwpgfWwa5A1yhqo7Ew30JA2fD7ZP+sbLWK21EKVxeCRlmzPZpeRVZhhf7XN5pZhLbiAXllVw0AtEHhOiJCxiQVy5CjzO6nzvhw19Z2DCk5oG0xiooTqJMnZUD4JCA/bWPPK74aki9wuItogZHpfGSDZod1F9bk5hCseKh5Bb3SdGlfapYX1IBdzmaRL5dJ+BzzZnRh1WPF3AZ4A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9yBEMTE2mj5bvjjlEmkJZFdS2qwLh2K57I5LFSHJaNQ=;
- b=w5jJ0zMoJzWNguRr/X5lHZgc87kKomakNbfUpfJXbmC9HWuiASyAariUyOkr2EEhpzFI3ECAicsvirEh50i4u71eSh64Nov9UXz/oV7718rnRIeax6KaQngW+YElnWe3AGmbEMos32+70mgRSmY83wmuaJE5eS9yMLeBQbyNZoqX3Ue9F902v8ypRVRjsIs+5mPbRbLwgMJOtSN/OacxKk0i3gmFIYmfEWnyGkH8q6PVKLE+Hli/pVeVpzERRnjJD8fTBSXA/N0UZ8ASF1fHLtt4K4KW4/JgZCKocSI57QWAh4Gw8/5+9kt3PnXyOspNfnvBPnRWmHJt8ibi0+Eegg==
+ bh=YExCqRFrfDEsaunpy04sLQ8JOdIM85t5EPyjuyqYBAU=;
+ b=bR3ODFb8Dj3XKisyM/Vp0HoKeJxNr4mflmJd7cc4FUiYJHJC24SLpxq8gsLejxfy0yatgTtTcfbF2tc0C9FWiffEs7yDjPgihp8uOCmulmoh5DxJFnhnM5rEd+pNpP+vvfN/1JXR5JWe0NC0H4R6L+WtSeqSET5FnF4Td3sKW4A2Ys5ExGQTuLR4VZW4LcYo1kskkqj5n/sYg6cUPnS7vEqXzC1zjxzqmuAyHNfFlgMFa2I360zUTUOwYAadJzK6KVKgKmoYDuJVSnpqyAojrn9w67xyedNSYIS03lB7VJ+zE47yVXNmNNr3Nc90m+ltk0NPDhJIdtGcKGRuglEaNA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
  dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9yBEMTE2mj5bvjjlEmkJZFdS2qwLh2K57I5LFSHJaNQ=;
- b=EhPgxIXZwgHodGlL/c+LQknmRwIzhVUOZWcY7tltMK6O+KJ0ec3KpuQJRY23YDQZsSMiTH+PrAMvDOFEv+VhJqtapbkhDOpFzIC8jafGclmAZ/I6AR8MZZlENcqUQ2gBai2nFLzUlz4BVktQ9wrth+jMiQuO5cb6Z84tuFUkD42zZUXHgMObqdfXaI3tSOG8R7SpCKyB4PCr1aS3Mdd2OYvHdxfcO4kHT4FT8vzP72EuKiLMwd8cMYn+ioFmk65F59RjXg6Ca+gHvIwESKr2m0KHU5PEVJjuTBCvw359RrXB7hmQd/wWLXBUnJmcw4HhCEB7NolFwjx30WR92IwJ7w==
-Received: from CWLP123CA0101.GBRP123.PROD.OUTLOOK.COM (2603:10a6:401:5f::17)
- by DU4PR10MB9666.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:640::9) with
+ bh=YExCqRFrfDEsaunpy04sLQ8JOdIM85t5EPyjuyqYBAU=;
+ b=S2it9M9a0JPLrXyVTmUECi2SRfSgGgwQxjNtRGABXMq3pReOJLvjF8THDJ0XqbcP9VLwV9YmVuniNKa5KE2fAlr9hWjT6dr2bHujxyJ4mNjCSSeflEi13MuWXvslwaKQirNoHn0h9IvpNMnyiKi+qCuuUHiLfALUPFIwH4S3UjRAFiQzLuttA+vATqUofaZDg/wAQXsD8Sdqk/LcBfRA1Fa0oDK6lHNLm/k7axLFIDlDXa+WnuVsxJyLNU8RPRI3TMhAOmMFYYBw7yAj3UUjB/w3s1omHvqwTPqrin8UksN23bm74vINqdLvvLnuqFZSZM1ElftxjJLMNLbm1g8EeA==
+Received: from AS4P189CA0027.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:5db::16)
+ by VI1PR10MB3981.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:13b::24) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.3; Thu, 8 Jan
- 2026 17:16:03 +0000
-Received: from AMS1EPF0000004B.eurprd04.prod.outlook.com
- (2603:10a6:401:5f:cafe::b6) by CWLP123CA0101.outlook.office365.com
- (2603:10a6:401:5f::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Thu, 8 Jan
+ 2026 17:16:05 +0000
+Received: from AMS0EPF00000199.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5db:cafe::bb) by AS4P189CA0027.outlook.office365.com
+ (2603:10a6:20b:5db::16) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.3 via Frontend Transport; Thu, 8
- Jan 2026 17:16:03 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ Jan 2026 17:16:04 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
  smtp.mailfrom=foss.st.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=none header.from=foss.st.com;
 Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- AMS1EPF0000004B.mail.protection.outlook.com (10.167.16.136) with Microsoft
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ AMS0EPF00000199.mail.protection.outlook.com (10.167.16.245) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.1 via Frontend Transport; Thu, 8 Jan 2026 17:16:03 +0000
-Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 8 Jan
+ 15.20.9520.1 via Frontend Transport; Thu, 8 Jan 2026 17:16:05 +0000
+Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 8 Jan
  2026 18:17:19 +0100
 Received: from localhost (10.48.87.93) by STKDAG1NODE1.st.com (10.75.128.132)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 8 Jan
- 2026 18:16:02 +0100
+ 2026 18:16:04 +0100
 From: Patrice Chotard <patrice.chotard@foss.st.com>
-Subject: [PATCH v3 0/6] Add boot phase tags for STMicroelectronics boards
-Date: Thu, 8 Jan 2026 18:15:59 +0100
-Message-ID: <20260108-upstream_uboot_properties-v3-0-c1b9d4f2ce8d@foss.st.com>
+Date: Thu, 8 Jan 2026 18:16:02 +0100
+Subject: [PATCH v3 3/6] ARM: dts: stm32: Add boot phase tags for
+ STMicroelectronics h7 boards
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAE/mX2kC/43NQQ7CIBCF4as0rKVhANvqynsY05Q6WBYtBCjRN
- L27tCvdGJf/S+abhQT0BgM5FwvxmEwwdsohDgXph256IDX33IQzfgQATmcXosdubGdlbWydtw5
- 9zATlXDZMMSUV9CTfO4/aPHf7ess9mBCtf+2vEmzrP2oCyihTcAIhamAoLtqGUIZY9nYkm5v4p
- yV/WTxbom6k1lXVdMi+rXVd37ox8Z0QAQAA
-X-Change-ID: 20251112-upstream_uboot_properties-22480b0b4b1c
+Message-ID: <20260108-upstream_uboot_properties-v3-3-c1b9d4f2ce8d@foss.st.com>
+References: <20260108-upstream_uboot_properties-v3-0-c1b9d4f2ce8d@foss.st.com>
+In-Reply-To: <20260108-upstream_uboot_properties-v3-0-c1b9d4f2ce8d@foss.st.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
 	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
@@ -96,63 +94,64 @@ X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE1.st.com
  (10.75.128.132)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS1EPF0000004B:EE_|DU4PR10MB9666:EE_
-X-MS-Office365-Filtering-Correlation-Id: a8c315ed-6dd1-44ac-87f5-08de4ed99a0c
+X-MS-TrafficTypeDiagnostic: AMS0EPF00000199:EE_|VI1PR10MB3981:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9581570e-defe-404a-5522-08de4ed99b51
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZWp0WWlTNlZKM05wNmJZaVBaOGw1cER2S0Izc3N6cXcyVndwNXFSUmdsZGdK?=
- =?utf-8?B?Nlo5SFg3UDlGcGVKZkJXSnVQeXlWMStDVE5PVGJJNCtucUZ3VmkyMGZzcklT?=
- =?utf-8?B?cUFGMS9qNU5vSXJ0RXpnOWt5NkQyNUh1T0pIQ2RnOHQwS3BEVitISDVtSkZ0?=
- =?utf-8?B?UzFjOUVIbjlCTWdJUE1vQnpQa0tDcldnR2dNcVJmZ2RsYWtwMjVGS3U0ZGUx?=
- =?utf-8?B?djdYeldldFdjZ2U5M3k5Nm12dVBQcFVTUlpEZnA0NHF3elNpWW8rYWdTVmEx?=
- =?utf-8?B?ZWF4THR0V0JINGY2YUJaKzNzVEJqaTQ4UjFqL2xMeCtHQTlzUTdadk1yRUJr?=
- =?utf-8?B?dnVmUjRockZGSFd3Qzc4WlMzb0Z3TDlQTThaM1FoQmQva0FIUkd6aS9nZGwr?=
- =?utf-8?B?Y2l5ZFhveHZMREpFbHJFL0ZzODBzWmpZVVA0RkZ6VEN5Z2h1UUpFeTc3ZTVH?=
- =?utf-8?B?Nkl6eEhoamV6djZQcjVnWGEwK2xYdzZyRjhOMzk2bGpoZWxlc2srbFRjTmZD?=
- =?utf-8?B?OVc0NUJXc3RPMG9JYzlHRVl5UHlOSFp6bnpRai9ROUtkeTk3YnkyNWdzS2U1?=
- =?utf-8?B?V0RuRW4yQ1hPNGZ6VWVkMWhyaktBRkpSZFVGd2dNMmJrUDlmUlY4KzQrbnFq?=
- =?utf-8?B?dWdKbGVROEF6cEpxZG9xSlBXWldKVmtWRWNjbEhtK1BnTzFTZ3NpY1FFMWo5?=
- =?utf-8?B?c0UrMUtHR0tYSFRMNFhYNUtOK2U5TmVnZXg5VEdnVGxJZERrV3N6NEtMZUxn?=
- =?utf-8?B?YmRNM2lwVE9idm8wUEw1QWxUaVNHSjhOU0sybUJtcFRJaEIyeU9vWmk3V09G?=
- =?utf-8?B?R2lzS3hIdWw3eUF6R0d3ZURBNHNKN3FsbVQ4RGoxR2MvOUl6NjI0SVBZMTF0?=
- =?utf-8?B?NzVYaHNtWnE0enBDMkxadC8yWjFHeVc3bzI5dWc3YmdtMlZ4V0V3d2JQdFVY?=
- =?utf-8?B?SlNRSEVaZjA0ZThsdnBpRSt6c3VTYjFMN1dxRi9aQXVPSmZTV0hhNy83N0cx?=
- =?utf-8?B?eUwwb3VzUWQ4TzFCTjI2VWtCREk4dXd2SVlDZUd0akFVbXpGeVg3UW9nb3VT?=
- =?utf-8?B?Zm1YVFpZT1dNMEJZajFBUzluZkZLYktiVjc0Sjc2Ky9hSnBWSXV3aU9zZHlN?=
- =?utf-8?B?RS9LcFBLZnE1MDhYM21ZMEFjK3lzZlUrTHU5K1JZSy9aVE1tc0pyVWtna29R?=
- =?utf-8?B?bkFFTGJmK2YzVjRTUWxtZVMvTTRaUGZWbDByYkhZdDk2TmZ5OUtSbWZ6WWZH?=
- =?utf-8?B?ZERIV2FhVk95VTYwNGRkd0hLdy9ZMEZPUGk4b3I4WHFJWHkxZkl0Y0VHSTFr?=
- =?utf-8?B?Q1hRdURoKzNSdWJwVE53OFhvQjNjVWVBZkxxVUhLVDYyOGxFZHVBNmJmeXE4?=
- =?utf-8?B?MlJ2T3BQMCs0T2U3VXRNbFFkcTFpbUpZbmpEeHB4blhiQVdZN2JwVmxPYk92?=
- =?utf-8?B?REhNVXdOM1YrQ0tPYlMxcXBzSklybWlRMENDNzAyL2ZqeXYvYXBZOTBLd0dH?=
- =?utf-8?B?eXF1bUkrRnd6aEgyTk9KUVRXNVdEOFVPeVRXV3JKbHAwVHRkSnhLSjhCbzE2?=
- =?utf-8?B?YVZRbVZ1UGJqdkprSjBPOEhMNFUzL1hRSDdSSWV3WmxkMlRoV005TUx2QjNB?=
- =?utf-8?B?TzE1bmtDY3d4d3RvZ0lJZkh2OUZLaXlLMVFQMUdoZkF4RUJIdDAyLzBUcUcz?=
- =?utf-8?B?eHBXZk5kVkZWekRWR0VsTk14Y0ZuMUpaVkJCbEszVjRObXN3TzA3Zk1DNXoz?=
- =?utf-8?B?bGorVUhzcTZBTklsY1lpU2g3UzF6LzRwRFVxS1U5VHdFVDVhQlZpNGJnVFVE?=
- =?utf-8?B?RmRKZnFWY2pZMzVubloxWE5iYWsrbE96TFFjSi8xancreFdSeGhOaisyRlBH?=
- =?utf-8?B?eDF3S0xsZnllTkdGRjVJV1Z3K2NxZ1Y1Vm5aWHIwMFFHRWZDellMVG5GeGJo?=
- =?utf-8?B?NnVHNXB6VTdXaktPaUI4WERSc0s0MXpsbHhuMXFZQmQ4TmZkNHEzY0NHb2ZS?=
- =?utf-8?B?bHdTTUlTTU91TUhVTDNLMEVEUlp4QzJQc3drcUpHZGxCS0p4djRCWTF3ekRj?=
- =?utf-8?B?cERBT3UwMXF3VWRnZG1VdjNUdHdsOCtTWDgxRkZENWpYaUplc01TNWFKVE1i?=
- =?utf-8?Q?PvNxexLBdIkTDE4d1WjIES6ld?=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YTFUdUp1WHpNeHB0SFRieDUxZzJsQllCeWYreHZ1VzZ1VmdFUnA3WHY1TmRZ?=
+ =?utf-8?B?MTRvRDhzOC9IL0ZpQ2J1bXVyRUFIN2t6UjNDNm16SGgweW92b3R1VzhnL3Qz?=
+ =?utf-8?B?Qm0yWU9aSlFzeDVsRFk1dXBWbGlQamczOTM0V3BsUkJEQ2UyUG5Zd3NCR241?=
+ =?utf-8?B?cWNuZVlWNkNmZGRSWS8yc0F4Vmpqd0hjQUdqTWVGM3U3UTlhSlJONmVjRkRI?=
+ =?utf-8?B?QVROQmVVSkI1dTZxZndscDNVellqcHQvbmtBS2N2WE9hZG9jSlpjOVRnNWV0?=
+ =?utf-8?B?WkVNcXJVSE9FbFpwZHZNNlB5RWRxUDRzODlmS21KUWFiY3FoOUltUXZMdGlH?=
+ =?utf-8?B?MkVOQjV5Y3k2T2ltWUZQNzdnWHprTWR0UzZGNnFUWUM0TERNYlUwckJzRFVS?=
+ =?utf-8?B?WnFua1QrVjI0a0MvM1YyR01EWVhua2dTcFRzVy9KS1JRdDlTa1IrSDdTTTQ2?=
+ =?utf-8?B?a0czMVpMZ0RFYWFZbzMzVURRWlVDY0hiZlArMzJUWVMrZWZ3RnZKNERwRnNq?=
+ =?utf-8?B?MlNJT0x4ZVZvZjdHNithMTIzNy9tUTNrbWw0M0VjMis0ZUhBaU1iVjlMalJq?=
+ =?utf-8?B?MktPWkZYaWErYWtvWmVOaXhvQ3lPMVhlb2d3R2RtUEQrcThKWXVqek41Wkto?=
+ =?utf-8?B?eFI3b01XTk5qNmZDbktIQzdJWGdHZkRUSWxYVVNlZ1U1NFNxK0RBRHY3azdV?=
+ =?utf-8?B?WHRaT0FFRkRTQkw5QU9lZDQrVmtyZWphTUNldHc4R011bS9WazdVMHp0ZHhp?=
+ =?utf-8?B?TzhNWllOL0FsRFhXeVZNOVZuU3lYeklmaDl6Qi9INldmcit0TlhDQTJvelMv?=
+ =?utf-8?B?eXVpRjFWTkFweWVrUFY4YkZidG5LeHJHeVFzUkYxUXcxK3Bham1wRDZKeGdM?=
+ =?utf-8?B?SmYrU0l0SHpjUjlKSldEeUc5MlNQWmtaRWNzYWczVGl3bExtUSt5cnhJOEhM?=
+ =?utf-8?B?ZE1vTWtwckZNK2tWU1V1cjlkYzczMno3S1Zhd25nRm9XN25CS2M5NDQrVGdi?=
+ =?utf-8?B?SHBmSWFKUDc2LzdzMGhTa1hJM3N3K2pGNUl6NGNkZkdaNW9reEdiZW44OWZx?=
+ =?utf-8?B?K2VGZkFONkdJR0JaRHkvdjE5b3hPUCtlcllrR3BkTjd3ZitvQmhJUDZ3N1N6?=
+ =?utf-8?B?Q1FmZm1ZM0YxRkFjekd3bldkNkpyZ2xrVzdxRUxMMHBUWms3RG5nZG5UeTZ0?=
+ =?utf-8?B?UWRpakgxNUxIS285RTZCZmoyNmZSNEpoTkk4WUxFUERVOU95ZmxReWFiUG04?=
+ =?utf-8?B?aCtHTnZ2YW11eXFQNHJuZCtseGJhbWExQmFCbDBMQ0twa1Rya0hWd245U01m?=
+ =?utf-8?B?ZEF6YllQTVJOTmRhQnFMRDEya3UwQ1NSUG15UnAwdnQ3YXUrcnZ5Y1Fpc0xu?=
+ =?utf-8?B?bUx1dDVER1MwMzFLZ2JTL1dkYm9SVGxNWWlCdFl6ZnVTekh5NmdWblFlN0NX?=
+ =?utf-8?B?dldyL1g5aThWN3Y4Q0E5dkozL1pUSWUrZWxOOFl2Vm90ZUVyS2wyU0NVUG9q?=
+ =?utf-8?B?L2p1T2ZwTndMeEZnWUgySG9nMzJiWTI1VXhqbWQyNkk2K2ZROU5BZ1M4cHNP?=
+ =?utf-8?B?N2g3eEt2cCtaaERsakQyMlJDMXoyVHpGcFRMbVVycjlRTWFuaU5Wd0NyRzJy?=
+ =?utf-8?B?OTJmUmVXWmEyT2JGWndReWZaUmVQZkxkTkFER1Eyd1QrbTNWUFFGNWNzR1ZY?=
+ =?utf-8?B?eU41QzRHVVFXMDZDclkyQm9pM09iNWlwMWw3VVZQZVAvMHhlZjNjYUdraE1J?=
+ =?utf-8?B?eUpRZi9VNFpwT1ZseU1rOUNpM3JJY04zbFJiZnVxSzdsNm1pS1ZpTWNvbURI?=
+ =?utf-8?B?Y0dDcmlaSTBCdnROQStOQ3FuQ0xGT2sycm9YNDV6dTJBd1oyS0FjRUhab0Fn?=
+ =?utf-8?B?L0xadnE2M0ZjQVBkVzBUS3RTMVJiNHlJNDE0eEh0N2k2Q09PN2tpeTN1T0o3?=
+ =?utf-8?B?TTJvTDJ4L3NMY2VuMzZmQW9RbklOUEpPWDlIQWdVeDVmRDRRN3hmZEg4bHA5?=
+ =?utf-8?B?cTVEemtuSjd4SG80cVB5QllLMEhVOE95WWF1TzJRYTJ6em1sNjFNLzV4aEVX?=
+ =?utf-8?B?ZU9rSFF5eTBKL1dYaGhuaFhRV3dsRmRCL25CNkRFV2YwUkkybGR3OEhjOHVQ?=
+ =?utf-8?Q?9+g8=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: Y5asFsCNaebPPeIK7NVTVcBob3ACyBptU5SjLICwvYgLgvHZQsYNh8GSG9PlaNqlAhM8XiS/l6KsE13DiXA5X6OHhD+mCT5NareUZtz61MqoI8lWupvHiqYPSMJmQ/qzwLoaSAS4X68lU2GnuVqRMgkFX5gZfUyjlIinFQfEgBHLB60ye2MrPB2ATeg5Moc6p4+rR6JL0grWKTjAVjyZq0/XdJHkysBn8zd70OpVVgJikEB5TYEgueAE+nYmDp/gd6+fIV2Mgipvf/JodTvt6jnVz+xCodfmEdtF33HrYCp6WXc6roBTByAvOiKPjdfSBdjQxbG0UnUeXpse2g82aDOkBpaoTBAyERWwYQX/FTMYf4BoSFcGKRTO8EG4p7nsOzx3jTl8+eIVmPMc42duutPNwUBDc4dQ3ybp6YHiXKQMY33Tm84PavdPBw1EwW437BOdwcifCYC2+d1wb+qU4mMv0x9bZaQCE643Xd1I9HZlPUPRVmtGM2Y3a5Wo+NGOGSVQOH4dIRoXaVUfFVLqJJrzQirejr6ry7DELBdp/QR39rzTvGmJErAfI08D+bmUmGdDnYaGWW/lkbBuD2ObBoj9U04QvcqGDz/kVNV4dvU3e7kV9eNW68ZfEa8QUqBO7ChPTp73qZT9opXqVDdAP+LfLYhFdoo9Tn3KDIbz5iNj+24CIqdWdQz44L6G623S
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: yhbPr3S48zluCwnibSiUTeKm2S4g1c5yKLMmH2jZmeQME06qlKbyN2pOs4OLOCaCWGOHDu0HmhSKrxWEn/Fp34uiY9atjqV7Er7tLK1Qp0rxywXkxZ0NWKOd+9xxB7hoPj6zNkmEMPNdLIb7uc4E2/CG130e6+gx8TdwoH9fg6b2aocko+kNejCVW3D/xLqP21mooz5YzovImVnQZZ2VZjlDJQ2f3DT2U0MQzIhXh8RHPUIlcdA+PFs2UTDQj1IIy/Dd/gIzl5KOfNlHTX/fgomzl6/jD2v2bgf2yGz06qFzKDxkHTIky9D1YTtT2IBRO08Uqd5YY67Vh708QPL6XkLAWJYWP9AqGFEoVm9DaRSsVypIbvF6KsmF/UGAccmq7vukALWsN568uKybc44YY/r7k2KWwHC4+n0MMigppSxFvoiwSuKD4X6YKqbbbq/EUotZe+jahJHzk0EAnB8pgmLjpL7ifriquXHf0EFv+oAzznjvlM9NmOhTEJe3H/ZfGSjCG6fuG8yMqdR/svVmuj5XtsC+Hx9yYlFjpRJJfk5JldsHjX+3HbGcY/XLc/+E/qWjfsYT/YXgk/fwlZ+HFAMhZ0rNJcw67sJmauzww7ephGbiQcjGwZOLi8nS45m09aBU2iB3e7zZ3/zJY80LN3EyUQVjVIUbTxE2eTY2hkcc5sVUpa0zAdQ0cuBQ+GlZ
 X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2026 17:16:03.1706
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2026 17:16:05.3040
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a8c315ed-6dd1-44ac-87f5-08de4ed99a0c
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9581570e-defe-404a-5522-08de4ed99b51
 X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF0000004B.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF00000199.eurprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR10MB9666
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB3981
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_091608_002533_7548A585 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20260108_091610_817967_84E2BB20 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,67 +169,167 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 The bootph-all flag was introduced in dt-schema
 (dtschema/schemas/bootph.yaml) to define node usage across
 different boot phases.
-    
+
 To ensure SD boot, timer, gpio, syscfg, clock and uart nodes need to be
 present in all boot stages, so add missing bootph-all phase flag
 to these nodes to support SD boot.
 
 Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 ---
-Changes in v3:
-- Remove duplicate bootph-all property in ltdc node
-- Link to v2: https://lore.kernel.org/r/20251114-upstream_uboot_properties-v2-0-3784ff668ae0@foss.st.com
+ arch/arm/boot/dts/st/stm32h743.dtsi | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-Changes in v2:
-- Fix 'pinmux' is a required property for arch/arm/boot/dts/st/stm32mp157c-ev1-scmi.dtb
-- Add bootph-all property for lvds and ltdc nodes for stm32mp2
+diff --git a/arch/arm/boot/dts/st/stm32h743.dtsi b/arch/arm/boot/dts/st/stm32h743.dtsi
+index 2f19cfbc57ad..790e4558c905 100644
+--- a/arch/arm/boot/dts/st/stm32h743.dtsi
++++ b/arch/arm/boot/dts/st/stm32h743.dtsi
+@@ -50,22 +50,26 @@ / {
+ 	#size-cells = <1>;
+ 
+ 	clocks {
++		bootph-all;
+ 		clk_hse: clk-hse {
+ 			#clock-cells = <0>;
+ 			compatible = "fixed-clock";
+ 			clock-frequency = <0>;
++			bootph-all;
+ 		};
+ 
+ 		clk_lse: clk-lse {
+ 			#clock-cells = <0>;
+ 			compatible = "fixed-clock";
+ 			clock-frequency = <32768>;
++			bootph-all;
+ 		};
+ 
+ 		clk_i2s: i2s_ckin {
+ 			#clock-cells = <0>;
+ 			compatible = "fixed-clock";
+ 			clock-frequency = <0>;
++			bootph-all;
+ 		};
+ 	};
+ 
+@@ -75,6 +79,7 @@ timer5: timer@40000c00 {
+ 			reg = <0x40000c00 0x400>;
+ 			interrupts = <50>;
+ 			clocks = <&rcc TIM5_CK>;
++			bootph-all;
+ 		};
+ 
+ 		lptimer1: timer@40002400 {
+@@ -547,11 +552,13 @@ rcc: reset-clock-controller@58024400 {
+ 			#reset-cells = <1>;
+ 			clocks = <&clk_hse>, <&clk_lse>, <&clk_i2s>;
+ 			st,syscfg = <&pwrcfg>;
++			bootph-all;
+ 		};
+ 
+ 		pwrcfg: power-config@58024800 {
+ 			compatible = "st,stm32-power-config", "syscon";
+ 			reg = <0x58024800 0x400>;
++			bootph-all;
+ 		};
+ 
+ 		adc_3: adc@58026000 {
+@@ -596,6 +603,7 @@ pinctrl: pinctrl@58020000 {
+ 			ranges = <0 0x58020000 0x3000>;
+ 			interrupt-parent = <&exti>;
+ 			st,syscfg = <&syscfg 0x8>;
++			bootph-all;
+ 
+ 			gpioa: gpio@58020000 {
+ 				gpio-controller;
+@@ -607,6 +615,7 @@ gpioa: gpio@58020000 {
+ 				#interrupt-cells = <2>;
+ 				ngpios = <16>;
+ 				gpio-ranges = <&pinctrl 0 0 16>;
++				bootph-all;
+ 			};
+ 
+ 			gpiob: gpio@58020400 {
+@@ -619,6 +628,7 @@ gpiob: gpio@58020400 {
+ 				#interrupt-cells = <2>;
+ 				ngpios = <16>;
+ 				gpio-ranges = <&pinctrl 0 16 16>;
++				bootph-all;
+ 			};
+ 
+ 			gpioc: gpio@58020800 {
+@@ -631,6 +641,7 @@ gpioc: gpio@58020800 {
+ 				#interrupt-cells = <2>;
+ 				ngpios = <16>;
+ 				gpio-ranges = <&pinctrl 0 32 16>;
++				bootph-all;
+ 			};
+ 
+ 			gpiod: gpio@58020c00 {
+@@ -643,6 +654,7 @@ gpiod: gpio@58020c00 {
+ 				#interrupt-cells = <2>;
+ 				ngpios = <16>;
+ 				gpio-ranges = <&pinctrl 0 48 16>;
++				bootph-all;
+ 			};
+ 
+ 			gpioe: gpio@58021000 {
+@@ -655,6 +667,7 @@ gpioe: gpio@58021000 {
+ 				#interrupt-cells = <2>;
+ 				ngpios = <16>;
+ 				gpio-ranges = <&pinctrl 0 64 16>;
++				bootph-all;
+ 			};
+ 
+ 			gpiof: gpio@58021400 {
+@@ -667,6 +680,7 @@ gpiof: gpio@58021400 {
+ 				#interrupt-cells = <2>;
+ 				ngpios = <16>;
+ 				gpio-ranges = <&pinctrl 0 80 16>;
++				bootph-all;
+ 			};
+ 
+ 			gpiog: gpio@58021800 {
+@@ -679,6 +693,7 @@ gpiog: gpio@58021800 {
+ 				#interrupt-cells = <2>;
+ 				ngpios = <16>;
+ 				gpio-ranges = <&pinctrl 0 96 16>;
++				bootph-all;
+ 			};
+ 
+ 			gpioh: gpio@58021c00 {
+@@ -691,6 +706,7 @@ gpioh: gpio@58021c00 {
+ 				#interrupt-cells = <2>;
+ 				ngpios = <16>;
+ 				gpio-ranges = <&pinctrl 0 112 16>;
++				bootph-all;
+ 			};
+ 
+ 			gpioi: gpio@58022000 {
+@@ -703,6 +719,7 @@ gpioi: gpio@58022000 {
+ 				#interrupt-cells = <2>;
+ 				ngpios = <16>;
+ 				gpio-ranges = <&pinctrl 0 128 16>;
++				bootph-all;
+ 			};
+ 
+ 			gpioj: gpio@58022400 {
+@@ -715,6 +732,7 @@ gpioj: gpio@58022400 {
+ 				#interrupt-cells = <2>;
+ 				ngpios = <16>;
+ 				gpio-ranges = <&pinctrl 0 144 16>;
++				bootph-all;
+ 			};
+ 
+ 			gpiok: gpio@58022800 {
+@@ -727,6 +745,7 @@ gpiok: gpio@58022800 {
+ 				#interrupt-cells = <2>;
+ 				ngpios = <8>;
+ 				gpio-ranges = <&pinctrl 0 160 8>;
++				bootph-all;
+ 			};
+ 		};
+ 	};
 
----
-Patrice Chotard (6):
-      ARM: dts: stm32: Add boot phase tags for STMicroelectronics f4 boards
-      ARM: dts: stm32: Add boot phase tags for STMicroelectronics f7 boards
-      ARM: dts: stm32: Add boot phase tags for STMicroelectronics h7 boards
-      ARM: dts: stm32: Add boot phase tags for STMicroelectronics mp13 boards
-      ARM: dts: stm32: Add boot phase tags for STMicroelectronics mp15 boards
-      arm64: dts: st: Add boot phase tags for STMicroelectronics mp2 boards
-
- arch/arm/boot/dts/st/stm32429i-eval.dts       | 11 +++++
- arch/arm/boot/dts/st/stm32746g-eval.dts       | 10 +++++
- arch/arm/boot/dts/st/stm32f4-pinctrl.dtsi     | 12 ++++++
- arch/arm/boot/dts/st/stm32f429-disco.dts      | 11 +++++
- arch/arm/boot/dts/st/stm32f429.dtsi           |  9 ++++
- arch/arm/boot/dts/st/stm32f469-disco.dts      | 12 ++++++
- arch/arm/boot/dts/st/stm32f7-pinctrl.dtsi     | 11 +++++
- arch/arm/boot/dts/st/stm32f746-disco.dts      | 12 ++++++
- arch/arm/boot/dts/st/stm32f746.dtsi           |  5 +++
- arch/arm/boot/dts/st/stm32f769-disco.dts      | 12 ++++++
- arch/arm/boot/dts/st/stm32h743.dtsi           | 19 +++++++++
- arch/arm/boot/dts/st/stm32mp131.dtsi          | 21 ++++++++++
- arch/arm/boot/dts/st/stm32mp135f-dk.dts       | 11 +++++
- arch/arm/boot/dts/st/stm32mp15-scmi.dtsi      | 26 ++++++++++++
- arch/arm/boot/dts/st/stm32mp151.dtsi          | 29 +++++++++++++
- arch/arm/boot/dts/st/stm32mp157a-dk1-scmi.dts | 14 +++++++
- arch/arm/boot/dts/st/stm32mp157a-dk1.dts      | 43 +++++++++++++++++++
- arch/arm/boot/dts/st/stm32mp157c-dk2.dts      | 43 +++++++++++++++++++
- arch/arm/boot/dts/st/stm32mp157c-ed1-scmi.dts | 14 +++++++
- arch/arm/boot/dts/st/stm32mp157c-ed1.dts      | 60 +++++++++++++++++++++++++++
- arch/arm/boot/dts/st/stm32mp157c-ev1-scmi.dts | 25 +++++++++++
- arch/arm/boot/dts/st/stm32mp157c-ev1.dts      | 36 ++++++++++++++++
- arch/arm64/boot/dts/st/stm32mp211.dtsi        |  7 ++++
- arch/arm64/boot/dts/st/stm32mp215f-dk.dts     |  1 +
- arch/arm64/boot/dts/st/stm32mp231.dtsi        | 22 ++++++++++
- arch/arm64/boot/dts/st/stm32mp235f-dk.dts     | 11 +++++
- arch/arm64/boot/dts/st/stm32mp251.dtsi        | 25 +++++++++++
- arch/arm64/boot/dts/st/stm32mp255.dtsi        |  3 +-
- arch/arm64/boot/dts/st/stm32mp257f-dk.dts     | 11 +++++
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    | 11 +++++
- 30 files changed, 536 insertions(+), 1 deletion(-)
----
-base-commit: 53c18dc078bb6d9e9dfe2cc0671ab78588c44723
-change-id: 20251112-upstream_uboot_properties-22480b0b4b1c
-
-Best regards,
 -- 
-Patrice Chotard <patrice.chotard@foss.st.com>
+2.43.0
 
 
