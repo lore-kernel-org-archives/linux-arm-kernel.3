@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26542D1D47C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 15:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8179D1D47C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 15:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FwAEACWq+mTHd+2IZ1ZoRNWi89Mv5W5mh7MD5rujIhI=; b=p/qLa9OP7QkTxMoHzr6q7FXYU0
-	0HrHUtfc8gDUs8KJhF/830kZxmKfDsfb3C79gFR+OKxzaxSweQIdqkNrcwVNrqWPy+eqYtLOiMmWs
-	xoy7LLsm/2wADAPy4czMI3IGRWtYSh7qxmyxOyHml7blw5jh+rOGJvBd8q58L+2fhOQFFlQfcxnHv
-	zXDttv+FpNMjPo7OfzDj/Fbo2syH2iZFXnazutFjAONy9ydAEVMys5baY6TWc6qJvdKZLU8R6+BNf
-	abh+ei6WsnP9kj1ycs78uaBkiaiQxdle12t60W8IV/5+A09zC5L5iwcFnHFH6fKlFMNLZSC6i8P0v
-	PzHUDtfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wVv76JyCHHvylVQ4Ivxkp0gtzmsfv7VuHvJelpC72k4=; b=xPwShgVfJSgZ/SXZgvxyRT9r39
+	GxIsCPc8i4Dva3ON59mL2mzY6QUZ0jmW5yEjK3gfisZFcW5soirxavCs7NcWKsIDz/EacO1uooQTh
+	428HEnXxL63dvzuDeNkNdKM4FiOcGlNvFED9Skxx+9TCNx7iMCzZm9lxUNQp5Drg621gSz3YOT3DX
+	JoMozbAmUJ8SxUSe4m8G5W99jTxzhuTfJfun4VyaJSZ7OGSsIrX2qUjXsYjRGt2ZMtapFtPxqXlA/
+	l8/UA4UKFGmB/nvDsh3fuv5gEe7A+6JC5uDZ4Bahnl3ONXOUCf8hEsVEYShftkxHBlBFEtVHIqj6n
+	UciINhzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdrxq-0000000HWxq-0kr9;
-	Thu, 08 Jan 2026 15:30:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdrxn-0000000HWxF-4765
+	id 1vds2d-0000000HXfl-3tWK;
+	Thu, 08 Jan 2026 15:35:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vds2a-0000000HXf3-3uX9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 15:30:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 62C4040965;
-	Thu,  8 Jan 2026 15:30:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F3B1C116C6;
-	Thu,  8 Jan 2026 15:30:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767886215;
-	bh=XRv28BEV+7f5GPwMsVGezx6oU/g6sID3XcDLpPgJ/UM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=As77JXYbZSzOEVql1xo0ouFGu82gdNCv1NSpZj3O1uguqcpf9Pa4JwwCPtqU3nwJb
-	 ZTDmuRCPXnllm23tgj8k/0CvoUIKFfJTgMeq53oq2qWoU7act7OlbwCC9Ot62UZgPx
-	 kg8u5v8Qdobkzpvn2P9nrW8OpocKMs9whMS1pj1EA/LG+2O0y1N5wxNgVxe/aZeHEW
-	 3RVJ21thBq/mg3+2BrYSQWCoaXcKuqOhfarxT/+vFaRJ8uCSJK70pikvJjbQ4/tjyu
-	 iOWd56c0iiorhmYvpYnGBztMBO10NJydQja5+FVHqnf4NSq1TCkkaRaOMOGj3hspLh
-	 yWROmsviluqng==
-Date: Thu, 8 Jan 2026 15:30:09 +0000
-From: Will Deacon <will@kernel.org>
-To: perlarsen@google.com
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>, Ben Horgan <ben.horgan@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Armelle Laine <armellel@google.com>,
-	Sebastien Ene <sebastianene@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ2 in
- host handler
-Message-ID: <aV_Ngc2KKKZYLH1m@willie-the-truck>
-References: <20251119-host-direct-messages-v3-0-c74d04944b26@google.com>
- <20251119-host-direct-messages-v3-2-c74d04944b26@google.com>
+	Thu, 08 Jan 2026 15:35:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A4E9497;
+	Thu,  8 Jan 2026 07:35:04 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E32B93F6A8;
+	Thu,  8 Jan 2026 07:35:03 -0800 (PST)
+Message-ID: <e5e8a8d4-3996-4513-abb8-ae632c416a24@arm.com>
+Date: Thu, 8 Jan 2026 15:35:01 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251119-host-direct-messages-v3-2-c74d04944b26@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 40/45] arm_mpam: Generate a configuration for min
+ controls
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ Zeng Heng <zengheng4@huawei.com>
+References: <20251219181147.3404071-1-ben.horgan@arm.com>
+ <20251219181147.3404071-41-ben.horgan@arm.com>
+ <20260106150907.0000457b@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20260106150907.0000457b@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_073016_059971_1B372A86 
-X-CRM114-Status: GOOD (  21.89  )
+X-CRM114-CacheID: sfid-20260108_073513_068601_2A6D6C47 
+X-CRM114-Status: GOOD (  32.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +78,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 02:07:54AM +0000, Per Larsen via B4 Relay wrote:
-> From: Per Larsen <perlarsen@google.com>
+Hi Jonathan,
+
+On 1/6/26 15:09, Jonathan Cameron wrote:
+> On Fri, 19 Dec 2025 18:11:42 +0000
+> Ben Horgan <ben.horgan@arm.com> wrote:
 > 
-> FF-A 1.2 adds the DIRECT_REQ2 messaging interface which is similar to
-> the existing FFA_MSG_SEND_DIRECT_{REQ,RESP} functions and can use the
-> existing handler function. Add support for FFA_MSG_SEND_DIRECT_REQ2 in
-> the host ffa handler.
+>> From: James Morse <james.morse@arm.com>
+>>
+>> MPAM supports a minimum and maximum control for memory bandwidth. The
+>> purpose of the minimum control is to give priority to tasks that are below
+>> their minimum value. Resctrl only provides one value for the bandwidth
+>> configuration, which is used for the maximum.
+>>
+>> The minimum control is always programmed to zero on hardware that supports
+>> it.
+>>
+>> Generate a minimum bandwidth value that is 5% lower than the value provided
+>> by resctrl. This means tasks that are not receiving their target bandwidth
+>> can be prioritised by the hardware.
 > 
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Per Larsen <perlarsen@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 15 +++++++++++++--
->  1 file changed, 13 insertions(+), 2 deletions(-)
+> I'm not sure this policy make sense in general as there will be bandwidth
+> heavy background tasks where we want to make sure they only use up to X%
+> of bandwidth, but don't care if they don't get that.  I guess maybe those
+> are always in the %5 or less category so maybe this policy is fine.
+> Ah well, can revisit later I guess as long as we keep this as the default
+> for any new controls.
+
+Yeah, I don't think the default can make everyone happy.
+
 > 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index a38a3ab497e5eac11777109684a33f02d88d09a1..c794802bda589b315faf978086ad164a2aee510a 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -683,8 +683,10 @@ static bool ffa_call_supported(u64 func_id)
->  	case FFA_NOTIFICATION_SET:
->  	case FFA_NOTIFICATION_GET:
->  	case FFA_NOTIFICATION_INFO_GET:
-> +		return false;
->  	/* Optional interfaces added in FF-A 1.2 */
->  	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
-> +		return hyp_ffa_version >= FFA_VERSION_1_2;
+>>
+>> For component reset reuse the same calculation so that the default is a
+>> value resctrl can set.
+>>
+>> CC: Zeng Heng <zengheng4@huawei.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> 
+> Most, maybe all the other cases have split test from implementation. I'd
+> probably do that here just for consistency.
+> 
+> A few things inline.
+> 
+> J
+> 
+> 
+> 
+>> ---
+>> Add reset_mbw_min
+>> Clear min cfg when setting max
+>> use mpam_extend_config on component reset
+>> ---
+>>  drivers/resctrl/mpam_devices.c      | 76 +++++++++++++++++++++++++++--
+>>  drivers/resctrl/mpam_internal.h     |  3 ++
+>>  drivers/resctrl/mpam_resctrl.c      |  2 +
+>>  drivers/resctrl/test_mpam_devices.c | 66 +++++++++++++++++++++++++
+>>  4 files changed, 142 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index c20b2757b86b..deea46c2a6c3 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -721,6 +721,13 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>>  			mpam_set_feature(mpam_feat_mbw_part, props);
+>>  
+>>  		props->bwa_wd = FIELD_GET(MPAMF_MBW_IDR_BWA_WD, mbw_features);
+>> +
+>> +		/*
+>> +		 * The BWA_WD field can represent 0-63, but the control fields it
+>> +		 * describes have a maximum of 16 bits.
+> 
+> I'm lost to why this only matters now!  Feels like that makes sense way earlier
+> in the series. Particularly as that detail confused me no end in the bandwidth
+> / percent calculation patches.
 
-You might as well just move this to the end and avoid having to add the
-'return false' above.
+Fair point, I've moved this earlier.
 
->  	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
->  	case FFA_CONSOLE_LOG:			/* Optional per 13.1: not in Table 13.1 */
->  	case FFA_PARTITION_INFO_GET_REGS:	/* Optional for virtual instances per 13.1 */
-> @@ -866,12 +868,16 @@ static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
->  			      struct kvm_cpu_context *ctxt,
->  			      u64 vm_handle)
->  {
-> +	DECLARE_REG(u64, func_id, ctxt, 0);
->  	DECLARE_REG(u32, flags, ctxt, 2);
->  
->  	struct arm_smccc_1_2_regs *args = (void *)&ctxt->regs.regs[0];
->  
-> -	/* filter out framework messages */
-> -	if (FIELD_GET(FFA_MSG_FLAGS_MSG_TYPE, flags)) {
-> +	/*
-> +	 * filter out framework messages.
-> +	 * FFA_MSG_SEND_DIRECT_REQ2 is only for partition messages.
-> +	 */
-> +	if (func_id != FFA_MSG_SEND_DIRECT_REQ2 && FIELD_GET(FFA_MSG_FLAGS_MSG_TYPE, flags)) {
->  		ffa_to_smccc_error(res, FFA_RET_INVALID_PARAMETERS);
->  		return;
->  	}
+> 
+>> +		 */
+>> +		props->bwa_wd = min(props->bwa_wd, 16);
+>> +
+>>  		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MAX, mbw_features))
+>>  			mpam_set_feature(mpam_feat_mbw_max, props);
+>>  
+> 
+>> +static void mpam_extend_config(struct mpam_class *class, struct mpam_config *cfg)
+>> +{
+>> +	struct mpam_props *cprops = &class->props;
+>> +	u16 min, min_hw_granule, delta;
+>> +	u16 max_hw_value, res0_bits;
+> 
+> Probably makes sense to drag some of these into the scope below.
 
-It would probably be better to switch the polarity of this check so that
-you look at flags if FFA_MSG_SEND_DIRECT_REQ or
-FFA_FN64_MSG_SEND_DIRECT_REQ rather than if !REQ2.
+I've squashed in a change from a later quirk which moves things out of
+the 'if' scope and so only min and delta get moved inside.
 
-and again, I'm not seeing what the 'vm_handle' argument is doing here.
+> 
+>> +
+>> +	/*
+>> +	 * MAX and MIN should be set together. If only one is provided,
+>> +	 * generate a configuration for the other. If only one control
+>> +	 * type is supported, the other value will be ignored.
+>> +	 *
+>> +	 * Resctrl can only configure the MAX.
+>> +	 */
+>> +	if (mpam_has_feature(mpam_feat_mbw_max, cfg) &&
+>> +	    !mpam_has_feature(mpam_feat_mbw_min, cfg)) {
+>> +		/*
+>> +		 * Calculate the values the 'min' control can hold.
+>> +		 * e.g. on a platform with bwa_wd = 8, min_hw_granule is 0x00ff
+>> +		 * because those bits are RES0. Configurations of this value
+>> +		 * are effectively zero. But configurations need to saturate
+>> +		 * at min_hw_granule on systems with mismatched bwa_wd, where
+>> +		 * the 'less than 0' values are implemented on some MSC, but
+>> +		 * not others.
+>> +		 */
+>> +		res0_bits = 16 - cprops->bwa_wd;
+>> +		max_hw_value = ((1 << cprops->bwa_wd) - 1) << res0_bits;
+>> +		min_hw_granule = ~max_hw_value;
+>> +
+>> +		delta = ((5 * MPAMCFG_MBW_MAX_MAX) / 100) - 1;
+>> +		if (cfg->mbw_max > delta)
+>> +			min = cfg->mbw_max - delta;
+>> +		else
+>> +			min = 0;
+>> +
+>> +		cfg->mbw_min = max(min, min_hw_granule);
+>> +		mpam_set_feature(mpam_feat_mbw_min, cfg);
+>> +	}
+>> +}
+>> +
+>>
 
-Will
+Thanks,
+
+Ben
+
 
