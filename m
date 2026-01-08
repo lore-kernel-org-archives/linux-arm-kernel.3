@@ -4,79 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29743D185F1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 13:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F027D185F8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 13:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=veR9z3VsPIxAIyHsq0lQYRUjw8X7wRPHnBNDDdwkacw=; b=n8OoBMEfjhUsAiUML6yIvqE4Ko
-	idLPlsEbBIDqy12Gs8EuM2oebcwZwAunlleb0+236PQF4OURPP6iBXcZ4g6bgGk7ktBIEn1sb9soH
-	DcqTzNy00n9cuRe3V7C2SSjD46+9CNBjGMpkVhCF8Y8G2SwqcwiS1ODgKIUGvYT/Bu3fsiqxZR2QT
-	DXGpmmPysTjNDlcbPjp9HTNW+gk1XJK6YOaz/D1f+rFq/oL3Iy81qyBfYBrSTy9Zm2nvLy4lPrp9w
-	FSdu6EOLuqEta5cCkqEVerTMf48/cUl6UZ6IFdkmRAkSfjBAdPOfdvukNI6hTFxr8Gul83gcSpS3U
-	/LvVkBfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8MM4w9BNHq3D+Hk+IMvzG8aRuPYIfWZsJB70MRmrOgg=; b=J6uBrd7pLr0hWQ9KhFwnlI8Ilc
+	sLQHtafkYGc5+PEoZvLCRw8m4FhcUj5yWhBYj5EgMohz3Su/AsASbCv19RLAuSvj1pCAyFqutjfe5
+	GWXnNorETMsIlQ05muQGzHKiAqiDASslQf2R0WFEHcPhPE4UY6iJ3m8Q0l8l3IO6gH+SvpaCSElay
+	Z1742gbeHB00j+IBcSIyaS4U7Ucv4jnyx9bL7sYXGMvEaMtrYhvD/GO7M/UBmD3cvFfcBwd+cEXEM
+	A5PVLFX2/WAhfjnebL2SD3UC1dz3Jv63EtdedWMh+YBViTC1PKbou34tLSxsqRgYMzF9l+dptvEFc
+	hRk6MBXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdq90-0000000HAx4-3wmC;
-	Thu, 08 Jan 2026 13:33:42 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vdq97-0000000HAzQ-12PI;
+	Thu, 08 Jan 2026 13:33:49 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdq8v-0000000HAuM-2pgp
+	id 1vdq94-0000000HAcP-3myx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 13:33:39 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 260511A2702;
-	Thu,  8 Jan 2026 13:33:34 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E7479606B6;
-	Thu,  8 Jan 2026 13:33:33 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2A0A8103C8015;
-	Thu,  8 Jan 2026 14:33:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767879212; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=veR9z3VsPIxAIyHsq0lQYRUjw8X7wRPHnBNDDdwkacw=;
-	b=sKPwsa9FJ30YXeCceqg/sgl5hl7N1B8vBkjnivZtZ9WLfiad/iUvCpYp5zx7EH5mnAktcS
-	Ukx6sLzq365pfy43i0wXbEVOdcXzZZQpq0S4P/AXGeB0jErgEAE8MI/cWs073s+X6Q6BO0
-	U2rBXKXJUw1Be/qgPhWJfeyCLbj/3cPgEkKlKvb4CuwEBxfW6P4TCMcZ5/aLlK5g3B8sdk
-	3Jh6Ax3CjT4bdTICgvdVo+DssWSbO4INP6ToR3ILqbznkgVqDCtCtlHw7j9ir2CvbGyFdA
-	w2bF6QUnuM0tyBSp5vR7652XvHbchIM4GmarNyGAGcbtlVBhI2IWlgOJtlX/8A==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 08 Jan 2026 14:33:21 +0100
-Message-Id: <DFJ8VHH9BVEZ.2445GF73YTGSO@bootlin.com>
-Cc: "Hui Pu" <Hui.Pu@gehealthcare.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
- <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>
-To: "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Philippe Cornu"
- <philippe.cornu@st.com>, <benjamin.gaignard@linaro.org>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Adrien Grassein"
- <adrien.grassein@gmail.com>, "Liu Ying" <victor.liu@nxp.com>, "Shawn Guo"
- <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
- <festevam@gmail.com>, "Inki Dae" <inki.dae@samsung.com>, "Jagan Teki"
- <jagan@amarulasolutions.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH 10/12] drm/bridge: samsung-dsim:
- samsung_dsim_host_attach: use a temporary variable for the next bridge
-X-Mailer: aerc 0.20.1
-References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-0-283d7bba061a@bootlin.com> <CGME20260107131416eucas1p22557f62e9d6498e5fdda4e6280cfe793@eucas1p2.samsung.com> <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-10-283d7bba061a@bootlin.com> <be425ab8-1772-46fb-84ee-0c8840c3eef2@samsung.com>
-In-Reply-To: <be425ab8-1772-46fb-84ee-0c8840c3eef2@samsung.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Thu, 08 Jan 2026 13:33:48 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=8MM4w9BNHq3D+Hk+IMvzG8aRuPYIfWZsJB70MRmrOgg=;
+	b=C8m1L5B7jjwY7qCTzYrSgnzX3y/pA+iRJPJP6qAJvioMT/Cvrw/07pCHAQIxRUbTF9A7YOM6v
+	d/sbbtGtxnZARHob/8UpIz+W9eXfx6/KVq9e/2wadjY3OMqpnjqLzjC8SlsR9K6+HH2Iu6WLVF/
+	z337MFTp/A4ubw4POElUosY=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4dn5Lz4KgYz1prRF;
+	Thu,  8 Jan 2026 21:28:11 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id ACD4E40569;
+	Thu,  8 Jan 2026 21:31:29 +0800 (CST)
+Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 8 Jan 2026 21:31:29 +0800
+Received: from localhost.huawei.com (10.90.31.46) by
+ kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Thu, 8 Jan 2026 21:31:28 +0800
+From: Yushan Wang <wangyushan12@huawei.com>
+To: <arnd@arndb.de>, <catalin.marinas@arm.com>, <conor@kernel.org>,
+	<Jonathan.Cameron@huawei.com>, <will@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: <linuxarm@huawei.com>, <liuyonglong@huawei.com>,
+	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>,
+	<wangzhou1@hisilicon.com>, <wangyushan12@huawei.com>
+Subject: [PATCH] MAINTAINERS: Add myself as maintainer of hisi_soc_hha
+Date: Thu, 8 Jan 2026 21:31:28 +0800
+Message-ID: <20260108133128.777813-1-wangyushan12@huawei.com>
+X-Mailer: git-send-email 2.33.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemn100008.china.huawei.com (7.202.194.111)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_053337_851988_54C0DCD9 
-X-CRM114-Status: GOOD (  20.17  )
+X-CRM114-CacheID: sfid-20260108_053347_414343_4A126C57 
+X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,107 +83,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+Add myself as maintainer of HiSilicon SoC HHA driver as I will be
+responsible for this driver.
 
-On Thu Jan 8, 2026 at 10:26 AM CET, Marek Szyprowski wrote:
-> On 07.01.2026 14:13, Luca Ceresoli wrote:
->> In preparation to handle refcounting of the out_bridge, we need to ensur=
-e
->> the out_bridge pointer contains either a valid bridge pointer or NULL, n=
-ot
->> an ERR_PTR. Otherwise calls such as drm_bridge_get/put() would try to
->> redeference an ERR_PTR.
->>
->> As a preliminary cleanup, add a temporary local 'next_bridge' pointer an=
-d
->> only copy it in dsi->out_bridge when returning successfully.
->>
->> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
->> ---
->>   drivers/gpu/drm/bridge/samsung-dsim.c | 14 ++++++++------
->>   1 file changed, 8 insertions(+), 6 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bri=
-dge/samsung-dsim.c
->> index eabc4c32f6ab..b3003aa49dc3 100644
->> --- a/drivers/gpu/drm/bridge/samsung-dsim.c
->> +++ b/drivers/gpu/drm/bridge/samsung-dsim.c
->> @@ -1886,6 +1886,7 @@ static int samsung_dsim_host_attach(struct mipi_ds=
-i_host *host,
->>   {
->>   	struct samsung_dsim *dsi =3D host_to_dsi(host);
->>   	const struct samsung_dsim_plat_data *pdata =3D dsi->plat_data;
->> +	struct drm_bridge *next_bridge;
->>   	struct device *dev =3D dsi->dev;
->>   	struct device_node *np =3D dev->of_node;
->>   	struct device_node *remote;
->> @@ -1924,17 +1925,17 @@ static int samsung_dsim_host_attach(struct mipi_=
-dsi_host *host,
->>
->>   	panel =3D of_drm_find_panel(remote);
->>   	if (!IS_ERR(panel)) {
->> -		dsi->out_bridge =3D devm_drm_panel_bridge_add(dev, panel);
->> +		next_bridge =3D devm_drm_panel_bridge_add(dev, panel);
->>   	} else {
->> -		dsi->out_bridge =3D of_drm_find_bridge(remote);
->> -		if (!dsi->out_bridge)
->> -			dsi->out_bridge =3D ERR_PTR(-EINVAL);
->> +		next_bridge =3D of_drm_find_bridge(remote);
->> +		if (!next_bridge)
->> +			next_bridge =3D ERR_PTR(-EINVAL);
->>   	}
->>
->>   	of_node_put(remote);
->>
->> -	if (IS_ERR(dsi->out_bridge)) {
->> -		ret =3D PTR_ERR(dsi->out_bridge);
->> +	if (IS_ERR(next_bridge)) {
->> +		ret =3D PTR_ERR(next_bridge);
->>   		DRM_DEV_ERROR(dev, "failed to find the bridge: %d\n", ret);
->>   		return ret;
->>   	}
->> @@ -1967,6 +1968,7 @@ static int samsung_dsim_host_attach(struct mipi_ds=
-i_host *host,
->>   	dsi->lanes =3D device->lanes;
->>   	dsi->format =3D device->format;
->>   	dsi->mode_flags =3D device->mode_flags;
->> +	dsi->out_bridge =3D next_bridge;
->>
->
-> This assignment is too late, dsi->out_bridge is used (indirectly, by
-> samsung_dsim_attach() called from drm_bridge_attach()) by
->
-> ret =3D pdata->host_ops->attach(dsi, device);
+Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
 
-Thanks for testing, reporting, and suggesting a solution. I'm not sure why
-it worked on my setup, but this is indeed a bug.
+---
+ MAINTAINERS | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-> a few lines before this assignment, so the following fix has to be added:
->
-> diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c
-> b/drivers/gpu/drm/bridge/samsung-dsim.c index b3003aa49dc3..f88aa8ab2879
-> 100644 --- a/drivers/gpu/drm/bridge/samsung-dsim.c +++
-> b/drivers/gpu/drm/bridge/samsung-dsim.c @@ -1959,6 +1959,7 @@ static int
-> samsung_dsim_host_attach(struct mipi_dsi_host *host, return ret; } +
-> dsi->out_bridge =3D next_bridge; if (pdata->host_ops &&
-> pdata->host_ops->attach) { ret =3D pdata->host_ops->attach(dsi, device);
-> if (ret) @@ -1968,7 +1969,6 @@ static int
-> samsung_dsim_host_attach(struct mipi_dsi_host *host, dsi->lanes =3D
-> device->lanes; dsi->format =3D device->format; dsi->mode_flags =3D
-> device->mode_flags; - dsi->out_bridge =3D next_bridge; return 0; }
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a0dd762f5648..b8427c072c9e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -11366,6 +11366,11 @@ F:	Documentation/ABI/testing/sysfs-devices-platform-kunpeng_hccs
+ F:	drivers/soc/hisilicon/kunpeng_hccs.c
+ F:	drivers/soc/hisilicon/kunpeng_hccs.h
+ 
++HISILICON SOC HHA DRIVER
++M:	Yushan Wang <wangyushan12@huawei.com>
++S:	Maintained
++F:	drivers/cache/hisi_soc_hha.c
++
+ HISILICON LPC BUS DRIVER
+ M:	Jay Fang <f.fangjian@huawei.com>
+ S:	Maintained
+-- 
+2.33.0
 
-This needed a bit of demangling :) but it looks like a correct solution.
-
-I took a moment to understand why this did not break my setup. The answer
-is I have a fsl,imx8mp-mipi-dsim, which has no .attach set in its
-samsung_dsim_host_ops.
-
-Sorry for the inconvenience. I'm fixing this in v2.
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
