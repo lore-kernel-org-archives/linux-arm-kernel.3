@@ -4,112 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB731D1D480
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8452D1D482
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qOu2wfoaBDwG44uLJDRdTwT65wV0xhfiXt1DpXlTdYo=; b=W9bInlsBr0U+r7lcJjpP9wjaZn
-	Nml43Lf8fT8xDGrjwTvNsr2aWkc+S5o8fyfCuLfi+HeGg7bvzdgM49MDoTkZK5cZdt3F+bzx41zNC
-	JydxPMqFPuyCQHwqWsFezqclbyan9qQxjHbIDJXnHeyyd7IjSuPGXF6x6gE3WtTNGCkkqQl0P3XOL
-	6FDAxPYXyEUEs3ZQMVC1st8lHHCCj8T31jKZnpM/rxyubaBoPtEVnj/zML8AZurnRPuVA/eRfnNB9
-	D4+XJF+SaEwPPU3DJpa/EI4j9K/3MzGL5MCKj88RASfmUeYL7nq2kEuceGOLM9fsUJ4s/SgfbU7zW
-	m1XOMFSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QzKPXcys/yDv3xR50V/DQ4UbV8OFp6lVFesvejZ/KE4=; b=ZYdDM+31u6OM1OuHTWGEkcSqiz
+	UCLtbSu5uZmttBPx71G5Ri8I8bi/DLikXx50AycRgms5zh4m57sgBYoKRW1Fmuw4HQNQSpfLT0o8h
+	IJhzaIqWmDbWe01T/ERSIx97NE9ACLW56EpyexP4lgJJ/IXRRGDHmtRmg6lTT1AyLGQJv+8zMr82H
+	OhbF8BoByJcnrpyk4Iv4q5zkdWJ1+1BHxxt3GXRxccWXIJAQoIBQlSoJGlGJNT5BSeRP0NHRenP5t
+	bxwOzJNf9iNvKl4wIn1T73qXwfTXHcRUXnK/czI6EvBMCyWLGAuKhDQEanOcORO6b2FMZeQwrDoTV
+	56wi4Xwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdt32-00000000AiV-0Bj3;
-	Thu, 08 Jan 2026 16:39:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdt3y-00000000Avd-21Kq;
+	Thu, 08 Jan 2026 16:40:42 +0000
+Received: from mail-centralusazhn150100000.outbound.protection.outlook.com ([2a01:111:f403:d906::] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdt30-00000000Ahl-0qnB
+	id 1vdt3v-00000000Auy-1E7M
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 16:39:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 83F3040701;
-	Thu,  8 Jan 2026 16:39:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BE9EC116C6;
-	Thu,  8 Jan 2026 16:39:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767890381;
-	bh=jBLPU65psxbLfwBP/f8NDtJubeWMFSJ2VzOAfBrasuw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aw4X2RaLR3HldStpG3ONIzC19s4J6AdFRTM1MRd9h7tlHgLmGWX/3TUBKEiL5uvCV
-	 8Zm3VviVuzw+b5uUAha3LgGisunwk0Iqf3/JzOBfgEx2rNgV3m9PYlfgT2cZCzf62u
-	 8ml3vfhZbw0P+O746WkzqIOLihE8f4cTOe/emTAF6gvAl0vftx1626SnUORKapuxCa
-	 7lCZ3ALhyst/zGcFIgXmIvY2cN98DKJ2g3NhpWeJDezdpC44MH14Phe92BBf1tBNVF
-	 6ZkHlr+6oVyYyereYa1LYIkmfrrPHaSndGhrMYUef2jKZT+ynFcUGuyeurTMK4dKxz
-	 PUadV7g9qUVcA==
-Message-ID: <49d28c7d-a08c-4543-b3bd-a23d36785c28@kernel.org>
-Date: Thu, 8 Jan 2026 17:39:36 +0100
+	Thu, 08 Jan 2026 16:40:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FZFZ+QITetErSYrKnZ04ohU7jDBUijLx9hEDrCqQtPC+meXjiIT+1nxOubB8kiJUlCSjAp9wR1I05+4nmT+cMyoQTFPRxJyCmQeQvFePb9b7n1hLB+LQPvwb+q+5xGbQJT9su/eUqzqXibrB9xfpqjqH+kkI/2eYGp6FTmIsABTkI6wVxy+vofGx5mhFSJPKbKDR5/hyEs+ffsQjeeG9Hl/E/RPBTQiLEN6H9Oz7UsrEWtNpT3YYJZlV3KNlMBtif6Dyef/VQUfMhgehZKe8BO/qpEfulOb1963oLDkYNyyZfaxtr3OyH0cjW20GQLV4FKjknZZJ66+GcAo57RwZlA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QzKPXcys/yDv3xR50V/DQ4UbV8OFp6lVFesvejZ/KE4=;
+ b=gcp9oU7r1h4Iu4iTEzWauFiOjnSbFGCimnSsRrXi9J0lWDB3hDY5VCMDg2Kkjn4cOI5YApYwAIzEOKM1jtQ98fyNeixMZHbkQjs2rrJZ4H+R57zhOcOmwVvr2nh/HS2/NzCLuknsgrbguPTf9FfTCa6vDd6p3AMQQJu4R7ize4kZHeYy7jOtw5OEBkluaUhBAwuXHJtR6iSgjC1b1EAs5tlwne+L3zmJ8hpNVjEoPlAsZ7avnX44m9cDjDAdp35oxZ3YwUky4Eqdv0mZweI1XjYSo7e0ReIkpDJ+lR8M6slOzxAD9ZBSJNoxMovSBO2QOzlUuuY92qguJS05SlLVLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QzKPXcys/yDv3xR50V/DQ4UbV8OFp6lVFesvejZ/KE4=;
+ b=sW1RxAzShqEybrpSmOtSoNZEDGvqxjEI+bUFFy4ItnwQHQ5u6c75UI5+mZlP4gkbcTDOWbUh7iMkSA/KfbJbu5VUV9PvD2f8fOEYdCKCRbW3ape29WZw115yH+o/oNDT6nIYIrx2RgMfV/z2AmEsrZ+XKM0EVduVDtThZHaYikY=
+Received: from IA4P221CA0002.NAMP221.PROD.OUTLOOK.COM (2603:10b6:208:559::8)
+ by PH8PR10MB6337.namprd10.prod.outlook.com (2603:10b6:510:1cc::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Thu, 8 Jan
+ 2026 16:40:34 +0000
+Received: from BN3PEPF0000B078.namprd04.prod.outlook.com
+ (2603:10b6:208:559:cafe::ba) by IA4P221CA0002.outlook.office365.com
+ (2603:10b6:208:559::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.4 via Frontend Transport; Thu, 8
+ Jan 2026 16:40:34 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN3PEPF0000B078.mail.protection.outlook.com (10.167.243.123) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.1 via Frontend Transport; Thu, 8 Jan 2026 16:40:32 +0000
+Received: from DFLE206.ent.ti.com (10.64.6.64) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 8 Jan
+ 2026 10:40:25 -0600
+Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE206.ent.ti.com
+ (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 8 Jan
+ 2026 10:40:24 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 8 Jan 2026 10:40:24 -0600
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 608GeOqp2674922;
+	Thu, 8 Jan 2026 10:40:24 -0600
+Date: Thu, 8 Jan 2026 10:40:24 -0600
+From: Nishanth Menon <nm@ti.com>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+CC: Markus Schneider-Pargmann <msp@baylibre.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman
+	<khilman@baylibre.com>, Dhruva Gole <d-gole@ti.com>, Sebin Francis
+	<sebin.francis@ti.com>, Kendall Willis <k-willis@ti.com>, Akashdeep Kaur
+	<a-kaur@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62a7-sk: Disable mmc Schmitt Trigger
+Message-ID: <20260108164024.fodfklk7xayh4dqj@authentic>
+References: <20260106-topic-am62a-mmc-pinctrl-v6-19-next-v1-1-1190ac29aadb@baylibre.com>
+ <979eb1054dbe116c2c8bb9920e94e3a93db5346c.camel@gmail.com>
+ <DFHSDXTVL4AU.2OQ9VB9TEJ75G@baylibre.com>
+ <6c90102537c3e3f1712538ca0b165cd54d71d8c2.camel@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: vendor-prefixes: Add 'lge,*' for LG
- Electronics
-To: Chanho Min <chanho.min@lge.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kever Yang <kever.yang@rock-chips.com>, Kael D'Alcamo <dev@kael-k.io>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Cc: Gunho Lee <gunho.lee@lge.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260108082213.6545-1-chanho.min@lge.com>
- <20260108082213.6545-2-chanho.min@lge.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260108082213.6545-2-chanho.min@lge.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <6c90102537c3e3f1712538ca0b165cd54d71d8c2.camel@gmail.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B078:EE_|PH8PR10MB6337:EE_
+X-MS-Office365-Filtering-Correlation-Id: 019846df-1a8e-4833-7bb7-08de4ed4a45e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|34070700014|376014|1800799024|7416014|82310400026|36860700013|34020700016|12100799066;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?k6h74jTKTRfH/n2xceMwm5qyxWHcj0GErZouanMUOz9uAI5sq0rEYAa8ft3o?=
+ =?us-ascii?Q?c3mnhe3gail07p2CUKyNs/C56kRw+nXsu+kTlToJXpFZOnb315b5wrJQUY0Z?=
+ =?us-ascii?Q?E2pJHpyFuHZ80/xjJ2bjZ9+hxlsLhCWSNpOqyfrNl7hD10aeAzPRKmpxRsa/?=
+ =?us-ascii?Q?LxVuwyGuxXU69F/ONr1azinLOikNt5cWV+8DbrkdQqgY3qEsYAng8T6MQ9F6?=
+ =?us-ascii?Q?6i8B2aklb9mLfB6bGHaRmcRrBBBBRJ/4mJFIFIPLvvtYTnhDLEiGwUOJ/txY?=
+ =?us-ascii?Q?9FY6reNGQP18OLoLnn7DKAAn4m9zstU+mLoeqxtxaRCgjA8Lz9Tq336pfgRV?=
+ =?us-ascii?Q?67BaKtUNOL+27zvz+DSVtoY41KL4673tqMYTv9jRCADjNknlC0qOmULSM34A?=
+ =?us-ascii?Q?xslLvTrTCQ4o+8XhaDZKGHyoNlJUk4VBcU7i7xnkZdTltk/cWWt5ij7BhegR?=
+ =?us-ascii?Q?wuAFBhAsMVJm1LaSuMo++L6LDBfu5sRXqQkdlRqMHBfakaAcC2o7Jk+Sm0Tl?=
+ =?us-ascii?Q?A+MrQ8XotSPPC3YSgGRThkQB/wY2sbtxaLHsqrDylphcbXEZJsJ4ASqAGrG9?=
+ =?us-ascii?Q?laBhmYuDuHZa4hmTKme+Aic4CFUflZXAIKgBr5ooFcnuUBT8CkGCiss5CagP?=
+ =?us-ascii?Q?ev8VdWJQK1qsJ+89V1gus12IGwPUU7mXb+OExJen+b203aSXH10fZ6/aqOLB?=
+ =?us-ascii?Q?5rvPttFXSaXSU4Got6xv1XUCkBcawm9+MnPm19fwTSulsIxB/V1Y6RNGEMhL?=
+ =?us-ascii?Q?Z9xp9gKWeoSBWC4dIEnMr1HABTcRt5jOnOQZKV4ba4bIfQFQ5CRwnTiGPHfM?=
+ =?us-ascii?Q?4Q0lQ74awrddLe+UNxZQLjR4WBkxoLh/0oxxc49P1rQ4Mr08+DJgGBtBuNwf?=
+ =?us-ascii?Q?EaMnBpCy+hLPef1Y2CaDQI75cvaPoORlaOEAyvBYaIZMidQf8xyprlQmilm9?=
+ =?us-ascii?Q?v/Hqv7mIxzivvs+Mo6IASm5uXxJGu14hO4CO+FteOfxHUx/+7ElzatphloQt?=
+ =?us-ascii?Q?ATTTHuNVKFI0B7jKc/w8nv+2/eKbo3XgDRyak7AEKNzjvKFze6x5t+OqrYlA?=
+ =?us-ascii?Q?w/IrFK980VIA3pBn1UON14NrmnszxhbkaGSiwvin7x0ID3nx4w8J+VZmjDrn?=
+ =?us-ascii?Q?2wOjheMiD4WiPfYHCzIiPyw1nbyua/VHBXECpty+HszeQR/WzGFcW9cSIMi5?=
+ =?us-ascii?Q?oX9LlHfC0SoUBBh6ID/3LwdxbVsl40ybVksZxBbJnQAOn49+TFfULrRC750B?=
+ =?us-ascii?Q?mRxaqJSlHsYCqvifv6Jv6/oTnsHd6hiTgHdA4YxSvFRQVohkhUJz3ZNdMqkZ?=
+ =?us-ascii?Q?Oi+FFdD8VRvc5gPTEyuVDKhcc3qy4EfZ9sPPsBY9fA5q5iDuaxkTF+ryIIcC?=
+ =?us-ascii?Q?XqDVl8PTrS1zMZMuL9i7EcPJshNg6eBSkkmSXZpWwGA/hqEnTPTzWwdqhYGX?=
+ =?us-ascii?Q?raPNSRfewd1tonfLBPK4enXes3plhfEWTUGRzPDPL1MN0WjErBGAIx6N7fhb?=
+ =?us-ascii?Q?Jr4ANY2N+n6xIVj31XGIc2tLdal3mUgzlNwqroCPY87OmwimZBJAHrFuf/qa?=
+ =?us-ascii?Q?RFfCUx+V2l9BzbXAiRE=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(34070700014)(376014)(1800799024)(7416014)(82310400026)(36860700013)(34020700016)(12100799066);DIR:OUT;SFP:1501;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2026 16:40:32.9656
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 019846df-1a8e-4833-7bb7-08de4ed4a45e
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B078.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR10MB6337
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_083942_307776_FFF0700A 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20260108_084039_529606_9B9804C7 
+X-CRM114-Status: GOOD (  22.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,30 +161,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/01/2026 09:22, Chanho Min wrote:
-> Currently 'lg,*' is used for LG Corporation, but LG Electronics uses
-> 'lge' as vendor prefix for many of its device tree bindings
-> (lg1k SoCs, etc).
+On 23:57-20260107, Alexander Sverdlin wrote:
+> Hi Markus,
 > 
-> Add 'lge' vendor prefix entry to avoid confusion with 'lg'.
+> On Tue, 2026-01-06 at 21:25 +0100, Markus Schneider-Pargmann wrote:
+> > > I think we would need to discuss this with TI via our FAE, because the change
+> > > in question has both been discussed with former FAE and the technical team
+> > > behind, and adopted in TI SDK.
+> > > 
+> > > Or have you already discused this with corresponding TI HW team?
+> > > 
+> > > Which hardware is affected, is it the official SK-AM62A-LP?
+> > > Is MMC2 the SD-card?
+> > 
+> > I only tested my am62a board on u-boot v2026.01. It is a SK-AM62A-LP.
+> > MMC2 is the SD-card and mmc1 in the devicetree.
 > 
-> Signed-off-by: Chanho Min <chanho.min@lge.com>
-> ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+> just wanted to let you know, I was able to reproduce the problems with SD
+> card access via MMC2 under Linux on AM623 with ST enabled.
 > 
-> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> index c7591b2aec2a..6c31fa4bee6a 100644
-> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> @@ -907,6 +907,8 @@ patternProperties:
->      description: Lenovo Group Ltd.
->    "^lg,.*":
->      description: LG Corporation
-> +  "^lge,.*":
+> We will seek clarification from TI on why this happens, which peripherals
+> are affected and what should be the course of actions.
 
-NAK, we have been there and I do not change my stance.
 
-Best regards,
-Krzysztof
+I have passed this up the chain here at TI. What confuses the heck out
+of me is this: from an internal email chain I am privy to, i am being
+told that "the ST_EN bit in every PADCONFIG register should never be
+changed from its power-on default state of 0b1" and the fact that Linux
+kernel has been stable with the setting for a long period, So I am
+confused why U-Boot would show this instability.. I don't have answers
+at the moment. until we clarify the reasoning, I am going to have to
+hold off this given that kernel behavior has not regressed that I am
+aware of.
+
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
