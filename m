@@ -4,106 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9AF5D1D478
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 17:59:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE86FD1D484
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 18:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3LlgstqPwU4W5iW5J6ZYZGwmbQjZNMc6oIdsZa6KM3E=; b=LNeSmEi8otZJMHiwYwkbHziRb+
-	P3XUD5LRhRyuRh03vkt4nXH26JlUbIi0M/3LdL3FFa46XRQYGX1HPsu/Pq1r8gXGk36gtwzmarkTs
-	JpgQVD9FWONSd60TZ9j7/hb+/ArAovt2aLexvlx/lSr8qi9H4bk25RFfRMewKftjrqG79pysMcpM/
-	t4dHk/C5JgarRzpVEQLXYvWHyi08n0u1KicBvpbfvPxJqNdvdvuHGsw6o8jZuVXxBMrTJvEMGRwVu
-	eVRUWaFZ/xM+WuVkIameahNXXTZ4bkWME9waBCmc+EJ+TdmsmC9g6F7zfVmtRODtqcPLZ19W68VFo
-	jHuf38BQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mHJvd2lOsd2wbBTE/hRKRyHsP8VtLimAvA5l0WDsuuI=; b=t4IK2ZbneWfXB9qYcNZFVQWHrH
+	XVyN1mhU4Xkb3HfTnUx3eWnUAV4EOU8j8QcJxu1tcrF/NS2nVO1kDuJe1o4e1bg9E3mkas88Vm12H
+	1THxMdlyaVFlVmWZZNWs9yZeAmuTxPsQuGjkla1waGaYc99H9CGZPIy42YbUrr0uDTg6TpsNu8H8D
+	oHSmbTWSVdX+uGPx8kuf6aNYrnoMQh4CaL34M/5xs4Ec1nXvWyqoe3B30sDwljpXO2dJVGIaWgLe5
+	CSgrspLfll3zk6Z3y6TOHBFr2vb0gqXfB9m+ayPn0LEYXrUPf0jT0F5tLL5A2qg/kk6/M3eQ0oVkn
+	nZh5ERAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vduIX-00000000XIF-1f9E;
-	Thu, 08 Jan 2026 17:59:49 +0000
-Received: from mail-dl1-x1231.google.com ([2607:f8b0:4864:20::1231])
+	id 1vduKl-00000000XeK-1k0U;
+	Thu, 08 Jan 2026 18:02:07 +0000
+Received: from out-171.mta1.migadu.com ([2001:41d0:203:375::ab])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vduIU-00000000XHb-1ztj
+	id 1vduKj-00000000Xd1-0zAX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 17:59:47 +0000
-Received: by mail-dl1-x1231.google.com with SMTP id a92af1059eb24-121b14efcddso695c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 09:59:45 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1767895184; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Hs+8o+a9w4zbyW0/cCXsCAqr0o0QvzJJYT0sIT5CfEdrj80IU/QK5hkPHVhA6+IX1w
-         go8oVilXtoYUytDmhL1HVAB0jxScsxXADTDm63Zic7T69p12UHkSNLP8aKoHp/6ndza1
-         I67M4Qlj8vMjsvSvjESN12ckLWkd7BlavV0qaQs6zM1Euvi2LjvulRqTh1B4N5tAqrUb
-         LwlRygEnYcG7dqmCBlD7CldetUU1fxNWPDRmKU08Cp3KSMDq31B/ncyHsRyHobbmPkSC
-         J0Ml1O3prxFP7u8W1aVJveFjxW/0iX6kwvjIYZRz7mBpxI2Yw+bPjkbwXNRkDPZrCiKf
-         hVaw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=3LlgstqPwU4W5iW5J6ZYZGwmbQjZNMc6oIdsZa6KM3E=;
-        fh=zgL0OwilRF6Sbk4pjD7fE9shQ9Fv39oni6l7/pMKrRg=;
-        b=P48tW1Q1sDzs9DbaUGxCcvp/dWfeGP947CjwlLQnCpB2TidfLugT09fU4a9pfLZrUA
-         uDwFOPn/VN7Fv1s8JholoYuTlUFOa/PeHESa4IYukRj2khvYenS/LyUwMpYubNPQS42r
-         4/Fnb2wZmL0ow0VbVFwzOBsVaFve61+jAl/7cyJfytSD9IojtDU1zbeyrw8FTxkFmcAp
-         PTuyFOWoVALBhU3noX8jzvkUtIPkHSZyljYEPbYdK0/T3GGCGcBT0veTmTVXK/cOrr45
-         a/T3Vv9Lp4R3GOimZ+i//icqkMZzcarJSTH+fLxY+djMAup+45KeGK4S9BOzE02eOWIX
-         ObpA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767895184; x=1768499984; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3LlgstqPwU4W5iW5J6ZYZGwmbQjZNMc6oIdsZa6KM3E=;
-        b=aAvEAMiPx7H98sgHn6xcwOKVht4VP0nx5SrAQJJ0grVJmgQNP8WYCeep8IBRDtiaCc
-         BZ5+wVNcfsL4d4f5ObUrWA3Mik+Qq++Z0YGV/Xyjaul7RPUm8Fy7jMwroYRR+CALnAAu
-         sujZcdAoasYoBqi2kzQd1UB2wP3+6W3GxuJ8GDIq0aDBiPF94V7wq2HP1s1ONQkPRPnF
-         PkGOd37FSW/TIdKBER5m8K44HMuxdAOAHZ721mGKH4yi7zrmGPEasccSTnLynGUlYykg
-         uOUVT2rNdge4pfYxaIYx+rUvZf+5z0c97rvYX3DI0PoDzSqmyvP2WfVDVKSsRRIPRtQT
-         6rPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767895184; x=1768499984;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=3LlgstqPwU4W5iW5J6ZYZGwmbQjZNMc6oIdsZa6KM3E=;
-        b=lX3uyHa3CG1qc1MvJKbwnN0/mJBI6bfCt//1CI4cvK1IsUNKxaMO4sDH/xnT/HgXhF
-         +ROUKV0leDXWGBa8EHain5PSUlkYBmNCttwW9MPVFsayAS/7zCeMpEB+vg4cy8zfpRVh
-         BiBDenSeQ8HlC6tk/QtWyIIE/6pVhLZJqV73D9EPTc61uZK8OE5Xhzu0isXqvmqc6an5
-         6TMUpGLTlt2ZvXlr5lbEulvrJ11UW6ssHLyLBzYj+ty69atkPcuS8WzyuXeBS2M9CrL3
-         rJHS2CruRM04JadcjB6v1J+E4G14AYfzTD55XYBA408p2nQBkFCg2wbDJa/UravCaF+9
-         R9oA==
-X-Gm-Message-State: AOJu0YylzA0f7VSnDGYmwcsbZPtuv2E5rt4xheSUh5Xyhx/ePKwzLr9Q
-	Wxyqnbr8dB3xFE64xW3jTmoQG+TFTiB6UoK1WtaUAtO6MIrAWqGfhgTXdB8jSCA18hRL5z1tbQt
-	1D84cpswpMqK2khmW00JsS0lG7154kmxqqT7Oezs8
-X-Gm-Gg: AY/fxX6BDK2C7G0SVh2odtcHZsI/9VyI7fcpYVzXap0/sRy9CNP0hiljVFRE3WmtwDA
-	OId/uZE1Pdq6zUtR27qg/73izjqLV98GY+hE1GRPkg0uAlNruGI7plTJ3eApUK+I86URcViExiJ
-	X/kggM+BbV7B+QpBToggpXbxq+6Seg7V5Vx0VQPfdGhvNilc2Y51mS5bNhzZoM4nONfJslF3M6C
-	SY69dbFPvfHtdNE7SZaT6+8OtJfB+tpud//jauo27XTinhhmHhr4K0djDf1pWov1HsQ+sUhPMVY
-	JZm0OI5HmMuATYCjBM3E9wmbePA=
-X-Received: by 2002:a05:7022:6284:b0:11d:f460:faa3 with SMTP id
- a92af1059eb24-1220541f92dmr7209c88.13.1767895183796; Thu, 08 Jan 2026
- 09:59:43 -0800 (PST)
+	Thu, 08 Jan 2026 18:02:06 +0000
+Date: Thu, 8 Jan 2026 18:01:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1767895312;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mHJvd2lOsd2wbBTE/hRKRyHsP8VtLimAvA5l0WDsuuI=;
+	b=NNiC6X1eiOY1vt6ur7HKIpfzt3j34lWx44WxF9qrMQ5c0WFv9a2bOfOsrRs6zKXmr/lF6h
+	vtAYr4ZuDCheAMhLpUV9ZRWeQ7lEFkUNKHB27ih+ISXEEIjcAi84GXchAP8LsvKNkNsN3y
+	ANpKS595tEqqGM/bSu9MKaO2JENVkck=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yosry Ahmed <yosry.ahmed@linux.dev>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 21/21] KVM: selftests: Test READ=>WRITE dirty logging
+ behavior for shadow MMU
+Message-ID: <gzyjze3wszmrwxdwnudij6nfqdxzihm37uappfqxorfjy5vatf@hffzaobbm3g7>
+References: <20251230230150.4150236-1-seanjc@google.com>
+ <20251230230150.4150236-22-seanjc@google.com>
+ <t7dcszq3quhqprdcqz7keykxbmqf62pdelqrkeilpbmsrnuji5@a3lplybmlbwf>
+ <aV_cLAlz4v1VOkDt@google.com>
 MIME-Version: 1.0
-References: <20251211040935.1288349-2-ardb@kernel.org> <CALxfFW4gyv3gSc1JhkPNqk4LL6S6gZbDRJx2y21PFZ8-8_9s_A@mail.gmail.com>
- <CAMj1kXG+6CYVSV-2ZSqrEm+B=az+54=fNwHpC_6qQZ-z2=3Zgw@mail.gmail.com>
-In-Reply-To: <CAMj1kXG+6CYVSV-2ZSqrEm+B=az+54=fNwHpC_6qQZ-z2=3Zgw@mail.gmail.com>
-From: Seth Jenkins <sethjenkins@google.com>
-Date: Thu, 8 Jan 2026 12:59:31 -0500
-X-Gm-Features: AQt7F2qG4JZTpgmrUvet927wRTzPR9uXVxSlElEKagdXfemplsURFSWd_27Hphw
-Message-ID: <CALxfFW4nn3RMWfQHZ8yExhznTZyCAMm1Xj7J7ZALooan2eUNfQ@mail.gmail.com>
-Subject: Re: [RFC PATCH] arm64: Bring back linear map randomization using
- PArange override
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org, 
-	mark.rutland@arm.com, catalin.marinas@arm.com, will@kernel.org, 
-	kees@kernel.org, Liz Prucka <lizprucka@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aV_cLAlz4v1VOkDt@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_095946_522683_3FCEAA56 
-X-CRM114-Status: GOOD (  26.20  )
+X-CRM114-CacheID: sfid-20260108_100205_417271_ECA08306 
+X-CRM114-Status: GOOD (  42.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,57 +78,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Any thoughts on the desirability of this feature wrt randomization of
-the placement of vmlinux in physical memory?
-Even with vmlinux randomization in physical memory, dynamically
-allocated memory ALSO ends up getting predictably placed. If I
-allocate basically all physical memory, e.g. with mmap, I can predict
-with >90% accuracy a PFN that was allocated by that mmap with the
-caveat that my testing was soon after boot so that reliability may go
-down over time in a real world scenario.
-
-So I think linear map randomization is still relevant in making
-real-world exploitation more difficult even if vmlinux is randomized
-in physical memory.
-
-
-On Thu, Jan 8, 2026 at 8:33=E2=80=AFAM Ard Biesheuvel <ardb@kernel.org> wro=
-te:
->
-> On Tue, 16 Dec 2025 at 19:14, Seth Jenkins <sethjenkins@google.com> wrote=
-:
+On Thu, Jan 08, 2026 at 08:32:44AM -0800, Sean Christopherson wrote:
+> On Fri, Jan 02, 2026, Yosry Ahmed wrote:
+> > On Tue, Dec 30, 2025 at 03:01:50PM -0800, Sean Christopherson wrote:
+> > >  	WRITE_ONCE(*b, 1);
+> > > -	GUEST_SYNC(true);
+> > > +	GUEST_SYNC(2 | TEST_SYNC_WRITE_FAULT);
+> > >  	WRITE_ONCE(*b, 1);
+> > > -	GUEST_SYNC(true);
+> > > -	GUEST_SYNC(false);
+> > > +	GUEST_SYNC(2 | TEST_SYNC_WRITE_FAULT);
+> > > +	READ_ONCE(*b);
+> > > +	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
+> > > +	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
+> > 
+> > Instead of hardcoding 0 and 2 here, which IIUC correspond to the
+> > physical addresses 0xc0000000 and 0xc0002000, as well as indices in
+> > host_test_mem, can we make the overall definitions a bit more intuitive?
+> > 
+> > For example:
+> > 
+> > #define GUEST_GPA_START		0xc0000000
+> > #define GUEST_PAGE1_IDX		0
+> > #define GUEST_PAGE2_IDX		1
+> > #define GUEST_GPA_PAGE1		(GUEST_GPA_START + GUEST_PAGE1_IDX * PAGE_SIZE)
+> > #define GUEST_GPA_PAGE2		(GUEST_GPA_START + GUEST_PAGE2_IDX * PAGE_SIZE)
+> > 
+> > /* Mapped to GUEST_GPA_PAGE1 and GUEST_GPA_PAGE2 */
+> > #define GUEST_GVA_PAGE1		0xd0000000
+> > #define GUEST_GVA_PAGE2		0xd0002000
+> > 
+> > /* Mapped to GUEST_GPA_PAGE1 and GUEST_GPA_PAGE2 using TDP in L1 */
+> > #define GUEST_GVA_NESTED_PAGE1  0xd0001000
+> > #define GUEST_GVA_NESTED_PAGE2	0xd0003000
+> > 
+> > Then in L2 code, we can explicitly take in the GVA of page1 and page2
+> > and use the definitions above in the GUEST_SYNC() calls, for example:
+> > 
+> > static void l2_guest_code(u64 *page1_gva, u64 *page2_gva)
+> > {
+> >         READ_ONCE(*page1_gva);
+> >         GUEST_SYNC(GUEST_PAGE1_IDX | TEST_SYNC_READ_FAULT);
+> >         WRITE_ONCE(*page1_gva, 1);
+> >         GUEST_SYNC(GUEST_PAGE1_IDX | TEST_SYNC_WRITE_FAULT);
+> > 	...
+> > }
+> > 
+> > and we can explicitly read page1 and page2 from the host (instead of
+> > using host_test_mem).
+> > 
+> > Alternatively, we can pass in the guest GVA directly into GUEST_SYNC(),
+> > and use the lower bits for TEST_SYNC_READ_FAULT, TEST_SYNC_WRITE_FAULT,
+> > and TEST_SYNC_NO_FAULT.
 > >
-> > > This is posted as an RFC because there are obvious shortcomings to th=
-is
-> > > approach. However, before I spend more time on this, I'd like to gaug=
-e
-> > > if there is any consensus that bringing this back is a good idea.
-> > I may be a minority, but I do think bringing this back is a good idea.
-> > It has now been 9+ years since hardware side channels for bypassing
-> > KASLR were discovered, and it still appears that real-world attackers
-> > overwhelmingly prefer alternative strategies - such as this one.
-> >
-> > I'm under no illusion that if we just do this one thing KASLR will be
-> > secure again, but I think this patch would still have a meaningful
-> > real-world impact in terms of making exploits significantly harder to
-> > write.
-> >
->
-> Thanks for the feedback.
->
-> I was hoping to get some other views on this matter, but sending the
-> patch during plumbers and right before the holidays probably didn't
-> help in that regard, I'm afraid.
->
-> Any thoughts on the desirability of this feature wrt randomization of
-> the placement of vmlinux in physical memory? AIUI, the main issue
-> being addressed here is predictable placement of statically allocated
-> kernel objects in the virtual address space, which could be solved in
-> either way. Or are there other concerns here?
->
-> Just trying to elicit as much input as possible on the list, so the
-> maintainers can make an informed decision.
->
-> Thanks,
-> Ard.
+> > WDYT?
+> 
+> I fiddled with this a bunch and came up with the below.  It's more or less what
+> you're suggesting, but instead of interleaving the aliases, it simply puts them
+> at a higher base.  That makes pulling the page frame number out of the GVA much
+> cleaner, as it's simply arithmetic instead of weird masking and shifting magic.
+> 
+> --
+> From: Sean Christopherson <seanjc@google.com>
+> Date: Wed, 7 Jan 2026 14:38:32 -0800
+> Subject: [PATCH] KVM: selftests: Test READ=>WRITE dirty logging behavior for
+>  shadow MMU
+> 
+> Update the nested dirty log test to validate KVM's handling of READ faults
+> when dirty logging is enabled.  Specifically, set the Dirty bit in the
+> guest PTEs used to map L2 GPAs, so that KVM will create writable SPTEs
+> when handling L2 read faults.  When handling read faults in the shadow MMU,
+> KVM opportunistically creates a writable SPTE if the mapping can be
+> writable *and* the gPTE is dirty (or doesn't support the Dirty bit), i.e.
+> if KVM doesn't need to intercept writes in order to emulate Dirty-bit
+> updates.
+> 
+> To actually test the L2 READ=>WRITE sequence, e.g. without masking a false
+> pass by other test activity, route the READ=>WRITE and WRITE=>WRITE
+> sequences to separate L1 pages, and differentiate between "marked dirty
+> due to a WRITE access/fault" and "marked dirty due to creating a writable
+> SPTE for a READ access/fault".  The updated sequence exposes the bug fixed
+> by KVM commit 1f4e5fc83a42 ("KVM: x86: fix nested guest live migration
+> with PML") when the guest performs a READ=>WRITE sequence with dirty guest
+> PTEs.
+> 
+> Opportunistically tweak and rename the address macros, and add comments,
+> to make it more obvious what the test is doing.  E.g. NESTED_TEST_MEM1
+> vs. GUEST_TEST_MEM doesn't make it all that obvious that the test is
+> creating aliases in both the L2 GPA and GVA address spaces, but only when
+> L1 is using TDP to run L2.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  .../selftests/kvm/include/x86/processor.h     |   1 +
+>  .../testing/selftests/kvm/lib/x86/processor.c |   7 +
+>  .../selftests/kvm/x86/nested_dirty_log_test.c | 188 +++++++++++++-----
+>  3 files changed, 145 insertions(+), 51 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/include/x86/processor.h b/tools/testing/selftests/kvm/include/x86/processor.h
+> index ab29b1c7ed2d..8945c9eea704 100644
+> --- a/tools/testing/selftests/kvm/include/x86/processor.h
+> +++ b/tools/testing/selftests/kvm/include/x86/processor.h
+> @@ -1483,6 +1483,7 @@ bool kvm_cpu_has_tdp(void);
+>  void tdp_map(struct kvm_vm *vm, uint64_t nested_paddr, uint64_t paddr, uint64_t size);
+>  void tdp_identity_map_default_memslots(struct kvm_vm *vm);
+>  void tdp_identity_map_1g(struct kvm_vm *vm,  uint64_t addr, uint64_t size);
+> +uint64_t *tdp_get_pte(struct kvm_vm *vm, uint64_t l2_gpa);
+>  
+>  /*
+>   * Basic CPU control in CR0
+> diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
+> index ab869a98bbdc..fab18e9be66c 100644
+> --- a/tools/testing/selftests/kvm/lib/x86/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/x86/processor.c
+> @@ -390,6 +390,13 @@ static uint64_t *__vm_get_page_table_entry(struct kvm_vm *vm,
+>  	return virt_get_pte(vm, mmu, pte, vaddr, PG_LEVEL_4K);
+>  }
+>  
+> +uint64_t *tdp_get_pte(struct kvm_vm *vm, uint64_t l2_gpa)
+
+nested_paddr is the name used by tdp_map(), maybe use that here as well
+(and in the header)?
+
+> +{
+> +	int level = PG_LEVEL_4K;
+> +
+> +	return __vm_get_page_table_entry(vm, &vm->stage2_mmu, l2_gpa, &level);
+> +}
+> +
+>  uint64_t *vm_get_pte(struct kvm_vm *vm, uint64_t vaddr)
+>  {
+>  	int level = PG_LEVEL_4K;
+[..]
+> @@ -133,35 +220,50 @@ static void test_dirty_log(bool nested_tdp)
+>  
+>  	/* Add an extra memory slot for testing dirty logging */
+>  	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
+> -				    GUEST_TEST_MEM,
+> +				    TEST_MEM_BASE,
+>  				    TEST_MEM_SLOT_INDEX,
+>  				    TEST_MEM_PAGES,
+>  				    KVM_MEM_LOG_DIRTY_PAGES);
+>  
+>  	/*
+> -	 * Add an identity map for GVA range [0xc0000000, 0xc0002000).  This
+> +	 * Add an identity map for GVA range [0xc0000000, 0xc0004000).  This
+>  	 * affects both L1 and L2.  However...
+>  	 */
+> -	virt_map(vm, GUEST_TEST_MEM, GUEST_TEST_MEM, TEST_MEM_PAGES);
+> +	virt_map(vm, TEST_MEM_BASE, TEST_MEM_BASE, TEST_MEM_PAGES);
+>  
+>  	/*
+> -	 * ... pages in the L2 GPA range [0xc0001000, 0xc0003000) will map to
+> -	 * 0xc0000000.
+> +	 * ... pages in the L2 GPA ranges [0xc0001000, 0xc0002000) and
+> +	 * [0xc0003000, 0xc0004000) will map to 0xc0000000 and 0xc0001000
+> +	 * respectively.
+
+Are these ranges correct? I thought L2 GPA range [0xc0002000,
+0xc0004000) will map to [0xc0000000, 0xc0002000).
+
+Also, perhaps it's better to express those in terms of the macros?
+
+L2 GPA range [TEST_MEM_ALIAS_BASE, TEST_MEM_ALIAS_BASE + 2*PAGE_SIZE)
+will map to [TEST_MEM_BASE, TEST_MEM_BASE + 2*PAGE_SIZE)?
+
+>  	 *
+>  	 * When TDP is disabled, the L2 guest code will still access the same L1
+>  	 * GPAs as the TDP enabled case.
+> +	 *
+> +	 * Set the Dirty bit in the PTEs used by L2 so that KVM will create
+> +	 * writable SPTEs when handling read faults (if the Dirty bit isn't
+> +	 * set, KVM must intercept the next write to emulate the Dirty bit
+> +	 * update).
+>  	 */
+>  	if (nested_tdp) {
+> +		vm_vaddr_t gva0 = TEST_GUEST_ADDR(TEST_MEM_ALIAS_BASE, 0);
+> +		vm_vaddr_t gva1 = TEST_GUEST_ADDR(TEST_MEM_ALIAS_BASE, 1);
+
+Why are these gvas? Should these be L2 GPAs?
+
+Maybe 'uint64_t l2_gpa0' or 'uint64_t nested_paddr0'?
+
+Also maybe add TEST_ALIAS_GPA() macro to keep things consistent?
+
+> +
+>  		tdp_identity_map_default_memslots(vm);
+> -		tdp_map(vm, NESTED_TEST_MEM1, GUEST_TEST_MEM, PAGE_SIZE);
+> -		tdp_map(vm, NESTED_TEST_MEM2, GUEST_TEST_MEM, PAGE_SIZE);
+> +		tdp_map(vm, gva0, TEST_GPA(0), PAGE_SIZE);
+> +		tdp_map(vm, gva1, TEST_GPA(1), PAGE_SIZE);
+> +
+> +		*tdp_get_pte(vm, gva0) |= PTE_DIRTY_MASK(&vm->stage2_mmu);
+> +		*tdp_get_pte(vm, gva1) |= PTE_DIRTY_MASK(&vm->stage2_mmu);
+> +	} else {
+> +		*vm_get_pte(vm, TEST_GVA(0)) |= PTE_DIRTY_MASK(&vm->mmu);
+> +		*vm_get_pte(vm, TEST_GVA(1)) |= PTE_DIRTY_MASK(&vm->mmu);
+>  	}
+>  
+>  	bmap = bitmap_zalloc(TEST_MEM_PAGES);
+> -	host_test_mem = addr_gpa2hva(vm, GUEST_TEST_MEM);
+>  
+>  	while (!done) {
+> -		memset(host_test_mem, 0xaa, TEST_MEM_PAGES * PAGE_SIZE);
+> +		memset(TEST_HVA(vm, 0), 0xaa, TEST_MEM_PAGES * PAGE_SIZE);
+> +
+>  		vcpu_run(vcpu);
+>  		TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_IO);
+>  
+[..]
 
