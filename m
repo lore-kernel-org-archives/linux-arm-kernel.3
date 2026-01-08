@@ -4,109 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4187D1D480
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C7A9D1D482
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:42:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/DMq1JdTrj2lSEBGLycCuwtg/79ew8kdYLPHQv2qL/U=; b=gZY5nGzOjyyUOXHrG9+MXcq5fM
-	pLzRIPIM/x57imgsvL23hBxosg+09BdQjG0WaNnUucxxrAse/tKD7pe3+pcySUrPrvRe6Ye7x8zS7
-	6gpK0C9NtcLPTUJhRSL3S05aJt9X3aQ80pgTH0ksuEUqAS5Nx33gpj+5YJqtjQHnAYz3EOQdXax4e
-	PB13JpRIK2X025B3jxuaO3yn7LluVQ7gaMvG2Cl3b6y0TN+J1AL7odCIMPPhJjoGuqCgkqpFwAZyn
-	ZOmfh4PELDZ4x6tUDRMQhtokOjEzznmR+e/2E57LO3WRdDF1m9y4YfrWy0or1uhh6Ks2xD/YO00Wl
-	vW7hYMTg==;
+	bh=wOQBKk81S8h1/nSWX5U0qv0qhBq19QitTyPg5HzTKEk=; b=Iu9ttENlndyPLRZb/giFX5yFpf
+	14ER2BsKlm4RO9SYoFfNwbZMRBa85S0KXduRxOfsmkyhqPWEl3VfsFihAHn0Fq6M6SvdQ8ZxEj3Uq
+	oSa4obq5Z6o5neC2yxv9xwOa0bpA3n+yPNsEMjuU6AhPT/eVfbaf6Jtwh0EHzGv6mLETciBBelZ6J
+	yEjoq128+3lhxnUYvg3bJYOd1v1T7K8Yl0SQCWHMYf9nRR4qRZWX2iAG3C/6zap/hbdr65wTjW1bT
+	MFYNNWmX1YUoOkq7voKw6/eGP4FYb0sTo39B90b8j6/HQBMV7qEeXlKG1XDghVjI22wPqYs5S3FJD
+	bEqK82Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdt4R-00000000B4R-06L3;
-	Thu, 08 Jan 2026 16:41:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdt4L-00000000B2Q-0g72
+	id 1vdt5A-00000000BR6-3BnY;
+	Thu, 08 Jan 2026 16:41:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdt58-00000000BOf-1Fyh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 16:41:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1720A6012B;
-	Thu,  8 Jan 2026 16:41:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA90AC116C6;
-	Thu,  8 Jan 2026 16:41:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767890463;
-	bh=Yyy1lLAACLRbfuMJvJ3yyqitDLgasM+HO+Y9xLOdtZc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kh+u3zqeE2KBGqdnE+U5vLLyfxm1KAk6sZTddCTmfsVSipArC2V0qbECoXVwWT1uy
-	 VJtLZwVYNOyeHTldkJuHi2auGLYPpYJibBxHAAo+D1bWd71jTWP5z15qPy1HG2AICh
-	 m5Ag8MuUT6d51OzJ4I1+q2XbKrmVLv2pSm+kl+ABE/K4UORcdwWGE9IDWWQ+2bl5BD
-	 xc7whlJmJv23JwDMcp559G58pj3zBQsuJ/nLDD856qIjtNfMsDeSoc848vzjogdaC6
-	 2FOgB9bgKIyu1hNoCagZklV0k904zsJrnA8OvaszQRK5rKOGN9fM2KfvdD6BBrz8Ax
-	 uX+T/zhqELdBQ==
-Message-ID: <687a115b-c0bb-43a5-80fb-0d92d80aa970@kernel.org>
-Date: Thu, 8 Jan 2026 17:40:59 +0100
+	Thu, 08 Jan 2026 16:41:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63214497;
+	Thu,  8 Jan 2026 08:41:44 -0800 (PST)
+Received: from [10.1.29.34] (010265703453.cambridge.arm.com [10.1.29.34])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 744FC3F5A1;
+	Thu,  8 Jan 2026 08:41:49 -0800 (PST)
+Message-ID: <a0fd155b-67fc-45a4-8510-01f89681d6fa@arm.com>
+Date: Thu, 8 Jan 2026 16:41:47 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] dt-bindings: arm: lge: Add compatible for LG1215 SoC
- and reference board
-To: Chanho Min <chanho.min@lge.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kever Yang <kever.yang@rock-chips.com>, Kael D'Alcamo <dev@kael-k.io>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Cc: Gunho Lee <gunho.lee@lge.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260108082213.6545-1-chanho.min@lge.com>
- <20260108082213.6545-3-chanho.min@lge.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260108082213.6545-3-chanho.min@lge.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v2] arm64: errata: Workaround for SI L1 downstream
+ coherency issue
+To: Will Deacon <will@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Lucas Wei <lucaswei@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ sjadavani@google.com, kernel test robot <lkp@intel.com>,
+ stable@vger.kernel.org, kernel-team@android.com,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, smostafa@google.com, jgg@nvidia.com
+References: <20251229033621.996546-1-lucaswei@google.com>
+ <87o6ndduye.wl-maz@kernel.org> <aV6K7QnUa7jDpKw-@willie-the-truck>
+ <7cd7b4f0-7aa5-4ca0-adc6-44d968c1ed48@arm.com>
+ <aV_KqiaDf9-2NcxH@willie-the-truck>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <aV_KqiaDf9-2NcxH@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260108_084154_473029_7886EFA8 
+X-CRM114-Status: GOOD (  23.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,33 +72,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/01/2026 09:22, Chanho Min wrote:
-> Add compatible strings for the LG1215 SoC and its reference board
-> (lge,lg1215 and lge,lg1215-ref).
+On 2026-01-08 3:18 pm, Will Deacon wrote:
+> On Wed, Jan 07, 2026 at 05:55:40PM +0000, Robin Murphy wrote:
+>> On 2026-01-07 4:33 pm, Will Deacon wrote:
+>>> On Thu, Jan 01, 2026 at 06:55:05PM +0000, Marc Zyngier wrote:
+>>>> The other elephant in the room is virtualisation: how does a guest
+>>>> performing CMOs deals with this? How does it discover the that the
+>>>> host is broken? I also don't see any attempt to make KVM handle the
+>>>> erratum on behalf of the guest...
+>>>
+>>> A guest shouldn't have to worry about the problem, as it only affects
+>>> clean to PoC for non-coherent DMA agents that reside downstream of the
+>>> SLC in the interconnect. Since VFIO doesn't permit assigning
+>>> non-coherent devices to a guest, guests shouldn't ever need to push
+>>> writes that far (and FWB would cause bigger problems if that was
+>>> something we wanted to support)
+>>>
+>>> +Mostafa to keep me honest on the VFIO front.
+>>
+>> I don't think we actually prevent non-coherent devices being assigned, we
+>> just rely on the IOMMU supporting IOMMU_CAP_CACHE_COHERENCY. Thus if there's
+>> an I/O-coherent SMMU then it could end up being permitted, however I would
+>> hope that either the affected devices are not behind such an SMMU, or at
+>> least that if the SMMU imposes cacheable attributes then that prevents
+>> traffic from taking the back-door path to RAM.
 > 
-> This SoC is the next SoC following the LG1313 series, developed
-> by LG Electronics.
+> I think IOMMU_CAP_CACHE_COHERENCY is supposed to indicate whether or not
+> the endpoint devices are coherent (i.e. whether IOMMU_CACHE makes sense)
+> but it's true that, for the SMMU, we tie this to the coherency of the
+> SMMU itself so it is a bit sketchy. There's an interesting thread between
+> Mostafa and Jason about it:
 > 
-> Signed-off-by: Chanho Min <chanho.min@lge.com>
-> ---
->  Documentation/devicetree/bindings/arm/lge.yaml | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/lge.yaml b/Documentation/devicetree/bindings/arm/lge.yaml
-> index d983ef7fcbd6..25750047131b 100644
-> --- a/Documentation/devicetree/bindings/arm/lge.yaml
-> +++ b/Documentation/devicetree/bindings/arm/lge.yaml
-> @@ -24,5 +24,10 @@ properties:
->            - const: lge,lg1313-ref
->            - const: lge,lg1313
->  
-> +      - description: Boards with LG1215 SoC
-> +        items:
-> +          - const: lge,lg1215-ref
+> https://lore.kernel.org/all/ZtHhdj6RAKACBCUG@google.com/
 
-lg, not lge.
+The point is that if there's a coherent interconnect downstream of the 
+SMMU - which we infer from the SMMU's own coherency - then we should be 
+able to make the *output* of SMMU translation coherent, regardless of 
+what the incoming attributes from the device are. In the IORT terms, CPM 
+is really what matters for IOMMU_CACHE, not DACS.
 
+> But, that aside, FWB throws a pretty big spanner in the works if we want
+> to assign non-coherent devices.
 
-Best regards,
-Krzysztof
+If you mean having FWB on the CPU *without* also having it on the SMMU, 
+then yes, there are various ways that could be problematic even with 
+nominally-coherent devices. S2FWB on the SMMU, however, is *almost* the 
+magic bullet that makes things fine for VFIO in general, except for the 
+annoying mis-step that it's not guaranteed to override PCIe No Snoop 
+(hopefully that might get fixed in future, but we'll still have today's 
+implementations that do have the not-particularly-useful behaviour.)
+
+This may be straying a bit far off $SUBJECT though - do we know if the 
+affected devices in this case are behind a coherent SMMU, and how things 
+work for IWB-OWB-ISh output attributes if so?
+
+Thanks,
+Robin.
 
