@@ -4,77 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AEC9CF6A86
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 08:46:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAB06CF6A87
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 08:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+/jyduXxL4KCOZDj8LZOK9hiRl2p9N0EPN5fsbWRiIk=; b=LG0htSdZ5owQjW98mwE5hQ+mD+
-	NpP55LJ05lEgn08CFtvHulmcgVAbwqe79LXDaAuzBcwFmClCznAHFAMMFplDMLBHLikZtGpB7C7P2
-	XkUIGXbUWswiqHZBajquecRj2/zz0jFMRXFWdeRYx9+QBLLu9/Y1D3BcTIHL0HRu5m6hSUgWn0zP+
-	nvtC+XIV3Pc6UCd4j1mKYWj3CrXZBXDccE4ra/cvdT8w8sYMLlKPQYZtYRxzFIuVFbm6U15p/JkK+
-	TDjcS3cP4FyJKtDVWccMB0VrrrgABwyJMdE5/CYwmeYbk2ONGDXWRqZQ12EhodmNFZAf+WaRHYCDs
-	oCVhB74A==;
+	bh=X+mR41nzWCIkR7vEalH2Z/Nd2Y2pgD8cS0T18/wjMnw=; b=s7xYmg6fvKVlyeSqj4f6hoCWIg
+	JUOzLH81FFYoN++j3NR/8tOjXXPZSReZCx0Rm6F3a3ktXnSkA/pK8aFNimKBlTC6KZYfs/kppBIx1
+	/pPe8fNYz+hh78uK6nkPHngnbdBYhF7lDHx5b3zFhm4wEBR9ELC9UZd/keD5DGg7uGah2szRDUlXd
+	PxC7+Ikzws0QX85md6twSc4F75+rM8h91ifhyLuVoQ0RtGqRFoIw6V5jBBIjm7ZTTmAERyrUj5AtP
+	7ws61nnB0qenFWaJWhhBa6sVQ24BiKbVPb6cL9tr0G9yexZpnrVZTWGhs8d9GFW1ISOL9tJMA79s1
+	geZt1KOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdlee-0000000GKuj-0TjX;
-	Thu, 08 Jan 2026 08:46:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vdliE-0000000GLTD-3DWL;
+	Thu, 08 Jan 2026 08:49:46 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdlec-0000000GKuA-0xdN
+	id 1vdliC-0000000GLSQ-1YlL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 08:46:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 175BC4404D
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 08:46:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE4BDC2BC86
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 08:46:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767861960;
-	bh=BqgkMcZUubmtSOlPILAa3d89zvk0yBYNI6hQRzVoKdE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=KQZUh7Wqptoit5QJV/2lRzFvP7CBZ+A42aeKEVy115cinAx+kc0v6bx39CRwSE2/u
-	 qSNDECW0gVqplVCeCmWlgKOs2MGFju6NYPzdTsXFRUn/afxPHGqJOv/h7hT2//Hli6
-	 NVVB1iH6atyCnlP+Ie3URFafw3uQ6e/LGhnKw0vBa2xUhKoodEwSOEJFNPUZTnv8VL
-	 6Ughb2dd9EowkGs2xsHQWtPZgCVXZO2fQ6ZyRKqLRvP3pip5fR5kvxLqlxseoCr8G0
-	 zZImU5yPy1yaMI1fp5JAy9wA7hVSqtRJx6K6QAzyqjddkdGweCePAgyDVmqlRfyugs
-	 1Pz3VLLXKqmag==
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-382f087e6c9so12311841fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 00:46:00 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVNA+P0EFEiRpagex0RPWRFmWGsw12nt5NwN5wbmR6auS/Omfu5NLSaZK5XWtNRtIO9d2tuDgm6QRJ9iEL3Y1MS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqRQLZ7mNhkL1FYCWvWNJy+85pb8AKW/0utleMw+qtQMp7y3Tj
-	T/GnZXt1tq7xZPCck9VKok1hAHGvZodCjgPczH6Kdd34dlLHadteKgx0dhrafautJV8otYpZIo9
-	9Hiq/wXCfzqVP84d/yB6BpEcuzvwguHZ9wdMtMpVAMg==
-X-Google-Smtp-Source: AGHT+IEMMSJCU7SYOOgMQ0Ss3CVoU2DzXo5zjwxrQtFkFUfV8zoKG1Pqwbvf3SQfMIiVN3cd6uxpbxyjJv7SsIRhXa8=
-X-Received: by 2002:a05:651c:1448:b0:37f:cc09:31af with SMTP id
- 38308e7fff4ca-382ff851d94mr12840421fa.44.1767861959439; Thu, 08 Jan 2026
- 00:45:59 -0800 (PST)
+	Thu, 08 Jan 2026 08:49:45 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-4fc42188805so31204451cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 00:49:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767862183; x=1768466983; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=X+mR41nzWCIkR7vEalH2Z/Nd2Y2pgD8cS0T18/wjMnw=;
+        b=mC+Mo9MDvhHsP73oQWiOk8K5037DqIhQOXraczhyNK2Xy3d1y5N64mPu3e7b6hwZXz
+         uftJfS6bAdBE60jiQEoM+V5EiXCsGzJMHt7qFSTgaEgLaPGw6Zy3GwRulXBYjWSE9Mrw
+         efFcbOMIkP3/o2O5ZdO3nqBDAyLgCjhZfChaX0Lu2pvsFJLQ3ztOiwCh/uqj+5Is88z+
+         MvDP0UC4+9GQ0hnOIvYstafAPBdsP+Hfqg4wqoxzqevw5xx8Bjg59JGsRjUftZfEf5y3
+         BHXoC81M3FzB/jmkBxrTfduHjJcZ9y/VaXt7fkhhqBOHMOD4swtOcO5mToF4I4N80bxY
+         Cnig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767862183; x=1768466983;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=X+mR41nzWCIkR7vEalH2Z/Nd2Y2pgD8cS0T18/wjMnw=;
+        b=tDWFIm5W2vg9hZm8rHhHrkduL01+QiFVIsfFbnJYYTq3UINcW2RjDvQ6wo7PWYHYFa
+         k5v/AYuZqnCMODsoi3315e5tlwb10IJErg6phw3IjpXjZxmMmH5zFOCTQXjyLt1QOAVP
+         7eUWC1W6biRl9BaMdFguAIaNSW8bFSZl7vk/DshV2dJztlha9aNNKmEoc3x+PHT410RF
+         3LZ6nlx83RkH2ujC3DM2jzh/QJMJuThwtKbEqB/A+qJDyLAen3IjhMRSpSZC/M0XPSiH
+         inXVVDYLVpvwckn+pZQ9QD4rnrFRFYnmebnq08FPzELLCzDAu7ue+yIs7T4qTLan6urS
+         4t/g==
+X-Forwarded-Encrypted: i=1; AJvYcCVcYf2zAK4JQnONfDguprGhV8j9hFEt0KQH0qnkJxM8aFuQybpf0qdpx5EWCzvvXYNlgZ5SzxDgO0eGz9EAv2Zr@lists.infradead.org
+X-Gm-Message-State: AOJu0YweXgalvmabwnJkfuhXYxSoqliFMXmL8LkQBe1Swa+q4ZvQPyvg
+	ldJ6Ca5rU3PDDBuVW3BEFocrUXKqhQNF2lB+vellMv37B8lDl75UPI1QrEdoiMiyKCJ60H/PmDB
+	9rgJzxgQEiMmt/XC06dF+Drpt1VgZ7U0=
+X-Gm-Gg: AY/fxX69YlAiijZpd8/rm3oftWPIm2dywVYzYI/2XddNx96Cf4ojb748a8iDpbyDZNQ
+	G+q1FRAgVNDtp8irD3OOcb1CZAQQPsy52kEAoyjNiUL30Pmimco7X10DjmQL2FTuFAnrL2+/ZFj
+	d+tBnDL/Ol51pX3bXxgGGb5LN8e1mEdDWfmLPISgO5aTLxM93jHZkI3i7zwBzw57r/Sd8Xl5yWE
+	jKvn6mljDAhUV5+hVodDz9N7jlbIbswBiuts970wQcLqVmcfdpHmYrxlO4B8Sd0KV+fUKPWTgXt
+	et6ZRzL16/nao60rknpkRDGItbh6
+X-Google-Smtp-Source: AGHT+IE/YI18F1nhJhEFmTsO58DLq0QMKXZtevsfEeQsCPnd9cic8/shsfNP/db84QRndLqHAtrqtJq7ITmw6U4bhhE=
+X-Received: by 2002:a05:622a:156:b0:4f1:b3cc:2cec with SMTP id
+ d75a77b69052e-4ffb499cc01mr73331881cf.52.1767862182928; Thu, 08 Jan 2026
+ 00:49:42 -0800 (PST)
 MIME-Version: 1.0
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
- <20251112-gpio-shared-v4-7-b51f97b1abd8@linaro.org> <66eaf003-c397-4920-b3b7-93ac8a5adfda@oss.qualcomm.com>
- <CAMRc=McXFTLjE=2-xsx4sodHgd83h822iEBHT7bxcNOQm6OJ3A@mail.gmail.com> <98d69fb9-d3bc-4439-88b4-60f3cdea3422@oss.qualcomm.com>
-In-Reply-To: <98d69fb9-d3bc-4439-88b4-60f3cdea3422@oss.qualcomm.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Thu, 8 Jan 2026 09:45:47 +0100
-X-Gmail-Original-Message-ID: <CAMRc=McmvaM9=K=0NLRcLLmo5ck=m8Fqekh7tBMz6quO9K4opQ@mail.gmail.com>
-X-Gm-Features: AQt7F2rVVRGjZ6d0_s5L8WPZ1MJdF76nkEPcTHk9mWt9XktJ2GZ81wKlRj-yauk
-Message-ID: <CAMRc=McmvaM9=K=0NLRcLLmo5ck=m8Fqekh7tBMz6quO9K4opQ@mail.gmail.com>
-Subject: Re: [PATCH v4 07/10] arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
-To: Pankaj Patil <pankaj.patil@oss.qualcomm.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Will Deacon <will@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, Mark Brown <broonie@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org
+References: <20260107070322.323-1-kernel@airkyi.com> <20260107070322.323-3-kernel@airkyi.com>
+ <b5a3470c-aa03-42d0-a575-b705f709f8e6@lunn.ch> <CABjd4YzsjZXe16XWgrHRG5shNA_DQJF45i1roahvfAfV4xdU0Q@mail.gmail.com>
+ <a545fec0-cb30-489a-b5e6-4ee87dcab41c@rock-chips.com> <5FFFBA7FAF5745A7+e0381969-800a-4bf6-9aac-81cffa3469a1@airkyi.com>
+ <CABjd4YxwD_q_FrEuPw_GY+vG6700Vd_weWqdcFn2C3V0fqpO-Q@mail.gmail.com> <6f55c325-6b2a-4fe9-a487-5f1ae7969d9d@rock-chips.com>
+In-Reply-To: <6f55c325-6b2a-4fe9-a487-5f1ae7969d9d@rock-chips.com>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Thu, 8 Jan 2026 12:49:34 +0400
+X-Gm-Features: AQt7F2r_KkIckRFZ0j1WkhT1Wr9YTLBcdSnJhRs0ku47wXCJ9eTlpAtdn-fs5LY
+Message-ID: <CABjd4YyMj=1pQBwqo9suu0W_HD=MG=zb5wo9dheguMBxi+oNqA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add rk3576 evb2 board
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Chaoyi Chen <kernel@airkyi.com>, Andrew Lunn <andrew@lunn.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Quentin Schulz <quentin.schulz@cherry.de>, 
+	Kever Yang <kever.yang@rock-chips.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	John Clark <inindev@gmail.com>, FUKAUMI Naoki <naoki@radxa.com>, Jimmy Hon <honyuenkwun@gmail.com>, 
+	Dragan Simic <dsimic@manjaro.org>, Michael Riesch <michael.riesch@collabora.com>, 
+	Peter Robinson <pbrobinson@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, Andy Yan <andy.yan@rock-chips.com>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_004602_307190_4553CB29 
-X-CRM114-Status: GOOD (  25.61  )
+X-CRM114-CacheID: sfid-20260108_004944_427141_3D01EE39 
+X-CRM114-Status: GOOD (  28.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,88 +107,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 8, 2026 at 7:49=E2=80=AFAM Pankaj Patil
-<pankaj.patil@oss.qualcomm.com> wrote:
+On Thu, Jan 8, 2026 at 12:38=E2=80=AFPM Chaoyi Chen <chaoyi.chen@rock-chips=
+.com> wrote:
 >
-> On 1/7/2026 6:08 PM, Bartosz Golaszewski wrote:
-> > On Wed, Jan 7, 2026 at 12:07=E2=80=AFPM Pankaj Patil
-> > <pankaj.patil@oss.qualcomm.com> wrote:
+> On 1/8/2026 4:11 PM, Alexey Charkov wrote:
+> > On Thu, Jan 8, 2026 at 12:02=E2=80=AFPM Chaoyi Chen <kernel@airkyi.com>=
+ wrote:
 > >>
-> >> On 11/12/2025 7:25 PM, Bartosz Golaszewski wrote:
-> >>> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> >> On 1/8/2026 3:42 PM, Chaoyi Chen wrote:
+> >>> Hello Alexey, Andrew,
 > >>>
-> >>> Some qualcomm platforms use shared GPIOs. Enable support for them by
-> >>> selecting the Kconfig switch provided by GPIOLIB.
+> >>> On 1/8/2026 2:53 PM, Alexey Charkov wrote:
+> >>>> On Wed, Jan 7, 2026 at 10:18=E2=80=AFPM Andrew Lunn <andrew@lunn.ch>=
+ wrote:
+> >>>>>
+> >>>>>> +&gmac0 {
+> >>>>>> +     clock_in_out =3D "output";
+> >>>>>> +     phy-mode =3D "rgmii-rxid";
+> >>>>>
+> >>>>> rgmii-rxid is odd. Does the PCB really have an extra long TX clock
+> >>>>> line, but a short RX clock line?
+> >>>>>
+> >>>>> Try changing this to rgmii-id, and drop the tx_delay property.
+> >>>>
+> >>>> Actually it would be great if Rockchip could clarify the delay
+> >>>> duration introduced by a single delay element in GMAC-IOMUX delay
+> >>>> lines, which are controlled in the GMAC driver by the {tx,rx}_delay
+> >>>> properties. Maybe we could then switch to using
+> >>>> {tx,rx}_internal_delay_ps for fine-tuning the delays on the GMAC sid=
+e
+> >>>> as envisaged in DT bindings [1], and use phy-mode =3D "rgmii-id"
+> >>>> throughout. Chaoyi, any chance you could ask around in your hardware
+> >>>> team?
+> >>>>
+> >>>> Currently though removing the delays at GMAC side altogether causes
+> >>>> unstable link operation - see [2] for example.
+> >>>>
+> >>>> [1] https://github.com/torvalds/linux/blob/master/Documentation/devi=
+cetree/bindings/net/ethernet-controller.yaml#L342-L347
+> >>>> [2] https://gitlab.collabora.com/hardware-enablement/rockchip-3588/l=
+inux/-/commit/372f3e9ae62cc62cdf2543391ea57be6bb548a0c
 > >>>
-> >>> Acked-by: Linus Walleij <linus.walleij@linaro.org>
-> >>> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> >>> ---
-> >>>  arch/arm64/Kconfig.platforms | 1 +
-> >>>  1 file changed, 1 insertion(+)
+> >>> Sorry, this problem has been discussed many times before. It's becaus=
+e
+> >>> the gmac on the Rockchip platform currently relies on setting the
+> >>> corresponding delay via phy-mode [3].
 > >>>
-> >>> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platfo=
-rms
-> >>> index 13173795c43d4f28e2d47acc700f80a165d44671..3dbff0261f0add0516d8c=
-b3fd0f29e277af94f20 100644
-> >>> --- a/arch/arm64/Kconfig.platforms
-> >>> +++ b/arch/arm64/Kconfig.platforms
-> >>> @@ -316,6 +316,7 @@ config ARCH_QCOM
-> >>>       select GPIOLIB
-> >>>       select PINCTRL
-> >>>       select HAVE_PWRCTRL if PCI
-> >>> +     select HAVE_SHARED_GPIOS
-> >>>       help
-> >>>         This enables support for the ARMv8 based Qualcomm chipsets.
+> >>> [3] https://lore.kernel.org/all/mqoyjn7mnq6tmt6n6oev4wa3herjaxlupml2f=
+mcampwiajvj4a@r5zs4d3jdm5p/
 > >>>
+> >>> The delay introduced by the delay line is not absolute. In reality,
+> >>> it depends on factors such as the chip's design and process technolog=
+y.
 > >>>
-> >> Enabling shared gpios is breaking hamoa and glymur boot on next-202601=
-06
-> >> For hamoa - reg_fixed_voltage_probe which calls gpio api is breaking
-> >> Please find the log here - https://lava-oss.qualcomm.com/scheduler/job=
-/24722#L3514
+> >>> And for RK3576, you can assume that:
+> >>>
+> >>>       time(ns) =3D 0.0579 * delay_line_count + 0.105
+> >>>
+> >>> For example, tx_delay =3D <0x20> means:
+> >>>
+> >>>       time =3D 0.0579 * 0x20 + 0.105 ns =3D 1.9578 ns
+> >>>
+> >>> And I believe {tx,rx}_internal_delay_ps is indeed a good idea.
+> >>> I'll try to add them in v3. Thanks.
+> >>>
 > >>
-> >> For Glymur - qcom_pcie_parse_perst calls the gpio api <4>[    2.910982=
-] WARNING: drivers/gpio/gpiolib-shared.c:493 at gpio_shared_add_proxy_looku=
-p+0x160/0x24c, CPU#1: kworker/u75:0/109 <4>[    2.911027] Call trace: <4>[ =
-   2.911028]  gpio_shared_add_proxy_lookup+0x160/0x24c (P) <4>[    2.911030=
-]  gpiod_find_and_request+0x1c0/0x504 <4>[    2.911032]  devm_fwnode_gpiod_=
-get_index+0x1c/0x6c <4>[    2.911034]  qcom_pcie_parse_perst+0x70/0x150 <4>=
-[    2.911037]  qcom_pcie_probe+0x414/0x804 <4>[    2.911039]  platform_pro=
-be+0x5c/0x98 <4>[    2.911042] qcom-eusb2-repeater c448000.spmi:pmic@9:phy@=
-fd00: supply vdd18 not found, using dummy regulator <4>[    2.911043]  real=
-ly_probe+0xbc/0x298 <4>[    2.911045]  __driver_probe_device+0x78/0x12c <4>=
-[    2.911047]  driver_probe_device+0x3c/0x15c <4>[    2.911049]  __device_=
-attach_driver+0xb8/0x134 <4>[    2.911050]  bus_for_each_drv+0x84/0xe0 <4>[=
-    2.911052]  __device_attach_async_helper+0xac/0xd0 <4>[    2.911053]  as=
-ync_run_entry_fn+0x34/0xe0
-> >> <4>[    2.911055]  process_one_work+0x14c/0x28c <4>[    2.911058]  wor=
-ker_thread+0x188/0x304 <4>[    2.911059]  kthread+0x11c/0x128 <4>[    2.911=
-060] qcom-eusb2-repeater c448000.spmi:pmic@9:phy@fd00: supply vdd3 not foun=
-d, using dummy regulator <4>[    2.911061]  ret_from_fork+0x10/0x20 <4>[   =
- 2.911063] ---[ end trace 0000000000000000 ]--- <3>[    2.911065] qcom-pcie=
- 1b40000.pci: error -ENOENT: Failed to parse Root Port: -2 <3>[    2.911069=
-] qcom-pcie 1b40000.pci: probe with driver qcom-pcie failed with error -2
-> >> Reverting this commit fixes the boot on both platforms
-> >>
+> >> I've also see some dt that use {tx,rx}_internal_delay_ps inside the PH=
+Y,
+> >> and compared to doing it in the MAC, which one is the better choice?
 > >
-> > Hi!
+> > Your PHY defaults to 1950ps in rgmii-id [1], so adding anything on top
+> > of that on GMAC side would land you with a longer total TX delay than
+> > you currently get according to the coefficients you've just posted
+> > (1784.1ps). I would say go for "tx-internal-delay-ps =3D <1800>" on the
+> > PHY side for the closest match.
 > >
-> > This is not really the offending commit, it's a recent one in the
-> > implementation. The issue should be fixed by the following series[1]
-> > that will be in the next next tag. Can you give it a try?
-> >
-> > Bart
-> >
-> > [1] https://lore.kernel.org/all/20260106-gpio-shared-fixes-v2-0-c7091d2=
-f7581@oss.qualcomm.com/
+> > [1] https://github.com/torvalds/linux/blob/master/Documentation/devicet=
+ree/bindings/net/motorcomm%2Cyt8xxx.yaml#L36
 >
-> With the linked patchset applied I still see the same issue
+> Ah, I thought it was something like this:
 >
-> Pankaj
->
+> &gmac0 {
+>         phy-mode =3D "rgmii";
 
-Is the gpio-shared-proxy module available? If not, can you change the
-config to make it built-in like CONFIG_GPIO_SHARED_PROXY=3Dy?
+phy-mode =3D "rgmii-id";
 
-Bartosz
+>         tx-internal-delay-ps =3D <1784>;
+
+Drop this, as recommended in the lengthy note at the bottom of the
+binding doc [1] (the GMAC shouldn't be adding a delay that is close to
+2ns).
+
+[1] https://github.com/torvalds/linux/blob/master/Documentation/devicetree/=
+bindings/net/ethernet-controller.yaml#L342-L354
+
+> };
+>
+> But what you actually said was this:
+>
+> &mdio1 {
+
+&mdio0 I guess (but same applies to gmac1+mdio1)
+
+>         rgmii_phy: ethernet-phy@1 {
+>                 compatible =3D "ethernet-phy-ieee802.3-c22";
+>                 reg =3D <0x1>;
+>                 tx-internal-delay-ps =3D <1784>;
+
+The PHY binding [2] says it can't accept arbitrary values here - only
+150ps increments. So you'll need either 1650 or 1800 to get close to
+your calculated value above.
+
+[2] https://github.com/torvalds/linux/blob/master/Documentation/devicetree/=
+bindings/net/motorcomm%2Cyt8xxx.yaml#L36
+
+>         };
+> };
+>
+> These two `tx-internal-delay-ps` things shouldn't be the same, right?
+
+They add up, which you don't need in this case AFAICT.
+
+Best regards,
+Alexey
 
