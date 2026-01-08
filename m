@@ -4,97 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04834D1D460
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 14:45:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F271AD1D465
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 14:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N4LHsOGc5pju7+ZZ7G/UCMXvDe5juRNxgmay6MHvgpc=; b=j/CwLy0ct3YHzQb6t4h05r1RCR
-	j0y6mA/C3HZzKSxyyt3575v8fnJ4yUvvseOvD+aM62+Jr3PNJdRt16mAXb3ieMwwu3xWBhb2HVl97
-	DX600VMQtWtO+XDus6RSWmRB/8+XCMBSiNeUNNcJYomiN2VQ6hgN1MI+Ql9Syj1492OBNDznr0Znp
-	qtmTD8qHZZD7cCjhwiZKUu/J9CG7vAKfUCofkhJrPiOgPx88/bmjzy4h5J3ngv0XBjukQrWFNU4KF
-	qYjTtyem266jdSJQ7h9lsnQxC3pK794VXUIEIDlDqZUYztFyv0zCpQyxhQlYkzM6epjoBBGDzZxuy
-	5Q2IRGtg==;
+	bh=98T3Tz2YokjXRlEpYaNT4TU3KwxLHeHEgt7OoAsL7Uc=; b=wBoDO0KNwhmzQONUp7o9DgMZLK
+	ExK8TStBoms3GCpiTESPrDmwASml4gbkINcG6VS1ZcVko+pLf4t3jbF+Krd46cfpqQP2Gzff+gMA+
+	lRU1XBClxgHR7lRX26c3k7W0Fsx85hCpbv7ldnTHZY4bBPaCD6NwKZd1gGElSwSklbVBzu9MgHp3I
+	WWyw4K/W/VqxL5kAPfMMwlKHvrFcLsn8b9sPBZS4GMeEa4Q7j6iiUDRMPSWzvdmLI7SeWT6gerOZA
+	KnN0wMOAy/lKfwgS6dSnGsXAxa1zTWsgEcFUJry4urxBhAHqNMySp4pzAtQo5PG/zHqnEh4aAYPAE
+	7Q+VsNeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdrGQ-0000000HOdt-0xSw;
-	Thu, 08 Jan 2026 14:45:27 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1vdrHm-0000000HOvr-25dJ;
+	Thu, 08 Jan 2026 14:46:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdrGN-0000000HOch-0zuR
+	id 1vdrHj-0000000HOv3-422o
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 14:45:24 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-4ee1879e6d9so35704201cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 06:45:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1767883522; x=1768488322; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=N4LHsOGc5pju7+ZZ7G/UCMXvDe5juRNxgmay6MHvgpc=;
-        b=Y5/J0hkvQBeYLzF3VNzO/jx+pZloNFXSIY8Vlcp/lFWbrsFYgYlH7C1lDCpztJuIJw
-         DidTlWu/gmfstntcmhCoHh/ROJCoaZH+ToiR6EFV7+5lll+doxImJmG+PvwoSn5pYOA+
-         KkDJgS8JxjmaxGdwEcpRb5xOJZhhqd/f+HdtRG9FsgNS29W7dOF61VY/BLqFIxBzU6BA
-         No6BbePQ2FRYNoI3JysOsaU6MOA5nnSrWz2JruCLQcSCMAD8g5tFBA/dYIJduGs18B1e
-         t6Xdi5cmBy5HEPx7nnE56Am5uh7/XALAHzCkbi2CQ964wmatDMvPHaT/oVoOj/KW3kO/
-         pVjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767883522; x=1768488322;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=N4LHsOGc5pju7+ZZ7G/UCMXvDe5juRNxgmay6MHvgpc=;
-        b=ks470diz/91qwgOj496ZRtSBTfK+bvazUWOtQHqFqxgQB0lz0R3DyVLDmWaBw7aayh
-         HoAKFVrp8UrhXXvaw/RBbVzW8bhj+jGB7q7U8IZucOCFcGF1KFJTxEwCotBUy+lQb6m6
-         Loeg+P2xdnx60foY5rnF0qQSbDU8kdc99BADMeIUffUk4et3CSw2TKVIH87cNWWa5KDR
-         ERMEAhhUvihlH1rMSOMwNlXDdU/C053q8C2dACqIAsSEPX6TZvHKVxp0lmVmDSMPdVCB
-         Q+LSsH1QFICkUR8nK7EH5DYeeoB46lcS77hAhv5WCQxdF/JyXyMyaWXL63u8IMTDQexl
-         rNPw==
-X-Forwarded-Encrypted: i=1; AJvYcCVDNteaKN8yHLFjBcV1dk1I9lIyATdyTCgttm90PbEgfb3oau+ReX6pRY8bquoG6X0DyDgAGUP9izuBnG+5i+4e@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz76bxtHr62EWN76jahB2cl8sFr13xtEkGl5UqqJ8NEWqupCkxp
-	fN5/iEIWs1sAOoZJX77A5cSM9Uk2VcYXmMl/vXDxqTuYzopUsWHN6ip6uPy6yVu0a10=
-X-Gm-Gg: AY/fxX6c4JU2ucHausgPDNusNWvGfHMNWJ2LMj4Pt3yAuVMgjamD/dl9VfvyCpU/1Ry
-	45Y9PFRFGREFd5vU/LEw0CVZg8savFFe311GS14xos1lRdF6SOqnIioUW2UWzoFEqTMa5rrkQpf
-	75iyhmF/9z3lelurg19NcT2O/t85+YhUfMRisqpw1uig46djUzXle5DNRHclEIv5sV0zABmLCuu
-	fx4aVihLtcRTizMbMP/2dkFBFTRPUnHDemGdRfFDyeqn6uMT+k883PoF/PPphn69ZlibmzCW+aq
-	dO1dLKAjxfiyus1Mdq9c2g/kYmulFYXy0dir0oSqiHnPZLAVYZI4PZNd7eqTOjxGdTy6UCaG3dl
-	odR/LEWXM8icLUHoXZx3ffGS0lG+MGlTmi1bugXsmnuhiLkWj1Xxpk96tnrYZDi7uj0nzGOQ5sT
-	52zPsN/vDeaKg/VmZrVesYZSUcMfeYkMEjXZ5ShbPeoVR3gsXdRoMYO+8fDqM01nyfi6R73q7UZ
-	CtLyg==
-X-Google-Smtp-Source: AGHT+IES3ov00CDdYvOziEIM2g2UrgYu5X+EmgztTduCXnjzLnO2ob95S0v4/KfSRH05axzpnJtLpA==
-X-Received: by 2002:a05:622a:2297:b0:4ed:b8d6:e0e8 with SMTP id d75a77b69052e-4ffb48a86e1mr83270651cf.22.1767883521678;
-        Thu, 08 Jan 2026 06:45:21 -0800 (PST)
-Received: from ziepe.ca (hlfxns017vw-142-162-112-119.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.162.112.119])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4ffa8d64563sm48461021cf.13.2026.01.08.06.45.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Jan 2026 06:45:21 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1vdrGK-00000002MBP-1mPB;
-	Thu, 08 Jan 2026 10:45:20 -0400
-Date: Thu, 8 Jan 2026 10:45:20 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, robin.murphy@arm.com, will@kernel.org,
-	joro@8bytes.org
-Subject: Re: [PATCH] iommu/io-pgtable-arm: Drop DMA API usage for CMOs
-Message-ID: <20260108144520.GE545276@ziepe.ca>
-References: <20260108113846.56179-1-smostafa@google.com>
- <20260108125934.GB545276@ziepe.ca>
- <CAFgf54ocNybHR_Mp1+i7cff-jkeMUV1QxBCt04jnKxwfwnyUfQ@mail.gmail.com>
- <CAFgf54o+YZUyZTszFt-uBW4ZhjrAMsfPFUb9kKTK1uHWdS+++w@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAFgf54o+YZUyZTszFt-uBW4ZhjrAMsfPFUb9kKTK1uHWdS+++w@mail.gmail.com>
+	Thu, 08 Jan 2026 14:46:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D1D85432CA;
+	Thu,  8 Jan 2026 14:46:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FA07C116C6;
+	Thu,  8 Jan 2026 14:46:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767883606;
+	bh=2ei8nRnBAMWW9W6WszkkXLKWBiHlzTnUwXvTR2tRXME=;
+	h=Date:Subject:Cc:From:To:References:In-Reply-To:From;
+	b=UOKtgMLOfyWCtqWtHypoDAaD5/hZoh/E4MzZsFgxwG0tK+Azgci2tjpkcWrwpm80f
+	 eZeK4Ssue8j6PZAsgHMEg9kIo3y6GeN9P/sp5IxVYIUbARxVOV/8D4kwbhmj5C3FbB
+	 TnQ+FnUlNMt8K+YyhcBAXaAi4RuCRJgQdQGTZRz56PrjcVXREWl6TTuFo8GHzgwWim
+	 CKbDvguGhsu13yTxzZVqUq0+NGrpByBbD9lJYi736zGK+Eip6vVlKFpxZ/rvJOKnFM
+	 1mQNaSTjXFqcQoFj3TsSSmhdQoE/79Ydh6M7MJVmuV+CI3728uh75GKeb+atncU7SS
+	 nTp0gpiiFXw9g==
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=5411f11ff9f9c069b7f705877418128e825c926029051e168dc800dc1521;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Thu, 08 Jan 2026 15:46:36 +0100
+Message-Id: <DFJAFK3DTBOZ.3G2P3A5IH34GF@kernel.org>
+Subject: Re: [PATCH v4 00/10] gpio: improve support for shared GPIOs
+Cc: <linux-hardening@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-gpio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-sound@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>, "Bartosz
+ Golaszewski" <bartosz.golaszewski@linaro.org>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Bartosz Golaszewski" <brgl@bgdev.pl>, "Kees Cook" <kees@kernel.org>,
+ "Mika Westerberg" <westeri@kernel.org>, "Dmitry Torokhov"
+ <dmitry.torokhov@gmail.com>, "Andrew Morton" <akpm@linux-foundation.org>,
+ "Linus Walleij" <linus.walleij@linaro.org>, "Manivannan Sadhasivam"
+ <mani@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Saravana
+ Kannan" <saravanak@google.com>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Andy Shevchenko" <andy@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Srinivas Kandagatla" <srini@kernel.org>, "Liam Girdwood"
+ <lgirdwood@gmail.com>, "Mark Brown" <broonie@kernel.org>, "Jaroslav Kysela"
+ <perex@perex.cz>, "Takashi Iwai" <tiwai@suse.com>, "Alexey Klimov"
+ <alexey.klimov@linaro.org>, "Bjorn Andersson" <andersson@kernel.org>,
+ "Konrad Dybcio" <konradybcio@kernel.org>
+X-Mailer: aerc 0.20.0
+References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
+In-Reply-To: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_064523_284126_C2574FE7 
-X-CRM114-Status: GOOD (  25.71  )
+X-CRM114-CacheID: sfid-20260108_064648_044926_51EA30D7 
+X-CRM114-Status: GOOD (  32.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,50 +88,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 08, 2026 at 01:44:51PM +0000, Mostafa Saleh wrote:
-> On Thu, Jan 8, 2026 at 1:27 PM Mostafa Saleh <smostafa@google.com> wrote:
-> >
-> > On Thu, Jan 8, 2026 at 12:59 PM Jason Gunthorpe <jgg@ziepe.ca> wrote:
-> > >
-> > > On Thu, Jan 08, 2026 at 11:38:46AM +0000, Mostafa Saleh wrote:
-> > > > Jason pointed out that the DMA-API calls are not really needed [2].
-> > > >
-> > > > Looking more into this. Initially, the io-pgtable API let drivers
-> > > > do the CMOs using tlb::flush_pgtable() where drivers were using the
-> > > > DMA API (map/unmap_single) only to do CMOs as the low-level cache
-> > > > functions won’t be available for modules.
-> > >
-> > > This isn't what I ment at all, the iommu-pages.h could do the flush
-> > > inside itself using the already existing
-> > > iommu_pages_flush_incoherent() instead of open coding the dma api
-> > > calls everwhere, and maybe that could directly call the arch function
-> > > on arm (as x86 does) which would be easier to implement in pkvm's
-> > > hypervisor.
-> > >
-> >
-> > I see, so basically, we add the check for IOMMU_PAGES_USE_DMA_API in
-> > iommu_pages_flush_incoherent() with the DMA-API stuff and call it from
-> > the io-pgtable-arm instead.
-> >
-> 
-> iommu_pages_flush_incoherent() is also used to flush non-cacheable
-> pages in generic_pt from flush_writes_*(), so it might not be that
-> simple; We might need to add a new variant.
+--5411f11ff9f9c069b7f705877418128e825c926029051e168dc800dc1521
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-There are no non-cachable pages in the iommu-pages system???
+Hi Bartosz,
 
-All memory comes from folios and is mapped to the CPU cachable.
+On Wed Nov 12, 2025 at 2:55 PM CET, Bartosz Golaszewski wrote:
+> Bjorn, Konrad: I should have Cc'ed you on v1 but I just went with what
+> came out of b4 --auto-to-cc. It only gave me arm-msm. :( Patch 7 from
+> this series however impacts Qualcomm platforms. It's a runtime dependency
+> of patches 8 and 9. Would you mind Acking it so that I can take it into
+> an immutable branch that I'll make available to Mark Brown for him to
+> take patches 8-10 through the ASoC and regulator trees for v6.19?
+>
+> Problem statement: GPIOs are implemented as a strictly exclusive
+> resource in the kernel but there are lots of platforms on which single
+> pin is shared by multiple devices which don't communicate so need some
+> way of properly sharing access to a GPIO. What we have now is the
+> GPIOD_FLAGS_BIT_NONEXCLUSIVE flag which was introduced as a hack and
+> doesn't do any locking or arbitration of access - it literally just hand
+> the same GPIO descriptor to all interested users.
+>
+> The proposed solution is composed of three major parts: the high-level,
+> shared GPIO proxy driver that arbitrates access to the shared pin and
+> exposes a regular GPIO chip interface to consumers, a low-level shared
+> GPIOLIB module that scans firmware nodes and creates auxiliary devices
+> that attach to the proxy driver and finally a set of core GPIOLIB
+> changes that plug the former into the GPIO lookup path.
+>
+> The changes are implemented in a way that allows to seamlessly compile
+> out any code related to sharing GPIOs for systems that don't need it.
 
-The general API requires the user of iommu-pages to know if the
-underlying HW is going to do non-coherent DMA, in this case it must
-call iommu_pages_flush_incoherent() before the HW does DMA.
+The problem here is that the aarch64 defconfig has ARCH_QCOM enabled
+and thus it will get enabled for any platforms, right?
 
-Effectively what I'm saying here is to convert the arm page table to
-use iommu-pages and then put your pkvm abstraction at the iommu-pages
-level instead of trying to hack up all these users.
+I haven't grokked everything, but does GPIO_SHARED=3Dy makes any sense
+without GPIO_SHARED_PROXY? It seems to me that the probing of shared
+pins will be deferred indefinitely.
 
-You can also do the same conversion to the smmu driver to use
-iommu-pages instead of DMA API, AMD and Intel are doing this already.
+> The practical use-case for this are the powerdown GPIOs shared by
+> speakers on Qualcomm db845c platform, however I have also extensively
+> tested it using gpio-virtuser on arm64 qemu with various DT
+> configurations.
+>
+> I'm Cc'ing some people that may help with reviewing/be interested in
+> this: OF maintainers (because the main target are OF systems initially),
+> Mark Brown because most users of GPIOD_FLAGS_BIT_NONEXCLUSIVE live
+> in audio or regulator drivers and one of the goals of this series is
+> dropping the hand-crafted GPIO enable counting via struct
+> regulator_enable_gpio in regulator core), Andy and Mika because I'd like
+> to also cover ACPI (even though I don't know about any ACPI platform that
+> would need this at the moment, I think it makes sense to make the
+> solution complete), Dmitry (same thing but for software nodes), Mani
+> (because you have a somewhat related use-case for the PERST# signal and
+> I'd like to hear your input on whether this is something you can use or
+> maybe it needs a separate, implicit gpio-perst driver similar to what
+> Krzysztof did for reset-gpios) and Greg (because I mentioned this to you
+> last week in person and I also use the auxiliary bus for the proxy
+> devices).
 
-Jason
+This broke my board (using the arm64 defconfig, works without
+GPIO_SHARED of course). I'm seeing two issues here with my board
+(arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67*):
+
+ (1) It's GPIO controller (gpio-davinci) doesn't support
+     .get_direction so I'm getting ENOTSUPP during probing of the
+     (some?) shared GPIOs.=20
+    =20
+ (2) GPIO_SHARED_PROXY is default m in the defconfig, but I need the
+     pins for the root filesystem medium, i.e. the SD card regulators.
+
+-michael
+
+--5411f11ff9f9c069b7f705877418128e825c926029051e168dc800dc1521
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCaV/DTRIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/jkBQF+MtwNQeOvtcMN0ofh9FJstZG1LqdasjYc
+4/kT44u4mQt8stCwJA4J/rprAq7X8ayrAYD1LmLKHnkWQUO3PxpeH0TQvkMeEsd+
+4ITEdyzXpVm0JxSd8OaCMSAhsekBmk6e5M4=
+=cIVp
+-----END PGP SIGNATURE-----
+
+--5411f11ff9f9c069b7f705877418128e825c926029051e168dc800dc1521--
 
