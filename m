@@ -4,136 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2914ED0D17B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 08:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25699D0D17E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 08:26:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yZSzeuhOh967YV3ctaRpt/EyImqRXsVD9tcSM+qmsec=; b=IPk+txV5g74EztT+641yahxSYj
-	dvchMoqyuIl3PfUo1rLwfPOX2QGc/iyWqHyTu3FqEbMng0m7JBCvfU1kBGt+UurmOXY74YwsFyFAX
-	M2+xSDhmOMcguL54IxOFLL1QimJpCSAyjFjacMaZLoH44WG+whyD+QShEI9hotCW8WJA3li5f4q8K
-	kkiffsbsk+sGlIxy5TANVVivOaj8bNKYANLmOD4uw40uj7LlJdhpR8E+YBBiMUaKk9vyx0TN5u3/p
-	RyrNiR/Knr0DaLWyRnLYua3BmgFtHEcWtzYLXksRjBFTbCDGmRdvvSVX5tl4IDTwDHYoXcklPryqb
-	QqOM/1jA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x02QmmluLwaYxpwif8KHn2saZULCuqdUAmrDSVk5sSw=; b=vHanSTIo2wqYFVUstR69LYnT+h
+	OrmIqUHwoCSR2cc2lnll+fFwyDELIsecljre2xWsotQWMuk/5yIFE9KiLskWBp0DJUMJUmskYxZrz
+	uuRrX/em5s0y6BiP6qsCDhMLywT23ji8AZAyNTHGhffie9bHGX2ySJO92gNdWjglLXLKiQxo/nEWs
+	uwEIzbCe4pmIflahO8Xcp2EP1qv+UiNqS8VWnKzCfnYLwPM8rCGYUCXVHnp/yFPQjgxJqMayRs6dd
+	z6iX6Vz1S9G7GzEDzUnd9PZr8XMyRPNuqB0gAzVA3315we1qmSRsL079i7quwA4ndYydtxUV59hPr
+	q5lJx1vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdlJv-0000000GHFT-3KR3;
-	Thu, 08 Jan 2026 08:24:39 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1vdlLY-0000000GHYb-1FFO;
+	Thu, 08 Jan 2026 08:26:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdlJs-0000000GHEk-2i1v
+	id 1vdlLW-0000000GHY9-1L4C
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 08:24:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LA5Tjj7/GRuqiOUpR6ICK6Q7rJEiYgDuSTVHvrtOkNGVpBlzGwioekCoitDMXzEWnyuCH72OPR5LBrOK0YuhhYBzEIoZtb99VrWS5Dr1BnBNvK8cLaAfJhicNXekhI/dm2qHmnUmxsTas05b14Y3gE1oPgMWRCN/qMJy73BIjq52Vcq6DlgxOrVu8n9+YqgAVkI0MGZfUdid3gpKYUCWpdSE/Fe9xQ/GA+4G5OcOr9umwM3VemSYZIzi5/zoU+Yqw2r46/qKtk1fLLdoCLKqMxnLjLSWJL0pIfjhyQVsGlHc2WAkJEZU7Du7jBUKUCneu5Rb2kJwv+j5y55mPEajfA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yZSzeuhOh967YV3ctaRpt/EyImqRXsVD9tcSM+qmsec=;
- b=KLqjNmH0RamW5UaS2XeNOEEXM+I0Lj6+5m+P2ewegaTaPJHjlV5OwF2suwSlGb+JUxmNIoJaJdvOxEPPgogFIYjMp4N8T7To24Vy7KSVOPi5r2ks5QeEQOVemdSvGbWWOcZsIzN4wZTK2t0Vv+HQtN0dlbNHfTc3UTo4emVahu1BlI8jbFLYPadGufUyrBqeyEgMmlRpUvw3URFQgi1vNSkmnH7gwu9ThI1JI4Bc5di1aycoEYhH607nAck/NtMQ5rXGiOmEaP6qjkDyU708g9igtJXMJf8aRwO0sVHLO5uNOTLKyjpYbqq1aCYBskYHCGBtiu1GSiwlew4mk54VEA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yZSzeuhOh967YV3ctaRpt/EyImqRXsVD9tcSM+qmsec=;
- b=w7DEVvjSaBmVLrtrD5V0scAZ+UGQFSVjVHh03fMXmKovV24X8unvxoivdr/ZQCfU65Uw2lJaBe9rYLknqyQjF5/nbpdNLtZgReW1v43I7IzV6pe1lapAVQd59Eg2VjrYFRJoqMsgvve+Lk3vbmQTRTrnabIXnjO+jOTBFNzSjAw=
-Received: from DS7PR03CA0034.namprd03.prod.outlook.com (2603:10b6:5:3b5::9) by
- IA0PPFA8EB66EE9.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bde) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Thu, 8 Jan
- 2026 08:24:30 +0000
-Received: from DS1PEPF0001709B.namprd05.prod.outlook.com
- (2603:10b6:5:3b5:cafe::c0) by DS7PR03CA0034.outlook.office365.com
- (2603:10b6:5:3b5::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.3 via Frontend Transport; Thu, 8
- Jan 2026 08:24:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- DS1PEPF0001709B.mail.protection.outlook.com (10.167.18.105) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.1 via Frontend Transport; Thu, 8 Jan 2026 08:24:30 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 8 Jan
- 2026 02:24:29 -0600
-Received: from localhost (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17 via Frontend
- Transport; Thu, 8 Jan 2026 00:24:28 -0800
-From: Michal Simek <michal.simek@amd.com>
-To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
-	<michal.simek@amd.com>, <git@amd.com>
-CC: Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, "open list:OPEN FIRMWARE
- AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, "moderated
- list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH] arm64: zynqmp: Fix DTOVL warning about graphs in kv/kr260
-Date: Thu, 8 Jan 2026 09:24:20 +0100
-Message-ID: <b484e81c1723fb21530c4f95deb70f3b0b61ada9.1767860657.git.michal.simek@amd.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4151; i=michal.simek@amd.com; h=from:subject:message-id; bh=gfmbrYb/2PDoxLgCVenHb1wNFLtDoWe/Uusfv4UDssA=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWTGZ27jLo87nnVV9lnqrZKdFjrWm6ZseSbdyrJosnvL3 s45G15LdJSyMIhxMMiKKbJMZ9JxWPPt2lKx5ZH5MHNYmUCGMHBxCsBEpncxMnw63ef+sXhGyDUm Z64tcoqveWNbiqw03jdyFWbyqz6v72X4Z6B4wCwqWoA3YZnga+9qsUS2rUwmRqwRixbFBvYnBkf wAwA=
-X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF0001709B:EE_|IA0PPFA8EB66EE9:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6b1d362b-0376-4c27-51bc-08de4e8f5874
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?eay+KjExulEVYm0kjc3u61VTp2SPfqnx7YPIWWFlNjFbUj1cOYC/a+WgzTwj?=
- =?us-ascii?Q?B0psiCoc5pOVSLRFPZa8YFHLWAW2XrOWZFZvFvQe72WvQ3U1dFneKbzrYiEw?=
- =?us-ascii?Q?rnNRiOXB0spIARhSuN5Wo306ywKJCLstI/HP3MVbf8VG3ZDSoaTDLqVHGxSs?=
- =?us-ascii?Q?ZjEupGG1W/dvT5KiRodxW7PmhBnErSZBgW034VUsJamppaiY8w+GqtfIKs70?=
- =?us-ascii?Q?lM/7dalkX16+zsv6hFvtI+QHlKVhiFsIaaoFyGuNVvUpTooPK+cd1Zs0+U9I?=
- =?us-ascii?Q?gZJWhXzqdr8mOFKyrXtPxAnHD6L2qzeVrqmsgUQr3NpekPys9X/7vccdGd7r?=
- =?us-ascii?Q?QSjIbH15yl95YymmIRDMUJJd4v7eOQc1COdLceVXC28QhfsJYDtLNOFWN8+L?=
- =?us-ascii?Q?WEqal9WfdoR/DqePEsQz7D2sGltnGBr4RorVRaXPxiV+qE5KNyguxrF0PAN1?=
- =?us-ascii?Q?AZ8MV2U7J7tMvgZWfPjik+sXklTd8+TBmaixnSJKKqXPIckFRE1OwBgOXpTk?=
- =?us-ascii?Q?/iRqDP1+cx4vN2eSlKFScc7q9C2ZxzdeU3DKmSLvaRBkzrSK09pzy09SnMEj?=
- =?us-ascii?Q?gvEuODbGB8pBv79N2GMc9kHtqrPlQ0AC7/7NNLEuoHQlD8lt0hqtIJoyTqnx?=
- =?us-ascii?Q?XiBD9hD2d8YWEV8sVEi5U8/qUzOQL9jLYVu2EbCfLWLrhUo3fiFUwUGAMh6F?=
- =?us-ascii?Q?UEwyDpwAG3wsROsXiVorZnJn0B22mdAhbAIujeeaMjHpGdcnK0i+hter/jv1?=
- =?us-ascii?Q?xHmIXMWuHs4tknZ+VzudQwUB1JiiAMRahKQpElIhDXqUzXbVHlmAQnUqoE5L?=
- =?us-ascii?Q?jfiKQNaZGHH1d04cEjtAMXeiVH/mhZFwPNzbGqzUWjWzTe2WPh3mE1wBSaP4?=
- =?us-ascii?Q?1hCR8SbhZqVLNLZKB15xRG4m4546oCnnltgLubJzjAdNX0Hh8aWBA3KCUAgv?=
- =?us-ascii?Q?JfbLSnQsdHzQk9ccrURJjexdD8hwIUOwJ3hJieVDEQU8xGoEEHxwhDYFwsIh?=
- =?us-ascii?Q?i/0k4QBCNGo8movtIQmDulLQx4SNwWDIKz9z49DUiDoqTO+DfCvgRnlk1j8j?=
- =?us-ascii?Q?ISwHwIO4bALngOylqM5a9xjURObpQDiFDCodgqGE5OIKN6eH4g2QTjW0TIVN?=
- =?us-ascii?Q?5tEDFmvVqDLLJzv1ZY9NLrBOWPit43P8Q2oI3OE3MwxBiE55Whz2gyUXRZdh?=
- =?us-ascii?Q?E0wStMAzqYKYnLnzz0UcbKa8atyYcWHmRQigfT1yM00G58wlWJrX52CzZQDh?=
- =?us-ascii?Q?8v1aOUE+HAqkBm/L3Fepi8DElI4rt1jfTMAGH8zBPX8xy5z4OGsuXAHTG65b?=
- =?us-ascii?Q?rlxM5JuTzM3HDBygpqXNEnuzhpRZPAD/hO03+p6MO4nqtDNgM1eN0NxPXh1M?=
- =?us-ascii?Q?OnWa4CvqMcrwpAtzDcu//ZdZxsoOfCqPL85ZD4+7p/kaRm6fFAfi0WseCZJh?=
- =?us-ascii?Q?acuQncrBk32wRgV7Ue+bsBz5JEx3lNXLC9CJM+0qKE9mn3kMDADKF5cWGlkk?=
- =?us-ascii?Q?QLCoRbHK99S6e9yRU1sA8LCTADOcMxOmN6qg4A8Te/3K4S/JM6cU7G3GWLa7?=
- =?us-ascii?Q?zxfBAjF5hkywh9Wqv4E=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2026 08:24:30.4021
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6b1d362b-0376-4c27-51bc-08de4e8f5874
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF0001709B.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPFA8EB66EE9
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_002436_687394_0EB34AAA 
-X-CRM114-Status: GOOD (  11.95  )
+	Thu, 08 Jan 2026 08:26:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 61A9060007;
+	Thu,  8 Jan 2026 08:26:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0931BC116C6;
+	Thu,  8 Jan 2026 08:26:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767860777;
+	bh=IiIY2CdkSYWlB6GwGKjGlhZ6z8O6XDQYU49akh0KXkM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=TOkqm+SrXu3kx/Bn4tPdK92T7s6eXcuMqNAehNZTlpBCLyXWDcMJh8WYm/F6LMab/
+	 v5/BAUAIZEwVOInvi3d130tOCu+eslnDjk8DL97syGst92MaBZ73bJj6VT5oJ5COYi
+	 by6WW/axJNZBf1MuO+bJ+t2Jkd2voS1PHvC8anWODIibp/ClUvSG6c8DqGOhefTljI
+	 mY6TIJMiDM3qa/Od2vmm+CRY02wb8vRf+XeBgfYqazNi/0559mDGhEQ/TeGVbx9QMS
+	 qSctvFarqKZjC/mHrMoZMa4H0P21k1fuQpZCqtV4R03G2pITUl07QDEJjtfy06fDMh
+	 N4pv1qE8yFGvA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vdlLS-00000000KPo-1t9i;
+	Thu, 08 Jan 2026 08:26:14 +0000
+Date: Thu, 08 Jan 2026 08:26:13 +0000
+Message-ID: <864iowmrx6.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Waiman Long <longman@redhat.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH] irqchip/gic-v3-its: Don't acquire rt_spin_lock in allocate_vpe_l1_table()
+In-Reply-To: <20260107215353.75612-1-longman@redhat.com>
+References: <20260107215353.75612-1-longman@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: longman@redhat.com, tglx@linutronix.de, bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,133 +85,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DTC is generating warnings about missing port like:
-DTOVL   arch/arm/dts/zynqmp-smk-k24-revA-sck-kv-g-revB.dtb
- arch/arm/dts/zynqmp-sck-kv-g-revA.dtbo: Warning (graph_port):
- /fragment@5/__overlay__: graph port node name should be 'port'
-...
+On Wed, 07 Jan 2026 21:53:53 +0000,
+Waiman Long <longman@redhat.com> wrote:
+> 
+> When running a PREEMPT_RT debug kernel on a 2-socket Grace arm64 system,
+> the following bug report was produced at bootup time.
+> 
+>   BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
+>   in_atomic(): 1, irqs_disabled(): 1, non_block: 0, pid: 0, name: swapper/72
+>   preempt_count: 1, expected: 0
+>   RCU nest depth: 1, expected: 1
+>    :
+>   CPU: 72 UID: 0 PID: 0 Comm: swapper/72 Tainted: G        W           6.19.0-rc4-test+ #4 PREEMPT_{RT,(full)}
+>   Tainted: [W]=WARN
+>   Call trace:
+>     :
+>    rt_spin_lock+0xe4/0x408
+>    rmqueue_bulk+0x48/0x1de8
+>    __rmqueue_pcplist+0x410/0x650
+>    rmqueue.constprop.0+0x6a8/0x2b50
+>    get_page_from_freelist+0x3c0/0xe68
+>    __alloc_frozen_pages_noprof+0x1dc/0x348
+>    alloc_pages_mpol+0xe4/0x2f8
+>    alloc_frozen_pages_noprof+0x124/0x190
+>    allocate_slab+0x2f0/0x438
+>    new_slab+0x4c/0x80
+>    ___slab_alloc+0x410/0x798
+>    __slab_alloc.constprop.0+0x88/0x1e0
+>    __kmalloc_cache_noprof+0x2dc/0x4b0
+>    allocate_vpe_l1_table+0x114/0x788
+>    its_cpu_init_lpis+0x344/0x790
+>    its_cpu_init+0x60/0x220
+>    gic_starting_cpu+0x64/0xe8
+>    cpuhp_invoke_callback+0x438/0x6d8
+>    __cpuhp_invoke_callback_range+0xd8/0x1f8
+>    notify_cpu_starting+0x11c/0x178
+>    secondary_start_kernel+0xc8/0x188
+>    __secondary_switched+0xc0/0xc8
+> 
+> This is due to the fact that allocate_vpe_l1_table() will call
+> kzalloc() to allocate a cpumask_t when the first CPU of the
+> second node of the 72-cpu Grace system is being called from the
+> CPUHP_AP_MIPS_GIC_TIMER_STARTING state inside the starting section of
 
-That's why change description and add it directly to dpsub mode to contain
-full description with also port.
+Surely *not* that particular state.
 
-Signed-off-by: Michal Simek <michal.simek@amd.com>
----
+> the CPU hotplug bringup pipeline where interrupt is disabled. This is an
+> atomic context where sleeping is not allowed and acquiring a sleeping
+> rt_spin_lock within kzalloc() may lead to system hang in case there is
+> a lock contention.
+> 
+> To work around this issue, a static buffer is used for cpumask
+> allocation when running a PREEMPT_RT kernel via the newly introduced
+> vpe_alloc_cpumask() helper. The static buffer is currently set to be
+> 4 kbytes in size. As only one cpumask is needed per node, the current
+> size should be big enough as long as (cpumask_size() * nr_node_ids)
+> is not bigger than 4k.
 
- arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso | 10 ++++++----
- arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso | 10 ++++++----
- arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revA.dtso | 12 +++++++-----
- arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revB.dtso | 12 +++++++-----
- 4 files changed, 26 insertions(+), 18 deletions(-)
+What role does the node play here? The GIC topology has nothing to do
+with NUMA. It may be true on your particular toy, but that's
+definitely not true architecturally. You could, at worse, end-up with
+one such cpumask per *CPU*. That'd be a braindead system, but this
+code is written to support the architecture, not any particular
+implementation.
 
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso
-index b82a056be2f9..507be24e71c0 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso
-@@ -147,11 +147,13 @@ &zynqmp_dpsub {
- 	phy-names = "dp-phy0";
- 	phys = <&psgtr 1 PHY_TYPE_DP 0 1>;
- 	assigned-clock-rates = <27000000>, <25000000>, <300000000>;
--};
- 
--&out_dp {
--	dpsub_dp_out: endpoint {
--		remote-endpoint = <&dpcon_in>;
-+	ports {
-+		out_dp: port@5 {
-+			dpsub_dp_out: endpoint {
-+				remote-endpoint = <&dpcon_in>;
-+			};
-+		};
- 	};
- };
- 
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso
-index 4dcf92a2158f..68394f02e8fb 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso
-@@ -148,11 +148,13 @@ &zynqmp_dpsub {
- 	phy-names = "dp-phy0";
- 	phys = <&psgtr 1 PHY_TYPE_DP 0 1>;
- 	assigned-clock-rates = <27000000>, <25000000>, <300000000>;
--};
- 
--&out_dp {
--	dpsub_dp_out: endpoint {
--		remote-endpoint = <&dpcon_in>;
-+	ports {
-+		out_dp: port@5 {
-+			dpsub_dp_out: endpoint {
-+				remote-endpoint = <&dpcon_in>;
-+			};
-+		};
- 	};
- };
- 
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revA.dtso b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revA.dtso
-index 923a70d750bf..e7417af8ae01 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revA.dtso
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revA.dtso
-@@ -3,7 +3,7 @@
-  * dts file for KV260 revA Carrier Card
-  *
-  * (C) Copyright 2020 - 2022, Xilinx, Inc.
-- * (C) Copyright 2022 - 2023, Advanced Micro Devices, Inc.
-+ * (C) Copyright 2022 - 2025, Advanced Micro Devices, Inc.
-  *
-  * SD level shifter:
-  * "A" - A01 board un-modified (NXP)
-@@ -125,11 +125,13 @@ &zynqmp_dpsub {
- 	phy-names = "dp-phy0", "dp-phy1";
- 	phys = <&psgtr 1 PHY_TYPE_DP 0 0>, <&psgtr 0 PHY_TYPE_DP 1 0>;
- 	assigned-clock-rates = <27000000>, <25000000>, <300000000>;
--};
- 
--&out_dp {
--	dpsub_dp_out: endpoint {
--		remote-endpoint = <&dpcon_in>;
-+	ports {
-+		out_dp: port@5 {
-+			dpsub_dp_out: endpoint {
-+				remote-endpoint = <&dpcon_in>;
-+			};
-+		};
- 	};
- };
- 
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revB.dtso b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revB.dtso
-index 563e750b0e08..7a05180e58b4 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revB.dtso
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revB.dtso
-@@ -3,7 +3,7 @@
-  * dts file for KV260 revA Carrier Card
-  *
-  * (C) Copyright 2020 - 2022, Xilinx, Inc.
-- * (C) Copyright 2022 - 2023, Advanced Micro Devices, Inc.
-+ * (C) Copyright 2022 - 2025, Advanced Micro Devices, Inc.
-  *
-  * Michal Simek <michal.simek@amd.com>
-  */
-@@ -110,11 +110,13 @@ &zynqmp_dpsub {
- 	phy-names = "dp-phy0", "dp-phy1";
- 	phys = <&psgtr 1 PHY_TYPE_DP 0 0>, <&psgtr 0 PHY_TYPE_DP 1 0>;
- 	assigned-clock-rates = <27000000>, <25000000>, <300000000>;
--};
- 
--&out_dp {
--	dpsub_dp_out: endpoint {
--		remote-endpoint = <&dpcon_in>;
-+	ports {
-+		out_dp: port@5 {
-+			dpsub_dp_out: endpoint {
-+				remote-endpoint = <&dpcon_in>;
-+			};
-+		};
- 	};
- };
- 
+> 
+> Signed-off-by: Waiman Long <longman@redhat.com>
+> ---
+>  drivers/irqchip/irq-gic-v3-its.c | 26 +++++++++++++++++++++++++-
+>  1 file changed, 25 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> index ada585bfa451..9185785524dc 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -2896,6 +2896,30 @@ static bool allocate_vpe_l2_table(int cpu, u32 id)
+>  	return true;
+>  }
+>  
+> +static void *vpe_alloc_cpumask(void)
+> +{
+> +	/*
+> +	 * With PREEMPT_RT kernel, we can't call any k*alloc() APIs as they
+> +	 * may acquire a sleeping rt_spin_lock in an atomic context. So use
+> +	 * a pre-allocated buffer instead.
+> +	 */
+> +	if (IS_ENABLED(CONFIG_PREEMPT_RT)) {
+> +		static unsigned long mask_buf[512];
+> +		static atomic_t	alloc_idx;
+> +		int idx, mask_size = cpumask_size();
+> +		int nr_cpumasks = sizeof(mask_buf)/mask_size;
+> +
+> +		/*
+> +		 * Fetch an allocation index and if it points to a buffer within
+> +		 * mask_buf[], return that. Fall back to kzalloc() otherwise.
+> +		 */
+> +		idx = atomic_fetch_inc(&alloc_idx);
+> +		if (idx < nr_cpumasks)
+> +			return &mask_buf[idx * mask_size/sizeof(long)];
+> +	}
+
+Err, no. That's horrible. I can see three ways to address this in a
+more appealing way:
+
+- you give RT a generic allocator that works for (small) atomic
+  allocations. I appreciate that's not easy, and even probably
+  contrary to the RT goals. But I'm also pretty sure that the GIC code
+  is not the only pile of crap being caught doing that.
+
+- you pre-compute upfront how many cpumasks you are going to require,
+  based on the actual GIC topology. You do that on CPU0, outside of
+  the hotplug constraints, and allocate what you need. This is
+  difficult as you need to ensure the RD<->CPU matching without the
+  CPUs having booted, which means wading through the DT/ACPI gunk to
+  try and guess what you have.
+
+- you delay the allocation of L1 tables to a context where you can
+  perform allocations, and before we have a chance of running a guest
+  on this CPU. That's probably the simplest option (though dealing
+  with late onlining while guests are already running could be
+  interesting...).
+
+But I'm always going to say no to something that is a poor hack and
+ultimately falling back to the same broken behaviour.
+
+Thanks,
+
+	M.
+
 -- 
-2.43.0
-
-base-commit: fe24398ebc1d62c0d2549d1e258564fd6625ae19
-branch: zynqmp/dt
+Without deviation from the norm, progress is not possible.
 
