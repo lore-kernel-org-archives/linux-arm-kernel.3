@@ -4,108 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87486D185CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 11:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88DDFD185DA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 11:32:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+a8/HgrrA9LGdGkGtxw3sexeM0b0Vs24vRvPS8jCcE=; b=Vowhu8Y0FU966j/99oUefuCflU
-	l8Rx+S6IUDtKz2BoShVbg6D0WokZjpNboRTwUBjDVENWB0ovxnmIPwb53Xfl9euf4V6q8I6ihHKdi
-	xrPEJk3Ju+kx1wudU4cPLCWFoWR3dU8xu4n55RET24qSSVc9gluSYpLzrS/q/YU++qwZnB4s5vbO1
-	VAk9MkJ6A4n4gFaY8ee0WYO6xfR4cQkhfIwnNoCCgldsichnWo4I2qnXIHyv0d6m+90drAze6sbrE
-	/uQEspCX6Qy1ljFWr1sc8mXleNlLgoGD016pG/n3+mDekV47Tx8nP7WJj9ERaOxedDuH6KlOdlF4V
-	CHeGO6Gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OkEDjCTgjcG1N4pMu7OE1VqtJd5WSLxPjSWKunpWPTk=; b=FUkwukcU6Tq4Uj6FPDruqjNPRL
+	hw/B3ysD825V+N6tn+vmonWRf0GhoCt081I+9g4y+5AeL0tkSfDVChA8ePaitbldRH9IYswjoDfvf
+	WAJ6+kmBCzDIrWK3cngaws40jdneB32U7oG0N9t39GSR4sWitpKxM8ViHLU+ZsSyb4KJETu+Nk+jl
+	2Yrdpx7Yquc6hY6zDbF0aXckT1jL1ET5gGv4IlNXG1hg5AiLhYJbPb0h0c4E5DAkn+vGd7YeNnWuu
+	ffUv2EwQBfKRIByL3h+SoaFWb/k+pHmurB9v94oY6HIHBt2uRubWfAz1Fpvi4WXSkjy8H9Qxs/hp9
+	w2X5tssw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdoCV-0000000GqjY-3Xm7;
-	Thu, 08 Jan 2026 11:29:11 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vdoFS-0000000Gr8P-1x8k;
+	Thu, 08 Jan 2026 11:32:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdoCQ-0000000Gqib-1VVB
+	id 1vdoFR-0000000Gr82-3RJs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 11:29:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1767871745;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=D+a8/HgrrA9LGdGkGtxw3sexeM0b0Vs24vRvPS8jCcE=;
-	b=W17prrJKNGMapg+7XCIJ9/T9Wsh9ud3pRO/maGsPXgrAJD72uRPz037T8VyP5noBRidZg8
-	1lUVNip8aNuVdHAjBwwYfP3MLCWfddSn/o0ZBFlWMeGJFgManDLBFTlG1UWh9DfekQyeD5
-	4PyCqz7KV1dpGYuvivtwvYvxLoHq0Bo=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-609-3NR2jlLFMq2YkX2XwAUhAw-1; Thu, 08 Jan 2026 06:29:03 -0500
-X-MC-Unique: 3NR2jlLFMq2YkX2XwAUhAw-1
-X-Mimecast-MFC-AGG-ID: 3NR2jlLFMq2YkX2XwAUhAw_1767871742
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4792bd2c290so32485715e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 03:29:03 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767871742; x=1768476542;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=D+a8/HgrrA9LGdGkGtxw3sexeM0b0Vs24vRvPS8jCcE=;
-        b=YrFu10HyibUwgPn954KYhCCWZAi212yUfGS/fIbbNVvx4AUZihxb7Lhko6mOJFwl6/
-         n8e3KpglSGQk93iK8RqRiwqeDRfIe0kYDCX3cYclQcGpuHf16IDRVCZYGrztARQdMkVo
-         +KoZuEclW5/jMqennrxw3EBglVCJwgDYebpDuUABCFSgTpdsDMi74mNYRbAuSqA6rHnb
-         AL3cFvP6KhorQ7RpXwySu5tUWpY/3X+Gdve7TPHfBYIW8CHGoZgo9q/bUpQLew6a8/tP
-         +oToO5OZS3dx6ERHIYVXr36Ps4FzUExmiBuyShRAfQ7u4z2Yr+r3cZXs0BtX8vRwr9IM
-         8e6A==
-X-Forwarded-Encrypted: i=1; AJvYcCVhzxKfW+OOYGfEZggA44eO6AxqsrmmIIFFMCccoYxajEX9f2RVCJx1XpMlnhYppH9R5YV7sFKGzBgR7keRDreH@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAdzjRNijQGT0JKn9qaszMlwTaqh2GTLjLC5tJT2Y2JwgKmWId
-	KNM9yoFSlAqvwksCh4PvyFGCzUpyONeOQBsSYjHo+oxzdjdTLV4aMkSZ7u5Lp1nKRF81apagF45
-	9sTR0jz584u3JnJhNkx2UZs/y7eXQDuegeQptRDM3YLe4GJhrmwT04YTHCZ69UnzGi2ns0/ZObF
-	qd
-X-Gm-Gg: AY/fxX5GimXddqO6/lWeKMoEqP5+TNf74MlrOfGmQXhTBHbUOQE+p+FGxmOcSgemb2A
-	57HlO8CGLY1TwHILMg6xF0wXutEA5xauSw3sgHW3sk6XPoNWzHC8eeIA9PgK1cgLJQzpFq9eQwZ
-	/NGN4IRtYSOfm9ROhxncCQ1OD9BzxSTkpXrOshnxloLepVNl7X32pUoNxWC/KBRBITixRSHpBmw
-	yEfLrAajrc4wixmCvTsq7whqWZUP92udVlgWXQS1wjheTFbRltuwCqos8KG6+1xQWswMwhQL/k9
-	jIITCnx1leSo0TLKDuTYCne1/+SvnnKXxc0WYrOSy6JhmV0J2TQRPOf6SLHvy1WhefDUrB09iGR
-	8RjqYH59+9PhvNw==
-X-Received: by 2002:a05:600c:8119:b0:477:b0b9:3129 with SMTP id 5b1f17b1804b1-47d84b0a8dfmr65473535e9.3.1767871742165;
-        Thu, 08 Jan 2026 03:29:02 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEgaAftp+naANwBwxcdTWbs47iqT+WgXibibJoopIEFumDXskHupti0hYSDGlBzsi6bm2o4vA==
-X-Received: by 2002:a05:600c:8119:b0:477:b0b9:3129 with SMTP id 5b1f17b1804b1-47d84b0a8dfmr65473285e9.3.1767871741741;
-        Thu, 08 Jan 2026 03:29:01 -0800 (PST)
-Received: from [192.168.88.32] ([212.105.149.145])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d8662c09bsm38373035e9.2.2026.01.08.03.28.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 08 Jan 2026 03:29:01 -0800 (PST)
-Message-ID: <a1341a4b-3ad0-43dd-adff-66d7d90be471@redhat.com>
-Date: Thu, 8 Jan 2026 12:28:59 +0100
+	Thu, 08 Jan 2026 11:32:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A697060140
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 11:32:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DED6C2BC87
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 11:32:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767871932;
+	bh=pYfshooaQVx14ogaTwRBPlNZFkj/iWvrj8HN1katBFM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Tt8VmR3VshCgHL0sX0ZHoLqIfD0Rl3cLJfl1ZhoX+viQNalklsP3KEGhmpF2PQABL
+	 i/e4fQeEWCP3E8UrGxvJAz3JuiRdFBXe9UimxMdTmRlLsZNu/U5vTUEyP7Ks+4qkxU
+	 XxkejKAY6NBLbl/r1AsLAyAnuNWCjV0RjM7is+V+ou17Bcc2h2b/jwV3sTJ8RfZ0mU
+	 5QCe8I5A9kvK9DS1HJ9oD7trUK76a+ekfIJRJLeJFGPYGgEycSjFxndrstt2RPdvCq
+	 g0kCEYTkOBwHO0b6P+CdVWNXzaaTEiF2vxlnRRUwhG5MIv4f5YIZKepkz/7OWtnjS/
+	 F/DxUh7mTqQMQ==
+Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-34c868b197eso2863202a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 03:32:12 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXPFIi09CTwAGT38riSr174P8mpNTumgPIwxWqlAUxOcZMBc/j66vA12ALMsKw5nV1NcLMJZUfHrRQ7sNsaUj4j@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqpiJQcK9mTDmzyHKhUj3IEo/NSjoxldbgf4yle1jetmliqdoW
+	/LppGesPJQ0nwO7pP6rQJQvED9gCKjR+tAZbMy7akVU0IWW8u8pDC5sSAKzC9TdJaeqSvIniDgh
+	BdpIHmSvFnLRWHZ89ppF0YuGbzNG/G+s=
+X-Google-Smtp-Source: AGHT+IGDINyxTPkhAN4b7317PDsO1QtIqu1Y45mlnouNM/WvPFlwsh7kX9R86h9783kJT5r1JA/b7Ab2jLcoi2FXZJU=
+X-Received: by 2002:a17:90b:4c46:b0:34c:f92a:ad05 with SMTP id
+ 98e67ed59e1d1-34f68b9a0ffmr5904349a91.11.1767871931935; Thu, 08 Jan 2026
+ 03:32:11 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v11 3/3] net: ti: icssm-prueth: Add support for
- ICSSM RSTP switch
-To: Parvathi Pudi <parvathi@couthit.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- danishanwar@ti.com, rogerq@kernel.org, pmohan@couthit.com,
- basharath@couthit.com, afd@ti.com
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, alok.a.tiwari@oracle.com,
- horms@kernel.org, pratheesh@ti.com, j-rameshbabu@ti.com, vigneshr@ti.com,
- praneeth@ti.com, srk@ti.com, rogerq@ti.com, krishna@couthit.com,
- mohan@couthit.com
-References: <20260105122549.1808390-1-parvathi@couthit.com>
- <20260105122549.1808390-4-parvathi@couthit.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20260105122549.1808390-4-parvathi@couthit.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: uS5nfa1RanuMSCoZ2qLnzKayjkCz69uKYiKaxr5Fbhs_1767871742
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_032906_501698_8E55F0D2 
-X-CRM114-Status: GOOD (  14.02  )
+References: <20260105051311.1607207-1-ebiggers@kernel.org>
+In-Reply-To: <20260105051311.1607207-1-ebiggers@kernel.org>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 8 Jan 2026 12:32:00 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXGRTfyXPD3+Ravr7O5ZUMAUeabQw455sW5g7aRy3BU+2Q@mail.gmail.com>
+X-Gm-Features: AQt7F2osJiUBFnBRtOlALeERCnUAMf6rielCvEbX7HMdjqJIXrz86eWJVpNeDcU
+Message-ID: <CAMj1kXGRTfyXPD3+Ravr7O5ZUMAUeabQw455sW5g7aRy3BU+2Q@mail.gmail.com>
+Subject: Re: [PATCH 00/36] AES library improvements
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	"Jason A . Donenfeld" <Jason@zx2c4.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	sparclinux@vger.kernel.org, x86@kernel.org, 
+	Holger Dengler <dengler@linux.ibm.com>, Harald Freudenberger <freude@linux.ibm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,57 +83,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/5/26 1:23 PM, Parvathi Pudi wrote:
-> +static int icssm_prueth_ndev_port_link(struct net_device *ndev,
-> +				       struct net_device *br_ndev)
-> +{
-> +	struct prueth_emac *emac = netdev_priv(ndev);
-> +	struct prueth *prueth = emac->prueth;
-> +	unsigned long flags;
-> +	int ret = 0;
-> +
-> +	dev_dbg(prueth->dev, "%s: br_mbrs=0x%x %s\n",
-> +		__func__, prueth->br_members, ndev->name);
-> +
-> +	spin_lock_irqsave(&emac->addr_lock, flags);
-> +
-> +	if (!prueth->br_members) {
-> +		prueth->hw_bridge_dev = br_ndev;
-> +	} else {
-> +		/* This is adding the port to a second bridge,
-> +		 * this is unsupported
-> +		 */
-> +		if (prueth->hw_bridge_dev != br_ndev) {
-> +			spin_unlock_irqrestore(&emac->addr_lock, flags);
-> +			return -EOPNOTSUPP;
-> +		}
-> +	}
-> +
-> +	prueth->br_members |= BIT(emac->port_id);
-> +
-> +	ret = icssm_prueth_port_offload_fwd_mark_update(prueth);
+On Mon, 5 Jan 2026 at 06:14, Eric Biggers <ebiggers@kernel.org> wrote:
+>
+> This series applies to libcrypto-next.  It can also be retrieved from:
+>
+>     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git aes-lib-v1
+>
+> This series makes three main improvements to the kernel's AES library:
+>
+>   1. Make it use the kernel's existing architecture-optimized AES code,
+>      including AES instructions, when available.  Previously, only the
+>      traditional crypto API gave access to the optimized AES code.
+>      (As a reminder, AES instructions typically make AES over 10 times
+>      as fast as the generic code.  They also make it constant-time.)
+>
+>   2. Support preparing an AES key for only the forward direction of the
+>      block cipher, using about half as much memory.  This is a helpful
+>      optimization for many common AES modes of operation.  It also helps
+>      keep structs small enough to be allocated on the stack, especially
+>      considering potential future library APIs for AES modes.
+>
+>   3. Replace the library's generic AES implementation with a much faster
+>      one that is almost as fast as "aes-generic", while still keeping
+>      the table size reasonably small and maintaining some constant-time
+>      hardening.  This allows removing "aes-generic", unifying the
+>      current two generic AES implementations in the kernel tree.
+>
 
-More AI generated feedback here that still looks valid to me:
+Architectures that support memory operands will be impacted by
+dropping the pre-rotated lookup tables, especially if they have few
+GPRs.
 
-"""
-ndo_stop() can sleep (e.g., via rproc_shutdown()). This function appears
-to be called while holding a spinlock via the call chain:
+I suspect that doesn't really matter in practice: if your pre-AESNI
+IA-32 workload has a bottleneck on "aes-generic", you would have
+probably moved it to a different machine by now. But the performance
+delta will likely be noticeable so it is something that deserves a
+mention.
 
-  icssm_prueth_ndev_port_link()
-    -> spin_lock_irqsave(&emac->addr_lock)
-      -> icssm_prueth_port_offload_fwd_mark_update()
-        -> icssm_prueth_change_mode()
-          -> ndo_stop() / ndo_open()
+> (1) and (2) end up being interrelated: the existing
+> 'struct crypto_aes_ctx' does not work for either one (in general).
+> Thus, this series reworks the AES library to be based around new data
+> types 'struct aes_key' and 'struct aes_enckey'.
+>
+> As has been the case for other algorithms, to achieve (1) without
+> duplicating the architecture-optimized code, it had to be moved into
+> lib/crypto/ rather than copied.  To allow actually removing the
+> arch-specific crypto_cipher "aes" algorithms, a consolidated "aes-lib"
+> crypto_cipher algorithm which simply wraps the library is also added.
+> That's most easily done with it replacing "aes-generic" too, so that is
+> done too.  (That's another reason for doing (3) at the same time.)
+>
+> As usual, care is taken to support all the existing arch-optimized code.
+> This makes it possible for users of the traditional crypto API to switch
+> to the library API, which is generally much easier to use, without being
+> concerned about performance regressions.
+>
+> That being said, this series only deals with the bare (single-block) AES
+> library.  Future patchsets are expected to build on this work to provide
+> architecture-optimized library APIs for specific AES modes of operation.
+>
+> Eric Biggers (36):
+>   crypto: powerpc/aes - Rename struct aes_key
+>   lib/crypto: aes: Introduce improved AES library
+>   crypto: arm/aes-neonbs - Use AES library for single blocks
+>   crypto: arm/aes - Switch to aes_enc_tab[] and aes_dec_tab[]
+>   crypto: arm64/aes - Switch to aes_enc_tab[] and aes_dec_tab[]
+>   crypto: arm64/aes - Select CRYPTO_LIB_SHA256 from correct places
+>   crypto: aegis - Switch from crypto_ft_tab[] to aes_enc_tab[]
+>   crypto: aes - Remove aes-fixed-time / CONFIG_CRYPTO_AES_TI
+>   crypto: aes - Replace aes-generic with wrapper around lib
+>   lib/crypto: arm/aes: Migrate optimized code into library
+>   lib/crypto: arm64/aes: Migrate optimized code into library
+>   lib/crypto: powerpc/aes: Migrate SPE optimized code into library
+>   lib/crypto: powerpc/aes: Migrate POWER8 optimized code into library
+>   lib/crypto: riscv/aes: Migrate optimized code into library
+>   lib/crypto: s390/aes: Migrate optimized code into library
+>   lib/crypto: sparc/aes: Migrate optimized code into library
+>   lib/crypto: x86/aes: Add AES-NI optimization
+>   crypto: x86/aes - Remove the superseded AES-NI crypto_cipher
+>   Bluetooth: SMP: Use new AES library API
+>   chelsio: Use new AES library API
+>   net: phy: mscc: macsec: Use new AES library API
+>   staging: rtl8723bs: core: Use new AES library API
+>   crypto: arm/ghash - Use new AES library API
+>   crypto: arm64/ghash - Use new AES library API
+>   crypto: x86/aes-gcm - Use new AES library API
+>   crypto: ccp - Use new AES library API
+>   crypto: chelsio - Use new AES library API
+>   crypto: crypto4xx - Use new AES library API
+>   crypto: drbg - Use new AES library API
+>   crypto: inside-secure - Use new AES library API
+>   crypto: omap - Use new AES library API
+>   lib/crypto: aescfb: Use new AES library API
+>   lib/crypto: aesgcm: Use new AES library API
+>   lib/crypto: aes: Remove old AES en/decryption functions
+>   lib/crypto: aes: Drop "_new" suffix from en/decryption functions
+>   lib/crypto: aes: Drop 'volatile' from aes_sbox and aes_inv_sbox
+>
 
-Is this intentional? The ndo_open() path also calls
-icssm_prueth_sw_init_fdb_table() which does kmalloc(GFP_KERNEL) and
-rproc_boot(), both of which may sleep.
-"""
+Nice cleanup
 
-There are other similar cases; for the full report see:
-
-https://netdev-ai.bots.linux.dev/ai-review.html?id=ce23f731-f25b-4082-a5d0-c1261ab829ed
-
-/P
-
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
 
