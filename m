@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FC37D1D478
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 19:02:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 640CFD1D478
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 19:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Egeoauu85j4e+WeXxWLxZq8WExQ6Zh5dl8x5NP2WN0=; b=s2sY4kOPADNM2wakQXiR+gGUHy
-	UVjr521wTKqeM8cjAn/I7pTCrr0iDw5+hLkw5jKfCUR90Uu8M2Brx0Asw0pR6rJ33Y3gcQjGrRdcw
-	NGhnMdl36kEF63ZjYUrRRXsBqzt+UwTO34R8gbDZwFm7JbTjZGvFrrFG/eKKFlLUmzekpO30eMlth
-	LyVsmNyVrmmMrb9MXNDYO4pS0rmCcjvZVL62thOtEz+/vEuKBJmM1DPG7mOxXK609byTknYi73MNc
-	HJbSqrr7IRfKH2WpAbKJdHLakrfkNwkv5E8vnXgkGDlMaoeWq7Qua8BUMPDpH2nluOrF/JTXGnYL3
-	xN/nS4VA==;
+	bh=0xTYPYEZSyUOR4owbPfE3fSToiJ/CPOSgdHTNpnvRAc=; b=E3bmjDd7FCmgnzB4Vuf4+jdGaO
+	duCq2vm7df3Oe/0xLNPrXbhtRPMViKxTNS03p1imNLJs9rIEfxR8Wc1ux+G5ttcAuVN5QqWd2Y7my
+	ALw06nisCXq+lDbtTRx1rgKfnP5nU86vb6JbV95UF6R+VwhqMaBGc1qSm/6bepbTRWgpuEnM93Ch2
+	PRV+ql6VTBBSuujNAX1JzPCqatoNzGP84uxoYDW7UbaVRoq87JhE7DrcLBR28YGeCd7no493McnDx
+	oJgWFXNuM72xP/SxRzJacmmmB989ZxX3nKyaYtQd5Kt0N5vBnFmUsNbECbLrAzc4pqBk/n6fntaHo
+	mkVQ3hRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdvGp-00000000h8l-3WQB;
-	Thu, 08 Jan 2026 19:02:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdvIn-00000000hSf-1MrU;
+	Thu, 08 Jan 2026 19:04:09 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdvGn-00000000h7w-1Od5
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 19:02:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF30140A00;
-	Thu,  8 Jan 2026 19:02:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4478C116C6;
-	Thu,  8 Jan 2026 19:02:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767898924;
-	bh=cGVPGNzS5dackujqgZ6gZ4apORen6+dbC4SXpFIwMX8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gds6PdVtl7nh9hqOKIShu4yNF5qDmklyNOic3poXva+cTt8kxVAIOWhkFHV2Xa5pj
-	 bpx1EvHsEoP3H8+Cs9/i7L+ndXn+UEnKbVjOI1V4pCLxRwsc0VdWav/A308DJB3tfJ
-	 qluxPbP6gsQX3M0vIW6GTkQ/Ogb3KlROpvCNtc9aDsRfPVs3kgddj5+OimSy9hgu8m
-	 OIsykjiXH5OlQp2WNLD9mmY+GGRCtmOgOziJN0g0AX0oVqlgTwf3xwgjgtg6642HRN
-	 THiJlE9WyGfKTcj+8NR0M7HkQp2wM3OODPhvGngwmozWB8VsPIC/0pU1VHOvoG6oav
-	 CfldgY+DC16Cg==
-Date: Thu, 8 Jan 2026 13:02:03 -0600
-From: Rob Herring <robh@kernel.org>
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: Qiang Zhao <qiang.zhao@nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH 2/2] dt-bindings: soc: fsl: qe: Add an interrupt
- controller for QUICC Engine Ports
-Message-ID: <20260108190203.GA780464-robh@kernel.org>
-References: <63f19db21a91729d91b3df336a56a7eb4206e561.1767804922.git.chleroy@kernel.org>
- <7708243d6cca21004de8b3da87369c06dbee3848.1767804922.git.chleroy@kernel.org>
+	id 1vdvIk-00000000hRp-26d9;
+	Thu, 08 Jan 2026 19:04:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=0xTYPYEZSyUOR4owbPfE3fSToiJ/CPOSgdHTNpnvRAc=; b=OZcb6i7Kq0PC81CDhI9KMTImkq
+	NobBuzSsnV6t0TfjHzeNm+x67CZVPP5uBcyHc0kSLopeR1utT7FGxlTDD8uG8NbSSAS7gWhAPWpKx
+	FuJVPHFhrQQl/VUhczvxZkbK50oKF2E3eRdOwLyuyO/CxV8LEDjMGguYoFPbqVXKoPMdr2nMvf4U1
+	JpJ2XUYL9staaJyK8EbqDYTfCkJereVgwZHMq7DZxumaGSv6K544FBd7EvrA9HrT+EVPOsWgK+1Hu
+	lyOIpQI6HjfPQxhhqDk21aqx70ZH3dYd8SBa+K4F/fNkXDpCi5Dd3lQwE4IJ8xQZzxQZP5/furfah
+	GZD4Zn4A==;
+Received: from [192.76.154.230] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vdvIU-001XS9-BV; Thu, 08 Jan 2026 20:03:50 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Chaoyi Chen <kernel@airkyi.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: Re: [PATCH 8/9] drm/rockchip: Drop ROCKCHIP_IOMMU depend for DRM_ROCKCHIP
+Date: Thu, 08 Jan 2026 20:03:50 +0100
+Message-ID: <4072834.X9hSmTKtgW@phil>
+In-Reply-To: <20251106020632.92-9-kernel@airkyi.com>
+References: <20251106020632.92-1-kernel@airkyi.com>
+ <20251106020632.92-9-kernel@airkyi.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7708243d6cca21004de8b3da87369c06dbee3848.1767804922.git.chleroy@kernel.org>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_110205_433681_FEAE7D4E 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20260108_110406_586602_E764CFD8 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,83 +80,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 05:59:10PM +0100, Christophe Leroy (CS GROUP) wrote:
-> The QUICC Engine provides interrupts for a few I/O ports. This is
-> handled via a separate interrupt ID and managed via a triplet of
-> dedicated registers hosted by the SoC.
-> 
-> Implement an interrupt driver for it so that those IRQs can then
-> be linked to the related GPIOs.
-> 
-> Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-Already? On a v1?
-
+Am Donnerstag, 6. November 2025, 03:06:31 Mitteleurop=C3=A4ische Normalzeit=
+ schrieb Chaoyi Chen:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>=20
+> On the RK3506 platform, there is no iommu hardware. And even on
+> platform that have iommu hardware, it should be possible to use
+> VOP without enabling iommu. In this case, a contiguous memory
+> space like CMA should be used.
+>=20
+> So this patch removes the dependency on ROCKCHIP_IOMMU.
+>=20
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 > ---
->  .../soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml       | 51 +++++++++++++++++++
->  1 file changed, 51 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml
-> new file mode 100644
-> index 0000000000000..1f3c652b1569d
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml
-> @@ -0,0 +1,51 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Freescale QUICC Engine I/O Ports Interrupt Controller
-> +
-> +maintainers:
-> +  - Christophe Leroy (CS GROUP) <chleroy@kernel.org>
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - fsl,mpc8323-qe-ports-ic
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupt-controller: true
-> +
-> +  '#address-cells':
-> +    const: 0
-> +
-> +  '#interrupt-cells':
-> +    const: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupt-controller
-> +  - '#address-cells'
-> +  - '#interrupt-cells'
-> +  - interrupts
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    interrupt-controller@c00 {
-> +      compatible = "fsl,mpc8323-qe-ports-ic";
-> +      reg = <0xc00 0x18>;
-> +      interrupt-controller;
-> +      #address-cells = <0>;
-> +      #interrupt-cells = <1>;
-> +      interrupts = <74 0x8>;
-> +      interrupt-parent = <&ipic>;
+>  drivers/gpu/drm/rockchip/Kconfig | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchip/=
+Kconfig
+> index b7b025814e72..a056d419190c 100644
+> --- a/drivers/gpu/drm/rockchip/Kconfig
+> +++ b/drivers/gpu/drm/rockchip/Kconfig
+> @@ -1,7 +1,8 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>  config DRM_ROCKCHIP
+>  	tristate "DRM Support for Rockchip"
+> -	depends on DRM && ROCKCHIP_IOMMU
+> +	depends on DRM
+> +	depends on ROCKCHIP_IOMMU || !ROCKCHIP_IOMMU
 
-This doesn't look like a separate block, but just part of its parent. So 
-just add interrupt-controller/#interrupt-cells to the parent.
+I don't really understand this yes+no line :-)
 
-Rob
+Can't you just
+=2D drop the dependency altogether
+or
+=2D do a depends on ROCKCHIP_IOMMU if ARM64
+
+
+Heiko
+
+>  	depends on OF
+>  	select DRM_CLIENT_SELECTION
+>  	select DRM_GEM_DMA_HELPER
+>=20
+
+
+
+
 
