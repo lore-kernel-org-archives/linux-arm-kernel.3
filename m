@@ -4,54 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAAECD185F1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 13:08:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7AED185F1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 13:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aePOC97pBHo3LyNl9Tw2Gam8zqiOWiBjiaEyFML+7TU=; b=1cLX0c3EbGIMeyhg5NRcJs3+HO
-	bKb8HNjdhZ/brNJnz5itgJlgva90Oexz+Nm56ZmeBa8/yeiifQPSmRyjWnDwmToSV2u7CH3KHmGD1
-	+L49Hnw/4iOrEnAUxoHl6uI5D/uZ90JQAhsq/26BJUsankmv/guBiP7t+mj0QvtFL0vmu5lZkiwd2
-	35HjjSU6ahBpyCHpU5mAnipdQJ9qbTYsWItr4ttO2McBsQwycncFouYSKrg0eaOsYxtij2vPCG+nQ
-	wuFdPMu/W1h3+YAt0uSThOAsL/8dM3PWsnzb4Ro/IIYepjjJnkLqbM+vmhwqb3thqKDugIPq3XKjd
-	EDs4MAIw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OTCimy0OTVhK+W4viQxkYefGm5wJBpd3wprbyFsAnGI=; b=NxyutoKpVbT1u6
+	G0lgNNESsUn4P0XWJ7gKkfKuono1C8UOwqBnZJknBzBwthbb254dJmcS05M+YP/9TGpDjDHYCPjUE
+	Dr998UHPFyoGX1LoR7COvYM1hql/QBlo3RKSAMflJ+uPCToap4PeXpEMFUlbyzvWfh0F3tgzSELeP
+	HtRLQReIa8TS6ncOhy6J/d08IRxhZ0Prx1wgoqe7XqhMWJzpF1NRVL4+J8ommcKSV/L0IopMcOxXR
+	hpkZTVRZtyuDlanhWWkHTsXz71EiE7f3+Frh4bFf1ImixGrn4Yk+1xVPlnYeFo7qgrbKUJmklL0nN
+	8UtG6ClmvnBX+dr0CwVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdpkh-0000000H6cB-0Ue0;
-	Thu, 08 Jan 2026 13:08:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdpkb-0000000H6Z2-2DFn;
+	Thu, 08 Jan 2026 13:08:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdpkc-0000000H6ZD-47pM
+	id 1vdpkY-0000000H6Xv-2fLC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 13:08:32 +0000
+	Thu, 08 Jan 2026 13:08:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 41A2E40D72;
-	Thu,  8 Jan 2026 13:08:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C8F6C19422;
-	Thu,  8 Jan 2026 13:08:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1A80F419CD;
+	Thu,  8 Jan 2026 13:08:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8166CC16AAE;
+	Thu,  8 Jan 2026 13:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767877710;
-	bh=BEFqASubnMhLuZshwv8XM1o9a6Rbhxs2caSt9SThpyQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=XRMBic0G5unXBBKtPVKjxLP9Y21Uw1rOGHGXAdcJY+W+/4GY/AZXl7TsdSOv37RbZ
-	 61xlZT8ixVHx4g0L7GbF8oKbMcBXdHa1+IeoRUWXbiPWkRSz0ps/8caEufs/g/hbCK
-	 e8Vai3kIOSHV5bLEhiY2zY2bOZ/DBYQ/+HufR7NfR7BmbGxuvhwjPgVZl/hEw6WRIA
-	 sRmxBoImpSjAgoDKZr9nnHFIcrk26Nl614qIhniVpDlqNKzx6YcIengo4fXZfhtcnn
-	 9tSX4XKE1fv2yFOpANCggDXjuem8gpXLQRZDD95/UN6ftHrv8eq49KkKXgV7oqEgjp
-	 7PYEnxduZarrQ==
+	s=k20201202; t=1767877705;
+	bh=d2oLmhos7FqCo4pDfLBY/b8vig+4Qxoc9GDWKS1KhqE=;
+	h=From:Subject:Date:To:Cc:From;
+	b=CK3/NvR6zP+u9HAE6mvU73Xn1ldX+Q60SocIgj3CI3jU1oeoNie+AX9b08X3dBMYI
+	 wTfl6a3M3WSDte55xE+u9h/x5wnKppn06TQT7g4dwUe74L83Q6W68Tz0l0dMRenPnI
+	 NHkXHCiJ/ldaY+7+R5FgmBUT3yuroKKvFgTxXWTshFMoL/Eg3IAjZJM57CqEa+N5QM
+	 pM8j4j5zanHFRAFgC3G8jqTcmubR8L4VwIhnhTnAD1gKz5EhGZA9U2HLope9oPnmR0
+	 66IMaiO0WvzPnFX9urRJSHM3SLtTWJqmV+XJSZE795ruvZkaGc8HB054zjuzGrM/4e
+	 rTCH2Oy+NzsRA==
 From: Dinh Nguyen <dinguyen@kernel.org>
-Date: Thu, 08 Jan 2026 07:08:11 -0600
-Subject: [PATCH v3 3/3] dt-bindings: net: altr,socfpga-stmmac: remove TODO
- note
+Subject: [PATCH v3 0/3] net: stmmac: socfpga: support both stmmaceth-ocp
+ and ahb reset names
+Date: Thu, 08 Jan 2026 07:08:08 -0600
+Message-Id: <20260108-remove_ocp-v3-0-ea0190244b4c@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260108-remove_ocp-v3-3-ea0190244b4c@kernel.org>
-References: <20260108-remove_ocp-v3-0-ea0190244b4c@kernel.org>
-In-Reply-To: <20260108-remove_ocp-v3-0-ea0190244b4c@kernel.org>
+X-B4-Tracking: v=1; b=H4sIADisX2kC/23MywrCMBCF4VeRWRuZTJPauPI9RKSXaRvUpiQSl
+ NJ3Ny24KLg8B75/gsDecoDTbgLP0QbrhjSy/Q7qvhw6FrZJGwhJSyIjPD9d5JurR6HUscizwlS
+ oCRIYPbf2vcYu17R7G17Of9Z2lMv7NxOlQKGNIqMYVdWo8539wI+D8x0snUg/m6NEvbGUrGpLq
+ poSjSa5sfM8fwHxL/kh4QAAAA==
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
  Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
@@ -69,26 +71,25 @@ Cc: bsp-development.geo@leica-geosystems.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, Dinh Nguyen <dinguyen@kernel.org>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1088; i=dinguyen@kernel.org;
- h=from:subject:message-id; bh=BEFqASubnMhLuZshwv8XM1o9a6Rbhxs2caSt9SThpyQ=;
- b=owEBbQKS/ZANAwAKARmUBAuBoyj0AcsmYgBpX6xGixoksxcAk+BFIhc7a5PDFAUf6fYBGoSrA
- QcXF26GOf6JAjMEAAEKAB0WIQSgeEx6LKTlWbBUzA0ZlAQLgaMo9AUCaV+sRgAKCRAZlAQLgaMo
- 9HqGEACCdtcSvnQAfq+6jLL6yfY2+XXhl5DnzWzojSs6HegHQ0ZbpDwfCGPrifVoSJXFmkD7nr0
- CltAAh4vut2VGb3rI9/x+5N01I14VcqhnKhiABEFf3YYyHYOi824DJ2sVosKuYycm3GRvHPqw7l
- wkxNNjK1DLhriPS0GSjbmBllVOwdtIYAi/MUFrybzDAT1eVKd0Nt6WUifwwx4GOR48aXPzXOImT
- iSGrytZczmKbxCRNR91MYOQPNpaupejVUiv+qk49e1Wvo5/zw1j2c8P+x4kbgIQ5hsI7I95CtY1
- Om6E9OJDZeEBg+fH+EYZAhwfRIueYWLKPi/LkJENvBkJxPWODdxTipNv5+tjfO3iV6PjjivYz2w
- 2sj8/XjplvBsA2a7A30BB9KLxqqcLFubf24+DoFqOmNh3pBTAoezTfZoU6NfTk+uKKTGoh5uYZ8
- D7D+HbKQ3qJ+rSbt9PX/m+uzA4FaYZsJjR9plqPHYuXRPQfW3PfkrlZzH89f9PcSNPH3OD0k6dO
- AxxEjPE/Ky/2CCNxN+NF6DStkntbtUTJkVuCZbRwZM333eIaZWMKZmgNfizBOd4w5mUhg7Qw63D
- Zm6KHOdH9e1jh8H+4ABegP6ar0SPeJbLGeIPvccBNiypKQZGMgBtF/g0tpvcKWyBXt6ccVLmyPo
- UDCLYSxQxcxiDTA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1888; i=dinguyen@kernel.org;
+ h=from:subject:message-id; bh=d2oLmhos7FqCo4pDfLBY/b8vig+4Qxoc9GDWKS1KhqE=;
+ b=owEBbQKS/ZANAwAKARmUBAuBoyj0AcsmYgBpX6xE2Yv8WhiMeSHCVFto9B7KJXVsVuB7XuVX0
+ MCoEwOLzlyJAjMEAAEKAB0WIQSgeEx6LKTlWbBUzA0ZlAQLgaMo9AUCaV+sRAAKCRAZlAQLgaMo
+ 9FSoEACYWlkgvXysoU+OTl8MRzOUImHYPeTWo3Y9ZGS/I1eEvVP2cRpYR9EtiiWpyV4xsIEN/+J
+ 5fWBwc+1wgQC8nh8ENVWWQaNSAPFB41LhwQ7JyjBGFIjz6phv8mHLW0YT1qsSVRbxUv9WRbO8S4
+ XpaVnsbx1oRrSVk9sXmDrKwt0VIPXcLJL0lejv7iQPD2bBCTtYA6OyZqgkdK0ZJoLbW8O1Qb6mT
+ vjEmFlnQUgH5HZdiAvQvRd9gB8g8K+uzYaUS/V3b3V+UvQbk786BcY9hM1QpKD8geljGXPCQb3A
+ 9g6F4HBnys43WjondrIriZSNPPIWQqpn3IUJ4+7742Ky0siZUho0hlg+FEhYi3uDbOj7uWokmS9
+ fkNxhQhLgSAUTFn3rprlC+DpVl18yQT0b2WZZ8yUflhB0REPo3ggTX4adeVskkBmXnPqcoN+bT2
+ Nran/niGE3745TINqzRCYJ6jqrcaVebshZ8+Ph7ia/piiyNkpxcAiGTtbSvb2QF+1DDNioKwCiG
+ M7EG0I3A1cWbjwHkXPrOz8yuCbkI0dpKWdpJIk3vyCH/grUiL3vRlBQnKN/Utw+LDuQAqau/NIk
+ FS8vZcWqKE/+JEWfgyMx5aHDtXrtsH65U8v2uSM9uMBAdkrMbHiBZVGj/J17w/Hyb+Zgy3qShIJ
+ Ftemo8mazwGC7Dg==
 X-Developer-Key: i=dinguyen@kernel.org; a=openpgp;
  fpr=A0784C7A2CA4E559B054CC0D1994040B81A328F4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_050831_085636_223E73AF 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260108_050826_741828_CE1FD0CC 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,33 +104,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'stmmaceth-ocp' will no longer be used as a reset-name, going forward
-and 'ahb' shall be used.
+The dwmac-socfpga stmmac ethernet controller supports 2 standard reset
+lines, named "stmmaceth" and "stmmaceth-ocp". At the time of upstreaming
+support for the platform, the "stmmaceth-ocp" name was used for the 2nd
+reset name. We later realized that the "stmmaceth-ocp" reset name is
+the same as the "ahb" name that is used by the standard stmmac driver.
+But since the "stmmaceth-ocp" name support has already been introduced
+to the wild, it cannot just be removed from the driver, thus we can
+modify the driver to support both "stmmaceth-ocp" and "ahb", with the
+idea that "ahb" will be used going forward.
+
+This series add the support to call reset assert/de-assert both "abh"
+and "stmmaceth-ocp" to the dwmac-socfpga platform driver, then reverts
+the patch that uses the DTS "stmmaceth-ocp" reset name.
 
 Signed-off-by: Dinh Nguyen <dinguyen@kernel.org>
 ---
-v3: Addressed Rob Herring's comments and updated commit header/message
-v2: Introduced
-v1: n/a
+Changes in v3:
+- Edit dt-bindings patch to just remove TODO note
+- Link to v2: https://lore.kernel.org/r/20260105-remove_ocp-v2-0-4fa2bda09521@kernel.org
+
+Changes in v2:
+- Added a dt-binding patch to mark 'stmmaceth-ocp' as deprecated
+- Link to v1: https://lore.kernel.org/r/20251229-remove_ocp-v1-0-594294e04bd4@kernel.org
+
 ---
+Dinh Nguyen (3):
+      net: stmmac: socfpga: add call to assert/deassert ahb reset line
+      Revert "arm: dts: socfpga: use reset-name "stmmaceth-ocp" instead of "ahb""
+      dt-bindings: net: altr,socfpga-stmmac: remove TODO note
+
  Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml | 2 --
- 1 file changed, 2 deletions(-)
+ arch/arm/boot/dts/intel/socfpga/socfpga_arria10.dtsi           | 6 +++---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c            | 4 ++++
+ 3 files changed, 7 insertions(+), 5 deletions(-)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20251229-remove_ocp-44786389b052
 
-diff --git a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
-index fc445ad5a1f1a..8e7077d4319eb 100644
---- a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
-+++ b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
-@@ -13,8 +13,6 @@ description:
-   This binding describes the Altera SOCFPGA SoC implementation of the
-   Synopsys DWMAC for the Cyclone5, Arria5, Stratix10, Agilex5 and Agilex7
-   families of chips.
--  # TODO: Determine how to handle the Arria10 reset-name, stmmaceth-ocp, that
--  # does not validate against net/snps,dwmac.yaml.
- 
- select:
-   properties:
-
+Best regards,
 -- 
-2.42.0.411.g813d9a9188
+Dinh Nguyen <dinguyen@kernel.org>
 
 
