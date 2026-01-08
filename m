@@ -4,77 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 117E6D1D485
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 17:37:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04355D1D478
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 17:53:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d5EH9CN/M6xoNGKrm1WaBtVLEC1EjhpBswnHDX8iinE=; b=sWDlKNEfTlHd0YYGJlPKcmmDeR
-	s1JRP/mkg45xpgAxRuSrzh2OdPzlCVWl4QQtj5YtHlAY6oEuorUJBuiR23uS9uT4jRxieMqh0IV5M
-	k1PG0Elmna6TTyvone2NxXsbfM/uYu28TnQK24Q3HW4/sRfN+Xzkl7lVPXAMHktah8d2FkJGyiyyP
-	lkT9M08tNX0P65hbB1JmMvOp5P4687rqsE8xhmGip6m5DZZ6s5cPHbB4gU49V2jrhG0RSJ/t4Vu2z
-	8wyNSJ17zy5Ffszgo3zaLNgK/6kb2ZX+teYA4cft2akvjgeepN38UW8F3oHefqnTXAJzfVS8NuBMo
-	gwyKQ6MQ==;
+	bh=3goFcKee4OUgmaWcAc7KDOw58mefuVRtDRqXl+x8zEU=; b=gOEkPWnTMIeZAM12btBS2TNFku
+	rYuLpQR030jhDoi9Bl8j4+aA8dAgi+0+ZcEJ7eXVKa48cBHe1A0qdhAZRamGTJ56QolRXDiOqMRIS
+	ufHqoc/JVsvQ0bW8ClO/rKfCkufgEiQe6V61CbbyWSNctLwCrRKKGZG8/yYBtZYGgC7ORw1pEyK3+
+	Asir4F5il98B1pYk1aYhT5sPg9EAdQfUTd8Jl5wGMhclo4VbODD4Bxd1U8lWJbmrc7BKJPkp00tEJ
+	dSxCSsGn3GJV3wfrV1zmZ4Lv+pr8gnMhMKxqlYbortuQObXNrK9FtCoEB0pYFvh1yk5qyLgn0MN8S
+	PcpEXpxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdtwd-00000000Sca-26fI;
-	Thu, 08 Jan 2026 17:37:11 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vduBm-00000000VRh-0u6X;
+	Thu, 08 Jan 2026 17:52:50 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdtwV-00000000SQL-23C1
+	id 1vduBj-00000000VQD-1HjT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 17:37:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=d5EH9CN/M6xoNGKrm1WaBtVLEC1EjhpBswnHDX8iinE=; b=x9/dsjyPwoZALn0bSOlQe+X6hP
-	DLXMDUUFDaxnIZChhW89PHfsP9v6cDyND+bhwIfQbkxoEjIJ0cU1WGkWATBXCkcTPUD55wUzwX+Nn
-	yQZdlxpXll1DWyNs0cjgHMASspv23umFYv3AKYADy4aUdy2hMd7IENZvVc9ePaeEOPoR35y1+nfQt
-	qZ83Z7yTS6bM6kANeROtnRq9080nGtl4y+R0lfOpdiyuzsd3LiAbURtL+5qEY4pz4c3VF9AayJRo/
-	HJQXsOvUdzBg8nWxDskVstqmVsj2Ap98Y8O80C4+dBlSKcDiGHJ3YQi1RfxUgInucElBDN5is41Ul
-	UI99XA9Q==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:44468 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vdtwK-00000000314-29Pi;
-	Thu, 08 Jan 2026 17:36:52 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vdtwI-00000002Gu6-1HYu;
-	Thu, 08 Jan 2026 17:36:50 +0000
-In-Reply-To: <aV_q2Kneinrk3Z-W@shell.armlinux.org.uk>
-References: <aV_q2Kneinrk3Z-W@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v2 9/9] net: stmmac: remove unused definitions
+	Thu, 08 Jan 2026 17:52:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qAzBl4DMLh87nuEb/KI1SqJYw7iyv2T002zBHiqQwKUyxGspkJWo/BzUrIHkVNu+V3iWXnpLcmpI1n58fTczB89nWp9giUwwzBAxoEmaXwbGy+/52+Mjt8BW0dUaCIl7a1hrM8v+AYQzzAFkz9Vn4/u5qDU3GVTYskGrnyeHjWINQ58JmHBhWAXrtKA259Qbg8vKeYAYO7r99j2mAqU2SkxrG+gaaK3XT0WJ07dyKgC67XPK3zGmxPien3R6yinZp44GZ45XX8ttvZAnkkhF1mUsk5/ZOExBU4QZy6vsKeJMCZbMRMyfow8EM1840llidiuSEAv5mSh0eS/BmY+IIA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3goFcKee4OUgmaWcAc7KDOw58mefuVRtDRqXl+x8zEU=;
+ b=WpuI+TcI4plsLPOzjuRAelHs4VDP4bIARTGuf5nW0vVq3jgNpPXkzqngTEScFOQj9C4L2i3EVz892T16LV5DNJdZpLWpKsdPyDBydG/twkU/dumgrAa/yktdKb+kiTQdt0YodDD4ia+G6UngnVqZ4n2TjDgkdecI4rqx5szOnoADafooFbxzKkPngkENUlyiY1FRTOX0gA+Z8MEl1LQo9Jrfk48QMJr76OjSPI5MtYo4hmJQyQ1QCGXg+JMHOo4FanawGkQxOXGkKL0wRIOr52BV2sxrQIpAFJ6p1kZ5Fg6CzLPRGYjPsax/H0WyO4rt4tN2f4fjrEO2ZmYZ+P8YaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3goFcKee4OUgmaWcAc7KDOw58mefuVRtDRqXl+x8zEU=;
+ b=oeKkbQudDSeMXwHGwPNvqKkBngIa9oJf013jQYh/+Z5cG+XSywMF990tnF68uCU5OhR09e7kdbGYo8ZQb4pKF8aOcqXAfs54uMF2KdC+zg1yMAs/Tzs7PED1jC6zWZfTilXlo13EH9b1UndWxADu3qPmP5AVbU+45uZDgkjIuFI=
+Received: from CH2PR08CA0024.namprd08.prod.outlook.com (2603:10b6:610:5a::34)
+ by DM4PR10MB7390.namprd10.prod.outlook.com (2603:10b6:8:10e::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.4; Thu, 8 Jan
+ 2026 17:52:34 +0000
+Received: from CH2PEPF0000009E.namprd02.prod.outlook.com
+ (2603:10b6:610:5a:cafe::2e) by CH2PR08CA0024.outlook.office365.com
+ (2603:10b6:610:5a::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.3 via Frontend Transport; Thu, 8
+ Jan 2026 17:52:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ CH2PEPF0000009E.mail.protection.outlook.com (10.167.244.27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.1 via Frontend Transport; Thu, 8 Jan 2026 17:52:33 +0000
+Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 8 Jan
+ 2026 11:52:33 -0600
+Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE215.ent.ti.com
+ (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 8 Jan
+ 2026 11:52:32 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 8 Jan 2026 11:52:32 -0600
+Received: from [128.247.81.19] (uda0506412.dhcp.ti.com [128.247.81.19])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 608HqWWe2762413;
+	Thu, 8 Jan 2026 11:52:32 -0600
+Message-ID: <afac4fe3-1dbc-4c8a-a0f1-6e25666eabb4@ti.com>
+Date: Thu, 8 Jan 2026 11:52:32 -0600
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vdtwI-00000002Gu6-1HYu@rmk-PC.armlinux.org.uk>
-Date: Thu, 08 Jan 2026 17:36:50 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/3] arm64: boot: dts: ti: k3-am62l: allow WKUP UART
+ wakeup from LPM
+To: Bryan Brattlof <bb@ti.com>
+CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Tero
+ Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Dhruva
+ Gole" <d-gole@ti.com>, <vishalm@ti.com>, <sebin.francis@ti.com>,
+	<msp@baylibre.com>, <khilman@baylibre.com>, <a-kaur@ti.com>,
+	<s-kochidanadu@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20260106-wkup-uart-wakeup-v2-0-fb4cbd56c827@ti.com>
+ <20260107164504.ehvbfizg7ybbvv2e@bryanbrattlof.com>
+ <c7dfe4a3-1bf5-4e50-b4b7-8752aa9ef1f5@ti.com>
+ <20260108170545.cfez6dvwkft2z3jh@bryanbrattlof.com>
+Content-Language: en-US
+From: Kendall Willis <k-willis@ti.com>
+In-Reply-To: <20260108170545.cfez6dvwkft2z3jh@bryanbrattlof.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000009E:EE_|DM4PR10MB7390:EE_
+X-MS-Office365-Filtering-Correlation-Id: 61b533d5-7411-4f55-f587-08de4edeb39b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700013|34020700016|34070700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?U212bnlLSFoxNGJHTURYdWpOTzJuMXdRSXlFeUxlZEJaZHN0b3czTk5Zb3B6?=
+ =?utf-8?B?c2RQNC91M2RGUG9JRmZ4WVdBbEVhZHNJeER6NkVNQWdkUVVXNUkrR1hLSnA3?=
+ =?utf-8?B?Zm9sdjhuSTRiQWpjSTBzM051MjZyYUFZMjN6REYzWXA4NjBoalZ5aTlGbEdl?=
+ =?utf-8?B?RVpjQjBmV1NwbjdHU1Q3ZndkcHQ5Z3A3NWhGRlVveDg0bXJaMjFEelBNUVVu?=
+ =?utf-8?B?dHowVTY1WG1yZWViSE5LdFpsK29UcmsvZWJrZXFSSVUwMnFnWUJ3eVhNckRu?=
+ =?utf-8?B?ZmlsYi94c3RGU2tmTFNlSVJTbE10V0ZJNlVnemNmd253Q0ZKVk1Bc0dhanNm?=
+ =?utf-8?B?eldCeUhsWno3eG1lblVxZHBnSHorU1V3QmhkcHVyUUh2SEhQNE52QlVKWXQ0?=
+ =?utf-8?B?OVlZa0hmUU4wenZKK2J3ejkwSTN0VG1JYWVCZEl4R0pKK3RIMStDZU9EOEc3?=
+ =?utf-8?B?VFdVMExHRlF1T3hiNmlwZFcxcjNmb2JTUmRpNVBLMGlkWElOblhFVmw0ZjRH?=
+ =?utf-8?B?QkRHaVg5Vktlc2VaMmtrUGRyRVJrWVp2Vkd2aUFHMDVDbU9lOTNZa05JaTlJ?=
+ =?utf-8?B?VitxZjlWOW1uVlQ0OGdCanBtZlFZV2xpM1JyZ0IrVUVQOTJtdnovZmFTSFN0?=
+ =?utf-8?B?cFdoS21zZ2Z2Y0FCT0VnUGppOWhESVFNYUR5UUdCbm5xTXQ4NXhtSzFmZ3Bi?=
+ =?utf-8?B?d1lmMjdtVkxWaUhvTVQvQ0tlKzI0NklqanNXemd5SmtEQlBjQ0pwSWVxNlBF?=
+ =?utf-8?B?ckhId05lUldBajRUNytZVzVFV0o3QTczQjdkK3NvU2V5RGJpZHJNZ1d1d3cy?=
+ =?utf-8?B?RXNVUlBiRGZsNUhGeDMyQmRDd1JsVGk2eGdFZU13cE9mSjNLZ3BWMmwwb2hI?=
+ =?utf-8?B?K2o2UG5XaXl4TkplUkU4TUIweVFXaG1UMHh2b3cvRzQ5UUtCSytvVllkNlFs?=
+ =?utf-8?B?bFBud3luVVZ2Nm1mSm5mUzMxOURRUzl3bDdGYmRmSkJZM0NPQk9QQ2txaWdo?=
+ =?utf-8?B?QSs3aXNZcnIrRVUyeGxmdFpudCtkVU43bVVQSWxWU2xBb3Uza3BtTWQ2N2pZ?=
+ =?utf-8?B?dm1YOXZvek1NRWxIZWdjZEl4UDN0bXBiSEhnc1UzMStXUTNDY3RQQll4OWFs?=
+ =?utf-8?B?dHVONHBESWp1ekk0TnZZdS9GUGc0WTJJQXhVREoxU1d2dUpSUHI3YnFoWmhq?=
+ =?utf-8?B?UUl1eXM3c2ErZGc4eE1YL1pYYjVseE9PWlUwbkkwd2lyTnYxbHBxeWtlQlFi?=
+ =?utf-8?B?Y0loRk9uc1lYYnE3U1k2NkRpQkFzVXk5TW5kT0YvNVp6ZUEyaHl4UEI1V1Ba?=
+ =?utf-8?B?ZTVOcXVBOEFld3NISWsySXZEdU01aXNFanVlT1VmYVRGdnJlZU84cmYwSWlk?=
+ =?utf-8?B?UDRXQm9zcFRiNGxOWHpQSDQxWTJleVVmaFhkUld0ZzVBOTZPTTBkTjVwKzJE?=
+ =?utf-8?B?QlI5ZzNCdC9aLy9UWENjdWpXVHBobmtNRUhMWk9meWdOUjViKzhSOWhDK0xI?=
+ =?utf-8?B?azBpVG1HbVRaN0htNk5hQldCMW9MK1BGUERiWWZvN3FaWlZUY1I5NjA2clhW?=
+ =?utf-8?B?MGZkSWZxTExlRjlxZnYwR3ZPaVh6MUtiWFE0UnBaai84T2FnTzhraUJaWFd1?=
+ =?utf-8?B?QWljTXF4Q0pPZUg3cmJUMm0rdlRNY1J2Y09sTWpLTFE1a2dJa3BwZk1qa1ll?=
+ =?utf-8?B?UGJSRHlSYzdQQU9PNDJHendreFRDaVRpcXNuRnVLRGVkamRGSnk0dXpSNnRW?=
+ =?utf-8?B?d3RSNVNjZmdIYUhtaVhLeUFTcTdGRlozTGxjVGtmT2F4cTRoZXhvUGcrTWNw?=
+ =?utf-8?B?L2JxVXkvVjZlZVFwQ0lmRkt0V3pialBCSi9XblFzdDV0NWVtcXVyRmQxaTU5?=
+ =?utf-8?B?SjMxcHllL0NDd2VHR3dpZ0hXM0lnQi9XWi83Y1I3SEJpQ0QxVFRBS21VdXJh?=
+ =?utf-8?B?UTZ3U1dDS0NiWkpUR3J1M0c1OVRJa09WcTNJWmo0NWFqd0ptUDMzMnpKU1pj?=
+ =?utf-8?B?U3V6b0dZV0l1dXZMYWZHSk80UEdvcmpQVTRiRTJ4VDYxUTdqMzl0Mmg4RHBz?=
+ =?utf-8?B?dFBHMG1XaVNOSzBkeno3TFlLZVd6WTVJNFd6V3NoQU1XaHZpLzFlQkRtbkdL?=
+ =?utf-8?Q?WwVA=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700013)(34020700016)(34070700014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2026 17:52:33.5264
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 61b533d5-7411-4f55-f587-08de4edeb39b
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009E.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB7390
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_093704_393879_6FADADBB 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20260108_095247_423295_E8D90321 
+X-CRM114-Status: GOOD (  18.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,413 +172,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Potentially unused definitions were discovered using:
+On 1/8/26 11:05, Bryan Brattlof wrote:
+> On January  7, 2026 thus sayeth Kendall Willis:
+>> On 1/7/26 10:45, Bryan Brattlof wrote:
+>>> On January  6, 2026 thus sayeth Kendall Willis:
+>>>> K3 TI AM62L SoC supports wakeup from WKUP UART when the SoC is in the
+>>>> DeepSleep low power mode. To allow wakeup from WKUP UART the target-module
+>>>> device tree node is enabled. The ti-sysc interconnect target module driver
+>>>> is used to configure the the SYSCONFIG related registers. In this case,
+>>>> the interconnect target module node configures the WKUP UART to be able to
+>>>> wakeup from system suspend. The SYSC register is used to enable wakeup
+>>>> from system suspend for the WKUP UART. Refer to 14.7.2.5 UART in the
+>>>> AM62L Techincal Reference Manual for registers referenced [1].
+>>>>
+>>>> Previous TI SoCs configure the WKUP UART to wakeup from system suspend
+>>>> using the ti-sysc interconnect target module driver. Refer to commit
+>>>> ce27f7f9e328 ("arm64: dts: ti: k3-am62-wakeup: Configure ti-sysc for
+>>>> wkup_uart0") for an example of this.
+>>>
+>>> I think I may be confused. What is setting the pinmux for the wkup_uart
+>>> to allow us to trigger the wake event? It looks like they reset to GPIO
+>>> pins if not set. Is firmware doing this?
+>>
+>> On AM62L, the WKUP UART pinmux is initially set by TFA so that it is set to
+>> the UART pins, not GPIO. The target-module node sets the WKUP UART SYSC
+>> register so that wakeup is enabled.
+>>
+> 
+> Nice however should we mark the UART in the board file as reserved for
+> TFA or is it free to be used by Linux and only during the low power
+> modes after Linux is asleep will it be used by TFA?
+> 
+> ~Bryan
 
-$ for m in $(grep '#define ' $header | sed -e 's,#define[  ]*\([^  ]*\)[   ].*,\1,;s,(.*,,'); do if ! grep -q $m *.c; then echo $m; fi; done
+Sorry for the confusion, I said earlier that the WKUP UART could be used 
+by firmware, but that is not to say it is specifically reserved by the 
+firmware in general. TFA sets the WKUP UART pins, but it does not use 
+the WKUP UART for anything else. The only exception for TFA using the 
+WKUP UART is if the user chooses to use the WKUP UART for TFA debugging [1].
 
-Each was verified, and then removed where truly unused.
+All of this to say that the WKUP UART *can* be used by Linux, it does 
+not need to be reserved for firmware.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../net/ethernet/stmicro/stmmac/dwmac100.h    | 29 ----------
- .../net/ethernet/stmicro/stmmac/dwmac1000.h   | 54 +------------------
- .../net/ethernet/stmicro/stmmac/dwmac4_dma.h  | 44 ---------------
- .../net/ethernet/stmicro/stmmac/dwmac_dma.h   | 23 --------
- 4 files changed, 1 insertion(+), 149 deletions(-)
+[1] 
+https://software-dl.ti.com/processor-sdk-linux/esd/AM62LX/latest/exports/docs/linux/Foundational_Components/Power_Management/pm_am62lx_debug.html
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac100.h b/drivers/net/ethernet/stmicro/stmmac/dwmac100.h
-index eae929955ad7..547863cb982f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac100.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac100.h
-@@ -30,59 +30,30 @@
- #define MAC_VLAN2	0x00000024	/* VLAN2 Tag */
- 
- /* MAC CTRL defines */
--#define MAC_CONTROL_RA	0x80000000	/* Receive All Mode */
--#define MAC_CONTROL_BLE	0x40000000	/* Endian Mode */
- #define MAC_CONTROL_HBD	0x10000000	/* Heartbeat Disable */
- #define MAC_CONTROL_PS	0x08000000	/* Port Select */
--#define MAC_CONTROL_DRO	0x00800000	/* Disable Receive Own */
--#define MAC_CONTROL_EXT_LOOPBACK 0x00400000	/* Reserved (ext loopback?) */
- #define MAC_CONTROL_OM	0x00200000	/* Loopback Operating Mode */
- #define MAC_CONTROL_F	0x00100000	/* Full Duplex Mode */
- #define MAC_CONTROL_PM	0x00080000	/* Pass All Multicast */
- #define MAC_CONTROL_PR	0x00040000	/* Promiscuous Mode */
- #define MAC_CONTROL_IF	0x00020000	/* Inverse Filtering */
--#define MAC_CONTROL_PB	0x00010000	/* Pass Bad Frames */
- #define MAC_CONTROL_HO	0x00008000	/* Hash Only Filtering Mode */
- #define MAC_CONTROL_HP	0x00002000	/* Hash/Perfect Filtering Mode */
--#define MAC_CONTROL_LCC	0x00001000	/* Late Collision Control */
--#define MAC_CONTROL_DBF	0x00000800	/* Disable Broadcast Frames */
--#define MAC_CONTROL_DRTY	0x00000400	/* Disable Retry */
--#define MAC_CONTROL_ASTP	0x00000100	/* Automatic Pad Stripping */
--#define MAC_CONTROL_BOLMT_10	0x00000000	/* Back Off Limit 10 */
--#define MAC_CONTROL_BOLMT_8	0x00000040	/* Back Off Limit 8 */
--#define MAC_CONTROL_BOLMT_4	0x00000080	/* Back Off Limit 4 */
--#define MAC_CONTROL_BOLMT_1	0x000000c0	/* Back Off Limit 1 */
--#define MAC_CONTROL_DC		0x00000020	/* Deferral Check */
--#define MAC_CONTROL_TE		0x00000008	/* Transmitter Enable */
--#define MAC_CONTROL_RE		0x00000004	/* Receiver Enable */
- 
- #define MAC_CORE_INIT (MAC_CONTROL_HBD)
- 
- /* MAC FLOW CTRL defines */
- #define MAC_FLOW_CTRL_PT_MASK	GENMASK(31, 16)	/* Pause Time Mask */
--#define MAC_FLOW_CTRL_PASS	0x00000004	/* Pass Control Frames */
- #define MAC_FLOW_CTRL_ENABLE	0x00000002	/* Flow Control Enable */
--#define MAC_FLOW_CTRL_PAUSE	0x00000001	/* Flow Control Busy ... */
--
--/* MII ADDR  defines */
--#define MAC_MII_ADDR_WRITE	0x00000002	/* MII Write */
--#define MAC_MII_ADDR_BUSY	0x00000001	/* MII Busy */
- 
- /*----------------------------------------------------------------------------
-  * 				DMA BLOCK defines
-  *---------------------------------------------------------------------------*/
- 
- /* DMA Bus Mode register defines */
--#define DMA_BUS_MODE_DBO	0x00100000	/* Descriptor Byte Ordering */
--#define DMA_BUS_MODE_BLE	0x00000080	/* Big Endian/Little Endian */
- #define DMA_BUS_MODE_PBL_MASK	GENMASK(13, 8)	/* Programmable Burst Len */
--#define DMA_BUS_MODE_DSL_MASK	GENMASK(6, 2)	/* Descriptor Skip Length */
--#define DMA_BUS_MODE_BAR_BUS	0x00000002	/* Bar-Bus Arbitration */
- #define DMA_BUS_MODE_DEFAULT	0x00000000
- 
--/* DMA Control register defines */
--#define DMA_CONTROL_SF		0x00200000	/* Store And Forward */
--
- /* Transmit Threshold Control */
- enum ttc_control {
- 	DMA_CONTROL_TTC_DEFAULT = 0x00000000,	/* Threshold is 32 DWORDS */
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
-index 17e013e97607..b3135df0a359 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
-@@ -20,15 +20,11 @@
- #define GMAC_FLOW_CTRL		0x00000018	/* Flow Control */
- #define GMAC_VLAN_TAG		0x0000001c	/* VLAN Tag */
- #define GMAC_DEBUG		0x00000024	/* GMAC debug register */
--#define GMAC_WAKEUP_FILTER	0x00000028	/* Wake-up Frame Filter */
- 
- #define GMAC_INT_STATUS		0x00000038	/* interrupt status register */
--#define GMAC_INT_STATUS_PMT	BIT(3)
--#define GMAC_INT_STATUS_MMCIS	BIT(4)
- #define GMAC_INT_STATUS_MMCRIS	BIT(5)
- #define GMAC_INT_STATUS_MMCTIS	BIT(6)
- #define GMAC_INT_STATUS_MMCCSUM	BIT(7)
--#define GMAC_INT_STATUS_TSTAMP	BIT(9)
- #define GMAC_INT_STATUS_LPIIS	BIT(10)
- 
- /* interrupt mask register */
-@@ -89,8 +85,6 @@ enum power_event {
- 
- /* GMAC Configuration defines */
- #define GMAC_CONTROL_2K 0x08000000	/* IEEE 802.3as 2K packets */
--#define GMAC_CONTROL_TC	0x01000000	/* Transmit Conf. in RGMII/SGMII */
--#define GMAC_CONTROL_WD	0x00800000	/* Disable Watchdog on receive */
- #define GMAC_CONTROL_JD	0x00400000	/* Jabber disable */
- #define GMAC_CONTROL_BE	0x00200000	/* Frame Burst Enable */
- #define GMAC_CONTROL_JE	0x00100000	/* Jumbo frame */
-@@ -102,41 +96,25 @@ enum inter_frame_gap {
- #define GMAC_CONTROL_DCRS	0x00010000	/* Disable carrier sense */
- #define GMAC_CONTROL_PS		0x00008000	/* Port Select 0:GMI 1:MII */
- #define GMAC_CONTROL_FES	0x00004000	/* Speed 0:10 1:100 */
--#define GMAC_CONTROL_DO		0x00002000	/* Disable Rx Own */
- #define GMAC_CONTROL_LM		0x00001000	/* Loop-back mode */
- #define GMAC_CONTROL_DM		0x00000800	/* Duplex Mode */
- #define GMAC_CONTROL_IPC	0x00000400	/* Checksum Offload */
--#define GMAC_CONTROL_DR		0x00000200	/* Disable Retry */
--#define GMAC_CONTROL_LUD	0x00000100	/* Link up/down */
--#define GMAC_CONTROL_ACS	0x00000080	/* Auto Pad/FCS Stripping */
--#define GMAC_CONTROL_DC		0x00000010	/* Deferral Check */
--#define GMAC_CONTROL_TE		0x00000008	/* Transmitter Enable */
--#define GMAC_CONTROL_RE		0x00000004	/* Receiver Enable */
- 
- #define GMAC_CORE_INIT (GMAC_CONTROL_JD | GMAC_CONTROL_PS | \
- 			GMAC_CONTROL_BE | GMAC_CONTROL_DCRS)
- 
- /* GMAC Frame Filter defines */
- #define GMAC_FRAME_FILTER_PR	0x00000001	/* Promiscuous Mode */
--#define GMAC_FRAME_FILTER_HUC	0x00000002	/* Hash Unicast */
- #define GMAC_FRAME_FILTER_HMC	0x00000004	/* Hash Multicast */
--#define GMAC_FRAME_FILTER_DAIF	0x00000008	/* DA Inverse Filtering */
- #define GMAC_FRAME_FILTER_PM	0x00000010	/* Pass all multicast */
--#define GMAC_FRAME_FILTER_DBF	0x00000020	/* Disable Broadcast frames */
- #define GMAC_FRAME_FILTER_PCF	0x00000080	/* Pass Control frames */
--#define GMAC_FRAME_FILTER_SAIF	0x00000100	/* Inverse Filtering */
--#define GMAC_FRAME_FILTER_SAF	0x00000200	/* Source Address Filter */
- #define GMAC_FRAME_FILTER_HPF	0x00000400	/* Hash or perfect Filter */
- #define GMAC_FRAME_FILTER_RA	0x80000000	/* Receive all mode */
--/* GMII ADDR  defines */
--#define GMAC_MII_ADDR_WRITE	0x00000002	/* MII Write */
--#define GMAC_MII_ADDR_BUSY	0x00000001	/* MII Busy */
- /* GMAC FLOW CTRL defines */
- #define GMAC_FLOW_CTRL_PT_MASK	GENMASK(31, 16)	/* Pause Time Mask */
- #define GMAC_FLOW_CTRL_UP	0x00000008	/* Unicast pause frame enable */
- #define GMAC_FLOW_CTRL_RFE	0x00000004	/* Rx Flow Control Enable */
- #define GMAC_FLOW_CTRL_TFE	0x00000002	/* Tx Flow Control Enable */
--#define GMAC_FLOW_CTRL_FCB_BPA	0x00000001	/* Flow Control Busy ... */
- 
- /* DEBUG Register defines */
- /* MTL TxStatus FIFO */
-@@ -145,14 +123,12 @@ enum inter_frame_gap {
- #define GMAC_DEBUG_TWCSTS	BIT(22) /* MTL Tx FIFO Write Controller */
- /* MTL Tx FIFO Read Controller Status */
- #define GMAC_DEBUG_TRCSTS_MASK	GENMASK(21, 20)
--#define GMAC_DEBUG_TRCSTS_IDLE	0
- #define GMAC_DEBUG_TRCSTS_READ	1
- #define GMAC_DEBUG_TRCSTS_TXW	2
- #define GMAC_DEBUG_TRCSTS_WRITE	3
- #define GMAC_DEBUG_TXPAUSED	BIT(19) /* MAC Transmitter in PAUSE */
- /* MAC Transmit Frame Controller Status */
- #define GMAC_DEBUG_TFCSTS_MASK	GENMASK(18, 17)
--#define GMAC_DEBUG_TFCSTS_IDLE	0
- #define GMAC_DEBUG_TFCSTS_WAIT	1
- #define GMAC_DEBUG_TFCSTS_GEN_PAUSE	2
- #define GMAC_DEBUG_TFCSTS_XFER	3
-@@ -176,9 +152,6 @@ enum inter_frame_gap {
- 
- /*--- DMA BLOCK defines ---*/
- /* DMA Bus Mode register defines */
--#define DMA_BUS_MODE_DA		0x00000002	/* Arbitration scheme */
--#define DMA_BUS_MODE_DSL_MASK	0x0000007c	/* Descriptor Skip Length */
--#define DMA_BUS_MODE_DSL_SHIFT	2		/*   (in DWORDS)      */
- /* Programmable burst length (passed thorugh platform)*/
- #define DMA_BUS_MODE_PBL_MASK	GENMASK(13, 8)	/* Programmable Burst Len */
- #define DMA_BUS_MODE_ATDS	0x00000080	/* Alternate Descriptor Size */
-@@ -197,16 +170,9 @@ enum rx_tx_priority_ratio {
- #define DMA_BUS_MODE_AAL	0x02000000
- 
- /* DMA CRS Control and Status Register Mapping */
--#define DMA_HOST_TX_DESC	  0x00001048	/* Current Host Tx descriptor */
--#define DMA_HOST_RX_DESC	  0x0000104c	/* Current Host Rx descriptor */
--/*  DMA Bus Mode register defines */
--#define DMA_BUS_PR_RATIO_MASK	  0x0000c000	/* Rx/Tx priority ratio */
--#define DMA_BUS_PR_RATIO_SHIFT	  14
--#define DMA_BUS_FB	  	  0x00010000	/* Fixed Burst */
- 
- /* DMA operation mode defines (start/stop tx/rx are placed in common header)*/
- /* Disable Drop TCP/IP csum error */
--#define DMA_CONTROL_DT		0x04000000
- #define DMA_CONTROL_RSF		0x02000000	/* Receive Store and Forward */
- #define DMA_CONTROL_DFF		0x01000000	/* Disaable flushing */
- /* Threshold for Activating the FC */
-@@ -238,8 +204,6 @@ enum ttc_control {
- #define DMA_CONTROL_TC_TX_MASK	0xfffe3fff
- 
- #define DMA_CONTROL_EFC		0x00000100
--#define DMA_CONTROL_FEF		0x00000080
--#define DMA_CONTROL_FUF		0x00000040
- 
- /* Receive flow control activation field
-  * RFA field in DMA control register, bits 23,10:9
-@@ -276,20 +240,8 @@ enum ttc_control {
-  */
- 
- #define RFA_FULL_MINUS_1K	0x00000000
--#define RFA_FULL_MINUS_2K	0x00000200
--#define RFA_FULL_MINUS_3K	0x00000400
--#define RFA_FULL_MINUS_4K	0x00000600
--#define RFA_FULL_MINUS_5K	0x00800000
--#define RFA_FULL_MINUS_6K	0x00800200
--#define RFA_FULL_MINUS_7K	0x00800400
--
--#define RFD_FULL_MINUS_1K	0x00000000
-+
- #define RFD_FULL_MINUS_2K	0x00000800
--#define RFD_FULL_MINUS_3K	0x00001000
--#define RFD_FULL_MINUS_4K	0x00001800
--#define RFD_FULL_MINUS_5K	0x00400000
--#define RFD_FULL_MINUS_6K	0x00400800
--#define RFD_FULL_MINUS_7K	0x00401000
- 
- enum rtc_control {
- 	DMA_CONTROL_RTC_64 = 0x00000000,
-@@ -302,10 +254,6 @@ enum rtc_control {
- #define DMA_CONTROL_OSF	0x00000004	/* Operate on second frame */
- 
- /* MMC registers offset */
--#define GMAC_MMC_CTRL      0x100
--#define GMAC_MMC_RX_INTR   0x104
--#define GMAC_MMC_TX_INTR   0x108
--#define GMAC_MMC_RX_CSUM_OFFLOAD   0x208
- #define GMAC_EXTHASH_BASE  0x500
- 
- /* PTP and timestamping registers */
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-index e8f103cb6cd5..5f1e2916f099 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-@@ -24,7 +24,6 @@
- 
- #define DMA_SYS_BUS_MODE		0x00001004
- 
--#define DMA_BUS_MODE_SPH		BIT(24)
- #define DMA_BUS_MODE_PBL		BIT(16)
- #define DMA_BUS_MODE_RPBL_MASK		GENMASK(21, 16)
- #define DMA_BUS_MODE_MB			BIT(14)
-@@ -32,24 +31,6 @@
- 
- #define DMA_STATUS			0x00001008
- 
--#define DMA_STATUS_MAC			BIT(17)
--#define DMA_STATUS_MTL			BIT(16)
--#define DMA_STATUS_CHAN7		BIT(7)
--#define DMA_STATUS_CHAN6		BIT(6)
--#define DMA_STATUS_CHAN5		BIT(5)
--#define DMA_STATUS_CHAN4		BIT(4)
--#define DMA_STATUS_CHAN3		BIT(3)
--#define DMA_STATUS_CHAN2		BIT(2)
--#define DMA_STATUS_CHAN1		BIT(1)
--#define DMA_STATUS_CHAN0		BIT(0)
--
--#define DMA_DEBUG_STATUS_0		0x0000100c
--#define DMA_DEBUG_STATUS_1		0x00001010
--#define DMA_DEBUG_STATUS_2		0x00001014
--
--#define DMA_DEBUG_STATUS_TS_MASK	0xf
--#define DMA_DEBUG_STATUS_RS_MASK	0xf
--
- #define DMA_AXI_BUS_MODE		0x00001028
- 
- #define DMA_AXI_EN_LPI			BIT(31)
-@@ -58,16 +39,10 @@
- #define DMA_AXI_RD_OSR_LMT		GENMASK(19, 16)
- 
- #define DMA_SYS_BUS_MB			BIT(14)
--#define DMA_AXI_1KBBE			BIT(13)
- #define DMA_SYS_BUS_AAL			DMA_AXI_AAL
- #define DMA_SYS_BUS_EAME		BIT(11)
- #define DMA_SYS_BUS_FB			BIT(0)
- 
--#define DMA_BURST_LEN_DEFAULT		(DMA_AXI_BLEN256 | DMA_AXI_BLEN128 | \
--					DMA_AXI_BLEN64 | DMA_AXI_BLEN32 | \
--					DMA_AXI_BLEN16 | DMA_AXI_BLEN8 | \
--					DMA_AXI_BLEN4)
--
- #define DMA_TBS_CTRL			0x00001050
- 
- #define DMA_TBS_FTOS			GENMASK(31, 8)
-@@ -91,12 +66,9 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
- 	return addr;
- }
- 
--#define DMA_CHAN_REG_NUMBER		17
--
- #define DMA_CHAN_CONTROL(addrs, x)	dma_chanx_base_addr(addrs, x)
- 
- #define DMA_CONTROL_SPH			BIT(24)
--#define DMA_CONTROL_MSS_MASK		GENMASK(13, 0)
- 
- #define DMA_CHAN_TX_CONTROL(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x4)
- 
-@@ -125,16 +97,8 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
- #define DMA_CHAN_INTR_ENA_AIE		BIT(15)
- #define DMA_CHAN_INTR_ENA_NIE_4_10	BIT(15)
- #define DMA_CHAN_INTR_ENA_AIE_4_10	BIT(14)
--#define DMA_CHAN_INTR_ENA_CDE		BIT(13)
- #define DMA_CHAN_INTR_ENA_FBE		BIT(12)
--#define DMA_CHAN_INTR_ENA_ERE		BIT(11)
--#define DMA_CHAN_INTR_ENA_ETE		BIT(10)
--#define DMA_CHAN_INTR_ENA_RWE		BIT(9)
--#define DMA_CHAN_INTR_ENA_RSE		BIT(8)
--#define DMA_CHAN_INTR_ENA_RBUE		BIT(7)
- #define DMA_CHAN_INTR_ENA_RIE		BIT(6)
--#define DMA_CHAN_INTR_ENA_TBUE		BIT(2)
--#define DMA_CHAN_INTR_ENA_TSE		BIT(1)
- #define DMA_CHAN_INTR_ENA_TIE		BIT(0)
- 
- #define DMA_CHAN_INTR_NORMAL		(DMA_CHAN_INTR_ENA_NIE | \
-@@ -173,9 +137,6 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
- 
- /* Interrupt status per channel */
- #define DMA_CHAN_STATUS_REB		GENMASK(21, 19)
--#define DMA_CHAN_STATUS_REB_SHIFT	19
--#define DMA_CHAN_STATUS_TEB		GENMASK(18, 16)
--#define DMA_CHAN_STATUS_TEB_SHIFT	16
- #define DMA_CHAN_STATUS_NIS		BIT(15)
- #define DMA_CHAN_STATUS_AIS		BIT(14)
- #define DMA_CHAN_STATUS_CDE		BIT(13)
-@@ -209,11 +170,6 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
- 					 DMA_CHAN_STATUS_TI | \
- 					 DMA_CHAN_STATUS_MSK_COMMON)
- 
--#define DMA_CHAN0_DBG_STAT_TPS		GENMASK(15, 12)
--#define DMA_CHAN0_DBG_STAT_TPS_SHIFT	12
--#define DMA_CHAN0_DBG_STAT_RPS		GENMASK(11, 8)
--#define DMA_CHAN0_DBG_STAT_RPS_SHIFT	8
--
- int dwmac4_dma_reset(void __iomem *ioaddr);
- void dwmac4_enable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
- 			   u32 chan, bool rx, bool tx);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
-index a57ecef098e3..e1c37ac2c99d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
-@@ -22,13 +22,9 @@
- #define DMA_TX_BASE_ADDR	0x00001010	/* Transmit List Base */
- 
- #define DMA_STATUS		0x00001014	/* Status Register */
--#define DMA_STATUS_GLPII	0x40000000	/* GMAC LPI interrupt */
- #define DMA_STATUS_GPI		0x10000000	/* PMT interrupt */
- #define DMA_STATUS_GMI		0x08000000	/* MMC interrupt */
- #define DMA_STATUS_GLI		0x04000000	/* GMAC Line interface int */
--#define DMA_STATUS_EB_MASK	0x00380000	/* Error Bits Mask */
--#define DMA_STATUS_EB_TX_ABORT	0x00080000	/* Error Bits - TX Abort */
--#define DMA_STATUS_EB_RX_ABORT	0x00100000	/* Error Bits - RX Abort */
- #define DMA_STATUS_TS_MASK	GENMASK(22, 20)	/* Transmit Process State */
- #define DMA_STATUS_RS_MASK	GENMASK(19, 17)	/* Receive Process State */
- #define DMA_STATUS_NIS	0x00010000	/* Normal Interrupt Summary */
-@@ -79,9 +75,7 @@
- /* DMA Normal interrupt */
- #define DMA_INTR_ENA_NIE 0x00010000	/* Normal Summary */
- #define DMA_INTR_ENA_TIE 0x00000001	/* Transmit Interrupt */
--#define DMA_INTR_ENA_TUE 0x00000004	/* Transmit Buffer Unavailable */
- #define DMA_INTR_ENA_RIE 0x00000040	/* Receive Interrupt */
--#define DMA_INTR_ENA_ERE 0x00004000	/* Early Receive */
- 
- #define DMA_INTR_NORMAL	(DMA_INTR_ENA_NIE | DMA_INTR_ENA_RIE | \
- 			DMA_INTR_ENA_TIE)
-@@ -89,14 +83,7 @@
- /* DMA Abnormal interrupt */
- #define DMA_INTR_ENA_AIE 0x00008000	/* Abnormal Summary */
- #define DMA_INTR_ENA_FBE 0x00002000	/* Fatal Bus Error */
--#define DMA_INTR_ENA_ETE 0x00000400	/* Early Transmit */
--#define DMA_INTR_ENA_RWE 0x00000200	/* Receive Watchdog */
--#define DMA_INTR_ENA_RSE 0x00000100	/* Receive Stopped */
--#define DMA_INTR_ENA_RUE 0x00000080	/* Receive Buffer Unavailable */
- #define DMA_INTR_ENA_UNE 0x00000020	/* Tx Underflow */
--#define DMA_INTR_ENA_OVE 0x00000010	/* Receive Overflow */
--#define DMA_INTR_ENA_TJE 0x00000008	/* Transmit Jabber */
--#define DMA_INTR_ENA_TSE 0x00000002	/* Transmit Stopped */
- 
- #define DMA_INTR_ABNORMAL	(DMA_INTR_ENA_AIE | DMA_INTR_ENA_FBE | \
- 				DMA_INTR_ENA_UNE)
-@@ -128,8 +115,6 @@ static inline u32 dma_chan_base_addr(u32 base, u32 chan)
- #define DMA_CHAN_STATUS(chan)	dma_chan_base_addr(DMA_STATUS, chan)
- #define DMA_CHAN_CONTROL(chan)	dma_chan_base_addr(DMA_CONTROL, chan)
- #define DMA_CHAN_INTR_ENA(chan)	dma_chan_base_addr(DMA_INTR_ENA, chan)
--#define DMA_CHAN_MISSED_FRAME_CTR(chan)	\
--				dma_chan_base_addr(DMA_MISSED_FRAME_CTR, chan)
- #define DMA_CHAN_RX_WATCHDOG(chan)	\
- 				dma_chan_base_addr(DMA_RX_WATCHDOG, chan)
- 
-@@ -145,14 +130,6 @@ static inline u32 dma_chan_base_addr(u32 base, u32 chan)
- #define DMA_AXI_WR_OSR_LMT	GENMASK(23, 20)
- #define DMA_AXI_RD_OSR_LMT	GENMASK(19, 16)
- 
--#define DMA_AXI_OSR_MAX		0xf
--#define DMA_AXI_MAX_OSR_LIMIT ((DMA_AXI_OSR_MAX << DMA_AXI_WR_OSR_LMT_SHIFT) | \
--			       (DMA_AXI_OSR_MAX << DMA_AXI_RD_OSR_LMT_SHIFT))
--#define DMA_BURST_LEN_DEFAULT	(DMA_AXI_BLEN256 | DMA_AXI_BLEN128 | \
--				 DMA_AXI_BLEN64 | DMA_AXI_BLEN32 | \
--				 DMA_AXI_BLEN16 | DMA_AXI_BLEN8 | \
--				 DMA_AXI_BLEN4)
--
- #define	DMA_AXI_1KBBE		BIT(13)
- 
- #define DMA_AXI_UNDEF		BIT(0)
--- 
-2.47.3
-
+Best,
+Kendall
 
