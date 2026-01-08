@@ -4,113 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10494D1D48A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 21:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B6F9D1D48A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 21:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
 	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5QDz5yJgmx0439uD0ntmtxod09pLPWy27GZMDx1s30w=; b=orn2+JvKqkJhevyWNY2K7WPwdk
-	kaiSMC82QaFChRhLfT8eKUhcDW0qZHOB+ufSFW4oZcUWOhqunHvK/pNeSykmp5wYijtS20ASj8u1U
-	MWI3IgDRGiv//RYqE4SMXiTcRkV/LSV4EnCeYCovpoEKvmd+iaDz6izGQwT7+5yGOT6l7YmUOWMAt
-	VNhxrdOyY7Rf5hj2nz1kTkONRJlrYfmFTHgGUj3/Ivv4jUgFIgzQSn9Q/Keli4tuspboxblt05Sid
-	Nb2+8mzsRa9par/Uy9u58KKwMp7STKKVCSlUwfEvEijRDf0jsseJFyFnGghhRu1K/+ls2wVdn1Nts
-	38PZszYA==;
+	bh=pi8aTSDXEqFb0AtS29g5AANtZt1DyRnbPSfQSa91eEQ=; b=aUM/nrS8jlRAvceaqNYVd6aMj4
+	9p4NLslgIYmSQdPOAyY1fMpqp5OOPna2Jyiv64sRWi+qKCdyXZvZOcvZCiRWUtXBBzLVOlIUUwBoh
+	H6HHuvlOE59GYZ1JNu/RRHuHTdeXi0LOtT12WlQ6jo2kHiL1Wm4u62SgBUcz8LCVt3iDQZSqww2xD
+	DparkePG/NCWfdz60LLWfmYQFELU68a4d/9dMD6ybhWXzkawweBL4/UUCGtQ3Zrdq0sa8sgryXPa6
+	jV7ySUNx5xGYqkRKkrgo1vUO5xMbXBoG3E5dJX/kqrpkHF4fWBaDrDJJiL7xGnUByGuUIoyWjef/X
+	EyW/N6ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdxPJ-00000000tLc-0HFF;
-	Thu, 08 Jan 2026 21:19:01 +0000
+	id 1vdxPY-00000000tUo-1eZf;
+	Thu, 08 Jan 2026 21:19:16 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdxPF-00000000tIk-41Cw
+	id 1vdxPT-00000000tRV-1a5W
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 21:18:59 +0000
+	Thu, 08 Jan 2026 21:19:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1767907136;
+	s=mimecast20190719; t=1767907150;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=5QDz5yJgmx0439uD0ntmtxod09pLPWy27GZMDx1s30w=;
-	b=BsaKeO/fPuxKFrU0HG/h38eFXzTzyue14DhNE9+ivU4OeNx9D+6HHGjqIVLfh6mwIyJdqf
-	Yf9d9R6q2+XEKBj5XYYqyCv2+Dh5csbH6rObjQbyteqjo+7UlQVLC9VSASZR+FY4hfqVtw
-	M+aYkcshd6MEa5YcCVvLiKX6tGdZ26w=
-Received: from mail-vs1-f70.google.com (mail-vs1-f70.google.com
- [209.85.217.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=pi8aTSDXEqFb0AtS29g5AANtZt1DyRnbPSfQSa91eEQ=;
+	b=H/WA5AQeaEe/AEGI1YLs2d2Y73P0xEiVdivifWpPiq43uCm/l+r0Oetq/F0Ew35XAETpLN
+	G+FUf6t6t0EY5Zrs3P6OvjSJNCvH+Jfat20Qkk1hAQE1KAU/Kq3knX2oemT4Ua9xv5OEZs
+	7qk3IAuDEVbqXvCidFOmhYCgHxbE2gU=
+Received: from mail-vs1-f72.google.com (mail-vs1-f72.google.com
+ [209.85.217.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-633-5LxDt_I2Mweg8DXW7DlcCw-1; Thu, 08 Jan 2026 16:18:55 -0500
-X-MC-Unique: 5LxDt_I2Mweg8DXW7DlcCw-1
-X-Mimecast-MFC-AGG-ID: 5LxDt_I2Mweg8DXW7DlcCw_1767907135
-Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-5ec8781f59cso1852700137.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 13:18:55 -0800 (PST)
+ us-mta-561-f6GHdWT6OVy2vzxZo2m6GA-1; Thu, 08 Jan 2026 16:19:09 -0500
+X-MC-Unique: f6GHdWT6OVy2vzxZo2m6GA-1
+X-Mimecast-MFC-AGG-ID: f6GHdWT6OVy2vzxZo2m6GA_1767907148
+Received: by mail-vs1-f72.google.com with SMTP id ada2fe7eead31-5eea3639aa9so1313101137.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 13:19:09 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767907135; x=1768511935;
+        d=1e100.net; s=20230601; t=1767907148; x=1768511948;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=5QDz5yJgmx0439uD0ntmtxod09pLPWy27GZMDx1s30w=;
-        b=CgKNxTxeykli5Odp+dhsmqnuqSAzWGNgalpCjhudXeKlG0ldr9MLUn7uwEVi1rqrHO
-         wuJhAlYjgeavQIqu/eHwEv/QPQ6JUh1uZCG2/Ghzz5aKpDIikJeAmpw2fJxTaaNP8cQ0
-         9lDb+d5O4r5e06SOO6j1RRQJbxlyNZGZdziUHGqSmnw8Sbd7D2FZBnZhu5AER10UZWie
-         7FfWmr4wddv9KmfIGL29ITRbfLbs2yqRsIe1ABqtML+eMvn/BheP1FCHc72Wwm3n+6/G
-         cZE2ovZ86fYkJGVlO0Y7CsOqC42jhSPFfJdzl0qqkTDQRYBuqp2fmq3FUxEJahHQqsT7
-         /9ZA==
-X-Forwarded-Encrypted: i=1; AJvYcCWll8+zRJrKp9a6mpV6llO6DfWqeyQAQLOdn+TscxR3GUhQ6LcCaoP0JiUDDKGUJA1Yw/08/ML9EYrLkcR4hB7x@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfSwy85fHCWyYY+9q1cGqbnItgCaEJltihmZfURUpiuB2EyW42
-	yxIAy3DIDWW2nBt18cmwmOwg+fF4E1fMSQ4A9aC+NfEnWYA8GGgAyHqQqmLNkebbZFRBo9i8QPr
-	WvmT7rFubwZ/B0VY18p+3D2xrhukQXtatBbp/WzY02ZtdTQahf1H7cZb24cwSZlZw94zfHotw+D
-	Xs
-X-Gm-Gg: AY/fxX6y4p2Kjc7bbYj309L6jMhMj95OpgY8fgB6wTyxxYzsuMZtf2lq/Lw0i8siByG
-	b3NmO0PcaQCQCUy7/C5mPClhXgSyFkzhXTmqzv/iszyIaO0GccNEWuaGwq7eBNMDIs4i1S6nCwG
-	S7QVSTnKHk7O7fSHn+VcRttNVj4rFAc/3e4Pp6r7ozZNFWOY/UFiP3NkbRHd6VlRFY7vnUhg6Oc
-	PVYbGRV92H/AqUc6K2zbSdseVowRyebTtXCJmf1Wp+aKBV288cccFyZ2IO+Ee3YHtSQs5oM2E40
-	ntCVXVOlwMDw4yKAuQGq0TZgP2Gwwsyr2dimLXnB1aFhvPU6FAvWL8qFATOtUekAnnB+RanmI42
-	TqX5v8e77aQFx4bM=
-X-Received: by 2002:a05:6102:2b8c:b0:5ec:848d:2eb3 with SMTP id ada2fe7eead31-5ecb560294amr3157841137.19.1767907135140;
-        Thu, 08 Jan 2026 13:18:55 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IG+wVo31RtnFWHlhbf1gwVuy01FPzefAIXV8pM4OiwoVNvycs5UB0kClvVq2bdd3YZxuh0SVQ==
-X-Received: by 2002:a05:6102:2b8c:b0:5ec:848d:2eb3 with SMTP id ada2fe7eead31-5ecb560294amr3157824137.19.1767907134612;
-        Thu, 08 Jan 2026 13:18:54 -0800 (PST)
+        bh=pi8aTSDXEqFb0AtS29g5AANtZt1DyRnbPSfQSa91eEQ=;
+        b=fwlpIqmsita9MF6sCG/F8xEhHDG6iJ2b0hw044AnvDeEcwT+aFbdnfAcX44XT4WcDp
+         kcXZaterD4xxouc2sW8Zen0OXM/NYTfidXtA7pd8MEaNCNA3FC3IF4i2tNFzc5L5b2/l
+         Vf4kFlqut8cBHdX+ubkt5nWIZrykrgtjdqZV61CroT+EOJLtcZ9tYlemEnVcFVLc+0LB
+         oDyCJq/cni6fOWehGcKA0372/w2TzLV5IymVbsE6B27VmEdcIzK6I+b/9/oQqxajmvFg
+         53ygS6vKgvSwsx+XlpEWcf0oLIs97KsL05jptdVBbNJ8UUzqYuYq93fq27dihcLbqVRD
+         s/KQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVKgzQDxzhB0nnwmcAnWRMjYSbd2ZTxXcWt3IBsgMztj+croLiPCUdhUHx1XxOo9WtPHshHc5zW26M1M4FmE9iZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx39+CJqcUUfrCR9+nDhpS345JRHgHsZ3qjTRzBwwo5vbMuAKfi
+	hWFnFn8WAN+a0w7B9Hs+sPRtrhx1/e+TSdVeBOz1nnt88YtspjSgK44u6EjlFKQsHL2PHW/slwi
+	RB8XSTmYhuehtPc3gOZnbJcdOFEGqb2s9vSAvYZWmqmY3DOqLnLabk1CBPCxrbX+NnwbpBxH661
+	LO
+X-Gm-Gg: AY/fxX4vQ7cx4yT9j83XV08+q2p5TxMDEwrt8BuTKpgNXT5V53tp0DYAfbAK6wAAna4
+	d5swCahonv2n92wX5uHNnrp8uvG6klHT3LI3QlRK4Kf0P4F2R0moYQaao2sPn4wuwUaQqo+Jhpm
+	DmAmGgyjfIn9Pe8nuDPEhTPQ+etBtiUqcUMtWm9tqLN84k9fqHb37YKzOkVO6u3svMrEO7zHwRA
+	qvgeCWXwqq+LOL1EppEiEob/w15aozS39u9y9kJu7DrCwqtn9EuMdczObqB+LRYLG4ARXjHsIvF
+	3cvI2LJAYV2PnUzLYScxoWY1NiwdrKztlnjUZHCN2MfLTYEHOMRG0iQhMpdqN64zLAk3Lr4/Pcn
+	gd8tG2jUyc3czYLo=
+X-Received: by 2002:a05:6102:419e:b0:5e5:6eee:8adb with SMTP id ada2fe7eead31-5ecb1e6f442mr2910878137.4.1767907148426;
+        Thu, 08 Jan 2026 13:19:08 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGjkDxe401WB7XCmqhdQfn1Yq9q/xtZIkqczooAI9hDDE/Fw/5ZqkXt9GSFjs3KqeCx/N8xaw==
+X-Received: by 2002:a05:6102:419e:b0:5e5:6eee:8adb with SMTP id ada2fe7eead31-5ecb1e6f442mr2910863137.4.1767907148014;
+        Thu, 08 Jan 2026 13:19:08 -0800 (PST)
 Received: from [10.30.226.224] ([2600:382:811f:d757:daa5:b867:12a3:9d12])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5ec77064e86sm7623329137.7.2026.01.08.13.18.49
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5ec77064e86sm7623329137.7.2026.01.08.13.19.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Jan 2026 13:18:54 -0800 (PST)
+        Thu, 08 Jan 2026 13:19:07 -0800 (PST)
 From: Brian Masney <bmasney@redhat.com>
-Date: Thu, 08 Jan 2026 16:16:38 -0500
-Subject: [PATCH 20/27] clk: stm32: stm32-core: convert from
- divider_round_rate_parent() to divider_determine_rate()
+Date: Thu, 08 Jan 2026 16:16:41 -0500
+Subject: [PATCH 23/27] clk: zynqmp: divider: convert from
+ divider_round_rate() to divider_determine_rate()
 MIME-Version: 1.0
-Message-Id: <20260108-clk-divider-round-rate-v1-20-535a3ed73bf3@redhat.com>
+Message-Id: <20260108-clk-divider-round-rate-v1-23-535a3ed73bf3@redhat.com>
 References: <20260108-clk-divider-round-rate-v1-0-535a3ed73bf3@redhat.com>
 In-Reply-To: <20260108-clk-divider-round-rate-v1-0-535a3ed73bf3@redhat.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>
 Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Brian Masney <bmasney@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- linux-stm32@st-md-mailman.stormreply.com, 
+ Brian Masney <bmasney@redhat.com>, Michal Simek <michal.simek@amd.com>, 
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2480; i=bmasney@redhat.com;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1468; i=bmasney@redhat.com;
  s=20250903; h=from:subject:message-id;
- bh=1zGr1VEhUSEgUAAiV8B/qL6RDaMkiVVGUfjryyBP0yI=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGDIT5HZ+rVz4cq5P358Ldj9m7J33rWhF42pTTu5vx/bOq
- vD+uDptd0cpC4MYF4OsmCLLklyjgojUVbb37miywMxhZQIZwsDFKQATCT/H8Fc20NW1ctEMhvb1
- eUtmWJ9753w9LOauSY9OqHpK5FGLq08Y/jvaJGQWz50Y9HLBob45cZedTKY73G51alpxMHDtvcU
- MsWwA
+ bh=obGg7UzQWRzDKZpy5Gk4sjLlNTrtDOG8AhKUHRKX6zk=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGDIT5Hb93Mva9tclyPhOy56Un696Q2YrvHruccon7rjkh
+ C/bN+7811HKwiDGxSArpsiyJNeoICJ1le29O5osMHNYmUCGMHBxCsBEvhgxMswNc/g1N/iT6PZH
+ G/5LGXkHrD8o0Xhj62/bnZklTBfNVxYxMrwInrTR6Ne1vN1MkkfTZpZNn1UrVOtnubLn/OVL9Vu
+ PfeEDAA==
 X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
  fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: k5E22L0HZ-0xfQRc3gMvTa2jXgh3wSObYpDvuf23uPE_1767907135
+X-Mimecast-MFC-PROC-ID: 1BuLQzLZvdtCjEg6zSMq6sPmwfD2qJ6BIrFJLmOsWLk_1767907148
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_131858_410135_C842D23C 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20260108_131911_510187_ED36F7C2 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,9 +122,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The divider_round_rate_parent() function is now deprecated, so let's
-migrate to divider_determine_rate() instead so that this deprecated API
-can be removed.
+The divider_round_rate() function is now deprecated, so let's migrate
+to divider_determine_rate() instead so that this deprecated API can be
+removed.
 
 Note that when the main function itself was migrated to use
 determine_rate, this was mistakenly converted to:
@@ -137,63 +134,32 @@ determine_rate, this was mistakenly converted to:
 This is invalid in the case when an error occurs since it can set the
 rate to a negative value.
 
-Fixes: cd1cb38836c0 ("clk: stm32: stm32-core: convert from round_rate() to determine_rate()")
+Fixes: 0f9cf96a01fd ("clk: zynqmp: divider: convert from round_rate() to determine_rate()")
 Signed-off-by: Brian Masney <bmasney@redhat.com>
 
 ---
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-stm32@st-md-mailman.stormreply.com
+To: Michal Simek <michal.simek@amd.com>
 Cc: linux-arm-kernel@lists.infradead.org
 ---
- drivers/clk/stm32/clk-stm32-core.c | 20 ++++----------------
- 1 file changed, 4 insertions(+), 16 deletions(-)
+ drivers/clk/zynqmp/divider.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/clk/stm32/clk-stm32-core.c b/drivers/clk/stm32/clk-stm32-core.c
-index b95b9c591fda7d900d523f50c8bd449398aba49f..e921c25a929c303a2e189bf876667178a123eae1 100644
---- a/drivers/clk/stm32/clk-stm32-core.c
-+++ b/drivers/clk/stm32/clk-stm32-core.c
-@@ -375,13 +375,8 @@ static int clk_stm32_divider_determine_rate(struct clk_hw *hw,
- 						 divider->flags, val);
- 	}
+diff --git a/drivers/clk/zynqmp/divider.c b/drivers/clk/zynqmp/divider.c
+index c824eeacd8ebd4d670d78f1af2186e61008bdae2..de6f478d527d89881a9c0deb04e7bc0a5bf6ebba 100644
+--- a/drivers/clk/zynqmp/divider.c
++++ b/drivers/clk/zynqmp/divider.c
+@@ -151,8 +151,9 @@ static int zynqmp_clk_divider_determine_rate(struct clk_hw *hw,
  
--	req->rate = divider_round_rate_parent(hw, clk_hw_get_parent(hw),
--					      req->rate,
--					      &req->best_parent_rate,
--					      divider->table,
--					      divider->width, divider->flags);
--
--	return 0;
-+	return divider_determine_rate(hw, req, divider->table, divider->width,
-+				      divider->flags);
- }
+ 	width = fls(divider->max_div);
  
- static unsigned long clk_stm32_divider_recalc_rate(struct clk_hw *hw,
-@@ -438,7 +433,6 @@ static int clk_stm32_composite_determine_rate(struct clk_hw *hw,
- {
- 	struct clk_stm32_composite *composite = to_clk_stm32_composite(hw);
- 	const struct stm32_div_cfg *divider;
--	long rate;
+-	req->rate = divider_round_rate(hw, req->rate, &req->best_parent_rate,
+-				       NULL, width, divider->flags);
++	ret = divider_determine_rate(hw, req, NULL, width, divider->flags);
++	if (ret != 0)
++		return ret;
  
- 	if (composite->div_id == NO_STM32_DIV)
- 		return 0;
-@@ -457,14 +451,8 @@ static int clk_stm32_composite_determine_rate(struct clk_hw *hw,
- 						 val);
- 	}
- 
--	rate = divider_round_rate_parent(hw, clk_hw_get_parent(hw),
--					 req->rate, &req->best_parent_rate,
--					 divider->table, divider->width, divider->flags);
--	if (rate < 0)
--		return rate;
--
--	req->rate = rate;
--	return 0;
-+	return divider_determine_rate(hw, req, divider->table, divider->width,
-+				      divider->flags);
- }
- 
- static u8 clk_stm32_composite_get_parent(struct clk_hw *hw)
+ 	if (divider->is_frac && (clk_hw_get_flags(hw) & CLK_SET_RATE_PARENT) &&
+ 	    (req->rate % req->best_parent_rate))
 
 -- 
 2.52.0
