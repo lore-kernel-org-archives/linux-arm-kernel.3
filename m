@@ -4,70 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E279D185DD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 12:09:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61033D185DD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 12:10:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2e90SFEWXzFdLA8zLbqG5A+4EPPS19gYfKfGjqnh7To=; b=Tsbg0bHPnotIiIntpxMCm1sSW3
-	Y/CjhAxBJ3fg8L5g/YJtMp/xEThIABy7ajjk/cswp1/UF6qWkg33lbd4w8s4GZGToY+TbPoHxnKnP
-	V4FrMUtbXRNp8u6cn1KYM+/eDlzzJjGQkH9OYhospBmKk0D140tK92Hxv+Ks+GFvvTRPdMKw0Sc84
-	0kWgSug9OgvQH7bHv2UMJuiSDwiSmLH5pKBO2kcxI3SnbeBcmxn7E+xlez6jMS96Bwu0XxTNE8EAj
-	tf00T80PyXKVWusdPyLwEjsVJLkWsoCOtBBwo6sI3nT4Cj11o1zNzCpHjz6CQiTNr9X7hDy3Lvt8v
-	LLWwA0oA==;
+	bh=e9Gn14IpojzvUVrHWdXmzVkyL12/O34BYkSCNxkLXBk=; b=4FZqs1FlvZcr1wMnuOvrbQ2g76
+	hQXmrJ/S4/Zv98ApmR2Wyw4Do1IGj91/crXNQ12zqRpd1zaz/Wq0UGhxVxUa/kbiltrwhaJFfyMR8
+	pJ6xfIIcu/Gj0EoFyA2iFIHN81N3cnaKi1sXzXISNahMyDygXSS9m3JyOS1r7g/yrlai95wiMwLkk
+	xUwu0IUnW/BTlXEmT4RKIHdEnANYNrGUkjr10Qj0JWw+Z+0vuJiVZdyUVXE7ubCDvOYlRN8nz+6uu
+	FvJ+wrnqPwxlK2Q+OYuegbxowRJ2wFTGweKD87NgVvFOzclzQE9XYxJ1kIoXCTgTWFpEo9FQc8G0X
+	nUeelvpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdopb-0000000GwDz-2z5B;
-	Thu, 08 Jan 2026 12:09:35 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vdoqa-0000000GwPF-3Q53;
+	Thu, 08 Jan 2026 12:10:36 +0000
+Received: from mail-4398.protonmail.ch ([185.70.43.98])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdopZ-0000000GwDY-1NZx;
-	Thu, 08 Jan 2026 12:09:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1767874168;
-	bh=q0TlDqpr415sq727uuVVX4LyTiAOn5O9CGBq1T+5u5k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=X6DBAXPGYo6G7Y2+a2GriXbE3SBz4uZEUzVNJiatCA25v20IsluEZJEpDAs1lM48v
-	 rvU8IAIQDxDViRGTGd8HXh7uOs9Fyj0OVdtzoC/6Z3uB5LPQr9PoMzUm+xvA4/f+d1
-	 DjXTs7qgGRyf0J+Hq+YGuaRRN8FArMODeHh8S9fU80u44nyQdZCam0jvzaciS/CdO9
-	 VREtv9ox10zpqn+px+AO+O8LwbwCSAVce6Hn9H2jXXmsq82Hr3IQ8deRop4VeKx9kI
-	 rTPlWxHBN9etr7LzfOheJ0BMt73xKUYxfqVPs4FXNpEhKPwsJax1VkJeFFWzmQ09Jc
-	 Lo8ql6Lv4Y+6g==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C9B5A17E13D8;
-	Thu,  8 Jan 2026 13:09:27 +0100 (CET)
-Message-ID: <f73a57bf-8527-4d1d-9f2e-78fe3c9973cb@collabora.com>
-Date: Thu, 8 Jan 2026 13:09:27 +0100
+	id 1vdoqW-0000000GwNV-1Mgk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Jan 2026 12:10:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=geanix.com;
+	s=protonmail2; t=1767874226; x=1768133426;
+	bh=e9Gn14IpojzvUVrHWdXmzVkyL12/O34BYkSCNxkLXBk=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=M4oCYYR05LjR1zuWmGDLY2NUDmgqoA0Gs7RIIA+jsPfvKLSztQWtPWNrCFHINJfCA
+	 HFXOvt9td6Rtbae2jI34iZADjK26DfHt8wMZYngw2WqA3QgjgtfA19ixm0AiMX/5nA
+	 GspzkdlI2oqkssw84nB6a2pxOpT2syKFjRd0aJl9DbkXW7oyDKLBpLkG6GSnJQdLvd
+	 msN4snaag7B79uKVpGOK3aKfLCmTgMGoX7I7FpmPlQQkcc6S9udkPEMDy/cBtMjrhQ
+	 1mg2gUajN4kAVQonHK1UpGoTOzGMTbko1kMlPnvL+3RYZaFymnmkO+XYQJ9Sr1ye5u
+	 Mtj7TEkdLVBMA==
+Date: Thu, 08 Jan 2026 12:10:22 +0000
+To: =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+From: Sean Nyekjaer <sean@geanix.com>
+Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-pwm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] pwm: stm32: handle polarity change when PWM is enabled
+Message-ID: <scu6yj7say5bnhbgyns4xrjbrzdayckk2ghn2a4xsgg4dswakv@6ushlcfw4dju>
+In-Reply-To: <r2jq72u3hfxrl4slgvuei2eobke37apebf67naxrvuabtcvaxe@pamwe3nejqge>
+References: <20260106-stm32-pwm-v1-1-33e9e8a9fc33@geanix.com> <kemjjoyrhqglqq4p2j6kygspevq2mdbiujtnksw4rkdapoqcfy@zte2c7fhqvn3> <2e2iahbzcepbzwgk7xeta2afxmycfjgv2zofzngqjvp4on46r2@mzpi4bz4uqie> <nwhixocvhii27jvcyg7ex5emewntgfhyxa4ds5vo2dphe7xfe4@ibjsjdd5fgmn> <fwaodg2ovh7j47ifwjhgeppxs3oiqht5ecbs7bmfbi7j6djejs@shwokpcmutr3> <zj2vpruzoeyvyyzxiqcffajyhpmem4q75l6gzgxd4jgaizhrdq@bxuudn4kyvr3> <paj3uf6apunonvfz2w2anqmddivjrofmfo5wktygz4r6l7diqf@7gen7gjgyuar> <r2jq72u3hfxrl4slgvuei2eobke37apebf67naxrvuabtcvaxe@pamwe3nejqge>
+Feedback-ID: 134068486:user:proton
+X-Pm-Message-ID: 65182a408632275be51d6c5397e4a1b9201fdc8e
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v3 0/5] MediaTek PLL Refactors and Fixes
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Yassine Oudjana <y.oudjana@protonmail.com>,
- Laura Nao <laura.nao@collabora.com>,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>
-Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20251215-mtk-pll-rpm-v3-0-5afb3191e869@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20251215-mtk-pll-rpm-v3-0-5afb3191e869@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_040933_577753_15E90A11 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20260108_041033_264435_F37471E5 
+X-CRM114-Status: GOOD (  22.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,93 +69,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 15/12/25 11:23, Nicolas Frattaroli ha scritto:
-> This series refactors all users of mtk-pll, just so we can enable
-> runtime power management for the clock controllers that want it. It's
-> also generally more useful to have the struct device in the pll code,
-> rather than the device node.
-> 
-> Also fix up MT8196 mfgpll to declare its parent-child relationship with
-> mfg_eb, and fix the common clock framework core to take
-> CLK_OPS_PARENT_ENABLE into account for the recalc_rate op as well.
-> 
-> The reason why this is all in the same series is that it grew out of me
-> first modelling this as an RPM clock for mfgpll, which Angelo disagreed
-> with, so I did some investigation and it seems MFG_EB indeed is a parent
-> clock. However, the earlier refactoring to pass the device pointer down
-> is still useful.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Hi,
+On Thu, Jan 08, 2026 at 12:33:10PM +0100, Uwe Kleine-K=C3=B6nig wrote:
+> On Thu, Jan 08, 2026 at 06:44:06AM +0000, Sean Nyekjaer wrote:
+> > I hope that clarifies things :)
+>=20
+> It does. I'm convinced the following patch implements a simpler fix:
+>=20
+> diff --git a/drivers/pwm/pwm-stm32.c b/drivers/pwm/pwm-stm32.c
+> index eb24054f9729..86e6eb7396f6 100644
+> --- a/drivers/pwm/pwm-stm32.c
+> +++ b/drivers/pwm/pwm-stm32.c
+> @@ -458,8 +458,7 @@ static int stm32_pwm_apply(struct pwm_chip *chip, str=
+uct pwm_device *pwm,
+>  =09=09return 0;
+>  =09}
+> =20
+> -=09if (state->polarity !=3D pwm->state.polarity)
+> -=09=09stm32_pwm_set_polarity(priv, pwm->hwpwm, state->polarity);
+> +=09stm32_pwm_set_polarity(priv, pwm->hwpwm, state->polarity);
+> =20
+>  =09ret =3D stm32_pwm_config(priv, pwm->hwpwm,
+>  =09=09=09       state->duty_cycle, state->period);
+>=20
+> While is isn't optimal as it might write the polarity into hardware when
+> it's not necessary, the same holds true for the values for duty_cycle
+> and period. Compared to your patch this is simple enough to make me ok
+> with applying it to 6.12.x (and older stable kernels) without an
+> equivalent commit in mainline. (Backporting the waveform stuff is out of
+> the question IMNSHO.)
 
-Whole series is
+The above does work, I have also checked that it doesn't write the
+polarity if the PWM is active.
+Agree, with the backporting part :)
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>=20
+> Also I'm still convinced that 7edf7369205b isn't the correct commit to
+> blame. This one changes the preconditions for the problem to occur (and
+> thus it's plausible that it's the result of your bisection), but even
+> before 7edf7369205b the problem can happen with:
+>=20
+> =09pwm_apply(mypwm, &(struct pwm_state){ .enabled =3D true, .polarity =3D=
+ PWM_POLARITY_NORMAL, .period =3D DC, .duty_cycle =3D DC });
+> =09pwm_apply(mypwm, &(struct pwm_state){ .enabled =3D false, .polarity =
+=3D PWM_POLARITY_INVERSED, .period =3D DC, .duty_cycle =3D DC });
+> =09pwm_apply(mypwm, &(struct pwm_state){ .enabled =3D true, .polarity =3D=
+ PWM_POLARITY_INVERSED, .period =3D DC, .duty_cycle =3D DC });
+>=20
+> After the 1st call polarity is configured to normal (unless the bug
+> happens already earlier :-), the 2nd disables the hardware without
+> configuration of the polarity (before and after 7edf7369205b), and the
+> third skips setting of the polarity because state->polarity already
+> matches pwm->state.polarity. The original problem exists since=20
+> 7edf7369205b ("pwm: Add driver for STM32 plaftorm").
+>=20
+I will move the fixes tag.
 
-> ---
-> Changes in v3:
-> - Make device_node forward declaration a device forward declaration
-> - Remove forward declarations of struct clk_ops and struct
->    clk_hw_onecell_data. (clk-provider.h include remains as it's needed
->    for a complete type of clk_hw)
-> - Move PLL_PARENT_EN flag to individual mfgpll definitions.
-> - Link to v2: https://lore.kernel.org/r/20251008-mtk-pll-rpm-v2-0-170ed0698560@collabora.com
-> 
-> Changes in v2:
-> - Drop bindings patch
-> - Drop mfgpll RPM patch
-> - Add patch to also transition pllfh to passing device
-> - Add fixes patch to make CLK_OPS_PARENT_ENABLE also apply to the
->    recalc_rate operation
-> - Remodel mfgpll's mfg_eb dependency as parent-child with
->    CLK_OPS_PARENT_ENABLE
-> - Link to v1: https://lore.kernel.org/r/20250929-mtk-pll-rpm-v1-0-49541777878d@collabora.com
-> 
-> ---
-> Nicolas Frattaroli (5):
->        clk: Respect CLK_OPS_PARENT_ENABLE during recalc
->        clk: mediatek: Refactor pll registration to pass device
->        clk: mediatek: Pass device to clk_hw_register for PLLs
->        clk: mediatek: Refactor pllfh registration to pass device
->        clk: mediatek: Add mfg_eb as parent to mt8196 mfgpll clocks
-> 
->   drivers/clk/clk.c                            | 13 +++++++++++++
->   drivers/clk/mediatek/clk-mt2701.c            |  2 +-
->   drivers/clk/mediatek/clk-mt2712-apmixedsys.c |  2 +-
->   drivers/clk/mediatek/clk-mt6735-apmixedsys.c |  4 ++--
->   drivers/clk/mediatek/clk-mt6765.c            |  2 +-
->   drivers/clk/mediatek/clk-mt6779.c            |  2 +-
->   drivers/clk/mediatek/clk-mt6795-apmixedsys.c |  2 +-
->   drivers/clk/mediatek/clk-mt6797.c            |  2 +-
->   drivers/clk/mediatek/clk-mt7622-apmixedsys.c |  2 +-
->   drivers/clk/mediatek/clk-mt7629.c            |  2 +-
->   drivers/clk/mediatek/clk-mt7981-apmixed.c    |  2 +-
->   drivers/clk/mediatek/clk-mt7986-apmixed.c    |  2 +-
->   drivers/clk/mediatek/clk-mt7988-apmixed.c    |  2 +-
->   drivers/clk/mediatek/clk-mt8135-apmixedsys.c |  3 ++-
->   drivers/clk/mediatek/clk-mt8167-apmixedsys.c |  2 +-
->   drivers/clk/mediatek/clk-mt8173-apmixedsys.c | 14 +++++++-------
->   drivers/clk/mediatek/clk-mt8183-apmixedsys.c |  2 +-
->   drivers/clk/mediatek/clk-mt8186-apmixedsys.c |  2 +-
->   drivers/clk/mediatek/clk-mt8188-apmixedsys.c |  2 +-
->   drivers/clk/mediatek/clk-mt8192-apmixedsys.c |  2 +-
->   drivers/clk/mediatek/clk-mt8195-apmixedsys.c |  2 +-
->   drivers/clk/mediatek/clk-mt8195-apusys_pll.c |  3 ++-
->   drivers/clk/mediatek/clk-mt8196-apmixedsys.c |  3 ++-
->   drivers/clk/mediatek/clk-mt8196-mcu.c        |  2 +-
->   drivers/clk/mediatek/clk-mt8196-mfg.c        | 15 ++++++++-------
->   drivers/clk/mediatek/clk-mt8196-vlpckgen.c   |  2 +-
->   drivers/clk/mediatek/clk-mt8365-apmixedsys.c |  2 +-
->   drivers/clk/mediatek/clk-mt8516-apmixedsys.c |  2 +-
->   drivers/clk/mediatek/clk-pll.c               | 19 +++++++++++++------
->   drivers/clk/mediatek/clk-pll.h               | 15 ++++++++-------
->   drivers/clk/mediatek/clk-pllfh.c             | 13 ++++++++-----
->   drivers/clk/mediatek/clk-pllfh.h             |  2 +-
->   32 files changed, 87 insertions(+), 59 deletions(-)
-> ---
-> base-commit: adff43957b0d8b9f6ad0e1b1f6daa7136f9ffbef
-> change-id: 20250929-mtk-pll-rpm-bf28192dd016
-> 
-> Best regards,
+> Are you able to create an improved patch with these insights in a timely
+> manner? (Grab authorship for yourself and honoring my part with a
+> Co-developed-by is fine for me.)
+I'll do it now and add the Co-developd-by tag
 
+/Sean
 
 
