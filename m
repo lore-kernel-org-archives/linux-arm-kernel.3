@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECCE5D1D46B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 15:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94959D1D46B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 15:06:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tv/GGtQvePSfy8JImBO2Bqakc/7C0eBov0BukOlj/70=; b=DGUa+MEJf2P5QvituXF0hGzox6
-	GfKcA7aGE7ZkcKsxrrPHUEr+JTgx8zzfssS7MSvKaJJxDVALUBiSRbKHhgZ/JajYQSYPcnEeTYDWv
-	Ll/al8TKA7A3Y/UrKPkerKFwwhyde8tXT/RSnQCHMU292OcNBp4VISZfT57itLjB6X3VgqKZrY5PO
-	WH1PNXMjvMu3DrWB7R30HHIeuv6LeBQEhbm54KFrPzt4JQdqPY7MvCC+z8uoxxlmyu8vj40BUKGTA
-	rLo/jvhNS1UwvifZHVs1697hGeBhN5Df4DM6Xx30YAvXhRxgbnZT/zvP9N/Lkd3sE/nCXvJNBmgC6
-	0fVt4WfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=iDiLF5B0kyyxIKQ1zoCvucH1+zJL8APzy5+KK+rmh1g=; b=E7PUkZpJCpIUn7
+	GOHH+cZ5uyI4IdiK4TzaYFLgaqGb1TNEMX3oyRkoMmFJ87uokdetYmH25rZ+5qwaalMF5TbM+INJF
+	5yuvmctliV+4N17+UH3RaQj5ed3m3vd9XehpsLCgKFEv3igoyDFh5Ah6rYVWotaHs7tOtCZueeBBm
+	azyP4GgXLMO672WK0zPp6dkz2EPiIXu2NEkA6mGpWlr10L1d61+m8rmTpkSIUpQ2g5Nn4+/ZRY8Tc
+	Ln9W0RhxFgNPCBNeJEUHq7CtoT5uWIzKcEENvaMj5mZzhDBiXZXNJEm9GScrJuosvTQvZp3vC/Y1s
+	x4zKuWyYtylwZDBw/dAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdra5-0000000HSAB-3nnc;
-	Thu, 08 Jan 2026 15:05:45 +0000
+	id 1vdraw-0000000HSag-2fmp;
+	Thu, 08 Jan 2026 15:06:38 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdra2-0000000HS5u-11Fd;
-	Thu, 08 Jan 2026 15:05:43 +0000
+	id 1vdrau-0000000HSZr-0Ywj
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Jan 2026 15:06:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4002044365;
-	Thu,  8 Jan 2026 15:05:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A3FBC16AAE;
-	Thu,  8 Jan 2026 15:05:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BF41F40A83;
+	Thu,  8 Jan 2026 15:06:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB885C116C6;
+	Thu,  8 Jan 2026 15:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767884741;
-	bh=JhbaVv1PdLdceMg/5l3s3xkAwxQ3DqsArTD5uFDz5Zw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=gDEZETrQ+Z9UPMytldJRovzTnLSjacFXt+Q+B+cfeE+T5YAwNxLbuBmm5nknDN4MH
-	 Rw3oTLL05HaAM2aBlgpZoz9qcS9HLs0A75NgCBSx+0qUpvbJUwQTIbpBXSSBDPsEMU
-	 tQ0eB3FB1ZVHuO3qjursuCtgYn3GGM3rcmd+JmG9xlEeElXrxRSUiiRM53XeTHhULz
-	 cEMd00ikEDxwN0+znh3T3oFeK3heIx+wK8kHlGP0goiSbzSC7Fi0VVz0WpTZCEWWng
-	 didFwhkUaSJ/RiyaKH3KXjQ9FktKJmNlSDStvejhEelIwyOblIeGa1YnR8Sh28AmlL
-	 K36vWk2VSQkBg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 08 Jan 2026 16:05:08 +0100
-Subject: [PATCH net-next v3 2/2] net: airoha: npu: Init BA memory region if
- provided via DTS
+	s=k20201202; t=1767884795;
+	bh=WqUsThSkZqg0Rt4j5q8noYu3Yxf9rMBVzwxyxaQnKvk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=SeCastCNpTCVNsGm22/LzeiWcW52S/GziT9j+yVusIyyiCbcfcctRzstfParREtRk
+	 Wpd/87nUY6nc+Hw+iyPTVn0bfX6MZyjnSDHVZlq/o+nzWGMbl+G0BUpfumttvOLPBu
+	 fFC5GSNpCujtQMBjMF2VxUVCIqMMIvWpynLLPKX15hxCm39IjU9r4JfG4vqY4fkIMZ
+	 fbmcSLIY/L2x1vegqDj34uKDovDydls8ym2y3XnwkiTv5gn6aPFkmMwzyCf293qi4t
+	 /B7Y6zP4mSv380WHxHX7mPiUC5id1dpPWGoCgwUb06tEK8e89NKLgXfyAHivRnmaKl
+	 G91EdxLpbvMMA==
+Date: Thu, 8 Jan 2026 15:06:30 +0000
+From: Will Deacon <will@kernel.org>
+To: Carl Worth <carl@os.amperecomputing.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Taehyun Noh <taehyun@utexas.edu>, andreyknvl@gmail.com,
+	pcc@google.com, yeoreum.yun@arm.com
+Subject: Re: [PATCH 2/2] arm64: mte: Defer disabling of TCO until
+ user_access_begin/end
+Message-ID: <aV_H9h-nSM1HlWnR@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260108-airoha-ba-memory-region-v3-2-bf1814e5dcc4@kernel.org>
-References: <20260108-airoha-ba-memory-region-v3-0-bf1814e5dcc4@kernel.org>
-In-Reply-To: <20260108-airoha-ba-memory-region-v3-0-bf1814e5dcc4@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251030-mte-tighten-tco-v1-2-88c92e7529d9@os.amperecomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_070542_307672_9955F43A 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260108_070636_210926_6CB06789 
+X-CRM114-Status: GOOD (  33.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,35 +73,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Initialize NPU Block Ack memory region if reserved via DTS.
-Block Ack memory region is used by NPU MT7996 (Eagle) offloading.
+On Thu, Oct 30, 2025 at 08:49:32PM -0700, Carl Worth wrote:
+> The PSTATE.TCO (Tag Checking Override) register, when set causes MTE
+> tag checking to be disabled. The TCO bit is automatically set by the
+> hardware when an exception is taken.
+> 
+> Prior to this commit, mte_disable_tco_entry would clear TCO (enable
+> tag checking) for either of two cases: 1. When the kernel wants tag
+> checking (KASAN) or 2. when userspace wants tag checking (via
+> SCTLR.TCF0).
+> 
+> In the case of userspace desired tag checking, (that is, when KASAN is
+> off), clearing TCO on entry to the kernel has negative performance
+> implications. This results in excess kernel space tag checking that
+> has not been requested.
+> 
+> For this case, move the clearing of TCO to user_space_access_begin,
+> and set it again in user_access_end. This restricts the tag checking
+> to only the duration of the userspace accesses as desired.
+> 
+> This patch has been measured to eliminate over 97% of kernel-side tag
+> checking during "perf bench futex hash"
+> 
+> Reported-by: Taehyun Noh <taehyun@utexas.edu>
+> Signed-off-by: Carl Worth <carl@os.amperecomputing.com>
+> ---
+>  arch/arm64/include/asm/mte.h     | 21 +++++++++++++--------
+>  arch/arm64/include/asm/uaccess.h | 32 +++++++++++++++++++++++++++++++-
+>  2 files changed, 44 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/mte.h b/arch/arm64/include/asm/mte.h
+> index 70dabc884616..3608ba452da5 100644
+> --- a/arch/arm64/include/asm/mte.h
+> +++ b/arch/arm64/include/asm/mte.h
+> @@ -258,15 +258,20 @@ static inline void set_kernel_mte_policy(struct task_struct *task)
+>  		return;
+>  
+>  	/*
+> -	 * Re-enable tag checking (TCO set on exception entry). This is only
+> -	 * necessary if MTE is enabled in either the kernel or the userspace
+> -	 * task. With MTE disabled in the kernel and disabled or asynchronous
+> -	 * in userspace, tag check faults (including in uaccesses) are not
+> -	 * reported, therefore there is no need to re-enable checking.
+> -	 * This is beneficial on microarchitectures where re-enabling TCO is
+> -	 * expensive.
+> +	 * TCO is set on exception entry, (which overrides either of TCF
+> +	 * or TCF0 and disables tag checking).
+> +	 *
+> +	 * If KASAN is enabled and using MTE/(aka "hw_tags") we clear
+> +	 * TCO so that the kernel gets the tag-checking it needs for
+> +	 * KASAN_HW_TAGS.
+> +	 *
+> +	 * When the kernel needs to enable tag-checking temporarily,
+> +	 * (such as before accessing userspace memory in the case that
+> +	 * userspace has requested tag checking), the kernel can
+> +	 * temporarily change the state of TCO. See
+> +	 * user_access_begin().
+>  	 */
+> -	if (kasan_hw_tags_enabled() || user_uses_tagcheck())
+> +	if (kasan_hw_tags_enabled())
+>  		asm volatile(SET_PSTATE_TCO(0));
+>  }
+>  
+> diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
+> index 1aa4ecb73429..248741a66c91 100644
+> --- a/arch/arm64/include/asm/uaccess.h
+> +++ b/arch/arm64/include/asm/uaccess.h
+> @@ -417,11 +417,41 @@ static __must_check __always_inline bool user_access_begin(const void __user *pt
+>  {
+>  	if (unlikely(!access_ok(ptr,len)))
+>  		return 0;
+> +
+> +	/*
+> +	 * Enable tag checking for the user access if MTE is enabled
+> +	 * in the userspace task.
+> +	 *
+> +	 * Note: We don't need to do anything if KASAN is enabled,
+> +	 * since that means the tag checking override (TCO) will
+> +	 * already be disabled. In turn, the TCF0 bits will control
+> +	 * whether user-space tag checking happens .
+> +	 */
+> +	if (!kasan_hw_tags_enabled() && user_uses_tagcheck())
+> +		asm volatile(SET_PSTATE_TCO(0));
+> +
+>  	uaccess_ttbr0_enable();
+>  	return 1;
+>  }
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_npu.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+What about all the uaccess routines that don't call user_access_begin? For
+example, copy_from_user().
 
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
-index 22f72c146065998d5450477f664ed308b1569aa3..a56b3780bb627cc393b94210b6b5c72cc95baea3 100644
---- a/drivers/net/ethernet/airoha/airoha_npu.c
-+++ b/drivers/net/ethernet/airoha/airoha_npu.c
-@@ -519,6 +519,14 @@ static int airoha_npu_wlan_init_memory(struct airoha_npu *npu)
- 	if (err)
- 		return err;
- 
-+	if (of_property_match_string(npu->dev->of_node, "memory-region-names",
-+				     "ba") >= 0) {
-+		cmd = WLAN_FUNC_SET_WAIT_DRAM_BA_NODE_ADDR;
-+		err = airoha_npu_wlan_set_reserved_memory(npu, 0, "ba", cmd);
-+		if (err)
-+			return err;
-+	}
-+
- 	cmd = WLAN_FUNC_SET_WAIT_IS_FORCE_TO_CPU;
- 	return airoha_npu_wlan_msg_send(npu, 0, cmd, &val, sizeof(val),
- 					GFP_KERNEL);
-
--- 
-2.52.0
-
+Will
 
