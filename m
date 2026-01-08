@@ -4,86 +4,187 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73825D1D480
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:32:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 418F0D1D480
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P4weczJ0CflKmWmemkjVQLod+ZW9LM2QROk7btr2Pj0=; b=CsPWW6e+kN/YPBKQXie9KgwEys
-	6nzCyKihlEqGH2Dc5y38IoMpW080Yif5L4mR9+uTDLN0IuKvhnLQQlGDdy/Aqe2wsdrM1s6VV2ijo
-	zaoZ+PPB2TcjfwBs8b8ujc/3xEf2elLAutcmwEC+yqVWdzNfaQumCYqybtvwgrUqrE68O0EPtAq+T
-	7UBjMttCNW4pJU1h7zGlLjH5E2423hqAnL2sTW+VeSM4iwhO/jhiZrfOUHzucrMeItliAqukz+l35
-	6sy+AdjjHWEXHgEIWDcp9BBn3Xj9soKgkNBdjCGF37ATHj9nSZaclshEXVbfhdvGO8Q4za6xcKz3K
-	EJteopIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tozgEZIXTAuNpEUUXp9V/5ixysVC9/isZGcHVF8UqjI=; b=NtqHBHxi/mPEpVWn4FlQDapB9V
+	S/Bap+5vbo18Mw/TJQ119o1mxW0PH5tMwsh5tj/hrctneZJ5jLdzvrqD8TAEq7Ak8axYAEPdynnEq
+	Lsu5/1qLpMxj9zDczR3cTVSjrVkfVlsnK62RQ1eNpGfdz2kGr4E4FLDAdjbCE4FRQ8zve4Jg4kyGj
+	VtznsKDOyXX+nMv7HorbtKubfOjmlV5eSiY5Wg6mUtBsOvNRmH33XmaFp8fPP4Zwk9ojL2T5fbPlS
+	TziDfJfoyCf6yQWROIyimMn6kuDU3Fewwqu4fJZsCaz+YCXJvlMpO7zPXxHWRXsjSHyPQ/RRKALtS
+	kHDyo3xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdswN-000000009RD-0JAt;
-	Thu, 08 Jan 2026 16:32:51 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1vdsyO-000000009so-2VDk;
+	Thu, 08 Jan 2026 16:34:56 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdswK-000000009Oq-20eF
+	id 1vdsyM-000000009rk-1cOI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 16:32:49 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-34c48a76e75so4191973a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 08:32:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767889966; x=1768494766; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=P4weczJ0CflKmWmemkjVQLod+ZW9LM2QROk7btr2Pj0=;
-        b=26h3V6RNG8moPJqDL66leYTexGqEqD5/U7SCBUadHGKVY5pWJtt7XguJ1O3BzceDg1
-         M+RxNbl2thanzLi+w0WwmQ6MPiRb6OeQhhLCdHt3/7ELfDs9IJMBtnjQbzxyADyadj+y
-         BMH2uxpeErIBNIbellyoSDZG2iHAJV+ejwbkYZZCG/HBFWnEFgsbwF/aYKFX+nuF0vp4
-         4n9J+8k6WjjRXhcI8Sytt/2DrjaOl1WdhEHrH4MxtH/1WIA8f/y2MQc4FSz4wEUsMemW
-         PWVLVicqzDI8V8u7j+z6fZcD1cQrIpLhZBm8yfbNuRJFevyjaoI5DmcVKulQGZWFWbKQ
-         P4ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767889966; x=1768494766;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=P4weczJ0CflKmWmemkjVQLod+ZW9LM2QROk7btr2Pj0=;
-        b=ve0RLjDQ0Uu9iiGvR+NtGbBSc2WOkGKvMuapL51Yelv+kwrlg+zENsV8TOyYMG8aL0
-         RJIFI+3dYgrl5H0lh7VLk0HxoastDSqjyoXhtY5le/TEM06vWgOlhceThXTlPZ9Zotl1
-         svcQSK+3GyEM+CgFG7JzHRnDsFT1GgNS46GnYAHdd5j8QB9sbLYTQxrlhiBYTrqaYEqj
-         GRRB0STeeNaZ43dOIAW2yOA2nNOmJtaROhwMY6906aI8obAIhOByGpygwsmC58jb/EI1
-         swlp0FTU2uajceZHClspUKCq5Za+vGZc61THpgWcqj1WVof/ncrJbcjKoOdcy42vHSmP
-         npIA==
-X-Forwarded-Encrypted: i=1; AJvYcCV0BeVI2qyyhH++5BMHc2fiz6OGlgtbo5te11BxkqA5FH8zR9pN8mZGinwoAXC496KcUZetgIuBcfqDHVniiKn7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAarFSibXXyGA4PQ8jeHgTEPhs6XvERT5WgAgfXfffSx+u1gbU
-	R4aylhMdQ+S9xwzPS7ORfgJI9rVjPyBLGTW7aQwYeYRqzrN29GVTdcoQsi5lPkHEBRmI//UWRKp
-	Wn3Zz8A==
-X-Google-Smtp-Source: AGHT+IE52p68bfcsN1dFtZpJ3rbWKn9Teo6CB2P4bpjVKJkGE0poIQ7b/YVeU0+kM07hg/nx48xC5EXqdCA=
-X-Received: from pjbgk8.prod.google.com ([2002:a17:90b:1188:b0:340:7740:281c])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3852:b0:343:b610:901c
- with SMTP id 98e67ed59e1d1-34f68cb9036mr7160126a91.26.1767889966231; Thu, 08
- Jan 2026 08:32:46 -0800 (PST)
-Date: Thu, 8 Jan 2026 08:32:44 -0800
-In-Reply-To: <t7dcszq3quhqprdcqz7keykxbmqf62pdelqrkeilpbmsrnuji5@a3lplybmlbwf>
-Mime-Version: 1.0
-References: <20251230230150.4150236-1-seanjc@google.com> <20251230230150.4150236-22-seanjc@google.com>
- <t7dcszq3quhqprdcqz7keykxbmqf62pdelqrkeilpbmsrnuji5@a3lplybmlbwf>
-Message-ID: <aV_cLAlz4v1VOkDt@google.com>
-Subject: Re: [PATCH v4 21/21] KVM: selftests: Test READ=>WRITE dirty logging
- behavior for shadow MMU
-From: Sean Christopherson <seanjc@google.com>
-To: Yosry Ahmed <yosry.ahmed@linux.dev>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
+	Thu, 08 Jan 2026 16:34:56 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 608GK6741762265;
+	Thu, 8 Jan 2026 17:34:47 +0100
+Received: from duzpr83cu001.outbound.protection.outlook.com (mail-northeuropeazon11012015.outbound.protection.outlook.com [52.101.66.15])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4bhcy8ysfy-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 08 Jan 2026 17:34:46 +0100 (CET)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B8IP+gfn/QLLKY1CgDzwozVBr+KTtYe9+qBQ0Ko1irIVoyrg2Ek8knYO4WKUgbwXhdHuGL9EWuDjrQB0eYQ1Y7+U8KlSvZRF+EXvq+R8iII3AvX+/7ff5W5o0ZN8RkWSb0TjREKN5iVZxrleiu6YOyuKEIbPM9gUFYLiq4tTWGOErZtkX1/73dakCMOIw3HPheO1ndEO3SWPqvCmKi7WiXPzeVge6lXYHpLklaaVApapPrl9VdGRgpNE9jM3QdQ4qLd39kJVgcNXFsqNgEmTgGaFalsE+MD0E8EwlRgaE7YbLaa+GmY99KQuQfVE0eoaxRI7bPkE3e/pD8HaA6QKNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tozgEZIXTAuNpEUUXp9V/5ixysVC9/isZGcHVF8UqjI=;
+ b=V71LNHa2OYkXL9roUEunaCWfO3z4kYX39eCf21reQsss19UwyqJugusHq5DrmIOCu0J7ytKzdwlvkqUIBKOw8FqQLVCVzMUQKKvrqo9s2264tfqkqNio38YAqrJxMJAVlr4qOij06/JTxk2fAL/L2nEoz22gEnerd3XYw5ENvsp1isMLkKrqq/ujkNl6FiZuv6pyUpOxq0japN5nFMuRGv60h1tRYOtRTswT67tKCYucssQdAF3cwoUVxG37+IOTo1u6ACwwrFnqOXmWfyfEZbi2dvDgaB/Ey5MVWsJOPOqytAWOz5ZHGGhYzAb6eRQj3XlsUqGpNZIyZu1Eo3hfCQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tozgEZIXTAuNpEUUXp9V/5ixysVC9/isZGcHVF8UqjI=;
+ b=MZYGEDj77jC2Sgxi50PRUEPWvlfoNC+fe51VFo3+wh/lh0vwaFSi+caaGKVPAsNNsfJSBPNS6Lb0TQFlMBEucgaHKnwVFvGxu1iHHyiJM7LBfRFWsJpM0Q6lFNmyR3/nfH6QDWbWQn2mMeNZ3WiK1l+2cNBqRStG9wUVeSVSv8sxbVrot7Z33/qZMbrUMKCRBvZC8uCzEWL7QI+ZB6PpV6PdfZ4tdc4wrAKdLTcPVcw732tQehDfXvXUx79bPLNe2N3jHzm5l4bn+O8bj2VYduW2xHsZbrf6ohyEzZVDnk0/4x/e6gMaCMS3nzxim9q66pHpYbHLbykvJJwSRuu0Lg==
+Received: from AM0PR02CA0180.eurprd02.prod.outlook.com (2603:10a6:20b:28e::17)
+ by DU0PR10MB6297.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:3ec::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.2; Thu, 8 Jan
+ 2026 16:34:43 +0000
+Received: from AMS0EPF000001A5.eurprd05.prod.outlook.com
+ (2603:10a6:20b:28e:cafe::9c) by AM0PR02CA0180.outlook.office365.com
+ (2603:10a6:20b:28e::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.4 via Frontend Transport; Thu, 8
+ Jan 2026 16:34:43 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ AMS0EPF000001A5.mail.protection.outlook.com (10.167.16.232) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.1 via Frontend Transport; Thu, 8 Jan 2026 16:34:43 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 8 Jan
+ 2026 17:35:59 +0100
+Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 8 Jan
+ 2026 17:34:42 +0100
+Message-ID: <db08f1ad-da64-4282-bb4b-002ab1e13a70@foss.st.com>
+Date: Thu, 8 Jan 2026 17:34:41 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] spi: st: add power-domains on stm32mp2x
+To: Alain Volmat <alain.volmat@foss.st.com>, Mark Brown <broonie@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Erwan Leray <erwan.leray@foss.st.com>,
+        "Fabrice
+ Gasnier" <fabrice.gasnier@foss.st.com>
+CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20251215-stm32-spi-mp2x-dt-updates-v1-0-464a5fd20f13@foss.st.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20251215-stm32-spi-mp2x-dt-updates-v1-0-464a5fd20f13@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS0EPF000001A5:EE_|DU0PR10MB6297:EE_
+X-MS-Office365-Filtering-Correlation-Id: d0e9a283-5be4-49bd-c4bc-08de4ed3d3d8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700013|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?THFRTzFmZWRRUzVIaVRmV2hqV2lzTlorSFFaMVJCWndGYmV4NDVyclNpSFhH?=
+ =?utf-8?B?a3NxWWwrOWRXdWpVemhwci9RZ3E3UlU4SGlrYlR4VWxLRVNRWVI2OHBPTEdX?=
+ =?utf-8?B?WnFWcjFzSFRicEhEZG53WVdzM21hZ3l5QlZWeUZpL2NUaWJwMVhuWWlsVHZI?=
+ =?utf-8?B?cTdDZmJoM3h0RGNscU1Obm0wV2tyUmtBWkxaYkhOTFE4b2p3bHU3RzhqeGYv?=
+ =?utf-8?B?NnRidWVLRXRmK1JSYnhZRDcvQnNtdlJVTlF0eXJIU2t5YWpETGhEdmliRFVy?=
+ =?utf-8?B?emNBWDNKUTNtVGdpZktvSnRaZmVubHF2T1AweDkzR2hVaTJTeXJBUk04aUlt?=
+ =?utf-8?B?OSttbGNNNFg0WXp6ZEhVeWNnSE1HdzJvWTdEMWVBTW1DTnNMZ0ZOaFUwS0pC?=
+ =?utf-8?B?VTZlaHpNS3l1RVR5Yk56bWl4Rk9RV09ROVBGWGJvOHlua3VaQ1d4L2tQb0Nn?=
+ =?utf-8?B?amQvUlIvRExmSjJwR0xHR1lvRVNFV1RaaFFtbnBkMEN2V280L1Y0N2xoOFFk?=
+ =?utf-8?B?RHUyWUJDQmVhQ0E2aUdlMEx0Mldvd1J6Mmp2UVhjQ3lFcXovSjFqRFZ1NmQ5?=
+ =?utf-8?B?anVmNmZHSEEyWVN3RGRGSm9RUVNnMEVwTDNUSWtpVmJwWEJXT3dXekl1UWtr?=
+ =?utf-8?B?NlJuZ084WTc2STNhR0J4K29CRlFRekJwV2tlaVNMWGllVFR1RGNsWENvc0Zy?=
+ =?utf-8?B?Yk9NWmJBMEhVd1BJYUdWQU8vc29nV01xbmZ4ci9jajdvMGJlNmRDRzZiUDU0?=
+ =?utf-8?B?aTRuRmt2SDI0OU1iQzJ2WjdZK0F4YS84SWIwVmxiWXFlbXpua3RpOWhLUkxD?=
+ =?utf-8?B?RTNJN0pPQ2FCTWtCRzBzb2VlNElTZ1dxelNwd3JLZVZnRlJIU3M2OEpza215?=
+ =?utf-8?B?R0Rna3d1ZGU2SVVZcy9XVDJSUmgyRTBoNnRScFlaSVp1SlFzTDVsR1VjYWFv?=
+ =?utf-8?B?QW8zTENuSkZyY1ZzcTdLRy9DblBXMVRwK0ZrWEo0V0NHbTA0VlBBZnZtTnZs?=
+ =?utf-8?B?S0czMm5XUk5BYlh5bFpNdlpuQ21OVzJDdDRRbDBZWE12NDRZaWFxWUJjMExB?=
+ =?utf-8?B?RldtL0cxbFVzelVFSHlOMkZuMnVnaDB1S1dUUnEvKzE3SnhocmNrVnhPUEsw?=
+ =?utf-8?B?andhRVFKSFc0K0toWTExWUEvSnhmbldvQy9URjF1RkpXc3h1Vkw3UE4zWU9Q?=
+ =?utf-8?B?U0NpNlNHVm9WMHhUL1c2UFh6blNJRjErS082c3JwODRuZk0rNmwybkN3VEU4?=
+ =?utf-8?B?b2RMVWFBcEtBMDRnMDlUcVFwSTdyS1I4SHZvaG1WS0FKRDRaN0tFRWUyZXpy?=
+ =?utf-8?B?dVlPT20zMnVEZ09xczIyZnJZVWZRR3lOZWVCRXRIblZmeFI3Wm9rdUxLV0lE?=
+ =?utf-8?B?RDMwN29oZXNOVHFrWFFCOGtaNVZQK2ZUVUtlTDF5RTBVcWN0aVBHS0U1cEp2?=
+ =?utf-8?B?MDBJQlN2ellOa3c2WXJHMHZZb2pnc2d6MkxjL24rQUEyR0hxWVZsUC9Henhz?=
+ =?utf-8?B?bGxvanoyTmc3eGI3ekJmZmNMenRrb0V6bTc1V3VpMUdieDVlc3cycUIvOTJq?=
+ =?utf-8?B?QzdpWnQwTTFNZENVQkxacGxmcitiL1J0dWZ1bDh3MnVTeVYzNVc5OEpFdy9k?=
+ =?utf-8?B?eDI4aGpzUldkRDQ5ZmIyZFlKNmdoQzJUa3pDYmZFZktmQnJIc3YwMU8yQm1w?=
+ =?utf-8?B?dTFmV0Z4NGJrMitDVmFxQ3JPR2trY2x1RFo4bTNmSnE1Y0c2UGx6cWxuakFy?=
+ =?utf-8?B?OUU5aXpCbjlvb1BDTW9PRmdKeEl3MTZsL1l5bmN0aVFINWlwQ2huU1BzbWZa?=
+ =?utf-8?B?dkJ4VWlPcTg1R2xKYjRzT1BnamtFakU2TU9hanUyMThoRnB3RGNXemtOcDFV?=
+ =?utf-8?B?MjZreXBFWEZzV0doWW81RGczSDZ6cC9USHI1Q0N0RmVGdnhSMVpFVnRFT25X?=
+ =?utf-8?B?emdNVHVXNUZNMkE5Y044aWFHWThNMEZZdXZDSG1TVjBQTm5UbEZKWDRSZ3JU?=
+ =?utf-8?B?Wm5aRzNhUlhMYUxBSi9XZEd0bG4wcldWYUZueXBGQTg5T1dvemNsWHc0emc3?=
+ =?utf-8?B?UlV1T0xHenN2K3RRNy9VTUMvbzh2SDI4dytoWEI5NlBhbEpFbE14TDF2Z3N2?=
+ =?utf-8?Q?3esk=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2026 16:34:43.1580
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d0e9a283-5be4-49bd-c4bc-08de4ed3d3d8
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A5.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB6297
+X-Authority-Analysis: v=2.4 cv=ePkeTXp1 c=1 sm=1 tr=0 ts=695fdca6 cx=c_pps
+ a=DFPAdTC33zSWEXKFYuCncA==:117 a=d6reE3nDawwanmLcZTMRXA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=TP8aPCUxYTYA:10 a=IkcTkHD0fZMA:10
+ a=vUbySO9Y5rIA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=OTFuUWum6JI64Ysw4HoA:9
+ a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
+X-Proofpoint-GUID: 0T-RtY_7pcBH7AOZk1HIhDbZv_o6IPS_
+X-Proofpoint-ORIG-GUID: 0T-RtY_7pcBH7AOZk1HIhDbZv_o6IPS_
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA4MDEyMSBTYWx0ZWRfX3B+0mAZWj93f
+ RxLga1wSrAurKa78G6xWjtzGaQ9hoKNQk+mPCsXloWLHg1G3KLjFcGlDzL8SLI07NHAJvEuKMiK
+ zELtmuqIF6mD1VHLAlDEk+RJPIkTgS8RKZnUtbQLZ+WjnHDf+ocFZQeKkHrfYirjWRrbb/tq4Lb
+ FRnc8V8JN0tV4aZgsoALsycle7T3yHffAKrSwCzniE6wauUHC9b0kHoALyCdn6nnv7xvVT5gw5u
+ /LhvU+2PrPUO8b4iuObs/kucC+ZheDYRFZVy1f/4oUNe6KAcEXKPW/IvCzARFGvgZKBiFLfZ3bO
+ m440Wxja7v02vHzIQIxP1ZhrGY+xBTcQex8Tti76N8lIvgQ7QjYtCtzkR1dSrmxTcTEn8ty/rat
+ Ce791qqzzC0UvlfOkxLkSjoKZfUSfGPWFi7E1Smh4aERRvicsVKkC/jEWgUbrhqMvudpSLPNH1Y
+ C7fwGajjwq48jFIjF1w==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-08_03,2026-01-08_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
+ lowpriorityscore=0 phishscore=0 suspectscore=0 bulkscore=0 clxscore=1011
+ malwarescore=0 priorityscore=1501 spamscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601080121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_083248_537136_81A58E62 
-X-CRM114-Status: GOOD (  40.94  )
+X-CRM114-CacheID: sfid-20260108_083454_930482_D3D310E5 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,411 +199,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 02, 2026, Yosry Ahmed wrote:
-> On Tue, Dec 30, 2025 at 03:01:50PM -0800, Sean Christopherson wrote:
-> >  	WRITE_ONCE(*b, 1);
-> > -	GUEST_SYNC(true);
-> > +	GUEST_SYNC(2 | TEST_SYNC_WRITE_FAULT);
-> >  	WRITE_ONCE(*b, 1);
-> > -	GUEST_SYNC(true);
-> > -	GUEST_SYNC(false);
-> > +	GUEST_SYNC(2 | TEST_SYNC_WRITE_FAULT);
-> > +	READ_ONCE(*b);
-> > +	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
-> > +	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
-> 
-> Instead of hardcoding 0 and 2 here, which IIUC correspond to the
-> physical addresses 0xc0000000 and 0xc0002000, as well as indices in
-> host_test_mem, can we make the overall definitions a bit more intuitive?
-> 
-> For example:
-> 
-> #define GUEST_GPA_START		0xc0000000
-> #define GUEST_PAGE1_IDX		0
-> #define GUEST_PAGE2_IDX		1
-> #define GUEST_GPA_PAGE1		(GUEST_GPA_START + GUEST_PAGE1_IDX * PAGE_SIZE)
-> #define GUEST_GPA_PAGE2		(GUEST_GPA_START + GUEST_PAGE2_IDX * PAGE_SIZE)
-> 
-> /* Mapped to GUEST_GPA_PAGE1 and GUEST_GPA_PAGE2 */
-> #define GUEST_GVA_PAGE1		0xd0000000
-> #define GUEST_GVA_PAGE2		0xd0002000
-> 
-> /* Mapped to GUEST_GPA_PAGE1 and GUEST_GPA_PAGE2 using TDP in L1 */
-> #define GUEST_GVA_NESTED_PAGE1  0xd0001000
-> #define GUEST_GVA_NESTED_PAGE2	0xd0003000
-> 
-> Then in L2 code, we can explicitly take in the GVA of page1 and page2
-> and use the definitions above in the GUEST_SYNC() calls, for example:
-> 
-> static void l2_guest_code(u64 *page1_gva, u64 *page2_gva)
-> {
->         READ_ONCE(*page1_gva);
->         GUEST_SYNC(GUEST_PAGE1_IDX | TEST_SYNC_READ_FAULT);
->         WRITE_ONCE(*page1_gva, 1);
->         GUEST_SYNC(GUEST_PAGE1_IDX | TEST_SYNC_WRITE_FAULT);
-> 	...
-> }
-> 
-> and we can explicitly read page1 and page2 from the host (instead of
-> using host_test_mem).
-> 
-> Alternatively, we can pass in the guest GVA directly into GUEST_SYNC(),
-> and use the lower bits for TEST_SYNC_READ_FAULT, TEST_SYNC_WRITE_FAULT,
-> and TEST_SYNC_NO_FAULT.
->
-> WDYT?
+Hi Alain
 
-I fiddled with this a bunch and came up with the below.  It's more or less what
-you're suggesting, but instead of interleaving the aliases, it simply puts them
-at a higher base.  That makes pulling the page frame number out of the GVA much
-cleaner, as it's simply arithmetic instead of weird masking and shifting magic.
+On 12/15/25 13:26, Alain Volmat wrote:
+> This series add the possibility to indicate a power-domains for an spi
+> instance and set the related property for all spi instances on
+> stm32mp2x.
+> 
+> Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+> ---
+> Alain Volmat (3):
+>        dt-bindings: spi: st,stm32-spi: add 'power-domains' property
+>        arm64: dts: st: add power-domains in all spi of stm32mp251.dtsi
+>        arm64: dts: st: add power-domains in all spi of stm32mp231.dtsi
+> 
+>   Documentation/devicetree/bindings/spi/st,stm32-spi.yaml | 3 +++
+>   arch/arm64/boot/dts/st/stm32mp231.dtsi                  | 5 +++++
+>   arch/arm64/boot/dts/st/stm32mp251.dtsi                  | 8 ++++++++
+>   3 files changed, 16 insertions(+)
+> ---
+> base-commit: a6961e2ced5190c68acd78a7e372de07f565fcd6
+> change-id: 20251214-stm32-spi-mp2x-dt-updates-048068b7f05e
+> 
+> Best regards,
 
---
-From: Sean Christopherson <seanjc@google.com>
-Date: Wed, 7 Jan 2026 14:38:32 -0800
-Subject: [PATCH] KVM: selftests: Test READ=>WRITE dirty logging behavior for
- shadow MMU
+DT patches [2][3] applied on stm32-next.
 
-Update the nested dirty log test to validate KVM's handling of READ faults
-when dirty logging is enabled.  Specifically, set the Dirty bit in the
-guest PTEs used to map L2 GPAs, so that KVM will create writable SPTEs
-when handling L2 read faults.  When handling read faults in the shadow MMU,
-KVM opportunistically creates a writable SPTE if the mapping can be
-writable *and* the gPTE is dirty (or doesn't support the Dirty bit), i.e.
-if KVM doesn't need to intercept writes in order to emulate Dirty-bit
-updates.
-
-To actually test the L2 READ=>WRITE sequence, e.g. without masking a false
-pass by other test activity, route the READ=>WRITE and WRITE=>WRITE
-sequences to separate L1 pages, and differentiate between "marked dirty
-due to a WRITE access/fault" and "marked dirty due to creating a writable
-SPTE for a READ access/fault".  The updated sequence exposes the bug fixed
-by KVM commit 1f4e5fc83a42 ("KVM: x86: fix nested guest live migration
-with PML") when the guest performs a READ=>WRITE sequence with dirty guest
-PTEs.
-
-Opportunistically tweak and rename the address macros, and add comments,
-to make it more obvious what the test is doing.  E.g. NESTED_TEST_MEM1
-vs. GUEST_TEST_MEM doesn't make it all that obvious that the test is
-creating aliases in both the L2 GPA and GVA address spaces, but only when
-L1 is using TDP to run L2.
-
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- .../selftests/kvm/include/x86/processor.h     |   1 +
- .../testing/selftests/kvm/lib/x86/processor.c |   7 +
- .../selftests/kvm/x86/nested_dirty_log_test.c | 188 +++++++++++++-----
- 3 files changed, 145 insertions(+), 51 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/include/x86/processor.h b/tools/testing/selftests/kvm/include/x86/processor.h
-index ab29b1c7ed2d..8945c9eea704 100644
---- a/tools/testing/selftests/kvm/include/x86/processor.h
-+++ b/tools/testing/selftests/kvm/include/x86/processor.h
-@@ -1483,6 +1483,7 @@ bool kvm_cpu_has_tdp(void);
- void tdp_map(struct kvm_vm *vm, uint64_t nested_paddr, uint64_t paddr, uint64_t size);
- void tdp_identity_map_default_memslots(struct kvm_vm *vm);
- void tdp_identity_map_1g(struct kvm_vm *vm,  uint64_t addr, uint64_t size);
-+uint64_t *tdp_get_pte(struct kvm_vm *vm, uint64_t l2_gpa);
- 
- /*
-  * Basic CPU control in CR0
-diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
-index ab869a98bbdc..fab18e9be66c 100644
---- a/tools/testing/selftests/kvm/lib/x86/processor.c
-+++ b/tools/testing/selftests/kvm/lib/x86/processor.c
-@@ -390,6 +390,13 @@ static uint64_t *__vm_get_page_table_entry(struct kvm_vm *vm,
- 	return virt_get_pte(vm, mmu, pte, vaddr, PG_LEVEL_4K);
- }
- 
-+uint64_t *tdp_get_pte(struct kvm_vm *vm, uint64_t l2_gpa)
-+{
-+	int level = PG_LEVEL_4K;
-+
-+	return __vm_get_page_table_entry(vm, &vm->stage2_mmu, l2_gpa, &level);
-+}
-+
- uint64_t *vm_get_pte(struct kvm_vm *vm, uint64_t vaddr)
- {
- 	int level = PG_LEVEL_4K;
-diff --git a/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c b/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c
-index 89d2e86a0db9..6f4f7a8209be 100644
---- a/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c
-+++ b/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c
-@@ -17,29 +17,53 @@
- 
- /* The memory slot index to track dirty pages */
- #define TEST_MEM_SLOT_INDEX		1
--#define TEST_MEM_PAGES			3
- 
--/* L1 guest test virtual memory offset */
--#define GUEST_TEST_MEM			0xc0000000
-+/*
-+ * Allocate four pages total.  Two pages are used to verify that the KVM marks
-+ * the accessed page/GFN as marked dirty, but not the "other" page.  Times two
-+ * so that each "normal" page can be accessed from L2 via an aliased L2 GVA+GPA
-+ * (when TDP is enabled), to verify KVM marks _L1's_ page/GFN as dirty (to
-+ * detect failures, L2 => L1 GPAs can't be identity mapped in the TDP page
-+ * tables, as marking L2's GPA dirty would get a false pass if L1 == L2).
-+ */
-+#define TEST_MEM_PAGES			4
- 
--/* L2 guest test virtual memory offset */
--#define NESTED_TEST_MEM1		0xc0001000
--#define NESTED_TEST_MEM2		0xc0002000
-+#define TEST_MEM_BASE			0xc0000000
-+#define TEST_MEM_ALIAS_BASE		0xc0002000
-+
-+#define TEST_GUEST_ADDR(base, idx)	((base) + (idx) * PAGE_SIZE)
-+
-+#define TEST_GVA(idx)			TEST_GUEST_ADDR(TEST_MEM_BASE, idx)
-+#define TEST_GPA(idx)			TEST_GUEST_ADDR(TEST_MEM_BASE, idx)
-+
-+#define TEST_HVA(vm, idx)		addr_gpa2hva(vm, TEST_GPA(idx))
- 
- #define L2_GUEST_STACK_SIZE 64
- 
--static void l2_guest_code(u64 *a, u64 *b)
-+/* Use the page offset bits to communicate the access+fault type. */
-+#define TEST_SYNC_READ_FAULT		BIT(0)
-+#define TEST_SYNC_WRITE_FAULT		BIT(1)
-+#define TEST_SYNC_NO_FAULT		BIT(2)
-+
-+static void l2_guest_code(vm_vaddr_t base)
- {
--	READ_ONCE(*a);
--	WRITE_ONCE(*a, 1);
--	GUEST_SYNC(true);
--	GUEST_SYNC(false);
-+	vm_vaddr_t page0 = TEST_GUEST_ADDR(base, 0);
-+	vm_vaddr_t page1 = TEST_GUEST_ADDR(base, 1);
- 
--	WRITE_ONCE(*b, 1);
--	GUEST_SYNC(true);
--	WRITE_ONCE(*b, 1);
--	GUEST_SYNC(true);
--	GUEST_SYNC(false);
-+	READ_ONCE(*(u64 *)page0);
-+	GUEST_SYNC(page0 | TEST_SYNC_READ_FAULT);
-+	WRITE_ONCE(*(u64 *)page0, 1);
-+	GUEST_SYNC(page0 | TEST_SYNC_WRITE_FAULT);
-+	READ_ONCE(*(u64 *)page0);
-+	GUEST_SYNC(page0 | TEST_SYNC_NO_FAULT);
-+
-+	WRITE_ONCE(*(u64 *)page1, 1);
-+	GUEST_SYNC(page1 | TEST_SYNC_WRITE_FAULT);
-+	WRITE_ONCE(*(u64 *)page1, 1);
-+	GUEST_SYNC(page1 | TEST_SYNC_WRITE_FAULT);
-+	READ_ONCE(*(u64 *)page1);
-+	GUEST_SYNC(page1 | TEST_SYNC_NO_FAULT);
-+	GUEST_SYNC(page1 | TEST_SYNC_NO_FAULT);
- 
- 	/* Exit to L1 and never come back.  */
- 	vmcall();
-@@ -47,13 +71,22 @@ static void l2_guest_code(u64 *a, u64 *b)
- 
- static void l2_guest_code_tdp_enabled(void)
- {
--	l2_guest_code((u64 *)NESTED_TEST_MEM1, (u64 *)NESTED_TEST_MEM2);
-+	/*
-+	 * Use the aliased virtual addresses when running with TDP to verify
-+	 * that KVM correctly handles the case where a page is dirtied via a
-+	 * different GPA than would be used by L1.
-+	 */
-+	l2_guest_code(TEST_MEM_ALIAS_BASE);
- }
- 
- static void l2_guest_code_tdp_disabled(void)
- {
--	/* Access the same L1 GPAs as l2_guest_code_tdp_enabled() */
--	l2_guest_code((u64 *)GUEST_TEST_MEM, (u64 *)GUEST_TEST_MEM);
-+	/*
-+	 * Use the "normal" virtual addresses when running without TDP enabled,
-+	 * in which case L2 will use the same page tables as L1, and thus needs
-+	 * to use the same virtual addresses that are mapped into L1.
-+	 */
-+	l2_guest_code(TEST_MEM_BASE);
- }
- 
- void l1_vmx_code(struct vmx_pages *vmx)
-@@ -72,9 +105,9 @@ void l1_vmx_code(struct vmx_pages *vmx)
- 
- 	prepare_vmcs(vmx, l2_rip, &l2_guest_stack[L2_GUEST_STACK_SIZE]);
- 
--	GUEST_SYNC(false);
-+	GUEST_SYNC(TEST_SYNC_NO_FAULT);
- 	GUEST_ASSERT(!vmlaunch());
--	GUEST_SYNC(false);
-+	GUEST_SYNC(TEST_SYNC_NO_FAULT);
- 	GUEST_ASSERT_EQ(vmreadz(VM_EXIT_REASON), EXIT_REASON_VMCALL);
- 	GUEST_DONE();
- }
-@@ -91,9 +124,9 @@ static void l1_svm_code(struct svm_test_data *svm)
- 
- 	generic_svm_setup(svm, l2_rip, &l2_guest_stack[L2_GUEST_STACK_SIZE]);
- 
--	GUEST_SYNC(false);
-+	GUEST_SYNC(TEST_SYNC_NO_FAULT);
- 	run_guest(svm->vmcb, svm->vmcb_gpa);
--	GUEST_SYNC(false);
-+	GUEST_SYNC(TEST_SYNC_NO_FAULT);
- 	GUEST_ASSERT_EQ(svm->vmcb->control.exit_code, SVM_EXIT_VMMCALL);
- 	GUEST_DONE();
- }
-@@ -106,12 +139,66 @@ static void l1_guest_code(void *data)
- 		l1_svm_code(data);
- }
- 
-+static void test_handle_ucall_sync(struct kvm_vm *vm, u64 arg,
-+				   unsigned long *bmap)
-+{
-+	vm_vaddr_t gva = arg & ~(PAGE_SIZE - 1);
-+	int page_nr, i;
-+
-+	/*
-+	 * Extract the page number of underlying physical page, which is also
-+	 * the _L1_ page number.  The dirty bitmap _must_ be updated based on
-+	 * the L1 GPA, not L2 GPA, i.e. whether or not L2 used an aliased GPA
-+	 * (i.e. if TDP enabled for L2) is irrelevant with respect to the dirty
-+	 * bitmap and which underlying physical page is accessed.
-+	 *
-+	 * Note, gva will be '0' if there was no access, i.e. if the purpose of
-+	 * the sync is to verify all pages are clean.
-+	 */
-+	if (!gva)
-+		page_nr = 0;
-+	else if (gva >= TEST_MEM_ALIAS_BASE)
-+		page_nr = (gva - TEST_MEM_ALIAS_BASE) >> PAGE_SHIFT;
-+	else
-+		page_nr = (gva - TEST_MEM_BASE) >> PAGE_SHIFT;
-+	TEST_ASSERT(page_nr == 0 || page_nr == 1,
-+		    "Test bug, unexpected frame number '%u' for arg = %lx", page_nr, arg);
-+	TEST_ASSERT(gva || (arg & TEST_SYNC_NO_FAULT),
-+		    "Test bug, gva must be valid if a fault is expected");
-+
-+	kvm_vm_get_dirty_log(vm, TEST_MEM_SLOT_INDEX, bmap);
-+
-+	/*
-+	 * Check all pages to verify the correct physical page was modified (or
-+	 * not), and that all pages are clean/dirty as expected.
-+	 *
-+	 * If a fault of any kind is expected, the target page should be dirty
-+	 * as the Dirty bit is set in the gPTE.  KVM should create a writable
-+	 * SPTE even on a read fault, *and* KVM must mark the GFN as dirty
-+	 * when doing so.
-+	 */
-+	for (i = 0; i < TEST_MEM_PAGES; i++) {
-+		if (i == page_nr && arg & TEST_SYNC_WRITE_FAULT)
-+			TEST_ASSERT(*(u64 *)TEST_HVA(vm, i) == 1,
-+				    "Page %u incorrectly not written by guest", i);
-+		else
-+			TEST_ASSERT(*(u64 *)TEST_HVA(vm, i) == 0xaaaaaaaaaaaaaaaaULL,
-+				    "Page %u incorrectly written by guest", i);
-+
-+		if (i == page_nr && !(arg & TEST_SYNC_NO_FAULT))
-+			TEST_ASSERT(test_bit(i, bmap),
-+				    "Page %u incorrectly reported clean on %s fault",
-+				    i, arg & TEST_SYNC_READ_FAULT ? "read" : "write");
-+		else
-+			TEST_ASSERT(!test_bit(i, bmap),
-+				    "Page %u incorrectly reported dirty", i);
-+	}
-+}
-+
- static void test_dirty_log(bool nested_tdp)
- {
- 	vm_vaddr_t nested_gva = 0;
- 	unsigned long *bmap;
--	uint64_t *host_test_mem;
--
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_vm *vm;
- 	struct ucall uc;
-@@ -133,35 +220,50 @@ static void test_dirty_log(bool nested_tdp)
- 
- 	/* Add an extra memory slot for testing dirty logging */
- 	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
--				    GUEST_TEST_MEM,
-+				    TEST_MEM_BASE,
- 				    TEST_MEM_SLOT_INDEX,
- 				    TEST_MEM_PAGES,
- 				    KVM_MEM_LOG_DIRTY_PAGES);
- 
- 	/*
--	 * Add an identity map for GVA range [0xc0000000, 0xc0002000).  This
-+	 * Add an identity map for GVA range [0xc0000000, 0xc0004000).  This
- 	 * affects both L1 and L2.  However...
- 	 */
--	virt_map(vm, GUEST_TEST_MEM, GUEST_TEST_MEM, TEST_MEM_PAGES);
-+	virt_map(vm, TEST_MEM_BASE, TEST_MEM_BASE, TEST_MEM_PAGES);
- 
- 	/*
--	 * ... pages in the L2 GPA range [0xc0001000, 0xc0003000) will map to
--	 * 0xc0000000.
-+	 * ... pages in the L2 GPA ranges [0xc0001000, 0xc0002000) and
-+	 * [0xc0003000, 0xc0004000) will map to 0xc0000000 and 0xc0001000
-+	 * respectively.
- 	 *
- 	 * When TDP is disabled, the L2 guest code will still access the same L1
- 	 * GPAs as the TDP enabled case.
-+	 *
-+	 * Set the Dirty bit in the PTEs used by L2 so that KVM will create
-+	 * writable SPTEs when handling read faults (if the Dirty bit isn't
-+	 * set, KVM must intercept the next write to emulate the Dirty bit
-+	 * update).
- 	 */
- 	if (nested_tdp) {
-+		vm_vaddr_t gva0 = TEST_GUEST_ADDR(TEST_MEM_ALIAS_BASE, 0);
-+		vm_vaddr_t gva1 = TEST_GUEST_ADDR(TEST_MEM_ALIAS_BASE, 1);
-+
- 		tdp_identity_map_default_memslots(vm);
--		tdp_map(vm, NESTED_TEST_MEM1, GUEST_TEST_MEM, PAGE_SIZE);
--		tdp_map(vm, NESTED_TEST_MEM2, GUEST_TEST_MEM, PAGE_SIZE);
-+		tdp_map(vm, gva0, TEST_GPA(0), PAGE_SIZE);
-+		tdp_map(vm, gva1, TEST_GPA(1), PAGE_SIZE);
-+
-+		*tdp_get_pte(vm, gva0) |= PTE_DIRTY_MASK(&vm->stage2_mmu);
-+		*tdp_get_pte(vm, gva1) |= PTE_DIRTY_MASK(&vm->stage2_mmu);
-+	} else {
-+		*vm_get_pte(vm, TEST_GVA(0)) |= PTE_DIRTY_MASK(&vm->mmu);
-+		*vm_get_pte(vm, TEST_GVA(1)) |= PTE_DIRTY_MASK(&vm->mmu);
- 	}
- 
- 	bmap = bitmap_zalloc(TEST_MEM_PAGES);
--	host_test_mem = addr_gpa2hva(vm, GUEST_TEST_MEM);
- 
- 	while (!done) {
--		memset(host_test_mem, 0xaa, TEST_MEM_PAGES * PAGE_SIZE);
-+		memset(TEST_HVA(vm, 0), 0xaa, TEST_MEM_PAGES * PAGE_SIZE);
-+
- 		vcpu_run(vcpu);
- 		TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_IO);
- 
-@@ -170,23 +272,7 @@ static void test_dirty_log(bool nested_tdp)
- 			REPORT_GUEST_ASSERT(uc);
- 			/* NOT REACHED */
- 		case UCALL_SYNC:
--			/*
--			 * The nested guest wrote at offset 0x1000 in the memslot, but the
--			 * dirty bitmap must be filled in according to L1 GPA, not L2.
--			 */
--			kvm_vm_get_dirty_log(vm, TEST_MEM_SLOT_INDEX, bmap);
--			if (uc.args[1]) {
--				TEST_ASSERT(test_bit(0, bmap), "Page 0 incorrectly reported clean");
--				TEST_ASSERT(host_test_mem[0] == 1, "Page 0 not written by guest");
--			} else {
--				TEST_ASSERT(!test_bit(0, bmap), "Page 0 incorrectly reported dirty");
--				TEST_ASSERT(host_test_mem[0] == 0xaaaaaaaaaaaaaaaaULL, "Page 0 written by guest");
--			}
--
--			TEST_ASSERT(!test_bit(1, bmap), "Page 1 incorrectly reported dirty");
--			TEST_ASSERT(host_test_mem[PAGE_SIZE / 8] == 0xaaaaaaaaaaaaaaaaULL, "Page 1 written by guest");
--			TEST_ASSERT(!test_bit(2, bmap), "Page 2 incorrectly reported dirty");
--			TEST_ASSERT(host_test_mem[PAGE_SIZE*2 / 8] == 0xaaaaaaaaaaaaaaaaULL, "Page 2 written by guest");
-+			test_handle_ucall_sync(vm, uc.args[1], bmap);
- 			break;
- 		case UCALL_DONE:
- 			done = true;
-
-base-commit: 3cd487701a911d0e317bf31e79fe07bba5fa9995
---
+Regards
+Alex
 
