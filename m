@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 093D9D1D486
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 19:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A8E6D1D486
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 19:22:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hYAJbT6qiXt1Oyt06EZqhtlLm5MZ6kbmeg0dNzl/duY=; b=hKxMBQS8mmA0mXHd/Aa6/B8vmI
-	BkXz9EpvivdXVxMWUVnFpB0L2RAQ7HazS0QnCds9osxRTFmUemZrQFmnoApBW6gAP2XPykIhoA80w
-	n/80/ULrPEgKIwVN2FdvAwuaWLHtCzruaTnJGRGJVYXQoAPCcYvq3Wj4E1R7I7w3sV861pwF37tM7
-	zMtWq/7hn3Lze4jsMYNrI1UnoTIYDH3Z/FwI9mRN4bGPbC53sR7iLnWksRAbo0canY56HmyAarha6
-	Z70CJnWRFNB4WD6Z8/Wux3toFLHORBwyKUbu7gTMZ+2IIYDrlx14zQyD0EchnlSvRxXhBezb9mvFe
-	iUH3kCIg==;
+	bh=7DkgkAbEb9yPJZj0RH2v74p9tuxpTyt5nKgg1ibdpDk=; b=D+F6iA3aiMWdDMdxLK9pSoL/u6
+	VJF+PjPDXmh4Tv0VQCvvq9j+5CSRiJBETU226jZweBhoC0nShqzCvRLpbzKq3YqqGAlm6rAByjznH
+	fXgN7EhC52DHk8djawuZPHrkYhbpYcLeNKyfpdXrU4WkQCqi+u+ICzsWA6qWHqcEaVdGa3XS3BbCO
+	K+RGPbe30ijKYWawUSIIuXHvXTxEO0lPFBtChE4pGVclQyX9BJOgha9J0lhnADhthl0HEq6bHwSkr
+	fXWLUcI7QF181YW3KZ+UK8+tbQ5xbMFS70lA6ECW10ed+x+BrrKC8ilximOroORpKI9XvkZe7NitG
+	yEEUosQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdvQj-00000000iuS-2OLO;
-	Thu, 08 Jan 2026 19:12:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vdvaM-00000000kXc-356C;
+	Thu, 08 Jan 2026 19:22:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdvQh-00000000ito-3m9Y;
-	Thu, 08 Jan 2026 19:12:21 +0000
+	id 1vdvaK-00000000kWq-1Xfr
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Jan 2026 19:22:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F61643A35;
-	Thu,  8 Jan 2026 19:12:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA272C19422;
-	Thu,  8 Jan 2026 19:12:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0B9B043E37;
+	Thu,  8 Jan 2026 19:22:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 666D2C116C6;
+	Thu,  8 Jan 2026 19:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767899539;
-	bh=z58YjI9naACNod9LOsx9aXafudrnXjr+TBbt5HgVpuw=;
+	s=k20201202; t=1767900135;
+	bh=SgiIwSGNIMEYoLsEOhMCECPsYkJzdCrSAXL1UwjjorQ=;
 	h=From:Date:Subject:To:Cc:From;
-	b=P4IlBCPxK+RgWYdPuBKzOhldC9QrcojKaimIn1KA1HarklnzxHE/qtfcVYeOvl1hv
-	 gbiDS2rs0jD24ganiJOAn5KNo0fBXnVzeOt8QY3hfewRpXgdRQfrocCYmuIeIxSkRo
-	 cPtI+u2lhjN3/uSkJmb5HN3hhY8/CeSUg77CXYnkqMDaR7N0dOnOUfkj+scnGDJ4YC
-	 CAN580zxHSuUeIfkDdxTMiFcDeGqESvvfQCIKvC8xaee0ch2Ufk6EH3Dq8ZkM2YVKW
-	 B+kqSViwLtdfut3lny7UTEGOmqe7H0eQ2IzN51hFvKL5FvHjSXuzw6w69FC5WE6o9h
-	 MDfsCVaIG5eSQ==
+	b=IFoQJB2UH9klc8P7g1i9nr243qSGMbM5qOmlgbCWc6yynUhz7TPhoy7i5uEjDEV3d
+	 2AGvTv19bz5vyhMihU9sXkKf7Zq6cRmD4j0aVRnWqDZf4LdZ5p8l1tOJp9SY66NJk0
+	 n7RjWWwFVrMfhs9YuroW/m9BrCa7138CywjeKNLFdpIqYlfqB0QNPXy93J7PWdboaf
+	 vIanBmYnYPPlV9G4egZfUOrPHqk69UOxzk3DSD3qFw5Y/v/d3B/ftOypzCBJpSiXd6
+	 sbT1ADXaibziY+0YSKNsP99pQxyyQtEH1HXoMacK5i9AJmR+GV+9tm8pqZBL5CDq8F
+	 FHUQxSs4TdaUw==
 From: Sven Peter <sven@kernel.org>
-Date: Thu, 08 Jan 2026 20:12:06 +0100
-Subject: [PATCH next] phy: apple: atc: Reset USB2 PHY during probe as well
+Date: Thu, 08 Jan 2026 20:21:45 +0100
+Subject: [PATCH] usb: dwc3: apple: Set USB2 PHY mode before dwc3 init
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260108-atcphy-coldboot-fix-v1-1-01c41c6e84f2@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAIYBYGkC/x2MQQqDMBAAvyJ77sIaYyz9SulBk7UulESSICmSv
- xs8zsDMCYmjcIJXd0LkQ5IE36B/dGC32X8ZxTUGRcpQTxPO2e7bH234uSWEjKsUpKcZldOkBz1
- BK/fITd/XN3guGT61XhGkcgtrAAAA
-X-Change-ID: 20260107-atcphy-coldboot-fix-08652d404347
+Message-Id: <20260108-dwc3-apple-usb2phy-fix-v1-1-5dd7bc642040@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAMgDYGkC/x2MSwqAMAwFryJZG2grSPEq4kKbaAOipcUf4t2tL
+ ucxb25IHIUTNMUNkXdJsi4ZdFmA8/0yMQplBqNMrbSySIersA9hZtzSYIK/cJQT3ajpMyyRgnw
+ OkfP8h9vueV7teDr4aAAAAA==
+X-Change-ID: 20260108-dwc3-apple-usb2phy-fix-cf1d26018dd0
 To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
- James Calligeros <jcalligeros99@gmail.com>, Sven Peter <sven@kernel.org>
+ linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ James Calligeros <jcalligeros99@gmail.com>, stable@vger.kernel.org, 
+ Sven Peter <sven@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1444; i=sven@kernel.org;
- h=from:subject:message-id; bh=z58YjI9naACNod9LOsx9aXafudrnXjr+TBbt5HgVpuw=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ2YCY9+UzFuyso9/fGfdmF0iU8AsMPePwHd1n0exE1qV9
- Vcvkz3dUcrCIMbFICumyLJ9v73pk4dvBJduuvQeZg4rE8gQBi5OAZhIuQbDf/+JjxUvnNc+tGxt
- 1h3ZrzPFiltui8u2Md4+x/ZUc92lg/aMDLN8PO92z9xZt+FspcbhGcabT5ksLjlxi3PTvWmaHU6
- Ne1gA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4784; i=sven@kernel.org;
+ h=from:subject:message-id; bh=SgiIwSGNIMEYoLsEOhMCECPsYkJzdCrSAXL1UwjjorQ=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ2YC8+Ml7RU12+actexbe+TSmgke2hu/vpYKf6jHtUnne
+ Gfr6d6/HaUsDGJcDLJiiizb99ubPnn4RnDppkvvYeawMoEMYeDiFICJrFzP8M+yX/u+j4vF3xXP
+ O/5atyyM6lltNY9vosG/+75LFZbWvrnF8JNRsfLhgfcBpr5x+mskhT/92emyZ9niQ8/6CyXZFl4
+ 6vJkFAA==
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_111219_993593_3A03CEC2 
-X-CRM114-Status: UNSURE (   8.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260108_112216_455463_935CE5B4 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +86,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the upstream Type-C PHY code is getting broader test coverage we
-got reports of USB devices plugged in during boot or those plugged in for
-the first time after boot occasionally not working correctly.
-This is partially caused by the USB2 parts of the PHY being left in an
-unknown state by the previous boot stages. We reset all other parts during
-probe but forgot about the USB2 PHY so let's fix that and actually reset
-and power off the USB2 PHY as well.
+Now that the upstream code has been getting broader test coverage by our
+users we occasionally see issues with USB2 devices plugged in during boot.
+Before Linux is running, the USB2 PHY has usually been running in device
+mode and it turns out that sometimes host->device or device->host
+transitions don't work.
+The root cause: If the role inside the USB2 PHY is re-configured when it
+has already been powered on or when dwc2 has already enabled the ULPI
+interface the new configuration sometimes doesn't take affect until dwc3
+is reset again. Fix this rare issue by configuring the role much earlier.
+Note that the USB3 PHY does not suffer from this issue and actually
+requires dwc3 to be up before the correct role can be configured there.
 
 Reported-by: James Calligeros <jcalligeros99@gmail.com>
 Reported-by: Janne Grunau <j@jannau.net>
-Fixes: 8e98ca1e74db ("phy: apple: Add Apple Type-C PHY")
+Fixes: 0ec946d32ef7 ("usb: dwc3: Add Apple Silicon DWC3 glue layer driver")
+Cc: stable@vger.kernel.org
 Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- drivers/phy/apple/atc.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/usb/dwc3/dwc3-apple.c | 48 +++++++++++++++++++++++++++++--------------
+ 1 file changed, 33 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/phy/apple/atc.c b/drivers/phy/apple/atc.c
-index c8a58ee64b7aad3205df51cf16ae778471ad2c5d..ab0b40b72533f1b3878b646b59820c730239e85c 100644
---- a/drivers/phy/apple/atc.c
-+++ b/drivers/phy/apple/atc.c
-@@ -2227,6 +2227,7 @@ static int atcphy_probe_finalize(struct apple_atcphy *atcphy)
- 	_atcphy_dwc3_reset_assert(atcphy);
+diff --git a/drivers/usb/dwc3/dwc3-apple.c b/drivers/usb/dwc3/dwc3-apple.c
+index cc47cad232e397ac4498b09165dfdb5bd215ded7..c2ae8eb21d514e5e493d2927bc12908c308dfe19 100644
+--- a/drivers/usb/dwc3/dwc3-apple.c
++++ b/drivers/usb/dwc3/dwc3-apple.c
+@@ -218,25 +218,31 @@ static int dwc3_apple_core_init(struct dwc3_apple *appledwc)
+ 	return ret;
+ }
  
- 	/* Reset atcphy to clear any state potentially left by the bootloader */
-+	atcphy_usb2_power_off(atcphy);
- 	atcphy_power_off(atcphy);
- 	atcphy_setup_pipehandler(atcphy);
+-static void dwc3_apple_phy_set_mode(struct dwc3_apple *appledwc, enum phy_mode mode)
+-{
+-	lockdep_assert_held(&appledwc->lock);
+-
+-	/*
+-	 * This platform requires SUSPHY to be enabled here already in order to properly configure
+-	 * the PHY and switch dwc3's PIPE interface to USB3 PHY.
+-	 */
+-	dwc3_enable_susphy(&appledwc->dwc, true);
+-	phy_set_mode(appledwc->dwc.usb2_generic_phy[0], mode);
+-	phy_set_mode(appledwc->dwc.usb3_generic_phy[0], mode);
+-}
+-
+ static int dwc3_apple_init(struct dwc3_apple *appledwc, enum dwc3_apple_state state)
+ {
+ 	int ret, ret_reset;
  
+ 	lockdep_assert_held(&appledwc->lock);
+ 
++	/*
++	 * The USB2 PHY on this platform must be configured for host or device mode while it is
++	 * still powered off and before dwc3 tries to access it. Otherwise, the new configuration
++	 * will sometimes only take affect after the *next* time dwc3 is brought up which causes
++	 * the connected device to just not work.
++	 * The USB3 PHY must be configured later after dwc3 has already been initialized.
++	 */
++	switch (state) {
++	case DWC3_APPLE_HOST:
++		phy_set_mode(appledwc->dwc.usb2_generic_phy[0], PHY_MODE_USB_HOST);
++		break;
++	case DWC3_APPLE_DEVICE:
++		phy_set_mode(appledwc->dwc.usb2_generic_phy[0], PHY_MODE_USB_DEVICE);
++		break;
++	default:
++		/* Unreachable unless there's a bug in this driver */
++		return -EINVAL;
++	}
++
+ 	ret = reset_control_deassert(appledwc->reset);
+ 	if (ret) {
+ 		dev_err(appledwc->dev, "Failed to deassert reset, err=%d\n", ret);
+@@ -257,7 +263,13 @@ static int dwc3_apple_init(struct dwc3_apple *appledwc, enum dwc3_apple_state st
+ 	case DWC3_APPLE_HOST:
+ 		appledwc->dwc.dr_mode = USB_DR_MODE_HOST;
+ 		dwc3_apple_set_ptrcap(appledwc, DWC3_GCTL_PRTCAP_HOST);
+-		dwc3_apple_phy_set_mode(appledwc, PHY_MODE_USB_HOST);
++		/*
++		 * This platform requires SUSPHY to be enabled here already in order to properly
++		 * configure the PHY and switch dwc3's PIPE interface to USB3 PHY. The USB2 PHY
++		 * has already been configured to the correct mode earlier.
++		 */
++		dwc3_enable_susphy(&appledwc->dwc, true);
++		phy_set_mode(appledwc->dwc.usb3_generic_phy[0], PHY_MODE_USB_HOST);
+ 		ret = dwc3_host_init(&appledwc->dwc);
+ 		if (ret) {
+ 			dev_err(appledwc->dev, "Failed to initialize host, ret=%d\n", ret);
+@@ -268,7 +280,13 @@ static int dwc3_apple_init(struct dwc3_apple *appledwc, enum dwc3_apple_state st
+ 	case DWC3_APPLE_DEVICE:
+ 		appledwc->dwc.dr_mode = USB_DR_MODE_PERIPHERAL;
+ 		dwc3_apple_set_ptrcap(appledwc, DWC3_GCTL_PRTCAP_DEVICE);
+-		dwc3_apple_phy_set_mode(appledwc, PHY_MODE_USB_DEVICE);
++		/*
++		 * This platform requires SUSPHY to be enabled here already in order to properly
++		 * configure the PHY and switch dwc3's PIPE interface to USB3 PHY. The USB2 PHY
++		 * has already been configured to the correct mode earlier.
++		 */
++		dwc3_enable_susphy(&appledwc->dwc, true);
++		phy_set_mode(appledwc->dwc.usb3_generic_phy[0], PHY_MODE_USB_DEVICE);
+ 		ret = dwc3_gadget_init(&appledwc->dwc);
+ 		if (ret) {
+ 			dev_err(appledwc->dev, "Failed to initialize gadget, ret=%d\n", ret);
 
 ---
-base-commit: add66a6673bc4aacd0ef0f3c4a51271501770b17
-change-id: 20260107-atcphy-coldboot-fix-08652d404347
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20260108-dwc3-apple-usb2phy-fix-cf1d26018dd0
 
 Best regards,
 -- 
