@@ -4,77 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5EABD1D46C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 15:08:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B285DD1D46C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 15:10:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fypOMiSP+xOXf5nJU3HVmGThmnIeMx0b0ufwVIjof3g=; b=hH4/s7vbxsgoZD
-	1mcVR4n16CZUgrOAf2sbEIghQ43S4l341qAqZSBZ1nGL7Lz84G6GOlud0ZPSQPCpQS88N+yW/HFnD
-	bYWUHVJwWsehcKxxWIA5OuklrXxFeUOANppVJOH4AomhdvUklVsPeuW7kd8sr27KmeTWvDsJ5+xg9
-	30vTXQ9SHT2oa0fmyETfZaqwHrt2jzHwxnfBskCHWIUFHJf/cJm8jlv3S2toSdVAk4vq41KeQJfsQ
-	7OmQM87ngQI8rkJz785+BwpAEgJ3eLNCh8Q9Uw8Fy/nBOLW5fO3oue0OJ2TeRbmXMkEGTbTmsRhH5
-	kd/w4JO+VASSrrZ+YKIQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dhcuq9el8jXisrdDDPJhueutUdvIyETPBmEWgvOuRc0=; b=q5x425MESTQFJYSkucAR3SXWMB
+	2DoPYMb1sk3xE17YdzXx2mPTqKXqs9rBXBKrq/OCsx4+a5gX+ARUtw1/dZu6KXWwJi2SS4mfxbz6q
+	3eXlEVUvr7DI1iOINB8KDVuQY1yvvIc5Eu9ybs0PsVZa588N7CYAy8Y6j2nNUVS4dDr1qw39bwiFo
+	tpjpz26RfslNdsuW92UAS7rvR7VO/flvs3Mx7mK6kk9vVCOOFZDXBCVur41IBxtplJE9WxXoiCCi3
+	60R5WwyrV/EMJCRZeJKGoVrx4+Jdusi2KhClk6fGS9ykCoPcHbzWza7x4okuitZCRe0eBQVmfN/Qq
+	txtKCteQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdrcX-0000000HSs5-08mV;
-	Thu, 08 Jan 2026 15:08:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vdreS-0000000HTDN-3Xcq;
+	Thu, 08 Jan 2026 15:10:16 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdrcU-0000000HSrU-1z4H
+	id 1vdreQ-0000000HTCd-3gMi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 15:08:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A0DB04095F
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 15:08:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80084C19423
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 15:08:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767884893;
-	bh=39Z9S4WdE/PvsD7g4HhaCFW2OPS03zLo06BGT58/Sdg=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=G4s2YCTwalIIEOa5+zNpraynj/0tm4IP0B4nWh1B8yEFVsk2q/4Nwsv9udsyPMb/V
-	 c2DO2apYh/CjwSMjCs/GFKynWKqfctOOJP6KTPot1qppd7LbMrXROq0hxcvzwvQYug
-	 gbDa6i9pWATYUX1E67v6srC0L0rFGdb0qk2RXH+dPDqmYfqT2ULqYl2m7iJb8TvW22
-	 0Iv4ktk6Y54LOfGHWKdahqYrTTBH9vq6aJnCj8p4vWkSJl+TSizIs5myGfq2YeVxMD
-	 qU871L9PFs1zSFfmyBQZGNRSvkUNcOwVXUaUaOQ9oAi7VSMKLK5wPCr1O6DH+MZ5QT
-	 kdU2zU/LkS7rw==
-Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-65d1a094185so1379441eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 07:08:13 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVk/wthJ4xfGrF36An+V8HAFBDDm3jXnd9gYZ0/K7/tVrveiQ4j3RDDoh+6FWPhvQ7SXxmPJ2aGDhPFTiqOH82y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzibX6VhDkmEdR+VjVDrJQkNCSVB44uXzcBViKrWirxLvKJxWyv
-	a7Uqw6N/26y3e36zhS8WKBs0ndd2poNwuQwTOaIn1fn6xdOkjfsUguIozBp/Gq4JWa6UKFYxq8l
-	axkrsj2F37hVLn7kFqbCH0sOQUesCf94=
-X-Google-Smtp-Source: AGHT+IH/gnEZYqIaFUUN6qjbp6n1QUe5qlNXozvSo/LvWHOByHxaNwk2S8ODoFI4rDHWqv0owwBmLR26/u3UOEkO0ho=
-X-Received: by 2002:a05:6820:6181:b0:65f:5d31:2965 with SMTP id
- 006d021491bc7-65f5d313701mr1029748eaf.47.1767884892592; Thu, 08 Jan 2026
- 07:08:12 -0800 (PST)
+	Thu, 08 Jan 2026 15:10:16 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2a0f3f74587so28588515ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 07:10:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1767885013; x=1768489813; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Dhcuq9el8jXisrdDDPJhueutUdvIyETPBmEWgvOuRc0=;
+        b=wbVVO0YnxK8/j6ezT92q04tNhijGZ6SznOaCMLJydTX9iTe0+mZpx/zG8xjiMHkfhs
+         1KhD8G6xrNamLOsiqkneHffc5FY8+nMRy51tklCNpq+x04J1kwuHc8YiNXjKCB+dwiSz
+         66mgsyLwjLdG2gUJjrTmKiaMMoIRDRc9AXKL5tSgzTYTr8YcyR+Xc2IOaSlJVePsFOkv
+         TeeDJdycBWg6VrrMLR7xhvuw4KVnZ8ODfdCpTwpX+nam+OFzYwoJwJAz16C5IX4k50v0
+         4DwMiqxFvNT+OPS6JT1OB+cRRVpxl/Bv6S/VH/OLAF5+EzaGTNqN905j0uvnwKEcUPlH
+         s8Xg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767885013; x=1768489813;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Dhcuq9el8jXisrdDDPJhueutUdvIyETPBmEWgvOuRc0=;
+        b=S4zlZoxnWTKyQdtJXRHfFht6dr/niYi70fNW4O4ODoYzr9FD1BYrJIU+dcCFeJxLU4
+         iPU/966ZjdsNbZ/qdJWLZuO0FLLWx7YprwlAhl2QCk25PlMEVWDFRJdOuUzKt8brPzbA
+         IN+XxSFJGP8R93mXRtMZCFrSyti64xYJ/b3RPWb79mPessp/IsmWDd8/wAG9J/bdFQ4h
+         upHL+ctUl2jIDOrgoqfNQkGwHro5bw+dUFjY88LHO0yhlEPVa9sfs4ldbbbnEVJTiDjs
+         oPw/G0cFCypYSh9ZpVxUSJUXvH5Ga0YqgrsHQKqsMmqIpyR2kChlyy/GDs2HGQKQ9U+9
+         UleQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV6HI7gK7y3QqfqX4VtDOavUq+g/c2nPGVo1bjdZBpYHgups9n8q5f7kJ0N4B7hMnTwZOrZqGDZH2Crfpg5owZ3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/hs3uZsVdiXLquUZZPjxtbBiuh7oeeVOi5dzyZIxSMbaieKW4
+	/sZIcNxF+yQgxIqxn28hLsiCMYe7WXgXPZ8YApxK8aBeMr1pNKMEzLgiaS2qTDk3Als=
+X-Gm-Gg: AY/fxX4rKXb7TKhiPHiQMw40iemAyb7goCtQWfq+71U+PrPtm7nngFTeIltMwfF4+0R
+	MPt0bSZcWTmiMsdrxy1CywmbO4S7aXh5Rjoz2HL2CoMlp1DjCFN3XljIHHi5pGPlzGB0Satt6ku
+	4jdOaZrHM88LB+4z6ZjMEIN1amM1l1ngwH6eLajBXsOifYm+U6CSHqw0lQy2oDEJNmorfG7uebE
+	h3MCLnqtRxGWlfRnkvYdmHmXFP9cWg4FroiyZIAEbBIy7/SfhBEGTaJk5fS94gvAoKV05B8+D1x
+	Fvmiw5BXp9cX/4Y6G0GvCL+r8m4LKfUaL45uyAR+/SlhDcEnUc5lJmt/MO1sG1rEG4Cjnsldtw+
+	aSOc6KJyAMfnQAes38DnrjaE/boSOh9J5xjSjbAHTlU8m4kP4ken5YFwSOe5iiKcnFJjPe7/fXF
+	1K87/CJAJktbCj5w==
+X-Google-Smtp-Source: AGHT+IHdVQFm0LoRLpz5ffOipFREjXXoGNgUc0A0LwHWdii2Nr5bh8+R06mGKRoJf0I2Vwoi809Uig==
+X-Received: by 2002:a17:902:e846:b0:2a1:39cd:7462 with SMTP id d9443c01a7336-2a3ee43892bmr52476395ad.8.1767885013214;
+        Thu, 08 Jan 2026 07:10:13 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:9a09:dd70:79df:b876])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3c48c75sm83669855ad.35.2026.01.08.07.10.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 Jan 2026 07:10:12 -0800 (PST)
+Date: Thu, 8 Jan 2026 08:10:10 -0700
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v5 4/5] remoteproc: imx_rproc: Add support for System
+ Manager API
+Message-ID: <aV_I0iGYt1lxEIUw@p14s>
+References: <20251218-imx95-rproc-2025-12-18-v5-0-b56a27d4158f@nxp.com>
+ <20251218-imx95-rproc-2025-12-18-v5-4-b56a27d4158f@nxp.com>
+ <aV6ow9dGUNaPDqZg@p14s>
+ <aV+HEAzwNSOCUx88@shlinux89>
 MIME-Version: 1.0
-References: <20251225103616.3203473-1-wens@kernel.org> <20251225103616.3203473-5-wens@kernel.org>
- <13929653.uLZWGnKmhe@jernej-laptop>
-In-Reply-To: <13929653.uLZWGnKmhe@jernej-laptop>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Thu, 8 Jan 2026 23:07:52 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65LzhdXfX16HTgGbC7OYkuX=vqCzB65=BqD4i1SiCQeRw@mail.gmail.com>
-X-Gm-Features: AQt7F2r3aAZUypwXBa9lAFiH8eexcqiOW8WUO-M-nGoH39uZtjTr8DirPSqIr98
-Message-ID: <CAGb2v65LzhdXfX16HTgGbC7OYkuX=vqCzB65=BqD4i1SiCQeRw@mail.gmail.com>
-Subject: Re: [PATCH 4/4] ARM: dts: allwinner: Replace status "failed" with "fail"
-To: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej@kernel.org>, 
-	Samuel Holland <samuel@sholland.org>, Linus Walleij <linusw@kernel.org>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, devicetree@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, linux-gpio@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aV+HEAzwNSOCUx88@shlinux89>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_070814_549534_C49D2225 
-X-CRM114-Status: GOOD (  19.24  )
+X-CRM114-CacheID: sfid-20260108_071014_931177_01D797CF 
+X-CRM114-Status: GOOD (  39.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,104 +107,192 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 26, 2025 at 2:49=E2=80=AFAM Jernej =C5=A0krabec <jernej.skrabec=
-@gmail.com> wrote:
->
-> Dne =C4=8Detrtek, 25. december 2025 ob 11:36:15 Srednjeevropski standardn=
-i =C4=8Das je Chen-Yu Tsai napisal(a):
-> > The device tree bindings specify using "fail", not "failed".
+On Thu, Jan 08, 2026 at 06:29:36PM +0800, Peng Fan wrote:
+> Hi Mathieu,
+> 
+> On Wed, Jan 07, 2026 at 11:41:07AM -0700, Mathieu Poirier wrote:
+> >On Thu, Dec 18, 2025 at 01:17:38PM +0800, Peng Fan (OSS) wrote:
+> >> From: Peng Fan <peng.fan@nxp.com>
+> >> 
+> ...
+> >> +/* Linux has permission to handle the Logical Machine of remote cores */
+> >> +#define IMX_RPROC_FLAGS_SM_LMM_AVAIL	BIT(0)
+> >> +
 > >
-> > Fix up all the ones that are wrong.
->
-> While patch indeed fixes the issue, I wonder if "fail" is proper value?
-> According to specs, it means that device needs repair. What about just
-> keep "disabled"?
+> >This should be named IMX_RPROC_FLAGS_SM_LMM_CTRL.
+> 
+> Fix in V6.
+> 
+> >
+> >>  static int imx_rproc_xtr_mbox_init(struct rproc *rproc, bool tx_block);
+> >>  static void imx_rproc_free_mbox(void *data);
+> >>  
+> ...
+> >> +static int imx_rproc_sm_lmm_start(struct rproc *rproc)
+> >> +{
+> >> +	struct imx_rproc *priv = rproc->priv;
+> >> +	const struct imx_rproc_dcfg *dcfg = priv->dcfg;
+> >> +	struct device *dev = priv->dev;
+> >> +	int ret;
+> >> +
+> >
+> >A comment is needed here to say that if the remoteproc core can't start the M7,
+> >it will already be handled in imx_rproc_sm_lmm_prepare()
+> 
+> Add in V6:
+>         /*
+>          * If the remoteproc core can't start the LM, it will already be
 
-"disabled" isn't right either, as that means its disconnected or not used.
-These are definitely connected.
+The remoteproc core starts a remote processor, which in this case is the M7.
+I'm not sure why you are referring to the logical machine (LM).
 
-On the other hand we could fix these and describe the supplies for the
-external as supplies for the pin banks? But I doubt anyone has these
-devices around for testing.
 
-ChenYu
+>          * handled in imx_rproc_sm_lmm_prepare().
+>          */
+> 
+> >
+> >> +	ret = scmi_imx_lmm_reset_vector_set(dcfg->lmid, dcfg->cpuid, 0, 0);
+> >> +	if (ret) {
+> >> +		dev_err(dev, "Failed to set reset vector lmid(%u), cpuid(%u): %d\n",
+> >> +			dcfg->lmid, dcfg->cpuid, ret);
+> >> +		return ret;
+> >> +	}
+> >> +
+> >>  
+> ...
+> >> +static int imx_rproc_sm_lmm_prepare(struct rproc *rproc)
+> >> +{
+> >> +	struct imx_rproc *priv = rproc->priv;
+> >> +	const struct imx_rproc_dcfg *dcfg = priv->dcfg;
+> >> +	int ret;
+> >> +
+> >
+> >>>>>>>>>>>>
+> >
+> >> +	/*
+> >> +	 * IMX_RPROC_FLAGS_SM_LMM_AVAIL not set indicates Linux is not able
+> >> +	 * to start/stop rproc LM, then if rproc is not in detached state,
+> >> +	 * prepare should fail. If in detached state, this is in rproc_attach()
+> >> +	 * path.
+> >> +	 */
+> >> +	if (!(priv->flags & IMX_RPROC_FLAGS_SM_LMM_AVAIL))
+> >> +		return rproc->state == RPROC_DETACHED ? 0 : -EACCES;
+> >
+> ><<<<<<<<<<<
+> >
+> >        if (rproc->state == RPROC_DETACHED)
+> >                return 0;
+> >
+> >        if (!(priv->flags & IMX_RPROC_FLAGS_SM_LMM_AVAIL))
+> >                return -EACCES;
+> >
+> ><<<<<<<<<<<
+> 
+> Update in v6 with your code snippets.
+> 
+> >> +
+> >> +	/* Power on the Logical Machine to make sure TCM is available. */
+> >> +	ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_POWER_ON, 0);
+> >> +	if (ret) {
+> >> +		dev_err(priv->dev, "Failed to power on lmm(%d): %d\n", dcfg->lmid, ret);
+> >> +		return ret;
+> >> +	}
+> >> +
+> >> +	dev_info(priv->dev, "lmm(%d) powered on by Linux\n", dcfg->lmid);
+> >> +
+> >> +	return 0;
+> >> +}
+> >> +
+> >>  static int imx_rproc_prepare(struct rproc *rproc)
+> >>  {
+> >>  	struct imx_rproc *priv = rproc->priv;
+> >> @@ -980,6 +1078,93 @@ static int imx_rproc_scu_api_detect_mode(struct rproc *rproc)
+> >>  	return 0;
+> >>  }
+> >>  
+> >> +static int imx_rproc_sm_lmm_check(struct rproc *rproc, bool started)
+> >> +{
+> >> +	struct imx_rproc *priv = rproc->priv;
+> >> +	const struct imx_rproc_dcfg *dcfg = priv->dcfg;
+> >> +	struct device *dev = priv->dev;
+> >> +	int ret;
+> >> +
+> >> +	/*
+> >> +	 * Use power on to do permission check. If rproc is in different LM,
+> >> +	 * and linux has permission to handle the LM, set IMX_RPROC_FLAGS_SM_LMM_AVAIL.
+> >> +	 */
+> >
+> >Two things here:
+> >(1) This whole comment describes what this function does rather than what the
+> >code is doing in the next few lines.  As such it needs to be moved above the
+> >function declaration.
+> >(2) We know the M7 is in a different LM, otherwise "dcfg->lmid == info.lmid" in
+> >imx_rproc_sm_detect_mode() and we would not be here.  As such the comment is
+> >wrong.  The only thing this code is doing is check if the remoteproc core is
+> >responsible for the M7 lifecycle.
+> 
+> Update in v6:
+> /* Check whether remoteproc core is responsible for LM lifecycle */
 
-> Best regards,
-> Jernej
->
+Same comment as above.
+
+> static int imx_rproc_sm_lmm_check(struct rproc *rproc, bool started)
+> 
 > >
-> > Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
-> > ---
-> >  arch/arm/boot/dts/allwinner/sun4i-a10-dserve-dsrv9703c.dts | 2 +-
-> >  arch/arm/boot/dts/allwinner/sun4i-a10-pov-protab2-ips9.dts | 2 +-
-> >  arch/arm/boot/dts/allwinner/sun6i-a31-hummingbird.dts      | 2 +-
-> >  arch/arm/boot/dts/allwinner/sun6i-a31s-primo81.dts         | 2 +-
-> >  4 files changed, 4 insertions(+), 4 deletions(-)
+> >> +	ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_POWER_ON, 0);
+> >> +	if (ret) {
+> ...
+> >> +
+> >> +
 > >
-> > diff --git a/arch/arm/boot/dts/allwinner/sun4i-a10-dserve-dsrv9703c.dts=
- b/arch/arm/boot/dts/allwinner/sun4i-a10-dserve-dsrv9703c.dts
-> > index 63e77c05bfda..f2413ba6a858 100644
-> > --- a/arch/arm/boot/dts/allwinner/sun4i-a10-dserve-dsrv9703c.dts
-> > +++ b/arch/arm/boot/dts/allwinner/sun4i-a10-dserve-dsrv9703c.dts
-> > @@ -112,7 +112,7 @@ axp209: pmic@34 {
+> >>>>>>>>>>>>
 > >
-> >  &i2c1 {
-> >       /* pull-ups and devices require AXP209 LDO3 */
-> > -     status =3D "failed";
-> > +     status =3D "fail";
-> >  };
+> >> +	/* rproc was started before boot Linux and under control of Linux, directly return */
+> >> +	if (started) {
+> >> +		priv->flags |= IMX_RPROC_FLAGS_SM_LMM_AVAIL;
+> >> +		return 0;
+> >> +	}
+> >> +
+> >> +	/* else shutdown the LM to save power */
+> >> +	ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_SHUTDOWN, 0);
+> >> +	if (ret) {
+> >> +		dev_err(dev, "shutdown lmm(%d) failed: %d\n", dcfg->lmid, ret);
+> >> +		return ret;
+> >> +	}
+> >> +
+> >> +	priv->flags |= IMX_RPROC_FLAGS_SM_LMM_AVAIL;
 > >
-> >  &i2c2 {
-> > diff --git a/arch/arm/boot/dts/allwinner/sun4i-a10-pov-protab2-ips9.dts=
- b/arch/arm/boot/dts/allwinner/sun4i-a10-pov-protab2-ips9.dts
-> > index c32596947647..e0c7099015da 100644
-> > --- a/arch/arm/boot/dts/allwinner/sun4i-a10-pov-protab2-ips9.dts
-> > +++ b/arch/arm/boot/dts/allwinner/sun4i-a10-pov-protab2-ips9.dts
-> > @@ -96,7 +96,7 @@ axp209: pmic@34 {
+> ><<<<<<<<<<<
 > >
-> >  &i2c1 {
-> >       /* pull-ups and devices require AXP209 LDO3 */
-> > -     status =3D "failed";
-> > +     status =3D "fail";
-> >  };
+> >        /* Shutdown remote processor if not started */
+> >        if (!started) {
+> >	        ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_SHUTDOWN, 0);
+> >	        if (ret) {
+> >		        dev_err(dev, "shutdown lmm(%d) failed: %d\n", dcfg->lmid, ret);
+> >		        return ret;
+> >	        }
+> >        }
 > >
-> >  &i2c2 {
-> > diff --git a/arch/arm/boot/dts/allwinner/sun6i-a31-hummingbird.dts b/ar=
-ch/arm/boot/dts/allwinner/sun6i-a31-hummingbird.dts
-> > index 5bce7a32651e..5dfd36e3a49d 100644
-> > --- a/arch/arm/boot/dts/allwinner/sun6i-a31-hummingbird.dts
-> > +++ b/arch/arm/boot/dts/allwinner/sun6i-a31-hummingbird.dts
-> > @@ -170,7 +170,7 @@ hdmi_out_con: endpoint {
+> >	priv->flags |= IMX_RPROC_FLAGS_SM_LMM_AVAIL;
 > >
-> >  &i2c0 {
-> >       /* pull-ups and devices require AXP221 DLDO3 */
-> > -     status =3D "failed";
-> > +     status =3D "fail";
-> >  };
+> ><<<<<<<<<<<
+> 
+> Thanks for your code snippets. Update in v6.
+> 
 > >
-> >  &i2c1 {
-> > diff --git a/arch/arm/boot/dts/allwinner/sun6i-a31s-primo81.dts b/arch/=
-arm/boot/dts/allwinner/sun6i-a31s-primo81.dts
-> > index b32b70ada7fd..fefd887fbc39 100644
-> > --- a/arch/arm/boot/dts/allwinner/sun6i-a31s-primo81.dts
-> > +++ b/arch/arm/boot/dts/allwinner/sun6i-a31s-primo81.dts
-> > @@ -90,7 +90,7 @@ hdmi_out_con: endpoint {
-> >
-> >  &i2c0 {
-> >       /* pull-ups and device VDDIO use AXP221 DLDO3 */
-> > -     status =3D "failed";
-> > +     status =3D "fail";
-> >  };
-> >
-> >  &i2c1 {
-> >
->
->
->
->
->
+> >This patchset would be a lot easier to digest if you had split the support for
+> >CPU and LMM protocols in diffent patches.
+> 
+> I appreciate your detailed review and the code snippets you provided. Please
+> let me know if you'd prefer that I split the support for LMM
+> and CPU into separate patches in v6, or keep them combined as they are.
+
+Please split.
+
+> 
+> Thanks,
+> Peng.
 
