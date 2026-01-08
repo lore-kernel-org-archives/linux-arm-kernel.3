@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4E83D1D486
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 18:24:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 566CBD1D486
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 18:29:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IUwrWUOIpMj5TVaHyA5w/9OjOinSfTYecOzgun1vdNk=; b=F59BMzw84eHzVIyZOKN1Cyo6WF
-	xv3bAfLkZeKzah7OSlOxMnviFvZ/whu3DZmEHQWM/hfko/DexqGStQFyPxZp89JEuozHUQ+obTm1N
-	QsKzBU0JnH8Fzc64kwENMJACz4LupNOnUGpUwhPstLiiXWWmZMJCfeN+LZBQizWMA1fuYvzlRIzZQ
-	B0P0MkFPwqecr2e7i3jR7GTs7MugSnTX9RZ7aSYlkRo9Fz8UbZcLIWEnRJ3yZnLcbm1oaitUHxFFP
-	Tu2155IcUUmWZga9QRJkLVFlLmbA5aK+U9gmlncHeFOMFHvrCp2gfgKVJdQh+VVRJdNjjr7GBPvXh
-	r0qEOzow==;
+	bh=v1qPdoO+X2jwPeMvVPGM0GzX5uNn2DdddZW3ayiLdg8=; b=098PmDynGpH3Ouyj/9EJ0evpB7
+	eSaDDA9/VC4K2GE4xFQ3YwQ3JcJ/oHapj9a7jwhGOAA9pe9YVWhX21xZ0tUkh0jODapQIAupqyk56
+	UxTmk5QMW0P+Mwjpb5EupzgOs3GCAQjhyDjZ1JYNUdoM1l2cmCdglwR1xkMMf+hGm/St6/QgwjSd6
+	+vu4yFa/RhQsrIJxON6pnniLJxQR/W+EzTIq0jVMOzkqEV74T0tWnriKriCK/lH5x3lHD+ROSCVMO
+	yevZUGHjKVCAo7rjZIAChxDi6RHzL2K4U6QI30pywtDUYK+vmYLvM6ENjBLxfvu46P7eetE8ggbOW
+	Jmt2CBaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdugf-00000000bVe-1Nfb;
-	Thu, 08 Jan 2026 18:24:45 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vdulD-00000000cLZ-2yU9;
+	Thu, 08 Jan 2026 18:29:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdugb-00000000bU0-3pJG;
-	Thu, 08 Jan 2026 18:24:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=IUwrWUOIpMj5TVaHyA5w/9OjOinSfTYecOzgun1vdNk=; b=nG
-	KcLUILiB/z36vV4/ZAd41y9YeZ/Rnb53VPkMfS0BFeXE2axRKFffQ59bQfpPmdZKGJ8SgJVYlGrlu
-	S6pSkCwFSYfZmHsctmkWQcfmd8WSNjbDP2go2kTczdXVNnT/DlDyTozsMFu8igt78DLAlMAer9AYC
-	W1LoSctomNwqT78=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vdugR-00205J-PQ; Thu, 08 Jan 2026 19:24:31 +0100
-Date: Thu, 8 Jan 2026 19:24:31 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: vkoul@kernel.org, neil.armstrong@linaro.org, shawnguo@kernel.org,
-	kernel@pengutronix.de, festevam@gmail.com, jun.li@nxp.com,
-	Frank.Li@nxp.com, linux-phy@lists.infradead.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] phy: fsl-imx8mq-usb: add debugfs to access control
- register
-Message-ID: <c1425564-9dca-45dc-ac5e-093150a3ff01@lunn.ch>
-References: <20260108083641.2119616-1-xu.yang_2@nxp.com>
+	id 1vdulB-00000000cKS-2QWm
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Jan 2026 18:29:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D89124405D;
+	Thu,  8 Jan 2026 18:29:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE3BCC116C6;
+	Thu,  8 Jan 2026 18:29:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767896964;
+	bh=C1ZZbneNUmbULmhmIIcvZNddGcCUci7DDbpWChqEyKU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qA1Aq20xJgjpSoMfhVPELlB3kaMSb4V949hdTJTF7ntA/YDRLPvppPlo71J3iNVEz
+	 rWPCZzTejHHH+XB9IiMGiMIVOdrHLg92f88tFmfG7Ee4vaZkHKHJOAzq+fw14Nu3o3
+	 3XyFg2T6izd3Edg2iO6j9aynx/8E5EKvZC7I5BKofd1bGmvairPCUhH9p0rE64TXbh
+	 AZHNfuCTQICVlmaoj472l/aJicPGDjbXohpy9QXQzRldQth+W5Xr/j92I3bfizc0/9
+	 jMOW/hMOBwidFSFHMxnmxaY04o9i2lgVgZ7aCLmsvinqdRjXMYgP1qT2fZwJzh2seo
+	 M6yCbvZJ5I0bw==
+Date: Thu, 8 Jan 2026 18:29:19 +0000
+From: Will Deacon <will@kernel.org>
+To: Barry Song <21cnbao@gmail.com>
+Cc: Weilin Tong <tongweilin@linux.alibaba.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>, linux-mm@kvack.org,
+	baolin.wang@linux.alibaba.com
+Subject: Re: [RFC PATCH] arm64: Kconfig: enable ARCH_WANTS_THP_SWAP for all
+ pagesizes
+Message-ID: <aV_3fxlzwOSz8B0t@willie-the-truck>
+References: <20251226063759.4020782-2-tongweilin@linux.alibaba.com>
+ <CAGsJ_4zd+SMa4Mj23tjF5OwsP3LQyvYTrwN4y81=k8FSFgbH3Q@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260108083641.2119616-1-xu.yang_2@nxp.com>
+In-Reply-To: <CAGsJ_4zd+SMa4Mj23tjF5OwsP3LQyvYTrwN4y81=k8FSFgbH3Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_102441_968962_EFC8D43A 
-X-CRM114-Status: GOOD (  15.37  )
+X-CRM114-CacheID: sfid-20260108_102925_643477_C6342069 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,33 +78,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 08, 2026 at 04:36:41PM +0800, Xu Yang wrote:
-> The CR port is a simple 16-bit data/address parallel port that is
-> provided for on-chip access to the control registers inside the
-> USB 3.0 femtoPHY[1]. While access to these registers is not required
-> for normal PHY operation, this interface enables you to access
-> some of the PHY’s diagnostic features during normal operation or
-> to override some basic PHY control signals.
+On Fri, Dec 26, 2025 at 07:52:44PM +1300, Barry Song wrote:
+> On Fri, Dec 26, 2025 at 7:39 PM Weilin Tong
+> <tongweilin@linux.alibaba.com> wrote:
+> >
+> > Currently, ARCH_WANTS_THP_SWAP was limited to 4K page size ARM64 kernels, but
+> > large folios requiring swapping also exist in other page size configurations
+> > (e.g. 64K). Without this config, large folios in these kernels cannot be swapped
+> > out.
+> >
+> > Here we enable ARCH_WANTS_THP_SWAP for all ARM64 page sizes.
 > 
-> 3 debugfs files are created to read and write control registers,
-> all use hexadecimal format:
-> ctrl_reg_base: the register offset to write, or the start offset
->                to read.
-> ctrl_reg_count: how many continuous registers to be read.
-> ctrl_reg_value: read to show the continuous registers value from
->                 the offset in ctrl_reg_base, to ctrl_reg_base
->                 + ctrl_reg_count - 1, one line for one register.
->                 when write, override the register at ctrl_reg_base,
->                 one time can only change one 16bits register.
-> 
-> Link[1]: https://www.synopsys.com/dw/doc.php/phy/usb3.0/femto/phy/x652_usb3_ss14lpp_18_ns/4.07a/dwc_usb3.0_femtophy_ss14lpp_08V18V_x1_databook.pdf
+> I no longer recall why this was not enabled for sizes other than
+> 4 KB in commit d0637c505f8a ("arm64: enable THP_SWAP for arm64"), but
+> it appears to be fine, and the swap cluster size should also be
+> more friendly to PMD alignment.
 
-Please don't ignore my comments to V2. Think about the code split
-between the generic IP licensed from Synopsys and the vendor specific
-code used for integration into the SoC. You want to avoid making a
-mess you later need to cleanup because somebody else licensed the same
-IP core from Synopsys, and need to put their own vendor specific
-integration code around the generic code.
+You seemed to be worried about I/O latency in your original post:
 
-    Andrew
+https://lore.kernel.org/all/20220524071403.128644-1-21cnbao@gmail.com/
+
+Will
 
