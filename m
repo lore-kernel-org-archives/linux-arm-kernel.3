@@ -4,108 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 954CDD185CC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 11:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93D89D185D5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 11:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oJRtpdk3QL9oOI3hi+tsdde7GeB/zLo7cbRVz+hyZxc=; b=MxW710WCCPm8bew4AOij7Urzon
-	6LP6jYa9sM3awn3bv/q9w1ZtVq0Eyy8lQbIuVQp3hoCSX7aVSkgusUdsvNQvuePtHJE3sBRQdje1A
-	GytaQrFH2T+N88PAn7qGX4NUZ3ZeA3XuMQQm2GTxZVbtnXBoWiXImaETLqAZlbIwzU1ed5t5B/GBy
-	D3+sdpKaijWD6PsQZ5SQ2VQ1CeEyVpyy3ORnyyCCjZfMUy3bbiyUTOVBgfMQa/7/FPkwXhUKxUEE9
-	eN2THMocU8u7oKHSNkmeqReVpLMZ1x7CWJUBY6iVQjZAKxbfjAs2wCC9JvgUVFWXDF+gyFKT+X2Tk
-	G573lVLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/K/ajdPdRqkH9IPbmwsANGlkSAgoS8eVOxuBsPn+o14=; b=00UypkfDX12VGNDw9et5IqUpH2
+	JGb/hdauumIzk8Gj7YcZqsK/dDEOwUO7VYnjXeUqJRHKiq70Ar1JpBT4J7r3IzvhAeWdiczDAnVHQ
+	fqMn+OXzoYQ1OOexkI6ORgr7cVv3a+K37KejTrWPRSY+fW4gbwLaxrMc2bERzMb1mNkarYtj4IYJr
+	5ZcSbYciM+LSafkNO0Lp5ZObOlabs0uzet+4j/f1l45nz5uL9wLsT4pCtfThcznGx/cNovxpO486X
+	KVJGHqMQSXfsr7MaAiAzj5y9UUgPdGgn6ZyRFw/bv8fTdy5DPhtp5hnlN2qk6PVDDthvT3Cb48qkp
+	aT32D6Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdo0N-0000000Goim-22eP;
-	Thu, 08 Jan 2026 11:16:39 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vdo0Q-0000000Gojm-3Onc;
+	Thu, 08 Jan 2026 11:16:42 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdo0J-0000000Gohq-0nVA
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 11:16:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1767870992;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=oJRtpdk3QL9oOI3hi+tsdde7GeB/zLo7cbRVz+hyZxc=;
-	b=TC9MpLApIhH3ZuW7o49k8lPNhqvchc5973aJt/ClNEZU3qKKR8O1alVX7ybxFNR2Jjy60r
-	eEs7ghD9mBOz0BbUpr9YCsLlR0U0m2HSzfOpZbIxoQyIe+jPkuyiwjtZ8MNan42MuarX68
-	7VutmVSGd6YXs7xJAW7pybqvUL6Yb5g=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-128-wo8CH55kNFqgQovSlg3a-Q-1; Thu, 08 Jan 2026 06:16:31 -0500
-X-MC-Unique: wo8CH55kNFqgQovSlg3a-Q-1
-X-Mimecast-MFC-AGG-ID: wo8CH55kNFqgQovSlg3a-Q_1767870990
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4776079ada3so29531065e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 03:16:31 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767870990; x=1768475790;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=oJRtpdk3QL9oOI3hi+tsdde7GeB/zLo7cbRVz+hyZxc=;
-        b=WbAW6fJQTTo7mEYPfK2z6GkXHNZPSsR2cKjD3K0DNe2CMkjjrmO2QscoySiZQx6SUt
-         Gsps+BN3oYRIcfEgn5+I4pdhDf34i+r2wjyKrG5xy6zC9FpFNFR8v+qYuwhJ8G5GhVF8
-         OmQGZrnqXhQ7DS2bS4qZ8s7YeFuscDc4Y1zdvJZ7+y6YLFjjqk3FeE5bfkWqQgjzne6b
-         XR50ri9axmS23MB8WddvNPXts9teuzN4KM/ASWknKDg197/+5UjqgfSUklbKAbC2SrJ/
-         vF/vMAt0hldq3794aYqdkAtTZ3UulsCgUsqEsFuCAqS/oXqEqAo8LQXJqjBu5Z/XTS7T
-         s7jg==
-X-Forwarded-Encrypted: i=1; AJvYcCWUFW/S8x8l0OJ+RuK7cQFL0/BAu8ylwujcRpK/AFbmMlrSN5EDxBHQakOVDlG4vKpdAhYuHlp42bn0FrKMA/D/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmZmKnLsvrKyAbfIjyGUg0wLBzYXjzQdFEp3USaQsZ0hIqmOrI
-	eUsqT03Eu+p76lxJlmh2lxQJyM0GoaEOS5EAVyLRPrsK/JX7UvsiDTe+bxUMslGpvMT17v5fu9F
-	IEHhDNi8yYY3aFX2EKTtNhPHY9NYbR4o4kDI/EAGP5rjrQ3iIxk1nrMgUai+ke8TAMnvvbtC3vl
-	QN
-X-Gm-Gg: AY/fxX6A1MjvugjlsSfB7imEIvFPTj0qttvlJd++3WmPNrRspkGJ7TEDWgBoYzqU6o9
-	ZLTrjzYJsiF1m/MPkgrw9aJd5wPtK0o0WDnDnFbyej+kxe/eyvgfT/aeLxgpywV5awJ9o6+5h9U
-	fjvyBPQY6u11G14AxKFrftmTLp8mUhAZMW2gX4+Ya8uNAFsK+qsoOEn/pNZfEXlY83XlBZeeKYO
-	6C2MDWKf0UgxIX0aC0G243MZtHG/6ZeZ+waTUbSdEdYgfBLPVUGAZ/mAACYnjW4PVPgn64TK51p
-	A13/7gCJKMSDdHftkmw+w8KwE5hiUEWHLgBrkI7A2r4heQGNGceyCDLUo0Z/gCghrYGWgCD/62f
-	sQW48EfsZvRO6MQ==
-X-Received: by 2002:a05:600c:1d0c:b0:471:14b1:da13 with SMTP id 5b1f17b1804b1-47d84b1fcf9mr65378725e9.14.1767870990009;
-        Thu, 08 Jan 2026 03:16:30 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IECFAYMklkN8ocTu4Dz3mO638bkTteVgtAQQ9rUydv0hMcGqTqfp396cLkFjrtdp1r5gRDhPQ==
-X-Received: by 2002:a05:600c:1d0c:b0:471:14b1:da13 with SMTP id 5b1f17b1804b1-47d84b1fcf9mr65378425e9.14.1767870989533;
-        Thu, 08 Jan 2026 03:16:29 -0800 (PST)
-Received: from [192.168.88.32] ([212.105.149.145])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d870c73c0sm36623355e9.3.2026.01.08.03.16.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 08 Jan 2026 03:16:29 -0800 (PST)
-Message-ID: <40be3195-62e0-483a-9448-cf8a342d95f6@redhat.com>
-Date: Thu, 8 Jan 2026 12:16:27 +0100
+	id 1vdo0O-0000000Goil-0BLG;
+	Thu, 08 Jan 2026 11:16:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=/K/ajdPdRqkH9IPbmwsANGlkSAgoS8eVOxuBsPn+o14=; b=kH0SR/WT5ODrg0ZXozLLI40kYr
+	0Kc6eG3ON2n+nWoNhNZTVrmpCz3IpVJbASQa2Ps0/t4Pcf4/GeXj7t1EPH61YE7GnUy1UU1GVqpub
+	Sh8WdSDAnGJ0zdN8E1E2j7WgIUQY8KqniF7kdV0DJyJT52xrQkM7ru4dkHlpz3wR3qQSyulY5gbjW
+	VdIyEwpxX4tr8+RnExi3K3NT+ctrMcNydGHLnW0yyajCD1BZybKcm5ERjmp+sGbzVu8fINxPOoPKy
+	K3c5Z2hRKjhyIVts6iHKYbMPJ/OpRYpbbKrFniQy9AQ1IgAZKChUsH54ccVk1LoKDlVwMXAvUkTB/
+	eCmrfV0w==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vdo0I-0000000EqjO-0lKf;
+	Thu, 08 Jan 2026 11:16:34 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 0820B300E8E; Thu, 08 Jan 2026 12:16:33 +0100 (CET)
+Date: Thu, 8 Jan 2026 12:16:32 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Dengjun Su <dengjun.su@mediatek.com>
+Cc: linux-kernel@vger.kernel.org, mike.zhang@mediatek.com,
+	haiqiang.gong@mediatek.com, peijun.huang@mediatek.com,
+	Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] sched/rt: fix incorrect schedstats for rt thread
+Message-ID: <20260108111632.GH272712@noisy.programming.kicks-ass.net>
+References: <20260108031309.2754003-1-dengjun.su@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v11 1/3] net: ti: icssm-prueth: Add helper
- functions to configure and maintain FDB
-To: Parvathi Pudi <parvathi@couthit.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- danishanwar@ti.com, rogerq@kernel.org, pmohan@couthit.com,
- basharath@couthit.com, afd@ti.com
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, alok.a.tiwari@oracle.com,
- horms@kernel.org, pratheesh@ti.com, j-rameshbabu@ti.com, vigneshr@ti.com,
- praneeth@ti.com, srk@ti.com, rogerq@ti.com, krishna@couthit.com,
- mohan@couthit.com
-References: <20260105122549.1808390-1-parvathi@couthit.com>
- <20260105122549.1808390-2-parvathi@couthit.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20260105122549.1808390-2-parvathi@couthit.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: U13rVxAKsUJdleuu6YS75uUs-EEnF1r_oFXcFIZeMPc_1767870990
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_031635_303552_863F75A7 
-X-CRM114-Status: GOOD (  21.61  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260108031309.2754003-1-dengjun.su@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,111 +78,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/5/26 1:23 PM, Parvathi Pudi wrote:
-> +static void icssm_prueth_sw_fdb_update_index_tbl(struct prueth *prueth,
-> +						 u16 left, u16 right)
-> +{
-> +	unsigned int hash, hash_prev;
-> +	u8 mac[ETH_ALEN];
-> +	unsigned int i;
-> +
-> +	/* To ensure we don't improperly update the
-> +	 * bucket index, initialize with an invalid
-> +	 * hash in case we are in leftmost slot
-> +	 */
-> +	hash_prev = 0xff;
+On Thu, Jan 08, 2026 at 11:13:07AM +0800, Dengjun Su wrote:
+> For RT thread, only 'set_next_task_rt' will call
+> 'update_stats_wait_end_rt' to update schedstats information.
+> However, during the RT migration process,
+> 'update_stats_wait_start_rt' will be called twice, which
+> will cause the values of wait_max and wait_sum to be incorrect.
 
-Why 0xff is an invalid index if the hash table size is 256?
+Right, that looses time. Also note that I think dl has the same issue.
 
-> +
-> +	if (left > 0) {
-> +		memcpy_fromio(mac, FDB_MAC_TBL_ENTRY(left - 1)->mac, ETH_ALEN);
-> +		hash_prev = icssm_prueth_sw_fdb_hash(mac);
-> +	}
-> +
-> +	/* For each moved element, update the bucket index */
-> +	for (i = left; i <= right; i++) {
-> +		memcpy_fromio(mac, FDB_MAC_TBL_ENTRY(i)->mac, ETH_ALEN);
-> +		hash = icssm_prueth_sw_fdb_hash(mac);
-> +
-> +		/* Only need to update buckets once */
-> +		if (hash != hash_prev)
-> +			writew(i, &FDB_IDX_TBL_ENTRY(hash)->bucket_idx);
-> +
-> +		hash_prev = hash;
-> +	}
-> +}
-> +
-> +static struct fdb_mac_tbl_entry __iomem *
-> +icssm_prueth_sw_find_free_mac(struct prueth *prueth, struct fdb_index_tbl_entry
-> +			      __iomem *bucket_info, u8 suggested_mac_tbl_idx,
-> +			      bool *update_indexes, const u8 *mac)
-> +{
-> +	s16 empty_slot_idx = 0, left = 0, right = 0;
-> +	unsigned int mti = suggested_mac_tbl_idx;
-> +	struct fdb_mac_tbl_array __iomem *mt;
-> +	struct fdb_tbl *fdb;
-> +	u8 flags;
-> +
-> +	fdb = prueth->fdb_tbl;
-> +	mt = fdb->mac_tbl_a;
-> +
-> +	flags = readb(&FDB_MAC_TBL_ENTRY(mti)->flags);
-> +	if (!(flags & FLAG_ACTIVE)) {
-> +		/* Claim the entry */
-> +		flags |= FLAG_ACTIVE;
-> +		writeb(flags, &FDB_MAC_TBL_ENTRY(mti)->flags);
-> +
-> +		return FDB_MAC_TBL_ENTRY(mti);
-> +	}
-> +
-> +	if (fdb->total_entries == FDB_MAC_TBL_MAX_ENTRIES)
-> +		return NULL;
-> +
-> +	empty_slot_idx = icssm_prueth_sw_fdb_empty_slot_left(mt, mti);
-> +	if (empty_slot_idx == -1) {
-> +		/* Nothing available on the left. But table isn't full
-> +		 * so there must be space to the right,
-> +		 */
-> +		empty_slot_idx = icssm_prueth_sw_fdb_empty_slot_right(mt, mti);
-> +
-> +		/* Shift right */
-> +		left = mti;
-> +		right = empty_slot_idx;
-> +		icssm_prueth_sw_fdb_move_range_right(prueth, left, right);
-> +
-> +		/* Claim the entry */
-> +		flags = readb(&FDB_MAC_TBL_ENTRY(mti)->flags);
-> +		flags |= FLAG_ACTIVE;
-> +		writeb(flags, &FDB_MAC_TBL_ENTRY(mti)->flags);
-> +
-> +		memcpy_toio(FDB_MAC_TBL_ENTRY(mti)->mac, mac, ETH_ALEN);
-> +
-> +		/* There is a chance we moved something in a
-> +		 * different bucket, update index table
-> +		 */
-> +		icssm_prueth_sw_fdb_update_index_tbl(prueth, left, right);
-> +
-> +		return FDB_MAC_TBL_ENTRY(mti);
+> The specific output as follows:
+> $ cat /proc/6046/task/6046/sched | grep wait
+> wait_start                                   :             0.000000
+> wait_max                                     :        496717.080029
+> wait_sum                                     :       7921540.776553
+> 
+> Add 'update_stats_wait_end_rt' in 'update_stats_dequeue_rt' to
+> update schedstats information when dequeue_task.
 
-AI review found what looks like a valid issue above:
+This needs a few more words on why this is correct -- notably it took me
+a little time to find the 'task_on_rq_migrating()' case in
+__update_stats_wait_end() which makes this not actually 'end'.
 
-"""
-In this branch, FLAG_ACTIVE is set on FDB_MAC_TBL_ENTRY(mti) but the
-function returns FDB_MAC_TBL_ENTRY(empty_slot_idx). The caller in
-icssm_prueth_sw_insert_fdb_entry() then writes the MAC address to the
-returned entry (empty_slot_idx), leaving entry mti marked active with
-stale data.
+But then the corresponding clause in __update_stats_wait_start() gives
+me a headache:
 
-Should FLAG_ACTIVE be set on empty_slot_idx instead? For comparison,
-the other paths in this function (lines 270-277, 294-306, and 330-342)
-all set FLAG_ACTIVE on the same entry they return and write MAC data to.
-"""
+ 'wait_start > prev_wait_start'
 
-Generally speaking the hash table handling looks complex and error
-prone. Is keeping the collided entries sorted really a win? I guess that
-always head-inserting would simplify the code a bit.
+I mean, wtf. Should that not equally be using task_on_rq_migrating() ?
 
-/P
+Can you please take a hard look at all that and fix up things all-round?
 
 
