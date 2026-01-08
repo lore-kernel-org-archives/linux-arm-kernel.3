@@ -4,83 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C248D1D478
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 15:50:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5054AD1D47D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 15:57:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2jeFjKObZIxjQI8MDJOLbnA26JxWBQgkzlQdkKPNBfE=; b=I5M/+BWzGOOC9PWUh2IGgXFwVM
-	TXoAEl7/xkEmU0sPmZ57IaSKsAcilQpX9yTShUuuSvQui2lTbgDplisTikoluhIoALSCfK+fgjkVT
-	HY5oQfIg74c1LkrBjf1W6eH0Y2grbPiGmbvwlpnk19wyCXVEderojQ3aNmjr3bPVeKG+7i6wAFkMJ
-	6tZKT8ngXwQ4Mc1FV67tl52ZN1mqwjfk24jp6wcZpFHxE3spCKcE1xWn3zH7PlZirC/Nhyy/aqNp5
-	ecME44eFVBv0fm8Gu6BjCdBMisHk3p586VZNbvsP1ef3ZU9vc+b/J36U0wc8VCqgWQlM4p1bSZJnj
-	oHpQsK2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ATux80J8Ny+n16jjoym3ITCaMCjEXn3NTCg6Mdz0asY=; b=XlVGUB9ByUm0/YrEZmolJ+yr3t
+	Q599hjED6urV6anNjVLMZsCvSrsvfdOgeD0B7Mwuh/xq1KCSOqh1Avk4424vbP5zjcjJer+L2eVXz
+	uzUGaS1ltC4IEtGPCk+0+pwIu9wPW2spKlcl2MHi08l+5YE46T2F736nVTkc/0ZKqRz5UqhbAy+aT
+	bJKigyuKZYnae69+HSa5s8xmsKkjpZ1no9pOPOXD9LkLOakDh+9c5FryZ5nVxOE+W8TGgAPmbukdy
+	ZM4sM0CC1eqTf+jTzapY6X/me6/ZvAvmcgBUN/vq2ssn/0CApWGLhOzLyQjctROOhM5jWjDM1InNv
+	d7SN3snA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdsHK-0000000HaSt-17Sm;
-	Thu, 08 Jan 2026 15:50:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdsOH-000000000rj-1cuW;
+	Thu, 08 Jan 2026 15:57:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdsHE-0000000HaOU-0dJ0
+	id 1vdsOG-000000000rI-3ey2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 15:50:22 +0000
+	Thu, 08 Jan 2026 15:57:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7672D44447
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 15:50:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C135C2BCAF
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 15:50:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 52CB060132;
+	Thu,  8 Jan 2026 15:57:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E3F9C116C6;
+	Thu,  8 Jan 2026 15:57:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767887419;
-	bh=KGaO4EypoOGLhlEAtkWsb6d+AORWtthHeHFesJA4a2E=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=usb4MmHJvMLPE8uELsbbUngRbBgpdUECKMmpwddwY189gnOVhVBEvsoZsN2ANAdRb
-	 t7YJmkUsI9dpY6rq3gm5zN+eWtCpnRWzMnswxbZt/3shCn1wvzBb6oYQm2AxSMd8L2
-	 aCjReJjs2BJSzqIfnDjwdIh0H+pIVeALv4Qb2w9gNm6PwbE6R8fAcA/k6cuBuzoyj2
-	 NhNfiv4Ogfl7hnnK2f4+nk9nB3DplTx6QoLshFLps02T775YICN3NhywEhdZfnZKkX
-	 vbjmlj1v8ZjzZvhG86NGzW0fQaG98pdSVWRSeYI9YPWE3FowX1Y01DeD7yYI2lNiZ5
-	 Cbw/z69BwcSyg==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-59b672f8ec4so3177138e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 07:50:19 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXDju8RByxpJa/EnejeZ3fI6df3DHD/KtjkiaSxzuh0XCdGHbapDDGcJ4Jr8Y00VYAAYmVotICE72iPfWcd8HU5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzr1XyiajuSyrwFoAeruEZ/aTX0nZb0zU5BN3obXRFIimRJqPma
-	Y2TT8dMxoxp4dyG6H3YAlx9mtmbOAtYwLmU5veAFKHF976j1amjL/ecQFJtdeOnASd5jhDnmXkq
-	T7z0MBWnDV52Og4UhJO3UvgrWimiEPWkTAGFTPKHncQ==
-X-Google-Smtp-Source: AGHT+IG2+2F01A/KIFuHK5i46mt9KUdYZatvNxavAnjoIfZZaIpd0eF4zkN5fLaXr4bY1KSJ4MsEy0n1PYP8LkHGkdo=
-X-Received: by 2002:a05:6512:6d0:b0:598:f031:dc2e with SMTP id
- 2adb3069b0e04-59b6ef02957mr2037319e87.1.1767887416901; Thu, 08 Jan 2026
- 07:50:16 -0800 (PST)
+	s=k20201202; t=1767887856;
+	bh=iQ8rrKAjkcgXBG7XLBNg/l9mT/9ufxiMSqzt1QWzGdc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KVqoIYbJP02PJTKnx446NUd3M2a4Ep19Dg9tIX7oreQpKKsd0WMGyTFUJ1sDhiXWY
+	 0KtS2dh6VfgyUiSD3OiTxpJZuxbKYxR/1hBRHWLrheX8ST7mB39HkyvpUsmPfrqN88
+	 zi6iOhwIStpoif0an8L2fuMSf78ynLUxFwnTboH07mvxdH5xzvVP2Pa/PObcK+/jFt
+	 5f0Go3ejIGh1XNrnasudUdmrt3GrXSY1SW6VzhXuIQObithqCt61PeKuSTMW7jw8O3
+	 U/OdvxARLkNQXqgRv4AUcd1QcZtEXws/csV64jdEvNo1pOhtcobf51yh7jVdB467pq
+	 wLj1opru/g8eg==
+Date: Thu, 8 Jan 2026 15:57:24 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v9 02/30] arm64/fpsimd: Update FA64 and ZT0 enables when
+ loading SME state
+Message-ID: <e50b4923-ee45-43de-9d4e-344546c635bb@sirena.org.uk>
+References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
+ <20251223-kvm-arm64-sme-v9-2-8be3867cb883@kernel.org>
+ <CA+EHjTxdSnpFHkm6o85EtjQjAWemBfcv9Oq6omWyrrMdkOuuVA@mail.gmail.com>
+ <3c8b4a5e-89f4-47e0-9a5d-24399407db0c@sirena.org.uk>
+ <CA+EHjTxLkLjPj=1vwDqROXOUXi2LhOQb90WP6dFaTiYG1nWovA@mail.gmail.com>
 MIME-Version: 1.0
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org> <DFJAFK3DTBOZ.3G2P3A5IH34GF@kernel.org>
-In-Reply-To: <DFJAFK3DTBOZ.3G2P3A5IH34GF@kernel.org>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Thu, 8 Jan 2026 16:50:04 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MeQ_zr047PxFFGhfZ43TuHoKG-9VLLefxVyScpO5ZxjzQ@mail.gmail.com>
-X-Gm-Features: AQt7F2obhuvUlvgUZPHF2Ox96e1T1TX-fbUl1bOPtAWt-u2PKGO9E-yuFxHItZY
-Message-ID: <CAMRc=MeQ_zr047PxFFGhfZ43TuHoKG-9VLLefxVyScpO5ZxjzQ@mail.gmail.com>
-Subject: Re: [PATCH v4 00/10] gpio: improve support for shared GPIOs
-To: Michael Walle <mwalle@kernel.org>
-Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Alexey Klimov <alexey.klimov@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_075021_188337_4AC19D19 
-X-CRM114-Status: GOOD (  37.73  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="KOrZZL+m63ovft+Q"
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTxLkLjPj=1vwDqROXOUXi2LhOQb90WP6dFaTiYG1nWovA@mail.gmail.com>
+X-Cookie: If you suspect a man, don't employ him.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,86 +86,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 8, 2026 at 3:46=E2=80=AFPM Michael Walle <mwalle@kernel.org> wr=
-ote:
->
-> >
-> > The changes are implemented in a way that allows to seamlessly compile
-> > out any code related to sharing GPIOs for systems that don't need it.
->
-> The problem here is that the aarch64 defconfig has ARCH_QCOM enabled
-> and thus it will get enabled for any platforms, right?
->
 
-On arm64 with defconfig, yes. I want to make it transparent for
-platforms that don't have shared GPIOs though. I'm aware of issues and
-am actively fixing all that are reported to me. Another set of fixes
-will be in tomorrow's linux-next.
+--KOrZZL+m63ovft+Q
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> I haven't grokked everything, but does GPIO_SHARED=3Dy makes any sense
-> without GPIO_SHARED_PROXY? It seems to me that the probing of shared
-> pins will be deferred indefinitely.
->
+On Thu, Jan 08, 2026 at 02:09:34PM +0000, Fuad Tabba wrote:
+> On Thu, 8 Jan 2026 at 11:54, Mark Brown <broonie@kernel.org> wrote:
+> > On Wed, Jan 07, 2026 at 07:25:04PM +0000, Fuad Tabba wrote:
+> > > On Tue, 23 Dec 2025 at 01:21, Mark Brown <broonie@kernel.org> wrote:
 
-Do you have a use-case where there are shared GPIOs that are needed at
-boot time when there are no modules? I am aware of the issue where
-false-positive shared GPIOs are detected, I posted a fix for that too.
-Without logs, I can't really tell if that's the case for you though.
-:(
+> > > Should we also preserve the remaining old bits from SMCR_EL1, i.e.,
+> > > copy over the bits that aren't
+> > > SMCR_ELx_LEN_MASK|SMCR_ELx_FA64|SMCR_ELx_EZT0? For now they are RES0,
+> > > but that could change.
 
-> > The practical use-case for this are the powerdown GPIOs shared by
-> > speakers on Qualcomm db845c platform, however I have also extensively
-> > tested it using gpio-virtuser on arm64 qemu with various DT
-> > configurations.
-> >
-> > I'm Cc'ing some people that may help with reviewing/be interested in
-> > this: OF maintainers (because the main target are OF systems initially)=
-,
-> > Mark Brown because most users of GPIOD_FLAGS_BIT_NONEXCLUSIVE live
-> > in audio or regulator drivers and one of the goals of this series is
-> > dropping the hand-crafted GPIO enable counting via struct
-> > regulator_enable_gpio in regulator core), Andy and Mika because I'd lik=
-e
-> > to also cover ACPI (even though I don't know about any ACPI platform th=
-at
-> > would need this at the moment, I think it makes sense to make the
-> > solution complete), Dmitry (same thing but for software nodes), Mani
-> > (because you have a somewhat related use-case for the PERST# signal and
-> > I'd like to hear your input on whether this is something you can use or
-> > maybe it needs a separate, implicit gpio-perst driver similar to what
-> > Krzysztof did for reset-gpios) and Greg (because I mentioned this to yo=
-u
-> > last week in person and I also use the auxiliary bus for the proxy
-> > devices).
->
-> This broke my board (using the arm64 defconfig, works without
-> GPIO_SHARED of course). I'm seeing two issues here with my board
-> (arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67*):
->
->  (1) It's GPIO controller (gpio-davinci) doesn't support
->      .get_direction so I'm getting ENOTSUPP during probing of the
->      (some?) shared GPIOs.
->
+> > My thinking here is that any new bits are almost certainly going to need
+> > explicit support (like with the addition of ZT0) and that copying them
+> > forward without understanding is more likely to lead to a bug like
+> > exposing state we didn't mean to than clearing them will.
 
-Unless this board really shares GPIOs, it may be due to the
-false-positives that will be fixed by this patch[1]. If you enable
-CONFIG_DEBUG_GPIO and post the kernel log, I'll be able to tell for
-sure.
+> I understand the 'secure by default' intent for enable bits, but I'm
+> concerned that this implementation changes the current behavior of the
+> host kernel, which isn't mentioned in the commit message. Previously,
+> both the feature enablement code (cpu_enable_fa64) and the vector
+> length setting code (sme_set_vq/write_vl) performed a RMW, preserving
+> existing bits in SMCR_EL1. This new macro zeroes out any bits not
+> explicitly tracked here.
 
-Though thanks for bringing this to my attention as I now see there is
-indeed an issue when the proxied chip doesn't support .get_direction()
-as well as a duplicated check in GPIO core. I'll fix it too.
+The behaviour is unchanged since we're always choosing the same value in
+the end, it's just a question of rearranging when do it which is the
+explicit goal of the change.  There won't be a change in behaviour until
+later on in the series when we start potentially choosing other settings
+for KVM guests.
 
->  (2) GPIO_SHARED_PROXY is default m in the defconfig, but I need the
->      pins for the root filesystem medium, i.e. the SD card regulators.
->
+> In terms of copying them over, if they were set from the beginning,
+> doesn't that mean that that explicit support was already added?
 
-I'll take care of this is you confirm, the issue persists even with patch[1=
-].
+That's a bit circular, with the new interface if someone updates the
+kernel to set some new bits they're going to have to update this code as
+part of that.  A part of the goal here is to make it harder to make a
+mistake with remembering what needs to be updatd when.
 
-Thanks,
-Bartosz
+--KOrZZL+m63ovft+Q
+Content-Type: application/pgp-signature; name="signature.asc"
 
-[1] https://lore.kernel.org/all/20260108-gpio-shared-false-positive-v1-1-5d=
-bf8d1b2f7d@oss.qualcomm.com/
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlf0+QACgkQJNaLcl1U
+h9DQbgf/VzVntYNXV0km5HLDgB/SG9k64BqiNt0fbx3g83qjVtQuNw5OJfx/AI40
+3CRrW3Hr1lIspMdVhwa+8lv5cpSyGzWnLWbmRJBVb6v++Hsslg9O824KM1LtRJqZ
+herBG1MKR8P2+yGtEt2cxbABtHH3ONEEFdEIOiGDAH7jkRY36Gfwx6QwV8/QA+Ey
+81r9gsksZDexFnwMz51S8jMdplvo3wMaDOQnytnH3YzQ9vC0B3Gfre+cAjqF2b99
+xN9M8G1+jCOiBeLIDPIEXCC0RPPOJb+mEpy6yUcn7l3k4AaReGbGrqBPtboVRUFT
+dB+n4q24DpQwRk1kIs62RHkorXoV/A==
+=Ud9D
+-----END PGP SIGNATURE-----
+
+--KOrZZL+m63ovft+Q--
 
