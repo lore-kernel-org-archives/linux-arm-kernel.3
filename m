@@ -4,70 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 008CECF6A86
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 08:44:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AEC9CF6A86
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 08:46:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Subject:From:To:
-	In-Reply-To:References:Content-Type:Message-Id:Cc:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N1FuXjS01s3YMgMgzoZhF0uCB3O/s+D9Jm9fJvlCcWo=; b=SpZ6C/V1PNoz91ajpKIjT0cUev
-	FVVAfA3dAbQcYiTkjsJnLwXucg/gkiBT/Dagm7QqwInI5vTpCno37gdf/cEeL6XvsHWGrpdQvzg7x
-	wL8tlu0S7bT4LEr35pl5kRnHqVTqXaNoPFx+KDJIGz8OrILOEteqM26w1u7MXnL0klaa2+G2lrz8F
-	9nf4XoSjLCvj4wtLZUJQe0oNpfUhqB/udb4Cdzj+0BveIrmYsY31EgeIeMMAXy4y4laDwXrRkpQL1
-	RgWpZUqLJbGKtrQgYdoZenoIchi7G0N2W5RgyiuWLZqI7VeONLqUFwqvyapP5LlxJT5Dp6KD/vAKE
-	EfC0NwDw==;
+	bh=+/jyduXxL4KCOZDj8LZOK9hiRl2p9N0EPN5fsbWRiIk=; b=LG0htSdZ5owQjW98mwE5hQ+mD+
+	NpP55LJ05lEgn08CFtvHulmcgVAbwqe79LXDaAuzBcwFmClCznAHFAMMFplDMLBHLikZtGpB7C7P2
+	XkUIGXbUWswiqHZBajquecRj2/zz0jFMRXFWdeRYx9+QBLLu9/Y1D3BcTIHL0HRu5m6hSUgWn0zP+
+	nvtC+XIV3Pc6UCd4j1mKYWj3CrXZBXDccE4ra/cvdT8w8sYMLlKPQYZtYRxzFIuVFbm6U15p/JkK+
+	TDjcS3cP4FyJKtDVWccMB0VrrrgABwyJMdE5/CYwmeYbk2ONGDXWRqZQ12EhodmNFZAf+WaRHYCDs
+	oCVhB74A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdlcr-0000000GKZ9-2ots;
-	Thu, 08 Jan 2026 08:44:13 +0000
-Received: from sg-1-105.ptr.blmpb.com ([118.26.132.105])
+	id 1vdlee-0000000GKuj-0TjX;
+	Thu, 08 Jan 2026 08:46:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdlco-0000000GKXR-0vod
+	id 1vdlec-0000000GKuA-0xdN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 08:44:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1767861839; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=N1FuXjS01s3YMgMgzoZhF0uCB3O/s+D9Jm9fJvlCcWo=;
- b=I7EVdV8+EOk9KvCmJ2bXtrKDnFFxQSlMQ3PDAEY+DGJZDgmBzdwHX0bFiCbNnRx8cpI9r5
- mP/6+1GR4WW6p801cbjP5ynNt6mULVvbNzlk8IelP8eVQhtW0/WXeISYz0OiAIAClZ+ouA
- 4DVMrUmFIeGScfZm6Ygi4e5d4/+Az/ERBFY4+EV3OtSc0HdrhZEwgpxPqrpfvXd/f2GK1r
- /rHYz6iFmAGpTcmeeMMtAS7CWY9Y8QV5Nd3xQSyAiaVIeXhAhQAc4eWNApSBBaJMBuFq4T
- lSrGJDa5L7aJmJ35pXojg2S2tq3O8f/U4BkyzLulRHj3kETpAyfLbTg8Pz0rsw==
-Mime-Version: 1.0
+	Thu, 08 Jan 2026 08:46:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 175BC4404D
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 08:46:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE4BDC2BC86
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  8 Jan 2026 08:46:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767861960;
+	bh=BqgkMcZUubmtSOlPILAa3d89zvk0yBYNI6hQRzVoKdE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=KQZUh7Wqptoit5QJV/2lRzFvP7CBZ+A42aeKEVy115cinAx+kc0v6bx39CRwSE2/u
+	 qSNDECW0gVqplVCeCmWlgKOs2MGFju6NYPzdTsXFRUn/afxPHGqJOv/h7hT2//Hli6
+	 NVVB1iH6atyCnlP+Ie3URFafw3uQ6e/LGhnKw0vBa2xUhKoodEwSOEJFNPUZTnv8VL
+	 6Ughb2dd9EowkGs2xsHQWtPZgCVXZO2fQ6ZyRKqLRvP3pip5fR5kvxLqlxseoCr8G0
+	 zZImU5yPy1yaMI1fp5JAy9wA7hVSqtRJx6K6QAzyqjddkdGweCePAgyDVmqlRfyugs
+	 1Pz3VLLXKqmag==
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-382f087e6c9so12311841fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 00:46:00 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVNA+P0EFEiRpagex0RPWRFmWGsw12nt5NwN5wbmR6auS/Omfu5NLSaZK5XWtNRtIO9d2tuDgm6QRJ9iEL3Y1MS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqRQLZ7mNhkL1FYCWvWNJy+85pb8AKW/0utleMw+qtQMp7y3Tj
+	T/GnZXt1tq7xZPCck9VKok1hAHGvZodCjgPczH6Kdd34dlLHadteKgx0dhrafautJV8otYpZIo9
+	9Hiq/wXCfzqVP84d/yB6BpEcuzvwguHZ9wdMtMpVAMg==
+X-Google-Smtp-Source: AGHT+IEMMSJCU7SYOOgMQ0Ss3CVoU2DzXo5zjwxrQtFkFUfV8zoKG1Pqwbvf3SQfMIiVN3cd6uxpbxyjJv7SsIRhXa8=
+X-Received: by 2002:a05:651c:1448:b0:37f:cc09:31af with SMTP id
+ 38308e7fff4ca-382ff851d94mr12840421fa.44.1767861959439; Thu, 08 Jan 2026
+ 00:45:59 -0800 (PST)
+MIME-Version: 1.0
+References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
+ <20251112-gpio-shared-v4-7-b51f97b1abd8@linaro.org> <66eaf003-c397-4920-b3b7-93ac8a5adfda@oss.qualcomm.com>
+ <CAMRc=McXFTLjE=2-xsx4sodHgd83h822iEBHT7bxcNOQm6OJ3A@mail.gmail.com> <98d69fb9-d3bc-4439-88b4-60f3cdea3422@oss.qualcomm.com>
+In-Reply-To: <98d69fb9-d3bc-4439-88b4-60f3cdea3422@oss.qualcomm.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Thu, 8 Jan 2026 09:45:47 +0100
+X-Gmail-Original-Message-ID: <CAMRc=McmvaM9=K=0NLRcLLmo5ck=m8Fqekh7tBMz6quO9K4opQ@mail.gmail.com>
+X-Gm-Features: AQt7F2rVVRGjZ6d0_s5L8WPZ1MJdF76nkEPcTHk9mWt9XktJ2GZ81wKlRj-yauk
+Message-ID: <CAMRc=McmvaM9=K=0NLRcLLmo5ck=m8Fqekh7tBMz6quO9K4opQ@mail.gmail.com>
+Subject: Re: [PATCH v4 07/10] arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
+To: Pankaj Patil <pankaj.patil@oss.qualcomm.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Will Deacon <will@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, Mark Brown <broonie@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Cc: <akpm@linux-foundation.org>, <axboe@kernel.dk>, <bhelgaas@google.com>, 
-	<catalin.marinas@arm.com>, <cgroups@vger.kernel.org>, 
-	<chenridong@huawei.com>, <dakr@kernel.org>, <davem@davemloft.net>, 
-	<edumazet@google.com>, <frederic@kernel.org>, <gmonaco@redhat.com>, 
-	<gregkh@linuxfoundation.org>, <guojinhui.liam@bytedance.com>, 
-	<hannes@cmpxchg.org>, <horms@kernel.org>, <jiangshanlai@gmail.com>, 
-	<kuba@kernel.org>, <linux-arm-kernel@lists.infradead.org>, 
-	<linux-block@vger.kernel.org>, <linux-kernel@vger.kernel.org>, 
-	<linux-mm@kvack.org>, <linux-pci@vger.kernel.org>, <longman@redhat.com>, 
-	<marco.crivellari@suse.com>, <mhocko@suse.com>, <mingo@redhat.com>, 
-	<mkoutny@suse.com>, <muchun.song@linux.dev>, <netdev@vger.kernel.org>, 
-	<pabeni@redhat.com>, <pauld@redhat.com>, <peterz@infradead.org>, 
-	<rafael@kernel.org>, <roman.gushchin@linux.dev>, 
-	<shakeel.butt@linux.dev>, <tglx@linutronix.de>, <tj@kernel.org>, 
-	<vbabka@suse.cz>, <will@kernel.org>
-Message-Id: <20260108084326.1952-1-guojinhui.liam@bytedance.com>
-Content-Type: text/plain; charset=UTF-8
-References: <20260107190534.GA441483@bhelgaas>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260107190534.GA441483@bhelgaas>
-To: <helgaas@kernel.org>
-From: "Jinhui Guo" <guojinhui.liam@bytedance.com>
-Subject: Re: [PATCH 01/33] PCI: Prepare to protect against concurrent isolated cpuset change
-Date: Thu,  8 Jan 2026 16:43:26 +0800
-X-Original-From: Jinhui Guo <guojinhui.liam@bytedance.com>
-X-Lms-Return-Path: <lba+2695f6e4d+913318+lists.infradead.org+guojinhui.liam@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_004410_486067_2B39A5B1 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20260108_004602_307190_4553CB29 
+X-CRM114-Status: GOOD (  25.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,42 +89,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Jan 7, 2026 at 13:05:34 -0600, Bjorn Helgaas worte:
-> [+cc Jinhui]
->=20
-> On Thu, Jan 01, 2026 at 11:13:26PM +0100, Frederic Weisbecker wrote:
-> > HK_TYPE_DOMAIN will soon integrate cpuset isolated partitions and
-> > therefore be made modifiable at runtime. Synchronize against the cpumas=
-k
-> > update using RCU.
-> >=20
-> > The RCU locked section includes both the housekeeping CPU target
-> > election for the PCI probe work and the work enqueue.
-> >=20
-> > This way the housekeeping update side will simply need to flush the
-> > pending related works after updating the housekeeping mask in order to
-> > make sure that no PCI work ever executes on an isolated CPU. This part
-> > will be handled in a subsequent patch.
-> >=20
-> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
->=20
-> Just FYI, Jinhui posted a series that touches this same code and might
-> need some coordination:
->=20
->   https://lore.kernel.org/r/20260107175548.1792-1-guojinhui.liam@bytedanc=
-e.com
->=20
-> IIUC, Jinhui's series adds some more NUMA smarts in the driver core
-> sync probing path and removes corresponding NUMA code from the PCI
-> core probe path.
+On Thu, Jan 8, 2026 at 7:49=E2=80=AFAM Pankaj Patil
+<pankaj.patil@oss.qualcomm.com> wrote:
+>
+> On 1/7/2026 6:08 PM, Bartosz Golaszewski wrote:
+> > On Wed, Jan 7, 2026 at 12:07=E2=80=AFPM Pankaj Patil
+> > <pankaj.patil@oss.qualcomm.com> wrote:
+> >>
+> >> On 11/12/2025 7:25 PM, Bartosz Golaszewski wrote:
+> >>> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> >>>
+> >>> Some qualcomm platforms use shared GPIOs. Enable support for them by
+> >>> selecting the Kconfig switch provided by GPIOLIB.
+> >>>
+> >>> Acked-by: Linus Walleij <linus.walleij@linaro.org>
+> >>> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> >>> ---
+> >>>  arch/arm64/Kconfig.platforms | 1 +
+> >>>  1 file changed, 1 insertion(+)
+> >>>
+> >>> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platfo=
+rms
+> >>> index 13173795c43d4f28e2d47acc700f80a165d44671..3dbff0261f0add0516d8c=
+b3fd0f29e277af94f20 100644
+> >>> --- a/arch/arm64/Kconfig.platforms
+> >>> +++ b/arch/arm64/Kconfig.platforms
+> >>> @@ -316,6 +316,7 @@ config ARCH_QCOM
+> >>>       select GPIOLIB
+> >>>       select PINCTRL
+> >>>       select HAVE_PWRCTRL if PCI
+> >>> +     select HAVE_SHARED_GPIOS
+> >>>       help
+> >>>         This enables support for the ARMv8 based Qualcomm chipsets.
+> >>>
+> >>>
+> >> Enabling shared gpios is breaking hamoa and glymur boot on next-202601=
+06
+> >> For hamoa - reg_fixed_voltage_probe which calls gpio api is breaking
+> >> Please find the log here - https://lava-oss.qualcomm.com/scheduler/job=
+/24722#L3514
+> >>
+> >> For Glymur - qcom_pcie_parse_perst calls the gpio api <4>[    2.910982=
+] WARNING: drivers/gpio/gpiolib-shared.c:493 at gpio_shared_add_proxy_looku=
+p+0x160/0x24c, CPU#1: kworker/u75:0/109 <4>[    2.911027] Call trace: <4>[ =
+   2.911028]  gpio_shared_add_proxy_lookup+0x160/0x24c (P) <4>[    2.911030=
+]  gpiod_find_and_request+0x1c0/0x504 <4>[    2.911032]  devm_fwnode_gpiod_=
+get_index+0x1c/0x6c <4>[    2.911034]  qcom_pcie_parse_perst+0x70/0x150 <4>=
+[    2.911037]  qcom_pcie_probe+0x414/0x804 <4>[    2.911039]  platform_pro=
+be+0x5c/0x98 <4>[    2.911042] qcom-eusb2-repeater c448000.spmi:pmic@9:phy@=
+fd00: supply vdd18 not found, using dummy regulator <4>[    2.911043]  real=
+ly_probe+0xbc/0x298 <4>[    2.911045]  __driver_probe_device+0x78/0x12c <4>=
+[    2.911047]  driver_probe_device+0x3c/0x15c <4>[    2.911049]  __device_=
+attach_driver+0xb8/0x134 <4>[    2.911050]  bus_for_each_drv+0x84/0xe0 <4>[=
+    2.911052]  __device_attach_async_helper+0xac/0xd0 <4>[    2.911053]  as=
+ync_run_entry_fn+0x34/0xe0
+> >> <4>[    2.911055]  process_one_work+0x14c/0x28c <4>[    2.911058]  wor=
+ker_thread+0x188/0x304 <4>[    2.911059]  kthread+0x11c/0x128 <4>[    2.911=
+060] qcom-eusb2-repeater c448000.spmi:pmic@9:phy@fd00: supply vdd3 not foun=
+d, using dummy regulator <4>[    2.911061]  ret_from_fork+0x10/0x20 <4>[   =
+ 2.911063] ---[ end trace 0000000000000000 ]--- <3>[    2.911065] qcom-pcie=
+ 1b40000.pci: error -ENOENT: Failed to parse Root Port: -2 <3>[    2.911069=
+] qcom-pcie 1b40000.pci: probe with driver qcom-pcie failed with error -2
+> >> Reverting this commit fixes the boot on both platforms
+> >>
+> >
+> > Hi!
+> >
+> > This is not really the offending commit, it's a recent one in the
+> > implementation. The issue should be fixed by the following series[1]
+> > that will be in the next next tag. Can you give it a try?
+> >
+> > Bart
+> >
+> > [1] https://lore.kernel.org/all/20260106-gpio-shared-fixes-v2-0-c7091d2=
+f7581@oss.qualcomm.com/
+>
+> With the linked patchset applied I still see the same issue
+>
+> Pankaj
+>
 
-Hi Bjorn,
+Is the gpio-shared-proxy module available? If not, can you change the
+config to make it built-in like CONFIG_GPIO_SHARED_PROXY=3Dy?
 
-Thanks for pointing out the series.
-
-I=E2=80=99ll resolve the conflicts and send a new patchset once this one is=
- merged.
-
-Best Regards,
-Jinhui
+Bartosz
 
