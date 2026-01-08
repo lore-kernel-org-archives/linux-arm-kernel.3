@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA74D1D482
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C45F0D1D478
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 16:47:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ljIXzTLbuy5AxBeVLmAwPalHwjc3NjudORHIgHxMQ8I=; b=slb+UVztzE24QgXg7Q/38Xy6/M
-	QAWrHB/SVIFMKcPtxwmkKFKaLCQgJT+8k4tFC6tc7xXNkQCq7hYKpfEQylRyChmZ8cN4RtpAjcPGO
-	fuFZKIZ6wO63z0emGo3VgzNj8S0d4unQCYjbNUOmtD930Q+kI/29T5SQLlqpUxbVyj2az6k2opC20
-	MDqX4B/2uc6OU9WpQmk2zWYfB1AsZcF4yRLbzvNy39ADZrwtyTfAElxcBgFyckcGK63J2X9EohpMf
-	TPRegZjtbGVeusAWBONw6HR1/PL9DaNGVH65ypP8kPirvvIQX4kFME0oDm88fMNdl86NSUpAAfcuF
-	26Rg3t7Q==;
+	bh=eE89e3/jKzWdFDY1uRaFgvMPG6ZaXaL6dQLg8YvhMEU=; b=tSi4GNlAjKhwnCqisnCEXxZx7o
+	KBgIXPcvhr0imZ+MN8L1QSqVXzFzP1ETH/iWbUBmBQS6lrZf097fm9MZVWMJkMa4gGkBt1wxxSxY7
+	G+UeESwFyD2lwGfJUpgpCu1ICG9MfowBFBJ2VmnW5tONiwiAdeaeF7cvxOGn3SZXcVLffaRi6DpIc
+	Olq4x356Mnb+Ugi6/hSpo1fybq/rZNx2WeQTOO2ntzV4q1Ost5SFXkqwpvubxLP8ge3yqp0ON+s+9
+	qJgRyGkLq0/TBkvBwIAvc6SOF+j3ZoBiZrKPdI1Z4xUk8uKdprP3RIcGOOgoVk2EFVM5s/h6GaooM
+	Sn+isFhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdt6v-00000000BwZ-2ES0;
-	Thu, 08 Jan 2026 16:43:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vdtA5-00000000CVs-0lYJ;
+	Thu, 08 Jan 2026 16:47:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdt6t-00000000Bvn-3CG5
+	id 1vdtA2-00000000CV0-1Y4O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 16:43:44 +0000
+	Thu, 08 Jan 2026 16:46:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5D364416AC;
-	Thu,  8 Jan 2026 16:43:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19B71C116C6;
-	Thu,  8 Jan 2026 16:43:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D118C40160;
+	Thu,  8 Jan 2026 16:46:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBB55C116C6;
+	Thu,  8 Jan 2026 16:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767890623;
-	bh=BV2Gu6VvqDnjUG9CdfeoHNPKb8cbX0GclRstD7UwMGY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Nk2f8YRygJ+5gB3s5fKTjtytG/ystrFTw0/9KQJD85FxII3hTLdI4Mj1I4GaPUU5z
-	 b/Z9A1Ez9BY6BbP2yn2eLg5hDIiTk2KLKH1e5DIIQipCOrTyq+UprVH6bl4OT5WfcN
-	 AcExX1cCFp8kbdm4JPTvtGYaevEx8lFsPsQiEzZD1nj7avkdlxzZzeljgNtuvTFbap
-	 X7i9ESH71JTVu7Bf9IF8F5MmUYqlcBG26sRjvft2sQD7gifq3Hl1IVsTItyHePm2sA
-	 mCLeT7saStjxtYhqU1Q6Aw7YjIJMEdVyPrOqG+cgwTrGHKoCpkjZQ2WTOrlQ5qqfIE
-	 U8jgBIyJQeUyA==
-Message-ID: <260f91bf-c285-4a2f-b4dc-457e7b601761@kernel.org>
-Date: Thu, 8 Jan 2026 17:43:38 +0100
+	s=k20201202; t=1767890817;
+	bh=cwGSl+dMt/Qg30NI759Hy214J7HVKGIJShbSuTyyqYk=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=txEwUkVtFvCwWGEKCFXJGgCrwroS2mLoFPgL6+oohVm3AJscWJ/KR1XaDpIm9kdcp
+	 pdpvzJcL66Kz+txKxj6Ax07TLzghjYjEg62bodc/6DvB1vDOyQCfk72dOf88FzHMEA
+	 HcBr/635ZuYvpp6dT/pmA+n7Cx4BCLw67+QtE1FrtOQWrOis5gb/jCtrVGVCrYyqdb
+	 /Xi2ORtNaXUBWR0uqoeis1ok8gVG8MqDxgy710QtV56Y6z/5ZvzWl4mvcwcuVKqrIo
+	 YlUm+kmXXqKXdf7TV8eibZAw+7+YwSaGpbQd6NkAePgrndo/hH4bts6kZHuYWb4M0Q
+	 vfL+BLlL00fUg==
+Message-ID: <0b80d046-6141-4389-b666-592859468b8f@kernel.org>
+Date: Thu, 8 Jan 2026 17:46:53 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64: dts: lg: Initial support for LG1215 SoC and
- reference board
+Subject: Re: [PATCH 1/3] dt-bindings: vendor-prefixes: Add 'lge,*' for LG
+ Electronics
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Chanho Min <chanho.min@lge.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
@@ -58,8 +59,8 @@ To: Chanho Min <chanho.min@lge.com>, Rob Herring <robh@kernel.org>,
 Cc: Gunho Lee <gunho.lee@lge.com>, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 References: <20260108082213.6545-1-chanho.min@lge.com>
- <20260108082213.6545-4-chanho.min@lge.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <20260108082213.6545-2-chanho.min@lge.com>
+ <49d28c7d-a08c-4543-b3bd-a23d36785c28@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -104,13 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260108082213.6545-4-chanho.min@lge.com>
+In-Reply-To: <49d28c7d-a08c-4543-b3bd-a23d36785c28@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_084343_844250_5F7C8402 
-X-CRM114-Status: UNSURE (   8.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260108_084658_526690_03854BC8 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,118 +125,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/01/2026 09:22, Chanho Min wrote:
-> +		compatible = "arm,psci";
-> +		method = "smc";
-> +		cpu_suspend = <0xc4000001>;
-> +		cpu_off = <0xc4000002>;
-> +		cpu_on = <0xc4000003>;
-> +	};
-> +
-> +	cpu0_opp_table: opp_table@0 {
+On 08/01/2026 17:39, Krzysztof Kozlowski wrote:
+> On 08/01/2026 09:22, Chanho Min wrote:
+>> Currently 'lg,*' is used for LG Corporation, but LG Electronics uses
+>> 'lge' as vendor prefix for many of its device tree bindings
+>> (lg1k SoCs, etc).
+>>
+>> Add 'lge' vendor prefix entry to avoid confusion with 'lg'.
+>>
+>> Signed-off-by: Chanho Min <chanho.min@lge.com>
+>> ---
+>>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>>  1 file changed, 2 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+>> index c7591b2aec2a..6c31fa4bee6a 100644
+>> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+>> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+>> @@ -907,6 +907,8 @@ patternProperties:
+>>      description: Lenovo Group Ltd.
+>>    "^lg,.*":
+>>      description: LG Corporation
+>> +  "^lge,.*":
+> 
+> NAK, we have been there and I do not change my stance.
 
-More warnings...
-1. Please follow coding style
-2. Please use generic or approved names for this.
-
-> +		compatible = "operating-points-v2";
-> +		opp-shared;
-> +
-> +		opp-default {
-> +			opp-hz = /bits/ 64 <1600000000>;
-> +		};
-> +	};
-> +
-> +	gic: interrupt-controller@c0000000 {
-
-Wrongly placed. All MMIO nodes are part of soc.
-
-> +		compatible = "arm,gic-400";
-> +		reg = <0x0 0xc0001000 0x0 0x1000>, /* GICD */
-> +		      <0x0 0xc0002000 0x0 0x2000>, /* GICC */
-> +		      <0x0 0xc0004000 0x0 0x2000>, /* GICH */
-> +		      <0x0 0xc0006000 0x0 0x2000>; /* GICV */
-> +		#interrupt-cells = <3>;
-> +		#address-cells = <0>;
-> +		interrupts = <GIC_PPI 9 (GIC_CPU_MASK_RAW(0x0f) |
-> +					IRQ_TYPE_LEVEL_LOW)>;
-> +
-> +		interrupt-controller;
-> +	};
-> +
-> +	pmu {
-> +		compatible = "arm,armv8-pmuv3";
-> +		interrupts = <GIC_SPI 184 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 185 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 186 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 187 IRQ_TYPE_LEVEL_HIGH>;
-> +		interrupt-affinity = <&cpu0>,
-> +				     <&cpu1>,
-> +				     <&cpu2>,
-> +				     <&cpu3>;
-> +	};
-> +
-> +	timer {
-> +		compatible = "arm,armv8-timer";
-> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_RAW(0x0f) |
-> +			      IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 14 (GIC_CPU_MASK_RAW(0x0f) |
-> +			      IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 11 (GIC_CPU_MASK_RAW(0x0f) |
-> +			      IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 10 (GIC_CPU_MASK_RAW(0x0f) |
-> +			      IRQ_TYPE_LEVEL_LOW)>;
-> +	};
-> +
-> +	clks {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-
-No, this makes no sense, that's not a bus or any sort of device. Drop
-entire node.
-
-> +
-> +		clk_xtal: clk-xtal {
-> +			compatible = "fixed-clock";
-> +			clock-output-names = "xtal";
-> +			clock-frequency = <50000000>;
-> +
-> +			#clock-cells = <0>;
-> +		};
-> +
-> +		clk_bus: clk-bus {
-> +			compatible = "fixed-factor-clock";
-> +			clocks = <&clk_xtal>;
-> +			clock-names = "xtal";
-> +			clock-output-names = "busclk";
-> +			clock-div = <1>;
-> +			clock-mult = <4>;
-> +
-> +			#clock-cells = <0>;
-> +		};
-> +	};
-> +
-> +	soc {
-> +		compatible = "simple-bus";
-> +
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		interrupt-parent = <&gic>;
-> +
-> +		dwmac_axi_config: dwmac-axi-config {
-
-I don't think this validates.
-
-Also, you really should follow DTS coding style.
-
-> +			snps,rd_osr_lmt = <0x07>;
-> +			snps,wr_osr_lmt = <0x07>;
-> +			snps,blen = <0 0 16 0 0 0 0>;
-> +		};
-
+Unless you meant to add it because of EXISTING device trees (predating
+commit fc75109288709 from Rob), then add with deprecated: true and don't
+use it any new compatibles.
 
 Best regards,
 Krzysztof
