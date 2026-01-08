@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1FCDD1D482
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 17:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B1BD1D478
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 17:32:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/b54dtjfLCpQPfTXWOh1TwTgLOx2rTYAakzbfZ4vFYI=; b=xbKywI4jFHRej5et4GZqwqqlX3
-	bDfxlPgQ7IwY8S8MSDsAgyzc0Mv5SHNl4rSDfQqs7DpJqEAZA38TdGXLifpErY2k5zDHD/0KbvzzS
-	rfjwwPhALvjX7vzPWxUiUbMqxZ9NkGNpfdQqfi6S1gvKIPKcA8/y4I8Au6LWI0yCn++vYy/YXBRON
-	XMsYiP8uhzMzHTTiQwNDJkxn4fW5ZbXCWhmTA13T4p8SoYGYVIrorUrjDkyxXH1I+O72whjK1rrqZ
-	80IHVJaTnqnw5ZnzLK5Fpqxmi/QXoU+c7AoSg3u2hu+BaLN4vMYuGNCz78eLpOvhfQEjGlCG+ov0s
-	AukG/TOg==;
+	bh=6k5OQFkjKRhDwo0iXNt1/546+974/zl6x7HWDQ5ZolU=; b=1vjMi5P5UupqhOk5Ya19q/ddNh
+	smst9MKlf7iMohqb6zTQqjtsS/jgXa6BhlNBgObaJIJoDgmP2M+jP3zwDmWV7Gyk/GX+BibRtgpyX
+	fnBMnXR19a1hqAO54aLYWkfZPyvqiNzA1FHK6teJ7KtDcWr9TbU2yi8KmqQPC+rkZuds2O6UqkeBE
+	EAg84tyBOUabBPdelxhtNt2cqu8Kqkk1AvsrZJdeboavgSkOUIVg0YeFinjjtBrZznUBWWmFAbR4J
+	0gyd38397az2WcT5Ksu6xfoDATNmSKRDM2KJ1WbL4i7s7B0ESf1xUEokcg1x69coL+Z4MizzU9hDr
+	fN4JVdrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdtsI-00000000PRb-1Xwx;
+	id 1vdtsH-00000000PQw-3BAb;
 	Thu, 08 Jan 2026 17:32:42 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdtsG-00000000POz-13JE
+	id 1vdtsG-00000000POx-13JD
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 08 Jan 2026 17:32:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7BDE060136;
+	by tor.source.kernel.org (Postfix) with ESMTP id 68F5560130;
 	Thu,  8 Jan 2026 17:32:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C1BBC19424;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19595C16AAE;
 	Thu,  8 Jan 2026 17:32:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1767893559;
-	bh=il8COfiF1FhMwmH8tRnlXmaXeF2Tmchwrjdh9u49mVY=;
+	bh=lBM9O1xiYp3upt+sE8CBR/zZAFQ7xYSFnh/kkG4Fd4c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FeM/bJyzo8gacN12ll2CLwrsW5eevGOScKJX8pwU3V5uhMNcvFg9CRnc2+Ko8iqlG
-	 zcM+mzqXNh30oan+n9RwX9CORddctNXJU1YwGobFJsoE56cAfSrraEaW1hJvahxxGZ
-	 gojPSMn3jxaVTAUoefgAiOU4deOMcMOb8G/8ag3FpPVmqZE9aSg64+34s0WhiCGFYr
-	 ilaHNL+d+MEP9Fw3IcAC1haoh37cpbcn6g7A7FvLLsmgIQ/Wl7VFysK44Fd8KMxHa1
-	 rSvz4mi/MjpoqURVNByZxU7sAXl06CMvS31KdmZtn+GmqOkdN3mJNFDnv0B3LcPn3y
-	 /zFsgBlEe328A==
+	b=glimZ8G4SNAjTBRQKdLQkzr8Bu1wHkZ7ZUqsu0eyU77PuGcUbUCHZ3JbP/PlNyavO
+	 4QlWY84WAC6XL9nc3PufdAStZjOT/DjAiJKMtzxAB5/BVU8J5Z9Chvjh2GTuwe4aEv
+	 D/kvWVZgM1NSMqr063LhRoKCQtMzjs0gLmeyd6sf6d2ly/LgZkLe75bCblNc7Zqme0
+	 wlGgTrwO/btvQLpYoaqPk+Ou+4I/7fYRDTRPJo/RfWL6vlcFml6K7Ral/Pn1zRSoDH
+	 MIkVzUjXjjaT841GpoDrzTvz+RfnZUEK+5LyV1tF7U1+6Td2914ZJlky2UXpZYdckS
+	 tq8Tap2MHLwRQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vdtsD-00000000W9F-09Vi;
-	Thu, 08 Jan 2026 17:32:37 +0000
+	id 1vdtsC-00000000W9F-3NHY;
+	Thu, 08 Jan 2026 17:32:36 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Ben Horgan <ben.horgan@arm.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>
-Subject: [PATCH v4 3/9] KVM: arm64: Add a generic synchronous exception injection primitive
-Date: Thu,  8 Jan 2026 17:32:27 +0000
-Message-ID: <20260108173233.2911955-4-maz@kernel.org>
+Subject: [PATCH v4 2/9] KVM: arm64: Add trap routing for GMID_EL1
+Date: Thu,  8 Jan 2026 17:32:26 +0000
+Message-ID: <20260108173233.2911955-3-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260108173233.2911955-1-maz@kernel.org>
 References: <20260108173233.2911955-1-maz@kernel.org>
@@ -84,64 +84,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Maybe in a surprising way, we don't currently have a generic way
-to inject a synchronous exception at the EL the vcpu is currently
-running at.
+HCR_EL2.TID5 is currently ignored by the trap routing infrastructure.
+Wire it in the routing table so that GMID_EL1, the sole register
+trapped by this bit, is correctly handled in the NV case.
 
-Extract such primitive from the UNDEF injection code.
-
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_emulate.h |  1 +
- arch/arm64/kvm/inject_fault.c        | 10 +++++++---
- 2 files changed, 8 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/emulate-nested.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index c9eab316398e2..df20d47f0d256 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -45,6 +45,7 @@ bool kvm_condition_valid32(const struct kvm_vcpu *vcpu);
- void kvm_skip_instr32(struct kvm_vcpu *vcpu);
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index 834f13fb1fb7d..616eb6ad68701 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -70,6 +70,7 @@ enum cgt_group_id {
+ 	CGT_HCR_ENSCXT,
+ 	CGT_HCR_TTLBIS,
+ 	CGT_HCR_TTLBOS,
++	CGT_HCR_TID5,
  
- void kvm_inject_undefined(struct kvm_vcpu *vcpu);
-+void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
- int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
- int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
- void kvm_inject_size_fault(struct kvm_vcpu *vcpu);
-diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-index dfcd66c655179..7102424a3fa5e 100644
---- a/arch/arm64/kvm/inject_fault.c
-+++ b/arch/arm64/kvm/inject_fault.c
-@@ -162,12 +162,16 @@ static void inject_abt64(struct kvm_vcpu *vcpu, bool is_iabt, unsigned long addr
- 	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
- }
- 
-+void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr)
-+{
-+	pend_sync_exception(vcpu);
-+	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
-+}
-+
- static void inject_undef64(struct kvm_vcpu *vcpu)
- {
- 	u64 esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT);
- 
--	pend_sync_exception(vcpu);
--
- 	/*
- 	 * Build an unknown exception, depending on the instruction
- 	 * set.
-@@ -175,7 +179,7 @@ static void inject_undef64(struct kvm_vcpu *vcpu)
- 	if (kvm_vcpu_trap_il_is32bit(vcpu))
- 		esr |= ESR_ELx_IL;
- 
--	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
-+	kvm_inject_sync(vcpu, esr);
- }
- 
- #define DFSR_FSC_EXTABT_LPAE	0x10
+ 	CGT_MDCR_TPMCR,
+ 	CGT_MDCR_TPM,
+@@ -308,6 +309,12 @@ static const struct trap_bits coarse_trap_bits[] = {
+ 		.mask		= HCR_TTLBOS,
+ 		.behaviour	= BEHAVE_FORWARD_RW,
+ 	},
++	[CGT_HCR_TID5] = {
++		.index		= HCR_EL2,
++		.value		= HCR_TID5,
++		.mask		= HCR_TID5,
++		.behaviour	= BEHAVE_FORWARD_RW,
++	},
+ 	[CGT_MDCR_TPMCR] = {
+ 		.index		= MDCR_EL2,
+ 		.value		= MDCR_EL2_TPMCR,
+@@ -665,6 +672,7 @@ static const struct encoding_to_trap_config encoding_to_cgt[] __initconst = {
+ 	SR_TRAP(SYS_CCSIDR2_EL1,	CGT_HCR_TID2_TID4),
+ 	SR_TRAP(SYS_CLIDR_EL1,		CGT_HCR_TID2_TID4),
+ 	SR_TRAP(SYS_CSSELR_EL1,		CGT_HCR_TID2_TID4),
++	SR_TRAP(SYS_GMID_EL1,		CGT_HCR_TID5),
+ 	SR_RANGE_TRAP(SYS_ID_PFR0_EL1,
+ 		      sys_reg(3, 0, 0, 7, 7), CGT_HCR_TID3),
+ 	SR_TRAP(SYS_ICC_SGI0R_EL1,	CGT_HCR_IMO_FMO_ICH_HCR_TC),
 -- 
 2.47.3
 
