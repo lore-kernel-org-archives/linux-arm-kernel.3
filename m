@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AFD3D185D5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F13B0D185D5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e/XJlvL/4oEQLDSrb+Y41/GOKukWl6G0DTOUVgov9KY=; b=kmZhsFrvuH4X0guuKdDulaJu/8
-	mwvxWVg9sbdN6iRRCbzH+clZTmPOI3feTdO3ln697fYBfdraymPGvYm9PONF9Jki2zg9uIENTkklS
-	riNN46M6A483v+pDZ00qsoa91le2AwkKCh3HhWWU37gj8xfnRJ64n923hLVTbfFzG4rxuCDXrNaD2
-	qOpzbgJ97F+YZjZJSJXR8Wewx8OVxObXvk9zoEzU809+6b6YXpjAbnHhQjF5ZARIAek2ekNGrv3Ej
-	/rfPYgOm04jZ6z/NqpEFmNTs+9ky40aWe3cXqu/HMU1c47PjlwYvApu+GAlM631zjCXqCK1Uws2xR
-	1T9AoSmQ==;
+	bh=8dutg+xR65A8+J7zNehygnmeyh8Gbf6HX8aeVw7VcDE=; b=i3U9IrDGCfOOwFtrj62Eu3g9Yq
+	ZUANJyiNA8k3b4CAhtznfao6S0jZQauCIcPi1IjHGfUNBeBwg7qmxT6stH3iJRiCPWQx9EG4wAc3O
+	KeieYwMDGd0ADcvTwrLL0g8WSra14hoM8vFHNeqat0y0/Panmd8TZsIByFe3SKOHaKUZB5cr5fSkg
+	0VKuRM8Q7ZKC6MxNS9hSjALP5WRfDS1+HS8b9stFsBtJYRDnh0YRZRxTwfAw/1Wp03t3eVO5SWJ9h
+	xDn9qNdoMv8y2bxTsgtfH3jkV7I+LBKpcjd7X52AE9s9d6csHwTXsUPljrf/kqx6sBkcVa1yxISmP
+	+oK9QRmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdnhD-0000000GkeT-1Xmw;
-	Thu, 08 Jan 2026 10:56:51 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1vdnhF-0000000Gkhx-3PJb;
+	Thu, 08 Jan 2026 10:56:53 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdngx-0000000GkJh-0uXH;
+	id 1vdngw-0000000GkLc-2Ue8;
 	Thu, 08 Jan 2026 10:56:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1767869796; x=1799405796;
+  t=1767869794; x=1799405794;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=in8YVWOx7X3+N9u8C3YWLE2bz3o7s3AEf77KzqE5x8M=;
-  b=PJZetI1z+ksQGtPlX1PtzGZ5R2K31GjDm7H1On20edlkqXW1CJxjIQkD
-   yZxUOKudstaOC+UBqFlMwJXPvySMFSgpFh6iGa3aXbaiosJCh6mVCpxbK
-   8BUKVQirTfuBDSQUFC3n38KDMn2MhsrAnSQ59YMoGeLQlzFPZ2baR6/sd
-   wS5zlYOve4D8P1xok+zuJ6Z4yffr6iYHAAmhgepkwPCP84Aw9zb53f0UZ
-   4qWMSURmrVu6RIJ+0pME7pdqKCHaq9JQrHlg6GrY6SD6u0OslrfsacruT
-   DnyI4rBzifQjEiz0COJev3Sdjgj0UhOT1sEXjsukRv0spDvUKdfR/HcX9
-   w==;
-X-CSE-ConnectionGUID: nGWJg16/R4mHODeVAP/sTg==
-X-CSE-MsgGUID: ALoQPTwMSTm0mzxZr4Jx8Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11664"; a="80354648"
+  bh=iHVq+79pb8Yq4SdLxvoeSS6py1B5FyegYsoIgEHQMaA=;
+  b=Z8aU9cBMPZf4Jem91my7c+vD1I5Xno4Uk4jHzxKxkZTCrsQ2iKIIzKuZ
+   fP4WT+gyAlcGRVii8UBFgM/aHimrbqVgV4/4si0/ZlYquOXUzIuYnahto
+   YHFlGm8ezor0hIDp4GkJfWy4wQszA9m8+40fEeWdi8XOnjDtpLCnAmKhf
+   otThXCqMbaJu+QuDrIU9Xqkr2WCdMbU3hNVLDq/9vz/Mw7CLC34Hh3cC3
+   s/8Gpg/06XUUwSG1ehfMbmWshHvCLH44Z+U2fl9fDjpKpL7yMNJFZhX0b
+   sONs93PXaklEq2sk96ZO44OMF1bkU93I4p80tQ5qtzzMGewPN3S6bhy2Z
+   A==;
+X-CSE-ConnectionGUID: GKX2XmJSSoWXuA9HwFdYhw==
+X-CSE-MsgGUID: Lix3Ia9yQWmRDlacq3JCPA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11664"; a="79886166"
 X-IronPort-AV: E=Sophos;i="6.21,210,1763452800"; 
-   d="scan'208";a="80354648"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2026 02:56:34 -0800
-X-CSE-ConnectionGUID: fAZd+NvLR9yHxXM1xEdoug==
-X-CSE-MsgGUID: KPnd7k64TXKfbXL285H4kQ==
+   d="scan'208";a="79886166"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jan 2026 02:56:33 -0800
+X-CSE-ConnectionGUID: qwS2kr8bSuOOdOFkEdNwNg==
+X-CSE-MsgGUID: hHkm5BXrQlOpnfQ0U7iDZQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.21,210,1763452800"; 
-   d="scan'208";a="203615548"
+   d="scan'208";a="203091232"
 Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa009.fm.intel.com with ESMTP; 08 Jan 2026 02:56:27 -0800
+  by fmviesa006.fm.intel.com with ESMTP; 08 Jan 2026 02:56:27 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id 7632BA9; Thu, 08 Jan 2026 11:56:20 +0100 (CET)
+	id 5977FA2; Thu, 08 Jan 2026 11:56:20 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Bjorn Andersson <andersson@kernel.org>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
@@ -84,17 +84,18 @@ Cc: Olivier Dautricourt <olivierdautricourt@gmail.com>,
 	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>,
 	Michal Simek <michal.simek@amd.com>,
 	Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v5 12/13] dmaengine: sh: use sg_nents_for_dma() helper
-Date: Thu,  8 Jan 2026 11:50:23 +0100
-Message-ID: <20260108105619.3513561-13-andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v5 06/13] dmaengine: k3dma: use sg_nents_for_dma() helper
+Date: Thu,  8 Jan 2026 11:50:17 +0100
+Message-ID: <20260108105619.3513561-7-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260108105619.3513561-1-andriy.shevchenko@linux.intel.com>
 References: <20260108105619.3513561-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_025635_310649_549F8AE0 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20260108_025634_688326_811860FE 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,28 +115,35 @@ Instead of open coded variant let's use recently introduced helper.
 Reviewed-by: Bjorn Andersson <andersson@kernel.org>
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/dma/sh/shdma-base.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ drivers/dma/k3dma.c | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/dma/sh/shdma-base.c b/drivers/dma/sh/shdma-base.c
-index 1e4b4d6069c0..3ff2a8be8faa 100644
---- a/drivers/dma/sh/shdma-base.c
-+++ b/drivers/dma/sh/shdma-base.c
-@@ -577,12 +577,11 @@ static struct dma_async_tx_descriptor *shdma_prep_sg(struct shdma_chan *schan,
+diff --git a/drivers/dma/k3dma.c b/drivers/dma/k3dma.c
+index 0f9cd7815f88..63677c0b6f18 100644
+--- a/drivers/dma/k3dma.c
++++ b/drivers/dma/k3dma.c
+@@ -536,19 +536,14 @@ static struct dma_async_tx_descriptor *k3_dma_prep_slave_sg(
+ 	size_t len, avail, total = 0;
  	struct scatterlist *sg;
- 	struct shdma_desc *first = NULL, *new = NULL /* compiler... */;
- 	LIST_HEAD(tx_list);
--	int chunks = 0;
-+	int chunks;
- 	unsigned long irq_flags;
- 	int i;
+ 	dma_addr_t addr, src = 0, dst = 0;
+-	int num = sglen, i;
++	int num, i;
  
--	for_each_sg(sgl, sg, sg_len, i)
--		chunks += DIV_ROUND_UP(sg_dma_len(sg), schan->max_xfer_len);
-+	chunks = sg_nents_for_dma(sgl, sg_len, schan->max_xfer_len);
+ 	if (sgl == NULL)
+ 		return NULL;
  
- 	/* Have to lock the whole loop to protect against concurrent release */
- 	spin_lock_irqsave(&schan->chan_lock, irq_flags);
+ 	c->cyclic = 0;
+ 
+-	for_each_sg(sgl, sg, sglen, i) {
+-		avail = sg_dma_len(sg);
+-		if (avail > DMA_MAX_SIZE)
+-			num += DIV_ROUND_UP(avail, DMA_MAX_SIZE) - 1;
+-	}
+-
++	num = sg_nents_for_dma(sgl, sglen, DMA_MAX_SIZE);
+ 	ds = k3_dma_alloc_desc_resource(num, chan);
+ 	if (!ds)
+ 		return NULL;
 -- 
 2.50.1
 
