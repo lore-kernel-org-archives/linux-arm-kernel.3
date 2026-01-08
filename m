@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE064D1D484
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 17:37:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 738ECD1D484
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 17:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zmv71xSnAHoyznNfqKfQgwTi9ule4Eh0vd8D5wV71YI=; b=sSHimD72FsJ6IR2JrThcpM+ulj
-	mA4RrreN/hj6Yo28vzQvrR+Rtgj65UnK/50XblkVeqBc+9A7B0oLWbKwtFQcym/e0XonNI6WUPLHW
-	NV2R8Te1XYXQI6VNbwiAlGDleRXDdcaY8u/m0P/+8elziA7eB2fmxoiy/oJ8qcft6Jvh4iHw/+fR2
-	uxaXvMcQriZ/HIsZDQJA+jw36wVoZ0IGe5dWFvaiST+qDO36CMT5WKI+NzN+apaR6tTnES1eXD7GC
-	+QBOroeuSBOcJ3etPdCeXyP0DII/xWqAW34f0SR4pAAEgZFMfsDrldjo1uQu0zRnvbbWTwi0+gtDA
-	xJGdLi5Q==;
+	bh=YdT3N2oZEWNvD9jCGylkO4u0eoIHm0bt3IdBBOUs5bo=; b=zoZ8ZgdZIW735ZCNpyTvr8vhx3
+	/BVqR3I2+eO/lkxGONnHZvQafWrvgu2eX4jtk9d7UK+u/m/92hlu5B+hV/DlWDm0t/ZSnczRPC80H
+	o3d5SxaYassjFVO1BSTrJGad7rrd0tD9q1hw+OGjEzIp3y0M/5CHRCI9QCJf6A2EBe2U3FeN2fklG
+	adHeW1c08Sf6G63QGDjQOfPDT5Xi3PRslAex2OpyqXZ5eJqiukgsrp58PQ1bCGYCBdMskD4m95C97
+	cy9+aEOsGW6IU7bQFW1CIm20oT3fQO3dd0RD3hzwFzcnymikdaTTbxjYNYYyaeFBSjUxbn3A+M6z3
+	28dbeRnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdtwO-00000000SLp-3EFk;
-	Thu, 08 Jan 2026 17:36:56 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
+	id 1vdtwX-00000000SVy-3XEC;
+	Thu, 08 Jan 2026 17:37:05 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdtwL-00000000SGI-1mYT;
-	Thu, 08 Jan 2026 17:36:55 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 31AFAC000C61;
-	Thu,  8 Jan 2026 09:36:52 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 31AFAC000C61
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1767893812;
-	bh=bxmGklExLUzZgI6VQZsbwrishl9m4biRsOymkvUiESw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ApQbqcWv//tncek4NqKbcyRldPV3+ociZzzqoxl016kGbfsT5SAOY39mWEEVvzrCR
-	 Lj58k8APfjITG2gzQxynsut41TlmJ8ocgnQn9SM0813GLakciRMQiiVDHOV+Zl4kAN
-	 DN8W+zemdezEFFYypgl0rMlehlzlv/d5qeR25314=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id C66451CAF8;
-	Thu,  8 Jan 2026 09:36:51 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: bcm-kernel-feedback-list@broadcom.com,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
+	id 1vdtwQ-00000000SKt-2X9g
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Jan 2026 17:37:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=YdT3N2oZEWNvD9jCGylkO4u0eoIHm0bt3IdBBOUs5bo=; b=vN7kR6jeTvnOSaIyKdLIGTm8jH
+	X0KJ10L7gnOoH25GXoLoLNcARJXOJbysseDPlZJY6vkWTaasstumkjr4ZxtT415L+qkGNvPfKOSoI
+	i/aja/lftwgFaNLJ0eOZMBKDes5B3vgbsi8d3kul2KSrBRcTlPg9oXTWTV0FoDksbtlVZ5laBaA4m
+	e3CiASi2A8772+kdbdW8q69dGUgnZDslX/HB8HD64vXt0wQJUX1SkBlnNck6+vcducSdDzMAucK23
+	M+XUpvIAlhH6+o4xdxBNHFeRzDSv0uiSnVfEaaQQoAWt5lBNvAjBMiSik1pZmr5Q+1/YzSBgL7Nru
+	l9QbCK4Q==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50922 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vdtwF-0000000030c-3aVh;
+	Thu, 08 Jan 2026 17:36:48 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vdtwD-00000002Gu0-0nTN;
+	Thu, 08 Jan 2026 17:36:45 +0000
+In-Reply-To: <aV_q2Kneinrk3Z-W@shell.armlinux.org.uk>
+References: <aV_q2Kneinrk3Z-W@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 13/13] arm64: dts: broadcom: northstar2: Drop "arm,cci-400-pmu" fallback compatible
-Date: Thu,  8 Jan 2026 09:36:51 -0800
-Message-ID: <20260108173651.3785415-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260106-dt-dtbs-broadcom-fixes-v1-13-ba45874e4553@kernel.org>
-References: <20260106-dt-dtbs-broadcom-fixes-v1-0-ba45874e4553@kernel.org> <20260106-dt-dtbs-broadcom-fixes-v1-13-ba45874e4553@kernel.org>
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next v2 8/9] net: stmmac: arrange register fields after
+ register offsets
 MIME-Version: 1.0
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vdtwD-00000002Gu0-0nTN@rmk-PC.armlinux.org.uk>
+Date: Thu, 08 Jan 2026 17:36:45 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_093653_591152_F4BB041F 
-X-CRM114-Status: UNSURE (   8.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260108_093659_096776_EED063EC 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,16 +90,426 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florian Fainelli <f.fainelli@gmail.com>
+Arrange the register fields to be after their corresponding register
+offset definitions, which groups all the definitions for a register
+together.
 
-On Tue, 06 Jan 2026 20:09:52 -0600, "Rob Herring (Arm)" <robh@kernel.org> wrote:
-> The "arm,cci-400-pmu" compatible is not documented as a valid fallback
-> nor is it used, so drop it.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../net/ethernet/stmicro/stmmac/dwmac4_dma.h  | 137 +++++++-------
+ .../net/ethernet/stmicro/stmmac/dwmac_dma.h   | 169 +++++++++---------
+ 2 files changed, 154 insertions(+), 152 deletions(-)
 
-Applied to https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
---
-Florian
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
+index 42d93cafe7b6..e8f103cb6cd5 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
+@@ -16,28 +16,22 @@
+ #define DMA_CHANNEL_NB_MAX		1
+ 
+ #define DMA_BUS_MODE			0x00001000
+-#define DMA_SYS_BUS_MODE		0x00001004
+-#define DMA_STATUS			0x00001008
+-#define DMA_DEBUG_STATUS_0		0x0000100c
+-#define DMA_DEBUG_STATUS_1		0x00001010
+-#define DMA_DEBUG_STATUS_2		0x00001014
+-#define DMA_AXI_BUS_MODE		0x00001028
+-#define DMA_TBS_CTRL			0x00001050
+ 
+-/* DMA Bus Mode bitmap */
+ #define DMA_BUS_MODE_DCHE		BIT(19)
+ #define DMA_BUS_MODE_INTM_MASK		GENMASK(17, 16)
+ #define DMA_BUS_MODE_INTM_MODE1		0x1
+ #define DMA_BUS_MODE_SFT_RESET		BIT(0)
+ 
+-/* DMA SYS Bus Mode bitmap */
++#define DMA_SYS_BUS_MODE		0x00001004
++
+ #define DMA_BUS_MODE_SPH		BIT(24)
+ #define DMA_BUS_MODE_PBL		BIT(16)
+ #define DMA_BUS_MODE_RPBL_MASK		GENMASK(21, 16)
+ #define DMA_BUS_MODE_MB			BIT(14)
+ #define DMA_BUS_MODE_FB			BIT(0)
+ 
+-/* DMA Interrupt top status */
++#define DMA_STATUS			0x00001008
++
+ #define DMA_STATUS_MAC			BIT(17)
+ #define DMA_STATUS_MTL			BIT(16)
+ #define DMA_STATUS_CHAN7		BIT(7)
+@@ -49,11 +43,15 @@
+ #define DMA_STATUS_CHAN1		BIT(1)
+ #define DMA_STATUS_CHAN0		BIT(0)
+ 
+-/* DMA debug status bitmap */
++#define DMA_DEBUG_STATUS_0		0x0000100c
++#define DMA_DEBUG_STATUS_1		0x00001010
++#define DMA_DEBUG_STATUS_2		0x00001014
++
+ #define DMA_DEBUG_STATUS_TS_MASK	0xf
+ #define DMA_DEBUG_STATUS_RS_MASK	0xf
+ 
+-/* DMA AXI bitmap */
++#define DMA_AXI_BUS_MODE		0x00001028
++
+ #define DMA_AXI_EN_LPI			BIT(31)
+ #define DMA_AXI_LPI_XIT_FRM		BIT(30)
+ #define DMA_AXI_WR_OSR_LMT		GENMASK(27, 24)
+@@ -70,7 +68,8 @@
+ 					DMA_AXI_BLEN16 | DMA_AXI_BLEN8 | \
+ 					DMA_AXI_BLEN4)
+ 
+-/* DMA TBS Control */
++#define DMA_TBS_CTRL			0x00001050
++
+ #define DMA_TBS_FTOS			GENMASK(31, 8)
+ #define DMA_TBS_FTOV			BIT(0)
+ #define DMA_TBS_DEF_FTOS		(DMA_TBS_FTOS | DMA_TBS_FTOV)
+@@ -95,8 +94,22 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
+ #define DMA_CHAN_REG_NUMBER		17
+ 
+ #define DMA_CHAN_CONTROL(addrs, x)	dma_chanx_base_addr(addrs, x)
++
++#define DMA_CONTROL_SPH			BIT(24)
++#define DMA_CONTROL_MSS_MASK		GENMASK(13, 0)
++
+ #define DMA_CHAN_TX_CONTROL(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x4)
++
++#define DMA_CONTROL_EDSE		BIT(28)
++#define DMA_CONTROL_TSE			BIT(12)
++#define DMA_CONTROL_OSP			BIT(4)
++#define DMA_CONTROL_ST			BIT(0)
++
+ #define DMA_CHAN_RX_CONTROL(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x8)
++
++#define DMA_CONTROL_SR			BIT(0)
++#define DMA_RBSZ_MASK			GENMASK(14, 1)
++
+ #define DMA_CHAN_TX_BASE_ADDR_HI(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x10)
+ #define DMA_CHAN_TX_BASE_ADDR(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x14)
+ #define DMA_CHAN_RX_BASE_ADDR_HI(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x18)
+@@ -105,7 +118,49 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
+ #define DMA_CHAN_RX_END_ADDR(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x28)
+ #define DMA_CHAN_TX_RING_LEN(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x2c)
+ #define DMA_CHAN_RX_RING_LEN(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x30)
++
+ #define DMA_CHAN_INTR_ENA(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x34)
++
++#define DMA_CHAN_INTR_ENA_NIE		BIT(16)
++#define DMA_CHAN_INTR_ENA_AIE		BIT(15)
++#define DMA_CHAN_INTR_ENA_NIE_4_10	BIT(15)
++#define DMA_CHAN_INTR_ENA_AIE_4_10	BIT(14)
++#define DMA_CHAN_INTR_ENA_CDE		BIT(13)
++#define DMA_CHAN_INTR_ENA_FBE		BIT(12)
++#define DMA_CHAN_INTR_ENA_ERE		BIT(11)
++#define DMA_CHAN_INTR_ENA_ETE		BIT(10)
++#define DMA_CHAN_INTR_ENA_RWE		BIT(9)
++#define DMA_CHAN_INTR_ENA_RSE		BIT(8)
++#define DMA_CHAN_INTR_ENA_RBUE		BIT(7)
++#define DMA_CHAN_INTR_ENA_RIE		BIT(6)
++#define DMA_CHAN_INTR_ENA_TBUE		BIT(2)
++#define DMA_CHAN_INTR_ENA_TSE		BIT(1)
++#define DMA_CHAN_INTR_ENA_TIE		BIT(0)
++
++#define DMA_CHAN_INTR_NORMAL		(DMA_CHAN_INTR_ENA_NIE | \
++					 DMA_CHAN_INTR_ENA_RIE | \
++					 DMA_CHAN_INTR_ENA_TIE)
++
++#define DMA_CHAN_INTR_ABNORMAL		(DMA_CHAN_INTR_ENA_AIE | \
++					 DMA_CHAN_INTR_ENA_FBE)
++/* DMA default interrupt mask for 4.00 */
++#define DMA_CHAN_INTR_DEFAULT_MASK	(DMA_CHAN_INTR_NORMAL | \
++					 DMA_CHAN_INTR_ABNORMAL)
++#define DMA_CHAN_INTR_DEFAULT_RX	(DMA_CHAN_INTR_ENA_RIE)
++#define DMA_CHAN_INTR_DEFAULT_TX	(DMA_CHAN_INTR_ENA_TIE)
++
++#define DMA_CHAN_INTR_NORMAL_4_10	(DMA_CHAN_INTR_ENA_NIE_4_10 | \
++					 DMA_CHAN_INTR_ENA_RIE | \
++					 DMA_CHAN_INTR_ENA_TIE)
++
++#define DMA_CHAN_INTR_ABNORMAL_4_10	(DMA_CHAN_INTR_ENA_AIE_4_10 | \
++					 DMA_CHAN_INTR_ENA_FBE)
++/* DMA default interrupt mask for 4.10a */
++#define DMA_CHAN_INTR_DEFAULT_MASK_4_10	(DMA_CHAN_INTR_NORMAL_4_10 | \
++					 DMA_CHAN_INTR_ABNORMAL_4_10)
++#define DMA_CHAN_INTR_DEFAULT_RX_4_10	(DMA_CHAN_INTR_ENA_RIE)
++#define DMA_CHAN_INTR_DEFAULT_TX_4_10	(DMA_CHAN_INTR_ENA_TIE)
++
+ #define DMA_CHAN_RX_WATCHDOG(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x38)
+ #define DMA_CHAN_SLOT_CTRL_STATUS(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x3c)
+ #define DMA_CHAN_CUR_TX_DESC(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x44)
+@@ -116,20 +171,6 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
+ #define DMA_CHAN_CUR_RX_BUF_ADDR(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x5c)
+ #define DMA_CHAN_STATUS(addrs, x)	(dma_chanx_base_addr(addrs, x) + 0x60)
+ 
+-/* DMA Control X */
+-#define DMA_CONTROL_SPH			BIT(24)
+-#define DMA_CONTROL_MSS_MASK		GENMASK(13, 0)
+-
+-/* DMA Tx Channel X Control register defines */
+-#define DMA_CONTROL_EDSE		BIT(28)
+-#define DMA_CONTROL_TSE			BIT(12)
+-#define DMA_CONTROL_OSP			BIT(4)
+-#define DMA_CONTROL_ST			BIT(0)
+-
+-/* DMA Rx Channel X Control register defines */
+-#define DMA_CONTROL_SR			BIT(0)
+-#define DMA_RBSZ_MASK			GENMASK(14, 1)
+-
+ /* Interrupt status per channel */
+ #define DMA_CHAN_STATUS_REB		GENMASK(21, 19)
+ #define DMA_CHAN_STATUS_REB_SHIFT	19
+@@ -168,48 +209,6 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
+ 					 DMA_CHAN_STATUS_TI | \
+ 					 DMA_CHAN_STATUS_MSK_COMMON)
+ 
+-/* Interrupt enable bits per channel */
+-#define DMA_CHAN_INTR_ENA_NIE		BIT(16)
+-#define DMA_CHAN_INTR_ENA_AIE		BIT(15)
+-#define DMA_CHAN_INTR_ENA_NIE_4_10	BIT(15)
+-#define DMA_CHAN_INTR_ENA_AIE_4_10	BIT(14)
+-#define DMA_CHAN_INTR_ENA_CDE		BIT(13)
+-#define DMA_CHAN_INTR_ENA_FBE		BIT(12)
+-#define DMA_CHAN_INTR_ENA_ERE		BIT(11)
+-#define DMA_CHAN_INTR_ENA_ETE		BIT(10)
+-#define DMA_CHAN_INTR_ENA_RWE		BIT(9)
+-#define DMA_CHAN_INTR_ENA_RSE		BIT(8)
+-#define DMA_CHAN_INTR_ENA_RBUE		BIT(7)
+-#define DMA_CHAN_INTR_ENA_RIE		BIT(6)
+-#define DMA_CHAN_INTR_ENA_TBUE		BIT(2)
+-#define DMA_CHAN_INTR_ENA_TSE		BIT(1)
+-#define DMA_CHAN_INTR_ENA_TIE		BIT(0)
+-
+-#define DMA_CHAN_INTR_NORMAL		(DMA_CHAN_INTR_ENA_NIE | \
+-					 DMA_CHAN_INTR_ENA_RIE | \
+-					 DMA_CHAN_INTR_ENA_TIE)
+-
+-#define DMA_CHAN_INTR_ABNORMAL		(DMA_CHAN_INTR_ENA_AIE | \
+-					 DMA_CHAN_INTR_ENA_FBE)
+-/* DMA default interrupt mask for 4.00 */
+-#define DMA_CHAN_INTR_DEFAULT_MASK	(DMA_CHAN_INTR_NORMAL | \
+-					 DMA_CHAN_INTR_ABNORMAL)
+-#define DMA_CHAN_INTR_DEFAULT_RX	(DMA_CHAN_INTR_ENA_RIE)
+-#define DMA_CHAN_INTR_DEFAULT_TX	(DMA_CHAN_INTR_ENA_TIE)
+-
+-#define DMA_CHAN_INTR_NORMAL_4_10	(DMA_CHAN_INTR_ENA_NIE_4_10 | \
+-					 DMA_CHAN_INTR_ENA_RIE | \
+-					 DMA_CHAN_INTR_ENA_TIE)
+-
+-#define DMA_CHAN_INTR_ABNORMAL_4_10	(DMA_CHAN_INTR_ENA_AIE_4_10 | \
+-					 DMA_CHAN_INTR_ENA_FBE)
+-/* DMA default interrupt mask for 4.10a */
+-#define DMA_CHAN_INTR_DEFAULT_MASK_4_10	(DMA_CHAN_INTR_NORMAL_4_10 | \
+-					 DMA_CHAN_INTR_ABNORMAL_4_10)
+-#define DMA_CHAN_INTR_DEFAULT_RX_4_10	(DMA_CHAN_INTR_ENA_RIE)
+-#define DMA_CHAN_INTR_DEFAULT_TX_4_10	(DMA_CHAN_INTR_ENA_TIE)
+-
+-/* channel 0 specific fields */
+ #define DMA_CHAN0_DBG_STAT_TPS		GENMASK(15, 12)
+ #define DMA_CHAN0_DBG_STAT_TPS_SHIFT	12
+ #define DMA_CHAN0_DBG_STAT_RPS		GENMASK(11, 8)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
+index 0b379987d3af..a57ecef098e3 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
+@@ -13,13 +13,99 @@
+ 
+ /* DMA CRS Control and Status Register Mapping */
+ #define DMA_BUS_MODE		0x00001000	/* Bus Mode */
++
++#define DMA_BUS_MODE_SFT_RESET	0x00000001	/* Software Reset */
++
+ #define DMA_XMT_POLL_DEMAND	0x00001004	/* Transmit Poll Demand */
+ #define DMA_RCV_POLL_DEMAND	0x00001008	/* Received Poll Demand */
+ #define DMA_RCV_BASE_ADDR	0x0000100c	/* Receive List Base */
+ #define DMA_TX_BASE_ADDR	0x00001010	/* Transmit List Base */
++
+ #define DMA_STATUS		0x00001014	/* Status Register */
++#define DMA_STATUS_GLPII	0x40000000	/* GMAC LPI interrupt */
++#define DMA_STATUS_GPI		0x10000000	/* PMT interrupt */
++#define DMA_STATUS_GMI		0x08000000	/* MMC interrupt */
++#define DMA_STATUS_GLI		0x04000000	/* GMAC Line interface int */
++#define DMA_STATUS_EB_MASK	0x00380000	/* Error Bits Mask */
++#define DMA_STATUS_EB_TX_ABORT	0x00080000	/* Error Bits - TX Abort */
++#define DMA_STATUS_EB_RX_ABORT	0x00100000	/* Error Bits - RX Abort */
++#define DMA_STATUS_TS_MASK	GENMASK(22, 20)	/* Transmit Process State */
++#define DMA_STATUS_RS_MASK	GENMASK(19, 17)	/* Receive Process State */
++#define DMA_STATUS_NIS	0x00010000	/* Normal Interrupt Summary */
++#define DMA_STATUS_AIS	0x00008000	/* Abnormal Interrupt Summary */
++#define DMA_STATUS_ERI	0x00004000	/* Early Receive Interrupt */
++#define DMA_STATUS_FBI	0x00002000	/* Fatal Bus Error Interrupt */
++#define DMA_STATUS_ETI	0x00000400	/* Early Transmit Interrupt */
++#define DMA_STATUS_RWT	0x00000200	/* Receive Watchdog Timeout */
++#define DMA_STATUS_RPS	0x00000100	/* Receive Process Stopped */
++#define DMA_STATUS_RU	0x00000080	/* Receive Buffer Unavailable */
++#define DMA_STATUS_RI	0x00000040	/* Receive Interrupt */
++#define DMA_STATUS_UNF	0x00000020	/* Transmit Underflow */
++#define DMA_STATUS_OVF	0x00000010	/* Receive Overflow */
++#define DMA_STATUS_TJT	0x00000008	/* Transmit Jabber Timeout */
++#define DMA_STATUS_TU	0x00000004	/* Transmit Buffer Unavailable */
++#define DMA_STATUS_TPS	0x00000002	/* Transmit Process Stopped */
++#define DMA_STATUS_TI	0x00000001	/* Transmit Interrupt */
++
++#define DMA_STATUS_MSK_COMMON		(DMA_STATUS_NIS | \
++					 DMA_STATUS_AIS | \
++					 DMA_STATUS_FBI)
++
++#define DMA_STATUS_MSK_RX		(DMA_STATUS_ERI | \
++					 DMA_STATUS_RWT | \
++					 DMA_STATUS_RPS | \
++					 DMA_STATUS_RU | \
++					 DMA_STATUS_RI | \
++					 DMA_STATUS_OVF | \
++					 DMA_STATUS_MSK_COMMON)
++
++#define DMA_STATUS_MSK_TX		(DMA_STATUS_ETI | \
++					 DMA_STATUS_UNF | \
++					 DMA_STATUS_TJT | \
++					 DMA_STATUS_TU | \
++					 DMA_STATUS_TPS | \
++					 DMA_STATUS_TI | \
++					 DMA_STATUS_MSK_COMMON)
++
+ #define DMA_CONTROL		0x00001018	/* Ctrl (Operational Mode) */
++
++/* DMA Control register defines */
++#define DMA_CONTROL_FTF		0x00100000	/* Flush transmit FIFO */
++#define DMA_CONTROL_ST		0x00002000	/* Start/Stop Transmission */
++#define DMA_CONTROL_SR		0x00000002	/* Start/Stop Receive */
++
+ #define DMA_INTR_ENA		0x0000101c	/* Interrupt Enable */
++
++/* DMA Normal interrupt */
++#define DMA_INTR_ENA_NIE 0x00010000	/* Normal Summary */
++#define DMA_INTR_ENA_TIE 0x00000001	/* Transmit Interrupt */
++#define DMA_INTR_ENA_TUE 0x00000004	/* Transmit Buffer Unavailable */
++#define DMA_INTR_ENA_RIE 0x00000040	/* Receive Interrupt */
++#define DMA_INTR_ENA_ERE 0x00004000	/* Early Receive */
++
++#define DMA_INTR_NORMAL	(DMA_INTR_ENA_NIE | DMA_INTR_ENA_RIE | \
++			DMA_INTR_ENA_TIE)
++
++/* DMA Abnormal interrupt */
++#define DMA_INTR_ENA_AIE 0x00008000	/* Abnormal Summary */
++#define DMA_INTR_ENA_FBE 0x00002000	/* Fatal Bus Error */
++#define DMA_INTR_ENA_ETE 0x00000400	/* Early Transmit */
++#define DMA_INTR_ENA_RWE 0x00000200	/* Receive Watchdog */
++#define DMA_INTR_ENA_RSE 0x00000100	/* Receive Stopped */
++#define DMA_INTR_ENA_RUE 0x00000080	/* Receive Buffer Unavailable */
++#define DMA_INTR_ENA_UNE 0x00000020	/* Tx Underflow */
++#define DMA_INTR_ENA_OVE 0x00000010	/* Receive Overflow */
++#define DMA_INTR_ENA_TJE 0x00000008	/* Transmit Jabber */
++#define DMA_INTR_ENA_TSE 0x00000002	/* Transmit Stopped */
++
++#define DMA_INTR_ABNORMAL	(DMA_INTR_ENA_AIE | DMA_INTR_ENA_FBE | \
++				DMA_INTR_ENA_UNE)
++
++/* DMA default interrupt mask */
++#define DMA_INTR_DEFAULT_MASK	(DMA_INTR_NORMAL | DMA_INTR_ABNORMAL)
++#define DMA_INTR_DEFAULT_RX	(DMA_INTR_ENA_RIE)
++#define DMA_INTR_DEFAULT_TX	(DMA_INTR_ENA_TIE)
++
+ #define DMA_MISSED_FRAME_CTR	0x00001020	/* Missed Frame Counter */
+ 
+ /* Following DMA defines are channels oriented */
+@@ -47,8 +133,6 @@ static inline u32 dma_chan_base_addr(u32 base, u32 chan)
+ #define DMA_CHAN_RX_WATCHDOG(chan)	\
+ 				dma_chan_base_addr(DMA_RX_WATCHDOG, chan)
+ 
+-/* SW Reset */
+-#define DMA_BUS_MODE_SFT_RESET	0x00000001	/* Software Reset */
+ 
+ /* Rx watchdog register */
+ #define DMA_RX_WATCHDOG		0x00001024
+@@ -77,87 +161,6 @@ static inline u32 dma_chan_base_addr(u32 base, u32 chan)
+ #define DMA_CUR_RX_BUF_ADDR	0x00001054	/* Current Host Rx Buffer */
+ #define DMA_HW_FEATURE		0x00001058	/* HW Feature Register */
+ 
+-/* DMA Control register defines */
+-#define DMA_CONTROL_ST		0x00002000	/* Start/Stop Transmission */
+-#define DMA_CONTROL_SR		0x00000002	/* Start/Stop Receive */
+-
+-/* DMA Normal interrupt */
+-#define DMA_INTR_ENA_NIE 0x00010000	/* Normal Summary */
+-#define DMA_INTR_ENA_TIE 0x00000001	/* Transmit Interrupt */
+-#define DMA_INTR_ENA_TUE 0x00000004	/* Transmit Buffer Unavailable */
+-#define DMA_INTR_ENA_RIE 0x00000040	/* Receive Interrupt */
+-#define DMA_INTR_ENA_ERE 0x00004000	/* Early Receive */
+-
+-#define DMA_INTR_NORMAL	(DMA_INTR_ENA_NIE | DMA_INTR_ENA_RIE | \
+-			DMA_INTR_ENA_TIE)
+-
+-/* DMA Abnormal interrupt */
+-#define DMA_INTR_ENA_AIE 0x00008000	/* Abnormal Summary */
+-#define DMA_INTR_ENA_FBE 0x00002000	/* Fatal Bus Error */
+-#define DMA_INTR_ENA_ETE 0x00000400	/* Early Transmit */
+-#define DMA_INTR_ENA_RWE 0x00000200	/* Receive Watchdog */
+-#define DMA_INTR_ENA_RSE 0x00000100	/* Receive Stopped */
+-#define DMA_INTR_ENA_RUE 0x00000080	/* Receive Buffer Unavailable */
+-#define DMA_INTR_ENA_UNE 0x00000020	/* Tx Underflow */
+-#define DMA_INTR_ENA_OVE 0x00000010	/* Receive Overflow */
+-#define DMA_INTR_ENA_TJE 0x00000008	/* Transmit Jabber */
+-#define DMA_INTR_ENA_TSE 0x00000002	/* Transmit Stopped */
+-
+-#define DMA_INTR_ABNORMAL	(DMA_INTR_ENA_AIE | DMA_INTR_ENA_FBE | \
+-				DMA_INTR_ENA_UNE)
+-
+-/* DMA default interrupt mask */
+-#define DMA_INTR_DEFAULT_MASK	(DMA_INTR_NORMAL | DMA_INTR_ABNORMAL)
+-#define DMA_INTR_DEFAULT_RX	(DMA_INTR_ENA_RIE)
+-#define DMA_INTR_DEFAULT_TX	(DMA_INTR_ENA_TIE)
+-
+-/* DMA Status register defines */
+-#define DMA_STATUS_GLPII	0x40000000	/* GMAC LPI interrupt */
+-#define DMA_STATUS_GPI		0x10000000	/* PMT interrupt */
+-#define DMA_STATUS_GMI		0x08000000	/* MMC interrupt */
+-#define DMA_STATUS_GLI		0x04000000	/* GMAC Line interface int */
+-#define DMA_STATUS_EB_MASK	0x00380000	/* Error Bits Mask */
+-#define DMA_STATUS_EB_TX_ABORT	0x00080000	/* Error Bits - TX Abort */
+-#define DMA_STATUS_EB_RX_ABORT	0x00100000	/* Error Bits - RX Abort */
+-#define DMA_STATUS_TS_MASK	GENMASK(22, 20)	/* Transmit Process State */
+-#define DMA_STATUS_RS_MASK	GENMASK(19, 17)	/* Receive Process State */
+-#define DMA_STATUS_NIS	0x00010000	/* Normal Interrupt Summary */
+-#define DMA_STATUS_AIS	0x00008000	/* Abnormal Interrupt Summary */
+-#define DMA_STATUS_ERI	0x00004000	/* Early Receive Interrupt */
+-#define DMA_STATUS_FBI	0x00002000	/* Fatal Bus Error Interrupt */
+-#define DMA_STATUS_ETI	0x00000400	/* Early Transmit Interrupt */
+-#define DMA_STATUS_RWT	0x00000200	/* Receive Watchdog Timeout */
+-#define DMA_STATUS_RPS	0x00000100	/* Receive Process Stopped */
+-#define DMA_STATUS_RU	0x00000080	/* Receive Buffer Unavailable */
+-#define DMA_STATUS_RI	0x00000040	/* Receive Interrupt */
+-#define DMA_STATUS_UNF	0x00000020	/* Transmit Underflow */
+-#define DMA_STATUS_OVF	0x00000010	/* Receive Overflow */
+-#define DMA_STATUS_TJT	0x00000008	/* Transmit Jabber Timeout */
+-#define DMA_STATUS_TU	0x00000004	/* Transmit Buffer Unavailable */
+-#define DMA_STATUS_TPS	0x00000002	/* Transmit Process Stopped */
+-#define DMA_STATUS_TI	0x00000001	/* Transmit Interrupt */
+-#define DMA_CONTROL_FTF		0x00100000	/* Flush transmit FIFO */
+-
+-#define DMA_STATUS_MSK_COMMON		(DMA_STATUS_NIS | \
+-					 DMA_STATUS_AIS | \
+-					 DMA_STATUS_FBI)
+-
+-#define DMA_STATUS_MSK_RX		(DMA_STATUS_ERI | \
+-					 DMA_STATUS_RWT | \
+-					 DMA_STATUS_RPS | \
+-					 DMA_STATUS_RU | \
+-					 DMA_STATUS_RI | \
+-					 DMA_STATUS_OVF | \
+-					 DMA_STATUS_MSK_COMMON)
+-
+-#define DMA_STATUS_MSK_TX		(DMA_STATUS_ETI | \
+-					 DMA_STATUS_UNF | \
+-					 DMA_STATUS_TJT | \
+-					 DMA_STATUS_TU | \
+-					 DMA_STATUS_TPS | \
+-					 DMA_STATUS_TI | \
+-					 DMA_STATUS_MSK_COMMON)
+-
+ #define NUM_DWMAC100_DMA_REGS	9
+ #define NUM_DWMAC1000_DMA_REGS	23
+ #define NUM_DWMAC4_DMA_REGS	27
+-- 
+2.47.3
+
 
