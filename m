@@ -4,200 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E8EFCF6AB6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64036CF6AB6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UhmuWdDldKpEkZuj+IIlPPNYhgUUy6WffEQ6u3PXw0o=; b=ureDcbYW6LGejqqHuFqoCvOy2J
-	iANZ5kcEMU9U6dDbo5080O2y6x8cjNi5dAwQr1kh941s4hr5AzX+HdLliH5kPznHjF0uqG5cUV33N
-	ObFuJO9WS/piScxlAD6zaNU9V0kUq1/mJqJSWEveXWK5nHuEDL0v8a5gwExIFTHJf7LoKWKZX2M9P
-	IsfSHo2ZlHzrJoH1Ww+ZhJr5RZ5nSyCvXWZX2b/fdPQY/L5Bwm6tQpo0BVnHvLYQCAqlPVSPdjV+C
-	IC26AqkmagGmozOBQ2183Iwt9x/wMFlSmkEREU+ov/nOluusSLRWkkreHlOP4fwAx5jNf+7uEuWrq
-	e+z1nRew==;
+	bh=6dBgrmGWUWx4qFlKmh7TnmhDDpdTuerF+f68dKTXZiE=; b=IErBAwaosz+GJNhP6sDlUhPpWV
+	fJEWIsG1nkZrCMUofavLMs9B0MAlN74f8lRjZmv1CCPCq1L/UMCK1+0VWsk0PgoA1YztNg1Cdtz1A
+	rDK5YjhHXgAhK2Md7yPVPYnMNXECe9ZE3U0IaX8LTZmIwGT0C0wWL+CN6XN/Z9vbhdryXjF8okMs/
+	/V9s4pDZoZsbbcmMLGoodBh7xvVOyoX71Ws0qwyk6AbHtS/b1mPmjQlXfncv/EWKYNlyNE2bfMtjS
+	GXCj4J8Z7m1M1XR6979OzftRyhDWPWdNKFPZs6tlEHS/vrKX4LysX3bU4OiAsImoBM2fS59c4RmUg
+	2a+A1IQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdmuh-0000000GYzy-3HGP;
-	Thu, 08 Jan 2026 10:06:43 +0000
-Received: from mail-japaneastazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c405::2] helo=TYVP286CU001.outbound.protection.outlook.com)
+	id 1vdmxK-0000000GZUx-18zO;
+	Thu, 08 Jan 2026 10:09:26 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdmuf-0000000GYyh-1vyv
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 10:06:43 +0000
+	id 1vdmxH-0000000GZTs-1L8b;
+	Thu, 08 Jan 2026 10:09:24 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SrDM6k7QfeS8fQkLN0MUvhP/EuiQuyNxd8Tu/rhYAULnYpLxGOZiv/oTa2naPj0OVAJgrhhum6lQnp7pqdYTCHM2B5bhqZZFhUCelWxIKA5qM6/iVXQ7nb7wrZn2x0YUUi+qqQQg5XxbTRlFqVmzEUnQCyd7xyIlYO0NrsG5WvLjCv8MvowYUOXWFIY7Q4Nb3JkPPzlTrICFSdv/xQ7x+pkVd7bUfyz0tk9IPpea0fSeaYJgg04QD9fBzxPDWdcf13aUdpMr/CbGE8NWNXDJApC3vg3GVtSGQWL3v1vQR5m7e+zC/wct4dKFtDnGZakgwjbH9Z+9nv8wtskIbrvAjA==
+ b=ixMX8TmopGmjjP5B2rwfDBd+L4wKqhFN/JDRj7SBDYxgb6USvp19iTyG/S3cIVyz2MW0/SA0vBJpV75TT2dy092K0TFyz8zNEruaV2nfmL4saIBulZ3B3tWyqmms+hZFqzMfFjM4joGXuWnW2UoFMaC+9PTlwWmt82DHmTtqv1sapizA55NhJO5KkGGUnXAHjVy/nFASmRBzcfDA8PiT4/QYxaaHKG71ij1/0Z3cDiBP5PS/3H5YHkDGk2SJnRK4aoFxwQU3a7Li1Q8FiWiQe2Vwhsyvn646/xt2xw8qVZ11k5JaVkmgpNO/fnvWA30Vfi9rD5rM95T+V/Rsxo/r8w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UhmuWdDldKpEkZuj+IIlPPNYhgUUy6WffEQ6u3PXw0o=;
- b=a5In+TX+KakDj2WEK9YsjlLTK5P4pr2eKJ8RjEtyXpYqX0A0As5vCWjtSnKVSm7cxKlx3CKhxm33ccbc/S0ZmIj5lnKS8omcq69vxUUD0j/pzZ5uUvhwU3wBc41mN89wxMsBuX5ihxEfIHNCnvYivqLu5dkMlJh98oDKfpddazGhDWxTnQ+Ay/eoU0KYZXmK9th8Op7bx3IVWa2DcZdmpVjfuxF/plYA+u8Z7wlaSDk1Na5RcoR/AA5HnwClsr/oO4at4RbF5SwXa+Mjdbvt5XB1b2WRqznXu8XtyN1E8GApN/rOcX5s8JfyEQqF7SXiBbiNsRjlV23jDWQbT6/r2g==
+ bh=6dBgrmGWUWx4qFlKmh7TnmhDDpdTuerF+f68dKTXZiE=;
+ b=dSjbrDOa07AcDcmSnXQJKAinnxhBQsmALR6v5OMER2uHdicGk38R9CuPHKtQVCO7m6ELb1vHNAhZNTUd3FFKlmkURRCWYCxNw4XBgsp7Mocgxj/pJbTdVtL+/yjIs3vATEiYOa1gumkdp1XMiVrdYIwok7IiGIYgsOl3N6/D4lomr3dN39pcusFDclpmxQMPURyxNhWuS8p/BHMjvM20j27RtYYGZQMzQDuddxKbVEKXm6eanYZE4L0nqigjXhK/xyoBlw00sP6FSSCNHT5RFXZGJKX0MH2Bm+X6xM97DKC+UltWKVdEP1CmbyiNgLIj6fBu5HzdCJ1jQ95zRSfaAQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
- dkim=pass header.d=fujitsu.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UhmuWdDldKpEkZuj+IIlPPNYhgUUy6WffEQ6u3PXw0o=;
- b=LL9TOOrnLz4R0GC0xyj9FqL8dQ4Uky+ycHLUWYSBA58dPgwgy3jN38hPmXRBDksKDwlqa5QJN1122TlbTdWacgaJku2aAEkokagtMv9brwNhKCYPmYJGbO11+eKMsNx58jA108BuIkYeUvYDRFVlks10mBllfpEgj2k2wUe4ffRmTnksQbbsdOjZdOVKZFfTOM+Rmb41EKiebdHAMQFQ3WxsM4ZeURRrENSZ1+gsCpzm96Rd7ybC5gAivs96ShnfNq45r9Qe0PL2LwjviHwKEZWJ/2HXsblcVGAfO98vMWMapjkhIyWfiHN82TE5zIaTHxpIuDq6CHIFNIQCj17GXA==
-Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com (2603:1096:604:15f::6)
- by OSCPR01MB13198.jpnprd01.prod.outlook.com (2603:1096:604:350::6) with
+ bh=6dBgrmGWUWx4qFlKmh7TnmhDDpdTuerF+f68dKTXZiE=;
+ b=llYZHLQ2r3vMLof12x7itxz9rPnKIYnU0Y6MeFQ40rYeSei5We92y9SmJjP8CuBnhFUZpUIBVY34YyhO5tVsFs7s8Y7hI2IIU+uKkNSIj1KfqXsKv347l/8mdAP9LmfbnxqJ/izl9Wf8xKEQA5DV6WHJ0IscwHoiJ67pxO2nkTk=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from GVXPR04MB12038.eurprd04.prod.outlook.com (2603:10a6:150:2be::5)
+ by GVXPR04MB10233.eurprd04.prod.outlook.com (2603:10a6:150:1c2::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.1; Thu, 8 Jan
- 2026 10:06:33 +0000
-Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com
- ([fe80::e366:d390:4474:8cfa]) by OSZPR01MB8798.jpnprd01.prod.outlook.com
- ([fe80::e366:d390:4474:8cfa%6]) with mapi id 15.20.9520.001; Thu, 8 Jan 2026
- 10:06:33 +0000
-From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: "amitsinght@marvell.com" <amitsinght@marvell.com>,
-	"baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
-	"baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
-	"carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
-	"dave.martin@arm.com" <dave.martin@arm.com>, "david@kernel.org"
-	<david@kernel.org>, "dfustini@baylibre.com" <dfustini@baylibre.com>,
-	"fenghuay@nvidia.com" <fenghuay@nvidia.com>, "gshan@redhat.com"
-	<gshan@redhat.com>, "james.morse@arm.com" <james.morse@arm.com>,
-	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
-	"kobak@nvidia.com" <kobak@nvidia.com>, "lcherian@marvell.com"
-	<lcherian@marvell.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "peternewman@google.com"
-	<peternewman@google.com>, "punit.agrawal@oss.qualcomm.com"
-	<punit.agrawal@oss.qualcomm.com>, "quic_jiles@quicinc.com"
-	<quic_jiles@quicinc.com>, "reinette.chatre@intel.com"
-	<reinette.chatre@intel.com>, "rohit.mathew@arm.com" <rohit.mathew@arm.com>,
-	"scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
-	"sdonthineni@nvidia.com" <sdonthineni@nvidia.com>, "xhao@linux.alibaba.com"
-	<xhao@linux.alibaba.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"corbet@lwn.net" <corbet@lwn.net>, "maz@kernel.org" <maz@kernel.org>,
-	"oupton@kernel.org" <oupton@kernel.org>, "joey.gouly@arm.com"
-	<joey.gouly@arm.com>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>
-Subject: Re: [PATCH v2 07/45] arm64: mpam: Context switch the MPAM registers
-Thread-Topic: [PATCH v2 07/45] arm64: mpam: Context switch the MPAM registers
-Thread-Index: AQHccRMRYC92ZSxNGkuKLdWYe8Oqx7VIKps5
-Date: Thu, 8 Jan 2026 10:06:33 +0000
-Message-ID: <OSZPR01MB87987088A6A033D03458AD188B85A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
-References: <20251219181147.3404071-1-ben.horgan@arm.com>
- <20251219181147.3404071-8-ben.horgan@arm.com>
-In-Reply-To: <20251219181147.3404071-8-ben.horgan@arm.com>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=True;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2026-01-08T10:06:33.298Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=1;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fujitsu.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OSZPR01MB8798:EE_|OSCPR01MB13198:EE_
-x-ms-office365-filtering-correlation-id: 092ad6a0-d20b-403e-7d7b-08de4e9d9a2a
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700021|1580799027;
-x-microsoft-antispam-message-info: =?iso-2022-jp?B?dFFxTzhHUUFUSm9BSm5yM241QTJNUWlSMnhVUkV4Y3dDQlJwNnNjd3Q5?=
- =?iso-2022-jp?B?UmJ5d2VLd21TR2JqZElXYjlwdkpHcTNtZVVIR250T1JXb255YXV4SGZ3?=
- =?iso-2022-jp?B?eDFWcy9UeG9UQU9DamFtSFFTRSs1QXFqc0VwSVZLKytNRi9CaXhpTDFw?=
- =?iso-2022-jp?B?UGswQVRmRG9DRlJyUXlRbVdkYjJ6RkJtelIrekhDR0prc0h4V242RFUv?=
- =?iso-2022-jp?B?bC9qUHA1a2VoQ3V1cWtSTUtpVVNGSGlGeUgzTGZRL3RYdFlXYS9hbWZp?=
- =?iso-2022-jp?B?VU5SdkRJQ3JsT0dVY25VdjYvdEgvSzNSeHJOMjdJbC9uVjg4akQ3N3lz?=
- =?iso-2022-jp?B?NVl5blpSZDdhakxocnMwMXdKWVhhQzhrWnBQN2M2bmVLMW1USTRBU1R2?=
- =?iso-2022-jp?B?QnpJdHRIanBmUlo2d2xhbW9FTjVIU3QyWUExNU9BbVNOek1RVHg4a256?=
- =?iso-2022-jp?B?K1luTFlpVGFBcjZyZ3hIcUhZSmJOZ0JCeVJvVEhxSUtGL0M4M1hFc2Fi?=
- =?iso-2022-jp?B?cVd6K0NSM3NXVG9jdnV2S0kvUTZhUEwvUTJYOEFIQU9Zelh5MXBoL01u?=
- =?iso-2022-jp?B?SndyMFlwUXl6TTZVUUF1THR6LzI3MWNJRElCb0V4OGtuZmo3U1E4a1hv?=
- =?iso-2022-jp?B?YkJPc1VwOHdEaEwzTjNXcC9Rb1lKdk1HMnJza0VGRHg1K1hSYTVXNWtw?=
- =?iso-2022-jp?B?bkpYa3NSb1dlOWdxWEoyUXIxZGJYdlI5KzdpWnlSRmlGaE4wZXk1WEtv?=
- =?iso-2022-jp?B?WHlGNWo2Q2tDUTFlc3doSGFFWjBrU1ZmTkZIcG1Dd1NGbnV1ZDE0dENZ?=
- =?iso-2022-jp?B?MC9hTDNLQW9zT0pZUXk3c2RUUHB2NlAzM3dvQnlDbWNDVzJKV21TRER1?=
- =?iso-2022-jp?B?emc5MXJnblo4dktDam5Ja2taWm1RNjNmTTVQdThMV00yWCs0TWF1Uk04?=
- =?iso-2022-jp?B?M2g4NWN4dklmaldhZllVTkN1RGt0bDJZb0h1bGpCeUZnb1RnV2sydm1x?=
- =?iso-2022-jp?B?cWVBUEZqZll0aDMzQkdLS1RJMTN6dDRybitkNzZFcUVkQzYzWVdrUncx?=
- =?iso-2022-jp?B?YlJBZ1RxdVJsc2svUWNOUndBWHlLSmVvWkNsN1R1QU5INEkrMzlVRXRt?=
- =?iso-2022-jp?B?SWJPUmhXZGFKREpPRll2U0xnTXZ5ckhFMWhrbDB5eEZ6Zzl4VzE3OW9N?=
- =?iso-2022-jp?B?K1c2a2Vxckp1cWN2V1VuM0NXb2ljNkJQOVhma3ptYXhmSU5WZVpNbTVz?=
- =?iso-2022-jp?B?L1J5VGVYc2NrSTdqTE05OWlLQlp0R3RuOHJmbW1yTVhhME9RcWxXZE0v?=
- =?iso-2022-jp?B?QU4zNUY4QWJJaHA4Qys2ZFNGeEQ3OXl2SDkwQnpCNGJrbDREOWNJU0tQ?=
- =?iso-2022-jp?B?UnNudzU5NTlTaHY2V2Y2cnQ3ZlRjUnFBb3VURzY4c2JIUXF5RlF0a3ox?=
- =?iso-2022-jp?B?RFBkbWtBU1B3Si9HNVRLQnB0TlFLTkd5TzF4NXVKd2NSeDgrYUx2dkhm?=
- =?iso-2022-jp?B?cUYxaC9tSFNVMVZDYzVGZlRiQ0tVVUkxckV0VHlIUURLcFNZSTg2SThG?=
- =?iso-2022-jp?B?RDJNeVlOUnNvZnJ4MUpQVnY5Y1RkdHVYUmcvVlVHZnNSMExnWnNiOTB4?=
- =?iso-2022-jp?B?U3NBQi81RmFNT09OZG9kdjlZZGZkNlloM2w3L0gyWjBWcUFSajRyN1Nq?=
- =?iso-2022-jp?B?SlFIbjdZNEhYa1JrTDNmV1FVWUV1RmdWck1qVk9seW5Ta213UmF2THR6?=
- =?iso-2022-jp?B?QWIyNUxkVzBPWGhsQ2Nld3lucXAzM2NFY3ozbVZxb0k3OVZpT3VGTDVC?=
- =?iso-2022-jp?B?cEVsSE1PQXczZDZHQk9jVmUvQnh6TGliYzMwcEo0WlY1cDd3RW10L3M4?=
- =?iso-2022-jp?B?ZU1NTExIVkRMdEUxckxoWEIwNFRXRGlNUDNjL2hIaW5iK3NvdDQ1eUo2?=
- =?iso-2022-jp?B?T0dQVjB5VUpDRUdrcURQZVlqcHdZaWxWd1ZsMWl3bkcwR2QveWtVc0ZX?=
- =?iso-2022-jp?B?aUt4L2lXeDV2SWdFamJ1SDNGV2hxRUNWaHZEQ3NnUHdVQ2RjSkxRdGZI?=
- =?iso-2022-jp?B?VmJONGZHK0xVdElpaUN4ZmFuRGJreE1LcWxKb1dFQTV3Q09yemc5L01v?=
- =?iso-2022-jp?B?RjVMSXRyL2ZmUzdySFdDUjhET00yMDFtaDBhMzJLdmVhRFlDeEdNOVR4?=
- =?iso-2022-jp?B?dGlTTCtFLzRyNXdlYmUweWtnNU93TXNOVW9Vd3V6dFM5Qi82WGx5Wjg2?=
- =?iso-2022-jp?B?QyswUT09?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSZPR01MB8798.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700021)(1580799027);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?WSt2UnIwSGR2bmsvN0VpY3I2K3F3TnZORjlLR05RR3hodENoOC9RNzE1?=
- =?iso-2022-jp?B?UTEyRk5PSkp2SURLbHBkdU05aE0xU0U5S3EzaXBZandVdkNqUkF3cmFp?=
- =?iso-2022-jp?B?TnovWnhVZ0JhYlRseEo5WFRXWFpDc3U5VktEb1A2NWlnVzZPdGlEQXd3?=
- =?iso-2022-jp?B?OGtyM0ZJcERrZlMvMVBFbHRSMm43UEQvWExYTVRHdE9DV203R2dLZDl0?=
- =?iso-2022-jp?B?T3d2VkVjMkpEK1JQa3N1dEJITW5OLzBNNTFudXkxVmRwWjRvV2N5Q2Vq?=
- =?iso-2022-jp?B?TmRSNXpha21XK3c2bUUyWTk3VHlIWVBQNzQwMjFCWXA3aWJnWHkxaEFi?=
- =?iso-2022-jp?B?L240UlNJdmg0V0NlRVFYb2gzRXBiRlBhQktid1JVTGVMVEtrVE51UXhu?=
- =?iso-2022-jp?B?VjRHQ1cvTWxWaXE4dVBQeE8yMXFLdGM0dHRpY2JzaUl4TWZ3WllJVHRu?=
- =?iso-2022-jp?B?eTBDQ0JTbFVxMXBjQmNKQnhtSjFsQ1FCZnFKd0ErOWJTVHlGd20rUEJP?=
- =?iso-2022-jp?B?bDdYdmVGNmFWdDIzWDJWUGoxVE9XTUM4bUY5MFlWTW81Z2MzbStWbTBo?=
- =?iso-2022-jp?B?UzVHa1Y1NEs4NmpZT3pWMjhXQTJhZ3gwYlIyUGg5elJXWlpjcXl0WVdp?=
- =?iso-2022-jp?B?SXBrWU45Sy81T29xZjJaaDRHaklISEVmNFE5M0R4ZXNmOVVsbzdwSURn?=
- =?iso-2022-jp?B?bS9kTWxHY0E2cE1MV0FrcjNZK0s1TmliNU9OMEJNUEliWjd3N2tRdTZv?=
- =?iso-2022-jp?B?QllLaU1PQ1dLMHFkYkZ5T1NvMTZid1Z6dUlOKy9vMVpHelEzRTFLSmp2?=
- =?iso-2022-jp?B?bUJxdzVGYWttTWZoNXp2b1RRU1g2RG16cWxrQi9wbE5BUmI4VEpIZHVL?=
- =?iso-2022-jp?B?ZDNxQ3czb1J5WENvdHFlYklIeVVxWDF2NmhkVjZDUnJlL3lTdFRaNkJh?=
- =?iso-2022-jp?B?bFRpQ2dIcFBWSlV5MkhOY3loV0o3ZzBhNGlmNWloRVFiUjZHTlhiOGFM?=
- =?iso-2022-jp?B?OGZCQzlNTFJjN1kwdGNQYno2U3NoWFpBQzNXd1FHc3RNaXF3dFZSaURN?=
- =?iso-2022-jp?B?MmJjaVBKZzlld2grZzhESzlIdS9HZkVlZ011UDdiVVV0UlVTbDhyOWR5?=
- =?iso-2022-jp?B?enAvSUREUytnS3ViME5lbjZudXhOSDRIWUNwakZycGM0dVowWnliZXpi?=
- =?iso-2022-jp?B?V2YvSHpiL0UvMkZMN2xUMm1xTWpBY2dGVzYyZ2JBTVJ4NkkzTkJPQ1RC?=
- =?iso-2022-jp?B?d0JSOEdpb0dIV0x0K2Z5N0RJUEZzL1lTdEI3eWo4NGlBSWpqWnNQRnBT?=
- =?iso-2022-jp?B?QnVCWk1tb25iUkJ2elNST3FOLzFMbjdFMUt2UEs1OWVZQ0RBeDNwd1Jt?=
- =?iso-2022-jp?B?WnR2dHlVR2xLQUtJM1NqR01WUlFQZ0E5OVJXYTMxcktRVFM0aU9icG9n?=
- =?iso-2022-jp?B?aFdGZ2RDcllBcDdFZ3BzREJVZUV5VXR3YUJ3aHVHN0lTRzBadlJ4R09r?=
- =?iso-2022-jp?B?d3k4YmZ0WmZYajhqU25mbHJwZWVpU0IvN200cGZKK0xWMnpJU1E2VVZQ?=
- =?iso-2022-jp?B?ZUFSUGc0c0FFZEg3OFh5Tk1YRy8yWVZIWGpIMzd2Q3ZCT1ZYd242VXFv?=
- =?iso-2022-jp?B?dDNHRmZ5bTArNGUzbUswVEtVb256Q0wrMDFrdTZBaGEwR01WM1hKRzBl?=
- =?iso-2022-jp?B?ZC9WNXp2YnYwL0ZBMlhCYkc5VkRPaDlPRXBSKzE0aGFCVmpoMGRNYWNL?=
- =?iso-2022-jp?B?NUE4RUQ5ckZkV2dhL2tnMmN2RHZzQ2UrRFQwOXRVYW9VMHRtMEhsZTda?=
- =?iso-2022-jp?B?L2toallpL25MZjl6N3oxNTBLWlh5eEpDbE8vakxwcjV6N1hKb3FjSzEz?=
- =?iso-2022-jp?B?VHlJUDVXUnRsQUk0cjdoWU5TcC96MFZjKzVKWVJ4V2VUb3pVaXZYMjU0?=
- =?iso-2022-jp?B?ZHgrQ1U4cDgvT2xyUmVyTkhVUEpISEtmZC83b0tPZi9Bbi9vTTNZVzZM?=
- =?iso-2022-jp?B?TTF1UDdQZ0tTSGM0eW1WNDdpNldaZkFHZ002U2VYdGVxUmNIbmJobE9p?=
- =?iso-2022-jp?B?cHhoc2RvK0VoenZyNi9CVlBLMlJZc0Y2RW9KWDMxK3FFSHZXQ2Q2Nk9U?=
- =?iso-2022-jp?B?L1Ixa0Npcm1iaGMwaEtEamJlSEZMMWlRaXhKaGxTcVo2eHRlZGVtT3h3?=
- =?iso-2022-jp?B?bDRIT0VOOXQxNERFdzRMZXd4MGNibDZHNW96WXBWMzBxYkExcGlDQ21v?=
- =?iso-2022-jp?B?allQWURBdGt2Y3Z3aWYrYkxQTXRkUnUxRE1Bb3VVR1JjS3QyK04xQWxW?=
- =?iso-2022-jp?B?YWRWQSs2STRDZzFUUGZ3SFJCanJQckZuOWE3Y1hQMDkxS2U5WE9ZZlZB?=
- =?iso-2022-jp?B?TXRaa0picjJ3cnZnNTJ2azlZTXNoYTdvZDJiWUZDbldWVld6Y0tlYVZz?=
- =?iso-2022-jp?B?bWZ4YzgzbVg3WGtVaUFyR3FDU0RTTkdRM3FzQ3YyNjRvVnpNTXlwUkx5?=
- =?iso-2022-jp?B?TjdRZ2VhUzRVcEFVMGJ1V0srV0s3ekxPUjFRdz09?=
-Content-Type: text/plain; charset="iso-2022-jp"
-Content-Transfer-Encoding: quoted-printable
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.5; Thu, 8 Jan
+ 2026 10:09:17 +0000
+Received: from GVXPR04MB12038.eurprd04.prod.outlook.com
+ ([fe80::1033:5a9a:dc18:dad]) by GVXPR04MB12038.eurprd04.prod.outlook.com
+ ([fe80::1033:5a9a:dc18:dad%4]) with mapi id 15.20.9499.003; Thu, 8 Jan 2026
+ 10:09:17 +0000
+Message-ID: <0d99140e-8f57-4a7a-a492-92efa30292d8@cherry.de>
+Date: Thu, 8 Jan 2026 11:07:45 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add rk3576 evb2 board
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>, Jonas Karlman <jonas@kwiboo.se>,
+ John Clark <inindev@gmail.com>, FUKAUMI Naoki <naoki@radxa.com>,
+ Jimmy Hon <honyuenkwun@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
+ Michael Riesch <michael.riesch@collabora.com>,
+ Peter Robinson <pbrobinson@gmail.com>, Alexey Charkov <alchark@gmail.com>,
+ Shawn Lin <shawn.lin@rock-chips.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Andy Yan <andy.yan@rock-chips.com>, Chaoyi Chen <kernel@airkyi.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260107070322.323-1-kernel@airkyi.com>
+ <20260107070322.323-3-kernel@airkyi.com>
+ <afe968a0-f14b-423d-81a7-c1046d2b32bb@cherry.de>
+ <1b08bc47-70be-48fb-a05e-1101e633a776@rock-chips.com>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <1b08bc47-70be-48fb-a05e-1101e633a776@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0002.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:c8::18) To GVXPR04MB12038.eurprd04.prod.outlook.com
+ (2603:10a6:150:2be::5)
 MIME-Version: 1.0
-X-OriginatorOrg: fujitsu.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12038:EE_|GVXPR04MB10233:EE_
+X-MS-Office365-Filtering-Correlation-Id: b3af0a14-de75-458c-6d37-08de4e9dfb73
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NE1HZGs5b3l3Q0RxMWRWK3dJUzRBYnR0N081TmNTdXRMVXRFRk1iQ1FWaE8y?=
+ =?utf-8?B?K1hGeFUwdkk3aThFSmVwOWRoZ251dTlodEt5QmNPNTVrblpzUjRzS2hQMkpS?=
+ =?utf-8?B?U1dXdnV6TlJsY1l4OW1NSldaOWJFeUQ1UjMwWkhBZlZtU0JtSUIxLzhJS2Vp?=
+ =?utf-8?B?U1BWM0RqZG0xZTcwaTdHV0dhWVRWVlExUE5iZGNNRmJVYmFMM2NoSktPRnkz?=
+ =?utf-8?B?ZHhid2VVUmlvbENUL2tOazZldE16dW95TkptRUtmaGVRMXgzdWZYVlcwQlNF?=
+ =?utf-8?B?bmI3QUk1ZnMyL3U2ajhKNXpXaTl0V25nNUVWM1prTFhtODF2cUxDWktWMVlN?=
+ =?utf-8?B?NTdEdXI4OGNtMVJsM3hVOGJqMSsrWE50dlRLV3M2c1d4Q3ZWOEsrT21SeWds?=
+ =?utf-8?B?cFpnV2R6UXpheFI0NytPenZDZm14MlpXbnVFckcrdzhUMUpVS2sxbWswQ1lI?=
+ =?utf-8?B?QTk4SjY3RVNtQmhPa0NqRW5zcGdCT05aaExwTlgwSzVvUzg5MnZOeHF6aGxr?=
+ =?utf-8?B?Nzc4dEw1MHIyVDgvWUUveTN1d2l0SWE0V2k3RFh3ZHlBVVhVL0psdzJRZzJx?=
+ =?utf-8?B?TU0za3N4a1pxY0VoNW1VMFJ2dnY4em91dnIrQUJabTRHSjVSbVNTNDJXd216?=
+ =?utf-8?B?Q053bnRuT3pFTGEyVkZoVEwwNmowRklQV3N4SkI2VGd5ZzFLSkljdXU1Si9Q?=
+ =?utf-8?B?WFhkYWgvVGFFT0JVY3BJcXk1UmVzUnZUVy91MzBCZHBpQlVLSm5LaUhnSVhz?=
+ =?utf-8?B?UkhycHhocHJiekY1V0FWTHBXQnFqbjg3RXhpRFNNMXZ5dkx2SE94UFZ0WHhm?=
+ =?utf-8?B?Z2JIdDZQMlZmcnFQOU14WGFpOUdFaFgwRGpWdkRMRnlBOWI1RE9HZmVRQSth?=
+ =?utf-8?B?eGtsZVhjYnhkY2JmeXl3eTc2VVZQbnFDQjdYQ1pkYkRFcG1rblhEVWhodVdT?=
+ =?utf-8?B?RzVLUWVOYk00KzNMN095amt3elJkTjl5OUpqeGRCUUhxd01tbjVLeXQ0b0ts?=
+ =?utf-8?B?MDhuZzFGclhzV3ovdzc2M0E4c2Urb2tQb3B0RFIwZGxVeTNhU2p3UmFtZktP?=
+ =?utf-8?B?OVYwcS83TXM0elBPMExiTlRzeHdMVGN3aXNMemhoR1J6LzVxZ2R4eXEwT0or?=
+ =?utf-8?B?VU9LWjh1UVN5Znl6dWl5bEVGc0p6WEdWSStpd0lMRXp3VTE3RzVXdVBIOU4z?=
+ =?utf-8?B?Y2JxaVFCa0RHMkp4aVNMNGhzNzRybU9ORjc3VFY4VkFQSHJ3enc0YW1iMldR?=
+ =?utf-8?B?NEgwYktxQnlPUXkxdmRSTWlmdjd5UmQ0WFNVS3MwUjRZWmtRaCtVZGZYTWpI?=
+ =?utf-8?B?Wlp2bWozNyt2NTdOMmh0WG5uVWRlU3ZpWXNUNzNsYnhVN0c4VGNyTjZmUzQ0?=
+ =?utf-8?B?d3cyUVFhL2dPUVdwNkpDdlZjcS9oZis2ZFFhbm5hSjE3MUk2RmVSa0oxVDUy?=
+ =?utf-8?B?aHM2TWt5Zkw4Q01tckY0NXNxeWpXNnBua3h2YS91R3VkYjBYWUNtWmVILy9w?=
+ =?utf-8?B?TTRTajJ5TnpNdXBWdlA5NWVpbXNWTU9GUXJ3WUo5WGE3dTNGNUZhNktrWHQx?=
+ =?utf-8?B?WmljdmFxaVhVUkxtY3Jjb2VoK2ZBOCtlYjlQdHlMTEpPUDBsN2Uxalk0TUxR?=
+ =?utf-8?B?dG8zcHZYS2JCVmh2RXNjM3JUZWc4b2Q3YlVSZXVZRjViREs1Y0tOY2cyR0hC?=
+ =?utf-8?B?UXVkeSswQjhzN3U5YnZSWDFML3VLd2MwUmo1OWVSaTBvdFlpS2VxYkZxM0dt?=
+ =?utf-8?B?VjJUUE1KeHBLeGVSVytxeU1ZNDJLYUlsaW1Td0w4ZjhGa1lTSEJOUHI2dWIr?=
+ =?utf-8?B?dUZEcXNrY004WHZ4Sk5XREtVOEtmT2gyM3pUelJRMjFvV0llZ1ROcW1ITmEv?=
+ =?utf-8?B?Z212b3phSkhqRXVMdytkeWdQc3BWSGR1U3RvdVpCL1YxSm5QWnVWemZwSVZa?=
+ =?utf-8?B?alpkY2pXc1Y0SnBMYTJrWkhUMG9ZZ2pjMEdqUllDNkxFM1JxcUlydmRJWFN1?=
+ =?utf-8?Q?w9LXweQ7KBj/4vk4V+zJDR8lVTRQrs=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12038.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Mk9hM1lXOTg1UFZKMXlpakovOUM1ZjdTQlJBbHFrUUZLNEY5MVlWTUd0NVpT?=
+ =?utf-8?B?dUoyNW8wb05xdk9zTGg3aGdPbGVwNDhaMjZLU0dpS2Q3bDU3RnUzRFd5WUFq?=
+ =?utf-8?B?TCtSTi8ySWU1STI5S2xPeitSS2tua3RCYTJFN0pFZ20zQjUzM1ZXSmQraVha?=
+ =?utf-8?B?YUxEbGtFb1ZuclhMazRTZW1xSDNPVFI4U0Z2Z3FRNHowNDh6WlRXaUZDRHlk?=
+ =?utf-8?B?Zm1SUkNlcHBuNHBUSzZkenRrcVFKc2YxQTRSMWF4WmJCdm5qQXpva0UzRk9O?=
+ =?utf-8?B?dWVaQXdFYit4Q0ZlNlduaCs3T1hDa0xJTmZYQU5LOFVWTTdxSVc3UThFT2Qv?=
+ =?utf-8?B?dkhxWFMrQllIQ2Z3a0FHTHd1RFFiOTN6ZDFqNmpSUVYyS2QwaThkVHZ5cmll?=
+ =?utf-8?B?YytoUkx5ZENvSktHSXFETVFIY1RLTjd6ZSt3MHJ6T0pXd3RKbTlEd1JsaW5P?=
+ =?utf-8?B?Y2lWb0tkSldGa205RGhnaE8ycXNxWUxiK211ZHdwYkc3eGNXUWlKeEU3N29j?=
+ =?utf-8?B?R29oTGt4WVJxZ0QwdkhjVWUzWi9YNE93UCtYY1FnVHVHKzErN3FzVmdjQlBU?=
+ =?utf-8?B?dUhOZk5PVjNpdTZlRmMvR3pLUXpSUWI0VUdRZTFjYVRwR0lSKzd1VnI5ckMv?=
+ =?utf-8?B?blJ5Y3NtbkU2aHRJaVc5c1dqdyt0bmtCNW5rVjUyTlkwTXkya0s3U2dCak1J?=
+ =?utf-8?B?N1pQZWRuOWFqREJXN3NsRCtUWlZkQWc3OWVsQ2QxaTJFZnpxcHhrY2tqREFw?=
+ =?utf-8?B?dXVvQVhUWE9jckNCcnpqcXA3ZUdpNzZRTnB5Zkh1NWxzZFJ5S05FcXJ5M0RG?=
+ =?utf-8?B?aFFtVTRGdXN2eEJ5ekVma29IMTNHc3dFMWowMURLdUZOaGViRjkvR3RUNk5K?=
+ =?utf-8?B?N0pDWGppQ0IrZCs1TW1URzdqbHM1czcxd3BEUWRaOHZVbFJDSkV4UWFjU2FD?=
+ =?utf-8?B?Yjg5dCtJMnRzS04rdjN2ekhNQUtGTUpZZXBpc3lEUWlVdE9JTmlUdXJQeXUr?=
+ =?utf-8?B?bDdtUGVVSnJaTlZPQnU5WGVNYWtBY1EzL0V5Ny8xSG1vNzBaYUdtVTFLWTdr?=
+ =?utf-8?B?OS9OQi9aNGNJOWtjOHpRVTJQOWdBamRpeGV5OFpCTnRVMzhNVUo2aWJHb3U1?=
+ =?utf-8?B?Ni8xd1g0ZFJNcnZicnIycE1uV3pYN04vWUNQV3ZaZ0hrcFVnTGkveENiKzJs?=
+ =?utf-8?B?UjRNNCsyUHkxaGVFUEhOazFNNEw1TTArVlVISU1qbzRjejJ1QmUvMitvQTQ0?=
+ =?utf-8?B?ZlI4MlluUkp0VEwzeHNWbmRmWUcxQ2N2bk56RlFqTGxna09PZkFxdVA5Y3R1?=
+ =?utf-8?B?bEk0cUdOb3lZSnc4THMrY2R0Um0zNThjVXIzVmtTT2l6YWFjbzd4N09MRUF2?=
+ =?utf-8?B?ZUFJMWZLSEtSWHhNTkNDYWp0MDc0bHVZL0pDcmVXd051RXNhNVloQUJ5YnZt?=
+ =?utf-8?B?UmxQWTN2RlZMUE4yZit4TUluRSs1UUIxYVBaZE9RTXJTUDV4TGV1ZTVIRDNI?=
+ =?utf-8?B?M2FFcGo1eUt1TGpkOWVxTEEyTkV3TzQ2TG14RnEvZS9rU2tSSkVYR2IzRGVN?=
+ =?utf-8?B?ZSt3SUFKMGNhS0tydjBPYWFmZUkyNHhOL0dtZnBzWlVRTDI3a0ZUQ29HQkh3?=
+ =?utf-8?B?UGJVVGtwbi9yaFVZU1BCV2dLV1FJR2Q0dUVSaEFPQzl5RXJTTG9YL3NlMWZm?=
+ =?utf-8?B?Y2IxeXE3eEdocWJOSUUyYnRpRUVSNXZKeTU2QjUxNjV3RU5uS1VFNTE5OHQw?=
+ =?utf-8?B?R0ZuMzBGRGpJR0g2NzBRNzhhS0R1SVdIWm9nK3V5VjhUMzE4MDJoQzRGNmow?=
+ =?utf-8?B?QWp2d2xhekN3THJNZndGcHFqK2xBYzIrWG0zL3U0TmJ5TjU4Qm5QVXpJeUM5?=
+ =?utf-8?B?UWdCUGtMU1NXZFFCdmJEY0VBblJDQlFGdHczeFdRYmprWWFPbnB3alU0MFZa?=
+ =?utf-8?B?M3kvZGJUa291b1VZYVRBMzB0Q3pXMnYzYU1FbWJTRjh1Rk9yeFhXdGttSXdN?=
+ =?utf-8?B?bnZPSTFhRzhxSlN6V1hiVlhvek02cU1VUVJiVW9ITlFsamQ1RDBMM0M2TWd1?=
+ =?utf-8?B?VUhHUWVXWnRlY0QxaVdrWjlTODNTTTJZRTRoL1VIRERUUDJRSTZQTTU2VTZI?=
+ =?utf-8?B?TUlpcWdGOFlZdEZkNVVtM3RaTG85UjJ5N0hTQXgvSUdVRUkyMW5pd1pXa3Z1?=
+ =?utf-8?B?YWdnWCtJemhkemc2Q01OZkRKcmkvZXYzTXNicm8zN0tobDFmMWxLbGQ4WlRP?=
+ =?utf-8?B?TTV6azlkM3UrUldSZkw0WHdmZnVCdVpQMXZIdUtXUE9MNjFDQTQ2KzRNNHkz?=
+ =?utf-8?B?VU9HTXA2KzBTMHpNRjhzQXVDZmZpSTJyOExISW1VdTlwZjZ3MU9ZQT09?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: b3af0a14-de75-458c-6d37-08de4e9dfb73
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12038.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB8798.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 092ad6a0-d20b-403e-7d7b-08de4e9d9a2a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Jan 2026 10:06:33.6285
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2026 10:09:17.0013
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: QCKi4Ag0QJuxRWhlmMwju9MQKp7HBG4XA/Cz1nVOIIXsf5EFSPQkQvIArMAq7DGQH8GxcPXTYTkmclrG1xNqk1SpM1Lw5uxMcxYxhugdt6Q=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSCPR01MB13198
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kjWnMNcfWba/fZC6zoogsjq1U7lurYFfUT3JPWGX4opDC2G253xRzJl76ahZLtYfmNh8GUVtVlInPVUbYjXvn8szye55o2gWDSDLC/qvrC8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10233
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_020641_826202_6141D0A2 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20260108_020923_400523_A777F862 
+X-CRM114-Status: GOOD (  30.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -212,352 +191,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Ben,=0A=
-=0A=
-> From: James Morse <james.morse@arm.com>=0A=
-> =0A=
-> MPAM allows traffic in the SoC to be labeled by the OS, these labels are=
-=0A=
-> used to apply policy in caches and bandwidth regulators, and to monitor=
-=0A=
-> traffic in the SoC. The label is made up of a PARTID and PMG value. The x=
-86=0A=
-> equivalent calls these CLOSID and RMID, but they don't map precisely.=0A=
-> =0A=
-> MPAM has two CPU system registers that is used to hold the PARTID and PMG=
-=0A=
-> values that traffic generated at each exception level will use. These can=
-=0A=
-> be set per-task by the resctrl file system. (resctrl is the defacto=0A=
-> interface for controlling this stuff).=0A=
-> =0A=
-> Add a helper to switch this.=0A=
-> =0A=
-> struct task_struct's separate CLOSID and RMID fields are insufficient to=
-=0A=
-> implement resctrl using MPAM, as resctrl can change the PARTID (CLOSID) a=
-nd=0A=
-> PMG (sort of like the RMID) separately. On x86, the rmid is an independen=
-t=0A=
-> number, so a race that writes a mismatched closid and rmid into hardware =
-is=0A=
-> benign. On arm64, the pmg bits extend the partid.=0A=
-> (i.e. partid-5 has a pmg-0 that is not the same as partid-6's pmg-0).  In=
-=0A=
-> this case, mismatching the values will 'dirty' a pmg value that resctrl=
-=0A=
-> believes is clean, and is not tracking with its 'limbo' code.=0A=
-> =0A=
-> To avoid this, the partid and pmg are always read and written as a pair.=
-=0A=
-> Instead of making struct task_struct's closid and rmid fields an=0A=
-> endian-unsafe union, add the value to struct thread_info and always use=
-=0A=
-> READ_ONCE()/WRITE_ONCE() when accessing this field.=0A=
-> =0A=
-> Resctrl allows a per-cpu 'default' value to be set, this overrides the=0A=
-> values when scheduling a task in the default control-group, which has=0A=
-> PARTID 0. The way 'code data prioritisation' gets emulated means the=0A=
-> register value for the default group needs to be a variable.=0A=
-> =0A=
-> The current system register value is kept in a per-cpu variable to avoid=
-=0A=
-> writing to the system register if the value isn't going to change.  Write=
-s=0A=
-> to this register may reset the hardware state for regulating bandwidth.=
-=0A=
-> =0A=
-> Finally, there is no reason to context switch these registers unless ther=
-e=0A=
-> is a driver changing the values in struct task_struct. Hide the whole thi=
-ng=0A=
-> behind a static key. This also allows the driver to disable MPAM in=0A=
-> response to errors reported by hardware. Move the existing static key to=
-=0A=
-> belong to the arch code, as in the future the MPAM driver may become a=0A=
-> loadable module.=0A=
-> =0A=
-> All this should depend on whether there is an MPAM driver, hide it behind=
-=0A=
-> CONFIG_ARM64_MPAM.=0A=
-> =0A=
-> CC: Amit Singh Tomar <amitsinght@marvell.com>=0A=
-> Signed-off-by: James Morse <james.morse@arm.com>=0A=
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>=0A=
-> ---=0A=
-> CONFIG_MPAM -> CONFIG_ARM64_MPAM in commit message=0A=
-> Remove extra DECLARE_STATIC_KEY_FALSE=0A=
-> Function name in comment, __mpam_sched_in() -> mpam_thread_switch()=0A=
-> Remove unused headers=0A=
-> Expand comment (Jonathan)=0A=
-> ---=0A=
->  arch/arm64/Kconfig                   |  2 +=0A=
->  arch/arm64/include/asm/mpam.h        | 73 ++++++++++++++++++++++++++++=
-=0A=
->  arch/arm64/include/asm/thread_info.h |  3 ++=0A=
->  arch/arm64/kernel/Makefile           |  1 +=0A=
->  arch/arm64/kernel/mpam.c             | 13 +++++=0A=
->  arch/arm64/kernel/process.c          |  7 +++=0A=
->  drivers/resctrl/mpam_devices.c       |  2 -=0A=
->  drivers/resctrl/mpam_internal.h      |  4 +-=0A=
->  8 files changed, 101 insertions(+), 4 deletions(-)=0A=
->  create mode 100644 arch/arm64/include/asm/mpam.h=0A=
->  create mode 100644 arch/arm64/kernel/mpam.c=0A=
-> =0A=
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig=0A=
-> index 93173f0a09c7..cdcc5b76a110 100644=0A=
-> --- a/arch/arm64/Kconfig=0A=
-> +++ b/arch/arm64/Kconfig=0A=
-> @@ -2049,6 +2049,8 @@ config ARM64_MPAM=0A=
->  =0A=
->            MPAM is exposed to user-space via the resctrl pseudo filesyste=
-m.=0A=
->  =0A=
-> +         This option enables the extra context switch code.=0A=
-> +=0A=
->  endmenu # "ARMv8.4 architectural features"=0A=
->  =0A=
->  menu "ARMv8.5 architectural features"=0A=
-> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.=
-h=0A=
-> new file mode 100644=0A=
-> index 000000000000..2ab3dca6977c=0A=
-> --- /dev/null=0A=
-> +++ b/arch/arm64/include/asm/mpam.h=0A=
-> @@ -0,0 +1,73 @@=0A=
-> +/* SPDX-License-Identifier: GPL-2.0 */=0A=
-> +/* Copyright (C) 2025 Arm Ltd. */=0A=
-> +=0A=
-> +#ifndef __ASM__MPAM_H=0A=
-> +#define __ASM__MPAM_H=0A=
-> +=0A=
-> +#include <linux/jump_label.h>=0A=
-> +#include <linux/percpu.h>=0A=
-> +#include <linux/sched.h>=0A=
-> +=0A=
-> +#include <asm/sysreg.h>=0A=
-> +=0A=
-> +DECLARE_STATIC_KEY_FALSE(mpam_enabled);=0A=
-> +DECLARE_PER_CPU(u64, arm64_mpam_default);=0A=
-> +DECLARE_PER_CPU(u64, arm64_mpam_current);=0A=
-> +=0A=
-> +/*=0A=
-> + * The value of the MPAM0_EL1 sysreg when a task is in resctrl's default=
- group.=0A=
-> + * This is used by the context switch code to use the resctrl CPU proper=
-ty=0A=
-> + * instead. The value is modified when CDP is enabled/disabled by mounti=
-ng=0A=
-> + * the resctrl filesystem.=0A=
-> + */=0A=
-> +extern u64 arm64_mpam_global_default;=0A=
-> +=0A=
-> +/*=0A=
-> + * The resctrl filesystem writes to the partid/pmg values for threads an=
-d CPUs,=0A=
-> + * which may race with reads in mpam_thread_switch(). Ensure only one of=
- the old=0A=
-> + * or new values are used. Particular care should be taken with the pmg =
-field as=0A=
-> + * mpam_thread_switch() may read a partid and pmg that don't match, caus=
-ing this=0A=
-> + * value to be stored with cache allocations, despite being considered '=
-free' by=0A=
-> + * resctrl.=0A=
-> + *=0A=
-> + * A value in struct thread_info is used instead of struct task_struct a=
-s the=0A=
-> + * cpu's u64 register format is used. In struct task_struct there are tw=
-o u32,=0A=
-> + * rmid and closid for the x86 case, but as we can't use them here do so=
-mething=0A=
-> + * else. Creating a union would mean only accesses from the created u64 =
-would be=0A=
-> + * endian safe and so be less clear.=0A=
-> + */=0A=
-> +static inline u64 mpam_get_regval(struct task_struct *tsk)=0A=
-> +{=0A=
-> +#ifdef CONFIG_ARM64_MPAM=0A=
-> +       return READ_ONCE(task_thread_info(tsk)->mpam_partid_pmg);=0A=
-> +#else=0A=
-> +       return 0;=0A=
-> +#endif=0A=
-> +}=0A=
-> +=0A=
-> +static inline void mpam_thread_switch(struct task_struct *tsk)=0A=
-> +{=0A=
-> +       u64 oldregval;=0A=
-> +       int cpu =3D smp_processor_id();=0A=
-> +       u64 regval =3D mpam_get_regval(tsk);=0A=
-> +=0A=
-> +       if (!IS_ENABLED(CONFIG_ARM64_MPAM) ||=0A=
-> +           !static_branch_likely(&mpam_enabled))=0A=
-> +               return;=0A=
-> +=0A=
-> +       if (regval =3D=3D READ_ONCE(arm64_mpam_global_default))=0A=
-> +               regval =3D READ_ONCE(per_cpu(arm64_mpam_default, cpu));=
-=0A=
-> +=0A=
-> +       oldregval =3D READ_ONCE(per_cpu(arm64_mpam_current, cpu));=0A=
-> +       if (oldregval =3D=3D regval)=0A=
-> +               return;=0A=
-> +=0A=
-> +       write_sysreg_s(regval, SYS_MPAM1_EL1);=0A=
-> +       isb();=0A=
-> +=0A=
-> +       /* Synchronising the EL0 write is left until the ERET to EL0 */=
-=0A=
-> +       write_sysreg_s(regval, SYS_MPAM0_EL1);=0A=
-> +=0A=
-> +       WRITE_ONCE(per_cpu(arm64_mpam_current, cpu), regval);=0A=
-> +}=0A=
-=0A=
-How about changing the code as follows? (Refer to "mte_thread_switch(next);=
-" in "arch/arm64/kernel/process.c")=0A=
-=0A=
- static inline u64 mpam_get_regval(struct task_struct *tsk)=0A=
- {=0A=
--#ifdef CONFIG_ARM64_MPAM=0A=
-        return READ_ONCE(task_thread_info(tsk)->mpam_partid_pmg);=0A=
--#else=0A=
--       return 0;=0A=
--#endif=0A=
- }=0A=
-=0A=
-+#ifdef CONFIG_ARM64_MPAM=0A=
- static inline void mpam_thread_switch(struct task_struct *tsk)=0A=
- {=0A=
-        u64 oldregval;=0A=
-        int cpu =3D smp_processor_id();=0A=
-        u64 regval =3D mpam_get_regval(tsk);=0A=
-=0A=
--       if (!IS_ENABLED(CONFIG_ARM64_MPAM) ||=0A=
--           !static_branch_likely(&mpam_enabled))=0A=
-+       if (!static_branch_likely(&mpam_enabled))=0A=
-                return;=0A=
-=0A=
-        if (regval =3D=3D READ_ONCE(arm64_mpam_global_default))=0A=
-@@ -101,4 +96,8 @@ static inline void mpam_thread_switch(struct task_struct=
- *tsk)=0A=
-=0A=
-        WRITE_ONCE(per_cpu(arm64_mpam_current, cpu), regval);=0A=
- }=0A=
-+#else=0A=
-+static inline void mpam_thread_switch(struct task_struct *tsk){}=0A=
-+#endif=0A=
-+=0A=
-Best regards,=0A=
-Shaopeng TAN=0A=
-=0A=
-> +#endif /* __ASM__MPAM_H */=0A=
-> diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/as=
-m/thread_info.h=0A=
-> index a803b887b0b4..fc801a26ff9e 100644=0A=
-> --- a/arch/arm64/include/asm/thread_info.h=0A=
-> +++ b/arch/arm64/include/asm/thread_info.h=0A=
-> @@ -41,6 +41,9 @@ struct thread_info {=0A=
->  #ifdef CONFIG_SHADOW_CALL_STACK=0A=
->          void                    *scs_base;=0A=
->          void                    *scs_sp;=0A=
-> +#endif=0A=
-> +#ifdef CONFIG_ARM64_MPAM=0A=
-> +       u64                     mpam_partid_pmg;=0A=
->  #endif=0A=
->          u32                     cpu;=0A=
->  };=0A=
-> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile=0A=
-> index 76f32e424065..15979f366519 100644=0A=
-> --- a/arch/arm64/kernel/Makefile=0A=
-> +++ b/arch/arm64/kernel/Makefile=0A=
-> @@ -67,6 +67,7 @@ obj-$(CONFIG_CRASH_DUMP)              +=3D crash_dump.o=
-=0A=
->  obj-$(CONFIG_VMCORE_INFO)               +=3D vmcore_info.o=0A=
->  obj-$(CONFIG_ARM_SDE_INTERFACE)         +=3D sdei.o=0A=
->  obj-$(CONFIG_ARM64_PTR_AUTH)            +=3D pointer_auth.o=0A=
-> +obj-$(CONFIG_ARM64_MPAM)               +=3D mpam.o=0A=
->  obj-$(CONFIG_ARM64_MTE)                 +=3D mte.o=0A=
->  obj-y                                   +=3D vdso-wrap.o=0A=
->  obj-$(CONFIG_COMPAT_VDSO)               +=3D vdso32-wrap.o=0A=
-> diff --git a/arch/arm64/kernel/mpam.c b/arch/arm64/kernel/mpam.c=0A=
-> new file mode 100644=0A=
-> index 000000000000..9866d2ca0faa=0A=
-> --- /dev/null=0A=
-> +++ b/arch/arm64/kernel/mpam.c=0A=
-> @@ -0,0 +1,13 @@=0A=
-> +// SPDX-License-Identifier: GPL-2.0=0A=
-> +/* Copyright (C) 2025 Arm Ltd. */=0A=
-> +=0A=
-> +#include <asm/mpam.h>=0A=
-> +=0A=
-> +#include <linux/jump_label.h>=0A=
-> +#include <linux/percpu.h>=0A=
-> +=0A=
-> +DEFINE_STATIC_KEY_FALSE(mpam_enabled);=0A=
-> +DEFINE_PER_CPU(u64, arm64_mpam_default);=0A=
-> +DEFINE_PER_CPU(u64, arm64_mpam_current);=0A=
-> +=0A=
-> +u64 arm64_mpam_global_default;=0A=
-> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c=0A=
-> index fba7ca102a8c..b510c0699313 100644=0A=
-> --- a/arch/arm64/kernel/process.c=0A=
-> +++ b/arch/arm64/kernel/process.c=0A=
-> @@ -51,6 +51,7 @@=0A=
->  #include <asm/fpsimd.h>=0A=
->  #include <asm/gcs.h>=0A=
->  #include <asm/mmu_context.h>=0A=
-> +#include <asm/mpam.h>=0A=
->  #include <asm/mte.h>=0A=
->  #include <asm/processor.h>=0A=
->  #include <asm/pointer_auth.h>=0A=
-> @@ -737,6 +738,12 @@ struct task_struct *__switch_to(struct task_struct *=
-prev,=0A=
->          if (prev->thread.sctlr_user !=3D next->thread.sctlr_user)=0A=
->                  update_sctlr_el1(next->thread.sctlr_user);=0A=
->  =0A=
-> +       /*=0A=
-> +        * MPAM thread switch happens after the DSB to ensure prev's acce=
-sses=0A=
-> +        * use prev's MPAM settings.=0A=
-> +        */=0A=
-> +       mpam_thread_switch(next);=0A=
-> +=0A=
->          /* the actual thread switch */=0A=
->          last =3D cpu_switch_to(prev, next);=0A=
->  =0A=
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_device=
-s.c=0A=
-> index b495d5291868..860181266b15 100644=0A=
-> --- a/drivers/resctrl/mpam_devices.c=0A=
-> +++ b/drivers/resctrl/mpam_devices.c=0A=
-> @@ -29,8 +29,6 @@=0A=
->  =0A=
->  #include "mpam_internal.h"=0A=
->  =0A=
-> -DEFINE_STATIC_KEY_FALSE(mpam_enabled); /* This moves to arch code */=0A=
-> -=0A=
->  /*=0A=
->   * mpam_list_lock protects the SRCU lists when writing. Once the=0A=
->   * mpam_enabled key is enabled these lists are read-only,=0A=
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_inter=
-nal.h=0A=
-> index aaaf31ca9210..e6e7ba4342d6 100644=0A=
-> --- a/drivers/resctrl/mpam_internal.h=0A=
-> +++ b/drivers/resctrl/mpam_internal.h=0A=
-> @@ -16,12 +16,12 @@=0A=
->  #include <linux/srcu.h>=0A=
->  #include <linux/types.h>=0A=
->  =0A=
-> +#include <asm/mpam.h>=0A=
-> +=0A=
->  #define MPAM_MSC_MAX_NUM_RIS    16=0A=
->  =0A=
->  struct platform_device;=0A=
->  =0A=
-> -DECLARE_STATIC_KEY_FALSE(mpam_enabled);=0A=
-> -=0A=
->  #ifdef CONFIG_MPAM_KUNIT_TEST=0A=
->  #define PACKED_FOR_KUNIT __packed=0A=
->  #else=0A=
-> --=0A=
-> 2.43.0=0A=
+Hi Chaoyi,
+
+On 1/8/26 7:27 AM, Chaoyi Chen wrote:
+> Hi Quentin,
+> 
+> Thank you for your patient review.
+> 
+> On 1/7/2026 11:46 PM, Quentin Schulz wrote:
+>> Hi Chaoyi,
+>>
+>> On 1/7/26 8:03 AM, Chaoyi Chen wrote:
+
+[...]
+
+>>> +        stdout-path = "serial0:1500000n8";
+>>> +    };
+>>> +
+>>> +    adc_keys: adc-keys {
+>>
+>> Are we expecting to extend this node from another DT? Why the label?
+>>
+>> Won't comment on all other labeled-but-no-phandle-use instances, please check.
+>>
+> 
+> I think one exception is the regulator labels. Even though their
+> phandles are unused, they match the names on the schematic, so it
+> seems meaningful to keep them.
+> 
+
+Can't you use the regulator-name property for that? Or a comment if you 
+realllly want it to be somewhere in the DTS? If I remember correctly, 
+labels make it to the DTB when building it with symbols (-@, enabled 
+whenever there's a DTSO for the board; see __symbols__ node when 
+decompiling), this will unnecessarily bloat the final DTB.
+
+>>> +    vcc3v3_rtc_s5: regulator-vcc3v3-rtc-s5 {
+>>> +        compatible = "regulator-fixed";
+>>> +        regulator-name = "vcc3v3_rtc_s5";
+>>> +        regulator-boot-on;
+>>> +        regulator-always-on;
+>>> +        regulator-min-microvolt = <3300000>;
+>>> +        regulator-max-microvolt = <3300000>;
+>>> +        vin-supply = <&vcc_sys>;
+>>
+>> If this is for the rtc, shouldn't we declare this dependency in the RTC device node and not have it always-on?
+>>
+> 
+> I checked other boards that use the hym8563 device and couldn't find
+> a similar approach. Could you give an example?
+> 
+
+If this is truly always on by hardware design, then I guess it's "fine". 
+That other boards aren't doing isn't much of an argument, as they may 
+not need it. Typically, you could need to update the driver (and its 
+binding) to accept and control power supplies so that you can link the 
+two together in the device tree. I'm assuming for an RTC it doesn't make 
+much sense to have its power supply controllable as it likely needs to 
+be powered even when the device is turned off (otherwise the RTC stops 
+counting :) ).
+
+>>> +    };
+>>> +
+>>> +    vcc3v3_sata_pwren: vcc3v3-sata-pwren {
+>>> +        compatible = "regulator-fixed";
+>>> +        regulator-name = "vcc3v3_sata_pwren";
+>>> +        enable-active-high;
+>>> +        regulator-boot-on;
+>>> +        regulator-always-on;
+>>
+>> Why do we have this always-on? Seems like we're missing a dependency on this regulator in the SATA controller?
+>>
+> 
+> In v1 we set the pinctrl inside the SATA node. To keep the pins from
+> being reused by mistake we added this regulator in v2.
+> 
+
+This is a controllable regulator, which seems to be dedicated to SATA 
+(from the name of it). Why isn't it something that the SATA controller 
+controls?
+
+You have ahci-supply, target-supply and phy-supply in ahci-common.yaml 
+DT binding that may be appropriate for this regulator.
+
+The issue is if this regulator is probed *after* your SATA device, SATA 
+probably won't work. Imagine REGULATOR_FIXED_VOLTAGE=m (or even =n, but 
+then you likely have other issues) and your SATA controller driver is 
+built-in, this will be broken.
+
+Remove the always-on and set the proper link in the SATA controller 
+device node so that this is handled properly.
+
+>>> +        gpio = <&gpio4 RK_PC7 GPIO_ACTIVE_HIGH>;
+>>> +        pinctrl-names = "default";
+>>> +        pinctrl-0 = <&satapm_pwren>;
+>>> +    };
+>>> +
+>>> +    vcc5v0_device: regulator-vcc5v0-device {
+>>> +        compatible = "regulator-fixed";
+>>> +        regulator-name = "vcc5v0_device";
+>>> +        regulator-always-on;
+>>> +        regulator-boot-on;
+>>> +        regulator-min-microvolt = <5000000>;
+>>> +        regulator-max-microvolt = <5000000>;
+>>> +        vin-supply = <&vcc12v_dcin>;
+>>> +    };
+>>> +
+>>> +    vcc5v0_host: regulator-vcc5v0-host {
+>>> +        compatible = "regulator-fixed";
+>>> +        regulator-name = "vcc5v0_host";
+>>> +        regulator-boot-on;
+>>> +        regulator-always-on;
+>>> +        regulator-min-microvolt = <5000000>;
+>>> +        regulator-max-microvolt = <5000000>;
+>>> +        enable-active-high;
+>>> +        gpio = <&gpio0 RK_PC3 GPIO_ACTIVE_HIGH>;
+>>> +        vin-supply = <&vcc5v0_device>;
+>>> +        pinctrl-names = "default";
+>>> +        pinctrl-0 = <&usb_host_pwren>;
+>>> +    };
+>>> +
+>>
+>> I assume both of the above are related to USB operating in host or device mode? Maybe there's a way to have something more useful to the user in regulator-name (and possibly the regulator node name) so that they have an idea what this pertains to?
+> 
+> It's a good idea. Actually, we have two regulators here, one for USB0
+> and another for USB1. I'll try to rename them in v2.
+> 
+
+Are you sure? vcc5v0_device is a supply for vcc5v0_host, so it'd be odd 
+that in order for USB1 to work, you need USB0 powered?
+
+[...]
+
+Cheers,
+Quentin
 
