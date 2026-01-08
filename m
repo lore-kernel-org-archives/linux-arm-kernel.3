@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C46CF6BE5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 08:01:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 813ADD148BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 08:01:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=73lJ28Oa8fXyucgd17sP3BoTkAoW6uYXpbClVgCgu2o=; b=oiZPpDIGNUZ7R4xRer1bAP0T5F
-	k4RwW9QhZyvh58OXL5rjhMYDJWjy/Vf72neiCHJq4FAeguffjXufvv81X9lw0IOfl9RAhtizLSMBs
-	+8qrvHQ5dt24pu8ucdbZmfJ7guzy027tAIODK/SkG2+pLfBWGo9biFfGNtg+GB/hXBCGVaPJtpAqC
-	W3St6tq8GS5S2fvpCeJkOXrf6bTaeUOR7MnDE0V1E2lL/AgmneHfAGn6RjFv+Mf8rSrtm0iS0xlba
-	gg7pw0L38kDbVRDel7bIV79J5Iof+Fl7pcBwCSCNa4lh4c5HBTORfzNfSqLDX23nuepvvvAH7H4st
-	Ky3NnmYg==;
+	bh=246FoifQioiJlJKgK0l+PteqgHVK9qea+qwvqnjBY1s=; b=y1uyf1XpTxd3uBrD4kYY0HQBUg
+	78ttMHAMGHFF+nVLlMUYGtwnn/b3baHPfYn77BFd+JCe+rah8Q3EzNfDzk6nisWSxjG31lBKBCTxK
+	YBQpmCQASwwcgXrx0nJ108wtKQwTVirLYqx33jByIXRl/Svr4R16lyUx0dvEOksT34CPMNU1V+IM0
+	DIePn7spPMWHgGteDlNLSPCQ2nIEeNf5+Bdke0VDgGrDpPNuG5qDorYUPExECVR8Lo7X8ZFjWsSQZ
+	UXQf8bu6yPH2AU8I4UwIncVvePnFtsPRsBnzer5vnbbXMzZJR4m98SnuzBLyzSbMYEKLIQrDBfvd4
+	6KUC+bYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdkxh-0000000GBR6-24aC;
-	Thu, 08 Jan 2026 08:01:41 +0000
+	id 1vdkxk-0000000GBUx-1kpJ;
+	Thu, 08 Jan 2026 08:01:44 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdkxd-0000000GBMX-02Bs
+	id 1vdkxh-0000000GBQg-3tFS
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 08 Jan 2026 08:01:37 +0000
+	Thu, 08 Jan 2026 08:01:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=73lJ28Oa8fXyucgd17sP3BoTkAoW6uYXpbClVgCgu2o=; b=CxbvopWsNWcQa4dprkDwOCxy5N
-	z8z4fGY/WmF9hQ5zS1pUFSMI2fCnY/cRkizstWinJP9OT/ZZldqWV1riWk07ySQdyimJuurIDzZwI
-	ndynJIt5ap6i8CniY47odUqyOeNEovYP6qplkcpZas3+W2dB/m01CpZk/I+JphRjaU5oEPVt0n3y4
-	LssXIgIUlLkobrOAdDcZHVizxm2OY1Xc7PLCXTRQMp1Ujw7APah7Q3XMtnAjAoLzGy3T3rsu09YBz
-	wuF04kG5xUCWbTrTyvH70EaHmE2kkxVdPszma/6Kb56JYmYrAaG1OXC++7qbp72v2pYNNByQDd/uH
-	bI1hTj3g==;
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	bh=246FoifQioiJlJKgK0l+PteqgHVK9qea+qwvqnjBY1s=; b=YI/QMw+hPQx51H8aERUEnxWu9T
+	eyK6adEKBQomREiLubj7+NacwyzhaNJW3sjvs+Bjau2TvARkcOK1m4sKuj6MWg0MPr92Svr32H8P2
+	4mDDs4poKgLbU/oDmXb2PfyemmF52WGmcO+b1bf2M4muPFIZSTl+uVOhyIhU/zsJrJHALMf+3a/Ku
+	a1IQU/6TX6r2J5IpfT78kHzpH734BUq6VQOh1GBA+Q+IHHdr2LTp6oIul4A1uNsfdI64qEiyCxnTy
+	VPyb+d02wHWB6Q5YQfStnlTadBP9CJoJBkUodf5Vsex2GMEX0BntKH2Nc3nOjz9Q5u4zSu9MB2OEq
+	ZisXmNKg==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdkxZ-0000000ChBm-2m5e
+	id 1vdkxe-0000000ChDI-19JD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 08:01:35 +0000
+	Thu, 08 Jan 2026 08:01:40 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 1832F1A26FA;
-	Thu,  8 Jan 2026 08:01:33 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 3BA854E41FED;
+	Thu,  8 Jan 2026 08:01:37 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CA669606B6;
-	Thu,  8 Jan 2026 08:01:32 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 32B47103C871A;
-	Thu,  8 Jan 2026 09:01:28 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 10D5B606B6;
+	Thu,  8 Jan 2026 08:01:37 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C0FB2103C8674;
+	Thu,  8 Jan 2026 09:01:31 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767859291; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1767859295; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=73lJ28Oa8fXyucgd17sP3BoTkAoW6uYXpbClVgCgu2o=;
-	b=hk/hoLVqr7b+cwoKPwSQUyZE/V4x3tNBW1QOpvncGuyDu8JrVSMi5fMi1GDwdk7ADfde6j
-	BFBpE5g8sho5Gx85x+dQbTx3sdpe6a/c/OT+xcmuq6Hzq6+bS1+ajpryco1eBBF35OjSCa
-	u5o+rWPs1gEBlNt4ICF7UuqLYBF73Gju98g0VOvC+aFyUiYNHmvWTyMVMpgI+vTPNDKiwt
-	mXAnORAhWI5BbaR2dn1P6SF8CRyC1w+X96LB1iUwBuMgoLuaNA8ipDqSI8GYbkSCQWrUFf
-	Hkxs6CO4cffghKn/KTULdQ57f51CThpYYpqAjpAAtZ7Emh0tNMeGglyBigKLJg==
+	bh=246FoifQioiJlJKgK0l+PteqgHVK9qea+qwvqnjBY1s=;
+	b=aBWtHZkAKBfoJKrCVBeIgCH0DizWz1dLnxNjTB0j4LnxHtt27Ev8L1zJVUaJQHYNm+Jrqz
+	Qh3m8lbH5SE2Fpo52vWhHsuCYadvIn1t+MpLeyQUC4wYtxV52+sOc+07uThw2L973O29tS
+	Wz4uO85ab5PYGoqy6s72Drrb1WRWgIyz0xHhUUVpQlb1QXopxm4gf8JdhvnLiHIepkkqEN
+	tV13yGLgCj4aRHK6ViS/czZlhOtbprzgmbdrrexR787Mg3yUlG0UiEzPXvb2Dh0grkGAY5
+	T+IoJJYtODUiobXxdW54VhztXCb6Jmtpq/Yj5UOeFcTGf2UPajFmDDoJ13+Ryw==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -92,19 +92,18 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
 	Tariq Toukan <tariqt@nvidia.com>
-Subject: [PATCH net-next v22 10/14] net: phy: marvell10g: Support SFP through phy_port
-Date: Thu,  8 Jan 2026 09:00:35 +0100
-Message-ID: <20260108080041.553250-11-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v22 11/14] net: phy: at803x: Support SFP through phy_port interface
+Date: Thu,  8 Jan 2026 09:00:36 +0100
+Message-ID: <20260108080041.553250-12-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20260108080041.553250-1-maxime.chevallier@bootlin.com>
 References: <20260108080041.553250-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
-X-Rspamd-Fuzzy: 3cb21b558de28fb2da6f0bd9e82e7e0b10c8d141dc54d9d6fbfd2e91509e71453fa3284c1bc137d8881b8fab86d8e63a2159b0df6846de9d71fb1087f1828b62
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_080133_834937_70C58C84 
-X-CRM114-Status: GOOD (  20.44  )
+X-CRM114-CacheID: sfid-20260108_080138_877630_1197561A 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,199 +118,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Marvell10G driver to use the generic SFP handling, through a
-dedicated .attach_port() handler to populate the port's supported
-interfaces.
+Convert the at803x driver to use the generic phylib SFP handling, via a
+dedicated .attach_port() callback, populating the supported interfaces.
 
-As the 88x3310 supports multiple MDI, the .attach_port() logic handles
-both SFP attach with 10GBaseR support, and support for the "regular"
-port that usually is a BaseT port.
+As these devices are limited to 1000BaseX, a workaround is used to also
+support, in a very limited way, copper modules. This is done by
+supporting SGMII but limiting it to 1G full duplex (in which case it's
+somewhat compatible with 1000BaseX).
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Tested-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/phy/marvell10g.c | 49 +++++++++++++++++++++---------------
- drivers/net/phy/phy_port.c   | 44 ++++++++++++++++++++++++++++++++
- include/linux/phy_port.h     |  1 +
- 3 files changed, 74 insertions(+), 20 deletions(-)
+ drivers/net/phy/qcom/at803x.c | 77 +++++++++++++++--------------------
+ 1 file changed, 32 insertions(+), 45 deletions(-)
 
-diff --git a/drivers/net/phy/marvell10g.c b/drivers/net/phy/marvell10g.c
-index 8fd42131cdbf..b40df82152cd 100644
---- a/drivers/net/phy/marvell10g.c
-+++ b/drivers/net/phy/marvell10g.c
-@@ -28,7 +28,7 @@
- #include <linux/hwmon.h>
- #include <linux/marvell_phy.h>
- #include <linux/phy.h>
+diff --git a/drivers/net/phy/qcom/at803x.c b/drivers/net/phy/qcom/at803x.c
+index 338acd11a9b6..2995b08bac96 100644
+--- a/drivers/net/phy/qcom/at803x.c
++++ b/drivers/net/phy/qcom/at803x.c
+@@ -20,7 +20,7 @@
+ #include <linux/of.h>
+ #include <linux/phylink.h>
+ #include <linux/reset.h>
 -#include <linux/sfp.h>
 +#include <linux/phy_port.h>
- #include <linux/netdevice.h>
+ #include <dt-bindings/net/qca-ar803x.h>
  
- #define MV_PHY_ALASKA_NBT_QUIRK_MASK	0xfffffffe
-@@ -463,30 +463,29 @@ static int mv3310_set_edpd(struct phy_device *phydev, u16 edpd)
- 	return err;
- }
- 
--static int mv3310_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
-+static int mv3310_attach_mii_port(struct phy_device *phydev,
-+				  struct phy_port *port)
- {
--	struct phy_device *phydev = upstream;
--	const struct sfp_module_caps *caps;
--	phy_interface_t iface;
-+	__set_bit(PHY_INTERFACE_MODE_10GBASER, port->interfaces);
-+	return 0;
-+}
- 
--	caps = sfp_get_module_caps(phydev->sfp_bus);
--	iface = sfp_select_interface(phydev->sfp_bus, caps->link_modes);
-+static int mv3310_attach_mdi_port(struct phy_device *phydev,
-+				  struct phy_port *port)
-+{
-+	/* This PHY can do combo-ports, i.e. 2 MDI outputs, usually one
-+	 * of them going to an SFP and the other one to a RJ45
-+	 * connector. If we don't have any representation for the port
-+	 * in DT, and we are dealing with a non-SFP port, then we
-+	 * mask the port's capabilities to report BaseT-only modes
-+	 */
-+	if (port->not_described)
-+		return phy_port_restrict_mediums(port,
-+						 BIT(ETHTOOL_LINK_MEDIUM_BASET));
- 
--	if (iface != PHY_INTERFACE_MODE_10GBASER) {
--		dev_err(&phydev->mdio.dev, "incompatible SFP module inserted\n");
--		return -EINVAL;
--	}
+ #include "qcom.h"
+@@ -769,57 +769,44 @@ static int at8031_register_regulators(struct phy_device *phydev)
  	return 0;
  }
  
--static const struct sfp_upstream_ops mv3310_sfp_ops = {
+-static int at8031_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
++static int at803x_configure_mii(struct phy_port *port, bool enable,
++				phy_interface_t interface)
+ {
+-	__ETHTOOL_DECLARE_LINK_MODE_MASK(phy_support);
+-	__ETHTOOL_DECLARE_LINK_MODE_MASK(sfp_support);
+-	struct phy_device *phydev = upstream;
+-	const struct sfp_module_caps *caps;
+-	phy_interface_t iface;
+-
+-	linkmode_zero(phy_support);
+-	phylink_set(phy_support, 1000baseX_Full);
+-	phylink_set(phy_support, 1000baseT_Full);
+-	phylink_set(phy_support, Autoneg);
+-	phylink_set(phy_support, Pause);
+-	phylink_set(phy_support, Asym_Pause);
+-
+-	caps = sfp_get_module_caps(phydev->sfp_bus);
+-	/* Some modules support 10G modes as well as others we support.
+-	 * Mask out non-supported modes so the correct interface is picked.
+-	 */
+-	linkmode_and(sfp_support, phy_support, caps->link_modes);
++	struct phy_device *phydev = port_phydev(port);
+ 
+-	if (linkmode_empty(sfp_support)) {
+-		dev_err(&phydev->mdio.dev, "incompatible SFP module inserted\n");
+-		return -EINVAL;
+-	}
++	if (interface == PHY_INTERFACE_MODE_SGMII)
++		dev_warn(&phydev->mdio.dev,
++			 "module may not function if 1000Base-X not supported\n");
++
++	return 0;
++}
+ 
+-	iface = sfp_select_interface(phydev->sfp_bus, sfp_support);
++static const struct phy_port_ops at803x_port_ops = {
++	.configure_mii = at803x_configure_mii,
++};
+ 
+-	/* Only 1000Base-X is supported by AR8031/8033 as the downstream SerDes
+-	 * interface for use with SFP modules.
+-	 * However, some copper modules detected as having a preferred SGMII
+-	 * interface do default to and function in 1000Base-X mode, so just
+-	 * print a warning and allow such modules, as they may have some chance
+-	 * of working.
++static int at8031_attach_mii_port(struct phy_device *phydev,
++				  struct phy_port *port)
++{
++	linkmode_zero(port->supported);
++	phylink_set(port->supported, 1000baseX_Full);
++	phylink_set(port->supported, 1000baseT_Full);
++	phylink_set(port->supported, Autoneg);
++	phylink_set(port->supported, Pause);
++	phylink_set(port->supported, Asym_Pause);
++
++	/* This device doesn't really support SGMII. However, do our best
++	 * to be compatible with copper modules (that usually require SGMII),
++	 * in a degraded mode as we only allow 1000BaseT Full
+ 	 */
+-	if (iface == PHY_INTERFACE_MODE_SGMII)
+-		dev_warn(&phydev->mdio.dev, "module may not function if 1000Base-X not supported\n");
+-	else if (iface != PHY_INTERFACE_MODE_1000BASEX)
+-		return -EINVAL;
++	__set_bit(PHY_INTERFACE_MODE_SGMII, port->interfaces);
++	__set_bit(PHY_INTERFACE_MODE_1000BASEX, port->interfaces);
++
++	port->ops = &at803x_port_ops;
+ 
+ 	return 0;
+ }
+ 
+-static const struct sfp_upstream_ops at8031_sfp_ops = {
 -	.attach = phy_sfp_attach,
 -	.detach = phy_sfp_detach,
+-	.module_insert = at8031_sfp_insert,
 -	.connect_phy = phy_sfp_connect_phy,
 -	.disconnect_phy = phy_sfp_disconnect_phy,
--	.module_insert = mv3310_sfp_insert,
 -};
 -
- static int mv3310_probe(struct phy_device *phydev)
+ static int at8031_parse_dt(struct phy_device *phydev)
  {
- 	const struct mv3310_chip *chip = to_mv3310_chip(phydev);
-@@ -544,7 +543,9 @@ static int mv3310_probe(struct phy_device *phydev)
+ 	struct device_node *node = phydev->mdio.dev.of_node;
+@@ -840,8 +827,7 @@ static int at8031_parse_dt(struct phy_device *phydev)
+ 		return ret;
+ 	}
  
- 	chip->init_supported_interfaces(priv->supported_interfaces);
- 
--	return phy_sfp_probe(phydev, &mv3310_sfp_ops);
-+	phydev->max_n_ports = 2;
-+
+-	/* Only AR8031/8033 support 1000Base-X for SFP modules */
+-	return phy_sfp_probe(phydev, &at8031_sfp_ops);
 +	return 0;
  }
  
- static void mv3310_remove(struct phy_device *phydev)
-@@ -1405,6 +1406,8 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_loopback	= genphy_c45_loopback,
- 		.get_wol	= mv3110_get_wol,
- 		.set_wol	= mv3110_set_wol,
-+		.attach_mii_port = mv3310_attach_mii_port,
-+		.attach_mdi_port = mv3310_attach_mdi_port,
- 	},
- 	{
- 		.phy_id		= MARVELL_PHY_ID_88X3310,
-@@ -1424,6 +1427,8 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_tunable	= mv3310_set_tunable,
- 		.remove		= mv3310_remove,
- 		.set_loopback	= genphy_c45_loopback,
-+		.attach_mii_port = mv3310_attach_mii_port,
-+		.attach_mdi_port = mv3310_attach_mdi_port,
- 	},
- 	{
- 		.phy_id		= MARVELL_PHY_ID_88E2110,
-@@ -1444,6 +1449,8 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_loopback	= genphy_c45_loopback,
- 		.get_wol	= mv3110_get_wol,
- 		.set_wol	= mv3110_set_wol,
-+		.attach_mii_port = mv3310_attach_mii_port,
-+		.attach_mdi_port = mv3310_attach_mdi_port,
- 	},
- 	{
- 		.phy_id		= MARVELL_PHY_ID_88E2110,
-@@ -1462,6 +1469,8 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_tunable	= mv3310_set_tunable,
- 		.remove		= mv3310_remove,
- 		.set_loopback	= genphy_c45_loopback,
-+		.attach_mii_port = mv3310_attach_mii_port,
-+		.attach_mdi_port = mv3310_attach_mdi_port,
- 	},
- };
- 
-diff --git a/drivers/net/phy/phy_port.c b/drivers/net/phy/phy_port.c
-index 81e557aae0d6..ec93c8ca051e 100644
---- a/drivers/net/phy/phy_port.c
-+++ b/drivers/net/phy/phy_port.c
-@@ -149,6 +149,50 @@ void phy_port_update_supported(struct phy_port *port)
- }
- EXPORT_SYMBOL_GPL(phy_port_update_supported);
- 
-+/**
-+ * phy_port_filter_supported() - Make sure that port->supported match port->mediums
-+ * @port: The port to filter
-+ *
-+ * After updating a port's mediums to a more restricted subset, this helper will
-+ * make sure that port->supported only contains linkmodes that are compatible
-+ * with port->mediums.
-+ */
-+static void phy_port_filter_supported(struct phy_port *port)
-+{
-+	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported) = { 0 };
-+	int i;
-+
-+	for_each_set_bit(i, &port->mediums, __ETHTOOL_LINK_MEDIUM_LAST)
-+		phy_caps_medium_get_supported(supported, i, port->pairs);
-+
-+	linkmode_and(port->supported, port->supported, supported);
-+}
-+
-+/**
-+ * phy_port_restrict_mediums - Mask away some of the port's supported mediums
-+ * @port: The port to act upon
-+ * @mediums: A mask of mediums to support on the port
-+ *
-+ * This helper allows removing some mediums from a port's list of supported
-+ * mediums, which occurs once we have enough information about the port to
-+ * know its nature.
-+ *
-+ * Returns: 0 if the change was donne correctly, a negative value otherwise.
-+ */
-+int phy_port_restrict_mediums(struct phy_port *port, unsigned long mediums)
-+{
-+	/* We forbid ending-up with a port with empty mediums */
-+	if (!(port->mediums & mediums))
-+		return -EINVAL;
-+
-+	port->mediums &= mediums;
-+
-+	phy_port_filter_supported(port);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(phy_port_restrict_mediums);
-+
- /**
-  * phy_port_get_type() - get the PORT_* attribute for that port.
-  * @port: The port we want the information from
-diff --git a/include/linux/phy_port.h b/include/linux/phy_port.h
-index 550c3f4ab19f..0ef0f5ce4709 100644
---- a/include/linux/phy_port.h
-+++ b/include/linux/phy_port.h
-@@ -92,6 +92,7 @@ static inline bool phy_port_is_fiber(struct phy_port *port)
- }
- 
- void phy_port_update_supported(struct phy_port *port);
-+int phy_port_restrict_mediums(struct phy_port *port, unsigned long mediums);
- 
- int phy_port_get_type(struct phy_port *port);
- 
+ static int at8031_probe(struct phy_device *phydev)
+@@ -1172,6 +1158,7 @@ static struct phy_driver at803x_driver[] = {
+ 	.set_tunable		= at803x_set_tunable,
+ 	.cable_test_start	= at8031_cable_test_start,
+ 	.cable_test_get_status	= at8031_cable_test_get_status,
++	.attach_mii_port	= at8031_attach_mii_port,
+ }, {
+ 	/* Qualcomm Atheros AR8032 */
+ 	PHY_ID_MATCH_EXACT(ATH8032_PHY_ID),
 -- 
 2.49.0
 
