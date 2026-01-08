@@ -4,160 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41EE2CF6A86
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 08:38:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE366CF6A85
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 08:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xx4AwN3NEYf8qNcHBrqlSSJVsew1BzCM3ucI5khArDw=; b=DySIPIKaI1CkvBfH6DWa77bfh2
-	MA3mhgFY+cXtgz49bRmGzOWig7x83xoKfG/m6YFUqUnupHeC9VjbcZzyZWnDmK+5hojQrih3T029z
-	q9TPDH0Gp14AX4oRkr4joucNOjaR8YDRqfs+xKw/50D6LRpgL9Zf3iRGg+5pJMPxN4tuYHhAwNARq
-	omHizOP84rCqiC6+8J/G8QNTCaN25BOmEvaSydU/kgjQj1Qxg3vQmGQ5IaDyjz0TFuzJ+jermiFEn
-	SLOpJhdjR3q8jXqBV8c3PUmMYtMs3mfnkzeaePF8PyEC6Q4SN3XWeABS6kjDGNG8pvdl5aXaTkbc/
-	Fvage2jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lHhK7J9UwVHyDp7OnI2aJtOUELVCPGvnzkrrcOsH38Q=; b=ZafbotqXkHlAYzXsE+fwCVXymC
+	RyalwZfpQ6osJUK7deXzDZVnzQfXwTNUuA9cGmxAv9pbJ1y76mI39FXMDIlDo4wxw1tb/uxVFN0j9
+	Kh1OlGGd5RyomLJGfD9frUqce/vBqrYtUNSV801qtvvfGm/h9DAFS+00eqrKJYn0WCxr+sD99aDLl
+	OKwh5Xt6xIgHzZNoSceUn+nM5rbjuIGzW0H3QVGwsPacC5YoqZW3z6GGH+KXCzEsVNgzRNmSNqNRO
+	Wm+nnbOSCWl/IaCZAr563/UEFaXkXxtjfza1h5BXc1281wvSbyMl5nChZC6psABDpI4HPGODtdvEA
+	jmsFPCQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdlWt-0000000GJGH-3WTR;
-	Thu, 08 Jan 2026 08:38:04 +0000
-Received: from mail-swedencentralazon11013017.outbound.protection.outlook.com ([52.101.83.17] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vdlX8-0000000GJKm-1ZcZ;
+	Thu, 08 Jan 2026 08:38:18 +0000
+Received: from mail-m3289.qiye.163.com ([220.197.32.89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdlWq-0000000GJEs-3sdP
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 08:38:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bw7ceOMv3tsHyEU2YhP2Iyo2OZvpMgs64zlMA3Dby15yIcdkUEb2DAV5eA8+0O34JFG/90JubCvO/m7NgN5LBc7VjEXvNm0nVSYec44U/gAmu9DPz9OFwjoI3Qs2iuIL7mZZmuS1hYyW5oeyQWeNNwfrJZmGvdclUTYw/YhYLpGkrH6jzU6RKdw5xJsJu0JPnjfn/m3WJMu3nwXrRI5gfydLX4+UKIIW2A+kzim0BI+aapkw6FMv82odic1N7Sb7yZZdYqe351+qS5zYLQ9YxaVYRz6n+qVtvJKr0Zq08yF1ZZtVez0QZq2xEsodQiP6o397/3XulLBOsg0DHRryLA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xx4AwN3NEYf8qNcHBrqlSSJVsew1BzCM3ucI5khArDw=;
- b=kNi/7f8hMygUIZoMAq+0bdxszPLNEfMWRTAHuf2/0kV7TwzVDpjNioCJsEHGHLdW9BTrZ0x+c7L7eYlsGzrrAU5zPZWFmeyDs3ptf5BDsqqSzenceU2AbFjLYT/N5gTIilyx+dEsiMJoDGhTk8/R/vBeB2lIxrcD/K4TOwXY+7EYhU/oe548fwPCfaqanDlr4MGqzLNNkrBSfywB6WjFhvwlp2k7vGG+Rn28zgodI3QcM2zzIhuUMp2O6iNesGFM4qBHSd+nRqQNRn2v2GYiOn5BiNAJUY75swS0F/oeRKY7AUsYNeMFiGCvRzFfcj7fiapCmCPLgSNhIPyz2L40qQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=leica-geosystems.com.cn; dmarc=pass action=none
- header.from=leica-geosystems.com.cn; dkim=pass
- header.d=leica-geosystems.com.cn; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=leica-geosystems.com.cn; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xx4AwN3NEYf8qNcHBrqlSSJVsew1BzCM3ucI5khArDw=;
- b=R8MWR12p5KBBjPBMcKVKix+DyySUnquF9HSfjR0jz0dgtpMj//8Pn99cYyXVxSQOGwhvt5KoRwEplOz/YRL1435bzJUUB0MUXPZOf4I6hSe0KPPVfr79mV+I9K0baHn6lw4hPOrVeWPCPCmZey4YDVgKuF2k+jBTabDzMJ9tyEo=
-Received: from GV2PR06MB10809.eurprd06.prod.outlook.com
- (2603:10a6:150:2fa::21) by GVXPR06MB9768.eurprd06.prod.outlook.com
- (2603:10a6:150:1e4::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Thu, 8 Jan
- 2026 08:37:52 +0000
-Received: from GV2PR06MB10809.eurprd06.prod.outlook.com
- ([fe80::f29e:9a49:43b4:80fb]) by GV2PR06MB10809.eurprd06.prod.outlook.com
- ([fe80::f29e:9a49:43b4:80fb%6]) with mapi id 15.20.9499.003; Thu, 8 Jan 2026
- 08:37:51 +0000
-From: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
-To: Andi Shyti <andi.shyti@kernel.org>
-CC: "o.rempel@pengutronix.de" <o.rempel@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "shawnguo@kernel.org"
-	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, GEO-CHHER-bsp-development
-	<bsp-development.geo@leica-geosystems.com>
-Subject: RE: [PATCH V1] i2c: imx: Fix SMBus block read hang on zero length
-Thread-Topic: [PATCH V1] i2c: imx: Fix SMBus block read hang on zero length
-Thread-Index: AQHceJulRg4JDAkiF0mwNrMsygjneLVHMu8AgADKRgA=
-Date: Thu, 8 Jan 2026 08:37:51 +0000
-Message-ID: <GV2PR06MB10809C9AF32F95388E8DBF519D785A@GV2PR06MB10809.eurprd06.prod.outlook.com>
-References: <20251229081629.4081452-1-Qing-wu.Li@leica-geosystems.com.cn>
- <aV60-Wm0c_Oo0zWF@zenone.zhora.eu>
-In-Reply-To: <aV60-Wm0c_Oo0zWF@zenone.zhora.eu>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=leica-geosystems.com.cn;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: GV2PR06MB10809:EE_|GVXPR06MB9768:EE_
-x-ms-office365-filtering-correlation-id: 0b0a5308-c4f5-4716-061b-08de4e91360f
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7416014|38070700021|7053199007;
-x-microsoft-antispam-message-info: =?us-ascii?Q?2IrpAtgAmspeIQD6vNmU01TP5gwFWJx+3XmAQoVxTdWXe7/4svO17yqgo2gl?=
- =?us-ascii?Q?JGxpihdqNJZoZfaKpE5/854mAHxZZQbQmh2hPWFs9qJoGdk3FDCHiaxFgDbu?=
- =?us-ascii?Q?n5lyeCbHA4em4o4D+mUU75qfj66xZZM1szs3e3V+MBZR6CXKtlLglETFFdxO?=
- =?us-ascii?Q?eXHngFfx+10BNtJBrMWK32ak0317SHXPvDWiEVN6/M53KpN6/MlLzsCTgM97?=
- =?us-ascii?Q?vj6Xbxi/Ob6j5djNlraJJASro02KlWlnso8y6vPiTPWUvJpYA4bSakF3dfRO?=
- =?us-ascii?Q?kz1iXtgOUeVMqpYkb4BB/Z9UtL2ZVmMauBWuAosEocZUwa9R9b2aLVwsk/lb?=
- =?us-ascii?Q?2V57+snaG6kb+mLRTH415PFO7jPfLlaPfdmdhJYmUPkHHrMJIvKmcoYjkQkZ?=
- =?us-ascii?Q?LOALsk+ssWc+P0ZSo4ohBShVzmI3wjGBF3vOkL+aXmhQtXQgYJOaYDniAiUu?=
- =?us-ascii?Q?ZqUXYF/METTeTSExKiUGVYahNsfAwv+hEMyxl0EJ6pPA4VEshrXGsqiqeYnD?=
- =?us-ascii?Q?pviRS/uVIF56vv2PdWdQqOweozY1UHfesPAVu0Fr/ndEbahr9tPUyQEEGc7S?=
- =?us-ascii?Q?tJRoadPnISe8bq5VHU8MS+HBqlg9x2PcBmAMpQZEgC9YwOyI7zwneoodrVSO?=
- =?us-ascii?Q?7Mb0Ws8RJoSg5goRBTD8C2noVWOcAdKgAChu0AHnnWcK1R/6T1a1bD7e1q/e?=
- =?us-ascii?Q?+LX/TrdQMayTPc4PRFPnLphRPt52gTDeIZcxyjfFp/d5eBlRsXSTxTzBEg/x?=
- =?us-ascii?Q?vgxI+2etKKtt8sNRIdPCdKjUUMuviy4YMXv16qvrkiwTBKs7cEZHEQceJH1N?=
- =?us-ascii?Q?kPGE6bn03rf1n6MxyrFLfHZx6lT/TNhr64c+CmMbTIE5xvhYEzUtpihs6Ryv?=
- =?us-ascii?Q?oW9l/JiqCqm0XDZ8QoraFLoeSUAk3FksulSfHCWY1RDvf41F+iIaoEnePGYS?=
- =?us-ascii?Q?HbHO46yq8bEa4GgzX7FPaGXypKFcaYXHdtFE0dRP+blhlYq4I6aPCoa+Lnuz?=
- =?us-ascii?Q?LUb6bgj9HXiOwTJ79sgL7lkguAg6uWeYjHdwosNDIIk+QBAVITwtMd5egwSQ?=
- =?us-ascii?Q?TEXrV8+ulTYpyDJ/tLDWRPK5LtV+g3q9Hlcf2A2koa6uArnF1cL640rQVmLP?=
- =?us-ascii?Q?kLtKPxaJW3cxLvThvphb+QhV0SoG27jhJbaWdtGViUAcrxeEL0brcaJt0yBs?=
- =?us-ascii?Q?lC5931LWxKTx2Lo8SQQpzwKP4C2O2apycWhIoWnoCF/bHDKWMGS+NyTODFFr?=
- =?us-ascii?Q?Aq3cspK7obvM52yI/OqcT703qaq6m7aZqnWd3RU9wnNNuP7NMaPuK0d5HIIG?=
- =?us-ascii?Q?/m5sIrMQhjhoDqf3XfOIs9V8bZAC+yxm2jPnxA+KjoQylmsHLAn1wv3r9K9T?=
- =?us-ascii?Q?A1m+UoKYsSRQvC/uPY47qyOHWEeB7PRQq+9xPU/TMfxbLobgpsOtowFRdACj?=
- =?us-ascii?Q?5WY0e+qGFPLqQP4aP8cUdjgJd94B7JUMmPHhm4vWkCN2JsR/Jp3CEFtlWqui?=
- =?us-ascii?Q?z/Efhu3gbbknHX2OkSAl6BI/kbQQvrPzUrIR?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR06MB10809.eurprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014)(38070700021)(7053199007);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?DwFBvhb+DfOCf/yu/QMULq/n+Um6aWHELf0fjnQLwIqnhURYQWEq/nc3szv8?=
- =?us-ascii?Q?0L9dlHv32dkfpDyUeOEmfdWogmJI32nZZPtKYgl7ERHYCbrEYw/FfYkY1ccq?=
- =?us-ascii?Q?Qr+KiwgcPEvS0JPqFHVXNrzawVlR3o6/SIvkObTLXxzaGpynHD0lVdwrCQdq?=
- =?us-ascii?Q?JRkNH9p+qZd2/9oGrP0Gq471C+akPCRJy6DXJ+atGMXpG7g5fhdbRUlm1WTr?=
- =?us-ascii?Q?gbc8ZjFY4BeX7+5BdIgapXKqi+j5aAtPhrdtUtly05dKQWqA+hepcTrFUN4q?=
- =?us-ascii?Q?6Bq4PPURptCfTZmkE6LZnNtAQ9skut6jWglQCPc0Q3moow+CCEHf/UBfKFMC?=
- =?us-ascii?Q?NgvDTM6TPQLvWPAH4wZA0EPhgiNvzdztK9rT4iqggZUJ3lKWq/SOmcepK5Mv?=
- =?us-ascii?Q?rpopHJkBgv8kFLd4rjXVkbLmMwrZvdcwlYZbSpJc6eu74dgFjTCSw/NtbKKU?=
- =?us-ascii?Q?8F/ZbqRYGr1zsV13YcbzQobUIxaGMtG+UmFbJV2cd+984TCELY3/8a7D6hfT?=
- =?us-ascii?Q?lJsO2DUxB0AgBcD761D/ARv5GQZsPvOGSYP2pMyNxzzirYHr6hDeonnq6paI?=
- =?us-ascii?Q?iH4M8P+7JkOCCx2l9df0vWIl2iE+lkiq2/HROHQSe5GrTJMDRUln6uZLbUfK?=
- =?us-ascii?Q?0hx0NjfbvxhO9LsQKPR+is+62+crtfWD1ZUYq5IEKKSECNLNRVkBCwuoHqwY?=
- =?us-ascii?Q?FCWxjIKDO8qyuNtFfJdBjjOYEL40HNfPJ4rdnyYCvKuN6XBwnjmG2SgirUiU?=
- =?us-ascii?Q?tbCQWigcgnaaV+KdcsFbl/6vWSCg4BeintLtmYjl+XNUPxpo9yWnVr/+TWLf?=
- =?us-ascii?Q?yJJ6K+oZcKeZBNMwq0PBx1xNjvGMXVekvWQ6UBtrw3zjyM7EMFgAYdqp9VUE?=
- =?us-ascii?Q?oS8RUGmaPwT2GsEtI0iPdxaOsvyOetmG6LlDxXh/IfOoGuuomcvtAHz/gUXE?=
- =?us-ascii?Q?oLcJz7R10HIqAIs2X4J2fxlMKmYo+13wIjZBiEoFo6e1rxV16uRpbUg6N0vD?=
- =?us-ascii?Q?Tv28Id+ou06YwXW+wa9/MGULOqVSjBn9jKtURlUg/UoM5ek8MH+tyUExlZbk?=
- =?us-ascii?Q?IHxf/IaROIdB7BpzaFT+aoteZ0HR/vHmCdyM4uPMnv98Ar3YFkPWycN6tzZN?=
- =?us-ascii?Q?v3ggFkFCd/UoZU18OkgqtM/9Culh3PPvuVgKKKF5TOSQooYe6tDT/o+JyXO8?=
- =?us-ascii?Q?P/F6BeOpE1QO1jiuqT5Ecxujy0Wrs+toL5VFNRA1+b1jJStNbTiqJHdVcV4p?=
- =?us-ascii?Q?nMXeBX0EcdUmY5zR90Jxdo7TVmTxeLIIYoTILrZ95d2n5m3y4a/u/6vRCDA1?=
- =?us-ascii?Q?T2BUEA6XRWxq7xv3YCtOiUzZ3yxDNDUCyaEZDReCUh4eicN0aRQ0BYYVdo0Z?=
- =?us-ascii?Q?ylkimAV6Aoz76DdZVlPktmXNiB+XY3WiBPJ/thbQ00g3Y2qYorXRzLjoTafs?=
- =?us-ascii?Q?7O9h8Gjvywxv8jQxd8mrvdc6GYpSuoBv6eyRQyaaaZL0LIDvRNbq1iovALQZ?=
- =?us-ascii?Q?dwEgraUW05WsFCDrJxTFaGrt8F9bh3sAxp3kssZ/54V8mlPyQraRx5kU+9yr?=
- =?us-ascii?Q?f1DpILApWWqW36Yx0tJ/2s5M/YO2tm7HBXMSgxDP15fuIE6LqHK2UslNmwQr?=
- =?us-ascii?Q?zsq3E+/a5R+zZZLA6wjGTTZJauXeJazsY+xJHyuWyMx2BkgWQesgyrGkBDCJ?=
- =?us-ascii?Q?ipVnMZ1jO7lxYG7F7KqVbzKxAUI4tIBCO6Qo4uVdboTu8aSBp67M8RpeRWrG?=
- =?us-ascii?Q?sKGY+MK94xkg8OO2IeWpUUpHdlq3hHo=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1vdlX3-0000000GJIO-25YG;
+	Thu, 08 Jan 2026 08:38:16 +0000
+Received: from [172.16.12.51] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2fef36141;
+	Thu, 8 Jan 2026 16:38:07 +0800 (GMT+08:00)
+Message-ID: <6f55c325-6b2a-4fe9-a487-5f1ae7969d9d@rock-chips.com>
+Date: Thu, 8 Jan 2026 16:38:06 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: leica-geosystems.com.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR06MB10809.eurprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b0a5308-c4f5-4716-061b-08de4e91360f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Jan 2026 08:37:51.6994
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: njl2DtvvIo8PcBWf8NWgUA9rtFqOZeWVV3hQpw+QnhFygfMaSaY4AAK7KKuw8c11q4zSdwvi4DR0Gb1Sgv3JBO+9ZPnS1Bs29xTIg8xDYj3ktxeY/pJ7/KhVys8yRp0i
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR06MB9768
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add rk3576 evb2 board
+To: Alexey Charkov <alchark@gmail.com>, Chaoyi Chen <kernel@airkyi.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Quentin Schulz <quentin.schulz@cherry.de>,
+ Kever Yang <kever.yang@rock-chips.com>, Jonas Karlman <jonas@kwiboo.se>,
+ John Clark <inindev@gmail.com>, FUKAUMI Naoki <naoki@radxa.com>,
+ Jimmy Hon <honyuenkwun@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
+ Michael Riesch <michael.riesch@collabora.com>,
+ Peter Robinson <pbrobinson@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260107070322.323-1-kernel@airkyi.com>
+ <20260107070322.323-3-kernel@airkyi.com>
+ <b5a3470c-aa03-42d0-a575-b705f709f8e6@lunn.ch>
+ <CABjd4YzsjZXe16XWgrHRG5shNA_DQJF45i1roahvfAfV4xdU0Q@mail.gmail.com>
+ <a545fec0-cb30-489a-b5e6-4ee87dcab41c@rock-chips.com>
+ <5FFFBA7FAF5745A7+e0381969-800a-4bf6-9aac-81cffa3469a1@airkyi.com>
+ <CABjd4YxwD_q_FrEuPw_GY+vG6700Vd_weWqdcFn2C3V0fqpO-Q@mail.gmail.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <CABjd4YxwD_q_FrEuPw_GY+vG6700Vd_weWqdcFn2C3V0fqpO-Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9b9cc1866103abkunm0e048bb5117cfb
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxhJQlZKTElOQx1OQk0YS01WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUJNS0
+	pVSktLVUtZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=f79xQ8sZlvCVy2PFQxXZd70Z/gMMUfuu39/WzLEApaY/LtlnAlZLpyn8o0o7YdTMMF9rsFmxcNn+HU/BGHd8baUJbHmZ7Q7uLAgllFhWoZP56g9OZ17+f6gWldn6XDzL8XE03FG4Ba7H2AOQmequz04zyPDk5B86vAscguWQsL4=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=lHhK7J9UwVHyDp7OnI2aJtOUELVCPGvnzkrrcOsH38Q=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_003801_180422_649D034E 
-X-CRM114-Status: GOOD (  36.52  )
+X-CRM114-CacheID: sfid-20260108_003813_743821_3B55AF1C 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,109 +87,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 1/8/2026 4:11 PM, Alexey Charkov wrote:
+> On Thu, Jan 8, 2026 at 12:02 PM Chaoyi Chen <kernel@airkyi.com> wrote:
+>>
+>> On 1/8/2026 3:42 PM, Chaoyi Chen wrote:
+>>> Hello Alexey, Andrew,
+>>>
+>>> On 1/8/2026 2:53 PM, Alexey Charkov wrote:
+>>>> On Wed, Jan 7, 2026 at 10:18 PM Andrew Lunn <andrew@lunn.ch> wrote:
+>>>>>
+>>>>>> +&gmac0 {
+>>>>>> +     clock_in_out = "output";
+>>>>>> +     phy-mode = "rgmii-rxid";
+>>>>>
+>>>>> rgmii-rxid is odd. Does the PCB really have an extra long TX clock
+>>>>> line, but a short RX clock line?
+>>>>>
+>>>>> Try changing this to rgmii-id, and drop the tx_delay property.
+>>>>
+>>>> Actually it would be great if Rockchip could clarify the delay
+>>>> duration introduced by a single delay element in GMAC-IOMUX delay
+>>>> lines, which are controlled in the GMAC driver by the {tx,rx}_delay
+>>>> properties. Maybe we could then switch to using
+>>>> {tx,rx}_internal_delay_ps for fine-tuning the delays on the GMAC side
+>>>> as envisaged in DT bindings [1], and use phy-mode = "rgmii-id"
+>>>> throughout. Chaoyi, any chance you could ask around in your hardware
+>>>> team?
+>>>>
+>>>> Currently though removing the delays at GMAC side altogether causes
+>>>> unstable link operation - see [2] for example.
+>>>>
+>>>> [1] https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L342-L347
+>>>> [2] https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/commit/372f3e9ae62cc62cdf2543391ea57be6bb548a0c
+>>>
+>>> Sorry, this problem has been discussed many times before. It's because
+>>> the gmac on the Rockchip platform currently relies on setting the
+>>> corresponding delay via phy-mode [3].
+>>>
+>>> [3] https://lore.kernel.org/all/mqoyjn7mnq6tmt6n6oev4wa3herjaxlupml2fmcampwiajvj4a@r5zs4d3jdm5p/
+>>>
+>>> The delay introduced by the delay line is not absolute. In reality,
+>>> it depends on factors such as the chip's design and process technology.
+>>>
+>>> And for RK3576, you can assume that:
+>>>
+>>>       time(ns) = 0.0579 * delay_line_count + 0.105
+>>>
+>>> For example, tx_delay = <0x20> means:
+>>>
+>>>       time = 0.0579 * 0x20 + 0.105 ns = 1.9578 ns
+>>>
+>>> And I believe {tx,rx}_internal_delay_ps is indeed a good idea.
+>>> I'll try to add them in v3. Thanks.
+>>>
+>>
+>> I've also see some dt that use {tx,rx}_internal_delay_ps inside the PHY,
+>> and compared to doing it in the MAC, which one is the better choice?
+> 
+> Your PHY defaults to 1950ps in rgmii-id [1], so adding anything on top
+> of that on GMAC side would land you with a longer total TX delay than
+> you currently get according to the coefficients you've just posted
+> (1784.1ps). I would say go for "tx-internal-delay-ps = <1800>" on the
+> PHY side for the closest match.
+> 
+> [1] https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/net/motorcomm%2Cyt8xxx.yaml#L36
 
+Ah, I thought it was something like this:
 
-> -----Original Message-----
-> From: Andi Shyti <andi.shyti@kernel.org>
-> Sent: Thursday, January 8, 2026 4:13 AM
-> To: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
-> Cc: o.rempel@pengutronix.de; kernel@pengutronix.de; shawnguo@kernel.org;
-> s.hauer@pengutronix.de; festevam@gmail.com; linux-i2c@vger.kernel.org;
-> imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org;
-> linux-kernel@vger.kernel.org; GEO-CHHER-bsp-development
-> <bsp-development.geo@leica-geosystems.com>
-> Subject: Re: [PATCH V1] i2c: imx: Fix SMBus block read hang on zero lengt=
-h
->=20
-> [You don't often get email from andi.shyti@kernel.org. Learn why this is
-> important at https://aka.ms/LearnAboutSenderIdentification ]
->=20
-> This email is not from Hexagon's Office 365 instance. Please be careful w=
-hile
-> clicking links, opening attachments, or replying to this email.
->=20
->=20
-> Hi,
->=20
-> Can anyone from Pengutronix give this patch a look and possibly a try? Ol=
-eksij?
->=20
-> On Mon, Dec 29, 2025 at 08:16:29AM +0000, LI Qingwu wrote:
-> > SMBus block read transfers encode the payload length in the first data
-> > byte. When this first byte is zero, there is no payload and the
-> > transaction should terminate immediately.
-> >
-> > On i.MX, if the first byte of an SMBus block read is zero, the driver
-> > unconditionally overwrites the state with IMX_I2C_STATE_READ_CONTINUE.
-> > This causes the state machine to enter an endless read loop,
-> > eventually overrunning internal buffers and leading to a crash.
-> >
-> > At the same time, the controller remains in master receive mode and
-> > never generates a proper STOP condition, leaving the I2C bus
-> > permanently busy and preventing any further transfers on the bus.
-> >
-> > Fix this by handling the zero-length case explicitly: when the first
-> > byte is zero, ensure that a clean STOP is generated. In this situation
-> > the controller is in master receive mode, so it must be switched to
-> > master transmit mode before stopping. This is done by draining the
-> > pending received byte from I2DR, setting I2CR_MTX to enter transmit
-> > mode, waiting briefly for the mode change, and then proceeding with
-> > the normal STOP sequence.
-> >
-> > This change has been tested on i.MX 8M Plus platform.
-> >
-> > Signed-off-by: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
->=20
-> Is this a fix?
+&gmac0 {
+	phy-mode = "rgmii";
+	tx-internal-delay-ps = <1784>;
+};
 
-Yes, this is a fix. Without this patch, zero-length SMBus block reads cause=
- a system crash=20
-and permanent bus lockup on i.MX 8M Plus. The fix ensures proper STOP gener=
-ation and=20
-prevents buffer overruns.
+But what you actually said was this:
 
-> > ---
-> >  drivers/i2c/busses/i2c-imx.c | 13 ++++++++++++-
-> >  1 file changed, 12 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/i2c/busses/i2c-imx.c
-> > b/drivers/i2c/busses/i2c-imx.c index dcce882f3eba..f40deecf0f66 100644
-> > --- a/drivers/i2c/busses/i2c-imx.c
-> > +++ b/drivers/i2c/busses/i2c-imx.c
-> > @@ -735,6 +735,16 @@ static void i2c_imx_stop(struct imx_i2c_struct
-> *i2c_imx, bool atomic)
-> >               temp =3D imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
-> >               if (!(temp & I2CR_MSTA))
-> >                       i2c_imx->stopped =3D 1;
-> > +             if ((temp & I2CR_MSTA) && !(temp & I2CR_MTX)) {
-> > +                     (void)imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR);
->=20
-> why do we need a cast here?
+&mdio1 {
+	rgmii_phy: ethernet-phy@1 {
+		compatible = "ethernet-phy-ieee802.3-c22";
+		reg = <0x1>;
+		tx-internal-delay-ps = <1784>;
+	};
+};
 
-The void cast explicitly marks this as a dummy read. We're reading I2DR sol=
-ely to drain the
-receive buffer (a required side effect before mode switching), not because =
-we need the value.
-This makes the intent clear to both the compiler and code reviewers.
+These two `tx-internal-delay-ps` things shouldn't be the same, right?
 
->=20
-> > +                     temp |=3D I2CR_MTX;
-> > +                     imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
-> > +                     if (atomic)
-> > +                             udelay(25);
->=20
-> where is this 25 coming from?
-
-It's a conservative value derived from practical testing. at standard mode =
-(100kHz),
-this equals ~2.5 I2C clock periods; at fast mode (400kHz), ~10 periods
-
->=20
-> > +                     else
-> > +                             usleep_range(25, 50);
-> > +                     temp =3D imx_i2c_read_reg(i2c_imx,
-> IMX_I2C_I2CR);
->=20
-> Thanks,
-> Andi
+-- 
+Best, 
+Chaoyi
 
