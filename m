@@ -4,218 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81867CF6ABB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 09:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FE37CF6ABB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 09:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ucKtfcyOQeA8RD7utoh+A2yRxrg9TxIpcd79gnhYck=; b=Okuq5vIxXCg7JhHwxI3NxKX5ST
-	RVp/hofojvG0opw/SId5UU7iRPqaEj8SO2DlbgxGlslW9OOp56/IassbsrYJGBk2FLZzP+O/rMxaX
-	wZsRIHKTiTTHKJ49j3N/MqRLqJaWFI8kz9RE1EUKc+sL7Z7R/3yVUDABGpGnXHanJvZwjXthsZjRG
-	OjQqQtfc51mDnb6T7tAfihf1iDba0n5ngI1fNxyFJfClTUIpEDCHre9j/RAzuRNukkCOyyzVQFWto
-	aTvurWzkKlI+bN+UhiYHb5OJrJVJbO8JBDn5SqVHyRgPq+iEPjnOAiJVmAmtqVMjxN1oQz4sD9VMK
-	T2OCs81Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qIhgIeQrfxHoSwY6/8Qg78ZyXWur/EQhKlbMMeWRoFE=; b=MG8eLc1DIlIByyYS12lwlnm2K/
+	RQZaEr5cvMUS2HduwU5uT93cHVL9/JLaR+7PnHcTJLIpxXFEPg96zYPHlheS/jHc2AAOmBHmV2u5R
+	OWlNF52vt6IWKBvL0X5VaUjyeEPTxYp22ghNS7rfUdp9EuLmWkzwE7VWTLTZVu+te3IW/89fZFqSw
+	tlwqhz+tsvFE3CVlMdp3Hs1DVJ4nPUQnMCzQ4r7rYqg1Bhwkld+vAqjDyTvacgmCfq0H1IaNRlEz2
+	4njc98Tsa1W9k08g8Ajs7RkGv4mVog85A8/ppsl2TqSE1jZEbZgwrOU4po2tw8KjYsz2X1dC7bIQO
+	uwlBKY3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdmeQ-0000000GWGQ-15EA;
-	Thu, 08 Jan 2026 09:49:54 +0000
-Received: from mail-francesouthazon11011001.outbound.protection.outlook.com ([40.107.130.1] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vdmfw-0000000GWXD-42Zb;
+	Thu, 08 Jan 2026 09:51:28 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdmeN-0000000GWFN-0Yo2
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 09:49:52 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=KOPxZhtpkNJhaoqgFy18AYYyVQDO1cFXMrklWdvi2lw+Dl8qt6Uh87yfrD9mN7K9K4f4nqXUHvL+UINc1g8sUKMZL25TxPyvYOTCxIaTbtaEbsNNsj4WULc4srMAVuyc/M6bcqhTL+CMxf+MuPvJa659WYpKIxOgYk1BYx35ewPUiFHia8OM3hxsdU1bdcCbH+i1sEoG9BHKgWtyg3rCaVFdlLZqEZiYQ9Hsi/6K8p2I7gxJDbVJh6DYGxovIe8sYhVsYiUOX75Jo82LbtHtb2bkgP6gKnIovRU3D8pygQ3AeWC9RhKZ81fg2UoCDXMK8LIlYWGXmHUc+2FgbW0wEA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3ucKtfcyOQeA8RD7utoh+A2yRxrg9TxIpcd79gnhYck=;
- b=XUc4cPZx3LpYEwKQFvqPL3Qh35wewfvkut5LjU3J4uPTO445z5cKaYMppuhQQQJx50jV6rmndQKAUgC4ArExUgjirnm4gMQuRq9lYKKp2uTcPOTocX9rD0dj+G8YaFBP5hrP/JhPT/WUYpywzBTQBX9FGjXP0LqjrWHv3E2vI6H0M3egKg0DKTQAWpniPEdESkZ3uOdVfQFZq6ASTq6OEesSM+QVlFPqPHTbsZtPkTxI5UmSJCVPjjmIP/Y7txTNgbH+1chVj1dwZpuYCD0v+AfgqVQ1ddofRucPZSdJEMWzxbjhzk9pLRnlWHsxLpe6hxLMy6fB7NY12Na3gQxXBA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=huawei.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3ucKtfcyOQeA8RD7utoh+A2yRxrg9TxIpcd79gnhYck=;
- b=LE+D5H05UmEncCrkmBa7b1b8BjyuXoI77AvguQzLS6JKebrPoGBsJ8q41sNkJF19buabzpuey6R82oMGy+49I/I7iTGzYLQ2vj06f08BRqFyMD4nkdUaXnBTXaVQBrdREyzpQCBgVN8I+nOkZ97BPlyIfXXakrAIMopVy7citQ8=
-Received: from DUZPR01CA0123.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4bc::8) by AS8PR08MB9645.eurprd08.prod.outlook.com
- (2603:10a6:20b:61a::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.2; Thu, 8 Jan
- 2026 09:49:43 +0000
-Received: from DU6PEPF00009526.eurprd02.prod.outlook.com
- (2603:10a6:10:4bc:cafe::4f) by DUZPR01CA0123.outlook.office365.com
- (2603:10a6:10:4bc::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.3 via Frontend Transport; Thu, 8
- Jan 2026 09:50:19 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU6PEPF00009526.mail.protection.outlook.com (10.167.8.7) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.1 via
- Frontend Transport; Thu, 8 Jan 2026 09:49:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SeMqDAolbC4+6CvuajE19cS9jd+7N5EkKLH8aIrt8jVolBbZD9JabV5jI1QZxz5Z3MU0iqreJGoxHFKUW9k+lPRxI1e934Qlaal13/+cSBS4+C7E+NOZjxktQQw5P3o6UTri/d/tsr4EpAqfySicP3SDVL8oNQIZjQfyc2C266vdrqSuMBmU0cI6ByB0he+rUO4FMW+0y7QzEzWRXOy1sl4uZpJnjScOOtjs5qBnkEmmC7VZJ2fWXh0Ycs6jrLFICFOwHNtkk4Z+2+YCgv1/cHqa6RsIm5M0PmhugHOmA77lP8LAyqahL/NmQQaNRv99Z8ViT9sEd4HQaIkYbH/csQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3ucKtfcyOQeA8RD7utoh+A2yRxrg9TxIpcd79gnhYck=;
- b=TYAN1Z5/5NKtP0nPOJBtjr/G1SNHEWUO+78G7UGOm+bYXeWrSmapZ8GcmJpn6h8bYZMh8Ibrk4dHVRemF2USn11Kq/DGrUvDEcMPJNEurTcVSxMUiyqJjzV2ibST7N0cp7TT+y4p5mrsIK5MR+S08SRYFprVIHoDgqSder+ytUqzupHBt+WjriAfzAcgrYNaIaV71/5/dFvuYuZBRX/5dDXsswJotW3zj891RPQa5vTnHMzX9XbKuRbXSeRElhjr0kQuBP/1AiZZhVR/cFm5lP5CNW4SUaIZu/xxPMMTw2/HDjTz/V43Tu3bumOHvsD9vfrbuNgWcnuP8Q3WQ2r2bw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3ucKtfcyOQeA8RD7utoh+A2yRxrg9TxIpcd79gnhYck=;
- b=LE+D5H05UmEncCrkmBa7b1b8BjyuXoI77AvguQzLS6JKebrPoGBsJ8q41sNkJF19buabzpuey6R82oMGy+49I/I7iTGzYLQ2vj06f08BRqFyMD4nkdUaXnBTXaVQBrdREyzpQCBgVN8I+nOkZ97BPlyIfXXakrAIMopVy7citQ8=
-Received: from AS8PR08MB6744.eurprd08.prod.outlook.com (2603:10a6:20b:397::10)
- by AM7PR08MB5415.eurprd08.prod.outlook.com (2603:10a6:20b:10d::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.3; Thu, 8 Jan
- 2026 09:48:39 +0000
-Received: from AS8PR08MB6744.eurprd08.prod.outlook.com
- ([fe80::c07d:23d6:efa7:7ddb]) by AS8PR08MB6744.eurprd08.prod.outlook.com
- ([fe80::c07d:23d6:efa7:7ddb%6]) with mapi id 15.20.9499.002; Thu, 8 Jan 2026
- 09:48:39 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>
-CC: "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, Timothy Hayes <Timothy.Hayes@arm.com>, Suzuki
- Poulose <Suzuki.Poulose@arm.com>, nd <nd@arm.com>, "peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvm@vger.kernel.org"
-	<kvm@vger.kernel.org>, Joey Gouly <Joey.Gouly@arm.com>, "maz@kernel.org"
-	<maz@kernel.org>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>
-Subject: Re: [PATCH v2 08/36] KVM: arm64: Introduce kvm_call_hyp_nvhe_res()
-Thread-Topic: [PATCH v2 08/36] KVM: arm64: Introduce kvm_call_hyp_nvhe_res()
-Thread-Index: AQHccP+AuO5u84edkE+pcGHcNBr/E7VGn1wAgAGGkIA=
-Date: Thu, 8 Jan 2026 09:48:39 +0000
-Message-ID: <5ef0d810c4619b941d5c74e79401ce584193604d.camel@arm.com>
-References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
-	 <20251219155222.1383109-9-sascha.bischoff@arm.com>
-	 <20260107103044.00000df0@huawei.com>
-In-Reply-To: <20260107103044.00000df0@huawei.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1.1 
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: AS8PR08MB6744:EE_|AM7PR08MB5415:EE_|DU6PEPF00009526:EE_|AS8PR08MB9645:EE_
-X-MS-Office365-Filtering-Correlation-Id: 99e42e0c-e48a-4ba9-131a-08de4e9b3f51
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024|38070700021;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?TXkzZXNFTDk2TzVkYkpSNDVkYXl4V1FqK1J2TEdLT3ZvNzFzSVRMM0pTeVFB?=
- =?utf-8?B?M21pWW1Fc0lPT0E3TDRIeHlySmFmZXBRdVVpUjlRRXdVZDF5WnUyV0xqNXgx?=
- =?utf-8?B?RlR0Y3VNM3ZNNjFhZGVOL3NoVjZaT3UyMjUrdkpBNVNzMnFoSmtMcVRwcUNs?=
- =?utf-8?B?c1JCR1FxUTlEM3pSQ0VNMWlTMXQ0ZVpKbnpPMVN3TUhuSWxadmJLWXF1TTRm?=
- =?utf-8?B?OW9kYTllSDZiNXM2emtuMStFdGRzalk0V0tBeDJsdnFiR3lxenBrN2F4YkE3?=
- =?utf-8?B?Q1JTR29RVnRuMWZucy9zanFnclVyMUFrUlJlOHFzaVprT1QwNXcrZ2EvZkFr?=
- =?utf-8?B?OUpoSkxBeElPVCtVUFozL0hqYS9CeDN2dEtJeVk1cG53ZHg2cVZBWXF0L1FW?=
- =?utf-8?B?elg0MDVUYmFQQ2xkU2tyL1ptcG1jOW5SMXFKdVlsK0hpWkpoZ3h2eG1VR2xl?=
- =?utf-8?B?R3N1UnE1NkNFc05yR3V6ZVZGV2pKdDNneXZSMU9IL1ZYM0ZCUlVpWkh5OHFh?=
- =?utf-8?B?cnl2S2tDTEhmREtxdHkwZTFPWkJ6OHhXVkNscTRFZmJrZXUrZEkydjdXTW9S?=
- =?utf-8?B?ZllCMEs5QXhzZjJVS0dvWlU2UWJvK0NRSk53MEt2UlVUR0dsSWxhcTdxNU9z?=
- =?utf-8?B?T2V5ZEl6QmhtQzN5eTF4MmhnSWFzWUhLT1Qzc3Bhc1RUNFAvcExXUkZuYkp3?=
- =?utf-8?B?Z2Y0Y1VSbGk3d1VaNWo4cHlHZEJMcks0WjM3WGRMYnhyQ2M5MHlZMEFyZjRM?=
- =?utf-8?B?VnR2eFR6aGd5OGNhd0VtZWRaa3ZzaFkycldaNDhsa0NVMVdGY3JDdmkzc29j?=
- =?utf-8?B?UW00R2RMNml5V2FEVmMrelRLMjFJM2lHR0V3cHpTU0xRNm1kMjlPdFQwUUR4?=
- =?utf-8?B?azZwU2l0NDk3RTVVcFdpd0djNmYreXo1WkRTVHJnV3BEK0tldHpyU1pReXZo?=
- =?utf-8?B?d3dzbXBLMlNCVCszYWxTS1UzU1BOSFBCTjFPVEFoM3FKZXFzUllmMWpham1F?=
- =?utf-8?B?Y3ZmUGxnN0dOU3J4VHVxR0VOcUloWTZMWXN2OHFTYXNvTlRDaG52M1l4Y1Z5?=
- =?utf-8?B?UWh3ZCttRWNxaDRndDhSdlhYMU9BcXpVSEh6anlKaFhTOXBIQUUvUGMzNFdu?=
- =?utf-8?B?VHFCTGhDRWpYOTc1ZCt1SHl2VEF6Qnhlbm92c2M1WWpNWVRoaHJtTlVlcDkv?=
- =?utf-8?B?bUo2RlpUNm56Vk53TmM1UWJ6SWNpVWxMSWFzWWlFSWkrb0x1eTMzWm56VW1W?=
- =?utf-8?B?c2ZmNGh2cG13c0NXZXBGcnpiRm5KR2ZKT1llQ05JZ2ZaaWNza09JajE4TmFL?=
- =?utf-8?B?aHNHVjIxYW1MNlJodzI0blptWUdNcm1YajdBNXZDaXRzTTFJN3JFdFJHUzcw?=
- =?utf-8?B?bU9KNHgzSnRCUEdPd0FVMFd1bFQ0MjRDYmFYYkd1QTkzMGNVNXh1UG03TWJo?=
- =?utf-8?B?MnlhVlZ2a1Q4TUZlVUpKQXUrNDhxdW4wYzhLR2pwY3NYQWlzQ2UyNDBSSUdR?=
- =?utf-8?B?aS9Ec0grZElQbkFWQ0RUL2ViMEVjL1NnbFRaZE9KQlpzM1hKc2dzWWg1a2RK?=
- =?utf-8?B?eDlxSkFEbngrbGtiQTZNTlg1aW9HWVllQkhpSzZlUFpqb0lRcHlCMEk2a28v?=
- =?utf-8?B?bHFKd0dRdStvVloyemxlTXdMSnpJWDJpQXpGS1RrT1Z3L29uT0ViTFN2THhH?=
- =?utf-8?B?Sk1xMlB5Q3Y5eDM5bVVDNlo5TFJoRTFQOVpSMnM4VGJ3cUFHVzUwVkx0T2tY?=
- =?utf-8?B?Z2tvL0lueFB6dUZsaUJWMC94eFg5QmlnUEdUV01LWUYvUEcwREIycXdYNnlp?=
- =?utf-8?B?RzJkUlJPRlZiNDNycTNsUzNucEx3MVQraEc5Z0crV3pVWEUwM2xuQ2poblRy?=
- =?utf-8?B?VlJLakZESjcySHV5UXR0WERGeVdJUi9JcWdVTm92L1dHU1pmU0tiUVQrbjBv?=
- =?utf-8?B?L0taeXlRU3EvMnI1aGdrbzlkVis0UWNEUFFyVzhIN3pwa09xM08rOGh1OFBu?=
- =?utf-8?B?SzZUVXV4S3dQOEU3Ri8zL09qbC9pakxCbmhuejN2amd6Ty9OUGhJbGsxb1Rt?=
- =?utf-8?Q?hR8z/x?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR08MB6744.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <08AE12C81A91C54E98516FF5AB5DB477@eurprd08.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1vdmfr-0000000GWVK-2zOe;
+	Thu, 08 Jan 2026 09:51:26 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260108095119euoutp012e7ad1462b8b6546e4cff164dba8ea55~IuKaJVawL1372713727euoutp01r;
+	Thu,  8 Jan 2026 09:51:19 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260108095119euoutp012e7ad1462b8b6546e4cff164dba8ea55~IuKaJVawL1372713727euoutp01r
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1767865879;
+	bh=qIhgIeQrfxHoSwY6/8Qg78ZyXWur/EQhKlbMMeWRoFE=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=UTRxRKAkfvHrYXb9uuCmebd05iS7yvKrvvnJwRrRGhnYTQOLlD9QO1+EdwnMJ+ehI
+	 u+g5bCtH0fF1cWkIawNRR2L1XBWHErXWwnjERy/ax6OfO/jSXefKZQPQG4zziy4O0D
+	 g+iU8AvXlmt/VOaAS6kHTAjcr9t0XASl+sQYc+ow=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260108095118eucas1p1a2ae95ae60fa870c35c955b087ba4649~IuKZz7bdM1725517255eucas1p1B;
+	Thu,  8 Jan 2026 09:51:18 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260108095116eusmtip22f2b99fa0f4ed0d118e1c4afbe18750f~IuKXrldR10240202402eusmtip2j;
+	Thu,  8 Jan 2026 09:51:16 +0000 (GMT)
+Message-ID: <af154ebb-53b9-40eb-8ff9-089ed8bc3f04@samsung.com>
+Date: Thu, 8 Jan 2026 10:51:15 +0100
 MIME-Version: 1.0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR08MB5415
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF00009526.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: c59b8dd0-c12b-485a-13b8-08de4e9b19b7
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|14060799003|36860700013|35042699022|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bC9kY1VHcm9zUHowN2xGbnU4aEhXYTdNNlNqbXRhLzhWZWF0cVlxYXVIU1l5?=
- =?utf-8?B?eXdNUVl1OFJuR2N6aG5XeWlRV3JXcFllZ2o5SWFwaFMrZ0o4WlJpMENNYnpv?=
- =?utf-8?B?cDBPRVdpL1dQcXhmZXQ3enhmdUI0amo1OFg4cmpISFgyb3c3NWI1dUlYYk02?=
- =?utf-8?B?MkRJbWRMOHpjQm9yTGRFMHpGcXU0WWZCZWxsOWIreVZNaUtYbnVNN1BDVFNS?=
- =?utf-8?B?c29QeEx0NjJodTcvRkZYeGZydWhpaVUyTmlnZ1pZcnNWZlNxSVBQWGRxanZm?=
- =?utf-8?B?YmxwZm1NVERmUDQ3dDJldFNwTVdkNCtXZWVvbGpFQVZRMnlYZHdoSHdGbmUr?=
- =?utf-8?B?aTVFdUI0MUFZNGlpUyt0TW45aDRQRzY3S3czTDRLaXpIOW5VSWhyb3pYVWZs?=
- =?utf-8?B?WSs3VHpScXJDTksreDlCUlpOQ3FDazdEbkxNelg4UVMxMzErMlZQOHpoc3JN?=
- =?utf-8?B?cnBjbEd2bnZnazgwbnJXWFRvcHV1N1ZnYXRZQmxqVi9OS3BvZ0tOZDc5UjZ2?=
- =?utf-8?B?OUpFRjU1TVpmUm5XZ0hqc3BoUG1LajUyWjd4UVZFQlhPTGowVUVvM2NrZSs5?=
- =?utf-8?B?dWkyVmhtSy9ac2RNaW1ibkpPUWVBbmw2NW1wd0k1eWl2UGlpQWtlTEFlcmly?=
- =?utf-8?B?eGFHOThBMklsMklTelJ0cWZKcklzVXRXT1dTU1NQeFNqSS8yOXNlTFRyWVFB?=
- =?utf-8?B?LzNOSjJrTlBEYzdDbkt6OXRYRjdFSkkyZllUbGdneWdEK3p4Qm0wQ1hlbFJj?=
- =?utf-8?B?b2lPY0laSWcwYWZZQTZiWlY2cit6eXdONlUveDFtQWw0QWxlMVlQS3FJRmUy?=
- =?utf-8?B?RHpOb0hyYUszcXJUcFhOTnFNc2JOc0lnNzdSTk5QbW5QVHcyMVlheFZGUjAr?=
- =?utf-8?B?RTJyMXBiMTJ4NllsK3NVYWRvWEduR2xobEhrT3FlM1UzWnlHa0tVRmU0VWJ2?=
- =?utf-8?B?YjZWMUlkdk1sYk9BVkx4Y2NReHFLdmZaNWJNQkIzQklPZ04ySlU1Tkc5OXph?=
- =?utf-8?B?TXNNMkxJd3FHdmJwaUdabHl4bU11WTdZYmFSR1ZBbnNqRkg3ODZaMDdZRnpV?=
- =?utf-8?B?SFZFMGJVcUdDY0g5UVljalQ0YkprWmxKTCtHcGV0VEFEcHd1NEFzL3dFb1lt?=
- =?utf-8?B?ZVZXU2lGQWxlYlMxR3dzNFV1SXpxekhuQy80ekZQUFI0eEZGeTlaVUFsWmVR?=
- =?utf-8?B?QWhaeWYrSk1MNkJ0NWFZRHZ4ejNpdWhmSlVlRzVKc0V6VVgyWll0aS84M25v?=
- =?utf-8?B?bFRON3FIYkt4c2JMOGtGdDQ1clllaGwyVHFUbmdWd0d5Q2dweTNnaDViaTVI?=
- =?utf-8?B?QjV0Vm9JZVlxR1dua1ZwS1VvNVhlZXRKckZuK3ZHd0tJVTFkNXVqcmlSWVFM?=
- =?utf-8?B?aXRsOE1CeHN6T2hjVWZqdHBWZkVLZzhVOXAvaVNZVG5lV1lTM0RQS2x5NGdQ?=
- =?utf-8?B?MWpKWWlSSEhsbU9wNmV1STEvT3B5czRuS0xvWktBY2dtQVBLdWtFMGYzdzlv?=
- =?utf-8?B?RHBQeVZ4eEVQM3RQRG9RZkYxZEp6b2ZMcTc5NzhuOThudWR6RHQ1OXpyV0dX?=
- =?utf-8?B?SVRjbnFxTG02NjVha3Z3T1RJd3g5ZWhsbmtEUVdHNWdEcFNDeHQ1NmVqeFUx?=
- =?utf-8?B?cStUa0h5K2xGWHhsbUVOTWsyMk9uSmVVM2dPTU9qL3FJS2JKYkk0M0wyaGRT?=
- =?utf-8?B?alE0aHRnSHorQUJ1cjhGeEI2MnRYUjQ2K2pOWisyK0JXQmkzMmtFTmxFTUlD?=
- =?utf-8?B?eS9vNm5EdU1MUnpLSE5pa25iVWFFTURLcjFhZHZER3N4YU1MVHBkZ0Rjalhs?=
- =?utf-8?B?LytYcWVmTGZVdWlZZlF3OEVaOFhYaTBRdE5UYTJmMDM4YkxWRHk5VHlEREN1?=
- =?utf-8?B?TnBGQkdxV0ttKzlQbmZSR3ZERHBiMGxMUytCZU5zMVBPamV6TzNNWGcrTFFI?=
- =?utf-8?B?eTFMdEh1T1A0aU5wRXJCc2dWMlRRRmhieVhoUFl2TE9rdHg4MnEzUlpHTlhx?=
- =?utf-8?B?eDVmcllzMlplTWttT2Q5Wk9PWkUzUVA3akF4dlJWWnU0aWt6aHBHcUFwNHRJ?=
- =?utf-8?B?azRQU3IzblliS2RweDRwWW1mRlQ3eU9mWTMxbWx1a0FxVmVxTHpRSXFpbFFu?=
- =?utf-8?Q?1398=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(14060799003)(36860700013)(35042699022)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2026 09:49:42.1280
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 99e42e0c-e48a-4ba9-131a-08de4e9b3f51
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF00009526.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB9645
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH 5/6] drm/exynos: hdmi: convert to
+ of_drm_find_and_get_bridge()
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>, Andrzej Hajda
+	<andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+	<Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, Jernej
+	Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Kevin Hilman <khilman@baylibre.com>, Jerome
+	Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
+	<martin.blumenstingl@googlemail.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Inki Dae <inki.dae@samsung.com>,
+	Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park
+	<kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, Alim
+	Akhtar <alim.akhtar@samsung.com>, Laurent Pinchart
+	<laurent.pinchart+renesas@ideasonboard.com>, Tomi Valkeinen
+	<tomi.valkeinen+renesas@ideasonboard.com>, Kieran Bingham
+	<kieran.bingham+renesas@ideasonboard.com>, Geert Uytterhoeven
+	<geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Thomas Petazzoni
+	<thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-mediatek@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-5-ef48a517828e@bootlin.com>
+Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20260108095118eucas1p1a2ae95ae60fa870c35c955b087ba4649
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260107164213eucas1p21ed81372d4acebdf02a825b66b0e75de
+X-EPHeader: CA
+X-CMS-RootMailID: 20260107164213eucas1p21ed81372d4acebdf02a825b66b0e75de
+References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-0-ef48a517828e@bootlin.com>
+	<CGME20260107164213eucas1p21ed81372d4acebdf02a825b66b0e75de@eucas1p2.samsung.com>
+	<20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-5-ef48a517828e@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_014951_380964_F2C9CA9B 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20260108_015124_356032_5E52A67D 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -230,53 +109,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMDI2LTAxLTA3IGF0IDEwOjMwICswMDAwLCBKb25hdGhhbiBDYW1lcm9uIHdyb3Rl
-Og0KPiBPbiBGcmksIDE5IERlYyAyMDI1IDE1OjUyOjM4ICswMDAwDQo+IFNhc2NoYSBCaXNjaG9m
-ZiA8U2FzY2hhLkJpc2Nob2ZmQGFybS5jb20+IHdyb3RlOg0KPiANCj4gPiBUaGVyZSBhcmUgdGlt
-ZXMgd2hlbiBpdCBpcyBkZXNpcmFibGUgdG8gaGF2ZSBtb3JlIHRoYW4gb25lIHJldHVybg0KPiA+
-IHZhbHVlIGZvciBhIGh5cCBjYWxsLiBTcGxpdCBvdXQga3ZtX2NhbGxfaHlwX252aGVfcmVzIGZy
-b20NCj4gPiBrdm1fY2FsbF9oeXBfbnZoZSBzdWNoIHRoYXQgaXQgaXMgcG9zc2libGUgdG8gZGly
-ZWN0bHkgcHJvdmlkZQ0KPiA+IHN0cnVjdA0KPiA+IGFybV9zbWNjY19yZXMgZnJvbSB0aGUgY2Fs
-bGluZyBjb2RlLiBUaGVyZWJ5LCBhZGRpdGlvbmFsIHJldHVybg0KPiA+IHZhbHVlcw0KPiA+IGNh
-biBiZSBzdG9yZWQgaW4gcmVzLmEyLCBldGMuDQo+ID4gDQo+ID4gU3VnZ2VzdGVkLWJ5OiBNYXJj
-IFp5bmdpZXIgPG1hekBrZXJuZWwub3JnPg0KPiA+IFNpZ25lZC1vZmYtYnk6IFNhc2NoYSBCaXNj
-aG9mZiA8c2FzY2hhLmJpc2Nob2ZmQGFybS5jb20+DQo+IE9uZSBxdWVzdGlvbiBpbmxpbmUsIG1v
-c3RseSBiZWNhdXNlIEknbSBjdXJpb3VzIHJhdGhlciB0aGFuIGENCj4gc3VnZ2VzdGlvbg0KPiB0
-byBjaGFuZ2UgYW55dGhpbmcNCj4gDQo+IFJldmlld2VkLWJ5OiBKb25hdGhhbiBDYW1lcm9uIDxq
-b25hdGhhbi5jYW1lcm9uQGh1YXdlaS5jb20+DQo+IA0KPiA+IC0tLQ0KPiA+IMKgYXJjaC9hcm02
-NC9pbmNsdWRlL2FzbS9rdm1faG9zdC5oIHwgMTUgKysrKysrKysrKy0tLS0tDQo+ID4gwqAxIGZp
-bGUgY2hhbmdlZCwgMTAgaW5zZXJ0aW9ucygrKSwgNSBkZWxldGlvbnMoLSkNCj4gPiANCj4gPiBk
-aWZmIC0tZ2l0IGEvYXJjaC9hcm02NC9pbmNsdWRlL2FzbS9rdm1faG9zdC5oDQo+ID4gYi9hcmNo
-L2FybTY0L2luY2x1ZGUvYXNtL2t2bV9ob3N0LmgNCj4gPiBpbmRleCBiNTUyYTFlMDM4NDhjLi45
-NzFiMTUzYjBhM2ZhIDEwMDY0NA0KPiA+IC0tLSBhL2FyY2gvYXJtNjQvaW5jbHVkZS9hc20va3Zt
-X2hvc3QuaA0KPiA+ICsrKyBiL2FyY2gvYXJtNjQvaW5jbHVkZS9hc20va3ZtX2hvc3QuaA0KPiA+
-IEBAIC0xMjA4LDE0ICsxMjA4LDE5IEBAIHZvaWQga3ZtX2FybV9yZXN1bWVfZ3Vlc3Qoc3RydWN0
-IGt2bSAqa3ZtKTsNCj4gPiDCoCNkZWZpbmUgdmNwdV9oYXNfcnVuX29uY2UodmNwdSkJKCEhUkVB
-RF9PTkNFKCh2Y3B1KS0+cGlkKSkNCj4gPiDCoA0KPiA+IMKgI2lmbmRlZiBfX0tWTV9OVkhFX0hZ
-UEVSVklTT1JfXw0KPiA+IC0jZGVmaW5lIGt2bV9jYWxsX2h5cF9udmhlKGYsDQo+ID4gLi4uKQkJ
-CQkJCVwNCj4gPiArI2RlZmluZSBrdm1fY2FsbF9oeXBfbnZoZV9yZXMocmVzLCBmLA0KPiA+IC4u
-LikJCQkJXA0KPiA+IMKgCSh7CQkJCQkJCQ0KPiA+IAlcDQo+ID4gLQkJc3RydWN0IGFybV9zbWNj
-Y19yZXMNCj4gPiByZXM7CQkJCVwNCj4gPiAtDQo+ID4gCQkJCQkJCQkJXA0KPiA+ICsJCXN0cnVj
-dCBhcm1fc21jY2NfcmVzICpfX3JlcyA9DQo+ID4gcmVzOwkJCVwNCj4gDQo+IFdoYXQncyB0aGUg
-cHVycG9zZSBvZiB0aGUgbG9jYWwgdmFyaWFibGU/IFR5cGUgc2FuaXR5IGNoZWNrPw0KPiBGZWVs
-cyBsaWtlIHR5cGVjaGVjaygpIHdvdWxkIG1ha2UgdGhlIGludGVudCBjbGVhcmVyLg0KPiBNZWgu
-IE5vdCB1c2VkIGFueXdoZXJlIGluIGFyY2gvYXJtNjQgc28gbWF5YmUgbm90Lg0KDQpGYXIgbGVz
-cyBleGNpdGluZywgSSdtIGFmcmFpZC4NCg0KSXQgaXMgYmVjYXVzZSBvZiB0aGUgdGV4dCBzdWJz
-dGl0dXRpb24gdGhhdCBoYXBwZW5zLiBUaGUgcmVzIGhlcmUgaXMNCnJlcGxhY2VkIHdpdGggJnJl
-cyBmcm9tIGt2bV9jYWxsX2h5cF9udmhlKCkgYW5kIHdlIGVuZCB1cCB3aXRoICZyZXMtDQo+YTAu
-IEdpdmVuIHRoYXQgLT4gYmluZHMgbW9yZSB0aWdodGx5IHRoYW4gJiwgd2UgZW5kIHVwIHdpdGgg
-dGhlIHdyb25nDQp0aGluZywgYW5kIHRoZSBjb21waWxlciBiYXJmcy4NCg0KQW4gYWx0ZXJuYXRp
-dmUgd291bGQgYmUgdG8gZG86DQoNCglXQVJOX09OKChyZXMpLT5hMCAhPSBTTUNDQ19SRVRfU1VD
-Q0VTUyk7DQoNClRoaXMgcmVtb3ZlcyB0aGUgbmVlZCBmb3IgdGhlIGxvY2FsIHZhcmlhYmxlLiBJ
-J3ZlIGdvdCBubyBwcmVmZXJlbmNlDQpmb3Igd2hpY2ggdmVyc2lvbiB3ZSBnbyB3aXRoLg0KDQpT
-YXNjaGENCg0KPiANCj4gDQo+IA0KPiA+IMKgCQlhcm1fc21jY2NfMV8xX2h2YyhLVk1fSE9TVF9T
-TUNDQ19GVU5DKGYpLAkNCj4gPiAJXA0KPiA+IC0JCQkJwqAgIyNfX1ZBX0FSR1NfXywNCj4gPiAm
-cmVzKTsJCQlcDQo+ID4gLQkJV0FSTl9PTihyZXMuYTAgIT0NCj4gPiBTTUNDQ19SRVRfU1VDQ0VT
-Uyk7CQkJXA0KPiA+ICsJCQkJwqAgIyNfX1ZBX0FSR1NfXywNCj4gPiBfX3Jlcyk7CQlcDQo+ID4g
-KwkJV0FSTl9PTihfX3Jlcy0+YTAgIT0NCj4gPiBTTUNDQ19SRVRfU1VDQ0VTUyk7CQlcDQo+ID4g
-Kwl9KQ0KPiA+ICsNCj4gPiArI2RlZmluZSBrdm1fY2FsbF9oeXBfbnZoZShmLA0KPiA+IC4uLikJ
-CQkJCVwNCj4gPiArCSh7CQkJCQkJCQ0KPiA+IAlcDQo+ID4gKwkJc3RydWN0IGFybV9zbWNjY19y
-ZXMNCj4gPiByZXM7CQkJCVwNCj4gPiDCoAkJCQkJCQkJDQo+ID4gCVwNCj4gPiArCQlrdm1fY2Fs
-bF9oeXBfbnZoZV9yZXMoJnJlcywgZiwNCj4gPiAjI19fVkFfQVJHU19fKTsJCVwNCj4gPiDCoAkJ
-cmVzLmExOwkJCQkJDQo+ID4gCQlcDQo+ID4gwqAJfSkNCj4gPiDCoA0KPiANCg0K
+On 07.01.2026 17:22, Luca Ceresoli wrote:
+> of_drm_find_bridge() is deprecated. Move to its replacement
+> of_drm_find_and_get_bridge() which gets a bridge reference, and ensure it
+> is put when done.
+>
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> ---
+>   drivers/gpu/drm/exynos/exynos_hdmi.c | 4 +++-
+
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+
+>   1 file changed, 3 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/gpu/drm/exynos/exynos_hdmi.c b/drivers/gpu/drm/exynos/exynos_hdmi.c
+> index 01813e11e6c6..bfcf2fa62fe1 100644
+> --- a/drivers/gpu/drm/exynos/exynos_hdmi.c
+> +++ b/drivers/gpu/drm/exynos/exynos_hdmi.c
+> @@ -1779,7 +1779,7 @@ static int hdmi_bridge_init(struct hdmi_context *hdata)
+>   		return -EINVAL;
+>   	}
+>   
+> -	hdata->bridge = of_drm_find_bridge(np);
+> +	hdata->bridge = of_drm_find_and_get_bridge(np);
+>   	of_node_put(np);
+>   
+>   	if (!hdata->bridge)
+> @@ -2096,6 +2096,8 @@ static void hdmi_remove(struct platform_device *pdev)
+>   
+>   	put_device(&hdata->ddc_adpt->dev);
+>   
+> +	drm_bridge_put(hdata->bridge);
+> +
+>   	mutex_destroy(&hdata->mutex);
+>   }
+>   
+>
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
