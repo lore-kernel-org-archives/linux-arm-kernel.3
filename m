@@ -4,65 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B876ED1D492
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 20:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C96D1D494
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 20:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t3otNVD7IIfdqZW2Ev5WG9FHN6LT1F9BWrJwjvjMbRc=; b=YfzqQFMPyET165/OuM20AgBFwf
-	VfJRv0B3vRniZBeJKBBeaTcp0MAdEmElLey/ywLxyofu6q2htftlA+aHTWH35X/AQJsK8wJ86WprG
-	cE2twhWsyfnZI/EHmmP3So0mgwfDIw8mtulHxiZcsjWY9xgy07KGr1Mpr7M1BDey7Q+58eIDG5H6n
-	asFEmVoDwO84v8wy+UNpugsiKRrymvqHIp5oqcWVIN6W1C9sQYwfO174LdwNtMDcixyBn+4i8GJX6
-	G9w3XKi10JZ42UgRqno8vgXc4HedD5zUbBeZKyP6ak/lp8p4410xj0/+Sg+OOYklc06EdkmYSddvb
-	cCVApAXw==;
+	bh=ncr9wQixKp0DuZvt8wQRxeDUwFvl6Ym9a7uU4tCK5vA=; b=RVUGH+GMMeSlR+lZVuhTyi0GRP
+	hfPd5/3U39P8zWBqICIxyI9Rfv5dHjbGi8HW3z2YZ7JD6e/iQG+EQIjJezHSBbvbh41Hr1AB/1i9j
+	CuL6jcNrWdxaWeSqPP+iPLkm/PppGnxSfC5S1w9AyYp3p4IZShVTA5RgM6qVLyxuXG0PvdqCakRvA
+	JXIiAdUx7e/LFk+sEPXIBtHeRM1dYoItPMx1o60HnIyw9qaTQ3tocPJeFsKow2+YAz4khfV++Fvva
+	MygcqXJJRlBlvWb9tVVUNAwBL3O5rQ/vhr0yyF/9a+B8yZPfRWYy16M5Zbs8CpQ7F6HOCcnt+Yex2
+	ypKewFdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdwai-00000000pAf-2MQv;
-	Thu, 08 Jan 2026 20:26:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vdwd9-00000000pZV-0boV;
+	Thu, 08 Jan 2026 20:29:15 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdwaf-00000000p8u-3EW4;
-	Thu, 08 Jan 2026 20:26:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B75804348E;
-	Thu,  8 Jan 2026 20:26:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38C48C116C6;
-	Thu,  8 Jan 2026 20:26:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767904000;
-	bh=Lbm1wO5Em7fQQ3GgNoKyxmZwFi9cEzaK6DxC0Hi/YDo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EyNigXEX0DLMaJG0OfQR4OzGuk/of9r8RZK5qiWkOnEYPPsqT0sO1q1s17KEOINIa
-	 NBWSlBfPlmpONGDNCI9fjxzMZ/y80VPpOFRdXRRSXCarUm+xRxIyCQyBO2jMrr/Pje
-	 0xSy3IPcI6jBuNEU0eiYYB2+/koWhKmP6dZuRJsMN9+a79OGGH37b3RJ/9LQes/OUF
-	 mnBoRj1PnxeL4FC9HPYLvmsv6ugYHZMjQ8aen4EJS9tGlvv2R26hZgQdr3CTeZlyOS
-	 YqTHMwNzv2jbc77JdR4R84tXkpLq9i5xMwKqrJCMQwpE/B+HX3bhXiAuLk2eXY560K
-	 X0Kk2IgVhopmQ==
-Date: Thu, 8 Jan 2026 12:26:18 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Harald Freudenberger <freude@linux.ibm.com>
-Subject: Re: [PATCH 00/36] AES library improvements
-Message-ID: <20260108202618.GA2687@sol>
-References: <20260105051311.1607207-1-ebiggers@kernel.org>
- <CAMj1kXGRTfyXPD3+Ravr7O5ZUMAUeabQw455sW5g7aRy3BU+2Q@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXGRTfyXPD3+Ravr7O5ZUMAUeabQw455sW5g7aRy3BU+2Q@mail.gmail.com>
+	id 1vdwd6-00000000pYV-3Ols
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 08 Jan 2026 20:29:13 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-34c21341f56so7549111a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 08 Jan 2026 12:29:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1767904151; x=1768508951; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ncr9wQixKp0DuZvt8wQRxeDUwFvl6Ym9a7uU4tCK5vA=;
+        b=Ej+vC5yU7yywOXnKItyW3jPZYoTWAJ4F4cbEMn1Ag3mlW5ZQQ1faJ4du/uISaWLnvo
+         +sr8zBeNgJ+YDTEEOTH5pdRLrLusgUa3T3JRrC1fLwQnzDkjszh+AeIXTAm1B8gzH82f
+         fLQfMxC24eI8hOTs8MTyYNis9WEvtvETR/cYAseURPuijN9EedjC01ilEutJf6d44NiA
+         oyXMdxOfDiTfC6ccxZ0wNxKWGTAHZR0IpuoF3cRBPZhyMc+MYajA8g0CW68fl3CbFe3l
+         1L38bq34Xp2So8L3nygdATb39VpglY2RP2DqO7JyLBtQv/b5YCG1SvjbDg1ui+xhbI+9
+         Ntfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767904151; x=1768508951;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ncr9wQixKp0DuZvt8wQRxeDUwFvl6Ym9a7uU4tCK5vA=;
+        b=SOg2K/dIe1qn43UiKB0j7lcrfI21sU6/l/oI8gzH17jGwIHz/hlIJLxzZAYmxMuI5x
+         AWizEzCt+lmAnWzJxv7ahjKugdUDuoYv4qHSpR6OYxIoJILPC0cAu9WdAxtUvnEotjN1
+         QQ4yOX67wn+5Z+zUZDDLImViBftMG/KHuJao0GCvrTaMmVU5BjbiBr/FPNALHRXj4GYC
+         5T4G6gWxGReLMINTpXoJAbyv6MPOSoxeY3SXTgmh5IdVT2D3E2On5Zw48pSs/0vJggK1
+         q6uqVCJogqAMx96uWGbZbjJS0kuJwWfPhXQXrTMcyheZcqeXVd70r8a0OqZv+opJ+fmd
+         KpWg==
+X-Forwarded-Encrypted: i=1; AJvYcCXXbF74cQHw9wkzeqjswGmKQWakpgJhTEvz/qryKNBXnQQzTyFDCby2t8e+GfOFO82beXLidHzr2lUHxwNYQ7uv@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEwVtjHHidaSgAkh5H4HKvK/Tk0pJN3mvcqLhncyH9EHFoKnLZ
+	UAZ85PsFPwqqxVpHBd5NN2o7YIaZQgzynDknWw8vG6pPQe0GEQmzs00bTsPOiksG7sIh7EZK3Mx
+	0P7CJMg==
+X-Google-Smtp-Source: AGHT+IESJ6DBGvd9XcEdp+Peyz/5rANQAvVoqUp8W0UHChsh0K8dNusc9fRWmWPXBczuvgljaqvYKeQ4Bc0=
+X-Received: from pjop14.prod.google.com ([2002:a17:90a:930e:b0:33b:52d6:e13e])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2647:b0:340:dd2c:a3f5
+ with SMTP id 98e67ed59e1d1-34f68c30870mr6773023a91.3.1767904151387; Thu, 08
+ Jan 2026 12:29:11 -0800 (PST)
+Date: Thu, 8 Jan 2026 12:29:09 -0800
+In-Reply-To: <3xrew6ag7pefka7wava4z7ht54e6xlpwbywcm2ivsgnkdbahe4@yqzsaxnhedj7>
+Mime-Version: 1.0
+References: <20251230230150.4150236-1-seanjc@google.com> <20251230230150.4150236-22-seanjc@google.com>
+ <t7dcszq3quhqprdcqz7keykxbmqf62pdelqrkeilpbmsrnuji5@a3lplybmlbwf>
+ <aV_cLAlz4v1VOkDt@google.com> <gzyjze3wszmrwxdwnudij6nfqdxzihm37uappfqxorfjy5vatf@hffzaobbm3g7>
+ <aV_3-lhnZ-MoKnjv@google.com> <3xrew6ag7pefka7wava4z7ht54e6xlpwbywcm2ivsgnkdbahe4@yqzsaxnhedj7>
+Message-ID: <aWATlfisv8ZVZi0c@google.com>
+Subject: Re: [PATCH v4 21/21] KVM: selftests: Test READ=>WRITE dirty logging
+ behavior for shadow MMU
+From: Sean Christopherson <seanjc@google.com>
+To: Yosry Ahmed <yosry.ahmed@linux.dev>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_122641_851664_B6145BAE 
-X-CRM114-Status: GOOD (  26.90  )
+X-CRM114-CacheID: sfid-20260108_122912_869571_61862942 
+X-CRM114-Status: GOOD (  21.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,76 +100,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 08, 2026 at 12:32:00PM +0100, Ard Biesheuvel wrote:
-> On Mon, 5 Jan 2026 at 06:14, Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > This series applies to libcrypto-next.  It can also be retrieved from:
-> >
-> >     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git aes-lib-v1
-> >
-> > This series makes three main improvements to the kernel's AES library:
-> >
-> >   1. Make it use the kernel's existing architecture-optimized AES code,
-> >      including AES instructions, when available.  Previously, only the
-> >      traditional crypto API gave access to the optimized AES code.
-> >      (As a reminder, AES instructions typically make AES over 10 times
-> >      as fast as the generic code.  They also make it constant-time.)
-> >
-> >   2. Support preparing an AES key for only the forward direction of the
-> >      block cipher, using about half as much memory.  This is a helpful
-> >      optimization for many common AES modes of operation.  It also helps
-> >      keep structs small enough to be allocated on the stack, especially
-> >      considering potential future library APIs for AES modes.
-> >
-> >   3. Replace the library's generic AES implementation with a much faster
-> >      one that is almost as fast as "aes-generic", while still keeping
-> >      the table size reasonably small and maintaining some constant-time
-> >      hardening.  This allows removing "aes-generic", unifying the
-> >      current two generic AES implementations in the kernel tree.
-> >
+On Thu, Jan 08, 2026, Yosry Ahmed wrote:
+> On Thu, Jan 08, 2026 at 10:31:22AM -0800, Sean Christopherson wrote:
+> > On Thu, Jan 08, 2026, Yosry Ahmed wrote:
+> > > >  	/*
+> > > > -	 * Add an identity map for GVA range [0xc0000000, 0xc0002000).  This
+> > > > +	 * Add an identity map for GVA range [0xc0000000, 0xc0004000).  This
+> > > >  	 * affects both L1 and L2.  However...
+> > > >  	 */
+> > > > -	virt_map(vm, GUEST_TEST_MEM, GUEST_TEST_MEM, TEST_MEM_PAGES);
+> > > > +	virt_map(vm, TEST_MEM_BASE, TEST_MEM_BASE, TEST_MEM_PAGES);
+> > > >  
+> > > >  	/*
+> > > > -	 * ... pages in the L2 GPA range [0xc0001000, 0xc0003000) will map to
+> > > > -	 * 0xc0000000.
+> > > > +	 * ... pages in the L2 GPA ranges [0xc0001000, 0xc0002000) and
+> > > > +	 * [0xc0003000, 0xc0004000) will map to 0xc0000000 and 0xc0001000
+> > > > +	 * respectively.
+> > > 
+> > > Are these ranges correct? I thought L2 GPA range [0xc0002000,
+> > > 0xc0004000) will map to [0xc0000000, 0xc0002000).
+> > 
+> > Gah, no.  I looked at the comments after changing things around, but my eyes had
+> > glazed over by that point.
+> > 
+> > > Also, perhaps it's better to express those in terms of the macros?
+> > > 
+> > > L2 GPA range [TEST_MEM_ALIAS_BASE, TEST_MEM_ALIAS_BASE + 2*PAGE_SIZE)
+> > > will map to [TEST_MEM_BASE, TEST_MEM_BASE + 2*PAGE_SIZE)?
+> > 
+> > Hmm, no, at some point we need to concretely state the addresses, so that people
+> > debugging this know what to expect, i.e. don't have to manually compute the
+> > addresses from the macros in order to debug.
 > 
-> Architectures that support memory operands will be impacted by
-> dropping the pre-rotated lookup tables, especially if they have few
-> GPRs.
+> I was trying to avoid a situation where the comment gets out of sync
+> with the macros in a way that gets confusing. Maybe reference both if
+> it's not too verbose?
 > 
-> I suspect that doesn't really matter in practice: if your pre-AESNI
-> IA-32 workload has a bottleneck on "aes-generic", you would have
-> probably moved it to a different machine by now. But the performance
-> delta will likely be noticeable so it is something that deserves a
-> mention.
+> 	/*
+> 	 * ... pages in the L2 GPA range [0xc0002000, 0xc0004000) at
+> 	 * TEST_MEM_ALIAS_BASE will map to [[0xc0000000, 0xc0002000) at
+> 	 * TEST_MEM_BASE.
+> 	 */
 
-Sure.  I only claimed that the new implementation is "almost as fast" as
-aes-generic, not "as fast".
+Heh, your solution to a mitigate a comment getting out of sync is to add more
+things to the comment that can get out of sync :-D
 
-By the way, these are the results I get for crypto_cipher_encrypt_one()
-and crypto_cipher_decrypt_one() (averaged together) in a loop on an i386
-kernel patched to not use AES-NI:
-
-    aes-fixed-time: 77 MB/s
-    aes-generic: 192 MB/s
-    aes-lib: 185 MB/s
-
-I'm not sure how relevant these are, considering that this was collected
-on a modern CPU, not one of the (very) old ones that would actually be
-running i386 non-AESNI code.  But if they are even vaguely
-representative, this suggests the new code does quite well: little
-slowdown over aes-generic, while adding some constant-time hardening
-(which arguably was an undeserved shortcut to not include before) and
-also using a lot less dcache.
-
-At the same time, there's clearly a large speedup vs. aes-fixed-time.
-So this will actually be a significant performance improvement on
-systems that were using aes-fixed-time.  Many people may have been doing
-that unintentionally, due to it being set to a higher priority than
-aes-generic in the crypto_cipher API.
-
-I'll also note that the state of the art for parallelizable AES modes on
-CPUs without AES instructions is bit-slicing with vector registers.  The
-kernel has such code for arm and arm64, but not for x86.  If x86 without
-AES-NI was actually important, we should be adding that.  But it seems
-clear that x86 CPUs have moved on, and hardly anyone cares anymore.  If
-for now we can just provide something that's almost as fast as before
-(and maybe even a lot faster in some cases!), that seems fine.
-
-- Eric
+Unless you feel very strongly about having the names of the macros in the comments,
+I'd prefer to keep just the raw addresses.
 
