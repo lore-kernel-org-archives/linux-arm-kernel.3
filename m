@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D035CF6ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:25:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04E93CF6ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 10:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=of4seSqIPdCyuLzFSq3d1KkXUCDbWW18kLWy2KllRF8=; b=vpEvYHcCiEXoG6T6lTXl+LvRcy
-	P55vH8mjRARrneaWgEaRB6icyxQDSyXlh2hQMFbHrNSyg+Ui17LKYr4KZHYAokDRxW/8nTQCGbqU6
-	SnoER8ZP+8ryCXaOBfG7DfrcQwd1rdR2OYvlQbqGPXzWRh4fKibW5gp9RQ53OVtSMRrIu98FAYhUI
-	1SrB/Isg/jkVIckQGLwG3iX5u/De3IxN0M8sw3Dx5CwNJa72c5sCmahWujKw11XXonewaDnVy7Be7
-	jjCXnHbBQ/B93CfCOb0eYgE96l5msxCpUDk5F4Xe5u68NPdWZwKpstPf1LMGZg9SRv3Y01w/JMs+/
-	V8ubb9yw==;
+	bh=DEmcuElp0UQkGJCO6KQWjXnV/POLT0WxyNyLSZSnVYI=; b=kqLT0Sg5+iaTMIbpWlslB1gW4x
+	tL5aYVNB9qTmhw8r+C9DrUS5LXToURyGKnOc1C0cIuvNGIcKTxSoUxOXRCnD9JpracTj9XBGEGPCN
+	q5AElEYuJT6+X8wdGgB0WoBJIM0c8B6j0l4zLPITva3+mrFM4KI38f+GgyKLd967hZbQzaH2n7PEb
+	rnhqvgT9JPqDAm5W1JGS3utHFb4jOilwvgg8Apj4bP8iZLSCCGQzuC0KeEJMYuuSzNig+R7rt/Pz7
+	fY5GHihr+ZGpSxHPtciRUtJfsMDklYa5mmc+E9EVAZ95MUcrsu8V/iA11stTSzDquoPusYBIOlnfB
+	A9bVuOAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdnCx-0000000GcQ5-3crt;
-	Thu, 08 Jan 2026 10:25:35 +0000
+	id 1vdnEK-0000000Gcc7-375D;
+	Thu, 08 Jan 2026 10:27:00 +0000
 Received: from sinmsgout03.his.huawei.com ([119.8.177.38])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdnCn-0000000GcNi-1RzK
+	id 1vdnEH-0000000Gcb1-43ez
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 10:25:34 +0000
+	Thu, 08 Jan 2026 10:26:59 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=of4seSqIPdCyuLzFSq3d1KkXUCDbWW18kLWy2KllRF8=;
-	b=JSCbw8qN3TULPk70WRzdVzdYEXVw3Ik2TS6P58byeRVe4pQ++f7S7y8G8x5dc/31ekpfJDf1c
-	dtKOa3orKfpIohcuJulnWEajcJmvWC14t9ufbitVGdonVyp5TP8op23nK/8hNNA23wjwZSw3pKZ
-	JCHxJfpq8LzRhxo871gW684=
+	bh=DEmcuElp0UQkGJCO6KQWjXnV/POLT0WxyNyLSZSnVYI=;
+	b=flRF/P2IsumUov+UukeIGuQd42cQFPlHBQi38PU20DD9lRCVhiwqBWcxv0uiHC3db8wha37C9
+	cct0QUglVjOSoLZyJsDkJAHuqKT5j090f5kxfJaDnojlqlW7H71yFtEwtb3fIY/xtIjoahVt7jm
+	Q3BsJYXwDEr9qooEl2u/itw=
 Received: from frasgout.his.huawei.com (unknown [172.18.146.32])
-	by sinmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4dn1FN1PGtzMlWV;
-	Thu,  8 Jan 2026 18:23:04 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dn1Hg593mzHnH71;
-	Thu,  8 Jan 2026 18:25:03 +0800 (CST)
+	by sinmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4dn1HG440CzN1Jm;
+	Thu,  8 Jan 2026 18:24:42 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.18.224.150])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dn1KZ0TMyzHnGjN;
+	Thu,  8 Jan 2026 18:26:42 +0800 (CST)
 Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id A081C40086;
-	Thu,  8 Jan 2026 18:25:11 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 026654056A;
+	Thu,  8 Jan 2026 18:26:50 +0800 (CST)
 Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
  (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 8 Jan
- 2026 10:25:10 +0000
-Date: Thu, 8 Jan 2026 10:25:09 +0000
+ 2026 10:26:49 +0000
+Date: Thu, 8 Jan 2026 10:26:47 +0000
 From: Jonathan Cameron <jonathan.cameron@huawei.com>
 To: Sascha Bischoff <Sascha.Bischoff@arm.com>
 CC: "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "lpieralisi@kernel.org"
@@ -59,14 +59,13 @@ CC: "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "lpieralisi@kernel.org"
 	<linux-arm-kernel@lists.infradead.org>, "kvm@vger.kernel.org"
 	<kvm@vger.kernel.org>, Joey Gouly <Joey.Gouly@arm.com>, "maz@kernel.org"
 	<maz@kernel.org>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>
-Subject: Re: [PATCH v2 07/36] KVM: arm64: gic: Introduce interrupt type
- helpers
-Message-ID: <20260108102509.000061fb@huawei.com>
-In-Reply-To: <5b9fd030e3048fadcd4ac95ddb0671e1af7dc960.camel@arm.com>
+Subject: Re: [PATCH v2 08/36] KVM: arm64: Introduce kvm_call_hyp_nvhe_res()
+Message-ID: <20260108102647.00004a2d@huawei.com>
+In-Reply-To: <5ef0d810c4619b941d5c74e79401ce584193604d.camel@arm.com>
 References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
-	<20251219155222.1383109-8-sascha.bischoff@arm.com>
-	<20260106184313.00002a8c@huawei.com>
-	<5b9fd030e3048fadcd4ac95ddb0671e1af7dc960.camel@arm.com>
+	<20251219155222.1383109-9-sascha.bischoff@arm.com>
+	<20260107103044.00000df0@huawei.com>
+	<5ef0d810c4619b941d5c74e79401ce584193604d.camel@arm.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="ISO-8859-1"
@@ -75,8 +74,8 @@ X-Originating-IP: [10.203.177.15]
 X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
  dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_022531_132181_F31C4B04 
-X-CRM114-Status: GOOD (  32.00  )
+X-CRM114-CacheID: sfid-20260108_022658_413063_9C7345AE 
+X-CRM114-Status: GOOD (  25.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,125 +90,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 8 Jan 2026 09:33:30 +0000
+On Thu, 8 Jan 2026 09:48:39 +0000
 Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
 
-> On Tue, 2026-01-06 at 18:43 +0000, Jonathan Cameron wrote:
+> On Wed, 2026-01-07 at 10:30 +0000, Jonathan Cameron wrote:
 > > On Fri, 19 Dec 2025 15:52:38 +0000
 > > Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
 > >  =20
-> > > GICv5 has moved from using interrupt ranges for different interrupt
-> > > types to using some of the upper bits of the interrupt ID to denote
-> > > the interrupt type. This is not compatible with older GICs (which
-> > > rely
-> > > on ranges of interrupts to determine the type), and hence a set of
-> > > helpers is introduced. These helpers take a struct kvm*, and use
-> > > the
-> > > vgic model to determine how to interpret the interrupt ID.
+> > > There are times when it is desirable to have more than one return
+> > > value for a hyp call. Split out kvm_call_hyp_nvhe_res from
+> > > kvm_call_hyp_nvhe such that it is possible to directly provide
+> > > struct
+> > > arm_smccc_res from the calling code. Thereby, additional return
+> > > values
+> > > can be stored in res.a2, etc.
 > > >=20
-> > > Helpers are introduced for PPIs, SPIs, and LPIs. Additionally, a
-> > > helper is introduced to determine if an interrupt is private - SGIs
-> > > and PPIs for older GICs, and PPIs only for GICv5.
-> > >=20
-> > > The helpers are plumbed into the core vgic code, as well as the
-> > > Arch
-> > > Timer and PMU code.
-> > >=20
-> > > There should be no functional changes as part of this change.
-> > >=20
+> > > Suggested-by: Marc Zyngier <maz@kernel.org>
 > > > Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com> =20
-> > Hi Sascha,
+> > One question inline, mostly because I'm curious rather than a
+> > suggestion
+> > to change anything
 > >=20
-> > A bit of bikeshedding / 'valuable' naming feedback to end the day.
-> > Otherwise LGTM.
+> > Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 > >  =20
-> > > diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-> > > index b261fb3968d03..6778f676eaf08 100644
-> > > --- a/include/kvm/arm_vgic.h
-> > > +++ b/include/kvm/arm_vgic.h =20
-> > ...
-> >  =20
-> > > =A0enum vgic_type {
-> > > =A0	VGIC_V2,		/* Good ol' GICv2 */
-> > > @@ -418,8 +488,12 @@ u64 vgic_v3_get_misr(struct kvm_vcpu *vcpu);
+> > > ---
+> > > =A0arch/arm64/include/asm/kvm_host.h | 15 ++++++++++-----
+> > > =A01 file changed, 10 insertions(+), 5 deletions(-)
+> > >=20
+> > > diff --git a/arch/arm64/include/asm/kvm_host.h
+> > > b/arch/arm64/include/asm/kvm_host.h
+> > > index b552a1e03848c..971b153b0a3fa 100644
+> > > --- a/arch/arm64/include/asm/kvm_host.h
+> > > +++ b/arch/arm64/include/asm/kvm_host.h
+> > > @@ -1208,14 +1208,19 @@ void kvm_arm_resume_guest(struct kvm *kvm);
+> > > =A0#define vcpu_has_run_once(vcpu)	(!!READ_ONCE((vcpu)->pid))
 > > > =A0
-> > > =A0#define irqchip_in_kernel(k)	(!!((k)->arch.vgic.in_kernel))
-> > > =A0#define vgic_initialized(k)	((k)->arch.vgic.initialized)
-> > > -#define vgic_valid_spi(k, i)	(((i) >=3D VGIC_NR_PRIVATE_IRQS) &&
-> > > \
-> > > +#define vgic_valid_nv5_spi(k, i)	(((i) >=3D
-> > > VGIC_NR_PRIVATE_IRQS) && \
-> > > =A0			((i) < (k)->arch.vgic.nr_spis +
-> > > VGIC_NR_PRIVATE_IRQS))
-> > > +#define vgic_valid_v5_spi(k, i)	(irq_is_spi(k, i) && \
-> > > +				 (FIELD_GET(GICV5_HWIRQ_ID, i) <
-> > > (k)->arch.vgic.nr_spis))
-> > > +#define vgic_valid_spi(k, i) (vgic_is_v5(k)
-> > > ?				\
-> > > +			=A0=A0=A0=A0=A0 vgic_valid_v5_spi(k, i) :
-> > > vgic_valid_nv5_spi(k, i)) =20
+> > > =A0#ifndef __KVM_NVHE_HYPERVISOR__
+> > > -#define kvm_call_hyp_nvhe(f,
+> > > ...)						\
+> > > +#define kvm_call_hyp_nvhe_res(res, f,
+> > > ...)				\
+> > > =A0	({						=09
+> > > 	\
+> > > -		struct arm_smccc_res
+> > > res;				\
+> > > -
+> > > 									\
+> > > +		struct arm_smccc_res *__res =3D
+> > > res;			\ =20
 > >=20
-> > nv is a little awkward as a name as immediately makes me thinking
-> > nested virtualization instead of not v5 (which I guess is the
-> > thinking behind that?)
-> >=20
-> > Probably just me and naming it v23 will break if we get to GIC
-> > version 23 :)
-> > nv5 breaks when we get GICv6 ;) =20
+> > What's the purpose of the local variable? Type sanity check?
+> > Feels like typecheck() would make the intent clearer.
+> > Meh. Not used anywhere in arch/arm64 so maybe not. =20
 >=20
-> Absolutely agreed here. The v5 and nv5 macros were not used anywhere,
-> so I've re-worked this a bit to be more in the style of those added
-> earlier:
+> Far less exciting, I'm afraid.
 >=20
-> -#define vgic_valid_nv5_spi(k, i)       (((i) >=3D VGIC_NR_PRIVATE_IRQS) =
-&& \
-> -                       ((i) < (k)->arch.vgic.nr_spis + VGIC_NR_PRIVATE_I=
-RQS))
-> -#define vgic_valid_v5_spi(k, i)        (irq_is_spi(k, i) && \
-> -                                (FIELD_GET(GICV5_HWIRQ_ID, i) < (k)->arc=
-h.vgic.nr_spis))
-> -#define vgic_valid_spi(k, i) (vgic_is_v5(k) ?                          \
-> -                             vgic_valid_v5_spi(k, i) : vgic_valid_nv5_sp=
-i(k, i))
-> +#define vgic_valid_spi(k, i)                                           \
-> +       ({                                                              \
-> +               bool __ret =3D irq_is_spi(k, i);                         =
- \
-> +                                                                       \
-> +               switch ((k)->arch.vgic.vgic_model) {                    \
-> +               case KVM_DEV_TYPE_ARM_VGIC_V5:                          \
-> +                       __ret &=3D FIELD_GET(GICV5_HWIRQ_ID, i) < (k)->ar=
-ch.vgic.nr_spis; \
-> +                       break;                                          \
-> +               default:                                                \
-> +                       __ret &=3D (i) < ((k)->arch.vgic.nr_spis + VGIC_N=
-R_PRIVATE_IRQS); \
-> +               }                                                       \
-> +                                                                       \
-> +               __ret;                                                  \
-> +       })
+> It is because of the text substitution that happens. The res here is
+> replaced with &res from kvm_call_hyp_nvhe() and we end up with &res-
+> >a0. Given that -> binds more tightly than &, we end up with the wrong =20
+> thing, and the compiler barfs.
 >=20
-> More verbose (with annoying line lengths), but certainly more scalable
-> and removes the naming issue altogether. Personally, I prefer it
-> because it is more aligned with the related macros above.
+> An alternative would be to do:
 >=20
-> Is this preferable/acceptable?
+> 	WARN_ON((res)->a0 !=3D SMCCC_RET_SUCCESS);
+>=20
+> This removes the need for the local variable. I've got no preference
+> for which version we go with.
 
-Looks good to me, though it's getting complex enough that it might be better
-as a static inline function. That will also reduce line lengths
-a little.
+Ah fair enough.  Just leave it as it is.
 
 Jonathan
 
 >=20
-> Thanks,
 > Sascha
 >=20
 > >=20
+> >=20
 > >  =20
-> > > =A0
-> > > =A0bool kvm_vcpu_has_pending_irqs(struct kvm_vcpu *vcpu);
-> > > =A0void kvm_vgic_sync_hwstate(struct kvm_vcpu *vcpu); =20
+> > > =A0		arm_smccc_1_1_hvc(KVM_HOST_SMCCC_FUNC(f),=09
+> > > 	\
+> > > -				=A0 ##__VA_ARGS__,
+> > > &res);			\
+> > > -		WARN_ON(res.a0 !=3D
+> > > SMCCC_RET_SUCCESS);			\
+> > > +				=A0 ##__VA_ARGS__,
+> > > __res);		\
+> > > +		WARN_ON(__res->a0 !=3D
+> > > SMCCC_RET_SUCCESS);		\
+> > > +	})
+> > > +
+> > > +#define kvm_call_hyp_nvhe(f,
+> > > ...)					\
+> > > +	({						=09
+> > > 	\
+> > > +		struct arm_smccc_res
+> > > res;				\
+> > > =A0							=09
+> > > 	\
+> > > +		kvm_call_hyp_nvhe_res(&res, f,
+> > > ##__VA_ARGS__);		\
+> > > =A0		res.a1;				=09
+> > > 		\
+> > > =A0	})
+> > > =A0 =20
 > >  =20
 >=20
 
