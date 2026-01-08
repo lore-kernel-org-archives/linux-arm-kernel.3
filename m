@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FE4D148A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 21:53:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80814D232C0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  8 Jan 2026 22:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CjwIjBUgLAFKKBvp99piZyRXPyLPy4NE1kk/jvEE2wY=; b=pFKY/BkdTXoAGtfX3Cut4wxG9/
-	eJ2/SFJe4ebH/DMOVwWSoiliGqsCAl5OsnGwBcdqU7wBf4KfdLf1ExyjLnNFlbTEGG/MtkUmwNcx4
-	4vODDYdbn0JWe3s8/Uf1ts+JmfdMYdEYCk+b0tv6iAU4U1Fep1G7fnc6VSIUQhQ4l5wWaKcEXymFL
-	ySJYGMkCx/fkKAB5/nVEDZWcNUe09iDytM1xovlnWcyXO9YSrI6XLSl+iJV9CMQxzHIsfnAHvz8eh
-	zFaNbJCv/su+kgBgyPN+bJWa1tTshxevA8mQi+KxKbGWBj0gz0K3MWAeRceD7mxIfHloeyyP1m9VJ
-	9WGIZAqw==;
+	bh=R+6JxC3+3n7TuboudkoCggSuoiX+eEunMj6hPzucA8I=; b=Ncpe1kMNhnnA3JD/M5OLOVwO4A
+	1c+CKro5DynQ0oE7+r+UAmlWnrLlUpQE990anZSsIu3Q7qdr1ePhnL6wZzMfSpPdbrLEiS65uofBi
+	GbeONzprNm3agEh6RgUFHJoov+iekSJe3Sn1kBrHqcANlkTiRDSNoo+vpzNHNLN10a8XOX16KeHG3
+	ncWr5C5ddyYQ9PAi3DV+lBPz7jnjmGZf6Mj5IMaN6E13GbLy1bX1RrfVVFx5SLgZJW0iVxS9OOXQW
+	CPgrN7zFKon3pZRNefBLOC10vr/2Q00Q77z1L1bdgDyORRmqHfC3Y7uJcoGKyk3ZiPHkeI9Jm+4rq
+	fEvaP3WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdxx4-00000000vfD-4886;
-	Thu, 08 Jan 2026 21:53:54 +0000
+	id 1vdyEH-00000000w9L-0JJ6;
+	Thu, 08 Jan 2026 22:11:42 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vdxx2-00000000ved-01rx
+	id 1vdyEE-00000000w8v-1FuF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 08 Jan 2026 21:53:53 +0000
+	Thu, 08 Jan 2026 22:11:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3BB2A42D8B;
-	Thu,  8 Jan 2026 21:53:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E3DCC116C6;
-	Thu,  8 Jan 2026 21:53:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8129143DAA;
+	Thu,  8 Jan 2026 22:11:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8687DC116C6;
+	Thu,  8 Jan 2026 22:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767909231;
-	bh=pES8CNvgEWUrZSrme3hkhLAvBUh0MV/JNCf1LMiME4k=;
+	s=k20201202; t=1767910297;
+	bh=OzHtw4j1Hs0u/sB/+AK8QyJAGm8BaIB2L3o2cUocQfY=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=Gsx2osJ7hvB0mpEKQ4fqhnwT2ViurpZNG2S3fBsbAu0UMzSzFsVt9m70Wib8e3q25
-	 me4TZhsJ+iRHr+5NwZNtKxHIlTQHQg5EIHLtj0Uv1pz+eRvT8SnYAyGWPl+f33nm6Y
-	 tsxhXx1odR9DBjVbB2c4t69tZpVurqUFS3WPray2iRp1laPgIvkRKfmohAUkRsisMS
-	 XbQ7J/JIDLf9XYw02DqeAaX2Ax1K7IoxBJHAMViDszRveLaAaN6b94QV7K4OLSzN8D
-	 IgKSCK5k/VyIl1XQdhSSW6zWoAtIGx3GuOsoiYb2qtQpmES5fl7jPXiRACs8bEcJGw
-	 uK4jglxXRlfDg==
+	b=i0utsSnhzOYxUmd3u04lOOehC9ehc0ewEP7S0C5qBxZgTMySISjx6VuMguuOlEW61
+	 1Jrtd2roEkaqN7G5DPTxJX9dluOoD3pxzw7ghgl3oGv2pYMbWcxefr5j4/rxPaao63
+	 ZJdkTartSJ/Md2NME2wrvFgoz8nt2u6LLnlGHw9m3ITqO0CY3kZI2eh6kbUvsvO6+9
+	 MY4xemfwU6N90+5h2II+ny+THvkgaUTdUfsZZKuDlxPUt3oRL9s5LoqJpZPHmzlalN
+	 DTFWs3Nz7dCdE8MqbaBZC/ady7yOsHTO+NMrwDrioCNo2Q6efIu5fwqprJVwWNIgDa
+	 3Nw3c/kgZHWuQ==
 From: Thomas Gleixner <tglx@kernel.org>
-To: Paolo Bonzini <pbonzini@redhat.com>, Ankit Soni <Ankit.Soni@amd.com>,
- Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>, Joerg Roedel <joro@8bytes.org>,
- David Woodhouse <dwmw2@infradead.org>, Lu Baolu
- <baolu.lu@linux.intel.com>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, kvm@vger.kernel.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, Sairaj Kodilkar <sarunkod@amd.com>, Vasant
- Hegde <vasant.hegde@amd.com>, Maxim Levitsky <mlevitsk@redhat.com>, Joao
- Martins <joao.m.martins@oracle.com>, Francesco Lavra
- <francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>, Naveen
- Rao <Naveen.Rao@amd.com>, Crystal Wood <crwood@redhat.com>
-Subject: Re: possible deadlock due to irq_set_thread_affinity() calling into
- the scheduler (was Re: [PATCH v3 38/62] KVM: SVM: Take and hold
- ir_list_lock across IRTE updates in IOMMU)
-In-Reply-To: <874iovu742.ffs@tglx>
-References: <20250611224604.313496-2-seanjc@google.com>
- <20250611224604.313496-40-seanjc@google.com>
- <njhjud3e6wbdftzr3ziyuh5bhyvc5ndt5qvmg7rlvh5isoop2l@f2uxctws2c7d>
- <42513cb3-3c2e-4aa8-b748-23b6656a5096@redhat.com> <874iovu742.ffs@tglx>
-Date: Thu, 08 Jan 2026 22:53:47 +0100
-Message-ID: <87pl7jsrdg.ffs@tglx>
+To: Marc Zyngier <maz@kernel.org>, Waiman Long <longman@redhat.com>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams
+ <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH] irqchip/gic-v3-its: Don't acquire rt_spin_lock in
+ allocate_vpe_l1_table()
+In-Reply-To: <864iowmrx6.wl-maz@kernel.org>
+References: <20260107215353.75612-1-longman@redhat.com>
+ <864iowmrx6.wl-maz@kernel.org>
+Date: Thu, 08 Jan 2026 23:11:33 +0100
+Message-ID: <87ms2nsqju.ffs@tglx>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_135352_091265_797D3C0E 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20260108_141138_392877_068E4A52 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,29 +74,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 08 2026 at 22:28, Thomas Gleixner wrote:
-> On Mon, Dec 22 2025 at 15:09, Paolo Bonzini wrote:
->> Of the three, the most sketchy is (a); notably, __setup_irq() calls
->> wake_up_process outside desc->lock.  Therefore I'd like so much to treat
->> it as a kernel/irq/ bug; and the simplest (perhaps too simple...) fix is
+On Thu, Jan 08 2026 at 08:26, Marc Zyngier wrote:
+> Err, no. That's horrible. I can see three ways to address this in a
+> more appealing way:
 >
-> It's not more sketchy than VIRT assuming that it can do what it wants
-> under rq->lock. :)
+> - you give RT a generic allocator that works for (small) atomic
+>   allocations. I appreciate that's not easy, and even probably
+>   contrary to the RT goals. But I'm also pretty sure that the GIC code
+>   is not the only pile of crap being caught doing that.
+>
+> - you pre-compute upfront how many cpumasks you are going to require,
+>   based on the actual GIC topology. You do that on CPU0, outside of
+>   the hotplug constraints, and allocate what you need. This is
+>   difficult as you need to ensure the RD<->CPU matching without the
+>   CPUs having booted, which means wading through the DT/ACPI gunk to
+>   try and guess what you have.
+>
+> - you delay the allocation of L1 tables to a context where you can
+>   perform allocations, and before we have a chance of running a guest
+>   on this CPU. That's probably the simplest option (though dealing
+>   with late onlining while guests are already running could be
+>   interesting...).
 
-And just for the record, that's not the only place in the irq core which
-has that lock chain.
-
-irq_set_affinity_locked()       // invoked with desc::lock held
-   if (desc->affinity_notify)
-      schedule_work()           // Ends up taking rq::lock
-
-and that's the case since cd7eab44e994 ("genirq: Add IRQ affinity
-notifiers"), which was added 15 years ago.
-
-Are you still claiming that this is a kernel/irq bug?
+At the point where a CPU is brought up, the topology should be known
+already, which means this can be allocated on the control CPU _before_
+the new CPU comes up, no?
 
 Thanks,
 
         tglx
-
 
