@@ -4,77 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7273CD167ED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 09:38:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D819D167E7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 09:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JRAJH9fBOd961NcgKi+jmYxD8E+1gYZ7UQ1tbcQg+GY=; b=4uKuGfL4mtuBS3lpCGDVy0wXDX
-	/EA42WT0bvv+smM0tKn0uNWOKAit9tYoYaipzLo4Zbcua586TQC3EGmXAviAk/iYUolcvfcZTbsgS
-	UH+emnO7Clbk9odL8x1SZoy+kdWxFiFEHt1UowzJp1nScDkkft0He7nLEmCe13Pv/su4hBgYrxsoO
-	R0aWTSgrV45++H0hMacTF3QkJjqwFtMAmfdOHxXb0TM0QBWmM7lkNV/kU4ParsNEqnm3589OguIf4
-	p6iQPqXoQXl+ovn+mM2D4PMc4U00t0+WvB/LZURecmVbHKM6YW394nkYZF5BGlFbFBpMI+CbCZFgW
-	ZXWAdNLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O4g5srWzDZcUCN1/LtQOwXipPYWUpLveaRZTFLhasPs=; b=eNrl+/xMN8krt8aPDWTd4WnP0P
+	/4oukTROnKVGLbuWubeufvXimPfbeOeeIQMVAV9xc8RWs0CStbEW4R/c9fhCMRRvuANIUX9zNxHdt
+	kT/QDovozBOWZaHkoG56PEuGOYMyOAifF1QJp+aYWQ5vCM1u4YPwetdKTXBilPnSdHfU+VQfyLLR5
+	A7UUhPvK5RZS3pRfM8Ep8SY/SK6o2pT18vqakDwZaGTZtAAQnylnl3M1Y0l1tNxYtU2nGxGE7rs+u
+	yTfMSlLALToD9TGxJG7w1NVVOjHLvRXx5bdeFTyD7yZC09kTzOge4IRovjIggqzg7Kg6oqfrgKTFt
+	AKYl9/CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve8xG-000000022ZF-3NXu;
-	Fri, 09 Jan 2026 09:38:50 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1ve92C-000000022rC-0we4;
+	Fri, 09 Jan 2026 09:43:56 +0000
+Received: from mail-westus3azon11021101.outbound.protection.outlook.com ([40.107.208.101] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve8xD-000000022YT-0FtM
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 09:38:48 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 3B8204E4201A;
-	Fri,  9 Jan 2026 09:38:42 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 065EF60734;
-	Fri,  9 Jan 2026 09:38:42 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E3529103C87CC;
-	Fri,  9 Jan 2026 10:38:31 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767951521; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=JRAJH9fBOd961NcgKi+jmYxD8E+1gYZ7UQ1tbcQg+GY=;
-	b=wMaJ5JcSagj3AqIWTTLy4J7dxcTi5IsBqHkOOvTasVGNFxUBD4SiXVZI2HmcxxwBv/kuUI
-	BSGJRM9PewmgRHEVGRkvIBM35NmiKyUgvzOKc2uD9d3X/ykNySDf5CPmk+/zsXPxiIcMHV
-	qoNcHKaPprGiQxYpVz+iSJtn6vkxcinKhTtjaRJJGV35EZmKwisNys51sjnfIlWTutnRHw
-	yf9d9Xw9WjkzPkx5QO0JsTUlLTjOFJ5H9FHQEmu7303lFX/7664/YjGIXHAmvIVgTo0E4B
-	SvjQTn574q8VxxYKIDE6QGXYNzVOTsG3FxksROn64h7QGSebxBDTeaYWd27B+Q==
-Message-ID: <8f70bd9d-747f-4ffa-b0f2-1020071b5adc@bootlin.com>
-Date: Fri, 9 Jan 2026 10:38:30 +0100
+	id 1ve929-000000022pl-0OZC;
+	Fri, 09 Jan 2026 09:43:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=G4HGlF2unlw63kOC6jhsV1Nq5TJhbzKYa+h9WJMX0PeNozXJ881fxG3lcUNoRGX8STKdkN2oO8xPbsfyEfac7sHzKUaeOCet7BIgxHEw0smj2ct5oLNrcOCx4qR4DujMCGM/G5UdBU42I4U40MakW3vBlLu+L5xA6FEtfDRyL3fs2aVc95LgLsNNGWMvJO3cSJYQMeGTTVeJCaEx2pDCvPdJT4+J/f+ujBDl52Ct8SpQWXSYvgY74PjJN6VLF+rO+0MYo0n8Fx/3mW0T+ZBjtRR2vdHkF7CwEufHGECOtca3f+fywUENaufOeRPKLg88m2RSC7jthR4kLzm5y5cV+Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=O4g5srWzDZcUCN1/LtQOwXipPYWUpLveaRZTFLhasPs=;
+ b=Nim1oEWK8WREC2ZIr6iMcpMc2Ct8066UJxGPHXRqgo06DMeSA2AFLlSk+MYCATBQN2M2szKp/Ix4C2/Xu+12I0KTFEDxTbJLjCPldrkluebTeDAzlGFY70R21/U4j/Q5twXSIZu/FkUH72cfVXYPxDkWO1SojEvEPs2StLAsBPQapcTIOjSPd79JlMRgpoXmw8Qj3BByOAuCYlPZpehiFsEei47mYYrrP4yf1BfdNaT/fDhCj0KBPNeM4rgyrb2AoJR5p3u7OllADvE2wKKjmoTikGaUNWB56PCWQoQ+VbUZgV+BKHsQSKKdR7BVMmZhahZaRnIupsFjV+ZWPT/BUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
+ dkim=pass header.d=axiado.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=O4g5srWzDZcUCN1/LtQOwXipPYWUpLveaRZTFLhasPs=;
+ b=pNJZb/ohe+88lfUsJSMfIFpgorDRvHr8iEtEvkQWq66fBdfqltpKqxpbYgumGgQv7/h6ipXT6IQSbjjzSLNKBdpL/b1gVgRq5Cs3pK7pIDg5etqy79Tn+GJDB+Mp35jXu/qTRYnUkMckwOB8/IXGVSzMJ1q5AUpQsSUQUplY7MpzJV+M74j8FdxRpRGIZGaYvPmwid8subNUI0nR5n58O5NJR4X/ZBhheNbDprEcRjgW8Nb2PjpIIOLkhOHKvf1J21/kY29riRI11kJ2XLaH6kO+fQe/DleYXVd3fbWgWly1XuHl8is5ZipKHpphor//g1CuA3zFVkEWiApO8LawQw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received: from PH0PR18MB4558.namprd18.prod.outlook.com (2603:10b6:510:ac::13)
+ by DM3PPF538CF913C.namprd18.prod.outlook.com (2603:10b6:f:fc00::6a6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.2; Fri, 9 Jan
+ 2026 09:43:47 +0000
+Received: from PH0PR18MB4558.namprd18.prod.outlook.com
+ ([fe80::7a75:75a5:694b:2311]) by PH0PR18MB4558.namprd18.prod.outlook.com
+ ([fe80::7a75:75a5:694b:2311%4]) with mapi id 15.20.9499.004; Fri, 9 Jan 2026
+ 09:43:47 +0000
+From: Tzu-Hao Wei <twei@axiado.com>
+Date: Fri, 09 Jan 2026 17:43:30 +0800
+Subject: [PATCH 2/4] phy: axiado: add Axiado eMMC PHY driver
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-2-dd43459dbfea@axiado.com>
+References: <20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-0-dd43459dbfea@axiado.com>
+In-Reply-To: <20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-0-dd43459dbfea@axiado.com>
+To: SriNavmani A <srinavmani@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, Tzu-Hao Wei <twei@axiado.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9215; i=twei@axiado.com;
+ h=from:subject:message-id; bh=YWrI8NS5tiCPF3wH8c+IToa+fCZIZcpe9EwV1/KMU5I=;
+ b=owEB7QES/pANAwAKAXgQMF3EWvHXAcsmYgBpYM3QACJciZCpErLcyKf0GeLvyRCSneBZBbpoP
+ uUamOAH+6aJAbMEAAEKAB0WIQSZyWINOowtFmDvdYF4EDBdxFrx1wUCaWDN0AAKCRB4EDBdxFrx
+ 15J6C/0UcGRDM4U4Em1iMRYkknqa0GEY23UMbNc0pu88Fbn1HxIGvINW7uaBOeKd6Y3ESq3zLeK
+ GPJVT3g8tMxWFnjF7ZT92oOzP3jHFMdO5n/YGWShBKndDwWvVFmOhi1c/AIeyC+niU2BaD9v2Nl
+ HCg/ukhQWr1fWOj+BcaiespJ6J08pW+USGwYMFIpASeWEKPBT9klDuueD7Y+1FrO5Y3FU4JsIrR
+ n10XOupmR4b2+r5vNcRJif9wQ+n5uSCIxhC0o5nsYSehfKc4oS2Lx8tih2Pw0iwSFWSWuWZFD60
+ +DjHOVfVCd4rochjBi9PRzpaGXNZ8l3HJTzbX5PHZbmL+PBUYUBtI1mYPFGyLzjdb/dan/ZhPta
+ mySZpKN3bzpNtpIeOrcgud4nQMiSYeI5cJqItz7uFaA4xT1eQiyqh6SM2pQEqpRyOW0Fv8sDJZX
+ leVOnzefAfyjTKi/HrbNgT9W2xFXN59O9YMOVNH3jAP3lbknP7qKZ6VOoIPATrGtfBM/Q=
+X-Developer-Key: i=twei@axiado.com; a=openpgp;
+ fpr=99C9620D3A8C2D1660EF75817810305DC45AF1D7
+X-ClientProxiedBy: PH7P221CA0009.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:32a::28) To PH0PR18MB4558.namprd18.prod.outlook.com
+ (2603:10b6:510:ac::13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND net-next v2] net: stmmac: dwmac: Add a fixup for
- the Micrel KSZ9131 PHY
-To: Stefan Eichenberger <eichest@gmail.com>,
- "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, francesco.dolcini@toradex.com,
- robh@kernel.org, Stefan Eichenberger <stefan.eichenberger@toradex.com>
-References: <20260105100245.19317-1-eichest@gmail.com>
- <6ee0d55a-69de-4c28-8d9d-d7755d5c0808@bootlin.com>
- <aVuxv3Pox-y5Dzln@eichest-laptop>
- <a597b9d6-2b32-461f-ac90-2db5bb20cdb2@lunn.ch>
- <aVvp70S2Lr3o_jyB@eichest-laptop> <aVvwOYce1CFOLiBk@shell.armlinux.org.uk>
- <aVv7wD2JFikGkt3F@eichest-laptop> <aWC_ZDu0HipuVhQS@eichest-laptop>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <aWC_ZDu0HipuVhQS@eichest-laptop>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH0PR18MB4558:EE_|DM3PPF538CF913C:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9823ec55-4452-44c7-9874-08de4f639582
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|366016|376014|42112799006|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?b21XRC90dFdmc0dQSzcwTmFCeis1WURtV05aQkUzUUk1ZkVsZlhUdkFhdDZr?=
+ =?utf-8?B?NG9kTlRyMzJZZzZrKzZRMTJxMUhNK2ViaGhnRnEzR2xMcFBaZTZuUjdtOXlN?=
+ =?utf-8?B?RGloT1VmbEJ6Nkk5ZTZCS1UzTXZuakg1ZjNJWWRoZ0N2Q0JMd3pmdWJVNXNE?=
+ =?utf-8?B?SnJUdTMxeWFjVFVKNGhQZncrZHZqY0ZPbkNSdGRoTFFtL0luSjJyOXhiWExL?=
+ =?utf-8?B?d2pGSzNRWVI1aVp1OHRsWUpONDZYYUlEMWdMZExMakNyOUpBN0xDSTllRWU2?=
+ =?utf-8?B?cmxhMEdueXpYby9KTnRScm9vT1ZONUtPWmRDOURtTU80SVdoWGV0czRGenlu?=
+ =?utf-8?B?by9qb25ZaEphbHVRVnZvMWQxUEV6WkRNZmhyVHlSL2xsRVlPeFFYMEcydkRO?=
+ =?utf-8?B?QnFEVHJXWkxvbWEybG5QRnRMU0trNkxIb3BxZDhEdmpGWC9RRnA4Z3UzTXYw?=
+ =?utf-8?B?OG01SjhxQkJVWlRwWHMxV1p0M0JvRFMzQ3ozdnpGc0ZzOTloaHVkdzArNkVh?=
+ =?utf-8?B?cTdiRi9zVkF4VzlFM1d1TjN3dVJDeWZDQjJ0eXdTSVBta0w0bXM0dWxXaDFE?=
+ =?utf-8?B?OTZ5K0h2MjJFRHNmY0RyV1BTSUdxQUFjSlZsZlc5RlVFWDV1NFp4Q1A3eUR2?=
+ =?utf-8?B?ekpYcHBkNCtRd3M3THhCK1RZdWZNWWR3SzlSTVdKdXNoMlUzbGI2L3A0bjdR?=
+ =?utf-8?B?WWtjdDNWakQ2Mzk3VTN1b2x6QzRkVGt0ZVRaSXJISjZlTnBNTTFvbmF5bjBv?=
+ =?utf-8?B?a1lPK0FVUDZlZlZyb2ZyZ0JXcnVyS0RNSTdHM3N3amF4ODQ4azA5Zmh0cktz?=
+ =?utf-8?B?NUg3aSt1YUVpbnBOMFdyWC9kcytPclpFdkhzSnBLMzBoZThDY1hxMVFxWHpR?=
+ =?utf-8?B?dHR5SkF1TXBYRnBBS2xxWmk1U3owcDJVaHVhblRMUkp3RGkwVitTc0xYWDYy?=
+ =?utf-8?B?YjFTU3FmRkEvaGp4Y1d2NkxVUTFPMWx5SzJDSmk5VWpmS3UwTkdNRVY5ck9q?=
+ =?utf-8?B?dW54ZHlGWXVUaDBtSTRKVVFrRkdJWktTdFo1eUJpK2cwUkpiWHF4V2JlVHhx?=
+ =?utf-8?B?WTRqQkJnYkE2c1BhL2tkdWdlbU1NZlBybXhQdWcwd2V5R01IZFBaMzg1c0Y4?=
+ =?utf-8?B?emp5Tlh1aFYwTHcybjlGWWlvcU9JcFpRN1ZEOWduZUxNK3V1Y0dUVTRnZGdQ?=
+ =?utf-8?B?ZmVkR1ZmUEhkQS9YZWdQdENFWjMwYXVIcHpDV1huODVuQ3NWUjNHUEpyWkE4?=
+ =?utf-8?B?T3IwUnZGcUtvbEpOdllZMWR2TEpqYVVhdjRVNWR2WFFyV0hINTZVRHh6ckN0?=
+ =?utf-8?B?MUFmdndPWkdkcjB2WHJ0NGs5LzQ4Q2RLY2lTQlBpeE9FMUoxaGQ2OWFkYkcr?=
+ =?utf-8?B?anF4Z0ZLdGZnYXZFK2lvc1d2K1dJU09Dd083cWdzaHhRNFExenkyVHhIUzFC?=
+ =?utf-8?B?RktPaEw1RndUSk5KVXQwcXd3bTBSWjBBcnZMa3V6dGFtN3NsSnMvOUgwdGFt?=
+ =?utf-8?B?MDFtNTVxaGY0Ymtwb1J5aUtaRDZlWXlEWTdWNk9iMTJtT291RTNJcFpISS9z?=
+ =?utf-8?B?aUxyUWo4SFZQNlF6NnhtSDIzeWdSMkVXekVaTElGRG9kak5SUnNyNDhWTHFH?=
+ =?utf-8?B?TTlBYkFKeVJKeHYzTU1PT3dxSDNLWnZ5U1lTT2JUWjJaWnNFck9pZkU4RjRP?=
+ =?utf-8?B?YVhXVzVxTHBYMGVlYld2d2lOWm5lUFJjVmVOVHUwdFJyK1JESGROdjV6V1NC?=
+ =?utf-8?B?d3VsSXVwSXZUdUhEbmZuUG5xNklkOGpqOTNRcUNqT0dNMm1zK1FKeUZpV0w0?=
+ =?utf-8?B?SVY1dVJ5SDJoNTUwQ1VadzdaT3BEOWNuN3FwdllwUUx5Mm9WWjlVU1V5eGh4?=
+ =?utf-8?B?c3hXQVB0NUp6L1B2YXV5enlDRUZSK3NFejFsNEFNU3JqZnFOai9nWktxT09I?=
+ =?utf-8?B?dzJPQkxaQkQ1cEF4U1BaV2hIZUdkdE5MNUxqZG5mOTVjeGkwY1dRNm1zdDIw?=
+ =?utf-8?B?UUVpK1h4cEsxc244NGV3MjQwN050S0RZUFY3SllzeUpIbDh0TzFTQVhXRzls?=
+ =?utf-8?Q?tE4NkO?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR18MB4558.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(366016)(376014)(42112799006)(1800799024)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VWRWNHY0d0dISk9OemR5TE9xTWlwR0Z0RWp6WXVjZ2VpZ003blp1TTNxSXBB?=
+ =?utf-8?B?SUM0RDg1TzBqQUpUMkEzMVdHZnQwdStyVFJOU3B6VjFncjcvK0pWTm42aFNU?=
+ =?utf-8?B?MHovZ0xtY3FYR1U1d05wNXpsNjBWd3MrK0hpMTNncmpkUklCeElDbCsybVVN?=
+ =?utf-8?B?TVBLaWhuTlo4eWRtd3pGYzlVQS9RdFBRUEdOTHJaQ2gzQ0lGd2JvWUxHOThj?=
+ =?utf-8?B?K2VmYXFMZS9SRWluU3IvQ1QrQXZUbzRvcTdNVmNZd0FkZS96bzRVWTNPMVUv?=
+ =?utf-8?B?MnYzT3dQd1lwYmRqaXVYUXdJajIvdGVyNmFiNkZ4WUJyS1pqOHJVQzRTOWdh?=
+ =?utf-8?B?Um1vK25ac3RkclBEbHk0ZWxBZkJoaEhPZFVOYWttbTVOLytuaUlqTThWVUNO?=
+ =?utf-8?B?MURlajBPd1llYm9qaHA0ZzR3aDV4enNUUXRWNWxhaGlROWgrR3lLUlZpdXF4?=
+ =?utf-8?B?aXdGaGVJMGttRExXU0ZETHJCeHVpUVZqaE0yaDRPOTJLcUpUMkNvU2hLTktN?=
+ =?utf-8?B?OE51dUJORk5RVXdsT1FQNTRKWlE3NjNzcGRrNlZ6dHFYNS91U0E3Q3o2dE4x?=
+ =?utf-8?B?bzhLcVdFSmJESXFWQjd6bW9CLzcrTU52bzFRblAxb3hMMlNtbEg2U0pZVUJ6?=
+ =?utf-8?B?T0dxYzBNNGcyck5vengyTGJKOWlYU3V6U1RXVUZBcFJ6WU93cXIvbTJvYWhz?=
+ =?utf-8?B?cXdrS2MzV2FoV2pkQndnRDdPN21idThMOEozQUJJTFJQSzRwMEdNRXVweTBr?=
+ =?utf-8?B?WkxybFc3ZW5CTFNCdVBsUlZ1UDlROENUL21VeUdVM2thM1h1NzUwNEZ6MWoy?=
+ =?utf-8?B?THA2RTAvWkpRWmJBZ0NzaklzajBienJPYTFZSGhQanlPM3lIVHA1NHRnMHRI?=
+ =?utf-8?B?T0EvMVhBZUJsVVU4NjZQOUJoenBqVTRaQ3BjalIyUUowVDhqZDB2MEhWS2ps?=
+ =?utf-8?B?d0E1RDE4WHVEd1p4QWhhWmxrcERPNFlCV1hvck9nLzlieVM5dGVCRWg1c1lN?=
+ =?utf-8?B?SmdZUDAyR2RNa1RuMjU4ZFRVWDZ0MUpVRVhkbG90WkhFL0NTVWYxOGJqRjdT?=
+ =?utf-8?B?OTZlVnZSdUNSTUFoVk1KOVcxR3JXYXQ5MzRqYnRzWm53cUZ6UXNkbWJ5S3lD?=
+ =?utf-8?B?a1NoeWlzSGFYSDlGdTVKSlFwdzMxcUxUVkJIRnVaM1BySGJiUXpEMmhoNVh5?=
+ =?utf-8?B?YUVFajNCa0Rka25nWVJraGtzeVNQaE80R0xRcmdrakNTRnNNaUozUmRuV1N0?=
+ =?utf-8?B?OE9RRmtmaXBoSHlHNXRlcUpkM2dYOUJHOFlBY3RHdjlNbmJkWE9uYXhlazVq?=
+ =?utf-8?B?UVBpQWxmbFRmOGVzeUROUDk2aGRJMWU3UnhqbWhwRU0xMWlFanYvM0F3VGVh?=
+ =?utf-8?B?THNoMTE4QmxITHNhekp5eDByS2o1SXQ1dnAxWEgzRDBRWXc0SVlCOC9mQlZ1?=
+ =?utf-8?B?UUNFb1RPYVBrNitGTHJ2OEFJL2l2VFZqU2toVFh4RVpYd3lHWllGNitrejNs?=
+ =?utf-8?B?UC9qb09zT25oWWs1TXRsWEZJOGhuSE5kREZ3SGhPdkNzRSswc3RJZ3hZZndy?=
+ =?utf-8?B?VjYveVlZK24wY3hESG90ZFZZT1B3Skl2UjRNUys4ckFjNFYwWnJ5MGp2UUow?=
+ =?utf-8?B?ek5BdzNhbEdwZEl4VmZSd0hOMXR3Smk0ZWYwemhzaFFHL0c1QkwwQ3l2NmlI?=
+ =?utf-8?B?eTl6aUgxQytRMElUY1FDNVQ3SmRVdm1UOUl2ZGhJQU9FODVRSm8rUkFRM3VJ?=
+ =?utf-8?B?ZDhYLzZIZnU0ZEhRVjNnNCs0S3NremRmOGorU2N6L1ZnTVpsSEkzMXQ2MVVT?=
+ =?utf-8?B?cWFiczVLNWpwZnJPeUVMdUpnN202dnpYTlhXL0VVL3NBbm5rVXhERERNRkc4?=
+ =?utf-8?B?K1o5MHhlMTZSVlZqVTIxSlhrMU1DSStzSWJzRFpBM2pYRTI2UHBZdXBEOHBI?=
+ =?utf-8?B?TzM1M1NiQkljOS92b1h2OVdWRXNBUjBvcWNsSFFMQmZjOTMwWGVXMk1QeWJq?=
+ =?utf-8?B?MG1JWWZxbFl0NG9wYmFJR3l0VEJjR01pMzZlcUNPS0UweFZ0WDJqNU00bGI2?=
+ =?utf-8?B?eEFock9RMEhVZmt6WVp4dXpuUVZUejJvbG95QklwcWRwQWIrMW5oY2NjYm9U?=
+ =?utf-8?B?N0lQa0RyT0lJOHRqT3YwS2pFVEx1Z2VRTDRhRFBaVmZvUWtEMHF5VHdIODVa?=
+ =?utf-8?B?cU94U3A2dGFTZTFkTmNla2JjT1BYMHgzVEdZZDVkYUEwbUUyOXpMdGhRN1hC?=
+ =?utf-8?B?dVhrRDRGaDJBSWEvOWt3ZzhraStMcW5Fa3BXanZkQ1BpSVVKcEJlMHRjWW9z?=
+ =?utf-8?B?MlBzRHZBRk41cTdqNk5QS1NHRFRRci9zUXY1eEMwL3djZDUzVFlYUT09?=
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9823ec55-4452-44c7-9874-08de4f639582
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR18MB4558.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jan 2026 09:43:46.3334
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RtBir+1m8rm2JXCYZMfNumbah+9WHEzQoxzTWrWy2fjKnqJEaL/yHGga72uoBx88
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PPF538CF913C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_013847_232186_0288F77D 
-X-CRM114-Status: GOOD (  27.02  )
+X-CRM114-CacheID: sfid-20260109_014353_188508_18893D76 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,93 +196,299 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+From: SriNavmani A <srinavmani@axiado.com>
 
-On 09/01/2026 09:42, Stefan Eichenberger wrote:
-> Hi everyone,
-> 
-> On Mon, Jan 05, 2026 at 06:58:24PM +0100, Stefan Eichenberger wrote:
->> On Mon, Jan 05, 2026 at 05:09:13PM +0000, Russell King (Oracle) wrote:
->>> On Mon, Jan 05, 2026 at 05:42:23PM +0100, Stefan Eichenberger wrote:
->>>> Yes this is correct. ERR050694 from NXP states:
->>>> The IEEE 802.3 standard states that, in MII/GMII modes, the byte
->>>> preceding the SFD (0xD5), SMD-S (0xE6,0x4C, 0x7F, or 0xB3), or SMD-C
->>>> (0x61, 0x52, 0x9E, or 0x2A) byte can be a non-PREAMBLE byte or there can
->>>> be no preceding preamble byte. The MAC receiver must successfully
->>>> receive a packet without any preamble(0x55) byte preceding the SFD,
->>>> SMD-S, or SMD-C byte.
->>>> However due to the defect, in configurations where frame preemption is
->>>> enabled, when preamble byte does not precede the SFD, SMD-S, or SMD-C
->>>> byte, the received packet is discarded by the MAC receiver. This is
->>>> because, the start-of-packet detection logic of the MAC receiver
->>>> incorrectly checks for a preamble byte.
->>>>
->>>> NXP refers to IEEE 802.3 where in clause 35.2.3.2.2 Receive case (GMII)
->>>> they show two tables one where the preamble is preceding the SFD and one
->>>> where it is not. The text says:
->>>> The operation of 1000 Mb/s PHYs can result in shrinkage of the preamble
->>>> between transmission at the source GMII and reception at the destination
->>>> GMII. Table 35–3 depicts the case where no preamble bytes are conveyed
->>>> across the GMII. This case may not be possible with a specific PHY, but
->>>> illustrates the minimum preamble with which MAC shall be able to
->>>> operate. Table 35–4 depicts the case where the entire preamble is
->>>> conveyed across the GMII.
->>>>
->>>> We would change the behavior from "no preamble is preceding SFD" to "the
->>>> enitre preamble is preceding SFD". Both are listed in the standard and
->>>> shall be supported by the MAC.
->>>
->>> Thanks for providing the full explanation, it would be good to have
->>> that in the commit message.
->>
->> Okay thanks, I will provide the full explanation in the next commit
->> message.
->>
->>>
->>> The next question would be, is it just the NXP EQOS implementation
->>> that this breaks on, or are other EQOS implementations affected?
->>>
->>> In other words, if we choose to conditionally enable the preable at
->>> the PHY, should the generic parts of stmmac handle this rather than
->>> ending up with multiple platform specific glue having to code this.
->>> (This is something I really want to avoid - it doesn't scale.)
->>
->> From the errata from NXP it sounds to me like it is a configuration
->> issue by NXP. I checked the following ERRATAs from vendors where I have
->> access to:
->> - ST STM32MP1: not affected: https://www.st.com/resource/en/errata_sheet/es0438-stm32mp151x3x7x-device-errata-stmicroelectronics.pdf
->> - Renesas RZN1: not affected: https://www.renesas.com/en/document/tcu/ethernet-mac-gmac-function-issue-0?r=1054561
->> - Starvive JH7110: not affected: https://doc-en.rvspace.org/JH7110/PDF/JH7110_Errata.pdf
->> - NXP S32: affected: (ERR050706 under NDA)
->>
->> So from that I would conclude that it is an NXP specific issue and it's
->> not the full EQOS implementation that is broken.
-> 
-> I just wanted to check whether I should continue with the current
-> approach or if I should instead enable the preamble in the PHY for all
-> MACs. While I prefer the current approach, as the issue lies with the
-> MAC rather than the PHY, I can also see the advantage of always enabling
-> the feature.
+It provides the required configurations for Axiado eMMC PHY driver for
+HS200 mode.
 
-My main concern was that we may end-up with a lot of different fixups
-for the various KSZ-family PHY devices, especially since this feature is
-sometimes undocumented.
+Signed-off-by: SriNavmani A <srinavmani@axiado.com>
+Co-developed-by: Prasad Bolisetty <pbolisetty@axiado.com>
+Signed-off-by: Prasad Bolisetty <pbolisetty@axiado.com>
+Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
+---
+ drivers/phy/Kconfig                  |   1 +
+ drivers/phy/Makefile                 |   1 +
+ drivers/phy/axiado/Kconfig           |  11 ++
+ drivers/phy/axiado/Makefile          |   1 +
+ drivers/phy/axiado/phy-axiado-emmc.c | 220 +++++++++++++++++++++++++++++++++++
+ 5 files changed, 234 insertions(+)
 
-I've gone through the micrel.c driver, and looked at the datasheet of
-most PHYs in there, and so far I've found that to fix this issue, we
-need to set :
+diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
+index 678dd0452f0aa0597773433f04d2a9ba77474d2a..b802274ea45a84bd36d7c0b7fb90e368a5c018b4 100644
+--- a/drivers/phy/Kconfig
++++ b/drivers/phy/Kconfig
+@@ -103,6 +103,7 @@ config PHY_NXP_PTN3222
+ 
+ source "drivers/phy/allwinner/Kconfig"
+ source "drivers/phy/amlogic/Kconfig"
++source "drivers/phy/axiado/Kconfig"
+ source "drivers/phy/broadcom/Kconfig"
+ source "drivers/phy/cadence/Kconfig"
+ source "drivers/phy/freescale/Kconfig"
+diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
+index bfb27fb5a494283d7fd05dd670ebd1b12df8b1a1..f1b9e4a8673bcde3fdc0fdc06a3deddb5785ced1 100644
+--- a/drivers/phy/Makefile
++++ b/drivers/phy/Makefile
+@@ -15,6 +15,7 @@ obj-$(CONFIG_PHY_AIROHA_PCIE)		+= phy-airoha-pcie.o
+ obj-$(CONFIG_PHY_NXP_PTN3222)		+= phy-nxp-ptn3222.o
+ obj-y					+= allwinner/	\
+ 					   amlogic/	\
++					   axiado/	\
+ 					   broadcom/	\
+ 					   cadence/	\
+ 					   freescale/	\
+diff --git a/drivers/phy/axiado/Kconfig b/drivers/phy/axiado/Kconfig
+new file mode 100644
+index 0000000000000000000000000000000000000000..d159e0345345987c7f48dcd12d3237997735d2b5
+--- /dev/null
++++ b/drivers/phy/axiado/Kconfig
+@@ -0,0 +1,11 @@
++#
++# PHY drivers for Axiado platforms
++#
++
++config PHY_AX3000_EMMC
++	tristate "Axiado eMMC PHY driver"
++	depends on OF && (ARCH_AXIADO || COMPILE_TEST)
++	select GENERIC_PHY
++	help
++	  Enables this to support for the AX3000 EMMC PHY driver.
++	  If unsure, say N.
+diff --git a/drivers/phy/axiado/Makefile b/drivers/phy/axiado/Makefile
+new file mode 100644
+index 0000000000000000000000000000000000000000..1e2b1ba016092eaffdbd7acbd9cdc8577d79b35c
+--- /dev/null
++++ b/drivers/phy/axiado/Makefile
+@@ -0,0 +1 @@
++obj-$(CONFIG_PHY_AX3000_EMMC)		+= phy-axiado-emmc.o
+diff --git a/drivers/phy/axiado/phy-axiado-emmc.c b/drivers/phy/axiado/phy-axiado-emmc.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..7b18689fc6690750d7b016ebdcc457ebb81aa3e0
+--- /dev/null
++++ b/drivers/phy/axiado/phy-axiado-emmc.c
+@@ -0,0 +1,220 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Axiado eMMC PHY driver
++ *
++ * Copyright (C) 2017 Arasan Chip Systems Inc.
++ * Copyright (C) 2022-2025 Axiado Corporation (or its affiliates).
++ *
++ * Based on Arasan Driver (sdhci-pci-arasan.c)
++ * sdhci-pci-arasan.c - Driver for Arasan PCI Controller with integrated phy.
++ */
++#include <linux/delay.h>
++#include <linux/io.h>
++#include <linux/iopoll.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/phy/phy.h>
++#include <linux/platform_device.h>
++
++/* Arasan eMMC 5.1 - PHY configuration registers */
++#define CAP_REG_IN_S1_LSB		0x00
++#define CAP_REG_IN_S1_MSB		0x04
++#define PHY_CTRL_1			0x38
++#define PHY_CTRL_2			0x3C
++#define PHY_CTRL_3			0x40
++#define STATUS				0x50
++
++#define DLL_ENBL	BIT(26)
++#define RTRIM_EN	BIT(21)
++#define PDB_ENBL	BIT(23)
++#define RETB_ENBL	BIT(1)
++
++#define REN_STRB	BIT(27)
++#define REN_CMD		BIT(12)
++#define REN_DAT0	BIT(13)
++#define REN_DAT1	BIT(14)
++#define REN_DAT2	BIT(15)
++#define REN_DAT3	BIT(16)
++#define REN_DAT4	BIT(17)
++#define REN_DAT5	BIT(18)
++#define REN_DAT6	BIT(19)
++#define REN_DAT7	BIT(20)
++#define REN_CMD_EN	(REN_CMD | REN_DAT0 | REN_DAT1 | REN_DAT2 | \
++		REN_DAT3 | REN_DAT4 | REN_DAT5 | REN_DAT6 | REN_DAT7)
++
++/* Pull-UP Enable on CMD Line */
++#define PU_CMD		BIT(3)
++#define PU_DAT0		BIT(4)
++#define PU_DAT1		BIT(5)
++#define PU_DAT2		BIT(6)
++#define PU_DAT3		BIT(7)
++#define PU_DAT4		BIT(8)
++#define PU_DAT5		BIT(9)
++#define PU_DAT6		BIT(10)
++#define PU_DAT7		BIT(11)
++#define PU_CMD_EN (PU_CMD | PU_DAT0 | PU_DAT1 | PU_DAT2 | PU_DAT3 | \
++		PU_DAT4 | PU_DAT5 | PU_DAT6 | PU_DAT7)
++
++/* Selection value for the optimum delay from 1-32 output tap lines */
++#define OTAP_DLY	0x02
++/* DLL charge pump current trim default [1000] */
++#define DLL_TRM_ICP	0x08
++/* Select the frequency range of DLL Operation */
++#define FRQ_SEL	0x01
++
++#define OTAP_SEL_MASK		GENMASK(10, 7)
++#define DLL_TRM_MASK		GENMASK(25, 22)
++#define DLL_FRQSEL_MASK		GENMASK(27, 25)
++
++#define OTAP_SEL(x)		(FIELD_PREP(OTAP_SEL_MASK, x) | OTAPDLY_EN)
++#define DLL_TRM(x)		(FIELD_PREP(DLL_TRM_MASK, x) | DLL_ENBL)
++#define DLL_FRQSEL(x)	FIELD_PREP(DLL_FRQSEL_MASK, x)
++
++#define OTAPDLY_EN	BIT(11)
++
++#define SEL_DLY_RXCLK	BIT(18)
++#define SEL_DLY_TXCLK	BIT(19)
++
++#define CALDONE_MASK	0x40
++#define DLL_RDY_MASK	0x1
++#define MAX_CLK_BUF0	BIT(20)
++#define MAX_CLK_BUF1	BIT(21)
++#define MAX_CLK_BUF2	BIT(22)
++
++#define CLK_MULTIPLIER	0xC008E
++#define POLL_TIMEOUT_MS	3000
++#define POLL_DELAY_US	100
++
++struct axiado_emmc_phy {
++	void __iomem *reg_base;
++	struct device *dev;
++};
++
++static int axiado_emmc_phy_init(struct phy *phy)
++{
++	struct axiado_emmc_phy *ax_phy = phy_get_drvdata(phy);
++	struct device *dev = ax_phy->dev;
++	u32 val;
++	int ret;
++
++	val = readl(ax_phy->reg_base + PHY_CTRL_1);
++	writel(val | RETB_ENBL | RTRIM_EN, ax_phy->reg_base + PHY_CTRL_1);
++
++	val = readl(ax_phy->reg_base + PHY_CTRL_3);
++	writel(val | PDB_ENBL, ax_phy->reg_base + PHY_CTRL_3);
++
++	ret = read_poll_timeout(readl, val, val & CALDONE_MASK, POLL_DELAY_US,
++				POLL_TIMEOUT_MS * 1000, false,
++				ax_phy->reg_base + STATUS);
++	if (ret) {
++		dev_err(dev, "PHY calibration timeout\n");
++		return ret;
++	}
++
++	val = readl(ax_phy->reg_base + PHY_CTRL_1);
++	writel(val | REN_CMD_EN | PU_CMD_EN, ax_phy->reg_base + PHY_CTRL_1);
++
++	val = readl(ax_phy->reg_base + PHY_CTRL_2);
++	writel(val | REN_STRB, ax_phy->reg_base + PHY_CTRL_2);
++
++	val = readl(ax_phy->reg_base + PHY_CTRL_3);
++	writel(val | MAX_CLK_BUF0 | MAX_CLK_BUF1 | MAX_CLK_BUF2,
++	       ax_phy->reg_base + PHY_CTRL_3);
++
++	writel(CLK_MULTIPLIER, ax_phy->reg_base + CAP_REG_IN_S1_MSB);
++
++	val = readl(ax_phy->reg_base + PHY_CTRL_3);
++	writel(val | SEL_DLY_RXCLK | SEL_DLY_TXCLK,
++	       ax_phy->reg_base + PHY_CTRL_3);
++
++	return 0;
++}
++
++static int axiado_emmc_phy_power_on(struct phy *phy)
++{
++	struct axiado_emmc_phy *ax_phy = phy_get_drvdata(phy);
++	struct device *dev = ax_phy->dev;
++	u32 val;
++	int ret;
++
++	val = readl(ax_phy->reg_base + PHY_CTRL_1);
++	writel(val | RETB_ENBL, ax_phy->reg_base + PHY_CTRL_1);
++
++	val = readl(ax_phy->reg_base + PHY_CTRL_3);
++	writel(val | PDB_ENBL, ax_phy->reg_base + PHY_CTRL_3);
++
++	val = readl(ax_phy->reg_base + PHY_CTRL_2);
++	writel(val | OTAP_SEL(OTAP_DLY), ax_phy->reg_base + PHY_CTRL_2);
++
++	val = readl(ax_phy->reg_base + PHY_CTRL_1);
++	writel(val | DLL_TRM(DLL_TRM_ICP), ax_phy->reg_base + PHY_CTRL_1);
++
++	val = readl(ax_phy->reg_base + PHY_CTRL_3);
++	writel(val | DLL_FRQSEL(FRQ_SEL), ax_phy->reg_base + PHY_CTRL_3);
++
++	ret = read_poll_timeout(readl, val, val & DLL_RDY_MASK, POLL_DELAY_US,
++				POLL_TIMEOUT_MS * 1000, false,
++				ax_phy->reg_base + STATUS);
++	if (ret) {
++		dev_err(dev, "DLL ready timeout\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++static const struct phy_ops axiado_emmc_phy_ops = {
++	.init = axiado_emmc_phy_init,
++	.power_on = axiado_emmc_phy_power_on,
++	.owner = THIS_MODULE,
++};
++
++static const struct of_device_id axiado_emmc_phy_of_match[] = {
++	{ .compatible = "axiado,ax3000-emmc-phy" },
++	{ /* sentinel */ },
++};
++MODULE_DEVICE_TABLE(of, axiado_emmc_phy_of_match);
++
++static int axiado_emmc_phy_probe(struct platform_device *pdev)
++{
++	struct axiado_emmc_phy *ax_phy;
++	struct phy_provider *phy_provider;
++	struct device *dev = &pdev->dev;
++	struct phy *generic_phy;
++
++	if (!dev->of_node)
++		return -ENODEV;
++
++	ax_phy = devm_kzalloc(dev, sizeof(*ax_phy), GFP_KERNEL);
++	if (!ax_phy)
++		return -ENOMEM;
++
++	ax_phy->reg_base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(ax_phy->reg_base))
++		return PTR_ERR(ax_phy->reg_base);
++
++	ax_phy->dev = dev;
++
++	generic_phy = devm_phy_create(dev, dev->of_node, &axiado_emmc_phy_ops);
++	if (IS_ERR(generic_phy))
++		return dev_err_probe(dev, PTR_ERR(generic_phy),
++				     "failed to create PHY\n");
++
++	phy_set_drvdata(generic_phy, ax_phy);
++	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
++
++	return PTR_ERR_OR_ZERO(phy_provider);
++}
++
++static struct platform_driver axiado_emmc_phy_driver = {
++	.probe = axiado_emmc_phy_probe,
++	.driver = {
++		.name = "axiado-emmc-phy",
++		.of_match_table = axiado_emmc_phy_of_match,
++	},
++};
++module_platform_driver(axiado_emmc_phy_driver);
++
++MODULE_DESCRIPTION("AX3000 eMMC PHY Driver");
++MODULE_AUTHOR("Axiado Corporation");
++MODULE_LICENSE("GPL");
 
-KSZ9131 / KSZ8041: Register 0x14 bit 6
-KSZ8061 / KSZ8051 : Register 0x18 bit 6
+-- 
+2.34.1
 
-So in the end, the complexity appears to be a bit less exponential than
-I originally thought, we may end-up with only a few fixups in this driver.
-
-I'd say, I'm fine with you proceeding with this original approach as it
-minimizes the impact and risk to break other setups.
-
-I'm sorry for triggering this whole discussion only to get back to the
-starting point :(
-
-Maxime
 
