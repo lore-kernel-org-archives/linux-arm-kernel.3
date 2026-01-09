@@ -4,64 +4,226 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 028D4D232E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 06:11:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98295D232E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 06:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vRFQQUj7n/i2ZiWtqXly1x4ZWNMsf/8vSdo3mxivNNk=; b=f7iWWkKnMv7Cx+zDKIR5iRdQOB
-	pO+BAnjlcq9HCFlbe9y+8ywEMbdA8UOS/LKa5sVczCInsGwh62lM/3gmAxLdH0282iAYQ9mATD9Tf
-	v7geOWKPTE5xdROr9sG5cfqAf+6Nl/9xWR+cf5PY+FESx+EnqS1RVBEfE3qs2VVv8FLVOxtwXkhtF
-	pJShPj0xK4IDFscYX/seYqTev/Ypy2xvQAo+bus1oAU0bdEBEa4jOWB92KhsDVlVro7oKL0fj1S0d
-	CMBmOCbWPGbgugBKg/wblGmJPxOOyXgjmT0epYqufSWFd+ONGNPHtCKwuyoDo4F8fL4ZvWegIUPXL
-	/eAmbAkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ykGNuMd8b2D04hNrFq7rK9zP5/8CXzD/Czo1me2TIU4=; b=OFGgFWc9f8MEq+2i7fZ44XmeQ+
+	HQdNqBP9ZvN0mPUmGBCjoBQuE3CQq7MsgEii3ci8O22iZotYHfu/YuCVLRN1j9Ms2n8+wfN9UVA24
+	JiPbv9/C5g29rhEz+VO/ayp/Wkt/+7DXiwE0vq4VQGpSn7TeZNkaXQMpOsszjVlucW4JsXcVPmrmd
+	5YFTfZSPsVgsC2EiuFYzaP1/CyOJ4aJCqk51LqZqH4B+L/MPQfhm9WbAkicNMRRFG5Dqa1UcLXfbg
+	jquHDx9U7KJgtKBNtUTXj1B7M/TT00Ky8KK4HvuslnDkleECGCQ61sh1K15od7o2nclSX1x8aof39
+	nXUFYpyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve5i8-00000001Wsr-1EZG;
-	Fri, 09 Jan 2026 06:11:00 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1ve5q1-00000001Y5M-1rRF;
+	Fri, 09 Jan 2026 06:19:09 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve5i3-00000001Wry-2Z0S
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 06:10:57 +0000
+	id 1ve5py-00000001Y48-04dk;
+	Fri, 09 Jan 2026 06:19:07 +0000
+X-UUID: 1469a214ed2311f09f706fa2197c6ceb-20260108
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=ykGNuMd8b2D04hNrFq7rK9zP5/8CXzD/Czo1me2TIU4=;
+	b=CXPEd4MQb80+awVmwtZWlv2WEPmMLISEXf7iIr1h33OaXzjxyvQTVUSVqBt7N4d8WkGLbe+Gv8EDEiKyeGKYr7LRDHuFiSYqp1X4GO36HNBrypRmKmvzMs/uovGsqcYkVnLoSxmLS1JLqmWHjuHRc9H38Sw4JySo3hx2fNBKLz4=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.9,REQID:4d47feed-3257-435f-af02-05eaca621e3f,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:5047765,CLOUDID:12478f26-5093-468b-b7e7-d8195251fc6e,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
+	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
+	C:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 1469a214ed2311f09f706fa2197c6ceb-20260108
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
+	(envelope-from <peter.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1853872150; Thu, 08 Jan 2026 23:18:57 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Fri, 9 Jan 2026 14:18:54 +0800
+Received: from SG2PR04CU009.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Fri, 9 Jan 2026 14:18:54 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fhBicih4S+7e2SxfLHIMNTW8zRINGFwN9UvQft0QD8G5Goursc+XEWeSN1Fu3BazDs7mLC7gfKvIXRJ8dfs0FUXgltX0ld8gjGKGQO+Q8+GfmcfzxlBmH1nf1N/vkq5V5l6qyeyzU7UMLlsudxg72bfVDNUwMfPGOSl8Ec/CRyjUl3oFbJ3TfL8kRzg+qAIur5kQLcq6VcU5ydBs6kEC9od8pUo31AkFX95U9tFOEVfUr/U9yO+DIeU/qniytqN4Vq+2qcdet48hJbutaEyIECPp4Hkpch+qcB6Yo6GHAwB+HNj2xG4qONBQE8+BwwUWv0bC8GM3V0xuVD247lFkyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ykGNuMd8b2D04hNrFq7rK9zP5/8CXzD/Czo1me2TIU4=;
+ b=s3kWW/OTcJsr1wmo+EJmaDbKQ9hXy+94KxKo+PzAA78+eMZc9ZmuS0IbpHZ7s9pmrDI0IqtNI04Xtogj47Wo5i0NqzU66di21l/bz6BBOH0W26AfG9JVnhvWqYAoneJnOWEpCAPxqu9oZZdgqFxz1ZWN7FfvpymQtC7Y2nHagAiXm2AcOt2F/UVNZsPuPw17CNWF1nJQDiWznRH02dhenNKmpCm7JeRcc1sWmWvTNsal3GOI7OLqE2cMtbljuU9SUWZivEZviAYdZM6VrucdUeAGimnFKDE8Uev5K/2m71MmP7VnBMiBwQISniwLWadNJbRKEU4qrHQCql6cqw6oHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1767939047;
-	bh=vRFQQUj7n/i2ZiWtqXly1x4ZWNMsf/8vSdo3mxivNNk=;
-	h=From:Date:Subject:To:Cc;
-	b=fBNOnwS6DvYHhp8uGDM5eJ3t7NS2jPjupsbF96O4/++BbjOYqovpIOqhHrTLJxRwL
-	 7q0Dnu0XYjGttwIA4f50USyYylBe8SgAnBglGAtDSpFz7VIjcRKhmOuyCO22Kh74Pg
-	 qHFDjQa1LsmwjMV7eDduiiW7Wj0LRWMANSkck5pmik/1dXlaqhz08VTVJuulF1/YSJ
-	 ITy1VDbE4r97CCOvfcvKQKHlSIgr+z+h1Y154GUqqoFqj5Hlzhl0pcLj1VW0o6xx9S
-	 X5O9BjHf8IKe18UwvNkU0s1QPlUP6JnzTnE9vELDlJMt6GmrR2Uyo7l54Q5rV4KnPR
-	 dAJtRY4Ez/7GA==
-Received: from [127.0.1.1] (unknown [180.150.112.60])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 8A9037E142;
-	Fri,  9 Jan 2026 14:10:45 +0800 (AWST)
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-Date: Fri, 09 Jan 2026 16:40:28 +1030
-Subject: [PATCH] dt-bindings: hwmon: Convert aspeed,ast2400-pwm-tacho to DT
- schema
-MIME-Version: 1.0
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ykGNuMd8b2D04hNrFq7rK9zP5/8CXzD/Czo1me2TIU4=;
+ b=Os8XmhS6L1FWWSl03LEi1N3OshieX2FBd5DiOTTQ9zCdnvTwTBrnidZ0Q5Zxv4JniMtEuFXB4x13w/Bcd9RKcuPDrWUAmUTi12Vd0ZbXCLl5fALDaCl3t4zFUb+5qNgI91Uw3GPw8qfqtC9pA6+7o0czWtJcS0/iTn0x4YiJ7ZM=
+Received: from PSAPR03MB5605.apcprd03.prod.outlook.com (2603:1096:301:66::6)
+ by SEYPR03MB7662.apcprd03.prod.outlook.com (2603:1096:101:143::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.4; Fri, 9 Jan
+ 2026 06:18:49 +0000
+Received: from PSAPR03MB5605.apcprd03.prod.outlook.com
+ ([fe80::165:d36a:3f76:2925]) by PSAPR03MB5605.apcprd03.prod.outlook.com
+ ([fe80::165:d36a:3f76:2925%4]) with mapi id 15.20.9499.003; Fri, 9 Jan 2026
+ 06:18:49 +0000
+From: =?utf-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>
+To: "chu.stanley@gmail.com" <chu.stanley@gmail.com>, "robh@kernel.org"
+	<robh@kernel.org>, =?utf-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?=
+	<Chunfeng.Yun@mediatek.com>, "kishon@kernel.org" <kishon@kernel.org>,
+	"James.Bottomley@hansenpartnership.com"
+	<James.Bottomley@hansenpartnership.com>, "bvanassche@acm.org"
+	<bvanassche@acm.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>,
+	=?utf-8?B?Q2hhb3RpYW4gSmluZyAo5LqV5pyd5aSpKQ==?=
+	<Chaotian.Jing@mediatek.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"lgirdwood@gmail.com" <lgirdwood@gmail.com>,
+	"nicolas.frattaroli@collabora.com" <nicolas.frattaroli@collabora.com>,
+	"vkoul@kernel.org" <vkoul@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
+	"neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "avri.altman@wdc.com"
+	<avri.altman@wdc.com>, "broonie@kernel.org" <broonie@kernel.org>,
+	"martin.petersen@oracle.com" <martin.petersen@oracle.com>
+CC: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-phy@lists.infradead.org"
+	<linux-phy@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, Louis-Alexis Eyraud
+	<louisalexis.eyraud@collabora.com>, "kernel@collabora.com"
+	<kernel@collabora.com>
+Subject: Re: [PATCH v4 11/25] scsi: ufs: mediatek: Rework probe function
+Thread-Topic: [PATCH v4 11/25] scsi: ufs: mediatek: Rework probe function
+Thread-Index: AQHccB4RyL0BA8NNcEOn+0trE2twG7VFPzEAgALfBwCAAWEtAA==
+Date: Fri, 9 Jan 2026 06:18:49 +0000
+Message-ID: <107c551e65aa3e5666a7410f3ed8049920960ada.camel@mediatek.com>
+References: <20251218-mt8196-ufs-v4-0-ddec7a369dd2@collabora.com>
+	 <20251218-mt8196-ufs-v4-11-ddec7a369dd2@collabora.com>
+	 <213d3077835fc86d15579c0a0a91f64fd84b1059.camel@mediatek.com>
+	 <5992593.DvuYhMxLoT@workhorse>
+In-Reply-To: <5992593.DvuYhMxLoT@workhorse>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PSAPR03MB5605:EE_|SEYPR03MB7662:EE_
+x-ms-office365-filtering-correlation-id: bc8cc76e-c12b-4ec0-7e40-08de4f46f433
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700021|921020;
+x-microsoft-antispam-message-info: =?utf-8?B?NG5VOFNjVVN3cUg0aU1XVHdqUW14Kzl3NzVYMnVDYkcyNFl1cmR6SVFkRCtu?=
+ =?utf-8?B?b1lGN3NoRVlySnE5QUlxMTY1VllsZ3dCK0Q4QjhjWlNxbmJTQkdValJTK0lU?=
+ =?utf-8?B?djJyOENNTWI5SGxwVkttWXlmNi9iMnpYQzc1ZFJNVlAyNjNHdGJUVUdtQU41?=
+ =?utf-8?B?ZWVhRXIyWnEzWDVYWWlycWtsUlpwOU5zSk5vblVSK0RqOGN2ZUFkUGp3Wlc1?=
+ =?utf-8?B?S2t6UmkrbjBIUEIxYlIwaEFLeXBuc09jdGFCbk1TMFFtdXA2Ri9DNndKakJi?=
+ =?utf-8?B?U2J5b3R0eG1XMFk4dWRUL1RnSWN5TmRyQVhyVHZPUHZ5TnJyZFZic3RZOXdv?=
+ =?utf-8?B?NjdzQXlSYk5uOGtSd1h6MHFIMDQyYVBGZ2c1am1tVHczY2hOci90ZkJ6YnZs?=
+ =?utf-8?B?RVIxWnpEUnpRMFpMRlU4MjJMQ3M1QXZ4N1RnMjdEUlBJSlBsTkxuTFpvdXhJ?=
+ =?utf-8?B?MlZ5SURGUjFPOHdDQjllbVVxY3lIeWdDQTB4U2dvNzRFRndqM2QvaFBGZndV?=
+ =?utf-8?B?UHlPTzNrSE1zRlNlT2s5UytjSWR2WlFMdXd3c1Y1VGtLNlAwZnVsR0RmR2Uv?=
+ =?utf-8?B?dzZCNDQrYjd0QTNiY3Jub2dGcFBEVDAzUGdiclR6UVAxYmRXZlJ0RjErZWw4?=
+ =?utf-8?B?dWlFQVhUQ2ZIbHFjQzI4MFA3WGtOSDk5R3FmeVg1Mk0vWU1yRGUyZ1hGSnlD?=
+ =?utf-8?B?L1JEOUpmaVdSem5uNTc3djA5Y1BWdkNUYUhOd2xldk5LSlpUbDNLSnU2OFVq?=
+ =?utf-8?B?UXQyQkpaaHpQYU5BdTJWMWRHWmJ0UTJPb2Z0WVVjQ091dlRyYUdNbm5DcFNY?=
+ =?utf-8?B?UVV1OVhlem9TZjk5MVRFcjRGRUJ1RGhsNldETGhycTh6NjdPYUthUENFbUs3?=
+ =?utf-8?B?ZlA4eW5NRXluZ1FBcllCQU1oMkhOSFJrV3FEcStZcE55cnlaVzJCVzdFM290?=
+ =?utf-8?B?cTVKTHdxSlIwNWlIWEZ5SzNpUE1FYmRSZ1JHdEhaVnVLOEtIbHFDM1JSVWta?=
+ =?utf-8?B?RGlGUWF2ajdRK05vM2JxTDNKaHAxNGVCeUhLSkE1VWhuMmxnYWpoaVBTdmNG?=
+ =?utf-8?B?ZGo3U3BPTWZkR3Q3MXVwbDJTYldSWVFmeTBBU0Fod25Vd3UyVk9VT3dZK0pK?=
+ =?utf-8?B?Y1lUeXIya05ZckgyMVhaLzkrK3EwODlYZmlXRmE1dEd4RURIUWx0c2N0VmxY?=
+ =?utf-8?B?eVIwK29zS3EzZnROMUtXUVJrMHJSbHFBRXVRS3F0bXdKNG54Q0JOWGVkdHMx?=
+ =?utf-8?B?VDlkeFJjRFo1S1Jsb2NzbUxKaW0wMllwcHZyYmFpZGN5ZXRwcXA2bUVjUmtv?=
+ =?utf-8?B?WE95eTVqYlZ5QkM2Uk54WlFjMTJDS2dLZDB5ZmdobnpLdUwvM3Y2NHdxdnJi?=
+ =?utf-8?B?K2FEWXJuMis4U1ovOGJyUFNHKzFGVlpYUEsxMXo3dm5ndzJVdHNPQmxmK3k3?=
+ =?utf-8?B?WG0rVDJ5TG9wV2U1TzVQRVR1V3MxUzBOeWVUeGVRMkVONHhhbm9pbW9vTkZt?=
+ =?utf-8?B?dGUvV29vSDhGRUdDbUIyZlI3OUpIMjVUaXVaZE9MNUlGeG9MQkdoRkpxRktV?=
+ =?utf-8?B?bXhWM1FyeVJGY0oveXFGUzNzS0dQbDBXdFFBZE9GTTg2OXFtV1RYV0o0V1BO?=
+ =?utf-8?B?YlVYOUxrQldLWHRxdXBlbmZpbTVVZUxCS1l3SlhuWGhHdDlvMTZyZFFEWWND?=
+ =?utf-8?B?dGk3VENIL1Z5aXdSQ2JmYUlqNitycG1VaVdEa0FGejF4MCtzLzVzQ2J6LzZy?=
+ =?utf-8?B?cXVXV2Q2RFhUbWJCbHdaUEJFcEluZHZtUlYvbitUQzVwM1FHdks1T0V3d2Rk?=
+ =?utf-8?B?NDVMU3ZNNXJ0SzlZOGJ5NnlaSjZmTHQ1cXBuVFQ2TmU2VGFlalBFT21hVnZl?=
+ =?utf-8?B?ZTBCUjkydVJjcUFxNTlUUWZUV0l2SFVtRHRQOEtjR0Zqb2xTamdwcjRzdEV4?=
+ =?utf-8?B?WDgzQ2tYWTZlQ3E1MDVtSENWeWFyUFdZUUpJNzRRKzFJbHc0NXdSdzA1UG42?=
+ =?utf-8?B?RmpIQ0IvTElRVEVxUlhPMm56Q21Zbnh4V2k0NytQWTZYdUZPa3RwY2pieGM2?=
+ =?utf-8?B?M2poZGMzbXMwQzNpNENaWXVmN3dOTWZKRExTdz09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5605.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700021)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Q2dYZGN5QVVEQlB2T24zMGNYOHlIYUtVQWRHeVowL0NLcDQwUjU1aGx6elJp?=
+ =?utf-8?B?b0E5enhpVjI5azhNSUhlVVJLSUw4ZmdXbWFHSkpsWWlFSjQ2TWZESVNOMkY3?=
+ =?utf-8?B?d1JWYjhRSytDK2I4NnViaVZlRzZ0RnhYZ3BTeElPZ1EzK1lrWVVNdlJCUnR0?=
+ =?utf-8?B?emhjaHRQVGVkQndZYVphTGxVY3pUMU9zZFpKeENRUmdvRkpsRHV5dGtKcExa?=
+ =?utf-8?B?SndjWmhHTFZJV0R2ci9CU0hheSt2b1N5enBQWkdnK1pkQzQxcDdxVXRMQnYx?=
+ =?utf-8?B?S0pZaVBSMFhXaThnZklCbC9GbnN2NC92czhXY0ZYOVVucFFZb3M1Ymh4aEl0?=
+ =?utf-8?B?bVFBaEVIS29PSXI0MHZuM3V4bzJUNCswM1MrWmJ6WFlZeFRMQmgwZUUrd3hR?=
+ =?utf-8?B?ZVZTc3YybzljZVhNR2tDbFE3em5EbkY0d0diYVBCVTlscVU3UzAvZCt5SlVT?=
+ =?utf-8?B?bm1VWDZOc3hqQngwQXVWa1dXdnhIKzhacmlBUkdack02Tkg1K0ZPRmwvMGJC?=
+ =?utf-8?B?enZjcFA2ODhJbVhDSitMUSt2TDBMTEtBNFlMeUJ2R1NaNXQvY3VDTTVCV1gz?=
+ =?utf-8?B?TXQ1R1RsSGZnaHJPVy9BT0JaVWRLdmhmRGsxUXR5U3Z5djR0OFNJTllvRzYz?=
+ =?utf-8?B?WDhxTnQ2VXl3Wkc1ZFhoWkk3dXRQOGNKaVVacXlBdTIxN3RhTnFOU0pRRHdD?=
+ =?utf-8?B?aXVkazJuZjRsMnEzOHN2NG8rQk5nV091ajJxZ0g4UFdlWWdZOGJNdy94Lzdm?=
+ =?utf-8?B?WUMrQXFoeFUrbWxPK0ExMDBNNFVOei9ZeVp1UlFzdDRqYjJNTmtscVl3MDdE?=
+ =?utf-8?B?WlI3aFZrNW5IcE96ZTRTRCtNTDFHK0o1b0l5SDBDMXBYMXhLRHNYVEF1Y0Nt?=
+ =?utf-8?B?ZUwvVGN2alpwU2RWVGhOOURsNGxDdy9oT3BzTzg3Nnp5YTg0bjlaSW5CWUkw?=
+ =?utf-8?B?RytiYlh4YnNicVVrc3FibjlQSW15dTQ3Ymp4YkQzZ3g3cEFoQXoxYWFhaTBW?=
+ =?utf-8?B?Qk5SdjBaYTdGZUk4RWJVUWZPU1BwN3R0SVBiMnB4UjhBNWxoSmR1aWJmZW15?=
+ =?utf-8?B?TndtZXBZTFlCVHFGR3hjTjFZRlNtUTRpTGU1cXNGN3liaTFMYisySk5qcldy?=
+ =?utf-8?B?SndJVHAraSsrSjZRb2dlR2s4alpvZGpvQ0pWZ3p0UDFydVVvOC9mczdwVVgy?=
+ =?utf-8?B?aGNoN29Ra3RKK1o5VmVEQWd2aTBweUZrcEFOZEVOcjd1R1I5L1hRTXgxWk5o?=
+ =?utf-8?B?eUlnTFZTN2pta203blRkMWorM2k0Myt5SUFqN1psNTJncXlLVVJSak9ZN1J6?=
+ =?utf-8?B?OVhNVG85ZUVmTkJiMU4xS0R6ZGNaSHd4ZnFqVnpPQUFwMU1FVWgrdjNJdHZo?=
+ =?utf-8?B?YlIzV28zaHNTR2pHcDFRSHpVRGhHRncyRWJuK05IUFNiaCtXem16MDNJbnZ3?=
+ =?utf-8?B?azhERzRyQzFzcE85Y05oZHJQNER6eDdtR293SU8vVDBRSU85UDMyV2ZVTDlP?=
+ =?utf-8?B?bjB0QzZpbEJCL2U2b1doSVJxVTd3L2xHRk50TjZqT3BPMXloK1VwUTd3WXpG?=
+ =?utf-8?B?ZmxFejlESjZmS1NPZnh6L1N0MTI4K3phMUtEYjhRQUFkN0cySU1YRkJ2dDFQ?=
+ =?utf-8?B?Rnl6d0EzbDB6Y0RGekg0a01RQkt5bHNqU3lSWGJaNVY3YnFLVGt5VUJ3NGM3?=
+ =?utf-8?B?ZXdCY29wMFFleklCcS85R244L0NBT3ZjZlN1WGRLeUlvV3h0cjFRUHM0djIz?=
+ =?utf-8?B?c1ZmMVRYUnA3bEtycU9hb25NWkxtVWVnRkx0Q0Y0c0RiSTJsTXFmRkc4UWQz?=
+ =?utf-8?B?MjdNSkdLNzAxbHhEelJWQllyVm5WWlM5Y29yeEN0MVVOV2lpYnRJRkxXdG4z?=
+ =?utf-8?B?cXhZa0VTOXZoMUxtM2RGQ2p5Sk00ZVV5Sk9XMEcyK1pzMlVURS9vZjQ5MTlN?=
+ =?utf-8?B?dUlpTi9IcUR1OGpZVjYzNERKRUx4M1YzemVQRUUvUmtzcmNScEJBNTR6VVp5?=
+ =?utf-8?B?RGxLWGszbEl4RjZiYTNaSXJMZnBDNm9XbGMwQVgxR0lBQnhOYUJuYkJ3SnRI?=
+ =?utf-8?B?cEx4U1dJVitJVzgyTmlGN3NDdWc0S3FiZ1pkMDlnVHo1QTNFZGo4U1h0WFVB?=
+ =?utf-8?B?c2Ryc2RVNHZrUE9vT1NpekRNTjNHajRINkd2ckNNTXNnQitWeCt5SFRRVzJC?=
+ =?utf-8?B?TFJpMDlNZHBBNWw3TzdVQjd0NC9ZSnZIWitWUHZkQ2JqZXN3bUZ6Z0ZLMzNl?=
+ =?utf-8?B?M01rbXRUSGMxdXd0ajdnV0VKaCtxVWNmZk5nM1dHUWpKbjR5QkcwamFhanFP?=
+ =?utf-8?B?a0VvRWJXekhrNUhjYXdURWNUNDNYekxxOC8yRU1RRXd3UklHMjVTUEhmS0hT?=
+ =?utf-8?Q?BSrrxiNrOpZ7BEVs=3D?=
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260109-dev-dt-warnings-hwmon-v1-1-f2a84cdb0e1b@codeconstruct.com.au>
-X-B4-Tracking: v=1; b=H4sIANObYGkC/x3MQQqAIBBA0avErBtQo6KuEi0kx5pFU2hkIN09a
- fkW/2eIFJgijFWGQDdHPqRA1xUsm5WVkF0xGGU6pdWAjm50FyYbhGWNuKX9EPSqteRM0y69htK
- egTw//3ea3/cDy3wDc2cAAAA=
-X-Change-ID: 20260109-dev-dt-warnings-hwmon-f05aed235c71
-To: Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>
-Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
- linux-kernel@vger.kernel.org, Andrew Jeffery <andrew@codeconstruct.com.au>
-X-Mailer: b4 0.14.3
+Content-ID: <43553312DFCC1F469679B4476609FDBB@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5605.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bc8cc76e-c12b-4ec0-7e40-08de4f46f433
+X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Jan 2026 06:18:49.5360
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: BHIiodu1YxoBQ6YBVD3Pf7TbLWsEhgPCYQRWSg18MqFgap3wo+YadeW9WuwipVh/XX0cvmsmFNK60qI9mvf34w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB7662
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_221055_960800_6A2290D2 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20260108_221906_115069_7F6540FC 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,248 +238,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Rob Herring (Arm)" <robh@kernel.org>
-
-Convert the ASpeed fan controller binding to DT schema format.
-
-The '#size-cells' value is 0 rather 1.
-
-Some users define more that 8 fan nodes where 2 fans share a PWM. The
-driver seems to let the 2nd fan just overwrite the 1st one. That also
-creates some addressing errors in the DT (duplicate addresses and wrong
-unit-addresses).
-
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-Acked-by: Guenter Roeck <linux@roeck-us.net>
-Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
----
-Hello,
-
-This change has been on a bit of a journey[1][2] and was eventually
-integrated into my RFC series tidying up the AST2600 EVB at [3]. Rob
-did some further digging at [4] and I've now addressed his finding
-there.
-
-Much of the series at [3] was merged so I'm splitting out what remains
-and peeling off the RFC label after making necessary fixes.
-
-Guenter - I've included your A-b tag from [3], but as I'm sending this
-to be applied through the hwmon tree, do with that as you please.
-
-Changes since the series at [3]:
-- Update #cooling-cells to 2 based on Rob's observation at [4]
-
-Cheers,
-
-Andrew
-
-Link: https://lore.kernel.org/all/20251029185448.2121857-1-robh@kernel.org/ [1]
-Link: https://lore.kernel.org/all/20251205144929.GA76422-robh@kernel.org/ [2]
-Link: https://lore.kernel.org/all/20251211-dev-dt-warnings-all-v1-0-21b18b9ada77@codeconstruct.com.au/ [3]
-Link: https://lore.kernel.org/all/CAL_JsqJUaKKsJ8BCNbVXe4vLVsQ2Av7VuWqf9DnUKHeLzLb8NQ@mail.gmail.com/ [4]
----
- .../bindings/hwmon/aspeed,ast2400-pwm-tacho.yaml   | 106 +++++++++++++++++++++
- .../devicetree/bindings/hwmon/aspeed-pwm-tacho.txt |  73 --------------
- 2 files changed, 106 insertions(+), 73 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/hwmon/aspeed,ast2400-pwm-tacho.yaml b/Documentation/devicetree/bindings/hwmon/aspeed,ast2400-pwm-tacho.yaml
-new file mode 100644
-index 000000000000..ca6e2d67ddbf
---- /dev/null
-+++ b/Documentation/devicetree/bindings/hwmon/aspeed,ast2400-pwm-tacho.yaml
-@@ -0,0 +1,106 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/hwmon/aspeed,ast2400-pwm-tacho.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ASPEED AST2400/AST2500 PWM and Fan Tacho controller
-+
-+maintainers:
-+  - Joel Stanley <joel@jms.id.au>
-+  - Andrew Jeffery <andrew@codeconstruct.com.au>
-+
-+description: >
-+  The ASPEED PWM controller can support up to 8 PWM outputs. The ASPEED Fan
-+  Tacho controller can support up to 16 Fan tachometer inputs.
-+
-+  There can be up to 8 fans supported. Each fan can have 1 PWM output and
-+  1-2 Fan tach inputs.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - aspeed,ast2400-pwm-tacho
-+      - aspeed,ast2500-pwm-tacho
-+
-+  reg:
-+    maxItems: 1
-+
-+  '#address-cells':
-+    const: 1
-+
-+  '#size-cells':
-+    const: 0
-+
-+  '#cooling-cells':
-+    const: 2
-+
-+  clocks:
-+    maxItems: 1
-+
-+  resets:
-+    maxItems: 1
-+
-+patternProperties:
-+  '^fan@[0-7]$':
-+    description: Fan subnode
-+    type: object
-+    additionalProperties: false
-+
-+    properties:
-+      reg:
-+        description: PWM source port index (0 = PWM A, ..., 7 = PWM H)
-+        maximum: 7
-+
-+      cooling-levels:
-+        description: PWM duty cycle values for cooling states
-+        $ref: /schemas/types.yaml#/definitions/uint8-array
-+        minItems: 1
-+        maxItems: 16  # Should be enough
-+
-+      aspeed,fan-tach-ch:
-+        description: Fan tachometer input channel
-+        $ref: /schemas/types.yaml#/definitions/uint8-array
-+        minItems: 1
-+        maxItems: 2
-+        items:
-+          maximum: 15
-+
-+    required:
-+      - reg
-+      - aspeed,fan-tach-ch
-+
-+required:
-+  - compatible
-+  - reg
-+  - '#address-cells'
-+  - '#size-cells'
-+  - clocks
-+  - resets
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/aspeed-clock.h>
-+
-+    fan-controller@1e786000 {
-+        compatible = "aspeed,ast2500-pwm-tacho";
-+        reg = <0x1e786000 0x1000>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        #cooling-cells = <2>;
-+        clocks = <&syscon ASPEED_CLK_APB>;
-+        resets = <&syscon ASPEED_RESET_PWM>;
-+
-+        fan@0 {
-+            reg = <0x00>;
-+            cooling-levels = /bits/ 8 <125 151 177 203 229 255>;
-+            aspeed,fan-tach-ch = /bits/ 8 <0x00>;
-+        };
-+
-+        fan@1 {
-+            reg = <0x01>;
-+            aspeed,fan-tach-ch = /bits/ 8 <0x01 0x02>;
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt b/Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt
-deleted file mode 100644
-index 8645cd3b867a..000000000000
---- a/Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt
-+++ /dev/null
-@@ -1,73 +0,0 @@
--ASPEED AST2400/AST2500 PWM and Fan Tacho controller device driver
--
--The ASPEED PWM controller can support upto 8 PWM outputs. The ASPEED Fan Tacho
--controller can support upto 16 Fan tachometer inputs.
--
--There can be upto 8 fans supported. Each fan can have one PWM output and
--one/two Fan tach inputs.
--
--Required properties for pwm-tacho node:
--- #address-cells : should be 1.
--
--- #size-cells : should be 1.
--
--- #cooling-cells: should be 2.
--
--- reg : address and length of the register set for the device.
--
--- pinctrl-names : a pinctrl state named "default" must be defined.
--
--- pinctrl-0 : phandle referencing pin configuration of the PWM ports.
--
--- compatible : should be "aspeed,ast2400-pwm-tacho" for AST2400 and
--	       "aspeed,ast2500-pwm-tacho" for AST2500.
--
--- clocks : phandle to clock provider with the clock number in the second cell
--
--- resets : phandle to reset controller with the reset number in the second cell
--
--fan subnode format:
--===================
--Under fan subnode there can upto 8 child nodes, with each child node
--representing a fan. If there are 8 fans each fan can have one PWM port and
--one/two Fan tach inputs.
--For PWM port can be configured cooling-levels to create cooling device.
--Cooling device could be bound to a thermal zone for the thermal control.
--
--Required properties for each child node:
--- reg : should specify PWM source port.
--	integer value in the range 0 to 7 with 0 indicating PWM port A and
--	7 indicating PWM port H.
--
--- cooling-levels: PWM duty cycle values in a range from 0 to 255
--                  which correspond to thermal cooling states.
--
--- aspeed,fan-tach-ch : should specify the Fan tach input channel.
--                integer value in the range 0 through 15, with 0 indicating
--		Fan tach channel 0 and 15 indicating Fan tach channel 15.
--		At least one Fan tach input channel is required.
--
--Examples:
--
--pwm_tacho: pwmtachocontroller@1e786000 {
--	#address-cells = <1>;
--	#size-cells = <1>;
--	#cooling-cells = <2>;
--	reg = <0x1E786000 0x1000>;
--	compatible = "aspeed,ast2500-pwm-tacho";
--	clocks = <&syscon ASPEED_CLK_APB>;
--	resets = <&syscon ASPEED_RESET_PWM>;
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_pwm0_default &pinctrl_pwm1_default>;
--
--	fan@0 {
--		reg = <0x00>;
--		cooling-levels = /bits/ 8 <125 151 177 203 229 255>;
--		aspeed,fan-tach-ch = /bits/ 8 <0x00>;
--	};
--
--	fan@1 {
--		reg = <0x01>;
--		aspeed,fan-tach-ch = /bits/ 8 <0x01 0x02>;
--	};
--};
-
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20260109-dev-dt-warnings-hwmon-f05aed235c71
-
-Best regards,
--- 
-Andrew Jeffery <andrew@codeconstruct.com.au>
-
+T24gVGh1LCAyMDI2LTAxLTA4IGF0IDEwOjE0ICswMTAwLCBOaWNvbGFzIEZyYXR0YXJvbGkgd3Jv
+dGU6DQo+IEJlY2F1c2UgaXQncyBub3QgZGVzY3JpYmVkIGJ5IHRoZSBiaW5kaW5nLCBhbmQgYXBw
+ZWFycyB0byBiZSBhDQo+IGRvd25zdHJlYW0gaGFjayB0byB3b3JrIGFyb3VuZCBub3QgaGF2aW5n
+IHRoZSByZXNldCBjb250cm9sbGVyDQo+IHByb3Blcmx5IGRlc2NyaWJlZCBhbmQgcmVmZXJyZWQg
+dG8gd2l0aCBhIGByZXNldHNgIHByb3BlcnR5Lg0KPiANCj4gRXZlbiBpZiB5b3Ugd2VyZSB0byB1
+c2UgYHRpLHN5c2Nvbi1yZXNldGAgdG8gZGVzY3JpYmUgYSByZXNldA0KPiBjb250cm9sbGVyLCB0
+aGUgVUZTIGNvbnRyb2xsZXIgZHJpdmVyIHNob3VsZCBub3QgYmUgc2VhcmNoaW5nDQo+IGZvciB0
+aGlzIGNvbXBhdGlibGUuIEl0IHNob3VsZCBhY2Nlc3MgdGhlIHJlc2V0IHRocm91Z2ggdGhlDQo+
+IHJlc2V0IEFQSS4gVGhlIGNvbW1vbiByZXNldCBjb2RlIGNhbiB0aGVuIHRha2UgY2FyZSBvZiBw
+cm9iZQ0KPiBvcmRlcmluZyB3aXRob3V0IGV2ZXJ5IGRyaXZlciByZWludmVudGluZyBpdC4NCj4g
+DQo+IA0KDQpDYW4gd2Ugc3VwcGxlbWVudCBkZXNjcmlwdGlvbiBpbiBiaW5kaW5nIGFuZCByZXZp
+c2UgdGhlIHJlc2V0DQpjb250cm9sbGVyIGZsb3c/DQpCZWNhdXNlIGlmIHdlIHJlbW92ZSBpdCBk
+aXJlY3RseSwgaXQgbWF5IGNhdXNlIHByb2JsZW1zIHdoZW4gYW4gZXJyb3INCm9jY3Vycz8NCg0K
+VGhhbmtzLg0KUGV0ZXINCg==
 
