@@ -4,80 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20605D232E8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 07:32:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AEDD232E9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 07:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d9BhD/PZC1kxqwJeXLHP33WT7i5IxLGIjFxALfOr/gE=; b=t+f4MZNdUgVTwkFINXOCfW8U3P
-	ZT5cKQHa6x2FAGZ7lkNCaqZuh6tDCK5pI/qDgF0p6N/5wIYDsyGZGIIK5MSr2jZYuBt9UTxrZvJ5d
-	rQ1Oqml+kYWBwG/od5dPAUjV6JXwr/Gw+mMhqD39J5jth6tLQf9y1lwl6Lf6YTOhcNpkPS7u/ke3B
-	bYQQOfTSr+7kuYaG7FTPmYKABlsiQK206HZqtcTRl0gMe6TFQh4FD734fsZAWcLDGTVbexC95Neb7
-	BgnjbAwTXqhxcQdct3PFIFhJs3EpRDJ2NFbNH1ClGlBURwj3MqTeW5oug+4n0+lVBorXgq2bTuT/z
-	HdgFFohg==;
+	bh=mBtP/sbFFM9WQcG9V42K08HbRnFgTqWBGz5XPbWVrKE=; b=2e9qOqByUKWbdnrWQZbz81nnkC
+	MeWN83SFBgerkfO0gtyEqguXADVlodbl0eaLmytGUFVVed2P5Xd/JXEzCHQJyismyz/6gDqfKp5s8
+	nwRk4ygqyLoH/KphvHhEPMvdOwUaaqO9G3eq4sSuB7vB5iEA93j2JmWpbu9SDcK8BPr+Y2MgSd9jE
+	pLIm5gHvVC8LhMnh921mHDeUMMwQ06cwAs3I+EnLF8LT6j7dwl2lj1GghFeoSRcdx7XlW4jzOrTK7
+	IsKLDMmxW8uETMPyiEs3as8MqvbS8mD3adhV0dcF/Jx60rKFHaHW5KJb5cSlWt1LSrr9J58v60+m/
+	tnN6meNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve6zA-00000001jmU-0101;
-	Fri, 09 Jan 2026 07:32:40 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1ve70J-00000001kVN-0GY2;
+	Fri, 09 Jan 2026 07:33:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve6z3-00000001jff-2w4J
+	id 1ve70G-00000001kUZ-0qt7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 07:32:38 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id E0A80C1F6CF;
-	Fri,  9 Jan 2026 07:32:05 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2D19360734;
-	Fri,  9 Jan 2026 07:32:32 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C1FEC103C8824;
-	Fri,  9 Jan 2026 08:32:27 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767943951; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=d9BhD/PZC1kxqwJeXLHP33WT7i5IxLGIjFxALfOr/gE=;
-	b=s5o6j5fP4T/foYWtW4Uw4m4njZIpEH0ozWBO/b2efjL9bvHjFDDIctze0qRdssa1U0UTYs
-	sZpGlMgEYhfruFllK8zx6bwqdNyJXgRoTiomC7S2DrfHeZROxJA6aMCgT/SfnZZKmebSm8
-	28hJ4ZLbka/uWjPOWcj5PHBaU0HE80z63rCEYmP23oVnAvwv3vArpXoU4axwp9wPlshlaZ
-	jA2qcxCwlkcYACxsSeyFr4WPxkWmSD3Z4S69FkLVgKnCOV8OkPOhgaCNXsGVmOr5NroYUJ
-	izCcPJkGm35gjctuq3qUhDh5toStD0hDjW9maICZy1MclLrltq9Eb08drAVfRg==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Fri, 09 Jan 2026 08:31:43 +0100
-Subject: [PATCH v2 12/12] drm/bridge: samsung-dsim:
- samsung_dsim_host_attach: convert to of_drm_find_and_get_bridge()
+	Fri, 09 Jan 2026 07:33:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D25E440757;
+	Fri,  9 Jan 2026 07:33:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA92BC4CEF7;
+	Fri,  9 Jan 2026 07:33:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767944027;
+	bh=e2YKt3RwrY/jWy5qMyoFXFI4iyBi3p36WShnvMXGG+E=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZQJQteNvXt7JX/wNlFUtM/MX2mmp1mgSAOxhATmhvo7/Mp8opHT3PMNvuC6QOvDfI
+	 ytN1qi/LAak0BoASRAub4ak+fyaCWETGq7YeT3ostkg4Yjw7dayX01aq78EoVnibdu
+	 BA7NuXAmNJeUZJwxPY57i13YKyLxud+Rcp/Lo+48oDfc5awz3KBtCOO0I4btTgLpqh
+	 k3N0th/HNvNj1C9wI932Fj/cMQaxcEskUtMWLJxvkJaceriQhw6iiJgvn6b6hp5xz9
+	 u5JmiD7s7UmJ4n3j+7Hq90l3jhYUBkcw42mUiG6V+IZxxCGYWw+LxTAEc6ty0g+3s/
+	 TBipzEVT+laHQ==
+Message-ID: <2770a98f-ce6f-48c7-9bb1-45f9286de371@kernel.org>
+Date: Fri, 9 Jan 2026 08:33:43 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-12-8bad3ef90b9f@bootlin.com>
-References: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-0-8bad3ef90b9f@bootlin.com>
-In-Reply-To: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-0-8bad3ef90b9f@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Philippe Cornu <philippe.cornu@st.com>, benjamin.gaignard@linaro.org, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Adrien Grassein <adrien.grassein@gmail.com>, Liu Ying <victor.liu@nxp.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
- Jagan Teki <jagan@amarulasolutions.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: vendor-prefixes: Add 'lge,*' for LG
+ Electronics
+To: Chanho Min <chanho.min@lge.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kever Yang <kever.yang@rock-chips.com>, Kael D'Alcamo <dev@kael-k.io>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Gunho Lee <gunho.lee@lge.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260108082213.6545-1-chanho.min@lge.com>
+ <20260108082213.6545-2-chanho.min@lge.com>
+ <49d28c7d-a08c-4543-b3bd-a23d36785c28@kernel.org>
+ <0b80d046-6141-4389-b666-592859468b8f@kernel.org> <aWBaYUTp8dOTIEGz@BRUNHILD>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <aWBaYUTp8dOTIEGz@BRUNHILD>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_233234_085612_22E6A646 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20260108_233348_283890_13F8A838 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,120 +126,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-of_drm_find_bridge() is deprecated. Move to its replacement
-of_drm_find_and_get_bridge() which gets a bridge reference, and ensure it
-is put when done. Also switch to the drm_bridge::next_bridge pointer.
+On 09/01/2026 02:31, Chanho Min wrote:
+> On Thu, Jan 08, 2026 at 05:46:53PM +0100, Krzysztof Kozlowski wrote:
+>> On 08/01/2026 17:39, Krzysztof Kozlowski wrote:
+>>> On 08/01/2026 09:22, Chanho Min wrote:
+>>>> Currently 'lg,*' is used for LG Corporation, but LG Electronics uses
+>>>> 'lge' as vendor prefix for many of its device tree bindings
+>>>> (lg1k SoCs, etc).
+>>>>
+>>>> Add 'lge' vendor prefix entry to avoid confusion with 'lg'.
+>>>>
+>>>> Signed-off-by: Chanho Min <chanho.min@lge.com>
+>>>> ---
+>>>>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>>>>  1 file changed, 2 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+>>>> index c7591b2aec2a..6c31fa4bee6a 100644
+>>>> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+>>>> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+>>>> @@ -907,6 +907,8 @@ patternProperties:
+>>>>      description: Lenovo Group Ltd.
+>>>>    "^lg,.*":
+>>>>      description: LG Corporation
+>>>> +  "^lge,.*":
+>>>
+>>> NAK, we have been there and I do not change my stance.
+>>
+>> Unless you meant to add it because of EXISTING device trees (predating
+>> commit fc75109288709 from Rob), then add with deprecated: true and don't
+>> use it any new compatibles.
+>>
+>> Best regards,
+>> Krzysztof
+> 
+> Hi Krzysztof,
+> 
+> v2 will include:
+>  - "lg," prefix only ("lg,lg1215-ref", "lg,lg1215")
+>  - Drop "^lge,.*" from vendor-prefixes.yaml
+>  - dts coding style fixes in patch 3
+> 
+> Existing "lge," → "lg," conversion will be sent separately soon.
 
-This needs to handle both cases: when of_drm_find_panel() succeeds and when
-it fails.
+If you have existing compatibles released as ABI then they should stay
+and you can document a deprecated lge prefix. But not for new devices.
 
-In the 'else' case (i.e. when of_drm_find_panel() fails), just switch to
-of_drm_find_and_get_bridge() to ensure the bridge is not freed while in use
-in the function tail, when it is stored in dsi->bridge.next_bridge.
+One of many previous threads:
+https://lore.kernel.org/all/9942f964-442e-e782-3926-6d7d1123418a@canonical.com/
 
-In the 'then' case (i.e. when of_drm_find_panel() succeeds),
-devm_drm_panel_bridge_add() already increments the refcount using devres
-which ties the bridge allocation lifetime to the device lifetime, so we
-would not need to do anything. However to have the same behaviour in both
-branches take an additional reference here, so that the bridge needs to be
-put whichever branch is taken without more complicated logic. Ensure to
-clear the bridge pointer however, to avoid calling drm_bridge_put() on an
-ERR_PTR.
-
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
----
-
-Changes in v2:
-- updated after "pointer set too late" fix inprevious patch
-- *not* add Acked-by: Maxime as the patch has changed
----
- drivers/gpu/drm/bridge/samsung-dsim.c | 20 +++++++++++++-------
- include/drm/bridge/samsung-dsim.h     |  1 -
- 2 files changed, 13 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bridge/samsung-dsim.c
-index afaa63c4d3f7..1d85e706c74b 100644
---- a/drivers/gpu/drm/bridge/samsung-dsim.c
-+++ b/drivers/gpu/drm/bridge/samsung-dsim.c
-@@ -1828,7 +1828,7 @@ static int samsung_dsim_attach(struct drm_bridge *bridge,
- {
- 	struct samsung_dsim *dsi = bridge_to_dsi(bridge);
- 
--	return drm_bridge_attach(encoder, dsi->out_bridge, bridge,
-+	return drm_bridge_attach(encoder, dsi->bridge.next_bridge, bridge,
- 				 flags);
- }
- 
-@@ -1886,7 +1886,7 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
- {
- 	struct samsung_dsim *dsi = host_to_dsi(host);
- 	const struct samsung_dsim_plat_data *pdata = dsi->plat_data;
--	struct drm_bridge *next_bridge;
-+	struct drm_bridge *next_bridge __free(drm_bridge_put) = NULL;
- 	struct device *dev = dsi->dev;
- 	struct device_node *np = dev->of_node;
- 	struct device_node *remote;
-@@ -1926,10 +1926,14 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
- 	panel = of_drm_find_panel(remote);
- 	if (!IS_ERR(panel)) {
- 		next_bridge = devm_drm_panel_bridge_add(dev, panel);
--		if (IS_ERR(next_bridge))
-+		if (IS_ERR(next_bridge)) {
- 			ret = PTR_ERR(next_bridge);
-+			next_bridge = NULL; // Inhibit the cleanup action on an ERR_PTR
-+		} else {
-+			drm_bridge_get(next_bridge);
-+		}
- 	} else {
--		next_bridge = of_drm_find_bridge(remote);
-+		next_bridge = of_drm_find_and_get_bridge(remote);
- 		if (!next_bridge)
- 			ret = -EINVAL;
- 	}
-@@ -1961,7 +1965,7 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
- 	}
- 
- 	// The next bridge can be used by host_ops->attach
--	dsi->out_bridge = next_bridge;
-+	dsi->bridge.next_bridge = drm_bridge_get(next_bridge);
- 
- 	if (pdata->host_ops && pdata->host_ops->attach) {
- 		ret = pdata->host_ops->attach(dsi, device);
-@@ -1976,7 +1980,8 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
- 	return 0;
- 
- err_release_next_bridge:
--	dsi->out_bridge = NULL;
-+	drm_bridge_put(dsi->bridge.next_bridge);
-+	dsi->bridge.next_bridge = NULL;
- 	return ret;
- }
- 
-@@ -1997,7 +2002,8 @@ static int samsung_dsim_host_detach(struct mipi_dsi_host *host,
- 	if (pdata->host_ops && pdata->host_ops->detach)
- 		pdata->host_ops->detach(dsi, device);
- 
--	dsi->out_bridge = NULL;
-+	drm_bridge_put(dsi->bridge.next_bridge);
-+	dsi->bridge.next_bridge = NULL;
- 
- 	samsung_dsim_unregister_te_irq(dsi);
- 
-diff --git a/include/drm/bridge/samsung-dsim.h b/include/drm/bridge/samsung-dsim.h
-index 31d7ed589233..03005e474704 100644
---- a/include/drm/bridge/samsung-dsim.h
-+++ b/include/drm/bridge/samsung-dsim.h
-@@ -100,7 +100,6 @@ struct samsung_dsim_plat_data {
- struct samsung_dsim {
- 	struct mipi_dsi_host dsi_host;
- 	struct drm_bridge bridge;
--	struct drm_bridge *out_bridge;
- 	struct device *dev;
- 	struct drm_display_mode mode;
- 
-
--- 
-2.52.0
-
+Best regards,
+Krzysztof
 
