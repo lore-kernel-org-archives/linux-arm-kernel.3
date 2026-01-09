@@ -4,108 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8260ED167F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:04:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89D59D167F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:04:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sDYasl3TO+ykUDgltsiebhB15xiF9vjquBvH4qBcVHM=; b=LUapI6pFesAv/KnMjrNU/dq1Xi
-	zjjus3CsL/KcrpxvC7usy8VlhnO0OEbX4SfLBNlybWcChPV0DKRkUXkXkB7rjr5+eHOu24RTaPh5z
-	aF4tZMY+x6GBz889ei8MXaTOTuungYAaAsYdTVHk3fpn9dfeyb5Dym5yJLJPRPS9e17ek8KGTtMvb
-	2Syj1drN3T2MZwPcxmV31UMC4OC9INy2miAIs6V0e3oJqAUB/xZlsdZTsvkG3lv/+UXgOwTXAatSw
-	l5J15npSnM/YU+4vYFCX0sTf3V7l32BweEN/9eUnRdAcczQoZ6vqCBQl2VNsn8Bag57szEhsnFJ+7
-	Dj3WeLpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=j3TDkz1mkk+5CoG4tXdYWIkXakwQPf8XXuWbY3gDnmo=; b=yIY6p/B77YS4/aWlFYPNXT+nkl
+	8YPr8jiGTqQuKhOtED68ra3rv3A3Nmf/MSyI4A7TFpSJrStc3kIMX1umRyeJ45cn0DTf6WOM41NM4
+	VfYP55Lx/ObTs2ya2HMju3DrBFtK6EUZoYrnh7I0tlkhn5XOUHfta7AbFyPTpaOqc5GSAhPPIreLX
+	2HK66AWVGv9TayDO5GWxnReHAn3bSd3Bm9tOEU0yCA5G4gBDaJOvpQjYqgD29F8nnYXngE/FoQhbJ
+	J2LogdhOVkSr6XWQQ3D9u3978xCFdKdF6P4gmGbRFsb5zltRzFIFkr8DpQKoIaUA6NaaGFODq0pJx
+	QqhSLLxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9Le-000000025oU-38X6;
-	Fri, 09 Jan 2026 10:04:02 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1ve9Li-000000025st-1xj8;
+	Fri, 09 Jan 2026 10:04:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9LY-000000025jQ-0RlU
+	id 1ve9Lg-000000025pj-1eXl
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 09 Jan 2026 10:03:56 +0000
+	Fri, 09 Jan 2026 10:04:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=sDYasl3TO+ykUDgltsiebhB15xiF9vjquBvH4qBcVHM=; b=KAyMIfTxHv8DSyTT5UkngY5UhC
-	mtNWANP0EkxIqNAyO8A7Ie56JJUeF0hl6Bg53uj96d861r8ug460OU332UT+tGOxX5PRff/gQwUgM
-	xJXOsRPsJRRDwy4NbSPER+qiGe0sbo9xZ6UGz6erCEyQZ+D+1Ck5fa38LOyb1hH1Joy2rUHZG+dox
-	TCJEJgnrIhJ/q4KLIA0W6GkFfVPbcLUPu8FpksfO/RR7l52lsvj6xXyUzL77wpBMD8d+0a/yqIg8G
-	7BM0LJzbsBgNItJ+/z9k+2aTEmReAI3NOi+QnrsOhVDCmGQnKKE+sIb5fLOyrsJmMEJ1+jjR6ClrW
-	Mdy8Tiig==;
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9LU-0000000Gb8x-3F1t
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=j3TDkz1mkk+5CoG4tXdYWIkXakwQPf8XXuWbY3gDnmo=; b=eekzdr5FZB9lx8VWrdux5rlVbN
+	xUjbs2GqjyYq9bqj4VoMSmQi46ith4mTa9jNoKzOmSJm+kQynoH1ByELsgY0RpAybgY1u5g8D/rIh
+	UklKyHJMRwOnfYHjivB6lDl7UWaqY2ues7xThaBkvWIl2el/5raeGUBisS35zja0oJZ5BO4xKxUqe
+	7h+8dgiIm9xMgr16e9vKrLtFHIhTnvjzHtswfImY12Scw0qWUW1m6xUz/FItwYnRQvhKt7lqebZlh
+	8KLUL+PBxYuPEkJwhv+++QAzrog9Q2gNifH3wMfrotTH14o5MDrz7QjiL93reIRb5//MJlkwUKqdZ
+	mFzb5TAQ==;
+Received: from galois.linutronix.de ([193.142.43.55])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ve9Ld-0000000ExuS-1GfI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 10:03:54 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 2B7D4C1F6D3;
-	Fri,  9 Jan 2026 10:03:18 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6BAFE60734;
-	Fri,  9 Jan 2026 10:03:44 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 47C31103C88D4;
-	Fri,  9 Jan 2026 11:03:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767953022; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=sDYasl3TO+ykUDgltsiebhB15xiF9vjquBvH4qBcVHM=;
-	b=ZJSYFvqhklyH3Vwt24dpnaBUo8OPit1uS9BZYNEbqIBp0HfvE4SbWkyhACiyoS872ce5ot
-	Hn5BN62UXidJKbd2f7/wtAoXH141rhnGrFQDsmDvDVaQWopM55T+4Jgc6M4yVx1Wqj5WZQ
-	KyteiRTpHK4ob8ILlsfcBPXafKwvl/D9uowH4pMC3GjPKM/MTYto1ArHSbFPJJ2TfjWRfs
-	vcRIAPWYY48xjSFr787foREYv2/8pWqgazzHIn1GRe0XLrW5IqaeymG51zNkB5R1+trpCf
-	1DswaF+HFw3D/rJ3x3cCdOtICEyhGJdFrbQyxxlXhEatRedBDZ1amnhSf3EOTQ==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Fri, 09 Jan 2026 11:02:54 +0100
-Subject: [PATCH v2 5/6] drm/exynos: hdmi: convert to
- of_drm_find_and_get_bridge()
+	Fri, 09 Jan 2026 10:04:03 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1767953038;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=j3TDkz1mkk+5CoG4tXdYWIkXakwQPf8XXuWbY3gDnmo=;
+	b=n1dQInmeF3rYS0P77sAZY8s+4xxkBpW5NPTDMHdkaSR4JF05sdnhPUA9Mi6A5ElUs/V3z9
+	LQTwHE/vjFeo2xWFIP2em5H76KIOizOSNuyLE02CUa5X6bjA2fZxWAN6IefiYBEJKJgKqJ
+	ZYkeTgaofBnwC+IMvyM2c/vjRw7EdyJbcDcNNumrSbLna76nWZ2DrYwYt0qRg2WU0d6uVz
+	rL4IVfu6ZkNxiGdZ3rOu0sCPjxbOPYTjYdPywOMvKcdPQSsvfZSf3NoKzpUbztkSnmY99u
+	GL495knmc9u6voFQFXTF4SfzktwLwRczbpdMCNWfwoOTaUFlZwGa0alZUiG9Uw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1767953038;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=j3TDkz1mkk+5CoG4tXdYWIkXakwQPf8XXuWbY3gDnmo=;
+	b=v6/6Q+v7oH/6sk1dAFUbNFoLCLimUOK/sFvBWUhNkfSLuw8GwZqF/cf+nb7c0nRSBzQHyW
+	L4zeur5t5NYFySCw==
+Date: Fri, 09 Jan 2026 11:03:56 +0100
+Subject: [PATCH] ARM: Implement ARCH_HAS_CC_CAN_LINK
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-3-v2-5-8d7a3dbacdf4@bootlin.com>
-References: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-3-v2-0-8d7a3dbacdf4@bootlin.com>
-In-Reply-To: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-3-v2-0-8d7a3dbacdf4@bootlin.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
- Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>, 
- Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, 
- Hui Pu <Hui.Pu@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- imx@lists.linux.dev, linux-mediatek@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260109-cc-can-link-arm-v1-1-b748e2aaa6a6@linutronix.de>
+X-B4-Tracking: v=1; b=H4sIAIvSYGkC/x3MMQqAMAxA0atIZgM1FAevIg4hphrUKi2IULy7x
+ fEN/xfImkwzDE2BpLdlO2NF1zYgK8dF0eZqIEe96xyhCApH3C1uyOlAryqBZ2KnHmp1JQ32/Md
+ xet8PIRKgjmEAAAA=
+X-Change-ID: 20260102-cc-can-link-arm-4eecfad2a0e4
+To: Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Arnd Bergmann <arnd@arndb.de>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1767953036; l=1481;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=5uI5RyNM8D/WUKFooFEr0jc6IRi5AZX5Qxy0aMTcUOI=;
+ b=PvEF9tAxvLs1S8N7gsTUKnyZpzU7qN6rDazLWrNDhzcyxXWfZ42qZKAQppu+47R7gXgpFKlhH
+ 4vjaICVERK+CdABHMzjF9PzLLkCew4p2K7sk+zv2bLWm5IzCprgghO2
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_100352_874214_9B961FE6 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20260109_100401_662600_4E7EF130 
+X-CRM114-Status: UNSURE (   7.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,40 +101,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-of_drm_find_bridge() is deprecated. Move to its replacement
-of_drm_find_and_get_bridge() which gets a bridge reference, and ensure it
-is put when done.
+The generic CC_CAN_LINK detection does not handle different byte orders.
+This may lead to userprogs which are not actually runnable on the target
+kernel.
 
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Use architecture-specific logic supporting byte orders instead.
+
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- drivers/gpu/drm/exynos/exynos_hdmi.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/arm/Kconfig | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_hdmi.c b/drivers/gpu/drm/exynos/exynos_hdmi.c
-index 01813e11e6c6..bfcf2fa62fe1 100644
---- a/drivers/gpu/drm/exynos/exynos_hdmi.c
-+++ b/drivers/gpu/drm/exynos/exynos_hdmi.c
-@@ -1779,7 +1779,7 @@ static int hdmi_bridge_init(struct hdmi_context *hdata)
- 		return -EINVAL;
- 	}
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index fa83c040ee2d..5ca48361e1a0 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -6,6 +6,7 @@ config ARM
+ 	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE if HAVE_KRETPROBES && FRAME_POINTER && !ARM_UNWIND
+ 	select ARCH_HAS_BINFMT_FLAT
+ 	select ARCH_HAS_CACHE_LINE_SIZE if OF
++	select ARCH_HAS_CC_CAN_LINK
+ 	select ARCH_HAS_CPU_CACHE_ALIASING
+ 	select ARCH_HAS_CPU_FINALIZE_INIT if MMU
+ 	select ARCH_HAS_CURRENT_STACK_POINTER
+@@ -1715,6 +1716,16 @@ config KERNEL_MODE_NEON
  
--	hdata->bridge = of_drm_find_bridge(np);
-+	hdata->bridge = of_drm_find_and_get_bridge(np);
- 	of_node_put(np);
+ endmenu
  
- 	if (!hdata->bridge)
-@@ -2096,6 +2096,8 @@ static void hdmi_remove(struct platform_device *pdev)
- 
- 	put_device(&hdata->ddc_adpt->dev);
- 
-+	drm_bridge_put(hdata->bridge);
++config ARCH_CC_CAN_LINK
++	bool
++	default $(cc_can_link_user,-mlittle-endian) if CPU_LITTLE_ENDIAN
++	default $(cc_can_link_user,-mbig-endian) if CPU_BIG_ENDIAN
 +
- 	mutex_destroy(&hdata->mutex);
- }
++config ARCH_USERFLAGS
++	string
++	default "-mlittle-endian" if CPU_LITTLE_ENDIAN
++	default "-mbig-endian" if CPU_BIG_ENDIAN
++
+ menu "Power management options"
  
+ source "kernel/power/Kconfig"
 
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20260102-cc-can-link-arm-4eecfad2a0e4
+
+Best regards,
 -- 
-2.52.0
+Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 
 
