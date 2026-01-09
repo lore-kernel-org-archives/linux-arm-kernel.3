@@ -4,94 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59DE1D1A63D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 14:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E67CD1A639
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 15:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0PnH1kznkVXMxfKGNOYS4D3+d5D2CLopDWhz5IX94ds=; b=XH/aNJhM7KjIYJYreC5BiIfI1n
-	rqqWQ0Bs9hyYseTxHC4SYlOKHtm471GY8dK2t0l/w8yFArlr6sjHzvl00Yj5XwSi1YTj3ZQNxQdnh
-	6ExrvEYmrwQhkOQ4tIYMi5KVmE/7VNiZpqWi84HWQEPm4zNWNHYUrjJuy9xmc/XMmjtE+yKm5aaZP
-	dIC5cxCqNDqQ4iQKJBC3CsiHZVL7s8g/HI1THrGudoDJt6Lua6l3S3tC3C2Y1ffISojx0SRHESIsE
-	eAqa9AISrZ3TqGG72kECCY+y8GKK/ZoMNuB+Jk/oL4qf0VrsUE2S4Ma46YZpUw8oC9cWNRsqKIoVa
-	uEe/8UiQ==;
+	bh=Q5Idcev8IEkG3xe18Vl3Gr0En0TfoMr3ZN0kAU10bEo=; b=wTnj64Ev9l/BTq6XlxeEajREWM
+	KBIs/NvnHFGMIgAu0+Iq8wMD+kWh2H4EcUiq4LJKvgF7bGKfl8E84M+gv2hPRZM+Pd1pZOvpk0f9k
+	sgWHZ/EAPa+nBoXzW477yucjWQq8uV43a9LunPuRaZZ3I9xWPhxlpOyIlBUx0JKEYheccTep+hz7x
+	yQNAOnk/cUJsiuNASkp977+FjGulM+ncWTIeooVh5pLN8TCYzg1SnMC3SqpewUIqq0Nl3TWTXYeTe
+	tGNn0OFFhFdNGTjNRTjcYP1ilJHZ1BXrLrlOsxnkhGzOzpiHhHC5Z+F+o0mSmVShT1WRvlGx2ZUlv
+	MHvo40rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veDw5-00000002RWL-1Xi3;
-	Fri, 09 Jan 2026 14:57:57 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veDw1-00000002RVo-43L7
+	id 1veDyf-00000002RiS-1oVX;
+	Fri, 09 Jan 2026 15:00:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1veDyc-00000002Ri6-2ZyL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 14:57:55 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-59b6df3d6b4so3947079e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 06:57:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767970671; x=1768575471; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0PnH1kznkVXMxfKGNOYS4D3+d5D2CLopDWhz5IX94ds=;
-        b=OnKeT9TOuiY/EJoKV3mLjlhuHHMp5Ll8woGxE8+lk07h1pfAnDN1jk6aL33H96GN+O
-         lkxjna6YLbE13aknV1U/DPjTjIXNxwych5IhKFf9K0RhMb7vx50QbB5k2Gzk5YLf7J9+
-         ESb6YEAzE8WgSTyhsJhJk5g7vTx1WOjaAiLonfwmLgBSkgqlWKXcxJ2mbQ0ZgZNjsH2J
-         T4fu2Rr/Ep3QSyjNQSxXZr4uQlP7n35Sc/E2/ifF51VfKifognVGivDzPgYpVuznS92Q
-         queCSVTBvO8m+OAOHBNiotxqQrE6aC+V8HNt+eN7BTnkyun9At7QKpxFIPjLODzrn3hM
-         0keg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767970671; x=1768575471;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0PnH1kznkVXMxfKGNOYS4D3+d5D2CLopDWhz5IX94ds=;
-        b=QICN2bz49E6wJfgdSpQt2cC2zEO8CD3RjFciLt4NM5DZWyiKzhWamNBDunATvweHjO
-         jgzpUivccIUVtnCt7TEzNs4AXhYbx6a3aEKABiAPIjh0j5QuAqa30MmbIBT48rzbMZjJ
-         5Ybz5j1CY7GARRQbWf9GpCzaISIU8wNUxN35bqLOYTRMqlqUziUcvWjc/siN6o3wjmhn
-         CuHeMIOD9c8BOAOS9Nq+s9Gp3OoOotc4YdQRYP82ymJVKeooVHdraafqt5xRkXcsdKej
-         akYiRvaBr+QE8SvK/yZrCn4YIN6n4JB+tDYVlcJ1pqg7AiD71LO8uC/uOUbMYjewcgQ0
-         d0fw==
-X-Forwarded-Encrypted: i=1; AJvYcCWNDSXzh6zIKMgoNBWBhRoDKbIAO8oiK72OUIokGW7Ui/RPJB3mjw8VEskTlvon9ys9oV5RbfttxxdFqS57sWcH@lists.infradead.org
-X-Gm-Message-State: AOJu0YzC0+64eK1p8O0e14wPP6kiC9xg/Yt5S3cDVc2qGsklypoaoimP
-	v/AVqNj1Gsl0PKC18AGSltr3RcbfdIy9O0VCi1nXWwlUjB9d2uMp9YrwbF8rubfxNQ==
-X-Gm-Gg: AY/fxX58FDq/S8qtdcDqjnM5EGk82JlTJC/UUOt2HKnPFk0OrhlR0nNikhZ+YGoodaj
-	LMd4fn4F3yxRKXF/JSUqibVXq1s+WYOcZQd+HH+5xDpDkTf+QamabRKTyUj2d8ZiCLloWQecoha
-	Itot6s/GmDTfaQeFGUg07bx9OEyhF4kao6jXG78JjngRHUJjHXUdTATI5RAdT5U3P8WKkP8vJ0f
-	uM3Y5WhgNcB8H24vdMzPrpW2mqiTrO4ZTDiaOFsrIN3IiY+K8G0pvWSmsnkmYf+uo4OKxD1zN+l
-	jw7B/DrnDVKmfQ6Xf1T7r6nHg+lk6y4M1HTJqzxHdKotZEb0FxTybqySNuVwP+qQkN6fsSWiUIh
-	CEQCp3jpWxpokduW8qg67DN7eqkGwxfP5lcrJUg4cmUsx+t/8p74L3TNV3FLMXvpk1W4rc9Uhcf
-	JbCqGa6IPUomCv2/VZkzqrntWrm28itXVV8AofCBLRxDwuRh/A
-X-Google-Smtp-Source: AGHT+IGe9QuDt1/NJDvUYE/tjx2via43ds8qBVHWx3t/0Dqv3eSdih6PDSJnuV+jJVbn7hXnVy62Fg==
-X-Received: by 2002:a05:6512:68b:b0:59b:79e8:248d with SMTP id 2adb3069b0e04-59b79e826aemr1791074e87.38.1767970670434;
-        Fri, 09 Jan 2026 06:57:50 -0800 (PST)
-Received: from google.com (228.231.88.34.bc.googleusercontent.com. [34.88.231.228])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-382eb7a50c7sm23096221fa.15.2026.01.09.06.57.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Jan 2026 06:57:49 -0800 (PST)
-Date: Fri, 9 Jan 2026 14:57:46 +0000
-From: Quentin Perret <qperret@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Fuad Tabba <tabba@google.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 14/30] KVM: arm64: Hook up reclaim hypercall to
- pkvm_pgtable_stage2_destroy()
-Message-ID: <lbidorn37ndyu22bg4zjbcqcsrmbyrakcqml2yts4z6uriyno2@ftmjy7dguf6g>
-References: <20260105154939.11041-1-will@kernel.org>
- <20260105154939.11041-15-will@kernel.org>
- <bc246bvbf3cg7scut2dcey7tynxqzclyceqv4hhooqacsdzti7@hcaqfbnvebt2>
- <aWESTd5Scyna_3nc@willie-the-truck>
+	Fri, 09 Jan 2026 15:00:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D33DFEC;
+	Fri,  9 Jan 2026 07:00:25 -0800 (PST)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 21D6D3F6A8;
+	Fri,  9 Jan 2026 07:00:30 -0800 (PST)
+Date: Fri, 9 Jan 2026 15:00:27 +0000
+From: Joey Gouly <joey.gouly@arm.com>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH v2 33/36] KVM: arm64: gic-v5: Probe for GICv5 device
+Message-ID: <20260109150027.GB223579@e124191.cambridge.arm.com>
+References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
+ <20251219155222.1383109-34-sascha.bischoff@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aWESTd5Scyna_3nc@willie-the-truck>
+In-Reply-To: <20251219155222.1383109-34-sascha.bischoff@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_065754_024330_1AB0D140 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20260109_070034_791184_2936037A 
+X-CRM114-Status: GOOD (  29.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,67 +71,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday 09 Jan 2026 at 14:35:57 (+0000), Will Deacon wrote:
-> On Tue, Jan 06, 2026 at 02:59:19PM +0000, Quentin Perret wrote:
-> > On Monday 05 Jan 2026 at 15:49:22 (+0000), Will Deacon wrote:
-> > > During teardown of a protected guest, its memory pages must be reclaimed
-> > > from the hypervisor by issuing the '__pkvm_reclaim_dying_guest_page'
-> > > hypercall.
-> > > 
-> > > Add a new helper, __pkvm_pgtable_stage2_reclaim(), which is called
-> > > during the VM teardown operation to reclaim pages from the hypervisor
-> > > and drop the GUP pin on the host.
-> > > 
-> > > Signed-off-by: Will Deacon <will@kernel.org>
-> > > ---
-> > >  arch/arm64/kvm/pkvm.c | 31 ++++++++++++++++++++++++++++++-
-> > >  1 file changed, 30 insertions(+), 1 deletion(-)
-> > > 
-> > > diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> > > index 1814e17d600e..8be91051699e 100644
-> > > --- a/arch/arm64/kvm/pkvm.c
-> > > +++ b/arch/arm64/kvm/pkvm.c
-> > > @@ -322,6 +322,32 @@ int pkvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
-> > >  	return 0;
-> > >  }
-> > >  
-> > > +static int __pkvm_pgtable_stage2_reclaim(struct kvm_pgtable *pgt, u64 start, u64 end)
-> > > +{
-> > > +	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
-> > > +	pkvm_handle_t handle = kvm->arch.pkvm.handle;
-> > > +	struct pkvm_mapping *mapping;
-> > > +	int ret;
-> > > +
-> > > +	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
-> > > +		struct page *page;
-> > > +
-> > > +		ret = kvm_call_hyp_nvhe(__pkvm_reclaim_dying_guest_page,
-> > > +					handle, mapping->gfn);
-> > > +		if (WARN_ON(ret))
-> > > +			return ret;
-> > > +
-> > > +		page = pfn_to_page(mapping->pfn);
-> > > +		WARN_ON_ONCE(mapping->nr_pages != 1);
-> > > +		unpin_user_pages_dirty_lock(&page, 1, true);
-> > > +		account_locked_vm(current->mm, 1, false);
-> > > +		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
-> > > +		kfree(mapping);
-> > 
-> > Nit: this might take a while, worth adding a cond_resched() in here?
+On Fri, Dec 19, 2025 at 03:52:47PM +0000, Sascha Bischoff wrote:
+> The basic GICv5 PPI support is now complete. Allow probing for a
+> native GICv5 rather than just the legacy support.
 > 
-> Commit 4ddfab5436b6 ("KVM: arm64: Reschedule as needed when destroying
-> the stage-2 page-tables") breaks the destruction operation up into
-> chunks so we now reschedule from the caller in stage2_destroy_range().
+> The implementation doesn't support protected VMs with GICv5 at this
+> time. Therefore, if KVM has protected mode enabled the native GICv5
+> init is skipped, but legacy VMs are allowed if the hardware supports
+> it.
 > 
-> Do you think we need an additional reschedule?
+> At this stage the GICv5 KVM implementation only supports PPIs, and
+> doesn't interact with the host IRS at all. This means that there is no
+> need to check how many concurrent VMs or vCPUs per VM are supported by
+> the IRS - the PPI support only requires the CPUIF. The support is
+> artificially limited to VGIC_V5_MAX_CPUS, i.e. 512, vCPUs per VM.
+> 
+> With this change it becomes possible to run basic GICv5-based VMs,
+> provided that they only use PPIs.
+> 
+> Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
+> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
 
-I would intuitively think so, but I've also just realized we already
-don't have that resched for np guests, so this patch is absolutely fine
-as-is.
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
-It's just that knocking down a whole 1G (assuming 4K pages) will be
-significantly faster for normal KVM than for pKVM. It's one call in
-pgtable.c with possibly a single deferred TLBI vs 1 hcall and 1 TLBI per
-4K page. But I guess this is really performance tuning, so this can
-always come later. Feel free to ignore :)
+
+>  arch/arm64/kvm/vgic/vgic-v5.c | 39 +++++++++++++++++++++++++++--------
+>  1 file changed, 30 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+> index 97d67c1d16541..bf72982d6a2e8 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
+> @@ -12,22 +12,13 @@ static struct vgic_v5_ppi_caps *ppi_caps;
+>  
+>  /*
+>   * Probe for a vGICv5 compatible interrupt controller, returning 0 on success.
+> - * Currently only supports GICv3-based VMs on a GICv5 host, and hence only
+> - * registers a VGIC_V3 device.
+>   */
+>  int vgic_v5_probe(const struct gic_kvm_info *info)
+>  {
+>  	u64 ich_vtr_el2;
+>  	int ret;
+>  
+> -	if (!cpus_have_final_cap(ARM64_HAS_GICV5_LEGACY))
+> -		return -ENODEV;
+> -
+>  	kvm_vgic_global_state.type = VGIC_V5;
+> -	kvm_vgic_global_state.has_gcie_v3_compat = true;
+> -
+> -	/* We only support v3 compat mode - use vGICv3 limits */
+> -	kvm_vgic_global_state.max_gic_vcpus = VGIC_V3_MAX_CPUS;
+>  
+>  	kvm_vgic_global_state.vcpu_base = 0;
+>  	kvm_vgic_global_state.vctrl_base = NULL;
+> @@ -35,6 +26,32 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
+>  	kvm_vgic_global_state.has_gicv4 = false;
+>  	kvm_vgic_global_state.has_gicv4_1 = false;
+>  
+> +	/*
+> +	 * GICv5 is currently not supported in Protected mode. Skip the
+> +	 * registration of GICv5 completely to make sure no guests can create a
+> +	 * GICv5-based guest.
+> +	 */
+> +	if (is_protected_kvm_enabled()) {
+> +		kvm_info("GICv5-based guests are not supported with pKVM\n");
+> +		goto skip_v5;
+> +	}
+> +
+> +	kvm_vgic_global_state.max_gic_vcpus = VGIC_V5_MAX_CPUS;
+> +
+> +	ret = kvm_register_vgic_device(KVM_DEV_TYPE_ARM_VGIC_V5);
+> +	if (ret) {
+> +		kvm_err("Cannot register GICv5 KVM device.\n");
+> +		goto skip_v5;
+> +	}
+> +
+> +	kvm_info("GCIE system register CPU interface\n");
+> +
+> +skip_v5:
+> +	/* If we don't support the GICv3 compat mode we're done. */
+> +	if (!cpus_have_final_cap(ARM64_HAS_GICV5_LEGACY))
+> +		return 0;
+> +
+> +	kvm_vgic_global_state.has_gcie_v3_compat = true;
+>  	ich_vtr_el2 =  kvm_call_hyp_ret(__vgic_v3_get_gic_config);
+>  	kvm_vgic_global_state.ich_vtr_el2 = (u32)ich_vtr_el2;
+>  
+> @@ -50,6 +67,10 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
+>  		return ret;
+>  	}
+>  
+> +	/* We potentially limit the max VCPUs further than we need to here */
+> +	kvm_vgic_global_state.max_gic_vcpus = min(VGIC_V3_MAX_CPUS,
+> +						  VGIC_V5_MAX_CPUS);
+> +
+>  	static_branch_enable(&kvm_vgic_global_state.gicv3_cpuif);
+>  	kvm_info("GCIE legacy system register CPU interface\n");
+>  
+> -- 
+> 2.34.1
 
