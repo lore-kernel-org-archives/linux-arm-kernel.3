@@ -4,104 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4536AD232F5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 08:42:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3435AD232F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 08:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N/+wP7VUxOoGGhH+GyCKQ5tv6/IVz0LS1NxGo+a69kI=; b=Jgu0UbDeL1p0tSltSt5gVmRfJ8
-	+XLS5MXq5ovrAZKAe+bIJLKFmnNjsu9pfbd2ONpjuOaM4OhMSXlnDqHN6boDSKQClQdViCaRmvOdu
-	0cju6PFZweD3Qvkwk8bVbahNyRb9RPc3YuFU+RnUuPn4tPOd2zyOUpIRCE744yjvaZZUHR2ZCvWyW
-	ro7lowCX4+22gdgeTbah3FOFOq+Slb6751gwsuERuH6/DGlCFoi5N4pWB9g8dNxN/T+AFDM+KLN7i
-	TS55YZO9i4hRTx6FN5SILg0RCjY09quzGbTtI6IcIzMfq2+fr3LqzACKDX5tH0frbP2VBGAvJf0Xj
-	dEVod6rQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n7w97Yz+S78zxJqxT0wgXQHY3PtPfK2+RZoebi093KE=; b=Z9uf2JBY5HITBnLozrblnJV5nA
+	MigvjQ5qEQOZPzJRAWNo54ZaoRdVUkALmYjve6n90ppnSe6XFMVs0FCwTCYNuZBa1BW+i2s6YMyQx
+	9TjYZWaVmtS/J/ips4l6e9xuqclFirWKu4HjrhRgEl9H80J2DKR6p7FnF0YyafZbcec09tDVX4J5w
+	K7ezK2Us0VBc3+Z0eTj398ZB9niVYE6d+n9Kt2xob9MT1+OGLvj3fJ+dzKRMZSgjuYpeDJQHjwd3h
+	1y/LqrvTLlcxx1bi4L3D2vS/zfnehzV7SxDYVdyk4xw5WcsHhXuEDZeluYwH7dbhe3C0+fy2MmJmg
+	2XgsEhhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve84a-00000001va3-0PZJ;
-	Fri, 09 Jan 2026 08:42:20 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1ve86H-00000001vjX-2onx;
+	Fri, 09 Jan 2026 08:44:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve84X-00000001vZc-2KCp
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 08:42:19 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-432d256c2a9so935735f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 00:42:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767948135; x=1768552935; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=N/+wP7VUxOoGGhH+GyCKQ5tv6/IVz0LS1NxGo+a69kI=;
-        b=SsPMiFLqmFYVk9EO/4nD9QAZIv+b8aUxpvXcUxq4upra7LU1gSfZfo7hMC/o89KzMS
-         zQEd567x+8qnCAJu5LbSIqSb9XXR6p83WzfD399/84t7vauygnjYe82tcnB4ls9j7n6o
-         OskVoCfBIg3p817E0ga5vGcfD4GgsWy1bgFohaYcmxmld28wubmdnZSYBJUmlixXA+Qr
-         PCMDoiIQ5lPIDvQMjMRMEy7GkNztJjS5yjya16QLi2R42HPmVqhtbac+ENzsqX6LNsAH
-         UjMNHKbFj7B6PExsVQGt+LNaLAvLyeY9fGINDpyB7QRg7pZxfoiJpO12BWKOIJPv7C7U
-         yjkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767948135; x=1768552935;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=N/+wP7VUxOoGGhH+GyCKQ5tv6/IVz0LS1NxGo+a69kI=;
-        b=mNCGp+Z6Vq+gqUYcZoEit0mkr6icVEekm9HyEcfU9OlajdnLJPLRoCZkDHA1b6fS1K
-         0JlWiES+/EPZGBquIpkuBNv3X5NozGy7q87rBjGzrk0cmTlW+xf3OGVCrZgLBzQstiJQ
-         y7cJbEAEYdym+wKXfty8FWM8gH9kUNFyTXydNsxe0DDg2tPlIg8rJKaqDPdBdo4d17HJ
-         QTRCCEVPQd0v547mYIFqXtGxuKYXc3f4cYJUmCkR6kTQ9wqcqdO3z1kPUrqQujLPDv9T
-         ND3/UDMuPfDcrzzLpHKJPCPr6RUczNhizgAA4xdXom4RYehBBTn8vKvGaYQA6OP333Wj
-         I4cQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVFoWZS7DMr9o4SmZAdPgMj6Ua5gHL0wi97nBH0ZQxjLV6JhR/UuJ3ZMTK2dXbxLuGeo0+mu1f/uCdDwRA2fmsQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3PrmUNc2OYjtyJml0hS/4umh65t5fSkmJ/MXFkOYHqZ4eVX3B
-	UgKKBL79sqT7iRdb5bWuc+2L5/ofLskbCyjQUNR6P7JIwrMxyXt7COvn
-X-Gm-Gg: AY/fxX7i0pTDkZULfY6MqIoFEGIqrz6gWLKl1OM7mG//4mfXgsC878gosGNnzdubV6+
-	V6p8C9zwtA29cnkYp/XCOd2gNlbqPUyxOfEZKl7aVjzL18nrNTGMwi5bQKuzWroktBcrCvHF/JJ
-	ik3/+Vy4RVzZjRR+fuqDrF4GwbUDpTbqPgTfkuKp/+XkPR4eFdgpk4XjjSFzbqDUbb5s/7IaY4m
-	DrHadyVcuKCN8/Ma3lueWLHonNsZIgdiSf2vOLgA6flsdnhbDBJthqYnXhAecNPfthyb+6KVpfm
-	XLBqMjJCL//I9OKpqj9rzDKv5WQj7if0Gt2CwfcKrqvO5v14aDJUZHYp0Z73ANAY2MOUOYOhpfo
-	R80+mbCkCh8O+IUE1d7aH7gm5tY+jWYAlVL+yP/WRNwQEbmpuyn7Fcv4PN1YRera19fa8y84KcO
-	gS0+F3aO8wS/8=
-X-Google-Smtp-Source: AGHT+IGYAk2S3Qdr9OmtCXbZaajNREwTznfK/Lnn5IG7bEwG+8LMc/qLBJq9BAHsaKGTT3hoN4rQcA==
-X-Received: by 2002:a5d:64e3:0:b0:430:f68f:ee7d with SMTP id ffacd0b85a97d-432c379b79cmr11104260f8f.47.1767948135127;
-        Fri, 09 Jan 2026 00:42:15 -0800 (PST)
-Received: from eichest-laptop ([2a02:168:af72:0:66a2:be50:e0d3:29f9])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0dacc5sm20839538f8f.5.2026.01.09.00.42.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Jan 2026 00:42:14 -0800 (PST)
-Date: Fri, 9 Jan 2026 09:42:12 +0100
-From: Stefan Eichenberger <eichest@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, francesco.dolcini@toradex.com,
-	robh@kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>
-Subject: Re: [PATCH RESEND net-next v2] net: stmmac: dwmac: Add a fixup for
- the Micrel KSZ9131 PHY
-Message-ID: <aWC_ZDu0HipuVhQS@eichest-laptop>
-References: <20260105100245.19317-1-eichest@gmail.com>
- <6ee0d55a-69de-4c28-8d9d-d7755d5c0808@bootlin.com>
- <aVuxv3Pox-y5Dzln@eichest-laptop>
- <a597b9d6-2b32-461f-ac90-2db5bb20cdb2@lunn.ch>
- <aVvp70S2Lr3o_jyB@eichest-laptop>
- <aVvwOYce1CFOLiBk@shell.armlinux.org.uk>
- <aVv7wD2JFikGkt3F@eichest-laptop>
+	id 1ve86F-00000001vjI-3SQB;
+	Fri, 09 Jan 2026 08:44:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DE18C60136;
+	Fri,  9 Jan 2026 08:44:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFA2AC4CEF1;
+	Fri,  9 Jan 2026 08:43:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767948242;
+	bh=RddXyKCNs/CbPxjnzNuLRG7ACLkxWIwg02psL3iFjf8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OMA+JoWDbwmadGrFytSl5UpbuHd3jxsU+s4buRoh4DwKLxTDR/ljT8Mkb8YZJ4OJL
+	 EpSlIB7LWpJrA4oAIKWnuXEfLCgZVUnX0m+QBmak0YsSXwZcQHemHV5nIEGagrqaq9
+	 /Yx7TcuRKPGfFzo9sPjRV3yaCYR6WEPFkC+IcuPEEMuH0lELn+yRh6dswuvmF3ipcA
+	 lpcv10O5+DFtoilhsQvop5aZpZowse60WFRZ751YhZ/Nr3jsC/khtk/4fE2qDxNB4w
+	 ytlocNaVvYi1N9B/5vPyuXinb6YzOGOJiDj84wxYZ4RjsU8V3jUy1EaxfDkOBODUWL
+	 Dio3j/PSp2NZA==
+Message-ID: <66ca211a-c909-4d0c-a22c-9cbd3489d372@kernel.org>
+Date: Fri, 9 Jan 2026 09:43:55 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 11/24] scsi: ufs: mediatek: Rework probe function
+To: =?UTF-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>,
+ "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ =?UTF-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?= <Chunfeng.Yun@mediatek.com>,
+ "kishon@kernel.org" <kishon@kernel.org>,
+ "James.Bottomley@HansenPartnership.com"
+ <James.Bottomley@HansenPartnership.com>,
+ "bvanassche@acm.org" <bvanassche@acm.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ =?UTF-8?B?Q2hhb3RpYW4gSmluZyAo5LqV5pyd5aSpKQ==?=
+ <Chaotian.Jing@mediatek.com>, "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
+ "nicolas.frattaroli@collabora.com" <nicolas.frattaroli@collabora.com>,
+ "vkoul@kernel.org" <vkoul@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "avri.altman@wdc.com" <avri.altman@wdc.com>,
+ "broonie@kernel.org" <broonie@kernel.org>,
+ "martin.petersen@oracle.com" <martin.petersen@oracle.com>
+Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ "kernel@collabora.com" <kernel@collabora.com>
+References: <20260108-mt8196-ufs-v5-0-49215157ec41@collabora.com>
+ <20260108-mt8196-ufs-v5-11-49215157ec41@collabora.com>
+ <81ed17eb-2170-4e97-b56d-488b5335ff5c@kernel.org>
+ <dd2eba99adaddf7517f06acf7805d32e261fafa4.camel@mediatek.com>
+ <87887adf-2c94-48c2-8f83-4e772ab50f60@kernel.org>
+ <e9a6da3998195b9dbda5abd26bc6dd5d3aca07ff.camel@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <e9a6da3998195b9dbda5abd26bc6dd5d3aca07ff.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aVv7wD2JFikGkt3F@eichest-laptop>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_004217_641223_F40C2E33 
-X-CRM114-Status: GOOD (  35.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,71 +145,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
+On 09/01/2026 09:38, Peter Wang (王信友) wrote:
+> On Fri, 2026-01-09 at 08:24 +0100, Krzysztof Kozlowski wrote:
+>> On 09/01/2026 07:22, Peter Wang (王信友) wrote:
+>>>
+>>>
+>>> Is it sufficient for us to supplement the ABI document?
+>>> This ABI might affect the ability to reset and recover after 
+>>> an UFS error in upstream world.
+>>
+>>
+>> In normal case yes, but I cannot imagine arguments justifying your
+>> usage
+>> of TI properties. Basically it would not pass review.
+>>
+>> Best regards,
+>> Krzysztof
+> 
+> 
+> Yes, this part is indeed because MediaTek’s reset hardware 
+> implementation is the same as TI’s. That’s why we used “compatible” 
+> instead of actually implementing MediaTek’s own reset controller.
 
-On Mon, Jan 05, 2026 at 06:58:24PM +0100, Stefan Eichenberger wrote:
-> On Mon, Jan 05, 2026 at 05:09:13PM +0000, Russell King (Oracle) wrote:
-> > On Mon, Jan 05, 2026 at 05:42:23PM +0100, Stefan Eichenberger wrote:
-> > > Yes this is correct. ERR050694 from NXP states:
-> > > The IEEE 802.3 standard states that, in MII/GMII modes, the byte
-> > > preceding the SFD (0xD5), SMD-S (0xE6,0x4C, 0x7F, or 0xB3), or SMD-C
-> > > (0x61, 0x52, 0x9E, or 0x2A) byte can be a non-PREAMBLE byte or there can
-> > > be no preceding preamble byte. The MAC receiver must successfully
-> > > receive a packet without any preamble(0x55) byte preceding the SFD,
-> > > SMD-S, or SMD-C byte.
-> > > However due to the defect, in configurations where frame preemption is
-> > > enabled, when preamble byte does not precede the SFD, SMD-S, or SMD-C
-> > > byte, the received packet is discarded by the MAC receiver. This is
-> > > because, the start-of-packet detection logic of the MAC receiver
-> > > incorrectly checks for a preamble byte.
-> > > 
-> > > NXP refers to IEEE 802.3 where in clause 35.2.3.2.2 Receive case (GMII)
-> > > they show two tables one where the preamble is preceding the SFD and one
-> > > where it is not. The text says:
-> > > The operation of 1000 Mb/s PHYs can result in shrinkage of the preamble
-> > > between transmission at the source GMII and reception at the destination
-> > > GMII. Table 35–3 depicts the case where no preamble bytes are conveyed
-> > > across the GMII. This case may not be possible with a specific PHY, but
-> > > illustrates the minimum preamble with which MAC shall be able to
-> > > operate. Table 35–4 depicts the case where the entire preamble is
-> > > conveyed across the GMII.
-> > > 
-> > > We would change the behavior from "no preamble is preceding SFD" to "the
-> > > enitre preamble is preceding SFD". Both are listed in the standard and
-> > > shall be supported by the MAC.
-> > 
-> > Thanks for providing the full explanation, it would be good to have
-> > that in the commit message.
-> 
-> Okay thanks, I will provide the full explanation in the next commit
-> message.
-> 
-> > 
-> > The next question would be, is it just the NXP EQOS implementation
-> > that this breaks on, or are other EQOS implementations affected?
-> > 
-> > In other words, if we choose to conditionally enable the preable at
-> > the PHY, should the generic parts of stmmac handle this rather than
-> > ending up with multiple platform specific glue having to code this.
-> > (This is something I really want to avoid - it doesn't scale.)
-> 
-> From the errata from NXP it sounds to me like it is a configuration
-> issue by NXP. I checked the following ERRATAs from vendors where I have
-> access to:
-> - ST STM32MP1: not affected: https://www.st.com/resource/en/errata_sheet/es0438-stm32mp151x3x7x-device-errata-stmicroelectronics.pdf
-> - Renesas RZN1: not affected: https://www.renesas.com/en/document/tcu/ethernet-mac-gmac-function-issue-0?r=1054561
-> - Starvive JH7110: not affected: https://doc-en.rvspace.org/JH7110/PDF/JH7110_Errata.pdf
-> - NXP S32: affected: (ERR050706 under NDA)
-> 
-> So from that I would conclude that it is an NXP specific issue and it's
-> not the full EQOS implementation that is broken.
+So that's another purely downstream code. Additionally very poor quality
+downstream code.
 
-I just wanted to check whether I should continue with the current
-approach or if I should instead enable the preamble in the PHY for all
-MACs. While I prefer the current approach, as the issue lies with the
-MAC rather than the PHY, I can also see the advantage of always enabling
-the feature.
+> So, are you suggesting that we upstream a MediaTek reset controller,
+> even though the code is almost identical to TI’s?
 
-Regards,
-Stefan
+If you ask about DT, this is already answered in writing bindings
+document. You cannot use someone else's compatible. Was also re-iterated
+on mailing list bazillions of times.
+
+Best regards,
+Krzysztof
 
