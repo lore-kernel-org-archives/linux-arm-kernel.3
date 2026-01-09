@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45954D232EF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 08:22:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F131AD232F1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 08:22:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OzIjryEsGA7UtU2GO60foN5b9s8sdOWCgObG41znPP4=; b=KQ/SsgRwaknLdVHN97shvQVrpD
-	1kt7EbeWm1OcTnfoyi3Nc3FrwZpISYj7lvge4cP+OVMGKnma6zbUy8R/IA/0OGT9S3RlpQ87eZMh8
-	zRHN2iqJJwjj+uOx+e/8oi4Aq2lnc62sMt9Nk9RlUTFiOrqkFixCbnHdpRmh+fMiFXBcR1ZA0790Y
-	4l+Y5QKVQriLh084/ZW8gGV1vOmH66JzgPVHSEIIZKNwrgjVIQ3fWPVx80Bz1K1xU6SUSvgcTvq4v
-	iJQd6vHUI4hTNONwCuFALOGtuyvDjmKk8NF+tD7vKEFB4hLXaND6hZDKLy9KYqOB/jGj5MwZZdvpr
-	X+Tjbq1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WTwC3FF8o3D1tLIxF1rzohdijBesrjYjdFLpGAMOcJc=; b=bm48g5IGLh2d5CZMTxLJqAmlxI
+	FDuLonsRNPjhF9Zegw7zynAa91Dwug5WfP2Nwe56K/ACivwEefnKfX9deiXlSUOeuUPwiEoqp/Lw1
+	gZ01VUY5p3R12ipvaDOyC6Ciy0dTgQN1B5R7eTrp7Z1bvLo9E0b6Ubm6sxgTal2ptsnaTJEP14Gtk
+	vR337LjAgvuwmoPi1CmNdUxaZJkxC39PGjoCrYXGRd3zwabodxp2FV6alaEe+6DxMoVeaUel2xsqI
+	2v+t5aibclnS/Zk7DgprMXrm9JAcvchzu7EQuNplkVuchigBvqmlDZlREGvOQcqJ745d9/9GX16Is
+	7A1zVfxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve7lR-00000001siT-0dJB;
-	Fri, 09 Jan 2026 08:22:34 +0000
-Received: from lgeamrelo11.lge.com ([156.147.23.51])
+	id 1ve7lT-00000001sjx-0kIS;
+	Fri, 09 Jan 2026 08:22:35 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve7lH-00000001sVH-2OdU
+	id 1ve7lI-00000001sX7-3P1C
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 09 Jan 2026 08:22:26 +0000
-Received: from unknown (HELO lgemrelse6q.lge.com) (156.147.1.121)
-	by 156.147.23.51 with ESMTP; 9 Jan 2026 17:22:18 +0900
-X-Original-SENDERIP: 156.147.1.121
-X-Original-MAILFROM: chanho.min@lge.com
-Received: from unknown (HELO localhost.localdomain) (10.178.31.97)
-	by 156.147.1.121 with ESMTP; 9 Jan 2026 17:22:18 +0900
-X-Original-SENDERIP: 10.178.31.97
-X-Original-MAILFROM: chanho.min@lge.com
-From: Chanho Min <chanho.min@lge.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Kael D'Alcamo <dev@kael-k.io>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Cc: Chanho Min <chanho.min@lge.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-430fdc1fff8so2475004f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 00:22:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1767946942; x=1768551742; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=WTwC3FF8o3D1tLIxF1rzohdijBesrjYjdFLpGAMOcJc=;
+        b=ff2AmhBHMxXLlIY/3wOYl0C2pChM/bv0TGMJCue4UrJ3BH6HyVrEpzWnTPsddBZmFH
+         8h7NNEIZQ4Wm25jC3YZmaBgJKJyuLOE4G6wpU+IbiElSagINp162UW+SNyaRrpGcZ4qc
+         0L4Jj9M2I1SeG0nxXW9TkX1aWKbGmqGTD3QFfR+UNIj92ol2ddNGPZ4SnE17lQUe7SGD
+         ahy7ntvbS55R3P+uzsHWeY8JsXQdkB296Dpo/lDpnP3+GXZCzQ4gE3R/gdkyHcaTqTD0
+         SldJJLTnVConxt5RGdMBECwu2TzlQLH2qcVSOvWuQzBwhQOSP/qnNnHHv113iHgdn501
+         XVwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767946942; x=1768551742;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WTwC3FF8o3D1tLIxF1rzohdijBesrjYjdFLpGAMOcJc=;
+        b=iIHSwtAXJFQazqsN8Z7dsajzRMFRP/8C1l+lM2p+ju3DxJ6PdGBeoXh6TmwO+5cWue
+         CqnB+ezcT0fpe+yi/dPssm7VcRGtnKrdL+qBOhDsS6xz+R1ejwYkubtNGSPxqotGV39m
+         qqwFOw62Y4vBBZlb8wowSFjFpMo9O6DGMBzuLdEm7riyT8GXuc9BIxFfWqB4/JU0Z9zL
+         q0mEkbcaiN+P6IWZe+0ShtUi+BJQKD0oZ5x9GFy/D3Sq9VCgLXH0GFC1qucyMaBY6PQY
+         CrnAZCs57yO1DVHcyokJrzKBTJqufdoRjC1ODJRz0N4JLW6TGTlQykaCdqtfXQtGzcUD
+         OCgA==
+X-Forwarded-Encrypted: i=1; AJvYcCVFA4+xgjn6e2Wm6FYhmjHiaux/354EDWs9RMaPsK6PTIZltzc61V2cDBK7nXc4yiXSzXENGBwPLao9/jZ4GvQu@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPI1gMYFBqR1UWLb1NDEgnf/lVKOCDm82BH92MV7MDDkr6yYCe
+	hwYHvtov1KQZE5HcCzk3v50L7Bg449vf3llgs8U0JFxAYcJ5EZ14zfDHgkDjdLxGcbB0WcYa4L8
+	ZuA==
+X-Google-Smtp-Source: AGHT+IEbTZ+JAQZIIX5R/diRf8NtI3qcRyEYMj72NqYPRiSA2F4mmy/NK7W30kPtTdFlYjIQg8wuM2wdbA==
+X-Received: from wman14.prod.google.com ([2002:a05:600c:6c4e:b0:475:dadb:c8f2])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:6287:b0:475:dcbb:7903
+ with SMTP id 5b1f17b1804b1-47d84b17b7cmr101603035e9.9.1767946942620; Fri, 09
+ Jan 2026 00:22:22 -0800 (PST)
+Date: Fri,  9 Jan 2026 08:22:16 +0000
+In-Reply-To: <20260109082218.3236580-1-tabba@google.com>
+Mime-Version: 1.0
+References: <20260109082218.3236580-1-tabba@google.com>
+X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
+Message-ID: <20260109082218.3236580-4-tabba@google.com>
+Subject: [PATCH v4 3/5] KVM: riscv: selftests: Fix incorrect rounding in page_align()
+From: Fuad Tabba <tabba@google.com>
+To: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 1/2] dt-bindings: arm: lg: Add compatible for LG1215 SoC and reference board
-Date: Fri,  9 Jan 2026 17:22:13 +0900
-Message-Id: <20260109082214.1583961-2-chanho.min@lge.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260109082214.1583961-1-chanho.min@lge.com>
-References: <20260109082214.1583961-1-chanho.min@lge.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, 
+	pbonzini@redhat.com, shuah@kernel.org, anup@brainfault.org, 
+	atish.patra@linux.dev, itaru.kitayama@fujitsu.com, andrew.jones@linux.dev, 
+	seanjc@google.com, tabba@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_002223_937338_7B372B33 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260109_002225_067801_E1965BDD 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,36 +93,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatible strings for the LG1215 SoC and its reference board
-(lg,lg1215 and lg,lg1215-ref).
+The implementation of `page_align()` in `processor.c` calculates
+alignment incorrectly for values that are already aligned. Specifically,
+`(v + vm->page_size) & ~(vm->page_size - 1)` aligns to the *next* page
+boundary even if `v` is already page-aligned, potentially wasting a page
+of memory.
 
-This SoC is the next SoC following the LG1313 series, developed
-by LG Electronics.
+Fix the calculation to use standard alignment logic: `(v + vm->page_size
+- 1) & ~(vm->page_size - 1)`.
 
-v2:
- - Switched to "lg," prefix
-
-Signed-off-by: Chanho Min <chanho.min@lge.com>
+Fixes: 3e06cdf10520 ("KVM: selftests: Add initial support for RISC-V 64-bit")
+Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
+Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- Documentation/devicetree/bindings/arm/lge.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+ tools/testing/selftests/kvm/lib/riscv/processor.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/lge.yaml b/Documentation/devicetree/bindings/arm/lge.yaml
-index d983ef7fcbd6..0d0661470eaa 100644
---- a/Documentation/devicetree/bindings/arm/lge.yaml
-+++ b/Documentation/devicetree/bindings/arm/lge.yaml
-@@ -24,5 +24,10 @@ properties:
-           - const: lge,lg1313-ref
-           - const: lge,lg1313
+diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
+index 2eac7d4b59e9..d5e8747b5e69 100644
+--- a/tools/testing/selftests/kvm/lib/riscv/processor.c
++++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
+@@ -28,7 +28,7 @@ bool __vcpu_has_ext(struct kvm_vcpu *vcpu, uint64_t ext)
  
-+      - description: Boards with LG1215 SoC
-+        items:
-+          - const: lg,lg1215-ref
-+          - const: lg,lg1215
-+
- additionalProperties: true
- ...
+ static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
+ {
+-	return (v + vm->page_size) & ~(vm->page_size - 1);
++	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
+ }
+ 
+ static uint64_t pte_addr(struct kvm_vm *vm, uint64_t entry)
 -- 
-2.34.1
+2.52.0.457.g6b5491de43-goog
 
 
