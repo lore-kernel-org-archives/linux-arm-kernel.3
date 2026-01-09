@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D41FD26D6F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:29:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F69BD26D71
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:29:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Av9QrHeVLN0xEzdviPuqhkrVJd267kJMrNhHLNRrzA=; b=llgjRUxXSlHtbHVlTYk2qNXIX4
-	ZuJZPFRBt8MTKnQ3FDKfGlE1Boi3bfinLAUuw2ShGcwRmeRzoXN0pzT8oyZmSbiNZ6yu8II+8Cw7q
-	oY+833JUJt/fgNQanJGzeCNs3wn/CQKdW+SVw8/wv6l6Rm9iV7ztG32IQNHd2OK+KCJXZcJTOZ+vW
-	hDXCd7xCOnMKjqF0PTNlUB+w2vepESMwSkn88LZ/4FpPD8Bj05KbzbLTQA3gwRdYuYUsD4oDJlHxh
-	wmpCQC/ueAvHIahOq9hx85d+kQjKdXu5siRFJJoQ8FJfwknBRljDC5MCwuw+FaJp4tVaI3NvkKcpK
-	Jl5iVPCw==;
+	bh=BDIxgNLvF1O1Oe1LlgG31I1BnB4kO8aVYHlLHCZX96Q=; b=P/oqDxvHCsuUH7F7EBWmYr1vlM
+	EfyVM57e9+Xd5SP9WBmoxUn7jtirgV7RPlouTWRhdtxkxb8E5HxbzuTElM8H2pTr8DSc/aX0spM67
+	kXPE7wmz1n+klVHLJNNK5H2Dd8JMWoOzuPDc63Is1yplQMu/kGgg+6/xAIgkg41NiXC5HNfiBMJQ6
+	ZsfDTKp5n+sUlAWnb+Kjbft7BBVBpSC0/s5nKinFid9Jqwn9j0X+1dYsrxW5RQwuws+A3oQGsjLez
+	jRx87wXJapDEo8IBIgxSEoxKyH6vYick9rm3prLiNdf///mIGF4LLF4pP/DedU9xgkZh2BY8uCUmc
+	Tnx8bg+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veFMs-00000002cYE-1ImK;
-	Fri, 09 Jan 2026 16:29:42 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1veFMz-00000002cbY-0SnR;
+	Fri, 09 Jan 2026 16:29:49 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veFMq-00000002cXB-3Tpg
+	id 1veFMw-00000002cZb-18gp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 16:29:42 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4779cb0a33fso47703435e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 08:29:40 -0800 (PST)
+	Fri, 09 Jan 2026 16:29:47 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-47774d3536dso29491185e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 08:29:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767976179; x=1768580979; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1767976184; x=1768580984; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=0Av9QrHeVLN0xEzdviPuqhkrVJd267kJMrNhHLNRrzA=;
-        b=McxkSqAqdC5zQpwahUKltaL9Vmi3iplQ1TMue0rgBdMoGxwrjfjyHpYninj7pru839
-         JY3vNAZh/Ieyr3Mhe+bbkmzS1u1LBtXK7PH4RmfwkhxqwOcxeBIhwVtma1qi6XUARxvr
-         +ejB0vWSc7QIsOwy6iApQy932ObYh7Wqgv/LBaJ1VMgQS9aUa4VGww+/ziUYoVT/DukI
-         aDU+kUnrW6hc1MFzgqA/ivs80ALlzllXt4VYUh1SkNcR7i6Li/+bAdoW42t2m14m5CuY
-         iMGui0wsbSOTkgJj+8GyH5tHzC/O4aeLHP7RYuO5dJq+5vVnZD7w1ZVaeuozs4/NiXvD
-         3A2Q==
+        bh=BDIxgNLvF1O1Oe1LlgG31I1BnB4kO8aVYHlLHCZX96Q=;
+        b=Lvx3HsVdEr8h1ta6cSWGfxXzWoZEtIPkVe76wfC0C0T0vpHhcE/ADQCkgB9EQqSG4F
+         uIBbHuL+iDoYl7QlhTg2KNMr+XXNJ6En1zep9Im/d8pSg5cdn3m7ZypDJ6ob6N1adreP
+         d5RddNizh8Q/bVxnPw9Wjo5mcjT9V8bckWsR2PvUtq9+9NcimF7pGo+SxTOcbC+RR30t
+         Llp0u1vPpweHRltN7uWPg3t6WcKJhEY+XBaIA6VNcHNtQEsPvBOYga/63cHDFwFGfD35
+         xAbHINkAgy7Bnx8yZb7ymaJuYf7+uleAsQsBWhgXgyNM5Py2EuWYTs7YsVhPpUvYLBsQ
+         e74Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767976179; x=1768580979;
+        d=1e100.net; s=20230601; t=1767976184; x=1768580984;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0Av9QrHeVLN0xEzdviPuqhkrVJd267kJMrNhHLNRrzA=;
-        b=le4lpr0VHgM79SsXH7oQVlxd9AvReresQH2C45xEfC2XikL77EArT0n0ybPWA4omQ6
-         9uNr6znLiugT5W2keHw5naTLhBCBw1Gc7Z5C67YT76A77WuwWx1OhtDAC+5h6O2c1qLJ
-         Ao5FKEw56HAwfvjSJWSDsoC9iKNXtwYw6p3ypLxPcn36iTROKMkLzkVWsORzQ0Z0Bxmw
-         h/WDeax6+zbKxCSdYEYERQtLqrzgMbUGERvvSXhOCmSl6Om0+8ih22OzZBG+x0OuVK2I
-         mA5YyY1Nesmu6q9V8w0Iu64wytzW7rWYBmkOfmZ10N+gBuzb1hN7AebbWWUM/7dHQGi0
-         HWhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUTpRgWZLlgY2GhkYR6e7oTq7+YIiCUbhEhUHfurdcG5KfgXDuuPfBT/ZvGA9UeOUr6jZWfyWRA+uiID2zHRBC+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCg+lRGijji2nxMYRQr6cvMlww9bxkEemuLq5CxwnOIVIrkElU
-	F5TB8AjwXcDs5Y1+SSzRDcoZekRQhoHjnum5soSRxnCM9auVyNG+pIq/1T2UpYB6XMQ=
-X-Gm-Gg: AY/fxX7ufg8jE4ORrnPQBkF8WwCeUYcwU4LEGr0Jt/FAbHByeyapCRbqMdFH9+rKfEG
-	9SLZ9tEzY+UNwX81L3u74z7t3BIF3qNp0P4jr4TfKeJvVKSiPGjRUj2brXmg+ZP/Hjp2OcrZRzd
-	zDUodonyUHwXUA+xd467LUpWNr6ZSVPpypbcjUQciBTiV77PgmjB49XReo4LUHi0PSITTpzw7tu
-	tq6NJ6O3HpL6Cjn+ruOhdRMILrVtsdpqKQ3EVC5lH4kmJrw33sdFomste+Pz9m2drkCqaanpxTJ
-	4VbE2u2xUcTNJG6UMLEvbN2xC2xIBfNKeg6+v3kMm7F2pZErhWpAEbk+BXhXkneDEculP0VSUhV
-	tOGXgyJjs5/0q4w4Yhd59NvtQpIYNbXX7YcYOVioliebQ9f43yGVpWxs4MHQhPS6rPPdZHaLqbk
-	emyvTNQ8+Onzph9Wsj
-X-Google-Smtp-Source: AGHT+IHlxXBTc8kcCppX7neDfDLqk6DNHOUQ5JMaSuR5ew7p0+7D3jKYSaHYHZVPW0MOT9coV8wMow==
-X-Received: by 2002:a05:600c:3b28:b0:471:13fa:1b84 with SMTP id 5b1f17b1804b1-47d84b1868amr120818095e9.12.1767976178721;
-        Fri, 09 Jan 2026 08:29:38 -0800 (PST)
+        bh=BDIxgNLvF1O1Oe1LlgG31I1BnB4kO8aVYHlLHCZX96Q=;
+        b=pANmGGU2OZzlr4G6XulQFmuGrYjFRApiJA+ZqZy9+zZOuBKegb7PB+shWQ5TddKpqY
+         wIsGZVwMgKJfrZHXB1H5IGK/8VypvEPS9z1qoT+mZbC6M6A1gxDZgudAcCrLVgNAj2eA
+         diYx76qdEKiba/u11Y/neJjnbDqGu4x7M2FGaxf43ieYHnhuf1FbMH1dgcUfQZkUAl3p
+         nNQJ+6VVdAsro4QFPyxE9u7Wtncvv0DbxZ7S4+WAv1abnrWK1YmLkmoY86NQ9uXjDSQ4
+         DRdrNmPauDkdmeA2V9a0WCKwUQpmW8GfuUzt9VM1UyNizq0IGCuPqKM0IXuckhZ3pH4p
+         CjEg==
+X-Forwarded-Encrypted: i=1; AJvYcCUWErtrp26VWu5TQtqA/1zRzlHL6gIZv0/1cZRoHKjwqNIHYnVvdTa69kLvn0eEOhuK5ZcMV0r/B4Knbb/WLB0e@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQ9JLUQgy9hZsYhuqfyN21zuS52LAZ1Yp1Fx5DxcEd7EnfC/68
+	yQKAUqAWJe/h5KyJR7cNjEADun1/jA9cQsHCaux1E/AZeauTOrM4h+kOSU+kPtxXhrM=
+X-Gm-Gg: AY/fxX49vnAH4+VWb6isM23dufgVZ25EueB0u2nsBlHqUpYJ0tZ2jwbt7s/UQK6I3rc
+	QzRRIf4Kyra3iNddbHYOmu5PDmanHMYcJDzx7JfmQQKZN8pS6b1lQiT5sYzSkXauDsX+0q46df8
+	lEqPVhwgG3EFV0SDWqcoSjsQW0QNfxw0FAVwcaiZX38sh1pCtUNyIVueeDjtzdzLlfxO+UhiqUj
+	MjzexUg1/DFdRsBJKw/OaesdGzflU53PTMO9L+SZdR2H/SOswbSdKDi5j3SWnlJi3sEYmRVAkSH
+	EIOP9mGJTyybDhPnoawD0cSt72hTTdi3r24pgNwPHrYsIG7wGdU6Gsc3TzhkMP7weAJeG1a8gB5
+	Am0G90iYf/xG+D8Rury9RBn3716mM+eP4MEuzbpmb9I5uFxV7n1RFFOCxk/OVfC55hN2nbe2W4l
+	Z5YU49C/kiETO+A5E/
+X-Google-Smtp-Source: AGHT+IHVU96ttm7KS2AOungyyohCawGn09jXrFXfBi1Gd5xx/ea0ubiQ/YJ8fNCApR2Z52FVe0oExA==
+X-Received: by 2002:a05:600c:4ec7:b0:477:9e0c:f59 with SMTP id 5b1f17b1804b1-47d8483cc5cmr127786325e9.2.1767976184178;
+        Fri, 09 Jan 2026 08:29:44 -0800 (PST)
 Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d7f703a8csm213675025e9.13.2026.01.09.08.29.37
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d7f703a8csm213675025e9.13.2026.01.09.08.29.43
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 09 Jan 2026 08:29:38 -0800 (PST)
-Message-ID: <f7d73dc3-aa4a-4c32-aabb-21a61a2f773f@linaro.org>
-Date: Fri, 9 Jan 2026 16:29:37 +0000
+        Fri, 09 Jan 2026 08:29:43 -0800 (PST)
+Message-ID: <c6e1f67c-6c71-4785-a1b9-3be2acee2a3a@linaro.org>
+Date: Fri, 9 Jan 2026 16:29:43 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v6 19/35] KVM: arm64: Trap PMBIDR_EL1 and PMSIDR_EL1
+Subject: Re: [RFC PATCH v6 14/35] KVM: arm64: Add SPE VCPU device attribute to
+ set the max buffer size
 To: Alexandru Elisei <alexandru.elisei@arm.com>
 Cc: mark.rutland@arm.com, james.morse@arm.com, maz@kernel.org,
  oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
  yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com,
  linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
 References: <20251114160717.163230-1-alexandru.elisei@arm.com>
- <20251114160717.163230-20-alexandru.elisei@arm.com>
+ <20251114160717.163230-15-alexandru.elisei@arm.com>
 Content-Language: en-US
 From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251114160717.163230-20-alexandru.elisei@arm.com>
+In-Reply-To: <20251114160717.163230-15-alexandru.elisei@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_082940_932565_4FEBB1FD 
-X-CRM114-Status: GOOD (  26.32  )
+X-CRM114-CacheID: sfid-20260109_082946_392482_06B228C8 
+X-CRM114-Status: GOOD (  58.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,235 +108,357 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 14/11/2025 4:07 pm, Alexandru Elisei wrote:
-> PMBIDR_EL1 and PMSIDR_EL1 are read-only registers that describe the SPE
-> implementation. Trap reads to allow KVM to control how SPE is described to
-> a virtual machine. In particular, this is needed to:
+On 14/11/2025 4:06 pm, Alexandru Elisei wrote:
+> During profiling, the buffer programmed by the guest must be kept mapped at
+> stage 2 by KVM, making this memory pinned from the host's perspective.
 > 
-> - Advertise the maximum buffer size set by userspace in
->    PMBIDR_EL1.MaxBuffSize.
-> - Hide in PMSIDR_EL1, if necessary, the presence of FEAT_SPE_FDS and
->    FEAT_SPE_FnE, both of which add new registers which are already
->    trapped via the FGU mechanism.
+> To make sure that a guest doesn't consume too much memory, add a new SPE
+> VCPU device attribute, KVM_ARM_VCPU_MAX_BUFFER_SIZE, which is used by
+> userspace to limit the amount of memory a VCPU can pin when programming
+> the profiling buffer. This value will be advertised to the guest in the
+> PMBIDR_EL1.MaxBuffSize field.
 > 
 > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 > ---
->   arch/arm64/include/asm/kvm_spe.h |  4 +-
->   arch/arm64/kvm/config.c          | 13 ++++-
->   arch/arm64/kvm/spe.c             | 82 +++++++++++++++++++++++++++++++-
->   arch/arm64/kvm/sys_regs.c        | 13 +++--
->   4 files changed, 103 insertions(+), 9 deletions(-)
+>   Documentation/virt/kvm/devices/vcpu.rst |  49 ++++++++++
+>   arch/arm64/include/asm/kvm_spe.h        |   6 ++
+>   arch/arm64/include/uapi/asm/kvm.h       |   5 +-
+>   arch/arm64/kvm/arm.c                    |   2 +
+>   arch/arm64/kvm/spe.c                    | 116 ++++++++++++++++++++++++
+>   5 files changed, 176 insertions(+), 2 deletions(-)
 > 
+> diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
+> index e305377fadad..bb1bbd2ff6e2 100644
+> --- a/Documentation/virt/kvm/devices/vcpu.rst
+> +++ b/Documentation/virt/kvm/devices/vcpu.rst
+> @@ -347,3 +347,52 @@ attempting to set a different one will result in an error.
+>   Similar to KVM_ARM_VCPU_PMU_V3_CTRL(KVM_ARM_VCPU_PMU_SET_PMU), userspace is
+>   responsible for making sure that the VCPU is run only on physical CPUs which
+>   have the specified SPU.
+> +
+> +5.3 ATTRIBUTE: KVM_ARM_VCPU_MAX_BUFFER_SIZE
+> +------------------------------------------
+> +
+> +:Parameters: in kvm_device_attr.addr the address to an u64 representing the
+> +             maximum buffer size, in bytes.
+> +
+> +:Returns:
+> +
+> +	 =======  =========================================================
+> +	 -EBUSY   Virtual machine has already run
+> +	 -EDOM    Buffer size cannot be represented by hardware
+> +	 -EFAULT  Error accessing the max buffer size identifier
+> +	 -EINVAL  A different maximum buffer size already set or the size is
+> +                  not aligned to the host's page size
+> +	 -ENXIO   SPE not supported or not properly configured
+> +	 -ENODEV  KVM_ARM_VCPU_HAS_SPE VCPU feature or SPU instance not set
+
+Hi Alex,
+
+I can't reproduce this anymore, but I got this a few times. Or at least 
+I think it was this, I've pasted the output from kvmtool below and it 
+doesn't say exactly what the issue was.
+
+If I tried again with a different buffer size it worked, then going back 
+to 256M didn't work, then it went away. I might have done something 
+wrong so if you didn't see this either then we can probably ignore it 
+for now.
+
+  -> sudo lkvm run --kernel /boot/vmlinux-6.18.0-rc2+ -p "earlycon
+     kpti=off" -c 4 -m 2000 --pmu --spe --spe-max-buffer-size=256M
+
+   Info: # lkvm run -k /boot/vmlinux-6.18.0-rc2+ -m 2000 -c 4 --name
+   guest-616
+   KVM_SET_DEVICE_ATTR: No such device or address
+
+
+> +	 -ERANGE  Buffer size larger than maximum supported by the SPU
+> +                  instance.
+> +	 =======  ==========================================================
+> +
+> +Required.
+> +
+> +Limit the size of the profiling buffer for the VCPU to the specified value. The
+> +value will be used by all VCPUs. Can be set for more than one VCPUs, as long as
+> +the value stays the same.
+> +
+> +Requires that a SPU has been already assigned to the VM. The maximum buffer size
+
+Very minor nit, but would "Initialised with SPE" be better? Because it's
+done through KVM_ARM_VCPU_INIT rather than "ASSIGN_SPU". I think it 
+might make it easier to understand how you are supposed to use it.
+
+SPU is never expanded either and I think users probably wouldn't be 
+familiar with what that is. A lot of times we could just say "has SPE" 
+and it would be clearer. I don't think separating the concepts of SPE 
+and SPU gives us anything in this high level of a doc other than 
+potentially confusing users.
+
+> +must be less than or equal to the maximum buffer size of the assigned SPU instance,
+
+I don't understand this part. Do you mean "of the assigned physical SPU 
+instance"? The ARM states "no limit" is the only valid value here:
+
+   Reads as 0x0000
+   The only permitted value is 0x0000, indicating there is no limit to
+   the maximum buffer size.
+
+It would be good to expand on where the limit you are talking about 
+comes from.
+
+> +unless there is no limit on the maximum buffer size for the SPU. In this case
+> +the VCPU maximum buffer size can have any value, including 0, as long as it can
+> +be encoded by hardware. For details on how the hardware encodes this value,
+> +please consult Arm DDI0601 for the field PMBIDR_EL1.MaxBuffSize.
+> +
+> +The value 0 is special and it means that there is no upper limit on the size of
+> +the buffer that the guest can use. Can only be set if the SPU instance used by
+> +the VM has a similarly unlimited buffer size.
+
+This is a comment about changes in kvmtool, but it's semi related so 
+I'll leave it here. But you say only half of the buffer is used at a time:
+
+   In a guest, perf, when the user is root, uses the default value of 4MB
+   for the total size of the profiling memory.  This is split in two by
+   the SPE driver, and at any given time only one half (2MB) is
+   programmed for the SPE buffer.
+
+   However, KVM also has to pin the stage 1 translation tables that
+   translate the buffer, so if the default were 2MB, KVM would definitely
+   exceed this value. Make the default 4MB to avoid potential errors when
+   the limit is exceeded.
+
+But isn't that just for snapshot mode? In normal mode the half way point 
+is set to perf_output_handle->wakeup which comes from the watermark set 
+by userspace? If you set it to the end then in theory the whole buffer 
+could be used?
+
+> +
+> +When a guest enables SPE on the VCPU, KVM will pin the host memory backing the
+> +buffer to avoid the statistical profiling unit experiencing stage 2 faults when
+> +it writes to memory. This includes the host pages backing the guest's stage 1
+> +translation tables that are used to translate the buffer. As a result, it is
+> +expected that the size of the memory that will be pinned for each VCPU will be
+> +slightly larger that the maximum buffer set with this ioctl.
+> +
+> +This memory that is pinned will count towards the process RLIMIT_MEMLOCK. To
+> +avoid the limit being exceeded, userspace must increase the RLIMIT_MEMLOCK limit
+> +prior to running the VCPU, otherwise KVM_RUN will return to userspace with an
+> +error.
 > diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
-> index 3506d8c4c661..47b94794cc5f 100644
+> index a4e9f03e3751..e48f7a7f67bb 100644
 > --- a/arch/arm64/include/asm/kvm_spe.h
 > +++ b/arch/arm64/include/asm/kvm_spe.h
-> @@ -40,7 +40,7 @@ int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
->   int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+> @@ -12,6 +12,7 @@
 >   
->   bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val);
-> -u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg);
-> +u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg, u32 encoding);
->   #else
 >   struct kvm_spe {
+>   	struct arm_spe_pmu *arm_spu;
+> +	u64 max_buffer_size;	/* Maximum per VCPU buffer size */
 >   };
-> @@ -78,7 +78,7 @@ static inline bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val)
->   {
->   	return true;
->   }
-> -static inline u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg)
-> +static inline u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg, u32 encoding)
->   {
->   	return 0;
->   }
-> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-> index 24bb3f36e9d5..ed6b167b7aa8 100644
-> --- a/arch/arm64/kvm/config.c
-> +++ b/arch/arm64/kvm/config.c
-> @@ -6,6 +6,7 @@
 >   
->   #include <linux/kvm_host.h>
->   #include <asm/kvm_emulate.h>
-> +#include <asm/kvm_spe.h>
->   #include <asm/kvm_nested.h>
->   #include <asm/sysreg.h>
+>   struct kvm_vcpu_spe {
+> @@ -28,6 +29,8 @@ static __always_inline bool kvm_supports_spe(void)
+>   #define vcpu_has_spe(vcpu)					\
+>   	(vcpu_has_feature(vcpu, KVM_ARM_VCPU_SPE))
 >   
-> @@ -1489,6 +1490,16 @@ static void __compute_hfgwtr(struct kvm_vcpu *vcpu)
->   		*vcpu_fgt(vcpu, HFGWTR_EL2) |= HFGWTR_EL2_TCR_EL1;
->   }
+> +void kvm_spe_init_vm(struct kvm *kvm);
+> +
+>   int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+>   int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+>   int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+> @@ -41,6 +44,9 @@ struct kvm_vcpu_spe {
+>   #define kvm_supports_spe()	false
+>   #define vcpu_has_spe(vcpu)	false
 >   
-> +static void __compute_hdfgrtr(struct kvm_vcpu *vcpu)
+> +static inline void kvm_spe_init_vm(struct kvm *kvm)
 > +{
-> +	__compute_fgt(vcpu, HDFGRTR_EL2);
-> +
-> +	if (vcpu_has_spe(vcpu)) {
-> +		*vcpu_fgt(vcpu, HDFGRTR_EL2) |= HDFGRTR_EL2_PMBIDR_EL1;
-> +		*vcpu_fgt(vcpu, HDFGRTR_EL2) |= HDFGRTR_EL2_PMSIDR_EL1;
-> +	}
 > +}
-> +
->   static void __compute_hdfgwtr(struct kvm_vcpu *vcpu)
+>   static inline int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
 >   {
->   	__compute_fgt(vcpu, HDFGWTR_EL2);
-> @@ -1505,7 +1516,7 @@ void kvm_vcpu_load_fgt(struct kvm_vcpu *vcpu)
->   	__compute_fgt(vcpu, HFGRTR_EL2);
->   	__compute_hfgwtr(vcpu);
->   	__compute_fgt(vcpu, HFGITR_EL2);
-> -	__compute_fgt(vcpu, HDFGRTR_EL2);
-> +	__compute_hdfgrtr(vcpu);
->   	__compute_hdfgwtr(vcpu);
->   	__compute_fgt(vcpu, HAFGRTR_EL2);
+>   	return -ENXIO;
+> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
+> index 760c3e074d3d..9db652392781 100644
+> --- a/arch/arm64/include/uapi/asm/kvm.h
+> +++ b/arch/arm64/include/uapi/asm/kvm.h
+> @@ -445,8 +445,9 @@ enum {
+>   #define KVM_ARM_VCPU_PVTIME_CTRL	2
+>   #define   KVM_ARM_VCPU_PVTIME_IPA	0
+>   #define KVM_ARM_VCPU_SPE_CTRL		3
+> -#define   KVM_ARM_VCPU_SPE_IRQ		0
+> -#define   KVM_ARM_VCPU_SPE_SPU		1
+> +#define   KVM_ARM_VCPU_SPE_IRQ			0
+> +#define   KVM_ARM_VCPU_SPE_SPU			1
+> +#define   KVM_ARM_VCPU_SPE_MAX_BUFFER_SIZE	2
+>   
+>   /* KVM_IRQ_LINE irq field index values */
+>   #define KVM_ARM_IRQ_VCPU2_SHIFT		28
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index d7f802035970..9afdf66be8b2 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -194,6 +194,8 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+>   
+>   	kvm_timer_init_vm(kvm);
+>   
+> +	kvm_spe_init_vm(kvm);
+> +
+>   	/* The maximum number of VCPUs is limited by the host's GIC model */
+>   	kvm->max_vcpus = kvm_arm_default_max_vcpus();
 >   
 > diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
-> index 5b3dc622cf82..92eb46276c71 100644
+> index c581838029ae..3478da2a1f7c 100644
 > --- a/arch/arm64/kvm/spe.c
 > +++ b/arch/arm64/kvm/spe.c
-> @@ -22,10 +22,16 @@ struct arm_spu_entry {
->   	struct arm_spe_pmu *arm_spu;
->   };
+> @@ -3,6 +3,7 @@
+>    * Copyright (C) 2021 - ARM Ltd
+>    */
 >   
-> +static u64 max_buffer_size_to_pmbidr_el1(u64 size);
-> +
->   void kvm_host_spe_init(struct arm_spe_pmu *arm_spu)
->   {
->   	struct arm_spu_entry *entry;
->   
-> +	/* PMBIDR_EL1 cannot be trapped without FEAT_FGT. */
-> +	if (!cpus_have_final_cap(ARM64_HAS_FGT))
-> +		return;
-> +
-
-Isn't this only required if you want to report a different PMBIDR value? 
-If the value in hardware is already what you want to give to guests then 
-it's not strictly required. Maybe it's something we can do as an 
-addition later to make it usable in more places.
-
->   	/* TODO: pKVM and nVHE support */
->   	if (is_protected_kvm_enabled() || !has_vhe())
->   		return;
-> @@ -86,9 +92,81 @@ bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val)
->   	return true;
+> +#include <linux/bitops.h>
+>   #include <linux/cpumask.h>
+>   #include <linux/kvm_host.h>
+>   #include <linux/perf/arm_spe_pmu.h>
+> @@ -41,6 +42,99 @@ void kvm_host_spe_init(struct arm_spe_pmu *arm_spu)
+>   		static_branch_enable(&kvm_spe_available);
 >   }
 >   
-> -u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg)
-> +static bool kvm_spe_has_feat_spe_fds(struct kvm *kvm)
+> +/*
+> + * The maximum buffer size can be zero (no restrictions on the buffer size), so
+> + * this value cannot be used as the uninitialized value. The maximum buffer size
+> + * must be page aligned, so arbitrarily choose the value '1' for an
+> + * uninitialized maximum buffer size.
+> + */
+> +#define KVM_SPE_MAX_BUFFER_SIZE_UNSET		1
+> +
+> +void kvm_spe_init_vm(struct kvm *kvm)
 > +{
-> +	struct arm_spe_pmu *spe_pmu = kvm->arch.kvm_spe.arm_spu;
-> +
-> +	return kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMSVer, V1P4) &&
-> +	       FIELD_GET(PMSIDR_EL1_FDS, spe_pmu->pmsidr_el1);
+> +	kvm->arch.kvm_spe.max_buffer_size = KVM_SPE_MAX_BUFFER_SIZE_UNSET;
 > +}
 > +
-> +static bool kvm_spe_has_feat_spe_fne(struct kvm *kvm)
+> +static u64 max_buffer_size_to_pmbidr_el1(u64 size)
 > +{
-> +	struct arm_spe_pmu *spe_pmu = kvm->arch.kvm_spe.arm_spu;
+> +	u64 msb_idx, num_bits;
+> +	u64 maxbuffsize;
+> +	u64 m, e;
 > +
-> +	return kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMSVer, V1P2) &&
-> +	       FIELD_GET(PMSIDR_EL1_FnE, spe_pmu->pmsidr_el1);
+> +	/*
+> +	 * size = m:zeros(12); m is 9 bits.
+> +	 */
+> +	if (size <= GENMASK_ULL(20, 12)) {
+> +		m = size >> 12;
+> +		e = 0;
+> +		goto out;
+> +	}
+> +
+> +	/*
+> +	 * size = 1:m:zeros(e+11)
+> +	 */
+> +
+> +	num_bits = fls64(size);
+> +	msb_idx = num_bits - 1;
+> +
+> +	/* MSB is not encoded. */
+> +	m = size & ~BIT(msb_idx);
+> +	/* m is 9 bits. */
+> +	m >>= msb_idx - 9;
+> +	/* MSB is not encoded, m is 9 bits wide and 11 bits are zero. */
+> +	e = num_bits - 1 - 9 - 11;
+> +
+> +out:
+> +	maxbuffsize = FIELD_PREP(GENMASK_ULL(8, 0), m) | \
+> +		      FIELD_PREP(GENMASK_ULL(13, 9), e);
+> +	return FIELD_PREP(PMBIDR_EL1_MaxBuffSize, maxbuffsize);
 > +}
 > +
-> +static u64 kvm_spe_get_pmsidr_el1(struct kvm_vcpu *vcpu)
->   {
-> -	return __vcpu_sys_reg(vcpu, reg);
-> +	struct kvm *kvm = vcpu->kvm;
-> +	u64 pmsidr = kvm->arch.kvm_spe.arm_spu->pmsidr_el1;
+> +static u64 pmbidr_el1_to_max_buffer_size(u64 pmbidr_el1)
+> +{
+> +	u64 maxbuffsize;
+> +	u64 e, m;
 > +
-> +	/* Filter out known RES0 bits. */
-> +	pmsidr &= ~GENMASK_ULL(63, 33);
+> +	maxbuffsize = FIELD_GET(PMBIDR_EL1_MaxBuffSize, pmbidr_el1);
+> +	e = FIELD_GET(GENMASK_ULL(13, 9), maxbuffsize);
+> +	m = FIELD_GET(GENMASK_ULL(8, 0), maxbuffsize);
 > +
-> +	if (!kvm_spe_has_feat_spe_fne(kvm))
-> +		pmsidr &= ~PMSIDR_EL1_FnE;
-> +
-> +	if (!kvm_spe_has_feat_spe_fds(kvm))
-> +		pmsidr &= ~PMSIDR_EL1_FDS;
-> +
-> +	return pmsidr;
+> +	if (!e)
+> +		return m << 12;
+> +	return (1ULL << (9 + e + 11)) | (m << (e + 11));
 > +}
 > +
-> +static u64 kvm_spe_get_pmbidr_el1(struct kvm_vcpu *vcpu)
+> +static int kvm_spe_set_max_buffer_size(struct kvm_vcpu *vcpu, u64 size)
 > +{
 > +	struct kvm *kvm = vcpu->kvm;
 > +	struct kvm_spe *kvm_spe = &kvm->arch.kvm_spe;
-> +	u64 max_buffer_size = kvm_spe->max_buffer_size;
-> +	u64 pmbidr_el1 = kvm_spe->arm_spu->pmbidr_el1;
+> +	u64 decoded_size, spu_size;
 > +
-> +	/* Filter out known RES0 bits. */
-> +	pmbidr_el1 &= ~(GENMASK_ULL(63, 48) | GENMASK_ULL(31, 12));
+> +	if (kvm_vm_has_ran_once(kvm))
+> +		return -EBUSY;
 > +
-> +	if (!kvm_has_feat(kvm, ID_AA64DFR2_EL1, SPE_nVM, IMP)) {
-> +		pmbidr_el1 &= ~PMBIDR_EL1_AddrMode;
-> +		pmbidr_el1 |= PMBIDR_EL1_AddrMode_VM_ONLY;
-> +	}
+> +	if (!PAGE_ALIGNED(size))
+> +		return -EINVAL;
 > +
-> +	pmbidr_el1 &= ~PMBIDR_EL1_MaxBuffSize;
-> +	pmbidr_el1 |= max_buffer_size_to_pmbidr_el1(max_buffer_size);
+> +	if (!kvm_spe->arm_spu)
+> +		return -ENODEV;
 > +
-> +	return pmbidr_el1;
+> +	if (kvm_spe->max_buffer_size != KVM_SPE_MAX_BUFFER_SIZE_UNSET)
+> +		return size == kvm_spe->max_buffer_size ? 0 : -EINVAL;
+> +
+> +	decoded_size = pmbidr_el1_to_max_buffer_size(max_buffer_size_to_pmbidr_el1(size));
+> +	if (decoded_size != size)
+> +		return -EDOM;
+> +
+> +	spu_size = pmbidr_el1_to_max_buffer_size(kvm_spe->arm_spu->pmbidr_el1);
+> +	if (spu_size != 0 && (size == 0 || size > spu_size))
+> +		return -ERANGE;
+> +
+> +	kvm_spe->max_buffer_size = size;
+> +
+> +	return 0;
 > +}
 > +
-> +u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg, u32 encoding)
-> +{
-> +	u64 val = 0;
-> +
-> +	switch (encoding) {
-> +	case SYS_PMBIDR_EL1:
-> +		val = kvm_spe_get_pmbidr_el1(vcpu);
-> +		break;
-> +	case SYS_PMSIDR_EL1:
-> +		val = kvm_spe_get_pmsidr_el1(vcpu);
-> +		break;
-> +	case SYS_PMBLIMITR_EL1:
-> +	case SYS_PMBPTR_EL1:
-> +	case SYS_PMBSR_EL1:
-> +		val = __vcpu_sys_reg(vcpu, reg);
-> +		break;
-> +	default:
-> +		WARN_ON_ONCE(1);
-> +	}
-> +
-> +	return val;
->   }
->   
->   static u64 max_buffer_size_to_pmbidr_el1(u64 size)
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 5eeea229b46e..db86d1dcd148 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -1386,13 +1386,18 @@ static unsigned int spe_visibility(const struct kvm_vcpu *vcpu,
->   static bool access_spe_reg(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
->   			   const struct sys_reg_desc *r)
+>   static int kvm_spe_set_spu(struct kvm_vcpu *vcpu, int spu_id)
 >   {
-> +	u32 encoding = reg_to_encoding(r);
->   	u64 val = p->regval;
->   	int reg = r->reg;
+>   	struct kvm *kvm = vcpu->kvm;
+> @@ -136,6 +230,15 @@ int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
 >   
-> -	if (p->is_write)
-> +	if (p->is_write) {
-> +		if (WARN_ON_ONCE(encoding == SYS_PMBIDR_EL1 ||
-> +				 encoding == SYS_PMSIDR_EL1))
-> +			return write_to_read_only(vcpu, p, r);
->   		return kvm_spe_write_sysreg(vcpu, reg, val);
+>   		return kvm_spe_set_spu(vcpu, spu_id);
+>   	}
+> +	case KVM_ARM_VCPU_SPE_MAX_BUFFER_SIZE: {
+> +		u64 __user *uaddr = (u64 __user *)(long)attr->addr;
+> +		u64 size;
+> +
+> +		if (get_user(size, uaddr))
+> +			return -EFAULT;
+> +
+> +		return kvm_spe_set_max_buffer_size(vcpu, size);
 > +	}
+>   	}
 >   
-> -	p->regval = kvm_spe_read_sysreg(vcpu, reg);
-> +	p->regval = kvm_spe_read_sysreg(vcpu, reg, encoding);
->   	return true;
->   }
+>   	return -ENXIO;
+> @@ -181,6 +284,18 @@ int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
 >   
-> @@ -3360,12 +3365,12 @@ static const struct sys_reg_desc sys_reg_descs[] = {
->   	{ SPE_UNTRAPPED_REG(PMSFCR_EL1) },
->   	{ SPE_UNTRAPPED_REG(PMSEVFR_EL1) },
->   	{ SPE_UNTRAPPED_REG(PMSLATFR_EL1) },
-> -	{ SYS_DESC(SYS_PMSIDR_EL1), .access = undef_access },
-> +	{ SYS_DESC(SYS_PMSIDR_EL1), .access = access_spe_reg, .visibility = spe_visibility },
->   	{ SPE_TRAPPED_REG(PMBLIMITR_EL1) },
->   	{ SPE_TRAPPED_REG(PMBPTR_EL1) },
->   	{ SPE_TRAPPED_REG(PMBSR_EL1) },
->   	{ SPE_UNTRAPPED_REG(PMSDSFR_EL1) },
-> -	{ SYS_DESC(SYS_PMBIDR_EL1), .access = undef_access },
-> +	{ SYS_DESC(SYS_PMBIDR_EL1), .access = access_spe_reg, .visibility = spe_visibility },
+>   		return 0;
+>   	}
+> +	case KVM_ARM_VCPU_SPE_MAX_BUFFER_SIZE: {
+> +		u64 __user *uaddr = (u64 __user *)(long)attr->addr;
+> +		u64 size = kvm_spe->max_buffer_size;
+> +
+> +		if (size == KVM_SPE_MAX_BUFFER_SIZE_UNSET)
+> +			return -EINVAL;
+> +
+> +		if (put_user(size, uaddr))
+> +			return -EFAULT;
+> +
+> +		return 0;
+> +	}
+>   	}
 >   
->   	{ PMU_SYS_REG(PMINTENSET_EL1),
->   	  .access = access_pminten, .reg = PMINTENSET_EL1,
+>   	return -ENXIO;
+> @@ -194,6 +309,7 @@ int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+>   	switch(attr->attr) {
+>   	case KVM_ARM_VCPU_SPE_IRQ:
+>   	case KVM_ARM_VCPU_SPE_SPU:
+> +	case KVM_ARM_VCPU_SPE_MAX_BUFFER_SIZE:
+>   		return 0;
+>   	}
+>   
 
 
