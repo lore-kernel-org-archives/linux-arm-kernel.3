@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E57A6D167FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:24:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E410D167FC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=O5MJt8Nwt7gEzzs/WifeaIl1+aMdgYOH+iBChXdCF5w=; b=p9ipTkHpXN598hg4MmeFXF/ez9
-	aqtrsx6TdIFNujmA71CAWP2NH/2WCaS1H/ZiXwKBhkrEV6b6U19/SKuXUWevbyujDfuBw1ACT3mfu
-	KTZrZDl2f8UeHW/PRrr8OM2OopRVlatHYpM2WbUwiG5cNxz2IidyINCSGqqtc0vaC/2LMEA6VgTWo
-	HmT62jmXJYFnvW4SWZQ/CQpSS1FZLC2LcryHaXsKZXrqSSE9YKBvRXJwWw2OnEnTbwA9TN+UZfVN8
-	v2LnKn5gY/9XRc9ME/VpaLRmwRyxkOgrQlaeuWGxCcj5QZwJj61bklYIQy2s7iOXqSdBqoLgP5F8p
-	Qcbdj2ag==;
+	bh=majFu1gUeYTBDSM9NhJNUHZPL3AzMdnyDLoZ7eldPZw=; b=vxpt1Ie/MqpBhOtRZJwbcCv4tA
+	DM7JcWmkys+8HpTjA4Q1OEbF9CzlBV4p5NkASKmzm4CtLxP6OGWWU+ANQvgXAvpitQ/2BLgW+j1Yx
+	2ixhzE8Bur2B1GwfXf4LgqRN1hHxDXbmCygZ74Vb+VXq8vRklUh7yVU5p3A8+LOgsVW6K+13zQC3h
+	HRzkoEvAFC5lM+Ll/lXK7/0h7biLczBcjcZ90qXAbfbggMmWTdZiIQwaA4XalSW0nYjwEUCZD36lP
+	MBnziCU9O4BNeZtzbcJrfIyZiQzdLMkrnNSleCdj8xM7vg0m+jZC843n75ncNsNJ9ebbG6v0ZrUdr
+	qNf5P92A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9f8-0000000280y-08EP;
-	Fri, 09 Jan 2026 10:24:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ve9fI-0000000282z-1WbF;
+	Fri, 09 Jan 2026 10:24:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9f6-00000002803-1u4E
+	id 1ve9fH-0000000282k-24vt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 10:24:08 +0000
+	Fri, 09 Jan 2026 10:24:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 87FD260166;
-	Fri,  9 Jan 2026 10:24:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8A89C16AAE;
-	Fri,  9 Jan 2026 10:24:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 86A896017A;
+	Fri,  9 Jan 2026 10:24:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8E51C16AAE;
+	Fri,  9 Jan 2026 10:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1767954247;
-	bh=sws3c2Q7sg64FTK0Tatp3OBfCQZp2TP1cZM4XUeIng8=;
+	s=korg; t=1767954258;
+	bh=iUq+dtxfpnC8FVWbeMWFgIFXrNcEMGIR+2oWrSColt8=;
 	h=Subject:To:Cc:From:Date:In-Reply-To:From;
-	b=HPgzd3cTDGmpuSSytjWkPz7twtNmWuAUCZCV7iXqT/gdUEQvEhLe35/bz6K0gSvEx
-	 pm1z8i71/uh3FRAYLbs6BFsS54v4ModDZGaeJsVDF46XLsOUNHfm1C5FZXdabKehAu
-	 H/yz25uIKAXpOmFv86dTQVWenOALG2NwmIBh1PSM=
-Subject: Patch "pwm: stm32: Always program polarity" has been added to the 5.10-stable tree
+	b=j1W1tB1fwOFADXFGzgGgNgsJBz1rZyeNFTA6Ys++eim+syFOpgKWObR3ThW7oH6q+
+	 yKmuQkVUN7cQMDK8siezcaRATrH3yTwVGOsFqM9v2GOaW+DcATFzVdWU1Ss0S3UBKg
+	 yA1JKqukuU7GNQT5ejIPltCLxRO/tiLy5J06bvY0=
+Subject: Patch "pwm: stm32: Always program polarity" has been added to the 5.15-stable tree
 To: alexandre.torgue@foss.st.com,fabrice.gasnier@foss.st.com,linux-arm-kernel@lists.infradead.org,linux-stm32@st-md-mailman.stormreply.com,mcoquelin.stm32@gmail.com,sean@geanix.com,u.kleine-koenig@baylibre.com,ukleinek@kernel.org
 Cc: <stable-commits@vger.kernel.org>
 From: <gregkh@linuxfoundation.org>
-Date: Fri, 09 Jan 2026 11:24:04 +0100
+Date: Fri, 09 Jan 2026 11:24:15 +0100
 In-Reply-To: <20260108-stm32-pwm-v2-1-ced582974f8b@geanix.com>
-Message-ID: <2026010904-erased-prologue-1282@gregkh>
+Message-ID: <2026010915-overlay-condense-db9d@gregkh>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=ISO-8859-1
 Content-Transfer-Encoding: 8bit
@@ -70,12 +70,12 @@ This is a note to let you know that I've just added the patch titled
 
     pwm: stm32: Always program polarity
 
-to the 5.10-stable tree which can be found at:
+to the 5.15-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
      pwm-stm32-always-program-polarity.patch
-and it can be found in the queue-5.10 subdirectory.
+and it can be found in the queue-5.15 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
 please let <stable@vger.kernel.org> know about it.
@@ -123,5 +123,5 @@ Signed-off-by: Uwe Kleine-König <ukleinek@kernel.org>
 
 Patches currently in stable-queue which might be from sean@geanix.com are
 
-queue-5.10/pwm-stm32-always-program-polarity.patch
+queue-5.15/pwm-stm32-always-program-polarity.patch
 
