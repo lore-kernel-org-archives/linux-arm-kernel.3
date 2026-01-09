@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDB03D1681C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 11:48:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40793D16819
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 11:48:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z+WHnaMpB+lZP9QNZfE37iZJmJd2kQxDJtZLQP/mRkQ=; b=aoqyopD85fmbR94i3N8gipnvJB
-	1NvkV/VTYhVVUnk8QIJ6bNm7Vc1bPMpfqFULI00ApU/N+NozfzPqyZzLNS6ZuaqYo6oqcpQAiEF3N
-	w6YeYux+M5SSakK+Q0Yt+UFfh8Rqd3x0oUmutqOAB3KBJg2fpPjAXZtyOLwfw79j6l2ttWbBX6SCY
-	an/f2ROLnpqn4HILUiZ/CNTZpLR6OZA4z34xPBBOyJEoayXt5eeUaa+yeqkd3YZbqt1/EWFi+W8oP
-	aypSOIBnEx7IsL5zp+c00OPLK4a6yhwfMb4aSy+8N1y+ANqRhNvjpbIsLU4zFFeR9esTK3QZijMBj
-	RUCp7ISw==;
+	bh=uF6AIs/uH4tMjgKmO2ECJOwP/Ue0TTC6JhmwVQ0vNDo=; b=c2rN0jTCsBzh3BVeqaUMYp0t7H
+	rj28L4/8aBJMJchKuUg6H1EUS/C76gJ70g+91gf8fwZUd28IhKzxWnj9839cw5oBQPM7+Jk7B+i18
+	W7CQjzKRDCpG8nZ8JOonfvAA+scBYHBrOGg/VLAG+OmCzTz8J93raoyJ9eMppoQDeB7S/irdDwhG3
+	VoY0oDkD4h9TSHWLOIULcUcCE6EQp1mcrEeTXhxRWuykok7rko7gl7ewQYAeFP/e4LkG2k/k3JUH6
+	spGH4KfOwMOEOCnbUBZ/GTaVaxA2JSzsqtbNSI9NOrI0l0SaoTN8PDwIi2clyc0moPXiNDDtFFcBo
+	SrREXQUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veAyR-00000002F7o-2BvX;
-	Fri, 09 Jan 2026 11:48:11 +0000
+	id 1veAyS-00000002F9b-2Euc;
+	Fri, 09 Jan 2026 11:48:12 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veAyJ-00000002Ev1-3ZWH;
+	id 1veAyJ-00000002EvF-40Vb;
 	Fri, 09 Jan 2026 11:48:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1767959279;
-	bh=IiHlkRaUYC1xMqmP8zbNGMQQRpV7g2G84fXDM1/h9E4=;
+	s=mail; t=1767959281;
+	bh=OzoPO+OLSyAg1VhmUybHI1KvXEqvQKuV5ZYinEoXMrA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=C4cFJP65tGmHJQXop5NeElYaWRURkScFOBeoUaNisD/Ha/aesK9eLThdAbyO70pVJ
-	 I6NI2XC2WM9Ygd7c/bL1OZN66MIR8ZlEIGDfsjAMfx+67IcXKP30xADH4l/dpDd1ee
-	 E76PXcc6CHlR/658DYSgMYHWq9ZOVzqCIkglQM2aoqKUz/LY+OIe6vAdJzRvV2QWQX
-	 YJjaR4ZvRX9v/XsJnbJm+mBlZ1CVDzRJAwrQtS5vUr37bePnoFNaE6QWeXeXAzptwI
-	 D+PtS6DOxFpVa0jUMYXAMT6HanlFe4hEefTSeYju/ZUDJagv+IFWghzOBUL/BpagDs
-	 hzZJApNTPWgBw==
+	b=JS7uinolBEIm7Lo+Qf8egLoJljMqYqx93segk2IjQ3sI7aW9eKG8WPlxIfFMYPRaS
+	 KPj7B00H/csozTrgZt4xvL4Y/gcLsT92xDLs472Z0t0eunpe/+R97PTKvCSRXaTFhH
+	 FfzsSMlJifdsEmg0134ozgk6K0b0DrYralTjxyiFKfiSB6MYwO8aDWY/SM5qN20MeV
+	 NQWppDySceCgLd+AeP8Un49atmRbsI4XcNLYwJoyhPtxblmwTNdZ7Pj5QTYuhWwFVd
+	 WpxtpX5vQZuXIDfljdW894V6jykiUqROoQUKznKAFLSaV6vYTMcRcu86HmFI2kMNL5
+	 m2ZKoo/H8vmOA==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7F65117E1513;
-	Fri,  9 Jan 2026 12:47:58 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5A5A017E1380;
+	Fri,  9 Jan 2026 12:48:01 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: linux-mediatek@lists.infradead.org
 Cc: robh@kernel.org,
@@ -56,17 +56,17 @@ Cc: robh@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH 05/11] arm64: dts: mediatek: mt8183-jacuzzi-pico6: Fix typo in pinmux node
-Date: Fri,  9 Jan 2026 12:47:41 +0100
-Message-ID: <20260109114747.37189-6-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH 09/11] arm64: dts: mediatek: mt8173-elm: Remove regulators from thermal node
+Date: Fri,  9 Jan 2026 12:47:45 +0100
+Message-ID: <20260109114747.37189-10-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260109114747.37189-1-angelogioacchino.delregno@collabora.com>
 References: <20260109114747.37189-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_034804_087328_7AFC6477 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20260109_034804_199953_D8348C2A 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,28 +81,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename "piins-bt-wakeup" to "pins-bt-wakeup" to fix a dtbs_check
-warning happening due to this typo.
+The only reason to have a regulator in the thermal node is to keep
+the CPU cores up while reading temperatures, but this is incorrect
+because the AUXADC Thermal IP doesn't need any regulators to work,
+at all.
 
-Fixes: 055ef10ccdd4 ("arm64: dts: mt8183: Add jacuzzi pico/pico6 board")
+Since the thermal node was inherited only for adding vregs, remove
+it entirely.
+This change is safe also because, among other things, the actual
+driver never used those regulators anyway.
+
+This also fixes a dtbs_check warning.
+
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-pico6.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi | 5 -----
+ 1 file changed, 5 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-pico6.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-pico6.dts
-index cce326aec1aa..40af5656d6f1 100644
---- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-pico6.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-pico6.dts
-@@ -91,7 +91,7 @@ bluetooth@2 {
+diff --git a/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi b/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
+index dc064cdcedb5..a0573bc359fb 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
+@@ -1147,11 +1147,6 @@ &ssusb {
+ 	status = "okay";
+ };
  
- &pio {
- 	bt_pins_wakeup: bt-pins-wakeup {
--		piins-bt-wakeup {
-+		pins-bt-wakeup {
- 			pinmux = <PINMUX_GPIO42__FUNC_GPIO42>;
- 			input-enable;
- 		};
+-&thermal {
+-	bank0-supply = <&mt6397_vpca15_reg>;
+-	bank1-supply = <&da9211_vcpu_reg>;
+-};
+-
+ &uart0 {
+ 	status = "okay";
+ };
 -- 
 2.52.0
 
