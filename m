@@ -4,81 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B0FFD277C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 22:34:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C353DD277C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 23:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KqLmaXX0iADC99018N0SGbnzoJwDoezoUd0lGOqXtKs=; b=C5YM/1VXChQLR1zc3aQQ5kwdHV
-	Db+u4RBnTK8k4y4w3RDFuwV4l5Gk84Qq92eMIHn7CwGmgKQzDNhXfz7dZsqbyBInGGqo16dq++YPo
-	O3DXAD36L2IrOUaWCcC61MAtBagsrWKxD+sTPeemQH77oJ2Ckd/HC20j5rOTi36BgnqnVYmLJRdDW
-	PkhYeqOwqyP+jeFyqL7GP1kqlWJDGMoh9E9mBNpXeFxYz37gNAkP67qSfZvDaRLVm8tVqFji09xTr
-	K5wrhGujreTBxgQsuLeTFs60R6UDyuTdy1KlDQamE9NYTtNiDAjszxK7lVoli9UyNTGwcbo5RhVYp
-	ZvrHOVAQ==;
+	bh=pvh5+c9d1qbVeHgj6hfcSp+Pmonb0UmxmVQR5Zl7mpw=; b=NJZcHbPI9EtGE10MZtbNf7lbMz
+	fl9s/oMQJUCMxrvB+VoF4vEgx3HEVXyxyilmyP7Eqn8vn1yoTCTep3w1O58RF/45nkfK6K+2T2q2j
+	bWL7p6niMsei36/d7dlthaKG6E1hiJzDxduMjn6HBgtJ4Xo5ZveTtyf1GHoeazB1AtCNdHtXzuV1/
+	xTm+QvKX/KQzr2abEuKWZ6yQl6KAm8a7rLxkECAcP+48WvYVp24jho1OLIHo1ZCTUgmGWvHIOubIb
+	0iU2R+X5oDeoqQFIZuvBALuPkTuOb0m/jnQJA9HGEdMjF21TC2Y9pvq4U8z96GAVjunxtl5jK3++K
+	r50i5u1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veL41-000000034jo-2ZeL;
-	Fri, 09 Jan 2026 22:34:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1veLcf-00000003616-2vFm;
+	Fri, 09 Jan 2026 23:10:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veL3y-000000034j8-44bN
+	id 1veLce-00000003610-0wa6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 22:34:36 +0000
+	Fri, 09 Jan 2026 23:10:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 767F54446F;
-	Fri,  9 Jan 2026 22:34:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 51986C19423;
-	Fri,  9 Jan 2026 22:34:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4C6B860178
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Jan 2026 23:10:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02956C2BCB3
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Jan 2026 23:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767998073;
-	bh=05F/pnq6jFjemspwANPBbd52Kjj0Z6y+VbVk7scofIk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=sn55HArcIiOouKAeuh2OfyQA0m1S7IGtbEn8eNCdk3KbKfz3zPXCxyWRlTt+YHO3g
-	 g26n754x/hKn/cKlbvw6Vosy3wnfo+fgynsGemdU2keob1jeKiTMK9V8EzwzHt6GLV
-	 lFM5K1l+V0qtoXXoCu0p7F8n0gW/VLHfKK1NEgGl6yTUebxdLkXkIs/g0v9CsBkbk6
-	 EL3rTedWTXSNHqe3z74uwCljlQKN9bcv64qmlEsEoeYDLOUSt0TW+FIO9p1xnLPHWQ
-	 XaRLx1So2ErEtwJWj9vUW2rxh1gb246G6BDRJsNrTDSfofwHynpucFIJB/delo2Lsg
-	 irHt5Z0iLlmEw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 44381D277C4;
-	Fri,  9 Jan 2026 22:34:33 +0000 (UTC)
-From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
-Date: Fri, 09 Jan 2026 22:34:26 +0000
-Subject: [PATCH v4 2/2] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ2 in
- host handler
+	s=k20201202; t=1768000223;
+	bh=pvh5+c9d1qbVeHgj6hfcSp+Pmonb0UmxmVQR5Zl7mpw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=TrU5JAn8ni5Jm2xeVBKnI1iTvpE9pEvXsoUOkJiUtO2zt6Y2Zn+WuPmVx43mhmam+
+	 2P/wh94LKfRQICQ2rZyhHH6txfijs0pp6tgrVFmEUbSRlNHEfTHDpAwNI/kpzlprO3
+	 eCBO7cPIMRExmW8qj+Jib32pXH0VEiROHzZd+kpvdTszNXkTM32CfxJ5Ov/ZkbfDhw
+	 LG7HKdB7Mlb0n43jt/T5l3szGXQVDKNKz7hUABHULiVEf8+eQKwgftNZpkOdJCInHQ
+	 PF+z6j1910z8iglpJGC+aGWkfrZSFBUynujsocf8dajDvQgxJWtgQDa97Xia/QVEIj
+	 9xD+kaj/k4ooA==
+Received: by mail-yw1-f181.google.com with SMTP id 00721157ae682-790b7b3e581so53653137b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 15:10:22 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUP80tc7wDJcAdjKVdQzHcTXJZ7RIPSxgL4yCRp49oCHCk73LnPj/2vkcRC8qwWcsx17cF6T0GhGvHKo412bKQh@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPg9py3xhR9fWS5LXADF9jvtGOMl4C9gONr/3Wkp8qe+4EiziK
+	vvOsTvhLpNDA5yBFGEWXqx0W2O/zfn4HJ+WLaiDNnWb8fVNsCvQQySWYIC+fi7X3YqV9tXMUpWp
+	Lxlh7buJPcoFf6wn0hPJsAZCJpmGF3ms=
+X-Google-Smtp-Source: AGHT+IFEQO71e4cYNJObSCgFIiqeKEccxRrR8aY+yYr4ri3WGCll3aL6B5arU8gnOcBLuhvTFy39ew8yzQuWGlAloxk=
+X-Received: by 2002:a05:690e:1188:b0:641:f5bc:692b with SMTP id
+ 956f58d0204a3-6470d2f46b7mr12056434d50.36.1768000222173; Fri, 09 Jan 2026
+ 15:10:22 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260109-host-direct-messages-v4-2-95da4221d186@google.com>
-References: <20260109-host-direct-messages-v4-0-95da4221d186@google.com>
-In-Reply-To: <20260109-host-direct-messages-v4-0-95da4221d186@google.com>
-To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
- Oliver Upton <oupton@kernel.org>
-Cc: Armelle Laine <armellel@google.com>, 
- Sebastien Ene <sebastianene@google.com>, 
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Per Larsen <perlarsen@google.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1767998072; l=2798;
- i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
- bh=c3MrS/34znRranLZm10PrMUtpmE475TkuovXAS+5+MI=;
- b=qHkWu9EqF449Np1H2JAAHz8j+iE6gWLv7K5AeT7Nqhvh/p51nPW33PIWKuoOcTnK5KZwDHIEs
- JjBQG9RB8ywAGeU0DJkuPlT/wbrmuBR/4PtIVvslGM87mDE/w4w/B3w
-X-Developer-Key: i=perlarsen@google.com; a=ed25519;
- pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
-X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
- auth_id=402
-X-Original-From: Per Larsen <perlarsen@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_143435_080588_35D19810 
-X-CRM114-Status: GOOD (  12.22  )
+References: <20260109-debug_bus-v1-0-8f2142b5a738@foss.st.com>
+In-Reply-To: <20260109-debug_bus-v1-0-8f2142b5a738@foss.st.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Sat, 10 Jan 2026 00:10:10 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmk3RCf19yPvE0E9X3b+gy0XghQTbmMPfioBkSKkAaLpQ@mail.gmail.com>
+X-Gm-Features: AZwV_QjvOySI13iVNOTYfIXgnODwhGbGn87uLlGk8QzCNwneRQXoKJ0Qs0Jx1Ps
+Message-ID: <CAD++jLmk3RCf19yPvE0E9X3b+gy0XghQTbmMPfioBkSKkAaLpQ@mail.gmail.com>
+Subject: Re: [PATCH 00/11] bus: add stm32 debug bus and coresight support for
+ stm32mp1x platforms
+To: Gatien Chevallier <gatien.chevallier@foss.st.com>, 
+	Jens Wiklander <jens.wiklander@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
+	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
+	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	Antonio Borneo <antonio.borneo@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,83 +87,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Per Larsen <perlarsen@google.com>
+Hi Gatien,
 
-FF-A 1.2 adds the DIRECT_REQ2 messaging interface which is similar to
-the existing FFA_MSG_SEND_DIRECT_{REQ,RESP} functions and can use the
-existing handler function. Add support for FFA_MSG_SEND_DIRECT_REQ2 in
-the host ffa handler.
+thanks for your patch series!
 
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Signed-off-by: Per Larsen <perlarsen@google.com>
----
- arch/arm64/kvm/hyp/nvhe/ffa.c | 17 ++++++++++++++---
- 1 file changed, 14 insertions(+), 3 deletions(-)
+On Fri, Jan 9, 2026 at 11:56=E2=80=AFAM Gatien Chevallier
+<gatien.chevallier@foss.st.com> wrote:
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index fc84595007f310004def7d525371fa7c128f244a..bc4a6ee8f9c815d93e53024653f23a8c903a1b88 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -684,11 +684,12 @@ static bool ffa_call_supported(u64 func_id)
- 	case FFA_NOTIFICATION_GET:
- 	case FFA_NOTIFICATION_INFO_GET:
- 	/* Optional interfaces added in FF-A 1.2 */
--	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
- 	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
- 	case FFA_CONSOLE_LOG:			/* Optional per 13.1: not in Table 13.1 */
- 	case FFA_PARTITION_INFO_GET_REGS:	/* Optional for virtual instances per 13.1 */
- 		return false;
-+	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
-+		return hyp_ffa_version >= FFA_VERSION_1_2;
- 	}
- 
- 	return true;
-@@ -865,12 +866,17 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
- static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
- 			      struct kvm_cpu_context *ctxt)
- {
-+	DECLARE_REG(u64, func_id, ctxt, 0);
- 	DECLARE_REG(u32, flags, ctxt, 2);
- 
- 	struct arm_smccc_1_2_regs *args = (void *)&ctxt->regs.regs[0];
- 
--	/* filter out framework messages and validate SBZ/MBZ bits */
--	if (flags) {
-+	/*
-+	 * filter out framework messages and validate SBZ/MBZ flag bits.
-+	 * FFA_MSG_SEND_DIRECT_REQ2 implies flag-less partition message.
-+	 */
-+	if ((func_id == FFA_MSG_SEND_DIRECT_REQ ||
-+	     func_id == FFA_FN64_MSG_SEND_DIRECT_REQ) && flags) {
- 		ffa_to_smccc_error(res, FFA_RET_INVALID_PARAMETERS);
- 		return;
- 	}
-@@ -936,6 +942,10 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- 	case FFA_PARTITION_INFO_GET:
- 		do_ffa_part_get(&res, host_ctxt);
- 		goto out_handled;
-+	case FFA_MSG_SEND_DIRECT_REQ2:
-+		if (!ffa_call_supported(func_id))
-+			goto out_not_supported;
-+		fallthrough;
- 	case FFA_MSG_SEND_DIRECT_REQ:
- 	case FFA_FN64_MSG_SEND_DIRECT_REQ:
- 		do_ffa_direct_msg(&res, host_ctxt);
-@@ -945,6 +955,7 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- 	if (ffa_call_supported(func_id))
- 		return false; /* Pass through */
- 
-+out_not_supported:
- 	ffa_to_smccc_error(&res, FFA_RET_NOT_SUPPORTED);
- out_handled:
- 	ffa_set_retval(host_ctxt, &res);
+> Stm32 SoCs embed debug peripherals such as Coresight. These peripherals
+> can monitor the activity of the cores. Because of that, they can be
+> used only if some features in the debug configuration are enabled.
+> Else, errors or firewall exceptions can be observed. Similarly to
+> the ETZPC(on stm32mp1x platforms) or the RIFSC(on stm32mp2x platforms),
+> debug-related peripherals access can be assessed at bus level to
+> prevent these issues from happening.
+>
+> The debug configuration can only be accessed by the secure world.
+> That means that a service must be implemented in the secure world for
+> the kernel to check the firewall configuration. On OpenSTLinux, it is
+> done through a Debug access PTA in OP-TEE [1].
+> To represent the debug peripherals present on a dedicated debug bus,
+> create a debug bus node in the device tree and the associated driver
+> that will interact with this PTA.
+>
+> [1]: https://github.com/OP-TEE/optee_os/pull/7673
+>
+> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
 
--- 
-2.52.0.457.g6b5491de43-goog
+I think Jens Wiklander wants to have a look at this partch
+series, so added him to the To:.
 
-
+Yours,
+Linus Walleij
 
