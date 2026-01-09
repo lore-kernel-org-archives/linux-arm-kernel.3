@@ -4,102 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9610D167FA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:17:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A494D167FC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:19:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tAe4Ay9DRBwZLM3SXPjxHg6HAHc6QRZx7WafCH1J7NY=; b=n5jUN1J6uwHhi5jxmlsiIiuMdX
-	DlpfHMwRuIUMXHus7bkBqNRyKfYDOc+/d1a1nLpxwSm8Is9Y5rYz8KkWiu0xnKboUM1H8nqgJL1Lg
-	qQd3N3oexrbR+bvamC2QIEh4mvYWP3RJ85QEg2+rs48vGDyDieD/n46E2RSc6nSXs1NhA8fep09DN
-	HwbBuDLhHsBmj6MC0U4jAn1tSNARO8ON6ZcVJxLcfB4EKgu/1SBY4D7aKH10qg8OGb6iZXaIsm2YI
-	f8d3dAbJKlGpZ+++KtA9Ga04NBP1YOdushaQAuXTC1P8Lxph6PNzmHTJXa0Abzs6SHNi04XNsnzgF
-	rksSeSWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XI5Odb6Br9OANgGIB7bibAlV7TUObv+rM7BQBe7luTY=; b=l9Xc/L5cGF5kubbThDoxmr7zAL
+	fFtUAsPGtBWdbzwwShfhcpdYpmNWXSR/U5T5yVG+F6F3Y+9IgVvTqEu8B+8/dN+87GDJBOiguQDc6
+	d9n+wAC5J1qlxKNAsCiD8tTVlB1pWAymSUCbJxxNdF9vaiQ8gO7OHNt89Ywo5+/3PBMhzwQKXDZlR
+	HBGuim8W7Uu/e85qBVHuyZWXZ8BIR7drClJ426F2UXTRp+IaGoLmcrE2z6wu18KgkbPOeIOWdkHrD
+	JQdAZpiUjTlTfBVS1y91YcIQBvvdAdXOMOtytENROoqhaqv8nTo7JlHs/pU7poKlUuWGRN68bK8l5
+	wwlyT5Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9YT-0000000272z-3sHy;
-	Fri, 09 Jan 2026 10:17:17 +0000
-Received: from fout-b5-smtp.messagingengine.com ([202.12.124.148])
+	id 1ve9aQ-000000027KG-1SOc;
+	Fri, 09 Jan 2026 10:19:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9YR-0000000272C-30Yq;
-	Fri, 09 Jan 2026 10:17:16 +0000
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfout.stl.internal (Postfix) with ESMTP id C16EC1D00105;
-	Fri,  9 Jan 2026 05:17:14 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Fri, 09 Jan 2026 05:17:15 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm1; t=1767953834; x=1768040234; bh=tAe4Ay9DRB
-	wZLM3SXPjxHg6HAHc6QRZx7WafCH1J7NY=; b=HRhlPGy0tIP32hDVHNt5PD/IzT
-	FA7b/K39UmI527ClrwZzAbDkeFWkE+cO9mhUywQTkRcbEtrAglKheJXswpISws6q
-	uduy+jBNHv4QZ9PPxsuAYXrVFKQzQOhTfYPzfd2Zo0sTXcLj9IpMa+NJsxD5kOP2
-	9ccyFmnR9BILRpKwRQAlJBgY7mgETGK7hrY6FYkn80gDfFwofXFrlrX+jrMpOyJv
-	iNWm0UhZL2icrA8Ug2Aby2jlzmmyOrM8qoE8O3RbKIs7vS1fMOefuKLFWZd0b6Em
-	OKOD7izG80Yux9M19NardylQt0CP0U4mX2M5STKAgx8awVl8CfpeCaR1IUdg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1767953834; x=1768040234; bh=tAe4Ay9DRBwZLM3SXPjxHg6HAHc6QRZx7Wa
-	fCH1J7NY=; b=piZYRz861AOGCMwT5BJw1xNZQPPW9vgllvwSbDmyLz2gzvN2cku
-	GxK2/ZJVqC0fOGr+HpJCBFp++9/ZIzEcoQoz8e/8Z0uqwba5S+qWphxM7KOgWPo2
-	QrLtQKOnWyI8RfSDxrOdKfpSc41IFyLOz4ssyuII3wB5rl4I8WNsZC6cgTh1IQeB
-	DLCcibZpfqJAvIVy8JfUcNuXW1Roe7p2QCuQeXSC1MBg4DuprldauLLNnCXiefLX
-	dbapG1RYoLksukXDwsowpD/jeBHai8IfgT+773ZYQZOVeHnCYJrp07WtdtdxALKE
-	FBae+M7Orr8QSPRnpxwwpCuKUIW3VYMg5FA==
-X-ME-Sender: <xms:qdVgacpkPewnXvGQryYpbD9FD86y8Iaw2d2ELAH_ULowRrdxemzP9g>
-    <xme:qdVgafNMtUwr3UmjYHeMy2jP9FaxlViQQWPedV7gGA8OjKhzaKj6Tn1uMDpL-nWat
-    SvelsT85EGP5XKuI_XPdWgE5ROckqiIstQ6opwgpNbOrxBUpDdYWw>
-X-ME-Received: <xmr:qdVgaVpO_qkDsxiHIWpcV9HWAmfcLwAJARnNlsIRruMijfoCkiYxqeKC1bn_1bVvyaX6LquFRNWU_E748KeIV1U_0k2gS6_KJMA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddutdekheehucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
-    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgvd
-    ffveelgedujeeffeehheekheelheefgfejffeftedugeethfeuudefheefteenucevlhhu
-    shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruh
-    drnhgvthdpnhgspghrtghpthhtohepledpmhhouggvpehsmhhtphhouhhtpdhrtghpthht
-    ohepshhvvghnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehnvggrlhesghhomhhprg
-    druggvvhdprhgtphhtthhopehvkhhouhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthho
-    pehnvghilhdrrghrmhhsthhrohhngheslhhinhgrrhhordhorhhgpdhrtghpthhtoheprg
-    hsrghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdgr
-    rhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtth
-    hopehlihhnuhigqdhphhihsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghp
-    thhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtg
-    hpthhtohepthhhohhmrghssehglhgrnhiimhgrnhhnrdguvg
-X-ME-Proxy: <xmx:qdVgaas5GVOOEdrAwRuGhWLsMZGFak5ipeUvL5kzm-L3_bMO1xTURA>
-    <xmx:qdVgac0HT9vFLLnIxHWbcc3g5wcw4D6MB6UB5rzml5LVtbaCgZvy9g>
-    <xmx:qdVgadH3pjFQtV3shDQbvoFBoqKssxLQVS8pgMRdKHXVphFUZtlF-A>
-    <xmx:qdVgafuyKW1aPB5SBlPyhkvFklmC4YI6oT7PMfuG3Ohs5Vxe2tulvg>
-    <xmx:qtVgaW-403zcmvJApebVsrUkfWLiiLlm6UWcl62f224lUJA2c5yK-tb2>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 9 Jan 2026 05:17:13 -0500 (EST)
-Date: Fri, 9 Jan 2026 11:17:12 +0100
-From: Janne Grunau <j@jannau.net>
-To: Sven Peter <sven@kernel.org>
-Cc: Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Thomas Glanzmann <thomas@glanzmann.de>
-Subject: Re: [PATCH next] phy: apple: atc: Actually check return value of
- devm_apple_tunable_parse
-Message-ID: <20260109101712.GC4068972@robin.jannau.net>
-References: <20260104-atcphy-tunable-fix-v1-1-40bf00feaac0@kernel.org>
+	id 1ve9aO-000000027K3-3493
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Jan 2026 10:19:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CE4086016B
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Jan 2026 10:19:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86A36C19425
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Jan 2026 10:19:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767953955;
+	bh=9hbsjUn6eYASbfA/oJT6XWtugpXGlLNjh8EPRyD3m04=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Q5HWPIYvfN0g+8t2ODLZ6RHYqLOPxZyUqAO8jXrlFFXbJfNk5PkQzNacBCGeWlOI4
+	 zVWxIN+v/ND+H67OS1j4Vi913awzUf4IrWnMQVfD2Dpr24wELqnc2MFBMKJ1ZKLRm+
+	 JVsn9pBwtUqBGoql22eIC2pTaZn/uEE9cygO2yg+h9puAJ1bsbFUfn6tnq0irE8nUt
+	 /FagBI3fN0qA257T3lWotje4TpFQ1+rWcTinV80/YofYEx4LczcmTg2VUYLrf15CVW
+	 3uX7arvzOc8Tv0ed/zvkpT7cPQwnGPex+YpZh2r/HPuz3I/px64pkGw3UDhomvDchG
+	 HZz+igJUYk/GQ==
+Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-78d6a3c3b77so31781517b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 02:19:15 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXeCT7y/2b6CL4UhBIT+GPt6lpVZKwZbyKG/kbU5OrTV92Faw5HTkQ5gZF6SQCgR1QhEkrWw6WUnQfFe55d8wVD@lists.infradead.org
+X-Gm-Message-State: AOJu0YziN1YKt3g3UPXyN7OA4ywsS75IzZllhJiMKYfzF26zWdGx73Qg
+	2jkJsZElLgq7C83bzMizYs/NWCDVjZMBNpGXgTMC1ExO1SVLNQojpi+aONHtIvWgvzQ1uklLIZ1
+	BGMiSrWKasn3GK2svVlpvIX3lcTFu7NQ=
+X-Google-Smtp-Source: AGHT+IF5GjxrLmuSZaExZjLaPOUjC/EsSoVJYPQqW4W2Vxtf6X+8zRZ62bSAxQ72fQzNPB0kphD/sc5lbPKYGJNdPlA=
+X-Received: by 2002:a05:690e:130e:b0:640:ce59:128b with SMTP id
+ 956f58d0204a3-6470d2437b1mr10650880d50.2.1767953954886; Fri, 09 Jan 2026
+ 02:19:14 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260104-atcphy-tunable-fix-v1-1-40bf00feaac0@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_021715_810166_3F390890 
-X-CRM114-Status: GOOD (  17.51  )
+References: <20251216112053.1927852-1-ye.zhang@rock-chips.com>
+ <20251216112053.1927852-7-ye.zhang@rock-chips.com> <CAD++jLntu4LY=VHOMSXeLKXOBD9MTNziv47B0qkDjxUa1xAsng@mail.gmail.com>
+ <85032ae4-4d82-4884-aa7c-b69fee76d509@rock-chips.com> <CAD++jLnH2vLNxTLj8Lw8RnOHxfitwi3G_8WCBtu+_=XL3ryH_w@mail.gmail.com>
+ <a2f5c2b3-2168-41b4-917f-183ab72a4499@rock-chips.com>
+In-Reply-To: <a2f5c2b3-2168-41b4-917f-183ab72a4499@rock-chips.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 9 Jan 2026 11:19:02 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkmieQpkJnAYyr7ys6m+v-=qNZaMoyKCtPFo+qjGwm8DQ@mail.gmail.com>
+X-Gm-Features: AQt7F2pjRZjybV4xPqr9Y0E2i2C1kVX68rvkdaRtoGr0Zh5amDZGu50_yar2YJk
+Message-ID: <CAD++jLkmieQpkJnAYyr7ys6m+v-=qNZaMoyKCtPFo+qjGwm8DQ@mail.gmail.com>
+Subject: Re: [PATCH v3 6/7] dt-bindings: pinctrl: rockchip: Add RMIO
+ controller binding
+To: Ye Zhang <ye.zhang@rock-chips.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	tao.huang@rock-chips.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,68 +88,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 04, 2026 at 10:18:31PM +0100, Sven Peter wrote:
-> Let's actually check the return value of devm_apple_tunable_parse
-> instead of trying to check IS_ERR on a pointer to the return value which
-> is always going to be valid. This prevent a oops when the tunables are
-> invalid or when they don't exist:
-> 
-> [   42.819119] ------------[ cut here ]------------
-> [   42.819121] WARNING: CPU: 6 PID: 88 at drivers/phy/apple/atc.c:2145 atcphy_mux_set+0xf60/0x1128 [phy_apple_atc]
-> [   42.819302] CPU: 6 UID: 0 PID: 88 Comm: kworker/6:1 Tainted: G S                  6.18+unreleased-asahi #1 PREEMPTLAZY  Debian 6.18.2-0-1~exp1
-> [   42.819311] Tainted: [S]=CPU_OUT_OF_SPEC
-> [   42.819314] Hardware name: Apple Mac mini (M1, 2020) (DT)
-> [   42.819316] Workqueue: events cd321x_update_work [tps6598x]
-> [   42.819332] pstate: 81400009 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
-> [   42.819338] pc : atcphy_mux_set+0xf60/0x1128 [phy_apple_atc]
-> [   42.819344] lr : atcphy_mux_set+0x30/0x1128 [phy_apple_atc]
-> [   42.819348] sp : ffffc000813c7c00
-> [   42.819350] x29: ffffc000813c7c00 x28: ffff800016babeb8 x27: ffff800016babc80
-> [   42.819357] x26: 0000000000000001 x25: 0000000000000001 x24: 0000000000000000
-> [   42.819364] x23: ffff800016babec0 x22: 00000000ffffffa1 x21: 0000000000000003
-> [   42.819371] x20: ffff80000c1b3680 x19: ffff80000dcdd080 x18: 0000000000000000
-> [   42.819376] x17: 0000000000000000 x16: ffffd42e6ede6e08 x15: 0000000000000000
-> [   42.819382] x14: ffffd42e707b6980 x13: 0000000000025c68 x12: 726f703d54524f50
-> [   42.819388] x11: 0000000000000040 x10: 0000000000000000 x9 : ffffd42e555ed9c0
-> [   42.819394] x8 : 0000000000000006 x7 : ffff80000a000dd8 x6 : 0000000000000002
-> [   42.819399] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000001
-> [   42.819404] x2 : 0000000000000005 x1 : 000000000000ff01 x0 : 0000000000000001
-> [   42.819410] Call trace:
-> [   42.819412]  atcphy_mux_set+0xf60/0x1128 [phy_apple_atc] (P)
-> [   42.819419]  typec_mux_set+0x74/0xd8 [typec]
-> [   42.819444]  cd321x_update_work+0x440/0x8a8 [tps6598x]
-> [   42.819453]  process_one_work+0x170/0x3e0
-> [   42.819466]  worker_thread+0x25c/0x390
-> [   42.819473]  kthread+0x148/0x240
-> [   42.819479]  ret_from_fork+0x10/0x20
-> [   42.819488] ---[ end trace 0000000000000000 ]---
-> 
-> Reported-by: Thomas Glanzmann <thomas@glanzmann.de>
-> Fixes: 8e98ca1e74db ("phy: apple: Add Apple Type-C PHY")
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
->  drivers/phy/apple/atc.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/phy/apple/atc.c b/drivers/phy/apple/atc.c
-> index c8a58ee64b7aad3205df51cf16ae778471ad2c5d..716c1e70de38ca604803739fedaa543d91f7501b 100644
-> --- a/drivers/phy/apple/atc.c
-> +++ b/drivers/phy/apple/atc.c
-> @@ -2178,10 +2178,10 @@ static int atcphy_load_tunables(struct apple_atcphy *atcphy)
->  	for (int i = 0; i < ARRAY_SIZE(tunables); i++) {
->  		*tunables[i].tunable = devm_apple_tunable_parse(
->  			atcphy->dev, atcphy->np, tunables[i].dt_name, tunables[i].res);
-> -		if (IS_ERR(tunables[i].tunable)) {
-> +		if (IS_ERR(*tunables[i].tunable)) {
->  			dev_err(atcphy->dev, "Failed to read tunable %s: %ld\n",
-> -				tunables[i].dt_name, PTR_ERR(tunables[i].tunable));
-> -			return PTR_ERR(tunables[i].tunable);
-> +				tunables[i].dt_name, PTR_ERR(*tunables[i].tunable));
-> +			return PTR_ERR(*tunables[i].tunable);
->  		}
->  	}
+Hi Ye,
 
-Reviewed-by: Janne Grunau <j@jannau.net>
+thanks for agreeing on using standard bindings for
+RMIO, we are making progress!
 
-Janne
+On Thu, Jan 8, 2026 at 1:19=E2=80=AFPM Ye Zhang <ye.zhang@rock-chips.com> w=
+rote:
+
+> **Regarding the primary IOMUX:**
+> However, the RK3506 pinctrl support is built upon the existing
+> `pinctrl-rockchip` driver infrastructure, which was originally designed
+> around
+> the `rockchip,pins` property. Refactoring the driver to support the stand=
+ard
+> `pinmux` binding (and the suggested nested node structure) is a significa=
+nt
+> undertaking that involves core logic changes and regression risks for old=
+er
+> SoCs. Mandating this refactoring as a prerequisite for RK3506 support
+> would effectively block this SoC from being supported upstream for a
+> long time.
+>
+> Could we allow RK3506 to follow the existing driver's style for now to
+> ensure
+> consistency and timely support?
+
+"timely support" is of lesser concern to the kernel and DT
+bindings which are more concerned with maintainability and long-term
+longevity. The ambition is to work predictably and impersonal, such
+as like the planets, or the plants.
+
+> We agree that migrating to standard pinmux
+> bindings is the right direction, but we believe it should be handled as a
+> separate, dedicated project in the future rather than part of this
+> enablement series.
+>
+> Hi Heiko,
+> Do you agree with this?
+> 1.        Use standard `pinmux` for RMIO in this series.
+> 2.        Keep `rockchip,pins` for the primary IOMUX for now.
+> 3.        Plan a future refactoring to migrate the primary IOMUX to
+> standard bindings.
+
+My main concern is this:
+
+foo {
+    rockchip,pins =3D <...>; // For IOMUX
+    pinmux =3D <...>; /// for RMIO
+};
+
+I don't want to see this, because that will be *hopeless* to migrate
+to both controllers using pinmux =3D <...>; how should you decide
+which one to pick for each?
+
+In that case it is better to do:
+
+foo {
+    rockchip,pins =3D <...>;
+    rmio {
+        pinmux =3D <....>;
+    };
+};
+
+Because then you can later migrate to:
+
+foo {
+    iomux {
+        pinmux =3D <....>;
+    };
+    rmio {
+        pinmux =3D <...>;
+    };
+};
+
+Yours,
+Linus Walleij
 
