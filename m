@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B777FD26D70
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:12:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F411D26D6F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IMKc9MHd9MKGMdEe0mbvetFcSECq5KlF8/ItyQ9UOfs=; b=wMLaEVZRYGRfRhH8Rp7nsQfSJV
-	3POxaqMKL9ZxkXbjIvPs4wBYHD0zEoA5483Dycs6a9I1RULDB2XHyBdY2PMG/JZqoeji6sefgqb4i
-	44ZU3Q9uztq0BWuoE/Vo4b5xBvvQ/aI6yCcQf3tOom3tYypVo0aN0+pb3rUDd+G9pMolwUMQ+SiAc
-	zAug1t4T/DEVeIJuvJ/aYZIB0/nQZtjC6Ne7RmOc1USdJZxd0tBpr5uyjQAZIV8fHlueQ3p982QtR
-	1UoQwa9d71I0I6bpSCGklZ6TxbOkuyypaDUYmceq073Ci3LGSD1q9Sh0IIqEl+FRkP7IvxRKu1cLY
-	VGHQhQLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pGrK/QRiBfeT2bP8BAkKiqvdHDVjIFqG/2H6CqTx9J0=; b=UcfwWtsnhfzlQyE4Nuj3k1S/IQ
+	FI5fVW3BO5s7FHEH3FvAI2Jmp46XDeJmviD8/w2d4aRk3NIRI7ER0oqvbOf47/N1pSAy00a4L6XW/
+	8Uil6MvtTc3f/QPg2nVZvdiu2lBJKpCJaRnQ0W6ZBiH/luN+dPVhs+Odgf+4g3sMfXQhxmbQuUwRb
+	Pel5c7Ds/8Bhhczi8b5K6DRDA1OOE9KjmFMGv7bAY71XpzloGEZEFkoUOSuo/YUydEgBq9sjdmncr
+	FecQw3wtOU8pUWozPlHbSIbTdnCnYAGMvv5c0rxz/L7Q4MlCdr6L1hif4kzR8aPVUUWDv95+I5kM/
+	gxuGyQpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veF6X-00000002YpF-293U;
-	Fri, 09 Jan 2026 16:12:49 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1veF6q-00000002YvL-1JA2;
+	Fri, 09 Jan 2026 16:13:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veF6U-00000002YoP-2q5j
+	id 1veF6o-00000002YuG-0jP8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 16:12:48 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id EAB264E42021;
-	Fri,  9 Jan 2026 16:12:42 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id BF07E606C6;
-	Fri,  9 Jan 2026 16:12:42 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 919E4103C8928;
-	Fri,  9 Jan 2026 17:12:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767975161; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=IMKc9MHd9MKGMdEe0mbvetFcSECq5KlF8/ItyQ9UOfs=;
-	b=y8sgO60vNrvAN5ao1UXWP6frwmiiF1cnmKVMcW7QO/HxbpUAJ9DUZYz8PYoxa7TnZrgNHn
-	QND0OCqd76x2H0tjmg8+G4y+EtalIPSC+KQYf8rjCNA+B5vKbQ7u4oDcUStLUPz8K94/C9
-	oyRk9NcfDbOqVoQ0naI+QN+HiG8sH2m5klgIFBZj/3DQSQTfjNIQKQn/ggmyMPfbWE34jX
-	CVuL3G4rcCcj1gXHvVrTXR94pzDkpKEQ64TpUMAPIFBtvXhBobJARsAvcWYmEBKq08Aajg
-	6m7OKpbbmdqmn48f1azdA0ffbcXKznXdVek37fyAE5LdhLHaDG1pH4odU3nhqQ==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: kernel test robot <lkp@intel.com>, Rob Herring <robh@kernel.org>, Linus
- Walleij <linus.walleij@linaro.org>, Miquel Raynal
- <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, Vignesh
- Raghavendra <vigneshr@ti.com>, Krzysztof Kozlowski <krzk@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, Vladimir Kondratiev
- <vladimir.kondratiev@mobileye.com>, =?utf-8?Q?Beno=C3=AEt?= Monin
- <benoit.monin@bootlin.com>, =?utf-8?Q?Th=C3=A9o?= Lebrun
- <theo.lebrun@bootlin.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org
-Subject: Re: [PATCH v3 2/4] of: reserved_mem: Support multiple 'reg' entries
- for memory-region
-In-Reply-To: <202601082105.TThX0916-lkp@intel.com>
-References: <20260107-mtd-memregion-v3-2-f9fc9107b992@bootlin.com>
- <202601082105.TThX0916-lkp@intel.com>
-Date: Fri, 09 Jan 2026 17:12:35 +0100
-Message-ID: <87qzryn4ss.fsf@BLaptop.bootlin.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+	Fri, 09 Jan 2026 16:13:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6BEF343E10;
+	Fri,  9 Jan 2026 16:13:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E3F5C4CEF7;
+	Fri,  9 Jan 2026 16:13:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767975185;
+	bh=oCvECle5CMTUsJbpndJH1a7dO2J2qJfeumT+tt40pDA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=VBi5gmD+EtrSCN1v0UuEQgVtE19f4fPlvRy4380qgQ2QMVc6su3Vgh90KMnbruTqU
+	 jco4xy0K7lALPjfSHNoGmEqsHpdWZN4Zd38cpqWtegZh8Bs6G+NNa0OAmRVTz+Gr1o
+	 jMkawIhzuaOn/U1eauuAhGBXTiE0TB42ae//EZuWLn71WVLyL34LOWfNHt2s9cH80/
+	 rgp63UMcC1OhYsBuViilYQTblk1vSmDBiESbuxD/XgZjnbzXbzWcOj1/XlLZ+Tgb+M
+	 1TbVbs2LI+i9dg/cUaHD1nvGfx7MvT+QauikTgrddH9b03LP0P/9HbTC6oACdTzP1R
+	 plN1FOCK7LtdA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1veF6k-00000000qBe-3tDG;
+	Fri, 09 Jan 2026 16:13:03 +0000
+Date: Fri, 09 Jan 2026 16:13:02 +0000
+Message-ID: <86wm1qlq7l.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Thomas Gleixner <tglx@kernel.org>
+Cc: Waiman Long <longman@redhat.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams
+ <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH] irqchip/gic-v3-its: Don't acquire rt_spin_lock in allocate_vpe_l1_table()
+In-Reply-To: <87ms2nsqju.ffs@tglx>
+References: <20260107215353.75612-1-longman@redhat.com>
+	<864iowmrx6.wl-maz@kernel.org>
+	<87ms2nsqju.ffs@tglx>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tglx@kernel.org, longman@redhat.com, bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_081246_840577_D6E75836 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20260109_081306_253408_84FF3FCD 
+X-CRM114-Status: GOOD (  26.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,57 +91,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kernel test robot <lkp@intel.com> writes:
+On Thu, 08 Jan 2026 22:11:33 +0000,
+Thomas Gleixner <tglx@kernel.org> wrote:
+> 
+> On Thu, Jan 08 2026 at 08:26, Marc Zyngier wrote:
+> > Err, no. That's horrible. I can see three ways to address this in a
+> > more appealing way:
+> >
+> > - you give RT a generic allocator that works for (small) atomic
+> >   allocations. I appreciate that's not easy, and even probably
+> >   contrary to the RT goals. But I'm also pretty sure that the GIC code
+> >   is not the only pile of crap being caught doing that.
+> >
+> > - you pre-compute upfront how many cpumasks you are going to require,
+> >   based on the actual GIC topology. You do that on CPU0, outside of
+> >   the hotplug constraints, and allocate what you need. This is
+> >   difficult as you need to ensure the RD<->CPU matching without the
+> >   CPUs having booted, which means wading through the DT/ACPI gunk to
+> >   try and guess what you have.
+> >
+> > - you delay the allocation of L1 tables to a context where you can
+> >   perform allocations, and before we have a chance of running a guest
+> >   on this CPU. That's probably the simplest option (though dealing
+> >   with late onlining while guests are already running could be
+> >   interesting...).
+> 
+> At the point where a CPU is brought up, the topology should be known
+> already, which means this can be allocated on the control CPU _before_
+> the new CPU comes up, no?
 
-> Hi Gregory,
->
-> kernel test robot noticed the following build warnings:
->
-> [auto build test WARNING on 8f0b4cce4481fb22653697cced8d0d04027cb1e8]
->
-> url:    https://github.com/intel-lab-lkp/linux/commits/Gregory-CLEMENT/of=
--reserved_mem-Fix-placement-of-__free-annotation/20260107-211455
-> base:   8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> patch link:    https://lore.kernel.org/r/20260107-mtd-memregion-v3-2-f9fc=
-9107b992%40bootlin.com
-> patch subject: [PATCH v3 2/4] of: reserved_mem: Support multiple 'reg' en=
-tries for memory-region
-> config: x86_64-rhel-9.4-kunit (https://download.01.org/0day-ci/archive/20=
-260108/202601082105.TThX0916-lkp@intel.com/config)
-> compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-> reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/archi=
-ve/20260108/202601082105.TThX0916-lkp@intel.com/reproduce)
->
-> If you fix the issue in a separate patch/commit (i.e. not just a new vers=
-ion of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202601082105.TThX0916-lkp=
-@intel.com/
->
-> All warnings (new ones prefixed by >>):
->
->>> Warning: drivers/of/of_reserved_mem.c:746 function parameter 'rmem' not=
- described in 'of_reserved_mem_array_lookup'
->>> Warning: drivers/of/of_reserved_mem.c:902 expecting prototype for of_re=
-served_mem_region_count(). Prototype was for of_reserved_mem_region_total_c=
-ount() instead
->>> Warning: drivers/of/of_reserved_mem.c:746 function parameter 'rmem'
->not described in 'of_reserved_mem_array_lookup'
+No. Each CPU finds *itself* in the forest of redistributors, and from
+there tries to find whether it has some shared resource with a CPU
+that has booted before it. That's because firmware is absolutely awful
+and can't present a consistent view of the system.
 
-It was a stupid typo in the description!
+Anyway, I expect it could be solved by moving this part of the init to
+an ONLINE HP callback.
 
-I will fix it.
+Thanks,
 
-Gregory
+	M.
 
->
-> --=20
-> 0-DAY CI Kernel Test Service
-> https://github.com/intel/lkp-tests/wiki
-
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- 
+Without deviation from the norm, progress is not possible.
 
