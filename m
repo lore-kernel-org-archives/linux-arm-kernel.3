@@ -4,154 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F98ED185DC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 12:11:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD994D1A605
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 12:19:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OlazV3jkldcqCKVWeOFDXXNZsPwfPG4WktzQ8gdsRtY=; b=kYSED4xKRB6/58PTspzc0yOEHP
-	Ol0HjulAsbqx54BIa5rPA/BFoLuedMfXkzI9yTwsskOpPsnh+FutZpZCMMovGkS93/UNnqwtHU5ZN
-	HAdZlJCQQNCKs1YN7tRwqMzWAGKp47xuzrpo64c4Gk4HGWG6Hjq2NqlF7yL14fjV1Uz9Y6Jpb9LZO
-	PS3v3rahTmb8kp/gHgzUqcxbd895KjhA7NQj3xAbuuOrOBC1dLj/KfqNIKvZwxB7mYPXRSRmQ2SHC
-	wQ8Vbv3JmRa0/N0f78SzCkCLIFUopJIceya1AIqiTinZ80u0S3yZf87SHe6v6kszXZCEAZU3S1NZ7
-	Ukd+TYUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JQQJm6ENS24/IHJue/PvAVBoJGxrKcXqJ98luCc7z+E=; b=OhvCYt49jQ0ickBm2P08qHlM70
+	l8ja/jIX1SKyoYIMXza+cg6ARxt9bfLoQLXDpUQTCf7wUeEGPB63GuHUUrCaIS4rZ7uca2dPfW91z
+	dX/fImJaiUos6P4S5BYC3FkdZyII1XzryBGRqazAoCG+SI59EBlgRoTPNFT/qhtoMzPYjxw1APSOG
+	fN5g3qMU85o79NCQHLkLKkLoiv+dBdZHQj0poZs8WsodObzhYFDRgPi/fAjF5VQgdtlSP58i1lS+j
+	WrPxQK6lpmgolmsbtODU1kDLSE809Qjj8CO2VHGAsMJuVDXQCIhbI+OA6LhyYvxMkwhMvgDFCenDn
+	tHTy6q6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veBKa-00000002I1p-3w0k;
-	Fri, 09 Jan 2026 12:11:04 +0000
-Received: from mail-westus2azhn15012014.outbound.protection.outlook.com ([52.102.136.14] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1veBSJ-00000002IPz-2Crq;
+	Fri, 09 Jan 2026 12:19:03 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veBKS-00000002I0e-1ij2
+	id 1veBSG-00000002IOt-2jhU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 12:10:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=naAQN3OT3EwnCtXVpqwCxjLIzg8XqA/0GMCk0PMduLz/6P9NJ1rQmuNAuJQ1EKzbnRddIOtK6X2E/xgAjQFxIGsyzFTypMZIlaQgaFzRnzMqbcnsX9qp26BgOmGXW84cLh5zXJ+HgpnHPk1iWRuvBmEIILuI3TiYVTHXCd2VrBOdZpOV0r0228Bw/THla93MkP5jVRLLCq0DgSe+6e7AFptBXEcgZzUGTvhE6UUPzILwAsocHfNs1A+RG/tPO79c+Jw0IkIB9cJHb5nloioz470oWzFA/Fn02aaGrPFhATLSW8UKljRK1IHErZV3PE7Fo8FXcQKrrwmwAEf61Qo3gQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OlazV3jkldcqCKVWeOFDXXNZsPwfPG4WktzQ8gdsRtY=;
- b=XBUafXkBkcIzubJXqsGMbHxaN8bDDntRlLqrgO8OtHxNcy74FTnnvFgzMrD6g8Mz65yjmQJl3YqIop5eFWtHFmc895l+AC9TdhvBK/ncGxLSwX3mN439b8ByB3AcgELjGEkQDqkkvdj0LYUNZxSoiDSw9KwOdtJBiUOpy6XwR6Xkt6YbrQGGMn8KSaHplx7Pmug66fcMvso/ikjLzuHXUxPjqu3uk/rTBI3dgJyIMOpJuAz8y3oc8kSXe4eRiHyVoXiIA6zR8NDyRFEH2PzDvM7IFsV95t1L9MtdXbP1n50fiJoej9YeFvLAIZH5rNvp8V7ZvY4zSBDfS/Q8V2qvMQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=microchip.com smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OlazV3jkldcqCKVWeOFDXXNZsPwfPG4WktzQ8gdsRtY=;
- b=GtrA5tapg6ePFPeyBo6/C1PWv3HcX8NnSExqIwy9w4rgtWgiDw7WgOHq0QNNM5FeVDEjDisbxjPfH6qOdQZloPK13mVOxMuRwfIMEmT6inVXAVFcKAT/mk1gjNhiINJazDGRvVljO+qB40Ry12UR901GfGczBbxmFQZ6Y3aw2a0=
-Received: from BYAPR06CA0008.namprd06.prod.outlook.com (2603:10b6:a03:d4::21)
- by MW4PR10MB6345.namprd10.prod.outlook.com (2603:10b6:303:1ed::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.4; Fri, 9 Jan
- 2026 12:10:50 +0000
-Received: from SJ5PEPF000001C8.namprd05.prod.outlook.com
- (2603:10b6:a03:d4:cafe::30) by BYAPR06CA0008.outlook.office365.com
- (2603:10b6:a03:d4::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.5 via Frontend Transport; Fri, 9
- Jan 2026 12:10:50 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- SJ5PEPF000001C8.mail.protection.outlook.com (10.167.242.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.1 via Frontend Transport; Fri, 9 Jan 2026 12:10:49 +0000
-Received: from DFLE203.ent.ti.com (10.64.6.61) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 9 Jan
- 2026 06:10:48 -0600
-Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 9 Jan
- 2026 06:10:48 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 9 Jan 2026 06:10:48 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 609CAmDj4109522;
-	Fri, 9 Jan 2026 06:10:48 -0600
-Date: Fri, 9 Jan 2026 06:10:48 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Michael Walle <mwalle@kernel.org>, Matt Coster <matt.coster@imgtec.com>
-CC: Frank Binns <frank.binns@imgtec.com>, Matt Coster
-	<matt.coster@imgtec.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Vignesh
- Raghavendra" <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Andrew Davis
-	<afd@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, Michael Turquette
-	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Kevin Hilman
-	<khilman@baylibre.com>, Randolph Sapp <rs@ti.com>,
-	<linux-clk@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Conor Dooley
-	<conor.dooley@microchip.com>
-Subject: Re: [PATCH v2 1/4] dt-bindings: gpu: img: Add AM62P SoC specific
- compatible
-Message-ID: <20260109121048.5usyjvczyjh2gs3q@craftsman>
-References: <20251223124729.2482877-1-mwalle@kernel.org>
- <20251223124729.2482877-2-mwalle@kernel.org>
+	Fri, 09 Jan 2026 12:19:02 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.pueschel@pengutronix.de>)
+	id 1veBRz-0000SF-A4; Fri, 09 Jan 2026 13:18:43 +0100
+Message-ID: <03fd04f7-629c-48cd-b498-0a1ebb67690d@pengutronix.de>
+Date: Fri, 9 Jan 2026 13:18:40 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251223124729.2482877-2-mwalle@kernel.org>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001C8:EE_|MW4PR10MB6345:EE_
-X-MS-Office365-Filtering-Correlation-Id: a3090c4e-62c0-4c5f-833d-08de4f782094
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|34020700016|82310400026|1800799024|36860700013|376014|7416014|7053199007|12100799066;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?iIhLcmMWYexEyqcmOKc4JG2DLIPVZb2QqQ88iGNEV5iBquCFA4u1zwcON8vQ?=
- =?us-ascii?Q?b18WA8s+ztw5x51qAFoiAK6l833vYCZIWCDnqMOxsldIkpR/tnknNGTODcq/?=
- =?us-ascii?Q?l0KSidU24JreMbFYQbjVvRnSXEoXv2qHUiFRpJPZpUETDMfWS4YPcf471d32?=
- =?us-ascii?Q?u4JqhOOgPfqVR6wh9CVINVg2YyfcHSsuaa4mimLb64quVphXyBhgqR9qU0D9?=
- =?us-ascii?Q?IOr8Qv5mUN+P3wAmlECy1s59JChN7IJm01xGQHndeH8tRg9OJ7vU6k7KqXoZ?=
- =?us-ascii?Q?mNwGOXFWQDzQeoj4JJnVzt+/lguJjEVM2liF/ndpO9P/Ohkz960YGCJAoJbE?=
- =?us-ascii?Q?6bpomGzAj55UYrboFFMyhv7vgZtDmXn5FU6C4RV1jlD1LIxlDsuj7E1HXVIY?=
- =?us-ascii?Q?A5xBULUJenxsWKJdCKDswcthsLPFIRZlkh8Lf64aGH2SrkRQTd2KlWeJT8wL?=
- =?us-ascii?Q?lrTAMzwLyBPQtFJtuBNAZyG/aeH+L/ADQ+AVWF4ELeoJDBSxN7LcuFEtLM7m?=
- =?us-ascii?Q?hSQqjH/hLeXdD99gA88bEVsvRRC53jHZp9z06sYxZ26Dnh4+XUr+0vmobwxv?=
- =?us-ascii?Q?MZK6sh2nZEes9eTjX3uqWvvLoMR95cvAkGIUUVR7W4XmbY7XmzPf2XxjQlL9?=
- =?us-ascii?Q?YSQY+w5tx1CLa0H8Q4Z8V0lawwCAi7ZltSHN5m622AA+5ODgBLlemZ1uhz9b?=
- =?us-ascii?Q?xHqgGc4/MUDKeWCQTWEmudh1jooBHvERkZ1b7La2dMtOixwHSi9HNP7Pw50A?=
- =?us-ascii?Q?bOxzeioEMO4TgUnuzjuFNBwUfYCpMuDxEQ27pwTfZowjqpt7kyttVHeW/W41?=
- =?us-ascii?Q?fNla0bf5lbHzJNBncNnnEgEgAc9HvD9jEfE3+gaX7TUa8JkEZWHHpTp2jowE?=
- =?us-ascii?Q?ucqcOBvfkUZ99LSBkT5i3OAGGRcqDM095c62UwkAHKhU4RofMLsA2YKVkBgA?=
- =?us-ascii?Q?edfZzViF26MvWP7196Vs8xwCU2MW63egSA0K98p/qhbn/4DpkNdr6tQHvG+d?=
- =?us-ascii?Q?cb9KJH/fl/q601ARjyPmNRy3dh7g4bnBdGM+gRSMPR9H5S9wLrg6h+RKCgQP?=
- =?us-ascii?Q?wcga407kAsZ2UcWJke7zcon+XIb0zG0qbddqlNGIJF5eVJ/UAlkA3ywBsch9?=
- =?us-ascii?Q?QZsjAQ5H+kPAJCzs3mLZRbhMPS9OcEDf4TWhYV/OOz5qr408FcRKgp7HQI2d?=
- =?us-ascii?Q?8BxNd3p9e8435XLrepn2boiFIYQ3DQmQY9NYJ26urbe9GQCdF5RXYQ4bDXWC?=
- =?us-ascii?Q?Ctc8GZDewoQg+bSn1ASLKRUOs/y5AITRRP8i+h34RQ+1wa1m6g+2qUdkN0VO?=
- =?us-ascii?Q?oYFDqZOYdynCg7ZBL+E904/1zp4i/VpOHMJ72SRgKr+QmwhufkqPndT2oIf6?=
- =?us-ascii?Q?n0J6fVWrMjCFu0vBBZn6lvLgH0nUDapfIXypy7CT4DylL2GKh9+CEzK1gPBj?=
- =?us-ascii?Q?MAQDdODTUtV6P/pMLaTlezlf/4wMo4729j+1vOnzQjxxjJFIrk49mc9yHUzb?=
- =?us-ascii?Q?pQL9BJwujnI8R5u/KSUjSQKGmx/y/2C+Bo0NbV/+fjI+pG4rPYngjffoakvs?=
- =?us-ascii?Q?GlULMXJAnQinmSggFwk=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(34020700016)(82310400026)(1800799024)(36860700013)(376014)(7416014)(7053199007)(12100799066);DIR:OUT;SFP:1501;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jan 2026 12:10:49.3081
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a3090c4e-62c0-4c5f-833d-08de4f782094
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001C8.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB6345
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 11/22] media: rockchip: rga: check scaling factor
+To: Nicolas Dufresne <nicolas@ndufresne.ca>,
+ Jacob Chen <jacob-chen@iotwrt.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, kernel@pengutronix.de
+References: <20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de>
+ <20251203-spu-rga3-v2-11-989a67947f71@pengutronix.de>
+ <02ac025c0ecf17354377c7f2c2fc83b40a3a41e1.camel@ndufresne.ca>
+Content-Language: en-US
+From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+In-Reply-To: <02ac025c0ecf17354377c7f2c2fc83b40a3a41e1.camel@ndufresne.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_041056_635763_D9B5D49C 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20260109_041900_854597_F7F0E80C 
+X-CRM114-Status: GOOD (  33.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,45 +74,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13:47-20251223, Michael Walle wrote:
-> The AM62P and the J722S features the same BXS-4 GPU as the J721S2. Add a
-> new SoC specific compatible.
-> 
-> Signed-off-by: Michael Walle <mwalle@kernel.org>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> index 86ef68985317..a1f54dbae3f3 100644
-> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> @@ -40,6 +40,7 @@ properties:
->            - const: img,img-rogue
->        - items:
->            - enum:
-> +              - ti,am62p-gpu
->                - ti,j721s2-gpu
->            - const: img,img-bxs-4-64
->            - const: img,img-rogue
-> @@ -100,6 +101,7 @@ allOf:
->            contains:
->              enum:
->                - ti,am62-gpu
-> +              - ti,am62p-gpu
->                - ti,j721s2-gpu
->      then:
->        properties:
-> -- 
-> 2.47.3
-> 
-> 
-Matt/ DRM maintainers, could you pick this patch please?
+On 12/24/25 4:39 PM, Nicolas Dufresne wrote:
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+> Le mercredi 03 décembre 2025 à 16:52 +0100, Sven Püschel a écrit :
+>> Check the scaling factor to avoid potential problems. This is relevant
+>> for the upcoming RGA3 support, as it can hang when the scaling factor
+>> is exceeded.
+>>
+>> There are two relevant scenarios that have to be considered to protect
+>> against invalid scaling values:
+>>
+>> When the output or capture is already streaming, setting the format on
+>> the other side should consider the max scaling factor and clamp it
+>> accordingly. This is only done in the streaming case, as it otherwise
+>> may unintentionally clamp the value when the application sets the first
+>> format (due to a default format on the other side).
+>>
+>> When the format is set on both sides first, then the format won't be
+>> corrected by above means. Therefore the second streamon call has to
+>> check the scaling factor and fail otherwise.
+> In codec specifications, we resolve this issue by resetting the capture format
+> every-time the output format is set. But without specification for color
+> transforms, its impossible to say if this is right or wrong, and I don't expect
+> perfect interroperability between drivers until someone make the effort to
+> specify this type of hardware.
+>
+> What you describe is fine of course, but its a bit off nature of the way format
+> is normally being fixed by the driver to stay valid.
+
+thanks for the info. Given the missing spec, I'd keep it at the current 
+unusual implementation unless I'd need to adjust it for the try_fmt 
+state issue.
+
+>> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+>> ---
+>>   drivers/media/platform/rockchip/rga/rga-hw.c |  1 +
+>>   drivers/media/platform/rockchip/rga/rga-hw.h |  1 +
+>>   drivers/media/platform/rockchip/rga/rga.c    | 60 +++++++++++++++++++++++++---
+>>   drivers/media/platform/rockchip/rga/rga.h    |  1 +
+>>   4 files changed, 58 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+>> index 8cdfe089fd636..2ed4f22a999d5 100644
+>> --- a/drivers/media/platform/rockchip/rga/rga-hw.c
+>> +++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+>> @@ -624,6 +624,7 @@ const struct rga_hw rga2_hw = {
+>>   	.max_width = MAX_WIDTH,
+>>   	.min_height = MIN_HEIGHT,
+>>   	.max_height = MAX_HEIGHT,
+>> +	.max_scaling_factor = MAX_SCALING_FACTOR,
+>>   	.stride_alignment = 4,
+>>   
+>>   	.setup_cmdbuf = rga_hw_setup_cmdbuf,
+>> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.h b/drivers/media/platform/rockchip/rga/rga-hw.h
+>> index f4752aa823051..fffcab0131225 100644
+>> --- a/drivers/media/platform/rockchip/rga/rga-hw.h
+>> +++ b/drivers/media/platform/rockchip/rga/rga-hw.h
+>> @@ -14,6 +14,7 @@
+>>   
+>>   #define MIN_WIDTH 34
+>>   #define MIN_HEIGHT 34
+>> +#define MAX_SCALING_FACTOR 16
+>>   
+>>   #define RGA_TIMEOUT 500
+>>   
+>> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+>> index f02ae02de26ca..46dc94db6f85e 100644
+>> --- a/drivers/media/platform/rockchip/rga/rga.c
+>> +++ b/drivers/media/platform/rockchip/rga/rga.c
+>> @@ -346,18 +346,47 @@ static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
+>>   static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
+>>   {
+>>   	struct v4l2_pix_format_mplane *pix_fmt = &f->fmt.pix_mp;
+>> -	struct rockchip_rga *rga = video_drvdata(file);
+>> +	struct rga_ctx *ctx = file_to_rga_ctx(file);
+>> +	struct rockchip_rga *rga = ctx->rga;
+>>   	const struct rga_hw *hw = rga->hw;
+>>   	struct rga_fmt *fmt;
+>> +	u32 min_width = hw->min_width;
+>> +	u32 max_width = hw->max_width;
+>> +	u32 min_height = hw->min_height;
+>> +	u32 max_height = hw->max_height;
+>>   
+>>   	fmt = rga_fmt_find(rga, pix_fmt->pixelformat);
+>>   	if (!fmt)
+>>   		fmt = &hw->formats[0];
+>>   
+>> -	pix_fmt->width = clamp(pix_fmt->width,
+>> -			       hw->min_width, hw->max_width);
+>> -	pix_fmt->height = clamp(pix_fmt->height,
+>> -				hw->min_height, hw->max_height);
+>> +	if (V4L2_TYPE_IS_OUTPUT(f->type) &&
+>> +	    v4l2_m2m_get_dst_vq(ctx->fh.m2m_ctx)->streaming) {
+> What if userspace wanted to get the buffer size computed, so it can allocate
+> externally before it calls streamoff ? Hans did mention recently that try
+> function should only be state aware if specified.
+
+My plan is to move the try logic into a separate helper function with an 
+additional boolean parameter depending on which I do the state aware 
+adjustments. And then call this helper with false for try_fmt and true 
+for set_fmt.
+
+Or is this also problematic as it violates the contract that try_fmt is 
+equivalent to set_fmt?
+
+>
+> I'd like other reviewers feedback on what should be done here, of course writing
+> a spec would be ideal.
+>
+> Nicolas
+>
+>> +		min_width =
+>> +			MAX(min_width, DIV_ROUND_UP(ctx->out.pix.width,
+>> +						    hw->max_scaling_factor));
+>> +		max_width = MIN(max_width,
+>> +				ctx->out.pix.width * hw->max_scaling_factor);
+>> +		min_height =
+>> +			MAX(min_height, DIV_ROUND_UP(ctx->out.pix.height,
+>> +						     hw->max_scaling_factor));
+>> +		max_height = MIN(max_height,
+>> +				 ctx->out.pix.height * hw->max_scaling_factor);
+>> +	} else if (V4L2_TYPE_IS_CAPTURE(f->type) &&
+>> +		   v4l2_m2m_get_src_vq(ctx->fh.m2m_ctx)->streaming) {
+>> +		min_width =
+>> +			MAX(min_width, DIV_ROUND_UP(ctx->in.pix.width,
+>> +						    hw->max_scaling_factor));
+>> +		max_width = MIN(max_width,
+>> +				ctx->in.pix.width * hw->max_scaling_factor);
+>> +		min_height =
+>> +			MAX(min_height, DIV_ROUND_UP(ctx->in.pix.height,
+>> +						     hw->max_scaling_factor));
+>> +		max_height = MIN(max_height,
+>> +				 ctx->in.pix.height * hw->max_scaling_factor);
+>> +	}
+>> +
+>> +	pix_fmt->width = clamp(pix_fmt->width, min_width, max_width);
+>> +	pix_fmt->height = clamp(pix_fmt->height, min_height, max_height);
+>>   
+>>   	v4l2_fill_pixfmt_mp_aligned(pix_fmt, pix_fmt->pixelformat,
+>>   				    pix_fmt->width, pix_fmt->height, hw->stride_alignment);
+>> @@ -523,12 +552,33 @@ static int vidioc_s_selection(struct file *file, void *priv,
+>>   	return ret;
+>>   }
+>>   
+>> +static bool check_scaling(const struct rga_hw *hw, u32 src_size, u32 dst_size)
+>> +{
+>> +	if (src_size < dst_size)
+>> +		return src_size * hw->max_scaling_factor >= dst_size;
+>> +	else
+>> +		return dst_size * hw->max_scaling_factor >= src_size;
+>> +}
+>> +
+>>   static int vidioc_streamon(struct file *file, void *priv,
+>>   			   enum v4l2_buf_type type)
+>>   {
+>>   	struct rga_ctx *ctx = file_to_rga_ctx(file);
+>>   	const struct rga_hw *hw = ctx->rga->hw;
+>>   
+>> +	if ((V4L2_TYPE_IS_OUTPUT(type) &&
+>> +	     v4l2_m2m_get_dst_vq(ctx->fh.m2m_ctx)->streaming) ||
+>> +	    (V4L2_TYPE_IS_CAPTURE(type) &&
+>> +	     v4l2_m2m_get_src_vq(ctx->fh.m2m_ctx)->streaming)) {
+>> +		/*
+>> +		 * As the other side is already streaming,
+>> +		 * check that the max scaling factor isn't exceeded.
+>> +		 */
+>> +		if (!check_scaling(hw, ctx->in.pix.width, ctx->out.pix.width) ||
+>> +		    !check_scaling(hw, ctx->in.pix.height, ctx->out.pix.height))
+>> +			return -EINVAL;
+>> +	}
+>> +
+>>   	hw->setup_cmdbuf(ctx);
+>>   
+>>   	return v4l2_m2m_streamon(file, ctx->fh.m2m_ctx, type);
+>> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+>> index 93162b118d069..d02d5730b4e3b 100644
+>> --- a/drivers/media/platform/rockchip/rga/rga.h
+>> +++ b/drivers/media/platform/rockchip/rga/rga.h
+>> @@ -152,6 +152,7 @@ struct rga_hw {
+>>   	size_t cmdbuf_size;
+>>   	u32 min_width, min_height;
+>>   	u32 max_width, max_height;
+>> +	u8 max_scaling_factor;
+>>   	u8 stride_alignment;
+>>   
+>>   	void (*setup_cmdbuf)(struct rga_ctx *ctx);
 
