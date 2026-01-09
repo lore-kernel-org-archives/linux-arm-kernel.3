@@ -4,78 +4,202 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9135D26D75
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 17:03:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7DA4D26D71
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 17:05:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B+3UzmwLO8JN/qBdtE9TBLXhBi+5lAbLM+z0XA6YawY=; b=iEjlVafKvQK029aAbLjz2Y1g62
-	3RQwgSaP4HFO8+ghdbfuF2tikoy2nuFYjX/WkMenC2ZaMdxUQEkTiXKfdGo6b3EhS86cdnnqJx4q9
-	m1edI5yPFEAthIGZ5egT5mimEC4NpSJ1HgwBilbTSBXmB4JJoCgfJXOleJRoPxX59VQ/jv7QALKaa
-	xv3Rf53OuWWZANN9Gi1dN1dunTz69uuppugc+HszAANJd7LFRCw9IN3i4z3Y/x96DmtqLx71lR1V7
-	lUa0I4r73ngsl+T4dG7zd0a5+ZY9Ca5g0svBn+kE9R/2WX0LjIyCwGrrrenb40CvGrFCIxh/Ni9O4
-	nDTJlZYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l5RwkHpjSUZk7Rzm0ikgxUNBiO1kxEhXMjLxQoKi7X4=; b=Mlj+3kfoYWsAhCvqGXa/ykbnzA
+	ieYH9Knfmuq1ULWJjlpMQ90AzEGAIKn6Z4ig5bFexhs4IX2CiA04fUX67LpfBBt4sb33cFtMH7AAT
+	eh6l41v8sdGMTdgd1zHhD3aqZhvAaQPxsYx6PzaCE4/bzQw7MF5eA366VbrATdewrp23HJw7GgueE
+	z41j98a2Bty2V9+4qRQroshDdHpG0dixRJNwYFan/jQxe0ScR6v/ISw2EEKLe9CCDH77dgwUwxEWu
+	WXHDkqwi1rErfKAkL+Qum6Q45egYvUd+2T2lj/CpugYhOFy1RisAneo66tH6pwT142sTDW5IsOttk
+	cVq3IK9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veFtr-00000002hcE-10st;
-	Fri, 09 Jan 2026 17:03:47 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1veFvs-00000002hyt-20YV;
+	Fri, 09 Jan 2026 17:05:52 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veFto-00000002hbR-3JTl
+	id 1veFvp-00000002hwY-2K5b
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 17:03:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1767978223; x=1799514223;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=HAnLULaMUOc5Nc5jyCi1DTCw+t7mBlxZV/qBH8OF/pw=;
-  b=BfmEoMhFBhwzbfkFMEguKpsPmJxn5Unjqgy5AU4r7eHN7XWSXmFDiWRe
-   3VAbMky11FTDKQyROp6b5zlsFM+XrXW/ZA3lKTVnfEjYhJI3hXY+CrJM3
-   ig5Ab/0qCPvE/SUhIaxZOnC55NWpTppJWsE6CxI21CASgGQF/cTrjljKF
-   PHGd1XHxq+9PCRTiCPshe6CZY9HVpnJdqq2Hj+i7IU0HKCWZSKKSEagzN
-   fcWf6MAnMu6fKr7ncOHgthCTK/eLjvhhBUR8GwXaVHtTvxrjmwEcH70QF
-   FIiX0as64NvMjYgJz1y1D0P47dTSLhjs+Or32qi4xNCD+yfoKb4CU0Uq8
-   A==;
-X-CSE-ConnectionGUID: RKd1RUMeRFOIyoqLuXNK1Q==
-X-CSE-MsgGUID: SNK/4r0HSISKVG1n6XCSeg==
-X-IronPort-AV: E=Sophos;i="6.21,214,1763449200"; 
-   d="scan'208";a="50915444"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2026 10:03:40 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.29; Fri, 9 Jan 2026 10:03:25 -0700
-Received: from [10.10.179.162] (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Fri, 9 Jan 2026 10:03:25 -0700
-Message-ID: <0402804e-7575-42b2-9990-1b09fca80451@microchip.com>
-Date: Fri, 9 Jan 2026 10:03:42 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 21/31] clk: at91: dt-compat: switch to parent_hw and
- parent_data
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>, <mturquette@baylibre.com>,
-	<sboyd@kernel.org>, <alexandre.belloni@bootlin.com>,
-	<nicolas.ferre@microchip.com>
-CC: <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <varshini.rajendran@microchip.com>
-References: <cover.1758226719.git.Ryan.Wanner@microchip.com>
- <628859234f4b2523f43b3ac05d5e29ceb05a7f61.1758226719.git.Ryan.Wanner@microchip.com>
- <eed15c43-dde3-410b-b2a3-655f4acf8d97@tuxon.dev>
-From: Ryan Wanner <ryan.wanner@microchip.com>
+	Fri, 09 Jan 2026 17:05:50 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=e9CyeSX0ln7FCDrjmx5gqdE+yDwlH4bvmLvEGPQjLRPnHxUnCIDvTpiYuT774dQFzJnWI3GpzpWDPU2kno8xa73m8FsO5fjvMk2qVSEqnMgKy5SiCRMzXf74RraBwciDboIXIWfirOBOJp9ZYLKTtjF0p6Wad7CXBH2CDjAmR3xV/sqA4TqoNpr7MIYa0m8/jjrX/lVUPOxMMbjQQ+qVOg6o2o2a8e2ZW2eI/hpcjyImiuiQCRRc17NXuBunuJdlXTFVCXEEaEz5DqQGz+h3Owy5aR4Pc9/rdIf89DSp+84bkKTMj1TNGfWe9CBcKKdHfSqJqqImzKvnNu/9kDiCNQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=l5RwkHpjSUZk7Rzm0ikgxUNBiO1kxEhXMjLxQoKi7X4=;
+ b=gLI5WBmcSQwTcCbAM4DhV+St1uSXycpzHQ56oO5QJt4eQk8be/A3JEZXVLPe/1BCArCVAyzu9f7RXAuPaXNZxlFZyG2Bu4LrGE5CC0xpMN0mesPNAcEBWV4UWA0qmh/g4A1PIuoZKTX2mte+gw0RhVPSe648HFlXLjzuSV+ljnY7Hcn03gTQ8OqsyhNhNt47LhEhjbXNfsqOkZZ02OVQXNYALXqLGXJrInaIXSXFUUQnB1DgVMlRGDv/cwME3zsQy2SreVMVPfSo9k6gUgdNVtiMLMZBcmqFMoXBrqRfKVjG3kfwTKVzTtb8yy4NXM98Ktsy8fsNd1Nqt1LmgFnkuw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=l5RwkHpjSUZk7Rzm0ikgxUNBiO1kxEhXMjLxQoKi7X4=;
+ b=KkuY2e6SdFBRbJEOEPtOwcLzHxZAJa8TDjT/6gvFtCv+Rcn2w6jzKk9GEvbCcdGNiVYRuIDztR6u6JffnSJv8aZ5kbcVuoZsQ8kbP1coawXfTu7idOwUbcAPMPSY7TOqUIxBQZbGGNvzhEoOswappaKH6CXF0Q6Fv8+hjy9eCoE=
+Received: from DU6P191CA0043.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:53f::29)
+ by DB9PR08MB9513.eurprd08.prod.outlook.com (2603:10a6:10:459::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.4; Fri, 9 Jan
+ 2026 17:05:43 +0000
+Received: from DU2PEPF00028D06.eurprd03.prod.outlook.com
+ (2603:10a6:10:53f:cafe::7e) by DU6P191CA0043.outlook.office365.com
+ (2603:10a6:10:53f::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.4 via Frontend Transport; Fri, 9
+ Jan 2026 17:05:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU2PEPF00028D06.mail.protection.outlook.com (10.167.242.166) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.1
+ via Frontend Transport; Fri, 9 Jan 2026 17:05:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=T0gsAgMYT4mn2G9wQntbwMUU1Ab7KJ6xVDZ/bviYctVVV2kMzWxQCeGSigj2ZVC3NXbeEICJBiMCXO8rkcwKqYtkes+IRiF/jSzo2VjI9zEA++uN09gN0/eUD1HZbBVAWeLvRVHMWmph+w61Tbp6hBE0zh1ypALsN/8soxgigy1hRtrau0s2jsXeoSU0aAoswEyXkvJl7r31snCj23O7FsMNxU7+iOeqibuI2jGNNg7dq9NRKHJQvsTlnP3tyXFD9S3/NWX8yuSzAPFPTkVhpfyp3nb+0tfjjxsFfZnw9rXG4sC8dtvL/WlKZsAkqgh7WYv3BvAI7hWrww2q8rFOzw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=l5RwkHpjSUZk7Rzm0ikgxUNBiO1kxEhXMjLxQoKi7X4=;
+ b=NtFfJbd7m30Z0JJnq/klj095NDTwrxsA38g62N6WF/glqdXU2RyyONBlMoKeIrlTrAAMLo7dNNU3VrXGnywVyy+O/DgX4G21sVHr3KSBu7S0jjygz0raEvslG+iJekxixWRlyzIbxEtIaD4802+tPnrSr6EaC5d3YMH6goa0F5N5Jm5j3t/jL8iU/BMHsB3RGM1b3Pb0rvMmv1oI3GiW2twdDGpiXGw2L2Gq8YgiY/VoWfparoliK1mYS1TzCNnm6yUVkqHe63FeX4iL+Yo/phx0XlypiGeea9r98AHfMWSM3OuzH1pLuWAx5SnaSN6zfhgHOmMztl2phyiwVYbdWg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=l5RwkHpjSUZk7Rzm0ikgxUNBiO1kxEhXMjLxQoKi7X4=;
+ b=KkuY2e6SdFBRbJEOEPtOwcLzHxZAJa8TDjT/6gvFtCv+Rcn2w6jzKk9GEvbCcdGNiVYRuIDztR6u6JffnSJv8aZ5kbcVuoZsQ8kbP1coawXfTu7idOwUbcAPMPSY7TOqUIxBQZbGGNvzhEoOswappaKH6CXF0Q6Fv8+hjy9eCoE=
+Received: from AS8PR08MB6744.eurprd08.prod.outlook.com (2603:10a6:20b:397::10)
+ by AS8PR08MB6216.eurprd08.prod.outlook.com (2603:10a6:20b:29c::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.4; Fri, 9 Jan
+ 2026 17:04:40 +0000
+Received: from AS8PR08MB6744.eurprd08.prod.outlook.com
+ ([fe80::c07d:23d6:efa7:7ddb]) by AS8PR08MB6744.eurprd08.prod.outlook.com
+ ([fe80::c07d:23d6:efa7:7ddb%6]) with mapi id 15.20.9499.003; Fri, 9 Jan 2026
+ 17:04:40 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
+CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
+	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>, "jonathan.cameron@huawei.com"
+	<jonathan.cameron@huawei.com>
+Subject: [PATCH v3 03/36] arm64/sysreg: Drop ICH_HFGRTR_EL2.ICC_HAPR_EL1 and
+ make RES1
+Thread-Topic: [PATCH v3 03/36] arm64/sysreg: Drop ICH_HFGRTR_EL2.ICC_HAPR_EL1
+ and make RES1
+Thread-Index: AQHcgYoKyqf/FAr22kaR4xdMF0D2PA==
+Date: Fri, 9 Jan 2026 17:04:39 +0000
+Message-ID: <20260109170400.1585048-4-sascha.bischoff@arm.com>
+References: <20260109170400.1585048-1-sascha.bischoff@arm.com>
+In-Reply-To: <20260109170400.1585048-1-sascha.bischoff@arm.com>
+Accept-Language: en-GB, en-US
 Content-Language: en-US
-In-Reply-To: <eed15c43-dde3-410b-b2a3-655f4acf8d97@tuxon.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.34.1
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: AS8PR08MB6744:EE_|AS8PR08MB6216:EE_|DU2PEPF00028D06:EE_|DB9PR08MB9513:EE_
+X-MS-Office365-Filtering-Correlation-Id: c79f2ac8-0405-43fe-0c03-08de4fa152f7
+x-checkrecipientrouted: true
+nodisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|38070700021;
+X-Microsoft-Antispam-Message-Info-Original: =?iso-8859-1?Q?ofvMfIXXbSVl/6+wNCZxwRGefUblAQf0YOimfCaEd6JoeAqHkaNbqzsOed?=
+ =?iso-8859-1?Q?G7UVR7r14qQyQZPJlJP+t/qEFrle/ijGbou7BuIX3sPKQrPmLTOnIWabve?=
+ =?iso-8859-1?Q?MwRN+h5LR+mWC3QolIuWetnLI+u9f3G7V1tLUzEKGUKeXk/P6+Id49NXoZ?=
+ =?iso-8859-1?Q?eUk9JfIHG3EDpmF/lJtcq/y51XtXU+fehC4BIaa1cALVVOguZF3lDuUIXV?=
+ =?iso-8859-1?Q?eWqLU5ESyo1K6FRnGWBJyLRYVZ53SbVPb6C0mN2PyvH6WoC7GVkUDgO+yx?=
+ =?iso-8859-1?Q?7o93W5JukC2JpvOPfJ2cdQxGRILamLd6vWkZU/UdCkqA7jAiQR6tJXTEjS?=
+ =?iso-8859-1?Q?5GyqqXl1pIEHDhAV+BYcdM3ud5+9zGBT2xmw3t8snpICfbm6JnIKyIMsqQ?=
+ =?iso-8859-1?Q?43gB/Rv2wAXfrWwbxg4Rgogr2JbKl5GSz1yVO2JZWEh0T/p4/+MwwsXBQx?=
+ =?iso-8859-1?Q?Z0UfIn7v/5pvepX5cVHMTuTLQyhXa2wLYFFLkC3SzNV6YXbs93qdLmLjMu?=
+ =?iso-8859-1?Q?ZkG38I0SSAN9LdWhkRY9pzDIQeglSs+zSq+vqCz4sWdZVHobzmccG2Zf3q?=
+ =?iso-8859-1?Q?VU+ONrH3b3Y0qMJRh6/QVwxQccNUl7OwurT1egVa+3lMUyBw997zxzwP88?=
+ =?iso-8859-1?Q?0qYRt+1I7K7CPY1lEKWyyFkapXgpwiNDC3BUvyK6llhVn0ThkMZA4ymt9P?=
+ =?iso-8859-1?Q?wzn5uSoocAUJBMOFSwQlbsJGu1sWYlSl+hMf/jGDL1BOCEc4dfmgh0PDG7?=
+ =?iso-8859-1?Q?Pd7FFwLXQdvkxwNctXtD/eOLZDe6VOLaL+ZYdO1xz6wnptwAKHXQNy20Ng?=
+ =?iso-8859-1?Q?k2xiLnxe5Z4HI+cMlbbOASnrH8S75/5YbPFJDUbKz1OxF8sTM+1QPurqBS?=
+ =?iso-8859-1?Q?m+oHi0geXOy1PTYCdTKsAEuqNvxCinermyAL2Kx9BJ3VQoklqRD84YEqmw?=
+ =?iso-8859-1?Q?YN7Mrn8jO0iWDrc+L9oDzM+bAE+Olz967+S/tkAaSgitqHd+gNWg7S13CP?=
+ =?iso-8859-1?Q?3+wW+6zgDHqPCS3dlmqQx2c1Fw7zwhTQEAELk1+e5UXLCATpmWNrCXDsSG?=
+ =?iso-8859-1?Q?uRXqbmJnJMOlsJ7m+GrQTaaHZGFyTalV6xvaMbPSOnEI6UW7ou9FdjmRvV?=
+ =?iso-8859-1?Q?YYY9/YD56IsuBk22joHuNSlPDyqxRvCAXAndU22aMLlTSQ/ezaBY4c8z/j?=
+ =?iso-8859-1?Q?9nwtrOZLQz1MaRONpiLxaP1zny0tnlRgfPsQ8hx4P5Puhg9KvypXC0JIf6?=
+ =?iso-8859-1?Q?pJhNuFGHL3CzHDnWLrhlymaxcmRHpcRe+jZ/TztSGGnYEYWuThuZiFrrWI?=
+ =?iso-8859-1?Q?+mdz45w6kA+lNoACfl75y7JfNmuB4A1/cVt9yOlckOdwVhceCI/BZTkkqQ?=
+ =?iso-8859-1?Q?gyOzVNG8lnvEgb5Houfg+BbdnXZcVPxEBMJ1meLUICSoaLlQNI6NvCGudw?=
+ =?iso-8859-1?Q?CEgAagByRd0pKwP3JqgveHGNk1/LHyH5jnmagv/F3VCPXQbOZ3ggGtFfpM?=
+ =?iso-8859-1?Q?w5t26j3ZCb8dJlqqBHNA1YCfTY6IpDA91Oq0XWA5ZF9yZtlRNafiRJgnqj?=
+ =?iso-8859-1?Q?SuyTgQ4BhSAK6+uUbWNOKWsbaS06?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR08MB6744.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(38070700021);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB6216
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D06.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: aa6cabec-95be-48e3-70e8-08de4fa12d43
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|36860700013|376014|82310400026|14060799003|1800799024;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?yhsfvqpo7gC8JWz7FNrq79LZjV5602GKHN0Bn7ixPf+YCHnTtVXvSMyZLy?=
+ =?iso-8859-1?Q?CTWs1tSECIYN+GxmsEdZuhIc2Ppf4yr1a9U3auP8d98/v4tDdFLxiKJrZP?=
+ =?iso-8859-1?Q?0Xqw+o6SJTrlmXp/oqzMmNSRywxW6WyhsSCK+Ci892ytHGMV7ayBkb/aVO?=
+ =?iso-8859-1?Q?NA07hhSGoHcOAUksU5OZPBTBmqZCyNZfIHXW+N0uovsbot5myOeJLkwdCE?=
+ =?iso-8859-1?Q?yWtdWUjLq3hXjBQvnpHD6b4f9ulPk+Zuu3CJT4T4iw0S/NV2CMXYoXf/WJ?=
+ =?iso-8859-1?Q?iOLQQUKzVYWHTUa1gyi/PIfG7/8bu08SNDD70F1gE+57Gp8c3EfBiE4hJF?=
+ =?iso-8859-1?Q?Vd0ZBA0tYrFQLUzIsoYTkfKEgfvqrLCWL+rqRN9pkm03ujw09Aqck0BygE?=
+ =?iso-8859-1?Q?sv5+DqR5AiqTb/S8nxVcGksDxuvX7jwGKgmL10UCdZQjE1yBKdymU669hN?=
+ =?iso-8859-1?Q?HMPe1EGhj5HYM9f4BO68T+Zm/6N/HxkD7LCQuhaKwcH5ImQ1Nby/gNICJr?=
+ =?iso-8859-1?Q?1Ddz7VCHY2TG3GGRO3p9l7rYO2Srji0qHlLJ2HJlBMwrR5ZBkIqcMPOvyu?=
+ =?iso-8859-1?Q?ggMllv7CprYIM0cd3gjWbwN6IrH26enIDpQHkwSjxpPxfzLKckJYeMe+WF?=
+ =?iso-8859-1?Q?Ehdf92jRySqNPGcgETumVZaxkR+ml59ZkflW6bAFRDbowtGdTvO2LBqCtq?=
+ =?iso-8859-1?Q?s1fUKPerxAHQhymka4Z8Op8GuVCYGpi1B51BtZs2i6bNTY/nXzjdeLTBlj?=
+ =?iso-8859-1?Q?k8Lb1yaNTPj4DQh2wiiF1pNO23Dzv8YAAx1Zr9J9XKUZLyhfMsHYl5lEq+?=
+ =?iso-8859-1?Q?m1szQNixdurqzrfU4FscNnk28SRzdRl0j83DXt3Mxy+d05QW41s8FpFEId?=
+ =?iso-8859-1?Q?C73BML57Lec2e/Y1hCZer8titvuCUGsDtLyZCgQwb3GEA75hvL+a114Krz?=
+ =?iso-8859-1?Q?+K7MO0prlfesgW8m2kvH/7vdkoC9CtvcUcGzwRaLuBRKlNKNBLusyrWxMj?=
+ =?iso-8859-1?Q?FbFNv0JP2u1xjK/4UtqCfkSCcAOmD+gTTWpXYy7WPwEfPaZO3mccCjUQ86?=
+ =?iso-8859-1?Q?83jRqqEVYa3sin85Oa/21qSI79izxPkYzP8IGgW2ZXp2/a/8We4Zyque70?=
+ =?iso-8859-1?Q?o9gEPN9rO0y/YBWla7MhAmzFZLsZjgjyzC8VpsudTmnb2EDD8DdCGGgBxj?=
+ =?iso-8859-1?Q?l0w2V9WNE7pK8hhMDaaUiri+Pyklcv3/8RxRh4AbTg9+z5P6PSl3uZ0LYp?=
+ =?iso-8859-1?Q?XxAi6T79XsFhTpNmTA9OkVlCJ393xFh5u7Z76oB5qTo1ZyV0GoR3baRYyl?=
+ =?iso-8859-1?Q?jWptF9wfkv8xzLPtZPWi80JNiS/8y++f0ktacEtbGsUc8x8COGdJGkCEYU?=
+ =?iso-8859-1?Q?pXsFunlFFdUcKUUXmVAz66nztszGT1kqbXmef5VaiDNXja9x5dP5LKn9PS?=
+ =?iso-8859-1?Q?pOwSktEDzT7+lj2rK+07OFwiQuP8Da6ygUGtbAstuOIp5VkE8k0T2mxPfB?=
+ =?iso-8859-1?Q?67QMEHzFY5XthAAKpzmmXazFW0ln3VKfx8wqdkkiGEvGpwYz8axV+62hz7?=
+ =?iso-8859-1?Q?ZBO30bup56b4ixGwT5YHN0RoX9Pb/sXpCH0nD8t/KjTH3HTKIh9ah4jfAa?=
+ =?iso-8859-1?Q?z0vPyrO/M02MI=3D?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(36860700013)(376014)(82310400026)(14060799003)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jan 2026 17:05:43.2451
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c79f2ac8-0405-43fe-0c03-08de4fa152f7
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D06.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB9513
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_090345_136926_DFF89D1D 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20260109_090549_597037_030E0FF2 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,187 +214,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/20/25 12:15, Claudiu Beznea wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> 
-> Hi, Ryan,
-> 
-> On 9/19/25 00:16, Ryan.Wanner@microchip.com wrote:
->> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
->>
->> Switch old dt-compat clocks to use parent_hw and parent_data. Having
->> parent_hw instead of parent names improves to clock registration
->> speed and re-parenting.
->>
->> Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
->> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
->> ---
->>  drivers/clk/at91/dt-compat.c | 80 +++++++++++++++++++++++++-----------
->>  1 file changed, 56 insertions(+), 24 deletions(-)
->>
->> diff --git a/drivers/clk/at91/dt-compat.c b/drivers/clk/at91/dt-compat.c
->> index fa8658d3be7b..9ca871b817e0 100644
->> --- a/drivers/clk/at91/dt-compat.c
->> +++ b/drivers/clk/at91/dt-compat.c
->> @@ -43,7 +43,8 @@ static void __init of_sama5d2_clk_audio_pll_frac_setup(struct device_node *np)
->>
->>       parent_name = of_clk_get_parent_name(np, 0);
->>
->> -     hw = at91_clk_register_audio_pll_frac(regmap, name, parent_name, NULL);
->> +     hw = at91_clk_register_audio_pll_frac(regmap, name, NULL,
->> +                                           &AT91_CLK_PD_NAME(parent_name));
->>       if (IS_ERR(hw))
->>               return;
->>
->> @@ -69,7 +70,8 @@ static void __init of_sama5d2_clk_audio_pll_pad_setup(struct device_node *np)
->>
->>       parent_name = of_clk_get_parent_name(np, 0);
->>
->> -     hw = at91_clk_register_audio_pll_pad(regmap, name, parent_name, NULL);
->> +     hw = at91_clk_register_audio_pll_pad(regmap, name, NULL,
->> +                                          &AT91_CLK_PD_NAME(parent_name));
->>       if (IS_ERR(hw))
->>               return;
->>
->> @@ -95,7 +97,7 @@ static void __init of_sama5d2_clk_audio_pll_pmc_setup(struct device_node *np)
->>
->>       parent_name = of_clk_get_parent_name(np, 0);
->>
->> -     hw = at91_clk_register_audio_pll_pmc(regmap, name, parent_name, NULL);
->> +     hw = at91_clk_register_audio_pll_pmc(regmap, name, NULL, &AT91_CLK_PD_NAME(parent_name));
->>       if (IS_ERR(hw))
->>               return;
->>
->> @@ -129,6 +131,7 @@ static void __init of_sama5d2_clk_generated_setup(struct device_node *np)
->>       struct clk_hw *hw;
->>       unsigned int num_parents;
->>       const char *parent_names[GENERATED_SOURCE_MAX];
->> +     struct clk_parent_data parent_data[GENERATED_SOURCE_MAX];
->>       struct device_node *gcknp, *parent_np;
->>       struct clk_range range = CLK_RANGE(0, 0);
->>       struct regmap *regmap;
->> @@ -149,6 +152,8 @@ static void __init of_sama5d2_clk_generated_setup(struct device_node *np)
->>       if (IS_ERR(regmap))
->>               return;
->>
->> +     for (unsigned int i = 0; i < num_parents; i++)
->> +             parent_data[i] = AT91_CLK_PD_NAME(parent_names[i]);
->>       for_each_child_of_node(np, gcknp) {
->>               int chg_pid = INT_MIN;
->>
->> @@ -171,7 +176,7 @@ static void __init of_sama5d2_clk_generated_setup(struct device_node *np)
->>
->>               hw = at91_clk_register_generated(regmap, &pmc_pcr_lock,
->>                                                &dt_pcr_layout, name,
->> -                                              parent_names, NULL, NULL,
->> +                                              NULL, parent_data, NULL,
->>                                                num_parents, id, &range,
->>                                                chg_pid);
->>               if (IS_ERR(hw))
->> @@ -201,7 +206,7 @@ static void __init of_sama5d4_clk_h32mx_setup(struct device_node *np)
->>
->>       parent_name = of_clk_get_parent_name(np, 0);
->>
->> -     hw = at91_clk_register_h32mx(regmap, name, parent_name, NULL);
->> +     hw = at91_clk_register_h32mx(regmap, name, NULL, &AT91_CLK_PD_NAME(parent_name));
->>       if (IS_ERR(hw))
->>               return;
->>
->> @@ -228,6 +233,8 @@ static void __init of_sama5d2_clk_i2s_mux_setup(struct device_node *np)
->>               return;
->>
->>       for_each_child_of_node(np, i2s_mux_np) {
->> +             struct clk_parent_data parent_data[2];
->> +
->>               if (of_property_read_u8(i2s_mux_np, "reg", &bus_id))
->>                       continue;
->>
->> @@ -238,8 +245,10 @@ static void __init of_sama5d2_clk_i2s_mux_setup(struct device_node *np)
->>               if (ret != 2)
->>                       continue;
->>
->> +             parent_data[0] = AT91_CLK_PD_NAME(parent_names[0]);
->> +             parent_data[1] = AT91_CLK_PD_NAME(parent_names[1]);
->>               hw = at91_clk_i2s_mux_register(regmap_sfr, i2s_mux_np->name,
->> -                                            parent_names, NULL, 2, bus_id);
->> +                                            NULL, parent_data, 2, bus_id);
->>               if (IS_ERR(hw))
->>                       continue;
->>
->> @@ -269,7 +278,8 @@ static void __init of_at91rm9200_clk_main_osc_setup(struct device_node *np)
->>       if (IS_ERR(regmap))
->>               return;
->>
->> -     hw = at91_clk_register_main_osc(regmap, name, parent_name, NULL, bypass);
->> +     hw = at91_clk_register_main_osc(regmap, name, NULL,
->> +                                     &AT91_CLK_PD_NAME(parent_name), bypass);
->>       if (IS_ERR(hw))
->>               return;
->>
->> @@ -323,7 +333,7 @@ static void __init of_at91rm9200_clk_main_setup(struct device_node *np)
->>       if (IS_ERR(regmap))
->>               return;
->>
->> -     hw = at91_clk_register_rm9200_main(regmap, name, parent_name, NULL);
->> +     hw = at91_clk_register_rm9200_main(regmap, name, NULL, &AT91_CLK_PD_NAME(parent_name));
->>       if (IS_ERR(hw))
->>               return;
->>
->> @@ -336,6 +346,7 @@ static void __init of_at91sam9x5_clk_main_setup(struct device_node *np)
->>  {
->>       struct clk_hw *hw;
->>       const char *parent_names[2];
->> +     struct clk_parent_data parent_data[2];
->>       unsigned int num_parents;
->>       const char *name = np->name;
->>       struct regmap *regmap;
->> @@ -354,7 +365,9 @@ static void __init of_at91sam9x5_clk_main_setup(struct device_node *np)
->>
->>       of_property_read_string(np, "clock-output-names", &name);
->>
->> -     hw = at91_clk_register_sam9x5_main(regmap, name, parent_names, NULL,
->> +     parent_data[0] = AT91_CLK_PD_NAME(parent_names[0]);
->> +     parent_data[1] = AT91_CLK_PD_NAME(parent_names[1]);
->> +     hw = at91_clk_register_sam9x5_main(regmap, name, NULL, parent_data,
->>                                          num_parents);
->>       if (IS_ERR(hw))
->>               return;
->> @@ -396,6 +409,7 @@ of_at91_clk_master_setup(struct device_node *np,
->>       struct clk_hw *hw;
->>       unsigned int num_parents;
->>       const char *parent_names[MASTER_SOURCE_MAX];
->> +     struct clk_parent_data parent_data[MASTER_SOURCE_MAX];
->>       const char *name = np->name;
->>       struct clk_master_characteristics *characteristics;
->>       struct regmap *regmap;
->> @@ -419,13 +433,15 @@ of_at91_clk_master_setup(struct device_node *np,
->>       if (IS_ERR(regmap))
->>               return;
->>
->> +     for (unsigned int i = 0; i < MASTER_SOURCE_MAX; i++)
->> +             parent_data[i] = AT91_CLK_PD_NAME(parent_names[i]);
->>       hw = at91_clk_register_master_pres(regmap, "masterck_pres", num_parents,
->> -                                        parent_names, NULL, layout,
->> +                                        NULL, parent_data, layout,
->>                                          characteristics, &mck_lock);
->>       if (IS_ERR(hw))
->>               goto out_free_characteristics;
->>
->> -     hw = at91_clk_register_master_div(regmap, name, "masterck_pres", NULL,
->> +     hw = at91_clk_register_master_div(regmap, name, NULL, &AT91_CLK_PD_HW(hw),
->>                                         layout, characteristics,
->>                                         &mck_lock, CLK_SET_RATE_GATE, 0);
-> 
-> Looks like at91_clk_register_master_div() could be kept to use parent_hws
-> instead of parent_data.
+The GICv5 architecture is dropping the ICC_HAPR_EL1 and ICV_HAPR_EL1
+system registers. These registers were never added to the sysregs, but
+the traps for them were.
 
-Looking into this more the register_master_div calls
-at91_clk_register_master_internal() which is used for all of the SoCs.
-Some of the SoCs that use this function only have the parents passed in
-by name string and not clk_hw. Would it be wise to add another function
-for this to account for clk_hw and parent name? Or keep the use of
-parent_data?
+Drop the trap bit from the ICH_HFGRTR_EL2 and make it Res1 as per the
+upcoming GICv5 spec change. Additionally, update the EL2 setup code to
+not attempt to set that bit.
 
-Ryan
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+---
+ arch/arm64/include/asm/el2_setup.h | 1 -
+ arch/arm64/tools/sysreg            | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
 
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el=
+2_setup.h
+index cacd20df1786e..07c12f4a69b41 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -225,7 +225,6 @@
+ 		     ICH_HFGRTR_EL2_ICC_ICSR_EL1		| \
+ 		     ICH_HFGRTR_EL2_ICC_PCR_EL1			| \
+ 		     ICH_HFGRTR_EL2_ICC_HPPIR_EL1		| \
+-		     ICH_HFGRTR_EL2_ICC_HAPR_EL1		| \
+ 		     ICH_HFGRTR_EL2_ICC_CR0_EL1			| \
+ 		     ICH_HFGRTR_EL2_ICC_IDRn_EL1		| \
+ 		     ICH_HFGRTR_EL2_ICC_APR_EL1)
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 8921b51866d64..dab5bfe8c9686 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -4579,7 +4579,7 @@ Field	7	ICC_IAFFIDR_EL1
+ Field	6	ICC_ICSR_EL1
+ Field	5	ICC_PCR_EL1
+ Field	4	ICC_HPPIR_EL1
+-Field	3	ICC_HAPR_EL1
++Res1	3
+ Field	2	ICC_CR0_EL1
+ Field	1	ICC_IDRn_EL1
+ Field	0	ICC_APR_EL1
+--=20
+2.34.1
 
