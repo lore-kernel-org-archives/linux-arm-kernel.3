@@ -4,146 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C98CD167FC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDDB7D167FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=azmATrh1ehd50qg4sLH5mbIDJwpy+FR7iJS1nCS0pn0=; b=4StG4AlYMCmuU2bcOxLEEoAtHi
-	AkeTVGN63nFMzNw87B7fEQ4qjat8I+DdEhYF+rN7zU164a5l6KR21td5U2jdMp4gdWucl6q17N2RZ
-	XYhI6NDPK+e+Dmhv0JufsLM1j7z0czdLLpg9Pl6PpJjX+urSF+2LQaE7JEVhOxIVnBS3qZ8WRXiq9
-	YorRTvTDKk/6A0sBuIwdRMmOcB/IHAPyEB/6A3Hzrv2frXPSuMg1w752TDFekUnI6khC7m0mqwx81
-	O+SxExKywQbER2yWFpehkH0nAJck4GOKUq51A6T2k7uKLbeDcMyYuQmszWsLDyb6APHWIpJ48Zzl8
-	rtzGzJsg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z0zxZ5WM7PHh/aWTK9OatGXUnyFKLOlRWA2Aire8PpE=; b=0GJCfORiVi8MocCM5Le4euru6h
+	bw+yWU5BJZutu2Kh1bNpWvkyOn/zdMFUFbvp0MR8lNNjUgW3pIRQCK0jMVsYn1uXFky0dpv5RBAob
+	xx59Rli71SEt0g9xgzvJP0r1CCg0P0BfKDVHLJq0sURTNRkYFLn1UQu3YFJ+OONhwHh32DM23xK0P
+	5rOP2W5kUIlOpOvU3lcxYHN0IdEcQDayWdvryNz7yvIE9EqSUPhgHHB3RdDeU60Hmr9TQJDixo9tp
+	Sa2ffZVLuksMxoSjWa/2MC4xrAIVZk5dpgNEmyNnzvCGup0ey9E3Gnvv4tasSuXEjRjpRPNGUOzFR
+	fLiZ7SqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9Ur-000000026ep-0tQF;
-	Fri, 09 Jan 2026 10:13:33 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1ve9VN-000000026pR-1MiH;
+	Fri, 09 Jan 2026 10:14:05 +0000
+Received: from fout-b5-smtp.messagingengine.com ([202.12.124.148])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9Uo-000000026dT-0Er9
+	id 1ve9VJ-000000026na-2Rah
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 10:13:31 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-42fb6ce71c7so3244747f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 02:13:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767953607; x=1768558407; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=azmATrh1ehd50qg4sLH5mbIDJwpy+FR7iJS1nCS0pn0=;
-        b=dK92hhUSBpk1eTdTeovHqDPx80bXn/D3xQX8ashm6kWIdwYm7hdsB3pfFpV0LzJ1p5
-         qchyUtmvi+U6LsHR0N+z7FVoKzIZpQzAX6jEnOsaF/3IqdheVHQZ/5bQP7diO8UHbXop
-         WFvp1K3OB4Ao7Dlm4KT2fjECJLn93yQW2jbbzoLDeSGjmxZzQsVg7va6fEKlFdnlsoxq
-         Gi5Yaq9nD6rpkIW05jzrNoyR2beD6A4LApBE189IgFgG9deqs0m6TjOOqwnbcNuHkLq7
-         P58vAoP+Q3lhFB4Z2nvoCiu0QqrFomxsHQ2rVa/I5kygoEBvBeJ2sikbJzB7tNWq7fQ4
-         SV4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767953607; x=1768558407;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=azmATrh1ehd50qg4sLH5mbIDJwpy+FR7iJS1nCS0pn0=;
-        b=BmKL3tssVyeUcuswe/oceVaDLoDIs6edPm9VYvdRxmki2hWuYkclq+pHRKBmQ4rTqc
-         o+oiHuqVW1kQeMvJkhEtbouhEUxXN8QjX/xZRa+sEoGxOqyeKDce7qjvZfBP4cSTibFI
-         McC3s/PPIDWD5W7l3DZNb51ZisFJ9L4fJaVpVABpfyi0C+WzuMwCs6McIUG+qyi+9Jnt
-         96hLSSxmXJda/7eRxydrDTrBb2lRLu5AXFDxmNV9k3XzUdCQDVxo4g3UBmGu2tW5xAky
-         hv7YuN6XIUzRmf5Jm9WDQkPtuCb96FnHOxfrf/VPsnqjT2HfS1rtH2HT9+zmsOaWRdFu
-         3N6A==
-X-Forwarded-Encrypted: i=1; AJvYcCVBuxUbKPMNONTYKfc0fllELBc8FXVVofCkt6rLPYluwtMDu0OZ/6xBcwx9vb4glOqy008nomOBelgMrir+C6VP@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOpUDPw6gsDZN42OpsTpdgYcGGykvtaoAc8BAe3m48fN1po9Gr
-	hgKbAs0XPEA/cXsmDhsDNdr4kdK8wgd186AqpkmWmS7TUr/2G8cBy1B2NYm0g/3jTVM=
-X-Gm-Gg: AY/fxX46d3YkXWpb6mU48Ud4v6h2tkguzl12hqElh8UjcaY1i9zOud4+IOhv1e/Wmfe
-	1Xp4Qehbt9nGhv2IX11/OT7oXsf6b1xgrhnab2GbADMaQ7bGdLzbfQtarqkiGY94ONGsdfO/22O
-	ayScVXcj+vd96CLDdureZxgaN6c1bvuNaFg5Q+hZYtxbw/i/NJXLrZCCKHC712tHowq0ICBYigG
-	10YYsWnqO1rXdMcCAAlHis705FFqc231mGjdyPKw12rgIcYyk4kdPU6CMJ5R5N1WZ8at+QJNTrS
-	1x7hfXneMjkNQyFdiNJw8SuE8NzIAxlx6NXWCs7aaQFsJ+1NcFKTnfXyLoqoHtqo1cGG4+zW985
-	YF/LB6OUSgNSukc/dbHMcb4Ntdve6fWXjV86lVwRqQ6srRlhIEWMfDG5F/Y0s9yu5BbiLLtW4Bu
-	UCP3O6bAclWRgtPYxXoUkSihbbnnsCr2Nq7j9oe9OW/p3yhih20/q0dZkg3mjykkA=
-X-Google-Smtp-Source: AGHT+IFCikJ03J/WgyrsSQPwxIM5AkWewsU7YWY0NL1QPgGkyLNv66hXXYzshWOTAsB92VRUvv8j1A==
-X-Received: by 2002:a5d:5f94:0:b0:432:5bac:3915 with SMTP id ffacd0b85a97d-432c37c87e4mr11007824f8f.39.1767953607247;
-        Fri, 09 Jan 2026 02:13:27 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:3d9:2080:d283:7a7e:4c57:678d? ([2a01:e0a:3d9:2080:d283:7a7e:4c57:678d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0e175csm21370007f8f.14.2026.01.09.02.13.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 09 Jan 2026 02:13:26 -0800 (PST)
-Message-ID: <ef2c22a0-3335-456c-9281-e54085c849d2@linaro.org>
-Date: Fri, 9 Jan 2026 11:13:25 +0100
+	Fri, 09 Jan 2026 10:14:03 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id 92E041D00194;
+	Fri,  9 Jan 2026 05:13:59 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-04.internal (MEProxy); Fri, 09 Jan 2026 05:13:59 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm1; t=1767953639; x=1768040039; bh=Z0
+	zxZ5WM7PHh/aWTK9OatGXUnyFKLOlRWA2Aire8PpE=; b=k+fHSYkCWMggZNHmwM
+	DjFBPqhtcDkYmG9ch9mFN4z3B70v+mZNGMu1DtK4hWeCKa1IYIGygNwoubZNG+rV
+	KBcagyPyYnGz57n5+D+L8uDvTwW+uUYGW4Xi2PP72dqCfdjQ87BmM3yHSI2vGF+T
+	OHDmQt/sVY4nsk6h/1Xu8YfBONRJ7U9jtWKeDhMV7KAusRgTxJnHd20NF5KVaFu0
+	a2Bd5nHZzbroQ8sJtWtEPFtG4fkivYVqFjbMv2pNRB4IIMWw+zeTY+2YWhWOECwb
+	MxnMDeYWkip7NYPZcobe6kcfQVxvpKheH5SU1/irQf9loZu+6Bt03rjbLku/19mf
+	GUuw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1767953639; x=1768040039; bh=Z0zxZ5WM7PHh/aWTK9OatGXUnyFK
+	LOlRWA2Aire8PpE=; b=pwkgTbrAeS7rlk2Fs572ImuS3ve+TrdWReM7uyTVhztZ
+	StFc6fR9tF1dZ9P9hnV1eoIYR5O2b6e+6An65epah1Z3Hb8O7nwD7Zmdss+53rRo
+	P2WVESaFxusak+nN9qS8ltHzPQy0zxHfg67A1QZ8BW56O3funjtuXkXrKS9L3qMS
+	wDV0FQ21I5qVP9PCq5+fSGFGjCMsQfoGlejuV8csle0fa5w0kWmbZf7he3sRLsGJ
+	vBloe26/o+0KCf7hJb4qMzYHElDt9ldp5dpdyMdM1qPxdO1LUfZ0zqZec7uhtlAQ
+	mHkEZO6+2oHSR7ACQT6BwetyTb2mwFRg9uv4zuGRNA==
+X-ME-Sender: <xms:5tRgadWC-GKRdNX4V-KSXFXP_xC9J2tCy9OcTh33z55yEiKWScJGxQ>
+    <xme:5tRgab2YLx51MbeZ0buDClYwMZXyCOn2_sQ3X4OHWw7q9IT90L_YydtTUZml17z0H
+    lzr9gVPVG7aPGE4-PXDh4RecYa_CGbR9bBMjrIeoJ6RKb851Q8Ujbk>
+X-ME-Received: <xmr:5tRgaSsaCEmxhtDcIUJSebAU6KB8-S9ZgJGwS1nrSTq_eW7-Eul_CmaIUGMTjlA6ME9phFk2UXpnOhdDXmlnqYoJBz4VMOqwFN_CrA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddutdekheegucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhephfffufggtgfgkffvvefosehtjeertdertdejnecuhfhrohhmpeflrghnnhgvucfi
+    rhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepgfffie
+    ffteeuffetuefggefhgfehtdfhkefgtdejueeuvdevkeetveevvdffkeehnecuvehluhhs
+    thgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrghurd
+    hnvghtpdhnsggprhgtphhtthhopedutddpmhhouggvpehsmhhtphhouhhtpdhrtghpthht
+    ohepshhvvghnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehnvggrlhesghhomhhprg
+    druggvvhdprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdr
+    ohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrih
+    hnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehthhhinhhhrdhnghhuhigvnhesshih
+    nhhophhshihsrdgtohhmpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrh
+    drkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidquhhssgesvhhgvghrrdhk
+    vghrnhgvlhdrohhrghdprhgtphhtthhopegrshgrhhhisehlihhsthhsrdhlihhnuhigrd
+    guvghvpdhrtghpthhtohepshhtrggslhgvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:5tRgaTWZfsADM6y4T_tLxasycPAyaBXWycHu0Yq1Vl6hwzov5HJApw>
+    <xmx:5tRgaaz0M7bV1R-5Ve3da7CgO-yULFIw-6cjIU2FL-YW9aw5PCM8sA>
+    <xmx:5tRgaSEgs7W8ZAXaUMMbmI1xHCoDG3PTjh9wySWVUMSVwmCfaMCW6g>
+    <xmx:5tRgaXuN31DExD2cZpVq9JqnQoxc7gP3D1QJvlnGu_hkAsywO-s9eg>
+    <xmx:59RgaStoczRy6IheGn8UitCtMoU27-dHQUibaCnr9AdE2A__Nn_vMH3t>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 9 Jan 2026 05:13:58 -0500 (EST)
+From: Janne Grunau <j@jannau.net>
+Date: Fri, 09 Jan 2026 11:13:48 +0100
+Subject: [PATCH] usb: dwc3: apple: Ignore USB role switches to the active
+ role
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v2 2/6] drm/meson/dw-hdmi: convert to
- of_drm_find_and_get_bridge()
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
- <alim.akhtar@samsung.com>,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
- Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
- Hui Pu <Hui.Pu@gehealthcare.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, linux-mediatek@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-References: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-3-v2-0-8d7a3dbacdf4@bootlin.com>
- <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-3-v2-2-8d7a3dbacdf4@bootlin.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-3-v2-2-8d7a3dbacdf4@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260109-apple-dwc3-role-switch-v1-1-11623b0f6222@jannau.net>
+X-B4-Tracking: v=1; b=H4sIANvUYGkC/x2MywqAIBAAfyX23IJm2ONXooPZVgtRopGB9O9Jt
+ 5nDTIJAnilAXyTwdHPg88giywLsZo6VkOfsUIlKCyk6NM7thHO0Cv2ZKUS+7IZy0m29NKrVwkK
+ OnaeFn388jO/7AertVrhoAAAA
+X-Change-ID: 20260109-apple-dwc3-role-switch-1b684f73860c
+To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Janne Grunau <j@jannau.net>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2351; i=j@jannau.net;
+ s=yk2025; h=from:subject:message-id;
+ bh=m/FrghxQ+IIR6+FVSne5p9YypfXduphdFmcFCuXksXA=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhsyEK48VNCKZ/hgG7rmWkxnXOkPev3Lb8/kRjUKzlR7oL
+ VNxzavpKGVhEONikBVTZEnSftnBsLpGMab2QRjMHFYmkCEMXJwCMJH02YwMD4X8pH8tPXND0mCq
+ XuS5SSHx5aKhOjWvti089nTPE13eBYwMK2fFyJ3U2P+M6e6teXf8A9wPFghqSLQHW5UXC3I7OE5
+ mBQA=
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_021330_114490_815C2385 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20260109_021402_153694_2DE9E760 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,55 +125,62 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/9/26 11:02, Luca Ceresoli wrote:
-> of_drm_find_bridge() is deprecated. Move to its replacement
-> of_drm_find_and_get_bridge() which gets a bridge reference, and ensure it
-> is put when done.
-> 
-> dw_hdmi->bridge is used only in dw_hdmi_top_thread_irq(), so in order to
-> avoid potential use-after-free ensure the irq is freed before putting the
-> dw_hdmi->bridge reference.
-> 
-> Acked-by: Maxime Ripard <mripard@kernel.org>
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> ---
->   drivers/gpu/drm/meson/meson_dw_hdmi.c | 6 +++++-
->   1 file changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/meson/meson_dw_hdmi.c b/drivers/gpu/drm/meson/meson_dw_hdmi.c
-> index 0d7c68b29dff..fef1702acb14 100644
-> --- a/drivers/gpu/drm/meson/meson_dw_hdmi.c
-> +++ b/drivers/gpu/drm/meson/meson_dw_hdmi.c
-> @@ -778,7 +778,7 @@ static int meson_dw_hdmi_bind(struct device *dev, struct device *master,
->   	if (IS_ERR(meson_dw_hdmi->hdmi))
->   		return PTR_ERR(meson_dw_hdmi->hdmi);
->   
-> -	meson_dw_hdmi->bridge = of_drm_find_bridge(pdev->dev.of_node);
-> +	meson_dw_hdmi->bridge = of_drm_find_and_get_bridge(pdev->dev.of_node);
->   
->   	DRM_DEBUG_DRIVER("HDMI controller initialized\n");
->   
-> @@ -789,8 +789,12 @@ static void meson_dw_hdmi_unbind(struct device *dev, struct device *master,
->   				   void *data)
->   {
->   	struct meson_dw_hdmi *meson_dw_hdmi = dev_get_drvdata(dev);
-> +	struct platform_device *pdev = to_platform_device(dev);
-> +	int irq = platform_get_irq(pdev, 0);
->   
-> +	devm_free_irq(dev, irq, meson_dw_hdmi);
->   	dw_hdmi_unbind(meson_dw_hdmi->hdmi);
-> +	drm_bridge_put(meson_dw_hdmi->bridge);
->   }
->   
->   static const struct component_ops meson_dw_hdmi_ops = {
-> 
+Ignore USB role switches if dwc3-apple is already in the desired state.
+The USB-C port controller on M2 and M1/M2 Pro/Max/Ultra devices issues
+additional interrupts which result in USB role switches to the already
+active role.
+Ignore these USB role switches to ensure the USB-C port controller and
+dwc3-apple are always in a consistent state. This matches the behaviour
+in __dwc3_set_mode() in core.c.
+Fixes detecting USB 2.0 and 3.x devices on the affected systems. The
+reset caused by the additional role switch appears to leave the USB
+devices in a state which prevents detection when the phy and dwc3 is
+brought back up again.
 
-Acked-by: Neil Armstrong <neil.armstrong@linaro.org>
+Fixes: 0ec946d32ef7 ("usb: dwc3: Add Apple Silicon DWC3 glue layer driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+ drivers/usb/dwc3/dwc3-apple.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-Thanks,
-Neil
+diff --git a/drivers/usb/dwc3/dwc3-apple.c b/drivers/usb/dwc3/dwc3-apple.c
+index cc47cad232e397ac4498b09165dfdb5bd215ded7..35eadd1fa08049829ba40651a96eb122ed55460f 100644
+--- a/drivers/usb/dwc3/dwc3-apple.c
++++ b/drivers/usb/dwc3/dwc3-apple.c
+@@ -339,6 +339,22 @@ static int dwc3_usb_role_switch_set(struct usb_role_switch *sw, enum usb_role ro
+ 
+ 	guard(mutex)(&appledwc->lock);
+ 
++	/*
++	 * Skip role switches if appledwc is already in the desired state. The
++	 * USB-C port controller on M2 and M1/M2 Pro/Max/Ultra devices issues
++	 * additional interrupts which results in usb_role_switch_set_role()
++	 * calls with the current role.
++	 * Ignore those calls here to ensure the USB-C port controller and
++	 * appledwc are in a consistent state.
++	 * This matches the behaviour in __dwc3_set_mode().
++	 * Do no handle USB_ROLE_NONE for DWC3_APPLE_NO_CABLE and
++	 * DWC3_APPLE_PROBE_PENDING since that is no-op anyway.
++	 */
++	if (appledwc->state == DWC3_APPLE_HOST && role == USB_ROLE_HOST)
++		return 0;
++	if (appledwc->state == DWC3_APPLE_DEVICE && role == USB_ROLE_DEVICE)
++		return 0;
++
+ 	/*
+ 	 * We need to tear all of dwc3 down and re-initialize it every time a cable is
+ 	 * connected or disconnected or when the mode changes. See the documentation for enum
+
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20260109-apple-dwc3-role-switch-1b684f73860c
+
+Best regards,
+-- 
+Janne Grunau <j@jannau.net>
+
 
