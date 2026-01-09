@@ -4,67 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47052D232F5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 08:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4536AD232F5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 08:42:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DZHF4vfsJFm1aupN1jmbD+qYAjb58y1kZBuDxePB9Hk=; b=a+7EZ7NOFrHU1JiKYnQGGth+Ug
-	c6pFdvYQ9tt057PJpHca4De6M7xAevGr5cvaYRmeTwfA1IPP3oo9Dvyz+cZAqkh02GurVwO51K1pQ
-	cc3PvkaG8vjZ4cQSsoc9cQ0hSjSxhsT2saz3z6VvgFiHfiyQA0m9yCAvGDelgMC5wc4PNM4EEQNSI
-	7JIxo/wuB0v32lYrOQCOx+0Ch4mtqPPe70Rs0c4Ksijd7RPIl0hQHLyOtbXnV8tjpVr/G/SgaPHEv
-	PuTt+fkoEhI8F2nfyQ00c9R9ffOkfuLby/U4Q0tOiygEneccJ6JQtS9zH3pKpMwarqHZlLtsq27Lg
-	zJHrnXHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N/+wP7VUxOoGGhH+GyCKQ5tv6/IVz0LS1NxGo+a69kI=; b=Jgu0UbDeL1p0tSltSt5gVmRfJ8
+	+XLS5MXq5ovrAZKAe+bIJLKFmnNjsu9pfbd2ONpjuOaM4OhMSXlnDqHN6boDSKQClQdViCaRmvOdu
+	0cju6PFZweD3Qvkwk8bVbahNyRb9RPc3YuFU+RnUuPn4tPOd2zyOUpIRCE744yjvaZZUHR2ZCvWyW
+	ro7lowCX4+22gdgeTbah3FOFOq+Slb6751gwsuERuH6/DGlCFoi5N4pWB9g8dNxN/T+AFDM+KLN7i
+	TS55YZO9i4hRTx6FN5SILg0RCjY09quzGbTtI6IcIzMfq2+fr3LqzACKDX5tH0frbP2VBGAvJf0Xj
+	dEVod6rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve83R-00000001vSR-01Aa;
-	Fri, 09 Jan 2026 08:41:10 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1ve84a-00000001va3-0PZJ;
+	Fri, 09 Jan 2026 08:42:20 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve83M-00000001vRz-3geC;
-	Fri, 09 Jan 2026 08:41:07 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-03 (Coremail) with SMTP id rQCowABXddwbv2BpeKtNBA--.31677S2;
-	Fri, 09 Jan 2026 16:40:59 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH] soc: mediatek: mtk-dvfsrc: Remove unneeded semicolon
-Date: Fri,  9 Jan 2026 15:25:53 +0800
-Message-Id: <20260109072553.2741249-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1ve84X-00000001vZc-2KCp
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Jan 2026 08:42:19 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-432d256c2a9so935735f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 00:42:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767948135; x=1768552935; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=N/+wP7VUxOoGGhH+GyCKQ5tv6/IVz0LS1NxGo+a69kI=;
+        b=SsPMiFLqmFYVk9EO/4nD9QAZIv+b8aUxpvXcUxq4upra7LU1gSfZfo7hMC/o89KzMS
+         zQEd567x+8qnCAJu5LbSIqSb9XXR6p83WzfD399/84t7vauygnjYe82tcnB4ls9j7n6o
+         OskVoCfBIg3p817E0ga5vGcfD4GgsWy1bgFohaYcmxmld28wubmdnZSYBJUmlixXA+Qr
+         PCMDoiIQ5lPIDvQMjMRMEy7GkNztJjS5yjya16QLi2R42HPmVqhtbac+ENzsqX6LNsAH
+         UjMNHKbFj7B6PExsVQGt+LNaLAvLyeY9fGINDpyB7QRg7pZxfoiJpO12BWKOIJPv7C7U
+         yjkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767948135; x=1768552935;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=N/+wP7VUxOoGGhH+GyCKQ5tv6/IVz0LS1NxGo+a69kI=;
+        b=mNCGp+Z6Vq+gqUYcZoEit0mkr6icVEekm9HyEcfU9OlajdnLJPLRoCZkDHA1b6fS1K
+         0JlWiES+/EPZGBquIpkuBNv3X5NozGy7q87rBjGzrk0cmTlW+xf3OGVCrZgLBzQstiJQ
+         y7cJbEAEYdym+wKXfty8FWM8gH9kUNFyTXydNsxe0DDg2tPlIg8rJKaqDPdBdo4d17HJ
+         QTRCCEVPQd0v547mYIFqXtGxuKYXc3f4cYJUmCkR6kTQ9wqcqdO3z1kPUrqQujLPDv9T
+         ND3/UDMuPfDcrzzLpHKJPCPr6RUczNhizgAA4xdXom4RYehBBTn8vKvGaYQA6OP333Wj
+         I4cQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVFoWZS7DMr9o4SmZAdPgMj6Ua5gHL0wi97nBH0ZQxjLV6JhR/UuJ3ZMTK2dXbxLuGeo0+mu1f/uCdDwRA2fmsQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3PrmUNc2OYjtyJml0hS/4umh65t5fSkmJ/MXFkOYHqZ4eVX3B
+	UgKKBL79sqT7iRdb5bWuc+2L5/ofLskbCyjQUNR6P7JIwrMxyXt7COvn
+X-Gm-Gg: AY/fxX7i0pTDkZULfY6MqIoFEGIqrz6gWLKl1OM7mG//4mfXgsC878gosGNnzdubV6+
+	V6p8C9zwtA29cnkYp/XCOd2gNlbqPUyxOfEZKl7aVjzL18nrNTGMwi5bQKuzWroktBcrCvHF/JJ
+	ik3/+Vy4RVzZjRR+fuqDrF4GwbUDpTbqPgTfkuKp/+XkPR4eFdgpk4XjjSFzbqDUbb5s/7IaY4m
+	DrHadyVcuKCN8/Ma3lueWLHonNsZIgdiSf2vOLgA6flsdnhbDBJthqYnXhAecNPfthyb+6KVpfm
+	XLBqMjJCL//I9OKpqj9rzDKv5WQj7if0Gt2CwfcKrqvO5v14aDJUZHYp0Z73ANAY2MOUOYOhpfo
+	R80+mbCkCh8O+IUE1d7aH7gm5tY+jWYAlVL+yP/WRNwQEbmpuyn7Fcv4PN1YRera19fa8y84KcO
+	gS0+F3aO8wS/8=
+X-Google-Smtp-Source: AGHT+IGYAk2S3Qdr9OmtCXbZaajNREwTznfK/Lnn5IG7bEwG+8LMc/qLBJq9BAHsaKGTT3hoN4rQcA==
+X-Received: by 2002:a5d:64e3:0:b0:430:f68f:ee7d with SMTP id ffacd0b85a97d-432c379b79cmr11104260f8f.47.1767948135127;
+        Fri, 09 Jan 2026 00:42:15 -0800 (PST)
+Received: from eichest-laptop ([2a02:168:af72:0:66a2:be50:e0d3:29f9])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0dacc5sm20839538f8f.5.2026.01.09.00.42.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 Jan 2026 00:42:14 -0800 (PST)
+Date: Fri, 9 Jan 2026 09:42:12 +0100
+From: Stefan Eichenberger <eichest@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, francesco.dolcini@toradex.com,
+	robh@kernel.org,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Subject: Re: [PATCH RESEND net-next v2] net: stmmac: dwmac: Add a fixup for
+ the Micrel KSZ9131 PHY
+Message-ID: <aWC_ZDu0HipuVhQS@eichest-laptop>
+References: <20260105100245.19317-1-eichest@gmail.com>
+ <6ee0d55a-69de-4c28-8d9d-d7755d5c0808@bootlin.com>
+ <aVuxv3Pox-y5Dzln@eichest-laptop>
+ <a597b9d6-2b32-461f-ac90-2db5bb20cdb2@lunn.ch>
+ <aVvp70S2Lr3o_jyB@eichest-laptop>
+ <aVvwOYce1CFOLiBk@shell.armlinux.org.uk>
+ <aVv7wD2JFikGkt3F@eichest-laptop>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowABXddwbv2BpeKtNBA--.31677S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrZFWDuF4rXw4DAr4Uuw1UGFg_yoWfurgEgw
-	1vkFsrWr1DAry3Kw4Fyr48ZFW09a1DXw4vgay8KrnYqrWjqw15XFy2vF13Jwn7ZrZ7Za4U
-	G3sIqa4FyF10yjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb-xYjsxI4VW3JwAYFVCjjxCrM7AC8VAFwI0_Jr0_Gr1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
-	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0
-	cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Wrv_ZF1lYx0Ex4A2jsIE14v26rkl6F8dMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v
-	4I1lc7CjxVAaw2AFwI0_JF0_Jw1lc2xSY4AK67AK6r43MxAIw28IcxkI7VAKI48JMxC20s
-	026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_
-	JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14
-	v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xva
-	j40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJV
-	W8JbIYCTnIWIevJa73UjIFyTuYvjTitxhQUUUUU
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
+In-Reply-To: <aVv7wD2JFikGkt3F@eichest-laptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_004105_316444_F15C4FBA 
-X-CRM114-Status: UNSURE (   8.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260109_004217_641223_F40C2E33 
+X-CRM114-Status: GOOD (  35.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,28 +116,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove unnecessary semicolons reported by Coccinelle/coccicheck and the
-semantic patch at scripts/coccinelle/misc/semicolon.cocci.
+Hi everyone,
 
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
----
- drivers/soc/mediatek/mtk-dvfsrc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Mon, Jan 05, 2026 at 06:58:24PM +0100, Stefan Eichenberger wrote:
+> On Mon, Jan 05, 2026 at 05:09:13PM +0000, Russell King (Oracle) wrote:
+> > On Mon, Jan 05, 2026 at 05:42:23PM +0100, Stefan Eichenberger wrote:
+> > > Yes this is correct. ERR050694 from NXP states:
+> > > The IEEE 802.3 standard states that, in MII/GMII modes, the byte
+> > > preceding the SFD (0xD5), SMD-S (0xE6,0x4C, 0x7F, or 0xB3), or SMD-C
+> > > (0x61, 0x52, 0x9E, or 0x2A) byte can be a non-PREAMBLE byte or there can
+> > > be no preceding preamble byte. The MAC receiver must successfully
+> > > receive a packet without any preamble(0x55) byte preceding the SFD,
+> > > SMD-S, or SMD-C byte.
+> > > However due to the defect, in configurations where frame preemption is
+> > > enabled, when preamble byte does not precede the SFD, SMD-S, or SMD-C
+> > > byte, the received packet is discarded by the MAC receiver. This is
+> > > because, the start-of-packet detection logic of the MAC receiver
+> > > incorrectly checks for a preamble byte.
+> > > 
+> > > NXP refers to IEEE 802.3 where in clause 35.2.3.2.2 Receive case (GMII)
+> > > they show two tables one where the preamble is preceding the SFD and one
+> > > where it is not. The text says:
+> > > The operation of 1000 Mb/s PHYs can result in shrinkage of the preamble
+> > > between transmission at the source GMII and reception at the destination
+> > > GMII. Table 35–3 depicts the case where no preamble bytes are conveyed
+> > > across the GMII. This case may not be possible with a specific PHY, but
+> > > illustrates the minimum preamble with which MAC shall be able to
+> > > operate. Table 35–4 depicts the case where the entire preamble is
+> > > conveyed across the GMII.
+> > > 
+> > > We would change the behavior from "no preamble is preceding SFD" to "the
+> > > enitre preamble is preceding SFD". Both are listed in the standard and
+> > > shall be supported by the MAC.
+> > 
+> > Thanks for providing the full explanation, it would be good to have
+> > that in the commit message.
+> 
+> Okay thanks, I will provide the full explanation in the next commit
+> message.
+> 
+> > 
+> > The next question would be, is it just the NXP EQOS implementation
+> > that this breaks on, or are other EQOS implementations affected?
+> > 
+> > In other words, if we choose to conditionally enable the preable at
+> > the PHY, should the generic parts of stmmac handle this rather than
+> > ending up with multiple platform specific glue having to code this.
+> > (This is something I really want to avoid - it doesn't scale.)
+> 
+> From the errata from NXP it sounds to me like it is a configuration
+> issue by NXP. I checked the following ERRATAs from vendors where I have
+> access to:
+> - ST STM32MP1: not affected: https://www.st.com/resource/en/errata_sheet/es0438-stm32mp151x3x7x-device-errata-stmicroelectronics.pdf
+> - Renesas RZN1: not affected: https://www.renesas.com/en/document/tcu/ethernet-mac-gmac-function-issue-0?r=1054561
+> - Starvive JH7110: not affected: https://doc-en.rvspace.org/JH7110/PDF/JH7110_Errata.pdf
+> - NXP S32: affected: (ERR050706 under NDA)
+> 
+> So from that I would conclude that it is an NXP specific issue and it's
+> not the full EQOS implementation that is broken.
 
-diff --git a/drivers/soc/mediatek/mtk-dvfsrc.c b/drivers/soc/mediatek/mtk-dvfsrc.c
-index 548a28f50242..c452e04a2b52 100644
---- a/drivers/soc/mediatek/mtk-dvfsrc.c
-+++ b/drivers/soc/mediatek/mtk-dvfsrc.c
-@@ -535,7 +535,7 @@ static int dvfsrc_get_hw_opps_v4(struct mtk_dvfsrc *dvfsrc)
- 		dvfsrc_opps[i].vcore_opp = FIELD_GET(DVFSRC_V4_GEAR_INFO_VCORE, gear_info);
- 		dvfsrc_opps[i].dram_opp = FIELD_GET(DVFSRC_V4_GEAR_INFO_DRAM, gear_info);
- 		dvfsrc_opps[i].emi_opp = FIELD_GET(DVFSRC_V4_GEAR_INFO_EMI, gear_info);
--	};
-+	}
- 	desc->num_opp = num_opps + 1;
- 	desc->opps = dvfsrc_opps;
- 
--- 
-2.25.1
+I just wanted to check whether I should continue with the current
+approach or if I should instead enable the preamble in the PHY for all
+MACs. While I prefer the current approach, as the issue lies with the
+MAC rather than the PHY, I can also see the advantage of always enabling
+the feature.
 
+Regards,
+Stefan
 
