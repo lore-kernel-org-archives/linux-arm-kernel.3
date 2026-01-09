@@ -4,65 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F8AD232CB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 01:36:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62736D232CC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 02:09:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dzx46E8hvt548bI5MaSrLK7wCaDR96dFQwKv+ooNdRA=; b=IWsI4It3FOFoZJ/HPeFjG1pX1N
-	3xOpblS1XNwRvSqjqPAjE4rRt2VeYOLI4twEMOQr9RsiCk0IEH7Epn5gm/hiZQDRhdfBngr8ehqGI
-	NCaoNJ9147u9qy33ULsJb00hcjJobQcii+qwJSFekNm3zSvdYSlljz9f6L/9BwRQ3gTDoJoommRgt
-	WuMdsUf77X7G9aL5MqVTm4TPMOY+Zm4qoJtwZUZf+JE2LMLCMFoYWJ8B7HPDpiLLQqUyayfv9bK1Y
-	JMQ16K9LHdBb5SMgHpx4Cj3zrf9hcdoMV36+y5NSo18TSRJm67tKqpnEH0t/hmXbhd5R+mnbYVZLC
-	hMtcqhmw==;
+	bh=RyyZXYReJ8JTaDe4XBVpIGWKtnPK8oE5Ye9PwPzS6Ck=; b=RU08WVaC5eCsi4KVFJ/OwbS9u6
+	i9GFfgxguax2KAqbaKAi905FKjTB97dXHJDjFn8+GhVTmfK0kW5C1K9Ts8suldp5oXANMk3V51UxH
+	Mw2MGrxhDtRmRyoRbPvADtglqrCUtMe9RcxAY7TZ3D4wFLlCYbtELa9uh76QZgUNN0Mv1srWTq6eH
+	M5ZyYoTSH9kvk8pQippklKldQMVp63YagvYsecXqWq2PNqMsYNbAw3/IKM4XShOoor9P32kh52KHg
+	2sZ8kqiY1fFp6+A1hfLmAl3RDrHjImjYYbq729T7a/jIw/5jNQSaG7wRvGfOQ1t4CPw4wW5wOW6Hx
+	QZksziBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve1QY-0000000154Y-2ii6;
-	Fri, 09 Jan 2026 01:36:34 +0000
-Received: from lgeamrelo13.lge.com ([156.147.23.53])
+	id 1ve1wd-0000000168P-26Dy;
+	Fri, 09 Jan 2026 02:09:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve1QV-00000001544-3VSW
+	id 1ve1wa-0000000167z-0cLP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 01:36:33 +0000
-Received: from unknown (HELO lgemrelse7q.lge.com) (156.147.1.151)
-	by 156.147.23.53 with ESMTP; 9 Jan 2026 10:36:26 +0900
-X-Original-SENDERIP: 156.147.1.151
-X-Original-MAILFROM: chanho.min@lge.com
-Received: from unknown (HELO BRUNHILD) (10.178.31.97)
-	by 156.147.1.151 with ESMTP; 9 Jan 2026 10:36:26 +0900
-X-Original-SENDERIP: 10.178.31.97
-X-Original-MAILFROM: chanho.min@lge.com
-Date: Fri, 9 Jan 2026 10:36:25 +0900
-From: Chanho Min <chanho.min@lge.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Kael D'Alcamo <dev@kael-k.io>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Gunho Lee <gunho.lee@lge.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/3] dt-bindings: vendor-prefixes: Add 'lge,*' for LG
- Electronics
-Message-ID: <aWBbme775HmH6drB@BRUNHILD>
-References: <20260108082213.6545-1-chanho.min@lge.com>
- <20260108082213.6545-2-chanho.min@lge.com>
- <49d28c7d-a08c-4543-b3bd-a23d36785c28@kernel.org>
- <0b80d046-6141-4389-b666-592859468b8f@kernel.org>
+	Fri, 09 Jan 2026 02:09:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4094F43360;
+	Fri,  9 Jan 2026 02:09:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EB2EC116C6;
+	Fri,  9 Jan 2026 02:09:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767924577;
+	bh=S1EsGIjlfm3p3j/nKYkRHeLihDC3e818J3qnfAaeTtM=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
+	b=Ovo2tZCR8FmJEfGkuXvQeEtYkOwTm/1Q13GyjAfohFh/gMy7vHBC7iGHTwCiV48xN
+	 m0mE1syaEMppjZ01qcMOiCRr8Vify8P45NQoDCmRdTcJtPybMhGEPRS0cOce+YuQRL
+	 L3CJfxn24fpr6DN+8cy5nZVFsFXlCdGs7u98n2ZaEQTxhBYu07sc7JKeBi4a4gpq3p
+	 dQTSn29NTUueYdiuQpJX3QyXEe5/uJkJPDWtqRGMx4OgJoXCq/uVtzwPeIxOycwr8X
+	 NiDEcWuu4uC3pO/AMNyXPYdKaqUKz36KRqyprcY0UUAvGPV30PLYMKF6AazvHMVV+s
+	 1mwJH05YP+jmg==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 9E3ECCE1690; Thu,  8 Jan 2026 18:09:36 -0800 (PST)
+Date: Thu, 8 Jan 2026 18:09:36 -0800
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Marco Elver <elver@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Gary Guo <gary@garyguo.net>,
+	Will Deacon <will@kernel.org>,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Matt Turner <mattst88@gmail.com>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	FUJITA Tomonori <fujita.tomonori@gmail.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Lyude Paul <lyude@redhat.com>, Thomas Gleixner <tglx@linutronix.de>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	rust-for-linux@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	kasan-dev@googlegroups.com
+Subject: Re: [PATCH 0/5] Add READ_ONCE and WRITE_ONCE to Rust
+Message-ID: <b0f3b2a6-e69c-4718-9f05-607b8c02d745@paulmck-laptop>
+References: <20251231-rwonce-v1-0-702a10b85278@google.com>
+ <20251231151216.23446b64.gary@garyguo.net>
+ <aVXFk0L-FegoVJpC@google.com>
+ <OFUIwAYmy6idQxDq-A3A_s2zDlhfKE9JmkSgcK40K8okU1OE_noL1rN6nUZD03AX6ixo4Xgfhi5C4XLl5RJlfA==@protonmail.internalid>
+ <aVXKP8vQ6uAxtazT@tardis-2.local>
+ <87fr8ij4le.fsf@t14s.mail-host-address-is-not-set>
+ <aV0JkZdrZn97-d7d@tardis-2.local>
+ <20260106145622.GB3707837@noisy.programming.kicks-ass.net>
+ <7fa2c07e-acf9-4f9a-b056-4d4254ea61e5@paulmck-laptop>
+ <CANpmjNPdnuCNTfo=q5VPxAfdvpeAt8DhesQu0jy+9ZpH3DcUnQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <0b80d046-6141-4389-b666-592859468b8f@kernel.org>
+In-Reply-To: <CANpmjNPdnuCNTfo=q5VPxAfdvpeAt8DhesQu0jy+9ZpH3DcUnQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_173632_201227_5A153AAF 
-X-CRM114-Status: GOOD (  16.67  )
+X-CRM114-CacheID: sfid-20260108_180940_280688_0EB7D6BB 
+X-CRM114-Status: GOOD (  35.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,52 +102,94 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 08, 2026 at 05:46:53PM +0100, Krzysztof Kozlowski wrote:
-> On 08/01/2026 17:39, Krzysztof Kozlowski wrote:
-> > On 08/01/2026 09:22, Chanho Min wrote:
-> >> Currently 'lg,*' is used for LG Corporation, but LG Electronics uses
-> >> 'lge' as vendor prefix for many of its device tree bindings
-> >> (lg1k SoCs, etc).
-> >>
-> >> Add 'lge' vendor prefix entry to avoid confusion with 'lg'.
-> >>
-> >> Signed-off-by: Chanho Min <chanho.min@lge.com>
-> >> ---
-> >>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
-> >>  1 file changed, 2 insertions(+)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> >> index c7591b2aec2a..6c31fa4bee6a 100644
-> >> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> >> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> >> @@ -907,6 +907,8 @@ patternProperties:
-> >>      description: Lenovo Group Ltd.
-> >>    "^lg,.*":
-> >>      description: LG Corporation
-> >> +  "^lge,.*":
-> > 
-> > NAK, we have been there and I do not change my stance.
+On Tue, Jan 06, 2026 at 08:28:41PM +0100, Marco Elver wrote:
+> On Tue, 6 Jan 2026 at 19:18, 'Paul E. McKenney' via kasan-dev
+> <kasan-dev@googlegroups.com> wrote:
+> > On Tue, Jan 06, 2026 at 03:56:22PM +0100, Peter Zijlstra wrote:
+> > > On Tue, Jan 06, 2026 at 09:09:37PM +0800, Boqun Feng wrote:
+> > >
+> > > > Some C code believes a plain write to a properly aligned location is
+> > > > atomic (see KCSAN_ASSUME_PLAIN_WRITES_ATOMIC, and no, this doesn't mean
+> > > > it's recommended to assume such), and I guess that's the case for
+> > > > hrtimer, if it's not much a trouble you can replace the plain write with
+> > > > WRITE_ONCE() on C side ;-)
+> > >
+> > > GCC used to provide this guarantee, some of the older code was written
+> > > on that. GCC no longer provides that guarantee (there are known cases
+> > > where it breaks and all that) and newer code should not rely on this.
+> > >
+> > > All such places *SHOULD* be updated to use READ_ONCE/WRITE_ONCE.
+> >
+> > Agreed!
+> >
+> > In that vein, any objections to the patch shown below?
 > 
-> Unless you meant to add it because of EXISTING device trees (predating
-> commit fc75109288709 from Rob), then add with deprecated: true and don't
-> use it any new compatibles.
+> I'd be in favor, as that's what we did in the very initial version of
+> KCSAN (we started strict and then loosened things up).
 > 
-> Best regards,
-> Krzysztof
+> However, the fallout will be even more perceived "noise", despite
+> being legitimate data races. These config knobs were added after much
+> discussion in 2019/2020, somewhere around this discussion (I think
+> that's the one that spawned KCSAN_REPORT_VALUE_CHANGE_ONLY, can't find
+> the source for KCSAN_ASSUME_PLAIN_WRITES_ATOMIC):
+> https://lore.kernel.org/all/CAHk-=wgu-QXU83ai4XBnh7JJUo2NBW41XhLWf=7wrydR4=ZP0g@mail.gmail.com/
 
-Hi Krzysztof
+Fair point!
 
-v2 will include:
- - "lg," prefix only ("lg,lg1215-ref", "lg,lg1215")
- - Drop "^lge,.*" from vendor-prefixes.yaml
- - dts coding style fixes in patch 3
+> While the situation has gotten better since 2020, we still have latent
+> data races that need some thought (given papering over things blindly
+> with *ONCE is not right either). My recommendation these days is to
+> just set CONFIG_KCSAN_STRICT=y for those who care (although I'd wish
+> everyone cared the same amount :-)).
+> 
+> Should you feel the below change is appropriate for 2026, feel free to
+> carry it (consider this my Ack).
+> 
+> However, I wasn't thinking of tightening the screws until the current
+> set of known data races has gotten to a manageable amount (say below
+> 50)
+> https://syzkaller.appspot.com/upstream?manager=ci2-upstream-kcsan-gce
+> Then again, on syzbot the config can remain unchanged.
 
-Existing "lge," → "lg," conversion will be sent separately soon.
+Is there an easy way to map from a report to the SHA-1 that the
+corresponding test ran against?  Probably me being blind, but I am not
+seeing it.  Though I do very much like the symbolic names in those
+stack traces!
 
-Thanks
-Chanho Min
+							Thanx, Paul
 
+> Thanks,
+> -- Marco
+> 
+> >                                                         Thanx, Paul
+> >
+> > ------------------------------------------------------------------------
+> >
+> > diff --git a/lib/Kconfig.kcsan b/lib/Kconfig.kcsan
+> > index 4ce4b0c0109cb..e827e24ab5d42 100644
+> > --- a/lib/Kconfig.kcsan
+> > +++ b/lib/Kconfig.kcsan
+> > @@ -199,7 +199,7 @@ config KCSAN_WEAK_MEMORY
+> >
+> >  config KCSAN_REPORT_VALUE_CHANGE_ONLY
+> >         bool "Only report races where watcher observed a data value change"
+> > -       default y
+> > +       default n
+> >         depends on !KCSAN_STRICT
+> >         help
+> >           If enabled and a conflicting write is observed via a watchpoint, but
+> > @@ -208,7 +208,7 @@ config KCSAN_REPORT_VALUE_CHANGE_ONLY
+> >
+> >  config KCSAN_ASSUME_PLAIN_WRITES_ATOMIC
+> >         bool "Assume that plain aligned writes up to word size are atomic"
+> > -       default y
+> > +       default n
+> >         depends on !KCSAN_STRICT
+> >         help
+> >           Assume that plain aligned writes up to word size are atomic by
+> >
 
