@@ -4,146 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E130D26D9B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 19:59:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E578D26D99
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 20:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZaOms306AxpN12G8N4H3u9pj6h/W4QwFeLwI1JNrDqI=; b=I1SPNin3R046WOiA58DCh8kTIZ
-	0mHpnDKxZYmn2bES8Y2JwBEdjKJYhvjNmgqb7d6WlUzheTvCr+98SV1Ev6Tp5HMQ0xNm5YOju3tOi
-	Z/fknj891YrnbRWn+XK8rw07+rTb73VuUrHWG7Cv/8LnT/vICyDS9nzICsOgaaAGlbOYCPwvLeOZS
-	1ILj6xx8VSelQSdG/qeVWG4mbQXx2bQ5pKSur0sP/KUF7ELoYyVQgmOrjlQMrNPYtH+w9meHrDrxH
-	ueQYmde82GPjVgrNk31FbhvZBag+o9/dU+KUrhmULevLUOGTTX7rc191m3d7HLwxgMasTkXeoh/M0
-	Ds6DtYyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QIt8py9lcxC79AmMPcNOsD+iHnc6c89XW5lXglpgyC4=; b=ars8R0uneg5ZCq62uxzHzDlgGv
+	H1TPBHJCa/9Iy/X9KTcNaoE8SrpbLwOUnGD8ed0Lw8bS3o1G0yJZDY4/90Of9T40tSBf5woj8lSfx
+	sByxtceeOu8V1jd1zOMTBciX3RnMPWT+3ZNWt/Ps/92+X4SKe2j0XtoaGlBxWE6pc0NeFkyMW1Bdt
+	91a1yVJa5XFF9qE6TfNNwseCnbaoY8bjmuenD0u6BDbCb31MXJmkYSCug3K0aFpGL9iCwIg/0OhCO
+	eCzedTPwO/+R4RENPTutxAOZ3BDwdteA46XRmKw+ymQ1b2oUBkuiMlc+0h0v4jmC7mqo3rcJIGyq6
+	nWHhyxzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veIdo-00000002y5b-0McH;
-	Fri, 09 Jan 2026 19:59:24 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1veIhP-00000002ya9-2TrS;
+	Fri, 09 Jan 2026 20:03:07 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veIdj-00000002y5A-3iMB
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 19:59:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wt0P6Rn0ZiYyYgw/QS3c8uAq52dUgjs7AuiO7gqQr3afhgTK6JxNkxCjaqcd/MvfgyzZ2B1osDCfuBJNOOpoWmksPDdGADjf09IX+8Sj/ret1yKiQcpwAflcnjS6nQnKxsQa8lCNH9lBEAkFbUeFyI/CUsPHNchJyqDTl4AgzugAg+zANrt5yUEQaD226P/vNl9+t+Vm87cqU0Ve9rGSMzb4u4chAME20kJs5ktAgsXL9l6mbA6A7HSxBTLRsKsZZCKZGZP0tg/VHOo4mdevnxW7bBW33U+MziHWTQBY5MyVS2ktVAA8SqgFRwzTFURp9uS3OBv8va8o9ezjkeF6uw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZaOms306AxpN12G8N4H3u9pj6h/W4QwFeLwI1JNrDqI=;
- b=LRNdkYE/NdAd84G3xr6kmjaepZ0ymb3S0tJnbiWuHpUagwDqRO6jbj2lNG55m0qKdqmnmhr0fDSb2BQV5UDyxySXH7+ewUYvp+rrlLgY52GMOQyuB2oiFOyo9BVAK/DLpUQhIOtO6aJHypAloOCerTRTYQ5PY2jBlR/TpLqNYx2x79u495Z8os1t7NOZx6oQh0/9CPPIvYxvQ0elmXWze0J6tl6amrZnfK06Vk6ov7xrwxDu3E+U/Uv0bB1lMD1eAvruBYqyLTQFZZPA4Dv3s3RnP9F3XIilKGRAtpRTQcgfuDZKZgrdKCBFSVqRx0QRiEvnRggmwfrPKNisA63KBw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=ew.tq-group.com smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZaOms306AxpN12G8N4H3u9pj6h/W4QwFeLwI1JNrDqI=;
- b=ZN6XKUgtlQbwajPuNt5NXsL02UleFQDzgYhLb31+P02e0xtvWZEYnoEYnTX1x4PFz/Edce7AtQx3weYjhWrR/bov3aO56i0tnFJel0yO/V0rLCFrlScwR1LAcID3BrsAnGz4IQtiCZoOaNhx9Tw1Jcje3jccv7RGcBijMS0hTaU=
-Received: from BY1P220CA0020.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:5c3::7)
- by DM3PPF612E8E8B0.namprd10.prod.outlook.com (2603:10b6:f:fc00::c2c) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.4; Fri, 9 Jan
- 2026 19:59:14 +0000
-Received: from SJ5PEPF00000207.namprd05.prod.outlook.com
- (2603:10b6:a03:5c3:cafe::e4) by BY1P220CA0020.outlook.office365.com
- (2603:10b6:a03:5c3::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.5 via Frontend Transport; Fri, 9
- Jan 2026 19:59:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- SJ5PEPF00000207.mail.protection.outlook.com (10.167.244.40) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.1 via Frontend Transport; Fri, 9 Jan 2026 19:59:13 +0000
-Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 9 Jan
- 2026 13:59:12 -0600
-Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 9 Jan
- 2026 13:59:12 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 9 Jan 2026 13:59:12 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 609JxCiB475006;
-	Fri, 9 Jan 2026 13:59:12 -0600
-Date: Fri, 9 Jan 2026 13:59:12 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Kees Cook <kees@kernel.org>, Tony Luck
-	<tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>, "Andrew
- Lunn" <andrew@lunn.ch>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-hardening@vger.kernel.org>, <linux@ew.tq-group.com>
-Subject: Re: [PATCH v5 2/2] arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and
- MBa62xx carrier board Device Trees
-Message-ID: <20260109195912.c7wiyzj4qtdlxkh2@tumbling>
-References: <cover.1767627010.git.matthias.schiffer@ew.tq-group.com>
- <5df62f37eb84daff28008b8f9d5bd544b2f3a6a4.1767627010.git.matthias.schiffer@ew.tq-group.com>
+	id 1veIhN-00000002yZj-03rA;
+	Fri, 09 Jan 2026 20:03:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=QIt8py9lcxC79AmMPcNOsD+iHnc6c89XW5lXglpgyC4=; b=hA97cqZ5zaXi80g11ILgwcHQc1
+	Qrb9lT40y4ssfXMj9mKhU8n3PMHYUiHcQ51oMJiXOj4aGFqFvs7C8Mp0xK8tB2SgZvgE5sgeWCRGk
+	OSsGWU1YF+YVBPko6w3IOGjM5dNRrr+Cp6cVw7071+PFizcZacNKZdurdHggyZMyckswdNcJG3+af
+	zu4iUGlugiRfG4Ks6r1Eas9M+Gz0O0hNEvLHiID8kSWB7rA0+xkVzDAuY3f9T2npiK1sKpCKP32cH
+	DTzlMhja1A/+fq2I+8WpOtc7PiW5zEoloPm6/89vRPxZE7ufgDOt9drMh40P0ysfz75aaPVyW2BrD
+	ZG8GqbLA==;
+Received: from [192.76.154.230] (helo=phil.dip.tu-dresden.de)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1veIh1-001fy0-13; Fri, 09 Jan 2026 21:02:43 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: linux-kernel@vger.kernel.org,
+	Detlev Casanova <detlev.casanova@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Damon Ding <damon.ding@rock-chips.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Patrick Wildt <patrick@blueri.se>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Chris Morgan <macromorgan@hotmail.com>,
+	Alexander Shiyan <eagle.alexander923@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	kernel@collabora.com
+Subject: Re: [PATCH v3 0/2] arm64: dts: rockchip: Add vdpu 381 and 383 nodes
+Date: Fri,  9 Jan 2026 21:02:40 +0100
+Message-ID: <176798895637.3449720.6051032825613833368.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20251020212009.8852-1-detlev.casanova@collabora.com>
+References: <20251020212009.8852-1-detlev.casanova@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <5df62f37eb84daff28008b8f9d5bd544b2f3a6a4.1767627010.git.matthias.schiffer@ew.tq-group.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF00000207:EE_|DM3PPF612E8E8B0:EE_
-X-MS-Office365-Filtering-Correlation-Id: 186c6147-79c2-4c30-1f91-08de4fb98ff9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700013|1800799024|82310400026|34020700016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?f7bfi6xDuo+ms4OQm6ZHH6/ooNoH8QfqiUASVvtNPsOsboEVa+erSjAK4QXM?=
- =?us-ascii?Q?fyr2LnOZj3mtDQ1ZNayGvre2J7YS3qCpQSYm+NlMcnlZ/PGY83ZNWJ7QhuZl?=
- =?us-ascii?Q?z8B7eVZFAvYqjqD9G++J+lLkBZ7WIEi8IxQ+Tn2Je+JtB7izxniPp+FTVWg5?=
- =?us-ascii?Q?9LGxLw+TBirGPKIliYvv+lqe6EaqBDnHRzh++wqjxvWBB6oNEYP26aHU+yjb?=
- =?us-ascii?Q?+2gErF7U+p0GjLXaRS54ZJq7Rmmit0CPvDoy6iz9Br/SsQ1szWyr+veLk11i?=
- =?us-ascii?Q?er4Uhq/xMBqZLBZIFu+DIwDmTv8JX2EixPX0CkY64VMAMlTy5b2TIH9UBWug?=
- =?us-ascii?Q?j71pSA2iPr0XhBRDog+JjQuwAOK/7aa/etuiMN21tiUGrxKeT3740nGtmABn?=
- =?us-ascii?Q?8i2RMZkVdBTAxt64LAWK11kTccdO3DMHu4wHLq4QR0GsPrxEHCImEG0mcsfM?=
- =?us-ascii?Q?BIT7tCe8ok5AwZOPYU9UlicI/DopMY3IIOFHvLKt3FPVKM7ojvT5FJW+7GXP?=
- =?us-ascii?Q?eAG8ZiG+/XYlAKxzxB/awpuIvIzxxJVfzwvUfADQoy99SqIPp3vMUm5RttDe?=
- =?us-ascii?Q?1/slMrcLMgs2wiFmpJsuAmQHKfYzKynukG0am6mf282IFR6IQ+x95NfKtoO7?=
- =?us-ascii?Q?8om6AEUECVJN8+LYEtkUxjBjZgEpZu12Hna32QPNxJtmJp6MKBc+6Qa3Lt6A?=
- =?us-ascii?Q?Cxa18nCxnrouRZ6n9c4DjLgZCvQmcMrddjCp6rvzXSQld3H68mc83T921Q9i?=
- =?us-ascii?Q?zc6TVBiv+tQ7pnu1TTmxyaWFBIvKVftXwRGEfUxAzBj4Pg+Rv/zkyOmef+vC?=
- =?us-ascii?Q?vgFMSfScsf5Y/O9HFk2sqUPIDuO9xGQgd/8W0qM8kAfALr5t3yD9xkm0n1Rw?=
- =?us-ascii?Q?xUJRkwjBhgCawMZ7zKSOOuhM1w4SMWNbZbyLme4z+9CLG6DfcRG4Jfvxv5LD?=
- =?us-ascii?Q?TfB/MYv0AVoEoryalLsAFgRQbHOT35RDthFJo2S5q6iYvMjUb3j8cKiZBWTd?=
- =?us-ascii?Q?WsA4VM063d7DLeaQaTjNM6DTTizjLLx1dfloWiBlJn7tOnbMJBw2UpnJE8Dp?=
- =?us-ascii?Q?c49NPtaIYKEAhrqW5btCHPaPZAxS28FjsfJ6mrlN6CBslUH2xfaJQHpjIzNj?=
- =?us-ascii?Q?IUBNxxT9NKMNrHWtrw5RqFFwTjPVN+5zEnIc0qOJuewiZ8QQZucLKk7TBWqQ?=
- =?us-ascii?Q?8TMtgvbh6cduyzrAtmZVBfhxUZrAmmFx2I5CvWR/mYKtAuJRipDaxb+6jFe1?=
- =?us-ascii?Q?7hbFH7YlMoj7mSxefPeseqb2f+w9VFtgztB7ujYTy12I5ihyCeN4RO9a8Xv2?=
- =?us-ascii?Q?6zmBNiTYMK40hV/XF7zXJcfOdgDNZB816w7wGC761mbeKhE9yBKlkiq0masU?=
- =?us-ascii?Q?Gsbgd7jth/5o2KiL0jBpBl14Exrwu7NTl0yHrltLb07JUq6fw9/6LYehEuUt?=
- =?us-ascii?Q?soG33L0CVSMlioeBc0dhjqSZ9tqTD9K9gcVCNV/jYSHQcsGHI4ei+yNgVl5H?=
- =?us-ascii?Q?HzpOCBx1sqMJotgUIYlzMxHDmfnLevoGU2B8?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700013)(1800799024)(82310400026)(34020700016);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jan 2026 19:59:13.4815
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 186c6147-79c2-4c30-1f91-08de4fb98ff9
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000207.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PPF612E8E8B0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_115919_952981_1C0C3082 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20260109_120305_111057_0C0A5C12 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,150 +91,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09:14-20260107, Matthias Schiffer wrote:
-> The TQMa62xx is a SoM family with a pluggable board connector based on the
-> TI AM62x SoCs. Add DTS(I) for the AM625 (2x Cortex-A53) variant and its
-> combination with our MBa62xx carrier board.
+
+On Mon, 20 Oct 2025 17:20:07 -0400, Detlev Casanova wrote:
+> Add the nodes for vdpu 381 and 383, respectively RK3588 and RK3576.
+> To keep compatibility with older variants, the reg ranges order is not
+> in register order so that the function reg range is kept first.
 > 
-> Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+> Also adds the corresponding iommu nodes.
+> 
+> Note that on RK3588, both cores are added as it represents the hardware,
+> but the driver, later will only register the first one.
+> 
+> [...]
 
-Few clarifications below..
+Applied, thanks!
 
-[...]
-> diff --git a/arch/arm64/boot/dts/ti/k3-am625-tqma62xx-mba62xx.dts b/arch/arm64/boot/dts/ti/k3-am625-tqma62xx-mba62xx.dts
-> new file mode 100644
-> index 0000000000000..cca8d0018504d
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am625-tqma62xx-mba62xx.dts
-> @@ -0,0 +1,930 @@
+[1/2] arm64: dts: rockchip: Add the vdpu381 Video Decoders on RK3588
+      commit: f61731bd60627b129b688c2d7b2071a5fe7f01d7
+[2/2] arm64: dts: rockchip: Add the vdpu383 Video Decoder on rk3576
+      commit: da0de806d8b46238ac3891a894806da4d1c26cdf
 
-[...]
-
-> +	backlight: backlight {
-> +		compatible = "pwm-backlight";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&backlight_pins>;
-> +		enable-gpios = <&main_gpio0 38 GPIO_ACTIVE_HIGH>;
-> +		status = "disabled";
-
-Document why disabled?
-
-[...]
-> +
-> +	panel: panel {
-> +		pinctrl-names = "default";
-
-Missing compatible? thinking again.. Should'nt these be part of some
-panel dtsi?
-
-> +		pinctrl-0 = <&lvds_panel_pins>;
-> +		enable-gpios = <&main_gpio0 36 GPIO_ACTIVE_HIGH>;
-> +		power-supply = <&reg_lvds_pwr>;
-> +	};
-> +
-> +	fan0: pwm-fan {
-> +		compatible = "pwm-fan";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pwm_fan_pins>;
-> +		fan-supply = <&reg_pwm_fan>;
-> +		#cooling-cells = <2>;
-> +		/* typical 25 kHz -> 40.000 nsec */
-> +		pwms = <&epwm0 1 40000 PWM_POLARITY_INVERTED>;
-> +		cooling-levels = <0 32 64 128 196 240>;
-> +		pulses-per-revolution = <2>;
-> +		interrupt-parent = <&main_gpio1>;
-> +		interrupts = <30 IRQ_TYPE_EDGE_FALLING>;
-> +		status = "disabled";
-
-please document why disabled?
-
-[...]
-> +
-> +	reg_pwm_fan: regulator-pwm-fan {
-> +		compatible = "regulator-fixed";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&reg_pwm_fan_pins>;
-> +		regulator-name = "FAN_PWR";
-> +		regulator-min-microvolt = <12000000>;
-> +		regulator-max-microvolt = <12000000>;
-
-Just checking.. Did you intent a 12v supply for fan?
-
-> +		gpio = <&main_gpio0 62 GPIO_ACTIVE_HIGH>;
-> +		enable-active-high;
-> +	};
-> +
-
-[...]
-
-> +
-> +	lvds_panel_pins: lvds-panel-pins {
-> +		pinctrl-single,pins = <
-> +			/* (N20) GPMC0_BE1n.GPIO0_36 - LVDS0_RESET# */
-> +			AM62X_IOPAD(0x0094, PIN_OUTPUT, 7)
-
-Could you follow the comment convention you have elsewhere? please follow the
-same in gpio below etc..
-AM62X_IOPAD(....) /* (N20) ... */
-
-btw, panel node uses it as:
-enable-gpios = <&main_gpio0 36 GPIO_ACTIVE_HIGH>;
-
-isn't RESET# meant to be active low?
-
-> +		>;
-> +	};
-> +
-
-[...]
-
-
-> diff --git a/arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi b/arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi
-> new file mode 100644
-> index 0000000000000..1b7d58cb7b936
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi
-> @@ -0,0 +1,331 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +/*
-> + * Copyright (C) 2021-2022 Texas Instruments Incorporated - https://www.ti.com/
-> + * Copyright (c) 2023-2025 TQ-Systems GmbH <linux@ew.tq-group.com>, D-82229 Seefeld, Germany.
-> + * Author: Matthias Schiffer
-> + */
-
-[...]
-
-> +		regulators {
-> +			reg_buck1: buck1 {
-> +				regulator-name = "V_VDD_CORE";
-> +				regulator-min-microvolt = <750000>;
-> +				regulator-max-microvolt = <750000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +			};
-> +
-[...]
-
-> +
-> +&a53_opp_table {
-> +	opp-1400000000 {
-> +		opp-hz = /bits/ 64 <1400000000>;
-> +		opp-supported-hw = <0x01 0x0004>;
-> +		opp-suspend;
-> +		clock-latency-ns = <6000000>;
-> +		/* Enabled by bootloader if supported */
-> +		status = "disabled";
-
-This (bootloader enabling just this node) wont work unless vdd_core
-voltage is configured to 0.8v as well, no?
-
-> +	};
-> +};
-> +
-
+Best regards,
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+Heiko Stuebner <heiko@sntech.de>
 
