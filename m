@@ -4,121 +4,216 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A5BD26D71
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E91D26D6F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:To:MIME-Version:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6qoeOR1EDOnv1x5ZVVIt2SiI1p4wlkKablYQJu/pnNg=; b=PX9KvjTEDcc50AjbTnB85KzCgt
-	FKjGeLk7n2giTwRtKjyxPwjf0wo11mA0GP9VP4t0Ayh9FkXqz+Nyh80XfSR1rccajsiZyXVKOqv2I
-	SFshNrfUxysKwy7i16Zkp0HcGQpMhtLlORF6VzP9A2dUGIu9CTYgSbCnV0I8Xy9XRaXvj5yGCseJ+
-	H1AYgQKAYIHHEOAlxEKSi1GY5PaPbuc8uJpYIzdXUgXWHoUnSkzTnhHya6YhZ+izcikKm+wPBjtMj
-	wmquflVpPvFcZgmN39335e1ypr5vIQy24Sh4dcIxXDsg68RUv+3nXq9XYp1eSbQGM+Nu6krIXLmZp
-	BxhqLImw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t3gsNK0n+kxqkO2O5Y6qJa7uNbEWU4OWP81Jtn3Gl6I=; b=XF0Gs9hV4kzRZrh4uHDg3HgUP0
+	hMgi85K0cbfRmEB8W1cccxeYUDI9wUaZJc1Imd0KXTPixpVhdmlh4gSPhhH9ToGG/mrS0sDOqq27y
+	U9vM+43hOUfQOCNvpxp+7BgRJTZfuv4Nj0pwmANafYBPXgWWnsa0r+AHNS0n12R3fLc+K42jR3sX+
+	crQXVxcvNVmcgC5MFdSMwWhCWk6DpGq7cy8ij8TivzdpFPHR+QHX81Hp7KnUL7krCxlEA92CXYBg2
+	jGaB3LVIKY7xYolKOlxlCNl+VQqpDfC8Yk7bZINdxAO3ldXrVysSMnZg5/DAsH67LeBHhmIQDsq/P
+	65yvPKBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veFGZ-00000002c6y-1OTy;
-	Fri, 09 Jan 2026 16:23:11 +0000
-Received: from mout.kundenserver.de ([212.227.126.134])
+	id 1veFLo-00000002cPZ-2nnX;
+	Fri, 09 Jan 2026 16:28:36 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veFGV-00000002c6b-1RK1
+	id 1veFLm-00000002cPE-2KK7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 16:23:10 +0000
-Received: from [192.168.0.66] ([88.171.60.104]) by mrelayeu.kundenserver.de
- (mreue011 [213.165.67.103]) with ESMTPSA (Nemesis) id
- 1MLiTI-1vMiNP1BCq-00O5Hi; Fri, 09 Jan 2026 17:22:51 +0100
-Message-ID: <a1d926f0-4cb5-4877-a4df-617902648d80@green-communications.fr>
-Date: Fri, 9 Jan 2026 17:22:50 +0100
+	Fri, 09 Jan 2026 16:28:35 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 609GO3gH1637719
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 9 Jan 2026 16:28:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	t3gsNK0n+kxqkO2O5Y6qJa7uNbEWU4OWP81Jtn3Gl6I=; b=auDnmJVWhcQf3oJo
+	JL8uymCSt392ezuBs0Va51CYfLzTl6z3nmOrLbaPNCD9V5fdp9uI9qEzkEbGPjNh
+	MaGwhl3q7S20hU6QYuxJmTjplPXXWtCfnxBr6YdZhZPa1tDcjd3UXJm+bmBVa3TP
+	ZM8Kvv04KvzfF4/M7lao8pCT5tYCBgT+eqmb32TXIC/aSB9ZH2T73VlzdnTs7e4D
+	5CroGhjDBWNwddLxJn4Fq+xHJiFubZDrTFCVBTgGcUwWUjZH6uStAA/joNU858ll
+	uR+QDtLW6Ez1/GIdI8+yrqOfGK4pxnxcqljH5DMgN2qFPORVl3ck7vK6VPaqBZUG
+	s9wtPQ==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bk55kr0cu-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 16:28:33 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8c1cffa1f2dso870693185a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 08:28:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1767976113; x=1768580913; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=t3gsNK0n+kxqkO2O5Y6qJa7uNbEWU4OWP81Jtn3Gl6I=;
+        b=f8I7pRRu4hPI2w0pxlANRBamYZ0Ug1UJ6lyfqp9nbKxr1xcprXPpAI2dN3hBq4LEeJ
+         aITddDdhuunIHCBUj+t+YemgRhsNEFq2Nm67vkWgQl64bzzH8PFggR3THO0piTEneFWp
+         NdcRn5N0nv0G+5hX93Eh9D/QZYeCfyvUV1ybdl3Rnxg7k0Wk4JTCZRoEtgSM9i13Waq8
+         qnPunIMAPwRYmStq4UFlKuTQ/D1QdEY14n0xNPxlgAzTp37vLyNnAlFZ65LVeD5fON9J
+         +ye2r1HICzS3I1KVCNcz2mdFkgKJVY3rel7GxooeptCkzDqk566ZvzpORO3xhKIERfbW
+         u6LA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767976113; x=1768580913;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=t3gsNK0n+kxqkO2O5Y6qJa7uNbEWU4OWP81Jtn3Gl6I=;
+        b=IFZvMgKnBYcX3ilKGqEK4P0R4rkTX0s91daliu54KBPSXcW4LU/R+EHh3D6WjIJYnq
+         c3iQ+XgxXXsXj3mbeVOVtzPbD6oa+qsSleL9GwCCkleq9wJrDR/uu7nI7ZfFEAx7bvK5
+         G2ZKQ4OLrGofBg9arUn3RtBpQgDeOJKoP0sCLugSbcqVA4jKqGzPB+iy3KNkDJYecAYu
+         CcJcBHy7XgYHUOpAsJzNKzv5XsXSTC/ZZOr5RaWYrtzn6FeBTzrsC/xeMN/nO7D18h8P
+         qd1tZv5btyHN/Sb1uJl96oQNjTgu64GGoRXqjrZwio07OkhQ3S9GUWPNWAuta7NWfFPU
+         uToQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWgVW/tOzy4K0AtFKech+hrd22rbzkcHyZxFJY1XEU9ls0wbFDWWVIt6etXJK4KqYcuiEuEVPaaaq7XfeIUjNQ0@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWWk0xixugrXdCo1mWGMr6SpuGfZlgq59e+05jNbTB5EDLOHpa
+	1psfjHVlvtbVqkk8u9dpLTrQJJP0ErZb4lbmm0E3DNAc1XkkHQrtUFhpD9PERHnXq5OJRkmL/zx
+	D5VtZCIjWUhdURqp67TPhEsExC/c6dTyZp8dxmpbUQWNgPfVacjC0G08D7FcXQZv2qZOLOV90DD
+	G5jg==
+X-Gm-Gg: AY/fxX6aLJR9GdHP3agGdS3W2FHwxlra7/ebTx32UYgSoQ2EY4MZ5MVca97LnPC0vuk
+	ypvcaLBONqtUueA26YNgJaYzBB+zozG6dDu9jUIPFEMOD0JfkYFYI9XEKzdBcs0y3JSYbgGIadq
+	Jxp1dP3IPnM8UQacaBEv1WmiLXgE2li0G5br7wh96yVWde4MD9iqeNTUkXYOcnPCommfwq/hBmG
+	4BRSv4QEdsHTykYmizVl4cqkXcXrAwUZGa64o2hxqKorwCuhZLxJF2FVLn9s1ifZAFGL8gOIl8g
+	lhs+hdZR2xiJjwwOcD3c3jYEWcGQ8h6XD3DQvkyedYhrcVpQMxKhgeV12L0R7TEKZWeqTQs1bNU
+	9hOSjpxRw0o2thV5bkSCvp39oXIkiIw5IQHuhDQ==
+X-Received: by 2002:a05:620a:4806:b0:8b2:63ae:6343 with SMTP id af79cd13be357-8c37f51e983mr2081063785a.28.1767976112641;
+        Fri, 09 Jan 2026 08:28:32 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGFjr6Hlo/f6CAeSmB5peKaZZkzcXVDt14M9nd92QHPuF7V/gxrWpBy4OmUEIvthc/Tse5YQw==
+X-Received: by 2002:a05:620a:4806:b0:8b2:63ae:6343 with SMTP id af79cd13be357-8c37f51e983mr2081046485a.28.1767976110721;
+        Fri, 09 Jan 2026 08:28:30 -0800 (PST)
+Received: from [192.168.1.29] ([178.197.218.229])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d865f84besm70896735e9.1.2026.01.09.08.28.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 09 Jan 2026 08:28:30 -0800 (PST)
+Message-ID: <c7007179-77af-44ee-ba8e-a16310fcc9ee@oss.qualcomm.com>
+Date: Fri, 9 Jan 2026 17:28:26 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 07/11] clk: imx: imx27: Simplify with scoped for each OF
+ child loop
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>,
+        Saravana Kannan <saravanak@google.com>,
+        Nathan Chancellor
+ <nathan@kernel.org>,
+        Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+        Bill Wendling <morbo@google.com>,
+        Justin Stitt <justinstitt@google.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Nicolas Ferre <nicolas.ferre@microchip.com>,
+        Alexandre Belloni <alexandre.belloni@bootlin.com>,
+        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Alim Akhtar
+ <alim.akhtar@samsung.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Nipun Gupta <nipun.gupta@amd.com>,
+        Nikhil Agarwal <nikhil.agarwal@amd.com>,
+        Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+        Sylwester Nawrocki <s.nawrocki@samsung.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Viresh Kumar <viresh.kumar@linaro.org>, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, llvm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org,
+        linux-samsung-soc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        linux-clk@vger.kernel.org, imx@lists.linux.dev,
+        dmaengine@vger.kernel.org, linux-media@vger.kernel.org,
+        linux-pm@vger.kernel.org
+References: <20260105-of-for-each-compatible-scoped-v1-0-24e99c177164@oss.qualcomm.com>
+ <20260105-of-for-each-compatible-scoped-v1-7-24e99c177164@oss.qualcomm.com>
+ <20260106102146.00005bfb@huawei.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Content-Language: en-US
-To: iommu@lists.linux.dev, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-From: Nicolas Cavallari <Nicolas.Cavallari@green-communications.fr>
-Autocrypt: addr=Nicolas.Cavallari@green-communications.fr; keydata=
- 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
-Subject: imx8 PCI regression since "iommu: Get DT/ACPI parsing into the proper
- probe path"
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzysztof.kozlowski@oss.qualcomm.com; keydata=
+ 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
+ cwzYbmi/Et7T2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <20260106102146.00005bfb@huawei.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:vhiWMIZHtYNX+D6huvHCU9rDP+SRk9ZazkIkwXXuV0hBjILX25Z
- u/IimnhymlnPs1wiIuHs/+6BNsA30VPldqlqo7J35+5E3DVCYX7Q+hjqAsGqZYslZB5fmU2
- QEjZWbu2nzGfVOQ2qX7xbGV+hvsOVm5J6vO3IJLqItHDWh2eouLllnXYv7eVyTH45Q7lS1K
- J9lGmOHE86uJJ/MYhJfJw==
-UI-OutboundReport: notjunk:1;M01:P0:cNoh0sZFe0U=;RkE2JWDj/ii3J9qZ07XWipaanLm
- G0h6CubKzijJ+WCpWbC7G/AezebfWwiH5DyuiW1xqBy6O2PXRbmo+WSsdV18MTVQKW9HkGcWK
- AzuMWeiANnf8JG/DyAXY2wi0+HVi4heDc1Y6B115dSqsep0gncj/pZdHLnGC918TQ849NnvCd
- LxEq5fF79KTnBkYuofW4re7x/aPkrvXErPBLd6rANlbu5jJlMKWnGHiCBlnhEEzGedwP2+qPu
- ZCQx2eAHxQGysa6dNmUuAkDdUHaQD5b7Mv88iPBgwfyc6DWlZgD6jSNwaELgJ7Kd5eBXQtkiN
- LLJiT8WIxr9YrTi+9apS+YOOyVqL73iAjO9WC76WOUjMxDOk75kx7RWYDWtpf/AChAEZrbh+g
- QciK6REIuEK8ba3n124Ak0Xb4LJ7srKpTOEwUKcGg8M1JZAUtgGW5HGdS/B8jrg3K6fz9hkya
- nwfsg+hafT8k2ntoMGRPcZU3H5j0KU4659kFvYalNk6OTqH6v8XdAHHRJH4rkOBLEFZXW2GFr
- KESseujIODZldB+EgkjIwg5I4ZHmcoVFbrz8H78BaoJnJXiiOeA46irnlrgeJHYdAqvDzzHUC
- 1RzLrzt0P+WE5NidIIgIM5++z69690HkQhw7UnkSDlTt3AVVvGG5i56XLf29SeMbkWLNs53W8
- SthX2Lw/kzjfGtbqyunu52ViZg61Yfa4XrXb1qEzaEqY8ORSClkL4+RIkFkqCf4GuNXU48bTu
- FexkgWy3547I1BXBVaPP1yC7naKtO2qpKKJ8pEmVeLwL+oF8A/N1A2BbHlIVU4ThXz0AgNUnc
- qb0F1FYkydb5zLjWkX4vyoYDEBOBeiHmPT93Qtz6tKBvFOcREUxfsafczg/lLXl4yqHGnxjbP
- uok/FT3nG0MnMs/R+ehteJcz1v33xMZWMk/RmPRou219wCWfQx94FiKPyED/uw9UhYgkk1zWA
- +4PsqHniTz9iQHHPdpYSOmy+W5p+W+LzgAX4U5rlHy4BTWI0U99kUTg9tJ8YloZ5uTSljLapN
- WHvZEwblAanGKxj7z8261GZSvml0gjZlHBKQsHesTca+LrCdxnTocl4GqywEq4i4tzJbfOKO/
- Qv6w3LnuJiRbvfZAzI8HarQ6LYCnxCoPBWqkT1+Fo3fp6F/YTc98ThAaUY1MJxDV4cDGO/Rz+
- I4uZ4+m7flsYp0ULiyCVLb0rkdPMD5+BTHlFpPnGAaqOqoHsMQbsClwKCkTCSBQyBhES5PTa2
- vc3HqcKGVw/k5fX3DQ8KJssEWrgmbmQLQuhNi0AN7jbac/HhFuJYFbPF8aoTj92Ju6zsZQtjI
- 5FqF3b7JbKVft9u2LOJ9zFGrH4szSz34rXhmUoKSjbpcl6WURoSu3jNcEuiS15IvK/HILHVOv
- a9qM1bcK6ErMo8sMU5D8oho46o/50SSXg+AeedEFbAhK2YuAPi3E/85wNoMly7A7cbPVkM88V
- nWm6w0Q2YbHgoEbCb5lhBRhnWPtSv6514PVoEsPzN9aChbIp7n4xeIUAlGvr/IdwJk7kmrxK0
- xN1IX5C8nMnQuGcjTSTCcuSIW914O5tM1zr0DK6Fvotzf/3zgXKH3s0V6UDlpUfNyrefbfMn9
- CGvPy4m2O/hmhd/r4UAl61K3jWaBOnQpdz+3vZE+KAb/9wbTPXJjezUuc9HeskwudWLAp6teN
- HK+G1RlaXOJTN8MidESUuQF/9Kf+PZrYBXealBKPPii7PCNDv2xx0k/oi1Kb1pHTJjgqxRB6R
- KlbPyriskEozdw2fowMvoQ3Ixd2l9M4W/PeGYjUjV3kSBPMDe5DwqsEw=
+X-Authority-Analysis: v=2.4 cv=cpCWUl4i c=1 sm=1 tr=0 ts=69612cb1 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=Eb9f15NH/cHKzfGOmZSO4Q==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=i0EeH86SAAAA:8
+ a=TgEtEVTGrOTdQsgPiu4A:9 a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-GUID: eCD8Z-1mI-W-B3Fnk0aEmZGMdIDFiUwS
+X-Proofpoint-ORIG-GUID: eCD8Z-1mI-W-B3Fnk0aEmZGMdIDFiUwS
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA5MDEyMyBTYWx0ZWRfX2Xvur7CJjwIC
+ ASezSXa70FnNcylMArVh8f958TsAb/xsWigMGE9+J4A5qhI9HG8ZUutVnr3iZeRys93JFV4OoOy
+ /LsJK0yXGfqcObyeIkcT8cD8FZfEvb92UkzPHJRh6npiNx/Lp3pold69cpj71Qcl9c6mWtNGi4J
+ y/nwttjplSJLQzABOI8tM3D7uhrLU6LVYn5Mz5uaW9LpFiND1yIhfsDKeTDk7jnRFCvA+nZ6eWR
+ WaYs7xRo8W1Ht0YZjp8KuytN9yC1WVd7aP0OHuc43PhOB7PrsWLPIXfiPogk8R0ldmyUchw9Jsh
+ IBqirePG48K12p2/FD5bWIL8/veDSSLNf/eg0KC3ns7Saosccn8deUFyXtz+zXjGceKdOk2E261
+ uidh/uH0vXMNQR+gbNhqOv6xuyiy+UFb8YBK2ZFQIN7aCjVzLLYJ+tEiJA1mFrsocfZjiJW3AcB
+ +XRZTNMxk3uR3LulKyA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-09_05,2026-01-08_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
+ clxscore=1015 malwarescore=0 priorityscore=1501 lowpriorityscore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
+ definitions=main-2601090123
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_082307_840528_5F2F9049 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20260109_082834_641495_5D755DAC 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,896 +228,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When upgrading from 6.12 to a 6.18 kernel, I noticed that a PCI
-Ethernet adapter (Microchip LAN7430) would hang under load and not
-recover.  When that happens, some of its registers indicate it is
-failing to do DMA reads, so cannot reclaim entries on its ring buffer.
+On 06/01/2026 11:21, Jonathan Cameron wrote:
+> On Mon, 05 Jan 2026 14:33:45 +0100
+> Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> wrote:
+> 
+>> Use scoped for-each loop when iterating over device nodes to make code a
+>> bit simpler.
+>>
+>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> This is one that had me thinking for a (short) while about what pattern
+> required this double match was there for.  A comment would have been useful!
 
-I bisected the problem into this commit:
+If I only knew. Since day one, both DTS and driver have and check for
+two compatibles, so this could have been simple:
+for_each_compatible_node(..., "fsl,imx-osc26m")
 
-commit bcb81ac6ae3c2ef95b44e7b54c3c9522364a245c
-Author: Robin Murphy <robin.murphy@arm.com>
-Date:   Fri Feb 28 15:46:33 2025 +0000
+> 
+> Ah well, nothing to do with your patch which is good.
+> 
 
-     iommu: Get DT/ACPI parsing into the proper probe path
-
-The problem still exists on 6.19-rc1, on pci/next (29a77b4897f1) and on
-iommu/master (360e85353769) trees.  Reverting the commit fixes the issue.
-
-The system is a Gateworks GW7200, which is a i.MX 8 Mini connected to a Pericom
-PI7C9X2G404 4-port switch connected to the LAN7430 chip.
-
--[0000:00]---00.0-[01-ff]----00.0-[02-05]--+-01.0-[03]----00.0
-                                            +-02.0-[04]--
-                                            \-03.0-[05]----00.0
-
-The problem only occurs when there is at least another PCI device in use on the
-switch.  It does not happen if the LAN7430 is the only PCI device, or if the
-other devices are not actively used.  For example i can reproduce it with an
-ath9k wireless network adapter when it is up and running, but not when it is
-down or its driver is not loaded.
-
-I suspect that other PCI devices have similar issues, but the LAN7430 is the
-easiest one to diagnose, as it hangs within seconds with an iperf3 --bidir -u
--b 200M and its register map are public.
-
-I couldn't find an way to dump the PCI address translation mapping from
-userspace.
-I would be happy to provide more information or test patches.
-
----- lspci -v
-
-00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01) (prog-if 00 
-[Normal decode])
-         Device tree node: 
-/sys/firmware/devicetree/base/soc@0/pcie@33800000/pcie@0,0
-         Flags: bus master, fast devsel, latency 0, IRQ 202
-         Memory at 18000000 (32-bit, non-prefetchable) [size=1M]
-         Bus: primary=00, secondary=01, subordinate=ff, sec-latency=0
-         I/O behind bridge: [disabled] [16-bit]
-         Memory behind bridge: 18100000-182fffff [size=2M] [32-bit]
-         Prefetchable memory behind bridge: [disabled] [32-bit]
-         Expansion ROM at 18300000 [virtual] [disabled] [size=64K]
-         Capabilities: [40] Power Management version 3
-         Capabilities: [50] MSI: Enable+ Count=1/1 Maskable+ 64bit+
-         Capabilities: [70] Express Root Port (Slot-), IntMsgNum 0
-         Capabilities: [100] Advanced Error Reporting
-         Capabilities: [148] L1 PM Substates
-         Kernel driver in use: pcieport
-
-01:00.0 PCI bridge: Pericom Semiconductor PI7C9X2G404 EV/SV PCIe2 4-Port/4-Lane 
-Packet Switch (rev 01) (prog-if 00 [Normal decode])
-         Device tree node: 
-/sys/firmware/devicetree/base/soc@0/pcie@33800000/pcie@0,0/pcie@0,0
-         Flags: bus master, fast devsel, latency 0
-         Bus: primary=01, secondary=02, subordinate=05, sec-latency=0
-         I/O behind bridge: [disabled] [32-bit]
-         Memory behind bridge: 18100000-182fffff [size=2M] [32-bit]
-         Prefetchable memory behind bridge: [disabled] [64-bit]
-         Capabilities: [40] Power Management version 3
-         Capabilities: [4c] MSI: Enable- Count=1/4 Maskable+ 64bit+
-         Capabilities: [64] Vendor Specific Information: Len=34 <?>
-         Capabilities: [b0] Subsystem: Device 0000:0000
-         Capabilities: [c0] Express Upstream Port, IntMsgNum 0
-         Capabilities: [100] Advanced Error Reporting
-         Capabilities: [140] Virtual Channel
-         Capabilities: [20c] Power Budgeting <?>
-         Capabilities: [230] Latency Tolerance Reporting
-         Capabilities: [240] L1 PM Substates
-         Capabilities: [260] Precision Time Measurement
-         Kernel driver in use: pcieport
-
-02:01.0 PCI bridge: Pericom Semiconductor PI7C9X2G404 EV/SV PCIe2 4-Port/4-Lane 
-Packet Switch (rev 01) (prog-if 00 [Normal decode])
-         Flags: bus master, fast devsel, latency 0
-         Bus: primary=02, secondary=03, subordinate=03, sec-latency=0
-         I/O behind bridge: [disabled] [32-bit]
-         Memory behind bridge: 18100000-181fffff [size=1M] [32-bit]
-         Prefetchable memory behind bridge: [disabled] [64-bit]
-         Capabilities: [40] Power Management version 3
-         Capabilities: [4c] MSI: Enable- Count=1/4 Maskable+ 64bit+
-         Capabilities: [64] Vendor Specific Information: Len=34 <?>
-         Capabilities: [b0] Subsystem: Device 0000:0000
-         Capabilities: [c0] Express Downstream Port (Slot+), IntMsgNum 0
-         Capabilities: [100] Advanced Error Reporting
-         Capabilities: [140] Virtual Channel
-         Capabilities: [20c] Power Budgeting <?>
-         Capabilities: [220] Access Control Services
-         Capabilities: [240] L1 PM Substates
-         Capabilities: [250] Downstream Port Containment
-         Kernel driver in use: pcieport
-
-02:02.0 PCI bridge: Pericom Semiconductor PI7C9X2G404 EV/SV PCIe2 4-Port/4-Lane 
-Packet Switch (rev 01) (prog-if 00 [Normal decode])
-         Flags: bus master, fast devsel, latency 0, IRQ 203
-         Bus: primary=02, secondary=04, subordinate=04, sec-latency=0
-         I/O behind bridge: [disabled] [32-bit]
-         Memory behind bridge: [disabled] [32-bit]
-         Prefetchable memory behind bridge: [disabled] [64-bit]
-         Capabilities: [40] Power Management version 3
-         Capabilities: [4c] MSI: Enable+ Count=1/4 Maskable+ 64bit+
-         Capabilities: [64] Vendor Specific Information: Len=34 <?>
-         Capabilities: [b0] Subsystem: Device 0000:0000
-         Capabilities: [c0] Express Downstream Port (Slot+), IntMsgNum 0
-         Capabilities: [100] Advanced Error Reporting
-         Capabilities: [140] Virtual Channel
-         Capabilities: [20c] Power Budgeting <?>
-         Capabilities: [220] Access Control Services
-         Capabilities: [240] L1 PM Substates
-         Capabilities: [250] Downstream Port Containment
-         Kernel driver in use: pcieport
-
-02:03.0 PCI bridge: Pericom Semiconductor PI7C9X2G404 EV/SV PCIe2 4-Port/4-Lane 
-Packet Switch (rev 01) (prog-if 00 [Normal decode])
-         Device tree node: 
-/sys/firmware/devicetree/base/soc@0/pcie@33800000/pcie@0,0/pcie@0,0/pcie@3,0
-         Flags: bus master, fast devsel, latency 0
-         Bus: primary=02, secondary=05, subordinate=05, sec-latency=0
-         I/O behind bridge: [disabled] [32-bit]
-         Memory behind bridge: 18200000-182fffff [size=1M] [32-bit]
-         Prefetchable memory behind bridge: [disabled] [64-bit]
-         Capabilities: [40] Power Management version 3
-         Capabilities: [4c] MSI: Enable- Count=1/4 Maskable+ 64bit+
-         Capabilities: [64] Vendor Specific Information: Len=34 <?>
-         Capabilities: [b0] Subsystem: Device 0000:0000
-         Capabilities: [c0] Express Downstream Port (Slot+), IntMsgNum 0
-         Capabilities: [100] Advanced Error Reporting
-         Capabilities: [140] Virtual Channel
-         Capabilities: [20c] Power Budgeting <?>
-         Capabilities: [220] Access Control Services
-         Capabilities: [240] L1 PM Substates
-         Capabilities: [250] Downstream Port Containment
-         Kernel driver in use: pcieport
-
-03:00.0 Network controller: Qualcomm Atheros AR93xx Wireless Network Adapter 
-(rev 01)
-         Subsystem: Qualcomm Atheros Device 3116
-         Flags: bus master, fast devsel, latency 0, IRQ 201
-         Memory at 18100000 (64-bit, non-prefetchable) [size=128K]
-         Expansion ROM at 18120000 [virtual] [disabled] [size=64K]
-         Capabilities: [40] Power Management version 3
-         Capabilities: [50] MSI: Enable- Count=1/4 Maskable+ 64bit+
-         Capabilities: [70] Express Endpoint, IntMsgNum 0
-         Capabilities: [100] Advanced Error Reporting
-         Capabilities: [140] Virtual Channel
-         Capabilities: [300] Device Serial Number 00-00-00-00-00-00-00-00
-         Kernel driver in use: ath9k
-         Kernel modules: ath9k
-
-05:00.0 Ethernet controller: Microchip Technology / SMSC LAN7430 (rev 11)
-         Subsystem: Microchip Technology / SMSC LAN7430
-         Device tree node: 
-/sys/firmware/devicetree/base/soc@0/pcie@33800000/pcie@0,0/pcie@0,0/pcie@3,0/ethernet@0,0
-         Flags: bus master, fast devsel, latency 0, IRQ 201
-         Memory at 18200000 (64-bit, non-prefetchable) [size=8K]
-         Memory at 18202000 (64-bit, non-prefetchable) [size=256]
-         Memory at 18202100 (64-bit, non-prefetchable) [size=256]
-         Capabilities: [40] Power Management version 3
-         Capabilities: [50] MSI: Enable- Count=1/8 Maskable+ 64bit+
-         Capabilities: [70] Express Endpoint, IntMsgNum 0
-         Capabilities: [b0] MSI-X: Enable+ Count=8 Masked-
-         Capabilities: [100] Advanced Error Reporting
-         Capabilities: [148] Device Serial Number (the EUI64 of the card)
-         Capabilities: [158] Latency Tolerance Reporting
-         Capabilities: [160] L1 PM Substates
-         Capabilities: [170] Vendor Specific Information: ID=0002 Rev=4 Len=100 <?>
-         Kernel driver in use: lan743x
-         Kernel modules: lan743x
-
----- dmesg:
-
-Booting Linux on physical CPU 0x0000000000 [0x410fd034]
-Linux version 6.19.0-rc1 (buildroot@buildroot) 
-(aarch64-buildroot-linux-musl-gcc.br_real (Buildroot 
-2025.11-rc2-7266-g8a41889b4d) 14.3.0, GNU ld (GNU Binutils) 2.43.1) #1 SMP 
-PREEMPT Thu Dec 11 22:43:20 UTC 2025
-KASLR disabled due to lack of seed
-Machine model: Gateworks Venice GW72xx-0x i.MX8MM Development Kit
-OF: reserved mem: Reserved memory: No reserved-memory node in the DT
-Zone ranges:
-   DMA      [mem 0x0000000040000000-0x00000000ffffffff]
-   DMA32    empty
-   Normal   [mem 0x0000000100000000-0x000000013fffffff]
-Movable zone start for each node
-Early memory node ranges
-   node   0: [mem 0x0000000040000000-0x000000013fffffff]
-Initmem setup node 0 [mem 0x0000000040000000-0x000000013fffffff]
-cma: Reserved 32 MiB at 0x00000000fe000000
-psci: probing for conduit method from DT.
-psci: PSCIv1.1 detected in firmware.
-psci: Using standard PSCI v0.2 function IDs
-psci: MIGRATE_INFO_TYPE not supported.
-psci: SMC Calling Convention v1.5
-percpu: Embedded 22 pages/cpu s49304 r8192 d32616 u90112
-pcpu-alloc: s49304 r8192 d32616 u90112 alloc=22*4096
-pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3
-Detected VIPT I-cache on CPU0
-CPU features: detected: GICv3 CPU interface
-CPU features: detected: ARM erratum 845719
-alternatives: applying boot alternatives
-Kernel command line: root=/dev/mmcblk2p6 rootrw=/dev/mmcblk2p8 rootrwfstype=ext4 
-persistmnt=/dev/mmcblk2p7 persistmntfstype=ext4 init=/sbin/wrap-init
-Unknown kernel command line parameters "rootrw=/dev/mmcblk2p8 rootrwfstype=ext4 
-persistmnt=/dev/mmcblk2p7 persistmntfstype=ext4", will be passed to user space.
-printk: log buffer data + meta data: 131072 + 458752 = 589824 bytes
-Dentry cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
-Inode-cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
-software IO TLB: area num 4.
-software IO TLB: mapped [mem 0x00000000fa000000-0x00000000fe000000] (64MB)
-Built 1 zonelists, mobility grouping on.  Total pages: 1048576
-mem auto-init: stack:off, heap alloc:off, heap free:off
-SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
-rcu: Preemptible hierarchical RCU implementation.
-rcu: 	RCU event tracing is enabled.
-rcu: 	RCU restricting CPUs from NR_CPUS=256 to nr_cpu_ids=4.
-	Trampoline variant of Tasks RCU enabled.
-	Tracing variant of Tasks RCU enabled.
-rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
-rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
-RCU Tasks: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
-RCU Tasks Trace: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 
-rcu_task_cpu_ids=4.
-NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
-GICv3: GIC: Using split EOI/Deactivate mode
-GICv3: 128 SPIs implemented
-GICv3: 0 Extended SPIs implemented
-Root IRQ handler: gic_handle_irq
-GICv3: GICv3 features: 16 PPIs
-GICv3: GICD_CTLR.DS=0, SCR_EL3.FIQ=1
-GICv3: CPU0: found redistributor 0 region 0:0x0000000038880000
-ITS: No ITS available, not enabling LPIs
-rcu: srcu_init: Setting srcu_struct sizes based on contention.
-arch_timer: cp15 timer running at 8.00MHz (phys).
-clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1d854df40, 
-max_idle_ns: 440795202120 ns
-sched_clock: 56 bits at 8MHz, resolution 125ns, wraps every 2199023255500ns
-Console: colour dummy device 80x25
-printk: legacy console [tty0] enabled
-Calibrating delay loop (skipped), value calculated using timer frequency.. 16.00 
-BogoMIPS (lpj=32000)
-pid_max: default: 32768 minimum: 301
-Mount-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
-Mountpoint-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
-rcu: Hierarchical SRCU implementation.
-rcu: 	Max phase no-delay instances is 1000.
-Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
-smp: Bringing up secondary CPUs ...
-Detected VIPT I-cache on CPU1
-GICv3: CPU1: found redistributor 1 region 0:0x00000000388a0000
-CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
-Detected VIPT I-cache on CPU2
-GICv3: CPU2: found redistributor 2 region 0:0x00000000388c0000
-CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
-Detected VIPT I-cache on CPU3
-GICv3: CPU3: found redistributor 3 region 0:0x00000000388e0000
-CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
-smp: Brought up 1 node, 4 CPUs
-SMP: Total of 4 processors activated.
-CPU: All CPU(s) started at EL2
-CPU features: detected: 32-bit EL0 Support
-CPU features: detected: CRC32 instructions
-CPU features: detected: PMUv3
-alternatives: applying system-wide alternatives
-Memory: 3998528K/4194304K available (8384K kernel code, 888K rwdata, 2348K 
-rodata, 896K init, 337K bss, 159960K reserved, 32768K cma-reserved)
-devtmpfs: initialized
-clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 
-7645041785100000 ns
-posixtimers hash table entries: 2048 (order: 3, 32768 bytes, linear)
-futex hash table entries: 1024 (65536 bytes on 1 NUMA nodes, total 64 KiB, linear).
-29504 pages in range for non-PLT usage
-521024 pages in range for PLT usage
-NET: Registered PF_NETLINK/PF_ROUTE protocol family
-DMA: preallocated 512 KiB GFP_KERNEL pool for atomic allocations
-DMA: preallocated 512 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
-DMA: preallocated 512 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
-thermal_sys: Registered thermal governor 'step_wise'
-cpuidle: using governor menu
-hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
-ASID allocator initialised with 65536 entries
-/soc@0: Fixed dependency cycle(s) with 
-/soc@0/bus@30000000/efuse@30350000/unique-id@4
-/soc@0/interrupt-controller@38800000: Fixed dependency cycle(s) with 
-/soc@0/interrupt-controller@38800000
-/soc@0/bus@30000000/pinctrl@30330000: Fixed dependency cycle(s) with 
-/soc@0/bus@30000000/pinctrl@30330000/hoggrp
-imx8mm-pinctrl 30330000.pinctrl: initialized IMX pinctrl driver
-/soc@0/bus@30000000/efuse@30350000: Fixed dependency cycle(s) with 
-/soc@0/bus@30000000/clock-controller@30380000
-/soc@0/bus@30000000/efuse@30350000: Fixed dependency cycle(s) with 
-/soc@0/bus@30000000/clock-controller@30380000
-/soc@0/bus@30000000/clock-controller@30380000: Fixed dependency cycle(s) with 
-/soc@0/interrupt-controller@38800000
-iommu: Default domain type: Translated
-iommu: DMA domain TLB invalidation policy: strict mode
-pps_core: LinuxPPS API ver. 1 registered
-pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti 
-<giometti@linux.it>
-EDAC MC: Ver: 3.0.0
-vgaarb: loaded
-clocksource: Switched to clocksource arch_sys_counter
-VFS: Disk quotas dquot_6.6.0
-VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
-NET: Registered PF_INET protocol family
-IP idents hash table entries: 65536 (order: 7, 524288 bytes, linear)
-tcp_listen_portaddr_hash hash table entries: 2048 (order: 3, 32768 bytes, linear)
-Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
-TCP established hash table entries: 32768 (order: 6, 262144 bytes, linear)
-TCP bind hash table entries: 32768 (order: 8, 1048576 bytes, linear)
-TCP: Hash tables configured (established 32768 bind 32768)
-UDP hash table entries: 2048 (order: 5, 131072 bytes, linear)
-UDP-Lite hash table entries: 2048 (order: 5, 131072 bytes, linear)
-NET: Registered PF_UNIX/PF_LOCAL protocol family
-PCI: CLS 0 bytes, default 64
-ARM FF-A: FFA_VERSION returned not supported
-Initialise system trusted keyrings
-workingset: timestamp_bits=62 max_order=20 bucket_order=0
-squashfs: version 4.0 (2009/01/31) Phillip Lougher
-Key type asymmetric registered
-Asymmetric key parser 'x509' registered
-io scheduler mq-deadline registered
-io scheduler kyber registered
-mxs-dma 33000000.dma-controller: initialized
-SoC: i.MX8MM revision 1.0
-30860000.serial: ttymxc0 at MMIO 0x30860000 (irq = 15, base_baud = 1500000) is a IMX
-30880000.serial: ttymxc2 at MMIO 0x30880000 (irq = 16, base_baud = 1500000) is a IMX
-30890000.serial: ttymxc1 at MMIO 0x30890000 (irq = 17, base_baud = 1500000) is a IMX
-imx-uart 30890000.serial: Console IMX rounded baud rate from 114286 to 114300
-printk: console [ttymxc1] enabled
-30a60000.serial: ttymxc3 at MMIO 0x30a60000 (irq = 18, base_baud = 1500000) is a IMX
-wireguard: WireGuard 1.0.0 loaded. See www.wireguard.com for information.
-wireguard: Copyright (C) 2015-2019 Jason A. Donenfeld <Jason@zx2c4.com>. All 
-Rights Reserved.
-i2c_dev: i2c /dev entries driver
-sdhci: Secure Digital Host Controller Interface driver
-sdhci: Copyright(c) Pierre Ossman
-sdhci-pltfm: SDHCI platform and OF driver helper
-SMCCC: SOC_ID: ARCH_SOC_ID not implemented, skipping ....
-caam 30900000.crypto: Entropy delay = 3200
-caam 30900000.crypto: Entropy delay = 6400
-caam 30900000.crypto: Instantiated RNG4 SH0
-mmc2: SDHCI controller on 30b60000.mmc [30b60000.mmc] using ADMA
-caam 30900000.crypto: Instantiated RNG4 SH1
-caam 30900000.crypto: device ID = 0x0a16040100000000 (Era 9)
-caam 30900000.crypto: job rings = 2, qi = 0
-trusted_key: caam algorithms registered in /proc/crypto
-caam 30900000.crypto: registering rng-caam
-caam 30900000.crypto: rng crypto API alg registered prng-caam
-mmc2: new HS400 Enhanced strobe MMC card at address 0001
-mmcblk2: mmc2:0001 IY2964 58.3 GiB
-hw perfevents: enabled with armv8_cortex_a53 PMU driver, 7 (0,8000003f) counters 
-available
-nvmem imx-ocotp0: cell mac-address raw len 6 unaligned to nvmem word size 4
-/soc@0: Fixed dependency cycle(s) with /soc@0/bus@30000000/efuse@30350000
-NET: Registered PF_INET6 protocol family
-  mmcblk2: p1 p2 < p5 p6 p7 p8 p9 >
-Segment Routing with IPv6
-In-situ OAM (IOAM) with IPv6
-NET: Registered PF_PACKET protocol family
-mmcblk2boot0: mmc2:0001 IY2964 4.00 MiB
-registered taskstats version 1
-Loading compiled-in X.509 certificates
-mmcblk2boot1: mmc2:0001 IY2964 4.00 MiB
-mmcblk2rpmb: mmc2:0001 IY2964 4.00 MiB, chardev (249:0)
-gpio gpiochip0: Static allocation of GPIO base is deprecated, use dynamic 
-allocation.
-gpio gpiochip1: Static allocation of GPIO base is deprecated, use dynamic 
-allocation.
-random: crng init done
-gpio gpiochip2: Static allocation of GPIO base is deprecated, use dynamic 
-allocation.
-gpio gpiochip3: Static allocation of GPIO base is deprecated, use dynamic 
-allocation.
-gpio gpiochip4: Static allocation of GPIO base is deprecated, use dynamic 
-allocation.
-i2c i2c-0: using pinctrl states for GPIO recovery
-i2c i2c-0: using generic GPIOs for recovery
-gateworks-gsc 0-0020: Gateworks System Controller v66: fw 0xa691
-pca953x 0-0023: supply vcc not found, using dummy regulator
-pca953x 0-0023: using no auto increment
-at24 0-0050: supply vcc not found, using dummy regulator
-at24 0-0050: 256 byte 24c02 EEPROM, writable, 16 bytes/write
-at24 0-0051: supply vcc not found, using dummy regulator
-at24 0-0051: 256 byte 24c02 EEPROM, writable, 16 bytes/write
-at24 0-0052: supply vcc not found, using dummy regulator
-at24 0-0052: 256 byte 24c02 EEPROM, writable, 16 bytes/write
-at24 0-0053: supply vcc not found, using dummy regulator
-at24 0-0053: 256 byte 24c02 EEPROM, writable, 16 bytes/write
-rtc-ds1672 0-0068: registered as rtc0
-rtc-ds1672 0-0068: setting system clock to 2026-01-09T14:32:53 UTC (1767969173)
-i2c i2c-0: IMX I2C adapter registered
-i2c i2c-1: using generic GPIOs for recovery
-at24 1-0052: supply vcc not found, using dummy regulator
-at24 1-0052: 4096 byte 24c32 EEPROM, writable, 32 bytes/write
-i2c i2c-1: IMX I2C adapter registered
-i2c i2c-2: IMX I2C adapter registered
-imx6q-pcie 33800000.pcie: host bridge /soc@0/pcie@33800000 ranges:
-imx6q-pcie 33800000.pcie: Parsing ranges property...
-imx6q-pcie 33800000.pcie:       IO 0x001ff80000..0x001ff8ffff -> 0x0000000000
-imx6q-pcie 33800000.pcie:      MEM 0x0018000000..0x001fefffff -> 0x0018000000
-imx6q-pcie 33800000.pcie: config reg[1] 0x1ff00000 == cpu 0x1ff00000
-; no fixup was ever needed for this devicetree
-imx-cpufreq-dt imx-cpufreq-dt: cpu speed grade 2 mkt segment 2 supported-hw 0x4 0x4
-clk: Disabling unused clocks
-PM: genpd: Disabling unused power domains
-sdhci-esdhc-imx 30b50000.mmc: Got CD GPIO
-check access for rdinit=/init failed: -2, ignoring
-mmc1: SDHCI controller on 30b50000.mmc [30b50000.mmc] using ADMA
-imx6q-pcie 33800000.pcie: Using 32 MSI vectors
-imx6q-pcie 33800000.pcie: iATU: unroll T, 4 ob, 4 ib, align 64K, limit 4G
-imx6q-pcie 33800000.pcie: PCIe Gen.2 x1 link up
-imx6q-pcie 33800000.pcie: PCI host bridge to bus 0000:00
-pci_bus 0000:00: root bus resource [bus 00-ff]
-pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
-pci_bus 0000:00: root bus resource [mem 0x18000000-0x1fefffff]
-pci_bus 0000:00: scanning bus
-pci 0000:00:00.0: [16c3:abcd] type 01 class 0x060400 PCIe Root Port
-pci 0000:00:00.0: BAR 0 [mem 0x00000000-0x000fffff]
-pci 0000:00:00.0: ROM [mem 0x00000000-0x0000ffff pref]
-pci 0000:00:00.0: PCI bridge to [bus 01-ff]
-pci 0000:00:00.0:   bridge window [io  0x0000-0x0fff]
-pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff]
-pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff pref]
-pci 0000:00:00.0: supports D1
-pci 0000:00:00.0: PME# supported from D0 D1 D3hot D3cold
-pci 0000:00:00.0: PME# disabled
-pci 0000:00:00.0: vgaarb: pci_notify
-pci_bus 0000:00: fixups for bus
-pci 0000:00:00.0: scanning [bus 01-ff] behind bridge, pass 0
-pci_bus 0000:01: scanning bus
-pci 0000:01:00.0: [12d8:b404] type 01 class 0x060400 PCIe Switch Upstream Port
-pci 0000:01:00.0: PCI bridge to [bus 00]
-pci 0000:01:00.0:   bridge window [io  0x0000-0x0fff]
-pci 0000:01:00.0:   bridge window [mem 0x00000000-0x000fffff]
-pci 0000:01:00.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
-pci 0000:01:00.0: supports D1 D2
-pci 0000:01:00.0: PME# supported from D0 D1 D2 D3hot D3cold
-pci 0000:01:00.0: PME# disabled
-pci 0000:01:00.0: PTM enabled (root), unknown granularity
-pci 0000:01:00.0: vgaarb: pci_notify
-pci 0000:01:00.0: ASPM: default states L0s L1
-pci_bus 0000:01: fixups for bus
-pci 0000:01:00.0: scanning [bus 00-00] behind bridge, pass 0
-pci 0000:01:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-pci 0000:01:00.0: scanning [bus 00-00] behind bridge, pass 1
-pci_bus 0000:02: scanning bus
-pci 0000:02:01.0: [12d8:b404] type 01 class 0x060400 PCIe Switch Downstream Port
-pci 0000:02:01.0: PCI bridge to [bus 00]
-pci 0000:02:01.0:   bridge window [io  0x0000-0x0fff]
-pci 0000:02:01.0:   bridge window [mem 0x00000000-0x000fffff]
-pci 0000:02:01.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
-pci 0000:02:01.0: supports D1 D2
-pci 0000:02:01.0: PME# supported from D0 D1 D2 D3hot D3cold
-pci 0000:02:01.0: PME# disabled
-pci 0000:02:01.0: vgaarb: pci_notify
-pci 0000:02:02.0: [12d8:b404] type 01 class 0x060400 PCIe Switch Downstream Port
-pci 0000:02:02.0: PCI bridge to [bus 00]
-pci 0000:02:02.0:   bridge window [io  0x0000-0x0fff]
-pci 0000:02:02.0:   bridge window [mem 0x00000000-0x000fffff]
-pci 0000:02:02.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
-pci 0000:02:02.0: supports D1 D2
-pci 0000:02:02.0: PME# supported from D0 D1 D2 D3hot D3cold
-pci 0000:02:02.0: PME# disabled
-pci 0000:02:02.0: vgaarb: pci_notify
-pci 0000:02:03.0: [12d8:b404] type 01 class 0x060400 PCIe Switch Downstream Port
-pci 0000:02:03.0: PCI bridge to [bus 00]
-pci 0000:02:03.0:   bridge window [io  0x0000-0x0fff]
-pci 0000:02:03.0:   bridge window [mem 0x00000000-0x000fffff]
-pci 0000:02:03.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
-pci 0000:02:03.0: supports D1 D2
-pci 0000:02:03.0: PME# supported from D0 D1 D2 D3hot D3cold
-pci 0000:02:03.0: PME# disabled
-pci 0000:02:03.0: vgaarb: pci_notify
-pci_bus 0000:02: fixups for bus
-pci 0000:02:01.0: scanning [bus 00-00] behind bridge, pass 0
-pci 0000:02:01.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-pci 0000:02:02.0: scanning [bus 00-00] behind bridge, pass 0
-pci 0000:02:02.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-pci 0000:02:03.0: scanning [bus 00-00] behind bridge, pass 0
-pci 0000:02:03.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-pci 0000:02:01.0: scanning [bus 00-00] behind bridge, pass 1
-pci_bus 0000:03: scanning bus
-pci 0000:03:00.0: [168c:0030] type 00 class 0x028000 PCIe Endpoint
-pci 0000:03:00.0: BAR 0 [mem 0x00000000-0x0001ffff 64bit]
-pci 0000:03:00.0: ROM [mem 0x00000000-0x0000ffff pref]
-pci 0000:03:00.0: supports D1
-pci 0000:03:00.0: PME# supported from D0 D1 D3hot
-pci 0000:03:00.0: PME# disabled
-pci 0000:03:00.0: vgaarb: pci_notify
-pci 0000:03:00.0: ASPM: default states L0s L1
-pci_bus 0000:03: fixups for bus
-pci_bus 0000:03: bus scan returning with max=03
-pci_bus 0000:03: busn_res: [bus 03-ff] end is updated to 03
-pci 0000:02:02.0: scanning [bus 00-00] behind bridge, pass 1
-pci_bus 0000:04: scanning bus
-pci_bus 0000:04: fixups for bus
-pci_bus 0000:04: bus scan returning with max=04
-pci_bus 0000:04: busn_res: [bus 04-ff] end is updated to 04
-pci 0000:02:03.0: scanning [bus 00-00] behind bridge, pass 1
-pci_bus 0000:05: scanning bus
-pci 0000:05:00.0: [1055:7430] type 00 class 0x020000 PCIe Endpoint
-pci 0000:05:00.0: BAR 0 [mem 0x00000000-0x00001fff 64bit]
-pci 0000:05:00.0: BAR 2 [mem 0x00000000-0x000000ff 64bit]
-pci 0000:05:00.0: BAR 4 [mem 0x00000000-0x000000ff 64bit]
-pci 0000:05:00.0: PME# supported from D0 D3hot
-pci 0000:05:00.0: PME# disabled
-pci 0000:05:00.0: vgaarb: pci_notify
-pci 0000:05:00.0: ASPM: default states L0s L1
-pci_bus 0000:05: fixups for bus
-pci_bus 0000:05: bus scan returning with max=05
-pci_bus 0000:05: busn_res: [bus 05-ff] end is updated to 05
-pci_bus 0000:02: bus scan returning with max=05
-pci_bus 0000:02: busn_res: [bus 02-ff] end is updated to 05
-pci_bus 0000:01: bus scan returning with max=05
-pci 0000:00:00.0: scanning [bus 01-ff] behind bridge, pass 1
-pci_bus 0000:00: bus scan returning with max=ff
-pci 0000:02:01.0: bridge window [mem 0x00100000-0x001fffff] to [bus 03] requires 
-relaxed alignment rules
-pci 0000:02:01.0: bridge window [mem 0x00100000-0x001fffff] to [bus 03] requires 
-relaxed alignment rules
-pci 0000:02:03.0: bridge window [mem 0x00100000-0x001fffff] to [bus 05] requires 
-relaxed alignment rules
-pci 0000:00:00.0: BAR 0 [mem 0x18000000-0x180fffff]: assigned
-pci 0000:00:00.0: bridge window [mem 0x18100000-0x182fffff]: assigned
-pci 0000:00:00.0: ROM [mem 0x18300000-0x1830ffff pref]: assigned
-pci 0000:01:00.0: bridge window [mem 0x18100000-0x182fffff]: assigned
-pci 0000:02:01.0: bridge window [mem 0x18100000-0x181fffff]: assigned
-pci 0000:02:03.0: bridge window [mem 0x18200000-0x182fffff]: assigned
-pci 0000:03:00.0: BAR 0 [mem 0x18100000-0x1811ffff 64bit]: assigned
-pci 0000:03:00.0: ROM [mem 0x18120000-0x1812ffff pref]: assigned
-pci 0000:02:01.0: PCI bridge to [bus 03]
-pci 0000:02:01.0:   bridge window [mem 0x18100000-0x181fffff]
-pci 0000:02:02.0: PCI bridge to [bus 04]
-pci 0000:05:00.0: BAR 0 [mem 0x18200000-0x18201fff 64bit]: assigned
-pci 0000:05:00.0: BAR 2 [mem 0x18202000-0x182020ff 64bit]: assigned
-pci 0000:05:00.0: BAR 4 [mem 0x18202100-0x182021ff 64bit]: assigned
-pci 0000:02:03.0: PCI bridge to [bus 05]
-pci 0000:02:03.0:   bridge window [mem 0x18200000-0x182fffff]
-pci 0000:01:00.0: PCI bridge to [bus 02-05]
-pci 0000:01:00.0:   bridge window [mem 0x18100000-0x182fffff]
-pci 0000:00:00.0: PCI bridge to [bus 01-ff]
-pci 0000:00:00.0:   bridge window [mem 0x18100000-0x182fffff]
-pci_bus 0000:00: resource 4 [io  0x0000-0xffff]
-pci_bus 0000:00: resource 5 [mem 0x18000000-0x1fefffff]
-pci_bus 0000:01: resource 1 [mem 0x18100000-0x182fffff]
-pci_bus 0000:02: resource 1 [mem 0x18100000-0x182fffff]
-pci_bus 0000:03: resource 1 [mem 0x18100000-0x181fffff]
-pci_bus 0000:05: resource 1 [mem 0x18200000-0x182fffff]
-pci 0000:00:00.0: save config 0x00: 0xabcd16c3
-pci 0000:00:00.0: save config 0x04: 0x00100107
-pci 0000:00:00.0: save config 0x08: 0x06040001
-pci 0000:00:00.0: save config 0x0c: 0x00010000
-pci 0000:00:00.0: save config 0x10: 0x18000000
-pci 0000:00:00.0: save config 0x14: 0x00000000
-pci 0000:00:00.0: save config 0x18: 0x00ff0100
-pci 0000:00:00.0: save config 0x1c: 0x000000f0
-pci 0000:00:00.0: save config 0x20: 0x18201810
-pci 0000:00:00.0: save config 0x24: 0x0000fff0
-pci 0000:00:00.0: save config 0x28: 0x00000000
-pci 0000:00:00.0: save config 0x2c: 0x00000000
-pci 0000:00:00.0: save config 0x30: 0x00000000
-pci 0000:00:00.0: save config 0x34: 0x00000040
-pci 0000:00:00.0: save config 0x38: 0x00000000
-pci 0000:00:00.0: save config 0x3c: 0x000201ff
-pcieport 0000:00:00.0: vgaarb: pci_notify
-pcieport 0000:00:00.0: assign IRQ: got 201
-imx6q-pcie 33800000.pcie: msi#0 address_hi 0x0 address_lo 0x4007e000
-pcieport 0000:00:00.0: PME: Signaling with IRQ 202
-pcieport 0000:00:00.0: AER: enabled with IRQ 202
-pcieport 0000:00:00.0: bwctrl: enabled with IRQ 202
-pcieport 0000:00:00.0: save config 0x00: 0xabcd16c3
-pcieport 0000:00:00.0: save config 0x04: 0x00100507
-pcieport 0000:00:00.0: save config 0x08: 0x06040001
-pcieport 0000:00:00.0: save config 0x0c: 0x00010000
-pcieport 0000:00:00.0: save config 0x10: 0x18000000
-pcieport 0000:00:00.0: save config 0x14: 0x00000000
-pcieport 0000:00:00.0: save config 0x18: 0x00ff0100
-pcieport 0000:00:00.0: save config 0x1c: 0x000000f0
-pcieport 0000:00:00.0: save config 0x20: 0x18201810
-pcieport 0000:00:00.0: save config 0x24: 0x0000fff0
-pcieport 0000:00:00.0: save config 0x28: 0x00000000
-pcieport 0000:00:00.0: save config 0x2c: 0x00000000
-pcieport 0000:00:00.0: save config 0x30: 0x00000000
-pcieport 0000:00:00.0: save config 0x34: 0x00000040
-pcieport 0000:00:00.0: save config 0x38: 0x00000000
-pcieport 0000:00:00.0: save config 0x3c: 0x000201c9
-pcieport 0000:00:00.0: vgaarb: pci_notify
-pci 0000:01:00.0: save config 0x00: 0xb40412d8
-pci 0000:01:00.0: save config 0x04: 0x00100000
-pci 0000:01:00.0: save config 0x08: 0x06040001
-pci 0000:01:00.0: save config 0x0c: 0x00010000
-pci 0000:01:00.0: save config 0x10: 0x00000000
-pci 0000:01:00.0: save config 0x14: 0x00000000
-pci 0000:01:00.0: save config 0x18: 0x00050201
-pci 0000:01:00.0: save config 0x1c: 0x000001f1
-pci 0000:01:00.0: save config 0x20: 0x18201810
-pci 0000:01:00.0: save config 0x24: 0x0001fff1
-pci 0000:01:00.0: save config 0x28: 0x00000000
-pci 0000:01:00.0: save config 0x2c: 0x00000000
-pci 0000:01:00.0: save config 0x30: 0x00000000
-pci 0000:01:00.0: save config 0x34: 0x00000040
-pci 0000:01:00.0: save config 0x38: 0x00000000
-pci 0000:01:00.0: save config 0x3c: 0x00020000
-pcieport 0000:01:00.0: vgaarb: pci_notify
-pcieport 0000:01:00.0: assign IRQ: got 0
-pcieport 0000:01:00.0: enabling device (0000 -> 0002)
-pcieport 0000:01:00.0: save config 0x00: 0xb40412d8
-pcieport 0000:01:00.0: save config 0x04: 0x00100002
-pcieport 0000:01:00.0: save config 0x08: 0x06040001
-pcieport 0000:01:00.0: save config 0x0c: 0x00010000
-pcieport 0000:01:00.0: save config 0x10: 0x00000000
-pcieport 0000:01:00.0: save config 0x14: 0x00000000
-pcieport 0000:01:00.0: save config 0x18: 0x00050201
-pcieport 0000:01:00.0: save config 0x1c: 0x000001f1
-pcieport 0000:01:00.0: save config 0x20: 0x18201810
-pcieport 0000:01:00.0: save config 0x24: 0x0001fff1
-pcieport 0000:01:00.0: save config 0x28: 0x00000000
-pcieport 0000:01:00.0: save config 0x2c: 0x00000000
-pcieport 0000:01:00.0: save config 0x30: 0x00000000
-pcieport 0000:01:00.0: save config 0x34: 0x00000040
-pcieport 0000:01:00.0: save config 0x38: 0x00000000
-pcieport 0000:01:00.0: save config 0x3c: 0x00020000
-pcieport 0000:01:00.0: vgaarb: pci_notify
-pci 0000:02:01.0: save config 0x00: 0xb40412d8
-pci 0000:02:01.0: save config 0x04: 0x00100000
-pci 0000:02:01.0: save config 0x08: 0x06040001
-pci 0000:02:01.0: save config 0x0c: 0x00010000
-pci 0000:02:01.0: save config 0x10: 0x00000000
-pci 0000:02:01.0: save config 0x14: 0x00000000
-pci 0000:02:01.0: save config 0x18: 0x00030302
-pci 0000:02:01.0: save config 0x1c: 0x000001f1
-pci 0000:02:01.0: save config 0x20: 0x18101810
-pci 0000:02:01.0: save config 0x24: 0x0001fff1
-pci 0000:02:01.0: save config 0x28: 0x00000000
-pci 0000:02:01.0: save config 0x2c: 0x00000000
-pci 0000:02:01.0: save config 0x30: 0x00000000
-pci 0000:02:01.0: save config 0x34: 0x00000040
-pci 0000:02:01.0: save config 0x38: 0x00000000
-pci 0000:02:01.0: save config 0x3c: 0x00020000
-pcieport 0000:02:01.0: vgaarb: pci_notify
-pcieport 0000:02:01.0: assign IRQ: got 0
-pcieport 0000:01:00.0: enabling bus mastering
-pcieport 0000:02:01.0: enabling device (0000 -> 0002)
-pcieport 0000:02:01.0: save config 0x00: 0xb40412d8
-pcieport 0000:02:01.0: save config 0x04: 0x00100002
-pcieport 0000:02:01.0: save config 0x08: 0x06040001
-pcieport 0000:02:01.0: save config 0x0c: 0x00010000
-pcieport 0000:02:01.0: save config 0x10: 0x00000000
-pcieport 0000:02:01.0: save config 0x14: 0x00000000
-pcieport 0000:02:01.0: save config 0x18: 0x00030302
-pcieport 0000:02:01.0: save config 0x1c: 0x000001f1
-pcieport 0000:02:01.0: save config 0x20: 0x18101810
-pcieport 0000:02:01.0: save config 0x24: 0x0001fff1
-pcieport 0000:02:01.0: save config 0x28: 0x00000000
-pcieport 0000:02:01.0: save config 0x2c: 0x00000000
-pcieport 0000:02:01.0: save config 0x30: 0x00000000
-pcieport 0000:02:01.0: save config 0x34: 0x00000040
-pcieport 0000:02:01.0: save config 0x38: 0x00000000
-pcieport 0000:02:01.0: save config 0x3c: 0x00020000
-pcieport 0000:02:01.0: vgaarb: pci_notify
-pci 0000:02:02.0: save config 0x00: 0xb40412d8
-pci 0000:02:02.0: save config 0x04: 0x00100000
-pci 0000:02:02.0: save config 0x08: 0x06040001
-pci 0000:02:02.0: save config 0x0c: 0x00010000
-pci 0000:02:02.0: save config 0x10: 0x00000000
-pci 0000:02:02.0: save config 0x14: 0x00000000
-pci 0000:02:02.0: save config 0x18: 0x00040402
-pci 0000:02:02.0: save config 0x1c: 0x000001f1
-pci 0000:02:02.0: save config 0x20: 0x0000fff0
-pci 0000:02:02.0: save config 0x24: 0x0001fff1
-pci 0000:02:02.0: save config 0x28: 0x00000000
-pci 0000:02:02.0: save config 0x2c: 0x00000000
-pci 0000:02:02.0: save config 0x30: 0x00000000
-pci 0000:02:02.0: save config 0x34: 0x00000040
-pci 0000:02:02.0: save config 0x38: 0x00000000
-pci 0000:02:02.0: save config 0x3c: 0x00020000
-pcieport 0000:02:02.0: vgaarb: pci_notify
-pcieport 0000:02:02.0: assign IRQ: got 0
-pcieport 0000:02:02.0: enabling bus mastering
-imx6q-pcie 33800000.pcie: msi#4 address_hi 0x0 address_lo 0x4007e000
-imx6q-pcie 33800000.pcie: msi#5 address_hi 0x0 address_lo 0x4007e000
-imx6q-pcie 33800000.pcie: msi#6 address_hi 0x0 address_lo 0x4007e000
-imx6q-pcie 33800000.pcie: msi#7 address_hi 0x0 address_lo 0x4007e000
-imx6q-pcie 33800000.pcie: msi#1 address_hi 0x0 address_lo 0x4007e000
-pcieport 0000:02:02.0: bwctrl: enabled with IRQ 203
-pcieport 0000:02:02.0: save config 0x00: 0xb40412d8
-pcieport 0000:02:02.0: save config 0x04: 0x00100404
-pcieport 0000:02:02.0: save config 0x08: 0x06040001
-pcieport 0000:02:02.0: save config 0x0c: 0x00010000
-pcieport 0000:02:02.0: save config 0x10: 0x00000000
-pcieport 0000:02:02.0: save config 0x14: 0x00000000
-pcieport 0000:02:02.0: save config 0x18: 0x00040402
-pcieport 0000:02:02.0: save config 0x1c: 0x000001f1
-pcieport 0000:02:02.0: save config 0x20: 0x0000fff0
-pcieport 0000:02:02.0: save config 0x24: 0x0001fff1
-pcieport 0000:02:02.0: save config 0x28: 0x00000000
-pcieport 0000:02:02.0: save config 0x2c: 0x00000000
-pcieport 0000:02:02.0: save config 0x30: 0x00000000
-pcieport 0000:02:02.0: save config 0x34: 0x00000040
-pcieport 0000:02:02.0: save config 0x38: 0x00000000
-pcieport 0000:02:02.0: save config 0x3c: 0x00020000
-pcieport 0000:02:02.0: vgaarb: pci_notify
-pci 0000:02:03.0: save config 0x00: 0xb40412d8
-pci 0000:02:03.0: save config 0x04: 0x00100000
-pci 0000:02:03.0: save config 0x08: 0x06040001
-pci 0000:02:03.0: save config 0x0c: 0x00010000
-pci 0000:02:03.0: save config 0x10: 0x00000000
-pci 0000:02:03.0: save config 0x14: 0x00000000
-pci 0000:02:03.0: save config 0x18: 0x00050502
-pci 0000:02:03.0: save config 0x1c: 0x000001f1
-pci 0000:02:03.0: save config 0x20: 0x18201820
-pci 0000:02:03.0: save config 0x24: 0x0001fff1
-pci 0000:02:03.0: save config 0x28: 0x00000000
-pci 0000:02:03.0: save config 0x2c: 0x00000000
-pci 0000:02:03.0: save config 0x30: 0x00000000
-pci 0000:02:03.0: save config 0x34: 0x00000040
-pci 0000:02:03.0: save config 0x38: 0x00000000
-pci 0000:02:03.0: save config 0x3c: 0x00020000
-pcieport 0000:02:03.0: vgaarb: pci_notify
-pcieport 0000:02:03.0: assign IRQ: got 0
-pcieport 0000:02:03.0: enabling device (0000 -> 0002)
-pcieport 0000:02:03.0: save config 0x00: 0xb40412d8
-pcieport 0000:02:03.0: save config 0x04: 0x00100002
-pcieport 0000:02:03.0: save config 0x08: 0x06040001
-pcieport 0000:02:03.0: save config 0x0c: 0x00010000
-pcieport 0000:02:03.0: save config 0x10: 0x00000000
-pcieport 0000:02:03.0: save config 0x14: 0x00000000
-pcieport 0000:02:03.0: save config 0x18: 0x00050502
-pcieport 0000:02:03.0: save config 0x1c: 0x000001f1
-pcieport 0000:02:03.0: save config 0x20: 0x18201820
-pcieport 0000:02:03.0: save config 0x24: 0x0001fff1
-pcieport 0000:02:03.0: save config 0x28: 0x00000000
-pcieport 0000:02:03.0: save config 0x2c: 0x00000000
-pcieport 0000:02:03.0: save config 0x30: 0x00000000
-pcieport 0000:02:03.0: save config 0x34: 0x00000040
-pcieport 0000:02:03.0: save config 0x38: 0x00000000
-pcieport 0000:02:03.0: save config 0x3c: 0x00020000
-pcieport 0000:02:03.0: vgaarb: pci_notify
-pci 0000:03:00.0: save config 0x00: 0x0030168c
-pci 0000:03:00.0: save config 0x04: 0x00100000
-pci 0000:03:00.0: save config 0x08: 0x02800001
-pci 0000:03:00.0: save config 0x0c: 0x00000000
-pci 0000:03:00.0: save config 0x10: 0x18100004
-pci 0000:03:00.0: save config 0x14: 0x00000000
-pci 0000:03:00.0: save config 0x18: 0x00000000
-pci 0000:03:00.0: save config 0x1c: 0x00000000
-pci 0000:03:00.0: save config 0x20: 0x00000000
-pci 0000:03:00.0: save config 0x24: 0x00000000
-pci 0000:03:00.0: save config 0x28: 0x00000000
-pci 0000:03:00.0: save config 0x2c: 0x3116168c
-pci 0000:03:00.0: save config 0x30: 0x00000000
-pci 0000:03:00.0: save config 0x34: 0x00000040
-pci 0000:03:00.0: save config 0x38: 0x00000000
-pci 0000:03:00.0: save config 0x3c: 0x000001ff
-pci 0000:05:00.0: save config 0x00: 0x74301055
-pci 0000:05:00.0: save config 0x04: 0x00100000
-pci 0000:05:00.0: save config 0x08: 0x02000011
-pci 0000:05:00.0: save config 0x0c: 0x00000000
-pci 0000:05:00.0: save config 0x10: 0x18200004
-pci 0000:05:00.0: save config 0x14: 0x00000000
-pci 0000:05:00.0: save config 0x18: 0x18202004
-pci 0000:05:00.0: save config 0x1c: 0x00000000
-pci 0000:05:00.0: save config 0x20: 0x18202104
-pci 0000:05:00.0: save config 0x24: 0x00000000
-pci 0000:05:00.0: save config 0x28: 0x00000000
-pci 0000:05:00.0: save config 0x2c: 0x74301055
-pci 0000:05:00.0: save config 0x30: 0x00000000
-pci 0000:05:00.0: save config 0x34: 0x00000040
-pci 0000:05:00.0: save config 0x38: 0x00000000
-pci 0000:05:00.0: save config 0x3c: 0x000001ff
-VFS: Mounted root (squashfs filesystem) readonly on device 179:6.
-devtmpfs: mounted
-Freeing unused kernel memory: 896K
-Run /sbin/wrap-init as init process
-   with arguments:
-     /sbin/wrap-init
-   with environment:
-     HOME=/
-     TERM=linux
-     rootrw=/dev/mmcblk2p8
-     rootrwfstype=ext4
-     persistmnt=/dev/mmcblk2p7
-     persistmntfstype=ext4
-pcieport 0000:02:02.0: save config 0x00: 0xb40412d8
-pcieport 0000:02:02.0: save config 0x04: 0x00100404
-pcieport 0000:02:02.0: save config 0x08: 0x06040001
-pcieport 0000:02:02.0: save config 0x0c: 0x00010000
-pcieport 0000:02:02.0: save config 0x10: 0x00000000
-pcieport 0000:02:02.0: save config 0x14: 0x00000000
-pcieport 0000:02:02.0: save config 0x18: 0x00040402
-pcieport 0000:02:02.0: save config 0x1c: 0x000001f1
-pcieport 0000:02:02.0: save config 0x20: 0x0000fff0
-pcieport 0000:02:02.0: save config 0x24: 0x0001fff1
-pcieport 0000:02:02.0: save config 0x28: 0x00000000
-pcieport 0000:02:02.0: save config 0x2c: 0x00000000
-pcieport 0000:02:02.0: save config 0x30: 0x00000000
-pcieport 0000:02:02.0: save config 0x34: 0x00000040
-pcieport 0000:02:02.0: save config 0x38: 0x00000000
-pcieport 0000:02:02.0: save config 0x3c: 0x00020000
-pcieport 0000:02:02.0: PME# enabled
-imx-sdma 302c0000.dma-controller: loaded firmware 4.6
-imx-sdma 302b0000.dma-controller: loaded firmware 4.6
-imx-sdma 30bd0000.dma-controller: loaded firmware 4.6
-usb_phy_generic usbphynop1: dummy supplies not allowed for exclusive requests 
-(id=vbus)
-usb_phy_generic usbphynop2: dummy supplies not allowed for exclusive requests 
-(id=vbus)
-usbcore: registered new interface driver usbfs
-usbcore: registered new interface driver hub
-usbcore: registered new device driver usb
-cfg80211: Loading compiled-in X.509 certificates for regulatory database
-Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
-Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
-ci_hdrc ci_hdrc.1: EHCI Host Controller
-ci_hdrc ci_hdrc.1: new USB bus registered, assigned bus number 1
-ci_hdrc ci_hdrc.1: USB 2.0 started, EHCI 1.00
-usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.19
-usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
-usb usb1: Product: EHCI Host Controller
-usb usb1: Manufacturer: Linux 6.19.0-rc1 ehci_hcd
-usb usb1: SerialNumber: ci_hdrc.1
-hub 1-0:1.0: USB hub found
-hub 1-0:1.0: 1 port detected
-lan743x 0000:05:00.0: vgaarb: pci_notify
-lan743x 0000:05:00.0: assign IRQ: got 201
-pcieport 0000:02:03.0: enabling bus mastering
-lan743x 0000:05:00.0: enabling device (0000 -> 0002)
-lan743x 0000:05:00.0 (unnamed net_device) (uninitialized): PCI: Vendor ID = 
-0x1055, Device ID = 0x7430
-lan743x 0000:05:00.0: enabling bus mastering
-lan743x 0000:05:00.0 (unnamed net_device) (uninitialized): ID_REV = 0x74300011, 
-FPGA_REV = 0.0
-usb 1-1: new high-speed USB device number 2 using ci_hdrc
-lan743x 0000:05:00.0 (unnamed net_device) (uninitialized): MAC address set to 
-00:d0:12:23:fa:8b
-lan743x 0000:05:00.0: vgaarb: pci_notify
-usb 1-1: New USB device found, idVendor=0424, idProduct=2744, bcdDevice= 2.21
-usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=0
-usb 1-1: Product: USB2744
-usb 1-1: Manufacturer: Microchip Tech
-hub 1-1:1.0: USB hub found
-hub 1-1:1.0: 5 ports detected
-usb 1-1.5: new high-speed USB device number 3 using ci_hdrc
-usb 1-1.5: New USB device found, idVendor=0424, idProduct=2740, bcdDevice= 2.00
-usb 1-1.5: New USB device strings: Mfr=1, Product=2, SerialNumber=0
-usb 1-1.5: Product: Hub Controller
-usb 1-1.5: Manufacturer: Microchip Tech
-Generic PHY 30be0000.ethernet-1:00: attached PHY driver 
-(mii_bus:phy_addr=30be0000.ethernet-1:00, irq=POLL)
-fec 30be0000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
-Bluetooth: Core ver 2.22
-NET: Registered PF_BLUETOOTH protocol family
-Bluetooth: HCI device and connection manager initialized
-Bluetooth: HCI socket layer initialized
-Bluetooth: L2CAP socket layer initialized
-Bluetooth: SCO socket layer initialized
-Bluetooth: BNEP (Ethernet Emulation) ver 1.3
-Bluetooth: BNEP filters: protocol multicast
-Bluetooth: BNEP socket layer initialized
-imx6q-pcie 33800000.pcie: msi#2 address_hi 0x0 address_lo 0x4007e000
-imx6q-pcie 33800000.pcie: msi#3 address_hi 0x0 address_lo 0x4007e000
-imx6q-pcie 33800000.pcie: msi#4 address_hi 0x0 address_lo 0x4007e000
-imx6q-pcie 33800000.pcie: msi#5 address_hi 0x0 address_lo 0x4007e000
-imx6q-pcie 33800000.pcie: msi#6 address_hi 0x0 address_lo 0x4007e000
-imx6q-pcie 33800000.pcie: msi#7 address_hi 0x0 address_lo 0x4007e000
-lan743x 0000:05:00.0 eth1: using MSIX interrupts, number of vectors = 6
-lan743x 0000:05:00.0 eth1: PHY [pci-0000:05:00.0:01] driver [Generic PHY] (irq=POLL)
-lan743x 0000:05:00.0 eth1: configuring for phy/gmii link mode
-lan743x 0000:05:00.0 eth1: Link is Up - 1Gbps/Full - flow control rx/tx
-imx8m-blk-ctrl 38330000.blk-ctrl: sync_state() pending due to 38310000.video-codec
-imx8m-blk-ctrl 38330000.blk-ctrl: sync_state() pending due to 38300000.video-codec
-imx-pgc imx-pgc-domain.5: sync_state() pending due to 38008000.gpu
-imx-pgc imx-pgc-domain.5: sync_state() pending due to 38000000.gpu
-ath9k 0000:03:00.0: vgaarb: pci_notify
-ath9k 0000:03:00.0: assign IRQ: got 201
-pcieport 0000:02:01.0: enabling bus mastering
-ath9k 0000:03:00.0: enabling device (0000 -> 0002)
-ath9k 0000:03:00.0: enabling bus mastering
-ath: EEPROM regdomain: 0x37
-ath: EEPROM indicates we should expect a direct regpair map
-ath: Country alpha2 being used: AL
-ath: Regpair used: 0x37
-ieee80211 phy0: Selected rate control algorithm 'minstrel_ht'
-ieee80211 phy0: Atheros AR9300 Rev:3 mem=0x00000000ce8f30fa, irq=201
-ath9k 0000:03:00.0: vgaarb: pci_notify
+Best regards,
+Krzysztof
 
