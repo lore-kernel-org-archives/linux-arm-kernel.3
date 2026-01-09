@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47FA2D232EE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 08:22:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D36BD232EF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 08:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BMgUtghnuAy1sqqzoIvEfRuLHghrW+zp1tKrLf8u880=; b=j9wYygWtlGL2AUQMx2aIl3ljRl
-	bCzhBG2jKiSFWD8bRsr8S22y/Bt2IQjVSzr54cCD4c13ofc4wzNS9upeMXlnWSjx6tESlNuGR8Oop
-	JjGBA5lnWd3DkB03DDQRoND4W7v7SvLnnZIj0DCy9Z9JMlyHOg0QWus65gDgB18EmKVlqY8vkR//j
-	i8g0tS/Obazcc5PzuBY5dPrVJSpITcZG7EIW41wzl9Mch8bYdYkxLnXsqBvZ9FrOw/mKw0fgPIJ+3
-	mIdqk72txpGYW9VknOOGcgePeuCOIcSQhUPHe7YrD+A+Fm76/ge/X8/caDv0MXZI8IkrH7AjN5PLU
-	y1hv3FoQ==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NqG3laPI6vEHEXOM9R+vgmhZHRmAA+/4qmyfh5dJ4MI=; b=sspZVuebTBJa7EELIz1UTD4cAK
+	DJH4fxyOKb6jY/Y9bigg55Z1i8og+SBvlv4YtKBdbcD1Ci9m7mUza+lSzuUmjnbRGC9p3KMH3QdVm
+	PeZGd3e0llUDnqrBQu8bA8jb0UYtIaduVJrAdABQgAItE9XQhKqc/PcI+xfYNj0XWmMdCuLJHA5nf
+	IsOb1rM2vbvHl5eZYpDm0QNCGGW8J61tMXaHq4TscDWfKHBClKwRnRU51oo/E4dWtvrX1ux4d0GNN
+	DLZsexq8cc0Nz3d4CrlMzMpQulj5gEZBmRlK8BppVrnzKqT0PJKb+mh10diK4MF4lQGsC19zEQ/7v
+	OFhBCWyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve7lH-00000001sXe-3t7A;
-	Fri, 09 Jan 2026 08:22:23 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1ve7lM-00000001seG-3efm;
+	Fri, 09 Jan 2026 08:22:28 +0000
+Received: from mail-lf1-x14a.google.com ([2a00:1450:4864:20::14a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve7lF-00000001sVG-3AdP
+	id 1ve7lI-00000001sWR-1Ekc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 08:22:23 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-477563a0c75so22160835e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 00:22:20 -0800 (PST)
+	Fri, 09 Jan 2026 08:22:25 +0000
+Received: by mail-lf1-x14a.google.com with SMTP id 2adb3069b0e04-59b78adfc09so1421339e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 00:22:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767946939; x=1768551739; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=BMgUtghnuAy1sqqzoIvEfRuLHghrW+zp1tKrLf8u880=;
-        b=bLsiJJmKDO6QnA7pW1zh7MvLpC760iGAGpb1YS92ORWfPm7npC5gWe9ayZoTUif37c
-         7SwT9P8olCFD5kdJzzLbH3hXpENIrSbPjAU6YYupVO3R5fDZ+ckNYMxkSgok+XQ/mkGU
-         MuFcw5oZidczpFjs7TaY5TiT9CxZPuG7rCiripJOAKhC+rAGurh1NXsSkQYVWlklkNn8
-         4ZhJcz5KPQ4/5qZ7EpoJTiqCG1MKtYPq6KNYEVWQ/0gz+ZzLSccSYEl2g667stOfo/Bg
-         5zmJ7X1zdicUKrFAnWFMSppocscWPiYfFRxR/x23xH8h3rerUUFtqmNV0TyCch9t92l0
-         6GUg==
+        d=google.com; s=20230601; t=1767946942; x=1768551742; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=NqG3laPI6vEHEXOM9R+vgmhZHRmAA+/4qmyfh5dJ4MI=;
+        b=Gmsv/1Ez4/jhF2ucD3AC6YjtdM4BMv8BAGUYAnZgqfXhCsiatEgi6PmNnpFBIfkovW
+         S9UmYqERKCYQ/XKyZ2RRYQXXkhJiK45jRAnWwPAETt8r/w05gm6YcNXnfrzPxYh510zU
+         s1jq2/hhGFG0t+HfMtCmpYgA6YNdrisUg9d50cR/RQQ3YLyI1JGpvnwcplROri5e3QgY
+         P1It0FEIOQogNxqtD/xApBIXWN9/yCnVFkkLYNte9qOmxT2Je5AaB3X5T0mHsT9PMH4W
+         jhiQJ2FEMNhD/eZfPTchQM4SrRQaUN+e1IfSuQLWXRiDf4Cs890OFPcIi2DT4fc0ZA5j
+         CWDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767946939; x=1768551739;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BMgUtghnuAy1sqqzoIvEfRuLHghrW+zp1tKrLf8u880=;
-        b=UrAFGjDDj3YqJMO1qK8X6MGv9ZNBZHpZHulvdqC7vEN/mCHmax3UnEShzpxM6BFlgD
-         t02z4cYOvRL7Ok7rRKCwf62O94wotXumUhQf8XBpo4fLl0Vqe99NbQHfT4WEqbUbd2tY
-         57W8KeQB5TmVyW8jPxPD3OsnHOCmQAa6W1vcf5tSNCuRzZvB2NGHwDkW4GUZUmt8LZJo
-         BTIoGbBnIuFnO4WDdQY/TpjfsgB6FCsz9K/1YW88aFy1H4keReFsZWVZKQcs/lNQed8u
-         /9TMz2AlVCYSVLEwhfrNkN2o04vaJAvALoIltDTSa1kbtn62EhmYfyrGze+g5kubYllQ
-         rEjA==
-X-Forwarded-Encrypted: i=1; AJvYcCWTvFv0e4U+3DdaqizZfzO8gKYNCd1fwWG/Vu+IBGivBuWnmv2S4122QS1Bpn5citU38WseIPrp+j5M60MGaCU+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdQ3MUY1eRYVf6ltxlGNBL3vDpBsTANQVOwOf/+w+r+ZY1so8Q
-	XLa4kazgthYZlYZyiPCAFZCafFOlvFRvQJb6XS3Kd1HhPSji9LZBAEceEXEChqPMvDOgRRDvJbg
-	E/g==
-X-Google-Smtp-Source: AGHT+IEEqNYMoHeY+3DwmkTCwwRtWsTJKfrOQfXfQ55U2Jju+BCRFWy02s7qCZ5He0miV9LurIPAHvpnNA==
-X-Received: from wrbgz29.prod.google.com ([2002:a05:6000:481d:b0:431:1c7:f966])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4fd2:b0:47b:deb9:f8a
- with SMTP id 5b1f17b1804b1-47d84b40a99mr108297505e9.30.1767946939194; Fri, 09
- Jan 2026 00:22:19 -0800 (PST)
-Date: Fri,  9 Jan 2026 08:22:13 +0000
+        d=1e100.net; s=20230601; t=1767946942; x=1768551742;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NqG3laPI6vEHEXOM9R+vgmhZHRmAA+/4qmyfh5dJ4MI=;
+        b=X3SEEzUPCqlYWcQB2d+JfSs9MLhYhBUShQyxaeTiKnQtPFSIGISsgadXq3HjV0c5WJ
+         zmCNEDMzlsUBXr/eufce7wZEKejdexGjFgrOb4vfCFe9TIktrlorTKDHAWtybSvkWlgS
+         LozJp1To39uDVxsmvTGWEkwWMHejxa5riavF9Wc1rgIKjED8BjAuRCaw6ucJhi2GQL1n
+         BcJJvSqR4bWerR3T7gf0qDxg3me+VSEEEjhTa0DwsUd41dK7nmnWQmvkhUXfFBvxUwzj
+         kA2CaE14X+PkJ0UwHxKpQ5bCnArRqZPAPzt5ShZiTzjkSp3Ie7PuHBEdZ8oME09yfPPq
+         XqBg==
+X-Forwarded-Encrypted: i=1; AJvYcCWSMTy/nTcC+FOIAf34kfdJxweWGnJPWDjyVl64Me4c3mpgcWu2tuyrldcZK8A5KXNtuxuACt6sv4lLn2ZlB5dM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyb0FKdNW6/CTk4Xd/bgSJp2+maNOEJq1mm43UiTnEdDwLTLtW0
+	W/6E2wx0htuHHy4p43fG+ZEQyvaGBpKyZPfuimuZOPG5qMlHsZsDV73rrGnFIzSRuq27gVZYLEr
+	guw==
+X-Google-Smtp-Source: AGHT+IEPiBQu8APfXNA3IWNbMpdOagfDDvRFnwb8uKkQFHMSY7VPVHw12O3QIkHoI1cD4SsInszAzyQFrA==
+X-Received: from ljdv18.prod.google.com ([2002:a05:651c:4212:b0:37f:dca2:6c99])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6512:3c8d:b0:595:81ce:ff83
+ with SMTP id 2adb3069b0e04-59b6f03a0b4mr2586927e87.25.1767946941603; Fri, 09
+ Jan 2026 00:22:21 -0800 (PST)
+Date: Fri,  9 Jan 2026 08:22:15 +0000
+In-Reply-To: <20260109082218.3236580-1-tabba@google.com>
 Mime-Version: 1.0
+References: <20260109082218.3236580-1-tabba@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260109082218.3236580-1-tabba@google.com>
-Subject: [PATCH v4 0/5] KVM: selftests: Alignment fixes and arm64 MMU cleanup
+Message-ID: <20260109082218.3236580-3-tabba@google.com>
+Subject: [PATCH v4 2/5] KVM: arm64: selftests: Fix incorrect rounding in page_align()
 From: Fuad Tabba <tabba@google.com>
 To: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -75,8 +77,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	seanjc@google.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_002221_829730_306969B8 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20260109_002224_344678_97AC1E26 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,54 +93,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes from v3 [1]:
-- Renamed page_align() to vm_page_align() (Sean)
+The implementation of `page_align()` in `processor.c` calculates
+alignment incorrectly for values that are already aligned. Specifically,
+`(v + vm->page_size) & ~(vm->page_size - 1)` aligns to the *next* page
+boundary even if `v` is already page-aligned, potentially wasting a page
+of memory.
 
-This series tidies up a few things in the KVM selftests. It addresses an
-error in memory alignment, hardens the arm64 MMU configuration for
-selftests, and fixes minor documentation issues.
+Fix the calculation to use standard alignment logic: `(v + vm->page_size
+- 1) & ~(vm->page_size - 1)`.
 
-First, for arm64, the series explicitly disables translation table walks
-for the unused upper virtual address range (TTBR1). Since selftests run
-entirely in the lower range (TTBR0), leaving TTBR1 uninitialized but
-active could lead to unpredictable behavior if guest code accesses high
-addresses. We set EPD1 and TBI1 to ensure such accesses
-deterministically generate translation faults.
+Fixes: 7a6629ef746d ("kvm: selftests: add virt mem support for aarch64")
+Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ tools/testing/selftests/kvm/lib/arm64/processor.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Second, the series fixes the `page_align()` implementation in both arm64
-and riscv. The previous version incorrectly rounded up already-aligned
-addresses to the *next* page, potentially wasting memory or causing
-unexpected gaps. After fixing the logic in the arch-specific files, the
-function is moved to the common `kvm_util.h` header to eliminate code
-duplication, and renamed to vm_page_align() to make it clear that the
-alignment is done with respect to the guest's base page size.
-
-Finally, a few comments and argument descriptions in `kvm_util` are
-updated to match the actual code implementation.
-
-Based on Linux 6.19-rc4.
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/20260106092425.1529428-1-tabba@google.com/
-
-Fuad Tabba (5):
-  KVM: arm64: selftests: Disable unused TTBR1_EL1 translations
-  KVM: arm64: selftests: Fix incorrect rounding in page_align()
-  KVM: riscv: selftests: Fix incorrect rounding in page_align()
-  KVM: selftests: Move page_align() to shared header
-  KVM: selftests: Fix typos and stale comments in kvm_util
-
- tools/testing/selftests/kvm/include/arm64/processor.h | 4 ++++
- tools/testing/selftests/kvm/include/kvm_util.h        | 9 +++++++--
- tools/testing/selftests/kvm/lib/arm64/processor.c     | 9 +++------
- tools/testing/selftests/kvm/lib/kvm_util.c            | 2 +-
- tools/testing/selftests/kvm/lib/riscv/processor.c     | 7 +------
- 5 files changed, 16 insertions(+), 15 deletions(-)
-
-
-base-commit: 9ace4753a5202b02191d54e9fdf7f9e3d02b85eb
+diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
+index 5b379da8cb90..607a4e462984 100644
+--- a/tools/testing/selftests/kvm/lib/arm64/processor.c
++++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
+@@ -23,7 +23,7 @@ static vm_vaddr_t exception_handlers;
+ 
+ static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
+ {
+-	return (v + vm->page_size) & ~(vm->page_size - 1);
++	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
+ }
+ 
+ static uint64_t pgd_index(struct kvm_vm *vm, vm_vaddr_t gva)
 -- 
 2.52.0.457.g6b5491de43-goog
 
