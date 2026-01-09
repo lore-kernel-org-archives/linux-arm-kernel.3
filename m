@@ -4,64 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21216D26D67
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 15:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8227D26D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 15:56:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PmHlZRi4mzGX5Unx3kgK3MeyeJjaxOKWaTfJb6jpBF0=; b=F3gliFY7bKVS7w+QqWK8qRwHEa
-	Cft7T87ZPHV2HwW2TkQIYlKJlo85Jf/49qM9LCw1c3yyrHIIRxWYgwaG0TmMrDzyLX+gq79Kw+OiH
-	TNhce297bIgv2G8Z8swUtC1FpTgBXxYa7HeSnMSL5q/QkClQvS5GTZJCjUIt+/ScF7hXqI9zSkYg7
-	FFeIzkyCRKPkTXZADmKpT1YOZanYp0YX/qEO7CcxoR00Y1OHglaPXRIA7qsIBRtO+KUMeBchMKbYf
-	jFw6SOyA1DA5Gh9xvJ39UWYLJcQei0pLI69zjwpH5Dq+7aGDz+PLnqHl0jOZEZUDcncq8pDW5Xokt
-	golZhXRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U8I+9Z/SzReDIbFo3xnWDAd13nvsAbuR5scsRwJQ9D4=; b=eoWwYupsgmcr4HXEB00Flw4gfN
+	uq0OMt0jYLxJvuBNQn+q3vPsqbVOeU3YDY4Bl7F9zodrD7gGB/T/AKyZR4cOs2ElvJiiWRkyVv6h7
+	uBC4GkWMujdGKOzjHjtrRNaFcXaiEoTkyUBYRuvYRw7hbVgo/v4qvWyEzTNRaFiRNwd4DZpPEslAT
+	MW7VgzfkcWZnmsTbzX3Yl9TnQD/EUi7X4rItjPMsxHMYA5clbp+PKXhgwFwJxEyUoiUpMJuCqruTh
+	vnxcQFDj3HwY5GWdMTEggMjayM/YvwNJi603jsBXDNjFTJxfXbdIKzUuSch/UQx6KFHEv6sWHCRev
+	HQcjDyGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veEms-00000002X98-0ejv;
-	Fri, 09 Jan 2026 15:52:30 +0000
-Received: from out-184.mta0.migadu.com ([91.218.175.184])
+	id 1veEqZ-00000002XT9-29pd;
+	Fri, 09 Jan 2026 15:56:19 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veEmp-00000002X8d-23OY
+	id 1veEqW-00000002XSf-2mn1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 15:52:28 +0000
-Message-ID: <be8a566a-163f-4d20-b712-67de6f63a6b5@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1767973945;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PmHlZRi4mzGX5Unx3kgK3MeyeJjaxOKWaTfJb6jpBF0=;
-	b=D8z/sT5GzvDYXuVVUi5zo3k5Ccjd3GoRKJNvYUsQWo9pHJpIeMCwgEitWNWmNi+l+qEfdw
-	uzKrZVdqMzMijMxurXwUbgUqsf7enZW1YERbuC8Oybgj/CaXUrV8cLyia9VMuJiHuY9y+G
-	EujR+aU8Ts7tKxl1AQOaR41mP6sQL5A=
-Date: Fri, 9 Jan 2026 10:52:18 -0500
+	Fri, 09 Jan 2026 15:56:17 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4ee243b98caso353681cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 07:56:15 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1767974174; cv=none;
+        d=google.com; s=arc-20240605;
+        b=K3VFlxCoh6yjQYEyZwN5kCHyD5pBPwVW6Ytgu9idufOrJxcqx5lwuwyTZElSwZIkuJ
+         46c7UazAxPSUdJDxntttLNofAfsu6ct8H+WS//2bVLEFL9v/Qsc8plqm/5Nu4+KfPEo3
+         JiYGSHgpK88RKfCV+P/9Q+ETgG8E5J7bX0RMKKK8NPvahnCQ4fZSG4lOSCdbVmEO7tJP
+         ATqpPyTE/C+SlNLtYWhuMIhZaxEfZwNUPMxIJALvF/Q+Q6TKRkzi4Ec94sc2yOp6JTNM
+         +m/y+GFOBcK0Ot/FLl/iHa27UyXVl0i6+ZDxyNGcBTqUez7GdfhLLeaniffg1fQrR02e
+         MjHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=U8I+9Z/SzReDIbFo3xnWDAd13nvsAbuR5scsRwJQ9D4=;
+        fh=VugsNzCVK75kOfveyz3M3JWn6zdMO2mX/DUZp/IgDII=;
+        b=UE6c+7GA7t9lYdWmZcGgoBTu/xFKT2Hj6muoNlEgHGXgu8jckP+TmhKQuBDVewMnlA
+         jsx+FSIgpoD0Mqig5wrDhJWXzwSfDl7AxElsYC9pHC3AEat8HTuAqr/t9t01bGZSr+Vv
+         A84KXlh7CDxve64AFf64iKAdWVseSWrOaV7uEv05sZ+gXcQgbQJyNTBNaIP+glMBa6vq
+         BddA9jLb+kbE8SBjgOX4MTJEcb2mA1ByRizSR/g7Uuxnv6tvygYbH9c98IoJOlU3oGQ6
+         0dIe7QMgq0LwxJDcPfy0Ec1uxrb/FKqUHANEKecjP06i3t0OZNGq8xStuS9kX6GX23NH
+         hOeA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1767974174; x=1768578974; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=U8I+9Z/SzReDIbFo3xnWDAd13nvsAbuR5scsRwJQ9D4=;
+        b=eVS4yaeTc5JQvQVqOKm3bRiKA6HKogaezxJ6RqCOlqDH4TWZxgDTmLmYedBiqjCCck
+         7ga4mH9HuvQ24Y5tOw2+OPMEXaxF7Vp0pTK1g78bi+avv/cz8nZ7LSExheYONvXSIUwb
+         DBEBmtk7KqMC5DoTU2j6TQHv4osKho3jHTnLnhkdiVe8FtrRA9jaBagd44vCrVWIJRa5
+         dfhF0krNmt+hDBcV3c7OkOs/exWCbFhU8B7RP5xaYgxc19Fr1P7OCvrstN2YP1o4Hubh
+         EfVZLW8LoNBPfS/fycMs4O43PJEkHUSrBlhsVcsU39zwEoP9j5aQWFATcLPR4uQUpWV1
+         1aNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767974174; x=1768578974;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=U8I+9Z/SzReDIbFo3xnWDAd13nvsAbuR5scsRwJQ9D4=;
+        b=X4+qmzACd0XeyC6rf4lu77t3GhXmO2DdVeO/Hh3U3HkRV6BLnHUAZDPrj00XdX7fr9
+         S+ootYetbc0k94tqtSfMJBuZ4wskJTpTk9NAay6exz/IXEL4pZCwQyYeESIcSE5ZZvjV
+         MzBxSqdTUM+gFNSIGpmn7I7TmCIYFIpKOdjx5pzcncalnNHJNUqsfsWTSoGsNGBVAYBW
+         TKkO6JNvuyFQNzVtolcZGOLBzzbHkP9NpI1ZIhGxBEuqzk0XFDsOsguV+YWzITFfBR5Q
+         NYP6ptajCJBrC30oD3PIwXkyIAqgUODOa8TyBEaccb0vGtmGZ5jYa3a33dleBYui7kjN
+         ox3w==
+X-Forwarded-Encrypted: i=1; AJvYcCUu8gS6DOIE7qaDCSxATj/k9SXGBaVtThIfJM9Mt8z4hUHrRmI0cpomj7WsHfEuGbQejGdKvaYTnnYkXCGI5VpB@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHt1L8F9B6ChHJ81c0GM3+S6eMADRolhFqOdHxmiZ2FlQKU/Rk
+	64sgxvLFQarw7uVzigApxFb5JlMCSbWk9omaIE+sMN12xh2KnrZIze90ArwcQEq8coEqMmuHigq
+	BCJ/m1M9Mx+Voayv7yMISYjJ0isyU69WZJShunuC2
+X-Gm-Gg: AY/fxX6RK9UUFW3iKAd25c0P1a7S5Ir8cgyPLZ7UUJ1y4R4VQVubz/FhaJS4hJhjBIt
+	7adA60lSuZIm9ypBwbVE/bnwJWFWtOo4+hPejaeqZGjdWzqyQTuGsV3WX6M1HN2ngajkuoScJZY
+	SqML8Vo2/saKaDvZ4LHEqPk2s1bfG/UU1xLexs5IAcG6/7L37hR+uc9x8UT/HMAAVCqiOu8VjJH
+	yrm8FnaWR7sHk80i4oVMzxknpYv1Mm2pnI8BENVFXQjva3jnr62pZ1554SenIgJZkPWhPT5
+X-Received: by 2002:a05:622a:206:b0:4ff:a96a:90fc with SMTP id
+ d75a77b69052e-4ffca10c9e7mr11956941cf.0.1767974173794; Fri, 09 Jan 2026
+ 07:56:13 -0800 (PST)
 MIME-Version: 1.0
-Subject: Re: [PATCH] usb: dwc3: Always deassert xilinx resets
-To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: "open list:DESIGNWARE USB3 DRD IP DRIVER" <linux-usb@vger.kernel.org>,
- Neal Frager <neal.frager@amd.com>, Michal Simek <michal.simek@amd.com>,
- open list <linux-kernel@vger.kernel.org>,
- "moderated list:ARM/ZYNQ ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-References: <20260106171018.501612-1-sean.anderson@linux.dev>
- <20260109004901.ygts6mmcxy4vs3y2@synopsys.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <20260109004901.ygts6mmcxy4vs3y2@synopsys.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org> <20251223-kvm-arm64-sme-v9-11-8be3867cb883@kernel.org>
+In-Reply-To: <20251223-kvm-arm64-sme-v9-11-8be3867cb883@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Fri, 9 Jan 2026 15:55:36 +0000
+X-Gm-Features: AZwV_Qjl7-V6jtqPJiWFE-pNSysqHN43mjzymjYZ55x2bRwN0FRgaHUdOP2UPAs
+Message-ID: <CA+EHjTznZj94NFVQGG8Bi0=kkQUMYA0omdGS++83jwLj-CDRNQ@mail.gmail.com>
+Subject: Re: [PATCH v9 11/30] KVM: arm64: Define internal features for SME
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, Peter Maydell <peter.maydell@linaro.org>, 
+	Eric Auger <eric.auger@redhat.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_075227_829705_B4792EBD 
-X-CRM114-Status: GOOD (  25.19  )
+X-CRM114-CacheID: sfid-20260109_075616_750720_1997BB62 
+X-CRM114-Status: GOOD (  21.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,137 +120,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/8/26 19:49, Thinh Nguyen wrote:
-> On Tue, Jan 06, 2026, Sean Anderson wrote:
->> If we don't have a usb3 phy we don't need to assert the core resets.
->> Deassert them even if we didn't assert them to support booting when the
->> bootloader never released the core from reset.
->> 
-> 
->> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
->> ---
->> 
->>  drivers/usb/dwc3/dwc3-xilinx.c | 67 ++++++++++++++++------------------
->>  1 file changed, 32 insertions(+), 35 deletions(-)
->> 
-> 
-> This sounds like a fix. Does it need to be Cc Stable and backported?
+Hi Mark,
 
-No, it's not a fix since the bootloaders currently in use on this
-platform always initialize the serdes. But I want to add support for
-skipping this initialization and this patch is necessary for that.
+On Tue, 23 Dec 2025 at 01:22, Mark Brown <broonie@kernel.org> wrote:
+>
+> In order to simplify interdependencies in the rest of the series define
+> the feature detection for SME and it's subfeatures.  Due to the need for
 
---Sean
+nit: it's -> its
 
-> Regardless,
-> 
-> Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-> 
-> Thanks,
-> Thinh
-> 
->> diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
->> index 0a8c47876ff9..f41b0da5e89d 100644
->> --- a/drivers/usb/dwc3/dwc3-xilinx.c
->> +++ b/drivers/usb/dwc3/dwc3-xilinx.c
->> @@ -132,21 +132,6 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
->>  		goto err;
->>  	}
->>  
->> -	/*
->> -	 * The following core resets are not required unless a USB3 PHY
->> -	 * is used, and the subsequent register settings are not required
->> -	 * unless a core reset is performed (they should be set properly
->> -	 * by the first-stage boot loader, but may be reverted by a core
->> -	 * reset). They may also break the configuration if USB3 is actually
->> -	 * in use but the usb3-phy entry is missing from the device tree.
->> -	 * Therefore, skip these operations in this case.
->> -	 */
->> -	if (!priv_data->usb3_phy) {
->> -		/* Deselect the PIPE Clock Select bit in FPD PIPE Clock register */
->> -		writel(PIPE_CLK_DESELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
->> -		goto skip_usb3_phy;
->> -	}
->> -
->>  	crst = devm_reset_control_get_exclusive(dev, "usb_crst");
->>  	if (IS_ERR(crst)) {
->>  		ret = PTR_ERR(crst);
->> @@ -171,22 +156,31 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
->>  		goto err;
->>  	}
->>  
->> -	ret = reset_control_assert(crst);
->> -	if (ret < 0) {
->> -		dev_err(dev, "Failed to assert core reset\n");
->> -		goto err;
->> -	}
->> +	/*
->> +	 * Asserting the core resets is not required unless a USB3 PHY is used.
->> +	 * They may also break the configuration if USB3 is actually in use but
->> +	 * the usb3-phy entry is missing from the device tree. Therefore, skip
->> +	 * a full reset cycle and just deassert the resets if the phy is
->> +	 * absent.
->> +	 */
->> +	if (priv_data->usb3_phy) {
->> +		ret = reset_control_assert(crst);
->> +		if (ret < 0) {
->> +			dev_err(dev, "Failed to assert core reset\n");
->> +			goto err;
->> +		}
->>  
->> -	ret = reset_control_assert(hibrst);
->> -	if (ret < 0) {
->> -		dev_err(dev, "Failed to assert hibernation reset\n");
->> -		goto err;
->> -	}
->> +		ret = reset_control_assert(hibrst);
->> +		if (ret < 0) {
->> +			dev_err(dev, "Failed to assert hibernation reset\n");
->> +			goto err;
->> +		}
->>  
->> -	ret = reset_control_assert(apbrst);
->> -	if (ret < 0) {
->> -		dev_err(dev, "Failed to assert APB reset\n");
->> -		goto err;
->> +		ret = reset_control_assert(apbrst);
->> +		if (ret < 0) {
->> +			dev_err(dev, "Failed to assert APB reset\n");
->> +			goto err;
->> +		}
->>  	}
->>  
->>  	ret = phy_init(priv_data->usb3_phy);
->> @@ -201,11 +195,15 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
->>  		goto err;
->>  	}
->>  
->> -	/* Set PIPE Power Present signal in FPD Power Present Register*/
->> -	writel(FPD_POWER_PRSNT_OPTION, priv_data->regs + XLNX_USB_FPD_POWER_PRSNT);
->> -
->> -	/* Set the PIPE Clock Select bit in FPD PIPE Clock register */
->> -	writel(PIPE_CLK_SELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
->> +	if (priv_data->usb3_phy) {
->> +		/* Set PIPE Power Present signal in FPD Power Present Register*/
->> +		writel(FPD_POWER_PRSNT_OPTION, priv_data->regs + XLNX_USB_FPD_POWER_PRSNT);
->> +		/* Set the PIPE Clock Select bit in FPD PIPE Clock register */
->> +		writel(PIPE_CLK_SELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
->> +	} else {
->> +		/* Deselect the PIPE Clock Select bit in FPD PIPE Clock register */
->> +		writel(PIPE_CLK_DESELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
->> +	}
->>  
->>  	ret = reset_control_deassert(crst);
->>  	if (ret < 0) {
->> @@ -225,7 +223,6 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
->>  		goto err;
->>  	}
->>  
->> -skip_usb3_phy:
->>  	/* ulpi reset via gpio-modepin or gpio-framework driver */
->>  	reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
->>  	if (IS_ERR(reset_gpio)) {
->> -- 
->> 2.35.1.1320.gc452695387.dirty
->> 
+Reviewed-by: Fuad Tabba <tabba@google.com>
+
+Cheers,
+/fuad
+
+
+
+> vector length configuration we define a flag for SME like for SVE.  We
+> also have two subfeatures which add architectural state, FA64 and SME2,
+> which are configured via the normal ID register scheme.
+>
+> Also provide helpers which check if the vCPU is in streaming mode or has
+> ZA enabled.
+>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+
+
+> ---
+>  arch/arm64/include/asm/kvm_host.h | 35 ++++++++++++++++++++++++++++++++++-
+>  arch/arm64/kvm/sys_regs.c         |  2 +-
+>  2 files changed, 35 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 0f3d26467bf0..0816180dc551 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -353,6 +353,8 @@ struct kvm_arch {
+>  #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS             10
+>         /* Unhandled SEAs are taken to userspace */
+>  #define KVM_ARCH_FLAG_EXIT_SEA                         11
+> +       /* SME exposed to guest */
+> +#define KVM_ARCH_FLAG_GUEST_HAS_SME                    12
+>         unsigned long flags;
+>
+>         /* VM-wide vCPU feature set */
+> @@ -1062,7 +1064,16 @@ struct kvm_vcpu_arch {
+>  #define vcpu_has_sve(vcpu)     kvm_has_sve((vcpu)->kvm)
+>  #endif
+>
+> -#define vcpu_has_vec(vcpu) vcpu_has_sve(vcpu)
+> +#define kvm_has_sme(kvm)       (system_supports_sme() &&               \
+> +                                test_bit(KVM_ARCH_FLAG_GUEST_HAS_SME, &(kvm)->arch.flags))
+> +
+> +#ifdef __KVM_NVHE_HYPERVISOR__
+> +#define vcpu_has_sme(vcpu)     kvm_has_sme(kern_hyp_va((vcpu)->kvm))
+> +#else
+> +#define vcpu_has_sme(vcpu)     kvm_has_sme((vcpu)->kvm)
+> +#endif
+> +
+> +#define vcpu_has_vec(vcpu) (vcpu_has_sve(vcpu) || vcpu_has_sme(vcpu))
+>
+>  #ifdef CONFIG_ARM64_PTR_AUTH
+>  #define vcpu_has_ptrauth(vcpu)                                         \
+> @@ -1602,6 +1613,28 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val);
+>  #define kvm_has_sctlr2(k)                              \
+>         (kvm_has_feat((k), ID_AA64MMFR3_EL1, SCTLRX, IMP))
+>
+> +#define kvm_has_fa64(k)                                        \
+> +       (system_supports_fa64() &&                      \
+> +        kvm_has_feat((k), ID_AA64SMFR0_EL1, FA64, IMP))
+> +
+> +#define kvm_has_sme2(k)                                        \
+> +       (system_supports_sme2() &&                      \
+> +        kvm_has_feat((k), ID_AA64PFR1_EL1, SME, SME2))
+> +
+> +#ifdef __KVM_NVHE_HYPERVISOR__
+> +#define vcpu_has_sme2(vcpu)    kvm_has_sme2(kern_hyp_va((vcpu)->kvm))
+> +#define vcpu_has_fa64(vcpu)    kvm_has_fa64(kern_hyp_va((vcpu)->kvm))
+> +#else
+> +#define vcpu_has_sme2(vcpu)    kvm_has_sme2((vcpu)->kvm)
+> +#define vcpu_has_fa64(vcpu)    kvm_has_fa64((vcpu)->kvm)
+> +#endif
+> +
+> +#define vcpu_in_streaming_mode(vcpu) \
+> +       (__vcpu_sys_reg(vcpu, SVCR) & SVCR_SM_MASK)
+> +
+> +#define vcpu_za_enabled(vcpu) \
+> +       (__vcpu_sys_reg(vcpu, SVCR) & SVCR_ZA_MASK)
+> +
+>  static inline bool kvm_arch_has_irq_bypass(void)
+>  {
+>         return true;
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index c8fd7c6a12a1..3576e69468db 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1945,7 +1945,7 @@ static unsigned int sve_visibility(const struct kvm_vcpu *vcpu,
+>  static unsigned int sme_visibility(const struct kvm_vcpu *vcpu,
+>                                    const struct sys_reg_desc *rd)
+>  {
+> -       if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, SME, IMP))
+> +       if (vcpu_has_sme(vcpu))
+>                 return 0;
+>
+>         return REG_HIDDEN;
+>
+> --
+> 2.47.3
+>
 
