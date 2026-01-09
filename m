@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC91D232ED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 08:09:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 018E9D232EE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 08:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=etMihBlktMzUQlC8QrPBAl9qIN4M/8mt0oZN8dyRvWo=; b=0Zryr+bE+Zdrt2NHxrkU8ZWZkA
-	hV7tg7XwU8Zzqv21VlBEm+X43O+/ZctwB4jKFETYewLEqxSHzFFQK4Pl6pONs9V1JLoTANP5R8KH/
-	eLjOAJ0OGMwRpmSegoqnKdSFnnfpHC02MLzuCNonkgdwqW3N31oUZ2o46DPm0sLdSJA1xex5IENDs
-	HUNySlrYPuGkZbM2nYY4usmHKjbnkGzr2tZOb8TRA6Mj5mhmjj440WUcJCoS5DvrJEtOtnCqY5W3r
-	0fLOwFQFQgASQwvu9Zw3FXnaurDNJVxpQTx8J/7pjHzGcK7WbV2FX3uV00zZovFToySdZRO3Y2uwl
-	xTHeA7lQ==;
+	bh=FAMQsqIBX9VApzAoB/iyMiZBZ9Ii7tTy/fW2jyRfgnA=; b=Y2BJXoZw3dZr/gTpoY+HtbN9Jh
+	zTuNDxRcUQwJc/4RqrGm2RwlKmemM/tvxJcRN5inuxLF9p8xh9KNRMUyEvYNg5YLz1eaHDBukTn3f
+	qeZSN29ovstd8KDl9vB45AeNnFfJYA7ejUm3RqxVUtOBa9+kNAO/Z/qp29W77Yw4jnxtf8Xa+Ed3G
+	GHe3hMYfppCcc5Ki64ZWhK64dmEJkSRbkXJfmsbW3oC8tfTdvICbOdGIr1TyKL5scqpeswK3Ajkd6
+	n6zqLl333wv7Ihl4t3AtCo4abW8YderLjPhUh84ESRKx1B3XBaLoyD5qVZzdwuZGhqtEuabk77q/G
+	Kwy8pvww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve7Z2-00000001qPS-1jH5;
-	Fri, 09 Jan 2026 08:09:44 +0000
-Received: from azure-sdnproxy.icoremail.net ([13.75.44.102])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve7Z0-00000001qOQ-04Cm
+	id 1ve7ZX-00000001qZ5-3F57;
+	Fri, 09 Jan 2026 08:10:16 +0000
+Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ve7ZT-00000001qXg-3csX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 08:09:43 +0000
-Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
-	by app2 (Coremail) with SMTP id TQJkCgB3uay7t2BpiWySAA--.23182S2;
-	Fri, 09 Jan 2026 16:09:32 +0800 (CST)
-From: lizhi2@eswincomputing.com
-To: devicetree@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: ningyu@eswincomputing.com,
-	linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com,
-	weishangjuan@eswincomputing.com,
-	Zhi Li <lizhi2@eswincomputing.com>
-Subject: [PATCH v1 2/2] net: stmmac: eic7700: enable clocks before syscon access and correct RX sampling timing
-Date: Fri,  9 Jan 2026 16:09:26 +0800
-Message-ID: <20260109080929.1308-1-lizhi2@eswincomputing.com>
-X-Mailer: git-send-email 2.52.0.windows.1
-In-Reply-To: <20260109080601.1262-1-lizhi2@eswincomputing.com>
-References: <20260109080601.1262-1-lizhi2@eswincomputing.com>
+	Fri, 09 Jan 2026 08:10:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1767946210; bh=t/E7bKZ+u/vdPJTBp/1yUrD65ZcPdr1jOsuXNAVd5uY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=khnjaE9eSEq0AVmiTfWRsMEERo9YbJYPVsBBdp/zEizvxFQWhPWK4i3wv01L87T+F
+	 KDO2h7mRaoy2NMaz8ilOkgy4PiKwcw+gaifEjvbmWcN1yqfsLjO1l9b9RFQx+qpKJK
+	 O3WFUrx0wuzS8lAi1vSyy9cDee4+Hu4t0tbdFgKq0H8GRY+uw/XGPyWAf1+drdi3Fi
+	 gwHNjpl7+sl8LQDyRtdE9e3Fd86Bhfkm0ePLAJZetxOScEf+H3/qIEFptXhOoTAazu
+	 60HUbzEHg7XpLNq84lev0zipzmhOWhL1jlwmBPD9IJyq/pFh2N/Q/EU/MLkHAWNI0z
+	 iubSFF0m2mV6A==
+Received: from mail.mleia.com (localhost [127.0.0.1])
+	by mail.mleia.com (Postfix) with ESMTP id 0D62D3EB34F;
+	Fri,  9 Jan 2026 08:10:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1767946209; bh=t/E7bKZ+u/vdPJTBp/1yUrD65ZcPdr1jOsuXNAVd5uY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FWIm4lCPRFPUrO32qC58RZ105QCWyu7VBOPCx7+xwuV8HDPQTc2HCFLrRYCyBRrbe
+	 cnzV3tZF/VSt+j0SanatHNMqPJBnhyfxZE0pSlE6eb9zqEguOG5hFVCFjC6AN4gXkS
+	 i2rhnhlDFM2Cm5aKXvr4e3rj6pMqw93x5JdM1WXyLVNrs6BBLgbekwPDhwrhPGsMws
+	 v981/Fc+fPNwvyxD71PNp8PRMCkRFEFS6sm7gFChaMz2WSfBH/lsChNM/6Oov57b0W
+	 Hlxr5/WOdre1KtmG1OQFdGglbz1Jnq2OQY8Rwq2JYuZznBRqEyLcLhYoiRZXEdW08O
+	 QBbgrISzIweyw==
+Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi [91.159.24.186])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.mleia.com (Postfix) with ESMTPSA id 8D6A73EAC0F;
+	Fri,  9 Jan 2026 08:10:09 +0000 (UTC)
+Message-ID: <4e69222b-8e26-44d8-8e09-379e7f4c7d55@mleia.com>
+Date: Fri, 9 Jan 2026 10:10:08 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: TQJkCgB3uay7t2BpiWySAA--.23182S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxKw4kKr45AF47XF15tFy7ZFb_yoWfWF17pF
-	WkCFyYqr1jqF1fG3yvyF40q34Fkw47WF1fCryftFn2yF9xtrs8Xayqya4akFy5Gry7Za13
-	J3yUJFyxu3W29rJanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBm14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
-	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
-	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
-	1lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1U
-	MIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I
-	8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRNSdgDUUUU
-X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 13/27] clk: nxp: lpc32xx: convert from
+ divider_round_rate() to divider_determine_rate()
+To: Brian Masney <bmasney@redhat.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+ linux-arm-kernel@lists.infradead.org
+References: <20260108-clk-divider-round-rate-v1-0-535a3ed73bf3@redhat.com>
+ <20260108-clk-divider-round-rate-v1-13-535a3ed73bf3@redhat.com>
+From: Vladimir Zapolskiy <vz@mleia.com>
+In-Reply-To: <20260108-clk-divider-round-rate-v1-13-535a3ed73bf3@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
+X-CRM114-CacheID: sfid-20260109_081010_069918_D0411628 
+X-CRM114-Status: GOOD (  17.62  )
+/bin/ln: failed to access 'reaver_cache/texts/20260109_081010_069918_D0411628': No such file or directory
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_000942_211735_3AED5A27 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20260109_081010_069918_D0411628 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,255 +92,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhi Li <lizhi2@eswincomputing.com>
+On 1/8/26 23:16, Brian Masney wrote:
+> The divider_round_rate() function is now deprecated, so let's migrate
+> to divider_determine_rate() instead so that this deprecated API can be
+> removed.
+> 
+> Note that when the main function itself was migrated to use
+> determine_rate, this was mistakenly converted to:
+> 
+>      req->rate = divider_round_rate(...)
+> 
+> This is invalid in the case when an error occurs since it can set the
+> rate to a negative value.
+> 
+> Fixes: 0879768df240 ("clk: nxp: lpc32xx: convert from round_rate() to determine_rate()")
+> Signed-off-by: Brian Masney <bmasney@redhat.com>
+> 
+> ---
+> To: Vladimir Zapolskiy <vz@mleia.com>
+> To: Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> ---
+>   drivers/clk/nxp/clk-lpc32xx.c | 6 ++----
+>   1 file changed, 2 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/clk/nxp/clk-lpc32xx.c b/drivers/clk/nxp/clk-lpc32xx.c
+> index 23f980cf6a2b59ee1c93a2519fe5188d251fa12f..ae2fa5341a2e4fbe5f2d3ef9a6cf9e9d75180d59 100644
+> --- a/drivers/clk/nxp/clk-lpc32xx.c
+> +++ b/drivers/clk/nxp/clk-lpc32xx.c
+> @@ -975,10 +975,8 @@ static int clk_divider_determine_rate(struct clk_hw *hw,
+>   		return 0;
+>   	}
+>   
+> -	req->rate = divider_round_rate(hw, req->rate, &req->best_parent_rate,
+> -				       divider->table, divider->width, divider->flags);
+> -
+> -	return 0;
+> +	return divider_determine_rate(hw, req, divider->table, divider->width,
+> +				      divider->flags);
+>   }
+>   
+>   static int clk_divider_set_rate(struct clk_hw *hw, unsigned long rate,
+> 
 
-The second Ethernet controller (eth1) on the Eswin EIC7700 SoC may fail
-to sample RX data correctly at Gigabit speed due to EIC7700-specific
-receive clock to data skew at the MAC input.
+Tested-by: Vladimir Zapolskiy <vz@mleia.com>
+Reviewed-by: Vladimir Zapolskiy <vz@mleia.com>
 
-The existing internal delay configuration does not provide sufficient
-adjustment range to compensate for this condition. Update the EIC7700
-DWMAC glue driver to optionally apply EIC7700-specific clock sampling
-inversion for Gigabit operation.
-
-TXD and RXD delay registers are explicitly cleared during initialization
-to override any residual configuration left by the bootloader. All HSP
-CSR register accesses are performed only after the required clocks are
-enabled.
-
-Fixes: ea77dbbdbc4e ("net: stmmac: add Eswin EIC7700 glue driver")
-Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
----
- .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 132 +++++++++++++-----
- 1 file changed, 97 insertions(+), 35 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-index bcb8e000e720..68c476612af9 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-@@ -28,20 +28,34 @@
- 
- /*
-  * TX/RX Clock Delay Bit Masks:
-- * - TX Delay: bits [14:8] — TX_CLK delay (unit: 0.1ns per bit)
-- * - RX Delay: bits [30:24] — RX_CLK delay (unit: 0.1ns per bit)
-+ * - TX Delay: bits [14:8] — TX_CLK delay (unit: 0.02ns per bit)
-+ * - TX Invert : bit  [15]
-+ * - RX Delay: bits [30:24] — RX_CLK delay (unit: 0.02ns per bit)
-+ * - RX Invert : bit  [31]
-  */
- #define EIC7700_ETH_TX_ADJ_DELAY	GENMASK(14, 8)
- #define EIC7700_ETH_RX_ADJ_DELAY	GENMASK(30, 24)
-+#define EIC7700_ETH_TX_INV_DELAY	BIT(15)
-+#define EIC7700_ETH_RX_INV_DELAY	BIT(31)
- 
--#define EIC7700_MAX_DELAY_UNIT 0x7F
-+#define EIC7700_MAX_DELAY_STEPS 0x7F
- 
- static const char * const eic7700_clk_names[] = {
- 	"tx", "axi", "cfg",
- };
- 
- struct eic7700_qos_priv {
-+	struct device *dev;
- 	struct plat_stmmacenet_data *plat_dat;
-+	struct regmap *eic7700_hsp_regmap;
-+	u32 eth_axi_lp_ctrl_offset;
-+	u32 eth_phy_ctrl_offset;
-+	u32 eth_txd_offset;
-+	u32 eth_clk_offset;
-+	u32 eth_rxd_offset;
-+	u32 eth_clk_dly_param;
-+	bool eth_tx_clk_inv;
-+	bool eth_rx_clk_inv;
- };
- 
- static int eic7700_clks_config(void *priv, bool enabled)
-@@ -61,8 +75,27 @@ static int eic7700_clks_config(void *priv, bool enabled)
- static int eic7700_dwmac_init(struct device *dev, void *priv)
- {
- 	struct eic7700_qos_priv *dwc = priv;
-+	u32 eth_phy_ctrl_regset;
-+	int ret = 0;
- 
--	return eic7700_clks_config(dwc, true);
-+	ret = eic7700_clks_config(dwc, true);
-+	if (ret)
-+		return ret;
-+
-+	regmap_read(dwc->eic7700_hsp_regmap, dwc->eth_phy_ctrl_offset,
-+		    &eth_phy_ctrl_regset);
-+	eth_phy_ctrl_regset |=
-+		(EIC7700_ETH_TX_CLK_SEL | EIC7700_ETH_PHY_INTF_SELI);
-+	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_phy_ctrl_offset,
-+		     eth_phy_ctrl_regset);
-+
-+	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_axi_lp_ctrl_offset,
-+		     EIC7700_ETH_CSYSREQ_VAL);
-+
-+	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_txd_offset, 0);
-+	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_rxd_offset, 0);
-+
-+	return ret;
- }
- 
- static void eic7700_dwmac_exit(struct device *dev, void *priv)
-@@ -88,17 +121,34 @@ static int eic7700_dwmac_resume(struct device *dev, void *priv)
- 	return ret;
- }
- 
-+static void eic7700_dwmac_fix_speed(void *priv, int speed, unsigned int mode)
-+{
-+	struct eic7700_qos_priv *dwc = (struct eic7700_qos_priv *)priv;
-+	u32 dly_param = dwc->eth_clk_dly_param;
-+
-+	switch (speed) {
-+	case SPEED_1000:
-+		if (dwc->eth_tx_clk_inv)
-+			dly_param |= EIC7700_ETH_TX_INV_DELAY;
-+		if (dwc->eth_rx_clk_inv)
-+			dly_param |= EIC7700_ETH_RX_INV_DELAY;
-+		break;
-+	case SPEED_100:
-+	case SPEED_10:
-+		break;
-+	default:
-+		dev_err(dwc->dev, "invalid speed %u\n", speed);
-+		break;
-+	}
-+
-+	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_clk_offset, dly_param);
-+}
-+
- static int eic7700_dwmac_probe(struct platform_device *pdev)
- {
- 	struct plat_stmmacenet_data *plat_dat;
- 	struct stmmac_resources stmmac_res;
- 	struct eic7700_qos_priv *dwc_priv;
--	struct regmap *eic7700_hsp_regmap;
--	u32 eth_axi_lp_ctrl_offset;
--	u32 eth_phy_ctrl_offset;
--	u32 eth_phy_ctrl_regset;
--	u32 eth_rxd_dly_offset;
--	u32 eth_dly_param = 0;
- 	u32 delay_ps;
- 	int i, ret;
- 
-@@ -116,13 +166,16 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
- 	if (!dwc_priv)
- 		return -ENOMEM;
- 
-+	dwc_priv->dev = &pdev->dev;
-+
- 	/* Read rx-internal-delay-ps and update rx_clk delay */
- 	if (!of_property_read_u32(pdev->dev.of_node,
- 				  "rx-internal-delay-ps", &delay_ps)) {
--		u32 val = min(delay_ps / 100, EIC7700_MAX_DELAY_UNIT);
-+		u32 val = min(delay_ps / 20, EIC7700_MAX_DELAY_STEPS);
- 
--		eth_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
--		eth_dly_param |= FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
-+		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
-+		dwc_priv->eth_clk_dly_param |=
-+				 FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
- 	} else {
- 		return dev_err_probe(&pdev->dev, -EINVAL,
- 			"missing required property rx-internal-delay-ps\n");
-@@ -131,55 +184,63 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
- 	/* Read tx-internal-delay-ps and update tx_clk delay */
- 	if (!of_property_read_u32(pdev->dev.of_node,
- 				  "tx-internal-delay-ps", &delay_ps)) {
--		u32 val = min(delay_ps / 100, EIC7700_MAX_DELAY_UNIT);
-+		u32 val = min(delay_ps / 20, EIC7700_MAX_DELAY_STEPS);
- 
--		eth_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
--		eth_dly_param |= FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
-+		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
-+		dwc_priv->eth_clk_dly_param |=
-+				 FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
- 	} else {
- 		return dev_err_probe(&pdev->dev, -EINVAL,
- 			"missing required property tx-internal-delay-ps\n");
- 	}
- 
--	eic7700_hsp_regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
--							     "eswin,hsp-sp-csr");
--	if (IS_ERR(eic7700_hsp_regmap))
-+	dwc_priv->eth_tx_clk_inv =
-+	    of_property_read_bool(pdev->dev.of_node, "eswin,tx-clk-invert");
-+	dwc_priv->eth_rx_clk_inv =
-+	    of_property_read_bool(pdev->dev.of_node, "eswin,rx-clk-invert");
-+
-+	dwc_priv->eic7700_hsp_regmap =
-+			syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
-+							"eswin,hsp-sp-csr");
-+	if (IS_ERR(dwc_priv->eic7700_hsp_regmap))
- 		return dev_err_probe(&pdev->dev,
--				PTR_ERR(eic7700_hsp_regmap),
-+				PTR_ERR(dwc_priv->eic7700_hsp_regmap),
- 				"Failed to get hsp-sp-csr regmap\n");
- 
- 	ret = of_property_read_u32_index(pdev->dev.of_node,
- 					 "eswin,hsp-sp-csr",
--					 1, &eth_phy_ctrl_offset);
-+					 1, &dwc_priv->eth_phy_ctrl_offset);
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret,
- 				     "can't get eth_phy_ctrl_offset\n");
- 
--	regmap_read(eic7700_hsp_regmap, eth_phy_ctrl_offset,
--		    &eth_phy_ctrl_regset);
--	eth_phy_ctrl_regset |=
--		(EIC7700_ETH_TX_CLK_SEL | EIC7700_ETH_PHY_INTF_SELI);
--	regmap_write(eic7700_hsp_regmap, eth_phy_ctrl_offset,
--		     eth_phy_ctrl_regset);
--
- 	ret = of_property_read_u32_index(pdev->dev.of_node,
- 					 "eswin,hsp-sp-csr",
--					 2, &eth_axi_lp_ctrl_offset);
-+					 2, &dwc_priv->eth_axi_lp_ctrl_offset);
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret,
- 				     "can't get eth_axi_lp_ctrl_offset\n");
- 
--	regmap_write(eic7700_hsp_regmap, eth_axi_lp_ctrl_offset,
--		     EIC7700_ETH_CSYSREQ_VAL);
-+	ret = of_property_read_u32_index(pdev->dev.of_node,
-+					 "eswin,hsp-sp-csr",
-+					 3, &dwc_priv->eth_txd_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "can't get eth_txd_offset\n");
- 
- 	ret = of_property_read_u32_index(pdev->dev.of_node,
- 					 "eswin,hsp-sp-csr",
--					 3, &eth_rxd_dly_offset);
-+					 4, &dwc_priv->eth_clk_offset);
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret,
--				     "can't get eth_rxd_dly_offset\n");
-+				     "can't get eth_clk_offset\n");
- 
--	regmap_write(eic7700_hsp_regmap, eth_rxd_dly_offset,
--		     eth_dly_param);
-+	ret = of_property_read_u32_index(pdev->dev.of_node,
-+					 "eswin,hsp-sp-csr",
-+					 5, &dwc_priv->eth_rxd_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "can't get eth_rxd_offset\n");
- 
- 	plat_dat->num_clks = ARRAY_SIZE(eic7700_clk_names);
- 	plat_dat->clks = devm_kcalloc(&pdev->dev,
-@@ -208,6 +269,7 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
- 	plat_dat->exit = eic7700_dwmac_exit;
- 	plat_dat->suspend = eic7700_dwmac_suspend;
- 	plat_dat->resume = eic7700_dwmac_resume;
-+	plat_dat->fix_mac_speed = eic7700_dwmac_fix_speed;
- 
- 	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
- }
 -- 
-2.25.1
-
+Best wishes,
+Vladimir
 
