@@ -4,67 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B9CD232CC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 02:59:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3705DD232D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 03:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=logLArlX7d3QTVIZ0ZdE29pdLadPZUhVFSbuJlr2Y/s=; b=FEQWuM6wb7GhUy0QrPoe3ssasY
-	uPMnk+R1QWc5k9rtKgb+j9wrfc2u35bsN8k0gpLZn3axjQIZGQ/+1WWQgnJKT64Brh+R+l0DE5LDF
-	nTUmchZWZ2wtQGSEdNZhgaaT7S0adBwpf/Ef0ED02eM44D1GRJOzFIkIqPHcwhFUM0ldtRcBhMxN3
-	ZNIh8LT4evZAP0+3nF8PbIib/G5Duwgvm05x7kyddF0FocNq8QVNMuDG3kZMRfvwWXTCPOcanIWdb
-	hPbMKuu2I9I/FmyxpI8+YmJz0T79P8jkk4Au44caoptMwVMBvFzhrMK2Gg/wPSVJ2TeE5vo5mBZUC
-	WtaVBqEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LmxEKtrfQkKqnx76SnQSAa3e6fmX7JxTGz4OyECBqu0=; b=4e5ProBOg0MG/GrlQ/AlUn0qTh
+	stLR4pYbquuJic9QrHrqJlZSZiwfGFTMKZhR1sBW2HDLk43xj2fwJdwGegA4uorGAO20QO0ep8jmS
+	jk+eb8KhDOcc0y3fDnrcz843vRfIxTklWlr0587bzU0Llizx5Lxbw84My9GCf9ra+CoSS18rEoRMS
+	waNzHw+/V8lFkTzE1DtEswBta8r893jaUMTv3QfpzbunWprpbukwJoFU/0tMA4kPcKSh2RaltippX
+	9IvopZZU8rDek76pmjGgOdgTk34rL5XbQBKP74cfa4jmlDPJduNZV6IyGglMimMvLYqYsuQo7bwWN
+	Tx1yfPsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve2iT-0000000191Q-1DRW;
-	Fri, 09 Jan 2026 02:59:09 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
+	id 1ve2lS-000000019CX-01N1;
+	Fri, 09 Jan 2026 03:02:14 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve2iP-00000001917-2IkW
+	id 1ve2lP-000000019Bk-31tF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 02:59:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=lo
-	gLArlX7d3QTVIZ0ZdE29pdLadPZUhVFSbuJlr2Y/s=; b=iCnBIoqhcnhRa/rtDw
-	TyKk2twWVarzdlxiQnfd54idZ+Hoxnom67WjqzzcM9+2NGGNUcgzu5DCm06t2A3Q
-	ew848I2ccSgBavI3aOz6wI8VivgGS0qiDZ1blerLq2siq7IXVsaEUxjcUE7ZvjXH
-	mv8V5M62tx6n7lwPsW3HgL4KU=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgDXrunfbmBpFNwMKw--.28S2;
-	Fri, 09 Jan 2026 10:58:42 +0800 (CST)
-From: Dongxu Sun <sundongxu1024@163.com>
-To: maz@kernel.org,
-	oupton@kernel.org
-Cc: joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	sundongxu1024@163.com
-Subject: [PATCH] KVM: arm64: remove unused vcpu_{clear,set}_wfx_traps()
-Date: Fri,  9 Jan 2026 10:58:37 +0800
-Message-ID: <20260109025837.754242-1-sundongxu1024@163.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 09 Jan 2026 03:02:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GE3tj5FVg83Z8lMeqNY+MrTq+7KaLv+8K7tAIYif6oU8n91VXe0gJk9X81sfX4cKhuCGSg+z1iAXzTg7F1MJpjgUnfDvOowQxx4x4gKXuxGx9RfOMdV2HNFawTBmlRvVFB1GpOnwiFW1+vcnPWHWnHzRXBHzLGp+DVlTUPTSr2eeOQb4Ub07XTXI4nvdQwbtiZxt3JTeeZ9BCa/ESZe+BoHWTqyXZX2ItWG+iPO/IXZUiPdTbVRz9gRXt6ccfemjAYQo+me8xX5Oi8I6Hx4LrpwhqirNrC6/ddxig8LpmCY8MwTMF3EuarzrV8IAKJleguWEnzDZsyzOL5UwGO1vcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LmxEKtrfQkKqnx76SnQSAa3e6fmX7JxTGz4OyECBqu0=;
+ b=UNqXdR900+Lb2vhjzONIrqXbqA4qrkqTQbPnxrBZIaiP5WH6Y9FMCwf1+I66CQ02QdXVfh8M5yd4YSlkI23JcaXDbfxBzgx31alggPs5LeC5BWOd7r3ENgl181gV300sULNKIgYyZGt+Fl+QNn3II+qAqIFdQMBoead1NKJeV6sSwvs7s+JKL8OhTsT/fMvkM3qrZ/MRcc6MKp0LiCsQgskPx5qQibgKp3ejsz8taAj1ioJGz02BIqsbPlWvVtf7jiWwQvj0SlvmnOea8B8qjLfcolwqndcTUoPb4OmWl8kFBE2UO/OujOvNImaJkt1rAXelaSjiGd5TOkHiuFSUXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LmxEKtrfQkKqnx76SnQSAa3e6fmX7JxTGz4OyECBqu0=;
+ b=WUI+1uUvBWE1V0SdSPoiv0kPYvkxbUn9vpL0S/rHmg5fJw6LsaD1zTz9nEoTKw/SSO/8f+uT2/oY9E2eMKfOetOwA4Ud8Dc96SkEs8dRVHonnT40wHGmaAeAPoe5yGlzXR+a5IlwfCBjkXydZ4roswrllko79Bq7ddMPsFOUE1Rn9rCP8213V65LnsBvHjjMvrXdj71A9kllOX0Izs7a2+rb80Ph1xe+sQMhucNdyhNj1v9FELHr1jgrbZ5RBU7pv5Hi+3Ep2tLbflI9l+rCBlxg9LzVLJepS9eevop49D9UQDu9GOjNava+LkXstppWkOtcO9BUqFikeKzn5/C9+Q==
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ (2603:10a6:800:293::14) by PA6PR04MB11950.eurprd04.prod.outlook.com
+ (2603:10a6:102:516::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.4; Fri, 9 Jan
+ 2026 03:02:05 +0000
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::c859:7e6d:9345:afe1]) by VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::c859:7e6d:9345:afe1%3]) with mapi id 15.20.9499.003; Fri, 9 Jan 2026
+ 03:02:05 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>, "o.rempel@pengutronix.de"
+	<o.rempel@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"andi.shyti@kernel.org" <andi.shyti@kernel.org>, "shawnguo@kernel.org"
+	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, "linux-i2c@vger.kernel.org"
+	<linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+CC: "bsp-development.geo@leica-geosystems.com"
+	<bsp-development.geo@leica-geosystems.com>
+Subject: [PATCH V1] i2c: imx: Fix SMBus block read hang on zero length
+Thread-Topic: [PATCH V1] i2c: imx: Fix SMBus block read hang on zero length
+Thread-Index: AQHcgRRVxgWquXA80EG2D4yuP1alcw==
+Date: Fri, 9 Jan 2026 03:02:04 +0000
+Message-ID: <VI2PR04MB11147E578957B70705DC14AEAE882A@VI2PR04MB11147.eurprd04.prod.outlook.com>
+References: <20251229081629.4081452-1-Qing-wu.Li@leica-geosystems.com.cn>
+In-Reply-To: <20251229081629.4081452-1-Qing-wu.Li@leica-geosystems.com.cn>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI2PR04MB11147:EE_|PA6PR04MB11950:EE_
+x-ms-office365-filtering-correlation-id: 92dc2842-77ff-4042-5387-08de4f2b77f3
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|1800799024|376014|38070700021|921020;
+x-microsoft-antispam-message-info: =?us-ascii?Q?a4+oOqttVHgne5ENxGPFoIYfp3C3N+VcChYZUwo4lEwpsJt8DQ07IMHAeDRa?=
+ =?us-ascii?Q?WHhtgpBUOF9raD8lAYWI683K//cxN9Vhg5ScnseOcXjgoGg/X4XUNOkpJNoU?=
+ =?us-ascii?Q?K11VCbmIAz4GMIeYcQtxMYsfDvl1UvA0119Y6BJ+ciCdgv0tc5dSksuvHiU0?=
+ =?us-ascii?Q?Oj1gX+1SCBNagLagfYTUrAvwsPP5fsr7qGjqBMxqNYlwMpYN/pK4SUyoUhSR?=
+ =?us-ascii?Q?EG6vjb+5Nf2BRZPztnSRV2Uf7j10FUg5XkHbSg1XtQc/k6tNJt29rfpMFZfr?=
+ =?us-ascii?Q?zR6ag74r7X2CjzxDNwMLX0xSJNrftWlTEkaep9OELVOSlYrguU0ruXguKfkD?=
+ =?us-ascii?Q?fFagy6BvZj1CkZhqhxsn/jucutXcGqlmBSpMCWR0ae901OZ+VbYurmSTSuAG?=
+ =?us-ascii?Q?429ITfrI4x9s0wYgkzRp3wuS2WzYy76OSgtSyQY2pUdO9qMgkyC0eae0OxGr?=
+ =?us-ascii?Q?D4uuxIkQsRaZ5HRf40F2rtt5XUjuZqIPRiqdmAnCG9Fu9VbeVuZNr7FD5hGi?=
+ =?us-ascii?Q?nbE4qYRxps6eWOEJ0cFbTPcWCYHQFUvjQW/0kuHWwF4BaSG/Tdtv0BfrgIfj?=
+ =?us-ascii?Q?3ATRxn8R73Os5AwnCCF+3O6AjS3DC3SZGbZR/FBJYQ0RCOmd7xRulv+Pybu/?=
+ =?us-ascii?Q?KK2fADRsVcbaHNf91yu1n47OaKWCV2rKMnwsxBjGKS+CjPFwtELkblccug1c?=
+ =?us-ascii?Q?3b23DN4U8fE6UuNPbQfxtq+h89nP0F5Cm5wDlm9MLZ2Zv2tzIlmZU0FYK2Ha?=
+ =?us-ascii?Q?5xVTbpve+opMDLcqh9u330xYq8KRuXWVKg27VmGzYyPheY/sRGx3QQpNhXHY?=
+ =?us-ascii?Q?SA06zSOakN/9hmdfk+ZGb1ux3HoChM9DcNfBD5CAJXLiR6hfqySVRoqMc3A6?=
+ =?us-ascii?Q?j/xOSoVKGEu0TvcffI92TlePniI3WIk7URt+62dln9K3EewSdiDVonot5DOE?=
+ =?us-ascii?Q?8cUIqplvz+X43x0vrULGzUAcbHev3obektNFHS5bz//DiqmXCFk9RPcRwQoB?=
+ =?us-ascii?Q?J96oe2eN0Uh4WN4M6gkv20uVwvyo9twObkToUePEoowZZUli6PrlWnKLqCpu?=
+ =?us-ascii?Q?/L4B1Pv30ZlTOXSakQk08XOQnhEPpCDwQ3rvjlfkMQ0l6PZo457/l9LIA6lt?=
+ =?us-ascii?Q?z6zM7tfmIUMI5imoFR5oNObOZwSuIn8pHVQ7LIM+/cd7SeTJ7QrqnNDgf4Me?=
+ =?us-ascii?Q?F8hW0uTEIre5/qBXnrAZGKm0ehTo9TN3lNpfLitKspVf/hJ/dTfFiHN2W0rF?=
+ =?us-ascii?Q?W4o6DRD1Lt592tlJ/vB46c2VNMNOBaZ9rwUEZfhCPXqj+WuNhQmgoplXufp9?=
+ =?us-ascii?Q?cTll2knaM0MXYEkhXvGm+1GdFqUndwXkcbhHJ+MXZQsFPlVnThRbKmHg6WSq?=
+ =?us-ascii?Q?KUfo3h1b59HvEqsE9yp9r6TCR3TF4znrG6U4tf3qAAp/leHl5o3ypyoxV5mn?=
+ =?us-ascii?Q?ornvMCwzJR3WyVZhT1I/Iao45BUJLncAbdyzm7fv9v/t5UImVzOw9EgIlB/S?=
+ =?us-ascii?Q?OYoD1n3po2HhTFJ52VTO7ZqFRnMQRZbPaw9fTmIoxBUJTNMpxrP4w+0mcQ?=
+ =?us-ascii?Q?=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(1800799024)(376014)(38070700021)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?/eHF8PxjNKSdyFfmvCfAFSMyQAqK6rlsQMzkjEU3AaUfnkahct/0rs6zMISz?=
+ =?us-ascii?Q?pqhgSyOfUzdstNrOia9nSSEbUPtXkOZ9Kj6pFvyB8TdHw3TmPw1D4pAZx/zw?=
+ =?us-ascii?Q?lrswvdvvx+EBdy55seTuTSpIjkDHgYSc7La7CdyIfx3yXbNHw0fU5ZDgXhge?=
+ =?us-ascii?Q?6pCoEvJY6Rv7pjxLnI2eeJBQ2IEQWsKIcSenD+1E2vIU1BNE+JsYooiLPpLz?=
+ =?us-ascii?Q?r+24yn/Sqdr/Ycpk/BZSv8z/Hk2/V+B8QWKS+bwnIHeGbZzJ5uNnjDJRZ5/P?=
+ =?us-ascii?Q?tLGm2HyundKSpTT1uhPFgzw5STGOAQ/7uhM7yDb0nK/8UN/luHLPOmEjKvVj?=
+ =?us-ascii?Q?vOZjqXY7GU0yPynJplKTBDv1vE5gNNhtzmrtMc9IecnCZsjqJBvNmsDYvEJG?=
+ =?us-ascii?Q?Hl7/WvfyIVDV9TPo9Jq8FulhCDDvk+wChR9fJ2+8vnoaSlbI1LVyhpegqvSP?=
+ =?us-ascii?Q?4jixhqNaRm8Wl3sh9QVNV0YQK1+4ZNalIS+4QLg+smjOUINWduPw+7tBGiIF?=
+ =?us-ascii?Q?ngByYhf1OEk2QOZ1iHLHJ8Hk6vrpZ2IKmq8nclApOtcVj0p3+uBS8XuP6aHj?=
+ =?us-ascii?Q?IzXKuf6M/NFPLab2psJcn9OFw6yUHqarX8bDcHo3gXN9FYBx84bsaNF2R3/J?=
+ =?us-ascii?Q?TirjsAP153MAJHppRfwr1KHYoPuj4CvrYiGWpLwe3AIujZkojc7/IrkTNxGW?=
+ =?us-ascii?Q?idDVfZjqB2grcBMd0J06751XjZRq+/SVKKRmr9G9OQPHjBmNu41GptShE5EI?=
+ =?us-ascii?Q?TH1qZ+Ol1iKUkFy+wuu5mEloqRob3kmlw3G4inzbhUuqekoBogCEScVjv52Z?=
+ =?us-ascii?Q?RaEQyNNGmFwQHli/oP8LxHh+zJZAYqRcm0P92lGX7MN9l6GW+9nxkD3N+DV5?=
+ =?us-ascii?Q?rPSB9k4pWXQyLdOVjot2Ryus4etfivxCNmwT0jzKUFeqOI73zajIVb7dnKHt?=
+ =?us-ascii?Q?BZOvrE4y0pXNjEdyo4IsUVrevjcJrXCrNmYWEZMsbxUuQWmRstOX0j59iUa5?=
+ =?us-ascii?Q?yqMjcwWvlMH8osuJrbQld9FhgfViIZWeqd2/ihR7iYuVB8eNBZWovLfRVWuZ?=
+ =?us-ascii?Q?yMeHColklJyqA9wSk7ZRZ/v6NiU43BCiAUPYYpfVlw18cM+rcWVNWfV0p0rO?=
+ =?us-ascii?Q?cuDPntkrjavgf2NUKbUhgCxkX7NUjvu1f/UY9B5bIzut29weRcOBOEYxRYnk?=
+ =?us-ascii?Q?wEsJnkvNw+cZ2yH5HwPuiEu14XJ4dh1+aRAZhinJZaH7SlXx0wZbzsLhRA2x?=
+ =?us-ascii?Q?p/RKuvAdeGccQZgvkW148dXttpL64/YysCmr8Ag49Dcegf+NvyTNjWSLroLf?=
+ =?us-ascii?Q?je5AD4B0Fsx8pOxIQa62njjtG+cwsEGOLMXoguHZnwrFqN4V0hcZHWP7pW4e?=
+ =?us-ascii?Q?ynEZZrvHCRjp7Aq5YuR4sNy45D3/45z9HOMrZGQGlJBYfaMuHFBUhHnwS9nn?=
+ =?us-ascii?Q?Er0nEvrcE83Uf4b5UtjBpngoM/xKl+qjdsu9Hq2RNQ+2G8IWt8mR5lJzbCM2?=
+ =?us-ascii?Q?L6uD/IiLd0OmAcCuSApAhpFlSDjynPMgr6X6mxgqfAy9PYwPI5svx4M5/87+?=
+ =?us-ascii?Q?ulJi5uypLsMma4qfAeXhLubnexEm7Rb6xhQaxTxFhbapAWCFebcZsmQfTnqI?=
+ =?us-ascii?Q?O7y4BFs1JB757+pmXpQ5Nyxn/RU8fEsvr6Mtqu/+kNw6cLHoIltJDJwcPDP2?=
+ =?us-ascii?Q?GEY9rQvE3KzDK63PTo74nrGo+PaIPuuGnDm2iifukF6aqPb7?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PigvCgDXrunfbmBpFNwMKw--.28S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Xry7Kw48WrW5CryDJF43Wrg_yoW8JF1rpF
-	n3uwn3W3yrGryUJ34UWrnI93yYv3s8K34SqFy7Kr1FgF1qyFy5JrZYkry5AFZ8XFyvvayx
-	ZFy7tF1DAw4UAFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pRFoGdUUUUU=
-X-Originating-IP: [58.250.18.76]
-X-CM-SenderInfo: xvxqv05qj03iqqsuqiywtou0bp/xtbC8QJG02lgbuKQMQAA3C
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 92dc2842-77ff-4042-5387-08de4f2b77f3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Jan 2026 03:02:04.7691
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: uA3ovyTTJx6hfHh9QyQaWYzDmelsRIBE/OEXTYevS+xP9NEQ8s6tQZsJlLda++nk659QFZ6sjK2LlvkcejnBdA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11950
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_185906_049251_4F06F16E 
-X-CRM114-Status: UNSURE (   6.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260108_190211_768134_80DC7C63 
+X-CRM114-Status: GOOD (  30.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,43 +170,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Function vcpu_{clear,set}_wfx_traps() are unused since
-commit 0b5afe05377d7 ("KVM: arm64: Add early_param to control WFx trapping")
-Remove it.
 
-Signed-off-by: Dongxu Sun <sundongxu1024@163.com>
----
- arch/arm64/include/asm/kvm_emulate.h | 16 ----------------
- 1 file changed, 16 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index c9eab316398e..55d34192a8de 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -119,22 +119,6 @@ static inline unsigned long *vcpu_hcr(struct kvm_vcpu *vcpu)
- 	return (unsigned long *)&vcpu->arch.hcr_el2;
- }
- 
--static inline void vcpu_clear_wfx_traps(struct kvm_vcpu *vcpu)
--{
--	vcpu->arch.hcr_el2 &= ~HCR_TWE;
--	if (atomic_read(&vcpu->arch.vgic_cpu.vgic_v3.its_vpe.vlpi_count) ||
--	    vcpu->kvm->arch.vgic.nassgireq)
--		vcpu->arch.hcr_el2 &= ~HCR_TWI;
--	else
--		vcpu->arch.hcr_el2 |= HCR_TWI;
--}
--
--static inline void vcpu_set_wfx_traps(struct kvm_vcpu *vcpu)
--{
--	vcpu->arch.hcr_el2 |= HCR_TWE;
--	vcpu->arch.hcr_el2 |= HCR_TWI;
--}
--
- static inline unsigned long vcpu_get_vsesr(struct kvm_vcpu *vcpu)
- {
- 	return vcpu->arch.vsesr_el2;
--- 
-2.43.0
+> -----Original Message-----
+> From: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
+> Sent: Monday, December 29, 2025 4:16 PM
+> To: o.rempel@pengutronix.de; kernel@pengutronix.de; andi.shyti@kernel.org=
+;
+> shawnguo@kernel.org; s.hauer@pengutronix.de; festevam@gmail.com;
+> linux-i2c@vger.kernel.org; imx@lists.linux.dev;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> Cc: bsp-development.geo@leica-geosystems.com; LI Qingwu
+> <Qing-wu.Li@leica-geosystems.com.cn>
+> Subject: [EXT] [PATCH V1] i2c: imx: Fix SMBus block read hang on zero len=
+gth
+>=20
+> Caution: This is an external email. Please take care when clicking links =
+or
+> opening attachments. When in doubt, report the message using the 'Report
+> this email' button
+>=20
+>=20
+> SMBus block read transfers encode the payload length in the first data by=
+te.
+> When this first byte is zero, there is no payload and the transaction sho=
+uld
+> terminate immediately.
+>=20
+> On i.MX, if the first byte of an SMBus block read is zero, the driver
+> unconditionally overwrites the state with IMX_I2C_STATE_READ_CONTINUE.
+> This causes the state machine to enter an endless read loop, eventually
+> overrunning internal buffers and leading to a crash.
+>=20
+> At the same time, the controller remains in master receive mode and never
+> generates a proper STOP condition, leaving the I2C bus permanently busy a=
+nd
+> preventing any further transfers on the bus.
+>=20
+> Fix this by handling the zero-length case explicitly: when the first byte=
+ is zero,
+> ensure that a clean STOP is generated. In this situation the controller i=
+s in
+> master receive mode, so it must be switched to master transmit mode befor=
+e
+> stopping. This is done by draining the pending received byte from I2DR, s=
+etting
+> I2CR_MTX to enter transmit mode, waiting briefly for the mode change, and
+> then proceeding with the normal STOP sequence.
+>=20
+> This change has been tested on i.MX 8M Plus platform.
+>=20
+> Signed-off-by: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
+> ---
+>  drivers/i2c/busses/i2c-imx.c | 13 ++++++++++++-
+>  1 file changed, 12 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c =
+index
+> dcce882f3eba..f40deecf0f66 100644
+> --- a/drivers/i2c/busses/i2c-imx.c
+> +++ b/drivers/i2c/busses/i2c-imx.c
+> @@ -735,6 +735,16 @@ static void i2c_imx_stop(struct imx_i2c_struct
+> *i2c_imx, bool atomic)
+>                 temp =3D imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
+>                 if (!(temp & I2CR_MSTA))
+>                         i2c_imx->stopped =3D 1;
+> +               if ((temp & I2CR_MSTA) && !(temp & I2CR_MTX)) {
+> +                       (void)imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR);
+> +                       temp |=3D I2CR_MTX;
+> +                       imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
+> +                       if (atomic)
+> +                               udelay(25);
+> +                       else
+> +                               usleep_range(25, 50);
+> +                       temp =3D imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
+> +               }
+Hi,
+
+for fix a smbus block read stop, you added these codes to normal stop logic=
+. Could you help check if it will effect stop in other path like i2c DMA/CP=
+U read/write stop logic except for smbus block read?
+
+And do you have mind to move this logic to smbus block read error path? Thi=
+s may be a minimal fix?
+
+Carlos
+>                 temp &=3D ~(I2CR_MSTA | I2CR_MTX);
+>                 if (i2c_imx->dma)
+>                         temp &=3D ~I2CR_DMAEN; @@ -1103,7 +1113,8
+> @@ static irqreturn_t i2c_imx_master_isr(struct imx_i2c_struct *i2c_imx,
+> unsigned i
+>=20
+>         case IMX_I2C_STATE_READ_BLOCK_DATA_LEN:
+>                 i2c_imx_isr_read_block_data_len(i2c_imx);
+> -               i2c_imx->state =3D IMX_I2C_STATE_READ_CONTINUE;
+> +               if (i2c_imx->state =3D=3D
+> IMX_I2C_STATE_READ_BLOCK_DATA_LEN)
+> +                       i2c_imx->state =3D
+> IMX_I2C_STATE_READ_CONTINUE;
+>                 break;
+>=20
+>         case IMX_I2C_STATE_WRITE:
+> --
+> 2.43.0
+>=20
 
 
