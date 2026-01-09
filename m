@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B435D232E8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 07:32:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E71D232E9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 07:32:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xbfkkRL/MGRcgqDvDpIMuvcsCJnlzFYd2Dd6uEyNIfE=; b=lq6ckrrxODFMZpqigCj7zx9M68
-	71h6H9rMVKj9FDGKKX3QipYEJDMM1+xQcc27uu73XnwfdgQi+Qj4mQQr3oUfNkVd+28ebjTcmscRp
-	VU1haZYobBcIM9b/zLNwxZrUJKwmV8cW1ErkhLAy25kPhA2QPhz/J/PVOlS8Hi+jsAqKQKsu6jaje
-	wsYjp2Hy27Hle1LvfLEr66q1EhOnnZSMfDJcGJ9Xa/U8YGRc1LlfPRw5c+sDqIYecLylvmknz5wE/
-	lTQ0mWq3y57mvLvEYtNpkfVMAPO1z9WSed+SYLLxNZyhyEkM5perqiU3ebUg+4agUOWkl26MuRaFO
-	XKF28LWA==;
+	bh=tEemrmaT5Vu69sGAU9788b4b4bAHyoioGXyQ1NCe9sE=; b=N27YHJoUrhzUrUTLzCNW+5hFHJ
+	4vDFmXD4x3fYAUYTeT+EdP9Sfsyc/KnNMC5T4W/tFvzhGNl3m4Pl1w8KcK7+ISenU4PB0kg0+6nCL
+	Bg0VFIi6gAnMGlXEI6FdrnQls4Mi+14gj6IoDHAHqUh2TM0/EU20Xu6qD5T0dCGRD5tyBWRlSF3cp
+	rC+3nv8/GvKEZwBqp544HpMIUDI3wdPVMJvwwyqOPaT1L5b2G1cdwTt1exuKAfE+mzLIYAdAnspX/
+	n6A+HGRjsdhDxiI8A9lgbSNFcX1/JnXx6NCWxP9YhsHBaymTd7Au/YdqXhSjUHJvCyX6dxNm8Vvrr
+	Xv0EVvgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve6yb-00000001jEj-0l01;
-	Fri, 09 Jan 2026 07:32:05 +0000
+	id 1ve6ye-00000001jHe-3sCA;
+	Fri, 09 Jan 2026 07:32:08 +0000
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve6yU-00000001jAY-2GfX
+	id 1ve6yb-00000001jER-34Fj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 07:32:03 +0000
+	Fri, 09 Jan 2026 07:32:07 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 2475E4E4201A;
-	Fri,  9 Jan 2026 07:31:57 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 4775E4E4201A;
+	Fri,  9 Jan 2026 07:32:04 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id ED8A360734;
-	Fri,  9 Jan 2026 07:31:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E56EA103C87E8;
-	Fri,  9 Jan 2026 08:31:51 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1D8B960734;
+	Fri,  9 Jan 2026 07:32:04 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DD607103C87F9;
+	Fri,  9 Jan 2026 08:31:59 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767943915; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1767943922; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=xbfkkRL/MGRcgqDvDpIMuvcsCJnlzFYd2Dd6uEyNIfE=;
-	b=Wj+4gEOsRDpvVFKtj85yDoEYt0GlQBO/GV44M9b6EjHHFe2U47E2xYOG2Y6Nho9UJHBkyH
-	t53Y7OJYp/uu1v8nuQgSwSj3lQyfJR+sLkr8OrkKWiBjsu6hKdgxUuHY6lMU+WLE28kugh
-	lt1ImhFCS3fknd8S8kJQaKuGp8IH4JW/q6fe5/8ym7KWXTVM1dTzy7zhKJwOjE4kyESM7K
-	aDhqUvDW1LZhHE0RlYJVtNpp7hakA7X1WHECacKR82S+pr6vtgJX3S0jMsceQobszIE2fK
-	Q6Nd/+RE0tlV/3M9KNk3GLR/lFER7XYiMZfiZgfsyf428iQvqOoIG4dacgQGmQ==
+	bh=tEemrmaT5Vu69sGAU9788b4b4bAHyoioGXyQ1NCe9sE=;
+	b=1kO/tS9SGm3MhUt/nJLbjtVQeGUWbQQwTYY7Zr7xS2Ls6WEVPc4QbnSBZryoMW0uMAvrKt
+	A5KDF1NtJLYt6QrofdXbTefl0KKkjZPTKqcFhS+HEFqsm2E4FlcMSjHb7hDI0ev0VXheRq
+	WEpdUmefRvpWDKUK6z57Kako5EUTrVxSFM9ypvGAbCB7zATtyACOVJItenRJW7xPtDVPUZ
+	M3vkIZLIBWmW1kbCpAjp2EGpUO0tEQUQaVd+waVgVXeKVduYB8iomNxkR99taSqRIAxoAC
+	mUAbUYFHeWQh7ZCkSImKeeI6fuMOBjnVIFpzF80ZZaT6qRmsK0hgVtpmr731xg==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Fri, 09 Jan 2026 08:31:34 +0100
-Subject: [PATCH v2 03/12] drm/bridge: sii902x: convert to
+Date: Fri, 09 Jan 2026 08:31:36 +0100
+Subject: [PATCH v2 05/12] drm/bridge: tfp410: convert to
  of_drm_find_and_get_bridge()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-3-8bad3ef90b9f@bootlin.com>
+Message-Id: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-5-8bad3ef90b9f@bootlin.com>
 References: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-0-8bad3ef90b9f@bootlin.com>
 In-Reply-To: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-0-8bad3ef90b9f@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -76,8 +76,8 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_233158_854196_B06EB4D9 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260108_233205_918677_BE3685B8 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,42 +99,103 @@ is put when done by using the drm_bridge::next_bridge pointer.
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/gpu/drm/bridge/sii902x.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/bridge/ti-tfp410.c | 27 +++++++++++++--------------
+ 1 file changed, 13 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/sii902x.c b/drivers/gpu/drm/bridge/sii902x.c
-index 1f0aba28ad1e..12497f5ce4ff 100644
---- a/drivers/gpu/drm/bridge/sii902x.c
-+++ b/drivers/gpu/drm/bridge/sii902x.c
-@@ -175,7 +175,6 @@ struct sii902x {
- 	struct i2c_client *i2c;
- 	struct regmap *regmap;
- 	struct drm_bridge bridge;
--	struct drm_bridge *next_bridge;
- 	struct drm_connector connector;
- 	struct gpio_desc *reset_gpio;
- 	struct i2c_mux_core *i2cmux;
-@@ -421,7 +420,7 @@ static int sii902x_bridge_attach(struct drm_bridge *bridge,
+diff --git a/drivers/gpu/drm/bridge/ti-tfp410.c b/drivers/gpu/drm/bridge/ti-tfp410.c
+index b80ee089f880..11b5bb50e9f4 100644
+--- a/drivers/gpu/drm/bridge/ti-tfp410.c
++++ b/drivers/gpu/drm/bridge/ti-tfp410.c
+@@ -30,7 +30,6 @@ struct tfp410 {
+ 	struct gpio_desc	*powerdown;
+ 
+ 	struct drm_bridge_timings timings;
+-	struct drm_bridge	*next_bridge;
+ 
+ 	struct device *dev;
+ };
+@@ -53,8 +52,8 @@ static int tfp410_get_modes(struct drm_connector *connector)
+ 	const struct drm_edid *drm_edid;
  	int ret;
  
+-	if (dvi->next_bridge->ops & DRM_BRIDGE_OP_EDID) {
+-		drm_edid = drm_bridge_edid_read(dvi->next_bridge, connector);
++	if (dvi->bridge.next_bridge->ops & DRM_BRIDGE_OP_EDID) {
++		drm_edid = drm_bridge_edid_read(dvi->bridge.next_bridge, connector);
+ 		if (!drm_edid)
+ 			DRM_INFO("EDID read failed. Fallback to standard modes\n");
+ 	} else {
+@@ -89,7 +88,7 @@ tfp410_connector_detect(struct drm_connector *connector, bool force)
+ {
+ 	struct tfp410 *dvi = drm_connector_to_tfp410(connector);
+ 
+-	return drm_bridge_detect(dvi->next_bridge, connector);
++	return drm_bridge_detect(dvi->bridge.next_bridge, connector);
+ }
+ 
+ static const struct drm_connector_funcs tfp410_con_funcs = {
+@@ -126,7 +125,7 @@ static int tfp410_attach(struct drm_bridge *bridge,
+ 	struct tfp410 *dvi = drm_bridge_to_tfp410(bridge);
+ 	int ret;
+ 
+-	ret = drm_bridge_attach(encoder, dvi->next_bridge, bridge,
++	ret = drm_bridge_attach(encoder, dvi->bridge.next_bridge, bridge,
+ 				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+ 	if (ret < 0)
+ 		return ret;
+@@ -134,14 +133,14 @@ static int tfp410_attach(struct drm_bridge *bridge,
  	if (flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR)
--		return drm_bridge_attach(encoder, sii902x->next_bridge,
-+		return drm_bridge_attach(encoder, sii902x->bridge.next_bridge,
- 					 bridge, flags);
+ 		return 0;
  
- 	drm_connector_helper_add(&sii902x->connector,
-@@ -1204,9 +1203,9 @@ static int sii902x_probe(struct i2c_client *client)
- 			return -ENODEV;
- 		}
+-	if (dvi->next_bridge->ops & DRM_BRIDGE_OP_DETECT)
++	if (dvi->bridge.next_bridge->ops & DRM_BRIDGE_OP_DETECT)
+ 		dvi->connector.polled = DRM_CONNECTOR_POLL_HPD;
+ 	else
+ 		dvi->connector.polled = DRM_CONNECTOR_POLL_CONNECT | DRM_CONNECTOR_POLL_DISCONNECT;
  
--		sii902x->next_bridge = of_drm_find_bridge(remote);
-+		sii902x->bridge.next_bridge = of_drm_find_and_get_bridge(remote);
- 		of_node_put(remote);
--		if (!sii902x->next_bridge)
-+		if (!sii902x->bridge.next_bridge)
- 			return dev_err_probe(dev, -EPROBE_DEFER,
- 					     "Failed to find remote bridge\n");
+-	if (dvi->next_bridge->ops & DRM_BRIDGE_OP_HPD) {
++	if (dvi->bridge.next_bridge->ops & DRM_BRIDGE_OP_HPD) {
+ 		INIT_DELAYED_WORK(&dvi->hpd_work, tfp410_hpd_work_func);
+-		drm_bridge_hpd_enable(dvi->next_bridge, tfp410_hpd_callback,
++		drm_bridge_hpd_enable(dvi->bridge.next_bridge, tfp410_hpd_callback,
+ 				      dvi);
  	}
+ 
+@@ -149,8 +148,8 @@ static int tfp410_attach(struct drm_bridge *bridge,
+ 				 &tfp410_con_helper_funcs);
+ 	ret = drm_connector_init_with_ddc(bridge->dev, &dvi->connector,
+ 					  &tfp410_con_funcs,
+-					  dvi->next_bridge->type,
+-					  dvi->next_bridge->ddc);
++					  dvi->bridge.next_bridge->type,
++					  dvi->bridge.next_bridge->ddc);
+ 	if (ret) {
+ 		dev_err(dvi->dev, "drm_connector_init_with_ddc() failed: %d\n",
+ 			ret);
+@@ -169,8 +168,8 @@ static void tfp410_detach(struct drm_bridge *bridge)
+ {
+ 	struct tfp410 *dvi = drm_bridge_to_tfp410(bridge);
+ 
+-	if (dvi->connector.dev && dvi->next_bridge->ops & DRM_BRIDGE_OP_HPD) {
+-		drm_bridge_hpd_disable(dvi->next_bridge);
++	if (dvi->connector.dev && dvi->bridge.next_bridge->ops & DRM_BRIDGE_OP_HPD) {
++		drm_bridge_hpd_disable(dvi->bridge.next_bridge);
+ 		cancel_delayed_work_sync(&dvi->hpd_work);
+ 	}
+ }
+@@ -362,10 +361,10 @@ static int tfp410_init(struct device *dev, bool i2c)
+ 	if (!node)
+ 		return -ENODEV;
+ 
+-	dvi->next_bridge = of_drm_find_bridge(node);
++	dvi->bridge.next_bridge = of_drm_find_and_get_bridge(node);
+ 	of_node_put(node);
+ 
+-	if (!dvi->next_bridge)
++	if (!dvi->bridge.next_bridge)
+ 		return -EPROBE_DEFER;
+ 
+ 	/* Get the powerdown GPIO. */
 
 -- 
 2.52.0
