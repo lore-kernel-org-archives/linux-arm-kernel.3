@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 155BCD232EA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 07:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16896D232EB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 08:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cAR5LxUosn5MR+Z/5Moz9cTm0bb98yOxJOET8rzyKpQ=; b=U34GFW9YX5XgHL/3c5Wk6waZei
-	XVj3q1jfscPpYdUtz0KkG8FqJGoA5UxdqvTSrG3h8jHSGjknYs2Kttk9kKyTWGpepczxSO7XIdqlQ
-	JlkPCx/kMWuX2u7f1PJ0FwyS4utGT+mOI+O1xWvpAqgDs/o+ysTY1pVK8iE5ZSNzLnuKO0gbh0/Bp
-	oRRp3CG6NxfCzS5F52sEOEKfAgD+9p3rFliHaPFrTF5FDMBh/+dB+H8gpT51+K92GHPrbHEzNAC12
-	fVVA/fDAiw1FoElTZ9oLaKsYJnEN8zlKo8ksLnud0cv2pMRmhSbPekvOAXrvKdycFysfaIBGavgk0
-	fDyfqQgg==;
+	bh=QzCE2MSivZxOJ1rbSr2C3xjv/6IK0O9prRxNJhHmRcM=; b=dl0i+RxHnAFc41MH1qzMT+rXi9
+	k5aZfqpzBmvkY3uqYh9RHnrTrKGMCFVg8hYW+CKxvL22+PyyH7ma3gjfggbE6WCEquFFJPBfB/DGV
+	5zLhDZ1XzNuvLceFB2E2EDsZE1DVGFITu0TOp1htBXnsO/lChinYjrs6HYAbJzhpLw4dcGaNTgvxJ
+	qeHpzJ0+KbpLzrsK2R6YZjacDEspWXHPc1JnASBHf24Qu9KloltMt2hNa9RCQM9Gog3icOFFB8STp
+	8cH3wvGY5Tv0PuqtA3gI8U0GCs48cjk7B9DIDFVje2OnOYuJyTHn2BpDqa2/NK8YbXkO6Ck2MzNHE
+	Cz8qIVcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve7It-00000001nFs-3N5r;
-	Fri, 09 Jan 2026 07:53:03 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1ve7RB-00000001oQV-1PIV;
+	Fri, 09 Jan 2026 08:01:44 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve7Iq-00000001nE8-40Yh
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 07:53:02 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=cAR5LxUosn5MR+Z/5Moz9cTm0bb98yOxJOET8rzyKpQ=;
-	b=dLEEdksaplpS8/45BsNH/BlSmJya5HWO6a3QfmnzOgvITtGrcS4tQqOlz5Stt/MisPFZViHE/
-	WVF9s/WF84xFLu/zuaPkqf+n3pKgW1aAEhkIbKtAQoi0MAiecbB4nh+i3PEjuBou0htiMVD6AY+
-	8YHqy1c3T8XqlD1qRKeDwVE=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4dnYn92STTz1T4GT;
-	Fri,  9 Jan 2026 15:49:01 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 13CD74036C;
-	Fri,  9 Jan 2026 15:52:47 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Fri, 9 Jan 2026 15:52:46 +0800
-Message-ID: <36e0a4d0-b440-4aba-8dfd-0c0fcb5f4318@huawei.com>
-Date: Fri, 9 Jan 2026 15:52:45 +0800
+	id 1ve7R7-00000001oN8-3PoP;
+	Fri, 09 Jan 2026 08:01:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Qz
+	CE2MSivZxOJ1rbSr2C3xjv/6IK0O9prRxNJhHmRcM=; b=RD0Kf+7WQaUfpGstxZ
+	ffVReowiCMj0D1M6Ee0m6Rx1TYC+cTJAvU4NUe67+/qnfLBpiWGk3e/OjFapVuc3
+	kuR1+Z3lBZt+RoBphTIk2n5vSvXgAi+oGCTmPxcDOVRba68ZXQAn0B0rNd0PKP0k
+	w8ErSOEOcTbOF3pN5qRlpcpbM=
+Received: from ProDesk-480.. (unknown [])
+	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wDnzlW4tWBpx1iBFA--.64397S6;
+	Fri, 09 Jan 2026 16:01:05 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de,
+	dmitry.baryshkov@oss.qualcomm.com
+Cc: krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	cristian.ciocaltea@collabora.com,
+	Laurent.pinchart@ideasonboard.com,
+	mripard@kernel.org,
+	hjc@rock-chips.com,
+	robh@kernel.org,
+	sebastian.reichel@collabora.com,
+	tzimmermann@suse.de,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH 4/5] drm/rockchip: dw_dp: Add DisplayPort support for rk3576
+Date: Fri,  9 Jan 2026 16:00:47 +0800
+Message-ID: <20260109080054.228671-5-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260109080054.228671-1-andyshrk@163.com>
+References: <20260109080054.228671-1-andyshrk@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] KVM: arm64: Enable HDBSS support and handle HDBSSF
- events
-To: Robert Hoo <robert.hoo.linux@gmail.com>, <maz@kernel.org>,
-	<oliver.upton@linux.dev>, <catalin.marinas@arm.com>, <corbet@lwn.net>,
-	<pbonzini@redhat.com>, <will@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <yuzenghui@huawei.com>,
-	<wangzhou1@hisilicon.com>, <yezhenyu2@huawei.com>, <xiexiangyou@huawei.com>,
-	<zhengchuan@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <suzuki.poulose@arm.com>
-References: <20251121092342.3393318-1-zhengtian10@huawei.com>
- <20251121092342.3393318-5-zhengtian10@huawei.com>
- <87df4cba-b191-49cf-9486-fc379470a6eb@gmail.com>
- <f8e59e80-33b2-47cd-a042-11f28cc61645@huawei.com>
- <77111894-1b9f-4970-b41f-48e3a4c4b754@gmail.com>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <77111894-1b9f-4970-b41f-48e3a4c4b754@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+X-CM-TRANSID: _____wDnzlW4tWBpx1iBFA--.64397S6
+X-Coremail-Antispam: 1Uf129KBjvdXoWrKrWxGw1UAFy5Kr48trWDurg_yoWkWwbEk3
+	W8Xr1DWw4rGr9IvwnrAF4fCayIy3W29F1kG3W0q3WqyF97Xr18XFZ5Jr1jqan8AF17AF97
+	W3WFqr1jkFn3JjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUn0D73UUUUU==
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbCxgEQbmlgtcGcoAAA34
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_235301_607745_80663706 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20260109_000134_230411_7BC90802 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,198 +86,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Andy Yan <andy.yan@rock-chips.com>
 
-On 12/28/2025 9:21 PM, Robert Hoo wrote:
-> On 12/24/2025 2:15 PM, Tian Zheng wrote:
->>
->>
->> On 12/17/2025 9:39 PM, Robert Hoo wrote:
->>> On 11/21/2025 5:23 PM, Tian Zheng wrote:
->>>> From: eillon <yezhenyu2@huawei.com>
->>>>
->>>> Implement the HDBSS enable/disable functionality using the
->>>> KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl.
->>>>
->>>> Userspace (e.g., QEMU) can enable HDBSS by invoking the ioctl
->>>> at the start of live migration, configuring the buffer size.
->>>> The feature is disabled by invoking the ioctl again with size
->>>> set to 0 once migration completes.
->>>>
->>>> Add support for updating the dirty bitmap based on the HDBSS
->>>> buffer. Similar to the x86 PML implementation, KVM flushes the
->>>> buffer on all VM-Exits, so running vCPUs only need to be kicked
->>>> to force a VM-Exit.
->>>>
->>>> Signed-off-by: eillon <yezhenyu2@huawei.com>
->>>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
->>>> ---
->>>>   arch/arm64/include/asm/kvm_host.h |  10 +++
->>>>   arch/arm64/include/asm/kvm_mmu.h  |  17 +++++
->>>>   arch/arm64/kvm/arm.c              | 107 
->>>> ++++++++++++++++++++++++++++++
->>>>   arch/arm64/kvm/handle_exit.c      |  45 +++++++++++++
->>>>   arch/arm64/kvm/hyp/vhe/switch.c   |   1 +
->>>>   arch/arm64/kvm/mmu.c              |  10 +++
->>>>   arch/arm64/kvm/reset.c            |   3 +
->>>>   include/linux/kvm_host.h          |   1 +
->>>>   8 files changed, 194 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/include/asm/kvm_host.h 
->>>> b/arch/arm64/include/ asm/kvm_host.h
->>>> index d962932f0e5f..408e4c2b3d1a 100644
->>>> --- a/arch/arm64/include/asm/kvm_host.h
->>>> +++ b/arch/arm64/include/asm/kvm_host.h
->>>> @@ -87,6 +87,7 @@ int __init kvm_arm_init_sve(void);
->>>>   u32 __attribute_const__ kvm_target_cpu(void);
->>>>   void kvm_reset_vcpu(struct kvm_vcpu *vcpu);
->>>>   void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu);
->>>> +void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
->>>>
->>>>   struct kvm_hyp_memcache {
->>>>       phys_addr_t head;
->>>> @@ -793,6 +794,12 @@ struct vcpu_reset_state {
->>>>       bool        reset;
->>>>   };
->>>>
->>>> +struct vcpu_hdbss_state {
->>>> +    phys_addr_t base_phys;
->>>> +    u32 size;
->>>> +    u32 next_index;
->>>> +};
->>>> +
->>>>   struct vncr_tlb;
->>>>
->>>>   struct kvm_vcpu_arch {
->>>> @@ -897,6 +904,9 @@ struct kvm_vcpu_arch {
->>>>
->>>>       /* Per-vcpu TLB for VNCR_EL2 -- NULL when !NV */
->>>>       struct vncr_tlb    *vncr_tlb;
->>>> +
->>>> +    /* HDBSS registers info */
->>>> +    struct vcpu_hdbss_state hdbss;
->>>>   };
->>>>
->>>>   /*
->>>> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/ 
->>>> asm/kvm_mmu.h
->>>> index e4069f2ce642..6ace1080aed5 100644
->>>> --- a/arch/arm64/include/asm/kvm_mmu.h
->>>> +++ b/arch/arm64/include/asm/kvm_mmu.h
->>>> @@ -331,6 +331,23 @@ static __always_inline void 
->>>> __load_stage2(struct kvm_s2_mmu *mmu,
->>>>       asm(ALTERNATIVE("nop", "isb", ARM64_WORKAROUND_SPECULATIVE_AT));
->>>>   }
->>>>
->>>> +static __always_inline void __load_hdbss(struct kvm_vcpu *vcpu)
->>>> +{
->>>> +    struct kvm *kvm = vcpu->kvm;
->>>> +    u64 br_el2, prod_el2;
->>>> +
->>>> +    if (!kvm->enable_hdbss)
->>>> +        return;
->>>> +
->>>> +    br_el2 = HDBSSBR_EL2(vcpu->arch.hdbss.base_phys, vcpu- 
->>>> >arch.hdbss.size);
->>>> +    prod_el2 = vcpu->arch.hdbss.next_index;
->>>> +
->>>> +    write_sysreg_s(br_el2, SYS_HDBSSBR_EL2);
->>>> +    write_sysreg_s(prod_el2, SYS_HDBSSPROD_EL2);
->>>> +
->>>> +    isb();
->>>> +}
->>>> +
->>>>   static inline struct kvm *kvm_s2_mmu_to_kvm(struct kvm_s2_mmu *mmu)
->>>>   {
->>>>       return container_of(mmu->arch, struct kvm, arch);
->>>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->>>> index 870953b4a8a7..64f65e3c2a89 100644
->>>> --- a/arch/arm64/kvm/arm.c
->>>> +++ b/arch/arm64/kvm/arm.c
->>>> @@ -79,6 +79,92 @@ int kvm_arch_vcpu_should_kick(struct kvm_vcpu 
->>>> *vcpu)
->>>>       return kvm_vcpu_exiting_guest_mode(vcpu) == IN_GUEST_MODE;
->>>>   }
->>>>
->>>> +void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
->>>> +{
->>>> +    struct page *hdbss_pg = NULL;
->>>> +
->>>> +    hdbss_pg = phys_to_page(vcpu->arch.hdbss.base_phys);
->>>> +    if (hdbss_pg)
->>>> +        __free_pages(hdbss_pg, vcpu->arch.hdbss.size);
->>>> +
->>>> +    vcpu->arch.hdbss = (struct vcpu_hdbss_state) {
->>>> +        .base_phys = 0,
->>>> +        .size = 0,
->>>> +        .next_index = 0,
->>>> +    };
->>>> +}
->>>> +
->>>> +static int kvm_cap_arm_enable_hdbss(struct kvm *kvm,
->>>> +                    struct kvm_enable_cap *cap)
->>>> +{
->>>> +    unsigned long i;
->>>> +    struct kvm_vcpu *vcpu;
->>>> +    struct page *hdbss_pg = NULL;
->>>> +    int size = cap->args[0];
->>>> +    int ret = 0;
->>>> +
->>>> +    if (!system_supports_hdbss()) {
->>>> +        kvm_err("This system does not support HDBSS!\n");
->>>> +        return -EINVAL;
->>>> +    }
->>>> +
->>>> +    if (size < 0 || size > HDBSS_MAX_SIZE) {
->>>> +        kvm_err("Invalid HDBSS buffer size: %d!\n", size);
->>>> +        return -EINVAL;
->>>> +    }
->>>> +
->>>
->>> I think you should check if it's already enabled here. What if user 
->>> space calls this twice?
->>
->> Ok, I review the implement of qemu, when disable the hdbss feature in
->> ram_save_cleanup, size=0 will be set, so here can add a check, if (size
->> && kvm->arch.enable_hdbss), we will do nothing.
->>
->
-> I mean you should check if ' kvm->enable_hdbss' is already set, if so, 
-> return rather than alloc_pages() in below (you have allocated in 
-> previous call with valid 'size').
->
-> qemu is just one of the user space applications that would possibly 
-> call this API, you cannot rely on your qemu patch's flow/sequence as 
-> assumption to design a KVM API's implementation.
+The DisplayPort of the RK3576 is basically the same as that of the
+RK3588, but it operates in dual-pixel mode and also support MST.
 
+This patch only enable the SST output now.
 
-Yes, The latest v3 patch fixes this bug by checking if (size > 0 && 
-kvm->arch.enable_hdbss).
-When this condition is met, the function returns immediately rather than 
-alloc_pages().
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+---
 
+ drivers/gpu/drm/rockchip/dw_dp-rockchip.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
->
->>>
->>>> +    /* Enable the HDBSS feature if size > 0, otherwise disable it. */
->>>> +    if (size) {
->>>> +        kvm_for_each_vcpu(i, vcpu, kvm) {
->>>> +            hdbss_pg = alloc_pages(GFP_KERNEL_ACCOUNT, size);
->>>> +            if (!hdbss_pg) {
->>>> +                kvm_err("Alloc HDBSS buffer failed!\n");
->>>> +                ret = -ENOMEM;
->>>> +                goto error_alloc;
->>>> +            }
->>>> +
->>>> +            vcpu->arch.hdbss = (struct vcpu_hdbss_state) {
->>>> +                .base_phys = page_to_phys(hdbss_pg),
->>>> +                .size = size,
->>>> +                .next_index = 0,
->>>> +            };
->>>> +        }
->>>> +
->>>> +        kvm->enable_hdbss = true;
->>>> +        kvm->arch.mmu.vtcr |= VTCR_EL2_HD | VTCR_EL2_HDBSS;
->>>
->
->
+diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
+index 89d614d53596..dac3d202971e 100644
+--- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
+@@ -142,10 +142,18 @@ static const struct dw_dp_plat_data rk3588_dp_plat_data = {
+ 	.pixel_mode = DW_DP_MP_QUAD_PIXEL,
+ };
+ 
++static const struct dw_dp_plat_data rk3576_dp_plat_data = {
++	.max_link_rate = 810000,
++	.pixel_mode = DW_DP_MP_DUAL_PIXEL,
++};
++
+ static const struct of_device_id dw_dp_of_match[] = {
+ 	{
+ 		.compatible = "rockchip,rk3588-dp",
+ 		.data = &rk3588_dp_plat_data,
++	}, {
++		.compatible = "rockchip,rk3576-dp",
++		.data = &rk3576_dp_plat_data,
+ 	},
+ 	{}
+ };
+-- 
+2.43.0
+
 
