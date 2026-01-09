@@ -4,94 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0622AD26D6A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 15:29:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49FA5D26D60
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 15:38:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zPBnskPpYnDrBKJagTKqMfwyx58rk4gEgkXSmBAM15I=; b=O/6xg3OOlHu8Hq6tdPHCVyzG9X
-	g189zhaYPY9ydZN8hqTmSg8ZgsOgZOo+oUoL7QXS4hdPBb0poYwFbJuwHWV+r667+2vc7Cz9m9PuT
-	1/P/sXB3iA1nac5jxWNlhrdLSXW/W34CsqiPrLsn5PE+WbTQFFZiKYw4qOS920uw+0/jIByP7/bBA
-	5bjUfLDt6Xge+EbfuZgPFZrczzu+4WHgNNuK6il6quVSU4z+CCI/HfGFQl9hyV3I6mSSe0iinARcE
-	6pQQ0W8KqrefzLOojmpxAsh2ON8y6ownZy8Egsc5e8gevOVMdvVIbeCzA+3qRxYcNe6ceHuhdZ/7O
-	Osf7u9Wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tDVtzzCDjggnrGIABHuMI1ztRsI4OAs0dlS5olQIsSk=; b=jYTXpeZztTKJhyWQxUUrpH2VAH
+	s59AuoqqioSpmuVTud+kHpYF4MEyjYuP1UqC1lsx8xErAFNjxdl1wN8h91bAw+V/B2ouEvUwQns8Y
+	fmcHY8hWH+3kXHTiNuIuOAMvS2ifwPg09A2XPBcsnP3wNS0c4Xi3uJoR/JgYSA+mb43HBRagjTNbW
+	cJwkZBX4UNRjeWOzutQ/N1pe0IgDTCY5WaOtlC+CGnRWuxyFsZxhnPLJp2HKqwj8DNNdNXA13K6Mi
+	DGm190oZs5sPBGY52gk9nYAXyLtpZ8Fpw9CBZaqgsb76da5VJSPaTa84RRChlCPggx1SRlRGn/QaK
+	54HpE3bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veEQv-00000002Ul9-2XVS;
-	Fri, 09 Jan 2026 15:29:49 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1veEYq-00000002Vwj-17OG;
+	Fri, 09 Jan 2026 15:38:00 +0000
+Received: from mail-ot1-f65.google.com ([209.85.210.65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veEQr-00000002Ufw-3DYx
+	id 1veEYn-00000002Vvx-3Ql6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 15:29:48 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-382f0732612so24182141fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 07:29:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767972583; x=1768577383; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zPBnskPpYnDrBKJagTKqMfwyx58rk4gEgkXSmBAM15I=;
-        b=JIcMcHGArNI1Xiy9BfDPMV6OxgtH1U8F1padY00z9D+NKyNaS6kxZfMlXddB06vgzv
-         /yHvh+zUlFLvKRwrEnWexbEe8KjbWk0eIrin5E0sy7cYBbN8pny9hVV01LbTnFvmMZsR
-         YyaRc+jpHjzenJIW9H63XbHLxc5BLT1dM/Y+2/vopX1Mfazzzw73hBjVpc5IHoEs0/gy
-         HhVWN1aAkMZRKRaxoADOapAlcXs9uew8khPPZftJlSJsRhRylrjCTvUN1NRaltq2ci3e
-         arsNulpOuBfttomPtm4oOfe8dhMb3eqCYHihSl2rc20UgT+dgg6ofBoYWQ5oVCQ0SuQj
-         p/mA==
+	Fri, 09 Jan 2026 15:37:58 +0000
+Received: by mail-ot1-f65.google.com with SMTP id 46e09a7af769-7c6cc366884so2331303a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 07:37:56 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767972583; x=1768577383;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zPBnskPpYnDrBKJagTKqMfwyx58rk4gEgkXSmBAM15I=;
-        b=EfVprfCHPfn1Q7WTs2TT6anfd0EEZyUICXZiBIT3Wi6KHOYZBXRF2TLavV6px28sEY
-         lU2Jln3ZjkHphGK80tEgQQkXlJCFMnlpiKUDe1dMaiINg8EaMuZdpE0UDcoe2W0LdeMI
-         /gzXmDBCxk05+Ane9V0q+MX3yM7PVOU0KTUCnxzGUbeXC4qP+SFdPDUa7IkUMPX+UsxD
-         8MtuUqEZyE8Ya6l4G8Fmb8ssv4VZ7MXlrZxoy3y6Yb8a7jlWnYHvgVklX0wXe6gG1/Sv
-         HLbpCdkGPodFV9sHeuevgoxDh9AKjKXDFO72vzfemu2zAFn15cTfuiHpgs+U2ZNxf6oh
-         T9ZA==
-X-Forwarded-Encrypted: i=1; AJvYcCXcKj8qXPQ266E10tE6oxIczsVPNNjlFPPUe5penXp4GPxZ0EtwaaNnCkPceQ2DF6Vm01fwSZOtYi4R1qFkXY7E@lists.infradead.org
-X-Gm-Message-State: AOJu0YyaNZgYgw5VFbwtApjbPocBLkKenWvTGUFw8q+eNiwCATslgEow
-	FSZkcWcp4FLuSX8a4g095C1uJlqymxMBi3zZowdWUx/TQdv9og47sw7nMuibhUYiqg==
-X-Gm-Gg: AY/fxX5i9rrMkly3t4tCnhkim2kSi0AUZm6ywR2JX+U/BviaZ71HhSrMiQmqKfStg8i
-	Tj0yob7JC8f5xAOPe9uaDUZ+HQiZ3D6y4dzP3llBnaOgILupe+iL15v3qyvqfmJyFccczkXf9Fy
-	Cg9cowzOmx0fAzysPjeQ04v0ndFPgSPlQfG9OrVkytHQw83/AD77TcdOz2vthZUrZ1CyEaPn7Zk
-	uM+LLCj5SS7vKVwPyG3n1NTYfXV4vr0xTAK2Idvyk/OKDihbIJ0bFQ6YDH6EF7pksBJ6TpCYfAC
-	WehY2x82YD1nzLwVuFbg7ZBiJTEhC7Z4erUyP8J50+BN2/qJXMp2glqLLYbsSof1/wuVp1HII7f
-	7oDca3vieiD8WQ8d97Dn7ooC7bRy5NGWGB8zW69DR57BIncuWKYysYwIK6a/sAqGBASCfKP9FC0
-	SNwgdIhDs0oipI+Ffi/qv+u0oYne6uR1+guk7n9hyITCv1ca3M
-X-Google-Smtp-Source: AGHT+IH+8WmaJO0kxfCWQE2RPwoBlC27rMLx+Y0gqPcFuf286nwSQ2Sl5j9cfWQe1J0V1YWWD8+BUw==
-X-Received: by 2002:a05:651c:a07:b0:37a:2d8c:c0a8 with SMTP id 38308e7fff4ca-382ff841fd7mr29287061fa.34.1767972582971;
-        Fri, 09 Jan 2026 07:29:42 -0800 (PST)
-Received: from google.com (228.231.88.34.bc.googleusercontent.com. [34.88.231.228])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-382ff00220esm16720351fa.24.2026.01.09.07.29.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Jan 2026 07:29:42 -0800 (PST)
-Date: Fri, 9 Jan 2026 15:29:38 +0000
-From: Quentin Perret <qperret@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Fuad Tabba <tabba@google.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 22/30] KVM: arm64: Return -EFAULT from VCPU_RUN on access
- to a poisoned pte
-Message-ID: <vs26wb435olhc4p5b4owotm5zzwr2znwafsgfskkicymj25mbj@nllj54ubgtgl>
-References: <20260105154939.11041-1-will@kernel.org>
- <20260105154939.11041-23-will@kernel.org>
- <s4p2ximtz7pki3waw245jtbl5znuco2ijrzsddlmln5x6rgxee@qbek4vpwn3kl>
- <aWEXRgagcULlftqk@willie-the-truck>
+        d=1e100.net; s=20230601; t=1767973075; x=1768577875;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=tDVtzzCDjggnrGIABHuMI1ztRsI4OAs0dlS5olQIsSk=;
+        b=hXv6lYgju0exWuMLM4pSZRINxVVtqDCUOvf6SAXfnO+rdEQo6xQpsTNN4vP5L0EJun
+         UwFjMHIurq1yaoudU2gB7CbL7/Ze2ALWhrI01pCyn6xQ6MaSWJ9ajU55oRB1a9we61qU
+         1RhbfHBrF/DYIsRcqCJOYPRZPxq3nq6rzKPrUu0wEcy0xEw+5g5Dty5Eim454GZdkT42
+         ETxwjK+uUv6ssJAZVBu5dLK+fkgYE/1U/kyNT4zqLBVprDrJynke3toAWkjoj5E3+csj
+         HUsOnk7vxMuGeoerLaMEuzCRMvhkWcZj6nyhHwupk6EzWyYJfe7dyvJb48kC1v+casT7
+         nhDw==
+X-Forwarded-Encrypted: i=1; AJvYcCVKqBtj7UMheqcZ9saKSCQAQ+MoqlGWFQoMf+zhyAFnUwoxLjnroJPIJUAKyNpfLisZiloBcFjWwOZ4Ul0CybHV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2Vhr4s6E4UG49iWijnyMTzzFJGxCy0XzTFtygiJNb9nnDbLxW
+	vYzJnx9Ioa3BCygvkx3cK7nmcFESbnHIAXiZYZ+kRhEhCa/uAxdojxngJuMmjJ6w
+X-Gm-Gg: AY/fxX6LOTH6Wm3PCBexynkLK5pwnNU+TIkKMfnuqmfb324ijzdWc4J2BbdgldcoHYe
+	t2bixaAcnGyhG6Tan5LniQ53klTWgFkyQEQ5j5eQXk9lynaHrRFscprajFLFH0orgWgMVHF5GUJ
+	3yqGlrDMGkoZ/3pzcZWDBoWONMV+YoPt/umtuqn6wQaGPKkepk7ZEhnhzjyF3UqkUfVzMW36Zu8
+	JY3U7cfXEv3+imA7Ctzq31bTpa+VGXDZfHJrvbSQBGm3WREZfYwrvOW21rjuDZIz4uSMyVk0qrR
+	nSPMtSGCji0kNZFW0IP3ue42e5CG7QOa688ME2A2C2KNgoGQ4uObtcUTQv40bmrFyGIQVlowPp6
+	1xHU65+DJtjP1Kz55KeVwej+6bV2SyFWnCnexzqpnzywozUc/rDft6IzHDYCGXQQ0sKqH1T0GBi
+	9RFCb4Xhv2hzrbkpYbPv/L8FR0HZMJP1MRPksyviUkYyPtZOuy/ETyM6s1q5Bu1vNs4I3tvO58
+X-Google-Smtp-Source: AGHT+IFFRr3yCB8N9wsSNAhnisBEjFr+bC6MvSpCxW9vic1VG7Z0/dDsKQyyZ2pTTF+bonbZ/z8Lkw==
+X-Received: by 2002:a05:6830:3491:b0:7ca:e8bf:8c4a with SMTP id 46e09a7af769-7ce50917353mr6136614a34.12.1767973075480;
+        Fri, 09 Jan 2026 07:37:55 -0800 (PST)
+Received: from mail-ot1-f46.google.com (mail-ot1-f46.google.com. [209.85.210.46])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7ce478da6f6sm7382560a34.25.2026.01.09.07.37.55
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 09 Jan 2026 07:37:55 -0800 (PST)
+Received: by mail-ot1-f46.google.com with SMTP id 46e09a7af769-7c6d3676455so2235428a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 07:37:55 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCV5bTIoWHdfoYu35P30tQl6pliesMtB4DHH8Wcvw2BCN76WY1sXQbNJ+Ylc+AxFrARXETTaMhaWMyLsX2IsaoGH@lists.infradead.org
+X-Received: by 2002:a05:6830:6601:b0:7c7:827f:872d with SMTP id
+ 46e09a7af769-7ce50ad0573mr7614979a34.37.1767973074949; Fri, 09 Jan 2026
+ 07:37:54 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aWEXRgagcULlftqk@willie-the-truck>
+References: <20260109-apple-dt-chassis-type-v1-0-c215503734c5@jannau.net>
+In-Reply-To: <20260109-apple-dt-chassis-type-v1-0-c215503734c5@jannau.net>
+From: Neal Gompa <neal@gompa.dev>
+Date: Fri, 9 Jan 2026 10:37:18 -0500
+X-Gmail-Original-Message-ID: <CAEg-Je-4Dycowe8TukV7+suU2pm8yy-G5ukVeBD5=r4PFKo5Lw@mail.gmail.com>
+X-Gm-Features: AQt7F2rWXpsz3frhT-_Ey7mmSLoD8jECIUJKTjNZwMNhWrvNHrGDKMFRD2wFgXs
+Message-ID: <CAEg-Je-4Dycowe8TukV7+suU2pm8yy-G5ukVeBD5=r4PFKo5Lw@mail.gmail.com>
+Subject: Re: [PATCH 0/4] arm64: dts: apple: Add chassis-type properties
+To: Janne Grunau <j@jannau.net>
+Cc: Sven Peter <sven@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_072945_888258_1C5305C5 
-X-CRM114-Status: GOOD (  31.56  )
+X-CRM114-CacheID: sfid-20260109_073757_863390_0B582B0F 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,102 +98,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday 09 Jan 2026 at 14:57:10 (+0000), Will Deacon wrote:
-> On Tue, Jan 06, 2026 at 03:54:06PM +0000, Quentin Perret wrote:
-> > On Monday 05 Jan 2026 at 15:49:30 (+0000), Will Deacon wrote:
-> > > +int __pkvm_vcpu_in_poison_fault(struct pkvm_hyp_vcpu *hyp_vcpu)
-> > > +{
-> > > +	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(hyp_vcpu);
-> > > +	kvm_pte_t pte;
-> > > +	s8 level;
-> > > +	u64 ipa;
-> > > +	int ret;
-> > > +
-> > > +	switch (kvm_vcpu_trap_get_class(&hyp_vcpu->vcpu)) {
-> > > +	case ESR_ELx_EC_DABT_LOW:
-> > > +	case ESR_ELx_EC_IABT_LOW:
-> > > +		if (kvm_vcpu_trap_is_translation_fault(&hyp_vcpu->vcpu))
-> > > +			break;
-> > > +		fallthrough;
-> > > +	default:
-> > > +		return -EINVAL;
-> > > +	}
-> > > +
-> > > +	ipa = kvm_vcpu_get_fault_ipa(&hyp_vcpu->vcpu);
-> > > +	ipa |= kvm_vcpu_get_hfar(&hyp_vcpu->vcpu) & GENMASK(11, 0);
-> > 
-> > Why is all the above needed? Could we simplify by having the host pass
-> > the IPA to the hcall?
-> 
-> I was just a little nervous about exposing an oracle here if we take the
-> gfn as an argument as it would provide the host with a pretty easy
-> mechanism to monitor the page access pattern of a guest after the initial
-> donation had occurred.
+On Fri, Jan 9, 2026 at 10:25=E2=80=AFAM Janne Grunau <j@jannau.net> wrote:
+>
+> Add chassis-type properties for all Apple silicon Macs. "chassis-type"
+> is used by u-boot to fill the SMBIOS "System Enclosure or Chassis Type"
+> field. User space software uses this field to to determine if a device
+> is an laptop. The exact use case eludes me unfortunately.
+>
+> The Mac Pro uses "server" as chassis-type which is not entirely
+> accurate. The tower and rack mount Mac Pro versions share the same .dts
+> file and are identical except for the enclosure. I haven't found an
+> obvious property in Apple's device tree to distinguish between those so
+> both use "server" instead of the more accurate "tower" and "rack mount
+> chassis". The latter chassis-types are not in dt-schema anyway.
+>
+> Signed-off-by: Janne Grunau <j@jannau.net>
+> ---
+> Janne Grunau (4):
+>       arm64: dts: apple: Add chassis-type property for all Macbooks
+>       arm64: dts: apple: Add chassis-type property for Apple desktop devi=
+ces
+>       arm64: dts: apple: Add chassis-type property for Mac Pro
+>       arm64: dts: apple: Add chassis-type property for Apple iMacs
+>
+>  arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi | 2 ++
+>  arch/arm64/boot/dts/apple/t600x-j375.dtsi      | 2 ++
+>  arch/arm64/boot/dts/apple/t6022-j180d.dts      | 2 ++
+>  arch/arm64/boot/dts/apple/t8103-j274.dts       | 1 +
+>  arch/arm64/boot/dts/apple/t8103-j293.dts       | 1 +
+>  arch/arm64/boot/dts/apple/t8103-j313.dts       | 1 +
+>  arch/arm64/boot/dts/apple/t8103-j456.dts       | 1 +
+>  arch/arm64/boot/dts/apple/t8103-j457.dts       | 1 +
+>  arch/arm64/boot/dts/apple/t8112-j413.dts       | 1 +
+>  arch/arm64/boot/dts/apple/t8112-j415.dts       | 1 +
+>  arch/arm64/boot/dts/apple/t8112-j473.dts       | 1 +
+>  arch/arm64/boot/dts/apple/t8112-j493.dts       | 1 +
+>  12 files changed, 15 insertions(+)
+> ---
+> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+> change-id: 20260109-apple-dt-chassis-type-f31523a1f681
+>
 
-Aha, I see what you mean. I guess if we scope that hcall to only
-discover if a gfn is poisoned we're not exposing too much, but
-contextualizing the call to the fault also sounds good to me. Perhaps a
-small comment would help?
+LGTM.
 
-> > > +	guest_lock_component(vm);
-> > > +	ret = kvm_pgtable_get_leaf(&vm->pgt, ipa, &pte, &level);
-> > > +	if (ret)
-> > > +		goto unlock;
-> > > +
-> > > +	if (level != KVM_PGTABLE_LAST_LEVEL) {
-> > > +		ret = -EINVAL;
-> > > +		goto unlock;
-> > > +	}
-> > > +
-> > > +	ret = guest_pte_is_poisoned(pte);
-> > > +unlock:
-> > > +	guest_unlock_component(vm);
-> > > +	return ret;
-> > > +}
-> > > +
-> > >  int __pkvm_host_share_hyp(u64 pfn)
-> > >  {
-> > >  	u64 phys = hyp_pfn_to_phys(pfn);
-> > > diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> > > index d1926cb08c76..14865907610c 100644
-> > > --- a/arch/arm64/kvm/pkvm.c
-> > > +++ b/arch/arm64/kvm/pkvm.c
-> > > @@ -417,10 +417,13 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
-> > >  			return -EINVAL;
-> > >  
-> > >  		/*
-> > > -		 * We raced with another vCPU.
-> > > +		 * We either raced with another vCPU or the guest PTE
-> > > +		 * has been poisoned by an erroneous host access.
-> > >  		 */
-> > > -		if (mapping)
-> > > -			return -EAGAIN;
-> > > +		if (mapping) {
-> > > +			ret = kvm_call_hyp_nvhe(__pkvm_vcpu_in_poison_fault);
-> > 
-> > It's not too bad, but it's a shame we now issue that every time we have
-> > such a race (which is frequent-ish). Could we perhaps only issue it if
-> > at least one page has been forcefully reclaimed since boot?
-> 
-> On the plus side, it avoids an unconditional walk from the fault path
-> at EL2 (which is what we have in Android!).
-> 
-> It's a bit fiddly to implement your idea in the host, since the forceful
-> reclaim happens in a really terrible context but I could track it at EL2
-> and make __pkvm_vcpu_in_poison_fault() return early instead?
+Reviewed-by: Neal Gompa <neal@gompa.dev>
 
-I guess EL2 could easily publish something in the host kvm struct as
-well if we really wanted to, it's pinned as shared with EL2 and
-accessible from the hyp_vm, which we retrieve in the force reclaim path.
 
-> It's also
-> worth bearing in mind that we've already serialised the concurrent fault
-> and done a GUP by this point, so performance is somewhat of a lost
-> cause...
-
-That is very true, so happy to keep all these micro-optimization for
-later.
-
-Thanks,
-Quentin
+--=20
+=E7=9C=9F=E5=AE=9F=E3=81=AF=E3=81=84=E3=81=A4=E3=82=82=E4=B8=80=E3=81=A4=EF=
+=BC=81/ Always, there's only one truth!
 
