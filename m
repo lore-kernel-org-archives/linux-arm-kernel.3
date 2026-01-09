@@ -4,78 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C353DD277C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 23:10:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10875D277C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 23:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pvh5+c9d1qbVeHgj6hfcSp+Pmonb0UmxmVQR5Zl7mpw=; b=NJZcHbPI9EtGE10MZtbNf7lbMz
-	fl9s/oMQJUCMxrvB+VoF4vEgx3HEVXyxyilmyP7Eqn8vn1yoTCTep3w1O58RF/45nkfK6K+2T2q2j
-	bWL7p6niMsei36/d7dlthaKG6E1hiJzDxduMjn6HBgtJ4Xo5ZveTtyf1GHoeazB1AtCNdHtXzuV1/
-	xTm+QvKX/KQzr2abEuKWZ6yQl6KAm8a7rLxkECAcP+48WvYVp24jho1OLIHo1ZCTUgmGWvHIOubIb
-	0iU2R+X5oDeoqQFIZuvBALuPkTuOb0m/jnQJA9HGEdMjF21TC2Y9pvq4U8z96GAVjunxtl5jK3++K
-	r50i5u1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VvO1eaLvUNP8fp2Ve6v5l3VhSZWqyr00cvhZUKpR3z8=; b=krCLjOhjkDvczaOojjN6MGcmZG
+	zWTLN6JmLjlH6mlalJN5yQP1ztk84Q9fkwEmJvA25xfcQ/wPDrLQqctMn1EdXyfVkmyAUKwtMPFsR
+	mJZ5cH3AvcxbFf2umzFXgzlBbntVk0vn9sYznXAwCE61XYEPmrnQMJOZlIDngfOwBhRSuFCNcDF0A
+	zqWp4yNfKDsNevs5Wl9cO32fbloL1XKtMGyfNaiu1murrQuRSkgOT/gIu2G2n127JW1mrfpyDwFSJ
+	9FhwEh7UTpBQ6NFs4WdVdkMLZcmFFhD25cxkCZH26CzidPLOeSftQY0LmSHxWsKKQP4NDOPQEKryC
+	/HBOv52w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veLcf-00000003616-2vFm;
-	Fri, 09 Jan 2026 23:10:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1veLdY-0000000365R-0Mr0;
+	Fri, 09 Jan 2026 23:11:20 +0000
+Received: from sender4-pp-e106.zoho.com ([136.143.188.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veLce-00000003610-0wa6
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 23:10:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4C6B860178
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Jan 2026 23:10:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02956C2BCB3
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Jan 2026 23:10:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768000223;
-	bh=pvh5+c9d1qbVeHgj6hfcSp+Pmonb0UmxmVQR5Zl7mpw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=TrU5JAn8ni5Jm2xeVBKnI1iTvpE9pEvXsoUOkJiUtO2zt6Y2Zn+WuPmVx43mhmam+
-	 2P/wh94LKfRQICQ2rZyhHH6txfijs0pp6tgrVFmEUbSRlNHEfTHDpAwNI/kpzlprO3
-	 eCBO7cPIMRExmW8qj+Jib32pXH0VEiROHzZd+kpvdTszNXkTM32CfxJ5Ov/ZkbfDhw
-	 LG7HKdB7Mlb0n43jt/T5l3szGXQVDKNKz7hUABHULiVEf8+eQKwgftNZpkOdJCInHQ
-	 PF+z6j1910z8iglpJGC+aGWkfrZSFBUynujsocf8dajDvQgxJWtgQDa97Xia/QVEIj
-	 9xD+kaj/k4ooA==
-Received: by mail-yw1-f181.google.com with SMTP id 00721157ae682-790b7b3e581so53653137b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 15:10:22 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUP80tc7wDJcAdjKVdQzHcTXJZ7RIPSxgL4yCRp49oCHCk73LnPj/2vkcRC8qwWcsx17cF6T0GhGvHKo412bKQh@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPg9py3xhR9fWS5LXADF9jvtGOMl4C9gONr/3Wkp8qe+4EiziK
-	vvOsTvhLpNDA5yBFGEWXqx0W2O/zfn4HJ+WLaiDNnWb8fVNsCvQQySWYIC+fi7X3YqV9tXMUpWp
-	Lxlh7buJPcoFf6wn0hPJsAZCJpmGF3ms=
-X-Google-Smtp-Source: AGHT+IFEQO71e4cYNJObSCgFIiqeKEccxRrR8aY+yYr4ri3WGCll3aL6B5arU8gnOcBLuhvTFy39ew8yzQuWGlAloxk=
-X-Received: by 2002:a05:690e:1188:b0:641:f5bc:692b with SMTP id
- 956f58d0204a3-6470d2f46b7mr12056434d50.36.1768000222173; Fri, 09 Jan 2026
- 15:10:22 -0800 (PST)
-MIME-Version: 1.0
-References: <20260109-debug_bus-v1-0-8f2142b5a738@foss.st.com>
-In-Reply-To: <20260109-debug_bus-v1-0-8f2142b5a738@foss.st.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Sat, 10 Jan 2026 00:10:10 +0100
-X-Gmail-Original-Message-ID: <CAD++jLmk3RCf19yPvE0E9X3b+gy0XghQTbmMPfioBkSKkAaLpQ@mail.gmail.com>
-X-Gm-Features: AZwV_QjvOySI13iVNOTYfIXgnODwhGbGn87uLlGk8QzCNwneRQXoKJ0Qs0Jx1Ps
-Message-ID: <CAD++jLmk3RCf19yPvE0E9X3b+gy0XghQTbmMPfioBkSKkAaLpQ@mail.gmail.com>
-Subject: Re: [PATCH 00/11] bus: add stm32 debug bus and coresight support for
- stm32mp1x platforms
-To: Gatien Chevallier <gatien.chevallier@foss.st.com>, 
-	Jens Wiklander <jens.wiklander@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
-	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>, 
+	id 1veLdV-0000000364x-1r0t;
+	Fri, 09 Jan 2026 23:11:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1768000268; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=iTiTTgrfIXHegCuH7rVuuGmTtsbQmtYQxfx98Pq6aHGwQ2pLR0tB46SlPe0MvDDRNRo9hS0AxTx8TOju0Wa9udQKB4XOrMCIPSDcbGLSWyvEHkv4ckNGWXfs9YgnMlMKpJjT1cvpHLI5aImutuelzuEeFcKcQpAz9jVIDQRc60w=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1768000268; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=VvO1eaLvUNP8fp2Ve6v5l3VhSZWqyr00cvhZUKpR3z8=; 
+	b=eFpPxgKPf/C0iVNFAx4EMOng2cXw2JtBZC0QTiLrJ8SoA5BYXYPhRbpCaZvYoOgIDOiUIzmKmBf0UiuMSkKY3CGN6BS0qE344AGDjASUJL9C0fBdZYExAC4sD8tYW8AjtYeLB2S7vTCRK3tjDEyLSi6hoUu6EXO0qte0TV11cic=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768000268;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=VvO1eaLvUNP8fp2Ve6v5l3VhSZWqyr00cvhZUKpR3z8=;
+	b=OpSJtp9mT0i/A50DDxiCMFztbadTpH7Hko7+wmwv28FKS7NOWbgohgk5EGxCzYAx
+	bQkoDZUlUQ/ZCnEf7RlrLepXMC+H74UNHtvY0uZif3+6alqisaUDOVd4LiSKdqi7u7x
+	i4TxEiJqPTpc1FKrD8hggWt4p9rBFvrdJFX2Hc9Y=
+Received: by mx.zohomail.com with SMTPS id 1768000265401385.2485780895405;
+	Fri, 9 Jan 2026 15:11:05 -0800 (PST)
+Received: by venus (Postfix, from userid 1000)
+	id 65605180632; Sat, 10 Jan 2026 00:11:00 +0100 (CET)
+Date: Sat, 10 Jan 2026 00:11:00 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
-	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	Antonio Borneo <antonio.borneo@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Heiko Stuebner <heiko@sntech.de>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+	FUKAUMI Naoki <naoki@radxa.com>, Diederik de Haas <didi.debian@cknow.org>, 
+	Yongbo Zhang <giraffesnn123@gmail.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, 
+	"open list:USB TYPEC CLASS" <linux-usb@vger.kernel.org>
+Subject: Re: [PATCH v1 1/3] arm64: dts: rockchip: rk3588-rock-5b-5bp-5t:
+ Correct Type-C pin bias settings
+Message-ID: <aWGJYt3VPWh1kC_v@venus>
+References: <20260103083232.9510-1-linux.amoon@gmail.com>
+ <20260103083232.9510-2-linux.amoon@gmail.com>
+ <aVke1kQnHJLqWGHi@venus>
+ <CANAwSgSd0TLrkxpnS5qdot8B7vkd4wH76-g8hAixqfbEtH4LyA@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="qwkqzwpah4jl6gzl"
+Content-Disposition: inline
+In-Reply-To: <CANAwSgSd0TLrkxpnS5qdot8B7vkd4wH76-g8hAixqfbEtH4LyA@mail.gmail.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.5.1/267.941.65
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260109_151117_524624_A9535D37 
+X-CRM114-Status: GOOD (  34.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,36 +94,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gatien,
 
-thanks for your patch series!
+--qwkqzwpah4jl6gzl
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v1 1/3] arm64: dts: rockchip: rk3588-rock-5b-5bp-5t:
+ Correct Type-C pin bias settings
+MIME-Version: 1.0
 
-On Fri, Jan 9, 2026 at 11:56=E2=80=AFAM Gatien Chevallier
-<gatien.chevallier@foss.st.com> wrote:
+Hi,
 
-> Stm32 SoCs embed debug peripherals such as Coresight. These peripherals
-> can monitor the activity of the cores. Because of that, they can be
-> used only if some features in the debug configuration are enabled.
-> Else, errors or firewall exceptions can be observed. Similarly to
-> the ETZPC(on stm32mp1x platforms) or the RIFSC(on stm32mp2x platforms),
-> debug-related peripherals access can be assessed at bus level to
-> prevent these issues from happening.
->
-> The debug configuration can only be accessed by the secure world.
-> That means that a service must be implemented in the secure world for
-> the kernel to check the firewall configuration. On OpenSTLinux, it is
-> done through a Debug access PTA in OP-TEE [1].
-> To represent the debug peripherals present on a dedicated debug bus,
-> create a debug bus node in the device tree and the associated driver
-> that will interact with this PTA.
->
-> [1]: https://github.com/OP-TEE/optee_os/pull/7673
->
-> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+On Thu, Jan 08, 2026 at 12:24:50PM +0530, Anand Moon wrote:
+> Hi Sebastian,
+>=20
+> Thanks for your review comments.
+>=20
+> On Sat, 3 Jan 2026 at 19:23, Sebastian Reichel
+> <sebastian.reichel@collabora.com> wrote:
+> >
+> > Hi,
+> >
+> > On Sat, Jan 03, 2026 at 02:01:17PM +0530, Anand Moon wrote:
+> > > As pre FUSB302 datasheet interrupt line (INT_N) is an open-drain,
+> > > active-low signal. It requires a pull-up resistor to maintain a stable
+> > > high state when deasserted. Similarly, the TYPEC5V_PWREN_H enable sig=
+nal
+> > > requires a pull-down resistor to ensure it defaults to a low state,
+> > > preventing unintended power delivery during the boot sequence.
+> > >
+> > > Update the pinctrl entries to use pcfg_pull_up for usbc0_int and
+> > > pcfg_pull_down for vbus5v0_typec_en to align with the hardware's
+> > > electrical requirements.
+> > >
+> > > Cc: Sebastian Reichel <sebastian.reichel@collabora.com>
+> > > Fixes: 67b2c15d8fb3 ("arm64: dts: rockchip: add USB-C support for ROC=
+K 5B/5B+/5T")
+> > > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> > > ---
+> > > v1: As per the shematics CC_INT_L interrupt pin is GPIO3_B4_u
+> > >     As per the shematics TYPEC5V_PWREN_H pin is GPIO2_B6_d
+> > > ---
+> >
+> > Checking the schematics:
+> >
+> > 5B v1.45 - CC_INT_L - R2613 10K pull-up resistor
+> > 5B v1.45 - TYPEC5V_PWREN_H - GPIO is effectively unused because R95035 =
+is NC
+> >
+> > 5B+ v1.2 - CC_INT_L - R2613 10K pull-up resistor
+> > 5B+ v1.2 - TYPEC5V_PWREN_H - R163 100K pull-down resistor
+> >
+> > 5T v1.2 - CC_INT_L - R2613 10K pull-up resistor
+> > 5T v1.2 - TYPEC5V_PWREN_H - R163 100K pull-down resistor
+> >
+> CC_INT_L is gpio interrupt pin to enable the I2C read operation.
+>=20
+> As per FUSB302 datasheet, here is the updated version of the commit messa=
+ge
+>=20
+> Configure CC_INT_L as an active-low, open-drain output. Per the hardware =
+design,
+> this pin utilizes an external pull-up and is driven LOW by the Type-C
+> controller to
+> signal the processor to perform I2C register reads.
+>=20
+> The TYPEC5V_PWREN_H pull-down resistor is turned on as a signal to
+> the Type-C regulator, which has an active-enable-high property. In this c=
+ontext,
+> the regulator is used to set the polarity of the GPIO used to enable or d=
+isable
+> the regulator.
 
-I think Jens Wiklander wants to have a look at this partch
-series, so added him to the To:.
+I don't understand what you want to say here.
 
-Yours,
-Linus Walleij
+> > TLDR: All GPIOs have pull resistors in discrete hardware and do not
+> > need them muxed in the SoC.
+> >
+> It depends on the GPIO, pinctrl PMU configuration.
+
+as I try to say it does not depend on pinctrl configuration for any
+of the GPIOs you are touching. The pull resistors for them exist as
+components on the board.
+
+> I was thinking of converting the vbus5v0_typec regulator to 'regulator-gp=
+io.'
+> to better reflect the hardware schematics. The TYPEC5V_PWREN_H signal
+> (GPIO2_B6_d) acts as a state controller rather than a simple enable pin,
+> and this change ensures the device tree aligns with that design
+>=20
+> [1] https://dl.radxa.com/rock5/5b/docs/hw/radxa_rock_5b_v1450_schematic.p=
+df
+> (page 28)
+>=20
+> $ git diff arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+> b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+> index 5f58e339a052..387ff009ec76 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+> @@ -57,9 +57,10 @@ rfkill-bt {
+>         };
+>=20
+>         vbus5v0_typec: vbus5v0-typec {
+> -               compatible =3D "regulator-fixed";
+> +               compatible =3D "regulator-gpio";
+>                 enable-active-high;
+> -               gpio =3D <&gpio2 RK_PB6 GPIO_ACTIVE_HIGH>;
+> +               gpios =3D <&gpio2 RK_PB6 GPIO_ACTIVE_HIGH>;
+> +               states =3D <5000000 0x1>, <0 0x0>;
+>                 pinctrl-names =3D "default";
+>                 pinctrl-0 =3D <&vbus5v0_typec_en>;
+>                 regulator-name =3D "vbus5v0_typec";
+>=20
+> Could you please try this at your end?
+
+This is missing gpios-states, but I also see no point in testing
+that. Having one state as 0 effectively means this is a complicated
+version of regulator-fixed. The switch from "gpio" to "gpios" is
+valid though, since "gpio" is deprecated.
+
+Greetings,
+
+-- Sebastian
+
+--qwkqzwpah4jl6gzl
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmlhiv0ACgkQ2O7X88g7
++przrQ/9E7ZgXZmJU/ncfKD8Q0dB94+9RSYcBroM0lKy8akHS+dsY6LX+g48sjF5
+654sDnAl5QlhVEPMgCsRwG1f87dJy1/eaXUIc7m5TmyPdK4VsvQbgRaBr5btBC1V
+h1wvnRsHSdsTVRHT3Psygl3oMQKrB+MpzGv4SQEtPfVfOthpzA4h6hZ3S0fFBjT4
+kd53oHe9Fvvd4Cc91bTbXTfQxM2IBzIUFYJgI5EO948EwDPtzxa2afGQ9lfEybtu
++l4MwSruIHQe7mFUsxVDVYw+BVzFzQGJ3E3pBnd+1shDm2r0FiT62swwRfbFcxu1
+19btgFH18WVRVlPgIApKD6Exfjan7/elxYjicUIO1Q+GjGvYPKP1PsozxjYaoZr0
+WutY3WzprO+D4NPyI7tvU2XprQ0MdINd3uXZSvCKi8CPryMrYytb45w8njIypO85
+5JypAQJ9zYKhxyq10mUrzt2GBdgAak7lM63KtvN5E6pWk/OCyrEt0PfCI2HE/AOV
+VXp2y/oW4VLZZ0LyvmcR8UUq7X2it+y+faAHhSANxccpT9I5M5rtleK30t+bemzZ
+WofQinAz6AZ1aUC7EEyATr55gFXMcPQzKNTk7kuox5GpUUZfcrVgKFAamXV99pZw
+p65DncEUuiQdNgk28h71AAW1MM4Jr7FeRlOqxjpU5aDk1gQXN8s=
+=H3Oo
+-----END PGP SIGNATURE-----
+
+--qwkqzwpah4jl6gzl--
 
