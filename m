@@ -4,102 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4B2DD167FC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E57A6D167FA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:24:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QyD5/S3P7hQhgp+mxf+HZfsHxt4R/xJ40k1a8U9/co8=; b=gCiOSFalm5VQWKDA1gavzswkXi
-	OLC7FdDghTJQPjppRGkODFTAFFQg1Ou14m753G5r9DwjfS+54PSS1U3Tsuu7fOLIwrriruDE3xU1g
-	yBa1A5DeZchxG55XZ99DUNvt6u/KGAphSIsInSBg6tcytEnx9QZHHgT4YFFhSJnqIvfBxEN9sNJmS
-	E3+C0bRu3CdYd2+nqH42siF9MrF06YxRPIw+05sRpp6m9uKgVJHyJs3tFHt4U5WU5n+EC5G8U6PhF
-	dBbhKnNggFcev1BBRg1a6tj+bWgWmFxWXlI548NefxsVpgUo0769km4yqxnk+jps66ldUI7U+xWJD
-	/S9nm7IQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=O5MJt8Nwt7gEzzs/WifeaIl1+aMdgYOH+iBChXdCF5w=; b=p9ipTkHpXN598hg4MmeFXF/ez9
+	aqtrsx6TdIFNujmA71CAWP2NH/2WCaS1H/ZiXwKBhkrEV6b6U19/SKuXUWevbyujDfuBw1ACT3mfu
+	KTZrZDl2f8UeHW/PRrr8OM2OopRVlatHYpM2WbUwiG5cNxz2IidyINCSGqqtc0vaC/2LMEA6VgTWo
+	HmT62jmXJYFnvW4SWZQ/CQpSS1FZLC2LcryHaXsKZXrqSSE9YKBvRXJwWw2OnEnTbwA9TN+UZfVN8
+	v2LnKn5gY/9XRc9ME/VpaLRmwRyxkOgrQlaeuWGxCcj5QZwJj61bklYIQy2s7iOXqSdBqoLgP5F8p
+	Qcbdj2ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9eF-000000027vJ-2aYq;
-	Fri, 09 Jan 2026 10:23:15 +0000
-Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
+	id 1ve9f8-0000000280y-08EP;
+	Fri, 09 Jan 2026 10:24:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9eD-000000027ux-1RDq
+	id 1ve9f6-00000002803-1u4E
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 10:23:14 +0000
-Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 4DCF37A0159;
-	Fri,  9 Jan 2026 05:23:11 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-10.internal (MEProxy); Fri, 09 Jan 2026 05:23:11 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm1; t=1767954191; x=1768040591; bh=QyD5/S3P7h
-	Qhgp+mxf+HZfsHxt4R/xJ40k1a8U9/co8=; b=ZGI+t2nWoU+whtBN4otdN/Ep9W
-	SMkAffK4Gvk81+dnR2mIY27qv7kFjRugMwX23sPNh5kWr6nPokJ7FAD0gHtMYzKx
-	PtnOi4AjwZnIephM2weZAQSpTVGJHYddFoATUptKE8eV8rcyzVKZm6HxjgmmqaoR
-	IZePIH2JivWNGvVBIb1DmvL2vQmHuZMJ9GkSzZ8cEAV78ixWNKEKPS3slYnHjgL9
-	yty3Q/9/7HWg40v9A4t4EM7eAasYByETz6RHqjiJTVSqSHwtxKLcUlsRYajmadD8
-	8LuYl6ZMGDEx0tn58TcM/I22Z2cHNVD7JuQh/90SdpvTGRN0rxmSwlVKLlMg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1767954191; x=1768040591; bh=QyD5/S3P7hQhgp+mxf+HZfsHxt4R/xJ40k1
-	a8U9/co8=; b=SFd3Rlw+L5aou7JPLylh5yMmduWngesz6OC3jlrkt5xF32sFXAT
-	cCSnh61B2CbfGcdSzxz43BwVsBbQSTECZb1bo+fJMYTZGGU1vEaNp69HuHkdH9f9
-	I/8gI2WYT8q0vZpuRwBbL8dKdlECvj0iNC7ZcxM7JJCXX5OSZuogARIO2DWz/GsR
-	cbfIyDG7UY4p3GXWFHe1KaW94bZtpUuQX2Bzb/eTNxRP98CZXkNKWXnA9f/Mv+Dj
-	xmvhStvc8TcOCkuZkwib6BTpEVVDwckKRTtP0MNff/EkFxsZ/wAgokkQ4Wsof7MX
-	/7qz4qoxz1DEtOkXS41RNe0oHZ9zbLvIqFg==
-X-ME-Sender: <xms:DtdgaRdyhcMJucOoseeHa_yxjmGROU_SnYAML2vFoBkWk4F25UY9NA>
-    <xme:DtdgadfD_qX0DZHWFwvGyczWaTIeWoPeEHx5LGJ6uNMPKNEWTXVFpSIa_lIcUSx3s
-    nkI1Wfuj6d4cl06bSNM22vjma-6Pev3qXt2vSM9OjsnGCbkfvq0XKI>
-X-ME-Received: <xmr:DtdgaT3Q7oSNJ735QCddXUpMKolfpQNgiOgZSOuqRpyK66MdXTmfpnHuGQ93yM5B7nPzJfF7Lw5RkZ73A72vJuzhujyRNNcSbw8>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddutdekheehucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
-    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgvd
-    ffveelgedujeeffeehheekheelheefgfejffeftedugeethfeuudefheefteenucevlhhu
-    shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruh
-    drnhgvthdpnhgspghrtghpthhtohepuddtpdhmohguvgepshhmthhpohhuthdprhgtphht
-    thhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnhgvrghlsehgohhmph
-    grrdguvghvpdhrtghpthhtohepthhhihhnhhdrnhhguhihvghnsehshihnohhpshihshdr
-    tghomhdprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdroh
-    hrghdprhgtphhtthhopegrshgrhhhisehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghp
-    thhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrg
-    gurdhorhhgpdhrtghpthhtoheplhhinhhugidquhhssgesvhhgvghrrdhkvghrnhgvlhdr
-    ohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlh
-    drohhrghdprhgtphhtthhopehjtggrlhhlihhgvghrohhsleelsehgmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:Dtdgad9K5v0acRiFtqxSTkV5bcwXjiToHXTmIf_IpzO-O2vmNNsfpw>
-    <xmx:DtdgaQ5WsTkBqmMoFd4pp24thbILTdc9j-WdF-vblOJwCh40GVJWpw>
-    <xmx:Dtdgadui6xmFHk4oKdV6nzGqOzsUj5OI3lJF4WBB99k9COGcXt6DBg>
-    <xmx:Dtdgaa1S2pG-wjfJYerCosMUsClraUwXBBgY921jqWf3p97yjgrtvw>
-    <xmx:D9dgacc9QpM8zOFf9mJEjXzxAXtmi_wEMmVGfhvEb4D94VZ-9N41SCEA>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 9 Jan 2026 05:23:09 -0500 (EST)
-Date: Fri, 9 Jan 2026 11:23:09 +0100
-From: Janne Grunau <j@jannau.net>
-To: Sven Peter <sven@kernel.org>
-Cc: Neal Gompa <neal@gompa.dev>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-	James Calligeros <jcalligeros99@gmail.com>, stable@vger.kernel.org
-Subject: Re: [PATCH] usb: dwc3: apple: Set USB2 PHY mode before dwc3 init
-Message-ID: <20260109102309.GE4068972@robin.jannau.net>
-References: <20260108-dwc3-apple-usb2phy-fix-v1-1-5dd7bc642040@kernel.org>
+	Fri, 09 Jan 2026 10:24:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 87FD260166;
+	Fri,  9 Jan 2026 10:24:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8A89C16AAE;
+	Fri,  9 Jan 2026 10:24:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1767954247;
+	bh=sws3c2Q7sg64FTK0Tatp3OBfCQZp2TP1cZM4XUeIng8=;
+	h=Subject:To:Cc:From:Date:In-Reply-To:From;
+	b=HPgzd3cTDGmpuSSytjWkPz7twtNmWuAUCZCV7iXqT/gdUEQvEhLe35/bz6K0gSvEx
+	 pm1z8i71/uh3FRAYLbs6BFsS54v4ModDZGaeJsVDF46XLsOUNHfm1C5FZXdabKehAu
+	 H/yz25uIKAXpOmFv86dTQVWenOALG2NwmIBh1PSM=
+Subject: Patch "pwm: stm32: Always program polarity" has been added to the 5.10-stable tree
+To: alexandre.torgue@foss.st.com,fabrice.gasnier@foss.st.com,linux-arm-kernel@lists.infradead.org,linux-stm32@st-md-mailman.stormreply.com,mcoquelin.stm32@gmail.com,sean@geanix.com,u.kleine-koenig@baylibre.com,ukleinek@kernel.org
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Fri, 09 Jan 2026 11:24:04 +0100
+In-Reply-To: <20260108-stm32-pwm-v2-1-ced582974f8b@geanix.com>
+Message-ID: <2026010904-erased-prologue-1282@gregkh>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260108-dwc3-apple-usb2phy-fix-v1-1-5dd7bc642040@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_022313_448633_B7349098 
-X-CRM114-Status: GOOD (  27.08  )
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+X-stable: commit
+X-Patchwork-Hint: ignore 
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,114 +65,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 08, 2026 at 08:21:45PM +0100, Sven Peter wrote:
-> Now that the upstream code has been getting broader test coverage by our
-> users we occasionally see issues with USB2 devices plugged in during boot.
-> Before Linux is running, the USB2 PHY has usually been running in device
-> mode and it turns out that sometimes host->device or device->host
-> transitions don't work.
-> The root cause: If the role inside the USB2 PHY is re-configured when it
-> has already been powered on or when dwc2 has already enabled the ULPI
 
-"dwc3", typo noticed by Mark Kettenis
+This is a note to let you know that I've just added the patch titled
 
-> interface the new configuration sometimes doesn't take affect until dwc3
-> is reset again. Fix this rare issue by configuring the role much earlier.
-> Note that the USB3 PHY does not suffer from this issue and actually
-> requires dwc3 to be up before the correct role can be configured there.
-> 
-> Reported-by: James Calligeros <jcalligeros99@gmail.com>
-> Reported-by: Janne Grunau <j@jannau.net>
-> Fixes: 0ec946d32ef7 ("usb: dwc3: Add Apple Silicon DWC3 glue layer driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
->  drivers/usb/dwc3/dwc3-apple.c | 48 +++++++++++++++++++++++++++++--------------
->  1 file changed, 33 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/usb/dwc3/dwc3-apple.c b/drivers/usb/dwc3/dwc3-apple.c
-> index cc47cad232e397ac4498b09165dfdb5bd215ded7..c2ae8eb21d514e5e493d2927bc12908c308dfe19 100644
-> --- a/drivers/usb/dwc3/dwc3-apple.c
-> +++ b/drivers/usb/dwc3/dwc3-apple.c
-> @@ -218,25 +218,31 @@ static int dwc3_apple_core_init(struct dwc3_apple *appledwc)
->  	return ret;
->  }
->  
-> -static void dwc3_apple_phy_set_mode(struct dwc3_apple *appledwc, enum phy_mode mode)
-> -{
-> -	lockdep_assert_held(&appledwc->lock);
-> -
-> -	/*
-> -	 * This platform requires SUSPHY to be enabled here already in order to properly configure
-> -	 * the PHY and switch dwc3's PIPE interface to USB3 PHY.
-> -	 */
-> -	dwc3_enable_susphy(&appledwc->dwc, true);
-> -	phy_set_mode(appledwc->dwc.usb2_generic_phy[0], mode);
-> -	phy_set_mode(appledwc->dwc.usb3_generic_phy[0], mode);
-> -}
-> -
->  static int dwc3_apple_init(struct dwc3_apple *appledwc, enum dwc3_apple_state state)
->  {
->  	int ret, ret_reset;
->  
->  	lockdep_assert_held(&appledwc->lock);
->  
-> +	/*
-> +	 * The USB2 PHY on this platform must be configured for host or device mode while it is
-> +	 * still powered off and before dwc3 tries to access it. Otherwise, the new configuration
-> +	 * will sometimes only take affect after the *next* time dwc3 is brought up which causes
-> +	 * the connected device to just not work.
-> +	 * The USB3 PHY must be configured later after dwc3 has already been initialized.
-> +	 */
-> +	switch (state) {
-> +	case DWC3_APPLE_HOST:
-> +		phy_set_mode(appledwc->dwc.usb2_generic_phy[0], PHY_MODE_USB_HOST);
-> +		break;
-> +	case DWC3_APPLE_DEVICE:
-> +		phy_set_mode(appledwc->dwc.usb2_generic_phy[0], PHY_MODE_USB_DEVICE);
-> +		break;
-> +	default:
-> +		/* Unreachable unless there's a bug in this driver */
-> +		return -EINVAL;
-> +	}
-> +
->  	ret = reset_control_deassert(appledwc->reset);
->  	if (ret) {
->  		dev_err(appledwc->dev, "Failed to deassert reset, err=%d\n", ret);
-> @@ -257,7 +263,13 @@ static int dwc3_apple_init(struct dwc3_apple *appledwc, enum dwc3_apple_state st
->  	case DWC3_APPLE_HOST:
->  		appledwc->dwc.dr_mode = USB_DR_MODE_HOST;
->  		dwc3_apple_set_ptrcap(appledwc, DWC3_GCTL_PRTCAP_HOST);
-> -		dwc3_apple_phy_set_mode(appledwc, PHY_MODE_USB_HOST);
-> +		/*
-> +		 * This platform requires SUSPHY to be enabled here already in order to properly
-> +		 * configure the PHY and switch dwc3's PIPE interface to USB3 PHY. The USB2 PHY
-> +		 * has already been configured to the correct mode earlier.
-> +		 */
-> +		dwc3_enable_susphy(&appledwc->dwc, true);
-> +		phy_set_mode(appledwc->dwc.usb3_generic_phy[0], PHY_MODE_USB_HOST);
->  		ret = dwc3_host_init(&appledwc->dwc);
->  		if (ret) {
->  			dev_err(appledwc->dev, "Failed to initialize host, ret=%d\n", ret);
-> @@ -268,7 +280,13 @@ static int dwc3_apple_init(struct dwc3_apple *appledwc, enum dwc3_apple_state st
->  	case DWC3_APPLE_DEVICE:
->  		appledwc->dwc.dr_mode = USB_DR_MODE_PERIPHERAL;
->  		dwc3_apple_set_ptrcap(appledwc, DWC3_GCTL_PRTCAP_DEVICE);
-> -		dwc3_apple_phy_set_mode(appledwc, PHY_MODE_USB_DEVICE);
-> +		/*
-> +		 * This platform requires SUSPHY to be enabled here already in order to properly
-> +		 * configure the PHY and switch dwc3's PIPE interface to USB3 PHY. The USB2 PHY
-> +		 * has already been configured to the correct mode earlier.
-> +		 */
-> +		dwc3_enable_susphy(&appledwc->dwc, true);
-> +		phy_set_mode(appledwc->dwc.usb3_generic_phy[0], PHY_MODE_USB_DEVICE);
->  		ret = dwc3_gadget_init(&appledwc->dwc);
->  		if (ret) {
->  			dev_err(appledwc->dev, "Failed to initialize gadget, ret=%d\n", ret);
-> 
+    pwm: stm32: Always program polarity
 
-Tested-by: Janne Grunau <j@jannau.net>
-Reviewed-by: Janne Grunau <j@jannau.net>
+to the 5.10-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
-Janne
+The filename of the patch is:
+     pwm-stm32-always-program-polarity.patch
+and it can be found in the queue-5.10 subdirectory.
+
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
+
+
+From sean@geanix.com  Fri Jan  9 11:22:32 2026
+From: Sean Nyekjaer <sean@geanix.com>
+Date: Thu, 08 Jan 2026 13:45:23 +0100
+Subject: pwm: stm32: Always program polarity
+To: "Fabrice Gasnier" <fabrice.gasnier@foss.st.com>, "Uwe Kleine-König" <ukleinek@kernel.org>, "Maxime Coquelin" <mcoquelin.stm32@gmail.com>, "Alexandre Torgue" <alexandre.torgue@foss.st.com>
+Cc: "Uwe Kleine-König" <u.kleine-koenig@baylibre.com>, linux-pwm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org, "Sean Nyekjaer" <sean@geanix.com>
+Message-ID: <20260108-stm32-pwm-v2-1-ced582974f8b@geanix.com>
+
+From: Sean Nyekjaer <sean@geanix.com>
+
+Commit 7346e7a058a2 ("pwm: stm32: Always do lazy disabling") triggered a
+regression where PWM polarity changes could be ignored.
+
+stm32_pwm_set_polarity() was skipped due to a mismatch between the
+cached pwm->state.polarity and the actual hardware state, leaving the
+hardware polarity unchanged.
+
+Fixes: 7edf7369205b ("pwm: Add driver for STM32 plaftorm")
+Cc: stable@vger.kernel.org # <= 6.12
+Signed-off-by: Sean Nyekjaer <sean@geanix.com>
+Co-developed-by: Uwe Kleine-König <ukleinek@kernel.org>
+Signed-off-by: Uwe Kleine-König <ukleinek@kernel.org>
+---
+ drivers/pwm/pwm-stm32.c |    3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+--- a/drivers/pwm/pwm-stm32.c
++++ b/drivers/pwm/pwm-stm32.c
+@@ -458,8 +458,7 @@ static int stm32_pwm_apply(struct pwm_ch
+ 		return 0;
+ 	}
+ 
+-	if (state->polarity != pwm->state.polarity)
+-		stm32_pwm_set_polarity(priv, pwm->hwpwm, state->polarity);
++	stm32_pwm_set_polarity(priv, pwm->hwpwm, state->polarity);
+ 
+ 	ret = stm32_pwm_config(priv, pwm->hwpwm,
+ 			       state->duty_cycle, state->period);
+
+
+Patches currently in stable-queue which might be from sean@geanix.com are
+
+queue-5.10/pwm-stm32-always-program-polarity.patch
 
