@@ -4,79 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A04CD232EA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 07:25:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF3B5D232E8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 07:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F8qggB+ZqQxK1gpWWS6Ztd+cnpOCo+EBfWlyX/Zk/QU=; b=3YPAsjhTr/AmveFdJJxYvg0J7I
-	Oy26FqNEMIhvALmPDpyGB9V2RFUXM9dtO94W4CAxq07VxM85gLPfTtK5+cVPm1yiOhqvHdR9Cp3nN
-	1or34ChISuXqBC/GU2X1LOekwNvCz+czU9Fx+Y/iEcMlA2HlIAMIgC5697x6ago9cwp/e/FMwrtHG
-	+h/ZANjnxbqBYEB7MetqJKUEcr526fjHkPdFZPYHL5oyhd7nb8zg+V7MqqbXkbO9ASk4mjuTOqc2G
-	m4mmSugDb8g32VA01xr49dTKZQMheswujdYw0ieAZqF98J9tfkh0RH0fpMGT9nJ3MFQ6C2DxIfK3a
-	7gvHoPcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=O7pzVTj6X0AEeV6swURMFMUKvFmICmffgzcekptf2P0=; b=EaISX1U3KDsFIE
+	HNZLSe+/2jHjhAz372OUZORb937PoQbqyyT9BdkQpXiJpOW97aRUt2+ZJdAj+N73egcKCkVwjKZF2
+	LlkRz9fzlR6sPN41QKeD2Aw4UfJKefm9HaaF5372XjrBu5RNqGfmErMC0PUn7hSCElh3t7c4JVvrp
+	yVCES+CHPqsoVsDwvLReKfKIkhHLqKMyJZjOwTGe8+eHhhELRAlw+JB1laz3uhTInLnYpkOb8Hk0D
+	ZfoEOsA9xHlpXCvEQACaIdKpn0tsGARp6rcN6HQdv9v6HynTUagbtd4oRiXprjHBkPQW7TOECO8md
+	3OXm2shqzHq1VqUGuQxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve6ro-00000001i8Z-0RXL;
-	Fri, 09 Jan 2026 07:25:04 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1ve6yP-00000001j8W-3sIO;
+	Fri, 09 Jan 2026 07:31:54 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve6rl-00000001i6j-3BxV;
-	Fri, 09 Jan 2026 07:25:02 +0000
-X-UUID: 4bc7381ced2c11f09f706fa2197c6ceb-20260109
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=F8qggB+ZqQxK1gpWWS6Ztd+cnpOCo+EBfWlyX/Zk/QU=;
-	b=YAMd5PRgKEqkVlkWbhinoK83VfI9euK8jb14MdoZxUq/thtKdbo9lr9ni7RwTWmSsU3hdNqPTJO8ehXK2jspOxawNbktaZCiALrHU/qhHw8vF7/9OSeYOCOP9Ah/GoEaNYCTCm5Fe2irTVpJxYgMKGgW9w0HFGYECGUWWxpIn0I=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.9,REQID:6d1a39e1-4d1e-48c7-815c-f8479757e417,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:5047765,CLOUDID:56f19779-8c8a-4fc4-88c0-3556e7711556,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|836|888|898,TC:-5,Co
-	ntent:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,CO
-	L:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 4bc7381ced2c11f09f706fa2197c6ceb-20260109
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
-	(envelope-from <dengjun.su@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 878093480; Fri, 09 Jan 2026 00:24:55 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Fri, 9 Jan 2026 15:24:52 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Fri, 9 Jan 2026 15:24:51 +0800
-From: Dengjun Su <dengjun.su@mediatek.com>
-To: <peterz@infradead.org>
-CC: <angelogioacchino.delregno@collabora.com>, <bsegall@google.com>,
-	<dengjun.su@mediatek.com>, <dietmar.eggemann@arm.com>,
-	<haiqiang.gong@mediatek.com>, <juri.lelli@redhat.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mediatek@lists.infradead.org>, <matthias.bgg@gmail.com>,
-	<mgorman@suse.de>, <mike.zhang@mediatek.com>, <mingo@redhat.com>,
-	<peijun.huang@mediatek.com>, <rostedt@goodmis.org>,
-	<vincent.guittot@linaro.org>, <vschneid@redhat.com>
-Subject: Re: [PATCH] sched/rt: fix incorrect schedstats for rt thread
-Date: Fri, 9 Jan 2026 15:24:47 +0800
-Message-ID: <20260109072451.2843331-1-dengjun.su@mediatek.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260108111632.GH272712@noisy.programming.kicks-ass.net>
-References: <20260108111632.GH272712@noisy.programming.kicks-ass.net>
+	id 1ve6yL-00000001j6t-0uRG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Jan 2026 07:31:52 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 6F9CBC1F6CE;
+	Fri,  9 Jan 2026 07:31:19 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7FBB160734;
+	Fri,  9 Jan 2026 07:31:45 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BBFBB103C87E8;
+	Fri,  9 Jan 2026 08:31:35 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1767943904; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=O7pzVTj6X0AEeV6swURMFMUKvFmICmffgzcekptf2P0=;
+	b=vWenyqBDDH8G1zzaYpSa7Rrze6ECMjD08JHWjpuC9NeezlEl8GKQMyr6uPHyJ76o824+As
+	FzzSYtLMwGVmuDgeTPxQJZIBN3mcgSo0Dw8aZDq+ZttsrbUSBUbfg6No6g4dYbTqJlDXih
+	yApcnzSTeppghscMgDHf9Gilzo986LSZTDNL/xzNXktqAEgwu4xxtY+Jgz5qpqQODQrFO5
+	0XzZ/QGa7eWoVQ1vzkldtn1FjCbEgbyw4OzRYFRBc8z0zlhmVlar3Sx4S1FejR7tNj8Z9f
+	1TBajImkXcBSK8bmcYOmNiinYrljqkaT42IXL8yGHmjBIjUfGYcuTP6vr4QVhA==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: [PATCH v2 00/12] drm/bridge: convert users of
+ of_drm_find_bridge(), part 2
+Date: Fri, 09 Jan 2026 08:31:31 +0100
+Message-Id: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-0-8bad3ef90b9f@bootlin.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+X-B4-Tracking: v=1; b=H4sIANOuYGkC/5WOzQ6CMBAGX4X0bE27xIKefA9DSP+ATZBiW4iG8
+ O4WNPHsceZLdnYhwXq0gVyyhXg7Y0A3JIBDRnQnh9ZSNIkJMDhxgJwaf6fKo0mL7HunaWvjOMX
+ N166pGxxM/d2BctBCKa1EeRYknRy9bfC5527Vh719TKkaf7LDEJ1/7S/NfLNbXTDOiv/qM6eMQ
+ pmbQinJBJdX5VzscThqdyfVuq5vAxQV6/8AAAA=
+X-Change-ID: 20251223-drm-bridge-alloc-getput-drm_of_find_bridge-2-12c6bbcb6896
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Philippe Cornu <philippe.cornu@st.com>, benjamin.gaignard@linaro.org, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Adrien Grassein <adrien.grassein@gmail.com>, Liu Ying <victor.liu@nxp.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
+ Jagan Teki <jagan@amarulasolutions.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, stable@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_232501_823402_BF767025 
-X-CRM114-Status: GOOD (  26.00  )
+X-CRM114-CacheID: sfid-20260108_233150_089155_A2E16EE0 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,82 +94,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2026-01-08 at 12:16 +0100, Peter Zijlstra wrote:
-> On Thu, Jan 08, 2026 at 11:13:07AM +0800, Dengjun Su wrote:
-> > For RT thread, only 'set_next_task_rt' will call
-> > 'update_stats_wait_end_rt' to update schedstats information.
-> > However, during the RT migration process,
-> > 'update_stats_wait_start_rt' will be called twice, which
-> > will cause the values of wait_max and wait_sum to be incorrect.
-> 
-> Right, that looses time. Also note that I think dl has the same
-> issue.
+This series converts all DRM bridge drivers (*) from the now deprecated
+of_drm_find_bridge() to its replacement of_drm_find_and_get_bridge() which
+allows correct bridge refcounting. It also converts per-driver
+"next_bridge" pointers to the unified drm_bridge::next_bridge which puts
+the reference automatically on bridge deallocation.
 
-Hi Peter,
+This is part of the work to support hotplug of DRM bridges. The grand plan
+was discussed in [0].
 
-Thanks for the feedback. Yes, sorry for miss dl class,
-I will update it in V2.
+Here's the work breakdown (➜ marks the current series):
 
-> 
-> > The specific output as follows:
-> > $ cat /proc/6046/task/6046/sched | grep wait
-> > wait_start                                   :             0.000000
-> > wait_max                                     :        496717.080029
-> > wait_sum                                     :       7921540.776553
-> > 
-> > Add 'update_stats_wait_end_rt' in 'update_stats_dequeue_rt' to
-> > update schedstats information when dequeue_task.
-> 
-> This needs a few more words on why this is correct -- notably it took
-> me
-> a little time to find the 'task_on_rq_migrating()' case in
-> __update_stats_wait_end() which makes this not actually 'end'.
-> 
-> But then the corresponding clause in __update_stats_wait_start()
-> gives
-> me a headache:
-> 
->  'wait_start > prev_wait_start'
-> 
-> I mean, wtf. Should that not equally be using task_on_rq_migrating()
-> ?
-> 
-> Can you please take a hard look at all that and fix up things
-> all-round?
-> 
+ 1. ➜ add refcounting to DRM bridges struct drm_bridge,
+      based on devm_drm_bridge_alloc()
+    A. ✔ add new alloc API and refcounting (v6.16)
+    B. ✔ convert all bridge drivers to new API (v6.17)
+    C. ✔ kunit tests (v6.17)
+    D. ✔ add get/put to drm_bridge_add/remove() + attach/detach()
+         and warn on old allocation pattern (v6.17)
+    E. ➜ add get/put on drm_bridge accessors
+       1. ✔ drm_bridge_chain_get_first_bridge(), add cleanup action (v6.18)
+       2. ✔ drm_bridge_get_prev_bridge() (v6.18)
+       3. ✔ drm_bridge_get_next_bridge() (v6.19)
+       4. ✔ drm_for_each_bridge_in_chain() (v6.19)
+       5. ✔ drm_bridge_connector_init (v6.19)
+       6. … protect encoder bridge chain with a mutex
+       7. ➜ of_drm_find_bridge
+          a. ✔… add of_drm_get_bridge(), convert basic direct users
+	        (v6.20?, one driver still pending)
+	  b. ➜ convert direct of_drm_get_bridge() users, part 2
+	  c. … convert direct of_drm_get_bridge() users, part 3
+	  d.   convert direct of_drm_get_bridge() users, part 4
+	  e.   convert bridge-only drm_of_find_panel_or_bridge() users
+       8. drm_of_find_panel_or_bridge, *_of_get_bridge
+       9. ✔ enforce drm_bridge_add before drm_bridge_attach (v6.19)
+    F. ✔ debugfs improvements
+       1. ✔ add top-level 'bridges' file (v6.16)
+       2. ✔ show refcount and list lingering bridges (v6.19)
+ 2. … handle gracefully atomic updates during bridge removal
+    A. ✔ Add drm_dev_enter/exit() to protect device resources (v6.20?)
+    B. … protect private_obj removal from list
+ 3. … DSI host-device driver interaction
+ 4. ✔ removing the need for the "always-disconnected" connector
+ 5. finish the hotplug bridge work, moving code to the core and potentially
+    removing the hotplug-bridge itself (this needs to be clarified as
+    points 1-3 are developed)
 
-A complete schedstats information update flow of migrate should be
-__update_stats_wait_start() [enter queue A, stage 1] ->
-__update_stats_wait_end()   [leave queue A, stage 2] ->
-__update_stats_wait_start() [enter queue B, stage 3] ->
-__update_stats_wait_end()   [start running on queue B, stage 4]
+[0] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com/#t
 
-    Stage 1: prev_wait_start is 0, and in the end, wait_start records the
-    time of entering the queue.
-    Stage 2: task_on_rq_migrating(p) is true, and wait_start is updated to
-    the waiting time on queue A.
-    Stage 3: prev_wait_start is the waiting time on queue A, wait_start is
-    the time of entering queue B, and wait_start is expected to be greater
-    than prev_wait_start. Under this condition, wait_start is updated to
-    (the moment of entering queue B) - (the waiting time on queue A).
-    Stage 4: the final wait time = (time when starting to run on queue B)
-    - (time of entering queue B) + (waiting time on queue A) = waiting
-    time on queue B + waiting time on queue A.
+This work is a continuation of the work to correctly handle bridge
+refcounting for existing of_drm_find_bridge(). The ground work is in:
 
-The current problem is that stage 2 does not call __update_stats_wait_end
-to update wait_start, which causes the final computed wait time = waiting
-time on queue B + the moment of entering queue A, leading to incorrect
-wait_max and wait_sum.
+  - commit 293a8fd7721a ("drm/bridge: add of_drm_find_and_get_bridge()")
+  - commit 9da0e06abda8 ("drm/bridge: deprecate of_drm_find_bridge()")
+  - commit 3fdeae134ba9 ("drm/bridge: add next_bridge pointer to struct drm_bridge")
 
-For __update_stats_wait_end(), task_on_rq_migrating(p) is needed to
-distinguish between stage 2 and stage 4 because they involve different
-processing flows, but for __update_stats_wait_start(), it is not necessary
-to distinguish between stage 1 and stage 3.
+The whole conversion is split in multiple series to make the review process
+a bit smoother. Parts 3 and 4 are converting non-bridge drivers (mostly
+encoders).
 
-As for adding the condition wait_start > prev_wait_start, I think it is
-more like a mechanism to prevent statistical deviations caused by time
-inconsistencies.
+(*) One bridge driver (synopsys/dw-hdmi) is converted in another series,
+    together with its (non-bridge) users. Additionally this series converts
+    drm_of_panel_bridge_remove() which is a special case, and has a bugfix
+    for it too.
 
-Thanks
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+Changes in v2:
+- Fix bug in samsung-dsim code, patch 10;
+  update patch 12 on top of those changes
+- Fix in imx8qxp-ldb code, patch 9
+- Link to v1: https://lore.kernel.org/r/20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-0-283d7bba061a@bootlin.com
+
+---
+Luca Ceresoli (12):
+      drm: of: drm_of_panel_bridge_remove(): fix device_node leak
+      drm: of: drm_of_panel_bridge_remove(): convert to of_drm_find_and_get_bridge()
+      drm/bridge: sii902x: convert to of_drm_find_and_get_bridge()
+      drm/bridge: thc63lvd1024: convert to of_drm_find_and_get_bridge()
+      drm/bridge: tfp410: convert to of_drm_find_and_get_bridge()
+      drm/bridge: tpd12s015: convert to of_drm_find_and_get_bridge()
+      drm/bridge: lt8912b: convert to of_drm_find_and_get_bridge()
+      drm/bridge: imx8mp-hdmi-pvi: convert to of_drm_find_and_get_bridge()
+      drm/bridge: imx8qxp-ldb: convert to of_drm_find_and_get_bridge()
+      drm/bridge: samsung-dsim: samsung_dsim_host_attach: use a temporary variable for the next bridge
+      drm/bridge: samsung-dsim: samsung_dsim_host_attach: don't use the bridge pointer as an error indicator
+      drm/bridge: samsung-dsim: samsung_dsim_host_attach: convert to of_drm_find_and_get_bridge()
+
+ drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pvi.c | 15 ++++++-----
+ drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c     | 12 ++++++++-
+ drivers/gpu/drm/bridge/lontium-lt8912b.c     | 31 +++++++++++------------
+ drivers/gpu/drm/bridge/samsung-dsim.c        | 37 +++++++++++++++++++---------
+ drivers/gpu/drm/bridge/sii902x.c             |  7 +++---
+ drivers/gpu/drm/bridge/thc63lvd1024.c        |  7 +++---
+ drivers/gpu/drm/bridge/ti-tfp410.c           | 27 ++++++++++----------
+ drivers/gpu/drm/bridge/ti-tpd12s015.c        |  8 +++---
+ include/drm/bridge/samsung-dsim.h            |  1 -
+ include/drm/drm_of.h                         |  6 ++++-
+ 10 files changed, 86 insertions(+), 65 deletions(-)
+---
+base-commit: 814b88f91b121246b35be9c519b537041fe3d178
+change-id: 20251223-drm-bridge-alloc-getput-drm_of_find_bridge-2-12c6bbcb6896
+
+Best regards,
+-- 
+Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 
