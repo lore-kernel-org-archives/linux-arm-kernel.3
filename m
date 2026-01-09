@@ -4,54 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1939D26D8C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 18:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 701F0D26D8C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 18:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Jja8ThL6rgLzr/oZUoKTJO9gol8v7VUb5wvDr63vWw4=; b=ncgcwYnao67H4tVi7bmBnkqFTV
-	kZwBerNQ0mZb5lYJofQEeHW+iAN8+My18veald0dqhQKPvoJdTQG1KhoO/iHkAW2LMcXM+531pYhw
-	57u86PxKazX0XfTxXMXG4bWDH7mXnQxEXpYiGeBntJdSPcWUkFn7gWRHvpIIcrIVEtYXb6NR+H2hG
-	1kZlM+Z1DbRgadoEab0Cb3rmMNoKI+TrjxtmQUxmau3WCvQCc2cKtkRyW9x/YQjtkio0vjnedS2lW
-	TRRhKA+H8KE7VsAVHu7pZopPH8dPL9ALM8i9JJXLrE8NTiZMB+ZGoKzrlElXww8uwLF918ECtPbLN
-	TtyQBQuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vf+18t1t2iJMep/ahqqAufx0XkAXBscr4g95xemYq98=; b=ukz0xIk2YL99T5OrKPQIHxVmZ9
+	XwCWNLHiKt6LgZM1QUx7I/wfC2bLsb3z6SMeiVQDwnhgvOVNEqAZE/0M/nSBzHVwSTI4aROrkEH8J
+	34Khn3cunaYFQHhlPmSZRfTfhluehZ8Eim5OZgIB5x7mwGw0lMWMHHXebGu3unOS2p5tmVKBiyVA8
+	SIHpDEVM7+lFX7T1sFRa/04Fhka4+YMC+Y9SxSf1xj+eTD8z3RE2iuHtGx4IrOJRVuQGjfDVgbPy3
+	aokRmQIBGPIZ4oGMJjW0z1PvhfzmoxaWU0P3k6FRp1zr6fa5MrJpc9wTvgYOYanP+NyZ7DLnEQdXM
+	IUL19NXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veHCv-00000002soO-2qu0;
-	Fri, 09 Jan 2026 18:27:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1veHDV-00000002st7-17Ds;
+	Fri, 09 Jan 2026 18:28:09 +0000
+Received: from sender4-op-o10.zoho.com ([136.143.188.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veHCu-00000002soH-1qRj
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 18:27:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 88AAF600B0;
-	Fri,  9 Jan 2026 18:27:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5493AC4CEF1;
-	Fri,  9 Jan 2026 18:27:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767983251;
-	bh=TvQl9Qf3hEAIfbGSczlay12HmrEEnB0WT5qdvpK6iZw=;
-	h=Date:From:To:Cc:Subject:From;
-	b=e63yYhmOOIOARhpAT0+gOLJ39IgaIkaHkIte1DB26AOiZPfFYOoxrBftCc+jpkZmq
-	 eKIBKasaKpbcqxivlPt022bHd8zWX9wKBAjBnSq8u91gTnnNmvtym9MwCHceNOupmB
-	 IbFGTp91buFtHWXTi/wJea5HpV/G6DKZdgnAGxJEuh3ZMkjjtj6oHa/cigetaSRgds
-	 z2ebtbpf2RTMk965lygeiRORvFiOXCzqk0T8smUd9SNXStMr+A85k21xcW5CMLxwIH
-	 zbZ4Xuv/Xn48abgKudTtZgBEEDEhR86titdEms+PHHDiZHIBywPJ1Pg482TYF1YadP
-	 bOsQmY5fhz0Cg==
-Date: Fri, 9 Jan 2026 18:27:27 +0000
-From: Catalin Marinas <cmarinas@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] arm64 fixes for 6.19-rc5
-Message-ID: <aWFIj0hGUQK1ywDu@arm.com>
+	id 1veHDS-00000002ssM-2n9k;
+	Fri, 09 Jan 2026 18:28:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1767983273; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=XTfBx+aumr4r26qEMS0RwjcPnj46PAfTi08A3JujHbeFikRRVTo1EPKJSc1Dzuc7kAKCVPMoR5UlHqVmL3gWIJkcSftyOpn7IJSgRadPHgaHw2RvlHEx2YwrgIN7ByHTT3AvEaqtJuGwMi8cQxtEoEUdxtm02eruFinn7lOnBe0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1767983273; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=vf+18t1t2iJMep/ahqqAufx0XkAXBscr4g95xemYq98=; 
+	b=hKMh2q5w0LGL936lnYAYGf/BrtTTYdMOn1o7pRh7IySWJk3IER6bA7bs5iOIxkWFY90VvWxUYnEGeKeszgw2RYrE3RwdzX8ZFJICihuHE0zH2gxes0MiCXU4IsqOI3QfjCQ8uBfk2FAGNALKDTE2SXRa8nsogWCsW3YHau0qA7k=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nfraprado@collabora.com;
+	dmarc=pass header.from=<nfraprado@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1767983273;
+	s=zohomail; d=collabora.com; i=nfraprado@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=vf+18t1t2iJMep/ahqqAufx0XkAXBscr4g95xemYq98=;
+	b=TTq2WD53kIq8HjDxVYzDBy3cFCtsADCb9pmD9cI6BbKE2yn9UTm+uAWXHTwtwRvw
+	Tsg5MuB+RIfbS7sbk9EsnBlXAoaF+WIZpX2RkfmNqLGoqTNeo6BCuD8BpRWzqHeCskC
+	iPYvw7SwJVXYjavI8h+pmYGrJqLCRif/N2UOR5Ck=
+Received: by mx.zohomail.com with SMTPS id 1767983272320533.4804385881307;
+	Fri, 9 Jan 2026 10:27:52 -0800 (PST)
+Message-ID: <cc128facb246d89408cf46aa7c9e250c56900940.camel@collabora.com>
+Subject: Re: [PATCH RFC 0/6] AFBC fixes for MediaTek DRM
+From: =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado" <nfraprado@collabora.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel	
+ <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, Simona Vetter	
+ <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Justin Green <greenjustin@chromium.org>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, ariel.dalessandro@collabora.com, 
+	daniels@collabora.com, Nancy.Lin@mediatek.com, Jason-JH.Lin@mediatek.com
+Date: Fri, 09 Jan 2026 15:27:43 -0300
+In-Reply-To: <20251230-mtk-afbc-fixes-v1-0-6c0247b66e32@collabora.com>
+References: <20251230-mtk-afbc-fixes-v1-0-6c0247b66e32@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-7 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260109_102806_765996_8E257BAA 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,54 +83,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+On Tue, 2025-12-30 at 11:03 -0300, N=C3=ADcolas F. R. A. Prado wrote:
+> This series contains a handful of fixes for AFBC support on the
+> MediaTek
+> DRM driver so that it can be re-enabled.
+>=20
+> This is sent as an RFC because there are still some issues to work
+> out
+> before the series can be merged:
+>=20
+> 1. Patch 4, 'drm/mediatek: ovl: Disallow AFBC buffers with width over
+> =C2=A0=C2=A0 1920' did not behave well when tested with Weston, so a bett=
+er
+> =C2=A0=C2=A0 solution probably needs to be implemented before this can be
+> merged.
+>=20
+> 2. Remaining AFBC issues:
+> =C2=A0=C2=A0=20
+> =C2=A0=C2=A0 a. The first 4 pixel rows are always skipped in the displaye=
+d
+> output,
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 that is, the first displayed pixel, on the=
+ top-left corner,
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 corresponds to 4x0. And below the end of t=
+he displayed output,
+> the
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 first 4x32 pixels are displayed.
+>=20
+> =C2=A0=C2=A0 b. On some resolutions, there are still artifacts that look =
+like
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 misalignment issues, eg 1024x1080, 1080x10=
+80.
+>=20
+> =C2=A0=C2=A0 c. On some resolutions, no output at all is displayed, eg
+> 1920x1080.
 
-Please pull the arm64 fixes below. Thanks.
+I received a suggestion that the Lx_2ND_SUBBUF bit in OVL is not needed
+when cropping is not enabled, and that removing it should fix the extra
+pixels after the image described in 2.a., and perhaps even fix AFBC not
+working with MT8188, though I haven't had time to test it.
 
-The following changes since commit f4ea8e05f2a857d5447c25f7daf00807d38b307d:
 
-  lkdtm/bugs: Do not confuse the clang/objtool with busy wait loop (2025-12-19 15:09:09 +0000)
+--=20
+Thanks,
 
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
-
-for you to fetch changes up to bdf3f4176092df5281877cacf42f843063b4784d:
-
-  arm64: Fix cleared E0POE bit after cpu_suspend()/resume() (2026-01-09 10:41:45 +0000)
-
-----------------------------------------------------------------
-arm64 fixes:
-
- - Do not return false if !preemptible() in current_in_efi(). EFI
-   runtime services can now run with preemption enabled
-
- - Fix uninitialised variable in the arm MPAM driver, reported by sparse
-
- - Fix partial kasan_reset_tag() use in change_memory_common() when
-   calculating page indices or comparing ranges
-
- - Save/restore TCR2_EL1 during suspend/resume, otherwise the E0POE bit
-   is lost
-
-----------------------------------------------------------------
-Ben Horgan (2):
-      arm64/efi: Don't fail check current_in_efi() if preemptible
-      arm_mpam: Stop using uninitialized variables in __ris_msmon_read()
-
-Jiayuan Chen (1):
-      arm64: mm: Fix incomplete tag reset in change_memory_common()
-
-Yeoreum Yun (1):
-      arm64: Fix cleared E0POE bit after cpu_suspend()/resume()
-
- arch/arm64/include/asm/efi.h     | 2 +-
- arch/arm64/include/asm/suspend.h | 2 +-
- arch/arm64/mm/pageattr.c         | 6 ++++--
- arch/arm64/mm/proc.S             | 8 ++++++++
- drivers/resctrl/mpam_devices.c   | 7 ++++---
- 5 files changed, 18 insertions(+), 7 deletions(-)
-
--- 
-Catalin
+N=C3=ADcolas
 
