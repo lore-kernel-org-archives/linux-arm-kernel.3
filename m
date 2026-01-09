@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F8BD232D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 03:14:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A15D232D5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 03:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3CCu996nQ9346Qn0xVk5Pk+uOrnxB9KiBN89fifS4jg=; b=GuyN9CWq0huZFDUuFfN4fgAu0K
-	ywtrTIZfEjDznpGpOazo7pnJxSdWpYmLnL8qmLNZU+7d9WOxn0d2y6jwedsDE1cGCOWyijro+Ymy9
-	08qO/FsdBpv0RKUQQ+MX1zaJi2lTuY+J6lptMu9cZ6ij+q0C10FtIsMqzTI1nPa+TT9icZ321dxKo
-	eTbquljI+Z1gQUn8yLQFd6WJY9aOZmS/7M2CwOJHldjZvAMzLFvpdK7AfogVSBWlgg2/godSE4uoX
-	6EaDF6ssOnNvGU7fX9OH06CxFJ0aUK16t54p3/b903Qn6m02C//9PWINPFHtCWaoBdBInEv9Dpdtk
-	fVe/kVAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Td4RsK7CWz0wGv8RlhRHVePEqykvscOGnUjIqYpdWXE=; b=Pjsq3ytdmTvEbD/CKFgrSp3Eix
+	4IEoTwe/IoGgqWgO34nYgFjgvpbxh1CTNi1MgUw/aJlNrdk9mkxQAB5vH1OPmtV+KIMonDGOuoDmh
+	1C43VZYbxWORRT9ciRkwzJKpWrB5QxdIwbt8uM98mAbq3Re2CAQJzumGIas0nUh+omb505li49Uyu
+	AMtlDBE1HMO/ppf59ACc326hKIOnzhpjzJsWAaosvJ5FTz841rK+teatgh8my7tdc25VO24HC1K7G
+	BSnz2ndikDWgsnn5wZd2rIefPMz5tNQv+dKUBdZmed9qyqoesCumL0i1xcry+4KD1qaZYOZITIDUk
+	MMRCn6fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve2xR-000000019pY-0sM9;
-	Fri, 09 Jan 2026 03:14:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ve3Rd-00000001Cka-08ew;
+	Fri, 09 Jan 2026 03:45:49 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve2xQ-000000019pJ-2w02;
-	Fri, 09 Jan 2026 03:14:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BEE7E60136;
-	Fri,  9 Jan 2026 03:14:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77C07C19425;
-	Fri,  9 Jan 2026 03:14:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767928475;
-	bh=046fMDZil6CqjswiED2Pd7BWMEYyqdRLuod2rz3ppM8=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=oOZvNXkl+Jwp8cQ6jKxV5vSfOvkFPacFcvoXa1GPOezSt0hz+y7ZKIO6131EaXSoW
-	 xtzdppifacLc3T25pt688j8NPeSa+kPXVeYES2eij7KySPbwCMTU6Zk7n7tCGTaA+t
-	 hloLXXrUZ+Yw1Kms1Dj+94ck6qlpVVhjBTMTqFx+LUyN6PQa5QidnTY7A86u1UUF/b
-	 sRHxt3ZyZRtsHBk0vipHPMOmgyt05URA8SlFlKhXSvuKPN9alPNcCJO7REs2UftyNP
-	 NuaRsYDDtY6Oo3zSmKtoKKJnv9KxSQUrASnwVdN8kQicOtft8XvUn7o6NUlMvxeFtg
-	 0lHJIi1vLfn3w==
-From: Vinod Koul <vkoul@kernel.org>
-To: Bjorn Andersson <andersson@kernel.org>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Bartosz Golaszewski <brgl@kernel.org>, 
- Thomas Andreatta <thomasandreatta2000@gmail.com>, 
- Caleb Sander Mateos <csander@purestorage.com>, dmaengine@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Olivier Dautricourt <olivierdautricourt@gmail.com>, 
- Stefan Roese <sr@denx.de>, Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Lars-Peter Clausen <lars@metafoo.de>, 
- Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
- Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
- Robert Jarzmik <robert.jarzmik@free.fr>, Lizhi Hou <lizhi.hou@amd.com>, 
- Brian Xu <brian.xu@amd.com>, 
- Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>, 
- Michal Simek <michal.simek@amd.com>, 
- Andrew Morton <akpm@linux-foundation.org>
-In-Reply-To: <20260108105619.3513561-1-andriy.shevchenko@linux.intel.com>
-References: <20260108105619.3513561-1-andriy.shevchenko@linux.intel.com>
-Subject: Re: [PATCH v5 00/13] dmaengine: introduce sg_nents_for_dma() and
- convert users
-Message-Id: <176792846806.658957.819937931231724149.b4-ty@kernel.org>
-Date: Fri, 09 Jan 2026 08:44:28 +0530
+	id 1ve3RX-00000001CiH-287J
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Jan 2026 03:45:46 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Td4RsK7CWz0wGv8RlhRHVePEqykvscOGnUjIqYpdWXE=;
+	b=f22OE+b1dV2Mq491uS22OBl91IE0jaAmzuoGrGG1HQrC2PkODeR7UoNErHluN81G2A9KVSIzO
+	lpgJFIN2NFwl8az/d2EAbTrdruXsICMXQdgNSiuCH3JCBJdvZV2RtqM/zMYVVLXmdfFtF8vQyzd
+	uteXvOFqPUxp2eIrcCb7XMw=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4dnSJb6Jfdz12LhH;
+	Fri,  9 Jan 2026 11:42:23 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1E7F140363;
+	Fri,  9 Jan 2026 11:45:27 +0800 (CST)
+Received: from huawei.com (10.50.87.109) by kwepemf100008.china.huawei.com
+ (7.202.181.222) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Fri, 9 Jan
+ 2026 11:45:25 +0800
+From: Zeng Heng <zengheng4@huawei.com>
+To: <jonathan.cameron@huawei.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <ben.horgan@arm.com>,
+	<carl@os.amperecomputing.com>, <catalin.marinas@arm.com>, <corbet@lwn.net>,
+	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
+	<joey.gouly@arm.com>, <kobak@nvidia.com>, <kvmarm@lists.linux.dev>,
+	<lcherian@marvell.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <maz@kernel.org>, <oupton@kernel.org>,
+	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
+	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
+	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
+	<sdonthineni@nvidia.com>, <suzuki.poulose@arm.com>,
+	<tan.shaopeng@fujitsu.com>, <will@kernel.org>, <xhao@linux.alibaba.com>,
+	<wangkefeng.wang@huawei.com>, <zengheng4@huawei.com>
+Subject: Re: [PATCH v2 18/45] arm_mpam: resctrl: Implement resctrl_arch_reset_all_ctrls()
+Date: Fri, 9 Jan 2026 11:45:06 +0800
+Message-ID: <20260109034506.1176234-1-zengheng4@huawei.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260105175154.00002041@huawei.com>
+References: <20260105175154.00002041@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.13.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.87.109]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260108_194545_267666_F5BC9EAB 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,49 +89,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> From: James Morse <james.morse@arm.com>
+> Date: Fri, 5 Dec 2025 21:58:32 +0000
+> Subject: [PATCH v2 18/45] arm_mpam: resctrl: Implement resctrl_arch_reset_all_ctrls()
+>
+> We already have a helper for resetting an mpam class and component.  Hook
+> it up to resctrl_arch_reset_all_ctrls() and the domain offline path.
+>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+>  drivers/resctrl/mpam_devices.c  |  6 +++---
+>  drivers/resctrl/mpam_internal.h |  7 +++++++
+>  drivers/resctrl/mpam_resctrl.c  | 15 +++++++++++++++
+>  3 files changed, 25 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index bc4f1c80eab..d32e8700245 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -353,6 +366,8 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)
+>
+>  		ctrl_dom_empty = true;
+>  		if (exposed_alloc_capable) {
+> +			mpam_reset_component_locked(dom->ctrl_comp);
+> +
+>  			ctrl_d = &dom->resctrl_ctrl_dom;
+>  			ctrl_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
+>  			if (ctrl_dom_empty)
 
-On Thu, 08 Jan 2026 11:50:11 +0100, Andy Shevchenko wrote:
-> A handful of the DMAengine drivers use same routine to calculate the number of
-> SG entries needed for the given DMA transfer. Provide a common helper for them
-> and convert.
-> 
-> I left the new helper on SG level of API because brief grepping shows potential
-> candidates outside of DMA engine, e.g.:
-> 
-> [...]
+mpam_cpu_offline() already directly calls mpam_reset_ris() to reset the
+MPAM MSC that is about to go offline. So why here still need
+mpam_resctrl_offline_cpu() to invoke mpam_reset_component_locked(),
+which ends up calling mpam_reset_ris() again?
 
-Applied, thanks!
-
-[01/13] scatterlist: introduce sg_nents_for_dma() helper
-        commit: 80c70bfb95cdbe0c644070f4ca4754a60f0a4830
-[02/13] dmaengine: altera-msgdma: use sg_nents_for_dma() helper
-        commit: 47f5cb7878cc62ed95981c5d02862b253eddb590
-[03/13] dmaengine: axi-dmac: use sg_nents_for_dma() helper
-        commit: 024ae9d3092c425f3ea6eae92086a2001ca2e0c7
-[04/13] dmaengine: bcm2835-dma: use sg_nents_for_dma() helper
-        commit: 39110c68500a149664bafb0c174baef0d42e2129
-[05/13] dmaengine: dw-axi-dmac: use sg_nents_for_dma() helper
-        commit: 5d6ceb254fa9ac1f50932c42a0a9a8bedaa3190d
-[06/13] dmaengine: k3dma: use sg_nents_for_dma() helper
-        commit: 3fc49d21f3a46866724ff8ef8a79c6e2cd9d7676
-[07/13] dmaengine: lgm: use sg_nents_for_dma() helper
-        commit: f9b0274f53a2d464e71f37e8f4d0d0dc41321259
-[08/13] dmaengine: pxa-dma: use sg_nents_for_dma() helper
-        commit: 068942eaa232ba752b744d98ff8ab22b26c8bff4
-[09/13] dmaengine: qcom: adm: use sg_nents_for_dma() helper
-        commit: 425f871d7acdb521d67c2578e6ae688a751d1e80
-[10/13] dmaengine: qcom: bam_dma: use sg_nents_for_dma() helper
-        commit: 107fdf0c4e944030bf544aea98e8ae8537914177
-[11/13] dmaengine: sa11x0: use sg_nents_for_dma() helper
-        commit: d7785661010e2fe113aec2500f988a8e73ac3e7b
-[12/13] dmaengine: sh: use sg_nents_for_dma() helper
-        commit: ac326dca6870f0d8e0787e94b1d9c2c91bb358d7
-[13/13] dmaengine: xilinx: xdma: use sg_nents_for_dma() helper
-        commit: 3c8a86ed002ab8fb287ee4ec92f0fd6ac5b291d2
-
-Best regards,
--- 
-~Vinod
+Please point it out if I might have overlooked anything, thank you.
 
 
+Best Regards,
+Zeng Heng
 
