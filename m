@@ -4,128 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5B6ED1A639
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 15:04:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70CE2D1A63C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 15:04:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H6ssEdcHkr4lhwyK2u97S+QH0RFj6bQRJ9iwKKkYmk8=; b=fOW3rYin0D2EIENHK4FbOi0FJn
-	JN9KDhfr6FbKatU+Molkl7J0UsRO2RVroSoErlztnPdYHchpT42z1grrzwdUzcYg5pVCcxC1t+UMi
-	tXwI675Tx0Y9JQwFIuRUNwrUROB9E5oHaHxgqW+QkSPR2+ADeqCneth8kyy+cNUMYNZOu90Nfn06S
-	Vvenzx002b5zfXMD+bfqSiA9gyrQfKL+n9WU3sdDhfCUddnCDdDYXtrg21LBWfK6quasjmZxIWkGb
-	W0Hu0SPRtN5nh3ikcGgHPOZbXpPwPpuK/AlBnKdzTrl4L0xITTPRPOaLJxCDR/onJ/z1kEfLSU4Eo
-	T15PaQ+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QRbYNy1t4U8HTyBc1/c9vD3h/OasinrgoXKcpbjx78o=; b=SRo9e5O7JlunxZTpglhXOXlM4P
+	740uv4xTWz4P/nXV9vwCFQyeNEqwDL7tEkMlHNHv04pv7baUX7HgH1TS+ZtsylA1ZfR3cpgQsVej3
+	RAGeU6Lbkoj1UJ74W5s6g6fmp117nacTbBkcHmafO8THqom+pBiPgHEbNrx4S/gj/m5EPyPXwQ7eB
+	rXjYW/ps2QhmGnjqmEZBRNj1V9h47vRn4Ov3iFFesf6oltMId5Mh2kovvj1m9DzMq34DNfvtMgRG3
+	WSnHTjQMYvrEnSwkri6h2rqGjOANC/vpIGhOTJyl/NES6NMviqrG6Rh6H31BmHLjX28OqdCpT5gEu
+	kXn69pnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veE1x-00000002Rys-2vRM;
-	Fri, 09 Jan 2026 15:04:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1veE2h-00000002S5c-0AAB;
+	Fri, 09 Jan 2026 15:04:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veE1v-00000002RyE-0OeT
+	id 1veE2d-00000002S4o-3AlI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 15:04:00 +0000
+	Fri, 09 Jan 2026 15:04:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1F23D41AAF;
-	Fri,  9 Jan 2026 15:03:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B859DC4CEF1;
-	Fri,  9 Jan 2026 15:03:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3E95941B69;
+	Fri,  9 Jan 2026 15:04:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7FEEC4CEF1;
+	Fri,  9 Jan 2026 15:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767971038;
-	bh=9LFMVxyFsOw43Q6k6Eff0i7Pwixa+RzRx4DsbI5AqD4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Uu2xDZmK3PKrblsrsZL8LIcmnB0lca1ztGkSrwKnR3k1T+w3GGUw72vEWmRnJLC84
-	 04PN8WJ3tZU0qJxzKPXK/jIY9eHM/FkWJFfqFlKmAMwFCu8bAOMnLGGisVhDa+VPC1
-	 Hkm58qx6FwRjuIwh2iTdkxqN5OiOQDU6WIuS4LlqAy4eDc3QabNZxuLBa/iS/+tV6V
-	 fS5P07RUWs0rl3AKweG2OOOgL7ak053o/aoA2ECEjLInVqvpv88XZvchTU2IlUt4fg
-	 Y4VqP9kXVaCjmME3a4NjLke27874qGSfQHgAkzTpVnrAxfNYoR24aDyxZOKRFuYlCS
-	 Zo9TfPAXHUzMg==
-Message-ID: <0c72913e-9708-4675-a421-06ed82b7802a@kernel.org>
-Date: Fri, 9 Jan 2026 16:03:45 +0100
+	s=k20201202; t=1767971083;
+	bh=NTHAIMWKRvVNaDIczbnhudQH1H83cIjU7GlMUz7sbuw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=liTmXKJVPrwDDFTZUTUMLnfd24HIt/o1WhFrQeXzwFuApirgG5AR2hzQMsl2FzTgI
+	 X48nu0klTOa+twXjM8t+ZVUDpZVYN65rPmTG1IPYTOFa0w6mHkgLHmXZqFCVIlvZJz
+	 NZ1hQWNUT4dKDLiCSjXf9n+fvJ2LGtsKUUJa6GT/aYmzs7xILNrAOSNXErn04KveXe
+	 +Bf3OtRUZsmlz7rmFSvpUZhfJZdOv8vfvy90m96XnDP6P0XodEUr38WzSS6bR+X63U
+	 UK3KXhYxO5f91bQOoZYaCgTlK9aErSPQ63dNSK+FiKXqjBUpc3pKBHJLKAv90ZgPqy
+	 Y0ggRJn8LVMmw==
+Date: Fri, 9 Jan 2026 15:04:37 +0000
+From: Will Deacon <will@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH 27/30] KVM: arm64: Add some initial documentation for pKVM
+Message-ID: <aWEZBWWX6EpZd33S@willie-the-truck>
+References: <20260105154939.11041-1-will@kernel.org>
+ <20260105154939.11041-28-will@kernel.org>
+ <aV0xaa8MpsmxMMkL@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 05/14] mm: clarify lazy_mmu sleeping constraints
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>,
- David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251215150323.2218608-1-kevin.brodsky@arm.com>
- <20251215150323.2218608-6-kevin.brodsky@arm.com>
-From: "David Hildenbrand (Red Hat)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
-In-Reply-To: <20251215150323.2218608-6-kevin.brodsky@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aV0xaa8MpsmxMMkL@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_070359_180929_3EB935F8 
-X-CRM114-Status: GOOD (  23.28  )
+X-CRM114-CacheID: sfid-20260109_070443_817586_F4221ACA 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,50 +79,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/15/25 16:03, Kevin Brodsky wrote:
-> The lazy MMU mode documentation makes clear that an implementation
-> should not assume that preemption is disabled or any lock is held
-> upon entry to the mode; however it says nothing about what code
-> using the lazy MMU interface should expect.
+On Tue, Jan 06, 2026 at 03:59:37PM +0000, Vincent Donnefort wrote:
+> On Mon, Jan 05, 2026 at 03:49:35PM +0000, Will Deacon wrote:
+> > +CPU memory isolation
+> > +--------------------
+> > +
+> > +Status: Isolation of anonymous memory and metadata pages.
+> > +
+> > +Metadata pages (e.g. page-table pages and '``struct kvm_vcpu``' pages)
+> > +are donated from the host to the hypervisor during pVM creation and
+> > +are consequently unmapped from the stage-2 identity map until the pVM is
+> > +destroyed.
+> > +
+> > +Similarly to regular KVM, pages are lazily mapped into the guest in
+> > +response to stage-2 page faults handled by the host. However, when
+> > +running a pVM, these pages are first pinned and then unmapped from the
+> > +stage-2 identity map as part of the donation procedure. This gives rise
+> > +to some user-visible differences when compared to non-protected VMs,
+> > +largely due to the lack of MMU notifiers:
+> > +
+> > +* Memslots cannot be moved or deleted once the pVM has started running.
+> > +* Read-only memslots and dirty logging are not supported.
+> > +* With the exception of swap, file-backed pages cannot be mapped into a
+> > +  pVM.
+> > +* Donated pages are accounted against ``RLIMIT_MLOCK`` and so the VMM
+> > +  must have a sufficient resource limit or be granted ``CAP_IPC_LOCK``.
 > 
-> In practice sleeping is forbidden (for generic code) while the lazy
-> MMU mode is active: say it explicitly.
-> 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
->   include/linux/pgtable.h | 14 +++++++++-----
->   1 file changed, 9 insertions(+), 5 deletions(-)
-> 
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index 652f287c1ef6..1abc4a1c3d72 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -225,11 +225,15 @@ static inline int pmd_dirty(pmd_t pmd)
->    * up to date.
->    *
->    * In the general case, no lock is guaranteed to be held between entry and exit
-> - * of the lazy mode. So the implementation must assume preemption may be enabled
-> - * and cpu migration is possible; it must take steps to be robust against this.
-> - * (In practice, for user PTE updates, the appropriate page table lock(s) are
-> - * held, but for kernel PTE updates, no lock is held). Nesting is not permitted
-> - * and the mode cannot be used in interrupt context.
-> + * of the lazy mode. (In practice, for user PTE updates, the appropriate page
-> + * table lock(s) are held, but for kernel PTE updates, no lock is held).
-> + * The implementation must therefore assume preemption may be enabled upon
-> + * entry to the mode and cpu migration is possible; it must take steps to be
-> + * robust against this. An implementation may handle this by disabling
-> + * preemption, as a consequence generic code may not sleep while the lazy MMU
-> + * mode is active.
-> + *
-> + * Nesting is not permitted and the mode cannot be used in interrupt context.
->    */
->   #ifndef __HAVE_ARCH_ENTER_LAZY_MMU_MODE
->   static inline void arch_enter_lazy_mmu_mode(void) {}
+> Perhaps worth to add that there's no runtime reclaim either so the accounting
+> will only grow until the VM is destroyed?
 
-Acked-by: David Hildenbrand (Red Hat) <david@kernel.org>
+Good idea, I'll extend this to cover that. We just need to remember to
+remove it when we add support for the relinquish hypercall.
 
--- 
-Cheers
+Cheers,
 
-David
+Will
 
