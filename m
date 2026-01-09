@@ -4,76 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0274FD16806
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC970D1680D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
-	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SiCIIDZ8DQ4eVHwh0jh/RzqDH1KSvakfkkduuvCNYtk=; b=fPaIXGCJ/1l3MZgHoqyFdWN6PN
-	YC/HU3yJoPsVZVGStT+VahLgVH9Wc/kzPA2cqgNVYdXy+/iv7iq3yIGq6YbRMj8dT4/+dfMaLkRpQ
-	OrDc1Q1wWA4yncaov6sWSs9uJLN7D5RjntC1rHsh0q5HigvgrzwOPki/DdziZodm5PgFgfYaHzq3E
-	JsV1aj6nTI9DFRdiy9bu8dY++9BnpfNYq/5cbDX7i5Mf0kERWWDRUx/Xu1R3GphhgQnRxF5x5bwzq
-	h+T/k49eIIGLXe7MbdD6Dc6YSjjoTBtCR1wGxFz7CyE/x4CVAoO3pF0iT5zdjOPFmjtbEDEvPZmc0
-	9OqllYXw==;
+	bh=gwNEC5AE48ylOMzH/SaxYiiWRV8yyduKiL7IIFn5vPQ=; b=OqLqWcQHx0dlXetMLg+VHt94Wq
+	oNQ46BXGWBBKidDZ45Gsob/EQwfMv/amjPN37gQcv87Y1a2UxVt8pxmJPEYmf5ufv194bPYdV38oP
+	bgorUahJJi6nt1yTIQktWXNq/iGrNbNrRbrbFTqgE+xVFrZIC7LOVnOoCexCW8ZTjsibAgwxXYR8+
+	psn6NekHqjGvX3NPGnZAnFsCHlp4LmNSdHAO9c979/30nV/NH5zH0adjtBoETtlBn1tLSgsdxRe7o
+	AxoKeSmJ14RcuKFHB46jpM/yEI4Fi5DiYOheB3H8C6Y0ioIS7sSQOIX6LIEq7YJ+09FwnlIwt+3Tp
+	rzD+FosA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9yZ-000000029f8-1b5J;
-	Fri, 09 Jan 2026 10:44:15 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1veA68-00000002A83-0Zyf;
+	Fri, 09 Jan 2026 10:52:04 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9yV-000000029eS-45QJ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 10:44:14 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id B5D95C1F6D3;
-	Fri,  9 Jan 2026 10:43:40 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E132160734;
-	Fri,  9 Jan 2026 10:44:06 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 81CCF103C88D6;
-	Fri,  9 Jan 2026 11:43:58 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767955445; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=SiCIIDZ8DQ4eVHwh0jh/RzqDH1KSvakfkkduuvCNYtk=;
-	b=CHHVmWabxW4J/FmEQWQbUQcLH8cRIxzAgak+rlrLVxhBB2O5qUMp+0aTrZYpUZwDEM2+k0
-	4y3Pq+0kpPbv3sEh0MQO68+EKWWON4m3vFnbhSeAfcEEskuzDo6oKvKTvr3ItBGPbchM2b
-	6iopx7goSrbT2ijmFwt27qimHfFzTsgWNNhEoAKS/4YyyMZhk73zlTXB5jrgbXS//0Jdee
-	sx6pS0gYykrS3erWjnqH64b2J1cmOGYPQ3/LMT3yKQQ3gd8HUm4pICNfR5iOtUMblWVHIz
-	LicE7Ye8j8vmLi6pipJmBpcPYwmdDo2RBgVA0SvgJNBTZDOG8JcDnxvvjFnkJA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 09 Jan 2026 11:43:57 +0100
-Message-Id: <DFJZWBL17LBX.X68EJ7CSQFB8@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v4 0/4] drm/bridge: add of_drm_find_and_get_bridge() and
- a managed *next_bridge, deprecate of_drm_find_bridge()
-Cc: "Hui Pu" <Hui.Pu@gehealthcare.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>
-To: "Liu Ying" <victor.liu@nxp.com>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Shawn Guo"
- <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
- <festevam@gmail.com>
-X-Mailer: aerc 0.20.1
-References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-0-a62b4399a6bf@bootlin.com> <7d937ad1-dd7c-4a68-9af7-f386ca2c27dc@nxp.com>
-In-Reply-To: <7d937ad1-dd7c-4a68-9af7-f386ca2c27dc@nxp.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	id 1veA65-00000002A7E-0kGP;
+	Fri, 09 Jan 2026 10:52:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=gwNEC5AE48ylOMzH/SaxYiiWRV8yyduKiL7IIFn5vPQ=; b=AAPEsk+x52EH28zA0vBkkdtnD0
+	gtzr8zwh7ggSOviJHCy00uEidTwGJ9NiNSlHjy07hHzJWNr5A3LYNk9x0pIgilL0akDhudvP6mUQ6
+	mpEoCN5uc3KLpLSyylxKzXBt3rOd9Zp8gdQpOcwsUKhcQ5F6nT23e3CRTPOoTmJpxhbcxzKgdV2Qb
+	Jemff9KR/SxTqpZjE77A97+V+7cf+1nxp+NAG4H3ABl+OAKdcHxEqUTwtXsvtZcnh3O9SfMWhqJrp
+	rXx7LpSnch/5kkjERnB1XfpH1WOzU1NfOH/rK6p2kyO8rcmGLpfc+c2JCH2v9A6ZiVJ/ub8r7o4hx
+	vJjMZieQ==;
+Received: from i53875b6d.versanet.de ([83.135.91.109] helo=phil..)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1veA5k-001cYs-6Z; Fri, 09 Jan 2026 11:51:40 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Chaoyi Chen <kernel@airkyi.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: Re: (subset) [PATCH 0/9] drm/rockchip: Introduce Rockchip RK3506 VOP
+Date: Fri,  9 Jan 2026 11:51:37 +0100
+Message-ID: <176795589082.3371389.9844187707084142114.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20251106020632.92-1-kernel@airkyi.com>
+References: <20251106020632.92-1-kernel@airkyi.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_024412_432676_D1AF09F9 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20260109_025201_528767_C78D2C50 
+X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,46 +91,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Liu,
 
-On Fri Jan 9, 2026 at 10:53 AM CET, Liu Ying wrote:
->
->
-> On 1/7/26 17:56, Luca Ceresoli wrote:
->> This v4 contains the leftovers of the v3 series that deprecated
->> of_drm_find_bridge(), added a replacement which handles bridge refcounti=
-ng,
->> and converted some of the direct users. All patches have been applied
->> except the imx8qxp-pixel-link ones, which still need a review for the fi=
-rst
->> patch.
->>
->> @Liu, patch 1 is waiting for a review and it's non-trivial, it would be
->> nice if you could have a look at that one at least.
->
-> Luca, I'v been too busy recently for tasks assigned by my employer to
-> give an in-time review, sorry about that.  I'll try to review this late
-> next week if not sooner.
+On Thu, 06 Nov 2025 10:06:23 +0800, Chaoyi Chen wrote:
+> The VOP on rk3506:
+> - Support 2 lane MIPI DSI interface, 1.5Gbps/lane.
+> - Support RGB interface.
+> - Max output resolution is 1280x1280@60fps.
+> - WIN1 layer support RGB888/ARGB8888/RGB565.
+> - Support Gamma LUT.
+> 
+> [...]
 
-That would be great, thanks! And I understand, aren't we all busy? :)
+Applied, thanks!
 
-I have resent as v4 just to ensure it's clear that these patches are not
-yet applied. My e-mail [0] might have suggested the opposite, due to my
-total noobness in using the b4 auto-thankanator, sorry if that was the
-case.
-
-Having patch 1 reviewed is the most important thing here. Other patches are
-already reviewed by Maxime, so your review would of course be very useful
-but not strictly necessary for this series to go forward.
-
-[0] https://lore.kernel.org/lkml/176708623356.127863.8623917477288453126.b4=
--ty@bootlin.com/
+[8/9] drm/rockchip: Drop ROCKCHIP_IOMMU depend for DRM_ROCKCHIP
+      commit: 0244539f9a4f3b564604dfe4d639f61cecec381a
 
 Best regards,
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
