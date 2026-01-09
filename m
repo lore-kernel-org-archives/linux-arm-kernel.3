@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E06D26D6F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 17:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72CB4D26D7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 17:48:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gdLMQN7nlydzaVPYboBXdv0N81Xep/7G1lCHqsGeP5w=; b=DppCCL0WS94ihfXxmivaVO2XVB
-	jY1DFAbJXORG4bXCcXlnzP91oFK6/FBp/xvU36rSopYYAwpGygCm0tOp8+Cll1eR+nKdFs0AIPa+b
-	NgQeo8cx+cP3cF8VziADSu4r7/Gj/foJ5oMLSbqNjFlXMrISrld0XG8hfmrmNQOy9kDVng/McCjjP
-	BjTdpK+CVOyr07PHdfAIir0G9erCmqnuIP3CUBowbkJoVNVBij+jl66tx5R7NmZRJFz9hIheaZig7
-	Y72E2nrcdZnqeaNE5Jo5OUm5PE94BFGHfkLtc1GHKUCk8qWzZzo/Lo+dc4jGs0j0ffSpozch0R3zh
-	g5asD0gg==;
+	bh=SbEfLJ4u1F6rmmqMwJST8J/obe8HukQ7PMnp0NdA1o0=; b=dWw4yW8edzOhI1aOe1XnK7XcJ+
+	TfNhBht21/9IA9/1urCv78FsHMLrTgBu9WJkB8p22SpKQV2zvXp8T4yMIcnpyBAN1YfoyCJjc3f3N
+	LqK8zfGQD307mFm6RvppK57UtMK0q+IlrmIMxiozdz90QsrUM8hF3QVzX+sclaoJEvdqfga6/CHV7
+	sOr5MCLe5HMrMr3yXx51ngre70KMl/gEfXvCaht9S4HNzOY2r8yp5MjaOlpy0NZmLhEvr0Ri5W8Bm
+	f1Hf4Ibb/6WSBcea4+LSIzIKi71IILAlaVuFUZ+7f2wZXWZpXp2EhOcWAUNbqhnEWQ2wuGS051Yuu
+	WQGLFHTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veGOR-00000002qE6-1bdY;
-	Fri, 09 Jan 2026 17:35:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1veGai-00000002qmp-2ScO;
+	Fri, 09 Jan 2026 17:48:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veGOP-00000002qDw-3dqw
+	id 1veGah-00000002qmh-3m4v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 17:35:21 +0000
+	Fri, 09 Jan 2026 17:48:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 43C61600B0;
-	Fri,  9 Jan 2026 17:35:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F5D4C4CEF1;
-	Fri,  9 Jan 2026 17:35:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D0E97600B0;
+	Fri,  9 Jan 2026 17:48:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 338CCC4CEF1;
+	Fri,  9 Jan 2026 17:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767980121;
-	bh=6AWsDeYymU1uIp2ik74l/pNTTqrSRlBKEBODIVwNn7Y=;
+	s=k20201202; t=1767980882;
+	bh=3QWiObunfis5djNAZb+wYVWjctgr/CRj7eFG13KqXOc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Osfv6+a01A/EvgTnC3g5JXiMANFu2/qTGFvuY662F325idunISqC3XkkhXXjIrQ02
-	 +RcyTn/oJf2kfeSW/6tOWjb3g1lqkf8O3xZP2FaTGxmFAQPuMK0wsQXlZeGMwr01l5
-	 QTBjqiaXG5yrN8q27mQxacxEe5ytAn7xskwDKy3S+ZUzjRd8eP8rFAeI+4znXk4zkH
-	 UzPMFu17PcEGaG0YS6OuFA34gPmRJFwbch4IpVHgjVzUBXVfnUlMoUrKWbp+A3abSq
-	 OwyJGJVWbC2Y7SSyphCmoj8R2BQOziyoIvVQa7gzTVvKGLkjtLSpzPQB/avOor2ih6
-	 vw1m795Ke8gXQ==
-Date: Fri, 9 Jan 2026 17:35:15 +0000
+	b=fOe29o4myh9rammqInR8XR907tp2YDqfTVO0BMC2z+tLY1hPrk5Yf0UQVMkt/PWDn
+	 sHYR/PYrw1n2J+3XqK74pSWke2E1J9iIY8Lrp2NsVroVYE2yJ/0m41EmMYZ4TToQIU
+	 kW96DoZMpyo5kHyQYFvE/r6RjJ0hCKPBCDT/03WXoiiZqzlBmDa9O7uMa1aSelA7VS
+	 9R4AtC6J4zXMFv8XcN6sbRGMpM1azZeG5xJryHYpTScU+WsH63ZhlEC+NWxW0s3NpE
+	 Q4KRhwYT02Yuuxh4XhywQplK59m9sOKBGBKMBNqammRn+h8/YtJ2GgrCDAoM4jBLXQ
+	 dTTgR/dephUVw==
+Date: Fri, 9 Jan 2026 17:47:56 +0000
 From: Will Deacon <will@kernel.org>
 To: Quentin Perret <qperret@google.com>
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
@@ -54,18 +54,16 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Fuad Tabba <tabba@google.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 22/30] KVM: arm64: Return -EFAULT from VCPU_RUN on access
- to a poisoned pte
-Message-ID: <aWE8U2JsGozpYZCA@willie-the-truck>
+Subject: Re: [PATCH 20/30] KVM: arm64: Introduce hypercall to force reclaim
+ of a protected page
+Message-ID: <aWE_TGDm_makBPhi@willie-the-truck>
 References: <20260105154939.11041-1-will@kernel.org>
- <20260105154939.11041-23-will@kernel.org>
- <s4p2ximtz7pki3waw245jtbl5znuco2ijrzsddlmln5x6rgxee@qbek4vpwn3kl>
- <aWEXRgagcULlftqk@willie-the-truck>
- <vs26wb435olhc4p5b4owotm5zzwr2znwafsgfskkicymj25mbj@nllj54ubgtgl>
+ <20260105154939.11041-21-will@kernel.org>
+ <avfs64mpioh4ckdo3gokndinpjdrgfzz2pjhkyyh65v6spuai3@nz4zih4rbv6m>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <vs26wb435olhc4p5b4owotm5zzwr2znwafsgfskkicymj25mbj@nllj54ubgtgl>
+In-Reply-To: <avfs64mpioh4ckdo3gokndinpjdrgfzz2pjhkyyh65v6spuai3@nz4zih4rbv6m>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,90 +78,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 09, 2026 at 03:29:38PM +0000, Quentin Perret wrote:
-> On Friday 09 Jan 2026 at 14:57:10 (+0000), Will Deacon wrote:
-> > On Tue, Jan 06, 2026 at 03:54:06PM +0000, Quentin Perret wrote:
-> > > On Monday 05 Jan 2026 at 15:49:30 (+0000), Will Deacon wrote:
-> > > > +int __pkvm_vcpu_in_poison_fault(struct pkvm_hyp_vcpu *hyp_vcpu)
-> > > > +{
-> > > > +	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(hyp_vcpu);
-> > > > +	kvm_pte_t pte;
-> > > > +	s8 level;
-> > > > +	u64 ipa;
-> > > > +	int ret;
-> > > > +
-> > > > +	switch (kvm_vcpu_trap_get_class(&hyp_vcpu->vcpu)) {
-> > > > +	case ESR_ELx_EC_DABT_LOW:
-> > > > +	case ESR_ELx_EC_IABT_LOW:
-> > > > +		if (kvm_vcpu_trap_is_translation_fault(&hyp_vcpu->vcpu))
-> > > > +			break;
-> > > > +		fallthrough;
-> > > > +	default:
-> > > > +		return -EINVAL;
-> > > > +	}
-> > > > +
-> > > > +	ipa = kvm_vcpu_get_fault_ipa(&hyp_vcpu->vcpu);
-> > > > +	ipa |= kvm_vcpu_get_hfar(&hyp_vcpu->vcpu) & GENMASK(11, 0);
-> > > 
-> > > Why is all the above needed? Could we simplify by having the host pass
-> > > the IPA to the hcall?
-> > 
-> > I was just a little nervous about exposing an oracle here if we take the
-> > gfn as an argument as it would provide the host with a pretty easy
-> > mechanism to monitor the page access pattern of a guest after the initial
-> > donation had occurred.
+On Tue, Jan 06, 2026 at 03:44:06PM +0000, Quentin Perret wrote:
+> > +static int host_stage2_decode_gfn_meta(kvm_pte_t pte, struct pkvm_hyp_vm **vm,
+> > +				       u64 *gfn)
+> > +{
+> > +	pkvm_handle_t handle;
+> > +	u64 meta;
+> > +
+> > +	if (kvm_pte_valid(pte))
+> > +		return -EINVAL;
 > 
-> Aha, I see what you mean. I guess if we scope that hcall to only
-> discover if a gfn is poisoned we're not exposing too much, but
-> contextualizing the call to the fault also sounds good to me. Perhaps a
-> small comment would help?
-
-Good idea, I'll add something to the hypercall.
-
-> > > > diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> > > > index d1926cb08c76..14865907610c 100644
-> > > > --- a/arch/arm64/kvm/pkvm.c
-> > > > +++ b/arch/arm64/kvm/pkvm.c
-> > > > @@ -417,10 +417,13 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
-> > > >  			return -EINVAL;
-> > > >  
-> > > >  		/*
-> > > > -		 * We raced with another vCPU.
-> > > > +		 * We either raced with another vCPU or the guest PTE
-> > > > +		 * has been poisoned by an erroneous host access.
-> > > >  		 */
-> > > > -		if (mapping)
-> > > > -			return -EAGAIN;
-> > > > +		if (mapping) {
-> > > > +			ret = kvm_call_hyp_nvhe(__pkvm_vcpu_in_poison_fault);
-> > > 
-> > > It's not too bad, but it's a shame we now issue that every time we have
-> > > such a race (which is frequent-ish). Could we perhaps only issue it if
-> > > at least one page has been forcefully reclaimed since boot?
-> > 
-> > On the plus side, it avoids an unconditional walk from the fault path
-> > at EL2 (which is what we have in Android!).
-> > 
-> > It's a bit fiddly to implement your idea in the host, since the forceful
-> > reclaim happens in a really terrible context but I could track it at EL2
-> > and make __pkvm_vcpu_in_poison_fault() return early instead?
+> Nit:
 > 
-> I guess EL2 could easily publish something in the host kvm struct as
-> well if we really wanted to, it's pinned as shared with EL2 and
-> accessible from the hyp_vm, which we retrieve in the force reclaim path.
+> I can't think of any cases where we'd end up returning -EINVAL here that
+> isn't indicative of a major problem (e.g taking a stage-2 perm fault we
+> don't expect) given that we've extensively checked the state of the page
+> already. Upgrade to WARN()? It's fatal, but the system is unlikely to
+> make much more progress if we return cleanly anyways, so we might as
+> well make it obvious where things went wrong.
 
-Ah yeah, that sounds do-able.
-
-> > It's also
-> > worth bearing in mind that we've already serialised the concurrent fault
-> > and done a GUP by this point, so performance is somewhat of a lost
-> > cause...
-> 
-> That is very true, so happy to keep all these micro-optimization for
-> later.
-
-Sounds good to me. We'll have a bunch of performance work once the
-functionality is there, so I'll leave this part as-is for now.
+Good spot. We already confirmed the NOPAGE state, so a WARN() if the pte
+is valid makes perfect sense to me.
 
 Will
 
