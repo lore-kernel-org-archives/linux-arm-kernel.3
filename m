@@ -4,94 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77518D26D72
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94CDED26D75
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:40:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mYq4XTnbwe8g/sd+bNMtb4SVhwA4K4IuyRiWM4Te0+M=; b=TaB5QbU0Nd2m0slJ8VKf9ngmaD
-	LrI5pRD3cT3Uudk/+r1egwz9r+546WY72UlEbZvemi8CUPqz52sTf8evwKT+ghhqIoEiO+0KvcXzD
-	F8XS8EAqYCUM6QKts+/IcO3YiJc4Zxs6x36csakFExUk3hHm5mW+VDnGSboCe3ru8529EG2clGhMU
-	pt1SW82aDwqJPf8jrZ+i2MmJqLY4w0La02wwDyWOijxx30KfOID2ITOrRfF1bZ+3Jd+TBrpKs5/UI
-	q7JQdDPiCgj/BnfRy6pjl4MibLZOhInU22t/FH+AUKph2+SqvWQHLz7dT0W6AEAoVANUioznnLPw6
-	WBb3hRKA==;
+	bh=kGTy2vclztsb08eZ/Mx65TVH3n6FkY3SE18DkLcR9ZQ=; b=0IchhFt7PBygaUARnyQrb64LeF
+	19x73Ho1y6RbjvTP0K2gDCkZVKHFsqHuRp0DIZro25idl3uv+cmBZpWAgMRx/4qsim4Aii+3gwe0n
+	ORQnP9Avu0WeT2T9bNMHgrEtqmRjPRN9mqwnWQEFCTfCLaCaG+1PnmGthfwwcMvxM3a3ndVptaCop
+	OKhMovc9fVG1N3B2fFUGgGpiO5oxhwZk9FJwDGnY6cYLyCv78kLWT3QSAKAY7slQUCV+W3YeyiAB1
+	MNVGbi6yqVEMLcAZFPCcQkBAAODwaKRmFlvIJxrbqrf2/XvqwpFenmqOEaVdL7AQ6G2GUdonOJXDe
+	MdN1YUYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veFSq-00000002dLY-3NtH;
-	Fri, 09 Jan 2026 16:35:52 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1veFXD-00000002dag-1tjz;
+	Fri, 09 Jan 2026 16:40:23 +0000
+Received: from mout.web.de ([217.72.192.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veFSn-00000002dL9-3Nl2
+	id 1veFXA-00000002dZn-3Fju
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 16:35:50 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-477563e28a3so22654195e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 08:35:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767976548; x=1768581348; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=mYq4XTnbwe8g/sd+bNMtb4SVhwA4K4IuyRiWM4Te0+M=;
-        b=zSLx0PK2hDFuN/OMPqVoTxuVKlMgxLqImh2J3aq6bXJEU16zwVLszSzSXiHbpOhOIs
-         jXB9zMJSOizFrx5joWBNM+0iczrUwjKdSIUdvknClz4Vk7z5OH/I0wGcHHEe020Bfuz6
-         an/39tTy92WwMYC5LQXkqDuwIHcdGP4jDxnL19nNnkPjiB73YGE+EnsXfJyndjvl7TI0
-         YJx1qYAFAW7Cf+e8iL33rx/M/AHgqbIsdVINE2gKC49UUaxf1eUTLs3ZyBTCgas2Q22E
-         KAQG6KNyMvQIr8uM5/WU6ybVvAJfAfANgdlGmU04/Grup7vSF0GtGQSPjC7RZg9/4D7T
-         Jqyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767976548; x=1768581348;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mYq4XTnbwe8g/sd+bNMtb4SVhwA4K4IuyRiWM4Te0+M=;
-        b=oU2ClhUIkhld+uUE5qWXo7S6NGC7t6Su7TcnO1O10gm7+dE6mBMhTLiLrJ0eh6zCNB
-         HGA2mu6jJunfHUVbISTh1mjMwtlU0K1L/ZJQTiDQh0fUIZUu1oUkJpHLOGC5z/kAgiqX
-         +CG8w01F1r6Ujij9Yu0WEvKd8AB5GxS5XUCf4Fw+5Qs0Ft16aNnLx4l3ZyLbH9H+57nS
-         jiRIjJ/dBSz+7bGbbC0BHIjNmID+YgYLHxMjsZoWDx+CGJlxlAtdS6/BtN+yv/9AQ6gM
-         8Abwlw0WWCsxiO/VHjjEj9odVJNuAHF08BA7LDb58wmG2Y2JZRDIxnyIaso4zCewkI/s
-         iykQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXu4fpyAU+GNfp3zWopCxgz1C9dXBpeysNK+UkxM5ryGmrNsGvFsLt8RPggZnhGCu+w+1LQgLMf971iwvRcfkSG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSlCnKydJKybM60y2y686Cu/R1IaJ0YNPZAP3wT55iuY5BePTe
-	aYiJfNUP32mGsyV4igRwND1JawLhxNNMpZEbeV55YyY68SnnWb5nCqqxnEltzCgwqJ8=
-X-Gm-Gg: AY/fxX5UQ2Ab58gxLFqP5+bUFHy4SdiBrQwEELh9ltk++N75F+cVdSkxD3K5uIEBGi7
-	w6jV3p02QyKectENTN50bKGmd6L6RYaeTHtNCuraCjWpkeBiUVTl7gJY8pmqQb0OnmNI5YVOLL/
-	yd8Qv0AVpFu4lMAPbsrqf9jrXNyst1gQftjFNGgqmZoXmr0HdRyHCCaROpvmCJfIHcUx75JjbyL
-	X9C+pzsWKX1ZBROiQWIy08Mtcm6Q71Gq4/9plmyRjGVXMI+v7vHCcOq9AT2c2g9ccIii2Qg09li
-	/CzD0R36kOtFJ7vYLTxrRCGx4iWqGs2gbPWbWMoiE/HtqpPDROp2BRBalEbnMHdmTkX2CCxoqCK
-	Q61w1CdmJ9BTHUzX6Q4H5RH+fvhxnWSmH0shw34iINmZajN7XGCuBXGC+4JiX0qI8zFbXtAu4zJ
-	1W6AmG5G6Bar9I1AY8
-X-Google-Smtp-Source: AGHT+IEAjgf+lbfDMBhJeK65teYZfj9k9R/EgG3oHcJdbO0MuQcicmWirw3jnMponF1BxGAtxSDoHA==
-X-Received: by 2002:a05:600c:5916:b0:475:d7fd:5c59 with SMTP id 5b1f17b1804b1-47d81810b1fmr125710995e9.16.1767976547522;
-        Fri, 09 Jan 2026 08:35:47 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d7f661a03sm228438135e9.13.2026.01.09.08.35.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 09 Jan 2026 08:35:47 -0800 (PST)
-Message-ID: <c1d3c9e4-68e2-495f-8171-6780a9badf56@linaro.org>
-Date: Fri, 9 Jan 2026 16:35:46 +0000
+	Fri, 09 Jan 2026 16:40:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1767976809; x=1768581609; i=markus.elfring@web.de;
+	bh=kGTy2vclztsb08eZ/Mx65TVH3n6FkY3SE18DkLcR9ZQ=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=NxN7+j0U4Kh44ipeCzDwVilKuBB7tRcwzdJu0+LGkMyNoadP9L6jHud9wTWo1E/t
+	 uevwU4N8JSoACjDzqIkuQOWlnYtnDv+JWX6BjKdIWbPLkNbGk2PB3/D/H7z1Rirms
+	 Nv1BG7Oja6IpJ5SMTfm9DoxmfFNJvWL+WJAzv6LzMIf5+yMQh6sHFx5qhWGXGKp/H
+	 GSnVMwC6CWJq8onvBU71SACsE8kksNktnjehClOEJxsGo1uWwmQuirMMK94qL6f2z
+	 TfSjZY/tVTjJoje/IDkTWmTMw4mOtPf7f1mv47XVQmnPCw5dfAPLxDZHE3noUGsB5
+	 hNPoPV3jpxhWSIZtFw==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.182]) by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MnpKq-1wBuJn1c8w-00hMyo; Fri, 09
+ Jan 2026 17:40:09 +0100
+Message-ID: <2819dc88-51a5-44f5-bedb-6759e7786fb2@web.de>
+Date: Fri, 9 Jan 2026 17:40:06 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v6 29/35] KVM: arm64: Pin the SPE buffer in the host
- and map it at stage 2
-From: James Clark <james.clark@linaro.org>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: mark.rutland@arm.com, james.morse@arm.com, maz@kernel.org,
- oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
- yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-References: <20251114160717.163230-1-alexandru.elisei@arm.com>
- <20251114160717.163230-30-alexandru.elisei@arm.com>
- <38443801-af4e-4ce1-a1c2-603eca8d90da@linaro.org>
-Content-Language: en-US
-In-Reply-To: <38443801-af4e-4ce1-a1c2-603eca8d90da@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+To: vulab@iscas.ac.cn, linux-arm-kernel@lists.infradead.org,
+ Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>
+Cc: stable@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>
+References: <20260109152016.2449253-1-vulab@iscas.ac.cn>
+Subject: Re: [PATCH v2] soc: ti: pruss: fix double free in
+ pruss_clk_mux_setup()
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20260109152016.2449253-1-vulab@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:Kpdgxq+G7zmryzJXfdUcm+HtPSAFZfWQua3uu3HjgXwLUmSAoHh
+ l/5jtZ7mZg95ZLpek7+dfy4ly8yDB8T9kScw2rsNPMLk1UMYs3RcoYEs/fgjJv5Pjw03MSB
+ /ply0IrQK5iH/u2q16WlJez9/TXZt434jYjNDbUTdOzJh5jFEYgmSwp9h7RRKayXSeSuCSA
+ MBKfeFH6P68hVtLD3ByiA==
+UI-OutboundReport: notjunk:1;M01:P0:XWkbCrlBA5k=;Z8eYmzYOWNHYt5WhlZUvMvRXKhB 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_083549_877146_555DEDF5 
-X-CRM114-Status: GOOD (  28.31  )
+X-CRM114-CacheID: sfid-20260109_084021_121796_6E7E9468 
+X-CRM114-Status: UNSURE (   6.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,107 +83,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+=E2=80=A6
+> +++ b/drivers/soc/ti/pruss.c
+> @@ -368,10 +368,9 @@ static int pruss_clk_mux_setup(struct pruss *pruss,=
+ struct clk *clk_mux,
+>  				       clk_mux_np);
+>  	if (ret) {
+>  		dev_err(dev, "failed to add clkmux free action %d", ret);
+> -		goto put_clk_mux_np;
+>  	}
+
+You may omit curly brackets here.
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
+cumentation/process/coding-style.rst?h=3Dv6.19-rc4#n197
 
 
-On 09/01/2026 4:29 pm, James Clark wrote:
-> 
-> 
-> On 14/11/2025 4:07 pm, Alexandru Elisei wrote:
->> If the SPU encounters a translation fault when it attempts to write a
->> profiling record to memory, it stops profiling and asserts the PMBIRQ
->> interrupt.  Interrupts are not delivered instantaneously to the CPU, and
->> this creates a profiling blackout window where the profiled CPU executes
->> instructions, but no samples are collected.
->>
->> This is not desirable, and the SPE driver avoids it by keeping the buffer
->> mapped for the entire the profiling session.
->>
->> KVM maps memory at stage 2 when the guest accesses it, following a 
->> fault on
->> a missing stage 2 translation, which means that the problem is present 
->> in a
->> SPE enabled virtual machine. Worse yet, the blackout windows are
->> unpredictable: the guest profiling the same process can during one
->> profiling session, not trigger any stage 2 faults (the entire buffer 
->> memory
->> is already mapped at stage 2), but worst case scenario, during another
->> profiling session, trigger stage 2 faults for every record it attempts to
->> write (if KVM keeps removing the buffer pages from stage 2), or something
->> in between - some records trigger a stage 2 fault, some don't.
->>
->> The solution is for KVM to follow what the SPE driver does: keep the 
->> buffer
->> mapped at stage 2 while ProfilingBufferEnabled() is true. To accomplish
-> 
-> Hi Alex,
-> 
-> The problem is that the driver enables and disables the buffer every 
-> time the target process is switched out unless you explicitly ask for 
-> per-CPU mode. Is there some kind of heuristic you can add to prevent 
-> pinning and unpinning unless something actually changes?
-> 
-> Otherwise it's basically unusable with normal perf commands and larger 
-> buffer sizes. Take these basic examples were I've added a filter so no 
-> SPE data is even recorded:
-> 
->   $ perf record -e arm_spe/min_latency=1000,event_filter=10/ -m,256M --\
->       true
-> 
-> On a kernel with lockep and kmemleak etc this takes 20s to complete. On 
-> a normal kernel build it still takes 4s.
-> 
-> Much worse is anything more complicated than just 'true' which will have 
-> more context switching:
-> 
-> $ perf record -e arm_spe/min_latency=1000,event_filter=10/ -m,256M --\
->      perf stat true
-> 
-> This takes 3 minutes or 50 seconds to complete (with and without kernel 
-> debugging features respectively)
-> 
-> For comparison, running these on the host all take less than half a 
-> second. I measured each pin/unpin taking about 0.2s and the basic 'true' 
-> example resulting in 100 context switches which adds up to the 20s.
-> 
-> Another interesting stat is that the second example says 'true' ends up 
-> running at an average clock speed of 4Mhz:
-> 
->            12683357      cycles   #    0.004 GHz
-> 
-> You also get warnings like this
-> 
->   rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
->   rcu:     Tasks blocked on level-0 rcu_node (CPUs 0-0): P53/1:b..l
->   rcu:     (detected by 0, t=6503 jiffies, g=8461, q=43 ncpus=1)
->   task:perf            state:R  running task     stack:0     pid:53 
-> tgid:53    ppid:52     task_flags:0x400000 flags:0x00000008
->   Call trace:
->    __switch_to+0x1b8/0x2d8 (T)
->    __schedule+0x8b4/0x1050
->    preempt_schedule_common+0x2c/0xb8
->    preempt_schedule+0x30/0x38
->    _raw_spin_unlock+0x60/0x70
->    finish_fault+0x330/0x408
->    do_pte_missing+0x7d4/0x1188
->    handle_mm_fault+0x244/0x568
->    do_page_fault+0x21c/0x548
->    do_translation_fault+0x44/0x68
->    do_mem_abort+0x4c/0x100
->    el0_da+0x58/0x200
->    el0t_64_sync_handler+0xc0/0x130
->    el0t_64_sync+0x198/0x1a0
-> 
-> If we can't add a heuristic to keep the buffer pinned, it almost seems 
-> like the random blackouts would be preferable to pinning being so slow.
-> 
+> =20
+> -	return 0;
+> +	return ret;
+=E2=80=A6
 
-One other comment to add to this, is that increasing the buffer size is 
-the normal reaction to profiling overheads being high. I think that's 
-how I came across this in the first place. Or if you want to avoid 
-overhead entirely you set a buffer that's large enough to handle the 
-whole run.
-
-In this case in a VM it actually has the opposite effect to doing the 
-same thing on a host. The bigger you make it the worse the problem gets.
-
+Regards,
+Markus
 
