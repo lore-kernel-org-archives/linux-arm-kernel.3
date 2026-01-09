@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57165D1A632
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 14:32:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83A4AD1A63C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 14:36:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6u8p0VpxElNFzxSbwfI3hjZ2loH0/Cg/JK1Fz9n3Eio=; b=b9u3iQRpigy29cxawcEQ//fity
-	psTcQ7I5dge+xCTV26lc6v/AzMFkGgPRChII9xR2L+kMCZ0Vuw9s0zU4bByjGbWkehVT7bqlS86+x
-	O6V6uDmnuMcyDuWUntaBk5fhYfBRr37It0zlKsp8XcHSYl4IlkWLSjimSqlUHfhb6iDe5kuFj4Qic
-	rsHnNwhMn4zcE5yFW4na2gyxse9SDslaGa5OJQDjWDzEXkorNuoPogCGXS6fWwM81dXl5CjICM/am
-	14qFdTb9wOK3XA6cI5isp4xq6nrp6UrDD7zdBixW0XxNogOsVmSg/M2yMHCwixUJ5wXWe28/f3H7+
-	H4EOpMOg==;
+	bh=cqcaAtAueNnkZ4ubSYCSYeT8q7sUoK7v01/pAfgrgL8=; b=C2XtqfyAb5ytD3yG3IOlc1dr7m
+	4JQ050eeCtGO8nbjwDZBfHZjcL3wXNvwpMoQNWsbsFyKuJPLxv5LXOLrTnVRfLpQeOhtVYRmeQv1j
+	tQcr85BA5Ijbt4ALk3Yn05wImcjL26I0HS4Ao4PSojg8wiSCpYC3ALDWGO9as8av4UF7mkOnKZv3Y
+	MBNbXGV7M7PKuqAaq0YAvZiwmpVfMQtTPakl2+g5zhbvQlDSF3IaqsjFuYtJJwx7H7DAs1FN4+Ny0
+	O86mIq4Mm2wCvIO25hScYz1z3KS24n5vSmoPUn3QBJW8DKG+KPjHhk8py5V1tr+oXc5JdDYPRjEYA
+	XNna55dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veDWy-00000002PjY-2OcQ;
-	Fri, 09 Jan 2026 14:32:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1veDaw-00000002PuZ-170w;
+	Fri, 09 Jan 2026 14:36:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veDWv-00000002PjC-2mOa
+	id 1veDav-00000002PuR-08r1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 14:31:58 +0000
+	Fri, 09 Jan 2026 14:36:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4DAFE43FDC;
-	Fri,  9 Jan 2026 14:31:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5B94C19422;
-	Fri,  9 Jan 2026 14:31:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6E9F060017;
+	Fri,  9 Jan 2026 14:36:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9607C4CEF1;
+	Fri,  9 Jan 2026 14:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767969117;
-	bh=0OMbNmKBSAMlscTFPF8U3b40AirkRJymWHIakbWKdGE=;
+	s=k20201202; t=1767969363;
+	bh=XyFQSkYbtQZx84gbWtGBs7EA771y4SuSKEiWeOXYfb4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Npv1PWvfKh73fHrLyHLRxaGOSwG4aeYUBagLOYcTsqMVVvsqN/eQO9e6gUFDjHyo4
-	 Le0q+UQCNpbTW74gmYPLDxkzq++Ucm5XiSkIQXtdJpvEeyhgOO5eDVy2jG0X3vzN6j
-	 mwC9JqfYUil61lR5544cNKDxLmYaaYrGLmW/E1JJb0fOqFF0rAGbFwPsIk8HwjnQTg
-	 UObK6pyrDrCmA9HXo2bnSLnk9b3rH8Fnxr6v/U6zTzgY40r9YkqF0KohE6z7TmD2CE
-	 10eYPRSP40aJYA7BjDdZ2Lqcy8aMI97bPuxiDj58yPpa9tWt3EOXG+AS9ggSCy6Gc6
-	 APLJocfJ4THdw==
-Date: Fri, 9 Jan 2026 14:31:51 +0000
+	b=VmP0HPFfnWuSjkE7BBPHx2XBCZ2sQMrSsaXFYAJV4OAQnKcIF8D2wu+6yK3t/xrFn
+	 zZ1jd8xcoaU2BbGKBQPdHo3xAr+fwrqrj2jouKYqmVpmyqgnAKDZ7a8nT1kav6k4mk
+	 zC3hxdWKGP8NnCOyRIvxgHKjoytoytTKt7VXO+nNEEpqVSuSXZ0GZ10GCaCd804cd8
+	 WSWZCIhDISZVwvwQgD9LIXTFrHi2DgwIOVZ9zTjoCVEEFSxT4CQy628iJbMnfY0Dia
+	 NW3tMQ30uNgkvmV8+qyq3uskGYsESYD1fmOoJRfgYo50lbnGGmZJhO4/PmIvyez8Oz
+	 dd+e2N9wY4HXg==
+Date: Fri, 9 Jan 2026 14:35:57 +0000
 From: Will Deacon <will@kernel.org>
 To: Quentin Perret <qperret@google.com>
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
@@ -54,19 +54,16 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Fuad Tabba <tabba@google.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 02/30] KVM: arm64: Remove redundant 'pgt' pointer checks
- from MMU notifiers
-Message-ID: <aWERVxw-57pzi6ko@willie-the-truck>
+Subject: Re: [PATCH 14/30] KVM: arm64: Hook up reclaim hypercall to
+ pkvm_pgtable_stage2_destroy()
+Message-ID: <aWESTd5Scyna_3nc@willie-the-truck>
 References: <20260105154939.11041-1-will@kernel.org>
- <20260105154939.11041-3-will@kernel.org>
- <7g66xbfmfqf67qcowjuu725h3l33ecxhkffmlzxsjtbusk5eor@khlpkp7jdfzr>
+ <20260105154939.11041-15-will@kernel.org>
+ <bc246bvbf3cg7scut2dcey7tynxqzclyceqv4hhooqacsdzti7@hcaqfbnvebt2>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <7g66xbfmfqf67qcowjuu725h3l33ecxhkffmlzxsjtbusk5eor@khlpkp7jdfzr>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_063157_722085_640C1741 
-X-CRM114-Status: GOOD (  13.25  )
+In-Reply-To: <bc246bvbf3cg7scut2dcey7tynxqzclyceqv4hhooqacsdzti7@hcaqfbnvebt2>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,27 +78,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 06, 2026 at 02:32:12PM +0000, Quentin Perret wrote:
-> On Monday 05 Jan 2026 at 15:49:10 (+0000), Will Deacon wrote:
-> > The MMU notifiers are registered by kvm_init_mmu_notifier() only after
-> > kvm_arch_init_vm() has returned successfully. Since the latter function
-> > initialises the 'kvm->arch.mmu.pgt' pointer (and allocates the VM handle
-> > when pKVM is enabled), the initialisation checks in the MMU notifiers
-> > are not required.
+On Tue, Jan 06, 2026 at 02:59:19PM +0000, Quentin Perret wrote:
+> On Monday 05 Jan 2026 at 15:49:22 (+0000), Will Deacon wrote:
+> > During teardown of a protected guest, its memory pages must be reclaimed
+> > from the hypervisor by issuing the '__pkvm_reclaim_dying_guest_page'
+> > hypercall.
+> > 
+> > Add a new helper, __pkvm_pgtable_stage2_reclaim(), which is called
+> > during the VM teardown operation to reclaim pages from the hypervisor
+> > and drop the GUP pin on the host.
+> > 
+> > Signed-off-by: Will Deacon <will@kernel.org>
+> > ---
+> >  arch/arm64/kvm/pkvm.c | 31 ++++++++++++++++++++++++++++++-
+> >  1 file changed, 30 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> > index 1814e17d600e..8be91051699e 100644
+> > --- a/arch/arm64/kvm/pkvm.c
+> > +++ b/arch/arm64/kvm/pkvm.c
+> > @@ -322,6 +322,32 @@ int pkvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
+> >  	return 0;
+> >  }
+> >  
+> > +static int __pkvm_pgtable_stage2_reclaim(struct kvm_pgtable *pgt, u64 start, u64 end)
+> > +{
+> > +	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
+> > +	pkvm_handle_t handle = kvm->arch.pkvm.handle;
+> > +	struct pkvm_mapping *mapping;
+> > +	int ret;
+> > +
+> > +	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
+> > +		struct page *page;
+> > +
+> > +		ret = kvm_call_hyp_nvhe(__pkvm_reclaim_dying_guest_page,
+> > +					handle, mapping->gfn);
+> > +		if (WARN_ON(ret))
+> > +			return ret;
+> > +
+> > +		page = pfn_to_page(mapping->pfn);
+> > +		WARN_ON_ONCE(mapping->nr_pages != 1);
+> > +		unpin_user_pages_dirty_lock(&page, 1, true);
+> > +		account_locked_vm(current->mm, 1, false);
+> > +		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+> > +		kfree(mapping);
 > 
-> It took me a while to remember, but I think these checks are needed for
-> the free path rather than init. In particular, the doc for
-> mmu_notifier_ops::release() (from which we free the pgt) says that it
-> "can run concurrently with other mmu notifier" (see mmu_notifier.h), which
-> is fun.
-> 
-> Had you considered that path? If so, probably worth expanding in the
-> commit description why this is safe?
+> Nit: this might take a while, worth adding a cond_resched() in here?
 
+Commit 4ddfab5436b6 ("KVM: arm64: Reschedule as needed when destroying
+the stage-2 page-tables") breaks the destruction operation up into
+chunks so we now reschedule from the caller in stage2_destroy_range().
 
-Urgh....
-
-Let me get back to you on that :)
+Do you think we need an additional reschedule?
 
 Will
 
