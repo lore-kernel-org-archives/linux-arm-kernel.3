@@ -4,46 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51FADD232D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 03:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F8BD232D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 03:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lla7B10SrYBRg7dO5+dhvww8o5+hyyYKqG+YwIZzQC4=; b=Gdk3QEv7YqnDdD6zICW1dwkTkI
-	FZ4nthADQvrVWtYlExmftvuBta10duGdalOIokkbUVzpSOSe4jZ+KivFUvHUOF5QNY573qpl4vxGM
-	OMYH0aR+ZCThDLMLE2teJwrKk/Zqej92PPPi4UMxTJH4OsxWAP2/+gtm3/XGpuR8z9nD5Rd6hdHZz
-	p2L5QHXK2Qq1fu/2l4NjAsvyEStUIcRPFXAb0hi9RCN5XI78sYedAfTem1PZM2Tw0bEQJaVPyQaDG
-	YDxSy9YUfUNLFk2kLx1qk6L3NHdsDSzh8A0q6mD8il8HdwuOxJ1BvDUFZk/Koq7rvALodspPnv1Ht
-	emxRs7fA==;
+	bh=3CCu996nQ9346Qn0xVk5Pk+uOrnxB9KiBN89fifS4jg=; b=GuyN9CWq0huZFDUuFfN4fgAu0K
+	ywtrTIZfEjDznpGpOazo7pnJxSdWpYmLnL8qmLNZU+7d9WOxn0d2y6jwedsDE1cGCOWyijro+Ymy9
+	08qO/FsdBpv0RKUQQ+MX1zaJi2lTuY+J6lptMu9cZ6ij+q0C10FtIsMqzTI1nPa+TT9icZ321dxKo
+	eTbquljI+Z1gQUn8yLQFd6WJY9aOZmS/7M2CwOJHldjZvAMzLFvpdK7AfogVSBWlgg2/godSE4uoX
+	6EaDF6ssOnNvGU7fX9OH06CxFJ0aUK16t54p3/b903Qn6m02C//9PWINPFHtCWaoBdBInEv9Dpdtk
+	fVe/kVAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve2xF-000000019n1-370L;
-	Fri, 09 Jan 2026 03:14:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ve2xR-000000019pY-0sM9;
+	Fri, 09 Jan 2026 03:14:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve2xE-000000019mo-1OWZ;
-	Fri, 09 Jan 2026 03:14:24 +0000
+	id 1ve2xQ-000000019pJ-2w02;
+	Fri, 09 Jan 2026 03:14:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C122E6014C;
-	Fri,  9 Jan 2026 03:14:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B68ABC116D0;
-	Fri,  9 Jan 2026 03:14:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BEE7E60136;
+	Fri,  9 Jan 2026 03:14:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77C07C19425;
+	Fri,  9 Jan 2026 03:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767928463;
-	bh=JM6afzoYTowQzjljySmLl/5jLkOrxyGbdNB1qD5wmKA=;
+	s=k20201202; t=1767928475;
+	bh=046fMDZil6CqjswiED2Pd7BWMEYyqdRLuod2rz3ppM8=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=FkVAwDUzlepumCpf0yGB+QKEd1XGdp4cqikxVBM/9XQf6maNCI+Zw4uKgHsLFrybW
-	 bD5YI+l1/NByhBMsN1YHVd38p5wMB1CcQSFAm3HijvWc4uZfkede3lLhY/o7ln3TxL
-	 qzxdtuHS7+BPlhA2Ub8+0DXfmv+ZtMp8QeMKx/kH0Io3j6FX3N9tYwxCXABqsOh2xy
-	 1KcO1V43dpW9ChKYR8tFTnVzYv5bQUMbcy8fNGNF+1NIAtzzZZIlH+7+CJ5sk4Klcc
-	 MGr8CoKm+tEXRVVMOgQrNES304Y+PlVbJcrtB1KxAA4t/hauzpIM1Vh0US1duEBcT9
-	 2cIBzgSonruzw==
+	b=oOZvNXkl+Jwp8cQ6jKxV5vSfOvkFPacFcvoXa1GPOezSt0hz+y7ZKIO6131EaXSoW
+	 xtzdppifacLc3T25pt688j8NPeSa+kPXVeYES2eij7KySPbwCMTU6Zk7n7tCGTaA+t
+	 hloLXXrUZ+Yw1Kms1Dj+94ck6qlpVVhjBTMTqFx+LUyN6PQa5QidnTY7A86u1UUF/b
+	 sRHxt3ZyZRtsHBk0vipHPMOmgyt05URA8SlFlKhXSvuKPN9alPNcCJO7REs2UftyNP
+	 NuaRsYDDtY6Oo3zSmKtoKKJnv9KxSQUrASnwVdN8kQicOtft8XvUn7o6NUlMvxeFtg
+	 0lHJIi1vLfn3w==
 From: Vinod Koul <vkoul@kernel.org>
 To: Bjorn Andersson <andersson@kernel.org>, 
- Stefan Wahren <wahrenst@gmx.net>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>, 
  Thomas Andreatta <thomasandreatta2000@gmail.com>, 
  Caleb Sander Mateos <csander@purestorage.com>, dmaengine@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
@@ -51,8 +52,8 @@ To: Bjorn Andersson <andersson@kernel.org>,
  Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Cc: Olivier Dautricourt <olivierdautricourt@gmail.com>, 
  Stefan Roese <sr@denx.de>, Florian Fainelli <florian.fainelli@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
  Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
  Lars-Peter Clausen <lars@metafoo.de>, 
  Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
  Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
@@ -61,12 +62,12 @@ Cc: Olivier Dautricourt <olivierdautricourt@gmail.com>,
  Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>, 
  Michal Simek <michal.simek@amd.com>, 
  Andrew Morton <akpm@linux-foundation.org>
-In-Reply-To: <20251124121202.424072-1-andriy.shevchenko@linux.intel.com>
-References: <20251124121202.424072-1-andriy.shevchenko@linux.intel.com>
-Subject: Re: [PATCH v4 0/13] dmaengine: introduce sg_nents_for_dma() and
+In-Reply-To: <20260108105619.3513561-1-andriy.shevchenko@linux.intel.com>
+References: <20260108105619.3513561-1-andriy.shevchenko@linux.intel.com>
+Subject: Re: [PATCH v5 00/13] dmaengine: introduce sg_nents_for_dma() and
  convert users
-Message-Id: <176792845632.658957.11812821464342552504.b4-ty@kernel.org>
-Date: Fri, 09 Jan 2026 08:44:16 +0530
+Message-Id: <176792846806.658957.819937931231724149.b4-ty@kernel.org>
+Date: Fri, 09 Jan 2026 08:44:28 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -86,7 +87,7 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 24 Nov 2025 13:09:18 +0100, Andy Shevchenko wrote:
+On Thu, 08 Jan 2026 11:50:11 +0100, Andy Shevchenko wrote:
 > A handful of the DMAengine drivers use same routine to calculate the number of
 > SG entries needed for the given DMA transfer. Provide a common helper for them
 > and convert.
