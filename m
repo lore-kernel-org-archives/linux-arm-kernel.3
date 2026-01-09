@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ADAAD232E9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 07:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20605D232E8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 07:32:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0r3rD4W5ezQ0xu0xO1qKH5iyRy5OL3+U0stR4Z3O8ig=; b=opzvu32kojbbVY/AcL1GYtmUil
-	l+I2qB+ElXkaZKhCysgIIWk5MG08Rvub3AZWofFfh2MYrbkf2jBwuFmyy2X+uFcRI/Fm6ynP1icTG
-	oo0Pi0lGkwLWkNApe++5Y2zX4HFNG7s4aoIYW8P+rtnum4pKYgQeKiwMT5UHH53g8GwyeZ1kt83e3
-	m5d568oRwYQ2/2ZUwyE1KbTyrEG5nxgNeUcvkHnMgi5KMIkH86GlzuVVu6iE+ILgL0LkSm5yq2R0x
-	TioSO/bQ3YIl7ox9hwHePhnc8D00QrWg+mi+xmOJ8La0NwzvZdDezfWGpQpS5YMTk3Wj95xL8sAjZ
-	d+o21ZLg==;
+	bh=d9BhD/PZC1kxqwJeXLHP33WT7i5IxLGIjFxALfOr/gE=; b=t+f4MZNdUgVTwkFINXOCfW8U3P
+	ZT5cKQHa6x2FAGZ7lkNCaqZuh6tDCK5pI/qDgF0p6N/5wIYDsyGZGIIK5MSr2jZYuBt9UTxrZvJ5d
+	rQ1Oqml+kYWBwG/od5dPAUjV6JXwr/Gw+mMhqD39J5jth6tLQf9y1lwl6Lf6YTOhcNpkPS7u/ke3B
+	bYQQOfTSr+7kuYaG7FTPmYKABlsiQK206HZqtcTRl0gMe6TFQh4FD734fsZAWcLDGTVbexC95Neb7
+	BgnjbAwTXqhxcQdct3PFIFhJs3EpRDJ2NFbNH1ClGlBURwj3MqTeW5oug+4n0+lVBorXgq2bTuT/z
+	HdgFFohg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve6z3-00000001jhL-3sgk;
-	Fri, 09 Jan 2026 07:32:34 +0000
+	id 1ve6zA-00000001jmU-0101;
+	Fri, 09 Jan 2026 07:32:40 +0000
 Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve6z0-00000001jbi-13Y7
+	id 1ve6z3-00000001jff-2w4J
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 07:32:32 +0000
+	Fri, 09 Jan 2026 07:32:38 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 783DDC1F6CE;
-	Fri,  9 Jan 2026 07:32:02 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id E0A80C1F6CF;
+	Fri,  9 Jan 2026 07:32:05 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B8A6F60734;
-	Fri,  9 Jan 2026 07:32:28 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9B3AB103C881F;
-	Fri,  9 Jan 2026 08:32:23 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2D19360734;
+	Fri,  9 Jan 2026 07:32:32 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C1FEC103C8824;
+	Fri,  9 Jan 2026 08:32:27 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767943947; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1767943951; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=0r3rD4W5ezQ0xu0xO1qKH5iyRy5OL3+U0stR4Z3O8ig=;
-	b=T3zepkq5Q3grgigK4K0Sj9+UHJaN6C38rikLE0qRHsqh0jPLlAiUxN3wII9sFO8ZY0NeEt
-	Up4k/h0NdXHy2Y3LgY3myRMF/TSOmw+zadFHqWuHRgeVJQyjUAtmnoEj5g2YHQ4uJFjT0+
-	h4Mj8cOiuhr6yRC/jTg3yvmXVVx95g6REKcZ2Syw2eNOv2v50oZoVewM+vxFq8lMRs9B7I
-	CqbTcCEGuhdNsDuVKA6iVWYSnS2/WNatw99qcK6DJpqdVl2TlMpVkDVQbDUagWhgnctjPR
-	qvMtyIL3l+mrIqzXa+SWj4UUDKg7vTV0sWOa2Qa+czBxdX7OSdRDIOoopBv+2A==
+	bh=d9BhD/PZC1kxqwJeXLHP33WT7i5IxLGIjFxALfOr/gE=;
+	b=s5o6j5fP4T/foYWtW4Uw4m4njZIpEH0ozWBO/b2efjL9bvHjFDDIctze0qRdssa1U0UTYs
+	sZpGlMgEYhfruFllK8zx6bwqdNyJXgRoTiomC7S2DrfHeZROxJA6aMCgT/SfnZZKmebSm8
+	28hJ4ZLbka/uWjPOWcj5PHBaU0HE80z63rCEYmP23oVnAvwv3vArpXoU4axwp9wPlshlaZ
+	jA2qcxCwlkcYACxsSeyFr4WPxkWmSD3Z4S69FkLVgKnCOV8OkPOhgaCNXsGVmOr5NroYUJ
+	izCcPJkGm35gjctuq3qUhDh5toStD0hDjW9maICZy1MclLrltq9Eb08drAVfRg==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Fri, 09 Jan 2026 08:31:42 +0100
-Subject: [PATCH v2 11/12] drm/bridge: samsung-dsim:
- samsung_dsim_host_attach: don't use the bridge pointer as an error
- indicator
+Date: Fri, 09 Jan 2026 08:31:43 +0100
+Subject: [PATCH v2 12/12] drm/bridge: samsung-dsim:
+ samsung_dsim_host_attach: convert to of_drm_find_and_get_bridge()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-11-8bad3ef90b9f@bootlin.com>
+Message-Id: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-12-8bad3ef90b9f@bootlin.com>
 References: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-0-8bad3ef90b9f@bootlin.com>
 In-Reply-To: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-0-8bad3ef90b9f@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -77,8 +76,8 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_233230_479233_3E3CFFCD 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20260108_233234_085612_22E6A646 
+X-CRM114-Status: GOOD (  20.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,56 +92,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation to handle refcounting of the out_bridge, we need to ensure
-the out_bridge pointer contains either a valid bridge pointer or NULL, not
-an ERR_PTR. Otherwise calls such as drm_bridge_get/put() would try to
-redeference an ERR_PTR.
+of_drm_find_bridge() is deprecated. Move to its replacement
+of_drm_find_and_get_bridge() which gets a bridge reference, and ensure it
+is put when done. Also switch to the drm_bridge::next_bridge pointer.
 
-Stop using IS_ERR(next_bridge) as an indication of an error, and instead
-use the 'ret' integer.
+This needs to handle both cases: when of_drm_find_panel() succeeds and when
+it fails.
 
-No functional change.
+In the 'else' case (i.e. when of_drm_find_panel() fails), just switch to
+of_drm_find_and_get_bridge() to ensure the bridge is not freed while in use
+in the function tail, when it is stored in dsi->bridge.next_bridge.
 
-Acked-by: Maxime Ripard <mripard@kernel.org>
+In the 'then' case (i.e. when of_drm_find_panel() succeeds),
+devm_drm_panel_bridge_add() already increments the refcount using devres
+which ties the bridge allocation lifetime to the device lifetime, so we
+would not need to do anything. However to have the same behaviour in both
+branches take an additional reference here, so that the bridge needs to be
+put whichever branch is taken without more complicated logic. Ensure to
+clear the bridge pointer however, to avoid calling drm_bridge_put() on an
+ERR_PTR.
+
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+
 ---
- drivers/gpu/drm/bridge/samsung-dsim.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
+
+Changes in v2:
+- updated after "pointer set too late" fix inprevious patch
+- *not* add Acked-by: Maxime as the patch has changed
+---
+ drivers/gpu/drm/bridge/samsung-dsim.c | 20 +++++++++++++-------
+ include/drm/bridge/samsung-dsim.h     |  1 -
+ 2 files changed, 13 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bridge/samsung-dsim.c
-index 8dd058124e93..afaa63c4d3f7 100644
+index afaa63c4d3f7..1d85e706c74b 100644
 --- a/drivers/gpu/drm/bridge/samsung-dsim.c
 +++ b/drivers/gpu/drm/bridge/samsung-dsim.c
-@@ -1891,7 +1891,7 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
+@@ -1828,7 +1828,7 @@ static int samsung_dsim_attach(struct drm_bridge *bridge,
+ {
+ 	struct samsung_dsim *dsi = bridge_to_dsi(bridge);
+ 
+-	return drm_bridge_attach(encoder, dsi->out_bridge, bridge,
++	return drm_bridge_attach(encoder, dsi->bridge.next_bridge, bridge,
+ 				 flags);
+ }
+ 
+@@ -1886,7 +1886,7 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
+ {
+ 	struct samsung_dsim *dsi = host_to_dsi(host);
+ 	const struct samsung_dsim_plat_data *pdata = dsi->plat_data;
+-	struct drm_bridge *next_bridge;
++	struct drm_bridge *next_bridge __free(drm_bridge_put) = NULL;
+ 	struct device *dev = dsi->dev;
  	struct device_node *np = dev->of_node;
  	struct device_node *remote;
- 	struct drm_panel *panel;
--	int ret;
-+	int ret = 0;
- 
- 	/*
- 	 * Devices can also be child nodes when we also control that device
-@@ -1926,16 +1926,17 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
+@@ -1926,10 +1926,14 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
  	panel = of_drm_find_panel(remote);
  	if (!IS_ERR(panel)) {
  		next_bridge = devm_drm_panel_bridge_add(dev, panel);
-+		if (IS_ERR(next_bridge))
-+			ret = PTR_ERR(next_bridge);
+-		if (IS_ERR(next_bridge))
++		if (IS_ERR(next_bridge)) {
+ 			ret = PTR_ERR(next_bridge);
++			next_bridge = NULL; // Inhibit the cleanup action on an ERR_PTR
++		} else {
++			drm_bridge_get(next_bridge);
++		}
  	} else {
- 		next_bridge = of_drm_find_bridge(remote);
+-		next_bridge = of_drm_find_bridge(remote);
++		next_bridge = of_drm_find_and_get_bridge(remote);
  		if (!next_bridge)
--			next_bridge = ERR_PTR(-EINVAL);
-+			ret = -EINVAL;
+ 			ret = -EINVAL;
+ 	}
+@@ -1961,7 +1965,7 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
  	}
  
- 	of_node_put(remote);
+ 	// The next bridge can be used by host_ops->attach
+-	dsi->out_bridge = next_bridge;
++	dsi->bridge.next_bridge = drm_bridge_get(next_bridge);
  
--	if (IS_ERR(next_bridge)) {
--		ret = PTR_ERR(next_bridge);
-+	if (ret) {
- 		DRM_DEV_ERROR(dev, "failed to find the bridge: %d\n", ret);
- 		return ret;
- 	}
+ 	if (pdata->host_ops && pdata->host_ops->attach) {
+ 		ret = pdata->host_ops->attach(dsi, device);
+@@ -1976,7 +1980,8 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
+ 	return 0;
+ 
+ err_release_next_bridge:
+-	dsi->out_bridge = NULL;
++	drm_bridge_put(dsi->bridge.next_bridge);
++	dsi->bridge.next_bridge = NULL;
+ 	return ret;
+ }
+ 
+@@ -1997,7 +2002,8 @@ static int samsung_dsim_host_detach(struct mipi_dsi_host *host,
+ 	if (pdata->host_ops && pdata->host_ops->detach)
+ 		pdata->host_ops->detach(dsi, device);
+ 
+-	dsi->out_bridge = NULL;
++	drm_bridge_put(dsi->bridge.next_bridge);
++	dsi->bridge.next_bridge = NULL;
+ 
+ 	samsung_dsim_unregister_te_irq(dsi);
+ 
+diff --git a/include/drm/bridge/samsung-dsim.h b/include/drm/bridge/samsung-dsim.h
+index 31d7ed589233..03005e474704 100644
+--- a/include/drm/bridge/samsung-dsim.h
++++ b/include/drm/bridge/samsung-dsim.h
+@@ -100,7 +100,6 @@ struct samsung_dsim_plat_data {
+ struct samsung_dsim {
+ 	struct mipi_dsi_host dsi_host;
+ 	struct drm_bridge bridge;
+-	struct drm_bridge *out_bridge;
+ 	struct device *dev;
+ 	struct drm_display_mode mode;
+ 
 
 -- 
 2.52.0
