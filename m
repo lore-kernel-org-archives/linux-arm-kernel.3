@@ -4,105 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72257D1A61D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 13:38:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307FCD1A627
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 13:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jzCNQyXXMi5hwZ8PwrIomidmWToeGC4NRFpddV19ges=; b=kyxTWhON4XjX2TBTBZPg6YE1tP
-	kyql+G3NTAX1d07hLQXZr/Nbsb5T3O0Loy9/azon81aHqG5OVjHr2X4FAgtUaONn68uPo+/fTIUqP
-	xGnP+mgDIAytVWnYCzjaXJzPQYAybGnUxNqFPmDlyeEiY9Y0XWYKZ62FL9XYGrMgxu6XG7ZJTKXkB
-	jnhA0GkEYNJyqnSOp2plNgrK4ljF3cTNCVosKbgGiOvPPTGy7/V7kW+FiVi6ZhC9La9+pi0bHvyPp
-	3Khp5dhJGFnTlUy4MBNtPU83cNQk0fUCOuzqkoKOqc098A++t+e0neEdEwA2agNpIm3Rk99ZcxaLK
-	snnhr7Bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FWIjlFv6jJqppx2LoyUbbHVPgKacvPuyCBOajXnJvKU=; b=g7uIJwlRrmmHRKK6OpCPhoCn55
+	TlmP2H7QCq8juucbTQB6tPbylqjEbGAOOKITLx7pkAoC4yhTHNa/8vKvMAnEARe8mjSrICdjBrlyr
+	O8HVVR9Zbl4XJwXXCeSvOY98McfnXV0YJBIT3zmvC+3jl3AROKkFpu76hk8W/Yoq0c3XgmlL5tQkJ
+	/dZfqWNOygSRJ+F77Gfiih4NTfZOgbmJXS7qiA0z3ox5NZp2zu05n8zSvTbFYO0/TD6FR+VEk/Bk4
+	BSXyFMmDxWogVG7B0QKKRqYJhLzjZgn409bANotF8G+WBu4kiBRBDdEAOJEN0okZv2xU05GRngfa8
+	aQ+cim/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veChF-00000002MXb-1zIh;
-	Fri, 09 Jan 2026 13:38:33 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1veCm9-00000002Mok-3H24;
+	Fri, 09 Jan 2026 13:43:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veChD-00000002MX1-0kVj
+	id 1veCm6-00000002MoN-3wOn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 13:38:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=jzCNQyXXMi5hwZ8PwrIomidmWToeGC4NRFpddV19ges=; b=YTAL0+CaomnDGZZ5XBWL5NPrlN
-	J98hNz9x0nLokf6b5sEeR0FcyxWu+NXbR+T/Sg4e0Oxh2bnu4hgITrgq9xDDMKSs0FK/3DozVK6NX
-	72DO+xPw1hVqBWYPAqx40CdN8tB1Fo/flLZAxxqQFyefMc2bWCNurz+85U8Eqn7Li3uQW9ahDkcU+
-	ZKtTiNTcm4CE1ZxOsPJop0nLPgJ04BNXnM7Ht0CD0FodXGLTljqCSM5VRfxfWGf26wxmCZQIoDXbQ
-	/najW2O76qgQr0GxZvl/AamGy2noMicAjn+0qsxuO586jD1/s4AIPjU4K5qmCgFMb3aDDC3f80wnL
-	8xmRMpWA==;
-Received: from [122.175.9.182] (port=48590 helo=zimbra.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1veChA-00000000ymB-0Ssm;
-	Fri, 09 Jan 2026 08:38:28 -0500
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id D68891A87E0F;
-	Fri,  9 Jan 2026 19:08:21 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
- by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10032)
- with ESMTP id btYwLIfbUPGt; Fri,  9 Jan 2026 19:08:20 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id 462241A87E0D;
-	Fri,  9 Jan 2026 19:08:20 +0530 (IST)
-X-Virus-Scanned: amavis at couthit.local
-Received: from zimbra.couthit.local ([127.0.0.1])
- by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10026)
- with ESMTP id stijPET9I-S2; Fri,  9 Jan 2026 19:08:20 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id 24E7E1A87E0E;
-	Fri,  9 Jan 2026 19:08:20 +0530 (IST)
-Date: Fri, 9 Jan 2026 19:08:20 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: Parvathi Pudi <parvathi@couthit.com>, andrew+netdev <andrew+netdev@lunn.ch>, 
-	davem <davem@davemloft.net>, edumazet <edumazet@google.com>, 
-	kuba <kuba@kernel.org>, danishanwar <danishanwar@ti.com>, 
-	rogerq <rogerq@kernel.org>, pmohan <pmohan@couthit.com>, 
-	basharath <basharath@couthit.com>, afd <afd@ti.com>, 
-	linux-kernel <linux-kernel@vger.kernel.org>, 
-	netdev <netdev@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	ALOK TIWARI <alok.a.tiwari@oracle.com>, horms <horms@kernel.org>, 
-	pratheesh <pratheesh@ti.com>, j-rameshbabu <j-rameshbabu@ti.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, 
-	srk <srk@ti.com>, rogerq <rogerq@ti.com>, 
-	krishna <krishna@couthit.com>, mohan <mohan@couthit.com>
-Message-ID: <951229905.101031.1767965900074.JavaMail.zimbra@couthit.local>
-In-Reply-To: <a1341a4b-3ad0-43dd-adff-66d7d90be471@redhat.com>
-References: <20260105122549.1808390-1-parvathi@couthit.com> <20260105122549.1808390-4-parvathi@couthit.com> <a1341a4b-3ad0-43dd-adff-66d7d90be471@redhat.com>
-Subject: Re: [PATCH net-next v11 3/3] net: ti: icssm-prueth: Add support for
- ICSSM RSTP switch
+	Fri, 09 Jan 2026 13:43:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4A75D40539;
+	Fri,  9 Jan 2026 13:43:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A0C6C4CEF1;
+	Fri,  9 Jan 2026 13:43:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767966214;
+	bh=ijLJjYW1cc6SO67EopKRqCC5IeK0M9dJP6RDnaTpVqU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jq8+HDoWfq+dnQNCjupi8t3wJr3s2gFU/PZ+Mw9p2emhpnvQ4wtgBty04uXbNk61D
+	 pNNPamcF60pYnh283bb1GkqvMttXrjLp8u7mPUIvt9NWaV3fpMZbPRnkTuEPT0Llrj
+	 8Yt3UjdNFby5p8HerssTXgGz6oX8DulSCX0Auw4wa5TWQHIbb7ZQlnH/wloeDJ6jtW
+	 yant4tlpZ7jRtbPwfiDiCLKl1YaqQ1cVNNNBicAEjsz+Qb/Tj7rv3d3L591HucBl9T
+	 j/jWJ/WBZe7w9ztoI5e6doC/wmtuASzCC/PVJHwCuzCs4X98ZeSZ/riOmzgPWfP7oR
+	 CwUWQShgEQbxg==
+Date: Fri, 9 Jan 2026 13:43:25 +0000
+From: Will Deacon <will@kernel.org>
+To: Maciej Wieczor-Retman <m.wieczorretman@pm.me>
+Cc: Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@redhat.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
+	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
+Subject: Re: [PATCH v7 02/15] kasan: arm64: x86: Make special tags arch
+ specific
+Message-ID: <aWEF_eJ9Bnn5-8dZ@willie-the-truck>
+References: <cover.1765386422.git.m.wieczorretman@pm.me>
+ <0db7ec3b1a813b4d9e3aa8648b3c212166a248b7.1765386422.git.m.wieczorretman@pm.me>
+ <aV_v18YWCHXMETVK@willie-the-truck>
+ <aWEDDjQms8zbMgsB@wieczorr-mobl1.localdomain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.233]
-X-Mailer: Zimbra 9.0.0_ZEXTRAS_20240927 (ZimbraWebClient - GC138 (Linux)/9.0.0_ZEXTRAS_20240927)
-Thread-Topic: icssm-prueth: Add support for ICSSM RSTP switch
-Thread-Index: 2yq6qhM507at40oktu8mVZ/W/fKYfA==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aWEDDjQms8zbMgsB@wieczorr-mobl1.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_053831_245222_615D3A14 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260109_054334_998983_914D6C17 
+X-CRM114-Status: GOOD (  17.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,64 +94,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, Jan 09, 2026 at 01:37:49PM +0000, Maciej Wieczor-Retman wrote:
+> Hi, and thanks for looking at the patches!
+> 
+> On 2026-01-08 at 17:56:39 +0000, Will Deacon wrote:
+> >On Wed, Dec 10, 2025 at 05:28:43PM +0000, Maciej Wieczor-Retman wrote:
+> >> From: Samuel Holland <samuel.holland@sifive.com>
+> ...
+> >> +#ifdef CONFIG_KASAN_HW_TAGS
+> >> +#define KASAN_TAG_MIN		0xF0 /* minimum value for random tags */
+> >> +#define KASAN_TAG_WIDTH		4
+> >> +#else
+> >> +#define KASAN_TAG_WIDTH		8
+> >> +#endif
+> >
+> >Shouldn't this be 0 when KASAN is not in use at all?
+> >
+> >Will
+> 
+> This file (as well as the x86 version) gets included in
+> include/linux/kasan-tags.h:
+> 
+> 	#if defined(CONFIG_KASAN_SW_TAGS) || defined(CONFIG_KASAN_HW_TAGS)
+> 	#include <asm/kasan-tags.h>
+> 	#endif
+> 
+> 	#ifndef KASAN_TAG_WIDTH
+> 	#define KASAN_TAG_WIDTH		0
+> 	#endif
+> 
+> So the 8 or 4 value is only assigned if SW_TAGS or HW_TAGS are enabled.
+> Otherwise it's set to zero.
 
-> On 1/5/26 1:23 PM, Parvathi Pudi wrote:
->> +static int icssm_prueth_ndev_port_link(struct net_device *ndev,
->> +				       struct net_device *br_ndev)
->> +{
->> +	struct prueth_emac *emac = netdev_priv(ndev);
->> +	struct prueth *prueth = emac->prueth;
->> +	unsigned long flags;
->> +	int ret = 0;
->> +
->> +	dev_dbg(prueth->dev, "%s: br_mbrs=0x%x %s\n",
->> +		__func__, prueth->br_members, ndev->name);
->> +
->> +	spin_lock_irqsave(&emac->addr_lock, flags);
->> +
->> +	if (!prueth->br_members) {
->> +		prueth->hw_bridge_dev = br_ndev;
->> +	} else {
->> +		/* This is adding the port to a second bridge,
->> +		 * this is unsupported
->> +		 */
->> +		if (prueth->hw_bridge_dev != br_ndev) {
->> +			spin_unlock_irqrestore(&emac->addr_lock, flags);
->> +			return -EOPNOTSUPP;
->> +		}
->> +	}
->> +
->> +	prueth->br_members |= BIT(emac->port_id);
->> +
->> +	ret = icssm_prueth_port_offload_fwd_mark_update(prueth);
-> 
-> More AI generated feedback here that still looks valid to me:
-> 
-> """
-> ndo_stop() can sleep (e.g., via rproc_shutdown()). This function appears
-> to be called while holding a spinlock via the call chain:
-> 
->  icssm_prueth_ndev_port_link()
->    -> spin_lock_irqsave(&emac->addr_lock)
->      -> icssm_prueth_port_offload_fwd_mark_update()
->        -> icssm_prueth_change_mode()
->          -> ndo_stop() / ndo_open()
-> 
-> Is this intentional? The ndo_open() path also calls
-> icssm_prueth_sw_init_fdb_table() which does kmalloc(GFP_KERNEL) and
-> rproc_boot(), both of which may sleep.
-> """
-> 
-> There are other similar cases; for the full report see:
-> 
-> https://netdev-ai.bots.linux.dev/ai-review.html?id=ce23f731-f25b-4082-a5d0-c1261ab829ed
-> 
-> /P
+Thanks for the explanation, I'd missed the conditional inclusion of the
+arch header.
 
-Sure, we will review them and address the applicable changes in the next version.
+In which case, the arm64 side looks fine to me:
 
-Thanks and Regards,
-Parvathi.
+Acked-by: Will Deacon <will@kernel.org>
 
+Cheers,
+
+Will
 
