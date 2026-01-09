@@ -4,72 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83D9D167F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:02:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC863D167F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:03:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=legnidlJW1TzeeHXbo00OzpvLwGSZgs246uxcFsvM3c=; b=ZgQ63WbcL4aZiRerR2ezFEY+l+
-	wjMEuHmALEmSHOTOvY41OWX439f/pl0aM4DuWq6ej3TLpE2/tSIAx1oUIVlQQ0dEQWYVqx7kBPd9m
-	B1lhytSkGArI2V0xvmjdkYnACaTmLy0m15Zu1jurvBmXnLAhtFCObxfWK46XcgSIawWf1TXPDD6XR
-	fjfHXt2MLkIYbFmBri0oyN0UgnLpYo56FwQGv94EyIwfgwi7ug1tGQ0WN4b+ONBbgh4+f77PjnrQl
-	aj3Iv2MKoUYgyhcWNW3QEMAYIQfmlwEQRgSv3k9jNsFO85DttuEL1z4hCy60+bqdnuGddhoY6riW2
-	6/Ofw1lA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8alxgy33jWjnXMagw/l/0CRaIbDfLVcYqloF5nxf24g=; b=3bprVGEpQ3nKC3
+	SYbwHrRAENmL0fLKTjszXGXrIB4GMTXgTlFPcL+fdTLF5saSGJlqCZ1BK9YponSYI9fb0t5cFYkOG
+	ebx0vC5SVs+uAx+PjSs8XL3Jn8RrrazIarNhB6dH2uZxIdapRMkql4lkp8kNG3/rK9j2KJq7cekBT
+	A2cvcZc6ke1kChJcz1P2RPi8+TSViY6lscrgiRX1i11NrsvMwha7HjWx3GJM4rLcefK+B6ienD7cq
+	/MoaD8sxuT28Ziauzg8dRQA8xL+iDvROm+PGPhF15Ka8e/xWlWvuH5ht2VYaHTxpe6Pe8ntp7aZVm
+	F8kqatAu1iX6uvmZQ0FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9Jv-0000000257k-3c7Y;
-	Fri, 09 Jan 2026 10:02:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1ve9Ky-000000025FB-21BO;
+	Fri, 09 Jan 2026 10:03:20 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9Js-0000000257N-3vCN
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 10:02:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1767952930;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=legnidlJW1TzeeHXbo00OzpvLwGSZgs246uxcFsvM3c=;
-	b=e5MsRUqwW82mBqElSXPWVeEgDenG6RCZgx1CFZzCWxNeDoWY9i46DBCONaFQ+JZ/jJCSYI
-	QioTEPQ+vxmWVcAPGYvTpEq+oGYzm3+WQFKi0DD9OPKYu2PO5y7fBUSQMrxNuopOdQYzRp
-	zJ9f1izrEXq3L+O5TpzDfZOZxJhuLOE=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-166-2LhpPnccMUCLz0R6wkWumQ-1; Fri,
- 09 Jan 2026 05:02:08 -0500
-X-MC-Unique: 2LhpPnccMUCLz0R6wkWumQ-1
-X-Mimecast-MFC-AGG-ID: 2LhpPnccMUCLz0R6wkWumQ_1767952927
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 03DD21954B06;
-	Fri,  9 Jan 2026 10:02:07 +0000 (UTC)
-Received: from [172.20.173.71] (unknown [10.30.44.164])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 5754C30002D1;
-	Fri,  9 Jan 2026 10:02:06 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.19.0-rc4,
- upstream-arm-next, 59e4d31a)
-Date: Fri, 09 Jan 2026 10:02:06 -0000
-To: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
- will@kernel.org
+	id 1ve9Ku-000000025Dl-089q;
+	Fri, 09 Jan 2026 10:03:18 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id E54554E4201A;
+	Fri,  9 Jan 2026 10:03:13 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 941D860734;
+	Fri,  9 Jan 2026 10:03:13 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 34B8F103C88BF;
+	Fri,  9 Jan 2026 11:02:59 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1767952990; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=8alxgy33jWjnXMagw/l/0CRaIbDfLVcYqloF5nxf24g=;
+	b=Y+viVM2eBcACHs1bFBv3S7gQrQfaczfHaNQ3EhNbsOYqV4YgrWL4CYTM+sACmVJekaTv96
+	tROuxIVWWeR7BIAmuUBhMVpRmtXG4dhprIddP+E/sXgL5YRhFzBglDCOOuelsEM04L3geh
+	vFeWDyCpX1rwMTN/uPPfHy26MVpSS9aEM98/7IOJsFdUfyVmFhf7tyHUN86+3FMSyOqiBT
+	TjHoSObyU0jGMwPtSdy5prytFkn6CmNCvtvTtdVkK0blN7rbo+GVZuhhvFHLzRR+xtoZQc
+	idY4z178sGyslRew5Iqcg9xDv9P+g0jFFo3uENvfarCn2sVTSyIgdwUuY5pH3g==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: [PATCH v2 0/6] drm/bridge: convert users of of_drm_find_bridge(),
+ part 3
+Date: Fri, 09 Jan 2026 11:02:49 +0100
+Message-Id: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-3-v2-0-8d7a3dbacdf4@bootlin.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-Message-Id: <56339.126010905020800453@us-mta-166.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 9Hfdl9GtW2r13sIM6T3wrbw_gXXbzolN--OI2ALaSoA_1767952927
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAEnSYGkC/52NQQ6DIBQFr2JYlwaoLdpV79EYg/DRnygYoKaN8
+ e5F0xN0OfOSNyuJEBAiuRcrCbBgRO8yiFNB9KBcDxRNZiKYuDHOJDVhol1Akxc1jl7THtL8Srt
+ vvW0tOtP+9gstbV1LUFLL2pJ8OQew+D5yzybzgDH58DnqC9/tn6GFU0bBlpW6clmJCh6d92lEd
+ 9Z+Is22bV+aMdqI6gAAAA==
+X-Change-ID: 20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-4f997ea7c79f
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
+ Kyungmin Park <kyungmin.park@samsung.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
+ Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>, 
+ Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Magnus Damm <magnus.damm@gmail.com>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Hui Pu <Hui.Pu@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev, linux-mediatek@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_020213_043912_473258E6 
-X-CRM114-Status: UNSURE (   6.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260109_020316_206603_A3D0AD72 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,71 +106,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+This series converts many DRM drivers from the now deprecated
+of_drm_find_bridge() to its replacement of_drm_find_and_get_bridge() which
+allows correct bridge refcounting. Where applicable it also converts
+per-driver "next_bridge" pointers to the unified drm_bridge::next_bridge
+which puts the reference automatically on bridge deallocation.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+This is part of the work to support hotplug of DRM bridges. The grand plan
+was discussed in [0].
 
-Tested-by: CKI Project <cki-project@redhat.com>
+Here's the work breakdown (➜ marks the current series):
 
-Kernel information:
-    Commit message: Merge branches 'for-next/core' and 'for-next/fixes' int=
-o for-kernelci
+ 1. ➜ add refcounting to DRM bridges struct drm_bridge,
+      based on devm_drm_bridge_alloc()
+    A. ✔ add new alloc API and refcounting (v6.16)
+    B. ✔ convert all bridge drivers to new API (v6.17)
+    C. ✔ kunit tests (v6.17)
+    D. ✔ add get/put to drm_bridge_add/remove() + attach/detach()
+         and warn on old allocation pattern (v6.17)
+    E. ➜ add get/put on drm_bridge accessors
+       1. ✔ drm_bridge_chain_get_first_bridge(), add cleanup action (v6.18)
+       2. ✔ drm_bridge_get_prev_bridge() (v6.18)
+       3. ✔ drm_bridge_get_next_bridge() (v6.19)
+       4. ✔ drm_for_each_bridge_in_chain() (v6.19)
+       5. ✔ drm_bridge_connector_init (v6.19)
+       6. … protect encoder bridge chain with a mutex
+       7. ➜ of_drm_find_bridge
+          a. ✔… add of_drm_get_bridge(), convert basic direct users
+	        (v6.20?, one driver still pending)
+	  b. … convert direct of_drm_get_bridge() users, part 2
+	  c. ➜ convert direct of_drm_get_bridge() users, part 3
+	  d.   convert direct of_drm_get_bridge() users, part 4
+	  e.   convert bridge-only drm_of_find_panel_or_bridge() users
+       8. drm_of_find_panel_or_bridge, *_of_get_bridge
+       9. ✔ enforce drm_bridge_add before drm_bridge_attach (v6.19)
+    F. ✔ debugfs improvements
+       1. ✔ add top-level 'bridges' file (v6.16)
+       2. ✔ show refcount and list lingering bridges (v6.19)
+ 2. … handle gracefully atomic updates during bridge removal
+    A. ✔ Add drm_dev_enter/exit() to protect device resources (v6.20?)
+    B. … protect private_obj removal from list
+ 3. … DSI host-device driver interaction
+ 4. ✔ removing the need for the "always-disconnected" connector
+ 5. finish the hotplug bridge work, moving code to the core and potentially
+    removing the hotplug-bridge itself (this needs to be clarified as
+    points 1-3 are developed)
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2252699894
+[0] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com/#t
 
-One or more kernel tests failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [cki] [tests] unblocking setup-task failures (SELinux Custom=
- Module Setup|CKI/restraint|machineinfo|setup-nfsdump)
-            URL: https://gitlab.com/cki-project/infrastructure/-/issues/777
-            Affected tests:
-                /test/misc/machineinfo [aarch64]
-        Issue: [rawhide] [aarch64] avc:  denied  { open } for  pid=3D14791 =
-comm=3D"systemd-user-ru" path=3D"/sys/kernel/mm/transparent_hugepage/enable=
-d" dev=3D"sysfs" ino=3D1784 scontext=3Dsystem_u:system_r:systemd_user_runti=
-medir_t:s0 tcontext=3Dsystem_u:object_r:sysfs_t:s0 tclass=3Dfile permissive=
-=3D1
-            URL: https://redhat-internal.slack.com/archives/C04EX425HP1/p17=
-65900650445969
-            Affected tests:
-                /test/misc/machineinfo [aarch64]
-                Boot test [aarch64]
-                Hardware - Firmware test suite [aarch64]
-                Reboot test [aarch64]
-                Storage - blktests - ublk [aarch64]
-                stress: stress-ng - cpu-cache [aarch64]
-                xfstests - btrfs [aarch64]
-                xfstests - ext4 [aarch64]
-                xfstests - xfs [aarch64]
-        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
-res
-            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
-            Affected tests:
-                Hardware - Firmware test suite [aarch64]
+This work is a continuation of the work to correctly handle bridge
+refcounting for existing of_drm_find_bridge(). The ground work is in:
 
+ - commit 293a8fd7721a ("drm/bridge: add of_drm_find_and_get_bridge()")
+ - commit 9da0e06abda8 ("drm/bridge: deprecate of_drm_find_bridge()")
+ - commit 3fdeae134ba9 ("drm/bridge: add next_bridge pointer to struct drm_bridge")
 
+The whole conversion is split in multiple series to make the review process
+a bit smoother:
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
+ - Part 2: mostly drivers in drivers/gpu/drm/bridge [2]
+ - Part 3: other drivers, low-medium complexity [this series]
+ - Part 4: other drivers, complex (not sent yet)
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
+[2] https://lore.kernel.org/all/20260107-drm-bridge-alloc-getput-drm_of_find_bridge-2-v1-0-283d7bba061a@bootlin.com/
 
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+Changes in v2:
+- Patch 3: fix missing drm_bridge_put()
+- Link to v1: https://lore.kernel.org/r/20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-0-ef48a517828e@bootlin.com
+
+---
+Luca Ceresoli (6):
+      drm/bridge: dw-hdmi: convert to of_drm_find_and_get_bridge()
+      drm/meson/dw-hdmi: convert to of_drm_find_and_get_bridge()
+      drm/imx/dw-hdmi: convert to of_drm_find_and_get_bridge()
+      drm/mediatek: mtk_hdmi*: convert to of_drm_find_and_get_bridge()
+      drm/exynos: hdmi: convert to of_drm_find_and_get_bridge()
+      drm: rcar-du: lvds: convert to of_drm_find_and_get_bridge()
+
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi.c   |  7 +++----
+ drivers/gpu/drm/exynos/exynos_hdmi.c        |  4 +++-
+ drivers/gpu/drm/imx/ipuv3/dw_hdmi-imx.c     |  7 +++++--
+ drivers/gpu/drm/mediatek/mtk_hdmi.c         |  4 ++--
+ drivers/gpu/drm/mediatek/mtk_hdmi_common.c  |  4 ++--
+ drivers/gpu/drm/mediatek/mtk_hdmi_common.h  |  1 -
+ drivers/gpu/drm/mediatek/mtk_hdmi_v2.c      |  4 ++--
+ drivers/gpu/drm/meson/meson_dw_hdmi.c       |  6 +++++-
+ drivers/gpu/drm/renesas/rcar-du/rcar_lvds.c | 10 +++++++++-
+ 9 files changed, 31 insertions(+), 16 deletions(-)
+---
+base-commit: 13450a1f72fd24c405626c881ae7c9ce5f0d2a28
+change-id: 20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-4f997ea7c79f
+
+Best regards,
+-- 
+Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 
