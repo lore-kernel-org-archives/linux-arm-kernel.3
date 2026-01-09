@@ -4,86 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBBAFD1A61E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 13:15:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59139D1A61D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 13:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TAHdzldBZjYq7dI8/tRp/QYhozZ+J1rZYVzx9jOFMEc=; b=5FfdtIZF0yQiLA+bqPkfX48uT3
-	NiyBjgEC09TpRJXDpu9ZH7lNKCVR9E120pYIilLFyoHR2vrNA3k6BaZ2xtVrfhiLrfReb/AjtLMBI
-	KnWtltpFHZhDHwVsNiOhqfQz8+ujufs6xHjVfcJWltwoFNVuSweLbz3rqaEgXSbhiVbh6JTjecXdS
-	yLjbqo+YL55qQZhItsnC9QNurBasPJ3RLLEPfkELIlLzBqekUnTtPQFt6OW02w/zM0RHfHYtO+AH8
-	4oX6ihKCgS4TmatCi0PoB/WtrPeVtNCCEDSahvk1OwSeU2eSUitraYynzahb9iqOa52EJMsr805cl
-	4tSMJAnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qWzvjygcuLwzEIaEHIXEz9SaaWzpXF20ANBBtTSJsrI=; b=JqLuIgLVSZOmcA2s9r5gsPvmBy
+	Bc5wQMpOvlrk2qr88mDQFqZc6MRM/Nrr3KPuKj//Atr0/7czJ15pTOPrVDkgFL4IcJwJIgZ01O31t
+	8jT/uSkfWzXx593c0xQhz0EvOe+Fa7HnEhWMmupU5vtCsF1OJfiZtyvV2L4aaNUyZ1DO+THom7jBh
+	Nq6GOlOnuuKE0AdGtJw5R5yaXDMJS/xud1YdKSAfrPrML+8Z6cav8Ir4aBfIMthUKkFJC/rGKepYl
+	SXI1v8g3TOauc1IBLHVRPVFX53efcGPCzw1zJt6k5bbf0EHkTPl+GYtYeYN/lsVNQ/4PzpGW4kAuX
+	Fvp43jCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veCKi-00000002L22-0lqN;
-	Fri, 09 Jan 2026 13:15:16 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1veCd7-00000002MFQ-0wMm;
+	Fri, 09 Jan 2026 13:34:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veCKf-00000002L1X-2e3m
+	id 1veCd5-00000002MFJ-1Ybk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 13:15:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1767964513; x=1799500513;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=MJStCIZmQ7PngNhFtsuW1zFBiSqzPLcTWAfWV/VvXr8=;
-  b=l+0C2vgSJOR1hBBs9V1UxAbRbescW/aW0zaVquQK97z0PK51t79AQKxl
-   suxXNzoadJcPkuUy+63CZ+mZdMpnMafmIk/ObITBiO66jzeZUtD0S39nG
-   mi6zAAVM0Z5KyYNbesQ6/PT0eXBzZexLb2hTdGQH/PeS+qyAIAsoob2zG
-   t0nM9r1umYHXxuZtckdatIg9MkcmY0pMnoJBSJrFkRsMC4eMTyOE4TNhl
-   pXGqR4DI9BUfMuUGUzGK3daTzmZUJsooAgcdoqmLZ4arr7z4MgJBWoqu7
-   k2/JjJMqLbckJKjYQo5+WvHjrGwdGL8g4yfwexxDlDKOZVrtDDzcH+q9b
-   w==;
-X-CSE-ConnectionGUID: IlnRjnlmQJiO2aQcg5vBDg==
-X-CSE-MsgGUID: lnMeaqG7SKyuHlsMM1UOUw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11666"; a="71920546"
-X-IronPort-AV: E=Sophos;i="6.21,212,1763452800"; 
-   d="scan'208";a="71920546"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2026 05:15:11 -0800
-X-CSE-ConnectionGUID: 08MobHMCRUqmHqgXvw+L8g==
-X-CSE-MsgGUID: Yah7IGNCQyidLxn0wPz3gA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,212,1763452800"; 
-   d="scan'208";a="203384669"
-Received: from khuang2-desk.gar.corp.intel.com (HELO kuha) ([10.124.223.90])
-  by fmviesa006.fm.intel.com with SMTP; 09 Jan 2026 05:15:05 -0800
-Received: by kuha (sSMTP sendmail emulation); Fri, 09 Jan 2026 15:14:44 +0200
-Date: Fri, 9 Jan 2026 15:14:44 +0200
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: amitsd@google.com
-Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Lee Jones <lee@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Badhri Jagan Sridharan <badhri@google.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-Subject: Re: [PATCH v3 5/5] usb: typec: tcpm/tcpci_maxim: deprecate WAR for
- setting charger mode
-Message-ID: <aWD_RIPp1ULH9St1@kuha>
-References: <20251227-max77759-charger-v3-0-54e664f5ca92@google.com>
- <20251227-max77759-charger-v3-5-54e664f5ca92@google.com>
+	Fri, 09 Jan 2026 13:34:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 648DC60138
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Jan 2026 13:34:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18475C2BCB1
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Jan 2026 13:34:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767965654;
+	bh=qWzvjygcuLwzEIaEHIXEz9SaaWzpXF20ANBBtTSJsrI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=pXlvPg28ROYATVopjWOzBg5vR6kEbc/rx+T7qI0QvP2SRipywjvuMEbt9KtaaxSYT
+	 xe41Bh4rKblR4UC3fgonuJIUAP1Scoti7w7lySstIJj1IljhPDfFwqgyMSZ5hkLhkV
+	 hDwAKsaAklZBG6nfOBwnm/d727a3L+w3tVOlc3+2qmrFxxXMG9NSreOu1PRx0ID/T5
+	 Sk06jar9d7TVaM5zvynCh40hUwRb9JggexRF+5nrKi96yMZ7+CqICc69PeGzLkg8zg
+	 xqItjYKcEsy1nJZ42n/xGyGJudNUYjzO3ZEDujQGxtFPI33Kj01chsyagXJ1g1FxNG
+	 AfDuGE1XUDtzQ==
+Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-78c66bdf675so42857417b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 05:34:14 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCW1faNiAWaFh6NaJlspi0lpS4WGhJZEJt/nVdewWXC88LkWuxnOZ/BzHRrwbl7cSkgza+UKBMqXafl1JoEcEzfD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpUwcdtZpuqdww8uzaaRvAkMshQTX7d/Ii0sdGh2JU5eA008Q0
+	DK+dKhBiUr5QVF1ZGgOPZNqyvkO0NduD/AzDBlClGxa4MsMCcOmKvSR/ynA6l0BC4PFicRI09i/
+	DOSYpbuVHUkDa6HpIIioEHTW9uVFu7GI=
+X-Google-Smtp-Source: AGHT+IFesI9TgGv8pGaGDvBFA25rqPyYSWQ/7ybS7ei3jmEtj0pUiPwxVn1yVv3/z2opC7z47lsPIXjgx7XM38IPl5Y=
+X-Received: by 2002:a05:690e:118e:b0:640:d31d:6ed4 with SMTP id
+ 956f58d0204a3-64716c67b91mr8452143d50.51.1767965653394; Fri, 09 Jan 2026
+ 05:34:13 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251227-max77759-charger-v3-5-54e664f5ca92@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_051513_692600_2B379BFE 
-X-CRM114-Status: GOOD (  13.43  )
+References: <20251211-dev-dt-warnings-all-v1-0-21b18b9ada77@codeconstruct.com.au>
+ <20251211-dev-dt-warnings-all-v1-2-21b18b9ada77@codeconstruct.com.au>
+In-Reply-To: <20251211-dev-dt-warnings-all-v1-2-21b18b9ada77@codeconstruct.com.au>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 9 Jan 2026 14:34:02 +0100
+X-Gmail-Original-Message-ID: <CAD++jLk=9P3SaPgeuD46O_-D5xTKXiefRKenq2w8HVcv5rUdxw@mail.gmail.com>
+X-Gm-Features: AZwV_QjuVx1piuHcehHbUq1Xzc5Kt25GKCC_RKdVxx8gfqJ7sqje1Z1f8fkkuKU
+Message-ID: <CAD++jLk=9P3SaPgeuD46O_-D5xTKXiefRKenq2w8HVcv5rUdxw@mail.gmail.com>
+Subject: Re: [PATCH RFC 02/16] pinctrl: aspeed: g5: Constrain LPC binding
+ revision workaround to AST2500
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, linux-hwmon@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, 
+	linux-mmc@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	linux-iio@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,35 +87,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Dec 11, 2025 at 9:46=E2=80=AFAM Andrew Jeffery
+<andrew@codeconstruct.com.au> wrote:
 
-> +	if (source) {
-> +		if (!regulator_is_enabled(chip->vbus_reg))
-> +			ret = regulator_enable(chip->vbus_reg);
-> +	} else {
-> +		if (regulator_is_enabled(chip->vbus_reg))
-> +			ret = regulator_disable(chip->vbus_reg);
-> +	}
+> Discovering a phandle to an AST2400 or AST2600 LPC node indicates an
+> error for the purpose of the AST2500 pinctrl driver.
+>
+> Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 
-It looks like you have to do one more round, so can drop the
-regulator_is_enabled() checks and just always enable/disable it
-unconditionally.
+Patch applied for Linux 7.0!
 
-        if (source)
-		ret = regulator_enable(chip->vbus_reg);
-	else
-		ret = regulator_disable(chip->vbus_reg);
-
-I don't think you need the check in any case, but if I've understood
-this correctly, you should not use that check when the regulator does
-not support that check because then the API claims it's always
-enabled. So I guess in that case "if (!regulator_is_enabled())" may
-not work as expected, and you may actually be left with a disabled
-regulator. This may not be a problem on current platforms, but who
-knows what happens in the future.
-
-thanks,
-
--- 
-heikki
+Yours,
+Linus Walleij
 
