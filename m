@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11BCD26D60
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 15:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A43D26D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 15:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GEuhhZy2QA3OP8DInsfM/1K6CMwdvp6FKFKWR4SjdOg=; b=kjuvqn2b8mb56j5XRacJNOJOfZ
-	Cu5SVG7dGLf9/cEI5nI1nNRVr1aa2Yfjb/jmlbqZ06+hMT3sRnbeF4Z2XyVxOqBnk16D4y9XOq+El
-	IaPMaFyEJfZFfTtd+GDsATN5ntN0rEmwjHAL0GVP2AOr77cWIuEz3eb6gcVaJtNd50q6UOiljKVxS
-	vtaXqp3JkBNts6Zi923QqAmhVaZOmE7FI1l//MSbg+2wMBIz6PPnuA7jDkwoEIA3hun0bo/UffJjj
-	iu44FFH92YvyEF4XUXqbYs6t3r7NsMtWN3P2fHoBMRjD6myKuMM22zYysIVba2q55d8TkbSSygnsl
-	VC8RUsLg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wi70aGQUny7jTI3BL/ypcK7E+JBzUAPyJOtcq90snEs=; b=krDXDtZz/OvjNaAPhNtf4obWfv
+	AZ6ArLI+C4pyaB/QpwTMgIkG2XsErrTCjzUXzxej0qcZCVRcyg8Dnrdy/kEUUj9a1II1rRFQ01FZ+
+	bK102Fd2Ckl+stbAoFFMqjjPGtJNvWJ0RgbYsOGJPpMQ8OZmODDoT8yURRMmHXZg8UDEg4VEyZsGc
+	pqRgQCSmZJ2otSl4tWfY2DWPNceg572NjEQA6ucil3V3TuBc459Nr8IGyB7aYApcWn6F78Q3BtrSN
+	18KpeEJqy8J7b24sDHdKecJOOq97iUYQJg7fy8lY92NV4dWwuei/TWcwqobnpT+V2lolGttMbt6CT
+	ideKb1Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veEhC-00000002Wov-0TaR;
-	Fri, 09 Jan 2026 15:46:38 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1veEme-00000002X7D-3bQu;
+	Fri, 09 Jan 2026 15:52:16 +0000
+Received: from out-182.mta0.migadu.com ([91.218.175.182])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veEh8-00000002Wo4-0kPK;
-	Fri, 09 Jan 2026 15:46:35 +0000
-Received: from dfae2b116770.home.arpa (unknown [124.16.138.129])
-	by APP-05 (Coremail) with SMTP id zQCowADHWQ3WImFpQNY5BA--.1321S2;
-	Fri, 09 Jan 2026 23:46:30 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: vkoul@kernel.org,
-	kishon@kernel.org,
-	heiko@sntech.de
-Cc: linux-phy@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] phy: rockchip: inno-usb2: Fix a double free bug in rockchip_usb2phy_probe()
-Date: Fri,  9 Jan 2026 15:46:26 +0000
-Message-Id: <20260109154626.2452034-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1veEmb-00000002X6Q-2xXB
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 09 Jan 2026 15:52:15 +0000
+Message-ID: <8f0e04a5-49df-4fe3-9c76-9a1c0bd822a0@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1767973928;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wi70aGQUny7jTI3BL/ypcK7E+JBzUAPyJOtcq90snEs=;
+	b=huRN57f+71pJi/jLSM4hVz5bddWdpKLtPz5pmViKyGPv0sAG7PLI4PoIDS7YQ5Zfumpmi0
+	9p396OM5OwSdZtiGGGoVUU54izXji7PwijCdBeZ7gqq1fB5uffwqw0Q3HVpVgtsraZCEe0
+	2Xa6B2/jNDnOw5ntZgKB+NeEaf6h9Rs=
+Date: Fri, 9 Jan 2026 10:51:55 -0500
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowADHWQ3WImFpQNY5BA--.1321S2
-X-Coremail-Antispam: 1UD129KBjvJXoWruw4xZryrXFW3Xr17WFWxJFb_yoW8JrWUpa
-	yDCrWDtrW8Ka18Wr1qyrn8uFsYyFWDJ3yrGFZ7C3WfZ3Zxtr1DZ34fuFy5WrnxJFWrZFsx
-	trs8ta4UAF45Zw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvq14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26rWY6Fy7McIj6I8E87Iv67AKxVW2oVWaowAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r1q
-	6r43MxkIecxEwVAFwVW5WwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
-	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
-	wI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
-	v20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
-	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0x
-	ZFpf9x0pRED7-UUUUU=
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgsCA2lhGJoUnAAAsO
+Subject: Re: [PATCH] usb: dwc3: Always deassert xilinx resets
+To: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: "open list:DESIGNWARE USB3 DRD IP DRIVER" <linux-usb@vger.kernel.org>,
+ "Frager, Neal" <neal.frager@amd.com>, "Simek, Michal"
+ <michal.simek@amd.com>, open list <linux-kernel@vger.kernel.org>,
+ "moderated list:ARM/ZYNQ ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+References: <20260106171018.501612-1-sean.anderson@linux.dev>
+ <20260109004901.ygts6mmcxy4vs3y2@synopsys.com>
+ <MN0PR12MB59538C2F8613A9C0641BEAFBB782A@MN0PR12MB5953.namprd12.prod.outlook.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <MN0PR12MB59538C2F8613A9C0641BEAFBB782A@MN0PR12MB5953.namprd12.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_074634_610667_7D9D84EC 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20260109_075213_904921_C46621DD 
+X-CRM114-Status: GOOD (  38.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,39 +77,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The for_each_available_child_of_node() calls of_node_put() to
-release child_np in each success loop. After breaking from the
-loop with the child_np has been released, the code will jump to
-the put_child label and will call the of_node_put() again if the
-devm_request_threaded_irq() fails. These cause a double free bug.
+On 1/9/26 01:01, Pandey, Radhey Shyam wrote:
+> [AMD Official Use Only - AMD Internal Distribution Only]
+> 
+>> -----Original Message-----
+>> From: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+>> Sent: Friday, January 9, 2026 6:19 AM
+>> To: Sean Anderson <sean.anderson@linux.dev>
+>> Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>; open list:DESIGNWARE
+>> USB3 DRD IP DRIVER <linux-usb@vger.kernel.org>; Frager, Neal
+>> <neal.frager@amd.com>; Simek, Michal <michal.simek@amd.com>; open list
+>> <linux-kernel@vger.kernel.org>; moderated list:ARM/ZYNQ ARCHITECTURE
+>> <linux-arm-kernel@lists.infradead.org>; Philipp Zabel <p.zabel@pengutronix.de>;
+>> Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>; Greg Kroah-Hartman
+>> <gregkh@linuxfoundation.org>
+>> Subject: Re: [PATCH] usb: dwc3: Always deassert xilinx resets
+>>
+>> On Tue, Jan 06, 2026, Sean Anderson wrote:
+>> > If we don't have a usb3 phy we don't need to assert the core resets.
+>> > Deassert them even if we didn't assert them to support booting when
+>> > the bootloader never released the core from reset.
+> Is it a customized bootloader ? i.e it assert reset but don't deassert.
 
-Fix by returning directly to avoid the duplicate of_node_put().
+No. Most peripheral resets are asserted on PoR. So if the bootloader
+doesn't deassert them then Linux has to.
 
-Fixes: ed2b5a8e6b98 ("phy: phy-rockchip-inno-usb2: support muxed interrupts")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+My goal is to make init_serdes() in psu_init_gpl.c optional and do all
+serdes initialization in the phy driver (and in the consumer drivers). I
+have this working for DP/PCIe. I'm working on SATA, and I don't think
+USB/SGMII need much special. This gives the following advantages:
 
----
-Changes in v2:
-- Drop error jumping label.
----
- drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+- On some boards (mine) the reference clocks may not be configured in
+  SPL/FSBL. So ILL calibration will fail (and take a long time to do so)
+  unless we defer initialization to U-Boot/Linux where the phy driver
+  can request the clocks.
+- If PCIe/SATA are not used in U-Boot, ILL calibration can be deferred
+  until Linux when it can be done it parallel with other initialization.
+- We will have flexibility to switch between different serdes
+  configurations at runtime. For example, this could allow the
+  bootloader to fixup the devicetree to support PCIe and SATA M.2
+  drives, depending on what the user has plugged in.
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-index b0f23690ec30..fe97a26297af 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-@@ -1491,7 +1491,7 @@ static int rockchip_usb2phy_probe(struct platform_device *pdev)
- 						rphy);
- 		if (ret) {
- 			dev_err_probe(rphy->dev, ret, "failed to request usb2phy irq handle\n");
--			goto put_child;
-+			return ret;
- 		}
- 	}
- 
--- 
-2.34.1
+> I think ideally core /APB reset should be done independent on
+> MAC 2.0/3.0 configuration.
 
+I agree, but I think the existing code does this optimization to reduce
+boot time when the bootloader has already initialized USB. I have
+preserved that in this patch.
+
+--Sean
+
+> Not sure where the recommendation is
+> coming from to only do it for 3.0 MAC. Let me check the IP spec.
+> Thinh: Please chime in with your thoughts.
+> 
+>> >
+>>
+>> > Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+>> > ---
+>> >
+>> >  drivers/usb/dwc3/dwc3-xilinx.c | 67
+>> > ++++++++++++++++------------------
+>> >  1 file changed, 32 insertions(+), 35 deletions(-)
+>> >
+>>
+>> This sounds like a fix. Does it need to be Cc Stable and backported?
+>>
+>> Regardless,
+>>
+>> Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+>>
+>> Thanks,
+>> Thinh
+>>
+>> > diff --git a/drivers/usb/dwc3/dwc3-xilinx.c
+>> > b/drivers/usb/dwc3/dwc3-xilinx.c index 0a8c47876ff9..f41b0da5e89d
+>> > 100644
+>> > --- a/drivers/usb/dwc3/dwc3-xilinx.c
+>> > +++ b/drivers/usb/dwc3/dwc3-xilinx.c
+>> > @@ -132,21 +132,6 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx
+>> *priv_data)
+>> >             goto err;
+>> >     }
+>> >
+>> > -   /*
+>> > -    * The following core resets are not required unless a USB3 PHY
+>> > -    * is used, and the subsequent register settings are not required
+>> > -    * unless a core reset is performed (they should be set properly
+>> > -    * by the first-stage boot loader, but may be reverted by a core
+>> > -    * reset). They may also break the configuration if USB3 is actually
+>> > -    * in use but the usb3-phy entry is missing from the device tree.
+>> > -    * Therefore, skip these operations in this case.
+>> > -    */
+>> > -   if (!priv_data->usb3_phy) {
+>> > -           /* Deselect the PIPE Clock Select bit in FPD PIPE Clock register */
+>> > -           writel(PIPE_CLK_DESELECT, priv_data->regs +
+>> XLNX_USB_FPD_PIPE_CLK);
+>> > -           goto skip_usb3_phy;
+>> > -   }
+>> > -
+>> >     crst = devm_reset_control_get_exclusive(dev, "usb_crst");
+>> >     if (IS_ERR(crst)) {
+>> >             ret = PTR_ERR(crst);
+>> > @@ -171,22 +156,31 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx
+>> *priv_data)
+>> >             goto err;
+>> >     }
+>> >
+>> > -   ret = reset_control_assert(crst);
+>> > -   if (ret < 0) {
+>> > -           dev_err(dev, "Failed to assert core reset\n");
+>> > -           goto err;
+>> > -   }
+>> > +   /*
+>> > +    * Asserting the core resets is not required unless a USB3 PHY is used.
+>> > +    * They may also break the configuration if USB3 is actually in use but
+>> > +    * the usb3-phy entry is missing from the device tree. Therefore, skip
+>> > +    * a full reset cycle and just deassert the resets if the phy is
+>> > +    * absent.
+>> > +    */
+>> > +   if (priv_data->usb3_phy) {
+>> > +           ret = reset_control_assert(crst);
+>> > +           if (ret < 0) {
+>> > +                   dev_err(dev, "Failed to assert core reset\n");
+>> > +                   goto err;
+>> > +           }
+>> >
+>> > -   ret = reset_control_assert(hibrst);
+>> > -   if (ret < 0) {
+>> > -           dev_err(dev, "Failed to assert hibernation reset\n");
+>> > -           goto err;
+>> > -   }
+>> > +           ret = reset_control_assert(hibrst);
+>> > +           if (ret < 0) {
+>> > +                   dev_err(dev, "Failed to assert hibernation reset\n");
+>> > +                   goto err;
+>> > +           }
+>> >
+>> > -   ret = reset_control_assert(apbrst);
+>> > -   if (ret < 0) {
+>> > -           dev_err(dev, "Failed to assert APB reset\n");
+>> > -           goto err;
+>> > +           ret = reset_control_assert(apbrst);
+>> > +           if (ret < 0) {
+>> > +                   dev_err(dev, "Failed to assert APB reset\n");
+>> > +                   goto err;
+>> > +           }
+>> >     }
+>> >
+>> >     ret = phy_init(priv_data->usb3_phy); @@ -201,11 +195,15 @@ static
+>> > int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
+>> >             goto err;
+>> >     }
+>> >
+>> > -   /* Set PIPE Power Present signal in FPD Power Present Register*/
+>> > -   writel(FPD_POWER_PRSNT_OPTION, priv_data->regs +
+>> XLNX_USB_FPD_POWER_PRSNT);
+>> > -
+>> > -   /* Set the PIPE Clock Select bit in FPD PIPE Clock register */
+>> > -   writel(PIPE_CLK_SELECT, priv_data->regs +
+>> XLNX_USB_FPD_PIPE_CLK);
+>> > +   if (priv_data->usb3_phy) {
+>> > +           /* Set PIPE Power Present signal in FPD Power Present Register*/
+>> > +           writel(FPD_POWER_PRSNT_OPTION, priv_data->regs +
+>> XLNX_USB_FPD_POWER_PRSNT);
+>> > +           /* Set the PIPE Clock Select bit in FPD PIPE Clock register */
+>> > +           writel(PIPE_CLK_SELECT, priv_data->regs +
+>> XLNX_USB_FPD_PIPE_CLK);
+>> > +   } else {
+>> > +           /* Deselect the PIPE Clock Select bit in FPD PIPE Clock register */
+>> > +           writel(PIPE_CLK_DESELECT, priv_data->regs +
+>> XLNX_USB_FPD_PIPE_CLK);
+>> > +   }
+>> >
+>> >     ret = reset_control_deassert(crst);
+>> >     if (ret < 0) {
+>> > @@ -225,7 +223,6 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx
+>> *priv_data)
+>> >             goto err;
+>> >     }
+>> >
+>> > -skip_usb3_phy:
+>> >     /* ulpi reset via gpio-modepin or gpio-framework driver */
+>> >     reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
+>> >     if (IS_ERR(reset_gpio)) {
+>> > --
+>> > 2.35.1.1320.gc452695387.dirty
+>> >
 
