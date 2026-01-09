@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 724EDD26D91
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 18:31:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30980D26D7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 18:46:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EwGYOeRaxC8r7KLQ5MPQHRQIWLWbUCt3JTk1jKiuCXI=; b=si4b14aJaWFiXaYvoffIAhcFrB
-	v5tU42cgibW+wzA8w0BpYDZWClbhmf6w7eVdDcQlZIkwxttoMzBn7tUMoJSMuJDDXKGExc0+YMs2i
-	taB1K1XgDc8BBpe0GAyM9+CMxHwwoJcFCwM1phiReHAUvWZxRb6L1R9wvw1oTrG56s2+dQglsCsi1
-	pZWhSN5f/+3ufJ9rvX9kHyZKdsNkBY58Bnb+VU/qWXMVnUNRRwM+DXtLDBDPVlFseOuKf+IbFRiQG
-	rOzqytjR7/Eh59rOD9LGMLBpkTvns9Xuv8PR78LBkfuIOYhveoRv3TLykcaRONAmQJaes5BEriEi3
-	BnmsxhPg==;
+	bh=B3IE19GKAch3cibGyhJWWZVvvq/91xVeyFd4VfvpSzU=; b=O3yDW6NNMCn+9ZSglp8CJDVa9V
+	R2C0C2Z0vqu2Bi08rfYgJg24Rhkf/7kDVRLVBufDpdJtJWvhA7WoDmaFPx7QKEPb8biK5cWjBU857
+	J+yen4Qbuogk0RailhhXH674jnRs8psnQ3+n07LqaOC1opKzLJDPCu07tTCONam/lsXJevz5D5kUp
+	fnpCWGj/glcMg5NnRQcxqEzxoZU7tIL/rUgacw2KHYvFdMeyJpQ3xAgOh0kRio6laKXoGiNbx4uxc
+	7/P8PBLFy35telXSUEASr8caJSKp52GdcyIJEjGOORSGygkr6+zPuqK8HgO4MB2Bj0pUIjOrbAnr1
+	5GfWr3Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veHGb-00000002tM9-2oh4;
-	Fri, 09 Jan 2026 18:31:21 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1veHUz-00000002tuH-2UdB;
+	Fri, 09 Jan 2026 18:46:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veHGZ-00000002tLr-397R
+	id 1veHUx-00000002ttx-32Ej
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 18:31:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=EwGYOeRaxC8r7KLQ5MPQHRQIWLWbUCt3JTk1jKiuCXI=; b=COcIW6ipe3pNW3FLUndl9lxole
-	p8kA6IAipiGel0bGPkZFc3iT9DHRMCYDVlPe/BHwmOlsOZHjg3xxIW3w7TXTZou1tIeT2KcsH3x0V
-	FnOnenbGbAWs4NA4n7Dq5nWHLvTRDKIjGvMGZRm65GhmpmKvcfr4F2WOsA+Eq5U6LJts=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1veHGP-0029bk-2U; Fri, 09 Jan 2026 19:31:09 +0100
-Date: Fri, 9 Jan 2026 19:31:09 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: lizhi2@eswincomputing.com
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	ningyu@eswincomputing.com, linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com, weishangjuan@eswincomputing.com
-Subject: Re: [PATCH v1 2/2] net: stmmac: eic7700: enable clocks before syscon
- access and correct RX sampling timing
-Message-ID: <1f553a6e-ca95-45e2-be14-96557a35e618@lunn.ch>
-References: <20260109080601.1262-1-lizhi2@eswincomputing.com>
- <20260109080929.1308-1-lizhi2@eswincomputing.com>
+	Fri, 09 Jan 2026 18:46:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 719D2435CC;
+	Fri,  9 Jan 2026 18:46:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F39ACC4CEF1;
+	Fri,  9 Jan 2026 18:46:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767984370;
+	bh=1hEqkjv2D0hSRyFz8anD5p5B//7oIENYTkt9Kf7Orec=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S5YMg3U1aJw9i8kle0Bnt+0wTkXcr99qOrAizB76xRIO/do+diMXDEZmekcBDOhr3
+	 PHph5ANqVIzo9SvHBSxJUcP/Y7R8W+dv2Xoyk3QVh4DFDn5Tb7XQ8lViu/XWq7pyTr
+	 KfIRBYxOyeJXGZyiqbu6NF9M3sP3alryHj93kBUn85RjVM15Vk1Vhdgc9Ly9uy+0ZB
+	 vxti68FhS59GC2VaVDQQ40lKdd6AxDm+pHQ0pxI0wZjNSxGCqXLCmQ6zmok1cQ8vHl
+	 XTT7C2yQEDMHkisKyv5cPeyWdctBdmQx5uIsq/jNpQuJJQ92QMderinB4b2SCjJhLZ
+	 FLEHmkT3bRV3w==
+Date: Fri, 9 Jan 2026 18:46:04 +0000
+From: Will Deacon <will@kernel.org>
+To: Quentin Perret <qperret@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH 17/30] KVM: arm64: Generalise
+ kvm_pgtable_stage2_set_owner()
+Message-ID: <aWFM7NnBkRiM4OQI@willie-the-truck>
+References: <20260105154939.11041-1-will@kernel.org>
+ <20260105154939.11041-18-will@kernel.org>
+ <rm55zbvakwmh5ny25bosf3jjiehfubcm2st5q4porsmnffuod5@edygmhqq2ckn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260109080929.1308-1-lizhi2@eswincomputing.com>
+In-Reply-To: <rm55zbvakwmh5ny25bosf3jjiehfubcm2st5q4porsmnffuod5@edygmhqq2ckn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_103119_788714_ACF37093 
-X-CRM114-Status: UNSURE (   6.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260109_104611_823763_EA57C475 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,17 +81,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +	dwc_priv->eic7700_hsp_regmap =
-> +			syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
-> +							"eswin,hsp-sp-csr");
-> +	if (IS_ERR(dwc_priv->eic7700_hsp_regmap))
->  		return dev_err_probe(&pdev->dev,
-> -				PTR_ERR(eic7700_hsp_regmap),
-> +				PTR_ERR(dwc_priv->eic7700_hsp_regmap),
->  				"Failed to get hsp-sp-csr regmap\n");
+On Tue, Jan 06, 2026 at 03:20:15PM +0000, Quentin Perret wrote:
+> On Monday 05 Jan 2026 at 15:49:25 (+0000), Will Deacon wrote:
+> >  /**
+> > - * kvm_pgtable_stage2_set_owner() - Unmap and annotate pages in the IPA space to
+> > - *				    track ownership.
+> > + * kvm_pgtable_stage2_annotate() - Unmap and annotate pages in the IPA space
+> > + *				   to track ownership (and more).
+> >   * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_init*().
+> >   * @addr:	Base intermediate physical address to annotate.
+> >   * @size:	Size of the annotated range.
+> >   * @mc:		Cache of pre-allocated and zeroed memory from which to allocate
+> >   *		page-table pages.
+> > - * @owner_id:	Unique identifier for the owner of the page.
+> > + * @annotation:	A 62-bit value that will be stored in the page tables.
+> > + *		@annotation[0] and @annotation[63] must be 0.
+> > + * 		@annotation[62:1] is stored in the page tables.
+> >   *
+> >   * By default, all page-tables are owned by identifier 0. This function can be
+> >   * used to mark portions of the IPA space as owned by other entities. When a
+> > @@ -673,8 +678,8 @@ int kvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+> >   *
+> >   * Return: 0 on success, negative error code on failure.
+> >   */
+> > -int kvm_pgtable_stage2_set_owner(struct kvm_pgtable *pgt, u64 addr, u64 size,
+> > -				 void *mc, u8 owner_id);
+> > +int kvm_pgtable_stage2_annotate(struct kvm_pgtable *pgt, u64 addr, u64 size,
+> > +				void *mc, kvm_pte_t annotation);
+> 
+> While we're on this topic, perhaps we could go one step further and 'type'
+> the annotation itself? For instance have a 'type' and 'meta' parameter
+> directly at the kvm_pgatble_stage2_annotate() level instead of leaving
+> that up to the callers. This would allow to have one place to allocate
+> annotation 'types' (donated pages, locked PTE, MMIO guard, ...) and one
+> way to serialize/deserialize them. That 'type' would be stored in top 2
+> or 3 bits of the PTE for instance, and decoding of the 'meta' field would
+> be dependant on the type value. Thoughts?
 
-In order to be backwards compatible, you cannot error out here,
-because old DT blobs won't have this property.
+I don't think a global 'type' space is particularly beneficial, as most
+annotations (with the exception of PTE_LOCKED) are specific to the owner
+and putting them into a single number space will just waste bits.
 
-	Andrew
+But I do like the idea of encoding an annotation type in the pte and
+defining those per-owner. I think it would also make some of the code
+more robust; for example, I noticed that __pkvm_guest_unshare_host()
+isn't putting back the right annotation with my series when I started
+looking at implementing your idea.
+
+I'll come back with a diff. It won't be quite what you're suggesting,
+but let's see what you think.
+
+Will
 
