@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B902DD232CA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 01:26:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D42D232CA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 01:27:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IjEhf4jC5xnT6sGVRluMHT0B2HAAj6xJis8dbhxb8WM=; b=LqJLENHgDnMdPRYnHo0hHznart
-	l48LcTK3GvnELFqZOpRRFMX4hFwT5nYXo2XuQ0x0FvCSRWuT2UEU64IpYm4wMvMir+DHpmpfyJIhW
-	SCojt5mW/xqvWwBkk6fABkPP8/JplhdqFmOhCcYoPoSYQ4gwJAQDHOcwEAW++94c7iRHNZ8W4sopV
-	ikowSkz7XJGsD+x6WgSOqnYNSyFoEqtDgOOLpEu6O29MOjQCI0hwGjDxRWhoBhQGnOPOJ+nKhz1eH
-	2DqdvQhCS3ZUBUKghWQHWJO5URQFZFYlRngmUt7Y4bDH/r7CGR9AbENbFu7/37xdKOFU7Bgny71/O
-	TV7004gA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S+edcJQ6qsUosWLmW2pZdLsa+cSgVPdAbKyNWalNKbA=; b=tzEU++hb0D6+Ah31tYDuZ6OiKq
+	hC9uSCjaDLfaoxoTb0UoIV3POSb7607425AM6s/e3wLQQAP7j0ejDk0jFQwBmOJ8ZgALXq+JVJE44
+	kv+v+Z1jfw4xGfCYhyjNDQ+fKXLnWC6z5p3ja1HZCF0m3hVzkX9GMEt5F6EukJczYdnFMOuUK6rpX
+	TyavKNXvjVzGn29cv75RFYI5FEbgjU1kRLD8ii1NMDFodmIAs30KetSxKfZYu9+HpZnNGjKiy4t/t
+	4FAvoaG2x+f3XsS0QT4nyw9QxbAadmtpf17KyhMEDU3S9PRxCnFQSiTTdDmaVsXWBK8iKgwUYXHRk
+	gc7jOhPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve1Gb-000000014JO-0PVc;
-	Fri, 09 Jan 2026 01:26:17 +0000
-Received: from mail-m3275.qiye.163.com ([220.197.32.75])
+	id 1ve1Hb-000000014Ta-2KsG;
+	Fri, 09 Jan 2026 01:27:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve1GW-000000014I3-1jRi;
-	Fri, 09 Jan 2026 01:26:14 +0000
-Received: from [172.16.12.51] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3002cb6fd;
-	Fri, 9 Jan 2026 09:26:02 +0800 (GMT+08:00)
-Message-ID: <4e01f121-1912-4897-98e8-cb543a501707@rock-chips.com>
-Date: Fri, 9 Jan 2026 09:26:00 +0800
+	id 1ve1HY-000000014Sl-165f;
+	Fri, 09 Jan 2026 01:27:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D95B7408AF;
+	Fri,  9 Jan 2026 01:27:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41AA3C116C6;
+	Fri,  9 Jan 2026 01:27:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767922034;
+	bh=sGamr4oDumUwof9ouQDHjPD2MuG2QwTZ+qmSKHHoRwI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nTm4iY/9PqHkmCfZPWUCsadXnM0N/kVK095TkUeZS2oGCRp411HnNcSPL1XPuxvrJ
+	 n6u5RSIEVWlKUR7qspcOO+E6TZ8758Z+uhEiw7eqTZKfR8isEktdfLVmWynZaasYdc
+	 8UJ8BS/h7OU7xxWaoReQp4gdEN+zBb3oIcZ0dJuoeZ2Gw6E2Chgyk2OGqSMMrO147m
+	 sYo+fPWiu1einrR19xgYEQiYvHmjGSVaMYzalWFkUQwpkqToFAdtco5KfIhZ9n1S18
+	 HLFhwCVAdWp4zTLRs+lJguGmPQTIZsUZ+NecGhG2BjT+cqMjoRX7UAZSWm0bnyZBSN
+	 8KHYCX6+zQ4tQ==
+Date: Fri, 9 Jan 2026 01:27:12 +0000
+From: Eric Biggers <ebiggers@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org,
+	Holger Dengler <dengler@linux.ibm.com>,
+	Harald Freudenberger <freude@linux.ibm.com>
+Subject: Re: [PATCH 00/36] AES library improvements
+Message-ID: <20260109012712.GA730896@google.com>
+References: <20260105051311.1607207-1-ebiggers@kernel.org>
+ <CAMj1kXGRTfyXPD3+Ravr7O5ZUMAUeabQw455sW5g7aRy3BU+2Q@mail.gmail.com>
+ <20260108202618.GA2687@sol>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 8/9] drm/rockchip: Drop ROCKCHIP_IOMMU depend for
- DRM_ROCKCHIP
-To: Heiko Stuebner <heiko@sntech.de>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Chaoyi Chen <kernel@airkyi.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org
-References: <20251106020632.92-1-kernel@airkyi.com>
- <20251106020632.92-9-kernel@airkyi.com> <4072834.X9hSmTKtgW@phil>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <4072834.X9hSmTKtgW@phil>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9ba05c4d8f03abkunm1426e5ab1f2143
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkhKTlZCS0gaTUhNS0NDTx9WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=GY6B1+W46frWd3oLL1NM66g6O0EUywg5e7gk4XfQ3+7+led+dGGAoMeVwkHlhjufEtT6S0JKF8Ui/NstMhkxCh8FkpHFb3JVv/f+FQiHYJd8kjAsXth6LNavSgbTlumydJfio2Zlgs31cMsy3m+jrDNfczdZ39KJiNyjhMpbMuo=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=IjEhf4jC5xnT6sGVRluMHT0B2HAAj6xJis8dbhxb8WM=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260108202618.GA2687@sol>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_172613_102079_1FFBF27F 
-X-CRM114-Status: GOOD (  19.31  )
+X-CRM114-CacheID: sfid-20260108_172716_339898_D72EC38F 
+X-CRM114-Status: GOOD (  37.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,65 +78,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
-
-On 1/9/2026 3:03 AM, Heiko Stuebner wrote:
-> Am Donnerstag, 6. November 2025, 03:06:31 Mitteleuropäische Normalzeit schrieb Chaoyi Chen:
->> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>
->> On the RK3506 platform, there is no iommu hardware. And even on
->> platform that have iommu hardware, it should be possible to use
->> VOP without enabling iommu. In this case, a contiguous memory
->> space like CMA should be used.
->>
->> So this patch removes the dependency on ROCKCHIP_IOMMU.
->>
->> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->> ---
->>  drivers/gpu/drm/rockchip/Kconfig | 3 ++-
->>  1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchip/Kconfig
->> index b7b025814e72..a056d419190c 100644
->> --- a/drivers/gpu/drm/rockchip/Kconfig
->> +++ b/drivers/gpu/drm/rockchip/Kconfig
->> @@ -1,7 +1,8 @@
->>  # SPDX-License-Identifier: GPL-2.0-only
->>  config DRM_ROCKCHIP
->>  	tristate "DRM Support for Rockchip"
->> -	depends on DRM && ROCKCHIP_IOMMU
->> +	depends on DRM
->> +	depends on ROCKCHIP_IOMMU || !ROCKCHIP_IOMMU
+On Thu, Jan 08, 2026 at 12:26:18PM -0800, Eric Biggers wrote:
+> On Thu, Jan 08, 2026 at 12:32:00PM +0100, Ard Biesheuvel wrote:
+> > On Mon, 5 Jan 2026 at 06:14, Eric Biggers <ebiggers@kernel.org> wrote:
+> > >
+> > > This series applies to libcrypto-next.  It can also be retrieved from:
+> > >
+> > >     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git aes-lib-v1
+> > >
+> > > This series makes three main improvements to the kernel's AES library:
+> > >
+> > >   1. Make it use the kernel's existing architecture-optimized AES code,
+> > >      including AES instructions, when available.  Previously, only the
+> > >      traditional crypto API gave access to the optimized AES code.
+> > >      (As a reminder, AES instructions typically make AES over 10 times
+> > >      as fast as the generic code.  They also make it constant-time.)
+> > >
+> > >   2. Support preparing an AES key for only the forward direction of the
+> > >      block cipher, using about half as much memory.  This is a helpful
+> > >      optimization for many common AES modes of operation.  It also helps
+> > >      keep structs small enough to be allocated on the stack, especially
+> > >      considering potential future library APIs for AES modes.
+> > >
+> > >   3. Replace the library's generic AES implementation with a much faster
+> > >      one that is almost as fast as "aes-generic", while still keeping
+> > >      the table size reasonably small and maintaining some constant-time
+> > >      hardening.  This allows removing "aes-generic", unifying the
+> > >      current two generic AES implementations in the kernel tree.
+> > >
+> > 
+> > Architectures that support memory operands will be impacted by
+> > dropping the pre-rotated lookup tables, especially if they have few
+> > GPRs.
+> > 
+> > I suspect that doesn't really matter in practice: if your pre-AESNI
+> > IA-32 workload has a bottleneck on "aes-generic", you would have
+> > probably moved it to a different machine by now. But the performance
+> > delta will likely be noticeable so it is something that deserves a
+> > mention.
 > 
-> I don't really understand this yes+no line :-)
+> Sure.  I only claimed that the new implementation is "almost as fast" as
+> aes-generic, not "as fast".
 > 
-> Can't you just
-> - drop the dependency altogether
-> or
-> - do a depends on ROCKCHIP_IOMMU if ARM64
+> By the way, these are the results I get for crypto_cipher_encrypt_one()
+> and crypto_cipher_decrypt_one() (averaged together) in a loop on an i386
+> kernel patched to not use AES-NI:
 > 
->
+>     aes-fixed-time: 77 MB/s
+>     aes-generic: 192 MB/s
+>     aes-lib: 185 MB/s
+> 
+> I'm not sure how relevant these are, considering that this was collected
+> on a modern CPU, not one of the (very) old ones that would actually be
+> running i386 non-AESNI code.  But if they are even vaguely
+> representative, this suggests the new code does quite well: little
+> slowdown over aes-generic, while adding some constant-time hardening
+> (which arguably was an undeserved shortcut to not include before) and
+> also using a lot less dcache.
+> 
+> At the same time, there's clearly a large speedup vs. aes-fixed-time.
+> So this will actually be a significant performance improvement on
+> systems that were using aes-fixed-time.  Many people may have been doing
+> that unintentionally, due to it being set to a higher priority than
+> aes-generic in the crypto_cipher API.
+> 
+> I'll also note that the state of the art for parallelizable AES modes on
+> CPUs without AES instructions is bit-slicing with vector registers.  The
+> kernel has such code for arm and arm64, but not for x86.  If x86 without
+> AES-NI was actually important, we should be adding that.  But it seems
+> clear that x86 CPUs have moved on, and hardly anyone cares anymore.  If
+> for now we can just provide something that's almost as fast as before
+> (and maybe even a lot faster in some cases!), that seems fine.
 
-This trick is called optional-dependencies [0]. In addition to the 
-familiar depends on ROCKCHIP_IOMMU part, the newly added !ROCKCHIP_IOMMU
-ensures that DRM_ROCKCHIP can still be built even when ROCKCHIP_IOMMU
-is not build.
+It's also worth emphasizing that there are likely to be systems that
+support AES instructions but are not using them due to the corresponding
+kconfig options (e.g. CONFIG_CRYPTO_AES_NI_INTEL) not being set to 'y'.
+As we know, missing the crypto optimization kconfig options is a common
+mistake.  This series fixes that for single-block AES.
 
-[0]: https://docs.kernel.org/kbuild/kconfig-language.html#optional-dependencies
+So (in addition to the aes-fixed-time case) that's another case that
+just gets faster, and where the difference between aes-generic and the
+new generic code isn't actually relevant.
 
-If we just:
-- drop the dependency altogether 
-
-When IOMMU is enabled, the dependency relationship cannot be handled 
-correctly. For example, the following configuration is possible: 
-ROCKCHIP_IOMMU=m, DRM_ROCKCHIP=y, which leads to a build failure.
-
-- do a depends on ROCKCHIP_IOMMU if ARM64
-
-This changes the semantics. On arm64 we should also be able to work
-without IOMMU being enabled.
-
--- 
-Best, 
-Chaoyi
+- Eric
 
