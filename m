@@ -4,116 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1D3D26D67
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 15:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57867D26D67
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 15:28:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+K8EMEof++7D26DPSvnPgtOOvNH7OpYLlMmU+m2xgU=; b=dx87uavoL8MAf7V7n0pqqawaKS
-	JWioTn4dLyR2fuCszQmK8BtZbzQN/IpjjcSmnqvnb2KV8kobqbBGQsjzSUj0/NwGTg/5XVWNC6ciX
-	/uTd0HBpAHxqAKIGuo5/4eiTS3t+cN0mmTXevJJ5ExxYvUlcmkiR5KKXORK2/FdnO6HMss0Ch322b
-	wALs5nmMbfsT2IQHiOT4jgM+g4EJJarZnhkSa9l6DFVi9pbZOJ7qNkYK+HL/3cxaAdMX5QPAToCF/
-	kN8DiIBoL+m3yIGku4Fjk8C0tjVuSIZOO2zxgTwxrPiriLrkoAh8/gZve9jpfG4XCBLaNqYlLq+or
-	FeZwJH1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=w4pw3OHvKFAwk77qe25xfoYMzyeURy+ya3bh6kxYAMY=; b=OT4hp+qY2+k3ellEWb/SvAjHAb
+	ORrB88HbcTCrGuatTqFGKc649e4kybiOmiMmzS+dF/8BgOVGAhiZY+CyU20OCu4Ezi+aSqETzbJd4
+	0MEfDMve1Dg3lCvFxkrL3i3pGvD68g03lb/JFK+T1YEGnKjyV80aRk+wxvX7sLbBGi56CnpYOZPjQ
+	BxEE/uW/DA57RdSSJ+EwOCS0hvTVQS7xxg5iKGn2SMvc785HG1TVUZC9NOmMUOj2JnQ92w/tTCzMO
+	djSysXC1TgFZ7EiuNvTlZpjq7HIxccDKKHdIaceIay7R/5vULAU6bbX5z39rG+h+Yzvfly/Duwci3
+	OIYDPD0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veENI-00000002Tb4-0Lfp;
-	Fri, 09 Jan 2026 15:26:04 +0000
-Received: from fhigh-a7-smtp.messagingengine.com ([103.168.172.158])
+	id 1veEP4-00000002U02-38L1;
+	Fri, 09 Jan 2026 15:27:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veENB-00000002TXZ-44m8
+	id 1veEP3-00000002Tzv-0aYO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 15:25:59 +0000
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 4BCF5140018E;
-	Fri,  9 Jan 2026 10:25:57 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-01.internal (MEProxy); Fri, 09 Jan 2026 10:25:57 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1767972357;
-	 x=1768058757; bh=D+K8EMEof++7D26DPSvnPgtOOvNH7OpYLlMmU+m2xgU=; b=
-	myMHnwnW9Exy3yuvt+PVVToXINmMnYWytoOLL3YHSViYbthzpI+rtXo+ArEbXLf8
-	w/CVEthMJFM/03mLliSDsqOT/Uj1RpTv0AoCb5hmW1zXubxmaeUd0247QX+B5nZS
-	Z1ith5qU957GErzFzh5U5YTckdEOsD/AAtUctHAQMAwxpHQFotNllcI1++itFrMO
-	sIuBtxpMoAmK58ZNe/gXmr36CA2nsZwl0XopcgPJWWSOpmAgcU6c0hTmopCRDVqJ
-	S84p6zU56ZfDulUxup8UAh4zlLgznTzYLSKINF48etH8o8TIKbV+miEbCZHGPWqJ
-	/H6Mv38c6gATcldQ6sMXnw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1767972357; x=
-	1768058757; bh=D+K8EMEof++7D26DPSvnPgtOOvNH7OpYLlMmU+m2xgU=; b=U
-	R/uh8+xzUQY6hS8oKea4t/8BzYVm9nyB39N4FNy7WpY+96GN1RPRHS+Bg9athSEl
-	quNXCArUmWi43dpfOP4NsdLqAOl2jBb9j8G2+3iyX+Bn8GUmBuHSAall7haVBUne
-	T+lnRmBnGc/Nk36dChVErN1+PmF9lh38crGkn9tfJqm47gkDesOKIQpW2/a+bCCP
-	1uCc4RP1f3Q/72b+wKijP+MY9rqdjr5ROH/3DSR2dcE0QnJuXxDZsV5eouMGOReD
-	w3lS4g9n4zhs+vJTHMunIQGQZQ0xFJhk3Xu+hsJ97Fgm0jIMTuuf+OEZHZjhBaju
-	zInu3Qx4GCvFhMmGxD5aw==
-X-ME-Sender: <xms:BR5haehb2JusAnjBJ6LLmp12mc3Mr4VisAsUK_ij7Ek2fh83WkIFuQ>
-    <xme:BR5haXOiA2rQaqjIcWkHTpk7HKURYVmX5yEdt5sgmFS2Bs3_tA-n1LbhpcjhxIJjC
-    dI7JeCCAme6Tf-QMS_kN88Nwj_6QCl-ROg7-WqsdgLgr5etzrUSSRE>
-X-ME-Received: <xmr:BR5haRo__mwW7lVZtkAYlPd1VSrGJFV3DCe44lyGaprMoWtzZotoM-NApB9fU3T1Hbd9FKIfFt8vdpF49przMCOfTKHiaFMMy5nJmg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddutdeludeiucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpeflrghnnhgv
-    ucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepfe
-    ehheeileduffehteeihfdvtdelffdutdeludduiedutedvfeffheekhefgtedtnecuvehl
-    uhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrg
-    hurdhnvghtpdhnsggprhgtphhtthhopedutddpmhhouggvpehsmhhtphhouhhtpdhrtghp
-    thhtohepshhvvghnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjsehjrghnnhgruh
-    drnhgvthdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghp
-    thhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghsrghhih
-    eslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhk
-    vghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlih
-    hnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehn
-    vggrlhesghhomhhprgdruggvvhdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvg
-    hrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:BR5haR7AYu_Ca-Z5Bh24RS9BZ_1qVaBAx0SLpoADEwEX99rLLLjtvQ>
-    <xmx:BR5haXgEnbzMO0GcutJr0wX94mwxt1K0UPXC42nQemJFm-XXE4NYuw>
-    <xmx:BR5haf6JY4aZqMOaMV8UxZdtCpNSIMDvtzGDmx4KcV18W38uL3ECbA>
-    <xmx:BR5haUEQT_C5F_EYnMwCdGw62nnmuPCYaq9GazwtkKlyBrt3JkEhZQ>
-    <xmx:BR5haeL7-xPjXM-J1esXgfCPkiBwfHDDaxKChHjn5m8t-eng14qdykLQ>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 9 Jan 2026 10:25:56 -0500 (EST)
-From: Janne Grunau <j@jannau.net>
-Date: Fri, 09 Jan 2026 16:25:46 +0100
-Subject: [PATCH 4/4] arm64: dts: apple: Add chassis-type property for Apple
- iMacs
+	Fri, 09 Jan 2026 15:27:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4B4EC60160;
+	Fri,  9 Jan 2026 15:27:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8FB2C4CEF1;
+	Fri,  9 Jan 2026 15:27:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767972472;
+	bh=3jT1bPp2jAjL1e9B+m/2zxJkpLEgA9Jqq3llmKYGRE8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=A7q+/jLq9PLESbVwGX9xCVfHvYVeMw5bbr2mb8E0gN6K4yZENLpDPaGJoW41tEfX7
+	 Nc0+n7oWvo3F0zui9FpB5XnLLG7SsqVFkU3xgcAwRtt8zblCstEnYQfV0108zJpLlS
+	 LKKdEIoR6C/NdoLF74N+WFdJHKXwCvPP4cxjdPfGRqzUtd9mdM2Nu02u4E1w/+ynsS
+	 uHEydFVQ0wEopcbkb4JtyZNAnlspdwRKpdWYwssTPg1OXdmjN1O/1FXENaJ1YRUMsj
+	 wjufefM4MNQIpWBt4ZB2sbXIirmpCfBO5S4HKrweGLM3TBliBUysVTqTwcrrLM+/J6
+	 6Bl7tdKkIG0Nw==
+Date: Fri, 9 Jan 2026 09:27:50 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Hongxing Zhu <hongxing.zhu@nxp.com>
+Cc: Frank Li <frank.li@nxp.com>,
+	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+	"mani@kernel.org" <mani@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v6 08/11] PCI: dwc: Invoke post_init in
+ dw_pcie_resume_noirq()
+Message-ID: <20260109152750.GA544801@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260109-apple-dt-chassis-type-v1-4-c215503734c5@jannau.net>
-References: <20260109-apple-dt-chassis-type-v1-0-c215503734c5@jannau.net>
-In-Reply-To: <20260109-apple-dt-chassis-type-v1-0-c215503734c5@jannau.net>
-To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Janne Grunau <j@jannau.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1303; i=j@jannau.net;
- s=yk2025; h=from:subject:message-id;
- bh=AJPBLOhsNE6NUX/mnfmMo8DI9FwN/AXyZUWmv+NCEFM=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhsxE2T8tm7w/Plt8jCWAZ3ph8Px8xed5zOf2l+iviRJSC
- xHZdreto5SFQYyLQVZMkSVJ+2UHw+oaxZjaB2Ewc1iZQIYwcHEKwESm9TAyrD3+5dI3jxe6tdIr
- 1z+aLnVEbFuP9Z+eWaY8hn1nryw2yGVkWCndlLN7Q9Rv6Zrvi/XFFyRWO+ds2Hra7fgGryrLZHZ
- XLgA=
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_072558_087995_481AD5BB 
-X-CRM114-Status: UNSURE (   8.52  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <AS8PR04MB88334B71E559AC00907BDE028C82A@AS8PR04MB8833.eurprd04.prod.outlook.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,40 +85,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apple iMac (M1, 2021) are all-in-one devices with an integrated display.
+On Fri, Jan 09, 2026 at 02:10:07AM +0000, Hongxing Zhu wrote:
+> > -----Original Message-----
+> > From: Bjorn Helgaas <helgaas@kernel.org>
+> > Sent: 2026年1月9日 5:50
+> > To: Hongxing Zhu <hongxing.zhu@nxp.com>
+> > Cc: Frank Li <frank.li@nxp.com>; l.stach@pengutronix.de;
+> > lpieralisi@kernel.org; kwilczynski@kernel.org; mani@kernel.org;
+> > robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
+> > bhelgaas@google.com; shawnguo@kernel.org; s.hauer@pengutronix.de;
+> > kernel@pengutronix.de; festevam@gmail.com; linux-pci@vger.kernel.org;
+> > linux-arm-kernel@lists.infradead.org; devicetree@vger.kernel.org;
+> > imx@lists.linux.dev; linux-kernel@vger.kernel.org
+> > Subject: Re: [PATCH v6 08/11] PCI: dwc: Invoke post_init in
+> > dw_pcie_resume_noirq()
+> > 
+> > On Wed, Oct 15, 2025 at 11:04:25AM +0800, Richard Zhu wrote:
+> > > If the ops has post_init callback, invoke it in dw_pcie_resume_noirq().
+> > 
+> > I'm trying to write the merge commit log for this branch, and I don't quite
+> > understand this.
+> > 
+> > The effect is to apply the GEN3_ZRXDC_NONCOMPL workaround for the
+> > ERR051586 erratum, and Mani added the hint that this enables REFCLK
+> > during resume.  But it seems weird that we apply a REFCLK workaround
+> > after the link is already up.
+> > 
+> > During probe, .post_init() is run after pci_host_probe(), so we apply the
+> > workaround after enumerating all the devices, which means REFCLK must
+> > already be valid and the link is already up.
+> > 
+> > Is "enabling REFCLK" actually what imx_pcie_host_post_init() does?
+>
+> The codes are used to clean up the CLKREQ# override active low
+> configurations after link is up and the CLKREQ# is drove to low by
+> remote endpoint device at this point(support-clkreq is TRUE).
+>
+> It paves the way to support the CLKREQ# toggling mandatory required
+> by L1SS.
+>
+> > Could the workaround be done in imx_pcie_host_init() before the
+> > link is brought up?  If it could, it looks like we wouldn't need
+> > imx_pcie_host_post_init() at all.
+>
+> Two actions are done in imx_pcie_post_init().
+>
+> One is to apply the workaround of ERR051586 by commit 744a1c20ce93
+> ("PCI: imx6: Add workaround for errata ERR051586"). It should be
+> applied after link is up.
+>
+> The other one is to clean up the CLKREQ# override active low
+> configurations previous set in imx_pcie_host_init().
 
-Signed-off-by: Janne Grunau <j@jannau.net>
----
- arch/arm64/boot/dts/apple/t8103-j456.dts | 1 +
- arch/arm64/boot/dts/apple/t8103-j457.dts | 1 +
- 2 files changed, 2 insertions(+)
+Right.  I'm not asking about the CLKREQ# part.  I'm asking about the
+IMX_PCIE_FLAG_8GT_ECN_ERR051586 part.
 
-diff --git a/arch/arm64/boot/dts/apple/t8103-j456.dts b/arch/arm64/boot/dts/apple/t8103-j456.dts
-index 58c8e43789b4861544e20c717124ede3327be010..2436f0e692e36ba19b99e00dcc1a9f09a26e246a 100644
---- a/arch/arm64/boot/dts/apple/t8103-j456.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j456.dts
-@@ -15,6 +15,7 @@
- / {
- 	compatible = "apple,j456", "apple,t8103", "apple,arm-platform";
- 	model = "Apple iMac (24-inch, 4x USB-C, M1, 2021)";
-+	chassis-type = "all-in-one";
- 
- 	aliases {
- 		ethernet0 = &ethernet0;
-diff --git a/arch/arm64/boot/dts/apple/t8103-j457.dts b/arch/arm64/boot/dts/apple/t8103-j457.dts
-index 7089ccf3ce55661f3f83810496daed40c8199189..208171adde129ac0f16b7a891704308bc2aa20cd 100644
---- a/arch/arm64/boot/dts/apple/t8103-j457.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j457.dts
-@@ -15,6 +15,7 @@
- / {
- 	compatible = "apple,j457", "apple,t8103", "apple,arm-platform";
- 	model = "Apple iMac (24-inch, 2x USB-C, M1, 2021)";
-+	chassis-type = "all-in-one";
- 
- 	aliases {
- 		ethernet0 = &ethernet0;
+The current commit log for this patch is this:
 
--- 
-2.52.0
+  Some SoCs like i.MX95 require enabling REFCLK after resuming from suspend
+  in their post_init callback. So invoke the callback at the end of
+  dw_pcie_resume_noirq() if available.
 
+When .post_init() is called, the link is already up and PCIe devices
+have already been enumerated.  I think REFCLK is required for the link
+to come up, so it doesn't sound right to me that .post_init() would be
+*enabling* REFCLK.
+
+> > For now, I put this in the merge commit log:
+> > 
+> >   - Apply i.MX95 ERR051586 erratum workaround for REFCLK issue during
+> >     resume (Richard Zhu)
 
