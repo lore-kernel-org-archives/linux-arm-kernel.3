@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D26B7D167E9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 09:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C9FD167EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 09:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i8VIBeC6YWBmPy5MPPpmcXKww7Ylkwuah6DNxd1sOv0=; b=AfgdzP5qtkGmZlqkywU9tDcvar
-	DtFKmwI5O482T8rT/0WjujrVSpUrG9dHDom2yfAtCEObdyDTyDqdqy98OFoRUqaudTuliXLryQPhR
-	1ySeIC/05I7vk9Y/+1Toq7jJ9Mq97E6GvEn9heLU2KEKvB6WQ2g88zZ2Iuz2SV9ipxPPaNGZ4bb9l
-	12O2eMUfuF4Q/zX0xdNnQjEhyQgNgv8qyqvXDGEmwjBmgw4BWH5ox+/p82KvOM0bxKQi05x6W883g
-	qgMDQJkIespgjF1CgneCL/aTBigiw39jo0t+hqtF3lefaQwXrPjeB3tuoqKKaVUDWO/u796LIcXIH
-	iGe29b/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LqMfhFsx34G5fyRzdDh6shoD9QjerKt/rKh74ytdLgw=; b=3a6ltdTvmQvUS3PShalUV1PAKh
+	UEekKIBT7Q7K3DdIkr24rUzbefMpNAymKp5mSml3upRUQ0WShEKCJJjSWTyLxZp/c6wDGzHtox1qz
+	iadgsjybCk2k3fn/sCPgAIB7qjPtJ1nYF1lfLkriHF1MnCSeXG5NdyUj7z+28mebG/6bk0QEVub7C
+	eu/0mtm6EbEa9H/Oh/pSXMkrVxByJ+Ii73zZYfjIMBe5sC3pZM67Lmlyyr4HPNi+k4KLwfgfjxSbX
+	RS0xwYtQaqQGh2Ks9h/2P3eabUYB6xPeu74bLXQ/89Fimqyssf/LCGiA3u8asQB527NUP4k0zMW6r
+	p4sprmCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve8qU-000000021Sj-3DYR;
-	Fri, 09 Jan 2026 09:31:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ve8sd-000000021i8-0lOP;
+	Fri, 09 Jan 2026 09:34:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve8qT-000000021S8-2aHO
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 09:31:49 +0000
+	id 1ve8sY-000000021hj-33VO;
+	Fri, 09 Jan 2026 09:34:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F1AD16016C
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Jan 2026 09:31:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8937C2BC86
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Jan 2026 09:31:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4D34942AB1;
+	Fri,  9 Jan 2026 09:33:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF199C4CEF1;
+	Fri,  9 Jan 2026 09:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767951108;
-	bh=i8VIBeC6YWBmPy5MPPpmcXKww7Ylkwuah6DNxd1sOv0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=VD2XVB8gR77YjmtGc7SYxPku1BqTWNGM1CoCwkmQHN/NQy6b9hlPLQMJTswbWUCbj
-	 rj4MKJVzlHyWB5HgZnVSYLZpzYJ6zTBDvgH9B4sV0xEVbsK9c74g76WdNb1yxdUgAO
-	 JmFeKLIpTgIy579tAbdzHPSwIfIvy8mFxzqcKNmVotcGHUPF/Ffi/ZYO4CzLn+EjQw
-	 Ka1uFED/cTCLrWqToD+WUhUsB3JeYogC9buAb1rtcWaeL8ymPrchihNIyQwpesk1/M
-	 kZ2xdE+6/m1Da2Ok6l48fQYmT0k8eHIttIEdjLUeTfDyawtV+wCptR4BcKMA6849z0
-	 tZXJBxDQzB6uA==
-Received: by mail-yx1-f52.google.com with SMTP id 956f58d0204a3-64669a2ecb5so3456025d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 01:31:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVr7NMmlHeu/qEqi3E4RXJ4eCGUPEKNUkMT0lTn+81O9jKU8zy5xX6B9pymxJ/1s2yFdKSlJYC9UQ5reXVVAVjo@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMQtO0zLlwFP4Rx9EvBG/5cfsHAYkQoNWCfryJ3fqcXIekHGcy
-	11Q3bpjDtehURhXq5rpMIvaP9n2qDMjYlvvJotbWbSKfsU7pyFoE0qXGsR2sdQWXd3PitdI5SSl
-	3QumuErBd9qQA3A4jwTylDYMdbVvEBIM=
-X-Google-Smtp-Source: AGHT+IEVxRShfaHD0ACu5gHbuU5njT0IbHJwXmzpDS9YK4ozZXnCMvqtMD62DrL8ET32u79jZQhbNPBVY7hyz2kavQg=
-X-Received: by 2002:a05:690e:130c:b0:646:5127:a024 with SMTP id
- 956f58d0204a3-6470d24397bmr10185146d50.7.1767951108033; Fri, 09 Jan 2026
- 01:31:48 -0800 (PST)
+	s=k20201202; t=1767951238;
+	bh=LqMfhFsx34G5fyRzdDh6shoD9QjerKt/rKh74ytdLgw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WE7gX+gq0wx1Wq7wrOV3RGcgOvIMiiEmJkoV65bLh1b2zfCAnZ+ToFhKyyP7yS5i3
+	 AoxZXl4g8UbrSs27/1hL3F5OawlyhdGHab7zvIW45/xn7wHtw3Za/LXQiuyKRMbxkL
+	 4pOR70OO/1JwvbkianUddqbqxYyW+v4JYdsRxsCZDGd66T9kuQVfWcfRKWndLEEt5t
+	 pyY68F0TMXRVpuV5QFTwWTaaVgUdKo1fNY0rp9VSvwgQsNDNvK6z+wu0FfHSXWmLPe
+	 Y1Q7WGzGrH3LUWtMB8kKapgrxkOayIOP57Fwq1/SFMjT6kNtG1pO0mZT2LgBujuJsX
+	 +fiTnEg+37QCQ==
+Date: Fri, 9 Jan 2026 10:33:55 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Simon Horman <horms@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net v2] net: airoha: Fix schedule while atomic in
+ airoha_ppe_deinit()
+Message-ID: <aWDLg6RzI4s2VgIH@lore-desk>
+References: <20260105-airoha-fw-ethtool-v2-1-3b32b158cc31@kernel.org>
+ <20260108132218.GG345651@kernel.org>
 MIME-Version: 1.0
-References: <20260106085520.21129-1-bartosz.golaszewski@oss.qualcomm.com>
-In-Reply-To: <20260106085520.21129-1-bartosz.golaszewski@oss.qualcomm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 9 Jan 2026 10:31:37 +0100
-X-Gmail-Original-Message-ID: <CAD++jLn1=5MDWjsNTZzbEVEF4QCp+pXZuu+JwdY-JXzufXDhow@mail.gmail.com>
-X-Gm-Features: AZwV_QgAZ0_KDvNKwjEgDlRuSPhE9oJseVMZ4hVMx_2EzdTWDrNwZVkeejwtld8
-Message-ID: <CAD++jLn1=5MDWjsNTZzbEVEF4QCp+pXZuu+JwdY-JXzufXDhow@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: meson: extend build coverage with COMPILE_TEST=y
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Bartosz Golaszewski <brgl@kernel.org>, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="qg/4Vam8mbknzqoZ"
+Content-Disposition: inline
+In-Reply-To: <20260108132218.GG345651@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260109_013358_787559_F6E87232 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,17 +77,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 6, 2026 at 9:55=E2=80=AFAM Bartosz Golaszewski
-<bartosz.golaszewski@oss.qualcomm.com> wrote:
 
-> We currently only build these drivers on ARM but there's nothing that
-> should stop us from building it with allmodconfig on other
-> architectures. Extend the build coverage for all meson drivers.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+--qg/4Vam8mbknzqoZ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Patch applied for Linux v7.0!
+> On Mon, Jan 05, 2026 at 09:43:31AM +0100, Lorenzo Bianconi wrote:
+> > airoha_ppe_deinit() runs airoha_npu_ppe_deinit() in atomic context.
+> > airoha_npu_ppe_deinit routine allocates ppe_data buffer with GFP_KERNEL
+> > flag. Rely on rcu_replace_pointer in airoha_ppe_deinit routine in order
+> > to fix schedule while atomic issue in airoha_npu_ppe_deinit() since we
+> > do not need atomic context there.
+>=20
+> Hi Lorenzo,
 
-Yours,
-Linus Walleij
+Hi Simon,
+
+>=20
+> If I understand things correctly the key problem here is that
+> an allocation with GFP_KERNEL implies GFP_RECLAIM and thus may sleep.
+> But RCU read-side critical sections are not allowed to sleep in non-RT
+> kernels.
+
+yes, right, RCU section is atomic.
+
+>=20
+> If so, I think it would be clearer to describe the problem along those
+> lines. But maybe it is just me.
+
+This patch is already in Linus's tree.
+
+Regards,
+Lorenzo
+
+>=20
+> >=20
+> > Fixes: 00a7678310fe3 ("net: airoha: Introduce flowtable offload support=
+")
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > ---
+> > Changes in v2:
+> > - Update commit log.
+> > - Link to v1: https://lore.kernel.org/r/20251223-airoha-fw-ethtool-v1-1=
+-1dbd1568c585@kernel.org
+>=20
+> ...
+
+--qg/4Vam8mbknzqoZ
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaWDLgwAKCRA6cBh0uS2t
+rIB3AP0a1KHAx3razHj4kPIvhW1x66e1t9N5r9lmaYx8cGtOIAEAxyyu/zyv/K1O
+eZDfQKJdH04RONQj1O6W3ginvMBLPAw=
+=bX6O
+-----END PGP SIGNATURE-----
+
+--qg/4Vam8mbknzqoZ--
 
