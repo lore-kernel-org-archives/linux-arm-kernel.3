@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650B3D232EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 07:32:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F3A8D232E9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 07:32:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FMUIcmX1ssvYnvOCBSl/fsdMgg8W5jXv5tr1P/C0UEk=; b=QIXHEdDbMDL1W17z4Ha0vSAk4Y
-	fEdMdvEpkfYoh+jd5HvtPHHONy7U+PfciInc13wBh73Cu+MEzrLsFgiOkcrvs95EhwIHGbOvlNSpV
-	yoY/CK9zmdIYhFZj2TL9XriNSuLfuMKgtinUDEXMrSV2GIgmdBcSiC5ftQsIzofPPn2e1VXSlQYEe
-	6b7kmidqGPR1NCYHLpKCM7AfgIHamGvNVtSwI505NKpXneYE7BdQyePhsqViYrOg/br+UlubIvjVH
-	BRDefaEZBrbCfIWxddF7ACcvogwN1sesjp0FV1IZ3dU0deJxV2qqNzX63IpWeW9JMRfKMwvrp7LPt
-	8ms27E7Q==;
+	bh=pvuq5NEmZ16/DzSCFHN8BV0xmbV1KisdqLZgcDHC9U8=; b=Q5iXfmzO0J/l6CqxpqG5Gmdrmk
+	4qnR7bFzIiw7ILPK3luryKKj3mzHPq3EHbYIZcHRxAOcZ0s84Syyl2ry0FZbfs7wAlVsZUNQ9Uv89
+	BJpMUAQqCCeVhpxce0/kArKKQCkBirN4edDjqgFSFnCCQb9yFx3xMMi/2mP/xEuRq3+Fi8htcEvpZ
+	kU35hNIk+w1FxEVBIgVzWcwO7O8HdBULcCxpRQuZSFRngrLG6eR2ODgHNmknU9ySxhnGM7ChhQcwZ
+	Ka/82Oq9ukn89Lj2mKCVnQDvyyjaNWKDSLUmJk8sY4elFJUIiK8szrug9a3Uhi3N9xfOr9jFKA5d5
+	+fQ9QovA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve6ye-00000001jHC-2Xzb;
-	Fri, 09 Jan 2026 07:32:08 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1ve6yi-00000001jLQ-181E;
+	Fri, 09 Jan 2026 07:32:12 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve6yY-00000001jCe-0c1h
+	id 1ve6yf-00000001jH7-2YCe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 07:32:04 +0000
+	Fri, 09 Jan 2026 07:32:11 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id B888B4E4201B;
-	Fri,  9 Jan 2026 07:32:00 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id CFED7C1F6CE;
+	Fri,  9 Jan 2026 07:31:41 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8CD3760734;
-	Fri,  9 Jan 2026 07:32:00 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E5A6C103C881F;
-	Fri,  9 Jan 2026 08:31:55 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1CBC060734;
+	Fri,  9 Jan 2026 07:32:08 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 60D54103C87E8;
+	Fri,  9 Jan 2026 08:32:03 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767943919; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1767943926; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=FMUIcmX1ssvYnvOCBSl/fsdMgg8W5jXv5tr1P/C0UEk=;
-	b=iGbPeTtFCVzJVQ6tozr5mnARxFxazh+jedm+A1PS86TzzTDjfxP99pLlPgw/WahU3TlG8a
-	FSP6f0gGNfM8KzqqAudm0ZbEN8AMxkWBpsWnmprHXfdTPIVk5cjpqG+VqjEM8dxo7qWyw/
-	T1n3dh2qJTLwRq4haP4FK0wXoDFEHhkES8onZBbM5kzhO6KQ5b7QMBQjt2C9urOXCgJEl3
-	w8447TOw8hlu314rpF+DqDMUb5pwXacWEPp0HslEDOwA4ofD20+THJmH543Sv8KkykeRAC
-	dhzm1WtI1IeJb8fdYV61C0NRAHW+h5wOcMjYphEBuPiLGeNyh2INXctXcN4r/g==
+	bh=pvuq5NEmZ16/DzSCFHN8BV0xmbV1KisdqLZgcDHC9U8=;
+	b=jVXcrIc4JnfqfMct2bEuj9t8dkEePcr6nz63e9VJ67RavE+olD8VyP1qMO/a09x4+h/wDb
+	ivg7VZ25KTYwG6Wb9vGOC/R2e0zbQjm18wPAR7OIXRFuRh/QIdichOL4F/jmXwqpUlrEMW
+	X8GACYbPiHJ3MnDEvvGeerWqrYSmfayl6TODTt582TKWJ468VT57HEQ38M6lgqG5uwTFhA
+	y6PMstdYOc6ShDTmndTVUSA7AVCDCssCup/n4jiIA+6FiekPnToWlC9ApQUglx/Vcy23Rh
+	KSfKGTilVtWZDdw+MECb89yG6Fs/mkvIOGZEO+BzOqQGBPower3RF1fFjZnkNQ==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Fri, 09 Jan 2026 08:31:35 +0100
-Subject: [PATCH v2 04/12] drm/bridge: thc63lvd1024: convert to
+Date: Fri, 09 Jan 2026 08:31:37 +0100
+Subject: [PATCH v2 06/12] drm/bridge: tpd12s015: convert to
  of_drm_find_and_get_bridge()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-4-8bad3ef90b9f@bootlin.com>
+Message-Id: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-6-8bad3ef90b9f@bootlin.com>
 References: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-0-8bad3ef90b9f@bootlin.com>
 In-Reply-To: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-0-8bad3ef90b9f@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -76,8 +76,8 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_233203_434594_3038B8FD 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20260108_233209_851800_0019BE97 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,42 +99,44 @@ is put when done by using the drm_bridge::next_bridge pointer.
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/gpu/drm/bridge/thc63lvd1024.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/bridge/ti-tpd12s015.c | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/thc63lvd1024.c b/drivers/gpu/drm/bridge/thc63lvd1024.c
-index 2cb7cd0c0608..c804222846c3 100644
---- a/drivers/gpu/drm/bridge/thc63lvd1024.c
-+++ b/drivers/gpu/drm/bridge/thc63lvd1024.c
-@@ -32,7 +32,6 @@ struct thc63_dev {
- 	struct gpio_desc *oe;
- 
- 	struct drm_bridge bridge;
--	struct drm_bridge *next;
- 
- 	struct drm_bridge_timings timings;
+diff --git a/drivers/gpu/drm/bridge/ti-tpd12s015.c b/drivers/gpu/drm/bridge/ti-tpd12s015.c
+index dcf686c4e73d..136e47ad1a10 100644
+--- a/drivers/gpu/drm/bridge/ti-tpd12s015.c
++++ b/drivers/gpu/drm/bridge/ti-tpd12s015.c
+@@ -28,8 +28,6 @@ struct tpd12s015_device {
+ 	struct gpio_desc *ls_oe_gpio;
+ 	struct gpio_desc *hpd_gpio;
+ 	int hpd_irq;
+-
+-	struct drm_bridge *next_bridge;
  };
-@@ -48,7 +47,7 @@ static int thc63_attach(struct drm_bridge *bridge,
- {
- 	struct thc63_dev *thc63 = to_thc63(bridge);
  
--	return drm_bridge_attach(encoder, thc63->next, bridge, flags);
-+	return drm_bridge_attach(encoder, thc63->bridge.next_bridge, bridge, flags);
- }
+ static inline struct tpd12s015_device *to_tpd12s015(struct drm_bridge *bridge)
+@@ -47,7 +45,7 @@ static int tpd12s015_attach(struct drm_bridge *bridge,
+ 	if (!(flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR))
+ 		return -EINVAL;
  
- static enum drm_mode_status thc63_mode_valid(struct drm_bridge *bridge,
-@@ -132,9 +131,9 @@ static int thc63_parse_dt(struct thc63_dev *thc63)
+-	ret = drm_bridge_attach(encoder, tpd->next_bridge,
++	ret = drm_bridge_attach(encoder, tpd->bridge.next_bridge,
+ 				bridge, flags);
+ 	if (ret < 0)
+ 		return ret;
+@@ -138,10 +136,10 @@ static int tpd12s015_probe(struct platform_device *pdev)
+ 	if (!node)
  		return -ENODEV;
- 	}
  
--	thc63->next = of_drm_find_bridge(remote);
-+	thc63->bridge.next_bridge = of_drm_find_and_get_bridge(remote);
- 	of_node_put(remote);
--	if (!thc63->next)
-+	if (!thc63->bridge.next_bridge)
+-	tpd->next_bridge = of_drm_find_bridge(node);
++	tpd->bridge.next_bridge = of_drm_find_and_get_bridge(node);
+ 	of_node_put(node);
+ 
+-	if (!tpd->next_bridge)
++	if (!tpd->bridge.next_bridge)
  		return -EPROBE_DEFER;
  
- 	endpoint = of_graph_get_endpoint_by_regs(thc63->dev->of_node,
+ 	/* Get the control and HPD GPIOs. */
 
 -- 
 2.52.0
