@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FBDDD232CA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 01:31:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F8AD232CB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 01:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/1EpyFVV8pmkGVTLpAM6e68j7yz3D1NSo7Hl2xUtCiE=; b=soVNsVKVwvYsQ34/UF11ZfbBJU
-	/kvLUfVvk8F+kVHgt/ySAU7Px1D4TjBTqUG1U5MQZ/Korx1LdzIGzkMpWgFsHMMTFtOONKliY7cTR
-	QLBunepyGQN+vJe4aFL93Adf3xS4CWP9IU5MTbpMVeTUE1T39jgqRwFiw5yz/71RMBvrMvPQEIkQj
-	fGvqXovPB10VaxYoXfs1TLZhy8Qy2rJVre9IXU48I4SDFQrFrejZxFmi0pzAkgCGna579PfdJvvDt
-	GAxJRBFwYkcibpv7lRbMwjk+icQWSookza+Ksl0oMLR+SIy7Y5O2j6gQhejm6Yjitq5f/w+sxWzvP
-	A0qXGRZw==;
+	bh=Dzx46E8hvt548bI5MaSrLK7wCaDR96dFQwKv+ooNdRA=; b=IWsI4It3FOFoZJ/HPeFjG1pX1N
+	3xOpblS1XNwRvSqjqPAjE4rRt2VeYOLI4twEMOQr9RsiCk0IEH7Epn5gm/hiZQDRhdfBngr8ehqGI
+	NCaoNJ9147u9qy33ULsJb00hcjJobQcii+qwJSFekNm3zSvdYSlljz9f6L/9BwRQ3gTDoJoommRgt
+	WuMdsUf77X7G9aL5MqVTm4TPMOY+Zm4qoJtwZUZf+JE2LMLCMFoYWJ8B7HPDpiLLQqUyayfv9bK1Y
+	JMQ16K9LHdBb5SMgHpx4Cj3zrf9hcdoMV36+y5NSo18TSRJm67tKqpnEH0t/hmXbhd5R+mnbYVZLC
+	hMtcqhmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve1La-000000014lz-2J4o;
-	Fri, 09 Jan 2026 01:31:26 +0000
-Received: from lgeamrelo12.lge.com ([156.147.23.52])
+	id 1ve1QY-0000000154Y-2ii6;
+	Fri, 09 Jan 2026 01:36:34 +0000
+Received: from lgeamrelo13.lge.com ([156.147.23.53])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve1LU-000000014lY-2C4z
+	id 1ve1QV-00000001544-3VSW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 01:31:25 +0000
-Received: from unknown (HELO lgeamrelo02.lge.com) (156.147.1.126)
-	by 156.147.23.52 with ESMTP; 9 Jan 2026 10:31:13 +0900
-X-Original-SENDERIP: 156.147.1.126
+	Fri, 09 Jan 2026 01:36:33 +0000
+Received: from unknown (HELO lgemrelse7q.lge.com) (156.147.1.151)
+	by 156.147.23.53 with ESMTP; 9 Jan 2026 10:36:26 +0900
+X-Original-SENDERIP: 156.147.1.151
 X-Original-MAILFROM: chanho.min@lge.com
 Received: from unknown (HELO BRUNHILD) (10.178.31.97)
-	by 156.147.1.126 with ESMTP; 9 Jan 2026 10:31:13 +0900
+	by 156.147.1.151 with ESMTP; 9 Jan 2026 10:36:26 +0900
 X-Original-SENDERIP: 10.178.31.97
 X-Original-MAILFROM: chanho.min@lge.com
-Date: Fri, 9 Jan 2026 10:31:13 +0900
+Date: Fri, 9 Jan 2026 10:36:25 +0900
 From: Chanho Min <chanho.min@lge.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -50,7 +50,7 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Subject: Re: [PATCH 1/3] dt-bindings: vendor-prefixes: Add 'lge,*' for LG
  Electronics
-Message-ID: <aWBaYUTp8dOTIEGz@BRUNHILD>
+Message-ID: <aWBbme775HmH6drB@BRUNHILD>
 References: <20260108082213.6545-1-chanho.min@lge.com>
  <20260108082213.6545-2-chanho.min@lge.com>
  <49d28c7d-a08c-4543-b3bd-a23d36785c28@kernel.org>
@@ -61,7 +61,7 @@ Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 In-Reply-To: <0b80d046-6141-4389-b666-592859468b8f@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_173122_855599_5007FCEC 
+X-CRM114-CacheID: sfid-20260108_173632_201227_5A153AAF 
 X-CRM114-Status: GOOD (  16.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,7 +110,7 @@ On Thu, Jan 08, 2026 at 05:46:53PM +0100, Krzysztof Kozlowski wrote:
 > Best regards,
 > Krzysztof
 
-Hi Krzysztof,
+Hi Krzysztof
 
 v2 will include:
  - "lg," prefix only ("lg,lg1215-ref", "lg,lg1215")
@@ -120,5 +120,6 @@ v2 will include:
 Existing "lge," → "lg," conversion will be sent separately soon.
 
 Thanks
-Chanho
+Chanho Min
+
 
