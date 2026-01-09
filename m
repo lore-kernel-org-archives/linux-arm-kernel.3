@@ -4,83 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2BB9D167E7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 09:37:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7273CD167ED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 09:38:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ey+us22VMFDXf2c0jOtmqKZ6UJAA6C1tHSmGmJ48E/s=; b=mTJyK5ye8bSgA9+EzvzGcyAuZZ
-	LLcxb43n6iBUz8HCr6RzvqwZRgHI3Bb8n/TatSF6VwoB1vfesllXD7cMKednZz7GcBx3W5i6zs5qc
-	DacXIa9zFNvQOo7EzgryrhSOAEoXVFJrfKHypYc1CeL1H/vNLU+YDvGUXQFJo3fwEs0B+7oG7AADH
-	lOcf8za+kyr1WznFCRHOFdmPIJJmh3eSAN31Qci6GwbIy3WctFHQsVtTk0xN3Eo0V883JmIaJiW5w
-	l7qXUkqdE7sdmdan8xMAgmEJxLJ+uj95m3SQFIYPQzANkmIZlK1RqOqBh8v49RBtf/W6CIbVqE3VQ
-	XkdhSDBQ==;
+	bh=JRAJH9fBOd961NcgKi+jmYxD8E+1gYZ7UQ1tbcQg+GY=; b=4uKuGfL4mtuBS3lpCGDVy0wXDX
+	/EA42WT0bvv+smM0tKn0uNWOKAit9tYoYaipzLo4Zbcua586TQC3EGmXAviAk/iYUolcvfcZTbsgS
+	UH+emnO7Clbk9odL8x1SZoy+kdWxFiFEHt1UowzJp1nScDkkft0He7nLEmCe13Pv/su4hBgYrxsoO
+	R0aWTSgrV45++H0hMacTF3QkJjqwFtMAmfdOHxXb0TM0QBWmM7lkNV/kU4ParsNEqnm3589OguIf4
+	p6iQPqXoQXl+ovn+mM2D4PMc4U00t0+WvB/LZURecmVbHKM6YW394nkYZF5BGlFbFBpMI+CbCZFgW
+	ZXWAdNLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve8w8-000000022Q6-1hlr;
-	Fri, 09 Jan 2026 09:37:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve8w6-000000022Pd-1WX8
+	id 1ve8xG-000000022ZF-3NXu;
+	Fri, 09 Jan 2026 09:38:50 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ve8xD-000000022YT-0FtM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 09:37:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F223B497;
-	Fri,  9 Jan 2026 01:37:29 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CEC643F6A8;
-	Fri,  9 Jan 2026 01:37:30 -0800 (PST)
-Message-ID: <8929c30b-9220-42f9-9a04-db414919a36f@arm.com>
-Date: Fri, 9 Jan 2026 09:37:28 +0000
+	Fri, 09 Jan 2026 09:38:48 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 3B8204E4201A;
+	Fri,  9 Jan 2026 09:38:42 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 065EF60734;
+	Fri,  9 Jan 2026 09:38:42 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E3529103C87CC;
+	Fri,  9 Jan 2026 10:38:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1767951521; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=JRAJH9fBOd961NcgKi+jmYxD8E+1gYZ7UQ1tbcQg+GY=;
+	b=wMaJ5JcSagj3AqIWTTLy4J7dxcTi5IsBqHkOOvTasVGNFxUBD4SiXVZI2HmcxxwBv/kuUI
+	BSGJRM9PewmgRHEVGRkvIBM35NmiKyUgvzOKc2uD9d3X/ykNySDf5CPmk+/zsXPxiIcMHV
+	qoNcHKaPprGiQxYpVz+iSJtn6vkxcinKhTtjaRJJGV35EZmKwisNys51sjnfIlWTutnRHw
+	yf9d9Xw9WjkzPkx5QO0JsTUlLTjOFJ5H9FHQEmu7303lFX/7664/YjGIXHAmvIVgTo0E4B
+	SvjQTn574q8VxxYKIDE6QGXYNzVOTsG3FxksROn64h7QGSebxBDTeaYWd27B+Q==
+Message-ID: <8f70bd9d-747f-4ffa-b0f2-1020071b5adc@bootlin.com>
+Date: Fri, 9 Jan 2026 10:38:30 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 12/45] arm64: mpam: Add helpers to change a task or
- cpu's MPAM PARTID/PMG values
-To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
-Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
- "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
- "baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
- "carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
- "dave.martin@arm.com" <dave.martin@arm.com>,
- "david@kernel.org" <david@kernel.org>,
- "dfustini@baylibre.com" <dfustini@baylibre.com>,
- "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
- "gshan@redhat.com" <gshan@redhat.com>,
- "james.morse@arm.com" <james.morse@arm.com>,
- "jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
- "kobak@nvidia.com" <kobak@nvidia.com>,
- "lcherian@marvell.com" <lcherian@marvell.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "peternewman@google.com" <peternewman@google.com>,
- "punit.agrawal@oss.qualcomm.com" <punit.agrawal@oss.qualcomm.com>,
- "quic_jiles@quicinc.com" <quic_jiles@quicinc.com>,
- "reinette.chatre@intel.com" <reinette.chatre@intel.com>,
- "rohit.mathew@arm.com" <rohit.mathew@arm.com>,
- "scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
- "sdonthineni@nvidia.com" <sdonthineni@nvidia.com>,
- "xhao@linux.alibaba.com" <xhao@linux.alibaba.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>,
- "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>,
- "joey.gouly@arm.com" <joey.gouly@arm.com>,
- "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
- "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>
-References: <20251219181147.3404071-1-ben.horgan@arm.com>
- <20251219181147.3404071-13-ben.horgan@arm.com>
- <OSZPR01MB87982085E0E5B09D0FBB58208B85A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
-From: Ben Horgan <ben.horgan@arm.com>
+Subject: Re: [PATCH RESEND net-next v2] net: stmmac: dwmac: Add a fixup for
+ the Micrel KSZ9131 PHY
+To: Stefan Eichenberger <eichest@gmail.com>,
+ "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, francesco.dolcini@toradex.com,
+ robh@kernel.org, Stefan Eichenberger <stefan.eichenberger@toradex.com>
+References: <20260105100245.19317-1-eichest@gmail.com>
+ <6ee0d55a-69de-4c28-8d9d-d7755d5c0808@bootlin.com>
+ <aVuxv3Pox-y5Dzln@eichest-laptop>
+ <a597b9d6-2b32-461f-ac90-2db5bb20cdb2@lunn.ch>
+ <aVvp70S2Lr3o_jyB@eichest-laptop> <aVvwOYce1CFOLiBk@shell.armlinux.org.uk>
+ <aVv7wD2JFikGkt3F@eichest-laptop> <aWC_ZDu0HipuVhQS@eichest-laptop>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-In-Reply-To: <OSZPR01MB87982085E0E5B09D0FBB58208B85A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+In-Reply-To: <aWC_ZDu0HipuVhQS@eichest-laptop>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_013738_486322_C308C991 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20260109_013847_232186_0288F77D 
+X-CRM114-Status: GOOD (  27.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,99 +89,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shaopeng,
+Hi Stefan,
 
-On 1/8/26 10:18, Shaopeng Tan (Fujitsu) wrote:
-> Hello  Ben,
+On 09/01/2026 09:42, Stefan Eichenberger wrote:
+> Hi everyone,
 > 
->> From: James Morse <james.morse@arm.com>
+> On Mon, Jan 05, 2026 at 06:58:24PM +0100, Stefan Eichenberger wrote:
+>> On Mon, Jan 05, 2026 at 05:09:13PM +0000, Russell King (Oracle) wrote:
+>>> On Mon, Jan 05, 2026 at 05:42:23PM +0100, Stefan Eichenberger wrote:
+>>>> Yes this is correct. ERR050694 from NXP states:
+>>>> The IEEE 802.3 standard states that, in MII/GMII modes, the byte
+>>>> preceding the SFD (0xD5), SMD-S (0xE6,0x4C, 0x7F, or 0xB3), or SMD-C
+>>>> (0x61, 0x52, 0x9E, or 0x2A) byte can be a non-PREAMBLE byte or there can
+>>>> be no preceding preamble byte. The MAC receiver must successfully
+>>>> receive a packet without any preamble(0x55) byte preceding the SFD,
+>>>> SMD-S, or SMD-C byte.
+>>>> However due to the defect, in configurations where frame preemption is
+>>>> enabled, when preamble byte does not precede the SFD, SMD-S, or SMD-C
+>>>> byte, the received packet is discarded by the MAC receiver. This is
+>>>> because, the start-of-packet detection logic of the MAC receiver
+>>>> incorrectly checks for a preamble byte.
+>>>>
+>>>> NXP refers to IEEE 802.3 where in clause 35.2.3.2.2 Receive case (GMII)
+>>>> they show two tables one where the preamble is preceding the SFD and one
+>>>> where it is not. The text says:
+>>>> The operation of 1000 Mb/s PHYs can result in shrinkage of the preamble
+>>>> between transmission at the source GMII and reception at the destination
+>>>> GMII. Table 35–3 depicts the case where no preamble bytes are conveyed
+>>>> across the GMII. This case may not be possible with a specific PHY, but
+>>>> illustrates the minimum preamble with which MAC shall be able to
+>>>> operate. Table 35–4 depicts the case where the entire preamble is
+>>>> conveyed across the GMII.
+>>>>
+>>>> We would change the behavior from "no preamble is preceding SFD" to "the
+>>>> enitre preamble is preceding SFD". Both are listed in the standard and
+>>>> shall be supported by the MAC.
+>>>
+>>> Thanks for providing the full explanation, it would be good to have
+>>> that in the commit message.
 >>
->> Care must be taken when modifying the PARTID and PMG of a task in any
->> per-task structure as writing these values may race with the task being
->> scheduled in, and reading the modified values.
+>> Okay thanks, I will provide the full explanation in the next commit
+>> message.
 >>
->> Add helpers to set the task properties, and the CPU default value.  These
->> use WRITE_ONCE() that pairs with the READ_ONCE() in mpam_get_regval() to
->> avoid causing torn values.
+>>>
+>>> The next question would be, is it just the NXP EQOS implementation
+>>> that this breaks on, or are other EQOS implementations affected?
+>>>
+>>> In other words, if we choose to conditionally enable the preable at
+>>> the PHY, should the generic parts of stmmac handle this rather than
+>>> ending up with multiple platform specific glue having to code this.
+>>> (This is something I really want to avoid - it doesn't scale.)
 >>
->> CC: Dave Martin <Dave.Martin@arm.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->> Changes since rfc:
->> Keep comment attached to mpam_get_regval()
->> Add internal helper, __mpam_regval() (Jonathan)
->> ---
->>  arch/arm64/include/asm/mpam.h | 28 ++++++++++++++++++++++++++++
->>  1 file changed, 28 insertions(+)
+>> From the errata from NXP it sounds to me like it is a configuration
+>> issue by NXP. I checked the following ERRATAs from vendors where I have
+>> access to:
+>> - ST STM32MP1: not affected: https://www.st.com/resource/en/errata_sheet/es0438-stm32mp151x3x7x-device-errata-stmicroelectronics.pdf
+>> - Renesas RZN1: not affected: https://www.renesas.com/en/document/tcu/ethernet-mac-gmac-function-issue-0?r=1054561
+>> - Starvive JH7110: not affected: https://doc-en.rvspace.org/JH7110/PDF/JH7110_Errata.pdf
+>> - NXP S32: affected: (ERR050706 under NDA)
 >>
->> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
->> index c4cb015e8d8f..a7fd0656bf90 100644
->> --- a/arch/arm64/include/asm/mpam.h
->> +++ b/arch/arm64/include/asm/mpam.h
->> @@ -4,6 +4,7 @@
->>  #ifndef __ASM__MPAM_H
->>  #define __ASM__MPAM_H
->>  
->> +#include <linux/bitfield.h>
->>  #include <linux/jump_label.h>
->>  #include <linux/percpu.h>
->>  #include <linux/sched.h>
->> @@ -22,6 +23,22 @@ DECLARE_PER_CPU(u64, arm64_mpam_current);
->>   */
->>  extern u64 arm64_mpam_global_default;
->>  
->> +static inline u64 __mpam_regval(u16 partid_d, u16 partid_i, u8 pmg_d, u8 pmg_i)
->> +{
->> +       return FIELD_PREP(MPAM0_EL1_PARTID_D, partid_d) |
->> +               FIELD_PREP(MPAM0_EL1_PARTID_I, partid_i) |
->> +               FIELD_PREP(MPAM0_EL1_PMG_D, pmg_d) |
->> +               FIELD_PREP(MPAM0_EL1_PMG_I, pmg_i);
->> +}
->> +
->> +static inline void mpam_set_cpu_defaults(int cpu, u16 partid_d, u16 partid_i,
->> +                                        u8 pmg_d, u8 pmg_i)
->> +{
->> +       u64 default_val = __mpam_regval(partid_d, partid_i, pmg_d, pmg_i);
->> +
->> +       WRITE_ONCE(per_cpu(arm64_mpam_default, cpu), default_val);
->> +}
->> +
->>  /*
->>   * The resctrl filesystem writes to the partid/pmg values for threads and CPUs,
->>   * which may race with reads in mpam_thread_switch(). Ensure only one of the old
->> @@ -45,6 +62,17 @@ static inline u64 mpam_get_regval(struct task_struct *tsk)
->>  #endif
->>  }
->>  
->> +static inline void mpam_set_task_partid_pmg(struct task_struct *tsk,
->> +                                           u16 partid_d, u16 partid_i,
->> +                                           u8 pmg_d, u8 pmg_i)
->> +{
->> +#ifdef CONFIG_ARM64_MPAM
+>> So from that I would conclude that it is an NXP specific issue and it's
+>> not the full EQOS implementation that is broken.
 > 
-> Since `mpam_set_task_partid_pmg()` is only called from MPAM, is this necessary?
+> I just wanted to check whether I should continue with the current
+> approach or if I should instead enable the preamble in the PHY for all
+> MACs. While I prefer the current approach, as the issue lies with the
+> MAC rather than the PHY, I can also see the advantage of always enabling
+> the feature.
 
-Yes because mpam_partid_pmg only exists when CONFIG_ARM64_MPAM is enabled.
+My main concern was that we may end-up with a lot of different fixups
+for the various KSZ-family PHY devices, especially since this feature is
+sometimes undocumented.
 
-> 
-> Best regards,
-> Shaopeng TAN
-> 
->> +       u64 regval = __mpam_regval(partid_d, partid_i, pmg_d, pmg_i);
->> +
->> +       WRITE_ONCE(task_thread_info(tsk)->mpam_partid_pmg, regval);
->> +#endif
->> +}
->> +
->>  static inline void mpam_thread_switch(struct task_struct *tsk)
->>  {
->>          u64 oldregval;
->> --
->> 2.43.0
+I've gone through the micrel.c driver, and looked at the datasheet of
+most PHYs in there, and so far I've found that to fix this issue, we
+need to set :
 
-Thanks,
+KSZ9131 / KSZ8041: Register 0x14 bit 6
+KSZ8061 / KSZ8051 : Register 0x18 bit 6
 
-Ben
+So in the end, the complexity appears to be a bit less exponential than
+I originally thought, we may end-up with only a few fixups in this driver.
 
+I'd say, I'm fine with you proceeding with this original approach as it
+minimizes the impact and risk to break other setups.
+
+I'm sorry for triggering this whole discussion only to get back to the
+starting point :(
+
+Maxime
 
