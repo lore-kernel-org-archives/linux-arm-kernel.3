@@ -4,88 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D55D167F3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 09:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A8ED167F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7kdGrZacv9IowSY78WMAynQv1ZGunoCXgOt7xY17SxA=; b=v9o/K1q6MgL4C3SWDM71Sh+OKl
-	CPQMR/Iml3+vG1afrxtUbh1vjwIc07srzb4TsiPCNcjtUZx5fwUUqNIBFO5G9yeK24TBnds11RiF/
-	NpzST57GIa6DYOObDWHmyX2gph1Mg3py6+nYrnWGOdM0VQbkuYsQoR2RKMNpUktcTMqy3DuQ7/H8K
-	vkNQvw9M/vw30KjFIydzNURES1fiezcpuJRI9/sIwjBnau8yCOcNX+gZu4LJw4W4IgqIcqseWUBQn
-	fj3h58zIQitbMv5xsLDqzIgmtIPQVBq6FM64Jyo5SDBlc+eUF1yzx/nH1sAdPBtmfM2DUGRaEvJ+b
-	OldHfdhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zz66NQ88dNJPj70+a2nXyn4oglFlwPstRzUy8niGMUM=; b=sOjc/DCF4Vs5+4MHVVILIjANe7
+	Hlsg3soFktEKPzlw73KaaPguNzjwx/ktyUPEgX7xXuCR5e4LR+gxzA7qOjR1sAeG2jLG4IGJtMKtT
+	U+A832R9sov6GIlNJOOs2ml4r27IrqZcfJOwskoq+ueih4UEUE9JJFZvaqAUtTdVTgW7NSvNFchRx
+	aplArRg18sOSSZHmRNSBFVH04rMPdSZmkm73dX4uJS8Xdxtjxiixnx/YO2kaPApRtLv3Zij2IeHuN
+	V87y4vfuMYMuPDbhdBJNEPsKM0VyW2ZneE8kUFLxD3adhx3QgOyUCqCst5blTm7mAfKWF67Xdgik7
+	QzFgpjPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9HL-000000024nx-03e3;
-	Fri, 09 Jan 2026 09:59:35 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1ve9IJ-000000024wh-1bL7;
+	Fri, 09 Jan 2026 10:00:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9HI-000000024nI-2AFb
+	id 1ve9IH-000000024wP-3wGS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 09:59:33 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-88ffcb14e11so44187496d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 01:59:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767952771; x=1768557571; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7kdGrZacv9IowSY78WMAynQv1ZGunoCXgOt7xY17SxA=;
-        b=H67vxJK4RjBO2N5nTpRL87wGWBgGcmyyycYzlB+GCQKX3BKuLTXn4f+YQ4a/Zv4Sp6
-         IQUyB0JNrnLd/xosw/7AGvy/HMBHgqcSE5C4T4oz5tO8djJLk4Pfc2Tzl1iKTVvTjv8q
-         6y0fJMghmHB3bpzrF7TLvIbWUXZ4fkxu8uRBSRXQzplvHOj4z8TH53Lhb4xyjQ7fnBwe
-         tjjnZj4ljWBzCPlwZb3NF90JLdWwpRGRWliGqS2/jq/08dNKt9yOsa+nlVzIoDijmFSq
-         Q4ht0xm+RkCUlXX1tnvl3/BCjvflzZ+JliyKQr10UpZepmLSbWtz4zGOtMjeUcNwXHni
-         eusQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767952771; x=1768557571;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=7kdGrZacv9IowSY78WMAynQv1ZGunoCXgOt7xY17SxA=;
-        b=df4QQUk5sABWsBvmP4WA/7AmqbtbTJ3vFocVP9aZR/j9X34Zm7iJ6kt9gQOSl6NlZq
-         SohQ9PT+6+doZ2wS1AClosf8BCVnKif/EIr8tny8nlESEn7MU9x6GC4bVnuNItjIoPTg
-         60KU3Ip1I5fZOdLTHwfQtUWjOJ9yVAJq9AQLmJuagnmLdtojpj0htUVwqRU/o55/2LSL
-         QJgiQZssKXvj8Q6mNRvPZCzAoelJfXdqy/AYNYKvJVvMH1j48Ir7DoFyAgm+snODPi95
-         iMZ81KkJIIx+rcj/MyWPKAl9FM7zAjYPKOosF3PZQY9ITei9zmB79qkmYa3A+uh1RoEz
-         O1Fg==
-X-Forwarded-Encrypted: i=1; AJvYcCXiNeaWmnsv6Ss8rB1t3dayc5cDGcHuULF45PwcHuf6eny43HH+HfPc59WsIN27dkz25/Rfm4Q5Ql/FYDm0P/r2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxW/uQUk+uZbrg+7vbf/3PTVUkxmzm0fA6RHi22CdwXLtzzbqGU
-	g2rK/YOAuCDbgE3kjwPfnBbiXzp6jMlXkZUKlZ4gS8rTUfN+zMsCbvlD6V2BXul+HzC3WbDD65e
-	tOVURcR0GYBHAsqWpMHYcoCqfNn0DjBk=
-X-Gm-Gg: AY/fxX7ImEw+g3rL+XIT5kjCCcP1DSvF8JZYGuYJx9gfKvSbbX1LrhMmBtB31547tid
-	Xk0gbgOZTXyJtcZZI8ufZeaBGc2dmSpJUM3qAwzKiBuiuuPp5B646YhTFRXvJXwWRDVchpWEokK
-	N+bqvpqMn7aY/M0d29VUP7l45DNoOKitJTBos96NB/USx47u570ClEP3/Sedjw1F1MqV3k2fvqD
-	iHBJ30oRCfViXh9IblRr5KxVawrTM1yxbGlBZigwlr0Ubd/T18jMwh9sI5fSz+Iz2duzQ==
-X-Google-Smtp-Source: AGHT+IGLLavd9VSrxbJpf48jMuM2/5lKiUGJv0WgqjpUW+4hVqviEz1DHlO0GEpWhIRNikxjBoOI3myDSpdIqzuejYg=
-X-Received: by 2002:ad4:5c87:0:b0:888:7c7e:fce1 with SMTP id
- 6a1803df08f44-89084175250mr143596366d6.4.1767952770961; Fri, 09 Jan 2026
- 01:59:30 -0800 (PST)
+	Fri, 09 Jan 2026 10:00:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0E49960178;
+	Fri,  9 Jan 2026 10:00:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A6C6C4CEF1;
+	Fri,  9 Jan 2026 10:00:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767952832;
+	bh=KjC61mIOqODHcylutLdggLP0FRktDFpqjmw1rF/3wLQ=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
+	b=cBTiOfz2nKGJ1BiFzFsVSwshzZVGKSQpV0SPoRg78s5JoHxLCetExjJrud9BiaZ6y
+	 fZ8BOi8YqreEKSXKXHs4x6c3VPu8p6xMZyCijHidoH1IWzhlELF/w1p2fnMu3TskW5
+	 gweOnNcHnqaUddxYgc2nn+BS4JDIu75TorsiR/tN/fzpMOjr+HcBk8QTdLz1Wc6xex
+	 Sssd/VJayyIymb5tT8C/e++XBGTqPXtJejxlMf9LdL5JEn9mgQudffkssLmu1oS/7D
+	 PodrG/THK7RMBrVe7qVdxH+5ORzoyA0gsoODve4+DorCRETDpWHbfg1KD602c1utnD
+	 29AD3ffs4yo3A==
+Content-Type: multipart/mixed; boundary="===============8986777221254853529=="
 MIME-Version: 1.0
-References: <20251226063759.4020782-2-tongweilin@linux.alibaba.com>
- <CAGsJ_4zd+SMa4Mj23tjF5OwsP3LQyvYTrwN4y81=k8FSFgbH3Q@mail.gmail.com>
- <aV_3fxlzwOSz8B0t@willie-the-truck> <CAGsJ_4waQsxPKTcGvtpTAF4kVbYQXeH_iHaQX3aAYDNo-8oDLQ@mail.gmail.com>
- <f9d1c2d2-a6d9-47b7-9f1d-382a28bb88b8@linux.alibaba.com>
-In-Reply-To: <f9d1c2d2-a6d9-47b7-9f1d-382a28bb88b8@linux.alibaba.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Fri, 9 Jan 2026 17:59:19 +0800
-X-Gm-Features: AQt7F2oy3Qu2Sj8vfVPOtvE_KvUT6ywyCoxwqUYtKMcnoV0-UNLT0j8awhGcZs4
-Message-ID: <CAGsJ_4wzZV0maShXW7MO-8coascv2nKhWW=sAcyg1BvWRRFqeQ@mail.gmail.com>
-Subject: Re: [RFC PATCH] arm64: Kconfig: enable ARCH_WANTS_THP_SWAP for all pagesizes
-To: Weilin Tong <tongweilin@linux.alibaba.com>
-Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, linux-mm@kvack.org, 
-	baolin.wang@linux.alibaba.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_015932_563031_D7BC3B71 
-X-CRM114-Status: GOOD (  23.82  )
+Message-Id: <5c0412b685d29327c8879e4b8a7cbebbe2398ac0d3a7d32284d69e1b9f8048e2@mail.kernel.org>
+In-Reply-To: <20260109093454.389295-1-jolsa@kernel.org>
+References: <20260109093454.389295-1-jolsa@kernel.org>
+Subject: Re: [PATCHv2 bpf-next 1/2] arm64/ftrace,bpf: Fix partial regs after bpf_prog_run
+From: bot+bpf-ci@kernel.org
+To: jolsa@kernel.org,mhiramat@kernel.org,rostedt@goodmis.org,will@kernel.org
+Cc: mahe.tardy@gmail.com,peterz@infradead.org,bpf@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org,x86@kernel.org,yhs@fb.com,songliubraving@fb.com,andrii@kernel.org,mark.rutland@arm.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
+Date: Fri,  9 Jan 2026 10:00:32 +0000 (UTC)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,80 +66,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 9, 2026 at 4:32=E2=80=AFPM Weilin Tong <tongweilin@linux.alibab=
-a.com> wrote:
->
->
-> =E5=9C=A8 2026/1/9 07:11, Barry Song =E5=86=99=E9=81=93:
-> > On Fri, Jan 9, 2026 at 7:29=E2=80=AFAM Will Deacon <will@kernel.org> wr=
-ote:
-> >> On Fri, Dec 26, 2025 at 07:52:44PM +1300, Barry Song wrote:
-> >>> On Fri, Dec 26, 2025 at 7:39=E2=80=AFPM Weilin Tong
-> >>> <tongweilin@linux.alibaba.com> wrote:
-> >>>> Currently, ARCH_WANTS_THP_SWAP was limited to 4K page size ARM64 ker=
-nels, but
-> >>>> large folios requiring swapping also exist in other page size config=
-urations
-> >>>> (e.g. 64K). Without this config, large folios in these kernels canno=
-t be swapped
-> >>>> out.
-> >>>>
-> >>>> Here we enable ARCH_WANTS_THP_SWAP for all ARM64 page sizes.
-> >>> I no longer recall why this was not enabled for sizes other than
-> >>> 4 KB in commit d0637c505f8a ("arm64: enable THP_SWAP for arm64"), but
-> >>> it appears to be fine, and the swap cluster size should also be
-> >>> more friendly to PMD alignment.
-> >> You seemed to be worried about I/O latency in your original post:
-> >>
-> >> https://lore.kernel.org/all/20220524071403.128644-1-21cnbao@gmail.com/
-> > Will, thanks for pointing this out! With a 16KB page size, a PMD
-> > covers 32MB; with 64KB pages, a PMD covers 512MB. So, Weilin, are
-> > we ready to wait for 32MB or 512MB to be written out before
-> > memory can be reclaimed? By splitting, we can reclaim memory
-> > earlier while only part of it has been swapped out.
->
-> I got your point. In our production envs using 64K pagesize kernel, we
-> only enable 2M and below size
+--===============8986777221254853529==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-If mTHP is enabled only for sizes below 2 MB, the patch makes
-perfect sense. However, the problem is that we do not know how
-others configure their systems.
+> diff --git a/include/linux/ftrace_regs.h b/include/linux/ftrace_regs.h
+> index 15627ceea9bc..f9a7c009cdae 100644
+> --- a/include/linux/ftrace_regs.h
+> +++ b/include/linux/ftrace_regs.h
+> @@ -33,6 +33,31 @@ struct ftrace_regs;
 
->
-> mthp, so swapping out as a whole is a better way. Or maybe we can set
-> the SWAPFILE_CLUSTER by arch.
+[ ... ]
 
-Even for 512 MB or 32 MB PMD folios, it would be perfectly fine
-for SWAPFILE_CLUSTER to match the PMD folio size, given the
-assumption that the swap table should be PAGE_SIZE.
+> +#else
+> +
+> +/*
+> + * ftrace_partial_regs_update - update the original ftrace_regs from regs
+> + * @fregs: The ftrace_regs to update from @regs
+> + * @regs: The partial regs from ftrace_partial_regs() that was updated
 
->
-> I will do some tests of this concern.
+[ ... ]
 
-Right. It would be helpful to have some test data=E2=80=94for example,
-with larger folios like 16 MB, 32 MB, or 64 MB=E2=80=94to see what
-happens when memory reclamation kicks in.
+> + */
+> +static __always_inline void
+> +ftrace_partial_regs_update(const struct ftrace_regs *fregs, struct pt_regs *regs)
+> +{
+> +	ftrace_regs_set_instruction_pointer(fregs, instruction_pointer(regs));
+> +	ftrace_regs_set_return_value(fregs, regs_return_value(regs));
+                                    ^^^^^
 
-One possible option is to call
-split_huge_page_to_list_to_order(&folio->page, list,
-                                get_order(SZ_2M));
+Should the fregs parameter be non-const here? On architectures with
+HAVE_ARCH_FTRACE_REGS (arm64, riscv), the setter functions expect a
+non-const pointer:
 
-for paging out.But this looks rather ugly :-)
+  ftrace_regs_set_instruction_pointer(struct ftrace_regs *fregs, ...)
+  ftrace_regs_set_return_value(struct ftrace_regs *fregs, ...)
 
-On the other hand, if users configure mTHP to, for example,
-128 MB, swapping out and reclaiming the entire 128 MB folio
-could actually help with memory de-fragmentation.
-So perhaps users should tolerate the I/O latency in this
-case?
+Passing the const-qualified fregs to these functions discards the const
+qualifier, which may cause compiler warnings with -Werror or undefined
+behavior since the setters do modify the ftrace_regs structure.
 
->
-> Thanks a lot.
->
-> > While splitting down to order-0 is not ideal, splitting to a
-> > relatively larger order appears to strike a balance between I/O
-> > latency and swap performance. Anyway, I don't know :-)
-> >
+> +}
+> +
 
-Thanks
-Barry
+[ ... ]
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/20847954035
+
+--===============8986777221254853529==--
 
