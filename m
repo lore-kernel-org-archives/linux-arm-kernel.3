@@ -4,94 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBADDD26D6F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D41FD26D6F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E87lHJdowwtu3YidaoeJSfoS6xk/5FNJEHNpvmHqK4w=; b=zQQ8G1NzbW7msoNNE34tXE2CXF
-	tBhISHqWa6vvEsTUGzI1kABddJhU80y63oRvflhEkUX3pn3EX8jC2d5dYDASYkX+2CWLF31dXfkSv
-	FhbLy0jRr7Dc3w5jEiELHA653gszucbbVzJux9Vut5Yq3YuSlihU7ddblpxY1j0Qli0a2zzAM+ftS
-	KPFIeOPW75J6ELxeb1/ZeaitvGsZ6YVgmqsszy8O8zdQ3BWVAeDQzC22QUC33fWAw4R+B3GMruRIa
-	Izzu1dL/G2CkrIrEIgZoA1tue8vkCXk/RUDiHC4+0pUf7yd1rZtvi+tchBL7fPmsOuVNuiLulQD5p
-	Kp8MFb4w==;
+	bh=0Av9QrHeVLN0xEzdviPuqhkrVJd267kJMrNhHLNRrzA=; b=llgjRUxXSlHtbHVlTYk2qNXIX4
+	ZuJZPFRBt8MTKnQ3FDKfGlE1Boi3bfinLAUuw2ShGcwRmeRzoXN0pzT8oyZmSbiNZ6yu8II+8Cw7q
+	oY+833JUJt/fgNQanJGzeCNs3wn/CQKdW+SVw8/wv6l6Rm9iV7ztG32IQNHd2OK+KCJXZcJTOZ+vW
+	hDXCd7xCOnMKjqF0PTNlUB+w2vepESMwSkn88LZ/4FpPD8Bj05KbzbLTQA3gwRdYuYUsD4oDJlHxh
+	wmpCQC/ueAvHIahOq9hx85d+kQjKdXu5siRFJJoQ8FJfwknBRljDC5MCwuw+FaJp4tVaI3NvkKcpK
+	Jl5iVPCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veFMq-00000002cXC-05VU;
-	Fri, 09 Jan 2026 16:29:40 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1veFMs-00000002cYE-1ImK;
+	Fri, 09 Jan 2026 16:29:42 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veFMn-00000002cWI-0KTg
+	id 1veFMq-00000002cXB-3Tpg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 16:29:38 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4779ce2a624so36927995e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 08:29:36 -0800 (PST)
+	Fri, 09 Jan 2026 16:29:42 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4779cb0a33fso47703435e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 08:29:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767976175; x=1768580975; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1767976179; x=1768580979; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=E87lHJdowwtu3YidaoeJSfoS6xk/5FNJEHNpvmHqK4w=;
-        b=lBB5rY6YOm+ABrFKF4dJuYVqVAy3iF+BOW/cHpp9PRAvXy/XokD8R2Q/Lw2tyZg0tV
-         VUo2WEUYQapw9kRJsgzVso0lqCOTiDFAAQLAaJqwk4JRiBYRxFojxBwALCa5d29EEMBO
-         Ebz8H6I3LMdm9IN69JtunoxWkLSwny6ennkR6J6etvtgxZtRhJ/wr1ZtIXnVUubbUrbb
-         B0t/hLSIqiyg/KvHZ0SmjxCjiTb23yQel1X334I+oJ5HbJMFp+uhK4CBeJlF3sDoKrvq
-         gM4hhH1y8C81MWalteyicdealpkHViSAfV+ds9sNGU3vLKgZQTFIKyXmxh9eL61cTfVC
-         WznQ==
+        bh=0Av9QrHeVLN0xEzdviPuqhkrVJd267kJMrNhHLNRrzA=;
+        b=McxkSqAqdC5zQpwahUKltaL9Vmi3iplQ1TMue0rgBdMoGxwrjfjyHpYninj7pru839
+         JY3vNAZh/Ieyr3Mhe+bbkmzS1u1LBtXK7PH4RmfwkhxqwOcxeBIhwVtma1qi6XUARxvr
+         +ejB0vWSc7QIsOwy6iApQy932ObYh7Wqgv/LBaJ1VMgQS9aUa4VGww+/ziUYoVT/DukI
+         aDU+kUnrW6hc1MFzgqA/ivs80ALlzllXt4VYUh1SkNcR7i6Li/+bAdoW42t2m14m5CuY
+         iMGui0wsbSOTkgJj+8GyH5tHzC/O4aeLHP7RYuO5dJq+5vVnZD7w1ZVaeuozs4/NiXvD
+         3A2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767976175; x=1768580975;
+        d=1e100.net; s=20230601; t=1767976179; x=1768580979;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=E87lHJdowwtu3YidaoeJSfoS6xk/5FNJEHNpvmHqK4w=;
-        b=AMmVX6ULQZ9CU8In7n7QTHL5ktgBFjkIsscnbolHwxWEEGv80YSwznRScq3Lo5xjsr
-         dQdmrrnpB0VttZ7XZ078Y3Ad7cDVq8r6JOfV51SisBJN0sSSFg2kTZ/YzAbRNGxKyj1U
-         xzjOkx7DsQm7ZcAQ7NGpOnWslX2GV2Z5K39+J3RvePTgfaApvSxgoWpWRDCw0w8aoDpI
-         bAJSb1YeyQ5oy0xMmmU42W0UfaIe2LObGKTIsss6005izaWP+ek9oBVvkZMxMXqLlLuP
-         rMJ9IaHjZSNePa1AhvbWe1HvDahU70c/5b140vPCn6QhdPqbWDKoFf+9D/v82EeULS4t
-         wLnw==
-X-Forwarded-Encrypted: i=1; AJvYcCUJ3RQLxWmVh+xt1lNfnQJAoo3Sg9YyQc8Xr6xa6m5+7JyR/qlDicp7R1zwn6HlTIg/UVUF0JDLo8Ixpu5ZBtqH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyij+qMamamZ5bK4kcVF6jvgbALubECcxA4o0IWbZ55soPThsHG
-	/1MPWXSJrSal/se3VUIgqRSgsFqALqq8SaY7XQBDLgti41mclNxv4y3v1NRSN7yvJxU=
-X-Gm-Gg: AY/fxX4dqMmaAYyZKtDWElz9yq4mqyaTso8OcXu+Yh3GizRMJ7xCzpN88aoHvQHGqCm
-	4G9pWDZVJsBC1QIf7fBnOX6/3xHrcrhx6D9td7C4s10ZJGtJG5i86xeOGK824OmSQmXn3fXAfLG
-	PASotYBLn1NmWPoj3Ds/ycPo3foKyf4d/0AEmhuTNwSCQv/R8VHgP1LIL2VSNHU7XD2aoZgu7wI
-	iEjzbnOCOTMBsY0Jl4ictb2jiK0SGYJ4fwQriXCUdy7sd/M2LawHyVa8+IrAnJOg5lKPW7QXxcM
-	DWnhSg45rhEsLnHMjrsTa2FR3XwUC/swYX2rndEm0Pdfzkj6g/77gfhDxe/Lkgvwt3cQZG6K9Po
-	YFJfEel6o1LCzrhU71RbxZNfgV+DMAfT6VIhX073BkJgX9iqeEV/q9l/rg24km5Exy9iGZebxpY
-	UgOT5MT9BZkTCmDcIn
-X-Google-Smtp-Source: AGHT+IGmzL1tXZl8ZPSvbm1DNjtYU9LFptg5q1JatUZDvK/eZmYzIHWMM1cUqtN42COJOMK1PRCMUg==
-X-Received: by 2002:a05:600c:4e49:b0:477:a36f:1a57 with SMTP id 5b1f17b1804b1-47d84b1897fmr112990735e9.3.1767976174573;
-        Fri, 09 Jan 2026 08:29:34 -0800 (PST)
+        bh=0Av9QrHeVLN0xEzdviPuqhkrVJd267kJMrNhHLNRrzA=;
+        b=le4lpr0VHgM79SsXH7oQVlxd9AvReresQH2C45xEfC2XikL77EArT0n0ybPWA4omQ6
+         9uNr6znLiugT5W2keHw5naTLhBCBw1Gc7Z5C67YT76A77WuwWx1OhtDAC+5h6O2c1qLJ
+         Ao5FKEw56HAwfvjSJWSDsoC9iKNXtwYw6p3ypLxPcn36iTROKMkLzkVWsORzQ0Z0Bxmw
+         h/WDeax6+zbKxCSdYEYERQtLqrzgMbUGERvvSXhOCmSl6Om0+8ih22OzZBG+x0OuVK2I
+         mA5YyY1Nesmu6q9V8w0Iu64wytzW7rWYBmkOfmZ10N+gBuzb1hN7AebbWWUM/7dHQGi0
+         HWhQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUTpRgWZLlgY2GhkYR6e7oTq7+YIiCUbhEhUHfurdcG5KfgXDuuPfBT/ZvGA9UeOUr6jZWfyWRA+uiID2zHRBC+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCg+lRGijji2nxMYRQr6cvMlww9bxkEemuLq5CxwnOIVIrkElU
+	F5TB8AjwXcDs5Y1+SSzRDcoZekRQhoHjnum5soSRxnCM9auVyNG+pIq/1T2UpYB6XMQ=
+X-Gm-Gg: AY/fxX7ufg8jE4ORrnPQBkF8WwCeUYcwU4LEGr0Jt/FAbHByeyapCRbqMdFH9+rKfEG
+	9SLZ9tEzY+UNwX81L3u74z7t3BIF3qNp0P4jr4TfKeJvVKSiPGjRUj2brXmg+ZP/Hjp2OcrZRzd
+	zDUodonyUHwXUA+xd467LUpWNr6ZSVPpypbcjUQciBTiV77PgmjB49XReo4LUHi0PSITTpzw7tu
+	tq6NJ6O3HpL6Cjn+ruOhdRMILrVtsdpqKQ3EVC5lH4kmJrw33sdFomste+Pz9m2drkCqaanpxTJ
+	4VbE2u2xUcTNJG6UMLEvbN2xC2xIBfNKeg6+v3kMm7F2pZErhWpAEbk+BXhXkneDEculP0VSUhV
+	tOGXgyJjs5/0q4w4Yhd59NvtQpIYNbXX7YcYOVioliebQ9f43yGVpWxs4MHQhPS6rPPdZHaLqbk
+	emyvTNQ8+Onzph9Wsj
+X-Google-Smtp-Source: AGHT+IHlxXBTc8kcCppX7neDfDLqk6DNHOUQ5JMaSuR5ew7p0+7D3jKYSaHYHZVPW0MOT9coV8wMow==
+X-Received: by 2002:a05:600c:3b28:b0:471:13fa:1b84 with SMTP id 5b1f17b1804b1-47d84b1868amr120818095e9.12.1767976178721;
+        Fri, 09 Jan 2026 08:29:38 -0800 (PST)
 Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d7f703a8csm213675025e9.13.2026.01.09.08.29.33
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d7f703a8csm213675025e9.13.2026.01.09.08.29.37
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 09 Jan 2026 08:29:34 -0800 (PST)
-Message-ID: <38443801-af4e-4ce1-a1c2-603eca8d90da@linaro.org>
-Date: Fri, 9 Jan 2026 16:29:33 +0000
+        Fri, 09 Jan 2026 08:29:38 -0800 (PST)
+Message-ID: <f7d73dc3-aa4a-4c32-aabb-21a61a2f773f@linaro.org>
+Date: Fri, 9 Jan 2026 16:29:37 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v6 29/35] KVM: arm64: Pin the SPE buffer in the host
- and map it at stage 2
+Subject: Re: [RFC PATCH v6 19/35] KVM: arm64: Trap PMBIDR_EL1 and PMSIDR_EL1
 To: Alexandru Elisei <alexandru.elisei@arm.com>
 Cc: mark.rutland@arm.com, james.morse@arm.com, maz@kernel.org,
  oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
  yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com,
  linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
 References: <20251114160717.163230-1-alexandru.elisei@arm.com>
- <20251114160717.163230-30-alexandru.elisei@arm.com>
+ <20251114160717.163230-20-alexandru.elisei@arm.com>
 Content-Language: en-US
 From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251114160717.163230-30-alexandru.elisei@arm.com>
+In-Reply-To: <20251114160717.163230-20-alexandru.elisei@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_082937_161059_24B98BA2 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20260109_082940_932565_4FEBB1FD 
+X-CRM114-Status: GOOD (  26.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,87 +108,234 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 14/11/2025 4:07 pm, Alexandru Elisei wrote:
-> If the SPU encounters a translation fault when it attempts to write a
-> profiling record to memory, it stops profiling and asserts the PMBIRQ
-> interrupt.  Interrupts are not delivered instantaneously to the CPU, and
-> this creates a profiling blackout window where the profiled CPU executes
-> instructions, but no samples are collected.
+> PMBIDR_EL1 and PMSIDR_EL1 are read-only registers that describe the SPE
+> implementation. Trap reads to allow KVM to control how SPE is described to
+> a virtual machine. In particular, this is needed to:
 > 
-> This is not desirable, and the SPE driver avoids it by keeping the buffer
-> mapped for the entire the profiling session.
+> - Advertise the maximum buffer size set by userspace in
+>    PMBIDR_EL1.MaxBuffSize.
+> - Hide in PMSIDR_EL1, if necessary, the presence of FEAT_SPE_FDS and
+>    FEAT_SPE_FnE, both of which add new registers which are already
+>    trapped via the FGU mechanism.
 > 
-> KVM maps memory at stage 2 when the guest accesses it, following a fault on
-> a missing stage 2 translation, which means that the problem is present in a
-> SPE enabled virtual machine. Worse yet, the blackout windows are
-> unpredictable: the guest profiling the same process can during one
-> profiling session, not trigger any stage 2 faults (the entire buffer memory
-> is already mapped at stage 2), but worst case scenario, during another
-> profiling session, trigger stage 2 faults for every record it attempts to
-> write (if KVM keeps removing the buffer pages from stage 2), or something
-> in between - some records trigger a stage 2 fault, some don't.
+> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> ---
+>   arch/arm64/include/asm/kvm_spe.h |  4 +-
+>   arch/arm64/kvm/config.c          | 13 ++++-
+>   arch/arm64/kvm/spe.c             | 82 +++++++++++++++++++++++++++++++-
+>   arch/arm64/kvm/sys_regs.c        | 13 +++--
+>   4 files changed, 103 insertions(+), 9 deletions(-)
 > 
-> The solution is for KVM to follow what the SPE driver does: keep the buffer
-> mapped at stage 2 while ProfilingBufferEnabled() is true. To accomplish
+> diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
+> index 3506d8c4c661..47b94794cc5f 100644
+> --- a/arch/arm64/include/asm/kvm_spe.h
+> +++ b/arch/arm64/include/asm/kvm_spe.h
+> @@ -40,7 +40,7 @@ int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+>   int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+>   
+>   bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val);
+> -u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg);
+> +u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg, u32 encoding);
+>   #else
+>   struct kvm_spe {
+>   };
+> @@ -78,7 +78,7 @@ static inline bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val)
+>   {
+>   	return true;
+>   }
+> -static inline u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg)
+> +static inline u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg, u32 encoding)
+>   {
+>   	return 0;
+>   }
+> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> index 24bb3f36e9d5..ed6b167b7aa8 100644
+> --- a/arch/arm64/kvm/config.c
+> +++ b/arch/arm64/kvm/config.c
+> @@ -6,6 +6,7 @@
+>   
+>   #include <linux/kvm_host.h>
+>   #include <asm/kvm_emulate.h>
+> +#include <asm/kvm_spe.h>
+>   #include <asm/kvm_nested.h>
+>   #include <asm/sysreg.h>
+>   
+> @@ -1489,6 +1490,16 @@ static void __compute_hfgwtr(struct kvm_vcpu *vcpu)
+>   		*vcpu_fgt(vcpu, HFGWTR_EL2) |= HFGWTR_EL2_TCR_EL1;
+>   }
+>   
+> +static void __compute_hdfgrtr(struct kvm_vcpu *vcpu)
+> +{
+> +	__compute_fgt(vcpu, HDFGRTR_EL2);
+> +
+> +	if (vcpu_has_spe(vcpu)) {
+> +		*vcpu_fgt(vcpu, HDFGRTR_EL2) |= HDFGRTR_EL2_PMBIDR_EL1;
+> +		*vcpu_fgt(vcpu, HDFGRTR_EL2) |= HDFGRTR_EL2_PMSIDR_EL1;
+> +	}
+> +}
+> +
+>   static void __compute_hdfgwtr(struct kvm_vcpu *vcpu)
+>   {
+>   	__compute_fgt(vcpu, HDFGWTR_EL2);
+> @@ -1505,7 +1516,7 @@ void kvm_vcpu_load_fgt(struct kvm_vcpu *vcpu)
+>   	__compute_fgt(vcpu, HFGRTR_EL2);
+>   	__compute_hfgwtr(vcpu);
+>   	__compute_fgt(vcpu, HFGITR_EL2);
+> -	__compute_fgt(vcpu, HDFGRTR_EL2);
+> +	__compute_hdfgrtr(vcpu);
+>   	__compute_hdfgwtr(vcpu);
+>   	__compute_fgt(vcpu, HAFGRTR_EL2);
+>   
+> diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
+> index 5b3dc622cf82..92eb46276c71 100644
+> --- a/arch/arm64/kvm/spe.c
+> +++ b/arch/arm64/kvm/spe.c
+> @@ -22,10 +22,16 @@ struct arm_spu_entry {
+>   	struct arm_spe_pmu *arm_spu;
+>   };
+>   
+> +static u64 max_buffer_size_to_pmbidr_el1(u64 size);
+> +
+>   void kvm_host_spe_init(struct arm_spe_pmu *arm_spu)
+>   {
+>   	struct arm_spu_entry *entry;
+>   
+> +	/* PMBIDR_EL1 cannot be trapped without FEAT_FGT. */
+> +	if (!cpus_have_final_cap(ARM64_HAS_FGT))
+> +		return;
+> +
 
-Hi Alex,
+Isn't this only required if you want to report a different PMBIDR value? 
+If the value in hardware is already what you want to give to guests then 
+it's not strictly required. Maybe it's something we can do as an 
+addition later to make it usable in more places.
 
-The problem is that the driver enables and disables the buffer every 
-time the target process is switched out unless you explicitly ask for 
-per-CPU mode. Is there some kind of heuristic you can add to prevent 
-pinning and unpinning unless something actually changes?
-
-Otherwise it's basically unusable with normal perf commands and larger 
-buffer sizes. Take these basic examples were I've added a filter so no 
-SPE data is even recorded:
-
-  $ perf record -e arm_spe/min_latency=1000,event_filter=10/ -m,256M --\
-      true
-
-On a kernel with lockep and kmemleak etc this takes 20s to complete. On 
-a normal kernel build it still takes 4s.
-
-Much worse is anything more complicated than just 'true' which will have 
-more context switching:
-
-$ perf record -e arm_spe/min_latency=1000,event_filter=10/ -m,256M --\
-     perf stat true
-
-This takes 3 minutes or 50 seconds to complete (with and without kernel 
-debugging features respectively)
-
-For comparison, running these on the host all take less than half a 
-second. I measured each pin/unpin taking about 0.2s and the basic 'true' 
-example resulting in 100 context switches which adds up to the 20s.
-
-Another interesting stat is that the second example says 'true' ends up 
-running at an average clock speed of 4Mhz:
-
-           12683357      cycles   #    0.004 GHz
-
-You also get warnings like this
-
-  rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-  rcu: 	Tasks blocked on level-0 rcu_node (CPUs 0-0): P53/1:b..l
-  rcu: 	(detected by 0, t=6503 jiffies, g=8461, q=43 ncpus=1)
-  task:perf            state:R  running task     stack:0     pid:53 
-tgid:53    ppid:52     task_flags:0x400000 flags:0x00000008
-  Call trace:
-   __switch_to+0x1b8/0x2d8 (T)
-   __schedule+0x8b4/0x1050
-   preempt_schedule_common+0x2c/0xb8
-   preempt_schedule+0x30/0x38
-   _raw_spin_unlock+0x60/0x70
-   finish_fault+0x330/0x408
-   do_pte_missing+0x7d4/0x1188
-   handle_mm_fault+0x244/0x568
-   do_page_fault+0x21c/0x548
-   do_translation_fault+0x44/0x68
-   do_mem_abort+0x4c/0x100
-   el0_da+0x58/0x200
-   el0t_64_sync_handler+0xc0/0x130
-   el0t_64_sync+0x198/0x1a0
-
-If we can't add a heuristic to keep the buffer pinned, it almost seems 
-like the random blackouts would be preferable to pinning being so slow.
+>   	/* TODO: pKVM and nVHE support */
+>   	if (is_protected_kvm_enabled() || !has_vhe())
+>   		return;
+> @@ -86,9 +92,81 @@ bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val)
+>   	return true;
+>   }
+>   
+> -u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg)
+> +static bool kvm_spe_has_feat_spe_fds(struct kvm *kvm)
+> +{
+> +	struct arm_spe_pmu *spe_pmu = kvm->arch.kvm_spe.arm_spu;
+> +
+> +	return kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMSVer, V1P4) &&
+> +	       FIELD_GET(PMSIDR_EL1_FDS, spe_pmu->pmsidr_el1);
+> +}
+> +
+> +static bool kvm_spe_has_feat_spe_fne(struct kvm *kvm)
+> +{
+> +	struct arm_spe_pmu *spe_pmu = kvm->arch.kvm_spe.arm_spu;
+> +
+> +	return kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMSVer, V1P2) &&
+> +	       FIELD_GET(PMSIDR_EL1_FnE, spe_pmu->pmsidr_el1);
+> +}
+> +
+> +static u64 kvm_spe_get_pmsidr_el1(struct kvm_vcpu *vcpu)
+>   {
+> -	return __vcpu_sys_reg(vcpu, reg);
+> +	struct kvm *kvm = vcpu->kvm;
+> +	u64 pmsidr = kvm->arch.kvm_spe.arm_spu->pmsidr_el1;
+> +
+> +	/* Filter out known RES0 bits. */
+> +	pmsidr &= ~GENMASK_ULL(63, 33);
+> +
+> +	if (!kvm_spe_has_feat_spe_fne(kvm))
+> +		pmsidr &= ~PMSIDR_EL1_FnE;
+> +
+> +	if (!kvm_spe_has_feat_spe_fds(kvm))
+> +		pmsidr &= ~PMSIDR_EL1_FDS;
+> +
+> +	return pmsidr;
+> +}
+> +
+> +static u64 kvm_spe_get_pmbidr_el1(struct kvm_vcpu *vcpu)
+> +{
+> +	struct kvm *kvm = vcpu->kvm;
+> +	struct kvm_spe *kvm_spe = &kvm->arch.kvm_spe;
+> +	u64 max_buffer_size = kvm_spe->max_buffer_size;
+> +	u64 pmbidr_el1 = kvm_spe->arm_spu->pmbidr_el1;
+> +
+> +	/* Filter out known RES0 bits. */
+> +	pmbidr_el1 &= ~(GENMASK_ULL(63, 48) | GENMASK_ULL(31, 12));
+> +
+> +	if (!kvm_has_feat(kvm, ID_AA64DFR2_EL1, SPE_nVM, IMP)) {
+> +		pmbidr_el1 &= ~PMBIDR_EL1_AddrMode;
+> +		pmbidr_el1 |= PMBIDR_EL1_AddrMode_VM_ONLY;
+> +	}
+> +
+> +	pmbidr_el1 &= ~PMBIDR_EL1_MaxBuffSize;
+> +	pmbidr_el1 |= max_buffer_size_to_pmbidr_el1(max_buffer_size);
+> +
+> +	return pmbidr_el1;
+> +}
+> +
+> +u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg, u32 encoding)
+> +{
+> +	u64 val = 0;
+> +
+> +	switch (encoding) {
+> +	case SYS_PMBIDR_EL1:
+> +		val = kvm_spe_get_pmbidr_el1(vcpu);
+> +		break;
+> +	case SYS_PMSIDR_EL1:
+> +		val = kvm_spe_get_pmsidr_el1(vcpu);
+> +		break;
+> +	case SYS_PMBLIMITR_EL1:
+> +	case SYS_PMBPTR_EL1:
+> +	case SYS_PMBSR_EL1:
+> +		val = __vcpu_sys_reg(vcpu, reg);
+> +		break;
+> +	default:
+> +		WARN_ON_ONCE(1);
+> +	}
+> +
+> +	return val;
+>   }
+>   
+>   static u64 max_buffer_size_to_pmbidr_el1(u64 size)
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 5eeea229b46e..db86d1dcd148 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1386,13 +1386,18 @@ static unsigned int spe_visibility(const struct kvm_vcpu *vcpu,
+>   static bool access_spe_reg(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+>   			   const struct sys_reg_desc *r)
+>   {
+> +	u32 encoding = reg_to_encoding(r);
+>   	u64 val = p->regval;
+>   	int reg = r->reg;
+>   
+> -	if (p->is_write)
+> +	if (p->is_write) {
+> +		if (WARN_ON_ONCE(encoding == SYS_PMBIDR_EL1 ||
+> +				 encoding == SYS_PMSIDR_EL1))
+> +			return write_to_read_only(vcpu, p, r);
+>   		return kvm_spe_write_sysreg(vcpu, reg, val);
+> +	}
+>   
+> -	p->regval = kvm_spe_read_sysreg(vcpu, reg);
+> +	p->regval = kvm_spe_read_sysreg(vcpu, reg, encoding);
+>   	return true;
+>   }
+>   
+> @@ -3360,12 +3365,12 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>   	{ SPE_UNTRAPPED_REG(PMSFCR_EL1) },
+>   	{ SPE_UNTRAPPED_REG(PMSEVFR_EL1) },
+>   	{ SPE_UNTRAPPED_REG(PMSLATFR_EL1) },
+> -	{ SYS_DESC(SYS_PMSIDR_EL1), .access = undef_access },
+> +	{ SYS_DESC(SYS_PMSIDR_EL1), .access = access_spe_reg, .visibility = spe_visibility },
+>   	{ SPE_TRAPPED_REG(PMBLIMITR_EL1) },
+>   	{ SPE_TRAPPED_REG(PMBPTR_EL1) },
+>   	{ SPE_TRAPPED_REG(PMBSR_EL1) },
+>   	{ SPE_UNTRAPPED_REG(PMSDSFR_EL1) },
+> -	{ SYS_DESC(SYS_PMBIDR_EL1), .access = undef_access },
+> +	{ SYS_DESC(SYS_PMBIDR_EL1), .access = access_spe_reg, .visibility = spe_visibility },
+>   
+>   	{ PMU_SYS_REG(PMINTENSET_EL1),
+>   	  .access = access_pminten, .reg = PMINTENSET_EL1,
 
 
