@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB1FED232F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 08:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F01D8D232EE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 08:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Aoza9Haxbx5GFTKXR2e7jJHN2DZHptcSpiNA0k5YVqc=; b=AyYEWqyKT/JIF0A4OI6sXK82Et
-	hb9TKkiZ0em0x0cR76REGh9+SWawxq5aqRlZjE6OmC2ncA/9oHgF95dR2OaUXnXPpu+zL9XpPvDsw
-	EEyljcPyKLhO/gE7On+AifMsczxFm9aDRjo81/Hu0klxr9YjJBgX482Z5qVN+mc+H88qqTOI3xELZ
-	HTIc6NuJyKklMd+QU9u2/hNa7OPz+NrHawp6G7hy/YRyvEzl/rEu70UPdk1RVso1L2UjrtHIl5t0b
-	87qMJxLD5jh/4bm1sly8KDayPh2rK9ty99OTbff+zFDBd703qed/X+lq9TmwMWvAbqQVwk+Q2iJ6k
-	ZE7aR6Bg==;
+	bh=pq9O7d6wzhTity1EvTGcuuOU01Kl/XBUCmwyUjTCy1A=; b=foP82WLe6Hu/5K700Cr4meTH4f
+	/EdCz4H96ivc2qw16YRs4gwF6kOU1gQNUJybKdsi78UqaaEx2HC6kenyI1txNA8Nl44WmCRNoQiQ1
+	yyqfaDodsWmR/+twgKs89JyVROZ+VRWlU9hUL94NFmJxvwthVZsLIgL9wYcwhPjkjjFPhGKKZ9jzr
+	GROPS8dtq+YlWxL1ybKTJF8HRQwbhHtEsHdKt5mGkAbZy9kC7wnr9C4/dtYiq6OgHaSzjz0im/5PC
+	fI8aOvA5oBWUiaJw6bDjTWzOzLIE8BjljIAoSiRk791IdYmX7/ujlENjt0tTb6816qoFB5gGiM+1T
+	FmyV3mBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve7lV-00000001snO-24Tg;
-	Fri, 09 Jan 2026 08:22:37 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1ve7lU-00000001slj-1wAw;
+	Fri, 09 Jan 2026 08:22:36 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve7lK-00000001sZS-4360
+	id 1ve7lK-00000001sYZ-02tO
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 09 Jan 2026 08:22:30 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-47d3ba3a49cso34841665e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 00:22:25 -0800 (PST)
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-432488a0ce8so2999084f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 00:22:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20230601; t=1767946944; x=1768551744; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Aoza9Haxbx5GFTKXR2e7jJHN2DZHptcSpiNA0k5YVqc=;
-        b=ti96EGaqsyxzWZHMqzgKeXOctVXKlX4wavtXdlXrIlBf4ojG+OswKPcE0GrKJ6ojnQ
-         WLTYNnm7obd5QlejkhdCgCuVw4QO7qKXthGwfbxJ9n7kFRMnf0prGSYFD2fVesYXgv+a
-         Q78igzSC7fRO3nOGROHILvNq4QqEpu/kbRa8uuTjR5577nFHCFixcJMrhHSYVCg3nNZh
-         meC6lL6MvUPk5FCtrz8d1guQkxI2r7T7ZN/278Rmd7C5ojHTbx/H0/8KTktPmgXeCkq3
-         onr+StImqs9pPMF9lRhQpOI3jNxBgW5k6QxpQj/0YHTkTqK0JOcv3fJYxkKdiuMBsx4t
-         ZdyA==
+        bh=pq9O7d6wzhTity1EvTGcuuOU01Kl/XBUCmwyUjTCy1A=;
+        b=yud1y1A6vS38bbZomLDj33CBcWvlOXhfleDsCfjw4IeVWxdv4b8JTh6AiWaMsfOQbi
+         K9sLgyjINwtLUIOb2lccNt5yzP4C3suaquCAHL4UFAP6LOuA5hspOcmE4uS3I7Q2/z4b
+         oSCESCbofWKeaKju32QEsKF5UgIih0Yhx+bzzM+Zn0ZJ4Q1d/M0ybzmY3twitV8PZRtp
+         geLDMMA8T0uHfBOIFjMlMgiU3I0aA3BIHQXEgT3D0txkK/Tteo+ZkKt3tjhFX5hrY0Sz
+         u+P2N8DDcPqegNk0xmd4bSAfkmxoL5bXNNBliGRtE0ePZ+m2Dc3Eij2ZpxsgKtE0kreX
+         P/SQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1767946944; x=1768551744;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Aoza9Haxbx5GFTKXR2e7jJHN2DZHptcSpiNA0k5YVqc=;
-        b=dWEh70e9BTwPo+akjuxpwAYxZ+z8JCB27jW0e8CzPjDN9GyqiIODpjGPVqNXsv62dx
-         tAUSMu8irnNY1qyj7c0FG1dpaUNcT6rE8K7uA8KEDq338Tnp42+nRfCoTz/yaIEnEckN
-         Jy98pqX0exROprePHWXDx6xYmM8zj4Ikn/GWLjoZSkLxL7AittfZgU5X2N87EaglSfOb
-         PI1ifHrExD4MVwJcb0JXuNIX/2pHO4ViM5kzv0qInDxWQ3QOwKPKSjOAXwRmCtl+X2hJ
-         euh3Tcukash6nBpCfaH+qpl92Vh704TNfXZh3afOh4+Sc80eZ5LcAZmlnsaLwTfnaoKk
-         4dNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV34pBeucM4dzVKj26CDJiu30dUcLwCHkNQUBNUhJ0L/GZ5u8YoXkgRV0zcpQdt0TT7Ni8X+ZYv3Dlwblt5oS5n@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLLUC3fllICsIf4KN3n+0G564bt0iAXTUl6KRkpt/V59V/MK+i
-	8ivYeBPFGb5YPh+t2eSgXAsSqvp0VXR+DENxVjMnIDSoX4kEEBsQfoadETW5iyJ6Vc14lYmr4mC
-	D1w==
-X-Google-Smtp-Source: AGHT+IHW9z0RPtuJdgNq8q1u7Cdds1c5PfbSHvpUeu/W5K7Hz57K1sxTcMubWIfqET+Z4aJyqUaOS37UlQ==
-X-Received: from wmpj3.prod.google.com ([2002:a05:600c:4883:b0:477:7949:c534])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:c3cd:20b0:477:af07:dd21
- with SMTP id 5b1f17b1804b1-47d8a17124bmr45924505e9.25.1767946944632; Fri, 09
- Jan 2026 00:22:24 -0800 (PST)
-Date: Fri,  9 Jan 2026 08:22:18 +0000
+        bh=pq9O7d6wzhTity1EvTGcuuOU01Kl/XBUCmwyUjTCy1A=;
+        b=v6LcVK1gxpsqHeGZCQftQRqdvtREoLh0bI+g6bQcoLWIwqeDe70kPnwwcYrFR3C44R
+         dpLZL8YsYgaAsy3qPMuzy9UNrPARIDzDtVTJDZObwL7Hs4Gu4O9ZfUPSOLDUJwHUbw0a
+         QZ0FZA93tFVBrXcu3ZtftcFy2Vb1c6MgA9XdV92rofREj7Q2O43DQbW74bdvnLBn5gP1
+         /RfKc4loOCnzITFBMGrI4ZVkHee+X2Xgb9QzKSy0cXf0zXMaM2T9Uon8Y8nIiSRANQRx
+         MIgw8G6t4vUC8fqzVQGu1sX0upNEdmsh3ztfYq02Mo9BTXvUMm4mRm1Hjox6enl7Nnxx
+         ICYw==
+X-Forwarded-Encrypted: i=1; AJvYcCWxNw5kSzy/O6BAELpSN9uOD9FhJVH0+bOiHiLJW79wqk3J1UhWHVxL35UtX8zR1qgZqpaEUoWBkZVY3MIQY1gN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUYH5FH4LLZ3TAozcKRYYfWRawf3zXdPqEabg6uLysLc0xsuA2
+	sl5EORBdo2O3C2OMvdUtxk2RtwjRsfY+NLXz8rahWcTneDF/6sM5VvjYlHyjbS//GAmjLPpIhz/
+	HFw==
+X-Google-Smtp-Source: AGHT+IGWTLfUDmVjhmRk/6xaUs6XXjTDY4nThSKMpmNBWodgPyJb8+1XA5L2Dn6202jXo8K9XP5BtW0DRQ==
+X-Received: from wrbew19.prod.google.com ([2002:a05:6000:2413:b0:430:f703:f9cb])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4709:b0:479:1348:c614
+ with SMTP id 5b1f17b1804b1-47d84b41b2dmr100673355e9.26.1767946943756; Fri, 09
+ Jan 2026 00:22:23 -0800 (PST)
+Date: Fri,  9 Jan 2026 08:22:17 +0000
 In-Reply-To: <20260109082218.3236580-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20260109082218.3236580-1-tabba@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260109082218.3236580-6-tabba@google.com>
-Subject: [PATCH v4 5/5] KVM: selftests: Fix typos and stale comments in kvm_util
+Message-ID: <20260109082218.3236580-5-tabba@google.com>
+Subject: [PATCH v4 4/5] KVM: selftests: Move page_align() to shared header
 From: Fuad Tabba <tabba@google.com>
 To: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -77,8 +77,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	seanjc@google.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_002227_070768_B5E19455 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20260109_002226_308552_A0C56431 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,60 +93,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix minor documentation errors in `kvm_util.h` and `kvm_util.c`.
-
-- Correct the argument description for `vcpu_args_set` in `kvm_util.h`,
-  which incorrectly listed `vm` instead of `vcpu`.
-- Fix a typo in the comment for `kvm_selftest_arch_init` ("exeucting" ->
-  "executing").
-- Correct the return value description for `vm_vaddr_unused_gap` in
-  `kvm_util.c` to match the implementation, which returns an address "at
-  or above" `vaddr_min`, not "at or below".
+To avoid code duplication, move page_align() to the shared `kvm_util.h`
+header file. Rename it to vm_page_align(), to make it clear that the
+alignment is done with respect to the guest's base page size.
 
 No functional change intended.
 
 Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- tools/testing/selftests/kvm/include/kvm_util.h | 4 ++--
- tools/testing/selftests/kvm/lib/kvm_util.c     | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ tools/testing/selftests/kvm/include/kvm_util.h    | 5 +++++
+ tools/testing/selftests/kvm/lib/arm64/processor.c | 7 +------
+ tools/testing/selftests/kvm/lib/riscv/processor.c | 7 +------
+ 3 files changed, 7 insertions(+), 12 deletions(-)
 
 diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index 747effa614f1..97f9251eb073 100644
+index 81f4355ff28a..747effa614f1 100644
 --- a/tools/testing/selftests/kvm/include/kvm_util.h
 +++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -939,7 +939,7 @@ void *vcpu_map_dirty_ring(struct kvm_vcpu *vcpu);
-  * VM VCPU Args Set
-  *
-  * Input Args:
-- *   vm - Virtual Machine
-+ *   vcpu - vCPU
-  *   num - number of arguments
-  *   ... - arguments, each of type uint64_t
-  *
-@@ -1264,7 +1264,7 @@ static inline uint64_t vm_page_align(struct kvm_vm *vm, uint64_t v)
+@@ -1258,6 +1258,11 @@ static inline int __vm_disable_nx_huge_pages(struct kvm_vm *vm)
+ 	return __vm_enable_cap(vm, KVM_CAP_VM_DISABLE_NX_HUGE_PAGES, 0);
  }
  
++static inline uint64_t vm_page_align(struct kvm_vm *vm, uint64_t v)
++{
++	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
++}
++
  /*
-- * Arch hook that is invoked via a constructor, i.e. before exeucting main(),
-+ * Arch hook that is invoked via a constructor, i.e. before executing main(),
+  * Arch hook that is invoked via a constructor, i.e. before exeucting main(),
   * to allow for arch-specific setup that is common to all tests, e.g. computing
-  * the default guest "mode".
-  */
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index 8279b6ced8d2..fab6b62d7810 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -1351,7 +1351,7 @@ struct kvm_vcpu *__vm_vcpu_add(struct kvm_vm *vm, uint32_t vcpu_id)
-  * Output Args: None
-  *
-  * Return:
-- *   Lowest virtual address at or below vaddr_min, with at least
-+ *   Lowest virtual address at or above vaddr_min, with at least
-  *   sz unused bytes.  TEST_ASSERT failure if no area of at least
-  *   size sz is available.
-  *
+diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
+index 607a4e462984..1605dc740d1e 100644
+--- a/tools/testing/selftests/kvm/lib/arm64/processor.c
++++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
+@@ -21,11 +21,6 @@
+ 
+ static vm_vaddr_t exception_handlers;
+ 
+-static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
+-{
+-	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
+-}
+-
+ static uint64_t pgd_index(struct kvm_vm *vm, vm_vaddr_t gva)
+ {
+ 	unsigned int shift = (vm->pgtable_levels - 1) * (vm->page_shift - 3) + vm->page_shift;
+@@ -115,7 +110,7 @@ static uint64_t __maybe_unused ptrs_per_pte(struct kvm_vm *vm)
+ 
+ void virt_arch_pgd_alloc(struct kvm_vm *vm)
+ {
+-	size_t nr_pages = page_align(vm, ptrs_per_pgd(vm) * 8) / vm->page_size;
++	size_t nr_pages = vm_page_align(vm, ptrs_per_pgd(vm) * 8) / vm->page_size;
+ 
+ 	if (vm->pgd_created)
+ 		return;
+diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
+index d5e8747b5e69..401245fe31db 100644
+--- a/tools/testing/selftests/kvm/lib/riscv/processor.c
++++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
+@@ -26,11 +26,6 @@ bool __vcpu_has_ext(struct kvm_vcpu *vcpu, uint64_t ext)
+ 	return !ret && !!value;
+ }
+ 
+-static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
+-{
+-	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
+-}
+-
+ static uint64_t pte_addr(struct kvm_vm *vm, uint64_t entry)
+ {
+ 	return ((entry & PGTBL_PTE_ADDR_MASK) >> PGTBL_PTE_ADDR_SHIFT) <<
+@@ -68,7 +63,7 @@ static uint64_t pte_index(struct kvm_vm *vm, vm_vaddr_t gva, int level)
+ 
+ void virt_arch_pgd_alloc(struct kvm_vm *vm)
+ {
+-	size_t nr_pages = page_align(vm, ptrs_per_pte(vm) * 8) / vm->page_size;
++	size_t nr_pages = vm_page_align(vm, ptrs_per_pte(vm) * 8) / vm->page_size;
+ 
+ 	if (vm->pgd_created)
+ 		return;
 -- 
 2.52.0.457.g6b5491de43-goog
 
