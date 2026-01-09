@@ -4,114 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AEDD232E9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 07:33:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD08D232EB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 07:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mBtP/sbFFM9WQcG9V42K08HbRnFgTqWBGz5XPbWVrKE=; b=2e9qOqByUKWbdnrWQZbz81nnkC
-	MeWN83SFBgerkfO0gtyEqguXADVlodbl0eaLmytGUFVVed2P5Xd/JXEzCHQJyismyz/6gDqfKp5s8
-	nwRk4ygqyLoH/KphvHhEPMvdOwUaaqO9G3eq4sSuB7vB5iEA93j2JmWpbu9SDcK8BPr+Y2MgSd9jE
-	pLIm5gHvVC8LhMnh921mHDeUMMwQ06cwAs3I+EnLF8LT6j7dwl2lj1GghFeoSRcdx7XlW4jzOrTK7
-	IsKLDMmxW8uETMPyiEs3as8MqvbS8mD3adhV0dcF/Jx60rKFHaHW5KJb5cSlWt1LSrr9J58v60+m/
-	tnN6meNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aqNMzU1Qw+T1MRI2oqS9RMu5Na9ZwPrUfIxVrukiy8k=; b=yPsr/81fPrNVU04bsjhU6CTcap
+	KkAwEn99Fm6CAOiOc26fu9ra6KyZDiHxsOTs5afcCmqQ4A71pXS0kWvVK+a18ARsLPfaTu+pjaczz
+	WJd0Cs0+OOWXhmxK2lJWwKN6yX+bfCeLIqnuSvx7qPa/42nkAuj5N3OacpHP8R2WZR5sc/cfAjArk
+	PvtG8DPeVn0hdt9OnW71AoIfXmdWgGVxvkP19da0KPXm259JIqNYB99kJpzn3lM0FRykcjkIFlX1Q
+	JVGUvTgFeTvNjsNZYILjtcoZUO+boERhWjpUQzQfzT+3Ja6vMtq9AfFP5J202qrb6/pHUntxUDrRa
+	BJPXpsiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve70J-00000001kVN-0GY2;
-	Fri, 09 Jan 2026 07:33:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ve71z-00000001knE-147Z;
+	Fri, 09 Jan 2026 07:35:35 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve70G-00000001kUZ-0qt7
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 07:33:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D25E440757;
-	Fri,  9 Jan 2026 07:33:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA92BC4CEF7;
-	Fri,  9 Jan 2026 07:33:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767944027;
-	bh=e2YKt3RwrY/jWy5qMyoFXFI4iyBi3p36WShnvMXGG+E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZQJQteNvXt7JX/wNlFUtM/MX2mmp1mgSAOxhATmhvo7/Mp8opHT3PMNvuC6QOvDfI
-	 ytN1qi/LAak0BoASRAub4ak+fyaCWETGq7YeT3ostkg4Yjw7dayX01aq78EoVnibdu
-	 BA7NuXAmNJeUZJwxPY57i13YKyLxud+Rcp/Lo+48oDfc5awz3KBtCOO0I4btTgLpqh
-	 k3N0th/HNvNj1C9wI932Fj/cMQaxcEskUtMWLJxvkJaceriQhw6iiJgvn6b6hp5xz9
-	 u5JmiD7s7UmJ4n3j+7Hq90l3jhYUBkcw42mUiG6V+IZxxCGYWw+LxTAEc6ty0g+3s/
-	 TBipzEVT+laHQ==
-Message-ID: <2770a98f-ce6f-48c7-9bb1-45f9286de371@kernel.org>
-Date: Fri, 9 Jan 2026 08:33:43 +0100
+	id 1ve71t-00000001klo-1Kr9;
+	Fri, 09 Jan 2026 07:35:30 +0000
+X-UUID: c3177750ed2d11f09f706fa2197c6ceb-20260109
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=aqNMzU1Qw+T1MRI2oqS9RMu5Na9ZwPrUfIxVrukiy8k=;
+	b=OCnY8Zj8KGmECg9R7H9DUmD7KYc9lBsFoQEOlvfct+ZL7yl3ZfqZC1fIxmhpXbCbPkCYnrkhRkk24Q4F2M85jz2xNSSvgVlwEXfkNAMk4OjBEY4kDkTrV5h3yQk9LW6VXWhnSPISeqE0xcE5o/6NZe5Ux6wfqlX1lq2SvYNBN7o=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.9,REQID:672eacc4-61e9-4795-9314-785d5cb8c329,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:1,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:1
+X-CID-META: VersionHash:5047765,CLOUDID:fdecee59-a957-4259-bcca-d3af718d7034,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: c3177750ed2d11f09f706fa2197c6ceb-20260109
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
+	(envelope-from <dengjun.su@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1328026654; Fri, 09 Jan 2026 00:35:25 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Fri, 9 Jan 2026 15:35:22 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Fri, 9 Jan 2026 15:35:21 +0800
+From: Dengjun Su <dengjun.su@mediatek.com>
+To: <linux-kernel@vger.kernel.org>, Peter Zijlstra <peterz@infradead.org>
+CC: <dengjun.su@mediatek.com>, <mike.zhang@mediatek.com>,
+	<haiqiang.gong@mediatek.com>, <peijun.huang@mediatek.com>, Ingo Molnar
+	<mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot
+	<vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel
+ Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+Subject: [PATCH v2] sched: fix incorrect schedstats for rt and dl thread
+Date: Fri, 9 Jan 2026 15:35:16 +0800
+Message-ID: <20260109073518.2843689-1-dengjun.su@mediatek.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: vendor-prefixes: Add 'lge,*' for LG
- Electronics
-To: Chanho Min <chanho.min@lge.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kever Yang <kever.yang@rock-chips.com>, Kael D'Alcamo <dev@kael-k.io>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Gunho Lee <gunho.lee@lge.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260108082213.6545-1-chanho.min@lge.com>
- <20260108082213.6545-2-chanho.min@lge.com>
- <49d28c7d-a08c-4543-b3bd-a23d36785c28@kernel.org>
- <0b80d046-6141-4389-b666-592859468b8f@kernel.org> <aWBaYUTp8dOTIEGz@BRUNHILD>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aWBaYUTp8dOTIEGz@BRUNHILD>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_233348_283890_13F8A838 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20260108_233529_546408_36A66A38 
+X-CRM114-Status: GOOD (  16.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,55 +90,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/01/2026 02:31, Chanho Min wrote:
-> On Thu, Jan 08, 2026 at 05:46:53PM +0100, Krzysztof Kozlowski wrote:
->> On 08/01/2026 17:39, Krzysztof Kozlowski wrote:
->>> On 08/01/2026 09:22, Chanho Min wrote:
->>>> Currently 'lg,*' is used for LG Corporation, but LG Electronics uses
->>>> 'lge' as vendor prefix for many of its device tree bindings
->>>> (lg1k SoCs, etc).
->>>>
->>>> Add 'lge' vendor prefix entry to avoid confusion with 'lg'.
->>>>
->>>> Signed-off-by: Chanho Min <chanho.min@lge.com>
->>>> ---
->>>>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->>>>  1 file changed, 2 insertions(+)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
->>>> index c7591b2aec2a..6c31fa4bee6a 100644
->>>> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
->>>> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
->>>> @@ -907,6 +907,8 @@ patternProperties:
->>>>      description: Lenovo Group Ltd.
->>>>    "^lg,.*":
->>>>      description: LG Corporation
->>>> +  "^lge,.*":
->>>
->>> NAK, we have been there and I do not change my stance.
->>
->> Unless you meant to add it because of EXISTING device trees (predating
->> commit fc75109288709 from Rob), then add with deprecated: true and don't
->> use it any new compatibles.
->>
->> Best regards,
->> Krzysztof
-> 
-> Hi Krzysztof,
-> 
-> v2 will include:
->  - "lg," prefix only ("lg,lg1215-ref", "lg,lg1215")
->  - Drop "^lge,.*" from vendor-prefixes.yaml
->  - dts coding style fixes in patch 3
-> 
-> Existing "lge," → "lg," conversion will be sent separately soon.
+For RT and DL thread, only 'set_next_task_(rt/dl)' will call
+'update_stats_wait_end_(rt/dl)' to update schedstats information.
+However, during the migration process,
+'update_stats_wait_start_(rt/dl)' will be called twice, which
+will cause the values of wait_max and wait_sum to be incorrect.
+The specific output as follows:
+$ cat /proc/6046/task/6046/sched | grep wait
+wait_start                                   :             0.000000
+wait_max                                     :        496717.080029
+wait_sum                                     :       7921540.776553
 
-If you have existing compatibles released as ABI then they should stay
-and you can document a deprecated lge prefix. But not for new devices.
+A complete schedstats information update flow of migrate should be
+__update_stats_wait_start() [enter queue A, stage 1] ->
+__update_stats_wait_end()   [leave queue A, stage 2] ->
+__update_stats_wait_start() [enter queue B, stage 3] ->
+__update_stats_wait_end()   [start running on queue B, stage 4]
 
-One of many previous threads:
-https://lore.kernel.org/all/9942f964-442e-e782-3926-6d7d1123418a@canonical.com/
+    Stage 1: prev_wait_start is 0, and in the end, wait_start records the
+    time of entering the queue.
+    Stage 2: task_on_rq_migrating(p) is true, and wait_start is updated to
+    the waiting time on queue A.
+    Stage 3: prev_wait_start is the waiting time on queue A, wait_start is
+    the time of entering queue B, and wait_start is expected to be greater
+    than prev_wait_start. Under this condition, wait_start is updated to
+    (the moment of entering queue B) - (the waiting time on queue A).
+    Stage 4: the final wait time = (time when starting to run on queue B)
+    - (time of entering queue B) + (waiting time on queue A) = waiting
+    time on queue B + waiting time on queue A.
 
-Best regards,
-Krzysztof
+The current problem is that stage 2 does not call __update_stats_wait_end
+to update wait_start, which causes the final computed wait time = waiting
+time on queue B + the moment of entering queue A, leading to incorrect
+wait_max and wait_sum.
+
+Add 'update_stats_wait_end_(rt/dl)' in 'update_stats_dequeue_(rt/dl)' to
+update schedstats information when dequeue_task.
+
+Signed-off-by: Dengjun Su <dengjun.su@mediatek.com>
+---
+v2: changes according to Peter's suggestions
+    1. add fix for dl class;
+    2. add more commit message to explain the reasons for the
+       modifications.
+---
+ kernel/sched/deadline.c | 4 ++++
+ kernel/sched/rt.c       | 7 ++++++-
+ 2 files changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+index 319439fe1870..610243a56bf8 100644
+--- a/kernel/sched/deadline.c
++++ b/kernel/sched/deadline.c
+@@ -2115,10 +2115,14 @@ update_stats_dequeue_dl(struct dl_rq *dl_rq, struct sched_dl_entity *dl_se,
+ 			int flags)
+ {
+ 	struct task_struct *p = dl_task_of(dl_se);
++	struct rq *rq = rq_of_dl_rq(dl_rq);
+ 
+ 	if (!schedstat_enabled())
+ 		return;
+ 
++	if (p != rq->curr)
++		update_stats_wait_end_dl(dl_rq, dl_se);
++
+ 	if ((flags & DEQUEUE_SLEEP)) {
+ 		unsigned int state;
+ 
+diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
+index f1867fe8e5c5..12f2efddca9f 100644
+--- a/kernel/sched/rt.c
++++ b/kernel/sched/rt.c
+@@ -1302,13 +1302,18 @@ update_stats_dequeue_rt(struct rt_rq *rt_rq, struct sched_rt_entity *rt_se,
+ 			int flags)
+ {
+ 	struct task_struct *p = NULL;
++	struct rq *rq = rq_of_rt_rq(rt_rq);
+ 
+ 	if (!schedstat_enabled())
+ 		return;
+ 
+-	if (rt_entity_is_task(rt_se))
++	if (rt_entity_is_task(rt_se)) {
+ 		p = rt_task_of(rt_se);
+ 
++		if (p != rq->curr)
++			update_stats_wait_end_rt(rt_rq, rt_se);
++	}
++
+ 	if ((flags & DEQUEUE_SLEEP) && p) {
+ 		unsigned int state;
+ 
+-- 
+2.43.0
+
 
