@@ -4,108 +4,214 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1501D26D6E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:00:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E61D26D6F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S7VtbjVgRK26yiEqOOgv/l78iDPH0hDYbqMKU+cHyxE=; b=hLv0JykHUKVQ3c5ffd08JRvYG3
-	jJjOJQ7QGrxHIvqCFhkYOxQL4RIFgYvm/j//jjQOGbTa5LihP7ZBgnnCZ3iwkXTlxedBT/idJ1t4e
-	E3RlX+pnsGQ+We0Vn9ZGKVOuZ3xhIIa04lQpKpjQcInRnaurbIZFgB8OCtijPQG0HUzuRJekCv8ZS
-	SRerbhnRHJHeAuHpuk1B3bCVh30iTV8GuI00axqbbInTHzxs0Vo4HcArbU/UQm835FZXKbKXTIMls
-	A7shkNFJTdhcMvBrQAlBMWOIkqgnqxWZ//ebCdGPXdQ8MCWOz/Fw7NEHz10ru8uLP19+2CTIYiRKZ
-	kC7WlUkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y0F3msY51CEG685pZ5Vd9mM1nAPXE1h7mU6gkqrwSxw=; b=XS47vMdnrYgIzdGuGsZBaWluVo
+	LSXqTjvqY64JQ1x7HnOTofKLJV2OI1Zir73toMZ713p4YG4CGx9vxJ4ScVHkz/8vxp35AI1db8yPC
+	l2zzuBYL3aM2h86VXdZq7gwoFhGbefkeE2BiOZdCzy6UVqGO6QCdx1t3Ed+nvon+S9Ai2C52uEk0D
+	33rNAh9Gor1/tzCtKkO4qOvZFt6tEkzKVS7bl1IJTDnBK7htVmAVHtjKT1WfU8YK/SqqErcIyYlO+
+	A0ojiJpuyds3J9EhdbWFi57KiishA7P+wdFYFsXmZCTsT8Uhijs1MVYU6TN9aZ6S1Wn0AqPy4CWwt
+	J5UehiWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veEuy-00000002YAL-2o1R;
-	Fri, 09 Jan 2026 16:00:52 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1veF5Z-00000002Yk0-3VGF;
+	Fri, 09 Jan 2026 16:11:49 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veEuv-00000002Y9r-1NQ4
+	id 1veF5X-00000002Yjg-3IXF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 16:00:51 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-4ee243b98caso356541cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 08:00:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1767974448; cv=none;
-        d=google.com; s=arc-20240605;
-        b=JUpq1wMTqdchXFz7jzp4NKQuNlMdNtfLI9R5uutbyqpI1gw1t/HINL1hroSRFxhE/j
-         tivySPhczrCYB0d2SrQ79PPa9zKMIzdYz4wBSoVnkpngjdT22V1t4dotHvc0vrG6NMrm
-         BlHVhTwS1GlhTjvW3jgsF7YrRq9nVuMi6rAstJ49KDz7DgOE72X2ktrlQLh9buNtk5+9
-         i+6qcqUqQRijAr/7ZVsFojICSBj4iNf4UB9fdtQp41oSo+BaCX7n/nV2VOT4NO4q2g3b
-         K/spq8nrrXRqRjPTbAzw+ByWIsAKH7W1ClAG3RfaHA8W5veO6w6aDa3veTfAD1eQDFQc
-         EBcg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=S7VtbjVgRK26yiEqOOgv/l78iDPH0hDYbqMKU+cHyxE=;
-        fh=mx2fRU4HqMkN9bRairsGWC5LX/9XI7agdrFXsnkctqU=;
-        b=jFGcwR6DBOjy/J4mdf2NgLOh1qQ4Iqyb3QLt4t/lF7SmvUR8ie6+Ilnvo+yVkC8Kj/
-         YlFRWDHcvJ5WqdgMnPeoBbFJwM3xeSBSw65W/pravgsuLj5/gjpd3IXnw5rgwlUV8E1d
-         vAPOQTiskgf9ydGArQmpDujautwJY7X4/S8IPWnLgTGLm/TGw20+VymAGAUcBeS+AKx+
-         bJUv3yee7t6TcM3vrLfqPW7puoDOizRynbhZcpOz3yglYwveN6XyM5qNOYdiJKCFLcm8
-         Bpvt5US4CvSzKtMX5cU7HO1vTEDmSTXPQR+Ds764Va0njMdl9Ev7YY6UdW4Re4rgxwZq
-         GZ7A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 09 Jan 2026 16:11:48 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6098XOSb822825
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 9 Jan 2026 16:11:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	y0F3msY51CEG685pZ5Vd9mM1nAPXE1h7mU6gkqrwSxw=; b=LHHNohgL+h8Dn5BK
+	Ux0iUHBCy+yQettxBalskTQBCp9f7oc/8kKry1xzZZAg/e3HaDlMuSC1eH0k2mZv
+	NLdHhuDM1ICNanc+q02wF5T1l+Usdnj2MdK6MQcHS/Q6VnnEnRDvaDV6wLA1lldb
+	ypeirGKyy1Zqh1J3qSsREe8bJxe+iRebKpO4DmkFW42xoHb2T+QTHt7djRdBeZAh
+	IXE7Efyg03dJBZQscswdBQASgMnfVelmSNrC5zcGzHVIOCrAv3T9OzC5IzQ6vcow
+	4X/1XN8dGT+CnXNDgHwnRIaTBslEI1RnXfBK8h1plNlHnK+Yg27Rb4uX6AveXiZ7
+	cB4S0w==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bjx94hby6-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 16:11:47 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8b2de6600c0so1113438085a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 08:11:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767974448; x=1768579248; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=S7VtbjVgRK26yiEqOOgv/l78iDPH0hDYbqMKU+cHyxE=;
-        b=g2F+r8usQGUCqesjYDpfX5hSoavUgMiF2prD7MpOXvn13qOSM8A39RucI/SRUwl9ky
-         JAxXxV2V66+lYRsaiO/5FoDFTLVofAS7dlHI/N30rmrgaGLlIYZoUtOAeTulh637bRk7
-         B9valOFwa6To4B1FC9ofvuD5GXdPDFY09KtoIXi+dcmymXRzTjDbw4+3fXs1ZvUaCWld
-         WmEI6VI+3F+OUzGYHeU811M+2INP00fBwOPdG+trHgiqTsaDGd9piSz1j3/+G5aRytoE
-         PxmIGuI5d+iIP0OQhj2k5bioSu572MU0QszI9c5FzZRLDkLrTtaMlR7gnq7X9Lo25+I9
-         F/2A==
+        d=oss.qualcomm.com; s=google; t=1767975106; x=1768579906; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=y0F3msY51CEG685pZ5Vd9mM1nAPXE1h7mU6gkqrwSxw=;
+        b=YMiKNQmGZJwmuf7xXF/TJljNoLVhzDN95Z2jtqbZ2JNhbL2GhGSipABbvlsMiQEUvh
+         J2y7L2nG69HMuTllSaKC9JQfGFXxOSsJhNkIH4MPqOWRKgN1rVyop9xYVTnnM55SGmjT
+         1xKPramb3svcfrSjLJf71rb8LPF0u80upzcF8b/bbUf+F9kirnV2q08rPH/j0RWJAx9i
+         I2LZ+JWjqHMtHLnwsPwZABfHGaTICv42xT8i7h/K6V7hha7ZLFCdOEjn/vmLSRFPAyPp
+         I9z9N9YUia953AqHA96YnHjNWuodYbsNfoe+YvAk0sfNUXN6CEqRTWHf3LxyzXFWrESk
+         neSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767974448; x=1768579248;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1767975106; x=1768579906;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=S7VtbjVgRK26yiEqOOgv/l78iDPH0hDYbqMKU+cHyxE=;
-        b=Vwy4Hnvgy68W1Qi+0czU+pZwF5j7bcGLD1SRRxBQHMyhIsnR06HIEl/De3pqmeDx61
-         vLvAyvPjyMZEkz+MkxFiE1dWnANOhDu7psN4d/ScQ6RcHKwmVSPDF6/7a0V8B589RIzc
-         UEjBKqixQuwpdL5ghThhqumWQ8xXRqkJ54OlMzChrNc6HnSsMyMYZlf3lKNjUiAspFz6
-         D4q6hdfkd4ySCxXnS3UJ1AKLLS2hhlMIDpdAPDNpk3DzGpgS4EeThmWV7tiL3K6OFEKN
-         m8dAoKOCSTGPiY0D42auf9/kSWnxeWzfLxruzBZfTcglJ8I5nQe3jN9TkS/gagEkLgC7
-         KFTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUeaJlEaGiXwHOyzCyuG8rc+WD9ApTIHwArQlMY13gcBeqCTnKxcLfTfBf6RRQTFyHyAXUgjDN9opOM99DInamB@lists.infradead.org
-X-Gm-Message-State: AOJu0YziHUEFJRB6wn+FLzw4NAQUHw5Dq9032zg51sUuPniOqFFH9zgz
-	gkPfGCTWbPsp3fSqnwV1LrKLPtizkfvSKZ/kzLru+aQxGRBrwCs2Cpw1qkf5y7u0oQFcs5NH0ud
-	WXUbhqYcF8/MGnG+MlDMJfzaZ7Cirg2ZuvYj82gse
-X-Gm-Gg: AY/fxX5oDbyWij5QYllQ1RnzpPUNDFwLAbpnvni9liLfTSsEB0tW6cn4CWEygHouBot
-	ei+idFat5DfRZyFqz3X+GCb3VTt8DQh6u3ilf1EtFMHZ1BRl8wdczNgdr0Awf2LQa5fHEAraGjr
-	AwcbbUaOP7pmfIBXxQBpHmS2uT+s3ZQLhR/Y4K31hrbx6XGZa/NBccA03zxfzxWFFyd2Uz7AHIM
-	k1rgs8rBn2ajMar7Y6ImaIErVBpr/gImKyyaeZaCpoKwUeISQ6LmVPK4djaiEqK2QsJzyu4
-X-Received: by 2002:ac8:5fc5:0:b0:4b7:9a9e:833f with SMTP id
- d75a77b69052e-4ffcb1e49dbmr10419571cf.7.1767974445761; Fri, 09 Jan 2026
- 08:00:45 -0800 (PST)
+        bh=y0F3msY51CEG685pZ5Vd9mM1nAPXE1h7mU6gkqrwSxw=;
+        b=kwqUm2xVzD1AQMe0cZ7pZNFLvISn1Z8VbAkDSXb8cD2iZYd3GmYv+kW9f9miZk8GnE
+         Ccaho1jgw651VSx2Zsdrhq6BkkIWohH5Z+HC1vM/OqxBIqyc3k48RSIAzmZec1QqI/bS
+         wvOTpLflImw+cgtRZYgvU/aBLBmGPypTdVZUJx+WH8LFwUJL6R4cBuirgEA7yc6axC/r
+         +UqV8UznVD4uDSH7HzrG8OUmFPka+6mrVSrtSdFKa0ynpJ0VLrLl1PNL3hvlva7sy/Eb
+         jIlTRzMV9sbmn60rq3EYxecKwIt2gaLLsnthevarfc8QsbgwCMsrr2gpk1vXxe6QvFSq
+         4esg==
+X-Forwarded-Encrypted: i=1; AJvYcCXCks6Yms0UXNB+AaNjx1UfgxYKoSWmtmTgRez7P/4FtXIbAxS9AYuLQsbYjL8IZFrt4gLrZNLHiIVHRIp4iM7k@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYdCJKMIS8I0NY8maY6o7YpTg8HX9MWM/x0l7wFARPF+Kar0dm
+	v7aLFqSV6lMhiQ1ajT/qdjjm9kTiarpXAKdpzQwL5fDs9iek9YNdauzUfZHKjdNKJErG5n/6v+p
+	Sp5Xjepa6H+3u+FIQGWbly03WXeIdmRJTQ37j6cndeAmKEPmYhHchOzfIJsSMwmcFG1nO8BNwX2
+	kLoA==
+X-Gm-Gg: AY/fxX401dlWRiHXpsPEV+OLbH018+DoMFBLWa4KVRzlamHf9ITlNuRQ0YqfQVD2g/T
+	LjV/A2SqJOQGpgSzozGI6dEPBljPbGyihA4DDl0pqTEMbbjiVdNC+q1t989VMTzjGnp7JDq7ELx
+	aEhyFIROv4dd8D9iEjOv8aMAYgAPHdRTZaeBsmca8INJqS9TOsBXEtM8pfC6r+tCA9yU5BIYjBA
+	MtPtYa1ML80Rp+CyRs760VWY3EdHC6Qtg0x+WXOE14TU6yMKNaX60VnmjzhNOTuXl8COjr+W0D5
+	HLPQQ+3+qIwZvVVFVUJEhccaRfnmIDI7lBvty8NUDoeUyfSpQy1cW4VC/YvBbucT4LmpZtRduI0
+	zS9035B9FuVWQLTe8wAzweeK074OJXH+VRwOteQ==
+X-Received: by 2002:a05:620a:2849:b0:8b1:f1e4:a3d2 with SMTP id af79cd13be357-8c3893917c6mr1302266685a.24.1767975106074;
+        Fri, 09 Jan 2026 08:11:46 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGy5T1E7jUrBX1bssLpIPnC4OcyFtfkLbBfyt51Wt45hTzCQ0qm3TofJwyMoPJOoK6/cA59Eg==
+X-Received: by 2002:a05:620a:2849:b0:8b1:f1e4:a3d2 with SMTP id af79cd13be357-8c3893917c6mr1302260485a.24.1767975105583;
+        Fri, 09 Jan 2026 08:11:45 -0800 (PST)
+Received: from [192.168.1.29] ([178.197.218.229])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b842a4d31e7sm1189140466b.42.2026.01.09.08.11.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 09 Jan 2026 08:11:44 -0800 (PST)
+Message-ID: <09bc1f51-1836-4981-9fec-e3385c61aac6@oss.qualcomm.com>
+Date: Fri, 9 Jan 2026 17:11:41 +0100
 MIME-Version: 1.0
-References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org> <20251223-kvm-arm64-sme-v9-14-8be3867cb883@kernel.org>
-In-Reply-To: <20251223-kvm-arm64-sme-v9-14-8be3867cb883@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Fri, 9 Jan 2026 15:59:00 +0000
-X-Gm-Features: AZwV_QjAJH2K5qg87J2uUGDkra1sJbu4XzFdX96_aa60XR7lg7WJ3FZ7haLvZNk
-Message-ID: <CA+EHjTw-6-BFcr60+tgDzOE-OfcetD7yQtbNMkqr7BgiMXfeJA@mail.gmail.com>
-Subject: Re: [PATCH v9 14/30] KVM: arm64: Implement SME vector length configuration
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, Peter Maydell <peter.maydell@linaro.org>, 
-	Eric Auger <eric.auger@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/11] cdx: Simplify with scoped for each OF child loop
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>,
+        Saravana Kannan <saravanak@google.com>,
+        Nathan Chancellor
+ <nathan@kernel.org>,
+        Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+        Bill Wendling <morbo@google.com>,
+        Justin Stitt <justinstitt@google.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Nicolas Ferre <nicolas.ferre@microchip.com>,
+        Alexandre Belloni <alexandre.belloni@bootlin.com>,
+        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Alim Akhtar
+ <alim.akhtar@samsung.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Nipun Gupta <nipun.gupta@amd.com>,
+        Nikhil Agarwal <nikhil.agarwal@amd.com>,
+        Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+        Sylwester Nawrocki <s.nawrocki@samsung.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Viresh Kumar <viresh.kumar@linaro.org>, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, llvm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org,
+        linux-samsung-soc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        linux-clk@vger.kernel.org, imx@lists.linux.dev,
+        dmaengine@vger.kernel.org, linux-media@vger.kernel.org,
+        linux-pm@vger.kernel.org
+References: <20260105-of-for-each-compatible-scoped-v1-0-24e99c177164@oss.qualcomm.com>
+ <20260105-of-for-each-compatible-scoped-v1-6-24e99c177164@oss.qualcomm.com>
+ <20260106101733.000059e9@huawei.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@oss.qualcomm.com; keydata=
+ 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
+ cwzYbmi/Et7T2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <20260106101733.000059e9@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=RN2+3oi+ c=1 sm=1 tr=0 ts=696128c3 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=Eb9f15NH/cHKzfGOmZSO4Q==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=XFS3ILgPfShOvr1i8A8A:9
+ a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-GUID: 8QtxW3AjTK5SVAC7ebeamN_l4SIkHVpr
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA5MDEyMSBTYWx0ZWRfX2mm7c375vu9Q
+ NAqnmkAsYCwY9/jw/q4Jz1Vem1DeCRrMZt2IAwXQhmv7I/TLjH/yi5a+DLvDh8CT8fgDuTAP+ED
+ Hot7VGzzmKs7hG4jhNGgmmeqDrvRb7xmDyX5RtKdV9BIKYUcZN1X7zdWHE6xlKHqeUWpVx4dxFz
+ Fsacpdv4TmESZM3q2eV8FBQVIP8fdmT2Z+dB6eLjjXI2cEenj8+V1PjCmygCN9gTiNUCKwagycD
+ DGB6At+dwfH9Snr2ll1w8emmn4GFNDPyLFvjqpNXniiMQiYYO6kHFL60frUvlzlYiCq4wz3MjhM
+ MTI8eJkKtdwvqZZnLSx1rNtLkhDKPeaV87bjRJlgKtvO4bha94E1iNl4OIQn4+BoC7g+dW9kn1m
+ Z8mfKiqU7+jfTLluLA04D9TBhd02otwp4WXXfrNSfep+e1ORzPLZylp5Og5aBLgcJ7c+HxKIlSa
+ DVM0VqoZZfEW4NVTOOw==
+X-Proofpoint-ORIG-GUID: 8QtxW3AjTK5SVAC7ebeamN_l4SIkHVpr
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-09_04,2026-01-08_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 spamscore=0 lowpriorityscore=0 priorityscore=1501 phishscore=0
+ malwarescore=0 impostorscore=0 adultscore=0 bulkscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601090121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_080049_465692_DCAF891A 
-X-CRM114-Status: GOOD (  37.63  )
+X-CRM114-CacheID: sfid-20260109_081147_860334_65D6FAB6 
+X-CRM114-Status: GOOD (  20.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,295 +226,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Dec 2025 at 01:22, Mark Brown <broonie@kernel.org> wrote:
->
-> SME implements a vector length which architecturally looks very similar
-> to that for SVE, configured in a very similar manner.  This controls the
-> vector length used for the ZA matrix register, and for the SVE vector
-> and predicate registers when in streaming mode.  The only substantial
-> difference is that unlike SVE the architecture does not guarantee that
-> any particular vector length will be implemented.
->
-> Configuration for SME vector lengths is done using a virtual register as
-> for SVE, hook up the implementation for the virtual register.  Since we
-> do not yet have support for any of the new SME registers stub register
-> access functions are provided that only allow VL configuration.  These
-> will be extended as the SME specific registers, as for SVE.
->
-> Since vq_available() is currently only defined for CONFIG_SVE add a stub
-> for builds where that is disabled.
->
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  arch/arm64/include/asm/fpsimd.h   |  1 +
->  arch/arm64/include/asm/kvm_host.h | 24 ++++++++++--
->  arch/arm64/include/uapi/asm/kvm.h |  9 +++++
->  arch/arm64/kvm/guest.c            | 82 +++++++++++++++++++++++++++++++--------
->  4 files changed, 96 insertions(+), 20 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-> index 146c1af55e22..8b0840bd7e14 100644
-> --- a/arch/arm64/include/asm/fpsimd.h
-> +++ b/arch/arm64/include/asm/fpsimd.h
-> @@ -340,6 +340,7 @@ static inline int sve_max_vl(void)
->         return -EINVAL;
->  }
->
-> +static inline bool vq_available(enum vec_type type, unsigned int vq) { return false; }
->  static inline bool sve_vq_available(unsigned int vq) { return false; }
->
->  static inline void sve_user_disable(void) { BUILD_BUG(); }
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 3a3330b2a6a9..b41700df3ce9 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -810,8 +810,15 @@ struct kvm_vcpu_arch {
->          * low 128 bits of the SVE Z registers.  When the core
->          * floating point code saves the register state of a task it
->          * records which view it saved in fp_type.
-> +        *
-> +        * If SME support is also present then it provides an
-> +        * alternative view of the SVE registers accessed as for the Z
-> +        * registers when PSTATE.SM is 1, plus an additional set of
-> +        * SME specific state in the matrix register ZA and LUT
-> +        * register ZT0.
->          */
->         void *sve_state;
-> +       void *sme_state;
->         enum fp_type fp_type;
->         unsigned int max_vl[ARM64_VEC_MAX];
->
-> @@ -1098,14 +1105,23 @@ struct kvm_vcpu_arch {
->
->  #define vcpu_gp_regs(v)                (&(v)->arch.ctxt.regs)
->
-> -/* Pointer to the vcpu's SVE FFR for sve_{save,load}_state() */
-> -#define vcpu_sve_pffr(vcpu) (kern_hyp_va((vcpu)->arch.sve_state) +     \
-> -                            sve_ffr_offset((vcpu)->arch.max_vl[ARM64_VEC_SVE]))
-> -
->  #define vcpu_vec_max_vq(vcpu, type) sve_vq_from_vl((vcpu)->arch.max_vl[type])
->
->  #define vcpu_sve_max_vq(vcpu)  vcpu_vec_max_vq(vcpu, ARM64_VEC_SVE)
-> +#define vcpu_sme_max_vq(vcpu)  vcpu_vec_max_vq(vcpu, ARM64_VEC_SME)
-> +
-> +#define vcpu_sve_max_vl(vcpu)  ((vcpu)->arch.max_vl[ARM64_VEC_SVE])
-> +#define vcpu_sme_max_vl(vcpu)  ((vcpu)->arch.max_vl[ARM64_VEC_SME])
->
-> +#define vcpu_max_vl(vcpu) max(vcpu_sve_max_vl(vcpu), vcpu_sme_max_vl(vcpu))
-> +#define vcpu_max_vq(vcpu) sve_vq_from_vl(vcpu_max_vl(vcpu))
-> +
-> +#define vcpu_cur_sve_vl(vcpu) (vcpu_in_streaming_mode(vcpu) ? \
-> +                              vcpu_sme_max_vl(vcpu) : vcpu_sve_max_vl(vcpu))
+On 06/01/2026 11:17, Jonathan Cameron wrote:
+> On Mon, 05 Jan 2026 14:33:44 +0100
+> Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> wrote:
+> 
+>> Use scoped for-each loop when iterating over device nodes to make code a
+>> bit simpler.
+>>
+>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> I'd be tempted to make one more tweak in this one to bring
+> it inline with the suggestions around not combining scoped cleanups
+> with gotos (see the comments in cleanup.h)
+> 
+> No bug here, just nice to have.
+>>
+>> ---
+>>
+>> Depends on the first patch.
+>> ---
+>>  drivers/cdx/cdx.c | 4 +---
+>>  1 file changed, 1 insertion(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/cdx/cdx.c b/drivers/cdx/cdx.c
+>> index b39af2f1937f..bbde529aaa93 100644
+>> --- a/drivers/cdx/cdx.c
+>> +++ b/drivers/cdx/cdx.c
+>> @@ -608,7 +608,6 @@ static ssize_t rescan_store(const struct bus_type *bus,
+>>  {
+>>  	struct cdx_controller *cdx;
+>>  	struct platform_device *pd;
+>> -	struct device_node *np;
+>>  	bool val;
+>>  
+>>  	if (kstrtobool(buf, &val) < 0)
+>> @@ -623,10 +622,9 @@ static ssize_t rescan_store(const struct bus_type *bus,
+>>  	cdx_unregister_devices(&cdx_bus_type);
+>>  
+>>  	/* Rescan all the devices */
+>> -	for_each_compatible_node(np, NULL, compat_node_name) {
+>> +	for_each_compatible_node_scoped(np, NULL, compat_node_name) {
+>>  		pd = of_find_device_by_node(np);
+>>  		if (!pd) {
+>> -			of_node_put(np);
+>>  			count = -EINVAL;
+>>  			goto unlock;
+> break instead.
+> Or better yet a follow up patch to use guard() for the mutex allowing a
+> direct return here.
 
-nit: This isn't really the current VL, but the current max VL. That
-said, I don't think 'cur_max` is a better name. Maybe a comment or
-something?
+Oh yes and it allows to drop that -EINVAL assignment to size_t.
 
-> +/* Pointer to the vcpu's SVE FFR for sve_{save,load}_state() */
-> +#define vcpu_sve_pffr(vcpu) (kern_hyp_va((vcpu)->arch.sve_state) +     \
-> +                            sve_ffr_offset(vcpu_cur_sve_vl(vcpu)))
->
->  #define vcpu_sve_zcr_elx(vcpu)                                         \
->         (unlikely(is_hyp_ctxt(vcpu)) ? ZCR_EL2 : ZCR_EL1)
-> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-> index c67564f02981..498a49a61487 100644
-> --- a/arch/arm64/include/uapi/asm/kvm.h
-> +++ b/arch/arm64/include/uapi/asm/kvm.h
-> @@ -354,6 +354,15 @@ struct kvm_arm_counter_offset {
->  #define KVM_ARM64_SVE_VLS_WORDS        \
->         ((KVM_ARM64_SVE_VQ_MAX - KVM_ARM64_SVE_VQ_MIN) / 64 + 1)
->
-> +/* SME registers */
-> +#define KVM_REG_ARM64_SME              (0x17 << KVM_REG_ARM_COPROC_SHIFT)
-> +
-> +/* Vector lengths pseudo-register: */
-> +#define KVM_REG_ARM64_SME_VLS          (KVM_REG_ARM64 | KVM_REG_ARM64_SME | \
-> +                                        KVM_REG_SIZE_U512 | 0xfffe)
-> +#define KVM_ARM64_SME_VLS_WORDS        \
-> +       ((KVM_ARM64_SVE_VQ_MAX - KVM_ARM64_SVE_VQ_MIN) / 64 + 1)
-> +
->  /* Bitmap feature firmware registers */
->  #define KVM_REG_ARM_FW_FEAT_BMAP               (0x0016 << KVM_REG_ARM_COPROC_SHIFT)
->  #define KVM_REG_ARM_FW_FEAT_BMAP_REG(r)                (KVM_REG_ARM64 | KVM_REG_SIZE_U64 | \
-> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-> index 456ef61b6ed5..2a1fdcb0ec49 100644
-> --- a/arch/arm64/kvm/guest.c
-> +++ b/arch/arm64/kvm/guest.c
-> @@ -310,22 +310,20 @@ static int set_core_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->  #define vq_mask(vq) ((u64)1 << ((vq) - SVE_VQ_MIN) % 64)
->  #define vq_present(vqs, vq) (!!((vqs)[vq_word(vq)] & vq_mask(vq)))
->
-> -static int get_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-> +static int get_vec_vls(enum vec_type vec_type, struct kvm_vcpu *vcpu,
-> +                     const struct kvm_one_reg *reg)
->  {
->         unsigned int max_vq, vq;
->         u64 vqs[KVM_ARM64_SVE_VLS_WORDS];
->
-> -       if (!vcpu_has_sve(vcpu))
-> -               return -ENOENT;
-> -
-> -       if (WARN_ON(!sve_vl_valid(vcpu->arch.max_vl[ARM64_VEC_SVE])))
-> +       if (WARN_ON(!sve_vl_valid(vcpu->arch.max_vl[vec_type])))
->                 return -EINVAL;
->
->         memset(vqs, 0, sizeof(vqs));
->
-> -       max_vq = vcpu_sve_max_vq(vcpu);
-> +       max_vq = vcpu_vec_max_vq(vcpu, vec_type);
->         for (vq = SVE_VQ_MIN; vq <= max_vq; ++vq)
-> -               if (sve_vq_available(vq))
-> +               if (vq_available(vec_type, vq))
->                         vqs[vq_word(vq)] |= vq_mask(vq);
->
->         if (copy_to_user((void __user *)reg->addr, vqs, sizeof(vqs)))
-> @@ -334,40 +332,41 @@ static int get_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->         return 0;
->  }
->
-> -static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-> +static int set_vec_vls(enum vec_type vec_type, struct kvm_vcpu *vcpu,
-> +                      const struct kvm_one_reg *reg)
->  {
->         unsigned int max_vq, vq;
->         u64 vqs[KVM_ARM64_SVE_VLS_WORDS];
->
-> -       if (!vcpu_has_sve(vcpu))
-> -               return -ENOENT;
-> -
->         if (kvm_arm_vcpu_vec_finalized(vcpu))
->                 return -EPERM; /* too late! */
->
-> -       if (WARN_ON(vcpu->arch.sve_state))
-> +       if (WARN_ON(!sve_vl_valid(vcpu->arch.max_vl[vec_type])))
->                 return -EINVAL;
->
->         if (copy_from_user(vqs, (const void __user *)reg->addr, sizeof(vqs)))
->                 return -EFAULT;
->
-> +       if (WARN_ON(vcpu->arch.sve_state || vcpu->arch.sme_state))
-> +               return -EINVAL;
-> +
-
-Can this ever happen? kvm_arm_vcpu_vec_finalized() is checked above,
-and vcpu->arch.{sve,sme}_state are only assigned in
-kvm_vcpu_finalize_vec() immediately before setting the finalized flag.
-
-Cheers,
-/fuad
-
-
-
->         max_vq = 0;
->         for (vq = SVE_VQ_MIN; vq <= SVE_VQ_MAX; ++vq)
->                 if (vq_present(vqs, vq))
->                         max_vq = vq;
->
-> -       if (max_vq > sve_vq_from_vl(kvm_max_vl[ARM64_VEC_SVE]))
-> +       if (max_vq > sve_vq_from_vl(kvm_max_vl[vec_type]))
->                 return -EINVAL;
->
->         /*
->          * Vector lengths supported by the host can't currently be
->          * hidden from the guest individually: instead we can only set a
-> -        * maximum via ZCR_EL2.LEN.  So, make sure the available vector
-> +        * maximum via xCR_EL2.LEN.  So, make sure the available vector
->          * lengths match the set requested exactly up to the requested
->          * maximum:
->          */
->         for (vq = SVE_VQ_MIN; vq <= max_vq; ++vq)
-> -               if (vq_present(vqs, vq) != sve_vq_available(vq))
-> +               if (vq_present(vqs, vq) != vq_available(vec_type, vq))
->                         return -EINVAL;
->
->         /* Can't run with no vector lengths at all: */
-> @@ -375,11 +374,27 @@ static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->                 return -EINVAL;
->
->         /* vcpu->arch.sve_state will be alloc'd by kvm_vcpu_finalize_sve() */
-> -       vcpu->arch.max_vl[ARM64_VEC_SVE] = sve_vl_from_vq(max_vq);
-> +       vcpu->arch.max_vl[vec_type] = sve_vl_from_vq(max_vq);
->
->         return 0;
->  }
->
-> +static int get_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-> +{
-> +       if (!vcpu_has_sve(vcpu))
-> +               return -ENOENT;
-> +
-> +       return get_vec_vls(ARM64_VEC_SVE, vcpu, reg);
-> +}
-> +
-> +static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-> +{
-> +       if (!vcpu_has_sve(vcpu))
-> +               return -ENOENT;
-> +
-> +       return set_vec_vls(ARM64_VEC_SVE, vcpu, reg);
-> +}
-> +
->  #define SVE_REG_SLICE_SHIFT    0
->  #define SVE_REG_SLICE_BITS     5
->  #define SVE_REG_ID_SHIFT       (SVE_REG_SLICE_SHIFT + SVE_REG_SLICE_BITS)
-> @@ -533,6 +548,39 @@ static int set_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->         return 0;
->  }
->
-> +static int get_sme_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-> +{
-> +       if (!vcpu_has_sme(vcpu))
-> +               return -ENOENT;
-> +
-> +       return get_vec_vls(ARM64_VEC_SME, vcpu, reg);
-> +}
-> +
-> +static int set_sme_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-> +{
-> +       if (!vcpu_has_sme(vcpu))
-> +               return -ENOENT;
-> +
-> +       return set_vec_vls(ARM64_VEC_SME, vcpu, reg);
-> +}
-> +
-> +static int get_sme_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-> +{
-> +       /* Handle the KVM_REG_ARM64_SME_VLS pseudo-reg as a special case: */
-> +       if (reg->id == KVM_REG_ARM64_SME_VLS)
-> +               return get_sme_vls(vcpu, reg);
-> +
-> +       return -EINVAL;
-> +}
-> +
-> +static int set_sme_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-> +{
-> +       /* Handle the KVM_REG_ARM64_SME_VLS pseudo-reg as a special case: */
-> +       if (reg->id == KVM_REG_ARM64_SME_VLS)
-> +               return set_sme_vls(vcpu, reg);
-> +
-> +       return -EINVAL;
-> +}
->  int kvm_arch_vcpu_ioctl_get_regs(struct kvm_vcpu *vcpu, struct kvm_regs *regs)
->  {
->         return -EINVAL;
-> @@ -711,6 +759,7 @@ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->         case KVM_REG_ARM_FW_FEAT_BMAP:
->                 return kvm_arm_get_fw_reg(vcpu, reg);
->         case KVM_REG_ARM64_SVE: return get_sve_reg(vcpu, reg);
-> +       case KVM_REG_ARM64_SME: return get_sme_reg(vcpu, reg);
->         }
->
->         return kvm_arm_sys_reg_get_reg(vcpu, reg);
-> @@ -728,6 +777,7 @@ int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->         case KVM_REG_ARM_FW_FEAT_BMAP:
->                 return kvm_arm_set_fw_reg(vcpu, reg);
->         case KVM_REG_ARM64_SVE: return set_sve_reg(vcpu, reg);
-> +       case KVM_REG_ARM64_SME: return set_sme_reg(vcpu, reg);
->         }
->
->         return kvm_arm_sys_reg_set_reg(vcpu, reg);
->
-> --
-> 2.47.3
->
+Best regards,
+Krzysztof
 
