@@ -4,81 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F01D8D232EE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 08:22:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08797D232F1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 08:32:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pq9O7d6wzhTity1EvTGcuuOU01Kl/XBUCmwyUjTCy1A=; b=foP82WLe6Hu/5K700Cr4meTH4f
-	/EdCz4H96ivc2qw16YRs4gwF6kOU1gQNUJybKdsi78UqaaEx2HC6kenyI1txNA8Nl44WmCRNoQiQ1
-	yyqfaDodsWmR/+twgKs89JyVROZ+VRWlU9hUL94NFmJxvwthVZsLIgL9wYcwhPjkjjFPhGKKZ9jzr
-	GROPS8dtq+YlWxL1ybKTJF8HRQwbhHtEsHdKt5mGkAbZy9kC7wnr9C4/dtYiq6OgHaSzjz0im/5PC
-	fI8aOvA5oBWUiaJw6bDjTWzOzLIE8BjljIAoSiRk791IdYmX7/ujlENjt0tTb6816qoFB5gGiM+1T
-	FmyV3mBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H5FICVbCdpL28fxRZxhccvb+qo60S0uzBKWHTrHtW50=; b=AtNkq2+D02hFwhMAA5UbGkbFnK
+	RKGkan7tg0lc2FSWYOfCnfGzNRfgUO6WrVzv3rUSycyvp3QdiMYdlcb8XKZrXZ75sS3pgbDp09qhs
+	gEuNq9/yIyJvqXzhrQkgn8tOHKAXBNtohEN5E0L5c0+CRxdUU241KdhygAN0xgogFUXzKm7aZHlth
+	KQPx7H+GG2EWHlXvmEJetgwK93FtaFRYZkZvW0xzOQWTkClq5649LUoCTf7wHhP2w/Yst21P69HR4
+	XdHo+smVgPz3f+NnievRLJ/79YBLMKliGHBSicWC3iRe7GtI3k17NQPQnU9yNw1wb0dAnluvU5sPx
+	gpKefCLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve7lU-00000001slj-1wAw;
-	Fri, 09 Jan 2026 08:22:36 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	id 1ve7v3-00000001ur2-1DrC;
+	Fri, 09 Jan 2026 08:32:29 +0000
+Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve7lK-00000001sYZ-02tO
+	id 1ve7uy-00000001uqC-2eGM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 08:22:30 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-432488a0ce8so2999084f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 00:22:24 -0800 (PST)
+	Fri, 09 Jan 2026 08:32:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767946944; x=1768551744; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pq9O7d6wzhTity1EvTGcuuOU01Kl/XBUCmwyUjTCy1A=;
-        b=yud1y1A6vS38bbZomLDj33CBcWvlOXhfleDsCfjw4IeVWxdv4b8JTh6AiWaMsfOQbi
-         K9sLgyjINwtLUIOb2lccNt5yzP4C3suaquCAHL4UFAP6LOuA5hspOcmE4uS3I7Q2/z4b
-         oSCESCbofWKeaKju32QEsKF5UgIih0Yhx+bzzM+Zn0ZJ4Q1d/M0ybzmY3twitV8PZRtp
-         geLDMMA8T0uHfBOIFjMlMgiU3I0aA3BIHQXEgT3D0txkK/Tteo+ZkKt3tjhFX5hrY0Sz
-         u+P2N8DDcPqegNk0xmd4bSAfkmxoL5bXNNBliGRtE0ePZ+m2Dc3Eij2ZpxsgKtE0kreX
-         P/SQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767946944; x=1768551744;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pq9O7d6wzhTity1EvTGcuuOU01Kl/XBUCmwyUjTCy1A=;
-        b=v6LcVK1gxpsqHeGZCQftQRqdvtREoLh0bI+g6bQcoLWIwqeDe70kPnwwcYrFR3C44R
-         dpLZL8YsYgaAsy3qPMuzy9UNrPARIDzDtVTJDZObwL7Hs4Gu4O9ZfUPSOLDUJwHUbw0a
-         QZ0FZA93tFVBrXcu3ZtftcFy2Vb1c6MgA9XdV92rofREj7Q2O43DQbW74bdvnLBn5gP1
-         /RfKc4loOCnzITFBMGrI4ZVkHee+X2Xgb9QzKSy0cXf0zXMaM2T9Uon8Y8nIiSRANQRx
-         MIgw8G6t4vUC8fqzVQGu1sX0upNEdmsh3ztfYq02Mo9BTXvUMm4mRm1Hjox6enl7Nnxx
-         ICYw==
-X-Forwarded-Encrypted: i=1; AJvYcCWxNw5kSzy/O6BAELpSN9uOD9FhJVH0+bOiHiLJW79wqk3J1UhWHVxL35UtX8zR1qgZqpaEUoWBkZVY3MIQY1gN@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUYH5FH4LLZ3TAozcKRYYfWRawf3zXdPqEabg6uLysLc0xsuA2
-	sl5EORBdo2O3C2OMvdUtxk2RtwjRsfY+NLXz8rahWcTneDF/6sM5VvjYlHyjbS//GAmjLPpIhz/
-	HFw==
-X-Google-Smtp-Source: AGHT+IGWTLfUDmVjhmRk/6xaUs6XXjTDY4nThSKMpmNBWodgPyJb8+1XA5L2Dn6202jXo8K9XP5BtW0DRQ==
-X-Received: from wrbew19.prod.google.com ([2002:a05:6000:2413:b0:430:f703:f9cb])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4709:b0:479:1348:c614
- with SMTP id 5b1f17b1804b1-47d84b41b2dmr100673355e9.26.1767946943756; Fri, 09
- Jan 2026 00:22:23 -0800 (PST)
-Date: Fri,  9 Jan 2026 08:22:17 +0000
-In-Reply-To: <20260109082218.3236580-1-tabba@google.com>
-Mime-Version: 1.0
-References: <20260109082218.3236580-1-tabba@google.com>
-X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260109082218.3236580-5-tabba@google.com>
-Subject: [PATCH v4 4/5] KVM: selftests: Move page_align() to shared header
-From: Fuad Tabba <tabba@google.com>
-To: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, 
-	pbonzini@redhat.com, shuah@kernel.org, anup@brainfault.org, 
-	atish.patra@linux.dev, itaru.kitayama@fujitsu.com, andrew.jones@linux.dev, 
-	seanjc@google.com, tabba@google.com
-Content-Type: text/plain; charset="UTF-8"
+	d=linux.alibaba.com; s=default;
+	t=1767947535; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=H5FICVbCdpL28fxRZxhccvb+qo60S0uzBKWHTrHtW50=;
+	b=DM7J+SxLxkANJgLXHCwJyfkQ/DnkOAs3JErng4HZZhLz6DTMUmoF3ZSv+zju2sHvlMQiw3fG2F5Q9CnMeaHVyaFVJRjC6msoV/OTH/fKECVhk5W1JvtnDD2knjsVfkn9H2cj/IiBz/KtGcrScQxCga/Fgg5nUg3a6RVyuvoDBno=
+Received: from 30.74.129.18(mailfrom:tongweilin@linux.alibaba.com fp:SMTPD_---0WwgBVo0_1767947533 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 09 Jan 2026 16:32:13 +0800
+Message-ID: <f9d1c2d2-a6d9-47b7-9f1d-382a28bb88b8@linux.alibaba.com>
+Date: Fri, 9 Jan 2026 16:32:12 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] arm64: Kconfig: enable ARCH_WANTS_THP_SWAP for all
+ pagesizes
+To: Barry Song <21cnbao@gmail.com>, Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, linux-mm@kvack.org,
+ baolin.wang@linux.alibaba.com
+References: <20251226063759.4020782-2-tongweilin@linux.alibaba.com>
+ <CAGsJ_4zd+SMa4Mj23tjF5OwsP3LQyvYTrwN4y81=k8FSFgbH3Q@mail.gmail.com>
+ <aV_3fxlzwOSz8B0t@willie-the-truck>
+ <CAGsJ_4waQsxPKTcGvtpTAF4kVbYQXeH_iHaQX3aAYDNo-8oDLQ@mail.gmail.com>
+Content-Language: en-US
+From: Weilin Tong <tongweilin@linux.alibaba.com>
+In-Reply-To: <CAGsJ_4waQsxPKTcGvtpTAF4kVbYQXeH_iHaQX3aAYDNo-8oDLQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_002226_308552_A0C56431 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20260109_003226_280284_217AB747 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,87 +73,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To avoid code duplication, move page_align() to the shared `kvm_util.h`
-header file. Rename it to vm_page_align(), to make it clear that the
-alignment is done with respect to the guest's base page size.
 
-No functional change intended.
+在 2026/1/9 07:11, Barry Song 写道:
+> On Fri, Jan 9, 2026 at 7:29 AM Will Deacon <will@kernel.org> wrote:
+>> On Fri, Dec 26, 2025 at 07:52:44PM +1300, Barry Song wrote:
+>>> On Fri, Dec 26, 2025 at 7:39 PM Weilin Tong
+>>> <tongweilin@linux.alibaba.com> wrote:
+>>>> Currently, ARCH_WANTS_THP_SWAP was limited to 4K page size ARM64 kernels, but
+>>>> large folios requiring swapping also exist in other page size configurations
+>>>> (e.g. 64K). Without this config, large folios in these kernels cannot be swapped
+>>>> out.
+>>>>
+>>>> Here we enable ARCH_WANTS_THP_SWAP for all ARM64 page sizes.
+>>> I no longer recall why this was not enabled for sizes other than
+>>> 4 KB in commit d0637c505f8a ("arm64: enable THP_SWAP for arm64"), but
+>>> it appears to be fine, and the swap cluster size should also be
+>>> more friendly to PMD alignment.
+>> You seemed to be worried about I/O latency in your original post:
+>>
+>> https://lore.kernel.org/all/20220524071403.128644-1-21cnbao@gmail.com/
+> Will, thanks for pointing this out! With a 16KB page size, a PMD
+> covers 32MB; with 64KB pages, a PMD covers 512MB. So, Weilin, are
+> we ready to wait for 32MB or 512MB to be written out before
+> memory can be reclaimed? By splitting, we can reclaim memory
+> earlier while only part of it has been swapped out.
 
-Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
- tools/testing/selftests/kvm/include/kvm_util.h    | 5 +++++
- tools/testing/selftests/kvm/lib/arm64/processor.c | 7 +------
- tools/testing/selftests/kvm/lib/riscv/processor.c | 7 +------
- 3 files changed, 7 insertions(+), 12 deletions(-)
+I got your point. In our production envs using 64K pagesize kernel, we 
+only enable 2M and below size
 
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index 81f4355ff28a..747effa614f1 100644
---- a/tools/testing/selftests/kvm/include/kvm_util.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -1258,6 +1258,11 @@ static inline int __vm_disable_nx_huge_pages(struct kvm_vm *vm)
- 	return __vm_enable_cap(vm, KVM_CAP_VM_DISABLE_NX_HUGE_PAGES, 0);
- }
- 
-+static inline uint64_t vm_page_align(struct kvm_vm *vm, uint64_t v)
-+{
-+	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
-+}
-+
- /*
-  * Arch hook that is invoked via a constructor, i.e. before exeucting main(),
-  * to allow for arch-specific setup that is common to all tests, e.g. computing
-diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
-index 607a4e462984..1605dc740d1e 100644
---- a/tools/testing/selftests/kvm/lib/arm64/processor.c
-+++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-@@ -21,11 +21,6 @@
- 
- static vm_vaddr_t exception_handlers;
- 
--static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
--{
--	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
--}
--
- static uint64_t pgd_index(struct kvm_vm *vm, vm_vaddr_t gva)
- {
- 	unsigned int shift = (vm->pgtable_levels - 1) * (vm->page_shift - 3) + vm->page_shift;
-@@ -115,7 +110,7 @@ static uint64_t __maybe_unused ptrs_per_pte(struct kvm_vm *vm)
- 
- void virt_arch_pgd_alloc(struct kvm_vm *vm)
- {
--	size_t nr_pages = page_align(vm, ptrs_per_pgd(vm) * 8) / vm->page_size;
-+	size_t nr_pages = vm_page_align(vm, ptrs_per_pgd(vm) * 8) / vm->page_size;
- 
- 	if (vm->pgd_created)
- 		return;
-diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-index d5e8747b5e69..401245fe31db 100644
---- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-@@ -26,11 +26,6 @@ bool __vcpu_has_ext(struct kvm_vcpu *vcpu, uint64_t ext)
- 	return !ret && !!value;
- }
- 
--static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
--{
--	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
--}
--
- static uint64_t pte_addr(struct kvm_vm *vm, uint64_t entry)
- {
- 	return ((entry & PGTBL_PTE_ADDR_MASK) >> PGTBL_PTE_ADDR_SHIFT) <<
-@@ -68,7 +63,7 @@ static uint64_t pte_index(struct kvm_vm *vm, vm_vaddr_t gva, int level)
- 
- void virt_arch_pgd_alloc(struct kvm_vm *vm)
- {
--	size_t nr_pages = page_align(vm, ptrs_per_pte(vm) * 8) / vm->page_size;
-+	size_t nr_pages = vm_page_align(vm, ptrs_per_pte(vm) * 8) / vm->page_size;
- 
- 	if (vm->pgd_created)
- 		return;
--- 
-2.52.0.457.g6b5491de43-goog
+mthp, so swapping out as a whole is a better way. Or maybe we can set 
+the SWAPFILE_CLUSTER by arch.
 
+I will do some tests of this concern.
+
+Thanks a lot.
+
+> While splitting down to order-0 is not ideal, splitting to a
+> relatively larger order appears to strike a balance between I/O
+> latency and swap performance. Anyway, I don't know :-)
+>
+> Thanks
+> Barry
 
