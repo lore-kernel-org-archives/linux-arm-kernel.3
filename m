@@ -4,139 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB69D16816
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 11:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA5DD16816
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 11:29:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FGN5OGrvh/x38joNYPZBYpzrIyLezSMcAcL6/Hj2ygo=; b=xfCjmHh+fwaLzm/PsWZ1Ph3V6V
-	sMUbti7zWBEUWNmI+2F0Q5qbHkENEQIayNtXTlecXsbDLnNG8kI2iwBkP6sYJ6F1tXRsVUVTaiwrf
-	cLkpaHCdcjC+soKVUnd2mFMyYnUP50WlfD8L48RslhpKio5KSnfMhNB5iRb1bhYp8j075dxxiMgJX
-	QteE4xuKdCbCywoFs6JDlb0sNRIcyvYxr/g7kB8OLXVk3/XZ5y2eXd3UO3OIT1nQDp6B2oHzcdlf3
-	A2AsxwMUZPZeKxrtFz3e9IhrItIDjfR8Cd9L81wL4yuW5p4UPLg845Ewun0MId0nuXZHK+fcIZayn
-	Y1vbDR0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5ZmF0FSDjjhuramhZj/wmnOkap/wWgMgFMYGuEdcLhA=; b=WSJowwC51ZkEdnqnPDF97ig4pf
+	kQXxzVqMFenDOmCv8UXgB8+Xu+YXny1CyeNENlL3lxWrij0vXtbZ7rrtMwm3QoVYH1h+UqQ5LP2Wt
+	WFl37+ZPm7aKcQ8m5kIpkg9KEmheihFtVO8TnNktHN89dyEA2tIVjza40bXhrgqb7fcxg5GWt1rdf
+	JSDN0kLs3/9u0al+sRL5vwL2++vF24g/pQFkyN5fTC7au6RfzHA4eltMRg9x9y2GdNuLk0tCZFnNS
+	4pJ88Ca/0jfGuoyBoXwFM6uEreC6kDJeK1AaTfWByYB0HfiUZD3ENFmjA0X6QiQWYaAszTdh9chgE
+	8ez+hsyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veAfc-00000002DQw-33ok;
-	Fri, 09 Jan 2026 11:28:44 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1veAg6-00000002DU6-0GvU;
+	Fri, 09 Jan 2026 11:29:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veAfZ-00000002DQP-3NVk
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 11:28:43 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60960c393019322
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 9 Jan 2026 11:28:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	FGN5OGrvh/x38joNYPZBYpzrIyLezSMcAcL6/Hj2ygo=; b=ikOy7S9dofpnkYZo
-	sSn6rBp89ChrG6PQekeLao9fU8+Hr+4UfpRImfQr1x1jXFmj1E9FWDageRbz9Qb2
-	13ADnFbnkRCXztpL9Ipj+V1RzU09818ZmcMer2QtlnXPBtyRbPUcn2NtWdEn6q7T
-	sFihpMXEjoU7HHg7yvSyNtAteHniqYxqqppsVh0PExIhqBQ75E4PigkB47ltOIfs
-	28BmBln4Kcf7PsmYPvuaJsBLg5Gi9rYltmilU8apfa73XNUmXInoWlp7+s5nyVqI
-	1olAfika42qQf8z/mCupei6vrQH9xBHRVaAwEZ5S3ZGrkh7/QsZcqbDRqt7KveQ8
-	O/Pl+w==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bjjk3jh36-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 11:28:40 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c5539b9adbcso1300327a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 03:28:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767958120; x=1768562920; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=FGN5OGrvh/x38joNYPZBYpzrIyLezSMcAcL6/Hj2ygo=;
-        b=fOdRob489uI8h7mHM2YEtckCvLQlI5xWDgZkEU1K138cR6s5g+aAHqrd1qQDxHo6Qu
-         Y9ehEYjxBtURxAwx4a9vmWf3AQ1rya2F/Gy4KL3mUWLw1gAoWUJEqKRJUkqy4hSKf+Ig
-         +k4eXGQAZzjxPt7Rb2sJbAspzKQWGgsuqMRP5mjDG+1JQvr4Zo5IGNYHxFcoKb1M3G5Q
-         NF5Fwpg8JoY9X5JdHiyO4cXiOT8jaIrA1nCJTUCNCM1KUsv0Hmf094xcIY8MmeiGHhzt
-         XjnvGYI10rCroV/cwZDhJegJXV2RZMqG+pTz3qdvdeCVQsuPJ65EdnHZnOfwTP2HNe3I
-         uKIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767958120; x=1768562920;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FGN5OGrvh/x38joNYPZBYpzrIyLezSMcAcL6/Hj2ygo=;
-        b=ENE1CsleYTpkT+n8OMTJZqi0yHNrLxQuVWaoqVEHQtz+zdRFA6M17DodWF9iN1I+r9
-         v84LxEV53U27VDhufan4gx73fjAGOhqzh4PiqUEj4nMxrXUNijv+XhtUOfv3LwVmgmQJ
-         bxEHCpLdWo4z6i2RF61DDn1nmiTJ8ipvub8sdlfB6oOn/4eoDJ9BdyG4ERYA+2GkHi0K
-         yzKrxxvR74o0lrA9y4Erxu7KiexqrHMkeBm5RzPofDk9nR3D1sXQoUoeCmBypwzZjjhF
-         FvQ6BQmNAd0ii29u3FrfbAn2joFM+cToZsXt1j0fLR1UbgB4PovnSkdOcGBvvTWb/wxg
-         bupQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVxbC8RA9Q8OAj57mGtNhgyPRFfC+M/vqoSHiX+VoLxtLA2VGA4G8221djzx4ex7vyWM3t9byjmXVFzFh8+YyvZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIiDdrIxKEs5LnJ3oYfyE+ktrrJkqbs4La64vXuM2aSOeYj1uh
-	ykxDJ7j8ix5qf8YUQzgp94uMAZ9b1DgJ2MYSKoo/EOqvtQE0JyLrAZWyJGKgf+tHiFs9wptaLdY
-	I2RohqL7sEe7uZH3eVljnAbnCzsSYMr0wu5dV0Fk/ANVQxGmhRKjVf3gvj/JGYXSgsjuvQI+anx
-	mazQ==
-X-Gm-Gg: AY/fxX6GVWdh9eRyevuIWVCyxkG7IBcr0epWt4MGFtvDv2SXELACWytwBkpBc4YerNS
-	kAe7gUNWzuhZrRxvMq3IN0OhWSPZr62N8yEMuiw0Mz8/yQORK4dt2G9EOB+s6P/EkUwY02ALkPb
-	pr1nectz0awdITs9m0FC+nnz1fA2o436+nrNnlDh33DvoChbScolWHdhg4NZlIYovngabzRoNZY
-	mJgQmzFLL4g9+pjXShNdcha3YOqcaoC9NNxjzXamCxve9VvjnwwDLOCAHsCfeAR3gOLXG7tnYiK
-	YYHnFTZzEevmdhRXHXUSuR5D1520HCwLmpa7IiVyQwb1P3pf0IW/sxpZbcRJVcCzlKz020U+st4
-	wd6H4ciBUUOS90kvZU9ywCP0Zr/eFn4oKXkaWncfWMLGZOwKTmrmTtB9zNfvoR24fAHZV1WbjYb
-	k=
-X-Received: by 2002:a05:6a00:4215:b0:81e:8e66:38d9 with SMTP id d2e1a72fcca58-81e8e66552cmr1144823b3a.17.1767958119659;
-        Fri, 09 Jan 2026 03:28:39 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEqT+wWvTO35GE1P2/uMCVst+d9L4F96AD9pHzfgd0wBp6IWQozaZdZsHTX3taobFXEvgIktQ==
-X-Received: by 2002:a05:6a00:4215:b0:81e:8e66:38d9 with SMTP id d2e1a72fcca58-81e8e66552cmr1144805b3a.17.1767958119175;
-        Fri, 09 Jan 2026 03:28:39 -0800 (PST)
-Received: from [10.133.33.228] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-81e5d129d41sm1567195b3a.67.2026.01.09.03.28.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 09 Jan 2026 03:28:38 -0800 (PST)
-Message-ID: <069e2fb4-b4cc-474c-867c-2dd410ea80a4@oss.qualcomm.com>
-Date: Fri, 9 Jan 2026 19:28:32 +0800
+	id 1veAg3-00000002DT2-3p95;
+	Fri, 09 Jan 2026 11:29:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 24D1144440;
+	Fri,  9 Jan 2026 11:29:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1BE8C4AF0C;
+	Fri,  9 Jan 2026 11:29:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767958149;
+	bh=uuvtHWXbur4b3UNiVol3kfUJOuEa5Q/2AL1FzGgXs48=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=FW5xbNLBDmErOr6Ze5BAvusMexofgauPk70Ccu8+L6xSAvXOW+UrTddAEucxw7/zs
+	 R57upHBxrHYe9aOFaKroXtLzUFVkA1gKnzwmfTJqY0/PcPMvx7e9AKBgv/edAkRE2W
+	 M0IIBjbS5dhEwRW2VyAHJkXK+6b78O2VNuIZqSKeRCS05kNuGf0rYbF6cyxug0JClw
+	 OoHOzvoVA3aHcZb1jtfd4DweYlUgKNphNreAzyBzb4+gKHuG1PE0O+K/J+/eN6g4za
+	 j93/js3oFH7PvoyxwCFzN7VLQ06ZRkH8hACeikn0xmkOW/W+Swr2K60xQt9xWUczXP
+	 3FclL3Mu64/fQ==
+Date: Fri, 09 Jan 2026 05:29:07 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 2/7] qcom-tgu: Add TGU driver
-To: Songwei Chai <songwei.chai@oss.qualcomm.com>, andersson@kernel.org,
-        alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
-        suzuki.poulose@arm.com, james.clark@arm.com, krzk+dt@kernel.org,
-        conor+dt@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
-        devicetree@vger.kernel.org, gregkh@linuxfoundation.org
-References: <20260109021141.3778421-1-songwei.chai@oss.qualcomm.com>
- <20260109021141.3778421-3-songwei.chai@oss.qualcomm.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260109021141.3778421-3-songwei.chai@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: G8xYQZbJHCFB6-ou1mJZ0B5hYYthZ1RN
-X-Authority-Analysis: v=2.4 cv=EazFgfmC c=1 sm=1 tr=0 ts=6960e668 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=RlaAdA2wXV2HMp-xn2gA:9
- a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22
-X-Proofpoint-GUID: G8xYQZbJHCFB6-ou1mJZ0B5hYYthZ1RN
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA5MDA4NCBTYWx0ZWRfXwdekoqTXJ8xH
- OlXQj+yiTun3L66p8T21ZmKTkR/p7ROeLYK6vsOEdRJrzr+ZPTinEDamMZnIZYwN6yaZjAH7AMr
- JlwC5LbI6lRoatJgya/qeborKU2wgCelf/UYjzV+mAT6iFzPIha2pV30tMDHHpQl3eXBDfWheCV
- 940jMd7Xx9lytzYC4n5/ZW7h6l5WJEtwgN/l/skltIQRaStUXGQEXzX8VZ9uF3NodGOX2fRoeVA
- 9PxSdN9vwfD9jkhWgAjXLQC8UTL0kCj1bSYa210rcWnYOKQf25Uzv0h9oFz14wn6N1HHQVy0fyH
- xubtSqicn/4x5kbtz2gZ6uqnEsymayE3l/j5gCkx4s3YJLlCHNg2hyQywT4NdiL1j5K49kdjr14
- Y72C5KzC/ut+vOoOwBADQ4R6WjsPzhgu/P6/naUwjfinTZyWDaWAN2UE/5U8KYdDBHjYhrVjcU6
- Wlby6y4363mySLiHZww==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-09_03,2026-01-08_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 spamscore=0 adultscore=0 impostorscore=0 priorityscore=1501
- malwarescore=0 bulkscore=0 lowpriorityscore=0 phishscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601090084
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: SriNavmani A <srinavmani@axiado.com>, Vinod Koul <vkoul@kernel.org>, 
+ Adrian Hunter <adrian.hunter@intel.com>, openbmc@lists.ozlabs.org, 
+ Neil Armstrong <neil.armstrong@linaro.org>, devicetree@vger.kernel.org, 
+ Ulf Hansson <ulf.hansson@linaro.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Michal Simek <michal.simek@amd.com>, linux-mmc@vger.kernel.org
+To: Tzu-Hao Wei <twei@axiado.com>
+In-Reply-To: <20260109-axiado-ax3000-add-emmc-host-driver-support-v2-1-934f1a61f7c0@axiado.com>
+References: <20260109-axiado-ax3000-add-emmc-host-driver-support-v2-0-934f1a61f7c0@axiado.com>
+ <20260109-axiado-ax3000-add-emmc-host-driver-support-v2-1-934f1a61f7c0@axiado.com>
+Message-Id: <176795814783.2967277.2609413382098901076.robh@kernel.org>
+Subject: Re: [PATCH v2 1/2] dt-bindings: mmc: arasan,sdhci: Add Axiado
+ AX3000 SoC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_032841_860962_FB124077 
-X-CRM114-Status: GOOD (  34.24  )
+X-CRM114-CacheID: sfid-20260109_032911_972156_3FA00705 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,348 +80,45 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 1/9/2026 10:11 AM, Songwei Chai wrote:
-> Add driver to support device TGU (Trigger Generation Unit).
-> TGU is a Data Engine which can be utilized to sense a plurality of
-> signals and create a trigger into the CTI or generate interrupts to
-> processors. Add probe/enable/disable functions for tgu.
+On Fri, 09 Jan 2026 17:46:25 +0800, Tzu-Hao Wei wrote:
+> From: SriNavmani A <srinavmani@axiado.com>
 > 
-> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
+> Add compatible strings for Axiado AX3000 SoC eMMC controller which
+> is based on Arasan eMMC controller.
+> 
+> Signed-off-by: SriNavmani A <srinavmani@axiado.com>
+> Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
 > ---
->   .../ABI/testing/sysfs-bus-amba-devices-tgu    |   9 +
->   drivers/Makefile                              |   1 +
->   drivers/hwtracing/Kconfig                     |   2 +
->   drivers/hwtracing/qcom/Kconfig                |  18 ++
->   drivers/hwtracing/qcom/Makefile               |   3 +
->   drivers/hwtracing/qcom/tgu.c                  | 176 ++++++++++++++++++
->   drivers/hwtracing/qcom/tgu.h                  |  51 +++++
-
-drivers/hwtracing/qcom is a new dir, I suppose this patch series will go 
-through QCOM tree? If Yes, I think it's better to update the MAINTAINER 
-file to add QCOM maintainers for maintaining this dir. Otherwise the 
-get_maintainer script can not obtain proper reviewer&maintainer for 
-reviewing.
-
-Thanks,
-Jie
-
->   7 files changed, 260 insertions(+)
->   create mode 100644 Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
->   create mode 100644 drivers/hwtracing/qcom/Kconfig
->   create mode 100644 drivers/hwtracing/qcom/Makefile
->   create mode 100644 drivers/hwtracing/qcom/tgu.c
->   create mode 100644 drivers/hwtracing/qcom/tgu.h
+>  Documentation/devicetree/bindings/mmc/arasan,sdhci.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
 > 
-> diff --git a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-> new file mode 100644
-> index 000000000000..56ec3f5ab5d6
-> --- /dev/null
-> +++ b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-> @@ -0,0 +1,9 @@
-> +What:		/sys/bus/amba/devices/<tgu-name>/enable_tgu
-> +Date:		January 2026
-> +KernelVersion	6.19
-> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
-> +Description:
-> +		(RW) Set/Get the enable/disable status of TGU
-> +		Accepts only one of the 2 values -  0 or 1.
-> +		0 : disable TGU.
-> +		1 : enable TGU.
-> diff --git a/drivers/Makefile b/drivers/Makefile
-> index ccc05f1eae3e..9608a3debb1f 100644
-> --- a/drivers/Makefile
-> +++ b/drivers/Makefile
-> @@ -177,6 +177,7 @@ obj-$(CONFIG_RAS)		+= ras/
->   obj-$(CONFIG_USB4)		+= thunderbolt/
->   obj-$(CONFIG_CORESIGHT)		+= hwtracing/coresight/
->   obj-y				+= hwtracing/intel_th/
-> +obj-y				+= hwtracing/qcom/
->   obj-$(CONFIG_STM)		+= hwtracing/stm/
->   obj-$(CONFIG_HISI_PTT)		+= hwtracing/ptt/
->   obj-y				+= android/
-> diff --git a/drivers/hwtracing/Kconfig b/drivers/hwtracing/Kconfig
-> index 911ee977103c..8a640218eed8 100644
-> --- a/drivers/hwtracing/Kconfig
-> +++ b/drivers/hwtracing/Kconfig
-> @@ -7,4 +7,6 @@ source "drivers/hwtracing/intel_th/Kconfig"
->   
->   source "drivers/hwtracing/ptt/Kconfig"
->   
-> +source "drivers/hwtracing/qcom/Kconfig"
-> +
->   endmenu
-> diff --git a/drivers/hwtracing/qcom/Kconfig b/drivers/hwtracing/qcom/Kconfig
-> new file mode 100644
-> index 000000000000..d6f6d4b0f28e
-> --- /dev/null
-> +++ b/drivers/hwtracing/qcom/Kconfig
-> @@ -0,0 +1,18 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +#
-> +# QCOM specific hwtracing drivers
-> +#
-> +menu "Qualcomm specific hwtracing drivers"
-> +
-> +config QCOM_TGU
-> +	tristate "QCOM Trigger Generation Unit driver"
-> +	help
-> +	  This driver provides support for Trigger Generation Unit that is
-> +	  used to detect patterns or sequences on a given set of signals.
-> +	  TGU is used to monitor a particular bus within a given region to
-> +	  detect illegal transaction sequences or slave responses. It is also
-> +	  used to monitor a data stream to detect protocol violations and to
-> +	  provide a trigger point for centering data around a specific event
-> +	  within the trace data buffer.
-> +
-> +endmenu
-> diff --git a/drivers/hwtracing/qcom/Makefile b/drivers/hwtracing/qcom/Makefile
-> new file mode 100644
-> index 000000000000..5a0a868c1ea0
-> --- /dev/null
-> +++ b/drivers/hwtracing/qcom/Makefile
-> @@ -0,0 +1,3 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +
-> +obj-$(CONFIG_QCOM_TGU) += tgu.o
-> diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
-> new file mode 100644
-> index 000000000000..c5b2b384e6ae
-> --- /dev/null
-> +++ b/drivers/hwtracing/qcom/tgu.c
-> @@ -0,0 +1,176 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-> + */
-> +
-> +#include <linux/amba/bus.h>
-> +#include <linux/device.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/pm_runtime.h>
-> +
-> +#include "tgu.h"
-> +
-> +static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
-> +{
-> +	TGU_UNLOCK(drvdata->base);
-> +	/* Enable TGU to program the triggers */
-> +	writel(1, drvdata->base + TGU_CONTROL);
-> +	TGU_LOCK(drvdata->base);
-> +}
-> +
-> +static int tgu_enable(struct device *dev)
-> +{
-> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-> +
-> +	guard(spinlock)(&drvdata->lock);
-> +	if (drvdata->enable)
-> +		return -EBUSY;
-> +
-> +	tgu_write_all_hw_regs(drvdata);
-> +	drvdata->enable = true;
-> +
-> +	return 0;
-> +}
-> +
-> +static void tgu_disable(struct device *dev)
-> +{
-> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-> +
-> +	guard(spinlock)(&drvdata->lock);
-> +	if (drvdata->enable) {
-> +		TGU_UNLOCK(drvdata->base);
-> +		writel(0, drvdata->base + TGU_CONTROL);
-> +		TGU_LOCK(drvdata->base);
-> +
-> +		drvdata->enable = false;
-> +	}
-> +}
-> +
-> +static ssize_t enable_tgu_show(struct device *dev,
-> +				struct device_attribute *attr, char *buf)
-> +{
-> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-> +	bool enabled;
-> +
-> +	guard(spinlock)(&drvdata->lock);
-> +	enabled = drvdata->enable;
-> +
-> +	return sysfs_emit(buf, "%d\n", enabled ? 1 : 0);
-> +}
-> +
-> +/* enable_tgu_store - Configure Trace and Gating Unit (TGU) triggers. */
-> +static ssize_t enable_tgu_store(struct device *dev,
-> +				struct device_attribute *attr,
-> +				const char *buf,
-> +				size_t size)
-> +{
-> +	unsigned long val;
-> +	int ret = 0;
-> +
-> +	ret = kstrtoul(buf, 0, &val);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (val) {
-> +		ret = pm_runtime_resume_and_get(dev);
-> +		if (ret)
-> +			return ret;
-> +		ret = tgu_enable(dev);
-> +		if (ret) {
-> +			pm_runtime_put(dev);
-> +			return ret;
-> +		}
-> +	} else {
-> +		tgu_disable(dev);
-> +		pm_runtime_put(dev);
-> +	}
-> +
-> +	return size;
-> +}
-> +static DEVICE_ATTR_RW(enable_tgu);
-> +
-> +static struct attribute *tgu_common_attrs[] = {
-> +	&dev_attr_enable_tgu.attr,
-> +	NULL,
-> +};
-> +
-> +static const struct attribute_group tgu_common_grp = {
-> +	.attrs = tgu_common_attrs,
-> +	NULL,
-> +};
-> +
-> +static const struct attribute_group *tgu_attr_groups[] = {
-> +	&tgu_common_grp,
-> +	NULL,
-> +};
-> +
-> +static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
-> +{
-> +	struct device *dev = &adev->dev;
-> +	struct tgu_drvdata *drvdata;
-> +	int ret;
-> +
-> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-> +	if (!drvdata)
-> +		return -ENOMEM;
-> +
-> +	drvdata->dev = &adev->dev;
-> +	dev_set_drvdata(dev, drvdata);
-> +
-> +	drvdata->base = devm_ioremap_resource(dev, &adev->res);
-> +	if (IS_ERR(drvdata->base))
-> +		return PTR_ERR(drvdata->base);
-> +
-> +	spin_lock_init(&drvdata->lock);
-> +
-> +	ret = sysfs_create_groups(&dev->kobj, tgu_attr_groups);
-> +	if (ret) {
-> +		dev_err(dev, "failed to create sysfs groups: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	drvdata->enable = false;
-> +
-> +	pm_runtime_put(&adev->dev);
-> +	return 0;
-> +}
-> +
-> +static void tgu_remove(struct amba_device *adev)
-> +{
-> +	struct device *dev = &adev->dev;
-> +
-> +	sysfs_remove_groups(&dev->kobj, tgu_attr_groups);
-> +
-> +	tgu_disable(dev);
-> +}
-> +
-> +static const struct amba_id tgu_ids[] = {
-> +	{
-> +		.id = 0x000f0e00,
-> +		.mask = 0x000fffff,
-> +	},
-> +	{ 0, 0, NULL },
-> +};
-> +
-> +MODULE_DEVICE_TABLE(amba, tgu_ids);
-> +
-> +static struct amba_driver tgu_driver = {
-> +	.drv = {
-> +		.name = "qcom-tgu",
-> +		.suppress_bind_attrs = true,
-> +	},
-> +	.probe = tgu_probe,
-> +	.remove = tgu_remove,
-> +	.id_table = tgu_ids,
-> +};
-> +
-> +module_amba_driver(tgu_driver);
-> +
-> +MODULE_AUTHOR("Songwei Chai <songwei.chai@oss.qualcomm.com>");
-> +MODULE_AUTHOR("Jinlong Mao <jinlong.mao@oss.qualcomm.com>");
-> +MODULE_DESCRIPTION("Qualcomm Trigger Generation Unit driver");
-> +MODULE_LICENSE("GPL");
-> diff --git a/drivers/hwtracing/qcom/tgu.h b/drivers/hwtracing/qcom/tgu.h
-> new file mode 100644
-> index 000000000000..b11cfb28261d
-> --- /dev/null
-> +++ b/drivers/hwtracing/qcom/tgu.h
-> @@ -0,0 +1,51 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-> + */
-> +
-> +#ifndef _QCOM_TGU_H
-> +#define _QCOM_TGU_H
-> +
-> +/* Register addresses */
-> +#define TGU_CONTROL 0x0000
-> +#define TGU_LAR		0xfb0
-> +#define TGU_UNLOCK_OFFSET	0xc5acce55
-> +
-> +static inline void TGU_LOCK(void __iomem *addr)
-> +{
-> +	do {
-> +		/* Wait for things to settle */
-> +		mb();
-> +		writel_relaxed(0x0, addr + TGU_LAR);
-> +	} while (0);
-> +}
-> +
-> +static inline void TGU_UNLOCK(void __iomem *addr)
-> +{
-> +	do {
-> +		writel_relaxed(TGU_UNLOCK_OFFSET, addr + TGU_LAR);
-> +		/* Make sure everyone has seen this */
-> +		mb();
-> +	} while (0);
-> +}
-> +
-> +/**
-> + * struct tgu_drvdata - Data structure for a TGU (Trigger Generator Unit)
-> + * @base: Memory-mapped base address of the TGU device
-> + * @dev: Pointer to the associated device structure
-> + * @lock: Spinlock for handling concurrent access
-> + * @enable: Flag indicating whether the TGU device is enabled
-> + *
-> + * This structure defines the data associated with a TGU device,
-> + * including its base address, device pointers, clock, spinlock for
-> + * synchronization, trigger data pointers, maximum limits for various
-> + * trigger-related parameters, and enable status.
-> + */
-> +struct tgu_drvdata {
-> +	void __iomem *base;
-> +	struct device *dev;
-> +	spinlock_t lock;
-> +	bool enable;
-> +};
-> +
-> +#endif
+
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/phy/axiado,ax3000-emmc-phy.yaml: properties:compatible:const: ['axiado,ax3000-emmc-phy'] is not of type 'integer', 'string'
+	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/phy/axiado,ax3000-emmc-phy.yaml: properties:compatible:const: ['axiado,ax3000-emmc-phy'] is not of type 'string'
+	from schema $id: http://devicetree.org/meta-schemas/string-array.yaml
+Documentation/devicetree/bindings/phy/axiado,ax3000-emmc-phy.example.dtb: /example-0/phy@80801c00: failed to match any schema with compatible: ['axiado,ax3000-emmc-phy']
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260109-axiado-ax3000-add-emmc-host-driver-support-v2-1-934f1a61f7c0@axiado.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
