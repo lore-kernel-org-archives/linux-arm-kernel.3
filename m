@@ -4,75 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92433D26D75
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:44:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD8ECD26D6F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:57:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gle3fpjXWA8GXebZ4Rd6oL6XuWOo7rRXRmEiq7CHnwM=; b=JFLz8yYbX5WqsBmw8F9KDAV26y
-	xtdZQQWTKC4ClyrLeXfau2Jbl0WFZy+pFaYpNBj/8HLWectCIq6WkgUwXAIlQpHyiR+xc8bnwWNBF
-	WMpAiTOzCy9VNN6IfZnfurWLBRWqsuuigWwFPcLdAfT4XeYQv0BHaUsYI6xYw9cfB1X69wjhc+tkZ
-	kxdP5AG+pOnh3fFGWc65DNAIfOBnP8CeTK8ghxvdIn0wn/KyU7HSa92qkpaFst7h4FVMoCeBmp6B8
-	Xj9RbINQ9TuIvIquXUdIaJclQeCcpxcewcOlUhcJ1SFNExAPcE/RfN3YHZkwE192VaXJPetsGNTlr
-	+fxYTSUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MpztCWy9ipsSXHs0mL6YjlVmfult44YS26X504J/dJw=; b=AhLKGY161dtBDfk12OJ69PF1HF
+	UK8Pu0p1oI5MaJ8cU8lpQAMwvJVdApgXUAvyQp24aWOrNqjvD/C77lesU/JCuB6/6cyRsCDNTrMDy
+	SrrAS5usEL30NIGrrShHTLsZkR5SyiVyiohxW0/8LT5Pkoe3SrI0jYzr2dBPko8jC+piDqtWulGTs
+	YobpKqo66M8Fnc68uUl7A0hMW4dSX4qFeTnRkADCdHnfrCYAt0R2LjqtBzsPjMFPbOoAIo+5LBIIz
+	7MVfftJ1g/jkS3fTFo67rfyUYQzCUfa7ltgCUwwL5Jz0N739lFJhYeMfIYSKu+dxgMjL671ayRrnj
+	E14Vj0Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veFac-00000002dvb-0TXF;
-	Fri, 09 Jan 2026 16:43:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1veFnr-00000002fDu-1VAG;
+	Fri, 09 Jan 2026 16:57:35 +0000
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veFaZ-00000002duu-1Sgu
+	id 1veFno-00000002fDL-46Lh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 16:43:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B8E9743247;
-	Fri,  9 Jan 2026 16:43:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C776C4CEF7;
-	Fri,  9 Jan 2026 16:43:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767977030;
-	bh=+RnyNDAFYZmy9UXiV2xcpvmL7grvkNRrzz2vsXKxrpM=;
-	h=From:Date:Subject:To:Cc:From;
-	b=uCMKfyYfKXY9HxJ66OR3+1hNu7gwaPm2opxFTnTBcd7SU248Vr0oA7SC2QWVg4gu8
-	 3V+kM8VpSwTRe9comxh/3xNQnGsacnM1ZdI5Q8ko8zG7ldx28RsjtdZzjNVw7nV7ox
-	 C/cZ6u7co3oMSoXvzv+FehvSvx34/SweSzOpuIUaPnImP3/G19IjPP062bmhKh2Dyy
-	 8jDOqWXesy+VTBRoO07EpfyloSBvdtztcztUuIdWnHwAKJewRhtM7xh33BLEuaOjJB
-	 AH1eFub1Fsb6wV1Lq2dfDriN5A9bgg3+NpEM41Q2OQ57ZZYr+ZramWRaLCvElvR+EV
-	 5j1x6d7jj66mg==
-From: Sven Peter <sven@kernel.org>
-Date: Fri, 09 Jan 2026 17:43:34 +0100
-Subject: [PATCH v2] usb: dwc3: apple: Set USB2 PHY mode before dwc3 init
+	Fri, 09 Jan 2026 16:57:34 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-4ee147baf7bso486541cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 08:57:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1767977851; cv=none;
+        d=google.com; s=arc-20240605;
+        b=j42PZKP19gmeD+B0QfyeK9OiTUyJdtCc2ENnZRmULUznyuGLESkVGi6OxoJoaxm2CD
+         ZLnh7v/VwurecRjRaZKqyoymD6sO4HZVyytnO4kFtVl809zj1Pohb1x9IDHyRvl2SweQ
+         7E7iGewK7VOyvs7M1Q/CtDPLuEW7U8JqaYncBHcOC+mwwIVIMn4DiU7oNPXX23NW+Z3M
+         5Ffmb2YcTZx6foz93Z1v1sNOhFUQ7DnXNCxB6GzvqPA9aW+3kzRkkAEtH3Hsw24yMLTZ
+         HPKIWtHecQKeZRdu64sHcSBAuhNGgrFdxMYznlI3ttw431qVZPIMKabJy+X4RobuzXB+
+         OeIA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=MpztCWy9ipsSXHs0mL6YjlVmfult44YS26X504J/dJw=;
+        fh=F3NxZjKJEMXTuejoIUGjGQYIvskwyGftW7NKuk4tRJY=;
+        b=Xnlhp/jF3rQYZ49mJS74Ywrk9Q8XbFfsWEsZT5jh472WklmuvBbNmqxlz7LweHLpyG
+         uXKudSOWwb1mOAS6Nvt4gUe0H+9Ki75W83A/Bh1z+VMpntSECXnCZXrtlbuz63bia7e3
+         PcBUQx/rj9v7Q+cYFOenLJ3dVL6CFwbmo6s3Hhg0f0UQF5CnAYDjGqegHGQnXSysp/8F
+         e5iDHft/RGIo8HEds09XEe4D9qkHykiR6N/xvdcneZQqiOYdzGCTHeNH6wezAncbNrQ9
+         dVDahK04+nkNWbEaM5j9bNu6ipkSk51XSTWa3QsKyPlqUlHVs9GTIpS8/raXkWaXHWdp
+         L7GQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1767977851; x=1768582651; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=MpztCWy9ipsSXHs0mL6YjlVmfult44YS26X504J/dJw=;
+        b=r8rDngaEqEpEXz/spg3XW51TvwLtxMWz80h8VkQ3Jr5yr8oqofIDZflgN2bvZfqEBS
+         bgbslkU6/8WCVUs2ysZM6spit4JhahLBBeND6/NGi/61YhziEznR/CahB9Npz1/VurSq
+         9ml84rVd79L+7VK9baE0Xu+lLTfBuEXCRKHK51a8YxQxWYVMvL1Ey1v/wvQ5uPngGWsg
+         XYhWpx16//K8qRPKxemoZn7mmO4DXwX2okhTe3XtVVFJ4QiNwhQVkjbHQOwchMLZ53SI
+         CWe8nR0n4NS0cURdMii9LfuPGS/6ROvR+JFanEeCVRrRZ+ME+hTNpJqjv6L18ji6QRa5
+         KLew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767977851; x=1768582651;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MpztCWy9ipsSXHs0mL6YjlVmfult44YS26X504J/dJw=;
+        b=lP+MSgHY/YEK8SsTlC/60HKjh5PsNPQLUeTRg5qvq+Xl6laLZ4JceQB8gKol6KEgUl
+         UAyC3AxLkeKbQnnsaOCeCyLU+n9PXwjLbXQih48yLumCkNqwWY4elUfE/G48YWci/hEL
+         FNdBdgM4Or6MlsdIJ99L2YtILKddMt1FbLdpDQM0ivcQPj2tqasRZan1WKZJ+mol2Awz
+         vAHpsEbThbOm2eli8eXuxdT9oC58jZ7ssTXesTfB/0id09tlN8AauZbRvmw0tl9iFmgX
+         pTqX2voJ52nWZ++FNQD+hMr1XcjDUzVNj0qauSr6hZZwCZbTbFrs05jmUAKaWPQRO9k+
+         j0PQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUjUhF7E3yBNIdTIDoOmv1wMaCnWRiS/3XEYEF0AplfT407alCtR30UwEoR9lB4PS9h2lWykB7zWpJ2eefuIzgT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzk5jvaoXkUAB2Yl1WdW2fJW4pIT+7uRvE/vJRRXhIBhYmrgUZZ
+	rER8x5GKdyCdQkC5FCZ3IJFVNrJB/bEoYmR7Y16RYO5XWkkK5jzNq6mIoM8C+2pwcaYFZs70c5v
+	1vv87s2i5qUv/gKUwQzmVmcXRQEq0TSGx7h+RtApO
+X-Gm-Gg: AY/fxX4eXDQjMONcsxO2cDPv5gHkUWCDGUa4jjdRKFlaI5Mr1QzmRYQmH2PD3YUCNoK
+	GoFbVv5lv5HSVsj1YmHhJF+kmAn7WCB/Y/uHaQH8zwhwl/MjsPe20wHdc5Vdg+DY2xXVgx6Q20O
+	z0g0IOJjSJvKqS7WyLOl0x2Jw1SiyToDik+yi5S9K4DZwRRVzylpIYoXg1w8u8c18WEFSY96aYt
+	sJrI7OJpgIlvIkuv+nBM5NTl+UW9yD3sLJbN+/LUcBYNJMVN08XZNNaFd46yGFjaCA16c1t
+X-Received: by 2002:a05:622a:198e:b0:4e8:aa24:80ec with SMTP id
+ d75a77b69052e-4ffca38a667mr12955411cf.14.1767977851098; Fri, 09 Jan 2026
+ 08:57:31 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260109-dwc3-apple-usb2phy-fix-v2-1-ab6b041e3b26@kernel.org>
-X-B4-Tracking: v=1; b=H4sIADUwYWkC/4WNTQ6CMBBGr0Jm7Zi2IhJX3MOwgM5AGwk0rVYJ6
- d0tXMDle/l+NgjsLQe4Fxt4jjbYZc6gTgVo080jo6XMoISqhBQ10kdfsHNuYnyHXjmz4mC/qAd
- Je6ImEpDLznPWx/CjzWxseC1+PX6i3O3fyShR4pXo1uuqVKIUzZP9zNN58SO0KaUfsOiour0AA
- AA=
-X-Change-ID: 20260108-dwc3-apple-usb2phy-fix-cf1d26018dd0
-To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
- James Calligeros <jcalligeros99@gmail.com>, stable@vger.kernel.org, 
- Sven Peter <sven@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5121; i=sven@kernel.org;
- h=from:subject:message-id; bh=+RnyNDAFYZmy9UXiV2xcpvmL7grvkNRrzz2vsXKxrpM=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ2aigeUndpGO6asUCg27Qieb/eu0U5rkcv+Pv0jppRk2j
- NOc3+R1lLIwiHExyIopsmzfb2/65OEbwaWbLr2HmcPKBDKEgYtTACaSv5nhf5aWNc/9SW33nwfq
- 20+5JJLzeG3LvuAj34pmhRiX1B1LMmJkOBNlHnvc/5j/La9jGp2t+SePcSqUmZTNfiriILo/vHs
- xKwA=
-X-Developer-Key: i=sven@kernel.org; a=openpgp;
- fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org> <20251223-kvm-arm64-sme-v9-16-8be3867cb883@kernel.org>
+In-Reply-To: <20251223-kvm-arm64-sme-v9-16-8be3867cb883@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Fri, 9 Jan 2026 16:57:00 +0000
+X-Gm-Features: AZwV_QiwST85CNc25KZYMBDJwxaQzBlftzyvIde5n_9dAYz2SEbvmx43n1faTzI
+Message-ID: <CA+EHjTwTmjNEV+4w8w=LXfR0g_v7yHk1pQD+Oos8V3vFfEVdMw@mail.gmail.com>
+Subject: Re: [PATCH v9 16/30] KVM: arm64: Support TPIDR2_EL0
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, Peter Maydell <peter.maydell@linaro.org>, 
+	Eric Auger <eric.auger@redhat.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_084351_449070_E9211CD1 
-X-CRM114-Status: GOOD (  19.23  )
+X-CRM114-CacheID: sfid-20260109_085733_071124_027D4FE9 
+X-CRM114-Status: GOOD (  24.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,121 +120,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the upstream code has been getting broader test coverage by our
-users we occasionally see issues with USB2 devices plugged in during boot.
-Before Linux is running, the USB2 PHY has usually been running in device
-mode and it turns out that sometimes host->device or device->host
-transitions don't work.
-The root cause: If the role inside the USB2 PHY is re-configured when it
-has already been powered on or when dwc3 has already enabled the ULPI
-interface the new configuration sometimes doesn't take affect until dwc3
-is reset again. Fix this rare issue by configuring the role much earlier.
-Note that the USB3 PHY does not suffer from this issue and actually
-requires dwc3 to be up before the correct role can be configured there.
+On Tue, 23 Dec 2025 at 01:22, Mark Brown <broonie@kernel.org> wrote:
+>
+> SME adds a new thread ID register, TPIDR2_EL0. This is used in userspace
+> for delayed saving of the ZA state but in terms of the architecture is
+> not really connected to SME other than being part of FEAT_SME. It has an
+> independent fine grained trap and the runtime connection with the rest
+> of SME is purely software defined.
+>
+> Expose the register as a system register if the guest supports SME,
+> context switching it along with the other EL0 TPIDRs.
+>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 
-Reported-by: James Calligeros <jcalligeros99@gmail.com>
-Reported-by: Janne Grunau <j@jannau.net>
-Fixes: 0ec946d32ef7 ("usb: dwc3: Add Apple Silicon DWC3 glue layer driver")
-Cc: stable@vger.kernel.org
-Tested-by: Janne Grunau <j@jannau.net>
-Reviewed-by: Janne Grunau <j@jannau.net>
-Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Signed-off-by: Sven Peter <sven@kernel.org>
----
-Changes in v2:
-- Picked up tags, thanks!
-- Fixed a typo in the commit messages (dwc2 -> dwc3)
-- Link to v1: https://patch.msgid.link/20260108-dwc3-apple-usb2phy-fix-v1-1-5dd7bc642040@kernel.org
----
- drivers/usb/dwc3/dwc3-apple.c | 48 +++++++++++++++++++++++++++++--------------
- 1 file changed, 33 insertions(+), 15 deletions(-)
+Reviewed-by: Fuad Tabba <tabba@google.com>
 
-diff --git a/drivers/usb/dwc3/dwc3-apple.c b/drivers/usb/dwc3/dwc3-apple.c
-index cc47cad232e397ac4498b09165dfdb5bd215ded7..c2ae8eb21d514e5e493d2927bc12908c308dfe19 100644
---- a/drivers/usb/dwc3/dwc3-apple.c
-+++ b/drivers/usb/dwc3/dwc3-apple.c
-@@ -218,25 +218,31 @@ static int dwc3_apple_core_init(struct dwc3_apple *appledwc)
- 	return ret;
- }
- 
--static void dwc3_apple_phy_set_mode(struct dwc3_apple *appledwc, enum phy_mode mode)
--{
--	lockdep_assert_held(&appledwc->lock);
--
--	/*
--	 * This platform requires SUSPHY to be enabled here already in order to properly configure
--	 * the PHY and switch dwc3's PIPE interface to USB3 PHY.
--	 */
--	dwc3_enable_susphy(&appledwc->dwc, true);
--	phy_set_mode(appledwc->dwc.usb2_generic_phy[0], mode);
--	phy_set_mode(appledwc->dwc.usb3_generic_phy[0], mode);
--}
--
- static int dwc3_apple_init(struct dwc3_apple *appledwc, enum dwc3_apple_state state)
- {
- 	int ret, ret_reset;
- 
- 	lockdep_assert_held(&appledwc->lock);
- 
-+	/*
-+	 * The USB2 PHY on this platform must be configured for host or device mode while it is
-+	 * still powered off and before dwc3 tries to access it. Otherwise, the new configuration
-+	 * will sometimes only take affect after the *next* time dwc3 is brought up which causes
-+	 * the connected device to just not work.
-+	 * The USB3 PHY must be configured later after dwc3 has already been initialized.
-+	 */
-+	switch (state) {
-+	case DWC3_APPLE_HOST:
-+		phy_set_mode(appledwc->dwc.usb2_generic_phy[0], PHY_MODE_USB_HOST);
-+		break;
-+	case DWC3_APPLE_DEVICE:
-+		phy_set_mode(appledwc->dwc.usb2_generic_phy[0], PHY_MODE_USB_DEVICE);
-+		break;
-+	default:
-+		/* Unreachable unless there's a bug in this driver */
-+		return -EINVAL;
-+	}
-+
- 	ret = reset_control_deassert(appledwc->reset);
- 	if (ret) {
- 		dev_err(appledwc->dev, "Failed to deassert reset, err=%d\n", ret);
-@@ -257,7 +263,13 @@ static int dwc3_apple_init(struct dwc3_apple *appledwc, enum dwc3_apple_state st
- 	case DWC3_APPLE_HOST:
- 		appledwc->dwc.dr_mode = USB_DR_MODE_HOST;
- 		dwc3_apple_set_ptrcap(appledwc, DWC3_GCTL_PRTCAP_HOST);
--		dwc3_apple_phy_set_mode(appledwc, PHY_MODE_USB_HOST);
-+		/*
-+		 * This platform requires SUSPHY to be enabled here already in order to properly
-+		 * configure the PHY and switch dwc3's PIPE interface to USB3 PHY. The USB2 PHY
-+		 * has already been configured to the correct mode earlier.
-+		 */
-+		dwc3_enable_susphy(&appledwc->dwc, true);
-+		phy_set_mode(appledwc->dwc.usb3_generic_phy[0], PHY_MODE_USB_HOST);
- 		ret = dwc3_host_init(&appledwc->dwc);
- 		if (ret) {
- 			dev_err(appledwc->dev, "Failed to initialize host, ret=%d\n", ret);
-@@ -268,7 +280,13 @@ static int dwc3_apple_init(struct dwc3_apple *appledwc, enum dwc3_apple_state st
- 	case DWC3_APPLE_DEVICE:
- 		appledwc->dwc.dr_mode = USB_DR_MODE_PERIPHERAL;
- 		dwc3_apple_set_ptrcap(appledwc, DWC3_GCTL_PRTCAP_DEVICE);
--		dwc3_apple_phy_set_mode(appledwc, PHY_MODE_USB_DEVICE);
-+		/*
-+		 * This platform requires SUSPHY to be enabled here already in order to properly
-+		 * configure the PHY and switch dwc3's PIPE interface to USB3 PHY. The USB2 PHY
-+		 * has already been configured to the correct mode earlier.
-+		 */
-+		dwc3_enable_susphy(&appledwc->dwc, true);
-+		phy_set_mode(appledwc->dwc.usb3_generic_phy[0], PHY_MODE_USB_DEVICE);
- 		ret = dwc3_gadget_init(&appledwc->dwc);
- 		if (ret) {
- 			dev_err(appledwc->dev, "Failed to initialize gadget, ret=%d\n", ret);
+Cheers,
+/fuad
 
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20260108-dwc3-apple-usb2phy-fix-cf1d26018dd0
 
-Best regards,
--- 
-Sven Peter <sven@kernel.org>
-
+> ---
+>  arch/arm64/include/asm/kvm_host.h          |  1 +
+>  arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h | 15 +++++++++++++++
+>  arch/arm64/kvm/sys_regs.c                  |  3 ++-
+>  3 files changed, 18 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index f24441244a68..825b74f752d6 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -448,6 +448,7 @@ enum vcpu_sysreg {
+>         CSSELR_EL1,     /* Cache Size Selection Register */
+>         TPIDR_EL0,      /* Thread ID, User R/W */
+>         TPIDRRO_EL0,    /* Thread ID, User R/O */
+> +       TPIDR2_EL0,     /* Thread ID, Register 2 */
+>         TPIDR_EL1,      /* Thread ID, Privileged */
+>         CNTKCTL_EL1,    /* Timer Control Register (EL1) */
+>         PAR_EL1,        /* Physical Address Register */
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+> index 5624fd705ae3..8c3b3d6df99f 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+> @@ -88,6 +88,17 @@ static inline bool ctxt_has_sctlr2(struct kvm_cpu_context *ctxt)
+>         return kvm_has_sctlr2(kern_hyp_va(vcpu->kvm));
+>  }
+>
+> +static inline bool ctxt_has_sme(struct kvm_cpu_context *ctxt)
+> +{
+> +       struct kvm_vcpu *vcpu;
+> +
+> +       if (!system_supports_sme())
+> +               return false;
+> +
+> +       vcpu = ctxt_to_vcpu(ctxt);
+> +       return kvm_has_sme(kern_hyp_va(vcpu->kvm));
+> +}
+> +
+>  static inline bool ctxt_is_guest(struct kvm_cpu_context *ctxt)
+>  {
+>         return host_data_ptr(host_ctxt) != ctxt;
+> @@ -127,6 +138,8 @@ static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
+>  {
+>         ctxt_sys_reg(ctxt, TPIDR_EL0)   = read_sysreg(tpidr_el0);
+>         ctxt_sys_reg(ctxt, TPIDRRO_EL0) = read_sysreg(tpidrro_el0);
+> +       if (ctxt_has_sme(ctxt))
+> +               ctxt_sys_reg(ctxt, TPIDR2_EL0)  = read_sysreg_s(SYS_TPIDR2_EL0);
+>  }
+>
+>  static inline void __sysreg_save_el1_state(struct kvm_cpu_context *ctxt)
+> @@ -204,6 +217,8 @@ static inline void __sysreg_restore_user_state(struct kvm_cpu_context *ctxt)
+>  {
+>         write_sysreg(ctxt_sys_reg(ctxt, TPIDR_EL0),     tpidr_el0);
+>         write_sysreg(ctxt_sys_reg(ctxt, TPIDRRO_EL0),   tpidrro_el0);
+> +       if (ctxt_has_sme(ctxt))
+> +               write_sysreg_s(ctxt_sys_reg(ctxt, TPIDR2_EL0), SYS_TPIDR2_EL0);
+>  }
+>
+>  static inline void __sysreg_restore_el1_state(struct kvm_cpu_context *ctxt,
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 5c912139d264..7e550f045f4d 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -3504,7 +3504,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>           .visibility = s1poe_visibility },
+>         { SYS_DESC(SYS_TPIDR_EL0), NULL, reset_unknown, TPIDR_EL0 },
+>         { SYS_DESC(SYS_TPIDRRO_EL0), NULL, reset_unknown, TPIDRRO_EL0 },
+> -       { SYS_DESC(SYS_TPIDR2_EL0), undef_access },
+> +       { SYS_DESC(SYS_TPIDR2_EL0), NULL, reset_unknown, TPIDR2_EL0,
+> +         .visibility = sme_visibility},
+>
+>         { SYS_DESC(SYS_SCXTNUM_EL0), undef_access },
+>
+>
+> --
+> 2.47.3
+>
 
