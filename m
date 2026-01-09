@@ -4,101 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2533D16818
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 12:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C574D1681F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 12:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8T/N0YjJdMPLkCw5fXXL5pxg8eGLGcQ3fujG7tmwcHw=; b=wVrB9OVdQQgNANotcYLuxhATD/
-	cfzcBX3Pdw1LKsGDHJB7mQhrDxqSrz68iCVL79wfMLrRFbkNL5lRzAg8K0DbabVKsDGMh92AMQMVN
-	ZwhfilqJ8ZBg3jFD0jeO5MVF9GU+hlmGIbpcXHg0PLU4sOSSKYSkZHIr+n3ziDE990UPeucM0tp7x
-	s/ftZMlIcjz70Y3CyWD4HwLszSyso2t9qWNsuuhhJvHk7j9vqeJH0kRS9c3l5A9zUfYxwDUpeX9eO
-	2z3w8o0jz6km47n9pjLbmsPUrrG/RdV5ngJg0mZY15kpiCSRdsO1Ztf8sW1y1FvMLMoiv08ensf3+
-	QSAPhF2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MptIO4ksyg9F6O22oNgMjISLOZ/OHNz7yvvYKIuS4f0=; b=4QzHDjjW1RV1su4TzJYJ16YnPm
+	7I7xAfzO6Odf9qLyM3RLH0XFvEQldQHWyamy5aWZKFDSASdKGHn7SD/a+3tl0KJh1/YbENFTNCHXu
+	XKeC4zIFmzYR+KR2fJaMm0uGaSFtTuOLu9phPGvemyeGQBfLdj3nLBlEZ/jiHt4YmBL0m9qwYRZw4
+	YZXsSLJ70VB6v3aBqVF82M1s2AykHFwj3EH2M4QGKabzj4PslC2TLGcsMUQfC4yCtVnKDuq5HSnBW
+	D3u1+zdtsN7CqgcaiIHP5jM6WwJUBsAOIS1Uz+g+TA8Oy+e7OE6M99e2HCMfwXr/njbz31Imw9Hdp
+	fKwdnOSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veBAt-00000002GnQ-3Fgr;
-	Fri, 09 Jan 2026 12:01:05 +0000
-Received: from mail-dl1-x1230.google.com ([2607:f8b0:4864:20::1230])
+	id 1veBBa-00000002Gtz-3uFY;
+	Fri, 09 Jan 2026 12:01:46 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veBAr-00000002Gmb-0gDQ
+	id 1veBBW-00000002Gsh-3MjC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 12:01:02 +0000
-Received: by mail-dl1-x1230.google.com with SMTP id a92af1059eb24-11f42e97340so346826c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 04:00:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767960056; x=1768564856; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=8T/N0YjJdMPLkCw5fXXL5pxg8eGLGcQ3fujG7tmwcHw=;
-        b=u72Ouufw93KI56qIno6+fM0MSQ8UksKzHvK8sqVXlql7yCf6Wp7Wa4KAhubrQY6fZE
-         Vn57GkVvJW2wyKkuDUtUnoS6iiZPc0Xq1FtRg6InxNsfmvdjRXEeQK7tqsPPC1IrGPPx
-         UCqEMC8IaIfOM3AbLXs5ytCGpq0hsdocz+dMP9m3/mbGneRdReFH/2ZdJCoQYGKx1P2v
-         t8mcy5L5M/ArXemRFcujT2c5OZEaNfCoNoz2zuwi9W28Kg6Tju5VPLGzT/kSKjpbXBFI
-         SjK6/1T5tKRuUYk2oybM9TrTZpxgrSjG/ovnq58UfPEDkyarnQeDVnB7Uv5piDhhI4dC
-         4Psw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767960056; x=1768564856;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8T/N0YjJdMPLkCw5fXXL5pxg8eGLGcQ3fujG7tmwcHw=;
-        b=FQ7CzHbgWS5JON2oJL+BfFWQYhOrdvev6KdX3s0S/n4H2nUB5dhD14Bgs5VnpcEqE6
-         wgmKF3NeS0qHg4apCna/OCuRLdO/3dlEcXt2uMyl5SOO7QHmzoXqN7CXZv19uQaZAWof
-         LVyBpNXw7wr3gUMCqnSNVW1xCIdtdscOD9h3rA+WFhHodAJ5dYlHlx7kblbUGNkBqrDL
-         Llb0rncd3FsSEEBWF2sOCMYCT1qT5Q7ZvH3Vzzs+s/H24yK9YmqDpukdTqdLtEbB9ZTU
-         dSFhhT9hjheiiCKObuXXsRqwbRtFtXdNiadEFhJBwIR3LJcfJY1zGGY30MjII2TuqJ26
-         sk4w==
-X-Forwarded-Encrypted: i=1; AJvYcCXU4gVK253KVYn8G+qo/aXyC5a3nPCzE1ZWu6d74ScTKAMlLTPGn373LZVTXNeamb2CjsDHM8GtBtyhnsqh97Ri@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+mVw2SSN1hubYR7ClYJ05Q0/DuZwXAVwaz17C0YwiqXOji6jP
-	f4JgrYWJRnj5WVT5Bi6X0OjEp+ilKWzv66mgK3JYJjAKNgBE1t1JGfqWkh5Gt3cBRPbV1xJyLTt
-	FxUVKcf0/FS/KQHslspl8dhPH1EMoG9K/TPk3fMpn
-X-Gm-Gg: AY/fxX6BVbyxAhQWzTAa7msMNYRclrFQhx3/Zxk9yNBOIPB0U8Aaohl3KAgUXlRKVIY
-	XPnC2SdDZwD54b3GZR0dau+OH12ih651Pd7DkZKLuwU0Q8t3CSBk0PZPVcZIJdmCZUgxFqxGgmF
-	UfAXhk01GB07FlliJNKgzZGB9nu6px5T9jICJ9M4PHPnWlCCC/epz1URIc+cudc24qZktu58LeU
-	+ddyGDSaELUytmTkeCNBkT7tvYCFkdFUFgqufNUU52Jo5cEEnOipZOqFQoTQvv6/UAhjLE3Edb7
-	R4rmAVoGbQneaL2VEbKibIdm1ag=
-X-Google-Smtp-Source: AGHT+IHkqsIfmF0FluQuDu53MIRkzwgbeeQdzuawZsTGXquSsN/434sV7j/4310j+FEbQ9rNU7DnJdRzHaNlwPlcWDM=
-X-Received: by 2002:a05:7022:4199:b0:11b:ca88:c4f7 with SMTP id
- a92af1059eb24-121f8b67cc0mr8303949c88.40.1767960054556; Fri, 09 Jan 2026
- 04:00:54 -0800 (PST)
+	Fri, 09 Jan 2026 12:01:45 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260109120137euoutp02ff8fb4bf486bee58930697c34fc8e205~JDld-CX4U1666816668euoutp02V
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Jan 2026 12:01:37 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260109120137euoutp02ff8fb4bf486bee58930697c34fc8e205~JDld-CX4U1666816668euoutp02V
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1767960097;
+	bh=MptIO4ksyg9F6O22oNgMjISLOZ/OHNz7yvvYKIuS4f0=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=J3FNHwipeIkk54b8svtLBLvDhEFjuGvfRwRzsOR/KqY1ezhnB25BoWCAw1vnnrMm7
+	 oE7DMilVkw8NH8b1FnM801nhvDOFC4qBjwdA9MGwtuzI7exePSwC4TYIrjewI5XYeq
+	 kvciERb4MfdND8Cf8jnrl333ESBppKSPQXRYpvv8=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260109120137eucas1p221b9dd341c2319c0f9d0da1fbd48d1b3~JDldt-SrV1778517785eucas1p2Q;
+	Fri,  9 Jan 2026 12:01:37 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260109120135eusmtip27bce27ce7cb357fdbd1ba01e918d97ed~JDlcHXyH52161121611eusmtip2R;
+	Fri,  9 Jan 2026 12:01:35 +0000 (GMT)
+Message-ID: <e98ad883-7ba2-417b-8cd3-19f5f863b03d@samsung.com>
+Date: Fri, 9 Jan 2026 13:01:35 +0100
 MIME-Version: 1.0
-References: <20251231-rwonce-v1-0-702a10b85278@google.com> <20251231151216.23446b64.gary@garyguo.net>
- <aVXFk0L-FegoVJpC@google.com> <OFUIwAYmy6idQxDq-A3A_s2zDlhfKE9JmkSgcK40K8okU1OE_noL1rN6nUZD03AX6ixo4Xgfhi5C4XLl5RJlfA==@protonmail.internalid>
- <aVXKP8vQ6uAxtazT@tardis-2.local> <87fr8ij4le.fsf@t14s.mail-host-address-is-not-set>
- <aV0JkZdrZn97-d7d@tardis-2.local> <20260106145622.GB3707837@noisy.programming.kicks-ass.net>
- <7fa2c07e-acf9-4f9a-b056-4d4254ea61e5@paulmck-laptop> <CANpmjNPdnuCNTfo=q5VPxAfdvpeAt8DhesQu0jy+9ZpH3DcUnQ@mail.gmail.com>
- <b0f3b2a6-e69c-4718-9f05-607b8c02d745@paulmck-laptop>
-In-Reply-To: <b0f3b2a6-e69c-4718-9f05-607b8c02d745@paulmck-laptop>
-From: Marco Elver <elver@google.com>
-Date: Fri, 9 Jan 2026 13:00:00 +0100
-X-Gm-Features: AQt7F2pBr33IaeEZzEbVtkwEGkq72MjCI-S9aarJ4oQjqFT6bTaIuZHUMWVHI0k
-Message-ID: <CANpmjNNSCNm+A=nKdeSDAkcgiKXMEdcQUeMb4PZxWoP2t-z=3A@mail.gmail.com>
-Subject: Re: [PATCH 0/5] Add READ_ONCE and WRITE_ONCE to Rust
-To: paulmck@kernel.org
-Cc: Peter Zijlstra <peterz@infradead.org>, Boqun Feng <boqun.feng@gmail.com>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Gary Guo <gary@garyguo.net>, Will Deacon <will@kernel.org>, 
-	Richard Henderson <richard.henderson@linaro.org>, Matt Turner <mattst88@gmail.com>, 
-	Magnus Lindholm <linmag7@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Miguel Ojeda <ojeda@kernel.org>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	FUJITA Tomonori <fujita.tomonori@gmail.com>, Frederic Weisbecker <frederic@kernel.org>, 
-	Lyude Paul <lyude@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Anna-Maria Behnsen <anna-maria@linutronix.de>, John Stultz <jstultz@google.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, linux-kernel@vger.kernel.org, 
-	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	rust-for-linux@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	kasan-dev@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH 02/13] ARM: dts: broadcom: bcm2835-rpi: Move non
+ simple-bus nodes to root level
+To: "Rob Herring (Arm)" <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Florian Fainelli
+	<florian.fainelli@broadcom.com>, Broadcom internal kernel review list
+	<bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, Scott
+	Branden <sbranden@broadcom.com>
+Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20260106-dt-dtbs-broadcom-fixes-v1-2-ba45874e4553@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260109120137eucas1p221b9dd341c2319c0f9d0da1fbd48d1b3
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260109120137eucas1p221b9dd341c2319c0f9d0da1fbd48d1b3
+X-EPHeader: CA
+X-CMS-RootMailID: 20260109120137eucas1p221b9dd341c2319c0f9d0da1fbd48d1b3
+References: <20260106-dt-dtbs-broadcom-fixes-v1-0-ba45874e4553@kernel.org>
+	<20260106-dt-dtbs-broadcom-fixes-v1-2-ba45874e4553@kernel.org>
+	<CGME20260109120137eucas1p221b9dd341c2319c0f9d0da1fbd48d1b3@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_040101_246419_981DE5E0 
-X-CRM114-Status: GOOD (  32.50  )
+X-CRM114-CacheID: sfid-20260109_040143_108359_56A9AF65 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,62 +89,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 9 Jan 2026 at 03:09, Paul E. McKenney <paulmck@kernel.org> wrote:
+On 07.01.2026 03:09, Rob Herring (Arm) wrote:
+> The 'gpu' and 'firmware' nodes are not MMIO devices, so they should not be
+> under a 'simple-bus'. Additionally, the "raspberrypi,bcm2835-power" node
+> is part of the firmware, so move it under the /firmware node.
 >
-> On Tue, Jan 06, 2026 at 08:28:41PM +0100, Marco Elver wrote:
-> > On Tue, 6 Jan 2026 at 19:18, 'Paul E. McKenney' via kasan-dev
-> > <kasan-dev@googlegroups.com> wrote:
-> > > On Tue, Jan 06, 2026 at 03:56:22PM +0100, Peter Zijlstra wrote:
-> > > > On Tue, Jan 06, 2026 at 09:09:37PM +0800, Boqun Feng wrote:
-> > > >
-> > > > > Some C code believes a plain write to a properly aligned location is
-> > > > > atomic (see KCSAN_ASSUME_PLAIN_WRITES_ATOMIC, and no, this doesn't mean
-> > > > > it's recommended to assume such), and I guess that's the case for
-> > > > > hrtimer, if it's not much a trouble you can replace the plain write with
-> > > > > WRITE_ONCE() on C side ;-)
-> > > >
-> > > > GCC used to provide this guarantee, some of the older code was written
-> > > > on that. GCC no longer provides that guarantee (there are known cases
-> > > > where it breaks and all that) and newer code should not rely on this.
-> > > >
-> > > > All such places *SHOULD* be updated to use READ_ONCE/WRITE_ONCE.
-> > >
-> > > Agreed!
-> > >
-> > > In that vein, any objections to the patch shown below?
-> >
-> > I'd be in favor, as that's what we did in the very initial version of
-> > KCSAN (we started strict and then loosened things up).
-> >
-> > However, the fallout will be even more perceived "noise", despite
-> > being legitimate data races. These config knobs were added after much
-> > discussion in 2019/2020, somewhere around this discussion (I think
-> > that's the one that spawned KCSAN_REPORT_VALUE_CHANGE_ONLY, can't find
-> > the source for KCSAN_ASSUME_PLAIN_WRITES_ATOMIC):
-> > https://lore.kernel.org/all/CAHk-=wgu-QXU83ai4XBnh7JJUo2NBW41XhLWf=7wrydR4=ZP0g@mail.gmail.com/
->
-> Fair point!
->
-> > While the situation has gotten better since 2020, we still have latent
-> > data races that need some thought (given papering over things blindly
-> > with *ONCE is not right either). My recommendation these days is to
-> > just set CONFIG_KCSAN_STRICT=y for those who care (although I'd wish
-> > everyone cared the same amount :-)).
-> >
-> > Should you feel the below change is appropriate for 2026, feel free to
-> > carry it (consider this my Ack).
-> >
-> > However, I wasn't thinking of tightening the screws until the current
-> > set of known data races has gotten to a manageable amount (say below
-> > 50)
-> > https://syzkaller.appspot.com/upstream?manager=ci2-upstream-kcsan-gce
-> > Then again, on syzbot the config can remain unchanged.
->
-> Is there an easy way to map from a report to the SHA-1 that the
-> corresponding test ran against?  Probably me being blind, but I am not
-> seeing it.  Though I do very much like the symbolic names in those
-> stack traces!
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-When viewing a report page, at the bottom in the "Crashes" table it's
-in the "Commit" column.
+This breaks operation of all drivers under the firmware node. I'm not 
+exactly sure why, but they are not properly instantiated. It must be 
+something specific to "firmware" name, but I didn't dig enough to find 
+exactly where and why.
+
+After changing the "/firmware" node name "xfirmware" everything works again:
+
+
+diff --git a/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi 
+b/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
+index 9ab70b519a63..464f032ccb71 100644
+--- a/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
+@@ -1,7 +1,7 @@
+  #include <dt-bindings/power/raspberrypi-power.h>
+
+  / {
+-       firmware: firmware {
++       firmware: xfirmware {
+                 compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
+                 mboxes = <&mailbox>;
+
+
+Same issue occurs with bcm2712 change (patch 3/13).
+
+
+> ---
+>   arch/arm/boot/dts/broadcom/bcm2835-common.dtsi |  7 ++++---
+>   arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi    | 16 ++++++++--------
+>   2 files changed, 12 insertions(+), 11 deletions(-)
+>
+> diff --git a/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi b/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
+> index 9261b67dbee1..1e76b290510d 100644
+> --- a/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
+> +++ b/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
+> @@ -141,9 +141,10 @@ v3d: v3d@7ec00000 {
+>   			interrupts = <1 10>;
+>   		};
+>   
+> -		vc4: gpu {
+> -			compatible = "brcm,bcm2835-vc4";
+> -		};
+> +	};
+> +
+> +	vc4: gpu {
+> +		compatible = "brcm,bcm2835-vc4";
+>   	};
+>   };
+>   
+> diff --git a/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi b/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
+> index e9bf41b9f5c1..9ab70b519a63 100644
+> --- a/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
+> +++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
+> @@ -1,15 +1,13 @@
+>   #include <dt-bindings/power/raspberrypi-power.h>
+>   
+>   / {
+> -	soc {
+> -		firmware: firmware {
+> -			compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
+> -			mboxes = <&mailbox>;
+> +	firmware: firmware {
+> +		compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
+> +		mboxes = <&mailbox>;
+>   
+> -			firmware_clocks: clocks {
+> -				compatible = "raspberrypi,firmware-clocks";
+> -				#clock-cells = <1>;
+> -			};
+> +		firmware_clocks: clocks {
+> +			compatible = "raspberrypi,firmware-clocks";
+> +			#clock-cells = <1>;
+>   		};
+>   
+>   		power: power {
+> @@ -17,7 +15,9 @@ power: power {
+>   			firmware = <&firmware>;
+>   			#power-domain-cells = <1>;
+>   		};
+> +	};
+>   
+> +	soc {
+>   		vchiq: mailbox@7e00b840 {
+>   			compatible = "brcm,bcm2835-vchiq";
+>   			reg = <0x7e00b840 0x3c>;
+>
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
