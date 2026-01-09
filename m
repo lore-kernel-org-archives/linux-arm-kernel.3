@@ -4,82 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307FCD1A627
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 13:43:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78CCFD1A623
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 13:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FWIjlFv6jJqppx2LoyUbbHVPgKacvPuyCBOajXnJvKU=; b=g7uIJwlRrmmHRKK6OpCPhoCn55
-	TlmP2H7QCq8juucbTQB6tPbylqjEbGAOOKITLx7pkAoC4yhTHNa/8vKvMAnEARe8mjSrICdjBrlyr
-	O8HVVR9Zbl4XJwXXCeSvOY98McfnXV0YJBIT3zmvC+3jl3AROKkFpu76hk8W/Yoq0c3XgmlL5tQkJ
-	/dZfqWNOygSRJ+F77Gfiih4NTfZOgbmJXS7qiA0z3ox5NZp2zu05n8zSvTbFYO0/TD6FR+VEk/Bk4
-	BSXyFMmDxWogVG7B0QKKRqYJhLzjZgn409bANotF8G+WBu4kiBRBDdEAOJEN0okZv2xU05GRngfa8
-	aQ+cim/A==;
+	bh=cNJ/URyboV3qmggSKMnI01TP+ce3UFJ0WOImS1SFBIg=; b=i27wHpA/53XFHw8r60neLLL+oe
+	A1ykmWJzB4cbjekxodidPxgjsQQY0MEPGjLdn/aAyIdZKpYBDizXeLUxYT+bFYTyh+gdwJ2MIrKH/
+	N7O1vMtVjrGhHpjd3ojCnr/MnOWx6AwvFZFJvTVbXSBN+5q5/Z48Tlg//qaCGWVN2MASXXf6PoQFF
+	UW0wlMx3X7JLeasXsIt0jbtBnMlBRHoavCdxER/O0oOSxSP8y8gv2Q2aC4iZQZWBtAMhBx0CIMfJ7
+	Dd9b2rw5QIMznFbYBnm56iaw87OCQebQDQzVDG6CRUkSCjWmEk6DmvSpKJdqr2rQFHlQ37tLD7EBo
+	sfcbu+9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veCm9-00000002Mok-3H24;
-	Fri, 09 Jan 2026 13:43:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1veCpv-00000002N1e-1zVX;
+	Fri, 09 Jan 2026 13:47:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veCm6-00000002MoN-3wOn
+	id 1veCpu-00000002N0t-0LeM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 13:43:36 +0000
+	Fri, 09 Jan 2026 13:47:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A75D40539;
-	Fri,  9 Jan 2026 13:43:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A0C6C4CEF1;
-	Fri,  9 Jan 2026 13:43:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7341E4051B;
+	Fri,  9 Jan 2026 13:47:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB8A3C19422;
+	Fri,  9 Jan 2026 13:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767966214;
-	bh=ijLJjYW1cc6SO67EopKRqCC5IeK0M9dJP6RDnaTpVqU=;
+	s=k20201202; t=1767966449;
+	bh=cEF2HlQxucHUoV1e6UadmpWp+jSEoVJADc0Y46qZqbs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jq8+HDoWfq+dnQNCjupi8t3wJr3s2gFU/PZ+Mw9p2emhpnvQ4wtgBty04uXbNk61D
-	 pNNPamcF60pYnh283bb1GkqvMttXrjLp8u7mPUIvt9NWaV3fpMZbPRnkTuEPT0Llrj
-	 8Yt3UjdNFby5p8HerssTXgGz6oX8DulSCX0Auw4wa5TWQHIbb7ZQlnH/wloeDJ6jtW
-	 yant4tlpZ7jRtbPwfiDiCLKl1YaqQ1cVNNNBicAEjsz+Qb/Tj7rv3d3L591HucBl9T
-	 j/jWJ/WBZe7w9ztoI5e6doC/wmtuASzCC/PVJHwCuzCs4X98ZeSZ/riOmzgPWfP7oR
-	 CwUWQShgEQbxg==
-Date: Fri, 9 Jan 2026 13:43:25 +0000
+	b=C1FWGrPcQeROcGwnj7vSyZsZ1zoSFgaD4Ln4/ur1+e7jz2eTTP6zYm4hc6t69Rtx4
+	 ZMmzuPPYsHpinghqDInHPL7rn5HeCDufgC5QuhRtbfMLhWFLcCU60gr6oeygzkIrDL
+	 3jFoHuAyXCVfTLXcowVvzN7EuhmBtm8euqQh7RyfCox9zqcC/B5cvi9niLHeasjEIb
+	 QD6oexPs+n4lFjegd2rI/pWCvTT1Tedm5O83ZKR50AEKyofkAbTp3btKM6ZjDQrz9Q
+	 k7/CFJCmNVlIFPAnncs0QS5avgRg0WcLROqnnMZwJBKdvA8WGI9ZJFpKbjdQ9nuecr
+	 R94qzMn7rVI1g==
+Date: Fri, 9 Jan 2026 13:47:23 +0000
 From: Will Deacon <will@kernel.org>
-To: Maciej Wieczor-Retman <m.wieczorretman@pm.me>
-Cc: Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@redhat.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
-	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Subject: Re: [PATCH v7 02/15] kasan: arm64: x86: Make special tags arch
- specific
-Message-ID: <aWEF_eJ9Bnn5-8dZ@willie-the-truck>
-References: <cover.1765386422.git.m.wieczorretman@pm.me>
- <0db7ec3b1a813b4d9e3aa8648b3c212166a248b7.1765386422.git.m.wieczorretman@pm.me>
- <aV_v18YWCHXMETVK@willie-the-truck>
- <aWEDDjQms8zbMgsB@wieczorr-mobl1.localdomain>
+To: Jiri Olsa <jolsa@kernel.org>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Mahe Tardy <mahe.tardy@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>, bpf@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+	Yonghong Song <yhs@fb.com>, Song Liu <songliubraving@fb.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCHv2 bpf-next 1/2] arm64/ftrace,bpf: Fix partial regs after
+ bpf_prog_run
+Message-ID: <aWEG685zlaV0o7M7@willie-the-truck>
+References: <20260109093454.389295-1-jolsa@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aWEDDjQms8zbMgsB@wieczorr-mobl1.localdomain>
+In-Reply-To: <20260109093454.389295-1-jolsa@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_054334_998983_914D6C17 
-X-CRM114-Status: GOOD (  17.92  )
+X-CRM114-CacheID: sfid-20260109_054730_155930_A8F53876 
+X-CRM114-Status: GOOD (  27.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,46 +79,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 09, 2026 at 01:37:49PM +0000, Maciej Wieczor-Retman wrote:
-> Hi, and thanks for looking at the patches!
+On Fri, Jan 09, 2026 at 10:34:53AM +0100, Jiri Olsa wrote:
+> Mahe reported issue with bpf_override_return helper not working when
+> executed from kprobe.multi bpf program on arm.
 > 
-> On 2026-01-08 at 17:56:39 +0000, Will Deacon wrote:
-> >On Wed, Dec 10, 2025 at 05:28:43PM +0000, Maciej Wieczor-Retman wrote:
-> >> From: Samuel Holland <samuel.holland@sifive.com>
-> ...
-> >> +#ifdef CONFIG_KASAN_HW_TAGS
-> >> +#define KASAN_TAG_MIN		0xF0 /* minimum value for random tags */
-> >> +#define KASAN_TAG_WIDTH		4
-> >> +#else
-> >> +#define KASAN_TAG_WIDTH		8
-> >> +#endif
-> >
-> >Shouldn't this be 0 when KASAN is not in use at all?
-> >
-> >Will
+> The problem is that on arm we use alternate storage for pt_regs object
+> that is passed to bpf_prog_run and if any register is changed (which
+> is the case of bpf_override_return) it's not propagated back to actual
+> pt_regs object.
 > 
-> This file (as well as the x86 version) gets included in
-> include/linux/kasan-tags.h:
+> Fixing this by introducing and calling ftrace_partial_regs_update function
+> to propagate the values of changed registers (ip and stack).
 > 
-> 	#if defined(CONFIG_KASAN_SW_TAGS) || defined(CONFIG_KASAN_HW_TAGS)
-> 	#include <asm/kasan-tags.h>
-> 	#endif
+> Reported-by: Mahe Tardy <mahe.tardy@gmail.com>
+> Signed-off-by: Jiri Olsa <jolsa@kernel.org>
+> ---
+> v2 changes:
+> - moved ftrace_partial_regs_update to generic code [Will]
 > 
-> 	#ifndef KASAN_TAG_WIDTH
-> 	#define KASAN_TAG_WIDTH		0
-> 	#endif
+>  include/linux/ftrace_regs.h | 25 +++++++++++++++++++++++++
+>  kernel/trace/bpf_trace.c    |  1 +
+>  2 files changed, 26 insertions(+)
 > 
-> So the 8 or 4 value is only assigned if SW_TAGS or HW_TAGS are enabled.
-> Otherwise it's set to zero.
+> diff --git a/include/linux/ftrace_regs.h b/include/linux/ftrace_regs.h
+> index 15627ceea9bc..f9a7c009cdae 100644
+> --- a/include/linux/ftrace_regs.h
+> +++ b/include/linux/ftrace_regs.h
+> @@ -33,6 +33,31 @@ struct ftrace_regs;
+>  #define ftrace_regs_get_frame_pointer(fregs) \
+>  	frame_pointer(&arch_ftrace_regs(fregs)->regs)
+>  
+> +static __always_inline void
+> +ftrace_partial_regs_update(const struct ftrace_regs *fregs, struct pt_regs *regs) { }
+> +
+> +#else
+> +
+> +/*
+> + * ftrace_partial_regs_update - update the original ftrace_regs from regs
+> + * @fregs: The ftrace_regs to update from @regs
+> + * @regs: The partial regs from ftrace_partial_regs() that was updated
+> + *
+> + * Some architectures have the partial regs living in the ftrace_regs
+> + * structure, whereas other architectures need to make a different copy
+> + * of the @regs. If a partial @regs is retrieved by ftrace_partial_regs() and
+> + * if the code using @regs updates a field (like the instruction pointer or
+> + * stack pointer) it may need to propagate that change to the original @fregs
+> + * it retrieved the partial @regs from. Use this function to guarantee that
+> + * update happens.
+> + */
+> +static __always_inline void
+> +ftrace_partial_regs_update(const struct ftrace_regs *fregs, struct pt_regs *regs)
+> +{
+> +	ftrace_regs_set_instruction_pointer(fregs, instruction_pointer(regs));
+> +	ftrace_regs_set_return_value(fregs, regs_return_value(regs));
+> +}
 
-Thanks for the explanation, I'd missed the conditional inclusion of the
-arch header.
-
-In which case, the arm64 side looks fine to me:
+I think the AI thingy is right about dropping the const qualifier here
+but overall I prefer this to the previous revisions. Thanks for sticking
+with it!
 
 Acked-by: Will Deacon <will@kernel.org>
-
-Cheers,
 
 Will
 
