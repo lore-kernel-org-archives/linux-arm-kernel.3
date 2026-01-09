@@ -4,79 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F411D26D6F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D8DD26D6F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 16:15:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pGrK/QRiBfeT2bP8BAkKiqvdHDVjIFqG/2H6CqTx9J0=; b=UcfwWtsnhfzlQyE4Nuj3k1S/IQ
-	FI5fVW3BO5s7FHEH3FvAI2Jmp46XDeJmviD8/w2d4aRk3NIRI7ER0oqvbOf47/N1pSAy00a4L6XW/
-	8Uil6MvtTc3f/QPg2nVZvdiu2lBJKpCJaRnQ0W6ZBiH/luN+dPVhs+Odgf+4g3sMfXQhxmbQuUwRb
-	Pel5c7Ds/8Bhhczi8b5K6DRDA1OOE9KjmFMGv7bAY71XpzloGEZEFkoUOSuo/YUydEgBq9sjdmncr
-	FecQw3wtOU8pUWozPlHbSIbTdnCnYAGMvv5c0rxz/L7Q4MlCdr6L1hif4kzR8aPVUUWDv95+I5kM/
-	gxuGyQpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P6BTW0mUlwAoaPzH/yzPYO4cJb7TkvNISIHyyoEQ660=; b=QePsdNL8mDv51VsbLM8FG0LJUZ
+	4hhBYIwtiOQdSF6RvE/FW195xhO45M4R10wBNgff1dkkOLpVvPqb7WugBytN2NqbX7M9moPDkePFu
+	FvoJbeR8ym/Cmiy4HVLPG2h+92NTZhXfXQKh/sg4zNq7a3DGGU64sWuxQrkHjZr+Y+lIfOvkedRTf
+	uiMvBoPolVtcYBoSH38fYaSKaf8PHu1+Ntu2U4t9iv9YWBbmQUFitPRApTnjtXiJEggYR6dImE+ZH
+	FjbUt0fYqJekL2reVSaKjOqt27aCKdhx4L9Sa04CGJHJRw8K4fr/XX1kzbN5NU09srMrO9wShY81F
+	KqXJqRkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veF6q-00000002YvL-1JA2;
-	Fri, 09 Jan 2026 16:13:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1veF9T-00000002ZIN-1XxR;
+	Fri, 09 Jan 2026 16:15:51 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veF6o-00000002YuG-0jP8
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 16:13:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6BEF343E10;
-	Fri,  9 Jan 2026 16:13:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E3F5C4CEF7;
-	Fri,  9 Jan 2026 16:13:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767975185;
-	bh=oCvECle5CMTUsJbpndJH1a7dO2J2qJfeumT+tt40pDA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=VBi5gmD+EtrSCN1v0UuEQgVtE19f4fPlvRy4380qgQ2QMVc6su3Vgh90KMnbruTqU
-	 jco4xy0K7lALPjfSHNoGmEqsHpdWZN4Zd38cpqWtegZh8Bs6G+NNa0OAmRVTz+Gr1o
-	 jMkawIhzuaOn/U1eauuAhGBXTiE0TB42ae//EZuWLn71WVLyL34LOWfNHt2s9cH80/
-	 rgp63UMcC1OhYsBuViilYQTblk1vSmDBiESbuxD/XgZjnbzXbzWcOj1/XlLZ+Tgb+M
-	 1TbVbs2LI+i9dg/cUaHD1nvGfx7MvT+QauikTgrddH9b03LP0P/9HbTC6oACdTzP1R
-	 plN1FOCK7LtdA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1veF6k-00000000qBe-3tDG;
-	Fri, 09 Jan 2026 16:13:03 +0000
-Date: Fri, 09 Jan 2026 16:13:02 +0000
-Message-ID: <86wm1qlq7l.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: Waiman Long <longman@redhat.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams
- <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
+	id 1veF9R-00000002ZHw-0r4k;
+	Fri, 09 Jan 2026 16:15:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1767975345;
+	bh=L5SslSMt2OUPZ0EXP9AkefW/FGjiHvma9IXHfXRcVNc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Cgx++DNx68RBVdYbhPb4/NRtTAZm+4CfiwT6F1TCJTXJV/Ry+P8aAHtBfHaGXE7LP
+	 HUd48gf0Pn9wpzf9Bkt+TY/HncNJ5AzSbG9BVH6DKVBoRKZCP11doTO5Qx9VOwzOa9
+	 agVrIDZPZPfaTeHFgpuRPYX3hdC8TD7ZmVg6YIg7OGp78q1SPJCdhkDP/IJSEy+hGg
+	 FCRI/0Lt245wv/Yx0TnVVdU/cBeuwkvo7GY2m7Y1Yk+Yy2g2hXs416GQ1cmuMSuKXT
+	 YKnmU42iycYP1jHIctM4tnoS71V4bFGBXBhHURUj6WmRINybLGja8sOW1ms870bGLY
+	 84vUWC1p7YKQQ==
+Received: from trenzalore (modemcable014.2-22-96.mc.videotron.ca [96.22.2.14])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: detlev)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 14D9117E1380;
+	Fri,  9 Jan 2026 17:15:42 +0100 (CET)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: linux-kernel@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Ricardo Ribalda <ribalda@chromium.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Hans de Goede <hansg@kernel.org>,
+	Yunke Cao <yunkec@google.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	James Cowgill <james.cowgill@blaize.com>,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH] irqchip/gic-v3-its: Don't acquire rt_spin_lock in allocate_vpe_l1_table()
-In-Reply-To: <87ms2nsqju.ffs@tglx>
-References: <20260107215353.75612-1-longman@redhat.com>
-	<864iowmrx6.wl-maz@kernel.org>
-	<87ms2nsqju.ffs@tglx>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tglx@kernel.org, longman@redhat.com, bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	kernel@collabora.com,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Diederik de Haas <didi.debian@cknow.org>
+Subject: [PATCH v8 00/17] media: rkvdec: Add support for VDPU381 and VDPU383
+Date: Fri,  9 Jan 2026 11:15:16 -0500
+Message-ID: <20260109161538.1294449-1-detlev.casanova@collabora.com>
+X-Mailer: git-send-email 2.52.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_081306_253408_84FF3FCD 
-X-CRM114-Status: GOOD (  26.97  )
+X-CRM114-CacheID: sfid-20260109_081549_404890_F021671E 
+X-CRM114-Status: GOOD (  22.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,47 +87,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 08 Jan 2026 22:11:33 +0000,
-Thomas Gleixner <tglx@kernel.org> wrote:
-> 
-> On Thu, Jan 08 2026 at 08:26, Marc Zyngier wrote:
-> > Err, no. That's horrible. I can see three ways to address this in a
-> > more appealing way:
-> >
-> > - you give RT a generic allocator that works for (small) atomic
-> >   allocations. I appreciate that's not easy, and even probably
-> >   contrary to the RT goals. But I'm also pretty sure that the GIC code
-> >   is not the only pile of crap being caught doing that.
-> >
-> > - you pre-compute upfront how many cpumasks you are going to require,
-> >   based on the actual GIC topology. You do that on CPU0, outside of
-> >   the hotplug constraints, and allocate what you need. This is
-> >   difficult as you need to ensure the RD<->CPU matching without the
-> >   CPUs having booted, which means wading through the DT/ACPI gunk to
-> >   try and guess what you have.
-> >
-> > - you delay the allocation of L1 tables to a context where you can
-> >   perform allocations, and before we have a chance of running a guest
-> >   on this CPU. That's probably the simplest option (though dealing
-> >   with late onlining while guests are already running could be
-> >   interesting...).
-> 
-> At the point where a CPU is brought up, the topology should be known
-> already, which means this can be allocated on the control CPU _before_
-> the new CPU comes up, no?
+These variants are found respectively in the RK3588 and RK3576 SoCs.
+This patch only adds support for H264 and H265 in both variants.
 
-No. Each CPU finds *itself* in the forest of redistributors, and from
-there tries to find whether it has some shared resource with a CPU
-that has booted before it. That's because firmware is absolutely awful
-and can't present a consistent view of the system.
+As there is a considerable part of the code that can be shared with the
+already supported rkvdec decoder driver, the support for these variants
+is added here rather than writing a new driver.
 
-Anyway, I expect it could be solved by moving this part of the init to
-an ONLINE HP callback.
+This patch set uses the newly introduced hevc_ext_sps_[ls]t_rps v4l2
+controls for HEVC.
+Therefore, a patched version of userpace tools is needed for HEVC
+support (added for GStreamer[1] and in an early stage for FFmpeg[2]).
 
-Thanks,
+The DTS changes can be found in another patch set[3]
 
-	M.
+[1]: https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/9355
+[2]: https://gitlab.collabora.com/detlev/ffmpeg
+[3]: https://lore.kernel.org/all/20251020212009.8852-1-detlev.casanova@collabora.com/
+
+Changes since v7:
+ - Be more consistent with reg names format (reg<num:03>_<name>)
+ - Re-add sps validation in start(), skipping it would let userspace
+   configure the driver to do buffer overflows
+ - Move watchdog configuration to a common function
+ - Use div_u64() to allow building for 32 bits architectures
+ - Do not try to program extended rps if it was not set
+
+Changes since v6:
+ - Remove coded_fmts capabilities
+ - Remove inexistant V4L2_HEVC kconfig dependency
+ - Add missing rkvdec registers
+ - Fix memcpy sizes
+ - Remove non-necessary name and style changes
+ - Use common get_image_fmt
+ - Do not validate sps in start()
+ - Remove unused variable
+ - Change named_regs to has_single_reg_region
+ - Compared to v6, I didn't use a union for the ref addr and flags
+   registers, as I find the flat struct more readable.
+
+Changes since v5:
+- Extract multicore management in separate commit
+- Move variant specific functions to an ops struct
+- Fix a typo and "h264" -> "hevc" copy/paste mistakes
+- Move RKVDEC_*_PIXELS to rkvdec.h
+- Drop VDPU383_*_PIXELS, use the the RKVDEC ones instead
+- Change RKVDEC_1080P_PIXELS value to 1920 * 1088
+- Long and short term ref sets extend controls:
+  - Add them in visl traces
+  - Reword documentation to specify SPS extension and use
+  - Mention Vulkan Video API similarity
+  - Specify behavior for empty array values
+  - Reorder struct fields to ensure fixed compiled size
+  - Remove the mention of V4L2_CTRL_FLAG_DYNAMIC_ARRAY flag
+
+Changes since v4:
+ - Add basic ext_sps_[ls]t_rps validation (flags only)
+ - Add missing copyright in new common files
+ - Rename num_coded_fmts, rcb_num, clk_count
+ - Avoid allocating RCB config when not needed
+ - Merge rkvdec_config into rkvdec_variant
+ - Keep rkvdec_hevc_get_image_fmt per variant
+
+Changes since v3:
+ - Rebased on latest next (ea299a216426) + HEVC support for rk3399
+
+Changes since v2:
+ - Rebased on Kwiboo's HEVC support for rk3399
+ - Include hevc_ext_sps_[ls]t_rps v4l2 controls commits
+ - Remove empty lines at end of files
+ - Rename RKVDEC2_ALLOC_* to RKVDEC_ALLOC_*
+ - Set min_with and min_height to 64
+ - Remove vdpu38x_fill_pixfmt_mp() function
+ - Handle userspace not supporting hevc_ext_sps_[ls]t_rps
+ - Make all config structs static const
+
+Changes since v1:
+ - Add parsing of the short and long term ref frame sets from the new v4l2
+   controls
+ - Add RPS cache to avoid parsing the same data again
+ - Fix HEVC pixel formats selection
+ - Fix multiple indentation errors
+
+Detlev Casanova (17):
+  media: uapi: HEVC: Add v4l2_ctrl_hevc_ext_sps_[ls]t_rps controls
+  media: v4l2-ctrls: Add hevc_ext_sps_[ls]t_rps controls
+  media: visl: Add HEVC short and long term RPS sets
+  media: rkvdec: Switch to using structs instead of writel
+  media: rkvdec: Move cabac tables to their own source file
+  media: rkvdec: Use structs to represent the HW RPS
+  media: rkvdec: Move h264 functions to common file
+  media: rkvdec: Move hevc functions to common file
+  media: rkvdec: Add variant specific coded formats list
+  media: rkvdec: Add RCB and SRAM support
+  media: rkvdec: Support per-variant interrupt handler
+  media: rkvdec: Enable all clocks without naming them
+  media: rkvdec: Disable multicore support
+  media: rkvdec: Add H264 support for the VDPU381 variant
+  media: rkvdec: Add H264 support for the VDPU383 variant
+  media: rkvdec: Add HEVC support for the VDPU381 variant
+  media: rkvdec: Add HEVC support for the VDPU383 variant
+
+ .../media/v4l/ext-ctrls-codec-stateless.rst   | 120 +++
+ .../media/v4l/videodev2.h.rst.exceptions      |   2 +
+ .../media/v4l/vidioc-queryctrl.rst            |  12 +
+ .../media/platform/rockchip/rkvdec/Makefile   |  14 +-
+ .../{rkvdec-hevc-data.c => rkvdec-cabac.c}    | 506 +++++++++-
+ .../rockchip/rkvdec/rkvdec-h264-common.c      | 258 +++++
+ .../rockchip/rkvdec/rkvdec-h264-common.h      |  89 ++
+ .../platform/rockchip/rkvdec/rkvdec-h264.c    | 892 ++----------------
+ .../rockchip/rkvdec/rkvdec-hevc-common.c      | 512 ++++++++++
+ .../rockchip/rkvdec/rkvdec-hevc-common.h      | 109 +++
+ .../platform/rockchip/rkvdec/rkvdec-hevc.c    | 281 +-----
+ .../platform/rockchip/rkvdec/rkvdec-rcb.c     | 179 ++++
+ .../platform/rockchip/rkvdec/rkvdec-rcb.h     |  29 +
+ .../platform/rockchip/rkvdec/rkvdec-regs.h    | 586 ++++++++----
+ .../rockchip/rkvdec/rkvdec-vdpu381-h264.c     | 468 +++++++++
+ .../rockchip/rkvdec/rkvdec-vdpu381-hevc.c     | 638 +++++++++++++
+ .../rockchip/rkvdec/rkvdec-vdpu381-regs.h     | 430 +++++++++
+ .../rockchip/rkvdec/rkvdec-vdpu383-h264.c     | 572 +++++++++++
+ .../rockchip/rkvdec/rkvdec-vdpu383-hevc.c     | 710 ++++++++++++++
+ .../rockchip/rkvdec/rkvdec-vdpu383-regs.h     | 281 ++++++
+ .../platform/rockchip/rkvdec/rkvdec-vp9.c     | 232 ++---
+ .../media/platform/rockchip/rkvdec/rkvdec.c   | 586 ++++++++++--
+ .../media/platform/rockchip/rkvdec/rkvdec.h   |  50 +-
+ drivers/media/test-drivers/visl/visl-dec.c    |   7 +
+ drivers/media/test-drivers/visl/visl-dec.h    |   3 +
+ .../media/test-drivers/visl/visl-trace-hevc.h |  59 ++
+ drivers/media/v4l2-core/v4l2-ctrls-core.c     |  28 +
+ drivers/media/v4l2-core/v4l2-ctrls-defs.c     |  10 +
+ include/uapi/linux/v4l2-controls.h            |  61 ++
+ include/uapi/linux/videodev2.h                |   2 +
+ 30 files changed, 6263 insertions(+), 1463 deletions(-)
+ rename drivers/media/platform/rockchip/rkvdec/{rkvdec-hevc-data.c => rkvdec-cabac.c} (86%)
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.h
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-h264.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-regs.h
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-regs.h
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.52.0
+
 
