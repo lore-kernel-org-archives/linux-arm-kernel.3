@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36209D232D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 03:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51FADD232D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 03:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iiQQV21l4IjSZW79uSB8pOlBuBCKbZWHEQaW9jfHaGI=; b=YifBeX8POc2a0YTulR9kVsuIho
-	KnvXtazNGhOcmb0qEjAjq/lfXzJqv6qthPcPBaxE2/LlEeVp96zaGUzqIwXXHHHOZMr4CrcKHTz3K
-	frOdAU4O8c6hXzXP8tLHqaA2p9YVYuPpP7c3nw4aRgSKm4fxVrTxp/K9f1CKxX5U60JDCCOrKSlj6
-	Lw8OpmGNyigjjWqaUlzV5IMc3rGSndTTrl0fDlQsTAXtS/f3bgMN30uU1so7JPf30iOsykDBv9Vtd
-	uvhbLaxtSoGh2irOOiMKaZCp7FqJc/RWK8KnW3oTq82RMODBMrQ4o+GufsYcWSIPpqzfhN2dqVlol
-	hoZ5w+dw==;
+	bh=Lla7B10SrYBRg7dO5+dhvww8o5+hyyYKqG+YwIZzQC4=; b=Gdk3QEv7YqnDdD6zICW1dwkTkI
+	FZ4nthADQvrVWtYlExmftvuBta10duGdalOIokkbUVzpSOSe4jZ+KivFUvHUOF5QNY573qpl4vxGM
+	OMYH0aR+ZCThDLMLE2teJwrKk/Zqej92PPPi4UMxTJH4OsxWAP2/+gtm3/XGpuR8z9nD5Rd6hdHZz
+	p2L5QHXK2Qq1fu/2l4NjAsvyEStUIcRPFXAb0hi9RCN5XI78sYedAfTem1PZM2Tw0bEQJaVPyQaDG
+	YDxSy9YUfUNLFk2kLx1qk6L3NHdsDSzh8A0q6mD8il8HdwuOxJ1BvDUFZk/Koq7rvALodspPnv1Ht
+	emxRs7fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve2x9-000000019lV-2AZc;
-	Fri, 09 Jan 2026 03:14:19 +0000
+	id 1ve2xF-000000019n1-370L;
+	Fri, 09 Jan 2026 03:14:25 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve2x7-000000019kw-2DOp;
-	Fri, 09 Jan 2026 03:14:17 +0000
+	id 1ve2xE-000000019mo-1OWZ;
+	Fri, 09 Jan 2026 03:14:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 73DCE60136;
+	by tor.source.kernel.org (Postfix) with ESMTP id C122E6014C;
+	Fri,  9 Jan 2026 03:14:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B68ABC116D0;
 	Fri,  9 Jan 2026 03:14:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CD43C116C6;
-	Fri,  9 Jan 2026 03:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767928456;
-	bh=sCNCgB1AI1K39BcyZ9Wqu8F3lfvuRR8HKkqOrcjiu5A=;
+	s=k20201202; t=1767928463;
+	bh=JM6afzoYTowQzjljySmLl/5jLkOrxyGbdNB1qD5wmKA=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=ng+f41OgYI/w25w/Ru9j/iGgSXB0XtyB723kA/Ml9gwN/4GIZt+FZXkumWMCjTOaV
-	 Uyp33XPj8gyiia4UuvLrVO5Sx1eK2qCHsLQbdBoe42D+F0CeL7D8MlnZkSvIhDf5Kq
-	 53ExC8LVDVDCrVF36ub1TQ3EMDDJo1fa+CVj//6TrKvInrfd5SaOYw8LkW3PtXryZO
-	 s+/ka/ricp/F05hV6jbqSor6QzJRMmM89D1T2Rp0CYvK/f2h4YoIE/JjKE9DSBGnIe
-	 xEt0V2UstN570C9PMcrqAZ8S5RHHBFQbdHpYBTJnpNy/lwBc/i+QTV/+31ofmkRHFk
-	 DjyjtsOby6ITg==
+	b=FkVAwDUzlepumCpf0yGB+QKEd1XGdp4cqikxVBM/9XQf6maNCI+Zw4uKgHsLFrybW
+	 bD5YI+l1/NByhBMsN1YHVd38p5wMB1CcQSFAm3HijvWc4uZfkede3lLhY/o7ln3TxL
+	 qzxdtuHS7+BPlhA2Ub8+0DXfmv+ZtMp8QeMKx/kH0Io3j6FX3N9tYwxCXABqsOh2xy
+	 1KcO1V43dpW9ChKYR8tFTnVzYv5bQUMbcy8fNGNF+1NIAtzzZZIlH+7+CJ5sk4Klcc
+	 MGr8CoKm+tEXRVVMOgQrNES304Y+PlVbJcrtB1KxAA4t/hauzpIM1Vh0US1duEBcT9
+	 2cIBzgSonruzw==
 From: Vinod Koul <vkoul@kernel.org>
 To: Bjorn Andersson <andersson@kernel.org>, 
  Stefan Wahren <wahrenst@gmx.net>, 
@@ -51,8 +51,8 @@ To: Bjorn Andersson <andersson@kernel.org>,
  Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Cc: Olivier Dautricourt <olivierdautricourt@gmail.com>, 
  Stefan Roese <sr@denx.de>, Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
  Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
  Lars-Peter Clausen <lars@metafoo.de>, 
  Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
  Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
@@ -61,12 +61,12 @@ Cc: Olivier Dautricourt <olivierdautricourt@gmail.com>,
  Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>, 
  Michal Simek <michal.simek@amd.com>, 
  Andrew Morton <akpm@linux-foundation.org>
-In-Reply-To: <20251113151603.3031717-1-andriy.shevchenko@linux.intel.com>
-References: <20251113151603.3031717-1-andriy.shevchenko@linux.intel.com>
-Subject: Re: [PATCH v3 00/13] dmaengine: introduce sg_nents_for_dma() and
+In-Reply-To: <20251124121202.424072-1-andriy.shevchenko@linux.intel.com>
+References: <20251124121202.424072-1-andriy.shevchenko@linux.intel.com>
+Subject: Re: [PATCH v4 0/13] dmaengine: introduce sg_nents_for_dma() and
  convert users
-Message-Id: <176792844895.658957.498171043788217178.b4-ty@kernel.org>
-Date: Fri, 09 Jan 2026 08:44:08 +0530
+Message-Id: <176792845632.658957.11812821464342552504.b4-ty@kernel.org>
+Date: Fri, 09 Jan 2026 08:44:16 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -86,7 +86,7 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 13 Nov 2025 16:12:56 +0100, Andy Shevchenko wrote:
+On Mon, 24 Nov 2025 13:09:18 +0100, Andy Shevchenko wrote:
 > A handful of the DMAengine drivers use same routine to calculate the number of
 > SG entries needed for the given DMA transfer. Provide a common helper for them
 > and convert.
