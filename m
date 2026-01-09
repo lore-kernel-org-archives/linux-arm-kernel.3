@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 851BBD167EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 09:34:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE782D167ED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 09:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eOPj6csaxqSh/pD94Xiow8fswoPt4epubaYlDPDsNMI=; b=Tc0FcOTQKa2mV2chh01Y2vmOJS
-	DULx4fXi8LaWgPH87SZkXk4ZJgJK0QxqXkWLxMWgh8bQMhkcdwa1Da29wZkAFWtz8dp9eGNVQteVd
-	BmMywdK8T84DJ5eR7aHMiOuwQd3m9rTkUD6l9jZkM8g9x8RUpsGZk173F5DBtX5J3PvVxS7AzWyT3
-	Oh7O262xA4yVKFhOz6YrvDbSQ9g1EaW+9cG4FlZGdDZsdyUVJ4VaMZtBCPb5zBw4uL+oiKRjN1ENn
-	JHJ15Lc3UXfU5kgE0sApQTEIXuc5B5wEoeaHJa03gXBxINXVHHJH5swPUKKMnY/wIzSsj4g0dDJBW
-	2NT+hfmQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uiR0IsdScMJKJ+fOYzcS8WzhGzf5iPVuPEasIgwQBM4=; b=hsZ/zEhVSgwFegDGUMqnlSDRph
+	EkRxEbe0NVTTozPEnUEroScdHNRj8n/pwFPydUHcBpplyqX0P8ktZl8LPoUPHyC/xOmf2OmiDpE1J
+	gFIBucUPjUp4fcYnhk5GZb387XxZFv7HGiH+7hfO2Bc5Ir7DH1wq1yA7xsiKQfU7FI9VjPAhgOWld
+	DM42RHWrr7ZIWzSz1XMJd46UTcNXlIGVfY2VuAjm3Wegmyq95JHU0yEBvPAI0Mb2LfW5nCyzZBu6m
+	wcc2zg5KlSK+FCLT+qTF5vNBxa7fJ82Wi4oPhPDEWDE/UWudvkkeEHdk111+mZWclivr5iKAjIK4U
+	q4gwhFVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve8si-000000021kv-0Qry;
-	Fri, 09 Jan 2026 09:34:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ve8th-000000021wp-351T;
+	Fri, 09 Jan 2026 09:35:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve8sf-000000021j7-3MtX
+	id 1ve8tg-000000021wb-2KL6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 09:34:07 +0000
+	Fri, 09 Jan 2026 09:35:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2E49D44331
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Jan 2026 09:34:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E0C9C19421
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  9 Jan 2026 09:34:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0044260136;
+	Fri,  9 Jan 2026 09:35:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64F4AC4CEF1;
+	Fri,  9 Jan 2026 09:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767951245;
-	bh=eOPj6csaxqSh/pD94Xiow8fswoPt4epubaYlDPDsNMI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=lR79fTbkQsjgiDlA6fkXm7nFk8wVuLWHxfCcZhKMCzk6nFbpiobQdH+19xNX1Edq8
-	 Xu5QeqrJLJmlalUk0cX4DpHpHY9k1VxZ9yB7U7Fe08DVHs5dkYebQbpdDXSk1uGuMs
-	 3NYEBRMjDXEQ7EyKut2fYDHiQqGOmhTyuFTWnsUWJnC8lAwsVSYvpIYCNB7FLTDCS9
-	 C4J4iJ2k1oQ1yXqnsNmHma70GA7ZUgrFAVWtMfhy0tgm/5HSq9wirt4ixPTU16Mu2c
-	 +lkpNLrYinmglFCoxuv5/Pzb5FFZDnCN4e5KeD4MboWw+Xp6Yv+qC9MI6/n5qR1hfs
-	 PV1vQd6HCvjWg==
-Received: by mail-yw1-f181.google.com with SMTP id 00721157ae682-78fb7ab7562so35832657b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 01:34:05 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWyl7s1jihbKKZ4YuA2WrjWIvw4bagrBsBm9G4dTKmOdwhGwdeA7d5j3JqoBad8XChRhYfKaTx5V9Y7bQV1JYRu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWBmwufLGQuSZqX4WHCJ0PAw410BaxO27ugY+2ywXq2Pt2Sop0
-	JAK85IcZHyJhxQhzSrN2nn9dtYII0SscKGvWirgWsXglBG4vH+2cMTdg1PWetTXzlRYqJ6vpRNy
-	zUVaH/QGR7r+xjSdjlUUHTMTbqGUh4FA=
-X-Google-Smtp-Source: AGHT+IEn0vqdkw8bEaFTh2evg/3/Gk5M0wvdcElU6mMy3Wg7wsSj3AKZVzV8/gWPdmB4yzqWtFjvi9yu72g/ac8yxEo=
-X-Received: by 2002:a05:690c:18:b0:789:2be7:ae80 with SMTP id
- 00721157ae682-790b582a8f8mr187013807b3.54.1767951244425; Fri, 09 Jan 2026
- 01:34:04 -0800 (PST)
+	s=k20201202; t=1767951307;
+	bh=pPkYhOhuvx7Qqn/awx2pSNRq1M/gtoJcWz56iO/SzvY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=DCBq9faDNPiKa+ckMvzFykF7/66rf1wwwECMIdXx5M48fvxUJULot7JPelGaj2FI/
+	 snrf8X0KA67Ua1AuU/v2CAjYSv0Vuag/UJR3X9pB1rxb0af0EQ8HmyB5lDO0ihJH1X
+	 qzXTG0jsmv1cP4AXrMmNHN6tmMWY5ZkApDNEaRAfOOK8tim6R5ooLvi6aYz03z0SSu
+	 EGYI0RhsRIMT0W4Iz6MYhx6tBr/TkSjPixe0Zm2eExIsq9zt7z4WS6OSLXO5rTt9Jd
+	 LT8tDThV6Dkv9MC0vW7hCimYJ2KIxzpSuomjB7HfpsaL6E9yMFPAKaKI5lMr0BGklJ
+	 IKKxLOCO4CFVg==
+From: Jiri Olsa <jolsa@kernel.org>
+To: Masami Hiramatsu <mhiramat@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Will Deacon <will@kernel.org>
+Cc: Mahe Tardy <mahe.tardy@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	bpf@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	x86@kernel.org,
+	Yonghong Song <yhs@fb.com>,
+	Song Liu <songliubraving@fb.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: [PATCHv2 bpf-next 1/2] arm64/ftrace,bpf: Fix partial regs after bpf_prog_run
+Date: Fri,  9 Jan 2026 10:34:53 +0100
+Message-ID: <20260109093454.389295-1-jolsa@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-References: <20260106085253.20858-1-bartosz.golaszewski@oss.qualcomm.com>
-In-Reply-To: <20260106085253.20858-1-bartosz.golaszewski@oss.qualcomm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 9 Jan 2026 10:33:53 +0100
-X-Gmail-Original-Message-ID: <CAD++jLkaKgGDTbzjdWNPFSF85VDx3HCnOdbF8GSeEZRp3jDbCQ@mail.gmail.com>
-X-Gm-Features: AZwV_Qh3gljFKlGTGVVG8Mveu2qlxxn_p3yMb-Bc-OOzKbAyx_Ef35y9X6nAS98
-Message-ID: <CAD++jLkaKgGDTbzjdWNPFSF85VDx3HCnOdbF8GSeEZRp3jDbCQ@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: meson: amlogic-a4: mark the GPIO controller as sleeping
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Bartosz Golaszewski <brgl@kernel.org>, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_013405_889760_E4E10C8C 
-X-CRM114-Status: GOOD (  10.43  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,23 +76,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 6, 2026 at 9:53=E2=80=AFAM Bartosz Golaszewski
-<bartosz.golaszewski@oss.qualcomm.com> wrote:
+Mahe reported issue with bpf_override_return helper not working when
+executed from kprobe.multi bpf program on arm.
 
-> The GPIO controller is configured as non-sleeping but it uses generic
-> pinctrl helpers which use a mutex for synchronization. This will cause
-> lockdep splats when used together with shared GPIOs going through the
-> GPIO shared proxy driver.
->
-> Fixes: 6e9be3abb78c ("pinctrl: Add driver support for Amlogic SoCs")
-> Cc: stable@vger.kernel.org
-> Reported-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-> Closes: https://lore.kernel.org/all/CAFBinCAc7CO8gfNQakCu3LfkYXuyTd2iRpMR=
-m8EKXSL0mwOnJw@mail.gmail.com/
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+The problem is that on arm we use alternate storage for pt_regs object
+that is passed to bpf_prog_run and if any register is changed (which
+is the case of bpf_override_return) it's not propagated back to actual
+pt_regs object.
 
-Patch applied for fixes!
+Fixing this by introducing and calling ftrace_partial_regs_update function
+to propagate the values of changed registers (ip and stack).
 
-Yours,
-Linus Walleij
+Reported-by: Mahe Tardy <mahe.tardy@gmail.com>
+Signed-off-by: Jiri Olsa <jolsa@kernel.org>
+---
+v2 changes:
+- moved ftrace_partial_regs_update to generic code [Will]
+
+ include/linux/ftrace_regs.h | 25 +++++++++++++++++++++++++
+ kernel/trace/bpf_trace.c    |  1 +
+ 2 files changed, 26 insertions(+)
+
+diff --git a/include/linux/ftrace_regs.h b/include/linux/ftrace_regs.h
+index 15627ceea9bc..f9a7c009cdae 100644
+--- a/include/linux/ftrace_regs.h
++++ b/include/linux/ftrace_regs.h
+@@ -33,6 +33,31 @@ struct ftrace_regs;
+ #define ftrace_regs_get_frame_pointer(fregs) \
+ 	frame_pointer(&arch_ftrace_regs(fregs)->regs)
+ 
++static __always_inline void
++ftrace_partial_regs_update(const struct ftrace_regs *fregs, struct pt_regs *regs) { }
++
++#else
++
++/*
++ * ftrace_partial_regs_update - update the original ftrace_regs from regs
++ * @fregs: The ftrace_regs to update from @regs
++ * @regs: The partial regs from ftrace_partial_regs() that was updated
++ *
++ * Some architectures have the partial regs living in the ftrace_regs
++ * structure, whereas other architectures need to make a different copy
++ * of the @regs. If a partial @regs is retrieved by ftrace_partial_regs() and
++ * if the code using @regs updates a field (like the instruction pointer or
++ * stack pointer) it may need to propagate that change to the original @fregs
++ * it retrieved the partial @regs from. Use this function to guarantee that
++ * update happens.
++ */
++static __always_inline void
++ftrace_partial_regs_update(const struct ftrace_regs *fregs, struct pt_regs *regs)
++{
++	ftrace_regs_set_instruction_pointer(fregs, instruction_pointer(regs));
++	ftrace_regs_set_return_value(fregs, regs_return_value(regs));
++}
++
+ #endif /* HAVE_ARCH_FTRACE_REGS */
+ 
+ /* This can be overridden by the architectures */
+diff --git a/kernel/trace/bpf_trace.c b/kernel/trace/bpf_trace.c
+index 6e076485bf70..3a17f79b20c2 100644
+--- a/kernel/trace/bpf_trace.c
++++ b/kernel/trace/bpf_trace.c
+@@ -2564,6 +2564,7 @@ kprobe_multi_link_prog_run(struct bpf_kprobe_multi_link *link,
+ 	old_run_ctx = bpf_set_run_ctx(&run_ctx.session_ctx.run_ctx);
+ 	err = bpf_prog_run(link->link.prog, regs);
+ 	bpf_reset_run_ctx(old_run_ctx);
++	ftrace_partial_regs_update(fregs, bpf_kprobe_multi_pt_regs_ptr());
+ 	rcu_read_unlock();
+ 
+  out:
+-- 
+2.52.0
+
 
