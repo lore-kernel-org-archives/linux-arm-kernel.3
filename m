@@ -4,66 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72CB4D26D7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 17:48:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7936D26D7F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 18:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SbEfLJ4u1F6rmmqMwJST8J/obe8HukQ7PMnp0NdA1o0=; b=dWw4yW8edzOhI1aOe1XnK7XcJ+
-	TfNhBht21/9IA9/1urCv78FsHMLrTgBu9WJkB8p22SpKQV2zvXp8T4yMIcnpyBAN1YfoyCJjc3f3N
-	LqK8zfGQD307mFm6RvppK57UtMK0q+IlrmIMxiozdz90QsrUM8hF3QVzX+sclaoJEvdqfga6/CHV7
-	sOr5MCLe5HMrMr3yXx51ngre70KMl/gEfXvCaht9S4HNzOY2r8yp5MjaOlpy0NZmLhEvr0Ri5W8Bm
-	f1Hf4Ibb/6WSBcea4+LSIzIKi71IILAlaVuFUZ+7f2wZXWZpXp2EhOcWAUNbqhnEWQ2wuGS051Yuu
-	WQGLFHTA==;
+	bh=bCn5hj9eWHpVImCtCq6gsgMUqg3ESuc40pmTiU/JMJA=; b=Q7rAUOo1qVmCh50CU9MIo96wzM
+	fgVso6Ts5ABHVBWVDaX8FOplyuYIgUZqo4Tm02OrMnFc/aKr91ednvmqsVF4F+h34WIttmLvuXO4P
+	xnki1AEyJ/lK78OU0rvOUqTdrbE8QY+SsaoPGtdIngSDr5x5kQExnFpiJw4hAILvI+mL/dCk1zOeK
+	bbZvi0QmvFbfZ41ddmz0yqO9SPDECO1Rjhzldv6xlEa3IMXTlJwRzu/kNJAY1ikZO23WCG02Stq3y
+	yMmG+ACRYnQ8CW671ebCUXcRLQ+qyWPsK6NWPBjdgVRJUZjXZbRfOQlKazpTA6wRqDdgDAdFjGk3j
+	CzelEF2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veGai-00000002qmp-2ScO;
-	Fri, 09 Jan 2026 17:48:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veGah-00000002qmh-3m4v
+	id 1veGnF-00000002rXb-2ZpF;
+	Fri, 09 Jan 2026 18:01:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1veGnD-00000002rWt-1osf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 17:48:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D0E97600B0;
-	Fri,  9 Jan 2026 17:48:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 338CCC4CEF1;
-	Fri,  9 Jan 2026 17:48:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767980882;
-	bh=3QWiObunfis5djNAZb+wYVWjctgr/CRj7eFG13KqXOc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fOe29o4myh9rammqInR8XR907tp2YDqfTVO0BMC2z+tLY1hPrk5Yf0UQVMkt/PWDn
-	 sHYR/PYrw1n2J+3XqK74pSWke2E1J9iIY8Lrp2NsVroVYE2yJ/0m41EmMYZ4TToQIU
-	 kW96DoZMpyo5kHyQYFvE/r6RjJ0hCKPBCDT/03WXoiiZqzlBmDa9O7uMa1aSelA7VS
-	 9R4AtC6J4zXMFv8XcN6sbRGMpM1azZeG5xJryHYpTScU+WsH63ZhlEC+NWxW0s3NpE
-	 Q4KRhwYT02Yuuxh4XhywQplK59m9sOKBGBKMBNqammRn+h8/YtJ2GgrCDAoM4jBLXQ
-	 dTTgR/dephUVw==
-Date: Fri, 9 Jan 2026 17:47:56 +0000
-From: Will Deacon <will@kernel.org>
-To: Quentin Perret <qperret@google.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 20/30] KVM: arm64: Introduce hypercall to force reclaim
- of a protected page
-Message-ID: <aWE_TGDm_makBPhi@willie-the-truck>
-References: <20260105154939.11041-1-will@kernel.org>
- <20260105154939.11041-21-will@kernel.org>
- <avfs64mpioh4ckdo3gokndinpjdrgfzz2pjhkyyh65v6spuai3@nz4zih4rbv6m>
+	Fri, 09 Jan 2026 18:01:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7EEDBFEC;
+	Fri,  9 Jan 2026 10:00:50 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A458F3F5A1;
+	Fri,  9 Jan 2026 10:00:55 -0800 (PST)
+Date: Fri, 9 Jan 2026 18:00:52 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: rafael@kernel.org, pavel@kernel.org, will@kernel.org,
+	anshuman.khandual@arm.com, ryan.roberts@arm.com,
+	yang@os.amperecomputing.com, joey.gouly@arm.com,
+	kevin.brodsky@arm.com, stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: fix cleared E0POE bit after
+ cpu_suspend()/resume()
+Message-ID: <176798145230.2606771.17247725038196582505.b4-ty@arm.com>
+References: <20260107162115.3292205-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <avfs64mpioh4ckdo3gokndinpjdrgfzz2pjhkyyh65v6spuai3@nz4zih4rbv6m>
+In-Reply-To: <20260107162115.3292205-1-yeoreum.yun@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260109_100059_516296_1B38873E 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,27 +67,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 06, 2026 at 03:44:06PM +0000, Quentin Perret wrote:
-> > +static int host_stage2_decode_gfn_meta(kvm_pte_t pte, struct pkvm_hyp_vm **vm,
-> > +				       u64 *gfn)
-> > +{
-> > +	pkvm_handle_t handle;
-> > +	u64 meta;
-> > +
-> > +	if (kvm_pte_valid(pte))
-> > +		return -EINVAL;
+On Wed, 07 Jan 2026 16:21:15 +0000, Yeoreum Yun wrote:
+> TCR2_ELx.E0POE is set during smp_init().
+> However, this bit is not reprogrammed when the CPU enters suspension and
+> later resumes via cpu_resume(), as __cpu_setup() does not re-enable E0POE
+> and there is no save/restore logic for the TCR2_ELx system register.
 > 
-> Nit:
+> As a result, the E0POE feature no longer works after cpu_resume().
 > 
-> I can't think of any cases where we'd end up returning -EINVAL here that
-> isn't indicative of a major problem (e.g taking a stage-2 perm fault we
-> don't expect) given that we've extensively checked the state of the page
-> already. Upgrade to WARN()? It's fatal, but the system is unlikely to
-> make much more progress if we return cleanly anyways, so we might as
-> well make it obvious where things went wrong.
+> [...]
 
-Good spot. We already confirmed the NOPAGE state, so a WARN() if the pte
-is valid makes perfect sense to me.
+Applied to arm64 (for-next/fixes), thanks!
 
-Will
+[1/1] arm64: fix cleared E0POE bit after cpu_suspend()/resume()
+      https://git.kernel.org/arm64/c/bdf3f4176092
+
+-- 
+Catalin
 
