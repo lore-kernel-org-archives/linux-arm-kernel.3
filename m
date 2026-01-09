@@ -4,68 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0AFDD16816
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 11:37:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E3ABD16816
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 11:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+/mtT/5sPfLVx5HJMVR3/amUWND9Cq565ndjhCFMkUU=; b=LggLV7SAw6a4qHSGGVpy88w/3D
-	D2rR6OzHVfe48qtnqn/Hz3ROeghdaG5osZRqPArEhxokl3lWo1P7SjgbveoWsZpjdL8zref0yEs7J
-	Dca++3IxZxn8UYe9D7quo6FmvBoJ8Rk0eLTW7KG6n7iY3ulaCUmFerDTVm5koznUyD2fbr5hGHxox
-	w0UhCOo6Kw3r3GLHzONPjWQ5lt2jsDg6yCyYheE0tRrCosUEVgbqsPyOP/k0U1w3vvgTP8Hu5cfvs
-	kqhjIoiiZySiQSVwJh4qGbb4ZvwZdepT5gCLxXO4NYVHRtMS30hIcqBXvbUAwMYxsjf4c2ttbAecx
-	a/AkBdtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5J5FE2rV7ygCFlHLBwb5hCWqtsTpEMKY5DEUv0AXHWs=; b=tE++lu2Gl5xHekqvwnzUUwC3Zl
+	+FPDR9gwWwwIJ+b3tNJLfZIdtp18V0pcKUdcbW1tJ9hNzyKZuZ/tx5VCFLiFs3+Z8M6nJLqUfsACO
+	OVnyFid9UaD4xYcppZI8tx9DylmLKZHfE0CXHXBfq+SdnK5xICGmCfaX+oVh/PkaNslyysC2NSGOp
+	oMriIDl2nKsR/1505BiIP9xmxYeHKqmfVBsntS4MaYxu+w0hogUw0C9qsd0QQyG/UaCmAF1umkI6F
+	nsl1rsVh1VOG1Ir5Z7OdxT4CHefbrBajeLxE2ZJ18Vyy9zBEUyJSJTm2NtcPhLWT2SwAMSASDKtX/
+	tMEuHIrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veAoB-00000002EBT-3QSD;
-	Fri, 09 Jan 2026 11:37:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1veAr6-00000002ERo-1dlX;
+	Fri, 09 Jan 2026 11:40:36 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veAoB-00000002EBM-1OX1
+	id 1veAr1-00000002ERO-1TBU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 11:37:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5D5076016B;
-	Fri,  9 Jan 2026 11:37:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F0F2C4CEF1;
-	Fri,  9 Jan 2026 11:37:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767958654;
-	bh=4NcWKcseDv7quEbWxMIMjnmm3Je3chS+A/b4mc7HaGw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l8GYwtuiJGOZyVoIBlEIfUHWnEr5/zX6cVNzVsNoXT1xJxoT9tRsh+boZWMPT1xuI
-	 6gKwUaBK7KyZ5n3/viF0H6xR60QcKGNAWLx8clcGSa4iONDKePZRLlUdclrp3+ah/u
-	 54tCIXbNgN51qGOkpnoS3VpOsEd9OAgzjxb8muL6FJ6CJ/0GSQTvTjTdn/uNpwnf/o
-	 xCVJBfc84olVIdsBnn8ee5cYIlamPcP71Tzbgz0qjv76Qku0LKgGzvbOCgr3cq5FP1
-	 7w6CnU2wSN783reAM/GjxaNhZojvO+YJ6OZGkeVBHBt3OxemA7B/1hMXFKaZex3+la
-	 QiEySLI1Zc3/A==
-Date: Fri, 9 Jan 2026 11:37:28 +0000
-From: Will Deacon <will@kernel.org>
-To: Sebastian Ene <sebastianene@google.com>
-Cc: perlarsen@google.com, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>, Ben Horgan <ben.horgan@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Armelle Laine <armellel@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ in
- host handler
-Message-ID: <aWDoeMRZbbsQ2htP@willie-the-truck>
-References: <20251119-host-direct-messages-v3-0-c74d04944b26@google.com>
- <20251119-host-direct-messages-v3-1-c74d04944b26@google.com>
- <aV_MnW8cg7IsWPuD@willie-the-truck>
- <aWDkCQ7m1-w8e-Py@google.com>
+	Fri, 09 Jan 2026 11:40:34 +0000
+Received: by mail-wr1-x443.google.com with SMTP id ffacd0b85a97d-42fbc305914so2805266f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 03:40:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1767958829; x=1768563629; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5J5FE2rV7ygCFlHLBwb5hCWqtsTpEMKY5DEUv0AXHWs=;
+        b=wcsOPBC9/BYX5/EdNt272MG00uNvZ5+OGQT2qbefLWodHmearB0tnxRgjLpwVohOcq
+         eQSLff6MNRPc1FKUJJODtGqyktcKNWc4c7c+1p/VCYXAqqI0VTVNOvXrDccTN1FhGjFe
+         2cQf3xicQ9RdYk1qBqibH5tabBQ5lWlXsbWmuhcLMZ8N9RGFbAkSHpB7kuArHXs1dw1P
+         7nYgYDVNjRpQ9kpBpL+mjLbasM/bILkbjE1E0h50SfTnjZhwqUY4G1XN3Hdn8KHEXtVJ
+         RbOzwVOLpNYQunYE3rgg29AI1rH73SDRowgz3lyJxCT3T1Q+SxYwpxE8NrfarA4UmypT
+         FIKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767958829; x=1768563629;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5J5FE2rV7ygCFlHLBwb5hCWqtsTpEMKY5DEUv0AXHWs=;
+        b=e13eQ/QwhHVFAzMzNd5oCeD2qgij8CSSM4aQ2kBnl4iNKMlmxGMRWvTWGWiRMj9/Gc
+         2yjQb78tP0QrWYcNcRrgF5HPwq2LBdHVXEDVquA5EyxR4aMi1mHZcek/lL7gkxm3Sruo
+         kPcDTM8jZJCuXL+F3Hls/IVZPFFYdqLzkNGb1huIL3P2Yhpk103txbkBzvK/Yvq+Y+By
+         Pd7E/Lf1x8xZuuFp7O70gHkDFtz/xCa/e1RJYPAjyS/0YMzAhma34V6r1+NsOdfckoTN
+         VEgk+GxHDGURcJ1M4KVV6afaBtH+cHZ902tfE5DwM5zbn3R68Z6ssoO+GPjHw0qx/A32
+         /2Fw==
+X-Forwarded-Encrypted: i=1; AJvYcCVO1rEEn7YHRZjYEx4mho+saQylXrY8LE1XMCTSoza+KrrT1vm5YqIiwFhgoH70twRXOTz4/Wjgycj6idZT2UmD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3HZsBZmd1dXY5fygZD3SsP9qQG49qWtuQchfX8vWtduV1vHdf
+	gCvyJ/dO8sHyMKlP63P5KUmZP+O5xD/yHrNpijJ4gad01nfi1ywFvJAs/xM76oqlqPY=
+X-Gm-Gg: AY/fxX7EGuXLEbMgltiTYqppFAPBuk1FftO1vU8s6Epz9ufFoHrlY0KeoC3xCfB+Ijm
+	oHBCa/NqxuiK+lSkTWix72RvGZfWzI84I/mDqXis04Nnlk5CLf/Z/HwC3WLH/GEBGaM5NS/J/eL
+	U28Rp5wa2RZQJkK3m2l8THJ6BAls0Z1udVDP5BDMnH5bcoVRlhq4pgEAxiN9aE06Yrw1XAkHQLv
+	7TZpxy9Uo/C2LRFE3xONNYoWTgXHT5F2MSMfcOVe/0ctRWvTyxpLAk/W6mddFIQDuRjESxxdRD5
+	S90iGNMg+nA8eN3pMd2MPwdj0rM4TQyEcBRbi3FUY2i4+htTqvVtO+ptPxQ1dTTv/8thPORHn9R
+	njvi3skoAOU+6aGDIeCuFgivYfhG9Ai9wDg3a8NDKhIXnA/qAgAtlmnUCSArxTwbuscxvQDjsoi
+	701YP5B52As9/6J1Udc6V/ZbT6O0zq/kiXKABHWmViCH4=
+X-Google-Smtp-Source: AGHT+IELE5v41GM1z995DCq/Vq26mXGNxF7McIPtRrpLDzdmNXt9k6T//iVWMpCwb1VhSb6sunaZeQ==
+X-Received: by 2002:a05:6000:310d:b0:431:7a0:dbc3 with SMTP id ffacd0b85a97d-432c37983eamr11401803f8f.29.1767958828730;
+        Fri, 09 Jan 2026 03:40:28 -0800 (PST)
+Received: from gpeter-l.roam.corp.google.com ([2a00:23c7:3122:c601:1e1:d32d:b1c0:70fe])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0daa78sm22039102f8f.6.2026.01.09.03.40.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 Jan 2026 03:40:28 -0800 (PST)
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Fri, 09 Jan 2026 11:40:14 +0000
+Subject: [PATCH v3] scsi: ufs: exynos: call phy_notify_state() from hibern8
+ callbacks
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aWDkCQ7m1-w8e-Py@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260109-ufs-exynos-phy_notify_pmstate-v3-1-7eb692e271af@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAB3pYGkC/43OTQ6CMBQE4KuQrq1pH/+uvIcxpMADmmiLbSEQw
+ t0tGGNc6XJm8c0sxKKRaMkpWIjBUVqplQ/hISBVJ1SLVNY+E2AQs5SFdGgsxWlW2tK+mwulnWz
+ mor9bJxzSimFel3ksqiQh3ugNNnLa/cv1lQ0+Bj/jPmUnrdNm3j+MfGv/nRs55TTKoyip0yyGm
+ p9vUgmjj9q0ZKNHeHMJ4yz9xYHnoMwgFBADy8ovbl3XJ0YmBW0vAQAA
+X-Change-ID: 20250703-ufs-exynos-phy_notify_pmstate-c0e9db95ac66
+To: Alim Akhtar <alim.akhtar@samsung.com>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ "Martin K. Petersen" <martin.petersen@oracle.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-scsi@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel-team@android.com, andre.draszik@linaro.org, willmcvicker@google.com, 
+ tudor.ambarus@linaro.org, jyescas@google.com, bvanassche@acm.org, 
+ Peter Griffin <peter.griffin@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2460;
+ i=peter.griffin@linaro.org; h=from:subject:message-id;
+ bh=oLaz/UPrpvvVLvgT2gPEOxUMrZw3BlciMhOBrJEZYCc=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBpYOkrHReCSBWEN/TSNB6WKtGTGJD7Ov8Gz4YEB
+ gvVHdsEOMOJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaWDpKwAKCRDO6LjWAjRy
+ upYYEACZnZyKTZmwQfiAtYvOWkCyYxJZ/KNCLdxulf5MEB9TQcdgJPXm2lSC+TVjNbk0mqpwnpN
+ WvTDw1mEeO3y5fYOJJSfDQJ+wywTFR6s9iqY9nK6OYg5hJU36KR7aL831JB5cj0D9EYLGW/Q8p5
+ ylTTPbyfXWqyKkp9CM3+hdEcHHUyF1V0Dr7W1ftouPkX2RmnTa/1/DJaA028s33tfFuOt+NZoxN
+ 3M+Q9Sp+7KtyDJNsDzTciiZzce/R5uu56lfFGoWRS460/wRNMtDLhimdz1u4qY4X4bb/0bYsG5y
+ jLjCNHCLLapTSzmCNtDoEpbL1de+l22NmhZjPJTnD1+rFqE2GjWVlTkRELM3H26PARMI3NGTSaB
+ Gss8PVUjhXnEu4gX4MqgtIlTGC8kt6cjj5o8GC7oSRSPjWP1t6XXfbshv3htiCCbz1mpjAjq+hp
+ QOVHyTbLBRPvEIpDXFJ2XW3AhhzHd7MoMEJNRtwER2JXkwtJKs0TeEwTeMf1WgjBE8TApVU3P3F
+ nMk/93wGYaqnLB0W3pIpLyW3A9VllLKB8iHiaS8zFIcdddWd/GL7FV/zFqXrecSPWg8ZrgW689U
+ ytnksczMBLuvSW23pK3ux7WliK0khF8I/0YL6jLW2AzqMGIBgJ2F0G4NcycVMWOtSPVL8alwBX9
+ VGjzmjsQlsfw8mA==
+X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
+ fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260109_034031_453192_6BCA0944 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,66 +126,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Seb,
+Notify the ufs phy of the hibern8 link state so that it can program the
+appropriate values.
 
-Cheers for the reply.
+Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+---
+Note: The phy_notify_state() API is part of v6.19-rc1 and onwards.
+---
+Changes in v3:
+- Add 'static const' (Bart)
+- Drop Barts reviewed-by tag for now
+- Link to v2: https://lore.kernel.org/r/20260107-ufs-exynos-phy_notify_pmstate-v2-1-2b823a25208b@linaro.org
 
-On Fri, Jan 09, 2026 at 11:18:33AM +0000, Sebastian Ene wrote:
-> On Thu, Jan 08, 2026 at 03:26:21PM +0000, Will Deacon wrote:
-> > On Wed, Nov 19, 2025 at 02:07:53AM +0000, Per Larsen via B4 Relay wrote:
-> > > From: Sebastian Ene <sebastianene@google.com>
-> > > 
-> > > Allow direct messages to be forwarded from the host. The host should
-> > > not be sending framework messages so they are filtered out.
-> > > 
-> > > Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> > > Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > > Signed-off-by: Per Larsen <perlarsen@google.com>
-> > > ---
-> > >  arch/arm64/kvm/hyp/nvhe/ffa.c | 22 ++++++++++++++++++++++
-> > >  include/linux/arm_ffa.h       |  3 +++
-> > >  2 files changed, 25 insertions(+)
-> > > 
-> > > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > > index 58b7d0c477d7fce235fc70d089d175c7879861b5..a38a3ab497e5eac11777109684a33f02d88d09a1 100644
-> > > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > > @@ -862,6 +862,23 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
-> > >  	hyp_spin_unlock(&host_buffers.lock);
-> > >  }
-> > >  
-> > > +static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
-> > > +			      struct kvm_cpu_context *ctxt,
-> > > +			      u64 vm_handle)
-> > > +{
-> > > +	DECLARE_REG(u32, flags, ctxt, 2);
-> > > +
-> > > +	struct arm_smccc_1_2_regs *args = (void *)&ctxt->regs.regs[0];
-> > > +
-> > > +	/* filter out framework messages */
-> > > +	if (FIELD_GET(FFA_MSG_FLAGS_MSG_TYPE, flags)) {
-> > 
-> > Wouldn't we be better off just checking that flags is 0? The rest of it
-> > is SBZ or MBZ in the current spec.
-> 
-> Yes, we can simplify it in this way.
+Changes in v2:
+- Collect up tags
+- Rebased onto next-20260106
+- Update phy_notify_pmstate() to phy_notify_state()
+- Link to v1: https://lore.kernel.org/r/20250703-ufs-exynos-phy_notify_pmstate-v1-1-49446d7852d1@linaro.org
+---
+ drivers/ufs/host/ufs-exynos.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-I think it would also be more robust if new messaging types are added
-in future, as we would fail safe.
+diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
+index 70d195179ebaa01f38331faaee6f8349211c4c3b..76fee3a79c77b7117a2c02f380f8c78d702ad173 100644
+--- a/drivers/ufs/host/ufs-exynos.c
++++ b/drivers/ufs/host/ufs-exynos.c
+@@ -1568,12 +1568,17 @@ static void exynos_ufs_pre_hibern8(struct ufs_hba *hba, enum uic_cmd_dme cmd)
+ {
+ 	struct exynos_ufs *ufs = ufshcd_get_variant(hba);
+ 	struct exynos_ufs_uic_attr *attr = ufs->drv_data->uic_attr;
++	static const union phy_notify phystate = {
++		.ufs_state = PHY_UFS_HIBERN8_EXIT
++	};
+ 
+ 	if (cmd == UIC_CMD_DME_HIBER_EXIT) {
+ 		if (ufs->opts & EXYNOS_UFS_OPT_BROKEN_AUTO_CLK_CTRL)
+ 			exynos_ufs_disable_auto_ctrl_hcc(ufs);
+ 		exynos_ufs_ungate_clks(ufs);
+ 
++		phy_notify_state(ufs->phy, phystate);
++
+ 		if (ufs->opts & EXYNOS_UFS_OPT_USE_SW_HIBERN8_TIMER) {
+ 			static const unsigned int granularity_tbl[] = {
+ 				1, 4, 8, 16, 32, 100
+@@ -1600,12 +1605,17 @@ static void exynos_ufs_pre_hibern8(struct ufs_hba *hba, enum uic_cmd_dme cmd)
+ static void exynos_ufs_post_hibern8(struct ufs_hba *hba, enum uic_cmd_dme cmd)
+ {
+ 	struct exynos_ufs *ufs = ufshcd_get_variant(hba);
++	static const union phy_notify phystate = {
++		.ufs_state = PHY_UFS_HIBERN8_ENTER
++	};
+ 
+ 	if (cmd == UIC_CMD_DME_HIBER_ENTER) {
+ 		ufs->entry_hibern8_t = ktime_get();
+ 		exynos_ufs_gate_clks(ufs);
+ 		if (ufs->opts & EXYNOS_UFS_OPT_BROKEN_AUTO_CLK_CTRL)
+ 			exynos_ufs_enable_auto_ctrl_hcc(ufs);
++
++		phy_notify_state(ufs->phy, phystate);
+ 	}
+ }
+ 
 
-> > > +		do_ffa_direct_msg(&res, host_ctxt, HOST_FFA_ID);
-> > 
-> > What's the point of passing HOST_FFA_ID here? Is that supposed to end up
-> > in the Sender ID bits of W1?
-> 
-> I can remove it, this doesn't bring too much for upstream but on the
-> android kernel with guest-ffa it makes sense because we need to validate
-> the sender to prevent impersonation.
+---
+base-commit: 6cd6c12031130a349a098dbeb19d8c3070d2dfbe
+change-id: 20250703-ufs-exynos-phy_notify_pmstate-c0e9db95ac66
 
-We could also validate that the sender is HOST_FFA_ID in this case, but
-that seems to be missing atm.
+Best regards,
+-- 
+Peter Griffin <peter.griffin@linaro.org>
 
-Cheers,
-
-Will
 
