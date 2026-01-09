@@ -4,56 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0EFCD167FF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1787ED16804
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:34:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yCWm3IEU5eJbuqswuq1W4rdD0B2R08TmMdTqbykYmIk=; b=gw/FVHLEuC2fAKRnjCn4is380M
-	sXlXNzsiewuyBPzhiAg1NPTYEEtZ+E5HYGC4lwtLn53s7M1aKagUWjMZ0NT0hx/jDrfS527Ew+Iuj
-	KsacawqUbr2ZGhEDHeSR220heo7j29RUwupCwHpvzW9c2D+Lvz6nmSPiBkgVxgonBAuTOgBEB2sZf
-	i+WEDsys5qCkpcWzuZcCHzvqV0ZMulpEqpxL0hwvbhp2YaqXwptaWMgBxeAvYgf4JgD5VziRyspLt
-	mnoVCEw6TVDBWx6dWucJlZ/mfyckqJ+SZrBAZej1d39QvgiU63Kt91Mk8w76EtuEA5cHtefD7lETL
-	Xh2tXXPw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kCeTL5DyL4OpVceWW2dtJZK2fvnfNct2KD6UucHZ0lo=; b=kcO7HAHrowVDOcoHUI7L0VI/HC
+	rt2Qip5k7G44yBNJkyLdPXWP/ahrw2FXnH5PlWHfsJNbABsFr1lyog/GEOuKnIUnM7RgiaW0BUVMO
+	7WxGkTKgQh3twMU9y5wxSWs5OloQEvPhW8cAfxRjxmx91Xt3HOWmuUKyUenbujlSWO603lAYyvnfM
+	htZW5CT/LoJgchO5+luyqXWGnkKZd3eX3z+QBuUThn88Byeijs4FuYaLE24QklfNb+yF5QqqEsyHC
+	mrLSNh70WpcGbO58sh/9oilFGZ1TX8T3WSOxcRyNPpZascWA+9zlFWZ//blD4+uRKT2RGCUXmEEHm
+	6Oam8+vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9iR-000000028Yh-1eSQ;
-	Fri, 09 Jan 2026 10:27:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve9iO-000000028YL-156h
+	id 1ve9oo-000000028nD-163z;
+	Fri, 09 Jan 2026 10:34:10 +0000
+Received: from mail-dy1-x1362.google.com ([2607:f8b0:4864:20::1362])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ve9om-000000028mQ-083D
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 10:27:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2B08F497;
-	Fri,  9 Jan 2026 02:27:22 -0800 (PST)
-Received: from [10.1.35.21] (Suzukis-MBP.cambridge.arm.com [10.1.35.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9239D3F5A1;
-	Fri,  9 Jan 2026 02:27:26 -0800 (PST)
-Message-ID: <6c70f7e3-9a98-4a84-9391-8d83df1c3818@arm.com>
-Date: Fri, 9 Jan 2026 10:27:24 +0000
+	Fri, 09 Jan 2026 10:34:09 +0000
+Received: by mail-dy1-x1362.google.com with SMTP id 5a478bee46e88-2b05fe2bf14so5389077eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 02:34:07 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767954846; x=1768559646;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kCeTL5DyL4OpVceWW2dtJZK2fvnfNct2KD6UucHZ0lo=;
+        b=pRcDSWLAKHvb8bZDoaDd6OAdca3vrLYvNovMaN4pSGmLX9QJ8iL0taXqruMfwCfgLQ
+         tTSRkojdqPS7n2fBwUYh0pyU6xZHrrk2umoWyWrTUDdSrRYxzmVaNAXJ4FaKnHKoCJrZ
+         3OSaCSPNHWY61Xos7PZ4C41hKgP+u4Ul77ohM0WZQOR6QbsTzsH/7S+1JAtAr7ez8gqe
+         LyDLtm+KE5+DJYZxJNGSPIN7Ua72ZEl4NGUQZA5wlyWw4kWxSVd50d29ug2kgI9dZIvu
+         iJNKSWLEuTfOU75D6Xtyr/VCp6pOBKokAT5x0+prFoUe94HebNeCe4yDQyXmgKt/Ucg1
+         YbPA==
+X-Forwarded-Encrypted: i=1; AJvYcCVhPk2mZ4C8AKAqul8U5997jq7G26+zIoq0xGqM0i6w1mfmMypkMo84VnyLUgCVI2jWxTLofTsdp058GjZasd7A@lists.infradead.org
+X-Gm-Message-State: AOJu0Yys7TsvIBqnPZr76JAVG1vIR++dDr1FDL9p+/C/pt9pRCQEwZAN
+	XV/zLkUZ4KUt0DPJf+iGHWzpWKqWJSig9p+j+LkD5crV5JPLCyIW/0qPft78KM5zgxyONfdivne
+	QPrRmVdZyzeUzFTdGm254kwp1NX6w4A1Zvyrk4H5N/beNjNfMHa0DaODdKCqo70A15t48Utt3nH
+	PZS/HcbKy3LnwnkXzV4JMReU4OcHaXxYLST0it3Tw61+lEuFW2w31GQtiB+x2xExB7bPa46DgAd
+	RGxc3ZKEcKpdbzlDaXrUCqUlPK0IUY0EsW5
+X-Gm-Gg: AY/fxX6uqvcH0hUYGZsoqpaW2go0G9HP/tEMlQiARnjtWzQ/vkmVIeYpVtH8EjWCRWG
+	HqghsWi/YbNSW0RTuXjxK0euuHWPz/tvchP+4Cb945suxk12N4cB3sr+z/fxlqnbAXGIWQ4EEG9
+	kXvO8ApnPe+C3TpbeNSl8UzTslomrJJo+lRAi0E+PfD0gZB34Vx/D8jNi5RXA/DjM023YYbxM/7
+	Lx2ASmEMnI+3ftM00v5TxWs4SGsh7RLdACTGs1ZNfnEona0VuPbdLjRNAVcqaQ5ipmdgCLbv4KA
+	6H7+QaB1W8NvtDS9osLpiCvtn/Cs4iIQ0uSB4tZy80D/W6MTyw2VE1PIUwsxBBqK8a8UHLcTFXs
+	zqg1snvvrWDjKW//HYOOm6P3HLecregh34QfrEWmBRcu99LyTWuKKAnjI8VX+i2X/A8ZjbKZm7U
+	SI4Yv9AwsofCEvCzKOi9ryZLlLvT45J2YEbN+rA/KlpIVJLg==
+X-Google-Smtp-Source: AGHT+IEmy3XeYZ2hmJLNuZ6SkbhP44UZCa9kfYCiWWKdccncwe2k89QB9jV0EfaCucqNu84ub5vPEwQLONDK
+X-Received: by 2002:a05:7300:748d:b0:2ae:5552:b5ae with SMTP id 5a478bee46e88-2b17d2e35d7mr10514232eec.36.1767954846431;
+        Fri, 09 Jan 2026 02:34:06 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-2.dlp.protect.broadcom.com. [144.49.247.2])
+        by smtp-relay.gmail.com with ESMTPS id 5a478bee46e88-2b17067dbdcsm1222319eec.1.2026.01.09.02.34.06
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 09 Jan 2026 02:34:06 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8b2de6600c0so1047994785a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 02:34:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1767954845; x=1768559645; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kCeTL5DyL4OpVceWW2dtJZK2fvnfNct2KD6UucHZ0lo=;
+        b=YtO8jBOv1bA34u1WS+9DVeEngZp36uKwFRG2tF1iz1kPXFWV1/jag0qhli1KnexEln
+         4F6afXtA5amBQTjFOySVfmD/wED6oNFmUmKYWvxr3cyVY13qcQsIFc8/62+uY4FEDki8
+         KeIZjeN/4XidPKsTF60fsN7UY9MoRtH9Dtd9M=
+X-Forwarded-Encrypted: i=1; AJvYcCWr1vuEe5zVZBrt0pR26Fvwks3O6/J8N3ShNjLMr15jxH3prDbGOINW1fea0hNsnqDxg1osOnzZtjd2R1L1dtF9@lists.infradead.org
+X-Received: by 2002:a05:620a:7088:b0:8c3:87eb:f with SMTP id af79cd13be357-8c3893ef6d0mr1155258585a.53.1767954845225;
+        Fri, 09 Jan 2026 02:34:05 -0800 (PST)
+X-Received: by 2002:a05:620a:7088:b0:8c3:87eb:f with SMTP id af79cd13be357-8c3893ef6d0mr1155254585a.53.1767954844715;
+        Fri, 09 Jan 2026 02:34:04 -0800 (PST)
+Received: from shivania.lvn.broadcom.net ([192.19.161.250])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-890770cc73dsm73691156d6.7.2026.01.09.02.34.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 Jan 2026 02:34:04 -0800 (PST)
+From: Shivani Agarwal <shivani.agarwal@broadcom.com>
+To: stable@vger.kernel.org,
+	gregkh@linuxfoundation.org
+Cc: James.Bottomley@HansenPartnership.com,
+	martin.petersen@oracle.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	sthumma@codeaurora.org,
+	JBottomley@Parallels.com,
+	santoshsy@gmail.com,
+	linux-scsi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	ajay.kaher@broadcom.com,
+	alexey.makhalov@broadcom.com,
+	vamsi-krishna.brahmajosyula@broadcom.com,
+	yin.ding@broadcom.com,
+	tapas.kundu@broadcom.com,
+	Sanjeev Yadav <sanjeev.y@mediatek.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Peter Wang <peter.wang@mediatek.com>,
+	Sasha Levin <sashal@kernel.org>,
+	Shivani Agarwal <shivani.agarwal@broadcom.com>
+Subject: [PATCH v5.10] scsi: core: ufs: Fix a hang in the error handler
+Date: Fri,  9 Jan 2026 02:13:02 -0800
+Message-Id: <20260109101302.676694-1-shivani.agarwal@broadcom.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 2/7] qcom-tgu: Add TGU driver
-Content-Language: en-GB
-To: Songwei Chai <songwei.chai@oss.qualcomm.com>, andersson@kernel.org,
- alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
- james.clark@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
- devicetree@vger.kernel.org, gregkh@linuxfoundation.org
-References: <20260109021141.3778421-1-songwei.chai@oss.qualcomm.com>
- <20260109021141.3778421-3-songwei.chai@oss.qualcomm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260109021141.3778421-3-songwei.chai@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_022732_390030_C7336E66 
-X-CRM114-Status: GOOD (  34.66  )
+X-CRM114-CacheID: sfid-20260109_023408_132994_638014E2 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,343 +131,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/01/2026 02:11, Songwei Chai wrote:
-> Add driver to support device TGU (Trigger Generation Unit).
-> TGU is a Data Engine which can be utilized to sense a plurality of
-> signals and create a trigger into the CTI or generate interrupts to
-> processors. Add probe/enable/disable functions for tgu.
-> 
-> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
-> ---
->   .../ABI/testing/sysfs-bus-amba-devices-tgu    |   9 +
->   drivers/Makefile                              |   1 +
->   drivers/hwtracing/Kconfig                     |   2 +
->   drivers/hwtracing/qcom/Kconfig                |  18 ++
->   drivers/hwtracing/qcom/Makefile               |   3 +
->   drivers/hwtracing/qcom/tgu.c                  | 176 ++++++++++++++++++
->   drivers/hwtracing/qcom/tgu.h                  |  51 +++++
->   7 files changed, 260 insertions(+)
->   create mode 100644 Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
->   create mode 100644 drivers/hwtracing/qcom/Kconfig
->   create mode 100644 drivers/hwtracing/qcom/Makefile
->   create mode 100644 drivers/hwtracing/qcom/tgu.c
->   create mode 100644 drivers/hwtracing/qcom/tgu.h
-> 
-> diff --git a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-> new file mode 100644
-> index 000000000000..56ec3f5ab5d6
-> --- /dev/null
-> +++ b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-> @@ -0,0 +1,9 @@
-> +What:		/sys/bus/amba/devices/<tgu-name>/enable_tgu
-> +Date:		January 2026
-> +KernelVersion	6.19
+From: Sanjeev Yadav <sanjeev.y@mediatek.com>
 
-It's a bit too late for v6.19, this should rather be 6.20/7.0
+[ Upstream commit 8a3514d348de87a9d5e2ac00fbac4faae0b97996 ]
 
-Suzuki
+ufshcd_err_handling_prepare() calls ufshcd_rpm_get_sync(). The latter
+function can only succeed if UFSHCD_EH_IN_PROGRESS is not set because
+resuming involves submitting a SCSI command and ufshcd_queuecommand()
+returns SCSI_MLQUEUE_HOST_BUSY if UFSHCD_EH_IN_PROGRESS is set. Fix this
+hang by setting UFSHCD_EH_IN_PROGRESS after ufshcd_rpm_get_sync() has
+been called instead of before.
 
+Backtrace:
+__switch_to+0x174/0x338
+__schedule+0x600/0x9e4
+schedule+0x7c/0xe8
+schedule_timeout+0xa4/0x1c8
+io_schedule_timeout+0x48/0x70
+wait_for_common_io+0xa8/0x160 //waiting on START_STOP
+wait_for_completion_io_timeout+0x10/0x20
+blk_execute_rq+0xe4/0x1e4
+scsi_execute_cmd+0x108/0x244
+ufshcd_set_dev_pwr_mode+0xe8/0x250
+__ufshcd_wl_resume+0x94/0x354
+ufshcd_wl_runtime_resume+0x3c/0x174
+scsi_runtime_resume+0x64/0xa4
+rpm_resume+0x15c/0xa1c
+__pm_runtime_resume+0x4c/0x90 // Runtime resume ongoing
+ufshcd_err_handler+0x1a0/0xd08
+process_one_work+0x174/0x808
+worker_thread+0x15c/0x490
+kthread+0xf4/0x1ec
+ret_from_fork+0x10/0x20
 
-> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
-> +Description:
-> +		(RW) Set/Get the enable/disable status of TGU
-> +		Accepts only one of the 2 values -  0 or 1.
-> +		0 : disable TGU.
-> +		1 : enable TGU.
-> diff --git a/drivers/Makefile b/drivers/Makefile
-> index ccc05f1eae3e..9608a3debb1f 100644
-> --- a/drivers/Makefile
-> +++ b/drivers/Makefile
-> @@ -177,6 +177,7 @@ obj-$(CONFIG_RAS)		+= ras/
->   obj-$(CONFIG_USB4)		+= thunderbolt/
->   obj-$(CONFIG_CORESIGHT)		+= hwtracing/coresight/
->   obj-y				+= hwtracing/intel_th/
-> +obj-y				+= hwtracing/qcom/
->   obj-$(CONFIG_STM)		+= hwtracing/stm/
->   obj-$(CONFIG_HISI_PTT)		+= hwtracing/ptt/
->   obj-y				+= android/
-> diff --git a/drivers/hwtracing/Kconfig b/drivers/hwtracing/Kconfig
-> index 911ee977103c..8a640218eed8 100644
-> --- a/drivers/hwtracing/Kconfig
-> +++ b/drivers/hwtracing/Kconfig
-> @@ -7,4 +7,6 @@ source "drivers/hwtracing/intel_th/Kconfig"
->   
->   source "drivers/hwtracing/ptt/Kconfig"
->   
-> +source "drivers/hwtracing/qcom/Kconfig"
-> +
->   endmenu
-> diff --git a/drivers/hwtracing/qcom/Kconfig b/drivers/hwtracing/qcom/Kconfig
-> new file mode 100644
-> index 000000000000..d6f6d4b0f28e
-> --- /dev/null
-> +++ b/drivers/hwtracing/qcom/Kconfig
-> @@ -0,0 +1,18 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +#
-> +# QCOM specific hwtracing drivers
-> +#
-> +menu "Qualcomm specific hwtracing drivers"
-> +
-> +config QCOM_TGU
-> +	tristate "QCOM Trigger Generation Unit driver"
-> +	help
-> +	  This driver provides support for Trigger Generation Unit that is
-> +	  used to detect patterns or sequences on a given set of signals.
-> +	  TGU is used to monitor a particular bus within a given region to
-> +	  detect illegal transaction sequences or slave responses. It is also
-> +	  used to monitor a data stream to detect protocol violations and to
-> +	  provide a trigger point for centering data around a specific event
-> +	  within the trace data buffer.
-> +
-> +endmenu
-> diff --git a/drivers/hwtracing/qcom/Makefile b/drivers/hwtracing/qcom/Makefile
-> new file mode 100644
-> index 000000000000..5a0a868c1ea0
-> --- /dev/null
-> +++ b/drivers/hwtracing/qcom/Makefile
-> @@ -0,0 +1,3 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +
-> +obj-$(CONFIG_QCOM_TGU) += tgu.o
-> diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
-> new file mode 100644
-> index 000000000000..c5b2b384e6ae
-> --- /dev/null
-> +++ b/drivers/hwtracing/qcom/tgu.c
-> @@ -0,0 +1,176 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-> + */
-> +
-> +#include <linux/amba/bus.h>
-> +#include <linux/device.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/pm_runtime.h>
-> +
-> +#include "tgu.h"
-> +
-> +static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
-> +{
-> +	TGU_UNLOCK(drvdata->base);
-> +	/* Enable TGU to program the triggers */
-> +	writel(1, drvdata->base + TGU_CONTROL);
-> +	TGU_LOCK(drvdata->base);
-> +}
-> +
-> +static int tgu_enable(struct device *dev)
-> +{
-> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-> +
-> +	guard(spinlock)(&drvdata->lock);
-> +	if (drvdata->enable)
-> +		return -EBUSY;
-> +
-> +	tgu_write_all_hw_regs(drvdata);
-> +	drvdata->enable = true;
-> +
-> +	return 0;
-> +}
-> +
-> +static void tgu_disable(struct device *dev)
-> +{
-> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-> +
-> +	guard(spinlock)(&drvdata->lock);
-> +	if (drvdata->enable) {
-> +		TGU_UNLOCK(drvdata->base);
-> +		writel(0, drvdata->base + TGU_CONTROL);
-> +		TGU_LOCK(drvdata->base);
-> +
-> +		drvdata->enable = false;
-> +	}
-> +}
-> +
-> +static ssize_t enable_tgu_show(struct device *dev,
-> +				struct device_attribute *attr, char *buf)
-> +{
-> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-> +	bool enabled;
-> +
-> +	guard(spinlock)(&drvdata->lock);
-> +	enabled = drvdata->enable;
-> +
-> +	return sysfs_emit(buf, "%d\n", enabled ? 1 : 0);
-> +}
-> +
-> +/* enable_tgu_store - Configure Trace and Gating Unit (TGU) triggers. */
-> +static ssize_t enable_tgu_store(struct device *dev,
-> +				struct device_attribute *attr,
-> +				const char *buf,
-> +				size_t size)
-> +{
-> +	unsigned long val;
-> +	int ret = 0;
-> +
-> +	ret = kstrtoul(buf, 0, &val);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (val) {
-> +		ret = pm_runtime_resume_and_get(dev);
-> +		if (ret)
-> +			return ret;
-> +		ret = tgu_enable(dev);
-> +		if (ret) {
-> +			pm_runtime_put(dev);
-> +			return ret;
-> +		}
-> +	} else {
-> +		tgu_disable(dev);
-> +		pm_runtime_put(dev);
-> +	}
-> +
-> +	return size;
-> +}
-> +static DEVICE_ATTR_RW(enable_tgu);
-> +
-> +static struct attribute *tgu_common_attrs[] = {
-> +	&dev_attr_enable_tgu.attr,
-> +	NULL,
-> +};
-> +
-> +static const struct attribute_group tgu_common_grp = {
-> +	.attrs = tgu_common_attrs,
-> +	NULL,
-> +};
-> +
-> +static const struct attribute_group *tgu_attr_groups[] = {
-> +	&tgu_common_grp,
-> +	NULL,
-> +};
-> +
-> +static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
-> +{
-> +	struct device *dev = &adev->dev;
-> +	struct tgu_drvdata *drvdata;
-> +	int ret;
-> +
-> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-> +	if (!drvdata)
-> +		return -ENOMEM;
-> +
-> +	drvdata->dev = &adev->dev;
-> +	dev_set_drvdata(dev, drvdata);
-> +
-> +	drvdata->base = devm_ioremap_resource(dev, &adev->res);
-> +	if (IS_ERR(drvdata->base))
-> +		return PTR_ERR(drvdata->base);
-> +
-> +	spin_lock_init(&drvdata->lock);
-> +
-> +	ret = sysfs_create_groups(&dev->kobj, tgu_attr_groups);
-> +	if (ret) {
-> +		dev_err(dev, "failed to create sysfs groups: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	drvdata->enable = false;
-> +
-> +	pm_runtime_put(&adev->dev);
-> +	return 0;
-> +}
-> +
-> +static void tgu_remove(struct amba_device *adev)
-> +{
-> +	struct device *dev = &adev->dev;
-> +
-> +	sysfs_remove_groups(&dev->kobj, tgu_attr_groups);
-> +
-> +	tgu_disable(dev);
-> +}
-> +
-> +static const struct amba_id tgu_ids[] = {
-> +	{
-> +		.id = 0x000f0e00,
-> +		.mask = 0x000fffff,
-> +	},
-> +	{ 0, 0, NULL },
-> +};
-> +
-> +MODULE_DEVICE_TABLE(amba, tgu_ids);
-> +
-> +static struct amba_driver tgu_driver = {
-> +	.drv = {
-> +		.name = "qcom-tgu",
-> +		.suppress_bind_attrs = true,
-> +	},
-> +	.probe = tgu_probe,
-> +	.remove = tgu_remove,
-> +	.id_table = tgu_ids,
-> +};
-> +
-> +module_amba_driver(tgu_driver);
-> +
-> +MODULE_AUTHOR("Songwei Chai <songwei.chai@oss.qualcomm.com>");
-> +MODULE_AUTHOR("Jinlong Mao <jinlong.mao@oss.qualcomm.com>");
-> +MODULE_DESCRIPTION("Qualcomm Trigger Generation Unit driver");
-> +MODULE_LICENSE("GPL");
-> diff --git a/drivers/hwtracing/qcom/tgu.h b/drivers/hwtracing/qcom/tgu.h
-> new file mode 100644
-> index 000000000000..b11cfb28261d
-> --- /dev/null
-> +++ b/drivers/hwtracing/qcom/tgu.h
-> @@ -0,0 +1,51 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-> + */
-> +
-> +#ifndef _QCOM_TGU_H
-> +#define _QCOM_TGU_H
-> +
-> +/* Register addresses */
-> +#define TGU_CONTROL 0x0000
-> +#define TGU_LAR		0xfb0
-> +#define TGU_UNLOCK_OFFSET	0xc5acce55
-> +
-> +static inline void TGU_LOCK(void __iomem *addr)
-> +{
-> +	do {
-> +		/* Wait for things to settle */
-> +		mb();
-> +		writel_relaxed(0x0, addr + TGU_LAR);
-> +	} while (0);
-> +}
-> +
-> +static inline void TGU_UNLOCK(void __iomem *addr)
-> +{
-> +	do {
-> +		writel_relaxed(TGU_UNLOCK_OFFSET, addr + TGU_LAR);
-> +		/* Make sure everyone has seen this */
-> +		mb();
-> +	} while (0);
-> +}
-> +
-> +/**
-> + * struct tgu_drvdata - Data structure for a TGU (Trigger Generator Unit)
-> + * @base: Memory-mapped base address of the TGU device
-> + * @dev: Pointer to the associated device structure
-> + * @lock: Spinlock for handling concurrent access
-> + * @enable: Flag indicating whether the TGU device is enabled
-> + *
-> + * This structure defines the data associated with a TGU device,
-> + * including its base address, device pointers, clock, spinlock for
-> + * synchronization, trigger data pointers, maximum limits for various
-> + * trigger-related parameters, and enable status.
-> + */
-> +struct tgu_drvdata {
-> +	void __iomem *base;
-> +	struct device *dev;
-> +	spinlock_t lock;
-> +	bool enable;
-> +};
-> +
-> +#endif
+Signed-off-by: Sanjeev Yadav <sanjeev.y@mediatek.com>
+[ bvanassche: rewrote patch description ]
+Fixes: 62694735ca95 ("[SCSI] ufs: Add runtime PM support for UFS host controller driver")
+Signed-off-by: Bart Van Assche <bvanassche@acm.org>
+Link: https://lore.kernel.org/r/20250523201409.1676055-1-bvanassche@acm.org
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+Signed-off-by: Martin K. Petersen <martin.petersen@oracle.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+[Shivani: Modified to apply on 5.10.y]
+Signed-off-by: Shivani Agarwal <shivani.agarwal@broadcom.com>
+---
+ drivers/scsi/ufs/ufshcd.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/scsi/ufs/ufshcd.c b/drivers/scsi/ufs/ufshcd.c
+index 54e7d96bf..c1f232472 100644
+--- a/drivers/scsi/ufs/ufshcd.c
++++ b/drivers/scsi/ufs/ufshcd.c
+@@ -5766,10 +5766,12 @@ static void ufshcd_err_handler(struct work_struct *work)
+ 		spin_unlock_irqrestore(hba->host->host_lock, flags);
+ 		return;
+ 	}
+-	ufshcd_set_eh_in_progress(hba);
+ 	spin_unlock_irqrestore(hba->host->host_lock, flags);
++
+ 	ufshcd_err_handling_prepare(hba);
++
+ 	spin_lock_irqsave(hba->host->host_lock, flags);
++	ufshcd_set_eh_in_progress(hba);
+ 	ufshcd_scsi_block_requests(hba);
+ 	/*
+ 	 * A full reset and restore might have happened after preparation
+-- 
+2.40.4
 
 
