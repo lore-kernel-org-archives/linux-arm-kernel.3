@@ -4,200 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34AE4D1680B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 10:59:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 782A6D1680F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 11:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lPMDfOopHDYYsgVHr3lA01xSO6tov7iYp2Jhz4+My7w=; b=IA9T7GLHeRhKu0o61NuFXY2kGO
-	10d6HHrKMLUxR0GfBubgy8JbPGUiGxwNUsls4RcRpLtJ6yB9aK0TMth3/S7bvk2Dmam3DTQ0l2EWG
-	CY6JnUjepGk3g2cA6XQJiVceOiq0fxx9qRpb+kIGFN1beNN7B60T3YafLFbD+VZJ26hvM2v9830/Z
-	CGYzGF2eXAW32F/5wvwqQl26mlo8I2+xuuEL2rKkjO/UJTYYqH2ECPOxF8dVUDDzWTVoa26fUWu5N
-	1CgKsZBjmo0VY8/IYSTnRVz2nnq4t9il3AQeW/miwi4bANiLWnUb+YHIIeQu0QYuCvGEjqkQ0rC91
-	teKZvaIg==;
+	bh=GaJKIpZsmBkgWWZNLcb1c5XpnSAJ62BYR2TerfncxGM=; b=tXsQcAsDlF29tq1OEVAmZd1CYJ
+	KvuK4FN5O/cT1tTIaQovMeSukGpm3A64PhEgnYT0tPD7vQZJGsLsFQTK7P9gXWJ+c6iQgobmUf+fR
+	dSTVLb3vHpWeY+CVGCRpf1cZ+4vPsbbd8Gohkd3RIcwlS+E9gcc04Efxne8/j4U2FpVIAiFcgmjme
+	T6c5mrTLgIt9MNmV5bLHhe7HExIeKOPW9HXW+APIYPuEtOqyjbtk/sYJXsKS2l55dgQAMKd3m+Nq7
+	DI/3uJaOfdoFbSkvuwJBKTNzXtFJ4pwySSqZobVgSkpIzr2jg7Z5rxQI3L19TDQ8IJRDYsMZOZqW3
+	iY49YrBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veAD8-00000002Bg9-3gSc;
-	Fri, 09 Jan 2026 10:59:18 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1veAGB-00000002ByV-3gNs;
+	Fri, 09 Jan 2026 11:02:27 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veAD4-00000002BeJ-3FQh
+	id 1veAG9-00000002By9-07vg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 10:59:17 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 609AoV9B455833;
-	Fri, 9 Jan 2026 11:57:02 +0100
-Received: from as8pr04cu009.outbound.protection.outlook.com (mail-westeuropeazon11011054.outbound.protection.outlook.com [52.101.70.54])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4bjkxmt4h8-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 09 Jan 2026 11:57:01 +0100 (CET)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AP4D08qKczrV0yaJ6UMph0falDDe54vsbLOLY994iJ1VIrsIiiNzGgCYe6tnDW0qpEpY9Ba9SpkUZH3s06vFt5RkC0wL8hdNdA+bbH1gxKW8H3wtNSY9dD9UL9Wwumgt/8lnkQ8U9L0V4iUBQL7Uc6oUvtX7aDdJLnjhHGeL+cvApeXOXqzDiOOUAYa8B2NSibckHBieGSZUOFbE08N+8N19rbpN4+mM/IJ82doHf4Ztyr08zHYxYvprXfOpjFMJBpeUVNDQHnkrqlAeFm1Rb3VByljsl3IGC/mh4wyCzGVH1JQzxwnzv4xajiWWkZHksuYBYUiPI7/zvMqpn3qtXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lPMDfOopHDYYsgVHr3lA01xSO6tov7iYp2Jhz4+My7w=;
- b=gIJtIY+aFaf4o9K8sftpTrL+qAZ5topaToXKd7SH79Mulxw2qrkq6FZLn36ay2MdNp9syZT9/xSqpMjBLTfuCk5wOX5pnZ/4z/OSGuxs2dHj8C6kOLOuA+U3Rm18lT71FAhs0kpPWYd3UymTqGgTZ3G5th54PJVbaAmnDjVOin9OThPsMhPCyEMo+Zr3q+ZlpvhX/mTCkkeu7Wx9YUDkotpl3l/4VF1m1UsWRFlw3VIdjVTUyh5H+9YBqXKO30zy7Zj4u29kvdgGYOkK3QCXLUXfIG9JeDgx6t2kH+i2Cem66gthPvz5Py/jqpZ10+ZTHja3pS2OMv6aveWFMv749Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=linaro.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lPMDfOopHDYYsgVHr3lA01xSO6tov7iYp2Jhz4+My7w=;
- b=Yh1S36AKITdBKU3UeVi7vZ8DhuT2q0qTEQAjwaCDfdEt25RiGpZmupq/8G/WnkkfGS//PcPuqUmLa2CdzCGabkgxmCPmRQEUmZRpe2YdLGmiiUXE2zakZS7Oq3JFNlU/rsmdu06k+4g8XE2OKCjTYtMjQFmMtPmwnkOx3p2G4vkCwr6HHbJmrOx+lLPbTeLpov0TXDEjtLfyhSLcyFXUkQZSn3T5FMNEuZyWJ5gBohI5KyLVlZUHqnPuEVRwmcWDCA1Q74bhVqV+AVqHbTK6c0zglOu0+rIySZ/wFFn3Ctp+T4ct+6XrbS07Km9252xBX7E0AdGMF2Y76q/1mLYxTw==
-Received: from DU2PR04CA0209.eurprd04.prod.outlook.com (2603:10a6:10:28d::34)
- by PA2PR10MB8578.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:41b::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.4; Fri, 9 Jan
- 2026 10:56:57 +0000
-Received: from DU6PEPF0000A7E1.eurprd02.prod.outlook.com
- (2603:10a6:10:28d:cafe::48) by DU2PR04CA0209.outlook.office365.com
- (2603:10a6:10:28d::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.4 via Frontend Transport; Fri, 9
- Jan 2026 10:56:57 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DU6PEPF0000A7E1.mail.protection.outlook.com (10.167.8.40) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.1 via Frontend Transport; Fri, 9 Jan 2026 10:56:56 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 9 Jan
- 2026 11:58:12 +0100
-Received: from localhost (10.48.86.212) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 9 Jan
- 2026 11:56:55 +0100
-From: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Date: Fri, 9 Jan 2026 11:55:06 +0100
-Subject: [PATCH 06/11] arm: dts: stm32: introduce the debug bus for
- stm32mp1x platforms
+	Fri, 09 Jan 2026 11:02:26 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6098mXZn3727889
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 9 Jan 2026 11:02:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	GaJKIpZsmBkgWWZNLcb1c5XpnSAJ62BYR2TerfncxGM=; b=OHD7/fCfhck/wVKX
+	qXXTB8v2fewQ1KGOw4qvyFvuY+0ggJqBTL+bYqttKbz3HWMX7tM+xwT7bTHx6MeO
+	uYg0/sxLuDeSxI6FtoeNubHie2OyPI0xn7aXvaXoYhs83pw+Q5WerMcsieDA+Ups
+	H6SRYrWjUWDiS/gFvnpS/egCIRirUQt9Ia9g4BVbtAOabiyTU0Flpvt4F6+2M+78
+	k0jmHC6W0DJUNSG0x14qpyFrnd2nKIIdi/+ooc/+liDQR+3hVFF7aoH+suCLW/tm
+	XeNPFVJK5QelweMozEbUrT5/CPJApZKJLPlU6ksbmCGtfEKq+Fp+iPOA8tkapzEg
+	9p+I3g==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bjpmkhrwd-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 11:02:24 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-81efa628efbso3164b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 03:02:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1767956543; x=1768561343; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=GaJKIpZsmBkgWWZNLcb1c5XpnSAJ62BYR2TerfncxGM=;
+        b=CudUWTLQNgEYpBQ8tUMD4rEX3lxRvLmA/rGtHkgmlEhTSfmBdQItVUtyn7ZZMtRR4V
+         FbcBgDNAx10HgpAG6jf+xEEeXk9plRdJQXQYk/XeMl0Q6mi5Gg9zZP0I7FKAFuDHnelf
+         Z3JjIB98/azdFsYFB+nI7gDdOUMRClyn3dQmHUutUk/w2wnxlbkOE3u6RK2cv3Y6ImF4
+         IQIxg4FJ0dcxxRsl5tZgT5lJU7OX8ndfvwnewtvhscACevdpv0nxR4LOS/VeGri9KztE
+         GLBEOfI9qiSGlpMbuXTFkIrF0gZb31q84Ifks6UddJh90vuG3Q819W9FP1ZoLSCsMiQy
+         lhVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767956543; x=1768561343;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GaJKIpZsmBkgWWZNLcb1c5XpnSAJ62BYR2TerfncxGM=;
+        b=mPszdgvmPs7CAxc0LGiRtvVwax4eMghgUMoNqWWoCdfu+RIXb5EDleOFPZ5VLF+iGW
+         cspf6pb/JpijNt0c4RfSwSJjtMrcWNv523eyl7UQsVCCG/j4MFYyXnIYteDPzmtH6rsa
+         HfBBDGDAHTYpw3St/APtwlp2mXdhNIhGde62yBg4Xl2MUCFJaJkH9UGfxl2Cbk+pZ1ot
+         7LvKUyjKG7MewMzr0MTqp0pKsGcgxbzsmutTIl8+fy/8/Odn7IXa4rzMqF+3fqjDBUAy
+         gI/m1JevkahrfUJJ40pMi0Ui4T+qsuppybkT/d2xjHYqNBw2ApjsiYaTVAyKKgeSU1C5
+         WAVw==
+X-Forwarded-Encrypted: i=1; AJvYcCWoI+cDkDadlSSX3zN1kqJ81tyGeegkPvL6OoqjzQMx/yF3EUdOb2YrEW2Ym/dSufjRbe3HWJW9+mjc1QaEUdhh@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXuBK2EkTsUAyO3dqFHlrqXLiZWgsgqGwDz3QHDpv/ioUK+itE
+	4BYftaYt7+q52IsuDa8nhT5+Cjb5LWrH9NMtVaTQoAg0Q1u4xql5DFhApmqbEvLIYeenCi3Qscr
+	PHBKfWWWZJsiT3CNiTXt+Orip5TaqnOXbErJ+iZuIaLjl+P+yS8wE0fR/v+DIPHFR0ZMhKHzAT/
+	01emP6UfghUw==
+X-Gm-Gg: AY/fxX7cFCb+H2QDX/VdiZUBHJ20U1ANbn5+khE2xEbxxpKoMbQ33TtfBL3NKS1x80U
+	HKFZGEtNHHURltVHvyZLwewodKucMEidiOU7oOZsQ3DX1o3ftum2N905jcnGSM5/s4CB2WjVDy0
+	OMNa0CUQcRh0Lvi7rBuEEIQZpXJRTU6s4vgg8LGjJ5K1oLoQMRMbgbZKdnf5OkUIBRB7AqDv4fQ
+	p1bwUPNoRYHuk8f9Ei3YDPa1vpfqKIeo0zgiLKSB6+k1fc+BiiNW4Z3FvRjB4V8ZLSBgnsZJjEb
+	HYss9yx4JTRfybt1SYdnASlFReoYVWc7IJa5afMrRJNJI/EaVQffzI8/hmrag5EXZnBwW7mowr2
+	nZECDJPadHzrZVE8kIKDeLOunBTCfwC5QVYKNFnHWgQbH9t0CFClpa7tBJGOoUccobDk7hj8r5b
+	8=
+X-Received: by 2002:a05:6a00:4103:b0:7aa:d7dd:b7dc with SMTP id d2e1a72fcca58-81b7e2533b1mr8155988b3a.31.1767956543207;
+        Fri, 09 Jan 2026 03:02:23 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHvzGy2x+UxsDPmAc468Dm6CNM2dqZklwm+9aRR7rID6M+AjfaOMAx6/J2tyslW9MWyLhttkg==
+X-Received: by 2002:a05:6a00:4103:b0:7aa:d7dd:b7dc with SMTP id d2e1a72fcca58-81b7e2533b1mr8155952b3a.31.1767956542566;
+        Fri, 09 Jan 2026 03:02:22 -0800 (PST)
+Received: from [10.133.33.228] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-819bb4c8186sm10172179b3a.29.2026.01.09.03.02.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 09 Jan 2026 03:02:22 -0800 (PST)
+Message-ID: <a6d44ed8-828a-4fc6-bb6b-6cd7f8760f66@oss.qualcomm.com>
+Date: Fri, 9 Jan 2026 19:02:16 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260109-debug_bus-v1-6-8f2142b5a738@foss.st.com>
-References: <20260109-debug_bus-v1-0-8f2142b5a738@foss.st.com>
-In-Reply-To: <20260109-debug_bus-v1-0-8f2142b5a738@foss.st.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring
-	<robh@kernel.org>,
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] arm64: dts: qcom: monaco: Add CTCU and ETR nodes
+To: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Mao Jinlong <jinlong.mao@oss.qualcomm.com>
+Cc: linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>, Rob Herring <robh@kernel.org>,
+        James Clark <james.clark@linaro.org>,
         Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        Leo Yan
-	<leo.yan@linux.dev>,
-        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?=
-	<legoffic.clement@gmail.com>,
-        Linus Walleij <linusw@kernel.org>,
-        "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>
-CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-gpio@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        Gatien Chevallier <gatien.chevallier@foss.st.com>,
-        Antonio Borneo
-	<antonio.borneo@foss.st.com>
-X-Mailer: b4 0.14.3
-X-Originating-IP: [10.48.86.212]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF0000A7E1:EE_|PA2PR10MB8578:EE_
-X-MS-Office365-Filtering-Correlation-Id: f38abc2b-c045-4583-06e5-08de4f6dce9e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014|7416014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SFpVOUpiYXJQWjF4UzJYRURxMk45Z2h3QityYVFiWjc0UzhkUXVvaWZZYmVV?=
- =?utf-8?B?T2E1ZGNrQmVqcU85MkZHTjNUaDdhbzUyRGFOcjNndHFHdUVSVmFzSmFhQWhR?=
- =?utf-8?B?ZlRqb1M0cS9vcVFHYkR0bmtnL2RaTHlQKzhCd251VEg2Sk5OT0VPSFgxQzhG?=
- =?utf-8?B?YjJaTEpMWUxRc0dGNnF4c1g5azRPNDVtbExhU01OaTRSc1djT2hWNFlvTnZ0?=
- =?utf-8?B?RnhDbkFLeFlZc3RWbHJUaFFlakpZaWoyYWJhVnZqTHpsMy9GR2xvNnAzVEFY?=
- =?utf-8?B?Sll3UDR0b0FhYzFnTkx3MC9CRFVBdHo5SGpXWXIyMUp6c2o5Q1J1M1c0b0pv?=
- =?utf-8?B?SDlPZGU1RjBLOGMxd2dKS2RZeVpQWktWckV3eVR2QTk2VGdsV1Z5T01RVklQ?=
- =?utf-8?B?NVA2NHovdjd0NnNzNW5xL3hJTGMrTThJazBOTTRKVThlVlZzeGlmNXpsV051?=
- =?utf-8?B?cTY0bzdWSlljMTdIUUovbG5zUE1wOUh2UVJhVDRxOVc0OGtDaGxmZW1zQ2JB?=
- =?utf-8?B?TzUrbFMvWi96UTFKSXlXd01rN0NKcHpOaFpiMkhKZDhWVWlsVGthTnFtanpE?=
- =?utf-8?B?QW4vaEl1MktUb0hnTmxPdXRMcjQ0czZLcXQxVHNScTlkeU8rcnB2cWtnL2Z2?=
- =?utf-8?B?alk0bUkxRElkUTJpYldHNGpSLzI2dWJkekxvTlZVQVFjbytRN2hLSnR6UlRl?=
- =?utf-8?B?NG82VkxWb3MyWXRFd1AvTVRhU1RYelFzM3Q1YkFySlpwamFiaXJKMmRGcStQ?=
- =?utf-8?B?M0NCSDlscithT0xtS2hwVnVpaUpyMHF5cndHdlJjcFczek9rNmdBaElqK2dq?=
- =?utf-8?B?bXI5K0wzVVlSTkVlcUpkam5LMHVkMnB1bFEzRGdpNS80V1dvMmdYbzJmaUpR?=
- =?utf-8?B?Y3piUWM4Wm41eUIwQk5qNXE1Tld4K3dHRzAvbWdyZmlWNjFGckxVazRzKzdF?=
- =?utf-8?B?L05nM2JGQitFVy9xTmRDVkt4cms2Qk90ZjhCL09aY1dhVGRiR1RDYk1yQ0FH?=
- =?utf-8?B?QTE3RC9ZQ29idWJWUFVhUGpyRHBxaFJUYkIwMXVsUXFudmIrM2xKcExVUWFj?=
- =?utf-8?B?VVZNSzBGRnlGNk91NlQwMWtCV0E0ci9Ld2FHbmFpRkY0enNIaW8vVExLVUFu?=
- =?utf-8?B?VHlXVVFhYmZqVmwwR0UvK0c1czNta2RnZHZpd0tDSzdjeW91dks1RE9aNFo0?=
- =?utf-8?B?MUxTc0ZwSnYrV0x4azVWNkkwYjhoRnYwcDVTbU5VSFNoc1VlNjd6K01kbWQr?=
- =?utf-8?B?b1ZSVitzZXpIRDNSZTBVSnZ4Z25FeTdEbndCT3M3RytQVGJKTjdjZFVreTVT?=
- =?utf-8?B?bEVJQTl4MEhWRmpQNndCN2ZhdmJZWGdjSUIrTXI5Z29SYVRTTWNZL3N4SVRr?=
- =?utf-8?B?L1RuRWN3VmFDSlg4Uk5ZSUtjYUsrZEZERUM3MkdlSndrcm4vcGpWL3BLRTVv?=
- =?utf-8?B?R2E2UlhvNjJVamowNkd4eFZOK3M1bzJQRG1lSGpUU1diMldITWhHWi83bU00?=
- =?utf-8?B?WXdCbGNaWTdNNFFvdE9OU3ZxUCtzMWNVditCeVhXS2ZlN0FtdUdwcEEwVSs3?=
- =?utf-8?B?b1VQV2szSnFIT0tSWHd3WXZjdERhVHRTZUx6VTRNbndHWHEzNUNDcXN4Q3NU?=
- =?utf-8?B?V1RrVzR5elI4RW8rTWd5S00rQW1HbnFzOXpWeVU2VXhwLyt3dGdmTjhoaVhs?=
- =?utf-8?B?U1B3YmJiQWNBNW5SdHRtdTRyV3ZwUzJDNWZMeC9OSEhaMWxkbnIyQ2x2RVlo?=
- =?utf-8?B?VklQUkF6RzczcytnclR6N0pKWXdjZ0dPaDRqL0w4ZytMSnB6bDlzSUZSUUdq?=
- =?utf-8?B?eEJkZExidmFHQVdVRExvVVVpTHdreGpvNEdtb3kvcFBteVN3MzdYMVY0MWdB?=
- =?utf-8?B?dktMd1JFZCtXNEhxS1JNSElxN2grV3gwcnpsTjhwWUlzQlhhYjlQL3hFaWVm?=
- =?utf-8?B?K0tEeFpCL0M4NlBEN29LZFhuMEFUS2NoOFhjZ3N6NDVkWHZUUzB1K2dsWlds?=
- =?utf-8?B?Y1JTUUZRdStFM05XY0tzL1duT090TlpKQllOZjFrYU1Zd2tLVDl3cjNzQit4?=
- =?utf-8?B?R1JBSTBkQXh6L00rU25uc0tDSVRuVGtLc1hFSmFiK0JTNDZQdmdIVEtMQnk1?=
- =?utf-8?Q?Y6Nq48pBpWT4d78FzW4pfY/K3?=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014)(7416014)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jan 2026 10:56:56.8205
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f38abc2b-c045-4583-06e5-08de4f6dce9e
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E1.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR10MB8578
-X-Proofpoint-GUID: pws8IPg-OeZy6oH1-B5FMN5Hb-3R09-U
-X-Authority-Analysis: v=2.4 cv=O9s0fR9W c=1 sm=1 tr=0 ts=6960defd cx=c_pps
- a=SAiMG8OwZveQWcn0e0GJXg==:117 a=d6reE3nDawwanmLcZTMRXA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=rg8MelPR9j8A:10 a=IkcTkHD0fZMA:10
- a=vUbySO9Y5rIA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=-E33GuBO8opgirhHEr4A:9
- a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA5MDA3OSBTYWx0ZWRfX9JmaN3VyVARE
- LpsMBXBTzvcL6q3Umn2+GHGiE1QaXOth2t1zrUcYB9N2v7MdPnwRJEhkdebpZJicSf+9WN5Gp6R
- WZpzUnsmJG/Wx1dv+29RMkj8NEnBGDPdXTis5lSKJWEhcbs5tMdPmKZk/N2WJAoji0qoIAd+DeJ
- l2+VfKD66rbNf5ZSzBJ2JDNvhXjzXuZ5onEgDPqLLJNV145RPbxcXmpFHyg5i4PoPsZt1M8vclv
- zKrMmMNKpFfpe4HLAXrikAnQdXRZKuW4I8F7yinbXJw8fVNjAtANqu6TiP/5ugvpcjOyBsGgK7d
- wusMcsNevgeUhyRus2x1BsY7Qx+EXgm91qGNxomFBfER276T1yq/VVknh1WltTuBdpLGRYzo9vx
- SAM1ztN9BHbvrTAenET61tpF8ZYgPQp2cjM6Vu2NPL6RGjYvc4mmu2YLrZO1KTtpjXDMURk9WF4
- pjdBmDNBSke2TpN5Q4g==
-X-Proofpoint-ORIG-GUID: pws8IPg-OeZy6oH1-B5FMN5Hb-3R09-U
+        Conor Dooley <conor+dt@kernel.org>
+References: <20251103-enable-ctcu-for-monaco-v4-0-92ff83201584@oss.qualcomm.com>
+ <20251103-enable-ctcu-for-monaco-v4-2-92ff83201584@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20251103-enable-ctcu-for-monaco-v4-2-92ff83201584@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=YNiSCBGx c=1 sm=1 tr=0 ts=6960e040 cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=li7pXvKEtyOYx0Cqe80A:9
+ a=QEXdDO2ut3YA:10 a=OpyuDcXvxspvyRM73sMx:22
+X-Proofpoint-GUID: w0OLzFQiVE68c55gCz_O5qRjvXHlJqJ1
+X-Proofpoint-ORIG-GUID: w0OLzFQiVE68c55gCz_O5qRjvXHlJqJ1
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA5MDA4MCBTYWx0ZWRfXw+rtF7sIsItj
+ SnCIEUy1ttPraUZC3xshSEo86T53JS+ltxFtEuhgkpFssDbtaZOcEbp6FXvHPtd6O57D+YUoJlI
+ LNh+TpuWvFI/2pT63c1bqPLXio8M7Pw83udMtLj0C14ysz536rDqLnJCxwO/b5OJfO70P8eQpoh
+ 0xHlup27MpmzJw0P3OJNr/9I8od11PO/93koM+oRecY1XGlmQC1yveoqszrAngFIx/SkvLIInQm
+ 73pxgdoidKMd05iNfJI+Nxy4G0+S4QMi5/dvDageRAD188t8dSpKy1s62ZyWUgyctdsatJ3c9Jy
+ u7luzdWEDXqOti/XDYW1tKGeNE3gIFkkVuhM5xaGFYwbjOq83IeK8sBmJkwOLBDYj2HMOm68KCg
+ bneUglRlUZTI6/GbqouIxYMayeZCzC9p4nAbYXa+HgLqL/BgscYK5MvaUNY55lcNeFl/TjY4BgX
+ V5MW39aHIIYsFCNd2ag==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2026-01-09_03,2026-01-08_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 clxscore=1011
- priorityscore=1501 spamscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0
- impostorscore=0 malwarescore=0 bulkscore=0 adultscore=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 phishscore=0 suspectscore=0 impostorscore=0 adultscore=0
+ spamscore=0 lowpriorityscore=0 malwarescore=0 bulkscore=0 clxscore=1015
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601090079
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601090080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_025915_117530_97165836 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20260109_030225_104498_1406898B 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -212,437 +157,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some peripherals cannot be probed if a debug configuration is not set
-in the BSEC.
-Introduce a debug bus that will check the debug subsystem accessibility
-before probing these peripheral drivers.
 
-Add Coresight peripheral nodes under this bus and add the appropriate
-access-controllers property to the HDP node.
 
-Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
-Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
----
- arch/arm/boot/dts/st/stm32mp131.dtsi | 119 ++++++++++++++++++++++++
- arch/arm/boot/dts/st/stm32mp151.dtsi | 173 +++++++++++++++++++++++++++++++++++
- arch/arm/boot/dts/st/stm32mp153.dtsi |  68 ++++++++++++++
- 3 files changed, 360 insertions(+)
+On 11/3/2025 3:06 PM, Jie Gan wrote:
+> Add CTCU and ETR nodes in DT to enable expected functionalities.
+> 
 
-diff --git a/arch/arm/boot/dts/st/stm32mp131.dtsi b/arch/arm/boot/dts/st/stm32mp131.dtsi
-index b9657ff91c23..d394061b85ac 100644
---- a/arch/arm/boot/dts/st/stm32mp131.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp131.dtsi
-@@ -3,6 +3,7 @@
-  * Copyright (C) STMicroelectronics 2021 - All Rights Reserved
-  * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
-  */
-+#include <dt-bindings/arm/coresight-cti-dt.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/clock/stm32mp13-clks.h>
- #include <dt-bindings/reset/stm32mp13-resets.h>
-@@ -964,9 +965,127 @@ hdp: pinctrl@5002a000 {
- 			compatible = "st,stm32mp131-hdp";
- 			reg = <0x5002a000 0x400>;
- 			clocks = <&rcc HDP>;
-+			access-controllers = <&dbg_bus 1>;
- 			status = "disabled";
- 		};
- 
-+		dbg_bus: bus@50080000 {
-+			compatible = "st,stm32mp131-dbg-bus";
-+			reg = <0x50080000 0x3f80000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			clocks = <&rcc CK_DBG>;
-+			#access-controller-cells = <1>;
-+			ranges;
-+			status = "disabled";
-+
-+			cs_etf: etf@50092000 {
-+				compatible = "arm,coresight-tmc", "arm,primecell";
-+				reg = <0x50092000 0x1000>;
-+				clocks = <&rcc CK_DBG>;
-+				clock-names = "apb_pclk";
-+				access-controllers = <&dbg_bus 0>;
-+				status = "disabled";
-+
-+				in-ports {
-+					port {
-+						etf_in_port: endpoint {
-+							remote-endpoint = <&etm0_out_port>;
-+						};
-+					};
-+				};
-+
-+				out-ports {
-+					port {
-+						etf_out_port: endpoint {
-+							remote-endpoint = <&tpiu_in_port>;
-+						};
-+					};
-+				};
-+			};
-+
-+			cs_tpiu: tpiu@50093000 {
-+				compatible = "arm,coresight-tpiu", "arm,primecell";
-+				reg = <0x50093000 0x1000>;
-+				clocks = <&rcc CK_DBG>, <&rcc CK_TRACE>;
-+				clock-names = "apb_pclk", "atclk";
-+				access-controllers = <&dbg_bus 0>;
-+				status = "disabled";
-+
-+				in-ports {
-+					port {
-+						tpiu_in_port: endpoint {
-+							remote-endpoint = <&etf_out_port>;
-+						};
-+					};
-+				};
-+			};
-+
-+			cs_cti_trace: cti@50094000 {
-+				compatible = "arm,coresight-cti", "arm,primecell";
-+				reg = <0x50094000 0x1000>;
-+				clocks = <&rcc CK_DBG>;
-+				clock-names = "apb_pclk";
-+				access-controllers = <&dbg_bus 0>;
-+				status = "disabled";
-+			};
-+
-+			cs_cti_cpu0: cti@500d8000 {
-+				compatible = "arm,coresight-cti", "arm,primecell";
-+				reg = <0x500d8000 0x1000>;
-+				clocks = <&rcc CK_DBG>;
-+				clock-names = "apb_pclk";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				access-controllers = <&dbg_bus 0>;
-+				status = "disabled";
-+
-+				trig-conns@0 {
-+					reg = <0>;
-+					arm,trig-in-sigs = <0 4 5>;
-+					arm,trig-in-types = <PE_DBGTRIGGER
-+							     GEN_IO
-+							     GEN_IO>;
-+					arm,trig-out-sigs = <0 7>;
-+					arm,trig-out-types = <PE_EDBGREQ
-+							      PE_DBGRESTART>;
-+					cpu = <&cpu0>;
-+				};
-+
-+				trig-conns@2 {
-+					reg = <2>;
-+					arm,trig-in-sigs = <2 3 6>;
-+					arm,trig-in-types = <ETM_EXTOUT
-+							     ETM_EXTOUT
-+							     ETM_EXTOUT>;
-+					arm,trig-out-sigs = <1 2 3 4>;
-+					arm,trig-out-types = <ETM_EXTIN
-+							      ETM_EXTIN
-+							      ETM_EXTIN
-+							      ETM_EXTIN>;
-+					arm,cs-dev-assoc = <&cs_etm0>;
-+				};
-+			};
-+
-+			cs_etm0: etm@500dc000 {
-+				compatible = "arm,coresight-etm3x", "arm,primecell";
-+				reg = <0x500dc000 0x1000>;
-+				cpu = <&cpu0>;
-+				clocks = <&rcc CK_DBG>, <&rcc CK_TRACE>;
-+				clock-names = "apb_pclk", "atclk";
-+				access-controllers = <&dbg_bus 0>;
-+				status = "disabled";
-+
-+				out-ports {
-+					port {
-+						etm0_out_port: endpoint {
-+							remote-endpoint = <&etf_in_port>;
-+						};
-+					};
-+				};
-+			};
-+		};
-+
- 		mdma: dma-controller@58000000 {
- 			compatible = "st,stm32h7-mdma";
- 			reg = <0x58000000 0x1000>;
-diff --git a/arch/arm/boot/dts/st/stm32mp151.dtsi b/arch/arm/boot/dts/st/stm32mp151.dtsi
-index b1b568dfd126..a6371d626a2e 100644
---- a/arch/arm/boot/dts/st/stm32mp151.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp151.dtsi
-@@ -3,6 +3,7 @@
-  * Copyright (C) STMicroelectronics 2017 - All Rights Reserved
-  * Author: Ludovic Barre <ludovic.barre@st.com> for STMicroelectronics.
-  */
-+#include <dt-bindings/arm/coresight-cti-dt.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/clock/stm32mp1-clks.h>
- #include <dt-bindings/reset/stm32mp1-resets.h>
-@@ -274,9 +275,181 @@ hdp: pinctrl@5002a000 {
- 			compatible = "st,stm32mp151-hdp";
- 			reg = <0x5002a000 0x400>;
- 			clocks = <&rcc HDP>;
-+			access-controllers = <&dbg_bus 1>;
- 			status = "disabled";
- 		};
- 
-+		dbg_bus: bus@50080000 {
-+			compatible = "st,stm32mp151-dbg-bus";
-+			reg = <0x50080000 0x3f80000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			clocks = <&rcc CK_DBG>;
-+			#access-controller-cells = <1>;
-+			ranges;
-+			status = "disabled";
-+
-+			cs_funnel: funnel@50091000 {
-+				compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-+				reg = <0x50091000 0x1000>;
-+				clocks = <&rcc CK_DBG>, <&rcc CK_TRACE>;
-+				clock-names = "apb_pclk", "atclk";
-+				access-controllers = <&dbg_bus 0>;
-+				status = "disabled";
-+
-+				in-ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					port@0 {
-+						reg = <0>;
-+						funnel_in_port0: endpoint {
-+							remote-endpoint = <&stm_out_port>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+						funnel_in_port1: endpoint {
-+							remote-endpoint = <&etm0_out>;
-+						};
-+					};
-+				};
-+
-+				out-ports {
-+					port {
-+						funnel_out_port: endpoint {
-+							remote-endpoint = <&etf_in_port>;
-+						};
-+					};
-+				};
-+			};
-+
-+			cs_etf: etf@50092000 {
-+				compatible = "arm,coresight-tmc", "arm,primecell";
-+				reg = <0x50092000 0x1000>;
-+				clocks = <&rcc CK_DBG>;
-+				clock-names = "apb_pclk";
-+				access-controllers = <&dbg_bus 0>;
-+				status = "disabled";
-+
-+				in-ports {
-+					port {
-+						etf_in_port: endpoint {
-+							remote-endpoint = <&funnel_out_port>;
-+						};
-+					};
-+				};
-+
-+				out-ports {
-+					port {
-+						etf_out_port: endpoint {
-+							remote-endpoint = <&tpiu_in_port>;
-+						};
-+					};
-+				};
-+			};
-+
-+			cs_tpiu: tpiu@50093000 {
-+				compatible = "arm,coresight-tpiu", "arm,primecell";
-+				reg = <0x50093000 0x1000>;
-+				clocks = <&rcc CK_DBG>, <&rcc CK_TRACE>;
-+				clock-names = "apb_pclk", "atclk";
-+				access-controllers = <&dbg_bus 0>;
-+				status = "disabled";
-+
-+				in-ports {
-+					port {
-+						tpiu_in_port: endpoint {
-+							remote-endpoint = <&etf_out_port>;
-+						};
-+					};
-+				};
-+			};
-+
-+			cs_cti_trace: cti@50094000 {
-+				compatible = "arm,coresight-cti", "arm,primecell";
-+				reg = <0x50094000 0x1000>;
-+				clocks = <&rcc CK_DBG>;
-+				clock-names = "apb_pclk";
-+				access-controllers = <&dbg_bus 0>;
-+				status = "disabled";
-+			};
-+
-+			cs_stm: stm@500a0000 {
-+				compatible = "arm,coresight-stm", "arm,primecell";
-+				reg = <0x500a0000 0x00001000>,
-+				<0x90000000 0x01000000>;
-+				reg-names = "stm-base", "stm-stimulus-base";
-+				clocks = <&rcc CK_DBG>, <&rcc CK_TRACE>;
-+				clock-names = "apb_pclk", "atclk";
-+				access-controllers = <&dbg_bus 0>;
-+				status = "disabled";
-+
-+				out-ports {
-+					port {
-+						stm_out_port: endpoint {
-+							remote-endpoint = <&funnel_in_port0>;
-+						};
-+					};
-+				};
-+			};
-+
-+			cs_cti_cpu0: cti@500d8000 {
-+				compatible = "arm,coresight-cti", "arm,primecell";
-+				reg = <0x500d8000 0x1000>;
-+				clocks = <&rcc CK_DBG>;
-+				clock-names = "apb_pclk";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				access-controllers = <&dbg_bus 0>;
-+				status = "disabled";
-+
-+				trig-conns@0 {
-+					reg = <0>;
-+					arm,trig-in-sigs = <0 4 5>;
-+					arm,trig-in-types = <PE_DBGTRIGGER
-+							     GEN_IO
-+							     GEN_IO>;
-+					arm,trig-out-sigs = <0 7>;
-+					arm,trig-out-types = <PE_EDBGREQ
-+							      PE_DBGRESTART>;
-+					cpu = <&cpu0>;
-+				};
-+
-+				trig-conns@2 {
-+					reg = <2>;
-+					arm,trig-in-sigs = <2 3 6>;
-+					arm,trig-in-types = <ETM_EXTOUT
-+							     ETM_EXTOUT
-+							     ETM_EXTOUT>;
-+					arm,trig-out-sigs = <1 2 3 4>;
-+					arm,trig-out-types = <ETM_EXTIN
-+							      ETM_EXTIN
-+							      ETM_EXTIN
-+							      ETM_EXTIN>;
-+					arm,cs-dev-assoc = <&cs_etm0>;
-+				};
-+			};
-+
-+			cs_etm0: etm@500dc000 {
-+				compatible = "arm,coresight-etm3x", "arm,primecell";
-+				reg = <0x500dc000 0x1000>;
-+				cpu = <&cpu0>;
-+				clocks = <&rcc CK_DBG>, <&rcc CK_TRACE>;
-+				clock-names = "apb_pclk", "atclk";
-+				access-controllers = <&dbg_bus 0>;
-+				status = "disabled";
-+
-+				out-ports {
-+					port {
-+						etm0_out: endpoint {
-+							remote-endpoint = <&funnel_in_port1>;
-+						};
-+					};
-+				};
-+			};
-+		};
-+
- 		mdma1: dma-controller@58000000 {
- 			compatible = "st,stm32h7-mdma";
- 			reg = <0x58000000 0x1000>;
-diff --git a/arch/arm/boot/dts/st/stm32mp153.dtsi b/arch/arm/boot/dts/st/stm32mp153.dtsi
-index 92794b942ab2..17d52d93695e 100644
---- a/arch/arm/boot/dts/st/stm32mp153.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp153.dtsi
-@@ -30,6 +30,74 @@ timer {
- 	};
- };
- 
-+&cs_funnel {
-+	in-ports {
-+		port@2 {
-+			reg = <2>;
-+			funnel_in_port2: endpoint {
-+				remote-endpoint = <&etm1_out>;
-+			};
-+		};
-+	};
-+};
-+
-+&dbg_bus {
-+	cs_cti_cpu1: cti@500d9000 {
-+		compatible = "arm,coresight-cti", "arm,primecell";
-+		reg = <0x500d9000 0x1000>;
-+		clocks = <&rcc CK_DBG>;
-+		clock-names = "apb_pclk";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		access-controllers = <&dbg_bus 0>;
-+		status = "disabled";
-+
-+		trig-conns@0 {
-+			reg = <0>;
-+			arm,trig-in-sigs = <0 4 5>;
-+			arm,trig-in-types = <PE_DBGTRIGGER
-+					     GEN_IO
-+					     GEN_IO>;
-+			arm,trig-out-sigs = <0 7>;
-+			arm,trig-out-types = <PE_EDBGREQ
-+					      PE_DBGRESTART>;
-+			cpu = <&cpu1>;
-+		};
-+
-+		trig-conns@2 {
-+			reg = <2>;
-+			arm,trig-in-sigs = <2 3 6>;
-+			arm,trig-in-types = <ETM_EXTOUT
-+					     ETM_EXTOUT
-+					     ETM_EXTOUT>;
-+			arm,trig-out-sigs = <1 2 3 4>;
-+			arm,trig-out-types = <ETM_EXTIN
-+					      ETM_EXTIN
-+					      ETM_EXTIN
-+					      ETM_EXTIN>;
-+			arm,cs-dev-assoc = <&cs_etm1>;
-+		};
-+	};
-+
-+	cs_etm1: etm@500dd000 {
-+		compatible = "arm,coresight-etm3x", "arm,primecell";
-+		reg = <0x500dd000 0x1000>;
-+		cpu = <&cpu1>;
-+		clocks = <&rcc CK_DBG>, <&rcc CK_TRACE>;
-+		clock-names = "apb_pclk", "atclk";
-+		access-controllers = <&dbg_bus 0>;
-+		status = "disabled";
-+
-+		out-ports {
-+			port {
-+				etm1_out: endpoint {
-+					remote-endpoint = <&funnel_in_port2>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
- &etzpc {
- 	m_can1: can@4400e000 {
- 		compatible = "bosch,m_can";
+Gentle ping. Do we have a chance to apply this patch?
 
--- 
-2.43.0
+Thanks,
+Jie
+
+> Acked-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+>   arch/arm64/boot/dts/qcom/monaco.dtsi | 153 +++++++++++++++++++++++++++++++++++
+>   1 file changed, 153 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/monaco.dtsi b/arch/arm64/boot/dts/qcom/monaco.dtsi
+> index 816fa2af8a9a..1966dfad2dcc 100644
+> --- a/arch/arm64/boot/dts/qcom/monaco.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/monaco.dtsi
+> @@ -2483,6 +2483,35 @@ lpass_ag_noc: interconnect@3c40000 {
+>   			qcom,bcm-voters = <&apps_bcm_voter>;
+>   		};
+>   
+> +		ctcu@4001000 {
+> +			compatible = "qcom,qcs8300-ctcu", "qcom,sa8775p-ctcu";
+> +			reg = <0x0 0x04001000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb";
+> +
+> +			in-ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@0 {
+> +					reg = <0>;
+> +
+> +					ctcu_in0: endpoint {
+> +						remote-endpoint = <&etr0_out>;
+> +					};
+> +				};
+> +
+> +				port@1 {
+> +					reg = <1>;
+> +
+> +					ctcu_in1: endpoint {
+> +						remote-endpoint = <&etr1_out>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+>   		stm@4002000 {
+>   			compatible = "arm,coresight-stm", "arm,primecell";
+>   			reg = <0x0 0x04002000 0x0 0x1000>,
+> @@ -2677,6 +2706,122 @@ qdss_funnel_out: endpoint {
+>   			};
+>   		};
+>   
+> +		replicator@4046000 {
+> +			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
+> +			reg = <0x0 0x04046000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +				port {
+> +					qdss_rep_in: endpoint {
+> +						remote-endpoint = <&swao_rep_out0>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +				port {
+> +					qdss_rep_out0: endpoint {
+> +						remote-endpoint = <&etr_rep_in>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		tmc@4048000 {
+> +			compatible = "arm,coresight-tmc", "arm,primecell";
+> +			reg = <0x0 0x04048000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +			iommus = <&apps_smmu 0x04c0 0x00>;
+> +
+> +			arm,scatter-gather;
+> +
+> +			in-ports {
+> +				port {
+> +					etr0_in: endpoint {
+> +						remote-endpoint = <&etr_rep_out0>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +				port {
+> +					etr0_out: endpoint {
+> +						remote-endpoint = <&ctcu_in0>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		replicator@404e000 {
+> +			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
+> +			reg = <0x0 0x0404e000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +				port {
+> +					etr_rep_in: endpoint {
+> +						remote-endpoint = <&qdss_rep_out0>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@0 {
+> +					reg = <0>;
+> +
+> +					etr_rep_out0: endpoint {
+> +						remote-endpoint = <&etr0_in>;
+> +					};
+> +				};
+> +
+> +				port@1 {
+> +					reg = <1>;
+> +
+> +					etr_rep_out1: endpoint {
+> +						remote-endpoint = <&etr1_in>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		tmc@404f000 {
+> +			compatible = "arm,coresight-tmc", "arm,primecell";
+> +			reg = <0x0 0x0404f000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +			iommus = <&apps_smmu 0x04a0 0x40>;
+> +
+> +			arm,scatter-gather;
+> +			arm,buffer-size = <0x400000>;
+> +
+> +			in-ports {
+> +				port {
+> +					etr1_in: endpoint {
+> +						remote-endpoint = <&etr_rep_out1>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +				port {
+> +					etr1_out: endpoint {
+> +						remote-endpoint = <&ctcu_in1>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+>   		tpdm@4841000 {
+>   			compatible = "qcom,coresight-tpdm", "arm,primecell";
+>   			reg = <0x0 0x04841000 0x0 0x1000>;
+> @@ -3106,6 +3251,14 @@ out-ports {
+>   				#address-cells = <1>;
+>   				#size-cells = <0>;
+>   
+> +				port@0 {
+> +					reg = <0>;
+> +
+> +					swao_rep_out0: endpoint {
+> +						remote-endpoint = <&qdss_rep_in>;
+> +					};
+> +				};
+> +
+>   				port@1 {
+>   					reg = <1>;
+>   
+> 
 
 
