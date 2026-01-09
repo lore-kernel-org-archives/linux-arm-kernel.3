@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D805BD232E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 06:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 028D4D232E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 06:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qgp72385LGLdMRsHkh4r7fySKyjZ32QFPwk6d0+hg3k=; b=IFRDIApj8w8gQ9VNnP86Ds1XVG
-	80r2iHimhi8iLusgm1G402VnRu1lISGrSumnQk4gnlIgNrBjUh4CuIMpTEcLHxp6hJqV8kRsB8hyb
-	c954LZw0H7HFoxaF7hIFhq/CmjyruHfo7HO/HllmH2o0ZNMkide+GF6n1Nqyscrqmk+qvViielgKd
-	uwvDV7IhT3UTKVJd+4adM1ID9PuuoSid/NeOVCtFNDueTLbrd1bGFZS3jeUzYcm6XOu0No9CYtJCn
-	XSlArfJCuy6RumN5MKUFD98G0yvCk6niBpVi2TVXTpZ0M+qETzoEb9yC7hafVHKd39/q7pydKrMgM
-	sQojdyDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vRFQQUj7n/i2ZiWtqXly1x4ZWNMsf/8vSdo3mxivNNk=; b=f7iWWkKnMv7Cx+zDKIR5iRdQOB
+	pO+BAnjlcq9HCFlbe9y+8ywEMbdA8UOS/LKa5sVczCInsGwh62lM/3gmAxLdH0282iAYQ9mATD9Tf
+	v7geOWKPTE5xdROr9sG5cfqAf+6Nl/9xWR+cf5PY+FESx+EnqS1RVBEfE3qs2VVv8FLVOxtwXkhtF
+	pJShPj0xK4IDFscYX/seYqTev/Ypy2xvQAo+bus1oAU0bdEBEa4jOWB92KhsDVlVro7oKL0fj1S0d
+	CMBmOCbWPGbgugBKg/wblGmJPxOOyXgjmT0epYqufSWFd+ONGNPHtCKwuyoDo4F8fL4ZvWegIUPXL
+	/eAmbAkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve5e1-00000001WAf-2Yh5;
-	Fri, 09 Jan 2026 06:06:45 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1ve5i8-00000001Wsr-1EZG;
+	Fri, 09 Jan 2026 06:11:00 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve5dx-00000001W7K-1d29
+	id 1ve5i3-00000001Wry-2Z0S
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 06:06:44 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Qgp72385LGLdMRsHkh4r7fySKyjZ32QFPwk6d0+hg3k=;
-	b=5slUs5WaTSoRNVYBRNm8hGG21c8xx6wabHJ42URk36SU0b7vUvKwMZ30+5zCNKtZNQKLBAXPw
-	uyzqnfd7PkdsdUbnKsyrlUBFmi68/nc5ebQuIwCRxhDlb+yBvcizbd7vdMIUtTk8kKSzYSoVHwa
-	gTyENKbD/kXNpPi1Xu8Wzbo=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4dnWQs4RxyzRhQQ;
-	Fri,  9 Jan 2026 14:03:01 +0800 (CST)
-Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
-	by mail.maildlp.com (Postfix) with ESMTPS id 65D1240569;
-	Fri,  9 Jan 2026 14:06:18 +0800 (CST)
-Received: from [10.174.178.219] (10.174.178.219) by
- kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 9 Jan 2026 14:06:17 +0800
-Subject: Re: [PATCH] KVM: arm64: remove unused vcpu_{clear,set}_wfx_traps()
-To: Dongxu Sun <sundongxu1024@163.com>
-CC: <maz@kernel.org>, <oupton@kernel.org>, <joey.gouly@arm.com>,
-	<suzuki.poulose@arm.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-References: <20260109025837.754242-1-sundongxu1024@163.com>
-From: Zenghui Yu <yuzenghui@huawei.com>
-Message-ID: <d4f231b7-f170-c456-3fbd-0063891378fe@huawei.com>
-Date: Fri, 9 Jan 2026 14:06:16 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.1
+	Fri, 09 Jan 2026 06:10:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1767939047;
+	bh=vRFQQUj7n/i2ZiWtqXly1x4ZWNMsf/8vSdo3mxivNNk=;
+	h=From:Date:Subject:To:Cc;
+	b=fBNOnwS6DvYHhp8uGDM5eJ3t7NS2jPjupsbF96O4/++BbjOYqovpIOqhHrTLJxRwL
+	 7q0Dnu0XYjGttwIA4f50USyYylBe8SgAnBglGAtDSpFz7VIjcRKhmOuyCO22Kh74Pg
+	 qHFDjQa1LsmwjMV7eDduiiW7Wj0LRWMANSkck5pmik/1dXlaqhz08VTVJuulF1/YSJ
+	 ITy1VDbE4r97CCOvfcvKQKHlSIgr+z+h1Y154GUqqoFqj5Hlzhl0pcLj1VW0o6xx9S
+	 X5O9BjHf8IKe18UwvNkU0s1QPlUP6JnzTnE9vELDlJMt6GmrR2Uyo7l54Q5rV4KnPR
+	 dAJtRY4Ez/7GA==
+Received: from [127.0.1.1] (unknown [180.150.112.60])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 8A9037E142;
+	Fri,  9 Jan 2026 14:10:45 +0800 (AWST)
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+Date: Fri, 09 Jan 2026 16:40:28 +1030
+Subject: [PATCH] dt-bindings: hwmon: Convert aspeed,ast2400-pwm-tacho to DT
+ schema
 MIME-Version: 1.0
-In-Reply-To: <20260109025837.754242-1-sundongxu1024@163.com>
 Content-Type: text/plain; charset="utf-8"
-Content-Language: en-US
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.219]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemk200017.china.huawei.com (7.202.194.83)
+Message-Id: <20260109-dev-dt-warnings-hwmon-v1-1-f2a84cdb0e1b@codeconstruct.com.au>
+X-B4-Tracking: v=1; b=H4sIANObYGkC/x3MQQqAIBBA0avErBtQo6KuEi0kx5pFU2hkIN09a
+ fkW/2eIFJgijFWGQDdHPqRA1xUsm5WVkF0xGGU6pdWAjm50FyYbhGWNuKX9EPSqteRM0y69htK
+ egTw//3ea3/cDy3wDc2cAAAA=
+X-Change-ID: 20260109-dev-dt-warnings-hwmon-f05aed235c71
+To: Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>
+Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+ linux-kernel@vger.kernel.org, Andrew Jeffery <andrew@codeconstruct.com.au>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_220642_056587_380660E6 
-X-CRM114-Status: UNSURE (   7.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260108_221055_960800_6A2290D2 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,26 +76,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-s/remove/Remove/ in the Subject.
+From: "Rob Herring (Arm)" <robh@kernel.org>
 
-On 2026/1/9 10:58, Dongxu Sun wrote:
-> Function vcpu_{clear,set}_wfx_traps() are unused since
-> commit 0b5afe05377d7 ("KVM: arm64: Add early_param to control WFx trapping")
+Convert the ASpeed fan controller binding to DT schema format.
 
-checkpatch WARNING: Prefer a maximum 75 chars per line (possible
-unwrapped commit description?)
+The '#size-cells' value is 0 rather 1.
 
-> Remove it.
-> 
-> Signed-off-by: Dongxu Sun <sundongxu1024@163.com>
-> ---
->  arch/arm64/include/asm/kvm_emulate.h | 16 ----------------
->  1 file changed, 16 deletions(-)
+Some users define more that 8 fan nodes where 2 fans share a PWM. The
+driver seems to let the 2nd fan just overwrite the 1st one. That also
+creates some addressing errors in the DT (duplicate addresses and wrong
+unit-addresses).
 
-Otherwise,
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Guenter Roeck <linux@roeck-us.net>
+Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
+---
+Hello,
 
-Reviewed-by: Zenghui Yu <yuzenghui@huawei.com>
+This change has been on a bit of a journey[1][2] and was eventually
+integrated into my RFC series tidying up the AST2600 EVB at [3]. Rob
+did some further digging at [4] and I've now addressed his finding
+there.
 
-Thanks,
-Zenghui
+Much of the series at [3] was merged so I'm splitting out what remains
+and peeling off the RFC label after making necessary fixes.
+
+Guenter - I've included your A-b tag from [3], but as I'm sending this
+to be applied through the hwmon tree, do with that as you please.
+
+Changes since the series at [3]:
+- Update #cooling-cells to 2 based on Rob's observation at [4]
+
+Cheers,
+
+Andrew
+
+Link: https://lore.kernel.org/all/20251029185448.2121857-1-robh@kernel.org/ [1]
+Link: https://lore.kernel.org/all/20251205144929.GA76422-robh@kernel.org/ [2]
+Link: https://lore.kernel.org/all/20251211-dev-dt-warnings-all-v1-0-21b18b9ada77@codeconstruct.com.au/ [3]
+Link: https://lore.kernel.org/all/CAL_JsqJUaKKsJ8BCNbVXe4vLVsQ2Av7VuWqf9DnUKHeLzLb8NQ@mail.gmail.com/ [4]
+---
+ .../bindings/hwmon/aspeed,ast2400-pwm-tacho.yaml   | 106 +++++++++++++++++++++
+ .../devicetree/bindings/hwmon/aspeed-pwm-tacho.txt |  73 --------------
+ 2 files changed, 106 insertions(+), 73 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/hwmon/aspeed,ast2400-pwm-tacho.yaml b/Documentation/devicetree/bindings/hwmon/aspeed,ast2400-pwm-tacho.yaml
+new file mode 100644
+index 000000000000..ca6e2d67ddbf
+--- /dev/null
++++ b/Documentation/devicetree/bindings/hwmon/aspeed,ast2400-pwm-tacho.yaml
+@@ -0,0 +1,106 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/hwmon/aspeed,ast2400-pwm-tacho.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ASPEED AST2400/AST2500 PWM and Fan Tacho controller
++
++maintainers:
++  - Joel Stanley <joel@jms.id.au>
++  - Andrew Jeffery <andrew@codeconstruct.com.au>
++
++description: >
++  The ASPEED PWM controller can support up to 8 PWM outputs. The ASPEED Fan
++  Tacho controller can support up to 16 Fan tachometer inputs.
++
++  There can be up to 8 fans supported. Each fan can have 1 PWM output and
++  1-2 Fan tach inputs.
++
++properties:
++  compatible:
++    enum:
++      - aspeed,ast2400-pwm-tacho
++      - aspeed,ast2500-pwm-tacho
++
++  reg:
++    maxItems: 1
++
++  '#address-cells':
++    const: 1
++
++  '#size-cells':
++    const: 0
++
++  '#cooling-cells':
++    const: 2
++
++  clocks:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++patternProperties:
++  '^fan@[0-7]$':
++    description: Fan subnode
++    type: object
++    additionalProperties: false
++
++    properties:
++      reg:
++        description: PWM source port index (0 = PWM A, ..., 7 = PWM H)
++        maximum: 7
++
++      cooling-levels:
++        description: PWM duty cycle values for cooling states
++        $ref: /schemas/types.yaml#/definitions/uint8-array
++        minItems: 1
++        maxItems: 16  # Should be enough
++
++      aspeed,fan-tach-ch:
++        description: Fan tachometer input channel
++        $ref: /schemas/types.yaml#/definitions/uint8-array
++        minItems: 1
++        maxItems: 2
++        items:
++          maximum: 15
++
++    required:
++      - reg
++      - aspeed,fan-tach-ch
++
++required:
++  - compatible
++  - reg
++  - '#address-cells'
++  - '#size-cells'
++  - clocks
++  - resets
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/aspeed-clock.h>
++
++    fan-controller@1e786000 {
++        compatible = "aspeed,ast2500-pwm-tacho";
++        reg = <0x1e786000 0x1000>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++        #cooling-cells = <2>;
++        clocks = <&syscon ASPEED_CLK_APB>;
++        resets = <&syscon ASPEED_RESET_PWM>;
++
++        fan@0 {
++            reg = <0x00>;
++            cooling-levels = /bits/ 8 <125 151 177 203 229 255>;
++            aspeed,fan-tach-ch = /bits/ 8 <0x00>;
++        };
++
++        fan@1 {
++            reg = <0x01>;
++            aspeed,fan-tach-ch = /bits/ 8 <0x01 0x02>;
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt b/Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt
+deleted file mode 100644
+index 8645cd3b867a..000000000000
+--- a/Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt
++++ /dev/null
+@@ -1,73 +0,0 @@
+-ASPEED AST2400/AST2500 PWM and Fan Tacho controller device driver
+-
+-The ASPEED PWM controller can support upto 8 PWM outputs. The ASPEED Fan Tacho
+-controller can support upto 16 Fan tachometer inputs.
+-
+-There can be upto 8 fans supported. Each fan can have one PWM output and
+-one/two Fan tach inputs.
+-
+-Required properties for pwm-tacho node:
+-- #address-cells : should be 1.
+-
+-- #size-cells : should be 1.
+-
+-- #cooling-cells: should be 2.
+-
+-- reg : address and length of the register set for the device.
+-
+-- pinctrl-names : a pinctrl state named "default" must be defined.
+-
+-- pinctrl-0 : phandle referencing pin configuration of the PWM ports.
+-
+-- compatible : should be "aspeed,ast2400-pwm-tacho" for AST2400 and
+-	       "aspeed,ast2500-pwm-tacho" for AST2500.
+-
+-- clocks : phandle to clock provider with the clock number in the second cell
+-
+-- resets : phandle to reset controller with the reset number in the second cell
+-
+-fan subnode format:
+-===================
+-Under fan subnode there can upto 8 child nodes, with each child node
+-representing a fan. If there are 8 fans each fan can have one PWM port and
+-one/two Fan tach inputs.
+-For PWM port can be configured cooling-levels to create cooling device.
+-Cooling device could be bound to a thermal zone for the thermal control.
+-
+-Required properties for each child node:
+-- reg : should specify PWM source port.
+-	integer value in the range 0 to 7 with 0 indicating PWM port A and
+-	7 indicating PWM port H.
+-
+-- cooling-levels: PWM duty cycle values in a range from 0 to 255
+-                  which correspond to thermal cooling states.
+-
+-- aspeed,fan-tach-ch : should specify the Fan tach input channel.
+-                integer value in the range 0 through 15, with 0 indicating
+-		Fan tach channel 0 and 15 indicating Fan tach channel 15.
+-		At least one Fan tach input channel is required.
+-
+-Examples:
+-
+-pwm_tacho: pwmtachocontroller@1e786000 {
+-	#address-cells = <1>;
+-	#size-cells = <1>;
+-	#cooling-cells = <2>;
+-	reg = <0x1E786000 0x1000>;
+-	compatible = "aspeed,ast2500-pwm-tacho";
+-	clocks = <&syscon ASPEED_CLK_APB>;
+-	resets = <&syscon ASPEED_RESET_PWM>;
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&pinctrl_pwm0_default &pinctrl_pwm1_default>;
+-
+-	fan@0 {
+-		reg = <0x00>;
+-		cooling-levels = /bits/ 8 <125 151 177 203 229 255>;
+-		aspeed,fan-tach-ch = /bits/ 8 <0x00>;
+-	};
+-
+-	fan@1 {
+-		reg = <0x01>;
+-		aspeed,fan-tach-ch = /bits/ 8 <0x01 0x02>;
+-	};
+-};
+
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20260109-dev-dt-warnings-hwmon-f05aed235c71
+
+Best regards,
+-- 
+Andrew Jeffery <andrew@codeconstruct.com.au>
+
 
