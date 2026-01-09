@@ -4,163 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E097D232E2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 06:31:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A08DCD232E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 06:35:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2XkLLjsRiDgA5g6tfEeefhWNKNKkr/JhR6SB2dNXlH4=; b=d+CLkVODU5NH5vt9PX/4s1iVEf
-	cBiw+7ZFLRRjnTgXuhZluFgb6M8torNZGnNK318IraqbR1hKY0zg+UpO+R47383ZsM4a06n+qRDEJ
-	sC4cTLMxo5cIRW3rYLq7nJCGCvSIkLq8e37jbQgufffOYEg4yZdY16U2mRiCS6er2E9j3ksWw5uLw
-	3jG0VmQwoed5nx2aZDQAGP3r0PZdDxRdZbUaUsWy7w4DcT7pQu4trOcpzeTDLxWPma37z4RuLnYX9
-	L9pLXblZQbizHj1YTMMA/KCnUgGCxe7dsNSIZL6xKSv4jhZHNj+WO8y0E8o++dP80iSkUcD4HSbli
-	pKODNNOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eiZT9sXBg4HL79BKEk2OPu5rQrW7DOHG5+KhdLse1nM=; b=NeG541jxRW3/lKf4OQcv8Huxxk
+	lDdZSPYRRJCJYYTkzy02TCCd8svS/wIuRgaLFy23uJjFqWbCBNAoOh7NYDVJeEiSDghj0+syXK5RF
+	QAUnFz5jKOm/ZGUJk6ScgJ2Zx/GmKuyGZnTWG4/vFeBG5s0ryGHAcBvAXEubWdqpYDAQPh5ut38Rd
+	HX4hJxG4XWd+M/4rSzQMR1o9KVsbc3eJuu9pdnHEcIPMeD1uKwP8fmKCJk+2kBa8GKViPNe9aos3a
+	KSPah0EtkoPp6D4coyqDVDLQXU6NQJKDlH9cSJCkHQQya6T+E4sqlffmlIH/vPC88WGd1O9YcYTLP
+	iehcrYMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve62I-00000001aJA-2VyD;
-	Fri, 09 Jan 2026 06:31:50 +0000
-Received: from mail-westeuropeazon11010008.outbound.protection.outlook.com ([52.101.69.8] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1ve65w-00000001arx-0pBD;
+	Fri, 09 Jan 2026 06:35:36 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ve62F-00000001aHe-3GYO
+	id 1ve65t-00000001ar7-2vPw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 09 Jan 2026 06:31:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vZ/HBLD8q/BDIXWUdRt2leqHx6JLZMQE5y2tOqFqa1/K8q7fCkMz2jGsKZqPQKJpbX8z3gdpl2MTOYqcoijLMvmTYJRzwtlQDub2LOKeJ43gzkpp7/j/dCiJMdjri2m0K0ogqa/mhjWc1IFrCkTjstKbZ2Ja3z325ScTSHRwkcn0QJF2WkPg+1Hto8QIuyFRDqUOaNXP1tUCb4yrM7h79GcKco8ovhFaxeT+pRhdu6LOADCn2mD4cDvmAQUOKde7wzvqFhlBCR2E+0HKuQwQ8SB8wWBY/dQphkREzjncjLcQHGZ3mtEf1v7N5kEeLQvMAbVxLypSTdKvgJgqDwaSSw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2XkLLjsRiDgA5g6tfEeefhWNKNKkr/JhR6SB2dNXlH4=;
- b=YwdaYUeHD+VqXQVquhJR+W7w6PARfr8DtukxNvdq8YFwfZeGyF3L/svXS6AMqPcC7dnvqehjhJmIFWN62pFaaiAO6vmKVTDmWT6j8HKRbP2R7RtgO601K4SLqcz5FxxydSz7fawIq6rsF01eYmqWa2Eq2R95c//xe7OO6unCfjBEFDAqZX7km9Q3EpApVXxBqWhwykc369Ck4QCjrcCiEaxyc2njlTwAOiK5LRAhuOdfcGsxXtrBEcCcAl+2I7+uTRCLySyZ/Z4Mm9E1BZXlLUfY8GhAKeBWRRoRiYbfS9CvR+WUWmCmpwu761SRlZJdXsn2E/2nc9cJwz6PdS96eA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2XkLLjsRiDgA5g6tfEeefhWNKNKkr/JhR6SB2dNXlH4=;
- b=dMm1K4IBzj2hNQeIIuAkdOkq1b90CaAC+Ptegor3Z9TrOI+WVidBiVdOMcU/TsekCorWC4Veix3Gtn3I4GXsEX+4H0jiZGB93dXzBe04JF96AFPS9yXDHtJPgjAPoikSTQnZ/QrZTf8ua/W0IbuKYyrnzQpUSS50atA8t4svcu56lIaFbbntVwDQzbmsKsZC/SsSSNlW8SKdbN2n7e3thvAJ379mS/VGYf0LDsDV97lLS4WDC1qUaE2BXz3zUyf6PC4cq3JkKcvOvxHRZCeLhETe1GXL3vgs1mEYLaCJt9ZEeYjn6T6AvMKaXz/DDmpk0RMXn6bjfQVplNhu3yrArg==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM8PR04MB7891.eurprd04.prod.outlook.com (2603:10a6:20b:237::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.2; Fri, 9 Jan
- 2026 06:31:38 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9499.003; Fri, 9 Jan 2026
- 06:31:38 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>, "Peng Fan (OSS)"
-	<peng.fan@oss.nxp.com>
-CC: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Frank Li <frank.li@nxp.com>, Daniel Baluta
-	<daniel.baluta@nxp.com>, "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v5 4/5] remoteproc: imx_rproc: Add support for System
- Manager API
-Thread-Topic: [PATCH v5 4/5] remoteproc: imx_rproc: Add support for System
- Manager API
-Thread-Index: AQHcb928ti36/V6ulE6fyk0pzEPtrLVHKqOAgAEJAACAAE5kAIABAHRQ
-Date: Fri, 9 Jan 2026 06:31:38 +0000
-Message-ID: <PAXPR04MB8459A8FB2A2AF57C2F506BCE8882A@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20251218-imx95-rproc-2025-12-18-v5-0-b56a27d4158f@nxp.com>
- <20251218-imx95-rproc-2025-12-18-v5-4-b56a27d4158f@nxp.com>
- <aV6ow9dGUNaPDqZg@p14s> <aV+HEAzwNSOCUx88@shlinux89> <aV_I0iGYt1lxEIUw@p14s>
-In-Reply-To: <aV_I0iGYt1lxEIUw@p14s>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AM8PR04MB7891:EE_
-x-ms-office365-filtering-correlation-id: a678e539-6b33-4099-f904-08de4f48be7b
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|19092799006|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?KgIZpnu9nZ7wxClytgmQdo5+r3e5dfcuvrlpOyaYNOzLDk9jkkcbX2kIxpo7?=
- =?us-ascii?Q?krO2/2q/92VxLMTWykx4EY7i/0Ng1lzBmrq9LFYJjZn2IpTuRf2OKIBLJNdW?=
- =?us-ascii?Q?KZgNyHHsID7XlkrACISSCoNZijGqTcHLz2t9LgTPK0IFad/08tOOBVuiBIY/?=
- =?us-ascii?Q?4Nr4X58Z3JU+c0I5G8M9p3mbdcHzl9vIojcgIUY+q3Q4Tg8tSff+HciwNIPK?=
- =?us-ascii?Q?umMTf+xVZW3/oiT3WVCCo6m672fzE1Wq5GdzsAFenkuGNRIECL+zkchXju65?=
- =?us-ascii?Q?3QKSyVubJ11iK2ma9ywr/T7+fHiblq1QLYKL1Uget0zgz7nxhASQNlW9tGoZ?=
- =?us-ascii?Q?TVLDWMjVgn7952PAmgKV+3dbml5cFkfYr43Iunqkw6jS6UMgyYtDvK/nyGtw?=
- =?us-ascii?Q?DRmsPKUWxL/CbZLV+iLEXtAJRwzGa/5Ps4XXdJxA64T99MeXLnr/pjPsSkHa?=
- =?us-ascii?Q?V4xmlFqcJ+sn5/Zq/rCFuk4xxULVBUxL/ibpDdWv8O8soZaSivtBF3JB0xbC?=
- =?us-ascii?Q?VDYwSRNxzvwgISQe+NrnTrsX0QaMTMGtO7joDTRLk9qFRi0UOAMz9aNswTbE?=
- =?us-ascii?Q?onDRUVNvP9axRQ6i+3s5kzwZIwHVzka4EtQJnwmihMggOKqVnlaeUbVMwV4c?=
- =?us-ascii?Q?JjAY2IUDzwOv/SY/H6rWMBLl/7rxz70YbEzqJ/ErKOexNgRIh7cUnvciyFCD?=
- =?us-ascii?Q?B8c/3L7nvFh6DEH7iUkOgd4tEYeMUWWmMsng2IOdNEzEvzhJnAkGS4blEvNZ?=
- =?us-ascii?Q?ApjZE1DX/n50fm20tlSI91N684AAeJ/1HDdAzwVFfAbqnTZxg3Sh+vyAI3ER?=
- =?us-ascii?Q?5sOnVSlom2fmu3lX7B3OAuw5UJJJYvbYJXo6QtbT06X1NWZnPoxvzVCQBo3Z?=
- =?us-ascii?Q?Z2cwNWBKaKWs3iM+6KaP8RU0b3Ez+Vxp508jUud0EneGzm0HAOcG9cRSh7nd?=
- =?us-ascii?Q?roZ+tDl92dr/+1aWJ3JSH8qnn6cpxs7kBUQG2OPBEnHrAxxP/Okkt0XOdQie?=
- =?us-ascii?Q?8uPHIpEh/Wxyja6z9WqxU+TaAiJMx5UpG4tvffZwM+uUH4uxsOqOU7jd8L/G?=
- =?us-ascii?Q?IFTL8MkTVNYCwfIVYBEqv2el3MbYDYvEC/JEVCU3HScPR35pZDRHTRm9k+gR?=
- =?us-ascii?Q?mAOn8RVQ2+x40CxjbJdns/txl8sojqcVGKsYU18jqp0TT8tWxxfUZd4kkKeu?=
- =?us-ascii?Q?eCniT0Yj7hxN6j7PtQpCpTCTw+VcNZf3uSo4QhAhlR0K/ZsqWzNlQpmNLmqt?=
- =?us-ascii?Q?rmaP/zatn62EDW1oGEqLMv/r4tyYn8wlFBPqWu9d7i4Gi6LPZ1JCM95aU8O7?=
- =?us-ascii?Q?UYtf/s017JCSpFVTDlihH5nqUz3ramBwyFBvzf5HwunQhmZEZHCam9g8cjVQ?=
- =?us-ascii?Q?+9I5wWi5EO505MTb7mBWRD0lxr+GFRH8RXsOr+lVbEUBjQw9G65MSt2LPvCs?=
- =?us-ascii?Q?0+m8Gg49jEClDIkL6PPo7cjppMqytsuADK7K1aUePiTOltFK79mq7Dy6Hy1x?=
- =?us-ascii?Q?lNnrL4ZkZpVvW1cRNZx6vXhLcoAUCAvEiLiX?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(19092799006)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?cGNJbKfWKPIxJdxVP4d83YRxpnLmnW2JXSa//F2N+Yyl++ompRwQGv8CDG+7?=
- =?us-ascii?Q?UNkJZfqyb8FoKfHDMhJEiOpa5fk7vr8/tZokchB0oK1U1xi1t9VpTN27mPUi?=
- =?us-ascii?Q?CHswGV26gaYrWfTQHnV+dZQ1ttZkEZ28cnTu3IcEX8pI1OSEPCh9TwMfOZKO?=
- =?us-ascii?Q?i+f7/3MUxdAoWhOFSfnXhhA/htSYW/u4R09ja5va26H/9/lpDx91ZgnER3vX?=
- =?us-ascii?Q?Sxu1nq8wXU83Dmi6ivGplyw+pbCKmfXKr/l7lB/snDBcCrrQVNrkXIQplzJa?=
- =?us-ascii?Q?8xKi95ZdPS/zARyQgleh82Gz04uo28XQnZnI4tYiJtZOGADlP2T0iJE3HJe/?=
- =?us-ascii?Q?XQB07EgHGNcXxOyuRJZZT7ef2HjsMaOYhPBfqTRQfFQB98pfZNC8ZStiiqbf?=
- =?us-ascii?Q?DEHXhU4WMtmhGbSF+EmYzJS3a5nGHpHJoG6Wiys8NEBm2BJO2YoTLRNDo9U1?=
- =?us-ascii?Q?lSY69//IZ5UsKgZcQe/GGZTnLei/PySvhvVobAPTO4d7WPWBGOo0GwVpxwWb?=
- =?us-ascii?Q?3Z4tOeq9v4EdS3XIMeCGb0AF2ayjqUmekn7rPgk+ex3sq25IMq26vPkHg025?=
- =?us-ascii?Q?X8DNSxnjDOjhRUImnCcGgy9I5qnYIivOa2dNoAdmi5zsDSx2w/mudCQODPel?=
- =?us-ascii?Q?On3AXNA42Zv/srwQSDDl3L+gOZkXIEcMqoMA2cVrf6+RTDuYTstWXdQ0tSYw?=
- =?us-ascii?Q?nc8+mR2zIoSFUVuFPZztDJiTTmQ+P25UsBm4uMpNGbcHdD4mIzOvQpq+EDT9?=
- =?us-ascii?Q?/KhUWGHj7rjjGWiRxfOn1OxoGQKf6q6/N2KUUEPfIHXkl+yFj+3PpmTCYR8q?=
- =?us-ascii?Q?sYzkmnAhCGSBCh3v+G8ZbiKD0Tu3IGDwVv+p+PiLfhDABnjGj2mIqIfidAlk?=
- =?us-ascii?Q?F0eToiph2ZlAVW0lLX+M5wsY9ChZLAjFfgQouTWU3ePvA1rGByyUIuGxGGTd?=
- =?us-ascii?Q?Uo9jIO5pCKv6myLw96XwMup+6XA2zaH39wsPempMGFHuTmPJVbvC/6deWlA0?=
- =?us-ascii?Q?+kSUjXlqeg3BVESHnM/pBn2frl97sRjug5IUmGjwS3C+SKPjknauQbL/RiOB?=
- =?us-ascii?Q?QXlXeRycLOiZPN7SXFuqQo6tgl1VDLB37s3mFUupPnUM1G9o0U1YXG+dEJWx?=
- =?us-ascii?Q?MEgP3st9J+imI478fFIjVT1y4wiO9mGrbpI7BwWPbfIaDAm/rcg3uLVDIvgX?=
- =?us-ascii?Q?DoFKEnqDcU2S4XLv/IoF4G9WEBItWGLlBtOjFb1gxsnLeHDShTiXKcL0NWMO?=
- =?us-ascii?Q?nZxahhKP3sek6uV6th97JheLMnYqayHVOCY5mvf6+05xsgxxspis1UL8iC3s?=
- =?us-ascii?Q?A58+UlK6EgMQuJ3Pj4larm9AZNqWepyrlwsaLf5T3ZEAlotbKPR1pDRh86c5?=
- =?us-ascii?Q?A/ZiYidnRBrbTlFJmJwEck1HYjdz1dI2mVe8yhe9riDGMaAxTySx7xgOpkIj?=
- =?us-ascii?Q?byLW97RkvgUisd/lrZfqt7/c3pa1aOja17Jiwun2oSQKPlHsh/iKiKk+opKn?=
- =?us-ascii?Q?LedIbc45HITslFt2XzoqQwoWvTopsF6c7zzX+4yN42MZLcsttKhbt+NXA8yd?=
- =?us-ascii?Q?i9bNgxP+j6Jnu9x1IbonbsGNJ9Djc+LrHoetAg7Tso6hF2LJ3eiSL2KO3MKw?=
- =?us-ascii?Q?qOcf1tbk1hER70fPGffl3nWvl86fFTXUFYNG06XDytTh80zAjgK2BFXcqi2l?=
- =?us-ascii?Q?qax91VNdGT7gWpYRgEB4SVQKxuNZnJ7VPg98Z/2i/eHi6aIj?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 09 Jan 2026 06:35:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1767940531;
+	bh=eiZT9sXBg4HL79BKEk2OPu5rQrW7DOHG5+KhdLse1nM=;
+	h=From:Date:Subject:To:Cc;
+	b=beS2t433FJ6u6bIljM3aTHPk6T49f9Toc1y6B8godI9KhHF6D/lmHoIogkf36Iqyf
+	 YMG5T18VIity3jOkFohkmYR6an3bP08DqZcAbTsTQwV7T8epMUYpGPvIUCGmHC7pxD
+	 oe2D7QNlcYRP5uCa5Fby4FUbBKjA1CzAxSHw/WX7IPj7ck/QQjIdMnxB3+W/mXwA4B
+	 QDiF2qdinPXMhiUXAsZdfAEtxnw5cWw/4BSJ9EMDKmgGm2XBtor/qn98V4PLrL6tLQ
+	 sEugBUA7pg7ws0cSduUJQNSvLgnYVYGW/fpyjMV5j0Wm/roL21s1BqXzGeHNX3wZ7n
+	 ACMQsT7TfWZbw==
+Received: from [127.0.1.1] (unknown [180.150.112.60])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 5CBB97C834;
+	Fri,  9 Jan 2026 14:35:30 +0800 (AWST)
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+Date: Fri, 09 Jan 2026 17:05:18 +1030
+Subject: [PATCH] dt-bindings: mfd: Document smp-memram subnode for
+ aspeed,ast2x00-scu
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a678e539-6b33-4099-f904-08de4f48be7b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Jan 2026 06:31:38.4613
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: k7rN3uB2MG51yYtD4cxwp7b4Rs/Y8bQuQTQQBBsMyovU0qGTUbqek21aZv+GOfhphoZnbZydB39wiUqQAGTbLw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7891
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260109-dev-dt-warnings-mfd-v1-1-1aabe37e9a14@codeconstruct.com.au>
+X-B4-Tracking: v=1; b=H4sIAKWhYGkC/x3MPQqAMAxA4atIZgNtwd+riIOatGawSisqFO9uc
+ fyG9xJEDsIR+iJB4Eui7D5DlwUs6+Qdo1A2GGVqpVWHxBfSifcUvHgXcbOEc9Ww4s7SYlvI5RH
+ YyvNfh/F9P4+sds5lAAAA
+X-Change-ID: 20260109-dev-dt-warnings-mfd-b57e0e9fdcf8
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>
+Cc: Andrew Jeffery <andrew@aj.id.au>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+ linux-kernel@vger.kernel.org, Andrew Jeffery <andrew@codeconstruct.com.au>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260108_223147_899161_33E52F16 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20260108_223534_134306_0F2A6C52 
+X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,37 +77,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH v5 4/5] remoteproc: imx_rproc: Add support for
-> System Manager API
->=20
-> > >imx_rproc_sm_lmm_prepare()
-> >
-> > Add in V6:
-> >         /*
-> >          * If the remoteproc core can't start the LM, it will already
-> > be
->=20
-> The remoteproc core starts a remote processor, which in this case is
-> the M7.
-> I'm not sure why you are referring to the logical machine (LM).
+The platform initialisation code for the AST2600 implements the custom
+SMP bringup protocol, and searches for the relevant compatible. As a
+consequence, define the requisite node and the compatible string, which
+in-turn tidies up the dtb check results.
 
-I was thinking to align with function name. I will use M7 in v6.
+Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
+---
+Hello,
 
-> >
-> > I appreciate your detailed review and the code snippets you provided.
-> > Please let me know if you'd prefer that I split the support for LMM
-> > and CPU into separate patches in v6, or keep them combined as they
-> are.
->=20
-> Please split.
+This change was original part of an RFC series tidying up the AST2600
+EVB devicetree at [1]. Many of those ended up being merged directly, so
+I'm splitting out what remains into separate, smaller series.
 
-ok. v6 will have them separated.
+Please review.
 
-Thanks,
-Peng.
+Changes since RFC:
+- Address the warning from Rob's bot
+- Tidy a description line that was dropped unnecessarily
+- Remove RFC label
 
->=20
-> >
-> > Thanks,
-> > Peng.
+Link: https://lore.kernel.org/all/20251211-dev-dt-warnings-all-v1-16-21b18b9ada77@codeconstruct.com.au/ [1]
+---
+ .../devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml     | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
+index da1887d7a8fe..a87f31fce019 100644
+--- a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
++++ b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
+@@ -130,6 +130,23 @@ patternProperties:
+           - description: silicon id information registers
+           - description: unique chip id registers
+ 
++  '^smp-memram@[0-9a-f]+$':
++    description: Memory region used for the AST2600's custom SMP bringup protocol
++    type: object
++    additionalProperties: false
++
++    properties:
++      compatible:
++        const: aspeed,ast2600-smpmem
++
++      reg:
++        description: The SMP memory region
++        maxItems: 1
++
++    required:
++      - compatible
++      - reg
++
+ required:
+   - compatible
+   - reg
+
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20260109-dev-dt-warnings-mfd-b57e0e9fdcf8
+
+Best regards,
+-- 
+Andrew Jeffery <andrew@codeconstruct.com.au>
+
 
