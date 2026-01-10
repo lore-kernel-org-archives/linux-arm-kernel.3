@@ -4,178 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA8F5D232D3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 18:20:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467CFD232D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 18:26:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mgd1/7yE+ck+lrEFI8OI4qtkiQicBsGuY3RuSBBVZ4c=; b=bH+UXZJHDOMAZ5f1RGJ0R0PNSe
-	bJQG5fwK9wAHt+4k7Ac4oe8Uu6jejucqDGHAtel0JQ+oWFJ84ja8AP//tC/jg1SxPD5Hxe1UUjlFl
-	1nK/a5Mre9IuwgyDYTxxBdf9D4bTIg6v7I0zQxZFaledoBunL0pUl2HoAelJQ44c1sRuJDVlEkgoR
-	QLJZz6qZWwhwGXdaOjqgHX0ovvqNmytzZeyM/KSE0TKV4kyVIFvtwht+oeHpN7zOr5nqDdhEMGtZh
-	igPh0fuzGADSAGIzXYU+OZJJEqE+RWKtV2GbJQHMoJ3jsNNOWOynVmMiTwdHpDnJn7SeOFxbitREh
-	vD2NjWxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=afgUmo7FVA0UMa1pCZgDdfCcrRnZeK5e78tq9RhRkhg=; b=tsAzm35BpfMpPERuuGK5QHtwPP
+	3u0YNrC132QYPFAJDWTpLpzi27cp2Q7kurpCictyghflonuq3eZIx+zXeGRrr8DARInV7c6q5pC/K
+	xaAi5p+YhXD1vtBarjAhTLGTNm2cc9SXAs5tkglPsQ7KhTSwuR9gTUf6xzG6avlzvCB4QmoROcAEM
+	ZONhdCVqBDY5Kg9KMneAnvCd6H/MELF7YPNbprFyBwGFG8+YAN1WxjMv2+zxVv4HBpMLE49yda8oh
+	Qa+jggyg+fRTm/dafvLyezEIwp3XRgpvAh8sLQ27Y5sjlexWakd7TdkDUPw0WVF7RwSns+PQbwvdZ
+	qDaDaWuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vedZE-00000003b50-0Dx5;
-	Sat, 10 Jan 2026 18:20:04 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vedfT-00000003bQ0-3S4f;
+	Sat, 10 Jan 2026 18:26:31 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vedZB-00000003b4E-22lF;
-	Sat, 10 Jan 2026 18:20:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VZirsLbea02JYJYhCUuHANkbI6bw0UP77aD40i+ADWS98OSOTZewYdg6w56ZE0bt5kk/U6w9qwHIxmwv9cIp/0IHPd36N7KK23xsM2gwK9P234TDfP81fYvke/NpUxGp+g+PXzNc63LgiyVC0Gg/zvM6g4CvgzEMgXWAMKwlMgEJW25i6xyrTWvclUST84Pf307CDVbfM+Nlt+ESq1UVghdjdmrncR54oGqBD2avzlLFOBnWPE8jYiQyCLu9GLeYWdMakGEmDpV4qtYV4KdtJrytPKabudZEFd+dgFgQ/Dj+mVldUFSOhEaspERthu63J0dOwiGFC4j+++ro4hwXaw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XVmHi/j4JsZzdsCC674kGOtvAxbdwzCr/648PxHf6o8=;
- b=EYSDui6lhXQCX+fVwnwy3xCa72Gze4X+GpRLAB9EUuhv3Q6bQWjib0qRvtOxKOVDGaTwCcIFdRQf0D4JN9RkDgtX+8VLaexJqSGMH0nnP7fTBB4qK+YvyatSTViMugwcgGEV6BZP/NO9CiRch8KE4SxMq0TfRfeZEoO4lvLeaNcY1vtCIf/AsSotUD8O1+QDqnKyI/J43lk8WVdOgWyZ+5ayJmcJDiRBB4clEq4SjakQC/jqzWp/u7V4rfScDG/TpQGXKNEqCFInKjPavHyHSaHCV9cLuVUfw6Rr2MYj86+Xw7jo+w7iwCMcklbnC47VudJZPOSJMRM+NldZR+sJzA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XVmHi/j4JsZzdsCC674kGOtvAxbdwzCr/648PxHf6o8=;
- b=lmzYGI3WLMD78u8SrucVKAXUCfB+y+VHI92jBebRFtgbRUird2/2xBDaAW9bLZxvycbgf1WuZ3H9DSYob6t4zVIdxgbI2vRAaI4MvVaADodMzJ2XPW17180OnzOLzNd9lgDYIKiT4ZhZW165fU+Ow5rW7vHaMQQKVZoZH0zOBGiX0/f9L3ZmsSorFW47JWSfVwGrFnDortNFfqsaysV521kHTskfzaxnRfuY7C3y4xZcwfwvw1gF32kZUKBx61kQAPUap98o2P/bO5jxb5UhH+6fJsRD2KNRJbSOj4+4yfUB2TyqnNNtKnXe5l16YFPuHjGiiwGaULyUR7jq6gnDDA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by PAWPR04MB11676.eurprd04.prod.outlook.com (2603:10a6:102:50b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.6; Sat, 10 Jan
- 2026 18:19:55 +0000
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9499.005; Sat, 10 Jan 2026
- 18:19:54 +0000
-Date: Sat, 10 Jan 2026 20:19:50 +0200
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: =?utf-8?B?QmrDuHJu?= Mork <bjorn@mork.no>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Daniel Golle <daniel@makrotopia.org>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Eric Woudstra <ericwouds@gmail.com>,
-	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>
-Subject: Re: [PATCH v2 net-next 05/10] phy: add phy_get_rx_polarity() and
- phy_get_tx_polarity()
-Message-ID: <20260110181950.md3iu2wekhkzrnx4@skbuf>
-References: <20260103210403.438687-1-vladimir.oltean@nxp.com>
- <20260103210403.438687-6-vladimir.oltean@nxp.com>
- <20260103210403.438687-1-vladimir.oltean@nxp.com>
- <20260103210403.438687-6-vladimir.oltean@nxp.com>
- <87jyxtaljn.fsf@miraculix.mork.no>
- <87jyxtaljn.fsf@miraculix.mork.no>
- <20260110180433.bfg2hxbdjkfllkiq@skbuf>
- <87zf6l49y9.fsf@miraculix.mork.no>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <87zf6l49y9.fsf@miraculix.mork.no>
-X-ClientProxiedBy: VIZP296CA0025.AUTP296.PROD.OUTLOOK.COM
- (2603:10a6:800:2a8::15) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
+	id 1vedfS-00000003bPd-06vq
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 10 Jan 2026 18:26:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=afgUmo7FVA0UMa1pCZgDdfCcrRnZeK5e78tq9RhRkhg=; b=TBBkE6S2viMmModJ7gC/H2/pmC
+	VyCBuAULdIlBeFeTHMiw1k0FI9FcdG6ZYI1BUln5cJKJ7zM3IO/0Yu/jwaGbWHXh3HRxNGi2rvjC0
+	Hz0BCuDbZYud3yTnPz8zwu+7fJzcw/sRSA+e3NdIRcGs1gh00G9p+549BbloBiq8ABhDnCErrYaTQ
+	XU9rKs5jr5RWGdDFmocUJ9eDG56euyzXR2k6wQsPSkbZPJO3RsBcoAUlpiNd4mxtrNGTiokRmhwCg
+	WmrJJK+oGJstSjolh+TcadHGN2n34Haq7qdOFJIgfYLrosyn5nVPStr8/UkuueO07+wegHmnt049j
+	ElqpB2aA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44118)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vedf7-000000004ui-3O08;
+	Sat, 10 Jan 2026 18:26:10 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vedf3-000000004St-0Hpf;
+	Sat, 10 Jan 2026 18:26:05 +0000
+Date: Sat, 10 Jan 2026 18:26:04 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: lizhi2@eswincomputing.com, devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	ningyu@eswincomputing.com, linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com, weishangjuan@eswincomputing.com
+Subject: Re: [PATCH v1 1/2] dt-bindings: ethernet: eswin: add clock sampling
+ control
+Message-ID: <aWKZvEW7rKFFwZLG@shell.armlinux.org.uk>
+References: <20260109080601.1262-1-lizhi2@eswincomputing.com>
+ <20260109080859.1285-1-lizhi2@eswincomputing.com>
+ <00b7b42f-2f9d-402a-82f0-21641ea894a1@lunn.ch>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|PAWPR04MB11676:EE_
-X-MS-Office365-Filtering-Correlation-Id: e0c22335-a130-4b97-3a64-08de5074da84
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|1800799024|10070799003|366016;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?qacsf3aB2ojRVSGPrcKl3s/4qqSEjDUVY3COj291QPwliEbAM77DmZ4+7W?=
- =?iso-8859-1?Q?YfR7sd/liZFFX0P8nyDJjQustx3VoHIZYnZbr2A4jLv2Dy2Yy00qEszm0D?=
- =?iso-8859-1?Q?EJey7orccWdugxf6ewUWnhmBBbe0ZCWxzouuotfpQuXKKI1fdkDUmqpnqm?=
- =?iso-8859-1?Q?sw8/JPKw7E5Zhbnzg00A0AObO2hEvE9odTtNQP48e6evGY0mBYBKxBC2dD?=
- =?iso-8859-1?Q?b64qf1qUni8atFzAVFIqzYFnlFsCFhatah/JtS80YwULqbbA0NHpM1VEgA?=
- =?iso-8859-1?Q?2Hx1wDypNI0a3Y1xhUQB5n+lABsQKM97s1PIUEsMA9gn9J63jcceANpMmL?=
- =?iso-8859-1?Q?i215UN1g3CHnGV6hZkpQv9mvXvKbwBNF9VtLaElzZ+QFD2SnBsILwUPUz1?=
- =?iso-8859-1?Q?Xx2nOlTuWNuts/8wMTop9a292YBAXlssrA1hZilG/NLPYAMdxFJvg+gTv+?=
- =?iso-8859-1?Q?UOiwMaax93HquB3Gamggae20bQNnmeMDjxvyhFVt/5a15mAWlERVi9C4Ju?=
- =?iso-8859-1?Q?6sVBmzzLjz5nA3xFxskWT1lmRY2z3hG3N+05kPbJXvTeSTAoBsH7t1kv0v?=
- =?iso-8859-1?Q?fVAf4KTtNuwMDn3JyFGbn2pEWF5+JgftQtVZLPENwKUcRdwR4yikFKFflO?=
- =?iso-8859-1?Q?t537ep+C8P2R+w40RJ5W2xSBMxce6j6Vozg4HQC4xDlNDSbz0MBm/YCJ/H?=
- =?iso-8859-1?Q?L5VFBolohGlECRGq5nw7tiuK+jjEr1qKKjG57zJP0zVNHS8kUAy9aN8I0g?=
- =?iso-8859-1?Q?zFoF88OC/SMWLKMkkGWzjZxVdQzNtX38rdJ41RibS7Q3zs5XtiN+AXXd7k?=
- =?iso-8859-1?Q?UNE8LDMLr4EyKcFu4Ul98QySSY/sTWj+1muqt5/c2zR/l9tBgrMaYsw8M4?=
- =?iso-8859-1?Q?Bxuc+X0tEV2CksRJcrtJvV0LIus2VBRfc7vnbVpWht1Ob9+YfpuM1Fq+XR?=
- =?iso-8859-1?Q?4AnVH0TGu81X/KDf3PO+SkGC8ej8OZb0YyBym8AMz+FZOQ5ihDvCNaknvI?=
- =?iso-8859-1?Q?WZ3BhmjWVvU1yhtgFIkKSoGWHXeIzDL07NYZ/ShS3jo39STBi6ki03k2xf?=
- =?iso-8859-1?Q?2p445ZOCGcArbtq3XroVIY6Lb3gu42FdLhClAxGX1H3wcWKcuxIho7NePs?=
- =?iso-8859-1?Q?wDH8UVs5JnGBhI4z5ZE73a+jlPEsRQEKIRL79et/2XObHLgvFiD083B7Ci?=
- =?iso-8859-1?Q?4p5ZKdRYVf7SCGMcg8xhTt4YwJ78AD2qZ2weSTRQWnl4bPt01g5n9XFvQD?=
- =?iso-8859-1?Q?PMC6xtQRRRczhoepJ0TpB0O8R/O185kfKVaZVufMf9BnyEMtOwptJoI6TB?=
- =?iso-8859-1?Q?U8+EG830Yq+T20ltVMLQyWgwC3zlDRA88pA+k6ldEX8GDYZvAO1+stSMb5?=
- =?iso-8859-1?Q?W/Kap6gkY1jeHII55ovN/ABAb84LtrRnfurPP1y+GhYC0BitUhjA0U55Bz?=
- =?iso-8859-1?Q?JWKnMXE7HmnLuC/vrgJXzpN84Qxdl0lx8qgTS79KIjmKw+z5JCWqwX18Ed?=
- =?iso-8859-1?Q?qPM2Ls4pm7OVDqr34YpeL2?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(1800799024)(10070799003)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?pjXOn5qcBPYTOoUoLpoOpr4PvQdf3yygG0COd5SnFfaX/TlyWdXI+LV60f?=
- =?iso-8859-1?Q?q4+4vhHCdMhwpGn9XkgC8C3XyrkiUOqkEI2EbojmV6h6T6L8n1UYWtF1Ia?=
- =?iso-8859-1?Q?B/sKYm1QYO0gMV1T5nXpHmc2L7OhQoDXbQxk0Vq5cqoPENrD9NyeFkyM31?=
- =?iso-8859-1?Q?hpwDh/14Qtk50P5gVliAWKZCXjYU0yJKv9l7tnN3ZwPZ1Ey8JkfDYfRiKY?=
- =?iso-8859-1?Q?F04GTZCDwVPrD74tK1esVx3j5IGB2AWxBoTyTaxxdWDt+JcDuqOAQIeS3V?=
- =?iso-8859-1?Q?qzm1ZcpvZFIIhIyDI89T2vbJjkM5AgSJpR7Lgx1X+HBZkOtRk/O6rDx6qY?=
- =?iso-8859-1?Q?Z1icVpxtUJs5nNxiGXz5tYNve5vYtWN1c/Lhf7aJaNxeJQ/FjcQaZfSNx7?=
- =?iso-8859-1?Q?buJmiuG0cFKpJ2s0T0bQVXvw7n7UUgQPOZMGKv1fQlCInpLXIpKzmFfPcm?=
- =?iso-8859-1?Q?qBJZwb7+bmyfGA2E8oDD5bF/oc79PBUPOmdRrRmME+/38DKiNqkDzZry9/?=
- =?iso-8859-1?Q?E1GWzIOQggpzI8fIqUHyCwlDFvgOXgbuDPM3Me9yewAZoPki7In66Uk6H9?=
- =?iso-8859-1?Q?fkx9WyRGoizJt3ZKpP0uRfP2gZf1B0MaMiWqz97dUiwOUvnD4UCJB7MCjf?=
- =?iso-8859-1?Q?i/F5ClxQhaVHMMOCdzCwwpjcaYL76QuivYxxXLfe3Xi5pIYgGWtP+SxYy+?=
- =?iso-8859-1?Q?El7Fw1ef8OPf/h6UYDML6cmXVQ+3+bPYH0SOw0Sw9BXy2wXXWWY3ZXDmGB?=
- =?iso-8859-1?Q?sYYBirp9a1OiFiFxIMKfpq1ezaxxBtGsPG+JOalE9XplLk+SrodTGtPHm7?=
- =?iso-8859-1?Q?EiaVum2nKKC2i6x+VFxtZjlVvLmhKwhV28L5EHv+v0vSR8Gy9zQtQLD3bY?=
- =?iso-8859-1?Q?vWwFkpG/KYQZm0fbJ9lRxLyItVHdx2dUekyrG3F+KS4kt3tgy8lt3fi61i?=
- =?iso-8859-1?Q?hgXZ5cWpr+cppFFFNVkH8sv54MCUYQ6rQ2DD3QdoD4fY2bA5/S1ZXB3q0y?=
- =?iso-8859-1?Q?TcCiDeUiAlcy4LXL1s8PuW/JqsS2+3Xrexv7eu2CUs+4S8m/mWRLyDCQgr?=
- =?iso-8859-1?Q?eKs2P1lSiIL0QoJ0bM9sU1v/kpp3rFAFp8lKo6orhBHem1BrEgNfcYTbj3?=
- =?iso-8859-1?Q?zlBYQ7U10TupvNEp2Hufg+7X3hdIZpqnwsUrnfFZheMyv4Oxt6zz2Bw0J6?=
- =?iso-8859-1?Q?/jABbE90ZUxhS4ke9DITb8WmUbOb2ojb7V0ay8VNg3QHBpsxLnCcQAAq9g?=
- =?iso-8859-1?Q?HdLAsTe7FcwG2a4QfiuNyMMllZQxh9EXaB7zGjnQjkESn52tx6zs7zRcaX?=
- =?iso-8859-1?Q?0ob3rYTbQPJxADIIEIzfWt3hx0zpIP7KlhJ7fsPV4ZFBnUU3l3yeLO5fDy?=
- =?iso-8859-1?Q?useSzn5zqSgLthC6DAXNa3lrDSqNNb2KQ7SIbaGCsNsN7ipkxWku54ogVK?=
- =?iso-8859-1?Q?2uu6+aoEU/dN0NmRlNknZWeHLBuEX1+ftr3jyoLGSa4PZ/M3VO8eK26Hhk?=
- =?iso-8859-1?Q?4ArV+tpsfTOeOhidsHIFafjZzd10X6kgpY1qBmLWFguCj2qdE7rH0pcC8v?=
- =?iso-8859-1?Q?Pv5weud0alrTvwmrwVCLL6eVVi+nDsf0PHzjJXi86j12wcJqjqAZqytwt8?=
- =?iso-8859-1?Q?Ey1+mX9oNLM2u3y0e/lkBCv6lMyJm+w3Im79V8Vl8MNxeuijBexV3PvyOK?=
- =?iso-8859-1?Q?sIQY1qjfXbc5PIggfea3Hztppuesp++Bm7V88KxUKvyegqwhcbbGVvSIhR?=
- =?iso-8859-1?Q?ZDuVYiZQmiTA5vwnFtdChv3tuUX+9CuopX4OiIETgYBuAdnm/gQPnH6lUN?=
- =?iso-8859-1?Q?FQLK5e+Ra1jlRpGk9JSOINRsBxlBLjnf3tvClyQbGpusJ8pZsOrogAEdQX?=
- =?iso-8859-1?Q?Ws?=
-X-MS-Exchange-AntiSpam-MessageData-1: EyDp3Vmwa3CgtA==
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e0c22335-a130-4b97-3a64-08de5074da84
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jan 2026 18:19:54.7248
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RDfNxYrjApCOeoDmb9IrMsESg7LoqOYo1EwD35P/YFnTLPXEbTb7aNpGHMXcMra2kc1wrwhczuDJp8yJrV3YLg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB11676
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <00b7b42f-2f9d-402a-82f0-21641ea894a1@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260110_102001_535188_FEF39B83 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20260110_102630_089146_3FD200C5 
+X-CRM114-Status: GOOD (  20.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,18 +88,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 10, 2026 at 07:08:30PM +0100, Bjørn Mork wrote:
-> Vladimir Oltean <vladimir.oltean@nxp.com> writes:
+On Fri, Jan 09, 2026 at 07:27:54PM +0100, Andrew Lunn wrote:
+> >    rx-internal-delay-ps:
+> > -    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
+> > +    enum: [0, 20, 60, 100, 200, 400, 800, 1600, 2400]
+> >  
+> >    tx-internal-delay-ps:
+> > -    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
+> > +    enum: [0, 20, 60, 100, 200, 400, 800, 1600, 2400]
 > 
-> > I've integrated your test and added one more for RX. Do you have any
-> > further comments, or shall I send an updated v3?
+> You need to add some text to the Changelog to indicate why this is
+> safe to do, and will not cause any regressions for DT blobs already in
+> use. Backwards compatibility is very important and needs to be
+> addressed.
 > 
-> That was everything I've found.
+> > +  eswin,rx-clk-invert:
+> > +    description:
+> > +      Invert the receive clock sampling polarity at the MAC input.
+> > +      This property may be used to compensate for SoC-specific
+> > +      receive clock to data skew and help ensure correct RX data
+> > +      sampling at high speed.
+> > +    type: boolean
 > 
-> 
-> Bjørn
+> This does not make too much sense to me. The RGMII standard indicates
+> sampling happens on both edges of the clock. The rising edge is for
+> the lower 4 bits, the falling edge for the upper 4 bits. Flipping the
+> polarity would only swap the nibbles around.
 
-Ok. I'll add your Co-developed-by and Signed-off-by tags for the tests,
-if you don't mind. I'll also do some build testing, so I'm not sure if
-I'll manage to send v3 today.
+I'm going to ask a rather pertinent question. Why do we have this
+eswin stuff in the kernel tree?
+
+I've just been looking to see whether I can understand more about this,
+and although I've discovered the TRM is available for the EIC7700:
+
+https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
+
+that isn't particularly helpful on its own.
+
+There doesn't appear to be any device tree source files that describe
+the hardware. The DT bindings that I can find seem to describe only
+ethernet and USB. describe the ethernet and USB, and maybe sdhci.
+
+I was looking for something that would lead me to what this
+eswin,hsp-sp-csr thing is, but that doesn't seem to exist in our
+DT binding documentation, nor does greping for "hsp.sp.csr" in
+arch/*/boot/dts find anything.
+
+So, we can't know what this "hsp" thing is to even know where to look
+in the 80MiB of PDF documentation.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
