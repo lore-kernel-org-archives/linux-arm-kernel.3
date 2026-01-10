@@ -4,106 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B57B6D277EB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 13:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 220A0D277EB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 14:49:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=niKD7lwOtoha0TRVTxtTbBYIAZIgplZuxoTzqvKJ568=; b=iARQSUaVHEbz/GMptfbVg5Iosm
-	vFToDHltL4Gg4AyXxp04/UpbyuyawDGf07iUwmGJmGfKSJGKhBj9ZHT2tYzaMkERnZTW2Lce+pg46
-	C2ruQAD8591Z7m2rSRSXLTaJgrgYGzFYdFJAxoZ3wDbhqu/SY/q6xTStsY8n/K8SnoUlLJKUsyGkM
-	IvlZtn39l9GlYlhMNYBV76xqjOXIIrSliTkUbsT0PZNgJHsx+MIOG1aA3jd7QcLOrCF+nDuhAwslg
-	yTfV8eauart/ZByw02M4mIUUEGaDcYqPn/VDyNVe/XMqzEp9CQQvQrJX7IUdkwL8szXN3BIVEd/7Z
-	ZuvCdphg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IHk6EgoNk8lP2vqJMYUzvRzyl3K2JzNhjFEm/rJg//s=; b=RHTUFQxODk8t4P6MiGDQAeBMub
+	PnNbKp6SYLDhSqxkoOJOwySZKzZv6W9GgLj4EkSsNwSlrddkbPXyQg7NuS7FETZ1quQW/U1OycWsW
+	4elDoVc+SsJJSDDpeDWKhJ/+05ICGsoyL332W0wEJ7//rcumDtFxWe6BWb8kVNpSjkJzg26gY3vwC
+	UkylR72ahJg4Zh/cCaerNqIFdx3VKynQypL8CTB5j47UMwFiFDVqcLFnllgf9mj0XPl8sauq9DBgL
+	UmBeIMITnKcbMkpclVva86j0itvwp602Gs/ONkQLiV9j5j6p6o1S2hpM2OwGv7XAq2U+hKI7J/CAZ
+	8lqi/n3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veZEU-00000003TZl-30PB;
-	Sat, 10 Jan 2026 13:42:22 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1veaH4-00000003VDy-0mgX;
+	Sat, 10 Jan 2026 14:49:06 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veZER-00000003TZO-0ltB
+	id 1veaH1-00000003VDd-1fLz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Jan 2026 13:42:20 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-477a219dbcaso41171275e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Jan 2026 05:42:17 -0800 (PST)
+	Sat, 10 Jan 2026 14:49:04 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-430f2ee2f00so2851815f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Jan 2026 06:49:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768052536; x=1768657336; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=niKD7lwOtoha0TRVTxtTbBYIAZIgplZuxoTzqvKJ568=;
-        b=J6JU4wZ44Y32ivAyjRAhgiajjz49CCSpeG4g5x/GdToMXx8yPPSP3+jTmFrjHWD4Xt
-         m4Tk+IdR/a+Hvw4Qer5pKaeDRC2PfQgcnJci5IKgVlrC6/9JmnwQmVJjhfoU0uMZGrei
-         fclSK/sAG4S15AZf4PeQXhEf/KUqya6XV0MfWoRGYmBMfw7JYFnmr3KqpAM0MIXgEkog
-         2/eA2y9znmX7Ez3N6xrHh2nxWVSdglud/A9kkkj2iZniIuuyR902l05G0nw6ns5m2FqG
-         IdOxKxz9ou8zUb5NpJ79K11a+Ya0MWNhlV2qOwiUNyzCFZcnFnj7pNDiDGcWtlEWHJfI
-         jy6Q==
+        d=tuxon.dev; s=google; t=1768056540; x=1768661340; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=IHk6EgoNk8lP2vqJMYUzvRzyl3K2JzNhjFEm/rJg//s=;
+        b=csV5ibzlU4bbJqo5eFcUFMwiTZZZHzxDtiLLn/KVn25vhl0BBQlH7RpQSM4dRnGbBf
+         QRhZNHy+XcNyfcTFKOeYCnzbEoypPL0bVoy5Uj2MUBBwu9oKRRCEfPGVuNJmAUII8aqz
+         SDw3NB5j1J+3x9NPuBeifnBBVhJRdFdRmYH38ebajgJKTDg902YtqDFjmhEDxbZUHiea
+         hQBdiw3bXT6WpUApWjDGWthSctnww2ogEb0wgwcN8tRiKRZ8UH5Q9sjiuVJGejSOGpZZ
+         6MOHRQrsiecn6MvKr0WYjKjEgg1ZV/DgPVvSUlYETKPYhX9wdSlCVHUZhKxw9L+sSgh9
+         iBqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768052536; x=1768657336;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=niKD7lwOtoha0TRVTxtTbBYIAZIgplZuxoTzqvKJ568=;
-        b=Vnsrti4IG798MUPsoRR8eCLeDusTVz8D7cdfLxBZCoBtI/4Wh9rQ7mLtNWS3aOGHSM
-         PjWuWo0FiFPVTvs/JCwzywRdDBtaRumyV62yEJU52lBsJuGzZaB+jWOSiXNb01Kbsery
-         h/0DO/MVcwhqpbkhuedAz1v1pIOJrR9BSjnfuafxJ/SgzAU2VYMcfPrxQr63UzY6iBw5
-         5nKkepzxiHjvh1QLFiHMjQxNsAIddiNk+TpDV0EeOfZAddIPAlIRxV/xtY32RS37KNbq
-         /RuqDEbjF+fpOAqlTavZaPBeGROJ1Mv2h47oBc4j1xBEd2rbmW7oD1R4HoPpNE4bkPID
-         0BOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXqsJqnk13GsxTqxbEX2dogbyim6/BDCxY0GuEJZHNxqNXrpbxid6YrvtW1iPirq6Xhrd9bRURlgjW+VrBb3J/0@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCaLVENur4+JdtWNhUqyLKjSqiVUZNdsGjY/t0iEEpN1iXwxyf
-	5G2qgvRWPL8jwjsnlzSrCFNDGRjWOf6ezEVSqI62E1XlI+xICo3ktJHu
-X-Gm-Gg: AY/fxX6nRw47LFMYPkD12qZAYAPmQiXymaNSZq0pNVhVMMCIzY4R5sdO5Sh/Zg5oRZ+
-	BFdAN3rW1S1ewwnVtz7Pt2QiJawiv8xvLSTAwg6diuNvHk/VJh9GDqQoeqLmm6ChdTe8uu+YZml
-	g66T+cEW5PI1vLB7P/HTxLjxI9bvbhhPAsRXIHtqssyRFmF0YtBcw+MQ6eIH3jps2Nyv6MbwgaY
-	LVd1/3UJmMQJoc6L6M0HCUAtkj+GpjgvPZIb0Mo4Oa18zyQeR4jl3Ht3P2Hrt4/t/wWdQRADaSD
-	YzFJfz54bPlKDkr3IyDFgbttaCAH8f0RLqdMXaD6P4LcOHRmqXFuhejNvY1D5MTuj7ZlA7Rk9ay
-	SJbgMIklA0BP5tBWRnogSbFBVhKEN7PxTQRPRGAoF4nYMtcYxMDDGnyU4yGjlB5uvnr1XlQqKYz
-	dRSm2mL3n71NlZXAGNT5qPiA==
-X-Google-Smtp-Source: AGHT+IGNmY6EuRXQMgmECxnNtQwrRUp+VeCi3/b3F25cOPZ8t8M9RwpG6+Ph3Pg2FEMSimcUer23+w==
-X-Received: by 2002:a05:600c:4f53:b0:479:1a09:1c4a with SMTP id 5b1f17b1804b1-47d84b3b389mr154806905e9.31.1768052536352;
-        Sat, 10 Jan 2026 05:42:16 -0800 (PST)
-Received: from eichest-laptop ([2a02:168:af72:0:6968:58fa:e72d:87c0])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d871ac28bsm85184595e9.20.2026.01.10.05.42.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 10 Jan 2026 05:42:15 -0800 (PST)
-Date: Sat, 10 Jan 2026 14:42:13 +0100
-From: Stefan Eichenberger <eichest@gmail.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Andrew Lunn <andrew@lunn.ch>, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, francesco.dolcini@toradex.com,
-	robh@kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>
-Subject: Re: [PATCH RESEND net-next v2] net: stmmac: dwmac: Add a fixup for
- the Micrel KSZ9131 PHY
-Message-ID: <aWJXNSiDLHLFGV8F@eichest-laptop>
-References: <20260105100245.19317-1-eichest@gmail.com>
- <6ee0d55a-69de-4c28-8d9d-d7755d5c0808@bootlin.com>
- <aVuxv3Pox-y5Dzln@eichest-laptop>
- <a597b9d6-2b32-461f-ac90-2db5bb20cdb2@lunn.ch>
- <aVvp70S2Lr3o_jyB@eichest-laptop>
- <aVvwOYce1CFOLiBk@shell.armlinux.org.uk>
- <aVv7wD2JFikGkt3F@eichest-laptop>
- <aWC_ZDu0HipuVhQS@eichest-laptop>
- <8f70bd9d-747f-4ffa-b0f2-1020071b5adc@bootlin.com>
+        d=1e100.net; s=20230601; t=1768056540; x=1768661340;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IHk6EgoNk8lP2vqJMYUzvRzyl3K2JzNhjFEm/rJg//s=;
+        b=l//IvdWtK7HqtOVY8o/J4/OJx5SBuiubvLWJis8meAA1SS/CILLXudjmvlbpki2mdp
+         I1UbPIEzywab1BrlG5RkbVtz3hwLROZYkauhPk3mzlqEaqKghBtTX9hn6LQznI5L7rZ/
+         qWr2lQ0OLS5nKS9TUPdO7NpieQaaK23SFc5vr/iJenxgw5NwLe8A/fvRSuOxueyIKDwl
+         Ts5Q5VEHjFpHnpljtPcdqAMEWDto44Q/Q+9k04uxRoxSgjOY4W+HC5agiPIn6JQLw7cw
+         LE7tn4PA7euQFrxCREN8lDdoyrklpsHqlMGuj/kEAi7NurEDyQoJNNac1fsZkSMKtSbe
+         3PgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWQmmQCHgm2qjTaZVi2TU46ggB1mQM4G973SngEVbnLUXDYLGQ4XDSRblCYMPL40o0Uwe3T8wWCYaEX10tTSVT6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHONNj6m+n75p8udXUbATsi9aqV8WA3xlvVjqnRDWbHz7m1E0o
+	Ed8DZ1tWTBIk8zyVKnBjP4BufMNnn3kyiirx/PqBrdsShmsefgVlsQT5vDNfqxvpsnQ=
+X-Gm-Gg: AY/fxX6ZXuYqiX9IpmluiCEz4qfrGCJJhBkojggmxyoYvGQ1PXrfv3qr0xvVIKN/a3M
+	R6dh+wlgCsmaxTyrYidcwpAA++esA/ykAdLmEq3gZZ8XD8SD+EPlJ/phutQv+59OMc1Xb4CNcv2
+	NGzp5wf6zsJCEYSymv6dHLx1BLkp+cFaMP/qJDmqrwSkYB4m9eKJul+3k4iPFho4QE2Kb9RtOdL
+	dUbGAGbVXalR3gdif83Pi62iqEsFvCIN2P2GpyFFEiGOBwCeEQSokpbsq9zOWn/0KmU018XYyLb
+	6YPSbPfkBSkLMcz2nerqUOQhZbm0I+xIAPLXdGeJw+EaMFsee1O5nSc2Q5Mvd7yxIhRH1l6qBjK
+	gZ25I9PmsZvbRDHCOcjkXLUQUXJK7G/fN85Kezm89DJ/M8g+27pKoMJK0GRywWvuX+okQcfdhVM
+	ok8pS/qh87g3R9WiALAGVEdhTIOn2m
+X-Google-Smtp-Source: AGHT+IExDiyl6+cMqnLU0OScR46v/DhXxaFlI7KfbIz5c0gjBYd8wiO/Eo5iH1Cn00OMlkpwekH3Hg==
+X-Received: by 2002:adf:f54f:0:b0:432:e00b:866f with SMTP id ffacd0b85a97d-432e00b8b14mr2891143f8f.60.1768056540373;
+        Sat, 10 Jan 2026 06:49:00 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.31])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0dacd1sm27764794f8f.4.2026.01.10.06.48.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 10 Jan 2026 06:48:59 -0800 (PST)
+Message-ID: <b0dec3fb-51df-4bcd-ba13-c2049695266e@tuxon.dev>
+Date: Sat, 10 Jan 2026 16:48:55 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <8f70bd9d-747f-4ffa-b0f2-1020071b5adc@bootlin.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/11] ARM: at91: Simplify with scoped for each OF child
+ loop
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>,
+ Saravana Kannan <saravanak@google.com>, Nathan Chancellor
+ <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
+ <alim.akhtar@samsung.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Nipun Gupta <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
+ Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ llvm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-clk@vger.kernel.org, imx@lists.linux.dev, dmaengine@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-pm@vger.kernel.org
+References: <20260105-of-for-each-compatible-scoped-v1-0-24e99c177164@oss.qualcomm.com>
+ <20260105-of-for-each-compatible-scoped-v1-2-24e99c177164@oss.qualcomm.com>
+Content-Language: en-US
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+In-Reply-To: <20260105-of-for-each-compatible-scoped-v1-2-24e99c177164@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260110_054219_293761_DF8DED1A 
-X-CRM114-Status: GOOD (  42.54  )
+X-CRM114-CacheID: sfid-20260110_064903_570166_3BE193BC 
+X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,101 +130,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
 
-On Fri, Jan 09, 2026 at 10:38:30AM +0100, Maxime Chevallier wrote:
-> Hi Stefan,
-> 
-> On 09/01/2026 09:42, Stefan Eichenberger wrote:
-> > Hi everyone,
-> > 
-> > On Mon, Jan 05, 2026 at 06:58:24PM +0100, Stefan Eichenberger wrote:
-> >> On Mon, Jan 05, 2026 at 05:09:13PM +0000, Russell King (Oracle) wrote:
-> >>> On Mon, Jan 05, 2026 at 05:42:23PM +0100, Stefan Eichenberger wrote:
-> >>>> Yes this is correct. ERR050694 from NXP states:
-> >>>> The IEEE 802.3 standard states that, in MII/GMII modes, the byte
-> >>>> preceding the SFD (0xD5), SMD-S (0xE6,0x4C, 0x7F, or 0xB3), or SMD-C
-> >>>> (0x61, 0x52, 0x9E, or 0x2A) byte can be a non-PREAMBLE byte or there can
-> >>>> be no preceding preamble byte. The MAC receiver must successfully
-> >>>> receive a packet without any preamble(0x55) byte preceding the SFD,
-> >>>> SMD-S, or SMD-C byte.
-> >>>> However due to the defect, in configurations where frame preemption is
-> >>>> enabled, when preamble byte does not precede the SFD, SMD-S, or SMD-C
-> >>>> byte, the received packet is discarded by the MAC receiver. This is
-> >>>> because, the start-of-packet detection logic of the MAC receiver
-> >>>> incorrectly checks for a preamble byte.
-> >>>>
-> >>>> NXP refers to IEEE 802.3 where in clause 35.2.3.2.2 Receive case (GMII)
-> >>>> they show two tables one where the preamble is preceding the SFD and one
-> >>>> where it is not. The text says:
-> >>>> The operation of 1000 Mb/s PHYs can result in shrinkage of the preamble
-> >>>> between transmission at the source GMII and reception at the destination
-> >>>> GMII. Table 35–3 depicts the case where no preamble bytes are conveyed
-> >>>> across the GMII. This case may not be possible with a specific PHY, but
-> >>>> illustrates the minimum preamble with which MAC shall be able to
-> >>>> operate. Table 35–4 depicts the case where the entire preamble is
-> >>>> conveyed across the GMII.
-> >>>>
-> >>>> We would change the behavior from "no preamble is preceding SFD" to "the
-> >>>> enitre preamble is preceding SFD". Both are listed in the standard and
-> >>>> shall be supported by the MAC.
-> >>>
-> >>> Thanks for providing the full explanation, it would be good to have
-> >>> that in the commit message.
-> >>
-> >> Okay thanks, I will provide the full explanation in the next commit
-> >> message.
-> >>
-> >>>
-> >>> The next question would be, is it just the NXP EQOS implementation
-> >>> that this breaks on, or are other EQOS implementations affected?
-> >>>
-> >>> In other words, if we choose to conditionally enable the preable at
-> >>> the PHY, should the generic parts of stmmac handle this rather than
-> >>> ending up with multiple platform specific glue having to code this.
-> >>> (This is something I really want to avoid - it doesn't scale.)
-> >>
-> >> From the errata from NXP it sounds to me like it is a configuration
-> >> issue by NXP. I checked the following ERRATAs from vendors where I have
-> >> access to:
-> >> - ST STM32MP1: not affected: https://www.st.com/resource/en/errata_sheet/es0438-stm32mp151x3x7x-device-errata-stmicroelectronics.pdf
-> >> - Renesas RZN1: not affected: https://www.renesas.com/en/document/tcu/ethernet-mac-gmac-function-issue-0?r=1054561
-> >> - Starvive JH7110: not affected: https://doc-en.rvspace.org/JH7110/PDF/JH7110_Errata.pdf
-> >> - NXP S32: affected: (ERR050706 under NDA)
-> >>
-> >> So from that I would conclude that it is an NXP specific issue and it's
-> >> not the full EQOS implementation that is broken.
-> > 
-> > I just wanted to check whether I should continue with the current
-> > approach or if I should instead enable the preamble in the PHY for all
-> > MACs. While I prefer the current approach, as the issue lies with the
-> > MAC rather than the PHY, I can also see the advantage of always enabling
-> > the feature.
-> 
-> My main concern was that we may end-up with a lot of different fixups
-> for the various KSZ-family PHY devices, especially since this feature is
-> sometimes undocumented.
-> 
-> I've gone through the micrel.c driver, and looked at the datasheet of
-> most PHYs in there, and so far I've found that to fix this issue, we
-> need to set :
-> 
-> KSZ9131 / KSZ8041: Register 0x14 bit 6
-> KSZ8061 / KSZ8051 : Register 0x18 bit 6
-> 
-> So in the end, the complexity appears to be a bit less exponential than
-> I originally thought, we may end-up with only a few fixups in this driver.
-> 
-> I'd say, I'm fine with you proceeding with this original approach as it
-> minimizes the impact and risk to break other setups.
-> 
-> I'm sorry for triggering this whole discussion only to get back to the
-> starting point :(
 
-Not problem, thanks a lot for the feedback and the discussion. I will
-then proceed with the current approach and send a new version with an
-updated commit message.
+On 1/5/26 15:33, Krzysztof Kozlowski wrote:
+> Use scoped for-each loop when iterating over device nodes to make code a
+> bit simpler.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> 
 
-Regards,
-Stefan
+Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
