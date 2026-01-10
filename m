@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8318CD277CD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 02:18:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D6A5D277CA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 02:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pRyLascoQUM97o9Vu/yvS8UUccbDbO/P7onpuAYwAUY=; b=JpaKlE7SajuUtYISBnQM9F5xyz
-	RAubQGuxe+Iwa4pW4ch9BvNxpaJ2LPzB4OFkOdQOSGy/XR7s0vDv393pDPN4AW2zcRE5gRSoL+xjy
-	SbfwgANwZyUgAb6IsWQ9CN8Wpv3a7CiJagR5ffqrIbvdchl9daLbQZMKoxUQi0eVOT8oU2f8VlHkJ
-	CKs/b8BxuRdtd9Upd3w0c3lPNEzmX5J6eRhulewtjD96Y1T0G2D5pA8UDV+vuqlqG1IozfQDgJY1+
-	dTimDj1w1TKbcTX92o3cQpscATvKxx+0X0c2UV596W7G68aPOLjMsyYI47z+xImfLwfCC3UFVKOy8
-	bRIM9b2w==;
+	bh=NIB+5zci6lA7mTUdacpmBpeAwojvFyIDnyIdAmJ5HNc=; b=RdFTiNj6juAud7UmewMLasU47K
+	TTxyktrdCiwyumUzDeMWU527eIeL1qOY+xAMohF7NZRYUqo+Z1/rWuK8o1ONxnFjN/slTUPyxuSLd
+	ArCPlKUOdclsxywZSgqIjHUd8UB+aTkkD90plUzJo44OtXPgvks0u/V8f6IfBedjVugbRkvpeLI4Q
+	DpmdtgquIGYCFeHsCAfWiugEz5iCdjQgOqW5bMAg/IPZ1fS25Z48VrlUCpq8394gCla4xJj3SXkyB
+	/1SnM/ZlnmRCQJ6Kf1kU75gvx2Aqmx2zGSSVYsS+Skf2HHg/iaSKwY/Ktng5laXc9FvoSnkFFCW1/
+	Eh4MRcDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veOYh-00000003BX5-3FKS;
-	Sat, 10 Jan 2026 02:18:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1veOfg-00000003BwZ-2zXa;
+	Sat, 10 Jan 2026 02:25:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veOYg-00000003BWj-10Yu
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Jan 2026 02:18:30 +0000
+	id 1veOfd-00000003BwB-3ckh;
+	Sat, 10 Jan 2026 02:25:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AC1C460052;
-	Sat, 10 Jan 2026 02:18:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61428C4CEF1;
-	Sat, 10 Jan 2026 02:18:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8A3CC41930;
+	Sat, 10 Jan 2026 02:25:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48E03C4CEF1;
+	Sat, 10 Jan 2026 02:25:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768011509;
-	bh=x/N/ycohyLUwtK7qtx1ituEGmvDVj2oS4STEWRj9CZw=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=hKRUwl0j0+QSTvs9YiKtgE2VcMNfUWmnT5HZcYDitigerQ4OOKStWi9FmYLAUkJl5
-	 1zUwfSvQjVkRcEWyU8MRk1HTU+5lvEKNjnt7Ya6jG2E+FgpnXVDI0vHxGgVw+hcG2d
-	 flxgi3npZrhUQ1KPmWeVBqSySwAMIZeHJCQhSRW6bXgQnFQgs4/L6fo5ISSUNbHccI
-	 /xKltpeucqvcASl2OcSRJj1eXDbsYvwsBcOOSZofyJIrNMLeGpqdslX3wRSw4wrg5a
-	 KmwQacvBunwDGNwdk917NXjHQ4vdZ/anjbauzUKsMPh+xNJE+Jpf+3o3/5Thd48DEt
-	 gtNnwpSzTYMoA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3B7C33AA9F46;
-	Sat, 10 Jan 2026 02:15:06 +0000 (UTC)
-Subject: Re: [GIT PULL] arm64 fixes for 6.19-rc5
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <aWFIj0hGUQK1ywDu@arm.com>
-References: <aWFIj0hGUQK1ywDu@arm.com>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <aWFIj0hGUQK1ywDu@arm.com>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
-X-PR-Tracked-Commit-Id: bdf3f4176092df5281877cacf42f843063b4784d
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: e28ddd0b7af218e1a8863c524e15918895af9ac8
-Message-Id: <176801130487.452892.291354896566463029.pr-tracker-bot@kernel.org>
-Date: Sat, 10 Jan 2026 02:15:04 +0000
-To: Catalin Marinas <cmarinas@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+	s=k20201202; t=1768011940;
+	bh=ue9P0DHp6hQsd2MCq0QDFjG6D1P+AJ9p0ypaECF8siM=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=Fd8PH/lvq33dCfSIh454iKWbtElXcSEaA1CMLviXZifrjm96C7TxHYThyHIlsp/hF
+	 lyqr+jiQ3N5pbufMW6LModJrncLZQnCXGUpjZdO0QrpBrsIOnc3mM89TxZmFFdmozi
+	 lQDr0NH8AkX4jB+hW6Z3E9ydZgRMVCgFDpawCo5fS7FZ6FgKG8kTHNyg2MD1FV9ghn
+	 s+4fubVK7xUm7OwGxJ7OlOnYi/NFCvZhYmh613rIr6uZnVRjb349wiwVl6l+usfg9U
+	 3J40lebOOlvqle06aTOnJudTkzsE53CTmJ8pdzlIoABvkR0OEWL5A4//3bgbquhTpd
+	 q8K1BzofdNEkg==
+Date: Fri, 09 Jan 2026 20:25:39 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-mmc@vger.kernel.org, conor+dt@kernel.org, krzk+dt@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, ulf.hansson@linaro.org, 
+ linux-rockchip@lists.infradead.org, heiko@sntech.de, 
+ devicetree@vger.kernel.org
+To: Marco Schirrmeister <mschirrmeister@gmail.com>
+In-Reply-To: <20260110010715.1610159-2-mschirrmeister@gmail.com>
+References: <20260110010715.1610159-1-mschirrmeister@gmail.com>
+ <20260110010715.1610159-2-mschirrmeister@gmail.com>
+Message-Id: <176801193939.232931.10116845812476923767.robh@kernel.org>
+Subject: Re: [PATCH v1 1/3] dt-bindings: mmc: rockchip-dw-mshc: add
+ rockchip,disable-runtime-pm
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260109_182541_924602_94FB33FC 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,16 +74,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 9 Jan 2026 18:27:27 +0000:
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
+On Sat, 10 Jan 2026 02:07:13 +0100, Marco Schirrmeister wrote:
+> Add a new 'rockchip,disable-runtime-pm' property to allow boards to
+> inhibit runtime power management. This is required for boards like the
+> NanoPi R76S where the bus timing becomes unstable if the controller
+> is runtime-suspended during idle periods.
+> 
+> Signed-off-by: Marco Schirrmeister <mschirrmeister@gmail.com>
+> ---
+>  .../devicetree/bindings/mmc/rockchip-dw-mshc.yaml         | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/e28ddd0b7af218e1a8863c524e15918895af9ac8
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Thank you!
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml:110:1: [warning] too many blank lines (2 > 1) (empty-lines)
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+dtschema/dtc warnings/errors:
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260110010715.1610159-2-mschirrmeister@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
