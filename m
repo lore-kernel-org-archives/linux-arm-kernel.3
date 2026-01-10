@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CFBD277D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 05:37:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDBA3D277CA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 05:37:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=M1cLpdxtlbi2JaCKFB9k+hFNl0clCCKVFpwvaiNr7xQ=; b=nE0kq4efCmVyDUVQUTDwx/XsJW
-	GBuGWPFTzJEkBWlUbkty+S4BNlaycYh9DNW++CqFwkag/6rQUO4Bcs2u/06tyDJu+wAsXs+H4XEgq
-	Idwh06NtvHTbw8jf2PJIo1/niRqBDcTtBtHM5Uv2N+mc4WJsUrmHO2C5PGJBZi7nV9jLD11T3yYe+
-	v+pGPvKbsG7eZ8/X/gooL4+ZbtdHjQlSMfVm+WbqZUN+v07xONPymjcYrMGVjvxsfs3f0ml6EMkUU
-	ukKoYwBYmj8Ph6LJVnauluIyIL39aXlcJWj/mZNV2GamSGkA5s5avpa0HIU0ik4jtVL9pMZmHNAK+
-	+CEgnAuQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bRmj6n80JYrNuWPK4JdBaS4YTu/hZ0Oho3r4jDBrKMA=; b=McA5UxmsyenR+jOqSKy3/iX+W3
+	0Htnn6PUIe+d91dCoNsuLAOqrBkie89uL5MvJvB01ULngIDQsonz/dQ3v4klBQXbGqfzLHu3+I2Se
+	ztRYyTxTH/ChKnc6AHlqQ4PKLM8FwD+CNLxIQIQDqau6GWyi7GIxY0Sa3IsVhWDIQLRZoJUkPubo0
+	EsuahElDSCkGgqXJ8XomfHKl6R6azWsZdN1sAWK81PdPEfbggGLWYz56KUaxPLbqV7BU3CpSS3mYW
+	ZKpvQz7jkyXushuYDpGDvtYMWllOmA7OnF1BeImtEOd6oH//a/HvFB7xuBUSvaAwxUIBwoE3no3+7
+	+jRmBTcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veRfP-00000003HKM-1c6o;
-	Sat, 10 Jan 2026 05:37:39 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1veRfR-00000003HLX-3BHc;
+	Sat, 10 Jan 2026 05:37:41 +0000
+Received: from mail-wm1-f42.google.com ([209.85.128.42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veRfL-00000003HJB-3bW4
+	id 1veRfO-00000003HJo-3ST3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Jan 2026 05:37:37 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-432d2c7dd52so1785447f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 21:37:34 -0800 (PST)
+	Sat, 10 Jan 2026 05:37:39 +0000
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-47d5e021a53so36392195e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 21:37:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768023453; x=1768628253; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=M1cLpdxtlbi2JaCKFB9k+hFNl0clCCKVFpwvaiNr7xQ=;
-        b=czgXwIZET6Uz7OId2ddf+r5hTzKb9C4a2m/bP4/zQB1WI4IYgOjHXsE4HDUrE5AP+Y
-         Bfq4lcUicUfsMFfD7/0O9HLw/UIPVsbegVdS1N0pGeU9BCfoND1pWZ88c7tgv+IxHONE
-         OJH6bAhDCHbyJ1K5W2ouV97j6Alse6OCP/cLxyuUXGMC+GeKwtiMShjXXmUFWRwWnuyt
-         nE+kxrJLdrFQHXRZSLlnqANndxRL4W+r6VwsoB+eko6TJvDbRswykC0mb+aPSPxP+26j
-         RGrJCSd+IRJqsnImmA/19jJfDNqWnNoiaUD2am9et90KfiFdCa5Jg7gJvOSgjKXwx5FX
-         zgKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768023453; x=1768628253;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1768023456; x=1768628256; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=M1cLpdxtlbi2JaCKFB9k+hFNl0clCCKVFpwvaiNr7xQ=;
-        b=FPqkf+I4JpFIB8piAsEQc+u/ud0QIBehQdmE+rfmXg9foSpoMhYuofOIm4MxmbD4RJ
-         a6DwrZxwf1yZ6rBpqc5/JvhfdtBYZREDuRfsuU5k3n0TG3djRukSbO+SslsrbKs1BTpz
-         iTuSS5sirxDq5uLlGglJPH2SXKeesZmF3oigXUaQtwh0yB/ly3R9IlbB+IplZMPQ3OQO
-         DJsHBsg84L6MCvUGpCZGDi/gHxaXdb1XfQEQNYbhJ01ZztqITeIp1xa6yUNxPf7tMs61
-         kxGdAPZQLLvFZBLHRohUEckDdgjKAZvg9hrX9g3j0sB3p844g1aN5bi7lEAyxfFVxq7F
-         eFVA==
-X-Forwarded-Encrypted: i=1; AJvYcCWqS7i2oqeDg2WAfmj4Iw8JscQ6+QTthRWG1yZ0ndIAKjS/angReHGlF+sknu/mbSDd7vK/8eSxgSlIhXf8bMDu@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlnO4dTAjnx9ubv00kMKPiBvbcOT0vJZ1EXQE9jZwqBQmJsXpG
-	rDcZ4CQvemFTz0N2Bhxr447qt51B8rebzV/IKZsf5Mdks/a+fZjTh0hi
-X-Gm-Gg: AY/fxX7xi2HqeJ9y2C9aOD+FUatx+Tky281ZaZq6c45RwnkYKJa1TcyB9zxxo2nT+jl
-	uqUriwHSg/uJZf2AHDVdy+yvcuXgC0MydlpvlMOZPVCRVTgeIWspgKEXowjYQpHaRyvCQjFTxvy
-	a0xhiebMShwDY4sBr+LWXX/0ubUrqR6Td/D4EDTyQw0rk3D/+Uti/0sXSWvOf9AI4IjoJniU6/A
-	7sKY9nn0ec10STh+ZUUgzIV3opXrJlCdHopCoN2uG/3m/10I+qvu6DYLoOpm5JYvDqVDlPli3HE
-	8ODWc6XmU/cuTrNiFC3HLk+kYR5yLkEgqIpi3r/ovVvajuJjMlLxM7iP0TdyoxJleEQxU3MPL31
-	KkZ74oW6QUPbBKQa2D1l0r4vAZ8ErQC3Bmt66AAKs7wMz+/1IP1oKo7oK0Tq5g/rHKLPnDkJVwW
-	TkMJzFPsHGns4vhf8=
-X-Google-Smtp-Source: AGHT+IHqz2oFkcgw1N0DW7nQfkfUSHeBgK9Y/qbS9vSjvgU/OqcgBea5+ijbS7zgou3BC4qfPLuZbA==
-X-Received: by 2002:a05:6000:420c:b0:42f:bad7:af76 with SMTP id ffacd0b85a97d-432c3775a39mr15366785f8f.15.1768023453015;
-        Fri, 09 Jan 2026 21:37:33 -0800 (PST)
+        bh=bRmj6n80JYrNuWPK4JdBaS4YTu/hZ0Oho3r4jDBrKMA=;
+        b=ibihrTljAneVfW2kplpOBEb8cBJzPCT0M823nCwoyg8o64/xkdw7LvgX1L2vQyg4cd
+         hngv3O9xN9cqb7nUzUnzyonKWVQyMe8hM4k5gQlSup5muwxkoHtnUQ6RnR6Xa9A7rP7m
+         kPMlh6H1XhIhfeCXUFxp8ozonDumgdi7MU+qsIxrqjNB9pqypQSclReg4CWzwXqYIoiJ
+         SoVcJH+2BCP7HdCzHhlqPSi4aYSx6bCTadeEKqtlnC1dBfKcfOZjrXOgEO0mbstgmQ9f
+         BJnk3hgaoRqF435lu71m6zwvIKfpJ7gHG66cDCHBZNIRhwvjqyQrkBWTyPhuzz/vajob
+         vj6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768023456; x=1768628256;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=bRmj6n80JYrNuWPK4JdBaS4YTu/hZ0Oho3r4jDBrKMA=;
+        b=RSgLBHSoNYeicq603wE7hc96MOFgOpa1DKQlV1wuUspgiHLs9C/XNHPut1sOb+PB3T
+         RVYCTaau4ntUa4f1pwIr1qMg2LhlLCK9y6PsGTmc0ulle6ujz5B8Dhgmgs+x7uQ0qRJ7
+         23a9cafsTgyb78ONOC8sBoXfSJskQ0NLj4S2JTKCXtdeyFqMopU0YgzMGBT0lcVAkIvM
+         YxaAXm4HwN85rAlyGg3A+FZkG3h8XDy0z5BY9cSsjemg9g+3C99iVM8aJw+xFoce4kAk
+         nhsRGU2JWWqNmyTjhdLAZzLxfHhxI3NZGo70i91CA5vTGJ04dzSX+eQbvgA3zvXaMJLr
+         ULAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVFEuxNq/HtMsW4B3R3VogaCB4+XbfX0486ZkGNXf6MrLyFWbElLPuOSyVdSw7KHjFCHH6Rz+c1mbj5RL/AghKP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yws1yzXkaXwdov8Gu5k7hK5K3xPMu64q4bu7BuxBNUYeVZ1Jugz
+	2gT6i3SzsVi5CKwJgDkDhlVKNUMNQAjq1++3O2BGEoWccI0gtHA9aOHi
+X-Gm-Gg: AY/fxX4HiwQ97qTDY5GvRSW3dbr3s+cIPwrIO0LwNlasu/OWvKiySYVt5H8tgtOiosP
+	ODA5Bq4DoAZyUUavzbeXw8zyLiFfW7/vgHNkrTHN/rW9V6AOrOYZWn5Ejuzd7e/A/jUExQMIya/
+	E9yW0RZJcLret/wsBqG+/SHInAdKFEhgvGpSPIBqn5a83cgWjK2qrP+Qj2M6H/arwrj7fS3GDWu
+	4z9SNXfUHrnD2F6COezeL3bFpGHFpKQT8GcL6GXRLYjYNNr9zsHeabD8L859jABBJmKwTs4OrzP
+	FNZdKD0MVoBThJ59ygZxxRdcx/lJ3KJknrDrRXB75xgI41j7Xqk+JXFRNmYtt20ZYBT9RyWgN6l
+	DEQjPAeyN4F7ACcWjSxyLxA7clsWAeq1oRGGuXqOC5DMkwx1us1i9Vo7vZRmNTpgHSNcT3zhg7r
+	4lPuz4c4lYgjHpb3tD8BDEUm304w==
+X-Google-Smtp-Source: AGHT+IHFjnlCF8pTEQfGb9W1ffV5gzSschOlhEKfZUTAdGXo3QGSdTLZRenFmR/o3QVDEWnVyv6rKw==
+X-Received: by 2002:a5d:5f54:0:b0:42f:bb9b:9a82 with SMTP id ffacd0b85a97d-432c37746d9mr14189554f8f.60.1768023456178;
+        Fri, 09 Jan 2026 21:37:36 -0800 (PST)
 Received: from toolbox.. ([87.200.95.144])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0dadcfsm25973825f8f.3.2026.01.09.21.37.29
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0dadcfsm25973825f8f.3.2026.01.09.21.37.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Jan 2026 21:37:32 -0800 (PST)
+        Fri, 09 Jan 2026 21:37:35 -0800 (PST)
 From: Christian Hewitt <christianshewitt@gmail.com>
 To: Detlev Casanova <detlev.casanova@collabora.com>,
 	=?UTF-8?q?Olivier=20Cr=C3=AAte?= <olivier.crete@collabora.com>,
@@ -88,15 +89,17 @@ To: Detlev Casanova <detlev.casanova@collabora.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/3] media: rockchip: rkvdec: add support for the VDPU346 variant
-Date: Sat, 10 Jan 2026 05:37:24 +0000
-Message-ID: <20260110053727.2295260-1-christianshewitt@gmail.com>
+Subject: [PATCH v3 1/3] media: dt-bindings: rockchip: Add RK3568 Video Decoder bindings
+Date: Sat, 10 Jan 2026 05:37:25 +0000
+Message-ID: <20260110053727.2295260-2-christianshewitt@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260110053727.2295260-1-christianshewitt@gmail.com>
+References: <20260110053727.2295260-1-christianshewitt@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_213735_919942_EFC2A7AC 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20260109_213738_889440_84369D4B 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,57 +114,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series depends upon Detlev Casanova's current v8 series for VDPU381 and
-VDPU383 support [0]. It adds support for the VDPU346 IP block used for H264,
-HEVC and (in active work) VP9 on the RK356X boards. VDPU346 appears to be a
-close relation to VDPU381 used with RK3588, except with a single core, output
-limited to 4K, and minor feature differences, e.g. HEVC level 5.1 on VDPU346
-vs 6.1 on VDPU381. To handle differences we declare a new compatible.
+The video decoder in RK356X (vdpu346) is described in the same way as
+the one in RK3588 (vdpu381). A new compatible is added as the decoder
+capabilities are a subset of the vdpu381 capabilities.
 
-The device-tree changes are derived from prior-art in Detlev's patches for
-RK3576 and RK3588, the vendor kernel [1], and some earlier patch attempts
-from Piotr Oniszczuk and Diederik de Haas.
+Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/media/rockchip,vdec.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-The register differences between VDPU346 and VDPU381 appear to be minimal so
-we currently and intentionally reuse the VDPU381 h264, hevc, and regs files
-to avoid duplicating code. There is some evidence of buffer size changes in
-testing which still need to be explored. If further register analysis needs
-separate files for VDPU346 the refactoring will be beyond my current n00b
-coding skills and I will either need some coaching or would be happy to pass
-the series over to a more experienced developer.
-
-NB: Testing with the v1 series showed lower mbps bitrate performance. This
-appears to be resolved though it's unclear to me whether this results from
-kernel changes or the ongoing reworking of ffmpeg v4l2_request support [2].
-However with my current Linux 6.19-rc4 test branch [3] I'm now able to play
-Jellyfish H264 and HEVC test media over 100mbps.
-
-Changes since v2:
-- Use correct .max_width/.max_height from TRM (Diederik De Haas)
-- Add Tested-by from Dang Huynh
-
-Changes since v1:
-- Drop DO-NOT-MERGE patch as changes included in Detvlev v7 series
-- Adapt to variant/capability changes in Detlev's v7 series
-- Add bindings ack from Rob
-- Add rkvdec ack from Nicolas
-- Rebase against Linux 6.19-rc2
-
-[0] https://patchwork.kernel.org/project/linux-rockchip/list/?series=1040540
-[1] https://github.com/rockchip-linux/kernel/blob/develop-6.6/arch/arm64/boot/dts/rockchip/rk356x.dtsi#L1539
-[2] https://code.ffmpeg.org/Kwiboo/FFmpeg/commits/branch/v4l2request-v3
-[3] https://github.com/chewitt/linux/commits/rockchip-6.19.y
-
-Christian Hewitt (3):
-  media: dt-bindings: rockchip: Add RK3568 Video Decoder bindings
-  media: rkvdec: Add support for the VDPU346 variant
-  arm64: dts: rockchip: Add the vdpu346 Video Decoders on RK356X
-
- .../bindings/media/rockchip,vdec.yaml         |   2 +
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi |  49 +++++++++
- .../media/platform/rockchip/rkvdec/rkvdec.c   | 103 ++++++++++++++++++
- 3 files changed, 154 insertions(+)
-
+diff --git a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+index 809fda45b3bd..656ceb1f116e 100644
+--- a/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
++++ b/Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+@@ -18,6 +18,7 @@ properties:
+     oneOf:
+       - const: rockchip,rk3288-vdec
+       - const: rockchip,rk3399-vdec
++      - const: rockchip,rk3568-vdec
+       - const: rockchip,rk3576-vdec
+       - const: rockchip,rk3588-vdec
+       - items:
+@@ -107,6 +108,7 @@ allOf:
+         compatible:
+           contains:
+             enum:
++              - rockchip,rk3568-vdec
+               - rockchip,rk3576-vdec
+               - rockchip,rk3588-vdec
+     then:
 -- 
 2.43.0
+
 
