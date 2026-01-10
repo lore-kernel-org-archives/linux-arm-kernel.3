@@ -4,62 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7AFED277C1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 01:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65298D277C9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 01:45:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uOUedUpckGHS4xVUqzSARWFLKNydLXrXa8S1c9VU2OY=; b=ugoCqXkcy72wwqbNiNiw6yWivP
-	hjOa9ZWGR4k3q7WALH5n6WHawhdmyFRUhP9WSsiHChIybSw+Sh2TJBAjGCebg5virXUaqzQ9+ngs2
-	MVXwLl318qOffjk9mMe2RKy25B95CSXWq6y7BT8Yf99cOJYDHi1IhuoHSZEriIADKnft32aE15Hqc
-	D2J0WBe61W6Wd0eEUQYF90v4n+Qj1efYTSSTv/61MmZnYxYs6ljAgpJUZKj9KoNGonDna0+9B0Gnc
-	sZXeqfWwsk37TjicwdrAP3A7YdgAmfbTRk8j073Y6s5UzyKmXMh9y6k72FnQrskg5ynoUnC3il9+z
-	xPGqBTeA==;
+	bh=3vJYBJHFSE71hlH9XHyn+be3FkLxWJ7Q+QVgvtn51sk=; b=W2TsDZOCBMhUbPjhBvbJztPzwJ
+	E9puCXywfsszcjIAezRiSO175jdHIJuOXWxmOlN5MxGLl4YcH96sf0ImmBTbnj/ciuSjaduG9kiUP
+	R3Nh525lPwxMvzCv+q4IhlZMO0Ox3Mj4+I+vP6aVKSQsKCU9AEPypaZ5y3Q4NVHLf5rJLnzZ0R9j0
+	C2uHckqZZwTBDHS35SDtbB0AndTUt+wKgjUNVT4wb4gZpNW2V238CqrjUY1FW/KXsOfR2WYDjfcSq
+	joE19bPgjj9wYLK+nNicvR87ZRzOHbfxNFBN48N034qadtr16Oe75Dajaj2DK7TZiFjJE2WOVl47U
+	w16BXleQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veO12-00000003AGf-3vuq;
-	Sat, 10 Jan 2026 01:43:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1veO31-00000003AR7-2kjn;
+	Sat, 10 Jan 2026 01:45:47 +0000
+Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veO10-00000003AG6-2yzZ;
-	Sat, 10 Jan 2026 01:43:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 31A19600B0;
-	Sat, 10 Jan 2026 01:43:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8045C4CEF1;
-	Sat, 10 Jan 2026 01:43:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768009420;
-	bh=cl5jRiYV3kNHVdEZfbTnum5lCpQivb1iKFoKtYMyqVU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=i5pvintRKRVYeAWSh9dsiUf6pjBI2UULnfXgnyhJQaE2lHLFxheKUnVbs/uyF+b+v
-	 Z8D1tnEEpDKf7/ynfT+O9Tt3EWtRFlyhlXFC7mu0ZplSSxlbnfnZFEZZmHffXqgPMU
-	 aRvIo8Eqklv+IXqGCxggs9v+uL1ZxRJgrKoR5T27x67NipIWc4YRwIWX8O27ctZeJu
-	 JwabJMAK/35OqNcRKjHgTZUtFZEdIFW5+Z2JyO8IV1kbWo2R/oGDZtoRICUyRgb9B6
-	 xczg/NuI+T+X2uHa9UEXxjV9cNJLIVzC9fkSPDWSWRC2pneUWcaxRl0ePzoegU1rZ8
-	 PWkwod7d/HTeg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B6B423AA9F46;
-	Sat, 10 Jan 2026 01:40:17 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1veO2z-00000003AQU-24RR
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 10 Jan 2026 01:45:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1768009544; bh=9JX/rXLHGcrTabMUzfusMQsBUjz6LX2b1LPrfc/bGPE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=CIrNkb3EHQdgUqjfOTaQQznA9mIA5U/V9U7ab98icQJRLuVRZs5KhlSJ+bGnWmpXP
+	 QiKgSMMS4BYzhx/ipuhyRPiIyB8pkgnXS42JMg6WInsN9u+YktbUg0iutMVQ4XeBmn
+	 0vaZf03zPz84BoP9rzmLUmd8bxS9C1HmBGYnk2sAJCqXQna0nHYpU+RCK7ka+v5OE2
+	 b48Uag5ESCAhwIzbHxZUx2HyGof0dUHQtGl3kSuv3BbzHnpH9t1TWhStW0y2Bmok93
+	 ZVZBfTd8t9+MHx4yKWa/5HgRsGkRluAuoQmnPWMCvrcjmRBA3J29L1P8rHB04p60J0
+	 xnBttruyHPPGw==
+Received: from mail.mleia.com (localhost [127.0.0.1])
+	by mail.mleia.com (Postfix) with ESMTP id 0D40C3EB80E;
+	Sat, 10 Jan 2026 01:45:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1768009543; bh=9JX/rXLHGcrTabMUzfusMQsBUjz6LX2b1LPrfc/bGPE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=cEhXN1QIZgsmjPONfJwPPcPwCctX5FxXGpz2NRr+hYCccjhYlegywl6dxSmMeP1ew
+	 khhGImm2huMxuQ89q8YbbW8MOygV2WRjMup+NPh+gXxt74R5zpZ7VJBTA4WSGBzQvD
+	 Lby2RBAUJNtIMieqrgVdEWG8AwcfOOC6b0DG1VQpXPeLWzMUEsKIHk87XDkz34bnee
+	 Bg59pLusbLj7MB1GqZDTrKGeJ3VIM/k4dwls302nkGw+bn3Vg5WIzr/ST5nNinTkFV
+	 b7JaChrdgbtMUkOU2E7OHtgoofRU0G1R3aZvCjI2lYBwFLDHORxKwsqYt7RdIM5OVQ
+	 ZDyrNm92BzANA==
+Received: from mail.mleia.com (91-159-24-186.elisa-laajakaista.fi [91.159.24.186])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.mleia.com (Postfix) with ESMTPSA id 5F3473EB810;
+	Sat, 10 Jan 2026 01:45:43 +0000 (UTC)
+From: Vladimir Zapolskiy <vz@mleia.com>
+To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>
+Cc: Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 2/2] arm: dts: lpc32xx: add interrupts property to Motor Control PWM
+Date: Sat, 10 Jan 2026 03:45:24 +0200
+Message-ID: <20260110014524.3379187-3-vz@mleia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260110014524.3379187-1-vz@mleia.com>
+References: <20260110014524.3379187-1-vz@mleia.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] dt-bindings: net: rockchip-dwmac: Allow
- "dma-coherent"
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176800921652.446502.5954901087399203743.git-patchwork-notify@kernel.org>
-Date: Sat, 10 Jan 2026 01:40:16 +0000
-References: <20260108225318.1325114-2-robh@kernel.org>
-In-Reply-To: <20260108225318.1325114-2-robh@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, krzk+dt@kernel.org, conor+dt@kernel.org,
- heiko@sntech.de, david.wu@rock-chips.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
+X-CRM114-CacheID: sfid-20260110_014544_070900_8715560B 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message. 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260110_014544_070900_8715560B 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,27 +94,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Motor Control PWM shares an interrupt line with TIMER4 on MIC interrupt
+controller, the interrupt serves as period (timer limit), pulse-width (match)
+and capture event interrupt.
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
+---
+ arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-On Thu,  8 Jan 2026 16:53:18 -0600 you wrote:
-> The GMAC is coherent on RK3576, so allow the "dma-coherent" property.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  Documentation/devicetree/bindings/net/rockchip-dwmac.yaml | 2 ++
->  1 file changed, 2 insertions(+)
-
-Here is the summary with links:
-  - [net-next] dt-bindings: net: rockchip-dwmac: Allow "dma-coherent"
-    https://git.kernel.org/netdev/net-next/c/72dc44679b14
-
-You are awesome, thank you!
+diff --git a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+index 7fa91d1ac9ea..e94df78def18 100644
+--- a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
++++ b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+@@ -322,6 +322,7 @@ i2c2: i2c@400a8000 {
+ 			mpwm: pwm@400e8000 {
+ 				compatible = "nxp,lpc3220-motor-pwm";
+ 				reg = <0x400e8000 0x78>;
++				interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
+ 				clocks = <&clk LPC32XX_CLK_MCPWM>;
+ 				#pwm-cells = <3>;
+ 				status = "disabled";
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.43.0
 
 
