@@ -4,118 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 220A0D277EB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 14:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81302D277EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 15:03:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IHk6EgoNk8lP2vqJMYUzvRzyl3K2JzNhjFEm/rJg//s=; b=RHTUFQxODk8t4P6MiGDQAeBMub
-	PnNbKp6SYLDhSqxkoOJOwySZKzZv6W9GgLj4EkSsNwSlrddkbPXyQg7NuS7FETZ1quQW/U1OycWsW
-	4elDoVc+SsJJSDDpeDWKhJ/+05ICGsoyL332W0wEJ7//rcumDtFxWe6BWb8kVNpSjkJzg26gY3vwC
-	UkylR72ahJg4Zh/cCaerNqIFdx3VKynQypL8CTB5j47UMwFiFDVqcLFnllgf9mj0XPl8sauq9DBgL
-	UmBeIMITnKcbMkpclVva86j0itvwp602Gs/ONkQLiV9j5j6p6o1S2hpM2OwGv7XAq2U+hKI7J/CAZ
-	8lqi/n3A==;
+	bh=5N1miC9eVACfUePlD2aX/h3g2e1YcWNd2wzjqT16Zso=; b=JpPkN+GHvpPCGgjY2AxFn6/KQ5
+	qzGwAbwfVltpW72cqJrTvBWhDryrPWjRpKbgIjFgLLE3f7eMXipDCVIoLU9rt7A7EpnRQ+k0FSdze
+	UkfGvS175vPve/B1RfXNRjeSpt0NyefMGaUYz/HBkCHw5taD8j60C/sJ9ecsr3vWRfcUpGU0tWzwY
+	R9cuiQhjVbAu1/mB3eJyKrVBY4ytO9S4YXbzbzasJ3qE80Dx9Ol6UlYVCgIxtVqEhgDadI8QVyqqM
+	z+dtFp9knt2FZagb++uQ17RXOe0YyniZC0F4fTQ7zU2PFnhbKX2eQmC5uzOUHe0aHq4wnq6M5SKC8
+	U+hnRHYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veaH4-00000003VDy-0mgX;
-	Sat, 10 Jan 2026 14:49:06 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1veaUw-00000003VYQ-3qka;
+	Sat, 10 Jan 2026 15:03:26 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veaH1-00000003VDd-1fLz
+	id 1veaUu-00000003VY6-1lP7
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Jan 2026 14:49:04 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-430f2ee2f00so2851815f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Jan 2026 06:49:01 -0800 (PST)
+	Sat, 10 Jan 2026 15:03:25 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-64b8123c333so8161480a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Jan 2026 07:03:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1768056540; x=1768661340; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1768057402; x=1768662202; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=IHk6EgoNk8lP2vqJMYUzvRzyl3K2JzNhjFEm/rJg//s=;
-        b=csV5ibzlU4bbJqo5eFcUFMwiTZZZHzxDtiLLn/KVn25vhl0BBQlH7RpQSM4dRnGbBf
-         QRhZNHy+XcNyfcTFKOeYCnzbEoypPL0bVoy5Uj2MUBBwu9oKRRCEfPGVuNJmAUII8aqz
-         SDw3NB5j1J+3x9NPuBeifnBBVhJRdFdRmYH38ebajgJKTDg902YtqDFjmhEDxbZUHiea
-         hQBdiw3bXT6WpUApWjDGWthSctnww2ogEb0wgwcN8tRiKRZ8UH5Q9sjiuVJGejSOGpZZ
-         6MOHRQrsiecn6MvKr0WYjKjEgg1ZV/DgPVvSUlYETKPYhX9wdSlCVHUZhKxw9L+sSgh9
-         iBqQ==
+        bh=5N1miC9eVACfUePlD2aX/h3g2e1YcWNd2wzjqT16Zso=;
+        b=NbUKR1APHpVjTEhHL12RzWA2hOUay4AVE5C1TaMdUcnQlsdlAg/4PX0lZPES6jas3X
+         fY12Qc6drZbqjq9vtBwksOqlaTezg9uWEGnfFgN0hMrwpceE09zULR1TaFuuIAVcPa8J
+         QQzGtUc2rDDgshnOfh5DNaSWbGp2PmY+z4ZdWy+049FooYWpU7UCQCV5awFDa+7aomnn
+         aK/gwYPcw3Jwe4MGXkQCkVhYKZ+668dq+jwrOfGBz2951V1qvy6A3VYqTDXafQ43+gW9
+         YOy5/ZVfmZtoQ2Z/nyzrF+aKSTnGW7s5lGcSfKj+eaT+r+wZJmBmNv+GoRuT/AjOUcd3
+         dTYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768056540; x=1768661340;
+        d=1e100.net; s=20230601; t=1768057402; x=1768662202;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=IHk6EgoNk8lP2vqJMYUzvRzyl3K2JzNhjFEm/rJg//s=;
-        b=l//IvdWtK7HqtOVY8o/J4/OJx5SBuiubvLWJis8meAA1SS/CILLXudjmvlbpki2mdp
-         I1UbPIEzywab1BrlG5RkbVtz3hwLROZYkauhPk3mzlqEaqKghBtTX9hn6LQznI5L7rZ/
-         qWr2lQ0OLS5nKS9TUPdO7NpieQaaK23SFc5vr/iJenxgw5NwLe8A/fvRSuOxueyIKDwl
-         Ts5Q5VEHjFpHnpljtPcdqAMEWDto44Q/Q+9k04uxRoxSgjOY4W+HC5agiPIn6JQLw7cw
-         LE7tn4PA7euQFrxCREN8lDdoyrklpsHqlMGuj/kEAi7NurEDyQoJNNac1fsZkSMKtSbe
-         3PgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWQmmQCHgm2qjTaZVi2TU46ggB1mQM4G973SngEVbnLUXDYLGQ4XDSRblCYMPL40o0Uwe3T8wWCYaEX10tTSVT6@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHONNj6m+n75p8udXUbATsi9aqV8WA3xlvVjqnRDWbHz7m1E0o
-	Ed8DZ1tWTBIk8zyVKnBjP4BufMNnn3kyiirx/PqBrdsShmsefgVlsQT5vDNfqxvpsnQ=
-X-Gm-Gg: AY/fxX6ZXuYqiX9IpmluiCEz4qfrGCJJhBkojggmxyoYvGQ1PXrfv3qr0xvVIKN/a3M
-	R6dh+wlgCsmaxTyrYidcwpAA++esA/ykAdLmEq3gZZ8XD8SD+EPlJ/phutQv+59OMc1Xb4CNcv2
-	NGzp5wf6zsJCEYSymv6dHLx1BLkp+cFaMP/qJDmqrwSkYB4m9eKJul+3k4iPFho4QE2Kb9RtOdL
-	dUbGAGbVXalR3gdif83Pi62iqEsFvCIN2P2GpyFFEiGOBwCeEQSokpbsq9zOWn/0KmU018XYyLb
-	6YPSbPfkBSkLMcz2nerqUOQhZbm0I+xIAPLXdGeJw+EaMFsee1O5nSc2Q5Mvd7yxIhRH1l6qBjK
-	gZ25I9PmsZvbRDHCOcjkXLUQUXJK7G/fN85Kezm89DJ/M8g+27pKoMJK0GRywWvuX+okQcfdhVM
-	ok8pS/qh87g3R9WiALAGVEdhTIOn2m
-X-Google-Smtp-Source: AGHT+IExDiyl6+cMqnLU0OScR46v/DhXxaFlI7KfbIz5c0gjBYd8wiO/Eo5iH1Cn00OMlkpwekH3Hg==
-X-Received: by 2002:adf:f54f:0:b0:432:e00b:866f with SMTP id ffacd0b85a97d-432e00b8b14mr2891143f8f.60.1768056540373;
-        Sat, 10 Jan 2026 06:49:00 -0800 (PST)
+        bh=5N1miC9eVACfUePlD2aX/h3g2e1YcWNd2wzjqT16Zso=;
+        b=RqBNW6MFo9yZQMrFIL8HjaU1GkPJdFccm89OMquXBfwnMlYhhvvoMRKRS2nAHg7WMg
+         XApFPqUGDe2zswONdVnrD89F8cTTApuSNpb4MYJLBsZWHPBWmTuO/KxAb8SF9p8/vTdN
+         g09BXLRMAou5BAcHHoRvmK3FEDJqQtl9lg56kAm0EOzGMkDlegCCeny80ZDIShOADxj/
+         Ph8TdWZawf+UCOaB4ZIyI36b7SEnCLQPSk3wGPLa4czq2/R/OjrawxW6EyaP2G/7js2I
+         QyiQbxz76OrFRr623FexCtg8Vc3FwZYPj4j/QvPXB1cHzlB5RUPIrNEdZ5Oiwh4/sfKq
+         hWvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX7Dz/MDnG3X8rYHbzRHGaI+n9w3KodDzIAGjosGwpAHpmlNlXCk8c/xDFsl6USRNW5K95G60dZkqStyv72gcSm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yziy/5cj2CsHvDX0Vf6xIJVycAa13ZcjjgqQHT8hrtec6QdNDnd
+	e2wCEhJidPBPHUDOksAfpxwGQDnW9sIPtC+5yFO8zFVc6YEAXCUUYIRZC/le+XsL9VM=
+X-Gm-Gg: AY/fxX60Xw7WMd2RUyCOgqvWYXa29OfxaqVQWH8CUjOeDbCNTvDTJQ39X5yENkiuWGj
+	YMcmdE6HzCGwEvMDewHHrFkdlbZb4DrFzLfN/SrNC3KC0FdfbZO3ykf7N/ThjqMClLn/yqZli4L
+	zay4AS2H1b5z8IUWg44hP+lmt5bbV/1ZFkoOBCOFG1qJ8M0cgvTnz6NdD9ioCcmmCuwS7muyawd
+	AvR3vwMOrwEs2wCfPHktFdXaon3+lQmVBkdUbeIemIqXkMUI7nwJJeTUsxS4FFyrBrg0yrWHb+o
+	gpM99vQePtvYg2O+VaZmq9uiSnHjFslImNV/OW83FJK9eciBADMXsyj/FvFo56kHOPqONtnM/+4
+	WkodOPkDLfOITrQ6peUC2ikcCSrrkka5fwpMhE+SrG29fFe2HDdITB7zJqYlKVhA5/Wcohkxf67
+	mA7Mu0HCtBOaZqxkpoDw==
+X-Google-Smtp-Source: AGHT+IHaWhSM19cCp0YqzDorDOXvKVjCzix83PyP8GROo+XI/axIv7q7HlX7FUG1DTQizKZCY8BoIA==
+X-Received: by 2002:aa7:df9a:0:b0:64b:9fa4:b586 with SMTP id 4fb4d7f45d1cf-65097e71207mr11073823a12.25.1768057402414;
+        Sat, 10 Jan 2026 07:03:22 -0800 (PST)
 Received: from [192.168.50.4] ([82.78.167.31])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0dacd1sm27764794f8f.4.2026.01.10.06.48.56
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6507bf66214sm12929650a12.27.2026.01.10.07.03.21
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 10 Jan 2026 06:48:59 -0800 (PST)
-Message-ID: <b0dec3fb-51df-4bcd-ba13-c2049695266e@tuxon.dev>
-Date: Sat, 10 Jan 2026 16:48:55 +0200
+        Sat, 10 Jan 2026 07:03:21 -0800 (PST)
+Message-ID: <81e9c0ea-ca06-4cb9-8f5f-08fec370812b@tuxon.dev>
+Date: Sat, 10 Jan 2026 17:03:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 02/11] ARM: at91: Simplify with scoped for each OF child
- loop
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>,
- Saravana Kannan <saravanak@google.com>, Nathan Chancellor
- <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Russell King <linux@armlinux.org.uk>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
- <alim.akhtar@samsung.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Nipun Gupta <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
- Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Vinod Koul <vkoul@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- llvm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-clk@vger.kernel.org, imx@lists.linux.dev, dmaengine@vger.kernel.org,
- linux-media@vger.kernel.org, linux-pm@vger.kernel.org
-References: <20260105-of-for-each-compatible-scoped-v1-0-24e99c177164@oss.qualcomm.com>
- <20260105-of-for-each-compatible-scoped-v1-2-24e99c177164@oss.qualcomm.com>
+Subject: Re: [PATCH v4 11/31] clk: at91: clk-usb: add support for
+ clk_parent_data
+To: Ryan.Wanner@microchip.com, mturquette@baylibre.com, sboyd@kernel.org,
+ alexandre.belloni@bootlin.com, Nicolas.Ferre@microchip.com
+Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Varshini.Rajendran@microchip.com
+References: <cover.1758226719.git.Ryan.Wanner@microchip.com>
+ <6979b3734462c97381159f3968a3f22b6193e04d.1758226719.git.Ryan.Wanner@microchip.com>
+ <27aab227-01e3-4074-8aab-38623b4d9808@tuxon.dev>
+ <14ea374c-2889-4bc5-b0c9-fb5b5498593e@microchip.com>
+ <cb19cd94-7f81-4f75-a7db-bf25192986ed@tuxon.dev>
+ <9b97b3b8-9e46-4482-8420-ebabe00254fe@microchip.com>
 Content-Language: en-US
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260105-of-for-each-compatible-scoped-v1-2-24e99c177164@oss.qualcomm.com>
+In-Reply-To: <9b97b3b8-9e46-4482-8420-ebabe00254fe@microchip.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260110_064903_570166_3BE193BC 
-X-CRM114-Status: UNSURE (   7.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260110_070324_506717_A7EC3367 
+X-CRM114-Status: GOOD (  20.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,14 +109,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, Ryan,
 
+Sorry for the late reply, I was off for a while.
 
-On 1/5/26 15:33, Krzysztof Kozlowski wrote:
-> Use scoped for-each loop when iterating over device nodes to make code a
-> bit simpler.
+On 1/5/26 19:58, Ryan.Wanner@microchip.com wrote:
+> On 12/23/25 07:00, claudiu beznea wrote:
+>> EXTERNAL EMAIL: Do not click links or open attachments unless you know
+>> the content is safe
+>>
+>> On 12/18/25 18:23, Ryan.Wanner@microchip.com wrote:
+>>> On 10/20/25 12:17, Claudiu Beznea wrote:
+>>>> EXTERNAL EMAIL: Do not click links or open attachments unless you
+>>>> know the content is safe
+>>>>
+>>>> Hi, Ryan,
+>>>>
+>>>> On 9/19/25 00:15, Ryan.Wanner@microchip.com wrote:
+>>>>> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+>>>>>
+>>>>> Add support for clk_parent_data in usb clock driver.
+>>>>>
+>>>>> All the SoC based drivers that rely on clk-usb were adapted
+>>>>> to the new API change. The switch itself for SoCs will be done
+>>>>> in subsequent patches.
+>>>>>
+>>>>> Remove the use of __clk_get_hw() for the slow clocks.
+>>>>>
+>>>>> Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+>>>>> [ryan.wanner@microchip: Add SAMA7D65 and SAM9X75 SoCs to the changes.
+>>>>> Change how the main_xtal and slcks are initialized so they match the
+>>>>> parent_data API]
+>>>>> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+>>>>> ---
+>>>>>    drivers/clk/at91/at91rm9200.c  |  2 +-
+>>>>>    drivers/clk/at91/at91sam9260.c |  2 +-
+>>>>>    drivers/clk/at91/at91sam9g45.c |  2 +-
+>>>>>    drivers/clk/at91/at91sam9n12.c |  2 +-
+>>>>>    drivers/clk/at91/at91sam9x5.c  |  2 +-
+>>>>>    drivers/clk/at91/clk-usb.c     | 41 +++++++++++++++++++++
+>>>>> +------------
+>>>>>    drivers/clk/at91/dt-compat.c   |  6 ++---
+>>>>>    drivers/clk/at91/pmc.h         | 11 +++++----
+>>>>>    drivers/clk/at91/sam9x60.c     |  2 +-
+>>>>>    drivers/clk/at91/sam9x7.c      | 21 +++++++++--------
+>>>>>    drivers/clk/at91/sama5d2.c     |  2 +-
+>>>>>    drivers/clk/at91/sama5d3.c     |  2 +-
+>>>>>    drivers/clk/at91/sama5d4.c     |  2 +-
+>>>>>    drivers/clk/at91/sama7d65.c    | 24 +++++++++++---------
+>>>>>    14 files changed, 72 insertions(+), 49 deletions(-)
+>>>>>
+>>>>
+>>>> [ ... ]
+>>>>
+>>>>> @@ -882,10 +885,10 @@ static void __init sam9x7_pmc_setup(struct
+>>>>> device_node *np)
+>>>>>
+>>>>>         sam9x7_pmc->chws[PMC_MCK] = hw;
+>>>>>
+>>>>> -     parent_names[0] = "plla_divpmcck";
+>>>>> -     parent_names[1] = "upll_divpmcck";
+>>>>> -     parent_names[2] = "main_osc";
+>>>>> -     usbck_hw = sam9x60_clk_register_usb(regmap, "usbck",
+>>>>> parent_names, 3);
+>>>>> +     parent_data[0] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_PLLA]
+>>>>> [PLL_COMPID_DIV0].hw);
+>>>>> +     parent_data[1] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_UPLL]
+>>>>> [PLL_COMPID_DIV0].hw);
+>>>>> +     parent_data[2] = AT91_CLK_PD_HW(main_osc_hw);
+>>>>> +     usbck_hw = sam9x60_clk_register_usb(regmap, "usbck", NULL,
+>>>>> parent_data, 3);
+>>>>
+>>>> sam9x60_clk_register_usb() could be converted to use parent_hws
+>>>> member of
+>>>> struct clk_init_data instead of parent_data.
+>>>
+>>> So this would mean that I would pass in an array of the plls as
+>>> parent_hws, and use that to load the clk_init_data struct instead of
+>>> filling the array of parent_data as it is changed to in this patch set?
+>>>
+>>> And this would be functionally the same since parent_data points to
+>>> clk_hw?>
+>>>
+>>
+>> It should be something like:
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> 
+> I see, I guess my question is why the usbclk system only? Is it just due
+> to how little parents there are for the usbclk? Or is it because this is
+> the only clock that only uses clk_hw for all of its parents?
+Because this is the only clock that uses clk_hw for all of its parents.
 
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Thank you,
+Claudiu
 
