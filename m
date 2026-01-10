@@ -4,72 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EDDBD277CA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  9 Jan 2026 23:55:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26768D277CA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 00:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s24MoONrvK08rlo8bvl9m7ipijoyg03naqbwQJacKSM=; b=m8z3i043T4wf0OugYUQxSQkAQ7
-	a72piEjzJGprwCAY5FwDgnpPycNOflOtkCGBMLKQP4/Rm/Tuz+cAsYNhlA4ZsMMMKVLyQdw/RDdj+
-	+GltGSgT7UQSic026o/M0Y+21gV8RhBXXX/AKLdLo8oDxdiHggCppujuKBkaxMBsB5AO3iWSfjXt1
-	cAiBuvK39BE4b9bZF2MwtN1gSxDIevwpvsq/HsTiP517Zyltvs8QuiXtYIXnNRyrGMDSNHNyHbwoh
-	AqLWRfl2aoly6XtihxRkLzRZSv9YFjlwt89VoUqYgOq0omd8tnewxiwrrO+85fcDtUzUogWw8RNCN
-	C+BYVHDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V/Sig1MBWGXUoKxfbOCjXxu2jOEYhW1igfHgGui3UHs=; b=TobWbNl0jVefG9ePXoFcqNF9OO
+	sFPKvTVCaYSCTn/9Rr2nixdeiRqjuaY9jyYs+8Q71fdkIj+g3mt8wrDfNUGMWU/jXLjnrPLM+Q9Fw
+	WId2+NBc8pZ+LkZKL+FX8U1QYtDQ+5NipmpbDtllhXhVDfCRzKyuMmCBL8xzltZucm8zU76CKviEY
+	klwr6TiwFwlChnjvB5juhnLfQntDFMIOaoXUr1aAGpkGvRvGF236zSh1/hEJub28o7HNAzYR1DL23
+	ABbgygAfRWYJFYTWkrfGJAWSeRsOEqCbZ16Y5UKlK4gxP/0oCzpgfUaByDHNRp3pjdHudwbz2MJni
+	hBrOxb+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veMKW-000000037EP-1TDo;
-	Fri, 09 Jan 2026 23:55:44 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1veMyJ-000000038Eg-1Lw7;
+	Sat, 10 Jan 2026 00:36:51 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veMKT-000000037Dp-2Jdc;
-	Fri, 09 Jan 2026 23:55:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1768002934; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=NN3OwAe3jAgm4sj+vobEY2X8WnSQF/J1fsHm6sqoA1Gicef08O3Wqj8jPMRcM/xS2+Av91XGqAOy50JylgxFk2atLFBm3R+6hiIvt3vHipdMhFq042yrExh8xCEtlx3DHikLXbiuQFoTLnro2GEkBO0HSJrA5OOqq8mRZmo0NtE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1768002934; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=s24MoONrvK08rlo8bvl9m7ipijoyg03naqbwQJacKSM=; 
-	b=gcMaQHkYds4p20B7x9uTLQbzUzkpazPoezzcbhWhqrPem+slEkzjusurzeCC18WqiYbbtsd+PnoRGXTFwib1T4giFcHd20FJbuMG/GqudXwWdSQwGf0HxR5rJqiGAUqtAxQPW04BwDYjLoo3X8kKc9AYLxWR35KUKr7rJdIEvCw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768002933;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=s24MoONrvK08rlo8bvl9m7ipijoyg03naqbwQJacKSM=;
-	b=auJW8HSabqLSRaDzXx3HgRLo2lU27TAvemK1wH7fWCrlPYBVav0uSLTWIFpIBTvp
-	ddmUq7dX39NmGurcAUxJreSqqr4nWbhHmQSHBccT4JELT3oh4nV0DvMDdvPsW/PCUQ5
-	woxYuKlTj2D9aB4IR4zce3RKJvrgCNVvZLpPuGZU=
-Received: by mx.zohomail.com with SMTPS id 1768002932813394.04223648136076;
-	Fri, 9 Jan 2026 15:55:32 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 8DBCD180789; Sat, 10 Jan 2026 00:55:28 +0100 (CET)
-Date: Sat, 10 Jan 2026 00:55:28 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Linus Walleij <linusw@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Heiko Stuebner <heiko@sntech.de>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>
-Subject: Re: [PATCH] gpio: rockchip: mark the GPIO controller as sleeping
-Message-ID: <aWGSQYCXP4R08koQ@venus>
-References: <20260106090011.21603-1-bartosz.golaszewski@oss.qualcomm.com>
+	id 1veMyG-000000038EK-2pvd
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 10 Jan 2026 00:36:50 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2a0d67f1877so38758425ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 16:36:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768005407; x=1768610207; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=V/Sig1MBWGXUoKxfbOCjXxu2jOEYhW1igfHgGui3UHs=;
+        b=FBUOL1AjQ917OvKFteI4BSZLhDIDGvj3Oj/0aycO7Wc93CvZ3YZ7ISqPbU9fWCPJLZ
+         kfbg770aUEn7vMF3yF6EJwqJEbIbkcjXmongK1mCMMH3y3P2of2DFaRSa6owsh6ZtsLq
+         eW88g1mCSf9HS4k1cU5Cy8NSkhQrZlbkBHXqBY8wU4JSvhKmHEN87TQwWazCDqiEkgay
+         fuSUeCBeA79Gks3jgFgWtxA/P8pINL2yKZzI4sHXTmyrOE1MniVYdYzqbkYYBWs2DVa0
+         gJY732mzF0lLzGk8y3GkcbkTIYTbV7NP8+guTvpH/mjJeRghbiyOCPDerk1W9Nob4S3c
+         qRcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768005407; x=1768610207;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=V/Sig1MBWGXUoKxfbOCjXxu2jOEYhW1igfHgGui3UHs=;
+        b=qJrcEi8B9AXjkdwMMlPyOO+B6o6uMLtc8Yls3uki24APPwdh/eIAMY9mvlUFqAtFvz
+         dCwpNbedt+QKof27dYIBlitnc0HzYPOejDy0rFVD6ifWMy/sWy8x5fSG/oYQCdvwJ1Ka
+         Bs6xNeSyS7xxJLoRMslRZcimuHwFCI3Zma1VKM6Db3n9iKirIPY3IM8jvuLPcCcM8mVm
+         Enu00/t4fOKUNPD74DomEStGxcm4B1Lw9cLyw8/d+Df9gRIabDVLrN5KVOZ/8+8KJsjf
+         Y+dIFMb5FEO/oAUvusGcHts/1UOGQ4hBq+U5rYg6Y+hZas1ebZchQATdOEH3CvRkUet5
+         Co9w==
+X-Forwarded-Encrypted: i=1; AJvYcCVVJhvwcHiLG3zkhs9dkLiPLR6FgfJ14O6iPemexPZ9+Qw/Zi6nCUMeKOvRFsPZ2wPQyNnBke28naknqEx94Ac+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmT+epa1gSiNiHd1GG06m3oo8T8cUhB/Qh4FDQof3cS9+2p+VC
+	nyz3bf90MeDUFjtpZqWVVrrPVlGIUTnYCHwHkAPJoSd5c84QIq+y5irxOWggEzTY1bmt7RPxrSX
+	KMHmqR8WBQdisiz/pP7+eovZGgBA42WY=
+X-Gm-Gg: AY/fxX7x9vJkKFa5a2qO1PWLdjFzX80zUJL+ncB+ibNsQeyWN7RxjZ8P15Aoi/1bu6P
+	Un7FfgyO0PBPZxyvxD4fSCTs8/L/NQhhd63/e2Bks+OlhcMxM7WRutU4o0Mq2zaIJi2lApoxTRp
+	WxPFfDIuXWRc1qKU66wsRZh3qOdy7iwH8jCOoa8FLG9kRd5xhc7mqnHSREdAcFo+JvyeaZZQ1ap
+	F/QcqiEEOTJ/q0heVGAAxovdVRIvAKQAkXR8REYHknxLC5DSaX1cheSw96QDe0f55SdUa1U3g/+
+	ef8zZIH3
+X-Google-Smtp-Source: AGHT+IGW3LMlWa2LmuUzjL0YHhtRZgvX3i/6GcmeqaYqFFGz/azPPBWHL55nnnOgoHySU2SkfToBfgTRNf9D9hzsw5Q=
+X-Received: by 2002:a17:903:196b:b0:297:f09a:51cd with SMTP id
+ d9443c01a7336-2a3ee442293mr104729985ad.14.1768005406895; Fri, 09 Jan 2026
+ 16:36:46 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="shwp5pkjv7w45ocl"
-Content-Disposition: inline
-In-Reply-To: <20260106090011.21603-1-bartosz.golaszewski@oss.qualcomm.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.5.1/267.941.65
-X-ZohoMailClient: External
+References: <20251230145010.103439-1-jolsa@kernel.org> <20251230145010.103439-2-jolsa@kernel.org>
+In-Reply-To: <20251230145010.103439-2-jolsa@kernel.org>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Fri, 9 Jan 2026 16:36:34 -0800
+X-Gm-Features: AQt7F2qRw6Vu7cN5U47qL95oQ7_OEFPKSuwkEVWj2hjYGj3mzII7GsGmQwymQFg
+Message-ID: <CAEf4BzY6vVCk_XohdYVmjma4k=QvGb+h+rzOe7hmRLoUL7ZXOg@mail.gmail.com>
+Subject: Re: [PATCHv6 bpf-next 1/9] ftrace,bpf: Remove FTRACE_OPS_FL_JMP
+ ftrace_ops flag
+To: Jiri Olsa <jolsa@kernel.org>
+Cc: Steven Rostedt <rostedt@kernel.org>, Florent Revest <revest@google.com>, 
+	Mark Rutland <mark.rutland@arm.com>, bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Menglong Dong <menglong8.dong@gmail.com>, Song Liu <song@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_155541_659292_085737D9 
-X-CRM114-Status: GOOD (  23.42  )
+X-CRM114-CacheID: sfid-20260109_163648_722051_2D021FBB 
+X-CRM114-Status: GOOD (  20.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,145 +100,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---shwp5pkjv7w45ocl
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] gpio: rockchip: mark the GPIO controller as sleeping
-MIME-Version: 1.0
-
-Hi,
-
-On Tue, Jan 06, 2026 at 10:00:11AM +0100, Bartosz Golaszewski wrote:
-> The GPIO controller is configured as non-sleeping but it uses generic
-> pinctrl helpers which use a mutex for synchronization.
->=20
-> This can cause the following lockdep splat with shared GPIOs enabled on
-> boards which have multiple devices using the same GPIO:
->=20
-> BUG: sleeping function called from invalid context at
-> kernel/locking/mutex.c:591
-> in_atomic(): 1, irqs_disabled(): 1, non_block: 0, pid: 12, name:
-> kworker/u16:0
-> preempt_count: 1, expected: 0
-> RCU nest depth: 0, expected: 0
-> 6 locks held by kworker/u16:0/12:
->   #0: ffff0001f0018d48 ((wq_completion)events_unbound#2){+.+.}-{0:0},
-> at: process_one_work+0x18c/0x604
->   #1: ffff8000842dbdf0 (deferred_probe_work){+.+.}-{0:0}, at:
-> process_one_work+0x1b4/0x604
->   #2: ffff0001f18498f8 (&dev->mutex){....}-{4:4}, at:
-> __device_attach+0x38/0x1b0
->   #3: ffff0001f75f1e90 (&gdev->srcu){.+.?}-{0:0}, at:
-> gpiod_direction_output_raw_commit+0x0/0x360
->   #4: ffff0001f46e3db8 (&shared_desc->spinlock){....}-{3:3}, at:
-> gpio_shared_proxy_direction_output+0xd0/0x144 [gpio_shared_proxy]
->   #5: ffff0001f180ee90 (&gdev->srcu){.+.?}-{0:0}, at:
-> gpiod_direction_output_raw_commit+0x0/0x360
-> irq event stamp: 81450
-> hardirqs last  enabled at (81449): [<ffff8000813acba4>]
-> _raw_spin_unlock_irqrestore+0x74/0x78
-> hardirqs last disabled at (81450): [<ffff8000813abfb8>]
-> _raw_spin_lock_irqsave+0x84/0x88
-> softirqs last  enabled at (79616): [<ffff8000811455fc>]
-> __alloc_skb+0x17c/0x1e8
-> softirqs last disabled at (79614): [<ffff8000811455fc>]
-> __alloc_skb+0x17c/0x1e8
-> CPU: 2 UID: 0 PID: 12 Comm: kworker/u16:0 Not tainted
-> 6.19.0-rc4-next-20260105+ #11975 PREEMPT
-> Hardware name: Hardkernel ODROID-M1 (DT)
-> Workqueue: events_unbound deferred_probe_work_func
-> Call trace:
->   show_stack+0x18/0x24 (C)
->   dump_stack_lvl+0x90/0xd0
->   dump_stack+0x18/0x24
->   __might_resched+0x144/0x248
->   __might_sleep+0x48/0x98
->   __mutex_lock+0x5c/0x894
->   mutex_lock_nested+0x24/0x30
->   pinctrl_get_device_gpio_range+0x44/0x128
->   pinctrl_gpio_direction+0x3c/0xe0
->   pinctrl_gpio_direction_output+0x14/0x20
->   rockchip_gpio_direction_output+0xb8/0x19c
->   gpiochip_direction_output+0x38/0x94
->   gpiod_direction_output_raw_commit+0x1d8/0x360
->   gpiod_direction_output_nonotify+0x7c/0x230
->   gpiod_direction_output+0x34/0xf8
->   gpio_shared_proxy_direction_output+0xec/0x144 [gpio_shared_proxy]
->   gpiochip_direction_output+0x38/0x94
->   gpiod_direction_output_raw_commit+0x1d8/0x360
->   gpiod_direction_output_nonotify+0x7c/0x230
->   gpiod_configure_flags+0xbc/0x480
->   gpiod_find_and_request+0x1a0/0x574
->   gpiod_get_index+0x58/0x84
->   devm_gpiod_get_index+0x20/0xb4
->   devm_gpiod_get_optional+0x18/0x30
->   rockchip_pcie_probe+0x98/0x380
->   platform_probe+0x5c/0xac
->   really_probe+0xbc/0x298
->=20
-> Fixes: 936ee2675eee ("gpio/rockchip: add driver for rockchip gpio")
-> Cc: stable@vger.kernel.org
-> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Closes: https://lore.kernel.org/all/d035fc29-3b03-4cd6-b8ec-001f93540bc6@=
-samsung.com/
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+On Tue, Dec 30, 2025 at 6:50=E2=80=AFAM Jiri Olsa <jolsa@kernel.org> wrote:
+>
+> At the moment the we allow the jmp attach only for ftrace_ops that
+> has FTRACE_OPS_FL_JMP set. This conflicts with following changes
+> where we use single ftrace_ops object for all direct call sites,
+> so all could be be attached via just call or jmp.
+>
+> We already limit the jmp attach support with config option and bit
+> (LSB) set on the trampoline address. It turns out that's actually
+> enough to limit the jmp attach for architecture and only for chosen
+> addresses (with LSB bit set).
+>
+> Each user of register_ftrace_direct or modify_ftrace_direct can set
+> the trampoline bit (LSB) to indicate it has to be attached by jmp.
+>
+> The bpf trampoline generation code uses trampoline flags to generate
+> jmp-attach specific code and ftrace inner code uses the trampoline
+> bit (LSB) to handle return from jmp attachment, so there's no harm
+> to remove the FTRACE_OPS_FL_JMP bit.
+>
+> The fexit/fmodret performance stays the same (did not drop),
+> current code:
+>
+>   fentry         :   77.904 =C2=B1 0.546M/s
+>   fexit          :   62.430 =C2=B1 0.554M/s
+>   fmodret        :   66.503 =C2=B1 0.902M/s
+>
+> with this change:
+>
+>   fentry         :   80.472 =C2=B1 0.061M/s
+>   fexit          :   63.995 =C2=B1 0.127M/s
+>   fmodret        :   67.362 =C2=B1 0.175M/s
+>
+> Fixes: 25e4e3565d45 ("ftrace: Introduce FTRACE_OPS_FL_JMP")
+> Signed-off-by: Jiri Olsa <jolsa@kernel.org>
 > ---
->  drivers/gpio/gpio-rockchip.c | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
-> index 47174eb3ba76..bae2061f15fc 100644
-> --- a/drivers/gpio/gpio-rockchip.c
-> +++ b/drivers/gpio/gpio-rockchip.c
-> @@ -593,6 +593,7 @@ static int rockchip_gpiolib_register(struct rockchip_=
-pin_bank *bank)
->  	gc->ngpio =3D bank->nr_pins;
->  	gc->label =3D bank->name;
->  	gc->parent =3D bank->dev;
-> +	gc->can_sleep =3D true;
+>  include/linux/ftrace.h  |  1 -
+>  kernel/bpf/trampoline.c | 32 ++++++++++++++------------------
+>  kernel/trace/ftrace.c   | 14 --------------
+>  3 files changed, 14 insertions(+), 33 deletions(-)
+>
 
-This means all operations are marked as can_sleep, even though
-pinctrl operations are only used for the direction setting.
-I.e. the common get/set operations always worked in atomic mode,
-but now complain. See for example:
+I don't see anything wrong with this from BPF side
 
-https://lore.kernel.org/all/20260108-media-synopsys-hdmirx-fix-gpio-canslee=
-p-v1-1-3570518d8bab@kernel.org/
+Acked-by: Andrii Nakryiko <andrii@kernel.org>
 
-It's not a big issue for the hdmirx driver specifically, but I wonder
-how many more (less often tested) rockchip drivers use GPIOs from their
-IRQ handler.
-
-Considering setting or getting the GPIO from atomic context is much
-more common than changing the direction - is there some way to
-describe the sleep behavior in a more specific way in the GPIO
-controller?
-
-Greetings,
-
--- Sebastian
-
---shwp5pkjv7w45ocl
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmlhlW0ACgkQ2O7X88g7
-+pptgBAAqh8+3YVQeIEjk22P/v18zzNGOuX29yWFErdZn7R8KUGlNqXEklmrgdJ8
-MVHvoisa0IuCRm/O7AHTKy3SR9MOt9BpUoozoVThpoNWlmjbcQ8wGCrQDnzTRePm
-8u/ZgmsNyHkf+CeYy1SkuJxwuFibYFfPQE1naXeDQp+kN2LSrLIeg25QdgWX9nP8
-dAJghSuVvYMu5Sg78nvollkgXk245dq2LSAqMxc6FfA7XF1RFURvOk4XdGdDjmJb
-E/nnx1lWfoy2lMITtW7QukH5Mko03PDdGflG8PnaTJCumumcBBO7EMnMRqPcxSUm
-K4q+amfrIW8EH8GJleIzJhSRijC1WzslEy4b74V+EMwlgeZbbzZI9yaT2bIImfZi
-T8MRwyl3+tZsfoQFtXDQeeuQcQusoec43jEhFpdd5PRf7D2I/0F/qRXP7yKvgsvT
-Vf7YTxFaojf5ELnv6DWGW7MPSx6js/+0CJSeA5nU92ooJG+ogVi9fFhXYmcAtiSG
-52ifwTG0yBy/sXNp05M2SN98rCzOyWuNpS7/o40gBasszuxK2Imxw4YnlCeeYZPM
-2rBhcWeYNy9Qj2ih54hWCHMnjAxhlLMQHf+c/suGvR9tBcNRcY6Y29Zc4+LjJnJl
-ArrfYls9QZQUFmbwaWEg5GCLKg0offR0aoQc6iKXwulG+QzBonE=
-=2/cV
------END PGP SIGNATURE-----
-
---shwp5pkjv7w45ocl--
+[...]
 
