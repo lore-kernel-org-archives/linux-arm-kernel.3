@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98056D277CD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 02:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2615ED277CF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 02:47:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fXKtqlPwe000x2IGDIxVeicvyElDK+Olqp8ARxq9yZw=; b=Xwco0wND1ILX9jEB5y+NkD0hL8
-	G3Xq/PuYpMDKtJ07+kOqCmO6AqYcEifQKYxKwBjYizWrgWgRVxOVYaEWr0MgIjs7grUBg0W2WaVhg
-	t4C/odfcndbk+VfltutDVDgtk3+uh1HOYdFkSwk7sgPIF2VYsM/ld4H3Sxw/devi+m4bA8kj6eKmO
-	MXklBjxM2yo1969qzapxqL0GzKHYIbWw502RIwpKg062eUJiHA/wBLvKd0lz454LiAikMZVI0FpRf
-	ND+hDjf7UtirtU2EmGircG3e70fQFi7BClPjveX1l9/fXpQXzWE07SSAdGa58Zj0vv+I7HR0eo69+
-	1/OaqIZQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kwyxPPeZXLhDH1mXwCczCh64D10dJHXNEvXtl08kZ2Q=; b=o8MQdxi9Efj7KBKMrmnJuwdWhq
+	qLGjhsDmJPywPRYrtLuR49gsWCCGlZ1/hPV9kbWZsUcqKzvrPpW3E1VZdwaQp/2KaOv7KBaTaa7Wf
+	Yc50eThKgPwP5YShD6+DweDqG6hCG7On9cP5w8psSouaCmSc90lVBSE5eikKIs9gW/NppsngJwckE
+	f2fMo0m4oxIhcffAirwktBYfp2DTu62zZV085bDbDDppPU+DKunqIFzw5f8AtHeF1alBENBIFe/FQ
+	KstWL5Ok/NuJpa/mDQT0W3+2b+bI7njThfw1JJxoRwUJBYdro2Ryy54KB/KdJpmaVuO/CtOPag/iI
+	UvR0CM1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veP0B-00000003CXO-2Etw;
-	Sat, 10 Jan 2026 02:46:55 +0000
+	id 1veP0E-00000003CYQ-3RcZ;
+	Sat, 10 Jan 2026 02:46:58 +0000
 Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veP08-00000003CWE-19nv
+	id 1veP08-00000003CWH-3f2H
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 10 Jan 2026 02:46:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1768013210; bh=7aOrMixf22cms3+N44ctElI0QO2xH8FvGfQxgKQtJs8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=mfb1KUYVCANP5spC8TQ2XVep9wmwAmXx7gtsxxRW4DJSfwpo3nn4SYNTTqiG2D5pu
-	 3GZpCbld5oEiPMhQLdqzEAv067iQxYQRkaSzX5t9RNL2K1kbSaeSUUsMrF5tmXaqj4
-	 0Bv61rwlucf5SSi96v6ZrZFmZGsQ434IPXhVOUTb6dJwdmNjaCloS16AA/o375S1YK
-	 VVWg7bVZ2KM9ImnWMdgTq61LrUqRrqRnER8xb0U4ocHddpgz+nh8RudIEh1tIBL7dM
-	 0AL3LU5y+YVzrF2/DXh5gpe/PiKXRKBF1+DQaisRZbrwqfE/qBC02qcxmsRXqAVf1j
-	 3RwzUITVxggyA==
+	t=1768013211; bh=+BYuWtFv/XD2qRphe2CsoPtoHBClY2P0EnzOb7khs3A=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=c7jZjyRgclnJ9qJAJncJGwCVsEBdzb8cMGVRKLYAAagW2iDOGsDjxbyWy5LhOOEkw
+	 3YYTs0YVZDerI28SUqSydaAuq9ztVoTGR8vXpWGxYdBLkR4jxK8g1e0qq/9/uHAdFK
+	 p+GRRbtAPuLX7LDsycjquqqkPWznXWKlN41+TxCcBYArc6pIA5q2n/oCUx+ZKulOpY
+	 dWaOKQ1ygR0DikB1sWyLLd91UFPbEovqGCHOGWMJPjlYMLOryGU8Jp6GzVd8ek8bkn
+	 6SLqyqlVE73anYrOWt09y3jFH67Izd5/fC2yhHITVqUSJbSxcb9Gmte/NM9VIexImv
+	 mRyDrSMoQ8oFw==
 Received: from mail.mleia.com (localhost [127.0.0.1])
-	by mail.mleia.com (Postfix) with ESMTP id 06EFD3EB7E6;
-	Sat, 10 Jan 2026 02:46:50 +0000 (UTC)
+	by mail.mleia.com (Postfix) with ESMTP id 6C7453EB821;
+	Sat, 10 Jan 2026 02:46:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1768013209; bh=7aOrMixf22cms3+N44ctElI0QO2xH8FvGfQxgKQtJs8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=SJzLhJnO0zSUsVgEtbT1n0D/KBaWnHLCAL0bOKLIt9p4jCj7P/HZ6aJ2tI6nO0W42
-	 VWARIMhcbdAxKnyL/lx7zAlst7VEaoJashIOLqbd31o077//6GxfIX8LCqHfDoIxe4
-	 8NO96Ccu1Nklf4PxOG+Bv54Wn600VHhhBbVtV5/6xgd2cw8p3AZgfBMoc8Pz29kvy2
-	 LgRauXAvbCPxiIhQ0yhEgc0SCEjaSLeeqL+eQtd/CnRxnVla1o5/IzdJr54+FydD4B
-	 WYcuBng8Vm1E0ze8PZvryC5/GYdfOp4vb1Lh1qmNKtGNZQ0Erq4GiLM/lrf8tAqsk/
-	 obA8Fvv7dyLug==
+	t=1768013211; bh=+BYuWtFv/XD2qRphe2CsoPtoHBClY2P0EnzOb7khs3A=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=c7jZjyRgclnJ9qJAJncJGwCVsEBdzb8cMGVRKLYAAagW2iDOGsDjxbyWy5LhOOEkw
+	 3YYTs0YVZDerI28SUqSydaAuq9ztVoTGR8vXpWGxYdBLkR4jxK8g1e0qq/9/uHAdFK
+	 p+GRRbtAPuLX7LDsycjquqqkPWznXWKlN41+TxCcBYArc6pIA5q2n/oCUx+ZKulOpY
+	 dWaOKQ1ygR0DikB1sWyLLd91UFPbEovqGCHOGWMJPjlYMLOryGU8Jp6GzVd8ek8bkn
+	 6SLqyqlVE73anYrOWt09y3jFH67Izd5/fC2yhHITVqUSJbSxcb9Gmte/NM9VIexImv
+	 mRyDrSMoQ8oFw==
 Received: from mail.mleia.com (91-159-24-186.elisa-laajakaista.fi [91.159.24.186])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail.mleia.com (Postfix) with ESMTPSA id 498B03EB2D5;
-	Sat, 10 Jan 2026 02:46:49 +0000 (UTC)
+	by mail.mleia.com (Postfix) with ESMTPSA id BE6123EB823;
+	Sat, 10 Jan 2026 02:46:50 +0000 (UTC)
 From: Vladimir Zapolskiy <vz@mleia.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Jiri Slaby <jirislaby@kernel.org>,
@@ -65,20 +65,21 @@ Cc: Lubomir Rintel <lkundrak@v3.sk>,
 	devicetree@vger.kernel.org,
 	linux-serial@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 0/2] arm: dts: lpc32xx: Specify compatibility of platform UARTs with 16550A
-Date: Sat, 10 Jan 2026 04:46:45 +0200
-Message-ID: <20260110024647.3389345-1-vz@mleia.com>
+Subject: [PATCH 2/2] arm: dts: lpc32xx: Add ns16550a compatible value to UART device tree nodes
+Date: Sat, 10 Jan 2026 04:46:47 +0200
+Message-ID: <20260110024647.3389345-3-vz@mleia.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260110024647.3389345-1-vz@mleia.com>
+References: <20260110024647.3389345-1-vz@mleia.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
-X-CRM114-CacheID: sfid-20260110_024650_047016_9F1A678B 
-X-CRM114-Status: UNSURE (   7.96  )
-X-CRM114-Notice: Please train this message. 
+X-CRM114-CacheID: sfid-20260110_024651_461707_31A473D0 
+X-CRM114-Status: GOOD (  12.88  )
+/bin/ln: failed to access 'reaver_cache/texts/20260110_024651_461707_31A473D0': No such file or directory
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260110_024650_047016_9F1A678B 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260110_024651_461707_31A473D0 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,18 +94,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-NXP LPC32xx SoC has 4 16550A compatible UARTs with 64 byte TX and RX FIFO
-sizes, and the platform UART hardware is well supported as a standard
-16550A UART.
+NXP LPC32xx SoC has 4 16550A compatible UARTs with a difference of minor
+significance, which is expectedly handled in the 8250 serial driver.
 
-Vladimir Zapolskiy (2):
-  dt-bindings: serial: 8250: Explicitly make LPC32xx UARTs compatible with 16550A
-  arm: dts: lpc32xx: Add ns16550a compatible value to UART device tree nodes
+Reflect this fact in the platform device tree file by adding the expected
+compatible value.
 
- Documentation/devicetree/bindings/serial/8250.yaml | 2 +-
- arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi             | 9 ++++-----
- 2 files changed, 5 insertions(+), 6 deletions(-)
+Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
+---
+ arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
+diff --git a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+index e94df78def18..8fa1848943f8 100644
+--- a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
++++ b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+@@ -263,8 +263,7 @@ i2s1: i2s@2009c000 {
+ 
+ 			/* UART5 first since it is the default console, ttyS0 */
+ 			uart5: serial@40090000 {
+-				/* actually, ns16550a w/ 64 byte fifos! */
+-				compatible = "nxp,lpc3220-uart";
++				compatible = "nxp,lpc3220-uart", "ns16550a";
+ 				reg = <0x40090000 0x1000>;
+ 				interrupts = <9 IRQ_TYPE_LEVEL_HIGH>;
+ 				reg-shift = <2>;
+@@ -273,7 +272,7 @@ uart5: serial@40090000 {
+ 			};
+ 
+ 			uart3: serial@40080000 {
+-				compatible = "nxp,lpc3220-uart";
++				compatible = "nxp,lpc3220-uart", "ns16550a";
+ 				reg = <0x40080000 0x1000>;
+ 				interrupts = <7 IRQ_TYPE_LEVEL_HIGH>;
+ 				reg-shift = <2>;
+@@ -282,7 +281,7 @@ uart3: serial@40080000 {
+ 			};
+ 
+ 			uart4: serial@40088000 {
+-				compatible = "nxp,lpc3220-uart";
++				compatible = "nxp,lpc3220-uart", "ns16550a";
+ 				reg = <0x40088000 0x1000>;
+ 				interrupts = <8 IRQ_TYPE_LEVEL_HIGH>;
+ 				reg-shift = <2>;
+@@ -291,7 +290,7 @@ uart4: serial@40088000 {
+ 			};
+ 
+ 			uart6: serial@40098000 {
+-				compatible = "nxp,lpc3220-uart";
++				compatible = "nxp,lpc3220-uart", "ns16550a";
+ 				reg = <0x40098000 0x1000>;
+ 				interrupts = <10 IRQ_TYPE_LEVEL_HIGH>;
+ 				reg-shift = <2>;
 -- 
 2.43.0
 
