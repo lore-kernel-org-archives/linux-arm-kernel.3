@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48F6DD277DC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 10:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7724D277D9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 10:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rYReflaw6Ggn2elfjPo5fcOOtHNAZNVa8CaYgcvrZrI=; b=E83OSWric4IG6D7jMj2YfGWVh+
-	AlFrZW8HN6JIf4+ButZNeyGRiMl9QMjSHG8cs52BiL8/BhaGI2fCjgSzUV6E0AahH5aljhTo2lJ3c
-	65+jEkuxfPyr4WGemQaSxIhl04plSoAy9cmXl26abalie2ZwURiKZugLWFLWcEyWOV5Vse0zBjnwq
-	MDHTjgkrqJIaPSQ8vC4vQRbpR4uK442NgxI8T90Fg5eIlozXs1c7hOIk6barBErv6BwzRl2a7Nr7J
-	SEYK67NOLjfTuZjDE1iJAUFEmUGIeKujvrBeCFUzjulAi07GdLXXx+aBlpKwDILz/wxejS+Hj6LrW
-	IgkwZV3g==;
+	bh=0tFY9BCZESUAiHIiV3dh2jkRQ7AN00E2A4h5HVhSbPU=; b=stXC4AwkUyqox5D1ThJbY7NDUm
+	clfR6ivaXEaDUVYnkSEq5ywaBBtAGJ1RpoTYkJExxyehyjXwPKDOQwsmoSlAmN4jnQJ0NDnB5aU3u
+	mhjy68pHvdgSjigoN7LNlNJKTAIa793dDsQHATtI6lbpOC8xaoKHcfNGt2QW1Oao1cRJ9I56aulFA
+	tUMoEqXorwq7tTt2cXN5bXC08tUqmUBFs8V0Tydbadeb4LUS7LB93vVcy4wdaERctlAGiiAdgkKKp
+	FmNTb3KSjBz7Y1h1wI4U4A4m/tNj9Gvnj4BqOB3j6N5cEz+j+yAvKfuiUVTRmVoTpzUcWCZsjf23M
+	EDb3y5SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veW7n-00000003OQ3-3UM9;
-	Sat, 10 Jan 2026 10:23:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1veWNy-00000003P7a-0jZz;
+	Sat, 10 Jan 2026 10:39:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veW7k-00000003OOT-3SEb
+	id 1veWNx-00000003P7U-0jZQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Jan 2026 10:23:14 +0000
+	Sat, 10 Jan 2026 10:39:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 762734416E;
-	Sat, 10 Jan 2026 10:23:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39E15C16AAE;
-	Sat, 10 Jan 2026 10:23:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 279ED60052;
+	Sat, 10 Jan 2026 10:39:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31EBBC4CEF1;
+	Sat, 10 Jan 2026 10:39:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768040590;
-	bh=5BpRwTddsBFl6oqWFX7gfeQH8tja4Kaghtjo7PeB38k=;
+	s=k20201202; t=1768041595;
+	bh=dp45UAvDX3D+LDpNdQ7rxwJJ7Dat2HjMmkqIdx1vX/0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SnZiiitckm+zMMklN93i/ILolsBGbfeN5AAFjCWBuSUSfwHNiUI1Ud80JnQsun8LS
-	 v5EIUhb1gVylmu6LoZSwLjEw8pAxmjhW/Qk6wHUvIFIpSl4/LESGKE+9sswIdOGH3r
-	 Ns1OXMtsu8vgrToq7YWK46uSJtHTanDV4uPyghVZYk7kg2+LuezH15Ry71n+2rFTax
-	 8l7qOAgVBgZwJsOK/p7aELVeySnCBtSG4GIGTGrAx8VR3SMweMoXE51+NMeSgS4aea
-	 Ekfu4rPoN6kQOD0RgiYVcNukVdmZR3Qu1ZbnSrhrQYv9BeirmPBE+xlpTZtokXsY3O
-	 uXGGdtRMVGMPw==
-From: Oliver Upton <oupton@kernel.org>
-To: kvmarm@lists.linux.dev,
+	b=OHlLmRX4hLNZ3b0RgWa2z/hDviakBqbwIpUCxsoeWH+LbhiKvekoYBvExUtGcP4kP
+	 0cgqeuTs2SUdaO1wPL6Sn3vnCTMraE1ycTZXF8IEi86nzZbDYtp/Q9iSR5wobFYYya
+	 /eAnMJQpdeJyu6ugVvtzNpGzEBYpDYefdGZTwMYbxmuKlyUNuH+s2iizZjv98U6L/q
+	 mYWUApHO5qIdyL7rfySj7u2z/0soNGLBH6h/eM4RnjH6OZ4g/IKxY8wVkWL7IT/4Vs
+	 Dopxr1Da8O8ZmRtJQLLY0ZxQDdqF2Dq7Xdr+hf9C+BwppCmMuST3dMIqxyKJkmzdDY
+	 c8/qJHjD2Mt5A==
+From: Sven Peter <sven@kernel.org>
+To: Neal Gompa <neal@gompa.dev>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Janne Grunau <j@jannau.net>
+Cc: Sven Peter <sven@kernel.org>,
+	asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH] KVM: arm64: Don't blindly set set PSTATE.PAN on guest exit
-Date: Sat, 10 Jan 2026 02:22:43 -0800
-Message-ID: <176804045760.916140.17170975850498325021.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260107124600.2736328-1-maz@kernel.org>
-References: <20260107124600.2736328-1-maz@kernel.org>
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Hector Martin <marcan@marcan.st>
+Subject: Re: [PATCH 0/3] arm64: dts: apple: Small pmgr fixes
+Date: Sat, 10 Jan 2026 11:39:36 +0100
+Message-ID: <176804152717.3568.6544517123602866395.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260108-apple-dt-pmgr-fixes-v1-0-cfdce629c0a8@jannau.net>
+References: <20260108-apple-dt-pmgr-fixes-v1-0-cfdce629c0a8@jannau.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260110_022312_890090_007BB9E0 
-X-CRM114-Status: UNSURE (   9.15  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,22 +78,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 07 Jan 2026 12:46:00 +0000, Marc Zyngier wrote:
-> We set PSTATE.PAN to 1 on exiting from a guest if PAN support has
-> been compiled in and that it exists on the HW. However, this is not
-> necessarily correct.
+On Thu, 08 Jan 2026 22:04:00 +0100, Janne Grunau wrote:
+> This series contains 3 small pmgr related fixes for Apple silicon
+> devices with M1 and M2.
 > 
-> In a nVHE configuration, there is no notion of PAN at EL2, so setting
-> PSTATE.PAN to anything is pointless.
+> 1. Prevent the display controller and DPTX phy from powered down after
+>    initial boot on the M2 Mac mini. This is the only fix worthwhile for
+>    stable kernels. Given how long it has been broken and that it's not a
+>    regression I think it can wait to the next merge window and get
+>    backported from there into stable kernels.
 > 
 > [...]
 
-Applied to fixes, thanks!
+Applied to AsahiLinux/linux (apple-soc/dt-6.20), thanks!
 
-[1/1] KVM: arm64: Don't blindly set set PSTATE.PAN on guest exit
-      https://git.kernel.org/kvmarm/kvmarm/c/86364832ba6f
+[1/3] arm64: dts: apple: t8112-j473: Keep the HDMI port powered on
+      https://github.com/AsahiLinux/linux/commit/162a29b58c5b
+[2/3] arm64: dts: apple: t8103: Mark ATC USB AON domains as always-on
+      https://github.com/AsahiLinux/linux/commit/f15cea4e84ae
+[3/3] arm64: dts: apple: t8103: Add ps_pmp dependency to ps_gfx
+      https://github.com/AsahiLinux/linux/commit/35e794fefd47
 
---
-Best,
-Oliver
+Best regards,
+-- 
+Sven Peter <sven@kernel.org>
+
 
