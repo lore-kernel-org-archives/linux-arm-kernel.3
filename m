@@ -4,62 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D6A5D277CA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 02:25:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C4A6D277CE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 02:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NIB+5zci6lA7mTUdacpmBpeAwojvFyIDnyIdAmJ5HNc=; b=RdFTiNj6juAud7UmewMLasU47K
-	TTxyktrdCiwyumUzDeMWU527eIeL1qOY+xAMohF7NZRYUqo+Z1/rWuK8o1ONxnFjN/slTUPyxuSLd
-	ArCPlKUOdclsxywZSgqIjHUd8UB+aTkkD90plUzJo44OtXPgvks0u/V8f6IfBedjVugbRkvpeLI4Q
-	DpmdtgquIGYCFeHsCAfWiugEz5iCdjQgOqW5bMAg/IPZ1fS25Z48VrlUCpq8394gCla4xJj3SXkyB
-	/1SnM/ZlnmRCQJ6Kf1kU75gvx2Aqmx2zGSSVYsS+Skf2HHg/iaSKwY/Ktng5laXc9FvoSnkFFCW1/
-	Eh4MRcDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X26yoCFyXRpNlAKH2hdAizYdE/ueMnJPi9PJnO+GO8Q=; b=dLEVOVgyuZxVJ3P8VliePu54ES
+	D1/VqRfVk6TVqPRr1nZjHr1zbrDfxHJratuKsSss8lhro1JpqUDVuUP/WB5JctcpCVg+1NEyrEnsA
+	nMB38Ou81kmSqusMzyf+1MtOb4+2W6edDtUARGOb4DsdjhiuZZovTzFe7szkQ5q1LvEPf0kAYC/Gh
+	0MPpyM3WA1bJaxX/spcfOdU/YHb7W7w/oKeyZv4N5mxauOUgdrcVtgGOop2WB4XlU0VqPFWWuC9MK
+	ULXs0kQz/M69HU66PJfOMtEN9R8hP4mAARnwzNCwPaVXBPv1yHsp5dw5U8y4cm8UPr5H2B2NLco4T
+	eUdnkEUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veOfg-00000003BwZ-2zXa;
-	Sat, 10 Jan 2026 02:25:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1veP0B-00000003CXB-12Qk;
+	Sat, 10 Jan 2026 02:46:55 +0000
+Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veOfd-00000003BwB-3ckh;
-	Sat, 10 Jan 2026 02:25:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8A3CC41930;
-	Sat, 10 Jan 2026 02:25:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48E03C4CEF1;
-	Sat, 10 Jan 2026 02:25:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768011940;
-	bh=ue9P0DHp6hQsd2MCq0QDFjG6D1P+AJ9p0ypaECF8siM=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Fd8PH/lvq33dCfSIh454iKWbtElXcSEaA1CMLviXZifrjm96C7TxHYThyHIlsp/hF
-	 lyqr+jiQ3N5pbufMW6LModJrncLZQnCXGUpjZdO0QrpBrsIOnc3mM89TxZmFFdmozi
-	 lQDr0NH8AkX4jB+hW6Z3E9ydZgRMVCgFDpawCo5fS7FZ6FgKG8kTHNyg2MD1FV9ghn
-	 s+4fubVK7xUm7OwGxJ7OlOnYi/NFCvZhYmh613rIr6uZnVRjb349wiwVl6l+usfg9U
-	 3J40lebOOlvqle06aTOnJudTkzsE53CTmJ8pdzlIoABvkR0OEWL5A4//3bgbquhTpd
-	 q8K1BzofdNEkg==
-Date: Fri, 09 Jan 2026 20:25:39 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1veP08-00000003CWF-19uc
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 10 Jan 2026 02:46:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1768013210; bh=24hz3Id0LIKMRhcbMNAjYabls+Gw5398qtBHFFTVgL0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=LwMX2Li3pFgrq27AM+F/VtVUQfjYfbj276bnh8YIK02/pmXSUezFVVPiE6fO7ozb0
+	 2VH7MMBIG763lNDv82ooC2OGJLrIB4dY19sc3vQ8XwD+nQh21ntIEQGgSgbsMJbLou
+	 Eiy6h88BbmgCJRIfgmYHcayXDnwTdbjzw+4Jbm4QSrhyrGbvHyniURaO1a012Wj4gS
+	 VFycna6HQog7UmPQkj+hja56UCBn0AW0M7+pU/fnN2wdx12z9RU86IQRgsL7l/TWIJ
+	 CKfW01MFCZrrAqb4wESKileHeIt5hWqc4qbOLs/Len2Zv1PkfznfZrNPR/UsEvFc7Y
+	 7WvOv4iI8TnVA==
+Received: from mail.mleia.com (localhost [127.0.0.1])
+	by mail.mleia.com (Postfix) with ESMTP id B26DE3EB2D5;
+	Sat, 10 Jan 2026 02:46:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1768013210; bh=24hz3Id0LIKMRhcbMNAjYabls+Gw5398qtBHFFTVgL0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=LwMX2Li3pFgrq27AM+F/VtVUQfjYfbj276bnh8YIK02/pmXSUezFVVPiE6fO7ozb0
+	 2VH7MMBIG763lNDv82ooC2OGJLrIB4dY19sc3vQ8XwD+nQh21ntIEQGgSgbsMJbLou
+	 Eiy6h88BbmgCJRIfgmYHcayXDnwTdbjzw+4Jbm4QSrhyrGbvHyniURaO1a012Wj4gS
+	 VFycna6HQog7UmPQkj+hja56UCBn0AW0M7+pU/fnN2wdx12z9RU86IQRgsL7l/TWIJ
+	 CKfW01MFCZrrAqb4wESKileHeIt5hWqc4qbOLs/Len2Zv1PkfznfZrNPR/UsEvFc7Y
+	 7WvOv4iI8TnVA==
+Received: from mail.mleia.com (91-159-24-186.elisa-laajakaista.fi [91.159.24.186])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.mleia.com (Postfix) with ESMTPSA id 0FC6D3EB821;
+	Sat, 10 Jan 2026 02:46:50 +0000 (UTC)
+From: Vladimir Zapolskiy <vz@mleia.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Lubomir Rintel <lkundrak@v3.sk>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	devicetree@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 1/2] dt-bindings: serial: 8250: Explicitly make LPC32xx UARTs compatible with 16550A
+Date: Sat, 10 Jan 2026 04:46:46 +0200
+Message-ID: <20260110024647.3389345-2-vz@mleia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260110024647.3389345-1-vz@mleia.com>
+References: <20260110024647.3389345-1-vz@mleia.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-mmc@vger.kernel.org, conor+dt@kernel.org, krzk+dt@kernel.org, 
- linux-arm-kernel@lists.infradead.org, ulf.hansson@linaro.org, 
- linux-rockchip@lists.infradead.org, heiko@sntech.de, 
- devicetree@vger.kernel.org
-To: Marco Schirrmeister <mschirrmeister@gmail.com>
-In-Reply-To: <20260110010715.1610159-2-mschirrmeister@gmail.com>
-References: <20260110010715.1610159-1-mschirrmeister@gmail.com>
- <20260110010715.1610159-2-mschirrmeister@gmail.com>
-Message-Id: <176801193939.232931.10116845812476923767.robh@kernel.org>
-Subject: Re: [PATCH v1 1/3] dt-bindings: mmc: rockchip-dw-mshc: add
- rockchip,disable-runtime-pm
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
+X-CRM114-CacheID: sfid-20260110_024650_745720_46ED961D 
+X-CRM114-Status: GOOD (  10.40  )
+/bin/ln: failed to access 'reaver_cache/texts/20260110_024650_745720_46ED961D': No such file or directory
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_182541_924602_94FB33FC 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20260110_024650_745720_46ED961D 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +94,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+NXP LPC32xx SoC has 4 16550A compatible UARTs with 64 byte TX and RX FIFO
+sizes, and the platform UART hardware is well supported as a standard
+16550A UART.
 
-On Sat, 10 Jan 2026 02:07:13 +0100, Marco Schirrmeister wrote:
-> Add a new 'rockchip,disable-runtime-pm' property to allow boards to
-> inhibit runtime power management. This is required for boards like the
-> NanoPi R76S where the bus timing becomes unstable if the controller
-> is runtime-suspended during idle periods.
-> 
-> Signed-off-by: Marco Schirrmeister <mschirrmeister@gmail.com>
-> ---
->  .../devicetree/bindings/mmc/rockchip-dw-mshc.yaml         | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
+Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
+---
+ Documentation/devicetree/bindings/serial/8250.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml:110:1: [warning] too many blank lines (2 > 1) (empty-lines)
-
-dtschema/dtc warnings/errors:
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.kernel.org/project/devicetree/patch/20260110010715.1610159-2-mschirrmeister@gmail.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+diff --git a/Documentation/devicetree/bindings/serial/8250.yaml b/Documentation/devicetree/bindings/serial/8250.yaml
+index 167ddcbd8800..1a5178320465 100644
+--- a/Documentation/devicetree/bindings/serial/8250.yaml
++++ b/Documentation/devicetree/bindings/serial/8250.yaml
+@@ -108,7 +108,6 @@ properties:
+       - const: nuvoton,wpcm450-uart
+       - const: nuvoton,npcm750-uart
+       - const: nvidia,tegra20-uart
+-      - const: nxp,lpc3220-uart
+       - items:
+           - enum:
+               - exar,xr16l2552
+@@ -123,6 +122,7 @@ properties:
+               - fsl,16550-FIFO64
+               - andestech,uart16550
+               - nxp,lpc1850-uart
++              - nxp,lpc3220-uart
+               - opencores,uart16550-rtlsvn105
+               - ti,da830-uart
+               - loongson,ls2k0500-uart
+-- 
+2.43.0
 
 
