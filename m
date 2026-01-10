@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26768D277CA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 00:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 492F3D277CA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 00:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V/Sig1MBWGXUoKxfbOCjXxu2jOEYhW1igfHgGui3UHs=; b=TobWbNl0jVefG9ePXoFcqNF9OO
-	sFPKvTVCaYSCTn/9Rr2nixdeiRqjuaY9jyYs+8Q71fdkIj+g3mt8wrDfNUGMWU/jXLjnrPLM+Q9Fw
-	WId2+NBc8pZ+LkZKL+FX8U1QYtDQ+5NipmpbDtllhXhVDfCRzKyuMmCBL8xzltZucm8zU76CKviEY
-	klwr6TiwFwlChnjvB5juhnLfQntDFMIOaoXUr1aAGpkGvRvGF236zSh1/hEJub28o7HNAzYR1DL23
-	ABbgygAfRWYJFYTWkrfGJAWSeRsOEqCbZ16Y5UKlK4gxP/0oCzpgfUaByDHNRp3pjdHudwbz2MJni
-	hBrOxb+A==;
+	bh=3xfM0Rfu3A5cPqn5pc0s1J4LLhtoigHkOk+JZgFzv3k=; b=EeYPN13m522IspQ7+Tlys8bzu6
+	gk8g6xXyPmFqJN20dxHWvHcz3naseR5veMH9SKf+ABdFf2CqKASRDccI9I1WyBnswEcHPTyyp/8Sg
+	b8em4YBrAm7RT+NzZMYYQWiyMeK+WTDUETeVVCqBS8ETJBiVgywgwlHK4tP0HMDYvi6cYoeUdNUuw
+	oF0oeOm79ZC64uRlOZ0Vamg7nrf0ftSyifqVkybjsC1ZBaXgnW67jliHcKhApMO5qjhccXK/gIuxm
+	DuNI2rVYYfjNkAisW/PcKa3YQZG71vfMEaKzVUxFL4ndyiwWxXJ4K7GnHrbF57Lv7V4aD7L+I5rUh
+	OkRrBDDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veMyJ-000000038Eg-1Lw7;
-	Sat, 10 Jan 2026 00:36:51 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1veMyP-000000038Ff-2feN;
+	Sat, 10 Jan 2026 00:36:57 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veMyG-000000038EK-2pvd
+	id 1veMyM-000000038FC-2Al8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Jan 2026 00:36:50 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2a0d67f1877so38758425ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 16:36:47 -0800 (PST)
+	Sat, 10 Jan 2026 00:36:55 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-c2dc870e194so2515173a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 09 Jan 2026 16:36:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768005407; x=1768610207; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1768005413; x=1768610213; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=V/Sig1MBWGXUoKxfbOCjXxu2jOEYhW1igfHgGui3UHs=;
-        b=FBUOL1AjQ917OvKFteI4BSZLhDIDGvj3Oj/0aycO7Wc93CvZ3YZ7ISqPbU9fWCPJLZ
-         kfbg770aUEn7vMF3yF6EJwqJEbIbkcjXmongK1mCMMH3y3P2of2DFaRSa6owsh6ZtsLq
-         eW88g1mCSf9HS4k1cU5Cy8NSkhQrZlbkBHXqBY8wU4JSvhKmHEN87TQwWazCDqiEkgay
-         fuSUeCBeA79Gks3jgFgWtxA/P8pINL2yKZzI4sHXTmyrOE1MniVYdYzqbkYYBWs2DVa0
-         gJY732mzF0lLzGk8y3GkcbkTIYTbV7NP8+guTvpH/mjJeRghbiyOCPDerk1W9Nob4S3c
-         qRcg==
+        bh=3xfM0Rfu3A5cPqn5pc0s1J4LLhtoigHkOk+JZgFzv3k=;
+        b=XlMCHpfBSVrtKV2K17SDMXgYJjUfx7W+MxLvB5ggmBo1s+c1sea+iC6aD32wfCdZrM
+         sXTqKyIx/7N0HDIu1/YxqBlyYaRpKlyAJ1PEsFb9c6g/fXHSIj1yfVSYhyjEtQvPDSQN
+         TpslGzNvnuD7RmaBh+GVpQDhYhcBXmCYmAs89E19GvrI55auWmLUbPhcGxAIKmzTIsaJ
+         nbNpmfRp6xCr7AaVWpGO79kmal3J/XXMJBb5QDpNwaA92u20vaO75Biawef+kRXu3V4T
+         Q8wwLNuDZFNy4JCVvUfe23tQ67GuPPCCzisp+Tm5b1fBQFzXwLlvmE2tWqZ/PgAU6Hiy
+         L+XQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768005407; x=1768610207;
+        d=1e100.net; s=20230601; t=1768005413; x=1768610213;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=V/Sig1MBWGXUoKxfbOCjXxu2jOEYhW1igfHgGui3UHs=;
-        b=qJrcEi8B9AXjkdwMMlPyOO+B6o6uMLtc8Yls3uki24APPwdh/eIAMY9mvlUFqAtFvz
-         dCwpNbedt+QKof27dYIBlitnc0HzYPOejDy0rFVD6ifWMy/sWy8x5fSG/oYQCdvwJ1Ka
-         Bs6xNeSyS7xxJLoRMslRZcimuHwFCI3Zma1VKM6Db3n9iKirIPY3IM8jvuLPcCcM8mVm
-         Enu00/t4fOKUNPD74DomEStGxcm4B1Lw9cLyw8/d+Df9gRIabDVLrN5KVOZ/8+8KJsjf
-         Y+dIFMb5FEO/oAUvusGcHts/1UOGQ4hBq+U5rYg6Y+hZas1ebZchQATdOEH3CvRkUet5
-         Co9w==
-X-Forwarded-Encrypted: i=1; AJvYcCVVJhvwcHiLG3zkhs9dkLiPLR6FgfJ14O6iPemexPZ9+Qw/Zi6nCUMeKOvRFsPZ2wPQyNnBke28naknqEx94Ac+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmT+epa1gSiNiHd1GG06m3oo8T8cUhB/Qh4FDQof3cS9+2p+VC
-	nyz3bf90MeDUFjtpZqWVVrrPVlGIUTnYCHwHkAPJoSd5c84QIq+y5irxOWggEzTY1bmt7RPxrSX
-	KMHmqR8WBQdisiz/pP7+eovZGgBA42WY=
-X-Gm-Gg: AY/fxX7x9vJkKFa5a2qO1PWLdjFzX80zUJL+ncB+ibNsQeyWN7RxjZ8P15Aoi/1bu6P
-	Un7FfgyO0PBPZxyvxD4fSCTs8/L/NQhhd63/e2Bks+OlhcMxM7WRutU4o0Mq2zaIJi2lApoxTRp
-	WxPFfDIuXWRc1qKU66wsRZh3qOdy7iwH8jCOoa8FLG9kRd5xhc7mqnHSREdAcFo+JvyeaZZQ1ap
-	F/QcqiEEOTJ/q0heVGAAxovdVRIvAKQAkXR8REYHknxLC5DSaX1cheSw96QDe0f55SdUa1U3g/+
-	ef8zZIH3
-X-Google-Smtp-Source: AGHT+IGW3LMlWa2LmuUzjL0YHhtRZgvX3i/6GcmeqaYqFFGz/azPPBWHL55nnnOgoHySU2SkfToBfgTRNf9D9hzsw5Q=
-X-Received: by 2002:a17:903:196b:b0:297:f09a:51cd with SMTP id
- d9443c01a7336-2a3ee442293mr104729985ad.14.1768005406895; Fri, 09 Jan 2026
- 16:36:46 -0800 (PST)
+        bh=3xfM0Rfu3A5cPqn5pc0s1J4LLhtoigHkOk+JZgFzv3k=;
+        b=FDmSgGeN4Sv4IeL+BhLN0ahK2jTd0fmxW45GNAfizvmJc9QE4rGkOOxz/XPLbxqd1d
+         DR8HLm5syfI/mRAmb6NroTuHJ/Ur0ADkqK8ZAkMFPz+L7YuITFpHo36qwTFR1+HFSOVW
+         5WeovApPHgYk3dLgJ/Sezd2xBbleyW0BvWbb8tpXCDZxQzIGlZOUAhLwDHYvf/taP89+
+         PM9AnNGANIr3/2YrEYyJh6YHLnkKWcRydUL8qQLhxAxu9Jm4pBEXJvzNWjfMPqNdBFyy
+         T9cga16CDFI0dFaSJi/qXTjLDBs/HtINWMLOLqigo8UIi6E27AWgL/pbdXXJ7WUsza5P
+         a5sA==
+X-Forwarded-Encrypted: i=1; AJvYcCUYQTaqZskJTyLLl+4IAcmeUpB5WfP5reKAbM4cFnPNSPc8tN+1dTQ3PPxRviP0DNyuPAfcYHnNmre0biZEEheO@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcMLn7myDjwodR7DH0H9oioCeMAxLDWtGz8j0DS93GFstuS44g
+	EAlzk01FKtAkCCrQmPJdcyzKYUzVED0ptAHdA83m/qecBweLu3lKA8L93O8jOB+y3ZX2hFUB/tf
+	AyVigJti7WexUkdE2VUO+VknyfSWQJvM=
+X-Gm-Gg: AY/fxX4uRw2NNHdVey4OKxYE7hVRSc8aJhjWFcuzMeEpmu26NJBvHx6qN3bbEa66nYa
+	u2O3xQOzBZnmj6W453bD8jH3LFf69Eae647penThHMOv9MD2sWfu1AEWFj47P2Y+v3dIU0/1G1T
+	22iWrs4d0LIzoT25ftoHfInlj9bpHCAizI2m8VmGwX/JG1zbRNnd68ewq/+wlspKtNeAtUzeO++
+	f90ffeYdmKjBKo+3CKyuWKV2nfDvWdXn6SwJ9LC8L5MweOc9WdZgir5obvREy4VsyO8fYpqbiRS
+	ndhbuNFy
+X-Google-Smtp-Source: AGHT+IGuujBpONry1gvgsQzsvJXudiQyMGBcQwh475VUNcINJSDIO8LkyvpNvKKLPS3N+zwKEoYGeXXz/tJgdhtuXz8=
+X-Received: by 2002:a05:6a20:7486:b0:35f:b243:46cb with SMTP id
+ adf61e73a8af0-3898f8f4c75mr12372471637.12.1768005413568; Fri, 09 Jan 2026
+ 16:36:53 -0800 (PST)
 MIME-Version: 1.0
-References: <20251230145010.103439-1-jolsa@kernel.org> <20251230145010.103439-2-jolsa@kernel.org>
-In-Reply-To: <20251230145010.103439-2-jolsa@kernel.org>
+References: <20251230145010.103439-1-jolsa@kernel.org> <20251230145010.103439-8-jolsa@kernel.org>
+In-Reply-To: <20251230145010.103439-8-jolsa@kernel.org>
 From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Fri, 9 Jan 2026 16:36:34 -0800
-X-Gm-Features: AQt7F2qRw6Vu7cN5U47qL95oQ7_OEFPKSuwkEVWj2hjYGj3mzII7GsGmQwymQFg
-Message-ID: <CAEf4BzY6vVCk_XohdYVmjma4k=QvGb+h+rzOe7hmRLoUL7ZXOg@mail.gmail.com>
-Subject: Re: [PATCHv6 bpf-next 1/9] ftrace,bpf: Remove FTRACE_OPS_FL_JMP
- ftrace_ops flag
+Date: Fri, 9 Jan 2026 16:36:41 -0800
+X-Gm-Features: AQt7F2rtiT73HgLTPQ6UI1koaE9wmnP8DTvaic0PVhGcL9KRoTH943ScnrAVW1o
+Message-ID: <CAEf4BzYgqWXoKTffa5Y6Xm-nPbL9aFgrStR0GfUs4-88f10EgQ@mail.gmail.com>
+Subject: Re: [PATCHv6 bpf-next 7/9] bpf: Add trampoline ip hash table
 To: Jiri Olsa <jolsa@kernel.org>
 Cc: Steven Rostedt <rostedt@kernel.org>, Florent Revest <revest@google.com>, 
 	Mark Rutland <mark.rutland@arm.com>, bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
@@ -84,8 +83,8 @@ Cc: Steven Rostedt <rostedt@kernel.org>, Florent Revest <revest@google.com>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260109_163648_722051_2D021FBB 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20260109_163654_586058_AF53B5C8 
+X-CRM114-Status: GOOD (  24.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,51 +99,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 30, 2025 at 6:50=E2=80=AFAM Jiri Olsa <jolsa@kernel.org> wrote:
+On Tue, Dec 30, 2025 at 6:51=E2=80=AFAM Jiri Olsa <jolsa@kernel.org> wrote:
 >
-> At the moment the we allow the jmp attach only for ftrace_ops that
-> has FTRACE_OPS_FL_JMP set. This conflicts with following changes
-> where we use single ftrace_ops object for all direct call sites,
-> so all could be be attached via just call or jmp.
+> Following changes need to lookup trampoline based on its ip address,
+> adding hash table for that.
 >
-> We already limit the jmp attach support with config option and bit
-> (LSB) set on the trampoline address. It turns out that's actually
-> enough to limit the jmp attach for architecture and only for chosen
-> addresses (with LSB bit set).
->
-> Each user of register_ftrace_direct or modify_ftrace_direct can set
-> the trampoline bit (LSB) to indicate it has to be attached by jmp.
->
-> The bpf trampoline generation code uses trampoline flags to generate
-> jmp-attach specific code and ftrace inner code uses the trampoline
-> bit (LSB) to handle return from jmp attachment, so there's no harm
-> to remove the FTRACE_OPS_FL_JMP bit.
->
-> The fexit/fmodret performance stays the same (did not drop),
-> current code:
->
->   fentry         :   77.904 =C2=B1 0.546M/s
->   fexit          :   62.430 =C2=B1 0.554M/s
->   fmodret        :   66.503 =C2=B1 0.902M/s
->
-> with this change:
->
->   fentry         :   80.472 =C2=B1 0.061M/s
->   fexit          :   63.995 =C2=B1 0.127M/s
->   fmodret        :   67.362 =C2=B1 0.175M/s
->
-> Fixes: 25e4e3565d45 ("ftrace: Introduce FTRACE_OPS_FL_JMP")
 > Signed-off-by: Jiri Olsa <jolsa@kernel.org>
 > ---
->  include/linux/ftrace.h  |  1 -
->  kernel/bpf/trampoline.c | 32 ++++++++++++++------------------
->  kernel/trace/ftrace.c   | 14 --------------
->  3 files changed, 14 insertions(+), 33 deletions(-)
+>  include/linux/bpf.h     |  7 +++++--
+>  kernel/bpf/trampoline.c | 30 +++++++++++++++++++-----------
+>  2 files changed, 24 insertions(+), 13 deletions(-)
 >
+> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+> index 4e7d72dfbcd4..c85677aae865 100644
+> --- a/include/linux/bpf.h
+> +++ b/include/linux/bpf.h
+> @@ -1325,14 +1325,17 @@ struct bpf_tramp_image {
+>  };
+>
+>  struct bpf_trampoline {
+> -       /* hlist for trampoline_table */
+> -       struct hlist_node hlist;
+> +       /* hlist for trampoline_key_table */
+> +       struct hlist_node hlist_key;
+> +       /* hlist for trampoline_ip_table */
+> +       struct hlist_node hlist_ip;
+>         struct ftrace_ops *fops;
+>         /* serializes access to fields of this trampoline */
+>         struct mutex mutex;
+>         refcount_t refcnt;
+>         u32 flags;
+>         u64 key;
+> +       unsigned long ip;
+>         struct {
+>                 struct btf_func_model model;
+>                 void *addr;
+> diff --git a/kernel/bpf/trampoline.c b/kernel/bpf/trampoline.c
+> index 789ff4e1f40b..bdac9d673776 100644
+> --- a/kernel/bpf/trampoline.c
+> +++ b/kernel/bpf/trampoline.c
+> @@ -24,9 +24,10 @@ const struct bpf_prog_ops bpf_extension_prog_ops =3D {
+>  #define TRAMPOLINE_HASH_BITS 10
+>  #define TRAMPOLINE_TABLE_SIZE (1 << TRAMPOLINE_HASH_BITS)
+>
+> -static struct hlist_head trampoline_table[TRAMPOLINE_TABLE_SIZE];
+> +static struct hlist_head trampoline_key_table[TRAMPOLINE_TABLE_SIZE];
+> +static struct hlist_head trampoline_ip_table[TRAMPOLINE_TABLE_SIZE];
+>
+> -/* serializes access to trampoline_table */
+> +/* serializes access to trampoline tables */
+>  static DEFINE_MUTEX(trampoline_mutex);
+>
+>  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+> @@ -135,15 +136,15 @@ void bpf_image_ksym_del(struct bpf_ksym *ksym)
+>                            PAGE_SIZE, true, ksym->name);
+>  }
+>
+> -static struct bpf_trampoline *bpf_trampoline_lookup(u64 key)
+> +static struct bpf_trampoline *bpf_trampoline_lookup(u64 key, unsigned lo=
+ng ip)
+>  {
+>         struct bpf_trampoline *tr;
+>         struct hlist_head *head;
+>         int i;
+>
+>         mutex_lock(&trampoline_mutex);
+> -       head =3D &trampoline_table[hash_64(key, TRAMPOLINE_HASH_BITS)];
+> -       hlist_for_each_entry(tr, head, hlist) {
+> +       head =3D &trampoline_key_table[hash_64(key, TRAMPOLINE_HASH_BITS)=
+];
+> +       hlist_for_each_entry(tr, head, hlist_key) {
+>                 if (tr->key =3D=3D key) {
+>                         refcount_inc(&tr->refcnt);
+>                         goto out;
+> @@ -164,8 +165,12 @@ static struct bpf_trampoline *bpf_trampoline_lookup(=
+u64 key)
+>  #endif
+>
+>         tr->key =3D key;
+> -       INIT_HLIST_NODE(&tr->hlist);
+> -       hlist_add_head(&tr->hlist, head);
+> +       tr->ip =3D ftrace_location(ip);
+> +       INIT_HLIST_NODE(&tr->hlist_key);
+> +       INIT_HLIST_NODE(&tr->hlist_ip);
+> +       hlist_add_head(&tr->hlist_key, head);
+> +       head =3D &trampoline_ip_table[hash_64(tr->ip, TRAMPOLINE_HASH_BIT=
+S)];
 
-I don't see anything wrong with this from BPF side
+For key lookups we check that there is no existing trampoline for the
+given key. Can it happen that we have two trampolines at the same IP
+but using two different keys?
 
-Acked-by: Andrii Nakryiko <andrii@kernel.org>
 
-[...]
+
+> +       hlist_add_head(&tr->hlist_ip, head);
+>         refcount_set(&tr->refcnt, 1);
+>         mutex_init(&tr->mutex);
+>         for (i =3D 0; i < BPF_TRAMP_MAX; i++)
+> @@ -846,7 +851,7 @@ void bpf_trampoline_unlink_cgroup_shim(struct bpf_pro=
+g *prog)
+>                                          prog->aux->attach_btf_id);
+>
+>         bpf_lsm_find_cgroup_shim(prog, &bpf_func);
+> -       tr =3D bpf_trampoline_lookup(key);
+> +       tr =3D bpf_trampoline_lookup(key, 0);
+>         if (WARN_ON_ONCE(!tr))
+>                 return;
+>
+> @@ -866,7 +871,7 @@ struct bpf_trampoline *bpf_trampoline_get(u64 key,
+>  {
+>         struct bpf_trampoline *tr;
+>
+> -       tr =3D bpf_trampoline_lookup(key);
+> +       tr =3D bpf_trampoline_lookup(key, tgt_info->tgt_addr);
+>         if (!tr)
+>                 return NULL;
+>
+> @@ -902,7 +907,8 @@ void bpf_trampoline_put(struct bpf_trampoline *tr)
+>          * fexit progs. The fentry-only trampoline will be freed via
+>          * multiple rcu callbacks.
+>          */
+> -       hlist_del(&tr->hlist);
+> +       hlist_del(&tr->hlist_key);
+> +       hlist_del(&tr->hlist_ip);
+>         if (tr->fops) {
+>                 ftrace_free_filter(tr->fops);
+>                 kfree(tr->fops);
+> @@ -1175,7 +1181,9 @@ static int __init init_trampolines(void)
+>         int i;
+>
+>         for (i =3D 0; i < TRAMPOLINE_TABLE_SIZE; i++)
+> -               INIT_HLIST_HEAD(&trampoline_table[i]);
+> +               INIT_HLIST_HEAD(&trampoline_key_table[i]);
+> +       for (i =3D 0; i < TRAMPOLINE_TABLE_SIZE; i++)
+> +               INIT_HLIST_HEAD(&trampoline_ip_table[i]);
+>         return 0;
+>  }
+>  late_initcall(init_trampolines);
+> --
+> 2.52.0
+>
 
