@@ -4,95 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFB2D277C1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 15:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B69CD277C1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 16:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MstKQXEBKQFl1f23eAMncxqsqWPHstHgdU9Q+t8Q39Y=; b=syeoVkJy1KwgnIiBk/Gf/nuE3w
-	ORMSkZk06QrJLgT2yvWEbRoo54hX0j1FsohYMCIK6GF2hmwWfU+1MyuzsKRY0l6TRe3nIJTO952+v
-	iRy4WO2tsZBvvPpn6T0NU9YbibUCL0jxV/DWglLzNN4/N02HqhwBPGECLQpe3QGlqbkalbn00UYH/
-	ZR1KhTOYBod9aV2qsxUfEtWMJfIwEjKMICqkz5BmIY8Wo9yz6t56IQuPbOoumT+vqBk72UIDGOJKx
-	dtCz035hpk4Zs5QCDhaD1vt873QxcV1wy5DThbjgqOd1AWF5/7IbHjy29jJ0ru2KMnUt/bWXeW//P
-	6jFWu9uA==;
+	bh=qncqnLubMYC4ApM8lJi4wrVgA/Yt4u3+/s/LwC2vUkg=; b=mARdhuvpHwpiu7FHUWuJV7sp7g
+	FFDctlM2iUDSurrE0LsDUB5q1O3zz11ClpT40zQ8TGkFlKT3K6Hg3EudCb3yIM4woElyniUzxp4ih
+	U7oEZ8XulepTKTUWDNPK4KqV1O1mw2YYYA6e+jNjnPac3hYXHKdabRnZEQOLvWE4vGDuE7tiMPhQy
+	hoThzE6ed5JRiKDVYUTrp33Ki9L/3K5GN0yMQ2AAwJRn55eG38z8Z4iLRTkGuHXli0+d0ZXcDCkqg
+	v8mrxq+LkyiemnWc+c7bUTDukok3o9kwzxF6rIXQ5UBpTOOgRjHp2HnvrSj/4wS1o5btExSEQHtpz
+	9nOUfllw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vebLo-00000003X7e-1hFS;
-	Sat, 10 Jan 2026 15:58:04 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vebes-00000003XvQ-2t29;
+	Sat, 10 Jan 2026 16:17:46 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vebLm-00000003X73-2G3z
+	id 1vebeq-00000003Xv3-14EL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Jan 2026 15:58:03 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-47d63594f7eso31137505e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Jan 2026 07:58:01 -0800 (PST)
+	Sat, 10 Jan 2026 16:17:45 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-64c893f3a94so6388665a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Jan 2026 08:17:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1768060680; x=1768665480; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1768061862; x=1768666662; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=MstKQXEBKQFl1f23eAMncxqsqWPHstHgdU9Q+t8Q39Y=;
-        b=ae3tTKn3W4GUjGXmNNwYpxhhZEfSwo8c7dC69ImtYlvidL2Q1FawyIZC/L6KJxWvMx
-         nHRuMqghNmJsYQWzTIH6IHQIDq55nSJvWJiDmJXMIvpm2cTsHcJ3uK3tVmnrTpA3Hr6k
-         gF+AFTBszuQLoICKgCx/Cl6089Kd4bRP7OK6mpuULheoDR9HvbWy9MlXQzQeNU0Lhx4+
-         biA5MjUFmlHxNcbjoi3+JPX64p49u997ifZZ7Ql2yQOBqTQDx91SL4YKHFE3BUR6GR5q
-         HMv0ZCS2s9nNK1dDF+FsmEcM+rUixmacbAxZBOJ0+IluJ/YQY2v46xXhgthjLjbxOPgN
-         wvDw==
+        bh=qncqnLubMYC4ApM8lJi4wrVgA/Yt4u3+/s/LwC2vUkg=;
+        b=j4SxMyg+Dt0+iR3cT7JWqXzWRVq+PwiY7lQ9+twj3c+yAVEC2/c04R8v2Kdtse4VDZ
+         ds4ScF7q7SJoTQuKdTE9CKe0hNnf8AcdnsaatgjRjkZIzm8zit+FUqQgPa+SXm4bJvbg
+         Wq40n7rS9b2dr2tcAywA1x/+f6+hn4R8mxCm8hiBJYiDlclAztydzc+W9SC/8sPCwzIi
+         00QzhUMPQyuW6O4jrnle+G/KtvjNGk3BVYdd309/d38sCuNMHPJRSP7lFSH88ZT+mxVV
+         KsQY7Pn8jxFSIESWwk/4wfwH06/9FEc/Px3PDijFtilZqLrXW3VTybd3kjr600CWSvlU
+         yROw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768060680; x=1768665480;
+        d=1e100.net; s=20230601; t=1768061862; x=1768666662;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=MstKQXEBKQFl1f23eAMncxqsqWPHstHgdU9Q+t8Q39Y=;
-        b=v8qp3oOC/DeVuHXS/c/qxXhwNvIITUho67GZK+NBW7IOiAGhbqEQi09kwkjE0/4Hqg
-         dCvsWAIog/RHOouYDDwWsHvN6yZvf5/xPGpTHQqH68J+PNBNeFMNZO94vbx2MBeRyoBz
-         INiSaB0qdfdscFO5lY0LdmMU7KZNXsvISzIKHiLjA4Lbxe9HAPOVNCmbvd4a7oEisDUc
-         r1+OyCuCsSao4gNvcvlhwPJJTdim7zWV71tei8vhAS5AN1tiPw9fi34mLoKIMlHiui7H
-         lXJ8owB8u8AJU/aD5T3fqMvNaW64IJSREQVsKqD2hsFgexgaklmDcdJqbnjpjuF5MyM6
-         nEVw==
-X-Forwarded-Encrypted: i=1; AJvYcCW+LiiNun6SFkBwcaB2J+UDEaqUPmTkP0y9JArjgeKfFBEJfcjX8JsS+kOE4Fb44Evw/zxe9K5qL5+S64J3NFfi@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEdApMXaGKXT7XNwoTW40qffQqT6Qfp7TiuBhxbavjwm3TejHH
-	lrtOK5FnHRe+O3jLwFdjKqeDjQDcl1xU1ciwgLaKaPvSCKna3au5mD+jgHViLYSUqm4=
-X-Gm-Gg: AY/fxX7JGZf5dFBCB72o2BGAEmyC7+XkbJ1fROtrBwXP60mxl8je0y8cmrOzCKtW54a
-	60cNeRWo3tiHwqRetHajsiNtQEX2BDUI7oMDwszd+/e8neJr0+L6rE+9kBy8gQ6oGtKyVu1Erut
-	cLY6NrD+mwDZIDpedXXFONyC9Ah4Pg2xasjxApV+HLhJGdv0NjYR0iuHbwiYBJsb2tLU5AzqHIN
-	gRZ4BHFxqlWrNuiUJz8HLw6UK0C+/PWvIDxleo5i8zBNcOt24shXzPftmQ3Tc/LbzGxTd+nz93G
-	HQDUAcj2ZzUvySMT0ukumZMbRfvk+oXNG7oeXF7G/DXpVHxV7G2VRskVdXoEOKJ6XKiaRUj4QfD
-	uTDkt6ILhJdXUwK3UT+ZezMAfIbqovNMFWUj8RjUOOy76OjQN2YCSmfP/oC6eBnNPMG3NGrb5oi
-	1yTwOaSZvxCf57r/VwBw==
-X-Google-Smtp-Source: AGHT+IFYcunSwtyzYzP/GgN+bi6QmSaJiBJZBLYMQbalcyroaWLcgspATNjy9vqQEsUZ4z3Uv8byVA==
-X-Received: by 2002:a05:600c:4447:b0:477:3e0b:c0e3 with SMTP id 5b1f17b1804b1-47d84b3b8b9mr141151465e9.32.1768060680374;
-        Sat, 10 Jan 2026 07:58:00 -0800 (PST)
+        bh=qncqnLubMYC4ApM8lJi4wrVgA/Yt4u3+/s/LwC2vUkg=;
+        b=BAWaaRx14LBUf+3kXeGY3++py2lgGSBSP1+6h+87B6iH/WPJ8tizPLCvJiQvqTZ4uf
+         pu2suwKMATTyBYva1+32xI08aCxt79YzCkdSQHY4HQm6wjK5wJXiVqcRCo0x0Dd48TIC
+         sBlOPNgQ20vZ+tOuuONvetey+MFW0jzT1Rv78YoZLMg2XZ7v0kkSIIS2PI14GpHc2LaY
+         rnHOU7osxaiqa384uyC2RnB3tR9Mqa0kKuygwydVYJ4ar/iwjEtBtnlfTLULHH2cjcc1
+         euAu/1pozsH3ItFGbkitJd1j47i2/DJV8HMGmITdYTyWCEc9DTpmPOBEdJ+XJnkrZtsZ
+         DxCA==
+X-Forwarded-Encrypted: i=1; AJvYcCWzVV67Ux0xlAl/chdfxnoajxdIGaBbi7qbXttN/2utKALlOB9SAoFcy2/pB6q4KTyNhSIsHBr/PwXS3gvE/lNZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEVdIFgIMbIsWd0taX5KBG67+HxmCFI252MNkoaQhzpOl57HGP
+	S3L2MI4YTcvMfG4siEYsrNxo4Kj/ONePKTsgncXFvZuK1CyUendI5npgpDhpJKWixo4=
+X-Gm-Gg: AY/fxX4DDEemh4J1yipU/82nv/yONR72KKxXXU5c6kCLb9YRmCKmyz8D1CNYdSllTsn
+	wNpGIr495XaBxjcmmAXHPOaHz0vCqA9fVl3mi2IWCKJMoU7OPm6fPUmEMAxNXJtYMT8IMyHHIVA
+	T0wzieru98QfwLvuhYH6k0Si82p29WS2CGbX38Xp4ijlS9vh7jDMljbaUjvRVfjpF3X3JBOD2Mn
+	lA7RmdethZ6uuM/KK6dxuD1s8JaR0JBFGnR2Tc54Kaqp+JF9+CvjHldMaxNEFf0H4V+O2CkdN87
+	nhIWX2wTwamh8wPAg6Hi1LUhMLSGjZeosFT8siMDF/4czIhEfk1D5ctujLHIpW8PSn4304/1oq2
+	TpnkaelVHqFB13k+S8IO2lIOOrvWUGpJ4EW+aYWzaPxYE5Gz4wC3278eXc1bHg91zxopyB+Cr56
+	WolzKovOU9o4lSnlFvoQ==
+X-Google-Smtp-Source: AGHT+IEt1vR7d0Du0VgJnxJCpzSziFh+TSZwsM8O+w7rOv3sQtzjQL9vGDgyVHyYf8b4VXURK530tw==
+X-Received: by 2002:a17:907:3d11:b0:b80:3fb7:8e68 with SMTP id a640c23a62f3a-b84299be630mr1773773866b.21.1768061862067;
+        Sat, 10 Jan 2026 08:17:42 -0800 (PST)
 Received: from [192.168.50.4] ([82.78.167.31])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d7f41eb3bsm273462685e9.7.2026.01.10.07.57.59
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b86f0d6d7c6sm213670766b.42.2026.01.10.08.17.41
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 10 Jan 2026 07:57:59 -0800 (PST)
-Message-ID: <45802d15-e094-4033-8810-a19ea5a501be@tuxon.dev>
-Date: Sat, 10 Jan 2026 17:57:58 +0200
+        Sat, 10 Jan 2026 08:17:41 -0800 (PST)
+Message-ID: <b288af38-f0b2-42ee-a950-c8f9739fdfdd@tuxon.dev>
+Date: Sat, 10 Jan 2026 18:17:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/3] at91: Remove of_platform_default_populate() calls
-To: "Rob Herring (Arm)" <robh@kernel.org>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Russell King <linux@armlinux.org.uk>
-Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260105-at91-probe-v3-0-594013ff2965@kernel.org>
+Subject: Re: [RFT PATCH v2] Use kmalloc_array() instead of kmalloc()
+To: Sidharth Seela <sidharthseela@gmail.com>, alexandre.belloni@bootlin.com,
+ nicolas.ferre@microchip.com, sboyd@kernel.org, mturquette@baylibre.com
+Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, david.hunter.linux@gmail.com,
+ skhan@linuxfoundation.org, khalid@kernel.org
+References: <20251123070905.93652-2-sidharthseela@gmail.com>
 Content-Language: en-US
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260105-at91-probe-v3-0-594013ff2965@kernel.org>
+In-Reply-To: <20251123070905.93652-2-sidharthseela@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260110_075802_608558_6DC55082 
-X-CRM114-Status: UNSURE (   6.64  )
+X-CRM114-CacheID: sfid-20260110_081744_307033_83404FF4 
+X-CRM114-Status: UNSURE (   7.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,12 +105,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Please use "clk: at91: Use kmalloc_array() instead of kmalloc()" in 
+patch title.
 
+On 11/23/25 09:09, Sidharth Seela wrote:
+> Refactor to new API, for cases with dynamic size calculations
+> inside kmalloc(). Such calculations were found using grep in the
+> sources. The patch compiles properly with multi_v7_defconfig
+> and multi_v5_defconfig and generates object files for the following
+> driver files.
 
-On 1/5/26 23:06, Rob Herring (Arm) wrote:
-> Rob Herring (Arm) (3):
->        ARM: at91: Move PM init functions to .init_late hook
->        ARM: at91: remove unnecessary of_platform_default_populate calls
+Patch description should answer to "what?" are you doing and "why?" are 
+you doing it. Please specify also why are you doing this change.
 
-Applied to at91-soc, thanks!
+The rest looks good to me.
+
+I tested it and saw no issues.
+
+Thank you,
+Claudiu
 
