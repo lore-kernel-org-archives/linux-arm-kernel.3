@@ -4,102 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB9B3D2502E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 15:45:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4033ED25032
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 15:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GT4B0YFtEOT/3K50u2J8ovIjdID7YchtsEV1tVnlPqU=; b=HNpVXA8LCxq7fCBJ6TEr073rAa
-	ZVpqG8LFjQmajW6pFp2soRu3wPl4JG9mWIhE1/tj2smn7p2ztzY4u+BwQrJh84xBK7lNH4w6OpiE/
-	CO4MPaFdG6vGllrhu/CbNWuj8D/DBcIS8IzRgZiFPhu2qNGuY6bGvbYmQ8nELIBwLjwjPY/Zu82PC
-	o0L6qsUTiDk1m4c0eP1K/nVGnCdUHSAvhRfv9KWCGImNxt55uJDRQpD7FcwoSOufhWnEsJOyv9KeJ
-	yWWSWbE+4pYI4ysRefjGCaKv7Kr+56Cyxf1W4lpC4o5dCvBm0KevVq14THT4dbFWfAJusr80J0vKm
-	QNItWIRg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MdLFsWjHIZRkAMjRx8XyAvxX1n56tujFMjH6H3D6Wb8=; b=UXdao8Bs71iZCl
+	Gj4bw6+ggGQ+FhJmZuefTbOqsRyYDTi3p6gGgslJWni8esaj1Au4MZJXkfgrEOjSnJQN+2GpX7d9a
+	wIh60/zpU1MLc4aHTeDkanZAl7XOH3Lx2uQzLdYTo3S620zIse0KtlWQCFSGlKdHTg8dxu9kt9Mbl
+	/cfSKN6IatUFkXUdr2RDBvf2wvvsf8OvIDFPUNciLG/uQObOD0jWVAhhjKfmSxdG2ydP/9awA8gOE
+	sIegVgJXi6oFVKteEUtFwhihSxq9ZL+qaAUfv7yJKqc/vX/QXhmJtjEggJA0QN9Tij/6kcKkR84ob
+	/BOTSZkv6tCq6diQh/mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vexdX-00000004L0F-1E6N;
-	Sun, 11 Jan 2026 15:45:51 +0000
+	id 1vexdS-00000004Kxk-0GOK;
+	Sun, 11 Jan 2026 15:45:46 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vexdR-00000004Kxh-3EX7
+	id 1vexdO-00000004Kwl-1Td6
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Jan 2026 15:45:47 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60BD3mtJ1983500
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 15:45:45 GMT
+	Sun, 11 Jan 2026 15:45:43 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60BAHlrK2916545
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 15:45:41 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	GT4B0YFtEOT/3K50u2J8ovIjdID7YchtsEV1tVnlPqU=; b=EnN+8QeEnkeRVJ01
-	Nqeft8QRtV4Vw8k1szM1XMuRIMxNqF8znOGkkaQmZIyBJ4xU8RxxIlBH3o1jEk+0
-	S7u1qMTCayaEFR5RwVYZ+mGLVhib+g6cVqgk+pFv9fcwK7UHpKBgqVpgW33fCauB
-	z6zeyuP4GgQV/SdhueGD8ceSw2bNs7T8GPUpOqKb4fUagoivScqintzcCb1nC3xQ
-	1v/5BdmU2ptWbdx81p3mr/VZw1OPywz6ed06QeOPFnzUkxkhySZD48u52Mli83KS
-	YRXvfI/A09EtpI3gIbuAjjbyMfSXQnYzUG5oM8wqehIznbpel5GxIzsydihAHCmz
-	mMmUqw==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bkf57acqf-1
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=MdLFsWjHIZRkAMjRx8XyAv
+	xX1n56tujFMjH6H3D6Wb8=; b=fHxPrI0hpdhwKZqcIdv1Lp+YxkCOtUXBqjaXH7
+	GiXa8VmOOMXj+e2LujPib7y+GFVR0yBiwZKCiSWR9Ys6FQy+aGZEiNLAWLjZ+8t2
+	INis+ujViH3bHqd6uiGTIWH45xDJH7ihkH4V0rZqRrbnaXAU0nWxcYOwNkA9vb1j
+	8M+qiEDjJoqygTJW0J4vIGQYk83vgyLtOSqEAf1UDwdZX1j5hD61j4/QvyCjPt1G
+	9ikHpYwY4U/URC/dF3dioKEiAeha1d4tyr7mXSV7ZUK13LMyCc7uPoTaXIKxo62e
+	+QRkaPWfDfda9hE7n9oWoQ8qYc31SNTVqfgW0f2pUfzmYFVA==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bm8kyrefd-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 15:45:44 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8b2f0be2cf0so1526518985a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 07:45:44 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 15:45:40 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8b6a9c80038so610037685a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 07:45:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1768146344; x=1768751144; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GT4B0YFtEOT/3K50u2J8ovIjdID7YchtsEV1tVnlPqU=;
-        b=OcP69vUwGr31jbsV7NrLTdHbObhCPDC2loId/xzSWo3qqMR7SzarRHcWUAt/aCnIAg
-         p+mO7LIq8YncVmBGqZW0rn9+Mxo4iQ33+nJeKN0DUKJ5I9cSFM/IezniwKDMLZTH4nQ/
-         Ri/MiArK3/BeTx/61qC+C8ibyANMThNclvu115igJw1f7pF1RXqGKyUmfp7x9GhrqsZb
-         PclGArxX6ySL1liyDLi/khU5hKhFj9bKEFzRUScs4osyh5InmPNAST/kQOrlSzqqLSHl
-         AgvcAt/VD05jNo10dbvBnn3Qty8fjtf0BzsNF29ftssn7NZ2Fe282lQDty+cIoKE1jmz
-         k3ww==
+        d=oss.qualcomm.com; s=google; t=1768146340; x=1768751140; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=MdLFsWjHIZRkAMjRx8XyAvxX1n56tujFMjH6H3D6Wb8=;
+        b=JgA4w9g0mp1Rpy0Nki6uDM91kfW2dhAj7etyaC4QTXGFAuiw1axDoGDEyDm5WXIonI
+         PCDmh0n6y4oim+hxtVPP4VyqcmKLUDX4NmMUML/Lo8vixbAaZdx8JRbLMSHuWAIT4GOC
+         X+/NbE1ZWbQ5E6/pFIW4AIiiPEV7J0w3ceprV/VPPYM4fgx49ZRgaNv2IZWkRR5Wmv+P
+         I0uAA4dq+z5F/DbB5arTlh8NbcDUndCfxg++jKJx73/TZ4bPgCIyeWwRreOqaBKSemOK
+         3jg6g7qIPKHQvoOCTypokzYiiUEuYi71jnNalpQVW980CZ9omVCzBDMzbEJCXrzUtSCT
+         sK/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768146344; x=1768751144;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=GT4B0YFtEOT/3K50u2J8ovIjdID7YchtsEV1tVnlPqU=;
-        b=mkOio85GtsZbwcdgvj9oTm1V64exlVsQB04+bg0/g+Lvgd8U2L+7cKGUU2ALH83Ny5
-         8lDDBiJi0dY6sbB40MWQOk/Brg1Tc9k5mItwo6MkhQ4o4DRLz7sWa5ztyFpcBll2zW6c
-         xXpMz1u6XYzk6lKajbGY37MgRXIC4O+Mau/06wA0WWK4k9CqJ3EIXUj7On7eJ5Rz0EMi
-         3OMLB1xIfrPtsn4Ke742y2AYzIPIJHWaR/0PP3YdSydtLdIvaOJUj4mdX0EJVrIe6BTe
-         lp9KDJd83uytMklFnUCFiuzzOFRhu6y3I7LzEIqmibmWlUTJjtxgu/kLMiM4AWCrvmBo
-         9lIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUxsxhsBGUD5aKgxcm//SCYDsLJUgy9jdZ6tVJ4lBCDyQUmz9c1SumhOZExMxUdi1M8sU/S7GMNn7hQ1yIsoBVq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhS3DNh5JeQ4WtK+qq9Id7jEaefkkFLjp0OZjY9eboymaPQjoH
-	ck0KbvJHUuS4b5lpLXn4ROBK3N0Iv14d4R1mdK5EiQ7IL50/QFy4zNX+DpU1egS4Pv46BLC9POA
-	abEzZHsxzkjXzlv2MLssGVjdx0Ae8jW9xwTIC57soN5J+3JnZNVhTcBwiPhcl+8P8YfdXhJ37ri
-	ubSQ==
-X-Gm-Gg: AY/fxX7EOGJnvw4YgsmvM3ViHbq+7KhNGOmI40SySuGQwKmcFp/W1LO1Ss6pDB48DJ4
-	nhFuXQSAJ15d8AqpZHM68jVIyyU8/u2G/x8lYM+wXVowS1Sa6wwv4fnTJYiU29zopED/Ruukn++
-	QNbEiOaKoGW0f+ZZRTCIPL90CR/I//OsXvehwP59YVwnwDJQaWbvfg7ALPB7PQmuc2zNbKjWb74
-	CvRvqDNT4n9Vl0gD6lk9PlA0xb75lQ8sRxpG+zGzjyvTH89ikvMo9PndjAaR0FMYlYV35VTsyVp
-	j6ejauyn33FxUt03gSubOBV7J4opcxZtLr8FhjjTFrRyE6JDbUbdu5GSAdxhwpi4qSDcr3YHISc
-	veUYiJzyHuZd13NCc4JvXdslBm/NdveZ2WA==
-X-Received: by 2002:a05:620a:4151:b0:8c1:30f8:c884 with SMTP id af79cd13be357-8c38939e7eemr2071482385a.37.1768146344280;
-        Sun, 11 Jan 2026 07:45:44 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEz9O7YN1enXB0wx3Ws7XQpMqq3t0e2A1DTAisft9TmruPQQQTLdjNv5Jgj+wrAeCnztv2Xbw==
-X-Received: by 2002:a05:620a:4151:b0:8c1:30f8:c884 with SMTP id af79cd13be357-8c38939e7eemr2071480285a.37.1768146343884;
-        Sun, 11 Jan 2026 07:45:43 -0800 (PST)
+        d=1e100.net; s=20230601; t=1768146340; x=1768751140;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MdLFsWjHIZRkAMjRx8XyAvxX1n56tujFMjH6H3D6Wb8=;
+        b=SJWifZD6ELezEjAMXhHGddddG31Vmtzs9QuQT2vRONoEJlo/E7CEqCFvwZmzeRWs7Y
+         o+HYlVHNTVDiM+hphta7+cPPN4JAnhr/Jsfhzhxyk0+qRrU4wLPgloqZ/Pj9GCA5jhqr
+         cQu3NVi0unVqsZYG4eN6saJlwnoCQPpOkc7n+clpm6N7zkMj+yA/uRS9uVzAemvfbwaq
+         RW+5N/YNB+nuqofyWul/Qa/Clv18pIdHolIRmeojFS0DC331/AN6Nn85WvX2ggUjYcI+
+         B52regGW9/B48lcPdk6IRf/y4Bf2Th0nZsl9JAcbdnffCEfoZ9Tyv10JVAsp5echR+yP
+         C30g==
+X-Forwarded-Encrypted: i=1; AJvYcCVrAqmdsjqP57J4sxGV2AJOys7LLW30KU88ui0Qr4k8mSoC8bINJBb2wurLDrIuyVuM4XYab6P3Js11P5UHTWMt@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZVFFYnmGxB/Ymdgzsq81fHbVXqAklZGis/EWAkfE8cTf+RriD
+	t3099kchuV6K7vwT8aUMqhuM+L+5TqfhSZ/RryzoqJPhcHBxRxZifvYzBBNRSMOpE98gq/sEDjH
+	97tx9xVmWs3eJEoMgUGwn1zFl5UldkHbKRczwPQHKRp3wm/xHmrzVNV1IL8vuzwq9uIonJflSui
+	T5PYyyOwCejA==
+X-Gm-Gg: AY/fxX7Z9qp/CiMU4YGR6HZgFkeL4dG+LmxALp1zz6EBZKVQosL4sAzo6HHrfmlyWnn
+	EYzupAj6v/6BMB+AXYgLamkvyYPzn2G1Kpp1Wdb+Ipe3wcb5HW+ri5hvaPASy5VYiYCCDh0dU5b
+	XPlDyDjEeUSaUPRPceMG3bwXBgzv0qCgEYvGksh8zrSD0l8o9sSJijikP4yoTWwEttnQtgr1A/O
+	ekZXZBPZxKhmb79/c3zaiUrnpTjly6WUE6X6kmzTalcJOw7+PIscZ+B4HKvbAFPE9Tn6NlLmCfA
+	sx7H4DGS4qfTPAZFGfyYKPNlUS7WWc+3vDCaSFx+ryQZEETHDv6+KUWgnPYzYP6z4ZDxYPtwuHO
+	PJWNtSdbt54t3mN6NBwXwUMNva456RiEiZQ==
+X-Received: by 2002:a05:620a:290d:b0:88f:e620:21cd with SMTP id af79cd13be357-8c3893df007mr2186643085a.62.1768146339838;
+        Sun, 11 Jan 2026 07:45:39 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFW6HzxxfCtPHKE/LZjMIENnm2+RH/Q9xgNhQhcFP5uBiKOWdPXLy8h/mTMmdTVXAX59wMXSA==
+X-Received: by 2002:a05:620a:290d:b0:88f:e620:21cd with SMTP id af79cd13be357-8c3893df007mr2186639485a.62.1768146339364;
+        Sun, 11 Jan 2026 07:45:39 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.218.229])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b842a5180bdsm1636605566b.57.2026.01.11.07.45.42
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b842a5180bdsm1636605566b.57.2026.01.11.07.45.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Jan 2026 07:45:43 -0800 (PST)
+        Sun, 11 Jan 2026 07:45:38 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Date: Sun, 11 Jan 2026 16:45:32 +0100
-Subject: [PATCH RESEND v2 3/4] dt-bindings: watchdog: samsung-wdt: Drop
- S3C2410
+Subject: [PATCH RESEND v2 0/4] watchdog: s3c2410_wdt: Simplify, cleanup and
+ drop S3C2410
+Date: Sun, 11 Jan 2026 16:45:29 +0100
+Message-Id: <20260111-watchdog-s3c-cleanup-v2-0-fab2d21a2048@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260111-watchdog-s3c-cleanup-v2-3-fab2d21a2048@oss.qualcomm.com>
-References: <20260111-watchdog-s3c-cleanup-v2-0-fab2d21a2048@oss.qualcomm.com>
-In-Reply-To: <20260111-watchdog-s3c-cleanup-v2-0-fab2d21a2048@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAJnFY2kC/33NsQ6CMBAG4FcxN1tCD5Hq5CCrg47G4TgKNAGqL
+ aLG8O42DG66XPLfn/vuDV47oz1sF29wejTe2D4EXC6AG+prLUwZMmCMaaySWDxo4Ka0tfAJC24
+ 19fer4IpQFZUqCmQIp1enK/Oc2TMc81N+2MMl7BvjB+te87dRzu1/eJQiFirJSG9WhLJId63py
+ dnIunoWR/wqEmX2Q8GgZJtSMVXrVHOys95Htzu1bLsuCgMu0zR9APWq4IcNAQAA
+X-Change-ID: 20250830-watchdog-s3c-cleanup-cfa28bf8bb2c
 To: Wim Van Sebroeck <wim@linux-watchdog.org>,
         Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
         Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -111,50 +112,50 @@ Cc: linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
         Krzysztof Kozlowski <krzk@kernel.org>,
         Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1443;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1110;
  i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=81K6U7VafNJyQR2ZQhA/gQisDZ/YzqJjFN8sE3S9KJA=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpY8WgQQOI8xuc4+r7KOXCHUB3EUibNZw62EmtD
- MMnDKY3Xx6JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaWPFoAAKCRDBN2bmhouD
- 1/GdEACXHSiXCBO3zmG9wQ1XItLYf7CTnukRjdr27+vLVZemIeeZXDpraN8MVn6nxSUEZuQ8DYV
- ESDTewwPGB6cX0nH/YlLmMI41ckcffgjLFSwZsZvbV2Ij7KvJ/+Zr+GP3CyyRgxhpMR6hmU5xQM
- RJuoCyZEgsljnceiEOdzatnAXL3dUqyMU+Nc3A78+aFHlrn2O20+Ob/q4QQs52ZK2RRLOovNFdQ
- EumH6G9YBQP6cnoiBasSFZdUT9IqWA8GLujgP5WX6pqSXdy3KgLHM0/OJbai0lZ+ozIrX5mbQQs
- OFLGRXwH6qyGQbwXqbwF8fLpVeNsMDn015u6iOvpLSe628Rty4BanzY9Ofv2Qn2o4sCHUDG689T
- f4Qy0cu7HY0b9EZIu85rFoNFzKhQh7nOC+/0PO0wBiZeWZUxEBVjGxsetyBhaCBHvifIak7RhsO
- NRJcVeGXSnLP4k1B+QG/2YKju4CdgV1muUtonXMfnKV1QTsttXyaIP6uI+c5sCNtsuO7VkL17k1
- Nc7JBUqAlQPXoIlfUHcn7gCtj3zcHaXNz+GODGO3c/KUCTTDU6h0zdGGJmW6hWteDPBsR77dPqh
- kc9e5znP+rHaOEjdjSCcIkV+qgUWnUcS2imEt8FIrBME8xXaWrfhSdj3WrTASXL+0VQX04PmgVA
- sycXjkiLqRbofIQ==
+ bh=kqEEkCIScR5/MiJUkEOuOsx83FqDEKVFeb98ScMf/b4=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpY8Wblt2WfaTlcEgr1PAwJY13vxMXIFXCCFKda
+ xj/csBAr92JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaWPFmwAKCRDBN2bmhouD
+ 16dPEACXNQ0emQHW5KrqNvcneYbX9caV2GX+9qc9llbIChA+tBS9pJcAg9xo5vO3NT+9ENvIZKS
+ RA7l+U6w88Lun43qUQsVSGHb6y1JB2qJ3tT6yG7Dpgv/BWv579cBK6F2ybvBxaJ1JUIcw6Q6t3L
+ tLx3VacvpjtfzYW53mEODH5QYUYQrNktN6xvz/KHjR20awLkvV80e2LK7osJYuOES8TKpaa028Q
+ CCA/k/xhEeTnT7k6IKah+H2hVfjqEVdnqgO5ZmHPZCNFOLhtYYctnbcYJb4Gwnd7rpS4RaRaaqC
+ /vXKyyinTm8NNOFa3YUgQr3x+QCQC0wVBq9PCoyX34hXqirRb6utFArXwneFr+dmDqQiuvFhaHP
+ Ef4rD/KVK0CLK0UJ9PaoetzF9aTk7e2VPOF6YP9EIzXcd3LeZ8ZyNoNWgUMe3yMj1TK/xM5uHwI
+ iZVJAPZzueq9TElLDaEwaUDiPKWjIt5YpxCcdi8yt0rEHHe9unY/DlLZ/5GuBjZsEpiPNdrC9+4
+ YPAUQCmb4HGBtvuHBAGP5uTLd04sFuirS89pRzdTgAaa368ZqZE+kUikZ3Rx2N8BxlrXqwZRCxM
+ +qQ0dBoMUTZ3KONPH4w27eos/4g/qvGgE6K3A4yB8p7tEacydJdxYM0xOd5xKKaLvv4rD6zwkph
+ vhLC5GvtJTDlc7Q==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Authority-Analysis: v=2.4 cv=K/sv3iWI c=1 sm=1 tr=0 ts=6963c5a8 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=Eb9f15NH/cHKzfGOmZSO4Q==:17
+X-Proofpoint-GUID: UlY5YBmAfoNaCHjMZn3ls6r8juxorzJu
+X-Authority-Analysis: v=2.4 cv=ZuDg6t7G c=1 sm=1 tr=0 ts=6963c5a4 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=Eb9f15NH/cHKzfGOmZSO4Q==:17
  a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=_jlGtV7tAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=87NIDPt55Z06IyZ_8NIA:9 a=QEXdDO2ut3YA:10 a=PEH46H7Ffwr30OY-TuGO:22
- a=nlm17XC03S6CtCLSeiRr:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTExMDE0NiBTYWx0ZWRfX7Q1oAPyfOnnh
- 2dSS8Mp67dqlf62HalwrV5JQNZuyACNBVVX2D3kEfGmrMoMF16tN9uypepfaxpGeYkEOL+UvhTG
- SxHFRzR2kwa/hWPV8lki6VD8rROFbX8IiMSUiEzeGh+IpjG//K1nUoXiFNY4uVj5lYhuI+EFv6Z
- vEIRPm23bmxcmAPikN7Nbtakg9lBv292kSZWH+PZg9QrkLDA7vfqWpTiDWRgXjkTGDa5uBKMjW0
- yFulznkEkkzhMX1XM9PiB/Fv68t9W1+KvWB55ljxVzUUG9EFS9qRNHOt9o+I+fEfvDByQaaYBBa
- kkiHYAxiO723uODNY6LwSKhKHed29ev64Zb7s6ncnGipFD3sf/A4q7T0g4W5PfT+CLrntQstcbR
- CFRtdRd9TsVmCJ+0gd79Tvkp5X1FiFYU8wUZvMVm/DdTAwgqDH/Uk6SnLiZNJ29DTUTH+0iVePl
- SSi4nZEaduuZa3+GTfw==
-X-Proofpoint-GUID: TKe1oWdEkiSE7Nj9oZ6td8N05GZmL_PS
-X-Proofpoint-ORIG-GUID: TKe1oWdEkiSE7Nj9oZ6td8N05GZmL_PS
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8
+ a=IkrQgrjNrYqhz69tAt8A:9 a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22
+ a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-ORIG-GUID: UlY5YBmAfoNaCHjMZn3ls6r8juxorzJu
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTExMDE0NiBTYWx0ZWRfX4pIAfjH/5Hqi
+ 5nPaTfaGCoKEQfzdYP4nOUnCAqHUPj5WWqtezOVaw2OYgA8V/fNrGktoli9TbMb6OEcT5KTYq3j
+ zW8a/sWEQXMzLFHmuU2S0U8kmawaS2sMg5xIAfIWsiuJTGs6pENaboXYdbWKgsSuBWPtxNMGWDO
+ OIEbjXq0mXfjng4khvicBkJyog7xSEX/WYVOJRkL7HE/fHNBoZWcBfSXBwES134yeVEiGPfyV6g
+ UAx6UqPi8iZEe25R5M1VYuOQHbqA2gMu5FZZn7cjDTGoNmKumahHswGTzkKw63r80/gZweH4yrL
+ bIpNkhlqhmIRlMp37BZOUwGfTV02btsiGGo87cuXCDdR8RrgblrhSX4H03f/21tVyN6jR2GIkus
+ ifOkldwQGBWxgVEzlMUMtc2FwHHyf58jH2jon5rs6o08vuCSvEIQEfUSYBrLShZqd2ur+IRTbb+
+ d7iiCKJZPZX1T4WoRdQ==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2026-01-11_06,2026-01-09_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 phishscore=0 suspectscore=0 priorityscore=1501 adultscore=0
- lowpriorityscore=0 clxscore=1015 malwarescore=0 impostorscore=0 spamscore=0
+ phishscore=0 lowpriorityscore=0 malwarescore=0 impostorscore=0 bulkscore=0
+ spamscore=0 clxscore=1015 priorityscore=1501 suspectscore=0 adultscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601110146
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_074545_936061_859951C7 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20260111_074542_569425_7219D297 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,35 +170,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Samsung S3C2410 SoC was removed from Linux kernel in the
-commit 61b7f8920b17 ("ARM: s3c: remove all s3c24xx support"), in January
-2023.  There are no in-kernel users of samsung,s3c2410-wdt compatible
-anymore and platform is so old, that there should be no out-of-tree
-users.  If such existed, they would have enough of time to object
-dropping Samsung S3C2410 SoC removal from the kernel (which did not
-happen).
+Resend because it is waiting for 3 weeks on the lists
 
-Acked-by: Guenter Roeck <linux@roeck-us.net>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Changes in v2:
+- None, just rebase and apply tags.
+- Can this be finally applied? It's waiting for almost four months.
+- Link to v1: https://lore.kernel.org/r/20250830-watchdog-s3c-cleanup-v1-0-837ae94a21b5@linaro.org
+
+S3C2410 is gone from kernel, so we can drop its support.  Also cleanup
+and correct a bit the bindings.
+
+Best regards,
+Krzysztof
+
 ---
- Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml | 1 -
- 1 file changed, 1 deletion(-)
+Krzysztof Kozlowski (4):
+      dt-bindings: watchdog: samsung-wdt: Define cluster constraints top-level
+      watchdog: s3c2410_wdt: Drop S3C2410 support
+      dt-bindings: watchdog: samsung-wdt: Drop S3C2410
+      dt-bindings: watchdog: samsung-wdt: Split if:then: and constrain more
 
-diff --git a/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml b/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml
-index 445c5271879f..51e597ba7db2 100644
---- a/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml
-+++ b/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml
-@@ -19,7 +19,6 @@ properties:
-     oneOf:
-       - enum:
-           - google,gs101-wdt                      # for Google gs101
--          - samsung,s3c2410-wdt                   # for S3C2410
-           - samsung,s3c6410-wdt                   # for S3C6410, S5PV210 and Exynos4
-           - samsung,exynos5250-wdt                # for Exynos5250
-           - samsung,exynos5420-wdt                # for Exynos5420
+ .../devicetree/bindings/watchdog/samsung-wdt.yaml  | 72 ++++++++++++++++------
+ drivers/watchdog/s3c2410_wdt.c                     | 22 +------
+ 2 files changed, 53 insertions(+), 41 deletions(-)
+---
+base-commit: f417b7ffcbef7d76b0d8860518f50dae0e7e5eda
+change-id: 20250830-watchdog-s3c-cleanup-cfa28bf8bb2c
 
+Best regards,
 -- 
-2.51.0
+Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 
