@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF42ED2502F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 11:27:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68396D2502E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 11:28:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u8t1mWoIoCHBQcYM0H+Xye3p7uzWHC/iIhrlECUFhaA=; b=bh0XF0qVUWPQ2peroOJO2t379Z
-	thCHRF+Ko8WAcmHQktEVuPsXzSly3HApRoJhwvBsvKDxCvOZo0Iv0fJk3FYcMEd5WolJQFwUlMJmP
-	YKsyBZl9TOZQeAC2ftUE0I5i+stJQSkJgZxaWySlCZSc10JNhjqVnMnxLLcDOFkHRcAs+CkuueKq0
-	KNQyyYcRVlx3HdLPN33JGPRy9snz8Ufw2TK63b3Ulm3KRwe06xkNrqG/+FZiP0oikUZMM146vTAQ0
-	W2aqWTrZh6Yx+kEfhOX9OM40qkKWV473q2NYZszwTGedfY0CEoqJ1nsU9TdSjuZ5Yjhd4ybCm13IR
-	ANMhSngA==;
+	bh=gvheRh8LktWeGtVWVM6ykhWE84yZoiXZmWXKRpk4gJ0=; b=C09sHkVBaMR3B/zKbihm/eWVvc
+	3B7ngyk4omRmpqA8AZqBScPzaxZZCqQHsPELyaNHjObkfG8FouiY7jysH6WvvPB3Bm1qhDDdospDl
+	ZQkL8sFqeTz2cG+niRRDKvfP2xo4GRTDKXYQ3D4unBZhP/41fJAaduzMgM6UKmQVBxQ0nWHz7n9gP
+	cDc/YcQUZpBxqLn7KaUyJNtxcxCgci0oLmOjfbdOBl75RPrXjeOyTxzrpClnJx16EoSa6pCtFUOZz
+	aT6AQzoJ5KP6hIxltyieTeLJfGPvHzo0UFjYI0HKMh06osDB8yfF/T5zI9ucfdMzXVgNIjlOsLUfG
+	sJXdpKBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vetbq-00000004AAs-3yuY;
-	Sun, 11 Jan 2026 11:27:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vetc8-00000004ADi-17EA;
+	Sun, 11 Jan 2026 11:28:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vetbp-00000004AAa-1QAI
+	id 1vetc5-00000004ACr-36kU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Jan 2026 11:27:49 +0000
+	Sun, 11 Jan 2026 11:28:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C544960121;
-	Sun, 11 Jan 2026 11:27:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A56C6C4CEF7;
-	Sun, 11 Jan 2026 11:27:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E2D45419AD;
+	Sun, 11 Jan 2026 11:28:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7EA0C4CEF7;
+	Sun, 11 Jan 2026 11:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768130867;
-	bh=zPJqN9LOFjBLU3yXIud5hCQrNqRO8hEy9xtsO89iMUw=;
+	s=k20201202; t=1768130884;
+	bh=M1Bsni6D6RVLGZjus/6Nt63ykNrOSd/EHntlKluKE8Y=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Mesbm3KUH2NTKvitxJ4A6J5ojU4QwFDRyDqYGemjJqlZz9qQdp/ewBcgawxaAxkiV
-	 SJenBudsWtvqKSU0xSAPjXvhDA6rb7miPKt9z7d9vOvTkNhHKAgocV3mMmXjGVHqJo
-	 hgxgkN5S022OS7eTPrXbNLJrG8Uhts9EdUd0/4X3iDnt/pdnPvHsMfB10Rkg5NlpZS
-	 cARSrXHHPuAzHWPg0lqunnBJYc4g6HKKtrwOXR+yYdHCS+3K9uySBDoQXRvh9CTynq
-	 Gn8cJ+gI6XDgg+MBF5oAxjOVA0VTptrVz9M84hLIDdQX90lAnlm31WrAqJUKOQwPUJ
-	 w6UtB6lPmjCVA==
-Message-ID: <a4e11134-3035-4963-a434-db168da32945@kernel.org>
-Date: Sun, 11 Jan 2026 12:27:41 +0100
+	b=iK4bN0LQLNYftFBBeVXcOa/+Ly4OcHB3rhGbjef2emVm7ZX6E75BaCuAZCwLNpZB8
+	 FE5bXGADz5KaUxiFRwyxg60juvcEeWMwMLbKwDLE0ERDKCw+rSsBQbb2JLfxBb/2j4
+	 pHrNsWquEirQS3DjDH/ZW0dcZ19lKOE0DOWshTLwXFYyLfQU/y7i2wE9Rhhn1LMyI3
+	 gnWJlzCMnEt/dI0M6bBSUHF7NgZMbhiNenFUJg6B3dAxRlGbquHZ/P0eu41IpNNGM1
+	 kGtNaRG1i8apCXFNrvjzPwT0lLgE1KEC3mq2jCTn+KJj56LfS/PAUOBIwMTsNKPh8r
+	 vDvXejfGwYSXQ==
+Message-ID: <322e13df-5146-4dab-8f2a-6c635c82eb70@kernel.org>
+Date: Sun, 11 Jan 2026 12:27:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/11] dt-bindings: bus: document the stm32 debug bus
+Subject: Re: [PATCH 02/11] dt-bindings: pinctrl: document access-controllers
+ property for stm32 HDP
 To: Gatien Chevallier <gatien.chevallier@foss.st.com>,
  Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
  <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
@@ -61,7 +62,7 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-gpio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
 References: <20260109-debug_bus-v1-0-8f2142b5a738@foss.st.com>
- <20260109-debug_bus-v1-3-8f2142b5a738@foss.st.com>
+ <20260109-debug_bus-v1-2-8f2142b5a738@foss.st.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,9 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260109-debug_bus-v1-3-8f2142b5a738@foss.st.com>
+In-Reply-To: <20260109-debug_bus-v1-2-8f2142b5a738@foss.st.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260111_032805_824909_23AC4043 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,141 +129,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 09/01/2026 11:55, Gatien Chevallier wrote:
-> Document the stm32 debug bus. The debug bus is responsible for
-> checking the debug sub-system accessibility before probing any related
-> drivers.
+> HDP being functional depends on the debug configuration on the platform
+> that can be checked using the access-controllers property, document it.
 > 
 > Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
 > ---
->  .../bindings/bus/st,stm32mp131-dbg-bus.yaml        | 86 ++++++++++++++++++++++
->  1 file changed, 86 insertions(+)
+>  Documentation/devicetree/bindings/pinctrl/st,stm32-hdp.yaml | 4 ++++
+>  1 file changed, 4 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/bus/st,stm32mp131-dbg-bus.yaml b/Documentation/devicetree/bindings/bus/st,stm32mp131-dbg-bus.yaml
-> new file mode 100644
-> index 000000000000..68bdfba08909
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/bus/st,stm32mp131-dbg-bus.yaml
-> @@ -0,0 +1,86 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/bus/st,stm32mp131-dbg-bus.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: STM32 Coresight bus
-> +
-> +maintainers:
-> +  - Gatien Chevallier <gatien.chevallier@foss.st.com>
-> +
-> +description: |
+> diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-hdp.yaml b/Documentation/devicetree/bindings/pinctrl/st,stm32-hdp.yaml
+> index 845b6b7b7552..75054c1e4044 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/st,stm32-hdp.yaml
+> +++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-hdp.yaml
+> @@ -27,6 +27,10 @@ properties:
+>    clocks:
+>      maxItems: 1
+>  
+> +  access-controllers:
+> +    minItems: 1
+> +    maxItems: 2
 
-
-Do not need '|' unless you need to preserve formatting.
-
-> +  The STM32 debug bus is in charge of checking the debug configuration
-
-What sort of bus it is? What protocol? Looks like rather fake wrapping
-node. You cannot just organize children in MMIO and call it a "bus".
-just to justify having child nodes.
-
-> +  of the platform before probing the peripheral drivers that rely on the debug
-> +  domain.
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-
-Drop
-
-> +      - items:
-
-Drop
-
-> +          - enum:
-> +              - st,stm32mp131-dbg-bus
-> +              - st,stm32mp151-dbg-bus
-> +
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  ranges: true
-> +
-> +  reg:
-> +    maxItems: 1
-
-What stuff is here? Your driver does not use it at all.
-
-> +
-> +  "#access-controller-cells":
-> +    const: 1
-> +    description:
-> +      Contains the debug profile necessary to access the peripheral.
-> +
-> +patternProperties:
-> +  "^.*@[0-9a-f]+$":
-> +    description: Debug related peripherals
-> +    type: object
-> +
-> +    additionalProperties: true
-> +
-> +    required:
-> +      - access-controllers
-
-I don't get why children need to reference the parent. If you have such
-relationship, then the access-controllers are redundant, no?
-
-> +
-> +required:
-> +  - "#access-controller-cells"
-> +  - "#address-cells"
-> +  - "#size-cells"
-> +  - clocks
-> +  - compatible
-> +  - ranges
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/stm32mp1-clks.h>
-> +
-> +    dbg_bus: bus@50080000 {
-> +      compatible = "st,stm32mp131-dbg-bus";
-> +      reg = <0x50080000 0x3f80000>;
-> +      #address-cells = <1>;
-> +      #size-cells = <1>;
-> +      clocks = <&rcc CK_DBG>;
-
-So the same clock as child? Another argument that this node is not a
-true bus node.
-
-> +      #access-controller-cells = <1>;
-> +      ranges;
-> +
-> +      cs_cti_trace: cti@50094000 {
-
-Drop unused label
-
-> +        compatible = "arm,coresight-cti", "arm,primecell";
-> +        reg = <0x50094000 0x1000>;
-> +        clocks = <&rcc CK_DBG>;
-> +        clock-names = "apb_pclk";
-> +        access-controllers = <&dbg_bus 0>;
-> +        status = "disabled";
-
-Drop
-
-> +      };
-> +    };
-> 
-
+You need to list the items. Why is this flexible?
 
 Best regards,
 Krzysztof
