@@ -4,58 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 678D8D2502F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 09:43:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A3ED2502E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 09:57:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ID3O/iSRwCfPDjcjef+NGI7L+mnPMxPUfAKDOJpkvc=; b=Xu9MwX1uVYpSZBnm3cRaoutsnW
-	TyTbIim6Xf5QGcujDoxMBydHZKrKvbD5cmtr7piyhHDCUKsA0PV2C3KzD06dQhC+gCli/hr8TjCA4
-	IZ5xVWqnL++Oyr5IY2K2TsZeumG35mXndoBMNEiWyBJiuSop9mykOLSPYUCP9PzUZlgYiqsG7lcN0
-	WIqFbMUVUutDS0q56s8g00w7SIh9MoqQCoFGhDpj0jj0HkzBfsgRCexQZ0iXp1Y3pkXfvXrX1LKfK
-	z/raDUpJoKnGA19CsJEbhAx+d8xJJU7uPS1BfJaHgRM3OUifKy/UY9A71ZwWjdXV+mfR2zf53a6px
-	RFI2QDqQ==;
+	bh=AB3v7OgmGAFXgsD5TNTtmR8HIva3gfSgg42d7+KBJoQ=; b=pNcPSnGDLUPxFzphAJRjsESmZv
+	/hNw+r/bbZUVjMjSJm+IJ7AO8XcAMzLWnKPpEcDxnYdnWghC3ht5TDVP5VkQZR28praQLCxWAPJNE
+	Nr/K7nwkOPm2cr59wP9VGSmUgYpLgk4IxUYLFJ8qhX8Bh1zL04wYJCu1zejlJlBAw+MTTEytUY9BC
+	z+lNHriE/mzR3gUd3u/P2bIKVlIs/0qa2WE7TQEWuPjU2uoyqZK5WIweBCfEoMy/todWq8NADzDQj
+	G589a7BNs73wz8J1NppsnHk0X/oJ5Ma5tCdtGK3AkyhYaRX4plpVhG8FQqmWCgPaWwxa/7GZZe0+7
+	5VgEGkVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veryM-0000000462C-27xb;
-	Sun, 11 Jan 2026 09:42:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vesCU-000000046eJ-1d7e;
+	Sun, 11 Jan 2026 09:57:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veryK-0000000461y-2yLG;
-	Sun, 11 Jan 2026 09:42:56 +0000
+	id 1vesCS-000000046dU-1Ejd;
+	Sun, 11 Jan 2026 09:57:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 19EBA60122;
-	Sun, 11 Jan 2026 09:42:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 254A5C4CEF7;
-	Sun, 11 Jan 2026 09:42:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9807E404DB;
+	Sun, 11 Jan 2026 09:57:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAC93C4CEF7;
+	Sun, 11 Jan 2026 09:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768124575;
-	bh=+KYg75XD2jPTkQn0jSbd/Ju0N5oE/9yFt24CvhVjjF4=;
+	s=k20201202; t=1768125451;
+	bh=LcuRu7QBMVQ2NhCxvzk3SrGkmWCbJuuznLmrWMirm6U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nkxpWjr5krlraBYJpOyEoLkD/j9RtNsltvlMk4e6kPxnIjwDwHP+O6qSAm+HDo3Op
-	 5fD//dGEsW+NVcpmzQuUs4D6+hbOqBIurRVMfpt495YKt92XA/414ATIPoREdDzv+7
-	 y/jkmTrQ94XUmiLhP38yZ3qtZd4bdnj9JgnDFf+RDZTzgzXmoxXj8KsaGs4KlmcwcU
-	 MrvZXOyKWeyGE+XPEDo3q6+aQqgA4ONeL5FPprvGH60zZ1x+JKNj7nNCr16oINtihy
-	 5CBEshZKw3yG1xHMA8eft1M/n8wPCc6YxOwgVDEWyhHXQmIUsA3ivHIDi8WYah5K+I
-	 Sx5HpR7ZLqtnA==
-Date: Sun, 11 Jan 2026 10:42:53 +0100
+	b=nryXIcz/zs/Ou0XiVWVTj9+U+2Owemv+Bs1AENv376qAXdoh5hMBCvQESHkzASTU2
+	 FNEdvOjZs1Figt8SpVT0Jk38x6fE40lym6uH0Czcw/13+/nOt2z0FVPrAGOSqiCvrn
+	 Y3v7XVNX0XnhcxTpSmBaJOlVV7gP6V5TeaWdz1JfmGcO/EAevCrQPs4JdtqAribTWR
+	 aBVQn0tzVvAzUkH8APmUYZF9zZZSQOrC5koXRdXNoOfsCyBOqDtanyLldhIt2KP3I2
+	 D3FwaVFgpeVnEVj8HjGB2nUEyhQPjSbK47pmWfrnngvfnIMoIcfyFCaEf2QAVZUjLV
+	 Exu9gvjg7h1ZA==
+Date: Sun, 11 Jan 2026 10:57:28 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Marco Schirrmeister <mschirrmeister@gmail.com>
-Cc: heiko@sntech.de, ulf.hansson@linaro.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 3/3] arm64: dts: rockchip: add stability quirk to
- NanoPi R76S
-Message-ID: <20260111-utopian-vehement-lori-50cbca@quoll>
-References: <20260110010715.1610159-1-mschirrmeister@gmail.com>
- <20260110010715.1610159-4-mschirrmeister@gmail.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, matthias.bgg@gmail.com, sjoerd@collabora.com, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH] dt-bindings: mfd: syscon: Allow syscon compatible for
+ mediatek,mt7981-topmisc
+Message-ID: <20260111-screeching-bullmastiff-of-resistance-ae7db9@quoll>
+References: <20260109114356.36454-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260110010715.1610159-4-mschirrmeister@gmail.com>
+In-Reply-To: <20260109114356.36454-1-angelogioacchino.delregno@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260111_015732_402275_6033D023 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,29 +73,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 10, 2026 at 02:07:15AM +0100, Marco Schirrmeister wrote:
-> Enable the 'rockchip,disable-runtime-pm' quirk for the SDMMC node on the 
-> NanoPi R76S to prevent bus instability and retraining loops during 
-> idle periods.
-
-You miss some other properties or fixing driver and solution is not
-adding such properties in DTS. Nothing like that belongs to DTS.
-
+On Fri, Jan 09, 2026 at 12:43:56PM +0100, AngeloGioacchino Del Regno wrote:
+> Commit a95419ff9f21 ("dt-bindings: mfd: syscon: Add mt7981-topmisc")
+> added the mediatek,mt7981-topmisc compatible to the `select` block
+> which is used only for compatibility with older dtschema, but did
+> not add it in the actual block allowing to specify the "syscon"
+> fallback compatible, which is required for such node to do anything
+> meaningful in the end.
 > 
-> Signed-off-by: Marco Schirrmeister <mschirrmeister@gmail.com>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts | 1 +
->  1 file changed, 1 insertion(+)
+> Add the mediatek,mt7981-topmisc compatible in the right list to
+> allow specifing compatible = "mediatek,mt7981-topmisc", "syscon"
+> in the relevant devicetree node.
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts
-> index 31fbefaeceab..90a798ee9e68 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts
-> @@ -754,6 +754,7 @@ &sdmmc {
->  	disable-wp;
->  	no-mmc;
->  	no-sdio;
-> +	rockchip,disable-runtime-pm;
+> Fixes: a95419ff9f21 ("dt-bindings: mfd: syscon: Add mt7981-topmisc")
+
+I don't think original work was tested anyhow on DTS because it should
+report unmatched device nodes...
+
+Thanks for fixing this.
+
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
