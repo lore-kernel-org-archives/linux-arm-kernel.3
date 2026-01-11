@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65068D2502E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 14:05:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8707D2502E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 14:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0XwABaHQba0TZXE5KSskxvkqQOly72ac18mmHR+qtCY=; b=0b7wNNNCz5yuK7LC9aMGeHAYYH
-	kDSyY/97QbE7hWZzSoTLKKmoPekf6oVXWdxB67Zgc/pgl0/L7dgsi6iez7Wi/G9DpezhosVyjKcWG
-	69dkQICMqhYp5gd18+vW9rtB6yAmLD6FQOiMRX0QRGdbqV95vuc/uSZboGjiPzvs6Ij4B9TnDBdD/
-	5YHIXkrTTLnScDIxbCmKyXJ9R8Iy0cO3kxWkfxdSqky2A1zXgws3hyaXn6QBcHY5DDx7slQS/zQx/
-	e6Gj7OJ+D6CCQ0n2UIJGVyp/3wey6I2u66/I0bL3vgZR7ZEGyJ5yOwklUDqMwbVKTkcOFLohhegiM
-	OE0bcahA==;
+	bh=8NCh2RDJxN8hiZ1nJoik35Pfikr6nPePDpNs7w6splE=; b=Oy7NJerNcpv+Ub/pl48croofyg
+	rIWxobAXGgOSrbfJzSBEG+2Y42WSk3DYYeFeU1mkoZaWB5wJrWazeWPIJB83oWGxIfNkc7BCnd2hR
+	7mwcM2/6PZxtmkzl4EAnQZCLHVE0mrgxWZ0CgmkF6E3NvRK7KoGo4mVlJICv92CSCDiQaiDjIAN9J
+	iuw1jmssagLihJEW96ex5ahzZ1pbT+MqL1D0PnI7NPrUUFSB+Etbpi9AYnSEoqWKZCKz9Lu3+Mt9J
+	BsSYnWOrsBuv0CKBgL/U7tV7HtnBT73cBy2pANl3qiPQC3Jk0jelmigFij61oWkXYGv3FABdpSRsa
+	3WMWrG+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vew3x-00000004GyM-0tSH;
-	Sun, 11 Jan 2026 14:05:01 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1vew4E-00000004H18-0iY7;
+	Sun, 11 Jan 2026 14:05:18 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vew3u-00000004Gxg-0V4t
+	id 1vew4B-00000004H06-2JUf
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Jan 2026 14:04:59 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-64dfb22c7e4so7701030a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 06:04:57 -0800 (PST)
+	Sun, 11 Jan 2026 14:05:16 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-64b608ffca7so8664931a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 06:05:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1768140296; x=1768745096; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1768140314; x=1768745114; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=0XwABaHQba0TZXE5KSskxvkqQOly72ac18mmHR+qtCY=;
-        b=U2U7ij+SZTEmWYP/rN6FOGqdh7CNxxaCJHzrV2mL3CkCppXYIq3VBbpTWadLQRnxsA
-         Igp/FfbHNBax92RxX2dQpy8ra4wU3VqUbV8fYAqV7TI9t2dRiMnUfDM7G70BVRT+U7Ou
-         Un5mahiNhcv8JsktZu1o4BRKcUqR2YJXPv+O4fWoaBn7GEekml6MHP3oHaJKg1f8BpnV
-         ADx2yRMV1FnS1solDu8cBDbNIC3e0346cvgWw5BLNTDrwbpjcXYCsWFGkffJzrNFIfze
-         sqgm+e4JcVciGDJBSavITit8bolblKg0NYfjvHmFgJF035gXG37kTLS3uxwnSe0ywdkM
-         xEvA==
+        bh=8NCh2RDJxN8hiZ1nJoik35Pfikr6nPePDpNs7w6splE=;
+        b=oA2oVoQvDlqYgLgpjWmZQcgO25aOe3dCd8v5Rga5T0cp0SXts0pw2itfEpTLJC9Qr9
+         1awkEwzvUkCOty0yxByuzdLqvcUdNVR46D98YUbCDwNL4bVosHFquaAlzp6MCvTOjwsQ
+         wEJlDGnfbCdF6gnwh65gOgIIhmzqSdfgYMM2fQBgXRgYfARQRNiPBUSFjoTVfFIyuTqf
+         SKSHXOYMvqIcuOS7D/hQVRy3l0ZU0O/dWr3pMz6NkrAgLb5JWY5zSc1KFAZ8KtKhUlwm
+         J3NrSC4wwKUrtk3p8KxKPWFf3d0xLXaMcJC4LBAg7HTkI9bgDOgst+p0n4G5BJlhBWQb
+         +ItA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768140296; x=1768745096;
+        d=1e100.net; s=20230601; t=1768140314; x=1768745114;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0XwABaHQba0TZXE5KSskxvkqQOly72ac18mmHR+qtCY=;
-        b=YCkpaxbvHh0CEgvJZRhRi1SBCnMh8DSKVREQzaLz5haDCM8ezA/qDVd0RdtzR1z3m7
-         bTuKoTuCxv9pEKj0vHBtRUuXwUIres6PMZsYvI9BevW5+KADDHDXyqpxAR5i0Wmpq+ba
-         ZTzHe0YjZwQpk3ZatUxCUcU+nI2RKl4mK29AgkDPtrZZNQpYGMRjmow5pXQkAwuX2/gG
-         llXoNO+jjUIQ/Saec0p3TaRYekEDHbH/RiumJEWmpCiz6NvMxu1IaibloTs3+i2GnoB+
-         vBDACP84LNnU1IHO8Bps3cMKLeAHVo6ZnOa2FtfY0zocHVlwnoA7do5Xypa1K/deTOb1
-         /P5w==
-X-Forwarded-Encrypted: i=1; AJvYcCXAuEVhSIeDVlEX/si5zKYo/XEzo2bOB396i5JaewcssPiIHlNNXbzGyH4qdSQ/F71GAofBM9C+5ieE9leitT/c@lists.infradead.org
-X-Gm-Message-State: AOJu0YxM5+KXaCeCQB2LICnsAdoPBBWXYGTWZkB40CcD6ym1l9vNStqW
-	cyKs3SqcT8wF2XGbaBWvIhfeo6HvWKYnMVVHIrp+1aZu952cXIoDa2PHbAkHQZA62X4=
-X-Gm-Gg: AY/fxX4ThTwjdUyt4FBshqPm7AgGG9LYDZ7FDngIa7dq/EldBi1dyNKdIm8tFOkyUoh
-	zbjhEmsvPZ8Ejf+rrRHVHlox3WzzCrVasBjZN8Hv0Khy8Z+x5pdb2yn4jqdy6X+/4lx9WeGR+7O
-	NagHw6haHf5pAbOpIKEwfQwXsCh3oOi+t6/TgfZMb5XKdoSLbVsw0bzbl9v+U2Z4VPoXtrHmu5t
-	/3URQRTT/oewUOXz6KBs/jd40Z6SanaL0vCEA3JiOfMRhTzs765EdLNEBcbhVE7VO3jmOlF7gst
-	93cMZnxx5J+7pQ5AZnKQfHtiBTV1ua+NPpTJkYexmbgH7/6x2vhxAdRHGdHMQcGR2A/193plt8D
-	1KVCzpgidCFk7YSXGWYj6h3GpE/d4N3zaGG/nd2nYyTzRaoRdfyDFijUpOUSM1PD8wmijdOpKSP
-	Pt+2CDM9pIHdwvx+dnKhfFTyY=
-X-Google-Smtp-Source: AGHT+IFH0IHMLB/e9VMPw+PNQvxklsKe4TmQmjkQDY/3vRiOU9XAUjD+Bmvv1dPy8Ir0WmHAJUU9Lg==
-X-Received: by 2002:a17:907:a08:b0:b07:87f1:fc42 with SMTP id a640c23a62f3a-b8444f488f0mr1766243166b.16.1768140295378;
-        Sun, 11 Jan 2026 06:04:55 -0800 (PST)
+        bh=8NCh2RDJxN8hiZ1nJoik35Pfikr6nPePDpNs7w6splE=;
+        b=wiTyX8AX6RE3edWz6awqvc7sAhFBgWVHeli+PQetFGJlwZ0CtF0n0E5k9FPQarK7is
+         JX1LZe21sp2b8NX3WbtoPyYnYf89UnD6is55MR+ZFdBZHnt0wOR6YmfhUazAvBEUEBvY
+         qerih5SGjNBdjj1azSlsYW7yJ+/U41/peX6bpMYJ6cvf2CRTBcUb5g4fgjSrXbdiUEGO
+         QWQTwClm63YqU0ukyxovgVJWcAiOVJ1F0ufjGY5JPd0MjHjg4/WQfM/VLWQeLMY9EHn4
+         EkDbkLatXVfslFBsuWp3pFz85asy5tr2M30ZxHsmYHXqZ2qJxwSoPuVjelvMTbqrB/Wo
+         aQ0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWipVNY9jRFysRKaT0mrb63Nxyp96npwwxQ1b5s4RgzrOgPIWqAY2oacz8qdFzFF3p8icHHsFk7h1t4k0ppsXKv@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoIg0JnLXK/qFVCaPGq22HhaBvMnkICEEX3OYckQW8sLFGQV04
+	T9wjwfRLrxlf5t4wnDWIAlXafMRE+Q6FlyJs6gPVNvi5+epNzNrs8gb8mLtLkWl7/gs=
+X-Gm-Gg: AY/fxX5JzWlCDS9hLxGVIL+WhHlgMfjRfG5Nk8MN0/DAgj9ZDMKunYyjzqtrvLnKupl
+	8sECUGmcRRdZnl7Z4dMh4HiWJfhRaSKYZ6/b8ruYSxkf3+gcmKsxAs278TVAcZCSyr4aTz/itZv
+	CZV3zWsPhchmDuDiZVYVsbPREsM6iIRcj6YGxBKERIWePC8dSWqxoJ8xu/Rh8SugxY32efN740s
+	agM+b0aCakylf3rDZ2YL+ssU7cnwLxdkDp4x0LMIvq5QZjZeiyG1ddirAH3WSpK+E72zVlsGvh4
+	jYdicx4NNlZJTBxm+WNqLNA7qZAqxRkR+zyAIum/3z9tEbmOOWIiIYMlkQ9Oje2lKJ4S5KPsc5U
+	wosTEFkX8ORJHx5R5CZ5dkA0zjNdmXr7uw3Dyh6GZiskhWZBQrtfm1q5jfxjQzsdVEeLDZ4uuHj
+	5ytpy0Esrc6G2YK1PZr3f1xkefRwPV9YqYPw==
+X-Google-Smtp-Source: AGHT+IHX4kBq5in8WgxEwJr9XbVFlnt6AItwyKhU9py/NMR0woB2X72z7DmCdf3HQxhQaT3H7Zh1Jg==
+X-Received: by 2002:a17:906:ef0b:b0:b84:365f:10b9 with SMTP id a640c23a62f3a-b844522a6cfmr1333268466b.29.1768140313496;
+        Sun, 11 Jan 2026 06:05:13 -0800 (PST)
 Received: from [10.216.106.246] ([213.233.110.57])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b86f0d6d7c6sm455055266b.42.2026.01.11.06.04.49
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8709d11b90sm221829666b.12.2026.01.11.06.05.08
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 11 Jan 2026 06:04:54 -0800 (PST)
-Message-ID: <3f82d755-552a-4074-bee4-b2660eb6a979@tuxon.dev>
-Date: Sun, 11 Jan 2026 16:04:47 +0200
+        Sun, 11 Jan 2026 06:05:13 -0800 (PST)
+Message-ID: <1658b580-cf63-4f57-be1f-0691cc4934c5@tuxon.dev>
+Date: Sun, 11 Jan 2026 16:05:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 01/15] dt-bindings: usb: Add Microchip LAN969x support
+Subject: Re: [PATCH v4 06/15] dt-bindings: rng: atmel,at91-trng: add
+ microchip,lan9691-trng
 To: Robert Marko <robert.marko@sartura.hr>, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, nicolas.ferre@microchip.com,
  alexandre.belloni@bootlin.com, herbert@gondor.apana.org.au,
@@ -91,18 +92,17 @@ To: Robert Marko <robert.marko@sartura.hr>, robh@kernel.org,
  linux-i2c@vger.kernel.org, netdev@vger.kernel.org,
  linux-gpio@vger.kernel.org, linux-spi@vger.kernel.org,
  linux-serial@vger.kernel.org, linux-usb@vger.kernel.org
-Cc: luka.perkov@sartura.hr
+Cc: luka.perkov@sartura.hr, Conor Dooley <conor.dooley@microchip.com>
 References: <20251229184004.571837-1-robert.marko@sartura.hr>
- <20251229184004.571837-2-robert.marko@sartura.hr>
+ <20251229184004.571837-7-robert.marko@sartura.hr>
 Content-Language: en-US
 From: claudiu beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20251229184004.571837-2-robert.marko@sartura.hr>
+In-Reply-To: <20251229184004.571837-7-robert.marko@sartura.hr>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_060458_335231_5DA20659 
-X-CRM114-Status: UNSURE (   6.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260111_060515_617417_781E585E 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,10 +120,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 12/29/25 20:37, Robert Marko wrote:
-> Microchip LAN969x has DWC3 compatible controller, though limited to 2.0(HS)
-> speed, so document it.
+> Document Microchip LAN9696X TRNG compatible.
+
+s/LAN9696X/LAN969X ?
+
 > 
-> Signed-off-by: Robert Marko<robert.marko@sartura.hr>
+> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
 Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+
+> ---
+> Changes in v3:
+> * Pick Acked-by from Conor
+> 
+>   Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml b/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml
+> index f78614100ea8..3628251b8c51 100644
+> --- a/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml
+> +++ b/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml
+> @@ -19,6 +19,7 @@ properties:
+>             - microchip,sam9x60-trng
+>         - items:
+>             - enum:
+> +              - microchip,lan9691-trng
+>                 - microchip,sama7g5-trng
+>             - const: atmel,at91sam9g45-trng
+>         - items:
+
 
