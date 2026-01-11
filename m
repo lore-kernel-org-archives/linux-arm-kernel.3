@@ -4,60 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F5D8D2502E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 10:40:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA63AD2502E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 11:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QxNZNklVrEMXLNQqOVDX0u6frYhqRRN/CqreVHI4oEw=; b=Qp+uePUruTN8TLL6q0Gq5Ol+hb
-	oNVVzX5vYPfGnsj5/TMRuBxUAuJ/0DTnucDgSPTVaxi/2W9JpVRCVp3C1totjs4aw2+84KA55PwVH
-	8a3OT/rBlOQ73KdYf7Dp8bx3/JQb8ppAPWlhorDDDXh5RiUHEEkzoHnoCT1b9FqdzWsXuPduxY2fi
-	g99rgnj23x9i6tbs54vJQ2lInnJqbMqLjnndCcx1eNA74iwmGOmHcWV3gsun9WVvz5oOBc1n87Se7
-	yYeL1f0Da1A+Z8oWqPW5LSJFBjYD4q0BAhNb9A+hsO8HIKQowEr4bngo4/X5xbaZgCCcPB52SUsZk
-	n//oqnog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TunzenCd+u9zWr6JFFS5Gm8kiWj2I4Ax7nybcEGYLuU=; b=GYq7Q920p2fKjNKbb8pwa6XMb4
+	bSaR+Y0eIPlvfuC8OCAZ7vBhJLPhUARlaiQKceRE473orRi8//ZJKpQyRjmZ28WkXOlQInY6WOvjZ
+	wlasR+8jsKd6ltAsSlpl09GhlAHIdKICYAjE2ZtsPM6ktOpQp8c1sHV5QB2O7qQRuGpi7sR6cD0y1
+	/9krxYECU/GAelp7m6vGHiWpdaD0x4L9MGa7BqcFifWzMPsUBRPmbbn24zrIckYOEOobr14Zy0qsL
+	qU4pTNtA9DvCQlac63i3Sw5hbL0akYlgIbjn4H6zvuWj/o/+xM6Oy7iN8+nhnsnrMnYBCn2eXAyJN
+	KqvBzatQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vess8-000000048X1-2cGc;
-	Sun, 11 Jan 2026 10:40:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vetS5-000000049Xu-1L7G;
+	Sun, 11 Jan 2026 11:17:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vess6-000000048WW-1S36;
-	Sun, 11 Jan 2026 10:40:34 +0000
+	id 1vetS4-000000049Xk-1drX
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 11 Jan 2026 11:17:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5ABD560121;
-	Sun, 11 Jan 2026 10:40:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 849A4C4CEF7;
-	Sun, 11 Jan 2026 10:40:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 72EC660010;
+	Sun, 11 Jan 2026 11:17:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DD7CC4CEF7;
+	Sun, 11 Jan 2026 11:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768128033;
-	bh=jNXP3T+QGdDwl9VpGDdEjw5Gc/3zONZuRVJyjdi8Pkk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LEpqqfbTdpthCVE6J0syaQoiZT2GHX1BJ0Vi6SGyDNQPjuBqWFhDD7Fhln71NRRhL
-	 vZAKijff4tkh2P/A7H0F0C2A9iCldzCSkBc+q0I3JGFhbqYDb8EMELwOxJE61Q+Nqh
-	 153M5K85RLeQSY2/3iPPKDWSfZiNPzuW99J5ba/rGBwJhIWK2XpXvgjqkolYfEvRRo
-	 uPML9sqLEL3uzznP9whlcMWiW5b5VMvr3SWc+ZJacbQvMjbObiTC5hDIGTpvdEk9I5
-	 u/rUfkCDl1rys1yiHWfSZ+ZL6ehammbuff6iFUUxFRa0LK5R04Z1BnbEda1jnR1UmF
-	 aQs09toTbrGjg==
-Date: Sun, 11 Jan 2026 11:40:30 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Tzu-Hao Wei <twei@axiado.com>
-Cc: SriNavmani A <srinavmani@axiado.com>, 
-	Prasad Bolisetty <pbolisetty@axiado.com>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org
-Subject: Re: [PATCH 3/4] MAINTAINERS: Add Axiado AX3000 eMMC PHY driver
-Message-ID: <20260111-watchful-pigeon-of-brotherhood-6ada05@quoll>
-References: <20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-0-dd43459dbfea@axiado.com>
- <20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-3-dd43459dbfea@axiado.com>
+	s=k20201202; t=1768130262;
+	bh=VnzbfSMNiVTlSPudc+sJSs2BKx30kpCzZs5U19FHAYo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YhE1dCTaufX450kIpaRRevLEkb9fifuxhgIG2vcpo57b6H4efw2PvgTWz2wqIoGgX
+	 niBGeSokwoqEUJjVZCmxhFalEJ/cr6RR7EtV7SnvkxJrGR6ypWkj2DqulacP4tUXly
+	 mQ3nH8FC/r9y608aS44kCS9nYzFi1YbZBvmzmjkxdPO4VPtFNcNdwShATmez3SUxug
+	 jY173nCCo55YFaspA/H1obds39wKAMGY24x3qTklwUseusCDJbWOKgOwt7+wN/glnJ
+	 IVy++BuWd3O0vgznqUUtXPyBnRSBKkouUbLSxAMbsdXjZYT/eijDr3eaMD3dd8wA7J
+	 ybZrf3al6go7w==
+Message-ID: <17bda2f2-ae4a-4744-a1e0-05cce6686087@kernel.org>
+Date: Sun, 11 Jan 2026 12:17:37 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-3-dd43459dbfea@axiado.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] pinctrl: samsung: Add Exynos9610 pinctrl
+ configuration
+To: Alexandru Chimac <alex@chimac.ro>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Linus Walleij <linusw@kernel.org>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Tomasz Figa <tomasz.figa@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260102-exynos9610-pinctrl-v3-0-3f21f2cfb651@chimac.ro>
+ <20260102-exynos9610-pinctrl-v3-3-3f21f2cfb651@chimac.ro>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260102-exynos9610-pinctrl-v3-3-3f21f2cfb651@chimac.ro>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,50 +120,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 09, 2026 at 05:43:31PM +0800, Tzu-Hao Wei wrote:
-> Add SriNavmani, Prasad and me as maintainers for Axiado AX3000 eMMC PHY
-> driver
+On 02/01/2026 12:29, Alexandru Chimac wrote:
+> Add pinctrl configuration for Exynos9610. The bank types
+> used are the same as on Exynos850 and gs101, so we can
+> reuse the macros.
 > 
-> Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
+> Signed-off-by: Alexandru Chimac <alex@chimac.ro>
 > ---
->  MAINTAINERS | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index a0dd762f5648b7e4e6fc62560662e43720422e01..6d1af11eb289ffb7c0d8634ac7d8f903aed1799c 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -4250,6 +4250,16 @@ W:	https://ez.analog.com/linux-software-drivers
->  F:	Documentation/devicetree/bindings/hwmon/adi,axi-fan-control.yaml
->  F:	drivers/hwmon/axi-fan-control.c
->  
-> +AXIADO EMMC PHY DRIVER
-> +M:	SriNavmani A <srinavmani@axiado.com>
+>  drivers/pinctrl/samsung/pinctrl-exynos-arm64.c | 117 +++++++++++++++++++++++++
+>  drivers/pinctrl/samsung/pinctrl-samsung.c      |   2 +
+>  drivers/pinctrl/samsung/pinctrl-samsung.h      |   1 +
 
-No activity:
-https://lore.kernel.org/all/?q=f%3Asrinavmani%40axiado.com
 
-> +M:	Tzu-Hao Wei <twei@axiado.com>
-> +M:	Prasad Bolisetty <pbolisetty@axiado.com>
-
-No reviews:
-https://lore.kernel.org/all/?q=f%3Apbolisetty%40axiado.com
-
-Are these maintainers going to actually maintain code? At least Prasad
-should provide proper review now.
-
-> +L:	linux-phy@lists.infradead.org (moderated for non-subscribers)
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/phy/axiado,ax3000-emmc-phy.yaml
-
-> +F:	drivers/phy/axiado/Kconfig
-> +F:	drivers/phy/axiado/phy-axiado-emmc.c
-
-If you are a maintainer of Kconfig you imply you maintain everything, so
-simply entire directory...
-
+Also note for the future - please use decent editor so your commit msg
+will be correctly wrapped.
 
 Best regards,
 Krzysztof
-
 
