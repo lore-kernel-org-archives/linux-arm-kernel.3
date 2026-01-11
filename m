@@ -4,71 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71546D2502F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 15:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21ABFD2502D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 15:45:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=11i6VlN7HylQO++3sIFz26IbyBQeR3Nl91h3mggNvlw=; b=iexqk/hX6c05J67LVoZdvnrR/1
-	2ovvaIS+TQWiIMiO9Jk92B4mB70Ae3Ch5eIgRXoDflnr7kvDAg67tjuqDJSNDUANFP1lAn+z3DZVe
-	mhtRH15qoFtBaH2J+/NUGPBpXZhtf6WZVpkpQ5aMnl1p0nyOauPEL4oFP7ZzWovMMGHkBUkyVBxO9
-	16W+wzfZeUvLPqjZk2mXuWH3nntmrt5r3rx4i15ElkMn4vKefK83JmnGyfpdB9GayLXmGtn5wNZhI
-	tZUrLS3Awe73yFR9Dc4iSIoh73Hb912fTR7bFymZOyIqOpyuUXHlB4ZVHvQelsEcgNRZpJBl7L+5l
-	sBMN2+HA==;
+	bh=H9yfz5VWJzjGgs2tjdJmygWfZrktON+3CXq/+Js3i0o=; b=cMOiiRvi2IUfVxX2NEMmE067ig
+	+0NqH7xIF+sTCmmJ2jaSnXaS5eOK8OO7bSO5eSP94XraSK9V7LKfCoQM7qnY4Ivf4jY7tiT103JnD
+	9NYRXZaig9RMxvzhjnHS/Lm++B/LUDrxaUrn1/hUVjEXBoZyAYfY8SBf1qZ9xu9NBf+851DVX7SLM
+	7iUNvfUquKN7vgIkFw7KH4ifvPo+xH8V10EzJgwul8myLiQyM5N4Rma1OGg9oL8VcN0UqBWtWqt5f
+	NFH+WbQGbqRVO0zlj/h67PaQVFH1DEsorbksQcg1XqlCJP3DuS6uKxa3z2wZWO1/pTUuQlErBNYMf
+	wi28vmcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vexHt-00000004KEg-0r2r;
-	Sun, 11 Jan 2026 15:23:29 +0000
-Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9])
+	id 1vexdS-00000004Ky7-1une;
+	Sun, 11 Jan 2026 15:45:46 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vexHp-00000004KDn-2SuJ;
-	Sun, 11 Jan 2026 15:23:27 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1768145000;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=11i6VlN7HylQO++3sIFz26IbyBQeR3Nl91h3mggNvlw=;
-	b=cw2RU9lvewv58JmC7j1rMDYI6q33u+PzgXYbxl3JOW1bAteXxHdqMI5Fq9xWqp02JGAwJ0
-	Bsuqpy8gNDQDBRYXFlkMKpxicsbSmVy9kC+v0YSAEYpohFCz+cxcpftoSnmr4qijPT9Tay
-	3sjyBub2EUllbaArfbbXQZvZ31SxZq2EXi2vEJUny8zKwDqgaou5XevmURGMKdbEKa7rLO
-	evDlJQr0Qp4Vr4AhY9j/097rrwu5qn1Mdm7TNV+rJTEzD6+2DS3BC33nWKg7PDhIYMoRAH
-	0cxag3xJe9/GD3KwzKe5HtngpNdEu58rq6x6Isi4S0z6u8JFclkaoGQMHWujvg==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sun, 11 Jan 2026 16:23:16 +0100
-Message-Id: <DFLV39M9KHTD.PAJZU86PXJGN@cknow-tech.com>
-Cc: "Detlev Casanova" <detlev.casanova@collabora.com>,
- =?utf-8?q?Olivier_Cr=C3=AAte?= <olivier.crete@collabora.com>, "Ezequiel
- Garcia" <ezequiel@vanguardiasur.com.ar>, "Mauro Carvalho Chehab"
- <mchehab@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Heiko Stuebner" <heiko@sntech.de>, "Dmitry Osipenko"
- <dmitry.osipenko@collabora.com>, "Thomas Gleixner" <tglx@linutronix.de>,
- "Dragan Simic" <dsimic@manjaro.org>, "Chukun Pan" <amadeus@jmu.edu.cn>,
- <linux-media@vger.kernel.org>, <linux-rockchip@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, "Nicolas Dufresne"
- <nicolas.dufresne@collabora.com>, "Dang Huynh" <dang.huynh@mainlining.org>
-Subject: Re: [PATCH v3 2/3] media: rkvdec: Add support for the VDPU346
- variant
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Christian Hewitt" <christianshewitt@gmail.com>
-References: <20260110053727.2295260-1-christianshewitt@gmail.com>
- <20260110053727.2295260-3-christianshewitt@gmail.com>
- <DFL5TY0QQNMN.1RS04UM9D1V8S@cknow-tech.com>
- <E21F5FD9-AEBA-490F-A9DF-8E9BEF161763@gmail.com>
-In-Reply-To: <E21F5FD9-AEBA-490F-A9DF-8E9BEF161763@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+	id 1vexdO-00000004Kwo-40ua
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 11 Jan 2026 15:45:44 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60BAU1NS2522428
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 15:45:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	H9yfz5VWJzjGgs2tjdJmygWfZrktON+3CXq/+Js3i0o=; b=AOHR5KQ6vk69cq0F
+	Oisz2VcBT/2zKDiOrXp9JQJiF2Rd1YMqFY7n6wbDqOgpZujq3C/+YUY/0/k9d3x5
+	fLXxbQaviuEwFK9/7BfOSj/T+EU4iu4wVO71taAkhKgWY7jf3W0JiJf/EJzfr2vx
+	ma5rziSx1RCzuZQM678M/vx5lXDWlK9lCTQSE13Hwhmwy6Ndx3w5HyvB/M8sEVZV
+	N9qu/nYXdnWYSjwCpQIkKfSq19hrOFuSYprtLveP7BaBGO+YKexYppUKHQqlVGGk
+	o2hoxwYnyknR8JVIV/HAqynQITrRERXUeuDcpIJvTDGycK1FaGePL741z+VVskGx
+	6X1kNA==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bkeusjd9e-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 15:45:41 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8b51db8ebd9so1902194985a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 07:45:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1768146341; x=1768751141; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=H9yfz5VWJzjGgs2tjdJmygWfZrktON+3CXq/+Js3i0o=;
+        b=DC8osoZ477l+tqauVmRlX3AaW21o+UwNexMYFaq4LAs7heOBLm5RT4jsJDIKOKamC4
+         Pqe6FjlXOW1NEQpnSp2enCJ5oEAcHhxm7OLcHsVhTIRgNO7S8W8OQJLYnmVX8J3X+Dq7
+         5Nfv5gOwKzWdyZzLV0mVbkJWZEPKeQUrrdreLvsRxlAku7aR1Yeq168jn9TKIipB0tP2
+         8TZMH7tcfeyfya1OJOg7vYEa97Kk6JYU/HALDjWxPajh4MMD6RXx3TeDTfUzS7M3lo8X
+         Jndpxm6+/GQAXRMbOc40tGbs9+6R6U9vHveaB/h1o81OKOt4TGND43VSv87k36KX01dT
+         FFLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768146341; x=1768751141;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=H9yfz5VWJzjGgs2tjdJmygWfZrktON+3CXq/+Js3i0o=;
+        b=hEhxf6OD+ny/95yd05kxc/LGywX18c5WAKLgksC2W/xDFmqHHYChFZNBEyOYKqbCDB
+         uEZY02k7SytJmFNFU0/Cdid788i9LUNhJ3biy8AWA1cEVLPH4ia+xFZsN6XVXl8yuvzw
+         OrwstHD2nBAUZqeeflPTzjupJOyaY7tCjgxf0BYJPQ2C+XRZy1N7YpK+Ql0JECGgSjP5
+         lYQJmNzMZpG66ngVqcLjVzT5W7XFuXvFlZgxRRzJ8y6Hil8itedDxCD4ZZ8KldBzoh9c
+         UyyQ2RRSjoJAHpJe57XpBR1qQ72HJWcsQ0ucwWTcd6xou10LOCapKxBFDug4BQnlZaRr
+         6APw==
+X-Forwarded-Encrypted: i=1; AJvYcCX3bbiptgCd5YNNZit54LaSfNJsD0/4ow1TFq4U8FSOf1TaIxylhv8AHVt4cfXH1HHW9kzHaPmTHmJ8ww+x2Xc/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpnrqBSwMOlBrvdUPlmrtu2XpyrwFVwDTCxIOK7S0YdxlxXuZ/
+	GfjLOnTQ32GM7/uc5xIBbk42QC46w/5JBjKxnodhjaYkEahFWOF7TjlKepNLqmHmsefs3GpiCs0
+	7+gValkBQ45+xLhQsOcxB1NhZ+XIo7s4eobPk5a5w2vTyjcVZ3aBmstVo2//9mlVH7Y3U5jySyv
+	omuA==
+X-Gm-Gg: AY/fxX4xovK0dMXLivnSFXKs39wSgSkYjfc104Zi1NuJJpNrqqNd9WCTO3ETRN2LWPk
+	zMxUMppm7FAy8SroPijH3+X5CbJhrU1OncnbSWPXazBBrx5F9xj2CUhFHepHFxgW843uljerJbX
+	7GMH7nM+/dzG0tEpaJ2s/u5X2g3tq2FpqAVRzjS82ja2gejt/GL/7WqW8KAAA0wgkjFWW9p0/Pj
+	63QmldxfnKs7Ytl/HvlxvnPxYwAA0qOBANWT0TyDiYaHyQFYssvL8MpCAVzw2Sm7HoTDv5GUWub
+	cwuQtA54LA9laRPUrx0/utgmZ701flI8zm/IaGLZwYLLVxdIkowB3weZ+8MnRmS+2dwWmWZ245F
+	JvI4OL21kSYLqyijeKM2RLaIJm9afgSmC5w==
+X-Received: by 2002:a05:620a:29ce:b0:8b2:d791:3d25 with SMTP id af79cd13be357-8c389379d70mr2236622485a.18.1768146341376;
+        Sun, 11 Jan 2026 07:45:41 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHg4gxtJOYaXuSmuP0DZ68cvwexTmAhTOZDXnjdFWUYJSLhByLTbBVAtxG0UuMcfZJUIs3ExQ==
+X-Received: by 2002:a05:620a:29ce:b0:8b2:d791:3d25 with SMTP id af79cd13be357-8c389379d70mr2236619585a.18.1768146340967;
+        Sun, 11 Jan 2026 07:45:40 -0800 (PST)
+Received: from [127.0.1.1] ([178.197.218.229])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b842a5180bdsm1636605566b.57.2026.01.11.07.45.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 11 Jan 2026 07:45:40 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Date: Sun, 11 Jan 2026 16:45:30 +0100
+Subject: [PATCH RESEND v2 1/4] dt-bindings: watchdog: samsung-wdt: Define
+ cluster constraints top-level
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260111-watchdog-s3c-cleanup-v2-1-fab2d21a2048@oss.qualcomm.com>
+References: <20260111-watchdog-s3c-cleanup-v2-0-fab2d21a2048@oss.qualcomm.com>
+In-Reply-To: <20260111-watchdog-s3c-cleanup-v2-0-fab2d21a2048@oss.qualcomm.com>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>,
+        Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-samsung-soc@vger.kernel.org,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1270;
+ i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=SX21PhGZicijazZ9aMiqBXstGUcTFn/+qwMSgUuCSYs=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpY8WecilDnF+xz/UDkEdS6+upqb5/SbrTxKgVt
+ HUxynBTRdqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaWPFngAKCRDBN2bmhouD
+ 1yjiD/9rFks+Jd5fvoffAqWTEPjywYcIXmgt1FoS7GLxbxowMs6OHtEojkAwn89FUNSGIIsqKVz
+ yGan5zpfFfhzSIQBXcpIMrRFZtvidwywmPsMdx7YkvpceIR83L0tFIILNi0NzFMhzQ/MTgJv3Es
+ fQlQ988K5gJEmryRzMKCEd8ylkZKtzjGlGkwcMJDjtgciRMkYPYpBuT0z8eqWW6LgwfRfoyKbr+
+ 61NlUAMfVTq9MJH8iQIYj+yi5P/35PhA0BkPkbeyYLHLgKGr8oWe4/eYYAlV8Q0GyPAxaPKhIRo
+ eDGiauC2ZLUQ41PdQz1YofB3GFcnY1red7Wqf3o7x0gekxW8gOJaGqOTri3xypweyzu1FzqvXtE
+ FMnUuJWKmzeH0QCYYwudIBbTMbHMWtSwxoRSiBcMl37YjIZi0z3YqUOBAYQwQOViyRv5JPFb147
+ w85ESzmeCodtNGFI9I3t7bRX0cy/NgSt6CPI3gfESYJsXpft5xO3MwIhchgLCIhsb3EoikT85R7
+ 3ru9L/MWItx1j7MbFLlNSbjwdIgeqh3IDxf//arS0Qy4HNhoa4OLnSSsWXEbSExiH6qeNcyyOJP
+ rnciTWI1Xn0TQx8Jqxdr9RE+TA2WjSSlyyRmp7/dmdlXiqZX3X2wluRk46+A0hdl05Y/7d15j/3
+ fA3dwUn1+p3W8tw==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+X-Proofpoint-ORIG-GUID: C3UEp80W5wL5NQSt_S8nwMgU02M__FEq
+X-Authority-Analysis: v=2.4 cv=GNMF0+NK c=1 sm=1 tr=0 ts=6963c5a6 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=Eb9f15NH/cHKzfGOmZSO4Q==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=_jlGtV7tAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=RUZyBBiHXQlI0l-aNaAA:9 a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22
+ a=nlm17XC03S6CtCLSeiRr:22
+X-Proofpoint-GUID: C3UEp80W5wL5NQSt_S8nwMgU02M__FEq
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTExMDE0NiBTYWx0ZWRfX1/nwb3lmp0e1
+ Ev5PgAF+VX+/HBDVfAfv6whBVCi8mfa8yyXT6axNo5nGWYHujtHVVpVH17Lu3Xd8xP9nunBkOkt
+ 2MEe9qiK95mFAnZeOZ7oe5Qo8quK51XJCv6f2+5R6QZu2hcRRVmL6s/e8VcyepcjmH9ynWkYCFc
+ wP4AjcwnalQa4eSn+OvmqUxc4XOGXNGVEKWJzeTa/u3+emnQhz+id8wCQyD1LRBEeb9vV7dWRVu
+ 7VwZnSrvWwnfE0slZO+OODo/QXGGA7bmWorvYW+GTz+bKDxtq0oLX2ZmhwjrcfuzBPOxZHUX0Hs
+ be+GD8kaPl60q8Ur/8TqlAlIhgeITAWhGHFoT2QKGHXkzGUIgvhF5lID9TMb0mWMtCh8lk/ZlCa
+ fJ7j/Pg/SKXIc91ngr/bXzVG840sk6oWdOa6LVgHJ7hMwKac0pvQ/j/qmVfWQTFdk6iImhoqGoL
+ qD0Sv67iGM6qF9WiVKA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-11_06,2026-01-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 phishscore=0 bulkscore=0 adultscore=0 malwarescore=0
+ lowpriorityscore=0 suspectscore=0 spamscore=0 priorityscore=1501
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
+ definitions=main-2601110146
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_072326_183995_9C0C2B7B 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20260111_074543_140467_22C5A4B7 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,194 +170,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun Jan 11, 2026 at 2:30 PM CET, Christian Hewitt wrote:
->> On 10 Jan 2026, at 11:35=E2=80=AFpm, Diederik de Haas <diederik@cknow-te=
-ch.com> wrote:
->> On Sat Jan 10, 2026 at 6:37 AM CET, Christian Hewitt wrote:
->>> VDPU346 is similar to VDPU381 but with a single core and limited
->>> to 4K60 media. It is also limited to H264 L5.1 and omits AV1 and
->>> AVS2 capabilities. VDPU346 is used with RK3566 and RK3568.
->>>=20
->>> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
->>> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
->>> Tested-by: Dang Huynh <dang.huynh@mainlining.org> # Pinetab2
->>> ---
->>> .../media/platform/rockchip/rkvdec/rkvdec.c   | 103 ++++++++++++++++++
->>> 1 file changed, 103 insertions(+)
->>>=20
->>> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/=
-media/platform/rockchip/rkvdec/rkvdec.c
->>> index a5cf6f3240f8..6e49b129d11f 100644
->>> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
->>> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
->>> @@ -236,6 +236,62 @@ static const struct rkvdec_ctrls rkvdec_hevc_ctrls=
- =3D {
->>> .num_ctrls =3D ARRAY_SIZE(rkvdec_hevc_ctrl_descs),
->>> };
->>>=20
->>> +static const struct rkvdec_ctrl_desc vdpu346_hevc_ctrl_descs[] =3D {
->>> + {
->>> + .cfg.id =3D V4L2_CID_STATELESS_HEVC_DECODE_PARAMS,
->>> + },
->>> + {
->>> + .cfg.id =3D V4L2_CID_STATELESS_HEVC_SPS,
->>> + .cfg.ops =3D &rkvdec_ctrl_ops,
->>> + },
->>> + {
->>> + .cfg.id =3D V4L2_CID_STATELESS_HEVC_PPS,
->>> + },
->>> + {
->>> + .cfg.id =3D V4L2_CID_STATELESS_HEVC_SCALING_MATRIX,
->>> + },
->>> + {
->>> + .cfg.id =3D V4L2_CID_STATELESS_HEVC_DECODE_MODE,
->>> + .cfg.min =3D V4L2_STATELESS_HEVC_DECODE_MODE_FRAME_BASED,
->>> + .cfg.max =3D V4L2_STATELESS_HEVC_DECODE_MODE_FRAME_BASED,
->>> + .cfg.def =3D V4L2_STATELESS_HEVC_DECODE_MODE_FRAME_BASED,
->>> + },
->>> + {
->>> + .cfg.id =3D V4L2_CID_STATELESS_HEVC_START_CODE,
->>> + .cfg.min =3D V4L2_STATELESS_HEVC_START_CODE_ANNEX_B,
->>> + .cfg.def =3D V4L2_STATELESS_HEVC_START_CODE_ANNEX_B,
->>> + .cfg.max =3D V4L2_STATELESS_HEVC_START_CODE_ANNEX_B,
->>> + },
->>> + {
->>> + .cfg.id =3D V4L2_CID_MPEG_VIDEO_HEVC_PROFILE,
->>> + .cfg.min =3D V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN,
->>> + .cfg.max =3D V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
->>> + .cfg.menu_skip_mask =3D
->>> + BIT(V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE),
->>> + .cfg.def =3D V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN,
->>> + },
->>> + {
->>> + .cfg.id =3D V4L2_CID_MPEG_VIDEO_HEVC_LEVEL,
->>> + .cfg.min =3D V4L2_MPEG_VIDEO_HEVC_LEVEL_1,
->>> + .cfg.max =3D V4L2_MPEG_VIDEO_HEVC_LEVEL_5_1,
->>> + },
->>> + {
->>> + .cfg.id =3D V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS,
->>> + .cfg.ops =3D &rkvdec_ctrl_ops,
->>> + .cfg.dims =3D { 65 },
->>> + },
->>> + {
->>> + .cfg.id =3D V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS,
->>> + .cfg.ops =3D &rkvdec_ctrl_ops,
->>> + .cfg.dims =3D { 65 },
->>> + },
->>> +};
->>> +
->>> +static const struct rkvdec_ctrls vdpu346_hevc_ctrls =3D {
->>> + .ctrls =3D vdpu346_hevc_ctrl_descs,
->>> + .num_ctrls =3D ARRAY_SIZE(vdpu346_hevc_ctrl_descs),
->>> +};
->>> +
->>> static const struct rkvdec_ctrl_desc vdpu38x_hevc_ctrl_descs[] =3D {
->>> {
->>> .cfg.id =3D V4L2_CID_STATELESS_HEVC_DECODE_PARAMS,
->>> @@ -463,6 +519,41 @@ static const struct rkvdec_coded_fmt_desc rk3288_c=
-oded_fmts[] =3D {
->>> }
->>> };
->>>=20
->>> +static const struct rkvdec_coded_fmt_desc vdpu346_coded_fmts[] =3D {
->>> + {
->>> + .fourcc =3D V4L2_PIX_FMT_HEVC_SLICE,
->>> + .frmsize =3D {
->>> + .min_width =3D 64,
->>> + .max_width =3D 4096,
->>> + .step_width =3D 64,
->>> + .min_height =3D 64,
->>> + .max_height =3D 2304,
->>> + .step_height =3D 16,
->>> + },
->>> + .ctrls =3D &vdpu346_hevc_ctrls,
->>> + .ops =3D &rkvdec_vdpu381_hevc_fmt_ops,
->>> + .num_decoded_fmts =3D ARRAY_SIZE(rkvdec_hevc_decoded_fmts),
->>> + .decoded_fmts =3D rkvdec_hevc_decoded_fmts,
->>> + .subsystem_flags =3D VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF,
->>> + },
->>> + {
->>> + .fourcc =3D V4L2_PIX_FMT_H264_SLICE,
->>> + .frmsize =3D {
->>> + .min_width =3D 64,
->>> + .max_width =3D  4096,
->>> + .step_width =3D 64,
->>> + .min_height =3D 64,
->>> + .max_height =3D  2304,
->>> + .step_height =3D 16,
->>> + },
->>> + .ctrls =3D &rkvdec_h264_ctrls,
->>> + .ops =3D &rkvdec_vdpu381_h264_fmt_ops,
->>> + .num_decoded_fmts =3D ARRAY_SIZE(rkvdec_h264_decoded_fmts),
->>> + .decoded_fmts =3D rkvdec_h264_decoded_fmts,
->>> + .subsystem_flags =3D VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF,
->>> + },
->>> +};
->>> +
->>> static const struct rkvdec_coded_fmt_desc vdpu381_coded_fmts[] =3D {
->>> {
->>> .fourcc =3D V4L2_PIX_FMT_HEVC_SLICE,
->>> @@ -1657,6 +1748,14 @@ static const struct rkvdec_variant_ops vdpu381_v=
-ariant_ops =3D {
->>> .flatten_matrices =3D transpose_and_flatten_matrices,
->>> };
->>>=20
->>> +static const struct rkvdec_variant vdpu346_variant =3D {
->>> + .coded_fmts =3D vdpu346_coded_fmts,
->>> + .num_coded_fmts =3D ARRAY_SIZE(vdpu346_coded_fmts),
->>> + .rcb_sizes =3D vdpu381_rcb_sizes,
->>=20
->> AFAICT this is not correct, the rcb_sizes are different for vdpu346 vs
->> vdpu381. While for vdpu381 the sizes are the same across codecs, they
->> vary for vdpu346. And vdpu346 does not have 'STRMD Row', 'Transd Row'
->> and 'Transd col'.
->>=20
->> For RK3588/vdpu381 it is defined in RK3588 TRM V1.0 Part1 in
->> paragraph 5.4.4.3 in 'Table 5-13 Row or Col buffer size required' on
->> page 381.
->>=20
->> For RK3568/vdpu346 is is defines in RK3568 TRM V1.1 Part2 in
->> paragraph 10.4.8 in 'Table 10-9 Row or Col buffer size required' on page
->> 474 and 475.
->
-> This is what I=E2=80=99m hinting/referring to in the cover-letter. How
-> to correctly handle the differences in code is currently beyond
-> my n00b level comprehension of c and coding skills. I=E2=80=99ll need to
-> ask the audience for some assistance and coaching :)
+Properties should be always constrained in top-level part of the
+bindings, so move the samsung,cluster-index constrain from if: block.
 
-Sorry, I should've been (more) clear that this remark was meant as a
-'research note', to further improve support for RK3568.
+Acked-by: Guenter Roeck <linux@roeck-us.net>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+ Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-And I forgot to mention that with Detlev's v8 series and your patch set,
-all my test videos, except 4K, now play without any (visual) artifacts.
-\o/
+diff --git a/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml b/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml
+index 53fc64f5b56d..445c5271879f 100644
+--- a/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml
++++ b/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml
+@@ -49,6 +49,7 @@ properties:
+ 
+   samsung,cluster-index:
+     $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [0, 1, 2]
+     description:
+       Index of CPU cluster on which watchdog is running (in case of Exynos850,
+       Exynos990 or Google gs101).
+@@ -104,8 +105,6 @@ allOf:
+           items:
+             - const: watchdog
+             - const: watchdog_src
+-        samsung,cluster-index:
+-          enum: [0, 1, 2]
+       required:
+         - samsung,cluster-index
+     else:
 
-I still want to do more/further tests and wait till Detlev's series get
-accepted, before giving my Tested-by tag.
-
-Cheers,
-  Diederik
-
-> Christian
->
->>> + .num_rcb_sizes =3D ARRAY_SIZE(vdpu381_rcb_sizes),
->>> + .ops =3D &vdpu381_variant_ops,
->>> +};
->>> +
->>> static const struct rkvdec_variant vdpu381_variant =3D {
->>> .coded_fmts =3D vdpu381_coded_fmts,
->>> .num_coded_fmts =3D ARRAY_SIZE(vdpu381_coded_fmts),
->>> @@ -1705,6 +1804,10 @@ static const struct of_device_id of_rkvdec_match=
-[] =3D {
->>> .compatible =3D "rockchip,rk3399-vdec",
->>> .data =3D &rk3399_rkvdec_variant,
->>> },
->>> + {
->>> + .compatible =3D "rockchip,rk3568-vdec",
->>> + .data =3D &vdpu346_variant,
->>> + },
->>> {
->>> .compatible =3D "rockchip,rk3588-vdec",
->>> .data =3D &vdpu381_variant,
+-- 
+2.51.0
 
 
