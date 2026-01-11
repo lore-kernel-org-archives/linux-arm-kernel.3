@@ -4,90 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F43DD25023
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 10 Jan 2026 22:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED551D25030
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 04:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pjgSj6a3kunrFN67IT5JMHaUrlt+PXfCgDXfeu5dl9k=; b=IiZHgk6jU9Wt/MWj13CjIoLO9N
-	qm509Hm8H9aDNEH6Wpm9OalaAG/QwMJ5K/tJDCNNxljupccXYWNaIKoXLm/og7vIYotfoWeS8HOJl
-	zmrjZ4oRgqZFnjhUPn1HfJOCi6lUEmL8/dawVHMiwEpiIt1L8a33BDrSmL3TklsKyDqzuQvR6RAl5
-	4YQKPtjtfSEwnTxbTCa1ha6W0MLtQ2EgDdkxMSXXNzBCzB+topPirDwMxnyRUoL5JNAStoOVIuHni
-	I2SViZk+CFI0x26lHopeGkExIuqEAl7OdRl9lRJaVTU/JRX3iQHtLTwSaIAp2pnhZWjxL4Zb9H75b
-	rCPV+HNg==;
+	bh=6aSQimWPEMhTKsPYUy1vj9/5sPSG4zuP/FMO33v30Ew=; b=V8UIOf4tYZwylR5Yymhlq7h9Dn
+	RRrO0XyD7Arz1iSDMi1r9nbzA+zzYlGAV0b/Socq+7BzDuynHxDmDCHhF0uH1oPTliE0p19BZaRDt
+	L9ZktIxLEGAKahtrO/nHm56DPd3vOMiIFGFnYIw3S5Lw1Wj6JZ8VU8Dt9x0rxPCxbDXZTgIKwUq5e
+	+9jzWxO9anOYOf83cQSvrxZ3U+th0RSV9s67ayVPQ8+NwlwHC6xT6+Gfq1sE+RGRqXix5nqP4OTmC
+	eLv3q8O+Z6jla+enKpVwKQzD0tlIEG2RznqXkQ5t+FUuoyxPLdD+KJhXKQYbl90gOH158rKr6ZZk0
+	ThX770hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veh8y-00000003ikQ-2Oqe;
-	Sat, 10 Jan 2026 22:09:12 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1veme0-00000003rWJ-1BZj;
+	Sun, 11 Jan 2026 04:01:36 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1veh8v-00000003ijj-2dW7
+	id 1vemdx-00000003rVw-1swE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 10 Jan 2026 22:09:10 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2a09757004cso49701975ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Jan 2026 14:09:08 -0800 (PST)
+	Sun, 11 Jan 2026 04:01:35 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-34abc7da414so3093736a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 10 Jan 2026 20:01:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1768082948; x=1768687748; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pjgSj6a3kunrFN67IT5JMHaUrlt+PXfCgDXfeu5dl9k=;
-        b=MxZR7ihDGbmv4XtDsgIaseo7sz7tiYTcwO8sOMd49vl4i1KJ3bkOveEDvLXVr7PAk+
-         gIojrMuWDdy16TYDSFZgglOfEFRUoksnkj3xCNiSgSTgyUiIgl62LSs6EOOvwSo1YS6g
-         W+19I2oWKccpkkT/BsoHFVqFOo1OevZotsoVXqEeYbCjkRHnlKkjsZ14qvymx+q9EOu2
-         0NqhsoZmpFMaACpCs/t05+sVHHBVsoGMFq39rNoPOlsjZ7LdPzt5gVZaTJWQ2VWPO+f9
-         ILgtHHKxuKl4tr/EmvX4YrVkBTNOudqHDy0lqq86OzvdIoK0eL4TK6KKV5hWGm3b6MVc
-         nVXg==
+        d=gmail.com; s=20230601; t=1768104092; x=1768708892; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=6aSQimWPEMhTKsPYUy1vj9/5sPSG4zuP/FMO33v30Ew=;
+        b=A9jmpTjE2b5zZDE5WQC90UL/mlTKJ87uKU9KVdrJiNXABFvRivT8z07RldNxFkm27/
+         gfuX3OSjGkS0++9WnKe7Hb1b1Q/423YvcpeeQMcxxDJ33kaWAikd9023kOUYemHlyn/M
+         sSUROPRUk5Ah3pLab9HBLzQITaQQ+RNMddNp1ua64VOdi6l1F+8lGaKs4M7/uhVSrdHe
+         zvxYomc1hAkhYWciOM8/mcuQMm4SEUSi9Uv7Qy2RChYbKt7JPlTANT59t+tPXHIMcA5K
+         +Gk/0A0wogHjZcuE8sI3xoSUUUuG91uhAmXljE5KiAGNNS7G6i4Yc7fXSgCB/bHIeazJ
+         HVwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768082948; x=1768687748;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=pjgSj6a3kunrFN67IT5JMHaUrlt+PXfCgDXfeu5dl9k=;
-        b=M/7i5i315DVONMy5LRVki479cVuJ1wlDuQntgnvRDyoGrqvp5Gii/UmB1iOeOMILjy
-         LzAxEEBzCdmsw65DR6NkM9zOliqCL/8runk8TIGyVuE/Vyq4SQIJ0/SnoztCDJVMaCrn
-         SbgkedeMuCx1WwFwwsNvxamMx5/8lo85OPjrbvQyW0ZBHhLvWPpwoKSbCwzHV+opZ1bR
-         HP90gIq5OOkdpgMPRcMD4bwseVzfjSWoGBl4t4vssDuhNDoDvYfvMTVRvDrgBFZT4ywK
-         kYoHaqNIUb2vcQlj0Ta2URtx51svShLfvO9QxsWKSdJ3WETXesyMgfT8sv2w+5j+HKLN
-         03lA==
-X-Forwarded-Encrypted: i=1; AJvYcCX0WKhqWT+LKXox38QcbvLP1YIuBnsjb1Yt7R1zZMLb+GD7j25GiUjTL1DhuYaHaxgwtQeLNuo51qJ4v+EkHw3j@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXRL+a6t0opYV4pTG33uvqF6D3cYwtAp6YU01s0kba0sRCAzm/
-	yKuYmtP46hgv89t3wZRf5uSt8N7tTg466chICsf0i73kCcSZ+mVSmwvZf89uhKnwxu0zr85ncMq
-	8gBT5nhk8dFpD5486wMELVjS3esXEioE=
-X-Gm-Gg: AY/fxX4xDLQp5ghVnWQvFrTeEOFY1eFcKcC9ri8bXalr+Y21oOm28+z0fVyVc1GRQO3
-	QHnvCgmeag+KsC1Xk29m1tcooJ9X8TjT1ELtuE8wp/0+X7Dw9DLHQ+R8B1P6ursVZ4h8y9bUbZt
-	ULA20GUDjvSwBs1apLSwAiyjJ4Gj5GARSPLDiaoLokIs+RvMe/7S8OwBgjjddjwsLleavkj5dZr
-	5D3i60zliX1u6pbEAPA64bhWC4yIp2wGCfnfP2YBFLISiRcERlNjBpLp/Suc0SHSPuD33rTg/8p
-	9WiLbhHhayEhQAydwdHY6bPjixB/wQQC/xmXuok=
-X-Google-Smtp-Source: AGHT+IEAqhyKZ4Zb9mGUXaf4V+H313p3cDSNfGR8K+R50WWW/gF491i/LIbVtoG+64AdUYGn/0TAd6Uaqs+FGGXp2Yc=
-X-Received: by 2002:a17:902:e78b:b0:295:6122:5c42 with SMTP id
- d9443c01a7336-2a3ee43da5cmr117317715ad.24.1768082948085; Sat, 10 Jan 2026
- 14:09:08 -0800 (PST)
+        d=1e100.net; s=20230601; t=1768104092; x=1768708892;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6aSQimWPEMhTKsPYUy1vj9/5sPSG4zuP/FMO33v30Ew=;
+        b=EIDOJ6dGvDaLB35pmyhrm1PPueaw021tERhgnpTbXqE7KzPHDI4GJcIrBb4ZjbCKje
+         yX6tgun5P4oAjhNto9hNE/etp6Ouu0j++NoKQAqKUSuniSxr1A3FXi5r/ef7oe6Vx8Xn
+         mvtuIojQHkyQp3xUJe0x8ypnW3IT5EvBXnwtTvGakx7WyZK4KFL51NrqD6t+HDNcNTEu
+         fK+AxNnt/byVriGU/fkH2RHmaCVbW2VDPOG1pNQplOat7mEEZdqKzFZJSTly1Y9jQA+Z
+         7SR+vJA7kBaDUMXYdOXGuUU593+6FyFYiK78Y59M+gqsjIXF6jOZ3uq3JauJ18Q8nOwn
+         BiEg==
+X-Forwarded-Encrypted: i=1; AJvYcCVZQ75yqT3oVLTc6SVxLDqEvn+Hxc5aIriK5bYDa6ZBEMyiWO/ffWH5/XGLxmWqk2sFQC/rNCsa0pciUn+6jM1C@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7yxgb/egOEqvGG0Rtl/RM1mxviDuQ4Yui4BzLGNn3IfIVmirK
+	3bsst++rGQ8Ehe4iCdpeHZk6vGYMn7dMT+OqznhBvglyELb4B+CW1g2U
+X-Gm-Gg: AY/fxX5cVZ446HXlcivZzs1chOR73yPjaya6IzCtzT76tdidRWcEpO1z9tOGYCUJJKO
+	qzpR4i4CrtKQoNxaLe0RfOw9Y8yZjIM6ogYZyQnz6deoafI+Ashq1C6vRNmigp/R5xTJYEmD8Pp
+	LvXMhE+LHppTBPA4cCpKkKTyjWMGl3L/mzFEBeqUVgOrBqtkGqU4DbTo/UT1JNPAaE3+mFiLDbY
+	HGpyaQgnjH+wO5LivKoLu+KvfPg4kYKzJLxocBEg6CgGfDEJQcBTJE8CvkOm/5tEwoGFHy8cBfR
+	Fkgl5LQUiYtsVlarRIHapqmsTL4g+3IrnjIR6DpcI11HSweQlMb/YU3mbuXeUx6IukKHalP6AkI
+	ZCq9ehCEA0G6esecjvDA1uGZsV4zbKCa8Ox6cqVuDjsOlk6LDX/rI93S26KCJj+2qF92k0leqFZ
+	meQdaG
+X-Google-Smtp-Source: AGHT+IGPybPvZupy/FYihDwzQNc/n+V1kR/RRvYwaA6/FcFDZUxpWNk2e4gufz92hDuNfXzVOvBWtg==
+X-Received: by 2002:a05:6a20:a128:b0:35f:68d:430e with SMTP id adf61e73a8af0-3898f8f45bemr12792422637.9.1768104091706;
+        Sat, 10 Jan 2026 20:01:31 -0800 (PST)
+Received: from [0.0.0.0] ([8.222.167.232])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c4cc96ca7a9sm13871167a12.25.2026.01.10.20.01.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 10 Jan 2026 20:01:31 -0800 (PST)
+Message-ID: <0d54ddca-9270-40a5-aa82-d8a7b65027ff@gmail.com>
+Date: Sat, 10 Jan 2026 20:05:31 -0800
 MIME-Version: 1.0
-References: <20260108-a5-clk-v5-0-9a69fc1ef00a@amlogic.com> <20260108-a5-clk-v5-6-9a69fc1ef00a@amlogic.com>
-In-Reply-To: <20260108-a5-clk-v5-6-9a69fc1ef00a@amlogic.com>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Sat, 10 Jan 2026 23:08:57 +0100
-X-Gm-Features: AZwV_QhAKgfsFN9tGWs1QKxT7kBr72Z-TUCf9Thx-La55n8xXLTiY8eWe0kVLVk
-Message-ID: <CAFBinCCPsaywQuePJ_bxMby0MJeh2ohkXcduRy=yxr8EExJ9nw@mail.gmail.com>
-Subject: Re: [PATCH v5 6/8] arm64: dts: amlogic: A5: Add scmi-clk node
-To: chuan.liu@amlogic.com
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Xianwei Zhao <xianwei.zhao@amlogic.com>, Kevin Hilman <khilman@baylibre.com>, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/2] dt-bindings: ethernet: eswin: add clock sampling
+ control
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>
+Cc: lizhi2@eswincomputing.com, devicetree@vger.kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ netdev@vger.kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ ningyu@eswincomputing.com, linmin@eswincomputing.com,
+ pinkesh.vaghela@einfochips.com, weishangjuan@eswincomputing.com
+References: <20260109080601.1262-1-lizhi2@eswincomputing.com>
+ <20260109080859.1285-1-lizhi2@eswincomputing.com>
+ <00b7b42f-2f9d-402a-82f0-21641ea894a1@lunn.ch>
+ <aWKZvEW7rKFFwZLG@shell.armlinux.org.uk>
+Content-Language: en-US
+From: Bo Gan <ganboing@gmail.com>
+In-Reply-To: <aWKZvEW7rKFFwZLG@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260110_140909_673410_3B823668 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260110_200133_500836_9A4D764F 
+X-CRM114-Status: GOOD (  24.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,26 +113,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 1/10/26 10:26, Russell King (Oracle) wrote:
+> On Fri, Jan 09, 2026 at 07:27:54PM +0100, Andrew Lunn wrote:
+>>>     rx-internal-delay-ps:
+>>> -    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
+>>> +    enum: [0, 20, 60, 100, 200, 400, 800, 1600, 2400]
+>>>   
+>>>     tx-internal-delay-ps:
+>>> -    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
+>>> +    enum: [0, 20, 60, 100, 200, 400, 800, 1600, 2400]
+>>
+>> You need to add some text to the Changelog to indicate why this is
+>> safe to do, and will not cause any regressions for DT blobs already in
+>> use. Backwards compatibility is very important and needs to be
+>> addressed.
+>>
+>>> +  eswin,rx-clk-invert:
+>>> +    description:
+>>> +      Invert the receive clock sampling polarity at the MAC input.
+>>> +      This property may be used to compensate for SoC-specific
+>>> +      receive clock to data skew and help ensure correct RX data
+>>> +      sampling at high speed.
+>>> +    type: boolean
+>>
+>> This does not make too much sense to me. The RGMII standard indicates
+>> sampling happens on both edges of the clock. The rising edge is for
+>> the lower 4 bits, the falling edge for the upper 4 bits. Flipping the
+>> polarity would only swap the nibbles around.
+> 
+> I'm going to ask a rather pertinent question. Why do we have this
+> eswin stuff in the kernel tree?
+> 
+> I've just been looking to see whether I can understand more about this,
+> and although I've discovered the TRM is available for the EIC7700:
+> 
+> https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
+> 
+> that isn't particularly helpful on its own.
+> 
+> There doesn't appear to be any device tree source files that describe
+> the hardware. The DT bindings that I can find seem to describe only
+> ethernet and USB. describe the ethernet and USB, and maybe sdhci.
+> 
+> I was looking for something that would lead me to what this
+> eswin,hsp-sp-csr thing is, but that doesn't seem to exist in our
+> DT binding documentation, nor does greping for "hsp.sp.csr" in
+> arch/*/boot/dts find anything.
+> 
+> So, we can't know what this "hsp" thing is to even know where to look
+> in the 80MiB of PDF documentation.
+> 
 
-thanks for your patch!
+HSP -> High-Speed Peripheral. eswin,hsp-sp-csr is mentioned in
 
-On Thu, Jan 8, 2026 at 7:08=E2=80=AFAM Chuan Liu via B4 Relay
-<devnull+chuan.liu.amlogic.com@kernel.org> wrote:
-[...]
-> +       firmware {
-> +               scmi {
-> +                       compatible =3D "arm,scmi-smc";
-> +                       arm,smc-id =3D <0x820000C1>;
-Just before your v5 Neil merged a patch to use lowercase hex consistently: =
-[0]
-Please update this here as well.
+Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+Documentation/devicetree/bindings/usb/eswin,eic7700-usb.yaml
 
+ From ESWIN's vendor/testing kernel tree:
 
-Thank you!
-Martin
+hsp_sp_csr: hsp-sp-top-csr@0x50440000 {
+   compatible = "syscon";
+   #size-cells = <2>;
+   reg = <0x0 0x50440000 0x0 0x2000>;
+};
 
+Apparently it's just a register block that controls varies behaviors of
+high speed peripherals. I'm not sure if DT bindings mandates it, but it's
+undocumented in the TRM. Perhaps ESWIN should properly document it going
+forward? Also, I think ESWIN needs to check-in the sdhci/eth/usb device-
+tree components ASAP, so folks can test it.
 
-[0] https://git.kernel.org/amlogic/c/7bcbedd64ecf5624583140faebfdb0e2e2f6b4=
-3e
+Bo
 
