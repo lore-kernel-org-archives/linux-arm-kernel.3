@@ -4,106 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26A58D25031
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 23:02:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E28D25031
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 23:51:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zv21RsZEoVv+G7aoKZTUN2Xu41JrxyNGBt1z4w/tEmo=; b=EtnenVP7Iz3qiJGKVCi6CyZkkn
-	/OEgBSIIrK5aDuGS3fqnTwkQEPmqlVrfDpvBwYXchSnteQ2rjfi4ioTBPM1uJAMIJQdMNodYf5mGK
-	CWprMxvim9toZyP5B/Di7TXNIOJeYAy3DmxzoqK0rRjzdGm0h+QAMFdYvC+TTw0/gcYap6m6NFBlV
-	EhAWCJXwg4nFL1pVk+KKywnHFWxD5A5nfyRHzyeKjeeM/e/hXPWEb4A+UZyUTsxMxX04HEiz6LSPx
-	7nc42LbVbbk83bvVo/XOSnxFUwlYQq/JTNGp9Qz6Rqf7sNgng3O5/e8HfWut2ENWEcl2Y/m/H0y3B
-	g3KLvZ5A==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D/ENBQX982lICCo3cjSQ7OsIstGG9Mk6/7pP55Ji4uo=; b=BbjYmqGHI4xB+OkJbdanDoW/mT
+	G6HgQFUlDBYtG4UysmN4Ul6dPVmUiPkh42wy7lEqSc70/9W62yJXoI0jvHifu/JGKaDwAoIsZtHn0
+	9FdiwtoLXI7jaSUy6bNia/gXJnzE0r+M7C+G75e9/e6ETQIcE62jSSjOLc8bL3j3/AOdvPZ80mvxJ
+	Q+ln32ldlC6Y7tyyuDnjO2Qzndu8/x7p7AplMN9GUUTegp/aBg7WMqEH8MresBqk8pURCh+I4AhgZ
+	ldtliYgbuXKt8XlsfdmlGdDXVPEe01wxVAeTayUpjs3O6ojWXAlcIUJx3v/nZ6lIyyZIC88095P06
+	HByZ3Szw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vf4S4-00000004YdK-0e6L;
-	Sun, 11 Jan 2026 23:02:28 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vf5Df-00000004ZtF-2dEz;
+	Sun, 11 Jan 2026 23:51:39 +0000
+Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vf4S1-00000004Ycx-0bCk
+	id 1vf5Dc-00000004ZsS-3jM8
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Jan 2026 23:02:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1768172541;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zv21RsZEoVv+G7aoKZTUN2Xu41JrxyNGBt1z4w/tEmo=;
-	b=gvcWx2qBeaBpfrCGLp4n5hrOFo7lnuIZQbHXJ3xEE4+cr3Epe2uvJW2xEILw+qP7Tvy9Pw
-	CY43OKHlbv3hMrE10RHlvgTLvSPkNSvORRW6IXilgxSj5YK3jDFdqX/j4fKsihP2JzCciw
-	1HB+Y2mg3RnLMYA85bAU4Yjvw4ssEtw=
-Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com
- [209.85.221.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-586-lXXn3UHPM96aTjv0bIA6vQ-1; Sun, 11 Jan 2026 18:02:19 -0500
-X-MC-Unique: lXXn3UHPM96aTjv0bIA6vQ-1
-X-Mimecast-MFC-AGG-ID: lXXn3UHPM96aTjv0bIA6vQ_1768172539
-Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-56366dab014so6048942e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 15:02:19 -0800 (PST)
+	Sun, 11 Jan 2026 23:51:38 +0000
+Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-7ce229972f1so5480869a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 15:51:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768175495; x=1768780295; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=D/ENBQX982lICCo3cjSQ7OsIstGG9Mk6/7pP55Ji4uo=;
+        b=jU0Hrw4Mw2jjNn5/gA7SVEgb6RbVLEDGy+bhS/z5RlM2h9tyb9iMB+fmShIhisUHyN
+         hJ0zPQJZm2pTeaxT7812qf/9g3mVI/EuHpQel88OEB0GobK+nRcu1J4XbkoSFv2lveZ8
+         9+QPeoHqv23gKHWoUN9N8/u9rw52L1RbaQQM0pvc7EQGWR2ckgSmYDCfSoT2APwiQN4n
+         a0cG4QeqtYbDJ8qt9mwAzHxZeE/mHpjVVbbcWgu7wqJHD9yaQOhQ5tRJWKegkiAMk35l
+         DKSsxGeU59Yp3lyt3el3ePBv+4kZEjdmgtN8V0nJ11IndFNm4cnrBnAY2Epyzl/cthhJ
+         4PFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768172539; x=1768777339;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zv21RsZEoVv+G7aoKZTUN2Xu41JrxyNGBt1z4w/tEmo=;
-        b=DZ6lH/qtR1DxVg5o4RmbJ+ATpSUkWL6VPpP0yMwTmN8hphy90NRJab68TxX4SbZ1rU
-         B0wFJ1sEumh+rjEh7XXD5bEnMw5zlNAQFPcWVDR3j4BNdX/j4xUuQahzs95aQCa2AntC
-         gTFXYUfUjti+hDs8ktt6bi3f3UzgZSeC/eDwprKbPwiHYglIJdBlFLouZCcD4SPUk8qu
-         k8ZLtfPwyXyIKUC+M1Q6rpb6ISYqn7upiS6IF7yY5wCocCUDv7JWvItmbHBwtBbRVE/R
-         yk9H8MX+9Fyzd8NQL+BmsK8mYgINtiQgSCBz/maop3eZXxK/SLNPn2ghxBuB3Gq7P+lc
-         J2SA==
-X-Forwarded-Encrypted: i=1; AJvYcCVEybtboIyWBKvbzStlv+nfc+EOllogK0CGWdGmVdRtY5tAm30rRZF+spnQCCNdguq/dN/vGWy1vBGHDQHcLSZ+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGFF8yP2TM3X4X8QynlvPM+F4DEi408hcnfhmlhJIQVAq5Bii+
-	oaurbJGXQwFjRSdBWIMrjiRZlU0ademFcBSlkGtqNqHGz/whafSWsTf/9k59akNUFJB3yyoBfpJ
-	p1Ul+88oNWPjaaFGdPB5JDP5ZP9/1yvbzi6aaJrR36nk1s2moCLhxoo351JNvxDw7sih6bAalsn
-	FU
-X-Gm-Gg: AY/fxX7VFEjlzYnZZ/lpwehgBNNOXk33SuQFV0p7uOAHMo+60wDZc5H3g1HOiHCFHf8
-	MGsIp83ikEcAASw1fZ6nl/1OWrxx+d58YY1ROAm/PryZlVphbqYdW+XSbHXwNOHuKkq1mGGrRnk
-	AK5lhz0XwiKeaZyrsYbj+PFq4rHGu/yEwZFufO1oy575q2+mr3O8TUl7wjjrYkdYoFlLhGi0+DF
-	Yaa/kCS+tV0wIOhR2+nm9sECHwGJBXRfyUlhl5QRhfy65EEwtB5GGuTAoFToV9QdPC0PHEwAQIi
-	gfBR3UElKh+WnXAjPlv1RmgTSgHFVPNPk0BQdgT4Qenw89/w72ZtiiKibE61cvdyMUib9PltNt1
-	o+rpbeSwcSpG1Y2ycudbBjeLUC8FNtzvfHdAh3H0cWgQOGFsXWLwXB0tS
-X-Received: by 2002:a05:6122:3383:b0:55e:82c3:e1fb with SMTP id 71dfb90a1353d-563466b1471mr6262653e0c.10.1768172538994;
-        Sun, 11 Jan 2026 15:02:18 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHOk4sm334yhP3hW+Z5bab2iMBbiknbbF0VXPQa3QhngNtcACSCZZbMFOiVkS2ufPcqrvXiIA==
-X-Received: by 2002:a05:6122:3383:b0:55e:82c3:e1fb with SMTP id 71dfb90a1353d-563466b1471mr6262646e0c.10.1768172538549;
-        Sun, 11 Jan 2026 15:02:18 -0800 (PST)
-Received: from ?IPV6:2601:188:c102:b180:1f8b:71d0:77b1:1f6e? ([2601:188:c102:b180:1f8b:71d0:77b1:1f6e])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5638821427dsm850204e0c.18.2026.01.11.15.02.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 11 Jan 2026 15:02:18 -0800 (PST)
-From: Waiman Long <llong@redhat.com>
-X-Google-Original-From: Waiman Long <longman@redhat.com>
-Message-ID: <40cec799-f363-4642-969b-24f5a2d56dfb@redhat.com>
-Date: Sun, 11 Jan 2026 18:02:13 -0500
+        d=1e100.net; s=20230601; t=1768175495; x=1768780295;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=D/ENBQX982lICCo3cjSQ7OsIstGG9Mk6/7pP55Ji4uo=;
+        b=pszkRT46pEwzhqacNHNL+Uwc8h0YQ7UDix9ToFQBDc7YRUADV4TWhWSZdpzNBTe8Iv
+         uCx23LlcvTFqLor8WvuObLq5WN47QmJfg5we1mrr2NeuPDFlKOh1enxT2WbBKB4N+YBO
+         +NS4l7Uk8/WSyC6iV7qCZoTjwZJ57CSR6u7xeJ7wUmQy544pm7YRzk2t1O6rttSRToHK
+         rFescWZp27zxAit9ozaLvo7RTRsIe8+VgeZE1ILHrYiiLyYDOu7ecw2k8l43xXJIGakk
+         pLykLSULquTji3YqSqCV+0DIm1rRPFUOIoN5IUsXznnvPuWOyyeBOHBcAF13J+00Rs8g
+         QL2A==
+X-Forwarded-Encrypted: i=1; AJvYcCWAB1e9irMSGpdDv/izV69oZfJbwcU+owyJy5hRYZQy28RyuZ2CIoNzYrtV4tNAve76ZqGWrDW5jxcVOX3SRuhK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxc0tF/DTx/POHcocruGhur/MXKJeY6V3yjcbF/U1vWFS0i8X5b
+	Feq4CKF1aKcDheOKDQKhJsUMf00jrNVr7EaaL7c04N1qO/fbBKCAtoUR2q6bhQt4jI6DfA5kL++
+	Uu1285YlohpC2pe9fBy3nqJt8g8jnWoY=
+X-Gm-Gg: AY/fxX6+mY39HYuj/ByYZ9bJwIXUqsgAhkHkVfrKXS4SpO9mJTIAR3Fi0fvURDoD7pl
+	76hbZCZsT6PB5c22ejCQ9sLMOXJ7cUkdpGcPao/WRYpny8aD6vR6dDoN5p2jlnuz+LHaqcYkqeg
+	LD8IlDlO+fNYCE3HvEiKnU7DfHI4HgC2Lybuu/DEQAcBcHiz4ToqPQ3DmcsatcxP/iqMpC64Qqa
+	gWL5snC4QkJYtLwyMLoLpKy92NO6HQcjO2gu8EiZVSs2ZPL56d7vBrcE8P6bEDVOGAlC6ZiZxX5
+	XldLGq+Wo0Tw5dT+yODtS4uU/8M=
+X-Google-Smtp-Source: AGHT+IGlge53U08ebFfe8r244rsrE6CkWTn00e+I2aSY3bW6BvjGm0i6R4xXCnYggHKHg3FXbw80wZStXmjolJVgDDY=
+X-Received: by 2002:a05:6830:4111:b0:7c7:6c9f:bb06 with SMTP id
+ 46e09a7af769-7ce50b7b138mr11464374a34.16.1768175495062; Sun, 11 Jan 2026
+ 15:51:35 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] irqchip/gic-v3-its: Don't acquire rt_spin_lock in
- allocate_vpe_l1_table()
-To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rt-devel@lists.linux.dev
-References: <20260107215353.75612-1-longman@redhat.com>
- <864iowmrx6.wl-maz@kernel.org> <87ms2nsqju.ffs@tglx>
- <86wm1qlq7l.wl-maz@kernel.org> <87ecnwij44.ffs@tglx>
- <86v7h8l9ht.wl-maz@kernel.org>
-In-Reply-To: <86v7h8l9ht.wl-maz@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Lao-cYBFNdG1n2ncEAbZr60ZAc34IDoEVNftfuqojSw_1768172539
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260110010715.1610159-1-mschirrmeister@gmail.com>
+ <20260110010715.1610159-2-mschirrmeister@gmail.com> <20260111-melodic-chestnut-coua-73e6ec@quoll>
+In-Reply-To: <20260111-melodic-chestnut-coua-73e6ec@quoll>
+From: Marco Schirrmeister <mschirrmeister@gmail.com>
+Date: Mon, 12 Jan 2026 00:51:24 +0100
+X-Gm-Features: AZwV_QgRXlN1CiuRYVEhXNkMAqD9Aoc5N6ROQBHLSJhP77NnrQn6dbThJj_qUMM
+Message-ID: <CAGJh8eAWNe0JzC7BdA2Rw5etCYgGq3O5Zdgk9zSzsLNv18k=ag@mail.gmail.com>
+Subject: Re: [PATCH v1 1/3] dt-bindings: mmc: rockchip-dw-mshc: add rockchip,disable-runtime-pm
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: heiko@sntech.de, ulf.hansson@linaro.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_150225_265667_EB645D69 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20260111_155136_948987_1C8EA6DB 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,21 +99,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/11/26 5:38 AM, Marc Zyngier wrote:
->> Also that patch seems to be incomplete because there is another
->> allocation further down in allocate_vpe_l1_table()....
-> Yeah, I wondered why page allocation wasn't affected by this issue,
-> but didn't try to find out.
+Hi Krzysztof,
 
-The use of GFP_ATOMIC flag in the page allocation request may help it to 
-dip into the reserved area and avoid taking any spinlock. In my own 
-test, just removing the kzalloc() call is enough to avoid any invalid 
-context warning. In the page allocation code, there is a zone lock and a 
-per_cpu_pages lock. They were not acquired in my particular test case, 
-though further investigation may be needed to make sure it is really safe.
+Thank you for the feedback.
 
-Cheers,
-Longman
+On Sun, Jan 11, 2026 at 10:41=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
+> > +  rockchip,disable-runtime-pm:
+> > +    type: boolean
+> > +    description:
+> > +      Inhibit runtime power management. This is required for boards
+>
+> What is runtime power management? Like Linux PM? If anything phrased
+> like that is it is a clear no go. Bindings describe hardware.
 
+You are right. This refers to the Linux PM subsystem and describes
+software behavior.
 
+> > +      where the bus timing becomes unstable if the controller is
+> > +      runtime-suspended.
+>
+> You described the desired Linux feature or behavior, not the actual
+> hardware. The bindings are about the latter, so instead you need to
+> rephrase the property and its description to match actual hardware
+> capabilities/features/configuration etc.
+
+On this board, the bus timing becomes unstable when waking up from
+a low-power state. This causes a constant retraining loop.
+
+I will move this logic into the driver and handle it as a board specific
+quirk using of_machine_is_compatible("friendlyarm,nanopi-r76s")
+instead. I will send a v2.
+
+Best regards,
+Marco
 
