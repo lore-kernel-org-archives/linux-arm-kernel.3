@@ -4,108 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA63AD2502E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 11:17:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F649D2502F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 11:24:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TunzenCd+u9zWr6JFFS5Gm8kiWj2I4Ax7nybcEGYLuU=; b=GYq7Q920p2fKjNKbb8pwa6XMb4
-	bSaR+Y0eIPlvfuC8OCAZ7vBhJLPhUARlaiQKceRE473orRi8//ZJKpQyRjmZ28WkXOlQInY6WOvjZ
-	wlasR+8jsKd6ltAsSlpl09GhlAHIdKICYAjE2ZtsPM6ktOpQp8c1sHV5QB2O7qQRuGpi7sR6cD0y1
-	/9krxYECU/GAelp7m6vGHiWpdaD0x4L9MGa7BqcFifWzMPsUBRPmbbn24zrIckYOEOobr14Zy0qsL
-	qU4pTNtA9DvCQlac63i3Sw5hbL0akYlgIbjn4H6zvuWj/o/+xM6Oy7iN8+nhnsnrMnYBCn2eXAyJN
-	KqvBzatQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vmJtVU6N0MouEySwEwBNcMPu8mtgmC4osbjka7kRxyE=; b=kCJdX7YIPVdMnxH6FS1AEQ4Goq
+	otWsemKBjhKv3PL4EV2PoWIg85whYlVMzRgpiVy3wTOqkC/CZ1xn9PHwDE1t/7Ow+zTUceJNjHv4w
+	Y5b0Ju1h4wLN+lM2UARBWVoIn0NqbNX+42SUhJE4RTG+Iek00zvm6FuUpY6Yeg8K4X0Pf0ayD9Q+t
+	acVQZj8QtXoYRlZ7NJH3hUeCDZfag745uckhOIbi55WBwX4tjCs+toJJJ2Ny+VI1us/9JTL6IItRJ
+	BaIUCvRq2/wTsRHeTSAg3icN8TF/lxIjlDxYL+CUib4qtCrA+8Qypn0Ne91WPY6amW4YiwAXef9hj
+	pBt3MNjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vetS5-000000049Xu-1L7G;
-	Sun, 11 Jan 2026 11:17:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vetYH-000000049uk-2NRq;
+	Sun, 11 Jan 2026 11:24:09 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vetS4-000000049Xk-1drX
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Jan 2026 11:17:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 72EC660010;
-	Sun, 11 Jan 2026 11:17:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DD7CC4CEF7;
-	Sun, 11 Jan 2026 11:17:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768130262;
-	bh=VnzbfSMNiVTlSPudc+sJSs2BKx30kpCzZs5U19FHAYo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YhE1dCTaufX450kIpaRRevLEkb9fifuxhgIG2vcpo57b6H4efw2PvgTWz2wqIoGgX
-	 niBGeSokwoqEUJjVZCmxhFalEJ/cr6RR7EtV7SnvkxJrGR6ypWkj2DqulacP4tUXly
-	 mQ3nH8FC/r9y608aS44kCS9nYzFi1YbZBvmzmjkxdPO4VPtFNcNdwShATmez3SUxug
-	 jY173nCCo55YFaspA/H1obds39wKAMGY24x3qTklwUseusCDJbWOKgOwt7+wN/glnJ
-	 IVy++BuWd3O0vgznqUUtXPyBnRSBKkouUbLSxAMbsdXjZYT/eijDr3eaMD3dd8wA7J
-	 ybZrf3al6go7w==
-Message-ID: <17bda2f2-ae4a-4744-a1e0-05cce6686087@kernel.org>
-Date: Sun, 11 Jan 2026 12:17:37 +0100
+	id 1vetYF-000000049uI-0RxA;
+	Sun, 11 Jan 2026 11:24:08 +0000
+X-UUID: 084ce996eee011f09f706fa2197c6ceb-20260111
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=vmJtVU6N0MouEySwEwBNcMPu8mtgmC4osbjka7kRxyE=;
+	b=LOsQb0YEu52eCBtnzdsFroT93MUYIDNW4kpJ/QIMlvGtoWse0YxRnRUCJAxPk3MO2pw3CrTfzbzwznJsHZk6/HTDHEql9Hs2Uv11H8724LunJSNGdIpT2G7gxQWyRgIgWs/9aQ2c9W7AmqgpHObxo3zx0n/zMPahxyvjkvMbZyY=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.9,REQID:94da1255-9063-4b53-a6a3-9b5bb212ae60,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:5047765,CLOUDID:a175fd59-a957-4259-bcca-d3af718d7034,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:1,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 084ce996eee011f09f706fa2197c6ceb-20260111
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
+	(envelope-from <jibin.zhang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 925825666; Sun, 11 Jan 2026 04:24:02 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Sun, 11 Jan 2026 19:24:00 +0800
+Received: from mbjsdccf07.mediatek.inc (10.15.20.246) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Sun, 11 Jan 2026 19:23:59 +0800
+From: Jibin Zhang <jibin.zhang@mediatek.com>
+To: Eric Dumazet <edumazet@google.com>, Neal Cardwell <ncardwell@google.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>, "David S . Miller"
+	<davem@davemloft.net>, David Ahern <dsahern@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+	<horms@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: <wsd_upstream@mediatek.com>, <jibin.zhang@mediatek.com>
+Subject: [PATCH v2] net: fix segmentation of forwarding fraglist GRO
+Date: Sun, 11 Jan 2026 19:23:46 +0800
+Message-ID: <20260111112355.21504-1-jibin.zhang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] pinctrl: samsung: Add Exynos9610 pinctrl
- configuration
-To: Alexandru Chimac <alex@chimac.ro>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Alim Akhtar <alim.akhtar@samsung.com>, Linus Walleij <linusw@kernel.org>,
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Tomasz Figa <tomasz.figa@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260102-exynos9610-pinctrl-v3-0-3f21f2cfb651@chimac.ro>
- <20260102-exynos9610-pinctrl-v3-3-3f21f2cfb651@chimac.ro>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260102-exynos9610-pinctrl-v3-3-3f21f2cfb651@chimac.ro>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260111_032407_175404_55251132 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,21 +88,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/01/2026 12:29, Alexandru Chimac wrote:
-> Add pinctrl configuration for Exynos9610. The bank types
-> used are the same as on Exynos850 and gs101, so we can
-> reuse the macros.
-> 
-> Signed-off-by: Alexandru Chimac <alex@chimac.ro>
-> ---
->  drivers/pinctrl/samsung/pinctrl-exynos-arm64.c | 117 +++++++++++++++++++++++++
->  drivers/pinctrl/samsung/pinctrl-samsung.c      |   2 +
->  drivers/pinctrl/samsung/pinctrl-samsung.h      |   1 +
+This patch enhances GSO segment checks by verifying the presence
+of frag_list and protocol consistency, addressing low throughput
+issues on IPv4 servers when used as hotspots
 
+Specifically, it fixes a bug in GSO segmentation when forwarding
+GRO packets with frag_list. The function skb_segment_list cannot
+correctly process GRO skbs converted by XLAT, because XLAT only
+converts the header of the head skb. As a result, skbs in the
+frag_list may remain unconverted, leading to protocol
+inconsistencies and reduced throughput.
 
-Also note for the future - please use decent editor so your commit msg
-will be correctly wrapped.
+To resolve this, the patch uses skb_segment to handle forwarded
+packets converted by XLAT, ensuring that all fragments are
+properly converted and segmented.
 
-Best regards,
-Krzysztof
+Signed-off-by: Jibin Zhang <jibin.zhang@mediatek.com>
+---
+v2: To apply the added condition to a narrower scop
+
+  In this version, the condition (skb_has_frag_list(gso_skb) &&
+(gso_skb->protocol == skb_shinfo(gso_skb)->frag_list->protocol))
+is moved into inner 'if' statement to a narrower scope.
+
+  Send out the patch again for further discussion because:
+
+1. This issue has a significant impact and has occurred in many
+countries and regions.
+2. Currently, modifying BPF is not a good option, because BPF code
+cannot access the header of skb on the fraglist, and the required
+changes would affect a wide range of code.
+3. Directly disabling GRO aggregation for XLAT flows is also not a
+good solution, as this change would disable GRO even when forwarding
+is not needed, and it would also require cooperation from all device
+drivers.
+
+[1]: https//patchwork.kernel.org/patch/14350844
+
+---
+ net/ipv4/tcp_offload.c | 4 +++-
+ net/ipv4/udp_offload.c | 4 +++-
+ 2 files changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
+index fdda18b1abda..6c2c10f37f87 100644
+--- a/net/ipv4/tcp_offload.c
++++ b/net/ipv4/tcp_offload.c
+@@ -107,7 +107,9 @@ static struct sk_buff *tcp4_gso_segment(struct sk_buff *skb,
+ 	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST) {
+ 		struct tcphdr *th = tcp_hdr(skb);
+ 
+-		if (skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size)
++		if ((skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size) &&
++		    skb_has_frag_list(skb) &&
++		    (skb->protocol == skb_shinfo(skb)->frag_list->protocol))
+ 			return __tcp4_gso_segment_list(skb, features);
+ 
+ 		skb->ip_summed = CHECKSUM_NONE;
+diff --git a/net/ipv4/udp_offload.c b/net/ipv4/udp_offload.c
+index 19d0b5b09ffa..2a99f011793f 100644
+--- a/net/ipv4/udp_offload.c
++++ b/net/ipv4/udp_offload.c
+@@ -514,7 +514,9 @@ struct sk_buff *__udp_gso_segment(struct sk_buff *gso_skb,
+ 
+ 	if (skb_shinfo(gso_skb)->gso_type & SKB_GSO_FRAGLIST) {
+ 		 /* Detect modified geometry and pass those to skb_segment. */
+-		if (skb_pagelen(gso_skb) - sizeof(*uh) == skb_shinfo(gso_skb)->gso_size)
++		if ((skb_pagelen(gso_skb) - sizeof(*uh) == skb_shinfo(gso_skb)->gso_size) &&
++		    skb_has_frag_list(gso_skb) &&
++		    (gso_skb->protocol == skb_shinfo(gso_skb)->frag_list->protocol))
+ 			return __udp_gso_segment_list(gso_skb, features, is_ipv6);
+ 
+ 		ret = __skb_linearize(gso_skb);
+-- 
+2.45.2
+
 
