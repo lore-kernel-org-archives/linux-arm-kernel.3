@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90049D2502D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 20:29:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0DBFD2502D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 20:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mm3rzZ/W2xBZFv+Tsa9c0b2CXj+snhRDSnljMQSU3L0=; b=Zw2tyR3vJfeDKyrs+KdtzByEuV
-	SQrO4k3ljY67IE4XI/KrW0UGAJlzIPjFII8Dcyi0D9Oq7wbzdJKA+YnvV/LJ6AhOK/8TczlJiGY9n
-	8i6DNDFwy27JNmEN2HZJ3CrkZpWRkVFCquRdKHz8ZoHoAqDQ1D/5t6A98X7+viYRIpQsLTrWmem+f
-	l5bsUaIEcJd2bPwCzDZdEbHbaUDnpfghebINdkG+wLSsJcq+fD8jvhzYQezmqHV2JmRSHhyodkUKG
-	TNJF29ZwkGCcCpVcgS9kSrej8TkfKASkUZhqCw75/VKIf8zjTLkkBrrWg1nTtvwHfPDDcZiS26tHE
-	PxC9pX6w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4HTc95GbLA62xJohSWgrBkTdSAFSujcsQtyGhNdIQgg=; b=byl1kFNNjKcqMa
+	H1Fck1JOLgL3YLByD0FuG2aQHFJ71LOiDncziwC8udfzTsUMEKmHhygdhl1On+xepy0Yef5IqHorX
+	LPoSPnRn8Tn0i0EiW0sstbHfXRvLaoXak2PF7Q72Sf5gqeUo4fQbq9om4DaAjR/dqs8VpgUOXm83l
+	J1PCX+8NtlJuFy9TBWCWrxPQNiiTv2WGKKrQiWJNOjec9nZW1TO95ay7SohKeOvpCnyyJi3uEHiVy
+	70p8n/qt1RyO1oKXgGC12zK/rd7ZAo9pLu0wj8kK+toW6vFpJ05KhsWxcCfLUhnOv9hI0X3zB4rXG
+	HNt+YQH85znzeHlTe6hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vf242-00000004UHO-1su6;
-	Sun, 11 Jan 2026 20:29:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vf241-00000004UGW-1Bkk
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vf241-00000004UGX-0sNS;
 	Sun, 11 Jan 2026 20:29:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vf23x-00000004UG7-3q6t
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 11 Jan 2026 20:29:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BA1A260165;
-	Sun, 11 Jan 2026 20:29:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEE98C4CEF7;
-	Sun, 11 Jan 2026 20:29:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C0E6440600;
+	Sun, 11 Jan 2026 20:29:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2423FC4CEF7;
+	Sun, 11 Jan 2026 20:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768163368;
-	bh=6oA/Zpv40boNXu9flhLjZnCSCituxNm3WBB02StEqlQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=uuncVLAcRpqSTlbr7qLJijd2DtnBPezA2c5VXmSGuhUKOOnFEjrjpodWKBTFfTxNX
-	 E5hQxYVi0lU/1lhWe0ykFFKDnJkNOUEjjNRow0qNysaCd0p3wCwzonl62lVZnAMV8F
-	 E+eCNya2VqXMvIHGUaBq6M103+5+Bq6NZFbSnBip/XpGdYk1rbsJUBTTNKa6RON8k3
-	 nVZg52U+oygCCrUP84VHyUzLYgCewnCxtp4t/ctCXWIo2bySZCPTenJS8fdDVfXXYk
-	 /nhPyisDVcRyXysv04ZGYssTDLMwMzmnKysn7+s4BGx7inmEbociQ46o7uDDVcJP9V
-	 vVy0hD1KcjbxA==
+	s=k20201202; t=1768163364;
+	bh=I1h+NucLnbjVmPVCT4uT86wnetjl/SKcrwLsxIVeUkY=;
+	h=From:Subject:Date:To:Cc:From;
+	b=HfBjUkCgy0Qsv6xO0RAaKH2pRA1G9OjbIn5sECkRGIEmhTwA8UXIM5KQ2Q09G45UQ
+	 DiL2NVtEMWBaWczYBSI0tB2Xy/sL6IKExaCADdrrXzcY1juoKBZaKDDhErPcoKW7Hk
+	 1Jk2iO0+K4p/AyPWM/ClQHB14y9mFIozyZJZrapzflpDesjHPDjohdjFE6GE//nbJv
+	 9a5OeyvKBfIGAfPnljynNQdB5f2FcAc7Ewoa8BbE/K8D6ZutrP7Mcc2LQx65YklVvq
+	 t0vc+Jwh+9kzNrLYP9G0Nd3O9h4qNVILTNp8+gXs09UdBJy/Su2tUwNKC1BpDvVOfm
+	 eemWCR7sUbstg==
 From: Linus Walleij <linusw@kernel.org>
-Date: Sun, 11 Jan 2026 21:29:22 +0100
-Subject: [PATCH 2/2] RFC: pinctrl: apple: Implement GPIO func check
- callback
+Subject: [PATCH 0/2] pinctrl: apple: Fixup and RFC GPIO mode patch
+Date: Sun, 11 Jan 2026 21:29:20 +0100
+Message-Id: <20260111-apple-req-gpio-func-v1-0-6deb1b695371@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260111-apple-req-gpio-func-v1-2-6deb1b695371@kernel.org>
-References: <20260111-apple-req-gpio-func-v1-0-6deb1b695371@kernel.org>
-In-Reply-To: <20260111-apple-req-gpio-func-v1-0-6deb1b695371@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MTQqAIBBA4avErBtw+iO6SrQQG20gzJQiCO+et
+ PwW772QOAonmKoXIt+S5PAFVFdgNu0do6zF0KhmUESEOoSdMfKJLsiB9vIGW0XK6K7XRCOUMkS
+ 28vzXecn5A10+DbZlAAAA
+X-Change-ID: 20260111-apple-req-gpio-func-3010ca45a118
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
  Neal Gompa <neal@gompa.dev>, Bartosz Golaszewski <brgl@kernel.org>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-gpio@vger.kernel.org, Linus Walleij <linusw@kernel.org>
 X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260111_122925_982400_17338B26 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,53 +76,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This function will check if the indicated function enumerator
-i.e. the value set into bits 5 and 6 of the pin configuration
-register, is zero and thus corresponds to the GPIO mode of the
-pin.
+This fixes some uses of the "unsigned" type to "unsigned int"
+then propose to implement the .function_is_gpio() callback.
 
-This may be necessary to know since the pin controller is
-flagged as "strict": once you set a pin *explicitly* to GPIO
-mode using function 0, the core is unaware that this is
-actually the GPIO mode, and clients may be denied to
-retrieve the pin as a GPIO.
+The Apple pin control maintainers can comment on this: I
+am not sure that "mode 0" is GPIO on this hardware but I
+find it likely.
 
-Currently none of the in-kernel device trees sets any pin to
-GPIO mode, but this may happen any day.
+Toggling a pin between a certain function mode and GPIO
+mode happens on any sufficiently advanced system sooner or
+later and this callback was implemented because Qualcomm
+ran into it, so let's add it to the Apple driver before
+the users turn up.
 
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- drivers/pinctrl/pinctrl-apple-gpio.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Linus Walleij (2):
+      pinctrl: apple: Use unsigned int instead of unsigned
+      RFC: pinctrl: apple: Implement GPIO func check callback
 
-diff --git a/drivers/pinctrl/pinctrl-apple-gpio.c b/drivers/pinctrl/pinctrl-apple-gpio.c
-index a4161d59ab9f..fd20d0e49f48 100644
---- a/drivers/pinctrl/pinctrl-apple-gpio.c
-+++ b/drivers/pinctrl/pinctrl-apple-gpio.c
-@@ -170,6 +170,13 @@ static const struct pinctrl_ops apple_gpio_pinctrl_ops = {
- 
- /* Pin multiplexer functions */
- 
-+static int apple_gpio_pinmux_func_is_gpio(struct pinctrl_dev *pctldev,
-+					  unsigned int selector)
-+{
-+	/* Function selector 0 is always the GPIO mode */
-+	return (selector == 0);
-+}
-+
- static int apple_gpio_pinmux_set(struct pinctrl_dev *pctldev, unsigned int func,
- 				 unsigned int group)
- {
-@@ -186,6 +193,7 @@ static const struct pinmux_ops apple_gpio_pinmux_ops = {
- 	.get_functions_count = pinmux_generic_get_function_count,
- 	.get_function_name = pinmux_generic_get_function_name,
- 	.get_function_groups = pinmux_generic_get_function_groups,
-+	.function_is_gpio = apple_gpio_pinmux_func_is_gpio,
- 	.set_mux = apple_gpio_pinmux_set,
- 	.strict = true,
- };
+ drivers/pinctrl/pinctrl-apple-gpio.c | 18 +++++++++++++-----
+ 1 file changed, 13 insertions(+), 5 deletions(-)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20260111-apple-req-gpio-func-3010ca45a118
 
+Best regards,
 -- 
-2.52.0
+Linus Walleij <linusw@kernel.org>
 
 
