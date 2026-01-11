@@ -4,171 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD543D25030
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 09:41:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCCD1D2502F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 09:42:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aTAmZ/5tqjmnEV/2MiGo5IWWUzc0YCXJAidzq74XjOQ=; b=Dd350aWsKdk2m2h0PilMxDfYbX
-	nLT2aNzo7dZBwG8m2JS12CYRDkvYzZ8WYYiiveCE1rAqdXVpNVkLVY3iYQGHAg31l7r8QE7y2O82k
-	gozXKZb+gZ0dDzwjALEZDsBVWA+Tsj9et6LCxkEhy+pHavUvFI2UCUmlvW1GigmMWvb0lhN8BPxI7
-	cDE0FMHrKhovWgBt7mxYZWqEr/AGG1qY4944Dr+tPjziOtT2SLtzYMt+HVKCnlBVtnt4ezUBcrHJz
-	ThTaXj0DVIrnw5Ujs+aR+pArH/ZwWYpPNcT+sO5p2iLti8BtCnMofYAzM+mJ8fRcK3yQS6ugkbom9
-	RzN8yq6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+wr9BUD2EsKWYxLcYOUIrFPJntMmQbYJ0iMrn06ut0Y=; b=2a5d0OO0Jcl2dWQVZ8W4tsznnp
+	gBdZQvkS9Kmwwu2RO692kvslFBFftMHjBrcfBXQbWeFM+Rd8LlMagz4UJYM84DS1hEAGFeGjUT2hR
+	TQygu9haYpjq/0Qhnsgb1OEpaw2XTrlDdr3YAqKLwB7dxz5OtCsVnTrMOLXQf6cILHwHRydJmu4S9
+	v/ru2Jdu70iqiHQPkddIu/xjlZyQ4/r0EzOoxsyuqQShD+kguIN3fJlvpb57EFbPuJDjQLba0kQgZ
+	7muS1maVoEb1lvu/EwsOtqWdov6WXEq/ltUM5CxjiXedNMUF6cJCttAUaO/Yi9lk+o5P0eGByiXRE
+	cEL810sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1verx6-000000045Iw-19xk;
-	Sun, 11 Jan 2026 09:41:40 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1verxO-000000045bM-3LJ4;
+	Sun, 11 Jan 2026 09:41:58 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1verws-000000044jD-03rf;
-	Sun, 11 Jan 2026 09:41:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VhKDh55Q8Xfd3Wz11JTKQTOWKKo128tGWf/4DRCVPqq0D023L9qesRu66OOtwI/QmXYNU4HGIbTavrQJfY091CYwazhci+NmP3IosAGR8e/PwYw9aKA0KMCpkAZZtBoPgb6xD11jP+Q6E7+a/Irfu5mJd9dyin/LZytvYba6QasU4MY1qp+SNbgXLfyMDHpOfeCmm9V78EQclTtTz2ZsMX6SJFbluzLRbCuyjKAHwS2QPYhkQkfXckQlZ/g5frmZptQswk7Gipyyu4rb0qSV7Msyn41FbLLazh11z2UEKufi4/A4K35IGkcz/o7zCpGHL41mqt78XV7Ke8JIhm7g+w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aTAmZ/5tqjmnEV/2MiGo5IWWUzc0YCXJAidzq74XjOQ=;
- b=YCzdY7ktQxyqu0Flxmc8o6U9XOQlDlU6hYsIz/5tIICYYNLVSt4FLNLk8sks6hjy6mpUJAfkCFFitBJ9chCrOEFszm8PXgf2OFKBiL8t35QJYWyQqJjXyfkKPFmn67D9PZ/PcCfQXxOfnYJoyzD1bn0OgHtrXipl4GTn4saAhIxnEnPbyYL270WdDBFqnx+Thv1+Rl9z6X/jNbWvB92e+aWpScSGvW1N29m33RwqB4uIaTjh9k91XLtQ5yT9IrPVTR53LGtBJwLXMOsu35hgGtGQvah6Jnb8+EF+hZGkD75Pjc0nWv3YUCR9cef/qCHjbv+8787jTuX7Sl/cc8N8xA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aTAmZ/5tqjmnEV/2MiGo5IWWUzc0YCXJAidzq74XjOQ=;
- b=XYatEM5a8Bp10WEdyM/YLgKM3LFq90k0F/2uGrm+dVB84asvhlYCvawsDPXndpyXFzte8XbgH3RmfDBFiQuYvyRi9rmTwXD/RKfIFSlhLwq+KMiUik4QQkv5txWmewM8nmdtvV9BddU1MQEA3wajFVdEDI7PUoDJ35cCf3f2+ex/JfwVli5Cvv+uOh6SPJO02U/I3bdGqYG9d9Doe3iGW9eIXSepiYmB3/9DCeoccmq1rXGoXtR6gocaOAzJVe3chVL/w1zMfYTXLLpELl4r6vykOMqG7O4lBEJqUL1ClM4rGtl78lMQah1OSoiIKcQ2Ar0S9ed0yMzFbteqDzsdZA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by AS8PR04MB7592.eurprd04.prod.outlook.com (2603:10a6:20b:23f::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.6; Sun, 11 Jan
- 2026 09:41:15 +0000
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9499.005; Sun, 11 Jan 2026
- 09:41:14 +0000
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-phy@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Daniel Golle <daniel@makrotopia.org>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	=?UTF-8?q?Bj=C3=B8rn=20Mork?= <bjorn@mork.no>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Eric Woudstra <ericwouds@gmail.com>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>
-Subject: [PATCH v3 net-next 10/10] net: pcs: pcs-mtk-lynxi: deprecate "mediatek,pnswap"
-Date: Sun, 11 Jan 2026 11:39:39 +0200
-Message-ID: <20260111093940.975359-11-vladimir.oltean@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260111093940.975359-1-vladimir.oltean@nxp.com>
-References: <20260111093940.975359-1-vladimir.oltean@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: VI1P189CA0004.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:802:2a::17) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
+	id 1verxO-000000045aG-13YH;
+	Sun, 11 Jan 2026 09:41:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=+wr9BUD2EsKWYxLcYOUIrFPJntMmQbYJ0iMrn06ut0Y=; b=HYSLeOnWoOJBhwbJ7GwDT4z6xr
+	3cNSCUu5KIGfPvBM4/tz6stZAznAEce3Y5IV/7ml+07XLFXlZx/958okUqD4Nvqx72YZNAgYz7Im3
+	2FxPaYcpKYkHfTjDkeqZPROTFoqCux7dqGPB1nR7sNGgFqyHTnHOMnBglYcHMrp7kYN8NHMR/yFJr
+	xGstTtIKU4p7a47k9GBwKYUC8uAzxfrU4Y/nxgRrU3QG6Eewkd+SvnGctzUNz/S3wBLi6lmux9LJc
+	VRUJiP2o59v+FyNMKeI83wLNcsKkKhmHSeNTM5FiFHn7hmHyNW7ew0Yf8CCNpCCcl2XGQhBaHcb3v
+	SJBzMjyA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1verxG-0000000GyB9-43ja;
+	Sun, 11 Jan 2026 09:41:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 58954408F2;
+	Sun, 11 Jan 2026 09:41:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F452C116C6;
+	Sun, 11 Jan 2026 09:41:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768124505;
+	bh=+TuUJhJ2yQsU60k2jmWlPomv8SG7G2UBq1YcJ30ostc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=M3sgumNEkLFv6olReQSEPNWaivLlKJr84QX6oc7VD2c9MCMzAHlkriDKjmNsolKlK
+	 riRd35xrS4wGdjpi4DuGG6O0aG03qHKvHzUZNjhsjnXhhj9C7vmkZJ7R2q9QCLO781
+	 o6caaz5gfwUZ0qRi0lRuXUcUab+YhyX+IQb8GVcrUpEnMfJ5+Kg24nASsxuB+3BcdT
+	 QmITz8hhbfUwDNMKEQPC+xxd/d77OMDcgHywT35mK9WuLfLJlhMs7T+xQ5JFD8dkA0
+	 YQ0XGFT7WizVkwO6lwi13XY9stE3bvP32d1M7Ng9JzxbD2zVmbJTYZa8JvnIvRbeuw
+	 vm8pUzHj87dag==
+Date: Sun, 11 Jan 2026 10:41:42 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Marco Schirrmeister <mschirrmeister@gmail.com>
+Cc: heiko@sntech.de, ulf.hansson@linaro.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 1/3] dt-bindings: mmc: rockchip-dw-mshc: add
+ rockchip,disable-runtime-pm
+Message-ID: <20260111-melodic-chestnut-coua-73e6ec@quoll>
+References: <20260110010715.1610159-1-mschirrmeister@gmail.com>
+ <20260110010715.1610159-2-mschirrmeister@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|AS8PR04MB7592:EE_
-X-MS-Office365-Filtering-Correlation-Id: 23914a17-3738-4912-3f8f-08de50f58fea
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|52116014|1800799024|10070799003|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0AM3NsNcYNmTab5oZ/Xke9cdM26406FjdriP4qWBzK80T1uny+rwhncJufPU?=
- =?us-ascii?Q?hE+2g/jDYv3BR0JmTF0+lEL7EtAos5AHiSOLasw78amFKvfa6TDwnsRrEHNX?=
- =?us-ascii?Q?G8amZIDnU/OqI+LbugXAHBL2EZ+PEIrnwEyax4upwYFhdNakhTgM4eYRMYGp?=
- =?us-ascii?Q?N33/YQFj8toLOYTGM+3HjFBhCjNaiqMru014cTQxGgfGPesDgpGZOfVNoasW?=
- =?us-ascii?Q?K69Ug4UZPfUQGXHetnhWzaAZdpALwkYi+H13coqlUhlkDa/Fbgc5W0/ld/SO?=
- =?us-ascii?Q?aPTfYE4lrpz9yRSikeZq3MWLTmXICo/eGw53wRXuj44hO4gIuNtogrGSNJa7?=
- =?us-ascii?Q?kgwkrYMwpOgx12VCVBJiNS4R/Iq2VUTdQoKQTDW2CqpKeW/HYlwJrO8O1rL8?=
- =?us-ascii?Q?slaAUcE7SOOxmYibXAoy7xEqTbCj4VTkojOkQHGSH/O2P8iu4WiP3nqr9cVP?=
- =?us-ascii?Q?E3aZABBeJBW8qlOMWiTRfBPM2P7N93JnRuJCopt2iAgu6QW9bunBG9DWgYLZ?=
- =?us-ascii?Q?Ujn+RNltECoUJV9o59ofopuv3/4VV0/G9TEyWdVia542fTBjTzclgul7fYni?=
- =?us-ascii?Q?O+2dePk5x2kwYYRR5SqlMZHmFgzIl+UtXnsxFtNfEBfgcQCHXkX/BmJC8pn4?=
- =?us-ascii?Q?JedFsLYfdVjXho7IIXf/iae0ecCoWk/kAEBi5GFl2b4ZHNwp9WJFUU1fI8+S?=
- =?us-ascii?Q?z2zclCGTO6GXu+xMV8lDfrHR8KLU/u3UcLTwjCiTEilzLNewNpFpSk6iEUR0?=
- =?us-ascii?Q?yAiIP5mJgRkKq2aSJtm1RK+QkrJmYuSLskQgOGf2/kqDsdwl7SeO3rjG+vCA?=
- =?us-ascii?Q?L9QTTG/Gh7U1aI1QjaGxJzrzgKTDnyYXRsg1lC0eBey19XFj8NSaFLtXz35r?=
- =?us-ascii?Q?qDCgtet5W+Q2VzmPXgj50zQr7A4mJP9p7a8WEI97GGtgXleLphNDVZiJwTD9?=
- =?us-ascii?Q?Z6djR89rtnLbexPAA6A9yBUNQpyk2IwamfSDwLmKznhPvVUjkoVhtK9FB1Zg?=
- =?us-ascii?Q?Xhk91T0Lh+Ma1kA397jX3UEQ+nv3noDQWhe6+gFFBh+LufKccbqjP0PCK3bC?=
- =?us-ascii?Q?NFO5AJqru5CdF7ZVdUO/I+vSlAMUJqcsqaoSbibGLwvZokPFtcJ7KUmIKvna?=
- =?us-ascii?Q?wMVe9hv0kTTGDn5F77akpL1Cx6qY7kZMZxo6yIXbdCAmLl/nP4ZLM0U//Bnd?=
- =?us-ascii?Q?z4Zg563nrtfQjPqijU80XbD0gbiVIYs+hbpaAwaQo7B8WjYLDz/7Smo5PfMJ?=
- =?us-ascii?Q?0TAj8HXeirJIL/U1q/s6WvGHiEhrIktt3UYqvl20uAGq6NhGJajEpUn24rd/?=
- =?us-ascii?Q?JXWyneNvjMZEHRcyq+DaPpz4+HC6afSjInEOP1MjQAjxTwZWyL+fmyg8Zt9C?=
- =?us-ascii?Q?3U+oTx3lHR7cgmgNr6KWI3Had/w5psV5OQyCaRLpKPUxFq8rFf2/gQJFa0Hj?=
- =?us-ascii?Q?JCfcuYcc+mmmv52s+17HxIKC68CVO8KueVI1VsPWLc+fjlFG24mhSw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(52116014)(1800799024)(10070799003)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jhAcsCXyu1hhAVATM7Oi9YGcZEHHf4tRAIBgH9VhmQ/pbOop1zOvtFxT0YMo?=
- =?us-ascii?Q?+RhqG2BDGl9ezOzOgB2YoxiKgpYPrk4J/GVt54mClJwaH0nkmLZNBJpSkEBT?=
- =?us-ascii?Q?loPgQyju5Wp0EE42J5hOQyE5W9Fh9OxXNkqNqNT/mFVYLmeqamQXekyI7IMg?=
- =?us-ascii?Q?gBDIS3B+EMScISEfyccF1g7OcGvnsm7UKgPuKYhxH6j0X9BKEAiO1qIe3qQW?=
- =?us-ascii?Q?CTQ2ThD9uMr0p0dW93hSL+T7m0Y41TiEzRgSnTSvJmrpJSBF+VohRdRE2igE?=
- =?us-ascii?Q?490gpLTfTPcXNVhh8oVfyESERwS+NeYzTiWiu35GEt05eW7ag5Vp4LQVtubs?=
- =?us-ascii?Q?9YJ9N0aXaAB0Oj+uBA3Dqu7qnwlbsnHW6I+QQfwGh0h+aNsN4dlXfCcAKcyv?=
- =?us-ascii?Q?nM0DCdkN1lR6Cu60rbKxJTE70toQqbDVNW1c3yjsmoGNAbEUgwJyG9XBDkwh?=
- =?us-ascii?Q?fU05eoSd7W4hkev+clqhcPIZHkKknHsjvkOmd8jFqA9c52ug38jJomZ5mhSX?=
- =?us-ascii?Q?TahpvvCbqFT42dvybnfYFTTa3BgByi8VE93Ii57/2QyplEUARJDwoN8wCI3d?=
- =?us-ascii?Q?oe7q+hbuNbxi03iTB9mrVRpt/vgRSfx8S4H4dwduwh7aPbKvvi4r6vzD+AL9?=
- =?us-ascii?Q?Lp/IhhBgTJRbR0PpUZczkQw2XhkE6zSe0DPZ9pisLeKPtmLlQP2lrDFqJgRB?=
- =?us-ascii?Q?QDU2Jr/8EHxvM9cN+Lu7XNFBPZLuk3R0hbxQ8/6NU+sVFWhpi0nF3/R3gXDp?=
- =?us-ascii?Q?Off2Bbjx0WYfJ52+QKAFVPzEKK85K1njMedbwCno5s7FkRm9MVjYE2nKb7fX?=
- =?us-ascii?Q?h/zNht0JDdFTQ4tcyq3kRGdIqAGh7FiyuA8F5KUoNH56wuVz4HcGSCekhB5v?=
- =?us-ascii?Q?Mf8q7xrpf4Bl3PqpPISIhgcafFLpxk7psbICv/SmJZi4WjZvAR+rf17NvmK/?=
- =?us-ascii?Q?QPFnFbtE6xoA59ut0q9qJtEdNMCSs107+xbLI7UcmgjFTx3rnJelfW3aKrMI?=
- =?us-ascii?Q?tWaJUQ4xIL6EVMkqffFczCnCxLekOyKN5eGn8Sz00S7HRmp251yp4aZyRGsf?=
- =?us-ascii?Q?nCV4kwhkpud2SEK8fxFXaSJ1ydDpGJStiqTjtS2IBWro8r+onVThh6UgoJ3r?=
- =?us-ascii?Q?c8/UOlYOIYTRhGY6Iov/4oan8oNYDoOw6sJwkPaEqFZzO0W68mUROzlbgShh?=
- =?us-ascii?Q?atjlasuYz5OurGxqO2ymWlKPNu4vyW5O8Qu7nXVneMRWM4dx7YFNjIEz9fKy?=
- =?us-ascii?Q?t/Pjv0vg2xgZcd8ZGsu6GKbHHcA4EIp6zaIHH8Giu467z0C/OFDNwuNuulD9?=
- =?us-ascii?Q?WMo/s5ddj7JY28jTkCEgLt4vym70zVJYcVuSYpnh1FOGlbZH7BG4FKKbpRbP?=
- =?us-ascii?Q?6tb/L9hJilyns3W11BwnVv/P54cHI2nYUkylJznXcs/DjwBseGAlpXXgP7QQ?=
- =?us-ascii?Q?52vA2FTq4vS8JKun1uVy8Ug5XlrMukoN5lDus8LGTP247ws00lsttQ5fIQCB?=
- =?us-ascii?Q?03Uo2aIFbfpVdzZsH3/+XjMeo76xXbTn5kiHOkeOfh4t5fEaWdsI2S/VYNju?=
- =?us-ascii?Q?kQ388ZFelWzW3KYh+4mCrqwrVnaBBD/N55NzaVkEMgzycEkjUhFSGqd5IlTJ?=
- =?us-ascii?Q?hcB6IAgHC/K/ZpB6aaZZgrNmrbM4xc0LvGctUKY8Vp4IB6YJrFYlP7YwhJk4?=
- =?us-ascii?Q?6MjVNrlNq7i3zXgB29RGssiqRMuAeTUUsW6TkWzbE/W3bRf0g+gp6rakOFBF?=
- =?us-ascii?Q?y62KOCEpuNFxfc2mCt/3dZ99g/HwL9oko6wmSmVQrqLXCTirCPIa4LrWniI/?=
-X-MS-Exchange-AntiSpam-MessageData-1: 3r5i+xguCCqBr5GDstiOcTRfm2JtpqZ2hfk=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 23914a17-3738-4912-3f8f-08de50f58fea
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jan 2026 09:41:14.6229
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /0SUqxY/kLdZSwuv8ux1a903thKISnMIV2957ctETC/mpfIeR/IihmU54p7X5SzXbsRYQ63UMzX83k+zW3JKiw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7592
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260110010715.1610159-2-mschirrmeister@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_014126_129327_3010E3AB 
-X-CRM114-Status: GOOD (  18.30  )
+X-CRM114-CacheID: sfid-20260111_094151_660791_EDC8FECB 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,130 +87,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prefer the new "rx-polarity" and "tx-polarity" properties, which in this
-case have the advantage that polarity inversion can be specified per
-direction (and per protocol, although this isn't useful here).
+On Sat, Jan 10, 2026 at 02:07:13AM +0100, Marco Schirrmeister wrote:
+> Add a new 'rockchip,disable-runtime-pm' property to allow boards to
+> inhibit runtime power management. This is required for boards like the
+> NanoPi R76S where the bus timing becomes unstable if the controller
+> is runtime-suspended during idle periods.
+> 
+> Signed-off-by: Marco Schirrmeister <mschirrmeister@gmail.com>
+> ---
+>  .../devicetree/bindings/mmc/rockchip-dw-mshc.yaml         | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml b/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
+> index acb9fb9a92cd..41f2644ca2ef 100644
+> --- a/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
+> @@ -100,6 +100,14 @@ properties:
+>        If not specified, the host will do tuning for 360 times,
+>        namely tuning for each degree.
+>  
+> +  rockchip,disable-runtime-pm:
+> +    type: boolean
+> +    description:
+> +      Inhibit runtime power management. This is required for boards
 
-We use the vendor specific ones as fallback if the standard description
-doesn't exist.
+What is runtime power management? Like Linux PM? If anything phrased
+like that is it is a clear no go. Bindings describe hardware.
 
-Daniel, referring to the Mediatek SDK, clarifies that the combined
-SGMII_PN_SWAP_TX_RX register field should be split like this: bit 0 is
-TX and bit 1 is RX:
-https://lore.kernel.org/linux-phy/aSW--slbJWpXK0nv@makrotopia.org/
+> +      where the bus timing becomes unstable if the controller is
+> +      runtime-suspended.
 
-Suggested-by: Daniel Golle <daniel@makrotopia.org>
-Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
----
-v2->v3: s/GENERIC_PHY_COMMON_PROPS/PHY_COMMON_PROPS/
-v1->v2: patch is new
+You described the desired Linux feature or behavior, not the actual
+hardware. The bindings are about the latter, so instead you need to
+rephrase the property and its description to match actual hardware
+capabilities/features/configuration etc.
 
- drivers/net/pcs/Kconfig         |  1 +
- drivers/net/pcs/pcs-mtk-lynxi.c | 50 +++++++++++++++++++++++++++++----
- 2 files changed, 45 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/net/pcs/Kconfig b/drivers/net/pcs/Kconfig
-index ecbc3530e780..e417fd66f660 100644
---- a/drivers/net/pcs/Kconfig
-+++ b/drivers/net/pcs/Kconfig
-@@ -20,6 +20,7 @@ config PCS_LYNX
- 
- config PCS_MTK_LYNXI
- 	tristate
-+	select PHY_COMMON_PROPS
- 	select REGMAP
- 	help
- 	  This module provides helpers to phylink for managing the LynxI PCS
-diff --git a/drivers/net/pcs/pcs-mtk-lynxi.c b/drivers/net/pcs/pcs-mtk-lynxi.c
-index 7f719da5812e..74dbce205f71 100644
---- a/drivers/net/pcs/pcs-mtk-lynxi.c
-+++ b/drivers/net/pcs/pcs-mtk-lynxi.c
-@@ -11,6 +11,7 @@
- #include <linux/mdio.h>
- #include <linux/of.h>
- #include <linux/pcs/pcs-mtk-lynxi.h>
-+#include <linux/phy/phy-common-props.h>
- #include <linux/phylink.h>
- #include <linux/regmap.h>
- 
-@@ -62,8 +63,9 @@
- 
- /* Register to QPHY wrapper control */
- #define SGMSYS_QPHY_WRAP_CTRL		0xec
--#define SGMII_PN_SWAP_MASK		GENMASK(1, 0)
--#define SGMII_PN_SWAP_TX_RX		(BIT(0) | BIT(1))
-+#define SGMII_PN_SWAP_RX		BIT(1)
-+#define SGMII_PN_SWAP_TX		BIT(0)
-+
- 
- /* struct mtk_pcs_lynxi -  This structure holds each sgmii regmap andassociated
-  *                         data
-@@ -121,6 +123,42 @@ static void mtk_pcs_lynxi_get_state(struct phylink_pcs *pcs,
- 					 FIELD_GET(SGMII_LPA, adv));
- }
- 
-+static int mtk_pcs_config_polarity(struct mtk_pcs_lynxi *mpcs,
-+				   phy_interface_t interface)
-+{
-+	struct fwnode_handle *fwnode = mpcs->fwnode, *pcs_fwnode;
-+	unsigned int pol, default_pol = PHY_POL_NORMAL;
-+	unsigned int val = 0;
-+	int ret;
-+
-+	if (fwnode_property_read_bool(fwnode, "mediatek,pnswap"))
-+		default_pol = PHY_POL_INVERT;
-+
-+	pcs_fwnode = fwnode_get_named_child_node(fwnode, "pcs");
-+
-+	ret = phy_get_rx_polarity(pcs_fwnode, phy_modes(interface),
-+				  BIT(PHY_POL_NORMAL) | BIT(PHY_POL_INVERT),
-+				  default_pol, &pol);
-+	if (ret) {
-+		fwnode_handle_put(pcs_fwnode);
-+		return ret;
-+	}
-+	if (pol == PHY_POL_INVERT)
-+		val |= SGMII_PN_SWAP_RX;
-+
-+	ret = phy_get_tx_polarity(pcs_fwnode, phy_modes(interface),
-+				  BIT(PHY_POL_NORMAL) | BIT(PHY_POL_INVERT),
-+				  default_pol, &pol);
-+	fwnode_handle_put(pcs_fwnode);
-+	if (ret)
-+		return ret;
-+	if (pol == PHY_POL_INVERT)
-+		val |= SGMII_PN_SWAP_TX;
-+
-+	return regmap_update_bits(mpcs->regmap, SGMSYS_QPHY_WRAP_CTRL,
-+				  SGMII_PN_SWAP_RX | SGMII_PN_SWAP_TX, val);
-+}
-+
- static int mtk_pcs_lynxi_config(struct phylink_pcs *pcs, unsigned int neg_mode,
- 				phy_interface_t interface,
- 				const unsigned long *advertising,
-@@ -130,6 +168,7 @@ static int mtk_pcs_lynxi_config(struct phylink_pcs *pcs, unsigned int neg_mode,
- 	bool mode_changed = false, changed;
- 	unsigned int rgc3, sgm_mode, bmcr;
- 	int advertise, link_timer;
-+	int ret;
- 
- 	advertise = phylink_mii_c22_pcs_encode_advertisement(interface,
- 							     advertising);
-@@ -169,10 +208,9 @@ static int mtk_pcs_lynxi_config(struct phylink_pcs *pcs, unsigned int neg_mode,
- 		regmap_set_bits(mpcs->regmap, SGMSYS_RESERVED_0,
- 				SGMII_SW_RESET);
- 
--		if (fwnode_property_read_bool(mpcs->fwnode, "mediatek,pnswap"))
--			regmap_update_bits(mpcs->regmap, SGMSYS_QPHY_WRAP_CTRL,
--					   SGMII_PN_SWAP_MASK,
--					   SGMII_PN_SWAP_TX_RX);
-+		ret = mtk_pcs_config_polarity(mpcs, interface);
-+		if (ret)
-+			return ret;
- 
- 		if (interface == PHY_INTERFACE_MODE_2500BASEX)
- 			rgc3 = SGMII_PHY_SPEED_3_125G;
--- 
-2.43.0
+Best regards,
+Krzysztof
 
 
