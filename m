@@ -4,95 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52DFBD2502D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 19:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E41BD2502E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 20:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1llCMASQ3MobTxu6nXqP5vUtdWy7RUn8pLv2JvHCXy0=; b=ZZErK8klfW42cmkHID/NhNIFUI
-	7QDskTwcVPVR13K8gi5pKWz56Su9ziZRqP3K9Ou0vhimzw7E3mHT/6MeVl9xOe/2c52m1nhg/EUY5
-	8OVOODWkIr+JxK+/biOmzAFPQdgNiy9fTaCX6d+Lt8y007WtyF600FN0ppvqHUAMEGGrm0gViuMIF
-	8HcvL0lmHqBEObPEDkAjfTrvtBrXbP9fv20QT4SkOURfZ12xAEwse+FJ8Q/5ff+km8DP3mVJ1ChcV
-	p5/RpxgXW65/58+rHVeaqJqYugU4h836b0u+PcImmw6M/bjDzDE5eQD7qyYMItwSvZEoLXDRJpXeg
-	Z6Nz+wLA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3WjMx6HuwU1Wy+8RcNWFYu7YuaIy2oBjUVHx01Ru4Xc=; b=pEqMkqYEmopcYlSeBrUCh9F3TH
+	MeMudT6ppvD5s4nRQR4sPjSzRj22urXR4oqmiCHkweBxIcSPWmIczcQCDzGJ3INQTXE86FM89s6Ja
+	WHLTxSN22zcxzsfgM2D2cA6l1YYdTbnnBZA8OOjyw5KVHLqv7EJ3/YAdDiliDM468T9Rj/MUqrw68
+	rJRqsJiT/PRYa8JYzfFHxAfBe+O8KkddAYB7mSbXuf3MgJJTpGt+5I7SRJdMMOa7kEjojmpFyZhHD
+	hbqo3Vzc6JrMFO3NZkwY22EBqCSEyyah3rkN2OaSSk7rwFdwPsSLFZNdBNBddiBdUO8yeRQQox4XW
+	0auN4ceQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vf1AL-00000004Rkw-0tcG;
-	Sun, 11 Jan 2026 19:31:57 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1vf1mI-00000004TO4-3QvD;
+	Sun, 11 Jan 2026 20:11:10 +0000
+Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vf1AI-00000004Rjv-1LEk
+	id 1vf1mF-00000004TNa-34Jr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Jan 2026 19:31:55 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-650854c473fso5702513a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 11:31:53 -0800 (PST)
+	Sun, 11 Jan 2026 20:11:08 +0000
+Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-790948758c1so58527347b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 12:11:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768159912; x=1768764712; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1llCMASQ3MobTxu6nXqP5vUtdWy7RUn8pLv2JvHCXy0=;
-        b=Ig2SRmLxnwT4AMICQSf4PuMTrBeYl1R68IN46ea29gUkTuaaXBG+ZFydKeuf4rVwYc
-         5v1JgAqsRx0HRdOs2/ZdfYlitqmxqY+OPPeHEtRDKGbjZ+SY7NwqTq+QnCi0+dP7VE3D
-         n04menQCm6GfkRfMXHJ69eFzQPEOt13+JOGI5FbdcIbwLCC9i0GRKPr34NP+yodCxwor
-         RJ0TUlmd3jqhXhQdl06pqvLP7wENIK/J5q7IyMG8fwZMS7woW0UCNBbWWdmC1unaXWdf
-         WVJiRgdvSxb9IF2qXmH4ktzJYeK4/nALr9XLiR7IyXHHeaO8xUAzdA0QSiKKUUexVMxC
-         9lcw==
+        d=gmail.com; s=20230601; t=1768162265; x=1768767065; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3WjMx6HuwU1Wy+8RcNWFYu7YuaIy2oBjUVHx01Ru4Xc=;
+        b=ShoAcXrsIlIE0YmRFT+F04SCJIKgL4O5YJz0A3JmAEu4Zd4Fm90RCGnq3YV+MUhxx5
+         0t/TWBExH+wh8n5vypMVVCjv8dG4/NgrkIeSLXQknfpx1fBg/UxVDK5grmqW2XL7eGGD
+         mlj+ENgYafgRrL9lmKaSj3Lm35j/6EwVU7UdJsFAUlYmEvMQZTuHrc+fQpwS5YvRNA2Z
+         QBT0Mmd4ZbB1GVqxivOC8XRIvpgDX7yrxCKnvf2e/czt1YcyPKC1P+IMBaP3IL4B3Omk
+         LFBIpBOoE8UZYToW4RJz3wTZqyFBf/ZgRaEcCnyKE6EfwppDe9zb90PPCdis6fBov0Tu
+         3sog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768159912; x=1768764712;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=1llCMASQ3MobTxu6nXqP5vUtdWy7RUn8pLv2JvHCXy0=;
-        b=tVQUzSzRuEzEKdyVlc/FOEy9V6zioNlDrP1U3OBPhKzWOAK2k1lsyFQ41JjcxBQvE0
-         LT2hF0ruvtWBI5MLCgfkcL9g727HOk0SHibDgugycCckHCF8mPRpvoDWns/52MSw5tLA
-         yEuEOIyY0ViUmZdSBAg2ejoBgW+P9QDq3Y+B1Gxwx+IrUWkg7WmiHUSUpEdHzKkG1CY/
-         khwIH6VqzwrlCjLnoPjicdbucSs6DX3w6wOocFyCjxvjQwRzwceq74AWOQEt0WO/4KK+
-         o/powU6LphBwN7FPeVWO6N11R0nzoo+5pG/t1K2QHpNeF+MOi7mDtr9F5ArIRvoaQHd5
-         MCuA==
-X-Forwarded-Encrypted: i=1; AJvYcCVjAaPW5kP/MZ3l0SQOtugI8CJsB4fkEKRenVn4orcUvVXys5ONqYgxqIO6BTKafrcN5tOV6Wj75dofH77imELF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8I2nyNi0h8VCwq57gITi9Gi5XP1lttTMkvFsOragZO/E+dfbd
-	SEtoy5Nkm+9EVo852rVssq1WRnKhdoruzz30Y0/MBh/dCinTXv/LL50Woxns1wXu5js9i6u1TPu
-	sozlgYJyXKyiL2D3gorGvxO02/Q3QiFk=
-X-Gm-Gg: AY/fxX5/eQlaAwi8rRcjFmUIJzC7dN2trNBk5oQZa3wXoRpglGHnR6ZMn9mIxNXdLjx
-	o4dixGyDpnpqAXrAsdIRdv9TnPA/xItA326SZ//Lr9B0CG/pLhvVeZlxgpSNrRqDDLz+iQUFYNW
-	DdNr0KnhNAT27HBcDsXDN6aZD12mlSwMq0o4aEr7OBzXPstJdntjPzDKOdTip95b+iT4E+X/8WP
-	Uq2Nz3p8zw23AI65XyNQAhmFJY5x8fhI3l5c/X2ubeY5dGd06BNJ0L+qrYXVu45fng=
-X-Google-Smtp-Source: AGHT+IFT/knNVJfiA11bK06YsQejbdfC7KAQjOrTau0qt16Y+07yWK0cpRf4pmTxw0HgBdiPh3Jnl9b4btWgBTwkc7s=
-X-Received: by 2002:a05:6402:1488:b0:64c:ff6b:f56 with SMTP id
- 4fb4d7f45d1cf-6507c0704e4mr14268114a12.9.1768159912220; Sun, 11 Jan 2026
- 11:31:52 -0800 (PST)
+        d=1e100.net; s=20230601; t=1768162265; x=1768767065;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3WjMx6HuwU1Wy+8RcNWFYu7YuaIy2oBjUVHx01Ru4Xc=;
+        b=X826MEKlhOfY7UaR47B7Uy8zPxKxt/62VKVY4Eh6A3Oe62lxEIkfG3Vkj9TMtHQMPy
+         9VvNLsN28rhVe1vo9QsSSoXrWFztNBsRz08HWrK8roHuq0EZe5P0VUdJe+k83FfHhZqO
+         CsRdt0TuNvXnqDnThw/P89HCalwedOaFI9MW1KosUcvdSRwrAib6AkZTDHkwCH+2d4lu
+         dIzivYwXPPH6UwMDu8i/Z1b2OXKYCyGAFS55f3IfP0joJgTBRft1XT+A6HsQYKw4uyw8
+         APSlSiQlEoXyu1cf6+aSau4zom/I87nHg+6q0E9i9ztd8ZB7UuKhlkkJ37xx+q4hqBMO
+         FtEg==
+X-Forwarded-Encrypted: i=1; AJvYcCVwayNfyucRd4SrHQ2lkxEQkmW8G0Due6An+Nq/DInuy+Vwq7twdU8Ls6Ga0IUxelvIKNMid9usv6aybiuqbRaL@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMO2Yj+JLjKriJgxuzkas1bL79zQ7Z7EenM0gm1pId0kX4hk0w
+	OCLrVC8Nc4r5++i5c8O936u4tgfMq2N0wGhqSMNrqFAVpRCs9HXSKRUu
+X-Gm-Gg: AY/fxX4xpWT/HoN1e8G07R2KpuHwrBFyh38RK14TOFSJkSgS5Z32TQ7LxXsvityN+vS
+	/Hr32/1SCTlrLvz/RqbuT71bnVHTX0yC4OxS9lN4ciP1MG0/MAXgGForzkLJSkB8uhwrRb/rm+e
+	R5Lg2B5XIXxwvdYEEW8+hLlAbP/V/P8VSiyzkNaq5naTZcsQHX1NcO+DE8Ci7lSqsP4I1Euw+Kt
+	5KSVg4OJdM6Hf5aXk59Rlx9FDKnohVzNk2wwNfku4NF0fnzd5XZaMpIRDRBNvEuHZdZxrdkwhnr
+	xN3lpWeRgWDR7h/17jFKUhAqA9rb+2OfyWWKzTSb237cNpuENtWfDuNATw0i7qEmI7ijNCS97fq
+	wrv+caCvLikaHKvkDpK+28cLb3YWJgINhg5aSZZfzzo1MNUctzmicbfFY9sKyC9kjQnXR
+X-Google-Smtp-Source: AGHT+IGtpefdIwaz1zrj3LX0ANB3EkQVjPbjQhL8KzEpUBfzS7Z79abIt8/S9RwcfiKfM++zWNHWgQ==
+X-Received: by 2002:a05:690e:12ca:b0:63f:b410:e93 with SMTP id 956f58d0204a3-64716bd1ba8mr12791408d50.42.1768162265218;
+        Sun, 11 Jan 2026 12:11:05 -0800 (PST)
+Received: from toolbx ([2600:1700:220:59e0::914])
+        by smtp.googlemail.com with ESMTPSA id 00721157ae682-790aa5762f6sm62175717b3.15.2026.01.11.12.11.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 11 Jan 2026 12:11:04 -0800 (PST)
+From: Anirudh Srinivasan <anirudhsriniv@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: anirudhsriniv@gmail.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] Add device tree for Asus IPMI Card
+Date: Sun, 11 Jan 2026 14:10:30 -0600
+Message-ID: <20260111201040.162880-1-anirudhsriniv@gmail.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-References: <20260103083232.9510-1-linux.amoon@gmail.com> <20260103083232.9510-2-linux.amoon@gmail.com>
- <aVke1kQnHJLqWGHi@venus> <CANAwSgSd0TLrkxpnS5qdot8B7vkd4wH76-g8hAixqfbEtH4LyA@mail.gmail.com>
- <aWGJYt3VPWh1kC_v@venus>
-In-Reply-To: <aWGJYt3VPWh1kC_v@venus>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Mon, 12 Jan 2026 01:01:34 +0530
-X-Gm-Features: AZwV_Qjk0PC1h4-nzgxSMCHjCoYMB6_DfqK9WUaQvz9oLKiSdDPd37nJhqh4lBo
-Message-ID: <CANAwSgTGJ5mqoieWOse3OCO3pFepwn1eQx-Hu+O1Pj6hkpdNXg@mail.gmail.com>
-Subject: Re: [PATCH v1 1/3] arm64: dts: rockchip: rk3588-rock-5b-5bp-5t:
- Correct Type-C pin bias settings
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, FUKAUMI Naoki <naoki@radxa.com>, 
-	Diederik de Haas <didi.debian@cknow.org>, Yongbo Zhang <giraffesnn123@gmail.com>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, 
-	"open list:USB TYPEC CLASS" <linux-usb@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_113154_394920_B1EA6FC7 
-X-CRM114-Status: GOOD (  44.83  )
+X-CRM114-CacheID: sfid-20260111_121107_779396_4C949343 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,178 +102,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+Adds support for Asus IPMI Card [1], which is a PCIe card with an
+AST2600 on it that provides BMC functionality to any host without an
+onboard BMC as long as it has a PCIe slot.
 
-I am having difficulty articulating my thoughts clearly right now;
-please bear with me as I try to explain.
+Currently supported functionality includes UART, NIC, booting from SPI,
+KVM functionality(usb gadget for host, reading VGA framebuffer from
+host) and LED/Power Control via GPIOs. This functionality has been
+tested on an OpenBMC build available here [2]. This requires a modified
+u-boot device tree [3], which I can also submit if needed.
 
-On Sat, 10 Jan 2026 at 04:41, Sebastian Reichel
-<sebastian.reichel@collabora.com> wrote:
->
-> Hi,
->
-> On Thu, Jan 08, 2026 at 12:24:50PM +0530, Anand Moon wrote:
-> > Hi Sebastian,
-> >
-> > Thanks for your review comments.
-> >
-> > On Sat, 3 Jan 2026 at 19:23, Sebastian Reichel
-> > <sebastian.reichel@collabora.com> wrote:
-> > >
-> > > Hi,
-> > >
-> > > On Sat, Jan 03, 2026 at 02:01:17PM +0530, Anand Moon wrote:
-> > > > As pre FUSB302 datasheet interrupt line (INT_N) is an open-drain,
-> > > > active-low signal. It requires a pull-up resistor to maintain a sta=
-ble
-> > > > high state when deasserted. Similarly, the TYPEC5V_PWREN_H enable s=
-ignal
-> > > > requires a pull-down resistor to ensure it defaults to a low state,
-> > > > preventing unintended power delivery during the boot sequence.
-> > > >
-> > > > Update the pinctrl entries to use pcfg_pull_up for usbc0_int and
-> > > > pcfg_pull_down for vbus5v0_typec_en to align with the hardware's
-> > > > electrical requirements.
-> > > >
-> > > > Cc: Sebastian Reichel <sebastian.reichel@collabora.com>
-> > > > Fixes: 67b2c15d8fb3 ("arm64: dts: rockchip: add USB-C support for R=
-OCK 5B/5B+/5T")
-> > > > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> > > > ---
-> > > > v1: As per the shematics CC_INT_L interrupt pin is GPIO3_B4_u
-> > > >     As per the shematics TYPEC5V_PWREN_H pin is GPIO2_B6_d
-> > > > ---
-> > >
-> > > Checking the schematics:
-> > >
-> > > 5B v1.45 - CC_INT_L - R2613 10K pull-up resistor
-> > > 5B v1.45 - TYPEC5V_PWREN_H - GPIO is effectively unused because R9503=
-5 is NC
-> > >
-> > > 5B+ v1.2 - CC_INT_L - R2613 10K pull-up resistor
-> > > 5B+ v1.2 - TYPEC5V_PWREN_H - R163 100K pull-down resistor
-> > >
-> > > 5T v1.2 - CC_INT_L - R2613 10K pull-up resistor
-> > > 5T v1.2 - TYPEC5V_PWREN_H - R163 100K pull-down resistor
-> > >
-> > CC_INT_L is gpio interrupt pin to enable the I2C read operation.
-> >
-> > As per FUSB302 datasheet, here is the updated version of the commit mes=
-sage
-> >
-> > Configure CC_INT_L as an active-low, open-drain output. Per the hardwar=
-e design,
-> > this pin utilizes an external pull-up and is driven LOW by the Type-C
-> > controller to
-> > signal the processor to perform I2C register reads.
-> >
-> > The TYPEC5V_PWREN_H pull-down resistor is turned on as a signal to
-> > the Type-C regulator, which has an active-enable-high property. In this=
- context,
-> > the regulator is used to set the polarity of the GPIO used to enable or=
- disable
-> > the regulator.
->
-> I don't understand what you want to say here.
+The card supports some additional functionality in it's stock firmware
+like fan headers with fan speed control, host bios flashing via SPI, PSU
+monitoring via an SMBUS connector, a custom ASUS SMBUS connector to talk
+to select ASUS motherboards that support it and exposing a IPMI device
+via PCIe to the host. These are unsupported at the moment.
 
-I'm sorry for not being clear here. Well, while investigating the bug crash=
-,
-I was looking for some more details on this issue.
 
-Here is the datasheet for fuse302. It shares the interrupt pin details
+[1] https://www.asus.com/supportonly/ipmi%20expansion%20card/helpdesk_manual/
+[2] https://github.com/openbmc/openbmc/compare/master...Genius1237:openbmc:asus-ipmi-card
+[3] https://github.com/Genius1237/u-boot/commit/1b1b7daa85f6c998e5f404296b3da43077a2758e
 
-[1} https://www.onsemi.com/download/data-sheet/pdf/fusb302b-d.pdf
 
-SCL     Input                          I2C serial clock signal to be
-connected to the phone-based I2C master.
-SDA    Open-Drain I/O          I2C serial data signal to be connected
-to the phone-based I2C master
-INT_N Open-Drain Output    Active LOW open drain interrupt output used
-to prompt the processor to
-                                             read the I2C register bits.
->
-> > > TLDR: All GPIOs have pull resistors in discrete hardware and do not
-> > > need them muxed in the SoC.
-> > >
-> > It depends on the GPIO, pinctrl PMU configuration.
->
-> as I try to say it does not depend on pinctrl configuration for any
-> of the GPIOs you are touching. The pull resistors for them exist as
-> components on the board.
->
-I understand this correctly, but these registers utilize a high-to-low
-state change specifically
-to prevent subthreshold leakage current.
+Anirudh Srinivasan (2):
+  dt-bindings: arm: aspeed: Add Asus IPMI card
+  ARM: dts: aspeed: Add Asus IPMI card BMC
 
-Please check the RK3588 Datasheet V0.1-20210727.pdf  (3.4 Electrical
-Characteristics for General IO)
-[2] https://gitlab.com/rock-chips/rk3588/rk3588-doc/-/raw/master/RK3588%20D=
-atasheet%20V0.1-20210727.pdf?ref_type=3Dheads&inline=3Dtrue
+ .../bindings/arm/aspeed/aspeed.yaml           |   1 +
+ arch/arm/boot/dts/aspeed/Makefile             |   1 +
+ .../dts/aspeed/aspeed-bmc-asus-ipmi-card.dts  | 137 ++++++++++++++++++
+ 3 files changed, 139 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asus-ipmi-card.dts
 
-> > I was thinking of converting the vbus5v0_typec regulator to 'regulator-=
-gpio.'
-> > to better reflect the hardware schematics. The TYPEC5V_PWREN_H signal
-> > (GPIO2_B6_d) acts as a state controller rather than a simple enable pin=
-,
-> > and this change ensures the device tree aligns with that design
-> >
-> > [1] https://dl.radxa.com/rock5/5b/docs/hw/radxa_rock_5b_v1450_schematic=
-.pdf
-> > (page 28)
-> >
-> > $ git diff arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-> > b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-> > index 5f58e339a052..387ff009ec76 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-> > @@ -57,9 +57,10 @@ rfkill-bt {
-> >         };
-> >
-> >         vbus5v0_typec: vbus5v0-typec {
-> > -               compatible =3D "regulator-fixed";
-> > +               compatible =3D "regulator-gpio";
-> >                 enable-active-high;
-> > -               gpio =3D <&gpio2 RK_PB6 GPIO_ACTIVE_HIGH>;
-> > +               gpios =3D <&gpio2 RK_PB6 GPIO_ACTIVE_HIGH>;
-> > +               states =3D <5000000 0x1>, <0 0x0>;
-> >                 pinctrl-names =3D "default";
-> >                 pinctrl-0 =3D <&vbus5v0_typec_en>;
-> >                 regulator-name =3D "vbus5v0_typec";
-> >
-> > Could you please try this at your end?
->
-> This is missing gpios-states, but I also see no point in testing
-> that. Having one state as 0 effectively means this is a complicated
-> version of regulator-fixed. The switch from "gpio" to "gpios" is
-> valid though, since "gpio" is deprecated.
->
-Typically, a regulator-fixed GPIO input pin is used as EN to enable
-the regulator.
+-- 
+2.52.0
 
-However, in this case, TYPEC5V_PWREN_H is being used to signal on/off
-to the FUSB302.
-As the GPIO-controlled interrupt pin is used to enable or disable i2C
-controller.
-This is the reason I want to switch from regulator-fixed to regulator-gpio.
-ok I will add gpios-states=3D <1>;
-
-That=E2=80=99s why I requested these changes to be reviewed and tested.
-
-[2] https://github.com/torvalds/linux/blob/master/Documentation/devicetree/=
-bindings/regulator/gpio-regulator.yaml
-
-Please let me know if these adjustments are incorrect; if so, we can
-discard them.
-Currently, I'm not making the desired progress.
-
-> Greetings,
->
-> -- Sebastian
-Thanks
--Anand
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
 
