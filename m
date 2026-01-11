@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EF5BD2502E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 13:37:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B32BD2502E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 11 Jan 2026 13:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GyrKJz6PMKwk5qm2HTkDflwTnAv1RI+K3notTIpruY0=; b=Eo9NpJR3P/hCet6TDBtoGJqgG3
-	jun2w7gH6T3u2GiuCIxqpc4aeLIMBitveZIY0wHbx9R1XQmhT0nPUNo+6vfxw7np94Y5fep9m9j36
-	rF8/hA/yY/bm3+tKC7NH8FZSO2Ymc7fXv0jRlUzqfzbo78X/w3HQhOA2IQ93JXyOCVD2yyK1vi6+y
-	uwMBpk+BxCyGpDbwPu5HanM6jcvTUNUe6DzCNV2JyjP37Frnz17Q+1u64X7krHUQKIKHdooAWJ62P
-	Y6WjVqEY8Ck6oDuPfvl3VgxXcHXPxZ7MaF3qxbLgyLtB8MJKWlffX7/+5bYxqB113hd1HNneGgh3p
-	R35GyINw==;
+	bh=r+d79xd9yqvRmrQPfl5lmYyYKsLFvY+V7qFJpUXpDIQ=; b=N1iUEoMy8A5ec0b+Ii+Vs9PYxj
+	ZoQWhJV6BM1f90L291cBrZ4rqSiHH7ZrYiR7T/8mPvTko9fYQaSMHYsFMgu1rjL0E37WG+0/v9tcv
+	Vcv0O77aWEpuLWiryaJQA49nvgDuLPfgq75T8ieWV9fS5rfvzhUmrGkLbUmf1xtL446ESyYzsQdHU
+	/JPR4r7BnPX3tLlFVCug4okTcuxm6WcNCYcpIgLg9P9Be4ovOP2Y9Jcu+1EtszJmJQghwEs3aW0Qf
+	pdv6UTm8wZOKU+L2UMwGxpax11Cy0w+aZVmZ33Uc+xCURxY3B2pLQO/lKL/JUVnCN+HGWQaedSOZP
+	45GzPwZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vevcx-00000004GEr-0QLp;
-	Sun, 11 Jan 2026 13:37:07 +0000
-Received: from mx4.wp.pl ([212.77.101.11])
+	id 1vevg3-00000004GNt-2vCI;
+	Sun, 11 Jan 2026 13:40:19 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vevct-00000004GDv-1td5
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 11 Jan 2026 13:37:05 +0000
-Received: (wp-smtpd smtp.wp.pl 13958 invoked from network); 11 Jan 2026 14:36:53 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
-          t=1768138613; bh=GyrKJz6PMKwk5qm2HTkDflwTnAv1RI+K3notTIpruY0=;
-          h=Subject:To:Cc:From;
-          b=CUf/UaTedZOach20SFWH5Rs2F6kFXyWzcq6gxSvgPcDtMvWxO495Z5hRJRNxdQDsB
-           rI56nFeVub6DBMVw6Eg1bw4iOvFMjCLzVunmpqYzebB4ZsqjY3e6jkFCw3RvT+L8Tp
-           GitqJ0go56cUnEXOh4lUB0tCbFdKBtSgB5VMWXXZa93VFzfX+NwmTgrJxSqThgvXp4
-           J7EOBF1vNH7J4I0P91c9Gto3rh1RBeX70lV6YsDK5T6YqyqdhOW13s/en5H2no+QE+
-           PYREkxQzh+hBW97oqXHiAM/3HGbpWKXGhUBgAo5V1F/GfM60WQxlOT9o6Q8Ir4X0+v
-           rN8y7m9wMVJtQ==
-Received: from 83.5.241.112.ipv4.supernova.orange.pl (HELO [192.168.3.246]) (olek2@wp.pl@[83.5.241.112])
-          (envelope-sender <olek2@wp.pl>)
-          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
-          for <krzk@kernel.org>; 11 Jan 2026 14:36:53 +0100
-Message-ID: <d7ab5be3-8502-407c-baf6-714ac3a89cb7@wp.pl>
-Date: Sun, 11 Jan 2026 14:36:52 +0100
+	id 1vevg0-00000004GNR-1uoy;
+	Sun, 11 Jan 2026 13:40:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=r+d79xd9yqvRmrQPfl5lmYyYKsLFvY+V7qFJpUXpDIQ=; b=Hcrd9zPyybMr4uH+A3fob1JzfN
+	aPppAsHWr5B7l1FXPQXLcpE4GdBQAgGot+eYqhI4o+bTbPOXeYEfA+RZH4Yq/BpXzHLVEa9G8px2G
+	a9QfdtqwI4tBTmPk2hZGVqb1htEQsC6zXTt2scQv5N9apN6elVUpiMRqQgSqL/+ldeeboYuQxBl2L
+	q8ZNSQ+89ubr0YvykuI4lIHaP6Ami27R9DeDU5kYIyLJqEsq1MEh0glSg1tHoc9FwvCv6Xb7ViURj
+	MTxQfgub8TYqQLn5BA5blWBib6FEaM4Zo0bbycBlfzPdoNwIwAyhBvvIsI55fDd4sjog56eMTG2HE
+	SOPCyuiQ==;
+Received: from i53875aef.versanet.de ([83.135.90.239] helo=phil..)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vevfa-001qdb-UG; Sun, 11 Jan 2026 14:39:51 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	kernel@collabora.com,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drm/rockchip: dw_hdmi_qp: Switch to gpiod_set_value_cansleep()
+Date: Sun, 11 Jan 2026 14:39:49 +0100
+Message-ID: <176813878524.3696030.14477314053977335785.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20260110-dw-hdmi-qp-cansleep-v1-1-1ce937c5b201@collabora.com>
+References: <20260110-dw-hdmi-qp-cansleep-v1-1-1ce937c5b201@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: crypto: eip93: add clock gate and
- reset line
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: benjamin.larsson@genexis.eu, chester.a.unal@arinc9.com,
- davem@davemloft.net, angelogioacchino.delregno@collabora.com,
- ansuelsmth@gmail.com, conor+dt@kernel.org, herbert@gondor.apana.org.au,
- krzk+dt@kernel.org, matthias.bgg@gmail.com, robh@kernel.org,
- sergio.paracuellos@gmail.com, tsbogend@alpha.franken.de,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org
-References: <20260102155341.3682013-1-olek2@wp.pl>
- <20260103-sweet-micro-manul-12eaee@quoll>
-Content-Language: en-US
-From: Aleksander Jan Bajkowski <olek2@wp.pl>
-In-Reply-To: <20260103-sweet-micro-manul-12eaee@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-WP-MailID: 2fd5ca6ba679e5b337689a6786cb36fe
-X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 0000008 [4Zuy]                               
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_053703_674502_BCF24F9D 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20260111_054016_608694_43402BA0 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +81,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
 
-On 1/3/26 15:11, Krzysztof Kozlowski wrote:
-> On Fri, Jan 02, 2026 at 04:47:33PM +0100, Aleksander Jan Bajkowski wrote:
->> Add the clock gate and reset line, both of which are available
->> on the Airoha AN7581.
->>
->> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
->> ---
->> v3:
->> - introduce patch
->> ---
->>   .../crypto/inside-secure,safexcel-eip93.yaml       | 14 ++++++++++++++
->>   1 file changed, 14 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
->> index 997bf9717f9e..c6c99c08dc68 100644
->> --- a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
->> +++ b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
->> @@ -48,20 +48,34 @@ properties:
->>     interrupts:
->>       maxItems: 1
->>   
->> +  clocks:
->> +    maxItems: 1
->> +
->> +  resets:
->> +    maxItems: 1
->> +
->>   required:
->>     - compatible
->>     - reg
->>     - interrupts
->> +  - clocks
->> +  - resets
-> That's ABI break without explanation in the commit msg.
->
-I think that the reset line and clock gate are available on all SoCs
-with this IP Core. Should the reset line and clock gate only be
-required for newly added SoCs, and remain optional for existing ones?
+On Sat, 10 Jan 2026 23:12:11 +0200, Cristian Ciocaltea wrote:
+> Since commit 20cf2aed89ac ("gpio: rockchip: mark the GPIO controller as
+> sleeping"), the Rockchip GPIO chip operations potentially sleep, hence
+> the kernel complains when trying to make use of the non-sleeping API:
+> 
+> [   16.653343] WARNING: drivers/gpio/gpiolib.c:3902 at gpiod_set_value+0xd0/0x108, CPU#5: kworker/5:1/93
+> ...
+> [   16.678470] Hardware name: Radxa ROCK 5B (DT)
+> [   16.682374] Workqueue: events dw_hdmi_qp_rk3588_hpd_work [rockchipdrm]
+> ...
+> [   16.729314] Call trace:
+> [   16.731846]  gpiod_set_value+0xd0/0x108 (P)
+> [   16.734548]  dw_hdmi_qp_rockchip_encoder_enable+0xbc/0x3a8 [rockchipdrm]
+> [   16.737487]  drm_atomic_helper_commit_encoder_bridge_enable+0x314/0x380 [drm_kms_helper]
+> [   16.740555]  drm_atomic_helper_commit_tail_rpm+0xa4/0x100 [drm_kms_helper]
+> [   16.743501]  commit_tail+0x1e0/0x2c0 [drm_kms_helper]
+> [   16.746290]  drm_atomic_helper_commit+0x274/0x2b8 [drm_kms_helper]
+> [   16.749178]  drm_atomic_commit+0x1f0/0x248 [drm]
+> [   16.752000]  drm_client_modeset_commit_atomic+0x490/0x5d0 [drm]
+> [   16.754954]  drm_client_modeset_commit_locked+0xf4/0x400 [drm]
+> [   16.757911]  drm_client_modeset_commit+0x50/0x80 [drm]
+> [   16.760791]  __drm_fb_helper_restore_fbdev_mode_unlocked+0x9c/0x170 [drm_kms_helper]
+> [   16.763843]  drm_fb_helper_hotplug_event+0x340/0x368 [drm_kms_helper]
+> [   16.766780]  drm_fbdev_client_hotplug+0x64/0x1d0 [drm_client_lib]
+> [   16.769634]  drm_client_hotplug+0x178/0x240 [drm]
+> [   16.772455]  drm_client_dev_hotplug+0x170/0x1c0 [drm]
+> [   16.775303]  drm_connector_helper_hpd_irq_event+0xa4/0x178 [drm_kms_helper]
+> [   16.778248]  dw_hdmi_qp_rk3588_hpd_work+0x44/0xb8 [rockchipdrm]
+> [   16.781080]  process_one_work+0xc3c/0x1658
+> [   16.783719]  worker_thread+0xa24/0xc40
+> [   16.786333]  kthread+0x3b4/0x3d8
+> [   16.788889]  ret_from_fork+0x10/0x20
+> 
+> [...]
+
+Applied, thanks!
+
+[1/1] drm/rockchip: dw_hdmi_qp: Switch to gpiod_set_value_cansleep()
+      commit: db8061bbb9b23534ecd69bccdfbd70f5c9543189
 
 Best regards,
-Aleksander
-
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
