@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AFEEC9EC8B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 13:09:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55090C9EC8C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 13:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cGKphL8uRafGIEp5khSeFT4jf3S0jqRd2zl+TmBf3s0=; b=aMwS6vhPU+go8zgDAbOnNYQHSh
-	93XBb6SWQcNO9/C2gl66O/YcTHGWJqLqZgiknIPVBPcCZmS0kObzuLxbpiV06W9eGmyILPvPZe4W2
-	+YD5U4OxbPsXPt+XLQ0oeSavYOudgxhoBqFbFrnHApDMuNh6DBE1kAKbU9BMK8y55C18616vnlNNG
-	yD5ZtjUqTddBNcIqzQRPM/O+Xsrtx+mTrNzE4iOLVS/b4ttLCg3vNh2z+/iowaXtyQlsC7O3yK2tN
-	FwmF8egV1nXYXKrbChQF5UAKzLzAg+0NO4UoRQL9E7hULGdO+BTWYsLVGuXToJsrz1SgRY6R3fkAy
-	Rl+p5dQA==;
+	bh=gdJNVNKqgoywKxX+caU2tb93BEWDj+Xp0sbPXmc1yQk=; b=jjtFXSKFSdfRG9cMmVpu59ospv
+	zCFm1GO5rPjbCKJ7b3SzGAVo/ICXeGcSuhPJ0i2+n7o1YEPNHzUC97nXeTKHqeLfxJdMtl8zSzfOH
+	gPU8ksAN+BoLUwpOuyOyNXelXhYogOwRBB8E02pxEYFoP5YQuhAJZMiF9ZbIz4y/5LjV9Pb6aWiUk
+	2/biHFGaADcMEZCdIY5qWLO5OQ9Ki+lwmE+5anJNltaMi7NlVCbjYWaDwBLrNdR3oy3IygEmY96Br
+	kRpoGXe3yIjKwXzTPmmtBp4NO5ZpmQc9E87ID1KvPWOlnT0tcKsXKAeT0rFa8Tqjf+H901HHOsgQq
+	nGXzNWGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfHfO-00000005Nep-3KMJ;
-	Mon, 12 Jan 2026 13:09:06 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1vfHfP-00000005NfM-0TYS;
+	Mon, 12 Jan 2026 13:09:07 +0000
+Received: from mail-southcentralusazon11012066.outbound.protection.outlook.com ([40.93.195.66] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfHfM-00000005NdT-3Apg
+	id 1vfHfM-00000005NdZ-3BTJ
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 12 Jan 2026 13:09:05 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hHucKy5bWwMMVtz9QLCuohr18eYWrNLqpIkWetjy8Bnxk24oDugorO6BBWO9dPno/rjDouF6ecNz2WwPj66i22sc9fV3s8dZQ1KFByc5NwMoVCfSY9bIeDh69tL/AQx/3z+tzQvnbZl9Hr9QqR1x52wAFYf/GD0AqZ/UCSRe/6cUU61IQ2OlxfLbFDdMMLvbU+Vfe+JD+MZZ5hhWg4q1xA9ouaBVfZen41VV+/9IAeHXNU5aina50OVGXUX437ubOhTVwzwLcJIMZlNCRf0EGvP2retzSl5KQD16SFtVF3S7qHYVNZuEVB4f9N8ZArvf7rxRr7UWfjGJoMg0ZXWIgw==
+ b=dgBmoMkCYg2c4bvNvPMNN754DV/fVgaUe0biPNIa3FaAymyPn5YEDOLl78AXgqI2nIiXOeJzjYI02omxrj/A4vkyE+WiGA6+X5lrahIR7G62ZHa3OwMDb1Ygn0hI1SUvtYd2Or8CKN7HGMkdxdLiTQ3zSPlUoi9zCP4IUb8FtU4Rht3tJGwBnE8iuAxt1IrLoZDtDOF6quBg1RTQBQc5rDzbHWo3EJuJsVlqbdF1jURiC6iA8FjT1o60bhweJfJx+rMoj3JiELtToEf4hethmrCnQJpa0XcRJR1VDqvlbSdpjzatIMEzoawHSJPtachuW1+RMlqfe5qn/EM+bYUAhg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cGKphL8uRafGIEp5khSeFT4jf3S0jqRd2zl+TmBf3s0=;
- b=VccIfOVTg6k/70H58nNyxXseXl1VVHxJ2hpX8aAmrZCengC2j0tnUBLSp/7vfKNSUV9Z334DcMqog5EUIV4XppFPkA40yEUzEFCEnxq9cwQHt345Hia26cZNAqibdAXhEtSZ3NibO5i9+tFc3RitZ1d6WSVgEYAbvGpw9aNf0yFyryXesyYK31GC63O7gh6OqluDfWPvq3ckc5/EGL0WyyhWYZxViLKUz0/uACg87oH3ORUTH/1bIZyrg2ISSyVrJAAVadfwJnBI5xsMzju7x+ge5AQgee72qShCeLt6d7W146WfnYQyTViCxEb+nrJU95+tG4iPF8rSrMlJZ+Wi3A==
+ bh=gdJNVNKqgoywKxX+caU2tb93BEWDj+Xp0sbPXmc1yQk=;
+ b=AKLYRjxAtccZcAPOBjsKJno4O+Ds1r05fXcRkKxG01g/WPiLQyGWI3x1nBvpi8pG1oTbFpL3LhmKirqyv4yweUQ5R5NdNzteLtttTa4fF7peb5WK3Ct7xyqybGGq2X4COt8Ff7PhuWnHhLJ9cEdTxztdtnZ0x/vJGVJnBjmKZ0TCWg1qNNbFMw513Vk5qGJY4pfwAx2robOIGe32ffiPAjVCiyg6riPWlPxO+0EmI1S+TzCu63McDuoRTMKUNUmHLeKvc+Xn6UKpB+uBT74fbZGRGqXwhnU3W8yjDQkKKjc6vje6ysyg0yGq2H9qMWJJMNhc3uqL6uUrNFAnXw56Og==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
  165.85.157.49) smtp.rcpttodomain=lists.infradead.org
  smtp.mailfrom=gehealthcare.com; dmarc=fail (p=quarantine sp=quarantine
@@ -42,18 +42,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gehealthcare.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cGKphL8uRafGIEp5khSeFT4jf3S0jqRd2zl+TmBf3s0=;
- b=bT/UGCWJvW/1bIBtr7U6FwphHvB6HeOEHgCSzFaEl8NYQySag7svhEJr0vgvz6lSGI5uHZkUQuKok01YtRew1KcsWv0qv+fkzflA07R+szja+tgc6VlDA80+Rk4aCXix68CefohG8Ns8I8mRPIx6eTJdFYhhrgJgben7Yhs50GdeB5xi8aVIjuvvOBZSt84Ilhz3abclr36YzmQcgwdyNp0Wl+RHwhH0twsR1L5diRBn13TmxpgHg9gWmsjlAC1FRDRZtE6ZSeHHdlvhgPu/J3RluPxnSNP/kpdsnfUI3ociWbI13idDhj+mMGqlY2TmrTJLdBhdYeQ4d9opidcluQ==
-Received: from PH7P221CA0064.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:328::18)
- by BL1PPF01DF926B7.namprd22.prod.outlook.com (2603:10b6:20f:fc04::f04) with
+ bh=gdJNVNKqgoywKxX+caU2tb93BEWDj+Xp0sbPXmc1yQk=;
+ b=Pl78TWWtpJvrhKT682dBGI6uF6ueTgSK/+13O0MfKe+ZhAoMReMyrwoerZiCLW3/sWDg9G03UnKkt78wdzLnEjS53wixI5ezb6cUXUC1GJOR7GqoJ+Nh7a82hxB2lyeIm5urPCswwqTprJ0zabmprNp0D69IeTxZ2vyDiM2IxUCBmTrVwbZz0H/oBxK9LujQv4AaEV81QnjrWIzJ1xT0NzFsXJLBStQEjLCusIqXedPF4gT/H9VxdLVMtkEPo8bOctv91H8A5TMy+c9OOKFtUalYrHv+iZh/T2OOXVkGchIt1X2X1ovUIppLoveLjMzyBDXLNS4M3xlaXaQ+/efUDQ==
+Received: from PH7P221CA0082.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:328::21)
+ by DS0PR22MB6078.namprd22.prod.outlook.com (2603:10b6:8:294::16) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Mon, 12 Jan
- 2026 13:08:58 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.2; Mon, 12 Jan
+ 2026 13:08:59 +0000
 Received: from CY4PEPF0000FCC0.namprd03.prod.outlook.com
- (2603:10b6:510:328:cafe::65) by PH7P221CA0064.outlook.office365.com
- (2603:10b6:510:328::18) with Microsoft SMTP Server (version=TLS1_3,
+ (2603:10b6:510:328:cafe::cc) by PH7P221CA0082.outlook.office365.com
+ (2603:10b6:510:328::21) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.7 via Frontend Transport; Mon,
- 12 Jan 2026 13:09:01 +0000
+ 12 Jan 2026 13:08:57 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 165.85.157.49)
  smtp.mailfrom=gehealthcare.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=quarantine header.from=gehealthcare.com;
@@ -64,9 +64,9 @@ Received-SPF: Fail (protection.outlook.com: domain of gehealthcare.com does
 Received: from atlrelay1.compute.ge-healthcare.net (165.85.157.49) by
  CY4PEPF0000FCC0.mail.protection.outlook.com (10.167.242.102) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.1 via Frontend Transport; Mon, 12 Jan 2026 13:08:56 +0000
+ 15.20.9520.1 via Frontend Transport; Mon, 12 Jan 2026 13:08:59 +0000
 Received: from podman-dev.fihel.lab.ge-healthcare.net (zoo10.fihel.lab.ge-healthcare.net [10.168.174.92])
-	by builder1.fihel.lab.ge-healthcare.net (Postfix) with ESMTP id CF142F2E70;
+	by builder1.fihel.lab.ge-healthcare.net (Postfix) with ESMTP id C8BD3F2E6C;
 	Mon, 12 Jan 2026 15:08:52 +0200 (EET)
 From: Nandor Han <nandor.han@gehealthcare.com>
 To: wim@linux-watchdog.org,
@@ -84,9 +84,9 @@ Cc: kernel@pengutronix.de,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/2] dt-bindings: watchdog: fsl-imx: document continue in low power mode
-Date: Mon, 12 Jan 2026 15:08:48 +0200
-Message-Id: <20260112130849.3748465-2-nandor.han@gehealthcare.com>
+Subject: [PATCH v2 0/2] watchdog: imx2_wdt: Allow to run in low power mode
+Date: Mon, 12 Jan 2026 15:08:47 +0200
+Message-Id: <20260112130849.3748465-1-nandor.han@gehealthcare.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20251230-pastoral-enigmatic-chamois-b65343@quoll>
 References: <20251230-pastoral-enigmatic-chamois-b65343@quoll>
@@ -94,53 +94,54 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC0:EE_|BL1PPF01DF926B7:EE_
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC0:EE_|DS0PR22MB6078:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 050ef424-a9a8-4993-5614-08de51dbbea4
+X-MS-Office365-Filtering-Correlation-Id: 0f2cbcc9-c333-40f4-3879-08de51dbbfe7
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?azGkrR1SWUkP1fkeHOCKpTaHzneo7GHS0MR96/vX14NP6p9ySjhPbuDqbXp4?=
- =?us-ascii?Q?GbiuWnYHrOXi5sIKk6Ei6R1bJd6Cg4vT6GHPAZjqUY2eZ3IXlZCkzYRmWf8Z?=
- =?us-ascii?Q?v+i/n/K75CDuF4mrMFIVQiUE4DX4exUE4CJkAH0mWwm2TRxpthVBLFRg39st?=
- =?us-ascii?Q?/89R9lGA8LdDzVAx5G8zIq8rKMy31OOWfJDwnGysrzyfFlwlSS42efzIoF0N?=
- =?us-ascii?Q?7uxW55PjRf3cEfzHG6U1TbLpv3sEcvj8maKreo7kryH7AeLHfBkzsvPGRVul?=
- =?us-ascii?Q?qIZ1dZ69bPCFGRvIprG4mftRLysARmKKYZF1w964Gt95vfy4rJFQGfwcACPC?=
- =?us-ascii?Q?P70sr5NO4E7g+vbZFMkstQng83YAGY1xXHDyIc3A0o6ZMoUERON3HbCSbgwE?=
- =?us-ascii?Q?cY40tj17QOGAw1erqOzSd9fnw/9Ib8HHzxSfNZciXlwNhSIShB5d0B0KNJHI?=
- =?us-ascii?Q?Zrk8lYXzRtQE8alfWNwF1+XcabuB4c/TibnoN4UXEy9zdO0KY0zzp0Z6FLqy?=
- =?us-ascii?Q?ZkjwUvHSIaKC/A4LdPLULVa/O9ziBXd36n2LIorY3gPuP4RLrE8AoQ9tjF5l?=
- =?us-ascii?Q?gVxxFoldm/nx/tHsuxYqVoASf+Zb6puVrPWU5zV842PCtXz4OuRyynM89QJ+?=
- =?us-ascii?Q?Gt0vxGp+pcRv7YwRSRJd+5HxXdvvgJVoRVdk7MgPilisTB0z/OjLuWqbrQZi?=
- =?us-ascii?Q?adhKuFlGswPFe/AY6oTpXHZy0xDkb/9T/b2wieBDcgl4+U/lP1M9rQZHH9D5?=
- =?us-ascii?Q?dOX2jQzq+ost2LkxQV2Br7TrcnTMRuc5rytD4gITHavsd3AQ8MvGONRbatPJ?=
- =?us-ascii?Q?X1zf99AHllJEiv9TBjhqiB4KYHZ2Dc345I1tYhFwyo6Bqa9C56HdGtAUZ+Sl?=
- =?us-ascii?Q?092EaGxBKW3qwJ0TlEMkwYMA5mHlcnu7Y2EK392CJmdZicZIrDp4+YWy4FnG?=
- =?us-ascii?Q?NZLjyAPSEHeEMptRKoHC3StyRsVwPCQ8FY+QMG41i2Jq9vEI/+I9T8vMlsMD?=
- =?us-ascii?Q?MfpBFJaObIYOcAfYKBWDFXnQgYvcnDAadhwe8U+5DzxJ6QGlS/KQTgyzrpT5?=
- =?us-ascii?Q?9bvlaD1lgfVNFKwiz6Er9muKKw1XnnyU4y37SeTwdhSRZsMAkWnf1yZn3f2m?=
- =?us-ascii?Q?NWhHqCVsKbOtcu2DxGXXWPIeUZbagnIXTcZJiZpba1hLeXW5rBWB1vst4jVI?=
- =?us-ascii?Q?Ul1TlXWAJeA9aTQdHK1kKWdFu4SHxdE1lBPrjQyA8pl+SGAFLTXhzmgJi968?=
- =?us-ascii?Q?8d/qZ6h3B5yF55BpOcupUjUy5Iyg33xvcRXK6+A2BAROxex3elxq+dVUYjlb?=
- =?us-ascii?Q?mq92391vRWPWnhMlTke2yiadhxrUKAQ+c8JLSCcz3HCWuibpjYEj1r5Gr5tN?=
- =?us-ascii?Q?pVF6A0L97pDh2BY/7XCCbW0frH9F9w1yNDIVwH/eJ5MIHkFBRmNV0PunLTiI?=
- =?us-ascii?Q?L/mHoUG5MKSLqDKRg/MOmmECbGDO3Bdt9TLhS4F8P5iZmwqahc9MUqWGjYAh?=
- =?us-ascii?Q?vWrSYqg5/fZ8jmDDx+jCKr/oKi4bMaYu6q+POL2J05Jc21bjQrXk41aKARv9?=
- =?us-ascii?Q?rCZQvsYPzjs9mEzLSJs=3D?=
-X-Forefront-Antispam-Report: CIP:165.85.157.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:atlrelay1.compute.ge-healthcare.net;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?onM05JrQJuvhXdMFSt3lmB2oiihlMJPIgUiXLerGpDlNrErI+58LxL8TNKpx?=
+ =?us-ascii?Q?OhnH6ncvoVbFOhdu4UGwZAYviUeky1JpndGpOvCo+Ry+Qdq29EPEQkbnIHvP?=
+ =?us-ascii?Q?fqXTqdAzNZJ8OuJrDW3DwS2+pkixQLPpKxgGYRMRvmuFpwFpAbwFF7y2isjs?=
+ =?us-ascii?Q?Ku9E8R0Z4OVdsD/osrOK27+9Pg50nm7tfTZuY5K7OaP9UikbMV6iEdRB+Y6C?=
+ =?us-ascii?Q?qk0HKcodjEEPom359XLyi9ESCFShpGXXOIXF7RJeMx+UIFLBnGHrJj9ybptg?=
+ =?us-ascii?Q?7h+DkF3t+kpQBvvOBZ6jl5YZLzgpsRH4wCrBywFJpS0aHAI4D9QHcVClghh2?=
+ =?us-ascii?Q?4ns6VuyvhV+MhnC00rylqMF9mVIuEb/J9iAtp0XCKNsOaxKh93w/IaBeJo/D?=
+ =?us-ascii?Q?MEejhsVbFvmpDLQAtQFqVNz2GKTwluahRIpRwarHdIVd7aGQHPGb1zO3SXfm?=
+ =?us-ascii?Q?xzX/Kl1huQiFOENIhVcPh6bPrXxJ2Q/HlHrP0ju+YFekomfcQ8ITma6esHbQ?=
+ =?us-ascii?Q?SK3+t/Udl8C9V0dI9m2wvYab0W7rj5f99x29OzmQoFLFxu2BPhu8b0zy5a/4?=
+ =?us-ascii?Q?2V/OMVylvjV9fvKoXbcvAy/dPPINRb2Lpd7uWR6RMU/vlf6+h+89v0gAgp6g?=
+ =?us-ascii?Q?vuX5KGifwM3YpfLHiiBbcIe72/QQcAj9FJRbGCuVZQol6QpXSkl4Xa5+ScVh?=
+ =?us-ascii?Q?k2VnoLomiQnkP2f4tE0EFgl/L1cmNXfwGq+HiRM74n6KMXKoqu34lkZyFowt?=
+ =?us-ascii?Q?2klrNPurgw6cwng4aIpaSaa1OiiKg9ZHzhgZHY/J6+DlAbOpwcSiaW7D9nla?=
+ =?us-ascii?Q?c/nl62aD6sXqrI4qRFi37JdIDDOoCOHphjMeuD/bn90rwdxFu35o67aEB6xK?=
+ =?us-ascii?Q?+VRZQ9Qx5vzQ2zU4XUIKvTw2yw+uZGFhUbm9SNHpdCLRw3ITVR/GaI/lcuYR?=
+ =?us-ascii?Q?Z39RVipzlRGbvziNPC85da27sserV+2rq+yr/yMAA6oBfNTDeoyYW1qR1Ll1?=
+ =?us-ascii?Q?fCu/m5JI1/V6xRloqCYJq3yIYjpGx8LzFNoDjmOpel67krh0hRAqson6oOm8?=
+ =?us-ascii?Q?k9GyVmQg+jnPH9GkiBgs+C2+QTG/pmD/RW4G/Ek1ZwJgG3STth0BHuqrXTTx?=
+ =?us-ascii?Q?3SnD5kHs5URxnB53MZJbbb5RBAFAV8XaMELClNKD1rVtx4FljkOy/M3UZxvf?=
+ =?us-ascii?Q?UDZRmFXc3psrvTYtshDjTC9HIynE7T19u8kaxSqHfxVqJ+YdbifY2yXvDYA3?=
+ =?us-ascii?Q?dygsGe5r6vYPRd9owVIAzjTU2YHjhYWMrBmib13dKHSbz2fqwJEVxQLOyxKy?=
+ =?us-ascii?Q?AlkKciKaAJPOvKwo4nXKlpEJyNxJdYlrR5z5WWLDn4E1ktnWxJpNtpAnffGD?=
+ =?us-ascii?Q?tLBNqRog43W8YXwZpjkPr85dHIQUBlxgB0L70S8IuE1r9+9ehDL4AXStmSLI?=
+ =?us-ascii?Q?vcLfI+kkgFtEDQoZN+liRXuZNNv5H2LdJ+xEZnBdfLn+4sTzY2q7vu4FhwUs?=
+ =?us-ascii?Q?/N47MvzDryVnsInBHskH/lIkh96c3yPTIi3Le/NAobmp9OSJtaD3D8E8VFbm?=
+ =?us-ascii?Q?qJ6vJrNlurgAwpqffUQ=3D?=
+X-Forefront-Antispam-Report: CIP:165.85.157.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:atlrelay1.compute.ge-healthcare.net;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014);DIR:OUT;SFP:1101;
 X-OriginatorOrg: gehealthcare.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jan 2026 13:08:56.9527
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jan 2026 13:08:59.0726
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 050ef424-a9a8-4993-5614-08de51dbbea4
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0f2cbcc9-c333-40f4-3879-08de51dbbfe7
 X-MS-Exchange-CrossTenant-Id: 9a309606-d6ec-4188-a28a-298812b4bbbf
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=9a309606-d6ec-4188-a28a-298812b4bbbf;Ip=[165.85.157.49];Helo=[atlrelay1.compute.ge-healthcare.net]
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-CY4PEPF0000FCC0.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PPF01DF926B7
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR22MB6078
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_050904_824164_03DF573E 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20260112_050904_823636_E2009919 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,33 +156,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Property "fsl,wdt-continue-in-low-power" allows the watchdog to continue
-running in low power modes (STOP and DOZE). By default, the watchdog is
-suspended in these modes. This property provides the option to keep the
-watchdog active during low power states when needed.
+Description
+-----------
+Add the possibility for the user to allow the configuration of watchdog
+in low power mode.
 
-Signed-off-by: Nandor Han <nandor.han@gehealthcare.com>
----
- Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+Testing
+-------
+It was verified on a i.MX7D based system that once enabled the watchdog
+will reset the device when the system enter in low power mode.
 
-diff --git a/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml b/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
-index 34951783a633..bf35d02d113f 100644
---- a/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
-+++ b/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
-@@ -64,6 +64,12 @@ properties:
-       If present, the watchdog device is suspended in WAIT mode
-       (Suspend-to-Idle). Only supported on certain devices.
- 
-+  fsl,wdt-continue-in-low-power:
-+    $ref: /schemas/types.yaml#/definitions/flag
-+    description: |
-+      If present, the watchdog device continues to run in low power modes
-+      (STOP and DOZE).
-+
- required:
-   - compatible
-   - interrupts
+
+Changes in V2:
+-------------
+- Order the dt-bindings commit before using it.
+- Small documentation update.
+
+
+Nandor Han (2):
+  dt-bindings: watchdog: fsl-imx: document continue in low power mode
+  watchdog: imx2_wdt: Allow to continue in low power mode
+
+ .../devicetree/bindings/watchdog/fsl-imx-wdt.yaml          | 6 ++++++
+ drivers/watchdog/imx2_wdt.c                                | 7 ++++++-
+ 2 files changed, 12 insertions(+), 1 deletion(-)
+
 -- 
 2.39.5
 
