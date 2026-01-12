@@ -4,84 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D861D25050
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 08:56:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00C68D25050
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 08:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QBSIQiFn1pJ8WxGR+6gHaHWmEyf1wSX1ElHds5zTP8w=; b=AZuZDoDFs39sVD5vAKKZfXOd0Y
-	jxL3vSDW38liIV4dL7wJe/EHPCkNtx3zZh3gKGCKXpLVcaBHHc0zrHNzVudO/8+L/pSTKT2kzw0su
-	NrKuU7myu7e8jH39qdNUpOou0yCINLp8+NgFVSDEl+gMbdIc+ra64ilpIEtwdD09LkNFp1yM7GGHw
-	eG99FisJ5VTa8ZWdy1bMTVQZX6+LaX3WRAOi75XUjOt1V6trFCc9sxdbZSa2ufrO6X3pCdLcPWKNN
-	OViUm9BwRrEFPUeNl5IPBxNxwq5MzfbD7NGrEPsjxRE8hMjDqSdcNl5/t8jyxMJ/we2J5wVcOzWYv
-	hpOZZZLA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n0N5cpDzl2Io3llDYSRDqgK0DrphJVLWFS2vQbYLFZc=; b=DK4jVSSw36Ov04XDok+fcvcTXl
+	n9Ji4IrhZ5mAV9ObZEabVwUJKEW+hyxgcaKcLtXjbljzlNz5bfuCzo1r+GjUsBX/TbWFcdWxc97Nk
+	XcTLDzPMV0LpZN3jonMgc5ysx75Oor2VahHMWXgfPGDlL02ZDrfYJz8fp42q6D89COo3HT2Q5Izvl
+	FukySsuJgeEAsyVBwNZi35Cq9e6OlwKXYxSemdnT8sdujWIgUPR4V5nP+ZthQeJzREkDSvBJabX8F
+	85OGMQzLC0xR+Tx0ft/yhujOJUpI4lTBSKamHj5hv39xIvBPsFslHIvGRXW4b6dIsVQFwjvnYILDq
+	rV+h15Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfDiU-0000000523L-0io2;
-	Mon, 12 Jan 2026 08:56:02 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1vfDkb-000000052dm-1nll;
+	Mon, 12 Jan 2026 08:58:13 +0000
+Received: from mail-m19731112.qiye.163.com ([220.197.31.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfDiR-0000000520m-2gky
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 08:56:00 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2a07f8dd9cdso43713665ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 00:55:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1768208159; x=1768812959; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QBSIQiFn1pJ8WxGR+6gHaHWmEyf1wSX1ElHds5zTP8w=;
-        b=PNjgwOft4HZ3wyD+rdaxo54mOieNzWuiiuq3uDGU8tpRuTqkr5O6mCSQ/hNuQI2FOc
-         ojlM+uvHLD3ixy63pBCUMODEy73zGnGeRrNW+nis+tMvVrFXrb110UXFI54RHl7FcqrA
-         va6tKHNdNShJzJncVZvjRDuWahZpeiL+ByQmo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768208159; x=1768812959;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QBSIQiFn1pJ8WxGR+6gHaHWmEyf1wSX1ElHds5zTP8w=;
-        b=KbTilaOjimYpC58hB2vAecipEQFz/nSY9vC6RTO3Jz6hvSOPx+BWdGBKNEdkBkyity
-         P8wUbTNUnc68e7z242P7/600p30aIlTz1mT8nJLdKADWtArsearklfj7CmrV8U/8qJLK
-         9nWu8mZbWLq2LaSQuEs85qzmed7ZL1V6UmSKq6SMAD5ihpUvYJy/Ui9jFjDSIc30fKdX
-         2xFDOx7DAeLb6s1HKzlPH2zHJaZCeJtNJ2ik/i6oQsAfsrxW2dOs2wcmhQUuL73r63Gc
-         LEFzwZnkc4c3BGse5FRyj6gnR8TVabvnDDKsTyBkchRTz9EQ2CelJ1OpZ7Ze+iO7oFFO
-         MHuQ==
-X-Gm-Message-State: AOJu0Yy4mqHdVu1PgiWjLd+tVWMGKyltseM1Ah+G/3jfpM3uqQ3OgOs9
-	tCqkE8VJjjjEEbIsclhRsD+eLMUbHTLYa+p34xhQzguF954eprVLHCMs8bae3UvF6A==
-X-Gm-Gg: AY/fxX4KPY/TvG9u+OQNcK09DhJC74NalQHoZ8xPk7VVZLXGeSaxH3JwHVM5He69kR4
-	b13w99LPCrhmKcoclayjW5CsxYTaEpYCZhs2LPkmTbxbG6s7V47F1nk0ZaUiYyPRrwM1tf6Glzd
-	orsUr+f4QSAzVIPEzZWVL7iIe2eRo7dcbmD8vhWRVRmjI+Nf15//k9H3lG5wdvGDrSE+V94TEvC
-	TM/h+QggluRDCfDapCVkR3SElKa9FZY5Z7p6uZLHtqRGEBOdIOlEtCxGrcNlC/jFqaiNUcPKi1K
-	AAjDtgA0++z55DD9KtNLc4LdZsOGFqX2SLfObCTZ/kOsL3FudmUSskLlAFvQp1x8re7na9CRKGS
-	6a8oEQCxszzSAdL2D3CCJVTP7mvhQWh6dNWQ6mo/uzzoQ0S2isbxbwxKMlH4R4wQ6cC1v+xc3tG
-	QL72DxSoONhEpTlji/DIri0fWJjmvOVLH49TOeKSw6ScW+qgXsFzX1B9ZW0oJrhQX0wCQ=
-X-Google-Smtp-Source: AGHT+IGtB+k7knNOCZZSJhn6Was/koQjz+fojMEFU4VcO+xFjd8RphFsKRaQZGCbTaB+WqAm20+R/w==
-X-Received: by 2002:a17:903:2f8a:b0:29f:251b:c9d7 with SMTP id d9443c01a7336-2a3ee40d593mr149472035ad.12.1768208158695;
-        Mon, 12 Jan 2026 00:55:58 -0800 (PST)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:aba6:4082:c9d:6c7a])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3c491e7sm170227935ad.38.2026.01.12.00.55.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Jan 2026 00:55:58 -0800 (PST)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	=?UTF-8?q?Macpaul=20Lin=20=28=E6=9E=97=E6=99=BA=E6=96=8C=29?= <Macpaul.Lin@mediatek.com>
-Subject: [PATCH v2] arm64: dts: mediatek: mt8188-geralt: drop firmware-name from first SCP core
-Date: Mon, 12 Jan 2026 16:55:42 +0800
-Message-ID: <20260112085544.2959250-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
+	id 1vfDkX-000000052cv-20r7;
+	Mon, 12 Jan 2026 08:58:11 +0000
+Received: from [172.16.12.14] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 30503549a;
+	Mon, 12 Jan 2026 16:58:05 +0800 (GMT+08:00)
+Message-ID: <a346ba30-43f1-4579-91e7-f10d2ccff039@rock-chips.com>
+Date: Mon, 12 Jan 2026 16:58:03 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, heiko@sntech.de,
+ ulf.hansson@linaro.org, Marco Schirrmeister <mschirrmeister@gmail.com>
+Subject: Re: [PATCH v1 0/3] mmc: dw_mmc-rockchip: Add stability quirk for
+ NanoPi R76S
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+References: <20260110010715.1610159-1-mschirrmeister@gmail.com>
+ <67ccb8f6-f9bd-4266-b79a-b688bd6d030b@rock-chips.com>
+ <8536413c-8687-4d75-befb-8f25e54838bf@rock-chips.com>
+ <c3ee063c-ca11-44e4-9e7d-3861a82db3ea@rock-chips.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <c3ee063c-ca11-44e4-9e7d-3861a82db3ea@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9bb16d3dad09cckunmbb41a1112d58c1
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGhodQlZPH0tDTRofTkJJSE9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=UhWoW7kYX66ut3wPXEqeaqrStdUT65OVLJVljFYrFzAtKSuAfDr5Nj5Jx+o9RG2o5GOl4ti7GN4rUCtv9n8sZNMrC6iuDoI1DHO1KJu0zH8PGgYwSODdl6HJjYMT8/xg3nI7FLlQCIaCKzIp69lC+lThQLXLDukwOmOG1kfdABM=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=n0N5cpDzl2Io3llDYSRDqgK0DrphJVLWFS2vQbYLFZc=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_005559_726199_94A70154 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20260112_005810_041342_0E174CF3 
+X-CRM114-Status: GOOD (  18.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,30 +76,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Arnd pointed out that having firmware-name in the device tree is wrong.
-Drop it.
+在 2026/01/12 星期一 16:29, Chaoyi Chen 写道:
+> Hi Shawn,
+> 
+> On 1/12/2026 11:56 AM, Shawn Lin wrote:
+>> 在 2026/01/12 星期一 9:32, Shawn Lin 写道:
+>>> 在 2026/01/10 星期六 9:07, Marco Schirrmeister 写道:
+>>>> This series addresses a microSD stability issue on the FriendlyElec
+>>>> NanoPi R76S (RK3576). The board currently suffers from a 400kHz
+>>>> retuning loop when the controller attempts to enter runtime-suspend
+>>>> during idle periods.
+>>>>
+>>>> Evidence of the failure in dmesg:
+>>>> [Fri Jan  2 01:28:02 2026] mmc_host mmc1: Bus speed (slot 0) = 400000Hz
+>>>> [Fri Jan  2 01:28:03 2026] mmc_host mmc1: Bus speed (slot 0) = 198000000Hz
+>>>> [Fri Jan  2 01:28:03 2026] dwmmc_rockchip 2a310000.mmc: Successfully tuned phase to 233
+>>>> [Fri Jan  2 01:28:04 2026] mmc_host mmc1: Bus speed (slot 0) = 400000Hz
+>>>>
+>>>
+>>> Does this problem happen with all microSDs or just *a* microSD per
+>>> your description?
+>>> Have you ever tried to disable SDR104 support?
+>>>
+>>
+>> A quick update.
+>>
+>> I found several problems on RK3576 for supporting sd cards. I wondered
+>> how all upstream RK3576 boards claiming SD support work? Anyway, I sent
+>> a series to the list[1], not sure if it fixes the problem you faced, but
+>> these should be the right patches you should have a try.
+>>
+>>
+>> [1]https://lore.kernel.org/linux-rockchip/1768189768-96333-1-git-send-email-shawn.lin@rock-chips.com/T/#t
+>>
+> 
+> I encountered a similar issue on the RK3576 EVB2.
+> 
+> It seems that the cd-gpios feature are broken, so SD card events
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
-Changes since v1:
-- Drop fixes tag
 
- arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi | 1 -
- 1 file changed, 1 deletion(-)
+Yes, cd-gpios method for RK3576 is broken now, so you need to apply
+my first 2 fix patches.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-index 7fedbacdac44..8e423504ec05 100644
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-@@ -1166,7 +1166,6 @@ &scp_cluster {
- &scp_c0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&scp_pins>;
--	firmware-name = "mediatek/mt8188/scp.img";
- 	memory-region = <&scp_mem_reserved>;
- 	status = "okay";
- };
--- 
-2.52.0.457.g6b5491de43-goog
+> cannot be detected. However, if the SD card is inserted before Linux
+> boots, it can at least start up. I suspect that other boards may behave
+> the same way :)
+
+This is true, because .get_cd() returns card present when booting for
+the first time, you the only way for upstream RK3576 boards to use sd 
+cards is to insert the card before booting. But then hot-plug case will
+not able to work.
+
+> 
 
 
