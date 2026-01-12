@@ -4,119 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 956B2CF45BC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 17:53:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7922CF45BD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 17:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y6BPssvuqQ/qH26ZtP7OKYRtO9FGOS74oztLC07SRNg=; b=hRZhlNXGzAlpRZ2/ycTSkaRiDh
-	Jmj+M2B5RwiBPs0/61fKrfaYi7ybDRb2wxAMpoPT7myJuqq/owtuNkyOZ6LxKLZEbxB7CJS7vOVUq
-	pxwqBIzl87Y1mkOIuoNSVLcU8+RAEYiD0umiYocIGSMZBlTYWP73Ht15gPHtQ2C24XrRsbtgonrMw
-	yKKQDosWexZLbQJhAevYUoyoJeOCEd0kDTi1grGGWUUKU0ROXLB4xH1T5hhomLc9f279arp0NCEpL
-	qTrRCrGWNnlDr+uvNXLlbUU3VBt2zWbF1toO4oF1uTgMZ9iX6rxo/wqwEUd8qSyN3s+Qu/jfXypLE
-	e2Pjqu1w==;
+	bh=9TjQuHk6AbSuF3wU6pHO95OUHC0x3l8Lsr+qaj6DcQU=; b=vfIeMYdUabvX2jgTPin0oj8qUA
+	i1eHwenB3J4VmfzK3NmZxQSfsHdUtpg1kl9HY8jT3Y0z26v49NrkUFi6H1mnK/4Vv6WwWR/v1gNup
+	UvNE1A2z+jeDaTHE7F/fe0uAg2pYbje4M7IBfiA/0ieJDzoJcQtAJRG4AvTimQkXsMGRc1BPIdMUH
+	CYvhvxiNLN7cY9jFVuyUHoC1f+slvPaXHe+eoShE7XvEoyBBI6jlfYfgZ0ZOerof5z58NbmaAHGQl
+	e11O+qlHrglajSaaJTKWaFww+WG9fPf9g/IRBbCQ7rRETh/geF54FubYsul+z8X0YP1nE7oXhFgmD
+	9kHRuDxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfM6i-00000005t2s-1oTg;
-	Mon, 12 Jan 2026 17:53:36 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vfM7G-00000005t8W-3BYt;
+	Mon, 12 Jan 2026 17:54:10 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfM6f-00000005t25-0WaZ
+	id 1vfM7E-00000005t83-2fmR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 17:53:34 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-477ba2c1ca2so73554725e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 09:53:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1768240410; x=1768845210; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:autocrypt
-         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=y6BPssvuqQ/qH26ZtP7OKYRtO9FGOS74oztLC07SRNg=;
-        b=SUDbEYAbPVZZaHJ9rzt9TwXo8SOpViYRBZZMcNpv7P7S06hGMSVSDNrpLkig54mTCh
-         2DlafObOOTxmHyca5C95jOnwUR0NmyOcZ+1JRngSknYFpIVWL+dlnYiN8Be1U709q8H+
-         Xy09nzYrPzx2/hfu3+fTnk8wgfbqNIb419AkPioZTktue5ahgx6jO72MA5mwwla0xECO
-         Nu0tFw7z/UwJy3YQpCb0uBhoagy2qbqK3XGaqiuHEbAOgCYne9EIXbf65RnRuDq7OZy2
-         Zs3VFHZ7hfOabh7G76w26VxGYFp9l9U3+dWiFf7gvgBreJKs0+fqzQS8fqBbO+wIJ5n2
-         tCQw==
+	Mon, 12 Jan 2026 17:54:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1768240447;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9TjQuHk6AbSuF3wU6pHO95OUHC0x3l8Lsr+qaj6DcQU=;
+	b=UT+GrsaVKKGYw2mDPmf6/Q1PFpQKUeE+e+g+3JU8Yi1VbR1tg53QrXHaVoFN4x2jVr2Xy6
+	08ITeB4JdRSzOd6af2E1EZBrQNq6jhNQQOpBdBko5jT0GJLPijWPfwbZY5lo3lIBnGMU9K
+	/8ClP6bdNLEU6TEa+C9//Qk7wTsbrNI=
+Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com
+ [209.85.222.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-633-vgRyM4ddNaWUYTfigNKnUA-1; Mon, 12 Jan 2026 12:54:06 -0500
+X-MC-Unique: vgRyM4ddNaWUYTfigNKnUA-1
+X-Mimecast-MFC-AGG-ID: vgRyM4ddNaWUYTfigNKnUA_1768240444
+Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-94125ded3dbso19454400241.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 09:54:05 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768240410; x=1768845210;
-        h=mime-version:user-agent:content-transfer-encoding:autocrypt
-         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+        d=1e100.net; s=20230601; t=1768240444; x=1768845244;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=y6BPssvuqQ/qH26ZtP7OKYRtO9FGOS74oztLC07SRNg=;
-        b=kaiKJJZlCUyLoQDEHv7W90OAIqa2lLnQ4PSSoDHVuwpJl1aIZUKeVKvx4h3vE+6jpg
-         oaWUBAvlGyNXTZOJkUGqS+IxaQkat89v96RU1LVtvztEqRUefvKIZXgxOwY948RjENKZ
-         qRPri9R0HsLUC5fcTQHCop32ZUbEiaWU4/pGKvz1i9k2RhAGFFqrLVuzG4wV0gvArUDE
-         HLusRNUqPLGm4aTKxZ9Rhpksaih5NmmsRh9yIa0m3f5qm+wiwLz/yMOh2yO1goexfM4Y
-         8LcAaoHInc+Pu3vEOSVb0iz4g/Uzrg3L9eEGi1R0WvQAwb87fcOjfJy+MbqdMwF4owoG
-         Dk3A==
-X-Forwarded-Encrypted: i=1; AJvYcCUMEDP09hZwgj5co+c6LdvSfZwFokw9GEaAqz5uRCgnKkJkeMavKeL5FDTZDqYuaCUxgY5BiIkq6erkZibQFfwk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMWDmEV3a6oDQhbGHXxEuSmHcVK+7sU+/O+XSj3tqKydYpbYEM
-	gAn7bdm5eBrje1Te+h8BBqp5BQKw0Y3ubLevvbR3mc8tU9LE0V3gNDBsRcm4z5D5THg=
-X-Gm-Gg: AY/fxX5ZSsg7a6wyqCnECNuuOTxIcDCjAzXb0OErNk/JUjN6HBWxhP0MsFdXb6Jtw9M
-	F9sveOhqGacOFBRMUvgkSkb0ElMy8dSPVNryt5trSOp2nkoanwRqzcSJCsKrqlwv52RlDfpIBi0
-	PC9g4jvGPn94If1PUlLUSfv8zBUiA1ZhtpcciK0J7yBkoUtGdBdu+X02pEasCEjf0ZUjqZm8Zwj
-	T3E3VMkpNshP789euCtc4NMNn89pqQTUseXO6gZFjopRgEDKdFstOcDGKLojlqdBhZiZJOJ1sWe
-	6C4/ZCwXoYjToQbzMYwG50kVYY5G9uczfNHk5bLcbozRZWxypRZIPnPrUBmB6sFUbOMLELOMOsQ
-	lZ52P856c/59Gwgdw2BmXv1Adm87AO72/UncmOW3NJECSs5lOVaB5ZYr1WGTf8C+XLvUkbXsyZm
-	kMocfOBk/HD3Ch76cUs2DIpCD/kxVJS1XBegBVuI2HEQ==
-X-Google-Smtp-Source: AGHT+IGfCgsoYudB43gyY5VgiMyajRCyMKVvdA/K1TPc0FTW2J7Pqnzu3xNux2u9C7uenfxIM0LM/g==
-X-Received: by 2002:a05:600c:4e8a:b0:479:1b0f:dfff with SMTP id 5b1f17b1804b1-47d84b170famr247229235e9.10.1768240410449;
-        Mon, 12 Jan 2026 09:53:30 -0800 (PST)
-Received: from [192.168.3.33] (218.37.160.45.gramnet.com.br. [45.160.37.218])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d7f69e13bsm368953115e9.7.2026.01.12.09.53.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Jan 2026 09:53:30 -0800 (PST)
-Message-ID: <0585581cd2f19544c5e1565a9d241697d812b5f9.camel@suse.com>
-Subject: Re: [PATCH 00/19] printk cleanup - part 3
-From: Marcos Paulo de Souza <mpdesouza@suse.com>
-To: Andreas Larsson <andreas@gaisler.com>, Richard Weinberger
- <richard@nod.at>,  Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes
- Berg <johannes@sipsolutions.net>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Jason Wessel <jason.wessel@windriver.com>,
- Daniel Thompson	 <danielt@kernel.org>, Douglas Anderson
- <dianders@chromium.org>, Petr Mladek	 <pmladek@suse.com>, Steven Rostedt
- <rostedt@goodmis.org>, John Ogness	 <john.ogness@linutronix.de>, Sergey
- Senozhatsky <senozhatsky@chromium.org>,  Jiri Slaby <jirislaby@kernel.org>,
- Breno Leitao <leitao@debian.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>, Kees Cook	
- <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli"	
- <gpiccoli@igalia.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael
- Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy	 <christophe.leroy@csgroup.eu>, Alexander Shishkin	
- <alexander.shishkin@linux.intel.com>, Maxime Coquelin	
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>,  Jacky Huang <ychuang3@nuvoton.com>,
- Shan-Chun Hung <schung@nuvoton.com>, Laurentiu Tudor	
- <laurentiu.tudor@nxp.com>
-Cc: linux-um@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
-	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	sparclinux@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
-Date: Mon, 12 Jan 2026 14:53:12 -0300
-In-Reply-To: <836139d1-1425-4381-bb84-6c2654a4d239@gaisler.com>
-References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
-	 <836139d1-1425-4381-bb84-6c2654a4d239@gaisler.com>
-Autocrypt: addr=mpdesouza@suse.com; prefer-encrypt=mutual;
- keydata=mDMEZ/0YqhYJKwYBBAHaRw8BAQdA4JZz0FED+JD5eKlhkNyjDrp6lAGmgR3LPTduPYGPT
- Km0Kk1hcmNvcyBQYXVsbyBkZSBTb3V6YSA8bXBkZXNvdXphQHN1c2UuY29tPoiTBBMWCgA7FiEE2g
- gC66iLbhUsCBoBemssEuRpLLUFAmf9GKoCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
- QemssEuRpLLWGxwD/S1I0bjp462FlKb81DikrOfWbeJ0FOJP44eRzmn20HmEBALBZIMrfIH2dJ5eM
- GO8seNG8sYiP6JfRjl7Hyqca6YsE
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.2 (by Flathub.org) 
+        bh=9TjQuHk6AbSuF3wU6pHO95OUHC0x3l8Lsr+qaj6DcQU=;
+        b=DUcJMoHo3FJ2h30NNkF6rCWf2vgZU4EsRAwSnM7Tsw571n5gUqPvj33LmqiwR5AGg9
+         /Y+CuhRdeDgdUroH2rZFSTF1bJnWilGHY9oAZAKUrXhdtj+KRoxggR2D1wPZSleV4BRy
+         eZ91HMs4dT5kR2B7suzieP7WcnfLOGwryMmf4fogEZH4/J/BV+z3DpTrEdzqQ++0M96Y
+         usrTW4jwb0KqDbFKoF+TIrsaprWJRZnx5ngGEJpF9DFdUm5XA1P4FfZ5VZu2Nqo+DC/S
+         L3wXtj2KkwBSfc1EAZ50ZZBBTaH8xVMgaxOkcBnk18x+bCX63mTz8wqLgEcOANRf2O5k
+         wRKA==
+X-Forwarded-Encrypted: i=1; AJvYcCXwFGdm+g427qCP+knITqisxtGhN/S0kbd1DDq7nPMv5qIkObGmj6L2TR6DUYkB39LvlEmmDHAh5gsl5j2Zy+lo@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZlQ/dR/4mtbC4nMemmiFWfM3E/YomHKhubTGt/I23TyVkh47y
+	mcD02IY3Hh4N1wuKivNYJhqAP70/nEop6AAt3l46Yzp3RwTvXDxb4JXzPUJUeQLETSrAWCB6lgL
+	IwgFQ5GbyoUTW9EEfHPc7rG1HK/972k+/ANAqrgY+vgAz5pCzl3o0s5KaY5F4yRj2z6uzpByVzb
+	vh
+X-Gm-Gg: AY/fxX7oVPy3FrQO5L55qprFAAsEPRIKkZHSCbEwZrgofSqLv6nKNcQ7Eh6DQGTECFu
+	HJ6JKv3u1wPPnUf2BYvS3GC54E9cODSs2C4TzWax56sSmXEvjQaYbwKkNSnpTTXMIXBY3aBJ1aw
+	nc0N4OlB7K8k9Ed8svw2ArhlxnFm1V7mvaxr0+9U42IVnqxdcMPPq5JCW0qvF6EWsmHWSB8JxDe
+	P5Wrv+BEV6TDycjnzqztXrvZnLPT1Yk/CavfuHOESSXf2Jnh73HhdYmOKBgHjNMqvV4T7pEAI/m
+	bkLW+Km7S7EuL2L1KAZtSHSfW9WFFHXJee4+Whg7rYDutmWlHhy0bgLJ3mrn0rOy5cPPZsPTmkU
+	DZy4XXsCkpl/XjKP5t+UvR6A93volzwKtpI4tyGAKNo0tIui2vQWqKvrZ
+X-Received: by 2002:a05:6122:4f88:b0:563:8335:9ab7 with SMTP id 71dfb90a1353d-5638335b3d9mr1837533e0c.19.1768240444535;
+        Mon, 12 Jan 2026 09:54:04 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHxwLoMJ4ylgMx4yokJUFTrQvglGoUK2cQ8cuwE9wOBcOJlyALmmG0hMGzOjgHwYtiz9Ob2mA==
+X-Received: by 2002:a05:6122:4f88:b0:563:8335:9ab7 with SMTP id 71dfb90a1353d-5638335b3d9mr1837491e0c.19.1768240444039;
+        Mon, 12 Jan 2026 09:54:04 -0800 (PST)
+Received: from ?IPV6:2601:188:c102:b180:1f8b:71d0:77b1:1f6e? ([2601:188:c102:b180:1f8b:71d0:77b1:1f6e])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5634ca16da7sm15469803e0c.17.2026.01.12.09.53.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 Jan 2026 09:54:03 -0800 (PST)
+From: Waiman Long <llong@redhat.com>
+X-Google-Original-From: Waiman Long <longman@redhat.com>
+Message-ID: <f8ca375e-9051-4c7c-880d-e56e07206788@redhat.com>
+Date: Mon, 12 Jan 2026 12:53:49 -0500
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 12/33] cpuset: Provide lockdep check for cpuset lock held
+To: Frederic Weisbecker <frederic@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>
+Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Chen Ridong <chenridong@huawei.com>, Danilo Krummrich <dakr@kernel.org>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>,
+ Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
+ <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
+ netdev@vger.kernel.org
+References: <20260101221359.22298-1-frederic@kernel.org>
+ <20260101221359.22298-13-frederic@kernel.org>
+ <e97d96fc-cbdf-4c03-aa1a-b0cde5419681@redhat.com>
+In-Reply-To: <e97d96fc-cbdf-4c03-aa1a-b0cde5419681@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ngCjBr4lUoj8GJXZ6cU0MkwxhQJwakIcNT4PQfLwgCY_1768240444
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_095333_208453_64468CEA 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20260112_095408_872558_4376FBCB 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,29 +135,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2026-01-07 at 11:22 +0100, Andreas Larsson wrote:
-> On 2025-12-27 13:16, Marcos Paulo de Souza wrote:
-> > The parts 1 and 2 can be found here [1] and here[2].
-> >=20
-> > The changes proposed in this part 3 are mostly to clarify the usage
-> > of
-> > the interfaces for NBCON, and use the printk helpers more broadly.
-> > Besides it, it also introduces a new way to register consoles
-> > and drop thes the CON_ENABLED flag. It seems too much, but in
-> > reality
-> > the changes are not complex, and as the title says, it's basically
-> > a
-> > cleanup without changing the functional changes.
->=20
-> Hi,
->=20
-> Patches 7-17 all say "replacing the CON_ENABLE flag" in their
-> descriptions, which should rather be "replacing the CON_ENABLED
-> flag".
+On 1/11/26 8:43 PM, Waiman Long wrote:
+> On 1/1/26 5:13 PM, Frederic Weisbecker wrote:
+>> cpuset modifies partitions, including isolated, while holding the cpuset
+>> mutex.
+>>
+>> This means that holding the cpuset mutex is safe to synchronize against
+>> housekeeping cpumask changes.
+>>
+>> Provide a lockdep check to validate that.
+>>
+>> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+>> ---
+>>   include/linux/cpuset.h | 2 ++
+>>   kernel/cgroup/cpuset.c | 7 +++++++
+>>   2 files changed, 9 insertions(+)
+>>
+>> diff --git a/include/linux/cpuset.h b/include/linux/cpuset.h
+>> index a98d3330385c..1c49ffd2ca9b 100644
+>> --- a/include/linux/cpuset.h
+>> +++ b/include/linux/cpuset.h
+>> @@ -18,6 +18,8 @@
+>>   #include <linux/mmu_context.h>
+>>   #include <linux/jump_label.h>
+>>   +extern bool lockdep_is_cpuset_held(void);
+>> +
+>>   #ifdef CONFIG_CPUSETS
+>>     /*
+>> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+>> index 3afa72f8d579..5e2e3514c22e 100644
+>> --- a/kernel/cgroup/cpuset.c
+>> +++ b/kernel/cgroup/cpuset.c
+>> @@ -283,6 +283,13 @@ void cpuset_full_unlock(void)
+>>       cpus_read_unlock();
+>>   }
+>>   +#ifdef CONFIG_LOCKDEP
+>> +bool lockdep_is_cpuset_held(void)
+>> +{
+>> +    return lockdep_is_held(&cpuset_mutex);
+>> +}
+>> +#endif
+>> +
+>>   static DEFINE_SPINLOCK(callback_lock);
+>>     void cpuset_callback_lock_irq(void)
+>
+> The cgroup/for-next tree already have a similar 
+> lockdep_assert_cpuset_lock_held() defined. So you can drop this patch 
+> if this series won't land in the next merge window. 
 
-That's true, thanks for spotting!
+Sorry, the other new lockdep API isn't exactly the same as what you 
+propose here. So it is not a replacement for your use case. Sorry for 
+the noise.
 
->=20
-> Cheers,
-> Andreas
+Cheers,
+Longman
+
 
