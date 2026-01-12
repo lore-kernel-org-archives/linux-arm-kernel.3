@@ -4,76 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5678DC9EC8D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 14:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93011C9EC98
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 14:56:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wfnIzNSfkHDE44pyh3cGL1QPG+efZ7Gv5MuAyZB8E5M=; b=gKn+wGKPVvhB9Mm/nq4ih2wt0A
-	kWgaqzp6DtBNebgmjXowMz4E1JA7c1nD2TjRoCISIDqtc0vX0ry+DhyxHyTl29ysh1jLNGlTDzCf7
-	0weuex+1YkCrUXh4aYV0B4tGKleKMUpllsOzx/WBJCJwEsgzg1xG2YcqiugTcUEOC0vgiGxX/2O0w
-	UT6AHqcej0UyZycVgTqIgaa8xIkDal90w7y2Fy4ic5UVZoEGunvKnv6hdv4vUqCOW70tvAgbBbSlQ
-	JwySD7j7h0bOKPtmpGCjM+t9kJu9fpaGFqoEwO3lDmBLSebwdH25EznWtQb9Cr8M3QLgSnB38Cbqw
-	jw9OxUdw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=covm/HGiw0ucCW2VPzaD+ksdZU/SGQRug0e2csWYutg=; b=SDO5WZ6ibzPGt+Yiq1uTOZ6tS/
+	ePNHIlDqdVVfVXFIudxA9xwbGwFi9bHOLR0uPXiPptNZ3gp34EUTIFRU0BqxxNv5mRENBLxoe6Y9K
+	KsOGpEoRqeBDCcNlnJfm8XvzEBN7f/hgFALvs8Cqj3Abpuwnp5ZN/UVAU4985U5MblX22D/R80J32
+	Cc/KzC98aJknCJQ6k6c0f9fWEmxGybtwkPKNR7Uzsg4WgmU0HBFCNLeTL13NjSuFLlWSEGWsiUhPw
+	NNIm/wboGXlILRl+2Dvlef7AFWXs86uu8sdjnrxzNH+3fe9KRqxgfyOCsCQ7lbvpJ7Sk38zN6zPio
+	wJqrIlZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfJKZ-00000005a4n-0mNN;
-	Mon, 12 Jan 2026 14:55:43 +0000
-Received: from sinmsgout01.his.huawei.com ([119.8.177.36])
+	id 1vfJKx-00000005aC3-27ev;
+	Mon, 12 Jan 2026 14:56:07 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfJKV-00000005a36-42SE
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 14:55:41 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=wfnIzNSfkHDE44pyh3cGL1QPG+efZ7Gv5MuAyZB8E5M=;
-	b=ImExJt/s6LNoNcA/vrSpxVVyUzmxGT3dJH5TmRqHgbYOrTZB7cPTesjGCDlW0IBmvoESs1EN7
-	X21VS1YdH3O/wahIa0SPY3Q9sExaE/tBZ+PiHUjw7ayc+nMMnwDq0l2fzFfD90KuuWad6fUAkcR
-	idV2Q8kAkJwL9gv3B7kuQrw=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.32])
-	by sinmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4dqb322LRnz1P7Js;
-	Mon, 12 Jan 2026 22:53:02 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.107])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dqb5V2HJgzHnGh7;
-	Mon, 12 Jan 2026 22:55:10 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7B67640585;
-	Mon, 12 Jan 2026 22:55:26 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 12 Jan
- 2026 14:55:25 +0000
-Date: Mon, 12 Jan 2026 14:55:24 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd
-	<nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
-	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Timothy Hayes
-	<Timothy.Hayes@arm.com>
-Subject: Re: [PATCH v3 12/36] KVM: arm64: gic-v5: Support GICv5 FGTs & FGUs
-Message-ID: <20260112145524.0000164c@huawei.com>
-In-Reply-To: <20260109170400.1585048-13-sascha.bischoff@arm.com>
-References: <20260109170400.1585048-1-sascha.bischoff@arm.com>
-	<20260109170400.1585048-13-sascha.bischoff@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1vfJKv-00000005aA6-0NHo;
+	Mon, 12 Jan 2026 14:56:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1768229761;
+	bh=tCoHB+9VbDLSgUJNKgtCaz1rSx1hAZupwzWxkTySq3w=;
+	h=From:To:Cc:Subject:Date:From;
+	b=mfM7M73s6rzWwjFv4SPWhwSA7Cq3+Wfcd+DcGC3yyHIZWvo1mKOmxGucpe9M/K1+8
+	 Qcnu6Q6uALbI6wIB1GP1gHNvmwB2ljpv6BCPlbI54ZvyRKTHns1608Eht4cVCnrTzB
+	 3osoub6Ljl8+HR6nCVNZGZrNwUOEA+LaMiXscdnxMkiirmefM7iy6jp6pFyFnUAqxZ
+	 eVXw5YErKOQ4GUI7uxlg4iidRNSiiG5Vssa6V/LxMG9wM58deyv0MHdOeFA7NcXseX
+	 1SgvgTzgUF+C7IvzcG1weTRzr3yapMGHFkgb+6DwL+KC3/yCB9KhC5ySeYuYRtlbEb
+	 SfJi6L0BoXfog==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9791317E0333;
+	Mon, 12 Jan 2026 15:56:00 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: krzk+dt@kernel.org
+Cc: herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	robh@kernel.org,
+	conor+dt@kernel.org,
+	andrew@lunn.ch,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	atenart@kernel.org,
+	linux-crypto@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	kernel@collabora.com
+Subject: [PATCH v2 0/4] Fixes for EIP97/EIP197 binding and devicetrees
+Date: Mon, 12 Jan 2026 15:55:54 +0100
+Message-ID: <20260112145558.54644-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_065540_277133_938C7F9A 
-X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-CacheID: sfid-20260112_065605_281994_D0F600D7 
+X-CRM114-Status: UNSURE (   8.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,21 +85,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 9 Jan 2026 17:04:42 +0000
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+Changes in v2:
+ - Reorder commits
+ - Change to restrict interrupts/interrupt-names minItems to MediaTek only
 
-> Extend the existing FGT/FGU infrastructure to include the GICv5 trap
-> registers (ICH_HFGRTR_EL2, ICH_HFGWTR_EL2, ICH_HFGITR_EL2). This
-> involves mapping the trap registers and their bits to the
-> corresponding feature that introduces them (FEAT_GCIE for all, in this
-> case), and mapping each trap bit to the system register/instruction
-> controlled by it.
-> 
-> As of this change, none of the GICv5 instructions or register accesses
-> are being trapped.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+This series adds SoC compatibles to the EIP97/EIP197 binding, and also
+fixes all of the devicetrees to actually declare those in their nodes.
 
+The only platforms using this binding are Marvell and MediaTek.
+
+AngeloGioacchino Del Regno (4):
+  dt-bindings: crypto: inside-secure,safexcel: Add SoC compatibles
+  dt-bindings: crypto: inside-secure,safexcel: Mandate only ring IRQs
+  arm64: dts: marvell: Add SoC specific compatibles to SafeXcel crypto
+  arm64: dts: mediatek: mt7986a: Change compatible for SafeXcel crypto
+
+ .../crypto/inside-secure,safexcel.yaml        | 22 +++++++++++++++++++
+ arch/arm64/boot/dts/marvell/armada-37xx.dtsi  |  3 ++-
+ arch/arm64/boot/dts/marvell/armada-cp11x.dtsi |  3 ++-
+ arch/arm64/boot/dts/mediatek/mt7986a.dtsi     |  2 +-
+ 4 files changed, 27 insertions(+), 3 deletions(-)
+
+-- 
+2.52.0
 
 
