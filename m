@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F149CF45CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 20:31:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2FBBCF45CE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 21:01:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=llcMc1rtxKzD7G/PevmqlNhSWSkkjMmDrdoUcInriR0=; b=u5jvLaCzzEv8LF3wmK1t4rZQPA
-	rBK53d2f4oO4Q3puILIrLIm8u1SaFQSTFelfYUN6zaRwKICez1RWjh+CGj1Pc9qpmsEesjJF0p3Fx
-	WKkEykDIEldg1oYQjzBoM0eiCdxSGA7SwVDCN/FFqRQy+MNW6OgCJL5HZA4Unjsp6Sfq4mNbhL+jj
-	o6rceGNWNGqIa8vFYgcC/r7EhYoWs9A/8Dn7B7LH15OtS+FeuQOpFQdwGG0tTDQTu9eduhINhxGHH
-	8x/+ZReeUZvSqu5tV3tVL2WlVGrtnbdkIyFdihffoOs2bYmuk4tLGz2UcDtiuUVN0ldfwASCI3oIr
-	pTKCLqdA==;
+	bh=Iw6w19NggGfdcTGAr6VzBYjAlYNoQi85b8t4AYXG+Jo=; b=dpXDSg+W12+GKTVj8ZxJ4QfEep
+	dkMSfzinwYaBOwEp9NmKlpYcXf7s57rtdtyj2K1Q97ivhQwQB6co+Hx1Oqcy6QvI25M9HJZBZSzuU
+	i02++JL884/IIZEydDL6Y0Bhuxjh3Bb3HNM0hwPqZzaW4P5QWpCkGSPYnc9SksjIX7w7IEj9SwMw/
+	hEwOrwnR13rciWxDaGfGp9HBODRr6BRKKeCcWuNUPCDQ0+JptTG0cyBeQySIryoQTPCTnUISQvQxz
+	14rZ7VIKFFcj3pf4d9sg8Bc+NPbR74muHGHsZYGW5xzYAEsYULw2Ry7/1D+zHGmfblwKuChIYkkWZ
+	9M45JPHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfOZn-00000006Ami-0I7l;
-	Mon, 12 Jan 2026 20:31:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vfP2F-00000006C5h-0Lqt;
+	Mon, 12 Jan 2026 21:01:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfOZm-00000006AmX-0ZcL;
-	Mon, 12 Jan 2026 20:31:46 +0000
+	id 1vfP2B-00000006C51-2wd7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Jan 2026 21:01:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 12ADD6001A;
-	Mon, 12 Jan 2026 20:31:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFCF0C19422;
-	Mon, 12 Jan 2026 20:31:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 44D49442B0;
+	Mon, 12 Jan 2026 21:01:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2174BC19422;
+	Mon, 12 Jan 2026 21:01:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768249904;
-	bh=5t/PHkzuAtB5kyna98ozuNlQ3IUj+2w0FHLqCEXojQs=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=EWSuwxEPI1SGu8lLAipl1qZ/PppmS2lxkqk5zx9Z7XyDrMxi5kBnA+KoGW3YFsrwY
-	 n5w78DAQzKzodvxAj6lym6+N7Tc9usfIcSOgIPWdVs7JJCzK/z1neNO4ZKZ/psjpx6
-	 3ihEz6Nam7SmaXbDgd9HHqQ9qt/3laar7dxQP2M2ANS4VYMxg/eHXtJL05A4qJbRT4
-	 u2FHiGz3OFBOwhelgrRU/ylzb+L2jPI9mbe9uZILjdXiW0hbM2oG9HpMhs9fLStBaL
-	 naPgBrkckrLzN59uDgKo+eVihc/zWKh6LYI95nne2gnBhThmQ3dUL1zMAz0vIk26n7
-	 JoeEQ6ke1CcwA==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260108224938.1320809-1-robh@kernel.org>
-References: <20260108224938.1320809-1-robh@kernel.org>
-Subject: Re: [PATCH] ASoC: dt-bindings: rockchip-spdif: Allow "port" node
-Message-Id: <176824990272.213661.5100930797551016319.b4-ty@kernel.org>
-Date: Mon, 12 Jan 2026 20:31:42 +0000
-MIME-Version: 1.0
+	s=k20201202; t=1768251665;
+	bh=k7U6XE4P8/KYbGOb2zFtfsApeLHHAiP3CuB5iFN4w6U=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=Svj3EGCPDfuNEYP0Cybqqnx6ZvkmXYU/JQFPzf6nZJ4DOZco7xBEus9la0f3rCnRO
+	 d4rJDvXi+sF8ShlnjiruBhGG74w/p91auQAuj5N8wqoxlOY1NncKOXfoqstP6KIK7f
+	 VH/t1IGxvxg/u0SYBFyQgg21BRqJY+e2b+uGRHQPfz7Dip6NsKU2/R6XGa0lcdDIeN
+	 pLA2dk3QXNHIqY7UYS4L+YcvgZMq5MlA0eEV4E57a6os6ARotNH3wu10dZ8zeiDF4P
+	 6zm4xmJUP6ZVS7KTbihNBuZ37A/nRD753erH9fbL64u+t/VLiyGTYt+P8FjIXKJ3eF
+	 7dBIOLmEKJOlg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3BAF7380CFD5;
+	Mon, 12 Jan 2026 20:57:40 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-47773
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v2] net: stmmac: convert to use
+ .get_rx_ring_count
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176825145877.1092878.14865875892594291102.git-patchwork-notify@kernel.org>
+Date: Mon, 12 Jan 2026 20:57:38 +0000
+References: <20260108-gxring_stmicro-v2-1-3dcadc8ed29b@debian.org>
+In-Reply-To: <20260108-gxring_stmicro-v2-1-3dcadc8ed29b@debian.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260112_130107_762036_D7AC0993 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,38 +78,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 08 Jan 2026 16:49:36 -0600, Rob Herring (Arm) wrote:
-> Add a "port" node entry for Rockchip S/PDIF binding. It's already in use
-> and a common property for DAIs.
+Hello:
+
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Thu, 08 Jan 2026 03:43:00 -0800 you wrote:
+> Convert the stmmac driver to use the new .get_rx_ring_count
+> ethtool operation instead of implementing .get_rxnfc for handling
+> ETHTOOL_GRXRINGS command.
 > 
+> Since stmmac_get_rxnfc() only handled ETHTOOL_GRXRINGS (returning
+> -EOPNOTSUPP for all other commands), remove it entirely and replace
+> it with the simpler stmmac_get_rx_ring_count() callback.
 > 
+> [...]
 
-Applied to
+Here is the summary with links:
+  - [net-next,v2] net: stmmac: convert to use .get_rx_ring_count
+    https://git.kernel.org/netdev/net-next/c/959728f9931e
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Thanks!
-
-[1/1] ASoC: dt-bindings: rockchip-spdif: Allow "port" node
-      commit: 70d95c5d2081faca7e849fa9c6665c9e0dae3923
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
 
 
