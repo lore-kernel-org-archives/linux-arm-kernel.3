@@ -4,106 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5460C9EC6C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 10:43:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 907FAC9EC6C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 10:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/U0bfsaRs/ZGq0q7sk/kz3WOlfgb/vCNIGmB3A9Kyk4=; b=S+fpvFHpCmrUFz7o2AEHjE2AmU
-	zQvw4iE/czLSbu7ydwRRAdS72+EROchq5OGKakQNq8m/P3ScgbtWKOA0THfsIzwQEOXXqyCs5J/PO
-	x2XgEOzE3ezXg8P0quq4iF7sGi8rT822UVuPopmW7PVc7Im9gBEf5wXxUtABCd7gAJJnSVkgn423X
-	7mIaW3qnJRZM/EY+qvjCV3OwIUCN/aGTM4ZoKH2e2rmp8Wi5IchC7GR1uimHryZptWdfWdLDhJYfg
-	M6/VWF0D2lNXMI1fzWJHVHJD+BzjxqDme19Z77NJoP8AegdOo68mibeAL61wZqOjRH9ktVcR7ing1
-	PI64UrIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JjWXjfg1ICVhRNvdCDrEgJbikDNBW0nXzZzA8CNIAB8=; b=1e92CqWQE/6o2Z3xLcq7wC2WSO
+	rtJ4gi8d8woM69TaYDpjwEq1iQs++zSSc1haScbl/biWdiw46X4Cb8GJzaGClAIPGePFPBCu1+1Q4
+	EGPp/bGf9VjMcY9sb7ly+DfGY6HFHw4RWVAEHfXCQ/tsd699Uly6rtTl2Mnjfp0s0CsVex9AA7ORh
+	b+FxHtiScTnASJYBC6HfyDtD6Dhw9pokayjxulbpcgGEHldmvhzi/IOLTqA9wlNy7lDHVZc8WaCyL
+	oEeFUL0qI+4mHnwgZGNuXx4YCVaEs09HT+AZRfStSi1W4Swgn0G1hUf7xWmzQSEDq2j96NO2lPfdK
+	Qyp2iGxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfFOM-00000005Bia-1giD;
-	Mon, 12 Jan 2026 10:43:22 +0000
-Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
+	id 1vfFQk-00000005BvE-0aD1;
+	Mon, 12 Jan 2026 10:45:50 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfFOJ-00000005Bhb-3i2O;
-	Mon, 12 Jan 2026 10:43:21 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 7C10E1400088;
-	Mon, 12 Jan 2026 05:43:16 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Mon, 12 Jan 2026 05:43:16 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1768214596;
-	 x=1768300996; bh=/U0bfsaRs/ZGq0q7sk/kz3WOlfgb/vCNIGmB3A9Kyk4=; b=
-	iIC7HlUbY74G1sdZL+mFMUt9TCfAuIcmFBrhw8kzmM+XhuOAoBZEqSIfZoTIbSLN
-	dZjmfe0jZML/g9EDKOOIEMySFlzj6vThNF/Y9SetnIl1PQzqE3hh/k0hAZH/Yjlv
-	4oZfRErND5QJhXkly9uRbyFiErRnjjBj3ODlItiQgUKvepxuVEdKde4rAN9etNBP
-	EwQ7ZkWCRaCvxd6x/4617tFvonAgH+6Q0t5nuLxJXJuRoWiXM7LvDznDmOky5lpF
-	ANtBCMojVniSZegE/fb5FzT4dW2kCy9Dil4RcHpYB8xGNsWsnOt/JJp5sEapXktE
-	012TqcDPyNX3mevhSjuN3A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1768214596; x=
-	1768300996; bh=/U0bfsaRs/ZGq0q7sk/kz3WOlfgb/vCNIGmB3A9Kyk4=; b=f
-	geCEwzPNIJvzmd2t3J7cJi4AKg0yurpopg/shNoMCkehqtp/3dWImVdVaRja9NFp
-	tqE7Uc2vMrJlUaDWhFS9G4aFcO8eUuIO7HT0mAbk0UAbLrkhRrBXx1gtht51tU0Q
-	yoMev05ru1Q7Cj4iYqvdQkhU+p3jp5zEEFnyu0Vyi+SX5Unr90R9v+TvaWoLu1hO
-	M8IB2/v3a0SlC+tEmxV0z7mDnLOAC+qWQyxA4RG4ihkotEogu+W3j8NEYzjtJHOp
-	pKI2tvWqf71PMPI2QpBEnndocmh38H5fYY+2aTXtY27xC+YOuTEe1N7ym375UwWo
-	rmxwoNVcDmHDvvolBuH0Q==
-X-ME-Sender: <xms:RNBkaZ7uqZwuVQEBGRPLik6Ls8KU_GnO6P8qCLK5RpmKBziyekv4lQ>
-    <xme:RNBkaRth8zknZNRb91tIljEd6GMkkYXcE4jzM3eQCnR1DK5KogrNh0XKaTEdHbyil
-    TzfiRqzLgcdUB-x7r3GISFaWOJJbKLWshgwSV9vwAA601qlYNnZIg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduudejvdegucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepvdfhvdekueduveffffetgfdvveefvdelhedvvdegjedvfeehtdeggeevheefleej
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudefpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopegsphesrghlihgvnhekrdguvgdprhgtphhtthhopehlihhnuhigse
-    grrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepughinhhguhihvghnsehkvghr
-    nhgvlhdrohhrghdprhgtphhtthhopehvghhuphhtrgeskhgvrhhnvghlrdhorhhgpdhrtg
-    hpthhtohepgiekieeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhglhigsehlihhn
-    uhhtrhhonhhigidruggvpdhrtghpthhtohepthhhohhmrghsrdifvghishhsshgthhhuhh
-    eslhhinhhuthhrohhnihigrdguvgdprhgtphhtthhopegurghvvgdrhhgrnhhsvghnsehl
-    ihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrh
-    hnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
-X-ME-Proxy: <xmx:RNBkadUdsbg6w5ttK6HKXbX_dq6v5vjyyOkQiZrtwYw7pc-iaY8JrQ>
-    <xmx:RNBkaSKlDt0Q5e1Q3seqFlJJJ1h_7JPXHIpeSRu0lvZooSNyJSdJeg>
-    <xmx:RNBkaWhb0T9tBgdk282S0xsNPnaPm6BNC3tGMXILMiBmiGA4zJtUZA>
-    <xmx:RNBkaXLs3vrbtY7kZn6hOzRUtunOUZcaA4NOUtnfEjWbS5r8w-UUBQ>
-    <xmx:RNBkaTFWhNWNgu5prUrBLXZpqF7t4wC83KmULb_J5mN8Jw5iUOfJEZZH>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id F0575700065; Mon, 12 Jan 2026 05:43:15 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1vfFQh-00000005Buj-1sL1
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Jan 2026 10:45:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PAA8+JpdYl/KEsg4HctySoNvRJTqlKDUxnrMPaG94rX7xe4ugTcI/u6ZkYIK+eR7C1Lb1PB0rACts5QR1vBs22Xn2quTvO2zZjs+KufA1515oNkUaPfLIFCjXrTaN5a/a/QmHlmQRAJRdUZ/lzvvdEk0hDdhS3CCXCBULrcxBUJT/C3dWjYkRUbcBK5ndm3n4Ciy16GMooL9OWjo3S0A6U9KNEeDxHHMP2gGcGVNJbekdzdh6Wd63GGR5pf0MzPYDiUwaTxHmoVyGph4mZf07ccDqNPVI3z8Z/xt/nFclPDlJ/ZJHkJrZEarMDknP35TmlQWwfknUsirIzZHOFV2tg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JjWXjfg1ICVhRNvdCDrEgJbikDNBW0nXzZzA8CNIAB8=;
+ b=ve9BLMb0NXQvETJlF+xsffSwQT48cJ9nbonV59kxhnwQB3NYNvZkxspp+FCgLZe3gnDyhd9d5ySTH5gIJ84toKW5AJl5UaZSdqWS6hq2jDvWAB5NjrGjM3qhDsiyg1FMdCg5MK39vpUACoqQQ1OFeq8R5Nww6s4Y/8QfphYn57c8n1rb0YvXiQr59DjJOlNFGHKlsg8PnPd6w1XetPBMJC1WGyB/JG3zQCf+n1L7D7l7rNdJFGa2sO06JSkM3aTCT51SGxGFUstk2KuCuz8Hg4/trrwgqiT6L1an0tw4Z2qmIXIdzX1R85DLRj+A+6eAZTyAhZ2slOUyqisPHCYvOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JjWXjfg1ICVhRNvdCDrEgJbikDNBW0nXzZzA8CNIAB8=;
+ b=ErtbFvzwarU1T+pY5YfiZdU7ey4Rql5MwCGQ/CcuMONIuJme6ogDc1PB+InLxLBYWFUN5F6fm8/rTPiFGQot8oBOsOVY1av/x7jntwGTbUtYdDoO3/78wx/jyMczAgIVtoKXwzfx3jp0KgFZl8OGU+CVWuajN1O3lqVGz+KvM4k=
+Received: from SJ0PR13CA0239.namprd13.prod.outlook.com (2603:10b6:a03:2c1::34)
+ by PH0PR10MB997691.namprd10.prod.outlook.com (2603:10b6:510:382::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Mon, 12 Jan
+ 2026 10:45:43 +0000
+Received: from SJ1PEPF00001CEB.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c1:cafe::1e) by SJ0PR13CA0239.outlook.office365.com
+ (2603:10b6:a03:2c1::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.4 via Frontend Transport; Mon,
+ 12 Jan 2026 10:45:22 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ SJ1PEPF00001CEB.mail.protection.outlook.com (10.167.242.27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.1 via Frontend Transport; Mon, 12 Jan 2026 10:45:42 +0000
+Received: from DLEE205.ent.ti.com (157.170.170.85) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 12 Jan
+ 2026 04:45:42 -0600
+Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 12 Jan
+ 2026 04:45:42 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 12 Jan 2026 04:45:41 -0600
+Received: from moteen-ubuntu-desk.dhcp.ti.com (moteen-ubuntu-desk.dhcp.ti.com [172.24.235.46])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60CAjbfD242687;
+	Mon, 12 Jan 2026 04:45:38 -0600
+From: Moteen Shah <m-shah@ti.com>
+To: <krzk+dt@kernel.org>, <robh@kernel.org>, <conor+dt@kernel.org>,
+	<nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>, <gehariprasath@ti.com>,
+	<y-abhilashchandra@ti.com>, <m-shah@ti.com>
+Subject: [PATCH 0/3] Enable analog audio support on J721S2 EVM
+Date: Mon, 12 Jan 2026 16:15:33 +0530
+Message-ID: <20260112104536.83309-1-m-shah@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-ThreadId: AzziJVMBiyuw
-Date: Mon, 12 Jan 2026 11:42:55 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
- "Vineet Gupta" <vgupta@kernel.org>, "Russell King" <linux@armlinux.org.uk>,
- "Dinh Nguyen" <dinguyen@kernel.org>, "Thomas Gleixner" <tglx@linutronix.de>,
- "Ingo Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>
-Cc: linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Message-Id: <b78c96d5-bd5e-47b5-86b3-e06855fcd6be@app.fastmail.com>
-In-Reply-To: <20260112-headers_install-config-leak-v2-0-4d8084444603@linutronix.de>
-References: <20260112-headers_install-config-leak-v2-0-4d8084444603@linutronix.de>
-Subject: Re: [PATCH v2 0/5] uapi: fix remaining kconfig leaks in UAPI headers
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CEB:EE_|PH0PR10MB997691:EE_
+X-MS-Office365-Filtering-Correlation-Id: 93cd4e06-3e00-48dc-a7ac-08de51c7bc23
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026|34020700016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?deJ4q3Aimuvkqhr88m64ydBN3C/1/NemSyMMKRhneked8jZ6JjXMXGvAvgl6?=
+ =?us-ascii?Q?jjkCY7QmcDNlUKkJlqkE3NsyujHUuNhzlFNPuhFmn6HBcp3ju+9Z0/4FUPev?=
+ =?us-ascii?Q?PoZOppLZgl0DijB5oR+P7Nq6M6ZjOBNxtNhLinDBXnlUnB/+B5NiXqknrn96?=
+ =?us-ascii?Q?VVxARrT/fPpGQ4ijqp7vhoOlApQUUW3zdSOzu8thot8nr0+HfLdjLKmwqBRI?=
+ =?us-ascii?Q?fg48cpdjPooopQy5amBEurv2WpUA7yYDm58ui8wrblDa5M/Vayvc0kRSjX/0?=
+ =?us-ascii?Q?+hyy5QBuOScfv3p83peMhrUqB32QVbbjUYPxvX3EEkR2jrxVAo6YrhVPcPBG?=
+ =?us-ascii?Q?Six2u0GvcX1U28OSWbM3zrOXZFZv9hI8QIh/L1kH7P+Tc0A2540h2McY7Q8K?=
+ =?us-ascii?Q?5ioEYJK0A3evkspzIoEiKLntaIOhUSLfO9jTyBwrx34GJosFyNWum5gHsgfB?=
+ =?us-ascii?Q?I9PedUEIxfi88F5QG6EGbQ7xbPEx2FjLVLom2I8TPeBfKKlin3cI6dj/grR5?=
+ =?us-ascii?Q?Ax+VrWWip/Mj08o4d0YJnUEyyyh9H0hM0UsrZoFGtURBlSvg3/r3Yc3hxz7q?=
+ =?us-ascii?Q?kxGkyOvniSyE9sX89KuA5cs59vtcJ9+N/DRuv4zhXL2KR6vp+/rN1tNTFY0V?=
+ =?us-ascii?Q?TEkHfHKR8r42cS28ckooSy5Dq9iWV449HGucyCYlbhq0ZGuA++P8wm/Tl6p/?=
+ =?us-ascii?Q?jFHyyWpuyE/n4Q5A2JpEEGMtvEa88zH/Jh6GQ9KmEFdhJju3VkTINpqYb08d?=
+ =?us-ascii?Q?fzuUSF9qftwiwwz3xb7hswqdBsbvG8Zsu1yy7PHO+vGeptzWDQDYV2FjQllm?=
+ =?us-ascii?Q?aWuUm0tmV+inDQA2vGnlAgqW5PrCtII8jlqoLD/x6GNI4yaD82DkwDzSIWi1?=
+ =?us-ascii?Q?ICrnM37fepfvkAFMIydPU743HrnTt5C9PB5VY+/ukOa7Jipj1ShG3aBoFneJ?=
+ =?us-ascii?Q?jx7YIlAElR4X7Qgtd3/mfzYGOHhwpWtzxKfOlJKrvB6NOAMWsyps6nybtBcO?=
+ =?us-ascii?Q?TKhMuIZEvKFMem99jojgHFosdg2II77HhpE9APbMSaU2y8VnJqPJ+wLHexEx?=
+ =?us-ascii?Q?VUgy5+3lHwwQTKbhP1oXoMwWE+htVfee+4ibhw3lLvxkZSfTR1qOV4VsjBZh?=
+ =?us-ascii?Q?wBUFjSVzX+4gfvzsjwloINLoEY1ZlHvURLw35A/Eaiu1S1rwM7NGZnFztZk0?=
+ =?us-ascii?Q?iDeaPh7Esa4RQPrvnSwBJkgjfPGD1n1bDwzMCWMKNtLQB7acnk7F01rQrahU?=
+ =?us-ascii?Q?f607+TSKWBoopkUXCLMtb3R/M0lBn5upCe+CVvMrhfi68za6KME7rrFt+QTu?=
+ =?us-ascii?Q?L+u69t7AhCdvvJpOHp8EFl/iGx3RDFnbQv1bGCfsib8g3I/FAhhkNdI8nWrk?=
+ =?us-ascii?Q?u1pXc5jBaWhUYVNb0d2rpdFJLJOtsm8TmfgwMEUj3S4xbGQPcBbxChBwXQxd?=
+ =?us-ascii?Q?1DsgjTW7LU+frh0WOvHLf5BOPisj2vlC1iwRtMMdvnSHlJNjhTyK/HGZTHPV?=
+ =?us-ascii?Q?1Aat4EdSEpHtD8sdpTtM/r36k0azFssq4MO+GtB64bCpJxGquPaA3nLSAinJ?=
+ =?us-ascii?Q?LNiFUn+hFzvTvimi8yY=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026)(34020700016);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jan 2026 10:45:42.8621
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 93cd4e06-3e00-48dc-a7ac-08de51c7bc23
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CEB.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB997691
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_024320_249931_D4633390 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20260112_024547_620933_F7DD88B2 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,26 +153,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026, at 08:58, Thomas Wei=C3=9Fschuh wrote:
-> A few UAPI headers still contained references to kconfig symbols.
-> Clean them all up and afterwards remove the now useless exception
-> machinery in headers_install.sh.
->
-> Intended to be routed through the kbuild tree.
->
-> Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
-> ---
+This patch series, adds support for analog audio on J721S2 EVM
 
-Whole series
+Earlier version of the patchset sent upstream[0] was rejected as
+its dependency[1], which resolves the DTBS check errors introduced
+by [0] also got rejected on the grounds of ABI breakage.
 
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+Another solution to fix the DTBS check errors introduced by [0] is
+to modify the ti,j721e-system-controller.yaml binding to allow
+audio-refclk as clock-controller child. This is done in the first
+patch of this series.
 
-I would have preferred cleaning up the x86 auxvec.h header
-more, but we can always do that later and your patch not
-a regression.
+Test log: https://gist.github.com/Jamm02/64b1af5b8829c47f1a2c5ace93204982
 
-Should I take the series through the asm-generic tree if there
-are no other concerns, or do you have other plans for merging it?
+[0]: https://lore.kernel.org/linux-arm-kernel/20250604104656.38752-1-j-choudhary@ti.com/
+[1]: https://lore.kernel.org/all/20250603095609.33569-4-j-choudhary@ti.com/
 
-      Arnd
+Jayesh Choudhary (2):
+  arm64: dts: ti: k3-j721s2-main: Add audio_refclk node
+  arm64: dts: ti: k3-j721s2-common-proc-board: Enable analog audio
+    support
+
+Moteen Shah (1):
+  ti,j721e-system-controller.yaml: Allow audio-refclk as
+    clock-controller child
+
+ .../soc/ti/ti,j721e-system-controller.yaml    |   6 +-
+ .../dts/ti/k3-j721s2-common-proc-board.dts    | 131 ++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi    |   9 ++
+ 3 files changed, 144 insertions(+), 2 deletions(-)
+
+-- 
+2.34.1
+
 
