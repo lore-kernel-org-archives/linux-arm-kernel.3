@@ -4,84 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA71ED25032
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 07:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52BFBD2503F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 07:50:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gYDs2WdHiWHfUSPlGjz43iM5GtvJMWzLlC06mLGN8Q8=; b=KvBmQ38r01vUF0D15Z2xSCt6OJ
-	Sb6oOismoURkSAkWdhYBscrCTxB1XUwENkAkEUhtREJ9afE4QfytLCEdLR+PBv/dpSVfdQulL5lJE
-	FfF4qUPGx6DeqvXDojcbWVRO1pvlYe4JxYrEmXJnlRHeO1IDwyuuXSdb4WSrvHYXmHz9ouvfAMhwE
-	yUOOtm8LRnup0zu3qIJT/668ck2fzyP/Sa9zn6z6F9S2/ncNexySy11gIiYz8mEYGYz9Lzq2m+JeH
-	Z0aJdqtc5/ax+MwAB23/JtYH0bHhzmEQKBTmxH1cN3ZD/Pba28S2A2S9GBJC6ObmWux+9GNAp95/c
-	qbZjNTKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mu3A6Fj4SLA5ywv0bviGzdNIFATxYiX/NAbD4mBo3Vo=; b=DMWMCu9ESXOc7VooqHxMA0ffHE
+	AqMH3W5nh+mxpqyLqF+VNlmKWW/e9j6w9rx+hMg6w+2d0zauPJI+K0F5qloiSZaqd9Bm2XtRoGMf/
+	6kpyUXR/spbhjALRI8ntUEM2LgB1wBUuGsqf09ARgoEzxD17T6quJPyzbDH9R2DaXPJfUi76y91j0
+	hjkFJ0+0IdYYB4BSgdicuS2ZcuVBqhEDmJ6WBrZDm/h+hcw/NhLXRWgvRI70wLGkmC842TMrRb5C5
+	XP2O8u8JfO/FweUBckMZ4EJGG6bz7X8/tM782AlAp7vTrEdVjjb62p/Esa1k/Ogd+7+NLBJvoWvwM
+	SOPbSSOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfCg0-00000004vSl-1I5M;
-	Mon, 12 Jan 2026 07:49:24 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1vfCgc-00000004va6-0bq7;
+	Mon, 12 Jan 2026 07:50:02 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfCfw-00000004vRf-2VqZ
+	id 1vfCgY-00000004vYq-3L8c
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 07:49:22 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-59b8364e4ccso3032246e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 23:49:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1768204158; x=1768808958; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gYDs2WdHiWHfUSPlGjz43iM5GtvJMWzLlC06mLGN8Q8=;
-        b=YFkySDSZqoNpOszAy1BiDvLd+u7t566Zn12keZL/xcem1O/H5J+AEW6Pe2TGUSZfK9
-         UvR26gCNLh4H1TLofWDPUzN2HrrT9JbO+PonZeIXjK/GFONLN7RZF0JsiibHYtcftYAB
-         VeSEPn+uKGHs8OkWJ1KxPfLHj8dqa7Vg8ezMo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768204158; x=1768808958;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=gYDs2WdHiWHfUSPlGjz43iM5GtvJMWzLlC06mLGN8Q8=;
-        b=bCfKPOStUPbTcE+xtIbvyRD8z4vCVpt6QJigtETTEobikkUnkaP1pGlSvWYlztJ7u0
-         AcNzn6yYW5VU8HqJU2PaunTrUp7eftJx9Fg3Et177867AbPhxR0J9maP9T1l73jSkitw
-         j6UEYvqUDDLZDHlDWiG+ap7mXBXNhTRR6g9fVowfp1EMfAM1exmaW4+RgkoUjmkpbCZr
-         bwULPW3UXp/rSnc8RHlM81vmpstucpnBsApE1hEBYX96okXA6NL0EC1BJnP0/HwON9ur
-         7RHyc3fbGe0AKYpD7MVG6b3UGQ60ToPvLGjm9PowRRc+d6dYTG78mlePxOe4DpSmRmuS
-         RQww==
-X-Forwarded-Encrypted: i=1; AJvYcCWDvxFuiNjUN96uZjn5cSpyXdJJ8Y9ikqDbb65yMRx6f1XsbY+UOkgoOfcFk3mK05lE+0+wWNhijQfELcuZn5Fq@lists.infradead.org
-X-Gm-Message-State: AOJu0YytFRYJPpHuHsOndFsQugABCnxQbQVqijEj4Kkhh+FRa3H1Sh0u
-	OShMh9rpRgfhp1wGggjv4rVCci4WDHLz4K9HW31M4dUVjQJPuAaZzEcxYrNZPOwR5uiQA77/BrI
-	SiwxDkNLvvvhKdmPzuDU7cOjHkXG0Mpt6RvLfVEHr
-X-Gm-Gg: AY/fxX7rk/WJ24gYAjxcYTN6JNPvVvOscBn4FEzJ/AoXopV/sVkSKqWIuko9d6jX+F+
-	G9KuK0n6DvXpXHm1lFHQRg4YpuReQIu3D1MFQZMAfSfKF/9dsTCYLn8ReSsFCc52oNkthSynkvC
-	tzDsWir1mRqHAv4VtBXK3g6qsYwlnUFfVsLDyZJNhHRA6Nu0qQHZNmYCEomvjdKh6+9nt9wVIwy
-	TuxPennkux7ROCyHo+9lmgSW2u3MGT9eQM288FyQDs417IP+Ny850SRCLgRGges7xzDxRbeHDAX
-	jVYSOIRhpVfkfAEegaORLwgu
-X-Google-Smtp-Source: AGHT+IEPf+ctffeJf140aoBJ00YAyEVGjUL3Nj2MAQoRL4lkX+em1WFVdY04W2EZPfOEZSq9xL+BIPkSo86C36EFZlU=
-X-Received: by 2002:a05:6512:3da9:b0:59a:1a4e:c098 with SMTP id
- 2adb3069b0e04-59b6ed134b7mr5017113e87.8.1768204158184; Sun, 11 Jan 2026
- 23:49:18 -0800 (PST)
+	Mon, 12 Jan 2026 07:50:01 +0000
+Received: from francesco-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
+	by mail11.truemail.it (Postfix) with ESMTPA id 4F3BB1F93B;
+	Mon, 12 Jan 2026 08:49:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1768204192;
+	bh=mu3A6Fj4SLA5ywv0bviGzdNIFATxYiX/NAbD4mBo3Vo=; h=From:To:Subject;
+	b=DDox4Q85Gt21ueXl5K2plK+Wm41XkJYxRzHZ5NaDAGeXqcC1Kn4MOcc0DPDiACYkP
+	 Uk27tFma73dUK0LLVNbXC8jR5XQUuwBHFiqvQ2Y69jUbE9ciJG850d7t86MHpo0s+W
+	 aMa6SVmGk9smzn94/9qUMm0urveISGVYY6Iw1MdHockzOeZBIRRcDyR9OKrMy+Xd9U
+	 z9UPgJkzyDNOGAQW248qbFNwymNbHqWNha9BnODNX736kneqCGGF60duYZXH7vr/Vu
+	 eqeXr1ps/knO5zF0pyezs2tYdYWvHLbh6DJIPNGw80cy3c+evyH6fuIZomfnncsDeV
+	 IGG/7pRDmFeWg==
+Date: Mon, 12 Jan 2026 08:49:48 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>, trini@konsulko.com,
+	u-boot@lists.denx.de
+Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	srk@ti.com
+Subject: Re: [PATCH] arm64: dts: ti: k3-*: Replace rgmii-rxid with rgmii-id
+ for CPSW ports
+Message-ID: <20260112074948.GA101138@francesco-nb>
+References: <20251025073802.1790437-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
-References: <20260108143934.69634-1-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20260108143934.69634-1-angelogioacchino.delregno@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Mon, 12 Jan 2026 15:49:06 +0800
-X-Gm-Features: AZwV_QgjsDK-32UNI1Kj8KhdJKQno21ayqzxpgGCeVRe3qKhTwXnm4PxxIOLkUA
-Message-ID: <CAGXv+5EvWVhRXoxLbsV5G7DEWLnVGRMCC1Qtd02fD8jh35VRqA@mail.gmail.com>
-Subject: Re: [PATCH 1/3] dt-bindings: arm: mediatek: mmsys: Allow single
- vdo/mmsys endpoint
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, kernel@collabora.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251025073802.1790437-1-s-vadapalli@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_234920_698481_903D42BC 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20260111_234959_717233_950E67B0 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,26 +72,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 8, 2026 at 10:39=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> The hardware supports using just a single output while leaving all
-> of the others unconfigured (disabled), but the binding did not
-> really allow specifying a single endpoint@0, because in this case
-> one must either:
->  - Call the subnode `endpoint` and not declare any address and/or
->    size cells; or
->  - Call the subnode `endpoint@0` and have at least one more other
->    endpoint(@1 or @2), and declare address/size cells.
->
-> Allow specifying a single `endpoint` subnode, without the `@0`
-> implicit suffix to suppress warnings happening on this kind of
-> valid usecase.
->
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
++Tom +U-Boot ML
 
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+Hello Siddharth,
 
-Looks correct to me.
+On Sat, Oct 25, 2025 at 01:07:59PM +0530, Siddharth Vadapalli wrote:
+> The MAC Ports across all of the CPSW instances (CPSW2G, CPSW3G, CPSW5G and
+> CPSW9G) present in various K3 SoCs only support the 'RGMII-ID' mode. This
+> correction has been implemented/enforced by the updates to:
+> a) Device-Tree binding for CPSW [0]
+> b) Driver for CPSW [1]
+> c) Driver for CPSW MAC Port's GMII [2]
+> 
+> To complete the transition from 'RGMII-RXID' to 'RGMII-ID', update the
+> 'phy-mode' property for all CPSW ports by replacing 'rgmii-rxid' with
+> 'rgmii-id'.
+> 
+> [0]: commit 9b357ea52523 ("dt-bindings: net: ti: k3-am654-cpsw-nuss: update phy-mode in example")
+> [1]: commit ca13b249f291 ("net: ethernet: ti: am65-cpsw: fixup PHY mode for fixed RGMII TX delay")
+> [2]: commit a22d3b0d49d4 ("phy: ti: gmii-sel: Always write the RGMII ID setting")
+
+What about U-Boot?
+I just noticed this in today U-Boot master:
+
+  RGMII mode without internal TX delay unsupported; please fix your Device Tree
+
+and I think this is coming from the DTS update from Linux to U-Boot.
+
+Can you look into that?
+
+Francesco
+
 
