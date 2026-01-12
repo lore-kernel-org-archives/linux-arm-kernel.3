@@ -4,146 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0FC8CF45C1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 18:59:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F019CF45C9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 19:05:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w5DUIZ2LyUR0OLUWMZSIgbHuisqIHj6AymFcnmFUtZw=; b=bY0Z1fVbXfgi6nP+RNxGZLJgqL
-	Afgalt0/xvkRaqncWjRfnMyaxeYsZHomNTf6upAHsrKu32ElIfxYFsdlUKUva1Jss7m4n5bLIywCd
-	yrVZNF96cOONXeOL6DlhKRE9vwEVVB7IVVaf3pZDeizpsGMK8ESigXYPx3ekJK9U0M6SxBGMAbgyT
-	yfKxw17uHqPAooWJpwqUVxKAP6A2a5JWsxcF8e8TBTVtzyuHYKhEhwkw/GYBqJ0rN04V3iB3S4eW3
-	XstgSvoCivweOteIdeywAjq79RnmwfSQU242KvVrDdKqKyMkn63+o/EcZrGPawLCr2Yqk1sKEP20M
-	3YMIN4cQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P6JdDCpr5Va6UKBK3UkPIkJuU5AGn3aLM4FqYUEjdpw=; b=u2WGoJLbKi8bZfctNUEWxSQk2L
+	NYJOK3zh6/oAAB8lfEKtuNIRC8K/ayA1BegyG1fibn2eW6TKwQp8/JNlZYjRn3+IDtk9wDz6d9O9S
+	HPb2FDf/hQvIu5Sl2tz0Q6orGfwtoIPkhByhGuIVqTTqGApyT/qU+cmN0J/U7cP09eEMzrf/stLqW
+	Mnp2AEwhJQ/jd2tV5Y+qfmb0KfdXbgtuKZ0GAlljir1ZwkBbvS2NG0htgAtGCiBiSgNNY/pZ4QXtA
+	uV9ndJGk2bLUXGam2B2lt04wD+M/Tdfs926FUkP66hGqzGsyccq8Md/A0T2RENVyKj6Ny59Jtd6YH
+	3W6G0Ujg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfN7u-00000005x7w-1rnb;
-	Mon, 12 Jan 2026 18:58:54 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1vfNDw-00000005xOv-1ANK;
+	Mon, 12 Jan 2026 19:05:08 +0000
+Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfN7r-00000005x79-41UB
+	id 1vfNDs-00000005xOC-2o2N
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 18:58:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hVkDZjcjbxt/jCtRBofcaiSsQ5RtvdI0hEH2l5kEoB4dGb9i/DYjRkUpEW7o6N8FiN6mDpD8wv7KQOp71+YiLY9k03iY7cXKoobq2AxWwsIdihwLncRDDsmuBA45YT3SwJqNc8fC0femBg1Aiu5bjYDkaz12fZH1eKojS2OaLazC3F/rCijJ39aL2VM3kCjkaLmicjBSZUMgTMkmhdrjTLgTQKOfDG1s+7M5kxorGGKw1noiO1JOfcskMh0OgFDc81GUWaOS+ywUzlAUyEAvG4/WV5raOcGzh6o2iFdp9YibVJAN512h5vC8xfyi5kEWEhWAGJQcgyoFunuygjEHWw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=w5DUIZ2LyUR0OLUWMZSIgbHuisqIHj6AymFcnmFUtZw=;
- b=NQGSSxknrz2ez8spVbFU65Ep/ovE0qexjH3dlnCxMvP13Cb7t5Glj9RIEAs4w565OTHmAC2nDmwHpPkLAOUEcUelryYch1gjkYTyuScTJiFSOFLsRv3lOMcW0pPRBgN+zF3eDmfE7XA2aZ0yq/8PFJFe63ImsIVSTOrJq9PHFWUz8N8/4BodJuUoN9jKSfkUx+iPtryHmfAMF7q0sw7JQZbrNdUMdoRdXS2v4rtSgV/NQKaWptD1AtqZOfvb/mWx+kHY7d5oHStsBfEG5GVSad8NX5/6vEOXcnPbzDHL8NBZioyguB7Bs2wY5dy149LG+F/F/w1oOfu9eq+xRTocXw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=w5DUIZ2LyUR0OLUWMZSIgbHuisqIHj6AymFcnmFUtZw=;
- b=lDSVZKm5xYB9g/pCmvtGAb9cWrHTltX2YXq/vGDgWb8aNSCMNXiLmoyEAoEeBZQTqgqPXaaQet6TWDcL0H07U0t1t2VdsyGM1CCY/qQ310E2DsJ469N4kWT0eZIayrVIlLYjnP0+90IU6PHWABTv4EQz+pbPWOVe/a4P26vZwp0syoCZhpXCBHUNj+Zvz0gKAL2P2B9f0RrEkcpvjKL11b0HACQykLzFVeL8WQZh1h9j2tVB1ThCmVu1bULj/FjRu6C+tybmMBHcv4PhILZ17BCHvn3BMHeECV+7sZHZm3rHoIOW53il9RmnwI68tF7qkpTOh2qElKtitOoJ/lvSJQ==
-Received: from SA1P222CA0036.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:2d0::21)
- by DS0PR12MB7996.namprd12.prod.outlook.com (2603:10b6:8:14f::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Mon, 12 Jan
- 2026 18:58:46 +0000
-Received: from SN1PEPF000397B5.namprd05.prod.outlook.com
- (2603:10b6:806:2d0:cafe::ea) by SA1P222CA0036.outlook.office365.com
- (2603:10b6:806:2d0::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.7 via Frontend Transport; Mon,
- 12 Jan 2026 18:58:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SN1PEPF000397B5.mail.protection.outlook.com (10.167.248.59) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.1 via Frontend Transport; Mon, 12 Jan 2026 18:58:45 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 12 Jan
- 2026 10:58:25 -0800
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 12 Jan
- 2026 10:58:24 -0800
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com (10.129.68.7)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 12 Jan 2026 10:58:24 -0800
-Date: Mon, 12 Jan 2026 10:58:22 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Will Deacon <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <skolothumtho@nvidia.com>,
-	<praan@google.com>, <xueshuai@linux.alibaba.com>, <smostafa@google.com>
-Subject: Re: [PATCH rc v5 1/4] iommu/arm-smmu-v3: Add update_safe bits to fix
- STE update sequence
-Message-ID: <aWVETpwlx9Rhs8Kw@Asurada-Nvidia>
-References: <cover.1766093909.git.nicolinc@nvidia.com>
- <58f5af553fa7c3b5fd16f1eb13a81ae428f85678.1766093909.git.nicolinc@nvidia.com>
- <aV7OBrH-TDiGRblt@willie-the-truck>
- <20260108003646.GA537728@nvidia.com>
- <aWUY-f3kvM94z4qh@willie-the-truck>
- <20260112161010.GC812923@nvidia.com>
+	Mon, 12 Jan 2026 19:05:06 +0000
+Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7c6d1ebb0c4so5151838a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 11:05:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768244703; x=1768849503; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=P6JdDCpr5Va6UKBK3UkPIkJuU5AGn3aLM4FqYUEjdpw=;
+        b=K2wpzADUYGewqNzRQ5VTk7zYOCNwFVrcyW1+uNJ3IWAhu81lzWtHCRYorCHJ1MCSEl
+         hRmdA69Dlu01K4i+xQ8PAjH5EmP1WzZ7VoS350bnX59tL2Kf3osfDMaRZm/rRK/YpGH2
+         fZ/RmDn38XiR8K3gDNY06IRCCQeX0xUhIzK5vkjOThWUvJHarQ+e6nTM/90qOVuIs5k/
+         5vuSpGTZxN/PaVwRxcT4FQUMRmGI7rfKaHhukm6ODqOr9iLt0kIA45i88wBN8RJ4ZoMd
+         +CdejLrtjkeNwneyZpOCq913S8U82SvVhKeuBW1Um8zQyCyb55lFRV+S+NPkmFS/ha6h
+         ttHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768244703; x=1768849503;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=P6JdDCpr5Va6UKBK3UkPIkJuU5AGn3aLM4FqYUEjdpw=;
+        b=Y3xEA89/uhr6Vndnr4wiu6Kx2clN0wTYwJE1NkL7i17u5BeTtv8Ssj9+7Ia+NR9lsI
+         74sFaETdTBunmoyFijaapCpacqNoBAi/MKvWfzhYu0Wl0KzjuYSpF+9hPUgwiz4me1n1
+         VzAI1DlgH2WJ0MU6+F+Vroam4eC3CrtLEwVFzpyN8tD0Zm0pPBhbalsnaHCUNPJwyEIa
+         6c+Ysx4xn3pNgLkS0ILn4M5PTC34OxQQWPVRe7B5ocBgXX1hC89B8t0fPxDDtvWwjjZu
+         MawTR4FgL4KfcffgvMcdFNuQUzj0Pt31KZHBQm/yLl99YZseUS8HrdhxylXgcLHQNdjT
+         8j2A==
+X-Forwarded-Encrypted: i=1; AJvYcCVyqahCp13qYQ98k3EifLlcy58synELzwTbbLXvkhn7MYqhpegoRS5AQbUMuSNjA+/VyFzWwTrQ+nL6a9pERU1j@lists.infradead.org
+X-Gm-Message-State: AOJu0YwG06UyLmf2BHm0wxHt6NpcINuif5/nNbPXoWTEFRC/2EuZOuQH
+	EZhVLqLxK1QORUayFP66SWUphjrspZzZgAIBvwwwPhMi0GHpy6lfjL2NJ/5AsiD/hsNKx23klbi
+	QpqNrgbHtEby4blsSmt7EWTXiyMLtiNg=
+X-Gm-Gg: AY/fxX557W4i5sOAgl+zEv8AAGpZaJhN85BKl5SHwr6MoiSNRj39DGPFsPMjkAMUpuB
+	nxPxKzjw5J/LgHMNSL94Rli92iIIxzG2IuG5zKFr1GGotTDIgu3+6PdgYI44r+/J6/FdfJ7QU3B
+	JsG/m2H56uOlaK/yQzVffbXskrMyAxNkI5oTwe7vhw6BzWD1eaPayqCvHncwvgPQX5UKTSoPkpi
+	vUNa4COumB7BpW26Vh32+AnYNYbOwbrNY/pJtmxrJaKWSw6ZUj9Nnugg3+eXjArEBPcgRj+67MR
+	doKpexM9AwqhAwbmMRQ8A35KPSI=
+X-Google-Smtp-Source: AGHT+IHHyYehd5mDk6S/HFO61FhRHsv9zqO6J/OOUvbop6YA1ncswgg4NWPhmsAGF3o48IKByactGMvO6pcP1yVqREg=
+X-Received: by 2002:a05:6808:1311:b0:450:b361:f48b with SMTP id
+ 5614622812f47-45a6bec253fmr9406966b6e.56.1768244703218; Mon, 12 Jan 2026
+ 11:05:03 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260112161010.GC812923@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF000397B5:EE_|DS0PR12MB7996:EE_
-X-MS-Office365-Filtering-Correlation-Id: b90e1c67-4ef1-41e7-389f-08de520c9ce6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vG/+ggAyOCsOZ7Df5jYTrRDLzWqrFfWfjAQIZo4YCUAyqCeAx8qwy6faEPCB?=
- =?us-ascii?Q?LNdM/n8mrY/ycRmVpQv9VeSqVgOrzsaB0MXXX7OiMTsJLlJPFpJcJrY+AHVu?=
- =?us-ascii?Q?E7Cp7icekv0ZkdebRPlqGXDXsPLjteCmhFdMJB1spu9D/hum0QdwxFfQKpHq?=
- =?us-ascii?Q?2LDQ4rYSfHooZwWXmP0aXlstTwfctuYTjoWJwQEbV9eECJDXX+RZJz9p0uVK?=
- =?us-ascii?Q?joLYMwFnj+mZN0KX5LlhA9sW1iljEIjhSL8vaAMH809Gj+sR/PjQF0ckJp/4?=
- =?us-ascii?Q?dX7MbEdHkPHDMTm+K6ATJwMAGSICMzesl+vFxDyQAUgnI+q20NSSBitHVdw6?=
- =?us-ascii?Q?Glrzb+oeE/goVehaxoC1SSwhtJxQhQ35c/b7ZI/hqulUcPY1jervSyg6Vlbz?=
- =?us-ascii?Q?4AEPI2TrMiSyEB7419rO2j9l9+HoAuZWUvUD7s/g4gH3+nT+228IqlYhMufK?=
- =?us-ascii?Q?dXhcnMGnK2RC+ryyOtsjgoU3onF/6HxIWc6aC9zk4DuZVyhuXGjWgYst2eiH?=
- =?us-ascii?Q?PHcNFf0R0RD7Mujigddv/pWO3MAeOMgRGNG6fExKmNLKAGW6yicLd6ENOLuC?=
- =?us-ascii?Q?jIXXFSsWw/lGzFZ6Y3CNllKmomoSwhc8vCLpZAXbcTOn+H9/ltTfCJ1Csmij?=
- =?us-ascii?Q?irmxKA+Rl0x3JP8ICt4UbYL5A0X4HfIt9PkQ6TMm504jcWGDjs7dhPlETxYh?=
- =?us-ascii?Q?FJvnRvAP2DmCgXJmBV+2vcM26JrkwUW+1gdj4oE7lgklzWBuC8etyCLWHehM?=
- =?us-ascii?Q?SuOXv2pTxwFiKwWtpuk0zDCQvNZjxh6iTKokr/WJH0n08Pfg1anXwx7pwLag?=
- =?us-ascii?Q?VlseguF+uX4irjquQLEhx7ONLquUH/WFJ+Q44nY0RChJXT+eeCNJvspGSOW3?=
- =?us-ascii?Q?Fijp6yBBETiWo17rdOOelP2CsJG1roNXm7Pg0QoXJmN6I8/rGL78YyJa0iTd?=
- =?us-ascii?Q?tkCz78bWXyYnE0lZY2qwmBYupX8CwpoNfknbA0Igc3wpA1MYvWqAoe2okGam?=
- =?us-ascii?Q?L2lInVxHTMJAPi4knBfStaOe4VUuHA7UOPMKYzPR1TX7M1yremP6OE1U4Z1G?=
- =?us-ascii?Q?3MPNT2F2f5O68jiFrA5Yf4m7m0jW0THAQiPPx+ajsJ/wRP8vz/3m5p96NlIK?=
- =?us-ascii?Q?/3K+Hzp00knh9yErZust6p+pvjzTOhu/gMhIRzteXWrJDQe1VVbVYx3E/QEC?=
- =?us-ascii?Q?d6BZkVWyldZFTajGY/KWn7Pabqy/o9Eoep5SHkUs1trnY08oAnB10y90Ly3c?=
- =?us-ascii?Q?cblItz0gNfv7SXphq4C4KBuXYDKgIUaBCY847pzgeIWYVNe4aWI4adZVr92G?=
- =?us-ascii?Q?m5Jbrous5PojchezQhosR+Iehuwl9V/GNahFI1CQ/57EFQMCVj0PoKrlZeKf?=
- =?us-ascii?Q?SAeMq9/GFIJHdFXREYmwjqHwgzeu5XF90VggDbqI4hFphksI5Ah6JB0A0riY?=
- =?us-ascii?Q?3GQQqTE49Y2kbacBJMNce4WuldcDM4UveeTDtpKc+6HsZXBq9QLKnBvoHtXP?=
- =?us-ascii?Q?b7mrX3c+VN3pRS0i/ZTJ5XYKmIIKRyQKc7ofK8l7CFZ7TYl+w7Yf1PBgpz5h?=
- =?us-ascii?Q?ZnuT83B59RTN2KNAo78=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jan 2026 18:58:45.7286
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b90e1c67-4ef1-41e7-389f-08de520c9ce6
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B5.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7996
+References: <20260110010715.1610159-1-mschirrmeister@gmail.com> <67ccb8f6-f9bd-4266-b79a-b688bd6d030b@rock-chips.com>
+In-Reply-To: <67ccb8f6-f9bd-4266-b79a-b688bd6d030b@rock-chips.com>
+From: Marco Schirrmeister <mschirrmeister@gmail.com>
+Date: Mon, 12 Jan 2026 20:04:51 +0100
+X-Gm-Features: AZwV_Qg8Eexu6GQgEzbvpbPVbdo7RYBJ0P9SC7lhZliBG8Czm_wfF3LbmThMdSI
+Message-ID: <CAGJh8eCw_d9WwEh37_7fp-pxkNvTYDetTiDue-adby=pskqxKQ@mail.gmail.com>
+Subject: Re: [PATCH v1 0/3] mmc: dw_mmc-rockchip: Add stability quirk for
+ NanoPi R76S
+To: Shawn Lin <shawn.lin@rock-chips.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-mmc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	heiko@sntech.de, ulf.hansson@linaro.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_105852_024940_A372FC83 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20260112_110504_711789_C554D3DE 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,56 +99,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 12:10:10PM -0400, Jason Gunthorpe wrote:
-> Still, it seems easy enough to improve, do not add EATS to the safe
-> bits if either the current or new STE has S2S set. That will force a
-> V=0 and avoid the illegal STE. Nicolin?
+On Mon, Jan 12, 2026 at 2:32=E2=80=AFAM Shawn Lin <shawn.lin@rock-chips.com=
+> wrote:
+>
+> > Evidence of the failure in dmesg:
+> > [Fri Jan  2 01:28:02 2026] mmc_host mmc1: Bus speed (slot 0) =3D 400000=
+Hz
+> > [Fri Jan  2 01:28:03 2026] mmc_host mmc1: Bus speed (slot 0) =3D 198000=
+000Hz
+> > [Fri Jan  2 01:28:03 2026] dwmmc_rockchip 2a310000.mmc: Successfully tu=
+ned phase to 233
+> > [Fri Jan  2 01:28:04 2026] mmc_host mmc1: Bus speed (slot 0) =3D 400000=
+Hz
+> >
+>
+> Does this problem happen with all microSDs or just *a* microSD per
+> your description?
+> Have you ever tried to disable SDR104 support?
 
-Ack. I made the following changes:
------------------------------------------------------------------
-@@ -1083,7 +1083,8 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
- EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_used);
-
- VISIBLE_IF_KUNIT
--void arm_smmu_get_ste_update_safe(__le64 *safe_bits)
-+void arm_smmu_get_ste_update_safe(const __le64 *cur, const __le64 *target,
-+                                 __le64 *safe_bits)
- {
-        /*
-         * MEV does not meaningfully impact the operation of the HW, it only
-@@ -1097,13 +1098,22 @@ void arm_smmu_get_ste_update_safe(__le64 *safe_bits)
-        safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_MEV);
-
-        /*
--        * EATS is used to reject and control the ATS behavior of the device. If
--        * we are changing it away from 0 then we already trust the device to
--        * use ATS properly and we have sequenced the device's ATS enable in PCI
--        * config space to prevent it from issuing ATS while we are changing
--        * EATS.
-+        * When a STE comes to change EATS the sequencing code in the attach
-+        * logic already will have the PCI cap for ATS disabled. Thus at this
-+        * moment we can expect that the device will not generate ATS queries
-+        * and so we don't care about the sequencing of EATS. The purpose of
-+        * EATS is to protect the system from hostile untrusted devices that
-+        * issue ATS when the PCI config space is disabled. However, if EATS
-+        * is being changed then we already must be trusting the device since
-+        * the EATS security block is being disabled.
-+        *
-+        *  Note: Since we moved the EATS update to the first phase, changing
-+        *  S2S and EATS might transiently set S2S=1 and EATS=1, resulting in
-+        *  a bad STE. See "5.2 Stream Table Entry". In such a case, we can't
-+        *  do a hitless update.
-         */
--       safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_EATS);
-+       if (!((cur[2] | target[2]) & cpu_to_le64(STRTAB_STE_2_S2S)))
-+               safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_EATS);
- }
- EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_update_safe);
-
------------------------------------------------------------------
-
-I'll send v6 after running some tests.
-
-Thanks
-Nicolin
+I tested with multiple SanDisk Extreme and Ultra.
+Yes, I have tried to disable SDR104. Also others for testing. Nothing
+made a difference.
 
