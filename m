@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6A0C9EC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 12:01:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F082AC9EC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 12:06:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FtpDu5n4tzVoHBC7/Cp4ZaCJwqdTRkntkbrO1F1PY8I=; b=tCG669MTw2fd60ng2qcr2dA88d
-	9dEC8IRVPMSIIT/p9lUJD18tpXmUeRaqpSYxrgtQzluqvhj3YGsbv2mQuO+3ZUCgDggOFQ3Pvyc/E
-	iVegcbqtB7yZjnQN+/guxtfP8j9mjnHQmvfuKn0PfhcQ91xsutMZPtrJSY+lNqFWdQ4VEd/ndknaT
-	uPAaQFr8DotmW8j3+Hy2vdQ2rvJU618x9zB8RfDAGUsRQk6cmYs9yN9XaUIY72QJwzXBraYpxJRGq
-	bz//dU+aIYqpK7320zbwA6iQ1M5Ewri0DZOALnho7eV0EqsKJoUBEEsp/w7BHSMO4HYM6T+45tr6+
-	1hjhax6A==;
+	bh=x39jlW+mZX3imq5BsjFW50pP1SLBszf5IoxZ/dZBPj0=; b=UmrkI+CTgzZJ1q1TRjK7+jkfkn
+	K0v53h78/Egyf/ASWAHHcPS55eO5v5s/Oi41FL8541lYeeTCJns/uW4f0Qjn9Ss57bttJMxw8jnLk
+	kovCU6AENBPMT7I0/GfZe+W3EEHQ/4vQ+9YKy8DBcASvP87vpkyoaKJHOpeFKFar4u+lAOIGMo0ki
+	0LQIk8HELoSsbLDonuCmAfaN8tD/L9vm8jsnF/jVKh3cDT7F5IES3Fx1gj2Ex6q341qU3PHeWC0rO
+	K+EsSZ7HxiIiSK+kSAfRGxo/H+IT9yri2HLwrXnEBLUQuTT9MAvsJPriMUwGnAqVdzR86KkV+Xl4e
+	XQ4z2K6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfGcJ-00000005IgH-3rPm;
-	Mon, 12 Jan 2026 12:01:51 +0000
+	id 1vfGgc-00000005J1N-11HN;
+	Mon, 12 Jan 2026 12:06:18 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfGcH-00000005IfN-3n7z
+	id 1vfGgZ-00000005J0u-3WaB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 12:01:51 +0000
+	Mon, 12 Jan 2026 12:06:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5867B497;
-	Mon, 12 Jan 2026 04:01:42 -0800 (PST)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 42ED53F59E;
-	Mon, 12 Jan 2026 04:01:47 -0800 (PST)
-Date: Mon, 12 Jan 2026 12:01:44 +0000
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: mark.rutland@arm.com, james.morse@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [RFC PATCH v6 29/35] KVM: arm64: Pin the SPE buffer in the host
- and map it at stage 2
-Message-ID: <aWTiqNfMPQzGBmHk@raptor>
-References: <20251114160717.163230-1-alexandru.elisei@arm.com>
- <20251114160717.163230-30-alexandru.elisei@arm.com>
- <38443801-af4e-4ce1-a1c2-603eca8d90da@linaro.org>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B163497;
+	Mon, 12 Jan 2026 04:06:08 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.197.51])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CCB333F59E;
+	Mon, 12 Jan 2026 04:06:13 -0800 (PST)
+Date: Mon, 12 Jan 2026 12:06:11 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: arm-scmi@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] firmware: arm_scmi: Implement arm,poll-transport
+ property
+Message-ID: <aWTjs1Y9yoz1k4Ry@bogus>
+References: <20251231213016.185575-1-marek.vasut+renesas@mailbox.org>
+ <20251231213016.185575-2-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <38443801-af4e-4ce1-a1c2-603eca8d90da@linaro.org>
+In-Reply-To: <20251231213016.185575-2-marek.vasut+renesas@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_040150_025560_E8D1801C 
-X-CRM114-Status: GOOD (  35.77  )
+X-CRM114-CacheID: sfid-20260112_040615_924174_48BBE79E 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,113 +70,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+On Wed, Dec 31, 2025 at 10:29:19PM +0100, Marek Vasut wrote:
+> Implement new property arm,poll-transport, which sets all SCMI operation into
+> poll mode. This is meant to work around uncooperative SCP implementations,
+> which do not generate completion interrupts. This applies to mbox/shmem based
+> implementations.
+> 
+> With this property set, such implementations which do not generate interrupts
+> can be interacted with, until they are fixed to generate interrupts properly.
+> 
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> ---
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Cristian Marussi <cristian.marussi@arm.com>
+> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Sudeep Holla <sudeep.holla@arm.com>
+> Cc: arm-scmi@vger.kernel.org
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-renesas-soc@vger.kernel.org
+> ---
+> V2: Drop no IRQ handling from SMC transport and update commit message
+> ---
+>  drivers/firmware/arm_scmi/common.h | 4 ++++
+>  drivers/firmware/arm_scmi/driver.c | 4 ++++
+>  2 files changed, 8 insertions(+)
+> 
+> diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+> index 7c35c95fddbaf..7c9617d080a02 100644
+> --- a/drivers/firmware/arm_scmi/common.h
+> +++ b/drivers/firmware/arm_scmi/common.h
+> @@ -235,6 +235,9 @@ struct scmi_transport_ops {
+>   *		      to have an execution latency lesser-equal to the threshold
+>   *		      should be considered for atomic mode operation: such
+>   *		      decision is finally left up to the SCMI drivers.
+> + * @no_completion_irq: Flag to indicate that this transport has no completion
+> + *		       interrupt and has to be polled. This is similar to the
+> + *		       force_polling below, except this is set via DT property.
+>   * @force_polling: Flag to force this whole transport to use SCMI core polling
+>   *		   mechanism instead of completion interrupts even if available.
+>   * @sync_cmds_completed_on_ret: Flag to indicate that the transport assures
+> @@ -254,6 +257,7 @@ struct scmi_desc {
+>  	int max_msg;
+>  	int max_msg_size;
+>  	unsigned int atomic_threshold;
+> +	bool no_completion_irq;
+>  	const bool force_polling;
 
-On Fri, Jan 09, 2026 at 04:29:33PM +0000, James Clark wrote:
-> 
-> 
-> On 14/11/2025 4:07 pm, Alexandru Elisei wrote:
-> > If the SPU encounters a translation fault when it attempts to write a
-> > profiling record to memory, it stops profiling and asserts the PMBIRQ
-> > interrupt.  Interrupts are not delivered instantaneously to the CPU, and
-> > this creates a profiling blackout window where the profiled CPU executes
-> > instructions, but no samples are collected.
-> > 
-> > This is not desirable, and the SPE driver avoids it by keeping the buffer
-> > mapped for the entire the profiling session.
-> > 
-> > KVM maps memory at stage 2 when the guest accesses it, following a fault on
-> > a missing stage 2 translation, which means that the problem is present in a
-> > SPE enabled virtual machine. Worse yet, the blackout windows are
-> > unpredictable: the guest profiling the same process can during one
-> > profiling session, not trigger any stage 2 faults (the entire buffer memory
-> > is already mapped at stage 2), but worst case scenario, during another
-> > profiling session, trigger stage 2 faults for every record it attempts to
-> > write (if KVM keeps removing the buffer pages from stage 2), or something
-> > in between - some records trigger a stage 2 fault, some don't.
-> > 
-> > The solution is for KVM to follow what the SPE driver does: keep the buffer
-> > mapped at stage 2 while ProfilingBufferEnabled() is true. To accomplish
-> 
-> Hi Alex,
-> 
-> The problem is that the driver enables and disables the buffer every time
-> the target process is switched out unless you explicitly ask for per-CPU
-> mode. Is there some kind of heuristic you can add to prevent pinning and
-> unpinning unless something actually changes?
-> 
-> Otherwise it's basically unusable with normal perf commands and larger
-> buffer sizes. Take these basic examples were I've added a filter so no SPE
-> data is even recorded:
-> 
->  $ perf record -e arm_spe/min_latency=1000,event_filter=10/ -m,256M --\
->      true
-> 
-> On a kernel with lockep and kmemleak etc this takes 20s to complete. On a
-> normal kernel build it still takes 4s.
-> 
-> Much worse is anything more complicated than just 'true' which will have
-> more context switching:
-> 
-> $ perf record -e arm_spe/min_latency=1000,event_filter=10/ -m,256M --\
->     perf stat true
-> 
-> This takes 3 minutes or 50 seconds to complete (with and without kernel
-> debugging features respectively)
-> 
-> For comparison, running these on the host all take less than half a second.
-> I measured each pin/unpin taking about 0.2s and the basic 'true' example
-> resulting in 100 context switches which adds up to the 20s.
-> 
-> Another interesting stat is that the second example says 'true' ends up
-> running at an average clock speed of 4Mhz:
-> 
->           12683357      cycles   #    0.004 GHz
-> 
-> You also get warnings like this
-> 
->  rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
->  rcu: 	Tasks blocked on level-0 rcu_node (CPUs 0-0): P53/1:b..l
->  rcu: 	(detected by 0, t=6503 jiffies, g=8461, q=43 ncpus=1)
->  task:perf            state:R  running task     stack:0     pid:53 tgid:53
-> ppid:52     task_flags:0x400000 flags:0x00000008
->  Call trace:
->   __switch_to+0x1b8/0x2d8 (T)
->   __schedule+0x8b4/0x1050
->   preempt_schedule_common+0x2c/0xb8
->   preempt_schedule+0x30/0x38
->   _raw_spin_unlock+0x60/0x70
->   finish_fault+0x330/0x408
->   do_pte_missing+0x7d4/0x1188
->   handle_mm_fault+0x244/0x568
->   do_page_fault+0x21c/0x548
->   do_translation_fault+0x44/0x68
->   do_mem_abort+0x4c/0x100
->   el0_da+0x58/0x200
->   el0t_64_sync_handler+0xc0/0x130
->   el0t_64_sync+0x198/0x1a0
+My preference would be to reuse `force_polling` for this. We need to drop
+const but that should be OK. Anyways I would like to know if Cristian thinks
+otherwise for any reasons I might be missing to see.
 
-This is awful, I was able to reproduce it.
-
-> 
-> If we can't add a heuristic to keep the buffer pinned, it almost seems like
-> the random blackouts would be preferable to pinning being so slow.
-
-I guess I could make it so the memory is kept pinned when the buffer is
-disabled. And then unpin that memory only when the guest enables a buffer that
-doesn't intersect with it. And also have a timer to unpin memory so it doesn't
-stay pinned forever, together with some sort of memory aging mechanism. This is
-getting to be very complex.
-
-And all of this still requires walking the guest's stage 1
-each time the buffer is enabled, because even though the VAs might be the same,
-the VA->IPA mappings might have changed.
-
-I'll try to prototype something, see if I can get an improvement.
-
-Question: if having a large buffer is an issue, couldn't the VMM just restrict
-the buffer size? Or having a large buffer size is that important?
-
-Thanks,
-Alex
+-- 
+Regards,
+Sudeep
 
