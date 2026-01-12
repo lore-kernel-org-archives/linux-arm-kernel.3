@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2EF4CF45C8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 19:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B06F3CF45C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 19:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rnNGHZoGVxmaaqAJ6yvawy5Hn/JrpHmuZhMeed1U7fY=; b=jZ7cY11ZMihI7zZ6ugOhxeoGKN
-	h87XpRfVAMtzTCrgoHx9s7YcIgSfeAorNfCquXsKJa98xesqZS3qnxW2dAyLB3bWheKRoKXGTEaL1
-	sEJm/P00nN+rLV27ixylPdc6dInOjFOJvyGwGF1hcQ73xPZhEejVbnApUSC8FGT55/v55GkUXUT/6
-	StCQOSIYXnUiIgiZHMEf0+IPL3o4j3Kn2hvZTs6J+wb5SlcdtF08EjgRT27+V2bRO+xde+IaGSB/A
-	LCKyUZ66ljCBCckWM/rtbH1hwfoY9ovY7WyCrVmJXQFXs5zRIrcHnGq6oH4obIp5RGVboBvLh8Ir7
-	6WSidmQg==;
+	bh=aOaIvwEEE7f3AWQnFux17j5zsXrhONpvnE/DHeNKWIY=; b=LsOky7Ro6aXh1k3fgsAL9Wpful
+	CfKAVxvBesVLslnCMIxfzyyRZ3BN/hKW2agdp2xnjDSx/w2Pg0U6DPcTp9CpK/iB2ZVBr/E+rS5yG
+	8x8ujCZVM83tcDr/XA+IuZmJEiYttKRbZDp8s+O0ofPvAwSJdU9ZMgQw7pb2kjqLBxDgD97q0zs9A
+	c3sI4MTQ61cZszJamrEFghbzL9DHRG5xFBJ9JolZ7N2IAW9ActArvFRU1IlnrI8IDLjO6gLyNe4Rv
+	EKIhScE1zHCBlxCNuvYm08e+axxAyurwAflv8zHu1aQcUhegP9L/w0GhNsQhVwezTr/an61+YQsDu
+	l5KXUi5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNVh-00000005z5k-2f0H;
-	Mon, 12 Jan 2026 19:23:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vfNVn-00000005zDc-2eFL;
+	Mon, 12 Jan 2026 19:23:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNVY-00000005yvN-3FHg;
-	Mon, 12 Jan 2026 19:23:21 +0000
+	id 1vfNVZ-00000005yvl-1cWz;
+	Mon, 12 Jan 2026 19:23:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1F58644317;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9E66E443AD;
 	Mon, 12 Jan 2026 19:23:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E1A5C19425;
-	Mon, 12 Jan 2026 19:23:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E026C16AAE;
+	Mon, 12 Jan 2026 19:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1768245800;
-	bh=2M8Gb/YRtberadtTzhIXpTjnvGh0/0hqHwkqCXSjCBo=;
+	bh=gKPegVOdOTFBLkcvg5JmDNGwdQNryqhr4ZKUObZBWW0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PeWo/wwnv7GJEhSx1Rr6KXtyzCKz82DrZzBSGOzoyh9p4L5PDGU+fcJJAszf9aOvC
-	 3nQ1ZzuD+/BhBCf3I+xz0Ga4TD6uXEJPz4pgcGUfHRNMN773cTSbwpo42TUOQTgpLQ
-	 p8/MShjCL6T2gM8EL3Q8azFme2TsUyDO4bZGXnEQgI3xm/Z69jIGxg4THjBVqgTQgn
-	 nFFvA/3thNtyEHoSxe2YGfG024AqgG+7kvBldYZurP6i60JW4o+nM7NA9zh9EcitJW
-	 eStkXyo61YXmHmBT7eoGdyDpRaxFgDXyv5lqvfT0EMmxoAqngYIrbCTHZOTCG9bumH
-	 nX/6iHZThwKEw==
+	b=GNPns4AUB6IFYkxnPq0QTR0KPVOq3rh9saC/xeXyfAgv9l7GY6JKe+/ai5CwNlIPR
+	 iGV6sf7GOMCBBOYUb6H3OemOH4f0g6N9AG2nXiw8MnO+tA3tugcAtvxQqKnV3wluci
+	 CNlzp0Ma1shaRGZYoPxW2/PCGl2HlkvDHX5GMsHR2vVw459z2L4rOsXmc2FKKbdEhI
+	 +ewZn43Ewtf0TB04PGOvVXvALgW7sfw7QjVuX3tpNLWP5O3XRs1n6498AkFf8vKHKm
+	 UGJ/3SARiNeXl8ArBO42WR5Nd43Lsq6qn6Kov12nIGPBMpG3+ccumgdWyzNVCVnU7I
+	 PAhpO3zmzFy3w==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,17 +56,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 04/35] crypto: arm/aes - Switch to aes_enc_tab[] and aes_dec_tab[]
-Date: Mon, 12 Jan 2026 11:20:02 -0800
-Message-ID: <20260112192035.10427-5-ebiggers@kernel.org>
+Subject: [PATCH v2 05/35] crypto: arm64/aes - Switch to aes_enc_tab[] and aes_dec_tab[]
+Date: Mon, 12 Jan 2026 11:20:03 -0800
+Message-ID: <20260112192035.10427-6-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260112192035.10427-1-ebiggers@kernel.org>
 References: <20260112192035.10427-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_112320_834384_B30B3310 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20260112_112321_448861_0AF92153 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,28 +90,28 @@ eventually be removed.
 Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/arm/crypto/aes-cipher-core.S | 4 ++--
+ arch/arm64/crypto/aes-cipher-core.S | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/crypto/aes-cipher-core.S b/arch/arm/crypto/aes-cipher-core.S
-index 1da3f41359aa..87567d6822ba 100644
---- a/arch/arm/crypto/aes-cipher-core.S
-+++ b/arch/arm/crypto/aes-cipher-core.S
-@@ -190,12 +190,12 @@
- 	.align		3
- 	.ltorg
+diff --git a/arch/arm64/crypto/aes-cipher-core.S b/arch/arm64/crypto/aes-cipher-core.S
+index c9d6955f8404..651f701c56a8 100644
+--- a/arch/arm64/crypto/aes-cipher-core.S
++++ b/arch/arm64/crypto/aes-cipher-core.S
+@@ -121,12 +121,12 @@ CPU_BE(	rev		w7, w7		)
+ 	stp		w6, w7, [out, #8]
+ 	ret
  	.endm
  
- ENTRY(__aes_arm_encrypt)
--	do_crypt	fround, crypto_ft_tab,, 2
-+	do_crypt	fround, aes_enc_tab,, 2
- ENDPROC(__aes_arm_encrypt)
+ SYM_FUNC_START(__aes_arm64_encrypt)
+-	do_crypt	fround, crypto_ft_tab, crypto_ft_tab + 1, 2
++	do_crypt	fround, aes_enc_tab, aes_enc_tab + 1, 2
+ SYM_FUNC_END(__aes_arm64_encrypt)
  
  	.align		5
- ENTRY(__aes_arm_decrypt)
+ SYM_FUNC_START(__aes_arm64_decrypt)
 -	do_crypt	iround, crypto_it_tab, crypto_aes_inv_sbox, 0
 +	do_crypt	iround, aes_dec_tab, crypto_aes_inv_sbox, 0
- ENDPROC(__aes_arm_decrypt)
+ SYM_FUNC_END(__aes_arm64_decrypt)
 -- 
 2.52.0
 
