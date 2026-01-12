@@ -4,109 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 503A9CF45C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 18:36:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0FC8CF45C1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 18:59:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YeVorztV8L2661ciMsTJRNHNSwWuFDTDQ9Xn6dJSHXo=; b=iRKDoJa5/L86GkWpcWoKp98Hag
-	CNB0JxZqcWvh8fKSUz64bL/fKXmvCYp9Py73ZbZGqTfSTmaYcPI17amkx2Umed68LWCXGzlhP1z8W
-	wHertBfH/M8RLx9fhlhKvNFuPKH6fM44wMB2dTBvlfy2rDmPchcEnLyVq7MYPaYaEGzkd4m4MHNvE
-	rOaZSo5GowTQLoIKQy9qWcwAlpdyvpNldm74Y/LKLrcVrr8+Y0W4E1DpQ4B/FX3dyrqq1fRn69EoR
-	+oOe7PDovkpUn79RZ+77qh4/Ckk+tNIAJpQDQby3dfpMx9S3YNpkFhqu9zk/RVDg9gy8H6cya4P4v
-	T/SDr13w==;
+	bh=w5DUIZ2LyUR0OLUWMZSIgbHuisqIHj6AymFcnmFUtZw=; b=bY0Z1fVbXfgi6nP+RNxGZLJgqL
+	Afgalt0/xvkRaqncWjRfnMyaxeYsZHomNTf6upAHsrKu32ElIfxYFsdlUKUva1Jss7m4n5bLIywCd
+	yrVZNF96cOONXeOL6DlhKRE9vwEVVB7IVVaf3pZDeizpsGMK8ESigXYPx3ekJK9U0M6SxBGMAbgyT
+	yfKxw17uHqPAooWJpwqUVxKAP6A2a5JWsxcF8e8TBTVtzyuHYKhEhwkw/GYBqJ0rN04V3iB3S4eW3
+	XstgSvoCivweOteIdeywAjq79RnmwfSQU242KvVrDdKqKyMkn63+o/EcZrGPawLCr2Yqk1sKEP20M
+	3YMIN4cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfMmP-00000005wR1-0nLs;
-	Mon, 12 Jan 2026 18:36:41 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	id 1vfN7u-00000005x7w-1rnb;
+	Mon, 12 Jan 2026 18:58:54 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfMmM-00000005wQc-2q0J
+	id 1vfN7r-00000005x79-41UB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 18:36:39 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-4ee243b98caso29441cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 10:36:38 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768242997; cv=none;
-        d=google.com; s=arc-20240605;
-        b=IQ8ls/Um9CqE2VDrsJq7l4hmyKwWYTpyMgnx35UTQVWBr66AvzUkEOezNYgK99cY+R
-         NGV/E+ZJngPBRkVrk0hQGXXdZ8/9yb6KilD4i9CtnwYyDG5IEOsOz0Nnf91AgRzrTp/E
-         BWewtxCevkRnPv2ie0FNkC581gK0HPyI9SWhfVO9vfhScj2uueLhm1Pj2P43gXSxa4Pm
-         BlvNT8tdfXCBiPGBdUC7Z2ctm0L6wgLM5qBBeUsd6DPPQQDmH+2PkTX6jXhr6sIaqCLp
-         A/+6FYAC8vfUBv3gbeFQSCbtGAvUOIxv/zyeQ3n+jVQ7gF9f5IA6XdtdStB/Gnnj05ri
-         qJSA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=YeVorztV8L2661ciMsTJRNHNSwWuFDTDQ9Xn6dJSHXo=;
-        fh=Y/NTX6vtbXIy2b5J+mJrjaIMPRCBNPVTL9JLGgoD0n0=;
-        b=WfpSyD3pz6C8vo85EP4nebFL27NGZAFmbx5iAt9jdXUSzNHC2ecYy+Xni9xuCHA62w
-         Cllo3yXwGyB7Rwmx3Q7oCyVq6v5TPMs3+VWW6wye2K+h9kRY853/xfwUSs1XM2lfb084
-         B3kofwLYGdH5NQSklsevnq5ZFVYwlb9hP1yUBHNreiSuQaDsZkcstK4KZ1+0PV4BjRBb
-         OKwEngRTSVfG+PwRhP2QSE0VkrosgVNq2S2ihVjmLAUZpocecPcdCWzUABXO0d4nKdqs
-         yupu9/RJAs2bReocA9xrEbmBcCII/k9hLFQKB7v+i6usCQbWiJQVUKyT3i3UzkeyB9oc
-         bkpQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1768242997; x=1768847797; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=YeVorztV8L2661ciMsTJRNHNSwWuFDTDQ9Xn6dJSHXo=;
-        b=ATtFciQztOPKFtgvYDaTk29kI8mGGl8epCZIvPloFxY13bqvoKJST75zF11hFvLVrK
-         wRjBlMmDVLnKO8sdQJCWnm5B9Htambju8b9p8WckUfRFM5MWKPuOOv3uJtSV6qr+T13Y
-         INif0xZ3gk60u23ONsqSUVu/5beVlFpKZCMmDz2V/Ym8R2knVTrK/UhPnDEx3o1HNs+7
-         M+oNRLiuYTng9IJObwsmMpMVMZ3CvojcWqePb0YPVeAgsbr72V94yIgGRXBF+KvoOdIB
-         HTv3N4ZbVu88A6W45oH6aX+cHrK4jexM9x4TMKmKj7ZG3F8S7fKtuCSMNGhp1Lv2zVK8
-         8dng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768242997; x=1768847797;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YeVorztV8L2661ciMsTJRNHNSwWuFDTDQ9Xn6dJSHXo=;
-        b=IaJJ5hNXcOkiRHnsLIQBJtb1EUy1sjWuC0cQ9Y3te+c1DaXzXN3IZOJHj+o1WRDdCF
-         mV/4w9gVEjJcRBEoUrwcMerajTzV/lRy8rllwkWEWOYe3hA3EXvvwBTXTSP4w14km6bL
-         3MqHoefACn3Pu3V+5tAENN51OoF1C5VKChkCfILMiq2dw4MJXDYSlFfUo4qTxQNHOY6n
-         1Kf1a1Do5bls0UU/S73QP9mmZQDjod8dqC7beYRfUAxjcLjqJi5b1TjwxKYQql6vpubg
-         pvTWr1rm5l64qORMMQ2LXucQ97XFhysF3Gi7tNW+AeqPG2C5fEv7MyVBSkR7KlnF3RSp
-         uwLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXqYC2AtNmSg/itpCViUr6cpQmsWFkjL0dsZcqeA7k+tFD1fh+vLGeFDhbS6Hdns2WasGYvjrxAICKwstsfqzOM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyc9qSt99rX76PVlsmlsgPaNWhOycPA4+S/5XBT1C/bv6CM5Ajp
-	/hGNeE3+LrhmHFZcZc62qPUt87v7g+VhQHK8wRw+pitX0pOzfE7Z8iolQqT2glL5FQ91AackLCq
-	wLl4UT6Mf8MlU2LM0WIk6tbLS655ULC69+JdUHWx7
-X-Gm-Gg: AY/fxX4mNc4ryEBiW7bAESiuq8HaSNXIGQpc+3AyFpcHtcJS/DJOdI3k5b97I1bfVyV
-	Zcq/cO/EU+83781XPjc+dgtezGKgvVtJb8PBjmhkrqVhURg4CxiwKZour+eqYrf75as//iQvuz6
-	dH8m1AGWHe90QfTiailPx/mpXvuPifHr93tlYDiHZ/Ok4jZnjiZH0txUCsz7tRSn6YeUGfoe07q
-	GHs3JacOIfuJORn0UYiFYlG3nM51P/puwA/xNJV4C9QujaY/edrOrY9l2V7XHznFQCNhM0f
-X-Received: by 2002:ac8:505a:0:b0:4f3:54eb:f26e with SMTP id
- d75a77b69052e-5013a3c78b1mr163381cf.1.1768242996667; Mon, 12 Jan 2026
- 10:36:36 -0800 (PST)
+	Mon, 12 Jan 2026 18:58:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hVkDZjcjbxt/jCtRBofcaiSsQ5RtvdI0hEH2l5kEoB4dGb9i/DYjRkUpEW7o6N8FiN6mDpD8wv7KQOp71+YiLY9k03iY7cXKoobq2AxWwsIdihwLncRDDsmuBA45YT3SwJqNc8fC0femBg1Aiu5bjYDkaz12fZH1eKojS2OaLazC3F/rCijJ39aL2VM3kCjkaLmicjBSZUMgTMkmhdrjTLgTQKOfDG1s+7M5kxorGGKw1noiO1JOfcskMh0OgFDc81GUWaOS+ywUzlAUyEAvG4/WV5raOcGzh6o2iFdp9YibVJAN512h5vC8xfyi5kEWEhWAGJQcgyoFunuygjEHWw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=w5DUIZ2LyUR0OLUWMZSIgbHuisqIHj6AymFcnmFUtZw=;
+ b=NQGSSxknrz2ez8spVbFU65Ep/ovE0qexjH3dlnCxMvP13Cb7t5Glj9RIEAs4w565OTHmAC2nDmwHpPkLAOUEcUelryYch1gjkYTyuScTJiFSOFLsRv3lOMcW0pPRBgN+zF3eDmfE7XA2aZ0yq/8PFJFe63ImsIVSTOrJq9PHFWUz8N8/4BodJuUoN9jKSfkUx+iPtryHmfAMF7q0sw7JQZbrNdUMdoRdXS2v4rtSgV/NQKaWptD1AtqZOfvb/mWx+kHY7d5oHStsBfEG5GVSad8NX5/6vEOXcnPbzDHL8NBZioyguB7Bs2wY5dy149LG+F/F/w1oOfu9eq+xRTocXw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=w5DUIZ2LyUR0OLUWMZSIgbHuisqIHj6AymFcnmFUtZw=;
+ b=lDSVZKm5xYB9g/pCmvtGAb9cWrHTltX2YXq/vGDgWb8aNSCMNXiLmoyEAoEeBZQTqgqPXaaQet6TWDcL0H07U0t1t2VdsyGM1CCY/qQ310E2DsJ469N4kWT0eZIayrVIlLYjnP0+90IU6PHWABTv4EQz+pbPWOVe/a4P26vZwp0syoCZhpXCBHUNj+Zvz0gKAL2P2B9f0RrEkcpvjKL11b0HACQykLzFVeL8WQZh1h9j2tVB1ThCmVu1bULj/FjRu6C+tybmMBHcv4PhILZ17BCHvn3BMHeECV+7sZHZm3rHoIOW53il9RmnwI68tF7qkpTOh2qElKtitOoJ/lvSJQ==
+Received: from SA1P222CA0036.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:2d0::21)
+ by DS0PR12MB7996.namprd12.prod.outlook.com (2603:10b6:8:14f::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Mon, 12 Jan
+ 2026 18:58:46 +0000
+Received: from SN1PEPF000397B5.namprd05.prod.outlook.com
+ (2603:10b6:806:2d0:cafe::ea) by SA1P222CA0036.outlook.office365.com
+ (2603:10b6:806:2d0::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.7 via Frontend Transport; Mon,
+ 12 Jan 2026 18:58:49 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SN1PEPF000397B5.mail.protection.outlook.com (10.167.248.59) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.1 via Frontend Transport; Mon, 12 Jan 2026 18:58:45 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 12 Jan
+ 2026 10:58:25 -0800
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 12 Jan
+ 2026 10:58:24 -0800
+Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com (10.129.68.7)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 12 Jan 2026 10:58:24 -0800
+Date: Mon, 12 Jan 2026 10:58:22 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Will Deacon <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <skolothumtho@nvidia.com>,
+	<praan@google.com>, <xueshuai@linux.alibaba.com>, <smostafa@google.com>
+Subject: Re: [PATCH rc v5 1/4] iommu/arm-smmu-v3: Add update_safe bits to fix
+ STE update sequence
+Message-ID: <aWVETpwlx9Rhs8Kw@Asurada-Nvidia>
+References: <cover.1766093909.git.nicolinc@nvidia.com>
+ <58f5af553fa7c3b5fd16f1eb13a81ae428f85678.1766093909.git.nicolinc@nvidia.com>
+ <aV7OBrH-TDiGRblt@willie-the-truck>
+ <20260108003646.GA537728@nvidia.com>
+ <aWUY-f3kvM94z4qh@willie-the-truck>
+ <20260112161010.GC812923@nvidia.com>
 MIME-Version: 1.0
-References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org> <20251223-kvm-arm64-sme-v9-20-8be3867cb883@kernel.org>
-In-Reply-To: <20251223-kvm-arm64-sme-v9-20-8be3867cb883@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 12 Jan 2026 18:35:00 +0000
-X-Gm-Features: AZwV_Qio1zjivzMeQYMIWVOvizuY7XatkfCAEo9m4hnoTRYK322NCwDdKHaZ9i8
-Message-ID: <CA+EHjTyovGEkb6svw-=wR=DF52j-wWTawJ5a19EuvSt4i9Re2Q@mail.gmail.com>
-Subject: Re: [PATCH v9 20/30] KVM: arm64: Support userspace access to
- streaming mode Z and P registers
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, Peter Maydell <peter.maydell@linaro.org>, 
-	Eric Auger <eric.auger@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260112161010.GC812923@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF000397B5:EE_|DS0PR12MB7996:EE_
+X-MS-Office365-Filtering-Correlation-Id: b90e1c67-4ef1-41e7-389f-08de520c9ce6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vG/+ggAyOCsOZ7Df5jYTrRDLzWqrFfWfjAQIZo4YCUAyqCeAx8qwy6faEPCB?=
+ =?us-ascii?Q?LNdM/n8mrY/ycRmVpQv9VeSqVgOrzsaB0MXXX7OiMTsJLlJPFpJcJrY+AHVu?=
+ =?us-ascii?Q?E7Cp7icekv0ZkdebRPlqGXDXsPLjteCmhFdMJB1spu9D/hum0QdwxFfQKpHq?=
+ =?us-ascii?Q?2LDQ4rYSfHooZwWXmP0aXlstTwfctuYTjoWJwQEbV9eECJDXX+RZJz9p0uVK?=
+ =?us-ascii?Q?joLYMwFnj+mZN0KX5LlhA9sW1iljEIjhSL8vaAMH809Gj+sR/PjQF0ckJp/4?=
+ =?us-ascii?Q?dX7MbEdHkPHDMTm+K6ATJwMAGSICMzesl+vFxDyQAUgnI+q20NSSBitHVdw6?=
+ =?us-ascii?Q?Glrzb+oeE/goVehaxoC1SSwhtJxQhQ35c/b7ZI/hqulUcPY1jervSyg6Vlbz?=
+ =?us-ascii?Q?4AEPI2TrMiSyEB7419rO2j9l9+HoAuZWUvUD7s/g4gH3+nT+228IqlYhMufK?=
+ =?us-ascii?Q?dXhcnMGnK2RC+ryyOtsjgoU3onF/6HxIWc6aC9zk4DuZVyhuXGjWgYst2eiH?=
+ =?us-ascii?Q?PHcNFf0R0RD7Mujigddv/pWO3MAeOMgRGNG6fExKmNLKAGW6yicLd6ENOLuC?=
+ =?us-ascii?Q?jIXXFSsWw/lGzFZ6Y3CNllKmomoSwhc8vCLpZAXbcTOn+H9/ltTfCJ1Csmij?=
+ =?us-ascii?Q?irmxKA+Rl0x3JP8ICt4UbYL5A0X4HfIt9PkQ6TMm504jcWGDjs7dhPlETxYh?=
+ =?us-ascii?Q?FJvnRvAP2DmCgXJmBV+2vcM26JrkwUW+1gdj4oE7lgklzWBuC8etyCLWHehM?=
+ =?us-ascii?Q?SuOXv2pTxwFiKwWtpuk0zDCQvNZjxh6iTKokr/WJH0n08Pfg1anXwx7pwLag?=
+ =?us-ascii?Q?VlseguF+uX4irjquQLEhx7ONLquUH/WFJ+Q44nY0RChJXT+eeCNJvspGSOW3?=
+ =?us-ascii?Q?Fijp6yBBETiWo17rdOOelP2CsJG1roNXm7Pg0QoXJmN6I8/rGL78YyJa0iTd?=
+ =?us-ascii?Q?tkCz78bWXyYnE0lZY2qwmBYupX8CwpoNfknbA0Igc3wpA1MYvWqAoe2okGam?=
+ =?us-ascii?Q?L2lInVxHTMJAPi4knBfStaOe4VUuHA7UOPMKYzPR1TX7M1yremP6OE1U4Z1G?=
+ =?us-ascii?Q?3MPNT2F2f5O68jiFrA5Yf4m7m0jW0THAQiPPx+ajsJ/wRP8vz/3m5p96NlIK?=
+ =?us-ascii?Q?/3K+Hzp00knh9yErZust6p+pvjzTOhu/gMhIRzteXWrJDQe1VVbVYx3E/QEC?=
+ =?us-ascii?Q?d6BZkVWyldZFTajGY/KWn7Pabqy/o9Eoep5SHkUs1trnY08oAnB10y90Ly3c?=
+ =?us-ascii?Q?cblItz0gNfv7SXphq4C4KBuXYDKgIUaBCY847pzgeIWYVNe4aWI4adZVr92G?=
+ =?us-ascii?Q?m5Jbrous5PojchezQhosR+Iehuwl9V/GNahFI1CQ/57EFQMCVj0PoKrlZeKf?=
+ =?us-ascii?Q?SAeMq9/GFIJHdFXREYmwjqHwgzeu5XF90VggDbqI4hFphksI5Ah6JB0A0riY?=
+ =?us-ascii?Q?3GQQqTE49Y2kbacBJMNce4WuldcDM4UveeTDtpKc+6HsZXBq9QLKnBvoHtXP?=
+ =?us-ascii?Q?b7mrX3c+VN3pRS0i/ZTJ5XYKmIIKRyQKc7ofK8l7CFZ7TYl+w7Yf1PBgpz5h?=
+ =?us-ascii?Q?ZnuT83B59RTN2KNAo78=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jan 2026 18:58:45.7286
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b90e1c67-4ef1-41e7-389f-08de520c9ce6
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B5.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7996
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_103638_740376_024DBFD8 
-X-CRM114-Status: GOOD (  32.37  )
+X-CRM114-CacheID: sfid-20260112_105852_024940_A372FC83 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,136 +158,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Dec 2025 at 01:23, Mark Brown <broonie@kernel.org> wrote:
->
-> SME introduces a mode called streaming mode where the Z, P and optionally
-> FFR registers can be accessed using the SVE instructions but with the SME
-> vector length. Reflect this in the ABI for accessing the guest registers by
-> making the vector length for the vcpu reflect the vector length that would
-> be seen by the guest were it running, using the SME vector length when the
-> guest is configured for streaming mode.
->
-> Since SME may be present without SVE we also update the existing checks for
-> access to the Z, P and V registers to check for either SVE or streaming
-> mode. When not in streaming mode the guest floating point state may be
-> accessed via the V registers.
->
-> Any VMM that supports SME must be aware of the need to configure streaming
-> mode prior to writing the floating point registers that this creates.
->
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  arch/arm64/kvm/guest.c | 38 ++++++++++++++++++++++++++++++++++----
->  1 file changed, 34 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-> index 2a1fdcb0ec49..90dcacb35f01 100644
-> --- a/arch/arm64/kvm/guest.c
-> +++ b/arch/arm64/kvm/guest.c
-> @@ -73,6 +73,11 @@ static u64 core_reg_offset_from_id(u64 id)
->         return id & ~(KVM_REG_ARCH_MASK | KVM_REG_SIZE_MASK | KVM_REG_ARM_CORE);
->  }
->
-> +static bool vcpu_has_sve_regs(const struct kvm_vcpu *vcpu)
-> +{
-> +       return vcpu_has_sve(vcpu) || vcpu_in_streaming_mode(vcpu);
-> +}
-> +
->  static int core_reg_size_from_offset(const struct kvm_vcpu *vcpu, u64 off)
->  {
->         int size;
-> @@ -110,9 +115,10 @@ static int core_reg_size_from_offset(const struct kvm_vcpu *vcpu, u64 off)
->         /*
->          * The KVM_REG_ARM64_SVE regs must be used instead of
->          * KVM_REG_ARM_CORE for accessing the FPSIMD V-registers on
-> -        * SVE-enabled vcpus:
-> +        * SVE-enabled vcpus or when a SME enabled vcpu is in
-> +        * streaming mode:
->          */
-> -       if (vcpu_has_sve(vcpu) && core_reg_offset_is_vreg(off))
-> +       if (vcpu_has_sve_regs(vcpu) && core_reg_offset_is_vreg(off))
->                 return -EINVAL;
->
->         return size;
-> @@ -426,6 +432,24 @@ struct vec_state_reg_region {
->         unsigned int upad;      /* extra trailing padding in user memory */
->  };
->
-> +/*
-> + * We represent the Z and P registers to userspace using either the
-> + * SVE or SME vector length, depending on which features the guest has
-> + * and if the guest is in streaming mode.
-> + */
-> +static unsigned int vcpu_sve_cur_vq(struct kvm_vcpu *vcpu)
-> +{
-> +       unsigned int vq = 0;
-> +
-> +       if (vcpu_has_sve(vcpu))
-> +               vq = vcpu_sve_max_vq(vcpu);
-> +
-> +       if (vcpu_in_streaming_mode(vcpu))
-> +               vq = vcpu_sme_max_vq(vcpu);
-> +
-> +       return vq;
-> +}
-> +
->  /*
->   * Validate SVE register ID and get sanitised bounds for user/kernel SVE
->   * register copy
-> @@ -466,7 +490,7 @@ static int sve_reg_to_region(struct vec_state_reg_region *region,
->                 if (!vcpu_has_sve(vcpu) || (reg->id & SVE_REG_SLICE_MASK) > 0)
+On Mon, Jan 12, 2026 at 12:10:10PM -0400, Jason Gunthorpe wrote:
+> Still, it seems easy enough to improve, do not add EATS to the safe
+> bits if either the current or new STE has S2S set. That will force a
+> V=0 and avoid the illegal STE. Nicolin?
 
-Should this be vcpu_has_sve_regs()? (zreg range)
+Ack. I made the following changes:
+-----------------------------------------------------------------
+@@ -1083,7 +1083,8 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
+ EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_used);
 
->                         return -ENOENT;
->
-> -               vq = vcpu_sve_max_vq(vcpu);
-> +               vq = vcpu_sve_cur_vq(vcpu);
->
->                 reqoffset = SVE_SIG_ZREG_OFFSET(vq, reg_num) -
->                                 SVE_SIG_REGS_OFFSET;
-> @@ -476,7 +500,7 @@ static int sve_reg_to_region(struct vec_state_reg_region *region,
->                 if (!vcpu_has_sve(vcpu) || (reg->id & SVE_REG_SLICE_MASK) > 0)
+ VISIBLE_IF_KUNIT
+-void arm_smmu_get_ste_update_safe(__le64 *safe_bits)
++void arm_smmu_get_ste_update_safe(const __le64 *cur, const __le64 *target,
++                                 __le64 *safe_bits)
+ {
+        /*
+         * MEV does not meaningfully impact the operation of the HW, it only
+@@ -1097,13 +1098,22 @@ void arm_smmu_get_ste_update_safe(__le64 *safe_bits)
+        safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_MEV);
 
-And should this also be vcpu_has_sve_regs()? (preg range)
+        /*
+-        * EATS is used to reject and control the ATS behavior of the device. If
+-        * we are changing it away from 0 then we already trust the device to
+-        * use ATS properly and we have sequenced the device's ATS enable in PCI
+-        * config space to prevent it from issuing ATS while we are changing
+-        * EATS.
++        * When a STE comes to change EATS the sequencing code in the attach
++        * logic already will have the PCI cap for ATS disabled. Thus at this
++        * moment we can expect that the device will not generate ATS queries
++        * and so we don't care about the sequencing of EATS. The purpose of
++        * EATS is to protect the system from hostile untrusted devices that
++        * issue ATS when the PCI config space is disabled. However, if EATS
++        * is being changed then we already must be trusting the device since
++        * the EATS security block is being disabled.
++        *
++        *  Note: Since we moved the EATS update to the first phase, changing
++        *  S2S and EATS might transiently set S2S=1 and EATS=1, resulting in
++        *  a bad STE. See "5.2 Stream Table Entry". In such a case, we can't
++        *  do a hitless update.
+         */
+-       safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_EATS);
++       if (!((cur[2] | target[2]) & cpu_to_le64(STRTAB_STE_2_S2S)))
++               safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_EATS);
+ }
+ EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_update_safe);
 
-Should you also handle FFR here, considering that in streaming mode
-it's optional?
+-----------------------------------------------------------------
 
-Cheers,
-/fuad
+I'll send v6 after running some tests.
 
-
-
->                         return -ENOENT;
->
-> -               vq = vcpu_sve_max_vq(vcpu);
-> +               vq = vcpu_sve_cur_vq(vcpu);
->
->                 reqoffset = SVE_SIG_PREG_OFFSET(vq, reg_num) -
->                                 SVE_SIG_REGS_OFFSET;
-> @@ -515,6 +539,9 @@ static int get_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->         if (!kvm_arm_vcpu_vec_finalized(vcpu))
->                 return -EPERM;
->
-> +       if (!vcpu_has_sve_regs(vcpu))
-> +               return -EBUSY;
-> +
->         if (copy_to_user(uptr, vcpu->arch.sve_state + region.koffset,
->                          region.klen) ||
->             clear_user(uptr + region.klen, region.upad))
-> @@ -541,6 +568,9 @@ static int set_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->         if (!kvm_arm_vcpu_vec_finalized(vcpu))
->                 return -EPERM;
->
-> +       if (!vcpu_has_sve_regs(vcpu))
-> +               return -EBUSY;
-> +
->         if (copy_from_user(vcpu->arch.sve_state + region.koffset, uptr,
->                            region.klen))
->                 return -EFAULT;
->
-> --
-> 2.47.3
->
+Thanks
+Nicolin
 
