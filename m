@@ -4,120 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 878BECF45C3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 18:24:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 503A9CF45C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 18:36:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2gLOxIDyxhTvVzJuSwvSFZ4MlqhsCFk9OHFtuRb1ESk=; b=MlSu6M3MojGJu88mEpve2mXAA3
-	3GDweXP37oDkZueKG64WI6Ke1bWlA+DPcO6/GL9TWvw/Hz5DRMKyqmUZt6jjby0hxEoOw/i+5eCxR
-	MrVZkXyR3aatyZ659u1llLUPjjZ+HVp05eSaO4wJ/hf69chi2Kb2+cXZG68IKcUeRdAPRC8Fp+ixr
-	MXyRWbV6/EDKJ0+DOai3TR5rHQlKsIsbXW7dM9kW3jSNJLdS1phIuULd3C5byw8Sl9WYBYJUIfF7H
-	fJ6xPXnfIyFl0w+H+ZpRHqYu+KRgdfGXQe9cV+DVo7UypEp5w9PeeR9jG7AsqFVVOdbdyrUlds68h
-	GtWjH6MA==;
+	bh=YeVorztV8L2661ciMsTJRNHNSwWuFDTDQ9Xn6dJSHXo=; b=iRKDoJa5/L86GkWpcWoKp98Hag
+	CNB0JxZqcWvh8fKSUz64bL/fKXmvCYp9Py73ZbZGqTfSTmaYcPI17amkx2Umed68LWCXGzlhP1z8W
+	wHertBfH/M8RLx9fhlhKvNFuPKH6fM44wMB2dTBvlfy2rDmPchcEnLyVq7MYPaYaEGzkd4m4MHNvE
+	rOaZSo5GowTQLoIKQy9qWcwAlpdyvpNldm74Y/LKLrcVrr8+Y0W4E1DpQ4B/FX3dyrqq1fRn69EoR
+	+oOe7PDovkpUn79RZ+77qh4/Ckk+tNIAJpQDQby3dfpMx9S3YNpkFhqu9zk/RVDg9gy8H6cya4P4v
+	T/SDr13w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfMaF-00000005vjm-1e3o;
-	Mon, 12 Jan 2026 18:24:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vfMmP-00000005wR1-0nLs;
+	Mon, 12 Jan 2026 18:36:41 +0000
+Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfMaC-00000005vjN-13H2
+	id 1vfMmM-00000005wQc-2q0J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 18:24:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1768242242;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2gLOxIDyxhTvVzJuSwvSFZ4MlqhsCFk9OHFtuRb1ESk=;
-	b=EQE/r0PC89suHFff2EemW9DKNsGaLlkjV9b1PL8JmB6u/Y8avHlVRuE+DgGSRR3NCMl2ch
-	bJRqbbHPhdyDM7SEyHEAsmDACN2caUBX2S5iSn+0rpeU51FHHpq9XRSDdOFvPbm2r/AYJJ
-	NcJq+bWk35F6plRNy/dL00dad9z2SzU=
-Received: from mail-vs1-f70.google.com (mail-vs1-f70.google.com
- [209.85.217.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-661-GvytjYTAOziOlUsPtiQlAQ-1; Mon, 12 Jan 2026 13:23:58 -0500
-X-MC-Unique: GvytjYTAOziOlUsPtiQlAQ-1
-X-Mimecast-MFC-AGG-ID: GvytjYTAOziOlUsPtiQlAQ_1768242237
-Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-5ec9a4e6cb0so5988227137.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 10:23:57 -0800 (PST)
+	Mon, 12 Jan 2026 18:36:39 +0000
+Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-4ee243b98caso29441cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 10:36:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768242997; cv=none;
+        d=google.com; s=arc-20240605;
+        b=IQ8ls/Um9CqE2VDrsJq7l4hmyKwWYTpyMgnx35UTQVWBr66AvzUkEOezNYgK99cY+R
+         NGV/E+ZJngPBRkVrk0hQGXXdZ8/9yb6KilD4i9CtnwYyDG5IEOsOz0Nnf91AgRzrTp/E
+         BWewtxCevkRnPv2ie0FNkC581gK0HPyI9SWhfVO9vfhScj2uueLhm1Pj2P43gXSxa4Pm
+         BlvNT8tdfXCBiPGBdUC7Z2ctm0L6wgLM5qBBeUsd6DPPQQDmH+2PkTX6jXhr6sIaqCLp
+         A/+6FYAC8vfUBv3gbeFQSCbtGAvUOIxv/zyeQ3n+jVQ7gF9f5IA6XdtdStB/Gnnj05ri
+         qJSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=YeVorztV8L2661ciMsTJRNHNSwWuFDTDQ9Xn6dJSHXo=;
+        fh=Y/NTX6vtbXIy2b5J+mJrjaIMPRCBNPVTL9JLGgoD0n0=;
+        b=WfpSyD3pz6C8vo85EP4nebFL27NGZAFmbx5iAt9jdXUSzNHC2ecYy+Xni9xuCHA62w
+         Cllo3yXwGyB7Rwmx3Q7oCyVq6v5TPMs3+VWW6wye2K+h9kRY853/xfwUSs1XM2lfb084
+         B3kofwLYGdH5NQSklsevnq5ZFVYwlb9hP1yUBHNreiSuQaDsZkcstK4KZ1+0PV4BjRBb
+         OKwEngRTSVfG+PwRhP2QSE0VkrosgVNq2S2ihVjmLAUZpocecPcdCWzUABXO0d4nKdqs
+         yupu9/RJAs2bReocA9xrEbmBcCII/k9hLFQKB7v+i6usCQbWiJQVUKyT3i3UzkeyB9oc
+         bkpQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1768242997; x=1768847797; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=YeVorztV8L2661ciMsTJRNHNSwWuFDTDQ9Xn6dJSHXo=;
+        b=ATtFciQztOPKFtgvYDaTk29kI8mGGl8epCZIvPloFxY13bqvoKJST75zF11hFvLVrK
+         wRjBlMmDVLnKO8sdQJCWnm5B9Htambju8b9p8WckUfRFM5MWKPuOOv3uJtSV6qr+T13Y
+         INif0xZ3gk60u23ONsqSUVu/5beVlFpKZCMmDz2V/Ym8R2knVTrK/UhPnDEx3o1HNs+7
+         M+oNRLiuYTng9IJObwsmMpMVMZ3CvojcWqePb0YPVeAgsbr72V94yIgGRXBF+KvoOdIB
+         HTv3N4ZbVu88A6W45oH6aX+cHrK4jexM9x4TMKmKj7ZG3F8S7fKtuCSMNGhp1Lv2zVK8
+         8dng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768242237; x=1768847037;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2gLOxIDyxhTvVzJuSwvSFZ4MlqhsCFk9OHFtuRb1ESk=;
-        b=T043Npdeg1fqApLpLQRZzkIjICwTFOOJXmRnlb2CgNlZCLhdAxKByF6rz8RjuOhmsl
-         Ulf/ELUWx/h6mOpsidF8YkcHjWDzi+mEslnR23c+RmPLuVbbG9YnD2Tc5lEtPJzb7at+
-         3MIaaACvv6rRqQJ/lvYHi5CU8hkVqpjn9/+VDYo9NE8+L7sAKeW2ra6h5z7UQnC71pmQ
-         l3qlOHJzGg8/qnbjsHQJCxKCCWywWAAP/De6IftzJ6HPs8I8JOEcMb4YSoyzdAgK62fQ
-         1tbfVcNs+G2uHMsWJO/f3e+6h7F9+EjEkfIM9l/MRINuS7kR1jCMVeEeOE/Fgjwy15Vz
-         dafg==
-X-Forwarded-Encrypted: i=1; AJvYcCViuyU/vIHQVuv2F2LjiYeCIC7WeEk6TXc8ZW2+eXU76BdRzHvMgEzf/8oCGYrLJXu3M1rNh7/QbvoCNVbUg6T7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzneY/vD1kM49TVgGoawbDDonEaawsU3gnN8grFJ0BgWuSCcXVQ
-	oCnS3LiEVef1SjniTPBKNeWjMPl/14WHSWpbKIeghvZ3JqrhMGJQ3zOdJXUkYDDXfsStCQQZ8Id
-	Z3DgcZlnnaIiy9/mPuQOqcX7BtUUc4/+w0jyJEjatvdKDy2BwDWVzQxe0UUqX3R4mb6Qilkts5/
-	Nd
-X-Gm-Gg: AY/fxX59JVrZ7tLeW5QkX1eEyafH6is2xsXNfHcqDiyyOgEm/cHnjv9yXuqd489SUd+
-	cBQOu/AvdIwdXRgL+06J/eB5xE36NgCAX4r39QWLmwlI5p44E9A4HBC0YtUJm7BHrzSdxHYp27g
-	sIhENMgwfiWRWRr/9VxQk6I+tt6PGTy37BuCMvxi4/P8zWBmIGZYBLv+VOLeF0mMMug31Jtu+ig
-	ivepR0wkxlOp+Cv22Gq/zsILY5z+QWovTV1q02HpeHfuIDfy+MlOqCw9hLf88p+jYlO0QQm4blS
-	QnB4Wr+U3gdCIbu+kFuLW2iabEL0xCdSaWvYHbKcYx7llN+ju8/UVYFuGYd9HOEld5p6624yrbR
-	x/5fF7pWJQpoDYcC7Qb1aNgfIL3GK5bfoEHlbBieLX/Zc6ovbg1u0NRXp
-X-Received: by 2002:a05:6102:ccd:b0:5ef:b5fc:dd4c with SMTP id ada2fe7eead31-5efb5fceabcmr2465137137.7.1768242237192;
-        Mon, 12 Jan 2026 10:23:57 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFwmHNbjOkRHiOzASiFvy8qH079mvHRUgTgzybGWlZGH94huRhJ7zei/lWRFsGQLOin7Q4KDw==
-X-Received: by 2002:a05:6102:ccd:b0:5ef:b5fc:dd4c with SMTP id ada2fe7eead31-5efb5fceabcmr2465086137.7.1768242235294;
-        Mon, 12 Jan 2026 10:23:55 -0800 (PST)
-Received: from ?IPV6:2601:188:c102:b180:1f8b:71d0:77b1:1f6e? ([2601:188:c102:b180:1f8b:71d0:77b1:1f6e])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5ef15be79c6sm10965711137.12.2026.01.12.10.23.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Jan 2026 10:23:54 -0800 (PST)
-From: Waiman Long <llong@redhat.com>
-X-Google-Original-From: Waiman Long <longman@redhat.com>
-Message-ID: <437ccd7a-e839-4b40-840c-7c40d22f8166@redhat.com>
-Date: Mon, 12 Jan 2026 13:23:40 -0500
+        d=1e100.net; s=20230601; t=1768242997; x=1768847797;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YeVorztV8L2661ciMsTJRNHNSwWuFDTDQ9Xn6dJSHXo=;
+        b=IaJJ5hNXcOkiRHnsLIQBJtb1EUy1sjWuC0cQ9Y3te+c1DaXzXN3IZOJHj+o1WRDdCF
+         mV/4w9gVEjJcRBEoUrwcMerajTzV/lRy8rllwkWEWOYe3hA3EXvvwBTXTSP4w14km6bL
+         3MqHoefACn3Pu3V+5tAENN51OoF1C5VKChkCfILMiq2dw4MJXDYSlFfUo4qTxQNHOY6n
+         1Kf1a1Do5bls0UU/S73QP9mmZQDjod8dqC7beYRfUAxjcLjqJi5b1TjwxKYQql6vpubg
+         pvTWr1rm5l64qORMMQ2LXucQ97XFhysF3Gi7tNW+AeqPG2C5fEv7MyVBSkR7KlnF3RSp
+         uwLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXqYC2AtNmSg/itpCViUr6cpQmsWFkjL0dsZcqeA7k+tFD1fh+vLGeFDhbS6Hdns2WasGYvjrxAICKwstsfqzOM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyc9qSt99rX76PVlsmlsgPaNWhOycPA4+S/5XBT1C/bv6CM5Ajp
+	/hGNeE3+LrhmHFZcZc62qPUt87v7g+VhQHK8wRw+pitX0pOzfE7Z8iolQqT2glL5FQ91AackLCq
+	wLl4UT6Mf8MlU2LM0WIk6tbLS655ULC69+JdUHWx7
+X-Gm-Gg: AY/fxX4mNc4ryEBiW7bAESiuq8HaSNXIGQpc+3AyFpcHtcJS/DJOdI3k5b97I1bfVyV
+	Zcq/cO/EU+83781XPjc+dgtezGKgvVtJb8PBjmhkrqVhURg4CxiwKZour+eqYrf75as//iQvuz6
+	dH8m1AGWHe90QfTiailPx/mpXvuPifHr93tlYDiHZ/Ok4jZnjiZH0txUCsz7tRSn6YeUGfoe07q
+	GHs3JacOIfuJORn0UYiFYlG3nM51P/puwA/xNJV4C9QujaY/edrOrY9l2V7XHznFQCNhM0f
+X-Received: by 2002:ac8:505a:0:b0:4f3:54eb:f26e with SMTP id
+ d75a77b69052e-5013a3c78b1mr163381cf.1.1768242996667; Mon, 12 Jan 2026
+ 10:36:36 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/33 v6] cpuset/isolation: Honour kthreads preferred
- affinity
-To: Frederic Weisbecker <frederic@kernel.org>,
- LKML <linux-kernel@vger.kernel.org>
-Cc: Tejun Heo <tj@kernel.org>, Phil Auld <pauld@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>, Lai Jiangshan
- <jiangshanlai@gmail.com>, Danilo Krummrich <dakr@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Michal Koutny <mkoutny@suse.com>,
- netdev@vger.kernel.org, Roman Gushchin <roman.gushchin@linux.dev>,
- linux-block@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
- Eric Dumazet <edumazet@google.com>, Michal Hocko <mhocko@suse.com>,
- Bjorn Helgaas <bhelgaas@google.com>, Ingo Molnar <mingo@redhat.com>,
- Chen Ridong <chenridong@huawei.com>, cgroups@vger.kernel.org,
- linux-pci@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "David S . Miller" <davem@davemloft.net>, Vlastimil Babka <vbabka@suse.cz>,
- Marco Crivellari <marco.crivellari@suse.com>,
- Andrew Morton <akpm@linux-foundation.org>, Jens Axboe <axboe@kernel.dk>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- Johannes Weiner <hannes@cmpxchg.org>, Simon Horman <horms@kernel.org>,
- Shakeel Butt <shakeel.butt@linux.dev>, linux-mm@kvack.org,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- Gabriele Monaco <gmonaco@redhat.com>, Muchun Song <muchun.song@linux.dev>,
- Will Deacon <will@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Chen Ridong <chenridong@huaweicloud.com>
-References: <20260101221359.22298-1-frederic@kernel.org>
-In-Reply-To: <20260101221359.22298-1-frederic@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: aOzD75ghMDqRJY2PNi19qDnY4s3zmWq_IN-gPCupsn8_1768242237
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org> <20251223-kvm-arm64-sme-v9-20-8be3867cb883@kernel.org>
+In-Reply-To: <20251223-kvm-arm64-sme-v9-20-8be3867cb883@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 12 Jan 2026 18:35:00 +0000
+X-Gm-Features: AZwV_Qio1zjivzMeQYMIWVOvizuY7XatkfCAEo9m4hnoTRYK322NCwDdKHaZ9i8
+Message-ID: <CA+EHjTyovGEkb6svw-=wR=DF52j-wWTawJ5a19EuvSt4i9Re2Q@mail.gmail.com>
+Subject: Re: [PATCH v9 20/30] KVM: arm64: Support userspace access to
+ streaming mode Z and P registers
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, Peter Maydell <peter.maydell@linaro.org>, 
+	Eric Auger <eric.auger@redhat.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_102404_366328_2DE4EB7C 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20260112_103638_740376_024DBFD8 
+X-CRM114-Status: GOOD (  32.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,61 +121,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/1/26 5:13 PM, Frederic Weisbecker wrote:
-> Hi,
+On Tue, 23 Dec 2025 at 01:23, Mark Brown <broonie@kernel.org> wrote:
 >
-> The kthread code was enhanced lately to provide an infrastructure which
-> manages the preferred affinity of unbound kthreads (node or custom
-> cpumask) against housekeeping constraints and CPU hotplug events.
+> SME introduces a mode called streaming mode where the Z, P and optionally
+> FFR registers can be accessed using the SVE instructions but with the SME
+> vector length. Reflect this in the ABI for accessing the guest registers by
+> making the vector length for the vcpu reflect the vector length that would
+> be seen by the guest were it running, using the SME vector length when the
+> guest is configured for streaming mode.
 >
-> One crucial missing piece is cpuset: when an isolated partition is
-> created, deleted, or its CPUs updated, all the unbound kthreads in the
-> top cpuset are affine to _all_ the non-isolated CPUs, possibly breaking
-> their preferred affinity along the way
+> Since SME may be present without SVE we also update the existing checks for
+> access to the Z, P and V registers to check for either SVE or streaming
+> mode. When not in streaming mode the guest floating point state may be
+> accessed via the V registers.
 >
-> Solve this with performing the kthreads affinity update from cpuset to
-> the kthreads consolidated relevant code instead so that preferred
-> affinities are honoured.
+> Any VMM that supports SME must be aware of the need to configure streaming
+> mode prior to writing the floating point registers that this creates.
 >
-> The dispatch of the new cpumasks to workqueues and kthreads is performed
-> by housekeeping, as per the nice Tejun's suggestion.
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  arch/arm64/kvm/guest.c | 38 ++++++++++++++++++++++++++++++++++----
+>  1 file changed, 34 insertions(+), 4 deletions(-)
 >
-> As a welcome side effect, HK_TYPE_DOMAIN then integrates both the set
-> from isolcpus= and cpuset isolated partitions. Housekeeping cpumasks are
-> now modifyable with specific synchronization. A big step toward making
-> nohz_full= also mutable through cpuset in the future.
+> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> index 2a1fdcb0ec49..90dcacb35f01 100644
+> --- a/arch/arm64/kvm/guest.c
+> +++ b/arch/arm64/kvm/guest.c
+> @@ -73,6 +73,11 @@ static u64 core_reg_offset_from_id(u64 id)
+>         return id & ~(KVM_REG_ARCH_MASK | KVM_REG_SIZE_MASK | KVM_REG_ARM_CORE);
+>  }
 >
-> Changes since v5:
+> +static bool vcpu_has_sve_regs(const struct kvm_vcpu *vcpu)
+> +{
+> +       return vcpu_has_sve(vcpu) || vcpu_in_streaming_mode(vcpu);
+> +}
+> +
+>  static int core_reg_size_from_offset(const struct kvm_vcpu *vcpu, u64 off)
+>  {
+>         int size;
+> @@ -110,9 +115,10 @@ static int core_reg_size_from_offset(const struct kvm_vcpu *vcpu, u64 off)
+>         /*
+>          * The KVM_REG_ARM64_SVE regs must be used instead of
+>          * KVM_REG_ARM_CORE for accessing the FPSIMD V-registers on
+> -        * SVE-enabled vcpus:
+> +        * SVE-enabled vcpus or when a SME enabled vcpu is in
+> +        * streaming mode:
+>          */
+> -       if (vcpu_has_sve(vcpu) && core_reg_offset_is_vreg(off))
+> +       if (vcpu_has_sve_regs(vcpu) && core_reg_offset_is_vreg(off))
+>                 return -EINVAL;
 >
-> * Add more tags
+>         return size;
+> @@ -426,6 +432,24 @@ struct vec_state_reg_region {
+>         unsigned int upad;      /* extra trailing padding in user memory */
+>  };
 >
-> * Fix leaked destroy_work_on_stack() (Zhang Qiao, Waiman Long)
->
-> * Comment schedule_drain_work() synchronization requirement (Tejun)
->
-> * s/Revert of/Inverse of (Waiman Long)
->
-> * Remove housekeeping_update() needless (for now) parameter (Chen Ridong)
->
-> * Don't propagate housekeeping_update() failures beyond allocations (Waiman Long)
->
-> * Whitespace cleanup (Waiman Long)
->
->
-> git://git.kernel.org/pub/scm/linux/kernel/git/frederic/linux-dynticks.git
-> 	kthread/core-v6
->
-> HEAD: 811e87ca8a0a1e54eb5f23e71896cb97436cccdc
->
-> Happy new year,
-> 	Frederic
+> +/*
+> + * We represent the Z and P registers to userspace using either the
+> + * SVE or SME vector length, depending on which features the guest has
+> + * and if the guest is in streaming mode.
+> + */
+> +static unsigned int vcpu_sve_cur_vq(struct kvm_vcpu *vcpu)
+> +{
+> +       unsigned int vq = 0;
+> +
+> +       if (vcpu_has_sve(vcpu))
+> +               vq = vcpu_sve_max_vq(vcpu);
+> +
+> +       if (vcpu_in_streaming_mode(vcpu))
+> +               vq = vcpu_sme_max_vq(vcpu);
+> +
+> +       return vq;
+> +}
+> +
+>  /*
+>   * Validate SVE register ID and get sanitised bounds for user/kernel SVE
+>   * register copy
+> @@ -466,7 +490,7 @@ static int sve_reg_to_region(struct vec_state_reg_region *region,
+>                 if (!vcpu_has_sve(vcpu) || (reg->id & SVE_REG_SLICE_MASK) > 0)
 
-I don't see any major issue with this v6 version. There may be some 
-minor issues that can be cleaned up later. Now the issue is which tree 
-should this series go to as it touches a number of different subsystems 
-with different maintainers.
+Should this be vcpu_has_sve_regs()? (zreg range)
+
+>                         return -ENOENT;
+>
+> -               vq = vcpu_sve_max_vq(vcpu);
+> +               vq = vcpu_sve_cur_vq(vcpu);
+>
+>                 reqoffset = SVE_SIG_ZREG_OFFSET(vq, reg_num) -
+>                                 SVE_SIG_REGS_OFFSET;
+> @@ -476,7 +500,7 @@ static int sve_reg_to_region(struct vec_state_reg_region *region,
+>                 if (!vcpu_has_sve(vcpu) || (reg->id & SVE_REG_SLICE_MASK) > 0)
+
+And should this also be vcpu_has_sve_regs()? (preg range)
+
+Should you also handle FFR here, considering that in streaming mode
+it's optional?
 
 Cheers,
-Longman
+/fuad
 
+
+
+>                         return -ENOENT;
+>
+> -               vq = vcpu_sve_max_vq(vcpu);
+> +               vq = vcpu_sve_cur_vq(vcpu);
+>
+>                 reqoffset = SVE_SIG_PREG_OFFSET(vq, reg_num) -
+>                                 SVE_SIG_REGS_OFFSET;
+> @@ -515,6 +539,9 @@ static int get_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>         if (!kvm_arm_vcpu_vec_finalized(vcpu))
+>                 return -EPERM;
+>
+> +       if (!vcpu_has_sve_regs(vcpu))
+> +               return -EBUSY;
+> +
+>         if (copy_to_user(uptr, vcpu->arch.sve_state + region.koffset,
+>                          region.klen) ||
+>             clear_user(uptr + region.klen, region.upad))
+> @@ -541,6 +568,9 @@ static int set_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>         if (!kvm_arm_vcpu_vec_finalized(vcpu))
+>                 return -EPERM;
+>
+> +       if (!vcpu_has_sve_regs(vcpu))
+> +               return -EBUSY;
+> +
+>         if (copy_from_user(vcpu->arch.sve_state + region.koffset, uptr,
+>                            region.klen))
+>                 return -EFAULT;
+>
+> --
+> 2.47.3
+>
 
