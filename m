@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1ED9D2502E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 01:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE18ED2502E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 01:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2EZGAGj4mxKMc9TBwMP5s7SOY2mvUzQcYppNZKTDksI=; b=GRCdGGfuWKwmXYun2IrO8p4LZe
-	M0qkAXSHcEHOprXOzlGITm91KLUsfPz694Aq6ImnXYyeNnlEcnmp9oDxrjRx6NjV+ZJnfsgdLe5Jr
-	EHUSNTnCyO3m9o86wgfletqLElkkcGK/cnX0L5A0r96VKrDwrNti+a0kDNbHWaMF2dWrjqy3Cam+8
-	pUIPSE+BdzwTaE48FL3CzJ5yr0Gi+ICzK8YarJtz+yvvbYstyha+eV2DCCIOLKy3UYQA5NekUkdUj
-	p/wilwnTcuBs9dUOiW8uwMa2gddNZdCgoEKzSJuHPDITT8zMIjbTIhYNffwRA/L2cppoWKlUvebyp
-	YqXjp1Lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/coguvbuQJ6Lc8S2lu4ggKAcKXnFx/f9Jnk8AsJys3k=; b=1xjzllw0kySR9OePuOV1DqucWE
+	diCpzd+opbiuyWK3bHGbz8sE2Whz7fE9MzRa1+P2tXhvy9zd353HhCLhK5jty75vdKFP1fB1J9Sfx
+	SrnGPkBUxy8Q/bVZ59coEw0RnN6hBUtP1EqJvw4BEEaHZn1CCocfc1SvJlrtjlJMza9k3DM9w2g7N
+	vE57YCUKH9/HEP+Yyu1F6y5aQYYIlpWT1w8qkth3ToG1uQ11EBvyXEtb2eVHtpJdI3gKzuYyxfUG/
+	l7PEeRXEPJTTvYxgHfQMMZoRZJvHtUIloO7/zOhcBcwRs01U7/9X+Eg+zgkC1Rh3cPT4jf9o1YV0s
+	gxp73NhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vf6mW-00000004dEB-1XJL;
-	Mon, 12 Jan 2026 01:31:44 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1vf6nm-00000004dJz-0UJp;
+	Mon, 12 Jan 2026 01:33:02 +0000
+Received: from mail-m49237.qiye.163.com ([45.254.49.237])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vf6mU-00000004dDp-0cft
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 01:31:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1768181490;
-	bh=2EZGAGj4mxKMc9TBwMP5s7SOY2mvUzQcYppNZKTDksI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=XNb12peP0C2TGNPDv/KF3sxfwLnepAAdkGCXC8mcqIoPCGRDjpSEE1fvTrj3Kr0DT
-	 pcQqPtHn5sOnUdZ6gYd6bcqsbU+X3/mlmw3d9IHj8yhZ1CfvcrieWYE7iQ6wKvyaXy
-	 A3e4FTeGhvbo1TzULng5d0A7bPT0Xv4AwRDB9HSt5yG4Ty2nj3/DczaT1P09fWgQZo
-	 1/rA06eq2IDFJcKkd9K+gzKZmFCXKuEtNBZM6Lkjpe9RwPNiQ7GvgqqDURqqx6n6wu
-	 sJZKvG7BI2sky36rOcy+h9oga5nbq/Y9pyWJizLkIkG2CHUsdvBzbK8Kfbl4i85j1b
-	 bCijTcvJCj/vQ==
-Received: from [192.168.68.115] (unknown [180.150.112.60])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 35AD6648B5;
-	Mon, 12 Jan 2026 09:31:28 +0800 (AWST)
-Message-ID: <45bdf2a6c0d33dd6ce0fd3cc279ef6edc509a540.camel@codeconstruct.com.au>
-Subject: Re: [PATCH 1/2] dt-bindings: arm: aspeed: Add Asus IPMI card
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Anirudh Srinivasan <anirudhsriniv@gmail.com>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley	 <joel@jms.id.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Date: Mon, 12 Jan 2026 12:01:27 +1030
-In-Reply-To: <20260111201040.162880-2-anirudhsriniv@gmail.com>
-References: <20260111201040.162880-1-anirudhsriniv@gmail.com>
-	 <20260111201040.162880-2-anirudhsriniv@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	id 1vf6ng-00000004dJ6-3pzv;
+	Mon, 12 Jan 2026 01:33:00 +0000
+Received: from [172.16.12.14] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 303f0cc91;
+	Mon, 12 Jan 2026 09:32:50 +0800 (GMT+08:00)
+Message-ID: <67ccb8f6-f9bd-4266-b79a-b688bd6d030b@rock-chips.com>
+Date: Mon, 12 Jan 2026 09:32:49 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, heiko@sntech.de, ulf.hansson@linaro.org
+Subject: Re: [PATCH v1 0/3] mmc: dw_mmc-rockchip: Add stability quirk for
+ NanoPi R76S
+To: Marco Schirrmeister <mschirrmeister@gmail.com>
+References: <20260110010715.1610159-1-mschirrmeister@gmail.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20260110010715.1610159-1-mschirrmeister@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9bafd59c4509cckunm6b904c3425d9cd
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0tKT1ZCGRgYH0hLHk0aT0NWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=PUZD15TFeHoo8gN2FFcDZ0avYlYQF5N7lfZAwZgerD57WM3N5NA8XTpdqiJRjcb7D8eXVbJPTrA+FaewvgoG9ZQn0n2ULA0ibPRhxksTlN7ilOpGtu4kLuykrxjWWvQPZNVq5SBZ0bWdp0ftlx2a+0N++WEODvAFbfRU+wKrCQ0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=/coguvbuQJ6Lc8S2lu4ggKAcKXnFx/f9Jnk8AsJys3k=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_173142_411204_41307907 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20260111_173259_077571_FC8E678E 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,34 +72,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 2026-01-11 at 14:10 -0600, Anirudh Srinivasan wrote:
-> Document the new comptaibles for Asus IPMI card
->=20
-> Signed-off-by: Anirudh Srinivasan <anirudhsriniv@gmail.com>
-> ---
-> =C2=A0Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
-> =C2=A01 file changed, 1 insertion(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/D=
-ocumentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> index 9298c1a75dd1..b2d20341f8eb 100644
-> --- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> +++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> @@ -79,6 +79,7 @@ properties:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 - ampere,mtmitchell-bmc
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 - aspeed,ast2600-evb
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 - aspeed,ast2600-evb-a1
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 - asus,ipmi-card-bmc
+在 2026/01/10 星期六 9:07, Marco Schirrmeister 写道:
+> This series addresses a microSD stability issue on the FriendlyElec
+> NanoPi R76S (RK3576). The board currently suffers from a 400kHz
+> retuning loop when the controller attempts to enter runtime-suspend
+> during idle periods.
+> 
+> Evidence of the failure in dmesg:
+> [Fri Jan  2 01:28:02 2026] mmc_host mmc1: Bus speed (slot 0) = 400000Hz
+> [Fri Jan  2 01:28:03 2026] mmc_host mmc1: Bus speed (slot 0) = 198000000Hz
+> [Fri Jan  2 01:28:03 2026] dwmmc_rockchip 2a310000.mmc: Successfully tuned phase to 233
+> [Fri Jan  2 01:28:04 2026] mmc_host mmc1: Bus speed (slot 0) = 400000Hz
+> 
 
-It's a bit bike-sheddy, however: the pattern tends to be
-${vendor},${platform}-bmc, but as the platform can't be specified and
-the card's function is the BMC itself, I'd go with "asus,ipmi-
-expansion-card" (I couldn't immediately find a useful identifier other
-than the product name).
+Does this problem happen with all microSDs or just *a* microSD per
+your description?
+Have you ever tried to disable SDR104 support?
 
-Andrew
+> Testing confirmed that the issue can be manually addressed by
+> disabling runtime PM via sysfs:
+> echo on > /sys/devices/platform/soc/2a310000.mmc/power/control
+> 
+> I experimented with various changes in the Device Tree, including
+> lowering the bus frequency and attempting to keep the power domains
+> active, but nothing stopped the retuning loop.
+> The issue only went away when I forced the controller to stay active
+> by disabling the runtime power management.
+> 
+> This quirk is the only way I have found to keep the SDR104 link from
+> crashing on the NanoPi R76S, I am open to suggestions if there is
+> a better way to handle this in the driver or the DTS.
+> 
+> Marco Schirrmeister (3):
+>    dt-bindings: mmc: rockchip-dw-mshc: add rockchip,disable-runtime-pm
+>    mmc: host: dw_mmc-rockchip: add rockchip,disable-runtime-pm quirk
+>    arm64: dts: rockchip: add stability quirk to NanoPi R76S
+> 
+>   .../bindings/mmc/rockchip-dw-mshc.yaml        |  8 ++++++
+>   .../boot/dts/rockchip/rk3576-nanopi-r76s.dts  |  1 +
+>   drivers/mmc/host/dw_mmc-rockchip.c            | 25 ++++++++++++++++---
+>   3 files changed, 31 insertions(+), 3 deletions(-)
+> 
+
 
