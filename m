@@ -4,140 +4,213 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 529C8D2505C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 09:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF179D2505C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 09:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bHY+tKzUmgy9uWt5L9UYoQLb1S8eaKCQeqzXRt/ZQl0=; b=NZZwpJxZ4AlLM7PQx+uuYHsST0
-	BSedZA6YdYsByOHvVovsV/rljnyvy6b4IwuwaPDO/pSviN9hrHK88cTFvQdmYHVH3K33x4OS2dpvu
-	+BO34AQIWK/Dmzki/FQqLdlZnp4oH/ojKS+Gtfx7IYNlTOiVX7VWIestSZbt/GYEIQh09sI8r5zu7
-	XZ6NQcNOM5thSCm1Bu/SDjtKXRwGZ1nXF14MLjA2CxjklTOvNSCqES5XUsTazAk3kPwPimmc4wfy8
-	W7Yb5jyFb9En6aNwF4o+WpM3exPZZi0Wyb+vqMpeDjvW1aDAmNG0r9A4vPHpiEz7OHAj19NR+WQR/
-	dydA690A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xoGtONIWQypE1adY+vE0B5muxOnVUX19oOserKBkwOc=; b=I5HT68zAuDyJTbQc3RISWga+gy
+	70jehIXeD35PVms88OY/7f44RCXB3v/lYe3n1xVw2bKe7hkSvqOrZlVgBdaZkO8COdXnllKRloSDL
+	S8ua2O0+e7QLvzspYs0YxFWxqU0TS+sG2hinZZ5ROlAZfBBbT3gau67s+cvwLg40gSwt/toPAEaPa
+	HA3OdhjdZrCiWanBfyx8W11EqidejXL50zqfxtmWKIqQzSIpmD//cHSqPIiHsj7nohgvj5eaUl/b6
+	WBL7L6AJZec2lIxMPkspm87MN4HB+jE68yy0zBJ6w0dQwEC78fDRaobK+tdJHP/A333HTCITst8VQ
+	W3luX2Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfE5K-000000054Ir-0VhU;
-	Mon, 12 Jan 2026 09:19:38 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vfE7h-000000054gV-0bk0;
+	Mon, 12 Jan 2026 09:22:05 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfE5F-000000054Hl-2qmO
+	id 1vfE7f-000000054g7-0D7N
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 09:19:34 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60C7OjZT555467
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 09:19:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	bHY+tKzUmgy9uWt5L9UYoQLb1S8eaKCQeqzXRt/ZQl0=; b=N33y9VbK5RL/osjh
-	dsOdnclFKUQoJVZ2sPilkIPWXoKuWG65KC1zGl/tvym5isoaNdKTyDD9P5QBslSM
-	VH1pBsawvH2jcd1wQK5tvnoE3RE4rUOpcyun8mHJWFJDWsNaH5ylhWbi5r9okEW7
-	0MVuP2D3uUEU+CIOTjxoUco0nw/5j34IlU62H0AOfYYnN2mjOy6WseMiewY32Vb7
-	YYp0YZCK01hZitzSnpiLHP1Jo2MCDcL1yOmKsceieZK+4M0X/J969csdkhYqP65Q
-	BDJ55/FwHja+0z/kOn82s3GLuEzysDYqyp+0MJQsFIyNEpXjuBnN4NSnpYjRO8Kw
-	EtzBag==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bmvhw0dh6-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 09:19:33 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2a0f47c0e60so15987965ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 01:19:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1768209572; x=1768814372; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=bHY+tKzUmgy9uWt5L9UYoQLb1S8eaKCQeqzXRt/ZQl0=;
-        b=MJGucg8f1OSTDOlYOUmT/1nCQyao8JPbqrrdwJyI7CJvDlkHSZ8J8V69OiqFn9KFkO
-         nL9QTe4XgOKAGtNk4QnhEHiQkcg8uRyEN/vn08U+Ly0Dxm4s68xJ/dMlDxqmcSYv5JXi
-         SiKPfl+TiT65OtuM/C8ivMeTUQ2x2krcCTqrQzZAO3FKGGA1DCld91Rdfr1UEQ2Uw5TT
-         IxzlfGnZJhka+vivWwDVNRcm7gUBdvRwAh/rTMQpA3ayu25dEFLtCh8RuN50J1uZqJXI
-         42ggfPmaCaOJqHEWKm88BMa6t6amuzTdaU+ReFaCaJ+zOpHCwOm99rn950aX5e990XYc
-         Z6LQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768209573; x=1768814373;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bHY+tKzUmgy9uWt5L9UYoQLb1S8eaKCQeqzXRt/ZQl0=;
-        b=JkICcIDdBmCiN/HB90KGOM4borkxS+VpRAApcFB7fIubMlgVLM/CVXnGuN/d4kvIY4
-         x7SZguNPYm0NreRLy5hrs4NUQpzSNJ6d1NmsBiNaR4xJnpFEeXishTTVaXP2C9YfcoMo
-         4B4W6tDsyRd6j3FCg1n5Y1zR6J3ZhrWDb2VnMjlZjfZXLGQR/WCzNZJsedxo69bpBzze
-         zmMU2Tfdw7GqP1Kj/TvVa4TjWU7AGboP/Yio9yRPSpolnOJMn8dYVf0DtTVvommq0JHz
-         UiYtdsrBTzxab6GK0/NA1ABPnmrgpMyq6PGGNxolqc8BvCFu0FnATgShxsemboE9dBcu
-         o3jg==
-X-Forwarded-Encrypted: i=1; AJvYcCXjE24cdb4adjU0hgJe7Fkqh76PNpxhJxtpfH4x4oboGp1edTqyYPL2qtMrKlVs0ywWqyK/RqObWZMrd+Gcc59o@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz28xpTXBOU7ZnWOTeb0bahXg5KkcwgAdRGOV1HkR+Nv0vh8ST6
-	FQkaFJsZzK+OW8kmUERhjAO/l2aVpLSluiUJrpOuooWo8nkr8SZ9WR+V1BbjTSpsN8X3wHPeotC
-	rVKZ2JEQLnfd/D79hed0m2BoH9z5Z3Ccxr379Ywt673Z4ZHW5+Jq8tobwCSvZKZ12xPkjhhIVNO
-	j0BQ==
-X-Gm-Gg: AY/fxX4It9O6l2/6H+4rQjghb6zNyjNNnt5lK1VOa2O1ZEkBas3I4ZByfxFlIeIgCyq
-	j2O/Z5abcWs5Gd16PkiAFoEkdUZFDqdrX7gKdlNKq0DPvI8Bnk2RBlVNCdAhvS0aV9k6GW7rYr0
-	Nf2a4eubLwzNyyjxtkYufBMtEm4EIo1dNXtkEeU768yFLP1Zg189wxiqmil+I0M/bBzCQlClvOh
-	1rU34N4L9o7BMwNMJPDz6PlXh1i4JnPad+xrohiFkALrIY5s2+EwQsvDp5kQr3TGmKPceKxfHip
-	EC+ClRfcHZ4VSY9zbwMs+W1bvQ9CR2VUXjXNAXdvNoIw5/vD5BZqVmCgh2Nw6mJQZ1YFSkoLwYx
-	ioAOYvSkKTAzjdBTL7dXYTGslKxfs6cBJE4YNfmXWlFBVCGbaF7Dw/R0hI0332ClQUkDYeCPDUD
-	YI2F6d
-X-Received: by 2002:a17:902:cf06:b0:2a3:e7aa:dd6e with SMTP id d9443c01a7336-2a3ee48ac0fmr165969385ad.38.1768209572447;
-        Mon, 12 Jan 2026 01:19:32 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEgf4xslxapHoyTuvdbdIw6M15C4XO7MaAq1GW+4q/hUzcMV9eD4Yeo/C22qwbZVgTiujnicQ==
-X-Received: by 2002:a17:902:cf06:b0:2a3:e7aa:dd6e with SMTP id d9443c01a7336-2a3ee48ac0fmr165969205ad.38.1768209571928;
-        Mon, 12 Jan 2026 01:19:31 -0800 (PST)
-Received: from [10.133.33.22] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3c4795fsm171834885ad.33.2026.01.12.01.19.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Jan 2026 01:19:31 -0800 (PST)
-Message-ID: <22584f94-fd4a-4d28-8eb6-0d2639b39fd3@oss.qualcomm.com>
-Date: Mon, 12 Jan 2026 09:43:18 +0800
-MIME-Version: 1.0
+	Mon, 12 Jan 2026 09:22:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A/NvL7pv2CRaSWxvTzdfg/70tpIcNz2pABob5ohMUpSoBFs2SU3O+4uKcMxEdjHO1dPJKI22Gfc1JOZBeggp7fwjKwdOvjAjGC53qa6UOhhwlhAh/xx7uJb0VJJGHWb16c7JG9Bgiy/ZnWbbQ7Tpc8pXA2+Gvwe4FOa11fhUHCzq8moGK4hWHchme9rtgUPAMfILTE/KyKMmnTzhHSn5+a/+6CnCYra28+yipmVwMseNILM0o5NSezwLTWBsF9Y9Vw57kR8g+1lv7BlFapyW2UpPxKO8AFT31CKF8Cwz8zwwnYB9zQ0OowdoSACqW7TZQCzt34TMFgIEonsFW8hloA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xoGtONIWQypE1adY+vE0B5muxOnVUX19oOserKBkwOc=;
+ b=A1XJKv1kBzAWbEG/cFRboHkw+2cr2x46ULodowrWJSpmnUl3XbVn9Nlg7UZ9EWWEQ9sZt+vKbwNPZfuCmIvP4LNNEB8AP8XASQtsJpcYuDJlcgewmuYW2hMUwnpKv4iRPgd9AbJ/e6q7NQViA3T2AljBrwquc1V74fwfS+RIRfrxSwSSeRbm7dKzAb1s8A2s4aNdGGBE5pWEzBfEjt+ovdLNtvM5aeJgRllwPwBJB4TQHn+OASc9NB3zcM46qPX4sMHkakfyU58xeZ+GO46Q85Kty+qVjqlgpR2M75ZwuiyxUuI8eAyxhRQtWdj809nmB25qHm+kpVWSr3rZ3O8Eew==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xoGtONIWQypE1adY+vE0B5muxOnVUX19oOserKBkwOc=;
+ b=VwuBDUyYgRt55P3aU+4rn15gTHAEGwQRw44wXhWQ+xAUeUhy+2lle+1Vxps7r7F7EiXI9LNfUwadsM3/Y+3lGBmUjfZcu5n/d/V3WQhCY0qO/VWGZXTpV+GGgETl9QbYgZ7nvG15ikjqCn4P/XKudN9gKL10QGwlffq51kFKTGI=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SJ2PR12MB8109.namprd12.prod.outlook.com (2603:10b6:a03:4f5::8)
+ by MW4PR12MB7013.namprd12.prod.outlook.com (2603:10b6:303:218::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Mon, 12 Jan
+ 2026 09:21:56 +0000
+Received: from SJ2PR12MB8109.namprd12.prod.outlook.com
+ ([fe80::7f35:efe7:5e82:5e30]) by SJ2PR12MB8109.namprd12.prod.outlook.com
+ ([fe80::7f35:efe7:5e82:5e30%4]) with mapi id 15.20.9499.005; Mon, 12 Jan 2026
+ 09:21:56 +0000
+Message-ID: <9330d0af-3482-4f64-b11f-a1a3a62371e0@amd.com>
+Date: Mon, 12 Jan 2026 10:21:52 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 2/7] qcom-tgu: Add TGU driver
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, andersson@kernel.org,
-        alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
-        james.clark@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
-        devicetree@vger.kernel.org, gregkh@linuxfoundation.org
-References: <20260109021141.3778421-1-songwei.chai@oss.qualcomm.com>
- <20260109021141.3778421-3-songwei.chai@oss.qualcomm.com>
- <6c70f7e3-9a98-4a84-9391-8d83df1c3818@arm.com>
+Subject: Re: [PATCH] cpuidle: zynq: Switch Michal Simek's email to new one
+To: linux-kernel@vger.kernel.org, monstr@monstr.eu, git@amd.com
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ "moderated list:ARM/ZYNQ ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:CPU IDLE TIME MANAGEMENT FRAMEWORK" <linux-pm@vger.kernel.org>
+References: <ebfbf945d90b0efff3ce0dc17fb7f1f0db5b6628.1765787278.git.michal.simek@amd.com>
 Content-Language: en-US
-From: Songwei Chai <songwei.chai@oss.qualcomm.com>
-In-Reply-To: <6c70f7e3-9a98-4a84-9391-8d83df1c3818@arm.com>
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ mpwx1d8=
+In-Reply-To: <ebfbf945d90b0efff3ce0dc17fb7f1f0db5b6628.1765787278.git.michal.simek@amd.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTEyMDA3MiBTYWx0ZWRfX0Pk8h7oBHRlv
- pYjdoOaj9gFRoFLL+d66toJySVZWIn3EbHg9YkIQx+crvwTVw5jNGcrIaxCocptDIl2Vf8ia0Hj
- hsoPzTb0eIU1AZMwEwRQ0ppuTHsncST0vos+P5TBDoTE4vZCi0xE9cL1QYJsRoE1wDVjOurrWWq
- E6PKblHwGAt1SB5LwfWrVrfjkWovlkV6rjuYdKdgS5Yp3R81UikYifMcApm2DgxMB837Wb/bOhH
- G2AehwB3mWenvflVC3euB1vBJB1sft/72KeSjzbH2DUmZ9BX8qm4KG7JYf5YFcEn0YzDADQfm44
- jgVeCcNBBlZcp5c1MkOGv6J43cZtHkDmU4729O6R5FTRrSVq1xRrFBqYZKUNyArM72Z+hnTWCHU
- GiRAzs4FB3tJPE5IOEVC5EQExFtXowCdvS48R1Ze8XOArkBLRuw/ruitpIrRhXOX3PUl9mzQf7D
- ymYBvLONUtviJxez3SQ==
-X-Authority-Analysis: v=2.4 cv=JP02csKb c=1 sm=1 tr=0 ts=6964bca5 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=QtmeBwCpv1JMxDmLrj4A:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-GUID: YTw2NHtzaHgPkVuvK4LQKhv8XI-Zmw06
-X-Proofpoint-ORIG-GUID: YTw2NHtzaHgPkVuvK4LQKhv8XI-Zmw06
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-12_02,2026-01-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
- suspectscore=0 clxscore=1015 malwarescore=0 adultscore=0 spamscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
- definitions=main-2601120072
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR13CA0104.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c5::19) To SJ2PR12MB8109.namprd12.prod.outlook.com
+ (2603:10b6:a03:4f5::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB8109:EE_|MW4PR12MB7013:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3e1abe51-72cb-4533-01b2-08de51bc07e6
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WnBQTEU5NXVRTjNUZ042T3FodnNkNDY3Yng5ZEU2THBZZmJNR1VqYWR0VnJl?=
+ =?utf-8?B?dUJENXNzN3poOUNpRjViYkdzdTREa1BUQ0IwdEtjdGxGVWJYdmlNZ00xUzg4?=
+ =?utf-8?B?dTlJaVpwWHFqb3F2OVdLRVJHY2dQejBjYmFzdERkUFNCMHJsOXUvMHYvV0Yv?=
+ =?utf-8?B?aUE1TzFUcTZXODBaak5MclBUUkdEaXJUYmJkWWZqRS9aVzdETEdyWWc5Y1E4?=
+ =?utf-8?B?cGozY1FjNWd0cUJKaVVKY0JWYkQ5Zm1jVGpvOWpROWZPTCs2RERJMU5YdmNR?=
+ =?utf-8?B?M0lzcnM0amlueStIMVp2eDhkaHRCTDYveCtFblNLNWdBc29kbzdZQ2szWjlr?=
+ =?utf-8?B?R3g3aFl1dkNBTENtYVp3T2lzZTFwWEdlK2svaFJWWXExb3p4RWhlOURNcm1F?=
+ =?utf-8?B?SklxemhlRUp0NUYrZmxlZnFhUlV5blViVHpFMVdZYnJENVorTEtBaTZYNlJm?=
+ =?utf-8?B?SHlQQW1TRnVZNkQrakdCcDJZWExDdHVRTG9nWkZoVHRTZ1NsVDQ2djIxaGRH?=
+ =?utf-8?B?bzZEeTZkMk9Pa1VoZU01MlZ5akN0YW1Fck5DeTFzS1RqT0lSVkVJMUJNajFa?=
+ =?utf-8?B?TVgzNGs4MjFXWktnTGVKYVlFeGpnRStUOTFBcGR6SnAwcWl4a1VzUEVWUDcv?=
+ =?utf-8?B?Q21FMnlGc2xlOXdldGh4emNMY1ZKN1lPdlM1TUFGQWRXYlJ1OHQwaEJuSWwr?=
+ =?utf-8?B?OFFrN2hkTzVaWXYrVVBNaDhPYW03Z1pDZWlSbnZIZythRXFkSVkwVjQ2Q0tI?=
+ =?utf-8?B?aXpqaVp3bzFESVRHUnJnWXhqUHJKMURJZTdiM1hJcEFlM1VkRHdoQWd5am1a?=
+ =?utf-8?B?b3JwZkoyTS9XekF5bTE2VTl0Y1AwSVI2NWJqS0N0eU9oVm0rWW5EaytzcEhY?=
+ =?utf-8?B?N3BJMU9Deng3Sk1rWkZ3c1o5WFVHQm1HNHAwOENQcmJQVWJQeFU1SDMyRDJt?=
+ =?utf-8?B?N1BzQnhlQlkyZEpFNWF5aGxFOUFtTCtNR3ZhU24yL25KckZ1SVhCZU9TSVdu?=
+ =?utf-8?B?VjRYbmFEaHhPSWx3Z3h4QzJLSER4dmlVTWN4YVFaNnlRVkttSnVrMFozNlBz?=
+ =?utf-8?B?ZUdpR0dzY0FlZUduVndLL0MwcVNaYTB5TnJueDU2M1ZzODNyZThtVGx1WGFr?=
+ =?utf-8?B?UUlWWW5GUHZlbFhNTkM2VnptUklzdllLWnBPWGN3T1JDSVFGRGo3aG1MTW5z?=
+ =?utf-8?B?NXZqRnlVSEMwMi9UZk9kVWRmKzB1SlAzRk9iQ0x2aEsvajhaa2kxRThNUnVn?=
+ =?utf-8?B?NFBwYk5HSjRnN1lJYjlabDM4Vytvc3k1K2NlUVUzb3NFUFl5cHhxUnVGN1JO?=
+ =?utf-8?B?THpUS21JN3FkTUR4TnZkbFB2RnQxdGlmQ1ErN0N1SWJuQ3d1aEtBUTViL1o1?=
+ =?utf-8?B?bkxQRkZrdXh2ODVHb0pNdFozZVdZY2IvMDFISUNuYnZRV1ZPVEsweFRlL093?=
+ =?utf-8?B?U0VQUWRNNzlLUmFNL2hKWUM4bDRSMm5GSTQ2WjdKdE12dFoxOFNpc2Q4cXFt?=
+ =?utf-8?B?TkVnQXNBNFhMOXVOSTNXREtzRnh5eHNuZ2o2MGdkMklUcnI1ejU5RWFsSE1S?=
+ =?utf-8?B?Y0J0R3FjYTJ5bVlKcGI3NDRjNDFNS01IcjVQZ1MyeGxFU0J2T1JEMnh3THBE?=
+ =?utf-8?B?MUk0MWFBZjlQUlo2UitvQ29ibDNhODFOZGhyekp5V3ZiTW14Yy9VSkdqcEJZ?=
+ =?utf-8?B?MDFYTXIzd2tKNy9veDU2WFVTWmVXd1psN0JlUmFlbTFVbjlFeHdoMkpWMjBj?=
+ =?utf-8?B?VS9NWnNTODdMczhkQ0dhS1lYTmFlWW13ZUYzKzRTcWlrQzlNVHZqMGsvQjBk?=
+ =?utf-8?B?Rkgwdk5OdTNvL2JNMDVidkZ2Q29LT1Z0UGM3aGV0VkgzQlEwV0tWZEYzUVhM?=
+ =?utf-8?B?cVNVejlXRFFZNGxZQzdkLy9BcCtOdHFYajlEUmE3ZXhScDh5OFk2VzkvZXpI?=
+ =?utf-8?Q?0Z4HMwlU+Xocg1UC1x6YB5aqFmoUpPUG?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8109.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VU9EcGRsajNKcU5hQ3lQdndCZWd3N2RWV2ZlNkNPYmo5TVNQajdNM21WUnBr?=
+ =?utf-8?B?Y1dNLzVrVlE3TzdWeTJ4SUk5anA2SDJPNGQzR3BHd1ZQU2FDNGJkbTJrK2JH?=
+ =?utf-8?B?RXNJT0M4OTU2K3Q5TFVkQWtWR3lzYnhFbTZTMnZ4L1oyR1E2dzkvcGN2aW9w?=
+ =?utf-8?B?SmxwUXErdlQza3cwN0NMd0xnblJRU2lDdERnYUFINWJtWGxWbzJJVXNsM0xS?=
+ =?utf-8?B?RmdkeklwYkF1WWtrY0NDeDR3RFJrSHBxT0FvMnE1c3lEQVM1aWpraHZRaXFX?=
+ =?utf-8?B?NXVlU3U3NVVveTJLbGZOdUVDWjl4M3ByZ3JCcHBMZTdFQ3pYUmxBc0JyOWs3?=
+ =?utf-8?B?SzNJYU5pTUd5Q0ljMEtETlNycE10K1BEdFZubFF5c1ZiMnBKWXBmK3JDN2lD?=
+ =?utf-8?B?NWtQcmlvZ3FWb2hPbXYzclBLekV6bSsyQWNndHJ0ZE5ldWhZZitSUXc5ZlRr?=
+ =?utf-8?B?UjFKdTIwMzdaQUFsWkVOOW9SbGhZRUNzcEd0TTBYZEREZmF1VEw5ZUNEQ1lq?=
+ =?utf-8?B?U0Fmc0R1UDBjNFRST0dlVXlPeFp3Q3FIYnZUamdsUjkybjRuK1Q0Z3VMelJ3?=
+ =?utf-8?B?SXU3T0FzRXV6ZVNFdG0rWmIzZEs4WFNMcUhrL1VPSU4vampXQnBrTTFMN21F?=
+ =?utf-8?B?eEsrM2ZVNFJjYlVQR2ZrK1RQR2RJeGJJK0QyYS8vMmpTU1VJbnZqNjVlMEtF?=
+ =?utf-8?B?ZnNteHRaZUMwVDg3NXBzWjluRjVJY0QwQ1dzSkdkWDBZQnBaVDgySjN2b2VY?=
+ =?utf-8?B?T25ISm9qckVQMmY3VTErbjhTN2FUYmpNSGJlQUxhbTY5TTdYaTkwWXhKY0gv?=
+ =?utf-8?B?eTc4cTNkKzRYZmJIc1VCZ01kcWVVWHNTeWdsVWR2NjE1bEE4ME5zNU4rTXhw?=
+ =?utf-8?B?ejFBRmtuVlptUTJ6ZXArWXpCajEyd2NEVVZueTNoRHJlYWIyeUlyVXJZeFp5?=
+ =?utf-8?B?a2hEY3F1Z0pWVTZPWFk2azdEVUxZcUZFa0QzT2wvTUpNTmdZMW16UVJlZnRG?=
+ =?utf-8?B?ZTJMZG95eEtZVHJjdko4SXpKRlBGa0VueitHZTdObStNeG5nOWkvdk55SHdw?=
+ =?utf-8?B?Sy9IanVWdkhjQURyb0IvWkVGYUZGNlptRDRFekdBUC9veWF5cUVjM2hZcU1E?=
+ =?utf-8?B?ZzRXKzU4ZEpDT05iSkhGaExRU0dUNXZzVGVGV0NQMVNHZFE2ck0xaHI3cUVm?=
+ =?utf-8?B?bnBUNDhBMlNsWDdwdDlDMCt6YjAvOEwvdlJVMTkyeDdTT0h1TUJneTN0cFND?=
+ =?utf-8?B?ZXpGQU02ajZHdXlZTXJiVHJmYmZDZFpCN0tNWG02VHlqQW95a2x5Um4wT1Ja?=
+ =?utf-8?B?bHJ1bVBqVWFwQ3UxUVRobXJyZGZDeU81dzFaVC81UEoxaTJ3c05EYTJEUzI2?=
+ =?utf-8?B?eXArUnk3Wk45a25ZSWR0VTJyNjZwd0pDaVJrdk5sQW4zeTNmRzdtcFNuZkdE?=
+ =?utf-8?B?VG01UE9VbGFMRFBEd1JDRisrWGNpM3BHUjZXa3NRdjhHTGozRnZPa0VQaDhp?=
+ =?utf-8?B?a1lTSHIycGJTV2JDeDk3SkZpQ0tiOW11cTZaRkxtSDFNWk1mWVZTNUkxRGNW?=
+ =?utf-8?B?Qm8rM3Qxb01JUXM1ZkZaQzA2Z0RidlVWcW1GRXNXQ2J1L0h3TW9LckpMMjJM?=
+ =?utf-8?B?ZHdkODB3REFhZThuSzZuSHRMbVA4T2tvQUpsY2N6OG9mdXduTFR3R2p6NUow?=
+ =?utf-8?B?b3BnZk0wSXFYTERnM0dvR05DSXNZZ3YrUUxoaVUwUm5wSk5LaFB5b0xaRjRk?=
+ =?utf-8?B?aGd4NnhmYkdMV1BEbXF1Wk5UWDhTMFNJNHFoT3M1RjRnUm0yK1pmemFWZWww?=
+ =?utf-8?B?dUhTQXVGcUpmbmF1emZXMzZtNktrRjV0d25rNGNmQ2JjbHYwc3AwYm1tWUI4?=
+ =?utf-8?B?ako1WFU0WktoaTg4MzE2TW9meWpSNHIvV1ZxUCtRcGM2eXg1MUs4eTR4UmhZ?=
+ =?utf-8?B?bUNlOE5wWXc2dUlRNGJRejlncEE3T1FpWXNiQk81MVJBdkxaazVGUXRyVlpw?=
+ =?utf-8?B?cWlDUHpGMkp2QWFYcGEzalVwV0pzTEFwSldrOGgwOU1yNzQwMWR5M1k2OHJK?=
+ =?utf-8?B?bnZiZmorclkwL2JJZS9BZm9PZGl0akJOVk13eFNDYitaaWxieEZaRWNWLzh3?=
+ =?utf-8?B?cjNicHErNHI4WlNaSTFJYjh0ZCtzZXkraFZ4aUlpcGthRDBuZlcvQ2FMTlZ1?=
+ =?utf-8?B?Z1FQY0JzUGtWdTRQN0dGZzBDUWpPUmhwL0x3WmQ5bFkxMm5iYUNLYjVnS0hn?=
+ =?utf-8?B?THlVMkpwMWJ3ejZyNHp1amJYcWE3TTI0SUVqN1JaZlUzOEs3dGdKeVZJL25j?=
+ =?utf-8?B?MkxPajBGNXpJd3lJVHU3bnVSRzcrYjd3YUdicHR5OHVMZHh2bkF6dz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3e1abe51-72cb-4533-01b2-08de51bc07e6
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8109.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jan 2026 09:21:56.2778
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8ou/N1JemAwcR09Pvzd0v99pZu377K8zHFGWvs5jnH+PowxpqFqUM64t8C9zaAVS
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7013
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_011933_725563_414AF6C3 
-X-CRM114-Status: GOOD (  27.25  )
+X-CRM114-CacheID: sfid-20260112_012203_236900_AD0826FC 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,349 +227,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 1/9/2026 6:27 PM, Suzuki K Poulose wrote:
-> On 09/01/2026 02:11, Songwei Chai wrote:
->> Add driver to support device TGU (Trigger Generation Unit).
->> TGU is a Data Engine which can be utilized to sense a plurality of
->> signals and create a trigger into the CTI or generate interrupts to
->> processors. Add probe/enable/disable functions for tgu.
->>
->> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
->> ---
->>   .../ABI/testing/sysfs-bus-amba-devices-tgu    |   9 +
->>   drivers/Makefile                              |   1 +
->>   drivers/hwtracing/Kconfig                     |   2 +
->>   drivers/hwtracing/qcom/Kconfig                |  18 ++
->>   drivers/hwtracing/qcom/Makefile               |   3 +
->>   drivers/hwtracing/qcom/tgu.c                  | 176 ++++++++++++++++++
->>   drivers/hwtracing/qcom/tgu.h                  |  51 +++++
->>   7 files changed, 260 insertions(+)
->>   create mode 100644 Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
->>   create mode 100644 drivers/hwtracing/qcom/Kconfig
->>   create mode 100644 drivers/hwtracing/qcom/Makefile
->>   create mode 100644 drivers/hwtracing/qcom/tgu.c
->>   create mode 100644 drivers/hwtracing/qcom/tgu.h
->>
->> diff --git a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu b/ 
->> Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
->> new file mode 100644
->> index 000000000000..56ec3f5ab5d6
->> --- /dev/null
->> +++ b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
->> @@ -0,0 +1,9 @@
->> +What:        /sys/bus/amba/devices/<tgu-name>/enable_tgu
->> +Date:        January 2026
->> +KernelVersion    6.19
+On 12/15/25 09:28, Michal Simek wrote:
+> @xilinx.com is still working but better to switch to new amd.com after
+> AMD/Xilinx acquisition.
 > 
-> It's a bit too late for v6.19, this should rather be 6.20/7.0
-Sure, Suzuki. Thanks for comment.>
-> Suzuki
+> Signed-off-by: Michal Simek <michal.simek@amd.com>
+> ---
 > 
+>   drivers/cpuidle/cpuidle-zynq.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
->> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai 
->> <songwei.chai@oss.qualcomm.com>
->> +Description:
->> +        (RW) Set/Get the enable/disable status of TGU
->> +        Accepts only one of the 2 values -  0 or 1.
->> +        0 : disable TGU.
->> +        1 : enable TGU.
->> diff --git a/drivers/Makefile b/drivers/Makefile
->> index ccc05f1eae3e..9608a3debb1f 100644
->> --- a/drivers/Makefile
->> +++ b/drivers/Makefile
->> @@ -177,6 +177,7 @@ obj-$(CONFIG_RAS)        += ras/
->>   obj-$(CONFIG_USB4)        += thunderbolt/
->>   obj-$(CONFIG_CORESIGHT)        += hwtracing/coresight/
->>   obj-y                += hwtracing/intel_th/
->> +obj-y                += hwtracing/qcom/
->>   obj-$(CONFIG_STM)        += hwtracing/stm/
->>   obj-$(CONFIG_HISI_PTT)        += hwtracing/ptt/
->>   obj-y                += android/
->> diff --git a/drivers/hwtracing/Kconfig b/drivers/hwtracing/Kconfig
->> index 911ee977103c..8a640218eed8 100644
->> --- a/drivers/hwtracing/Kconfig
->> +++ b/drivers/hwtracing/Kconfig
->> @@ -7,4 +7,6 @@ source "drivers/hwtracing/intel_th/Kconfig"
->>   source "drivers/hwtracing/ptt/Kconfig"
->> +source "drivers/hwtracing/qcom/Kconfig"
->> +
->>   endmenu
->> diff --git a/drivers/hwtracing/qcom/Kconfig b/drivers/hwtracing/qcom/ 
->> Kconfig
->> new file mode 100644
->> index 000000000000..d6f6d4b0f28e
->> --- /dev/null
->> +++ b/drivers/hwtracing/qcom/Kconfig
->> @@ -0,0 +1,18 @@
->> +# SPDX-License-Identifier: GPL-2.0-only
->> +#
->> +# QCOM specific hwtracing drivers
->> +#
->> +menu "Qualcomm specific hwtracing drivers"
->> +
->> +config QCOM_TGU
->> +    tristate "QCOM Trigger Generation Unit driver"
->> +    help
->> +      This driver provides support for Trigger Generation Unit that is
->> +      used to detect patterns or sequences on a given set of signals.
->> +      TGU is used to monitor a particular bus within a given region to
->> +      detect illegal transaction sequences or slave responses. It is 
->> also
->> +      used to monitor a data stream to detect protocol violations and to
->> +      provide a trigger point for centering data around a specific event
->> +      within the trace data buffer.
->> +
->> +endmenu
->> diff --git a/drivers/hwtracing/qcom/Makefile b/drivers/hwtracing/qcom/ 
->> Makefile
->> new file mode 100644
->> index 000000000000..5a0a868c1ea0
->> --- /dev/null
->> +++ b/drivers/hwtracing/qcom/Makefile
->> @@ -0,0 +1,3 @@
->> +# SPDX-License-Identifier: GPL-2.0
->> +
->> +obj-$(CONFIG_QCOM_TGU) += tgu.o
->> diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
->> new file mode 100644
->> index 000000000000..c5b2b384e6ae
->> --- /dev/null
->> +++ b/drivers/hwtracing/qcom/tgu.c
->> @@ -0,0 +1,176 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
->> + */
->> +
->> +#include <linux/amba/bus.h>
->> +#include <linux/device.h>
->> +#include <linux/err.h>
->> +#include <linux/io.h>
->> +#include <linux/kernel.h>
->> +#include <linux/module.h>
->> +#include <linux/of.h>
->> +#include <linux/pm_runtime.h>
->> +
->> +#include "tgu.h"
->> +
->> +static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
->> +{
->> +    TGU_UNLOCK(drvdata->base);
->> +    /* Enable TGU to program the triggers */
->> +    writel(1, drvdata->base + TGU_CONTROL);
->> +    TGU_LOCK(drvdata->base);
->> +}
->> +
->> +static int tgu_enable(struct device *dev)
->> +{
->> +    struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
->> +
->> +    guard(spinlock)(&drvdata->lock);
->> +    if (drvdata->enable)
->> +        return -EBUSY;
->> +
->> +    tgu_write_all_hw_regs(drvdata);
->> +    drvdata->enable = true;
->> +
->> +    return 0;
->> +}
->> +
->> +static void tgu_disable(struct device *dev)
->> +{
->> +    struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
->> +
->> +    guard(spinlock)(&drvdata->lock);
->> +    if (drvdata->enable) {
->> +        TGU_UNLOCK(drvdata->base);
->> +        writel(0, drvdata->base + TGU_CONTROL);
->> +        TGU_LOCK(drvdata->base);
->> +
->> +        drvdata->enable = false;
->> +    }
->> +}
->> +
->> +static ssize_t enable_tgu_show(struct device *dev,
->> +                struct device_attribute *attr, char *buf)
->> +{
->> +    struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
->> +    bool enabled;
->> +
->> +    guard(spinlock)(&drvdata->lock);
->> +    enabled = drvdata->enable;
->> +
->> +    return sysfs_emit(buf, "%d\n", enabled ? 1 : 0);
->> +}
->> +
->> +/* enable_tgu_store - Configure Trace and Gating Unit (TGU) triggers. */
->> +static ssize_t enable_tgu_store(struct device *dev,
->> +                struct device_attribute *attr,
->> +                const char *buf,
->> +                size_t size)
->> +{
->> +    unsigned long val;
->> +    int ret = 0;
->> +
->> +    ret = kstrtoul(buf, 0, &val);
->> +    if (ret)
->> +        return ret;
->> +
->> +    if (val) {
->> +        ret = pm_runtime_resume_and_get(dev);
->> +        if (ret)
->> +            return ret;
->> +        ret = tgu_enable(dev);
->> +        if (ret) {
->> +            pm_runtime_put(dev);
->> +            return ret;
->> +        }
->> +    } else {
->> +        tgu_disable(dev);
->> +        pm_runtime_put(dev);
->> +    }
->> +
->> +    return size;
->> +}
->> +static DEVICE_ATTR_RW(enable_tgu);
->> +
->> +static struct attribute *tgu_common_attrs[] = {
->> +    &dev_attr_enable_tgu.attr,
->> +    NULL,
->> +};
->> +
->> +static const struct attribute_group tgu_common_grp = {
->> +    .attrs = tgu_common_attrs,
->> +    NULL,
->> +};
->> +
->> +static const struct attribute_group *tgu_attr_groups[] = {
->> +    &tgu_common_grp,
->> +    NULL,
->> +};
->> +
->> +static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
->> +{
->> +    struct device *dev = &adev->dev;
->> +    struct tgu_drvdata *drvdata;
->> +    int ret;
->> +
->> +    drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
->> +    if (!drvdata)
->> +        return -ENOMEM;
->> +
->> +    drvdata->dev = &adev->dev;
->> +    dev_set_drvdata(dev, drvdata);
->> +
->> +    drvdata->base = devm_ioremap_resource(dev, &adev->res);
->> +    if (IS_ERR(drvdata->base))
->> +        return PTR_ERR(drvdata->base);
->> +
->> +    spin_lock_init(&drvdata->lock);
->> +
->> +    ret = sysfs_create_groups(&dev->kobj, tgu_attr_groups);
->> +    if (ret) {
->> +        dev_err(dev, "failed to create sysfs groups: %d\n", ret);
->> +        return ret;
->> +    }
->> +
->> +    drvdata->enable = false;
->> +
->> +    pm_runtime_put(&adev->dev);
->> +    return 0;
->> +}
->> +
->> +static void tgu_remove(struct amba_device *adev)
->> +{
->> +    struct device *dev = &adev->dev;
->> +
->> +    sysfs_remove_groups(&dev->kobj, tgu_attr_groups);
->> +
->> +    tgu_disable(dev);
->> +}
->> +
->> +static const struct amba_id tgu_ids[] = {
->> +    {
->> +        .id = 0x000f0e00,
->> +        .mask = 0x000fffff,
->> +    },
->> +    { 0, 0, NULL },
->> +};
->> +
->> +MODULE_DEVICE_TABLE(amba, tgu_ids);
->> +
->> +static struct amba_driver tgu_driver = {
->> +    .drv = {
->> +        .name = "qcom-tgu",
->> +        .suppress_bind_attrs = true,
->> +    },
->> +    .probe = tgu_probe,
->> +    .remove = tgu_remove,
->> +    .id_table = tgu_ids,
->> +};
->> +
->> +module_amba_driver(tgu_driver);
->> +
->> +MODULE_AUTHOR("Songwei Chai <songwei.chai@oss.qualcomm.com>");
->> +MODULE_AUTHOR("Jinlong Mao <jinlong.mao@oss.qualcomm.com>");
->> +MODULE_DESCRIPTION("Qualcomm Trigger Generation Unit driver");
->> +MODULE_LICENSE("GPL");
->> diff --git a/drivers/hwtracing/qcom/tgu.h b/drivers/hwtracing/qcom/tgu.h
->> new file mode 100644
->> index 000000000000..b11cfb28261d
->> --- /dev/null
->> +++ b/drivers/hwtracing/qcom/tgu.h
->> @@ -0,0 +1,51 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +/*
->> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
->> + */
->> +
->> +#ifndef _QCOM_TGU_H
->> +#define _QCOM_TGU_H
->> +
->> +/* Register addresses */
->> +#define TGU_CONTROL 0x0000
->> +#define TGU_LAR        0xfb0
->> +#define TGU_UNLOCK_OFFSET    0xc5acce55
->> +
->> +static inline void TGU_LOCK(void __iomem *addr)
->> +{
->> +    do {
->> +        /* Wait for things to settle */
->> +        mb();
->> +        writel_relaxed(0x0, addr + TGU_LAR);
->> +    } while (0);
->> +}
->> +
->> +static inline void TGU_UNLOCK(void __iomem *addr)
->> +{
->> +    do {
->> +        writel_relaxed(TGU_UNLOCK_OFFSET, addr + TGU_LAR);
->> +        /* Make sure everyone has seen this */
->> +        mb();
->> +    } while (0);
->> +}
->> +
->> +/**
->> + * struct tgu_drvdata - Data structure for a TGU (Trigger Generator 
->> Unit)
->> + * @base: Memory-mapped base address of the TGU device
->> + * @dev: Pointer to the associated device structure
->> + * @lock: Spinlock for handling concurrent access
->> + * @enable: Flag indicating whether the TGU device is enabled
->> + *
->> + * This structure defines the data associated with a TGU device,
->> + * including its base address, device pointers, clock, spinlock for
->> + * synchronization, trigger data pointers, maximum limits for various
->> + * trigger-related parameters, and enable status.
->> + */
->> +struct tgu_drvdata {
->> +    void __iomem *base;
->> +    struct device *dev;
->> +    spinlock_t lock;
->> +    bool enable;
->> +};
->> +
->> +#endif
-> 
+> diff --git a/drivers/cpuidle/cpuidle-zynq.c b/drivers/cpuidle/cpuidle-zynq.c
+> index a79610e723b3..89448ae4845c 100644
+> --- a/drivers/cpuidle/cpuidle-zynq.c
+> +++ b/drivers/cpuidle/cpuidle-zynq.c
+> @@ -11,7 +11,7 @@
+>    * #1 wait-for-interrupt
+>    * #2 wait-for-interrupt and RAM self refresh
+>    *
+> - * Maintainer: Michal Simek <michal.simek@xilinx.com>
+> + * Maintainer: Michal Simek <michal.simek@amd.com>
+>    */
+>   
+>   #include <linux/init.h>
 
+I have applied to my tree and will go via soc tree.
+
+Thanks,
+Michal
 
