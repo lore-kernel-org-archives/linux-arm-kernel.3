@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 136F2CF45C9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 19:25:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F417CF45C8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 19:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RWxW1uFuup9ONYA01aeUHR0qAMfLTjJS5PUrW6w5PXk=; b=EzlnM4ujWrq/oPdUE16kNcAPwU
-	OanUiNcr0Zfl4lz84sjpANHfa7zsi9pNyJ2QBRWipDEwBhqtk3ooKXhnGa+CPTyfovZELM2wb3tUK
-	lnFwj0oMlt08toDD8Ae/588uqRZptGNOIUZ1mBaICISeh2bEi1akRa0QtXPe2Jvj93MZvvskBCYlK
-	o2yPBA6CNRNDr64eACxziyk42j8OfoOzWN+cK/LE/uNvpb6snNG2ifjPC0yWCu4nkRq7GNBebOHAY
-	SHVaOedFznx9VkE3H8RnZ2xvpBXx9IkXCW4aAZ0JCIYDDRmQk/+y6Uima4NDti1dc0PG4QTtVsLks
-	gYkNc36g==;
+	bh=03t5xqxXWXQya2vnXvkh4sBRhE7hCvYdebD40Mx8iOs=; b=cAnYsJMHG6M3cRSy9QSsFaku/8
+	B4PPy4j+gMpQrYrK0dQvHEXKm4b+bSSfwPKxtYAEAlCFPsP2KDKPZvpfhTBDkdytTDI1F2OCG20EP
+	C2F0EusSx3Tlww/s4Wfuhu1IxJzZQBWLsRdUVJ6OMDAAvh67HD+k/fHN7tFvPk32qjSAjIYwImxPt
+	ai+i6f8WZv9zx+Ii/y/5QN7hJzX3NLLsz4BOoebivNsiNcO9+OvwCTT0WCmUra9L+VrKIU7OahZLs
+	pn18aE0aeOUFufLjoPT5b0RMTrAQadC31H51V922wG1+IWysSmWPy9gr0CwTeQf5xRz00kqgeta6c
+	Q+lxjkEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNWu-000000060gY-0xKS;
-	Mon, 12 Jan 2026 19:24:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vfNX8-000000060zX-1p97;
+	Mon, 12 Jan 2026 19:24:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNVf-00000005z0I-2ari;
-	Mon, 12 Jan 2026 19:23:29 +0000
+	id 1vfNVi-00000005z6J-1QRr;
+	Mon, 12 Jan 2026 19:23:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 720444430D;
-	Mon, 12 Jan 2026 19:23:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E15F7C19424;
-	Mon, 12 Jan 2026 19:23:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BFEB560125;
+	Mon, 12 Jan 2026 19:23:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 157D1C19422;
+	Mon, 12 Jan 2026 19:23:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768245807;
-	bh=+Ks/FgLrVIgNh0mVR9LgvhCStXCy1TQy3vUt0BiA4Xw=;
+	s=k20201202; t=1768245809;
+	bh=zZjTigRkrr+RJfey+6vJW4bfvWaLAxFdbVVJ4sVGLrw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tMd17uhU6V2tVXPHXhtW3rPuEKtDLWTBQq3CUg8shZ9tcX4/7s+uwYmLr3xdCiUU4
-	 NWxnO8p8r4frohwhvYoDPytgY3v+2LKctzHs67dD+tVCqDlxAXrILzvR2Kk7398VGh
-	 G6vSBWhLUBcRJfvHlxHXEVl4HBZndbrslU1h3gUFaeaxAedZFN2HEjepQZNdUM7xi0
-	 /SJXu6XTfq0uctlyJRu9L/hCrnqynixtUH/sLLl72vZKvQD5pa9G6WvNFy4a/+6k0C
-	 E5cG5ScYUy/u7bOkVsFG0BL/UL4rPc2J3OBSm62jc/9CUGqLPM6byFI5VGUd5CjJM7
-	 lx6+ZPaH3Tv3w==
+	b=qfFo8JDsoztKnqQM8LDVsG/RZYZxuwTk6m5qZdjQd/xXiyEc7egrbByJjtgR4sZdu
+	 RcpNZKXOvWe5RDLB7hOVlH6OXua6/OEZPnBLFISFOa3J9MSrW455FqrBKQI77CQJcs
+	 y9tlA15wqYgSNGZRxDqsKIsEYbUvlHRl/M6y7e+iul2Ov7gxDV2ezDzKhpNPivrM9P
+	 zwOHwRjPkvT69tX3CGSI6iww5CkwpdRRVVEkHnpxQ2h5oHalu2FfFBkGaWRFvW3rVB
+	 uvUHQfOkJvB3PC+Xs0dSKIdnrH6Xj+YQwsz98IhE5tYp8ma1ZcTvtU9SKRX/Kgvx9M
+	 vIGAYuZKdialA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,17 +56,14 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 17/35] lib/crypto: x86/aes: Add AES-NI optimization
-Date: Mon, 12 Jan 2026 11:20:15 -0800
-Message-ID: <20260112192035.10427-18-ebiggers@kernel.org>
+Subject: [PATCH v2 21/35] net: phy: mscc: macsec: Use new AES library API
+Date: Mon, 12 Jan 2026 11:20:19 -0800
+Message-ID: <20260112192035.10427-22-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260112192035.10427-1-ebiggers@kernel.org>
 References: <20260112192035.10427-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_112327_718844_AB742F69 
-X-CRM114-Status: GOOD (  29.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,431 +78,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Optimize the AES library with x86 AES-NI instructions.
+Switch from the old AES library functions (which use struct
+crypto_aes_ctx) to the new ones (which use struct aes_enckey).  This
+eliminates the unnecessary computation and caching of the decryption
+round keys.  The new AES en/decryption functions are also much faster
+and use AES instructions when supported by the CPU.
 
-The relevant existing assembly functions, aesni_set_key(), aesni_enc(),
-and aesni_dec(), are a bit difficult to extract into the library:
-
-- They're coupled to the code for the AES modes.
-- They operate on struct crypto_aes_ctx.  The AES library now uses
-  different structs.
-- They assume the key is 16-byte aligned.  The AES library only
-  *prefers* 16-byte alignment; it doesn't require it.
-
-Moreover, they're not all that great in the first place:
-
-- They use unrolled loops, which isn't a great choice on x86.
-- They use the 'aeskeygenassist' instruction, which is unnecessary, is
-  slow on Intel CPUs, and forces the loop to be unrolled.
-- They have special code for AES-192 key expansion, despite that being
-  kind of useless.  AES-128 and AES-256 are the ones used in practice.
-
-These are small functions anyway.
-
-Therefore, I opted to just write replacements of these functions for the
-library.  They address all the above issues.
+Note that in addition to the change in the key preparation function and
+the key struct type itself, the change in the type of the key struct
+results in aes_encrypt() (which is temporarily a type-generic macro)
+calling the new encryption function rather than the old one.
 
 Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- lib/crypto/Kconfig         |   1 +
- lib/crypto/Makefile        |   1 +
- lib/crypto/x86/aes-aesni.S | 261 +++++++++++++++++++++++++++++++++++++
- lib/crypto/x86/aes.h       |  85 ++++++++++++
- 4 files changed, 348 insertions(+)
- create mode 100644 lib/crypto/x86/aes-aesni.S
- create mode 100644 lib/crypto/x86/aes.h
+ drivers/net/phy/mscc/mscc_macsec.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 920d96e6b498..032f9755f999 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -19,10 +19,11 @@ config CRYPTO_LIB_AES_ARCH
- 	default y if PPC && (SPE || (PPC64 && VSX))
- 	default y if RISCV && 64BIT && TOOLCHAIN_HAS_VECTOR_CRYPTO && \
- 		     RISCV_EFFICIENT_VECTOR_UNALIGNED_ACCESS
- 	default y if S390
- 	default y if SPARC64
-+	default y if X86
+diff --git a/drivers/net/phy/mscc/mscc_macsec.c b/drivers/net/phy/mscc/mscc_macsec.c
+index 4f39ba63a9a9..9a38a29cf397 100644
+--- a/drivers/net/phy/mscc/mscc_macsec.c
++++ b/drivers/net/phy/mscc/mscc_macsec.c
+@@ -502,19 +502,19 @@ static u32 vsc8584_macsec_flow_context_id(struct macsec_flow *flow)
  
- config CRYPTO_LIB_AESCFB
- 	tristate
- 	select CRYPTO_LIB_AES
- 	select CRYPTO_LIB_UTILS
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index 761d52d91f92..725eef05b758 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -50,10 +50,11 @@ OBJECT_FILES_NON_STANDARD_powerpc/aesp8-ppc.o := y
- endif # !CONFIG_SPE
- endif # CONFIG_PPC
+ /* Derive the AES key to get a key for the hash autentication */
+ static int vsc8584_macsec_derive_key(const u8 *key, u16 key_len, u8 hkey[16])
+ {
+ 	const u8 input[AES_BLOCK_SIZE] = {0};
+-	struct crypto_aes_ctx ctx;
++	struct aes_enckey aes;
+ 	int ret;
  
- libaes-$(CONFIG_RISCV) += riscv/aes-riscv64-zvkned.o
- libaes-$(CONFIG_SPARC) += sparc/aes_asm.o
-+libaes-$(CONFIG_X86) += x86/aes-aesni.o
- endif # CONFIG_CRYPTO_LIB_AES_ARCH
+-	ret = aes_expandkey(&ctx, key, key_len);
++	ret = aes_prepareenckey(&aes, key, key_len);
+ 	if (ret)
+ 		return ret;
  
- ################################################################################
+-	aes_encrypt(&ctx, hkey, input);
+-	memzero_explicit(&ctx, sizeof(ctx));
++	aes_encrypt(&aes, hkey, input);
++	memzero_explicit(&aes, sizeof(aes));
+ 	return 0;
+ }
  
- obj-$(CONFIG_CRYPTO_LIB_AESCFB)			+= libaescfb.o
-diff --git a/lib/crypto/x86/aes-aesni.S b/lib/crypto/x86/aes-aesni.S
-new file mode 100644
-index 000000000000..b8c3e104a3be
---- /dev/null
-+++ b/lib/crypto/x86/aes-aesni.S
-@@ -0,0 +1,261 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+//
-+// AES block cipher using AES-NI instructions
-+//
-+// Copyright 2026 Google LLC
-+//
-+// The code in this file supports 32-bit and 64-bit CPUs, and it doesn't require
-+// AVX.  It does use up to SSE4.1, which all CPUs with AES-NI have.
-+#include <linux/linkage.h>
-+
-+.section .rodata
-+#ifdef __x86_64__
-+#define RODATA(label)	label(%rip)
-+#else
-+#define RODATA(label)	label
-+#endif
-+
-+	// A mask for pshufb that extracts the last dword, rotates it right by 8
-+	// bits, and copies the result to all four dwords.
-+.p2align 4
-+.Lmask:
-+	.byte	13, 14, 15, 12, 13, 14, 15, 12, 13, 14, 15, 12, 13, 14, 15, 12
-+
-+	// The AES round constants, used during key expansion
-+.Lrcon:
-+	.long	0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36
-+
-+.text
-+
-+// Transform four dwords [a0, a1, a2, a3] in \a into
-+// [a0, a0^a1, a0^a1^a2, a0^a1^a2^a3].  \tmp is a temporary xmm register.
-+//
-+// Note: this could be done in four instructions, shufps + pxor + shufps + pxor,
-+// if the temporary register were zero-initialized ahead of time.  We instead do
-+// it in an easier-to-understand way that doesn't require zero-initialization
-+// and avoids the unusual shufps instruction.  movdqa is usually "free" anyway.
-+.macro	_prefix_sum	a, tmp
-+	movdqa		\a, \tmp	// [a0, a1, a2, a3]
-+	pslldq		$4, \a		// [0, a0, a1, a2]
-+	pxor		\tmp, \a	// [a0, a0^a1, a1^a2, a2^a3]
-+	movdqa		\a, \tmp
-+	pslldq		$8, \a		// [0, 0, a0, a0^a1]
-+	pxor		\tmp, \a	// [a0, a0^a1, a0^a1^a2, a0^a1^a2^a3]
-+.endm
-+
-+.macro	_gen_round_key	a, b
-+	// Compute four copies of rcon[i] ^ SubBytes(ror32(w, 8)), where w is
-+	// the last dword of the previous round key (given in \b).
-+	//
-+	// 'aesenclast src, dst' does dst = src XOR SubBytes(ShiftRows(dst)).
-+	// It is used here solely for the SubBytes and the XOR.  The ShiftRows
-+	// is a no-op because all four columns are the same here.
-+	//
-+	// Don't use the 'aeskeygenassist' instruction, since:
-+	//  - On most Intel CPUs it is microcoded, making it have a much higher
-+	//    latency and use more execution ports than 'aesenclast'.
-+	//  - It cannot be used in a loop, since it requires an immediate.
-+	//  - It doesn't do much more than 'aesenclast' in the first place.
-+	movdqa		\b, %xmm2
-+	pshufb		MASK, %xmm2
-+	aesenclast	RCON, %xmm2
-+
-+	// XOR in the prefix sum of the four dwords of \a, which is the
-+	// previous round key (AES-128) or the first round key in the previous
-+	// pair of round keys (AES-256).  The result is the next round key.
-+	_prefix_sum	\a, tmp=%xmm3
-+	pxor		%xmm2, \a
-+
-+	// Store the next round key to memory.  Also leave it in \a.
-+	movdqu		\a, (RNDKEYS)
-+.endm
-+
-+.macro	_aes_expandkey_aesni	is_aes128
-+#ifdef __x86_64__
-+	// Arguments
-+	.set	RNDKEYS,	%rdi
-+	.set	INV_RNDKEYS,	%rsi
-+	.set	IN_KEY,		%rdx
-+
-+	// Other local variables
-+	.set	RCON_PTR,	%rcx
-+	.set	COUNTER,	%eax
-+#else
-+	// Arguments, assuming -mregparm=3
-+	.set	RNDKEYS,	%eax
-+	.set	INV_RNDKEYS,	%edx
-+	.set	IN_KEY,		%ecx
-+
-+	// Other local variables
-+	.set	RCON_PTR,	%ebx
-+	.set	COUNTER,	%esi
-+#endif
-+	.set	RCON,		%xmm6
-+	.set	MASK,		%xmm7
-+
-+#ifdef __i386__
-+	push		%ebx
-+	push		%esi
-+#endif
-+
-+.if \is_aes128
-+	// AES-128: the first round key is simply a copy of the raw key.
-+	movdqu		(IN_KEY), %xmm0
-+	movdqu		%xmm0, (RNDKEYS)
-+.else
-+	// AES-256: the first two round keys are simply a copy of the raw key.
-+	movdqu		(IN_KEY), %xmm0
-+	movdqu		%xmm0, (RNDKEYS)
-+	movdqu		16(IN_KEY), %xmm1
-+	movdqu		%xmm1, 16(RNDKEYS)
-+	add		$32, RNDKEYS
-+.endif
-+
-+	// Generate the remaining round keys.
-+	movdqa		RODATA(.Lmask), MASK
-+.if \is_aes128
-+	lea		RODATA(.Lrcon), RCON_PTR
-+	mov		$10, COUNTER
-+.Lgen_next_aes128_round_key:
-+	add		$16, RNDKEYS
-+	movd		(RCON_PTR), RCON
-+	pshufd		$0x00, RCON, RCON
-+	add		$4, RCON_PTR
-+	_gen_round_key	%xmm0, %xmm0
-+	dec		COUNTER
-+	jnz		.Lgen_next_aes128_round_key
-+.else
-+	// AES-256: only the first 7 round constants are needed, so instead of
-+	// loading each one from memory, just start by loading [1, 1, 1, 1] and
-+	// then generate the rest by doubling.
-+	pshufd		$0x00, RODATA(.Lrcon), RCON
-+	pxor		%xmm5, %xmm5	// All-zeroes
-+	mov		$7, COUNTER
-+.Lgen_next_aes256_round_key_pair:
-+	// Generate the next AES-256 round key: either the first of a pair of
-+	// two, or the last one.
-+	_gen_round_key	%xmm0, %xmm1
-+
-+	dec		COUNTER
-+	jz		.Lgen_aes256_round_keys_done
-+
-+	// Generate the second AES-256 round key of the pair.  Compared to the
-+	// first, there's no rotation and no XOR of a round constant.
-+	pshufd		$0xff, %xmm0, %xmm2	// Get four copies of last dword
-+	aesenclast	%xmm5, %xmm2		// Just does SubBytes
-+	_prefix_sum	%xmm1, tmp=%xmm3
-+	pxor		%xmm2, %xmm1
-+	movdqu		%xmm1, 16(RNDKEYS)
-+	add		$32, RNDKEYS
-+	paddd		RCON, RCON		// RCON <<= 1
-+	jmp		.Lgen_next_aes256_round_key_pair
-+.Lgen_aes256_round_keys_done:
-+.endif
-+
-+	// If INV_RNDKEYS is non-NULL, write the round keys for the Equivalent
-+	// Inverse Cipher to it.  To do that, reverse the standard round keys,
-+	// and apply aesimc (InvMixColumn) to each except the first and last.
-+	test		INV_RNDKEYS, INV_RNDKEYS
-+	jz		.Ldone\@
-+	movdqu		(RNDKEYS), %xmm0	// Last standard round key
-+	movdqu		%xmm0, (INV_RNDKEYS)	// => First inverse round key
-+.if \is_aes128
-+	mov		$9, COUNTER
-+.else
-+	mov		$13, COUNTER
-+.endif
-+.Lgen_next_inv_round_key\@:
-+	sub		$16, RNDKEYS
-+	add		$16, INV_RNDKEYS
-+	movdqu		(RNDKEYS), %xmm0
-+	aesimc		%xmm0, %xmm0
-+	movdqu		%xmm0, (INV_RNDKEYS)
-+	dec		COUNTER
-+	jnz		.Lgen_next_inv_round_key\@
-+	movdqu		-16(RNDKEYS), %xmm0	// First standard round key
-+	movdqu		%xmm0, 16(INV_RNDKEYS)	// => Last inverse round key
-+
-+.Ldone\@:
-+#ifdef __i386__
-+	pop		%esi
-+	pop		%ebx
-+#endif
-+	RET
-+.endm
-+
-+// void aes128_expandkey_aesni(u32 rndkeys[], u32 *inv_rndkeys,
-+//			       const u8 in_key[AES_KEYSIZE_128]);
-+SYM_FUNC_START(aes128_expandkey_aesni)
-+	_aes_expandkey_aesni	1
-+SYM_FUNC_END(aes128_expandkey_aesni)
-+
-+// void aes256_expandkey_aesni(u32 rndkeys[], u32 *inv_rndkeys,
-+//			       const u8 in_key[AES_KEYSIZE_256]);
-+SYM_FUNC_START(aes256_expandkey_aesni)
-+	_aes_expandkey_aesni	0
-+SYM_FUNC_END(aes256_expandkey_aesni)
-+
-+.macro	_aes_crypt_aesni	enc
-+#ifdef __x86_64__
-+	.set	RNDKEYS,	%rdi
-+	.set	NROUNDS,	%esi
-+	.set	OUT,		%rdx
-+	.set	IN,		%rcx
-+#else
-+	// Assuming -mregparm=3
-+	.set	RNDKEYS,	%eax
-+	.set	NROUNDS,	%edx
-+	.set	OUT,		%ecx
-+	.set	IN,		%ebx	// Passed on stack
-+#endif
-+
-+#ifdef __i386__
-+	push		%ebx
-+	mov		8(%esp), %ebx
-+#endif
-+
-+	// Zero-th round
-+	movdqu		(IN), %xmm0
-+	movdqu		(RNDKEYS), %xmm1
-+	pxor		%xmm1, %xmm0
-+
-+	// Normal rounds
-+	add		$16, RNDKEYS
-+	dec		NROUNDS
-+.Lnext_round\@:
-+	movdqu		(RNDKEYS), %xmm1
-+.if \enc
-+	aesenc		%xmm1, %xmm0
-+.else
-+	aesdec		%xmm1, %xmm0
-+.endif
-+	add		$16, RNDKEYS
-+	dec		NROUNDS
-+	jne		.Lnext_round\@
-+
-+	// Last round
-+	movdqu		(RNDKEYS), %xmm1
-+.if \enc
-+	aesenclast	%xmm1, %xmm0
-+.else
-+	aesdeclast	%xmm1, %xmm0
-+.endif
-+	movdqu		%xmm0, (OUT)
-+
-+#ifdef __i386__
-+	pop		%ebx
-+#endif
-+	RET
-+.endm
-+
-+// void aes_encrypt_aesni(const u32 rndkeys[], int nrounds,
-+//			  u8 out[AES_BLOCK_SIZE], const u8 in[AES_BLOCK_SIZE]);
-+SYM_FUNC_START(aes_encrypt_aesni)
-+	_aes_crypt_aesni	1
-+SYM_FUNC_END(aes_encrypt_aesni)
-+
-+// void aes_decrypt_aesni(const u32 inv_rndkeys[], int nrounds,
-+//			  u8 out[AES_BLOCK_SIZE], const u8 in[AES_BLOCK_SIZE]);
-+SYM_FUNC_START(aes_decrypt_aesni)
-+	_aes_crypt_aesni	0
-+SYM_FUNC_END(aes_decrypt_aesni)
-diff --git a/lib/crypto/x86/aes.h b/lib/crypto/x86/aes.h
-new file mode 100644
-index 000000000000..b047dee94f57
---- /dev/null
-+++ b/lib/crypto/x86/aes.h
-@@ -0,0 +1,85 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * AES block cipher using AES-NI instructions
-+ *
-+ * Copyright 2026 Google LLC
-+ */
-+
-+#include <asm/fpu/api.h>
-+
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_aes);
-+
-+void aes128_expandkey_aesni(u32 rndkeys[], u32 *inv_rndkeys,
-+			    const u8 in_key[AES_KEYSIZE_128]);
-+void aes256_expandkey_aesni(u32 rndkeys[], u32 *inv_rndkeys,
-+			    const u8 in_key[AES_KEYSIZE_256]);
-+void aes_encrypt_aesni(const u32 rndkeys[], int nrounds,
-+		       u8 out[AES_BLOCK_SIZE], const u8 in[AES_BLOCK_SIZE]);
-+void aes_decrypt_aesni(const u32 inv_rndkeys[], int nrounds,
-+		       u8 out[AES_BLOCK_SIZE], const u8 in[AES_BLOCK_SIZE]);
-+
-+/*
-+ * Expand an AES key using AES-NI if supported and usable or generic code
-+ * otherwise.  The expanded key format is compatible between the two cases.  The
-+ * outputs are @k->rndkeys (required) and @inv_k->inv_rndkeys (optional).
-+ *
-+ * We could just always use the generic key expansion code.  AES key expansion
-+ * is usually less performance-critical than AES en/decryption.  However,
-+ * there's still *some* value in speed here, as well as in non-key-dependent
-+ * execution time which AES-NI provides.  So, do use AES-NI to expand AES-128
-+ * and AES-256 keys.  (Don't bother with AES-192, as it's almost never used.)
-+ */
-+static void aes_preparekey_arch(union aes_enckey_arch *k,
-+				union aes_invkey_arch *inv_k,
-+				const u8 *in_key, int key_len, int nrounds)
-+{
-+	u32 *rndkeys = k->rndkeys;
-+	u32 *inv_rndkeys = inv_k ? inv_k->inv_rndkeys : NULL;
-+
-+	if (static_branch_likely(&have_aes) && key_len != AES_KEYSIZE_192 &&
-+	    irq_fpu_usable()) {
-+		kernel_fpu_begin();
-+		if (key_len == AES_KEYSIZE_128)
-+			aes128_expandkey_aesni(rndkeys, inv_rndkeys, in_key);
-+		else
-+			aes256_expandkey_aesni(rndkeys, inv_rndkeys, in_key);
-+		kernel_fpu_end();
-+	} else {
-+		aes_expandkey_generic(rndkeys, inv_rndkeys, in_key, key_len);
-+	}
-+}
-+
-+static void aes_encrypt_arch(const struct aes_enckey *key,
-+			     u8 out[AES_BLOCK_SIZE],
-+			     const u8 in[AES_BLOCK_SIZE])
-+{
-+	if (static_branch_likely(&have_aes) && irq_fpu_usable()) {
-+		kernel_fpu_begin();
-+		aes_encrypt_aesni(key->k.rndkeys, key->nrounds, out, in);
-+		kernel_fpu_end();
-+	} else {
-+		aes_encrypt_generic(key->k.rndkeys, key->nrounds, out, in);
-+	}
-+}
-+
-+static void aes_decrypt_arch(const struct aes_key *key,
-+			     u8 out[AES_BLOCK_SIZE],
-+			     const u8 in[AES_BLOCK_SIZE])
-+{
-+	if (static_branch_likely(&have_aes) && irq_fpu_usable()) {
-+		kernel_fpu_begin();
-+		aes_decrypt_aesni(key->inv_k.inv_rndkeys, key->nrounds,
-+				  out, in);
-+		kernel_fpu_end();
-+	} else {
-+		aes_decrypt_generic(key->inv_k.inv_rndkeys, key->nrounds,
-+				    out, in);
-+	}
-+}
-+
-+#define aes_mod_init_arch aes_mod_init_arch
-+static void aes_mod_init_arch(void)
-+{
-+	if (boot_cpu_has(X86_FEATURE_AES))
-+		static_branch_enable(&have_aes);
-+}
+ static int vsc8584_macsec_transformation(struct phy_device *phydev,
+ 					 struct macsec_flow *flow,
 -- 
 2.52.0
 
