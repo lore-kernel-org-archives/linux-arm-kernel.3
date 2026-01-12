@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92D81CF45CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 21:17:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 132A2CF45CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 21:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ldGPuGZG523RSoakys4MiKPAfsrjJwPEUi50RijOKj4=; b=iUwcabTTObaTVRjNYPgCuVoOck
-	FDD8ewZyXo2OBEXtIAAMEpghH3Rf/8uQmmjnqGp8n6EsOSpAeYATnUyNFJtjWRFxZydLu+qhsYFQb
-	lNazLacpA4RsFFY8VwmEFoo6qoPc3BY/QTkKTUPWZtzNG1ZSJNIAXjfXTmru+Dyv0NEUodLPXOHG3
-	UeJ5vv7pvSZHnitiZsG8URSjgWyWSmS+ZdY30wgwz6zGNMHHpaC5g1xVrYwA9En1tFvzVwMDeduna
-	dEB1h/zeP/lYBtn4D9osuzNKmuZGyRveoWN/IORTR/r6UoIsb7IKS5P57RiTcxqx0bwXde4+MUEBw
-	4tgCF3jw==;
+	bh=9TZYdcy92buA5+zb8K4DSLhDN3VCy/dmlapRWN0t8u8=; b=nD62ENrqYxZRs7pr8MGiwY1n2Q
+	SxzVNNvMRSC0f5gPIyJZUu68upAt4Cn85aio6kRtg9Dtf5tGWdctnWyu6tK+HbDigUdG9pfc+8pxj
+	KfWYOQvytpLE+IDAFZhHWagF1CEJiwD2mW6VkM5J7XmeggmZS3kkVBQb/D3lIHxafMGw6oObxsElR
+	bVes6hhbgKuJuE36PepKtzlbK7UqFGxaQ9KgkSC4NMAzNK2gMGhX8YwvfRnh8F8rIJ3Jkq0LtVPd1
+	dkP3NZLowC9EO+8LWr1u7i3GlZd6Dx+1hka9YgKboAuq+M73dKlP2vwDi6RBttd6tb5iYyACOtnVP
+	jdGV8Upg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfPHd-00000006Cea-3Pcr;
-	Mon, 12 Jan 2026 21:17:05 +0000
-Received: from mail-dl1-x1235.google.com ([2607:f8b0:4864:20::1235])
+	id 1vfPMZ-00000006D33-2VoY;
+	Mon, 12 Jan 2026 21:22:11 +0000
+Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfPHa-00000006Cdc-2cJl
+	id 1vfPMX-00000006D2h-2Eg7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 21:17:04 +0000
-Received: by mail-dl1-x1235.google.com with SMTP id a92af1059eb24-11f3e3f0cacso8615438c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 13:17:00 -0800 (PST)
+	Mon, 12 Jan 2026 21:22:10 +0000
+Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-11f36012fb2so8977877c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 13:22:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768252619; x=1768857419; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1768252928; x=1768857728; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ldGPuGZG523RSoakys4MiKPAfsrjJwPEUi50RijOKj4=;
-        b=dsYd3euzULENcewSCW3SkCEj4SNctrV0hAxx0/XfQ4wJLK4EexmtDOCDmpyiUQvwqa
-         keoIUjixNXAFWvnRXvNtQotGKvaRMHz2fE/JKXgpNHWVx5JzalM1VwzzaG6z8z3lCZ0i
-         c/Ksaxs5vcc2dW8plVxKyq0agzb8OQ2pdJekN/nhLloQ3z6+GKZCaQPHEA89LQEHt6gd
-         B2e/SrBzkwTEvlKyhzZisHlcfTetQHwzj9LPbKNjKC4mJFUK4Mn0dbN+lpcI/v9exfge
-         JKGbw/wdlgmkO+n7W6p3CCNHjQ2E8U7NDt6ba248+IRBbZgYAbuKpp98XOm+T0dMGpws
-         JvjQ==
+        bh=9TZYdcy92buA5+zb8K4DSLhDN3VCy/dmlapRWN0t8u8=;
+        b=cTCZBjvno4QMB7ep1OOz+ALEvmdTvOizquUJB2YpwEgrldMwHt4qgiAj6Lr7t63wHO
+         KtbZdw2M9kv/x61CJCf/TVEy6kjWt8gVTma5bzHFuxvwX5FBP5c73KHlet2GC1jOZt9Q
+         jH47SBM4jp+RvyjoerBVibEMoHPPMSJ1MEPPNP3qfgUQE2V1LeyarxewhTWYTTMcP05Q
+         teqHFmmTdMZmYrgEfwshWM0DkRtcdfw+wzlyvuWk+DyBjYCL8U7k7wC5cvrR1o4OMVUm
+         4hMTI4yj6ldbxgplKPWfU+5t+5ftZ/p4V/0eZUwKm3hfRkNI9KN6WDUZynSq08ZS2/h1
+         CL2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768252619; x=1768857419;
+        d=1e100.net; s=20230601; t=1768252928; x=1768857728;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=ldGPuGZG523RSoakys4MiKPAfsrjJwPEUi50RijOKj4=;
-        b=onizW4mgMe/PY5gyo3WZp32Mp0xAeW/teUymJMbEBeJeeno/9rYnMzu3ytBObf6zln
-         qVJIMb8rWZZ9ZlGQ5YL64VuakYwdosF8LS+Hnj3sbAWF1KFdZuXynJwrgZLtw18yn2+/
-         cHzuG9VPIfIrE2mDNLYc3fmIhBFPbX+LUV2WLGm7+uM25kWWynTBICHZsBEnTOdbTe7b
-         cousH6tUTzU8P53IaHp9iHyBNf9+J0USC9CvAsJNzKHjEYvF0shkcPC2M4hzoV6vgX61
-         IEB6eQhQFFWcA+blC5QZWlhpU6X+M4oLk3v9yMb590wfh5QFtKHMqcKZ3rcD7QLSF49p
-         ZB7g==
-X-Forwarded-Encrypted: i=1; AJvYcCUl4j7MK0wOEjWzVL0T+2nwo/HFo2PChptWu3I3CXWifUk/ZWYEOGNKwwUlRMpnV8mnfQHdrPkrrPoPJPlehskj@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdtHEuSV9hAkj4dCWFmN0CHEJ4ZLyAjh/KPb0q0xQhifyc/Ggz
-	b70tI8hvW+s0ObBH9grK7Vn9XtG9BfTa71ZVIraD+AszL5Dpj2c1eBIB4PTUutxAjlg2lxHvw6n
-	lO5tOcxTPoeBsDUHCOHrTQxsCNjhFk84=
-X-Gm-Gg: AY/fxX54a1XehFAZzAYinRA7ux2CUb9IraJIqsCJNk4/Efls0CJnoiPhtjKK1BYZne9
-	cwLOv/dZtqy60+QHO3S3vU2kPDTExsdjPsB2Np9ttuQcW6aKccLssx+93WXqOydB0+PaUcEnTPw
-	8wQJJLorbQL3vEouKwZFrKkd629kGFS5GGW3It+6spiUIGjdopyb7FkIihYdfaBzlilOJ2low5D
-	O/E2U9QzITYBHPJhiRSXyQpvzgmF+dtq7V7cmNl5Ons7+Ml4NlPf5eQesUOI4Yl1dWttLK/D6Xt
-	qli/YP65
-X-Google-Smtp-Source: AGHT+IEOZLPJwj/S58CaKJrV3wQ5O6ZbtxN7uz0O09Ew9vCMcJuDYyeoj1bB1o5HdriBJYahGUi2SE9K8dooarY3xtM=
-X-Received: by 2002:a05:7022:670f:b0:122:1e3:534c with SMTP id
- a92af1059eb24-12201e35454mr14780318c88.46.1768252619049; Mon, 12 Jan 2026
- 13:16:59 -0800 (PST)
+        bh=9TZYdcy92buA5+zb8K4DSLhDN3VCy/dmlapRWN0t8u8=;
+        b=b3Ab/T5zT69CLAHKbMt4nsJ1disTJiLVy9fOOeS4vmI8vFb10KNw9t+sYqeqfjZw7E
+         J/AM9jF9Q4lbXv8ooOfLL40E8QdmJmm4YF5oD0y2T3Mtsfctzpd6rZDFitSkSH95UZzj
+         2pqqBY7mBBJLrMzaCTOtCnN+/QCD8VSt/UK5xIkm1sJ/u8kkrwzpq1YAvvesPh42X2Ly
+         Pxp9arQGktVTYBkezN9pEEXlOFuQgnnvuvAViQVydp0kugPaUkR+sg8yNf1bx6ACoH6E
+         e0zKmM2A1mESEREcavQ0j9T0u6AR2kJ5F8zN2XwoGfo3KQf8uqGaQghKNpRhXwUtJQOV
+         ElzA==
+X-Forwarded-Encrypted: i=1; AJvYcCUAX+5+fnZhj7uG1xUWIMeH3Ep5UMgh8WowmJM17Ly0NZx2oVV4BrJPlgy2WeBpr8IT1KLXi2ORWOC7YRUDuWp2@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOWoJ88WplC77mBFtfnHya+2n6cuNL13z4IyJxLWQkwBspw5HO
+	Sz0LXFvDUG+PsXKej5GO7TURYz+a8PxRMWsYt0H7NoHJw7WUSOl6CDjLd3EEUuHESPDyT7uVL7m
+	GEsSAb+h7lMKL9ijffTYXEJPXJNQj0h0=
+X-Gm-Gg: AY/fxX4EZspuchGqn3z1fDPQ/PPnNfJCP6zrVDr+0ItY49j4PmvKituruqXgRo3G4D1
+	Q9CcVABchNAZRWtoOT8pm3GNumLc2N0BgpGx2wAg9vbm40+DXbMgAjd1rh3aE8nJtzSjke6GDKY
+	U9FE2SAsxAofA44g3G41zUcFaf5W6tFtWGgF9a9UdhgMkA80uo3fYhr2xD9rQ9dBf5b1+xBdXI8
+	4otljtw1UtF1INT4GxMHveX4TPvbIUZaZ6pl0ghp1QEM3hxV6kdilFDEHhRDcLlkMq1ppY2SaqT
+	6WrRMttP
+X-Google-Smtp-Source: AGHT+IGnz+TQ1FzkSNkzmiP6ZsSsl7BSHvN2O5m/ZEyz5sL8MgaN1tiwfu3haADXH57oieB3BqIDHqdJD5bVWVx+bZc=
+X-Received: by 2002:a05:7022:1e15:b0:119:e56b:91e9 with SMTP id
+ a92af1059eb24-121f8b46102mr11509935c88.26.1768252928474; Mon, 12 Jan 2026
+ 13:22:08 -0800 (PST)
 MIME-Version: 1.0
 References: <20260111201040.162880-1-anirudhsriniv@gmail.com>
- <20260111201040.162880-3-anirudhsriniv@gmail.com> <20260112-upbeat-gay-chachalaca-ecb74c@quoll>
-In-Reply-To: <20260112-upbeat-gay-chachalaca-ecb74c@quoll>
+ <20260111201040.162880-2-anirudhsriniv@gmail.com> <45bdf2a6c0d33dd6ce0fd3cc279ef6edc509a540.camel@codeconstruct.com.au>
+ <20260112-whimsical-annoying-fulmar-25e4d9@quoll>
+In-Reply-To: <20260112-whimsical-annoying-fulmar-25e4d9@quoll>
 From: Anirudh Srinivasan <anirudhsriniv@gmail.com>
-Date: Mon, 12 Jan 2026 15:16:47 -0600
-X-Gm-Features: AZwV_QiIk_am64aGoJ59TKkJjjSWuft6c_UwxN_mAcvJf8KPJOFciUjwqcXNWP8
-Message-ID: <CAJ13v3TqhKyT62NZFRz0dP0tov=q8fz99X_HgrJnwkd6Y5nEig@mail.gmail.com>
-Subject: Re: [PATCH 2/2] ARM: dts: aspeed: Add Asus IPMI card
-To: Krzysztof Kozlowski <krzk@kernel.org>
+Date: Mon, 12 Jan 2026 15:21:56 -0600
+X-Gm-Features: AZwV_QiDoxEQSz_VBTL5mNLDJkArkIs_IZ-EllE4kfBgjkmOnTgx6aTvsjJIjLo
+Message-ID: <CAJ13v3RKydFK+sP_Cm-HnQjsOJSDyX_dsGs_Yy564V=Wc7tQFw@mail.gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: arm: aspeed: Add Asus IPMI card
+To: Krzysztof Kozlowski <krzk@kernel.org>, Andrew Jeffery <andrew@codeconstruct.com.au>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org, 
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_131702_727968_801676AF 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20260112_132209_572178_68BF503E 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,67 +102,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Krzysztof,
 
-On Mon, Jan 12, 2026 at 5:48=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
+On Mon, Jan 12, 2026 at 5:47=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
 g> wrote:
 >
-> > +
-> > +     leds {
-> > +             compatible =3D "gpio-leds";
-> > +
-> > +             led-fault {
-> > +                     gpios =3D <&gpio1 ASPEED_GPIO(C, 5) GPIO_ACTIVE_H=
-IGH>;
-> > +                     panic-indicator;
-> > +                     default-state =3D "off";
+> >
+> > It's a bit bike-sheddy, however: the pattern tends to be
+> > ${vendor},${platform}-bmc, but as the platform can't be specified and
+> > the card's function is the BMC itself, I'd go with "asus,ipmi-
+> > expansion-card" (I couldn't immediately find a useful identifier other
+> > than the product name).
 >
-> Missing color and function. Or at least label.
+> This should include some model name or at least soc. What if you have
+> IPMI card for ast2600 and later completely different for ast2700?
 
-I will add this.
+Personally, I was okay with Andrew's suggestion of naming it
+"asus,ipmi-expansion-card" because that's the official product name
+and that exact term works well for online searches.
 
->
-> > +             };
-> > +
-> > +             led-heartbeat {
-> > +                     gpios =3D <&gpio0 ASPEED_GPIO(A, 7) GPIO_ACTIVE_L=
-OW>;
-> > +                     linux,default-trigger =3D "timer";
-> > +             };
-> > +
->
-> Drop redundant blank lines.
->
-> > +&mac2 {
-> > +     status =3D "okay";
-> > +
-> > +     /* Bootloader sets up the MAC to insert delay */
-> > +     phy-mode =3D "rgmii";
-> > +     phy-handle =3D <&ethphy2>;
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&pinctrl_rgmii3_default>;
-> > +};
-> > +
-> > +
->
-> Like this as well. It's a sign of sloppy coding.
-
-Will remove
-
->
-> > +&fmc {
-> > +     status =3D "okay";
-> > +
-> > +     flash@0 {
-> > +             status =3D "okay";
-> > +             m25p,fast-read;
-> > +             label =3D "bmc";
-> > +             spi-max-frequency =3D <50000000>;
-> > +#include "openbmc-flash-layout-64.dtsi"
-> > +     };
-> > +};
->
-> Best regards,
-> Krzysztof
->
+This seems like a pretty niche product Asus announced 4 years ago and
+made in very low volumes. I'm not sure if they'll make a new one with
+an ast2700, given how the modern trend is to have BMCs on
+motherboards. What do you think about the naming Andrew?
 
 --=20
 Regards
