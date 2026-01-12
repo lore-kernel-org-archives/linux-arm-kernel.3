@@ -4,91 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F57C9EC95
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 14:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 188F6C9EC8D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 14:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DYJcZRRmdEMSPPmAFV4ygUc0KtR2ijewql1crILf5Fs=; b=ljGaz9+wnMlRnb02xDiR/cvj8s
-	TD8cxCQmFez5idBeaDXpg+GkBXwtWRK8rajbMLfDQASVSQEj0uWm394jKYHleTVAUMptmanGx3IBd
-	8M1cF0D0ZXiLSFsRT4QXFwGNqr/BRl4FHvm8YKjlIy51E/JzdjSstFEcBQmI95G1BkcuXN5PelOYE
-	T01oMpTzCk4zSyO3OZrfFHisGlZ6XGkLFLZVGCxWj/UoVZNWhrEHFOZEEdeJqwTI8pOTB1ChyeZu4
-	JSLiqpAl/EqPSiWFmsfnv4gApqSIy66+s6yyqhFV+uQbBUmiAG1Qbi8WbH4kX3pBACUd6hRg0ozar
-	8lRaK8Gw==;
+	bh=hTPyq4qlUQ/a0K+OplfgSv+5dHeytyE/LkETuVbOzE8=; b=jtnJKYW09+LHuTwKSUYHnYAOaQ
+	4h5nsbUgWwKUXNuzotlPa950P658vF7ISWANP/1fYSZsLMr/9eaM0nWFHOHaYEwJjjL+8JQS+9Sk8
+	H16wwiPRtUsyOs35n3ywQbsjuuQYN51Pl1+/VR1FB2CV3e4kp1bDEpJnoCHyJyING9npiWz+ri0gy
+	hoRDh0axh77Q1jv4jXrvfo4i/6bIGFLZrBYsDI0d36eQKtfAM7ExcnXfM9/o8LvfwYTm/LTxhxUCz
+	EnVruQmSshvTYORz2ZQRi5kF8y95Z0ff0wJpicU0P/9LlXOFWGlZLkpsH8aI506KCn3szq53+oJwF
+	5BkaoWKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfIvu-00000005X0n-3MZA;
-	Mon, 12 Jan 2026 14:30:14 +0000
-Received: from mail-vs1-xe30.google.com ([2607:f8b0:4864:20::e30])
+	id 1vfIwb-00000005X8U-2YnI;
+	Mon, 12 Jan 2026 14:30:57 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfIvs-00000005X0H-1l9g
+	id 1vfIwZ-00000005X7t-1e3i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 14:30:13 +0000
-Received: by mail-vs1-xe30.google.com with SMTP id ada2fe7eead31-5eea9fbe4a4so1225038137.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 06:30:11 -0800 (PST)
+	Mon, 12 Jan 2026 14:30:56 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-59b672f8ec4so6800807e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 06:30:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768228211; x=1768833011; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1768228253; x=1768833053; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=DYJcZRRmdEMSPPmAFV4ygUc0KtR2ijewql1crILf5Fs=;
-        b=mnz0a3XlvmeB60NCfA/80HnlbFTBecIe0WY6s1XU9JuurREG6w8qqzeR2GoGzE6Ldz
-         xNOEuCiqMTicvLR1FvjFTRDhKHFlmU7GVUvUixZQW6ra/gAAtGZNQQAL+Zp1p5NXMiBO
-         4ZkJOleTXqKZc2V98TLWDSPVWFeZmmQ7Xn1erToCCKSRFMuw9XoLeDumSlrqysPgsTtr
-         dO9xUJFQU9NzzijYcQ5nm9hq1t2ybRVgrYyFY8/Ah6a7ugKs1Pha3pVtt6LU8yZUD0dL
-         HBUTB/Bgn12tfQp+m2Rnm3T7rhpZnyIOFJA2hYj1MtJX0fJz/LgGhgvrZvfEQmY+m7xo
-         rNHA==
+        bh=hTPyq4qlUQ/a0K+OplfgSv+5dHeytyE/LkETuVbOzE8=;
+        b=NfrjWWXxxWShzxRL0FqS2+1tbDtaJX3pceZ4tfMBdxH2Ay+F0TyO8cRKwhU+pikawd
+         aa3+Pu/glE1iLMK2QrSjTJqcG30W12X+EsM2CfFk24I6iS9kO5xBzVarISAxuxCBRhZf
+         zdzJQgVE03YtU5ZQFGbzLd/MCzX2HZyceWCKxW2LLr+XlfbWH5rnzsuKJqYAAHWoOWXl
+         LWbR37S6OCBBQU+fqPzrMSooqD3Bh9HzbE3dJJl75F5SMUE+3A8B1e+vrLxdxwBc2/DG
+         LQwhAncBlsk9xe2ng3w6iiLjM7pfNG08zSWXypF+bq0129hJpRW3efxUDKcGGh2IScpM
+         KZzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768228211; x=1768833011;
+        d=1e100.net; s=20230601; t=1768228253; x=1768833053;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=DYJcZRRmdEMSPPmAFV4ygUc0KtR2ijewql1crILf5Fs=;
-        b=w/F3obuhCicSQPMl5dy1VWB8rJr8jKn6237InQ6kjTYeJnqVHGJFZ4nioepW43dUsD
-         iCs4rg8TjtmJ878GDzWKsibzGPKzC4IhRnuhHcDpsBQ1d1z4qSCnGQk4eCWaYB62B7ij
-         l1SXa2/1qF2wOA3+cF/R0AmlPJfAfTFmzOnWk2i9bc4e7MqoHWI+hPilhWE9PbC4qLyr
-         Bgsat/235wBylgFCymuY6NpslbpZwoQic/PW/GUR5dw77qD+Lso58Bbpu73rkuq3FFom
-         gtMsMBwlU689I6wI5Ug/3vSggchTkAKWlZTFrwIBE5Rf6MNB+Jt5MVV0zzv37xOQJsca
-         lf+w==
-X-Forwarded-Encrypted: i=1; AJvYcCXGxLHP/qTn+ZCi6gH4RMyUANX8ncMoKJ27m3eLhJi6KQE9eStw2AQJpGG3c1VpWxo4u4bZyU7rpnOkYk/6VTcj@lists.infradead.org
-X-Gm-Message-State: AOJu0YywFCay+LO7w1lrJ+nUDzA26ZX2gBbvRbIeggpKd1geYEQFWc+u
-	ALA4GkfC+BsdRf+gnAthLdFIhpb5VaNd6CiJ7oM7xJ+saG5ijhg9Z1yFAgppWcjt4OU+zBCkpKa
-	aK9GhwynufNAckNYAYsPsO4V/6bNoymrjggZqi0I9QzXf+sBcbIVJO0w=
-X-Gm-Gg: AY/fxX7evydh5OK2Z5Be2KM7S/GquBW5hcVwe5N00MDYhTGKPcj+oI2QcjAA+ewePTs
-	AcnttAUdEFLi9b+U02nPWBxGi6GdnpT8EeFrUIWSvkssgVPEnzfj4p5zfIY4cckhQxQ7HUgj/U5
-	TshV8GwDgaVj+4gvBDhmOHVZrtAMyyQg9gDXUSUhDHEw5xdH+osWYPf6VrdYAQ5tKAE5zuq7UmV
-	agLo2NhPwSY/6frimeRYg/1xHYdqChaqxbTYvKiw0G5DSnpD9pOT05Xt7RtkiMx49+CZBHbZJIa
-	LWPMLu9TPTIZy+fsIkwPJln1YH+QeQ==
-X-Google-Smtp-Source: AGHT+IH99W7nwLgEet5FdEP/u+i5jdZDgClsT+5CiMOQ1spY+a7QdU3aguNyWZv64H0AdvbI4admB5ccZbM6V9dJafg=
-X-Received: by 2002:a05:6102:8088:b0:5dd:b2a1:a5a4 with SMTP id
- ada2fe7eead31-5ecb1e731d9mr6591509137.5.1768228209479; Mon, 12 Jan 2026
- 06:30:09 -0800 (PST)
+        bh=hTPyq4qlUQ/a0K+OplfgSv+5dHeytyE/LkETuVbOzE8=;
+        b=b0OL1DLcpchjJVRwXC1vq/93gMtqwR5ebAlp29lLpnOhz8FZpafeLKmNBlQbCrfBTa
+         Fflpnfct3l+iEKBrwugl2OeIandS9Dg5gVBf2jpQhv8xs93QuICd+kHhTcfzKrRs/IQJ
+         hqeitUNX+I6aJCdvkZMviwLbBLUWLuXtJjjv8r1SCbb3bybAF2dww+0orjR2GeEdrB0P
+         pU/D3IBQM+mQHw2NkILTil/dpivY6gCNoYb6h5YFY1VLRKnzIJR97BD2IJct1ScKi/sL
+         Rlz5Hr91KLkyCRGJqmo2a9gZQJpd6sFszV22yJjdpAwKdW0fiuT8E/pWR4bdZCci+Izp
+         1qDg==
+X-Forwarded-Encrypted: i=1; AJvYcCVe45W0p8xvAswlDz1u3zW0Qe6i5MgccVVxEBoBMTNTVzyjNhNwDxolw9AN8yLzEXDZUTvUv3tbGVDwrtMGmB+y@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyj2+ryF7ImbMOnY0luyVeizQCYafIPe91IHRT9M2gll/XKF7ND
+	QWrdyZ7arE5F/eyNfTV7tocvw41nByIM/VcpDOMa9m5oQ1u/5ULOat+UhmVtwkUOCj4LfesH7SU
+	Sf+NLABnrRc5QMiTEpJGW7muS5WgOB0I=
+X-Gm-Gg: AY/fxX41YAO0FP+8Qv1A7I09p4osMAl1l+JavvpUyJBxFt0RdlxITvbGnUX05jQ9kPL
+	OkSI6V1eu08b51mgXUvOCavGiC6KTJV2CqrUJlPzwRKPjdglzS3onjwSEQuzpBblYuh54tYwqL4
+	KozuNzRU4e63M4jUPFkQwlq/TrHhI57ciWCqNTIc2cF4yaLJ1ITTsqh988zTvT4CkmhxkN/FJSh
+	1ImaYjf7hmaZ7DjoVCLQerzJ7S5G5jJ7jgyhjqjW7D5sSglrDZUb+yvfFX5TZExRA7THsM4KGAR
+	ZuvA7QD4LQvv/osJ30tJnW0So4g=
+X-Google-Smtp-Source: AGHT+IGhCigRJCKOH/vexrtNg3kMW3zuAFzjDSpfErMZ4r2e1dNLwyfSgC/4Mcy0Fr3nxXSWcmYmpXz0yuQkJp7TZZ0=
+X-Received: by 2002:a05:6512:2304:b0:594:2dbb:723a with SMTP id
+ 2adb3069b0e04-59b6f036a05mr6764776e87.39.1768228252123; Mon, 12 Jan 2026
+ 06:30:52 -0800 (PST)
 MIME-Version: 1.0
-References: <20260109-clk-samsung-autoclk-updates-v1-0-2394dcf242a9@linaro.org>
- <20260109-clk-samsung-autoclk-updates-v1-2-2394dcf242a9@linaro.org>
-In-Reply-To: <20260109-clk-samsung-autoclk-updates-v1-2-2394dcf242a9@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Mon, 12 Jan 2026 14:29:56 +0000
-X-Gm-Features: AZwV_QiWt47PILn4o1sT2KySNxv4rOargBnbBbiIyWb62OAi4o7lAfW6acLnscA
-Message-ID: <CADrjBPpiMxNsHMnV8StHvU7waW3QE7jtAPK3Gyq-j0mVRQrgnw@mail.gmail.com>
-Subject: Re: [PATCH 2/3] clk: samsung: fix sysreg save/restore when PM is
- enabled for CMU
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
-	Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, 
-	Juan Yescas <jyescas@google.com>, linux-samsung-soc@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
+References: <20260112135612.465325-1-daniel.baluta@nxp.com>
+In-Reply-To: <20260112135612.465325-1-daniel.baluta@nxp.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Mon, 12 Jan 2026 11:30:40 -0300
+X-Gm-Features: AZwV_QgTFcA7EUgW_TvWfm8Y1HneVz72_jOkyFz9DocTNUhPwAxWA210gbistJM
+Message-ID: <CAOMZO5D_YMfsPpqB4zB4iL+ENO1X31Go2CcBdK+JcmsaZ_HNNQ@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: dts: imx93-11x11-frdm: Add MQS audio support
+To: Daniel Baluta <daniel.baluta@nxp.com>
+Cc: shawnguo@kernel.org, s.hauer@pengutronix.de, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, kernel@pengutronix.de, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, haidong.zheng@nxp.com, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_063012_477831_F2011C45 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20260112_063055_433490_117F445A 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,37 +100,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 9 Jan 2026 at 17:27, Andr=C3=A9 Draszik <andre.draszik@linaro.org> =
-wrote:
->
-> Currently, sysreg registers of a CMU that has PM and automatic clock
-> gating enabled are not saved / restored during runtime PM (RPM) or
-> s2idle. During normal suspend, they are accessed too late, after the
-> CMU (and potentially power domain) have been shut down, causing an
-> SError.
->
-> The reason is that these registers are registered to be saved/restored
-> via a syscore suspend handler which doesn't run during RPM or s2idle.
-> During normal suspend, this handler runs after the CMU has been shut
-> down. This registration happens as part of
-> samsung_clk_extended_sleep_init() via samsung_en_dyn_root_clk_gating().
->
-> When PM is enabled for a CMU, registers must be saved/restored via
-> exynos_arm64_cmu_suspend() / exynos_arm64_cmu_resume() respectively
-> instead. These use their own data structures and are unrelated to
-> anything that samsung_clk_extended_sleep_init() does. Calling it
-> unconditionally from samsung_en_dyn_root_clk_gating() therefore isn't
-> useful.
->
-> Update the code to prepare sysreg save / restore in a similar way to
-> how it handles other clock registers in the PM case already.
-> exynos_arm64_cmu_suspend() / exynos_arm64_cmu_resume() already handle
-> sysreg save/restore, just the setup was incorrect.
->
-> Fixes: 298fac4f4b96 ("clk: samsung: Implement automatic clock gating mode=
- for CMUs")
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> ---
+On Mon, Jan 12, 2026 at 10:53=E2=80=AFAM Daniel Baluta <daniel.baluta@nxp.c=
+om> wrote:
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+> +
+> +       sound-mqs {
+> +               compatible =3D "fsl,imx6sx-sdb-mqs",
+> +                            "fsl,imx-audio-mqs";
+
+Wouldn't it make more sense to use compatible =3D "fsl,imx-audio-mqs" inste=
+ad?
 
