@@ -4,80 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2122BC9EC80
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 12:42:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96F7BC9EC80
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 12:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TMWrNodyPbH0cxOyXghaAdCqoid1aUqucu2YzK3hs90=; b=IBLKJXgZYnXVmoZ/fKPkIzA3Iw
-	OzDREKtk15dbM0s5Dwcr3+UdBraxK5/s6lZBRJSfyz56hcDRsMEEHSp9SQfwO/L0GCGeD9MRBGnQj
-	aYha1xu10MjLnob0wJfAAOe54+gAVYB2yppIDqh/86v0wn3HjmqHX0Dky1nLCftsU7pTGuYm9KiAk
-	IBeD74RjoJN6tyDwOnjseo0U1MvRjkD6ZDOpg44Bz4cwyA5PT0dRTSQ0sAqWQLi3vau//6Wv1vxSm
-	7opC1Lmxa1mo+viugxzmopmPQIQkFe+9l8co0u15TWpoL2yE0LG7VNp1eeZ4a83a3CbRfyEH7OhLE
-	nJ405wvw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7K96o9PfB6wlxTIuc4FqOnAFIU3qJ4/WcE8q4TkwfB8=; b=rYAWrq+TWzIdO1rZRUhI0f6K5F
+	X0ZNWbJzcicwEUb+umjuQeqIjQEZ/jnDpLALhTfc2ebpIMBumrArcnuTUj8NDL1/5M0yMW0QycSYG
+	H2WLntR9XRlTamW5ynHCzPsyLMIWpBbrjfPO0dDqooh0H5v7eOdi7a7WutpYwMBx2TH/NtgmsNw9v
+	ZajVO1zY8BquCEag+awWFroYYyj+tBnC04WIfFKDn5zcC81tp12OGrY/3ZxWtW8mCwsMHpxQ54o5f
+	CpziZ+KTHYRBm7GO07tATg4ef1QjiELj9hgEjkMzITgFdKMOzAzmuigRr9XdEXfHRAEdwrW6BfWgp
+	w0b6o1Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfHFZ-00000005Kwc-3QTj;
-	Mon, 12 Jan 2026 12:42:25 +0000
-Received: from [119.8.177.37] (helo=sinmsgout02.his.huawei.com)
+	id 1vfHHL-00000005L4T-3GQe;
+	Mon, 12 Jan 2026 12:44:15 +0000
+Received: from mail-m49194.qiye.163.com ([45.254.49.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfHFW-00000005KvP-0HXD
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 12:42:25 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=TMWrNodyPbH0cxOyXghaAdCqoid1aUqucu2YzK3hs90=;
-	b=zD1UjWICSccTtmI2eRKhTbmbc6ZzCS7MrAwECZrg4sM4bW5c6vjY09H0kHYj9d5crjWv1LGzW
-	/iwWFNvY42eqIir1KhwPiMGpQMTTn3pJBI8SRFxXI3+i32Lwk0rRThnvYWVWz2UzgIWhupoWjz7
-	VhuPm6XGVIM7K27bkERVbls=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.32])
-	by sinmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dqX5363Y6z1vp0g;
-	Mon, 12 Jan 2026 20:39:35 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dqX7J1bc9zHnH4f;
-	Mon, 12 Jan 2026 20:41:32 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 37D0640086;
-	Mon, 12 Jan 2026 20:41:48 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 12 Jan
- 2026 12:41:44 +0000
-Date: Mon, 12 Jan 2026 12:41:43 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-CC: "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, Timothy Hayes <Timothy.Hayes@arm.com>, "Suzuki
- Poulose" <Suzuki.Poulose@arm.com>, nd <nd@arm.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvm@vger.kernel.org"
-	<kvm@vger.kernel.org>, Joey Gouly <Joey.Gouly@arm.com>, "maz@kernel.org"
-	<maz@kernel.org>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>
-Subject: Re: [PATCH v2 02/36] KVM: arm64: gic-v3: Switch vGIC-v3 to use
- generated ICH_VMCR_EL2
-Message-ID: <20260112124143.000009c9@huawei.com>
-In-Reply-To: <4117fd5aca061db0857c0fc87f320b01f3347376.camel@arm.com>
-References: <20251219155222.1383109-1-sascha.bischoff@arm.com>
-	<20251219155222.1383109-3-sascha.bischoff@arm.com>
-	<20260106180022.00006dcd@huawei.com>
-	<cdef264835c24f1e2155cadd5a414fb34d06bca3.camel@arm.com>
-	<4117fd5aca061db0857c0fc87f320b01f3347376.camel@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1vfHHI-00000005L2g-0CGr;
+	Mon, 12 Jan 2026 12:44:13 +0000
+Received: from localhost.localdomain (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 305730432;
+	Mon, 12 Jan 2026 20:44:08 +0800 (GMT+08:00)
+From: Joseph Chen <chenjh@rock-chips.com>
+To: Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Joseph Chen <chenjh@rock-chips.com>
+Subject: [PATCH v3 0/3] Add RK801 PMIC support
+Date: Mon, 12 Jan 2026 20:43:48 +0800
+Message-Id: <20260112124351.17707-1-chenjh@rock-chips.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="ISO-8859-1"
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9bb23c332509d2kunm3fddfe07a776
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQx0ZGVZCHx1CH0JPGhlLTkhWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=TkK8JX0KXZcpy90oV5dsPlnE7CtnXOhMVV/0yuvoGZF2anvjt205KjzvqyNQ+yMiAFv7VG7AL06UXUceZw4LP8ZMPvIs5Tj8+AeeEjdVm8IchwIJ8ndM/WndA7FzoONzuHbipPRHFXMjwBpcJ5fQGl+u4y/4gkJtoIGtMjKc5sU=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=7K96o9PfB6wlxTIuc4FqOnAFIU3qJ4/WcE8q4TkwfB8=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_044223_249040_755777D2 
-X-CRM114-Status: GOOD (  27.25  )
+X-CRM114-CacheID: sfid-20260112_044412_612995_4C995885 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,63 +75,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 9 Jan 2026 16:57:18 +0000
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+This patch series adds support for the Rockchip RK801 Power Management
+Integrated Circuit (PMIC) to the Linux kernel.
 
-> On Wed, 2026-01-07 at 10:55 +0000, Sascha Bischoff wrote:
-> > On Tue, 2026-01-06 at 18:00 +0000, Jonathan Cameron wrote: =20
-> > > On Fri, 19 Dec 2025 15:52:36 +0000
-> > > Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> > >  =20
-> > > > From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-> > > >=20
-> > > > The VGIC-v3 code relied on hand-written definitions for the
-> > > > ICH_VMCR_EL2 register. This register, and the associated fields,
-> > > > is
-> > > > now generated as part of the sysreg framework. Move to using the
-> > > > generated definitions instead of the hand-written ones.
-> > > >=20
-> > > > There are no functional changes as part of this change.
-> > > >=20
-> > > > Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com> =20
-> > > Hi Sascha
-> > >=20
-> > > Happy new year.=A0 There is a bit in here that isn't obviously going
-> > > to result in no functional change. I'm too lazy to chase where the
-> > > value
-> > > goes to check it it's a real bug or not.
-> > >=20
-> > > Otherwise this is inconsistent on whether the _MASK or define
-> > > without
-> > > it from the sysreg generated header is used in FIELD_GET() /
-> > > FIELD_PREP()
-> > >=20
-> > > I'd always use the _MASK version. =20
-> >=20
-> > Hi Jonathan,
-> >=20
-> > I've updated the code to use the _MASK version.
-> >  =20
-> Hi Jonathan,
->=20
-> I've actually had a change of heart (sorry!). I think it is clearer to
-> use the _MASK version when explicitly using the value as a mask, but to
-> drop that for the FIELD_x() ops as in that case we're naming a field.
->=20
-> I've gone through and made the usage of those consistent.
+The RK801 is a PMIC designed for multimedia and handheld devices. It
+includes:
+- 4 BUCK regulators (DCDC)
+- 2 LDO regulators
+- 1 SWITCH regulator
+- Interrupt support for power key events
 
-Fair enough.  I'd have argued that there should never have been both
-in the first place in the generated header as the non _MASK ones add
-no value. The only argument I can think of is that we don't normally
-use _MASK for single bit defines when doing doing it by hand, but such
-is life. I do think you are setting yourself up for a world in which new
-patches mix these up and you get to post lots of review feedback on it ;)
+The implementation follows the existing rk808 MFD driver architecture
+and integrates RK801 as a new variant in the RK8XX family.
 
-Jonathan
+Patch 1 adds the device tree binding documentation for RK801, describing
+the compatible string, regulators configuration, and example usage.
 
->=20
-> Sascha
->=20
-> >  =20
+Patch 2 adds the MFD core support for RK801, including device detection
+and register definitions.
+
+Patch 3 adds the regulator driver support for RK801, implementing the
+4 BUCK regulators, 2 LDO regulators, and 1 SWITCH regulator.
+
+Changes in v3:
+- Fix patch split issue: MFD patch incorrectly removed the entire
+  drivers/regulator/rk808-regulator.c file in v2
+- Kconfig description: use "Rockchip RK8xx Power Management Chips"
+  instead of listing all individual chips (suggested by Heiko)
+
+Changes in v2:
+- Include all necessary To/Cc entries
+- Rename pmic/regulator names from uppercase to lowercase(dcdc[1-4]|ldo[1-2]|switch)
+  to align with DT coding style
+- Drop 'rockchip,system-power-controller'
+- Remove unused 'pwrctrl-gpios' from DT binding example
+- Split regulator support into a separate patch (was part of mfd patch in v1)
+
+Joseph Chen (3):
+  dt-bindings: mfd: Add rk801 binding
+  mfd: rk8xx: Add RK801 support
+  regulator: rk808: Add RK801 support
+
+ .../bindings/mfd/rockchip,rk801.yaml          | 197 ++++++++++++++
+ drivers/mfd/Kconfig                           |   6 +-
+ drivers/mfd/rk8xx-core.c                      |  81 ++++++
+ drivers/mfd/rk8xx-i2c.c                       |  33 ++-
+ drivers/regulator/rk808-regulator.c           | 243 ++++++++++++++++++
+ include/linux/mfd/rk808.h                     | 118 +++++++++
+ 6 files changed, 674 insertions(+), 4 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml
+
+--
+2.25.1
 
 
