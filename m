@@ -4,83 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC98C9EC7D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 12:48:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F50EC9EC86
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 12:54:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+DyKB1brz0fVxmKdGh6Isl8VZHUqKpjOArKxqRTAXiM=; b=T+F7JUtN9RwLus7qovm0ImA2zf
-	OVccDDjOyWQWM0f1G6YJMmpRWTv7gprWYAmWFycoh77Le9GU9cKTQlIqZSvftEjT3mMtPudQAcsuj
-	HkReGa6V+RnaIFHwuU1vPPlTwPTWqpojOjuD0IEvjEaSxXkKN58X4r1Jl9EI8smgVPog1udVisJPk
-	Ch0xxdzG80pzgWtuhjUsFBcbPoLGASRlWPJJDaxhEeHi5XwYvUt25+917DCDO6LI2u+TIU/dMv7d3
-	ktdEu5CzRFDgtXswrBQszKNX188AR/wj1EGX/mCB+aMBpbcIAld0p7GTwK0gIpVXkKlW5mD3Tp6C9
-	cMxt5QGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MbPw3lwzA3ql6z33PUTbwGJZrpQ8qK9h6XydFaTHiug=; b=oP1HwCH2yy5MlPTi4DmdyeX10S
+	qt4IWDI2nf1Sa565sgMTuuhFg+cgVenDynp2PbrDclAhDi/8kip0d1rZaaI+xcLIJEL6Ba6Qk8dNN
+	4+ECvWNTHvZUwWXoRWuWC19WL5x9L7wsS6velmhDj7VPD5ubBj70Sp3Ba9fFc14/tzWzylETNJdcd
+	gmCRim9j8GwQ81TmV+DVaGiH6RSqSMXJ6SPeqrsVbpPGWYVZ5QCQOOBwZGfYzws5RSuTj7YulhT47
+	zQmc3t416WriWXTrU1UnrkneJdidNE9BOqMZEffj0aGZz7piS6o/eBlHULGK6bmHbRVmjhd9rfzHA
+	+FMzLdbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfHLo-00000005Lhq-0hsI;
-	Mon, 12 Jan 2026 12:48:52 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfHLm-00000005Lgw-1UvN
+	id 1vfHQu-00000005M1k-3nkm;
+	Mon, 12 Jan 2026 12:54:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfHQt-00000005M1J-02Cy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 12:48:51 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.107])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dqXHP3MsrzJ468F;
-	Mon, 12 Jan 2026 20:48:33 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id D14BE40570;
-	Mon, 12 Jan 2026 20:48:44 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 12 Jan
- 2026 12:48:43 +0000
-Date: Mon, 12 Jan 2026 12:48:41 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-CC: Miguel Ojeda <ojeda@kernel.org>, Rob Herring <robh@kernel.org>, "Saravana
- Kannan" <saravanak@google.com>, Nathan Chancellor <nathan@kernel.org>, "Nick
- Desaulniers" <nick.desaulniers+lkml@gmail.com>, Bill Wendling
-	<morbo@google.com>, Justin Stitt <justinstitt@google.com>, Russell King
-	<linux@armlinux.org.uk>, Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>, Krzysztof Kozlowski <krzk@kernel.org>, "Alim
- Akhtar" <alim.akhtar@samsung.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>, "Nicholas Piggin" <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Nipun Gupta
-	<nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>, Abel Vesa
-	<abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Michael Turquette
-	<mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, Shawn Guo
-	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	Vinod Koul <vkoul@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>, "Rafael J. Wysocki"
-	<rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<llvm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-clk@vger.kernel.org>, <imx@lists.linux.dev>,
-	<dmaengine@vger.kernel.org>, <linux-media@vger.kernel.org>,
-	<linux-pm@vger.kernel.org>
-Subject: Re: [PATCH v3 07/12] cdx: Use mutex guard to simplify error
- handling
-Message-ID: <20260112124841.0000781d@huawei.com>
-In-Reply-To: <20260109-of-for-each-compatible-scoped-v3-7-c22fa2c0749a@oss.qualcomm.com>
-References: <20260109-of-for-each-compatible-scoped-v3-0-c22fa2c0749a@oss.qualcomm.com>
-	<20260109-of-for-each-compatible-scoped-v3-7-c22fa2c0749a@oss.qualcomm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Mon, 12 Jan 2026 12:54:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 92369497;
+	Mon, 12 Jan 2026 04:53:56 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EDFE83F694;
+	Mon, 12 Jan 2026 04:54:01 -0800 (PST)
+Date: Mon, 12 Jan 2026 12:53:54 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, arm-scmi@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] firmware: arm_scmi: Implement arm,poll-transport
+ property
+Message-ID: <aWTu4o4Z59QQOc2O@pluto>
+References: <20251231213016.185575-1-marek.vasut+renesas@mailbox.org>
+ <20251231213016.185575-2-marek.vasut+renesas@mailbox.org>
+ <aWTjs1Y9yoz1k4Ry@bogus>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aWTjs1Y9yoz1k4Ry@bogus>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_044850_541256_F65F3E2B 
-X-CRM114-Status: UNSURE (   6.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260112_045407_165539_72D90C06 
+X-CRM114-Status: GOOD (  29.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,14 +71,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 09 Jan 2026 17:57:51 +0100
-Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> wrote:
-
-> Mutex guard allows to drop one goto/break in error handling and the
-> less expected code of assigning -EINVAL to unsigned size_t count
-> variable.
+On Mon, Jan 12, 2026 at 12:06:11PM +0000, Sudeep Holla wrote:
+> On Wed, Dec 31, 2025 at 10:29:19PM +0100, Marek Vasut wrote:
+> > Implement new property arm,poll-transport, which sets all SCMI operation into
+> > poll mode. This is meant to work around uncooperative SCP implementations,
+> > which do not generate completion interrupts. This applies to mbox/shmem based
+> > implementations.
+> > 
+> > With this property set, such implementations which do not generate interrupts
+> > can be interacted with, until they are fixed to generate interrupts properly.
+> > 
+> > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> > ---
+> > Cc: Conor Dooley <conor+dt@kernel.org>
+> > Cc: Cristian Marussi <cristian.marussi@arm.com>
+> > Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+> > Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> > Cc: Rob Herring <robh@kernel.org>
+> > Cc: Sudeep Holla <sudeep.holla@arm.com>
+> > Cc: arm-scmi@vger.kernel.org
+> > Cc: devicetree@vger.kernel.org
+> > Cc: linux-arm-kernel@lists.infradead.org
+> > Cc: linux-renesas-soc@vger.kernel.org
+> > ---
+> > V2: Drop no IRQ handling from SMC transport and update commit message
+> > ---
+> >  drivers/firmware/arm_scmi/common.h | 4 ++++
+> >  drivers/firmware/arm_scmi/driver.c | 4 ++++
+> >  2 files changed, 8 insertions(+)
+> > 
+> > diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+> > index 7c35c95fddbaf..7c9617d080a02 100644
+> > --- a/drivers/firmware/arm_scmi/common.h
+> > +++ b/drivers/firmware/arm_scmi/common.h
+> > @@ -235,6 +235,9 @@ struct scmi_transport_ops {
+> >   *		      to have an execution latency lesser-equal to the threshold
+> >   *		      should be considered for atomic mode operation: such
+> >   *		      decision is finally left up to the SCMI drivers.
+> > + * @no_completion_irq: Flag to indicate that this transport has no completion
+> > + *		       interrupt and has to be polled. This is similar to the
+> > + *		       force_polling below, except this is set via DT property.
+> >   * @force_polling: Flag to force this whole transport to use SCMI core polling
+> >   *		   mechanism instead of completion interrupts even if available.
+> >   * @sync_cmds_completed_on_ret: Flag to indicate that the transport assures
+> > @@ -254,6 +257,7 @@ struct scmi_desc {
+> >  	int max_msg;
+> >  	int max_msg_size;
+> >  	unsigned int atomic_threshold;
+> > +	bool no_completion_irq;
+> >  	const bool force_polling;
 > 
-> Suggested-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> My preference would be to reuse `force_polling` for this. We need to drop
+> const but that should be OK. Anyways I would like to know if Cristian thinks
+> otherwise for any reasons I might be missing to see.
+
+I would rather keep the 2 things separate since force_polling is more of
+a brutal low level debug/test facility and, even though it basically
+produces the same result as the new @no_completion_irq, if we remove it
+and unify it in a single boolean that can be overriden from the DT we end
+up in a situation in which we cannot anymore easily force_polling by
+switching the flag in the code since it could be overridden by a
+conflicting 'arm,poll-transport' DT setup. (and you have to patch DT
+for testing)
+
+So if we have one single underlying boolean (e.g. 'poll') and by any chance
+we end up with a DT containing:
+
+	arm,poll-transport = false
+
+we cannot anymore override the condition by forcing in the code
+
+	poll = true,
+
+since it would be switfly overridden by the DT prop.
+
+Also semantically force_polling express much more the situation.
+
+Anyway...I may be overthinking or missing something.
+
+Cheers,
+Cristian
 
