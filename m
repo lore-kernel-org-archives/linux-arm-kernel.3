@@ -4,69 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 946F2CF45C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 19:26:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B91CF45C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 19:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LBy9ucwRbNGC8Ur1jViRtkb3g1Jk4uX2P+oAzV4Gx30=; b=DbSiQ7DBPAYNrFR8Al9mnHKH9V
-	JQJ621oGQywLDfUjeFJFAeK6esynnv23VGwkitxViyeKz3GAkfCKHY77+1CMSVKVTRHnuoHgNpnck
-	BB0M6WV2mi6xqHA3vSkkWYsgr51XEL0XSjlYlrvqdRKNcU+AgVqjvuI7OC4VeeBSzB8v6WE23WstY
-	6QMrLHLEZ0y/QLOq/pvPl5JsOLwlL10FacH3So+riyCn5rYReQ7+d5lmt2e3dGpqJY66sVdrehF5k
-	eTy4xTuvME9b0w9vjH4hqdOnwQpISJn9NbSpLxbvjdfioG6n/6IiI3T3oIqQcWSEX30Pc6Z/8JYL0
-	NJjNrnrw==;
+	bh=MMKzD4neKMQA/a71hLZaF9K+onAvp6LuTb7/ocIRVF8=; b=scuU841S9SdvqUNkJfOvZhCMXH
+	DmmffWHTWq0DKxIK3x7xuwNjKlp87uA+zqwJBKbnke3yvGMtKaxug3t4pvjTW8L0Rj/r64NeG0QdX
+	GBA8mHdJIbEduDDG/h3I9jvhdClkHnEcHF7QBlpEcuaoOnq7NEgKuN3VR+MotCQAg2XDZZMRc2Ten
+	SHsmyyjAswYskl6LpzVKKLizEmZaKx70WJzBGzaaX9Bt7euSObvL4+vPNOpfABRQaugDIcEDHWF6D
+	vVh7RqmOV5ft0L4LVkyCE9uZXizn7zCtHsCUp3RMC/KPJ7+j9Uv5Cb0ykNQVXO5eJ2V6pF8nR4M14
+	DdbBHoJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNYX-000000063El-0E2B;
-	Mon, 12 Jan 2026 19:26:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vfNja-000000065Nj-0dqr;
+	Mon, 12 Jan 2026 19:37:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNVo-00000005zAD-4BRB;
-	Mon, 12 Jan 2026 19:23:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE1D7443CE;
-	Mon, 12 Jan 2026 19:23:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BAD0C116D0;
-	Mon, 12 Jan 2026 19:23:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768245816;
-	bh=mfz4ZYJt3AWopKXA9rY3STkyUZNi7LKRSY3PzscIMgc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=K5lc6/CxW55D01F0aZkD+PpuXbQ9StZLbSb19NcR2aqc19iwx8bcvLzBfQ2CKBbZJ
-	 HOlQVgOo0A0p3dcfR9pfL28aHxro8jtR8J1k1gz0siRRVvSHhqV+06riALpifHyreK
-	 +7x4fvIO/pjiW73W7mRwy+SAgN7G6DetbTBuowmpxmOmJCngNDg1+brp3NTQ4Q8ZTq
-	 y9UISG3fG9brsVPgnRsCMacDt1gC4gj+/+tEq0vqu6ly4tFHEkbHQq+JHsoT4TB1id
-	 XF/JhUpiBUqMtw4pXp6qkhYYHUWX7OQX334WULSjKnFEtawqAABSXhB/gGH6fcJUwX
-	 7BkQZJQJixr1Q==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Harald Freudenberger <freude@linux.ibm.com>,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 34/35] lib/crypto: aes: Remove old AES en/decryption functions
-Date: Mon, 12 Jan 2026 11:20:32 -0800
-Message-ID: <20260112192035.10427-35-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260112192035.10427-1-ebiggers@kernel.org>
-References: <20260112192035.10427-1-ebiggers@kernel.org>
+	id 1vfNjZ-000000065NV-2C6O
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 12 Jan 2026 19:37:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=MMKzD4neKMQA/a71hLZaF9K+onAvp6LuTb7/ocIRVF8=; b=RPL//sL5zyKrKsORrL6SzBaK9r
+	KZQLXT+AjFKXkrAqBzX8lEGNcSy95xt5pi2C3t7hPwsxJWWEAiVUSAExYgXdBsyL4flSmch+yGWLx
+	IRYSj7dI3N0V+QiuMrbI9URke1pnLBnW3pmk/nPljviprR4SvKQ47cseGTe4HXUtjB300JBOPL4fn
+	sA7JMh6HulwcXmB7OZ9qegV6o8OiU0sXPK15aOeClVOOxKa5mtBiO7s4slOzqvN0u8cMIdFkAxBTr
+	DkxebBXlWPhgIJcbrqDqbAj4ZvH97MR7XNSoFyG5s0TOaSeaI3GcFzc3ZvvNiK+q5wveEKo6ae6d5
+	H4SJMgpw==;
+Received: from mail-dy1-x1331.google.com ([2607:f8b0:4864:20::1331])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfNjW-00000001WOt-3Pub
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Jan 2026 19:37:48 +0000
+Received: by mail-dy1-x1331.google.com with SMTP id 5a478bee46e88-2b05fe2bf14so10377187eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 11:37:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1768246663; x=1768851463; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=MMKzD4neKMQA/a71hLZaF9K+onAvp6LuTb7/ocIRVF8=;
+        b=NDDpSpmxu6m9+IUCxUpwskk5So7azBvyp7MlUEoYrtLlTramjpFiFm1giPoyKmzcEr
+         bAKRKNK4EP3azaFxCb+jNUxF8BrH8m4m0IKojQPsl3uOAss2W40z9Ok1twv4lTyBfVrS
+         NTNsv2KomjO20T5NFg3q5LKZZcF06QuMxAYKoiCfyIvyoV9d9fyDFYae+HgXPLFdUgO9
+         RTDJ+bsLblw3l6JAr0BmTwBseRhbUJqTo/Hd8Gy6aGaJ26sC7XjP0+A/gdi2VNI89Ihr
+         /4jtOia5njZsC7jzWHrJuhGR4vUKiT/uUXk0LRMHuThMaute4aiwPf2kkv58scEtgVoe
+         Ze7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768246663; x=1768851463;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MMKzD4neKMQA/a71hLZaF9K+onAvp6LuTb7/ocIRVF8=;
+        b=fcOpELYO3l7MVcmc+BF3u+Pnk0Q+afF0nUaB64VMSztgxHiHC6UdrQ3DOXgdMKqSvq
+         WateDyfRkAnFrscl+7Phgp1u19Mcq/tMGKrvkU+eo020238EyUpYd0dnEq8PdVr+A8QO
+         MEI0St/v+E8Z5+LwM0y9+6NzlpCwqfaaQKrkQ1afklrxGk+YfukEZ53XVR7jFHAdnylx
+         3wufkKNzD/6Nic+T0qfJn1Zl9fRUO+QSg0KyFrrF39ypZtvdFtdmzUDYMuB4x6nrbdn9
+         PMuDa+OhzDelSNZkCoOpDSumduT6Sm05/Icl7PNYJC7DA47mwqnhTMXuKXO5dFgpEMm9
+         lvqg==
+X-Forwarded-Encrypted: i=1; AJvYcCW/XRFBmTwCKKs+DGi+h0UhkIAoEOnwXBgmkU2VTHAVL0E3efHFFzwPuJCEcjOXq99qo3Wzzg9EfcK/dWDzQOKK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2NN22+9oGqvoa7pJoIDqlH1/DBmAP6sHdKTXTi8fDMYUHwu4h
+	wt7V7x2/Oktli8JDwrDbyl7gRqjiYbWMk8NZBGbiDp6ihPk11+e1nnGU7xGegCnFGIc4uMN4Iey
+	iwSykLO3k
+X-Gm-Gg: AY/fxX5L954BxY8f/Js/nzlKqGpuKubn6skRAXa8vqrjFwzT0Ei6shhpJyZqIDsdmlR
+	GMlfB0RkmEOzamGMTOzXSnlgFxicONxVXSswN2H5sVRilA9ZtEjLyromFDov7p4Ns1qGXP9D0UF
+	EjynWfAiglxB5eA52+V9+XdyMKsJF0GVjtzsV4J8xi2QhlzcX7zKAJIUhO4cGmxQrquwo3hBcFU
+	6i4mjjWNWh6qgbW28opoPeJX3V7Zhkp37AT7LQxdzSNhBT5mRqcVrKDm9L4h7QQZjkDmqHMToML
+	LaTxztoP1fvnRtL6QRlIYkKXfYDUWYIctdDzSyvreQr1g+HxIBqocrtDkYg28rZiAd4io/4fNt+
+	lqh2I0OGELxMelEKYHZsUQSxTPUbIFMJf2LNUlhI4eKRycO9GzZJjrhFbVZMUR0PZSh5rJIc+9L
+	beLiZmP3r7WpFF1uTmqv2ERCF45YSQijLekxFzXg/7HodVJRiYsahUM1HxLt3AsCNJLSdnQ+vY/
+	qFzz3Y9WStl8w==
+X-Google-Smtp-Source: AGHT+IEmezECFIaAtAhii/tXhYAvteHOsxJwusDFq7+Qy4kltOc3o9BThd5irNt42thvcdsfukrSaA==
+X-Received: by 2002:a05:7301:29a5:b0:2b0:3d03:37db with SMTP id 5a478bee46e88-2b17d2e2b29mr11583342eec.35.1768246663076;
+        Mon, 12 Jan 2026 11:37:43 -0800 (PST)
+Received: from ?IPV6:2a00:79e0:2e7c:8:8e84:2c31:d2b4:9c1f? ([2a00:79e0:2e7c:8:8e84:2c31:d2b4:9c1f])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b17078d818sm15886663eec.21.2026.01.12.11.37.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 Jan 2026 11:37:42 -0800 (PST)
+Message-ID: <bb9b9afa-0bfa-428e-9372-549d9ba8603c@google.com>
+Date: Mon, 12 Jan 2026 11:37:40 -0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/5] power: supply: max77759: add charger driver
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Badhri Jagan Sridharan <badhri@google.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
+References: <20251227-max77759-charger-v3-0-54e664f5ca92@google.com>
+ <20251227-max77759-charger-v3-4-54e664f5ca92@google.com>
+ <298ca35590d2180fdcf334f94964b6110e17c606.camel@linaro.org>
+ <50c29a62-1fdb-4de2-8887-0d551eee5ec0@google.com>
+ <255d7726-6758-43ed-b35f-db14726bcc9b@google.com>
+ <2869d309358f27652289c40810ca36b2ec155d1d.camel@linaro.org>
+Content-Language: en-US
+From: Amit Sunil Dhamne <amitsd@google.com>
+In-Reply-To: <2869d309358f27652289c40810ca36b2ec155d1d.camel@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_112337_149309_58E19738 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20260112_193746_923449_20563225 
+X-CRM114-Status: GOOD (  24.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,244 +135,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that all callers of the aes_encrypt() and aes_decrypt() type-generic
-macros are using the new types, remove the old functions.
+Hi Andre',
 
-Then, replace the macro with direct calls to the new functions, dropping
-the "_new" suffix from them.
+On 1/12/26 5:47 AM, André Draszik wrote:
+> Hi Amit,
+>
+> On Tue, 2026-01-06 at 17:14 -0800, Amit Sunil Dhamne wrote:
+>> On 1/6/26 3:41 PM, Amit Sunil Dhamne wrote:
+>>> Hi Andre',
+>>>
+>>> On 1/5/26 9:32 AM, André Draszik wrote:
+>>>> Hi Amit,
+>>>>
+>>>> I haven't done a full review, but a few things caught my eye.
+>>>>
+>>>> On Sat, 2025-12-27 at 00:04 +0000, Amit Sunil Dhamne via B4 Relay wrote:
+>>>>> diff --git a/drivers/power/supply/Makefile
+>>>>> b/drivers/power/supply/Makefile
+>>>>> index 4b79d5abc49a..6af905875ad5 100644
+>>>>> --- a/drivers/power/supply/Makefile
+>>>>> +++ b/drivers/power/supply/Makefile
+>>>>> [...]
+>>>>> +
+>>>>> +static irqreturn_t irq_handler(int irq, void *data)
+>>>>> +{
+>>>>> +    struct max77759_charger *chg = data;
+>>>>> +    struct device *dev = chg->dev;
+>>>>> +    u32 chgint_ok;
+>>>>> +    int i;
+>>>>> +
+>>>>> +    regmap_read(chg->regmap, MAX77759_CHGR_REG_CHG_INT_OK,
+>>>>> &chgint_ok);
+>>>> You might want to check the return value and return IRQ_NONE if it
+>>>> didn't
+>>>> work?
+>>>>
+>>>>> +
+>>>>> +    for (i = 0; i < ARRAY_SIZE(irqs); i++) {
+>>>>> +        if (irqs[i] == irq)
+>>>>> +            break;
+>>>>> +    }
+>>>>> +
+>>>>> +    switch (i) {
+>>>>> +    case AICL:
+>>>>> +        dev_dbg(dev, "AICL mode: %s",
+>>>>> +            str_no_yes(chgint_ok & MAX77759_CHGR_REG_CHG_INT_AICL));
+>>>>> +        break;
+>>>>> +    case CHGIN:
+>>>>> +        dev_dbg(dev, "CHGIN input valid: %s",
+>>>>> +            str_yes_no(chgint_ok & MAX77759_CHGR_REG_CHG_INT_CHGIN));
+>>>>> +        break;
+>>>>> +    case CHG:
+>>>>> +        dev_dbg(dev, "CHG status okay/off: %s",
+>>>>> +            str_yes_no(chgint_ok & MAX77759_CHGR_REG_CHG_INT_CHG));
+>>>>> +        break;
+>>>>> +    case INLIM:
+>>>>> +        dev_dbg(dev, "Current Limit reached: %s",
+>>>>> +            str_no_yes(chgint_ok & MAX77759_CHGR_REG_CHG_INT_INLIM));
+>>>>> +        break;
+>>>>> +    case BAT_OILO:
+>>>>> +        dev_dbg(dev, "Battery over-current threshold crossed");
+>>>>> +        break;
+>>>>> +    case CHG_STA_CC:
+>>>>> +        dev_dbg(dev, "Charger reached CC stage");
+>>>>> +        break;
+>>>>> +    case CHG_STA_CV:
+>>>>> +        dev_dbg(dev, "Charger reached CV stage");
+>>>>> +        break;
+>>>>> +    case CHG_STA_TO:
+>>>>> +        dev_dbg(dev, "Charger reached TO stage");
+>>>>> +        break;
+>>>>> +    case CHG_STA_DONE:
+>>>>> +        dev_dbg(dev, "Charger reached TO stage");
+>>>>> +        break;
+>>>> Are the above debug messages really all needed?
+>> I forgot to respond to this comment in my previous email.
+>>
+>> I think we can keep AICL, BAT_OILO, INLIM. They're either special
+>> conditions (AICL) or faulty conditions (like BAT_OILO) and we can in
+>> fact keep them at dev_info level. Rest can be removed and a
+>> power_supply_changed() is sufficient.
+>>
+>> Let me know what you think?
+> I don't think dev_info() in an interrupt handler is appropriate. At
+> least it should be ratelimited.
+>
+> If it's something special / unexpected that needs attention, having
+> a dev_dbg() message only will usually not be visible to anybody.
 
-This completes the change in the type of the key struct that is passed
-to aes_encrypt() and aes_decrypt().
+I agree. I can change the prints to dev_info_ratelimited for the stuff 
+we care about.
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
----
- include/crypto/aes.h |  24 ++-------
- lib/crypto/aes.c     | 118 +++----------------------------------------
- 2 files changed, 10 insertions(+), 132 deletions(-)
 
-diff --git a/include/crypto/aes.h b/include/crypto/aes.h
-index 4cb3c27d1bf5..cbf1cc96db52 100644
---- a/include/crypto/aes.h
-+++ b/include/crypto/aes.h
-@@ -306,39 +306,23 @@ typedef union {
-  * @out: Buffer to store the ciphertext block
-  * @in: Buffer containing the plaintext block
-  *
-  * Context: Any context.
-  */
--#define aes_encrypt(key, out, in) \
--	_Generic((key), \
--		 struct crypto_aes_ctx *: aes_encrypt_old((const struct crypto_aes_ctx *)(key), (out), (in)), \
--		 const struct crypto_aes_ctx *: aes_encrypt_old((const struct crypto_aes_ctx *)(key), (out), (in)), \
--		 struct aes_enckey *: aes_encrypt_new((const struct aes_enckey *)(key), (out), (in)), \
--		 const struct aes_enckey *: aes_encrypt_new((const struct aes_enckey *)(key), (out), (in)), \
--		 struct aes_key *: aes_encrypt_new((const struct aes_key *)(key), (out), (in)), \
--		 const struct aes_key *: aes_encrypt_new((const struct aes_key *)(key), (out), (in)))
--void aes_encrypt_old(const struct crypto_aes_ctx *ctx, u8 *out, const u8 *in);
--void aes_encrypt_new(aes_encrypt_arg key, u8 out[at_least AES_BLOCK_SIZE],
--		     const u8 in[at_least AES_BLOCK_SIZE]);
-+void aes_encrypt(aes_encrypt_arg key, u8 out[at_least AES_BLOCK_SIZE],
-+		 const u8 in[at_least AES_BLOCK_SIZE]);
- 
- /**
-  * aes_decrypt() - Decrypt a single AES block
-  * @key: The AES key, previously initialized by aes_preparekey()
-  * @out: Buffer to store the plaintext block
-  * @in: Buffer containing the ciphertext block
-  *
-  * Context: Any context.
-  */
--#define aes_decrypt(key, out, in) \
--	_Generic((key), \
--		 struct crypto_aes_ctx *: aes_decrypt_old((const struct crypto_aes_ctx *)(key), (out), (in)), \
--		 const struct crypto_aes_ctx *: aes_decrypt_old((const struct crypto_aes_ctx *)(key), (out), (in)), \
--		 struct aes_key *: aes_decrypt_new((const struct aes_key *)(key), (out), (in)), \
--		 const struct aes_key *: aes_decrypt_new((const struct aes_key *)(key), (out), (in)))
--void aes_decrypt_old(const struct crypto_aes_ctx *ctx, u8 *out, const u8 *in);
--void aes_decrypt_new(const struct aes_key *key, u8 out[at_least AES_BLOCK_SIZE],
--		     const u8 in[at_least AES_BLOCK_SIZE]);
-+void aes_decrypt(const struct aes_key *key, u8 out[at_least AES_BLOCK_SIZE],
-+		 const u8 in[at_least AES_BLOCK_SIZE]);
- 
- extern const u8 crypto_aes_sbox[];
- extern const u8 crypto_aes_inv_sbox[];
- extern const u32 aes_enc_tab[256];
- extern const u32 aes_dec_tab[256];
-diff --git a/lib/crypto/aes.c b/lib/crypto/aes.c
-index 88da68dcf5a8..b7ab2d0c4e59 100644
---- a/lib/crypto/aes.c
-+++ b/lib/crypto/aes.c
-@@ -249,26 +249,10 @@ static u32 inv_mix_columns(u32 x)
- 	u32 y = mul_by_x2(x);
- 
- 	return mix_columns(x ^ y ^ ror32(y, 16));
- }
- 
--static __always_inline u32 subshift(u32 in[], int pos)
--{
--	return (aes_sbox[in[pos] & 0xff]) ^
--	       (aes_sbox[(in[(pos + 1) % 4] >>  8) & 0xff] <<  8) ^
--	       (aes_sbox[(in[(pos + 2) % 4] >> 16) & 0xff] << 16) ^
--	       (aes_sbox[(in[(pos + 3) % 4] >> 24) & 0xff] << 24);
--}
--
--static __always_inline u32 inv_subshift(u32 in[], int pos)
--{
--	return (aes_inv_sbox[in[pos] & 0xff]) ^
--	       (aes_inv_sbox[(in[(pos + 3) % 4] >>  8) & 0xff] <<  8) ^
--	       (aes_inv_sbox[(in[(pos + 2) % 4] >> 16) & 0xff] << 16) ^
--	       (aes_inv_sbox[(in[(pos + 1) % 4] >> 24) & 0xff] << 24);
--}
--
- static u32 subw(u32 in)
- {
- 	return (aes_sbox[in & 0xff]) ^
- 	       (aes_sbox[(in >>  8) & 0xff] <<  8) ^
- 	       (aes_sbox[(in >> 16) & 0xff] << 16) ^
-@@ -343,55 +327,10 @@ int aes_expandkey(struct crypto_aes_ctx *ctx, const u8 *in_key,
- 	aes_expandkey_generic(ctx->key_enc, ctx->key_dec, in_key, key_len);
- 	return 0;
- }
- EXPORT_SYMBOL(aes_expandkey);
- 
--void aes_encrypt_old(const struct crypto_aes_ctx *ctx, u8 *out, const u8 *in)
--{
--	const u32 *rkp = ctx->key_enc + 4;
--	int rounds = 6 + ctx->key_length / 4;
--	u32 st0[4], st1[4];
--	int round;
--
--	st0[0] = ctx->key_enc[0] ^ get_unaligned_le32(in);
--	st0[1] = ctx->key_enc[1] ^ get_unaligned_le32(in + 4);
--	st0[2] = ctx->key_enc[2] ^ get_unaligned_le32(in + 8);
--	st0[3] = ctx->key_enc[3] ^ get_unaligned_le32(in + 12);
--
--	/*
--	 * Force the compiler to emit data independent Sbox references,
--	 * by xoring the input with Sbox values that are known to add up
--	 * to zero. This pulls the entire Sbox into the D-cache before any
--	 * data dependent lookups are done.
--	 */
--	st0[0] ^= aes_sbox[ 0] ^ aes_sbox[ 64] ^ aes_sbox[134] ^ aes_sbox[195];
--	st0[1] ^= aes_sbox[16] ^ aes_sbox[ 82] ^ aes_sbox[158] ^ aes_sbox[221];
--	st0[2] ^= aes_sbox[32] ^ aes_sbox[ 96] ^ aes_sbox[160] ^ aes_sbox[234];
--	st0[3] ^= aes_sbox[48] ^ aes_sbox[112] ^ aes_sbox[186] ^ aes_sbox[241];
--
--	for (round = 0;; round += 2, rkp += 8) {
--		st1[0] = mix_columns(subshift(st0, 0)) ^ rkp[0];
--		st1[1] = mix_columns(subshift(st0, 1)) ^ rkp[1];
--		st1[2] = mix_columns(subshift(st0, 2)) ^ rkp[2];
--		st1[3] = mix_columns(subshift(st0, 3)) ^ rkp[3];
--
--		if (round == rounds - 2)
--			break;
--
--		st0[0] = mix_columns(subshift(st1, 0)) ^ rkp[4];
--		st0[1] = mix_columns(subshift(st1, 1)) ^ rkp[5];
--		st0[2] = mix_columns(subshift(st1, 2)) ^ rkp[6];
--		st0[3] = mix_columns(subshift(st1, 3)) ^ rkp[7];
--	}
--
--	put_unaligned_le32(subshift(st1, 0) ^ rkp[4], out);
--	put_unaligned_le32(subshift(st1, 1) ^ rkp[5], out + 4);
--	put_unaligned_le32(subshift(st1, 2) ^ rkp[6], out + 8);
--	put_unaligned_le32(subshift(st1, 3) ^ rkp[7], out + 12);
--}
--EXPORT_SYMBOL(aes_encrypt_old);
--
- static __always_inline u32 enc_quarterround(const u32 w[4], int i, u32 rk)
- {
- 	return rk ^ aes_enc_tab[(u8)w[i]] ^
- 	       rol32(aes_enc_tab[(u8)(w[(i + 1) % 4] >> 8)], 8) ^
- 	       rol32(aes_enc_tab[(u8)(w[(i + 2) % 4] >> 16)], 16) ^
-@@ -496,55 +435,10 @@ static void __maybe_unused aes_decrypt_generic(const u32 inv_rndkeys[],
- 	put_unaligned_le32(declast_quarterround(w, 1, *rkp++), &out[4]);
- 	put_unaligned_le32(declast_quarterround(w, 2, *rkp++), &out[8]);
- 	put_unaligned_le32(declast_quarterround(w, 3, *rkp++), &out[12]);
- }
- 
--void aes_decrypt_old(const struct crypto_aes_ctx *ctx, u8 *out, const u8 *in)
--{
--	const u32 *rkp = ctx->key_dec + 4;
--	int rounds = 6 + ctx->key_length / 4;
--	u32 st0[4], st1[4];
--	int round;
--
--	st0[0] = ctx->key_dec[0] ^ get_unaligned_le32(in);
--	st0[1] = ctx->key_dec[1] ^ get_unaligned_le32(in + 4);
--	st0[2] = ctx->key_dec[2] ^ get_unaligned_le32(in + 8);
--	st0[3] = ctx->key_dec[3] ^ get_unaligned_le32(in + 12);
--
--	/*
--	 * Force the compiler to emit data independent Sbox references,
--	 * by xoring the input with Sbox values that are known to add up
--	 * to zero. This pulls the entire Sbox into the D-cache before any
--	 * data dependent lookups are done.
--	 */
--	st0[0] ^= aes_inv_sbox[ 0] ^ aes_inv_sbox[ 64] ^ aes_inv_sbox[129] ^ aes_inv_sbox[200];
--	st0[1] ^= aes_inv_sbox[16] ^ aes_inv_sbox[ 83] ^ aes_inv_sbox[150] ^ aes_inv_sbox[212];
--	st0[2] ^= aes_inv_sbox[32] ^ aes_inv_sbox[ 96] ^ aes_inv_sbox[160] ^ aes_inv_sbox[236];
--	st0[3] ^= aes_inv_sbox[48] ^ aes_inv_sbox[112] ^ aes_inv_sbox[187] ^ aes_inv_sbox[247];
--
--	for (round = 0;; round += 2, rkp += 8) {
--		st1[0] = inv_mix_columns(inv_subshift(st0, 0)) ^ rkp[0];
--		st1[1] = inv_mix_columns(inv_subshift(st0, 1)) ^ rkp[1];
--		st1[2] = inv_mix_columns(inv_subshift(st0, 2)) ^ rkp[2];
--		st1[3] = inv_mix_columns(inv_subshift(st0, 3)) ^ rkp[3];
--
--		if (round == rounds - 2)
--			break;
--
--		st0[0] = inv_mix_columns(inv_subshift(st1, 0)) ^ rkp[4];
--		st0[1] = inv_mix_columns(inv_subshift(st1, 1)) ^ rkp[5];
--		st0[2] = inv_mix_columns(inv_subshift(st1, 2)) ^ rkp[6];
--		st0[3] = inv_mix_columns(inv_subshift(st1, 3)) ^ rkp[7];
--	}
--
--	put_unaligned_le32(inv_subshift(st1, 0) ^ rkp[4], out);
--	put_unaligned_le32(inv_subshift(st1, 1) ^ rkp[5], out + 4);
--	put_unaligned_le32(inv_subshift(st1, 2) ^ rkp[6], out + 8);
--	put_unaligned_le32(inv_subshift(st1, 3) ^ rkp[7], out + 12);
--}
--EXPORT_SYMBOL(aes_decrypt_old);
--
- /*
-  * Note: the aes_prepare*key_* names reflect the fact that the implementation
-  * might not actually expand the key.  (The s390 code for example doesn't.)
-  * Where the key is expanded we use the more specific names aes_expandkey_*.
-  *
-@@ -606,23 +500,23 @@ int aes_prepareenckey(struct aes_enckey *key, const u8 *in_key, size_t key_len)
- {
- 	return __aes_preparekey(key, NULL, in_key, key_len);
- }
- EXPORT_SYMBOL(aes_prepareenckey);
- 
--void aes_encrypt_new(aes_encrypt_arg key, u8 out[AES_BLOCK_SIZE],
--		     const u8 in[AES_BLOCK_SIZE])
-+void aes_encrypt(aes_encrypt_arg key, u8 out[AES_BLOCK_SIZE],
-+		 const u8 in[AES_BLOCK_SIZE])
- {
- 	aes_encrypt_arch(key.enc_key, out, in);
- }
--EXPORT_SYMBOL(aes_encrypt_new);
-+EXPORT_SYMBOL(aes_encrypt);
- 
--void aes_decrypt_new(const struct aes_key *key, u8 out[AES_BLOCK_SIZE],
--		     const u8 in[AES_BLOCK_SIZE])
-+void aes_decrypt(const struct aes_key *key, u8 out[AES_BLOCK_SIZE],
-+		 const u8 in[AES_BLOCK_SIZE])
- {
- 	aes_decrypt_arch(key, out, in);
- }
--EXPORT_SYMBOL(aes_decrypt_new);
-+EXPORT_SYMBOL(aes_decrypt);
- 
- #ifdef aes_mod_init_arch
- static int __init aes_mod_init(void)
- {
- 	aes_mod_init_arch();
--- 
-2.52.0
+>
+> Also will the call to power_supply_changed() down below handle the
+> special conditions (e.g. convey to upper levels)? If not, can it be
+> made to do so?
 
+Yes it does, as I can see a call to kobject_uevent() inside 
+power_supply_changed_work(). Also, power_supply_changed() also notifies 
+other subsystems that have registered their notifiers downstream of this 
+power_supply object. So I believe we're good there.
+
+If all the above sounds good, I will proceed with sending the next 
+revision including the fixes  :).
+
+
+BR,
+
+Amit
+
+>
+> Cheers,
+> Andre
+>
 
