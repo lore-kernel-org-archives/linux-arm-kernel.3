@@ -4,157 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7FFBCF45C1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 18:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 878BECF45C3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 18:24:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gqVIoEA9mtyjuqHuNQ+lREKXlfAau8n7T7J0GPNcBj0=; b=sCAQ5kwcNpLxgrsiKYr4ZoWzqX
-	gYCO3JruGi+oTMHxA1WiJdd6wJm0cbSP2qRA0hD208mxNEslw4mX9aUbPgtAnKxQLXpw1pHTvMNX2
-	1kJnigOYmwYVkNbmUnGX7XUC/BzhSJLA3QpiEAQmQ/P2a9AMMbAySe5PAeSTDasvWw45mBUcegbI6
-	+ovzgKn1/FrVFv5cXtZx1Hq0j/uGOQbHq93wSNj2uIFnY/d1vhat9VEWrVPTOXLOW4sPJql6db0L+
-	xhGtTFPMGbi5YDG2crjprmYnTTlKE6U2dbRFlIVM+rqrVu86c9nzjQb6AQJoqi3aHG8Wb3HGpFprp
-	PE3IqzmQ==;
+	bh=2gLOxIDyxhTvVzJuSwvSFZ4MlqhsCFk9OHFtuRb1ESk=; b=MlSu6M3MojGJu88mEpve2mXAA3
+	3GDweXP37oDkZueKG64WI6Ke1bWlA+DPcO6/GL9TWvw/Hz5DRMKyqmUZt6jjby0hxEoOw/i+5eCxR
+	MrVZkXyR3aatyZ659u1llLUPjjZ+HVp05eSaO4wJ/hf69chi2Kb2+cXZG68IKcUeRdAPRC8Fp+ixr
+	MXyRWbV6/EDKJ0+DOai3TR5rHQlKsIsbXW7dM9kW3jSNJLdS1phIuULd3C5byw8Sl9WYBYJUIfF7H
+	fJ6xPXnfIyFl0w+H+ZpRHqYu+KRgdfGXQe9cV+DVo7UypEp5w9PeeR9jG7AsqFVVOdbdyrUlds68h
+	GtWjH6MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfMRF-00000005v9f-1IrI;
-	Mon, 12 Jan 2026 18:14:49 +0000
-Received: from mail-westeuropeazon11010043.outbound.protection.outlook.com ([52.101.69.43] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vfMaF-00000005vjm-1e3o;
+	Mon, 12 Jan 2026 18:24:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfMRB-00000005v9G-3u0t
+	id 1vfMaC-00000005vjN-13H2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 18:14:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=y4RkpHaMUXw+Gpmj1Y5FMcsk2UC1Sc0Cqxg6Mz5tEWhKq2fzVemFrOriO93zeOz+KGMMVH2ogpWVABdUCu0Q+eby0EB02jioM+JzJxLTUInKRp7N7WSKp5tdrtI2r3N5dvfaUkxt116xnCNNgvB++bYQYjtDJJY96QGMabwqtkUOyAVpDt4jKv+0xMaW/Zn1oV4oCkKaivZdikuKIX5EshhGhe5baghMT4PCQgcVHAYmWMWiNEuudkc1yVJGv6q4W/x9u56yan3bClqHLjvx+4jj7IgXH3Mym1hV6IcZ5I1lMYvCzgx6wAxgSbbMUVR5yDmaQU735/QzQzPj+P2CgQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gqVIoEA9mtyjuqHuNQ+lREKXlfAau8n7T7J0GPNcBj0=;
- b=SpG3RipD83n7CE39DOg/U31fUwooIWdpD8CFo8rNf6H1Valg85HSHNQLY+O30DQdLjdS1Th0uER8iYjHVeSI/3HHTIv34ayducEvKACml85UOk1VIKFAIYwt1QN7N2UGlkbxEgGc6z7drEvipWbw9M8JuWNgPSwBNOy2f+Jis1hdimoXj1xSMB2poL9DPmmFBsAkJnBo33QYfd3TsbzPQzvDMp//AppOt28kMhQLsbsoqFRGeAQg1Z/jXz8blFsW98oKhPz/4RIOFfoEH1vzzxjjh/tjh3BZpeZ6U2btxDmR7kN3xyXvqpPbPcbrH/+hJDsFccV5rUo5/MpiYCRjcA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gqVIoEA9mtyjuqHuNQ+lREKXlfAau8n7T7J0GPNcBj0=;
- b=LN/RJUzJaphv55Bu/0NQjAlElEAoYpTWIg0lmqQKKJMxMSgfBZ/jebIzoFgyApBCJ1zWtztabpeFNdpxOlXA+dHJvvNt5Nky7ga7XG4ZJ4w7lW4YYf1Ax1bpAwTDAA1YF1iUuRYXbFkmH8lXSXHo+Dw4G7RdOzYN2Vq6er3FKGCFrbvo482F370qp1FNq5QsE4YlrrGb5MrurB+jboq41aJIGJ9QQ0fBtTP/9BLAWjDXCGRUiN25AA60iHLzfstpmKFWZwvMwMqK5jUT9L/yBRsSkEwEtQZt9JqlZhtN+O7Bv8Ll7c6QTPQkH2m2dSqiTur1763gfVTFAD9tJzThJQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by DBAPR04MB7448.eurprd04.prod.outlook.com (2603:10a6:10:1a6::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Mon, 12 Jan
- 2026 18:14:41 +0000
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9499.005; Mon, 12 Jan 2026
- 18:14:41 +0000
-Date: Mon, 12 Jan 2026 20:14:36 +0200
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: vadim.fedorenko@linux.dev, horms@kernel.org, jacob.e.keller@intel.com,
-	afd@ti.com, pmohan@couthit.com, basharath@couthit.com,
-	rogerq@kernel.org, danishanwar@ti.com, pabeni@redhat.com,
-	kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
-	andrew+netdev@lunn.ch, linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, srk@ti.com,
-	Vignesh Raghavendra <vigneshr@ti.com>
-Subject: Re: [PATCH net-next 2/2] net: ti: icssg-prueth: Add ethtool ops for
- Frame Preemption MAC Merge
-Message-ID: <20260112181436.4s5ceywwembn674r@skbuf>
-References: <20260107125111.2372254-1-m-malladi@ti.com>
- <20260107125111.2372254-1-m-malladi@ti.com>
- <20260107125111.2372254-3-m-malladi@ti.com>
- <20260107125111.2372254-3-m-malladi@ti.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260107125111.2372254-3-m-malladi@ti.com>
- <20260107125111.2372254-3-m-malladi@ti.com>
-X-ClientProxiedBy: VI1PR09CA0132.eurprd09.prod.outlook.com
- (2603:10a6:803:12c::16) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
+	Mon, 12 Jan 2026 18:24:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1768242242;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2gLOxIDyxhTvVzJuSwvSFZ4MlqhsCFk9OHFtuRb1ESk=;
+	b=EQE/r0PC89suHFff2EemW9DKNsGaLlkjV9b1PL8JmB6u/Y8avHlVRuE+DgGSRR3NCMl2ch
+	bJRqbbHPhdyDM7SEyHEAsmDACN2caUBX2S5iSn+0rpeU51FHHpq9XRSDdOFvPbm2r/AYJJ
+	NcJq+bWk35F6plRNy/dL00dad9z2SzU=
+Received: from mail-vs1-f70.google.com (mail-vs1-f70.google.com
+ [209.85.217.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-661-GvytjYTAOziOlUsPtiQlAQ-1; Mon, 12 Jan 2026 13:23:58 -0500
+X-MC-Unique: GvytjYTAOziOlUsPtiQlAQ-1
+X-Mimecast-MFC-AGG-ID: GvytjYTAOziOlUsPtiQlAQ_1768242237
+Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-5ec9a4e6cb0so5988227137.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 10:23:57 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768242237; x=1768847037;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2gLOxIDyxhTvVzJuSwvSFZ4MlqhsCFk9OHFtuRb1ESk=;
+        b=T043Npdeg1fqApLpLQRZzkIjICwTFOOJXmRnlb2CgNlZCLhdAxKByF6rz8RjuOhmsl
+         Ulf/ELUWx/h6mOpsidF8YkcHjWDzi+mEslnR23c+RmPLuVbbG9YnD2Tc5lEtPJzb7at+
+         3MIaaACvv6rRqQJ/lvYHi5CU8hkVqpjn9/+VDYo9NE8+L7sAKeW2ra6h5z7UQnC71pmQ
+         l3qlOHJzGg8/qnbjsHQJCxKCCWywWAAP/De6IftzJ6HPs8I8JOEcMb4YSoyzdAgK62fQ
+         1tbfVcNs+G2uHMsWJO/f3e+6h7F9+EjEkfIM9l/MRINuS7kR1jCMVeEeOE/Fgjwy15Vz
+         dafg==
+X-Forwarded-Encrypted: i=1; AJvYcCViuyU/vIHQVuv2F2LjiYeCIC7WeEk6TXc8ZW2+eXU76BdRzHvMgEzf/8oCGYrLJXu3M1rNh7/QbvoCNVbUg6T7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzneY/vD1kM49TVgGoawbDDonEaawsU3gnN8grFJ0BgWuSCcXVQ
+	oCnS3LiEVef1SjniTPBKNeWjMPl/14WHSWpbKIeghvZ3JqrhMGJQ3zOdJXUkYDDXfsStCQQZ8Id
+	Z3DgcZlnnaIiy9/mPuQOqcX7BtUUc4/+w0jyJEjatvdKDy2BwDWVzQxe0UUqX3R4mb6Qilkts5/
+	Nd
+X-Gm-Gg: AY/fxX59JVrZ7tLeW5QkX1eEyafH6is2xsXNfHcqDiyyOgEm/cHnjv9yXuqd489SUd+
+	cBQOu/AvdIwdXRgL+06J/eB5xE36NgCAX4r39QWLmwlI5p44E9A4HBC0YtUJm7BHrzSdxHYp27g
+	sIhENMgwfiWRWRr/9VxQk6I+tt6PGTy37BuCMvxi4/P8zWBmIGZYBLv+VOLeF0mMMug31Jtu+ig
+	ivepR0wkxlOp+Cv22Gq/zsILY5z+QWovTV1q02HpeHfuIDfy+MlOqCw9hLf88p+jYlO0QQm4blS
+	QnB4Wr+U3gdCIbu+kFuLW2iabEL0xCdSaWvYHbKcYx7llN+ju8/UVYFuGYd9HOEld5p6624yrbR
+	x/5fF7pWJQpoDYcC7Qb1aNgfIL3GK5bfoEHlbBieLX/Zc6ovbg1u0NRXp
+X-Received: by 2002:a05:6102:ccd:b0:5ef:b5fc:dd4c with SMTP id ada2fe7eead31-5efb5fceabcmr2465137137.7.1768242237192;
+        Mon, 12 Jan 2026 10:23:57 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFwmHNbjOkRHiOzASiFvy8qH079mvHRUgTgzybGWlZGH94huRhJ7zei/lWRFsGQLOin7Q4KDw==
+X-Received: by 2002:a05:6102:ccd:b0:5ef:b5fc:dd4c with SMTP id ada2fe7eead31-5efb5fceabcmr2465086137.7.1768242235294;
+        Mon, 12 Jan 2026 10:23:55 -0800 (PST)
+Received: from ?IPV6:2601:188:c102:b180:1f8b:71d0:77b1:1f6e? ([2601:188:c102:b180:1f8b:71d0:77b1:1f6e])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5ef15be79c6sm10965711137.12.2026.01.12.10.23.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 Jan 2026 10:23:54 -0800 (PST)
+From: Waiman Long <llong@redhat.com>
+X-Google-Original-From: Waiman Long <longman@redhat.com>
+Message-ID: <437ccd7a-e839-4b40-840c-7c40d22f8166@redhat.com>
+Date: Mon, 12 Jan 2026 13:23:40 -0500
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|DBAPR04MB7448:EE_
-X-MS-Office365-Filtering-Correlation-Id: a15b3ede-bbe5-4356-49f4-08de520673ee
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|366016|10070799003|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?00jTWkm51DXdHcsfA9uoHkx9V1ZZ3nvoDk/MlVPaurPLkjxL8z+P9SJW5maJ?=
- =?us-ascii?Q?wdevqc2BjRRwb7nB/knai2Fal1wzjgf+Mze8HgsE0LQhNQCAYFTj5wf1Qk4v?=
- =?us-ascii?Q?aDWvN+Pl0QSVaj0xmCIZpd90Hfpf7oKiPqd7H2HTJ11y+JKHG8ISN8Wjv8+d?=
- =?us-ascii?Q?PkqnX7ah58XNy5bLql3hplV2E9FJPGHtMcZ7AvF6zrxb7ktSweyVAPTccXqR?=
- =?us-ascii?Q?PCAG+p0hZL6pU5V7NJKeFA1/E81bqQz43TN0dUF0P8Hum7Tmj+tjsaTVaWyb?=
- =?us-ascii?Q?bjhSzXP6YfZgiI3ZiQDhKEqe7E7pAd94906AbHg9iIe4rkQuwBNvKAtYY0CX?=
- =?us-ascii?Q?HBPafYXVNqZVXY1TNFUMKsj1CEmY89DAKcnkLwko8V/aJSf3hjaz05xYf3gW?=
- =?us-ascii?Q?D98Hc8wUGngrdVoof8iAjmeYzny7Y1rqKLChYGJACqF3kdW7FZwttjtYvjoM?=
- =?us-ascii?Q?+k5uXuJllMsVGmV7No7sgjaUPp3x5puW1avbQjea2lIUXH/kQEGVSEpEYPAO?=
- =?us-ascii?Q?9GYYntxZ8KbmWiaJHGGcxmt/DgkHxKwR3clOO3OwlEYCOciNYwNeaS3nx479?=
- =?us-ascii?Q?O2wwCjr9Lyzc/lyoHf3HTn6LN+D5qxFXc9qusTHI57iT4Vn5WXh5tCfggMK3?=
- =?us-ascii?Q?F2aFmySgozY9eOuqFOtKm+gylpD457/BuXiFRWGqSfohTTKNu04PLJUz//yo?=
- =?us-ascii?Q?7EKwy74+/64gonrtoebLt6j6C+9Myb8N3Qe+MKGH2i2CTi85JEmpMS4//NG5?=
- =?us-ascii?Q?1aGXcn6NM0kosrB+68r8RDYkxRhKSveesGuGJNEaExhZZjCXO216XWXfc7Q2?=
- =?us-ascii?Q?vmiTr7Cd6LNcH+/dfSt06Z0B9J1Aiwn0FZg1vtFsuIIqYYjcPb2/qJJOYjNt?=
- =?us-ascii?Q?Cv23Th/KWN76GH53JM6cc51gQ4gQGCNgWqHNuOtxU66OtJxX/r/j56VnKvpZ?=
- =?us-ascii?Q?7acXYXGt9omBhNNQNJjbuTFIfAyctWyWtHhYlh8ZQab8YTQVBdGwe89z/Or1?=
- =?us-ascii?Q?NH//ktC5tONQxyi2fNJ9glMQ52ydxeT0hg7dygsH3DEnBDrOobG3Ibrmq1Ow?=
- =?us-ascii?Q?JbyjSURKT7H5qMaTj5/XWUJ2ukpVFtTm3ou8QJtCL8oOT/uWEjjQ0sCo3Q/b?=
- =?us-ascii?Q?FQ1UKf14Lm57WDHBKBO6Ro97yCX+0c51h6NlzR6aj6mMv3d7belBn8RNlSrI?=
- =?us-ascii?Q?gsXXm7qV/zgWrKUhpFopROFruSsORM9uMojUN4G60B45r4MSvfyNnI8NVtZB?=
- =?us-ascii?Q?PTb/sWmGw65lO/j/dY40TK5E217JHvcz28ecqARRw+1h4xefNJcZp+vB++FX?=
- =?us-ascii?Q?v7PtGMLtToLI+6R1HZ1hTSiGrJyIBofj66mqRrVZdkCumd2oBOSSlErAdVOa?=
- =?us-ascii?Q?NLZRDCnLARAvv22XfXCzJCq7tJmfBZU2zvRLWFU9iDLwWL5JqHxouA8c+dJC?=
- =?us-ascii?Q?MBWSChtqaUGj8nK8ukTvWex8PVSxKrdP1hFn0oGW6h+GDWXOOI1J/g=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(366016)(10070799003)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?reNWggYD9WA567AJ54vOHjcghjRPILPqOKIXYGxHmiHAKU7oH/n4Ywoyp100?=
- =?us-ascii?Q?AJheRvrz6+YZKmkrI/9HWUBHFYbkFEtOmxtDkgFa/cOistnShhUu8xFdfbM6?=
- =?us-ascii?Q?agBhug9WFD8jeeepQlkrf8TAlcnSnwkQ0uBVlXewpWKD2uyajjexmXNJUXX1?=
- =?us-ascii?Q?LxO5tnl5Zcd2kc4AX6jAnU3XSVAUA6cpBEg0VdD8iEzsarCSElHM+hN/9R+P?=
- =?us-ascii?Q?Q7j/689faen2vTK59Dwr8ZpOsg3954CHkjGr7IDc4ZjK3yxAwYPjZTPHwri6?=
- =?us-ascii?Q?UTaiRCDlh0I+2J//IwsWjykCnTlPQ4b/gmUOlur+5cKHXK8bHKREmqmpiYVB?=
- =?us-ascii?Q?e7EQLaxojwRwbk7e8fsfVrYxdiAijrjihHxyqMSBpNQOM9EXaqNus2yz+3q2?=
- =?us-ascii?Q?aioAYACGd4WPxhdxKncf+OamTgdq6rOBfB1R34hZhgfW8StCQvnglReKV/Kt?=
- =?us-ascii?Q?Mc9NGRk1ZNnAIFYMSmrMBSOwxwiKXDDN/1VxbaBZ/fQKUXHm5jWuM3TEVPjX?=
- =?us-ascii?Q?JzIg6B20xTrLFr5lXLxLRw2G4m2iOqqgc1T13ChIWKfE5W6ZHrLTZxERXphf?=
- =?us-ascii?Q?oBiv6+ZDSPM8nmQixNaK9tsBTvMVTvlFjQb6ZW6BtB17hNIzGUCKGgKmC4Vf?=
- =?us-ascii?Q?FUq/XkuOnh9o8224Y9bccFqQR8V4WHCUCDJhb7VSImOQSpPMabFFczAcuCzJ?=
- =?us-ascii?Q?YflzrzD2FY9S7P+fInVpWV6gmPNFozPZdoVPZw4spnUNfBMijPt9BZCsO05/?=
- =?us-ascii?Q?ieYi5Zt6sCRWdODBBSep4akCz2vYJBcLXwuOz1aRYMt47dSL2xvqYeIrUxpm?=
- =?us-ascii?Q?iirTtW1GKdj+aJzh+19vuYmIKNNAO73qraukh7czS902W+43+DxrmezLE6qC?=
- =?us-ascii?Q?ZT10W0VWpbJGVkEEAKJa9Smcz930U0QHp5pINJfhwM/E4U4hWnfzKvBPtUVL?=
- =?us-ascii?Q?hTBbfB+QMN825nqJdXjT8Yb8IMd/CknnORCrn7qSt38XyOCgGwwMzCNSj2kD?=
- =?us-ascii?Q?ADCIgXwfplAQdtEhpao9NybMeYvylsyrnWKpD0TrB9EQcP/RYtwCNknCOcY1?=
- =?us-ascii?Q?WbZS0BTqIlxSnNKGOP6jr0F3PP59tfVsdh9HuLL/bwwrrC2fyq0x9p7l+aSd?=
- =?us-ascii?Q?S4oQn/PEgNr/PQGPd/2kpSEOUgRf6snFRMkLo8IT1byyELhTlJMOrhVBeov+?=
- =?us-ascii?Q?/n1iXP9Yia6XhrA4JvI+k/+wAnBUIqIb8H4moEF7QZieevNbZ2p7L0gO9wNZ?=
- =?us-ascii?Q?K8UxNx4Pwx21zRTIo1+9eTkryotuL1GA93ZRTJK3GIOb5QHqDiFk6+v2nhyj?=
- =?us-ascii?Q?XGL/usAdd8BwD0icHz45QcVFDryzgGyQPTq7D4wuj15+rUi5YD7TI3qSM4GK?=
- =?us-ascii?Q?H02mWd1rP9Zh5x8FvTq8fKvftfmspcyMqFh4jEhHLJKbJtxC3GOGSlu2Mw5s?=
- =?us-ascii?Q?kYTi2ekTmvz+YU/weoqURwlgHjVTeIIRKCNQqf1mo7z/fxOxe7/+G9RCga8z?=
- =?us-ascii?Q?1YbDSL/G8qGP4pNeeFj745icNbVIn2/jEDdIt3QWr9lpIFJ3jmiz+HrHJFH7?=
- =?us-ascii?Q?YfJmtSWZzAnkuJoEQzlHCi5JpSJWgmzsm3o/d+JL7RsNev7XPT5WPuT8kobI?=
- =?us-ascii?Q?qp/t+k7BnuxnPXNlsu007O1+BEizQUFNXPg/fY22uwI2gl1kt+TfA0rkR/Qv?=
- =?us-ascii?Q?IGGKy0Wce1gTW9Nr/5vaa3rSHvAO/xQojMK2AhxkkX4MHUIWEBSHC/v/NxWZ?=
- =?us-ascii?Q?BHhoaUytoN5tdS36v+pwtsWtsmJFl61HyA5kP+nMsIsk3njEKJDaL8djX+HS?=
-X-MS-Exchange-AntiSpam-MessageData-1: rH4EUJt9UeMPyg==
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a15b3ede-bbe5-4356-49f4-08de520673ee
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jan 2026 18:14:41.5582
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3q3OKxWYB03pJkCe7qibIWCBrfENWFGeU5yayfdut1npMF5FQRO7KerFgO8hFy4Qn3zxyCdUb4sY4tG8Ql2vRQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7448
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/33 v6] cpuset/isolation: Honour kthreads preferred
+ affinity
+To: Frederic Weisbecker <frederic@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>
+Cc: Tejun Heo <tj@kernel.org>, Phil Auld <pauld@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Lai Jiangshan
+ <jiangshanlai@gmail.com>, Danilo Krummrich <dakr@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Michal Koutny <mkoutny@suse.com>,
+ netdev@vger.kernel.org, Roman Gushchin <roman.gushchin@linux.dev>,
+ linux-block@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
+ Eric Dumazet <edumazet@google.com>, Michal Hocko <mhocko@suse.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, Ingo Molnar <mingo@redhat.com>,
+ Chen Ridong <chenridong@huawei.com>, cgroups@vger.kernel.org,
+ linux-pci@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "David S . Miller" <davem@davemloft.net>, Vlastimil Babka <vbabka@suse.cz>,
+ Marco Crivellari <marco.crivellari@suse.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Jens Axboe <axboe@kernel.dk>,
+ "Rafael J . Wysocki" <rafael@kernel.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, Simon Horman <horms@kernel.org>,
+ Shakeel Butt <shakeel.butt@linux.dev>, linux-mm@kvack.org,
+ Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ Gabriele Monaco <gmonaco@redhat.com>, Muchun Song <muchun.song@linux.dev>,
+ Will Deacon <will@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Chen Ridong <chenridong@huaweicloud.com>
+References: <20260101221359.22298-1-frederic@kernel.org>
+In-Reply-To: <20260101221359.22298-1-frederic@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: aOzD75ghMDqRJY2PNi19qDnY4s3zmWq_IN-gPCupsn8_1768242237
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_101446_151579_EA3121A3 
-X-CRM114-Status: GOOD (  30.54  )
+X-CRM114-CacheID: sfid-20260112_102404_366328_2DE4EB7C 
+X-CRM114-Status: GOOD (  18.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,185 +132,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Meghana,
-
-On Wed, Jan 07, 2026 at 06:21:11PM +0530, Meghana Malladi wrote:
-> Add ethtool ops .get_mm, .set_mm and .get_mm_stats to enable / disable
-> Mac merge frame preemption and dump Preemption related statistics for
-> ICSSG driver. Add pa stats registers for mac merge related statistics,
-> which can be dumped using the ethtool ops.
-> 
-> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> ---
->  drivers/net/ethernet/ti/icssg/icssg_ethtool.c | 58 +++++++++++++++++++
->  drivers/net/ethernet/ti/icssg/icssg_prueth.h  |  2 +-
->  drivers/net/ethernet/ti/icssg/icssg_stats.h   |  5 ++
->  .../net/ethernet/ti/icssg/icssg_switch_map.h  |  5 ++
->  4 files changed, 69 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-> index b715af21d23a..ceca6d6ec0f4 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-> @@ -294,6 +294,61 @@ static int emac_set_per_queue_coalesce(struct net_device *ndev, u32 queue,
->  	return 0;
->  }
->  
-> +static int emac_get_mm(struct net_device *ndev, struct ethtool_mm_state *state)
-> +{
-> +	struct prueth_emac *emac = netdev_priv(ndev);
-> +	struct prueth_qos_iet *iet = &emac->qos.iet;
-> +	void __iomem *config;
-> +
-> +	config = emac->dram.va + ICSSG_CONFIG_OFFSET;
-> +
-> +	state->tx_enabled = iet->fpe_enabled;
-
-I would expect state->tx_enabled to be returned from
-iet->fpe_configured, aka from the same variable in which tx_enabled was
-saved in emac_set_mm(). In case it's not clear, ethtool saves state in
-the device driver and expects that state to be later returned in the
-get() callback.
-
-> +	state->pmac_enabled = true;
-> +	state->verify_status = readb(config + PRE_EMPTION_VERIFY_STATUS);
-> +	state->tx_min_frag_size = iet->tx_min_frag_size;
-
-What is the range of acceptable values for PRE_EMPTION_ADD_FRAG_SIZE_LOCAL?
-Is it safe to accept this value with no sanitization, just the ethtool
-netlink policy which limits it between 60 and 252? Even if that is the
-case, please add a comment specifying what the valid range is.
-
-> +	state->rx_min_frag_size = 124;
-
-Please add a comment justifying this non-standard value.
-
-> +	state->tx_active = readb(config + PRE_EMPTION_ACTIVE_TX) ? true : false;
-> +	state->verify_enabled = readb(config + PRE_EMPTION_ENABLE_VERIFY) ? true : false;
-> +	state->verify_time = iet->verify_time_ms;
-
-Why are some values returned from firmware and others from driver memory?
-
-> +
-> +	/* 802.3-2018 clause 30.14.1.6, says that the aMACMergeVerifyTime
-> +	 * variable has a range between 1 and 128 ms inclusive. Limit to that.
-> +	 */
-> +	state->max_verify_time = 128;
-
-ETHTOOL_MM_MAX_VERIFY_TIME_MS
-
-> +
-> +	return 0;
-> +}
-> +
-> +static int emac_set_mm(struct net_device *ndev, struct ethtool_mm_cfg *cfg,
-> +		       struct netlink_ext_ack *extack)
-> +{
-> +	struct prueth_emac *emac = netdev_priv(ndev);
-> +	struct prueth_qos_iet *iet = &emac->qos.iet;
-> +
-> +	if (!cfg->pmac_enabled)
-> +		netdev_err(ndev, "preemptible MAC is always enabled");
-
-missing \n, OR use NL_SET_ERR_MSG_MOD(extack) which doesn't need \n.
-Doing the latter is preferable, because the driver still accepts the
-command while not modifying its internal state, and ethtool prints the
-extack as warning if the return code was 0.
-The catch is that openlldp sets pmac_enabled=false on exit, and that
-would otherwise generate a noisy netdev_err() in your proposal (but
-would be silent with the extack):
-https://github.com/intel/openlldp/blob/master/lldp_8023.c#L443-L444
-
-> +
-> +	iet->verify_time_ms = cfg->verify_time;
-> +	iet->tx_min_frag_size = cfg->tx_min_frag_size;
-> +
-> +	iet->fpe_configured = cfg->tx_enabled;
-> +	iet->mac_verify_configured = cfg->verify_enabled;
-
-Changes to the verification parameters should retrigger the verification
-state machine, even if the link did not flap. Also, changes to the
-ENABLED state should similarly be applied right away.
-
-> +
-> +	return 0;
-> +}
-> +
-> +static void emac_get_mm_stats(struct net_device *ndev,
-> +			      struct ethtool_mm_stats *s)
-> +{
-> +	struct prueth_emac *emac = netdev_priv(ndev);
-> +
-> +	s->MACMergeFrameAssOkCount = emac_get_stat_by_name(emac, "FW_PREEMPT_ASSEMBLY_OK");
-> +	s->MACMergeFrameAssErrorCount = emac_get_stat_by_name(emac, "FW_PREEMPT_ASSEMBLY_ERR");
-> +	s->MACMergeFragCountRx = emac_get_stat_by_name(emac, "FW_PREEMPT_FRAG_CNT_RX");
-> +	s->MACMergeFragCountTx = emac_get_stat_by_name(emac, "FW_PREEMPT_FRAG_CNT_TX");
-> +	s->MACMergeFrameSmdErrorCount = emac_get_stat_by_name(emac, "FW_PREEMPT_BAD_FRAG");
-> +}
-> +
->  const struct ethtool_ops icssg_ethtool_ops = {
->  	.get_drvinfo = emac_get_drvinfo,
->  	.get_msglevel = emac_get_msglevel,
-> @@ -317,5 +372,8 @@ const struct ethtool_ops icssg_ethtool_ops = {
->  	.set_eee = emac_set_eee,
->  	.nway_reset = emac_nway_reset,
->  	.get_rmon_stats = emac_get_rmon_stats,
-> +	.get_mm = emac_get_mm,
-> +	.set_mm = emac_set_mm,
-> +	.get_mm_stats = emac_get_mm_stats,
->  };
->  EXPORT_SYMBOL_GPL(icssg_ethtool_ops);
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> index 7a586038adf8..9c31574cc7f6 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> @@ -58,7 +58,7 @@
->  
->  #define ICSSG_MAX_RFLOWS	8	/* per slice */
->  
-> -#define ICSSG_NUM_PA_STATS	32
-> +#define ICSSG_NUM_PA_STATS	37
-
-Can't this be expressed as ARRAY_SIZE(icssg_all_pa_stats)? It is very
-fragile to have to count and update this manually.
-
->  #define ICSSG_NUM_MIIG_STATS	60
->  /* Number of ICSSG related stats */
->  #define ICSSG_NUM_STATS (ICSSG_NUM_MIIG_STATS + ICSSG_NUM_PA_STATS)
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/net/ethernet/ti/icssg/icssg_stats.h
-> index 5ec0b38e0c67..f35ae1b4f846 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
-> @@ -189,6 +189,11 @@ static const struct icssg_pa_stats icssg_all_pa_stats[] = {
->  	ICSSG_PA_STATS(FW_INF_DROP_PRIOTAGGED),
->  	ICSSG_PA_STATS(FW_INF_DROP_NOTAG),
->  	ICSSG_PA_STATS(FW_INF_DROP_NOTMEMBER),
-> +	ICSSG_PA_STATS(FW_PREEMPT_BAD_FRAG),
-> +	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_ERR),
-> +	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_TX),
-> +	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_OK),
-> +	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_RX),
->  	ICSSG_PA_STATS(FW_RX_EOF_SHORT_FRMERR),
->  	ICSSG_PA_STATS(FW_RX_B0_DROP_EARLY_EOF),
->  	ICSSG_PA_STATS(FW_TX_JUMBO_FRM_CUTOFF),
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h b/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-> index 7e053b8af3ec..855fd4ed0b3f 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-> @@ -256,6 +256,11 @@
->  #define FW_INF_DROP_PRIOTAGGED		0x0148
->  #define FW_INF_DROP_NOTAG		0x0150
->  #define FW_INF_DROP_NOTMEMBER		0x0158
-> +#define FW_PREEMPT_BAD_FRAG		0x0160
-> +#define FW_PREEMPT_ASSEMBLY_ERR		0x0168
-> +#define FW_PREEMPT_FRAG_CNT_TX		0x0170
-> +#define FW_PREEMPT_ASSEMBLY_OK		0x0178
-> +#define FW_PREEMPT_FRAG_CNT_RX		0x0180
->  #define FW_RX_EOF_SHORT_FRMERR		0x0188
->  #define FW_RX_B0_DROP_EARLY_EOF		0x0190
->  #define FW_TX_JUMBO_FRM_CUTOFF		0x0198
-> -- 
-> 2.43.0
+On 1/1/26 5:13 PM, Frederic Weisbecker wrote:
+> Hi,
 >
+> The kthread code was enhanced lately to provide an infrastructure which
+> manages the preferred affinity of unbound kthreads (node or custom
+> cpumask) against housekeeping constraints and CPU hotplug events.
+>
+> One crucial missing piece is cpuset: when an isolated partition is
+> created, deleted, or its CPUs updated, all the unbound kthreads in the
+> top cpuset are affine to _all_ the non-isolated CPUs, possibly breaking
+> their preferred affinity along the way
+>
+> Solve this with performing the kthreads affinity update from cpuset to
+> the kthreads consolidated relevant code instead so that preferred
+> affinities are honoured.
+>
+> The dispatch of the new cpumasks to workqueues and kthreads is performed
+> by housekeeping, as per the nice Tejun's suggestion.
+>
+> As a welcome side effect, HK_TYPE_DOMAIN then integrates both the set
+> from isolcpus= and cpuset isolated partitions. Housekeeping cpumasks are
+> now modifyable with specific synchronization. A big step toward making
+> nohz_full= also mutable through cpuset in the future.
+>
+> Changes since v5:
+>
+> * Add more tags
+>
+> * Fix leaked destroy_work_on_stack() (Zhang Qiao, Waiman Long)
+>
+> * Comment schedule_drain_work() synchronization requirement (Tejun)
+>
+> * s/Revert of/Inverse of (Waiman Long)
+>
+> * Remove housekeeping_update() needless (for now) parameter (Chen Ridong)
+>
+> * Don't propagate housekeeping_update() failures beyond allocations (Waiman Long)
+>
+> * Whitespace cleanup (Waiman Long)
+>
+>
+> git://git.kernel.org/pub/scm/linux/kernel/git/frederic/linux-dynticks.git
+> 	kthread/core-v6
+>
+> HEAD: 811e87ca8a0a1e54eb5f23e71896cb97436cccdc
+>
+> Happy new year,
+> 	Frederic
+
+I don't see any major issue with this v6 version. There may be some 
+minor issues that can be cleaned up later. Now the issue is which tree 
+should this series go to as it touches a number of different subsystems 
+with different maintainers.
+
+Cheers,
+Longman
+
 
