@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5643CC9EC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 13:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183BBC9EC8B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 13:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PSgqU+F7X2s8rj28W/xLbkWudW7i4G77/ULJT1GEutM=; b=sM4EmZHnqflV0n7oZg5V+w72/8
-	tF64bGcqO/E21Nnmg057L7RIOY+4Gt8GHp76Drptx+4jIC3Sc0at14fijdnUAV6MwIkAWSsF55GSK
-	u58tK2HnsXxmvmGT8rU13F/WVuVW3F3g0PZ685WPe9G1TpHLiSgSBPE7hasACncE9N3Ckyuq/xmVJ
-	dVqB7+ix0eCXgXdL1c1Ib66oLHu19/V5DXPhr+zTD2rVsPZn0+S9RJfteoUSEdZyeeiTbvHMIExse
-	lgy9DEjzFoboFhDzry3HLgGTsGGWdPUNsY7TMAa1ByB5sUYL68TfUwozF/o+guM5sUO/Ex4JK9mc8
-	lAQqMg6g==;
+	bh=IaMUeZ61KcIsfoWqo/Ut8gaTEoMImMfZQvRUuQXMr0A=; b=lqJi+qnd40PcNTLCdPPNMilVAj
+	ltGhxa0g4T7+KRNc7VWs9UIsghMZm3TFjdcierVK0TmG5rbj9Fbcn4O2JBXteYkPUU7WGZMifu/ue
+	7vR8bSNbBBw3/yIO+Y6fVDY5yJY6AxqvNsQl8eAFz3L0vWSknAhOISG6Ce+umTt2aEZMwrvhCHpWj
+	XoK3Kfr5UBD8W2kp3ooMBCF+fltRSVqYfXOk5pAYfnfj+WT/DSdNfu0QWCPx5tDmfN4i+5RwISUhA
+	Xj91XcgQ8SVLwnHwKXt4i5eNBpFifJGSbBNxJmqmsDhYnISYMDYkM0pYL/OiulqYnlXj90LtN2LS8
+	eUu+e0LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfHYD-00000005Mrq-12d1;
-	Mon, 12 Jan 2026 13:01:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vfHbs-00000005NGH-2YUW;
+	Mon, 12 Jan 2026 13:05:28 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfHYC-00000005Mrh-2iFr;
-	Mon, 12 Jan 2026 13:01:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BDC636013C;
-	Mon, 12 Jan 2026 13:01:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2987C19422;
-	Mon, 12 Jan 2026 13:01:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768222899;
-	bh=WLtpL3iiLHc+bo5wxz2Ay2u3w3qNsN2rTz0oFg1Enb0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rXpL3ocfh373K5bNXWgVfNocnwtPg11QneBpqIT66SgmmZ/6+awvuRRAs6hTWn3Iq
-	 bcl9sVDzTDUlH58n7OTWA7Ow5zH/zTAidmSunr1zSCV7wYLQ6IuEpHb1q50qGePdf/
-	 PAhA4LZm8r4xFIuS2KE+Ngg9rjsPTcO2qGiQXm+GwTe17ykNXaZGF5UZzQJLYgf+xD
-	 BPDMm+HMpYRLY0M9QmCK6sJM+ACJnMQ0KQyXmq2N5t91Gcbl0TWXezGTixppahR1vh
-	 vJ5SiF+P4EuQP4AruPe8Gy2Byg9B6EUPJJ2EtOAoKb4j4WrHjKfzutdV+iRJD1El6U
-	 X3sv697FjFtzg==
-Date: Mon, 12 Jan 2026 14:01:32 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>,
-	Chaitanya Kulkarni <kch@nvidia.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Koichiro Den <den@valinux.co.jp>, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-nvme@lists.infradead.org, mhi@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	Damien Le Moal <dlemoal@kernel.org>
-Subject: Re: [PATCH v3 0/9] dmaengine: Add new API to combine configuration
- and descriptor preparation
-Message-ID: <aWTwrOOXX3AR8Ght@ryzen>
-References: <20260105-dma_prep_config-v3-0-a8480362fd42@nxp.com>
+	id 1vfHbp-00000005NFN-2pvA;
+	Mon, 12 Jan 2026 13:05:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=IaMUeZ61KcIsfoWqo/Ut8gaTEoMImMfZQvRUuQXMr0A=; b=FNb9xu+tpIA986WGcfc5GGMrjd
+	n3ULGTmqRy2V3mm8zr2D6gvBUA2NkIUJ5RPDBO5YDNYtVN/nexDz17BCrQr++Rw1YextI9pzoPX5k
+	P8ldWbbwbEiYZhxv1cmOtiIiMuBQki4Ye/NY65H1s5cPa9L0S0FmKm0Q+vvaX+9Tw16Q=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vfHba-002TRY-Cd; Mon, 12 Jan 2026 14:05:10 +0100
+Date: Mon, 12 Jan 2026 14:05:10 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: vkoul@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, sjakhade@cadence.com,
+	rogerq@kernel.org, thomas.richard@bootlin.com,
+	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	srk@ti.com
+Subject: Re: [PATCH v3 2/2] phy: cadence-torrent: Add PCIe + XAUI multilink
+ configuration for 100MHz refclk
+Message-ID: <38da25fd-a402-4b34-8131-0655bccc1953@lunn.ch>
+References: <20260112054636.108027-1-s-vadapalli@ti.com>
+ <20260112054636.108027-3-s-vadapalli@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260105-dma_prep_config-v3-0-a8480362fd42@nxp.com>
+In-Reply-To: <20260112054636.108027-3-s-vadapalli@ti.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260112_050525_711139_01F7AEA6 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,30 +72,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Frank,
+On Mon, Jan 12, 2026 at 11:16:31AM +0530, Siddharth Vadapalli wrote:
+> From: Swapnil Jakhade <sjakhade@cadence.com>
+> 
+> Add register sequences for PCIe + XAUI multilink configuration for
+> 100MHz reference clock.
+> 
+> The register sequences are fetched from a table by indexing entries based
+> on unique 'keys' generated by the Bitwise OR defined below:
+> 	REFCLK0_RATE | REFCLK1_RATE | LINK0_TYPE | LINK1_TYPE | SSC_TYPE
+> 
+> As of now, LINK_TYPE is a 3-bit value corresponding to the PHY type.
+> With the introduction of TYPE_XAUI, we need a 4-bit value to represent
+> the LINK_TYPE as TYPE_XAUI has the numerical value 8. Hence, extend the
+> LINKx_MASK macros to 4-bit masks. While at it, extend REFCLKx_MASK macros
+> as well to 4-bit masks to support reference clock frequencies that will be
+> added in the future.
+> 
+> Adjust the 'LINKx_SHIFT' and the 'REFCLKx_SHIFT' macros to account for
+> the aforementioned changes made to the masks.
+> 
+> Signed-off-by: Swapnil Jakhade <sjakhade@cadence.com>
+> [s-vadapalli: elaborated on changes made to macros in the commit message]
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 
-Thanks a lot for your work on this series!
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-On Mon, Jan 05, 2026 at 05:46:50PM -0500, Frank Li wrote:
->  Documentation/driver-api/dmaengine/client.rst |   9 ++
->  drivers/crypto/atmel-aes.c                    |  10 +--
->  drivers/dma/dmaengine.c                       |   3 +
->  drivers/dma/dw-edma/dw-edma-core.c            |  41 ++++++---
->  drivers/nvme/target/pci-epf.c                 |  21 ++---
->  drivers/pci/endpoint/functions/pci-epf-mhi.c  |  52 ++++--------
->  drivers/pci/endpoint/functions/pci-epf-test.c |   8 +-
->  include/linux/dmaengine.h                     | 117 ++++++++++++++++++++++++--
->  8 files changed, 177 insertions(+), 84 deletions(-)
-
-Is the plan to merge this series via the dmaengine tree?
-
-If so, we might need an Ack from Mani on the pci-epf-mhi.c and
-pci-epf-test.c patch.
-
-Likewise we might need an Ack from Keith/Christoph on the
-drivers/nvme/target/pci-epf.c patches.
-
-
-Kind regards,
-Niklas
+    Andrew
 
