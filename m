@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15D06CF45C8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 19:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA303CF45C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 19:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DWUiS6AJQJZcAWVdakexnBMIfXhXehTznfwkYQW9Ms4=; b=Iuu+QyrAe8IcXlZ0htSnVm1Kt/
-	xxTLWtWfnIs2blHh+es1rd8O3OFJy83rTIZUzJO/FgQs0b9D0Rc76L/WcZExUYiiyVyPMCCuTqAj1
-	pbiss13LG/bPOAR/KFPwrBAUfm5X4oXigzLoRM6Cq1yge37Pn0tRfv04lUuOLZMQRt/ZKMeprWLm8
-	cYZYpWn30sxvEeBUCyLctzs/WroIyBMfqYov4fzWnuCX76vAPiNfOO3y+4TsNbT7CGSpVLeSlHls/
-	p9irYYKca1A0xNdFnGmx9zyrZdhobpG0rQPnRNgf4jin2FgBqsxSrRSLye4U3fFMgZK83TSg/lkou
-	RhyDIeGQ==;
+	bh=eotzGZuj6oHcNUoE65S+8YyxwiDDPFCNbNf8w4JzmKg=; b=hRd9Jy3ErgV6Kl/SKPdmXx0sml
+	YemxccZ3b/T3uI6ZYKY6EBGNzdjWSiRW6pR5tWCsl3A3M2g49WZ9rAmR+kt1EtyMYNluKjBtIMb3z
+	njkZs5MwmYfh2yvj3bnqcaB4nxqw/dvqU1GW9PXntL6A/r6zRyaUaP4a9RUWG3OfWVizEokzI+4YN
+	BQXppdnoXeQ9JGbhXGubRoCSpAn8YNOrm5N1pfvSlzx3bbIf9o7eGgTOSUgGBFbT0ny9cb7Kbe4R6
+	z7CTXQbWp2FgAn7hAgILaKsjJG45jz6Sl29VjgGmjRitm5zbE4SUrecYrlqq2JEjOlU3J8/35hGs7
+	+6eym+Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNYH-000000062lg-1JWv;
-	Mon, 12 Jan 2026 19:26:09 +0000
+	id 1vfNYU-00000006394-1WEq;
+	Mon, 12 Jan 2026 19:26:22 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNVn-00000005zCu-2gDq;
-	Mon, 12 Jan 2026 19:23:38 +0000
+	id 1vfNVo-00000005zEY-3d4i;
+	Mon, 12 Jan 2026 19:23:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2292344404;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3DCE344407;
+	Mon, 12 Jan 2026 19:23:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACBFBC2BCAF;
 	Mon, 12 Jan 2026 19:23:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92D62C2BC9E;
-	Mon, 12 Jan 2026 19:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768245815;
-	bh=o3zwy8vdt1uNhlRXa37yap+uRed8L836MSpoje1i5gA=;
+	s=k20201202; t=1768245816;
+	bh=IaZD3/z0VruOzVsSeL0tDqsMVtMwLaUfDPIoikws89s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=m+iQkfrebqurkYNcMsEDhd2QqbiCtp7wnSgHoAica72oEzTDfUKkSMUWZXpuRb9em
-	 1Do/8hqedeDta5gxo8MqlDW61v9x7Q7vZTzXp2TkY2U7zjXVxEQdDb5Tc0XzAX7VVU
-	 9TKEdQm8jHgXrAALBCww1rQnpHL301XBCKXcpnpH8fVqyvtxN0AZzZ4xBw/eYgSrKk
-	 cV3ifLIvrwSzEZQPhWE6hzNHFva8oR20xdbCbycacxePJ6OtQUL7re5uWOMRmer5Mp
-	 aKzUopZrsfMlXGNoISdPApHFyM2o8Bm7RRE27u6Iu2eUcffx29++btLMVG3D96Ohac
-	 Y99nAkUMvYzgA==
+	b=q3sNENqrqqcDO42H3lrCThh+O5h92X8jFa5+tyEgHLXYbkUrGuEi+TF4kolK1HG/M
+	 qRHleKOVc2gNdaCvzYJzBH4ip58WuHHubI/tDcfQz+bN8BQTD3AuPGgpYpmnkfcCuC
+	 9aBq4nnn6tmgXqBvr+y2xAfXBUvB3wbLUai/RlUHDoVCdB3qck4LsjpoWvgk0se1sv
+	 MpKfr/zHghjuoNnlDAGcx2GhZ9jiA3JkayZabe8haqjO7Nu5GiqDiJb4KKi3aFOV32
+	 CwxqAWZ7bdKY6hmIG8H89AEmcRc6JM5eRVcDODpIIZWUiVvaFNRj1xe1wnIMiIG+7S
+	 a9PMzFVoUk01g==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,17 +56,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 31/35] crypto: omap - Use new AES library API
-Date: Mon, 12 Jan 2026 11:20:29 -0800
-Message-ID: <20260112192035.10427-32-ebiggers@kernel.org>
+Subject: [PATCH v2 33/35] lib/crypto: aesgcm: Use new AES library API
+Date: Mon, 12 Jan 2026 11:20:31 -0800
+Message-ID: <20260112192035.10427-34-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260112192035.10427-1-ebiggers@kernel.org>
 References: <20260112192035.10427-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_112335_765161_3126C035 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20260112_112336_992703_8D57789F 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,70 +95,102 @@ calling the new encryption function rather than the old one.
 Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- drivers/crypto/omap-aes-gcm.c | 6 +++---
- drivers/crypto/omap-aes.h     | 2 +-
- 2 files changed, 4 insertions(+), 4 deletions(-)
+ include/crypto/gcm.h |  2 +-
+ lib/crypto/aesgcm.c  | 12 ++++++------
+ 2 files changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/crypto/omap-aes-gcm.c b/drivers/crypto/omap-aes-gcm.c
-index 1f4586509ca4..c652f9d0062f 100644
---- a/drivers/crypto/omap-aes-gcm.c
-+++ b/drivers/crypto/omap-aes-gcm.c
-@@ -175,11 +175,11 @@ static int omap_aes_gcm_copy_buffers(struct omap_aes_dev *dd,
- 
- static int do_encrypt_iv(struct aead_request *req, u32 *tag, u32 *iv)
- {
- 	struct omap_aes_gcm_ctx *ctx = crypto_aead_ctx(crypto_aead_reqtfm(req));
- 
--	aes_encrypt(&ctx->actx, (u8 *)tag, (u8 *)iv);
-+	aes_encrypt(&ctx->akey, (u8 *)tag, (const u8 *)iv);
+diff --git a/include/crypto/gcm.h b/include/crypto/gcm.h
+index fd9df607a836..b524e47bd4d0 100644
+--- a/include/crypto/gcm.h
++++ b/include/crypto/gcm.h
+@@ -64,11 +64,11 @@ static inline int crypto_ipsec_check_assoclen(unsigned int assoclen)
  	return 0;
  }
  
- void omap_aes_gcm_dma_out_callback(void *data)
+ struct aesgcm_ctx {
+ 	be128			ghash_key;
+-	struct crypto_aes_ctx	aes_ctx;
++	struct aes_enckey	aes_key;
+ 	unsigned int		authsize;
+ };
+ 
+ int aesgcm_expandkey(struct aesgcm_ctx *ctx, const u8 *key,
+ 		     unsigned int keysize, unsigned int authsize);
+diff --git a/lib/crypto/aesgcm.c b/lib/crypto/aesgcm.c
+index ac0b2fcfd606..02f5b5f32c76 100644
+--- a/lib/crypto/aesgcm.c
++++ b/lib/crypto/aesgcm.c
+@@ -10,11 +10,11 @@
+ #include <crypto/ghash.h>
+ #include <linux/export.h>
+ #include <linux/module.h>
+ #include <asm/irqflags.h>
+ 
+-static void aesgcm_encrypt_block(const struct crypto_aes_ctx *ctx, void *dst,
++static void aesgcm_encrypt_block(const struct aes_enckey *key, void *dst,
+ 				 const void *src)
  {
-@@ -312,11 +312,11 @@ int omap_aes_gcm_setkey(struct crypto_aead *tfm, const u8 *key,
- 			unsigned int keylen)
+ 	unsigned long flags;
+ 
+ 	/*
+@@ -24,11 +24,11 @@ static void aesgcm_encrypt_block(const struct crypto_aes_ctx *ctx, void *dst,
+ 	 * mitigates this risk to some extent by pulling the entire S-box into
+ 	 * the caches before doing any substitutions, but this strategy is more
+ 	 * effective when running with interrupts disabled.
+ 	 */
+ 	local_irq_save(flags);
+-	aes_encrypt(ctx, dst, src);
++	aes_encrypt(key, dst, src);
+ 	local_irq_restore(flags);
+ }
+ 
+ /**
+  * aesgcm_expandkey - Expands the AES and GHASH keys for the AES-GCM key
+@@ -47,16 +47,16 @@ int aesgcm_expandkey(struct aesgcm_ctx *ctx, const u8 *key,
  {
- 	struct omap_aes_gcm_ctx *ctx = crypto_aead_ctx(tfm);
+ 	u8 kin[AES_BLOCK_SIZE] = {};
  	int ret;
  
--	ret = aes_expandkey(&ctx->actx, key, keylen);
-+	ret = aes_prepareenckey(&ctx->akey, key, keylen);
+ 	ret = crypto_gcm_check_authsize(authsize) ?:
+-	      aes_expandkey(&ctx->aes_ctx, key, keysize);
++	      aes_prepareenckey(&ctx->aes_key, key, keysize);
  	if (ret)
  		return ret;
  
- 	memcpy(ctx->octx.key, key, keylen);
- 	ctx->octx.keylen = keylen;
-@@ -332,11 +332,11 @@ int omap_aes_4106gcm_setkey(struct crypto_aead *tfm, const u8 *key,
+ 	ctx->authsize = authsize;
+-	aesgcm_encrypt_block(&ctx->aes_ctx, &ctx->ghash_key, kin);
++	aesgcm_encrypt_block(&ctx->aes_key, &ctx->ghash_key, kin);
  
- 	if (keylen < 4)
- 		return -EINVAL;
- 	keylen -= 4;
+ 	return 0;
+ }
+ EXPORT_SYMBOL(aesgcm_expandkey);
  
--	ret = aes_expandkey(&ctx->actx, key, keylen);
-+	ret = aes_prepareenckey(&ctx->akey, key, keylen);
- 	if (ret)
- 		return ret;
+@@ -95,11 +95,11 @@ static void aesgcm_mac(const struct aesgcm_ctx *ctx, const u8 *src, int src_len,
+ 	aesgcm_ghash(&ghash, &ctx->ghash_key, assoc, assoc_len);
+ 	aesgcm_ghash(&ghash, &ctx->ghash_key, src, src_len);
+ 	aesgcm_ghash(&ghash, &ctx->ghash_key, &tail, sizeof(tail));
  
- 	memcpy(ctx->octx.key, key, keylen);
- 	memcpy(ctx->octx.nonce, key + keylen, 4);
-diff --git a/drivers/crypto/omap-aes.h b/drivers/crypto/omap-aes.h
-index 99c36a777e97..6aa70bde387a 100644
---- a/drivers/crypto/omap-aes.h
-+++ b/drivers/crypto/omap-aes.h
-@@ -96,11 +96,11 @@ struct omap_aes_ctx {
- 	struct crypto_skcipher	*fallback;
- };
+ 	ctr[3] = cpu_to_be32(1);
+-	aesgcm_encrypt_block(&ctx->aes_ctx, buf, ctr);
++	aesgcm_encrypt_block(&ctx->aes_key, buf, ctr);
+ 	crypto_xor_cpy(authtag, buf, (u8 *)&ghash, ctx->authsize);
  
- struct omap_aes_gcm_ctx {
- 	struct omap_aes_ctx	octx;
--	struct crypto_aes_ctx	actx;
-+	struct aes_enckey	akey;
- };
+ 	memzero_explicit(&ghash, sizeof(ghash));
+ 	memzero_explicit(buf, sizeof(buf));
+ }
+@@ -117,11 +117,11 @@ static void aesgcm_crypt(const struct aesgcm_ctx *ctx, u8 *dst, const u8 *src,
+ 		 * inadvertent IV reuse, which must be avoided at all cost for
+ 		 * stream ciphers such as AES-CTR. Given the range of 'int
+ 		 * len', this cannot happen, so no explicit test is necessary.
+ 		 */
+ 		ctr[3] = cpu_to_be32(n++);
+-		aesgcm_encrypt_block(&ctx->aes_ctx, buf, ctr);
++		aesgcm_encrypt_block(&ctx->aes_key, buf, ctr);
+ 		crypto_xor_cpy(dst, src, buf, min(len, AES_BLOCK_SIZE));
  
- struct omap_aes_reqctx {
- 	struct omap_aes_dev *dd;
- 	unsigned long mode;
+ 		dst += AES_BLOCK_SIZE;
+ 		src += AES_BLOCK_SIZE;
+ 		len -= AES_BLOCK_SIZE;
 -- 
 2.52.0
 
