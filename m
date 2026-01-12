@@ -4,179 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 634DCC9EC8D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 14:01:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD5E5C9EC90
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 14:03:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1my+Qz+0ZYYIk6yGQZoYxXTd4Rnkazjgd8h4IPnn+fY=; b=mDaOW8kf73/aTnAIvo/JtSGMsy
-	mQ/N5PraAs2lisB2qE//1CGCNUYlwjHgZKE1NM6vAjhhCMox0gIFotf/1qGcyGXekedeK7L3euHp9
-	12EgU0GI9e5iTWRhuaYuqvLFka08CoDOB9XFz8qC/4+SpEb0j0sxvG5Lf6A8dyhNfUT8zrQSSU5Qx
-	ZBY77JmKHgZLoET8thG1gtQbAWgNMu+Z3fBFonvv+yTwIlNB1Zi14bXgNgVZ7jqI3pMdM9IdlEHL2
-	jtl5ewTveCRCSKRz/oct0+LKs4quLI+0kSWUubo1in8whLy/l6+YnvwRNbHT/gsW0rSRsbLfz6AUA
-	ZSPH/FkQ==;
+	bh=mjGHE7SKRvpgu0mQy8UaTX2mqmcqIvTU8MalHrly0jo=; b=u/hgv6L3/j4r6BBLIMHlnkcPCF
+	LxDEnjL/a9/y4Xn9SpHNujwWqpgt0GumZt0dTeLRd9aGj18vSW6HqUrDbld6O7gkW9rPi4Q5BJO8O
+	GvqHSR4olXinftg9wxbjnexfL+XdUUl+H6D5wOb3KagXwsEgcyMN7JjBz0+eArdctReQca/YrAKc+
+	keR6Rk0m9Rvy9BhoULmb6WemeToWGEa2mKOSCd6tXDZMGMImD0I+ncvXNbvsgpY6eTpN2FXa7u5TN
+	v6yAQJSEW+SnppsFHmhlYJPeb0E55uD4a6Iu5W8aJItsHEmg2YWd2IFjgkChVl3h+Lq+GAG3hgDL+
+	Wln+T7FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfIU3-00000005TVl-0CSU;
-	Mon, 12 Jan 2026 14:01:27 +0000
-Received: from mail-francesouthazon11011071.outbound.protection.outlook.com ([40.107.130.71] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfITy-00000005TUR-0kc6;
-	Mon, 12 Jan 2026 14:01:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eje1Hs7jtK18nexg+qTf3beovAkzDqxwhJXRBFNY0eYScm45mLWa3HmfWyynwWV02sTLQ94I+GuZMSNOMiNw8fZ8vw3fa0ay+7u9rwAzptxQ3V8jOfFrSYLQaWFk7YPB3wjGA+3OfskJK2T3I9wp1WniPiQ75HDfSpnkJhUFeEqFM1hzDCrowT/YvRnA2Ee/uSTcYKG0i9K56MyMlQ5cKSNSW7N4lCps6wsiTZYAmMAUvbey3Vp7MC/zzu6jqiHyunTfDxKf+B6yeM5e+oM6nW5x9HR7ydRuy8C5sOWWwD+hkttNGXhEMD9/C/IWQck3ucRt329QHAdAzimhzzatGQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1my+Qz+0ZYYIk6yGQZoYxXTd4Rnkazjgd8h4IPnn+fY=;
- b=fIx54YGhD8zAmKm+7F0Ei6WseeLWeKNvsYAGdrl759U3IY+O+03eBTqBl1becp2wfClfsorFqTe5j24MLyxDkzI7B3Kpw6I3DuYWj0pQDUYcSW3N9pJDaO/Zb7YlHQuguEpDQwaPcJaryUXR4ICe05X/xUwqPATxiZMfQfp1eArncVbi1HtmoZ9cEBtpUId9pITrLU33n0dvHYUrSzMGyEQg4lnLUEndOW0hFDJ0ni+Tga7zr7pMt9WlD+YYlvVc7xBX4OOHZYCKbiBNVO8VVn+gAZ/g5TOQkzZG3+yluNmK8AH+IEAlYyQ/NaoeLTDw+SF2lQXL/ng+7y29tgzZQA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1my+Qz+0ZYYIk6yGQZoYxXTd4Rnkazjgd8h4IPnn+fY=;
- b=C4aFOvtarrGTai+u7hF/LpzCF8rytRo+8H9aThJZhxKSeue/yeNKDAA9EkKTQbEohFxhBceSfHMNh/D9waAA3U6uGdXEF4Zf1hol9Mrheeop+x4y6Y5gqKNt7opMVFc1FyYOGylugm3P8LA5Sz+SOrCzxmbCI0/rmnOSRARMevU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from GVXPR04MB12038.eurprd04.prod.outlook.com (2603:10a6:150:2be::5)
- by DU2PR04MB8664.eurprd04.prod.outlook.com (2603:10a6:10:2df::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Mon, 12 Jan
- 2026 14:01:13 +0000
-Received: from GVXPR04MB12038.eurprd04.prod.outlook.com
- ([fe80::1033:5a9a:dc18:dad]) by GVXPR04MB12038.eurprd04.prod.outlook.com
- ([fe80::1033:5a9a:dc18:dad%4]) with mapi id 15.20.9499.005; Mon, 12 Jan 2026
- 14:01:13 +0000
-Message-ID: <07ce7c4e-7fc7-40f8-9c46-4977e3ce2458@cherry.de>
-Date: Mon, 12 Jan 2026 15:00:48 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: usb: Add binding for WCH CH334/CH335
- hub controller
-To: Chaoyi Chen <kernel@airkyi.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jonas Karlman <jonas@kwiboo.se>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
- Hsun Lai <i@chainsx.cn>, John Clark <inindev@gmail.com>,
- Jimmy Hon <honyuenkwun@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
- Michael Riesch <michael.riesch@collabora.com>,
- Peter Robinson <pbrobinson@gmail.com>, Alexey Charkov <alchark@gmail.com>,
- Shawn Lin <shawn.lin@rock-chips.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Andy Yan <andy.yan@rock-chips.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-usb@vger.kernel.org
-References: <20260112022823.91-1-kernel@airkyi.com>
- <20260112022823.91-2-kernel@airkyi.com>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20260112022823.91-2-kernel@airkyi.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR3P281CA0209.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:a5::8) To GVXPR04MB12038.eurprd04.prod.outlook.com
- (2603:10a6:150:2be::5)
+	id 1vfIVw-00000005Tvr-2ykE;
+	Mon, 12 Jan 2026 14:03:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfIVs-00000005TuP-4Bnx
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Jan 2026 14:03:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 91536497;
+	Mon, 12 Jan 2026 06:03:11 -0800 (PST)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 305273F59E;
+	Mon, 12 Jan 2026 06:03:16 -0800 (PST)
+Date: Mon, 12 Jan 2026 14:03:13 +0000
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: mark.rutland@arm.com, james.morse@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Subject: Re: [RFC PATCH v6 14/35] KVM: arm64: Add SPE VCPU device attribute
+ to set the max buffer size
+Message-ID: <aWT_Ic9HeWbtZLI5@raptor>
+References: <20251114160717.163230-1-alexandru.elisei@arm.com>
+ <20251114160717.163230-15-alexandru.elisei@arm.com>
+ <c6e1f67c-6c71-4785-a1b9-3be2acee2a3a@linaro.org>
+ <aWTaw_T6jak7Etj1@raptor>
+ <3cf80979-e826-4200-8dad-6ac4738f6463@linaro.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12038:EE_|DU2PR04MB8664:EE_
-X-MS-Office365-Filtering-Correlation-Id: 236af86e-a9f5-41f1-ca08-08de51e30bdb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MlhySHZsUFpZYS94dGFZVHA0YVhsbkNROVpZQUZYRjRUeE1vSEFRbEpVWjFp?=
- =?utf-8?B?RExtV3lmY2liRlYrZ25yQVVCWno2WXFZTjZkKytmSTdyekFleVM0dlFTMUxt?=
- =?utf-8?B?Q1hFZTBJNVYrbmQ0Y2ZCTlZ2bmcxemt2TXA1a0Z3UWd6L0RTb1hyQW5MUHBm?=
- =?utf-8?B?ZkxhdW8xSEdWM1B0RERrcDQ5bFVQaUNBRWd6NzZGZCt0NytWS1Q4OGQ2U3ho?=
- =?utf-8?B?UDUvOWVqbWJZU2tWMkl2RVRtYjdMTW5KekFwbWZWMmJSV0NvU090cDRQSWM2?=
- =?utf-8?B?bFZNNVFCOFQ1djlwamZBWkNaL0Q5dHVxZUxOYlAwSFpyZS9mS1hKUEt0YjBm?=
- =?utf-8?B?bWZWVWhXcGFYek1INTZCYk1MMHZIYXp6bVluTmVQZFRJTktDTmN3cUtlYjYy?=
- =?utf-8?B?ZjZrQ0c3cVlDZkZzNU1nNTQwMElMaXp0MFd2TGY0ci9iTk1WZldZaDJPQUxJ?=
- =?utf-8?B?ZklYWVY4cnFXTkprSzBsMzJOaExKYmswZzlWWnhVS2l4MXNsUlBvbERlQXFr?=
- =?utf-8?B?bVVYeEVpY3kxb29zaFF4TmY4MXlNb0VacXBoV2lrWlpiL2MvRGZCQUtmUkw1?=
- =?utf-8?B?TkFBZWtzaldJTGg0eUJiZVZOaVZhK2tkSkx3d3BndThraXUvUkFLRXArUEZY?=
- =?utf-8?B?WEdmMEhsTURyQVNIUnY2T0NGelJ4TnBwQVRmZmI5Mm9zOUVDVjJXR3RuS2FS?=
- =?utf-8?B?VWRBUWlQRStNR2xlV05YOElmUmlTTW8zdkkwTnZwbUU2UDF2SXN2ZzRtYVZG?=
- =?utf-8?B?Nk0xZVFWaUZsVmRyd0dzSzIvb00yMVpDVFhvNlNLSFZIc1ZVUDFwc3Mxd1Bn?=
- =?utf-8?B?NkU0dnArZkdLQ29uR0dsL1hPRTM4MGpyRmN6TlR5d21hQ2hkVG1vYzhldU4r?=
- =?utf-8?B?Y1hYMFNKY05HaUgxKzVmQzg0Sk9JNmNuOE8yR25rRmV3QzJJTkw1dS9aMFpY?=
- =?utf-8?B?Q0t5R0hBWkFHV3J4RXVTbVA2d05mcXo3Q1BSYjJ3V0J0R3B2Z0QydTFiU2Vp?=
- =?utf-8?B?eDR2SG1zeFB1ZnRMNUhoaXd5ekJhdkNjemUwVDVPaEg2cmtzZE15eGlNbWpJ?=
- =?utf-8?B?YU9CcXJSRkl2U3Jkc253cXZwSkI4SER2Q09QT2NSdnN3SUx3c0YwMzZoQ0pV?=
- =?utf-8?B?WEdPZ3liTE5ZbjJrdXpGMWpXeERNSFBtUFRJZnBLSjFzQ0wxMkFYUzhycGsx?=
- =?utf-8?B?T3FZaTNrcFhodnA5RWlHblhnaU1SL1h1MWQ0VHJpM0FEOTJnQjVtc05XdXBG?=
- =?utf-8?B?ZGdlNFA1L0wwckFTM2hkbGFIWkxiRmtnUzByQ1VWem55alU4cGx6VVNVUktx?=
- =?utf-8?B?L0RjWU50c2RiWHRWTGV4SlcxY08yNEs1T3FSTDFoYWh2SE5KSXlFaHJycTJS?=
- =?utf-8?B?bDFERXZUdWNDdmxFb2tMZ2JCWndkTm5mMys1bUdZcVJXaEFDSjM0OEc2Wi9G?=
- =?utf-8?B?SllKQmFncnBzWmdhcXhFaVg2R0ZwZXNEcHphVVFUVFBBbkdaL2NHbVM5KzZP?=
- =?utf-8?B?VVlBaW9qR0t3enNSUERlOUVoWXRUNEZ3WFBKRHo1OER1T1RPcUlhR01ITEVG?=
- =?utf-8?B?Yzk4N0pzSGV6MEhrVmRmUWZYUGJha3pwZ3dPdzVQN1ZNQnM5bUdRbTJzQ1I2?=
- =?utf-8?B?RVVEaEtvM1ZPSWo5SEU3bnNmbW4zaklzVjVEL1M5RVZoQ1JCM0RDa2g4L0FR?=
- =?utf-8?B?R2JvdDlZTk9XWlFGK01ETXA4NkloNHFNaUF0clJ3Y0lrNEJESXk2Tm50RG5l?=
- =?utf-8?B?YTViNzVNVm5WSmNzdllubm9Ld2lqbkMzSTZsc3FUYWYwQ0lZT1lxNkU1MzBT?=
- =?utf-8?B?eVBsbXIzSUlSTWo4UjlsTUhrU0hGMUhLUFpnQ0l5cEs0T1lEUTgzcDZjRmR2?=
- =?utf-8?B?WVQ0YWU3NTdUWTZuMGhkSWFlUmV0SVNYMVhMRzlEbGVLVGFNY0pRWTFMY09o?=
- =?utf-8?Q?X3u54sReosmP5hcFjw9sl3N06x8jn+nQ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12038.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NGpLZXIzc25iV2lLT0FZVit1SElwejFYMFJzeHdSVE1VamcraG12NmVmdGI1?=
- =?utf-8?B?N1BPOWdQamdMc21xYzJDcFFrNE40UWdtTk5EZ0EwZlNOTzN0a2NJbVplZ092?=
- =?utf-8?B?bHBueHZ1Y0w1Ylkwamg4UDJtcm9wWlhHV0RvcmpqRzNIMXplVUxFVmx3REUy?=
- =?utf-8?B?ZTU2RjB6T2w1dXFESnYycjJEYmc4aG1SOGNPL2pzNXQ4aHZIZjdZdEFJY2FC?=
- =?utf-8?B?KzRQNUQ2WEFTLzF5N3NhTUdBNHUrWWNBTHBNYXg0VWlwS2IwUTc1VUpzWUJl?=
- =?utf-8?B?T2ZUVmRWQ3ZLUzlhWkxBMjY3S3l6TXhFeWErMk9BS2VYakpGR2R6SzEwTEI5?=
- =?utf-8?B?anZmT2RTWkQ3QjU4MXY3ZWdleUFJbjFrekJqMGFJb3dILzFjc3U2YlB0ZDVR?=
- =?utf-8?B?UTd6UW9GNWdjNWhPaXNaZ0l2eWgyV2RxRTkrUUVMWjk5cHdZOFJWV3ZEOHE2?=
- =?utf-8?B?SnR4Zzd1dFJzVnRwb0IvZEoyblVMWG8xQXJZTGtLemIyYTBuNVhpRDRHelFa?=
- =?utf-8?B?cWlUYkdGUzIzaEE3eWs5UUpYSEJkSlBBT1BnQWFDWHFUY3lvVHhYU2dkM1ht?=
- =?utf-8?B?WUs1ZU9xaWRxa1RucTJncC9YY3diMFhtM29zQklCTlMwcGxZTXBEMDlUNmtF?=
- =?utf-8?B?RGZHTkNuaFptTlk3OHhRa0w3MllDVDJKUzZDclErM1dqMWxEei9nRXQ2b3hm?=
- =?utf-8?B?S2kzSEgwQWJEVDNiWWsxYWxZdmxtV1lqcFRHZXlIYVozK2ZjT3F6OUlXR0lV?=
- =?utf-8?B?RW1uU1RNNUxlenA4SVpCUklIc1J2WkI3YzNDMDMwYWxwSm9wczRyMHFQNkNQ?=
- =?utf-8?B?MUNsaVArZVl4T0pRTDJrOU1ncC9lMk1WNFdycWU1MDUrQXFocW9WOWQvR25q?=
- =?utf-8?B?YWlqdmpTQnBjRDF0RmhoWWJYM09rUzU4elNQeGh1aTd1cUlXVDlKTEwvQXhW?=
- =?utf-8?B?VGhNZGpNVkhLZDZNQlVGL2N1UWd5Wkd6WWhhTlNROVJiMDZzWGhKNTVVSitK?=
- =?utf-8?B?Ym8yQ3dZbkwxUndOS1VhTGF5YXA0YXo4R2RsdkJIa0s5QkVPM29vUnE1TUR2?=
- =?utf-8?B?UTVzV0s1eWE5WXNkc0t6NUJoNEhHVXJLWkZZbWRZSG9JdDF0Zm5DUG51a3VP?=
- =?utf-8?B?T1lzN094MlRKNEpqa3FVVTFpMWNqRXpDN1RpaG16alY3YWx2cWhROEIydUpz?=
- =?utf-8?B?YVVXMjFES3hHMlM0SWoxUXZtVEg1TkdYZWpVK1pPR01WRWNqdVIrditBUXoz?=
- =?utf-8?B?dTVONitWWDg1RnJpVFRHVUtvVGdPWW1qcXVyTm4xemM0eHZmYnJ4T2ptWVBU?=
- =?utf-8?B?OWFRNThwVFlmSFBXUGFOanhyVTBQWXJWci9jalR4TUVyZnMzL3ZFL01iazFF?=
- =?utf-8?B?VXAxUDdyMzZrWng5SUVhOXBVUlpqOTd6aUs3QlppeDRIc2FjNlludWtEMUd3?=
- =?utf-8?B?Mk5BUVU4TU1HczdTUUJ6YTV5ZjZCaWtyaE9kQzRmLytxMXd3ZkFVSG0yY3VB?=
- =?utf-8?B?YlEyeTZid0FFMktVeXMyNDJmVUhsdHpFcWwxeEtoNGlvSXZUbGg3MDFxRWhX?=
- =?utf-8?B?ejlvVUpYZG1UMEc0dFMrZnhkYmRQRXZta21ZNXpCN2lmeHlYV0JhNTNDUVcx?=
- =?utf-8?B?eFZFWVJFcWY4elZFNlpTZzBVMkFyMGdZQUJxelVXam5SSmFFYk1XZVc2YnM4?=
- =?utf-8?B?dktONmptVWNWY2Z3dG10VFl6YUYvaXFUZ3pvL3dOMWVaR1VYSnA1VUtKbjRE?=
- =?utf-8?B?dmM0a0E0aW56dmlDQVFsVXdnWXB2NFdPK2IvVkp3ektiU0pnZHRtcjB5ZDJV?=
- =?utf-8?B?UnRlU1Z1cWdaY2YvV1lDVEQ1b25GWFBqanNnd3R2Ylc4ZE0vTG1zWWIzUWU5?=
- =?utf-8?B?SG5aMTZPdlppRHMvaEU4K0tDb0lkNW51SmZUaW10OVZGcjRBcW9RQjNVRW1U?=
- =?utf-8?B?anoycjZRU0lKZ3ptYU9VNEFRcnpjUlNlQTduck9xdFFWZmJqb0lEbHgrMTZP?=
- =?utf-8?B?WU9rM0JScDJmL2VDQUk3RW1EZU5lTHY4T1RnTUoyc0J4WFFKSklsanRwTkc0?=
- =?utf-8?B?K3pJZDFtMW1Qd3g3U1V0bll3NXZ0UWozUTE2Wk1VZDRWSENxQkdkNlRpY2pk?=
- =?utf-8?B?SUgvNlR3ZmdSSHBCNFQzOFFqSElSaW81ckUweXRId0U2WnU4OU1xVUlwck04?=
- =?utf-8?B?OGc5ZmlHeHlrbWx3YTZ2YnQzdlhuMW1kTlp3cFFneGYzZ0VaQXB0VHNHMmhE?=
- =?utf-8?B?bUNwcVZMQzQ4b3c0ajRXSm1DVWMxN0pkT2RzckRyWElIanl3eERBbFRKcCtq?=
- =?utf-8?B?bDZDYjR5WndwZzYyNUFZQWdPZGxFdGtzVFNlaTZuSkRZbEp5c0NWZz09?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 236af86e-a9f5-41f1-ca08-08de51e30bdb
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12038.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jan 2026 14:01:13.2389
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: O7SQyAHgicw1K/HhjSSYx7Jh0uZ9GrCojFMJvCJaswl9C1PpLSQV0rTigRjYjB9ZFv9fUrUUwm0jGTfAWmGNfu7QitWL2v1zcpZOvv19w8k=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8664
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3cf80979-e826-4200-8dad-6ac4738f6463@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_060122_385005_5001A761 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20260112_060321_135949_7B4E2E11 
+X-CRM114-Status: GOOD (  76.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,81 +69,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chaoyi,
+Hi James,
 
-On 1/12/26 3:28 AM, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+On Mon, Jan 12, 2026 at 11:50:25AM +0000, James Clark wrote:
 > 
-> The WCH CH334/CH335[0] are USB2.0 protocol compliant 4-port USB HUB
-> controller chips, supporting USB2.0 high-speed and full-speed for
-> upstream ports, and USB2.0 high-speed 480Mbps, full-speed 12Mbps and
-> low-speed 1.5Mbps for downstream ports, supporting not only low-cost STT
-> mode (single TT schedules 4 downstream ports in time share), but also
-> supports high performance MTT mode (4 TTs each corresponding to 1 port,
-> concurrent processing).
 > 
-> Add a device tree binding for it.
+> On 12/01/2026 11:28 am, Alexandru Elisei wrote:
+> > Hi James,
+> > 
+> > On Fri, Jan 09, 2026 at 04:29:43PM +0000, James Clark wrote:
+> > > 
+> > > 
+> > > On 14/11/2025 4:06 pm, Alexandru Elisei wrote:
+> > > > During profiling, the buffer programmed by the guest must be kept mapped at
+> > > > stage 2 by KVM, making this memory pinned from the host's perspective.
+> > > > 
+> > > > To make sure that a guest doesn't consume too much memory, add a new SPE
+> > > > VCPU device attribute, KVM_ARM_VCPU_MAX_BUFFER_SIZE, which is used by
+> > > > userspace to limit the amount of memory a VCPU can pin when programming
+> > > > the profiling buffer. This value will be advertised to the guest in the
+> > > > PMBIDR_EL1.MaxBuffSize field.
+> > > > 
+> > > > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> > > > ---
+> > > >    Documentation/virt/kvm/devices/vcpu.rst |  49 ++++++++++
+> > > >    arch/arm64/include/asm/kvm_spe.h        |   6 ++
+> > > >    arch/arm64/include/uapi/asm/kvm.h       |   5 +-
+> > > >    arch/arm64/kvm/arm.c                    |   2 +
+> > > >    arch/arm64/kvm/spe.c                    | 116 ++++++++++++++++++++++++
+> > > >    5 files changed, 176 insertions(+), 2 deletions(-)
+> > > > 
+> > > > diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
+> > > > index e305377fadad..bb1bbd2ff6e2 100644
+> > > > --- a/Documentation/virt/kvm/devices/vcpu.rst
+> > > > +++ b/Documentation/virt/kvm/devices/vcpu.rst
+> > > > @@ -347,3 +347,52 @@ attempting to set a different one will result in an error.
+> > > >    Similar to KVM_ARM_VCPU_PMU_V3_CTRL(KVM_ARM_VCPU_PMU_SET_PMU), userspace is
+> > > >    responsible for making sure that the VCPU is run only on physical CPUs which
+> > > >    have the specified SPU.
+> > > > +
+> > > > +5.3 ATTRIBUTE: KVM_ARM_VCPU_MAX_BUFFER_SIZE
+> > > > +------------------------------------------
+> > > > +
+> > > > +:Parameters: in kvm_device_attr.addr the address to an u64 representing the
+> > > > +             maximum buffer size, in bytes.
+> > > > +
+> > > > +:Returns:
+> > > > +
+> > > > +	 =======  =========================================================
+> > > > +	 -EBUSY   Virtual machine has already run
+> > > > +	 -EDOM    Buffer size cannot be represented by hardware
+> > > > +	 -EFAULT  Error accessing the max buffer size identifier
+> > > > +	 -EINVAL  A different maximum buffer size already set or the size is
+> > > > +                  not aligned to the host's page size
+> > > > +	 -ENXIO   SPE not supported or not properly configured
+> > > > +	 -ENODEV  KVM_ARM_VCPU_HAS_SPE VCPU feature or SPU instance not set
+> > > 
+> > > Hi Alex,
+> > > 
+> > > I can't reproduce this anymore, but I got this a few times. Or at least I
+> > > think it was this, I've pasted the output from kvmtool below and it doesn't
+> > > say exactly what the issue was.
+> > 
+> > I'll try to reproduce it.
+> > 
+> > Do you remember what were the HEAD commits for the host and kvmtool?
+> > 
 > 
-> [0]: https://www.wch-ic.com/downloads/CH334DS1_PDF.html
+> I was testing on N1SDP with the SPE driver changes as well so it has a load
+> of junk, although I don't think any could have caused this intermittent
+> issue. I wouldn't put too much effort into it though because it could have
+> been a stale build or something:
 > 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
->   .../devicetree/bindings/usb/wch,ch334.yaml    | 65 +++++++++++++++++++
->   1 file changed, 65 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/usb/wch,ch334.yaml
+>  https://gitlab.com/Linaro/kwg/james-c-linux/-/tree/james-testing-kvm-spe-v6
 > 
-> diff --git a/Documentation/devicetree/bindings/usb/wch,ch334.yaml b/Documentation/devicetree/bindings/usb/wch,ch334.yaml
-> new file mode 100644
-> index 000000000000..2eeb92f25b4c
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/usb/wch,ch334.yaml
-> @@ -0,0 +1,65 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/usb/wch,ch334.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: WCH CH334/CH335 USB 2.0 Hub Controller
-> +
-> +maintainers:
-> +  - Chaoyi Chen <kernel@airkyi.com>
-> +
-> +allOf:
-> +  - $ref: usb-hub.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - usb1a86,8091
-> +
+> kvmtool is just 8890373d5e62 from your kvm-spe-v6 branch
 
-Which driver does this node bind to? I couldn't quickly find a driver 
-which would match this compatible?
+Ok, then I'll only try a few times to create a VM with your command line and see
+if I hit this. If not, I'll just assume it was something on your side until
+proven otherwise :)
 
-> +  reg: true
-> +
-> +  reset-gpios:
-> +    description: GPIO controlling the RESET# pin.
-> +
-> +  vdd-supply:
-> +    description:
-> +      The regulator that provides 3.3V core power to the hub.
-> +
-> +  vdd2-supply:
-> +    description:
-> +      The regulator that provides 3.3V or 5V power to the hub.
-> +
+> 
+> 
+> > > 
+> > > If I tried again with a different buffer size it worked, then going back to
+> > > 256M didn't work, then it went away. I might have done something wrong so if
+> > > you didn't see this either then we can probably ignore it for now.
+> > > 
+> > >   -> sudo lkvm run --kernel /boot/vmlinux-6.18.0-rc2+ -p "earlycon
+> > >      kpti=off" -c 4 -m 2000 --pmu --spe --spe-max-buffer-size=256M
+> > > 
+> > >    Info: # lkvm run -k /boot/vmlinux-6.18.0-rc2+ -m 2000 -c 4 --name
+> > >    guest-616
+> > >    KVM_SET_DEVICE_ATTR: No such device or address
+> > > 
+> > > 
+> > > > +	 -ERANGE  Buffer size larger than maximum supported by the SPU
+> > > > +                  instance.
+> > > > +	 =======  ==========================================================
+> > > > +
+> > > > +Required.
+> > > > +
+> > > > +Limit the size of the profiling buffer for the VCPU to the specified value. The
+> > > > +value will be used by all VCPUs. Can be set for more than one VCPUs, as long as
+> > > > +the value stays the same.
+> > > > +
+> > > > +Requires that a SPU has been already assigned to the VM. The maximum buffer size
+> > > 
+> > > Very minor nit, but would "Initialised with SPE" be better? Because it's
+> > > done through KVM_ARM_VCPU_INIT rather than "ASSIGN_SPU". I think it might
+> > > make it easier to understand how you are supposed to use it.
+> > > 
+> > > SPU is never expanded either and I think users probably wouldn't be familiar
+> > > with what that is. A lot of times we could just say "has SPE" and it would
+> > > be clearer. I don't think separating the concepts of SPE and SPU gives us
+> > > anything in this high level of a doc other than potentially confusing users.
+> > 
+> > Sure.
+> > 
+> > > 
+> > > > +must be less than or equal to the maximum buffer size of the assigned SPU instance,
+> > > 
+> > > I don't understand this part. Do you mean "of the assigned physical SPU
+> > > instance"? The ARM states "no limit" is the only valid value here:
+> > 
+> > Yes, physical instance.
+> > 
+> > > 
+> > >    Reads as 0x0000
+> > >    The only permitted value is 0x0000, indicating there is no limit to
+> > >    the maximum buffer size.
+> > > 
+> > > It would be good to expand on where the limit you are talking about comes
+> > > from.
+> > 
+> > The hardware value might change in the future. Or the host might be running
+> > under nested virtualization, which makes having a different value likely.  Like
+> > you said above, I don't think it's necessary to get into this much detail here -
+> > the idea I was trying to convey is that userspace cannot set the maximum buffer
+> > size to a value larger than what the physical SPU instance supports.
+> > 
+> 
+> Ok makes sense, thanks.
+> 
+> > > 
+> > > > +unless there is no limit on the maximum buffer size for the SPU. In this case
+> > > > +the VCPU maximum buffer size can have any value, including 0, as long as it can
+> > > > +be encoded by hardware. For details on how the hardware encodes this value,
+> > > > +please consult Arm DDI0601 for the field PMBIDR_EL1.MaxBuffSize.
+> > > > +
+> > > > +The value 0 is special and it means that there is no upper limit on the size of
+> > > > +the buffer that the guest can use. Can only be set if the SPU instance used by
+> > > > +the VM has a similarly unlimited buffer size.
+> > > 
+> > > This is a comment about changes in kvmtool, but it's semi related so I'll
+> > > leave it here. But you say only half of the buffer is used at a time:
+> > > 
+> > >    In a guest, perf, when the user is root, uses the default value of 4MB
+> > >    for the total size of the profiling memory.  This is split in two by
+> > >    the SPE driver, and at any given time only one half (2MB) is
+> > >    programmed for the SPE buffer.
+> > > 
+> > >    However, KVM also has to pin the stage 1 translation tables that
+> > >    translate the buffer, so if the default were 2MB, KVM would definitely
+> > >    exceed this value. Make the default 4MB to avoid potential errors when
+> > >    the limit is exceeded.
+> > > 
+> > > But isn't that just for snapshot mode? In normal mode the half way point is
+> > > set to perf_output_handle->wakeup which comes from the watermark set by
+> > > userspace? If you set it to the end then in theory the whole buffer could be
+> > > used?
+> > 
+> > Sure, I'll change the comment to say that 4MiB was chosen because that was the
+> > default in perf, and not go into more details.
+> > 
+> > Thanks,
+> > Alex
+> > 
+> 
+> I don't know if kvmtool is going to get used in production, or if anyone is
+> going to copy this default value though? If that might happen then maybe a
+> bigger value is better in case there is some tool or script that has a
+> different watermark setting and it doesn't work.
 
-There's v5 and vdd33 as power input, shouldn't we maybe use those names 
-instead? How did you come up with vdd/vdd2?
+kvmtool is not used in production as far as I know. But it's good to have a sane
+default value, because like you've said it might be borrowed by other software.
 
-There's also a timing that needs to be respected after a power-on event 
-so that the reset has enough time to be performed, c.f. 3.2.1 Power-on 
-Reset in the datasheet you linked to in the commit log. How are you 
-making sure we wait those (apparently, the wording in the datasheet is 
-confusing) 14ms?
+I'm not sure what you are saying though. Do you think that there's a better
+default value or that kvmtool shouldn't have a default value at all?
 
-Cheers,
-Quentin
+> 
+> I think we can assume that if someone is enabling SPE then they're not
+> memory constrained and we don't need to worry about saving a few MB.
+
+On the countrary, the entire reason for having a maximum buffer size property in
+the arhitecture is that people want to use SPE and be able to limit the amount
+of memory that a guest can pin because they want to oversubscribe memory for
+VMs. I would say that qualifies as a memory constrained environment.
+
+Thanks,
+Alex
 
