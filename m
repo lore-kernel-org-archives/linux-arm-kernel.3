@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C47C9EC92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 13:55:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F5EBC9EC92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 13:56:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i+NbFEZ67T0AXgYcfdFP2wgYMuVEFTpj35MJQJlQBtQ=; b=EFpw56BGZ1F2KAj9eEIoTmjCau
-	XICozoTEXevO5uD/0a04EGmbqZLiqed6cAcX1dCuUVg3A3P2r8zUKUpPncOtCyhZ8Tz2pmOvikIz0
-	AAUkuo20sy9rKn6hWfwEq01MlXeu5d7IORA7FFdXj4klYt4/lxN6voyMAsxLhKqkEMaDuqk2qOhAU
-	VZZg61m+jWo2/Qq0iAD/F1azRShuv4KdJCQjlZhQQX/gRPdNZbI+4gSnC1psi1D4ajkVOLv3V0mzr
-	N8lWjFtTgsN/Mqe+1Jqf7b4Mkbe/xDY9Luji0pDxPD4hfRjcSZud+NT3vpsgmCSeZIIYRKeecey9R
-	wO5J3moQ==;
+	bh=3dOyM0cJQAksiC0xVo8WheiQ+Q+IrRtVszSmZlMXOpI=; b=r5B/awCYLbPBJmouCp6l7wyWNu
+	3qDDiN/FPXwCHoC2nIZRTMpgHzF8krqCwKRAbkRg1y2rS6SVtrLhiAHMFk1olH3bWPl+FB6jBLM9d
+	0hLXdy5HaQa9XCELW5PTN044GnKfprU9BfVdE4Tu0inmJOXOPnPMW9LLoV7Yz6o05lYfDMIFo2HHZ
+	t5FYFEskobXi6npQlcYJH1AGzHPM5CN3MXI0vD97DxA+BYaVUjmpqDVTfEqI9/wIP9Wf2EVS5QAib
+	eyN/GMHojUMMoQNEzlpmPGcsratn3KT8r2sfzZYX96gOFqUILPq5+TuMILs2stdGJOoPSDT81gynA
+	jhSjlSIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfIO1-00000005SuS-22dP;
-	Mon, 12 Jan 2026 13:55:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vfIPI-00000005T9A-1zQq;
+	Mon, 12 Jan 2026 13:56:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfIO0-00000005Ssw-05nw
+	id 1vfIPG-00000005T8g-24JD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 13:55:12 +0000
+	Mon, 12 Jan 2026 13:56:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0ADB560010;
-	Mon, 12 Jan 2026 13:55:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3F00C16AAE;
-	Mon, 12 Jan 2026 13:55:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2CA1A40BC6;
+	Mon, 12 Jan 2026 13:56:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB2C6C16AAE;
+	Mon, 12 Jan 2026 13:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768226110;
-	bh=7wwKjPY/gQi5qlK6qg7VTxFJboqWR1OPnYJZ302TL+4=;
+	s=k20201202; t=1768226189;
+	bh=nTOWUyppmdziosK5hC+4lapcYTGSSnyVm7zOVtqp8M0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=umi4bo+XcHLngSaBXv5LQgL6BgI53BZIkLRR2/FzNTQh3KlDTk9+BF64Vq/miwq/e
-	 Znmg3nM4O+lq921FRG4/VjvXL97Lzcm/jK3USloS3HLTIqjVUnzRzbVvQmDyhHnQVw
-	 omgisfFh1ztqLDtmVWdBRBGJLa0igiz3OIgATKDnDRdfm/XLHL8K+gnsJp4yZ5/Y77
-	 ovEQw7ngHzEyRgmeOu+vsx1GqjrYyx3ysDbfRAA/z7d9b4uOTLm2tYU2avLKJuVgl4
-	 o0bDURDxRTpQSMsaAC9OMHYdnMWfinZORRRx1bWmCxqMtHE2zesRfTvHejYtL4u2A1
-	 vBQ0MxPP5v+1g==
-Message-ID: <e66a3dd5-1cf0-4d45-9ed2-55f50faaa0ae@kernel.org>
-Date: Mon, 12 Jan 2026 14:55:05 +0100
+	b=FeAocew6ZwUQ24IpZZlNx4LFCD0z0wEn3RWO6QKKLw39I1ZGaKv5lLQ7VxeoLwh9t
+	 mVULJHsw/busSOvuV0gsKBLsZq57QjLORdfYnxR3UfAk1QKbv2xMXnZ8N0usEmfAiG
+	 2DGzx4L3GD8K929oKD6CdXg4ZkSm9hNbPGvY8VpFeGNE3n9t82ge/XwqBovQ4uIDiO
+	 NZZeDhFhzTQo2t8Nf4XZn8HYtSXienGr5HIWQpxJiOvqbMMRgCPBq7BOCAuzXfEUdt
+	 bqCygXVSprM6U7QfwplXvLd+JVJfUaYYdYIvG03j4mmJ3rV7Ib7UUIODXNbY/s+mY0
+	 oy8A+65dSKgoQ==
+Message-ID: <c9575d58-4320-4c72-938b-16cd0a400ef0@kernel.org>
+Date: Mon, 12 Jan 2026 14:56:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: watchdog: fsl-imx: document continue
- in low power mode
-To: Nandor Han <nandor.han@gehealthcare.com>, wim@linux-watchdog.org,
- linux@roeck-us.net, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de, festevam@gmail.com,
+Subject: Re: [PATCH 2/2] dt-bindings: watchdog: fsl-imx: document continue in
+ low power mode
+To: Nandor Han <nandor.han@gehealthcare.com>
+Cc: wim@linux-watchdog.org, linux@roeck-us.net, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
  linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-References: <20251230-pastoral-enigmatic-chamois-b65343@quoll>
- <20260112130849.3748465-2-nandor.han@gehealthcare.com>
+References: <20251229145000.421426-1-nandor.han@gehealthcare.com>
+ <20251229145000.421426-3-nandor.han@gehealthcare.com>
+ <20251230-hidden-okapi-of-reputation-6ef8be@quoll>
+ <e24ec822-4d13-4136-8fb6-1bc6cbaf8e20@gehealthcare.com>
+ <04d8766f-0f79-409b-9290-3170e99e9750@kernel.org>
+ <493b1bac-2eae-4c78-9c07-801eaf954b04@gehealthcare.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,9 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260112130849.3748465-2-nandor.han@gehealthcare.com>
+In-Reply-To: <493b1bac-2eae-4c78-9c07-801eaf954b04@gehealthcare.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260112_055630_571362_16C79F36 
+X-CRM114-Status: GOOD (  22.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,46 +126,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/01/2026 14:08, Nandor Han wrote:
-> Property "fsl,wdt-continue-in-low-power" allows the watchdog to continue
-> running in low power modes (STOP and DOZE). By default, the watchdog is
-> suspended in these modes. This property provides the option to keep the
-> watchdog active during low power states when needed.
+On 08/01/2026 08:58, Nandor Han wrote:
 > 
-> Signed-off-by: Nandor Han <nandor.han@gehealthcare.com>
+> On 1/7/26 12:48, Krzysztof Kozlowski wrote:
+>> CAUTION: This email originated from outside of GE HealthCare. Only open links or attachments if you trust the sender. Report suspicious emails using Outlook’s “Report” button.
+>>
+>> On 07/01/2026 10:12, Nandor Han wrote:
+>>> On 12/30/25 14:34, Krzysztof Kozlowski wrote:
+>>>> CAUTION: This email originated from outside of GE HealthCare. Only open links or attachments if you trust the sender. Report suspicious emails using Outlook’s “Report” button.
+>>>>
+>>>> On Mon, Dec 29, 2025 at 04:50:00PM +0200, Nandor Han wrote:
+>>>>> Property "fsl,wdt-continue-in-low-power" allows the watchdog to continue
+>>>>> running in low power modes (STOP and DOZE). By default, the watchdog is
+>>>>> suspended in these modes. This property provides the option to keep the
+>>>>> watchdog active during low power states when needed.
+>>>> And why exactly would that be a DT property? If system is sleeping
+>>>> (assuming this is what you meant by low power), no one will pet the dog,
+>>>> thus watchdog makes no sense.
+>>> Thanks for the feedback Krzysztof and Guenter.
+>>>
+>>> In our case, low-power mode is disabled. However, we have identified that under certain conditions,
+>> If your system has low power mode disabled, then you do not need this
+>> property - you already know that watchdog must continue (or whatever you
+>> want to achieve here).
+>>
+>>> specifically during simulated high-load scenarios, the device becomes unresponsive because it enters
+>>> one of these power states.
+>> Device as watchdog? I really do not understand your explanations, but
+>> for sure system load is not relevant to DT property.
+>>
+>>>> Otherwise I fail to see how this is a hardware property and we do not
+>>>> accept SW properties (see writing bindings, numerous presentations).
+>>> Our system is based on the i.MX7D CPU and the watchdog peripheral supports the configuration:
+>>>
+>>> (From i.MX 7Dual Applications Processor Reference Manual, Rev. 1, 01/2018, page: 1174)
+>>> ---
+>>> WDZST
+>>> Watchdog Low Power. Determines the operation of the WDOG during low-power modes. This bit is write
+>>> once-only.
+>>> ---
+>>> Given that our system does not support low-power modes, we intend to enable the watchdog across all power
+>>> states to ensure the device can recover properly under these conditions.
+>> That's not what your property said. Your property said watchdog should
+>> continue in low power modes. So when system enters low power mode, how
+>> the watchdog petting would work?
+>>
+>> Now you claim you want to enable it in low power mode but you do not
+>> have low power mode? Does not make sense to me at all.
+>>
+>> Best regards,
+>> Krzysztof
+>>
+> Sorry if anything is unclear. I would try to explain the change from the driver's point of view.
 
-Do not attach (thread) your patchsets to some other threads (unrelated
-or older versions). This buries them deep in the mailbox and might
-interfere with applying entire sets. See also:
-https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
+I want "logical" point of view, not driver's.
 
-> ---
->  Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml b/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
-> index 34951783a633..bf35d02d113f 100644
-> --- a/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
-> +++ b/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
-> @@ -64,6 +64,12 @@ properties:
->        If present, the watchdog device is suspended in WAIT mode
->        (Suspend-to-Idle). Only supported on certain devices.
->  
-> +  fsl,wdt-continue-in-low-power:
-> +    $ref: /schemas/types.yaml#/definitions/flag
-> +    description: |
+> According to i.MX7D Reference Manual, the watchdog controller allows, via the WDOGx_WCR register, control over whether the watchdog continues or suspends in:
+> 
+> a)WAIT power state (bit 7: WDW)
+> b)STOP and DOSE power state(bit 0: WDZST).
+> 
+> The current driver implementation provides a Device Tree binding `fsl,suspend-in-wait` for configuring case (a) and forces the watchdog to be suspended in case (b).
+> 
+> My patch adds the ability to configure case (b) as well.
 
-Do not need '|' unless you need to preserve formatting.
-
-
-> +      If present, the watchdog device continues to run in low power modes
-> +      (STOP and DOZE).
-
-Not much improved. My questions how this petting is suppose to work
-remain unanswered.
-
-Again, system load is really not relevant whether watchdog works or not
-in low power mode.
+Just because you want to do something in the driver is not yet
+justification we want it in DT. Why can't you enable it always? Why this
+is system load (!!!) dependent?
 
 
 Best regards,
