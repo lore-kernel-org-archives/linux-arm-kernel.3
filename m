@@ -4,62 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A3CDC9EC97
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 15:10:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C24EAC9EC97
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 15:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vbowfVWNa2Au1b9LVtRl2O++sYwdt45+MJPUUDwH0nM=; b=L1CgfOrveVmINuzSMQ6+Weh6+o
-	nWA6IjDR2wZSrrRHaqMvAKdsC8cKtzPOaFrmb4yp2Dm3OMpoydhz7M7DAWpsbZew8DtJK2U1Dd6qm
-	W3rfd+hhj6DAB0wtWEEsno5fcvARFyOupIjQhOoH5pbum6gmOfnQUvSIOw6WBQVbV6dJTZlYina7Y
-	lvbyDo+2HSlvHFTOtZw7OzmwLcv0bbwaiIRmP6qDo1m02SZ3EtDBirC0x3qwC/xvHZAgGbBMMCYJz
-	vJyPyR4Pfp+zzV/Vlegqk+txAMhIMdRovnqGu4Q1SaTV13O88GRwCN1SUZZHIcXHWTz9T4nk6L82S
-	og3k8hpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tjpZhhJ244VWi152mVXLmo02ttK8tRkSgyHzO6ob+m8=; b=q2mdaBhdGvg1qUSyI/GxJP4Qgi
+	NnMfaV1VPPhZu3Bi8ToeVvslAa0H5Kp2Kn5BEJF5W5h74ESBbjMbqNlDMUZsENP8s2TWxNg9QkkFK
+	IlXB1vMg+PoHVFxhTf8NvylFSgK5u/RPqzUkSEXYe66mGqgCPZ/hltzM0g+B7wOckENiTVKBYNLsH
+	o2Zou7sWzygFtn4CVfQocJkBesEhjyAn5np3KF74QyVgvAYOYF2wJgzZ1rAbLHxwr1AJB/mvxhuLN
+	nSuiIQhkvnRzgVN+zyt70UyWiTkvjnKG4zmuBIkNE1uIbsqwsqrq8N+AbdhL9ZM5QckEMgj4lBmFK
+	2lM/Lhbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfJYJ-00000005c2z-2N8U;
-	Mon, 12 Jan 2026 15:09:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vfJeo-00000005cWa-0jtC;
+	Mon, 12 Jan 2026 15:16:38 +0000
+Received: from mail-dl1-x1229.google.com ([2607:f8b0:4864:20::1229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfJYI-00000005c2r-1tm2
+	id 1vfJel-00000005cWC-2Ihj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 15:09:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 846406000A;
-	Mon, 12 Jan 2026 15:09:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D25EC16AAE;
-	Mon, 12 Jan 2026 15:09:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768230593;
-	bh=SLLkOQ5pxC+Xfk84C/8GnkXcwep/asaQqw3bn0kNW0c=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=PoQG3MNbzDflVzcD8PDZTq+p3TS6E4HKQMo/CnosiFbQgC6ToFRKjRh8W7BtW1j+/
-	 F2KSeN0J1sO74fQ6WkQnw0BiRv8ROqBrIMdIVWheMozYjHI6Fe88+8sx/2B4fjbaEf
-	 qwwfikKji8Hb4ug0YcpLbYkxhd+xDKj4aQOIMDihcCD9TpwkHW+9v50MVZDVewZ8py
-	 tLJpx9mPsIE40lEtYy7JM+1OddpQsyjn+/uYdmku45XRrt1GqFs9NaqLWTwUAFxO1g
-	 MsR87UOq+cSoYZl4w4cqDqfrBLgz3QhzeiBzadvBXCglJC47OiLn7KCxgO1fpGac3d
-	 8tVNRQMSYv0KA==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Waiman Long <llong@redhat.com>, Marc Zyngier <maz@kernel.org>
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams
- <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH] irqchip/gic-v3-its: Don't acquire rt_spin_lock in
- allocate_vpe_l1_table()
-In-Reply-To: <40cec799-f363-4642-969b-24f5a2d56dfb@redhat.com>
-References: <20260107215353.75612-1-longman@redhat.com>
- <864iowmrx6.wl-maz@kernel.org> <87ms2nsqju.ffs@tglx>
- <86wm1qlq7l.wl-maz@kernel.org> <87ecnwij44.ffs@tglx>
- <86v7h8l9ht.wl-maz@kernel.org>
- <40cec799-f363-4642-969b-24f5a2d56dfb@redhat.com>
-Date: Mon, 12 Jan 2026 16:09:49 +0100
-Message-ID: <87cy3eg94y.ffs@tglx>
+	Mon, 12 Jan 2026 15:16:36 +0000
+Received: by mail-dl1-x1229.google.com with SMTP id a92af1059eb24-121a0bcd376so2116977c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 07:16:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768230994; x=1768835794; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tjpZhhJ244VWi152mVXLmo02ttK8tRkSgyHzO6ob+m8=;
+        b=Q327IDrU+LY7mENNn78OdxejyJnXMcfpNUXCzUJbzn8GwMiqGRp1I+n1wMbG9gerbe
+         upXwdkJ4ye7IjBeB2SsgU1lNAT9YJbuknka/LsCoR66o4TJ3o9nPSqtu7r2QAP/Pfppz
+         3Xdkn0fOVMv1tijV3G/OS/WajxwPQZZBSauCxKFPuccxpstwdXbncRrNvf846V8xqri8
+         luPQU861edaZxkjMF2g1VsAsX4CE55uDzYHXGmjbB9aQ/pYvrsha2PiScR5KU2oywkRl
+         9RHUKsR7KmUuCHP6Fcb82ueDbmQpFVuIU0QvggDxBg0pWCiYQQo8o8c7fIP+bl4EEO+4
+         skDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768230994; x=1768835794;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=tjpZhhJ244VWi152mVXLmo02ttK8tRkSgyHzO6ob+m8=;
+        b=XF6GvUcUM1JYKM8q679WL951G1W6iUcT8rwxF1OIsubGziVXhoJTOu4+RaUEWskeex
+         6CfCztWnyG8ikc67zJsgyL3v3Xs3bK4AYXg4PGRkHDaRgDLhSd5qKE5+26L1UazZQ9rf
+         7VDdvBNQLekMX7sJYRDr9uciu8sxUIKUlDrYVvWo+Vvh1hA4qp+c5oVOLKvSAOlUE+9v
+         ZigA02zCh0kQVTaSyttCkyY7XzVhSiL3bsfWfUlNaYvH9c+FsftQkiVkEVlA3L8mUx++
+         S+YePNqtPAAl2Z6HKjXlzjeoRDkhI9K9KLGCzUPw0xjuyXN8XfQIu83o4LlyAbAh7Ahn
+         nuUg==
+X-Forwarded-Encrypted: i=1; AJvYcCVGhEgd30dkbIRL3xOs10vf8kDW5+j2BriGO8mKiFo7qgHeR7sukJoZTqc9aAwtEW1yb7dYGjXJu0CtA/VcH7/N@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbwJ5kChG/aPygwc1H4AFZ82VB4/plV5HayROYH+DHFDupDVra
+	e0zKyfCzoDbeCK9yn37o8Xy68WXbzAw7FihCwVlpYRQTO1L3PC/dAwxn6kY0+XdIf39qAutnlUA
+	GCJcq/2BRCcgmx941W4h++pJfbA2vhMI=
+X-Gm-Gg: AY/fxX7iDa8ClBr4jg/QfoFKRsRRN1gJFGmmLbUq+Ix6zg9wPQ6qkdPoNh3PnVTkFtK
+	0ZGHDBX3De8njYD4fXaAYmyRIQaU3XBbAyDLP1DkxsuBb6PDovYsKlfGUxfVsHElbp0UnhslRBJ
+	1XHlbXJb0rRsTBKCmLsoFVTLTE+bye5BXv0n6wI1U3T7WlJcWI2ohid2oGlbLI1wWiIoxBD2mqS
+	Xd2xqnXwZr23KhLlkqzjqacjL//zXSy4fzCf4yEXphvuYYYAsPUWyLwwlsKBgDwYOeDxxrQEt7Z
+	JeqaZ1as/H807PZA9AM5HIqdsf2wcKypEJ7xfx9UI2H1REgAVqjA165k33e9fs4XgjbCKKhVdqS
+	v2C3JS+rPgw==
+X-Google-Smtp-Source: AGHT+IFHlbgIEWud1+76aPHPsc3g08WULKUxffQ2bprxJjF72yS3WxmIzikQjlBxRi1qrqgHsYBgta6WOtv1vz8/Clg=
+X-Received: by 2002:a05:7022:698b:b0:122:2f4:b24b with SMTP id
+ a92af1059eb24-12202f4b38fmr14259478c88.25.1768230993994; Mon, 12 Jan 2026
+ 07:16:33 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20260112135612.465325-1-daniel.baluta@nxp.com> <CAOMZO5D_YMfsPpqB4zB4iL+ENO1X31Go2CcBdK+JcmsaZ_HNNQ@mail.gmail.com>
+In-Reply-To: <CAOMZO5D_YMfsPpqB4zB4iL+ENO1X31Go2CcBdK+JcmsaZ_HNNQ@mail.gmail.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Mon, 12 Jan 2026 17:19:02 +0200
+X-Gm-Features: AZwV_Qi0Oev2XLPh0w5afRLy2ZMfDu1SdsID0r_7FwML4hd7i3jYVe7anPJW1e8
+Message-ID: <CAEnQRZAU7xEGtK-d-KM5e3RcW2ayASAqwZsU2VGLAzvJZwzQng@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: dts: imx93-11x11-frdm: Add MQS audio support
+To: Fabio Estevam <festevam@gmail.com>
+Cc: Daniel Baluta <daniel.baluta@nxp.com>, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	kernel@pengutronix.de, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, haidong.zheng@nxp.com, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260112_071635_589439_13511DA1 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,21 +100,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 11 2026 at 18:02, Waiman Long wrote:
-> On 1/11/26 5:38 AM, Marc Zyngier wrote:
->>> Also that patch seems to be incomplete because there is another
->>> allocation further down in allocate_vpe_l1_table()....
->> Yeah, I wondered why page allocation wasn't affected by this issue,
->> but didn't try to find out.
+On Mon, Jan 12, 2026 at 4:38=E2=80=AFPM Fabio Estevam <festevam@gmail.com> =
+wrote:
 >
-> The use of GFP_ATOMIC flag in the page allocation request may help it to 
-> dip into the reserved area and avoid taking any spinlock. In my own 
-> test, just removing the kzalloc() call is enough to avoid any invalid 
-> context warning. In the page allocation code, there is a zone lock and a 
-> per_cpu_pages lock. They were not acquired in my particular test case, 
-> though further investigation may be needed to make sure it is really safe.
+> On Mon, Jan 12, 2026 at 10:53=E2=80=AFAM Daniel Baluta <daniel.baluta@nxp=
+.com> wrote:
+>
+> > +
+> > +       sound-mqs {
+> > +               compatible =3D "fsl,imx6sx-sdb-mqs",
+> > +                            "fsl,imx-audio-mqs";
+>
+> Wouldn't it make more sense to use compatible =3D "fsl,imx-audio-mqs" ins=
+tead?
 
-They might be acquired though. Only alloc_pages_nolock() guarantees that
-no lock is taken IIRC.
+Yes, this is a good catch. Will fix it in v3.
 
+Discussion for future patches:
+
+1) is it common practice to always have a more specific compatible
+even if not used now.
+
+e.g Use
+
+compatible =3D "fsl,imx93-audio-frdm-mqs", "fsl,imx-audio-mqs";?
+
+2) The current compatible:
+
+compatible =3D "fsl,imx6sx-sdb-mqs",
+            "fsl,imx-audio-mqs";
+
+is already used for imx91-11x11-frdm.dts so I guess we should keep it like =
+this
+as this is already ABI right?
 
