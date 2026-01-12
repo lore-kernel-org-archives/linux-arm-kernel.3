@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA86C9EC94
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB69C9EC8D
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 15:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mmFn94WtfpelDb34tOBKdumTndbPzUcp1tdj59DEwpg=; b=c3lQotyetTbhFxxZL33DkRYJHF
-	YUoi9Vyjdct4io5MvsacNI/adUN4uGJ8m1zEmhAUsVlTUvDhZFHFE7OUeXGG28QtD/Fp2R6IwWqkk
-	OBREXIM6y5dNLH69FBmTKXkxfNEwZeYFhlGWTD6EYEZS6iqV78hJMx8Kf4mZ5ZfyWCPQjPvsUi9iO
-	6ZOnRmp/W5ISo77nHhEr324yBk/nvHlQMfNGw09vBhM8emzCwJ6PbBhWMLya3aVNAZ8fTLTqgjlwa
-	Avj77OJQibxC3EYIoyMu9sAu2/Wz0oOxSaHYbMSrQAMDgtLUOgVmT2FsXPAi8aY+w4zzPBK5tmEvd
-	7yVzgP+A==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BhZVcy1c1kjpIFO4flUQ7HDdo+oMnHW0qosi24llWKA=; b=hhVw46ZGytVAsD83YY51MmTs1b
+	4noqfr1rE2inlVuH6i6zR29AcvB+5iHLwwyCy9a16YZDY9+lUPKvvelBY3Ft4QMyU+E5G+3ZpT92o
+	ZpQQogS1/WSmS6ujXkikDhXXBCLRewJowy4L30XC2lnitNKsIA44CfId3qjrtkmAz+IMCOhstiqY6
+	h0rMiea7GOKn8i6LBM2n0HY4DAXKg5dGtJJqbfdNlFmgCt3eW1nS1RHyxZN7XGIXehchZb2Uor/3J
+	ZPt6M6swH7MqBJEplEZQcvx4tvz03h/WnryUQzMJXsOPGeVEJw75OzcoPpKBGKpk9Oxap2saYSkF9
+	B92OraoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfJxA-00000005eHs-15HG;
-	Mon, 12 Jan 2026 15:35:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vfJxD-00000005eIt-2OGj;
+	Mon, 12 Jan 2026 15:35:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfJx8-00000005eHJ-3ySh
+	id 1vfJxA-00000005eHt-3dXY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 15:35:35 +0000
+	Mon, 12 Jan 2026 15:35:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 04EAD6000A;
-	Mon, 12 Jan 2026 15:35:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D7D4C16AAE;
-	Mon, 12 Jan 2026 15:35:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 076346000A;
+	Mon, 12 Jan 2026 15:35:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 297CBC19422;
+	Mon, 12 Jan 2026 15:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768232133;
-	bh=7hXIqTf3b9quKHMEcBCSHtHVC5OrOtjJELcXHum5F5I=;
-	h=From:To:Cc:Subject:Date:From;
-	b=A3awc9pT4DUhccCjVKMNmkoL6jXL9BjUR4FbZI2Ep2jfSxz1La/BZoLok/V3vAI0v
-	 BXCC6IvO0/5h6mq1/Y8jMKu3MIpC85msBlqfHh9CYt1hlkYiVUm0RL5nzU4ca6Yujf
-	 6pGjOx+H+GLp2p/o1lwchw07KIbcnKAsa3At+sB1MznYDvLgltmGpBIrWfhMTBGZW4
-	 q5MleRdpeUNdG5naRB4bqo/KjFRWANX3IQt6fRO1l6A0hnRrQT3qACn9iW1mUuWn/f
-	 jW4qW7B6cwP4O0EjfI28K0I+ztTOwBX9ieYt92CyJmcRO764xiwbXuG/jJBcQtFIAV
-	 o/y/FuAe05GRQ==
+	s=k20201202; t=1768232135;
+	bh=VJbJChd8N/LfN0hMbX+wa83dkNT92miG2RddNVLajrI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=U9aLuI8PO6Z01Vz9i1Xm/nKhIEKBFPDAzMIxe5VxPFutzNtC3v3wx1HUUxDcXDaQV
+	 T5CSNIdIhp47zUPnYbqQZRLG1PQ33E2kSuR9XKIBfC/mHyAuWt1yEKgESIdsvD/ADP
+	 dOiO+eKDcsc/yfhEAJGaU9SpPhIAKgRItZbGTVSrgsB0g1km4fVY/oAF0ufoE4veKa
+	 SVPPRJfBpXGng22aSOHoNkB1+8coavyAxDgnIB5ZjlOVDTcvl2Vt41jBr5bn7VNx9N
+	 g92gaLOwxTV8VhyIeBPXjkcl6EbKHAqHAlF8pPEyZ5jc0t0QjAis8twFbHm7qKvpG4
+	 SLJVBkNUgfmdw==
 From: Arnd Bergmann <arnd@kernel.org>
 To: soc@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -50,10 +50,12 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Geert Uytterhoeven <geert+renesas@glider.be>,
 	Arnd Bergmann <arnd@arndb.de>
-Subject: [PATCH 1/2] ARM: defconfig: move entries
-Date: Mon, 12 Jan 2026 16:32:54 +0100
-Message-Id: <20260112153255.795553-1-arnd@kernel.org>
+Subject: [PATCH 2/2] ARM: defconfig: turn off CONFIG_EXPERT
+Date: Mon, 12 Jan 2026 16:32:55 +0100
+Message-Id: <20260112153255.795553-2-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260112153255.795553-1-arnd@kernel.org>
+References: <20260112153255.795553-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -72,165 +74,88 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-Some Kconfig files got rearranged, so change the defconfig file
-to put everything back in the order used by 'make savedefconfig'.
+Since multi_v7_defconfig is meant to be the generic defconfig, many
+users are not going to be experts and it is counterintuitive to have
+CONFIG_EXPERT enabled.
+
+This change has a couple of side-effects:
+
+ - CONFIG_NAMESPACES is enabled by default. This adds about 0.2% of
+  .text, but is already enabled in many board specific configs, and
+   apparently a requirement for systemd, so this seems like a useful
+   change.
+
+ - CONFIG_DEBUG_MEMORY_INIT is enabled now, adding a tiny bit
+   of code in the inittext section
+
+ - CONFIG_RFKILL, CONFIG_MEDIA_SUPPORT_FILTER and various CONFIG_HID
+   driver defaults change, so these have to be listed explicitly to
+   maintain the previous behavior
+
+ - CONFIG_SERIAL_SH_SCI_NR_UARTS=20 changes to the default value
+   of 18, which I understand to be sufficient for any buard, even
+   if all UARTS are enabled at the same time
 
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm/configs/multi_v7_defconfig | 31 +++++++++++++++--------------
- 1 file changed, 16 insertions(+), 15 deletions(-)
+ arch/arm/configs/multi_v7_defconfig | 16 +++++++++++++---
+ 1 file changed, 13 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index 7f1fa9dd88c9..22c50b60c794 100644
+index 22c50b60c794..52b2e792ad42 100644
 --- a/arch/arm/configs/multi_v7_defconfig
 +++ b/arch/arm/configs/multi_v7_defconfig
-@@ -8,6 +8,8 @@ CONFIG_PERF_EVENTS=y
+@@ -3,7 +3,6 @@ CONFIG_NO_HZ_IDLE=y
+ CONFIG_HIGH_RES_TIMERS=y
+ CONFIG_CGROUPS=y
+ CONFIG_BLK_DEV_INITRD=y
+-CONFIG_EXPERT=y
+ CONFIG_PERF_EVENTS=y
  CONFIG_KEXEC=y
  CONFIG_ARCH_VIRT=y
- CONFIG_ARCH_AIROHA=y
-+CONFIG_ARCH_HPE=y
-+CONFIG_ARCH_HPE_GXP=y
- CONFIG_ARCH_SUNPLUS=y
- CONFIG_ARCH_UNIPHIER=y
- CONFIG_ARCH_ACTIONS=y
-@@ -50,8 +52,6 @@ CONFIG_ARCH_HI3xxx=y
- CONFIG_ARCH_HIP01=y
- CONFIG_ARCH_HIP04=y
- CONFIG_ARCH_HIX5HD2=y
--CONFIG_ARCH_HPE=y
--CONFIG_ARCH_HPE_GXP=y
- CONFIG_ARCH_MXC=y
- CONFIG_SOC_IMX50=y
- CONFIG_SOC_IMX51=y
-@@ -548,12 +548,12 @@ CONFIG_DEVFREQ_THERMAL=y
- CONFIG_IMX_THERMAL=y
- CONFIG_QORIQ_THERMAL=m
- CONFIG_ROCKCHIP_THERMAL=y
--CONFIG_RCAR_THERMAL=y
- CONFIG_ARMADA_THERMAL=y
- CONFIG_BCM2711_THERMAL=m
- CONFIG_BCM2835_THERMAL=m
- CONFIG_BRCMSTB_THERMAL=m
- CONFIG_ST_THERMAL_MEMMAP=y
-+CONFIG_RCAR_THERMAL=y
- CONFIG_TEGRA_SOCTHERM=m
- CONFIG_TEGRA30_TSENSOR=m
- CONFIG_GENERIC_ADC_THERMAL=m
-@@ -715,7 +715,6 @@ CONFIG_VIDEO_ADV7604_CEC=y
- CONFIG_VIDEO_ML86V7667=m
- CONFIG_IMX_IPUV3_CORE=m
- CONFIG_DRM=y
--CONFIG_DRM_I2C_NXP_TDA998X=m
- CONFIG_DRM_NOUVEAU=m
- # CONFIG_DRM_NOUVEAU_CH7006 is not set
- # CONFIG_DRM_NOUVEAU_SIL164 is not set
-@@ -741,15 +740,16 @@ CONFIG_DRM_TEGRA=y
- CONFIG_DRM_STM=m
- CONFIG_DRM_STM_DSI=m
- CONFIG_DRM_PANEL_LVDS=m
--CONFIG_DRM_PANEL_SIMPLE=y
--CONFIG_DRM_PANEL_EDP=y
--CONFIG_DRM_PANEL_SAMSUNG_LD9040=m
- CONFIG_DRM_PANEL_ORISETECH_OTM8009A=m
- CONFIG_DRM_PANEL_RAYDIUM_RM68200=m
-+CONFIG_DRM_PANEL_SAMSUNG_LD9040=m
- CONFIG_DRM_PANEL_SAMSUNG_S6E63J0X03=m
- CONFIG_DRM_PANEL_SAMSUNG_S6E8AA0=m
- CONFIG_DRM_PANEL_SHARP_LQ101R1SX01=m
-+CONFIG_DRM_PANEL_EDP=y
-+CONFIG_DRM_PANEL_SIMPLE=y
- CONFIG_DRM_DISPLAY_CONNECTOR=m
-+CONFIG_DRM_I2C_NXP_TDA998X=m
- CONFIG_DRM_LVDS_CODEC=m
- CONFIG_DRM_NXP_PTN3460=m
- CONFIG_DRM_PARADE_PS8622=m
-@@ -789,9 +789,9 @@ CONFIG_FRAMEBUFFER_CONSOLE=y
- CONFIG_FRAMEBUFFER_CONSOLE_ROTATION=y
- CONFIG_SOUND=m
- CONFIG_SND=m
--CONFIG_SND_HDA_TEGRA=m
- CONFIG_SND_HDA_INPUT_BEEP=y
- CONFIG_SND_HDA_PATCH_LOADER=y
-+CONFIG_SND_HDA_TEGRA=m
- CONFIG_SND_HDA_CODEC_REALTEK=m
- CONFIG_SND_HDA_CODEC_REALTEK_LIB=m
- CONFIG_SND_HDA_CODEC_ALC269=m
-@@ -814,6 +814,8 @@ CONFIG_SND_PXA910_SOC=m
- CONFIG_SND_SOC_QCOM=m
- CONFIG_SND_SOC_APQ8016_SBC=m
- CONFIG_SND_SOC_ROCKCHIP=m
-+CONFIG_SND_SOC_SH4_FSI=m
-+CONFIG_SND_SOC_RCAR=m
- CONFIG_SND_SOC_ROCKCHIP_SPDIF=m
- CONFIG_SND_SOC_ROCKCHIP_MAX98090=m
- CONFIG_SND_SOC_ROCKCHIP_RT5645=m
-@@ -824,8 +826,6 @@ CONFIG_SND_SOC_SNOW=m
- CONFIG_SND_SOC_ODROID=m
- CONFIG_SND_SOC_ARNDALE=m
- CONFIG_SND_SOC_SAMSUNG_MIDAS_WM1811=m
--CONFIG_SND_SOC_SH4_FSI=m
--CONFIG_SND_SOC_RCAR=m
- CONFIG_SND_SOC_STI=m
- CONFIG_SND_SOC_STM32_SAI=m
- CONFIG_SND_SOC_STM32_I2S=m
-@@ -1002,7 +1002,6 @@ CONFIG_RTC_DRV_MAX8997=m
- CONFIG_RTC_DRV_MAX77686=y
- CONFIG_RTC_DRV_RK808=m
- CONFIG_RTC_DRV_RS5C372=m
--CONFIG_RTC_DRV_PCF85063=m
- CONFIG_RTC_DRV_PCF85363=m
- CONFIG_RTC_DRV_BQ32K=m
- CONFIG_RTC_DRV_TWL4030=y
-@@ -1013,6 +1012,7 @@ CONFIG_RTC_DRV_S35390A=m
- CONFIG_RTC_DRV_RX8581=m
- CONFIG_RTC_DRV_EM3027=y
- CONFIG_RTC_DRV_S5M=m
-+CONFIG_RTC_DRV_PCF85063=m
- CONFIG_RTC_DRV_DA9063=m
- CONFIG_RTC_DRV_EFI=m
- CONFIG_RTC_DRV_DIGICOLOR=m
-@@ -1046,9 +1046,6 @@ CONFIG_OWL_DMA=y
- CONFIG_PL330_DMA=y
- CONFIG_STE_DMA40=y
- CONFIG_ST_FDMA=m
--CONFIG_STM32_DMA=y
--CONFIG_STM32_DMAMUX=y
--CONFIG_STM32_MDMA=y
- CONFIG_TEGRA20_APB_DMA=y
- CONFIG_UNIPHIER_MDMAC=y
- CONFIG_XILINX_DMA=y
-@@ -1057,6 +1054,9 @@ CONFIG_DW_DMAC=y
- CONFIG_RZN1_DMAMUX=m
- CONFIG_RCAR_DMAC=y
- CONFIG_RENESAS_USB_DMAC=m
-+CONFIG_STM32_DMA=y
-+CONFIG_STM32_DMAMUX=y
-+CONFIG_STM32_MDMA=y
- CONFIG_VIRTIO_PCI=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_STAGING=y
-@@ -1094,12 +1094,12 @@ CONFIG_TI_MESSAGE_MANAGER=y
- CONFIG_QCOM_APCS_IPC=y
- CONFIG_STM32_IPCC=m
- CONFIG_QCOM_IPCC=y
-+CONFIG_QCOM_IOMMU=y
- CONFIG_OMAP_IOMMU=y
- CONFIG_OMAP_IOMMU_DEBUG=y
- CONFIG_ROCKCHIP_IOMMU=y
- CONFIG_TEGRA_IOMMU_SMMU=y
- CONFIG_EXYNOS_IOMMU=y
--CONFIG_QCOM_IOMMU=y
- CONFIG_REMOTEPROC=y
- CONFIG_OMAP_REMOTEPROC=m
- CONFIG_OMAP_REMOTEPROC_WATCHDOG=y
-@@ -1135,6 +1135,7 @@ CONFIG_ARCH_TEGRA_124_SOC=y
- CONFIG_SOC_TI=y
- CONFIG_KEYSTONE_NAVIGATOR_QMSS=y
- CONFIG_KEYSTONE_NAVIGATOR_DMA=y
-+CONFIG_TI_PRUSS=m
- CONFIG_RASPBERRYPI_POWER=y
- CONFIG_QCOM_CPR=y
- CONFIG_QCOM_RPMHPD=y
+@@ -163,7 +162,6 @@ CONFIG_BT_QCOMSMD=m
+ CONFIG_CFG80211=m
+ CONFIG_MAC80211=m
+ CONFIG_RFKILL=y
+-CONFIG_RFKILL_INPUT=y
+ CONFIG_RFKILL_GPIO=y
+ CONFIG_NFC=m
+ CONFIG_NFC_DIGITAL=m
+@@ -376,7 +374,6 @@ CONFIG_SERIAL_TEGRA=y
+ CONFIG_SERIAL_IMX=y
+ CONFIG_SERIAL_IMX_CONSOLE=y
+ CONFIG_SERIAL_SH_SCI=y
+-CONFIG_SERIAL_SH_SCI_NR_UARTS=20
+ CONFIG_SERIAL_MSM=y
+ CONFIG_SERIAL_MSM_CONSOLE=y
+ CONFIG_SERIAL_VT8500=y
+@@ -676,6 +673,7 @@ CONFIG_REGULATOR_WM8994=m
+ CONFIG_CEC_SAMSUNG_S5P=m
+ CONFIG_CEC_STM32=m
+ CONFIG_MEDIA_SUPPORT=m
++# CONFIG_MEDIA_SUPPORT_FILTER is not set
+ CONFIG_MEDIA_USB_SUPPORT=y
+ CONFIG_USB_VIDEO_CLASS=m
+ CONFIG_V4L_PLATFORM_DRIVERS=y
+@@ -859,6 +857,18 @@ CONFIG_SND_SOC_WM8960=m
+ CONFIG_SND_SOC_WM8962=m
+ CONFIG_SND_SOC_WM8978=m
+ CONFIG_SND_AUDIO_GRAPH_CARD=m
++# CONFIG_HID_A4TECH is not set
++# CONFIG_HID_APPLE is not set
++# CONFIG_HID_BELKIN is not set
++# CONFIG_HID_CHERRY is not set
++# CONFIG_HID_CHICONY is not set
++# CONFIG_HID_CYPRESS is not set
++# CONFIG_HID_EZKEY is not set
++# CONFIG_HID_ITE is not set
++# CONFIG_HID_KENSINGTON is not set
++# CONFIG_HID_REDRAGON is not set
++# CONFIG_HID_MICROSOFT is not set
++# CONFIG_HID_MONTEREY is not set
+ CONFIG_USB=y
+ CONFIG_USB_OTG=y
+ CONFIG_USB_XHCI_HCD=y
 -- 
 2.39.5
 
