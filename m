@@ -4,140 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E0DD2505C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 09:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 529C8D2505C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 09:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iE5I7iaezzE9aXAUoqN6SHeOzvRvmQyoGbsbC7o536Y=; b=QhZ1J77tAgs/S6jpb/STzHN5g9
-	9dzI3WjDk4f5D500pNXseiFUmxR+IMD6VsklBR8caA+iOEp+rToHDFpeScagBA+uKxaSlWGjd7KAL
-	z+nUxx6Yf7deFcPN0LxZD173P7s0to3txQZIoTcTmMfItw9uGXX+HDyYkcjTavZ+d+WtoZ2yo04CT
-	Y9i907Z8aLvjG1NQrxHkIBHHM6depindeknlRipyVm1kSPJ2y7lajvhoWNaqLF9fnHpxR/rFkT+MF
-	JGKnZAklq9EN76SsADq6VJD7KD0/n+HXTCeAXvPmjJpWW4wkBCgPiZbiwURUeOvSeZtk16yHQoZIj
-	iTqs5hag==;
+	bh=bHY+tKzUmgy9uWt5L9UYoQLb1S8eaKCQeqzXRt/ZQl0=; b=NZZwpJxZ4AlLM7PQx+uuYHsST0
+	BSedZA6YdYsByOHvVovsV/rljnyvy6b4IwuwaPDO/pSviN9hrHK88cTFvQdmYHVH3K33x4OS2dpvu
+	+BO34AQIWK/Dmzki/FQqLdlZnp4oH/ojKS+Gtfx7IYNlTOiVX7VWIestSZbt/GYEIQh09sI8r5zu7
+	XZ6NQcNOM5thSCm1Bu/SDjtKXRwGZ1nXF14MLjA2CxjklTOvNSCqES5XUsTazAk3kPwPimmc4wfy8
+	W7Yb5jyFb9En6aNwF4o+WpM3exPZZi0Wyb+vqMpeDjvW1aDAmNG0r9A4vPHpiEz7OHAj19NR+WQR/
+	dydA690A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfE5D-000000054HT-3RzL;
-	Mon, 12 Jan 2026 09:19:31 +0000
+	id 1vfE5K-000000054Ir-0VhU;
+	Mon, 12 Jan 2026 09:19:38 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfE5C-000000054Gy-0BYk
+	id 1vfE5F-000000054Hl-2qmO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 09:19:31 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60C84H553014049
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 09:19:28 GMT
+	Mon, 12 Jan 2026 09:19:34 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60C7OjZT555467
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 09:19:33 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	iE5I7iaezzE9aXAUoqN6SHeOzvRvmQyoGbsbC7o536Y=; b=Hc9xytzDn0qPbBKq
-	x3CHQ3C9cDwUWjCFo3evaCnuZlqTLwrMSxs9kJJbJ2KeKRZYITbu9A5PWY76J/3T
-	aw294CPMQM5m8Ww1p/dPNQd32F7j35TCJXKSNzlYzeKQtUOu9Ptc9heK8gg2/Hk3
-	u0/JnYL3LMnPnLMh3o5lLeJl/cgXCRLfLxFNs0+pcy38YvNNxPyJ2I25BR7DcbeX
-	99PaBnEGPJ8jXz6M9uPE34bLRZmOx7xXhOUNLYOslReoWqhhpuGfdPRbsVqDkTys
-	48BXpCT6gMOK5Q9XLjB6g3KQhvT3KVPfpnpMdQ6rljYxsa6UaUGwXR5ZeoRUYbvt
-	d5R3OQ==
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bkntuksdw-1
+	bHY+tKzUmgy9uWt5L9UYoQLb1S8eaKCQeqzXRt/ZQl0=; b=N33y9VbK5RL/osjh
+	dsOdnclFKUQoJVZ2sPilkIPWXoKuWG65KC1zGl/tvym5isoaNdKTyDD9P5QBslSM
+	VH1pBsawvH2jcd1wQK5tvnoE3RE4rUOpcyun8mHJWFJDWsNaH5ylhWbi5r9okEW7
+	0MVuP2D3uUEU+CIOTjxoUco0nw/5j34IlU62H0AOfYYnN2mjOy6WseMiewY32Vb7
+	YYp0YZCK01hZitzSnpiLHP1Jo2MCDcL1yOmKsceieZK+4M0X/J969csdkhYqP65Q
+	BDJ55/FwHja+0z/kOn82s3GLuEzysDYqyp+0MJQsFIyNEpXjuBnN4NSnpYjRO8Kw
+	EtzBag==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bmvhw0dh6-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 09:19:28 +0000 (GMT)
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c52779e9e65so1728229a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 01:19:28 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 09:19:33 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2a0f47c0e60so15987965ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 01:19:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1768209568; x=1768814368; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1768209572; x=1768814372; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=iE5I7iaezzE9aXAUoqN6SHeOzvRvmQyoGbsbC7o536Y=;
-        b=HCif/iefNNp4ieQD6yV+Qh19KL8+pu8fQ6UnYHXqvo0wCnx5DUpfybPZ8AhKsmHN+r
-         EiWxuCY5HwFwRFgkhi5ARVT3K8xOyYLMGvOiN/Ys4oKWSXsTy1ZZB05e0jB7BQyI43Yr
-         A8x/SiBIiFm+nUFEVTfER6ftr42eYs2MGKwyHA4PPIn14DWB8qAKa6SBVmq0QQuDqKgl
-         qNswMWV30J+8pqMHZhw07Dyf4k4ouROus1rdj6xz4JNnpBBwtnbK1hR7/nTJf+6cpyiC
-         YyCl/grlKz7JBV4qiRKM8ukgHIeTZDqcVpBSfXTIaf95jKE41cFO0pT7TInBRdOD2GFU
-         JD0g==
+        bh=bHY+tKzUmgy9uWt5L9UYoQLb1S8eaKCQeqzXRt/ZQl0=;
+        b=MJGucg8f1OSTDOlYOUmT/1nCQyao8JPbqrrdwJyI7CJvDlkHSZ8J8V69OiqFn9KFkO
+         nL9QTe4XgOKAGtNk4QnhEHiQkcg8uRyEN/vn08U+Ly0Dxm4s68xJ/dMlDxqmcSYv5JXi
+         SiKPfl+TiT65OtuM/C8ivMeTUQ2x2krcCTqrQzZAO3FKGGA1DCld91Rdfr1UEQ2Uw5TT
+         IxzlfGnZJhka+vivWwDVNRcm7gUBdvRwAh/rTMQpA3ayu25dEFLtCh8RuN50J1uZqJXI
+         42ggfPmaCaOJqHEWKm88BMa6t6amuzTdaU+ReFaCaJ+zOpHCwOm99rn950aX5e990XYc
+         Z6LQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768209568; x=1768814368;
+        d=1e100.net; s=20230601; t=1768209573; x=1768814373;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iE5I7iaezzE9aXAUoqN6SHeOzvRvmQyoGbsbC7o536Y=;
-        b=DgrD5xhoosOHse0VfzqldVsDw2S0//4Z4NrBbChrn4hz1anuy95EFOm6wLtWyvifhV
-         MS02wPRVm23ogSWNSQFDJtgdhRsSAOQI3kzt5pL75O9r6aSluGdq3TpbsxrUOVrSZ/SC
-         fIgAIZRHcCr1XBIdCDjqJVm2cv3CzQGX1+OxfvGdYqI0mmhGYJq28S455M0Vl4OdtbCd
-         DKLPI5DnxRt70+qIHShGZ9SbJTcLS06LPT9bkTIFbZ6I1Su38CRPvtRdqGnpEOuUj+IO
-         E+GvqWPVYEnkQHJDBv4hi/uKjKK9b+kKmHUaDfzNEV/j1Xa+CAhrI6OYBxdew+2Pm9o6
-         dAcA==
-X-Forwarded-Encrypted: i=1; AJvYcCXdqVcKWwFlhD6Ye1eh9Yolq5qUBLT5Pga8vnKyM562JHxT+vYEWgSyJtKk5XlyxoEkvXMtwU+SrYJQ5zoiGS6l@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5j8oVBEFTfQA0bcHWOarB2k1zCgkQ4Cz9C/apeCwvLBKskMX8
-	zzWyuFYDA/FIMErc4Ksi+0GWnU4QwbxMqBKQFt3od3ynmq1BU27THji2RMV9oiqU2ZUpT9u0iNj
-	jgf47kSnZ4vpZzAy8dc9G3XrQLjyrGeJYzFAel3iTAKawddV/VpUlm0B2L/fVRqEu+S5aNVQx5G
-	IOwxO43+71hw==
-X-Gm-Gg: AY/fxX5WnsL+UcI7za5x5u1ySHxRMjuUrFRhSpRMEd863ZCFoqmMajYRyaheRXNtr3o
-	YVU+4IorTcEBkPu2UUKBCOUPkAIhJjk43gYPv8vQ1a11p4VyqrZlsPEm0GWd01OVIW10j9n0krP
-	Lq7IGv33s3rgWIySw8ngtxvd5C/6nslXuaL3OkvLSY+IWiZ+AHBm4qlCUSvSkFXNEtwqSkJx7Z5
-	oSe/v2L3mADCHZ8ZBdfXZp0wN2iQJnxmWg5+xpLlgNGUnpYFXWrMP/hR/aapO+WHL6LQXxVIZ8A
-	9p5xtkrs9vONroD6MOWC+A+FapNE/fskm7104ff0R3t1vOa96aNFKW9gWX6NE9rzlWkc0TL0Q7n
-	ZkFRM3hzWVkFTx1Al7JEepjsrGG1qwiim/eZYAT/aka5jXNoWaE9+KcvmBJM+sZ1y3TVqr5677I
-	sqzexB
-X-Received: by 2002:a17:903:2309:b0:2a0:d46d:f990 with SMTP id d9443c01a7336-2a3ee4e81c6mr173925845ad.31.1768209567637;
-        Mon, 12 Jan 2026 01:19:27 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEr63rTSU6mNKwEH2p/9lr8Yw3V9YiW8z4Df6TR0gET2yAmIZpynylnfKMGk+StpeE+EEAUIA==
-X-Received: by 2002:a17:903:2309:b0:2a0:d46d:f990 with SMTP id d9443c01a7336-2a3ee4e81c6mr173925535ad.31.1768209566996;
-        Mon, 12 Jan 2026 01:19:26 -0800 (PST)
+        bh=bHY+tKzUmgy9uWt5L9UYoQLb1S8eaKCQeqzXRt/ZQl0=;
+        b=JkICcIDdBmCiN/HB90KGOM4borkxS+VpRAApcFB7fIubMlgVLM/CVXnGuN/d4kvIY4
+         x7SZguNPYm0NreRLy5hrs4NUQpzSNJ6d1NmsBiNaR4xJnpFEeXishTTVaXP2C9YfcoMo
+         4B4W6tDsyRd6j3FCg1n5Y1zR6J3ZhrWDb2VnMjlZjfZXLGQR/WCzNZJsedxo69bpBzze
+         zmMU2Tfdw7GqP1Kj/TvVa4TjWU7AGboP/Yio9yRPSpolnOJMn8dYVf0DtTVvommq0JHz
+         UiYtdsrBTzxab6GK0/NA1ABPnmrgpMyq6PGGNxolqc8BvCFu0FnATgShxsemboE9dBcu
+         o3jg==
+X-Forwarded-Encrypted: i=1; AJvYcCXjE24cdb4adjU0hgJe7Fkqh76PNpxhJxtpfH4x4oboGp1edTqyYPL2qtMrKlVs0ywWqyK/RqObWZMrd+Gcc59o@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz28xpTXBOU7ZnWOTeb0bahXg5KkcwgAdRGOV1HkR+Nv0vh8ST6
+	FQkaFJsZzK+OW8kmUERhjAO/l2aVpLSluiUJrpOuooWo8nkr8SZ9WR+V1BbjTSpsN8X3wHPeotC
+	rVKZ2JEQLnfd/D79hed0m2BoH9z5Z3Ccxr379Ywt673Z4ZHW5+Jq8tobwCSvZKZ12xPkjhhIVNO
+	j0BQ==
+X-Gm-Gg: AY/fxX4It9O6l2/6H+4rQjghb6zNyjNNnt5lK1VOa2O1ZEkBas3I4ZByfxFlIeIgCyq
+	j2O/Z5abcWs5Gd16PkiAFoEkdUZFDqdrX7gKdlNKq0DPvI8Bnk2RBlVNCdAhvS0aV9k6GW7rYr0
+	Nf2a4eubLwzNyyjxtkYufBMtEm4EIo1dNXtkEeU768yFLP1Zg189wxiqmil+I0M/bBzCQlClvOh
+	1rU34N4L9o7BMwNMJPDz6PlXh1i4JnPad+xrohiFkALrIY5s2+EwQsvDp5kQr3TGmKPceKxfHip
+	EC+ClRfcHZ4VSY9zbwMs+W1bvQ9CR2VUXjXNAXdvNoIw5/vD5BZqVmCgh2Nw6mJQZ1YFSkoLwYx
+	ioAOYvSkKTAzjdBTL7dXYTGslKxfs6cBJE4YNfmXWlFBVCGbaF7Dw/R0hI0332ClQUkDYeCPDUD
+	YI2F6d
+X-Received: by 2002:a17:902:cf06:b0:2a3:e7aa:dd6e with SMTP id d9443c01a7336-2a3ee48ac0fmr165969385ad.38.1768209572447;
+        Mon, 12 Jan 2026 01:19:32 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEgf4xslxapHoyTuvdbdIw6M15C4XO7MaAq1GW+4q/hUzcMV9eD4Yeo/C22qwbZVgTiujnicQ==
+X-Received: by 2002:a17:902:cf06:b0:2a3:e7aa:dd6e with SMTP id d9443c01a7336-2a3ee48ac0fmr165969205ad.38.1768209571928;
+        Mon, 12 Jan 2026 01:19:31 -0800 (PST)
 Received: from [10.133.33.22] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3c4795fsm171834885ad.33.2026.01.12.01.19.22
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3c4795fsm171834885ad.33.2026.01.12.01.19.28
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Jan 2026 01:19:26 -0800 (PST)
-Message-ID: <114f7305-de33-4360-82d2-4d61e14934ec@oss.qualcomm.com>
-Date: Mon, 12 Jan 2026 09:41:57 +0800
+        Mon, 12 Jan 2026 01:19:31 -0800 (PST)
+Message-ID: <22584f94-fd4a-4d28-8eb6-0d2639b39fd3@oss.qualcomm.com>
+Date: Mon, 12 Jan 2026 09:43:18 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v10 2/7] qcom-tgu: Add TGU driver
-To: Jie Gan <jie.gan@oss.qualcomm.com>, andersson@kernel.org,
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, andersson@kernel.org,
         alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
-        suzuki.poulose@arm.com, james.clark@arm.com, krzk+dt@kernel.org,
-        conor+dt@kernel.org
+        james.clark@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
         devicetree@vger.kernel.org, gregkh@linuxfoundation.org
 References: <20260109021141.3778421-1-songwei.chai@oss.qualcomm.com>
  <20260109021141.3778421-3-songwei.chai@oss.qualcomm.com>
- <069e2fb4-b4cc-474c-867c-2dd410ea80a4@oss.qualcomm.com>
+ <6c70f7e3-9a98-4a84-9391-8d83df1c3818@arm.com>
 Content-Language: en-US
 From: Songwei Chai <songwei.chai@oss.qualcomm.com>
-In-Reply-To: <069e2fb4-b4cc-474c-867c-2dd410ea80a4@oss.qualcomm.com>
+In-Reply-To: <6c70f7e3-9a98-4a84-9391-8d83df1c3818@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTEyMDA3MiBTYWx0ZWRfX9+cgEi/WneM1
- TzhzZ4sN3ScZ2ENHrpgJeVhHJL+jjkHJscoRcXDMoeWRNEkJNid39mqpdxXrbqJfd7Y11Iu06xS
- zgfjHZHCeSD5rvPJ1Wi5n1qjFyHKc8QJHoyXQM5qcgfkPLK0JBNBxy0G6qiPjyz8N6MW98rfaG8
- RD7zRWtJyFkTjiZa2hq0digwCVdz+pLXdM0O1RJPNBDT+u6DGuOUv6bKE+Uat+5bZObpxwjfTl/
- atzJwrQhOqsxapZivMqWa5l26fJx6ZPnSb11sWOoKsUbR301fgtqewFHKee8EpnbbE8AS2RTjAB
- /7YJkfaZafOtHbbIPEEAu7SbHv/4YvZ/QT1lMlSMYQ+bK0KPnHGGL99Zh6zhLtJHQVtA/lwcJvV
- IKYL40lkWLmeB3IDL9ziUFAlmK3EoXjVQyWVphQtWabiEymMqTZU+BvZ9Y/HOmTSSHxkUkbSXHd
- hImj1BQ4kvo+VmacctA==
-X-Authority-Analysis: v=2.4 cv=R6AO2NRX c=1 sm=1 tr=0 ts=6964bca0 cx=c_pps
- a=rz3CxIlbcmazkYymdCej/Q==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTEyMDA3MiBTYWx0ZWRfX0Pk8h7oBHRlv
+ pYjdoOaj9gFRoFLL+d66toJySVZWIn3EbHg9YkIQx+crvwTVw5jNGcrIaxCocptDIl2Vf8ia0Hj
+ hsoPzTb0eIU1AZMwEwRQ0ppuTHsncST0vos+P5TBDoTE4vZCi0xE9cL1QYJsRoE1wDVjOurrWWq
+ E6PKblHwGAt1SB5LwfWrVrfjkWovlkV6rjuYdKdgS5Yp3R81UikYifMcApm2DgxMB837Wb/bOhH
+ G2AehwB3mWenvflVC3euB1vBJB1sft/72KeSjzbH2DUmZ9BX8qm4KG7JYf5YFcEn0YzDADQfm44
+ jgVeCcNBBlZcp5c1MkOGv6J43cZtHkDmU4729O6R5FTRrSVq1xRrFBqYZKUNyArM72Z+hnTWCHU
+ GiRAzs4FB3tJPE5IOEVC5EQExFtXowCdvS48R1Ze8XOArkBLRuw/ruitpIrRhXOX3PUl9mzQf7D
+ ymYBvLONUtviJxez3SQ==
+X-Authority-Analysis: v=2.4 cv=JP02csKb c=1 sm=1 tr=0 ts=6964bca5 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
  a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
  a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=QtmeBwCpv1JMxDmLrj4A:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=bFCP_H2QrGi7Okbo017w:22
-X-Proofpoint-ORIG-GUID: vyy-k1YgPijGAmorr7MPauD6D9wDl9Vk
-X-Proofpoint-GUID: vyy-k1YgPijGAmorr7MPauD6D9wDl9Vk
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-GUID: YTw2NHtzaHgPkVuvK4LQKhv8XI-Zmw06
+X-Proofpoint-ORIG-GUID: YTw2NHtzaHgPkVuvK4LQKhv8XI-Zmw06
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2026-01-12_02,2026-01-09_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 bulkscore=0 spamscore=0 clxscore=1015 priorityscore=1501
- adultscore=0 phishscore=0 suspectscore=0 lowpriorityscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601120072
+ lowpriorityscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
+ suspectscore=0 clxscore=1015 malwarescore=0 adultscore=0 spamscore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
+ definitions=main-2601120072
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_011930_101059_9A2B9DE4 
-X-CRM114-Status: GOOD (  30.06  )
+X-CRM114-CacheID: sfid-20260112_011933_725563_414AF6C3 
+X-CRM114-Status: GOOD (  27.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,10 +154,8 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 1/9/2026 7:28 PM, Jie Gan wrote:
-> 
-> 
-> On 1/9/2026 10:11 AM, Songwei Chai wrote:
+On 1/9/2026 6:27 PM, Suzuki K Poulose wrote:
+> On 09/01/2026 02:11, Songwei Chai wrote:
 >> Add driver to support device TGU (Trigger Generation Unit).
 >> TGU is a Data Engine which can be utilized to sense a plurality of
 >> signals and create a trigger into the CTI or generate interrupts to
@@ -172,16 +170,6 @@ On 1/9/2026 7:28 PM, Jie Gan wrote:
 >>   drivers/hwtracing/qcom/Makefile               |   3 +
 >>   drivers/hwtracing/qcom/tgu.c                  | 176 ++++++++++++++++++
 >>   drivers/hwtracing/qcom/tgu.h                  |  51 +++++
-> 
-> drivers/hwtracing/qcom is a new dir, I suppose this patch series will go 
-> through QCOM tree? If Yes, I think it's better to update the MAINTAINER 
-> file to add QCOM maintainers for maintaining this dir. Otherwise the 
-> get_maintainer script can not obtain proper reviewer&maintainer for 
-> reviewing.
-thanks Jie, will update further.>
-> Thanks,
-> Jie
-> 
 >>   7 files changed, 260 insertions(+)
 >>   create mode 100644 Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
 >>   create mode 100644 drivers/hwtracing/qcom/Kconfig
@@ -199,6 +187,12 @@ thanks Jie, will update further.>
 >> +What:        /sys/bus/amba/devices/<tgu-name>/enable_tgu
 >> +Date:        January 2026
 >> +KernelVersion    6.19
+> 
+> It's a bit too late for v6.19, this should rather be 6.20/7.0
+Sure, Suzuki. Thanks for comment.>
+> Suzuki
+> 
+> 
 >> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai 
 >> <songwei.chai@oss.qualcomm.com>
 >> +Description:
@@ -504,6 +498,5 @@ thanks Jie, will update further.>
 >> +
 >> +#endif
 > 
-
 
 
