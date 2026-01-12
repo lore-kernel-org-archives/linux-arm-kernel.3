@@ -4,89 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF9BCCF45C8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 19:09:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B9EECF45C8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 19:17:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3xgYxXVz7pTlrANFhJdQjdekTrJ2dMKKIhvMM9hszBs=; b=AMxfmr8CsL0tKQ65Y5S0zql6cr
-	kUC1SWeanpqx0lYX5QNRv+c8T0Scmg4MlOkeABvEr0Hbqdv+CmchUHVtj/88ro9BeHPfB9et6lXVI
-	+8rD0zVNc/xAdfaSEHCLl+fKteOYLNMl0zIf9uqtJzp/jk0Gw2OhyHICNqT0q64yFly5FBCrsU5sd
-	ZMxm69XXxbsEZgTzwlDHionmvLt64Bi5SiHo/LQidcfJfZmsoom9VNrgCTaj0v73a6IY8czlX0wCa
-	t5Z3U2NYrbEmnb502zBDaimkl50ZiZs5Mv1YJyPZY3kP9LEL1gIGM6JnvBQqKlWwO7L/b4JRqoD0e
-	eVPzw6sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xpxn4R0gOPfxcyAbXyc3KA0CINt5vkULnqTOZ4ZLzic=; b=sq0rcbd7HEKA2LrLGqhf8QLUr7
+	MNQNdqZXdZ9yf0KlQEPY8XSKTrS7EZPKNtz/2rq9jtSCzB0TApLctr+cWPhQNlj5H8cd8FnLIGdjz
+	NM8z5Ev+qpAT93fHfI1eFHCykr20zQUl+bRZrNLwxkVwBB4qulqXXKDp/VibCoWy4LOHDDipCOjFd
+	P8XjNT4lc8KkohCAZ1k4HZkW4n1vNMdXLUIksSpIZgC/MOUfQNDoffLJq3dfwVRh80DVP+vElnuPj
+	Szgw6BRm5uJ1l9FdkkCu09gRoPlB8i4+zxiglV3VwHj8E/XcbRERVjuHC22q74AXQB3tr1fNVjG7B
+	k1upBklA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNIT-00000005xfn-05IY;
-	Mon, 12 Jan 2026 19:09:49 +0000
-Received: from mail-oi1-x233.google.com ([2607:f8b0:4864:20::233])
+	id 1vfNQ6-00000005yJQ-3BnU;
+	Mon, 12 Jan 2026 19:17:42 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNIR-00000005xeu-05XN
+	id 1vfNQ4-00000005yHG-1bcW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 19:09:48 +0000
-Received: by mail-oi1-x233.google.com with SMTP id 5614622812f47-459a516592eso4457862b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 11:09:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768244986; x=1768849786; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3xgYxXVz7pTlrANFhJdQjdekTrJ2dMKKIhvMM9hszBs=;
-        b=SXC9fmB2+/Use1tqeBt+zcww15KwXx8tNyzy8DH//NNg1m8okZLHLplrN0smO5G1bW
-         AP9t8nZ+iWwJpyZPKVSlUz9ZGSJfbM3ZYBpsH9/60oK71NOxWxDi5EHk1lz0JQuR/sOr
-         gxGNywrKWWylWKpkfT7FvRenOVg0ksGUop1CoQyQcK8sYREKOim6kuX/r7tF3nKJk0Uq
-         LhR4E/1UiU7ZsUiJ23eCvCprYMUFVU0rkqe6MDTlxlEStsUROYPzE1BOgLdo19hO+xd1
-         lzf1I+dOBy1UHmbwLfgvpzI8VnCvq3cJ+VulmRrNREC4czR7wX2/ke9GK5KTkZSAE9uI
-         Pyqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768244986; x=1768849786;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=3xgYxXVz7pTlrANFhJdQjdekTrJ2dMKKIhvMM9hszBs=;
-        b=OhRB9YfJxRTXNHHpFV2wZkC3wQ0sde/L6m2wJBw45N2TyNQ0TmoaPNAFWN1+tk2SQe
-         Hm4K3ZSKlOtsUQ7AA3zT1aeLXkLYD1DtDzd+S7GCfuBJRPwbCDTMzHb2RIeSJEUsjPiH
-         2ArC/7n36gXoVGE0yhyBEBocP4DFexbE8BAXQ54oxt3NCoOOoLzbj9FaojHrAn90XkR5
-         xfw0P4M4JakXa5Kgy3SfALTFIIfuzQt3n97KmnWdCWY5nWnUHRciDmHwq5ww4k1wZUWx
-         E3L6J+Psoe5MUIn/I9o7R241fMaxIcecGDSK7tVeJT0xvG6Kx6IeRyw5jiQWqFaQSXTz
-         bnnA==
-X-Forwarded-Encrypted: i=1; AJvYcCWHwWwpeOwXObjAFHTPIhxVhqaQP5Xd+xjeSfaVeWKkvUPmwWp71abj1Id1XinroQEM9iGwktUjZXw1sYU5Yn0P@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZTixFFI4VOQLaSMIyziHz3Y58UBslkLd4rW+eneVmP9K77LqW
-	wB+XO+0Z/JIpyBSOpbIKtdB9qWKtUVf2CsOXzKuMM8kzBYO+qDIL2KVoNqmL1MqWCEkjniZzCh/
-	UiQlXZ1NfUwQraIQ/0okwIlCLqHABQ3U=
-X-Gm-Gg: AY/fxX7rxdAQX2mULCU5nlUaPZmMFoXpgNGdFLcvXXuJzhMH7ITmpncGgJ1Gi8PIAbJ
-	mKB2lyV0avjwoA1BSb2jqhlMw/UpU4SYFfRXgf+cslpOnGX66eKLmiaUlCQLshMyG8vVV4VsAQp
-	QscHB3ivMUiIYf6pKY9hfP+OLq8FGuHTa/vO++hBQZvM3vomFuEyZWMnaHXBEgmq6J/dQdAQQD1
-	41zkKO8rkckWabMKGuAhL8anI1BfLqNFhVVMnMG/7I9Ob6S61rC6QqmAHxRvdNm5eQFwesgknmz
-	42l2wzGeYCRkRjxqR4HPIEi/cOg=
-X-Google-Smtp-Source: AGHT+IEwDmLeVhBFXh9EVFS3176R5WTz9bHFuYfygwgWJn3bI7U+szmlFfINN1R6jPICkSRAQjR3WA/cuwePtfThcjs=
-X-Received: by 2002:a05:6808:18aa:b0:450:32f0:4887 with SMTP id
- 5614622812f47-45a6bdfd28fmr7796703b6e.31.1768244985965; Mon, 12 Jan 2026
- 11:09:45 -0800 (PST)
+	Mon, 12 Jan 2026 19:17:42 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=ratatoskr.trumtrar.info)
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.trumtrar@pengutronix.de>)
+	id 1vfNPd-0003nP-0Y; Mon, 12 Jan 2026 20:17:13 +0100
+From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Date: Mon, 12 Jan 2026 20:17:11 +0100
+Subject: [PATCH] PCI: layerscape: Allow to compile as module
 MIME-Version: 1.0
-References: <20260110010715.1610159-1-mschirrmeister@gmail.com>
- <67ccb8f6-f9bd-4266-b79a-b688bd6d030b@rock-chips.com> <8536413c-8687-4d75-befb-8f25e54838bf@rock-chips.com>
- <c3ee063c-ca11-44e4-9e7d-3861a82db3ea@rock-chips.com> <a346ba30-43f1-4579-91e7-f10d2ccff039@rock-chips.com>
-In-Reply-To: <a346ba30-43f1-4579-91e7-f10d2ccff039@rock-chips.com>
-From: Marco Schirrmeister <mschirrmeister@gmail.com>
-Date: Mon, 12 Jan 2026 20:09:35 +0100
-X-Gm-Features: AZwV_QhduoYwkSZhCEw-t8HBLxeWwsxbNWZkTjbia4I_1o_9SGTrHxB5ncQ2lVs
-Message-ID: <CAGJh8eCJEwSySH3jddmcLjdtbFkn2yDmoE4mH1snmZJQHopA0Q@mail.gmail.com>
-Subject: Re: [PATCH v1 0/3] mmc: dw_mmc-rockchip: Add stability quirk for
- NanoPi R76S
-To: Shawn Lin <shawn.lin@rock-chips.com>
-Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, heiko@sntech.de, ulf.hansson@linaro.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260112-v6-19-topic-layerscape-pcie-v1-1-1cd863fce50e@pengutronix.de>
+X-B4-Tracking: v=1; b=H4sIALZIZWkC/x3MQQqAIBAAwK/EnltwrQT7SnQw22ohSjSiiP6ed
+ JzLPJA4Cidoiwcin5Jk3zKoLMAvbpsZZcwGrbRRRBpPg2Tx2IN4XN3NMXkXGIMXRjuSGkxTa6o
+ s5CFEnuT6965/3w/uII1AbQAAAA==
+X-Change-ID: 20260112-v6-19-topic-layerscape-pcie-9d10b6542139
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Minghuan Lian <minghuan.Lian@nxp.com>, 
+ Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>, 
+ Jingoo Han <jingoohan1@gmail.com>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Steffen Trumtrar <s.trumtrar@pengutronix.de>
+X-Mailer: b4 0.14.3
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.trumtrar@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_110947_063820_24B8080F 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20260112_111740_450743_6B52F401 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,31 +74,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 9:58=E2=80=AFAM Shawn Lin <shawn.lin@rock-chips.com=
-> wrote:
+From: Sascha Hauer <s.hauer@pengutronix.de>
 
-> >> I found several problems on RK3576 for supporting sd cards. I wondered
-> >> how all upstream RK3576 boards claiming SD support work? Anyway, I sen=
-t
-> >> a series to the list[1], not sure if it fixes the problem you faced, b=
-ut
-> >> these should be the right patches you should have a try.
-> >>
-> >> [1]https://lore.kernel.org/linux-rockchip/1768189768-96333-1-git-send-=
-email-shawn.lin@rock-chips.com/T/#t
+The layerscape pcie host controller could also be compiled as module.
+Add the necessary infrastructure to allow building as module instead of
+only as builtin driver.
 
-I will give it a try on the NanoPi R76S. Have also ordered a Rock 4D.
-But it will take a while before it arrives.
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+---
+ drivers/pci/controller/dwc/Kconfig          |  2 +-
+ drivers/pci/controller/dwc/pci-layerscape.c | 16 +++++++++++++++-
+ 2 files changed, 16 insertions(+), 2 deletions(-)
 
-> > cannot be detected. However, if the SD card is inserted before Linux
-> > boots, it can at least start up. I suspect that other boards may behave
-> > the same way :)
->
-> This is true, because .get_cd() returns card present when booting for
-> the first time, you the only way for upstream RK3576 boards to use sd
-> cards is to insert the card before booting. But then hot-plug case will
-> not able to work.
+diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+index 519b59422b479..abfa4a6e62c25 100644
+--- a/drivers/pci/controller/dwc/Kconfig
++++ b/drivers/pci/controller/dwc/Kconfig
+@@ -121,7 +121,7 @@ config PCI_IMX6_EP
+ 	  DesignWare core functions to implement the driver.
+ 
+ config PCI_LAYERSCAPE
+-	bool "Freescale Layerscape PCIe controller (host mode)"
++	tristate "Freescale Layerscape PCIe controller (host mode)"
+ 	depends on OF && (ARM || ARCH_LAYERSCAPE || COMPILE_TEST)
+ 	depends on PCI_MSI
+ 	select PCIE_DW_HOST
+diff --git a/drivers/pci/controller/dwc/pci-layerscape.c b/drivers/pci/controller/dwc/pci-layerscape.c
+index a44b5c256d6e2..14d6ac4fc53fd 100644
+--- a/drivers/pci/controller/dwc/pci-layerscape.c
++++ b/drivers/pci/controller/dwc/pci-layerscape.c
+@@ -13,6 +13,7 @@
+ #include <linux/interrupt.h>
+ #include <linux/init.h>
+ #include <linux/iopoll.h>
++#include <linux/module.h>
+ #include <linux/of_pci.h>
+ #include <linux/of_platform.h>
+ #include <linux/of_address.h>
+@@ -403,8 +404,16 @@ static const struct dev_pm_ops ls_pcie_pm_ops = {
+ 	NOIRQ_SYSTEM_SLEEP_PM_OPS(ls_pcie_suspend_noirq, ls_pcie_resume_noirq)
+ };
+ 
++static void ls_pcie_remove(struct platform_device *pdev)
++{
++	struct ls_pcie *pcie = platform_get_drvdata(pdev);
++
++	dw_pcie_host_deinit(&pcie->pci->pp);
++}
++
+ static struct platform_driver ls_pcie_driver = {
+ 	.probe = ls_pcie_probe,
++	.remove = ls_pcie_remove,
+ 	.driver = {
+ 		.name = "layerscape-pcie",
+ 		.of_match_table = ls_pcie_of_match,
+@@ -412,4 +421,9 @@ static struct platform_driver ls_pcie_driver = {
+ 		.pm = &ls_pcie_pm_ops,
+ 	},
+ };
+-builtin_platform_driver(ls_pcie_driver);
++module_platform_driver(ls_pcie_driver);
++
++MODULE_AUTHOR("Minghuan Lian <Minghuan.Lian@freescale.com>");
++MODULE_DESCRIPTION("Layerscape PCIe host controller driver");
++MODULE_LICENSE("GPL");
++MODULE_DEVICE_TABLE(of, ls_pcie_of_match);
 
-I can confirm the same. sd card only works, when inserted before boot.
-No hotplug.
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20260112-v6-19-topic-layerscape-pcie-9d10b6542139
+
+Best regards,
+-- 
+Steffen Trumtrar <s.trumtrar@pengutronix.de>
+
 
