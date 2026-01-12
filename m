@@ -4,155 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDAAAC9EC8D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 16:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4709C9EC8D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 16:10:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iBjlVRxcpLREaOLaNSc8MBvHSw8cCZtQQzBOxqoPOUk=; b=D70ni0CfbmlNphU4n3Wms4dBtw
-	Wh9ouINQGsQIbcm1CGfKCdrnRR+zf6TnhypP95hYzNWrE0WLbrnLmJfx7LhEP5XElxgPvxGP3xpDD
-	IVVCSOurAWVwePtgAovTbWOa3OLYQ80aAosW/l26R/lCtjAvQ1vw34LpdbEoYwaLeGU09fBk54Kox
-	uFdJwkH84mKk1VOfFTRGXLSYS07j/iF8e1SQPqkG+vwUkwbroNN6D9cpZWxJfdVv1aFP+aa0c/DDw
-	qwyWQbaVNSv2Y1ZF37QINtOO9xKnQa8Kry/JY0ekdLZ7HC0Q27TG0fM17AaHf5N1lRAU77VAzQVYB
-	1aopZx2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z3GYzOOFhYIdEsju1xbpLkXNvyrsB/91rJ5bPiz+oe0=; b=al/TmLOgFCV+p+bhyLZP70Kmbo
+	7fZIHh3Dk5559FBtWmzSQ2ydAiD+ze+NwnYYiFYuUqp0lcwIy6N3FHe3H6oeXJhLuSiAEuE7k69HQ
+	yucfkEBrQowZ5/m1bMzp1+xJb65p0ld43tW34k0MTEsrrQ0D5yzJlk/WwLSC1heHkT06X4nETYfTs
+	pZV3sSqw5OL6silCPrKXPt8kK99idXabyqgS0nLFQTNqSEetLbrYNSc0hZGV2Gy3/5ZmV73e2Tqa8
+	lTAforgYK7n7zgyCngKoVTWqX4cK+4SWorjv3cBsipmx7YxNPfLhUvW1kiWDAccsyUisZA1lpoeQ4
+	K43O8J7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfKUl-00000005hPY-28j7;
-	Mon, 12 Jan 2026 16:10:19 +0000
-Received: from mail-westusazon11010011.outbound.protection.outlook.com ([52.101.85.11] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1vfKVI-00000005hTP-3u9d;
+	Mon, 12 Jan 2026 16:10:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfKUj-00000005hP3-0Svi
+	id 1vfKVG-00000005hT6-2W0g
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 16:10:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ItnkjsYM34Gn3KLuaKrbi4mSyMaZruJ4Xgl9Zwl662I+WXE0EnprfOa5J9usO+Z185nkFFMGQa1xTXwJSjp27ku2wj4xLUYn+2xznbhnKITvYdNmIG/wB/mhg6CWRdATDG182o2w0h+AC04jKHgLZQLSSOGVlVY/uJ+vGNPL9lk3fxIkjefrKtMxOYXfp0QnFA5HsubqzITBxBVW7B5+EXmzOVpyqaWl+ZSdA6jd8UwgD/jFjhafRaUfuY9gI/c7X3d35a+PVJnPp//mtdNelkMZCH0GYmwB9zaweHNby4UsicQyFgbfQKF4SoEOOV4xQBXmUHjm1vprXP/d4mrAHQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iBjlVRxcpLREaOLaNSc8MBvHSw8cCZtQQzBOxqoPOUk=;
- b=uNpgj8pzAMVn7VF5QHQ0tKI+CRYHzpWIfw45YmSSmDd06tSmZZCGdgtp37BRT7PTe8bQKoLQpZJwuRycZgP1u1eCE09S63dZ3ADOyl3Hh3NYRGRThMIGATQWCN50ltDs0s0/WpnSqXjQIhe87ZMcGtDNrJ0zal2iYHWf4SN4PHNd2PibsI1ANdKt5kto03V02IYi7bi9DG6f3IwyPGXTJE/TZdfiZGkwfDPQdvy3Ys0EerqyLRoZxdzoLMSrSi/mGwXY+WKOsYbhK9Zrg7p5rrtPfOuMww/Qj46duCraz4v9qf2Ynn3jrFQQihL8hpmvEx/wrr8wEgv+Xi1WxeQH1A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iBjlVRxcpLREaOLaNSc8MBvHSw8cCZtQQzBOxqoPOUk=;
- b=M83pTU6mSIwjnXfHoSJZx2KLY4IejKu/X37IKIt91fHtuMloAakWDHYwZptma+zTHLs0mTMP4KRF6yDOp4doaUpZuyJYEh+UucPgwuYUIR86s5fx15Yf5gvRejOpQV6K6rMWRnqICPatXKo47mgWqkRKOQOwje+Y/e3eVTCXf3DqP3tqW19Mlqy3l+CEyoRXSG89CANMtLRKmi13WskumbhOiKLDSGUXk0stpVJKUxikNFv8A0tLcuvIKXxkkR9ao9m5Uz5sTF/kmVCYT9s3XH+4mI9aeo7HVPhWN1OaLg2twh8vt9kIwEMomZSgx9PLrq60WTuuNVFUQ3At+057SA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by IA4PR12MB9809.namprd12.prod.outlook.com (2603:10b6:208:54f::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Mon, 12 Jan
- 2026 16:10:11 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9499.005; Mon, 12 Jan 2026
- 16:10:11 +0000
-Date: Mon, 12 Jan 2026 12:10:10 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Will Deacon <will@kernel.org>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, robin.murphy@arm.com,
-	joro@8bytes.org, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	skolothumtho@nvidia.com, praan@google.com,
-	xueshuai@linux.alibaba.com, smostafa@google.com
-Subject: Re: [PATCH rc v5 1/4] iommu/arm-smmu-v3: Add update_safe bits to fix
- STE update sequence
-Message-ID: <20260112161010.GC812923@nvidia.com>
-References: <cover.1766093909.git.nicolinc@nvidia.com>
- <58f5af553fa7c3b5fd16f1eb13a81ae428f85678.1766093909.git.nicolinc@nvidia.com>
- <aV7OBrH-TDiGRblt@willie-the-truck>
- <20260108003646.GA537728@nvidia.com>
- <aWUY-f3kvM94z4qh@willie-the-truck>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aWUY-f3kvM94z4qh@willie-the-truck>
-X-ClientProxiedBy: BL0PR02CA0138.namprd02.prod.outlook.com
- (2603:10b6:208:35::43) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Mon, 12 Jan 2026 16:10:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 678AC6000A;
+	Mon, 12 Jan 2026 16:10:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31948C116D0;
+	Mon, 12 Jan 2026 16:10:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768234249;
+	bh=mgpj2TIPozPmj272al0hyX46YOdsg7JrFzwq3WOQA9w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=op9GvPJmyz8v6RI55sz8xBSs420fWAU+4QlSBKhwdrx6kb3c5Msg/7KczNsA69N9a
+	 xJ6/H0Dpqmzs4ghombWdFhAUJLI9cXd7JbWnhcy0/HCHzMyR+ulAGo2Bv/eIO16N6e
+	 cbNSSga2TZY5Fi/LU7+1aW3dsv3xSXmqYpRoy25Q534nlnfNkXthVUWVHheYK5D+Yf
+	 XmLSyYmfx6Y+6DWWBHwMEtdX8pNhBbGTYhS/NF5fag4Zz4kH4j72f3wVeq2AFUHkuh
+	 mSy4qy11aCBeZxDYrOlaS7E5GjXlg8dQNct6prBCjLlOq+GodJa44unKxId8evDtdX
+	 hDQGRT4+nxe/g==
+Message-ID: <66f6aeea-54da-4eec-930d-57b16e4547fa@kernel.org>
+Date: Mon, 12 Jan 2026 17:10:42 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA4PR12MB9809:EE_
-X-MS-Office365-Filtering-Correlation-Id: 22027cd2-0190-4291-9778-08de51f5101f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+uBcE1QDNMQtNOFoDWhHfQk5L1XDtprUd4WrA4euZmUpPScLfk0ZnOvw56I8?=
- =?us-ascii?Q?XMnlan1w6mBw1K+50AOombkTIKsnt4sZ71hfKgXM/It1D9bD32NmhocniY/y?=
- =?us-ascii?Q?HF0QnbNLB6xbJEQjZfH59p5d6j1bn78ZKEN26HOKKO3CVXUZasi6he+SxLqQ?=
- =?us-ascii?Q?MFHyqatbYmk1O8Mowg8NGfPZb3/cCNhVRvhG+/dMwm+jEorVV3FBzBRGJot5?=
- =?us-ascii?Q?BIB+JMOEUHwc9VcxKlLnLiA+ufBtyWxbu3zvb3MfDovIOj4svS/uwcPkbstm?=
- =?us-ascii?Q?8bUV5qt5ZoOctGvewuyg9rvhFaRTocB5czvv1sz0oWcWwbYE5L49KSbGbHXw?=
- =?us-ascii?Q?Qo6H2BZvQR7sHgodyIk2VARrdPdpIOSWnk9sun8z5Zw2Xj7LtyhfqwDjTZuD?=
- =?us-ascii?Q?GAewrgyCJSaqpuC3pp+NTnFdzd8Dniugvklvqc1uvtBxN/ihpS1A6xRQ/eG7?=
- =?us-ascii?Q?u/bn33CaEV6V8ATgRzFLNSK0nMB1WplpDnGe9+PrVPvyr2Py1T0xBMiy2XQQ?=
- =?us-ascii?Q?GYBdyXp5OWNz+8Sj8IoZDrJl1wjfx2ABnYE5Wd4VfWF95owq36xLCulP+dmC?=
- =?us-ascii?Q?cT3NMmazbOuiUr+y9dQ1/T/doE5D5jrWXIu98Eah2LezZ7TteK2cBiVl67TD?=
- =?us-ascii?Q?wbIioEgEyDl8kjGUd4pncn2JF1M4Udb3VlY8KbH/ewBKDtdLihTv9E2xWGRN?=
- =?us-ascii?Q?soOebVkl6F7bIIeY51Kw1uWgcaxhxb/v2Lh7uOGLBBDHSAE4a589MV5A9soU?=
- =?us-ascii?Q?CC3WoRDvnTW5wlB0N/mPqPPNcedO+ERXgkP9rneCcJAdLPGJ69wOw2XhdiqY?=
- =?us-ascii?Q?ELoVI4wrlJb2qLjaNQYoA1VgXKHmtWNwOEWZxN4lJe/6l0dCQ3GSXJTh9CML?=
- =?us-ascii?Q?nk65d3UDEaPpV67zsuNJqQ4Oc5FLezFm6amqpYJ/U7POK7GRw56qBB4yLy9v?=
- =?us-ascii?Q?PgKZkKJSfAzbpWjogJmhkdVVHni63MdzlJ3zxO9YSddZkmf+koRZD1mWnVkE?=
- =?us-ascii?Q?NypBXw7xBo+CQOrUDcAKDgykdLDTJ6yqWfeUBhxqZmuFPfsw5+8l8XllOc5Z?=
- =?us-ascii?Q?4TwEC6S0RP10Qcfe9+6pCXnPYnyBS4xgTRPLmBX0tCTXi3mFuItxAC8tnhVz?=
- =?us-ascii?Q?rZBo7IPHhdQWU/bXSy7DENh0AjRuEYLIGaczHITX7YJeSKyA7Ebt8AbMV0jp?=
- =?us-ascii?Q?aWn9J24UNZSpXuocKDbOgNIxDrMH296Xps17iqqBLm2zr67rlm5neQ10ID2e?=
- =?us-ascii?Q?tJ33BSecobkfEhSQmuWQhJ7+KiyKpPDF20v/cINJJ0Ac0ap+4xKKoO8ePC0o?=
- =?us-ascii?Q?BrTgrAdAi7m9+Hir9O7OH1Bnt5uorLDmsa4imJKqVUIuGhf7cbNbz6rpe2qd?=
- =?us-ascii?Q?VnTyRTthnXlFPoWAxZwIkPp+S8aoxxmErXE/bfkoKGqs6vid4Tpb0Wej8T32?=
- =?us-ascii?Q?Ben26+lyfEaz5+hnMpeJnVqLUsIlp+R+?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?10BiGXmbiIDK/MwVeEJTszNwSMjQt37KABG4vCWg45GXgSXjdFY1utDJ5a0H?=
- =?us-ascii?Q?bNFU+SrNmK2mdoJ+qryNFGYuZXLi078H/IAFppRMi+DplfH+7NjUczL3qkES?=
- =?us-ascii?Q?xy+c8mluEIqqxUuFW+j++j77NTTo4dzwn7jU/TYK7SWs9VekKww48v+oIXhE?=
- =?us-ascii?Q?jugzMbKlfiX11aGUXOSKnJpkHD2wVfn8r9sfsVSEi148FEO7CQ8UUBG0wSL+?=
- =?us-ascii?Q?HCv/enBNRqfo4OcZ7dMGZnKJq0rG906gZ+DJ0qwMTm/Uq7Nifa20SK4mNrsN?=
- =?us-ascii?Q?K06y5ziVkeHHagn14VxiuR3GIgwBUdPIN0rUfEfqT2kWQB/A8UvGlCEPZmV/?=
- =?us-ascii?Q?l6Ap5P65RpNAonslKULryCOtl0cdYhAS7QXhCA+tHheLYb6yaOuZ0WU3LMwg?=
- =?us-ascii?Q?IhpqOBZNnp1D4wes7tJlgVZoFFWws0op72s/8iwXkeSRtnvjl8dnik4CnJCm?=
- =?us-ascii?Q?dgblsDVbKxlBH7MXQBkgoQHCpojH1UdA+iv1S3cSHBZrRVztanc8YuK4fiU4?=
- =?us-ascii?Q?a4qADVdrQPeRMPVkhV/AnWCOcg4/iho4QF5114qtVrIwRLrQt3cnvJfWZszl?=
- =?us-ascii?Q?OtOWF9p1920GcmTL7FyMlai9FPWX7L1EVTTBF1du7dSvDsBUQ/I/6ZgpINVp?=
- =?us-ascii?Q?NwmxFTV4YeikPxwRws6LJkftzAk8onImv44/lSn7TIEpqjTvfMvTFl8VVJmS?=
- =?us-ascii?Q?zdzMFUHoBgeIPqwE3QMu3YY1HM058rJBJa6QC6tKJaLY8rOjIPdXWTptFFJ1?=
- =?us-ascii?Q?1OYqY0XxewNVj0h/MPhjCEPilRnOm3QmxmxyVp4mJb1TdJ6KinLDDl9mm7o7?=
- =?us-ascii?Q?j4OLKY+haAJVc/43dhNEEJOrTkXqr0eGehuLeTwEXX9nBiZQfP9OlTvo1rgd?=
- =?us-ascii?Q?Sb3Xd2fSKbk3vB1U5FzM9fXUWpN/cH1NDDEzLYPaWnS/Gnw52tv/0+UDxUpU?=
- =?us-ascii?Q?4z0yvDNzce2BySe+REOLtYjBcK4UP5436md1K7ycuEhaEYpNm93Vj8lMJFvH?=
- =?us-ascii?Q?ij0a/VyGXAhZbg65XkELJRRmU0z0udf/lS/dWDD+1xryaqf4nMlZUhHtWmaF?=
- =?us-ascii?Q?gPxx2z3ciWhIyJQN2zS+zycaO3V2UJwy4cI7Sa4mWcljPPKDi/3gwq9P7SZA?=
- =?us-ascii?Q?gNlQEPOnKT5gAfMfAKnmcmcFgGfI+qgXt4Jl3fB4wNl8ciQ3icdDEJmDDu+u?=
- =?us-ascii?Q?5Jn/jQ8cFrajViI53pji9NZvnZiC8rTHbx+P0XVRWXuAQhex64+co1N/q2Uy?=
- =?us-ascii?Q?dl3IyAWW+JeFVGb/UgEhxUxyUHZNfGew/tGNNyn5EPFd+6TKgTfplZyNncyZ?=
- =?us-ascii?Q?+hWPw6ZEcoA3D58fjYX2D33eMtIUn/qI+E3GfcfviDq/o+fV+RSgipUSlCcs?=
- =?us-ascii?Q?jvsqmvDFXIll5Qs0LXhSy89LJdnBSbLiGHaF7xt8ixoTTorLYMhhLyDPUJVu?=
- =?us-ascii?Q?yrUe4ybj46rNzjY9eDc/U+UdjTjGdSvBpz1IS6jehHISJPfA9D1c1nFC7y5E?=
- =?us-ascii?Q?4BEYSjGmUxU8j+FBvmZWIp/UkoWcQXPDdZ+cCSJ6WLX0MqV33sO3ZjNGa8+o?=
- =?us-ascii?Q?Xab6CD/Fi3wEj8RUwTqoNYRVe60JWkDSGJ8S6jJEyM+6bnKIXHP11lHXZvnS?=
- =?us-ascii?Q?atTyIpWc1FRY7BO7b6rOR/MmCW39AmwbErWfEWT1BOlbnl5M/4iySGcnQxln?=
- =?us-ascii?Q?HQUQheCuX2t/inHiqrkI/IEs6BfhZVp0cm9ryVOtpb1BIBGP4VLO/9xlRCda?=
- =?us-ascii?Q?qMOtEuqLjw=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 22027cd2-0190-4291-9778-08de51f5101f
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jan 2026 16:10:11.4175
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nRsplOmEvqkroMpgoHUnXP8us8GPGm7CSRTG9lOcln1dfikRAhJ2DqaFIR4r6Hr1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR12MB9809
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_081017_154933_63B7E848 
-X-CRM114-Status: GOOD (  25.71  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/11] dt-bindings: pinctrl: document access-controllers
+ property for stm32 HDP
+To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>,
+ Linus Walleij <linusw@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20260109-debug_bus-v1-0-8f2142b5a738@foss.st.com>
+ <20260109-debug_bus-v1-2-8f2142b5a738@foss.st.com>
+ <322e13df-5146-4dab-8f2a-6c635c82eb70@kernel.org>
+ <09845133-5f71-4e1a-af0f-f90ad80ed8bd@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <09845133-5f71-4e1a-af0f-f90ad80ed8bd@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,48 +127,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 03:53:29PM +0000, Will Deacon wrote:
-> On Wed, Jan 07, 2026 at 08:36:46PM -0400, Jason Gunthorpe wrote:
-> > On Wed, Jan 07, 2026 at 09:20:06PM +0000, Will Deacon wrote:
-> > > >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  2 ++
-> > > >  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 18 ++++++++++---
-> > > >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 27 ++++++++++++++-----
-> > > >  3 files changed, 37 insertions(+), 10 deletions(-)
-> > > 
-> > > Hmm. So this appears to ignore the safe bits entirely, whereas the
-> > > rationale for the change is that going from {MEV,EATS} disabled to
-> > > enabled is safe (which I agree with). 
-> > 
-> > The argument was it doesn't matter for either direction be it disabled
-> > to enabled or vice versa, see my reply to Mustfa in the v4 posting:
-> > 
-> > https://lore.kernel.org/all/20251218180129.GA254720@nvidia.com/
+On 12/01/2026 09:24, Gatien CHEVALLIER wrote:
 > 
-> It would be good to include some of that rationale in the comment and
-> commit message for patch 3, as at the moment it only talks about the
-> change in one direction.
+> 
+> On 1/11/26 12:27, Krzysztof Kozlowski wrote:
+>> On 09/01/2026 11:55, Gatien Chevallier wrote:
+>>> HDP being functional depends on the debug configuration on the platform
+>>> that can be checked using the access-controllers property, document it.
+>>>
+>>> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+>>> ---
+>>>   Documentation/devicetree/bindings/pinctrl/st,stm32-hdp.yaml | 4 ++++
+>>>   1 file changed, 4 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-hdp.yaml b/Documentation/devicetree/bindings/pinctrl/st,stm32-hdp.yaml
+>>> index 845b6b7b7552..75054c1e4044 100644
+>>> --- a/Documentation/devicetree/bindings/pinctrl/st,stm32-hdp.yaml
+>>> +++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-hdp.yaml
+>>> @@ -27,6 +27,10 @@ properties:
+>>>     clocks:
+>>>       maxItems: 1
+>>>   
+>>> +  access-controllers:
+>>> +    minItems: 1
+>>> +    maxItems: 2
+>>
+>> You need to list the items. Why is this flexible?
+>>
+>> Best regards,
+>> Krzysztof
+> 
+> I will need to list 2 items (2 different firewall controllers)
+> for the stm32mp2x series that I planned doing in a second time.
+> 
+> On stm32mp1x series, only debug configuration needs to be checked
+> for this peripheral. On stm32mp2x series, both debug and RIFSC
+> (which is the peripheral firewall) configurations need to be checked.
+> 
+> By listing, you mean adding the description of each of the possible
+> access controller, am I right?
 
-Sure, I can help Nicolin with that.
+items with "- description: foo bar" for each, so each is strictly
+defined. I doubt that you can hook it into any access controller...
 
-> I'm also still not convinced that this is generally safe, even if it
-> works within what Linux currently does. For example, if somebody tries
-> to disable S2S and enable ATS at the same time, couldn't you transiently
-> get an illegal STE?
+> 
+> Can I keep it like this or do I introduce the flexibility when needed?
 
-I would argue that the driver will never concurrently support S2S and
-ATS together for the same device, it doesn't make sense as far as I
-can understand.
+Lists should not be flexible but rather constrained per each device.
+With loose approach here you only force quite restrictive driver
+behavior, although not sure if it matters now for Linux.
 
-You are correct that there is an illegal STE issue here in this case.
-
-However, keep in mind, if there is concurrent DMA while the driver is
-trying to do such a thing there must be a STE error, and we should try
-to make it be a non-valid STE error.
-
-Still, it seems easy enough to improve, do not add EATS to the safe
-bits if either the current or new STE has S2S set. That will force a
-V=0 and avoid the illegal STE. Nicolin?
-
-Thanks,
-Jason
+Best regards,
+Krzysztof
 
