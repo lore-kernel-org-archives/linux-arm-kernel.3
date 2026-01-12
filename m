@@ -4,69 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6425DCF45C8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 20:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45547CF45CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 20:21:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Szp9Mk0HCeWFgb449BpUK5gU0Kp6TwYpUFZWyIqpWlY=; b=mwZkxq9ioxErIbMRAqXE/mTqhx
-	1XelUhqp0ggqstoktIfIfH0duIVOONamVH1V4BoW1TNoYM2s7uz1oqq76m80mMyKPeLEHB5rSHQb/
-	snbdZtcxcFd+nhqFeLvIOH4a1HpGEPT2zKtPFo7hYincWKwMdQ67TAt1mDY11kmGSspDst6v6kusJ
-	1M6GWx/WlNzIFlK3o6zx4L+ZEaJiomHEVWeRXvJAbfEkCGDqJ3cNV1D7+mtD/VxEobe4rHsLKlYJp
-	vBiNXxiZCD9YrtnTA+ONTa/AcJqerGgOMjYruTVA1Awx9T+T2rt2+vSZIWdNrgF14BnVJhoyPWJ1e
-	iz2tq/6Q==;
+	bh=pM2HVj0IbRzyr5LO4i8EzepH8lDcFhvxqihJ5sWzB1A=; b=cMWzxrk4S/iwAtT8hASbaC+s5B
+	yb8863Mg9YEE7lK9aEie1gDcSl2uSAx47DA35chZcOTWaAZMAGp6BkO9WjMvzHSLahPNn5LmBzmwE
+	0fV0yNCloiVTrusRTGRZLTBT1CvMUKCLBfZDlM4QpFHxC85pqZrWucgqgO59DuUMFYzmlpk4QB6dJ
+	3UUADPhq1lpZGI5dNIi9SPYy3IVZ/88pkyES1v/Imf78w/5+Ydl/VYuVWDQcaNiglTtFodMq3XZGT
+	68IxhGuL0GvvCGNixZqV/YBCfK2Rq9bNQX9QIJWzssts25DgBZHi9NfYdvFuw24nE+DlQXkr0w6ey
+	4YekxF6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfO6n-000000067jr-05qz;
-	Mon, 12 Jan 2026 20:01:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vfOPR-000000069o8-0Y8C;
+	Mon, 12 Jan 2026 20:21:05 +0000
+Received: from mail-westus3azon11012017.outbound.protection.outlook.com ([40.107.209.17] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfO6l-000000067jX-1zfW
+	id 1vfOPN-000000069mW-42ms
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 20:01:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 815446000A;
-	Mon, 12 Jan 2026 20:01:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05D75C116D0;
-	Mon, 12 Jan 2026 20:01:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768248106;
-	bh=iAzLbGMDXQfuE3s4KFa2lQ8l5bKVW/+TK+/FOv2Eho4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cmRTtpW0cY4oNrQtvYdKlC26VlGGgiFUrlh1ys7lAGIXsBImtcv9fbxXcfAzv35w6
-	 GaCEUXCJJ9DajEsHvVfLZlvLZ1o8g6qhe8jqJP+I/v0W28Qb9X04J0DxlQpqYlF1rk
-	 rqauQh08FgmsrE9N/Oh9DsGa2zX+Yjq3nhAh4wzrFOzlAxNMN2z97cm3vvzlatqYDl
-	 rI0tZFsJuf7kCtx/pneTrvKh4BS4Plk3xYDOusK3NsxRQhiyXUjXXEm/FpNgVh0eSj
-	 bQVUcZUGC3N7QtGsIFi7QPeyQ9vHl8/wPphA6UsoUUdaq3V+JCwd7EA6oyM9cOfoMh
-	 pGUKXhKqAJiBQ==
-Date: Mon, 12 Jan 2026 20:01:40 +0000
-From: Simon Horman <horms@kernel.org>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
-	Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next 2/2] net: stmmac: qcom-ethqos: convert to
- set_clk_tx_rate() method
-Message-ID: <aWVTJL_G__7IQTBn@horms.kernel.org>
-References: <aWU4gnjv7-mcgphM@shell.armlinux.org.uk>
- <E1vfMO1-00000002kJF-33UK@rmk-PC.armlinux.org.uk>
+	Mon, 12 Jan 2026 20:21:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pNDbiJuo0vJNLDi60AoBW45ftTlapoWdEUQz/e4HD5U75vI6NlNmTMltLBJgdjTzPIbMz2OjA/BIygb1SFNYaZNhZdEC7gB4Flj/nsshmGYZlCH0yS5uDputEBEh4tHFZdkQXazyZ3u/XtkRlQQYrw7/VK64mZTrZOKbDViQ5j81KHIYSs61c5H/gGeQZuUc6xpBCysmHkvnjBoU0M3Cye2K6barp+KogdWvU+R5onUlCe61D/JhEbJGHy+veODmSUXV3UXVtx1izfIupJpFvOS6+wl0MxEBtKvRyJ9JAkN/bDonS3w/x7Ej72oO6cAeFZqZT1Jx6Q9hFnnY00A8/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pM2HVj0IbRzyr5LO4i8EzepH8lDcFhvxqihJ5sWzB1A=;
+ b=s1vx2pEc+H/ms5oG6SrBQVHLxt5U60K68LUZOSgl6xwODsgbFBVzGI4i4NaY1YZsIxllUkqPQ2Vd334K8yHZLkNez/u6dOhUEsnplgoXjX6ZaRioot6yfQ/9oq4gX+3cPG5amDhAC/LKdMC/EDfzx3pR7rui808lSdwDTy9G2OXRew7cjdRH6fqC/wzJ0sx9X8LJPrS3MNQuDRvP/J5dDvYXXp9LrFoULfUAquKwUM9aOABEqO5WTkn49paUnFh/2P71v4LQHp3S5dNDzTGbfeaL3YaKO46LEeJD9ZJ8ch3DSHrI0bktqcue3CvDsz8LzcozImr6YiJiggFvY7ZDUw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pM2HVj0IbRzyr5LO4i8EzepH8lDcFhvxqihJ5sWzB1A=;
+ b=J/Rn6LNbFT4FfC4Z1Eqnraf+yxt+h4bO0oKDtXfuYkvjcAvcg4CMdG2g25Y8dhIvwLVHtSUYeJpp76hfv3maBzFf01J1obDO3tlBfbYwFO9DpTF8cYGOeVOjmLxzZEfATjvmg3i6withHvevXjDjI3dJteUXZ/jaauq1w8eKFRtAB07QOlDTEbkFaTmMin/LYZA23RbSMmZdvqJLwgt3BoWYIirBv4oCeo+RhZ/ROcsS5P55FE/cSzldO3EjwzMgV34Gy0myQxH8Vc6qNXBGxaWs53iKh2oudir3QrFzlIcGz7LOQQ5Ml5NUgWJtN3/kRMOQjYNNvifdzuASlr8c8g==
+Received: from BN9PR03CA0426.namprd03.prod.outlook.com (2603:10b6:408:113::11)
+ by MW4PR12MB6900.namprd12.prod.outlook.com (2603:10b6:303:20e::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Mon, 12 Jan
+ 2026 20:20:54 +0000
+Received: from BN3PEPF0000B071.namprd04.prod.outlook.com
+ (2603:10b6:408:113:cafe::ad) by BN9PR03CA0426.outlook.office365.com
+ (2603:10b6:408:113::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.6 via Frontend Transport; Mon,
+ 12 Jan 2026 20:20:45 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BN3PEPF0000B071.mail.protection.outlook.com (10.167.243.116) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.1 via Frontend Transport; Mon, 12 Jan 2026 20:20:53 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 12 Jan
+ 2026 12:20:33 -0800
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 12 Jan
+ 2026 12:20:32 -0800
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.14) by mail.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Mon, 12 Jan 2026 12:20:32 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <will@kernel.org>
+CC: <jgg@nvidia.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <skolothumtho@nvidia.com>,
+	<praan@google.com>, <xueshuai@linux.alibaba.com>, <smostafa@google.com>
+Subject: [PATCH rc v6 2/4] iommu/arm-smmu-v3: Mark STE MEV safe when computing the update sequence
+Date: Mon, 12 Jan 2026 12:20:15 -0800
+Message-ID: <f560881df101d76de95c942cdbeab149eae3d581.1768248467.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1768248467.git.nicolinc@nvidia.com>
+References: <cover.1768248467.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1vfMO1-00000002kJF-33UK@rmk-PC.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B071:EE_|MW4PR12MB6900:EE_
+X-MS-Office365-Filtering-Correlation-Id: 55a3890d-660d-4a7e-08cd-08de521815df
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WZtck/FjalrY55J0VREGIrngHR0jBot5TRXzHmZdOscxUrnaNkhhKmaVgVEk?=
+ =?us-ascii?Q?EHxYUYClk1Pj20SPxhhzEprfgqgJ+0LDDZhRdKPTss791qmMD8mFkc06HZS5?=
+ =?us-ascii?Q?mFPOYQrgM9XbK4IPFV4xtIZZa+CM9k/STHRbwfBiifqY6SZzLHzKXy0zhf3P?=
+ =?us-ascii?Q?63rf5tAi9+uHqhAXVzv1U7cfoQkuteeU0RadS+Zg83aotuGTbpMrnn7QLG+8?=
+ =?us-ascii?Q?UPJl/iDE8UG6PAb6uNVsGi28jHt5cQwD1feKMTScFsvqpl46P4rhtZL6hTjD?=
+ =?us-ascii?Q?UGQwJKim7LGBhX9QXdi00+mQ5T/VCoRO9Pnp4/ujrt8E+TEQXXsLmShIybLi?=
+ =?us-ascii?Q?4EuU3VlXXBrg9L27o/Tzj5Jy5W+zjZP4vVQwQB6+JdC2WnyhszzW6ewbHDz/?=
+ =?us-ascii?Q?lSVq26+TrUSau7FpU0O0gBehMIN5k/WV3PJYbdHn8dEoJrCyWX/5RJYkvLP7?=
+ =?us-ascii?Q?DDL6CVQGAUeC3towBPZ99eOvZAiEHH+/5hoopPFHqZc47w3B9So2e+6hC+CJ?=
+ =?us-ascii?Q?iFXGlZDFjpkrsIyHt8py2wOOMgwa6Hwpsgaidj9K1oMunPFyAsqWXHIWRmQH?=
+ =?us-ascii?Q?EauzyZ7loyn22bPnLoYtJhu6dPOVYoWNgPommC6VrAaWvoKdZY9GLt+kJMqE?=
+ =?us-ascii?Q?amBZRJU1TKeuOTE9wPKhtE0YAnoBtN/xR8zEIjeoTpKmUhd3tDeWK5S1tNkr?=
+ =?us-ascii?Q?j/x+rxiTHmswyJeaeN6aDnaJalMg/jqRZdkgusJpbWySqSl1aw4Mx4MrE5lI?=
+ =?us-ascii?Q?3aeLDJBSQtejc7gXFmPujQ7+XoBvBE78GBDjHRwtpUNQL+i3auHKqm6tXAx5?=
+ =?us-ascii?Q?pCxJ1qt233lFqE7Sc8D18r8ug0nWbCEAhphpx2Lq/Ho7lFRJkBbW4sizpMQm?=
+ =?us-ascii?Q?nxVc5JcUslh6BGgytZO8/9sPnjaFzHLW4y3ewZAA5ZUm2znDp/WPrQpwJOvk?=
+ =?us-ascii?Q?mTh2cHnhLfq6TmUEVAhf1Xo1fCDnxGWLuPrV+/VsqL3PhCCofgGUTXfOCYXN?=
+ =?us-ascii?Q?+ARKfMa2o9OWQUySb7U/qj6eo+x7X9Wy2wQqnLLgmCzSt1ASnauXoEp+xbVx?=
+ =?us-ascii?Q?Se8AP2GpdAWzRETi3t5AUSCwbRL4EFgNdIX3RuNJy7DB9UGHTkkuCgm80XHE?=
+ =?us-ascii?Q?L13izmuk2Y8il4dBws7Jv+TN0PRfKrxdc+dM5HUBPq4T//7k5Gy4g78tMaxv?=
+ =?us-ascii?Q?mLNruHDdYf1aonA4RndhSoWS8Uitws30Jg++VxtHcGQzgZMGlZ1gUVJr5cfG?=
+ =?us-ascii?Q?Xd02ItLWY65zjSvcQGHrHnsYRCAoT4iXLw8RFL0mFCQs+/b6Gy2Awg2ZfsGB?=
+ =?us-ascii?Q?WHAVp8q16841YP2mj4X9Cfy+NkQgGTvcD9ly2e4eSf0E700Hjvdoh7tgg0p1?=
+ =?us-ascii?Q?Uz6NiF3chkiKfEg/6pAv2nOcKmbfqqu9y2V1wVDnZTVY6pHBazl9hWUoE5Sb?=
+ =?us-ascii?Q?p5hchosISTVqIEF/khUHcxac8HSWJHRC1x44We4gJRY/7rcy8MiT6wQDGVAb?=
+ =?us-ascii?Q?bCLjbUBTJA8WbrAWiABRLZ6CD7l2d3kRzvCqXjwM+/DYnsWLyszC2nTDbeiG?=
+ =?us-ascii?Q?ekIaRRUgFZ9AVJd2Zzs=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jan 2026 20:20:53.0751
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 55a3890d-660d-4a7e-08cd-08de521815df
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B071.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB6900
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260112_122102_014451_25CF325F 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,60 +152,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 06:11:29PM +0000, Russell King (Oracle) wrote:
-> Set the RGMII link clock using the set_clk_tx_rate() method rather than
-> coding it into the .fix_mac_speed() method. This simplifies ethqos's
-> ethqos_fix_mac_speed().
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  .../stmicro/stmmac/dwmac-qcom-ethqos.c        | 19 +++++++++----------
->  1 file changed, 9 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index 869f924f3cde..d6df3ca757be 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> @@ -102,7 +102,6 @@ struct qcom_ethqos {
->  	void __iomem *rgmii_base;
->  	int (*configure_func)(struct qcom_ethqos *ethqos, int speed);
->  
-> -	unsigned int link_clk_rate;
->  	struct clk *link_clk;
->  	struct phy *serdes_phy;
->  	int serdes_speed;
-> @@ -174,19 +173,18 @@ static void rgmii_dump(void *priv)
->  		rgmii_readl(ethqos, EMAC_SYSTEM_LOW_POWER_DEBUG));
->  }
->  
-> -static void
-> -ethqos_update_link_clk(struct qcom_ethqos *ethqos, int speed)
-> +static int ethqos_set_clk_tx_rate(void *bsp_priv, struct clk *clk_tx_i,
-> +				  phy_interface_t interface, int speed)
->  {
-> +	struct qcom_ethqos *ethqos = bsp_priv;
->  	long rate;
->  
-> -	if (!phy_interface_mode_is_rgmii(ethqos->phy_mode))
-> -		return;
-> +	if (!phy_interface_mode_is_rgmii(interface))
-> +		return 0;
->  
->  	rate = rgmii_clock(speed);
->  	if (rate > 0)
-> -		ethqos->link_clk_rate = rate * 2;
-> -
-> -	clk_set_rate(ethqos->link_clk, ethqos->link_clk_rate);
-> +		clk_set_rate(ethqos->link_clk, rate * 2);
+From: Jason Gunthorpe <jgg@nvidia.com>
 
-Hi Russell,
+Nested CD tables set the MEV bit to try to reduce multi-fault spamming on
+the hypervisor. Since MEV is in STE word 1 this causes a breaking update
+sequence that is not required and impacts real workloads.
 
-An int needs to be returned here.
+For the purposes of STE updates the value of MEV doesn't matter, if it is
+set/cleared early or late it just results in a change to the fault reports
+that must be supported by the kernel anyhow. The spec says:
 
->  }
->  
->  static void
+ Note: Software must expect, and be able to deal with, coalesced fault
+ records even when MEV == 0.
 
+So mark STE MEV safe when computing the update sequence, to avoid creating
+a breaking update.
+
+Fixes: da0c56520e88 ("iommu/arm-smmu-v3: Set MEV bit in nested STE for DoS mitigations")
+Cc: stable@vger.kernel.org
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+Reviewed-by: Mostafa Saleh <smostafa@google.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 390446d259ab..ccd6357fa5a8 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -1086,6 +1086,16 @@ VISIBLE_IF_KUNIT
+ void arm_smmu_get_ste_update_safe(const __le64 *cur, const __le64 *target,
+ 				  __le64 *safe_bits)
+ {
++	/*
++	 * MEV does not meaningfully impact the operation of the HW, it only
++	 * changes how many fault events are generated, thus we can relax it
++	 * when computing the ordering. The spec notes the device can act like
++	 * MEV=1 anyhow:
++	 *
++	 *  Note: Software must expect, and be able to deal with, coalesced
++	 *  fault records even when MEV == 0.
++	 */
++	safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_MEV);
+ }
+ EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_update_safe);
+ 
 -- 
-pw-bot: cr
+2.43.0
+
 
