@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD26D25032
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 07:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00680D25043
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 07:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5s1E1yisqHJGGPTpys4I/1xezHpPYE2+zak8zKkm6YU=; b=1jivIKK1bNuR8PJNxnUPVjRhRi
-	t86PXiHjGYVsbVV/CfYNPQrSN+v8aRbC7CwPWs/MFM39PrVHpZFzkNLDBbHh3caQDlkjjpVguNEri
-	HL8adBHqLOTrkAvlhpD10VWAwa0N4qU3alIswpNzGHRhmTgZd1mFwzhB9W1oy5BOr8A7BlLltsBDa
-	pW1MT3OlHkVf1JEtCmK4vi1ul1evlmVrIKRrHSNu/eL8J3lqMWGMH3APHcDNY558Y2l71qrjQzsHf
-	kP35WaopkcWVTgRdmtRPmdn7ycrTv0JNZvSWlzDVefD93JZOizxB00bREd0xJR1KLooGya3sPK8jR
-	ptR2ejpg==;
+	bh=+Nm08QPvja+X8sRm8npcNZeirzQwsu4YExZqsNCkcus=; b=XhjI6rP3oyfXhMIIpsVRtfjAmp
+	ZZeaGvWRUarAcT1eW5aUA3y/77mU4lUN60Tmq8AluOq2Pu+4QyoOvHmMLHk2/HpE07XdfQ3Mz9GLI
+	OGWaZFeMYBVfabHu0GdxTkcnxJxkaOjy9z+thWjkO9Bd6cdH5nfv8hLJVvhmVjVyIywq+eyDRlOAf
+	soKoHhR689a4mD6feD8O77RToXPSD15I4q0y52gef0NqFBajLnykZCDB3xFGsV097rvW8tHJKdJwa
+	hZ9addD7Cto6j2SNYKjbO70CTPvsJxlG6PqGJNK0ite9bPoJOEXwWK3kMdOvGUlvRjTgbB/iIxxMF
+	6ATPXC7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfCp4-00000004wPH-16xX;
-	Mon, 12 Jan 2026 07:58:46 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vfCp5-00000004wRJ-1lCz;
+	Mon, 12 Jan 2026 07:58:47 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfCox-00000004wJD-2V8n;
-	Mon, 12 Jan 2026 07:58:41 +0000
+	id 1vfCoz-00000004wKk-3aDM;
+	Mon, 12 Jan 2026 07:58:43 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1768204715;
+	s=2020; t=1768204717;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=5s1E1yisqHJGGPTpys4I/1xezHpPYE2+zak8zKkm6YU=;
-	b=omYMiVgyCs2/ICjIBKHk+uRwVKqb2olpwT7SpzDhB5GVFq48MzJ/sHFdjM4oNWLwQPBxU1
-	3PA9Ne8I1jwRRzFiSEzVJKc1Y3TnnU7FehqUKshQKo30JlPtUldAKsCrRR86DmO/d9WYsX
-	1ChFodv4xO9yMpZ3gyslxtwEtuBJHm7JrxA3oogmrtvYjhn6JY2NS3zhhWpsMxbl8HG2//
-	rshFGY/ctXk7vLOxa1SiNGOW31cMo+JVvMnQgcVTAZSdeaYiksXAd8TaGKo3QBr5T39V+h
-	URj92ms8uHNgAFFrEbBODFt79o70DbqwZElk/n00VaztdlOVJCKc6EKsmg4/4A==
+	bh=+Nm08QPvja+X8sRm8npcNZeirzQwsu4YExZqsNCkcus=;
+	b=YUA8/D41Qd5gz0b5oHny13Ly/SKKuKkDId6G1JNhOQH0X8E/87G7+k+WpjLfYaRlD8Q963
+	e1xqw92qVBROfZgQ1/kvnzRSsFWaXTz6qrq6t8X8AGeOX4z5eEzIvZoyWpV6zS/XsybETZ
+	egSTALZ2A3ef2qN7InBSZ4dT8WZxmk9tF3n8mr/4/IRc7mVSLjv8Tvuoe7HEUhdkKcAYcS
+	3T5c4R/ZuOqOINqah/lWpGMYuUH4vJtE5N0X6kva9iHg+Wbq15bmh41Bg1vOnn2e8TBUBU
+	bw+blVCmbkhlT6TqrSXMM2cXFGoHYN+oH/oLzS3eKOVSMVWXsIXwObEC9oP+Fg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1768204715;
+	s=2020e; t=1768204717;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=5s1E1yisqHJGGPTpys4I/1xezHpPYE2+zak8zKkm6YU=;
-	b=jAfZhu7+MYFHbZQYp4Wr1DEqaexq5dbKqNHBkWycp5xJn1kHg0vAMVoGlzZuplCYqAuNVf
-	srmP/2rF5wWJuFBw==
-Date: Mon, 12 Jan 2026 08:58:30 +0100
-Subject: [PATCH v2 2/5] ARM: uapi: Drop PSR_ENDSTATE
+	bh=+Nm08QPvja+X8sRm8npcNZeirzQwsu4YExZqsNCkcus=;
+	b=i+pvltVKbnu+ggWlaK4sc/4fwRX1DLgkK1PhBse1cfVMBKq7kC3c62rQvkbHP8pQDwNM0v
+	EARnupm14BZcXLAg==
+Date: Mon, 12 Jan 2026 08:58:33 +0100
+Subject: [PATCH v2 5/5] scripts: headers_install.sh: Remove config leak
+ ignore machinery
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260112-headers_install-config-leak-v2-2-4d8084444603@linutronix.de>
+Message-Id: <20260112-headers_install-config-leak-v2-5-4d8084444603@linutronix.de>
 References: <20260112-headers_install-config-leak-v2-0-4d8084444603@linutronix.de>
 In-Reply-To: <20260112-headers_install-config-leak-v2-0-4d8084444603@linutronix.de>
 To: Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
@@ -64,16 +65,16 @@ To: Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
 Cc: linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768204713; l=2940;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768204713; l=1231;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=fz1o/QC//id3SLCiEx9I+QB/CLj6vfH/ATM2HwtC2M4=;
- b=SgLGFJD93/ax6KUVAdEqFkrrtteLzYnyVrgmZLmHAO3OlDxH1a9NqMhU6ejqJ2eiYW+IB+Olx
- MoK7VJQoUOYB/DXjxAg1+xBNyQ+JiDlDEEof/TKvPnQt3686DHOkcx1
+ bh=3m2ChPrsGt9AyZmjEghF2edS4ROwGKo0RjvgqUHiJ78=;
+ b=lMTaoQYD5mp3KkppGHRh80zlb5hvyWuPkZm9YoR05ZtcJuFvgjKLhNDS5cIvudXfwBDhIPSwD
+ qPePzBUbGDhCl05oBVNc6DZNK7Ly/RAa6pJgDde0NMqvyIFDV9mxjaK
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_235839_771995_773B801A 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20260111_235842_035290_D5022EDD 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,82 +89,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The symbol PSR_ENDSTATE is pointless for userspace. Drop it from the
-UAPI headers and instead inline it into the only two callers.
+There are no entries left to ignore and none should be added again.
 
-As as side-effect, remove a leak of an internal kconfig symbol through
-the UAPI headers.
+Remove the now unused logic.
 
-Suggested-by: Arnd Bergmann <arnd@arndb.de>
-Link: https://lore.kernel.org/lkml/d2ad12f2-3d65-4bef-890c-65d78a33d790@app.fastmail.com/
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- arch/arm/include/asm/processor.h   | 3 ++-
- arch/arm/include/uapi/asm/ptrace.h | 9 ---------
- arch/arm/kernel/signal.c           | 3 ++-
- scripts/headers_install.sh         | 1 -
- 4 files changed, 4 insertions(+), 12 deletions(-)
+ scripts/headers_install.sh | 24 ++----------------------
+ 1 file changed, 2 insertions(+), 22 deletions(-)
 
-diff --git a/arch/arm/include/asm/processor.h b/arch/arm/include/asm/processor.h
-index 326864f79d18..bba83228bc22 100644
---- a/arch/arm/include/asm/processor.h
-+++ b/arch/arm/include/asm/processor.h
-@@ -73,7 +73,8 @@ static inline void arch_thread_struct_whitelist(unsigned long *offset,
- 		regs->ARM_cpsr = USR26_MODE;				\
- 	if (elf_hwcap & HWCAP_THUMB && pc & 1)				\
- 		regs->ARM_cpsr |= PSR_T_BIT;				\
--	regs->ARM_cpsr |= PSR_ENDSTATE;					\
-+	if (IS_ENABLED(CONFIG_CPU_ENDIAN_BE8))				\
-+		regs->ARM_cpsr |= PSR_E_BIT;				\
- 	regs->ARM_pc = pc & ~1;		/* pc */			\
- 	regs->ARM_sp = sp;		/* sp */			\
- })
-diff --git a/arch/arm/include/uapi/asm/ptrace.h b/arch/arm/include/uapi/asm/ptrace.h
-index 8896c23ccba7..2ef917957005 100644
---- a/arch/arm/include/uapi/asm/ptrace.h
-+++ b/arch/arm/include/uapi/asm/ptrace.h
-@@ -102,15 +102,6 @@
- #define PSR_IT_MASK	0x0600fc00	/* If-Then execution state mask */
- #define PSR_ENDIAN_MASK	0x00000200	/* Endianness state mask */
- 
--/*
-- * Default endianness state
-- */
--#ifdef CONFIG_CPU_ENDIAN_BE8
--#define PSR_ENDSTATE	PSR_E_BIT
--#else
--#define PSR_ENDSTATE	0
--#endif
--
- /* 
-  * These are 'magic' values for PTRACE_PEEKUSR that return info about where a
-  * process is located in memory.
-diff --git a/arch/arm/kernel/signal.c b/arch/arm/kernel/signal.c
-index 79a6730fa0eb..7be9188d83d9 100644
---- a/arch/arm/kernel/signal.c
-+++ b/arch/arm/kernel/signal.c
-@@ -337,7 +337,8 @@ setup_return(struct pt_regs *regs, struct ksignal *ksig,
- 			return 1;
- 	}
- 
--	cpsr |= PSR_ENDSTATE;
-+	if (IS_ENABLED(CONFIG_CPU_ENDIAN_BE8))
-+		cpsr |= PSR_E_BIT;
- 
- 	/*
- 	 * Maybe we need to deliver a 32-bit signal to a 26-bit task.
 diff --git a/scripts/headers_install.sh b/scripts/headers_install.sh
-index 727f7f82c2c7..4f03521f4026 100755
+index 1301ba68d772..9c15e748761c 100755
 --- a/scripts/headers_install.sh
 +++ b/scripts/headers_install.sh
-@@ -70,7 +70,6 @@ configs=$(sed -e '
- #
- # The format is <file-name>:<CONFIG-option> in each line.
- config_leak_ignores="
--arch/arm/include/uapi/asm/ptrace.h:CONFIG_CPU_ENDIAN_BE8
- arch/nios2/include/uapi/asm/swab.h:CONFIG_NIOS2_CI_SWAB_NO
- arch/nios2/include/uapi/asm/swab.h:CONFIG_NIOS2_CI_SWAB_SUPPORT
- arch/x86/include/uapi/asm/auxvec.h:CONFIG_IA32_EMULATION
+@@ -64,30 +64,10 @@ configs=$(sed -e '
+ 	d
+ ' $OUTFILE)
+ 
+-# The entries in the following list do not result in an error.
+-# Please do not add a new entry. This list is only for existing ones.
+-# The list will be reduced gradually, and deleted eventually. (hopefully)
+-#
+-# The format is <file-name>:<CONFIG-option> in each line.
+-config_leak_ignores="
+-"
+-
+ for c in $configs
+ do
+-	leak_error=1
+-
+-	for ignore in $config_leak_ignores
+-	do
+-		if echo "$INFILE:$c" | grep -q "$ignore$"; then
+-			leak_error=
+-			break
+-		fi
+-	done
+-
+-	if [ "$leak_error" = 1 ]; then
+-		echo "error: $INFILE: leak $c to user-space" >&2
+-		exit 1
+-	fi
++	echo "error: $INFILE: leak $c to user-space" >&2
++	exit 1
+ done
+ 
+ rm -f $TMPFILE
 
 -- 
 2.52.0
