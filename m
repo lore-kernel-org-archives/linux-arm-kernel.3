@@ -4,77 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E004C9EC8D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 14:03:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A834C9EC93
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 14:04:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sVORYiGzozd8PgS1TYW2hZdt+MykAODXljoXpk9UEaQ=; b=nLnCwntMXCzTD2fJdF2oOHxyai
-	934rNTycZ54OW3nC5x15AcK+JAXnOmcu8+e9/20XyOPk/CSnImfqqxYIk+4kekZnbdx9jTOTcYoZY
-	Dqmgi/nvvszRW91Kv4u02dXuKR3gI+YHKPtx/X6xBmJroggElfZgcGEa+hdMe2s0keX78+nYSnsn/
-	o7UQ89j6Ge9cTSr55mTsDL796pdLSqa+2Hy3bOKN8WvtP3Y8iVSqeS8Kj2dTT1/F9x+9nn4rmEGBj
-	3N1IgDz2WuG3/S7yVxATW54Fk0NXZR1pXrmswaMoVVRD6lvSak9VcfcdLo4LACM8Ehwpy+WlyagiK
-	0WC/Zb4g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ckmRos2OAgMm2H7B68f5iy8S3ZBKtjS9ZYbxKUXmKoY=; b=oCNt7iOy/cgAgc8EXcx9OXatNR
+	vRM8103pvrk9OLKt9sJlZYv7vmcrH4+Ojgjq4proCp9OdUZzCvnzcu0MiRwna/DUtTzi4Uqiuv4n1
+	MSl5+VDL2W8XUOZm2xqjvotGXRM8UwMbhPgeYli4dnf91HYfDnhPDXd+mmPV9yYTXPDck16hyHASh
+	TG1aTq9Id5nidkfnktwUuqXLaEFevqwxJe+LcKE9omU+A0gn86CbgvQgC2Q7KxGBolJZZ3fw66cDg
+	9LUEonn5qODp59qIM8tJoHB4jzxHwdZl+jNUwxEs3RbjW3FWdVxaSFCv7gU9+efBevVq5tUTVIJs+
+	rcNVbeVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfIWK-00000005U1w-08W4;
-	Mon, 12 Jan 2026 14:03:48 +0000
-Received: from sinmsgout02.his.huawei.com ([119.8.177.37])
+	id 1vfIX2-00000005U8v-1WJy;
+	Mon, 12 Jan 2026 14:04:32 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfIWH-00000005Tzu-0THi
+	id 1vfIX0-00000005U8L-0Mrc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 14:03:46 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=sVORYiGzozd8PgS1TYW2hZdt+MykAODXljoXpk9UEaQ=;
-	b=toi4ve4Z2YYpRNsPIV2dweYIRTGBe599kg+jTzANbb/ias1DEO500ep4ZgH1QtdPd3R49OT93
-	u4G0RrtSgZGBzpuIcxHXFejABhcHZbs6RjM9MdjNuGPDKx8P3Ai7SzyNsSNdePXNE9nSG8/fSDt
-	2I9owLIb/+SJ3CiCeaOSNWA=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.33])
-	by sinmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dqYvN68Hkz1vnsZ;
-	Mon, 12 Jan 2026 22:01:20 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.107])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dqYxj63G8zJ46ZP;
-	Mon, 12 Jan 2026 22:03:21 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 51C8340584;
-	Mon, 12 Jan 2026 22:03:33 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 12 Jan
- 2026 14:03:31 +0000
-Date: Mon, 12 Jan 2026 14:03:30 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd
-	<nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
-	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Timothy Hayes
-	<Timothy.Hayes@arm.com>
-Subject: Re: [PATCH v3 03/36] arm64/sysreg: Drop ICH_HFGRTR_EL2.ICC_HAPR_EL1
- and make RES1
-Message-ID: <20260112140330.0000205c@huawei.com>
-In-Reply-To: <20260109170400.1585048-4-sascha.bischoff@arm.com>
-References: <20260109170400.1585048-1-sascha.bischoff@arm.com>
-	<20260109170400.1585048-4-sascha.bischoff@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Mon, 12 Jan 2026 14:04:31 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-42fbb061a08so220178f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 06:04:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768226668; x=1768831468; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ckmRos2OAgMm2H7B68f5iy8S3ZBKtjS9ZYbxKUXmKoY=;
+        b=AnUh0CiSJtHMxrVuzlSrhgDyAVqSowWoZPg23zwMtYpjW1R3N31ArYMW7rELJqBdT7
+         37ER82oTVqaLl9iSr4o40KQsm5Dk0+YpcE7MLNaLzKfXE0AvICE+cpbyYVmPIbdfvn93
+         qe/TD9byUbrXzX10FeddxrHWjZe/+j5w6YnaPE+04jZ8rpDTQiwCdBm8AtMXCS/M1nlV
+         QDfDLcF0cp2Hi9LjDw7X1Rmd7WlvtPi/onLLgz/93ed9YfWAdcslfILY/z45qCJgfCYm
+         w02dRX3Z5/qWK6IcpNmSYCQQE09p1HRBsv3bVpJgwAqL9tLtLBjN37vQnForAT0xr9II
+         QzJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768226668; x=1768831468;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ckmRos2OAgMm2H7B68f5iy8S3ZBKtjS9ZYbxKUXmKoY=;
+        b=GEfd1JpkNLWuVAjqGdUU7HjhpgUGwbDDuraIlPJRPAxjDn6E4a5RdZzmC8SLDYv708
+         rVi3UoNNlno1DFm9oMuBRatsWCL3nQaRFQZpNTNfC3bHTo1O3p1z+cWOAr3y9m8MWDUV
+         68extwfYHdjyUhKdYvShrHf5/jLO04Wc4ut6uhEeFsPGZ6nWci2Ta+AGXDGqAm0pfZXP
+         hJHJhXUQEu4a/Y876Y+yEYgYl+d39buJIMMrZDwrhqIrLbjC1Emx8U8whA2/QQB1yUPB
+         RzqcyZaDXm3dmR+MV5yzqa5dVNRsuuu0jz/81JCO9ieY7jocUVFbZ8/xtIgqdEZ3Y4Cn
+         Bb5A==
+X-Forwarded-Encrypted: i=1; AJvYcCVrbkp750xhuj2eLR2aVDfZ7Clbf8uaaUWS4NcyX+Ak6tYirgsdcthvz2TbtQR5TiqQtXTrHyKexhXTsjWteOoe@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRQcAGVcst6x3+y1mOZxf/mEbejnVzufkGEInK/L0HHXP7kyG/
+	4fWb6/pQd+VnFwcRyvFOHuY1mSJpX4bPxn6Rr0sYQ5V5Kr8d9H5dc+wo
+X-Gm-Gg: AY/fxX4A5Yp0KQmxTZS7Qa1x4Iy/ON/IFsnuTJYMFdz78wxVxGItpIESMRARUw5Es0J
+	vf07ISmfRNojOMHhuzewckhgAFRGpy7npPZkDR0A0zG0gxVl/Aq3e/6JBXqTTYvCm/p7jFOi7O+
+	CvIx4ozIEbia1zm9tscNkkTwim8c7uxFHj5oluA+d/b/2nxRnJYsf87znHQizpcpT1PcL8z5ax0
+	iI1VGVkvqcrRKTS+3a7sqjw+RpGt+iTNjhL05ziE4uz2hIsmPJClbvWWzzyCI2l9qqq7try8Fzi
+	rmlwwSwwCtAeZYLMxhPuwOh6wWmEUpC7fnRmhnMaAqNWv/NTmtYfpgHu6zbYvmwGEOGTttIvDT/
+	2CD7t0vlYmIC51z8cJnI5JVZ7qGHtQtBcFV8IDr4sVq7V/HChwy4bzEHBNXpwQ0E/8UHZp6gM4U
+	zW+sFJ9K0GvuFtEjz0OMaUntNftK98UEXDAHW3rchlGj6JHdkPsAsETPZnQ/hg/cyd+fJ6DDR8k
+	THvxn4=
+X-Google-Smtp-Source: AGHT+IH7GUSAAsNDPqrKUndihq0lAKqsPDKz3kaDifL2lP8tPCtWl0A1pugqhFaqlY9nRll5jZEn6w==
+X-Received: by 2002:a05:6000:22c1:b0:430:f718:23a0 with SMTP id ffacd0b85a97d-432c39ded43mr12214129f8f.6.1768226667344;
+        Mon, 12 Jan 2026 06:04:27 -0800 (PST)
+Received: from thomas-precision3591.paris.inria.fr (wifi-pro-83-215.paris.inria.fr. [128.93.83.215])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-432bd5dfa07sm38643537f8f.25.2026.01.12.06.04.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Jan 2026 06:04:26 -0800 (PST)
+From: Thomas Fourier <fourier.thomas@gmail.com>
+To: 
+Cc: Thomas Fourier <fourier.thomas@gmail.com>,
+	stable@vger.kernel.org,
+	Alexey Charkov <alchark@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Helge Deller <deller@gmx.de>,
+	Tony Prisk <linux@prisktech.co.nz>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-fbdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] fbdev: vt8500lcdfb: fix missing dma_free_coherent()
+Date: Mon, 12 Jan 2026 15:00:27 +0100
+Message-ID: <20260112140031.63594-2-fourier.thomas@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_060345_567324_261E80DA 
-X-CRM114-Status: GOOD (  15.54  )
+X-CRM114-CacheID: sfid-20260112_060430_139582_6C043BC7 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,50 +105,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 9 Jan 2026 17:04:39 +0000
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+fbi->fb.screen_buffer is alloced with dma_free_coherent() but is not
+freed if the error path is reached.
 
-> The GICv5 architecture is dropping the ICC_HAPR_EL1 and ICV_HAPR_EL1
-> system registers. These registers were never added to the sysregs, but
-> the traps for them were.
-> 
-> Drop the trap bit from the ICH_HFGRTR_EL2 and make it Res1 as per the
-> upcoming GICv5 spec change. Additionally, update the EL2 setup code to
-> not attempt to set that bit.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-I'll take your word on it wrt to the spec change. For completeness.
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Fixes: e7b995371fe1 ("video: vt8500: Add devicetree support for vt8500-fb and wm8505-fb")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
+---
+ drivers/video/fbdev/vt8500lcdfb.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-> ---
->  arch/arm64/include/asm/el2_setup.h | 1 -
->  arch/arm64/tools/sysreg            | 2 +-
->  2 files changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-> index cacd20df1786e..07c12f4a69b41 100644
-> --- a/arch/arm64/include/asm/el2_setup.h
-> +++ b/arch/arm64/include/asm/el2_setup.h
-> @@ -225,7 +225,6 @@
->  		     ICH_HFGRTR_EL2_ICC_ICSR_EL1		| \
->  		     ICH_HFGRTR_EL2_ICC_PCR_EL1			| \
->  		     ICH_HFGRTR_EL2_ICC_HPPIR_EL1		| \
-> -		     ICH_HFGRTR_EL2_ICC_HAPR_EL1		| \
->  		     ICH_HFGRTR_EL2_ICC_CR0_EL1			| \
->  		     ICH_HFGRTR_EL2_ICC_IDRn_EL1		| \
->  		     ICH_HFGRTR_EL2_ICC_APR_EL1)
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index 8921b51866d64..dab5bfe8c9686 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -4579,7 +4579,7 @@ Field	7	ICC_IAFFIDR_EL1
->  Field	6	ICC_ICSR_EL1
->  Field	5	ICC_PCR_EL1
->  Field	4	ICC_HPPIR_EL1
-> -Field	3	ICC_HAPR_EL1
-> +Res1	3
->  Field	2	ICC_CR0_EL1
->  Field	1	ICC_IDRn_EL1
->  Field	0	ICC_APR_EL1
+diff --git a/drivers/video/fbdev/vt8500lcdfb.c b/drivers/video/fbdev/vt8500lcdfb.c
+index b08a6fdc53fd..85c7a99a7d64 100644
+--- a/drivers/video/fbdev/vt8500lcdfb.c
++++ b/drivers/video/fbdev/vt8500lcdfb.c
+@@ -369,7 +369,7 @@ static int vt8500lcd_probe(struct platform_device *pdev)
+ 	if (fbi->palette_cpu == NULL) {
+ 		dev_err(&pdev->dev, "Failed to allocate palette buffer\n");
+ 		ret = -ENOMEM;
+-		goto failed_free_io;
++		goto failed_free_mem_virt;
+ 	}
+ 
+ 	irq = platform_get_irq(pdev, 0);
+@@ -432,6 +432,9 @@ static int vt8500lcd_probe(struct platform_device *pdev)
+ failed_free_palette:
+ 	dma_free_coherent(&pdev->dev, fbi->palette_size,
+ 			  fbi->palette_cpu, fbi->palette_phys);
++failed_free_mem_virt:
++	dma_free_coherent(&pdev->dev, fbi->fb.fix.smem_len,
++			  fbi->fb.screen_buffer, fbi->fb.fix.smem_start);
+ failed_free_io:
+ 	iounmap(fbi->regbase);
+ failed_free_res:
+-- 
+2.43.0
 
 
