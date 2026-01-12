@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76CF9D2502F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 05:04:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C509D25038
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 05:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sn6rBHfC5KR9lr4T94WwV2W/rBakB3cYAuUc+FhzQiM=; b=YPl7zXm5XMb+T/FetUmExJ7ekq
-	dwkv39S/48NhJ8foYdgyEyciKh/02epzJ9M1JIJxksvaUTqNOQmZpo9F4ianGu7MJShpZWUpOs8mM
-	SOAgi1S2xzVVIwVkTjPu7qAnghLDy067lZSH78/J4DwJoC3ftKOSzTjIC2i7vD/ZmYAwPvpIpb7Rz
-	gFHEVR9mP0oAqYIhi2CNJnv70sPUhjzw/j1PXNx78fJTBzMGfE9zxaAQTJuBQvwaJD2cxFni+SiB6
-	pkpiwB+IsuM8N5n71D9CAyA4HDP9FrlC8Ua3ZxZyvocrpCISCZ+mpBfqz19vwT7Uz+oZPc+QjdbU/
-	msoPmK3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=01nD1NQwyZhM5zOb9mDvKipq9kGSaxxU3jhC/1csX1U=; b=PNFaa35xENbkMnhA8I0tjnjMsE
+	qJeI4XKVQF3W3PZHchOJ1Fj2dkyk0i1Nu1VgFfBOGgszhXT3E1otn9XH4OPgzu6JWMDRuF+4bLlMj
+	wVXzaf2hEenbcm/qPvDAn8pcqmz1fN8dGh5PAqGUlKr6Tc3ZVEZqPBPf1LcfArX8l1hVWEjaX5SUV
+	aRfCq1DWleS4+Gj8SHytOZu3Tv3mPhDilS85Q4b9PsSmDvOyF0Z4CE1GRb0oNTIFOuRBt8flo44oh
+	S4djnte+Cvfv31C3qlR7DI9PZB1W8Z/0zG7TvRxaBESKGadKPjlVwoavZSB0nwc3WCdTxuxiGtx3T
+	BwTOGFvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfA6I-00000004lfa-30Et;
-	Mon, 12 Jan 2026 05:04:22 +0000
-Received: from lgeamrelo11.lge.com ([156.147.23.51])
+	id 1vfAZr-00000004meP-1mf2;
+	Mon, 12 Jan 2026 05:34:55 +0000
+Received: from lgeamrelo13.lge.com ([156.147.23.53])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfA6F-00000004lfA-1QsN
+	id 1vfAZn-00000004mdF-3aQn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 05:04:21 +0000
-Received: from unknown (HELO lgeamrelo01.lge.com) (156.147.1.125)
-	by 156.147.23.51 with ESMTP; 12 Jan 2026 14:04:08 +0900
-X-Original-SENDERIP: 156.147.1.125
+	Mon, 12 Jan 2026 05:34:54 +0000
+Received: from unknown (HELO lgemrelse6q.lge.com) (156.147.1.121)
+	by 156.147.23.53 with ESMTP; 12 Jan 2026 14:34:47 +0900
+X-Original-SENDERIP: 156.147.1.121
 X-Original-MAILFROM: chanho.min@lge.com
-Received: from unknown (HELO BRUNHILD) (10.178.31.97)
-	by 156.147.1.125 with ESMTP; 12 Jan 2026 14:04:08 +0900
+Received: from unknown (HELO localhost.localdomain) (10.178.31.97)
+	by 156.147.1.121 with ESMTP; 12 Jan 2026 14:34:47 +0900
 X-Original-SENDERIP: 10.178.31.97
 X-Original-MAILFROM: chanho.min@lge.com
-Date: Mon, 12 Jan 2026 14:04:08 +0900
 From: Chanho Min <chanho.min@lge.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Heiko Stuebner <heiko@sntech.de>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
 	Kever Yang <kever.yang@rock-chips.com>,
 	Kael D'Alcamo <dev@kael-k.io>,
 	Manivannan Sadhasivam <mani@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Gunho Lee <gunho.lee@lge.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/3] dt-bindings: vendor-prefixes: Add 'lge,*' for LG
- Electronics
-Message-ID: <aWSAyGx0KU7HyW6h@BRUNHILD>
-References: <20260108082213.6545-1-chanho.min@lge.com>
- <20260108082213.6545-2-chanho.min@lge.com>
- <49d28c7d-a08c-4543-b3bd-a23d36785c28@kernel.org>
- <0b80d046-6141-4389-b666-592859468b8f@kernel.org>
- <aWBaYUTp8dOTIEGz@BRUNHILD>
- <2770a98f-ce6f-48c7-9bb1-45f9286de371@kernel.org>
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Cc: Chanho Min <chanho.min@lge.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 1/2 v3] dt-bindings: arm: lg: Add compatible for LG1215 SoC and reference board
+Date: Mon, 12 Jan 2026 14:34:20 +0900
+Message-Id: <20260112053421.3185738-2-chanho.min@lge.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260112053421.3185738-1-chanho.min@lge.com>
+References: <20260112053421.3185738-1-chanho.min@lge.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <2770a98f-ce6f-48c7-9bb1-45f9286de371@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_210419_693502_212D0BE2 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20260111_213452_228557_1B13473E 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +75,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 09, 2026 at 08:33:43AM +0100, Krzysztof Kozlowski wrote:
-> > 
-> > Existing "lge," → "lg," conversion will be sent separately soon.
-> 
-> If you have existing compatibles released as ABI then they should stay
-> and you can document a deprecated lge prefix. But not for new devices.
-OK, I'll send the deprecated "lge," prefix documentation as a separate
-follow-up patch.
+Add compatible strings for the LG1215 SoC and its reference board
+(lg,lg1215 and lg,lg1215-ref).
 
-Thanks,
-Chanho
+This SoC is the next SoC following the LG1313 series, developed
+by LG Electronics.
 
-> 
-> One of many previous threads:
-> https://lore.kernel.org/all/9942f964-442e-e782-3926-6d7d1123418a@canonical.com/
-> 
-> Best regards,
-> Krzysztof
+Signed-off-by: Chanho Min <chanho.min@lge.com>
+---
+ Documentation/devicetree/bindings/arm/lge.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/arm/lge.yaml b/Documentation/devicetree/bindings/arm/lge.yaml
+index d983ef7fcbd6..0d0661470eaa 100644
+--- a/Documentation/devicetree/bindings/arm/lge.yaml
++++ b/Documentation/devicetree/bindings/arm/lge.yaml
+@@ -24,5 +24,10 @@ properties:
+           - const: lge,lg1313-ref
+           - const: lge,lg1313
+ 
++      - description: Boards with LG1215 SoC
++        items:
++          - const: lg,lg1215-ref
++          - const: lg,lg1215
++
+ additionalProperties: true
+ ...
+-- 
+2.34.1
 
 
