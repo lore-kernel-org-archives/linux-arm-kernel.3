@@ -4,108 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2845CF45BF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 18:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC122CF45BB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 18:04:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bJjpEAphM/NB+/t61DhxYCEIiQ3uh5viKOO+at6PH6g=; b=KXBKxKl+xSz0lKSolZO8iy+qOS
-	mj60ricuoAaAnHZPrCWvbnvj3/0IrFqe1//pgZT92A/lNN5SrLe7SNpp1P9ZfDVREyNslPuDXWTsq
-	C7WNxwDdnBaCgxBOLAooGTbm839PKFgH/kc3YxoL/ya6T332C79r/Xr252gn1oy7GGKtA2BT1R88G
-	3s7kkTLUQN0t7Gf7Rq3vH7P2olk2zNKrL+jlVHW/2h5YdalN+WZ+wn9wE+Es3mrJTLm0Hkf4rbJSo
-	bYx2ZxV/wWRBG9dGloaBc6X4/07j8Vf9B+WQE1/Iz3WTQFyMvFVdFICpOmw0ZQzsoOV9REa/G6ADB
-	+umubOwg==;
+	bh=nGMJ5LbPFmGC8KsyFzZBiUpjaLMx+kfqn+JlgSdWn4Q=; b=PDz9q/RUD26iRIDqDOuQs7lc7e
+	FExhlWFX+//VxLC2j8fJkTPsFD4cy3RYEAu+IgKj6Q6KUixRSCQ6s47adI5y98u0tS22EXPZb5lhU
+	fJJJK+D7xSLEyraHk1Ajb5H7PipgBZJgV+thMQ5cYvmGL9ibaggdOmTYqFKnfJjUyZMPPDzV5JcE2
+	d8qnzp88ykX0I2/LcMcbx8W807wQXp56PsU8jahJVmFl4OH07HBth29O/Ovy4ae3lfwRpMLj86Ft7
+	mOLytWgniWNfAS8pG0TFnitwbYIfAS+jqElFiALBsSLDM85mGs2wEVyqxtL7lQQ/emXP+o6q+n5ZV
+	g++Fw7tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfMCu-00000005ttl-0LeV;
-	Mon, 12 Jan 2026 18:00:00 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1vfMH9-00000005uGz-2x6e;
+	Mon, 12 Jan 2026 18:04:23 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfMCr-00000005ttL-13WB
+	id 1vfMH5-00000005uG6-30JK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 17:59:58 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-4ffbaaafac4so8161cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 09:59:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768240796; cv=none;
-        d=google.com; s=arc-20240605;
-        b=P4DnS8Yqp/jjHY159SBwkXVHftyzCF9XKS2W4r4avK5V6/tS6NSqfG57Y0y05iTwJ8
-         GhJ9r1IXMMfL0B76xtDJAGloxnGvWpuNM3OUOtM/bK8rLzT/XIStvcczz+qQbJtFazMV
-         4Ho5+rNV2AUySp5RCiZSN7ivPaD2bAhe13hu3KqIgGg28VLqIhlJyvw8LKTHKWIaJhjs
-         FArgQg3EzaM2Co4KPvzjhpu2NTQe7VhRwxzgFc6WaUOSGD5m3kZSYgKLQibhV3pT5X68
-         fspR5fUn+9q1asEGyrfIvfFcEUGj+RukA13PSghrg8X0isZQH+imME5v8mqiKH/SHuXa
-         jeuQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=bJjpEAphM/NB+/t61DhxYCEIiQ3uh5viKOO+at6PH6g=;
-        fh=Q18ZubhAom/xgcn1WVzWOSIDIwQD+vYH5ATQ+/35IhY=;
-        b=OT0Dp0Vz+VF99rZ4q8C2QfLsL/l1BcUvXN1uGlxW3DBrTd3oOSAndDfKuPCP9Y20ZY
-         XBJZg9MtynzolObDnXsLWQ91nRSyOeDPUJwkj+Z81GgFAI9J1wc2P6UU1eGAju6JfRF2
-         JWNxGa6/tOi9N5xAkgvKU9dgjXBTKIs8Igon9Qw+S+ji8QJ2k+rKjRe7yogY594T0IZU
-         lhdE+upCB1l4kC6jpvhGToNsjSwJZVlRpqJan4naYJdcyI8AMNTVdXEEOoW83SOAJ8nt
-         aGAMylJOsWdKtCgqN+S0TSP4sOYSlceq3qbS0CwHNHaATohEdfkKmbzStPssMqK6H8Mt
-         lrsQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1768240796; x=1768845596; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=bJjpEAphM/NB+/t61DhxYCEIiQ3uh5viKOO+at6PH6g=;
-        b=qk6O2nGL8c+HvNOvf04eK5K5AsdOKpikoZ6YwrTVX4cznnIIiMmGGov7aJ2xaFz5c0
-         xo/YapBMy4S5VkXmvQO/bkos7/0HMWEp1Uw5PCnEb1XZAAvRv+vHdXxAvz7uS+o1f8dw
-         9sx6H9OLcOrDeaTcua7Pvs8YjlUNxiUfR4zbJWThju5+7kkJQajxZ54yyeck9fOOq+RS
-         3uVQdipgzgBkkT2GJPv9EeoSnGvry7XligelycCuNS9af/8ULsF01wwnJie63XNE2HxI
-         d8Z6wcxo68i1sGaINehUyKeghtuVn7LID0lrdz5CrZFkHvOgQO3x9Pzam5AnQnHKO2JV
-         m4XQ==
+	Mon, 12 Jan 2026 18:04:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1768241058;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nGMJ5LbPFmGC8KsyFzZBiUpjaLMx+kfqn+JlgSdWn4Q=;
+	b=F2OG/UbHk3VADMod9hegMG9Yxc5Kd7x7Z+lKauWAd59D38TbdzcYmPD7cqcpaQSt8joaqF
+	6sJxS3f26cwhnP4sZYKpHXdGg7/GwVbvV033C2vjTs8NIQELQ58YXoApt7fXNyth75WTml
+	gAe0UHrce7MdCJo+dqL4s3QmtTdmOh0=
+Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com
+ [209.85.222.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-39-mLWCZ9VGPPmMSSBH-lG9SA-1; Mon, 12 Jan 2026 13:04:06 -0500
+X-MC-Unique: mLWCZ9VGPPmMSSBH-lG9SA-1
+X-Mimecast-MFC-AGG-ID: mLWCZ9VGPPmMSSBH-lG9SA_1768241046
+Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-93f5bfb23fbso16538643241.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 10:04:06 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768240796; x=1768845596;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bJjpEAphM/NB+/t61DhxYCEIiQ3uh5viKOO+at6PH6g=;
-        b=Pg71UHyVm7Bvh4XvzzstNvR/tGwWq0kuXfzhxzS5aBpxtYh4V4LBUiXMHVo6U4rd4+
-         srzNa7LzXigPJPBDgncBUqd3b8Cx4HimcQJW2aDVTfI37nMtgZR+fkstJPGPcPcK2SFT
-         A1dwnJNGIG+ptxeYLk1Z8s1PU1G37kwdk3vxqGdGCHgkuUPSpLcshieBP6SE2hkNdOr7
-         M27Z2zKAg+p0YfbbUFyTrCfufEn1wkXNniEsqgRSfnBlZiztH62rwwIHmkpscCYwhEn1
-         kIb8u0qrRjs+BybIZ0DncO66rZKChxcf5VPljXTNs9IHhnQC5skA6MeS9MNaYpfPD/Ze
-         YyIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVGtDeRQYlQVYt5el4cIWODeF6g9dAZAL7ZKR93W/B0DeqRzlZq6fKClYxXIY399JvM4Z1veR317VmjeOnVPUph@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyr6Z19Wl4NAPvO0Lv25Is5bHI6yJrF5wfbmWkPOnXmvaMX6FkB
-	kmvulQP3P+5BhK/9FDmtZuRFK8ezbtS6iAF+S8kpF0amfxKv/Y2TRgw2TCvi3rrKC7t41uglq8y
-	uYoxMNySkiPMecluCWpxBy2FucZ7XM88Y8lhxPGXL
-X-Gm-Gg: AY/fxX7IufnWbt8530i4XL8pUipltS1kPmhUPQAtw8++0XJ2A3UkYhTBqfQ7PVhF+8h
-	CX1l5lCJBAtTc6INqib8GY1xQo6VbjhbfQ8FGVtBL9xWU8f5mormyUcTqJng2M0HqQAgmjkg4AG
-	6yDK6htMj1FWnA56c7ILzYKOOWU5eEWYdRi5Dx8Fdi6iyVKot00nFJUn84+d9V3AA9azjtQtgwA
-	2hRNtOedmhl5Nn4u9poxI5fwqi3Hma/qI0hDqq0MAMWwrA4sqVBnyoYGcT5k0GJ2851OvX2
-X-Received: by 2002:ac8:7dc5:0:b0:4f1:9c3f:2845 with SMTP id
- d75a77b69052e-50119766a66mr21632291cf.9.1768240795172; Mon, 12 Jan 2026
- 09:59:55 -0800 (PST)
+        d=1e100.net; s=20230601; t=1768241046; x=1768845846;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=nGMJ5LbPFmGC8KsyFzZBiUpjaLMx+kfqn+JlgSdWn4Q=;
+        b=iNusqkxJ7ir6yPujan118jLMupqfLC907KP7uQuG9c5Tp0yIUYenKdOt01vd1QwADi
+         DCmSWE886usxkSjeBmllKtYameucWoZb76n1QrdaVJXdFbqy+y55eeoFAorD8WSBzNNK
+         EIMLdO9asliezROvQYxPwdJulu1jCzyIyjauUAOsM7w+B/8oD76AUz6tsuok6dIK7PNc
+         X1gTuDfUkkK/ZWjgITgiBi7/s7GNniGEiD3r3v1KcZHhjB+8h6g+eRIhAvepVBPaURQ1
+         Qo4sqFVrPlrwcMmFReaOHkAZCH2fDeP9lp8gkHzHdFNASOiweZNAdBv7/rDwSZEur98M
+         ijRw==
+X-Forwarded-Encrypted: i=1; AJvYcCVSMJnNoxbG17p68xRDMTZCwrgqLJrI1U0N69Z1SBXFr2wHjLwdvGIdWIwYGgBCRRlROQb2mMYhynX3pyblSZcs@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1YTqgQ1BD4v/AAMI5aW7LHk7Qz+L347nAjc1nDv787B4ssz18
+	Eg1tDqRpYcjP2WCUURWx8xY6j+V5vjrBPy1k74m8Y/50dwnKH3B2mUl2tWw+7YQi8TXjP8UQkVs
+	De+XYOnIOCXtFn/7kMXN8crz7CEswqU0Hap7QDt+jgfzvJ9tdl1UiL2xVliazr6wdS7OSUrNJpI
+	0c
+X-Gm-Gg: AY/fxX7Qur7laByH+3PoXCrc6nWqWTZHbVXCgG9B1l8XRX149yXR5+2Dxi8+bqQiREm
+	UPy8F+AesK26FaPOr69L21cDASe2AT9quMkXsLHu+sx5avhbShRmcAbq1ef21mGuKvZm6zbU+SS
+	1kdVYAN0Rwyi2zxqY41fTh0qYdGfdDSiOxANV0vVdTTY0gEM/yFNhKjoGSd/rdUCLoC4Mjf/C5N
+	ApkXhSdM1uMZCZRu8PR5YyVDRK7OiFTHDAB5F+Rm7JvqFvpd9eSHF2n/P76H3U04lIQJdHkIug/
+	wdTKBwmvYxHpqmQSdy3Y+FQwYvhOE6qdpECjWjq95aaptlB+qoBYcIm5EHcBB0Kl6dQQ7xTGoCl
+	HHX/WcFzhFbCXkJoTtvZnH9sus4OhLZlEboOO3GvJgJMtt+WtAcQkNgsA
+X-Received: by 2002:a05:6122:4897:b0:563:7886:5e7a with SMTP id 71dfb90a1353d-563788663a0mr2841995e0c.9.1768241044891;
+        Mon, 12 Jan 2026 10:04:04 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHM6+Ba4s/MEV+9Zbgj4Jf91uX/qo/VCXWtL6yFKP9LvZ7kJD7E9gBdpreY2pV75Zsq8xOxKw==
+X-Received: by 2002:a05:6122:4897:b0:563:7886:5e7a with SMTP id 71dfb90a1353d-563788663a0mr2841898e0c.9.1768241043068;
+        Mon, 12 Jan 2026 10:04:03 -0800 (PST)
+Received: from ?IPV6:2601:188:c102:b180:1f8b:71d0:77b1:1f6e? ([2601:188:c102:b180:1f8b:71d0:77b1:1f6e])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-563667cf148sm10043559e0c.2.2026.01.12.10.03.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 Jan 2026 10:04:02 -0800 (PST)
+From: Waiman Long <llong@redhat.com>
+X-Google-Original-From: Waiman Long <longman@redhat.com>
+Message-ID: <c1cac1a6-22fe-479f-bfc5-89a5d3aabda5@redhat.com>
+Date: Mon, 12 Jan 2026 13:03:47 -0500
 MIME-Version: 1.0
-References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org> <20251223-kvm-arm64-sme-v9-19-8be3867cb883@kernel.org>
-In-Reply-To: <20251223-kvm-arm64-sme-v9-19-8be3867cb883@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 12 Jan 2026 17:59:17 +0000
-X-Gm-Features: AZwV_QiQU0Otl0OZ50pDvqjq5GLQexN4JJXUaeH6JoNDjhaymp7I-l_cuFsktUI
-Message-ID: <CA+EHjTwQ4fLBE1YXoB6M0eamSgGDW=nfLaC+-_surBfVbh3byQ@mail.gmail.com>
-Subject: Re: [PATCH v9 19/30] KVM: arm64: Provide assembly for SME register access
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, Peter Maydell <peter.maydell@linaro.org>, 
-	Eric Auger <eric.auger@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 05/33] sched/isolation: Save boot defined domain flags
+To: Frederic Weisbecker <frederic@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>
+Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Chen Ridong <chenridong@huawei.com>, Danilo Krummrich <dakr@kernel.org>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>,
+ Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
+ <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
+ netdev@vger.kernel.org
+References: <20260101221359.22298-1-frederic@kernel.org>
+ <20260101221359.22298-6-frederic@kernel.org>
+In-Reply-To: <20260101221359.22298-6-frederic@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: FdVavGc_pkM4Z346PrftyzsLwmpVJsRYl1uowm_L9vc_1768241046
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_095957_328117_BFF3FD15 
-X-CRM114-Status: GOOD (  23.45  )
+X-CRM114-CacheID: sfid-20260112_100419_836959_119B249E 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,101 +134,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
-
-On Tue, 23 Dec 2025 at 01:22, Mark Brown <broonie@kernel.org> wrote:
+On 1/1/26 5:13 PM, Frederic Weisbecker wrote:
+> HK_TYPE_DOMAIN will soon integrate not only boot defined isolcpus= CPUs
+> but also cpuset isolated partitions.
 >
-> Provide versions of the SME state save and restore functions for the
-> hypervisor to allow it to restore ZA and ZT for guests.
+> Housekeeping still needs a way to record what was initially passed
+> to isolcpus= in order to keep these CPUs isolated after a cpuset
+> isolated partition is modified or destroyed while containing some of
+> them.
 >
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+> Create a new HK_TYPE_DOMAIN_BOOT to keep track of those.
+>
+> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> Reviewed-by: Phil Auld <pauld@redhat.com>
 > ---
->  arch/arm64/include/asm/kvm_hyp.h |  3 +++
->  arch/arm64/kvm/hyp/fpsimd.S      | 26 ++++++++++++++++++++++++++
->  2 files changed, 29 insertions(+)
+>   include/linux/sched/isolation.h | 4 ++++
+>   kernel/sched/isolation.c        | 5 +++--
+>   2 files changed, 7 insertions(+), 2 deletions(-)
 >
-> diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
-> index 0317790dd3b7..1cef9991d238 100644
-> --- a/arch/arm64/include/asm/kvm_hyp.h
-> +++ b/arch/arm64/include/asm/kvm_hyp.h
-> @@ -116,6 +116,9 @@ void __fpsimd_save_state(struct user_fpsimd_state *fp_regs);
->  void __fpsimd_restore_state(struct user_fpsimd_state *fp_regs);
->  void __sve_save_state(void *sve_pffr, u32 *fpsr, int save_ffr);
->  void __sve_restore_state(void *sve_pffr, u32 *fpsr, int restore_ffr);
-> +int __sve_get_vl(void);
-> +void __sme_save_state(void const *state, bool restore_zt);
-> +void __sme_restore_state(void const *state, bool restore_zt);
+> diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
+> index d8501f4709b5..c7cf6934489c 100644
+> --- a/include/linux/sched/isolation.h
+> +++ b/include/linux/sched/isolation.h
+> @@ -7,8 +7,12 @@
+>   #include <linux/tick.h>
+>   
+>   enum hk_type {
+> +	/* Inverse of boot-time isolcpus= argument */
+> +	HK_TYPE_DOMAIN_BOOT,
+>   	HK_TYPE_DOMAIN,
+> +	/* Inverse of boot-time isolcpus=managed_irq argument */
+>   	HK_TYPE_MANAGED_IRQ,
+> +	/* Inverse of boot-time nohz_full= or isolcpus=nohz arguments */
+>   	HK_TYPE_KERNEL_NOISE,
+>   	HK_TYPE_MAX,
+>   
+> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+> index 3ad0d6df6a0a..11a623fa6320 100644
+> --- a/kernel/sched/isolation.c
+> +++ b/kernel/sched/isolation.c
+> @@ -11,6 +11,7 @@
+>   #include "sched.h"
+>   
+>   enum hk_flags {
+> +	HK_FLAG_DOMAIN_BOOT	= BIT(HK_TYPE_DOMAIN_BOOT),
+>   	HK_FLAG_DOMAIN		= BIT(HK_TYPE_DOMAIN),
+>   	HK_FLAG_MANAGED_IRQ	= BIT(HK_TYPE_MANAGED_IRQ),
+>   	HK_FLAG_KERNEL_NOISE	= BIT(HK_TYPE_KERNEL_NOISE),
+> @@ -239,7 +240,7 @@ static int __init housekeeping_isolcpus_setup(char *str)
+>   
+>   		if (!strncmp(str, "domain,", 7)) {
+>   			str += 7;
+> -			flags |= HK_FLAG_DOMAIN;
+> +			flags |= HK_FLAG_DOMAIN | HK_FLAG_DOMAIN_BOOT;
+>   			continue;
+>   		}
+>   
+> @@ -269,7 +270,7 @@ static int __init housekeeping_isolcpus_setup(char *str)
+>   
+>   	/* Default behaviour for isolcpus without flags */
+>   	if (!flags)
+> -		flags |= HK_FLAG_DOMAIN;
+> +		flags |= HK_FLAG_DOMAIN | HK_FLAG_DOMAIN_BOOT;
+>   
+>   	return housekeeping_setup(str, flags);
+>   }
+Reviewed-by: Waiman Long <longman@redhat.com>
 
-Would it be a good idea to pass the VL to these functions. Currently,
-they assume that the hardware's current VL matches the buffer's
-intended layout. But if there is a mismatch between the guest's VL and
-the current one, this could be difficult to debug. Passing the VL and
-checking it against _sme_rdsvl would be an inexpensive way to avoid
-these.
-
->
->  u64 __guest_enter(struct kvm_vcpu *vcpu);
->
-> diff --git a/arch/arm64/kvm/hyp/fpsimd.S b/arch/arm64/kvm/hyp/fpsimd.S
-> index 6e16cbfc5df2..44a1b0a483da 100644
-> --- a/arch/arm64/kvm/hyp/fpsimd.S
-> +++ b/arch/arm64/kvm/hyp/fpsimd.S
-> @@ -29,3 +29,29 @@ SYM_FUNC_START(__sve_save_state)
->         sve_save 0, x1, x2, 3
->         ret
->  SYM_FUNC_END(__sve_save_state)
-> +
-> +SYM_FUNC_START(__sve_get_vl)
-> +       _sve_rdvl       0, 1
-> +       ret
-> +SYM_FUNC_END(__sve_get_vl)
-
-Since this is just one instruction, would it be better to implement it
-as an inline assembly in the header file rather than a full
-SYM_FUNC_START, to reduce the overhead?
-
-> +
-> +SYM_FUNC_START(__sme_save_state)
-
-I think that this needs an isb(). We need to ensure that SMCR updates
-are visible here. Looking ahead to where you introduce
-__hyp_sme_save_guest(), that doesn't have a barrier after updating
-SMCR. The alternative is to call the barrier where it's needed, but
-make sure that this is well documented.
-
-> +       _sme_rdsvl      2, 1            // x2 = VL/8
-> +       sme_save_za 0, x2, 12           // Leaves x0 pointing to the end of ZA
-> +
-> +       cbz     x1, 1f
-> +       _str_zt 0
-> +1:
-> +       ret
-> +SYM_FUNC_END(__sme_save_state)
-> +
-> +SYM_FUNC_START(__sme_restore_state)
-
-Same as above.
-
-Cheers,
-/fuad
-
-
-
-
-
-
-
-> +       _sme_rdsvl      2, 1            // x2 = VL/8
-> +       sme_load_za     0, x2, 12       // Leaves x0 pointing to end of ZA
-> +
-> +       cbz     x1, 1f
-> +       _ldr_zt 0
-> +
-> +1:
-> +       ret
-> +SYM_FUNC_END(__sme_restore_state)
->
-> --
-> 2.47.3
->
 
