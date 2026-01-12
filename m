@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E807CF45DA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA53CF45D7
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 23:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,59 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Hg/mQCj/eaueiT3Gt1Ye8e/iIh785R0cc8mnklrcIg=; b=Mke77ZSl5eiKf2UCWLZ25KrRTb
-	XlM4fSKuae8GI//ZZPpIkV26c1q2Fv9Axs/DvWn/LT4Bjms0xC2OY6VShCNdRcs/5hEh3EjdSOltO
-	0xz1nkK0lQk+/LzWhEu4nuLAdsExbjm2O1eW5s1xk07OdPxoSoAE61eFn9t92v62QYRM5tl9eWLP3
-	q/kNuq/chmtdkniX/WRJSDB67nYjuZcqT6l9Hc/xft1X+iYmO9XdfPeGqZ8p5X6I3KVR2/x+Cj84Q
-	Ok+P7PXXn+3+ehXn290u727n3pv2Tb/iytR7a4MWy5vSCPRWX4oEDE2V71Bmi3+QvsqfJR4kp+ejn
-	05NBcFpw==;
+	bh=sNWwPDOsITHfqcOFcjJYVB7PEieOLzO6DbX9KqAeaKk=; b=WBj4/yk2VUp+sEDHI2me2N1L9s
+	RGex9l5ry0AP5/8oOCG7TkiffuxNa2cw/vlb+6kE8tu97sRjz6BE80RcrQ5PVm42duy8fXulIAGN+
+	mUb2O/jjI4XVYPuanWYOQUSp1hs7AIg/qyZSRk1WOcx9fnUnlNSVkGZAQO0xLst32dAPi+zEy6zss
+	PWAQDgLqLpveWetrIPykTnH85eb3piL8GFOgAlEM0w63gcwIxuCkqwhyJpO16gP6sWeCU9ZU9bgvv
+	w7moA9k7wjhLe05A9Acs/GRpP2ReS8ZBmX+uf6xRxsenEFmI/L+vUTTGOnDNkFOBvh404DZNiaF71
+	iUmAPSZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfRDk-00000006HxC-2KCD;
-	Mon, 12 Jan 2026 23:21:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfRDg-00000006Hsw-3CNQ;
-	Mon, 12 Jan 2026 23:21:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=2Hg/mQCj/eaueiT3Gt1Ye8e/iIh785R0cc8mnklrcIg=; b=SCB5QHGJWvfLFcTQPqW3g56bsJ
-	dUeI2SDaxxeQEllinBLW3nBedL53zTrzNe5g1nJmfx+dFTRPssh7F9FfPzP61yfuAxuLwE4x8dc7s
-	jTQmxpERwNktj4RymeUaYdclJ8iKjoPG3Y5BxCgrmP4v3Z3bUvjC02Cde1esB6Ht0Cl9MBGtcxF6X
-	1YUDPmUQenI5NlN9QwP/5ANJekmpqte+vcVse5GQDybFR7Mgpz92cCHrvZD2Mr0vvgtNObzII4Srp
-	a8j3zYY9NylYZjvf9uK8nNAsHRmhwFF2Fu3+oACi7Qew+piaQmEe80N+6v1QCSUwYKlMLI/ROB1bw
-	431Xbt+g==;
+	id 1vfRDs-00000006I6S-0j2k;
+	Mon, 12 Jan 2026 23:21:20 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfRDa-00000001oNu-2heb;
-	Mon, 12 Jan 2026 23:21:07 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfRDh-00000006Hsv-3PAa;
+	Mon, 12 Jan 2026 23:21:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1768260061;
-	bh=GapllIFE0EDg+WlX20BM3yTCFntHyqDn2P0gVDeiK0A=;
+	s=mail; t=1768260064;
+	bh=Y+2x1RSmDhbqa6DC9GsZuIWSyQ9SFNKmBDhqwXnzI6g=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZQZRJJFidp9qnkRVUTcfBxX+yE1fAkGok4KKe5Y49ChzbYxUGaeQf/BgkKcBhOlgd
-	 X6TUivV9QKi8w+vgsKwlrcL+X+m+KScpsuJQyxV/VVGrqntF5FU7s8R1hOFQCzJBiw
-	 jZd6T2cloKuqxFw5CSyURarpPVKgJolHqaZhflRgaQ07ogrUzRnD9vcifwvmEoGZgm
-	 TlwW6Fs1+fuyLP8OB53DM31Y+RmTLR9wRqklxMkrWR19w/ixKzW7Bjw5LezQSKDaGL
-	 1+l1Oep+lkPTxJObPUxW7f5Jov6MhDBMBJm3sWDOWWfvd1FBIdnURaTx7QbP0RUmY5
-	 hL0xdO1EKGLgw==
+	b=JhEeEyjlrqvoRf+l039d6GhmmD30HTYJYhITb/pCnuVwaIsRrAa0XIa+rasqL8omT
+	 RlXyFWDLcZgwUgylh6Tq1rcy5t6b9jO/km6/DCth9ZK6GlmgpgnFWlgmgxjGpcZpO/
+	 ooNnCTUSBE2Bz28qpEVbvWAODhjbGOMW9HH6V9DwrGMrL1hGZKVQQWU0kHtflGaKr9
+	 sEPJZlesUXLrQgfEomXcAcnVZPq+5epV71V7NkVxj1fcziPiVw7AdZewJpjv/c+Myz
+	 u9Sv2D6JDqf03Jz4R5CYXtFMhFvYezBy+hqPSahv/hBWQRdfQpKVVqrB97o4+I4hUF
+	 EiqqJzVJ8tfIQ==
 Received: from localhost (unknown [82.79.138.145])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C892E17E1416;
-	Tue, 13 Jan 2026 00:21:00 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1DF7517E1523;
+	Tue, 13 Jan 2026 00:21:04 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 13 Jan 2026 01:20:50 +0200
-Subject: [PATCH v6 03/11] phy: rockchip: samsung-hdptx: Fix coding style
- alignment
+Date: Tue, 13 Jan 2026 01:20:54 +0200
+Subject: [PATCH v6 07/11] phy: rockchip: samsung-hdptx: Compute clk rate
+ from PLL config
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260113-phy-hdptx-frl-v6-3-8d5f97419c0b@collabora.com>
+Message-Id: <20260113-phy-hdptx-frl-v6-7-8d5f97419c0b@collabora.com>
 References: <20260113-phy-hdptx-frl-v6-0-8d5f97419c0b@collabora.com>
 In-Reply-To: <20260113-phy-hdptx-frl-v6-0-8d5f97419c0b@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -77,9 +63,8 @@ Cc: kernel@collabora.com, linux-phy@lists.infradead.org,
  linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_232103_115340_738EF54F 
-X-CRM114-Status: UNSURE (   8.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260112_152110_050232_EAF2D731 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,61 +79,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Handle a bunch of reported checkpatch.pl complaints:
-
-  CHECK: Alignment should match open parenthesis
+Improve ->recalc_rate() callback of hdptx_phy_clk_ops to calculate the
+initial clock rate based on the actual PHY PLL configuration as
+retrieved from the related hardware registers.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 91 ++++++++++++++++++++++-
+ 1 file changed, 90 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 89710066d70c..3f8a7f4f5cd8 100644
+index 0a0e38e95a37..3cc8976e10e6 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -1624,11 +1624,11 @@ static void rk_hdptx_phy_set_voltage(struct rk_hdptx_phy *hdptx,
- 		regmap_update_bits(hdptx->regmap, LANE_REG(030a) + offset,
- 				   LN_TX_JEQ_EVEN_CTRL_RBR_MASK,
- 				   FIELD_PREP(LN_TX_JEQ_EVEN_CTRL_RBR_MASK,
--				   ctrl->tx_jeq_even_ctrl));
-+					      ctrl->tx_jeq_even_ctrl));
- 		regmap_update_bits(hdptx->regmap, LANE_REG(030c) + offset,
- 				   LN_TX_JEQ_ODD_CTRL_RBR_MASK,
- 				   FIELD_PREP(LN_TX_JEQ_ODD_CTRL_RBR_MASK,
--				   ctrl->tx_jeq_odd_ctrl));
-+					      ctrl->tx_jeq_odd_ctrl));
- 		regmap_update_bits(hdptx->regmap, LANE_REG(0311) + offset,
- 				   LN_TX_SER_40BIT_EN_RBR_MASK,
- 				   FIELD_PREP(LN_TX_SER_40BIT_EN_RBR_MASK, 0x1));
-@@ -1638,11 +1638,11 @@ static void rk_hdptx_phy_set_voltage(struct rk_hdptx_phy *hdptx,
- 		regmap_update_bits(hdptx->regmap, LANE_REG(030b) + offset,
- 				   LN_TX_JEQ_EVEN_CTRL_HBR_MASK,
- 				   FIELD_PREP(LN_TX_JEQ_EVEN_CTRL_HBR_MASK,
--				   ctrl->tx_jeq_even_ctrl));
-+					      ctrl->tx_jeq_even_ctrl));
- 		regmap_update_bits(hdptx->regmap, LANE_REG(030d) + offset,
- 				   LN_TX_JEQ_ODD_CTRL_HBR_MASK,
- 				   FIELD_PREP(LN_TX_JEQ_ODD_CTRL_HBR_MASK,
--				   ctrl->tx_jeq_odd_ctrl));
-+					      ctrl->tx_jeq_odd_ctrl));
- 		regmap_update_bits(hdptx->regmap, LANE_REG(0311) + offset,
- 				   LN_TX_SER_40BIT_EN_HBR_MASK,
- 				   FIELD_PREP(LN_TX_SER_40BIT_EN_HBR_MASK, 0x1));
-@@ -1653,11 +1653,11 @@ static void rk_hdptx_phy_set_voltage(struct rk_hdptx_phy *hdptx,
- 		regmap_update_bits(hdptx->regmap, LANE_REG(030b) + offset,
- 				   LN_TX_JEQ_EVEN_CTRL_HBR2_MASK,
- 				   FIELD_PREP(LN_TX_JEQ_EVEN_CTRL_HBR2_MASK,
--				   ctrl->tx_jeq_even_ctrl));
-+					      ctrl->tx_jeq_even_ctrl));
- 		regmap_update_bits(hdptx->regmap, LANE_REG(030d) + offset,
- 				   LN_TX_JEQ_ODD_CTRL_HBR2_MASK,
- 				   FIELD_PREP(LN_TX_JEQ_ODD_CTRL_HBR2_MASK,
--				   ctrl->tx_jeq_odd_ctrl));
-+					      ctrl->tx_jeq_odd_ctrl));
- 		regmap_update_bits(hdptx->regmap, LANE_REG(0311) + offset,
- 				   LN_TX_SER_40BIT_EN_HBR2_MASK,
- 				   FIELD_PREP(LN_TX_SER_40BIT_EN_HBR2_MASK, 0x1));
+@@ -1818,12 +1818,101 @@ static void rk_hdptx_phy_clk_unprepare(struct clk_hw *hw)
+ 	rk_hdptx_phy_consumer_put(hdptx, true);
+ }
+ 
++#define PLL_REF_CLK 24000000ULL
++
++static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
++{
++	struct ropll_config ropll_hw;
++	u64 fout, sdm;
++	u32 mode, val;
++	int ret;
++
++	ret = regmap_read(hdptx->regmap, CMN_REG(0008), &mode);
++	if (ret)
++		return 0;
++
++	if (mode & LCPLL_LCVCO_MODE_EN_MASK)
++		return 0;
++
++	ret = regmap_read(hdptx->regmap, CMN_REG(0051), &val);
++	if (ret)
++		return 0;
++	ropll_hw.pms_mdiv = val;
++
++	ret = regmap_read(hdptx->regmap, CMN_REG(005E), &val);
++	if (ret)
++		return 0;
++	ropll_hw.sdm_en = val & ROPLL_SDM_EN_MASK;
++
++	ret = regmap_read(hdptx->regmap, CMN_REG(0064), &val);
++	if (ret)
++		return 0;
++	ropll_hw.sdm_num_sign = val & ROPLL_SDM_NUM_SIGN_RBR_MASK;
++
++	ret = regmap_read(hdptx->regmap, CMN_REG(0065), &val);
++	if (ret)
++		return 0;
++	ropll_hw.sdm_num = val;
++
++	ret = regmap_read(hdptx->regmap, CMN_REG(0060), &val);
++	if (ret)
++		return 0;
++	ropll_hw.sdm_deno = val;
++
++	ret = regmap_read(hdptx->regmap, CMN_REG(0069), &val);
++	if (ret)
++		return 0;
++	ropll_hw.sdc_n = (val & ROPLL_SDC_N_RBR_MASK) + 3;
++
++	ret = regmap_read(hdptx->regmap, CMN_REG(006c), &val);
++	if (ret)
++		return 0;
++	ropll_hw.sdc_num = val;
++
++	ret = regmap_read(hdptx->regmap, CMN_REG(0070), &val);
++	if (ret)
++		return 0;
++	ropll_hw.sdc_deno = val;
++
++	ret = regmap_read(hdptx->regmap, CMN_REG(0086), &val);
++	if (ret)
++		return 0;
++	ropll_hw.pms_sdiv = ((val & PLL_PCG_POSTDIV_SEL_MASK) >> 4) + 1;
++
++	fout = PLL_REF_CLK * ropll_hw.pms_mdiv;
++	if (ropll_hw.sdm_en) {
++		sdm = div_u64(PLL_REF_CLK * ropll_hw.sdc_deno *
++			      ropll_hw.pms_mdiv * ropll_hw.sdm_num,
++			      16 * ropll_hw.sdm_deno *
++			      (ropll_hw.sdc_deno * ropll_hw.sdc_n - ropll_hw.sdc_num));
++
++		if (ropll_hw.sdm_num_sign)
++			fout = fout - sdm;
++		else
++			fout = fout + sdm;
++	}
++
++	return div_u64(fout * 2, ropll_hw.pms_sdiv * 10);
++}
++
+ static unsigned long rk_hdptx_phy_clk_recalc_rate(struct clk_hw *hw,
+ 						  unsigned long parent_rate)
+ {
+ 	struct rk_hdptx_phy *hdptx = to_rk_hdptx_phy(hw);
++	u32 status;
++	u64 rate;
++	int ret;
++
++	if (hdptx->hw_rate)
++		return hdptx->hw_rate;
++
++	ret = regmap_read(hdptx->grf, GRF_HDPTX_CON0, &status);
++	if (ret || !(status & HDPTX_I_PLL_EN))
++		return 0;
++
++	rate = rk_hdptx_phy_clk_calc_rate_from_pll_cfg(hdptx);
+ 
+-	return hdptx->hw_rate;
++	return DIV_ROUND_CLOSEST_ULL(rate * 8, hdptx->hdmi_cfg.bpc);
+ }
+ 
+ static int rk_hdptx_phy_clk_determine_rate(struct clk_hw *hw,
 
 -- 
 2.52.0
