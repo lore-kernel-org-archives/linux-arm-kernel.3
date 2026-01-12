@@ -4,122 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73E2BD25030
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 01:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5837DD2502E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 01:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5g0eqFZw+saooIdmg9NsoPWVUWAMnQL8vdrqEmKZ9zg=; b=ZRxssxNBq1Vc82cIVqL451kL6d
-	j5K4/0GdCa3U0M+vvzyTX/8Yrjl4hUEku1KR8qRNvoDY7kZQ2wOzlATfJAieJp6bwVKnm5dQDu/fR
-	OPCwUx4+r1RK3d/35rgAbZUqj5z7Hd3bUumzW4yheSYVsDp+2ym4m7zvcyY8OKk8xzXyMkmaBvvLj
-	w47+xvws5Iakl8wS+zRdjbr62uyzkz2L2GmLI9SgcEKdplZx1ytuLeP3k9gR25O5cZYvosvaa0Tio
-	s8hvqtq10Lr4vQcBySMPBorK/d8quJatLZSE5rb2eniB1myw91PqV0YTwrF4kzgLM+RByLuPL0nOM
-	JqURfN6g==;
+	bh=V9knavuyCT6oMajtPRYkTyO37PoH9hWBI4tf+SPVJ9A=; b=JFh2aO9PhNFsXybEIl/LXh3AEB
+	hGLinfCfpQtla7z3+IVXx/sAzC47veYwXDVgsZ6FkwKkYThTwD5l+TLviskEMgg1oy4heOROTuDb5
+	83bGPBa2lLCdbEhrQjNk51WPmSS/9vnkt6W3vklEQPnb39BetstL01GFuUwTJrFQz2GY7g/kBd1Qg
+	EjfUxaooYJMeAcia1Z+DJzKKp1UMkB3ZiVfw0SNDmWKXpRk2tSbRywfbeJzh8lQ8u9vDqjsh/GkMU
+	5WhGlV3+4yr+xV7KAEIpRDgRu0qeAxv0Rb8DnwC96u1ZFUFHtQKKAhnrNP/vD9KRlElTHDvMzQBg3
+	XgqGrMBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vf6y4-00000004dec-16JT;
-	Mon, 12 Jan 2026 01:43:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vf72G-00000004dr5-2Mh3;
+	Mon, 12 Jan 2026 01:48:00 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vf6y1-00000004deF-0AmY
+	id 1vf72E-00000004dqi-0a2P
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 01:43:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1768182215;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5g0eqFZw+saooIdmg9NsoPWVUWAMnQL8vdrqEmKZ9zg=;
-	b=YOipb1TBGiSct2dfeiltIJQh7GjVNMsW6XfiCsyx0I+065IQ/oSYZWAqbaX8IsEixbctkQ
-	9RIoH9aEEZmD4sSm3uhF90BNZFUQ2U5/FY1WXzOsQZDWDQYFTaLevJcJqrh6ko30Jqw7Li
-	vx5NlQjr+9QFD8VZPpt/6+QCYQ9N8Ec=
-Received: from mail-ua1-f72.google.com (mail-ua1-f72.google.com
- [209.85.222.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-198-pY5sym90Oc6AIw5Jlk_VGg-1; Sun, 11 Jan 2026 20:43:31 -0500
-X-MC-Unique: pY5sym90Oc6AIw5Jlk_VGg-1
-X-Mimecast-MFC-AGG-ID: pY5sym90Oc6AIw5Jlk_VGg_1768182211
-Received: by mail-ua1-f72.google.com with SMTP id a1e0cc1a2514c-93f5265a39dso15945164241.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 17:43:31 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768182211; x=1768787011;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5g0eqFZw+saooIdmg9NsoPWVUWAMnQL8vdrqEmKZ9zg=;
-        b=MoSOpe4BQRw5IQ7Gdr+agsYcTwGebok+Cm7wMLGPZD91QgwXGeLAbXbGduKisMlilS
-         G8+vRjInWFH0K5mk1Z7xbwodfTnD2aj1go0ESacQZk1ekTbtnhi+XWKUyiAVK7KisqUJ
-         obi9J0j1wWxYhaAiZn0s1YexXKWtEOT5b6v+FvIWk05KFv/+/k1EX4nuBjvCi/CTaiOh
-         hSEWV4YOU4FI7i/AKnBuF5pqmyO8OIHbmuC6iaZWAQ6SOY2qhULN7AxLZ9MrqIXKNgOQ
-         NQ+XlkSjAQ1L5CVrxgLlazwvnBMMxid/tyV5I7PIx/B5gPN9lwK6A39LVzHqIGISySkm
-         tTmA==
-X-Forwarded-Encrypted: i=1; AJvYcCVtUREGcZqkaC0zym4D/dJzx2e4U00ljeXlm+AVtzF/1w3yW8XppvkEBVmv2svtHZgDsuEJdYphEKyGcT9Rm6Nr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWrt+kgRV630ZSBdeML9xE86QhfQByFLv3qjTaQfPjN629dVM1
-	AMQVJFT8M8KUTM6NX3U4QkXGTe5trsVF1RBJciZD8wRtv4jmjxRvJ1XFufp57Y7I5vg4mYT3Z3R
-	QSGV4dcQjLCBOTJ2oj8YqCrRhA9G0INq32Cfguo7FjrrCn5ZRCT9Hhn10092phzPR+rkpNQ16CZ
-	KS
-X-Gm-Gg: AY/fxX7u6gjNaegPrJmf9V+b1LjghsUV5ZsO2N6M3Z0IprTxvXaqj0fXvoJk4kp1gCF
-	uvng8BdXh64hRq2SGmpcS5aGOAKawJIFnbyLyqafBKZ6sXxgRYkvHXmK+pb6EwNEtXG+sUsCz7W
-	ex9KbuEYkF/BXx5Vq585BENOkNMM49UN7szygtSl9g78Ofc4yUlnhbdIB1M6EHgv7gyOFFcSpTg
-	PnziQbVxXWFEpBTcdUXNy1GMHdEpUE7FjSq519JS775oS46rsY12FBB1VA76fkgEIkg7SRlzsnW
-	DGTjeP85LTRJ069k774Ib750bqNAyEe4GrO5er6a3YAGJFhfR9zukWMrdT+89RwzuhqxC+k34kK
-	zzh7k7Pr1LajRuBqRGK23vxqiVFqKLgAPT10YuOUw9vGqh3jBqmlHBzAj
-X-Received: by 2002:a05:6122:3383:b0:55e:82c3:e1fb with SMTP id 71dfb90a1353d-563466b1471mr6360634e0c.10.1768182211346;
-        Sun, 11 Jan 2026 17:43:31 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHV+QUILwqeHqopifLZI0TMkyTSwUxskEqEsydIK3wu+6ViPTcpBZklzMvbaEYb1jKTIvUBCg==
-X-Received: by 2002:a05:6122:3383:b0:55e:82c3:e1fb with SMTP id 71dfb90a1353d-563466b1471mr6360599e0c.10.1768182210967;
-        Sun, 11 Jan 2026 17:43:30 -0800 (PST)
-Received: from ?IPV6:2601:188:c102:b180:1f8b:71d0:77b1:1f6e? ([2601:188:c102:b180:1f8b:71d0:77b1:1f6e])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56375cd7cd6sm4961512e0c.10.2026.01.11.17.43.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 11 Jan 2026 17:43:30 -0800 (PST)
-From: Waiman Long <llong@redhat.com>
-X-Google-Original-From: Waiman Long <longman@redhat.com>
-Message-ID: <e97d96fc-cbdf-4c03-aa1a-b0cde5419681@redhat.com>
-Date: Sun, 11 Jan 2026 20:43:16 -0500
+	Mon, 12 Jan 2026 01:47:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1768182475;
+	bh=V9knavuyCT6oMajtPRYkTyO37PoH9hWBI4tf+SPVJ9A=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=go3Z1fPXa5bUPR03yLVrGGZm9mRU49Jry1I2HmDOI4bZadYTX+Vqrzd7+2DiuDGPp
+	 DzjCEOakYzF+015VYQK2VNaLP3fEjnwSxO5fvAM0OQVsJjpusVi0yHFsIUI5Zrb1YP
+	 yADtbm2VuJxZoiLQALWuXzDbCRN20LQBoE2RNg2zEo+LQnmeqFCbs1gl4eDXADnwDS
+	 LgQTRsxG70Y2jn1hHRjP/Ew3IPdhEG0uhCM4cluMYd/3Hyq2Lk0Ac/21AhtYlRIc9A
+	 Oqnw9ssHTfW2FPT6cC/yRmJG7GZG2fQGfJUsBXY+oa19+8dbKeV0MmqlkO3OuntbHi
+	 hSb0BY1xxkMkg==
+Received: from [192.168.68.115] (unknown [180.150.112.60])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 7D84F648B5;
+	Mon, 12 Jan 2026 09:47:55 +0800 (AWST)
+Message-ID: <3db927cd7ece9b0672b9e62eab64b951594470dd.camel@codeconstruct.com.au>
+Subject: Re: [PATCH 2/2] ARM: dts: aspeed: Add Asus IPMI card
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Anirudh Srinivasan <anirudhsriniv@gmail.com>, Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley	 <joel@jms.id.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Date: Mon, 12 Jan 2026 12:17:55 +1030
+In-Reply-To: <20260111201040.162880-3-anirudhsriniv@gmail.com>
+References: <20260111201040.162880-1-anirudhsriniv@gmail.com>
+	 <20260111201040.162880-3-anirudhsriniv@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/33] cpuset: Provide lockdep check for cpuset lock held
-To: Frederic Weisbecker <frederic@kernel.org>,
- LKML <linux-kernel@vger.kernel.org>
-Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Chen Ridong <chenridong@huawei.com>, Danilo Krummrich <dakr@kernel.org>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
- Lai Jiangshan <jiangshanlai@gmail.com>,
- Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
- <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
- Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
- Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
- netdev@vger.kernel.org
-References: <20260101221359.22298-1-frederic@kernel.org>
- <20260101221359.22298-13-frederic@kernel.org>
-In-Reply-To: <20260101221359.22298-13-frederic@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: K1TV3YhDO1Mg19uVtG-XchdKevbA705thrNLoWgVsXU_1768182211
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_174337_162572_2E309BE2 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20260111_174758_396770_EBD4D638 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,58 +73,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/1/26 5:13 PM, Frederic Weisbecker wrote:
-> cpuset modifies partitions, including isolated, while holding the cpuset
-> mutex.
->
-> This means that holding the cpuset mutex is safe to synchronize against
-> housekeeping cpumask changes.
->
-> Provide a lockdep check to validate that.
->
-> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+Hi Anirudh,
+
+On Sun, 2026-01-11 at 14:10 -0600, Anirudh Srinivasan wrote:
+> Add device tree for Asus IPMI card, an AST2600 BMC PCIe card
+>=20
+> Signed-off-by: Anirudh Srinivasan <anirudhsriniv@gmail.com>
 > ---
->   include/linux/cpuset.h | 2 ++
->   kernel/cgroup/cpuset.c | 7 +++++++
->   2 files changed, 9 insertions(+)
->
-> diff --git a/include/linux/cpuset.h b/include/linux/cpuset.h
-> index a98d3330385c..1c49ffd2ca9b 100644
-> --- a/include/linux/cpuset.h
-> +++ b/include/linux/cpuset.h
-> @@ -18,6 +18,8 @@
->   #include <linux/mmu_context.h>
->   #include <linux/jump_label.h>
->   
-> +extern bool lockdep_is_cpuset_held(void);
+> =C2=A0arch/arm/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
+> =C2=A0.../dts/aspeed/aspeed-bmc-asus-ipmi-card.dts=C2=A0 | 136 ++++++++++=
+++++++++
+> =C2=A02 files changed, 137 insertions(+)
+> =C2=A0create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asus-ipmi-ca=
+rd.dts
+>=20
+> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed=
+/Makefile
+> index 9adf9278dc94..ff40d9ab88b7 100644
+> --- a/arch/arm/boot/dts/aspeed/Makefile
+> +++ b/arch/arm/boot/dts/aspeed/Makefile
+> @@ -15,6 +15,7 @@ dtb-$(CONFIG_ARCH_ASPEED) +=3D \
+> =C2=A0	aspeed-bmc-asrock-spc621d8hm3.dtb \
+> =C2=A0	aspeed-bmc-asrock-x570d4u.dtb \
+> =C2=A0	aspeed-bmc-asus-x4tf.dtb \
+> +	aspeed-bmc-asus-ipmi-card.dtb \
+> =C2=A0	aspeed-bmc-bytedance-g220a.dtb \
+> =C2=A0	aspeed-bmc-delta-ahe50dc.dtb \
+> =C2=A0	aspeed-bmc-facebook-bletchley.dtb \
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asus-ipmi-card.dts b/arc=
+h/arm/boot/dts/aspeed/aspeed-bmc-asus-ipmi-card.dts
+> new file mode 100644
+> index 000000000000..fea94360245c
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asus-ipmi-card.dts
+> @@ -0,0 +1,136 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +// Copyright 2025 Anirudh Srinivasan
 > +
->   #ifdef CONFIG_CPUSETS
->   
->   /*
-> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-> index 3afa72f8d579..5e2e3514c22e 100644
-> --- a/kernel/cgroup/cpuset.c
-> +++ b/kernel/cgroup/cpuset.c
-> @@ -283,6 +283,13 @@ void cpuset_full_unlock(void)
->   	cpus_read_unlock();
->   }
->   
-> +#ifdef CONFIG_LOCKDEP
-> +bool lockdep_is_cpuset_held(void)
-> +{
-> +	return lockdep_is_held(&cpuset_mutex);
-> +}
-> +#endif
+> +/dts-v1/;
 > +
->   static DEFINE_SPINLOCK(callback_lock);
->   
->   void cpuset_callback_lock_irq(void)
+> +#include "aspeed-g6.dtsi"
+> +#include "aspeed-g6-pinctrl.dtsi"
+> +#include <dt-bindings/i2c/i2c.h>
+> +#include <dt-bindings/gpio/aspeed-gpio.h>
+> +
+> +/ {
+> +	model =3D "ASUS IPMI Card BMC";
 
-The cgroup/for-next tree already have a similar 
-lockdep_assert_cpuset_lock_held() defined. So you can drop this patch if 
-this series won't land in the next merge window.
+I'd drop the "BMC" from the model description as well (wrt the
+discussion on patch 1/2).
 
-Cheers,
-Longman
+> +	compatible =3D "asus,ipmi-card-bmc", "aspeed,ast2600";
+> +
+> +	aliases {
+> +		serial4 =3D &uart5;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path =3D "serial4:115200n8";
+> +	};
+> +
+> +	memory@80000000 {
+> +		device_type =3D "memory";
+> +		reg =3D <0x80000000 0x40000000>;
+> +	};
+> +
+> +	reserved-memory {
+> +		#address-cells =3D <1>;
+> +		#size-cells =3D <1>;
+> +		ranges;
+> +
+> +		video_engine_memory: video {
+> +			size =3D <0x04000000>;
+> +			alignment =3D <0x01000000>;
+> +			compatible =3D "shared-dma-pool";
+> +			reusable;
+> +		};
+> +	};
+> +
+> +	leds {
+> +		compatible =3D "gpio-leds";
+> +
+> +		led-fault {
+> +			gpios =3D <&gpio1 ASPEED_GPIO(C, 5) GPIO_ACTIVE_HIGH>;
+> +			panic-indicator;
+> +			default-state =3D "off";
+> +		};
+> +
+> +		led-heartbeat {
+> +			gpios =3D <&gpio0 ASPEED_GPIO(A, 7) GPIO_ACTIVE_LOW>;
+> +			linux,default-trigger =3D "timer";
+> +		};
+> +
+> +	};
+> +};
+> +
+> +&mdio2 {
+> +	status =3D "okay";
+> +
+> +	ethphy2: ethernet-phy@0 {
+> +		compatible =3D "ethernet-phy-ieee802.3-c22";
+> +		reg =3D <0>;
+> +	};
+> +};
+> +
+> +&mac2 {
 
+This looks good in general.
+
+For the purpose of review I've started requesting that phandle
+references be ordered alphabetically, because it's tedious to confirm
+they're ordered by unit address, and it's nice to have consistency
+across the files. Can you please fix that along with Andrew Lunn's
+concern about the phy-mode?
+
+Andrew
 
