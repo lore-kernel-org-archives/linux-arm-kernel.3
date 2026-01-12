@@ -4,88 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCE46C9EC6D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 11:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D1CC9EC6D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 11:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5709uEBG2Uy+VI1LipKnJ6HbxTIyBuRpWdTcKY3NT90=; b=yuv5vYNo2GZrNRRwShjvP3kTbo
-	rvJvd5imvyB+WNXA6G7lsRpD3C/Zbnyjbo9Dn/XYafdCdWo3n4GN6SBXifx+7WDMhTyNqXhLrz15I
-	406nvYPDm+JA/E5NZiAh41Gi1jeXzMbCyZs4fzyGiwDO7ZVF280r3opTW6AkxpNjCa1kHufZC5eg9
-	3TJyxV7ZxVyBFDGVPkt+TWBUuxTWYWlw2QNUYzte8WOj+JDJ35vl5rN8moC4SzS0fFtyfk+P6y/PS
-	2Sz9xVfKEqYwn3lO+LesY+vxBdcF6sBWWa4uIHlI58qBow2YxcBiDDKmSmgvybbxgGK5slA4wLIu5
-	3Uvp8gzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FhKhJyQkmaw3j3jlY/JS9rY0Fsc7pFwlHZPOvo+m6fs=; b=i9HxWTDDYrpJn3hH3GAuLgkE1z
+	NejNr4hol7mkEH5nvf6OQMOzFFqzZ2rDq0Qn53M2uL6DSZxeILYfGjHqrjNaYmA02Y+SlADIBKxoh
+	bJep6hIGdYnrpxRAU2qoSThWngYUyJpauEDgeNpALyDlccQFne+ATmW+8eOKG9SI68ya7f9raGduS
+	KhCjjcO3ZjEwM7YH2T9h0mUEh28LLT5s4c9PqRuzbS+qqwzi6Nmrg/fuptG1kHOLSeI4znrufa437
+	RNLeGRX9K9+xDRmyBkhJFSdODzJRfmmxG/FPCPv/cwM5PKHv0ATl+eAcIDworOYlAkPbb18UwQvW9
+	ANuRInFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfFxk-00000005EcS-0BYP;
-	Mon, 12 Jan 2026 11:19:56 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1vfFy2-00000005Ep1-0cjw;
+	Mon, 12 Jan 2026 11:20:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfFxe-00000005EXY-0nP6
+	id 1vfFxy-00000005EnL-464R
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 11:19:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1768216790; x=1799752790;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=9ej8J1aZ3loXRs29McB2qWVnK7bVOI1xJP2oRmJpeJc=;
-  b=QYm5nu11sSQ7AQJvj3f7A4JCBLlr3Wub7dtX013amliIWrqbNbXdfvKU
-   /gfbJZ6AwWrzyzN933IlO6Az+8adaJQERlJhNlJ3lB4hd61YWi1PqTJuJ
-   uppl2wLGkrd8dOcKjCISpflWzeKa3Himbb4LODuGbnEWUtXFDi0WcNWBU
-   aDQRsPrhspxzyB5hzaeNmYqRvFEpMh03JHrJrkWV/KkrwP6UuBFDJxnDh
-   ixNRU+P7Sd6TR8fwhSiYGbyhr93pmF+S91h/Gvpv6e2h+PqMG/hIM9u3o
-   jxXu4EHRhUUUk38e7HhpRQ2/CEUgGSS0uVFRn8KsixITVdbREV9rwyr0I
-   g==;
-X-CSE-ConnectionGUID: 2FQW9J3NQsejMtiFniwPwQ==
-X-CSE-MsgGUID: 0fAS2BCVRAq74/RfstotZw==
-X-IronPort-AV: E=Sophos;i="6.21,219,1763449200"; 
-   d="scan'208";a="58675295"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Jan 2026 04:19:47 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 12 Jan 2026 04:19:12 -0700
-Received: from ROU-LL-M19942.mpu32.int (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 12 Jan 2026 04:19:09 -0700
-From: Cyrille Pitchen <cyrille.pitchen@microchip.com>
-Date: Mon, 12 Jan 2026 12:17:59 +0100
-Subject: [PATCH v4 4/5] ARM: dts: microchip: sam9x7: Add GFX2D GPU
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260112-cpitchen-mainline_gfx2d-v4-4-f210041ad343@microchip.com>
-References: <20260112-cpitchen-mainline_gfx2d-v4-0-f210041ad343@microchip.com>
-In-Reply-To: <20260112-cpitchen-mainline_gfx2d-v4-0-f210041ad343@microchip.com>
-To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
-	"Alexandre Belloni" <alexandre.belloni@bootlin.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>, Russell King <linux@armlinux.org.uk>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Cyrille Pitchen <cyrille.pitchen@microchip.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=936;
- i=cyrille.pitchen@microchip.com; h=from:subject:message-id;
- bh=9ej8J1aZ3loXRs29McB2qWVnK7bVOI1xJP2oRmJpeJc=;
- b=owGbwMvMwCXmf6yzKqEsVIbxtFoSQ2bKjXm3rCYYf8r2WRHxbsHvqtchx8Lag+Nynn7evYo5I
- Tj5QVlVRykLgxgXg6yYIsuhN1t7M4+/emz3SlQKZg4rE8gQBi5OAbjJBYwMn/10Ol8LvW3+b/b7
- 5pPW2/8zy9a1e7a85Ly6wX3F3+kM7Qx/uJXqf81tX/C+q8ngXbLVPy/n4qPTxe8/T/kf/3+9wJl
- 3DAA=
-X-Developer-Key: i=cyrille.pitchen@microchip.com; a=openpgp;
- fpr=7A21115D7D6026585D0E183E0EF12AA1BFAC073D
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_031950_262677_C08299AB 
-X-CRM114-Status: GOOD (  10.51  )
+	Mon, 12 Jan 2026 11:20:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2381160234;
+	Mon, 12 Jan 2026 11:20:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8815C19425;
+	Mon, 12 Jan 2026 11:20:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768216810;
+	bh=cJwAJiB1jDAkBYN22k41gWvMxKzsKOodAtpaC8n3zfk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=k+YTDjvLgj0Ngt3Asj6+TNfDI47XpsY5fG5ZrR5Eq1cVmMxduFr8OOyQs40ioUa8l
+	 HHQxofOYUHuj6/fWBq01ZDoN0P3VbXRL5NYWnHaoPnwEVTm5kJZH2MoIR6i4djptmC
+	 4i+Ps2suLKI2ayaLNbcDQjjlvqb+8zqrYQmFchh04HxV0KdnBoC7rZ5sPsqHzbRAC8
+	 V2k3JyIA9RSjJYoisal5jgUC2EKlulBnzyNqV22OEq/PG3HKyuwEW6+jlscVbYdh9v
+	 X5aus6OFAMiojLxDSja2Z3houjEUZ6RSl2I/q2J7YKtg5S/seUF/7IxBNjmlnQRTeT
+	 EmBhiEBOERY1A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vfFxv-00000001PSo-2ND2;
+	Mon, 12 Jan 2026 11:20:07 +0000
+Date: Mon, 12 Jan 2026 11:20:07 +0000
+Message-ID: <86tswrkrh4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Waiman Long <longman@redhat.com>, Thomas Gleixner <tglx@kernel.org>
+Cc: Sebastian Andrzej Siewior
+ <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven
+ Rostedt <rostedt@goodmis.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH] irqchip/gic-v3-its: Don't acquire rt_spin_lock in allocate_vpe_l1_table()
+In-Reply-To: <87pl7gglya.ffs@tglx>
+References: <20260107215353.75612-1-longman@redhat.com>
+	<864iowmrx6.wl-maz@kernel.org>
+	<87ms2nsqju.ffs@tglx>
+	<86wm1qlq7l.wl-maz@kernel.org>
+	<87ecnwij44.ffs@tglx>
+	<86v7h8l9ht.wl-maz@kernel.org>
+	<87pl7gglya.ffs@tglx>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: longman@redhat.com, tglx@kernel.org, bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,34 +92,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the GFX2D GPU.
+On Sun, 11 Jan 2026 16:20:45 +0000,
+Thomas Gleixner <tglx@kernel.org> wrote:
+> 
+> On Sun, Jan 11 2026 at 10:38, Marc Zyngier wrote:
+> > On Sun, 11 Jan 2026 09:39:07 +0000,
+> > Thomas Gleixner <tglx@kernel.org> wrote:
+> >> 
+> >> On Fri, Jan 09 2026 at 16:13, Marc Zyngier wrote:
+> >> > On Thu, 08 Jan 2026 22:11:33 +0000,
+> >> > Thomas Gleixner <tglx@kernel.org> wrote:
+> >> >> At the point where a CPU is brought up, the topology should be known
+> >> >> already, which means this can be allocated on the control CPU _before_
+> >> >> the new CPU comes up, no?
+> >> >
+> >> > No. Each CPU finds *itself* in the forest of redistributors, and from
+> >> > there tries to find whether it has some shared resource with a CPU
+> >> > that has booted before it. That's because firmware is absolutely awful
+> >> > and can't present a consistent view of the system.
+> >> 
+> >> Groan....
+> >>
+> >> > Anyway, I expect it could be solved by moving this part of the init to
+> >> > an ONLINE HP callback.
+> >> 
+> >> Which needs to be before CPUHP_AP_IRQ_AFFINITY_ONLINE, but even that
+> >> might be to late because there are callbacks in the STARTING section,
+> >> i.e. timer, perf, which might rely on interrupts being accessible.
+> >
+> > Nah. This stuff is only for direct injection of vLPIs into guests, so
+> > as long as this is done before we can schedule a vcpu on this physical
+> > CPU, we're good. No physical interrupt is concerned with this code.
+> 
+> That's fine then. vCPUs are considered "user-space" tasks and can't be
+> scheduled before CPUHP_AP_ACTIVE sets the CPU active for the scheduler.
 
-Signed-off-by: Cyrille Pitchen <cyrille.pitchen@microchip.com>
----
- arch/arm/boot/dts/microchip/sam9x7.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Waiman, can you please give the following hack a go on your box? The
+machines I have are thankfully limited to a single ITS group, so I
+can't directly reproduce your issue.
 
-diff --git a/arch/arm/boot/dts/microchip/sam9x7.dtsi b/arch/arm/boot/dts/microchip/sam9x7.dtsi
-index 46dacbbd201ddb68a7456d6fe1afafa59db90ec8..79a82962264f51c4c243530b9dad9010f8cf1347 100644
---- a/arch/arm/boot/dts/microchip/sam9x7.dtsi
-+++ b/arch/arm/boot/dts/microchip/sam9x7.dtsi
-@@ -292,6 +292,14 @@ AT91_XDMAC_DT_PERID(26))>,
- 			status = "disabled";
- 		};
+Thanks,
+
+	M.
+
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index ada585bfa4517..20967000f2348 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -2896,7 +2896,7 @@ static bool allocate_vpe_l2_table(int cpu, u32 id)
+ 	return true;
+ }
  
-+		gpu: gpu@f0018000 {
-+			compatible = "microchip,sam9x7-gfx2d";
-+			reg = <0xf0018000 0x4000>;
-+			interrupts = <36 IRQ_TYPE_LEVEL_HIGH 0>;
-+			clocks = <&pmc PMC_TYPE_PERIPHERAL 36>;
-+			status = "disabled";
-+		};
-+
- 		i2s: i2s@f001c000 {
- 			compatible = "microchip,sam9x7-i2smcc", "microchip,sam9x60-i2smcc";
- 			reg = <0xf001c000 0x100>;
+-static int allocate_vpe_l1_table(void)
++static int allocate_vpe_l1_table(unsigned int cpu)
+ {
+ 	void __iomem *vlpi_base = gic_data_rdist_vlpi_base();
+ 	u64 val, gpsz, npg, pa;
+@@ -3012,10 +3012,11 @@ static int allocate_vpe_l1_table(void)
+ 
+ out:
+ 	gicr_write_vpropbaser(val, vlpi_base + GICR_VPROPBASER);
+-	cpumask_set_cpu(smp_processor_id(), gic_data_rdist()->vpe_table_mask);
++	cpumask_set_cpu(cpu, gic_data_rdist()->vpe_table_mask);
++	dsb(sy);
+ 
+ 	pr_debug("CPU%d: VPROPBASER = %llx %*pbl\n",
+-		 smp_processor_id(), val,
++		 cpu, val,
+ 		 cpumask_pr_args(gic_data_rdist()->vpe_table_mask));
+ 
+ 	return 0;
+@@ -3264,15 +3265,9 @@ static void its_cpu_init_lpis(void)
+ 		val = its_clear_vpend_valid(vlpi_base, 0, 0);
+ 	}
+ 
+-	if (allocate_vpe_l1_table()) {
+-		/*
+-		 * If the allocation has failed, we're in massive trouble.
+-		 * Disable direct injection, and pray that no VM was
+-		 * already running...
+-		 */
+-		gic_rdists->has_rvpeid = false;
+-		gic_rdists->has_vlpis = false;
+-	}
++	if (smp_processor_id() == 0)
++		cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "irqchip/arm/gicv3:vpe",
++				  allocate_vpe_l1_table, NULL);
+ 
+ 	/* Make sure the GIC has seen the above */
+ 	dsb(sy);
+
 
 -- 
-2.51.0
-
+Without deviation from the norm, progress is not possible.
 
