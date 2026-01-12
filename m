@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C899CF45A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 17:03:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05EF6CF45AE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 17:03:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vdmcxca4D/YddCWA9KSnwK0UnRvxaIKGmURAe1c8BiQ=; b=Uo/eD0nv02fSOZ5OOUn3mI1sux
-	bowElW8UQwnWnfXpkKSLEaEo6M5TTYHszCSu5p8tva3ImFI/E8QzUHlJSN33fUmek9rqM5fD6Jje1
-	w2SsEq3mVTJO2Sa3486UgyrJGZu8kIieOyk3yvOBHyrhBptgHJznZnHp07+3Lf33bLuVrz3+Zz/OQ
-	1yP5YGdixYwEWmqVy9F4YHXGjtwpQpvy1NRpjPy+F6WMMPyM+7NfpYh9oXgoq0KfBFH6iILz/U5uJ
-	B9zj0bkv+ZXdCY+nTJQM1VuVlgoAO9q7vdtbcapzJB8FfmRfzNo6CvpUnylKUsm3xWCUhyY5f8OYZ
-	9VFIgCoQ==;
+	bh=OUZFleDMw0Rqp9pnKxtjL7lxS4NfvmZ6s/79X4GVp6A=; b=fRzyRpn+hMNOLZf5QLFF5AftUl
+	FRgJEtEyoXuWoe4nDJavDQlyk5T7Sctc29U2ROOoXbEkr//rYJ/8RQHWDO1dP9TJeSUV8NXK40YP2
+	xS0my4HJBJseR23HTgWZ3zjsDNYHeMFFKinucXx2LkNV/ee7TNRmygGGi+l1WVUCoxSnhxatA3lbH
+	Ukb9VgypQ2+/UT+BGfuFPJyrWHqAfZPtrZWEupTQW8cK+fstWq43zH6q4ia94zyWeQAEmTMMXdv+C
+	GMu2WKZ22KIIon+aO0IvFn/0jekGNDMnIzQWoVjMlFgWacd0lu1C+gqaBT8uMd8F3MSynU+u8dHNm
+	FqCacD/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfLJx-00000005nn0-2MO7;
-	Mon, 12 Jan 2026 17:03:13 +0000
+	id 1vfLK4-00000005nub-3pUU;
+	Mon, 12 Jan 2026 17:03:20 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfLJs-00000005nhu-2fxo
+	id 1vfLJy-00000005noU-3cYb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 17:03:12 +0000
+	Mon, 12 Jan 2026 17:03:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 10CC9153B;
-	Mon, 12 Jan 2026 09:03:01 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7CB451516;
+	Mon, 12 Jan 2026 09:03:06 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A624E3F694;
-	Mon, 12 Jan 2026 09:03:02 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 22CA73F694;
+	Mon, 12 Jan 2026 09:03:07 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -67,17 +67,17 @@ Cc: amitsinght@marvell.com,
 	joey.gouly@arm.com,
 	suzuki.poulose@arm.com,
 	kvmarm@lists.linux.dev
-Subject: [PATCH v3 36/47] arm_mpam: resctrl: Add resctrl_arch_cntr_read() & resctrl_arch_reset_cntr()
-Date: Mon, 12 Jan 2026 16:59:03 +0000
-Message-ID: <20260112165914.4086692-37-ben.horgan@arm.com>
+Subject: [PATCH v3 37/47] arm_mpam: resctrl: Update the rmid reallocation limit
+Date: Mon, 12 Jan 2026 16:59:04 +0000
+Message-ID: <20260112165914.4086692-38-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260112165914.4086692-1-ben.horgan@arm.com>
 References: <20260112165914.4086692-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_090308_840047_CECF6159 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20260112_090317_688310_D851815A 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,79 +94,76 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: James Morse <james.morse@arm.com>
 
-When used in ABMC mode, resctrl uses a different set of helpers to read and
-reset the counters.
+resctrl's limbo code needs to be told when the data left in a cache is
+small enough for the partid+pmg value to be re-allocated.
 
-Add these.
+x86 uses the cache size divided by the number of rmid users the cache may
+have. Do the same, but for the smallest cache, and with the number of
+partid-and-pmg users.
 
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
- drivers/resctrl/mpam_resctrl.c | 43 ++++++++++++++++++++++++++++++++++
- 1 file changed, 43 insertions(+)
+Changes since v2:
+Move waiting for cache info into it's own patch
+---
+ drivers/resctrl/mpam_resctrl.c | 35 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 921be9b53c00..5adc78f9c96f 100644
+index 5adc78f9c96f..a6be3ce84241 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -463,6 +463,28 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_mon_domain *d,
- 				 closid, rmid, val);
- }
- 
-+/* MBWU counters when in ABMC mode */
-+int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_mon_domain *d,
-+			   u32 closid, u32 rmid, int mon_idx,
-+			   enum resctrl_event_id eventid, u64 *val)
-+{
-+	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
-+	struct mpam_resctrl_dom *l3_dom;
-+	struct mpam_component *mon_comp;
-+
-+	if (!mpam_is_enabled())
-+		return -EINVAL;
-+
-+	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
-+		return -EINVAL;
-+
-+	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
-+	mon_comp = l3_dom->mon_comp[eventid];
-+
-+	return read_mon_cdp_safe(mon, mon_comp, mpam_feat_msmon_mbwu, mon_idx,
-+				 closid, rmid, val);
-+}
-+
- static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
- 			int mon_idx,
- 			enum resctrl_conf_type cdp_type, u32 closid, u32 rmid)
-@@ -518,6 +540,27 @@ void resctrl_arch_reset_rmid(struct rdt_resource *r, struct rdt_mon_domain *d,
+@@ -561,6 +561,38 @@ void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_mon_domain *d,
  	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
  }
  
-+/* Reset an assigned counter */
-+void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_mon_domain *d,
-+			     u32 closid, u32 rmid, int cntr_id,
-+			     enum resctrl_event_id eventid)
++/*
++ * The rmid realloc threshold should be for the smallest cache exposed to
++ * resctrl.
++ */
++static int update_rmid_limits(struct mpam_class *class)
 +{
-+	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
-+	struct mpam_resctrl_dom *l3_dom;
-+	struct mpam_component *mon_comp;
++	u32 num_unique_pmg = resctrl_arch_system_num_rmid_idx();
++	struct mpam_props *cprops = &class->props;
++	struct cacheinfo *ci;
 +
-+	if (!mpam_is_enabled())
-+		return;
++	lockdep_assert_cpus_held();
 +
-+	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
-+		return;
++	/* Assume cache levels are the same size for all CPUs... */
++	ci = get_cpu_cacheinfo_level(smp_processor_id(), class->level);
++	if (!ci || ci->size == 0) {
++		pr_debug("Could not read cache size for class %u\n",
++			 class->level);
++		return -EINVAL;
++	}
 +
-+	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
-+	mon_comp = l3_dom->mon_comp[eventid];
++	if (!mpam_has_feature(mpam_feat_msmon_csu, cprops))
++		return 0;
 +
-+	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
++	if (!resctrl_rmid_realloc_limit ||
++	    ci->size < resctrl_rmid_realloc_limit) {
++		resctrl_rmid_realloc_limit = ci->size;
++		resctrl_rmid_realloc_threshold = ci->size / num_unique_pmg;
++	}
++
++	return 0;
 +}
 +
  static bool cache_has_usable_cpor(struct mpam_class *class)
  {
  	struct mpam_props *cprops = &class->props;
+@@ -1006,6 +1038,9 @@ static void mpam_resctrl_pick_counters(void)
+ 			/* CSU counters only make sense on a cache. */
+ 			switch (class->type) {
+ 			case MPAM_CLASS_CACHE:
++				if (update_rmid_limits(class))
++					continue;
++
+ 				counter_update_class(QOS_L3_OCCUP_EVENT_ID, class);
+ 				break;
+ 			default:
 -- 
 2.43.0
 
