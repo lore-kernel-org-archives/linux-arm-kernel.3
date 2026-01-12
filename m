@@ -4,75 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE9CAD232D7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 09:42:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B47D2505E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 09:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iYsJsSaR8Z3tmRCU4nljO0csrE9Ejc+yAdQdvP2d54o=; b=Cf5mBygM3hOWgEoHT9J0QW3SOz
-	AWqBNCTvu6UZIZQsZqTfK0jjAs9k9p58yAkTHHNa3xPFC1wwpRuaa3VyOUQo0by2jf7/AqE6LGVsA
-	7PtrGIDfvr+GePF0mpGCdH6UcJHdF0x9E1jRnAPm+NF15hzTs2ETWJ1gS8aIO/8LN5U9r7WKoa/tm
-	tNp1RwLBHhSW/u+SuXxLC2hxz2SHmowy1MMogCc75Q+TwmMIVIxrVwb14BWTfxMKiIipsIREZny0I
-	RgVepDWC8CILXjBNCGp+NvL4XMHWJPQDYxnUAiSLWs+SEdVE+aSTJ/HSQDqUiFBc3qMW/oU99IvE+
-	4j0sqDrw==;
+	bh=37jw5nLaZWVZ6yrJck1zZSSpLqHqkC9MlKG8jIO3uBA=; b=GIbMiS0Dg3662fAALgFqmu3/1x
+	4kv5mxCiNaSBwHMsivOsO/KI50zpEXHVIIyBDnbAOoRM9p5ltod517pqx4IQ4qTFP6r0WwjSIOgBq
+	ErweqOJlq+npCyhcy8ceY8+8LnzhdGXZVGsOCrUs3kA1kD1oMmJ0D/JUfPGMypJXZ2sTcmlgYLQaI
+	Sdx6Wg8SwBzcFltp4Zu1TDVgKMVc/sed7cWFtgPRJk8IYoKMelTX48ITVHIwA3eHLMhEe6x02Y/nv
+	tTcj0R7ButHSgpYaW/5vmYWPsw2p2pjT+uJFtUnbzoTIlzcVDqTmvJG3QZGOnHptgx0AQyDpB9pvZ
+	fgh9ZY/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfERS-000000056C3-47hT;
-	Mon, 12 Jan 2026 09:42:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vfERp-000000056Gd-3OWm;
+	Mon, 12 Jan 2026 09:42:53 +0000
+Received: from mail-oa1-f47.google.com ([209.85.160.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfERP-000000056Bh-1JrR
+	id 1vfERn-000000056FV-09Mb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 09:42:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 82A8E4430B
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 09:42:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61CA8C16AAE
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 09:42:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768210946;
-	bh=lmEIHgZZMTtEfgTs7wp1ji1qT8knJHXi6qHATGkhWmA=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=HnImlPhoaCFm2bISOyjk88a4CVqpbY3KWNbeZ3jFsnwgJPxD/5yf8LKOE38hrbibO
-	 zgkMRC8nsEyxceiqeSkSyZq5vlm5EDaJ8xd9/bwLJjr9HQaZ9IcoT+smpl9lrNd32F
-	 jFg+KqRdPkbD68wxqM7He0GD2Yk5LK0xoMg56h1VQAuWYTQYDHDKE4NlO7B4AlSkX5
-	 hdhrthHslcOMJoMC9gnM+JIIgWOhQ5AMCElOMJ4MIHmQFmijJCKn4x993YqeWj2oPn
-	 SlueuNJiYUzfsLnMOFHVMEaOQV5KfgwoqDUGqBeXL2rTdx6cm/gi3QkSqA8yL3427e
-	 tjt+tDhjcQ5+Q==
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-382f9211cbfso58981551fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 01:42:26 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWuPw0H6lkQGdfl+qyThjRKxRr2q9a9Uq+IdPIUreYIBF8ARnYnqmswCtO//d7ejXzk8xLpxToUaTFIvcOfCcKt@lists.infradead.org
-X-Gm-Message-State: AOJu0YycSSceljgtauoYB7jqtoThNPbWN2Gl9j9L7smyRxxop7Cd4eMm
-	RXako++AJtFSdle0DuzBTc4qya3PXWSmN//SFITVTvPRZpqySuD6mROnFqTsct4eb997/a/8gaz
-	hgQQiWMna+bY7RLQip2G/c2uQ6tZ/sX5T2jF/2Bf6Dg==
-X-Google-Smtp-Source: AGHT+IEtDU+WBNOMzPFWFYbdDtZdfSoBBnPH4bow2OTLMBFEfML1j35lhmcFxxrqS3oiMugmPR15HNq83oUCcqNtA9M=
-X-Received: by 2002:a2e:b88f:0:b0:37b:b00b:79a2 with SMTP id
- 38308e7fff4ca-382ff688d40mr47968331fa.3.1768210945088; Mon, 12 Jan 2026
- 01:42:25 -0800 (PST)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 12 Jan 2026 04:42:24 -0500
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 12 Jan 2026 04:42:24 -0500
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260111-apple-req-gpio-func-v1-0-6deb1b695371@kernel.org>
+	Mon, 12 Jan 2026 09:42:52 +0000
+Received: by mail-oa1-f47.google.com with SMTP id 586e51a60fabf-3ff4acb6eebso3912315fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 01:42:50 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768210969; x=1768815769;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=37jw5nLaZWVZ6yrJck1zZSSpLqHqkC9MlKG8jIO3uBA=;
+        b=M0mhXDfdV+7AS1E5xo3XD6TGYqKyQfHxXD32pUkenbgJF2dG8MbeZLkkEFhffYxUCY
+         GYeVxVKfJYh/2eSwQGLMC25CL+ltvdp1Nqx6luOqSWdQREeSec7OncK7qkrjUsKUVQRd
+         3kgJ4duirgQdu7NiMsIulcZk9mf6LNzRLjBTQ9CK1j04Mcm7JClls3wcL21gvIBsY6gA
+         yKSpldTFha7rkir3hR4PXfdSheFkGxpwpthHm6E0yEfhTOMrGlSUcdoDPK/+NG2mngfz
+         v3SDKACt8WnTFLk2ePjtEHOgNydpt0d97rXGKY/LH8tioj0zfKy92yN+l1mCU6BEG9av
+         30uQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUU/phXMKHqKvJ32rmbtahW2i1s36MnxVqH5brRXEe29N2vyR6riVbVRqeMnrYWzOIoBMXR4tO8U20NznC6GDSR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpwTyGTS+oHGY5pTIn8/SZr5/rDvs4H6A+lKUKBKVYHhDVWpHb
+	G/gcDMSeicw078QvP2EyNqXxwX9vRtAP/JP9wQ4oTorOEpjatqDY2BvV
+X-Gm-Gg: AY/fxX5M2uIQZmOC4JszVNtBU5gMNMufYoQx4xaoGA8nr9IgDS+JN54kuSWSoIhsP+O
+	a1rk61yY8dhwzB0ECgmbFIbU5UcK2lQxOEFMu9pCAgsePALjCeDjNWtG2S1sDs6kb1F3DOvgVAb
+	ro99vL7mlEd2BY4+/m+2vIb3t5uppVcmQfQGvWU88k5Pj1pKInJHNHY3fFdv6zkzpP/kuAJ6Q5X
+	2tZUalfoLKvh5Nrf6ZdJ9wmh6Rl0BmdmkzBdWm3kwVm3nMAZin9FJ8SCYiFOETSITcr3rBcGNIU
+	MYjl1oP5kfHw4d+f6r7y9WTXTRov8zAiVP2miXXOjsZvuX80dneZ6WM+mT5zU9ursnCBV6VUkLE
+	8kKChDRPsqazcBzShb2L0utVNf4n9WBk+o3DRElhEqcQhe/RHBi/xg3btGGXZJR5xrdJfnoNrpp
+	3UKw==
+X-Google-Smtp-Source: AGHT+IF0hJgzX75ZcIowtNhUjlPnKr/1ZMKF6Ic3Py2DL3yFdhUTF0b1MKvrSAqEbri5ZvRTLM8gzQ==
+X-Received: by 2002:a05:6820:16a5:b0:65f:1038:1317 with SMTP id 006d021491bc7-65f54f76ed2mr9334798eaf.70.1768210969330;
+        Mon, 12 Jan 2026 01:42:49 -0800 (PST)
+Received: from gmail.com ([2a03:2880:10ff:72::])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-65f48ced969sm6764615eaf.17.2026.01.12.01.42.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Jan 2026 01:42:49 -0800 (PST)
+Date: Mon, 12 Jan 2026 01:42:47 -0800
+From: Breno Leitao <leitao@debian.org>
+To: Steven Rostedt <rostedt@kernel.org>
+Cc: Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Laura Abbott <labbott@redhat.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	Masami Hiramatsu <mhiramat@kernel.org>, puranjay@kernel.org, usamaarif642@gmail.com, 
+	kernel-team@meta.com, stable@vger.kernel.org
+Subject: Re: [PATCH] arm64/mm: Fix annotated branch unbootable kernel
+Message-ID: <74f52o5tq2nodc3otsvknrsf2rpzphtaba7lxia5u3i7322vni@giqfw3ofnnyk>
+References: <20251231-annotated-v1-1-9db1c0d03062@debian.org>
+ <aVwp_BJx84gXHPlD@willie-the-truck>
+ <20260109145022.35da01a3@gandalf.local.home>
 MIME-Version: 1.0
-References: <20260111-apple-req-gpio-func-v1-0-6deb1b695371@kernel.org>
-Date: Mon, 12 Jan 2026 04:42:24 -0500
-X-Gmail-Original-Message-ID: <CAMRc=MeBdpYHAxSL89t+EajJVks5Q=NxWzuBpM4gCCtBViqJ=A@mail.gmail.com>
-X-Gm-Features: AZwV_Qjtecxh9G9cjaV0tjKCB1xKJ7hY_aonWV0TTWc2GDEruWoxCMny_Vcm7M4
-Message-ID: <CAMRc=MeBdpYHAxSL89t+EajJVks5Q=NxWzuBpM4gCCtBViqJ=A@mail.gmail.com>
-Subject: Re: [PATCH 0/2] pinctrl: apple: Fixup and RFC GPIO mode patch
-To: Linus Walleij <linusw@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
-	Neal Gompa <neal@gompa.dev>, Bartosz Golaszewski <brgl@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260109145022.35da01a3@gandalf.local.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_014227_395095_AE859D18 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20260112_014251_075488_1627C19D 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,37 +93,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 11 Jan 2026 21:29:20 +0100, Linus Walleij <linusw@kernel.org> said:
-> This fixes some uses of the "unsigned" type to "unsigned int"
-> then propose to implement the .function_is_gpio() callback.
->
-> The Apple pin control maintainers can comment on this: I
-> am not sure that "mode 0" is GPIO on this hardware but I
-> find it likely.
->
-> Toggling a pin between a certain function mode and GPIO
-> mode happens on any sufficiently advanced system sooner or
-> later and this callback was implemented because Qualcomm
-> ran into it, so let's add it to the Apple driver before
-> the users turn up.
->
-> Signed-off-by: Linus Walleij <linusw@kernel.org>
-> ---
-> Linus Walleij (2):
->       pinctrl: apple: Use unsigned int instead of unsigned
->       RFC: pinctrl: apple: Implement GPIO func check callback
->
->  drivers/pinctrl/pinctrl-apple-gpio.c | 18 +++++++++++++-----
->  1 file changed, 13 insertions(+), 5 deletions(-)
-> ---
-> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> change-id: 20260111-apple-req-gpio-func-3010ca45a118
->
-> Best regards,
-> --
-> Linus Walleij <linusw@kernel.org>
->
->
+Hello Steven,
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+On Fri, Jan 09, 2026 at 02:50:22PM -0500, Steven Rostedt wrote:
+> [ Resending with my kernel.org email, as I received a bunch of messages from gmail saying it's blocking me :-p ]
+> 
+> On Mon, 5 Jan 2026 21:15:40 +0000
+> Will Deacon <will@kernel.org> wrote:
+> 
+> > > Another approach is to disable profiling on all arch/arm64 code, similarly to
+> > > x86, where DISABLE_BRANCH_PROFILING is called for all arch/x86 code. See
+> > > commit 2cbb20b008dba ("tracing: Disable branch profiling in noinstr
+> > > code").  
+> > 
+> > Yes, let's start with arch/arm64/. We know that's safe and then if
+> > somebody wants to make it finer-grained, it's on them to figure out a
+> > way to do it without playing whack-a-mole.
+> 
+> OK, so by adding -DDISABLE_BRANCH_PROFILING to the Makefile configs and for
+> the files that were audited, could be opt-in?
+
+How to do the audit in this case? I suppose we want to disable branch
+profiling for files that have any function that would eventually call
+noinstr functions, right?
 
