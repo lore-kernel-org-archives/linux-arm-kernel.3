@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F975D25044
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 07:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD26D25032
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 07:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y7a/8gcbX01XP0/CB6Qd22scjF/OCyrYXm0gztMHssc=; b=K7Up2ZxnzUqF0eY0S+1A9Bmqid
-	CnRWols2c55Q0d1/TvfCaK7vr/TBLenqcKI89YsRbbsdfS5FUfBwddc+QcbwM6K58O5Y+Q0rNOcky
-	kb8xEht61WpR/8N+hRHbltkgPoH7iSLw+CBLy7np2mD9yha7OIvmAcSlXh1lDHGr72u+b0dcGiRKk
-	x5gasd6mvd6xiMcwhZ4ax7W64k3qfw6U8PRuzF4dDRBiZHkurVyyg5lzWL15ewIWk5bsnhwIdYqYg
-	VuBxdMHK7nh/N3fbU/9ki/Ky6L4/AiUhiFjyrYNC1x6r9vTfJ/jAj7Ucllk9FGtRUw770QKhN8CnV
-	DkZ0H5/Q==;
+	bh=5s1E1yisqHJGGPTpys4I/1xezHpPYE2+zak8zKkm6YU=; b=1jivIKK1bNuR8PJNxnUPVjRhRi
+	t86PXiHjGYVsbVV/CfYNPQrSN+v8aRbC7CwPWs/MFM39PrVHpZFzkNLDBbHh3caQDlkjjpVguNEri
+	HL8adBHqLOTrkAvlhpD10VWAwa0N4qU3alIswpNzGHRhmTgZd1mFwzhB9W1oy5BOr8A7BlLltsBDa
+	pW1MT3OlHkVf1JEtCmK4vi1ul1evlmVrIKRrHSNu/eL8J3lqMWGMH3APHcDNY558Y2l71qrjQzsHf
+	kP35WaopkcWVTgRdmtRPmdn7ycrTv0JNZvSWlzDVefD93JZOizxB00bREd0xJR1KLooGya3sPK8jR
+	ptR2ejpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfCp4-00000004wQ5-3T4X;
+	id 1vfCp4-00000004wPH-16xX;
 	Mon, 12 Jan 2026 07:58:46 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfCox-00000004wJF-1zlx;
-	Mon, 12 Jan 2026 07:58:42 +0000
+	id 1vfCox-00000004wJD-2V8n;
+	Mon, 12 Jan 2026 07:58:41 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1768204716;
+	s=2020; t=1768204715;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Y7a/8gcbX01XP0/CB6Qd22scjF/OCyrYXm0gztMHssc=;
-	b=Vtcifug9RaagyqT88MSE5ZYCcl05riCaRsPdsU/aY8VjI2K7ctC/SNby90EOZ/x2cQaIFC
-	8sN80yyMHqOQihsk4iNEATryKSxnAzfKfNgWXgGWmoeC6bxQsQGtQFzvV8Moaak4F6PBKV
-	/4gZhwB3jnPiZO0Bdr1WeqebgMbf6urUAL2a/ssKCoDkbZ5Wb+tXXMhXCtUTSpe5X6K8Ts
-	HsqlCPmgK28z74lIKTCLPcdDE1h1uDEx5nBtt3vRkFDSh+DRmj7nPj6QJl5APkQegsHvXV
-	kq62CohPbToowSYvEksbU6IHA7xV+Ffa72TTFB6A+7mcfPY2lwfgxRthuve2Ew==
+	bh=5s1E1yisqHJGGPTpys4I/1xezHpPYE2+zak8zKkm6YU=;
+	b=omYMiVgyCs2/ICjIBKHk+uRwVKqb2olpwT7SpzDhB5GVFq48MzJ/sHFdjM4oNWLwQPBxU1
+	3PA9Ne8I1jwRRzFiSEzVJKc1Y3TnnU7FehqUKshQKo30JlPtUldAKsCrRR86DmO/d9WYsX
+	1ChFodv4xO9yMpZ3gyslxtwEtuBJHm7JrxA3oogmrtvYjhn6JY2NS3zhhWpsMxbl8HG2//
+	rshFGY/ctXk7vLOxa1SiNGOW31cMo+JVvMnQgcVTAZSdeaYiksXAd8TaGKo3QBr5T39V+h
+	URj92ms8uHNgAFFrEbBODFt79o70DbqwZElk/n00VaztdlOVJCKc6EKsmg4/4A==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1768204716;
+	s=2020e; t=1768204715;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Y7a/8gcbX01XP0/CB6Qd22scjF/OCyrYXm0gztMHssc=;
-	b=MemaBHqQkRpgoNBlhSFabxjnBxO/4h3Gl/2+J55JrGluB3OE/DSR7nebNIv70hTxNCoHGs
-	PNapIui61d1LaqCw==
-Date: Mon, 12 Jan 2026 08:58:31 +0100
-Subject: [PATCH v2 3/5] nios2: uapi: Remove custom asm/swab.h from UAPI
+	bh=5s1E1yisqHJGGPTpys4I/1xezHpPYE2+zak8zKkm6YU=;
+	b=jAfZhu7+MYFHbZQYp4Wr1DEqaexq5dbKqNHBkWycp5xJn1kHg0vAMVoGlzZuplCYqAuNVf
+	srmP/2rF5wWJuFBw==
+Date: Mon, 12 Jan 2026 08:58:30 +0100
+Subject: [PATCH v2 2/5] ARM: uapi: Drop PSR_ENDSTATE
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260112-headers_install-config-leak-v2-3-4d8084444603@linutronix.de>
+Message-Id: <20260112-headers_install-config-leak-v2-2-4d8084444603@linutronix.de>
 References: <20260112-headers_install-config-leak-v2-0-4d8084444603@linutronix.de>
 In-Reply-To: <20260112-headers_install-config-leak-v2-0-4d8084444603@linutronix.de>
 To: Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
@@ -64,17 +64,16 @@ To: Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
 Cc: linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768204713; l=1518;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768204713; l=2940;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=mE+0AJr1mZB6A2o+OL0n7XdbaqJ3PgEVC2ckr3OVoI0=;
- b=2sUeoLE/BaN/OFza3UjExdYjfJFxjDWJvIY/UbV5GGogqazTOnosaEyBG3G24W0N6dTsPamwL
- ZYEkSNEamaYB1TuAzBverE3YwKrT8o+V6fe5HsgJGRN2cZ/mEJr3L/R
+ bh=fz1o/QC//id3SLCiEx9I+QB/CLj6vfH/ATM2HwtC2M4=;
+ b=SgLGFJD93/ax6KUVAdEqFkrrtteLzYnyVrgmZLmHAO3OlDxH1a9NqMhU6ejqJ2eiYW+IB+Olx
+ MoK7VJQoUOYB/DXjxAg1+xBNyQ+JiDlDEEof/TKvPnQt3686DHOkcx1
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_235839_650467_FE62551C 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260111_235839_771995_773B801A 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,40 +88,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-UAPI headers are not supposed to leak references to kconfig symbols.
-They are undefined there in any case. As all actual definitions of this
-header are guarded behind a kconfig symbol, for userspace the header is
-always identical to its asm-generic variant.
+The symbol PSR_ENDSTATE is pointless for userspace. Drop it from the
+UAPI headers and instead inline it into the only two callers.
 
-Make the custom UAPI header a kernel-internal one, so the leaks of
-kconfig symbols are fixed and userspace will instead use
-asm-generic/swab.h directly.
+As as side-effect, remove a leak of an internal kconfig symbol through
+the UAPI headers.
 
 Suggested-by: Arnd Bergmann <arnd@arndb.de>
-Link: https://lore.kernel.org/lkml/93c55086-931a-4282-a94c-de4954047fa9@app.fastmail.com/
+Link: https://lore.kernel.org/lkml/d2ad12f2-3d65-4bef-890c-65d78a33d790@app.fastmail.com/
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- arch/nios2/include/{uapi => }/asm/swab.h | 0
- scripts/headers_install.sh               | 2 --
- 2 files changed, 2 deletions(-)
+ arch/arm/include/asm/processor.h   | 3 ++-
+ arch/arm/include/uapi/asm/ptrace.h | 9 ---------
+ arch/arm/kernel/signal.c           | 3 ++-
+ scripts/headers_install.sh         | 1 -
+ 4 files changed, 4 insertions(+), 12 deletions(-)
 
-diff --git a/arch/nios2/include/uapi/asm/swab.h b/arch/nios2/include/asm/swab.h
-similarity index 100%
-rename from arch/nios2/include/uapi/asm/swab.h
-rename to arch/nios2/include/asm/swab.h
+diff --git a/arch/arm/include/asm/processor.h b/arch/arm/include/asm/processor.h
+index 326864f79d18..bba83228bc22 100644
+--- a/arch/arm/include/asm/processor.h
++++ b/arch/arm/include/asm/processor.h
+@@ -73,7 +73,8 @@ static inline void arch_thread_struct_whitelist(unsigned long *offset,
+ 		regs->ARM_cpsr = USR26_MODE;				\
+ 	if (elf_hwcap & HWCAP_THUMB && pc & 1)				\
+ 		regs->ARM_cpsr |= PSR_T_BIT;				\
+-	regs->ARM_cpsr |= PSR_ENDSTATE;					\
++	if (IS_ENABLED(CONFIG_CPU_ENDIAN_BE8))				\
++		regs->ARM_cpsr |= PSR_E_BIT;				\
+ 	regs->ARM_pc = pc & ~1;		/* pc */			\
+ 	regs->ARM_sp = sp;		/* sp */			\
+ })
+diff --git a/arch/arm/include/uapi/asm/ptrace.h b/arch/arm/include/uapi/asm/ptrace.h
+index 8896c23ccba7..2ef917957005 100644
+--- a/arch/arm/include/uapi/asm/ptrace.h
++++ b/arch/arm/include/uapi/asm/ptrace.h
+@@ -102,15 +102,6 @@
+ #define PSR_IT_MASK	0x0600fc00	/* If-Then execution state mask */
+ #define PSR_ENDIAN_MASK	0x00000200	/* Endianness state mask */
+ 
+-/*
+- * Default endianness state
+- */
+-#ifdef CONFIG_CPU_ENDIAN_BE8
+-#define PSR_ENDSTATE	PSR_E_BIT
+-#else
+-#define PSR_ENDSTATE	0
+-#endif
+-
+ /* 
+  * These are 'magic' values for PTRACE_PEEKUSR that return info about where a
+  * process is located in memory.
+diff --git a/arch/arm/kernel/signal.c b/arch/arm/kernel/signal.c
+index 79a6730fa0eb..7be9188d83d9 100644
+--- a/arch/arm/kernel/signal.c
++++ b/arch/arm/kernel/signal.c
+@@ -337,7 +337,8 @@ setup_return(struct pt_regs *regs, struct ksignal *ksig,
+ 			return 1;
+ 	}
+ 
+-	cpsr |= PSR_ENDSTATE;
++	if (IS_ENABLED(CONFIG_CPU_ENDIAN_BE8))
++		cpsr |= PSR_E_BIT;
+ 
+ 	/*
+ 	 * Maybe we need to deliver a 32-bit signal to a 26-bit task.
 diff --git a/scripts/headers_install.sh b/scripts/headers_install.sh
-index 4f03521f4026..613f400a67d1 100755
+index 727f7f82c2c7..4f03521f4026 100755
 --- a/scripts/headers_install.sh
 +++ b/scripts/headers_install.sh
-@@ -70,8 +70,6 @@ configs=$(sed -e '
+@@ -70,7 +70,6 @@ configs=$(sed -e '
  #
  # The format is <file-name>:<CONFIG-option> in each line.
  config_leak_ignores="
--arch/nios2/include/uapi/asm/swab.h:CONFIG_NIOS2_CI_SWAB_NO
--arch/nios2/include/uapi/asm/swab.h:CONFIG_NIOS2_CI_SWAB_SUPPORT
+-arch/arm/include/uapi/asm/ptrace.h:CONFIG_CPU_ENDIAN_BE8
+ arch/nios2/include/uapi/asm/swab.h:CONFIG_NIOS2_CI_SWAB_NO
+ arch/nios2/include/uapi/asm/swab.h:CONFIG_NIOS2_CI_SWAB_SUPPORT
  arch/x86/include/uapi/asm/auxvec.h:CONFIG_IA32_EMULATION
- arch/x86/include/uapi/asm/auxvec.h:CONFIG_X86_64
- "
 
 -- 
 2.52.0
