@@ -4,70 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53CCBC9EC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 12:12:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 478BCC9EC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 12:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iePCKqThvl8UucftY09/BLc7SJsp6+M3d3LYNyJg5xU=; b=iOIBLkij1IZtH/TAN/Z/PoEcZ6
-	6GzBHiLJWjCQ5hKV0sADE90dtVuuPtqtMeAPtuLMydpzTqeoQ+WTBwp2U5BFOaP+99k3oa9lKGd4F
-	m/yxABVWYCy7geoN8HYmBskpfHQnrkv3naEisM4URR6a6TEydnQ+toiJcgtaijfRD/6rEQq4zEOVb
-	QDPpYJLo7E0rOHmZ5z9WFsBp+kKAMhdB4Ou1YfFc3HWRe5GMFjpDRnTDuaWq1fa+HbKCTKXD1+bLP
-	bAH55PNpFp4pw4n06zFac9pgxZHaMtpU4Ust0NTR+dgiLuRJzd56bY25j7WOZQX2Li4uuzOkWwlIF
-	BaGO3Vwg==;
+	bh=m5vBcByaSbLsGX5Zr65hjskcoFy3cdK9/53jX67HxjI=; b=ERPUTW5yrXCQc40Zmqppcw/S2e
+	nRo2Tzk+YG7N6eb2WYsYYpq59LlJ/3hYhwZYqFjSFjYzYwczfbsV13uCdSGIAUX0KGaprplviQCs4
+	HxZbVc6YwakQ+p2QmENLN3o6kUQMxMJ5mqigaTCWnCx6wZncE4GYfN5BPVVBPmgffwGUAHggbiLaq
+	BXoKOUsZF5kKRd9bTqd4QdpDl8iIMCcStYwo1tGaQPM2KDMfSO0d8mBNBDm4G6uPBxpkTy4MUqJl+
+	NEJ8jbMXRdcyTwbGZDkhTzdJtflsQnIOMlCmw4Fx4vEhYQJlxNVzh4Gw45MrUL6xlQMlgAuCXn3Nd
+	3kPRl98Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfGmX-00000005JOe-3dzv;
-	Mon, 12 Jan 2026 12:12:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vfGoC-00000005Jd8-00Yk;
+	Mon, 12 Jan 2026 12:14:08 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfGmU-00000005JO3-1Jb0
+	id 1vfGo8-00000005Jck-46Oe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 12:12:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0905A4391E;
-	Mon, 12 Jan 2026 12:12:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61294C16AAE;
-	Mon, 12 Jan 2026 12:12:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768219941;
-	bh=KYN08OfhJKdVOxdem4pFSBq1PJAMgzGcdLnB3YeasnE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=P2XBidzzhTmyO2SwYfh5ARhZLgNvJNHbUPixPtPUCNfnsLWXoVheNL+Urc8k0LyVg
-	 9fEgCwyfa1amaJZZ4qrYkLTdwayQ/M9A4CyrCU2arz2pjo8nhxAhmX4PjfvW65XZwW
-	 NehGLc77SnciQyAzAQ0MdsdMn6JQBzTwOI4U3Bu09gX+DLs2BVVuqCZePoCjaCzfpL
-	 ARkvlSfzN9z5YiY5JBCzBEbafXjZlZ+LyzdbYUpcpntBJRWZPs8iSJsAtJnttDzd0c
-	 ZIMoMnObhYpUD7JjxNCT/Ovckdk4vRdjEQiZ7eaopPG4QRWssbQOP3s3KuMcfskj/K
-	 Pr9Od2SJJOzow==
-From: Jiri Olsa <jolsa@kernel.org>
-To: Masami Hiramatsu <mhiramat@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Will Deacon <will@kernel.org>
-Cc: Song Liu <song@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	bpf@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org,
-	Yonghong Song <yhs@fb.com>,
-	Song Liu <songliubraving@fb.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mahe Tardy <mahe.tardy@gmail.com>
-Subject: [PATCHv3 bpf-next 2/2] selftests/bpf: Add test for bpf_override_return helper
-Date: Mon, 12 Jan 2026 13:11:57 +0100
-Message-ID: <20260112121157.854473-2-jolsa@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260112121157.854473-1-jolsa@kernel.org>
-References: <20260112121157.854473-1-jolsa@kernel.org>
+	Mon, 12 Jan 2026 12:14:06 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-42fb6ce71c7so5336843f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 04:14:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768220043; x=1768824843; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=m5vBcByaSbLsGX5Zr65hjskcoFy3cdK9/53jX67HxjI=;
+        b=wjGVvU89TO3rt7vDoVPyG2SNt2CVZB5GfGiNX5TUtGsXcMhKewnKCRW35tJB7PL3iz
+         vx5vUfSXN9i3vY3FhLV9/Rr9aiFJKzwMcE4EpxkLs9yCksu4JdKHwo7G/k+SwmsDcpNR
+         yCLABkXiZBJd0mhHY3euBiBy8t8aAc/HP1hBo1zt2Q0MIkD5nB/sh/kOvtfXFCHm4D89
+         z2z+nX+i3woBqPX65j+Jc5Rq35lPTrbDSqaAs6bkuPEWgZWlNIJP8hOw3XVX87y/H8xE
+         qaM4enD8jq0s8MyxenTvAjbK98LeHgkEeKSeXyyOMpKdpDwvrn3Ul2pRMfJ2kZDOCcRa
+         xkiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768220043; x=1768824843;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=m5vBcByaSbLsGX5Zr65hjskcoFy3cdK9/53jX67HxjI=;
+        b=cOREZL6w9gZ98+z4BoFwg6F4fcUYaSw7YaitPKx/VMI6A6EugbbaQ8wz/P/E30u8j/
+         XdGLB54DIsFznCarNE47uDzKA7uTNHrA7DCpWJk+G6dZTilqn0VRuRyjKsLHjpPQOYCZ
+         kK/lPZOfcNs2fJyleko/IslUm6jNmDRtFJ35+/Sl3aqnXe3ejEoDiFHVqpXv3RpbPBVz
+         O52+pa3q4JpSbTvXPJLtHgixJKXEx395X0ojC8p9a9RQBwF7d91Y1wspaAk6yLaNJp4e
+         ojHCXD4pU9W19MrDgLkdKwkL1dfMSfM8GI4oX/WojOLo5wefscYN5Bu+H1kNlR/yekii
+         QXXA==
+X-Forwarded-Encrypted: i=1; AJvYcCV0RoveZ4TxdzoxdoIn2bQb0sHA3qw4/GayQBotc8ybMqFKA2C059Qo71cnMq+WryU1e4t7wQmytFNchDsJc62M@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8X2DIub/YaH6RYkID4nRnDRjkccYumn5PViMLtn0QoOo3YFkX
+	9BLGXARoyQ11g8foAZJVISY1fLwVn+S8dHXNMs96Cvs9zjN+tN+BOTC4rRn3x4gNeI4=
+X-Gm-Gg: AY/fxX7Nc4MEhJIN78gbtDYNDXMbOMRtywAL3/CSFqwIK9uS5OUP1oLZ8Ltig/6Fs5g
+	9Eswn2S/XKEJQRPvzc+F8bIKQzDoOTsbPYVaUjoNojAM5PRwfkhj44sAp0fMJ/e+uMzYcZBWjWR
+	2qJw/Xcsdags2n02gSEDw5lc7H8yzGu+82RsmDu39SYDU5l/BfBJl3/iT98+scwYsAsZvfoGPuZ
+	uB8WUXCvuOHNb+qlER92v2l6A5kKt8A/FWmXLplW57Aul3mHn8XT1ols9n1iQvEUfA7L1zcnH2r
+	Bg2UM9iVAWaZQg0sTvJKqwr46YpESDeL/TlhAKCcC6VBgg9+5d5/Rh+FgJ2NIVNAzhxCcPTfLnm
+	4+m1CzhfOO1McVPLYiLVQZejxeYMXsboSkQd5BI0EFa++bjAy6hmY1RZEKvX6E/4zV96BTHDL42
+	mt5BQQUAbn7UIE1iVYZUXo8MbjmBk=
+X-Google-Smtp-Source: AGHT+IFyLJu85DhzDzB9NUkNFHVuGwdXkS6SskSTBpWBs4uFpxP0oRfyAXxIBuq4lyp+uGbpQRo27A==
+X-Received: by 2002:a05:6000:22c7:b0:430:f6bc:2f8b with SMTP id ffacd0b85a97d-432c37d2faemr19857760f8f.45.1768220042989;
+        Mon, 12 Jan 2026 04:14:02 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd5ee870sm38632600f8f.36.2026.01.12.04.14.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 Jan 2026 04:14:02 -0800 (PST)
+Message-ID: <24dbbfea-f068-4352-9212-30821feed796@linaro.org>
+Date: Mon, 12 Jan 2026 12:14:01 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v6 03/35] KVM: arm64: Add CONFIG_KVM_ARM_SPE Kconfig
+ option
+From: James Clark <james.clark@linaro.org>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: mark.rutland@arm.com, james.morse@arm.com, maz@kernel.org,
+ oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+ yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+References: <20251114160717.163230-1-alexandru.elisei@arm.com>
+ <20251114160717.163230-4-alexandru.elisei@arm.com>
+ <1aaffbcd-ba0c-4371-80d7-ce59ac7f13a9@linaro.org> <aWTaXBse_R_LjJE-@raptor>
+ <d7db9f17-012e-43d7-a0a5-58b254dd7e33@linaro.org>
+Content-Language: en-US
+In-Reply-To: <d7db9f17-012e-43d7-a0a5-58b254dd7e33@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_041222_386019_7FD0255E 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20260112_041405_051698_58900CFE 
+X-CRM114-Status: GOOD (  33.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,140 +107,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We do not actually test the bpf_override_return helper functionality
-itself at the moment, only the bpf program being able to attach it.
 
-Adding test that override prctl syscall return value on top of
-kprobe and kprobe.multi.
 
-Acked-by: Song Liu <song@kernel.org>
-Signed-off-by: Jiri Olsa <jolsa@kernel.org>
----
- .../bpf/prog_tests/kprobe_multi_test.c        | 44 +++++++++++++++++++
- .../bpf/progs/kprobe_multi_override.c         | 15 +++++++
- tools/testing/selftests/bpf/trace_helpers.h   | 12 +++++
- 3 files changed, 71 insertions(+)
+On 12/01/2026 12:09 pm, James Clark wrote:
+> 
+> 
+> On 12/01/2026 11:26 am, Alexandru Elisei wrote:
+>> Hi James,
+>>
+>> On Fri, Jan 09, 2026 at 04:29:50PM +0000, James Clark wrote:
+>>>
+>>>
+>>> On 14/11/2025 4:06 pm, Alexandru Elisei wrote:
+>>>> Add a new configuration option that will be used for KVM SPE emulation.
+>>>> CONFIG_KVM_ARM_SPE depends on the SPE driver being builtin because:
+>>>>
+>>>> 1. The SPE driver maintains a cpumask of physical CPUs that support 
+>>>> SPE,
+>>>>      and that will be used by KVM to emulate SPE on heterogeneous 
+>>>> systems.
+>>>>
+>>>> 2. KVM will rely on the SPE driver enabling the SPE interrupt at the 
+>>>> GIC
+>>>>      level.
+>>>>
+>>>> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+>>>> ---
+>>>>    arch/arm64/kvm/Kconfig | 8 ++++++++
+>>>>    1 file changed, 8 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+>>>> index 4f803fd1c99a..31388b5b2655 100644
+>>>> --- a/arch/arm64/kvm/Kconfig
+>>>> +++ b/arch/arm64/kvm/Kconfig
+>>>> @@ -83,4 +83,12 @@ config PTDUMP_STAGE2_DEBUGFS
+>>>>          If in doubt, say N.
+>>>> +config KVM_ARM_SPE
+>>>> +    bool
+>>>> +    depends on KVM && ARM_SPE_PMU=y
+>>>
+>>> I think the most common configuration is module, so requiring built- 
+>>> in isn't
+>>> great. If there's any way of avoiding it, even if it costs a little 
+>>> bit of
+>>> pain, it would be good for adoption.
+>>
+>> I'm not sure how that could be done. You need the buffer maintenance 
+>> interrupt
+>> to do a VM exit so KVM can inject the virtual interrupt back into the 
+>> guest,
+>> otherwise there's a possibility of a large blackout window when the 
+>> buffer is
+>> full.
+> 
+> Without expanding more I don't see how injecting an interrupt is 
+> strongly related to the way it's compiled.
+> 
+>>
+>> The code also relies on the SPE driver to probe all the SPUs in the 
+>> system.
+>>
+> 
+> I don't think that's a hard requirement either, the KVM code could 
+> fairly easily do this itself. Inline the common code and put it in a 
+> shared header etc. I'm sure there are lots of creative ways to flip the 
+> dependencies that might not be "proper" software engineering. But like I 
+> said a bit of pain here might be beneficial overall.
+> 
+>>>
+>>> It was basically the first thing I got stuck on trying to get it to 
+>>> work. Or
+>>> if it really can't be done, maybe some kind of debug message to say why
+>>> enabling failed.
+>>
+>> When you search for the symbol in menuconfig you get a list of the 
+>> symbols it
+>> depends on.
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/kprobe_multi_test.c b/tools/testing/selftests/bpf/prog_tests/kprobe_multi_test.c
-index 6cfaa978bc9a..9caef222e528 100644
---- a/tools/testing/selftests/bpf/prog_tests/kprobe_multi_test.c
-+++ b/tools/testing/selftests/bpf/prog_tests/kprobe_multi_test.c
-@@ -1,4 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <errno.h>
-+#include <sys/prctl.h>
- #include <test_progs.h>
- #include "kprobe_multi.skel.h"
- #include "trace_helpers.h"
-@@ -540,6 +542,46 @@ static void test_attach_override(void)
- 	kprobe_multi_override__destroy(skel);
- }
- 
-+static void test_override(void)
-+{
-+	struct kprobe_multi_override *skel = NULL;
-+	int err;
-+
-+	skel = kprobe_multi_override__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "kprobe_multi_empty__open_and_load"))
-+		goto cleanup;
-+
-+	skel->bss->pid = getpid();
-+
-+	/* no override */
-+	err = prctl(0xffff, 0);
-+	ASSERT_EQ(err, -1, "err");
-+
-+	/* kprobe.multi override */
-+	skel->links.test_override = bpf_program__attach_kprobe_multi_opts(skel->progs.test_override,
-+						SYS_PREFIX "sys_prctl", NULL);
-+	if (!ASSERT_OK_PTR(skel->links.test_override, "bpf_program__attach_kprobe_multi_opts"))
-+		goto cleanup;
-+
-+	err = prctl(0xffff, 0);
-+	ASSERT_EQ(err, 123, "err");
-+
-+	bpf_link__destroy(skel->links.test_override);
-+	skel->links.test_override = NULL;
-+
-+	/* kprobe override */
-+	skel->links.test_kprobe_override = bpf_program__attach_kprobe(skel->progs.test_kprobe_override,
-+							false, SYS_PREFIX "sys_prctl");
-+	if (!ASSERT_OK_PTR(skel->links.test_kprobe_override, "bpf_program__attach_kprobe"))
-+		goto cleanup;
-+
-+	err = prctl(0xffff, 0);
-+	ASSERT_EQ(err, 123, "err");
-+
-+cleanup:
-+	kprobe_multi_override__destroy(skel);
-+}
-+
- #ifdef __x86_64__
- static void test_attach_write_ctx(void)
- {
-@@ -597,6 +639,8 @@ void test_kprobe_multi_test(void)
- 		test_attach_api_fails();
- 	if (test__start_subtest("attach_override"))
- 		test_attach_override();
-+	if (test__start_subtest("override"))
-+		test_override();
- 	if (test__start_subtest("session"))
- 		test_session_skel_api();
- 	if (test__start_subtest("session_cookie"))
-diff --git a/tools/testing/selftests/bpf/progs/kprobe_multi_override.c b/tools/testing/selftests/bpf/progs/kprobe_multi_override.c
-index 28f8487c9059..14f39fa6d515 100644
---- a/tools/testing/selftests/bpf/progs/kprobe_multi_override.c
-+++ b/tools/testing/selftests/bpf/progs/kprobe_multi_override.c
-@@ -5,9 +5,24 @@
- 
- char _license[] SEC("license") = "GPL";
- 
-+int pid = 0;
-+
- SEC("kprobe.multi")
- int test_override(struct pt_regs *ctx)
- {
-+	if (bpf_get_current_pid_tgid() >> 32 != pid)
-+		return 0;
-+
-+	bpf_override_return(ctx, 123);
-+	return 0;
-+}
-+
-+SEC("kprobe")
-+int test_kprobe_override(struct pt_regs *ctx)
-+{
-+	if (bpf_get_current_pid_tgid() >> 32 != pid)
-+		return 0;
-+
- 	bpf_override_return(ctx, 123);
- 	return 0;
- }
-diff --git a/tools/testing/selftests/bpf/trace_helpers.h b/tools/testing/selftests/bpf/trace_helpers.h
-index 9437bdd4afa5..a5576b2dfc26 100644
---- a/tools/testing/selftests/bpf/trace_helpers.h
-+++ b/tools/testing/selftests/bpf/trace_helpers.h
-@@ -4,6 +4,18 @@
- 
- #include <bpf/libbpf.h>
- 
-+#ifdef __x86_64__
-+#define SYS_PREFIX "__x64_"
-+#elif defined(__s390x__)
-+#define SYS_PREFIX "__s390x_"
-+#elif defined(__aarch64__)
-+#define SYS_PREFIX "__arm64_"
-+#elif defined(__riscv)
-+#define SYS_PREFIX "__riscv_"
-+#else
-+#define SYS_PREFIX ""
-+#endif
-+
- #define __ALIGN_MASK(x, mask)	(((x)+(mask))&~(mask))
- #define ALIGN(x, a)		__ALIGN_MASK(x, (typeof(x))(a)-1)
- 
--- 
-2.52.0
+Also, it wasn't easy for me to find this either. I had to read the code 
+and debug it. I find it hard to believe that other people won't get 
+stuck here without a warning. It will be "I've got SPE, I've got KVM but 
+it's just not working and there's no warning".
+
+> 
+> Right, but that doesn't address the problems of adoption at all.
+> 
+> Having it on by default when SPE and KVM are already enabled in their 
+> default configs is the difference between people being able to use this 
+> with zero friction vs 200 people all getting stuck and then coming to 
+> ask me why it's not working and distros having to update SPE from being 
+> a module to static.
+> 
+>>
+>> Thanks,
+>> Alex
+> 
+> 
 
 
