@@ -4,93 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB010C9EC6C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 10:50:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 927FCC9EC6F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 10:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=adA1pfWwovY2UoWJPPih0D9Rj9g7yR5zYcd7adc9tVo=; b=R57ly48ozDkcCgtQuOS/1tDjN+
-	l30rubzDqVhclHvz6OoMLHfZmLexc2QSCTK7HKrcUpSd7eprhZ0q/OAZ+xXbszcbUsiE5/aOlLsyj
-	dM0Wo6s+62H6rDTUAaox5mjaOc+N87NvWFA2z6W4a8xZa4y5dhAZaLWuZEYdm1SndvWhsn4kwPanH
-	kKzhAvNbMPkh0wGdC45Nh062v82GVXSK7Cg0ox2/p3JGVBtOkQXMMXR1xOr8ZB7Pvtx5FhVhdnPQG
-	O7ArAoHj+jYcdZdSCjdKMjemSSK7iMbomDgvR5/F53l1gLDpE3Tkw1bstxlN7ZqMMxKI0pT3chI5Q
-	rN2yS7Hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Aa5v9RCeX5gHVCfH5bN87TaRxORBjug0gy3Jp6/WlkQ=; b=oz5wgVxjnz1nNkfG+yiE06kIRr
+	nC7yCz1dX7bzTCC+/9hJbdZpoqPuACC4yVPottSQEmfnwyxByFyxKUAWv+dzQ3OvNmVN05Rzh/jaU
+	cyyPr6viHwkpP/zBjo0zHh6CPd7cuhyvtrTs3f/HNPNpCKiwST2NFU9Q3LGp4h0NtRuNbkVuU3nsx
+	4zUyYU0ArP1HA/YN0dWAQf0wDrmjOR0NvNTSfKfSzUcJ3p3BsH8QhK85mK77rHst5DN4b2OQldc6W
+	WYpTn7KEfPqsRmi7qXr1jNWOJZ1Z49+W4t9RX0zMmDskh4XSN+2nntd6wWereSwuTS6/WA7qOzPSI
+	pQjhLRvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfFUl-00000005Ccu-0dC0;
-	Mon, 12 Jan 2026 10:50:00 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1vfFe0-00000005D3Y-3l0u;
+	Mon, 12 Jan 2026 10:59:32 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfFUi-00000005Cbv-1Xkw
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 10:49:57 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-598f8136a24so6731869e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 02:49:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768214993; x=1768819793; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=adA1pfWwovY2UoWJPPih0D9Rj9g7yR5zYcd7adc9tVo=;
-        b=kLTEtR3g4ZwnmnHpUhwiHzuPTWDNe0QTXgSxjtTKnsxJukAzaO36+GUV7IDp+s1B0R
-         Q7ToUNhi53s6T56YaJOqsHhRDsjgFVvZ1oKogQFOk+2/ZcZKmE3h7GTTV+Nd9PcaDDTj
-         59CNubbKb1WmCIt2ui2ESfQqAahO3FmzHGUA4DcixSAxwYW2y80Or+sMEmC4UQDahGve
-         j6bxWPev1XrwVF74QggbIGrqNzmd0R6q6m2ilicCBdM2veHOUpNssqxe3NxahhNcK8mp
-         ZID69HU3HKT1kpkqGT3zgu78/mkvCblvFpx7R6DRPJ8+PYdYcr5DmCwioGsp6xWNyZOc
-         hjsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768214993; x=1768819793;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=adA1pfWwovY2UoWJPPih0D9Rj9g7yR5zYcd7adc9tVo=;
-        b=M/OxxH3gZ+YrWaINX2FFhvRttI4jLH9QuyY/ggegXaP5qjQ7tDg5JV2QFSrvFYExUR
-         /+0t3QGq+THRKbYMA6ex/1Lu3zaNmwI9kNvvXY6YLC84IRnYJ6F2xw7sI8DPZxVdNnyN
-         VY8pCUHYau2AQLAPie1M6fQmhHXZ7SwxcN+4iu71arf9flWjanfEvJXRTS+PL4T8LbiN
-         ndjdq1AUUqYg0rrGo0PsfiaCKtuH7TXDlK6jMSFOU4EpETnepUMf8G+0Dg9UnyL83V7A
-         J36yAO5yc1AcLm3I5I9Gsz15+JD5AUOhzSGxPcI+JNW2Xjwy/YI0s1Ri33LSjsZrBahc
-         wyvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWX5cw9W5rXol4caPo5jwXBL3Gd4tggTilAfGx2k/42rIpSQw8r9VozcyPWEP8QzPosYZrMr7mSZ5rPolDXoZ9I@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3q0Tl43TgJJieBJMu+D+kXgZ0nbVLYoF5hs1yy5LIILUH7hdw
-	2zhmWKIkl4nVNfMUYtCEopJwfFGJPZxlG46yg4auz2J1FVTta42Xe7mv
-X-Gm-Gg: AY/fxX7zP4BEgYejBBOiiy7MC8Q5QMTVVR9nU81xYd9MRV5PVqTwT4IgyQF2pW4ivGc
-	xiOrIkiTavyQElCYO3XjtlVLBt9X4gOKTdUBCf6+R9ejbKf23LC32tclyTmEcs6nYedF4iHHoZp
-	4qv7eP/sDa2D+LKmknjAVZJc90P9I9fc8ulctgZsPZ24QN9uqyWWOUnnTdf17XD7Cspwfetd4P4
-	WZ10o5fnlw7dtYViL1PaCo035maHHM8jVald3JXuUcviBNtet700NWFMf7iRStW6d+OpoxjeqND
-	mPveXkpaSs3wMhv1HZ2W7RC+G/fvjTVGqyem+4j1VUafgKdBxZ2ow1WLy1nt2gyU89zrT2ZyR4k
-	yynTSRYYVfHnHh/dF+Oqag6W9wHoWMyqPaN7D8nYrKU9VZPiSSmPgPzXNNhvdP5UvM+xWfUrTvu
-	N/m5RBN230xjaBrdciojfBXzPQiHEFMoBl3sMyMw==
-X-Google-Smtp-Source: AGHT+IFIVt+/tdqSUiLxiFU/IaiqCnvUOdwWT9NHpHXxTczIiC5LUsjaXO1625aooqF/NTCZiKX43w==
-X-Received: by 2002:a05:6512:23a5:b0:595:76d6:26f4 with SMTP id 2adb3069b0e04-59b6ef0945amr6101844e87.5.1768214993308;
-        Mon, 12 Jan 2026 02:49:53 -0800 (PST)
-Received: from pc636 (host-95-203-18-139.mobileonline.telia.com. [95.203.18.139])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59b7a0ca367sm3018309e87.38.2026.01.12.02.49.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Jan 2026 02:49:52 -0800 (PST)
-From: Uladzislau Rezki <urezki@gmail.com>
-X-Google-Original-From: Uladzislau Rezki <urezki@pc636>
-Date: Mon, 12 Jan 2026 11:49:50 +0100
-To: Dev Jain <dev.jain@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, urezki@gmail.com,
-	akpm@linux-foundation.org, tytso@mit.edu, adilger.kernel@dilger.ca,
-	cem@kernel.org, ryan.roberts@arm.com, anshuman.khandual@arm.com,
-	shijie@os.amperecomputing.com, yang@os.amperecomputing.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, npiggin@gmail.com, willy@infradead.org,
-	david@kernel.org, ziy@nvidia.com
-Subject: Re: [RESEND RFC PATCH 0/2] Enable vmalloc huge mappings by default
- on arm64
-Message-ID: <aWTRzpqU5yWhlV3u@pc636>
-References: <20251212042701.71993-1-dev.jain@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	id 1vfFdy-00000005D2z-1FmY;
+	Mon, 12 Jan 2026 10:59:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=prqSR6regcLGluGKS9z/BtmAyg7OnvfCvxDZ6Z6wfhmAlazKNfqODDreUjI1DKQaeZYVtV17WqUm1aBAwwUeJ6WgVpCkvTAlxtcTkBVStgI+huf/Y8GlpLBAi6Kd88B4CIKUwEp4m5LPO9BesnWFgP2vSd23ayWH3NGeaFwX5ZcaUO7Ub8aXzRSE5c8xVif3hFWlNsVmIObu12khfHIJ3U8kys+3rthTakTXdud/UWIa5ONqz0OtV2DRxvIcyk/qfghb5XA6qsQ51CRkapOyJ3iA3g0gq/VrA8/HMWPhQkU1cTHg/oJzUnoTffkaLNh0VnoxQ7P5yYn+QrxC3SMftg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Aa5v9RCeX5gHVCfH5bN87TaRxORBjug0gy3Jp6/WlkQ=;
+ b=vw08gTV2QxtNDs9xbfRlzHhID57P5FDMCQMyHEiLnInTmyxCKnPPYDgkL14SRat4X8Y/ONljz3PHk2+HRlG2KX6pFqu9EQf5+egsVDR5LmE5HK1AHkKT37xmRLCUdeXnN0Njgcyl98uohTqwS7HRtl0vpVHQJfSkDNwoUD80SO9+5xLdm94rJqknpjw+NOn3KW8GTVmfu8y+IfCW19MzAGz1RaSxl8e+sR/HIKA+i0fvdarDdzaLAe34siW8W26Zcei/jbqbc4nif9bqIRA3IPwwBbr8tSfeDVpI4Kt59dgBsBdwawgG7h5ntjOcs3Q4KdCVUA7kHRROA0+UZFlrtQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Aa5v9RCeX5gHVCfH5bN87TaRxORBjug0gy3Jp6/WlkQ=;
+ b=kvw0G1RwZJ+5mmkwuVXvDgQchL8mNWoHGSQ+iImNZWPaOWnZZoNOZcP72Elsc3Fxs+VUIUVGAdLUGQ9ByoKVZnUsNov79ABtfVkkw7FgT1bTvTH6tVeUTxGa8oN9v99NpTh6tBxHhv3ODlhdV0xfg4G3ephVP1v15bh7rrM4lpzLpyiU0fbjbseO4huAcXT3J1s1TEPrBUi5xTQ3opdqBqisUSiAFX530a2gEuUVKL9mq7uRQiT+zwNUW2024cES2JbsrFKi2fEA0HlMnPTuYp3lRBKv6TqUh84oFXChkw9k+bB3ViLJitTKkQwDzWVni54MKBgqaUvT2kDLXcAckw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by GV2PR04MB11634.eurprd04.prod.outlook.com (2603:10a6:150:2cb::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Mon, 12 Jan
+ 2026 10:59:25 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce%5]) with mapi id 15.20.9478.004; Mon, 12 Jan 2026
+ 10:59:25 +0000
+Date: Mon, 12 Jan 2026 18:52:10 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: vkoul@kernel.org, neil.armstrong@linaro.org, shawnguo@kernel.org, 
+	kernel@pengutronix.de, festevam@gmail.com, jun.li@nxp.com, Frank.Li@nxp.com, 
+	linux-phy@lists.infradead.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] phy: fsl-imx8mq-usb: add debugfs to access control
+ register
+Message-ID: <q5h62kleg6uqzbnde3qsrjokhtiorrubatrkf5dopj3q7bhtwm@scv2qudg7feh>
+References: <20251224111716.2925597-1-xu.yang_2@nxp.com>
+ <9870fd41-bafb-4ab0-91ff-8fcea53ca0a9@lunn.ch>
+ <7bbvfiy5wceantklz6lav5rwak53yhasfvzddtsirqorcylrf6@rbcrocqftznj>
+ <0b61c962-9aa1-4275-a40a-220f6d7f1210@lunn.ch>
+ <6j2yhzqt6x3k55vrqjrol2k2qrhqmobvwjedkujyet4loyajxa@vy55aajfuvxk>
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251212042701.71993-1-dev.jain@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <6j2yhzqt6x3k55vrqjrol2k2qrhqmobvwjedkujyet4loyajxa@vy55aajfuvxk>
+X-ClientProxiedBy: SI2P153CA0029.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:190::16) To DU2PR04MB8822.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|GV2PR04MB11634:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0f10855a-ccea-434f-8c6c-08de51c9a5fd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?blA0aE5rY0tyeHhqNEhadEZuQ1piNytOOGVRdlFMdjVKd0ovclZNaDdnQjV3?=
+ =?utf-8?B?S0pjNjVDZUhrbnhXUnVjdTlHY2dNZzAwQXBQNFUzNHdDOFlzb0FERlRCNDB0?=
+ =?utf-8?B?RzhhLytaZzJ6TGdSSHQwR3RmTC83a25TUGF1c1pOTngrRTl3b0ZEYm1HS081?=
+ =?utf-8?B?YWpUb2dUS0sxYm85eGpqKzY0bDNTRDVHMlBPRUdHbWxsbDRYZUh2ejVvMU50?=
+ =?utf-8?B?ZzZMeTk2bDBEelY3a2RCVldaYVFTU1dnY1U1QXdJWEo1amtJY1JXdFBxMFRS?=
+ =?utf-8?B?aS9KSXl3a2xPTW9ONTJnTmd5eG1UdG1rcGpLVzNuSWd2Vzk4bmROR3g5QUR3?=
+ =?utf-8?B?UnV6VXpPNWt5ZWRhSGVVeURDRzFoeUtrVExEVUJPMzJ0T3krMnVRVnliS1I0?=
+ =?utf-8?B?K2JWWHNjajNQbWhsbWM5ejBvMEdPREUwQnZsR1hnSVRkb3lFb3ZyVjRVT1RQ?=
+ =?utf-8?B?TFROcEdvYkJacFVvT2ZFbzZyZGR0UXgrNHVVQWlkVk9Ob0NrRXJ5SDFRamlK?=
+ =?utf-8?B?eU10Qi9LampaTVBYTGYvQWJwUUZLYUdXNlkxNStmVzJzRVN1Z0JzclRXdWt2?=
+ =?utf-8?B?TWNhYkxDeEhOaU1oZno1SWdkZFNqWFZ6MkQ5NmhtK0srQXVic1BBLzlkYVI1?=
+ =?utf-8?B?b2JGSUxmQWVhTEswRFB1WWJJZ24wTnBSd1VXaUNDYmp0dHFIZldTRmVXVVFt?=
+ =?utf-8?B?MlhhSjJaK2JXVVo3YkZzSHNyVVd3bDlOdCtUVTVoVXpWQ24zaHNTUVd6dTl6?=
+ =?utf-8?B?QS9WYnlKNGRvekhkUTZJajh5QXZJYWN2R1U2RVd4eHlPL1RzLzFnVENFdFBr?=
+ =?utf-8?B?d0FNK3BuUHpBN0dITmpBc0x6b3BIKzd5S1YvQjhweFBBZHFEdEVMK0IyY1Ri?=
+ =?utf-8?B?WWVCR3NtK2RiRG1DQWpjZ0hSdTBFWlJPbVRUc1U1UkpqQ2pucXY2QnR0MkR4?=
+ =?utf-8?B?YittKzFndzVWNll1RHpqUi9qOSs4eFA5U3ZDRXlHSmlubXhSeFc3OU1QVTZV?=
+ =?utf-8?B?WVNhVUY0OTZzNUJ1WmpNbHF2dXI2amptODdHeEdXdlY5T0Q5TmdSQnpRUmo4?=
+ =?utf-8?B?SVRQbVB0SEJ0SVI5ZEVZRUVOanU4Nm9BUFVDdUJLaUwrUGVNTitiOUFXQmpI?=
+ =?utf-8?B?MXFiS2kzZkt4RW14NHhFeUVqM28reUs5WWo3WXNReFAzMnhSY0ZWMVp2MVlh?=
+ =?utf-8?B?TTNvdGNCMURkSTJtcUg1c2YxUFZiWVJQNXpJNzY3VmJybnBxQVZMZERKZGxR?=
+ =?utf-8?B?VkRLRjY4UVJ6aUFOWjBmR3NTSG1sTWplVXZ4OW1aeTFHUi9yK0FHbVJ3ekJB?=
+ =?utf-8?B?aFpDbTlLNGVtcnRsUUZSK1JMSkJCaWpWUjJzRUdaUmJnYngzSy9uZzgyVEFS?=
+ =?utf-8?B?aFlJcVZKbzFXekw0a2kxR1drZDVrMjBRTVpTdTFYNmJtWHJTUWRlL3VTMGVh?=
+ =?utf-8?B?K25WQTU5S3hDVE1iUXpjTGdxUktCempOcU9PM0tBOGFxVEJ3RE0wK0M4dHkw?=
+ =?utf-8?B?Wi9heGxlMkxuaTJrNEVGeEtpRSs0ZjZsakUvckVoL1ppanREam90TGNVQUxM?=
+ =?utf-8?B?T2N0VStyREVLSzQwaGVRazVMRmlUMkVBS0F3eVNNb2lVODlYU25GelVqbytI?=
+ =?utf-8?B?M0ZORGl0QXNFOElFSTdhVjNQUXUwdjZVWFUvaTcxcEhkOURNV2dmTkY3Wm9G?=
+ =?utf-8?B?K1BEdHYxQmVXV3NRQVZ3Q1dEYTB1YzEwaEtOZlV3cXE0amNaQ2I4ZmpFa21I?=
+ =?utf-8?B?U0lYTUgrNEkrN05MWjlzejdaTThEb25mNmtRNU9hN09LU09hcThNUUlESkF3?=
+ =?utf-8?B?dTZCaDNnTEx5R05WSUY0VzFGeUVVUk50eFkveXZLajNUOVJOL0p4WXNvZWQ4?=
+ =?utf-8?B?bEFSZzZFVk5kWlpKUTR1QWV4QUVuTlJmcFNraVFnamtHY1RoS1RKSVd4dGVJ?=
+ =?utf-8?B?dUMwd1FYcEVmV2VHWjNLYmlqV2JWTUdJOVVPc2hyNGFNQ1dzM2NSbVNqMFBp?=
+ =?utf-8?B?bnZiM2gyQTZIdWhER0swZW11OWE3WEd2dkRHdXhUWGNncG1hRGhyWXFUeW8y?=
+ =?utf-8?Q?EZqD8U?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WTg2RVJzekZSb1lQZWtQRWJNZUEwZG5Fczg1WkRBem1KVGhjdGpGWEduY2l3?=
+ =?utf-8?B?dFAyZlNGcVVaOGhTMWw5R3QyQllZSkI1WlhCdnZyekM4c3p2TFBKL2hvY1Nv?=
+ =?utf-8?B?OEVBbjhCWUdYR0tYWWFzOWRVckVKODRQSWw4UW5pMU5Qa0xiQTdoc0loazZJ?=
+ =?utf-8?B?SEVCWDd6OEJ0VS9EZ05wRnp6NThIYmNwYWkyOGorendONGxmY1hNNnFHeXkx?=
+ =?utf-8?B?RXJmTGIvS0J2aDFwY0xBdVp0Zzg3b2Yva2lJTVV6cXkwL3pIek5IdkRRK0Zu?=
+ =?utf-8?B?SEpaUFVERVFWZmhGOTR0eThyVlB0YU03TWE0YSthK1NtbDMrSHVQRldvb3FM?=
+ =?utf-8?B?MW1kdUNxRGM4aG5WNkxvYy9na3paS2oydElndURMbkNzeXJSMWp3TWV5Y2ha?=
+ =?utf-8?B?N2tYcXpwbTlrV00xUkQ4ZlFETGFWTDIrOU0yczhtSmI1WTUvNkVQV3dHUFpZ?=
+ =?utf-8?B?cTE2SGxXaHY1L1ppeUdOeU1jeWtpa2ZEOFRJbnpFTVh0SjI2Tm5wb015M2Zy?=
+ =?utf-8?B?TWZXV0k4cFVJa0ozUmloUkYwR0VLM0lkVkpVbzJ3K0crN0VORzM5UUJXajRP?=
+ =?utf-8?B?ZitPYjZLTzJrQUs5SnFMeDhxbFo2RjdKLzduS3ZpTHNBU0daOWtUL1NJMTFz?=
+ =?utf-8?B?cmtDdUd6ZG1KSGtTTmxYNkVvNHN6bWFRMk5tZ3F6WlNCNUtvNmZRODQwSXRR?=
+ =?utf-8?B?SFRiODZSSnVubXJ6VXF3eVNRcFJsRUJuOHE4VExveFhSN0g4aDV3S3VGVlRP?=
+ =?utf-8?B?TGtRN2xreDJqUmtlVEsrVlZjWS8xcDV2VUd3di9Fdmw1blFCNmVYdS9qRVZo?=
+ =?utf-8?B?d1hlais4ZWdXdHRvVnJ6WlJ3b1hEbVVvcFdoemVlVVg3dGhRd0V0L1lxQnNp?=
+ =?utf-8?B?WXozeTU3eGFYekxvQ21mUHVQOW5halhVL1k0bCtMancvOFdmSTJaQzZ6aGVj?=
+ =?utf-8?B?UmwxSFhETW9CbjJGZThrOWgzUHNIK3FmMk9QZy9jaWtBMy9ZR3Q1NXJOTG1H?=
+ =?utf-8?B?SkkvbUsrZnhZRUZmSGdqNzB1VjFkaENQYkJJVkJXTDlYUWpSTjd6b3lpV255?=
+ =?utf-8?B?aW4xV2ZidXdZUnlCZGg3SWhTb2ZkMGEweXlDZmJSOHBFUXVPUWVOTnhrQzQy?=
+ =?utf-8?B?TmlmOFdLWVhIU3d6ZjNqNWdNU1VZd2F5eGhQWnpoTUtsMzdXeVBRRDJvb0tX?=
+ =?utf-8?B?c1pPOEszRmhXS3FHUWpIcUZXN3BhTUNTVHlvN3YzdGdsRVJOVkg2bmFzSlli?=
+ =?utf-8?B?UUtZRndXUnF5QnhnenVMY0Z0WTBNRnl6YjBKc0x1UGNPNnl2QjUwdjZVL21v?=
+ =?utf-8?B?bTJoSDI1TUV0YTRiWkhWL3doTjJ6cVE4YVFRdVowWGwrdVVteUxsUVNYTjB4?=
+ =?utf-8?B?SFV4eng1MFJDTzB1a2VaNFd6QmJWRVdHNkh4eERTQTlxRnErb0FGaE9tRFNi?=
+ =?utf-8?B?aWZRZjY2YnI1NzFkZFZYUmZIaHBQamYreGpQZ3paeEJ1MFZZVWx2ZXpzenA1?=
+ =?utf-8?B?N3AxK2pKNndCK3BoNzRHdVRFYkk5RUs5aGVYM3ZpY2NCa3VJek8reVd6bS9q?=
+ =?utf-8?B?V25sOVB5SHZpTFRDOXhCK3FVaElRSytDdWwrbXMvMldMMHNtNzlnZlN6czZi?=
+ =?utf-8?B?RnlmT1dwU2VLZFJzZjlvbkdUalBSWUxtSmlDcVhVK3ZNMGQyNUM3a1VySUR4?=
+ =?utf-8?B?MnhHSnFMa3dSUHBPb3YzTDZselc1Z2loSmQxSjh6Q2FpQStSR3UrRmdoQ0p6?=
+ =?utf-8?B?Qy9TVVk1UDNDWWVBNjBPZ2l4K3NUSW9laUQvcExyOE82M2c5d0xhYU10S29M?=
+ =?utf-8?B?bW9STlhVQ2xPUXJuZExGdHAzVWtDWjZRc1I0MG54SGo2K1dXRnpXZEZVRE9U?=
+ =?utf-8?B?bFFLYlJrcysrN240em5RY1hLR2JnejR6UXA0YWNwalZIYzlLZFJWY1BCYjlB?=
+ =?utf-8?B?WXJvd2RiOUVZQ1RHZ09WR2JtN0VNWW4wRjRPSHM1N0xiTjQrM3NicDJSb09q?=
+ =?utf-8?B?TkhiZVVjVys5cjRJcWZ4YUVXUkUyS1JBbXM0QUFBNTRNb1JXSklNUHhKWlBr?=
+ =?utf-8?B?YktIdTN5SlJJRk40Rk43NWFQSHRwRDR2WDNYdk5GN1JBdlJWbmpucEE0TXd1?=
+ =?utf-8?B?VzVSY3FYVkFRbWVBYm1RNnRWOXY1UXhDVHZpaUVRUUFieXpzbHlBMmZ2b0w4?=
+ =?utf-8?B?ZS9EMitpM2dwR3pNSktoMWJBNjM3bDJzOGNkYkh3VFhKeGNjRm9OWnhzY2Yv?=
+ =?utf-8?B?L2ZNNG9GTHYvcmoxRXhQUitMemlDRTUwd0ltYVdGd2VFWjA5T1M2aFNHZ0J4?=
+ =?utf-8?B?RnpBclNXMHE5VWgrVy9wcDNoQjJZNFZlVlRIRVlCbzVMQmp5TCtIQT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0f10855a-ccea-434f-8c6c-08de51c9a5fd
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jan 2026 10:59:25.0988
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Go7HHtSVNGCdKEr2+zvRFoq7QojOqSQ44Dl1uzdIWSK+MOdgfN1d6ASQ3+YzcAfMLk4f+5/6TmNGbW9+9QnRSw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11634
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_024956_429936_0348C009 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20260112_025930_377555_44F9E022 
+X-CRM114-Status: GOOD (  34.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,76 +184,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 12, 2025 at 09:56:59AM +0530, Dev Jain wrote:
-> In the quest for reducing TLB pressure via block mappings, enable huge
-> vmalloc by default on arm64 for BBML2-noabort systems which support kernel
-> live mapping split.
+On Mon, Jan 12, 2026 at 06:35:39PM +0800, Xu Yang wrote:
+> On Thu, Jan 08, 2026 at 03:47:17PM +0100, Andrew Lunn wrote:
+> > On Thu, Jan 08, 2026 at 04:22:24PM +0800, Xu Yang wrote:
+> > > On Wed, Dec 24, 2025 at 02:51:11PM +0100, Andrew Lunn wrote:
+> > > > On Wed, Dec 24, 2025 at 07:17:16PM +0800, Xu Yang wrote:
+> > > > > The CR port is a simple 16-bit data/address parallel port that is
+> > > > > provided for on-chip access to the control registers inside the
+> > > > > USB 3.0 femtoPHY. While access to these registers is not required
+> > > > > for normal PHY operation, this interface enables you to access
+> > > > > some of the PHY’s diagnostic features during normal operation or
+> > > > > to override some basic PHY control signals.
+> > > > > 
+> > > > > 3 debugfs files are created to read and write control registers,
+> > > > > all use hexadecimal format:
+> > > > > ctrl_reg_base: the register offset to write, or the start offset
+> > > > >                to read.
+> > > > > ctrl_reg_count: how many continuous registers to be read.
+> > > > > ctrl_reg_value: read to show the continuous registers value from
+> > > > >                 the offset in ctrl_reg_base, to ctrl_reg_base
+> > > > >                 + ctrl_reg_count - 1, one line for one register.
+> > > > >                 when write, override the register at ctrl_reg_base,
+> > > > >                 one time can only change one 16bits register.
+> > > > 
+> > > > Are the registers openly documented somewhere? Could you include a
+> > > > link in the commit message.
+> > > 
+> > > We integrate a SNPS PHY in Soc. So the registers are documented
+> > > in SNPS doc. Anyway, I can add a link for reference.
+> > 
+> > Humm, so the registers are defined by a Synopsys databook?
+> > 
+> > Shouldn't this patch be split into two? The access mechanism to the
+> > registers is specific to the imx8mq. But the registers themselves
+> > should be part of the generic SNPS PHY driver which should be shared
+> > by all devices using this licensed IP?
 > 
-> This series is an RFC, because I cannot get a performance improvement for
-> the usual benchmarks which we have. Currently, vmalloc follows an opt-in
-> approach for block mappings - the users calling vmalloc_huge() are the ones
-> which expect the most advantage from block mappings. Most users of
-> vmalloc(), kvmalloc() and kvzalloc() map a single page. After applying this
-> series, it is expected that a considerable number of users will produce
-> cont mappings, and probably none will produce PMD mappings.
+> This patch mainly contain the access mechanism on i.MX Soc, so:
+>  - imx8mq_phy_ctrl_reg_addr()
+>  - imx8mq_phy_ctrl_reg_read()
+>  - imx8mq_phy_ctrl_reg_write()
 > 
-> I am asking for help from the community in testing - I believe that one of
-> the testing methods is xfstests: a lot of code uses the APIs mentioned
-> above. I am hoping that someone can jump in and run at least xfstests, and
-> probably some other tests which can take advantage of the reduced TLB
-> pressure from vmalloc cont mappings.
+> and debugfs function to show them:
+>  - ctrl_reg_value_show()
+>  - ctrl_reg_value_write()
 > 
-I checked how often vmalloc/vmap is triggered when i run xfstests. I think
-it also depends on env. and can be different from one setup to another.
+> Do you mean split above into 2 patches? Put the first part into
+> phy-fsl-imx8mq-usb.c and the second part into a SNPS generic driver?
+> 
+> If so, do you know which generic driver should I use? If no such
+> driver, can I put them in phy-fsl-imx8mq-usb.c at the beginning?
 
-"echo vmalloc:alloc_vmap_area > set_event"
+Just found the access mechanism part is also described in SNPS databoot.
+So the whole thing should be the part of the generic SNPS PHY.
 
-urezki@milan:~/data/optane/xfs-test/xfstests.git$ wc -l ./vmalloc_traces/*.trace
-    2875 ./vmalloc_traces/generic_036.trace
-   30117 ./vmalloc_traces/generic_038.trace
-    8481 ./vmalloc_traces/generic_051.trace
-   16986 ./vmalloc_traces/generic_055.trace
-    6079 ./vmalloc_traces/generic_068.trace
-    2792 ./vmalloc_traces/generic_070.trace
-   26945 ./vmalloc_traces/generic_072.trace
-    2772 ./vmalloc_traces/generic_076.trace
-    2750 ./vmalloc_traces/generic_083.trace
-    3319 ./vmalloc_traces/generic_095.trace
-    2855 ./vmalloc_traces/generic_232.trace
-    3537 ./vmalloc_traces/generic_269.trace
-   21265 ./vmalloc_traces/generic_299.trace
-    3231 ./vmalloc_traces/generic_300.trace
-    3050 ./vmalloc_traces/generic_323.trace
-    2831 ./vmalloc_traces/generic_390.trace
-    4296 ./vmalloc_traces/generic_461.trace
-    4807 ./vmalloc_traces/generic_476.trace
-    3198 ./vmalloc_traces/generic_551.trace
-    3096 ./vmalloc_traces/generic_616.trace
-    6495 ./vmalloc_traces/generic_627.trace
-   11232 ./vmalloc_traces/generic_642.trace
-   11706 ./vmalloc_traces/generic_650.trace
-    3135 ./vmalloc_traces/generic_750.trace
-    5926 ./vmalloc_traces/generic_751.trace
-   77623 ./vmalloc_traces/xfs_013.trace
-    9172 ./vmalloc_traces/xfs_017.trace
-    4145 ./vmalloc_traces/xfs_068.trace
-    2982 ./vmalloc_traces/xfs_104.trace
-    7293 ./vmalloc_traces/xfs_167.trace
-   18851 ./vmalloc_traces/xfs_168.trace
-    4373 ./vmalloc_traces/xfs_442.trace
-    3550 ./vmalloc_traces/xfs_609.trace
-  321765 total
-urezki@milan:~/data/optane/xfs-test/xfstests.git$
-
-Time execution is different for each test. For example "xfs_013" test
-takes around 200 seconds on my system and is in top of number of calls:
-
-77623 / 200 = 388.115 calls/sec
-200 / 77623 = 0.002576 = ~each 2.5ms
-
-Please note, i have not checked impact of your patch on time execution
-or how TLB pressure is affected.
-
---
-Uladzislau Rezki
+Thanks,
+Xu Yang
 
