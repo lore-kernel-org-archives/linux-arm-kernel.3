@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B834D25032
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 07:42:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8EA4D25043
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 07:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3CZe0kp3YvZifht9TF7J0pNQV6O4i3Xn8fgypmpyKvM=; b=REp0NW5HgyEiFZnbh6KGtGkdAN
-	tUQYCt+/UJokDDziXsUcbK/Ay96ece5Gvfu7ft9QMYHao1sD3fkDNRg3eVslWClLipqp/q+KaebLi
-	4mNBEuIsOONq16KhjVT8PYYe1EYCRT/3tgpcuoM4m+e0eeLqDgYpnCzqL5T/IhrFHJzBWv2EUb6gz
-	qvhozocZIcxfROlox1pxajBECtOlv0C0yn7/TDSj1L9d2KWkYhy75ULvTbanTXdevVvabgUxELpn2
-	BQuCR04vzXkHXgnl/+Sg2A9mQaDJ3MXEPqwvLKRf36qKQE70CNg4DECT0L7aSwWXVMb+7u4oShqEN
-	Gl0WuknA==;
+	bh=4cxgNENcfo8cXQBg0dw/jO2senp7A8YTAU0sZZxB0f4=; b=M8jQ7X0xbKMQNBoaZTmZcxhoKg
+	+aFtYeFz3Ad4TvzhqrcewmJ1d6qzCGnatKjLaN/Ld3/ru6eRlopwq/rXQgTWmsna3GHeFeGQmF9/Q
+	ANFuR+SnYY3jbheMhQLqZJIZR9t6LrR4ljSjtnAm2xOgMsLulxstnfzmaNZPat59we9sjzuSTY2l+
+	GEJmSaPOOyTJ4ShT7rFb5j5dYt8B7j0DXbtAXec/x8eFWFx0+b33tnOc5egmlbCYsTcIe29179yKH
+	Mft7azJJC4hn8vjW0BeLRJk7wXofzzVMOmnjrJ4rRqZkTGiASCJhx7S7jP2A5UGsB5higGBz/KAJQ
+	E38BVx9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfCZH-00000004uqv-1otA;
-	Mon, 12 Jan 2026 07:42:27 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1vfCbd-00000004v9u-0KcX;
+	Mon, 12 Jan 2026 07:44:53 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfCZF-00000004upn-2LJn
+	id 1vfCba-00000004v98-3WHl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 07:42:26 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-59b6df3d6b4so5991107e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 23:42:24 -0800 (PST)
+	Mon, 12 Jan 2026 07:44:51 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-59b6df3d6b4so5992903e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 23:44:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1768203743; x=1768808543; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1768203889; x=1768808689; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3CZe0kp3YvZifht9TF7J0pNQV6O4i3Xn8fgypmpyKvM=;
-        b=Y/TQn5b99u09pF0zcOiXxul01iiu1re3ehsCAl++iiaVt6ZzvaFJfIFKvFbkcc6OaY
-         fIHtMW6teGC/zu9JwGAPpq4meJ4xfNxE1PZHcDGqc2QdV8OEbgFabw/zLaN7xWQijHDy
-         HaE9kX/whJnpYBa40IvgLJfZlfLy2RU7k4PNI=
+        bh=4cxgNENcfo8cXQBg0dw/jO2senp7A8YTAU0sZZxB0f4=;
+        b=IEbRQFLf2Nv/INReHoLlGQXfWIvTrB+uZqPExx8wwGTVE+GgODP0xnLbIBRumIbIDL
+         sEUKuX7eoe5VyIoxkYUWplH3dsIg30VZJ1m1v9YLf0kFe3ddKI8IJtFBp4gGG9ixxMng
+         xu/6qrtDRIbPbio85gevGkSd+lAgeyMe5IgFI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768203743; x=1768808543;
+        d=1e100.net; s=20230601; t=1768203889; x=1768808689;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=3CZe0kp3YvZifht9TF7J0pNQV6O4i3Xn8fgypmpyKvM=;
-        b=Mhw//+IIUkTSCcRiMJJX3VCFtEd2WhI/XhLzpOZdNOgjmM7agB3yuALvI/1w7Fvk/P
-         wrC0f2XxU9t/t72xDqHrWumsI4m1zF6GmIxkT/949YMPafh5P34pcuQWhv/YnbgEj91H
-         rkUl5Icnf/m/CXPCOQa7qn45GYL5sPRg+W5dt6AEVBWYkIg51HJ8byN7kN8ePBAUaB7P
-         n4ztCNklrj6lW4qPTLZV5Kk+VlKEdmUyh2+56sehzgMgNSnD4tV8Ahd4v1FFFHxDTtQm
-         CR2Hl1RAaCm6IkuJTsh5SrqBSQ7nO3gCLfHUzjBmMxMOhlKYIXu3glvcVvBvdoAigneI
-         Rh6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCU1eqADFwyxaIoqWtDzAPtNze6smLMRr+kra/5yUH9ufMAETFjc0jE8Zp+qzDm6bmEDq9lRQniFL6f12Hq5ob2V@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIHQho9a81aC7737zUHTbMXBYVPBoIPHG5ZLPyMPzSBiDeRgQa
-	xhef3iJosq0EGy3wpOoD1MAyi9VR6+8cfLQrNZRzSya5mTx4I7JQW5YPbBKe2X/E3IFzyPQckSw
-	L5g5mC2fkk7hO5Yo6lycQETVoLkxXD1JbeuJMCPLR
-X-Gm-Gg: AY/fxX7P4roZHi0kklU0aGScRESrrg3ZMua2dexAPiSqv293LbME4XenlwJP8KDWgB4
-	Zr3VCgzBi85rkr39YYhXn4vhDzf/6rJhiIj+rPNhd/ZpyK3yoaz1EV+VzpJYwLcneQK0HnwVMVe
-	K25TUCSPBtvw6Cie3EhfkqioaZ1Xzy7zt63sg6mpsC20WPQMknYIH87WuomT6B+uoiaDQxBBnu4
-	cjsrq5KBv1UUl96Gj4HTQUq5+zg2z1soRoKiMLP4acqZT0BAdM/DX3HP6NUXk9K0dxmIyyR3odA
-	mp9y8XzML66AVkFLf/q5QWTz
-X-Google-Smtp-Source: AGHT+IGVc0Z2JDRCQM5TMXXHmh/cYXBFfOa8+kLkLkYVFEmHdQa4U5SihlDMvs5L8T4nzdOAt8JPcoXc0kdii0T5lTQ=
-X-Received: by 2002:a05:6512:238e:b0:59a:1819:277d with SMTP id
- 2adb3069b0e04-59b6ef0285emr6512360e87.5.1768203743522; Sun, 11 Jan 2026
- 23:42:23 -0800 (PST)
+        bh=4cxgNENcfo8cXQBg0dw/jO2senp7A8YTAU0sZZxB0f4=;
+        b=mhktYEyRNt0ZgpmxtFsGGpVr/OsPktt5u0NUcVLAhsmcPWbC8CHGf3IT8OxRfAXPzb
+         jTY58Ou4EEeLSrHO+gA7LmQPYb1O8RT4lihaPuHdJK33NPsbp/e800Ihrwmhw9AROptV
+         7HeizM7v1mtD/+9x1Vjd42WG+V9/posEhc31NWQjMiXIPFPXf9X+sDZ4nvw85kR9Cfxb
+         3CHAEAhIVWWrJ9H2OSVQKLjaFB5tZfIOeNZjnGICftQjdJqiGPyfQHipcFFrTLxS6qmS
+         CtV14QD6Hyw2EhdWzNWEXB1g8BqmpFhHoKq29HICg7cd0P0qCHsK2Zu9GlhTQmgULwR5
+         gZjg==
+X-Forwarded-Encrypted: i=1; AJvYcCVlZPTShX9ri/1wu7MVB8NrHx5yISfCEvlfRKpKToZmh2lOOOk5ZMv/1H9L8XuqFqCDrG7p2wh43J/sJeOBT+PK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxs/SldNHm9VS4k1P99R51SYUENf3YiFs+gR0eKQVEf6DlygBgF
+	EBJSOu1yksnMsk0lsKCYRZ/vfChLgBSQ7KJzVrK2JJgJyRVv4XXGNjrw3otY95ACYUbocyIz4jN
+	vJu4pNbk5wV+5Y0Xqlg5mutUOb8AJdelS9s5SDiY8
+X-Gm-Gg: AY/fxX6jiZtxopd4+z0wnqyX/lKWJOfTqInZCeqYM5W0cwI2Xe5udNw9rgco77PLjFp
+	d2OfDsv6mvUz5rDpNmTnuhoIUkWUqvaGmA6JDYDlaXZXmOp5yY6RAwMJB09iNcBkgyPn0XYqb+j
+	GKd5MeBa1QZOZ8KBr5MCAW1jsdFRo1Uu+151DC2n+vuX8bHI9VSM0B926YrrnopsZuQm4vY0Wp3
+	FYsYIcVbpOig+fWJ4hEpOXATJw3T3u64NErVNVKMx0vvJZz4emrnJFFSnQBnw0/aDDCiqw3+HJS
+	5DAq1C49F32TEzYxbImBG78+
+X-Google-Smtp-Source: AGHT+IHw7rJNOI5FOhbZX1z1+loaYEI568M1UN5tIdw0I/h/UzWdRmrgGYuJ1o+tqHTlBgV9Gn7UvOzvsEm5UoDFFCM=
+X-Received: by 2002:ac2:4e0c:0:b0:59b:7a80:3b66 with SMTP id
+ 2adb3069b0e04-59b7a803d15mr3432200e87.35.1768203888672; Sun, 11 Jan 2026
+ 23:44:48 -0800 (PST)
 MIME-Version: 1.0
-References: <20260109114747.37189-1-angelogioacchino.delregno@collabora.com> <20260109114747.37189-11-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20260109114747.37189-11-angelogioacchino.delregno@collabora.com>
+References: <20260109114747.37189-1-angelogioacchino.delregno@collabora.com> <20260109114747.37189-12-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260109114747.37189-12-angelogioacchino.delregno@collabora.com>
 From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Mon, 12 Jan 2026 15:42:12 +0800
-X-Gm-Features: AZwV_Qi-sYgNZhY-tRMlNpjpDMDSuAUofyCpTvn8OEDgVdLKfkEI96a0JTlQ-uo
-Message-ID: <CAGXv+5E=Ff6iJLNJg=_crWKmGWCk8sKpNCEtdEffF997JAnU9A@mail.gmail.com>
-Subject: Re: [PATCH 10/11] arm64: dts: mediatek: mt8192-asurada: Remove unused clock-stretch-ns
+Date: Mon, 12 Jan 2026 15:44:36 +0800
+X-Gm-Features: AZwV_QhvNS01wOFUK2LxZMHidH88HiYPvQjeQAgpHhkp5P1dAOfPIn4Zb_mnq48
+Message-ID: <CAGXv+5GywzbWWMEeAkexntNbRfUzdnahZ8oT72ZMdzLS6JDiUA@mail.gmail.com>
+Subject: Re: [PATCH 11/11] arm64: dts: mediatek: mt6795-xperia-m5: Add UHS
+ pins for MMC1 and 2
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: linux-mediatek@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, 
 	conor+dt@kernel.org, matthias.bgg@gmail.com, sjoerd@collabora.com, 
@@ -79,9 +80,8 @@ Cc: linux-mediatek@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_234225_602826_AFB0645D 
-X-CRM114-Status: UNSURE (   8.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260111_234450_882546_6DC4A8CA 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,11 +99,17 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Fri, Jan 9, 2026 at 7:48=E2=80=AFPM AngeloGioacchino Del Regno
 <angelogioacchino.delregno@collabora.com> wrote:
 >
-> Remove the clock-stretch-ns property from i2c2, as it has always
-> been (and still is) unused.
+> Add the UHS state pins for the MMC1 and MMC2 controllers and,
+> while at it, also add the correct drive strength parameters
+> for the default pin states for those two.
 >
 > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
 abora.com>
 
 Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+
+Format looks correct, though I don't know anything about the drive strength=
+.
+
+Side note, having a pull down on the clk pin seems a bit weird.
 
