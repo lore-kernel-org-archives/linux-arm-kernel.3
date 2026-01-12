@@ -4,172 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 927FCC9EC6F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 10:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A94DC9EC6F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 11:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Aa5v9RCeX5gHVCfH5bN87TaRxORBjug0gy3Jp6/WlkQ=; b=oz5wgVxjnz1nNkfG+yiE06kIRr
-	nC7yCz1dX7bzTCC+/9hJbdZpoqPuACC4yVPottSQEmfnwyxByFyxKUAWv+dzQ3OvNmVN05Rzh/jaU
-	cyyPr6viHwkpP/zBjo0zHh6CPd7cuhyvtrTs3f/HNPNpCKiwST2NFU9Q3LGp4h0NtRuNbkVuU3nsx
-	4zUyYU0ArP1HA/YN0dWAQf0wDrmjOR0NvNTSfKfSzUcJ3p3BsH8QhK85mK77rHst5DN4b2OQldc6W
-	WYpTn7KEfPqsRmi7qXr1jNWOJZ1Z49+W4t9RX0zMmDskh4XSN+2nntd6wWereSwuTS6/WA7qOzPSI
-	pQjhLRvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DWNPGMqaJKT2DTVjAZ8virInZYZelttbbbD/egipkf8=; b=GwuIw8C+D1hyhyQsVwrwjqPUc2
+	6zQBmFdz4unnrJJeLEBc7xDYcc88fEEDDGFRtW5IQP79cUAFA8sAW5dJuTzAFn/N1HRCWGcGPZZLI
+	Vo+LhIZ2JZg11NE/hUqo+m06ZozqgNZFw3CsZxKyjB6N4qbJqGdDvErlluB8jLaycbgwLWXSteboO
+	taSPbYTjmMjaAKzS74Gqi7lfkLsnmZKl8JVW9RPPqNBrqfI7EJ424B2CWewROI+ARhSphBLHE/hEK
+	s4i4m3ygd4yc1Hc2LZL+RWolOsd8IXe1xG+w5auSNebE7pvdiNmLZMqKBula+TCQUvVX3ecACmODS
+	ImqOh3tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfFe0-00000005D3Y-3l0u;
-	Mon, 12 Jan 2026 10:59:32 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vfFh9-00000005DIE-1rCV;
+	Mon, 12 Jan 2026 11:02:47 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfFdy-00000005D2z-1FmY;
-	Mon, 12 Jan 2026 10:59:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=prqSR6regcLGluGKS9z/BtmAyg7OnvfCvxDZ6Z6wfhmAlazKNfqODDreUjI1DKQaeZYVtV17WqUm1aBAwwUeJ6WgVpCkvTAlxtcTkBVStgI+huf/Y8GlpLBAi6Kd88B4CIKUwEp4m5LPO9BesnWFgP2vSd23ayWH3NGeaFwX5ZcaUO7Ub8aXzRSE5c8xVif3hFWlNsVmIObu12khfHIJ3U8kys+3rthTakTXdud/UWIa5ONqz0OtV2DRxvIcyk/qfghb5XA6qsQ51CRkapOyJ3iA3g0gq/VrA8/HMWPhQkU1cTHg/oJzUnoTffkaLNh0VnoxQ7P5yYn+QrxC3SMftg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Aa5v9RCeX5gHVCfH5bN87TaRxORBjug0gy3Jp6/WlkQ=;
- b=vw08gTV2QxtNDs9xbfRlzHhID57P5FDMCQMyHEiLnInTmyxCKnPPYDgkL14SRat4X8Y/ONljz3PHk2+HRlG2KX6pFqu9EQf5+egsVDR5LmE5HK1AHkKT37xmRLCUdeXnN0Njgcyl98uohTqwS7HRtl0vpVHQJfSkDNwoUD80SO9+5xLdm94rJqknpjw+NOn3KW8GTVmfu8y+IfCW19MzAGz1RaSxl8e+sR/HIKA+i0fvdarDdzaLAe34siW8W26Zcei/jbqbc4nif9bqIRA3IPwwBbr8tSfeDVpI4Kt59dgBsBdwawgG7h5ntjOcs3Q4KdCVUA7kHRROA0+UZFlrtQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Aa5v9RCeX5gHVCfH5bN87TaRxORBjug0gy3Jp6/WlkQ=;
- b=kvw0G1RwZJ+5mmkwuVXvDgQchL8mNWoHGSQ+iImNZWPaOWnZZoNOZcP72Elsc3Fxs+VUIUVGAdLUGQ9ByoKVZnUsNov79ABtfVkkw7FgT1bTvTH6tVeUTxGa8oN9v99NpTh6tBxHhv3ODlhdV0xfg4G3ephVP1v15bh7rrM4lpzLpyiU0fbjbseO4huAcXT3J1s1TEPrBUi5xTQ3opdqBqisUSiAFX530a2gEuUVKL9mq7uRQiT+zwNUW2024cES2JbsrFKi2fEA0HlMnPTuYp3lRBKv6TqUh84oFXChkw9k+bB3ViLJitTKkQwDzWVni54MKBgqaUvT2kDLXcAckw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by GV2PR04MB11634.eurprd04.prod.outlook.com (2603:10a6:150:2cb::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Mon, 12 Jan
- 2026 10:59:25 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce%5]) with mapi id 15.20.9478.004; Mon, 12 Jan 2026
- 10:59:25 +0000
-Date: Mon, 12 Jan 2026 18:52:10 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: vkoul@kernel.org, neil.armstrong@linaro.org, shawnguo@kernel.org, 
-	kernel@pengutronix.de, festevam@gmail.com, jun.li@nxp.com, Frank.Li@nxp.com, 
-	linux-phy@lists.infradead.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] phy: fsl-imx8mq-usb: add debugfs to access control
- register
-Message-ID: <q5h62kleg6uqzbnde3qsrjokhtiorrubatrkf5dopj3q7bhtwm@scv2qudg7feh>
-References: <20251224111716.2925597-1-xu.yang_2@nxp.com>
- <9870fd41-bafb-4ab0-91ff-8fcea53ca0a9@lunn.ch>
- <7bbvfiy5wceantklz6lav5rwak53yhasfvzddtsirqorcylrf6@rbcrocqftznj>
- <0b61c962-9aa1-4275-a40a-220f6d7f1210@lunn.ch>
- <6j2yhzqt6x3k55vrqjrol2k2qrhqmobvwjedkujyet4loyajxa@vy55aajfuvxk>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <6j2yhzqt6x3k55vrqjrol2k2qrhqmobvwjedkujyet4loyajxa@vy55aajfuvxk>
-X-ClientProxiedBy: SI2P153CA0029.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:190::16) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+	id 1vfFh8-00000005DHn-00OL;
+	Mon, 12 Jan 2026 11:02:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=DWNPGMqaJKT2DTVjAZ8virInZYZelttbbbD/egipkf8=; b=Xv34hKlaaHbXVbZ1UG4gQg6bNI
+	br6j8JxjmqssQQ91yiCYo9mrQWQSUln1AMH9KAB4TsARXI6SPRioylSyGp6v02G/8CD5co8bCCwtK
+	b5DfISjQVKQEjUkLifa4DO65NYNqsJUvGdy5JmEMAoroY4nUNPpI38dDgRRYjoTHsnPHvKWW5rrHP
+	gzWo65TeIr7HBUgkHICRJNd4cNLM7NNqpuYrwNUqpCvsQUZsxZ0H/LI4hQX4JdhtweNbkd1gZnQF4
+	mbO01PhwlUpZK49RlHcMF8XLApeAOfE81/CErNpKWNtfj2ksKDae1S6ORIiXmH1JvLpRSQ0weWVXH
+	bJSjBA9Q==;
+Received: from i53875b6a.versanet.de ([83.135.91.106] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vfFgx-001wKN-TA; Mon, 12 Jan 2026 12:02:36 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Joseph Chen <chenjh@rock-chips.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ Joseph Chen <chenjh@rock-chips.com>
+Subject: Re: [PATCH v2 2/3] mfd: rk8xx: Add RK801 support
+Date: Mon, 12 Jan 2026 12:02:35 +0100
+Message-ID: <1980810.GKX7oQKdZx@diego>
+In-Reply-To: <20260112102849.1479-3-chenjh@rock-chips.com>
+References: <20260112102849.1479-1-chenjh@rock-chips.com>
+ <20260112102849.1479-3-chenjh@rock-chips.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|GV2PR04MB11634:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0f10855a-ccea-434f-8c6c-08de51c9a5fd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?blA0aE5rY0tyeHhqNEhadEZuQ1piNytOOGVRdlFMdjVKd0ovclZNaDdnQjV3?=
- =?utf-8?B?S0pjNjVDZUhrbnhXUnVjdTlHY2dNZzAwQXBQNFUzNHdDOFlzb0FERlRCNDB0?=
- =?utf-8?B?RzhhLytaZzJ6TGdSSHQwR3RmTC83a25TUGF1c1pOTngrRTl3b0ZEYm1HS081?=
- =?utf-8?B?YWpUb2dUS0sxYm85eGpqKzY0bDNTRDVHMlBPRUdHbWxsbDRYZUh2ejVvMU50?=
- =?utf-8?B?ZzZMeTk2bDBEelY3a2RCVldaYVFTU1dnY1U1QXdJWEo1amtJY1JXdFBxMFRS?=
- =?utf-8?B?aS9KSXl3a2xPTW9ONTJnTmd5eG1UdG1rcGpLVzNuSWd2Vzk4bmROR3g5QUR3?=
- =?utf-8?B?UnV6VXpPNWt5ZWRhSGVVeURDRzFoeUtrVExEVUJPMzJ0T3krMnVRVnliS1I0?=
- =?utf-8?B?K2JWWHNjajNQbWhsbWM5ejBvMEdPREUwQnZsR1hnSVRkb3lFb3ZyVjRVT1RQ?=
- =?utf-8?B?TFROcEdvYkJacFVvT2ZFbzZyZGR0UXgrNHVVQWlkVk9Ob0NrRXJ5SDFRamlK?=
- =?utf-8?B?eU10Qi9LampaTVBYTGYvQWJwUUZLYUdXNlkxNStmVzJzRVN1Z0JzclRXdWt2?=
- =?utf-8?B?TWNhYkxDeEhOaU1oZno1SWdkZFNqWFZ6MkQ5NmhtK0srQXVic1BBLzlkYVI1?=
- =?utf-8?B?b2JGSUxmQWVhTEswRFB1WWJJZ24wTnBSd1VXaUNDYmp0dHFIZldTRmVXVVFt?=
- =?utf-8?B?MlhhSjJaK2JXVVo3YkZzSHNyVVd3bDlOdCtUVTVoVXpWQ24zaHNTUVd6dTl6?=
- =?utf-8?B?QS9WYnlKNGRvekhkUTZJajh5QXZJYWN2R1U2RVd4eHlPL1RzLzFnVENFdFBr?=
- =?utf-8?B?d0FNK3BuUHpBN0dITmpBc0x6b3BIKzd5S1YvQjhweFBBZHFEdEVMK0IyY1Ri?=
- =?utf-8?B?WWVCR3NtK2RiRG1DQWpjZ0hSdTBFWlJPbVRUc1U1UkpqQ2pucXY2QnR0MkR4?=
- =?utf-8?B?YittKzFndzVWNll1RHpqUi9qOSs4eFA5U3ZDRXlHSmlubXhSeFc3OU1QVTZV?=
- =?utf-8?B?WVNhVUY0OTZzNUJ1WmpNbHF2dXI2amptODdHeEdXdlY5T0Q5TmdSQnpRUmo4?=
- =?utf-8?B?SVRQbVB0SEJ0SVI5ZEVZRUVOanU4Nm9BUFVDdUJLaUwrUGVNTitiOUFXQmpI?=
- =?utf-8?B?MXFiS2kzZkt4RW14NHhFeUVqM28reUs5WWo3WXNReFAzMnhSY0ZWMVp2MVlh?=
- =?utf-8?B?TTNvdGNCMURkSTJtcUg1c2YxUFZiWVJQNXpJNzY3VmJybnBxQVZMZERKZGxR?=
- =?utf-8?B?VkRLRjY4UVJ6aUFOWjBmR3NTSG1sTWplVXZ4OW1aeTFHUi9yK0FHbVJ3ekJB?=
- =?utf-8?B?aFpDbTlLNGVtcnRsUUZSK1JMSkJCaWpWUjJzRUdaUmJnYngzSy9uZzgyVEFS?=
- =?utf-8?B?aFlJcVZKbzFXekw0a2kxR1drZDVrMjBRTVpTdTFYNmJtWHJTUWRlL3VTMGVh?=
- =?utf-8?B?K25WQTU5S3hDVE1iUXpjTGdxUktCempOcU9PM0tBOGFxVEJ3RE0wK0M4dHkw?=
- =?utf-8?B?Wi9heGxlMkxuaTJrNEVGeEtpRSs0ZjZsakUvckVoL1ppanREam90TGNVQUxM?=
- =?utf-8?B?T2N0VStyREVLSzQwaGVRazVMRmlUMkVBS0F3eVNNb2lVODlYU25GelVqbytI?=
- =?utf-8?B?M0ZORGl0QXNFOElFSTdhVjNQUXUwdjZVWFUvaTcxcEhkOURNV2dmTkY3Wm9G?=
- =?utf-8?B?K1BEdHYxQmVXV3NRQVZ3Q1dEYTB1YzEwaEtOZlV3cXE0amNaQ2I4ZmpFa21I?=
- =?utf-8?B?U0lYTUgrNEkrN05MWjlzejdaTThEb25mNmtRNU9hN09LU09hcThNUUlESkF3?=
- =?utf-8?B?dTZCaDNnTEx5R05WSUY0VzFGeUVVUk50eFkveXZLajNUOVJOL0p4WXNvZWQ4?=
- =?utf-8?B?bEFSZzZFVk5kWlpKUTR1QWV4QUVuTlJmcFNraVFnamtHY1RoS1RKSVd4dGVJ?=
- =?utf-8?B?dUMwd1FYcEVmV2VHWjNLYmlqV2JWTUdJOVVPc2hyNGFNQ1dzM2NSbVNqMFBp?=
- =?utf-8?B?bnZiM2gyQTZIdWhER0swZW11OWE3WEd2dkRHdXhUWGNncG1hRGhyWXFUeW8y?=
- =?utf-8?Q?EZqD8U?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WTg2RVJzekZSb1lQZWtQRWJNZUEwZG5Fczg1WkRBem1KVGhjdGpGWEduY2l3?=
- =?utf-8?B?dFAyZlNGcVVaOGhTMWw5R3QyQllZSkI1WlhCdnZyekM4c3p2TFBKL2hvY1Nv?=
- =?utf-8?B?OEVBbjhCWUdYR0tYWWFzOWRVckVKODRQSWw4UW5pMU5Qa0xiQTdoc0loazZJ?=
- =?utf-8?B?SEVCWDd6OEJ0VS9EZ05wRnp6NThIYmNwYWkyOGorendONGxmY1hNNnFHeXkx?=
- =?utf-8?B?RXJmTGIvS0J2aDFwY0xBdVp0Zzg3b2Yva2lJTVV6cXkwL3pIek5IdkRRK0Zu?=
- =?utf-8?B?SEpaUFVERVFWZmhGOTR0eThyVlB0YU03TWE0YSthK1NtbDMrSHVQRldvb3FM?=
- =?utf-8?B?MW1kdUNxRGM4aG5WNkxvYy9na3paS2oydElndURMbkNzeXJSMWp3TWV5Y2ha?=
- =?utf-8?B?N2tYcXpwbTlrV00xUkQ4ZlFETGFWTDIrOU0yczhtSmI1WTUvNkVQV3dHUFpZ?=
- =?utf-8?B?cTE2SGxXaHY1L1ppeUdOeU1jeWtpa2ZEOFRJbnpFTVh0SjI2Tm5wb015M2Zy?=
- =?utf-8?B?TWZXV0k4cFVJa0ozUmloUkYwR0VLM0lkVkpVbzJ3K0crN0VORzM5UUJXajRP?=
- =?utf-8?B?ZitPYjZLTzJrQUs5SnFMeDhxbFo2RjdKLzduS3ZpTHNBU0daOWtUL1NJMTFz?=
- =?utf-8?B?cmtDdUd6ZG1KSGtTTmxYNkVvNHN6bWFRMk5tZ3F6WlNCNUtvNmZRODQwSXRR?=
- =?utf-8?B?SFRiODZSSnVubXJ6VXF3eVNRcFJsRUJuOHE4VExveFhSN0g4aDV3S3VGVlRP?=
- =?utf-8?B?TGtRN2xreDJqUmtlVEsrVlZjWS8xcDV2VUd3di9Fdmw1blFCNmVYdS9qRVZo?=
- =?utf-8?B?d1hlais4ZWdXdHRvVnJ6WlJ3b1hEbVVvcFdoemVlVVg3dGhRd0V0L1lxQnNp?=
- =?utf-8?B?WXozeTU3eGFYekxvQ21mUHVQOW5halhVL1k0bCtMancvOFdmSTJaQzZ6aGVj?=
- =?utf-8?B?UmwxSFhETW9CbjJGZThrOWgzUHNIK3FmMk9QZy9jaWtBMy9ZR3Q1NXJOTG1H?=
- =?utf-8?B?SkkvbUsrZnhZRUZmSGdqNzB1VjFkaENQYkJJVkJXTDlYUWpSTjd6b3lpV255?=
- =?utf-8?B?aW4xV2ZidXdZUnlCZGg3SWhTb2ZkMGEweXlDZmJSOHBFUXVPUWVOTnhrQzQy?=
- =?utf-8?B?TmlmOFdLWVhIU3d6ZjNqNWdNU1VZd2F5eGhQWnpoTUtsMzdXeVBRRDJvb0tX?=
- =?utf-8?B?c1pPOEszRmhXS3FHUWpIcUZXN3BhTUNTVHlvN3YzdGdsRVJOVkg2bmFzSlli?=
- =?utf-8?B?UUtZRndXUnF5QnhnenVMY0Z0WTBNRnl6YjBKc0x1UGNPNnl2QjUwdjZVL21v?=
- =?utf-8?B?bTJoSDI1TUV0YTRiWkhWL3doTjJ6cVE4YVFRdVowWGwrdVVteUxsUVNYTjB4?=
- =?utf-8?B?SFV4eng1MFJDTzB1a2VaNFd6QmJWRVdHNkh4eERTQTlxRnErb0FGaE9tRFNi?=
- =?utf-8?B?aWZRZjY2YnI1NzFkZFZYUmZIaHBQamYreGpQZ3paeEJ1MFZZVWx2ZXpzenA1?=
- =?utf-8?B?N3AxK2pKNndCK3BoNzRHdVRFYkk5RUs5aGVYM3ZpY2NCa3VJek8reVd6bS9q?=
- =?utf-8?B?V25sOVB5SHZpTFRDOXhCK3FVaElRSytDdWwrbXMvMldMMHNtNzlnZlN6czZi?=
- =?utf-8?B?RnlmT1dwU2VLZFJzZjlvbkdUalBSWUxtSmlDcVhVK3ZNMGQyNUM3a1VySUR4?=
- =?utf-8?B?MnhHSnFMa3dSUHBPb3YzTDZselc1Z2loSmQxSjh6Q2FpQStSR3UrRmdoQ0p6?=
- =?utf-8?B?Qy9TVVk1UDNDWWVBNjBPZ2l4K3NUSW9laUQvcExyOE82M2c5d0xhYU10S29M?=
- =?utf-8?B?bW9STlhVQ2xPUXJuZExGdHAzVWtDWjZRc1I0MG54SGo2K1dXRnpXZEZVRE9U?=
- =?utf-8?B?bFFLYlJrcysrN240em5RY1hLR2JnejR6UXA0YWNwalZIYzlLZFJWY1BCYjlB?=
- =?utf-8?B?WXJvd2RiOUVZQ1RHZ09WR2JtN0VNWW4wRjRPSHM1N0xiTjQrM3NicDJSb09q?=
- =?utf-8?B?TkhiZVVjVys5cjRJcWZ4YUVXUkUyS1JBbXM0QUFBNTRNb1JXSklNUHhKWlBr?=
- =?utf-8?B?YktIdTN5SlJJRk40Rk43NWFQSHRwRDR2WDNYdk5GN1JBdlJWbmpucEE0TXd1?=
- =?utf-8?B?VzVSY3FYVkFRbWVBYm1RNnRWOXY1UXhDVHZpaUVRUUFieXpzbHlBMmZ2b0w4?=
- =?utf-8?B?ZS9EMitpM2dwR3pNSktoMWJBNjM3bDJzOGNkYkh3VFhKeGNjRm9OWnhzY2Yv?=
- =?utf-8?B?L2ZNNG9GTHYvcmoxRXhQUitMemlDRTUwd0ltYVdGd2VFWjA5T1M2aFNHZ0J4?=
- =?utf-8?B?RnpBclNXMHE5VWgrVy9wcDNoQjJZNFZlVlRIRVlCbzVMQmp5TCtIQT09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0f10855a-ccea-434f-8c6c-08de51c9a5fd
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jan 2026 10:59:25.0988
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Go7HHtSVNGCdKEr2+zvRFoq7QojOqSQ44Dl1uzdIWSK+MOdgfN1d6ASQ3+YzcAfMLk4f+5/6TmNGbW9+9QnRSw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11634
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_025930_377555_44F9E022 
-X-CRM114-Status: GOOD (  34.51  )
+X-CRM114-CacheID: sfid-20260112_030246_103881_C492EB52 
+X-CRM114-Status: GOOD (  21.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,60 +74,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 06:35:39PM +0800, Xu Yang wrote:
-> On Thu, Jan 08, 2026 at 03:47:17PM +0100, Andrew Lunn wrote:
-> > On Thu, Jan 08, 2026 at 04:22:24PM +0800, Xu Yang wrote:
-> > > On Wed, Dec 24, 2025 at 02:51:11PM +0100, Andrew Lunn wrote:
-> > > > On Wed, Dec 24, 2025 at 07:17:16PM +0800, Xu Yang wrote:
-> > > > > The CR port is a simple 16-bit data/address parallel port that is
-> > > > > provided for on-chip access to the control registers inside the
-> > > > > USB 3.0 femtoPHY. While access to these registers is not required
-> > > > > for normal PHY operation, this interface enables you to access
-> > > > > some of the PHY’s diagnostic features during normal operation or
-> > > > > to override some basic PHY control signals.
-> > > > > 
-> > > > > 3 debugfs files are created to read and write control registers,
-> > > > > all use hexadecimal format:
-> > > > > ctrl_reg_base: the register offset to write, or the start offset
-> > > > >                to read.
-> > > > > ctrl_reg_count: how many continuous registers to be read.
-> > > > > ctrl_reg_value: read to show the continuous registers value from
-> > > > >                 the offset in ctrl_reg_base, to ctrl_reg_base
-> > > > >                 + ctrl_reg_count - 1, one line for one register.
-> > > > >                 when write, override the register at ctrl_reg_base,
-> > > > >                 one time can only change one 16bits register.
-> > > > 
-> > > > Are the registers openly documented somewhere? Could you include a
-> > > > link in the commit message.
-> > > 
-> > > We integrate a SNPS PHY in Soc. So the registers are documented
-> > > in SNPS doc. Anyway, I can add a link for reference.
-> > 
-> > Humm, so the registers are defined by a Synopsys databook?
-> > 
-> > Shouldn't this patch be split into two? The access mechanism to the
-> > registers is specific to the imx8mq. But the registers themselves
-> > should be part of the generic SNPS PHY driver which should be shared
-> > by all devices using this licensed IP?
-> 
-> This patch mainly contain the access mechanism on i.MX Soc, so:
->  - imx8mq_phy_ctrl_reg_addr()
->  - imx8mq_phy_ctrl_reg_read()
->  - imx8mq_phy_ctrl_reg_write()
-> 
-> and debugfs function to show them:
->  - ctrl_reg_value_show()
->  - ctrl_reg_value_write()
-> 
-> Do you mean split above into 2 patches? Put the first part into
-> phy-fsl-imx8mq-usb.c and the second part into a SNPS generic driver?
-> 
-> If so, do you know which generic driver should I use? If no such
-> driver, can I put them in phy-fsl-imx8mq-usb.c at the beginning?
+Hi Joseph,
 
-Just found the access mechanism part is also described in SNPS databoot.
-So the whole thing should be the part of the generic SNPS PHY.
+Am Montag, 12. Januar 2026, 11:28:48 Mitteleurop=C3=A4ische Normalzeit schr=
+ieb Joseph Chen:
+> The RK801 is a Power Management IC (PMIC) for multimedia
+> and handheld devices. It contains the following components:
+>=20
+> - 4 BUCK
+> - 2 LDO
+> - 1 SWITCH
+>=20
+> Signed-off-by: Joseph Chen <chenjh@rock-chips.com>
+> ---
+>  drivers/mfd/Kconfig                 |    6 +-
+>  drivers/mfd/rk8xx-core.c            |   81 ++
+>  drivers/mfd/rk8xx-i2c.c             |   33 +-
+>  drivers/regulator/rk808-regulator.c | 1963 ---------------------------
+>  include/linux/mfd/rk808.h           |  118 ++
+>  5 files changed, 234 insertions(+), 1967 deletions(-)
+>  delete mode 100644 drivers/regulator/rk808-regulator.c
+>=20
+> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+> index 6cec1858947..5405e8633aa 100644
+> --- a/drivers/mfd/Kconfig
+> +++ b/drivers/mfd/Kconfig
+> @@ -1355,15 +1355,15 @@ config MFD_RK8XX
+>  	select MFD_CORE
+> =20
+>  config MFD_RK8XX_I2C
+> -	tristate "Rockchip RK805/RK808/RK809/RK816/RK817/RK818 Power Management=
+ Chip"
+> +	tristate "Rockchip RK801/RK805/RK808/RK809/RK816/RK817/RK818 Power Mana=
+gement Chip"
 
-Thanks,
-Xu Yang
+nit: I think at some point it'd be time to make that
+	"Rockchip RX8xx Power Management Chips"
+The config entry is already named that way, and that list of individual
+supported chips gets way too long.
+
+Also the individual supported chips _are_ listed below, so the unwieldy
+entry headline can be shortened.
+
+>  	depends on I2C && OF
+>  	select MFD_CORE
+>  	select REGMAP_I2C
+>  	select REGMAP_IRQ
+>  	select MFD_RK8XX
+>  	help
+> -	  If you say yes here you get support for the RK805, RK808, RK809,
+> -	  RK816, RK817 and RK818 Power Management chips.
+> +	  If you say yes here you get support for the RK801, RK805, RK808,
+> +	  RK809, RK816, RK817 and RK818 Power Management chips.
+>  	  This driver provides common support for accessing the device
+>  	  through I2C interface. The device supports multiple sub-devices
+>  	  including interrupts, RTC, LDO & DCDC regulators, and onkey.
+
+[...]
+
+> diff --git a/drivers/regulator/rk808-regulator.c b/drivers/regulator/rk80=
+8-regulator.c
+> deleted file mode 100644
+> index 1e814247965..00000000000
+> --- a/drivers/regulator/rk808-regulator.c
+> +++ /dev/null
+
+Looks like something did go wrong here, as you're removing the whole
+drivers/regulator/rk808-regulator.c file from the MFD patch.
+
+
+Thanks
+Heiko
+
+
 
