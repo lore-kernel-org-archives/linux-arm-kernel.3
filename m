@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD79DC9EC6D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 11:19:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 236F7C9EC73
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 11:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rxPBiCWb0NOVn214pVZJyp96uXR6w0HjkmgFnnCgJjA=; b=YbZJ64FcM2aApJUpCZ6dcdaLQq
-	q3uQ7Kmcy7DrkQo3ucyu1HJv/5GFcCkfiKNasBhMZtvshy8Awn518jtMLFYVMxnu8d6bYYHJBtrm5
-	6uRgMJRONQasMXn9uFLvofBpQzVV4HDKVXCpxy4V1FFCv+TiAdPaMLNzOQnLDRS0Jdm5b2vxazZc2
-	cHM7zue1hQPE/oz/5zMKl4eK7afrTrEFNcz5NpL04ij9hg/ohgsD9dqS3byg8g1fTMjPuIngHL61x
-	11ffBQNx/UElrC+TNPP4q0UFjWciXuFJjFktd3vKeApDsuyI6MlPMHTQpLaR+NoqGQ7p8yLfXvcc/
-	8pzUIVrg==;
+	bh=oMdYgHTpNlITHXVinHvOGufH3SnYv55unWeKXvbUxF4=; b=AzfmJCX6WGs/61QrDkTwhzi5bP
+	FLCEL4FLQ7aHhLHiuHc5v4XJlR3OFbHIBIU6KeDYM38fGF3Ibyg+YIpq3nQX/BsJRxSReDr028pro
+	16P0IE1YS5W2oU8A+uEidTudA0QZXMBN2cUeSLLIcI5CVs5JoxDEdSDND/A9ECkQ/VrDjtGCmv2n6
+	JMNaX9RcQUBhtNuHxhHs5fZCt6fCm+lXhXLbKXIsODBm1sjuk+ypep1aZqPR1FRO1m/nXQI0wRe8d
+	3tLPNUWT7EjWQ0w4SynlzjFrqxZbMN2kgPSRM3lRxaoum5LUnI5oO7X4cj7PkoTMX1KPZNubhvIad
+	RTrCAr5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfFxU-00000005ETp-1h7H;
-	Mon, 12 Jan 2026 11:19:40 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1vfFxW-00000005EUk-1DQf;
+	Mon, 12 Jan 2026 11:19:42 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfFxR-00000005ERu-3qO3
+	id 1vfFxR-00000005ERm-33W2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 11:19:39 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2a0d52768ccso42407415ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 03:19:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1768216777; x=1768821577; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rxPBiCWb0NOVn214pVZJyp96uXR6w0HjkmgFnnCgJjA=;
-        b=cz3SOmtiZBlubF6tPc/ayxGP3JjOQ/prCDCTTP5EylJCrHqxhm4EnnK8Ejois3a837
-         wMsO3CqtVlLt5yUKahOzzfnaAyzdSLxSUCnLIkJB6AuLJepPGmc/xkKPQcUecq4eprbs
-         vLf4AsI9fujfJa9BpshmzKyCBROht+BmlLpAWKIgWQSBt7Or84EWwWgSXOjDevb4kJ8V
-         QHUCQLR/doWQh6mQ9GjvvmkiGs4B7awnkn9yd2DjJxRbaSoCi/5a+Q6Zjy01Q0QAW0Yc
-         E6WeDR0Gpt9eYVIiRDQ09jcrp+ipDYbRcwJx6ONfu1Fw4622lQifsm/LQ9AgwH+J1wiW
-         lm7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768216777; x=1768821577;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=rxPBiCWb0NOVn214pVZJyp96uXR6w0HjkmgFnnCgJjA=;
-        b=ARVjwXbzcft74k2HCZXdQCWfrbxrIeuzUCohu5DBsUMfaKbjy7W5EZ7J4oZC2/U+DS
-         7gdf2tMia2JaaabjPpJa78Na4+aIcY9JZVLvs8iMfhdYy8vcv613zQEk2sdPTSs5Yy1N
-         8BlCpfgv20N+mcx8r+xqxrEb652VQ5sdH+WMqmftlvsMGZmFOJqjutZuURRo5NtamoXq
-         r4rYVkOz5pW9+R/wbK/TdpiUjefQOJbrFufEA3HgyPjKaooffc7fB1U0zWoTqRKTuZQg
-         wQW1XWHJ4O7uPPDuLS4C09CideU//rABwmZ71+O9A06R76yySUzGGn2PTXce/+ZJonTz
-         iwew==
-X-Forwarded-Encrypted: i=1; AJvYcCV6E8BczuHxRJcg/9SFgT+VHAO/L1SouZlo7lQuwNVxnWui817Bxc7wiS8oL8eBTSUbUWVM1YYa6CwuP6zU8Kf1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6CYuClt1KyapY5ugSbhSQ5Y8aDBOs0hBhYZcaHokE9oU7IRA+
-	8ATe7znmVfSngUeBOF1v5ayho1xNbivSrvDVydNn/6wcfIoTsBJ3BYQFgLfPKiJo5IKrSy8HrZh
-	emhMSLIvDsFFEMhHHeNaUXq4FlsJP0Vw=
-X-Gm-Gg: AY/fxX7l1xuvVy56kfjwtG55Y64DP14k7t49LLzCq8YQKzxK/uCzjrxQlTXJ44+eH2s
-	K7sqrB4Lgg5peyYQVv2paGuc4lvhSqmmyP3ZNa/ouVBBL6DH73L0TNnqiLiLQgA8EBFq86f8J/5
-	kAddAwb0dZCWqIjXA9GJ/Yx0d0hwkWonxNQ8aNF7XT8EWMHoQuzpKsX0ED+1XknyNW7+EHgrQwz
-	pdzXMrAr2kZCkHp4KKrz7EId9TD7bH3FE3sC+CgN4zETnl0KYG6dTgomBnUehASzxmsxhLkSnx9
-	kTDZbIRkjQYSYYm6TyhHUU/UVU+P
-X-Google-Smtp-Source: AGHT+IEHicF+3IJcwgxgH/BBD93opK5AWO2KmeQnPaid+LFlPvwR0B0ZKBH5hgAi8y89KFSsmAmBeqgOAxet4wXxVKI=
-X-Received: by 2002:a17:902:f60d:b0:2a0:daa7:8a3d with SMTP id
- d9443c01a7336-2a3ee47f15amr165050485ad.23.1768216776602; Mon, 12 Jan 2026
- 03:19:36 -0800 (PST)
+	Mon, 12 Jan 2026 11:19:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1768216777; x=1799752777;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=FQMKbDH+KVpbfbw4LnNPRQHYGOGtEYypT7zQgzx6SWI=;
+  b=uEowbPPeliWEMgBBc9nBg+zlpR1k8ylfU+/TPQ3iSPSwm+m5GViUNoHl
+   PJk5ePA/QWqNNh8NxJPp6k7vAAwuDmUnEB6yCb2ekzINQ5dg62DeOaCbA
+   iEbRZJ/QBjdM9Ei7mxrK/C5U6+iQrBZ4m2dOwJDS99/MVAPb4E1wXs1iC
+   UpIxNct93TeUXxJ+SEwe5nv8hxOIbO2eopMHWAkotyjLT5JEAYsT1j05m
+   1iLh3Kyymju164KuxntMrOJ6Tgtt1n2JFlo4726Fgx+5RephVphLMK34g
+   gxFqF7/cNf8hpFvQftBEBDWAIk1CZPQ5hhrq3S7KBQPCT1nTWErgtg/qV
+   A==;
+X-CSE-ConnectionGUID: ZruLiW7wTxePdKgkmfGDiw==
+X-CSE-MsgGUID: 9myXGp1sTBWMkR2az03IBQ==
+X-IronPort-AV: E=Sophos;i="6.21,219,1763449200"; 
+   d="scan'208";a="52175794"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jan 2026 04:19:32 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
+ chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.29; Mon, 12 Jan 2026 04:19:09 -0700
+Received: from ROU-LL-M19942.mpu32.int (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Mon, 12 Jan 2026 04:19:06 -0700
+From: Cyrille Pitchen <cyrille.pitchen@microchip.com>
+Date: Mon, 12 Jan 2026 12:17:58 +0100
+Subject: [PATCH v4 3/5] ARM: dts: microchip: sam9x60: Add GFX2D GPU
 MIME-Version: 1.0
-References: <20260110200426.1461575-1-martin.blumenstingl@googlemail.com>
- <20260110200426.1461575-2-martin.blumenstingl@googlemail.com> <20260112-quixotic-daft-starfish-5fe914@quoll>
-In-Reply-To: <20260112-quixotic-daft-starfish-5fe914@quoll>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Mon, 12 Jan 2026 12:19:25 +0100
-X-Gm-Features: AZwV_QhMOFbqafd1y2lAFL-G5cdRwETJL_KsPrbRSoSrEkURS4Vzk3WQ_kBZSVE
-Message-ID: <CAFBinCAG-N+FKfSyqi+6s7dW8mK54W=-NpFAg=x5N4mF3gH22g@mail.gmail.com>
-Subject: Re: [PATCH 1/3] dt-bindings: gpu: mali-bifrost: Add compatible for
- Amlogic Meson S4
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	adrian.larumbe@collabora.com, steven.price@arm.com, 
-	boris.brezillon@collabora.com, robh@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260112-cpitchen-mainline_gfx2d-v4-3-f210041ad343@microchip.com>
+References: <20260112-cpitchen-mainline_gfx2d-v4-0-f210041ad343@microchip.com>
+In-Reply-To: <20260112-cpitchen-mainline_gfx2d-v4-0-f210041ad343@microchip.com>
+To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+	"Alexandre Belloni" <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>, Russell King <linux@armlinux.org.uk>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Cyrille Pitchen <cyrille.pitchen@microchip.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=927;
+ i=cyrille.pitchen@microchip.com; h=from:subject:message-id;
+ bh=FQMKbDH+KVpbfbw4LnNPRQHYGOGtEYypT7zQgzx6SWI=;
+ b=owGbwMvMwCXmf6yzKqEsVIbxtFoSQ2bKjXlOyxtLj3/yCLn/MjYkarFfo9D3e30KjyZKH3n4m
+ CNy3cT5HaUsDGJcDLJiiiyH3mztzTz+6rHdK1EpmDmsTCBDGLg4BWAiFrYMf2VFZGs5Mz4vZIlJ
+ q8+wt3nOfKr70auu3tvVWX6VzGar6hn+O/vw55mHv2Cctv/yvM0lnf12FzOT37u/niiu9/XBP49
+ 2NgA=
+X-Developer-Key: i=cyrille.pitchen@microchip.com; a=openpgp;
+ fpr=7A21115D7D6026585D0E183E0EF12AA1BFAC073D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_031937_951641_86349BF8 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20260112_031938_052464_7D7B3278 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,63 +100,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Add support for the GFX2D GPU.
 
-On Mon, Jan 12, 2026 at 10:31=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
->
-> On Sat, Jan 10, 2026 at 09:04:24PM +0100, Martin Blumenstingl wrote:
-> > Add a compatible string for the Mali-G31 GPU in the Amlogic Meson S4
-> > SoC. It has two clock inputs (GPU clock and a bus clock) as well as two
-> > resets (main GPU reset line and a GPU ABP reset line).
-> >
-> > Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-> > ---
-> >  .../bindings/gpu/arm,mali-bifrost.yaml        | 20 +++++++++++++++++++
-> >  1 file changed, 20 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yam=
-l b/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
-> > index db49b8ff8c74..85fae7753004 100644
-> > --- a/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
-> > +++ b/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
-> > @@ -19,6 +19,7 @@ properties:
-> >            - enum:
-> >                - allwinner,sun50i-h616-mali
-> >                - amlogic,meson-g12a-mali
-> > +              - amlogic,meson-s4-mali
-> >                - mediatek,mt8183-mali
-> >                - mediatek,mt8183b-mali
-> >                - mediatek,mt8186-mali
-> > @@ -143,6 +144,25 @@ allOf:
-> >          power-domain-names: false
-> >        required:
-> >          - resets
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: amlogic,meson-s4-mali
-> > +    then:
-> > +      properties:
-> > +        power-domains:
-> > +          maxItems: 1
-> > +        power-domain-names: false
-> > +        clocks:
-> > +          minItems: 2
->
-> missing maxItems
-Thanks, I'll add it!
+Signed-off-by: Cyrille Pitchen <cyrille.pitchen@microchip.com>
+---
+ arch/arm/boot/dts/microchip/sam9x60.dtsi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-> Can't this be combined with existing meson entry, *after* fixing it to
-> include missing clocks?
-I don't think so: G12A (and earlier SoCs) have the Mali registers
-"somewhere", while on S4 Mali is on the APB4 bus.
-Even if they are on a bus on G12A: then there's no clock linked with
-that bus (at least nothing I'm aware of).
-This is why I even introduced a new section in the bindings.
+diff --git a/arch/arm/boot/dts/microchip/sam9x60.dtsi b/arch/arm/boot/dts/microchip/sam9x60.dtsi
+index b075865e6a7688005d471665459b3f6f1f26f7a4..338a0f3b336ffa6f1e3f900a4b4a58e4e3f93bb8 100644
+--- a/arch/arm/boot/dts/microchip/sam9x60.dtsi
++++ b/arch/arm/boot/dts/microchip/sam9x60.dtsi
+@@ -353,6 +353,14 @@ AT91_XDMAC_DT_PERID(26))>,
+ 				status = "disabled";
+ 			};
+ 
++			gpu: gpu@f0018000 {
++				compatible = "microchip,sam9x60-gfx2d";
++				reg = <0xf0018000 0x4000>;
++				interrupts = <36 IRQ_TYPE_LEVEL_HIGH 0>;
++				clocks = <&pmc PMC_TYPE_PERIPHERAL 36>;
++				status = "disabled";
++			};
++
+ 			i2s: i2s@f001c000 {
+ 				compatible = "microchip,sam9x60-i2smcc";
+ 				reg = <0xf001c000 0x100>;
 
+-- 
+2.51.0
 
-Best regards,
-Martin
 
