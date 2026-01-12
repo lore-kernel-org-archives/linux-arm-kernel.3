@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79744CF45C8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 19:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA6ACF45C9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 19:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SEoENnWUcb8l0Cmsrhzc+Gdxwbk1lpPM3wnRuQBpEso=; b=jHHr+PBlPRD6Q7OuVTukl4Z3fO
-	c601JfAI2ZaP6vLVidwORAqiyRs0UyrxLfiBuy2bdluO84VfXI8SawmDfZ9e8sT4KoDBl+gZO9ASR
-	IqgOZIdTSKDfVTUZ5FHw1KMi/pn3I7Ls0oTI6yJs1WfYJevpvGLu1QyTGAAuKD6dQibeDKY5Xkoz/
-	9tBqVCCMsHlb4GQqz3gqNA94hTxXhQFPGWX95VWmbL9a5TxNZpOZhieYLA74fBqlnROm079qbjKsW
-	Q3mtsEHA/tz4boQ9BeNOqVrSa5r2AzJ5agV7GmEIL/+qmZY8Qq4dMXIVjN41ke18/4N7wVpzJJay2
-	ZDJ8LMGg==;
+	bh=L+EnRH1g2DxHBBymUf+q3bVJCfNZw4HDZebKbbj/uZY=; b=E2y3pgWMGfAxAHpURgv8YH+NNB
+	YeGmvZ/8cm3rP3+NPafrmJ9V6fy1chpBV/2OGHIjZJvSmy5O1uMkKUJDHRPm3GDX5ZpNtTmOFtAnf
+	d/MqwdzG7JFMoApori/6hcHb7+6bocM8fDV9WFQY+Iy9dz6NcNFo45Vma5l+sYobUXbreVBuhvxi1
+	SOiAGywjw4gsGtqsSGrMzpcUsqnE5LzJfq+HtCuwZvDmM6iu/3fgqbRQEPNNfQiYWYMkeUGT/cKVU
+	TAMqbHjy+tISu45RZp+5AJxR+CYqRKDG4WFwsOOcYaj5oDRoaqlwFw5G9x8VpOZDsS4oIcF/7cl61
+	n4E7xkkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNWO-0000000601t-41z1;
-	Mon, 12 Jan 2026 19:24:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vfNWT-0000000608h-3bv6;
+	Mon, 12 Jan 2026 19:24:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfNVe-00000005yzB-06kB;
-	Mon, 12 Jan 2026 19:23:28 +0000
+	id 1vfNVh-00000005z4a-04Ul;
+	Mon, 12 Jan 2026 19:23:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD15040630;
-	Mon, 12 Jan 2026 19:23:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4252DC19422;
-	Mon, 12 Jan 2026 19:23:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 27288600AE;
+	Mon, 12 Jan 2026 19:23:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71A7BC19425;
+	Mon, 12 Jan 2026 19:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768245805;
-	bh=cAzlxjnfetAXICKQEDRHR7jpw8oC/uEaOKgrdLNR7pI=;
+	s=k20201202; t=1768245807;
+	bh=m1HqAVYYLBo37842YK27RA2eN4A4DCl4kda+cKOalmc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pqT16Xv5y39AtbmZYAgOkHjMWCOa/h4oZZmyTmq0R4g9MqhPim0TUNaaIMF0+v9ze
-	 GsnV3fuIps6KEtb87qL3FbYr4EoQRM/M3VAguchs2auk6wcNXGZufbX69abPZcPkE8
-	 63X9xxnUfPinp28JVmVSIvjQwFrH2cjGKSUmGsbqcqb6CB9JzwtJWlifgMRYUPfn9x
-	 8fadfn9CewGB62+Zhn7oxXxU+VERktjR06ce8npPtrH9id1Uk2Ln4g3wqaDda2OXVU
-	 TaY3zHzfmGReU8xSJEBgbYZxPy9gnv3tR6lhLF7/x0I/eXHUD6QwSY9Ux/LB6ZBgIK
-	 sYxHbcLk1xb5Q==
+	b=Ay5G6LzS0TepQWECrnd1UNKNmhVN/JTshHR0wmsfP1OOwI9u5AkJPDr76FOgjudMY
+	 vKnapPZ1SOj8AKvDkmjmOz5gTyaAXlgGMlNLCthjfeE9DhA8eMKmoryyXWNHTX+1CT
+	 orreVCnr/AQnxb2HQJB/iqv645l5YeXsXDgadecfs3ivkHoNvGMndAOcFI195nanVo
+	 CGrCFEe4YlJacesB5s1MsW4ZwYjhmU+q/5DO9sVVx9jxlyLuFi3MFd+YbSbh7s95fJ
+	 W/W7Gz0DuLaczz0BJ3a4KaPIx5ivLQZVYl/STh8a/adzozevdl7kFIMdE7/jDkugIJ
+	 g+9KWBsLktsMQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -56,18 +56,14 @@ Cc: linux-kernel@vger.kernel.org,
 	Holger Dengler <dengler@linux.ibm.com>,
 	Harald Freudenberger <freude@linux.ibm.com>,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 14/35] lib/crypto: riscv/aes: Migrate optimized code into library
-Date: Mon, 12 Jan 2026 11:20:12 -0800
-Message-ID: <20260112192035.10427-15-ebiggers@kernel.org>
+Subject: [PATCH v2 18/35] crypto: x86/aes - Remove the superseded AES-NI crypto_cipher
+Date: Mon, 12 Jan 2026 11:20:16 -0800
+Message-ID: <20260112192035.10427-19-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260112192035.10427-1-ebiggers@kernel.org>
 References: <20260112192035.10427-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_112326_157368_86CCEE6E 
-X-CRM114-Status: GOOD (  29.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,542 +78,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the aes_encrypt_zvkned() and aes_decrypt_zvkned() assembly
-functions into lib/crypto/, wire them up to the AES library API, and
-remove the "aes-riscv64-zvkned" crypto_cipher algorithm.
-
-To make this possible, change the prototypes of these functions to
-take (rndkeys, key_len) instead of a pointer to crypto_aes_ctx, and
-change the RISC-V AES-XTS code to implement tweak encryption using the
-AES library instead of directly calling aes_encrypt_zvkned().
-
-The result is that both the AES library and crypto_cipher APIs use
-RISC-V's AES instructions, whereas previously only crypto_cipher did
-(and it wasn't enabled by default, which this commit fixes as well).
+Remove the "aes-aesni" crypto_cipher algorithm and the code specific to
+its implementation.  It is no longer necessary because the AES library
+is now optimized with x86 AES-NI, and crypto/aes.c exposes the AES
+library via the crypto_cipher API.
 
 Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/riscv/crypto/Kconfig              |  2 -
- arch/riscv/crypto/aes-macros.S         | 12 +++-
- arch/riscv/crypto/aes-riscv64-glue.c   | 81 ++-----------------------
- arch/riscv/crypto/aes-riscv64-zvkned.S | 27 ---------
- lib/crypto/Kconfig                     |  2 +
- lib/crypto/Makefile                    |  1 +
- lib/crypto/riscv/aes-riscv64-zvkned.S  | 84 ++++++++++++++++++++++++++
- lib/crypto/riscv/aes.h                 | 63 +++++++++++++++++++
- 8 files changed, 166 insertions(+), 106 deletions(-)
- create mode 100644 lib/crypto/riscv/aes-riscv64-zvkned.S
- create mode 100644 lib/crypto/riscv/aes.h
+ arch/x86/crypto/Kconfig            |  2 -
+ arch/x86/crypto/aesni-intel_asm.S  | 25 ------------
+ arch/x86/crypto/aesni-intel_glue.c | 62 +-----------------------------
+ 3 files changed, 1 insertion(+), 88 deletions(-)
 
-diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
-index 14c5acb935e9..22d4eaab15f3 100644
---- a/arch/riscv/crypto/Kconfig
-+++ b/arch/riscv/crypto/Kconfig
-@@ -4,15 +4,13 @@ menu "Accelerated Cryptographic Algorithms for CPU (riscv)"
- 
- config CRYPTO_AES_RISCV64
- 	tristate "Ciphers: AES, modes: ECB, CBC, CTS, CTR, XTS"
- 	depends on 64BIT && TOOLCHAIN_HAS_VECTOR_CRYPTO && \
- 		   RISCV_EFFICIENT_VECTOR_UNALIGNED_ACCESS
--	select CRYPTO_ALGAPI
+diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
+index ebb0838eaf30..7fb2319a0916 100644
+--- a/arch/x86/crypto/Kconfig
++++ b/arch/x86/crypto/Kconfig
+@@ -5,14 +5,12 @@ menu "Accelerated Cryptographic Algorithms for CPU (x86)"
+ config CRYPTO_AES_NI_INTEL
+ 	tristate "Ciphers: AES, modes: ECB, CBC, CTS, CTR, XCTR, XTS, GCM (AES-NI/VAES)"
+ 	select CRYPTO_AEAD
  	select CRYPTO_LIB_AES
+ 	select CRYPTO_LIB_GF128MUL
+-	select CRYPTO_ALGAPI
  	select CRYPTO_SKCIPHER
  	help
 -	  Block cipher: AES cipher algorithms
- 	  Length-preserving ciphers: AES with ECB, CBC, CTS, CTR, XTS
+ 	  AEAD cipher: AES with GCM
+ 	  Length-preserving ciphers: AES with ECB, CBC, CTS, CTR, XCTR, XTS
  
- 	  Architecture: riscv64 using:
- 	  - Zvkned vector crypto extension
- 	  - Zvbb vector extension (XTS)
-diff --git a/arch/riscv/crypto/aes-macros.S b/arch/riscv/crypto/aes-macros.S
-index d1a258d04bc7..1384164621a5 100644
---- a/arch/riscv/crypto/aes-macros.S
-+++ b/arch/riscv/crypto/aes-macros.S
-@@ -49,12 +49,14 @@
- //   - If AES-128, loads round keys into v1-v11 and jumps to \label128.
- //   - If AES-192, loads round keys into v1-v13 and jumps to \label192.
- //   - If AES-256, loads round keys into v1-v15 and continues onwards.
- //
- // Also sets vl=4 and vtype=e32,m1,ta,ma.  Clobbers t0 and t1.
--.macro	aes_begin	keyp, label128, label192
-+.macro	aes_begin	keyp, label128, label192, key_len
-+.ifb \key_len
- 	lwu		t0, 480(\keyp)	// t0 = key length in bytes
-+.endif
- 	li		t1, 24		// t1 = key length for AES-192
- 	vsetivli	zero, 4, e32, m1, ta, ma
- 	vle32.v		v1, (\keyp)
- 	addi		\keyp, \keyp, 16
- 	vle32.v		v2, (\keyp)
-@@ -74,16 +76,24 @@
- 	vle32.v		v9, (\keyp)
- 	addi		\keyp, \keyp, 16
- 	vle32.v		v10, (\keyp)
- 	addi		\keyp, \keyp, 16
- 	vle32.v		v11, (\keyp)
-+.ifb \key_len
- 	blt		t0, t1, \label128	// If AES-128, goto label128.
-+.else
-+	blt		\key_len, t1, \label128	// If AES-128, goto label128.
-+.endif
- 	addi		\keyp, \keyp, 16
- 	vle32.v		v12, (\keyp)
- 	addi		\keyp, \keyp, 16
- 	vle32.v		v13, (\keyp)
-+.ifb \key_len
- 	beq		t0, t1, \label192	// If AES-192, goto label192.
-+.else
-+	beq		\key_len, t1, \label192	// If AES-192, goto label192.
-+.endif
- 	// Else, it's AES-256.
- 	addi		\keyp, \keyp, 16
- 	vle32.v		v14, (\keyp)
- 	addi		\keyp, \keyp, 16
- 	vle32.v		v15, (\keyp)
-diff --git a/arch/riscv/crypto/aes-riscv64-glue.c b/arch/riscv/crypto/aes-riscv64-glue.c
-index f814ee048555..8bbf7f348c23 100644
---- a/arch/riscv/crypto/aes-riscv64-glue.c
-+++ b/arch/riscv/crypto/aes-riscv64-glue.c
-@@ -1,9 +1,8 @@
- // SPDX-License-Identifier: GPL-2.0-only
+ 	  Architecture: x86 (32-bit and 64-bit) using:
+ 	  - AES-NI (AES new instructions)
+diff --git a/arch/x86/crypto/aesni-intel_asm.S b/arch/x86/crypto/aesni-intel_asm.S
+index b37881bb9f15..6abe5e38a6d7 100644
+--- a/arch/x86/crypto/aesni-intel_asm.S
++++ b/arch/x86/crypto/aesni-intel_asm.S
+@@ -434,35 +434,10 @@ SYM_FUNC_START_LOCAL(_aesni_enc4)
+ 	aesenclast KEY, STATE3
+ 	aesenclast KEY, STATE4
+ 	RET
+ SYM_FUNC_END(_aesni_enc4)
+ 
+-/*
+- * void aesni_dec (const void *ctx, u8 *dst, const u8 *src)
+- */
+-SYM_FUNC_START(aesni_dec)
+-	FRAME_BEGIN
+-#ifndef __x86_64__
+-	pushl KEYP
+-	pushl KLEN
+-	movl (FRAME_OFFSET+12)(%esp), KEYP	# ctx
+-	movl (FRAME_OFFSET+16)(%esp), OUTP	# dst
+-	movl (FRAME_OFFSET+20)(%esp), INP	# src
+-#endif
+-	mov 480(KEYP), KLEN		# key length
+-	add $240, KEYP
+-	movups (INP), STATE		# input
+-	call _aesni_dec1
+-	movups STATE, (OUTP)		#output
+-#ifndef __x86_64__
+-	popl KLEN
+-	popl KEYP
+-#endif
+-	FRAME_END
+-	RET
+-SYM_FUNC_END(aesni_dec)
+-
  /*
-- * AES using the RISC-V vector crypto extensions.  Includes the bare block
-- * cipher and the ECB, CBC, CBC-CTS, CTR, and XTS modes.
-+ * AES modes using the RISC-V vector crypto extensions
-  *
-  * Copyright (C) 2023 VRULL GmbH
-  * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
-  *
-  * Copyright (C) 2023 SiFive, Inc.
-@@ -13,25 +12,17 @@
-  */
- 
- #include <asm/simd.h>
- #include <asm/vector.h>
- #include <crypto/aes.h>
--#include <crypto/internal/cipher.h>
- #include <crypto/internal/simd.h>
- #include <crypto/internal/skcipher.h>
- #include <crypto/scatterwalk.h>
- #include <crypto/xts.h>
- #include <linux/linkage.h>
- #include <linux/module.h>
- 
--asmlinkage void aes_encrypt_zvkned(const struct crypto_aes_ctx *key,
--				   const u8 in[AES_BLOCK_SIZE],
--				   u8 out[AES_BLOCK_SIZE]);
--asmlinkage void aes_decrypt_zvkned(const struct crypto_aes_ctx *key,
--				   const u8 in[AES_BLOCK_SIZE],
--				   u8 out[AES_BLOCK_SIZE]);
--
- asmlinkage void aes_ecb_encrypt_zvkned(const struct crypto_aes_ctx *key,
- 				       const u8 *in, u8 *out, size_t len);
- asmlinkage void aes_ecb_decrypt_zvkned(const struct crypto_aes_ctx *key,
- 				       const u8 *in, u8 *out, size_t len);
- 
-@@ -84,54 +75,18 @@ static int riscv64_aes_setkey(struct crypto_aes_ctx *ctx,
- 	 *   struct crypto_aes_ctx and aes_expandkey() everywhere.
- 	 */
- 	return aes_expandkey(ctx, key, keylen);
+  * _aesni_dec1:		internal ABI
+  * input:
+  *	KEYP:		key struct pointer
+  *	KLEN:		key length
+diff --git a/arch/x86/crypto/aesni-intel_glue.c b/arch/x86/crypto/aesni-intel_glue.c
+index 48405e02d6e4..453e0e890041 100644
+--- a/arch/x86/crypto/aesni-intel_glue.c
++++ b/arch/x86/crypto/aesni-intel_glue.c
+@@ -58,11 +58,10 @@ static inline void *aes_align_addr(void *addr)
  }
  
--static int riscv64_aes_setkey_cipher(struct crypto_tfm *tfm,
--				     const u8 *key, unsigned int keylen)
+ asmlinkage void aesni_set_key(struct crypto_aes_ctx *ctx, const u8 *in_key,
+ 			      unsigned int key_len);
+ asmlinkage void aesni_enc(const void *ctx, u8 *out, const u8 *in);
+-asmlinkage void aesni_dec(const void *ctx, u8 *out, const u8 *in);
+ asmlinkage void aesni_ecb_enc(struct crypto_aes_ctx *ctx, u8 *out,
+ 			      const u8 *in, unsigned int len);
+ asmlinkage void aesni_ecb_dec(struct crypto_aes_ctx *ctx, u8 *out,
+ 			      const u8 *in, unsigned int len);
+ asmlinkage void aesni_cbc_enc(struct crypto_aes_ctx *ctx, u8 *out,
+@@ -111,43 +110,10 @@ static int aes_set_key_common(struct crypto_aes_ctx *ctx,
+ 	aesni_set_key(ctx, in_key, key_len);
+ 	kernel_fpu_end();
+ 	return 0;
+ }
+ 
+-static int aes_set_key(struct crypto_tfm *tfm, const u8 *in_key,
+-		       unsigned int key_len)
 -{
--	struct crypto_aes_ctx *ctx = crypto_tfm_ctx(tfm);
--
--	return riscv64_aes_setkey(ctx, key, keylen);
+-	return aes_set_key_common(aes_ctx(crypto_tfm_ctx(tfm)), in_key,
+-				  key_len);
 -}
 -
- static int riscv64_aes_setkey_skcipher(struct crypto_skcipher *tfm,
- 				       const u8 *key, unsigned int keylen)
- {
- 	struct crypto_aes_ctx *ctx = crypto_skcipher_ctx(tfm);
- 
- 	return riscv64_aes_setkey(ctx, key, keylen);
- }
- 
--/* Bare AES, without a mode of operation */
--
--static void riscv64_aes_encrypt(struct crypto_tfm *tfm, u8 *dst, const u8 *src)
+-static void aesni_encrypt(struct crypto_tfm *tfm, u8 *dst, const u8 *src)
 -{
--	const struct crypto_aes_ctx *ctx = crypto_tfm_ctx(tfm);
+-	struct crypto_aes_ctx *ctx = aes_ctx(crypto_tfm_ctx(tfm));
 -
--	if (crypto_simd_usable()) {
--		kernel_vector_begin();
--		aes_encrypt_zvkned(ctx, src, dst);
--		kernel_vector_end();
--	} else {
+-	if (!crypto_simd_usable()) {
 -		aes_encrypt(ctx, dst, src);
--	}
--}
--
--static void riscv64_aes_decrypt(struct crypto_tfm *tfm, u8 *dst, const u8 *src)
--{
--	const struct crypto_aes_ctx *ctx = crypto_tfm_ctx(tfm);
--
--	if (crypto_simd_usable()) {
--		kernel_vector_begin();
--		aes_decrypt_zvkned(ctx, src, dst);
--		kernel_vector_end();
 -	} else {
--		aes_decrypt(ctx, dst, src);
+-		kernel_fpu_begin();
+-		aesni_enc(ctx, dst, src);
+-		kernel_fpu_end();
 -	}
 -}
 -
- /* AES-ECB */
- 
- static inline int riscv64_aes_ecb_crypt(struct skcipher_request *req, bool enc)
+-static void aesni_decrypt(struct crypto_tfm *tfm, u8 *dst, const u8 *src)
+-{
+-	struct crypto_aes_ctx *ctx = aes_ctx(crypto_tfm_ctx(tfm));
+-
+-	if (!crypto_simd_usable()) {
+-		aes_decrypt(ctx, dst, src);
+-	} else {
+-		kernel_fpu_begin();
+-		aesni_dec(ctx, dst, src);
+-		kernel_fpu_end();
+-	}
+-}
+-
+ static int aesni_skcipher_setkey(struct crypto_skcipher *tfm, const u8 *key,
+ 			         unsigned int len)
  {
- 	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
-@@ -336,21 +291,21 @@ static int riscv64_aes_ctr_crypt(struct skcipher_request *req)
- 
- /* AES-XTS */
- 
- struct riscv64_aes_xts_ctx {
- 	struct crypto_aes_ctx ctx1;
--	struct crypto_aes_ctx ctx2;
-+	struct aes_enckey tweak_key;
- };
- 
- static int riscv64_aes_xts_setkey(struct crypto_skcipher *tfm, const u8 *key,
- 				  unsigned int keylen)
+ 	return aes_set_key_common(aes_ctx(crypto_skcipher_ctx(tfm)), key, len);
+ }
+@@ -542,29 +508,10 @@ static int xts_encrypt_aesni(struct skcipher_request *req)
+ static int xts_decrypt_aesni(struct skcipher_request *req)
  {
- 	struct riscv64_aes_xts_ctx *ctx = crypto_skcipher_ctx(tfm);
- 
- 	return xts_verify_key(tfm, key, keylen) ?:
- 	       riscv64_aes_setkey(&ctx->ctx1, key, keylen / 2) ?:
--	       riscv64_aes_setkey(&ctx->ctx2, key + keylen / 2, keylen / 2);
-+	       aes_prepareenckey(&ctx->tweak_key, key + keylen / 2, keylen / 2);
+ 	return xts_crypt(req, aesni_xts_encrypt_iv, aesni_xts_decrypt);
  }
  
- static int riscv64_aes_xts_crypt(struct skcipher_request *req, bool enc)
- {
- 	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
-@@ -364,13 +319,11 @@ static int riscv64_aes_xts_crypt(struct skcipher_request *req, bool enc)
- 
- 	if (req->cryptlen < AES_BLOCK_SIZE)
- 		return -EINVAL;
- 
- 	/* Encrypt the IV with the tweak key to get the first tweak. */
--	kernel_vector_begin();
--	aes_encrypt_zvkned(&ctx->ctx2, req->iv, req->iv);
--	kernel_vector_end();
-+	aes_encrypt(&ctx->tweak_key, req->iv, req->iv);
- 
- 	err = skcipher_walk_virt(&walk, req, false);
- 
- 	/*
- 	 * If the message length isn't divisible by the AES block size and the
-@@ -454,27 +407,10 @@ static int riscv64_aes_xts_decrypt(struct skcipher_request *req)
- 	return riscv64_aes_xts_crypt(req, false);
- }
- 
- /* Algorithm definitions */
- 
--static struct crypto_alg riscv64_zvkned_aes_cipher_alg = {
--	.cra_flags = CRYPTO_ALG_TYPE_CIPHER,
--	.cra_blocksize = AES_BLOCK_SIZE,
--	.cra_ctxsize = sizeof(struct crypto_aes_ctx),
--	.cra_priority = 300,
--	.cra_name = "aes",
--	.cra_driver_name = "aes-riscv64-zvkned",
--	.cra_cipher = {
--		.cia_min_keysize = AES_MIN_KEY_SIZE,
--		.cia_max_keysize = AES_MAX_KEY_SIZE,
--		.cia_setkey = riscv64_aes_setkey_cipher,
--		.cia_encrypt = riscv64_aes_encrypt,
--		.cia_decrypt = riscv64_aes_decrypt,
--	},
--	.cra_module = THIS_MODULE,
+-static struct crypto_alg aesni_cipher_alg = {
+-	.cra_name		= "aes",
+-	.cra_driver_name	= "aes-aesni",
+-	.cra_priority		= 300,
+-	.cra_flags		= CRYPTO_ALG_TYPE_CIPHER,
+-	.cra_blocksize		= AES_BLOCK_SIZE,
+-	.cra_ctxsize		= CRYPTO_AES_CTX_SIZE,
+-	.cra_module		= THIS_MODULE,
+-	.cra_u	= {
+-		.cipher	= {
+-			.cia_min_keysize	= AES_MIN_KEY_SIZE,
+-			.cia_max_keysize	= AES_MAX_KEY_SIZE,
+-			.cia_setkey		= aes_set_key,
+-			.cia_encrypt		= aesni_encrypt,
+-			.cia_decrypt		= aesni_decrypt
+-		}
+-	}
 -};
 -
- static struct skcipher_alg riscv64_zvkned_aes_skcipher_algs[] = {
+ static struct skcipher_alg aesni_skciphers[] = {
  	{
- 		.setkey = riscv64_aes_setkey_skcipher,
- 		.encrypt = riscv64_aes_ecb_encrypt,
- 		.decrypt = riscv64_aes_ecb_decrypt,
-@@ -572,19 +508,15 @@ static int __init riscv64_aes_mod_init(void)
- {
- 	int err = -ENODEV;
+ 		.base = {
+ 			.cra_name		= "ecb(aes)",
+ 			.cra_driver_name	= "ecb-aes-aesni",
+@@ -1687,18 +1634,14 @@ static int __init aesni_init(void)
+ 	int err;
  
- 	if (riscv_isa_extension_available(NULL, ZVKNED) &&
- 	    riscv_vector_vlen() >= 128) {
--		err = crypto_register_alg(&riscv64_zvkned_aes_cipher_alg);
--		if (err)
--			return err;
+ 	if (!x86_match_cpu(aesni_cpu_id))
+ 		return -ENODEV;
+ 
+-	err = crypto_register_alg(&aesni_cipher_alg);
+-	if (err)
+-		return err;
 -
- 		err = crypto_register_skciphers(
- 			riscv64_zvkned_aes_skcipher_algs,
- 			ARRAY_SIZE(riscv64_zvkned_aes_skcipher_algs));
- 		if (err)
--			goto unregister_zvkned_cipher_alg;
-+			return err;
+ 	err = crypto_register_skciphers(aesni_skciphers,
+ 					ARRAY_SIZE(aesni_skciphers));
+ 	if (err)
+-		goto unregister_cipher;
++		return err;
  
- 		if (riscv_isa_extension_available(NULL, ZVKB)) {
- 			err = crypto_register_skcipher(
- 				&riscv64_zvkned_zvkb_aes_skcipher_alg);
- 			if (err)
-@@ -605,12 +537,10 @@ static int __init riscv64_aes_mod_init(void)
- 	if (riscv_isa_extension_available(NULL, ZVKB))
- 		crypto_unregister_skcipher(&riscv64_zvkned_zvkb_aes_skcipher_alg);
- unregister_zvkned_skcipher_algs:
- 	crypto_unregister_skciphers(riscv64_zvkned_aes_skcipher_algs,
- 				    ARRAY_SIZE(riscv64_zvkned_aes_skcipher_algs));
--unregister_zvkned_cipher_alg:
--	crypto_unregister_alg(&riscv64_zvkned_aes_cipher_alg);
+ 	err = crypto_register_aeads(aes_gcm_algs_aesni,
+ 				    ARRAY_SIZE(aes_gcm_algs_aesni));
+ 	if (err)
+ 		goto unregister_skciphers;
+@@ -1714,22 +1657,19 @@ static int __init aesni_init(void)
+ 	crypto_unregister_aeads(aes_gcm_algs_aesni,
+ 				ARRAY_SIZE(aes_gcm_algs_aesni));
+ unregister_skciphers:
+ 	crypto_unregister_skciphers(aesni_skciphers,
+ 				    ARRAY_SIZE(aesni_skciphers));
+-unregister_cipher:
+-	crypto_unregister_alg(&aesni_cipher_alg);
  	return err;
  }
  
- static void __exit riscv64_aes_mod_exit(void)
+ static void __exit aesni_exit(void)
  {
-@@ -618,11 +548,10 @@ static void __exit riscv64_aes_mod_exit(void)
- 		crypto_unregister_skcipher(&riscv64_zvkned_zvbb_zvkg_aes_skcipher_alg);
- 	if (riscv_isa_extension_available(NULL, ZVKB))
- 		crypto_unregister_skcipher(&riscv64_zvkned_zvkb_aes_skcipher_alg);
- 	crypto_unregister_skciphers(riscv64_zvkned_aes_skcipher_algs,
- 				    ARRAY_SIZE(riscv64_zvkned_aes_skcipher_algs));
--	crypto_unregister_alg(&riscv64_zvkned_aes_cipher_alg);
+ 	crypto_unregister_aeads(aes_gcm_algs_aesni,
+ 				ARRAY_SIZE(aes_gcm_algs_aesni));
+ 	crypto_unregister_skciphers(aesni_skciphers,
+ 				    ARRAY_SIZE(aesni_skciphers));
+-	crypto_unregister_alg(&aesni_cipher_alg);
+ 	unregister_avx_algs();
  }
  
- module_init(riscv64_aes_mod_init);
- module_exit(riscv64_aes_mod_exit);
- 
-diff --git a/arch/riscv/crypto/aes-riscv64-zvkned.S b/arch/riscv/crypto/aes-riscv64-zvkned.S
-index 23d063f94ce6..d0fc4581a380 100644
---- a/arch/riscv/crypto/aes-riscv64-zvkned.S
-+++ b/arch/riscv/crypto/aes-riscv64-zvkned.S
-@@ -54,37 +54,10 @@
- #define INP		a1
- #define OUTP		a2
- #define LEN		a3
- #define IVP		a4
- 
--.macro	__aes_crypt_zvkned	enc, keylen
--	vle32.v		v16, (INP)
--	aes_crypt	v16, \enc, \keylen
--	vse32.v		v16, (OUTP)
--	ret
--.endm
--
--.macro	aes_crypt_zvkned	enc
--	aes_begin	KEYP, 128f, 192f
--	__aes_crypt_zvkned	\enc, 256
--128:
--	__aes_crypt_zvkned	\enc, 128
--192:
--	__aes_crypt_zvkned	\enc, 192
--.endm
--
--// void aes_encrypt_zvkned(const struct crypto_aes_ctx *key,
--//			   const u8 in[16], u8 out[16]);
--SYM_FUNC_START(aes_encrypt_zvkned)
--	aes_crypt_zvkned	1
--SYM_FUNC_END(aes_encrypt_zvkned)
--
--// Same prototype and calling convention as the encryption function
--SYM_FUNC_START(aes_decrypt_zvkned)
--	aes_crypt_zvkned	0
--SYM_FUNC_END(aes_decrypt_zvkned)
--
- .macro	__aes_ecb_crypt	enc, keylen
- 	srli		t0, LEN, 2
- 	// t0 is the remaining length in 32-bit words.  It's a multiple of 4.
- 1:
- 	vsetvli		t1, t0, e32, m8, ta, ma
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index a0f1c105827e..2690b5ffc5ca 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -15,10 +15,12 @@ config CRYPTO_LIB_AES_ARCH
- 	bool
- 	depends on CRYPTO_LIB_AES && !UML && !KMSAN
- 	default y if ARM
- 	default y if ARM64
- 	default y if PPC && (SPE || (PPC64 && VSX))
-+	default y if RISCV && 64BIT && TOOLCHAIN_HAS_VECTOR_CRYPTO && \
-+		     RISCV_EFFICIENT_VECTOR_UNALIGNED_ACCESS
- 
- config CRYPTO_LIB_AESCFB
- 	tristate
- 	select CRYPTO_LIB_AES
- 	select CRYPTO_LIB_UTILS
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index 16140616ace8..811b60787dd5 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -48,10 +48,11 @@ $(obj)/powerpc/aesp8-ppc.S: $(src)/powerpc/aesp8-ppc.pl FORCE
- targets += powerpc/aesp8-ppc.S
- OBJECT_FILES_NON_STANDARD_powerpc/aesp8-ppc.o := y
- endif # !CONFIG_SPE
- endif # CONFIG_PPC
- 
-+libaes-$(CONFIG_RISCV) += riscv/aes-riscv64-zvkned.o
- endif # CONFIG_CRYPTO_LIB_AES_ARCH
- 
- ################################################################################
- 
- obj-$(CONFIG_CRYPTO_LIB_AESCFB)			+= libaescfb.o
-diff --git a/lib/crypto/riscv/aes-riscv64-zvkned.S b/lib/crypto/riscv/aes-riscv64-zvkned.S
-new file mode 100644
-index 000000000000..0d988bc3d37b
---- /dev/null
-+++ b/lib/crypto/riscv/aes-riscv64-zvkned.S
-@@ -0,0 +1,84 @@
-+/* SPDX-License-Identifier: Apache-2.0 OR BSD-2-Clause */
-+//
-+// This file is dual-licensed, meaning that you can use it under your
-+// choice of either of the following two licenses:
-+//
-+// Copyright 2023 The OpenSSL Project Authors. All Rights Reserved.
-+//
-+// Licensed under the Apache License 2.0 (the "License"). You can obtain
-+// a copy in the file LICENSE in the source distribution or at
-+// https://www.openssl.org/source/license.html
-+//
-+// or
-+//
-+// Copyright (c) 2023, Christoph Müllner <christoph.muellner@vrull.eu>
-+// Copyright (c) 2023, Phoebe Chen <phoebe.chen@sifive.com>
-+// Copyright (c) 2023, Jerry Shih <jerry.shih@sifive.com>
-+// Copyright 2024 Google LLC
-+// All rights reserved.
-+//
-+// Redistribution and use in source and binary forms, with or without
-+// modification, are permitted provided that the following conditions
-+// are met:
-+// 1. Redistributions of source code must retain the above copyright
-+//    notice, this list of conditions and the following disclaimer.
-+// 2. Redistributions in binary form must reproduce the above copyright
-+//    notice, this list of conditions and the following disclaimer in the
-+//    documentation and/or other materials provided with the distribution.
-+//
-+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-+
-+// The generated code of this file depends on the following RISC-V extensions:
-+// - RV64I
-+// - RISC-V Vector ('V') with VLEN >= 128
-+// - RISC-V Vector AES block cipher extension ('Zvkned')
-+
-+#include <linux/linkage.h>
-+
-+.text
-+.option arch, +zvkned
-+
-+#include "../../arch/riscv/crypto/aes-macros.S"
-+
-+#define RNDKEYS		a0
-+#define KEY_LEN		a1
-+#define OUTP		a2
-+#define INP		a3
-+
-+.macro	__aes_crypt_zvkned	enc, keybits
-+	vle32.v		v16, (INP)
-+	aes_crypt	v16, \enc, \keybits
-+	vse32.v		v16, (OUTP)
-+	ret
-+.endm
-+
-+.macro	aes_crypt_zvkned	enc
-+	aes_begin	RNDKEYS, 128f, 192f, KEY_LEN
-+	__aes_crypt_zvkned	\enc, 256
-+128:
-+	__aes_crypt_zvkned	\enc, 128
-+192:
-+	__aes_crypt_zvkned	\enc, 192
-+.endm
-+
-+// void aes_encrypt_zvkned(const u32 rndkeys[], int key_len,
-+//			   u8 out[AES_BLOCK_SIZE], const u8 in[AES_BLOCK_SIZE]);
-+SYM_FUNC_START(aes_encrypt_zvkned)
-+	aes_crypt_zvkned	1
-+SYM_FUNC_END(aes_encrypt_zvkned)
-+
-+// void aes_decrypt_zvkned(const u32 rndkeys[], int key_len,
-+//			   u8 out[AES_BLOCK_SIZE], const u8 in[AES_BLOCK_SIZE]);
-+SYM_FUNC_START(aes_decrypt_zvkned)
-+	aes_crypt_zvkned	0
-+SYM_FUNC_END(aes_decrypt_zvkned)
-diff --git a/lib/crypto/riscv/aes.h b/lib/crypto/riscv/aes.h
-new file mode 100644
-index 000000000000..0b26f58faf2b
---- /dev/null
-+++ b/lib/crypto/riscv/aes.h
-@@ -0,0 +1,63 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2023 VRULL GmbH
-+ * Copyright (C) 2023 SiFive, Inc.
-+ * Copyright 2024 Google LLC
-+ */
-+
-+#include <asm/simd.h>
-+#include <asm/vector.h>
-+
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_zvkned);
-+
-+void aes_encrypt_zvkned(const u32 rndkeys[], int key_len,
-+			u8 out[AES_BLOCK_SIZE], const u8 in[AES_BLOCK_SIZE]);
-+void aes_decrypt_zvkned(const u32 rndkeys[], int key_len,
-+			u8 out[AES_BLOCK_SIZE], const u8 in[AES_BLOCK_SIZE]);
-+
-+static void aes_preparekey_arch(union aes_enckey_arch *k,
-+				union aes_invkey_arch *inv_k,
-+				const u8 *in_key, int key_len, int nrounds)
-+{
-+	aes_expandkey_generic(k->rndkeys, inv_k ? inv_k->inv_rndkeys : NULL,
-+			      in_key, key_len);
-+}
-+
-+static void aes_encrypt_arch(const struct aes_enckey *key,
-+			     u8 out[AES_BLOCK_SIZE],
-+			     const u8 in[AES_BLOCK_SIZE])
-+{
-+	if (static_branch_likely(&have_zvkned) && likely(may_use_simd())) {
-+		kernel_vector_begin();
-+		aes_encrypt_zvkned(key->k.rndkeys, key->len, out, in);
-+		kernel_vector_end();
-+	} else {
-+		aes_encrypt_generic(key->k.rndkeys, key->nrounds, out, in);
-+	}
-+}
-+
-+static void aes_decrypt_arch(const struct aes_key *key,
-+			     u8 out[AES_BLOCK_SIZE],
-+			     const u8 in[AES_BLOCK_SIZE])
-+{
-+	/*
-+	 * Note that the Zvkned code uses the standard round keys, while the
-+	 * fallback uses the inverse round keys.  Thus both must be present.
-+	 */
-+	if (static_branch_likely(&have_zvkned) && likely(may_use_simd())) {
-+		kernel_vector_begin();
-+		aes_decrypt_zvkned(key->k.rndkeys, key->len, out, in);
-+		kernel_vector_end();
-+	} else {
-+		aes_decrypt_generic(key->inv_k.inv_rndkeys, key->nrounds,
-+				    out, in);
-+	}
-+}
-+
-+#define aes_mod_init_arch aes_mod_init_arch
-+static void aes_mod_init_arch(void)
-+{
-+	if (riscv_isa_extension_available(NULL, ZVKNED) &&
-+	    riscv_vector_vlen() >= 128)
-+		static_branch_enable(&have_zvkned);
-+}
+ module_init(aesni_init);
+ module_exit(aesni_exit);
 -- 
 2.52.0
 
