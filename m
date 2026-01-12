@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 608EDC9EC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 12:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53CCBC9EC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 12:12:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wZ8JadAnhhLLDN9rl15tWSDMysc6I539TMUK/8bBn6U=; b=gjrMXco4K2RMa+wuJasf0NY99w
-	2YdmqN1lScKOG+srNUgg4uhPVF9Hn61pA5OtzlB5pNBeArkjFF6F7yXaF03sbzTZyZJZhHiHi4vAv
-	hgfyOSPJnLRxxcmNeSOF6sSaQpOL/w9P+me2e0FoTATM2/X9zGC/MajhP33+zxy5mWcmCFcrfImhh
-	Hp1BojOKjqIz4CnaYEaIIUAUirJj/N3OCsVR7kpu8Lsk+is2eO3NdCb6UDEddWBxSKtFNNzIBSPiY
-	L/355vuJETtPuPjG5bFTcU3E0mvPef97jPEtGTsy6BWCztClI8sDGcOuMUsG8lG7bAWCHh9Bq/sCC
-	JVLu4F9g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iePCKqThvl8UucftY09/BLc7SJsp6+M3d3LYNyJg5xU=; b=iOIBLkij1IZtH/TAN/Z/PoEcZ6
+	6GzBHiLJWjCQ5hKV0sADE90dtVuuPtqtMeAPtuLMydpzTqeoQ+WTBwp2U5BFOaP+99k3oa9lKGd4F
+	m/yxABVWYCy7geoN8HYmBskpfHQnrkv3naEisM4URR6a6TEydnQ+toiJcgtaijfRD/6rEQq4zEOVb
+	QDPpYJLo7E0rOHmZ5z9WFsBp+kKAMhdB4Ou1YfFc3HWRe5GMFjpDRnTDuaWq1fa+HbKCTKXD1+bLP
+	bAH55PNpFp4pw4n06zFac9pgxZHaMtpU4Ust0NTR+dgiLuRJzd56bY25j7WOZQX2Li4uuzOkWwlIF
+	BaGO3Vwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfGmN-00000005JMf-1Vlq;
-	Mon, 12 Jan 2026 12:12:15 +0000
+	id 1vfGmX-00000005JOe-3dzv;
+	Mon, 12 Jan 2026 12:12:25 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfGmL-00000005JLz-0yNd
+	id 1vfGmU-00000005JO3-1Jb0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 12:12:14 +0000
+	Mon, 12 Jan 2026 12:12:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D035740045;
-	Mon, 12 Jan 2026 12:12:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B428C16AAE;
-	Mon, 12 Jan 2026 12:12:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0905A4391E;
+	Mon, 12 Jan 2026 12:12:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61294C16AAE;
+	Mon, 12 Jan 2026 12:12:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768219930;
-	bh=n+svx5fkeE5YImMc49W7xxRF+Ubqh9i7V5UVorUcq94=;
-	h=From:To:Cc:Subject:Date:From;
-	b=DCoYWzDbQQzHfOsVALDJjNFMowUJNh7cvrpEsY0T9IpSPIfHsFho8xvAiLZ9uRiT/
-	 UJlAvjbepq7i4omK1vVk5jfn2m52M3fi0MgOY+7ViRz3edRwnX+sta1ja5/Z/PYSv4
-	 PqfXZhDz5unC5AyZCGlZfQopW/qcG6wMhQ7LQC0Sq4wgzljF37WtjxIJpktRIRKK3h
-	 o5ChMZGCdQPqK7S6RBYkx2SJogqNJcPNFf0+ji0BQehLIuxHjoEOBRxn1m0m3+n+sN
-	 fto4I1Q1xJDehojU8Jo6r3LbJgEYnmuCD8rVtv14TdlaJoBm1kEawKulzTuPvQ3Mcz
-	 DYz1jXU9w0ehg==
+	s=k20201202; t=1768219941;
+	bh=KYN08OfhJKdVOxdem4pFSBq1PJAMgzGcdLnB3YeasnE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=P2XBidzzhTmyO2SwYfh5ARhZLgNvJNHbUPixPtPUCNfnsLWXoVheNL+Urc8k0LyVg
+	 9fEgCwyfa1amaJZZ4qrYkLTdwayQ/M9A4CyrCU2arz2pjo8nhxAhmX4PjfvW65XZwW
+	 NehGLc77SnciQyAzAQ0MdsdMn6JQBzTwOI4U3Bu09gX+DLs2BVVuqCZePoCjaCzfpL
+	 ARkvlSfzN9z5YiY5JBCzBEbafXjZlZ+LyzdbYUpcpntBJRWZPs8iSJsAtJnttDzd0c
+	 ZIMoMnObhYpUD7JjxNCT/Ovckdk4vRdjEQiZ7eaopPG4QRWssbQOP3s3KuMcfskj/K
+	 Pr9Od2SJJOzow==
 From: Jiri Olsa <jolsa@kernel.org>
 To: Masami Hiramatsu <mhiramat@kernel.org>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Will Deacon <will@kernel.org>
-Cc: Mahe Tardy <mahe.tardy@gmail.com>,
+Cc: Song Liu <song@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	bpf@vger.kernel.org,
 	linux-trace-kernel@vger.kernel.org,
@@ -55,16 +55,19 @@ Cc: Mahe Tardy <mahe.tardy@gmail.com>,
 	Yonghong Song <yhs@fb.com>,
 	Song Liu <songliubraving@fb.com>,
 	Andrii Nakryiko <andrii@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: [PATCHv3 bpf-next 1/2] arm64/ftrace,bpf: Fix partial regs after bpf_prog_run
-Date: Mon, 12 Jan 2026 13:11:56 +0100
-Message-ID: <20260112121157.854473-1-jolsa@kernel.org>
+	Mark Rutland <mark.rutland@arm.com>,
+	Mahe Tardy <mahe.tardy@gmail.com>
+Subject: [PATCHv3 bpf-next 2/2] selftests/bpf: Add test for bpf_override_return helper
+Date: Mon, 12 Jan 2026 13:11:57 +0100
+Message-ID: <20260112121157.854473-2-jolsa@kernel.org>
 X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260112121157.854473-1-jolsa@kernel.org>
+References: <20260112121157.854473-1-jolsa@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_041213_312236_0097544C 
-X-CRM114-Status: GOOD (  15.54  )
+X-CRM114-CacheID: sfid-20260112_041222_386019_7FD0255E 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,78 +82,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mahe reported issue with bpf_override_return helper not working when
-executed from kprobe.multi bpf program on arm.
+We do not actually test the bpf_override_return helper functionality
+itself at the moment, only the bpf program being able to attach it.
 
-The problem is that on arm we use alternate storage for pt_regs object
-that is passed to bpf_prog_run and if any register is changed (which
-is the case of bpf_override_return) it's not propagated back to actual
-pt_regs object.
+Adding test that override prctl syscall return value on top of
+kprobe and kprobe.multi.
 
-Fixing this by introducing and calling ftrace_partial_regs_update function
-to propagate the values of changed registers (ip and stack).
-
-Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
-Acked-by: Will Deacon <will@kernel.org>
-Reported-by: Mahe Tardy <mahe.tardy@gmail.com>
+Acked-by: Song Liu <song@kernel.org>
 Signed-off-by: Jiri Olsa <jolsa@kernel.org>
 ---
-v3 changes:
-- drop const from fregs argument [ci]
-- added acks
+ .../bpf/prog_tests/kprobe_multi_test.c        | 44 +++++++++++++++++++
+ .../bpf/progs/kprobe_multi_override.c         | 15 +++++++
+ tools/testing/selftests/bpf/trace_helpers.h   | 12 +++++
+ 3 files changed, 71 insertions(+)
 
- include/linux/ftrace_regs.h | 25 +++++++++++++++++++++++++
- kernel/trace/bpf_trace.c    |  1 +
- 2 files changed, 26 insertions(+)
-
-diff --git a/include/linux/ftrace_regs.h b/include/linux/ftrace_regs.h
-index 15627ceea9bc..386fa48c4a95 100644
---- a/include/linux/ftrace_regs.h
-+++ b/include/linux/ftrace_regs.h
-@@ -33,6 +33,31 @@ struct ftrace_regs;
- #define ftrace_regs_get_frame_pointer(fregs) \
- 	frame_pointer(&arch_ftrace_regs(fregs)->regs)
+diff --git a/tools/testing/selftests/bpf/prog_tests/kprobe_multi_test.c b/tools/testing/selftests/bpf/prog_tests/kprobe_multi_test.c
+index 6cfaa978bc9a..9caef222e528 100644
+--- a/tools/testing/selftests/bpf/prog_tests/kprobe_multi_test.c
++++ b/tools/testing/selftests/bpf/prog_tests/kprobe_multi_test.c
+@@ -1,4 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0
++#include <errno.h>
++#include <sys/prctl.h>
+ #include <test_progs.h>
+ #include "kprobe_multi.skel.h"
+ #include "trace_helpers.h"
+@@ -540,6 +542,46 @@ static void test_attach_override(void)
+ 	kprobe_multi_override__destroy(skel);
+ }
  
-+static __always_inline void
-+ftrace_partial_regs_update(struct ftrace_regs *fregs, struct pt_regs *regs) { }
-+
-+#else
-+
-+/*
-+ * ftrace_partial_regs_update - update the original ftrace_regs from regs
-+ * @fregs: The ftrace_regs to update from @regs
-+ * @regs: The partial regs from ftrace_partial_regs() that was updated
-+ *
-+ * Some architectures have the partial regs living in the ftrace_regs
-+ * structure, whereas other architectures need to make a different copy
-+ * of the @regs. If a partial @regs is retrieved by ftrace_partial_regs() and
-+ * if the code using @regs updates a field (like the instruction pointer or
-+ * stack pointer) it may need to propagate that change to the original @fregs
-+ * it retrieved the partial @regs from. Use this function to guarantee that
-+ * update happens.
-+ */
-+static __always_inline void
-+ftrace_partial_regs_update(struct ftrace_regs *fregs, struct pt_regs *regs)
++static void test_override(void)
 +{
-+	ftrace_regs_set_instruction_pointer(fregs, instruction_pointer(regs));
-+	ftrace_regs_set_return_value(fregs, regs_return_value(regs));
++	struct kprobe_multi_override *skel = NULL;
++	int err;
++
++	skel = kprobe_multi_override__open_and_load();
++	if (!ASSERT_OK_PTR(skel, "kprobe_multi_empty__open_and_load"))
++		goto cleanup;
++
++	skel->bss->pid = getpid();
++
++	/* no override */
++	err = prctl(0xffff, 0);
++	ASSERT_EQ(err, -1, "err");
++
++	/* kprobe.multi override */
++	skel->links.test_override = bpf_program__attach_kprobe_multi_opts(skel->progs.test_override,
++						SYS_PREFIX "sys_prctl", NULL);
++	if (!ASSERT_OK_PTR(skel->links.test_override, "bpf_program__attach_kprobe_multi_opts"))
++		goto cleanup;
++
++	err = prctl(0xffff, 0);
++	ASSERT_EQ(err, 123, "err");
++
++	bpf_link__destroy(skel->links.test_override);
++	skel->links.test_override = NULL;
++
++	/* kprobe override */
++	skel->links.test_kprobe_override = bpf_program__attach_kprobe(skel->progs.test_kprobe_override,
++							false, SYS_PREFIX "sys_prctl");
++	if (!ASSERT_OK_PTR(skel->links.test_kprobe_override, "bpf_program__attach_kprobe"))
++		goto cleanup;
++
++	err = prctl(0xffff, 0);
++	ASSERT_EQ(err, 123, "err");
++
++cleanup:
++	kprobe_multi_override__destroy(skel);
 +}
 +
- #endif /* HAVE_ARCH_FTRACE_REGS */
+ #ifdef __x86_64__
+ static void test_attach_write_ctx(void)
+ {
+@@ -597,6 +639,8 @@ void test_kprobe_multi_test(void)
+ 		test_attach_api_fails();
+ 	if (test__start_subtest("attach_override"))
+ 		test_attach_override();
++	if (test__start_subtest("override"))
++		test_override();
+ 	if (test__start_subtest("session"))
+ 		test_session_skel_api();
+ 	if (test__start_subtest("session_cookie"))
+diff --git a/tools/testing/selftests/bpf/progs/kprobe_multi_override.c b/tools/testing/selftests/bpf/progs/kprobe_multi_override.c
+index 28f8487c9059..14f39fa6d515 100644
+--- a/tools/testing/selftests/bpf/progs/kprobe_multi_override.c
++++ b/tools/testing/selftests/bpf/progs/kprobe_multi_override.c
+@@ -5,9 +5,24 @@
  
- /* This can be overridden by the architectures */
-diff --git a/kernel/trace/bpf_trace.c b/kernel/trace/bpf_trace.c
-index 6e076485bf70..3a17f79b20c2 100644
---- a/kernel/trace/bpf_trace.c
-+++ b/kernel/trace/bpf_trace.c
-@@ -2564,6 +2564,7 @@ kprobe_multi_link_prog_run(struct bpf_kprobe_multi_link *link,
- 	old_run_ctx = bpf_set_run_ctx(&run_ctx.session_ctx.run_ctx);
- 	err = bpf_prog_run(link->link.prog, regs);
- 	bpf_reset_run_ctx(old_run_ctx);
-+	ftrace_partial_regs_update(fregs, bpf_kprobe_multi_pt_regs_ptr());
- 	rcu_read_unlock();
+ char _license[] SEC("license") = "GPL";
  
-  out:
++int pid = 0;
++
+ SEC("kprobe.multi")
+ int test_override(struct pt_regs *ctx)
+ {
++	if (bpf_get_current_pid_tgid() >> 32 != pid)
++		return 0;
++
++	bpf_override_return(ctx, 123);
++	return 0;
++}
++
++SEC("kprobe")
++int test_kprobe_override(struct pt_regs *ctx)
++{
++	if (bpf_get_current_pid_tgid() >> 32 != pid)
++		return 0;
++
+ 	bpf_override_return(ctx, 123);
+ 	return 0;
+ }
+diff --git a/tools/testing/selftests/bpf/trace_helpers.h b/tools/testing/selftests/bpf/trace_helpers.h
+index 9437bdd4afa5..a5576b2dfc26 100644
+--- a/tools/testing/selftests/bpf/trace_helpers.h
++++ b/tools/testing/selftests/bpf/trace_helpers.h
+@@ -4,6 +4,18 @@
+ 
+ #include <bpf/libbpf.h>
+ 
++#ifdef __x86_64__
++#define SYS_PREFIX "__x64_"
++#elif defined(__s390x__)
++#define SYS_PREFIX "__s390x_"
++#elif defined(__aarch64__)
++#define SYS_PREFIX "__arm64_"
++#elif defined(__riscv)
++#define SYS_PREFIX "__riscv_"
++#else
++#define SYS_PREFIX ""
++#endif
++
+ #define __ALIGN_MASK(x, mask)	(((x)+(mask))&~(mask))
+ #define ALIGN(x, a)		__ALIGN_MASK(x, (typeof(x))(a)-1)
+ 
 -- 
 2.52.0
 
