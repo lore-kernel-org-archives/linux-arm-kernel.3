@@ -4,78 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55732C9EC95
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 14:37:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B957C9EC97
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 14:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x0QhXSCaxvz44BA0HsV/IQ3kwCARdbhUj53s3V+cfH4=; b=oxW66uAG+F/XXWrsVh9y/ab0g1
-	6k6SgKH6HtJkxcK15XIvi4WasbZqXH19FhHQ3TpwDkplAhqGQw5szWMvvsPObeNblK+rCrvkhhQqe
-	R8hAerYawMT7xgfnZRSU4SyoIzLfMn7vMTALfTNQBjqYHhrD/fd2v64IGC5AfMoMqP57TNwfwoDhb
-	wyrVlFR9HAmRNypGc+txpkRqvrS2umIeSnwlJuXQaaxy29Y6BqPsZ1Ph9CS0hdTovHojDdl3fR9LP
-	YSyeEHR7fH08Rt3/DJj9hxBxbJAN5I8xum3BrNtOuy3C7VcqaDHqwrudZ77VKi642eB+upJO7c/LK
-	xdf4CtwQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VW4DaQn0F9ShMODori7pNkDPU2svdsWM/kFgTgzIaBI=; b=Nac3JTkm9l1HsZkZVhH+NYTnLc
+	37w0t8CgoPGlIvTEzRYNqRLyXVmx/9YXKX34Sx2JGKIfKffXDoZmGxQRKeGyd5zfHQW6YroYcDO6U
+	3qM6NiYxKlL4Z+/x1R639BcASUCcdV+Pef8SvCprqkrubTBXP1Q5eRNjdBW0LHhHSPwNwodP4pnqd
+	BT5XieY12AN1Umckq1qN/w/v9z3e88j5N6CC0Yqnm6txbzIN4m684tIS4vv0pOwIcCdC0u9DMDwuo
+	Wuf3smJdezctxuzOQBgtbNMPu8PS31136XkEwsoFfGYIyadQ0aPwDr8x5b3dY1Et3KRrIW/rWMBEo
+	Fquul+DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfJ2s-00000005XuE-0ntq;
-	Mon, 12 Jan 2026 14:37:26 +0000
-Received: from sinmsgout01.his.huawei.com ([119.8.177.36])
+	id 1vfJ3l-00000005Y2f-0CPO;
+	Mon, 12 Jan 2026 14:38:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfJ2p-00000005XtU-0t5F
+	id 1vfJ3i-00000005Y1x-1HqF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 14:37:25 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=x0QhXSCaxvz44BA0HsV/IQ3kwCARdbhUj53s3V+cfH4=;
-	b=ODq7LQDwD5asnR14b4xgrukojHgVeMiNcxUTB4BPmL2RlzuPp9D5X6Rf7FGsQEF+gLMeF8z8m
-	bVcRrDpiuZBpgXFGH3NTi7+lxqlsgWvRk9eNwUTpy611wY4I9+4IuAOMiu5Zy0uRAJrADAFBGtM
-	PxRAuOktYFOMPVg0JFaOxe8=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.33])
-	by sinmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4dqZf041Xhz1P6jN;
-	Mon, 12 Jan 2026 22:34:48 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dqZhY11CmzJ467X;
-	Mon, 12 Jan 2026 22:37:01 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id A20F040086;
-	Mon, 12 Jan 2026 22:37:12 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 12 Jan
- 2026 14:37:11 +0000
-Date: Mon, 12 Jan 2026 14:37:10 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd
-	<nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
-	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Timothy Hayes
-	<Timothy.Hayes@arm.com>
-Subject: Re: [PATCH v3 06/36] KVM: arm64: gic: Set vgic_model before initing
- private IRQs
-Message-ID: <20260112143710.00007f9d@huawei.com>
-In-Reply-To: <20260109170400.1585048-7-sascha.bischoff@arm.com>
-References: <20260109170400.1585048-1-sascha.bischoff@arm.com>
-	<20260109170400.1585048-7-sascha.bischoff@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+	Mon, 12 Jan 2026 14:38:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3741D40A14;
+	Mon, 12 Jan 2026 14:38:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E7E6C16AAE;
+	Mon, 12 Jan 2026 14:38:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768228696;
+	bh=hPnVCOatYGzLOa+t8h7DMKJS+uAKexx4C+dG22dwM8E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=s8c5A5Z5PG/he936n0Psk1RDtotttGleVl4zanApayBG803WUi+LTfcWHEid8y4ww
+	 Cd9Kjgm7Pneay4rK1lwtud/3ERJc2DHLKs+yvGU9Xtno8rgAJTCyTofDQG/wF7iZx7
+	 D3T0pyJfeOtPFvpNE1PJDPu05vPwWz4n0aKei/7z0EuQEeDsgfudgGXIQEYVM/rBUK
+	 06QAYg+XbPE7hLZP45f5yPoo36aiWqs+WoRtLYBsg+Yd2BJD5LkW1SZwZ3dkWoKdbu
+	 dJxG5NxIRuaYGsXiLEKEAR2ngk6ufQxP3FabqLJCnPbqi2VbKTC8pNAUy113mwc+ng
+	 6+ubVeestQw6A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vfJ3d-00000001TVR-2NXP;
+	Mon, 12 Jan 2026 14:38:13 +0000
+Date: Mon, 12 Jan 2026 14:38:13 +0000
+Message-ID: <86qzrulwve.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Waiman Long <longman@redhat.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH] irqchip/gic-v3-its: Don't acquire rt_spin_lock in allocate_vpe_l1_table()
+In-Reply-To: <20260112140837.UNQYT563@linutronix.de>
+References: <20260107215353.75612-1-longman@redhat.com>
+	<864iowmrx6.wl-maz@kernel.org>
+	<87ms2nsqju.ffs@tglx>
+	<86wm1qlq7l.wl-maz@kernel.org>
+	<87ecnwij44.ffs@tglx>
+	<86v7h8l9ht.wl-maz@kernel.org>
+	<87pl7gglya.ffs@tglx>
+	<86tswrkrh4.wl-maz@kernel.org>
+	<20260112140837.UNQYT563@linutronix.de>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: bigeasy@linutronix.de, longman@redhat.com, tglx@kernel.org, clrkwllms@kernel.org, rostedt@goodmis.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_063724_011847_96894A64 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260112_063818_382898_6FAF3B7E 
+X-CRM114-Status: GOOD (  44.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,21 +97,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 9 Jan 2026 17:04:40 +0000
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+On Mon, 12 Jan 2026 14:08:37 +0000,
+Sebastian Andrzej Siewior <bigeasy@linutronix.de> wrote:
+>=20
+> On 2026-01-12 11:20:07 [+0000], Marc Zyngier wrote:
+> > On Sun, 11 Jan 2026 16:20:45 +0000,
+> > Thomas Gleixner <tglx@kernel.org> wrote:
+> > >=20
+> > > On Sun, Jan 11 2026 at 10:38, Marc Zyngier wrote:
+> > > > On Sun, 11 Jan 2026 09:39:07 +0000,
+> > > > Thomas Gleixner <tglx@kernel.org> wrote:
+> > > >>=20
+> > > >> On Fri, Jan 09 2026 at 16:13, Marc Zyngier wrote:
+> > > >> > On Thu, 08 Jan 2026 22:11:33 +0000,
+> > > >> > Thomas Gleixner <tglx@kernel.org> wrote:
+> > > >> >> At the point where a CPU is brought up, the topology should be =
+known
+> > > >> >> already, which means this can be allocated on the control CPU _=
+before_
+> > > >> >> the new CPU comes up, no?
+> > > >> >
+> > > >> > No. Each CPU finds *itself* in the forest of redistributors, and=
+ from
+> > > >> > there tries to find whether it has some shared resource with a C=
+PU
+> > > >> > that has booted before it. That's because firmware is absolutely=
+ awful
+> > > >> > and can't present a consistent view of the system.
+> > > >>=20
+> > > >> Groan....
+> > > >>
+> > > >> > Anyway, I expect it could be solved by moving this part of the i=
+nit to
+> > > >> > an ONLINE HP callback.
+> > > >>=20
+> > > >> Which needs to be before CPUHP_AP_IRQ_AFFINITY_ONLINE, but even th=
+at
+> > > >> might be to late because there are callbacks in the STARTING secti=
+on,
+> > > >> i.e. timer, perf, which might rely on interrupts being accessible.
+> > > >
+> > > > Nah. This stuff is only for direct injection of vLPIs into guests, =
+so
+> > > > as long as this is done before we can schedule a vcpu on this physi=
+cal
+> > > > CPU, we're good. No physical interrupt is concerned with this code.
+> > >=20
+> > > That's fine then. vCPUs are considered "user-space" tasks and can't be
+> > > scheduled before CPUHP_AP_ACTIVE sets the CPU active for the schedule=
+r.
+> >=20
+> > Waiman, can you please give the following hack a go on your box? The
+> > machines I have are thankfully limited to a single ITS group, so I
+> > can't directly reproduce your issue.
+> >=20
+> > Thanks,
+> >=20
+> > 	M.
+> >=20
+> > diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic=
+-v3-its.c
+> > index ada585bfa4517..20967000f2348 100644
+> > --- a/drivers/irqchip/irq-gic-v3-its.c
+> > +++ b/drivers/irqchip/irq-gic-v3-its.c
+> > @@ -2896,7 +2896,7 @@ static bool allocate_vpe_l2_table(int cpu, u32 id)
+> >  	return true;
+> >  }
+> > =20
+> > -static int allocate_vpe_l1_table(void)
+> > +static int allocate_vpe_l1_table(unsigned int cpu)
+> >  {
+> >  	void __iomem *vlpi_base =3D gic_data_rdist_vlpi_base();
+> >  	u64 val, gpsz, npg, pa;
+> > @@ -3012,10 +3012,11 @@ static int allocate_vpe_l1_table(void)
+> > =20
+> >  out:
+> >  	gicr_write_vpropbaser(val, vlpi_base + GICR_VPROPBASER);
+> > -	cpumask_set_cpu(smp_processor_id(), gic_data_rdist()->vpe_table_mask);
+> > +	cpumask_set_cpu(cpu, gic_data_rdist()->vpe_table_mask);
+> > +	dsb(sy);
+> > =20
+> >  	pr_debug("CPU%d: VPROPBASER =3D %llx %*pbl\n",
+> > -		 smp_processor_id(), val,
+> > +		 cpu, val,
+> >  		 cpumask_pr_args(gic_data_rdist()->vpe_table_mask));
+> > =20
+> >  	return 0;
+> > @@ -3264,15 +3265,9 @@ static void its_cpu_init_lpis(void)
+> >  		val =3D its_clear_vpend_valid(vlpi_base, 0, 0);
+> >  	}
+> > =20
+> > -	if (allocate_vpe_l1_table()) {
+> > -		/*
+> > -		 * If the allocation has failed, we're in massive trouble.
+> > -		 * Disable direct injection, and pray that no VM was
+> > -		 * already running...
+> > -		 */
+> > -		gic_rdists->has_rvpeid =3D false;
+> > -		gic_rdists->has_vlpis =3D false;
+> > -	}
+> > +	if (smp_processor_id() =3D=3D 0)
+> > +		cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "irqchip/arm/gicv3:vpe",
+> > +				  allocate_vpe_l1_table, NULL);
+>=20
+> If you move it the online state then you could also
+> s/GFP_ATOMIC/GFP_KERNEL.
+>=20
+> Also previously you checked the error code set has_rvpeid, has_vlpis on
+> failure. Now you you should the same in case of a failure during
+> registration.
+> This also happens happens on CPU hotplug and I don't see how you avoid a
+> second allocation. But I also don't understand why this registrations
+> happens on CPU0. It might be just a test patch=E2=80=A6
 
-> Different GIC types require the private IRQs to be initialised
-> differently. GICv5 is the culprit as it supports both a different
-> number of private IRQs, and all of these are PPIs (there are no
-> SGIs). Moreover, as GICv5 uses the top bits of the interrupt ID to
-> encode the type, the intid also needs to computed differently.
-> 
-> Up until now, the GIC model has been set after initialising the
-> private IRQs for a VCPU. Move this earlier to ensure that the GIC
-> model is available when configuring the private IRQs. While we're at
-> it, also move the setting of the in_kernel flag and implementation
-> revision to keep them grouped together as before.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+It's just a test hack. There is way more things that would need to
+change in order to cope with moving this to CPUHP, but I want
+confirmation that this indeed solves the original issue before I start
+breaking more things.
+
+Thanks,
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
