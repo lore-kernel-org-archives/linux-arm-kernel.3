@@ -4,78 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18E59CF45CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 21:25:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A51CF45CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 21:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SHahXyrxqs4drA8WBojKjJ3gmEJM2cCsR80DxQ1XArg=; b=daHXO6KrDS7nipBmFrO8S1qark
-	x029nnTy3UMyeEREwNeMmfszJf0i+kPLV75E2NiNEOZQP/dNR7ehgp+NU4ThamP9lcqSlFeAIhpYS
-	X0D9NEGambclLTl59XJR5tvHgGdOaSqtWVfbRBKjQCvlJ7l91s29d4iRS/TKT1282TCdaL6NLL1qy
-	HgkbeXerJ2vG4Y6EkcjYnBf0+jwp9KeSoUkXbJ2CoK+2CiY45nxThBYegvnrMxwaGtr6rU40X0qan
-	8yL8OQyxbFhXJVFFEO0X5ZoBUl/LKLaV0ChKqq4i+jfyDmEel0aCXeG7WOHg3UvAdK4cDC8YmH9Vc
-	xOQzbRNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PQq++ScOu7vE0Lz/RtZKByNqj4pSUn78IDE7wyXt0WA=; b=Q7hubezFAsg2TvMbSaPWP8M5Ll
+	Jh5H7N3oXGdN1dKRU/59roBAWkN0O6owG6Mnex5kI1JvcapeTBXAlK4csZ72JC/X8wx1lloygEmbH
+	ZMSm7dbdpsH5ZzF3UupbQS+U62pLgrzJK4Qd4Pu3MDJt3ieSiN6FKb4HekF1tvzho9AbcFhj2pHXW
+	jPusd2+q0B9Qezp8bIAdOujfHeDyVwOCZoSMBaKB1xfr2EVDOOB/0fkMxUqQ+NxtL8VmNysHXrjU4
+	xA98lxajYmTyuYsCauZgl30+urzWhU47MCKIEQ/jZIm+C4kRhoCXZVa2TLvpraZiITDKQdrGBF3/Z
+	mslFHMmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfPPx-00000006DCH-0tV7;
-	Mon, 12 Jan 2026 21:25:41 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1vfPSC-00000006DLT-17ic;
+	Mon, 12 Jan 2026 21:28:00 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfPPu-00000006DBs-0F49
+	id 1vfPS9-00000006DL8-2MZQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 21:25:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1768253138; x=1799789138;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=fvSsA+S0/oU9AH4QpW4EiN6TixJIJsN16h6Ww3Ssy+A=;
-  b=n1vQeVri8nbxy1LZjMeWkQZnjaR5vrTeUbSeY/ICatFztOXs41FJ5dLl
-   Q+O/fKm6Y8LVi9mKM54WEyoWtcs+SA9D5h59rpNSSK23FiH5PbdllS2zg
-   A/cjtd+c8PNEGbuuvJukOhu9xWhfweUvxopojFQaVhSkbI8/skJKnKwIQ
-   tWnhXHEppD3txbcgW55RTs/U6MYONZA2l74hi6V0T055COnVPY1wNafSL
-   JT3XRCeC4LTgYp3cy0Ekp30fcWAkclQRcDSBvl/WQgJ6R0ibIuhzUET3l
-   igCFOv8cL6NIP9rXlaKbz+c/3xYGdZT+B+r2vuiWOMGMqLSip5Wre7jWN
-   A==;
-X-CSE-ConnectionGUID: xddJJ4WoRF6RVqk1KSStEA==
-X-CSE-MsgGUID: kRrye1T+QrWBSihmqI4mJg==
-X-IronPort-AV: E=Sophos;i="6.21,222,1763449200"; 
-   d="scan'208";a="52207534"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Jan 2026 14:25:35 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 12 Jan 2026 14:25:18 -0700
-Received: from [10.10.179.162] (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Mon, 12 Jan 2026 14:25:18 -0700
-Message-ID: <bf0c00b5-9e7d-47d1-b503-2d27d862a171@microchip.com>
-Date: Mon, 12 Jan 2026 14:25:38 -0700
+	Mon, 12 Jan 2026 21:27:58 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-42fb0fc5aa4so5126040f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 13:27:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768253275; x=1768858075; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=PQq++ScOu7vE0Lz/RtZKByNqj4pSUn78IDE7wyXt0WA=;
+        b=OyvF4pdOUVQt38WNmHicAtJ0QkdGCcPE+cxOOy4kCu+x2D+P9cFCJx5E9oEOTRDrAu
+         KLQIFbpfjgKN1Jx9B/IQ3+OWteuGevKRl2tAYK//k2nZ606DYOXMpdyJfAUpMQoxR16X
+         RxKML568w/LifzgqTKuVZ71yWoIZOm3CrdQAipwSmwe/y3/U3tN42poBuiv5jVOKXodR
+         fmTJcgBYfuipBL/ZmxmoW4GBrwgCw2hYAfw8dw9EBzp53ioK4ydRZ/gHqp+gCs17rXte
+         jn+1A5AakQ2vDOSFFX9jJ6aTykT6knvtAK8hZrLGlGa5XjeEVb1u9GHGCVDPra6xgGlr
+         GNOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768253275; x=1768858075;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PQq++ScOu7vE0Lz/RtZKByNqj4pSUn78IDE7wyXt0WA=;
+        b=SWLomy07eydFlIygivd9elcVVbxyaBj9VREBn4415iXKROue6d+upFvOtMP/lfOqgQ
+         a1h2xEt4DWCxI1iGUvTR6kNWM4MLxNPHOh+BIgjNOWN+GKuIbpRK2Bo87UglFwrFk9L9
+         wS3+VGERGqFzOgzRiLae2zZbiP6lCB8d2HoGR8vwwlFzKk5sdyrPoSdGDl81Tqe9W6u2
+         CRFeZcCeCjSw2BHEhxRaC2Pg/2gcohfj4oedrhoQJshyak5Y6/PCK1SriRtWSE4rG//1
+         WawSetLjdN27uM5SfK2vIKY2wiPnT9E8pT0xEVPPhV9KRA252slVrlEjFSxBdIvooM5u
+         Vfmw==
+X-Forwarded-Encrypted: i=1; AJvYcCXL4PVr8mapGOTO9BsSRysS152E0bRyyP+B0uk+/6jtXVdHfN6dv4mR+WUZkz2CQM9uxsIxuW2H+j3COe7iCq5B@lists.infradead.org
+X-Gm-Message-State: AOJu0YySihadhFVnmJUGNH5h78ZetIJBhilMRy1dzJAC3EedGlu87mT6
+	iaZwD0Ly4OmBitG57RS8VOjESEbc3wITEUwEG+bWcxpW0jluWZqXnLYi
+X-Gm-Gg: AY/fxX5tvM+m2Qtmj4/YsUjI9X89OTNDhAnbIilYL59Y3rcYUOQROepSGNSlOK8g4pw
+	9va1DndhjF6+MVCqmWTJzttIMiR6NMnqSmfo6ZUnuPdT3T2mKrvJj5/Nyw/nKUvb8An7TVW6T6T
+	XUeKAuYDkDc4UPFU6UaJYFneOFZCsWQ4fCVi8Uzv3sTW6c6nCqZIUhzi7fDygsva/9Pf4Z5E+0K
+	eym5zh1aij/3bBplPhKnU7wh9saQpBWKyCcfAsyhpS34iA8agb9KC8CE0U2ZNxCBWIrE2YRYgmy
+	iQ8DkEjuXGz6XVmCikki94KykZONin4cXQwSDabplPCHkhhS5D/C5hNYQQG3LsiRBb8zDgB/azj
+	aYzDJXhnIEKIi82BO3PN+Sz3mUL/W8zSQ9bEWlrT1rsC10o8N66Qd9YyNguMIjajNLMlGXuDx+6
+	4=
+X-Google-Smtp-Source: AGHT+IEaR0UW2C1CAn+Cjl3UGT4xxu7bcNb4qy4s5ukdVRcSA5IGeSTNKCNErEm4FMX6pr1j+2gIQA==
+X-Received: by 2002:a05:6000:290b:b0:431:369:e7b with SMTP id ffacd0b85a97d-432c3760c49mr22314037f8f.18.1768253274576;
+        Mon, 12 Jan 2026 13:27:54 -0800 (PST)
+Received: from krava ([176.74.159.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0e199bsm40113986f8f.16.2026.01.12.13.27.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Jan 2026 13:27:54 -0800 (PST)
+From: Jiri Olsa <olsajiri@gmail.com>
+X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
+Date: Mon, 12 Jan 2026 22:27:51 +0100
+To: Andrii Nakryiko <andrii.nakryiko@gmail.com>,
+	Alan Maguire <alan.maguire@oracle.com>
+Cc: Steven Rostedt <rostedt@kernel.org>, Florent Revest <revest@google.com>,
+	Mark Rutland <mark.rutland@arm.com>, bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Menglong Dong <menglong8.dong@gmail.com>,
+	Song Liu <song@kernel.org>
+Subject: Re: [PATCHv6 bpf-next 7/9] bpf: Add trampoline ip hash table
+Message-ID: <aWVnVzeqWJBXwBze@krava>
+References: <20251230145010.103439-1-jolsa@kernel.org>
+ <20251230145010.103439-8-jolsa@kernel.org>
+ <CAEf4BzYgqWXoKTffa5Y6Xm-nPbL9aFgrStR0GfUs4-88f10EgQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 11/31] clk: at91: clk-usb: add support for
- clk_parent_data
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>, <mturquette@baylibre.com>,
-	<sboyd@kernel.org>, <alexandre.belloni@bootlin.com>,
-	<nicolas.ferre@microchip.com>
-CC: <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <varshini.rajendran@microchip.com>
-References: <cover.1758226719.git.Ryan.Wanner@microchip.com>
- <6979b3734462c97381159f3968a3f22b6193e04d.1758226719.git.Ryan.Wanner@microchip.com>
- <27aab227-01e3-4074-8aab-38623b4d9808@tuxon.dev>
-From: Ryan Wanner <ryan.wanner@microchip.com>
-Content-Language: en-US
-In-Reply-To: <27aab227-01e3-4074-8aab-38623b4d9808@tuxon.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAEf4BzYgqWXoKTffa5Y6Xm-nPbL9aFgrStR0GfUs4-88f10EgQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_132538_409483_CD7C0B6C 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20260112_132757_641595_4987214A 
+X-CRM114-Status: GOOD (  30.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,68 +111,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/20/25 12:17, Claudiu Beznea wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+On Fri, Jan 09, 2026 at 04:36:41PM -0800, Andrii Nakryiko wrote:
+> On Tue, Dec 30, 2025 at 6:51 AM Jiri Olsa <jolsa@kernel.org> wrote:
+> >
+> > Following changes need to lookup trampoline based on its ip address,
+> > adding hash table for that.
+> >
+> > Signed-off-by: Jiri Olsa <jolsa@kernel.org>
+> > ---
+> >  include/linux/bpf.h     |  7 +++++--
+> >  kernel/bpf/trampoline.c | 30 +++++++++++++++++++-----------
+> >  2 files changed, 24 insertions(+), 13 deletions(-)
+> >
+> > diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+> > index 4e7d72dfbcd4..c85677aae865 100644
+> > --- a/include/linux/bpf.h
+> > +++ b/include/linux/bpf.h
+> > @@ -1325,14 +1325,17 @@ struct bpf_tramp_image {
+> >  };
+> >
+> >  struct bpf_trampoline {
+> > -       /* hlist for trampoline_table */
+> > -       struct hlist_node hlist;
+> > +       /* hlist for trampoline_key_table */
+> > +       struct hlist_node hlist_key;
+> > +       /* hlist for trampoline_ip_table */
+> > +       struct hlist_node hlist_ip;
+> >         struct ftrace_ops *fops;
+> >         /* serializes access to fields of this trampoline */
+> >         struct mutex mutex;
+> >         refcount_t refcnt;
+> >         u32 flags;
+> >         u64 key;
+> > +       unsigned long ip;
+> >         struct {
+> >                 struct btf_func_model model;
+> >                 void *addr;
+> > diff --git a/kernel/bpf/trampoline.c b/kernel/bpf/trampoline.c
+> > index 789ff4e1f40b..bdac9d673776 100644
+> > --- a/kernel/bpf/trampoline.c
+> > +++ b/kernel/bpf/trampoline.c
+> > @@ -24,9 +24,10 @@ const struct bpf_prog_ops bpf_extension_prog_ops = {
+> >  #define TRAMPOLINE_HASH_BITS 10
+> >  #define TRAMPOLINE_TABLE_SIZE (1 << TRAMPOLINE_HASH_BITS)
+> >
+> > -static struct hlist_head trampoline_table[TRAMPOLINE_TABLE_SIZE];
+> > +static struct hlist_head trampoline_key_table[TRAMPOLINE_TABLE_SIZE];
+> > +static struct hlist_head trampoline_ip_table[TRAMPOLINE_TABLE_SIZE];
+> >
+> > -/* serializes access to trampoline_table */
+> > +/* serializes access to trampoline tables */
+> >  static DEFINE_MUTEX(trampoline_mutex);
+> >
+> >  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+> > @@ -135,15 +136,15 @@ void bpf_image_ksym_del(struct bpf_ksym *ksym)
+> >                            PAGE_SIZE, true, ksym->name);
+> >  }
+> >
+> > -static struct bpf_trampoline *bpf_trampoline_lookup(u64 key)
+> > +static struct bpf_trampoline *bpf_trampoline_lookup(u64 key, unsigned long ip)
+> >  {
+> >         struct bpf_trampoline *tr;
+> >         struct hlist_head *head;
+> >         int i;
+> >
+> >         mutex_lock(&trampoline_mutex);
+> > -       head = &trampoline_table[hash_64(key, TRAMPOLINE_HASH_BITS)];
+> > -       hlist_for_each_entry(tr, head, hlist) {
+> > +       head = &trampoline_key_table[hash_64(key, TRAMPOLINE_HASH_BITS)];
+> > +       hlist_for_each_entry(tr, head, hlist_key) {
+> >                 if (tr->key == key) {
+> >                         refcount_inc(&tr->refcnt);
+> >                         goto out;
+> > @@ -164,8 +165,12 @@ static struct bpf_trampoline *bpf_trampoline_lookup(u64 key)
+> >  #endif
+> >
+> >         tr->key = key;
+> > -       INIT_HLIST_NODE(&tr->hlist);
+> > -       hlist_add_head(&tr->hlist, head);
+> > +       tr->ip = ftrace_location(ip);
+> > +       INIT_HLIST_NODE(&tr->hlist_key);
+> > +       INIT_HLIST_NODE(&tr->hlist_ip);
+> > +       hlist_add_head(&tr->hlist_key, head);
+> > +       head = &trampoline_ip_table[hash_64(tr->ip, TRAMPOLINE_HASH_BITS)];
 > 
-> Hi, Ryan,
-> 
-> On 9/19/25 00:15, Ryan.Wanner@microchip.com wrote:
->> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
->>
->> Add support for clk_parent_data in usb clock driver.
->>
->> All the SoC based drivers that rely on clk-usb were adapted
->> to the new API change. The switch itself for SoCs will be done
->> in subsequent patches.
->>
->> Remove the use of __clk_get_hw() for the slow clocks.
->>
->> Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
->> [ryan.wanner@microchip: Add SAMA7D65 and SAM9X75 SoCs to the changes.
->> Change how the main_xtal and slcks are initialized so they match the
->> parent_data API]
->> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
->> ---
->>  drivers/clk/at91/at91rm9200.c  |  2 +-
->>  drivers/clk/at91/at91sam9260.c |  2 +-
->>  drivers/clk/at91/at91sam9g45.c |  2 +-
->>  drivers/clk/at91/at91sam9n12.c |  2 +-
->>  drivers/clk/at91/at91sam9x5.c  |  2 +-
->>  drivers/clk/at91/clk-usb.c     | 41 ++++++++++++++++++++++------------
->>  drivers/clk/at91/dt-compat.c   |  6 ++---
->>  drivers/clk/at91/pmc.h         | 11 +++++----
->>  drivers/clk/at91/sam9x60.c     |  2 +-
->>  drivers/clk/at91/sam9x7.c      | 21 +++++++++--------
->>  drivers/clk/at91/sama5d2.c     |  2 +-
->>  drivers/clk/at91/sama5d3.c     |  2 +-
->>  drivers/clk/at91/sama5d4.c     |  2 +-
->>  drivers/clk/at91/sama7d65.c    | 24 +++++++++++---------
->>  14 files changed, 72 insertions(+), 49 deletions(-)
->>
-> 
-> [ ... ]
-> 
->> @@ -882,10 +885,10 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
->>
->>       sam9x7_pmc->chws[PMC_MCK] = hw;
->>
->> -     parent_names[0] = "plla_divpmcck";
->> -     parent_names[1] = "upll_divpmcck";
->> -     parent_names[2] = "main_osc";
->> -     usbck_hw = sam9x60_clk_register_usb(regmap, "usbck", parent_names, 3);
->> +     parent_data[0] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_PLLA][PLL_COMPID_DIV0].hw);
->> +     parent_data[1] = AT91_CLK_PD_HW(sam9x7_plls[PLL_ID_UPLL][PLL_COMPID_DIV0].hw);
->> +     parent_data[2] = AT91_CLK_PD_HW(main_osc_hw);
->> +     usbck_hw = sam9x60_clk_register_usb(regmap, "usbck", NULL, parent_data, 3);
-> 
-> sam9x60_clk_register_usb() could be converted to use parent_hws member of
-> struct clk_init_data instead of parent_data.
+> For key lookups we check that there is no existing trampoline for the
+> given key. Can it happen that we have two trampolines at the same IP
+> but using two different keys?
 
-Looking more in depth sam9x60_clk_register_usb() calls
-at91sam9x_clk_register_usb() which like in 21/31 is called in dt-compact
-and only the clock name is passed into it. Should I make another
-function for sam9x60_clk_register_usb() that uses parent_hw?
+so multiple keys (different static functions with same name) resolving to
+the same ip happened in past and we should now be able to catch those in
+pahole, right? CC-ing Alan ;-)
 
-Ryan>
+however, that should fail the attachment on ftrace/direct layer
 
+say we have already registered and attached trampoline key1-ip1,
+follow-up attachment of trampoline with key2-ip1 will fail on:
+
+  bpf_trampoline_update
+    register_fentry
+      direct_ops_add
+        update_ftrace_direct_add
+	  ...
+	  /* Make sure requested entries are not already registered. */
+	  fails, because ip1 is already in direct_functions
+	  ...
+
+jirka
+ 
+> 
+> 
+> 
+> > +       hlist_add_head(&tr->hlist_ip, head);
+> >         refcount_set(&tr->refcnt, 1);
+> >         mutex_init(&tr->mutex);
+> >         for (i = 0; i < BPF_TRAMP_MAX; i++)
+> > @@ -846,7 +851,7 @@ void bpf_trampoline_unlink_cgroup_shim(struct bpf_prog *prog)
+> >                                          prog->aux->attach_btf_id);
+> >
+> >         bpf_lsm_find_cgroup_shim(prog, &bpf_func);
+> > -       tr = bpf_trampoline_lookup(key);
+> > +       tr = bpf_trampoline_lookup(key, 0);
+> >         if (WARN_ON_ONCE(!tr))
+> >                 return;
+> >
+> > @@ -866,7 +871,7 @@ struct bpf_trampoline *bpf_trampoline_get(u64 key,
+> >  {
+> >         struct bpf_trampoline *tr;
+> >
+> > -       tr = bpf_trampoline_lookup(key);
+> > +       tr = bpf_trampoline_lookup(key, tgt_info->tgt_addr);
+> >         if (!tr)
+> >                 return NULL;
+> >
+> > @@ -902,7 +907,8 @@ void bpf_trampoline_put(struct bpf_trampoline *tr)
+> >          * fexit progs. The fentry-only trampoline will be freed via
+> >          * multiple rcu callbacks.
+> >          */
+> > -       hlist_del(&tr->hlist);
+> > +       hlist_del(&tr->hlist_key);
+> > +       hlist_del(&tr->hlist_ip);
+> >         if (tr->fops) {
+> >                 ftrace_free_filter(tr->fops);
+> >                 kfree(tr->fops);
+> > @@ -1175,7 +1181,9 @@ static int __init init_trampolines(void)
+> >         int i;
+> >
+> >         for (i = 0; i < TRAMPOLINE_TABLE_SIZE; i++)
+> > -               INIT_HLIST_HEAD(&trampoline_table[i]);
+> > +               INIT_HLIST_HEAD(&trampoline_key_table[i]);
+> > +       for (i = 0; i < TRAMPOLINE_TABLE_SIZE; i++)
+> > +               INIT_HLIST_HEAD(&trampoline_ip_table[i]);
+> >         return 0;
+> >  }
+> >  late_initcall(init_trampolines);
+> > --
+> > 2.52.0
+> >
 
