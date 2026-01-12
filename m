@@ -4,95 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 478BCC9EC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 12:14:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B87C9EC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 12:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m5vBcByaSbLsGX5Zr65hjskcoFy3cdK9/53jX67HxjI=; b=ERPUTW5yrXCQc40Zmqppcw/S2e
-	nRo2Tzk+YG7N6eb2WYsYYpq59LlJ/3hYhwZYqFjSFjYzYwczfbsV13uCdSGIAUX0KGaprplviQCs4
-	HxZbVc6YwakQ+p2QmENLN3o6kUQMxMJ5mqigaTCWnCx6wZncE4GYfN5BPVVBPmgffwGUAHggbiLaq
-	BXoKOUsZF5kKRd9bTqd4QdpDl8iIMCcStYwo1tGaQPM2KDMfSO0d8mBNBDm4G6uPBxpkTy4MUqJl+
-	NEJ8jbMXRdcyTwbGZDkhTzdJtflsQnIOMlCmw4Fx4vEhYQJlxNVzh4Gw45MrUL6xlQMlgAuCXn3Nd
-	3kPRl98Q==;
+	bh=1NByF4KBwn5Wl03L5TAReJyDFw2mFLa47LsnRyfC4To=; b=twVwitgyHXBWh4m9g4GNGuJZBL
+	k0dObKXL7hJkZU70cti1FaS4SXfp3b/auJJvzQ5VWkKDArs460bAZo4kLp8zhZL5fYsp1U3PR3vvM
+	ylzo3VhcFraTDUiUWHpZeVPTQukYaGs+nDnWLI/y3klFwH80rX5Zp6xmqsMa+4bG8GomjkmCCTOwR
+	PbDxvNg+uIMuHnOmsQRB9QarZL4ghfgROf6smL1EM57kSDHa2adQuo6YyakixWMwj1jTd95xYsid0
+	maAinyQCKXZd7qExRNqAbfq+LzAXvc+XRlyf3xJi/elDJd9KELckX4dswoKgt8noWMgQdbUWoNTTM
+	+VkNWFhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfGoC-00000005Jd8-00Yk;
-	Mon, 12 Jan 2026 12:14:08 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfGo8-00000005Jck-46Oe
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 12:14:06 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-42fb6ce71c7so5336843f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 04:14:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768220043; x=1768824843; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=m5vBcByaSbLsGX5Zr65hjskcoFy3cdK9/53jX67HxjI=;
-        b=wjGVvU89TO3rt7vDoVPyG2SNt2CVZB5GfGiNX5TUtGsXcMhKewnKCRW35tJB7PL3iz
-         vx5vUfSXN9i3vY3FhLV9/Rr9aiFJKzwMcE4EpxkLs9yCksu4JdKHwo7G/k+SwmsDcpNR
-         yCLABkXiZBJd0mhHY3euBiBy8t8aAc/HP1hBo1zt2Q0MIkD5nB/sh/kOvtfXFCHm4D89
-         z2z+nX+i3woBqPX65j+Jc5Rq35lPTrbDSqaAs6bkuPEWgZWlNIJP8hOw3XVX87y/H8xE
-         qaM4enD8jq0s8MyxenTvAjbK98LeHgkEeKSeXyyOMpKdpDwvrn3Ul2pRMfJ2kZDOCcRa
-         xkiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768220043; x=1768824843;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=m5vBcByaSbLsGX5Zr65hjskcoFy3cdK9/53jX67HxjI=;
-        b=cOREZL6w9gZ98+z4BoFwg6F4fcUYaSw7YaitPKx/VMI6A6EugbbaQ8wz/P/E30u8j/
-         XdGLB54DIsFznCarNE47uDzKA7uTNHrA7DCpWJk+G6dZTilqn0VRuRyjKsLHjpPQOYCZ
-         kK/lPZOfcNs2fJyleko/IslUm6jNmDRtFJ35+/Sl3aqnXe3ejEoDiFHVqpXv3RpbPBVz
-         O52+pa3q4JpSbTvXPJLtHgixJKXEx395X0ojC8p9a9RQBwF7d91Y1wspaAk6yLaNJp4e
-         ojHCXD4pU9W19MrDgLkdKwkL1dfMSfM8GI4oX/WojOLo5wefscYN5Bu+H1kNlR/yekii
-         QXXA==
-X-Forwarded-Encrypted: i=1; AJvYcCV0RoveZ4TxdzoxdoIn2bQb0sHA3qw4/GayQBotc8ybMqFKA2C059Qo71cnMq+WryU1e4t7wQmytFNchDsJc62M@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8X2DIub/YaH6RYkID4nRnDRjkccYumn5PViMLtn0QoOo3YFkX
-	9BLGXARoyQ11g8foAZJVISY1fLwVn+S8dHXNMs96Cvs9zjN+tN+BOTC4rRn3x4gNeI4=
-X-Gm-Gg: AY/fxX7Nc4MEhJIN78gbtDYNDXMbOMRtywAL3/CSFqwIK9uS5OUP1oLZ8Ltig/6Fs5g
-	9Eswn2S/XKEJQRPvzc+F8bIKQzDoOTsbPYVaUjoNojAM5PRwfkhj44sAp0fMJ/e+uMzYcZBWjWR
-	2qJw/Xcsdags2n02gSEDw5lc7H8yzGu+82RsmDu39SYDU5l/BfBJl3/iT98+scwYsAsZvfoGPuZ
-	uB8WUXCvuOHNb+qlER92v2l6A5kKt8A/FWmXLplW57Aul3mHn8XT1ols9n1iQvEUfA7L1zcnH2r
-	Bg2UM9iVAWaZQg0sTvJKqwr46YpESDeL/TlhAKCcC6VBgg9+5d5/Rh+FgJ2NIVNAzhxCcPTfLnm
-	4+m1CzhfOO1McVPLYiLVQZejxeYMXsboSkQd5BI0EFa++bjAy6hmY1RZEKvX6E/4zV96BTHDL42
-	mt5BQQUAbn7UIE1iVYZUXo8MbjmBk=
-X-Google-Smtp-Source: AGHT+IFyLJu85DhzDzB9NUkNFHVuGwdXkS6SskSTBpWBs4uFpxP0oRfyAXxIBuq4lyp+uGbpQRo27A==
-X-Received: by 2002:a05:6000:22c7:b0:430:f6bc:2f8b with SMTP id ffacd0b85a97d-432c37d2faemr19857760f8f.45.1768220042989;
-        Mon, 12 Jan 2026 04:14:02 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd5ee870sm38632600f8f.36.2026.01.12.04.14.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Jan 2026 04:14:02 -0800 (PST)
-Message-ID: <24dbbfea-f068-4352-9212-30821feed796@linaro.org>
-Date: Mon, 12 Jan 2026 12:14:01 +0000
+	id 1vfH0I-00000005KKK-0mfT;
+	Mon, 12 Jan 2026 12:26:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfH0E-00000005KJm-313i;
+	Mon, 12 Jan 2026 12:26:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D88E497;
+	Mon, 12 Jan 2026 04:26:25 -0800 (PST)
+Received: from [10.57.95.123] (unknown [10.57.95.123])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E6C913F59E;
+	Mon, 12 Jan 2026 04:26:27 -0800 (PST)
+Message-ID: <09de87bc-d952-41e7-9657-852c2924aaa7@arm.com>
+Date: Mon, 12 Jan 2026 12:26:26 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v6 03/35] KVM: arm64: Add CONFIG_KVM_ARM_SPE Kconfig
- option
-From: James Clark <james.clark@linaro.org>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: mark.rutland@arm.com, james.morse@arm.com, maz@kernel.org,
- oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
- yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-References: <20251114160717.163230-1-alexandru.elisei@arm.com>
- <20251114160717.163230-4-alexandru.elisei@arm.com>
- <1aaffbcd-ba0c-4371-80d7-ce59ac7f13a9@linaro.org> <aWTaXBse_R_LjJE-@raptor>
- <d7db9f17-012e-43d7-a0a5-58b254dd7e33@linaro.org>
-Content-Language: en-US
-In-Reply-To: <d7db9f17-012e-43d7-a0a5-58b254dd7e33@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v3 3/3] randomize_kstack: Unify random source across
+ arches
+Content-Language: en-GB
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Jeremy Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
+References: <20260102131156.3265118-1-ryan.roberts@arm.com>
+ <20260102131156.3265118-4-ryan.roberts@arm.com>
+ <20260104230136.7aaf8886@pumpkin> <20260107140533.2b3c46a1@pumpkin>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260107140533.2b3c46a1@pumpkin>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_041405_051698_58900CFE 
-X-CRM114-Status: GOOD (  33.39  )
+X-CRM114-CacheID: sfid-20260112_042634_877523_31D57A4F 
+X-CRM114-Status: GOOD (  40.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,100 +80,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 07/01/2026 14:05, David Laight wrote:
+> On Sun, 4 Jan 2026 23:01:36 +0000
+> David Laight <david.laight.linux@gmail.com> wrote:
+> 
+>> On Fri,  2 Jan 2026 13:11:54 +0000
+>> Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>
+>>> Previously different architectures were using random sources of
+>>> differing strength and cost to decide the random kstack offset. A number
+>>> of architectures (loongarch, powerpc, s390, x86) were using their
+>>> timestamp counter, at whatever the frequency happened to be. Other
+>>> arches (arm64, riscv) were using entropy from the crng via
+>>> get_random_u16().
+>>>
+>>> There have been concerns that in some cases the timestamp counters may
+>>> be too weak, because they can be easily guessed or influenced by user
+>>> space. And get_random_u16() has been shown to be too costly for the
+>>> level of protection kstack offset randomization provides.
+>>>
+>>> So let's use a common, architecture-agnostic source of entropy; a
+>>> per-cpu prng, seeded at boot-time from the crng. This has a few
+>>> benefits:
+>>>
+>>>   - We can remove choose_random_kstack_offset(); That was only there to
+>>>     try to make the timestamp counter value a bit harder to influence
+>>>     from user space.
+>>>
+>>>   - The architecture code is simplified. All it has to do now is call
+>>>     add_random_kstack_offset() in the syscall path.
+>>>
+>>>   - The strength of the randomness can be reasoned about independently
+>>>     of the architecture.
+>>>
+>>>   - Arches previously using get_random_u16() now have much faster
+>>>     syscall paths, see below results.
+>>>
+>>> There have been some claims that a prng may be less strong than the
+>>> timestamp counter if not regularly reseeded. But the prng has a period
+>>> of about 2^113. So as long as the prng state remains secret, it should
+>>> not be possible to guess. If the prng state can be accessed, we have
+>>> bigger problems.  
+>>
+>> If you have 128 bits of output from consecutive outputs I think you
+>> can trivially determine the full state using (almost) 'school boy' maths
+>> that could be done on pencil and paper.
+>> (Most of the work only has to be done once.)
+>>
+>> The underlying problem is that the TAUSWORTHE() transformation is 'linear'
+>> So that TAUSWORTHE(x ^ y) == TAUSWORTHE(x) ^ TAUSWORTHE(y).
+>> (This is true of a LFSR/CRC and TOUSWORTH() is doing some subset of CRCs.)
+>> This means that each output bit is the 'xor' of some of the input bits.
+>> The four new 'state' values are just xor of the the bits of the old ones.
+>> The final xor of the four states gives a 32bit value with each bit just
+>> an xor of some of the 128 state bits.
+>> Get four consecutive 32 bit values and you can solve the 128 simultaneous
+>> equations (by trivial substitution) and get the initial state.
+>> The solution gives you the 128 128bit constants for:
+>> 	u128 state = 0;
+>> 	u128 val = 'value returned from 4 calls';
+>> 	for (int i = 0; i < 128; i++)
+>> 		state |= parity(const128[i] ^ val) << i;
+>> You don't need all 32bits, just accumulate 128 bits.  
+>> So if you can get the 5bit stack offset from 26 system calls you know the
+>> value that will be used for all the subsequent calls.
+> 
+> Some of the state bits don't get used, so you only need 123 bits.
+> The stack offset is 6 bits - so you need the values from 19 calls.
+> 
+>> Simply changing the final line to use + not ^ makes the output non-linear
+>> and solving the equations a lot harder.
+>>
+>> I might sit down tomorrow and see if I can actually code it...
+> 
+> Finally done:
+> 
+> #include <stdio.h>
+> #include <unistd.h>
+> #include <fcntl.h>
+> 
+> typedef unsigned int u32;
+> typedef unsigned long long u64;
+> typedef unsigned __int128 u128;
+> 
+> struct rnd_state { u32 s1; u32 s2; u32 s3; u32 s4; };
+> u32 prandom_u32_state(struct rnd_state *state)
+> {
+> #define TAUSWORTHE(s, a, b, c, d) ((s & c) << d) ^ (((s << a) ^ s) >> b)
+>         state->s1 = TAUSWORTHE(state->s1,  6U, 13U, 4294967294U, 18U);
+>         state->s2 = TAUSWORTHE(state->s2,  2U, 27U, 4294967288U,  2U);
+>         state->s3 = TAUSWORTHE(state->s3, 13U, 21U, 4294967280U,  7U);
+>         state->s4 = TAUSWORTHE(state->s4,  3U, 12U, 4294967168U, 13U);
+> 
+>         return (state->s1 ^ state->s2 ^ state->s3 ^ state->s4);
+> }
+> 
+> #define X(n, hi, lo) [n] = (u128)0x##hi << 64 | 0x##lo
+> u128 map[128] = {
+>         X(  1, 23acb122e4a76, e206c3f6fe435cb6),
+> 	...
+>         X(127, 00d3276d8a76a, e560d1975675be24) };
+> 
+> u128 parity_128(u128 v)                 
+> {                               
+>         return __builtin_parityll(v) ^ __builtin_parityll(v >> 64);
+> }
+> 
+> int main(int argc, char **argv)
+> {
+>         struct rnd_state s = {};
+>         u128 s0, v, r = 0;
+> 
+>         read(open("/dev/urandom", O_RDONLY), &s, sizeof s);
+>         // Remove low bits that get masked by the (s & c) term.
+>         s.s1 &= ~1; s.s2 &= ~7; s.s3 &= ~15; s.s4 &= ~127;
+>         s0 = (((u128)s.s4 << 32 | s.s3) << 32 | s.s2) << 32 | s.s1;
+>         v = prandom_u32_state(&s);
+>         v |= (u128)prandom_u32_state(&s) << 32;
+>         v |= (u128)prandom_u32_state(&s) << 64;
+>         v |= (u128)prandom_u32_state(&s) << 96;
+> 
+>         for (int n = 0; n < 128; n++)
+>                 r |= parity_128(v & map[n]) << n;
+> 
+>         printf("%016llx%016llx\n", (u64)(s0 >> 64), (u64)s0);
+>         printf("values%s match\n", r == s0 ? "" : " do not");
+> 
+>         return r != s0;
+> }
+> 
+> I've trimmed the initialiser - it is very boring.
+> The code to create the initialiser is actually slightly smaller than it is.
+> Doable by hand provided you can do 128bit shift and xor without making
+> any mistakes.
+> 
+> I've just done a quick search through the kernel sources and haven't found
+> many uses of prandom_u32_state() outside of test code.
+> There is sched_rng() which uses a per-cpu rng to throw a 1024 sized die.
+> bpf also has a per-cpu one for 'unprivileged user space'.
+> net/sched/sch_netem.c seems to use one - mostly for packet loss generation.
+> 
+> Since the randomize_kstack code is now using a per-task rng (initialised
+> by clone?) that could be used instead of all the others provided they
+> are run when 'current' is valid.
+> 
+> But the existing prandom_u32_state() needs a big health warning that
+> four outputs leak the entire state.
+> That is fixable by changing the last line to:
+>         return state->s1 + state->s2 + state->s3 + state->s4;
+> That only affects the output value, the period is unchanged.
+
+Hi David,
+
+This all seems interesting, but I'm not clear that it is a blocker for this
+series. As I keep saying, we only use 6 bits for offset randmization so it is
+trival to brute force, regardless of how easy it is to recover the prng state.
+
+Perhaps we can decouple these 2 things and make them independent:
+
+ - this series, which is motivated by speeding up syscalls on arm64; given 6
+   bits is not hard to brute force, spending a lot of cycles calculating those
+   bits is unjustified.
+
+ - Your observation that that the current prng could be improved to make
+   recoving it's state harder.
+
+What do you think?
+
+Thanks,
+Ryan
 
 
-On 12/01/2026 12:09 pm, James Clark wrote:
 > 
-> 
-> On 12/01/2026 11:26 am, Alexandru Elisei wrote:
->> Hi James,
->>
->> On Fri, Jan 09, 2026 at 04:29:50PM +0000, James Clark wrote:
->>>
->>>
->>> On 14/11/2025 4:06 pm, Alexandru Elisei wrote:
->>>> Add a new configuration option that will be used for KVM SPE emulation.
->>>> CONFIG_KVM_ARM_SPE depends on the SPE driver being builtin because:
->>>>
->>>> 1. The SPE driver maintains a cpumask of physical CPUs that support 
->>>> SPE,
->>>>      and that will be used by KVM to emulate SPE on heterogeneous 
->>>> systems.
->>>>
->>>> 2. KVM will rely on the SPE driver enabling the SPE interrupt at the 
->>>> GIC
->>>>      level.
->>>>
->>>> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
->>>> ---
->>>>    arch/arm64/kvm/Kconfig | 8 ++++++++
->>>>    1 file changed, 8 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
->>>> index 4f803fd1c99a..31388b5b2655 100644
->>>> --- a/arch/arm64/kvm/Kconfig
->>>> +++ b/arch/arm64/kvm/Kconfig
->>>> @@ -83,4 +83,12 @@ config PTDUMP_STAGE2_DEBUGFS
->>>>          If in doubt, say N.
->>>> +config KVM_ARM_SPE
->>>> +    bool
->>>> +    depends on KVM && ARM_SPE_PMU=y
->>>
->>> I think the most common configuration is module, so requiring built- 
->>> in isn't
->>> great. If there's any way of avoiding it, even if it costs a little 
->>> bit of
->>> pain, it would be good for adoption.
->>
->> I'm not sure how that could be done. You need the buffer maintenance 
->> interrupt
->> to do a VM exit so KVM can inject the virtual interrupt back into the 
->> guest,
->> otherwise there's a possibility of a large blackout window when the 
->> buffer is
->> full.
-> 
-> Without expanding more I don't see how injecting an interrupt is 
-> strongly related to the way it's compiled.
-> 
->>
->> The code also relies on the SPE driver to probe all the SPUs in the 
->> system.
->>
-> 
-> I don't think that's a hard requirement either, the KVM code could 
-> fairly easily do this itself. Inline the common code and put it in a 
-> shared header etc. I'm sure there are lots of creative ways to flip the 
-> dependencies that might not be "proper" software engineering. But like I 
-> said a bit of pain here might be beneficial overall.
-> 
->>>
->>> It was basically the first thing I got stuck on trying to get it to 
->>> work. Or
->>> if it really can't be done, maybe some kind of debug message to say why
->>> enabling failed.
->>
->> When you search for the symbol in menuconfig you get a list of the 
->> symbols it
->> depends on.
-
-Also, it wasn't easy for me to find this either. I had to read the code 
-and debug it. I find it hard to believe that other people won't get 
-stuck here without a warning. It will be "I've got SPE, I've got KVM but 
-it's just not working and there's no warning".
-
-> 
-> Right, but that doesn't address the problems of adoption at all.
-> 
-> Having it on by default when SPE and KVM are already enabled in their 
-> default configs is the difference between people being able to use this 
-> with zero friction vs 200 people all getting stuck and then coming to 
-> ask me why it's not working and distros having to update SPE from being 
-> a module to static.
-> 
->>
->> Thanks,
->> Alex
+> 	David
 > 
 > 
 
