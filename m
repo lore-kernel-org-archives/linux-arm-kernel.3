@@ -4,69 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA4D0D25050
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 08:50:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F2BD2504D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 08:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Pz8aDS2HtswSzUiv6fZCX+EGyXTzRqbXGD732EVIjI=; b=BrgPJIHq0CQhrzM2Kzo2a5XBiY
-	QwlWfr6jM/iVYkvjqyjpgKn4Mfbdr0GI1AlOi8n2FoseIBbEYB5R0vMd+PL06noLjyPX7hBKtXUO/
-	H71YF/CA7+uOlzCbBGxDdCBQTHWqS8egi5PjKn4Qsojs+dGPD4RPBvPXyfnOwN7AJLRSIZQjCqOMB
-	5RzPVW0YWiRAOiUwUlBBDCztgu+Aiz4ap4qLWQIMWZVtHf3BJK6MGxt87eDyfIrRCnrfI6KJ6b7+N
-	wPve6PxhUey/b+UGRwPmsyMc/RREPFOix6IdTdHWJeVpgKXUyxTAHagaXa5no7OwpkgEYhdADapUh
-	5jAyhbgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FjTe8wUqECmpFYLQqoeO1OFiZl4CueVHr9JbU7ALhiE=; b=Mu+dBHoRSFHhE/Q6DW4WtH5Bpg
+	dTyk9BSoqSoQmhyggLbq/lncnbJtXun1pOhGFqzX2cvMyATa182g7KsV7xeCGI/fgjLHUqXuxPA13
+	JMBF8IOcVAuPygXdM3Z9kK9QicbA/mnO4w4SqqpkYZ86Wix72rXN5cF0yYR+sEXmgroDDQMiWXZVL
+	vf1Cr2oDWJhSj7lqlPjSlj/CzCGeTxxuNhfRTO8zWU6HrgdJq69CH2AZKrA35wy4ukAbFDQDTvGrA
+	0J+ziIWWHfNJbyNl90x8litWTYt/7XNR+7tM9Ul8pyWuskWOUJQ1jPdd/DGW+45OQowiSwj/Z3pZb
+	C9Njuenw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfDdN-000000051Fs-20xH;
-	Mon, 12 Jan 2026 08:50:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vfDex-000000051T2-2GHo;
+	Mon, 12 Jan 2026 08:52:23 +0000
+Received: from mail-westus3azon11011070.outbound.protection.outlook.com ([40.107.208.70] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfDdI-000000051FO-3uLU;
-	Mon, 12 Jan 2026 08:50:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3126940879;
-	Mon, 12 Jan 2026 08:50:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CA40C116D0;
-	Mon, 12 Jan 2026 08:50:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768207840;
-	bh=WNiMZmCXbtCUCtjSuHYY/XW9lCniSthvEMeQbEklHlc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FHK8UKem2IQ7gNmRRtwxlDFrk/hmM9XfMvkqmXrU9zKruNNHlsTSSB6spvDdcxN4Z
-	 y5UZ4gZTBZp4DmoZbqZLhP0WrksQaZ16uzId3BLzgs10APPyb0h/1d6idDffdM1hSy
-	 6aZSmQWCIwbdGXv8mnYpNi8pHqBrsmTBPmUNj2tZBDqmDzw5ikyLPyj+b8SOzVkkBS
-	 3EDknigcKxctvvDyR3H0ul+3KSB8eMc5BIJ9gUtnDnnA+jI29pzLw41LcgdhgZR97+
-	 vuWHzVRFzJPS4vk4dtVw0dOAcXpSdZmy221xOqSedaNJgZsP9Maj6ym5LtDZV5fIs9
-	 VihrwMQOg20tg==
-Date: Mon, 12 Jan 2026 09:50:37 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Quentin Schulz <quentin.schulz@cherry.de>, Jonas Karlman <jonas@kwiboo.se>, 
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>, Hsun Lai <i@chainsx.cn>, John Clark <inindev@gmail.com>, 
-	Jimmy Hon <honyuenkwun@gmail.com>, Dragan Simic <dsimic@manjaro.org>, 
-	Michael Riesch <michael.riesch@collabora.com>, Peter Robinson <pbrobinson@gmail.com>, 
-	Alexey Charkov <alchark@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-usb@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: usb: Add binding for WCH CH334/CH335
- hub controller
-Message-ID: <20260112-lively-hallowed-beetle-fc15b2@quoll>
-References: <20260112022823.91-1-kernel@airkyi.com>
- <20260112022823.91-2-kernel@airkyi.com>
+	id 1vfDeu-000000051SV-2w9R
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Jan 2026 08:52:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eiUJdoTvWybXaS4vnv/KOKII390g/2oTKncPO5XPkudjDZHdei+U5xdNzo87esKXaIzu6HTHdc0Dqi+qmk8y9gAZrm3i0cDtZUGDEAhHyF6OSUakm1b8Mydi6ZDke8jL8ekgmC3rZxPffGHLlF8KnH2U0OKA3ZNaYEW3zeOd5pq/VRE+Jj6seku4dqvZgmKYk7ophd4443WUEXgXw8RksTjjCRATpUeDZS0Dw70RJGkfsA0Kf4tWfQX29vXoz+pUNj+WWBbdMR0YOtqTXaY8L5JUJvDxs4d53aBCQd80wphLrOAu9rdB2S9ggN6dHpk/w6Qr9cIXl/4fCcyWhR38IQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FjTe8wUqECmpFYLQqoeO1OFiZl4CueVHr9JbU7ALhiE=;
+ b=iI9ObMAfVAr60a7olf566A0QPF92HBT4ZK5dG5sGGNdRSLZm7hIaNjExuf3IMAKrXk3AsdMCQmeDqO4UsjjQeon7ZnySld/8fLBYEkzr1HBuKNibip98OwPdrJdWQOnZZSBybyac1zkKBIAbjmIMeXAXgyzPTu64eUJYdDAH+16aMZUWS61Sp76IU2DWpv1Sak6BQ40JBhFmg1Y1QhF6djUDQk1eqRuGN3d9LwPCzNnKBnkqGTav61bVVh+tF933Rh/JqT+PAesWvJY6GjRNEConS52rPZZhpSt9r0dXxNNieAXRmxlKQHF4PAXMgDJ85DYrVlxIjowiCDkpKNepOA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FjTe8wUqECmpFYLQqoeO1OFiZl4CueVHr9JbU7ALhiE=;
+ b=XZN7v3pd8t0smLuJcPt6RHY1IyJ0oeCgCV91NZpraaJQxnG6aF12tK0yDgtUCn9LAKSXm7CpZ6tAG1wYZg1GoKRi2F4NAYzuC3/XwA6NY9MYCCp+Bc3gcEswqwHK65/vqGbuXecQsZuwg3yWwV0ohYk1MTYutsGe3iP9XZ5O2Ls=
+Received: from BY3PR10CA0015.namprd10.prod.outlook.com (2603:10b6:a03:255::20)
+ by PH7PR10MB6355.namprd10.prod.outlook.com (2603:10b6:510:1b6::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Mon, 12 Jan
+ 2026 08:52:15 +0000
+Received: from SJ1PEPF00002327.namprd03.prod.outlook.com
+ (2603:10b6:a03:255:cafe::c2) by BY3PR10CA0015.outlook.office365.com
+ (2603:10b6:a03:255::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.7 via Frontend Transport; Mon,
+ 12 Jan 2026 08:52:13 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ SJ1PEPF00002327.mail.protection.outlook.com (10.167.242.90) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.1 via Frontend Transport; Mon, 12 Jan 2026 08:52:13 +0000
+Received: from DFLE203.ent.ti.com (10.64.6.61) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 12 Jan
+ 2026 02:51:57 -0600
+Received: from DFLE206.ent.ti.com (10.64.6.64) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 12 Jan
+ 2026 02:51:57 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE206.ent.ti.com
+ (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 12 Jan 2026 02:51:57 -0600
+Received: from uda0543015.dhcp.ti.com (uda0543015.dhcp.ti.com [10.24.69.9])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60C8pqh8090613;
+	Mon, 12 Jan 2026 02:51:53 -0600
+From: Abhash Kumar Jha <a-kumar2@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+	<conor+dt@kernel.org>, <krzk+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <u-kumar1@ti.com>, <p-mantena@ti.com>,
+	<m-chawdhry@ti.com>
+Subject: [PATCH v4 0/2] Refactor watchdog instances for j784s4 and j742s2
+Date: Mon, 12 Jan 2026 14:21:11 +0530
+Message-ID: <20260112085113.3476193-1-a-kumar2@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260112022823.91-2-kernel@airkyi.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002327:EE_|PH7PR10MB6355:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8e116380-b2d5-4cc2-8556-08de51b7e16a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|34020700016|36860700013|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5aJIPO6E7buOWvX8IfVgmo2tEn9xOi3JHI3zK7RR3m0d1AK7z9cBgId5gXuK?=
+ =?us-ascii?Q?w3gLkb80Z4RCw6VxPFPzi4seVXUWJcgQa0kgy8sg2ImMWdad3x6Duunu3pgU?=
+ =?us-ascii?Q?RFeFJSao7bbuHK8Q1sPVNh1uDr2KK8lStoo+0/QnGiYtg1Mg9//D53Ei0d4I?=
+ =?us-ascii?Q?RFVpQd5ai9cxlbsvU8RaHty4JoFIu+Mwgnm5qbZXmVKU2Vr1PYobXhiLaDDI?=
+ =?us-ascii?Q?H1Anbst1pI/wHkikNPpTw2+LGTF/unFVVo6/ID5NQRftycskNXzGIczICwQd?=
+ =?us-ascii?Q?o7T/OcA46hCcRF9eacv3GbxesVfbuzbOAwklPT0FQFITU7qX/Uwnr/hX3jK1?=
+ =?us-ascii?Q?3mlc8q+z62dzfnFcWxY23v+WUlf2VZGsBKcTPSadWtg1AzwnS1UqwVKeKKZd?=
+ =?us-ascii?Q?h9w3c7bazo7dqLAhYl4Q1xi/KJpkRgzs9axYxK3cj4MNdzNb6sy1oBiY8UCk?=
+ =?us-ascii?Q?D9G2XcB1gv3tk3vcnPNn44iJ9FTAQBEc0pzW4+j4yaYHPodqr6x5QGMC40yv?=
+ =?us-ascii?Q?XD4d5zpbQTiwM9KdFcr9RqBjc7ekuzcARfsI4QqPncyXz9pV7ylk0BAXcPdL?=
+ =?us-ascii?Q?RgiGnz51bdwyhdktLeh99wBeowfI+2drJ6VItx634pdmKOT3+dYJ6hyXhO9k?=
+ =?us-ascii?Q?ZBWDAKlRWqTSBTftPrzNUGDE/YoVbxZX62p1uWlhItk5dneozWyBpv3pM5XQ?=
+ =?us-ascii?Q?YUF34SWIKXBvx5o2a/lbea07D7Yt+JO1uhcx14Rmss1rYooLiDEzB6+MoCpd?=
+ =?us-ascii?Q?4lTz3bsmYgOY8xZUUO48puvmMN4aZ1I5NggYdrxip5qnr9OEbasjygVBc8g1?=
+ =?us-ascii?Q?sC9GMOCSLKC438Pfa9OXQDqbtiPgHNegzseV/m8PSmf8qxjRWBTS1BwLmX/0?=
+ =?us-ascii?Q?17CVyD0ziEWwf+bPGaGyVndeKzwZ9zSeGyrbAZMXKMvwUA42bHuTAKSIDZFY?=
+ =?us-ascii?Q?ALc6C79cHoalbdqIDONIRCa1hjFcc41cZiiJBQrQBq5zrvXMdUfhRO7I6MO6?=
+ =?us-ascii?Q?Kcc7dLLl6sSIEtnv5AyjkOvhr5dG6d0fMeBn8rKf2g9MYaOxuF5g4Qa3SFsb?=
+ =?us-ascii?Q?3Fm8vj4M+lrMn5RclzoahkKx768IdYvOkUs9jpSJp0iJU5odI4y6N0RaVQ/s?=
+ =?us-ascii?Q?5uLA2AfcCBmxjYsdynMXdWnnrR4kmPYCyIKD3TDTQN8KwkBNrSMNQmdlmIma?=
+ =?us-ascii?Q?wmkiHb+KyL/1ofBTzwB7I2ro6Ns5CXNHht2R+VqHNw/Sg2v0RuHpyryWPxrE?=
+ =?us-ascii?Q?2n16aYYBMgZQsKPPrcA6n/9Eepmaes8R/uvxN2sMpbRRgg9I2fzL7qOq4yHn?=
+ =?us-ascii?Q?jBdIyM68IIROKBo7ckPL7JhOV7h9QKYiJzpXQyD2Pv2yhbNgRCv8hx3fp8yY?=
+ =?us-ascii?Q?riaae8U1tAOGEU/UAU6zSc8Ipnp62RsmjhaqIGn4spb7m+IxmUYlRc9++kQN?=
+ =?us-ascii?Q?TBLvMQcZKHka6f3xsRSp0YBnV2YhAx+/PwyNbevEQK4b4VSBpT+o1tIfKMyQ?=
+ =?us-ascii?Q?DGUvaVGesRqA09zHrGnUspkmCGM7a9gXN2YmU0N4IstEhJjbl/Eo96ASKTqh?=
+ =?us-ascii?Q?jHJ9PMT3S0g4xWtmXcLpXHHdT4bU+0Zh0ST8uFOl?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(34020700016)(36860700013)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jan 2026 08:52:13.4652
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8e116380-b2d5-4cc2-8556-08de51b7e16a
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002327.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB6355
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_005041_044940_A275B79F 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20260112_005220_739401_576239B6 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,103 +153,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 10:28:21AM +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> 
-> The WCH CH334/CH335[0] are USB2.0 protocol compliant 4-port USB HUB
-> controller chips, supporting USB2.0 high-speed and full-speed for
-> upstream ports, and USB2.0 high-speed 480Mbps, full-speed 12Mbps and
-> low-speed 1.5Mbps for downstream ports, supporting not only low-cost STT
-> mode (single TT schedules 4 downstream ports in time share), but also
-> supports high performance MTT mode (4 TTs each corresponding to 1 port,
-> concurrent processing).
-> 
-> Add a device tree binding for it.
-> 
-> [0]: https://www.wch-ic.com/downloads/CH334DS1_PDF.html
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
->  .../devicetree/bindings/usb/wch,ch334.yaml    | 65 +++++++++++++++++++
+Hi,
 
-This must be separate patch. Do not combine independent subsystems into
-one patchset.
+This series performs some refactoring around watchdogs for the j784s4
+and j742s2 socs. We have one watchdog per A72 core, hence the number of
+watchdog instances should match the number of A72 cores.
 
->  1 file changed, 65 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/usb/wch,ch334.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/usb/wch,ch334.yaml b/Documentation/devicetree/bindings/usb/wch,ch334.yaml
-> new file mode 100644
-> index 000000000000..2eeb92f25b4c
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/usb/wch,ch334.yaml
-> @@ -0,0 +1,65 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/usb/wch,ch334.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: WCH CH334/CH335 USB 2.0 Hub Controller
-> +
-> +maintainers:
-> +  - Chaoyi Chen <kernel@airkyi.com>
-> +
-> +allOf:
-> +  - $ref: usb-hub.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - usb1a86,8091
-> +
-> +  reg: true
-> +
-> +  reset-gpios:
-> +    description: GPIO controlling the RESET# pin.
-> +
-> +  vdd-supply:
-> +    description:
-> +      The regulator that provides 3.3V core power to the hub.
-> +
-> +  vdd2-supply:
-> +    description:
-> +      The regulator that provides 3.3V or 5V power to the hub.
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    patternProperties:
-> +      '^port@':
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +
-> +        properties:
-> +          reg:
-> +            minimum: 1
-> +            maximum: 4
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/gpio/gpio.h>
-> +    usb {
-> +        dr_mode = "host";
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        hub: hub@1 {
-> +            compatible = "usb1a86,8091";
-> +            reg = <1>;
-> +            reset-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+Move out the extra watchdog instances from the common file and put them
+only in the soc specific file.
 
-Are you sure?
+Additionally, perform cleanup to fix the ordering of device tree nodes in
+the k3-j784s4-main.dtsi file.
 
-Best regards,
-Krzysztof
+Thanks,
+Abhash
+
+Changes in v4:
+- Add a cleanup patch to fix the order of the DT nodes in k3-j784s4-main.dtsi file
+- Improve the commit description and subject.
+- Link to v3: https://lore.kernel.org/all/20260108085347.1416637-1-a-kumar2@ti.com/
+
+Changes in v3:
+- Improve the commit description and subject.
+- Link to v2: https://lore.kernel.org/all/20260105050557.3459321-1-a-kumar2@ti.com/
+
+Changes in v2:
+- Added fixes tag in the commit message.
+- Link to v1: https://lore.kernel.org/all/20251224055410.208516-1-a-kumar2@ti.com/T/#u
+
+Abhash Kumar Jha (2):
+  arm64: dts: ti: k3-j784s4-main.dtsi: Sort the nodes in appropriate
+    order
+  arm64: dts: ti: k3-j784s4-j742s2-main-common.dtsi: Refactor watchdog
+    instances for j784s4
+
+ .../dts/ti/k3-j784s4-j742s2-main-common.dtsi  | 36 ------------
+ arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi    | 58 +++++++++++++++----
+ 2 files changed, 47 insertions(+), 47 deletions(-)
+
+-- 
+2.34.1
 
 
