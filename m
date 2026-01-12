@@ -4,60 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF17C9EC98
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 15:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE742C9EC8D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 16:02:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z36QOE9rQ/JyP1zjnS3tdGN/wm5VsDtu7emJlg9dcSA=; b=43ox0B+djdXy9N12FcpqaWaQHz
-	h42PNhERtVnAogJPXMZOO7RX0LkMB2LWHZvUsOg6wAk40XjZEiLk1I6J4UhsMvZPDm00uZocH+UEq
-	DEolYwNG3fT5CJe4auQ/BEF3YquWvpwxibm0aSz6+icos9nienUZcbHSVHGP9Ob4Nz3EWG8a7YTSd
-	NEXj2Wh8klTmLr/Owv33WEb0ovgW5nrKG5UeOkhtaUPb8SNmWK0XUzBiqSqapI5SX4I3fJr3GKIGQ
-	Td5e9mfWOiKIXXZHGhqMPXPdw7EOm0D9uEtzbuBqyjpv51JdYZPD6WtVl37dVAZUDnBrLkHDbBM5b
-	ajZ+il4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Uzdhc/5bjAQXTXTPZi/QQirOrHAvE9iAR7tdve+8Jig=; b=HQGZ3XZsDlO24kjHACd9KlRPej
+	TmjXXn5/fyKmSwTjsVilAVn0BT3CZ6lZiuEbCUCskXJUWHHvaJuta9JZz77vROIHu8dqBynPn/OBo
+	IZHhaU2gQh2Gcv7Yk73rbb1VEMF6fECnFUWYtZguVSZKrfh7/ZMlKOfV1TUXmA4Ufqb6ewVz53Bkn
+	aDmIgOLU3tq/BNeydDpVDY/pGhFWZ3Jdz9EPnSqscMKHU3/5uUGxUPtpqsjChQJ24X+el2ChS+5gg
+	YazS5NOck1Myie/SGVXpeRvB9rMhlUwAYlAUYabCD25i6LQcvEcqhbUZIA7BemyrVFusG8QKJdAyH
+	Q8GqR31A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfKJ7-00000005g9D-39me;
-	Mon, 12 Jan 2026 15:58:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfKJ5-00000005g8X-0CGP
+	id 1vfKMY-00000005glz-061i;
+	Mon, 12 Jan 2026 16:01:50 +0000
+Received: from sinmsgout02.his.huawei.com ([119.8.177.37])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfKMT-00000005glC-0zR3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 15:58:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 51B16497;
-	Mon, 12 Jan 2026 07:58:06 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.197.51])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B15533F59E;
-	Mon, 12 Jan 2026 07:58:11 -0800 (PST)
-Date: Mon, 12 Jan 2026 15:58:09 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, arm-scmi@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] firmware: arm_scmi: Implement arm,poll-transport
- property
-Message-ID: <aWUaES-culTeUfjD@bogus>
-References: <20251231213016.185575-1-marek.vasut+renesas@mailbox.org>
- <20251231213016.185575-2-marek.vasut+renesas@mailbox.org>
- <aWTjs1Y9yoz1k4Ry@bogus>
- <aWTu4o4Z59QQOc2O@pluto>
+	Mon, 12 Jan 2026 16:01:47 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Uzdhc/5bjAQXTXTPZi/QQirOrHAvE9iAR7tdve+8Jig=;
+	b=hrV8v8yWqGNh6CIrkr0yxWAsCjFBQm8+RAbVkFulD4Rxec3q7ksTCMZbj/oZHzZoUidUNNz8m
+	2DepDKKEvqN4m0NC4BNJCCFFxYMA4wzz5HxvqW/F5RyyocsB4RgSTKq9NMFW57OFfTcCQ70hFHc
+	7AOZBxzlqJQIqJP/ynXDFHE=
+Received: from frasgout.his.huawei.com (unknown [172.18.146.33])
+	by sinmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dqcWT3l3Vz1vnsC;
+	Mon, 12 Jan 2026 23:59:17 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dqcYp2KfgzJ46F9;
+	Tue, 13 Jan 2026 00:01:18 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id E5D2540573;
+	Tue, 13 Jan 2026 00:01:29 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 12 Jan
+ 2026 16:01:29 +0000
+Date: Mon, 12 Jan 2026 16:01:27 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd
+	<nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
+	<oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
+	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, Timothy Hayes
+	<Timothy.Hayes@arm.com>
+Subject: Re: [PATCH v3 19/36] KVM: arm64: gic-v5: Implement PPI interrupt
+ injection
+Message-ID: <20260112160127.00005f84@huawei.com>
+In-Reply-To: <20260109170400.1585048-20-sascha.bischoff@arm.com>
+References: <20260109170400.1585048-1-sascha.bischoff@arm.com>
+	<20260109170400.1585048-20-sascha.bischoff@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aWTu4o4Z59QQOc2O@pluto>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_075815_208035_561D27D2 
-X-CRM114-Status: GOOD (  36.82  )
+X-CRM114-CacheID: sfid-20260112_080145_710489_C42549AF 
+X-CRM114-Status: GOOD (  31.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,91 +89,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 12:53:54PM +0000, Cristian Marussi wrote:
-> On Mon, Jan 12, 2026 at 12:06:11PM +0000, Sudeep Holla wrote:
-> > On Wed, Dec 31, 2025 at 10:29:19PM +0100, Marek Vasut wrote:
-> > > Implement new property arm,poll-transport, which sets all SCMI operation into
-> > > poll mode. This is meant to work around uncooperative SCP implementations,
-> > > which do not generate completion interrupts. This applies to mbox/shmem based
-> > > implementations.
-> > > 
-> > > With this property set, such implementations which do not generate interrupts
-> > > can be interacted with, until they are fixed to generate interrupts properly.
-> > > 
-> > > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> > > ---
-> > > Cc: Conor Dooley <conor+dt@kernel.org>
-> > > Cc: Cristian Marussi <cristian.marussi@arm.com>
-> > > Cc: Florian Fainelli <florian.fainelli@broadcom.com>
-> > > Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> > > Cc: Rob Herring <robh@kernel.org>
-> > > Cc: Sudeep Holla <sudeep.holla@arm.com>
-> > > Cc: arm-scmi@vger.kernel.org
-> > > Cc: devicetree@vger.kernel.org
-> > > Cc: linux-arm-kernel@lists.infradead.org
-> > > Cc: linux-renesas-soc@vger.kernel.org
-> > > ---
-> > > V2: Drop no IRQ handling from SMC transport and update commit message
-> > > ---
-> > >  drivers/firmware/arm_scmi/common.h | 4 ++++
-> > >  drivers/firmware/arm_scmi/driver.c | 4 ++++
-> > >  2 files changed, 8 insertions(+)
-> > > 
-> > > diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-> > > index 7c35c95fddbaf..7c9617d080a02 100644
-> > > --- a/drivers/firmware/arm_scmi/common.h
-> > > +++ b/drivers/firmware/arm_scmi/common.h
-> > > @@ -235,6 +235,9 @@ struct scmi_transport_ops {
-> > >   *		      to have an execution latency lesser-equal to the threshold
-> > >   *		      should be considered for atomic mode operation: such
-> > >   *		      decision is finally left up to the SCMI drivers.
-> > > + * @no_completion_irq: Flag to indicate that this transport has no completion
-> > > + *		       interrupt and has to be polled. This is similar to the
-> > > + *		       force_polling below, except this is set via DT property.
-> > >   * @force_polling: Flag to force this whole transport to use SCMI core polling
-> > >   *		   mechanism instead of completion interrupts even if available.
-> > >   * @sync_cmds_completed_on_ret: Flag to indicate that the transport assures
-> > > @@ -254,6 +257,7 @@ struct scmi_desc {
-> > >  	int max_msg;
-> > >  	int max_msg_size;
-> > >  	unsigned int atomic_threshold;
-> > > +	bool no_completion_irq;
-> > >  	const bool force_polling;
-> > 
-> > My preference would be to reuse `force_polling` for this. We need to drop
-> > const but that should be OK. Anyways I would like to know if Cristian thinks
-> > otherwise for any reasons I might be missing to see.
-> 
-> I would rather keep the 2 things separate since force_polling is more of
-> a brutal low level debug/test facility and, even though it basically
-> produces the same result as the new @no_completion_irq, if we remove it
-> and unify it in a single boolean that can be overriden from the DT we end
-> up in a situation in which we cannot anymore easily force_polling by
-> switching the flag in the code since it could be overridden by a
-> conflicting 'arm,poll-transport' DT setup. (and you have to patch DT
-> for testing)
-> 
-> So if we have one single underlying boolean (e.g. 'poll') and by any chance
-> we end up with a DT containing:
-> 
-> 	arm,poll-transport = false
-> 
-> we cannot anymore override the condition by forcing in the code
-> 
-> 	poll = true,
-> 
-> since it would be switfly overridden by the DT prop.
-> 
-> Also semantically force_polling express much more the situation.
-> 
-> Anyway...I may be overthinking or missing something.
->
+On Fri, 9 Jan 2026 17:04:45 +0000
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
 
-Understood, looking at raw I did get a sense of this but didn't spend much
-time and thought of asking you. So, all good. Let's not mix them together
-then. Thanks for the details!
+> This change introduces interrupt injection for PPIs for GICv5-based
+> guests.
+> 
+> The lifecycle of PPIs is largely managed by the hardware for a GICv5
+> system. The hypervisor injects pending state into the guest by using
+> the ICH_PPI_PENDRx_EL2 registers. These are used by the hardware to
+> pick a Highest Priority Pending Interrupt (HPPI) for the guest based
+> on the enable state of each individual interrupt. The enable state and
+> priority for each interrupt are provided by the guest itself (through
+> writes to the PPI registers).
+> 
+> When Direct Virtual Interrupt (DVI) is set for a particular PPI, the
+> hypervisor is even able to skip the injection of the pending state
+> altogether - it all happens in hardware.
+> 
+> The result of the above is that no AP lists are required for GICv5,
+> unlike for older GICs. Instead, for PPIs the ICH_PPI_* registers
+> fulfil the same purpose for all 128 PPIs. Hence, as long as the
+> ICH_PPI_* registers are populated prior to guest entry, and merged
+> back into the KVM shadow state on exit, the PPI state is preserved,
+> and interrupts can be injected.
+> 
+> When injecting the state of a PPI the state is merged into the KVM's
+> shadow state using the set_pending_state irq_op. The directly sets the
+> relevant bit in the shadow ICH_PPI_PENDRx_EL2, which is presented to
+> the guest (and GICv5 hardware) on next guest entry. The
+> queue_irq_unlock irq_op is required to kick the vCPU to ensure that it
+> seems the new state. The result is that no AP lists are used for
+> private interrupts on GICv5.
+> 
+> Prior to entering the guest, vgic_v5_flush_ppi_state is called from
+> kvm_vgic_flush_hwstate. The effectively snapshots the shadow PPI
+> pending state (twice - an entry and an exit copy) in order to track
+> any changes. These changes can come from a guest consuming an
+> interrupt or from a guest making an Edge-triggered interrupt pending.
+> 
+> When returning from running a guest, the guest's PPI state is merged
+> back into KVM's shadow state in vgic_v5_merge_ppi_state from
+> kvm_vgic_sync_hwstate. The Enable and Active state is synced back for
+> all PPIs, and the pending state is synced back for Edge PPIs (Level is
+> driven directly by the devices generating said levels). The incoming
+> pending state from the guest is merged with KVM's shadow state to
+> avoid losing any incoming interrupts.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+Trivial naming thing inline. Either way
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
--- 
-Regards,
-Sudeep
+> ---
+>  arch/arm64/kvm/vgic/vgic-v5.c | 160 ++++++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/vgic/vgic.c    |  40 +++++++--
+>  arch/arm64/kvm/vgic/vgic.h    |  25 ++++--
+>  3 files changed, 209 insertions(+), 16 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+> index bf2c77bafa1d3..c1899add8f5c3 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
+> @@ -139,6 +139,166 @@ void vgic_v5_get_implemented_ppis(void)
+>  		ppi_caps->impl_ppi_mask[0] |= BIT_ULL(GICV5_ARCH_PPI_PMUIRQ);
+>  }
+>  
+> +static bool vgic_v5_ppi_set_pending_state(struct kvm_vcpu *vcpu,
+> +					  struct vgic_irq *irq)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if;
+> +	const u32 id = FIELD_GET(GICV5_HWIRQ_ID, irq->intid);
+See below. This seems like reasonable naming choice where I suggest
+adding a local variable. 
+> +	unsigned long *p;
+> +
+> +	if (!vcpu || !irq)
+> +		return false;
+> +
+> +	/*
+> +	 * For DVI'd interrupts, the state is directly driven by the host
+> +	 * hardware connected to the interrupt line. There is nothing for us to
+> +	 * do here. Moreover, this is just broken!
+> +	 */
+> +	if (WARN_ON(irq->directly_injected))
+> +		return true;
+> +
+> +	cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +
+> +	p = (unsigned long *)&cpu_if->vgic_ppi_pendr[id / 64];
+> +	__assign_bit(id % 64, p, irq_is_pending(irq));
+> +
+> +	return true;
+> +}
+
+>  /*
+>   * Sets/clears the corresponding bit in the ICH_PPI_DVIR register.
+>   */
+> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+> index c465ff51cb073..1cdfa5224ead5 100644
+> --- a/arch/arm64/kvm/vgic/vgic.c
+> +++ b/arch/arm64/kvm/vgic/vgic.c
+> @@ -105,6 +105,18 @@ struct vgic_irq *vgic_get_vcpu_irq(struct kvm_vcpu *vcpu, u32 intid)
+>  	if (WARN_ON(!vcpu))
+>  		return NULL;
+>  
+> +	if (vgic_is_v5(vcpu->kvm)) {
+> +		u32 int_num;
+> +
+> +		if (!__irq_is_ppi(KVM_DEV_TYPE_ARM_VGIC_V5, intid))
+> +			return NULL;
+> +
+> +		int_num = FIELD_GET(GICV5_HWIRQ_ID, intid);
+
+I'd use an extra local variable to avoid int_num changing meaning like this.
+Perhaps 
+		u32 int_num, hwirq_id;
+
+		hwirq_id = FIELD_GET(GICV5_HWIRQ_ID, intid);
+		int_num = array_index_nospec(hwirq_id, VGIC_V5_NR_PRIVATE_IRQS);
+
+or just id = FIELD_GET() given use above.
+
+
+> +		int_num = array_index_nospec(int_num, VGIC_V5_NR_PRIVATE_IRQS);
+> +
+> +		return &vcpu->arch.vgic_cpu.private_irqs[int_num];
+> +	}
+> +
+
+
 
