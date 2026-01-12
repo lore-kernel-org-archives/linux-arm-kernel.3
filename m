@@ -4,122 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC122CF45BB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 18:04:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47748CF45C0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 18:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nGMJ5LbPFmGC8KsyFzZBiUpjaLMx+kfqn+JlgSdWn4Q=; b=PDz9q/RUD26iRIDqDOuQs7lc7e
-	FExhlWFX+//VxLC2j8fJkTPsFD4cy3RYEAu+IgKj6Q6KUixRSCQ6s47adI5y98u0tS22EXPZb5lhU
-	fJJJK+D7xSLEyraHk1Ajb5H7PipgBZJgV+thMQ5cYvmGL9ibaggdOmTYqFKnfJjUyZMPPDzV5JcE2
-	d8qnzp88ykX0I2/LcMcbx8W807wQXp56PsU8jahJVmFl4OH07HBth29O/Ovy4ae3lfwRpMLj86Ft7
-	mOLytWgniWNfAS8pG0TFnitwbYIfAS+jqElFiALBsSLDM85mGs2wEVyqxtL7lQQ/emXP+o6q+n5ZV
-	g++Fw7tA==;
+	bh=erthKSZ6iPdBhOLwPxkw7BloMWfY5AM7ogPjXWO1YdI=; b=cMfLu86CboQZPkE3jqw5uqUUrC
+	4f8C9oe/V/6HDU2Mqqi98z7A7hvfBQImlzGGTnEtZHCt7ckP6x3bdL+55V4/KHrrssMEjkSOIiifG
+	lDWGw4IJ1vB8MVwuklc1RWziI5NW/bzhwTdt7CUIB2XJFswcgkNtc86lRS6cQfCvETumctajwr/py
+	2uqjY+Cw440NMmSm/GqJ6upbZP7CftqtxWcflP+lLWDKqH5fWD+sCos6mu0ZVgZ+ZCkhY1QljF8x3
+	FHN+rfhmYuIxkazsV+LNui6ETui2rsYySCFoShwjCADCNH0a+jckfDflKSoKPIUX/AwQAzADj7d9r
+	puIVXr9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfMH9-00000005uGz-2x6e;
-	Mon, 12 Jan 2026 18:04:23 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vfMJU-00000005uSP-37ht;
+	Mon, 12 Jan 2026 18:06:48 +0000
+Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfMH5-00000005uG6-30JK
+	id 1vfMJS-00000005uS2-2dOU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 18:04:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1768241058;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nGMJ5LbPFmGC8KsyFzZBiUpjaLMx+kfqn+JlgSdWn4Q=;
-	b=F2OG/UbHk3VADMod9hegMG9Yxc5Kd7x7Z+lKauWAd59D38TbdzcYmPD7cqcpaQSt8joaqF
-	6sJxS3f26cwhnP4sZYKpHXdGg7/GwVbvV033C2vjTs8NIQELQ58YXoApt7fXNyth75WTml
-	gAe0UHrce7MdCJo+dqL4s3QmtTdmOh0=
-Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com
- [209.85.222.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-39-mLWCZ9VGPPmMSSBH-lG9SA-1; Mon, 12 Jan 2026 13:04:06 -0500
-X-MC-Unique: mLWCZ9VGPPmMSSBH-lG9SA-1
-X-Mimecast-MFC-AGG-ID: mLWCZ9VGPPmMSSBH-lG9SA_1768241046
-Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-93f5bfb23fbso16538643241.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 10:04:06 -0800 (PST)
+	Mon, 12 Jan 2026 18:06:47 +0000
+Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-7c6cc44ff62so5375296a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 10:06:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=konsulko.com; s=google; t=1768241205; x=1768846005; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=erthKSZ6iPdBhOLwPxkw7BloMWfY5AM7ogPjXWO1YdI=;
+        b=R3aqB/GNREgx6I423OsPAOjhHMM7uECB1SjIcyRAxOW6GXk9JlM2thDF3JF09lzDzu
+         N/HqKfAYY3XaMsce6a5xFKij/skHiJnEfbFI/Ik9q6NAPGfXx5sQmBqawWma/a1zafZB
+         L/tfE8Mc9nqbpmmDMADxEydPNTAitoZ8957VE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768241046; x=1768845846;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nGMJ5LbPFmGC8KsyFzZBiUpjaLMx+kfqn+JlgSdWn4Q=;
-        b=iNusqkxJ7ir6yPujan118jLMupqfLC907KP7uQuG9c5Tp0yIUYenKdOt01vd1QwADi
-         DCmSWE886usxkSjeBmllKtYameucWoZb76n1QrdaVJXdFbqy+y55eeoFAorD8WSBzNNK
-         EIMLdO9asliezROvQYxPwdJulu1jCzyIyjauUAOsM7w+B/8oD76AUz6tsuok6dIK7PNc
-         X1gTuDfUkkK/ZWjgITgiBi7/s7GNniGEiD3r3v1KcZHhjB+8h6g+eRIhAvepVBPaURQ1
-         Qo4sqFVrPlrwcMmFReaOHkAZCH2fDeP9lp8gkHzHdFNASOiweZNAdBv7/rDwSZEur98M
-         ijRw==
-X-Forwarded-Encrypted: i=1; AJvYcCVSMJnNoxbG17p68xRDMTZCwrgqLJrI1U0N69Z1SBXFr2wHjLwdvGIdWIwYGgBCRRlROQb2mMYhynX3pyblSZcs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1YTqgQ1BD4v/AAMI5aW7LHk7Qz+L347nAjc1nDv787B4ssz18
-	Eg1tDqRpYcjP2WCUURWx8xY6j+V5vjrBPy1k74m8Y/50dwnKH3B2mUl2tWw+7YQi8TXjP8UQkVs
-	De+XYOnIOCXtFn/7kMXN8crz7CEswqU0Hap7QDt+jgfzvJ9tdl1UiL2xVliazr6wdS7OSUrNJpI
-	0c
-X-Gm-Gg: AY/fxX7Qur7laByH+3PoXCrc6nWqWTZHbVXCgG9B1l8XRX149yXR5+2Dxi8+bqQiREm
-	UPy8F+AesK26FaPOr69L21cDASe2AT9quMkXsLHu+sx5avhbShRmcAbq1ef21mGuKvZm6zbU+SS
-	1kdVYAN0Rwyi2zxqY41fTh0qYdGfdDSiOxANV0vVdTTY0gEM/yFNhKjoGSd/rdUCLoC4Mjf/C5N
-	ApkXhSdM1uMZCZRu8PR5YyVDRK7OiFTHDAB5F+Rm7JvqFvpd9eSHF2n/P76H3U04lIQJdHkIug/
-	wdTKBwmvYxHpqmQSdy3Y+FQwYvhOE6qdpECjWjq95aaptlB+qoBYcIm5EHcBB0Kl6dQQ7xTGoCl
-	HHX/WcFzhFbCXkJoTtvZnH9sus4OhLZlEboOO3GvJgJMtt+WtAcQkNgsA
-X-Received: by 2002:a05:6122:4897:b0:563:7886:5e7a with SMTP id 71dfb90a1353d-563788663a0mr2841995e0c.9.1768241044891;
-        Mon, 12 Jan 2026 10:04:04 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHM6+Ba4s/MEV+9Zbgj4Jf91uX/qo/VCXWtL6yFKP9LvZ7kJD7E9gBdpreY2pV75Zsq8xOxKw==
-X-Received: by 2002:a05:6122:4897:b0:563:7886:5e7a with SMTP id 71dfb90a1353d-563788663a0mr2841898e0c.9.1768241043068;
-        Mon, 12 Jan 2026 10:04:03 -0800 (PST)
-Received: from ?IPV6:2601:188:c102:b180:1f8b:71d0:77b1:1f6e? ([2601:188:c102:b180:1f8b:71d0:77b1:1f6e])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-563667cf148sm10043559e0c.2.2026.01.12.10.03.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Jan 2026 10:04:02 -0800 (PST)
-From: Waiman Long <llong@redhat.com>
-X-Google-Original-From: Waiman Long <longman@redhat.com>
-Message-ID: <c1cac1a6-22fe-479f-bfc5-89a5d3aabda5@redhat.com>
-Date: Mon, 12 Jan 2026 13:03:47 -0500
+        d=1e100.net; s=20230601; t=1768241205; x=1768846005;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=erthKSZ6iPdBhOLwPxkw7BloMWfY5AM7ogPjXWO1YdI=;
+        b=RUfOC45WwyHDe1U5+O1z8ISh5A7bSXR7vnqI4jQutfy6LyHzPV/JLJu+hd8V4fASV3
+         eALvFs7GAeK+r82bkU8Uiy7gRLotuE79twI1OgrVM+Vixf4igO584wH2pxozJRsjf1bF
+         fIgJVuwOa+Lv/dGP+oXMjpPU+RZITXTciKo8q3DZ9QGcpZpTQswM9WfHxoyZQjbJEyA8
+         Mb0wU4ELemVm7aswzZn10LQwidgBtkCJIdNcJqjg5O4DZa5XzDua9z1ZS7D6XypJmV/m
+         4Rm9pIQefrxp90GvYwntDbqg5tf16uupy2FfkqmzidyQAXBTwzCqnpkXf5Yfn5r6Oa1k
+         WRBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVl5D/CRn8U0oF9EgS0BChH6pkbRI6m+nnkNvF5PufiMJGTBqgLHGLfbrA9gSjyhlnNwBlCYmFjh1OLMFw5L0l8@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTwsNloZsGUBmPxbfcc6sAw+lozzCGW8XDwpGn6mYYM8CXg4q+
+	Z2d3ZwzbqQRCO6GCq6MuJoz6ofV5vXvqcXdyUpIT78MIPfNy1htTLMy0A/YKTnjb5qE=
+X-Gm-Gg: AY/fxX41dIQrg5ntlqgufqF/K3ve4SUZaEDKD1ePqbWQxfT9Vwjg7pmMLj2g5tSFEAe
+	cN+JE//Yj8IG4yQfgFsPowWkDkMx79U0xgHwvwLmj/GoJqPb8b+05KVB6fuIDO3bD2YFeyrZY5V
+	w4ZFRJOqC/dXj9okQod1Lb25Dv842m4vU/OVuUcEe+X1q2lReCmgT2kMZs+8WLcFpD6VpkKOcE4
+	kfb8LsLvqmmp73h3ybQd9/wRSz5qzIylzx8Q50tlL+WIx3gKMSP19ZwjvIHkYs4gJjxgtUDzj9k
+	7IBn6ASTa5E3zuAFU5oDX1iSQdpUrchTtcW4hHUknFHYXze8H0S3JoPO6S9MEpioikaJo8yy1Co
+	2C8j8elx58kp0wQIQzXKik/Xx7+c8MVCGpVR3xaolL+KpK6jLA4MJILPc5c96GqkVKvhX1Aa3mk
+	+ozGKCY4JSUZWgmeeVJWKDXhUxs0WagcE3CPkDmq5xvl00R2kRI51r6Dh3707qeqebshldnz6WW
+	nIF2ZQlmrsueyNBJSimr256JJz1FkyjnJvh9Qw=
+X-Google-Smtp-Source: AGHT+IHMKosHECSc4+Zx0/DZ1EmDSc9S9i8aKwxXsTmq2VUbIcLRUggYDk1hwyiYs1cRyUGa2EZ6Vg==
+X-Received: by 2002:a05:6820:2d48:b0:65e:da9a:976f with SMTP id 006d021491bc7-65f54ed7966mr5646365eaf.11.1768241200388;
+        Mon, 12 Jan 2026 10:06:40 -0800 (PST)
+Received: from bill-the-cat (fixed-189-203-103-235.totalplay.net. [189.203.103.235])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-65f48bec1c4sm7346752eaf.8.2026.01.12.10.06.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Jan 2026 10:06:39 -0800 (PST)
+Date: Mon, 12 Jan 2026 12:06:37 -0600
+From: Tom Rini <trini@konsulko.com>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Siddharth Vadapalli <s-vadapalli@ti.com>, u-boot@lists.denx.de,
+	nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	srk@ti.com
+Subject: Re: [PATCH] arm64: dts: ti: k3-*: Replace rgmii-rxid with rgmii-id
+ for CPSW ports
+Message-ID: <20260112180637.GR3416603@bill-the-cat>
+References: <20251025073802.1790437-1-s-vadapalli@ti.com>
+ <20260112074948.GA101138@francesco-nb>
+ <20260112075636.GA105765@francesco-nb>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/33] sched/isolation: Save boot defined domain flags
-To: Frederic Weisbecker <frederic@kernel.org>,
- LKML <linux-kernel@vger.kernel.org>
-Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Chen Ridong <chenridong@huawei.com>, Danilo Krummrich <dakr@kernel.org>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
- Lai Jiangshan <jiangshanlai@gmail.com>,
- Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
- <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
- Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
- Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
- netdev@vger.kernel.org
-References: <20260101221359.22298-1-frederic@kernel.org>
- <20260101221359.22298-6-frederic@kernel.org>
-In-Reply-To: <20260101221359.22298-6-frederic@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: FdVavGc_pkM4Z346PrftyzsLwmpVJsRYl1uowm_L9vc_1768241046
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="l3dCGue1f5wWDFkV"
+Content-Disposition: inline
+In-Reply-To: <20260112075636.GA105765@francesco-nb>
+X-Clacks-Overhead: GNU Terry Pratchett
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_100419_836959_119B249E 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20260112_100646_679144_4E2841D8 
+X-CRM114-Status: GOOD (  25.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,71 +104,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/1/26 5:13 PM, Frederic Weisbecker wrote:
-> HK_TYPE_DOMAIN will soon integrate not only boot defined isolcpus= CPUs
-> but also cpuset isolated partitions.
->
-> Housekeeping still needs a way to record what was initially passed
-> to isolcpus= in order to keep these CPUs isolated after a cpuset
-> isolated partition is modified or destroyed while containing some of
-> them.
->
-> Create a new HK_TYPE_DOMAIN_BOOT to keep track of those.
->
-> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> Reviewed-by: Phil Auld <pauld@redhat.com>
-> ---
->   include/linux/sched/isolation.h | 4 ++++
->   kernel/sched/isolation.c        | 5 +++--
->   2 files changed, 7 insertions(+), 2 deletions(-)
->
-> diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
-> index d8501f4709b5..c7cf6934489c 100644
-> --- a/include/linux/sched/isolation.h
-> +++ b/include/linux/sched/isolation.h
-> @@ -7,8 +7,12 @@
->   #include <linux/tick.h>
->   
->   enum hk_type {
-> +	/* Inverse of boot-time isolcpus= argument */
-> +	HK_TYPE_DOMAIN_BOOT,
->   	HK_TYPE_DOMAIN,
-> +	/* Inverse of boot-time isolcpus=managed_irq argument */
->   	HK_TYPE_MANAGED_IRQ,
-> +	/* Inverse of boot-time nohz_full= or isolcpus=nohz arguments */
->   	HK_TYPE_KERNEL_NOISE,
->   	HK_TYPE_MAX,
->   
-> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-> index 3ad0d6df6a0a..11a623fa6320 100644
-> --- a/kernel/sched/isolation.c
-> +++ b/kernel/sched/isolation.c
-> @@ -11,6 +11,7 @@
->   #include "sched.h"
->   
->   enum hk_flags {
-> +	HK_FLAG_DOMAIN_BOOT	= BIT(HK_TYPE_DOMAIN_BOOT),
->   	HK_FLAG_DOMAIN		= BIT(HK_TYPE_DOMAIN),
->   	HK_FLAG_MANAGED_IRQ	= BIT(HK_TYPE_MANAGED_IRQ),
->   	HK_FLAG_KERNEL_NOISE	= BIT(HK_TYPE_KERNEL_NOISE),
-> @@ -239,7 +240,7 @@ static int __init housekeeping_isolcpus_setup(char *str)
->   
->   		if (!strncmp(str, "domain,", 7)) {
->   			str += 7;
-> -			flags |= HK_FLAG_DOMAIN;
-> +			flags |= HK_FLAG_DOMAIN | HK_FLAG_DOMAIN_BOOT;
->   			continue;
->   		}
->   
-> @@ -269,7 +270,7 @@ static int __init housekeeping_isolcpus_setup(char *str)
->   
->   	/* Default behaviour for isolcpus without flags */
->   	if (!flags)
-> -		flags |= HK_FLAG_DOMAIN;
-> +		flags |= HK_FLAG_DOMAIN | HK_FLAG_DOMAIN_BOOT;
->   
->   	return housekeeping_setup(str, flags);
->   }
-Reviewed-by: Waiman Long <longman@redhat.com>
 
+--l3dCGue1f5wWDFkV
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Jan 12, 2026 at 08:56:36AM +0100, Francesco Dolcini wrote:
+> On Mon, Jan 12, 2026 at 08:49:56AM +0100, Francesco Dolcini wrote:
+> > +Tom +U-Boot ML
+> >=20
+> > Hello Siddharth,
+> >=20
+> > On Sat, Oct 25, 2025 at 01:07:59PM +0530, Siddharth Vadapalli wrote:
+> > > The MAC Ports across all of the CPSW instances (CPSW2G, CPSW3G, CPSW5=
+G and
+> > > CPSW9G) present in various K3 SoCs only support the 'RGMII-ID' mode. =
+This
+> > > correction has been implemented/enforced by the updates to:
+> > > a) Device-Tree binding for CPSW [0]
+> > > b) Driver for CPSW [1]
+> > > c) Driver for CPSW MAC Port's GMII [2]
+> > >=20
+> > > To complete the transition from 'RGMII-RXID' to 'RGMII-ID', update the
+> > > 'phy-mode' property for all CPSW ports by replacing 'rgmii-rxid' with
+> > > 'rgmii-id'.
+> > >=20
+> > > [0]: commit 9b357ea52523 ("dt-bindings: net: ti: k3-am654-cpsw-nuss: =
+update phy-mode in example")
+> > > [1]: commit ca13b249f291 ("net: ethernet: ti: am65-cpsw: fixup PHY mo=
+de for fixed RGMII TX delay")
+> > > [2]: commit a22d3b0d49d4 ("phy: ti: gmii-sel: Always write the RGMII =
+ID setting")
+> >=20
+> > What about U-Boot?
+> > I just noticed this in today U-Boot master:
+> >=20
+> >   RGMII mode without internal TX delay unsupported; please fix your Dev=
+ice Tree
+> >=20
+> > and I think this is coming from the DTS update from Linux to U-Boot.
+> >=20
+> > Can you look into that?
+>=20
+> Ok, I think that the issue is that the U-Boot code was updated
+> correctly, but now we need the v6.19 DT in U-Boot, and as of now we have
+> 6.18 DT.
+>=20
+> Tom: are you planning to sync the U-Boot DT to Linux v6.19 before the next
+> U-Boot release?
+
+Once it's out, yes. But, uh, this tells me some TI folks forgot to
+backport all of the dts changes too then as we shouldn't have broken
+platforms in-tree like this.
+
+--=20
+Tom
+
+--l3dCGue1f5wWDFkV
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTzzqh0PWDgGS+bTHor4qD1Cr/kCgUCaWU4KQAKCRAr4qD1Cr/k
+Cvk3AQDuM/GRmnrbkiiukhCxNdwOxiZCH8uDyIsMLBzAm2bFqwD+NlctSgODsb0C
+erEXYpRFivilIFIFxVhDG7lW0OOJSAE=
+=p3wn
+-----END PGP SIGNATURE-----
+
+--l3dCGue1f5wWDFkV--
 
