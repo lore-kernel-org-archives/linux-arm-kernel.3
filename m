@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44924CF45AF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 17:01:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7883CF45AE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 17:01:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PZQTTiyZBnXu0EkhUFF2roGOlcvmMZNC7dfYzrLt9pk=; b=MeOyEDqf+ObB/SrfobAiLe+CUC
-	Xfx/evfxBXh+281s6Wm348tSidE64nDiS71HaRmmtw68Bj8l0LXv2RCfItqCRpK9l/ktntccEcJXW
-	oKuqcp0N7g1ybe0Ssra0YzN3x2FC21d7zHj+ixDg6j2kAeWsA7cg/pvZB0rphh68Zf9owByr8MvCA
-	QLF3K1CDaWkHr5A6qw3fV2fGvr91/yviapsC14lzTHeYVKKtxw0rWoY0CW7fpHDsTf4kMsqm6qUCj
-	hQdIQSi4iR6HSCOmikMedO/39Pk+7gKJYCn2vy0UoD8pJdljzEjBijbnqqambRMeQ+u0II9yjHtwz
-	/EyI2zgw==;
+	bh=McvCJnOZg2DyHysAuvr+YH71seh9WVqiYxb5kti+e8A=; b=SGissUeIeXJQzv/KCpRrBnbf4Q
+	9n5Qw7eh3w8pG4eeEBttJxlgzFkfeOrgn9tDNK6LSsaRUie6cLCw6ETpuNIL6G3VgZPE9OiZ4br0f
+	xhWuWU74L9eMIAzeObyOhj7y1GxdAs6E1DPYnqLyR85I7YM8UDKg4BnOI5L4QJ1eM5oI+Pp2RiL1K
+	XAV+qZ9MeHApHjfFDsC9D9IuIBKLGBvWRX8JEnNqTTR0+qxS8Ns+wfapYJm/bcFMaOUj7KpCt8VLa
+	xBqF3LsWRmoVKljfaWKI5pNGqrrGjD8HEktkCvjHxwOdgxHIuQK74oNs9yAd44ypgeplT2CSzopCi
+	IfaOh/7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfLIE-00000005lrW-1iDh;
-	Mon, 12 Jan 2026 17:01:26 +0000
+	id 1vfLIH-00000005lvg-22A8;
+	Mon, 12 Jan 2026 17:01:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfLI6-00000005lk4-40nO
+	id 1vfLIC-00000005lnu-1dE9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 17:01:24 +0000
+	Mon, 12 Jan 2026 17:01:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4E0D315A1;
-	Mon, 12 Jan 2026 09:01:11 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA1D51516;
+	Mon, 12 Jan 2026 09:01:16 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E53913F694;
-	Mon, 12 Jan 2026 09:01:12 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5E6A33F694;
+	Mon, 12 Jan 2026 09:01:18 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -67,17 +67,17 @@ Cc: amitsinght@marvell.com,
 	joey.gouly@arm.com,
 	suzuki.poulose@arm.com,
 	kvmarm@lists.linux.dev
-Subject: [PATCH v3 16/47] arm_mpam: resctrl: Pick the caches we will use as resctrl resources
-Date: Mon, 12 Jan 2026 16:58:43 +0000
-Message-ID: <20260112165914.4086692-17-ben.horgan@arm.com>
+Subject: [PATCH v3 17/47] arm_mpam: resctrl: Implement resctrl_arch_reset_all_ctrls()
+Date: Mon, 12 Jan 2026 16:58:44 +0000
+Message-ID: <20260112165914.4086692-18-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260112165914.4086692-1-ben.horgan@arm.com>
 References: <20260112165914.4086692-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_090119_212181_280AF16E 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20260112_090124_591758_4B14DA79 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,140 +94,92 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: James Morse <james.morse@arm.com>
 
-Systems with MPAM support may have a variety of control types at any point
-of their system layout. We can only expose certain types of control, and
-only if they exist at particular locations.
+We already have a helper for resetting an mpam class and component.  Hook
+it up to resctrl_arch_reset_all_ctrls() and the domain offline path.
 
-Start with the well-known caches. These have to be depth 2 or 3 and support
-MPAM's cache portion bitmap controls, with a number of portions fewer than
-resctrl's limit.
-
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since rfc:
-Jonathan:
-Remove brackets
-Compress debug message
-Use temp var, r
-
 Changes since v2:
-Return -EINVAL in mpam_resctrl_control_init() for unknown rid
+Don't expose unlocked reset
 ---
- drivers/resctrl/mpam_resctrl.c | 90 +++++++++++++++++++++++++++++++++-
- 1 file changed, 88 insertions(+), 2 deletions(-)
+ drivers/resctrl/mpam_devices.c  |  4 ++--
+ drivers/resctrl/mpam_internal.h |  6 ++++++
+ drivers/resctrl/mpam_resctrl.c  | 15 +++++++++++++++
+ 3 files changed, 23 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 4dba6f58f79c..1566d0c686e6 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -65,9 +65,94 @@ struct rdt_resource *resctrl_arch_get_resource(enum resctrl_res_level l)
- 	return &mpam_resctrl_controls[l].resctrl_res;
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index b81d5c7f44ca..0dd7f613f7a3 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -2544,7 +2544,7 @@ static void mpam_enable_once(void)
+ 	       mpam_partid_max + 1, mpam_pmg_max + 1);
  }
  
-+static bool cache_has_usable_cpor(struct mpam_class *class)
+-static void mpam_reset_component_locked(struct mpam_component *comp)
++void mpam_reset_component_locked(struct mpam_component *comp)
+ {
+ 	struct mpam_vmsc *vmsc;
+ 
+@@ -2568,7 +2568,7 @@ static void mpam_reset_component_locked(struct mpam_component *comp)
+ 	}
+ }
+ 
+-static void mpam_reset_class_locked(struct mpam_class *class)
++void mpam_reset_class_locked(struct mpam_class *class)
+ {
+ 	struct mpam_component *comp;
+ 
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index e394ee78918a..f89ceaf7623d 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -393,6 +393,12 @@ extern u8 mpam_pmg_max;
+ void mpam_enable(struct work_struct *work);
+ void mpam_disable(struct work_struct *work);
+ 
++/* Reset all the RIS in a class under cpus_read_lock() */
++void mpam_reset_class_locked(struct mpam_class *class);
++
++/* Reset all the RIS in a component under cpus_read_lock() */
++void mpam_reset_component_locked(struct mpam_component *comp);
++
+ int mpam_apply_config(struct mpam_component *comp, u16 partid,
+ 		      struct mpam_config *cfg);
+ 
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index 1566d0c686e6..683bdd6989d4 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -169,6 +169,19 @@ static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
+ 	return comp->comp_id;
+ }
+ 
++void resctrl_arch_reset_all_ctrls(struct rdt_resource *r)
 +{
-+	struct mpam_props *cprops = &class->props;
-+
-+	if (!mpam_has_feature(mpam_feat_cpor_part, cprops))
-+		return false;
-+
-+	/* resctrl uses u32 for all bitmap configurations */
-+	return class->props.cpbm_wd <= 32;
-+}
-+
-+/* Test whether we can export MPAM_CLASS_CACHE:{2,3}? */
-+static void mpam_resctrl_pick_caches(void)
-+{
-+	struct mpam_class *class;
 +	struct mpam_resctrl_res *res;
 +
 +	lockdep_assert_cpus_held();
 +
-+	guard(srcu)(&mpam_srcu);
-+	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
-+				 srcu_read_lock_held(&mpam_srcu)) {
-+		if (class->type != MPAM_CLASS_CACHE) {
-+			pr_debug("class %u is not a cache\n", class->level);
-+			continue;
-+		}
++	if (!mpam_is_enabled())
++		return;
 +
-+		if (class->level != 2 && class->level != 3) {
-+			pr_debug("class %u is not L2 or L3\n", class->level);
-+			continue;
-+		}
-+
-+		if (!cache_has_usable_cpor(class)) {
-+			pr_debug("class %u cache misses CPOR\n", class->level);
-+			continue;
-+		}
-+
-+		if (!cpumask_equal(&class->affinity, cpu_possible_mask)) {
-+			pr_debug("class %u has missing CPUs, mask %*pb != %*pb\n", class->level,
-+				 cpumask_pr_args(&class->affinity),
-+				 cpumask_pr_args(cpu_possible_mask));
-+			continue;
-+		}
-+
-+		if (class->level == 2)
-+			res = &mpam_resctrl_controls[RDT_RESOURCE_L2];
-+		else
-+			res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
-+		res->class = class;
-+		exposed_alloc_capable = true;
-+	}
++	res = container_of(r, struct mpam_resctrl_res, resctrl_res);
++	mpam_reset_class_locked(res->class);
 +}
 +
- static int mpam_resctrl_control_init(struct mpam_resctrl_res *res)
+ static void mpam_resctrl_domain_hdr_init(int cpu, struct mpam_component *comp,
+ 					 struct rdt_domain_hdr *hdr)
  {
--	/* TODO: initialise the resctrl resources */
-+	struct mpam_class *class = res->class;
-+	struct rdt_resource *r = &res->resctrl_res;
-+
-+	switch (r->rid) {
-+	case RDT_RESOURCE_L2:
-+	case RDT_RESOURCE_L3:
-+		r->alloc_capable = true;
-+		r->schema_fmt = RESCTRL_SCHEMA_BITMAP;
-+		r->cache.arch_has_sparse_bitmasks = true;
-+
-+		r->cache.cbm_len = class->props.cpbm_wd;
-+		/* mpam_devices will reject empty bitmaps */
-+		r->cache.min_cbm_bits = 1;
-+
-+		if (r->rid == RDT_RESOURCE_L2) {
-+			r->name = "L2";
-+			r->ctrl_scope = RESCTRL_L2_CACHE;
-+		} else {
-+			r->name = "L3";
-+			r->ctrl_scope = RESCTRL_L3_CACHE;
-+		}
-+
-+		/*
-+		 * Which bits are shared with other ...things...
-+		 * Unknown devices use partid-0 which uses all the bitmap
-+		 * fields. Until we configured the SMMU and GIC not to do this
-+		 * 'all the bits' is the correct answer here.
-+		 */
-+		r->cache.shareable_bits = resctrl_get_default_ctrl(r);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
+@@ -352,6 +365,8 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)
+ 			continue;
  
- 	return 0;
- }
-@@ -302,7 +387,8 @@ int mpam_resctrl_setup(void)
- 		res->resctrl_res.rid = rid;
- 	}
- 
--	/* TODO: pick MPAM classes to map to resctrl resources */
-+	/* Find some classes to use for controls */
-+	mpam_resctrl_pick_caches();
- 
- 	/* Initialise the resctrl structures from the classes */
- 	for_each_mpam_resctrl_control(res, rid) {
+ 		if (exposed_alloc_capable) {
++			mpam_reset_component_locked(dom->ctrl_comp);
++
+ 			ctrl_d = &dom->resctrl_ctrl_dom;
+ 			ctrl_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
+ 			if (ctrl_dom_empty)
 -- 
 2.43.0
 
