@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63555CF45A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 17:02:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD3ECF45A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 17:02:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/AmFpm0OEkOA3Ds13Er6lnRI12s64z+ZXSAv3xmwb2Y=; b=y2k14GK4vKl69ic70xItCKYiuC
-	jBsDycHIX8JyFXRkclD6jM/ULeFSXe+KeDq3Ek+ymQwEWYSJbbA06DJw058SHyZ688FkhccLNPmJ7
-	5qQGiDgKuymfhCGzKigICChxMZdC3QYoTNbbbxlyCas2CyEMb7PnbHCVhGmP4VhwUpXhShuDnZEWp
-	aPgc+Arbc7awM+nSeXAuSZAoHa720VXpdme55WUA1CnoiC80nO0W/T2kbXsu9RpXyWUdQ1N5XKStn
-	/d18gEwVsUTr3bF71268xQkp1/QIbiSHVv/FO7LuAvDE02m6WOj74cEO+o2AJuorDnh5DOIVLVVuE
-	w5LBBx8w==;
+	bh=EdZs0gpJeRQ/Y/T69MhmFiBNCxBOTEJ1nIeYHxjKSYQ=; b=vD8pkWQYWExoKgPOcWwperYl/a
+	cWMVpnNuIEL2UEVf7muhFhWX13xqyyzp4vZrrhpQfEypvpJ/xPM63+MlRBz6zXDa+7p2BHV1U91+j
+	9olapfb83dsPFCODfMRpH6K7YuNU8pEYC0MxiSkg5XpzgmXxkqbOIqg5LdnCTEtQItPYqZQHtVuiz
+	T9qux0m7OmkpAUA9sI55Xln2MNu+lnDof9ovYGu6pH8QHSjUy5qHyJ/JXEYN9m9KKFagNOoa/W133
+	ZApP4fq5uLF5ZncJIpQgksCG1nNY93hSJnZzg8Gw9sMpQjVMGYCs0YchadP1mgo5N0z6RKr/82BqR
+	2/4Slugw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfLIs-00000005mbw-0uQN;
-	Mon, 12 Jan 2026 17:02:06 +0000
+	id 1vfLIy-00000005mk6-2Npf;
+	Mon, 12 Jan 2026 17:02:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfLIo-00000005mXy-2gof
+	id 1vfLIu-00000005men-2z14
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 17:02:03 +0000
+	Mon, 12 Jan 2026 17:02:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 55915153B;
-	Mon, 12 Jan 2026 09:01:55 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C2A001516;
+	Mon, 12 Jan 2026 09:02:00 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EDCB93F694;
-	Mon, 12 Jan 2026 09:01:56 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 658413F694;
+	Mon, 12 Jan 2026 09:02:02 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -67,18 +67,17 @@ Cc: amitsinght@marvell.com,
 	joey.gouly@arm.com,
 	suzuki.poulose@arm.com,
 	kvmarm@lists.linux.dev
-Subject: [PATCH v3 24/47] arm_mpam: resctrl: Add rmid index helpers
-Date: Mon, 12 Jan 2026 16:58:51 +0000
-Message-ID: <20260112165914.4086692-25-ben.horgan@arm.com>
+Subject: [PATCH v3 25/47] arm_mpam: resctrl: Add kunit test for rmid idx conversions
+Date: Mon, 12 Jan 2026 16:58:52 +0000
+Message-ID: <20260112165914.4086692-26-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260112165914.4086692-1-ben.horgan@arm.com>
 References: <20260112165914.4086692-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_090202_754382_A1F6D376 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260112_090208_902089_DCC180CC 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,67 +92,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Because MPAM's pmg aren't identical to RDT's rmid, resctrl handles some
-data structures by index. This allows x86 to map indexes to RMID, and MPAM
-to map them to partid-and-pmg.
+As MPAM's pmg are scoped by partid and RDT's rmid are global the
+rescrl mapping to an index needs to differ.
 
-Add the helpers to do this.
+Add some tests for the MPAM rmid mapping.
 
-Suggested-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since rfc:
-Use ~0U instead of ~0 in lhs of left shift
+ drivers/resctrl/test_mpam_resctrl.c | 49 +++++++++++++++++++++++++++++
+ 1 file changed, 49 insertions(+)
 
-Changes since v2:
-Drop changes signed-off-by as reworked patch
-Use multiply and add rather than shift to avoid holes
----
- drivers/resctrl/mpam_resctrl.c | 16 ++++++++++++++++
- include/linux/arm_mpam.h       |  3 +++
- 2 files changed, 19 insertions(+)
-
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index b6bbe73bc248..92b2a2d4b51d 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -126,6 +126,22 @@ u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
- 	return mpam_partid_max + 1;
+diff --git a/drivers/resctrl/test_mpam_resctrl.c b/drivers/resctrl/test_mpam_resctrl.c
+index b93d6ad87e43..a20da161d965 100644
+--- a/drivers/resctrl/test_mpam_resctrl.c
++++ b/drivers/resctrl/test_mpam_resctrl.c
+@@ -296,6 +296,54 @@ static void test_percent_to_max_rounding(struct kunit *test)
+ 	KUNIT_EXPECT_LE(test, 4 * num_rounded_up, 3 * total);
  }
  
-+u32 resctrl_arch_system_num_rmid_idx(void)
++struct rmid_idx_case {
++	u32 max_partid;
++	u32 max_pmg;
++};
++
++static const struct rmid_idx_case rmid_idx_cases[] = {
++	{0, 0}, {1, 4}, {3, 1}, {5, 9}, {4, 4}, {100, 11}, {0xFFFF, 0xFF},
++};
++
++static void test_rmid_idx_desc(const struct rmid_idx_case *param, char *desc)
 +{
-+	return (mpam_pmg_max + 1) * (mpam_partid_max + 1);
++	snprintf(desc, KUNIT_PARAM_DESC_SIZE, "max_partid=%d, max_pmg=%d\n",
++		 param->max_partid, param->max_pmg);
 +}
 +
-+u32 resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid)
++KUNIT_ARRAY_PARAM(test_rmid_idx, rmid_idx_cases, test_rmid_idx_desc);
++
++static void test_rmid_idx_encoding(struct kunit *test)
 +{
-+	return closid * (mpam_pmg_max + 1) + rmid;
++	u32 orig_mpam_partid_max = mpam_partid_max;
++	u32 orig_mpam_pmg_max = mpam_pmg_max;
++	const struct rmid_idx_case *param = test->param_value;
++	u32 idx, num_idx, count = 0;
++
++	mpam_partid_max = param->max_partid;
++	mpam_pmg_max = param->max_pmg;
++
++	for (u32 partid = 0; partid <= mpam_partid_max; partid++) {
++		for (u32 pmg = 0; pmg <= mpam_pmg_max; pmg++) {
++			u32 partid_out, pmg_out;
++
++			idx = resctrl_arch_rmid_idx_encode(partid, pmg);
++			/* Confirm there are no holes in the rmid idx range */
++			KUNIT_EXPECT_EQ(test, count, idx);
++			count++;
++			resctrl_arch_rmid_idx_decode(idx, &partid_out, &pmg_out);
++			KUNIT_EXPECT_EQ(test, pmg, pmg_out);
++			KUNIT_EXPECT_EQ(test, partid, partid_out);
++		}
++	}
++	num_idx = resctrl_arch_system_num_rmid_idx();
++	KUNIT_EXPECT_EQ(test, idx + 1, num_idx);
++
++	/* Restore global variables that were messed with */
++	mpam_partid_max = orig_mpam_partid_max;
++	mpam_pmg_max = orig_mpam_pmg_max;
 +}
 +
-+void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid)
-+{
-+	*closid = idx / (mpam_pmg_max + 1);
-+	*rmid = idx % (mpam_pmg_max + 1);
-+}
-+
- void resctrl_arch_sched_in(struct task_struct *tsk)
- {
- 	lockdep_assert_preemption_disabled();
-diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
-index d329b1dc148b..7d23c90f077d 100644
---- a/include/linux/arm_mpam.h
-+++ b/include/linux/arm_mpam.h
-@@ -58,6 +58,9 @@ void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid);
- void resctrl_arch_sched_in(struct task_struct *tsk);
- bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid);
- bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
-+u32 resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid);
-+void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid);
-+u32 resctrl_arch_system_num_rmid_idx(void);
+ static struct kunit_case mpam_resctrl_test_cases[] = {
+ 	KUNIT_CASE(test_get_mba_granularity),
+ 	KUNIT_CASE_PARAM(test_mbw_max_to_percent, test_percent_value_gen_params),
+@@ -304,6 +352,7 @@ static struct kunit_case mpam_resctrl_test_cases[] = {
+ 	KUNIT_CASE(test_percent_to_max_rounding),
+ 	KUNIT_CASE_PARAM(test_percent_max_roundtrip_stability,
+ 			 test_all_bwa_wd_gen_params),
++	KUNIT_CASE_PARAM(test_rmid_idx_encoding, test_rmid_idx_gen_params),
+ 	{}
+ };
  
- /**
-  * mpam_register_requestor() - Register a requestor with the MPAM driver
 -- 
 2.43.0
 
