@@ -4,63 +4,201 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1F59C9EC97
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 15:53:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D61E4C9EC98
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 15:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=992kLV1rcSjZd+c9WxIk+C0mlZRjyskv49xpfa8dA7U=; b=AGeefcWtWCeS65wN1BZhrQCBVh
-	7hBiUK4R3y6iXC9MqMAq2SblT8mSn+alsTNiayaoWuZlsZy4U33SdoxuJNrQ/FYHUytcCPo4vDYqY
-	8WT3Cs6YLoMyltoVSxI8nJEKk8MgLPU/7q+cYOrc4cqQbuykN294QErXjC+zk5arNO/6q+u+us6Y4
-	ocZPM5MnbLZBTT/lwvLrAfKOkrdzmk0BXyiZhdGPEbzdTNkh/lOsMc6QdLaFDXP3No6bM0V0c+3Xh
-	DLDqTHxssHAHd0FJQANRbnhgH/XSFe0b0F6IQFobAKVgqd3fgKYro25+o7SW4Rrkt7QXYU6VCyOeN
-	2e8oQ5cQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wnlgiFJfv4qdn9WqcMN12KaRFXbVJYyNRztehNQsTkM=; b=N6YED5LgaPUprN8bdqH8Odk8EB
+	6UJcoeYqsGbla4nytR3w96aaTPBjq5MVH/UbnjYMTa1A5Y5cPUDDa33lDkTbyJVuAxxxGWaWwg9pg
+	XO5YMPVl/2JFAYf6KrINsLaw1X0HlG2qZ/L01OM0RceKq/HlOsw3rzzP89fcVYSeq5aqM+29qnLQ8
+	GlEinbvk+pGJbaGE0gsJ0ncGFHM17pe5jO57l01u/HwzaKp7CKwn6Hu1YaxWfB2gy4mDyrhgWnOny
+	x36nWZhXvMDFe2GyzhGN9Dryz+WX3C8tZcu4vRXaERhUTpvPSXQ5C6m0TwujDaCTiccGaoXWSJ23y
+	Yboqhe2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfKEh-00000005fmd-0KXe;
-	Mon, 12 Jan 2026 15:53:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vfKI2-00000005g0l-3Zlk;
+	Mon, 12 Jan 2026 15:57:10 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfKEf-00000005fmV-2haf
+	id 1vfKHy-00000005g0H-3ZUR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 15:53:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E78536000A;
-	Mon, 12 Jan 2026 15:53:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7459EC16AAE;
-	Mon, 12 Jan 2026 15:53:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768233220;
-	bh=Iwz2FZB7Ir4MOz88EBGnyMaOkJY3tnWlW7Bxq070cus=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JxixVHp6QGt172wu0poHq5+oMZ2CU8nIbuhotT0mjSZb5/+6YJLBIk4TFWsb3ePV0
-	 5XjNL4IkcVx+tTURrRqMxqNJ19Sl1sjJGjk6ixKSDtR3nj0T3uPLSXGB+xwD/142C4
-	 nPMkQeQHmt+0dCAbBHuKnlQqiM661a1YmpoW1whGkqxGIAzhfTJ5r529xGeQJJ3k+Y
-	 SG5iCe6tsz1q2UB3Nm9X5i72LF6+R6e/NwKDCZAEQ0nK6FraXkn2KkZuM1QZSkq3h5
-	 XlpFtV2LXj2J5AH+QqlkxoWCbd4sOlpF1kdq1W/7ANqjOqWuIhvZTaBnm67ai+BLnx
-	 34gcMQZnsHKgw==
-Date: Mon, 12 Jan 2026 15:53:29 +0000
-From: Will Deacon <will@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, robin.murphy@arm.com,
-	joro@8bytes.org, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	skolothumtho@nvidia.com, praan@google.com,
-	xueshuai@linux.alibaba.com, smostafa@google.com
-Subject: Re: [PATCH rc v5 1/4] iommu/arm-smmu-v3: Add update_safe bits to fix
- STE update sequence
-Message-ID: <aWUY-f3kvM94z4qh@willie-the-truck>
-References: <cover.1766093909.git.nicolinc@nvidia.com>
- <58f5af553fa7c3b5fd16f1eb13a81ae428f85678.1766093909.git.nicolinc@nvidia.com>
- <aV7OBrH-TDiGRblt@willie-the-truck>
- <20260108003646.GA537728@nvidia.com>
+	Mon, 12 Jan 2026 15:57:08 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60CFbDWY3568059;
+	Mon, 12 Jan 2026 16:56:49 +0100
+Received: from duzpr83cu001.outbound.protection.outlook.com (mail-northeuropeazon11012067.outbound.protection.outlook.com [52.101.66.67])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4bm2kpvjfn-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 12 Jan 2026 16:56:49 +0100 (CET)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=i0nCbYChLISwayWIRNsPhAki7QlPiLRd4XhAqBYul40/BB37zXladktg2hSyGofhauNeFA5Md1rRi2dJVNCIUEStaoOV043TI1AQj2W4UDJjVF0AAoXKFIl1s5jO69b+//5wW1axMdxccqiE4fxE9knpSGG6bvex5wZwkVgRcv5bvl1/BlncySpf9a0QdFuGJzAXtUUniXtLqiq+P4MtkePsz2ZcpNOJENeIc7Qd1S0hmRHwYjcPUMAiDHrFGnFmhCgqWrdUyIrTCOhy3+Pm2Z66V0iqWkxi9Hxpe1zl2/3CigpB1EVicmyaiHhPdWO8tcMLqI6guPOcDC5Fuxs0Pw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wnlgiFJfv4qdn9WqcMN12KaRFXbVJYyNRztehNQsTkM=;
+ b=S5AwLYkFlWFfzfku8NuTiYF3/PCSDpZ+l483A/cwrnE+2vbB8iaCaH3eSH+lYX6slyhktiG+2Ou76aqCugKv62v8hr17jlKg0Kj96v4o6h+z/GqOplzOYTlcsPZbUjw5J59MYtkEqCd6cp8tUil5FG8w6I2HwPxjd3QM1BK8vKrT9/8rFvmpJThZSBSz/iaZh4CJGsUqkqDe8ZCZICVAdy2uHAUzUg3s3D73wJmVu8uoxVZ8TX/jQ270yDa47JWebO5ChsySwYdz+A8imCLAr0Ffe8JP/kbzRtO+KWYgMqkOJvS3NOl3qo+3lwDKqDfgH4IhkmF0qt3QzA19t8dEdw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wnlgiFJfv4qdn9WqcMN12KaRFXbVJYyNRztehNQsTkM=;
+ b=PHENBecPeSSYEqz68QmXccxSjUMwLQX5lzuGw1UK8tzFO+sriz8BqtD4A0eBffkWOgX1pWO/0yyWIohMT8GnrcMhSP5ryxjEWBEbJcon0E8s38iNUTh4wYf2A+OJQiW9EdCUrDgZMaU1pw32hGZFTcc+fD/0J4eOPwIfi4FFYrNN7jxz8NI+r6DI77ZjzeLR+HLAHdu0ph4dFqSrTi8UQvQjihspBi4HWDKqxGBZiEpDdj7hVQ/yIQbFQiKk97B+Va4i6ueobgg9z+HFXGlKW4r4irTMTp0bKVZABrrJvvKSaaz7duGj+Nf1of15gsFHMxLpEgWFdgjs4Wso011/9A==
+Received: from AM0PR10CA0031.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:150::11)
+ by AM7PR10MB3720.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:13e::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Mon, 12 Jan
+ 2026 15:56:46 +0000
+Received: from AMS0EPF0000019E.eurprd05.prod.outlook.com
+ (2603:10a6:20b:150:cafe::fb) by AM0PR10CA0031.outlook.office365.com
+ (2603:10a6:20b:150::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.7 via Frontend Transport; Mon,
+ 12 Jan 2026 15:56:37 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ AMS0EPF0000019E.mail.protection.outlook.com (10.167.16.250) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.1 via Frontend Transport; Mon, 12 Jan 2026 15:56:46 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 12 Jan
+ 2026 16:58:10 +0100
+Received: from [10.48.86.212] (10.48.86.212) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 12 Jan
+ 2026 16:56:45 +0100
+Message-ID: <36aadb47-7cea-47cc-8952-6eab14c925e8@foss.st.com>
+Date: Mon, 12 Jan 2026 16:56:45 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260108003646.GA537728@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/11] bus: add stm32 debug bus and coresight support for
+ stm32mp1x platforms
+To: Linus Walleij <linusw@kernel.org>,
+        Jens Wiklander
+	<jens.wiklander@linaro.org>
+CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Leo Yan
+	<leo.yan@linux.dev>,
+        =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?=
+	<legoffic.clement@gmail.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-gpio@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        Antonio Borneo <antonio.borneo@foss.st.com>
+References: <20260109-debug_bus-v1-0-8f2142b5a738@foss.st.com>
+ <CAD++jLmk3RCf19yPvE0E9X3b+gy0XghQTbmMPfioBkSKkAaLpQ@mail.gmail.com>
+Content-Language: en-US
+From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
+In-Reply-To: <CAD++jLmk3RCf19yPvE0E9X3b+gy0XghQTbmMPfioBkSKkAaLpQ@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.212]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS0EPF0000019E:EE_|AM7PR10MB3720:EE_
+X-MS-Office365-Filtering-Correlation-Id: 38f43b12-0111-4e5f-44d1-08de51f33070
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|36860700013|1800799024|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eUpQVXE3Y2dBS3JqRENVTWE1SFhJcFd0cm1HVlNXYU5WRDFmUFBFYWpWeEZq?=
+ =?utf-8?B?RUNWdld5TXZ4M0ljVVdlMUxEU1M4Y2lCcUdLcG1FM09lMWtLcktaRXZ6cjRy?=
+ =?utf-8?B?eVpSd2NlUVJzczlUQ09jQU05Y2Q3RkNLZ1hSUXo0Mi9PN25mdHNOM1M1ck11?=
+ =?utf-8?B?d3lOZ25xTm43QVUrM0owbmN3c1Q5a1orY2FEQzJ2TklhcFk3THVEVHkvVXZm?=
+ =?utf-8?B?bk5ablpTeVA1eUYwSENqQWdzL3RRaGVEamw4cnRWRmJ3eGI2NHpyYngxWUth?=
+ =?utf-8?B?eDkyeHJRdUxLVk9vajFoWGY1dy95YytnT0NCSk53YkYxRnVQdkhadDRRZmQr?=
+ =?utf-8?B?dW1BUm9sU0hQaFdNZkxkM0t5QWdocUxXSkFwTkxGdGJ6MFJicm55RGtJam55?=
+ =?utf-8?B?M1pNVUttSllLSXJsdHR5V1ZWSGtWL2VONHY1Mzd1M3p6UEVpUFFOend2Nlky?=
+ =?utf-8?B?bnQ4c0VINFNDajRaWDBIRXBCenJzRkFXOWZibXJEeFhnYjJxU0hDZ084L0VQ?=
+ =?utf-8?B?QTUvMjA5QThyM0Z5dmlYcndXaFJGNGZteGVVZEN2dEJGOVFscjhFZjNUZCtM?=
+ =?utf-8?B?RzFYTkRMTmlGdlZaOFBoSmFOMnA4c1FMMlgwMzdPODNyeUhtcytlN0czVXVn?=
+ =?utf-8?B?dDAwWE9FbnBabVc2N0xabU9VbVZvTUQxNHZjZzZDaVJVOFdwKzJqaFZiR2Qw?=
+ =?utf-8?B?bGdFRHlmV2tjUkVMOTAwSWlNUDVvUk9Ec0hzVm5PaGZVMk1tM3hlOVk1TTVu?=
+ =?utf-8?B?Z25mQ2lPRGhMaXU5emEvZUhuR2k1emNpc1dRUy82TGI4cVJid3ZVUlRrbHky?=
+ =?utf-8?B?SG5Va24zZ01EQ0hSaXp0QjhlV0JsS05iMkFPZitCSzk0cVJhNFJDQzRQYXNo?=
+ =?utf-8?B?S1hUckRFNTcrSWtRSTZSaDZnbVBjR294V2tYZG1haFZjL0srR2RwL0YvM253?=
+ =?utf-8?B?SnhoTnBSdlIrN0NkOEUxNGVIYThWOG9SYWRod0E5RlpSVEJjcGF5VEZaN0Fl?=
+ =?utf-8?B?a1cyaVduazNaWHczTUp5NWU0WklIdnVFZk9nY3VQZkduZ3kvNytnY1I0am9i?=
+ =?utf-8?B?TzIxYmE2RVBSeUtHSDN4M3RCV1hDbXYzT0hWNkp2OTlTNWVXWFNLYzh5dUxJ?=
+ =?utf-8?B?UlJrUS9hWGpTRExoK1pLMUVBTUM0bWV0aXJqQ01IM25oejY4c0hZclpOVGNz?=
+ =?utf-8?B?Qlg0ZHNFZTJCYkRacVZ0SzZHOW1zRjM2NWw5NXVGb3VlWGl4cFl5R1dPNTFT?=
+ =?utf-8?B?cFVocDd0NitLNGM4NWYxNUtYbWl5dlhxTll3R3lBb0pQcE1EYnk2anZaR01P?=
+ =?utf-8?B?Vi9ZZWtnMHFMRWVlWDYyb3QrYW12MzdHV3RiOWdwZDJISy9JaUl0cFVSQ1Vn?=
+ =?utf-8?B?N3Q1NkhtNjJRYzd5aEtjekhzS0dvLzB5UnNYUE5WZVJxSDgwWHJWNXRzVVVD?=
+ =?utf-8?B?Mkw0R2hwZHRrYXJLaWVVQWRYUTRFNHl3eUZGUkdxNE91ZDZXTS9Qd0Qyb3Fo?=
+ =?utf-8?B?OFMwOGZ2QUVrUU1VYko5eHAyc1NFMjJLQ3FtUEhSRm5haFVIdys0N2J1UmNH?=
+ =?utf-8?B?bzZaTDJCZnZIdk0vb1JtanBMYVdHZytTL1AyNkFaSzVLSzFSVVZvUk5GQklq?=
+ =?utf-8?B?bjdqTFpQclJRLzVmYk9ORy9HRWFuNHk2eUdubVJ6Vy9KT2xHdWNlSWdtUlc2?=
+ =?utf-8?B?ZWNpK3ZtMFl4ZHJKcjFzWnhFUFNROTZ5bVduWkx2RXNNNnJ4dDg1Zml1RTAx?=
+ =?utf-8?B?WEJ0RnVQaS9QdTNQY0xDMFhKQkErdHlxZzNzS1krck5vZStFZzZqUmhSdUk1?=
+ =?utf-8?B?MXlNSnBkSmpIMkd0TThYNWRZYjBTamZOYkF4K05zLzlmeGFPUENWa2xxUDNH?=
+ =?utf-8?B?Q2thS0R6S1l1N2k2WDArdzk1cS9FNkYrVzE1RWNQMVljamM5aEZCUlUyeEtr?=
+ =?utf-8?B?M1NwZ0dzWHhBck9jalVZNG15ZzgxR1h4RVFVQjJ4bENtMXJ5VllEeUdSWG1S?=
+ =?utf-8?B?THIvVUdDZ2oyV3BieWU2b3Q3UnljajRjTkJpRHJESlU3ME1HcTJXRWlLWTZW?=
+ =?utf-8?B?TFN4aXhrV0YxTW03RjUvbmszK2J6dlA4dnR1amxyZjkyQU91Q2lWWTdvUmhs?=
+ =?utf-8?Q?L9gQ=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(36860700013)(1800799024)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jan 2026 15:56:46.3888
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 38f43b12-0111-4e5f-44d1-08de51f33070
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF0000019E.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR10MB3720
+X-Proofpoint-GUID: NsIHp8Qwf3AhQcV5zGOSiy9IYN6QuQ6l
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTEyMDEzMCBTYWx0ZWRfX3UMLFWXJxPsR
+ RdG6vMbO3cpG85cbf8+jczVHXDwyP5y756b9TSjmZrDLy5c5YFm2lWaSsQJBTz4fizKQYjRVjBo
+ EEoaF52z8+gIGvtesj0t2ohfc2qRY/q555cI4JIlu9IOJ8mJbKnSF1YLD/mHlfKiRzh2Koxi3j3
+ OeWI2OmK8Tden2pt6++kbKoJaq20aI+ZlcxGmY2B9Jv9zXbWtMM0/+nzt8NmuLERYROLU8WeHJi
+ eooY3W1sNvK+5yNeNvai5ZSxXKX/vBI5Y9lixTHiyiOr/YIq9lGenMqz/AOocRRlqscjc9l25Ge
+ 81Wq+ywZL5znfwC2CQ/sghNSuk4NJxEVf11HKh3piH1E/7rD2CCKNBP5szbl1UeiWCr1INBKSwt
+ 1olkuYQWjgfwiOhSkQatZ23kLLDkj4ve/sCqtO6PCA/Q30jFfRffyWj0bPydXXeReBxa4wGEau7
+ 6Weqm9PAcFgIFsa0MJA==
+X-Proofpoint-ORIG-GUID: NsIHp8Qwf3AhQcV5zGOSiy9IYN6QuQ6l
+X-Authority-Analysis: v=2.4 cv=BZTVE7t2 c=1 sm=1 tr=0 ts=696519c1 cx=c_pps
+ a=XdU98ikZCVsoVlHqIUyARA==:117 a=d6reE3nDawwanmLcZTMRXA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=rg8MelPR9j8A:10 a=IkcTkHD0fZMA:10
+ a=vUbySO9Y5rIA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=NEAV23lmAAAA:8 a=8b9GpE9nAAAA:8
+ a=F9KKovqh_Fmp6Uur3D8A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=T3LWEMljR5ZiDmsYVIUa:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-12_04,2026-01-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
+ adultscore=0 bulkscore=0 priorityscore=1501 phishscore=0 lowpriorityscore=0
+ malwarescore=0 clxscore=1011 impostorscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601120130
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260112_075707_395990_312DEBAE 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,30 +213,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 08:36:46PM -0400, Jason Gunthorpe wrote:
-> On Wed, Jan 07, 2026 at 09:20:06PM +0000, Will Deacon wrote:
-> > >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  2 ++
-> > >  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 18 ++++++++++---
-> > >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 27 ++++++++++++++-----
-> > >  3 files changed, 37 insertions(+), 10 deletions(-)
-> > 
-> > Hmm. So this appears to ignore the safe bits entirely, whereas the
-> > rationale for the change is that going from {MEV,EATS} disabled to
-> > enabled is safe (which I agree with). 
+
+
+On 1/10/26 00:10, Linus Walleij wrote:
+> Hi Gatien,
 > 
-> The argument was it doesn't matter for either direction be it disabled
-> to enabled or vice versa, see my reply to Mustfa in the v4 posting:
+> thanks for your patch series!
 > 
-> https://lore.kernel.org/all/20251218180129.GA254720@nvidia.com/
+> On Fri, Jan 9, 2026 at 11:56 AM Gatien Chevallier
+> <gatien.chevallier@foss.st.com> wrote:
+> 
+>> Stm32 SoCs embed debug peripherals such as Coresight. These peripherals
+>> can monitor the activity of the cores. Because of that, they can be
+>> used only if some features in the debug configuration are enabled.
+>> Else, errors or firewall exceptions can be observed. Similarly to
+>> the ETZPC(on stm32mp1x platforms) or the RIFSC(on stm32mp2x platforms),
+>> debug-related peripherals access can be assessed at bus level to
+>> prevent these issues from happening.
+>>
+>> The debug configuration can only be accessed by the secure world.
+>> That means that a service must be implemented in the secure world for
+>> the kernel to check the firewall configuration. On OpenSTLinux, it is
+>> done through a Debug access PTA in OP-TEE [1].
+>> To represent the debug peripherals present on a dedicated debug bus,
+>> create a debug bus node in the device tree and the associated driver
+>> that will interact with this PTA.
+>>
+>> [1]: https://github.com/OP-TEE/optee_os/pull/7673
+>>
+>> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+> 
+> I think Jens Wiklander wants to have a look at this partch
+> series, so added him to the To:.
+> 
+> Yours,
+> Linus Walleij
 
-It would be good to include some of that rationale in the comment and
-commit message for patch 3, as at the moment it only talks about the
-change in one direction.
+Hi Linus,
 
-I'm also still not convinced that this is generally safe, even if it
-works within what Linux currently does. For example, if somebody tries
-to disable S2S and enable ATS at the same time, couldn't you transiently
-get an illegal STE?
+Sure, I'll keep the To. addition for V2, thank you.
 
-Will
+Best regards,
+Gatien
+
 
