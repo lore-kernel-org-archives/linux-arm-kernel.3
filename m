@@ -4,119 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E05C9EC95
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 14:29:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F57C9EC95
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 14:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LLS+HawNq/JQCkjqaP77bAKp+YrzqRV4DDEssPoCY1U=; b=wO6nDyeDwMewHpNRGZBco9TR3T
-	cEJGcafceUiLz4P/7yinhRKSPRpCYUzlkn4yN7XZodlGKilC2BuO6AhVrUYKcfVyTmm9VCjuwhrIO
-	x26uCUPMJPc50C+pZh34g8/b1x6PinJrP62WTlLgiesKnA7LDqVh825Cza3HMix4cWenbodgLfYsD
-	SdX/p4g7aFqYDwxkLrI92GDJe/8k/72k9RlExrqNUxxGi6P9tOcZKiIm9UF4jsCOkk9p0fri97dSM
-	4FbiGiu8ciHYH38YEmuo++TXJxMQm71UtHyZgJdU7yMxoImr8PY8rS3LWcRQyqRLRLMxsw9ZtZfvA
-	XNEFlDzg==;
+	bh=DYJcZRRmdEMSPPmAFV4ygUc0KtR2ijewql1crILf5Fs=; b=ljGaz9+wnMlRnb02xDiR/cvj8s
+	TD8cxCQmFez5idBeaDXpg+GkBXwtWRK8rajbMLfDQASVSQEj0uWm394jKYHleTVAUMptmanGx3IBd
+	8M1cF0D0ZXiLSFsRT4QXFwGNqr/BRl4FHvm8YKjlIy51E/JzdjSstFEcBQmI95G1BkcuXN5PelOYE
+	T01oMpTzCk4zSyO3OZrfFHisGlZ6XGkLFLZVGCxWj/UoVZNWhrEHFOZEEdeJqwTI8pOTB1ChyeZu4
+	JSLiqpAl/EqPSiWFmsfnv4gApqSIy66+s6yyqhFV+uQbBUmiAG1Qbi8WbH4kX3pBACUd6hRg0ozar
+	8lRaK8Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfIui-00000005WrB-0mCf;
-	Mon, 12 Jan 2026 14:29:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vfIvu-00000005X0n-3MZA;
+	Mon, 12 Jan 2026 14:30:14 +0000
+Received: from mail-vs1-xe30.google.com ([2607:f8b0:4864:20::e30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfIuf-00000005Wqi-1Fha;
-	Mon, 12 Jan 2026 14:28:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5E33F402DB;
-	Mon, 12 Jan 2026 14:28:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A196CC16AAE;
-	Mon, 12 Jan 2026 14:28:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768228136;
-	bh=3VnkUbTBEArOUSGeAaf3mQrAVgBFlS6FTAMdfaVarkc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VhFOcj9d1mLIpngG5dKREWoyeL0bO4SB9n2CBuzTcs3VnteIe9yAc0V15IhVlyf/S
-	 GE61DWri81IE3rIqK4v4PN9NvZqqSXC4Cdri5FWsxOPbpJKdrwVrtW7wxjI7HceCSc
-	 YNi4mzMMGTrwxow1DtlfWOi92B1pWbOMo39n+9fhKboL4G6T9nWQTWxIE3nxlBT3Oj
-	 a4BERb8xCj+2Pc4ADChBBS7H7c15hhqErPLuS0urhymDTsnnJaoJpuIXBszjSQ+FAW
-	 BNNpkRiWBLrZ3rnA0RR8XjEOfoswF9SQaCVdSu6tiZ8WtJodo5PtsZxOCf/NftchFV
-	 d9euQqH+pSVDQ==
-Message-ID: <b4eb4ab6-6fde-4c01-8069-470545ffdac4@kernel.org>
-Date: Mon, 12 Jan 2026 15:28:49 +0100
+	id 1vfIvs-00000005X0H-1l9g
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 12 Jan 2026 14:30:13 +0000
+Received: by mail-vs1-xe30.google.com with SMTP id ada2fe7eead31-5eea9fbe4a4so1225038137.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 06:30:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768228211; x=1768833011; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DYJcZRRmdEMSPPmAFV4ygUc0KtR2ijewql1crILf5Fs=;
+        b=mnz0a3XlvmeB60NCfA/80HnlbFTBecIe0WY6s1XU9JuurREG6w8qqzeR2GoGzE6Ldz
+         xNOEuCiqMTicvLR1FvjFTRDhKHFlmU7GVUvUixZQW6ra/gAAtGZNQQAL+Zp1p5NXMiBO
+         4ZkJOleTXqKZc2V98TLWDSPVWFeZmmQ7Xn1erToCCKSRFMuw9XoLeDumSlrqysPgsTtr
+         dO9xUJFQU9NzzijYcQ5nm9hq1t2ybRVgrYyFY8/Ah6a7ugKs1Pha3pVtt6LU8yZUD0dL
+         HBUTB/Bgn12tfQp+m2Rnm3T7rhpZnyIOFJA2hYj1MtJX0fJz/LgGhgvrZvfEQmY+m7xo
+         rNHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768228211; x=1768833011;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=DYJcZRRmdEMSPPmAFV4ygUc0KtR2ijewql1crILf5Fs=;
+        b=w/F3obuhCicSQPMl5dy1VWB8rJr8jKn6237InQ6kjTYeJnqVHGJFZ4nioepW43dUsD
+         iCs4rg8TjtmJ878GDzWKsibzGPKzC4IhRnuhHcDpsBQ1d1z4qSCnGQk4eCWaYB62B7ij
+         l1SXa2/1qF2wOA3+cF/R0AmlPJfAfTFmzOnWk2i9bc4e7MqoHWI+hPilhWE9PbC4qLyr
+         Bgsat/235wBylgFCymuY6NpslbpZwoQic/PW/GUR5dw77qD+Lso58Bbpu73rkuq3FFom
+         gtMsMBwlU689I6wI5Ug/3vSggchTkAKWlZTFrwIBE5Rf6MNB+Jt5MVV0zzv37xOQJsca
+         lf+w==
+X-Forwarded-Encrypted: i=1; AJvYcCXGxLHP/qTn+ZCi6gH4RMyUANX8ncMoKJ27m3eLhJi6KQE9eStw2AQJpGG3c1VpWxo4u4bZyU7rpnOkYk/6VTcj@lists.infradead.org
+X-Gm-Message-State: AOJu0YywFCay+LO7w1lrJ+nUDzA26ZX2gBbvRbIeggpKd1geYEQFWc+u
+	ALA4GkfC+BsdRf+gnAthLdFIhpb5VaNd6CiJ7oM7xJ+saG5ijhg9Z1yFAgppWcjt4OU+zBCkpKa
+	aK9GhwynufNAckNYAYsPsO4V/6bNoymrjggZqi0I9QzXf+sBcbIVJO0w=
+X-Gm-Gg: AY/fxX7evydh5OK2Z5Be2KM7S/GquBW5hcVwe5N00MDYhTGKPcj+oI2QcjAA+ewePTs
+	AcnttAUdEFLi9b+U02nPWBxGi6GdnpT8EeFrUIWSvkssgVPEnzfj4p5zfIY4cckhQxQ7HUgj/U5
+	TshV8GwDgaVj+4gvBDhmOHVZrtAMyyQg9gDXUSUhDHEw5xdH+osWYPf6VrdYAQ5tKAE5zuq7UmV
+	agLo2NhPwSY/6frimeRYg/1xHYdqChaqxbTYvKiw0G5DSnpD9pOT05Xt7RtkiMx49+CZBHbZJIa
+	LWPMLu9TPTIZy+fsIkwPJln1YH+QeQ==
+X-Google-Smtp-Source: AGHT+IH99W7nwLgEet5FdEP/u+i5jdZDgClsT+5CiMOQ1spY+a7QdU3aguNyWZv64H0AdvbI4admB5ccZbM6V9dJafg=
+X-Received: by 2002:a05:6102:8088:b0:5dd:b2a1:a5a4 with SMTP id
+ ada2fe7eead31-5ecb1e731d9mr6591509137.5.1768228209479; Mon, 12 Jan 2026
+ 06:30:09 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: usb: Add binding for WCH CH334/CH335
- hub controller
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>, Chaoyi Chen <kernel@airkyi.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Quentin Schulz <quentin.schulz@cherry.de>, Jonas Karlman <jonas@kwiboo.se>,
- Hsun Lai <i@chainsx.cn>, John Clark <inindev@gmail.com>,
- Jimmy Hon <honyuenkwun@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
- Michael Riesch <michael.riesch@collabora.com>,
- Peter Robinson <pbrobinson@gmail.com>, Alexey Charkov <alchark@gmail.com>,
- Shawn Lin <shawn.lin@rock-chips.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org
-References: <20260112022823.91-1-kernel@airkyi.com>
- <20260112022823.91-2-kernel@airkyi.com>
- <20260112-lively-hallowed-beetle-fc15b2@quoll>
- <1515a445-576a-4833-a604-c31062f7d3fa@rock-chips.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <1515a445-576a-4833-a604-c31062f7d3fa@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260109-clk-samsung-autoclk-updates-v1-0-2394dcf242a9@linaro.org>
+ <20260109-clk-samsung-autoclk-updates-v1-2-2394dcf242a9@linaro.org>
+In-Reply-To: <20260109-clk-samsung-autoclk-updates-v1-2-2394dcf242a9@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Mon, 12 Jan 2026 14:29:56 +0000
+X-Gm-Features: AZwV_QiWt47PILn4o1sT2KySNxv4rOargBnbBbiIyWb62OAi4o7lAfW6acLnscA
+Message-ID: <CADrjBPpiMxNsHMnV8StHvU7waW3QE7jtAPK3Gyq-j0mVRQrgnw@mail.gmail.com>
+Subject: Re: [PATCH 2/3] clk: samsung: fix sysreg save/restore when PM is
+ enabled for CMU
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+	Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, 
+	Juan Yescas <jyescas@google.com>, linux-samsung-soc@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_062857_405649_630AD84A 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260112_063012_477831_F2011C45 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,36 +103,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/01/2026 09:59, Chaoyi Chen wrote:
->>> +required:
->>> +  - compatible
->>> +  - reg
->>> +
->>> +additionalProperties: false
->>> +
->>> +examples:
->>> +  - |
->>> +    #include <dt-bindings/gpio/gpio.h>
->>> +    usb {
->>> +        dr_mode = "host";
+On Fri, 9 Jan 2026 at 17:27, Andr=C3=A9 Draszik <andre.draszik@linaro.org> =
+wrote:
+>
+> Currently, sysreg registers of a CMU that has PM and automatic clock
+> gating enabled are not saved / restored during runtime PM (RPM) or
+> s2idle. During normal suspend, they are accessed too late, after the
+> CMU (and potentially power domain) have been shut down, causing an
+> SError.
+>
+> The reason is that these registers are registered to be saved/restored
+> via a syscore suspend handler which doesn't run during RPM or s2idle.
+> During normal suspend, this handler runs after the CMU has been shut
+> down. This registration happens as part of
+> samsung_clk_extended_sleep_init() via samsung_en_dyn_root_clk_gating().
+>
+> When PM is enabled for a CMU, registers must be saved/restored via
+> exynos_arm64_cmu_suspend() / exynos_arm64_cmu_resume() respectively
+> instead. These use their own data structures and are unrelated to
+> anything that samsung_clk_extended_sleep_init() does. Calling it
+> unconditionally from samsung_en_dyn_root_clk_gating() therefore isn't
+> useful.
+>
+> Update the code to prepare sysreg save / restore in a similar way to
+> how it handles other clock registers in the PM case already.
+> exynos_arm64_cmu_suspend() / exynos_arm64_cmu_resume() already handle
+> sysreg save/restore, just the setup was incorrect.
+>
+> Fixes: 298fac4f4b96 ("clk: samsung: Implement automatic clock gating mode=
+ for CMUs")
+> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> ---
 
-One more thing - drop above line.
-
->>> +        #address-cells = <1>;
->>> +        #size-cells = <0>;
->>> +
->>> +        hub: hub@1 {
->>> +            compatible = "usb1a86,8091";
->>> +            reg = <1>;
->>> +            reset-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
->>
->> Are you sure?
-> 
-> I guess what you're concerned about here is the polarity? 
-> If that's the case, then there's no problem.
-
-Yes, I was wondering whether polarity is set correctly.
-
-Best regards,
-Krzysztof
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 
