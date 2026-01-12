@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A688D25051
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 08:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0FC2D25051
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 08:34:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fusf43Ejfke2bRmUKBUA8k6pTY0MXTcVOuVWGegHOD0=; b=Fw8kDwFpb1rOa4Lk6wHjcVTlbP
-	R+JOHl4TCwynIJtZJzDBoExRyBouZyPtd5ZN84UbiP6qIQo7Ay5esI34hQ91X8iWxYR3rwOq5O2yo
-	s4djoNt2h3foPs2rya0mhiCHDOQ56XQocorCP1iECX1Af0Dpu2/CVfSOMPnDRKCdUqIVJPdUVX+tP
-	MuYFbrlbUn//DOeQl0i4Vky/2JLihkdHHSUaqiCTpVGAGUdsswQeOetBh42HaDMP6bZ3G8GOY5459
-	IGDW7WCxyipfZyWA++Q8zrD5VShZH3KEMXlLL351/kEuv/BDyzW+5t+OnNvcPDGVQF0Z5seMpTd5C
-	pq7dpd7g==;
+	bh=KGdV1KFWO5jlUXQnMx5kSEVSZlbMQyzFV9ixXS4Od2w=; b=KZ+LO7xPgiJhVBpL2Wk2PW8qZC
+	QeHyqvdtgCL04hEY9iVrZWYi1LgYVSzjIuDJYHiHTmha8iwcjJDE0OegQrhxZ20jrVH1vU9dFiI9I
+	bKbWuP3rlXn1mnxK73nLG54G2LeY+zmpjVUWQENQODcDjkIoepQotye8j+Q2c98VqvGvqVu+TDxy8
+	Q+j339HrxelyzeR8TCOIAKLJjzhuxlv7kl1GO/kJn5gQR9xvSw9Ir+Zvd3HA3ximD6A0A5QDX00IS
+	wb5+X/RBp5mJ8SQIjeBm6IrSICEX0vYP2JIQXGDerVS2kwRYqbWetjd/Kc9i/s34sR4WPzMQwj7nP
+	U94aadwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfDM8-00000004zsr-1ijf;
-	Mon, 12 Jan 2026 08:32:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vfDN5-0000000502s-2HaS;
+	Mon, 12 Jan 2026 08:33:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfDM5-00000004zsB-3i9d;
-	Mon, 12 Jan 2026 08:32:55 +0000
+	id 1vfDN3-0000000502g-49AU;
+	Mon, 12 Jan 2026 08:33:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 803ED44462;
-	Mon, 12 Jan 2026 08:32:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99368C116D0;
-	Mon, 12 Jan 2026 08:32:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1DA8460159;
+	Mon, 12 Jan 2026 08:33:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53CCBC116D0;
+	Mon, 12 Jan 2026 08:33:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768206773;
-	bh=5NpKbb5d/pvUHiup5RnvYALNkAbAryBwn/L0XuOoao8=;
+	s=k20201202; t=1768206832;
+	bh=UCzdoUwYhlGLLDgyfIRB50a+jZq2xHM3IR77wRJv6WQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Gkk/jaHBmYBnSxlRwKQVZvNkbiiu1Dct4T5GYn22tSzAI8ytnrmn5U/OFwYwcQwAr
-	 9UqERHRfKcJNEitb/3Zua/zRDPXp9M7Hthmzyvjlnzu2dRU3pE58qU4OeAP61oeVmI
-	 1TTdfmFU1esIH0rEIlzOeS0Om64qnSyFLV8boW/Y2t5eVn4XahPql9R+84y+TPXbwN
-	 PIFN1Sx+hEOQfC62WH48S9u4f1u2/UfZz9cDX7FcToZs/sIgw0jDlHRy6N7v09xlfh
-	 gjs/VbtXqgifJkflOPsCh8tUTnMcXS+AilxJhdvSv8N1VtUeRBiPn++CgxI1JdJDlD
-	 xskharAgKNYvg==
-Message-ID: <85c3fe42-22a1-4b8d-85a6-f7541d8c942e@kernel.org>
-Date: Mon, 12 Jan 2026 09:32:49 +0100
+	b=tHfYUFeJVyU1xAl+LgVjVPKQlOvn5VSbVna+ZXEtTGVdKpaQsmnksUr5201XzYTQn
+	 Bt6ue/+CJd/bFYuGPZ7kA8X8VIfBtsZKzOTt9We/dUNpaoaLbT1rV4wGx+fxmT0PTR
+	 OiFvfGWySshNHdIKzSoFGbLrJ+KKsY96fVJCPYnFRlx6h6AQ0tV84Z3WuQepWuEDID
+	 9CAAiYAOybzBh2+pjoB7jmtEj/8Qpgo28QwUMXaqOAh7r0JqX3qX4rCFQ2MhhOCMoV
+	 YaKRR89IEg8LpWDc7fVFPQajU9IfWFZn/5VfpucIMSZwUIsOyu9g2YnGmsIHr9PFC7
+	 Scpap6pmOvZWg==
+Message-ID: <0cc2b2a0-25ba-493e-9134-f109de922218@kernel.org>
+Date: Mon, 12 Jan 2026 09:33:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] Add eMMC PHY support for Axiado AX3000 SoC
-To: Tzu-Hao Wei <twei@axiado.com>, SriNavmani A <srinavmani@axiado.com>,
+Subject: Re: [PATCH 0/8] Add Axiado AX3000 eMMC Host Controller Support
+To: Tzu-Hao Wei <twei@axiado.com>
+Cc: SriNavmani A <srinavmani@axiado.com>,
  Prasad Bolisetty <pbolisetty@axiado.com>, Vinod Koul <vkoul@kernel.org>,
  Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Adrian Hunter
+ <adrian.hunter@intel.com>, Michal Simek <michal.simek@amd.com>,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- openbmc@lists.ozlabs.org
-References: <20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-0-dd43459dbfea@axiado.com>
+ linux-mmc@vger.kernel.org
+References: <20251222-axiado-ax3000-add-emmc-host-driver-support-v1-0-5457d0ebcdb4@axiado.com>
+ <20251223-black-auk-of-priority-8b48ae@quoll>
+ <108cf065-e2ac-4ab7-9c39-6e52cb5439fa@axiado.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,12 +105,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-0-dd43459dbfea@axiado.com>
+In-Reply-To: <108cf065-e2ac-4ab7-9c39-6e52cb5439fa@axiado.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_003254_389928_D72EC83F 
-X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,31 +122,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/01/2026 10:43, Tzu-Hao Wei wrote:
-> Axiado AX3000 SoC contains Arasan PHY which provides the interface to the
-> HS200 eMMC controller.
+On 09/01/2026 10:48, Tzu-Hao Wei wrote:
+> On 12/23/2025 10:33 PM, Krzysztof Kozlowski wrote:
+>>
+>> You completely disorganized the patch.. dts is mixed all over driver
+>> code, you combined two or three completely independent subsystems into
+>> one.
+>>
+>> Read submitting patches in DT dir to understand how DTS must be sent.
+>>
+>>
+>> Best regards,
+>> Krzysztof
+>>
+> Hi Krzysztof,
 > 
-> This series includes:
-> 1. Add bindings for Axiado AX3000 eMMC PHY
-> 2. Add Axiado AX3000 eMMC phy driver
-> 3. Update MAINTAINERS for the new driver
-> 4. Update Axiado AX3000 device tree
-> 
-> Changes: (The previous version was mixed with Host driver, so I separate
-> the PHY driver as a new thread)
-> - Fix property order in required section to match properties section
-> - Fixed example to use lowercase hex and proper node naming
-> - Removed wrapper functions, use readl/writel directly
-> - Replaced manual polling loops with read_poll_timeout macro
-> - Used devm_platform_ioremap_resource instead of separate calls
-> - Removed unnecessary of_match_node check
-> - Used dev_err_probe for error reporting
-> - Added proper Kconfig dependencies (ARCH_AXIADO || COMPILE_TEST)
-> - Fixed various coding style issues
-> - Link to previous patches: https://lore.kernel.org/all/20251222-axiado-ax3000-add-emmc-host-driver-support-v1-0-5457d0ebcdb4@axiado.com/
-> 
+> Appreciate your review comments. We reorganized the patch series per your review comments, separating the DTS changes and applying the driver code changes to the respective subsystems as following
 
-So v2. Always version your patches correctly.
+Please wrap your emails correctly.
+
+> https://lore.kernel.org/all/20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-0-dd43459dbfea@axiado.com/
+
+
+You sent this as v1, which I noticed only now. If I knew you ignored my
+feedback, I would not care to review again... Lesson for me.
+
+> https://lore.kernel.org/all/20260109-axiado-ax3000-add-emmc-host-driver-support-v2-0-934f1a61f7c0@axiado.com/
+> 
+> We will also sync up internally and tighten our review process to ensure this kind of mistake does not happen again in future submissions.
 
 Best regards,
 Krzysztof
