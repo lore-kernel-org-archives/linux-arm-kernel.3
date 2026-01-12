@@ -4,97 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFF2AC9EC93
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 14:26:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E05C9EC95
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 14:29:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MS8wKf7u9HcQpruwLfOyUPj69gKiTphjKQB/fIaDSQ8=; b=DHkn+lyTu9DdnoBmN849+UP0mo
-	lPKKcctMH1YeHlJCG6m2qzHA6zbk/zOCGcVNCTxHX1xNKy7bKkKGATt7SVhoc37JIs4k6VXrLStM3
-	oly9+lzV2yaWc4bgEkUxWCEuTIn/rfY/v+Z//l6joKBBQmxJFow3thXgdKb5JYMqUl1TZprSlSTuo
-	msYtW8ENRokssGy7txx3KZTQlkzs9d56mALxJyVPnJiO7bR4uqyXIz1hBNfnndT7Ln8OMvaRQsWbS
-	YKeRjVHSBJjd/C/EeeU6fgP5q7CgOVne3NU8WiKpu/8pdnzWNwJM7sV6mpaaHPDLBbc9OTq7MFTga
-	/llyathA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LLS+HawNq/JQCkjqaP77bAKp+YrzqRV4DDEssPoCY1U=; b=wO6nDyeDwMewHpNRGZBco9TR3T
+	cEJGcafceUiLz4P/7yinhRKSPRpCYUzlkn4yN7XZodlGKilC2BuO6AhVrUYKcfVyTmm9VCjuwhrIO
+	x26uCUPMJPc50C+pZh34g8/b1x6PinJrP62WTlLgiesKnA7LDqVh825Cza3HMix4cWenbodgLfYsD
+	SdX/p4g7aFqYDwxkLrI92GDJe/8k/72k9RlExrqNUxxGi6P9tOcZKiIm9UF4jsCOkk9p0fri97dSM
+	4FbiGiu8ciHYH38YEmuo++TXJxMQm71UtHyZgJdU7yMxoImr8PY8rS3LWcRQyqRLRLMxsw9ZtZfvA
+	XNEFlDzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfIs2-00000005WhW-2UNg;
-	Mon, 12 Jan 2026 14:26:14 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1vfIui-00000005WrB-0mCf;
+	Mon, 12 Jan 2026 14:29:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfIs0-00000005Wh1-0D6j
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 14:26:13 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-8c30365ac43so612465985a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 06:26:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768227970; x=1768832770; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=MS8wKf7u9HcQpruwLfOyUPj69gKiTphjKQB/fIaDSQ8=;
-        b=ONCCt15KaMIj0g2dKj5zPTkIca0FGz8d6LUyTDTipPJK38r/OmPNc2QsE/JA4c0Iux
-         BhtUA91ULYQVKrjKekesP3fKAaKdKNEO2UcW/YJufvJ35Pc4zennTq+tJ/Woesq94frX
-         n9QLgvPr8NH032xBHSo88HN5balk5YFme2Gq8sXpGUmZ+0E55NDQAoKqnYs4jaZ/lyM7
-         8wr5TmTzLCQgReaRo+NIGk0lYekZ0MQM8RuPyluld9cnJiF5uCdKMG7eHsaAr219M3EB
-         uS6M6J9IblE/da2OjHL0S1XrJI1zN0vK2HJ4piQ1iZLwWnLLrRJ+clCZc/inOOZN+c4g
-         yjtA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768227970; x=1768832770;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MS8wKf7u9HcQpruwLfOyUPj69gKiTphjKQB/fIaDSQ8=;
-        b=ftetHaQ9UDVCl/LEVYgP+CFRetX8BrAca/zqLFfBOoDwJnhXfEivt5DZ6nxy1VrgXc
-         B2VG1G4kBgloPWa2fVGqVcYCV21J/0GgP2L5cDEdg+4jEI7QAQahht7xCaZ0vRspkROd
-         fG8bY70Fg4hsbsh4hrCpiI87VNZqvuIB+gRgxu3PcIBxsq3a2IrOJ6tbP22YHEQPY0ag
-         qzTyNcjBZ85wVJGwNTM1nytCugwiwPHtILi9XRRvFyPv0ml0EdSTSAetvpW1jM4mGFCL
-         0S0ODserjFtwteniggt0RRrbwD/J9sUL87UFU9LdnQZPmt+eVcR9f1zVxYntBeL8+7Bm
-         4XaQ==
-X-Gm-Message-State: AOJu0Yz3AWpxJmWNVePeWJRApz1KUfb+4Cyk/KPFPFMp4FPtMnUk4gFN
-	OLb4AQBuTCh0rbeZvqGDSswh2QBlTkmrgOjDwbQGnFKNg3tBlqTHV8OPG36qODD4Aho=
-X-Gm-Gg: AY/fxX4oOXiSnXafKUYUCjzYZQtGka5fbtdryDZOUOCa+SUgPhC5NArx3BTqI4RhMv7
-	E8QJSXy4/o1PyquESQaRmDLY+Fn83Uz9lv3NstWa5iq4I+9BK4CTetqoqAmkhOCUi7ZQfJfzkUx
-	F4lAnBZalR9aSTpuGtgBugCcs6/pSg6KY2QTiHoHXz/nnvEE9RGE5PGYYhvRo56gr5aibTPaexP
-	8Gu+hIffozEvG3Un0oUm/7alcfurDij3qr5Vtr3e0MEAfyH7QQTFGwm5y6oRuVcZOnXn8jSivQR
-	OC5SBnAqzzyWP/RJ80DkjoUYSYcgkUlxqU8wxSbJOtUUZ9womTEryOQBOoud1nKBx7Ip94Uutrm
-	g9/kLSfGXukzJBRHiSjpGxYtMoaJPn7FU5ZHbSn1HYRdgRRK4SCy8D3fFsfTRDlM7eDYHC/invN
-	HCiJ5dy9NqeASLo2bl
-X-Google-Smtp-Source: AGHT+IEXjJKk5zH4bo+R8LKpMF4MK489YPX2dESNeMCN9H3Av3eoQMSWyP5H4NLuxZlAI34TDI5m9A==
-X-Received: by 2002:a05:620a:708a:b0:8b2:e827:14bc with SMTP id af79cd13be357-8c3893ea256mr2530528585a.56.1768227970407;
-        Mon, 12 Jan 2026 06:26:10 -0800 (PST)
-Received: from draszik.lan ([212.129.79.54])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c37f530f99sm1509223485a.36.2026.01.12.06.26.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Jan 2026 06:26:10 -0800 (PST)
-Message-ID: <ba585515010ab9a9b417d000ba744f8178ca9e24.camel@linaro.org>
-Subject: Re: [PATCH v2 1/5] dt-bindings: clock: google,gs101-clock: fix
- alphanumeric ordering
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus	
- <tudor.ambarus@linaro.org>, Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>, Alim
- Akhtar <alim.akhtar@samsung.com>, Sylwester Nawrocki	
- <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- 	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
-	kernel-team@android.com, Will McVicker <willmcvicker@google.com>, Juan
- Yescas	 <jyescas@google.com>, Doug Anderson <dianders@google.com>
-Date: Mon, 12 Jan 2026 14:26:48 +0000
-In-Reply-To: <20260112-dpu-clocks-v2-1-bd00903fdeb9@linaro.org>
-References: <20260112-dpu-clocks-v2-0-bd00903fdeb9@linaro.org>
-	 <20260112-dpu-clocks-v2-1-bd00903fdeb9@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2+build3 
+	id 1vfIuf-00000005Wqi-1Fha;
+	Mon, 12 Jan 2026 14:28:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5E33F402DB;
+	Mon, 12 Jan 2026 14:28:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A196CC16AAE;
+	Mon, 12 Jan 2026 14:28:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768228136;
+	bh=3VnkUbTBEArOUSGeAaf3mQrAVgBFlS6FTAMdfaVarkc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VhFOcj9d1mLIpngG5dKREWoyeL0bO4SB9n2CBuzTcs3VnteIe9yAc0V15IhVlyf/S
+	 GE61DWri81IE3rIqK4v4PN9NvZqqSXC4Cdri5FWsxOPbpJKdrwVrtW7wxjI7HceCSc
+	 YNi4mzMMGTrwxow1DtlfWOi92B1pWbOMo39n+9fhKboL4G6T9nWQTWxIE3nxlBT3Oj
+	 a4BERb8xCj+2Pc4ADChBBS7H7c15hhqErPLuS0urhymDTsnnJaoJpuIXBszjSQ+FAW
+	 BNNpkRiWBLrZ3rnA0RR8XjEOfoswF9SQaCVdSu6tiZ8WtJodo5PtsZxOCf/NftchFV
+	 d9euQqH+pSVDQ==
+Message-ID: <b4eb4ab6-6fde-4c01-8069-470545ffdac4@kernel.org>
+Date: Mon, 12 Jan 2026 15:28:49 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: usb: Add binding for WCH CH334/CH335
+ hub controller
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>, Chaoyi Chen <kernel@airkyi.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Quentin Schulz <quentin.schulz@cherry.de>, Jonas Karlman <jonas@kwiboo.se>,
+ Hsun Lai <i@chainsx.cn>, John Clark <inindev@gmail.com>,
+ Jimmy Hon <honyuenkwun@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
+ Michael Riesch <michael.riesch@collabora.com>,
+ Peter Robinson <pbrobinson@gmail.com>, Alexey Charkov <alchark@gmail.com>,
+ Shawn Lin <shawn.lin@rock-chips.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org
+References: <20260112022823.91-1-kernel@airkyi.com>
+ <20260112022823.91-2-kernel@airkyi.com>
+ <20260112-lively-hallowed-beetle-fc15b2@quoll>
+ <1515a445-576a-4833-a604-c31062f7d3fa@rock-chips.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <1515a445-576a-4833-a604-c31062f7d3fa@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_062612_103457_AEA49C48 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20260112_062857_405649_630AD84A 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,60 +131,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2026-01-12 at 14:16 +0000, Peter Griffin wrote:
-> Fix the places that don't have correct alphanumeric ordering. This will
-> make reasoning about where to add future entries more straightforward.
->=20
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> ---
-> =C2=A0Documentation/devicetree/bindings/clock/google,gs101-clock.yaml | 6=
- +++---
-> =C2=A01 file changed, 3 insertions(+), 3 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/clock/google,gs101-clock.y=
-aml b/Documentation/devicetree/bindings/clock/google,gs101-
-> clock.yaml
-> index 09e679c1a9def03d53b8b493929911ea902a1763..a8176687bb773ae90800b9c25=
-6bcccebfdef2e49 100644
-> --- a/Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
-> +++ b/Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
-> @@ -27,13 +27,13 @@ description: |
-> =C2=A0properties:
-> =C2=A0=C2=A0 compatible:
-> =C2=A0=C2=A0=C2=A0=C2=A0 enum:
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - google,gs101-cmu-top
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - google,gs101-cmu-apm
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - google,gs101-cmu-misc
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - google,gs101-cmu-hsi0
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - google,gs101-cmu-hsi2
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - google,gs101-cmu-misc
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - google,gs101-cmu-peric0
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - google,gs101-cmu-peric1
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - google,gs101-cmu-top
+On 12/01/2026 09:59, Chaoyi Chen wrote:
+>>> +required:
+>>> +  - compatible
+>>> +  - reg
+>>> +
+>>> +additionalProperties: false
+>>> +
+>>> +examples:
+>>> +  - |
+>>> +    #include <dt-bindings/gpio/gpio.h>
+>>> +    usb {
+>>> +        dr_mode = "host";
 
-If we keep 'top' at the top as one outlier, it'd reflect that it is the
-top unit and all other CMUs are children of it.
+One more thing - drop above line.
 
-> =C2=A0
-> =C2=A0=C2=A0 clocks:
-> =C2=A0=C2=A0=C2=A0=C2=A0 minItems: 1
-> @@ -70,8 +70,8 @@ allOf:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
-enum:
-> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 - google,gs101-cmu-top
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 - google,gs101-cmu-apm
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 - google,gs101-cmu-top
+>>> +        #address-cells = <1>;
+>>> +        #size-cells = <0>;
+>>> +
+>>> +        hub: hub@1 {
+>>> +            compatible = "usb1a86,8091";
+>>> +            reg = <1>;
+>>> +            reset-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+>>
+>> Are you sure?
+> 
+> I guess what you're concerned about here is the polarity? 
+> If that's the case, then there's no problem.
 
-And here.
+Yes, I was wondering whether polarity is set correctly.
 
-Either way, I don't mind:
-Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-
-Cheers,
-Andre'
+Best regards,
+Krzysztof
 
