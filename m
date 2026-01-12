@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE127D25039
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 07:20:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BF37D2503F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 07:21:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Ph/Etg5Sr0NTZwxuYotbPw8N7SzYppkUoPjd6ftsrA=; b=Qla9aeHmKwGK04QQmYiDSkaIXu
-	aghVWnd/q5MyIwJc1sg3+LEzxlVyvYIbfTuQknSa9MtL1EHHsaDPH6n3jlOyLbDky5JVQJIyvOKj5
-	RZoKsIWNFNxjyycYnEvDqnSZz0xZ4SBpPcOa4+3i8ZVagBwl6HHMgc4qliJg41HsDCB4h0BinyEiu
-	NWD6giNTV3mlf01xOJawYF3hcNXeHr7EMA84ACCty37+zhn+BUhjAdJzI+P/YcVvWwVN65ySUn9Oh
-	5o3oSiIe3Alzn2TcmhNCKjSYtloujKFLV1Bq2S1PSZf2oogiAl+hwQIBX6emJpCEpdZ318qBunNkU
-	fh4zPx6g==;
+	bh=HBaom7v74+gHXWd7YrxJuL0o3qS56NROqcnQWMlUGCM=; b=LkVAuPbTnCQ1iRSWi34zZKtuwU
+	NFePEh04pZB9/QDnDM0Uv3ajQLcKXPxaNUmr7QbqRozaB9XJLhWROAaXD0FzOdvfzOe/9iKriE3sL
+	8MeieRZTaGXU0JQAkrWYoLHBsWTCRrOgZtapV+pqtVvIICAMv/+nuh9cs8zDAIgTApLHJu/v/X+Fm
+	RCQ0bpouTWbvC3oHO6dUmO+gQsJATOEPOt949FX++2LClpOgCYeOfI7OpzvK+SPlhu5EoYWUIhDVk
+	BMuBTjfk+kbZukSqOnvoaOqy465HJYlUOMMBqnY6bGEYultOJsRxW8tUoFvnxyAx3DbswlA2Y58mi
+	aKypS/+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfCDY-00000004rpS-3kcS;
-	Mon, 12 Jan 2026 07:20:00 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1vfCEi-00000004s1g-2LnT;
+	Mon, 12 Jan 2026 07:21:12 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfCDU-00000004rnM-2SiE
+	id 1vfCEf-00000004s0V-0Zsu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 07:19:59 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-59b855a4700so1379181e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 23:19:55 -0800 (PST)
+	Mon, 12 Jan 2026 07:21:10 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-59b7073f61dso5996829e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 11 Jan 2026 23:21:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1768202394; x=1768807194; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1768202467; x=1768807267; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4Ph/Etg5Sr0NTZwxuYotbPw8N7SzYppkUoPjd6ftsrA=;
-        b=ZJnN56CQKtAOWtoBsf0h6IIGScTeyNN+ByjI5IKHPAklu5AocR19tW9hu3aC3fvqv1
-         Vp5jlP/+Ut16/oUiod4oMQb+X4tPk0QrcgwY969/5N0TwPwhnSi8ZBUKC6sFIgb5dK1W
-         p7h/BR0/+M57XxzizRrPxq1OXHUns632sNVFA=
+        bh=HBaom7v74+gHXWd7YrxJuL0o3qS56NROqcnQWMlUGCM=;
+        b=I/9EU5Nzi5CpJsJ9KqNZwTAzuFnwDU3941NqdzQLREHc3pqxONft3AhxsyFnSC+8f4
+         C8mzeUB+mEmcddAtRzAOPYFoY/0Iw6pxtyUU22WLHSvz5N4R9i2IBjge/By0FQAqIwzK
+         Gu81zFffQhF/X4xbboOfPajHWTq7E+GDrWzxc=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768202394; x=1768807194;
+        d=1e100.net; s=20230601; t=1768202467; x=1768807267;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=4Ph/Etg5Sr0NTZwxuYotbPw8N7SzYppkUoPjd6ftsrA=;
-        b=X+7ks253QtM6uJKqRKAFnq2LIFNUI3bBlM+uPLZNQB6lPd0sMg3bx/9sbxhKx7SM5O
-         vionO5Icy23mNa1hK+V5SzsSPaRan0CD01d5YQZzEiWgk4oHyd89JeXgF5QRWbxImwc0
-         vvlUiquJ+hHTv5EzTL/e+ja6dSJedFj6iiRlcFUfZme+OaJSJb4iLO8WDolWoCedehfr
-         gJMMPNAcuteM/Nq6zDXrrm7sYVIFCMbNKXfE9PZRh9Epehk16TNIEmHNbj8AeD1EvmAI
-         6ZaKbqJJ7UcEvenzmK0Eh+Wlt5Bxr+LsPiawD6CT3rBo4pjcAOxlMD8ZPw+UaE+uhWaW
-         gzyg==
-X-Forwarded-Encrypted: i=1; AJvYcCXm+qcTTD/ga7yPPveb1krRjvzhLl60Ytd5352yyxyej+DpCrhGu37sJ2N+u/zGVQG0hmZEAN97lwdiRXvmRN8K@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFLbsp+8sqSd+XNgoIavBlUz4DgV616LiFh9jgNPH0D+DivAg+
-	d7fjMVsOjOHSJOQLHq7RfwP4bzOmIC6JAGQ2M+O6nXyek+x+xwFze/LIY9yO+RyvtMez5NAe8RC
-	VB2p925pD8Aix0ljlhT7Rvm4SGFtpdIfkzYd7BSZD
-X-Gm-Gg: AY/fxX5m+7WYF7XvzF/1Nsz+HFP0cSsN3RErfw1dd4/VQ6F8JwzZNyFq0fxgIFTVeaS
-	T0Ys0R4gZ8vmc6c+oLDygt59wdBIQyzvEirl2c/E3SVslzsg3bIi2WKntv6h0tead3E11E0PJmR
-	zIsdkDMLskU76QG8zSmyHOFSZLIVCbRUZsYB7QPY4BeFRJ4D5WpLAugZ0TcJztgIejHxhhZmnMV
-	3S/n0WxMwraM/GM3skm7tRG0Vz2BE4ovnnUP1ZQIFqMmdQoG/akwyq9/lJO7uRUpmKweLt+Oq12
-	b88D1NUwIN3IQyHJJyXrjNpQ
-X-Google-Smtp-Source: AGHT+IG5kl0ZwX10KZuxnttOREwQR6GL+Z0E9J2N56/uwpX3vjlGU2NciA+itFAj/Kp8QX6ABfil/wuy6GMvq1S6NvQ=
-X-Received: by 2002:a05:6512:3d1e:b0:59b:85ea:5a6 with SMTP id
- 2adb3069b0e04-59b85ea063emr2341817e87.49.1768202393448; Sun, 11 Jan 2026
- 23:19:53 -0800 (PST)
+        bh=HBaom7v74+gHXWd7YrxJuL0o3qS56NROqcnQWMlUGCM=;
+        b=mCCWw9MPx4HQJMem+G5WIyAK0bnavzzHNIGW1J3VXCrIU2yyU3xaF+NYD1wbSN5Ddb
+         oXpV7lP+MWYyVnvZeb01+1Zx5AJ4EqYvPm1YgQBQ8dCpptEd3p/KFwWMBYBSgh8oU9RX
+         F6kIZVHsfD1XwQxs3wgCqZpDhJYoBVTp1ggF9D9Pa3VRlXULKojC19wjIkfFJ57/oSCJ
+         xBTkWJHSp37AKJVK9uFKwsYcUPnzchuYzN3Vw+w7ew+pCCpApNI32gcbZU6AzlABCyK1
+         HxL++hMoNf1j3LRwPdx6QGUwDJMi2vlVZhGwqMQB1ybq4qA+inutTzjf2xq0tZqHoxUG
+         fwEw==
+X-Forwarded-Encrypted: i=1; AJvYcCWG7B8QgOuoznXcrEmF9WCHVN5MoWPoKn0SzF69V3TYuNRk0A8dCdb6YWuD9rFxk6Il5m5YV4Kd45tJep1vlYvH@lists.infradead.org
+X-Gm-Message-State: AOJu0YySX8DOIYBNZuUZntpKArelkB/l5Rcgav53Ahqw6wEEbiTip1J0
+	7OBXx3QuHdpEeTaCUXKsyZ2G/f/qlczZLXTAgJePCPBQ4oX1oL8GrY7TSkx+oc7o0E4tgEZ387B
+	Urngi5FhcO4VNi16TVQBtDl68wf5o7LV+ttxQb0Xg
+X-Gm-Gg: AY/fxX5AAWdWR6Ty/u49qf9WHFTmN1kM95cgu2i1T5n+QZZEAUs7oFLNwSgRtZ1Q+WK
+	S9BKmnRQ9G52tX5/ASZtZo0e1W1rIm8HddZ4rsp0J7vvlAb0Ng8Ur8i2/NqQ3W9Bbv7s4obicXV
+	ndFBSPuh3uGI4IVSiD4jlj0CkbQywjC8rWlvtWBIwSW2TUBgxPsPNpg4l+Ll04mHVe/jvSaoktj
+	3rK5nThh4Rpv4kI5/YoIo/sDxDQ9uu1mgDTOvqYcIA9Fn19w0NaQO0f3k8Qev1OL6rYXRlD+5Q7
+	t+wqJVxG7SxOKCMDPbMKKbPy
+X-Google-Smtp-Source: AGHT+IFHBYZnjE2UIMYyCZr1lmpvutyhqNd7MN48WeOyKPWqQYxDJZuAlIZdNeAX4+9N0k+bGMB+CsiFpY5ooLKHPQo=
+X-Received: by 2002:a05:6512:3086:b0:594:2f1a:6ff0 with SMTP id
+ 2adb3069b0e04-59b6ef1892amr5277756e87.9.1768202467013; Sun, 11 Jan 2026
+ 23:21:07 -0800 (PST)
 MIME-Version: 1.0
-References: <20260109114747.37189-1-angelogioacchino.delregno@collabora.com> <20260109114747.37189-3-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20260109114747.37189-3-angelogioacchino.delregno@collabora.com>
+References: <20260109114747.37189-1-angelogioacchino.delregno@collabora.com> <20260109114747.37189-4-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260109114747.37189-4-angelogioacchino.delregno@collabora.com>
 From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Mon, 12 Jan 2026 15:19:41 +0800
-X-Gm-Features: AZwV_Qj1Q-eovEPEvCaFCrkejPJ97W98r-3qCY7fgi6Nqe05K80d4_P2-yj-wb0
-Message-ID: <CAGXv+5GEdqgbr5yPJ4_7gBKsg8=PkBvFCvarp+=Qcsq8kqWR_A@mail.gmail.com>
-Subject: Re: [PATCH 02/11] arm64: dts: mediatek: mt8183: Fix dtb warnings in
- display graph
+Date: Mon, 12 Jan 2026 15:20:56 +0800
+X-Gm-Features: AZwV_Qh9NvJukEMC2ZGE9lVW3yo6iRXBbDejhBCVijUHZb39tsOJnyn9JZhLLrA
+Message-ID: <CAGXv+5Ea9bWvuQJuYBgvwrn0nRT-utdLLLo5e=hOzFY21kJYxg@mail.gmail.com>
+Subject: Re: [PATCH 03/11] arm64: dts: mediatek: mt8183-evb: Fix dtbs_check warnings
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: linux-mediatek@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, 
 	conor+dt@kernel.org, matthias.bgg@gmail.com, sjoerd@collabora.com, 
@@ -80,8 +79,9 @@ Cc: linux-mediatek@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260111_231956_636960_A9FD9C71 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20260111_232109_313879_69373B19 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,90 +98,14 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Fri, Jan 9, 2026 at 7:48=E2=80=AFPM AngeloGioacchino Del Regno
 <angelogioacchino.delregno@collabora.com> wrote:
-
-No commit message?
-
-> ---
->  arch/arm64/boot/dts/mediatek/mt8183.dtsi | 119 +++++------------------
->  1 file changed, 23 insertions(+), 96 deletions(-)
 >
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8183.dtsi b/arch/arm64/boot/d=
-ts/mediatek/mt8183.dtsi
-> index db86e2bd0c7b..676f8ecd89e2 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt8183.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt8183.dtsi
-
-[...]
-
-> @@ -1904,9 +1880,9 @@ ports {
->                                 #size-cells =3D <0>;
+> Change the Murata NCM03WF104 node name from "thermal-sensor" to
+> "thermistor" (as that's what it is, after all), and change all
+> of the pinmux main nodes to have a "-pins" suffix to satisfy
+> devicetree bindings checks.
 >
->                                 port@0 {
-> -                                       reg =3D <0>;
->                                         #address-cells =3D <1>;
->                                         #size-cells =3D <0>;
-> +                                       reg =3D <0>;
-
-reg should be first or second (when the first property is "compatible")
-property under a node.
-
-Ref: "Order of Properties in Device Node" in
-     Documentation/devicetree/bindings/dts-coding-style.rst
-
->
->                                         rdma1_in: endpoint@1 {
->                                                 reg =3D <1>;
-> @@ -1915,9 +1891,9 @@ rdma1_in: endpoint@1 {
->                                 };
->
->                                 port@1 {
-> -                                       reg =3D <1>;
->                                         #address-cells =3D <1>;
->                                         #size-cells =3D <0>;
-> +                                       reg =3D <1>;
-
-Same here.
-
->
->                                         rdma1_out: endpoint@1 {
->                                                 reg =3D <1>;
-
-[...]
-
-> @@ -2165,9 +2092,9 @@ ports {
->                                 #size-cells =3D <0>;
->
->                                 port@0 {
-> -                                       reg =3D <0>;
->                                         #address-cells =3D <1>;
->                                         #size-cells =3D <0>;
-> +                                       reg =3D <0>;
->
->                                         dpi_in: endpoint@1 {
->                                                 reg =3D <1>;
-> @@ -2176,11 +2103,11 @@ dpi_in: endpoint@1 {
->                                 };
->
->                                 port@1 {
-> -                                       reg =3D <1>;
->                                         #address-cells =3D <1>;
->                                         #size-cells =3D <0>;
-> +                                       reg =3D <1>;
->
-> -                                       dpi_out: endpoint@1 {
-> +                                       dpi_out: endpoint@1  {
->                                                 reg =3D <1>;
->                                         };
->                                 };
-
-Same for these two blocks.
-
-So all the deletions are correct, but the simple reordering is wrong and
-not needed.
-
-Once fixed,
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
 
 Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
-
-ChenYu
 
