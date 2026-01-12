@@ -4,120 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9224D2505B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 09:17:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E0DD2505C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 09:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zd0BPdweYbYZbQyn2qW1okTKg1KegiW0299KXASGYXY=; b=1Vs634Cnj+qyS5IldQMK/BDKtD
-	/eylx4okJHCEvNaFH/pgnm1OSJw2QCWimc9eKsPGpazr6kGSU38XXdToESQI0C1FCIZ0u08Be2qR7
-	B8J8pNH9ZN2TPoa3NwMUNM9wS7THZ1wimiSxO41etZONWYSAt1lIV3jl4Ud5HvagnMcRlUgJm+K4I
-	MwzZ1OIGVDZWVGu0oti+abyYCumFF6x5cprnHmGxwWIJToH0P1bz/eOaS2gyWIwfiucXMNEoGkPzr
-	CbGrVFrfKsCYhxPVI41on+9XAQbM6dphlSughAQjAgabZgodVLy50ESyGzKtKAq3HwhTYKKQ5RpbT
-	4ezpsKjw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iE5I7iaezzE9aXAUoqN6SHeOzvRvmQyoGbsbC7o536Y=; b=QhZ1J77tAgs/S6jpb/STzHN5g9
+	9dzI3WjDk4f5D500pNXseiFUmxR+IMD6VsklBR8caA+iOEp+rToHDFpeScagBA+uKxaSlWGjd7KAL
+	z+nUxx6Yf7deFcPN0LxZD173P7s0to3txQZIoTcTmMfItw9uGXX+HDyYkcjTavZ+d+WtoZ2yo04CT
+	Y9i907Z8aLvjG1NQrxHkIBHHM6depindeknlRipyVm1kSPJ2y7lajvhoWNaqLF9fnHpxR/rFkT+MF
+	JGKnZAklq9EN76SsADq6VJD7KD0/n+HXTCeAXvPmjJpWW4wkBCgPiZbiwURUeOvSeZtk16yHQoZIj
+	iTqs5hag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfE2y-00000005435-3XoQ;
-	Mon, 12 Jan 2026 09:17:12 +0000
-Received: from mail-ed1-x544.google.com ([2a00:1450:4864:20::544])
+	id 1vfE5D-000000054HT-3RzL;
+	Mon, 12 Jan 2026 09:19:31 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfE2w-0000000542F-131M
+	id 1vfE5C-000000054Gy-0BYk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 09:17:11 +0000
-Received: by mail-ed1-x544.google.com with SMTP id 4fb4d7f45d1cf-64bea6c5819so9284567a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 01:17:09 -0800 (PST)
+	Mon, 12 Jan 2026 09:19:31 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60C84H553014049
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 09:19:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	iE5I7iaezzE9aXAUoqN6SHeOzvRvmQyoGbsbC7o536Y=; b=Hc9xytzDn0qPbBKq
+	x3CHQ3C9cDwUWjCFo3evaCnuZlqTLwrMSxs9kJJbJ2KeKRZYITbu9A5PWY76J/3T
+	aw294CPMQM5m8Ww1p/dPNQd32F7j35TCJXKSNzlYzeKQtUOu9Ptc9heK8gg2/Hk3
+	u0/JnYL3LMnPnLMh3o5lLeJl/cgXCRLfLxFNs0+pcy38YvNNxPyJ2I25BR7DcbeX
+	99PaBnEGPJ8jXz6M9uPE34bLRZmOx7xXhOUNLYOslReoWqhhpuGfdPRbsVqDkTys
+	48BXpCT6gMOK5Q9XLjB6g3KQhvT3KVPfpnpMdQ6rljYxsa6UaUGwXR5ZeoRUYbvt
+	d5R3OQ==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bkntuksdw-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 09:19:28 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c52779e9e65so1728229a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 01:19:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768209428; x=1768814228; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zd0BPdweYbYZbQyn2qW1okTKg1KegiW0299KXASGYXY=;
-        b=lxW2nfRpFNDH75RXzeETd9oGNLqPHBWxuCiGcTp2Wq7omjI+mtg6oPdq6X7A03UxBC
-         U79O0d4GrCu5YFT9lv6gomcTad3uFzchkkEh7Ly2OgE2Icu6n2d/cpq+TO1IlpBUW1hE
-         3YAN93H+tr7T5MlXy2Os8G0qA2El3N/pE3YCEyWg5GYSmIuacQJd1NTSEtHMjlsYfFlH
-         Ad3WFLK1aNHh5ryV4qv1rKR0tm2o5V7HYrRoypM1NAoeNkTAiI30xYJDJLV6BfkYLCr+
-         IwkUGTJa+/kblRrs8Xvepsa632nyGLPAIXuWuRzEUGFeeJYCu1GbqRD4IWwZ94SCJPT3
-         t4LA==
+        d=oss.qualcomm.com; s=google; t=1768209568; x=1768814368; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iE5I7iaezzE9aXAUoqN6SHeOzvRvmQyoGbsbC7o536Y=;
+        b=HCif/iefNNp4ieQD6yV+Qh19KL8+pu8fQ6UnYHXqvo0wCnx5DUpfybPZ8AhKsmHN+r
+         EiWxuCY5HwFwRFgkhi5ARVT3K8xOyYLMGvOiN/Ys4oKWSXsTy1ZZB05e0jB7BQyI43Yr
+         A8x/SiBIiFm+nUFEVTfER6ftr42eYs2MGKwyHA4PPIn14DWB8qAKa6SBVmq0QQuDqKgl
+         qNswMWV30J+8pqMHZhw07Dyf4k4ouROus1rdj6xz4JNnpBBwtnbK1hR7/nTJf+6cpyiC
+         YyCl/grlKz7JBV4qiRKM8ukgHIeTZDqcVpBSfXTIaf95jKE41cFO0pT7TInBRdOD2GFU
+         JD0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768209428; x=1768814228;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zd0BPdweYbYZbQyn2qW1okTKg1KegiW0299KXASGYXY=;
-        b=CM5u+nJTELPYzh+lajohD4QXbKf+3oO39c5YqnPt0GbZW+kIlPtn32ZNDp21hQsR90
-         GHMV9MjX/vobDUysLeBAXziARNJXzhbvxYFYo0lnGq7nkf8sPnXD7QiCJmUqZGEkuM3E
-         Wb59rwWhW7sWP1bJNrzHzH9SG/bsZVeitbr4ozK4jpwGAyJIrM3M4JhoYBEtjQEYWRkQ
-         dbLA/k0Ao64iqehmbbZ1hLPLAYzHFedKDWPk+fqOuQAT2UhDzmaFf4OW+gwm2GG367TQ
-         jmPX7ApN3hCvOTuNYKQJ6LnmKtuMPXpyC47HulADcqCKBYui7xmmcfhydbyZT4cDICfs
-         +Gzw==
-X-Forwarded-Encrypted: i=1; AJvYcCVBqIYC07dPnM7IDR7rnbd3oxju331gyZo0Nu9qmozLy/LwpX7fQekSHRhgOgUagVe0bOxPx+ARQzcMWEAQ4DTe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4AiZM5lRGCVO6yvKwBzr9+rFSDIbx/iWhm53mGNA3yOgNfG+P
-	7qv0JEcHrl7AF5pvGDWCk2NRsq0htxBkIP9XVS8LB9GD9+HiShRJm/HQ
-X-Gm-Gg: AY/fxX7RxvJn3L92ZBfCA/0cQTorltywyx9LXb/SKKyfQ9wianqldL84SWUie5l06kE
-	bOKUiLgOA12Pm8X6ix3HOc2/mnMgXEpm58TnXRf3eJVlSF3uaOResGouwjwKU07cWoolKtQNAYw
-	4xfOcGeu6K/F/y2Rlv/l9seA2uNNpP1FjkWxUCMWZYmBw7NzNBy3n3ZiGGuYHtr8SsTQC6AhZt4
-	RS91jmUYzVuF5vcr0lEjNNL+fM62QQglB9ioDu28K15x8lrerLvSFWS7E4OdR1sUB6xYcqjh1wC
-	nun7SFdBJlUq5TW79Y8ammRakvZJrsyynehV5hhYDuRPAVIMqm6hSUJnc62W0CycNlU8h/oCOVj
-	wrPMtj6mSYnSShy+7s/PWRbHwh44GsIIj/ivK7dQz/iPnaBzD71aJlNn6N5mvfBIsm+BhpUsNJ4
-	9ZfNGVonksVuq4WuLikiUWhLLaTdaXRSNkYQ1UVlAvQqk=
-X-Google-Smtp-Source: AGHT+IEVkFHwWdARDiOC3T5oubH1b0HSoQYmd/NAnJNXQ0ysw0Xt1Fgn+FqRVmFL8guwSSYOYkTxEQ==
-X-Received: by 2002:a17:907:7202:b0:b87:efa:8786 with SMTP id a640c23a62f3a-b870efae612mr369083166b.55.1768209427070;
-        Mon, 12 Jan 2026 01:17:07 -0800 (PST)
-Received: from MacBookPro ([2a02:8071:2186:3703:6de9:eb98:99c8:7af2])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b870b0dba4esm411401466b.17.2026.01.12.01.17.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Jan 2026 01:17:06 -0800 (PST)
-From: Nauman Sabir <officialnaumansabir@gmail.com>
-To: Jonathan Corbet <corbet@lwn.net>,
-	linux-doc@vger.kernel.org
-Cc: Nauman Sabir <officialnaumansabir@gmail.com>,
-	Tejun Heo <tj@kernel.org>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	=?UTF-8?q?Michal=20Koutn=C3=BD?= <mkoutny@suse.com>,
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Gao Xiang <xiang@kernel.org>,
-	Chao Yu <chao@kernel.org>,
-	Yue Hu <zbestahu@gmail.com>,
-	Jeffle Xu <jefflexu@linux.alibaba.com>,
-	Sandeep Dhavale <dhavale@google.com>,
-	Hongbo Li <lihongbo22@huawei.com>,
-	Chunhai Guo <guochunhai@vivo.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jitao shi <jitao.shi@mediatek.com>,
-	linux-kernel@vger.kernel.org,
-	cgroups@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-erofs@lists.ozlabs.org,
-	linux-kbuild@vger.kernel.org,
-	workflows@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2] Documentation: Fix typos and grammatical errors
-Date: Mon, 12 Jan 2026 10:16:56 +0100
-Message-ID: <20260112091659.12316-1-officialnaumansabir@gmail.com>
-X-Mailer: git-send-email 2.52.0
+        d=1e100.net; s=20230601; t=1768209568; x=1768814368;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iE5I7iaezzE9aXAUoqN6SHeOzvRvmQyoGbsbC7o536Y=;
+        b=DgrD5xhoosOHse0VfzqldVsDw2S0//4Z4NrBbChrn4hz1anuy95EFOm6wLtWyvifhV
+         MS02wPRVm23ogSWNSQFDJtgdhRsSAOQI3kzt5pL75O9r6aSluGdq3TpbsxrUOVrSZ/SC
+         fIgAIZRHcCr1XBIdCDjqJVm2cv3CzQGX1+OxfvGdYqI0mmhGYJq28S455M0Vl4OdtbCd
+         DKLPI5DnxRt70+qIHShGZ9SbJTcLS06LPT9bkTIFbZ6I1Su38CRPvtRdqGnpEOuUj+IO
+         E+GvqWPVYEnkQHJDBv4hi/uKjKK9b+kKmHUaDfzNEV/j1Xa+CAhrI6OYBxdew+2Pm9o6
+         dAcA==
+X-Forwarded-Encrypted: i=1; AJvYcCXdqVcKWwFlhD6Ye1eh9Yolq5qUBLT5Pga8vnKyM562JHxT+vYEWgSyJtKk5XlyxoEkvXMtwU+SrYJQ5zoiGS6l@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5j8oVBEFTfQA0bcHWOarB2k1zCgkQ4Cz9C/apeCwvLBKskMX8
+	zzWyuFYDA/FIMErc4Ksi+0GWnU4QwbxMqBKQFt3od3ynmq1BU27THji2RMV9oiqU2ZUpT9u0iNj
+	jgf47kSnZ4vpZzAy8dc9G3XrQLjyrGeJYzFAel3iTAKawddV/VpUlm0B2L/fVRqEu+S5aNVQx5G
+	IOwxO43+71hw==
+X-Gm-Gg: AY/fxX5WnsL+UcI7za5x5u1ySHxRMjuUrFRhSpRMEd863ZCFoqmMajYRyaheRXNtr3o
+	YVU+4IorTcEBkPu2UUKBCOUPkAIhJjk43gYPv8vQ1a11p4VyqrZlsPEm0GWd01OVIW10j9n0krP
+	Lq7IGv33s3rgWIySw8ngtxvd5C/6nslXuaL3OkvLSY+IWiZ+AHBm4qlCUSvSkFXNEtwqSkJx7Z5
+	oSe/v2L3mADCHZ8ZBdfXZp0wN2iQJnxmWg5+xpLlgNGUnpYFXWrMP/hR/aapO+WHL6LQXxVIZ8A
+	9p5xtkrs9vONroD6MOWC+A+FapNE/fskm7104ff0R3t1vOa96aNFKW9gWX6NE9rzlWkc0TL0Q7n
+	ZkFRM3hzWVkFTx1Al7JEepjsrGG1qwiim/eZYAT/aka5jXNoWaE9+KcvmBJM+sZ1y3TVqr5677I
+	sqzexB
+X-Received: by 2002:a17:903:2309:b0:2a0:d46d:f990 with SMTP id d9443c01a7336-2a3ee4e81c6mr173925845ad.31.1768209567637;
+        Mon, 12 Jan 2026 01:19:27 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEr63rTSU6mNKwEH2p/9lr8Yw3V9YiW8z4Df6TR0gET2yAmIZpynylnfKMGk+StpeE+EEAUIA==
+X-Received: by 2002:a17:903:2309:b0:2a0:d46d:f990 with SMTP id d9443c01a7336-2a3ee4e81c6mr173925535ad.31.1768209566996;
+        Mon, 12 Jan 2026 01:19:26 -0800 (PST)
+Received: from [10.133.33.22] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3c4795fsm171834885ad.33.2026.01.12.01.19.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 Jan 2026 01:19:26 -0800 (PST)
+Message-ID: <114f7305-de33-4360-82d2-4d61e14934ec@oss.qualcomm.com>
+Date: Mon, 12 Jan 2026 09:41:57 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 2/7] qcom-tgu: Add TGU driver
+To: Jie Gan <jie.gan@oss.qualcomm.com>, andersson@kernel.org,
+        alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
+        suzuki.poulose@arm.com, james.clark@arm.com, krzk+dt@kernel.org,
+        conor+dt@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
+        devicetree@vger.kernel.org, gregkh@linuxfoundation.org
+References: <20260109021141.3778421-1-songwei.chai@oss.qualcomm.com>
+ <20260109021141.3778421-3-songwei.chai@oss.qualcomm.com>
+ <069e2fb4-b4cc-474c-867c-2dd410ea80a4@oss.qualcomm.com>
+Content-Language: en-US
+From: Songwei Chai <songwei.chai@oss.qualcomm.com>
+In-Reply-To: <069e2fb4-b4cc-474c-867c-2dd410ea80a4@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTEyMDA3MiBTYWx0ZWRfX9+cgEi/WneM1
+ TzhzZ4sN3ScZ2ENHrpgJeVhHJL+jjkHJscoRcXDMoeWRNEkJNid39mqpdxXrbqJfd7Y11Iu06xS
+ zgfjHZHCeSD5rvPJ1Wi5n1qjFyHKc8QJHoyXQM5qcgfkPLK0JBNBxy0G6qiPjyz8N6MW98rfaG8
+ RD7zRWtJyFkTjiZa2hq0digwCVdz+pLXdM0O1RJPNBDT+u6DGuOUv6bKE+Uat+5bZObpxwjfTl/
+ atzJwrQhOqsxapZivMqWa5l26fJx6ZPnSb11sWOoKsUbR301fgtqewFHKee8EpnbbE8AS2RTjAB
+ /7YJkfaZafOtHbbIPEEAu7SbHv/4YvZ/QT1lMlSMYQ+bK0KPnHGGL99Zh6zhLtJHQVtA/lwcJvV
+ IKYL40lkWLmeB3IDL9ziUFAlmK3EoXjVQyWVphQtWabiEymMqTZU+BvZ9Y/HOmTSSHxkUkbSXHd
+ hImj1BQ4kvo+VmacctA==
+X-Authority-Analysis: v=2.4 cv=R6AO2NRX c=1 sm=1 tr=0 ts=6964bca0 cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=QtmeBwCpv1JMxDmLrj4A:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=bFCP_H2QrGi7Okbo017w:22
+X-Proofpoint-ORIG-GUID: vyy-k1YgPijGAmorr7MPauD6D9wDl9Vk
+X-Proofpoint-GUID: vyy-k1YgPijGAmorr7MPauD6D9wDl9Vk
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-12_02,2026-01-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 bulkscore=0 spamscore=0 clxscore=1015 priorityscore=1501
+ adultscore=0 phishscore=0 suspectscore=0 lowpriorityscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601120072
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_011710_342055_594E743C 
-X-CRM114-Status: GOOD (  28.40  )
+X-CRM114-CacheID: sfid-20260112_011930_101059_9A2B9DE4 
+X-CRM114-Status: GOOD (  30.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,195 +152,358 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix various typos and grammatical errors across multiple documentation
-files to improve clarity and consistency.
 
-Changes include:
-- Fix missing preposition 'in' in process/changes.rst
-- Correct 'result by' to 'result from' in admin-guide/README.rst
-- Fix 'before hand' to 'beforehand' (3 instances) in cgroup-v1/hugetlb.rst
-- Correct 'allows to limit' to 'allows limiting' in cgroup-v1/hugetlb.rst,
-  cgroup-v2.rst, and kconfig-language.rst
-- Fix 'needs precisely know' to 'needs to precisely know' in
-  cgroup-v1/hugetlb.rst
-- Correct 'overcommited' to 'overcommitted' in cgroup-v1/hugetlb.rst
-- Fix subject-verb agreement: 'never causes' to 'never cause' (2 instances)
-  in cgroup-v1/hugetlb.rst
-- Fix subject-verb agreement: 'there is enough' to 'there are enough' in
-  cgroup-v1/hugetlb.rst
-- Remove incorrect plural from uncountable nouns: 'metadatas' to 'metadata'
-  in filesystems/erofs.rst, and 'hardwares' to 'hardware' in
-  devicetree/bindings/.../mediatek,dp.yaml, userspace-api/.../legacy_dvb_audio.rst,
-  and scsi/ChangeLog.sym53c8xx
 
-Note: British spelling 'recognised' retained per maintainer feedback.
+On 1/9/2026 7:28 PM, Jie Gan wrote:
+> 
+> 
+> On 1/9/2026 10:11 AM, Songwei Chai wrote:
+>> Add driver to support device TGU (Trigger Generation Unit).
+>> TGU is a Data Engine which can be utilized to sense a plurality of
+>> signals and create a trigger into the CTI or generate interrupts to
+>> processors. Add probe/enable/disable functions for tgu.
+>>
+>> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
+>> ---
+>>   .../ABI/testing/sysfs-bus-amba-devices-tgu    |   9 +
+>>   drivers/Makefile                              |   1 +
+>>   drivers/hwtracing/Kconfig                     |   2 +
+>>   drivers/hwtracing/qcom/Kconfig                |  18 ++
+>>   drivers/hwtracing/qcom/Makefile               |   3 +
+>>   drivers/hwtracing/qcom/tgu.c                  | 176 ++++++++++++++++++
+>>   drivers/hwtracing/qcom/tgu.h                  |  51 +++++
+> 
+> drivers/hwtracing/qcom is a new dir, I suppose this patch series will go 
+> through QCOM tree? If Yes, I think it's better to update the MAINTAINER 
+> file to add QCOM maintainers for maintaining this dir. Otherwise the 
+> get_maintainer script can not obtain proper reviewer&maintainer for 
+> reviewing.
+thanks Jie, will update further.>
+> Thanks,
+> Jie
+> 
+>>   7 files changed, 260 insertions(+)
+>>   create mode 100644 Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+>>   create mode 100644 drivers/hwtracing/qcom/Kconfig
+>>   create mode 100644 drivers/hwtracing/qcom/Makefile
+>>   create mode 100644 drivers/hwtracing/qcom/tgu.c
+>>   create mode 100644 drivers/hwtracing/qcom/tgu.h
+>>
+>> diff --git a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu b/ 
+>> Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+>> new file mode 100644
+>> index 000000000000..56ec3f5ab5d6
+>> --- /dev/null
+>> +++ b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+>> @@ -0,0 +1,9 @@
+>> +What:        /sys/bus/amba/devices/<tgu-name>/enable_tgu
+>> +Date:        January 2026
+>> +KernelVersion    6.19
+>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai 
+>> <songwei.chai@oss.qualcomm.com>
+>> +Description:
+>> +        (RW) Set/Get the enable/disable status of TGU
+>> +        Accepts only one of the 2 values -  0 or 1.
+>> +        0 : disable TGU.
+>> +        1 : enable TGU.
+>> diff --git a/drivers/Makefile b/drivers/Makefile
+>> index ccc05f1eae3e..9608a3debb1f 100644
+>> --- a/drivers/Makefile
+>> +++ b/drivers/Makefile
+>> @@ -177,6 +177,7 @@ obj-$(CONFIG_RAS)        += ras/
+>>   obj-$(CONFIG_USB4)        += thunderbolt/
+>>   obj-$(CONFIG_CORESIGHT)        += hwtracing/coresight/
+>>   obj-y                += hwtracing/intel_th/
+>> +obj-y                += hwtracing/qcom/
+>>   obj-$(CONFIG_STM)        += hwtracing/stm/
+>>   obj-$(CONFIG_HISI_PTT)        += hwtracing/ptt/
+>>   obj-y                += android/
+>> diff --git a/drivers/hwtracing/Kconfig b/drivers/hwtracing/Kconfig
+>> index 911ee977103c..8a640218eed8 100644
+>> --- a/drivers/hwtracing/Kconfig
+>> +++ b/drivers/hwtracing/Kconfig
+>> @@ -7,4 +7,6 @@ source "drivers/hwtracing/intel_th/Kconfig"
+>>   source "drivers/hwtracing/ptt/Kconfig"
+>> +source "drivers/hwtracing/qcom/Kconfig"
+>> +
+>>   endmenu
+>> diff --git a/drivers/hwtracing/qcom/Kconfig b/drivers/hwtracing/qcom/ 
+>> Kconfig
+>> new file mode 100644
+>> index 000000000000..d6f6d4b0f28e
+>> --- /dev/null
+>> +++ b/drivers/hwtracing/qcom/Kconfig
+>> @@ -0,0 +1,18 @@
+>> +# SPDX-License-Identifier: GPL-2.0-only
+>> +#
+>> +# QCOM specific hwtracing drivers
+>> +#
+>> +menu "Qualcomm specific hwtracing drivers"
+>> +
+>> +config QCOM_TGU
+>> +    tristate "QCOM Trigger Generation Unit driver"
+>> +    help
+>> +      This driver provides support for Trigger Generation Unit that is
+>> +      used to detect patterns or sequences on a given set of signals.
+>> +      TGU is used to monitor a particular bus within a given region to
+>> +      detect illegal transaction sequences or slave responses. It is 
+>> also
+>> +      used to monitor a data stream to detect protocol violations and to
+>> +      provide a trigger point for centering data around a specific event
+>> +      within the trace data buffer.
+>> +
+>> +endmenu
+>> diff --git a/drivers/hwtracing/qcom/Makefile b/drivers/hwtracing/qcom/ 
+>> Makefile
+>> new file mode 100644
+>> index 000000000000..5a0a868c1ea0
+>> --- /dev/null
+>> +++ b/drivers/hwtracing/qcom/Makefile
+>> @@ -0,0 +1,3 @@
+>> +# SPDX-License-Identifier: GPL-2.0
+>> +
+>> +obj-$(CONFIG_QCOM_TGU) += tgu.o
+>> diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
+>> new file mode 100644
+>> index 000000000000..c5b2b384e6ae
+>> --- /dev/null
+>> +++ b/drivers/hwtracing/qcom/tgu.c
+>> @@ -0,0 +1,176 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+>> + */
+>> +
+>> +#include <linux/amba/bus.h>
+>> +#include <linux/device.h>
+>> +#include <linux/err.h>
+>> +#include <linux/io.h>
+>> +#include <linux/kernel.h>
+>> +#include <linux/module.h>
+>> +#include <linux/of.h>
+>> +#include <linux/pm_runtime.h>
+>> +
+>> +#include "tgu.h"
+>> +
+>> +static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
+>> +{
+>> +    TGU_UNLOCK(drvdata->base);
+>> +    /* Enable TGU to program the triggers */
+>> +    writel(1, drvdata->base + TGU_CONTROL);
+>> +    TGU_LOCK(drvdata->base);
+>> +}
+>> +
+>> +static int tgu_enable(struct device *dev)
+>> +{
+>> +    struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+>> +
+>> +    guard(spinlock)(&drvdata->lock);
+>> +    if (drvdata->enable)
+>> +        return -EBUSY;
+>> +
+>> +    tgu_write_all_hw_regs(drvdata);
+>> +    drvdata->enable = true;
+>> +
+>> +    return 0;
+>> +}
+>> +
+>> +static void tgu_disable(struct device *dev)
+>> +{
+>> +    struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+>> +
+>> +    guard(spinlock)(&drvdata->lock);
+>> +    if (drvdata->enable) {
+>> +        TGU_UNLOCK(drvdata->base);
+>> +        writel(0, drvdata->base + TGU_CONTROL);
+>> +        TGU_LOCK(drvdata->base);
+>> +
+>> +        drvdata->enable = false;
+>> +    }
+>> +}
+>> +
+>> +static ssize_t enable_tgu_show(struct device *dev,
+>> +                struct device_attribute *attr, char *buf)
+>> +{
+>> +    struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+>> +    bool enabled;
+>> +
+>> +    guard(spinlock)(&drvdata->lock);
+>> +    enabled = drvdata->enable;
+>> +
+>> +    return sysfs_emit(buf, "%d\n", enabled ? 1 : 0);
+>> +}
+>> +
+>> +/* enable_tgu_store - Configure Trace and Gating Unit (TGU) triggers. */
+>> +static ssize_t enable_tgu_store(struct device *dev,
+>> +                struct device_attribute *attr,
+>> +                const char *buf,
+>> +                size_t size)
+>> +{
+>> +    unsigned long val;
+>> +    int ret = 0;
+>> +
+>> +    ret = kstrtoul(buf, 0, &val);
+>> +    if (ret)
+>> +        return ret;
+>> +
+>> +    if (val) {
+>> +        ret = pm_runtime_resume_and_get(dev);
+>> +        if (ret)
+>> +            return ret;
+>> +        ret = tgu_enable(dev);
+>> +        if (ret) {
+>> +            pm_runtime_put(dev);
+>> +            return ret;
+>> +        }
+>> +    } else {
+>> +        tgu_disable(dev);
+>> +        pm_runtime_put(dev);
+>> +    }
+>> +
+>> +    return size;
+>> +}
+>> +static DEVICE_ATTR_RW(enable_tgu);
+>> +
+>> +static struct attribute *tgu_common_attrs[] = {
+>> +    &dev_attr_enable_tgu.attr,
+>> +    NULL,
+>> +};
+>> +
+>> +static const struct attribute_group tgu_common_grp = {
+>> +    .attrs = tgu_common_attrs,
+>> +    NULL,
+>> +};
+>> +
+>> +static const struct attribute_group *tgu_attr_groups[] = {
+>> +    &tgu_common_grp,
+>> +    NULL,
+>> +};
+>> +
+>> +static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+>> +{
+>> +    struct device *dev = &adev->dev;
+>> +    struct tgu_drvdata *drvdata;
+>> +    int ret;
+>> +
+>> +    drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+>> +    if (!drvdata)
+>> +        return -ENOMEM;
+>> +
+>> +    drvdata->dev = &adev->dev;
+>> +    dev_set_drvdata(dev, drvdata);
+>> +
+>> +    drvdata->base = devm_ioremap_resource(dev, &adev->res);
+>> +    if (IS_ERR(drvdata->base))
+>> +        return PTR_ERR(drvdata->base);
+>> +
+>> +    spin_lock_init(&drvdata->lock);
+>> +
+>> +    ret = sysfs_create_groups(&dev->kobj, tgu_attr_groups);
+>> +    if (ret) {
+>> +        dev_err(dev, "failed to create sysfs groups: %d\n", ret);
+>> +        return ret;
+>> +    }
+>> +
+>> +    drvdata->enable = false;
+>> +
+>> +    pm_runtime_put(&adev->dev);
+>> +    return 0;
+>> +}
+>> +
+>> +static void tgu_remove(struct amba_device *adev)
+>> +{
+>> +    struct device *dev = &adev->dev;
+>> +
+>> +    sysfs_remove_groups(&dev->kobj, tgu_attr_groups);
+>> +
+>> +    tgu_disable(dev);
+>> +}
+>> +
+>> +static const struct amba_id tgu_ids[] = {
+>> +    {
+>> +        .id = 0x000f0e00,
+>> +        .mask = 0x000fffff,
+>> +    },
+>> +    { 0, 0, NULL },
+>> +};
+>> +
+>> +MODULE_DEVICE_TABLE(amba, tgu_ids);
+>> +
+>> +static struct amba_driver tgu_driver = {
+>> +    .drv = {
+>> +        .name = "qcom-tgu",
+>> +        .suppress_bind_attrs = true,
+>> +    },
+>> +    .probe = tgu_probe,
+>> +    .remove = tgu_remove,
+>> +    .id_table = tgu_ids,
+>> +};
+>> +
+>> +module_amba_driver(tgu_driver);
+>> +
+>> +MODULE_AUTHOR("Songwei Chai <songwei.chai@oss.qualcomm.com>");
+>> +MODULE_AUTHOR("Jinlong Mao <jinlong.mao@oss.qualcomm.com>");
+>> +MODULE_DESCRIPTION("Qualcomm Trigger Generation Unit driver");
+>> +MODULE_LICENSE("GPL");
+>> diff --git a/drivers/hwtracing/qcom/tgu.h b/drivers/hwtracing/qcom/tgu.h
+>> new file mode 100644
+>> index 000000000000..b11cfb28261d
+>> --- /dev/null
+>> +++ b/drivers/hwtracing/qcom/tgu.h
+>> @@ -0,0 +1,51 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +/*
+>> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+>> + */
+>> +
+>> +#ifndef _QCOM_TGU_H
+>> +#define _QCOM_TGU_H
+>> +
+>> +/* Register addresses */
+>> +#define TGU_CONTROL 0x0000
+>> +#define TGU_LAR        0xfb0
+>> +#define TGU_UNLOCK_OFFSET    0xc5acce55
+>> +
+>> +static inline void TGU_LOCK(void __iomem *addr)
+>> +{
+>> +    do {
+>> +        /* Wait for things to settle */
+>> +        mb();
+>> +        writel_relaxed(0x0, addr + TGU_LAR);
+>> +    } while (0);
+>> +}
+>> +
+>> +static inline void TGU_UNLOCK(void __iomem *addr)
+>> +{
+>> +    do {
+>> +        writel_relaxed(TGU_UNLOCK_OFFSET, addr + TGU_LAR);
+>> +        /* Make sure everyone has seen this */
+>> +        mb();
+>> +    } while (0);
+>> +}
+>> +
+>> +/**
+>> + * struct tgu_drvdata - Data structure for a TGU (Trigger Generator 
+>> Unit)
+>> + * @base: Memory-mapped base address of the TGU device
+>> + * @dev: Pointer to the associated device structure
+>> + * @lock: Spinlock for handling concurrent access
+>> + * @enable: Flag indicating whether the TGU device is enabled
+>> + *
+>> + * This structure defines the data associated with a TGU device,
+>> + * including its base address, device pointers, clock, spinlock for
+>> + * synchronization, trigger data pointers, maximum limits for various
+>> + * trigger-related parameters, and enable status.
+>> + */
+>> +struct tgu_drvdata {
+>> +    void __iomem *base;
+>> +    struct device *dev;
+>> +    spinlock_t lock;
+>> +    bool enable;
+>> +};
+>> +
+>> +#endif
+> 
 
-These corrections improve the overall quality and readability of the
-kernel documentation.
-
-Signed-off-by: Nauman Sabir <officialnaumansabir@gmail.com>
----
- Documentation/admin-guide/README.rst           |  2 +-
- .../admin-guide/cgroup-v1/hugetlb.rst          | 18 +++++++++---------
- Documentation/admin-guide/cgroup-v2.rst        |  2 +-
- .../bindings/display/mediatek/mediatek,dp.yaml |  2 +-
- Documentation/filesystems/erofs.rst            |  2 +-
- Documentation/kbuild/kconfig-language.rst      |  2 +-
- Documentation/process/changes.rst              |  2 +-
- Documentation/scsi/ChangeLog.sym53c8xx         |  2 +-
- .../media/dvb/legacy_dvb_audio.rst             |  2 +-
- 9 files changed, 17 insertions(+), 17 deletions(-)
-
-diff --git a/Documentation/admin-guide/README.rst b/Documentation/admin-guide/README.rst
-index 05301f03b..77fec1de6 100644
---- a/Documentation/admin-guide/README.rst
-+++ b/Documentation/admin-guide/README.rst
-@@ -53,7 +53,7 @@ Documentation
-    these typically contain kernel-specific installation notes for some
-    drivers for example. Please read the
-    :ref:`Documentation/process/changes.rst <changes>` file, as it
--   contains information about the problems, which may result by upgrading
-+   contains information about the problems which may result from upgrading
-    your kernel.
- 
- Installing the kernel source
-diff --git a/Documentation/admin-guide/cgroup-v1/hugetlb.rst b/Documentation/admin-guide/cgroup-v1/hugetlb.rst
-index 493a8e386..b5f3873b7 100644
---- a/Documentation/admin-guide/cgroup-v1/hugetlb.rst
-+++ b/Documentation/admin-guide/cgroup-v1/hugetlb.rst
-@@ -77,7 +77,7 @@ control group and enforces the limit during page fault. Since HugeTLB
- doesn't support page reclaim, enforcing the limit at page fault time implies
- that, the application will get SIGBUS signal if it tries to fault in HugeTLB
- pages beyond its limit. Therefore the application needs to know exactly how many
--HugeTLB pages it uses before hand, and the sysadmin needs to make sure that
-+HugeTLB pages it uses beforehand, and the sysadmin needs to make sure that
- there are enough available on the machine for all the users to avoid processes
- getting SIGBUS.
- 
-@@ -91,23 +91,23 @@ getting SIGBUS.
-   hugetlb.<hugepagesize>.rsvd.usage_in_bytes
-   hugetlb.<hugepagesize>.rsvd.failcnt
- 
--The HugeTLB controller allows to limit the HugeTLB reservations per control
-+The HugeTLB controller allows limiting the HugeTLB reservations per control
- group and enforces the controller limit at reservation time and at the fault of
- HugeTLB memory for which no reservation exists. Since reservation limits are
--enforced at reservation time (on mmap or shget), reservation limits never causes
--the application to get SIGBUS signal if the memory was reserved before hand. For
-+enforced at reservation time (on mmap or shget), reservation limits never cause
-+the application to get SIGBUS signal if the memory was reserved beforehand. For
- MAP_NORESERVE allocations, the reservation limit behaves the same as the fault
- limit, enforcing memory usage at fault time and causing the application to
- receive a SIGBUS if it's crossing its limit.
- 
- Reservation limits are superior to page fault limits described above, since
- reservation limits are enforced at reservation time (on mmap or shget), and
--never causes the application to get SIGBUS signal if the memory was reserved
--before hand. This allows for easier fallback to alternatives such as
-+never cause the application to get SIGBUS signal if the memory was reserved
-+beforehand. This allows for easier fallback to alternatives such as
- non-HugeTLB memory for example. In the case of page fault accounting, it's very
--hard to avoid processes getting SIGBUS since the sysadmin needs precisely know
--the HugeTLB usage of all the tasks in the system and make sure there is enough
--pages to satisfy all requests. Avoiding tasks getting SIGBUS on overcommited
-+hard to avoid processes getting SIGBUS since the sysadmin needs to precisely know
-+the HugeTLB usage of all the tasks in the system and make sure there are enough
-+pages to satisfy all requests. Avoiding tasks getting SIGBUS on overcommitted
- systems is practically impossible with page fault accounting.
- 
- 
-diff --git a/Documentation/admin-guide/cgroup-v2.rst b/Documentation/admin-guide/cgroup-v2.rst
-index 7f5b59d95..098d6831b 100644
---- a/Documentation/admin-guide/cgroup-v2.rst
-+++ b/Documentation/admin-guide/cgroup-v2.rst
-@@ -2816,7 +2816,7 @@ DMEM Interface Files
- HugeTLB
- -------
- 
--The HugeTLB controller allows to limit the HugeTLB usage per control group and
-+The HugeTLB controller allows limiting the HugeTLB usage per control group and
- enforces the controller limit during page fault.
- 
- HugeTLB Interface Files
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
-index 274f59080..8f4bd9fb5 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
-@@ -11,7 +11,7 @@ maintainers:
-   - Jitao shi <jitao.shi@mediatek.com>
- 
- description: |
--  MediaTek DP and eDP are different hardwares and there are some features
-+  MediaTek DP and eDP are different hardware and there are some features
-   which are not supported for eDP. For example, audio is not supported for
-   eDP. Therefore, we need to use two different compatibles to describe them.
-   In addition, We just need to enable the power domain of DP, so the clock
-diff --git a/Documentation/filesystems/erofs.rst b/Documentation/filesystems/erofs.rst
-index 08194f194..e61db115e 100644
---- a/Documentation/filesystems/erofs.rst
-+++ b/Documentation/filesystems/erofs.rst
-@@ -154,7 +154,7 @@ to be as simple as possible::
-   0 +1K
- 
- All data areas should be aligned with the block size, but metadata areas
--may not. All metadatas can be now observed in two different spaces (views):
-+may not. All metadata can be now observed in two different spaces (views):
- 
-  1. Inode metadata space
- 
-diff --git a/Documentation/kbuild/kconfig-language.rst b/Documentation/kbuild/kconfig-language.rst
-index abce88f15..7067ec3f0 100644
---- a/Documentation/kbuild/kconfig-language.rst
-+++ b/Documentation/kbuild/kconfig-language.rst
-@@ -216,7 +216,7 @@ applicable everywhere (see syntax).
- 
- - numerical ranges: "range" <symbol> <symbol> ["if" <expr>]
- 
--  This allows to limit the range of possible input values for int
-+  This allows limiting the range of possible input values for int
-   and hex symbols. The user can only input a value which is larger than
-   or equal to the first symbol and smaller than or equal to the second
-   symbol.
-diff --git a/Documentation/process/changes.rst b/Documentation/process/changes.rst
-index 62951cdb1..0cf97dbab 100644
---- a/Documentation/process/changes.rst
-+++ b/Documentation/process/changes.rst
-@@ -218,7 +218,7 @@ DevFS has been obsoleted in favour of udev
- Linux documentation for functions is transitioning to inline
- documentation via specially-formatted comments near their
- definitions in the source.  These comments can be combined with ReST
--files the Documentation/ directory to make enriched documentation, which can
-+files in the Documentation/ directory to make enriched documentation, which can
- then be converted to PostScript, HTML, LaTex, ePUB and PDF files.
- In order to convert from ReST format to a format of your choice, you'll need
- Sphinx.
-diff --git a/Documentation/scsi/ChangeLog.sym53c8xx b/Documentation/scsi/ChangeLog.sym53c8xx
-index 3435227a2..6bca91e03 100644
---- a/Documentation/scsi/ChangeLog.sym53c8xx
-+++ b/Documentation/scsi/ChangeLog.sym53c8xx
-@@ -3,7 +3,7 @@ Sat May 12 12:00 2001 Gerard Roudier (groudier@club-internet.fr)
- 	- Ensure LEDC bit in GPCNTL is cleared when reading the NVRAM.
- 	  Fix sent by Stig Telfer <stig@api-networks.com>.
- 	- Backport from SYM-2 the work-around that allows to support 
--	  hardwares that fail PCI parity checking.
-+	  hardware that fails PCI parity checking.
- 	- Check that we received at least 8 bytes of INQUIRY response 
- 	  for byte 7, that contains device capabilities, to be valid.
- 	- Define scsi_set_pci_device() as nil for kernel < 2.4.4.
-diff --git a/Documentation/userspace-api/media/dvb/legacy_dvb_audio.rst b/Documentation/userspace-api/media/dvb/legacy_dvb_audio.rst
-index 81b762ef1..99ffda355 100644
---- a/Documentation/userspace-api/media/dvb/legacy_dvb_audio.rst
-+++ b/Documentation/userspace-api/media/dvb/legacy_dvb_audio.rst
-@@ -444,7 +444,7 @@ Description
- ~~~~~~~~~~~
- 
- A call to `AUDIO_GET_CAPABILITIES`_ returns an unsigned integer with the
--following bits set according to the hardwares capabilities.
-+following bits set according to the hardware's capabilities.
- 
- 
- -----
--- 
-2.52.0
 
 
