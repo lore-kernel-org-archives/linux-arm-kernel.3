@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247F8CF45A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 17:01:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44924CF45AF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 17:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DQ7dSXa5Ki8l32+lMS2zs1J649/9+f101dlTE3oyeEg=; b=cVfv8358XRYYjU3Nw6DhydmqK0
-	mVaaFwZNOZkjLRR3eu3nbVhsSouOH5hGHg/NBnRqfTX/EZ1pIr4kWCDhH3SWBur1UBHq+hZRTR900
-	gJbpc4JBAf3/NMuW/o+6qdjlT60zFXARoLwIrZ706WDYJlOfsvZhfpPztkVrIh3qQhMtuP4MjLGJm
-	vfscyuCRkdKOBzGGpKsosIjtxuX7DEKgXjQvg4/02k1MorIGR7czoMcI3Amp7Pb+m3KWYxZetvjHS
-	h607DLz2eN0+PXWpsZU54MNQO88o1aOwepFg1jG6/6C8KP9r/YZikwm/1dJtp3hxUt8GlAG2zNSol
-	i713s5zA==;
+	bh=PZQTTiyZBnXu0EkhUFF2roGOlcvmMZNC7dfYzrLt9pk=; b=MeOyEDqf+ObB/SrfobAiLe+CUC
+	Xfx/evfxBXh+281s6Wm348tSidE64nDiS71HaRmmtw68Bj8l0LXv2RCfItqCRpK9l/ktntccEcJXW
+	oKuqcp0N7g1ybe0Ssra0YzN3x2FC21d7zHj+ixDg6j2kAeWsA7cg/pvZB0rphh68Zf9owByr8MvCA
+	QLF3K1CDaWkHr5A6qw3fV2fGvr91/yviapsC14lzTHeYVKKtxw0rWoY0CW7fpHDsTf4kMsqm6qUCj
+	hQdIQSi4iR6HSCOmikMedO/39Pk+7gKJYCn2vy0UoD8pJdljzEjBijbnqqambRMeQ+u0II9yjHtwz
+	/EyI2zgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfLID-00000005lqt-40Zz;
-	Mon, 12 Jan 2026 17:01:25 +0000
+	id 1vfLIE-00000005lrW-1iDh;
+	Mon, 12 Jan 2026 17:01:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfLI1-00000005lhs-3r41
+	id 1vfLI6-00000005lk4-40nO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 17:01:19 +0000
+	Mon, 12 Jan 2026 17:01:24 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D605F1596;
-	Mon, 12 Jan 2026 09:01:05 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4E0D315A1;
+	Mon, 12 Jan 2026 09:01:11 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7811A3F694;
-	Mon, 12 Jan 2026 09:01:07 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E53913F694;
+	Mon, 12 Jan 2026 09:01:12 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -67,17 +67,17 @@ Cc: amitsinght@marvell.com,
 	joey.gouly@arm.com,
 	suzuki.poulose@arm.com,
 	kvmarm@lists.linux.dev
-Subject: [PATCH v3 15/47] arm_mpam: resctrl: Sort the order of the domain lists
-Date: Mon, 12 Jan 2026 16:58:42 +0000
-Message-ID: <20260112165914.4086692-16-ben.horgan@arm.com>
+Subject: [PATCH v3 16/47] arm_mpam: resctrl: Pick the caches we will use as resctrl resources
+Date: Mon, 12 Jan 2026 16:58:43 +0000
+Message-ID: <20260112165914.4086692-17-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260112165914.4086692-1-ben.horgan@arm.com>
 References: <20260112165914.4086692-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_090114_030899_D835D80F 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20260112_090119_212181_280AF16E 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,66 +94,140 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: James Morse <james.morse@arm.com>
 
-resctrl documents that the domains appear in numeric order in the schemata
-file. This means a little more work is needed when bringing a domain
-online.
+Systems with MPAM support may have a variety of control types at any point
+of their system layout. We can only expose certain types of control, and
+only if they exist at particular locations.
 
-Add the support for this, using resctrl_find_domain() to find the point to
-insert in the list.
+Start with the well-known caches. These have to be depth 2 or 3 and support
+MPAM's cache portion bitmap controls, with a number of portions fewer than
+resctrl's limit.
 
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
- drivers/resctrl/mpam_resctrl.c | 21 +++++++++++++++++----
- 1 file changed, 17 insertions(+), 4 deletions(-)
+Changes since rfc:
+Jonathan:
+Remove brackets
+Compress debug message
+Use temp var, r
+
+Changes since v2:
+Return -EINVAL in mpam_resctrl_control_init() for unknown rid
+---
+ drivers/resctrl/mpam_resctrl.c | 90 +++++++++++++++++++++++++++++++++-
+ 1 file changed, 88 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index cb29c05edfa8..4dba6f58f79c 100644
+index 4dba6f58f79c..1566d0c686e6 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -119,6 +119,21 @@ static bool mpam_resctrl_offline_domain_hdr(unsigned int cpu,
- 	return false;
+@@ -65,9 +65,94 @@ struct rdt_resource *resctrl_arch_get_resource(enum resctrl_res_level l)
+ 	return &mpam_resctrl_controls[l].resctrl_res;
  }
  
-+static void mpam_resctrl_domain_insert(struct list_head *list,
-+				       struct rdt_domain_hdr *new)
++static bool cache_has_usable_cpor(struct mpam_class *class)
 +{
-+	struct rdt_domain_hdr *err;
-+	struct list_head *pos = NULL;
++	struct mpam_props *cprops = &class->props;
 +
-+	lockdep_assert_held(&domain_list_lock);
++	if (!mpam_has_feature(mpam_feat_cpor_part, cprops))
++		return false;
 +
-+	err = resctrl_find_domain(list, new->id, &pos);
-+	if (WARN_ON_ONCE(err))
-+		return;
-+
-+	list_add_tail_rcu(&new->list, pos);
++	/* resctrl uses u32 for all bitmap configurations */
++	return class->props.cpbm_wd <= 32;
 +}
 +
- static struct mpam_resctrl_dom *
- mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
++/* Test whether we can export MPAM_CLASS_CACHE:{2,3}? */
++static void mpam_resctrl_pick_caches(void)
++{
++	struct mpam_class *class;
++	struct mpam_resctrl_res *res;
++
++	lockdep_assert_cpus_held();
++
++	guard(srcu)(&mpam_srcu);
++	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
++				 srcu_read_lock_held(&mpam_srcu)) {
++		if (class->type != MPAM_CLASS_CACHE) {
++			pr_debug("class %u is not a cache\n", class->level);
++			continue;
++		}
++
++		if (class->level != 2 && class->level != 3) {
++			pr_debug("class %u is not L2 or L3\n", class->level);
++			continue;
++		}
++
++		if (!cache_has_usable_cpor(class)) {
++			pr_debug("class %u cache misses CPOR\n", class->level);
++			continue;
++		}
++
++		if (!cpumask_equal(&class->affinity, cpu_possible_mask)) {
++			pr_debug("class %u has missing CPUs, mask %*pb != %*pb\n", class->level,
++				 cpumask_pr_args(&class->affinity),
++				 cpumask_pr_args(cpu_possible_mask));
++			continue;
++		}
++
++		if (class->level == 2)
++			res = &mpam_resctrl_controls[RDT_RESOURCE_L2];
++		else
++			res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
++		res->class = class;
++		exposed_alloc_capable = true;
++	}
++}
++
+ static int mpam_resctrl_control_init(struct mpam_resctrl_res *res)
  {
-@@ -156,8 +171,7 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
- 		ctrl_d = &dom->resctrl_ctrl_dom;
- 		mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, &ctrl_d->hdr);
- 		ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
--		/* TODO: this list should be sorted */
--		list_add_tail_rcu(&ctrl_d->hdr.list, &r->ctrl_domains);
-+		mpam_resctrl_domain_insert(&r->ctrl_domains, &ctrl_d->hdr);
- 		err = resctrl_online_ctrl_domain(r, ctrl_d);
- 		if (err) {
- 			dom = ERR_PTR(err);
-@@ -171,8 +185,7 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
- 		mon_d = &dom->resctrl_mon_dom;
- 		mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, &mon_d->hdr);
- 		mon_d->hdr.type = RESCTRL_MON_DOMAIN;
--		/* TODO: this list should be sorted */
--		list_add_tail_rcu(&mon_d->hdr.list, &r->mon_domains);
-+		mpam_resctrl_domain_insert(&r->mon_domains, &mon_d->hdr);
- 		err = resctrl_online_mon_domain(r, mon_d);
- 		if (err) {
- 			dom = ERR_PTR(err);
+-	/* TODO: initialise the resctrl resources */
++	struct mpam_class *class = res->class;
++	struct rdt_resource *r = &res->resctrl_res;
++
++	switch (r->rid) {
++	case RDT_RESOURCE_L2:
++	case RDT_RESOURCE_L3:
++		r->alloc_capable = true;
++		r->schema_fmt = RESCTRL_SCHEMA_BITMAP;
++		r->cache.arch_has_sparse_bitmasks = true;
++
++		r->cache.cbm_len = class->props.cpbm_wd;
++		/* mpam_devices will reject empty bitmaps */
++		r->cache.min_cbm_bits = 1;
++
++		if (r->rid == RDT_RESOURCE_L2) {
++			r->name = "L2";
++			r->ctrl_scope = RESCTRL_L2_CACHE;
++		} else {
++			r->name = "L3";
++			r->ctrl_scope = RESCTRL_L3_CACHE;
++		}
++
++		/*
++		 * Which bits are shared with other ...things...
++		 * Unknown devices use partid-0 which uses all the bitmap
++		 * fields. Until we configured the SMMU and GIC not to do this
++		 * 'all the bits' is the correct answer here.
++		 */
++		r->cache.shareable_bits = resctrl_get_default_ctrl(r);
++		break;
++	default:
++		return -EINVAL;
++	}
+ 
+ 	return 0;
+ }
+@@ -302,7 +387,8 @@ int mpam_resctrl_setup(void)
+ 		res->resctrl_res.rid = rid;
+ 	}
+ 
+-	/* TODO: pick MPAM classes to map to resctrl resources */
++	/* Find some classes to use for controls */
++	mpam_resctrl_pick_caches();
+ 
+ 	/* Initialise the resctrl structures from the classes */
+ 	for_each_mpam_resctrl_control(res, rid) {
 -- 
 2.43.0
 
