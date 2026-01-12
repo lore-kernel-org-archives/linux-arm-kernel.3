@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2FBBCF45CE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 21:01:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C96CF45CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 21:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iw6w19NggGfdcTGAr6VzBYjAlYNoQi85b8t4AYXG+Jo=; b=dpXDSg+W12+GKTVj8ZxJ4QfEep
-	dkMSfzinwYaBOwEp9NmKlpYcXf7s57rtdtyj2K1Q97ivhQwQB6co+Hx1Oqcy6QvI25M9HJZBZSzuU
-	i02++JL884/IIZEydDL6Y0Bhuxjh3Bb3HNM0hwPqZzaW4P5QWpCkGSPYnc9SksjIX7w7IEj9SwMw/
-	hEwOrwnR13rciWxDaGfGp9HBODRr6BRKKeCcWuNUPCDQ0+JptTG0cyBeQySIryoQTPCTnUISQvQxz
-	14rZ7VIKFFcj3pf4d9sg8Bc+NPbR74muHGHsZYGW5xzYAEsYULw2Ry7/1D+zHGmfblwKuChIYkkWZ
-	9M45JPHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FGoocTn0i3bC9X+0hadEqLNQB9DQNrsCMg6yETh1aZ0=; b=Nh9J5xZ1vUtu4nkelhd6Ggi80d
+	lqp4GXllobcCJ+M7sQHAmq7V7Ds7D10XukFR5OomUGhFqbtJrHJ/cLkwpEqYLmlDVBa10o48fOTej
+	sqXHasrqIdtEWvj+tb5B64aqYj3NihGOASm6umdAyQqDeIl3wWx8F1Wo4TySyk/AE7j0optOsaBKX
+	30nACc0VblQsHS+QZZ9r3qDwgMMLXcn+YbWRK3ApB7B1cIEe9ix6mCxm7nJYfz+TGz2ZStmmvuzlQ
+	64m+FBmYD7bKgooZw/NrocyQ8dZWm8f3UBFXfzS31sF0tIrZTDp26p0ZrSyoh3pNc+JcEr5odPO+m
+	ygQmE/ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfP2F-00000006C5h-0Lqt;
-	Mon, 12 Jan 2026 21:01:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vfPGb-00000006Ca3-1x7z;
+	Mon, 12 Jan 2026 21:16:01 +0000
+Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfP2B-00000006C51-2wd7
+	id 1vfPGY-00000006CZi-2YQ9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 21:01:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 44D49442B0;
-	Mon, 12 Jan 2026 21:01:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2174BC19422;
-	Mon, 12 Jan 2026 21:01:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768251665;
-	bh=k7U6XE4P8/KYbGOb2zFtfsApeLHHAiP3CuB5iFN4w6U=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Svj3EGCPDfuNEYP0Cybqqnx6ZvkmXYU/JQFPzf6nZJ4DOZco7xBEus9la0f3rCnRO
-	 d4rJDvXi+sF8ShlnjiruBhGG74w/p91auQAuj5N8wqoxlOY1NncKOXfoqstP6KIK7f
-	 VH/t1IGxvxg/u0SYBFyQgg21BRqJY+e2b+uGRHQPfz7Dip6NsKU2/R6XGa0lcdDIeN
-	 pLA2dk3QXNHIqY7UYS4L+YcvgZMq5MlA0eEV4E57a6os6ARotNH3wu10dZ8zeiDF4P
-	 6zm4xmJUP6ZVS7KTbihNBuZ37A/nRD753erH9fbL64u+t/VLiyGTYt+P8FjIXKJ3eF
-	 7dBIOLmEKJOlg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3BAF7380CFD5;
-	Mon, 12 Jan 2026 20:57:40 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Mon, 12 Jan 2026 21:16:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1768252556; bh=rWb3SpOfrjZZ6el4MNTV0Ke40BroBOS7IsFzl8PiMe0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=B3aIr83gKqLA7r3LFwP7luBLV2j0twHPV/RnkY3hD5GLhOm5uqE6FuKPvsOvXDmg7
+	 ZbaaJxaRkBRNxR3TNjLKSicnVeqJnu9NYiAKyLY/by45Tme/AahNwc+/MeR/5kvz1r
+	 YX9Irn6y7PeZSGo5LiKvwODW/5cJvtFDKCtcToKze5eOvY0Epj5WAU4tCkq/vnU3BW
+	 a6WRIzpjEMVK9koHzG/ajV9BPlYQyByozG+PJ4yellznlr238SkkD8ZQ+JEy8xMozM
+	 M90qRfY5k467nnzYFVohHD2/NEidMrg4yoT4f0WJN+HNkpLT2rdVMgaPeKtpHdd5Tg
+	 vBNa4cNIFDWQg==
+Received: from mail.mleia.com (localhost [127.0.0.1])
+	by mail.mleia.com (Postfix) with ESMTP id 717163EC06A;
+	Mon, 12 Jan 2026 21:15:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1768252556; bh=rWb3SpOfrjZZ6el4MNTV0Ke40BroBOS7IsFzl8PiMe0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=B3aIr83gKqLA7r3LFwP7luBLV2j0twHPV/RnkY3hD5GLhOm5uqE6FuKPvsOvXDmg7
+	 ZbaaJxaRkBRNxR3TNjLKSicnVeqJnu9NYiAKyLY/by45Tme/AahNwc+/MeR/5kvz1r
+	 YX9Irn6y7PeZSGo5LiKvwODW/5cJvtFDKCtcToKze5eOvY0Epj5WAU4tCkq/vnU3BW
+	 a6WRIzpjEMVK9koHzG/ajV9BPlYQyByozG+PJ4yellznlr238SkkD8ZQ+JEy8xMozM
+	 M90qRfY5k467nnzYFVohHD2/NEidMrg4yoT4f0WJN+HNkpLT2rdVMgaPeKtpHdd5Tg
+	 vBNa4cNIFDWQg==
+Received: from mail.mleia.com (91-159-24-186.elisa-laajakaista.fi [91.159.24.186])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.mleia.com (Postfix) with ESMTPSA id 0CAE13EBBA0;
+	Mon, 12 Jan 2026 21:15:55 +0000 (UTC)
+From: Vladimir Zapolskiy <vz@mleia.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-samsung-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] ARM: s3c: remove a leftover hwmon-s3c.h header file
+Date: Mon, 12 Jan 2026 23:15:54 +0200
+Message-ID: <20260112211554.3755188-1-vz@mleia.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2] net: stmmac: convert to use
- .get_rx_ring_count
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176825145877.1092878.14865875892594291102.git-patchwork-notify@kernel.org>
-Date: Mon, 12 Jan 2026 20:57:38 +0000
-References: <20260108-gxring_stmicro-v2-1-3dcadc8ed29b@debian.org>
-In-Reply-To: <20260108-gxring_stmicro-v2-1-3dcadc8ed29b@debian.org>
-To: Breno Leitao <leitao@debian.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
+X-CRM114-CacheID: sfid-20260112_211556_491810_99F387F1 
+X-CRM114-Status: GOOD (  11.66  )
+/bin/ln: failed to access 'reaver_cache/texts/20260112_211556_491810_99F387F1': No such file or directory
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_130107_762036_D7AC0993 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20260112_211556_491810_99F387F1 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,30 +86,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+The last user of defined structures s3c_hwmon_pdata and s3c_hwmon_chcfg
+was removed in commit 0d297df03890 ("ARM: s3c: simplify platform code"),
+thus the platform data header file itself can be removed also.
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
+---
+ include/linux/platform_data/hwmon-s3c.h | 36 -------------------------
+ 1 file changed, 36 deletions(-)
+ delete mode 100644 include/linux/platform_data/hwmon-s3c.h
 
-On Thu, 08 Jan 2026 03:43:00 -0800 you wrote:
-> Convert the stmmac driver to use the new .get_rx_ring_count
-> ethtool operation instead of implementing .get_rxnfc for handling
-> ETHTOOL_GRXRINGS command.
-> 
-> Since stmmac_get_rxnfc() only handled ETHTOOL_GRXRINGS (returning
-> -EOPNOTSUPP for all other commands), remove it entirely and replace
-> it with the simpler stmmac_get_rx_ring_count() callback.
-> 
-> [...]
-
-Here is the summary with links:
-  - [net-next,v2] net: stmmac: convert to use .get_rx_ring_count
-    https://git.kernel.org/netdev/net-next/c/959728f9931e
-
-You are awesome, thank you!
+diff --git a/include/linux/platform_data/hwmon-s3c.h b/include/linux/platform_data/hwmon-s3c.h
+deleted file mode 100644
+index 7d21e0c41037..000000000000
+--- a/include/linux/platform_data/hwmon-s3c.h
++++ /dev/null
+@@ -1,36 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
+-/*
+- * Copyright 2005 Simtec Electronics
+- *	Ben Dooks <ben@simtec.co.uk>
+- *	http://armlinux.simtec.co.uk/
+- *
+- * S3C - HWMon interface for ADC
+-*/
+-
+-#ifndef __HWMON_S3C_H__
+-#define __HWMON_S3C_H__
+-
+-/**
+- * s3c_hwmon_chcfg - channel configuration
+- * @name: The name to give this channel.
+- * @mult: Multiply the ADC value read by this.
+- * @div: Divide the value from the ADC by this.
+- *
+- * The value read from the ADC is converted to a value that
+- * hwmon expects (mV) by result = (value_read * @mult) / @div.
+- */
+-struct s3c_hwmon_chcfg {
+-	const char	*name;
+-	unsigned int	mult;
+-	unsigned int	div;
+-};
+-
+-/**
+- * s3c_hwmon_pdata - HWMON platform data
+- * @in: One configuration for each possible channel used.
+- */
+-struct s3c_hwmon_pdata {
+-	struct s3c_hwmon_chcfg	*in[8];
+-};
+-
+-#endif /* __HWMON_S3C_H__ */
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.51.0
 
 
