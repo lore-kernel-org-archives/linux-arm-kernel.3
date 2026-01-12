@@ -4,95 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5170FC9EC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 12:09:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 608EDC9EC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 12:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QTQwB3rZvEI+7UgNbenEQSikhCpce+1ZGVw/HdNyvwI=; b=BKFUa9j245yJhkfTWMUu83kMq+
-	6jKB0d8C1hvRbz2wLWN4DsN1D3C1nZEUtsw0D08SBrRoMYb/KAz8euL9mwmM/BHj1MLI7y8IKml2z
-	D0OsguJFUW4LcURJPDArDWXRvRZq/yjGOCN76e7RzDXebbabh2cHt7w5nhvkotK+Xn313KvY5VkcV
-	dOhjv12CIP92YIaCucVidIdK2IPeVhzR6JQzQXo8Dfw1gxULDuv35eNIQ2FCGJVEdslMR6CyExnsG
-	E0AcYhGWwzSJpE/0ahdT929nVXXBYL1/vPYfnfKmezsJ64bwZicTgpBHCu3beC2/LmzIm9ER9qQ2v
-	ZWDtzsDw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wZ8JadAnhhLLDN9rl15tWSDMysc6I539TMUK/8bBn6U=; b=gjrMXco4K2RMa+wuJasf0NY99w
+	2YdmqN1lScKOG+srNUgg4uhPVF9Hn61pA5OtzlB5pNBeArkjFF6F7yXaF03sbzTZyZJZhHiHi4vAv
+	hgfyOSPJnLRxxcmNeSOF6sSaQpOL/w9P+me2e0FoTATM2/X9zGC/MajhP33+zxy5mWcmCFcrfImhh
+	Hp1BojOKjqIz4CnaYEaIIUAUirJj/N3OCsVR7kpu8Lsk+is2eO3NdCb6UDEddWBxSKtFNNzIBSPiY
+	L/355vuJETtPuPjG5bFTcU3E0mvPef97jPEtGTsy6BWCztClI8sDGcOuMUsG8lG7bAWCHh9Bq/sCC
+	JVLu4F9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfGjc-00000005JBk-373m;
-	Mon, 12 Jan 2026 12:09:24 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vfGmN-00000005JMf-1Vlq;
+	Mon, 12 Jan 2026 12:12:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfGja-00000005JBG-1k2S
+	id 1vfGmL-00000005JLz-0yNd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 12 Jan 2026 12:09:23 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-47775fb6c56so60122275e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 04:09:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768219760; x=1768824560; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=QTQwB3rZvEI+7UgNbenEQSikhCpce+1ZGVw/HdNyvwI=;
-        b=LNnJDcftbRUiCkH45AdmpHYWUxUY/TxT2y94RvJPy9ZridVbt1M/rX1NHo2xzSR1w4
-         WkXSp6vi1AyG2vC/2x95kmPAf7RrdHcZUViHznJlZZ8wZr8LWtFMlb2wQBeBy0yx2PMZ
-         dEy0jt0YJJV/JUu/Mi20vlQK6dbwe2ZJi9imVZ8nCaJoe9cDM2mUHxocIuVVxmAQVg4H
-         rWpjJ0ISKPdmF8amzEgnfDlHurFwapDt5y6BcyPHOBlARia5YvoGwQWqsdIi1X2Z6uOM
-         rKXaFc/hI95HPRtxSZP3/rrub7HOkV54IDQ6oWiWb1fEu41V2r4vwaHGsjojV7dm+/jY
-         jUtw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768219760; x=1768824560;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QTQwB3rZvEI+7UgNbenEQSikhCpce+1ZGVw/HdNyvwI=;
-        b=MDtKDeyUz/YV3TKjORFUaAXcB+SD61TT108AE7sbWZOYYIQZ6US/8eS0gCaziFre1b
-         5CvORtP/pxtITwsL3xj6+WI/uW5RBmNT3Y+4yX20FuGX/oKjnuyfUzIzTrtRyv52eTZ2
-         6XP2WmJejCMH5iZS41xK7IMxu7khQpG1eWPODWrN6SljOw1l/gTndIU39UriZLR8yBuc
-         t22DAxl994ACTzEr/zzCyCTiM4ARpnPKDadbPo+k1RdmfbvBHrcq9gMuvJazUhPHa4+B
-         XrgKgp8nval3kj/8ohW6GaDimceuCLkbtZqiVnwoWgTsyIejLGhDNInNfNObahCQwuu7
-         WxHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXuNNwcfnJjDlElB/ARLGWgepvkEhNCsjlRHC8/0rTM/rXAHKvQEJttw4JoSMSQ80AbhAVCUIoUiB7P/Umj7/RG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2YTrn8L0Sxi9j4w2yV8ocL7r+cMx8VxpNauPycPpX5uEkrlGi
-	jjbgQPnbOmqc0QNkdfkHx70RzIlAusBtKA/ui4lLdxyvDZoHmL4HWM0+0XXSmOJ2huU=
-X-Gm-Gg: AY/fxX7whkxWbs2+GvUVh8SIayUwdc3eRi2lsOhVYCWhybEjvgFB2ZF/63ZaRvcOzQh
-	LHVP/Qlj+YmakNOxkrD0u9j0YnwGL7xhwLbIKmuv+9F1Hnai1H+sHqa1nqtSfyYxIEvk1BFgbFS
-	p6yJtEvskbNqxtvwPKYHvWevhRDeYQjNuBMnutVDrFSA1D5EaT1vrMLPLJyWKGzymvyy8+SLmFn
-	+NxITuRvBQe0S9YbJkrfK8mqUOqmMOGcdVCBSmum7Qv+wtWDT82oLHmiXG9qD+YXyeS3MH1GzlX
-	AYzw1tn4pnyut3U5cguC50UMgnE/msljm85MuwxFgBgLbfTAGgxaZuzF2Naa6tGx6Thd11OW1+T
-	H+ReZvnXRSiMNY8j2UQ0Ey4VchEfP03v00lqjOF1OUwNA52RHrZGM8awKVc/lVmM1RaaQC3YWbC
-	z7MgH22t74zZ/DH/WUdo8oGl7tjmv81pmo0ajXSw==
-X-Google-Smtp-Source: AGHT+IEVxqtmZ8Iypu6KLmzuavgzaMjHW05m9rZ/bXcJq5/QJRKZ+HKa1MwjTddrSFEfzenNCE6K9w==
-X-Received: by 2002:a05:600c:500d:b0:477:b642:9dc1 with SMTP id 5b1f17b1804b1-47d84b3baa1mr144825325e9.20.1768219760432;
-        Mon, 12 Jan 2026 04:09:20 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d8702534dsm144173975e9.2.2026.01.12.04.09.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Jan 2026 04:09:20 -0800 (PST)
-Message-ID: <d7db9f17-012e-43d7-a0a5-58b254dd7e33@linaro.org>
-Date: Mon, 12 Jan 2026 12:09:19 +0000
+	Mon, 12 Jan 2026 12:12:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D035740045;
+	Mon, 12 Jan 2026 12:12:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B428C16AAE;
+	Mon, 12 Jan 2026 12:12:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768219930;
+	bh=n+svx5fkeE5YImMc49W7xxRF+Ubqh9i7V5UVorUcq94=;
+	h=From:To:Cc:Subject:Date:From;
+	b=DCoYWzDbQQzHfOsVALDJjNFMowUJNh7cvrpEsY0T9IpSPIfHsFho8xvAiLZ9uRiT/
+	 UJlAvjbepq7i4omK1vVk5jfn2m52M3fi0MgOY+7ViRz3edRwnX+sta1ja5/Z/PYSv4
+	 PqfXZhDz5unC5AyZCGlZfQopW/qcG6wMhQ7LQC0Sq4wgzljF37WtjxIJpktRIRKK3h
+	 o5ChMZGCdQPqK7S6RBYkx2SJogqNJcPNFf0+ji0BQehLIuxHjoEOBRxn1m0m3+n+sN
+	 fto4I1Q1xJDehojU8Jo6r3LbJgEYnmuCD8rVtv14TdlaJoBm1kEawKulzTuPvQ3Mcz
+	 DYz1jXU9w0ehg==
+From: Jiri Olsa <jolsa@kernel.org>
+To: Masami Hiramatsu <mhiramat@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Will Deacon <will@kernel.org>
+Cc: Mahe Tardy <mahe.tardy@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	bpf@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	x86@kernel.org,
+	Yonghong Song <yhs@fb.com>,
+	Song Liu <songliubraving@fb.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: [PATCHv3 bpf-next 1/2] arm64/ftrace,bpf: Fix partial regs after bpf_prog_run
+Date: Mon, 12 Jan 2026 13:11:56 +0100
+Message-ID: <20260112121157.854473-1-jolsa@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v6 03/35] KVM: arm64: Add CONFIG_KVM_ARM_SPE Kconfig
- option
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: mark.rutland@arm.com, james.morse@arm.com, maz@kernel.org,
- oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
- yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-References: <20251114160717.163230-1-alexandru.elisei@arm.com>
- <20251114160717.163230-4-alexandru.elisei@arm.com>
- <1aaffbcd-ba0c-4371-80d7-ce59ac7f13a9@linaro.org> <aWTaXBse_R_LjJE-@raptor>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <aWTaXBse_R_LjJE-@raptor>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_040922_509430_D767B6F8 
-X-CRM114-Status: GOOD (  29.95  )
+X-CRM114-CacheID: sfid-20260112_041213_312236_0097544C 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,80 +79,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Mahe reported issue with bpf_override_return helper not working when
+executed from kprobe.multi bpf program on arm.
 
+The problem is that on arm we use alternate storage for pt_regs object
+that is passed to bpf_prog_run and if any register is changed (which
+is the case of bpf_override_return) it's not propagated back to actual
+pt_regs object.
 
-On 12/01/2026 11:26 am, Alexandru Elisei wrote:
-> Hi James,
-> 
-> On Fri, Jan 09, 2026 at 04:29:50PM +0000, James Clark wrote:
->>
->>
->> On 14/11/2025 4:06 pm, Alexandru Elisei wrote:
->>> Add a new configuration option that will be used for KVM SPE emulation.
->>> CONFIG_KVM_ARM_SPE depends on the SPE driver being builtin because:
->>>
->>> 1. The SPE driver maintains a cpumask of physical CPUs that support SPE,
->>>      and that will be used by KVM to emulate SPE on heterogeneous systems.
->>>
->>> 2. KVM will rely on the SPE driver enabling the SPE interrupt at the GIC
->>>      level.
->>>
->>> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
->>> ---
->>>    arch/arm64/kvm/Kconfig | 8 ++++++++
->>>    1 file changed, 8 insertions(+)
->>>
->>> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
->>> index 4f803fd1c99a..31388b5b2655 100644
->>> --- a/arch/arm64/kvm/Kconfig
->>> +++ b/arch/arm64/kvm/Kconfig
->>> @@ -83,4 +83,12 @@ config PTDUMP_STAGE2_DEBUGFS
->>>    	  If in doubt, say N.
->>> +config KVM_ARM_SPE
->>> +	bool
->>> +	depends on KVM && ARM_SPE_PMU=y
->>
->> I think the most common configuration is module, so requiring built-in isn't
->> great. If there's any way of avoiding it, even if it costs a little bit of
->> pain, it would be good for adoption.
-> 
-> I'm not sure how that could be done. You need the buffer maintenance interrupt
-> to do a VM exit so KVM can inject the virtual interrupt back into the guest,
-> otherwise there's a possibility of a large blackout window when the buffer is
-> full.
+Fixing this by introducing and calling ftrace_partial_regs_update function
+to propagate the values of changed registers (ip and stack).
 
-Without expanding more I don't see how injecting an interrupt is 
-strongly related to the way it's compiled.
+Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+Acked-by: Will Deacon <will@kernel.org>
+Reported-by: Mahe Tardy <mahe.tardy@gmail.com>
+Signed-off-by: Jiri Olsa <jolsa@kernel.org>
+---
+v3 changes:
+- drop const from fregs argument [ci]
+- added acks
 
-> 
-> The code also relies on the SPE driver to probe all the SPUs in the system.
-> 
+ include/linux/ftrace_regs.h | 25 +++++++++++++++++++++++++
+ kernel/trace/bpf_trace.c    |  1 +
+ 2 files changed, 26 insertions(+)
 
-I don't think that's a hard requirement either, the KVM code could 
-fairly easily do this itself. Inline the common code and put it in a 
-shared header etc. I'm sure there are lots of creative ways to flip the 
-dependencies that might not be "proper" software engineering. But like I 
-said a bit of pain here might be beneficial overall.
-
->>
->> It was basically the first thing I got stuck on trying to get it to work. Or
->> if it really can't be done, maybe some kind of debug message to say why
->> enabling failed.
-> 
-> When you search for the symbol in menuconfig you get a list of the symbols it
-> depends on.
-
-Right, but that doesn't address the problems of adoption at all.
-
-Having it on by default when SPE and KVM are already enabled in their 
-default configs is the difference between people being able to use this 
-with zero friction vs 200 people all getting stuck and then coming to 
-ask me why it's not working and distros having to update SPE from being 
-a module to static.
-
-> 
-> Thanks,
-> Alex
-
+diff --git a/include/linux/ftrace_regs.h b/include/linux/ftrace_regs.h
+index 15627ceea9bc..386fa48c4a95 100644
+--- a/include/linux/ftrace_regs.h
++++ b/include/linux/ftrace_regs.h
+@@ -33,6 +33,31 @@ struct ftrace_regs;
+ #define ftrace_regs_get_frame_pointer(fregs) \
+ 	frame_pointer(&arch_ftrace_regs(fregs)->regs)
+ 
++static __always_inline void
++ftrace_partial_regs_update(struct ftrace_regs *fregs, struct pt_regs *regs) { }
++
++#else
++
++/*
++ * ftrace_partial_regs_update - update the original ftrace_regs from regs
++ * @fregs: The ftrace_regs to update from @regs
++ * @regs: The partial regs from ftrace_partial_regs() that was updated
++ *
++ * Some architectures have the partial regs living in the ftrace_regs
++ * structure, whereas other architectures need to make a different copy
++ * of the @regs. If a partial @regs is retrieved by ftrace_partial_regs() and
++ * if the code using @regs updates a field (like the instruction pointer or
++ * stack pointer) it may need to propagate that change to the original @fregs
++ * it retrieved the partial @regs from. Use this function to guarantee that
++ * update happens.
++ */
++static __always_inline void
++ftrace_partial_regs_update(struct ftrace_regs *fregs, struct pt_regs *regs)
++{
++	ftrace_regs_set_instruction_pointer(fregs, instruction_pointer(regs));
++	ftrace_regs_set_return_value(fregs, regs_return_value(regs));
++}
++
+ #endif /* HAVE_ARCH_FTRACE_REGS */
+ 
+ /* This can be overridden by the architectures */
+diff --git a/kernel/trace/bpf_trace.c b/kernel/trace/bpf_trace.c
+index 6e076485bf70..3a17f79b20c2 100644
+--- a/kernel/trace/bpf_trace.c
++++ b/kernel/trace/bpf_trace.c
+@@ -2564,6 +2564,7 @@ kprobe_multi_link_prog_run(struct bpf_kprobe_multi_link *link,
+ 	old_run_ctx = bpf_set_run_ctx(&run_ctx.session_ctx.run_ctx);
+ 	err = bpf_prog_run(link->link.prog, regs);
+ 	bpf_reset_run_ctx(old_run_ctx);
++	ftrace_partial_regs_update(fregs, bpf_kprobe_multi_pt_regs_ptr());
+ 	rcu_read_unlock();
+ 
+  out:
+-- 
+2.52.0
 
 
