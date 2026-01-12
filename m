@@ -4,59 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD8BBC9EC94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 15:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33451C9EC94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 12 Jan 2026 15:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fq2c9XCdhmDNHEtVguthHgPbf/NaarWlGDrScQBVJRA=; b=wzF5rENV1J21JIjTRnhNkyf7Jq
-	16kHc8Cv+5Y24YNE1uZxeRHiiwLbY4J9ByllMNC2OwWmnTvmugMHwxIqPyQzG2P03LR3rFFzBoP2t
-	Ov+yotCi9jafl9Q4v6CeuDj1Mz0eG0V4Sg3fctY/0GGhBnSdtJ4F9d5SbEbbWgvWwVYCCLc8Fs06O
-	4NE6ZIFXtkt3BBbCrQf81LllSQiwKUx47n+ljS60D0YnLhZCZvG+fARgoFlyk0HwIxtsVx5aTx3t6
-	78/7rSGeg0uvqAyA0pC5GAYltuqMc2KhhkW0Uyqhv9zReaBHCyPeKG/KZulRcDRvagm5zomnr06Fh
-	BsODrVAw==;
+	bh=6IShxYUT2Sr9Vd4xjJUi0PrwLvcPIWn8W9PLf3WU0nE=; b=fptnModHZgpMZf40bWTiHuqgyz
+	DbjWIFtbvefiUz1Beoa+J1hPcOTJAs1R1vDGT8tsgbV2sxFFmLdRC9UHzrpdROUpx9n4Z9mcFWRtc
+	IsghArTM/IrIafP1NZHssk1gAQ/wJPlnp64VEuVuF8Rg9PUW1Ov+TrOBMTIEnr5Q/kPOvXkZGaeUz
+	QkfZdNq1682XXLPk+JZUedWoBZhzWGoQ3+wHrLHH/qsUcOsxxWSURDYoPndS90Xyh7uT+GwM8MdLi
+	lNlJapTlcQOVOqZUf5mH+Iov85ckWrcdqdROkoFtWfI+Qvr+lzFbmj0ByIkApjXDgxy04MX7ni4UY
+	j48uq35A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfJfh-00000005cgk-1AFb;
-	Mon, 12 Jan 2026 15:17:33 +0000
+	id 1vfJfl-00000005cjJ-1SKO;
+	Mon, 12 Jan 2026 15:17:37 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfJfg-00000005cgQ-0TzK;
+	id 1vfJfg-00000005cgX-2ssK
+	for linux-arm-kernel@lists.infradead.org;
 	Mon, 12 Jan 2026 15:17:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 356B0600C3;
+	by tor.source.kernel.org (Postfix) with ESMTP id 0425F60126;
+	Mon, 12 Jan 2026 15:17:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF03DC19423;
 	Mon, 12 Jan 2026 15:17:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB475C16AAE;
-	Mon, 12 Jan 2026 15:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768231050;
-	bh=oeljyyib6Pl18XuDgLYw+CXyCHm8RbZngF2pGgWjgN4=;
+	s=k20201202; t=1768231051;
+	bh=46+wZVHrek5/BXkbofjYmbHldxRKQ7UXKW+8FpuqYUQ=;
 	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
-	b=A9TJGe1fGfegv9iMpzDCpYR4GWh065Wv2k8Bx/crHdrnbPIHBRZwNtb6Ex8WEcz69
-	 Pz3gxY7LjZIvModEiUTFk8ZSjPAXs4wsh8KcM5UT7gJ1nqSCCZ008yKwHJWhniE65F
-	 XRO951zA7/h2jUwXmO9JKdt6r6kyxTXWq+Fvt2PIUDoU9ahQxtae6i5DiWSoQgabNp
-	 Jx+/E+MbHIBF8KFbcIT1Rzz2zPJuA27D29HmNTRwV1bPPDc5fWmU5tkqZMPL8Co6A/
-	 Fpld+yXzyECkRlP3klOyY4IaFcEgws5SNkZt2E8NWTeJVOKUk3QaQs/xkoosOGFFd4
-	 Q8mSL0DVL21BA==
+	b=R+xXKhxZjEXz8stVpspzab++bDbjze/00osf+Zag4dFPAdxWb/nwESAEzicrZfAgb
+	 /j811lEUc8d0bpWG2gHbXd016sE1zPJwn8KTX+tRcNO2P/phZzEUaWEfggYcAEE+LV
+	 IbdC50uEaJHhO7vp+L88qk7e5C0Lx7EnjB6Qf5dUQgOL0EEg5q2gdBmkhXzdvJPd5i
+	 9APFpipPJ3LlE9oVdBmoCmUuW8NL3odhx8eKQ8Dun01FXWmKtQTQork/2MuTtCcjqA
+	 AtgE7CnGi9tygghRXkHPwDfuX7H4a7Kg4MqB/8MwMhlfZ6u62+foZ2iY74LEPkSlXp
+	 OegJgz58K84mw==
 From: Rob Herring <robh@kernel.org>
-Date: Mon, 12 Jan 2026 09:17:30 -0600
+Date: Mon, 12 Jan 2026 09:17:31 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Cc: devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- SriNavmani A <srinavmani@axiado.com>, openbmc@lists.ozlabs.org, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Prasad Bolisetty <pbolisetty@axiado.com>, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor+dt@kernel.org>, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, Vinod Koul <vkoul@kernel.org>
-To: Tzu-Hao Wei <twei@axiado.com>
-In-Reply-To: <20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-0-dd43459dbfea@axiado.com>
-References: <20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-0-dd43459dbfea@axiado.com>
-Message-Id: <176822994353.7723.17700786956910310022.robh@kernel.org>
-Subject: Re: [PATCH 0/4] Add eMMC PHY support for Axiado AX3000 SoC
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, 
+ =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
+ James Clark <james.clark@linaro.org>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-gpio@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, coresight@lists.linaro.org, 
+ Conor Dooley <conor+dt@kernel.org>, Mike Leach <mike.leach@linaro.org>, 
+ Antonio Borneo <antonio.borneo@foss.st.com>, linux-kernel@vger.kernel.org, 
+ Linus Walleij <linusw@kernel.org>, Leo Yan <leo.yan@linux.dev>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>
+To: Gatien Chevallier <gatien.chevallier@foss.st.com>
+In-Reply-To: <20260109-debug_bus-v1-0-8f2142b5a738@foss.st.com>
+References: <20260109-debug_bus-v1-0-8f2142b5a738@foss.st.com>
+Message-Id: <176822994422.7758.4716561827275702939.robh@kernel.org>
+Subject: Re: [PATCH 00/11] bus: add stm32 debug bus and coresight support
+ for stm32mp1x platforms
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,55 +80,66 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 09 Jan 2026 17:43:28 +0800, Tzu-Hao Wei wrote:
-> Axiado AX3000 SoC contains Arasan PHY which provides the interface to the
-> HS200 eMMC controller.
+On Fri, 09 Jan 2026 11:55:00 +0100, Gatien Chevallier wrote:
+> Stm32 SoCs embed debug peripherals such as Coresight. These peripherals
+> can monitor the activity of the cores. Because of that, they can be
+> used only if some features in the debug configuration are enabled.
+> Else, errors or firewall exceptions can be observed. Similarly to
+> the ETZPC(on stm32mp1x platforms) or the RIFSC(on stm32mp2x platforms),
+> debug-related peripherals access can be assessed at bus level to
+> prevent these issues from happening.
 > 
-> This series includes:
-> 1. Add bindings for Axiado AX3000 eMMC PHY
-> 2. Add Axiado AX3000 eMMC phy driver
-> 3. Update MAINTAINERS for the new driver
-> 4. Update Axiado AX3000 device tree
+> The debug configuration can only be accessed by the secure world.
+> That means that a service must be implemented in the secure world for
+> the kernel to check the firewall configuration. On OpenSTLinux, it is
+> done through a Debug access PTA in OP-TEE [1].
+> To represent the debug peripherals present on a dedicated debug bus,
+> create a debug bus node in the device tree and the associated driver
+> that will interact with this PTA.
 > 
-> Changes: (The previous version was mixed with Host driver, so I separate
-> the PHY driver as a new thread)
-> - Fix property order in required section to match properties section
-> - Fixed example to use lowercase hex and proper node naming
-> - Removed wrapper functions, use readl/writel directly
-> - Replaced manual polling loops with read_poll_timeout macro
-> - Used devm_platform_ioremap_resource instead of separate calls
-> - Removed unnecessary of_match_node check
-> - Used dev_err_probe for error reporting
-> - Added proper Kconfig dependencies (ARCH_AXIADO || COMPILE_TEST)
-> - Fixed various coding style issues
-> - Link to previous patches: https://lore.kernel.org/all/20251222-axiado-ax3000-add-emmc-host-driver-support-v1-0-5457d0ebcdb4@axiado.com/
+> [1]: https://github.com/OP-TEE/optee_os/pull/7673
 > 
-> Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
+> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
 > ---
-> SriNavmani A (3):
->       dt-bindings: phy: axiado,ax3000-emmc-phy: add Axiado eMMC PHY
->       phy: axiado: add Axiado eMMC PHY driver
->       arm64: dts: axiado: Add eMMC PHY node
+> Gatien Chevallier (11):
+>       dt-bindings: document access-controllers property for coresight peripherals
+>       dt-bindings: pinctrl: document access-controllers property for stm32 HDP
+>       dt-bindings: bus: document the stm32 debug bus
+>       bus: stm32_firewall: allow check on different firewall controllers
+>       drivers: bus: add the stm32 debug bus driver
+>       arm: dts: stm32: introduce the debug bus for stm32mp1x platforms
+>       arm: dts: stm32: enable the debug bus on stm32mp1x boards
+>       arm: dts: stm32: enable CoreSight on stm32mp15xx-dkx boards
+>       arm: dts: stm32: enable CoreSight on the stm32mp157c-ev1 board
+>       arm: dts: stm32: enable CoreSight on the stm32mp135f-dk board
+>       pinctrl: stm32: add firewall checks before probing the HDP driver
 > 
-> Tzu-Hao Wei (1):
->       MAINTAINERS: Add Axiado AX3000 eMMC PHY driver
-> 
->  .../bindings/phy/axiado,ax3000-emmc-phy.yaml       |  38 ++++
->  MAINTAINERS                                        |  10 +
->  arch/arm64/boot/dts/axiado/ax3000.dtsi             |   7 +
->  drivers/phy/Kconfig                                |   1 +
->  drivers/phy/Makefile                               |   1 +
->  drivers/phy/axiado/Kconfig                         |  11 ++
->  drivers/phy/axiado/Makefile                        |   1 +
->  drivers/phy/axiado/phy-axiado-emmc.c               | 220 +++++++++++++++++++++
->  8 files changed, 289 insertions(+)
+>  .../devicetree/bindings/arm/arm,coresight-cti.yaml |   3 +
+>  .../devicetree/bindings/arm/arm,coresight-etm.yaml |   3 +
+>  .../devicetree/bindings/arm/arm,coresight-tmc.yaml |   3 +
+>  .../bindings/arm/arm,coresight-tpiu.yaml           |   3 +
+>  .../bindings/bus/st,stm32mp131-dbg-bus.yaml        |  86 +++++++
+>  .../devicetree/bindings/pinctrl/st,stm32-hdp.yaml  |   4 +
+>  MAINTAINERS                                        |   1 +
+>  arch/arm/boot/dts/st/stm32mp131.dtsi               | 119 +++++++++
+>  arch/arm/boot/dts/st/stm32mp135f-dk.dts            |  24 ++
+>  arch/arm/boot/dts/st/stm32mp151.dtsi               | 173 +++++++++++++
+>  arch/arm/boot/dts/st/stm32mp153.dtsi               |  68 +++++
+>  arch/arm/boot/dts/st/stm32mp157c-ev1.dts           |  40 +++
+>  arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi          |  40 +++
+>  drivers/bus/Kconfig                                |  10 +
+>  drivers/bus/Makefile                               |   1 +
+>  drivers/bus/stm32_dbg_bus.c                        | 285 +++++++++++++++++++++
+>  drivers/bus/stm32_firewall.c                       |   2 +-
+>  drivers/pinctrl/stm32/pinctrl-stm32-hdp.c          |  41 +++
+>  18 files changed, 905 insertions(+), 1 deletion(-)
 > ---
-> base-commit: f0b9d8eb98dfee8d00419aa07543bdc2c1a44fb1
-> change-id: 20260108-axiado-ax3000-add-emmc-phy-driver-support-d61aead8f622
+> base-commit: 9ace4753a5202b02191d54e9fdf7f9e3d02b85eb
+> change-id: 20260108-debug_bus-392666c7a3aa
 > 
 > Best regards,
 > --
-> Tzu-Hao Wei <twei@axiado.com>
+> Gatien Chevallier <gatien.chevallier@foss.st.com>
 > 
 > 
 > 
@@ -141,19 +160,49 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
- Deps: looking for dependencies matching 4 patch-ids
- Deps: Applying prerequisite patch: [PATCH 1/4] dt-bindings: phy: axiado,ax3000-emmc-phy: add Axiado eMMC PHY
- Deps: Applying prerequisite patch: [PATCH 2/4] phy: axiado: add Axiado eMMC PHY driver
- Deps: Applying prerequisite patch: [PATCH 3/4] MAINTAINERS: Add Axiado AX3000 eMMC PHY driver
- Deps: Applying prerequisite patch: [PATCH 4/4] arm64: dts: axiado: Add eMMC PHY node
- Base: f10c325a345fef0a688a2bcdfab1540d1c924148 (use --merge-base to override)
+ Base: 9ace4753a5202b02191d54e9fdf7f9e3d02b85eb (use --merge-base to override)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/axiado/' for 20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-0-dd43459dbfea@axiado.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/st/' for 20260109-debug_bus-v1-0-8f2142b5a738@foss.st.com:
 
-arch/arm64/boot/dts/axiado/ax3000-evk.dtb: /soc/phy@80801c00: failed to match any schema with compatible: ['axiado,ax3000-emmc-phy']
+arch/arm/boot/dts/st/stm32mp157c-dk2.dtb: funnel@50091000 (arm,coresight-dynamic-funnel): Unevaluated properties are not allowed ('access-controllers' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-dynamic-funnel.yaml
+arch/arm/boot/dts/st/stm32mp157c-ev1.dtb: funnel@50091000 (arm,coresight-dynamic-funnel): Unevaluated properties are not allowed ('access-controllers' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-dynamic-funnel.yaml
+arch/arm/boot/dts/st/stm32mp157c-dk2.dtb: stm@500a0000 (arm,coresight-stm): Unevaluated properties are not allowed ('access-controllers' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-stm.yaml
+arch/arm/boot/dts/st/stm32mp157c-ev1.dtb: stm@500a0000 (arm,coresight-stm): Unevaluated properties are not allowed ('access-controllers' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-stm.yaml
+arch/arm/boot/dts/st/stm32mp157a-dk1-scmi.dtb: funnel@50091000 (arm,coresight-dynamic-funnel): Unevaluated properties are not allowed ('access-controllers' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-dynamic-funnel.yaml
+arch/arm/boot/dts/st/stm32mp157a-dk1-scmi.dtb: stm@500a0000 (arm,coresight-stm): Unevaluated properties are not allowed ('access-controllers' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-stm.yaml
+arch/arm/boot/dts/st/stm32mp157a-dk1.dtb: funnel@50091000 (arm,coresight-dynamic-funnel): Unevaluated properties are not allowed ('access-controllers' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-dynamic-funnel.yaml
+arch/arm/boot/dts/st/stm32mp157a-dk1.dtb: stm@500a0000 (arm,coresight-stm): Unevaluated properties are not allowed ('access-controllers' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-stm.yaml
+arch/arm/boot/dts/st/stm32mp157f-dk2.dtb: funnel@50091000 (arm,coresight-dynamic-funnel): Unevaluated properties are not allowed ('access-controllers' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-dynamic-funnel.yaml
+arch/arm/boot/dts/st/stm32mp157f-dk2.dtb: stm@500a0000 (arm,coresight-stm): Unevaluated properties are not allowed ('access-controllers' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-stm.yaml
+arch/arm/boot/dts/st/stm32mp157c-ev1-scmi.dtb: funnel@50091000 (arm,coresight-dynamic-funnel): Unevaluated properties are not allowed ('access-controllers' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-dynamic-funnel.yaml
+arch/arm/boot/dts/st/stm32mp157c-ev1-scmi.dtb: stm@500a0000 (arm,coresight-stm): Unevaluated properties are not allowed ('access-controllers' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-stm.yaml
+arch/arm/boot/dts/st/stm32mp157a-iot-box.dtb: serial@40010000 (st,stm32h7-uart): False schema does not allow [[44, 15, 1]]
+	from schema $id: http://devicetree.org/schemas/serial/st,stm32-uart.yaml
+arch/arm/boot/dts/st/stm32mp157a-iot-box.dtb: serial@40010000 (st,stm32h7-uart): False schema does not allow [[45, 0, 1]]
+	from schema $id: http://devicetree.org/schemas/serial/st,stm32-uart.yaml
+arch/arm/boot/dts/st/stm32mp157a-iot-box.dtb: serial@40010000 (st,stm32h7-uart): False schema does not allow [[44, 15, 1]]
+	from schema $id: http://devicetree.org/schemas/serial/serial.yaml
+arch/arm/boot/dts/st/stm32mp157a-iot-box.dtb: serial@40010000 (st,stm32h7-uart): False schema does not allow [[45, 0, 1]]
+	from schema $id: http://devicetree.org/schemas/serial/serial.yaml
+arch/arm/boot/dts/st/stm32mp157c-dk2-scmi.dtb: funnel@50091000 (arm,coresight-dynamic-funnel): Unevaluated properties are not allowed ('access-controllers' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-dynamic-funnel.yaml
+arch/arm/boot/dts/st/stm32mp157c-dk2-scmi.dtb: stm@500a0000 (arm,coresight-stm): Unevaluated properties are not allowed ('access-controllers' was unexpected)
+	from schema $id: http://devicetree.org/schemas/arm/arm,coresight-stm.yaml
 
 
 
