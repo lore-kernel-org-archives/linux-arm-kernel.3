@@ -4,71 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54889D30CC2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 20:53:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43097D30CC2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 20:58:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kxRLsVUToAf8OSgm8rmvnRidI0FvR8JENH3xCQusjIk=; b=TsydKCLoO3bGADBhJtHCy3figA
-	U67VC1p/flMEEiEJt6ERHER6nUro+Yv2lvbYTm6wUW7hRN4WUOnEcPc6TIIeYK4XrUtD/Dst+VmN3
-	K2X4HKAucJpeawJgSWRuqmHWzmnPGott3hmD+WkAQGmKvFxD/nBMpWyZhZdnbSZTfs5A4KbqHHSig
-	nurrSXzzbICPY62SrWnJsT0Tkr4EbA9s1nfC35DqY3xqYMG0NYrODhhy4CSIs+dLMGOJqdj5aGKXW
-	hb9iaAfAnXs7blQdF49NM/Tfs1TTvFSuNACovV/wRUHgkdtz4l37GWup5A9llu3ubgbL4TseiBFzl
-	rMItqLHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JZx7N+YvGY9qNRmZoiOWyKdXlqTlBXef0uI2sCfZ+I8=; b=dT8C5FlJzgmDrf8JBUZVWt5XTD
+	+g3SHwMdIiKMPRU1Ib/95oh7YPmsv2sm9LOxtkwTvjo5bJmYCs154i26Z05PEQQ6Hxm4wNDks4/rS
+	e1wdYWWQ6g28ceYPF0lIQThhuKmmlTvb9ZCeSoDDmA7wHdlkD/ffRTUtCczUirpQqmJSx5ve1kMYx
+	+Ds5fXDTOGYO88R1ZThhDycaLBoYio5rM3ozNITZ2aTdRdM7GyIa7nd7FPd0EGX1oLUovpupn8JZ2
+	U9ZzuFSDRV/BzYvx/+FEaNiZ0hU7x6bmhV3Ym5VWPYfxnv4+gng6PuWfxim5o3EPxDrekXgaJ8BGe
+	wPiUVcog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vflOB-00000007iCg-2jcN;
-	Tue, 13 Jan 2026 20:53:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vflTG-00000007iYR-1sz9;
+	Tue, 13 Jan 2026 20:58:34 +0000
+Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vflO9-00000007iCJ-263d
+	id 1vflTB-00000007iXm-47Sv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 20:53:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9A3294410C;
-	Tue, 13 Jan 2026 20:53:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA8FEC116C6;
-	Tue, 13 Jan 2026 20:53:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768337596;
-	bh=VMV2RvEfBJ8otAFoiuzDC5SC5BsgXrgHNsXODQKZXPg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HW8PlZNFHAuBXbgBaxLlqw58ZLp8/CL/bQacN8eSHGX0ROVQnxl1DLSYPnkJzdpSk
-	 XWfS+WBcu6chNvdHjXpEVwQ807vHp6xTxkdIOiwfnvmLOGTdYfnlP3z5EqziEoI6Ik
-	 EJji/KqHG0U9uBL1i62X3h5wS7731445IGyYUOfrdjZPKU52G2JkqaITE1X9YMWfPx
-	 eS9+XX/Cvi6QfKkuuJt0qeXIzs6nUdM5NnL9e7Izxnt2taOO3lUySYjwNcIgbR+aRF
-	 AsMsb8rTAxFqUGNYSUnGCVWF2laNY6vQdzOP4MUR0D73+ePvCCW+FWGWFDtxMzV9PJ
-	 NRjc5ci4ibdyw==
-Date: Tue, 13 Jan 2026 17:53:13 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 01/14] perf parse-events: Refactor get_config_terms()
- to remove macros
-Message-ID: <aWawuXJU0BVE4q-v@x1>
-References: <20251222-james-perf-config-bits-v4-0-0608438186fc@linaro.org>
- <20251222-james-perf-config-bits-v4-1-0608438186fc@linaro.org>
+	Tue, 13 Jan 2026 20:58:33 +0000
+Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-12331482a4dso363c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 12:58:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768337909; cv=none;
+        d=google.com; s=arc-20240605;
+        b=jtyFb6xrPb2Mu2O27BNqFbG09xuWCLWfRynyMtarIigxE6edsXzYqOz43+fAtktxeT
+         EbkuZeVAJRFyjDI3KDKPFW30SbGXb5D8wLeSSbfNf/Qi40DgF2D8uU8DJWVMb223wK9L
+         Q5Lh/DH30EcrwQga8TIvViw244bjmZefsy7CcLgtE+5hJg6lIjbAHvn9JzuzW2xamV9i
+         n+Yvq6r1F7RaYqA9LyrbnPuZSG1EM3jj9IsE2C9wEcawh1Ye9RL4B3j8PEukukfygtKM
+         orVVyefrTOusPJ7aPTId+Ll+bWTr0XQerjwS0XZG2jdGQ3mPlLN6qQgsa2i3grpArlkH
+         Fisw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=JZx7N+YvGY9qNRmZoiOWyKdXlqTlBXef0uI2sCfZ+I8=;
+        fh=BThi9xNe55gdwjMUfVJlsGQncqkc6FAtFOLUJEvApFk=;
+        b=P74H7siXDK6JV34KFvD1jkw64snd7a/LWAN/tPPuX6wF8NuR83wLin4bTP5yQ+8EYm
+         UKvNREEqlOuWnQaQt8kfP5m/jN+8Ku0WsT/QidNAGCyTOS6YrECpGs/pEg9FPfZ0lkf1
+         iKNbsZPO0BOMAzTEbzEnJN4IgKeE5YZu+pz/J5YSbiHRQKNF/qUIzmTy7zrE6aIgyXoj
+         /F/9mgC2a5nH0efwim9IhI4kNDckGykAhadeshJdZhTbpdJ9dlYR8o7dGHGmOXNbCvOo
+         xEiAiI0k7XqSh1UR5ONYi0lqoCHPTTVjcaObQLH0gi+dro56Judrilq4Wud4ZvSP8Pc+
+         4oYg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1768337909; x=1768942709; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JZx7N+YvGY9qNRmZoiOWyKdXlqTlBXef0uI2sCfZ+I8=;
+        b=PhznJUUHqWsngn/mTmAH03HKD2ANe1PfQkAz6QM7YsErWjjwmmQvFAlJoxdd0zjAAq
+         gx9XiXj0V5K4usm8svX40T1HAc/gAAa9IxTfqHjcti+OJVLZ7b0/gJUFAnj4BbJ4x0g3
+         XOoQ6Y4zdqPeW6O9H5kdZLcLsjvohQpxV5Ib1w3XD+GrwI+y19jluBEPbMweHFCMBO3D
+         rVFhKEpf23Yll3qrFr4NJbUM6ozuEA0IZwDnk6knmCwI8itv88X+8G1x8RqiYX24BYr/
+         CA6qlEef4ltdLTbptGPG1vmmMtJWcTIoQrgR/pAcbbaFNCpUpZSwzRsDHZUo0FCpid3t
+         rGww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768337909; x=1768942709;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=JZx7N+YvGY9qNRmZoiOWyKdXlqTlBXef0uI2sCfZ+I8=;
+        b=CgJ4d7xFl5neqahpncPNzfJL9cazZwoWQ3kfWtVHjXubFWub0pPxbgdXYkN1dpGYwR
+         sZFSIusCwTdm0/JsqMHC2wzO7DzKcdJRZQfkmVnJQV8gkh/N1PSTkiigohxgpdkQLgIY
+         3jJxqLqLrZUXG9v/nKoTW6U4d5x8rdXy/r+NgfX2l/0PWAZ+x7Nv0e3xD802NRGzOa9s
+         mg6zE/j8MxyzUEXhJii/e0Hz1LiinYcmFApepkGvuUktFvxmoXa/Nh+ruRCkiflPFvhC
+         WSdCofAxJOWS6pLyk8zGQ3AS1egYuocKvg8BEgVWKKkaJ0RFnW8UaLc7Zy0adnHceRMa
+         D91g==
+X-Forwarded-Encrypted: i=1; AJvYcCWaidLzlDSc226CVSmedRzi+wTQG20ci+tHbDVRWWYSx4q4W6TFkyAZv8yLAQ/JSDp155/b8cvh6ssKfpS9DKrz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy22ynRhlSRs/E0nSE1AuLU7otgQbGqD3vCrqLluG3tpoTOf564
+	yrvmI0Ozu+vffkO+IzyWFles7rF7fdcKUjpfAcqN/0tvTySc0crCNlWXtqrrzdgWwu1VASucdbs
+	5qBTic1skiNvw0kBDN7znG16xVCZqLPjvoG0NlY5t
+X-Gm-Gg: AY/fxX4GsZjsTKD0PJVn2541uNxAEyCrHFDKXTrBlcpi1OZs0D3mOUvg3dXklQqZ8sl
+	uzpGX9B7x+b1TlDhTXxAjTpP4sRhiqeOkPxAcyrDE5RhphOc8B/t8o5jJ29jlYq22li1izjuEDc
+	CfmEMfG0C7J/tO5RSffmzU5rJODUYFjaTQ2ST8UqQMCcCNHWpkurwGoe5Ql0bzrqJhtZdKSzYoC
+	yhG1aDlLrHEL3rDJT8VXS6FKy2EcWM9TWgoqthe0sHUcvpVDJzoBFSLc95ZxiIQXDGi6WNEA6J5
+	slA6eOmyUns4y2HpnzEkQ5gSKw==
+X-Received: by 2002:a05:7023:d09:b0:119:e55a:808a with SMTP id
+ a92af1059eb24-1233734a5admr36c88.7.1768337908333; Tue, 13 Jan 2026 12:58:28
+ -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251222-james-perf-config-bits-v4-1-0608438186fc@linaro.org>
+References: <20251222-james-perf-config-bits-v4-0-0608438186fc@linaro.org>
+In-Reply-To: <20251222-james-perf-config-bits-v4-0-0608438186fc@linaro.org>
+From: Ian Rogers <irogers@google.com>
+Date: Tue, 13 Jan 2026 12:58:16 -0800
+X-Gm-Features: AZwV_QhwVy_DwsVlor3QOvBuG8edCAjDtJwMPf5T1IYYLOeF_2FNriw7fADm0LU
+Message-ID: <CAP-5=fXbz-jgh6=WXn3V3UoM827t4UBPe9oK_mRh8K7Q6RRC3w@mail.gmail.com>
+Subject: Re: [PATCH v4 00/14] perf cs-etm/arm-spe: Remove hard coded config fields
+To: James Clark <james.clark@linaro.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>, 
+	Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, Leo Yan <leo.yan@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_125317_582063_E04313A1 
-X-CRM114-Status: GOOD (  30.51  )
+X-CRM114-CacheID: sfid-20260113_125831_930645_B11F9C9B 
+X-CRM114-Status: GOOD (  29.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,262 +123,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 22, 2025 at 03:14:26PM +0000, James Clark wrote:
-> The ADD_CONFIG_TERM() macros build the __type argument out of a partial
-> EVSEL__CONFIG_TERM_x enum name. This means that they can't be called
-> from a function where __type is a variable and it's also impossible to
-> grep the codebase to find usages of these enums as they're never typed
-> in full.
-> 
-> Fix this by removing the macros and replacing them with an
-> add_config_term() function. It seems the main reason these existed in
-> the first place was to avoid type punning and to write to a specific
-> field in the union, but the same thing can be achieved with a single
-> write to a u64 'val' field.
-> 
-> Running the Perf tests with "-fsanitize=undefined -fno-sanitize-recover"
-> results in no new issues as a result of this change.
-> 
-> Reviewed-by: Ian Rogers <irogers@google.com>
-
-So I see the tags here, will try applying...
-
-- Arnaldo
-
-> Signed-off-by: James Clark <james.clark@linaro.org>
+On Mon, Dec 22, 2025 at 7:14=E2=80=AFAM James Clark <james.clark@linaro.org=
+> wrote:
+>
+> The specific config field that an event format attribute is in is
+> consistently hard coded, even though the API is supposed to be that the
+> driver publishes the config field name. To stop this pattern from being
+> copy pasted and causing problems in the future, replace them all with
+> calls to a new helper that returns the value that a user set.
+>
+> This reveals some issues in evsel__set_config_if_unset(). It doesn't
+> work with sparse bitfields, which are an unused but documented feature.
+> And it also only writes to the attr.config field. To fix it we need to
+> start tracking user changes for all config fields and then use existing
+> helper functions that support sparse bitfields. Some other refactoring
+> was also required and a test was added.
+>
 > ---
->  tools/perf/util/evsel_config.h |   1 +
->  tools/perf/util/parse-events.c | 146 ++++++++++++++++++++++++-----------------
->  2 files changed, 86 insertions(+), 61 deletions(-)
-> 
-> diff --git a/tools/perf/util/evsel_config.h b/tools/perf/util/evsel_config.h
-> index bcd3a978f0c4..685fd8d5c4a8 100644
-> --- a/tools/perf/util/evsel_config.h
-> +++ b/tools/perf/util/evsel_config.h
-> @@ -50,6 +50,7 @@ struct evsel_config_term {
->  		u64	      cfg_chg;
->  		char	      *str;
->  		int	      cpu;
-> +		u64	      val;
->  	} val;
->  	bool weak;
->  };
-> diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-> index 17c1c36a7bf9..46422286380f 100644
-> --- a/tools/perf/util/parse-events.c
-> +++ b/tools/perf/util/parse-events.c
-> @@ -1116,105 +1116,107 @@ static int config_attr(struct perf_event_attr *attr,
->  	return 0;
->  }
->  
-> -static int get_config_terms(const struct parse_events_terms *head_config,
-> -			    struct list_head *head_terms)
-> +static struct evsel_config_term *add_config_term(enum evsel_term_type type,
-> +						 struct list_head *head_terms,
-> +						 bool weak)
->  {
-> -#define ADD_CONFIG_TERM(__type, __weak)				\
-> -	struct evsel_config_term *__t;			\
-> -								\
-> -	__t = zalloc(sizeof(*__t));				\
-> -	if (!__t)						\
-> -		return -ENOMEM;					\
-> -								\
-> -	INIT_LIST_HEAD(&__t->list);				\
-> -	__t->type       = EVSEL__CONFIG_TERM_ ## __type;	\
-> -	__t->weak	= __weak;				\
-> -	list_add_tail(&__t->list, head_terms)
-> -
-> -#define ADD_CONFIG_TERM_VAL(__type, __name, __val, __weak)	\
-> -do {								\
-> -	ADD_CONFIG_TERM(__type, __weak);			\
-> -	__t->val.__name = __val;				\
-> -} while (0)
-> +	struct evsel_config_term *t;
->  
-> -#define ADD_CONFIG_TERM_STR(__type, __val, __weak)		\
-> -do {								\
-> -	ADD_CONFIG_TERM(__type, __weak);			\
-> -	__t->val.str = strdup(__val);				\
-> -	if (!__t->val.str) {					\
-> -		zfree(&__t);					\
-> -		return -ENOMEM;					\
-> -	}							\
-> -	__t->free_str = true;					\
-> -} while (0)
-> +	t = zalloc(sizeof(*t));
-> +	if (!t)
-> +		return NULL;
-> +
-> +	INIT_LIST_HEAD(&t->list);
-> +	t->type = type;
-> +	t->weak	= weak;
-> +	list_add_tail(&t->list, head_terms);
->  
-> +	return t;
-> +}
-> +
-> +static int get_config_terms(const struct parse_events_terms *head_config,
-> +			    struct list_head *head_terms)
-> +{
->  	struct parse_events_term *term;
->  
->  	list_for_each_entry(term, &head_config->terms, list) {
-> +		struct evsel_config_term *new_term;
-> +		enum evsel_term_type new_type;
-> +		bool str_type = false;
-> +		u64 val;
-> +
->  		switch (term->type_term) {
->  		case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
-> -			ADD_CONFIG_TERM_VAL(PERIOD, period, term->val.num, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_PERIOD;
-> +			val = term->val.num;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_SAMPLE_FREQ:
-> -			ADD_CONFIG_TERM_VAL(FREQ, freq, term->val.num, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_FREQ;
-> +			val = term->val.num;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_TIME:
-> -			ADD_CONFIG_TERM_VAL(TIME, time, term->val.num, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_TIME;
-> +			val = term->val.num;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_CALLGRAPH:
-> -			ADD_CONFIG_TERM_STR(CALLGRAPH, term->val.str, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_CALLGRAPH;
-> +			str_type = true;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_BRANCH_SAMPLE_TYPE:
-> -			ADD_CONFIG_TERM_STR(BRANCH, term->val.str, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_BRANCH;
-> +			str_type = true;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_STACKSIZE:
-> -			ADD_CONFIG_TERM_VAL(STACK_USER, stack_user,
-> -					    term->val.num, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_STACK_USER;
-> +			val = term->val.num;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_INHERIT:
-> -			ADD_CONFIG_TERM_VAL(INHERIT, inherit,
-> -					    term->val.num ? 1 : 0, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_INHERIT;
-> +			val = term->val.num ? 1 : 0;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_NOINHERIT:
-> -			ADD_CONFIG_TERM_VAL(INHERIT, inherit,
-> -					    term->val.num ? 0 : 1, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_INHERIT;
-> +			val = term->val.num ? 0 : 1;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_MAX_STACK:
-> -			ADD_CONFIG_TERM_VAL(MAX_STACK, max_stack,
-> -					    term->val.num, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_MAX_STACK;
-> +			val = term->val.num;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_MAX_EVENTS:
-> -			ADD_CONFIG_TERM_VAL(MAX_EVENTS, max_events,
-> -					    term->val.num, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_MAX_EVENTS;
-> +			val = term->val.num;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_OVERWRITE:
-> -			ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
-> -					    term->val.num ? 1 : 0, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_OVERWRITE;
-> +			val = term->val.num ? 1 : 0;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_NOOVERWRITE:
-> -			ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
-> -					    term->val.num ? 0 : 1, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_OVERWRITE;
-> +			val = term->val.num ? 0 : 1;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
-> -			ADD_CONFIG_TERM_STR(DRV_CFG, term->val.str, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_DRV_CFG;
-> +			str_type = true;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_PERCORE:
-> -			ADD_CONFIG_TERM_VAL(PERCORE, percore,
-> -					    term->val.num ? true : false, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_PERCORE;
-> +			val = term->val.num ? true : false;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_AUX_OUTPUT:
-> -			ADD_CONFIG_TERM_VAL(AUX_OUTPUT, aux_output,
-> -					    term->val.num ? 1 : 0, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_AUX_OUTPUT;
-> +			val = term->val.num ? 1 : 0;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_AUX_ACTION:
-> -			ADD_CONFIG_TERM_STR(AUX_ACTION, term->val.str, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_AUX_ACTION;
-> +			str_type = true;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE:
-> -			ADD_CONFIG_TERM_VAL(AUX_SAMPLE_SIZE, aux_sample_size,
-> -					    term->val.num, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_AUX_SAMPLE_SIZE;
-> +			val = term->val.num;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_RATIO_TO_PREV:
-> -			ADD_CONFIG_TERM_STR(RATIO_TO_PREV, term->val.str, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_RATIO_TO_PREV;
-> +			str_type = true;
->  			break;
->  		case PARSE_EVENTS__TERM_TYPE_USER:
->  		case PARSE_EVENTS__TERM_TYPE_CONFIG:
-> @@ -1229,7 +1231,23 @@ do {								\
->  		case PARSE_EVENTS__TERM_TYPE_RAW:
->  		case PARSE_EVENTS__TERM_TYPE_CPU:
->  		default:
-> -			break;
-> +			/* Don't add a new term for these ones */
-> +			continue;
-> +		}
-> +
-> +		new_term = add_config_term(new_type, head_terms, term->weak);
-> +		if (!new_term)
-> +			return -ENOMEM;
-> +
-> +		if (str_type) {
-> +			new_term->val.str = strdup(term->val.str);
-> +			if (!new_term->val.str) {
-> +				zfree(&new_term);
-> +				return -ENOMEM;
-> +			}
-> +			new_term->free_str = true;
-> +		} else {
-> +			new_term->val.val = val;
->  		}
->  	}
->  	return 0;
-> @@ -1290,10 +1308,16 @@ static int get_config_chgs(struct perf_pmu *pmu, struct parse_events_terms *head
->  		}
->  	}
->  
-> -	if (bits)
-> -		ADD_CONFIG_TERM_VAL(CFG_CHG, cfg_chg, bits, false);
-> +	if (bits) {
-> +		struct evsel_config_term *new_term;
-> +
-> +		new_term = add_config_term(EVSEL__CONFIG_TERM_CFG_CHG,
-> +					   head_terms, false);
-> +		if (!new_term)
-> +			return -ENOMEM;
-> +		new_term->val.cfg_chg = bits;
-> +	}
->  
-> -#undef ADD_CONFIG_TERM
->  	return 0;
->  }
->  
-> 
-> -- 
-> 2.34.1
-> 
+> Changes in v4:
+> - Constify some function args (Ian)
+> - Move some evsel__* functions to evsel.c and make some pmu.c functions
+>   public to support this (Ian)
+> - Drop pmu arg where it can be fetched from evsel->pmu (Ian)
+> - Link to v3: https://lore.kernel.org/r/20251212-james-perf-config-bits-v=
+3-0-aa36a4846776@linaro.org
+>
+> Changes in v3:
+> - Fix uninitialized variable warning on GCC
+> - Fix leak of evlist in test
+> - Confirm no type punning issues with ubsan (Ian)
+> - Link to v2: https://lore.kernel.org/r/20251208-james-perf-config-bits-v=
+2-0-4ac0281993b0@linaro.org
+>
+> Changes in v2:
+> - Remove macros in get_config_chgs() and some other refactoring.
+> - Support sparse bitfields in evsel__set_config_if_unset().
+> - Always track user changes instead of only when
+>   'pmu->perf_event_attr_init_default' is set.
+> - Add a test.
+> - Don't bail out in cs-etm.c if any format fields are missing (Leo).
+> - Rename 'guess' to 'synth' (Mike).
+> - Link to v1: https://lore.kernel.org/r/20251201-james-perf-config-bits-v=
+1-0-22ecbbf8007c@linaro.org
+>
+> ---
+> James Clark (14):
+>       perf parse-events: Refactor get_config_terms() to remove macros
+>       perf evsel: Refactor evsel__set_config_if_unset() arguments
+>       perf evsel: Move evsel__* functions to evsel.c
+>       perf evsel: Support sparse fields in evsel__set_config_if_unset()
+>       perf parse-events: Track all user changed config bits
+>       perf evsel: apply evsel__set_config_if_unset() to all config fields
+>       perf evsel: Add a helper to get the value of a config field
+>       perf parse-events: Always track user config changes
+>       perf tests: Test evsel__set_config_if_unset() and config change tra=
+cking
+>       perf cs-etm: Make a helper to find the Coresight evsel
+>       perf cs-etm: Don't use hard coded config bits when setting up ETMCR
+>       perf cs-etm: Don't use hard coded config bits when setting up TRCCO=
+NFIGR
+>       perf cs-etm: Don't hard code config attribute when configuring the =
+event
+>       perf arm-spe: Don't hard code config attribute
+
+Reviewed-by: Ian Rogers <irogers@google.com>
+
+Most patches already have my tag, sending this for the remainder.
+
+Thanks,
+Ian
+
+>  tools/perf/arch/arm/util/cs-etm.c    | 201 +++++++++++++++-------------
+>  tools/perf/arch/arm64/util/arm-spe.c |  17 +--
+>  tools/perf/arch/x86/util/intel-pt.c  |   3 +-
+>  tools/perf/tests/pmu.c               |  91 +++++++++++++
+>  tools/perf/util/evsel.c              | 112 +++++++++++++++-
+>  tools/perf/util/evsel.h              |   6 +-
+>  tools/perf/util/evsel_config.h       |   7 +-
+>  tools/perf/util/parse-events.c       | 248 ++++++++++++++++++++---------=
+------
+>  tools/perf/util/pmu.c                |  95 ++++----------
+>  tools/perf/util/pmu.h                |  34 ++++-
+>  10 files changed, 529 insertions(+), 285 deletions(-)
+> ---
+> base-commit: cbd41c6d4c26c161a2b0e70ad411d3885ff13507
+> change-id: 20251112-james-perf-config-bits-bee7106f0f00
+>
+> Best regards,
+> --
+> James Clark <james.clark@linaro.org>
+>
 
