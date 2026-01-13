@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A07D2F326
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 049EFD2F338
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:38:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TBIjrv4Y8OCNFBCu4sCpO8dv9dAjBKgPmh8xrmvTw4k=; b=I/rBW7/sF2lQW7
-	40a6HzZGFvCzdK7J5QgG7STsEquszY5hySdV7dZ9Er89ZqD0JpCB5diYLKZvpE4Yjkh6wh4BQrVa2
-	bVmpmm8HekrR5whu3e5hIXCk+gBTbYzKJ3M0d2stt8EQJl+f3S+85UJ/0zOh51O8A1df5MuDYCATE
-	QR46bkQIGuMR36rgNR/6zWuuw8c1PMBB+onryosdOEu28xPDigEXf7pUgsbR3FtyzRe+M8NYRDWQv
-	gh1qY3IzNgHfxLChJSgEGA7hTKpmgJ3e4zqk0Ao/hYjYbAfTlMbI97Wvn2WGVKITbPlPw+OzMQZ0W
-	FDF1tyVOsm6c0F6nmORg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0R7OJhb8g0EjhhCuJA26lFyiU8IgvSrLJ7+qYcylQpM=; b=iUE/qtPF/J3elqVphfF/KUECCy
+	0pjRJSXRE79rp0vRh44CtUNnQr3D89hJc/45q444hB4ma9Py3DyFDAeQiDh62TLNqro4VQmnF7GwN
+	ZLQbvWLCmQumAtbSJV73NKrXwZNPQM+rDPXu/hun5jfIvtMC7vc3D9buUKf8M4Wnx4lXN6S1d5lca
+	FamflQ7DbHmRTXk7n1wvX8GKbVE/W1Q6ldS393ftu760pDYQXN4Ts3a4gztaanW7vPXv/AJz7BVdh
+	5MCfUUIbaeFypnmUKoB+mpo3EXgJD3xh8ENNmmRV4ItjBTKgSpaw+Z1AeKXj8fE36p3zwe5/PRkgM
+	UPx8nRYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgOg-00000007OCt-3AXE;
-	Tue, 13 Jan 2026 15:33:30 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	id 1vfgTr-00000007Oev-27iP;
+	Tue, 13 Jan 2026 15:38:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgOb-00000007O9z-1pSQ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 15:33:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=Cc:From:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=TBIjrv4Y8OCNFBCu4sCpO8dv9dAjBKgPmh8xrmvTw4k=; b=CqykJfQAMzzxW08XAMUVqzuQd/
-	dXeHErJk8dedGFD3st4JDdDkPr0WhUw8QajWMph/fr+cElv98NIcffLsu9o8BD/ZR8hx6n8mAVrsk
-	eJObhJaU6hIey5iDdBkG4hmPZb93FCNC0mgz2Sqyqox3phEdoAA7EQMm8orI4IOpTNVaIrQlj2rHB
-	xYk3FavNqgyJwouerKTB9nvin2dS7ufexoiysNfz6y5tZdcuKAPstEf2OzIMLsMqe2UZc75QP8pL5
-	JMhWAHzFXkyCrdMeBAn3qKdrzY/RGlRjwNRKrefO95ydJdNp91RmEhPV3EygYAr4Ka15qEQ325Kj5
-	tQR9uZcQ==;
-From: Andreas Kemnade <andreas@kemnade.info>
-Subject: [PATCH 0/3] ARM: dts: imx: wire up the TPS65185 for various
- ereaders
-Date: Tue, 13 Jan 2026 16:31:33 +0100
-Message-Id: <20260113-tps65185-dt-v1-0-66d376ba5f65@kemnade.info>
+	id 1vfgTo-00000007OeY-3uZ7;
+	Tue, 13 Jan 2026 15:38:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D7341403FA;
+	Tue, 13 Jan 2026 15:38:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCC28C116C6;
+	Tue, 13 Jan 2026 15:38:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768318727;
+	bh=ljT5os089R8jUo9auIHE9TI3ncsDNdnWjL/OJch4leA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=lYi9WhYwgD1Orn9n6DwmOzaGYJX/YkrW8INCxFw2FUtssTuV52T9mNyNFgbdZO1rM
+	 m1HDAiuhHpQ3+VaKnZNSzdqadV5nizrxEZmxwMlPsxCERJHprQjR/GF63nchWAgjKG
+	 9vA1Oq3zzVBlL2iyBvIlwLv0nGwx2/NEa7u5fshSVEmEX935+uoYgh/ip8ptqawmIo
+	 FInWYr/y+tMpjzOuwK2pcgGAXpq/ykIn/I9qv9At+8LNQna1D/DfkwkhYo8KlEO/OM
+	 mfB5c+OO9ShzZ66z54hNwnpWJcPdCqNBttcamyWEWKb5OGHCkelO2rR/QEXkrmaeXi
+	 tL2N+KJqy5AgQ==
+From: Mark Brown <broonie@kernel.org>
+To: linux-mediatek@lists.infradead.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ sen.chu@mediatek.com, sean.wang@mediatek.com, macpaul.lin@mediatek.com, 
+ lee@kernel.org, matthias.bgg@gmail.com, lgirdwood@gmail.com, 
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ kernel@collabora.com
+In-Reply-To: <20260113110000.36953-1-angelogioacchino.delregno@collabora.com>
+References: <20260113110000.36953-1-angelogioacchino.delregno@collabora.com>
+Subject: Re: (subset) [PATCH 0/6] Fix dtbs_check warnings for MediaTek
+ Helio X10 platform
+Message-Id: <176831872457.153367.14622745892314897122.b4-ty@kernel.org>
+Date: Tue, 13 Jan 2026 15:38:44 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAFVlZmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDQ0Nj3ZKCYjNTQwtT3ZQS3dTUFHOTRAMLS1ODZCWgjoKi1LTMCrBp0bG
- 1tQATdF29XQAAAA==
-X-Change-ID: 20260113-tps65185-dt-eed74a08950c
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Andreas Kemnade <andreas@kemnade.info>, Josua Mayer <josua.mayer@jm0.eu>
-X-Mailer: b4 0.15-dev-a6db3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1073; i=andreas@kemnade.info;
- h=from:subject:message-id; bh=bBc+mfqKr3uL9dadx2ba1PgNMN8oNbSq2rlIFExQJKo=;
- b=owGbwMvMwCUm/rzkS6lq2x3G02pJDJlpqU3yv37qTa68uEWQI5J7o1t1+m6W9NL1J+Vfp669e
- sD4peimjlIWBjEuBlkxRZZf1gpun1Se5QZPjbCHmcPKBDKEgYtTACayvoPhf0yRbOw8E+XEjM/M
- ucWtNkuyNcO+vSqwbtilJzz5iMkyCUaGz3vvsMvGbRaLOK5srxY8L49ZyFb607d/6kYPW3e99Fn
- LDwA=
-X-Developer-Key: i=andreas@kemnade.info; a=openpgp;
- fpr=EEC0DB858E66C0DA70620AC07DBD6AC74DE29324
+X-Mailer: b4 0.15-dev-47773
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_073325_480025_784B8417 
-X-CRM114-Status: UNSURE (   7.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260113_073849_017294_7D171B08 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,33 +77,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As the driver is now upstream, wire it up for various ebook readers
-containing imx6sl/6sll/50 SoCs.
+On Tue, 13 Jan 2026 11:59:54 +0100, AngeloGioacchino Del Regno wrote:
+> This series fixes various dtbs_check warnings happening on the MediaTek
+> Helio X10 platform devicetrees.
+> 
+> Depending on correctness, either the bindings or the devicetree was
+> changed as a dtbs_check warning fix.
+> 
+> AngeloGioacchino Del Regno (6):
+>   dt-bindings: mfd: mediatek,mt8195-scpsys: Add mediatek,mt6795-scpsys
+>   dt-bindings: mfd: mediatek: mt6397: Add missing MT6331 regulator
+>     compat
+>   dt-bindings: regulator: mediatek,mt6331: Add missing ldo-vio28 vreg
+>   arm64: dts: mediatek: mt6331: Fix VCAM IO regulator name
+>   arm64: dts: mediatek: mt6795: Fix issues in SCPSYS node
+>   arm64: dts: mediatek: mt6795-xperia-m5: Rename PMIC leds node
+> 
+> [...]
 
-The driver for the EPD itself (not included) still needs polishing
-which would be the consumer for these regulators.
+Applied to
 
-Signed-off-by: Andreas Kemnade <andreas@kemnade.info>
----
-Andreas Kemnade (2):
-      ARM: dts: imx: tolino-shine2: add tps65185
-      ARM: dts: imx: e60k02: add tps65185
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
 
-Josua Mayer (1):
-      ARM: dts: imx50-kobo-aura: add epd pmic description
+Thanks!
 
- arch/arm/boot/dts/nxp/imx/e60k02.dtsi              | 35 ++++++++++++-
- arch/arm/boot/dts/nxp/imx/imx50-kobo-aura.dts      | 60 +++++++++++++++++++++-
- .../boot/dts/nxp/imx/imx6sl-tolino-shine2hd.dts    | 55 +++++++++++++++++++-
- arch/arm/boot/dts/nxp/imx/imx6sl-tolino-shine3.dts | 26 ++++++++++
- arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clarahd.dts | 26 ++++++++++
- 5 files changed, 199 insertions(+), 3 deletions(-)
----
-base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
-change-id: 20260113-tps65185-dt-eed74a08950c
+[3/6] dt-bindings: regulator: mediatek,mt6331: Add missing ldo-vio28 vreg
+      commit: de9f1b1583aecb246b659effb03f2456604fab64
 
-Best regards,
---  
-Andreas Kemnade <andreas@kemnade.info>
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
