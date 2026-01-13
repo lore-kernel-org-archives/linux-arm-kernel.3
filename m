@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE87D29DE2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FA7D29DE9
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 08:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c8LOIbk1j/ExJ4WgejtdIwCyYoP80/IjJqkd8MVp4A4=; b=MXkOiw9vyMgXIR9xC+qJwxvLKW
-	uHuaQX/xoc3DpByuAGNMU+6SoKTgURtfXW0dpPUcQPUKbzbz5QDaSWllYgGvXQqw9xg5mLucCLY9U
-	KXbsLLkG3aF0BFLJt+Uzf/a+96JKYU+LxEYnfZ4Vs9GD3NdcxZrHOmPwJbtEi82OzDoGGG1yBNYSw
-	B8J+6wIiB/e4O4RGP7XA2nENq43k2ip6BMoFpnZyrpUXsAFsqAgExCl2moBW5UPedsE7cGKcMZFZp
-	U0TwS0TX/wjEfq0ayeTeNT/bwac30i2BptpN+Wxz3lTsvMbY9UWTOj+Z5U7fTdgSfPkfuMOaA1hiZ
-	P+47QBKw==;
+	bh=UDRwp38A0CEq4xLd20SdXV/iQTb6zIBb7TvLV9q5TGc=; b=QeiK9cj0zFP6orBcJidqjO/9z/
+	FL9G1R6isfxKEJomhB5njf2PdxUXkN4asMxn430sjVNOu9ASeyF44aMRqyR61qOTcbdcl1W+TTe9V
+	9tjQmSKnwELinkZ06NfMNC/l7Xzjd+Qt38JtT+TbJSzTcAlWiZgfEZ+Fr1d0vWBQloc3IuRkd38Sy
+	o6djm1r4R+wqVPoYuTk17Wipyie+qHhbRS/4pEuQKDEZvfXsUL/EtB93o6p8r92cOeboSiYF9HU5F
+	+EfHsRGdOvNNSbyROkQdgiEI8Qah5vrlKmBuK19E2JrBczC+FriJHx7JUAIDLBV8yo2fOETwiK6Ic
+	+6RKknwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfZe7-00000006iz1-1JlG;
-	Tue, 13 Jan 2026 08:20:59 +0000
+	id 1vfZe3-00000006iwl-1zqs;
+	Tue, 13 Jan 2026 08:20:55 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfZe4-00000006ixQ-1Uu9;
-	Tue, 13 Jan 2026 08:20:56 +0000
+	id 1vfZe2-00000006ivn-01wk;
+	Tue, 13 Jan 2026 08:20:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BA22E600BB;
-	Tue, 13 Jan 2026 08:20:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BA57C19421;
-	Tue, 13 Jan 2026 08:20:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1A71960051;
+	Tue, 13 Jan 2026 08:20:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 714DFC116C6;
+	Tue, 13 Jan 2026 08:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768292455;
-	bh=VmVG7HfN5qM50MKrD1A4HpIQKCxv/1GewT37Y8s+F+w=;
+	s=k20201202; t=1768292452;
+	bh=NkL8q4Yk+gfVa/p6lSMEFG57URm0Jf2mxlxlnYGDoi8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=IcUSfcg4T8FMsg7QJyUnAGZmUSwK7RSpWVbYrJkY/Tsszor0yphie34k2/7NPLxaF
-	 UdgAN5EmixALyfmlEfZUjLOcf+xY+nF7Jm6wv1i39GL4yRWY9h4iFNNwyou6M8+RR/
-	 dQmHJ/gQKUELpkmBeXsZBHkT2sT3N+Bj3Cmxko0sQ+uCWvYAQVexvOGMKdsOQCBJv1
-	 MdQWSl7jusDlhn0wHzr2CEG1mpspkLBvjgMeoOjLIdutw7EZfVhHuP46Q69i1g+CnE
-	 XChzBk7C1IIiz7tG8R2g5BcFNuo6wBPRlDj+zpq+WOgNma0TyqPCmQsn+lisYvrZc1
-	 6BJZM7dv1HYdg==
+	b=QMiyeAvuRCNNpFhlaxt0Hxu4VcXt49tYwTD/JaULda3VZxT33/RTrdOmVcDR9v2iu
+	 1P4kNYDOcz0X1Mih+2xfFmP5EgbotXMIWAthZ/Fd2IvUYj95aAHpd1vg56AF13dWiN
+	 /wbd546sk2JYee1tYkJpL2X9LYdFQs4bb0x72J4EawIXhxWW1O0SEYkT/gS4DD0U0L
+	 8tEPh+cGUUT9uzeL8RnbxiEgDan7+mg/f8KA7dYYXJdQwEJJF5mi5QyePXsyEHzioC
+	 twAulFRnoj6Pp7HLVj7Pw9vYYTXzcHvX/Pbow2JHuUFmOJpd+4IbW2RwYErr7rwzYK
+	 mFKEfKYwrBC3A==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 13 Jan 2026 09:20:28 +0100
-Subject: [PATCH net-next v2 2/2] net: airoha: npu: Add en7581-npu-7996
- compatible string
+Date: Tue, 13 Jan 2026 09:20:27 +0100
+Subject: [PATCH net-next v2 1/2] dt-bindings: net: airoha: npu: Add
+ EN7581-7996 support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260113-airoha-npu-firmware-name-v2-2-28cb3d230206@kernel.org>
+Message-Id: <20260113-airoha-npu-firmware-name-v2-1-28cb3d230206@kernel.org>
 References: <20260113-airoha-npu-firmware-name-v2-0-28cb3d230206@kernel.org>
 In-Reply-To: <20260113-airoha-npu-firmware-name-v2-0-28cb3d230206@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -73,66 +73,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce "airoha,en7581-npu-7996" compatible string in order to
-specify different firmware binaries if the EN7581 SoC is running MT7996
-(Eagle) chipset.
-This is a preliminary patch to enable MT76 NPU offloading for MT7996
-(Eagle) chipset since it requires different binaries with respect to
-the ones used for MT7992 on the EN7581 SoC.
+Introduce en7581-npu-7996 compatible string in order to enable MT76 NPU
+offloading for MT7996 (Eagle) chipset since it requires different
+binaries with respect to the ones used for MT7992 on the EN7581 SoC.
 
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_npu.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
-index 22f72c146065998d5450477f664ed308b1569aa3..0032a4801bca066f75f60154e6df0b41d11b899f 100644
---- a/drivers/net/ethernet/airoha/airoha_npu.c
-+++ b/drivers/net/ethernet/airoha/airoha_npu.c
-@@ -16,6 +16,8 @@
+diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
+index 59c57f58116b568092446e6cfb7b6bd3f4f47b82..96b2525527c14f60754885c1362b9603349a6353 100644
+--- a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
++++ b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
+@@ -18,6 +18,7 @@ properties:
+   compatible:
+     enum:
+       - airoha,en7581-npu
++      - airoha,en7581-npu-7996
+       - airoha,an7583-npu
  
- #define NPU_EN7581_FIRMWARE_DATA		"airoha/en7581_npu_data.bin"
- #define NPU_EN7581_FIRMWARE_RV32		"airoha/en7581_npu_rv32.bin"
-+#define NPU_EN7581_7996_FIRMWARE_DATA		"airoha/en7581_MT7996_npu_data.bin"
-+#define NPU_EN7581_7996_FIRMWARE_RV32		"airoha/en7581_MT7996_npu_rv32.bin"
- #define NPU_AN7583_FIRMWARE_DATA		"airoha/an7583_npu_data.bin"
- #define NPU_AN7583_FIRMWARE_RV32		"airoha/an7583_npu_rv32.bin"
- #define NPU_EN7581_FIRMWARE_RV32_MAX_SIZE	0x200000
-@@ -624,6 +626,17 @@ static const struct airoha_npu_soc_data en7581_npu_soc_data = {
- 	},
- };
- 
-+static const struct airoha_npu_soc_data en7581_7996_npu_soc_data = {
-+	.fw_rv32 = {
-+		.name = NPU_EN7581_7996_FIRMWARE_RV32,
-+		.max_size = NPU_EN7581_FIRMWARE_RV32_MAX_SIZE,
-+	},
-+	.fw_data = {
-+		.name = NPU_EN7581_7996_FIRMWARE_DATA,
-+		.max_size = NPU_EN7581_FIRMWARE_DATA_MAX_SIZE,
-+	},
-+};
-+
- static const struct airoha_npu_soc_data an7583_npu_soc_data = {
- 	.fw_rv32 = {
- 		.name = NPU_AN7583_FIRMWARE_RV32,
-@@ -637,6 +650,7 @@ static const struct airoha_npu_soc_data an7583_npu_soc_data = {
- 
- static const struct of_device_id of_airoha_npu_match[] = {
- 	{ .compatible = "airoha,en7581-npu", .data = &en7581_npu_soc_data },
-+	{ .compatible = "airoha,en7581-npu-7996", .data = &en7581_7996_npu_soc_data },
- 	{ .compatible = "airoha,an7583-npu", .data = &an7583_npu_soc_data },
- 	{ /* sentinel */ }
- };
-@@ -782,6 +796,8 @@ module_platform_driver(airoha_npu_driver);
- 
- MODULE_FIRMWARE(NPU_EN7581_FIRMWARE_DATA);
- MODULE_FIRMWARE(NPU_EN7581_FIRMWARE_RV32);
-+MODULE_FIRMWARE(NPU_EN7581_7996_FIRMWARE_DATA);
-+MODULE_FIRMWARE(NPU_EN7581_7996_FIRMWARE_RV32);
- MODULE_FIRMWARE(NPU_AN7583_FIRMWARE_DATA);
- MODULE_FIRMWARE(NPU_AN7583_FIRMWARE_RV32);
- MODULE_LICENSE("GPL");
+   reg:
 
 -- 
 2.52.0
