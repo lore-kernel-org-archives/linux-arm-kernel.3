@@ -4,59 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C657D2D10A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:36:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C76BD2D10A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:38:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PGPbLlqDOLwQRMC1kxenFnMECjQprx4FIjaMtpLMPxc=; b=Rluy7wKPPsRVzJFS4STjLt2H8J
-	RL20H2k6ed1NZT4QZZHAqw+ohxPZ8X+Yu2WGD1ZuUVo/ZXlkLEqdnI38Zsu0SIHyPqw9sridbKQm2
-	7TcCC1O0hfQJTZjOU/zKuDEslAxXEcP74RCie4TYW1xLVYe3S9BYV+flOKDh3U8ykyuUFcwExAlFx
-	/Ou9uIZW7CQShmhB8TXKJdc7uRM7OlJCavWgKVv1Uh/J0tiGYVPRDGRDwCbOroo5ET+gw1B2IMRIC
-	+eGXMq/BVdd/tSLlqBhGeWhyRfVI+RFZTUe1Tv6HvvV82HPgnY+7VBZqU1C/hynL1w5YFwGqzlUcC
-	ppOv6D4g==;
+	bh=z0SrzDaVUXRmKWRvPdSPBpUEx4WP+XB1ix/xiAgEPgg=; b=VjgOfsu1YV4cxLTImFO+IfKYny
+	wNeKEnKby4UZ9mvJUn/K6c2C/wK2UX3sCniTkdX3Z558U0ScLQHW16CrLnlBPkQe3stsMJV4pi1H9
+	HTXbaz70rCnQDCvxyMDjkhyja2yySMOeO8rg9Obh7B5C/Lz80WkWWWNbREyKjLLpOvMGFoQU5qxRO
+	+mCncPIoHrFgLT6SXWIH3wUWioSW6C8OPL7KQiQJGFoPhSd27GO893nyZylo9/06eRnfh/SYw/NCn
+	Ih7ok3FSKwfu1RnWUKTUzi9U+Qj2PDl2HGpj0ZIb+nFAq8ezCrqMUtDksq2AyYv4idYrTEU4QZj80
+	Vi/xDS2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vffVQ-00000007Gjg-48dS;
-	Tue, 13 Jan 2026 14:36:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vffXc-00000007H14-02Js;
+	Tue, 13 Jan 2026 14:38:40 +0000
+Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vffVM-00000007GiY-1GMH
+	id 1vffXY-00000007H0W-40x4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 14:36:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C9B443EFF;
-	Tue, 13 Jan 2026 14:36:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3251EC116C6;
-	Tue, 13 Jan 2026 14:36:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768314979;
-	bh=86Z4hip+MUJJL8uGRUXrdvceXjZOkg+bAtzv4ooLyQQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XcRvGe4+FkVFuNga/qwlr3GpLaunQJzkLHMWsU6pv87ukMtBR5LXj5WfSgx+dxQ1q
-	 6AbuSZClYds2lbhVOEJEU0fQX0h5s5T5gcqwAY1mNjokigwRq2WyOgBXkExU78x+T+
-	 xn08npHhIJI/Gff4fSvXAkROuczjUl7g1qEqsRKncEn/yiGKV2ErNthyNQzIYD0ACN
-	 SshrZvph9QcKxUc8PLCVwViI7eUISaOsOieWvZuffgQLpDCklbVmEOfHMXcQ3C0x0Q
-	 M4FqshbjxKgFFJi+7OG8fZN/QMBmnV+XyedfMgbn3EZugXJWpthnT2hVjB+lA5W+qx
-	 +N1NlX+zXVqBA==
-Date: Tue, 13 Jan 2026 14:36:14 +0000
-From: Will Deacon <will@kernel.org>
-To: Yang Shi <yang@os.amperecomputing.com>
-Cc: catalin.marinas@arm.com, ryan.roberts@arm.com, cl@gentwo.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [v5 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-Message-ID: <aWZYXhrT6D2M-7-N@willie-the-truck>
-References: <20260107002944.2940963-1-yang@os.amperecomputing.com>
+	Tue, 13 Jan 2026 14:38:38 +0000
+Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-4ee147baf7bso320871cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 06:38:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768315116; cv=none;
+        d=google.com; s=arc-20240605;
+        b=drVT7muYDtgwIOHLXCJdlgFbbuPANzZfiPo3vp5rUKdKG1M+zCs056WO2o5DDK5u2F
+         8KsWn40Ymjno2tlN6kJyIHS/IFO6w4paiNUieL4NkvdDRDa5M59OzRUsD48TOIc5j297
+         aDQy/URUucmBgrTXSjdT3CF9uIWO4ouVbtKmT3yY60t//faftYUoe05/EOuLw27yMump
+         w6Z9/QGebz8oMiktog4oUjz1HtqrkYMBUF1bAewsaxYYyHlqgKyTAo2TE6JimP7yuyrz
+         foVRPX2QyOVs4AZnHiXw0OzSaOa6mzhaHVNtxfbnxvkDuGbS3mWg3oLBpiUxzi4x3cmP
+         zKLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=z0SrzDaVUXRmKWRvPdSPBpUEx4WP+XB1ix/xiAgEPgg=;
+        fh=Ny/D20tmkw08kr8uCpTzfcMb5U84Nhzei0vw9UouADo=;
+        b=lCqGFK/kH3F8/0oP7Q0Oyz3oiAQ6v9THYSw7ysYpRPenQMw2bQoK56sx4L1oluUt5x
+         wdCQqf5oIDxZdyrljH2BRKR+vAV6RcnTqvAIDgm/4bpveYAuafblvQgStnSszZEDo/M2
+         L9myA23qBVP/RnzSJAyOhe8M+DpjM4DWmrSXyxO3+j+MVLRCZ/bChlGj8BPyRkBUlbz2
+         7a9tZH6DjTwsgMd2zMfeMAJquTzXnqvceTY08pfKbSGmRCkEqCpjrCz/VYby3u2YO1wc
+         /S35LpJytRNunfMVRDDCFUTo9dehTi06tJwehiiawYRSVzEurxxAGvjh1ITYmzJiU5pf
+         IUeg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1768315116; x=1768919916; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=z0SrzDaVUXRmKWRvPdSPBpUEx4WP+XB1ix/xiAgEPgg=;
+        b=4Fol5/+xh51B7/ynj3mC139AejdvE25GiN4jKCOBox1i7t9pll4UXVJS0kJn9LkfiU
+         DxEynxn5RVM9pvwfkTSCpBmj2efqxXf0gJN4b70RNVuiAtwRllXmVBdLLfFASFI0gOia
+         eTy7IjyQsWYCVmxfisLS9vpaRT6oWNPPfuZH4cYHPqIAeeQCUt31DEMqEVOM8VxQY0QI
+         1N2a5dhCrbWHCZOcMO8W0vDPZDOPrhLBm8tLRICW2R2h/t8TzWX3wSMiiilt7wXFi35y
+         6p8t05OWhhb9me1ghog4D+Mx8jmBXQdVq5nXcTCSnS2OL/Rqje2DUda14P4isZcySwDf
+         cd3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768315116; x=1768919916;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=z0SrzDaVUXRmKWRvPdSPBpUEx4WP+XB1ix/xiAgEPgg=;
+        b=Zg4IMYGLRdnHuuUAadGfZkBdh5xYwn0JqVOnusio69cpj6YCRlRiMtkiciEUbELjCP
+         qoUpNf+gbGIczozhPLYeZ3L2msV9Zsnr8Ep7DGx2OtElxuqt2nkPf8rQLhWCcLIWXPwt
+         fwOEVcpAxXbGRUFFjX6OT+ws1EoFpd7SaojUbgNY5qBnwAU9S8PKnS2GLkr/5jfg+Uye
+         VgHnvMN3r7QeGeJ7GVg3qA1uT3JM1frcIIE70uvCR5j68iVWDFMM8tU8V3xBOOakG2B3
+         PENCk1x/hLmZTpYgPaZD+dg68dLlehC0FH/On9BVdWghl+JEXdm3wU7ZHSJFSslmTsF/
+         kWtA==
+X-Forwarded-Encrypted: i=1; AJvYcCUUQ20V/H1VgUV+6kR3C5B+qlexrOzY+9Sh4sevaxqWlfsMPY59HQ1v+w9K4U2dRQABnsbV8Lb0dLWiDrVCN2uU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4GgxKjX2k03GgANaPuDP1Co4CZHdcixp5biGp3vpm6UwyM2wz
+	iGwk68+rRgYZd9WdKj2NAaY/ViYjAhuQCByxaJOX/V6mjnSYwIqUwizZSX/50aRfrSz3q8VaCD9
+	dArsbbUrg82vPrKXw88WRduUnStLzAZbgBuzX8gCQ
+X-Gm-Gg: AY/fxX4QSnwl3otn1JWqOb3crzusk4LtWKwl/hFHrCvUr+6qapJEAWy4HMjjwjum5s/
+	01fI3QXwValXN9Y7clU8o1YhJ4QEznYLslFTtCNtmA7I9iMl173vcJOWp9+ws6sgqeMs1uHZKc2
+	yKrOEGyBE0cmBDKozXblOF+Jga6GFDCm7b0HtSmPOO3TBuLeNvJDJMjvtKcRLoBq4iBUmDyQ5b5
+	mtjzAHk5xOj5cUfZ38gxNzDQ8EzCuHEQKY8nIgF8h9nlKFUjU3NHnk8W+BrjAKWGPk0teFopgSK
+	lY7oWYiwUdHjLeSUsUGOkSBlxA==
+X-Received: by 2002:a05:622a:90:b0:501:19ce:5bdd with SMTP id
+ d75a77b69052e-5013a21b63dmr4606041cf.6.1768315114958; Tue, 13 Jan 2026
+ 06:38:34 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260107002944.2940963-1-yang@os.amperecomputing.com>
+References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org> <20251223-kvm-arm64-sme-v9-25-8be3867cb883@kernel.org>
+In-Reply-To: <20251223-kvm-arm64-sme-v9-25-8be3867cb883@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 13 Jan 2026 14:37:57 +0000
+X-Gm-Features: AZwV_Qi2DCwvCxhy1IBJRUhKVRAZLawBqR0npBrkyjREHFYNX_l_ocigtzC7uIo
+Message-ID: <CA+EHjTwZCcMFT6gAM2oaQz5V_vqEBmVuggFBbABbXPvC+U919Q@mail.gmail.com>
+Subject: Re: [PATCH v9 25/30] KVM: arm64: Expose SME to nested guests
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, Peter Maydell <peter.maydell@linaro.org>, 
+	Eric Auger <eric.auger@redhat.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_063620_383378_9134DCC0 
-X-CRM114-Status: GOOD (  37.50  )
+X-CRM114-CacheID: sfid-20260113_063837_025145_430EE561 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,212 +121,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 06, 2026 at 04:29:44PM -0800, Yang Shi wrote:
-> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
-> rodata=full"), the direct mapping may be split on some machines instead
-> keeping static since boot. It makes more sense to show the direct mapping
-> use in /proc/meminfo than before.
-> This patch will make /proc/meminfo show the direct mapping use like the
-> below (4K base page size):
-> DirectMap4K:	   94792 kB
-> DirectMap64K:	  134208 kB
-> DirectMap2M:	 1173504 kB
-> DirectMap32M:	 5636096 kB
-> DirectMap1G:	529530880 kB
-> 
-> Although just the machines which support BBML2_NOABORT can split the
-> direct mapping, show it on all machines regardless of BBML2_NOABORT so
-> that the users have consistent view in order to avoid confusion.
-> 
-> Although ptdump also can tell the direct map use, but it needs to dump
-> the whole kernel page table. It is costly and overkilling. It is also
-> in debugfs which may not be enabled by all distros. So showing direct
-> map use in /proc/meminfo seems more convenient and has less overhead.
-> 
-> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+On Tue, 23 Dec 2025 at 01:23, Mark Brown <broonie@kernel.org> wrote:
+>
+> With support for context switching SME state in place allow access to SME
+> in nested guests.
+>
+> The SME floating point state is handled along with all the other floating
+> point state, SME specific floating point exceptions are directed into the
+> same handlers as other floating point exceptions with NV specific handling
+> for the vector lengths already in place.
+>
+> TPIDR2_EL0 is context switched along with the other TPIDRs as part of the
+> main guest register context switch.
+>
+> SME priority support is currently masked from all guests including nested
+> ones.
+>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 > ---
-> v5: * Rebased to v6.19-rc4
->     * Fixed the build error for !CONFIG_PROC_FS
-> v4: * Used PAGE_END instead of _PAGE_END(VA_BITS_MIN) per Ryan
->     * Used shorter name for the helpers and variables per Ryan
->     * Fixed accounting for memory hotunplug
-> v3: * Fixed the over-accounting problems per Ryan
->     * Introduced helpers for add/sub direct map use and #ifdef them with
->       CONFIG_PROC_FS per Ryan
->     * v3 is a fix patch on top of v2
-> v2: * Counted in size instead of the number of entries per Ryan
->     * Removed shift array per Ryan
->     * Use lower case "k" per Ryan
->     * Fixed a couple of build warnings reported by kernel test robot
->     * Fixed a couple of poential miscounts
-> 
->  arch/arm64/mm/mmu.c | 202 +++++++++++++++++++++++++++++++++++++++-----
->  1 file changed, 181 insertions(+), 21 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 8e1d80a7033e..422441c9a992 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -29,6 +29,7 @@
->  #include <linux/mm_inline.h>
->  #include <linux/pagewalk.h>
->  #include <linux/stop_machine.h>
-> +#include <linux/proc_fs.h>
->  
->  #include <asm/barrier.h>
->  #include <asm/cputype.h>
-> @@ -171,6 +172,85 @@ static void init_clear_pgtable(void *table)
->  	dsb(ishst);
->  }
->  
-> +enum dm_type {
-> +	PTE,
-> +	CONT_PTE,
-> +	PMD,
-> +	CONT_PMD,
-> +	PUD,
-> +	NR_DM_TYPE,
-> +};
-> +
-> +#ifdef CONFIG_PROC_FS
-> +static unsigned long dm_meminfo[NR_DM_TYPE];
-> +
-> +void arch_report_meminfo(struct seq_file *m)
-> +{
-> +	char *size[NR_DM_TYPE];
+>  arch/arm64/kvm/nested.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index cdeeb8f09e72..a0967ca8c61e 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -1534,14 +1534,13 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+>                 break;
+>
+>         case SYS_ID_AA64PFR1_EL1:
+> -               /* Only support BTI, SSBS, CSV2_frac */
+> +               /* Only support BTI, SME, SSBS, CSV2_frac */
+>                 val &= ~(ID_AA64PFR1_EL1_PFAR           |
+>                          ID_AA64PFR1_EL1_MTEX           |
+>                          ID_AA64PFR1_EL1_THE            |
+>                          ID_AA64PFR1_EL1_GCS            |
+>                          ID_AA64PFR1_EL1_MTE_frac       |
+>                          ID_AA64PFR1_EL1_NMI            |
+> -                        ID_AA64PFR1_EL1_SME            |
 
-const?
+Should we also limit this to SME2, i.e.
 
-> +
-> +#if defined(CONFIG_ARM64_4K_PAGES)
-> +	size[PTE] = "4k";
-> +	size[CONT_PTE] = "64k";
-> +	size[PMD] = "2M";
-> +	size[CONT_PMD] = "32M";
-> +	size[PUD] = "1G";
-> +#elif defined(CONFIG_ARM64_16K_PAGES)
-> +	size[PTE] = "16k";
-> +	size[CONT_PTE] = "2M";
-> +	size[PMD] = "32M";
-> +	size[CONT_PMD] = "1G";
-> +#elif defined(CONFIG_ARM64_64K_PAGES)
-> +	size[PTE] = "64k";
-> +	size[CONT_PTE] = "2M";
-> +	size[PMD] = "512M";
-> +	size[CONT_PMD] = "16G";
-> +#endif
-> +
-> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-> +			size[PTE], dm_meminfo[PTE] >> 10);
-> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-> +			size[CONT_PTE],
-> +			dm_meminfo[CONT_PTE] >> 10);
-> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-> +			size[PMD], dm_meminfo[PMD] >> 10);
-> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-> +			size[CONT_PMD],
-> +			dm_meminfo[CONT_PMD] >> 10);
-> +	if (pud_sect_supported())
-> +		seq_printf(m, "DirectMap%s:	%8lu kB\n",
-> +			size[PUD], dm_meminfo[PUD] >> 10);
++ val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64PFR1_EL1, SME, SME2);
 
-This seems a bit brittle to me. If somebody adds support for l1 block
-mappings for !4k pages in future, they will forget to update this and
-we'll end up returning kernel stack in /proc/meminfo afaict.
+That said, we don't do anything similar to SVE, but it might also be
+worth doing that there.
 
-> +static inline bool is_dm_addr(unsigned long addr)
-> +{
-> +	return (addr >= PAGE_OFFSET) && (addr < PAGE_END);
-> +}
-> +
-> +static inline void dm_meminfo_add(unsigned long addr, unsigned long size,
-> +				  enum dm_type type)
-> +{
-> +	if (is_dm_addr(addr))
-> +		dm_meminfo[type] += size;
-> +}
-> +
-> +static inline void dm_meminfo_sub(unsigned long addr, unsigned long size,
-> +				  enum dm_type type)
-> +{
-> +	if (is_dm_addr(addr))
-> +		dm_meminfo[type] -= size;
-> +}
-> +#else
-> +static inline void dm_meminfo_add(unsigned long addr, unsigned long size,
-> +				  enum dm_type type)
-> +{
-> +}
-> +
-> +static inline void dm_meminfo_sub(unsigned long addr, unsigned long size,
-> +				  enum dm_type type)
-> +{
-> +}
-> +#endif
-> +
->  static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
->  		     phys_addr_t phys, pgprot_t prot)
->  {
-> @@ -236,6 +316,11 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
->  
->  		init_pte(ptep, addr, next, phys, __prot);
->  
-> +		if (pgprot_val(__prot) & PTE_CONT)
-> +			dm_meminfo_add(addr, (next - addr), CONT_PTE);
-> +		else
-> +			dm_meminfo_add(addr, (next - addr), PTE);
-> +
->  		ptep += pte_index(next) - pte_index(addr);
->  		phys += next - addr;
->  	} while (addr = next, addr != end);
-> @@ -266,6 +351,17 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
->  		    (flags & NO_BLOCK_MAPPINGS) == 0) {
->  			pmd_set_huge(pmdp, phys, prot);
->  
-> +			/*
-> +			 * It is possible to have mappings allow cont mapping
-> +			 * but disallow block mapping. For example,
-> +			 * map_entry_trampoline().
-> +			 * So we have to increase CONT_PMD and PMD size here
-> +			 * to avoid double counting.
-> +			 */
-> +			if (pgprot_val(prot) & PTE_CONT)
-> +				dm_meminfo_add(addr, (next - addr), CONT_PMD);
-> +			else
-> +				dm_meminfo_add(addr, (next - addr), PMD);
+Reviewed-by: Fuad Tabba <tabba@google.com>
 
-I don't understand the comment you're adding here. If somebody passes
-NO_BLOCK_MAPPINGS then that also prevents contiguous entries except at
-level 3.
+Cheers,
+/fuad
 
-It also doesn't look you handle the error case properly when the mapping
-fails.
-
-> -static void unmap_hotplug_pte_range(pmd_t *pmdp, unsigned long addr,
-> +static void unmap_hotplug_pte_range(pte_t *ptep, unsigned long addr,
->  				    unsigned long end, bool free_mapped,
->  				    struct vmem_altmap *altmap)
->  {
-> -	pte_t *ptep, pte;
-> +	pte_t pte;
->  
->  	do {
-> -		ptep = pte_offset_kernel(pmdp, addr);
->  		pte = __ptep_get(ptep);
->  		if (pte_none(pte))
->  			continue;
->  
->  		WARN_ON(!pte_present(pte));
->  		__pte_clear(&init_mm, addr, ptep);
-> +		dm_meminfo_sub(addr, PAGE_SIZE, PTE);
->  		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
->  		if (free_mapped)
->  			free_hotplug_page_range(pte_page(pte),
->  						PAGE_SIZE, altmap);
-
-Is the existing code correct for contiguous entries here? I'd have
-thought that we'd need to make the range non-contiguous before knocking
-out the TLB.
-
-Will
+>                          ID_AA64PFR1_EL1_RES0           |
+>                          ID_AA64PFR1_EL1_MPAM_frac      |
+>                          ID_AA64PFR1_EL1_MTE);
+>
+> --
+> 2.47.3
+>
 
