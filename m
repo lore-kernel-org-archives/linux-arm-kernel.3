@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B77D6D2F34D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 17:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECEAD2F347
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 17:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nRDDaI8PSQ9i8fUQYmRubU2lZ9FKKoqL8+7T/Yos84E=; b=cXI9PH97/HYQXd
-	KqgfpuFu2kbLh1cOviva63G6yztCHUVyibMFmyIJ1TsY+DAT7Lo+vygzNns4+oEEeEWl/3aXliEPS
-	wdFM/gRtVKpF4fPanTCNPSykKO9TBr2ZLUHjbUlTpnKlWVJqGqLZCo3ViZmU2KbHSxB9wf3mA4ZdJ
-	/S1o70PTMeIZsAkJlJnZEi17LusV+oqUj1bENRMsOlbt+lvBhxCXzwE5Wy0RXL7dG844CBcicl3NE
-	s7ANDKbyytO9Mw7POw6hAytJflmXHCi346xRgduuoVznWf0XdWxnMmFUrmDkltDRXlMR4c+65gTRa
-	TxH0LGT8XukMq6kmbBug==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eavvu1t15qKvDTI2jSsLTlj8ivnyPIJR0TkymEC1eF0=; b=FY7mvTZQ/jiVlLm0urpTJp0obT
+	kA2CmGTINX15mdnldRp02n2CFvtD9WQzP0wvRvULAh0WY28x5O5+8Umo/z0kzF7g4DsMUHMkcuEZ+
+	fUT0Qa2OMcCp3ggyVuAy3u6VqgqVKMsE/5YRGgaPtJtw+Svj0LW9ZGEMmUipsnd5wEKX6GdIrwht5
+	0vmLFY4FxmgZREx4sqSCNjiYlbAOZXNw1aXHI361Bs3yqV5wRkRlhx/9d4C99bDyybBLQ4SUVXxlR
+	i19s9DhoOcmd+QV1h/o0qRJd/4Qxk2Zc7Fzqz4qCnCIEegNVM6OI3c50jlFdlCcFHqX5iigAfi7Xj
+	sQZsdVwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfiRm-00000007Y7o-1OQp;
-	Tue, 13 Jan 2026 17:44:50 +0000
-Received: from mail-ej1-f51.google.com ([209.85.218.51])
+	id 1vfiS1-00000007YIP-2JzZ;
+	Tue, 13 Jan 2026 17:45:05 +0000
+Received: from mail-ej1-f41.google.com ([209.85.218.41])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfiRk-00000007Y7R-0ZWZ
+	id 1vfiRw-00000007YDS-30yK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 17:44:49 +0000
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-b872b588774so302795266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 09:44:47 -0800 (PST)
+	Tue, 13 Jan 2026 17:45:01 +0000
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-b87113bd83bso453849766b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 09:45:00 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768326286; x=1768931086;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nRDDaI8PSQ9i8fUQYmRubU2lZ9FKKoqL8+7T/Yos84E=;
-        b=anl0cMzIskVVWJ34Rsx1hS0jM+HoQW/qmksthHzMEdG1kaTzWXbYA4Q3Ex+eSxHBJ8
-         lELgy5p/rzb6QH5p+/xtVkpaUkwvSaS+7ZQt3/ZTnJYCbZz8WmJBIMHXzlRJZoR/tO3I
-         SbeTdsVWdhuj/5X9QjD38DqaiZk/+2lZabNvwSbeFyMpFgjIgKffh3bFOfvB1CRluouS
-         q+aeHt7TZmEc9f+SZ/aNEmMXVOJPrzanjSQqBWkmTd/rHgaHYJglVk4a8rVY+NQHe/RS
-         X8MFiyARdjCmqzfvD4njokjJNLSvsyYu04pHxifBAa+14B+DHOvmkjm5yyGwFLpRApfM
-         ouuA==
-X-Gm-Message-State: AOJu0YxfAPJO+2XuQOJQBuMkBVSKid4Dz80aMn0DkUx3LdwodWU1Mhe6
-	6NOVUtnZfeA2Caz6tATGYsvtSuBnIKJ2xFPZUsp8memyxwPB1aNQPm8j
-X-Gm-Gg: AY/fxX7Bi4JK6hR4H755lssvBoOTSdbwPfcP0YiotHRei+sCu7ShxuI2R6DClzKsoW3
-	tvWqgyWVdwGExzYnGY/6v/JyFhE3IRy9F1aoT80fEsV1tZ0e1qMMxMIAw2YBAPCn/93we4bwxlF
-	lv0Wc7nPzB9eOhRd1py0HEjusxjUOPsZW81csyLic3QrpKQ9efRgq3Rp4CiPav5vWWahQI7/l36
-	CSseGQ5OqCit/ix3nfFCIZxISrKBmn/QwfpC4Jl6hfHc5SGpV+qTWZlyAPdCm3LSCZvpg0GWcqF
-	fkl1o3G6xkzMb54iCJ16yBLLnZWVHbmUwIa22iB37eB0l1HzkzFmtnUTYS7W9CjnW2aplhTyUl3
-	gd+KA3KeFE1/1wWD1GTnnxL4ERjaDKVWlSRdA4BZvuHL68y+UlQC9dMYIRcWfLF83YNTNA64o44
-	06KOKwyQ6XzTYSLZthRiA3zlZ6bLJXEIFoQPQ2a1Ypmb5H8g==
-X-Google-Smtp-Source: AGHT+IF2LxGsN/6Keoe3DyT2UHG1IbdrBpLZY09D3elBScNdSzuVpg3kGMzeCVp/wgijXP8twmjnjw==
-X-Received: by 2002:a17:906:7954:b0:b87:2579:b6cf with SMTP id a640c23a62f3a-b872579ba1bmr579850766b.41.1768326285367;
-        Tue, 13 Jan 2026 09:44:45 -0800 (PST)
+        d=1e100.net; s=20230601; t=1768326299; x=1768931099;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=eavvu1t15qKvDTI2jSsLTlj8ivnyPIJR0TkymEC1eF0=;
+        b=p2IIWdrMhn4pLWcd/2tzxaE/GoftlPEAwU8vNG80hvAQFWFZhC8lbTKUA3pNsiTvJI
+         tgZ+azO6DSLKWqSJRN98hpSbcHhlmphyyt13j2Iku/L5pcCj5zngdlrmWnmClFahXaiZ
+         DvIUmvRZmlCM5ozp9IJHgFapON+vGDcsY8WlKF/FvP+2EZEFoPOXVqqpGBRih6G4QtJh
+         l6NmmdYm9aLfkcv5oykmJDHEhxtNtK649oVqILx/tMnyYiEMRpUUWP4YxAjS5tZt6taZ
+         k+/NbuW0cKjFK3jlokuwED9bwa2iQhgPL9s1cpoc98RfI6pP1gMBXTfh0N21A2TY33L0
+         oBaA==
+X-Gm-Message-State: AOJu0YzC+S+nsVefhXSqV+kzDpOruKxMeZCcEFIXfIvHeScDZcp194xZ
+	NY45E06OVPVHaXgc8cEbiKn4qw/PKo5MzUA79wNUqqtOM/wA6U4e7+do
+X-Gm-Gg: AY/fxX7ujL/KlvAwXt0KInKgfegX/PGbpb2VQPnnRo+7zoY8ni+UTDl0mqgujXNV9bv
+	yedoiq3R8UjDkrdncvF2aajDOGUzVrF6zGaRMqa9FoS054lESGtMsRsgpR2CSzoF0HonRFGtc3C
+	JGRHmdCeb1LnDcjy2qFBif6OKXXDhqf5SGXyqREeWxjyvLGe/ZpuWkx3AZMuGwHxREan45Al+nI
+	C3h+i5QCja0cthKf3Y6lE/PXWqMq8wbswwCriyoVR7NnaZ/o273NAPZ98Z7yZ3cL+yJV3XW/M0Q
+	U7HwIK95I/NFc3cPd3l+OvLZASIxrX0/Ey4RWu522eeJbSzJ2B3jmswgvAY3gyqO4gyQwhamWKz
+	SD9GJQqmmPwkF3pv5gE2LGZ/KBjZWj+G65WQveQntiYcAzaNEbdt/VRyasll4pJVP733+OylOG9
+	nvigHgwvLATMY63sduyXmHL/Cz8nfaNK6uQIIaTKy7VZbaDg==
+X-Google-Smtp-Source: AGHT+IHjwdSSN4mTRKXDjSC9xCBKsqwskTn4GwaR+B+tRXZTp9WDKqbrL/GHsxrwpYwUo4qku7MY+g==
+X-Received: by 2002:a17:907:7742:b0:b87:1eaf:377c with SMTP id a640c23a62f3a-b871eaf3facmr466107266b.38.1768326298728;
+        Tue, 13 Jan 2026 09:44:58 -0800 (PST)
 Received: from [10.42.0.1] (cst-prg-36-231.cust.vodafone.cz. [46.135.36.231])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6507be655aesm20873259a12.17.2026.01.13.09.44.43
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6507be655aesm20873259a12.17.2026.01.13.09.44.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Jan 2026 09:44:44 -0800 (PST)
+        Tue, 13 Jan 2026 09:44:57 -0800 (PST)
 From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Subject: [PATCH 0/5] New DRM accel driver for Texas Instruments' C7x DSPs
-Date: Tue, 13 Jan 2026 18:44:34 +0100
-Message-Id: <20260113-thames-v1-0-99390026937c@tomeuvizoso.net>
+Date: Tue, 13 Jan 2026 18:44:39 +0100
+Subject: [PATCH 5/5] accel/thames: Add IOCTL for memory synchronization
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIKEZmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDQ0Nj3ZKMxNzUYl1jYxNDI/NEoxRLwxQloOKCotS0zAqwQdGxtbUAsQm
- 1olgAAAA=
-X-Change-ID: 20260113-thames-334127a2d91d
+Message-Id: <20260113-thames-v1-5-99390026937c@tomeuvizoso.net>
+References: <20260113-thames-v1-0-99390026937c@tomeuvizoso.net>
+In-Reply-To: <20260113-thames-v1-0-99390026937c@tomeuvizoso.net>
 To: Nishanth Menon <nm@ti.com>, "Andrew F. Davis" <afd@ti.com>, 
  Randolph Sapp <rs@ti.com>, Jonathan Humphreys <j-humphreys@ti.com>, 
  Andrei Aldea <a-aldea@ti.com>, Chirag Shilwant <c-shilwant@ti.com>, 
@@ -82,8 +80,8 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linaro-mm-sig@lists.linaro.org, Tomeu Vizoso <tomeu@tomeuvizoso.net>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_094448_195253_49FC0087 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20260113_094500_787729_DF90C061 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,65 +96,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds a new DRM/Accel driver that supports the C7x DSPs
-inside some Texas Instruments SoCs such as the J722S. These can be used
-as accelerators for various workloads, including machine learning
-inference.
+The DSP cores have their own access to the memory bus, and it isn't
+cache coherent with the CPUs.
 
-This driver controls the power state of the hardware via remoteproc and
-communicates with the firmware running on the DSP via rpmsg_virtio.  The
-kernel driver itself allocates buffers, manages contexts, and submits
-jobs to the DSP firmware. Buffers are mapped by the DSP itself using its
-MMU, providing memory isolation among different clients.
+Add IOCTLs so userspace can mark when the caches need to be flushed, and
+also when a writer job needs to be waited for before the buffer can be
+accessed from the CPU.
 
-The source code for the firmware running on the DSP is available at:
-https://gitlab.freedesktop.org/tomeu/thames_firmware/.
-
-Everything else is done in userspace, as a Gallium driver (also called
-thames) that is part of the Mesa3D project: https://docs.mesa3d.org/teflon.html
-
-If there is more than one core that advertises the same rpmsg_virtio
-service name, the driver will load balance jobs between them with
-drm-gpu-scheduler.
-
-Userspace portion of the driver: https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/39298
+Initially based on the same IOCTLs from the Etnaviv driver.
 
 Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
 ---
-Tomeu Vizoso (5):
-      arm64: dts: ti: k3-j722s-ti-ipc-firmware: Add memory pool for DSP i/o buffers
-      accel/thames: Add driver for the C7x DSPs in TI SoCs
-      accel/thames: Add IOCTLs for BO creation and mapping
-      accel/thames: Add IOCTL for job submission
-      accel/thames: Add IOCTL for memory synchronization
+ drivers/accel/thames/thames_drv.c |  2 ++
+ drivers/accel/thames/thames_gem.c | 52 +++++++++++++++++++++++++++++++++++++++
+ drivers/accel/thames/thames_gem.h |  4 +++
+ 3 files changed, 58 insertions(+)
 
- Documentation/accel/thames/index.rst               |  28 ++
- MAINTAINERS                                        |   9 +
- .../boot/dts/ti/k3-j722s-ti-ipc-firmware.dtsi      |  11 +-
- drivers/accel/Kconfig                              |   1 +
- drivers/accel/Makefile                             |   3 +-
- drivers/accel/thames/Kconfig                       |  26 ++
- drivers/accel/thames/Makefile                      |  11 +
- drivers/accel/thames/thames_core.c                 | 161 +++++++
- drivers/accel/thames/thames_core.h                 |  53 +++
- drivers/accel/thames/thames_device.c               |  93 +++++
- drivers/accel/thames/thames_device.h               |  46 ++
- drivers/accel/thames/thames_drv.c                  | 180 ++++++++
- drivers/accel/thames/thames_drv.h                  |  21 +
- drivers/accel/thames/thames_gem.c                  | 407 ++++++++++++++++++
- drivers/accel/thames/thames_gem.h                  |  45 ++
- drivers/accel/thames/thames_ipc.h                  | 204 +++++++++
- drivers/accel/thames/thames_job.c                  | 463 +++++++++++++++++++++
- drivers/accel/thames/thames_job.h                  |  51 +++
- drivers/accel/thames/thames_rpmsg.c                | 276 ++++++++++++
- drivers/accel/thames/thames_rpmsg.h                |  27 ++
- 20 files changed, 2113 insertions(+), 3 deletions(-)
----
-base-commit: 27927a79b3c6aebd18f38507a8160294243763dc
-change-id: 20260113-thames-334127a2d91d
+diff --git a/drivers/accel/thames/thames_drv.c b/drivers/accel/thames/thames_drv.c
+index bf7355832241d5a671e196f465d891effaa4a8fb..9b72db433fbb8f9239a16a047a52520f0a01d125 100644
+--- a/drivers/accel/thames/thames_drv.c
++++ b/drivers/accel/thames/thames_drv.c
+@@ -76,6 +76,8 @@ static const struct drm_ioctl_desc thames_drm_driver_ioctls[] = {
+ 	THAMES_IOCTL(BO_CREATE, bo_create),
+ 	THAMES_IOCTL(BO_MMAP_OFFSET, bo_mmap_offset),
+ 	THAMES_IOCTL(SUBMIT, submit),
++	THAMES_IOCTL(BO_PREP, bo_prep),
++	THAMES_IOCTL(BO_FINI, bo_fini),
+ };
+ 
+ DEFINE_DRM_ACCEL_FOPS(thames_accel_driver_fops);
+diff --git a/drivers/accel/thames/thames_gem.c b/drivers/accel/thames/thames_gem.c
+index a153e73a15253e0f955d74020b4765a1fa833fc4..2ad5a62bea275eb38a96b9d9bea804ed94ffb011 100644
+--- a/drivers/accel/thames/thames_gem.c
++++ b/drivers/accel/thames/thames_gem.c
+@@ -353,3 +353,55 @@ int thames_ioctl_bo_mmap_offset(struct drm_device *ddev, void *data, struct drm_
+ 
+ 	return 0;
+ }
++
++int thames_ioctl_bo_prep(struct drm_device *ddev, void *data, struct drm_file *file)
++{
++	struct drm_thames_bo_prep *args = data;
++	struct drm_gem_object *gem_obj;
++	struct drm_gem_shmem_object *shmem_obj;
++	unsigned long timeout = drm_timeout_abs_to_jiffies(args->timeout_ns);
++	long ret = 0;
++
++	if (args->reserved != 0)
++		return -EINVAL;
++
++	gem_obj = drm_gem_object_lookup(file, args->handle);
++	if (!gem_obj)
++		return -ENOENT;
++
++	ret = dma_resv_wait_timeout(gem_obj->resv, DMA_RESV_USAGE_WRITE, true, timeout);
++	if (!ret)
++		ret = timeout ? -ETIMEDOUT : -EBUSY;
++
++	shmem_obj = &to_thames_bo(gem_obj)->base;
++
++	dma_sync_sgtable_for_cpu(ddev->dev, shmem_obj->sgt, DMA_FROM_DEVICE);
++
++	drm_gem_object_put(gem_obj);
++
++	return ret;
++}
++
++int thames_ioctl_bo_fini(struct drm_device *ddev, void *data, struct drm_file *file)
++{
++	struct drm_thames_bo_fini *args = data;
++	struct drm_gem_shmem_object *shmem_obj;
++	struct thames_gem_object *thames_obj;
++	struct drm_gem_object *gem_obj;
++
++	if (args->reserved != 0)
++		return -EINVAL;
++
++	gem_obj = drm_gem_object_lookup(file, args->handle);
++	if (!gem_obj)
++		return -ENOENT;
++
++	thames_obj = to_thames_bo(gem_obj);
++	shmem_obj = &thames_obj->base;
++
++	dma_sync_sgtable_for_device(ddev->dev, shmem_obj->sgt, DMA_TO_DEVICE);
++
++	drm_gem_object_put(gem_obj);
++
++	return 0;
++}
+diff --git a/drivers/accel/thames/thames_gem.h b/drivers/accel/thames/thames_gem.h
+index 785843c40a89a9e84ab634aad77e9ec46111693e..e5a8278e98c578c2903cf23aea1bf887be0389e8 100644
+--- a/drivers/accel/thames/thames_gem.h
++++ b/drivers/accel/thames/thames_gem.h
+@@ -29,6 +29,10 @@ int thames_ioctl_bo_create(struct drm_device *ddev, void *data, struct drm_file
+ 
+ int thames_ioctl_bo_mmap_offset(struct drm_device *ddev, void *data, struct drm_file *file);
+ 
++int thames_ioctl_bo_prep(struct drm_device *ddev, void *data, struct drm_file *file);
++
++int thames_ioctl_bo_fini(struct drm_device *ddev, void *data, struct drm_file *file);
++
+ int thames_context_create(struct thames_file_priv *priv);
+ 
+ void thames_context_destroy(struct thames_file_priv *priv);
 
-Best regards,
 -- 
-Tomeu Vizoso <tomeu@tomeuvizoso.net>
+2.52.0
 
 
