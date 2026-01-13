@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0934DD0C84D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A64D0C851
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 11:00:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,37 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=klRklgiJSShiARW70Giz3Ol04VpSpUdVzYF8MaiVIn8=; b=cTEkv91y10UmRkviHHt0/VQ24a
-	vAhACjRnUvxXLdpTprXfmlZGJh5t6h6aXJPXiBz0hkKQSHwZui99RsThj30JSgoDhyKKneycozcar
-	x56JdFz/q5P7z3WeQCLdSbl2zvtB4FQdcRSnfufmOhXAH5fnwkqah080SzpDmO4Eg5Lx7WU7tFww8
-	Db4OrbrQgojhmp9OFGri4b5qxVemQ1UM07NU7vxLDmL54NGoDiN9HZpP1Hdru6UCtngh8of6u7I9j
-	WfoeWBDSwpQ98R5CrKVOJ5mro3/SlLNOOizUmLjPAYVNKug20ZpeH755bKAnfCF2fqXP/5gmMN2Vm
-	mLZycboQ==;
+	bh=KlFSgCpWfqNBK4f1x98sDOS6n1P78Wz1gsMpEHSJw9c=; b=d19ID7rBdde7JvUlnqMDlHYTqo
+	fMBJZ6ckZM1nNMQ6nTxO2o+QFsi6nDqpx5kgZVaJhKm7P2m9BPiDcm+2TEwCaGUg4KCtUmmM1bKRi
+	HEnspyk3BPlcCqqC1n2mKe29yqDC8dO39N2eg5MyQi5HkXInRwq4qVExy6/5w0PRN95Iw35aamTRo
+	nEwWIV7YWrgd82CwFRgt7eubES7ksBnRL1j557tjnhKtJ713XdzFDjayShun2ybUiFrubhz2tgDYE
+	FbX7gV+2341rBmCy2OEqkCkQ0Ztvi1uqTvdCti1r6+tbyWEya3Jh0MLOF3XuIvSb1mxLQe8xscAJx
+	O5BGjDFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfc8C-00000006wyv-3HuE;
-	Tue, 13 Jan 2026 11:00:12 +0000
+	id 1vfc8D-00000006wzz-1l5C;
+	Tue, 13 Jan 2026 11:00:13 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfc89-00000006wuI-40Ac;
+	id 1vfc89-00000006wuF-1Qdh;
 	Tue, 13 Jan 2026 11:00:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1768302006;
-	bh=4gfA9VmbxP2vBCiTv/gwlonLU9/zD7M1Pt71XFpBBZU=;
+	bh=YrrX4LhkIqhiJ1xMnYBI7HsHkhFKyR5kTvGyFViGPiE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=NchR6GiaUooHTre3WtFcSqbZZGslJfanSyStpK9aZzu8lB94FGIXkxyU5sl8QSVq/
-	 MHqWHa86C2Yg+GtFFGaFtlmqTQ+5T1BKlHTlbNrx10nb5AKeWePCAGq2xC1WXve7yw
-	 PhsLBD7nrxWJTrduInsxO37Y+uscNvonlahaDWRes0haPnGJVLJmzhBYieEgi8wGP3
-	 s8waVxtfXmbE4bAjptp7EC8tjTEMJzEQUUfS3RQSJxH6nyXd1pj3/woskLiSiULz40
-	 bFg4UucITHsobve8lFAaGJ2WWJgtlUemrFFoI0vlpYaPvuOYXQdsMweXlXOz/jnttu
-	 j0kZiyyxaN7Ow==
+	b=dI8R5Q8vld24qRwJNodGjix4Zz9uisevI8kIPKqTZRNe0eLhRBxANCyYmNBH4nW2u
+	 jEDrci1Epx+jv1X5mLqScrcPntPDHy39dqcXsEGX+uBhPbv/nrWJcE5Y38NTjY7da2
+	 lT35tyVC/r7xkjDnnaeVIZZ1YL4EAi6mDMBw0jo4CfIUgJm5vO546zZPAyg/LGUkxP
+	 RAeYx86Q3FVVCRNW9/cF8J6RgOoq6uAY0vHz/56udMTqyxgKRiY/95ZvW0i63K3O0i
+	 cauCRPOWFSiasmdhZ/UodGK/jwur88HvHYcTfV91wdFDNP+xG3kTMtUahtZ5NK3dO+
+	 rCCvZrfS/sfvQ==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4847117E1406;
-	Tue, 13 Jan 2026 12:00:06 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6A53F17E10F4;
+	Tue, 13 Jan 2026 12:00:05 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: linux-mediatek@lists.infradead.org
 Cc: robh@kernel.org,
@@ -61,17 +61,17 @@ Cc: robh@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH 2/6] dt-bindings: mfd: mediatek: mt6397: Add missing MT6331 regulator compat
-Date: Tue, 13 Jan 2026 11:59:56 +0100
-Message-ID: <20260113110000.36953-3-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH 1/6] dt-bindings: mfd: mediatek,mt8195-scpsys: Add mediatek,mt6795-scpsys
+Date: Tue, 13 Jan 2026 11:59:55 +0100
+Message-ID: <20260113110000.36953-2-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260113110000.36953-1-angelogioacchino.delregno@collabora.com>
 References: <20260113110000.36953-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_030010_175334_21B0BF95 
-X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-CacheID: sfid-20260113_030009_555020_F930C03B 
+X-CRM114-Status: UNSURE (   8.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,26 +87,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the missing mediatek,mt6331-regulator in the compatible string
-list for the regulators subnode.
+Add a new compatible for the SCPSYS IP block found in the MT6795
+Helio X10 SoC.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml | 1 +
+ .../devicetree/bindings/mfd/mediatek,mt8195-scpsys.yaml          | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
-index 6a89b479d10f..05c121b0cb3d 100644
---- a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
-+++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
-@@ -90,6 +90,7 @@ properties:
-           - enum:
-               - mediatek,mt6323-regulator
-               - mediatek,mt6328-regulator
-+              - mediatek,mt6331-regulator
-               - mediatek,mt6358-regulator
-               - mediatek,mt6359-regulator
-               - mediatek,mt6397-regulator
+diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt8195-scpsys.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt8195-scpsys.yaml
+index 1cb9d6797b92..4cafa381979b 100644
+--- a/Documentation/devicetree/bindings/mfd/mediatek,mt8195-scpsys.yaml
++++ b/Documentation/devicetree/bindings/mfd/mediatek,mt8195-scpsys.yaml
+@@ -19,6 +19,7 @@ properties:
+   compatible:
+     items:
+       - enum:
++          - mediatek,mt6795-scpsys
+           - mediatek,mt6893-scpsys
+           - mediatek,mt8167-scpsys
+           - mediatek,mt8173-scpsys
 -- 
 2.52.0
 
