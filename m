@@ -4,174 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1B84D30CE5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 22:13:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B5BDD30CDB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 22:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ft7TBjZ8bi7hQiCGE/Uc8fmHfaQS1onEt42Lv0wHAyg=; b=QBpN217ze4bM02txi7lMIK3QwP
-	MYH6OlSjYVhsw8TuCct0vKJhPM0NSzywx3ieq4kUDEomy9xow0xBAd1RARFuVoePcPo180KQ4XZy0
-	u87ZP1GSD7hUj3mAvuwknv+X5OQ4f8pL33NqR7H2KtuQ9Nd2MwyxzCqz9hFvYJu0VXSFxEfsgR65v
-	x0ksPHir0TnVcN5eQk7PXttGC4BGh9eQasAsTdAHuTK351Z/z+TOpAFBgBsRUPnIfB4hQaJO7yGfG
-	TfDUvUwJgasjt815DlzFfAmLNxWgAMsUah4cST5nfNItnA4/+dnBzzGwfqYuoPjPR9PiBjxYl1QJu
-	afK/jgbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/O/TWiz7KmvDz4FXTKrdUQuVFVk8NsUp4b4FAv54g8A=; b=AruU5iREJlaglLbpXXzX9WCboQ
+	2x/an7U/CqCPWhv89NdENxIyhlpBn8OVITTBqy9sEKvagYT4ktKtWLj9/SQDapojNZtXKAUO0eLiA
+	c/N1xHatZ57aUQDDUDc8nCYenqvolnwEM23i13o7z4IJBATbeeMlJXNfHoFGM9sWbTDF01bsr5pMR
+	+jiWe76u5aaM/gESc9/lU3Wef+cTsu9Z6DevrS/jByAZX2QjekfGblyW35DXnI+jp005UcG/nZTGB
+	JScE43WXhnaXPL0YETeyvWpGAxcXcvCVbc2zVE4jZjPl/dTx5bRa+CfAy31WsIRpsDGfyrI5CeTeQ
+	DZ2yXXFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfmdW-00000007o4z-3KMf;
-	Tue, 13 Jan 2026 22:13:14 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vfmdn-00000007o9p-0Ngi;
+	Tue, 13 Jan 2026 22:13:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfmdU-00000007o3t-2UsC
+	id 1vfmdi-00000007o8n-44M2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 22:13:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=L7kbgOKfbXmOd6kY3sJ3TQeJBcW9THh1TK+iD8fYy/FU6eGi48XoB/maGTjzmsbvgKcZt5WWSXMeoarj3EWdyBKJfKefeAXfAdA2AjF5L6qL4bWZKtAZZ19gv2xBY+qUJpzeukHC+NFqEAsQofAsf3MtvZdiY9LqUF5/UnM3VzjbeaDVUnInx5/P6KHOp+GtI4wmMHw8JoJUHaJQ3m5bsVNvgr1Mr5o5wfWXdtPw+DxDANGcVFMBbcpJI9Nkd9/m3MJuT3RYdPUpHFBwXCbqVIghu7445kv2dhKhPKYCkEDylOiocMHj7EwjYbbfXAzavOetfX1fBM19V7FayMIZ5A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ft7TBjZ8bi7hQiCGE/Uc8fmHfaQS1onEt42Lv0wHAyg=;
- b=eqXZ+caBvwVAmbR43lDH0adq5kicvL5VatzN6Lp9Ma3WOtqkB7fcetHmaDbNjjlOtKMhRiypL9dGlfgyNrYC/yf1PP1HgSiFzr6i4ETcqrThyUw3vpBMtoJeqAPo0tfy12McvwSrCEgFpdsz0rD00V5O5/00FnvejeLlcuZAjl+wpqVQcg6RiXKnOceswMr6s3S8zU+HS87IzNFNAlFN8Z/D3dFrLWntbAmHQyqZMvmR0OUuFYX/WZS8Tqbj75336NjdmBcHvvoh/yzA6d6qKOJrYPYCT6FxTFSeM1Bq7d60F9suJ7mX7ZPaTbQ4uEEmAfHis0strcL6vw8nHiJeTQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ft7TBjZ8bi7hQiCGE/Uc8fmHfaQS1onEt42Lv0wHAyg=;
- b=tS5ifsC+w42zFxjNfkd70/+wicqQ9YbLmVYFHRNBOKYA3YoloEPsB/FF6k1GyK/oJeE7v1vXOYrc7n3oaCGla/Vy13AlpjvIoSGWBAeM6R7NfwFOnX0QwiOncHcmCEGHagW6jnA8UKznApmx65ffX4YWGglrQeN+k9M7f8rNutuLg4Upw4FT720rm3+g8GG7w4N2ZXl6h33Frbkcwt0BByl9jxQUrCX8Jf/3TLLcJDXVqELzkbn+DJG4SjT1ydOSIldytVLp5byxDGvv5vo3myRNEKgEX3snja+FkM00moHDgeEj30+Cc6cb6RAKlucoz0c7vCz/guPRqkmfMK2+2A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AS8PR04MB8610.eurprd04.prod.outlook.com (2603:10a6:20b:425::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Tue, 13 Jan
- 2026 22:13:04 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%4]) with mapi id 15.20.9520.005; Tue, 13 Jan 2026
- 22:13:04 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Wed, 14 Jan 2026 06:12:41 +0800
-Subject: [PATCH] soc: imx8m: Fix error handling for clk_prepare_enable()
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260114-fix-soc-imx8m-v1-1-143de91ef077@nxp.com>
-X-B4-Tracking: v=1; b=H4sIAFjDZmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDQ0MT3bTMCt3i/GTdzNwKi1xdU6Ok1GSzVJNk8xQzJaCegqJUoAKwedG
- xtbUAdsnjhF8AAAA=
-X-Change-ID: 20260114-fix-soc-imx8m-52bec6e4c7d6
-To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Marco Felsch <m.felsch@pengutronix.de>
-Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>, 
- kernel test robot <lkp@intel.com>, Dan Carpenter <error27@gmail.com>
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: SI2PR04CA0011.apcprd04.prod.outlook.com
- (2603:1096:4:197::10) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Tue, 13 Jan 2026 22:13:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 947A143DED;
+	Tue, 13 Jan 2026 22:13:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D2F4C116C6;
+	Tue, 13 Jan 2026 22:13:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768342406;
+	bh=ZyRwpdeHQJLYuREFufXZqOyxnfIVStjxw0TP41ppM4A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FFdkia8Ph0P6rGiCN8k8vqU/Pt1Gxk+ATX0IxBrmZkCKk3tdZC3V80iar6hCGe5Uo
+	 /dNl3ehyTQKliGbDpwFkOA5aKkqry4zBUvonxKjh+8u+RffBEbRBbOdHYVrnq/tz9y
+	 Yloo/9Ky6pgHsKjFDYpxMpAgjNMlFI3X5wNqXNTv8JT7fsTyp+Xq2y0acsIVQGgrgO
+	 1KTyVy+Jhtg1ecClMqvS8LUMKv4xtp5Z2cNgVntFhggnMY4Qe5tcuH5ddTixAlb1EY
+	 NTCFiN+/cjtMtk2DjpgsS4Ig86qEfxRik4cNJx+78B7hFGjJmqLuxAud+VuHO5HWv4
+	 zF73WI5/RiNOQ==
+Date: Tue, 13 Jan 2026 19:13:23 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 02/14] perf evsel: Refactor
+ evsel__set_config_if_unset() arguments
+Message-ID: <aWbDg0kmo-isxkz2@x1>
+References: <20251222-james-perf-config-bits-v4-0-0608438186fc@linaro.org>
+ <20251222-james-perf-config-bits-v4-2-0608438186fc@linaro.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS8PR04MB8610:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1d13662c-75cf-47d6-147a-08de52f0ec2c
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|19092799006|366016|1800799024|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ajRHVUVMNGc4LzBQejZjblVjYW1JWVc5YmpEUnRrSzZKTXJnLzRHcE0xRm1r?=
- =?utf-8?B?Y2g0LzFaTFR0UTZvMHF1ZzVDd3lKTEFMSCtvdmFHV0Z5dEZ5bWdMb2Zia2pF?=
- =?utf-8?B?Tk1mazBWaWxaak85Q3VxSElGRnpobjUrdFphZUg5TkpISEticU54MmxRSGpl?=
- =?utf-8?B?bzA4MXRYOE5wUkF3QVpGWE5QN2Z0dlIyN3lxNnBhSlFOZGpqS3RmQWI2UUJ3?=
- =?utf-8?B?czFNOG1BOGNHNnN6aStvY3hCR0tsanN5dU02TkZGZGFOdzBqZStZNkJFUDUr?=
- =?utf-8?B?cXY3Z0ZBRVZtcFEvQ0FOSFlMTnVkelVWWjRmWmxwOWdtbXBST040TVpuclFH?=
- =?utf-8?B?RCtTZE5zek9OaklpdCtiVDFXOXl4bEdVTDRPZ3dPdnUwQ0gxNC9jOVM3eUdJ?=
- =?utf-8?B?d1JBL0pOeCtiUnpKa0R0ZEExR055Q1ZldExkMHFFTEkxeVNxYmQxbnZZb3Vj?=
- =?utf-8?B?UFpoTWNxOHJ3YmcrZEdmMkEwY1UzZHpsbTBaSnlVN1ZqeE9Ddld3VDZDeHRN?=
- =?utf-8?B?NjkzLzNKQkRnZzc4SVZmKzNaNzFzaENVbkRidHNrY3RMWGtHTzFRaEJGYnll?=
- =?utf-8?B?TmNBbUFHQzZJNlVuc3laaEJlVjlmWlNYSDFNM1lacENmRlErQUk2YmNianR2?=
- =?utf-8?B?YTRiTFdyYVNTeHdZYzJobkhJMUt4d1BqeXozZzBZQllqL0lGVnNEbkgraXBa?=
- =?utf-8?B?dWJoS3IrNHZHdmFHaFpSV3dRL0xrTjEwNHBuL3I4dVIrc09wVEVOZE80S1Zx?=
- =?utf-8?B?dWhCalVMSVZwRE9Vb29FcDFmU3BHL0o3YWJPRXkxeDlYdi9GVkNCMkhjcXpG?=
- =?utf-8?B?VGRRalE5eDZKZDF3cjhGU3NFWWpoRGtqeXBGMU9aWTFpVmNqcnYyZkpOckY5?=
- =?utf-8?B?MUl1NTNwaTkzUlRDaGJON0J5UGpJMGhlTzlTK2VJa0srd2JMT2RUeHprZWl4?=
- =?utf-8?B?U2d0bVZEY2VTeEJna2RmKzlyM2RFOXlXYmJSVmNDdjBXd3VlZW96bDlpOTlQ?=
- =?utf-8?B?TzdobmJzL1BvMzJ0bEVzZnA3eE5RMERuNlNCRW1RSmRoWnA5QXk2UTlRQkdy?=
- =?utf-8?B?VWhqakg3RlpVa3FONlZndzkyajM2dVo5RDR6UzlLOEFtRXpua2tQck1FYVZI?=
- =?utf-8?B?b2Q3QnpOclRVMWFxL3pkMzN3eVlSbFNoZ0JZaWhyTHlhUmxUY25LS25kYVo2?=
- =?utf-8?B?Q1MvZnVnK3hjcS92SkMrcTdiM2ZnZXg1azJpTjlMOGdZTUtEbWJjWXVIOTYv?=
- =?utf-8?B?UStLeWppbXEvT296Q3h0V2RnVUJjRU5IV2Iza1dTdHNTQ1J2OThZdjNQcjJE?=
- =?utf-8?B?VU1pVXViamMxVmxWaFpaVmhQQVFMd25vMmMvaTFaMzNUd1lvSWQvTGVYbk9T?=
- =?utf-8?B?VW1saVVOQ1NtQmpwWStEbHBLT0MrTzE5RUNPKy8rQnFNSDBpeTBHQWJYOEdk?=
- =?utf-8?B?b3Z5VFl0dzRJcmEvS3pQMzZmMWNpeEdxdHBXb0VzNnY1ODhPSDdwMzVaTm9G?=
- =?utf-8?B?RXhoN2FjRHU1YkkzeExyL08xcC9tSXhpK214eGNHblRRVHNaYWtDVlpDY09N?=
- =?utf-8?B?Nm9CN1FrcVkydzk3YlA3cGs1dTE0TGNoYXR5b3BSTm5SVlBNWG9UZHBnaFNx?=
- =?utf-8?B?ZHpnU0FlQ2pQeU5kdUZ0eXJrTUZwVWp4ZzJSd2hEekhMU0YwOC9hREJtTVNs?=
- =?utf-8?B?YVEzSjBlM05lQjdXNStXN1FkUnhNcDMrVGU5SFNReTRvb3BrYjdnNzliT3cr?=
- =?utf-8?B?WXpOb2U1ZnBSaGwwdmJScnVsK0tNTndWTU5BQUVYU2N1T3I1NUIvd0xlZ2xQ?=
- =?utf-8?B?b0dBU3pnenVxOE1yNXlJMWVUSXovR1d6UllQK2Vtc05XRzUyMzhEZzVEQ01q?=
- =?utf-8?B?YUlUc09wUTRlRmxyTDU3dS90UmJUV0dOaXJ3Y01WdFJvSVZaUS9BZDQ5dHlU?=
- =?utf-8?B?Zi9JWDkzVjRrbFJDeEovTVEwSENhby9vb0gwQUNtOU9mZTdSUGd5VDAvV3BK?=
- =?utf-8?B?SEpTbDRCU3N2Yjl3KzhBakNiKzE1UmxwNDB0L2xFOWl4VVFSaW1JbXRCeFk4?=
- =?utf-8?Q?HkQREs?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(19092799006)(366016)(1800799024)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OStuVmYvdTZJTzlDNUZDSFVVZ01ObTFEQjhWcFY5MG1YTWNjRmlnTjFPaW1P?=
- =?utf-8?B?cGZqaUlTSzl0b25LaXFiaU9zT2hKQXFsS09Wa0VJN3VmZ2NkSU1rcXlucUJ5?=
- =?utf-8?B?bTM1VzJXOEFld3UyVWpibXpoSHdEQkI2aWNRRCtJMUw5b0RESTZSTDRHZnFl?=
- =?utf-8?B?TmJKdS90VmhqWmxkZmV0VDRmQUYvU2kyTTZHL1IyU3pWMUllTXFaN2VVNGFI?=
- =?utf-8?B?Vk1MNWxmVktFR3lQTCt0QTh2YkVIWmxFZHAxNDZEL2VRSjEvQTFyVjk3Z2JP?=
- =?utf-8?B?dlc0MDJvNWE5SjJvWFl1Y3F1UGlZZVRXOTl3V0l6ekU3enpNMm5xTkt1ZTFm?=
- =?utf-8?B?dFZkdDFwdGYxb3doQlJoNXZJSDBHVHZVY3g2TkVKNVpSMW1XZnEyeWtEZUZJ?=
- =?utf-8?B?bTdFN016eVpqOHl3WWJWMktxOW5xR29Ld0tOdTNudlRnaUNSVE92TWFFanhO?=
- =?utf-8?B?ZjJKN3VaSnVHdmd1RFBNRWF4U2VGb21TYzFXVmtmTnRBdFNwa3NLZ0RkdU5o?=
- =?utf-8?B?cDVSTkh6WmtGZHJleTRpWmJkMm5PUDlFMFBjQmFTdktEaUVMQ0JoWWh6UVR6?=
- =?utf-8?B?bkhjV1JMN3pMQnVLRC9uZU13cVNpcThqbGxDdEFaenNEUFVXYW1nQU9iZ1Nm?=
- =?utf-8?B?OEZRUFNWcU1COE80cTgrbldKQ2VtMnpDeng1ZFUzZkZzK3RKZ1dQODdEdTNx?=
- =?utf-8?B?elRMd1Q5bm1YK3JseHVCZlVIMjhTTmFMOWdTK3M4aUw2eUVSamxMT2Z3WEcy?=
- =?utf-8?B?WXBlSHE2Z0ppZHFOSXRxdmt5YlduaEN5eHMxdHhiWDltZVlBS1lFOU1vUCtH?=
- =?utf-8?B?eHVQTW9LT3RUaUlmejVheVI4dUwyM20wL2QvMnE1VXVKZTFoT2xaS2NWejZk?=
- =?utf-8?B?RDZVdy9VNUN4ZzdDMkFrSFZ0dm1pbm15bjNNRGVpc01oYXNiK0JtdjkzUHFW?=
- =?utf-8?B?ZTNBS2xBNjlIQWdwZ2x2aUwwNTU1cHVtaXZRcmRLQlh1Rk9UZ0lQMEtDWmdT?=
- =?utf-8?B?ZVEzVC81MzZ1aUdUR0pHbWZYUVdSd3V1MnNPMW85VC93ZVZlcEhJVHRtRm9U?=
- =?utf-8?B?dGprczhDSnZMdmM5bjY1MlZlRzhMNFhLZXpZWS9Uck1HREhMNVZtTnhUVXB6?=
- =?utf-8?B?ZnE1cFVBaWxaTzc2cFIxSVR1Z3pGMndiMHMxUE9DRmFTaDc1Z3BYQVdCdHB3?=
- =?utf-8?B?R2dzYTUxNjBQUnl4SGhPYm5TbmJYUFFYblUvUitUTTdkb0JiWXBmV2NNeEhu?=
- =?utf-8?B?VkMyVXlucVYzbE5CaStBWVZlalFzWkIrYmxHenNNSmVwOC9LemhaZWxIdHU5?=
- =?utf-8?B?eUtMRU9RbUN4YXFERTk1Yjd6UmYzQ3FYUGlqc0JHY2ViRWRQa3RUUEIweVlF?=
- =?utf-8?B?NTNyb21TSTBoYVVyMW90Vk5KWjM5RHVlUFoyTitJZWxpeUxsN094OUZUZVpD?=
- =?utf-8?B?OG13Z08wNGVzRjYwMkNwT3hSSUx2bTZlVGd0Z3FDWFBleW5nSUxyMVh1b01k?=
- =?utf-8?B?NlF6UlQ1akN6bnRIeE5qSmVXVm9XaCtteDF2MkRyMnltcW9Oa1dISGhRRjVh?=
- =?utf-8?B?MzU3WWhySDkvdFdEUisxN3F2aVNkckU2NlFrR0QzOE8vUm5hemxEY1dub21P?=
- =?utf-8?B?YTNTc0FLL3J2RW5TdDBoVzRoL2NCMU8vQUNCcmdySHFVSmtqcXdtWnBmU0pj?=
- =?utf-8?B?RXIxbGJadkVZVmM3RVdGR1l5RTN1dEQySlRndXB0Q2UrK2ZFRDNTM1p0dmw3?=
- =?utf-8?B?dzRQMjdXT0o2Sm9qRy8xcHBLOEtaZ01uU2NRV05sWkpSV09wbVRJYkJkTmJC?=
- =?utf-8?B?S0NaYjFHREZIcnhnU2JKMjFLL0d1RG9CdUlJK3Rhd0o2SVFGbWNJbkI0Y0g5?=
- =?utf-8?B?eVBZSXRBcnNkNFl5Z0U4dk52SjloUktUMDRHVHEwYUIwbTJQelliam1ueVJv?=
- =?utf-8?B?ZkcrekJ6OTJDMHNsTTk0WTc3Y1pwemZsY0Z2bVFkYlM0Sm0wekpZcTUyUUlW?=
- =?utf-8?B?akJ3Z2MwWTNpaTJkZnVuL1E2V2U2WUxieHNVWWtSWVZFSUNXWnlVM3RtUUFQ?=
- =?utf-8?B?OXBMaGdNVWNyL2I3YmNUaHhmOHFzUGMxUVFySXRrSU5RQmJoMnlGMjJPMk1T?=
- =?utf-8?B?bkdsZGVrenJuNlY0SWJsREpONmtXVE5NMzk5WE41bDEzN25UZ3R0UG9lWjdI?=
- =?utf-8?B?ZHNncURKTzBiN3I3TnBuU2ZvV056Q3FUSlBmNUJvQVo0dVV4OXhSQ29UMzB4?=
- =?utf-8?B?NmhuRlpBZnk0RHcxVHl2eEdFS1MxTXBwTHRSVVNFd24vYjEvWDE3NTRDbEpD?=
- =?utf-8?B?S1pzYTU0eFJjTFp1alE1d1NUdkVtQWR4dTBZS05HcWZNbXhjUWxwZz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1d13662c-75cf-47d6-147a-08de52f0ec2c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2026 22:13:04.3971
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7jbyO7E4v439nqGICY54qwthUweOBN/PEamLdM3hEA/pMCVmSnP+S0E+u83Oo7xiFInmHzzfTckfFUjGahE6uw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8610
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251222-james-perf-config-bits-v4-2-0608438186fc@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_141312_646239_FE179928 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20260113_141328_593590_8C955745 
+X-CRM114-Status: GOOD (  26.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,44 +84,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+On Mon, Dec 22, 2025 at 03:14:27PM +0000, James Clark wrote:
+> Make the evsel argument first to match the other evsel__* functions
+> and remove the redundant pmu argument, which can be accessed via evsel.
 
-imx8m_soc_prepare() directly returns the result of clk_prepare_enable(),
-which skips proper cleanup if the clock enable fails. Check the return
-value of clk_prepare_enable() and release resources if failure.
+I haven't checked if this is the exactly where this takes place but
+should be in this series, 32-bit build is broken:
 
-Reported-by: kernel test robot <lkp@intel.com>
-Reported-by: Dan Carpenter <error27@gmail.com>
-Closes: https://lore.kernel.org/r/202601111406.ZVV3YaiU-lkp@intel.com/
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/soc/imx/soc-imx8m.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+   3: almalinux:9-i386WARNING: image platform (linux/386) does not match the expected platform (linux/amd64)
+WARNING: image platform (linux/386) does not match the expected platform (linux/amd64)
+    21.72 almalinux:9-i386              : FAIL gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC)
+     1378 |         perf_pmu__format_pack(&bits, val, vp, /*zero=*/true);
+          |                               ^~~~~
+          |                               |
+          |                               u64 * {aka long long unsigned int *}
+    In file included from util/evsel.h:14,
+                     from util/evsel.c:38:
+    util/pmu.h:282:43: note: expected ‘long unsigned int *’ but argument is of type ‘u64 *’ {aka ‘long long unsigned int *’}
+      282 | void perf_pmu__format_pack(unsigned long *format, __u64 value, __u64 *v,
+          |                            ~~~~~~~~~~~~~~~^~~~~~
 
-diff --git a/drivers/soc/imx/soc-imx8m.c b/drivers/soc/imx/soc-imx8m.c
-index 04a1b60f2f2b52cc374714f9a1205496c1762f39..8e2322999f0996d2723768469c6893b0ea22eb9d 100644
---- a/drivers/soc/imx/soc-imx8m.c
-+++ b/drivers/soc/imx/soc-imx8m.c
-@@ -148,7 +148,11 @@ static int imx8m_soc_prepare(struct platform_device *pdev, const char *ocotp_com
- 		goto err_clk;
- 	}
+
+What I have is in perf-tools-next/tmp.perf-tools-next BTW, I'll try and
+fix this tomorrow if you don't do it first. :-)
+
+There are some more build problems in other containers/distros, I'll be
+reporting as replies to the patches that looks related
+
+- Arnaldo
  
--	return clk_prepare_enable(drvdata->clk);
-+	ret = clk_prepare_enable(drvdata->clk);
-+	if (ret)
-+		goto err_clk;
-+
-+	return 0;
- 
- err_clk:
- 	iounmap(drvdata->ocotp_base);
-
----
-base-commit: 0f853ca2a798ead9d24d39cad99b0966815c582a
-change-id: 20260114-fix-soc-imx8m-52bec6e4c7d6
-
-Best regards,
--- 
-Peng Fan <peng.fan@nxp.com>
-
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  tools/perf/arch/arm/util/cs-etm.c    | 9 +++------
+>  tools/perf/arch/arm64/util/arm-spe.c | 2 +-
+>  tools/perf/arch/x86/util/intel-pt.c  | 3 +--
+>  tools/perf/util/evsel.h              | 4 ++--
+>  tools/perf/util/pmu.c                | 6 +++---
+>  5 files changed, 10 insertions(+), 14 deletions(-)
+> 
+> diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
+> index ea891d12f8f4..c28208361d91 100644
+> --- a/tools/perf/arch/arm/util/cs-etm.c
+> +++ b/tools/perf/arch/arm/util/cs-etm.c
+> @@ -441,10 +441,8 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
+>  	 * when a context switch happened.
+>  	 */
+>  	if (!perf_cpu_map__is_any_cpu_or_is_empty(cpus)) {
+> -		evsel__set_config_if_unset(cs_etm_pmu, cs_etm_evsel,
+> -					   "timestamp", 1);
+> -		evsel__set_config_if_unset(cs_etm_pmu, cs_etm_evsel,
+> -					   "contextid", 1);
+> +		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
+> +		evsel__set_config_if_unset(cs_etm_evsel, "contextid", 1);
+>  	}
+>  
+>  	/*
+> @@ -453,8 +451,7 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
+>  	 * timestamp tracing.
+>  	 */
+>  	if (opts->sample_time_set)
+> -		evsel__set_config_if_unset(cs_etm_pmu, cs_etm_evsel,
+> -					   "timestamp", 1);
+> +		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
+>  
+>  	/* Add dummy event to keep tracking */
+>  	err = parse_event(evlist, "dummy:u");
+> diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/arm64/util/arm-spe.c
+> index d5ec1408d0ae..51014f8bff97 100644
+> --- a/tools/perf/arch/arm64/util/arm-spe.c
+> +++ b/tools/perf/arch/arm64/util/arm-spe.c
+> @@ -274,7 +274,7 @@ static void arm_spe_setup_evsel(struct evsel *evsel, struct perf_cpu_map *cpus)
+>  	 */
+>  	if (!perf_cpu_map__is_any_cpu_or_is_empty(cpus)) {
+>  		evsel__set_sample_bit(evsel, CPU);
+> -		evsel__set_config_if_unset(evsel->pmu, evsel, "ts_enable", 1);
+> +		evsel__set_config_if_unset(evsel, "ts_enable", 1);
+>  	}
+>  
+>  	/*
+> diff --git a/tools/perf/arch/x86/util/intel-pt.c b/tools/perf/arch/x86/util/intel-pt.c
+> index b394ad9cc635..c131a727774f 100644
+> --- a/tools/perf/arch/x86/util/intel-pt.c
+> +++ b/tools/perf/arch/x86/util/intel-pt.c
+> @@ -664,8 +664,7 @@ static int intel_pt_recording_options(struct auxtrace_record *itr,
+>  		return 0;
+>  
+>  	if (opts->auxtrace_sample_mode)
+> -		evsel__set_config_if_unset(intel_pt_pmu, intel_pt_evsel,
+> -					   "psb_period", 0);
+> +		evsel__set_config_if_unset(intel_pt_evsel, "psb_period", 0);
+>  
+>  	err = intel_pt_validate_config(intel_pt_pmu, intel_pt_evsel);
+>  	if (err)
+> diff --git a/tools/perf/util/evsel.h b/tools/perf/util/evsel.h
+> index a08130ff2e47..2cf87bc67df7 100644
+> --- a/tools/perf/util/evsel.h
+> +++ b/tools/perf/util/evsel.h
+> @@ -575,8 +575,8 @@ void evsel__uniquify_counter(struct evsel *counter);
+>  	((((src) >> (pos)) & ((1ull << (size)) - 1)) << (63 - ((pos) + (size) - 1)))
+>  
+>  u64 evsel__bitfield_swap_branch_flags(u64 value);
+> -void evsel__set_config_if_unset(struct perf_pmu *pmu, struct evsel *evsel,
+> -				const char *config_name, u64 val);
+> +void evsel__set_config_if_unset(struct evsel *evsel, const char *config_name,
+> +				u64 val);
+>  
+>  bool evsel__is_offcpu_event(struct evsel *evsel);
+>  
+> diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
+> index 956ea273c2c7..e87c12946d71 100644
+> --- a/tools/perf/util/pmu.c
+> +++ b/tools/perf/util/pmu.c
+> @@ -1382,8 +1382,8 @@ bool evsel__is_aux_event(const struct evsel *evsel)
+>   * something to true, pass 1 for val rather than a pre shifted value.
+>   */
+>  #define field_prep(_mask, _val) (((_val) << (ffsll(_mask) - 1)) & (_mask))
+> -void evsel__set_config_if_unset(struct perf_pmu *pmu, struct evsel *evsel,
+> -				const char *config_name, u64 val)
+> +void evsel__set_config_if_unset(struct evsel *evsel, const char *config_name,
+> +				u64 val)
+>  {
+>  	u64 user_bits = 0, bits;
+>  	struct evsel_config_term *term = evsel__get_config_term(evsel, CFG_CHG);
+> @@ -1391,7 +1391,7 @@ void evsel__set_config_if_unset(struct perf_pmu *pmu, struct evsel *evsel,
+>  	if (term)
+>  		user_bits = term->val.cfg_chg;
+>  
+> -	bits = perf_pmu__format_bits(pmu, config_name);
+> +	bits = perf_pmu__format_bits(evsel->pmu, config_name);
+>  
+>  	/* Do nothing if the user changed the value */
+>  	if (bits & user_bits)
+> 
+> -- 
+> 2.34.1
+> 
 
