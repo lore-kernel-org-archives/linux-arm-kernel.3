@@ -4,62 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AB2AD2D0FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 13:27:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D38D2D101
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 13:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DEAwSb9yqof+c9Garw5rjnnpV/QvVgWVFKuzHYD64x4=; b=4drVRQktHDSXS8815XfeOf7hJe
-	EJXixlrZT46ju1UhDZqPQmyZqwm2+ig8CT4tWOVcPV15BTSfOpVNwV8nJ7C/Xsnw4AQ99pPFpNowY
-	9MEh9LEGaZm9EHCTCmpA9bFsNLc7MgeMZ6BY1pnnOfpK1czdbhBpB4ajoyk+06i7MQM7+5TYI4zAJ
-	3fzTow2uRe7cy3/Gaegea+mF1qE3Tw7/b19WVFbtnWlxONoxWVgu8vxM+yGtDBK9GS46uL7LJRflx
-	ZB3KV9FZqAoajhSdQ4MoEBclbt9t2sk3lnOC0B1uAvCyjD7RZF0WdeeWl2Q/u+KwAoYYq+1QLeyFu
-	8mNntmPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=z9jDZ0U0+KANI9tzxxMG4W2Nc4jLJjawz7bwnY2eJ5s=; b=4KoBwvzmbPMndu+5Ak2Ev7d45E
+	ItelP4abirm3hZEY275aZAPNF/iBrbJnRx8kYE2wH6O36pDkj5igoft5gOVIwBI5fvJui89jcr5M8
+	kVQYdMdmc9R1Z1r5iL0ghlcDaEpU3Cf2vRWbq3Z2yGy4vLeDWBuB6805TcoPO+1gXJSf69oxIC90y
+	uEl+UfPJd718R0ujeTk4jMhsTmpnjUyzzqE2j3AZuAbiFhr/OAomRMHZoxdqPkPaJ6DiWgx9uxcZD
+	kVJpLKlT7WH3UkRl7O7vdlNnUMqnFcQkRKTK5YUU1RQ4bPq1VHtT24Sh/UeUCC3UoLeNgp4LVQlBo
+	Dhob0sXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfeQB-000000079pw-1bJ9;
-	Tue, 13 Jan 2026 13:26:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vfei7-00000007AfW-13Ry;
+	Tue, 13 Jan 2026 13:45:27 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfeQA-000000079pn-3Th5;
-	Tue, 13 Jan 2026 13:26:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E99D860017;
-	Tue, 13 Jan 2026 13:26:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08F45C116C6;
-	Tue, 13 Jan 2026 13:26:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768310813;
-	bh=5eSbp2YejVlQwsJ4Tq8iaUtRuMK3R0vtPTKJ4VgmURA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PZ0wuhy9YZyNvVi22+zuJIOVkP0qOSxF3UNW2yaaxZbmn9qHW627aYg/NdHLqT+Kj
-	 3qC6OdpuIVsYKkIlh/zuE9bQHG8LXIJ8sAvY8t8ll7TyjiWMIJHh3W8T9qtKAJlD9X
-	 JMbnODszUYAWs0x0jwDD0GGhM8dGIj8iUf54gT8poFdNT9QKOSKW+XODF/tFQ95ZgM
-	 826aWti8Ov0pCK1ZnQDPtL3tos/X9RVwDwkEjhCbrd+xBqCgJyd0R9T+evPrlD3ufw
-	 Br7yo18JqRrnINxfdLvyNCvTX+JgGdmtLneogsJJAjc96TtI3zmxbcpTGK8T4frOxX
-	 u9eusivCcfW9w==
-Date: Tue, 13 Jan 2026 13:26:49 +0000
-From: Simon Horman <horms@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net v2] net: airoha: Fix schedule while atomic in
- airoha_ppe_deinit()
-Message-ID: <aWZIGbwN1fdHCgnb@horms.kernel.org>
-References: <20260105-airoha-fw-ethtool-v2-1-3b32b158cc31@kernel.org>
- <20260108132218.GG345651@kernel.org>
- <aWDLg6RzI4s2VgIH@lore-desk>
+	id 1vfei4-00000007Aew-3fPz;
+	Tue, 13 Jan 2026 13:45:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
+	bh=z9jDZ0U0+KANI9tzxxMG4W2Nc4jLJjawz7bwnY2eJ5s=; b=STMTjWpcsiXuITptpYSE5yDqcO
+	CkMuO18H8U83fVn6n07DAR44pONJDLGyfu9vUEmMV8q5+O4ZSNf8xyim8lOd1+XUiHB/W/4q6Q21B
+	kGuZLdV5YS5znOqxwVKcbobtJkPNHmAYp+wwb4SnVsDiTLZR8xXD5qRtERYWJ8HQLJuID5oWLDRSc
+	vgmHHds4xJauYOoDtj17f7GXq1PC+sVLJdLeg+WDCIJ01yGafTFgPGxSnJlQ6ChZUW6W966QVjard
+	rwVF1m8Ypeh42dqDjvfjQkE4hGVKAHxFQlLHWTDh024SJZTRtPt4QllezzE8H2X9fT/zlEPdHSHpy
+	9J7iqiww==;
+Received: from i53875b63.versanet.de ([83.135.91.99] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vfei2-00275y-6i; Tue, 13 Jan 2026 14:45:22 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: arm@kernel.org
+Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] Rockchip dts fixes for 6.19 #1
+Date: Tue, 13 Jan 2026 14:45:22 +0100
+Message-ID: <17171017.hlxOUv9cDv@diego>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aWDLg6RzI4s2VgIH@lore-desk>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260113_054524_964168_AF7D0EE9 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,33 +67,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 09, 2026 at 10:33:55AM +0100, Lorenzo Bianconi wrote:
-> > On Mon, Jan 05, 2026 at 09:43:31AM +0100, Lorenzo Bianconi wrote:
-> > > airoha_ppe_deinit() runs airoha_npu_ppe_deinit() in atomic context.
-> > > airoha_npu_ppe_deinit routine allocates ppe_data buffer with GFP_KERNEL
-> > > flag. Rely on rcu_replace_pointer in airoha_ppe_deinit routine in order
-> > > to fix schedule while atomic issue in airoha_npu_ppe_deinit() since we
-> > > do not need atomic context there.
-> > 
-> > Hi Lorenzo,
-> 
-> Hi Simon,
-> 
-> > 
-> > If I understand things correctly the key problem here is that
-> > an allocation with GFP_KERNEL implies GFP_RECLAIM and thus may sleep.
-> > But RCU read-side critical sections are not allowed to sleep in non-RT
-> > kernels.
-> 
-> yes, right, RCU section is atomic.
-> 
-> > 
-> > If so, I think it would be clearer to describe the problem along those
-> > lines. But maybe it is just me.
-> 
-> This patch is already in Linus's tree.
+Hi SoC maintainers,
 
-Yeah, sorry for missing that.
+please find a below some Rockchip fixes for the current 6.19 release-cycle.
+
+Please pull
+
+Thanks
+Heiko
+
+
+The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
+
+  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v6.19-rockchip-dtsfixes1
+
+for you to fetch changes up to 56e7cc8dadf91cd2164e5d6dac9258f448d50182:
+
+  arm64: dts: rockchip: Drop unsupported properties (2026-01-09 20:50:14 +0100)
+
+----------------------------------------------------------------
+In terms of bigger fixes, RK3576 GPU register range was overflowing into
+the next peripheral, Nano Pi M5 sound was not working correctly, the
+adc-keys voltage levels for 2 buttons on the Pinephone Pro were wrong
+and a really wrong PCIe linkspeed was removed from helios64.
+
+Apart from that there are a number of dt-cleanlieness fixes.
+
+----------------------------------------------------------------
+Alexey Charkov (2):
+      arm64: dts: rockchip: Fix headphones widget name on NanoPi M5
+      arm64: dts: rockchip: Configure MCLK for analog sound on NanoPi M5
+
+Chaoyi Chen (1):
+      arm64: dts: rockchip: Fix wrong register range of rk3576 gpu
+
+Geraldo Nascimento (2):
+      arm64: dts: rockchip: remove dangerous max-link-speed from helios64
+      arm64: dts: rockchip: remove redundant max-link-speed from nanopi-r4s
+
+Krzysztof Kozlowski (1):
+      arm64: dts: rockchip: Fix wifi interrupts flag on Sakura Pi RK3308B
+
+Ondrej Jirman (1):
+      arm64: dts: rockchip: Fix voltage threshold for volume keys for Pinephone Pro
+
+Quentin Schulz (1):
+      arm64: dts: rockchip: fix unit-address for RK3588 NPU's core1 and core2's IOMMU
+
+Rob Herring (Arm) (4):
+      arm64: dts: rockchip: Drop "sitronix,st7789v" fallback compatible from rk3568-wolfvision
+      arm64: dts: rockchip: Fix pinctrl property typo on rk3326-odroid-go3
+      arm64: dts: rockchip: Fix gpio pinctrl node names
+      arm64: dts: rockchip: Drop unsupported properties
+
+ arch/arm64/boot/dts/rockchip/rk3308-sakurapi-rk3308b.dts     |  2 +-
+ arch/arm64/boot/dts/rockchip/rk3326-odroid-go3.dts           |  3 ++-
+ arch/arm64/boot/dts/rockchip/rk3399-kobol-helios64.dts       |  2 --
+ arch/arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dtsi          |  1 -
+ arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts         |  1 -
+ arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts        |  4 ++--
+ arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi                |  2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-rock-4c-plus.dts         |  4 ++--
+ .../boot/dts/rockchip/rk3568-wolfvision-pf5-display-vz.dtso  |  3 +--
+ arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts            | 12 ++++++++----
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi                     |  2 +-
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi                |  4 ++--
+ 12 files changed, 20 insertions(+), 20 deletions(-)
+
 
 
 
