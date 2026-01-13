@@ -4,55 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91B13D2D104
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 13:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1146DD2D101
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 13:46:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=n3qCGV+st50jJBNwT3OnLSRel5DXBMwwRtV/6UeHVwE=; b=A81s7JuR1eU353PP77+cSkEhJO
-	0CTtpWsOpWvB5CLFQ/4mgadBBG9ulk+Dbbq55f+V82XeXdfcQzFdhDdvHxvqGoWgqSStGaFaMzImz
-	h7HYVzlr3mHrCLDK+xC2vMnAABhRjLXcgiwkfHsX8gUUPqg8exIafEuhsGK2KqVv+AdcBRef1zrnf
-	HmuVOwcypzNzWJWdFA8GxlYet8FXK/AtRkEi5zDbTTtD1Xc9tUo5bPvMhqrpP+3bo3H9LTxMW2VcO
-	qYL3qwu0rR8lqXNnK2H/UIlMVzuBhEBZEJZoAIsJcnI7/sv8rHOT0P4kEDP/y5Nt4Sou7urUWmr1l
-	tu75J9BA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9ruF/DsgLWD0LRXxihhCM3ESkEbVG3zR2tbPJGjW51E=; b=mEinI4zzJB9xh/65Le8N91RB6G
+	BCb5iPbBpSHbNf1pWtc1pWD9sFeq1m+3+lnXnsz1S3ZgSkl78Ry+9ce4xGJ/7T25io6tdAIgTt8sf
+	ZYD+L8e4LR6oAofkI3ft+5+Yq9oDhKP6i7e/dn6Loo4ILHXOA8d6JahW/uTypfPsMX1ONFm2DGvmP
+	3l9IqqelfiBDM66nmYOUQz3Hz+rQMb8zfrURe47HAxwJjmzSRLwZ6JNj3qBmo00WAVz/8ATbZa8lB
+	LycOnSgL4ekO69GfWajCoGJiCdvPr4LFHKfuKMexZgMeYR9/pRbvoLAiZpAYBpdHBGf2fKpZE8Y6R
+	uNUN0U5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfeis-00000007Ane-1L19;
-	Tue, 13 Jan 2026 13:46:14 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vfejM-00000007Au8-2xL8;
+	Tue, 13 Jan 2026 13:46:44 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfeii-00000007AmE-3ogE;
-	Tue, 13 Jan 2026 13:46:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
-	bh=n3qCGV+st50jJBNwT3OnLSRel5DXBMwwRtV/6UeHVwE=; b=vj1Hf5q3sAy4wnFzhIegdHZT/p
-	rwbQ8YtNixl/A5XqGD4RrgPwzmINjkvJPbE03ErsHAgmGQgkYQUqOur3xXtAtPat3e/PN4Ei/0Ujf
-	iTLxJ4dDpy0+rjDEy77bvLdRWtZe+0nuLOfg0YKgPxtkpnmNUww/fV86O66PXwvYz62P85O8z6qoZ
-	ud5mZIaAt7jV6ISJWm3nrgNrIsOR9QmSLhP7s0DWzjhBsYAnLhpqSF9rKZjJYhljobjMZYjz0waHU
-	xkpMcFsGKCMlIPvRuMBXniGrxbMB6TWOiPRMbBShLJ64CQ4S7Lol8noiDMxOUeOJoFW5AfCiaH/Fs
-	kAO6GRKQ==;
-Received: from i53875b63.versanet.de ([83.135.91.99] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vfeig-00276T-Ma; Tue, 13 Jan 2026 14:46:03 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: arm@kernel.org
-Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Rockchip dts32 changes for 6.20 #1
-Date: Tue, 13 Jan 2026 14:46:02 +0100
-Message-ID: <4560446.MSiuQNM8U4@diego>
+	id 1vfejJ-00000007ArT-0ama
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 13:46:44 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4dr9Wl230xz9tbf;
+	Tue, 13 Jan 2026 14:46:27 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1768311987;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9ruF/DsgLWD0LRXxihhCM3ESkEbVG3zR2tbPJGjW51E=;
+	b=mZ6EEVYiZBBXdssndtpObyqnE1uihRU40kAdZos5gzlOWVPeu5Lq4cNGqaZgKTJ6p99jxz
+	7DyKSFZxk5a3Jq/KRvd8AVUW0KtjzwRQHkIJpto/M+PWwKWXYwXP1xgiQu1obNaxunmqF0
+	e1J4M0N+0znpD2GSehQI4mFwXtneGvZjD004PeWZ1k5eqWOO1dlGTk0PDc4nYKqRDR+DBp
+	6QSKDeT+nDTR+Z4h7ugsUvH2iy1P1AZKRN/pE3k8KnqSqfcinYJ0XhuTpFNkYu8JOmAwtJ
+	vnNKTNQHvYIk2qx02zy3RhtTSkpj9rjnS9EZfbLf6mKCS7mAlwnj/f7lwY8Axw==
+Message-ID: <16413d54-ee02-4939-af51-d7f9ab0404f7@mailbox.org>
+Date: Tue, 13 Jan 2026 14:46:21 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Subject: Re: [PATCH 1/2] dt-bindings: display: panel: Fork Waveshare panels
+ into separate document
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ David Airlie <airlied@gmail.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Jessica Zhang <jesszhan0024@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Sam Ravnborg <sam@ravnborg.org>, Simona Vetter <simona@ffwll.ch>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org
+References: <20260113000715.231238-1-marek.vasut+renesas@mailbox.org>
+ <CAMuHMdVGsfCTzSSjh474Ohimad2W5h1Z=vNhS6zU=Lb9f5Zbxw@mail.gmail.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <CAMuHMdVGsfCTzSSjh474Ohimad2W5h1Z=vNhS6zU=Lb9f5Zbxw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: 588823f942cb957b9f4
+X-MBO-RS-META: nhcdrwhot3odx4wmekmq13qmg4s4teu5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_054604_949308_1138D2C2 
-X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-CacheID: sfid-20260113_054641_329150_8F307D7C 
+X-CRM114-Status: UNSURE (   8.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,28 +91,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
+On 1/13/26 10:13 AM, Geert Uytterhoeven wrote:
 
-  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+Hello Geert,
 
-are available in the Git repository at:
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/display/panel/waveshare,dpi.yaml
+>> @@ -0,0 +1,32 @@
+>> +# SPDX-License-Identifier: GPL-2.0
+> 
+> scripts/checkpatch.pl:
+> 
+>      WARNING: DT binding documents should be licensed (GPL-2.0-only OR
+> BSD-2-Clause)
+>      #68: FILE: Documentation/devicetree/bindings/display/panel/waveshare,dpi.yaml:1:
+Sigh, fixed in V2, thanks .
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v6.20-rockchip-dts32-1
-
-for you to fetch changes up to e74470cf3101da79666f20186c9406192223e9a8:
-
-  ARM: dts: rockchip: Add vdec node for RK3288 (2025-12-15 12:21:05 +0100)
-
-----------------------------------------------------------------
-HEVC decoder node for RK3288.
-
-----------------------------------------------------------------
-Alex Bee (1):
-      ARM: dts: rockchip: Add vdec node for RK3288
-
- arch/arm/boot/dts/rockchip/rk3288.dtsi | 17 ++++++++++++++++-
- 1 file changed, 16 insertions(+), 1 deletion(-)
-
-
-
+I'll send V2 in a few days to get some feedback on 2/2 first.
 
