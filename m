@@ -4,223 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2103BD0C852
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 11:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0621D0C84F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 11:04:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bu5W73V2MAULy/GWSKrAZXzlnYdGNK5ho+//7iDqog4=; b=FBuPNiaeqihK5ERMxOy/FN4wPP
-	iObSuKmrkMMUO1EeoGN4DqKxB+c0uf3LS0yjPLrmp5oKUkzBJexmyHm4ar7YxROmD9yVGgHMD5sm4
-	wqhTbddtXX5nAEt2RoHLoznqzpPdyyMQfuwPGUb7Rjm0sNq0LKs6cZRzYu8c3HYxS2D4GVjRd1sGK
-	4AtSPa9HyljEkkkhZcvvVcyYZMCONDe2mJdBDPQ8jebd9f8cNjR8AFQjbMKQysrP33TwBfAec0Y0o
-	cKFTonKoLZQ305c2cHSMo8YQzoPVO+qcHiLUfgs0VGAPuxIEAWgo4kYmSvulpRa2p5r8UD39py0XJ
-	+dXBpqww==;
+	bh=2Jadah+cTe4W525bZbMa2L3Zq+Yu6qwVwd5AuG96W9o=; b=yxM4Ga0Q2f7VKlE80v7KPJD0/P
+	Mpb3R8WJD7V9BwjjG+1PB8IIPMDce2IyaGMyMii5yVfMutgjyrKmLICXNwLGj9TtdT+9BWIj8o8gy
+	Omc3YBm7OUspaa0h+yUGT1ID6G6US2uTc2xFqdCuyS0MRB3ZG7D0S55TczEvIGAFPg9IjdwtFEjp1
+	t0whcxdzred30sWLsKi6yitg4tJpUlEnZiuMHZZysGtsFLpQZWsxHkSjnohdygtHMEmTKGCoeo+Wh
+	YxALHz4QN8EhOooKPSFWo2SBnnqUzh3UuHp/hlJWf6mWeDzS7cCsETBxsEQZC0tH/HwPHPo7lfgPx
+	5mc7hA/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfcB3-00000006yrN-3AwT;
-	Tue, 13 Jan 2026 11:03:09 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1vfcCi-00000006z8H-20e1;
+	Tue, 13 Jan 2026 11:04:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfcB1-00000006yqU-2O5S
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 11:03:09 +0000
-Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60D1h1492754251;
-	Tue, 13 Jan 2026 11:02:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2025-04-25; bh=Bu5W73V2MAULy/GWSKrAZXzlnYdGNK5ho+//7iDqog4=; b=
-	SA+yLG4e4tyk6S+Inyx2W5AaOGtmY7u58O9GXnUvwdmHRddcOtZmgrF8V3UzaVVT
-	jfQ1BKnzHc6owKNCp3KzMFvA2w5YVx3uzpd2l0PYBCH9XvZCgd6DQOkRjJiK8Qte
-	R/khqCylwSB5R0LXfzzZeb4N/6tHfJiYOuXHxs8WAbNBco/Dwf0Tu15eiPob8sa3
-	snZd1tUAtVLClagtyIDhD7KtTwqZqOHb+Ayuv94SBIt/w1VzhNtcczrpLFvkeYTP
-	r7bwNInMX90yJy6WA39wcvj3O2Ctx15CLRhdPWpFTBaIqokXqZDW3SzMySon0DPD
-	6xrALKZXB5YXCNy9XKcXfg==
-Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4bkpwgk83p-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 13 Jan 2026 11:02:45 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 60DAfQln028706;
-	Tue, 13 Jan 2026 11:02:45 GMT
-Received: from bn1pr04cu002.outbound.protection.outlook.com (mail-eastus2azon11010038.outbound.protection.outlook.com [52.101.56.38])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4bkd78k0v8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 13 Jan 2026 11:02:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q0mM4g5UijsZth1hN1WJTLqZnONMEU72zpJ1PlKRssXmWBIENqpbcjN7FtiexMjNWzuTOee8Lbu6xiMhXMg7/wescxmvDpV1mG+KQkhQjlrejKc645foXWmnjqde5d2TQhWd/M5p1hLDpQx3m3FutxxQgO4fPGvsZyjqouVV9+T8XBer88oWjof92oTNY6ZX9wSKRKHKb5p9zQBwDXL0+ATtPlmLFSN8uDNF7/xf4/P7iF1VvnZzIJEgLt9qm/vFD8yUTeH6dT232FZhQqtj8h6HjFiuAu5Vu5kzAbnUdNie6bDVd4FYA9qlbV9xVYMX6yRbxPlnYJlMmFXzOgaemQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Bu5W73V2MAULy/GWSKrAZXzlnYdGNK5ho+//7iDqog4=;
- b=jIuDfGnMlln3GVOnL8SYvocfhnN8aobq3K9I3gRcBceYvrZVtZr/hbfBmSS1bB99sQY6PpOucke2Jjt+A8lxDRgTAYjz1aWRRmavWWdVXlrflveyGydd4KGI2T9AchPE/LKBbANEwCeZQcsGkO+93RSkmpoETFmd1cD+L9QOSXoH8iNZk/V/6SZCkJWhmH9qZGbvQmKNeumKAIXhhQ8RUE5iZj8+xPrjdoGgJ7JrixO8dfcYnPjthP+4b9vad4VimcoXSfM7VVHV28D7KeriDvA+AswpRd9nayMFpC/OtVfmC63Y+Q1uAB2F41PdYEPo1Mbe/2DALMEZlFxCPHmmEA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Bu5W73V2MAULy/GWSKrAZXzlnYdGNK5ho+//7iDqog4=;
- b=YL4xh8eHzSnHkJh/c4CJQ7fzVMpuP19sTFOeDnLn0c2+SktgG8KMgqd9MBanAS3Azm7P/V253GyzsB3mvKLZNWj6g+VJO5mrDtlSHam70uMQqdAIueviMM0EKyKZ1Ki+MWAhAh894z5hAYuTtoKPWmpWonXgaaxfRz9b1LYOr2g=
-Received: from DS0PR10MB6271.namprd10.prod.outlook.com (2603:10b6:8:d1::15) by
- IA1PR10MB7309.namprd10.prod.outlook.com (2603:10b6:208:3fe::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Tue, 13 Jan
- 2026 11:02:42 +0000
-Received: from DS0PR10MB6271.namprd10.prod.outlook.com
- ([fe80::940b:88ca:dd2d:6b0c]) by DS0PR10MB6271.namprd10.prod.outlook.com
- ([fe80::940b:88ca:dd2d:6b0c%7]) with mapi id 15.20.9478.004; Tue, 13 Jan 2026
- 11:02:40 +0000
-Message-ID: <98436a72-236a-43c4-b6ac-9d74b53b0223@oracle.com>
-Date: Tue, 13 Jan 2026 11:02:33 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv6 bpf-next 7/9] bpf: Add trampoline ip hash table
-To: Jiri Olsa <olsajiri@gmail.com>,
-        Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Cc: Steven Rostedt <rostedt@kernel.org>, Florent Revest <revest@google.com>,
-        Mark Rutland <mark.rutland@arm.com>, bpf@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Alexei Starovoitov <ast@kernel.org>,
-        Daniel Borkmann <daniel@iogearbox.net>,
-        Andrii Nakryiko <andrii@kernel.org>,
-        Menglong Dong <menglong8.dong@gmail.com>, Song Liu <song@kernel.org>
-References: <20251230145010.103439-1-jolsa@kernel.org>
- <20251230145010.103439-8-jolsa@kernel.org>
- <CAEf4BzYgqWXoKTffa5Y6Xm-nPbL9aFgrStR0GfUs4-88f10EgQ@mail.gmail.com>
- <aWVnVzeqWJBXwBze@krava>
-Content-Language: en-GB
-From: Alan Maguire <alan.maguire@oracle.com>
-In-Reply-To: <aWVnVzeqWJBXwBze@krava>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: LO3P265CA0018.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:bb::23) To DS0PR10MB6271.namprd10.prod.outlook.com
- (2603:10b6:8:d1::15)
+	id 1vfcCh-00000006z85-1NLc;
+	Tue, 13 Jan 2026 11:04:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7183C6000A;
+	Tue, 13 Jan 2026 11:04:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63185C116C6;
+	Tue, 13 Jan 2026 11:04:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768302290;
+	bh=wOormaL9PD1DYwYJHqWiopjDekcsEFD3wPQ8gHBL2cw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=caCPIhWUJaaWLRUhsVIf6sJpFdGESi270guP9LIaFZ4qr0jAh0mRMI7ntyHpCB7Y0
+	 YNVrWfB5Hy5jXNmtaOCcVoFsLjJ0OoOM2cQnSHH0hLwsMB8nmH7urYJONXD9PuUKGl
+	 Y952TiVZ/KfWRlYUIrQ+4ZdKfTK9NB2VJeXnXQJK5vmkYAVwM4ra2SEXLnVulhiuYs
+	 3UntSOeR+olyVNb1s0b1TdsMV00SzGdWImf2XZ6J3whYDx7vUHXVmGBzbx3sfkxGOh
+	 pGC9jmRyLZQB6F9/AazKgBWT5/e9z1+ZpHNN1NGIB7qgn7/0wm46tsC+ahU+kCUDeU
+	 Wlc2WyKPCxOKQ==
+Date: Tue, 13 Jan 2026 11:04:44 +0000
+From: Lee Jones <lee@kernel.org>
+To: guptarud@gmail.com
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Kamil =?utf-8?Q?Trzci=C5=84ski?= <ayufan@ayufan.eu>,
+	Martijn Braam <martijn@brixit.nl>, Ondrej Jirman <megi@xff.cz>
+Subject: Re: [PATCH 2/3] mfd: rk8xx-core: Configure `rk808-clkout2` function
+Message-ID: <20260113110444.GD1902656@google.com>
+References: <20260112-ppp_connectivity-v1-0-284d6e83b212@gmail.com>
+ <20260112-ppp_connectivity-v1-2-284d6e83b212@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR10MB6271:EE_|IA1PR10MB7309:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6da6fc8e-a98a-4e5a-bcf8-08de529344b8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7142099003;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?c1lEcjdvK0ZKSGtwcGZlUnNNOU96ZlFWYVc5VUdwVExNSGsvdC8rdkVwSFdX?=
- =?utf-8?B?OStxRCsra1JZUGZ1aWUxVGcvd2ZYdEVOV2FFZzFJUzhvSXNhYXA5K1lGRkxv?=
- =?utf-8?B?TFcrYjRHL0JyZU1vcmR2VDhoNUx5aVJzaWhlVmFxelYxWTFJVFN1N2htSXg5?=
- =?utf-8?B?enV0NGdIZU40a2c0K0M4bkhNV0ZKcy90ZjhtK0VvVkdtY1Y5YkRIeFo5V2RR?=
- =?utf-8?B?RFJ2N0ZYNVFyejRaTGozdTI4Um95ODRlQ3RPTExGSFRzWVd6TlBVUENKY09i?=
- =?utf-8?B?aVJjS0hHbGFJNFFGTmRYeGkySFZCR1lPWFhSajdDU0Vtb3I3WG5XR3pGVnVr?=
- =?utf-8?B?SE5tMEUzd2ZHZlhCYVBnY0V3Q3MvdWtCSThhWFMrRkswQ0NoYjVvdzJKMVlr?=
- =?utf-8?B?Ny8zVnFLZTU0N0xLQTU0b1owL3BWVHJick5CUEk2SDZmUHNtZHpURGJrMmMy?=
- =?utf-8?B?QjN4VjduOG5kS3oyakRZTU5ycFI1MnlqeUJNU2dUcGVmYUJKelBqcGNGQ3d1?=
- =?utf-8?B?MVYwVjFwTFVreVpzRU9ObnBQaWVQK0JIL2s5Ly9PTTlVcXk1NnVKZU1oNnFK?=
- =?utf-8?B?RTR0KzFKR3p6WnB4b1ZUSWR5RTZaRTh4Nm1ZaUdKbU9pdlFIc1ZicjAzdWY3?=
- =?utf-8?B?N1ZLSVdQRWNxM09zdWd4WFBobkx5cWYycEpjL09PSlZtT1hIMjA5cVJQNDBU?=
- =?utf-8?B?NlpTWFY1Q3RCYThjREdIOW5raWhGL0lHbmRzWHBoaG04cHpHR0Q3a2lid2VM?=
- =?utf-8?B?ZFJKelBaN1h1UHdkV2owMU4vOW9ibkpoem51aVdiMkwzRGpsWGdxckdQeTZY?=
- =?utf-8?B?UnhqSlF2MDUxSWFKUWNjQk5mVHhjczRKMk92WkpWQ0VudHJSaDQ0YTNsdFRa?=
- =?utf-8?B?VlJUNHhmWkJiSlpheUU3Z0dXbCszZVlHblI2VjBJbXk3WjczTGNJM2pZa1Js?=
- =?utf-8?B?YmJDT20wdC9XT2E1RGY2eFFlUWY3QnNkUmhUV1d5cWhyelkrcFlPWWxoMWhK?=
- =?utf-8?B?cVRQdzFWTC9OTWtMZTFyM0hsMElFeDlMN1hZV0k3ajZGQU1iNlpQM3lOaDJV?=
- =?utf-8?B?YUsxRmlQY3psQjd3WC9Vb0MyS1EweHZVRzZjUDB4UUtpSGRoeHJHdzFvSzJy?=
- =?utf-8?B?QkFiSGhsaEZyNmVHaEhaKzRsU3Q3Y0lnZWVJRmlaNGg0TCsvUS9Gdk5UakVh?=
- =?utf-8?B?a2swUGRBdnFRTzNuTUluc200c09LRjIwL3JuOGtWZFdNQlhPM0dGMEtWTUVW?=
- =?utf-8?B?cVJSK3E3OG9qU1BQWGV5Z2Q3WlY5UlBtcDRVcHR6M05YaVAxa0YrL2FhTkZ3?=
- =?utf-8?B?NzBwbXJ6OTZLVFlVbVBIQ2V1K2FmUnZWd3lFVnZWRzNLMUlVeVN6RytmVE1p?=
- =?utf-8?B?QWhaZk9xQyswUkQrNHQ0RXFOZDNDRGJHNFI0YkJKOUM3SkhHZ3ZiY202SUhS?=
- =?utf-8?B?RXFERk1PSU5rRklsUmxFd0toUDliVmVyVXZNaU44TGdSZzI2NWt4NXkwY3NP?=
- =?utf-8?B?YnBUNk5nMmNncWYxbkh5bllOZVlVa1o5UmorbDBQSHlOWDg1UDF5TktCcTRQ?=
- =?utf-8?B?YlQwY2hVY2FkTkEvM3hsdXdSblJpd0dHRFcyNWpIcDlCS3ZjejFGTGt4OVVN?=
- =?utf-8?B?VXFqRU5LcUh5ZngvK0h6MG9wYldVYW42NUxaT2poa1hSN0Q2bVdtRm05a3l0?=
- =?utf-8?B?aWs1MWV6RWRsazIvZ0pleDc5TVlJSXZOb1F5cTZvcWkwY2tyV0h2Sk5ONWxV?=
- =?utf-8?B?dE9haFVIOGcxVDFyWndzaUo1a3lZRFk3KzZ6QlJISDVyT244WDFJVXg2MHRl?=
- =?utf-8?B?L3NOZEp4Mi92d3h6NDNpeHQ0Z2pJbFpTMG91NVNhMkQvcmI2dEg5SzFtaVFO?=
- =?utf-8?B?UEtzRlFkVHhybTVjRmVoWTBaUVduTzFVU0JiMXRoaFZVeE92LzU5T0J4VGVC?=
- =?utf-8?Q?sL5usNFExCYB5DTGYZw8cyLS4BEzYdhl?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR10MB6271.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7142099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eUJFMmcvZkt6bUwyN2wvZGVHdzFQR2FaeW9GWWc3alhpbHlVOEcxVzNBdk1H?=
- =?utf-8?B?TGtJZlhheGduTmdLeFBvRjh2YVZ4QzVNQmdoMzc1bW9MWW9oYXF4WWVoVXgr?=
- =?utf-8?B?S2kybktpMUpsRXlVbmxFMDhSZmJkTjNRMlB2Z3Fhb3FwTXlyWk1zOWRHMjZq?=
- =?utf-8?B?WWcwU0NyR0RnbEZicXNKdlhFVlQxRjNlTWNoanBwVjJXSWJ0aTlrMnZ1cElB?=
- =?utf-8?B?VTloaGloMzh3ZzhEWTdyNjFQTlhUNUhSaWZtcXVyRWR6TzRXNU9jTExxN0JG?=
- =?utf-8?B?TjFzYVdJOXMrZFpVR0dtMHV0c0tiaUJ0c2RVREd5bm1XL1E0Yk9oNk42dVpW?=
- =?utf-8?B?dTl1REZYVkFvTkQ5RjBtTHVaa0FjSzU0WFFZNGQrL0dRQXNBbklZRUhwNnJv?=
- =?utf-8?B?Z284eEpNSDdISFdFUU0zUHpETFc3UlhXVmRneUVoRGNLRmpqK25Zd21FeHVh?=
- =?utf-8?B?WlVCNEtnWE16bUZ6MzJteG9oRGIvdUR3SWMzQ3hMTVN1YjBJRWlGQUk0clJ4?=
- =?utf-8?B?dkRBTDVmbU1YQlpJTUl3NjdpQUo1TlcxVTZPSkxxQmozbVdKTzl2UHBXVUZr?=
- =?utf-8?B?bGdwbVdiNkF4aFBnREFaTDM1ZVgzem5ZdmMyc1JIUWxsUklUSjJITjhESGlj?=
- =?utf-8?B?dnBHdUxBTlRSVEpucjVUVTM0aHFtUS9WY1JkaGJXMXozUndZaElSakhZdnBX?=
- =?utf-8?B?ME5Fb0tGSmwyRktUVHVrRjJjRHpjYi9tRFpYMkNFWlYzcHJlbnRCdW5PL2pE?=
- =?utf-8?B?M2U3bWxEeCtrSkdjdXZLa21lWG5ITUpkWU5WTm1ySDNQTUl4WmIxQTc5YkZ4?=
- =?utf-8?B?YnBsenNUSXRTNFE4d3E1RlRldUtSM1Njb3ZibTNPemNjdE5EMERLUUZjWjds?=
- =?utf-8?B?NndZUUplUWNZU1JyNmRueGU0dVVGb1ZZTkxMMjVRdHRzVzRLeFRscmpqR0pj?=
- =?utf-8?B?WUF5QnVqTTBudzBMcFM0amk4Q2lOYm83V01PVzNIS3dTeUhPcVR0U0FyQXRU?=
- =?utf-8?B?NWlWNzZ3RXdBNjQreUNvdkRwOWZvZ25FTGxWWm9vR1ZDZ0xtMUVvSU5lOERk?=
- =?utf-8?B?aFAzejNCVjF4ODkxYkJ2d1pyQUczY1kwSU52VmE4N25VRU1VNEZJa1c4VEZ2?=
- =?utf-8?B?NmZDN2R0ajFUeWhFcDk1U3BNK3J4VEN6cURtcVJuUk9WYjh6VnpDV0VMUDdr?=
- =?utf-8?B?TWVIRHZKbXhReUh3cjFkRG5yYWtjUjZBNDZTdVIzcG40aVBBVG5mQmJRdEtx?=
- =?utf-8?B?cFVIU05BNnJJNjZBYnRVUHNGY1Nucy9zVlVzZ2ZiUTQyL0RycUR2QTkwMGcr?=
- =?utf-8?B?MG9RUEE1bHh5Rk5OU21KQ2ZWZWFoTXZhQjFZR3V1NTA3UFlBMUNNNkhIWWVp?=
- =?utf-8?B?SzJRdWdoa2RXWEZSVmdPbmh1OFhOWlBmUTRtRlowMEVSTEI3ajBVOVdrMU1j?=
- =?utf-8?B?eVBUMk1TZ0ZZUy9zdjFrYks3cXdQM1NtOFBWQkVZVGxHcWMzSmRrSExOY3FS?=
- =?utf-8?B?SXI4STRjYzhGQzFkOE5ZUU9mOU1rTFlsOEU0WkpBc2RIM09mR2poYjZCcUNR?=
- =?utf-8?B?SEN6Z2tzVUI5MTB2b0ltZnJCMG82Z216Rnlqd3JuL1FaMzlxdTRCZnZVVGFt?=
- =?utf-8?B?U1RVMHM3MFg4ZE1CbWM1aGtjQzNDdUtrYUZ0MWJXeS9SUGpsYjRLdTZrY0xL?=
- =?utf-8?B?d2FiQUhDbjFYeFZnb1BGS0VzQTBrUzlrRUViM0JPaEFzYXpOZGM5d3N4NGw2?=
- =?utf-8?B?WnpacXg5ZWxTSWtYcVMyNjVXcTJSajUrUklFTFBYdEorNWthVU9RTVdyckg0?=
- =?utf-8?B?K0t4ZDdsaklTOHcvTHRaYmVLMFNKMlAvVWpwd1VKSzA3UVNQMzY5UjhEbEZo?=
- =?utf-8?B?V2ZlQjVBRzVLd3J5UEoyUnZiclNaWm1JZno5Sk9vVkJvN0tkeGlTdnh6b1dN?=
- =?utf-8?B?WFpMOVVsdlo0VG9YbFFqL1NVd1pSYTNIWjRJaDJGdUVwM3N6WVpuVWM4dVFk?=
- =?utf-8?B?YjRVQjBrYWZ3WWpnZ21VckJRN1plOHhEbXV6TWV0NHZiVFRINDBKc1Vvc1FK?=
- =?utf-8?B?eEh6K3gvMkxDVTFqRHhHQ2REMDdjN0ZtY3IvQXpCa3liU1h6Q0JCNEdsaGJP?=
- =?utf-8?B?M1VuY2h0WEhaTEhVT1E0QlhaSTk3UVRNVGNDeFpGaGFNQVJBNjl5bnpRUFZ3?=
- =?utf-8?B?SmM4N3F3K3dNZUJ4cW1rUTRzZzFmNWx5bDJ1UDF6amVOd1NFUzBkTGtDTlBs?=
- =?utf-8?B?Y20rS0FmT0ZBMkNIZUV4dXdHYzNGY1NoNlkyOXh0aEZPc283MzFOTVBjSE1s?=
- =?utf-8?B?V0N2Vmx6cEp0SFhCVDNnS0tmQTNPUytHNUlQNEFiNUloc3h5aWsvQT09?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: vpDpEUB+xrtlKbFA3HzakAnbVQOqA1fyqF4x7ffcloEU8h1NTNYGmN5AH7WhV+zpW1qrIe9wD1LQrGX6w8jf3ZfXeqTbbvvo3VxAW92c20Vyz8B1b4//pNbn1mAF2TqQAPG5CgZ/aCFg+6mIaiPFvBbExWJGrdOj5dCv/+qOJn2/5EE+Stbfy1u3sLk6c4CZ/PRcQU6y/6GjjKpTbGLnv/Dy5p4M5FKSjRXIW8wQtfUReBJd3ihCu/Msrtf/IwZi7I87vcko3CfUalLqwxE+MKfsarIPdHnCEdsI7w2eHyC3yoq1izPbYqmYItO0w4dqhx1fxSbBnzp+IlPPLLg15XNrvQLKCh/09EamBIpO71S91/n0pkhKovSjKNY0dibGarm3/sZ1CcKVbH2pkwgJjcG5qO//8U5carOXZqPt2Jh0c0efavjHFr5YBf234JP1gDIP2Ujkj8AAmOghnawEfGV9IMtSMW3wXv2etEU/8iM318MMePrh8u7mCXVXZvd480BCkOsJlzkKJWip2g8cwOpcbKTcV4OyPUO3IckT5KNmDeOxtadxjH4cEOcdf9Uo1akWe0SKCebAMmiBeTZJx/U5iQzFW/t7P2VUC/U2PLM=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6da6fc8e-a98a-4e5a-bcf8-08de529344b8
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR10MB6271.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2026 11:02:40.2496
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EkbelhMuMIWJU5VqyIaVPtAV4OHdDZalNrpEcNvNAKkZ70fTynsWpaQbr7acKEXqsEQmQEfiVdqe8pfjovogug==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB7309
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-13_02,2026-01-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxscore=0 malwarescore=0 phishscore=0
- mlxlogscore=999 adultscore=0 suspectscore=0 spamscore=0 bulkscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2512120000
- definitions=main-2601130093
-X-Proofpoint-GUID: vGeoY63jQm8cpyex_zG6j7tHemT_ZBVV
-X-Proofpoint-ORIG-GUID: vGeoY63jQm8cpyex_zG6j7tHemT_ZBVV
-X-Authority-Analysis: v=2.4 cv=ZtLg6t7G c=1 sm=1 tr=0 ts=69662655 cx=c_pps
- a=OOZaFjgC48PWsiFpTAqLcw==:117 a=OOZaFjgC48PWsiFpTAqLcw==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=vUbySO9Y5rIA:10 a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=t18Owuh5Nn7Kg4ywImYA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTEzMDA5MyBTYWx0ZWRfX/ny+0ugz3vYR
- 4It3z0JzPfvRgPYMR3XSlNrUYy8/fjSiG5Foe/ra9N1eYobp2DmRozNK0dhkNq94thtlvZ+EqXA
- nW4jazGscAEDeCvhJSo9n7EPTyktrtOc1l5zbhd2ZhA5Tkg4LmPVHhIrVikuwatbYOrolL6lqPt
- Xsjf9M34LaqfLuk9fwMW7REB5ROu0pwnEBAV3JHE6sWgYpWOq0WvE2gxJiJliGLlnvaBZ4DwzTw
- yUdpWhSi7xrocKp5/Nk/YJ+ocCMyBo7+hItoGdHGIm0YVsubZtXN9qIUNu1dlmOJBDARsX3FCZA
- evXQQP7SQgtyxWvIjfx9dFeMfDFrVye0fhf40fj08MBFdjVRg6d3JDQoXGXTb3R8D8eoTAdGf+l
- NBCwo4XDdo1lWFOc5wjG5z1z2s7PbgNsrNIiznZ4tiUYcrk32M7QIx+Mq9rct26/+pI2yEEApcQ
- IlHV4zFrVinWIj4XjxA==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_030307_615463_46C2BA27 
-X-CRM114-Status: GOOD (  14.18  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260112-ppp_connectivity-v1-2-284d6e83b212@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -235,110 +74,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/01/2026 21:27, Jiri Olsa wrote:
-> On Fri, Jan 09, 2026 at 04:36:41PM -0800, Andrii Nakryiko wrote:
->> On Tue, Dec 30, 2025 at 6:51 AM Jiri Olsa <jolsa@kernel.org> wrote:
->>>
->>> Following changes need to lookup trampoline based on its ip address,
->>> adding hash table for that.
->>>
->>> Signed-off-by: Jiri Olsa <jolsa@kernel.org>
->>> ---
->>>  include/linux/bpf.h     |  7 +++++--
->>>  kernel/bpf/trampoline.c | 30 +++++++++++++++++++-----------
->>>  2 files changed, 24 insertions(+), 13 deletions(-)
->>>
->>> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
->>> index 4e7d72dfbcd4..c85677aae865 100644
->>> --- a/include/linux/bpf.h
->>> +++ b/include/linux/bpf.h
->>> @@ -1325,14 +1325,17 @@ struct bpf_tramp_image {
->>>  };
->>>
->>>  struct bpf_trampoline {
->>> -       /* hlist for trampoline_table */
->>> -       struct hlist_node hlist;
->>> +       /* hlist for trampoline_key_table */
->>> +       struct hlist_node hlist_key;
->>> +       /* hlist for trampoline_ip_table */
->>> +       struct hlist_node hlist_ip;
->>>         struct ftrace_ops *fops;
->>>         /* serializes access to fields of this trampoline */
->>>         struct mutex mutex;
->>>         refcount_t refcnt;
->>>         u32 flags;
->>>         u64 key;
->>> +       unsigned long ip;
->>>         struct {
->>>                 struct btf_func_model model;
->>>                 void *addr;
->>> diff --git a/kernel/bpf/trampoline.c b/kernel/bpf/trampoline.c
->>> index 789ff4e1f40b..bdac9d673776 100644
->>> --- a/kernel/bpf/trampoline.c
->>> +++ b/kernel/bpf/trampoline.c
->>> @@ -24,9 +24,10 @@ const struct bpf_prog_ops bpf_extension_prog_ops = {
->>>  #define TRAMPOLINE_HASH_BITS 10
->>>  #define TRAMPOLINE_TABLE_SIZE (1 << TRAMPOLINE_HASH_BITS)
->>>
->>> -static struct hlist_head trampoline_table[TRAMPOLINE_TABLE_SIZE];
->>> +static struct hlist_head trampoline_key_table[TRAMPOLINE_TABLE_SIZE];
->>> +static struct hlist_head trampoline_ip_table[TRAMPOLINE_TABLE_SIZE];
->>>
->>> -/* serializes access to trampoline_table */
->>> +/* serializes access to trampoline tables */
->>>  static DEFINE_MUTEX(trampoline_mutex);
->>>
->>>  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
->>> @@ -135,15 +136,15 @@ void bpf_image_ksym_del(struct bpf_ksym *ksym)
->>>                            PAGE_SIZE, true, ksym->name);
->>>  }
->>>
->>> -static struct bpf_trampoline *bpf_trampoline_lookup(u64 key)
->>> +static struct bpf_trampoline *bpf_trampoline_lookup(u64 key, unsigned long ip)
->>>  {
->>>         struct bpf_trampoline *tr;
->>>         struct hlist_head *head;
->>>         int i;
->>>
->>>         mutex_lock(&trampoline_mutex);
->>> -       head = &trampoline_table[hash_64(key, TRAMPOLINE_HASH_BITS)];
->>> -       hlist_for_each_entry(tr, head, hlist) {
->>> +       head = &trampoline_key_table[hash_64(key, TRAMPOLINE_HASH_BITS)];
->>> +       hlist_for_each_entry(tr, head, hlist_key) {
->>>                 if (tr->key == key) {
->>>                         refcount_inc(&tr->refcnt);
->>>                         goto out;
->>> @@ -164,8 +165,12 @@ static struct bpf_trampoline *bpf_trampoline_lookup(u64 key)
->>>  #endif
->>>
->>>         tr->key = key;
->>> -       INIT_HLIST_NODE(&tr->hlist);
->>> -       hlist_add_head(&tr->hlist, head);
->>> +       tr->ip = ftrace_location(ip);
->>> +       INIT_HLIST_NODE(&tr->hlist_key);
->>> +       INIT_HLIST_NODE(&tr->hlist_ip);
->>> +       hlist_add_head(&tr->hlist_key, head);
->>> +       head = &trampoline_ip_table[hash_64(tr->ip, TRAMPOLINE_HASH_BITS)];
->>
->> For key lookups we check that there is no existing trampoline for the
->> given key. Can it happen that we have two trampolines at the same IP
->> but using two different keys?
+On Mon, 12 Jan 2026, Rudraksha Gupta via B4 Relay wrote:
+
+> From: Kamil Trzciński <ayufan@ayufan.eu>
 > 
-> so multiple keys (different static functions with same name) resolving to
-> the same ip happened in past and we should now be able to catch those in
-> pahole, right? CC-ing Alan ;-)
->
+> While the Wifi and Bluetooth chip are defined in the Pinephone Pro's
+> DTS, it actually isn't able to be used. Let's define rk808-clkout2 so
+> that userspace can actually interact with Wifi and Bluetooth
+> 
+> Co-developed-by: Martijn Braam <martijn@brixit.nl>
+> Signed-off-by: Martijn Braam <martijn@brixit.nl>
+> Signed-off-by: Kamil Trzciński <ayufan@ayufan.eu>
+> Signed-off-by: Ondrej Jirman <megi@xff.cz>
+> Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
 
-We could catch this I think, but today we don't. We have support to avoid 
-encoding BTF where a function name has multiple instances (ambiguous address).
-Here you're concerned with mapping from ip to function name, where multiple 
-names share the same ip, right?
+This is a bonkers amount of SoBs for a 3-line change.
 
-A quick scan of System.map suggests there's a ~150 of these,
-excluding __pfx_ entries:
+What on earth is going on here?
 
-$ awk 'NR > 1 && ($2 == "T" || $2 == "t") && $1 == prev_field { print;} { prev_field = $1}' System.map|egrep -v __pfx|wc -l
-155
+> ---
+>  drivers/mfd/rk8xx-core.c  | 1 +
+>  include/linux/mfd/rk808.h | 2 ++
+>  2 files changed, 3 insertions(+)
+> 
+> diff --git a/drivers/mfd/rk8xx-core.c b/drivers/mfd/rk8xx-core.c
+> index def4587fdfb8..602218694334 100644
+> --- a/drivers/mfd/rk8xx-core.c
+> +++ b/drivers/mfd/rk8xx-core.c
+> @@ -282,6 +282,7 @@ static const struct rk808_reg_data rk818_pre_init_reg[] = {
+>  	{ RK818_H5V_EN_REG,	  BIT(0),	    RK818_H5V_EN },
+>  	{ RK808_VB_MON_REG,	  MASK_ALL,	    VB_LO_ACT |
+>  						    VB_LO_SEL_3500MV },
+> +	{ RK808_CLK32OUT_REG, CLK32KOUT2_FUNC_MASK, CLK32KOUT2_FUNC },
+>  };
+>  
+>  static const struct regmap_irq rk805_irqs[] = {
+> diff --git a/include/linux/mfd/rk808.h b/include/linux/mfd/rk808.h
+> index 28170ee08898..077fe2e15b78 100644
+> --- a/include/linux/mfd/rk808.h
+> +++ b/include/linux/mfd/rk808.h
+> @@ -934,6 +934,8 @@ enum rk806_dvs_mode {
+>  
+>  #define VOUT_LO_INT	BIT(0)
+>  #define CLK32KOUT2_EN	BIT(0)
+> +#define CLK32KOUT2_FUNC		(0 << 1)
+> +#define CLK32KOUT2_FUNC_MASK	BIT(1)
+>  
+>  #define TEMP105C			0x08
+>  #define TEMP115C			0x0c
+> 
+> -- 
+> 2.52.0
+> 
+> 
 
-Alan
+-- 
+Lee Jones [李琼斯]
 
