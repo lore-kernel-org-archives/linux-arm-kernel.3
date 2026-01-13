@@ -4,167 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13EDD30CC2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 20:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C58D30CC2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 20:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WHI0nEUmzHyeqYHExljQDHqyTj3P6Re7ZSEvgTGK+FA=; b=xPb62tJqLj9Qtup4kM9GHnJaJk
-	OocFb1fUmTWoW+Yth645Sz2C+ozEK8h0nnN7hX6Qz/FVcjv2q0KwN9X4yr4yaLNUjUfJoeFfkn2zj
-	7MTLVU/Z3Hpj6aC3+PzK+vRmIT4ERQvXeTj/Pl9YxNc4LvYGl+BgpEhbf/+mGKxSlqgskn6nQy1Lu
-	R2xkct8mUo7Y6EXVuZWN8GrXkodzSKNDTJmsi0nk1e2IFA0xE3cKrZph3uHHLrnbTuvjV21TUtciE
-	uHekLzWCzi5F2bzXqzChHyAKzlTv21gscPW1/xfbR0kWmc797XTxj6H0O0lCKILhTU4VHRK99AVqx
-	lEQqhz3A==;
+	bh=zJ9najKVQrAsmnSBxXVihCGJpl+juoHCCvtdG6HO1nU=; b=ihltZErq4dqw3S6/1fRYZd5geU
+	0bhUy2udrmmIqrXNrzyL5dt2019sDBSsMqjQlLKWYaJsxOYlxBcHFINFJGhoAgY9S76pdxCGtbLC+
+	hMJy3fu8fozc+2bJ2mD3Iuz+yrWXd/tiFtZ28wjABRXfo5EuIi+5dgGDdfiMDEYMHnqhY/PVIWabJ
+	oxD/ET3SrOeIUp6mARXxuHvyFGcZQGjyhZJGm7u/WUl18xtSHDLBKqU+BRmShip0/eQYUFf1MOp2U
+	L5QQImxDUQtqt975V/Ljvvh1F6hhU8lKjOqU4ymNeuZM3O7+EQiCYd900OK7VsSzUJaxmJwdySLYq
+	HBfWYFHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfkqy-00000007gC1-3cnT;
-	Tue, 13 Jan 2026 20:19:00 +0000
-Received: from mail-francesouthazon11011048.outbound.protection.outlook.com ([40.107.130.48] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vfkt4-00000007gTh-1h7H;
+	Tue, 13 Jan 2026 20:21:10 +0000
+Received: from vps.xff.cz ([195.181.215.36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfkqw-00000007gBg-0vrj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 20:18:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xrTxUZOLiij4oup96+NqZe/v7hPlYCFYvTmN7GWbSjXDscwxAUGcu/z9mhDq903+rrhrA6WPRdf2B8OskP2ct2G4x6dFxfU8DBQFYeMUZaJI635Rj/AnTQuOkgh7eLvPFD6K6PmIf6xl96ybGnAQKMJGyQgY0IrwloTqPPj0bAA2mDLVRnOM4fuKyEICkUEc0uXiL6NgiuUVTSqXd/XYmWbzsNz6V7HfhIZi20W0d422XcCTKqs0FL19YmNcyIMgR7NjpFRmC1Ps2Os9h34eF0D3asWIO7DgIQ9qLS0asuhSOSOQzqaMwEVf+wt7GbKQfBH1YY/rm72woKt+D7f1kA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WHI0nEUmzHyeqYHExljQDHqyTj3P6Re7ZSEvgTGK+FA=;
- b=S69wXThkXFq4OXbuRu+qkIJQZll2rQZQoW+eYa/MtWInwDnHb3R+hISwYcOYOiUMzXif8X9DpltiBpiAjS5yWE+qzh5cphmPMJtI6/z0Tvsg4e5Ibzu2/fbj5PRzkV7ZAWrJDRDvMLGZEn6CbY0z0WnOGLtd7DF4k+Vvtc9C7cpEOKisTnR11QZHl/1HFGQ3TBU2GVstbP7JpxQxF/PBUS8dwpWy5cnu6ow02lDF0fZ3i6imBZbpqKl6QPCT8wzxBxOFH0IqXx1ccIe5aUJsH4fNhVzl4ktztEjwCUdVaMl5Hvb1e0aWtpYG4a5RFGxaktDh/H+dRgeYV8MvrPVDyw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WHI0nEUmzHyeqYHExljQDHqyTj3P6Re7ZSEvgTGK+FA=;
- b=nVItKtxlB+7t3VuRJIrnZ9YEnVSG4XvETyxguoDoSi3E+cHdeVN8Bj0DurT2uWTW8YD4wYdUWL6CNXr4KaOplqNaopB2gVIVL+CHQ6042OlKW+fjmgSftp6Q08JkXASDk4NcK1c3iriKYQy1vEXeqkxdGSA1D1hyGHXdWaRUTG8B+Dm1KCvZgr5sRpRw4juNg6//gY7NqqGvpRtk8oe/LzIY32Xo03Yc00+w7sNo0h5wbWhGkJVTZJuQfYUGdBe4WdJXu3g2cDZkvr1bAlxmtJL+jIfPAG297ncZTOTD0Pjc75QPr2G4ZIUInI6312yHcH2kYPtBoi314UDu6d4vrA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by GV2PR04MB12319.eurprd04.prod.outlook.com (2603:10a6:150:32a::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Tue, 13 Jan
- 2026 20:18:51 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9478.004; Tue, 13 Jan 2026
- 20:18:51 +0000
-Date: Tue, 13 Jan 2026 15:18:41 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Liu Ying <victor.liu@nxp.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v8 1/3] dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC
- subnode to schema and example
-Message-ID: <aWaoofPmf/ilpObi@lizhi-Precision-Tower-5810>
-References: <20260113-v6-18-topic-imx93-parallel-display-v8-0-4abccdc473a5@pengutronix.de>
- <20260113-v6-18-topic-imx93-parallel-display-v8-1-4abccdc473a5@pengutronix.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260113-v6-18-topic-imx93-parallel-display-v8-1-4abccdc473a5@pengutronix.de>
-X-ClientProxiedBy: PH8P222CA0024.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:2d7::14) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	id 1vfksw-00000007gTA-3yal;
+	Tue, 13 Jan 2026 20:21:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
+	t=1768335657; bh=4qRB3n1SAwl6RtI0sIa55a0VepVkx8uJIqy5veReaWg=;
+	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
+	b=iMQZzVmEAPqwtnWIOrfBvjn78MLlUP45stGFjZBJOjL14mg5xgw24Fgce+Jm4CEm2
+	 Y8g4jgebc+b9Te1t/g5sFm8ivP6vGfwOw1IqpeeQaoXFhekYK4vyROH+jsgf+PRfOY
+	 x/Q3ToYiyAp9ipXF5lsQQDQSd2LBoeol7R1REkMU=
+Date: Tue, 13 Jan 2026 21:20:57 +0100
+From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
+To: guptarud@gmail.com
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Lee Jones <lee@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Kamil =?utf-8?Q?Trzci=C5=84ski?= <ayufan@ayufan.eu>, Martijn Braam <martijn@brixit.nl>
+Subject: Re: [PATCH 2/3] mfd: rk8xx-core: Configure `rk808-clkout2` function
+Message-ID: <w7vj2nkvxmledeptr7gd5twa6nxtgmaleenkdqjay22ppxba6t@z66nt7k5qi6q>
+Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
+	guptarud@gmail.com, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Lee Jones <lee@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Kamil =?utf-8?Q?Trzci=C5=84ski?= <ayufan@ayufan.eu>, Martijn Braam <martijn@brixit.nl>
+X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
+ <https://xff.cz/key.txt>
+References: <20260112-ppp_connectivity-v1-0-284d6e83b212@gmail.com>
+ <20260112-ppp_connectivity-v1-2-284d6e83b212@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|GV2PR04MB12319:EE_
-X-MS-Office365-Filtering-Correlation-Id: bc22f591-5b3d-4ca4-4fcc-08de52e0f7a1
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|1800799024|19092799006|376014|366016|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PuFC/Ja3bdlSeMZt9z9dT4NO9OZ2orcvUv4c1Wk7Wy/QE5RJDzvM+9vxrhSf?=
- =?us-ascii?Q?9MQEuigsaQGrx9HKzVjhJ7Euo3iBZ06INjwEczBe7yL2JFXP9hDSVOR1hoRg?=
- =?us-ascii?Q?jNSROIVaT4E1iOQkbLJduEpaiIXdLM0cxXqjvltvpV5LSCYnQ4PtkskD2aEH?=
- =?us-ascii?Q?ix9xu76it/WREETSP/7qYt89m3poti8QTSSIj4he1OXqX9daoy3Nm+5n0clO?=
- =?us-ascii?Q?o5//b5DXStuenpibeeIE4DcnAYZhQjH7nTeILRqgNoolLi0KukFG6/81YvQE?=
- =?us-ascii?Q?h7E+6agoUQ1JHZIAyMcuLFschbwfu2esxBxqRCXJbr9hjqFGhUqV+ePM7el4?=
- =?us-ascii?Q?0IAspS0ZQXj8npB+HiRJC281sL5MS7HmnsVoZaf6CG5d3Y91l80AhAPBkA2+?=
- =?us-ascii?Q?iD37DqCZMfQ0Zv6I/oim1HE50/lBf40+0he83IHdgImXgufZFRuXssvyn5zo?=
- =?us-ascii?Q?17oVflCKIYbLax696BfL02k7+DIBMRezibcYIJq8houY5yCmL4rsVSIB1oCG?=
- =?us-ascii?Q?r3pUZUERew94+CrirF3zbfXXvV+yV9y8DQWekaeBgYp50idqA56MKSR3c1Oo?=
- =?us-ascii?Q?7YRAXpE0bNzPNhqtInjRjsX/w5C3L+bhTeXbdf3ptolFfAtjmRiQcc0b85Bt?=
- =?us-ascii?Q?WgNm0qpXcxHhResjY+KiBGezTfSWIMA6DUH7oD0YI7iFOHTIeUupdi8ZRm/5?=
- =?us-ascii?Q?wP04puBHNrIYeY3gD0Hwfoym+fK46gTJeWbUp1MHwjNEcAPS5483cGL3N86O?=
- =?us-ascii?Q?0OXaQYkUq4JYIiEvRdHBYex0rl31RgtJg5uKIUIa3FKgmc2BxLjh43EV+E2M?=
- =?us-ascii?Q?vb8XBOGg34FJlkdE3++1NWbiomQI7+IKyDGcI3nkPFjv7ZVIT9M+skBFfIRA?=
- =?us-ascii?Q?c00jTCowHTfNg1Ic55ledDNqvAlsiAffx/fjz1P8aIgIcc3jVObhUBhyejmP?=
- =?us-ascii?Q?Q/Oyct32ZBOTdt2ma/lkxEp7oJnywt5aHA+XYl5UZoQnpUIOsNAybeymWzzg?=
- =?us-ascii?Q?eIwmzG7koIT7KZwfZIAnRjNxdW6/H2NDy8dhegVL7tZrdLWhh0g8mtb+aKc8?=
- =?us-ascii?Q?09EortNweCuiDwXFyL8rMwr5goFxS1Of1LtwQeyO0/0EUGQ3jL5nIrMMDUlB?=
- =?us-ascii?Q?0dhiAN6diGcU4h7igvd+k1G5JqDxcGvf9qOB5HFWi83v3jSLmjh8KpRCl/75?=
- =?us-ascii?Q?f/eSD+S9ApuDoK/PUTWxsHDd7nCRSwwgid8n3ClKrWSnwPOWPiZ6A1puEKRu?=
- =?us-ascii?Q?SAQMBq9gfr/NybkD5ofMP6VojIxbcnk3xhUnX/XxP304OJ8qyIX63ASnHYii?=
- =?us-ascii?Q?qWzgBIUeFvumaTVcziXd8grtCNzPu3+n8Cd5Mvhhkmieh3SvY1FP1NZp4wKT?=
- =?us-ascii?Q?k6ezYoHIAMSg3fztLJKoIUNuPEP1nXIuj9S4OHamU5vsbYJ25WtA0aaYMkMD?=
- =?us-ascii?Q?7a1iv3bcJzsc2YxQopK83sVu8L6wYcUchSXKOfd1IjIebGc+rFV46r+2NdeV?=
- =?us-ascii?Q?S8lf45gV3vuffdPSY+hoOcPK68jvNtoBydDs?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(1800799024)(19092799006)(376014)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XKVYEN6NZNenOKwMS0fhsO9azcTrX0ntIJP2j4omCaGf3DNIiGqj/4M2oilr?=
- =?us-ascii?Q?a1OBq6dEVpFZD+zSLr0kxZ9kx4oqaxBQoNsYWgw0GipIfnAWqdlAQePVzFkO?=
- =?us-ascii?Q?oy9sA/B4NRyIO5JtGyq44Keq4XHyc1XniRAD71/9qU6lJkgSqP2AlTwNEOtQ?=
- =?us-ascii?Q?8f16Cv6NhXE7KmxxaLXuHLa8oHJiEEIS8gkKFJvQXc/lTjyrXaEqGdDbW6tk?=
- =?us-ascii?Q?m2phUaP7OJmLsw8ax1hURpT71h28cJHK8Abi86c7g5TH4oHylgZeVMgCZdYG?=
- =?us-ascii?Q?CDWvinZoMBTweTvLzuKJ+KjZqWy/KvFJN3HvILh6Mc7s0jBwVeQMdrI8OrWF?=
- =?us-ascii?Q?c4B+E9zaBU6kXRPuNg3r+2w31h7aoH/90Ssvm+ofW1kV67D20kmKfo+v8d4r?=
- =?us-ascii?Q?touusBx6Tm7plZlsMGVrJeF1MVEPW4AmMS3TW9i6XkS7cpAHGalRpAaHXYdz?=
- =?us-ascii?Q?7eUWjIiBLvzrjxcIEr+C/0RokTf8eZ8bSPO1hLkZLHU3izwLnzVSxu9RGM1v?=
- =?us-ascii?Q?ewBvwgLwRcWh+wj0aWgx6A6XrBuLdjsv8AEEllulC6PmklKTVr/4/f7bvBdl?=
- =?us-ascii?Q?j278knv34YPMoz747pLph1TOgmgMA2z4LQ6sutN5tPx6JLzt7l8yy59S7UH9?=
- =?us-ascii?Q?hFjg0Gx2E7j+gAaS75s/SXvumyZ+d1ah/FpjIdgNrQ7nJwO/DKxD5iTd0Y9K?=
- =?us-ascii?Q?TqorJ8NWzIgkg4y55LTXqMqnoNTXrDk4TURJ4+PVhzUl/6tDiL2RU3N0HTvb?=
- =?us-ascii?Q?wDH4K6xRxwFXb7MV5cudeZuU2v8zKUkZXzHTejN73xig0a9Ct+Ym9nmlavKS?=
- =?us-ascii?Q?utrY4mRG1IP1ySCZsHwnt4u95eRdmd0Ed8uJBxX7zy0NBwGv5zIiTLORpSfl?=
- =?us-ascii?Q?EyMIri//zkNlf9rcTMxSrnsnwthhgHNxaObWrmuwA/B6Id9boZ2ndSoqGwdN?=
- =?us-ascii?Q?2IedXiRtbKnTFLXd9O8+IPamHv4ajPpL5xZjeG0ZG6C9e4H798cZ3ZSkhziE?=
- =?us-ascii?Q?Ke2ZYaUUiJhIyXq6l0XprkRnGcEg4z5FIpKsDSqaEhvEl4epKjOhzJLwGwjd?=
- =?us-ascii?Q?vNRXGuXg6i4aWJVerKr3xATaKTOEoXiN/+2yYeA2zW+7cAmglihl2ibjEjy/?=
- =?us-ascii?Q?Yh5YOVXCCqE1ecOnbrpBfCtPUEH6zc1kXHeSelBRz+D676B2HU4kyUriMsSL?=
- =?us-ascii?Q?ZAaVgvwyA/tZedFJad/8vT3nmLT3wvsagOnzQU8CmMdsuGCWtTO13D19aL1C?=
- =?us-ascii?Q?Avj7VKsev6GSNFyWSszwoEGCUEcpfLdsjfc0dIPi6fYKelgEcRUBkKm94qBf?=
- =?us-ascii?Q?ITME1gyHPXUuOGlO8gf+myXQ2OGNuLVkjCliIQ6oyclJ5UYMSqVfTiZKTXps?=
- =?us-ascii?Q?GETXJMCvlXLw2kIsa55NWaIKEMikk+DwznOrkGeE+eJf9QMjGyCJQtn5hYtT?=
- =?us-ascii?Q?QY8Z5ejESPVh/k35KnVo//zcjR484k1+9/1YedlIj0afhFEMxSeR01OTp+RD?=
- =?us-ascii?Q?G6Azrb0JO5V1mKffee3JcFgCt3OER0CpuOWjkBMV2J9VEtEAOkzpCo98Nmky?=
- =?us-ascii?Q?cNfVZRwBs0ZkBxfUVm5Yct+aj7hicNQ0GZf9fvQE4m9Dn7aa9dMkrQfjB4M/?=
- =?us-ascii?Q?yGJh+jggB9GFvAjGoX1hJ7Yek4gMZQ1r18EHFn2yIqhsd8BagRVfUo8csV0z?=
- =?us-ascii?Q?GCkRffGfhbFVcHNosPgLRA2Je9xeyn7eIZhjK2DaIwjmvHX9TXdvM71pAFm3?=
- =?us-ascii?Q?nLS+3hJ+uQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bc22f591-5b3d-4ca4-4fcc-08de52e0f7a1
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2026 20:18:51.5420
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ynx4oUOlB6Rv5BgB8JSzhCwUyxQrX5+sLRXp/NWBkdd9W3DmdzbrGHlEanTr43YSNxpvxLyEDjwfjbYAIxUizA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12319
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260112-ppp_connectivity-v1-2-284d6e83b212@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_121858_269401_E5C952FD 
-X-CRM114-Status: GOOD (  21.83  )
+X-CRM114-CacheID: sfid-20260113_122103_456530_EF4AAFDB 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,130 +74,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 13, 2026 at 08:07:27PM +0100, Marco Felsch wrote:
-> From: Liu Ying <victor.liu@nxp.com>
->
-> i.MX93 SoC mediamix blk-ctrl contains one DISPLAY_MUX register which
-> configures parallel display format by using the "PARALLEL_DISP_FORMAT"
-> field. Document the Parallel Display Format Configuration(PDFC) subnode
-> and add the subnode to example.
->
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
-> [m.felsch@pengutronix.de: port to v6.18-rc1]
-> [m.felsch@pengutronix.de: add bus-width]
-> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+On Mon, Jan 12, 2026 at 10:42:25PM -0800, Rudraksha Gupta via B4 Relay wrote:
+> From: Kamil Trzciński <ayufan@ayufan.eu>
+> 
+> While the Wifi and Bluetooth chip are defined in the Pinephone Pro's
+> DTS, it actually isn't able to be used. Let's define rk808-clkout2 so
+> that userspace can actually interact with Wifi and Bluetooth
+> 
+> Co-developed-by: Martijn Braam <martijn@brixit.nl>
+> Signed-off-by: Martijn Braam <martijn@brixit.nl>
+> Signed-off-by: Kamil Trzciński <ayufan@ayufan.eu>
+> Signed-off-by: Ondrej Jirman <megi@xff.cz>
+
+Hi Rudraksha, I don't belong here. Semi-original patch from 5 yrs ago is here:
+  
+  https://codeberg.org/megi/linux/commit/75be96faf939504d0fd5112846e73e437573f716
+
+thanks,
+	o.
+
+> Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
 > ---
->  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 79 ++++++++++++++++++++++
->  1 file changed, 79 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> index 34aea58094e55365a2f9c86092f637e533f954ff..82d30e4140f4d511bc59665370d561efe7a707bd 100644
-> --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> @@ -40,6 +40,58 @@ properties:
->      minItems: 8
->      maxItems: 10
->
-> +  dpi-bridge:
-> +    type: object
-> +    additionalProperties: false
-> +
-> +    properties:
-> +      compatible:
-> +        enum:
-> +          - nxp,imx91-pdfc
-> +          - nxp,imx93-pdfc
-> +
-> +      ports:
-> +        $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +        properties:
-> +          port@0:
-> +            $ref: /schemas/graph.yaml#/properties/port
-> +            description: Input port node to receive pixel data.
-> +
-> +          port@1:
-> +            $ref: /schemas/graph.yaml#/$defs/port-base
-> +            unevaluatedProperties: false
-> +            description: Output port node to downstream pixel data receivers.
-> +
-> +            properties:
-> +              endpoint:
-> +                $ref: /schemas/media/video-interfaces.yaml#
-> +                unevaluatedProperties: false
-> +
-> +                properties:
-> +                  bus-width:
-> +                    enum: [ 16, 18, 24 ]
-> +                    description:
-> +                      Specify the physical parallel bus width.
-> +
-> +                      This property is optional if the display bus-width
-> +                      matches the SoC bus-width, e.g. a 18-bit RGB666 (display)
-> +                      is connected and all 18-bit data lines are muxed to the
-> +                      parallel-output pads.
-> +
-> +                      This property must be set to 18 to cut only the LSBs
-> +                      instead of the MSBs in case a 24-bit RGB888 display is
-> +                      connected and only the lower 18-bit data lanes are muxed
-> +                      to the parallel-output pads.
-> +
-> +        required:
-> +          - port@0
-> +          - port@1
-> +
-> +    required:
-> +      - compatible
-> +      - ports
-> +
->  allOf:
->    - if:
->        properties:
-> @@ -81,6 +133,7 @@ allOf:
->              - const: isi
->              - const: csi
->              - const: dsi
-> +
-
-remove this unnecessary changes
-
-Frank
->  required:
->    - compatible
->    - reg
-> @@ -112,4 +165,30 @@ examples:
->                 clock-names = "apb", "axi", "nic", "disp", "cam",
->                               "pxp", "lcdif", "isi", "csi", "dsi";
->        #power-domain-cells = <1>;
-> +
-> +      dpi-bridge {
-> +        compatible = "nxp,imx93-pdfc";
-> +
-> +        ports {
-> +          #address-cells = <1>;
-> +          #size-cells = <0>;
-> +
-> +          port@0 {
-> +            reg = <0>;
-> +
-> +            pdfc_from_lcdif: endpoint {
-> +              remote-endpoint = <&lcdif_to_pdfc>;
-> +            };
-> +          };
-> +
-> +          port@1 {
-> +            reg = <1>;
-> +
-> +            pdfc_to_panel: endpoint {
-> +              remote-endpoint = <&panel_from_pdfc>;
-> +              bus-width = <18>;
-> +            };
-> +          };
-> +        };
-> +      };
->      };
->
-> --
-> 2.47.3
->
+>  drivers/mfd/rk8xx-core.c  | 1 +
+>  include/linux/mfd/rk808.h | 2 ++
+>  2 files changed, 3 insertions(+)
+> 
+> diff --git a/drivers/mfd/rk8xx-core.c b/drivers/mfd/rk8xx-core.c
+> index def4587fdfb8..602218694334 100644
+> --- a/drivers/mfd/rk8xx-core.c
+> +++ b/drivers/mfd/rk8xx-core.c
+> @@ -282,6 +282,7 @@ static const struct rk808_reg_data rk818_pre_init_reg[] = {
+>  	{ RK818_H5V_EN_REG,	  BIT(0),	    RK818_H5V_EN },
+>  	{ RK808_VB_MON_REG,	  MASK_ALL,	    VB_LO_ACT |
+>  						    VB_LO_SEL_3500MV },
+> +	{ RK808_CLK32OUT_REG, CLK32KOUT2_FUNC_MASK, CLK32KOUT2_FUNC },
+>  };
+>  
+>  static const struct regmap_irq rk805_irqs[] = {
+> diff --git a/include/linux/mfd/rk808.h b/include/linux/mfd/rk808.h
+> index 28170ee08898..077fe2e15b78 100644
+> --- a/include/linux/mfd/rk808.h
+> +++ b/include/linux/mfd/rk808.h
+> @@ -934,6 +934,8 @@ enum rk806_dvs_mode {
+>  
+>  #define VOUT_LO_INT	BIT(0)
+>  #define CLK32KOUT2_EN	BIT(0)
+> +#define CLK32KOUT2_FUNC		(0 << 1)
+> +#define CLK32KOUT2_FUNC_MASK	BIT(1)
+>  
+>  #define TEMP105C			0x08
+>  #define TEMP115C			0x0c
+> 
+> -- 
+> 2.52.0
+> 
+> 
 
