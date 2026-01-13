@@ -4,91 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 684D5D29DF0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287D3D29DE8
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 09:07:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=koPjTBX4iK9OQ+Ff94Uc6fblTMyD4uSDXtmNeEAxpE0=; b=tuAFSBPf2BHXHcoNGSgn6lCSqk
-	5xI3zB7WugbL73WJFZxsJdKJAPopBGHpRK7tdiQ0eLXRDx5Gtyse2rShorp9LNTJx/Oz8k/EFaFaw
-	MGiz7MYHljMw4esyb6weeVAGbmwYL1+u9gzrOv+8uNiDcjf2ymGCkIVrRMvQrflQbdJOQbq78vaq0
-	cK0CeIplq1qDHGHJF74f3bXTeJupugNDalY0Pub3kNYZVSD7FG7Y4I6swAy6GNXsarp0qM195tEgO
-	QZAvxsE/ngEzXV5D1o87CApRCvhMXSeMCcLxvFwFnFPge6gjB/So6zZaa5nBCPIWWGdGT+9dEG9PR
-	nXW42SdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/UVYLtqYsa1u1pSVxAfuCnQ8ghThARCwCCvbCH1VbLs=; b=TmgxHXP+N68Zoi
+	PzYTGZZuOIes7EEffe7y2bpkPJIM9C70VkEoFS5MNvqoBJ2B9S0YuQ19NiYhn811c1echi0MS+k9B
+	QYl35gmQUMxjCR11gi7NXPTTfUK9zwH0dPCIdWjCVNIReu6OAgDVTYDmAxgEAAklJTmST+fIQIikg
+	FX8FpycmrNc8s+6uF+xHTHtY0EWCuWofYse3zKhAfesbtzY07asjt65JFtrQEZgPv/U/R7uiCImO4
+	6vnW1xDaL54cSqJ1FPAkyzWWLUYw4i5VTPuHQ+Gcs0Z2JY2bJTYygZy2oXtXlKSSeaE4KvoMrxUsX
+	wTUUUFiq8t0M0LNFOGlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfaNJ-00000006nkf-0BYq;
-	Tue, 13 Jan 2026 09:07:41 +0000
-Received: from mail-dy1-x1331.google.com ([2607:f8b0:4864:20::1331])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfaNF-00000006nip-0BNS
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vfaNG-00000006njc-35p0;
 	Tue, 13 Jan 2026 09:07:38 +0000
-Received: by mail-dy1-x1331.google.com with SMTP id 5a478bee46e88-2b0ea1edf11so18390782eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 01:07:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768295256; x=1768900056; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=koPjTBX4iK9OQ+Ff94Uc6fblTMyD4uSDXtmNeEAxpE0=;
-        b=WlWNNS8BQQ9ToqZN9972YTYzE6PDC1hi1nXA4lSFm4KdCXMxowIcfMZ22emyqgcyo/
-         Dmhqh9y6MVfDh0Mx2HNEyrtRK+4dJsj7Z+t+8okPqQBkp3cowgfQZx1T1clP7skjKfA2
-         cnjtOUO6OAH1wK5avE96MZlngIi4enIFrOksc+YHth7AdfvfiIsNztm1RDG3Wu65G4bS
-         r+c4JGOkZE4vOHLRytUAfTEUtPCT0DJKMig6w1MZ6cfnvkulE1eyKnI2uk7BZcj8wsC4
-         xc7vjzqnAfWjQQAVwSJ4zc0I+tG5vxysHDdiEvGa3oEKwbESAmHj3cN0cWxwLcLoAwJm
-         iifg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768295256; x=1768900056;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=koPjTBX4iK9OQ+Ff94Uc6fblTMyD4uSDXtmNeEAxpE0=;
-        b=T66kQteBBrxd+04/X5rrwdggRBO0JKAS9XBZatyJqKrEgP2QN9VhvLo7G6ZATM97pl
-         +/SD71MfIhOY5OCXTTtoSFHOAcQauavmOXs6mCa9zCxeYqumg1Ts4iPBG9n9cpKk546f
-         TBi3UqSjaI8ro3M7AB2PM6e6l3A84FgZ9jBUFW7wA5tkfIQq1meiW8p7aiywd7KT/AsV
-         T9m8LvyqpeJdIqjDL7SoxJ5pQpbC0Nzcq/kNcIdtbnIZm7doFxjIQKreyIMAf9tgkLOk
-         rVpUBAbQ4TktY0bVMDp768Vy/cLvBO/H3iX14oykW1Ef3ZMTJ3FILSModIEQUD4GOHbc
-         nm/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUUz/ZtcnzCe0Aui0bPkfSYTTNxuwuaeoE1toL7a9upmn0jzoVEyv7agdz40f3UgyINslBsiyBj+NEr55UdaRM8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx57cuIyWeuX2JN5mOqzoUEoZgMhVU4zZhtvEkA56KryyelGU7F
-	3utOhlbmbXp34uA21RCmVH747RcoGo3NCjEK7NggJ2tQtCi+Dp6fmfOQolkWtg9VSLnnSk6JO3w
-	vtkQgNkJRcKJVJ5hB9Vt1HGQzSuOvcH8=
-X-Gm-Gg: AY/fxX7tPNhBLsZa5BU/pAm0jUsWkegadAQAgAcZKIfJU7HEZXwdj41OzKJaL5aeH7U
-	t5IPOEM35ykXh1ed5UZ/6wf2N8kDOlWzUexSs+bk6p/i2yO3Ezpz9uXiDFzd7oaaowzpIijKt7H
-	zdy9j+SBkP/w58eQOQQ7Y0YvwWe5pUXzSd8ssjwTgFGXQocjNZ/Hb+vq7dQvsu+BfgN2vzWOOYs
-	yAy/I2tIJ41ZQgfsHXfeUQB4zJnlN9wWMSCa4o5eVtJDYEU4QcLsMFzX68FEYgP1wQ/xhGqNpeo
-	AHGMVEbflxSwggMyV3ZWWoL/LTIrRarNRH2uUb4iAzWaImC5MJN0rQskzU5RAiUiBjetdhZG9qN
-	ZKyzVVCOmJw==
-X-Google-Smtp-Source: AGHT+IF3RX9nAlZTR2amE9GxDzDwPqdE7Cjqqbe7GDtDpeVioGO8As8gNYcnkAyF+8R6p5o6StJOxLoio/8dQb2c+Lg=
-X-Received: by 2002:a05:7022:43a0:b0:11d:f440:b758 with SMTP id
- a92af1059eb24-121f8b450b3mr24817667c88.25.1768295256086; Tue, 13 Jan 2026
- 01:07:36 -0800 (PST)
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfaNE-00000006nha-0Nu1;
+	Tue, 13 Jan 2026 09:07:37 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c68:a473:c554:ed1f:46ad:1ead])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 6F3092E0;
+	Tue, 13 Jan 2026 10:07:04 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1768295224;
+	bh=REklIFVXmRlmq0LmpKSuw9wuteAuE3Gnu30O2/rYrz0=;
+	h=From:Subject:Date:To:Cc:From;
+	b=ZAovOSOkmmoqGenK0eDXUjaXi/qu4VyIRySq5dMefq7AD7lZTe4MoopCttupYMCn4
+	 uosUxgLoWMW9UBDKqwgP6q43wSx2GIhq6cGOJCJCHeAVsKLaDXz/p5IUbIyo7+0YXL
+	 6p16S0nSILshDC3w3VLuWvgHDe1QzFZZww7UpwUQ=
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Subject: [PATCH 00/10] media: Add support for Raspberry Pi 4 ISP
+Date: Tue, 13 Jan 2026 14:35:20 +0530
+Message-Id: <20260113-b4-vchiq-isp-v1-0-ea0b300bffc8@ideasonboard.com>
 MIME-Version: 1.0
-References: <20260111-imx952-dts-v2-v2-0-5773fa57e89e@nxp.com> <20260111-imx952-dts-v2-v2-10-5773fa57e89e@nxp.com>
-In-Reply-To: <20260111-imx952-dts-v2-v2-10-5773fa57e89e@nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Tue, 13 Jan 2026 11:10:04 +0200
-X-Gm-Features: AZwV_Qg-q7k5jyzvnB6ALn27XAuNQ9bYa59uAz3y6dRfMLXSzH7lkJ4OAjmRmcw
-Message-ID: <CAEnQRZCKAfhDT0p+MFjdZ+bLQJad1Wm6YT872FXyWB63u=zegQ@mail.gmail.com>
-Subject: Re: [PATCH v2 10/10] arm64: dts: imx952-evk: Add nxp,ctrl-ids for
- scmi misc
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Peng Fan <peng.fan@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANEKZmkC/yWNwY7CMAxEf6XKGa9ck7ZpT/wH4pA4LviQFhKoV
+ kL8+2bpbd5I8+ZtimSVYqbmbbJsWnRdKrSHxvDNL1cBjZUNIXU40hGChY1v+gAtdxjEMRGT65F
+ NndyzzPr71Z0vO2d5vKr1uZcmSSn+a52a6uyxxW53QknAycNGgGCjFz/YkSWOJ43iy7qE1ef4w
+ 2v6fwq+CNSc9Dk1bsZgmcVa186BqO+O/TjUIrqIES3SwKEVZy6fzx9wuhzv8gAAAA==
+X-Change-ID: 20250923-b4-vchiq-isp-7e8c22c2860c
+To: Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Tomasz Figa <tfiga@chromium.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Kieran Bingham <kieran.bingham@ideasonboard.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Naushir Patuck <naush@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-media@vger.kernel.org, Jai Luthra <jai.luthra@ideasonboard.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.org>, 
+ Umang Jain <uajain@igalia.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4557;
+ i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
+ bh=REklIFVXmRlmq0LmpKSuw9wuteAuE3Gnu30O2/rYrz0=;
+ b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBpZgs5e+Ch/lz2cxZ3hmn5Jqqf9Mdi/IOSjDsbo
+ Hu4jFLRoQGJAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaWYLOQAKCRBD3pH5JJpx
+ Ra60D/43niiXSmYxhdDtI6hfPiYhB0BeImTed2qZwjNkP9fNh0t2n83b8VPuKVdvYTvBGuy6Qzr
+ 5/5KDmIhkg8A226QPMtsvt5jR+jGh7BgLvjp9gJ8zvQJQ4/SLxlwMqEGW0XvJPga3vMpTUIz8GU
+ i2RfEFVGgT1LM5EEsZBZxlMqZSPCTnRma5H0p84AV8SMMrSPfJzu4j1K5ij+pwiLUa85u+LKhPv
+ Yy8puKCXWjPKcDORqxA+famD3XHZinOURNxismgcMk3np2H4x9HJwUZujTIxFgcGJpShdsEoer7
+ h/O+7Xxb0CXttS7hry3qGp+FdnH1tFQBCb3dTzTxJ/7fE8Awv6FiStw76NSJLQOLJ/tKM+4+FhI
+ btI1nr89zhlAXmb7UQrADgLjdqOR7VeGJxqoFBHyvpKl9DIrJnFJr2yD+wTVykvbhVgZCTjPdOP
+ FduQ7oEbJl/5P9PG6uDurCjQ/IJdMVoP+4VnEVWTdxnIFgyuuBWHrDUfI+Dk5p8SagusZgFRkaQ
+ wivM1kayUHJH5lNK9jADMjPh5IPyF741y7VYrryaAuEEXVNuAyABPd5HhYG7+oD3tRSAgJ3eUaN
+ ym8ge9nL+hStM9U+m6l1PgUvpW4U1sM0oF6N8mmWe8lbFQ5xjVnU+uNUMyZumzAt8Qsi8drrdQI
+ ua/A014B4pxbtVg==
+X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
+ fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_010737_078589_52D2A5E9 
-X-CRM114-Status: UNSURE (   8.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260113_010736_300798_F20B5EBF 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,14 +96,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 11, 2026 at 2:54=E2=80=AFPM Peng Fan (OSS) <peng.fan@oss.nxp.co=
-m> wrote:
->
-> From: Peng Fan <peng.fan@nxp.com>
->
-> Add nxp,ctrl-ids in scmi_misc node for wakeup notification.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Hi,
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+This series adds support for the ISP used in Raspberry Pi 4 (and earlier
+variants) by adding the bcm2835-isp V4L2 driver.
+
+The underlying hardware for the ISP is accessed through the VideoCore
+VPU, via the VCHIQ/MMAL interface that was recently destaged under
+platform/raspberrypi. The ISP driver, and thus this series depends on
+VCSM CMA driver for shared memory support (for lens shading buffers):
+
+https://lore.kernel.org/all/20260105-b4-vc-sm-cma-v2-0-4daea749ced9@ideasonboard.com/
+
+The ISP driver introduced in this series has been taken from the one
+present in the downstream raspberrypi 6.12 tree, squashing together
+various commits, along with minor cleanups and renaming directories. For
+testing it with libcamera, please use this branch that supports upstream
+unicam and the correct base ID for ISP controls:
+
+https://github.com/jailuthra/libcamera/tree/pi4-upstream
+
+Thanks,
+Jai
+
+Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
+---
+Dave Stevenson (1):
+      media: videobuf2: Allow exporting of a struct dmabuf
+
+Jai Luthra (5):
+      platform/raspberrypi: vchiq-mmal: Move headers to include/linux
+      platform/raspberrypi: vchiq-mmal: Support ISP parameters and stats
+      platform/raspberrypi: vchiq-mmal: Support bayer and gray formats
+      platform/raspberrypi: vchiq: Add helpers for vchiq driver data
+      media: platform: broadcom: Move unicam driver to subdir
+
+Naushir Patuck (4):
+      media: uapi: v4l-ctrls: Add CID base for the bcm2835-isp driver
+      media: uapi: v4l2-core: Add ISP statistics output V4L2 fourcc type
+      media: platform: broadcom: Add bcm2835-isp driver
+      platform/raspberrypi: vchiq: Load bcm2835_isp driver from vchiq
+
+ Documentation/admin-guide/media/bcm2835-isp.rst    |  127 ++
+ .../userspace-api/media/drivers/index.rst          |    1 +
+ .../userspace-api/media/v4l/meta-formats.rst       |    1 +
+ .../media/v4l/pixfmt-meta-bcm2835-isp-stats.rst    |   35 +
+ MAINTAINERS                                        |   12 +-
+ drivers/media/common/videobuf2/videobuf2-core.c    |   21 +-
+ drivers/media/platform/broadcom/Kconfig            |   23 +-
+ drivers/media/platform/broadcom/Makefile           |    3 +-
+ .../media/platform/broadcom/bcm2835-isp/Kconfig    |   14 +
+ .../media/platform/broadcom/bcm2835-isp/Makefile   |    4 +
+ .../broadcom/bcm2835-isp/bcm2835-isp-ctrls.h       |   73 +
+ .../broadcom/bcm2835-isp/bcm2835-isp-fmts.h        |  558 ++++++
+ .../broadcom/bcm2835-isp/bcm2835-v4l2-isp.c        | 1836 ++++++++++++++++++++
+ .../media/platform/broadcom/bcm2835-unicam/Kconfig |   23 +
+ .../platform/broadcom/bcm2835-unicam/Makefile      |    3 +
+ .../{ => bcm2835-unicam}/bcm2835-unicam-regs.h     |    0
+ .../broadcom/{ => bcm2835-unicam}/bcm2835-unicam.c |    0
+ drivers/media/v4l2-core/v4l2-ioctl.c               |    1 +
+ .../raspberrypi/vchiq-interface/vchiq_arm.c        |    2 +
+ .../platform/raspberrypi/vchiq-mmal/mmal-vchiq.c   |    9 +-
+ .../linux/raspberrypi}/mmal-common.h               |    2 +
+ .../linux/raspberrypi}/mmal-encodings.h            |   68 +
+ .../linux/raspberrypi}/mmal-msg-common.h           |    0
+ .../linux/raspberrypi}/mmal-msg-format.h           |    0
+ .../linux/raspberrypi}/mmal-msg-port.h             |    0
+ .../linux/raspberrypi}/mmal-msg.h                  |    0
+ .../linux/raspberrypi}/mmal-parameters.h           |   86 +
+ .../linux/raspberrypi}/mmal-vchiq.h                |    0
+ include/linux/raspberrypi/vchiq_arm.h              |    1 +
+ include/linux/raspberrypi/vchiq_bus.h              |   10 +
+ include/media/videobuf2-core.h                     |   15 +
+ include/uapi/linux/bcm2835-isp.h                   |  347 ++++
+ include/uapi/linux/v4l2-controls.h                 |    6 +
+ include/uapi/linux/videodev2.h                     |    1 +
+ 34 files changed, 3252 insertions(+), 30 deletions(-)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20250923-b4-vchiq-isp-7e8c22c2860c
+prerequisite-message-id: 20260105-b4-vc-sm-cma-v2-0-4daea749ced9@ideasonboard.com
+prerequisite-patch-id: 07e50207cc947f44e1d626b31d0ace7e12a8f3a1
+prerequisite-patch-id: 3d82a2605799686668729fdc2677c3f6b7c2aa0d
+prerequisite-patch-id: f65e3f6e8db823fcfc37421da10a76f92cf56d9d
+prerequisite-patch-id: dbfc2fc4237c738e499e802be972dd8f2736a714
+prerequisite-patch-id: 1898d91213e9bd75be3109180527fb0caf6d7174
+prerequisite-patch-id: d0cfc49c673c8c4a4c13d44a547104c24f57cb49
+
+Best regards,
+-- 
+Jai Luthra <jai.luthra@ideasonboard.com>
+
 
