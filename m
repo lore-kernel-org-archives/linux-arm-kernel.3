@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 980DBD2D108
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:01:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 007BFD2D0FD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:04:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Fnp0Twvct/2YyZYn+SyZoiEx7nA/vBDFb7/prmNM1To=; b=ji3GfdFnEfn+PYadkH9BQUXQim
-	0iL+IrYoLzGNVQnlx931vKNHHFih76mJqAv7LH98sOlzPRcgAsVyi+gECgTiqJJLyUjWckvGqkekc
-	VY0ht3m7qVeT/R2myuiqrjiFXTKxkRrlv7nkujxIQ9Y+SOGtZAwLQDyb+gJQgPn5vSqDAPfgwzD0y
-	Ef/CQRhsZU0jmNkgivCkd8oYkcumrHKJaDJ94n42t2LjMnXN95SaxBexxV6CmMNtSwX5AQY80FVZO
-	FEbcd3qW+AzABMg2j4jF5Y87IwJubUfB0jNBrOMjp2v+v8iBU2sgFFah6qlUEWSIS+i/VO4NOU161
-	CKS+YvqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wd6e5O0iU7JUgh7BLqurbGHD/MNBTN0LHMWqkHNi984=; b=bJkYS0UGO60iUeO6nQp0ULqPTQ
+	d2eQTMs+sboTY55bOHjcSecxqqYt2Q4bx4oaepARiPSwO8OgGjzKi5MgbQY64eP5Z5Q/tHaviTDk1
+	ILCiXqkH4YzkFfbOK81ypI8muile9cXe7/Y9dZdL3yjhFyna4dl1zorz36OEP8TBQyd1Ne00PzJxd
+	aQAp+zzhZBaSS8arzcM4koiuqfiLRJtiPrV9uGrpffGSOV2m5Q8u6/3c5qwpogD00ExbjTQ2YNc/J
+	Dw2JpcJYm5zr911fC5BfMTmcc10hZHIjvanT7Ofc+P/Y6mlROonTvprN+UbSwK7vpueRfcg6vhOMs
+	cGNbEHIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfexQ-00000007C1U-2qvT;
-	Tue, 13 Jan 2026 14:01:16 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1vff0X-00000007CGA-2N3p;
+	Tue, 13 Jan 2026 14:04:29 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfexM-00000007C0w-1JYv
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 14:01:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768312872; x=1799848872;
-  h=date:from:to:cc:subject:message-id;
-  bh=OE8i5lowkRkl33NdO65t+CqcmthaU4AkOQGojvrGkfs=;
-  b=VH/S1XijRqnJN2bvtMxy4VF10vgP8kaZ1PyahBOJiAyLpiv5cXJcaIFQ
-   ATO3tx/R1MeI7UXHy0IcXwExAu0IyHNNp02wE0o+FjVd9P+4IqPK7jwbP
-   lSyOZuWZy17iqzbWJt059RL8ja4PXN3ES6F6T5fxmUnkhptzmKrQxjdoP
-   yjxv58UsmEV1m6C7NvwCGU6ob9FGXAgDB2nUqfvoD0ETQV+7aUcS5IcyT
-   6Ia8z5sCI+ZIPS+VTHgnGdQzC8zg0MNcvN9SuFg7IfRcG+ga5EzOCvDBy
-   io5XMo/m25qLuk2yx9ARvDAgxPjPsgzFmjWs9fVjnEEA/jbKUtLxlPsBX
-   w==;
-X-CSE-ConnectionGUID: 1ZxvH1YqToWZP+C4LWSySg==
-X-CSE-MsgGUID: Dj9m4T8CTU+zkE89wKZ2Nw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11670"; a="80315378"
-X-IronPort-AV: E=Sophos;i="6.21,222,1763452800"; 
-   d="scan'208";a="80315378"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2026 06:01:12 -0800
-X-CSE-ConnectionGUID: aO9kJJqMQ46bS/TtPVsQjQ==
-X-CSE-MsgGUID: ib8WynI2TcaF0IIX5P5FUA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,222,1763452800"; 
-   d="scan'208";a="204473594"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa008.jf.intel.com with ESMTP; 13 Jan 2026 06:01:10 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vfexI-00000000EsB-0fqF;
-	Tue, 13 Jan 2026 14:01:08 +0000
-Date: Tue, 13 Jan 2026 22:00:29 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/dt] BUILD SUCCESS
- aa5f91ce4fd897d7fdc24521650b6de48e834c34
-Message-ID: <202601132224.TgyBmuS1-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	id 1vff0U-00000007CEx-2yEg;
+	Tue, 13 Jan 2026 14:04:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=wd6e5O0iU7JUgh7BLqurbGHD/MNBTN0LHMWqkHNi984=; b=WHp2vL0zrGIflsLJgiFDyokK5d
+	auqTfGMEKpj9z2iU+AES00Fn/QTlHo6NCor2RQz1YD49/RMaUdB1+P0z2Ii7Ls7SmWk+rw6ZBYoYt
+	xsJzrnlYhoL8vr97+5jGiQEHoGJe/wa4EM12OY/drKIATD7wM5hacTKmv96JMp9dU1pvxXArZctBs
+	GZ5v4t0GpIxl28kpB6BDtd/6GoTVhBc5OWlntPAjs6fkLqNjtOUkdboLM45W3QlOextetbpclrKFI
+	V87r3ODZ8nVCkAL/Ep3w5mA+GUPbHFQXqko1MA55x5Bay4hL+MkeAezdHzqN72/zFYWtM7OolWA8n
+	z85j1JGA==;
+Received: from i53875b63.versanet.de ([83.135.91.99] helo=phil..)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vff0P-0027FZ-0B; Tue, 13 Jan 2026 15:04:21 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	uwe@kleine-koenig.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/5] Support for QNAP TS133 variant
+Date: Tue, 13 Jan 2026 15:04:17 +0100
+Message-ID: <176831295369.3955755.7083512245905184027.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20260104191448.2693309-1-heiko@sntech.de>
+References: <20260104191448.2693309-1-heiko@sntech.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_060112_362683_9313D130 
-X-CRM114-Status: UNSURE (   5.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260113_060427_006487_D10C7F11 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,74 +76,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
-branch HEAD: aa5f91ce4fd897d7fdc24521650b6de48e834c34  Merge tag 'renesas-dts-for-v6.20-tag1' of git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into soc/dt
 
-elapsed time: 8432m
+On Sun, 04 Jan 2026 20:14:43 +0100, Heiko Stuebner wrote:
+> This adds support for the TS133 variant of the NAS series.
+> 
+> It turns out this variant is build around the RK3566 instead of RK3568
+> as all the other are. This is "fixable" by not including the
+> soc dtsi in the board files and not in the shared tsx33 dtsi.
+> 
+> While adding the devicetree I also realized that some things are
+> wrong in the common dtsi:
+> - the shared sata controller for all variants is sata2
+> - the TS133 does not have a "copy-key"
+> 
+> [...]
 
-configs tested: 54
-configs skipped: 3
+Applied, thanks!
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+[1/5] arm64: dts: rockchip: Move SoC include to individual QNAP TSx33 boards
+      commit: f0761f6be5ed62bc282349c46784d676571ace83
+[2/5] arm64: dts: rockchip: Fix the common combophy + SATA on QNAP TSx33 devices
+      commit: 5a16e131ddbacdd7acfb8cab6ff0ca1c57339600
+[3/5] arm64: dts: rockchip: Move copy-key to TSx33 board files
+      commit: a81a2d211344675de4d945eb2070e3ef1202060f
+[4/5] dt-bindings: arm: rockchip: add TS133 to RK356x-based QNAP NAS devices
+      commit: ae2208dfa2ac3872f2a0d4c72f1a29fcce7b56a8
+[5/5] arm64: dts: rockchip: Add TS133 variant of the QNAP NAS series
+      commit: 26cfaee2972c95a6d3ad85549df089a4ee93a551
 
-tested configs:
-alpha         allnoconfig    gcc-15.2.0
-alpha        allyesconfig    gcc-15.2.0
-arc          allmodconfig    gcc-15.2.0
-arc           allnoconfig    gcc-15.2.0
-arc          allyesconfig    gcc-15.2.0
-arm           allnoconfig    clang-22
-arm          allyesconfig    gcc-15.2.0
-arm64        allmodconfig    clang-19
-arm64         allnoconfig    gcc-15.2.0
-csky         allmodconfig    gcc-15.2.0
-csky          allnoconfig    gcc-15.2.0
-hexagon      allmodconfig    clang-17
-hexagon       allnoconfig    clang-22
-i386         allmodconfig    gcc-14
-i386          allnoconfig    gcc-14
-i386         allyesconfig    gcc-14
-loongarch    allmodconfig    clang-19
-loongarch     allnoconfig    clang-22
-m68k         allmodconfig    gcc-15.2.0
-m68k          allnoconfig    gcc-15.2.0
-m68k         allyesconfig    gcc-15.2.0
-microblaze    allnoconfig    gcc-15.2.0
-microblaze   allyesconfig    gcc-15.2.0
-mips         allmodconfig    gcc-15.2.0
-mips          allnoconfig    gcc-15.2.0
-mips         allyesconfig    gcc-15.2.0
-nios2        allmodconfig    gcc-11.5.0
-nios2         allnoconfig    gcc-11.5.0
-openrisc     allmodconfig    gcc-15.2.0
-openrisc      allnoconfig    gcc-15.2.0
-parisc       allmodconfig    gcc-15.2.0
-parisc        allnoconfig    gcc-15.2.0
-parisc       allyesconfig    gcc-15.2.0
-powerpc      allmodconfig    gcc-15.2.0
-powerpc       allnoconfig    gcc-15.2.0
-riscv        allmodconfig    clang-22
-riscv         allnoconfig    gcc-15.2.0
-riscv        allyesconfig    clang-16
-s390         allmodconfig    clang-18
-s390          allnoconfig    clang-22
-s390         allyesconfig    gcc-15.2.0
-sh           allmodconfig    gcc-15.2.0
-sh            allnoconfig    gcc-15.2.0
-sh           allyesconfig    gcc-15.2.0
-sparc         allnoconfig    gcc-15.2.0
-sparc64      allmodconfig    clang-22
-um           allmodconfig    clang-19
-um            allnoconfig    clang-22
-um           allyesconfig    gcc-14
-x86_64       allmodconfig    clang-20
-x86_64        allnoconfig    clang-20
-x86_64       allyesconfig    clang-20
-x86_64      rhel-9.4-rust    clang-20
-xtensa        allnoconfig    gcc-15.2.0
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
