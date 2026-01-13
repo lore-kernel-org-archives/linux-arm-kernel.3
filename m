@@ -4,177 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B76CAD30CC0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 20:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DCC8D30CC1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 20:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+7ifFpxlZQOlEtFWstJdv5Mm+UZHX31igcQ70DRIcOo=; b=P6TzDJfNqA+FBDPpB1jjGxqtsH
-	1Cd4sVVL0QRo0YcnqtUfXi7lCG1BSGFvMLEC2mPJp8VM2aFA7AIFDpPW4OmWftgw+SRCkwKUDzj7u
-	SKwHlKFPKesJJmd07BExcSSWGiX+3lq5wBXX/WfD1sXm1KV07hAmOJIQsIFZZq/FYaLtEi7XrLEv/
-	ObCCQOKsoUCelFS5DFjkvJtGn4mSRw5OVdjAuhRC2lTVAOVTfxfLs7wDTcndq2sFjSbIPhz3UJQDO
-	x10Uk8A9duTekcZW8jfiPOwXmBh5RhnIVTDlJWpDtfExiU18ekEvS07zZMoraLGH9u1WK5qr0pr+w
-	7dtRZPRA==;
+	bh=xowOdYNZOhcyhCEXzvhrEiL5X/b6WWC0XZc6+FmGIfM=; b=AQn7Xo5dbVKtTHvJKdOoPVBGbw
+	w0qURFPu87YcGiqVU8JDytRMCo0ouyXj7r5PMCPMAiFPxotYIiKwWvA1bU+qgqSD686ymCS+KaTEh
+	CHsx+QuAREJEL2JIqKjp+k76+FMgll8l3Evy46+2pCpI17RS066avpGD4auVk6DYrj3Fn8o8tBgJ7
+	cTQP1xgQib1bE5kGCJDrh/JQrgfkdF1edm+vkcJa4z7vDO24PBnPXpPr6GeXp4N2KAauCXZgBjheG
+	wAoxS4iWw3NJt2z4vBaHOWuPf4haL33zHnB00pRxkosI8P37MuZg7s6ZVjuPnz8cxOga4u8BYZzny
+	NuxNhkQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfl4d-00000007hAY-13GS;
-	Tue, 13 Jan 2026 20:33:07 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vflIY-00000007hnB-408G;
+	Tue, 13 Jan 2026 20:47:30 +0000
+Received: from vps.xff.cz ([195.181.215.36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfl4b-00000007h9i-0tLj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 20:33:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wj1fHd+geZFIlNx4J3mi+eAzLETk+bVz7Sr9bEIH06C7Yn6Fgf+5MsjsRkynCL8H5PuyCEaHEK84l8PR4dI3Y/7govi/zGZgivpH6dZTVbB95dPq+AhsJGaFa0Q5mmKgeKNMpNxUJ8V9mZkZeT7QsMZaqOIY/x6prCMHP3RpsbgntGVhH7Wr4gj30VyuimP07KYH330BtHP37mPujwRERkmGj+Q1DH2Q03lauT9OTw9XQTU5ujq84a3E4ThLpGEA0E7hxisTY8m4lY/9Tz+iFuyuRO1IQMvGGtLIuQhPKwJ6l2GRF4KULczmsYHNLdb6pIKw7By3WMU7O9JtXO07Fg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+7ifFpxlZQOlEtFWstJdv5Mm+UZHX31igcQ70DRIcOo=;
- b=wRkPHF5RhXdCw7L58ElFV8mN87ICBFDtLngCGvz+xX34cuEavvmpoiqyJU1ZzX06EwKBPD3N62s8MdmiLVKM5LpDitl6MIgSJ0A6n6m9qh7YYYYt9zH44/CtxsMWuznWzWCV9cl1MJ1KPNaRnOIGpbwPmNtlWyxDUn/5HoR+znzYnwEtAYdZb2m8d1j+XuNpTPfs7gke3L2ELwLTW69vypuSX4+u0qinz1bRCDH1sXZx7atlvI9l02ymO6EA2056I1cP7xz6gYznm4HyEeqXMYNbpk4xl6xZRELj1DlmrGvmCji+O3jimIdfIGfnZqtjqCWJuJKm3HwLMea0jF9J6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+7ifFpxlZQOlEtFWstJdv5Mm+UZHX31igcQ70DRIcOo=;
- b=Dp6eeWreTBrw0XZ1HuQK0618Log4ktY39fREZNLx9UVwhdI3zYP/TQT8yh2zVHS3k2IZF8wmrx/kXA1yGIotfyNuGfZWFaPSAf91gHiMy4k7GBU8v7oTGFAWUmaXuDKhhCdASz4zpVWReO7onswIK8+UVscn9ZgbX3MRxVUo3K0HHV3IoXsVAezW6P1n+X5dwR2xSBZ6l7cwAV20lC8kpHnNZjnEkRzTxdyceC1e5uAmJBaiW8+Fyl+LdaluSzm9jJT3bpjJlzVdBBPB9IWomEb8FkJQ1PQpx966woRTaZOQSu8X+/mXaydj6bwVBWJ69VmyZsJtANcGaoqJkQwb2A==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PA2PR04MB10088.eurprd04.prod.outlook.com (2603:10a6:102:40e::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Tue, 13 Jan
- 2026 20:33:00 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%4]) with mapi id 15.20.9520.005; Tue, 13 Jan 2026
- 20:33:00 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Marco Felsch <m.felsch@pengutronix.de>, Abel Vesa <abelvesa@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>
-CC: "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Primoz Fiser <primoz.fiser@norik.com>
-Subject: RE: [PATCH v3 1/2] clk: imx: fracn-gppll: Add 332.60 MHz Support
-Thread-Topic: [PATCH v3 1/2] clk: imx: fracn-gppll: Add 332.60 MHz Support
-Thread-Index: AQHchJxO90bqp3z/8UK6rgiWhccWdrVQjlGw
-Date: Tue, 13 Jan 2026 20:33:00 +0000
-Message-ID: <PAXPR04MB84593F3DE672EE3BD6733F34888EA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20260113-v6-18-topic-clk-fracn-gppll-v3-0-45da70f43c98@pengutronix.de>
- <20260113-v6-18-topic-clk-fracn-gppll-v3-1-45da70f43c98@pengutronix.de>
-In-Reply-To: <20260113-v6-18-topic-clk-fracn-gppll-v3-1-45da70f43c98@pengutronix.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|PA2PR04MB10088:EE_
-x-ms-office365-filtering-correlation-id: 588beb26-dc0c-4257-1d0e-08de52e2f190
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|19092799006|376014|1800799024|366016|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?ZFd1eWloUHVUYU1WYlZRenl5VlNQUnZqcjRTaC9MRC8yRHBCanorNmZ5REhl?=
- =?utf-8?B?TDNQNHdmUnJCYkplRmxHVStSSDlJblp3a3FoSTc3VGVzR1ZjRE1hZE9hc2hL?=
- =?utf-8?B?WTBHVU1pZDJzQitYbE1vTXI2Ly9PS1VBcGtUNnd0T2JRcFJqVlZIWVVQMTF6?=
- =?utf-8?B?Vk5tMmpVY1B4MmlzL2lMMzFqQ2EwV3pxQS9kaHAyMlVVS24xTlZiYzNaWDdo?=
- =?utf-8?B?ajdjNzNwSUU0WnlpOHNBVkNJK3UrOEI3SWErL0JoOFovT1cyMFhsR3V1MVVF?=
- =?utf-8?B?NlVKTUxodDRZL2wwYy9neWFabmNkQW1NMUV4K01VTERaV3lDRk0wWXdlNE4v?=
- =?utf-8?B?Z1JjYXVKQXhqUnlCZSt0bDB1Nk5RcWFSL2Yzci9JVDRqUGsrZ1lmY1FUVW0v?=
- =?utf-8?B?VUJoamRDZGRaQ1BlVnpZQmNKZ2NxSG94bmVHOGVOR1Y2ZE9HdlhDQitHMEJz?=
- =?utf-8?B?b0lJclFQNXd1ckVOZHpGY2xqN2x4YzdFbFZBTTRmVGNBamVRTlV6cUU3MGR3?=
- =?utf-8?B?WjVIY3RydXdJZUlrampkQmRwSVhheFcrbVhoSlFCNkVuNGoyZEZQMnNxT1ZC?=
- =?utf-8?B?TmNMMDZvUkFOUzlIRmZvaDdQZ1JWNUhJVWdSQ0llKzQ4VC8yNjRIWnJWbk1Z?=
- =?utf-8?B?cDJYdm9CcXp4SmgrUTBtSTZ1bmlvblVjRXBOcEMrZGkyTDA5UXpmQStKY2pp?=
- =?utf-8?B?ZEhzVzBONzMzdDlXL1lxWEtrd0pUNEpNOFBTdFFnTjk5OHh6eXZVVzFYK2FY?=
- =?utf-8?B?c1dHcFpVR1BLejM2SktZVE1DS3RucG8wQU04UVIycTF5Z01ldmZHMVBJc2cv?=
- =?utf-8?B?c0xCdVozVXl3UWo0RDZ0MmovRUw0N3pzZVplL0dqMkxCQVBzeDFWQ3NFSmR5?=
- =?utf-8?B?RGNLNDRJR2MzU214bGZMb1NhdDZETG0yRnVjRit3ZFE2UWorZHEzYVcwRUsx?=
- =?utf-8?B?TUpVMm9HdHVDclJGaXMvU1A1RHJ0M3RuUWlvTEJLK25MQzdKbHFFVVdMc1dk?=
- =?utf-8?B?MGR6Z3gxenFXNWdaaU5GUGlLRTJLN2oxWHlLaHRlNmJaUGFpbFBDVEpPTmll?=
- =?utf-8?B?ODRUM2JiZDVpMFRTa1BnSWVMUGtZRmZBUmcrS3pPS1J6S0JLR2RUK0RZUnBN?=
- =?utf-8?B?U24wSi9KRG8wcTYvanJlM2tUelE1M3AyY0pBYytqSU5QelZTU3BFSXFrMlR6?=
- =?utf-8?B?QmY4bHdEelRCME9QaFZOVExEWGlsc2U0c3BOZ1ZmL2JYR2FXK0FMbDJSOVZs?=
- =?utf-8?B?N0tiTGVtb1hUN0JiUTNjeDNWOHJiUEtTRTl6RmJQNnZmZVJuTGVUNG5wSWdm?=
- =?utf-8?B?RHFJUXpOeld2Z0ZtMDZnWDV2d0tyR3B2RGhNZ3F2VEt1aE13WE9vNzVXNTll?=
- =?utf-8?B?WHRZWXNQbW0yNkVvSmVTSzQ4akd2QStpVUlrekRzMDhvY1Ftb3JGMThYMEJT?=
- =?utf-8?B?c3RpMEJoZWlhTVZ3MjFYL2pXb09UeFAzUlRZUXFZLzMwRElqZ3VoQTR4ck91?=
- =?utf-8?B?WXRPVkJYTW9tTEZtSVc2dnNVcUIxaDBVaWlmanJybzFjak5ZOUdxY294RktE?=
- =?utf-8?B?YjRTM1VKbTBTejFUUjVYblZKMklLdDNsWVBGYVFSYjJ1dHhBbmhHd1o3OWEw?=
- =?utf-8?B?czhnZ2xqRnZwOXM4ZUxocDVlVUJuNTdGNmtUYXhkZllNaXVnVUtGU0dCOWlr?=
- =?utf-8?B?SWd1MVU1TjN3ZGZXQ3pZRmpRWG53cDhaNkpqOUlSZkFoY3FKcUdwMUg1OWQx?=
- =?utf-8?B?N1ZGeHR4dEN6b3BiWVM4VlVMQm1WYnlScjYwdW5DVEs2ME1DNVpvUmJtWS9P?=
- =?utf-8?B?RUowdCtxbjh6cHAzaGVwVEJpSndXOFVnRFhtZC9Qd3Bnb2o2cmdodjlkM1J6?=
- =?utf-8?B?WmlYTzJuV013My9WcGo5eDNsRCtGZmJFdjNqdG1uZTJyc1Q5dUlyTUk1eUZM?=
- =?utf-8?B?cko3Syt5Y0tJWGN4RlpkcmhZSElsV0Rxb2JZQkxuQVZWUUtDZWhIc0cwc2Fr?=
- =?utf-8?B?WmFwRjIzQnp6VVJRVjV0QnNqVUJGNmJRMzZWa1lEeXNsMGZBTDlrdzhMRkR4?=
- =?utf-8?Q?gJspP4?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(19092799006)(376014)(1800799024)(366016)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?aGZ0YmhjaHBkUTN0S2hleTU0bHRscnRkdFhIV0J4eXF6MWdnRk9KR1BpdVFp?=
- =?utf-8?B?MVNDUTFEVmRZbUMrRVNVSTFqamFjUUFMc09Vb3kvNG5vR2hsRkduRW94Nnpl?=
- =?utf-8?B?amRpQzBRejVHV0NYaFU4Q3hRamRXZnY0WFo3TW83YkRSMW5GamZ4a2x3Vmdz?=
- =?utf-8?B?Z21YdHhnVC9EenMzMXRiblJMaHBHUFJuK2RFN0xpZFZyQUZObkNSdENLbWxl?=
- =?utf-8?B?WDhNRC9YRmIvQklzdXg5M2xDTTVxVVRrTkcxSTFYaHI0blBodzFOVExMVVdj?=
- =?utf-8?B?WVdWQmdjaG1PNVVxc25DU2xsWlBpaWlxZUNwZEpNRGlpdWlMM3RmNms2ZWN4?=
- =?utf-8?B?RVdvdkE0Q0g2MnlFS01tUmRZbjRIeUl2dWlwbFRRWW80N2FBTGxHb3VKUllP?=
- =?utf-8?B?Z2RJOXRGbi9zaDhabm9VOUp0NW9RR2J2YytLUW94OTJ1Yis0bmlJQzhLdUtY?=
- =?utf-8?B?T1F3d1l5YkhIZDZGUEFneHBZZDYzQWNIUEtHVmh5YW41SDM2M2ZTZ3lNRDJo?=
- =?utf-8?B?aC9MKzY4ZkFhRncyOTNNbHB1OFNwbUhNazVmeHhKVzZvZFBMZWxKQ2M3V1VE?=
- =?utf-8?B?VCtqbTZKNmJPbThKNDNseU5ENzdTdWY4OU94NFhTR0lNUmpSdzVqb3daVEdq?=
- =?utf-8?B?Z3paQWJZMUlCam54azVCTWl5SWt4blRCOXJGTGhNOW55R0ExQ2pQMWJVRndY?=
- =?utf-8?B?QXplR2tsNWF5R3MzV1NyS1NaZzM3RVIvSTF1VHlCSnpNNCtLWk1OMFp2bDFK?=
- =?utf-8?B?a1BZbCtyNzB2dTFrZzg0aFc2NWo2TC9YVTFHbVhmREp4Vk5BLzYzUzlSWk1x?=
- =?utf-8?B?VVd4NU9NOUUvYXpncmg5RHlGNmJBaGJEUjNEaDdNQVdHc0FaZmVpZ01OTlVI?=
- =?utf-8?B?QmczczFGcFk4b1ROTVAzQ0dIaDg2SlpTa29RWllsT2FtZVhxaHRRNU9LakFR?=
- =?utf-8?B?d0c1dTRzcDd2dDJ1ZHdReHlHYTFvRlFUR29ra2RaSmsvVUV2MGdFN0hKYkY3?=
- =?utf-8?B?NnFzSVE4dHZvN2dUSHBKWUJuQ3ZnWk1PblkrTmRRVnpTUlowWnFPRmJQL1Z0?=
- =?utf-8?B?UCtqYjZBVUw3Um5JVktwMTdFbmI0UFNFUmJnc0JLNVAzTk9zWDRzenBxK3I5?=
- =?utf-8?B?d254L0xlZ2RBZWZzZEc3SmRjcU5kamZDcW9pVGRaSThJeWVFOTlwZmxrcGdp?=
- =?utf-8?B?aDZjbzBZUGJ4czVrS1Rub3BadFlWVEFCdEM4QkRLV2V2TytpVU1IWWhhZEsr?=
- =?utf-8?B?WG9qNmZKK1JPWTI2UG11OUpDMHpHVDBueVdyaXF3SCtyTHpLV0NBNExVbjRW?=
- =?utf-8?B?Skh5OFJyTURBMXp6eHRKdHQzblNMYjJWd1hQU05jKzRaUkJtV2xlcENKeUE5?=
- =?utf-8?B?bnp5SzB2ZmMvY254b3Rmc1A4ejVDMEE4R1FWcXFSMVA5ZmtXY1JzbVJjZGl6?=
- =?utf-8?B?QzkvSFFjY0RuVU9IbCtmUWI3ZjJQTGlkeU8xdldiaHY0VFlRRFFQNitldlpF?=
- =?utf-8?B?K2dmeE95UUVHcmFNYTlPcGZvVjZqdEc2bjdETkhyajVsTEFQWTIrTUdUSWNC?=
- =?utf-8?B?cmU5RzJGUmk4OGx5QVVJM0ZXeVE4Mm5xU1VLdVZPTmNidjhLVXpHS0ZrbEpx?=
- =?utf-8?B?ZlJvdE0vaTlEc1EwRFhZalN3enowZWRIOWlhSVVraWRxcFp6dm1lZmNiQ2RL?=
- =?utf-8?B?NlNrZjQzaWtHT3JPMjlVenIvUkl4NXNuRTQrMWV1VXJtaGRsbW85TS9EUWxp?=
- =?utf-8?B?S2lYR056Q3QvMGdDWkFDT3BsZVRPbXZpdXNZQ2ExUGdzLzBNbGxHWDNTRko5?=
- =?utf-8?B?UExjbDljdXczaFJxbEYyVEU0eTUwcEY5OFMvVS8yTGlJOHZHZVJtRnhBZnl3?=
- =?utf-8?B?RHAxYzZjNFBOcHd2RFNrWVVxZmhsbExmdUpxQXY1dER4OWtva3V1UW1XVVB4?=
- =?utf-8?B?bGIvREgyRzkvVTVMbzcwODlHV3FMK1RmSlBWK2MrS1N3ZG04dFp3OGNpbVZS?=
- =?utf-8?B?Zm5xU0V4K09mWXUzRUJqNWFHVTYvcjc2U0s5Njk3VzdSK0RBaWJLeXQ2K3la?=
- =?utf-8?B?UVVWOTR6LzZIUGNaR3F6bGpjeGlqNFdCTDdOaG5GZlFXZjZONXlHOFJHRkY5?=
- =?utf-8?B?eFQraUdaalJndUdJbklUb2VIOTNvNFdzdXh4emVkT3RISmFOenIxRHN0bXhN?=
- =?utf-8?B?MTJycFR3TkIwQ2tvaVpTTG45c3ZMUnVrSmgzOTAwR0d0SVpGZFd3QmR2ZUhO?=
- =?utf-8?B?bzYrZlhwQVJpd2ZyekpBaFk2Q1k5TWFoSUkrb1RFUng0T0tLQStXMkVmVGJv?=
- =?utf-8?Q?ekr4K6sKmcIcvAyhmF?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	id 1vflIW-00000007hml-0IAW;
+	Tue, 13 Jan 2026 20:47:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
+	t=1768337245; bh=hWrZZunWsipzcghZEAhCAL3jHCIwP3xLLsKe63y96aw=;
+	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
+	b=q4zE4dhNymRMRVwEENUGImW2GppYGQLpzE7No0RPawTtNhaG3Srv/ap3p3vSZd+4o
+	 /qCWZE0OAQnzxi9hsg6z0pfwIZ01oImCDR+Y6wWCbFJnloMxINicKyXF04Oir0pvwR
+	 e7JT1/IIBm95ogLzn4UgziDNf4rKn32ZxptWU850=
+Date: Tue, 13 Jan 2026 21:47:25 +0100
+From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
+To: guptarud@gmail.com
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Lee Jones <lee@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Martijn Braam <martijn@brixit.nl>, Kamil =?utf-8?Q?Trzci=C5=84ski?= <ayufan@ayufan.eu>, 
+	Danct12 <danct12@disroot.org>
+Subject: Re: [PATCH 1/3] arm64: dts: rockchip: Add modem to the Pinephone Pro
+Message-ID: <ngikrgfwonxbgim2cp3xiqbahgxhsmsaou6lblcbna7wrb6wdr@djb46eqys7tx>
+Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
+	guptarud@gmail.com, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Lee Jones <lee@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Martijn Braam <martijn@brixit.nl>, Kamil =?utf-8?Q?Trzci=C5=84ski?= <ayufan@ayufan.eu>, 
+	Danct12 <danct12@disroot.org>
+X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
+ <https://xff.cz/key.txt>
+References: <20260112-ppp_connectivity-v1-0-284d6e83b212@gmail.com>
+ <20260112-ppp_connectivity-v1-1-284d6e83b212@gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 588beb26-dc0c-4257-1d0e-08de52e2f190
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Jan 2026 20:33:00.1726
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: N6JG1d/ftfOBcJQdCZPtohxtozFsn/l5D2/Adcgo4C5wEsF8Ru2hVjR7t9ZiWSy+YB80sLJ2NmkIniwXJNw9VQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10088
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260112-ppp_connectivity-v1-1-284d6e83b212@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_123305_255423_9F7B7A4F 
-X-CRM114-Status: UNSURE (   8.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260113_124728_379042_EB6BEC72 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,11 +76,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBTdWJqZWN0OiBbUEFUQ0ggdjMgMS8yXSBjbGs6IGlteDogZnJhY24tZ3BwbGw6IEFkZCAzMzIu
-NjAgTUh6IFN1cHBvcnQNCj4gDQo+IFNvbWUgcGFyYWxsZWwgcGFuZWxzIGhhdmUgYSBwaXhlbGNs
-ayBvZiAzMy4yNjAgTUh6LiBBZGQgc3VwcG9ydCBmb3INCj4gMzMyLjYwIE1IeiBzbyBhIGJ5IDEw
-IGRpdmlkZXIgY2FuIGJlIHVzZWQgdG8gZGVyaXZlIHRoZSBleGFjdCBwaXhlbGNsay4NCj4gDQo+
-IFJldmlld2VkLWJ5OiBQcmltb3ogRmlzZXIgPHByaW1vei5maXNlckBub3Jpay5jb20+DQo+IFNp
-Z25lZC1vZmYtYnk6IE1hcmNvIEZlbHNjaCA8bS5mZWxzY2hAcGVuZ3V0cm9uaXguZGU+DQoNClJl
-dmlld2VkLWJ5OiBQZW5nIEZhbiA8cGVuZy5mYW5AbnhwLmNvbT4NCg==
+Hello Rudraksha,
+
+On Mon, Jan 12, 2026 at 10:42:24PM -0800, Rudraksha Gupta via B4 Relay wrote:
+> From: Rudraksha Gupta <guptarud@gmail.com>
+> 
+> This adds the Quectel EG25-G modem to the Pinephone Pro.
+> 
+> Co-developed-by: Martijn Braam <martijn@brixit.nl>
+> Signed-off-by: Martijn Braam <martijn@brixit.nl>
+> Co-developed-by: Kamil Trzciński <ayufan@ayufan.eu>
+> Signed-off-by: Kamil Trzciński <ayufan@ayufan.eu>
+> Co-developed-by: Ondrej Jirman <megi@xff.cz>
+> Signed-off-by: Ondrej Jirman <megi@xff.cz>
+> Co-developed-by: Danct12 <danct12@disroot.org>
+> Signed-off-by: Danct12 <danct12@disroot.org>
+> Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
+> ---
+>  .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 83 ++++++++++++++++++++++
+>  1 file changed, 83 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> index 6b35f59cd58e..97d0bf455258 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> @@ -97,6 +97,46 @@ multi-led {
+>  		leds = <&led_red>, <&led_green>, <&led_blue>;
+>  	};
+>  
+> +	vcc_4g_5v: regulator-vcc-4g-5v {
+> +		compatible = "regulator-fixed";
+> +		enable-active-high;
+> +		gpio = <&gpio1 RK_PC7 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&vcc_4g_5v_en>;
+> +		regulator-name = "vcc_4g_5v";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		vin-supply = <&vcc5v0_sys>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	vcc_4g: regulator-vcc-4g {
+> +		compatible = "regulator-fixed";
+> +		enable-active-high;
+> +		gpio = <&gpio4 RK_PC7 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&vcc_4g_en>;
+> +		regulator-name = "vcc_4g";
+> +		regulator-min-microvolt = <3800000>;
+> +		regulator-max-microvolt = <3800000>;
+> +		vin-supply = <&vcc_sys>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	vcc5v0_sys: regulator-vcc5v0-host {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc5v0_sys";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		vin-supply = <&boost_otg>;
+> +
+> +		regulator-state-mem {
+> +			regulator-on-in-suspend;
+> +		};
+
+This does nothing for regulator-fixed. And in any case, there's no such
+regulator in the schematic. vcc5v0_sys is just alias for boost output from
+RK818.
+
+See: https://xff.cz/dl/tmp/0864afaf8d21b1a5.png
+
+So you can remove this completely and just add vcc5v0_sys alias to DCDC_BOOST.
+
+Best regards,
+	o.
+
+> +	};
+> +
+>  	vcc_sys: regulator-vcc-sys {
+>  		compatible = "regulator-fixed";
+>  		regulator-name = "vcc_sys";
+> @@ -274,6 +314,17 @@ rk818: pmic@1c {
+>  		vcc9-supply = <&vcc3v3_sys>;
+>  
+>  		regulators {
+> +			boost_otg: DCDC_BOOST {
+> +				regulator-name = "boost_otg";
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <5000000>;
+> +				regulator-max-microvolt = <5000000>;
+> +				regulator-state-mem {
+> +					regulator-on-in-suspend;
+> +				};
+> +			};
+> +
+>  			vdd_cpu_l: DCDC_REG1 {
+>  				regulator-name = "vdd_cpu_l";
+>  				regulator-always-on;
+> @@ -702,6 +753,16 @@ blue_led_pin: blue-led-pin {
+>  		};
+>  	};
+>  
+> +	modem {
+> +		vcc_4g_5v_en: vcc-4g-5v-en-pin {
+> +			rockchip,pins = <1 RK_PC7 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +
+> +		vcc_4g_en: vcc-4g-en-pin {
+> +			rockchip,pins = <4 RK_PC7 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +
+>  	pmic {
+>  		pmic_int_l: pmic-int-l {
+>  			rockchip,pins = <1 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>;
+> @@ -827,6 +888,16 @@ &tsadc {
+>  	status = "okay";
+>  };
+>  
+> +
+> +&u2phy1 {
+> +	status = "okay";
+> +};
+> +
+> +&u2phy1_host {
+> +	status = "okay";
+> +	phy-supply = <&vcc5v0_sys>;
+> +};
+> +
+>  &uart0 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&uart0_xfer &uart0_cts &uart0_rts>;
+> @@ -852,6 +923,18 @@ &uart2 {
+>  	status = "okay";
+>  };
+>  
+> +&uart3 {
+> +	status = "okay";
+> +};
+> +
+> +&usb_host1_ehci {
+> +	status = "okay";
+> +};
+> +
+> +&usb_host1_ohci {
+> +	status = "okay";
+> +};
+> +
+>  &vopb {
+>  	status = "okay";
+>  	assigned-clocks = <&cru DCLK_VOP0_DIV>, <&cru DCLK_VOP0>,
+> 
+> -- 
+> 2.52.0
+> 
+> 
 
