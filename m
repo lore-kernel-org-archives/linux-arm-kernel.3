@@ -4,89 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4128DD29DEF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 09:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65725D29DEF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 09:07:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ku3/2XB5ppEbZ4a3ARvYq0a2iffzQaZX2Su0UwOg8z8=; b=TS4HoYtvk7SpRmr5G9YuhBVjO4
-	M3vsHV7Naaayuw/7aF+594LkK6exCLP+rEPAkIwMlvgAQ8Ud0TwBA6vMyT4xiigCeWL2PDy4TXobG
-	uqTn3JuKw8JXYKRLB9zNexg+VtfVU8i3jfRZf1RWNLN0OhCGtgHAHGo3qPd/xsDzVsNWxhMQqYSCS
-	AhHdalav1yFWS9TPVTza16nPVHlcc2UJ9zZZGDYIKjZSSF0k5yGmOwimuGh61Qg5IqRdZr5ORNTWt
-	ehtVb1CYkWQtXIBYhRiAA6Jhl11ANodhOxMO2oV7RfzvYaaHB4a0OOBkYtHX7/oTt2EA/w9e/Q2JK
-	U41MkYYg==;
+	bh=/i3Juaj0N8yH4MFpXlG+cGqZ2qEdPdNcnpSqQBlYTGU=; b=uCu0MaIU12S43gHVj70HMWImiu
+	N1HB2iUKjNN780B7MAVcM+DLBUANU13WP59MN6C5sbVxpZuvipbQEveboR+MCAEyzS1DCyZihyrDi
+	P7IE7g3OCvSL4iHRtmW7mri/HG4GHwvUdzDK1tL07tOKY1/jjonjUlJRidNk6HsjcKzR95wYw1HZI
+	SEuCqYJYWnnS/wwM/pfExOV5QfQWYppH6/KYvmeJSeJ8W4RbmQwTrkxbW4w6cIpAWbVWA7zEF25u8
+	rIUGRSurmLvpdsybxax8LAgTku51L1CAp97h8oIUlQp7Np0MzUNipIkMPRDXyWn/BCF3jA5ohGdJs
+	dTw/ICGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfaMO-00000006nZ0-3OKA;
-	Tue, 13 Jan 2026 09:06:44 +0000
-Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
+	id 1vfaMx-00000006neR-0X6e;
+	Tue, 13 Jan 2026 09:07:19 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfaML-00000006nYN-3Som
+	id 1vfaMt-00000006ndX-11Th
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 09:06:42 +0000
-Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-1205a8718afso8171031c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 01:06:41 -0800 (PST)
+	Tue, 13 Jan 2026 09:07:16 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-59b710d46ceso6294282e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 01:07:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768295201; x=1768900001; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1768295232; x=1768900032; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ku3/2XB5ppEbZ4a3ARvYq0a2iffzQaZX2Su0UwOg8z8=;
-        b=WBRTQKMlHrDHiWXA//3QGj4idUjg5p2AXJL4Z1HlUjx3YZCclwHHXw2vvA4P5uC+dK
-         EWE1BU/kVS52G93P6DJkj7H5bHiAuDLSvddxgTV1iy4gn2MJxv67IQl+5YGDijC79/4r
-         j5m9KDrnLZcFVOxMgxbC/Kj12x0PVri2A+aNrz5X2f9cvuqaDkASY3eVN0xJC+bfV8BC
-         FwlTJIgxj6fkjt9Y3bHctrVNhLHOoxuKlWaDrh5i1Xewmp1fbd6XA2tYjVrTEhPBR6mM
-         qN09gj3V1QRpXJNv1wsW+6O7kobrvR8eAPL6hVgqCg3H2BY3Sn+ASLKyQEupv6eIrNwj
-         pZTw==
+        bh=/i3Juaj0N8yH4MFpXlG+cGqZ2qEdPdNcnpSqQBlYTGU=;
+        b=GdjdKD8GJ0+xLLmEPWVOIP+1B9o9jn4hG7pSryYJL5g/KXk/3N6Nx47XsZDo8JRHGE
+         J8V+Go6PRbz0zZ/12hFCc7uiaRlw4OcgY8heSlRln1eC06SNMmYil2IWzoLNI/2+sLtZ
+         XBrO3XC9ILrJhNrSMaLnNMPdEiLO/XwxggKkujH+hx+9ZpnaK6mZLiEATdrzkv8JR9rG
+         m1aKP+NbKLDhYNcz14iz72rzDTA/scvvtT3MbwOi15UP4bnYZ302P6FJWIaSN/Df2IiL
+         9b51m1Lkw5OTlXg0c+f6IsKflwKgglHohGXybCzffkNiL0MHH/n4vN50YknJWUjI4RPZ
+         7Yvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768295201; x=1768900001;
+        d=1e100.net; s=20230601; t=1768295232; x=1768900032;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=ku3/2XB5ppEbZ4a3ARvYq0a2iffzQaZX2Su0UwOg8z8=;
-        b=U19tiGUJEXoAC5t3vIcsgbqpD0rZIY4fywf1wXnSmqSUIVN7YX1SK6roatchTU311A
-         YS6bcBAReQ4bUUF5rtjmdMf2qT3qZdzg7OnWAm+9ifmZ7askHUCo859t4HUTYY04MdHF
-         psfnstPdtzdgABGbByHIPRxxzOItPd0y8LmLY3quWFrDwstQayTPd/f7fgSiihKJEU5f
-         YeCiLoAYaEtHiTBxnKVyH314yPqeSxPi3e3/37r5by9Cy2/ZFW71mXypuZS7MFz/aDCW
-         hH6bqndoph2ZCAwD7bWbOwZPj8Iu/NcfxU8OHJ4/EA4IbawPSiaMt1SIeqD3uKF/Wl1D
-         +jiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUxI+hYAkCtPcQ96Gk8uuu6EtnLJlDF3nnBllaCqulpalhqxdUyT++sztzhopj331jVVRw1wpmXa7TSMrb2wM54@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9WFd6+PdGdWHmPKiXBPweZLudEpnoLLEXO7eD2Kcc3N+ofthG
-	IMnyRBsas4o8VdHfzhBUWudyTmm0hnjsI40KrtJ9Gxm5CN8LRqzW02g6au2ZPjEDT/M1xJLsWN6
-	bVF1xvyaHGjWqUTywSqOciblmJcYgpE0=
-X-Gm-Gg: AY/fxX75iL5psTu/xrEdbicF2nRQhD1gYknW0n3uxc/cGApJ1MfnNPwu/22lWJ9Oyj3
-	2nOPdUNqjQQTI0hw9u9JNW1SJ5jVqoaLvSgDW0fcdL2E8qf7+/Gj7fVo0CFZFwHbSpVO65gE0h/
-	OR3nvjH0QKDqo9PB8X4Xj6q22bwl1EzI7i8FP0piCG+GDYNKYdnVA1mia0hEpv80Ale1Qfq6ajo
-	k0AWOxFRg+EvbfQgYtSTnGoSE7XyEeUaqla8InYNKQqewb0qTJZTszW98UOWtvk41XnO0Y228TF
-	f9RaZl4lbAs+1H4EFmksBJ+pnYZKTW+7QUHFOxq7RALkuEyR2ZCMe8VfLK6YGKfWz4Y8NzfgnQ+
-	NW3rQ4U2/OA==
-X-Google-Smtp-Source: AGHT+IGzTPihgLRH2WBSYhy3b/sb1A6ZhRnma1ayeDv2Wq7sn2KRkoB8Yp4DAlFqBtKyiGczbVqArPyWwnXGFSHFKGE=
-X-Received: by 2002:a05:7022:2388:b0:11b:b622:cad9 with SMTP id
- a92af1059eb24-121f8b2f64dmr21239052c88.21.1768295200627; Tue, 13 Jan 2026
- 01:06:40 -0800 (PST)
+        bh=/i3Juaj0N8yH4MFpXlG+cGqZ2qEdPdNcnpSqQBlYTGU=;
+        b=g1uwpvknBBJ1ZCRDu/6wZEmm15Qlyw1SGMhLLdJCzl17OoI9qTcZjtfavxS/XVobcn
+         DdouY8oHVin7lTrigpwO1Wtz7sKLSpfbOKYwhdLbNk8kd6kGOTYtcMKJZd6iXkftCKZ1
+         dUI55A16PN41n9sKfTY1jaKoVo+mEL+wriQAPxJBw7LlBjFawTSLzANLK7WA+GRSoJ5p
+         vBmmOCnExnDsxAirKOSDel4Zft3vIrHmPSFEUf/K/5Mqh52J1rewx9qTM45+zkl5yvWU
+         mnlwtwgfoD3XbTlWmEBAt9Jggeede4+272v4qKGhsJ3T0Ehp2ar7k3SwUp2drUgu+sMx
+         ESew==
+X-Forwarded-Encrypted: i=1; AJvYcCVdcpP0wz/gbdSxT3efMYVQdcJpMGQVRu3VX97SDRTxwi52yzqR1yD5JCJ4cMc/eEir0kA5fIgRJIlSuNs32qdQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXFQ7o144CP89d9lAgHfdn5Qa2AhcAjcOhldIKl3wLt/ObXYQe
+	niuIQtlL3IbB5U58IBNi+lvA9E9VaPWbPMk8bgNS4RWVq75k84FZS1IZ5fNO4oKb7XMxOm2YKDJ
+	zhfs6YJJAKANeNEOR0ct78Gpe5AqkKH3/kD1IZNVbsA==
+X-Gm-Gg: AY/fxX6lA93vnDKbSvM81P5G93f2vHe9GvXIol9L35ZC+8cRyrMVatJPqF0QJFHqfiZ
+	soCmG9/QtDo5IPleUHqAD+92a4CPqN2nTg+o7wuUQixb7aKUCHH9OJfzu8KncuQDOZQZGGinNBI
+	C+8c7/AFAnZp7py0bie9rVZqU7GA/eLC8fD7Cm6EKSko9LcY+QvxP349seT9bXC/qW1c3cqpNXE
+	vV7F26RddK+X+KSIhdBPP2Z968zf2BmwnpRnaFLozvS0GDhPDf1Wnxq5gW50+f/WU8nYsK0ETwx
+	oOoOqZ3q/rEk76aq05fXI98HEIye
+X-Google-Smtp-Source: AGHT+IGftEHtLClyb69mOyaEsN3lAH2/jF+5CBMjP/ZmjjcqXy+C8GOSWAl6T7IxwZIVnFTBz/aNdum5oAdTU7TVZB0=
+X-Received: by 2002:a05:6512:3041:b0:595:9152:b932 with SMTP id
+ 2adb3069b0e04-59b6f03e5a9mr7195718e87.47.1768295232445; Tue, 13 Jan 2026
+ 01:07:12 -0800 (PST)
 MIME-Version: 1.0
-References: <20260111-imx952-dts-v2-v2-0-5773fa57e89e@nxp.com> <20260111-imx952-dts-v2-v2-8-5773fa57e89e@nxp.com>
-In-Reply-To: <20260111-imx952-dts-v2-v2-8-5773fa57e89e@nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Tue, 13 Jan 2026 11:09:10 +0200
-X-Gm-Features: AZwV_QhyiXCNvj2q962FdbsX8qNV8prAt-LhktWDFPDefQTkJuEkybRoDjuKNBw
-Message-ID: <CAEnQRZBvuM608DoKSGVbjh_zV9GE_8BOr6Bv+otKkV=uCRoFmw@mail.gmail.com>
-Subject: Re: [PATCH v2 08/10] arm64: dts: imx952-evk: Enable TPM[3,6]
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Peng Fan <peng.fan@nxp.com>
+References: <20251105152023.259813-1-marco.crivellari@suse.com>
+In-Reply-To: <20251105152023.259813-1-marco.crivellari@suse.com>
+From: Marco Crivellari <marco.crivellari@suse.com>
+Date: Tue, 13 Jan 2026 10:07:01 +0100
+X-Gm-Features: AZwV_QhM0_519Wp7eCusKGLkLbDhbtlDLW63gw69Hikozl3LItms4ZWAJbUiCUI
+Message-ID: <CAAofZF423Fmsxb4c+J5q4Nf4t6YO+=-SBjna+7TvqJ=C1K0DYQ@mail.gmail.com>
+Subject: Re: [PATCH] phy: sun4i-usb: replace use of system_wq with system_percpu_wq
+To: linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Cc: Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>, 
+	Frederic Weisbecker <frederic@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+	Michal Hocko <mhocko@suse.com>, Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_010641_863717_50BE35D4 
-X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-CacheID: sfid-20260113_010715_277172_D640994B 
+X-CRM114-Status: UNSURE (   8.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,14 +101,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 11, 2026 at 2:54=E2=80=AFPM Peng Fan (OSS) <peng.fan@oss.nxp.co=
-m> wrote:
->
-> From: Peng Fan <peng.fan@nxp.com>
->
-> Enable TPM[3,6] for PWM.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+On Wed, Nov 5, 2025 at 4:20=E2=80=AFPM Marco Crivellari
+<marco.crivellari@suse.com> wrote:
+> [...]
+>  drivers/phy/allwinner/phy-sun4i-usb.c | 14 +++++++-------
+>  1 file changed, 7 insertions(+), 7 deletions(-)
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+
+Gentle ping.
+
+Thanks!
+
+--=20
+
+Marco Crivellari
+
+L3 Support Engineer
 
