@@ -4,89 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EB86D29DC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 03:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEFDBD29DC7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 03:43:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fVv62MZUrZPdRFByK56slRI8ijRLRgG7rdwfmDV8pAQ=; b=EMsClmYqQCm9YJUhZts8pCcYOP
-	9qMJOrd+u+r26XUy74D94LAWLg5TfHaZ1Pu3Pc1TceNXCUHV0J23Ng6ZrEvEW1Mz1RCa5adB01obS
-	EP3Uk5woJ2oDgFvzJS65hkTI6LOSjLBPjKBA8/4Kuu9vA+V40u5/mmp3zB0tyNtxRa/3w+cQi9rf/
-	S2Lya/IEk4rBNO5YxeniFPnaYaZOUdbVU3PhCbfcEOroROyueQqDTGuFMRzUmk3+nEMIXju3lBZdO
-	8EYYirR4Y4X1mtnwuENCn1r602a/t3D/p6Nl4yKiPPuVoz03IqEim7a9tY5Uood+VHEUtBzwtB9kn
-	4bV6ZNDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RTQ9rBgXvnLZbdYeclfLelJ6PTy/ZWKWA7gn9pJHCdk=; b=KvnRiAvInrYeCJfVLl8B9au0OQ
+	5Hpo4zuWTsCTqMIYvFwYcOI9zutEVdLcrZnOIGt2fuD46UYG15aFYrf0b/5IG+F52oAdPmdWlj/Sf
+	pSrk2sUTEm9m6P8Be587o0KUICEqa6mzHi4Q3HyGjDjMPMAaGNaNoYlEnX9B1QLipmJj38LWKN4Uq
+	mONtVB0X8N0k6zS90MKBvkOtcAzmZep34GREWEzRvEdeC2x7ta8kkjUxS0M/Dr6qiqYi2nSxPRpf7
+	JFXkPPVynRwpsu3nTHLY4BZTyttZYbveRxETzMOCJKH+x6H9Y6+i9ldA/g9bXGUKWqEzeb0AE57wH
+	sctqnvrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfVIp-00000006Uus-093Z;
-	Tue, 13 Jan 2026 03:42:43 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1vfVJo-00000006V4x-3q1z;
+	Tue, 13 Jan 2026 03:43:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfVIl-00000006Uu6-0uvc
+	id 1vfVJn-00000006V4a-2oE5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 03:42:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768275759; x=1799811759;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=wRx+TNLJBbL2ubl8LIvhEos4LxCfMOOdQi3XJl6jDyE=;
-  b=mePDu0JAe8NxouW206yBW2Z8KhgkyES7Dav+pb3l0uoHlK5A1iAnzYf/
-   6uDyUP1go7glL5mqi61wbTDcmChaYfQut+Nde5SB2YostLeEX2pWg4GXt
-   +9nCsVfuwROYcY2z0T96xSSmJqn5Bo+pU5thluXGOmaE38gsEXZempqkQ
-   BVjjfXp0F6GmulHx99/O/8b4eIf1+7gJXHs2a4fTJSL5KWR03ezgY67of
-   vzPEI9o2QEYoB2AqvPz0WatmwvPjU5g3piqnvieOrUu4dOmTXNudPrXTi
-   Q6r+UdMrF7Y67+MU2JbHu/ojcVe+wLyQH4aAzgfD8OENeHXDjzQy909yA
-   g==;
-X-CSE-ConnectionGUID: kZF/9YjCS9W+QxXKz9W8Uw==
-X-CSE-MsgGUID: R2fD5bIkQ7+eN5bMtI0Ddg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11669"; a="81009560"
-X-IronPort-AV: E=Sophos;i="6.21,222,1763452800"; 
-   d="scan'208";a="81009560"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jan 2026 19:42:39 -0800
-X-CSE-ConnectionGUID: Dp9NJNqyRymYSYWocfCcrQ==
-X-CSE-MsgGUID: jSeE+nXDRt2HMQrAxmYNXQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,222,1763452800"; 
-   d="scan'208";a="209098823"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 12 Jan 2026 19:42:34 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vfVIe-00000000EB2-1gwZ;
-	Tue, 13 Jan 2026 03:42:32 +0000
-Date: Tue, 13 Jan 2026 11:41:52 +0800
-From: kernel test robot <lkp@intel.com>
-To: Cyrille Pitchen <cyrille.pitchen@microchip.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Russell King <linux@armlinux.org.uk>
-Cc: oe-kbuild-all@lists.linux.dev, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Cyrille Pitchen <cyrille.pitchen@microchip.com>
-Subject: Re: [PATCH v4 2/5] drm/microchip: add a driver for the Microchip
- GFX2D GPU
-Message-ID: <202601131146.aeqDjJy1-lkp@intel.com>
-References: <20260112-cpitchen-mainline_gfx2d-v4-2-f210041ad343@microchip.com>
+	Tue, 13 Jan 2026 03:43:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4EDBC60055;
+	Tue, 13 Jan 2026 03:43:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02D9CC16AAE;
+	Tue, 13 Jan 2026 03:43:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768275822;
+	bh=1x0HV4CNdWNSF88xgwpmrzDRD5SQUGzjfVFk6VnyTH4=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=oae5OM2XV2Fs0m81Zf2oWR3PoGCMRnlvt4bkQwoXeyFUrfdKKjJwhmvCU1dg3EUpf
+	 /uGiWbthMfLHmkHWEEA6773EQOJG58wsrWLvmzE/dBM7wfh9UiQuVe3NjGIqzcs+Xz
+	 M+ExGVgbhDhIKWag221NXTrLaKROj/J9+/qh3XRGqjgZeEiI2k7GTPGI8aBNMPV+zl
+	 IUM1FI8a/k7q/VruSlUdb9cHWmLzlAU7IFg3+R5UvZtjEAQ8ElTcZvez9EVVSdI9T3
+	 WPWwseXUp6Y0x+NSl0QoC0/zZbZ6kGVDr1OO29M8Dd8KF0viRRvuPKqbYF0qs9fP+U
+	 KMsafm3RZOPxw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F2A37380CFE5;
+	Tue, 13 Jan 2026 03:40:16 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260112-cpitchen-mainline_gfx2d-v4-2-f210041ad343@microchip.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_194239_308496_E5A43AC5 
-X-CRM114-Status: GOOD (  13.35  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/5] net: stmmac: pcs: clean up pcs interrupt
+ handling
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176827561577.1661897.15750852366703896309.git-patchwork-notify@kernel.org>
+Date: Tue, 13 Jan 2026 03:40:15 +0000
+References: <aWOiOfDQkMXDwtPp@shell.armlinux.org.uk>
+In-Reply-To: <aWOiOfDQkMXDwtPp@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
+ netdev@vger.kernel.org, pabeni@redhat.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,77 +75,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cyrille,
+Hello:
 
-kernel test robot noticed the following build errors:
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-[auto build test ERROR on 38feb171b3f92d77e8061fafb5ddfffc2c13b672]
+On Sun, 11 Jan 2026 13:14:33 +0000 you wrote:
+> Hi,
+> 
+> Clean up the stmmac PCS interrupt handling:
+> 
+> - Avoid promotion to unsigned long from unsigned int by defining PCS
+>   register bits/fields using u32 macros.
+> - Pass struct stmmac_priv into the host_irq_status MAC core method.
+> - Move the existing PCS interrupt handler (dwmac_pcs_isr) into
+>   stmmac_pcs.c, change it's arguments, use dev_info() rather than
+>   pr_info()
+> - arrange to call phylink_pcs_change() on link state changes.
+> 
+> [...]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Cyrille-Pitchen/dt-bindings-gpu-add-bindings-for-the-Microchip-GFX2D-GPU/20260112-192254
-base:   38feb171b3f92d77e8061fafb5ddfffc2c13b672
-patch link:    https://lore.kernel.org/r/20260112-cpitchen-mainline_gfx2d-v4-2-f210041ad343%40microchip.com
-patch subject: [PATCH v4 2/5] drm/microchip: add a driver for the Microchip GFX2D GPU
-config: arm-allyesconfig (https://download.01.org/0day-ci/archive/20260113/202601131146.aeqDjJy1-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260113/202601131146.aeqDjJy1-lkp@intel.com/reproduce)
+Here is the summary with links:
+  - [net-next,1/5] net: stmmac: use BIT_U32() and GENMASK_U32() for PCS registers
+    https://git.kernel.org/netdev/net-next/c/a2745a99ca4e
+  - [net-next,2/5] net: stmmac: move and rename dwmac_pcs_isr()
+    https://git.kernel.org/netdev/net-next/c/879070eb4cf7
+  - [net-next,3/5] net: stmmac: pass struct stmmac_priv to host_irq_status() method
+    https://git.kernel.org/netdev/net-next/c/aa9061269215
+  - [net-next,4/5] net: stmmac: change arguments to PCS handler and use dev_info()
+    https://git.kernel.org/netdev/net-next/c/52f37fd9f4dc
+  - [net-next,5/5] net: stmmac: report PCS link changes to phylink
+    https://git.kernel.org/netdev/net-next/c/ce24299b5b77
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601131146.aeqDjJy1-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/gpu/drm/microchip/mchp_gfx2d_cmd.c: In function 'mchp_gfx2d_enable_exend':
->> drivers/gpu/drm/microchip/mchp_gfx2d_cmd.c:44:9: error: implicit declaration of function 'drm_dbg'; did you mean 'dev_dbg'? [-Wimplicit-function-declaration]
-      44 |         drm_dbg(&priv->drm, "enable EXEND interrupt\n");
-         |         ^~~~~~~
-         |         dev_dbg
---
->> drivers/gpu/drm/microchip/mchp_gfx2d_drv.c:61:10: error: 'const struct drm_driver' has no member named 'date'
-      61 |         .date = "20240716",
-         |          ^~~~
->> drivers/gpu/drm/microchip/mchp_gfx2d_drv.c:61:17: error: initialization of 'unsigned int' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
-      61 |         .date = "20240716",
-         |                 ^~~~~~~~~~
-   drivers/gpu/drm/microchip/mchp_gfx2d_drv.c:61:17: note: (near initialization for 'mchp_gfx2d_drm_driver.driver_features')
-   drivers/gpu/drm/microchip/mchp_gfx2d_drv.c:62:28: warning: initialized field overwritten [-Woverride-init]
-      62 |         .driver_features = DRIVER_GEM | DRIVER_RENDER,
-         |                            ^~~~~~~~~~
-   drivers/gpu/drm/microchip/mchp_gfx2d_drv.c:62:28: note: (near initialization for 'mchp_gfx2d_drm_driver.driver_features')
-   drivers/gpu/drm/microchip/mchp_gfx2d_drv.c: In function 'mchp_gfx2d_thread':
->> drivers/gpu/drm/microchip/mchp_gfx2d_drv.c:98:9: error: implicit declaration of function 'drm_dbg'; did you mean 'dev_dbg'? [-Wimplicit-function-declaration]
-      98 |         drm_dbg(&priv->drm, "enter IRQ thread\n");
-         |         ^~~~~~~
-         |         dev_dbg
-   drivers/gpu/drm/microchip/mchp_gfx2d_drv.c: At top level:
->> drivers/gpu/drm/microchip/mchp_gfx2d_drv.c:344:10: error: 'struct platform_driver' has no member named 'remove_new'; did you mean 'remove'?
-     344 |         .remove_new = mchp_gfx2d_remove,
-         |          ^~~~~~~~~~
-         |          remove
---
-   drivers/gpu/drm/microchip/mchp_gfx2d_gem.c: In function 'mchp_gfx2d_gem_create':
->> drivers/gpu/drm/microchip/mchp_gfx2d_gem.c:127:17: error: implicit declaration of function 'drm_dbg'; did you mean 'dev_dbg'? [-Wimplicit-function-declaration]
-     127 |                 drm_dbg(dev, "failed to allocate buffer with size %zu\n", size);
-         |                 ^~~~~~~
-         |                 dev_dbg
-   drivers/gpu/drm/microchip/mchp_gfx2d_gem.c: In function 'mchp_gfx2d_gem_prime_import_sg_table':
->> drivers/gpu/drm/microchip/mchp_gfx2d_gem.c:201:9: error: implicit declaration of function 'drm_dbg_prime' [-Wimplicit-function-declaration]
-     201 |         drm_dbg_prime(dev, "dma_addr = %pad, size = %zu\n",
-         |         ^~~~~~~~~~~~~
-
-
-vim +44 drivers/gpu/drm/microchip/mchp_gfx2d_cmd.c
-
-    41	
-    42	static void mchp_gfx2d_enable_exend(struct mchp_gfx2d_device *priv)
-    43	{
-  > 44		drm_dbg(&priv->drm, "enable EXEND interrupt\n");
-    45		writel(GFX2D_IRQ_EXEND, priv->regs + GFX2D_IE);
-    46	}
-    47	
-
+You are awesome, thank you!
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
