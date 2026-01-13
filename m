@@ -4,65 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6678D30CE5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 22:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 105B8D30CE5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 22:39:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E8vxYE/GG2h7J3BZOCKIlpgaekSPZ8Fq1E5Q0hAM9Lc=; b=KlXTM6LWVBOyLXIRZquq9MpHAN
-	go9rMxJbvhoAbHQ7veTHpAHAmMxYypJ0UctaFemDllOgdDq2zO9I9Y1HCn+/Qa5HLy3S3nY3TdkMm
-	MgouIWgm6wwDTv4aKXTrYnmKGq2C130o7/24MPXwGe/Q/WWhsJX58qaQjKowgR+TkmWQNYuwmD4K2
-	GkYwYdfZIYsJ4dLVEUnG68z+izD0NviE7LtfJ6f0yLj0zm8hVnQ9fvHFhwtC1mJlnsNmHoPf1hmXf
-	F11iPZ3UvBnuoOKzYnp2i1Mcy7pbAMt7eFq+mLsSqd0v1juO/HLwkzcuDeZ22J+mLxrNOiDRvHlqc
-	Iykhdo6g==;
+	bh=pjrV8Ah/L7zNpoB870nEG8kWEgsLpqEksFVHqYTKqU0=; b=41QdOOFU2m0e64AFIZWo9HHgEK
+	L9pxlR6HN2n71qhHDsNuCtXqXUgeF0yRgkRzJrXxAwgHLfqyBJU/+vLxLp1XggvFVDvSlKB4uBQlg
+	urljjhPE7Is1lxIv6eNgukrFJpdzclQ165BbMh0Aj5s2HV82l5Tp4WSQT7ewozjqTdpZSfH1EX652
+	sMpZ9zdayyNZycwS55brNmOlYD8lUJto2E6c9p6XNziBGts3Mvu+0bkDmzHXU1i1Grt8TReoybOyY
+	J/IwjgYi2MowlBf7fK3yoDd/e4YnrPWmuYmOtRM87/Q3egxWvQMGoBKXtNkYNtv4IVRPRLKmigKGW
+	lUPeU/kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfn0k-00000007pif-3ANK;
-	Tue, 13 Jan 2026 22:37:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vfn2Z-00000007pxG-0piq;
+	Tue, 13 Jan 2026 22:39:07 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfn0i-00000007phl-3Q0R;
-	Tue, 13 Jan 2026 22:37:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC43243BEF;
-	Tue, 13 Jan 2026 22:37:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 744CBC116C6;
-	Tue, 13 Jan 2026 22:37:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768343831;
-	bh=e3CTtEWdP+YYk0zGKgbECMVxrxJeiEy35VeU8e0usYs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EZTjJgzlvfioRepLNfbiKbV1N8Ug+xze0gtWzyvbyFxpKv95a782K2SskkGdEa4TL
-	 Ug3fR7DR8iRKQSJ+cNcFQHWfHIFXp00CdqZtf+Itq/Kc4fZ0B4c+56AJSpQPRqFTyT
-	 ESoWiEExlyisKrOZEZjW8TRBMK5ycWnxdfvIx4YlTVLIJKGM3dzdH68OPxedREBTGs
-	 CYKF6qSlNNQHTatHhJrFyWu5/IaDctzsNEE8MjQ8mgnV28jY9kc7Q8QQEOofcU0b+W
-	 GNkcgetxB9M0pCT/0Buy/vYi6a1vOd6R217wGFoee0ChPm6iZUE681mKPV5teutY7g
-	 STJrtLkoIRkwA==
-Date: Tue, 13 Jan 2026 16:37:10 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: gregory.clement@bootlin.com, herbert@gondor.apana.org.au,
-	linux-crypto@vger.kernel.org, andrew@lunn.ch, atenart@kernel.org,
-	linux-mediatek@lists.infradead.org, krzk+dt@kernel.org,
-	davem@davemloft.net, matthias.bgg@gmail.com,
-	devicetree@vger.kernel.org, kernel@collabora.com,
-	linux-kernel@vger.kernel.org, sebastian.hesselbarth@gmail.com,
-	linux-arm-kernel@lists.infradead.org, conor+dt@kernel.org
-Subject: Re: [PATCH v2 2/4] dt-bindings: crypto: inside-secure,safexcel:
- Mandate only ring IRQs
-Message-ID: <176834382993.367039.14372601260257226212.robh@kernel.org>
-References: <20260112145558.54644-1-angelogioacchino.delregno@collabora.com>
- <20260112145558.54644-3-angelogioacchino.delregno@collabora.com>
+	id 1vfn2X-00000007pwH-0UI8
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 22:39:06 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-64b9b0b4d5dso17016353a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 14:39:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768343943; x=1768948743; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=pjrV8Ah/L7zNpoB870nEG8kWEgsLpqEksFVHqYTKqU0=;
+        b=JRe1TVxal1Y3WGk9vJX07BBfQ9xzcX8jwYqdUcRF/uoc/Tg3ebb6mrOuFlNvMj5akU
+         5bdgbbbKoD1rhPMAH8VE1Td6QiUYYgNqOqxjSa4B5W9jZGAXFgimHfa0mMB8JGwUSyHs
+         DhbDxDqyAGunbTSIYs/9D8nSKcc+VUrAz9lCuFwKfJB11erxUxpOqsp4lfF6YNfx+0sF
+         Qy6mGu5dCTjIqr83JJKTSqQGgA2fHnv7dUxEgDtmKzPYqH7Qb2Vv0DKwqb45b1zF8/fb
+         cRg6Y0YlxAX2MVoh9juOl4b7UCOv/74SUW7igoOBfiX5JTZVUCUpZPI1FgnK8yHTcqX5
+         FtDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768343943; x=1768948743;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pjrV8Ah/L7zNpoB870nEG8kWEgsLpqEksFVHqYTKqU0=;
+        b=Mu/7QfDjI8e/a9ZYmZ4z8ikyO4kACPgiWRUOdGLB62DOlp5+vNKdu+I2Jp7V7Yl6ho
+         oUWQ3KYvgwDHgFErZyQpI9CeiHJR5zBmGh6sDJu2ufVMfOwC4a7e11KQ1WNYGyO/F/W7
+         qvrzhfCfnhViWJWqtWPIOuwdIdirHmqeRLoxQXhHsira7zxokv0hAbbEiNwsRvX9TAJi
+         YdnV+r2sNUF7smytGoLjSeM6z69wLyWIesN+KSn5reCJ9kRGMtgl5LSKtQPqs1HKZr+K
+         s4pZAtR9sSWVCdaju48uX3i2pa5nvYpYahxm6g3uvoYht5fB8hvBUHwzzHSzAnNzepnh
+         15mA==
+X-Forwarded-Encrypted: i=1; AJvYcCWX8qKUCGHHtTISVu6HsFdidEkf0RC49T2eSniiOfnmQ+z7DN9NPG+51uNSllx0uCRm783QoIZR16BSZ7vmss30@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQ2tLcbqfxcugcJGE1zlgHMGFaRSNrK8bdfOtjlBJPYYVbuUue
+	Cz4L+PinF1eNZSbd73p6ABX4lTRjbcFUe2iolpNcz6G+A2PNG20JkIFW+KCiR/Q4YZjYrv7jdrI
+	CINJp35kgpLnDm2gLC0ny/bIcbXVGK/E=
+X-Gm-Gg: AY/fxX4a7zNCxbvP6EwctPYELLsZmTv9yLauXE+pDj76Wsk0xCmpRfyAc/VNqzaKsJc
+	XJBq7EvX1CToANun1hNbqidGxJmvqh4quV7hZF9zTMoIxJXFbT4zpbF4B5u06UNXDz/lGijcaX7
+	zEJYB4Vi0vkF2yYK554QApjv90b6O46LvhrF8dVSrZA2lRrHoISCAY7TCSsz16kwHkpG7/8n0nv
+	mLJd5GeKV3gW/XfGe63XU2KiI4Ujd+F9tz2VnvVRXHWSDhgvYH2TewiIcpnHHqitwHit6U9Gaay
+	wD7NDJIhZNiJX6MaooQj/guvMg==
+X-Received: by 2002:a17:907:d27:b0:b73:7a44:b4d5 with SMTP id
+ a640c23a62f3a-b8761139a87mr45560466b.41.1768343942489; Tue, 13 Jan 2026
+ 14:39:02 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260112145558.54644-3-angelogioacchino.delregno@collabora.com>
+References: <34647edacab660b4cabed9733d2d3ef22bc041ac.1768273593.git.daniel@makrotopia.org>
+ <252d6877-d966-4d19-a38c-cc83ba908494@lunn.ch> <aWZVIBh6AKiIaxdr@makrotopia.org>
+In-Reply-To: <aWZVIBh6AKiIaxdr@makrotopia.org>
+From: Luiz Angelo Daros de Luca <luizluca@gmail.com>
+Date: Tue, 13 Jan 2026 19:38:50 -0300
+X-Gm-Features: AZwV_Qjg4zpsS4od6KBCg5IH7ipEaILyUhtFhNBfGxqCxTWtWrTgv-97YJUF4cY
+Message-ID: <CAJq09z727C=9mh2a0BEVcVLKkWcdVOL7oNvVBq12k6zm7nxXZQ@mail.gmail.com>
+Subject: Re: [PATCH net-next RFC] net: ethernet: mtk_eth_soc: support using
+ non-MediaTek DSA switches
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Felix Fietkau <nbd@nbd.name>, John Crispin <john@phrozen.org>, 
+	Sean Wang <sean.wang@mediatek.com>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+	Bc-bocun Chen <bc-bocun.chen@mediatek.com>, Rex Lu <rex.lu@mediatek.com>, 
+	Mason-cw Chang <Mason-cw.Chang@mediatek.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Vladimir Oltean <olteanv@gmail.com>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_143712_874939_6D27E8BA 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20260113_143905_165640_24DAC516 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,25 +103,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> MediaTek folks also got back to me in a private message, confirming
+> the issue and also clarifying that the length of the tag is the
+> limiting factor. Every 4-byte tag can work, sizes other than 4 bytes
+> cannot. As MediaTek's tag format includes the 802.1Q VLAN as part of
+> the tag itself I suspect VLAN offloading will still need some extra
+> care to work on non-MTK 4-byte tags (like RealTek 4B, for example)...
 
-On Mon, 12 Jan 2026 15:55:56 +0100, AngeloGioacchino Del Regno wrote:
-> Not all IP implementations of EIP97 and EIP197 have the EIP and
-> MEM interrupts hooked up to the SoC, and those are not required
-> for functionality as status for both can be polled (and anyway
-> there's even no real need to poll, but that's another story).
-> 
-> As an example of this, the MediaTek MT7986A and MT7986B SoCs do
-> not have those two interrupts hooked up to their irq controlller.
-> 
-> For this reason, make the EIP and MEM interrupt optional on the
-> mediatek,mt7986-crypto.
-> 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->  .../bindings/crypto/inside-secure,safexcel.yaml    | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
-> 
+My suggestion is to enable it only when sure (mediatek tag) and drop
+it otherwise. Something like this:
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+https://github.com/openwrt/openwrt/commit/2603d6d81d1a088c6ad271fe20a63fa6e3a75124
 
+It is not worth it to risk enabling offload for unknown cases.
+
+As Realtek was mentioned, the 4-byte tag (rtl4_a) is for old SoCs,
+hardly paired with a mediatek SoC. The newer tag, rtl8_4, is already
+too big (8 bytes).
+
+Regards,
+
+Luiz
 
