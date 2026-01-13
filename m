@@ -4,72 +4,217 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B5BDD30CDB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 22:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B44D30CEE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 22:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/O/TWiz7KmvDz4FXTKrdUQuVFVk8NsUp4b4FAv54g8A=; b=AruU5iREJlaglLbpXXzX9WCboQ
-	2x/an7U/CqCPWhv89NdENxIyhlpBn8OVITTBqy9sEKvagYT4ktKtWLj9/SQDapojNZtXKAUO0eLiA
-	c/N1xHatZ57aUQDDUDc8nCYenqvolnwEM23i13o7z4IJBATbeeMlJXNfHoFGM9sWbTDF01bsr5pMR
-	+jiWe76u5aaM/gESc9/lU3Wef+cTsu9Z6DevrS/jByAZX2QjekfGblyW35DXnI+jp005UcG/nZTGB
-	JScE43WXhnaXPL0YETeyvWpGAxcXcvCVbc2zVE4jZjPl/dTx5bRa+CfAy31WsIRpsDGfyrI5CeTeQ
-	DZ2yXXFw==;
+	bh=B/U0fWtnqJfPO9QOGMxWQYPMN3lnCTPVy72s8Zg4oSI=; b=cxxwLM3Yjf+OCIB1sG3frwA/Kl
+	QPhSfO5aFJeDuLadnx92+PPnOah3cbuJG24QPBleANqfRZ4uE0nxAa3MRDOl+XO+bre1twB67T9Fe
+	G6dT+899wdpWHNVldvX1qpcFJ3QKI6nu1vAssM3KDLIh3CrOklFwu3vad7HrNmxXnCEQ6N/NYI7OK
+	SzrENyp7KZ/edNgcLdZVGChBBZKMdXjoriAFtKTsle4IbVnBddZOfZLtGSG/UGR3hkmavfTjWV008
+	G32qy6Dzh1HOvFyd0y3SwINQ/U3cXR96YqVKDwuwWS4dLypRi53RloRuedulE4nCQjNSlGM7BP1DX
+	5K5YbBZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfmdn-00000007o9p-0Ngi;
-	Tue, 13 Jan 2026 22:13:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vfmjg-00000007omn-16T6;
+	Tue, 13 Jan 2026 22:19:36 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfmdi-00000007o8n-44M2
+	id 1vfmje-00000007omP-16S6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 22:13:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 947A143DED;
-	Tue, 13 Jan 2026 22:13:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D2F4C116C6;
-	Tue, 13 Jan 2026 22:13:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768342406;
-	bh=ZyRwpdeHQJLYuREFufXZqOyxnfIVStjxw0TP41ppM4A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FFdkia8Ph0P6rGiCN8k8vqU/Pt1Gxk+ATX0IxBrmZkCKk3tdZC3V80iar6hCGe5Uo
-	 /dNl3ehyTQKliGbDpwFkOA5aKkqry4zBUvonxKjh+8u+RffBEbRBbOdHYVrnq/tz9y
-	 Yloo/9Ky6pgHsKjFDYpxMpAgjNMlFI3X5wNqXNTv8JT7fsTyp+Xq2y0acsIVQGgrgO
-	 1KTyVy+Jhtg1ecClMqvS8LUMKv4xtp5Z2cNgVntFhggnMY4Qe5tcuH5ddTixAlb1EY
-	 NTCFiN+/cjtMtk2DjpgsS4Ig86qEfxRik4cNJx+78B7hFGjJmqLuxAud+VuHO5HWv4
-	 zF73WI5/RiNOQ==
-Date: Tue, 13 Jan 2026 19:13:23 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 02/14] perf evsel: Refactor
- evsel__set_config_if_unset() arguments
-Message-ID: <aWbDg0kmo-isxkz2@x1>
-References: <20251222-james-perf-config-bits-v4-0-0608438186fc@linaro.org>
- <20251222-james-perf-config-bits-v4-2-0608438186fc@linaro.org>
+	Tue, 13 Jan 2026 22:19:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768342774; x=1799878774;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=qL9gcuo8umnhxF+PTeU5/x5XH7Evu5gmXADmbtKl7u4=;
+  b=cWtwiC+mVJ2fJXghmWvD6bkKjRr4iJxUOO84Z8cmjVfRvFmw4g203Qf7
+   vEFNxPZj65SdIUezH7JxBIAZAnaMlnbBQASGEb77Vwr51GkevrmFJauez
+   CsqXVe+ap2cwb8ZOd+qyxJgq1IqyfRgA9532iypAvByp313xkidIOVm7U
+   qC97Ggm2HZIm0ZoIRHbrRtAprg8WEOIv2jRMSNaWzNLIAQ2x4LZm+o4Av
+   wqbfS2y6Lb3Hy2nQe5UtUuRrVNYI3uzeE3P8+fqUmwrdTzWXOBPlC3+xe
+   zfrJjqpJbaFwHZfrOPxFBx3xf1QushHu0ro4JLMrIgsVUOn1EhJ1lsfmK
+   Q==;
+X-CSE-ConnectionGUID: SXBdIraASkqhag3FPQq4Fg==
+X-CSE-MsgGUID: Tdk/ZnllQvu15Os6mIdPTA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11670"; a="80360289"
+X-IronPort-AV: E=Sophos;i="6.21,224,1763452800"; 
+   d="scan'208";a="80360289"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2026 14:19:33 -0800
+X-CSE-ConnectionGUID: Jz4jOFKAQcq7+REO+HqMbQ==
+X-CSE-MsgGUID: 9AJ0epMKTYWlyqoeBJDKZw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,224,1763452800"; 
+   d="scan'208";a="209030668"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2026 14:19:33 -0800
+Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Tue, 13 Jan 2026 14:19:31 -0800
+Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
+ FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29 via Frontend Transport; Tue, 13 Jan 2026 14:19:31 -0800
+Received: from DM5PR21CU001.outbound.protection.outlook.com (52.101.62.16) by
+ edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Tue, 13 Jan 2026 14:19:31 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vkNgEzqi5GNlVKSbxAbxNBR6Ar9drUvivO9vMJ7kOR44/lnA9VTjaTWwHxoN44QPQbGH+23e0bBNRMNVjZkIXvg70HERoedwHla1kUhFxNKm/ILOeUHS2VO+7qi/IZdjD8OtfBUFu3h1ahsTE86ZNK7Y4E/QI/ZPcJDnvEnis0T2vKK9lTDgfwAdfTJU8aAav2ZVe7R7rVC2yhKWCrde+bVO2zrc7cAYIjW1IYtHznJbWrcBCmVxiQBGvv8py8U7moUNdB9NQh90uvwx0SWMK+1p5ylkKaW0paZ1oKpMfsUH7YHv7M+kCrbPaXjnE9BLHWPR+JQx6Ef5WZ7mDV+OyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=B/U0fWtnqJfPO9QOGMxWQYPMN3lnCTPVy72s8Zg4oSI=;
+ b=ZlP6JMN9APjZXQ3kk5A3EaSIXzjCFe1BdhThMEOV2l0WlmNmNRIozWg73s86erYIt1z3NlN9tt90glticmU+gWnVu/JWGDxdJ9quaP3RhJY7xs1+Ab9dToVxh1N6/BbOPOU61JTvh7h70CvKrRNwzwj1ejsu+KKLk5kBM6vjsVr3Mr1suixg9mh37dG9SrWCPC//iB+Wf1BWusfktA9pYz44H+C4OLqk4xcgXSNWYrHW/c7CfGYyUvO6w9OktN0XhpnFkwiZbE+vaHQHdxxCuqOlOf5BSJvOpf9jYAxXghazb0ZpbvsjiUWZjJ4qvG7UP2j0/Vrgr0M2Wa/g7dI2tA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SN7PR11MB7566.namprd11.prod.outlook.com (2603:10b6:806:34d::7)
+ by CY8PR11MB7265.namprd11.prod.outlook.com (2603:10b6:930:98::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Tue, 13 Jan
+ 2026 22:19:29 +0000
+Received: from SN7PR11MB7566.namprd11.prod.outlook.com
+ ([fe80::eccb:f6e0:36cd:a989]) by SN7PR11MB7566.namprd11.prod.outlook.com
+ ([fe80::eccb:f6e0:36cd:a989%5]) with mapi id 15.20.9499.005; Tue, 13 Jan 2026
+ 22:19:28 +0000
+Message-ID: <a48260d0-108c-470f-be72-1fd5235cf136@intel.com>
+Date: Tue, 13 Jan 2026 14:18:48 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 27/47] arm_mpam: resctrl: Add support for 'MB' resource
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
+	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
+	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
+	<quic_jiles@quicinc.com>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<tan.shaopeng@fujitsu.com>, <xhao@linux.alibaba.com>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <corbet@lwn.net>,
+	<maz@kernel.org>, <oupton@kernel.org>, <joey.gouly@arm.com>,
+	<suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>, Zeng Heng
+	<zengheng4@huawei.com>
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+ <20260112165914.4086692-28-ben.horgan@arm.com>
+Content-Language: en-US
+From: Reinette Chatre <reinette.chatre@intel.com>
+In-Reply-To: <20260112165914.4086692-28-ben.horgan@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW4PR04CA0232.namprd04.prod.outlook.com
+ (2603:10b6:303:87::27) To SN7PR11MB7566.namprd11.prod.outlook.com
+ (2603:10b6:806:34d::7)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251222-james-perf-config-bits-v4-2-0608438186fc@linaro.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN7PR11MB7566:EE_|CY8PR11MB7265:EE_
+X-MS-Office365-Filtering-Correlation-Id: 87cc2b7c-65f5-4535-420a-08de52f1d13d
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?amRZVTlnODZydWtIRVF3Qjhid3FPUEpERzdLODZMNEVZTEV3WFBRdUgrZEZN?=
+ =?utf-8?B?ZHRUMnRiUURsb2lJd1hod0RtenhDMW40czI3TFF2bURBdkpQa3l1N2pPNnIw?=
+ =?utf-8?B?U0p6WTRkTG1UYnNnbzd6WHg4QktpME4xSUFNZEdOR2tPZnFDM3ZPL2pkcGY2?=
+ =?utf-8?B?bjBndXlwZGxiVE43R3hQZEh6WVVEVFA5UWNpMldVU3VwbWN3QkNnRTJDcVov?=
+ =?utf-8?B?U0xaMzd0NUEyVGYrSjJIRTlhenEwV0JtVGx4WXNQYjRxVDFJZG1XeEVhRTM0?=
+ =?utf-8?B?YWo4SFFuM3dobjBmLytEQnZuQTRKUzJJb2xJbE5NanNTdWFsRUdQZlZkaVBH?=
+ =?utf-8?B?TEJyNEwybFVaNVhmelRWbnV0WnV6TWladEVnd3RMMzBDbmhMTy9tNk9GRXZ4?=
+ =?utf-8?B?YVQxb0N4U0FPR2dObDZEaTdoZHFNMkxyeU5XUjhEMGtNVWZObnFOK3oyc0lQ?=
+ =?utf-8?B?WTJrc1FFYWZDN3kzUmlTN3gvMFJlV1FORUwra0srYWpzek42WWZQZUxmZGxw?=
+ =?utf-8?B?eWtyblF0SjAzWG9IUjdVWGVEN3p6Q2pRdXVWYXlDa1ZaZFluK0lPQlRnMlRD?=
+ =?utf-8?B?SnY1YnZvUnVWcTFwZDFHTnhzS0lsZUE0TFdzK1NrNEk4L21YblFjRnNiS0tw?=
+ =?utf-8?B?OEpCQk1DS1ZTcGZZZEFQK3Q2YzZQb3RKd0hwV2ovSlFnMFViRytxalkyc3NV?=
+ =?utf-8?B?MWs2MlBWVkxZWDY3bVhhQlZ1b2pmQTJUSy90dkJYWlN1V29mMS9YMWdyblFT?=
+ =?utf-8?B?aXAwVzRxdTk4UEdQR3JwNzFDdktVRlBCUis5N0NRMlFxQmpLemtSSjkxTFVU?=
+ =?utf-8?B?aW44WnNhZ2daVVV1THd6bFVqOWFOVUluVDdGbExWc3EzTy9lZzNuV0RDV3pJ?=
+ =?utf-8?B?aUlPUXY0SndTTFd0M2g5aHVXOFZSekJmZTF3ejZkRVF1MjhzR3lSOXRUNUR2?=
+ =?utf-8?B?NmlMNkhjeUxTbHh3bGUzM0xwQ3BBandxK0ZQdFJtR1dYZnFTVmsrMFlCQTRq?=
+ =?utf-8?B?MDJYZUF1eElpblN0RTV3Wlp4d3B6MmNJbHhZWWl2VDZzU0o0czYraWRwU1d3?=
+ =?utf-8?B?emxKVW9oQ1RPb0VPSGw3VkhqWVRCQ1AzcXJMbGJ3OGx1ME8zNUxjcjByOStE?=
+ =?utf-8?B?MjNxMGV5cUFLTUVuMmtRd2NBTm1YeW5oVmpmeitWUVZWL3RqL09DUE51UzZO?=
+ =?utf-8?B?WkFpaytoM0JzZERibWxkV1A2TmtPdzM3emZqa3VXSGhJNkVRWXFqcDRvRmtp?=
+ =?utf-8?B?bTN0azdkUWl0TmRMTEI5RkN6Vy91eFRkbFhoVFJCWWlyK3VwbnllblNOejZB?=
+ =?utf-8?B?UmxqRCtVRFlyd1diNzhFbkJna3BuUVhjQ1NRd21sR3UzaWpiQVJuN1JxZHJH?=
+ =?utf-8?B?WGdmK0ZWT3RCVDBUbkxxNys0MGxodTZDWi9FMDNqUHFnYnJvS2g4Y2VsTEd1?=
+ =?utf-8?B?R20xcXRSN2RJRFNnTTluVEJUS0gzaE5teCtFS0NVbTh4Yk44OHVDUDdLUytz?=
+ =?utf-8?B?dis1TFFXa09oS1NVaHlaM0FoYWhEVnZyR3BNWmI1M1BDUnhmSEsvVjJ5NGk3?=
+ =?utf-8?B?YXVOa0RyeGk2c3NWblBOdjdzdWd2V2V5MWhGSlB4TE8xSHhVWEdRYjBvczBN?=
+ =?utf-8?B?QXhFd2Zkb2pPRFI0em0yZ0JydE9BQ29iNExXU2k0YXd3cHdBZFpXbU5xVEhO?=
+ =?utf-8?B?U3h0ZkkvWkRxNFdzck5TcFR0UnByU0RUVGJPUi9nU0h3ZXFIZUo4VjNzSmZQ?=
+ =?utf-8?B?K0VjOERIL0ZWeUdOcVZ2d1pITFpQMHNkQWx1WjdBdmdVYU9YdFFwTFlMbmlK?=
+ =?utf-8?B?WmdtUHdJZnVUMWVlM3RoM0p1dUluSXVLdjdVMEJ2cTdFQnp6UmVNTC9iUFdH?=
+ =?utf-8?B?VkpWM2V3QVo1Q0xsZHJhQmphUkJ1NmVrYncxTnEzSnlSRUMvMDBlUC9jdWtL?=
+ =?utf-8?B?V1NqNVNSNlZNQ0tmMUp3MWZpdWtHTWlTL2Z1UnlTYnJPYzl0T05CeGJrTW5R?=
+ =?utf-8?B?Mzh4WmxhcWFBPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR11MB7566.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RkU1SFF1RGZtUFVLUDBaOCtMUGF5VGZSZGdVSkp6dkUrRDI0VXRaUXBuRmNw?=
+ =?utf-8?B?OVZ6Wk81SitDNnFVV0xiMjVrc1RUYlRKUEZyaEZGSFpTcUJ1S29Wa25SVkdE?=
+ =?utf-8?B?bXlMYnNLcjhPenllcnp0a0s3YnpVd2czSHU5dHppZ1ZtOXpFa1FHM2YvL3hh?=
+ =?utf-8?B?V01YbEtkNEVySGw5bTVZMHRpY3BYbU0yMWp1cUk3SkQrUHJsSlNEckJ4dUk4?=
+ =?utf-8?B?Tk1tdDhtZysxcTd6WWRQdkJMVitsU1J0Zzhad0E3aFdxeW1CZHVxQW5LZkFB?=
+ =?utf-8?B?ZXhmVkZFRUY5N0Mvc3N5aG9TeXdENjY4ZWFacHQydzNNS3Q4UVBOa1dZN0Vq?=
+ =?utf-8?B?elV5L2I0SEFUSGs1akxHWHpmajVPN3Z2SDZhYjZxdGdpdm5iVmhmNjJDdGp1?=
+ =?utf-8?B?OFpMYlNXQ3IvZjE1bU9ZcFlUanNaMy9OME5EZTZyai9SYURtSW1BdGtiMndQ?=
+ =?utf-8?B?NytBOTZvK29PcG1uRW1vZVlnY2ZMSUFwUzRQV3VyS0cvcXpOcVRnVGpmbW4v?=
+ =?utf-8?B?T3ZzRitXNUFiUjdsUmY0MGZOaGdSRkZrM0RDaFhaMjBDbVg3NkJ2QjlpSEQw?=
+ =?utf-8?B?U1hXLzFlcWZseGJnbEhjN3BKMEw4cHo1NnQwTW5yd21Seno2K2tzT0VRUnV5?=
+ =?utf-8?B?ODZkT1BrTkRBcVJIVkozSkRCY1YwT3RNVkdJV3RIK09MQkp3T0lVTEJvalVh?=
+ =?utf-8?B?NmttN3QzTjJ1U1IxMnhNUVhXUnAyUjh5RmYwdjIwM3d1NTBWSUZRejlpMkph?=
+ =?utf-8?B?eS9haWcxQkdxajFjdUErc0xHeXVGWDZUUUsyd0grZ20rS3E4WjR2SVZPenh0?=
+ =?utf-8?B?ZXdLNlZCU25uNVBqVmRCZTFqWXNXTS96eWltejdSVCsra3J2dzdZeUJBOWVh?=
+ =?utf-8?B?bXlJeEZadXcweUJQQVR2bzljUXhxc2ZYVnBNR3FvMlJMSkwzZFlNMlh1OGpR?=
+ =?utf-8?B?ZkpaVXZmQTBwMHBLaUc3cHlVVTRSRGp2U2FHclFUWUdDVnhYMTNBWXhnMTRt?=
+ =?utf-8?B?dlF0WkQxRWtUQW8xd25vd3VQWCs2cG5Vb1NaaStHWFA2NkliQUIxVWNDOUFm?=
+ =?utf-8?B?eEROZXc5ODVMUmx2V3lHUEFNaGYyaXA4VndxVmJ0RkMxSlRkN2taandZZHla?=
+ =?utf-8?B?dWsvVk1FZXoxSDB5RDdMWlErdmM0MVc3MTJCcnBKdHlwdVk5aGROT0FMZEZh?=
+ =?utf-8?B?MTJKT2I3cm4zQVdWTk5SWFFoaEVvZnd1ek9YK2xOeVpua0E0bng2VWdnZlJL?=
+ =?utf-8?B?V2JJTUR5cjcvSVE2WGF4L3NyZFdwUzVabGFaN01VSnQ5OStLcTRCU1JRYWdq?=
+ =?utf-8?B?ZCs5UVVoWC9UZk11WDdFTmhNODNMYkJUN21qL2Mzd1I0VTdyS1RzeWhHQS8v?=
+ =?utf-8?B?WU91U0lDa3J3VGpXMmw3OHFCME5jZzRJOXFwanhUcy9CQkk1ZldicncwL3Nk?=
+ =?utf-8?B?SVJjTFVRaW9oNTNsdDVKa3E0QnA0T2tnTExvdUhJUDVyVlhaQnNTT0YySCtl?=
+ =?utf-8?B?S2pWakR1cE93d21rQlR1Q29HNElLejNVLzRYOVhjOU9zdDZiaUloZzdiNCt6?=
+ =?utf-8?B?RFFkdTJEc3pCNGpXaUIrZS92a05jTnRTTENFakw2NFAwK3VxOW12akVMTldI?=
+ =?utf-8?B?NGs5VmRuS3hPNUJwUkFldnNORkhSQ2NGVlp3Q1hqU2lta2I1M0ppYmtiNk9J?=
+ =?utf-8?B?akdqYWR0cHYzOXowSnIvKzNLOXpvRitMZ1ZFK2NkSnFsQmh6UUJqRlZaY3RL?=
+ =?utf-8?B?RGVFUFFSQVh5NDF1amwwVjdkMFBFcGZoWTNxRVM3UGpjeFRINURhRTVBOEc2?=
+ =?utf-8?B?Vkp1b2lobkV2WTAraExRQnc3RFZ2aG9IMFNHVGhXdXhIVmswOWo1cEk0TDd6?=
+ =?utf-8?B?cllFamN2elF2WG95VnU0ZVo0UWxBK3Erck5URTUwUXJrUEZJU3dkWjJ2S2Zn?=
+ =?utf-8?B?bkF1QVFtcjl3ai81eTg2czRxYjhLcitXSTU0RGxxZmhQYlNGVGJTWSs2enNj?=
+ =?utf-8?B?SlVMQmtoQjlkTm04RjJtbjFpUUFuZlF0Z0xyQXZMbGx5MDdtNlZYMkRPMjg2?=
+ =?utf-8?B?Vk5mbXlrVlphU3l6UEhhZUZQUCsyMWxDd21Demh1MXdlczlSUzk1b0QxS3RK?=
+ =?utf-8?B?LzAwdGM1aGI3bEZvRmRJNTB1d3oydnh0TVdUd1dmME15TlBMeExiYnNsQXpl?=
+ =?utf-8?B?aGV1Z0VRRjlYRWt5Z2lYVnpaOWRPWjg4QkpFWXdQS1lZY0FTZWdFMENGbUhX?=
+ =?utf-8?B?WXlaWVo0MEJ6QitPM2pZdXhXVmtLdXlXTWQvc1ZGMjVxVHpLS3JIVG1QUVRT?=
+ =?utf-8?B?Q0pLOG9GcEpkaUNsbm82a1hPbld3SjJEcGtkMktkWEp0RE1Ga0hKbWI1UzhG?=
+ =?utf-8?Q?zddy4xQO4paKkVCQ=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 87cc2b7c-65f5-4535-420a-08de52f1d13d
+X-MS-Exchange-CrossTenant-AuthSource: SN7PR11MB7566.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2026 22:19:28.8512
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wF+QgsleYNJESBeFe+gozNNERAvlV4tpytqJfW75E9SaTRiZlm0jwkjPncJ1tMsX0dAfafMKIat1Vl8IoqsC1PaOaVpjR0G8xPW2TD5kcSM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR11MB7265
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_141328_593590_8C955745 
-X-CRM114-Status: GOOD (  26.78  )
+X-CRM114-CacheID: sfid-20260113_141934_348140_9F1704E2 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,139 +229,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 22, 2025 at 03:14:27PM +0000, James Clark wrote:
-> Make the evsel argument first to match the other evsel__* functions
-> and remove the redundant pmu argument, which can be accessed via evsel.
+Hi Ben,
 
-I haven't checked if this is the exactly where this takes place but
-should be in this series, 32-bit build is broken:
-
-   3: almalinux:9-i386WARNING: image platform (linux/386) does not match the expected platform (linux/amd64)
-WARNING: image platform (linux/386) does not match the expected platform (linux/amd64)
-    21.72 almalinux:9-i386              : FAIL gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC)
-     1378 |         perf_pmu__format_pack(&bits, val, vp, /*zero=*/true);
-          |                               ^~~~~
-          |                               |
-          |                               u64 * {aka long long unsigned int *}
-    In file included from util/evsel.h:14,
-                     from util/evsel.c:38:
-    util/pmu.h:282:43: note: expected ‘long unsigned int *’ but argument is of type ‘u64 *’ {aka ‘long long unsigned int *’}
-      282 | void perf_pmu__format_pack(unsigned long *format, __u64 value, __u64 *v,
-          |                            ~~~~~~~~~~~~~~~^~~~~~
-
-
-What I have is in perf-tools-next/tmp.perf-tools-next BTW, I'll try and
-fix this tomorrow if you don't do it first. :-)
-
-There are some more build problems in other containers/distros, I'll be
-reporting as replies to the patches that looks related
-
-- Arnaldo
- 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  tools/perf/arch/arm/util/cs-etm.c    | 9 +++------
->  tools/perf/arch/arm64/util/arm-spe.c | 2 +-
->  tools/perf/arch/x86/util/intel-pt.c  | 3 +--
->  tools/perf/util/evsel.h              | 4 ++--
->  tools/perf/util/pmu.c                | 6 +++---
->  5 files changed, 10 insertions(+), 14 deletions(-)
+On 1/12/26 8:58 AM, Ben Horgan wrote:
+> From: James Morse <james.morse@arm.com>
 > 
-> diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
-> index ea891d12f8f4..c28208361d91 100644
-> --- a/tools/perf/arch/arm/util/cs-etm.c
-> +++ b/tools/perf/arch/arm/util/cs-etm.c
-> @@ -441,10 +441,8 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
->  	 * when a context switch happened.
->  	 */
->  	if (!perf_cpu_map__is_any_cpu_or_is_empty(cpus)) {
-> -		evsel__set_config_if_unset(cs_etm_pmu, cs_etm_evsel,
-> -					   "timestamp", 1);
-> -		evsel__set_config_if_unset(cs_etm_pmu, cs_etm_evsel,
-> -					   "contextid", 1);
-> +		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
-> +		evsel__set_config_if_unset(cs_etm_evsel, "contextid", 1);
->  	}
->  
->  	/*
-> @@ -453,8 +451,7 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
->  	 * timestamp tracing.
->  	 */
->  	if (opts->sample_time_set)
-> -		evsel__set_config_if_unset(cs_etm_pmu, cs_etm_evsel,
-> -					   "timestamp", 1);
-> +		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
->  
->  	/* Add dummy event to keep tracking */
->  	err = parse_event(evlist, "dummy:u");
-> diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/arm64/util/arm-spe.c
-> index d5ec1408d0ae..51014f8bff97 100644
-> --- a/tools/perf/arch/arm64/util/arm-spe.c
-> +++ b/tools/perf/arch/arm64/util/arm-spe.c
-> @@ -274,7 +274,7 @@ static void arm_spe_setup_evsel(struct evsel *evsel, struct perf_cpu_map *cpus)
->  	 */
->  	if (!perf_cpu_map__is_any_cpu_or_is_empty(cpus)) {
->  		evsel__set_sample_bit(evsel, CPU);
-> -		evsel__set_config_if_unset(evsel->pmu, evsel, "ts_enable", 1);
-> +		evsel__set_config_if_unset(evsel, "ts_enable", 1);
->  	}
->  
->  	/*
-> diff --git a/tools/perf/arch/x86/util/intel-pt.c b/tools/perf/arch/x86/util/intel-pt.c
-> index b394ad9cc635..c131a727774f 100644
-> --- a/tools/perf/arch/x86/util/intel-pt.c
-> +++ b/tools/perf/arch/x86/util/intel-pt.c
-> @@ -664,8 +664,7 @@ static int intel_pt_recording_options(struct auxtrace_record *itr,
->  		return 0;
->  
->  	if (opts->auxtrace_sample_mode)
-> -		evsel__set_config_if_unset(intel_pt_pmu, intel_pt_evsel,
-> -					   "psb_period", 0);
-> +		evsel__set_config_if_unset(intel_pt_evsel, "psb_period", 0);
->  
->  	err = intel_pt_validate_config(intel_pt_pmu, intel_pt_evsel);
->  	if (err)
-> diff --git a/tools/perf/util/evsel.h b/tools/perf/util/evsel.h
-> index a08130ff2e47..2cf87bc67df7 100644
-> --- a/tools/perf/util/evsel.h
-> +++ b/tools/perf/util/evsel.h
-> @@ -575,8 +575,8 @@ void evsel__uniquify_counter(struct evsel *counter);
->  	((((src) >> (pos)) & ((1ull << (size)) - 1)) << (63 - ((pos) + (size) - 1)))
->  
->  u64 evsel__bitfield_swap_branch_flags(u64 value);
-> -void evsel__set_config_if_unset(struct perf_pmu *pmu, struct evsel *evsel,
-> -				const char *config_name, u64 val);
-> +void evsel__set_config_if_unset(struct evsel *evsel, const char *config_name,
-> +				u64 val);
->  
->  bool evsel__is_offcpu_event(struct evsel *evsel);
->  
-> diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-> index 956ea273c2c7..e87c12946d71 100644
-> --- a/tools/perf/util/pmu.c
-> +++ b/tools/perf/util/pmu.c
-> @@ -1382,8 +1382,8 @@ bool evsel__is_aux_event(const struct evsel *evsel)
->   * something to true, pass 1 for val rather than a pre shifted value.
->   */
->  #define field_prep(_mask, _val) (((_val) << (ffsll(_mask) - 1)) & (_mask))
-> -void evsel__set_config_if_unset(struct perf_pmu *pmu, struct evsel *evsel,
-> -				const char *config_name, u64 val)
-> +void evsel__set_config_if_unset(struct evsel *evsel, const char *config_name,
-> +				u64 val)
->  {
->  	u64 user_bits = 0, bits;
->  	struct evsel_config_term *term = evsel__get_config_term(evsel, CFG_CHG);
-> @@ -1391,7 +1391,7 @@ void evsel__set_config_if_unset(struct perf_pmu *pmu, struct evsel *evsel,
->  	if (term)
->  		user_bits = term->val.cfg_chg;
->  
-> -	bits = perf_pmu__format_bits(pmu, config_name);
-> +	bits = perf_pmu__format_bits(evsel->pmu, config_name);
->  
->  	/* Do nothing if the user changed the value */
->  	if (bits & user_bits)
-> 
-> -- 
-> 2.34.1
-> 
+> resctrl supports 'MB', as a percentage throttling of traffic somewhere
+> after the L3. This is the control that mba_sc uses, so ideally the class
+> chosen should be as close as possible to the counters used for mba_local.
+
+fyi ... [1] enabled total memory bandwidth to also be used as input to
+software controller and additionally enabled user space to set per resource group
+which memory bandwidth event is used as input to the software controller.
+
+Reinette
+
+[1] https://lore.kernel.org/all/20241206163148.83828-1-tony.luck@intel.com/
+
+
 
