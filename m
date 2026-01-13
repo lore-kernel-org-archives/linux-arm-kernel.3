@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83970D2F338
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B01D2F338
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J71ebHvzIZket0gMmVsHAgoFIWh+Qd9qgxdehVtOTqc=; b=Bz+bbL1n1ZfqboesNs0zHKllb+
-	nFF9LbXzoh4KBKtvH+dA4YrxtH3jEZEgWRiwtyBPL0wjz1Kjr5lnOOMsfR7sE1Am+h6DCtpwH21Sg
-	177YfYHlaOvXI/UpeclTVZH9Pu4wN8mzEt+PXZZ8eW8lTr0ncO45l0DRCy/3090MIcdDAAaLfpUp9
-	vOefO1rc7/PQMK3Z50vG2CAyf7ZMTvTojsOlYjac7E2omGLWGEd1N+mp8c3uA5UNtH01GCsVz+G6r
-	jK2aWrvOjUBoIOvIwBL8eRu/P4bbCER5PJjRne9drP1D8yxR8jteZYn2kIueR0Q7wZNk+aA4FmTAL
-	+g1nAdhw==;
+	bh=rrnWNw3vkU2Ih+pUchIRcev1TZ+Nr+r2PD7leoOT0ic=; b=uz8QjBkWEUMHN+xHn4xm2gHBY9
+	Fo0svF58aSJQO0P2iamjvsoa8TeuTlOhtYFlny3PAsxY6uM9/+IaBKgi5x7FZHfIQwINi1fmiNkAa
+	Y/1oIcI3BXAVkzqPbziw2yaTv94TaH0gcxB5OIz1o+5Clp7CNGNwYJgj564HHsf8I6x9OioTna3tJ
+	ZPR47fv3sa+MyYJRLZ+B2TbSnhW11msfDLDaazUdvC0vArtzwKefkVKnexl44M3X2rcdSu1gJapa/
+	e/WezulKKTtcBYtN1v7Pzu7AjYnLxsXzyyqEb1PuyVkYfKDqPJK/+mFwZIvoIaCwlH2XkIz01c2i0
+	IfOqZHKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgUn-00000007OmJ-1Oig;
-	Tue, 13 Jan 2026 15:39:50 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vfgXc-00000007Ow1-240G;
+	Tue, 13 Jan 2026 15:42:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgUk-00000007Oll-2tVw
+	id 1vfgXa-00000007Ovi-1DFD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 15:39:48 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4drD231SJ5zHnGdQ;
-	Tue, 13 Jan 2026 23:39:23 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 63C1A40572;
-	Tue, 13 Jan 2026 23:39:41 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 13 Jan
- 2026 15:39:40 +0000
-Date: Tue, 13 Jan 2026 15:39:38 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
-	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
-	<kobak@nvidia.com>, <lcherian@marvell.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
-	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
-	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
-	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
-	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>,
-	Zeng Heng <zengheng4@huawei.com>
-Subject: Re: [PATCH v3 41/47] arm_mpam: Generate a configuration for min
- controls
-Message-ID: <20260113153938.00007d6e@huawei.com>
-In-Reply-To: <20260112165914.4086692-42-ben.horgan@arm.com>
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
-	<20260112165914.4086692-42-ben.horgan@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+	Tue, 13 Jan 2026 15:42:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2F22141AF7;
+	Tue, 13 Jan 2026 15:42:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84744C19425;
+	Tue, 13 Jan 2026 15:42:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768318961;
+	bh=rrnWNw3vkU2Ih+pUchIRcev1TZ+Nr+r2PD7leoOT0ic=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
+	b=dRIX4ovAcZciutAuOjH7KQc2v9gHBtJoOBqf4Pxso1e7n9i4dWqiX+7IqmwrjPTPJ
+	 B0e5/4HJ7m54NhbtKd6S9xn2jiVbR4u/eV8I8+jALdOPwALqwmScrcM10i+OkgwtFp
+	 y8LgNs1nJxKeX2TY4+yq6gIpP8z5YZiVRJsr5cWkdSg67W4BVMTa0QYnme2T7YBQm7
+	 UgwdrDoBegVx8/wmLfJiMJmB7ll6tIsVzXk/O5fQWvMk1D5Fhh+HTU/NZ2lGmbiOUR
+	 vb6yvGPhdaSXuswQaRoRBCFC5JjMfEAJvh/gtzzX4eFYKLDEvHcV4LRuVHGLcwhC2g
+	 vKxh6FazgkQ+A==
+Message-ID: <45d26d0bc35eb157f798cc74004af133@kernel.org>
+Date: Tue, 13 Jan 2026 15:42:38 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v2 10/12] drm/bridge: samsung-dsim:
+ samsung_dsim_host_attach: use a temporary variable for the next bridge
+In-Reply-To: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-10-8bad3ef90b9f@bootlin.com>
+References: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-10-8bad3ef90b9f@bootlin.com>
+Cc: benjamin.gaignard@linaro.org, dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, "Adrien
+ Grassein" <adrien.grassein@gmail.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "David
+ Airlie" <airlied@gmail.com>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Inki
+ Dae" <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, "Jonas Karlman" <jonas@kwiboo.se>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liu Ying" <victor.liu@nxp.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maxime
+ Ripard" <mripard@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, "Philippe Cornu" <philippe.cornu@st.com>, "Robert
+ Foss" <rfoss@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Shawn
+ Guo" <shawnguo@kernel.org>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_073946_871179_BFF76D03 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20260113_074242_348321_85532437 
+X-CRM114-Status: UNSURE (   7.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,33 +81,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 Jan 2026 16:59:08 +0000
-Ben Horgan <ben.horgan@arm.com> wrote:
+On Fri, 9 Jan 2026 08:31:41 +0100, Luca Ceresoli wrote:
+> In preparation to handle refcounting of the out_bridge, we need to ensure
+> the out_bridge pointer contains either a valid bridge pointer or NULL, not
+> an ERR_PTR. Otherwise calls such as drm_bridge_get/put() would try to
+> redeference an ERR_PTR.
+>=20
+>=20
+> [ ... ]
 
-> From: James Morse <james.morse@arm.com>
-> 
-> MPAM supports a minimum and maximum control for memory bandwidth. The
-> purpose of the minimum control is to give priority to tasks that are below
-> their minimum value. Resctrl only provides one value for the bandwidth
-> configuration, which is used for the maximum.
-> 
-> The minimum control is always programmed to zero on hardware that supports
-> it.
-> 
-> Generate a minimum bandwidth value that is 5% lower than the value provided
-> by resctrl. This means tasks that are not receiving their target bandwidth
-> can be prioritised by the hardware.
-> 
-> For component reset reuse the same calculation so that the default is a
-> value resctrl can set.
-> 
-> CC: Zeng Heng <zengheng4@huawei.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+Acked-by: Maxime Ripard <mripard@kernel.org>
 
-I'm interested to see how this plays out as a default choice
-vs what people elect to run.  Seems harmless to start with this.
-
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-
+Thanks!
+Maxime
 
