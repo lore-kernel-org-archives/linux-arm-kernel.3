@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53843D29DF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 10:03:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A40D29DFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 10:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YwgYABMUC2TvlP+jRUvO7d92limdvKOaBOk3hHKu1Ho=; b=KZ+kQccubNEC2lCPpBRdfxUvGw
-	TKZ7yRcXGBllQKut0EgO8uoqCBFBbs0NA4H64Iyu5vVtqi0BweQrKRTOValcwSGaEtFwOk7ij00HK
-	Akr2YallutTC9BaSBzTvpVgqv2EDxXC55ngELXRMSRBrAlXSh/4j+YVU9VfC0hSrn+BBsz4hWtK6r
-	qb63Gf9QZLlF9yttc55vcA3wtTB9fFuGFjrrEgXHmom4FMyREIL5zuTJgtQW4hIgc/rX2cHZ9QqXT
-	D6LxcYhbp+CaivK5d0+7HwEWyCmgINXLAnuhNiMnmw/JKTkq3UHrzuBvY85a3NX/ThUmJagqC2EbI
-	+QpklxRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ASfauueh0XdWrVonVrlS9CUPp8nU14MBJWlVvobTYkY=; b=2FCFbh74r//p9iM7K51LgaaCLC
+	jrQAFThyFi0QVAJIdTwWYlFxjQIC+hbWiLK9R6y8stxb4OLF5V3J0bNuSwXB1AH3CTWXroBvemUDH
+	qCAXZrvpUG9mIaFEgFolAW2Cl4m+CaYwvuz/Gj1ajqzoMB3oZvJWtI+Lv0yjXLq203jxHlJPIgi8N
+	4g2dMPj2tpAtqctvAMMzuEK+7zvz8jIjpZVpPBlSHkw6YYZQnc354pTY1ivu3U9RVaCNge1Nzz8jr
+	unwhWgib3N6jVyiek1kdceUm8jmRIopc3RezqhWlSQlmXZzkTWM1fTILo9oRA8ydCbbq53+1a2nP1
+	7So3543Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfbFH-00000006sH7-2wgq;
-	Tue, 13 Jan 2026 10:03:27 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfbFD-00000006sFg-2H39
+	id 1vfbHC-00000006sRg-1hIj;
+	Tue, 13 Jan 2026 10:05:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfbH8-00000006sR6-0Y5g
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 10:03:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=YwgY
-	ABMUC2TvlP+jRUvO7d92limdvKOaBOk3hHKu1Ho=; b=InDqdP/yV0uKcw4qWt90
-	GgKu/Zem8CaPzrKy7P3o5LDdvi4II9brMZQCjCafrEDy2yGt4/P4m4hbEd2TX71a
-	pHTSM1tbS4cfhrIsENI/JynCBuLOT8G/OoQyKdjvN/eywkBidnxr8j7howQwISq4
-	A21WgAzIUN2ydHMBddIu55ZkFnAwL591j1EDXGC3TppcCQM/Tsu76K4LcPKjJh4G
-	bXrnki9aTIHPR7OgISJt0W3gMKwOw7b15rV5E42mOtFyHUkMRpiOuieMO38rVMfZ
-	pEZe6QYyoyPpVTOHnN5d3k1w46SpuaPheVVxniG0Rt4S06PyiY3QqExmS6DeJyxu
-	XA==
-Received: (qmail 1631988 invoked from network); 13 Jan 2026 11:03:16 +0100
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 13 Jan 2026 11:03:16 +0100
-X-UD-Smtp-Session: l3s3148p1@sbW2GUJIiN4ujnvx
-Date: Tue, 13 Jan 2026 11:03:16 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Johan Hovold <johan@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Khalil Blaiech <kblaiech@nvidia.com>,
-	Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-actions@lists.infradead.org,
-	Bartosz Golaszewski <brgl@kernel.org>
-Subject: Big I2C core changes coming up this year (was: Re: [PATCH 00/12]
- i2c: add and start using i2c_adapter-specific printk helpers
-Message-ID: <aWYYZEPX-_1GfQtL@ninjato>
-References: <20251223-i2c-printk-helpers-v1-0-46a08306afdb@oss.qualcomm.com>
- <aUql_tZisfH8E1bq@hovoldconsulting.com>
+	Tue, 13 Jan 2026 10:05:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 25DCF497;
+	Tue, 13 Jan 2026 02:05:13 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9488E3F694;
+	Tue, 13 Jan 2026 02:05:16 -0800 (PST)
+Message-ID: <dcbeb11f-bebe-465a-be4e-2461d3efc21b@arm.com>
+Date: Tue, 13 Jan 2026 10:05:15 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aUql_tZisfH8E1bq@hovoldconsulting.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 27/30] KVM: arm64: selftests: Remove spurious check for
+ single bit safe values
+To: Mark Brown <broonie@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Joey Gouly <joey.gouly@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>,
+ Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>
+Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
+ Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ Peter Maydell <peter.maydell@linaro.org>, Eric Auger <eric.auger@redhat.com>
+References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
+ <20251223-kvm-arm64-sme-v9-27-8be3867cb883@kernel.org>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251223-kvm-arm64-sme-v9-27-8be3867cb883@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_020324_451282_4E6CF011 
-X-CRM114-Status: GOOD (  23.36  )
+X-CRM114-CacheID: sfid-20260113_020522_209097_7AFC3F32 
+X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,80 +74,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Johan, (and all future readers I have pointed to this mail)
+Hi Mark,
 
-> No, this is not the way to do it. You start with designing and showing
-> what the end result will look like *before* you start rewriting world
-> like you are doing here.
+On 12/23/25 01:21, Mark Brown wrote:
+> get_safe_value() currently asserts that bitfields it is generating a safe
+> value for must be more than one bit wide but in actual fact it should
+> always be possible to generate a safe value to write to a bitfield even if
+> it is just the current value and the function correctly handles that.
+> Remove the assert.
+> 
+> Fixes: bf09ee918053e ("KVM: arm64: selftests: Remove ARM64_FEATURE_FIELD_BITS and its last user")
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 
-In general, this is correct. It does not apply here, though. I will
-describe it in detail, so I can also point other people to this mail who
-wonder about quite some intrusive changes to I2C core this year.
+Yes, this assert was unneeded.
 
-> We should not be making driver code less readable just to address some
-> really niche corner cases like hot pluggable i2c controllers.
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 
-It is not a niche-case for hot-plugging. Hot-plugging (which still
-should be avoided for I2C) just makes a subsystem-inherent lifecycle
-problem more obvious. All of Bart's patch series basically prepare to
-tackle this comment from the I2C core:
+Thanks,
 
-1805         /* wait until all references to the device are gone
-1806          *
-1807          * FIXME: This is old code and should ideally be replaced by an
-1808          * alternative which results in decoupling the lifetime of the struct
-1809          * device from the i2c_adapter, like spi or netdev do. Any solution
-1810          * should be thoroughly tested with DEBUG_KOBJECT_RELEASE enabled!
-1811          */
-1812         init_completion(&adap->dev_released);
-1813         device_unregister(&adap->dev);
-1814         wait_for_completion(&adap->dev_released);
-
-This has been in the I2C core since switching to the driver model and
-the underlying problem applies to *all* i2c adapters. Simply unbind an
-I2C controller while you still have a reference to its i2c-dev
-counterpart and you are right in the problem space.
-
-The problem is known for decades(!) and nobody dared to touch it, so
-far. Even worse, the above pattern is not only present in I2C but also
-other subsystems. Bart and I have been talking about potential solutions
-for three years now. Bart brought in SRCU as a generic solution and at a
-Plumbers 2024 session with many experienced maintainers present, it was
-decided that this path is worth exploring. Greg suggested to try SRCU
-with GPIO and I2C subsystems, and if this works well, we can try to
-abstract it into something useful for other canidates as well. Now,
-recently, the 'revocable' patch series was introduced which might be
-helpful in our case. I am *extremly* thankful that Bartosz took the
-initiative to prepare the I2C core for the SRCU approach so we can
-research 'revocable'. I currently have zero time for implementing any of
-this. At least, from now on, I can reserve time for discussing, testing,
-reviewing patches.
-
-It is also perfectly okay to work incrementally here, in my book. It is
-such an intrusive change that we need to touch a lot of drivers in any
-case. Yet, with the I2C core being a moving target, all the I2C drivers,
-the 'revocable' patch series, and Linux in general, I think requesting a
-fully complete patch series now is neither efficient nor maintainable.
-
-Bartosz and I do have a plan. We are happy to discuss it with other
-interested people, of course. Still, despite all our efforts it might be
-a bumpy ride. Because it is such a crucial and deep-inside change to the
-subsystem core. This is part of development, though. If something
-breaks, we will fix or revert. The alternative is stagnation which I
-don't want. The above code was fine back in the days but now we have
-better mechanisms to handle lifecycle issues. And I really do not want
-Linux to have lifecycle issues. Especially not ones we *know of*.
-
-And who knows, maybe it is not a bumpy ride after all...
-
-> But in any case, don't get ahead of things by posting changes that we
-> most likely don't want in the end anyway.
-
-We want helpers accessing that specific 'struct device', so we have
-central place to implement access to a protected version of it.
-
-Happy hacking,
-
-   Wolfram
+Ben
 
 
