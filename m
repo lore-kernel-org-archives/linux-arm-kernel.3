@@ -4,59 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C64A0D30CC1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 20:08:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C85D30CC1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 20:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DrEHJRjos7Ma8zKqzyhBjBcISHvlObhk6z3kWVL7VaY=; b=g45/0oVlQNBMDa9bOpYikEAQ3p
-	COwhzcgHQFw7Tc2fSFZ2/YLFV678y56fo3KrzU4LfTk1WXkCvssC+7x5KuwPvryUAdodSrtM1OVR9
-	JDu9PT7fA5QWOZ7Ph/j1vZ8qD3oe2lENbXeiDfgGplszGzuBxdIp7x42UuJTvLm7Z2uUTSMubA9cq
-	i/E29aiX7md+Qh1jWSt9L5uOvVzuR1xJvZ0qrpk/p7FwpUrvzjlBNhLg9MMj0Jy+Ys+F133h0MaK5
-	5xVkRWz4lrrUGOxB66EeOcKUFU0XzF9hqf7psbjm6Qf6v3VB2GGGHu1Icqxgr9KSouZL/4TcQqAbs
-	fzP/Lyqw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X3PB19UpbesWMeT0R3+l59gQeDUb0GCMAUDX3FFcChs=; b=V6PqscS+etAJFNpJpmQYt2cZVY
+	oG+T6YfLmHZVYEFiumLblimR5p5++mSXM3ZeOXpUKQYyd3wygA3FWXr8JOkVByCJH5FXQ4yQu56po
+	O5Ws+9SL7aUlvD29Ix8ncIBvXfvKMU6AgaFjWX+c495/XZO/0bPws5DL0W/Rxyjxt7UNn0jQM29rr
+	FPQ77FhyBmcDWnfzbI2iYwy45Qc8faqPV5IY6U6L5vSA/w3VXBgDurKpcSKDzfUe+qNXx0k+woizm
+	m8/+vjcihcmhBCGyUER0o0laROngMbh9q7PvcSeX8WpkZFpxtzvedWnGLXb4dVh8h/T7KueskJ8Da
+	/wRl/ibQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfkgO-00000007fMA-3AXP;
-	Tue, 13 Jan 2026 20:08:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vfkiB-00000007fau-2rOF;
+	Tue, 13 Jan 2026 20:09:55 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfkgN-00000007fLH-3jaY
+	id 1vfki9-00000007faX-1JQB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 20:08:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC4816000A;
-	Tue, 13 Jan 2026 20:08:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12FAAC116C6;
-	Tue, 13 Jan 2026 20:08:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768334882;
-	bh=9igyJ2M/3WDceHFKFOZJs2/mHQPx0e7KXBmUWAszlrc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=EGvIonZcgRJFTT49XfOgVFliRum7cU2VZA4GjnGJzA0xfgcSFVWfAYn4gj9p0unYj
-	 VgHN6dxycYsb7/0U8IaX0EVCVdz65IcaXFyFjQqpDIauNAtIT8UBmoRP8o/xQ1VyKX
-	 F7QyxvQ1B0Osio7XZIgcGd7+NgPUi0RITjQuMZPdbfodz1SCx5qPQ0L3t8anH7YN/a
-	 6qmPYERZWj7L8RnsB0ZN8DEiz49CbAsVRzqbfADFS1nzm+UERjHye1OqynonF/dQem
-	 I2qQLsJO9XHsjHy8JtEv6Jt06O35jktFo5Q37myr7KUcLYzAxkAQz0t0vjbwroWXBi
-	 JG6Ccgtd7YCtw==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm/arm64: dts: marvell: Drop unused .dtsi
-Date: Tue, 13 Jan 2026 14:07:42 -0600
-Message-ID: <20260113200744.4174940-1-robh@kernel.org>
-X-Mailer: git-send-email 2.51.0
+	Tue, 13 Jan 2026 20:09:54 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-b87003e998bso31425466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 12:09:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sartura.hr; s=sartura; t=1768334991; x=1768939791; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=X3PB19UpbesWMeT0R3+l59gQeDUb0GCMAUDX3FFcChs=;
+        b=OyVEqHBpYn+VzhLI/Bfwhfc1wGniUTiehpZWfPQaL6q6E/pkJE3ZoGj497J4kYIUey
+         Hsqv/J3cJlhRwdJIjfqN8N3iZt3wrbGS+zKVwnADi94HgNCFgqW/EpEDPt7dpyLmVCCw
+         Lr+/f1UuAUFAi63G/G7V1Pt1xiK/ygz+n5KTQs2EaRnZXZg5CAzCdi3eDPRivbGVZlWk
+         KAgtHjnGEOJHjRD8lIayDsHGKGVGTRM/m8xZpKC0rNT2MDdxLIrvAmvv94wz/87DnUjo
+         hicmTg1CeBGtebAikxX1TdAE2uiv3LFnQ371oJfwSdcHz8BKaGSB56ckmhzFx0+CHPeQ
+         7clA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768334991; x=1768939791;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=X3PB19UpbesWMeT0R3+l59gQeDUb0GCMAUDX3FFcChs=;
+        b=iyLgNCF9GLvxXD7+nD2fhWoUMOQrm0mNN9/s9OXOwI5A4Q9MHLo9UwjNo8aulCrV3T
+         Y5xuTge8+7G5lJPvXH+jbMzgzTb06ZxE6mhXPLvqMw3p9iLL5TMbt22GEgK+wS5CoF5g
+         9/yhtJ6+dpNfqopx6gtxY67WRCtGGLBQ66ry2YnYoSSa4VNrxTFxG1Gwq101pP7Fc/ka
+         a+lCSn6JLz9/vjT6HQbRmRR3epnNcoG5uo/vN+xXFlBWxKpE06lSfUPKskLA8Rr3cAhk
+         /vpkRYVQL6UdIp99RcWO5+RFp1x76NHDfMKGYNtyd/Ty2+A1Ua/8oSCm/NCGiPzd7YSg
+         R6tw==
+X-Forwarded-Encrypted: i=1; AJvYcCXdBJvWy9cu57a/41T+rN835ddAijysJGLBvNV76ltUopVs3Qhm6QkGncn3Kez8cW3fU38HH955Yc7yZOElgg5Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YywTojkLZjql1HWbVUgNIJ5EWE2wljugCMXejrwv1XjmigaW0PE
+	HiJEI8wPW1zR/R5vHaubq4Vh6o4YcUn9J4C/Ob2nqx4UTNgJd52rdh1VIjBLG+NI/nUKHTkwW4A
+	e30PmQyRBesnaDEwPbL35r1Nm6vx891Xti7NgqHnunQ==
+X-Gm-Gg: AY/fxX65om/eC7TNFusN2mBKTCstZ5IQnoZZh6QXUa/eJf3l82q1/SMInrLmGraqu0X
+	fAHsUGFf/ABrJ76gXVoAmTyAWVEOzoO/FfNY1tXvrYuR0GD3UK84EjEvi6BL+H/nxCfZemUYiDA
+	v/yO4PD+iYv0EszZhuEuFQo2nl/cnpKzcn5rBp4zp/tkvB5a4JqDJobZ9K1OnUomvTEV3Q6eYdg
+	0Vc5rHWcuq/JrJGeR1Q0S3BStwECL0WiOrIKhQWNXLtgubB3dYx4jHWR5DcSOIMiZhXP/1eYSM4
+	EZy4Pc2mTuvmBgXutX/tPul+vWq714cIJX1Sy6vCS0hOOVyHh5hx2JKJFd87
+X-Received: by 2002:a17:907:9483:b0:b87:191f:4fab with SMTP id
+ a640c23a62f3a-b8761d928b1mr18947166b.26.1768334991113; Tue, 13 Jan 2026
+ 12:09:51 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20251229184004.571837-1-robert.marko@sartura.hr>
+ <20251229184004.571837-16-robert.marko@sartura.hr> <858ca139-61c5-45e3-a2c9-d0af414e3592@tuxon.dev>
+In-Reply-To: <858ca139-61c5-45e3-a2c9-d0af414e3592@tuxon.dev>
+From: Robert Marko <robert.marko@sartura.hr>
+Date: Tue, 13 Jan 2026 21:09:40 +0100
+X-Gm-Features: AZwV_QhCSNrQ25JXSm6moAYHvYjCfUUDQoR1FC1MV_mP0oSiXaM4vWsMWx6MKV0
+Message-ID: <CA+HBbNFYBhtvUxd45O7eP_1JYENxeGZOkA+yUsEdztOSSi9Gdg@mail.gmail.com>
+Subject: Re: [PATCH v4 15/15] arm64: dts: microchip: add EV23X71A board
+To: claudiu beznea <claudiu.beznea@tuxon.dev>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
+	herbert@gondor.apana.org.au, davem@davemloft.net, vkoul@kernel.org, 
+	andi.shyti@kernel.org, lee@kernel.org, andrew+netdev@lunn.ch, 
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, linusw@kernel.org, 
+	Steen.Hegelund@microchip.com, daniel.machon@microchip.com, 
+	UNGLinuxDriver@microchip.com, olivia@selenic.com, radu_nicolae.pirea@upb.ro, 
+	richard.genoud@bootlin.com, gregkh@linuxfoundation.org, jirislaby@kernel.org, 
+	broonie@kernel.org, lars.povlsen@microchip.com, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org, 
+	linux-i2c@vger.kernel.org, netdev@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-spi@vger.kernel.org, linux-serial@vger.kernel.org, 
+	linux-usb@vger.kernel.org, luka.perkov@sartura.hr
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260113_120953_398783_D1AA5D05 
+X-CRM114-Status: GOOD (  26.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,388 +108,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These .dtsi files are not included anywhere in the tree and can't be
-tested.
+On Sun, Jan 11, 2026 at 3:42=E2=80=AFPM claudiu beznea <claudiu.beznea@tuxo=
+n.dev> wrote:
+>
+> Hi, Robert,
+>
+> On 12/29/25 20:37, Robert Marko wrote:
+> > Microchip EV23X71A is an LAN9696 based evaluation board.
+> >
+> > Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+> > ---
+> > Changes in v2:
+> > * Split from SoC DTSI commit
+> > * Apply DTS coding style
+> > * Enclose array in i2c-mux
+> > * Alphanumericaly sort nodes
+> > * Change management port mode to RGMII-ID
+> >
+> >   arch/arm64/boot/dts/microchip/Makefile        |   1 +
+> >   .../boot/dts/microchip/lan9696-ev23x71a.dts   | 757 +++++++++++++++++=
++
+> >   2 files changed, 758 insertions(+)
+> >   create mode 100644 arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts
+> >
+> > diff --git a/arch/arm64/boot/dts/microchip/Makefile b/arch/arm64/boot/d=
+ts/microchip/Makefile
+> > index c6e0313eea0f..09d16fc1ce9a 100644
+> > --- a/arch/arm64/boot/dts/microchip/Makefile
+> > +++ b/arch/arm64/boot/dts/microchip/Makefile
+> > @@ -1,4 +1,5 @@
+> >   # SPDX-License-Identifier: GPL-2.0
+> > +dtb-$(CONFIG_ARCH_LAN969X) +=3D lan9696-ev23x71a.dtb
+> >   dtb-$(CONFIG_ARCH_SPARX5) +=3D sparx5_pcb125.dtb
+> >   dtb-$(CONFIG_ARCH_SPARX5) +=3D sparx5_pcb134.dtb sparx5_pcb134_emmc.d=
+tb
+> >   dtb-$(CONFIG_ARCH_SPARX5) +=3D sparx5_pcb135.dtb sparx5_pcb135_emmc.d=
+tb
+> > diff --git a/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts b/arch/=
+arm64/boot/dts/microchip/lan9696-ev23x71a.dts
+> > new file mode 100644
+> > index 000000000000..435df455b078
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts
+>
+> [ ...]
+>
+> > +&gpio {
+> > +     emmc_sd_pins: emmc-sd-pins {
+> > +             /* eMMC_SD - CMD, CLK, D0, D1, D2, D3, D4, D5, D6, D7, RS=
+TN */
+> > +             pins =3D "GPIO_14", "GPIO_15", "GPIO_16", "GPIO_17",
+> > +                    "GPIO_18", "GPIO_19", "GPIO_20", "GPIO_21",
+> > +                    "GPIO_22", "GPIO_23", "GPIO_24";
+> > +             function =3D "emmc_sd";
+> > +     };
+> > +
+> > +     fan_pins: fan-pins {
+> > +             pins =3D "GPIO_25", "GPIO_26";
+> > +             function =3D "fan";
+> > +     };
+> > +
+> > +     fc0_pins: fc0-pins {
+> > +             pins =3D "GPIO_3", "GPIO_4";
+> > +             function =3D "fc";
+> > +     };
+> > +
+> > +     fc2_pins: fc2-pins {
+> > +             pins =3D "GPIO_64", "GPIO_65", "GPIO_66";
+> > +             function =3D "fc";
+> > +     };
+> > +
+> > +     fc3_pins: fc3-pins {
+> > +             pins =3D "GPIO_55", "GPIO_56";
+> > +             function =3D "fc";
+> > +     };
+> > +
+> > +     mdio_pins: mdio-pins {
+> > +             pins =3D "GPIO_9", "GPIO_10";
+> > +             function =3D "miim";
+> > +     };
+> > +
+> > +     mdio_irq_pins: mdio-irq-pins {
+> > +             pins =3D "GPIO_11";
+> > +             function =3D "miim_irq";
+> > +     };
+> > +
+> > +     sgpio_pins: sgpio-pins {
+> > +             /* SCK, D0, D1, LD */
+> > +             pins =3D "GPIO_5", "GPIO_6", "GPIO_7", "GPIO_8";
+> > +             function =3D "sgpio_a";
+> > +     };
+> > +
+> > +     usb_ulpi_pins: usb-ulpi-pins {
+> > +             pins =3D "GPIO_30", "GPIO_31", "GPIO_32", "GPIO_33",
+> > +                    "GPIO_34", "GPIO_35", "GPIO_36", "GPIO_37",
+> > +                    "GPIO_38", "GPIO_39", "GPIO_40", "GPIO_41";
+> > +             function =3D "usb_ulpi";
+> > +     };
+> > +
+> > +     usb_rst_pins: usb-rst-pins {
+> > +             pins =3D "GPIO_12";
+> > +             function =3D "usb2phy_rst";
+> > +     };
+> > +
+> > +     usb_over_pins: usb-over-pins {
+> > +             pins =3D "GPIO_13";
+> > +             function =3D "usb_over_detect";
+> > +     };
+> > +
+> > +     usb_power_pins: usb-power-pins {
+> > +             pins =3D "GPIO_1";
+> > +             function =3D "usb_power";
+> > +     };
+> > +
+> > +     ptp_out_pins: ptp-out-pins {
+> > +             pins =3D "GPIO_58";
+> > +             function =3D "ptpsync_4";
+> > +     };
+>
+> Could you please move this one upper to have all the entries in the gpio
+> container alphanumerically sorted?
+>
+> > +
+> > +     ptp_ext_pins: ptp-ext-pins {
+> > +             pins =3D "GPIO_59";
+> > +             function =3D "ptpsync_5";
+> > +     };
+>
+> Same here.
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- arch/arm/boot/dts/marvell/armada-380.dtsi     | 148 ------------------
- arch/arm64/boot/dts/marvell/armada-7020.dtsi  |  10 --
- arch/arm64/boot/dts/marvell/armada-8020.dtsi  |  20 ---
- .../boot/dts/marvell/armada-ap806-dual.dtsi   |  60 -------
- .../dts/marvell/cn9130-db-comexpress.dtsi     |  96 ------------
- 5 files changed, 334 deletions(-)
- delete mode 100644 arch/arm/boot/dts/marvell/armada-380.dtsi
- delete mode 100644 arch/arm64/boot/dts/marvell/armada-7020.dtsi
- delete mode 100644 arch/arm64/boot/dts/marvell/armada-8020.dtsi
- delete mode 100644 arch/arm64/boot/dts/marvell/armada-ap806-dual.dtsi
- delete mode 100644 arch/arm64/boot/dts/marvell/cn9130-db-comexpress.dtsi
+Sure, I will make sure that pin nodes are alphabetical (I found some
+more that are not) in v5.
 
-diff --git a/arch/arm/boot/dts/marvell/armada-380.dtsi b/arch/arm/boot/dts/marvell/armada-380.dtsi
-deleted file mode 100644
-index e94f22b0e9b5..000000000000
---- a/arch/arm/boot/dts/marvell/armada-380.dtsi
-+++ /dev/null
-@@ -1,148 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
--/*
-- * Device Tree Include file for Marvell Armada 380 SoC.
-- *
-- * Copyright (C) 2014 Marvell
-- *
-- * Lior Amsalem <alior@marvell.com>
-- * Gregory CLEMENT <gregory.clement@free-electrons.com>
-- * Thomas Petazzoni <thomas.petazzoni@free-electrons.com>
-- */
--
--#include "armada-38x.dtsi"
--
--/ {
--	model = "Marvell Armada 380 family SoC";
--	compatible = "marvell,armada380";
--
--	cpus {
--		#address-cells = <1>;
--		#size-cells = <0>;
--		enable-method = "marvell,armada-380-smp";
--
--		cpu@0 {
--			device_type = "cpu";
--			compatible = "arm,cortex-a9";
--			reg = <0>;
--		};
--	};
--
--	soc {
--		internal-regs {
--			pinctrl@18000 {
--				compatible = "marvell,mv88f6810-pinctrl";
--			};
--		};
--
--		pcie {
--			compatible = "marvell,armada-370-pcie";
--			status = "disabled";
--			device_type = "pci";
--
--			#address-cells = <3>;
--			#size-cells = <2>;
--
--			msi-parent = <&mpic>;
--			bus-range = <0x00 0xff>;
--
--			ranges =
--			       <0x82000000 0 0x80000 MBUS_ID(0xf0, 0x01) 0x80000 0 0x00002000
--				0x82000000 0 0x40000 MBUS_ID(0xf0, 0x01) 0x40000 0 0x00002000
--				0x82000000 0 0x44000 MBUS_ID(0xf0, 0x01) 0x44000 0 0x00002000
--				0x82000000 0 0x48000 MBUS_ID(0xf0, 0x01) 0x48000 0 0x00002000
--				0x82000000 0x1 0     MBUS_ID(0x08, 0xe8) 0 1 0 /* Port 0 MEM */
--				0x81000000 0x1 0     MBUS_ID(0x08, 0xe0) 0 1 0 /* Port 0 IO  */
--				0x82000000 0x2 0     MBUS_ID(0x04, 0xe8) 0 1 0 /* Port 1 MEM */
--				0x81000000 0x2 0     MBUS_ID(0x04, 0xe0) 0 1 0 /* Port 1 IO  */
--				0x82000000 0x3 0     MBUS_ID(0x04, 0xd8) 0 1 0 /* Port 2 MEM */
--				0x81000000 0x3 0     MBUS_ID(0x04, 0xd0) 0 1 0 /* Port 2 IO  */>;
--
--			/* x1 port */
--			pcie@1,0 {
--				device_type = "pci";
--				assigned-addresses = <0x82000800 0 0x80000 0 0x2000>;
--				reg = <0x0800 0 0 0 0>;
--				#address-cells = <3>;
--				#size-cells = <2>;
--				interrupt-names = "intx";
--				interrupts-extended = <&gic GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
--				#interrupt-cells = <1>;
--				ranges = <0x82000000 0 0 0x82000000 0x1 0 1 0
--					  0x81000000 0 0 0x81000000 0x1 0 1 0>;
--				bus-range = <0x00 0xff>;
--				interrupt-map-mask = <0 0 0 7>;
--				interrupt-map = <0 0 0 1 &pcie1_intc 0>,
--						<0 0 0 2 &pcie1_intc 1>,
--						<0 0 0 3 &pcie1_intc 2>,
--						<0 0 0 4 &pcie1_intc 3>;
--				marvell,pcie-port = <0>;
--				marvell,pcie-lane = <0>;
--				clocks = <&gateclk 8>;
--				status = "disabled";
--
--				pcie1_intc: interrupt-controller {
--					interrupt-controller;
--					#interrupt-cells = <1>;
--				};
--			};
--
--			/* x1 port */
--			pcie@2,0 {
--				device_type = "pci";
--				assigned-addresses = <0x82001000 0 0x40000 0 0x2000>;
--				reg = <0x1000 0 0 0 0>;
--				#address-cells = <3>;
--				#size-cells = <2>;
--				interrupt-names = "intx";
--				interrupts-extended = <&gic GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
--				#interrupt-cells = <1>;
--				ranges = <0x82000000 0 0 0x82000000 0x2 0 1 0
--					  0x81000000 0 0 0x81000000 0x2 0 1 0>;
--				bus-range = <0x00 0xff>;
--				interrupt-map-mask = <0 0 0 7>;
--				interrupt-map = <0 0 0 1 &pcie2_intc 0>,
--						<0 0 0 2 &pcie2_intc 1>,
--						<0 0 0 3 &pcie2_intc 2>,
--						<0 0 0 4 &pcie2_intc 3>;
--				marvell,pcie-port = <1>;
--				marvell,pcie-lane = <0>;
--				clocks = <&gateclk 5>;
--				status = "disabled";
--
--				pcie2_intc: interrupt-controller {
--					interrupt-controller;
--					#interrupt-cells = <1>;
--				};
--			};
--
--			/* x1 port */
--			pcie@3,0 {
--				device_type = "pci";
--				assigned-addresses = <0x82001800 0 0x44000 0 0x2000>;
--				reg = <0x1800 0 0 0 0>;
--				#address-cells = <3>;
--				#size-cells = <2>;
--				interrupt-names = "intx";
--				interrupts-extended = <&gic GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
--				#interrupt-cells = <1>;
--				ranges = <0x82000000 0 0 0x82000000 0x3 0 1 0
--					  0x81000000 0 0 0x81000000 0x3 0 1 0>;
--				bus-range = <0x00 0xff>;
--				interrupt-map-mask = <0 0 0 7>;
--				interrupt-map = <0 0 0 1 &pcie3_intc 0>,
--						<0 0 0 2 &pcie3_intc 1>,
--						<0 0 0 3 &pcie3_intc 2>,
--						<0 0 0 4 &pcie3_intc 3>;
--				marvell,pcie-port = <2>;
--				marvell,pcie-lane = <0>;
--				clocks = <&gateclk 6>;
--				status = "disabled";
--
--				pcie3_intc: interrupt-controller {
--					interrupt-controller;
--					#interrupt-cells = <1>;
--				};
--			};
--		};
--	};
--};
-diff --git a/arch/arm64/boot/dts/marvell/armada-7020.dtsi b/arch/arm64/boot/dts/marvell/armada-7020.dtsi
-deleted file mode 100644
-index 570f901b4f4a..000000000000
---- a/arch/arm64/boot/dts/marvell/armada-7020.dtsi
-+++ /dev/null
-@@ -1,10 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
--/*
-- * Copyright (C) 2016 Marvell Technology Group Ltd.
-- *
-- * Device Tree file for the Armada 7020 SoC, made of an AP806 Dual and
-- * one CP110.
-- */
--
--#include "armada-ap806-dual.dtsi"
--#include "armada-70x0.dtsi"
-diff --git a/arch/arm64/boot/dts/marvell/armada-8020.dtsi b/arch/arm64/boot/dts/marvell/armada-8020.dtsi
-deleted file mode 100644
-index b6fc18876093..000000000000
---- a/arch/arm64/boot/dts/marvell/armada-8020.dtsi
-+++ /dev/null
-@@ -1,20 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
--/*
-- * Copyright (C) 2016 Marvell Technology Group Ltd.
-- *
-- * Device Tree file for the Armada 8020 SoC, made of an AP806 Dual and
-- * two CP110.
-- */
--
--#include "armada-ap806-dual.dtsi"
--#include "armada-80x0.dtsi"
--
--/* The RTC requires external oscillator. But on Aramda 80x0, the RTC clock
-- * in CP master is not connected (by package) to the oscillator. So
-- * disable it. However, the RTC clock in CP slave is connected to the
-- * oscillator so this one is let enabled.
-- */
--
--&cp0_rtc {
--	status = "disabled";
--};
-diff --git a/arch/arm64/boot/dts/marvell/armada-ap806-dual.dtsi b/arch/arm64/boot/dts/marvell/armada-ap806-dual.dtsi
-deleted file mode 100644
-index 82f4dedfc25e..000000000000
---- a/arch/arm64/boot/dts/marvell/armada-ap806-dual.dtsi
-+++ /dev/null
-@@ -1,60 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
--/*
-- * Copyright (C) 2016 Marvell Technology Group Ltd.
-- *
-- * Device Tree file for Marvell Armada AP806.
-- */
--
--#include "armada-ap806.dtsi"
--
--/ {
--	cpus {
--		#address-cells = <1>;
--		#size-cells = <0>;
--
--		cpu0: cpu@0 {
--			device_type = "cpu";
--			compatible = "arm,cortex-a72";
--			reg = <0x000>;
--			enable-method = "psci";
--			#cooling-cells = <2>;
--			clocks = <&cpu_clk 0>;
--			i-cache-size = <0xc000>;
--			i-cache-line-size = <64>;
--			i-cache-sets = <256>;
--			d-cache-size = <0x8000>;
--			d-cache-line-size = <64>;
--			d-cache-sets = <256>;
--			next-level-cache = <&l2>;
--		};
--		cpu1: cpu@1 {
--			device_type = "cpu";
--			compatible = "arm,cortex-a72";
--			reg = <0x001>;
--			enable-method = "psci";
--			#cooling-cells = <2>;
--			clocks = <&cpu_clk 0>;
--			i-cache-size = <0xc000>;
--			i-cache-line-size = <64>;
--			i-cache-sets = <256>;
--			d-cache-size = <0x8000>;
--			d-cache-line-size = <64>;
--			d-cache-sets = <256>;
--			next-level-cache = <&l2>;
--		};
--
--		l2: l2-cache {
--			compatible = "cache";
--			cache-size = <0x80000>;
--			cache-line-size = <64>;
--			cache-sets = <512>;
--			cache-level = <2>;
--			cache-unified;
--		};
--	};
--
--	thermal-zones {
--		/delete-node/ ap-thermal-cpu2;
--		/delete-node/ ap-thermal-cpu3;
--	};
--};
-diff --git a/arch/arm64/boot/dts/marvell/cn9130-db-comexpress.dtsi b/arch/arm64/boot/dts/marvell/cn9130-db-comexpress.dtsi
-deleted file mode 100644
-index 028496ebc473..000000000000
---- a/arch/arm64/boot/dts/marvell/cn9130-db-comexpress.dtsi
-+++ /dev/null
-@@ -1,96 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
--/*
-- * Copyright (C) 2023 Marvell International Ltd.
-- *
-- * Device tree for the CN9130-DB Com Express CPU module board.
-- */
--
--#include "cn9130-db.dtsi"
--
--/ {
--	model = "Marvell Armada CN9130-DB COM EXPRESS type 7 CPU module board";
--	compatible = "marvell,cn9130-cpu-module", "marvell,cn9130",
--		     "marvell,armada-ap807-quad", "marvell,armada-ap807";
--
--};
--
--&ap0_reg_sd_vccq {
--	regulator-max-microvolt = <1800000>;
--	states = <1800000 0x1 1800000 0x0>;
--	/delete-property/ gpios;
--};
--
--&cp0_reg_usb3_vbus0 {
--	/delete-property/ gpio;
--};
--
--&cp0_reg_usb3_vbus1 {
--	/delete-property/ gpio;
--};
--
--&cp0_reg_sd_vcc {
--	status = "disabled";
--};
--
--&cp0_reg_sd_vccq {
--	status = "disabled";
--};
--
--&cp0_sdhci0 {
--	status = "disabled";
--};
--
--&cp0_eth0 {
--	status = "disabled";
--};
--
--&cp0_eth1 {
--	status = "okay";
--	phy = <&phy0>;
--	phy-mode = "rgmii-id";
--};
--
--&cp0_eth2 {
--	status = "disabled";
--};
--
--&cp0_mdio {
--	status = "okay";
--	pinctrl-0 = <&cp0_ge_mdio_pins>;
--	phy0: ethernet-phy@0 {
--		status = "okay";
--	};
--};
--
--&cp0_syscon0 {
--	cp0_pinctrl: pinctrl {
--		compatible = "marvell,cp115-standalone-pinctrl";
--
--		cp0_ge_mdio_pins: ge-mdio-pins {
--			marvell,pins = "mpp40", "mpp41";
--			marvell,function = "ge";
--		};
--	};
--};
--
--&cp0_sdhci0 {
--	status = "disabled";
--};
--
--&cp0_spi1 {
--	status = "okay";
--};
--
--&cp0_usb3_0 {
--	status = "okay";
--	usb-phy = <&cp0_usb3_0_phy0>;
--	phy-names = "usb";
--	/delete-property/ phys;
--};
--
--&cp0_usb3_1 {
--	status = "okay";
--	usb-phy = <&cp0_usb3_0_phy1>;
--	phy-names = "usb";
--	/delete-property/ phys;
--};
--- 
-2.51.0
+>
+> [ ...]
+>
+> > +             port29: port@29 {
+> > +                     reg =3D <29>;
+> > +                     phys =3D <&serdes 11>;
+> > +                     phy-handle =3D <&phy3>;
+> > +                     phy-mode =3D "rgmii-id";
+> > +                     microchip,bandwidth =3D <1000>;
+>
+> There are some questions around this node from Andrew in v1 of this serie=
+s,
+> which I don't see an answer for in any of the following versions. Could y=
+ou
+> please clarify?
 
+Sure, as for the RGMII I switched to rgmii-id so the PHY is adding the dela=
+ys.
+Though, I am not sure if its better to add them via MAC as it can add
+the delays instead of the PHY,
+so I am open to suggestions here.
+
+As for the phys property, yes that is not required here as RGMII ports
+are dedicated, there are no
+SERDES lanes being used for them.
+
+I have updated the bindings to account for this and it will be part of v5.
+
+Regards,
+Robert
+
+>
+> The rest looks good to me.
+>
+> Thank you,
+> Claudiu
+>
+
+
+--=20
+Robert Marko
+Staff Embedded Linux Engineer
+Sartura d.d.
+Lendavska ulica 16a
+10000 Zagreb, Croatia
+Email: robert.marko@sartura.hr
+Web: www.sartura.hr
 
