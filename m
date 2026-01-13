@@ -4,88 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B19D29DC7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 03:42:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EB86D29DC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 03:42:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m8B+AlU57A2eE2Y1XaEm3C3NQH7TpkMswGLEdXQ9Hiw=; b=Djb91lmqc04gtbwO+6AgtRIv64
-	oyE3FiVbR+5hSxYS+rINy7XRVY3jaig1AckpUKNuFgGB1CIz6rat5V9iFKavtVrSUNg6ImoHmZkum
-	8fEiSQPCL8QgpX0zR16kqPp8tpa1RtrtVCosOzjKHb97YHKJNMagB2bwxyB+ZINAgDNzqZCGFmY3Y
-	hBFG7I3+bzGLY3psP7As01KglXg6huY3vAA55+92T/RdgfVLUSjHOKsxUE53EbgRvCEMoPjF9RSZF
-	+/EiQD5miIrDORm6EDKhwL1ipH7eepPXTsP/51CQx1roGfG/7gLDNXWre/Wj02znWFitUQoLl3mmQ
-	XvWsv4rQ==;
+	bh=fVv62MZUrZPdRFByK56slRI8ijRLRgG7rdwfmDV8pAQ=; b=EMsClmYqQCm9YJUhZts8pCcYOP
+	9qMJOrd+u+r26XUy74D94LAWLg5TfHaZ1Pu3Pc1TceNXCUHV0J23Ng6ZrEvEW1Mz1RCa5adB01obS
+	EP3Uk5woJ2oDgFvzJS65hkTI6LOSjLBPjKBA8/4Kuu9vA+V40u5/mmp3zB0tyNtxRa/3w+cQi9rf/
+	S2Lya/IEk4rBNO5YxeniFPnaYaZOUdbVU3PhCbfcEOroROyueQqDTGuFMRzUmk3+nEMIXju3lBZdO
+	8EYYirR4Y4X1mtnwuENCn1r602a/t3D/p6Nl4yKiPPuVoz03IqEim7a9tY5Uood+VHEUtBzwtB9kn
+	4bV6ZNDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfVIW-00000006UrO-1ZkG;
-	Tue, 13 Jan 2026 03:42:24 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1vfVIp-00000006Uus-093Z;
+	Tue, 13 Jan 2026 03:42:43 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfVIS-00000006UqZ-3VOA;
-	Tue, 13 Jan 2026 03:42:22 +0000
+	id 1vfVIl-00000006Uu6-0uvc
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 03:42:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768275741; x=1799811741;
+  t=1768275759; x=1799811759;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=a189GyiyLwJgfD4HhPrDhWNPYwV0vohFYoQElg4PC7Y=;
-  b=hkK4luOhE2DrvOPTqJmQsRtJqQOUkXc3JXQqGCIouR3IuKJlIySKwFvp
-   HkrcoLnJRpCzBYpKawAGfZRJfsrWoUbGcmeB/HcU+K8yXD2G016AcByqU
-   ikoto4iYPjcq8mqJbiZtbJQ1NsAjWVP06Yt5w5GduFaHflFMWF7CeAK4Q
-   +6d71qC2/cKjZoSWbRLlAmsyKtQVADzv9NU9g1X3nrKqlr97N4fvlCWt/
-   8lpnoGDyWyNJ5OSH/kpUvtzeJJLDQMedQbT167ApE4fpsxF+zRTmEBNQ8
-   12o50PRfSk8uZFgKizARcqs8zed22eJ0XNPd5ILrp2NGbsLMZQNc7O4v3
-   w==;
-X-CSE-ConnectionGUID: HDvnUt1KRCiyqh7JVjm3OA==
-X-CSE-MsgGUID: rDpRywGRSsuo7UEr3hQfEw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11669"; a="73189397"
+  bh=wRx+TNLJBbL2ubl8LIvhEos4LxCfMOOdQi3XJl6jDyE=;
+  b=mePDu0JAe8NxouW206yBW2Z8KhgkyES7Dav+pb3l0uoHlK5A1iAnzYf/
+   6uDyUP1go7glL5mqi61wbTDcmChaYfQut+Nde5SB2YostLeEX2pWg4GXt
+   +9nCsVfuwROYcY2z0T96xSSmJqn5Bo+pU5thluXGOmaE38gsEXZempqkQ
+   BVjjfXp0F6GmulHx99/O/8b4eIf1+7gJXHs2a4fTJSL5KWR03ezgY67of
+   vzPEI9o2QEYoB2AqvPz0WatmwvPjU5g3piqnvieOrUu4dOmTXNudPrXTi
+   Q6r+UdMrF7Y67+MU2JbHu/ojcVe+wLyQH4aAzgfD8OENeHXDjzQy909yA
+   g==;
+X-CSE-ConnectionGUID: kZF/9YjCS9W+QxXKz9W8Uw==
+X-CSE-MsgGUID: R2fD5bIkQ7+eN5bMtI0Ddg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11669"; a="81009560"
 X-IronPort-AV: E=Sophos;i="6.21,222,1763452800"; 
-   d="scan'208";a="73189397"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jan 2026 19:42:18 -0800
-X-CSE-ConnectionGUID: P0cr0bG/S/qezmCmaThNYA==
-X-CSE-MsgGUID: ts13jOezTKKjb3EQe9wSoQ==
+   d="scan'208";a="81009560"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jan 2026 19:42:39 -0800
+X-CSE-ConnectionGUID: Dp9NJNqyRymYSYWocfCcrQ==
+X-CSE-MsgGUID: jSeE+nXDRt2HMQrAxmYNXQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.21,222,1763452800"; 
-   d="scan'208";a="204078696"
+   d="scan'208";a="209098823"
 Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 12 Jan 2026 19:42:13 -0800
+  by fmviesa004.fm.intel.com with ESMTP; 12 Jan 2026 19:42:34 -0800
 Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
 	(envelope-from <lkp@intel.com>)
-	id 1vfVII-00000000EAy-3c1r;
-	Tue, 13 Jan 2026 03:42:10 +0000
-Date: Tue, 13 Jan 2026 11:41:38 +0800
+	id 1vfVIe-00000000EB2-1gwZ;
+	Tue, 13 Jan 2026 03:42:32 +0000
+Date: Tue, 13 Jan 2026 11:41:52 +0800
 From: kernel test robot <lkp@intel.com>
-To: Gregory CLEMENT <gregory.clement@bootlin.com>,
+To: Cyrille Pitchen <cyrille.pitchen@microchip.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
 	Rob Herring <robh@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
 	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
-	=?iso-8859-1?Q?Beno=EEt?= Monin <benoit.monin@bootlin.com>,
-	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Russell King <linux@armlinux.org.uk>
+Cc: oe-kbuild-all@lists.linux.dev, dri-devel@lists.freedesktop.org,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
-	Gregory CLEMENT <gregory.clement@bootlin.com>
-Subject: Re: [PATCH v3 2/4] of: reserved_mem: Support multiple 'reg' entries
- for memory-region
-Message-ID: <202601131101.q65jw7p0-lkp@intel.com>
-References: <20260107-mtd-memregion-v3-2-f9fc9107b992@bootlin.com>
+	linux-arm-kernel@lists.infradead.org,
+	Cyrille Pitchen <cyrille.pitchen@microchip.com>
+Subject: Re: [PATCH v4 2/5] drm/microchip: add a driver for the Microchip
+ GFX2D GPU
+Message-ID: <202601131146.aeqDjJy1-lkp@intel.com>
+References: <20260112-cpitchen-mainline_gfx2d-v4-2-f210041ad343@microchip.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260107-mtd-memregion-v3-2-f9fc9107b992@bootlin.com>
+In-Reply-To: <20260112-cpitchen-mainline_gfx2d-v4-2-f210041ad343@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_194220_953568_245595FF 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20260112_194239_308496_E5A43AC5 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,97 +101,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gregory,
+Hi Cyrille,
 
-kernel test robot noticed the following build warnings:
+kernel test robot noticed the following build errors:
 
-[auto build test WARNING on 8f0b4cce4481fb22653697cced8d0d04027cb1e8]
+[auto build test ERROR on 38feb171b3f92d77e8061fafb5ddfffc2c13b672]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Gregory-CLEMENT/of-reserved_mem-Fix-placement-of-__free-annotation/20260107-211455
-base:   8f0b4cce4481fb22653697cced8d0d04027cb1e8
-patch link:    https://lore.kernel.org/r/20260107-mtd-memregion-v3-2-f9fc9107b992%40bootlin.com
-patch subject: [PATCH v3 2/4] of: reserved_mem: Support multiple 'reg' entries for memory-region
-config: arm-allnoconfig (https://download.01.org/0day-ci/archive/20260113/202601131101.q65jw7p0-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 9b8addffa70cee5b2acc5454712d9cf78ce45710)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260113/202601131101.q65jw7p0-lkp@intel.com/reproduce)
+url:    https://github.com/intel-lab-lkp/linux/commits/Cyrille-Pitchen/dt-bindings-gpu-add-bindings-for-the-Microchip-GFX2D-GPU/20260112-192254
+base:   38feb171b3f92d77e8061fafb5ddfffc2c13b672
+patch link:    https://lore.kernel.org/r/20260112-cpitchen-mainline_gfx2d-v4-2-f210041ad343%40microchip.com
+patch subject: [PATCH v4 2/5] drm/microchip: add a driver for the Microchip GFX2D GPU
+config: arm-allyesconfig (https://download.01.org/0day-ci/archive/20260113/202601131146.aeqDjJy1-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260113/202601131146.aeqDjJy1-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601131101.q65jw7p0-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601131146.aeqDjJy1-lkp@intel.com/
 
-All warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
->> drivers/of/of_reserved_mem.c:317:7: warning: variable 'err' is uninitialized when used here [-Wuninitialized]
-     317 |                 if (err == -ENOENT && of_get_flat_dt_prop(child, "size", NULL)) {
-         |                     ^~~
-   drivers/of/of_reserved_mem.c:300:10: note: initialize the variable 'err' to silence this warning
-     300 |                 int err, ret;
-         |                        ^
-         |                         = 0
-   1 warning generated.
+   drivers/gpu/drm/microchip/mchp_gfx2d_cmd.c: In function 'mchp_gfx2d_enable_exend':
+>> drivers/gpu/drm/microchip/mchp_gfx2d_cmd.c:44:9: error: implicit declaration of function 'drm_dbg'; did you mean 'dev_dbg'? [-Wimplicit-function-declaration]
+      44 |         drm_dbg(&priv->drm, "enable EXEND interrupt\n");
+         |         ^~~~~~~
+         |         dev_dbg
+--
+>> drivers/gpu/drm/microchip/mchp_gfx2d_drv.c:61:10: error: 'const struct drm_driver' has no member named 'date'
+      61 |         .date = "20240716",
+         |          ^~~~
+>> drivers/gpu/drm/microchip/mchp_gfx2d_drv.c:61:17: error: initialization of 'unsigned int' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+      61 |         .date = "20240716",
+         |                 ^~~~~~~~~~
+   drivers/gpu/drm/microchip/mchp_gfx2d_drv.c:61:17: note: (near initialization for 'mchp_gfx2d_drm_driver.driver_features')
+   drivers/gpu/drm/microchip/mchp_gfx2d_drv.c:62:28: warning: initialized field overwritten [-Woverride-init]
+      62 |         .driver_features = DRIVER_GEM | DRIVER_RENDER,
+         |                            ^~~~~~~~~~
+   drivers/gpu/drm/microchip/mchp_gfx2d_drv.c:62:28: note: (near initialization for 'mchp_gfx2d_drm_driver.driver_features')
+   drivers/gpu/drm/microchip/mchp_gfx2d_drv.c: In function 'mchp_gfx2d_thread':
+>> drivers/gpu/drm/microchip/mchp_gfx2d_drv.c:98:9: error: implicit declaration of function 'drm_dbg'; did you mean 'dev_dbg'? [-Wimplicit-function-declaration]
+      98 |         drm_dbg(&priv->drm, "enter IRQ thread\n");
+         |         ^~~~~~~
+         |         dev_dbg
+   drivers/gpu/drm/microchip/mchp_gfx2d_drv.c: At top level:
+>> drivers/gpu/drm/microchip/mchp_gfx2d_drv.c:344:10: error: 'struct platform_driver' has no member named 'remove_new'; did you mean 'remove'?
+     344 |         .remove_new = mchp_gfx2d_remove,
+         |          ^~~~~~~~~~
+         |          remove
+--
+   drivers/gpu/drm/microchip/mchp_gfx2d_gem.c: In function 'mchp_gfx2d_gem_create':
+>> drivers/gpu/drm/microchip/mchp_gfx2d_gem.c:127:17: error: implicit declaration of function 'drm_dbg'; did you mean 'dev_dbg'? [-Wimplicit-function-declaration]
+     127 |                 drm_dbg(dev, "failed to allocate buffer with size %zu\n", size);
+         |                 ^~~~~~~
+         |                 dev_dbg
+   drivers/gpu/drm/microchip/mchp_gfx2d_gem.c: In function 'mchp_gfx2d_gem_prime_import_sg_table':
+>> drivers/gpu/drm/microchip/mchp_gfx2d_gem.c:201:9: error: implicit declaration of function 'drm_dbg_prime' [-Wimplicit-function-declaration]
+     201 |         drm_dbg_prime(dev, "dma_addr = %pad, size = %zu\n",
+         |         ^~~~~~~~~~~~~
 
 
-vim +/err +317 drivers/of/of_reserved_mem.c
+vim +44 drivers/gpu/drm/microchip/mchp_gfx2d_cmd.c
 
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  278  
-54c180e73ffa3e Rob Herring        2024-03-11  279  /*
-54c180e73ffa3e Rob Herring        2024-03-11  280   * fdt_scan_reserved_mem() - scan a single FDT node for reserved memory
-54c180e73ffa3e Rob Herring        2024-03-11  281   */
-54c180e73ffa3e Rob Herring        2024-03-11  282  int __init fdt_scan_reserved_mem(void)
-54c180e73ffa3e Rob Herring        2024-03-11  283  {
-54c180e73ffa3e Rob Herring        2024-03-11  284  	int node, child;
-00c9a452a235c6 Oreoluwa Babatunde 2024-10-08  285  	int dynamic_nodes_cnt = 0, count = 0;
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  286  	int dynamic_nodes[MAX_RESERVED_REGIONS];
-54c180e73ffa3e Rob Herring        2024-03-11  287  	const void *fdt = initial_boot_params;
-54c180e73ffa3e Rob Herring        2024-03-11  288  
-54c180e73ffa3e Rob Herring        2024-03-11  289  	node = fdt_path_offset(fdt, "/reserved-memory");
-54c180e73ffa3e Rob Herring        2024-03-11  290  	if (node < 0)
-54c180e73ffa3e Rob Herring        2024-03-11  291  		return -ENODEV;
-54c180e73ffa3e Rob Herring        2024-03-11  292  
-54c180e73ffa3e Rob Herring        2024-03-11  293  	if (__reserved_mem_check_root(node) != 0) {
-54c180e73ffa3e Rob Herring        2024-03-11  294  		pr_err("Reserved memory: unsupported node format, ignoring\n");
-54c180e73ffa3e Rob Herring        2024-03-11  295  		return -EINVAL;
-54c180e73ffa3e Rob Herring        2024-03-11  296  	}
-54c180e73ffa3e Rob Herring        2024-03-11  297  
-54c180e73ffa3e Rob Herring        2024-03-11  298  	fdt_for_each_subnode(child, fdt, node) {
-54c180e73ffa3e Rob Herring        2024-03-11  299  		const char *uname;
-8be14ac8dccc70 Gregory CLEMENT    2026-01-07  300  		int err, ret;
-54c180e73ffa3e Rob Herring        2024-03-11  301  
-54c180e73ffa3e Rob Herring        2024-03-11  302  		if (!of_fdt_device_is_available(fdt, child))
-54c180e73ffa3e Rob Herring        2024-03-11  303  			continue;
-54c180e73ffa3e Rob Herring        2024-03-11  304  
-54c180e73ffa3e Rob Herring        2024-03-11  305  		uname = fdt_get_name(fdt, child, NULL);
-54c180e73ffa3e Rob Herring        2024-03-11  306  
-8be14ac8dccc70 Gregory CLEMENT    2026-01-07  307  		ret = __reserved_mem_reserve_reg(child, uname);
-8be14ac8dccc70 Gregory CLEMENT    2026-01-07  308  		if (ret > 0)
-8be14ac8dccc70 Gregory CLEMENT    2026-01-07  309  			count += ret;
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  310  		/*
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  311  		 * Save the nodes for the dynamically-placed regions
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  312  		 * into an array which will be used for allocation right
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  313  		 * after all the statically-placed regions are reserved
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  314  		 * or marked as no-map. This is done to avoid dynamically
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  315  		 * allocating from one of the statically-placed regions.
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  316  		 */
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08 @317  		if (err == -ENOENT && of_get_flat_dt_prop(child, "size", NULL)) {
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  318  			dynamic_nodes[dynamic_nodes_cnt] = child;
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  319  			dynamic_nodes_cnt++;
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  320  		}
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  321  	}
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  322  	for (int i = 0; i < dynamic_nodes_cnt; i++) {
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  323  		const char *uname;
-00c9a452a235c6 Oreoluwa Babatunde 2024-10-08  324  		int err;
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  325  
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  326  		child = dynamic_nodes[i];
-8a6e02d0c00e7b Oreoluwa Babatunde 2024-10-08  327  		uname = fdt_get_name(fdt, child, NULL);
-00c9a452a235c6 Oreoluwa Babatunde 2024-10-08  328  		err = __reserved_mem_alloc_size(child, uname);
-00c9a452a235c6 Oreoluwa Babatunde 2024-10-08  329  		if (!err)
-00c9a452a235c6 Oreoluwa Babatunde 2024-10-08  330  			count++;
-54c180e73ffa3e Rob Herring        2024-03-11  331  	}
-00c9a452a235c6 Oreoluwa Babatunde 2024-10-08  332  	total_reserved_mem_cnt = count;
-54c180e73ffa3e Rob Herring        2024-03-11  333  	return 0;
-54c180e73ffa3e Rob Herring        2024-03-11  334  }
-54c180e73ffa3e Rob Herring        2024-03-11  335  
+    41	
+    42	static void mchp_gfx2d_enable_exend(struct mchp_gfx2d_device *priv)
+    43	{
+  > 44		drm_dbg(&priv->drm, "enable EXEND interrupt\n");
+    45		writel(GFX2D_IRQ_EXEND, priv->regs + GFX2D_IE);
+    46	}
+    47	
 
 -- 
 0-DAY CI Kernel Test Service
