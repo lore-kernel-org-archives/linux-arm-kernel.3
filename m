@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECC6BD2D0E8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 12:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE3B5D2D0E7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 12:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7mIzpSEjJlP0f9i4KYTcYSErkDPIom6vg3hsdO6a6OY=; b=U5RcR09W6DI/Aes8/IScoIQi/5
-	Ve8unhdeoEgC5CW7MHXtlnmMrbpLOySDsf8Q11QRDT8iECQYt4Cu4CWLkZHd0eL4PRdPT9YUm1Ksg
-	qPMDsSM5lXwaO7Ya+J9HzQf2nRvLhMHbVFb7zpPuJ5QpPsBUoHqtHJepbUOzib0WxoWF7anxTIVQc
-	IreevncjseX1zmHU3qXUga58H+gK3zmy0e1H5MCCmNWof9iePJH7pX7DWHmj5HQw+LtsA0Qh7QhtA
-	SH1gsyXtcs2HpdnE5ZJUkgEn/bGh+jRao8v8ixuVsfsVi0AKhp+m6WH1oylq5BKKWtq5ZuacecQUP
-	eU/oj8DQ==;
+	bh=YXngEtL37DDnDqlLoe4jnxFs4D53fNbLbZH/yLUPipA=; b=HMHHM/zh5rDGxIyhXijmKIUZBx
+	13LC44N8VWVof8s6IbyQ1cdm3yRZXIxt8wajJWQraAv2B5mNfcQ5Xy+CgGT1dCf/k7uK/49YHSnN+
+	ltrnYMpgeRElMLbDUI55wmOrQ6OJ2StC0naRAuoDJTMA1kzqrRCnSoYigo+AekeHoyfMb3dp2yOZQ
+	Liy0b3D+WrVUCt+qCR3hmD4+BhUJ2gB4UXWiqZeppl5cD2BJ+U5z3gukzwPfC7D1tE+TGNfe0pezJ
+	Er9U+vQLhfIMyQRRM0Hqf7Fh44rcyB3J9vjLE7qIuNxoeiqBe22QeHTexwPZXFl+PI3WS0fViZw7x
+	5E/BUp9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfdf0-000000075VQ-49oH;
-	Tue, 13 Jan 2026 12:38:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vfdhc-000000075xP-1Bky;
+	Tue, 13 Jan 2026 12:40:52 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfdey-000000075Uk-0W15;
-	Tue, 13 Jan 2026 12:38:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5821344265;
-	Tue, 13 Jan 2026 12:38:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02E73C16AAE;
-	Tue, 13 Jan 2026 12:38:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768307887;
-	bh=XBh651uOFdz895yL+g9RcE+L3CQnvJrQsqohr3JUpro=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=ITei+nWuD0tmntKUe3z5GLKo96BDN6bl2LcQ2KuQO8tRhW73non6+I7D66FKs+POa
-	 9UR+MtSJ9ntb2TxeuPYwi2+LCL8jSaCrg4oNSxQAe0hhp0mvF0idnXxdhWyNUGMiYr
-	 l3TS/+ez5GBB9H3iJ5loMPeI1KlrLf2Ey6S96jXSCe+uoF/LTb1Ltv0kas3kJQe1Dd
-	 jchfWlDhv7K831iQlXB6QCuUekkkos4sJebdg51tOKi4DiOw+r2ipzWlkRpvS76OfI
-	 2J+8K7gnNGsLG4+YDM6HNF7/Wna4d7ca03ON4Kvv8fFDor2cfuZWIb3g65qvFMM5JM
-	 +0LCSQ9UIzWLQ==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- matthias.bgg@gmail.com, sjoerd@collabora.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, kernel@collabora.com
-In-Reply-To: <20260109114356.36454-1-angelogioacchino.delregno@collabora.com>
-References: <20260109114356.36454-1-angelogioacchino.delregno@collabora.com>
-Subject: Re: (subset) [PATCH] dt-bindings: mfd: syscon: Allow syscon
- compatible for mediatek,mt7981-topmisc
-Message-Id: <176830788476.2846051.17154311682129442278.b4-ty@kernel.org>
-Date: Tue, 13 Jan 2026 12:38:04 +0000
+	id 1vfdhZ-000000075wk-1rrx
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 12:40:50 +0000
+Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <m.felsch@pengutronix.de>)
+	id 1vfdhQ-0005zD-Ev; Tue, 13 Jan 2026 13:40:40 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+Date: Tue, 13 Jan 2026 13:40:35 +0100
+Subject: [PATCH v2 2/2] clk: imx: fracn-gppll: Add 241.90 MHz Support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.15-dev-52d38
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260113-v6-18-topic-clk-fracn-gppll-v2-2-44567319aef7@pengutronix.de>
+References: <20260113-v6-18-topic-clk-fracn-gppll-v2-0-44567319aef7@pengutronix.de>
+In-Reply-To: <20260113-v6-18-topic-clk-fracn-gppll-v2-0-44567319aef7@pengutronix.de>
+To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Marco Felsch <m.felsch@pengutronix.de>
+X-Mailer: b4 0.14.2
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::28
+X-SA-Exim-Mail-From: m.felsch@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_043808_177381_ADE4C2DC 
-X-CRM114-Status: UNSURE (   8.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260113_044049_500635_67F388AC 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,22 +71,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 09 Jan 2026 12:43:56 +0100, AngeloGioacchino Del Regno wrote:
-> Commit a95419ff9f21 ("dt-bindings: mfd: syscon: Add mt7981-topmisc")
-> added the mediatek,mt7981-topmisc compatible to the `select` block
-> which is used only for compatibility with older dtschema, but did
-> not add it in the actual block allowing to specify the "syscon"
-> fallback compatible, which is required for such node to do anything
-> meaningful in the end.
-> 
-> [...]
+Some parallel panels have a pixelclk of 24.19 MHz. Add support for
+241.90 MHz so a by 10 divider can be used to derive the exact pixelclk.
 
-Applied, thanks!
+Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+---
+ drivers/clk/imx/clk-fracn-gppll.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-[1/1] dt-bindings: mfd: syscon: Allow syscon compatible for mediatek,mt7981-topmisc
-      commit: a4d1081e82d588bd549284ad5321c018c86e6935
+diff --git a/drivers/clk/imx/clk-fracn-gppll.c b/drivers/clk/imx/clk-fracn-gppll.c
+index 579f76494eb041dfba58b8cd10eb2453a0ec4178..eb3d5e3c53946f3caf83bcff654c6481611375e3 100644
+--- a/drivers/clk/imx/clk-fracn-gppll.c
++++ b/drivers/clk/imx/clk-fracn-gppll.c
+@@ -89,7 +89,8 @@ static const struct imx_fracn_gppll_rate_table fracn_tbl[] = {
+ 	PLL_FRACN_GP(400000000U, 200, 0, 1, 0, 12),
+ 	PLL_FRACN_GP(393216000U, 163, 84, 100, 0, 10),
+ 	PLL_FRACN_GP(332600000U, 138, 584, 1000, 0, 10),
+-	PLL_FRACN_GP(300000000U, 150, 0, 1, 0, 12)
++	PLL_FRACN_GP(300000000U, 150, 0, 1, 0, 12),
++	PLL_FRACN_GP(241900000U, 201, 584, 1000, 0, 20)
+ };
+ 
+ struct imx_fracn_gppll_clk imx_fracn_gppll = {
 
---
-Lee Jones [李琼斯]
+-- 
+2.47.3
 
 
