@@ -4,89 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D7ED0C855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 11:14:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB5FD0C854
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 11:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MR0NoHyZdJndLOZGMkASZoG8F5TIOzALE+PpGAFfY78=; b=zKCdbSXq62kxkm5mzmmz26Bma9
-	73XhYRNuSv41Ts6DOSpclvdKkuWLonPIffH8qoZcwogjwwWpqATMrBIEMu5GpZT/eSthKc6i2Khyl
-	lpmJ6XYMssCTzVnROoCj/9Kz6hbkKna6KcJ8kf3aAzjMpo+bGuBVxwWGIB/bHJHlcV/S9NlmHJLZ2
-	u1tl02tXSzfxBfMs9JBtzbKfwQMBx8nmNqcbqk5ZIXCvwxCMfeQNhYFk/8Qug154AwkFhdvl8w6Aw
-	fA/EK1ZU2isl8GW6DVdit0JzS/ipGkrdgmOfZX6f3hIynRNuWVgDPpA2LhxvyWRuUkieHghCmqrOH
-	STEXBUUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WVz2cn3CkK/mIo0N8EVudxmtiUauPsvts9rJ0BtRZTc=; b=J5ESfU3uHonfIaChJ0K+ybBCTV
+	1OXVpcSwP9zixISEciYsjWkhn4DidNe/PEXi2ERrncL3G+f+m5XAO+lIhZ04xkqPekrA2Q9USB3we
+	GpAiKHtXC9EVj+nZvzyk8e3BKFgF44qloqfd/r568ZtZIZjwmO4ky4A5dOo7mjn2KoRc1T9tsUKSj
+	IUCfNizFhKl1rttQCZ+Hh19+6rwMHYXV0RvLkNysvzRFRpcMIcerAuHlwXUfjf1RlB8Xuhhow6cmD
+	kOqyBXzQ0UAhflqJ32lAydlgFJjd21AMLkJDbywvP8VmHNIvmItxUzwGGeMekp72J/84yixeSRm5/
+	5qqqyFxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfcM6-000000070Cv-3dle;
-	Tue, 13 Jan 2026 11:14:34 +0000
-Received: from mail-pg1-f194.google.com ([209.85.215.194])
+	id 1vfcNT-000000070L1-1OlE;
+	Tue, 13 Jan 2026 11:15:59 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfcM4-000000070CR-3eVG
+	id 1vfcNQ-000000070KZ-2RSJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 11:14:34 +0000
-Received: by mail-pg1-f194.google.com with SMTP id 41be03b00d2f7-bc274b8b15bso4877428a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 03:14:32 -0800 (PST)
+	Tue, 13 Jan 2026 11:15:57 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60D76CF7175876
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 11:15:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	WVz2cn3CkK/mIo0N8EVudxmtiUauPsvts9rJ0BtRZTc=; b=iEERgBlO108Jbnoe
+	rdkZ08PB4PGIZn/o+lECpKt6YvxF949EuAE31JyvGK2l3ScuRaa1eYl3/0ateZ3W
+	IboWh0dtqGduxGxPVv5sWLB8Nzn2bR4nPKrLvrHO1tosdnYFG0myuNSfI0jtSKR5
+	ugE3JsnS718CZizEpv77l089ZZ1cskYb3jcIEFMxG3QewCm8z2hPjuY/+Knv9ikJ
+	mM+MUZm16JRUyHpIFOyuL2Ys6hPr15V2ZBafo8irR34KWZVSS0w9KdKdMuk4GqwE
+	f7Ger/7Zr5uYTzueuZbptj6DfzO1vE7GzpMtRCI4zLuWO9594mxTjGZFwslEDRum
+	1VbbGg==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bn52f3080-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 11:15:55 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-50144419b6cso228251cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 03:15:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1768302955; x=1768907755; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WVz2cn3CkK/mIo0N8EVudxmtiUauPsvts9rJ0BtRZTc=;
+        b=W2/eWGL/d0Ig+vYrRpAIWoTzKS8+eEXB3+9+RurEJ4/eoiTxiaUv8lI+UkeIRBNx3X
+         7zGYgUTzaUv7UzmBspxycPREjlF4+bzRE1AM6kV/XJOvuQQhgHxuG2nJUoqJbEWcgOn/
+         GNY4G4zkuMHPCZtUJee0BiOEs/mdvOQOk9zR9WXrw9e39eY6EsBZ8MxxIRYGA8eRhzXB
+         6bV31cETUuQt56hkUhe1n/u7IkD9ITYadavDuLJ7BrO6aFAxVBewRVfRN2+wbPZZZxzF
+         /k9mRbhFKfHmNKqdju2636KMR2T/NxjdKOzQDKI4jkkmO1+57kUlAWuBMsxAgFP7/a3k
+         lVTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768302871; x=1768907671;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MR0NoHyZdJndLOZGMkASZoG8F5TIOzALE+PpGAFfY78=;
-        b=mPfSaUBFKQhdzhDYfSN0PurnaASt5hpCdb+cJxzR7A6xMRjDhle1IAZq+YeOZefowZ
-         84ToA9hpAPK581W+Q1NBBDA05IJo/FLvjgbZWa3M1slxe0lAppDxkzWzkbtx7w9avTHy
-         EBf7NfPHRtYF1B08jcK9jrgg4M/OH5oJosX8jvxqKzIhSTG+WMwznoN272E1nHrDR1v3
-         DfbvcstPXxbU5YrZnDa7QcOXa+m7Tp4As0Wn+8CtLMr+zqjOVOb1ICmMCFN+ey+E/HcL
-         KyZnb0ZVE1MgudHahL61pzd4Hrll+aqTjjwL4/6P41Twx0h+W0q6J8BhUWSJzWjtH1KV
-         Gg0A==
-X-Gm-Message-State: AOJu0Yzb+AR/OYTWLsmBzLfvJQUEEIwGrmHJL1AaEwdvRO3550mMotZE
-	l8RMfiXNQifOQ5P0YIYQZDLw7jAqN0ARFKl8i4a5+41e5HudeWHR9nziQuqjJYl4PY0=
-X-Gm-Gg: AY/fxX7/E1dkcoYzDb9IyH1igRTMFNlBCv1m1yYpjCus6YnU843qxjCJARdWd5hAcj4
-	CTnn/Yt5ZTC+xY0uKC6DaDSh0xMqNd9MWI0jzCijjSjkfylmKiM3w9tzcyRWlVhcMf1LjpFEGMJ
-	z9TSrHHogbNBfospnXOFFLozrxvpzpyJ2AyCOi5LffhogpSPi7CsVIVnk2cg+B3lIoXMVOs4wcT
-	y8c8isCPhYmpnuhX7CVsXyuf3rZGM4a9kewSil4WErKwMJqKqW8BhbXPdJGv9C6Qx35QDQjk4w4
-	oXgwpoZ2WqfC8XZhoExxj/SN1eEum9mBGZVYdNmKc675i1OX8X8Z8Uv4sBL8jLKM6p7MwIqlxcE
-	OMiY+gYba4pybxi5qDlqbR6mrcfc5uP5Za4AEsYKE6h/hnPgGdgzyQEOxM90tTLtsbw5vkdCf0u
-	M+viJ8WSSUKzvYIXg42VjDYPc1MK7Izxn6ZRu7hYp90K0KNaCp
-X-Google-Smtp-Source: AGHT+IHw3DwX9zQXeUKKMmx+CALWYgzcU4IcE/l3bek89YmzS9noraJMkzUxLezBjmDsUqWLU+V+MA==
-X-Received: by 2002:a05:6102:3584:b0:5ef:a07e:8a63 with SMTP id ada2fe7eead31-5efa07e8d80mr4259480137.26.1768295620553;
-        Tue, 13 Jan 2026 01:13:40 -0800 (PST)
-Received: from mail-ua1-f54.google.com (mail-ua1-f54.google.com. [209.85.222.54])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5ed091d93f8sm18109569137.9.2026.01.13.01.13.39
-        for <linux-arm-kernel@lists.infradead.org>
+        d=1e100.net; s=20230601; t=1768302955; x=1768907755;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WVz2cn3CkK/mIo0N8EVudxmtiUauPsvts9rJ0BtRZTc=;
+        b=V5QsmYo9NQvt+5+NuKwN50QPTA9YuXVbcOBLsR/gS96Jvg3IgVq2fHVt9O1ryMCe+F
+         4ECWgRcMukkHeOwp6WflVWLE/hFhiqT5DlC4++Hdwktzta4qfm3N0rbnaRUp2by1bLRw
+         YLL/nwi3+kL/GQXlF8MYp2JXoUrLrtnDj5AoRM1tHJzLeUkQDXBakgt3ordm0AzlV5jh
+         L3FU+hzQ7YmKZAFCdqbTQBNvhZMmmJVicGiJiVPmF0v0Jzhd1a6MDqZ3eWEAPPo+DY3T
+         es/1aZmRI6rYpV0sBhDkBE57wudHzCmBFXz1uhALymL/kyBHzLIgR9FZRb0hcvoM0R+g
+         kz0g==
+X-Forwarded-Encrypted: i=1; AJvYcCVY8se8XbPfkgnxmocuvp+qbSoocXsfzmJGb5ESbD1pL4imPkQOD/iTTBVYuzuyHJTwgB0YTJfPfpSBDQlzp4Mb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRS5U9cDd+FUMi2au4IYU7gbJqFGvtg82P6Yba621aN+SjJzVt
+	OYVfjXdcZI8m0WBExAzhQd+BKXwadggpAYmZAX8p7I65/vUOPrP/UmeCbyougXcgSzebd5UeF0U
+	h7T0SbYkNI6hFta0whLVxBJQubLplVxCfQRAwwVcq0kx2FzeEaP4IjBYIrnCYl95M1HRuTn/plJ
+	uTlw==
+X-Gm-Gg: AY/fxX7bdDk53K8eJ3/XsvPbO/uxaSDoWiBXNpgO9YWBnb6VZJrNyNWBx5QEa0syi4z
+	K84c58qVuM98uw31A3I0LHkqfNtDab41Hb2swWQMKtdbyA70hWUEVTbFg8ulEFIrQ6LdmdFUSoc
+	MTM57FTAC8jh99sHKKl1TZTzw6WE1uFe41wUiNP1lTM6CBD/8SpytwB+u/lwtKe18SSc9OQMDVp
+	ptmMAJUbpVnrvkvQZjGEqq7TIRolhTNk8Bws4rTzBxMnviy9GpSO0m8O25bzRpJIRuxtllb6pAC
+	I9HxnK00lTDuFaseM8Zal7Awe9BVLdjCy7z44biHGh7Wsy0x2Oq7Fszf5hPUrRQnsXa6PlG82Fo
+	fvXD9uRywOnNaZkFU9fmdtEej6FcOsluK7OMKycYvuQqWiMNwi/iNW5TUFa3oxAoMt/E=
+X-Received: by 2002:ac8:57d5:0:b0:4fc:989e:f776 with SMTP id d75a77b69052e-4ffb4861697mr246418341cf.4.1768302954979;
+        Tue, 13 Jan 2026 03:15:54 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHgvlL8JKDCb6sI78Mbz0Vz1WwN8iCeTN2tlWwmv6VllLm5D5BHEcNdQ6oG3pEEypulUcU1eQ==
+X-Received: by 2002:ac8:57d5:0:b0:4fc:989e:f776 with SMTP id d75a77b69052e-4ffb4861697mr246417551cf.4.1768302953623;
+        Tue, 13 Jan 2026 03:15:53 -0800 (PST)
+Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b842a4cfe60sm2185088966b.45.2026.01.13.03.15.51
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 13 Jan 2026 01:13:39 -0800 (PST)
-Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-943d0cafe77so2369665241.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 01:13:39 -0800 (PST)
-X-Received: by 2002:a05:6102:419e:b0:5df:ab05:d846 with SMTP id
- ada2fe7eead31-5ecbae4aedemr6860725137.40.1768295619640; Tue, 13 Jan 2026
- 01:13:39 -0800 (PST)
+        Tue, 13 Jan 2026 03:15:53 -0800 (PST)
+Message-ID: <f211054c-ecb7-4f90-b9ce-9fdd7710c8c4@oss.qualcomm.com>
+Date: Tue, 13 Jan 2026 12:15:50 +0100
 MIME-Version: 1.0
-References: <20260113000715.231238-1-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260113000715.231238-1-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 13 Jan 2026 10:13:28 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVGsfCTzSSjh474Ohimad2W5h1Z=vNhS6zU=Lb9f5Zbxw@mail.gmail.com>
-X-Gm-Features: AZwV_Qhh8RJBBYa7gKoAKpUlBeVNsz1RZyqK3-3_U_RszPPYx3TukXyRJOwF8cM
-Message-ID: <CAMuHMdVGsfCTzSSjh474Ohimad2W5h1Z=vNhS6zU=Lb9f5Zbxw@mail.gmail.com>
-Subject: Re: [PATCH 1/2] dt-bindings: display: panel: Fork Waveshare panels
- into separate document
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	David Airlie <airlied@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Jessica Zhang <jesszhan0024@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Magnus Damm <magnus.damm@gmail.com>, 
-	Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Sam Ravnborg <sam@ravnborg.org>, Simona Vetter <simona@ffwll.ch>, 
-	Thierry Reding <thierry.reding@gmail.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 5/7] qcom-tgu: Add support to configure next action
+To: Songwei Chai <songwei.chai@oss.qualcomm.com>, andersson@kernel.org,
+        alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
+        suzuki.poulose@arm.com, james.clark@arm.com, krzk+dt@kernel.org,
+        conor+dt@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
+        devicetree@vger.kernel.org, gregkh@linuxfoundation.org
+References: <20260109021141.3778421-1-songwei.chai@oss.qualcomm.com>
+ <20260109021141.3778421-6-songwei.chai@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260109021141.3778421-6-songwei.chai@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTEzMDA5NSBTYWx0ZWRfXybkOMLF2q0xj
+ XkalmxOynLP6rOeCJ49ZeJYxjQ5ZBJZ+Jb6KBcNT6UpOK+h7sbA/qLgm0MprXHSf1TbwfJWDNDK
+ doI6le5eRA6Si1Gom07NATsc7/IJNp79+unmjrWo4Zp5nh1ZSzXUonem23YnUPcL2BIkWgKmG82
+ 0oiYev5Zbh+j54MQ4qCHgrZwAcDKjWRqf0gOPDXiHgEOTsh/+SyxdBMKAMKNwY4fgSdGE0/bX9P
+ CLg7oefj8Rl/ykUC3gVS2Rv6KKWNxQ1oNDc3t/tn0HVD3lLSAD1POq6zXC2iWA6xswMNXEa0EpM
+ rT14el3TQ+COqV4F8mpB7sWHW1Iqg+rtRBuXd4W+IkrX5VhJZZGqGObpfhFb2tQzNis5UO7WvYN
+ uDKbpbd1YGgL4YXEIHZEGR80HW9ySjGyZ5rS52/3/XUW7wuWQpzdkh7uZ4AFiRfWPwfluYDM0jO
+ lU9TcuvMZ3hi4sIqscA==
+X-Authority-Analysis: v=2.4 cv=TcCbdBQh c=1 sm=1 tr=0 ts=6966296c cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=jWTz0FIqI1YCIfhA4ZQA:9
+ a=QEXdDO2ut3YA:10 a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-GUID: Dpc1OVh1Xh7DBnOBw8AXmRzuXDeLgJAZ
+X-Proofpoint-ORIG-GUID: Dpc1OVh1Xh7DBnOBw8AXmRzuXDeLgJAZ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-13_02,2026-01-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 impostorscore=0 adultscore=0 bulkscore=0 suspectscore=0
+ lowpriorityscore=0 phishscore=0 spamscore=0 clxscore=1015 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601130095
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_031432_909619_96A040A0 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20260113_031556_633458_17AE6B44 
+X-CRM114-Status: GOOD (  22.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,45 +150,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+On 1/9/26 3:11 AM, Songwei Chai wrote:
+> Add "select" node for each step to determine if another step is taken,
+> trigger(s) are generated, counters/timers incremented/decremented, etc.
+> 
+> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
+> ---
 
-On Tue, 13 Jan 2026 at 01:07, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> Move the Waveshare panels description into separate document, so they
-> can be properly described with compatible = "waveshare,...", "panel-dpi"
-> and attached to "waveshare,dsi2dpi" bridge.
->
-> While these panels are described as DPI panels, they are generally part
-> of a larger unit in non-removable metal casing, so the actual internal
-> configuration is not known. It is likely that internally, those panels
-> are LVDS panels, connected to ICN6211 DSI-to-DPI bridge and then another
-> unknown DPI-to-LVDS bridge.
->
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+[...]
 
-Thanks for your patch!
+> +		case TGU_CONDITION_SELECT:
+> +		/* 'default' register is at the end of 'select' region */
+> +			if (tgu_attr->reg_num ==
+> +			    drvdata->max_condition_select - 1)
+> +				attr->name = "default";
+> +			ret = (tgu_attr->reg_num <
+> +				drvdata->max_condition_select) ?
+> +				attr->mode : 0;
 
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/panel/waveshare,dpi.yaml
-> @@ -0,0 +1,32 @@
-> +# SPDX-License-Identifier: GPL-2.0
+similarly to my previous comments
 
-scripts/checkpatch.pl:
+[...]
 
-    WARNING: DT binding documents should be licensed (GPL-2.0-only OR
-BSD-2-Clause)
-    #68: FILE: Documentation/devicetree/bindings/display/panel/waveshare,dpi.yaml:1:
+> +	for (i = 0; i < drvdata->max_step; i++) {
+> +		for (j = 0; j < drvdata->max_condition_select; j++) {
+> +			index = check_array_location(drvdata, i,
+> +						TGU_CONDITION_SELECT, j);
+> +
+> +			if (index == -EINVAL)
 
-which matches what panel-simple.yaml uses.
+stray \n
+> +				goto exit;
+> +
+> +			writel(drvdata->value_table->condition_select[index],
+> +				drvdata->base + CONDITION_SELECT_STEP(i, j));
+> +		}
+> +	}
+>  	/* Enable TGU to program the triggers */
+>  	writel(1, drvdata->base + TGU_CONTROL);
+>  exit:
+> @@ -225,6 +258,8 @@ static void tgu_set_conditions(struct tgu_drvdata *drvdata)
+>  
+>  	devid = readl(drvdata->base + TGU_DEVID);
+>  	drvdata->max_condition_decode = TGU_DEVID_CONDITIONS(devid);
+> +	/* select region has an additional 'default' register */
+> +	drvdata->max_condition_select = TGU_DEVID_CONDITIONS(devid) + 1;
+>  }
+>  
+>  static int tgu_enable(struct device *dev)
+> @@ -356,6 +391,14 @@ static const struct attribute_group *tgu_attr_groups[] = {
+>  	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(5),
+>  	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(6),
+>  	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(7),
+> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(0),
+> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(1),
+> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(2),
+> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(3),
+> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(4),
+> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(5),
+> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(6),
+> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(7),
+>  	NULL,
+>  };
+>  
+> @@ -363,8 +406,8 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+>  {
+>  	struct device *dev = &adev->dev;
+>  	struct tgu_drvdata *drvdata;
+> -	size_t priority_size, condition_size;
+> -	unsigned int *priority, *condition;
+> +	size_t priority_size, condition_size, select_size;
+> +	unsigned int *priority, *condition, *select;
+>  	int ret;
+>  
+>  	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+> @@ -417,6 +460,16 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+>  
+>  	drvdata->value_table->condition_decode = condition;
+>  
+> +	select_size = drvdata->max_condition_select * drvdata->max_step *
+> +		      sizeof(*(drvdata->value_table->condition_select));
+> +
+> +	select = devm_kzalloc(dev, select_size, GFP_KERNEL);
+> +
+> +	if (!select)
 
-Gr{oetje,eeting}s,
+stray \n
 
-                        Geert
+> +		return -ENOMEM;
+> +
+> +	drvdata->value_table->condition_select = select;
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+I don't see a need for an intemediate variable here
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+[...]
+
+>   * @max_condition_decode: Maximum number of condition_decode
+> + * @max_condition_select: Maximum number of condition_select
+
+Maximum value, perhaps? You haven't explained the feature very well
+so I'm not sure what this is supposed to reflect
+
+Konrad
 
