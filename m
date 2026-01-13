@@ -4,53 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5778D2F34B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 17:43:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD1BD2F34B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 17:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=utQYdfvBit8CkZVBBXtgEjLEKrIr7+4lx3lVz5YuoSk=; b=dCbPQfl5PHI+YXO5Twxx1Ijzv7
-	QP5CJtgZxQszve8mNC6yDFQWSqFowwURpdgKmcQ93L494PiVzjj0MqbBQ3uSodVfS1Tv5O7ckQfa0
-	+aNfaA7ElsZKJyNhhGOhsnc4B9lO0Fow9Ie7WrSgUkEV0scAv8YgvrMeq8L0373GQ1vn5rJJKuL2y
-	JjvV9nvNMwKILJURJGrJbvImMRM6bZwMvb+jO2ndzCZOVVZeWBPCB34aWb/LKUhzhd4fyxwEMgadl
-	ghhikSSAaLQ7F+UOEtcXNpvwpCtUxIOJC3LtI9FmYtP4K6R95MCD2kGR/mxJRnhA4UDiEOXlDuyi+
-	SnOhNKsw==;
+	bh=s8k0pXMV1y8Iq4ImwhXf2ahDkvy9IQZJDHOXmgWjWKM=; b=PKJCY65VC3GyQm7eMM/5/WuvDM
+	4txKDXMEb54mVK8lNpYFfGj1yIHFIdlHOHKM5aSBJqgmOLTGgnv0ZhC1tysSRlJPGOp/k344Jfftn
+	BALCV4Dc0itOIyaMmTvVGQ0MzBvkCrwd19gxsp0ZbjfJM6wUd5czt7uYpVEoIPJ+nC3gAgLDhXtd5
+	eaRZGuIU7OaNksDgXe9p4/Q/nuEgDNOOK4AgjZF7ULhbU0aGpL1sDUI4zGiNGlpD/Q9ajtZx2w6/n
+	rpPZkl/VY3TpJGkf4b2JKhinY3CBKOnS9S5fXIClxl+7+0AcZQtMkeoJKjPoSji0I56+b/zLI04TG
+	zRA/fXGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfiQ2-00000007Xyu-3u58;
-	Tue, 13 Jan 2026 17:43:02 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vfiRp-00000007Y9I-0ZaO;
+	Tue, 13 Jan 2026 17:44:53 +0000
+Received: from mail-ej1-f47.google.com ([209.85.218.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfiQ0-00000007XyV-3Hoz;
-	Tue, 13 Jan 2026 17:43:02 +0000
-Received: from pendragon.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BF346316;
-	Tue, 13 Jan 2026 18:42:32 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1768326152;
-	bh=wFV93meXFrcLbuXHNLmfKXvFczDRPZgMrWOYRpkc0C0=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=hTm0evM5NXFlhnKK0YGe+knYI3LzpybbZlr/N3nTkfxN07YpJVk/Y2a+JTdAqnOGQ
-	 aFPvEwbyhMSgwkKTvA6g2u7I1vt6C/lSsBFYvngFSzT7uj68jTkTJMg/AUqRPFZAII
-	 ANfOmbaO8X925jp3gjrAwgGcDboGA61k3HvHlLIY=
-Content-Type: text/plain; charset="utf-8"
+	id 1vfiRm-00000007Y7i-1NK9
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 17:44:51 +0000
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-b86f69bbe60so397052966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 09:44:49 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768326288; x=1768931088;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=s8k0pXMV1y8Iq4ImwhXf2ahDkvy9IQZJDHOXmgWjWKM=;
+        b=IdvvnoRrAuwJY3xR1eNy6cwDmvji+xcZrZWdysFHVut42c7IZQ3gkWjCZZ1qvYc4ha
+         S6AFgZ57kV+gMwPBrY0wZ3zmlU7jzcGbr3v64XJmeaG4hAKjDvxbILM9DMa2TWG988T8
+         yGC0qAXK4VDttcLKDijiNr73UpBOgjBxHKPS8XOzRGtuiTs+PRBqL6DVl8BL656SSRfI
+         ZilkHt8giPsEiFcRcIcNexdMlfttLLXErX66whGEishe1CD8r8Z1TAsNXXMHTH03/sAo
+         3KYT9FfWfQiZRtJ4Xh1ZuCqla+LILXsRLVmuxNloRi3HMBRnmMjMkmZ1qrppPCnnfVkL
+         c0sg==
+X-Gm-Message-State: AOJu0YwAgkGOusGkyxG5GOS2hNoXdGJjKIZU+Qoopaj7MnzZ9ZWieMEI
+	sRxLkT2/H1L1qWRwnK+m+altVU5YG0Tov45uiSXyBOHqWt6VJlzLxbujuu+Hxg==
+X-Gm-Gg: AY/fxX7dGiivotgzxZWJKlU525v6N3cbK9td0Tlcx3YbKktTaK0jgXsMcEPSUu7u+B1
+	FtsntiKzCxNawYM3sjrnho+t1vujs6qrgPogMGQ4R2JySmU3bhG8tdGUtfVE+KM2UJ6ECruZeD1
+	qOV3esNLStMR2lDhQkTD4cBdnnjWAOeT09uuC2u7d1S63Ks23xKJN+xBaxeo/01fpTxduH+fo9b
+	xS5JBZcH3fzD7KDVfiM9HA4lZrqL9vKKk515n4E4Y0uEp0CzfhGDC5q1nDNW3gxvGxt9Lg9NTBa
+	oBVDV3d1qOog06mUpivFKHwTFwagT2QOLcYQzh3F7RQln6st+Rr6TnSPs4O20VNpZsk/mdPMboo
+	IiwtddC0fKFkX/KEFCShXdbwa7xKzQ4W/3c96r8aIBhKxR3R6RwtcGlGlqvcpW7tVJq5fxsNbX5
+	/Yw5P8EsvHTrab/nVfGuM1A0RgL9gIm2Nrts/06Y0A1OXUgQ==
+X-Google-Smtp-Source: AGHT+IE2YWlpMgqpFTSUm4yiwlEdYSG2L29zcJaQPD88F1bJ4MCCWbGfpor4ndxKjRsmJ+9m366jmQ==
+X-Received: by 2002:a17:907:7282:b0:b87:892:f440 with SMTP id a640c23a62f3a-b8708930758mr832434466b.38.1768326288113;
+        Tue, 13 Jan 2026 09:44:48 -0800 (PST)
+Received: from [10.42.0.1] (cst-prg-36-231.cust.vodafone.cz. [46.135.36.231])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6507be655aesm20873259a12.17.2026.01.13.09.44.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Jan 2026 09:44:47 -0800 (PST)
+From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Date: Tue, 13 Jan 2026 18:44:35 +0100
+Subject: [PATCH 1/5] arm64: dts: ti: k3-j722s-ti-ipc-firmware: Add memory
+ pool for DSP i/o buffers
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <176832506332.2379386.7591736247076651406@freya>
-References: <20260113-b4-vchiq-isp-v1-0-ea0b300bffc8@ideasonboard.com> <20260113-b4-vchiq-isp-v1-1-ea0b300bffc8@ideasonboard.com> <176832303070.1230693.13311579665048872008@ping.linuxembedded.co.uk> <176832506332.2379386.7591736247076651406@freya>
-Subject: Re: [PATCH 01/10] platform/raspberrypi: vchiq-mmal: Move headers to include/linux
-From: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, Naushir Patuck <naush@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org
-To: Florian Fainelli <florian.fainelli@broadcom.com>, Jai Luthra <jai.luthra@ideasonboard.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Tomasz Figa <tfiga@chromium.org>
-Date: Tue, 13 Jan 2026 17:42:55 +0000
-Message-ID: <176832617565.1693075.11795770819049418637@ping.linuxembedded.co.uk>
-User-Agent: alot/0.9.1
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260113-thames-v1-1-99390026937c@tomeuvizoso.net>
+References: <20260113-thames-v1-0-99390026937c@tomeuvizoso.net>
+In-Reply-To: <20260113-thames-v1-0-99390026937c@tomeuvizoso.net>
+To: Nishanth Menon <nm@ti.com>, "Andrew F. Davis" <afd@ti.com>, 
+ Randolph Sapp <rs@ti.com>, Jonathan Humphreys <j-humphreys@ti.com>, 
+ Andrei Aldea <a-aldea@ti.com>, Chirag Shilwant <c-shilwant@ti.com>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Oded Gabbay <ogabbay@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Sumit Semwal <sumit.semwal@linaro.org>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ linux-doc@vger.kernel.org, linux-media@vger.kernel.org, 
+ linaro-mm-sig@lists.linaro.org, Tomeu Vizoso <tomeu@tomeuvizoso.net>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_094300_967221_9B4803AD 
-X-CRM114-Status: GOOD (  25.13  )
+X-CRM114-CacheID: sfid-20260113_094450_381690_F45F7925 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,131 +97,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Jai Luthra (2026-01-13 17:24:23)
-> Hi Kieran,
->=20
-> Quoting Kieran Bingham (2026-01-13 22:20:30)
-> > Quoting Jai Luthra (2026-01-13 09:05:21)
-> > > Now that VCHIQ interface is destaged, different drivers (like ISP or
-> > > codec) no longer live under the same tree as VCHIQ MMAL, but in their
-> > > relevant trees like media or audio.
-> > >=20
-> > > Enable access to VCHIQ headers for such drivers by moving these heade=
-rs
-> > > under include/linux/raspberrypi with other VCHIQ related headers.
-> > >=20
-> > > Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
-> > > ---
-> > >  MAINTAINERS                                                      | 1=
- +
-> > >  drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c             | 9=
- ++++-----
-> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-common.h       |=
- 2 ++
-> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-encodings.h    |=
- 0
-> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-msg-common.h   |=
- 0
-> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-msg-format.h   |=
- 0
-> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-msg-port.h     |=
- 0
-> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-msg.h          |=
- 0
-> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-parameters.h   |=
- 0
-> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-vchiq.h        |=
- 0
-> > >  10 files changed, 7 insertions(+), 5 deletions(-)
-> > >=20
-> > > diff --git a/MAINTAINERS b/MAINTAINERS
-> > > index 816cceb5dc2d066665501aa8bbc04a2edd751087..16002c21fe06913ed57f4=
-95265b0b1ad14772c55 100644
-> > > --- a/MAINTAINERS
-> > > +++ b/MAINTAINERS
-> > > @@ -4927,6 +4927,7 @@ F:        Documentation/devicetree/bindings/pci=
-/brcm,stb-pcie.yaml
-> > >  F:     drivers/pci/controller/pcie-brcmstb.c
-> > >  F:     drivers/platform/raspberrypi/vchiq-*
-> > >  F:     drivers/staging/vc04_services
-> > > +F:     include/linux/raspberrypi/mmal*
-> > >  F:     include/linux/raspberrypi/vchiq*
-> > >  N:     bcm2711
-> > >  N:     bcm2712
-> > > diff --git a/drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c b/d=
-rivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c
-> > > index a228098d8cc0af5d5900b92b2847a1626a6d599c..3ead81dd2d0f48be7a5dd=
-87256c38d6ba0dbcd0e 100644
-> > > --- a/drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c
-> > > +++ b/drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c
-> > > @@ -22,17 +22,16 @@
-> > >  #include <linux/mm.h>
-> > >  #include <linux/slab.h>
-> > >  #include <linux/completion.h>
-> > > +#include <linux/raspberrypi/mmal-common.h>
-> > > +#include <linux/raspberrypi/mmal-parameters.h>
-> > > +#include <linux/raspberrypi/mmal-vchiq.h>
-> > > +#include <linux/raspberrypi/mmal-msg.h>
-> > >  #include <linux/raspberrypi/vchiq.h>
-> > >  #include <linux/raspberrypi/vchiq_arm.h>
-> > >  #include <linux/raspberrypi/vc_sm_knl.h>
-> > >  #include <linux/vmalloc.h>
-> > >  #include <media/videobuf2-vmalloc.h>
-> > > =20
-> > > -#include "mmal-common.h"
-> > > -#include "mmal-parameters.h"
-> > > -#include "mmal-vchiq.h"
-> > > -#include "mmal-msg.h"
-> > > -
->=20
-> The mmal-common.h header got moved above videobuf2-vmalloc.h here ....
->=20
-> > >  /*
-> > >   * maximum number of components supported.
-> > >   * This matches the maximum permitted by default on the VPU
-> > > diff --git a/drivers/platform/raspberrypi/vchiq-mmal/mmal-common.h b/=
-include/linux/raspberrypi/mmal-common.h
-> > > similarity index 97%
-> > > rename from drivers/platform/raspberrypi/vchiq-mmal/mmal-common.h
-> > > rename to include/linux/raspberrypi/mmal-common.h
-> > > index 6c5092a68b99594a0234f56b48b785fbc611bf5a..e7f065c539bcae7480a8d=
-c2000d2a1e4cec7883c 100644
-> > > --- a/drivers/platform/raspberrypi/vchiq-mmal/mmal-common.h
-> > > +++ b/include/linux/raspberrypi/mmal-common.h
-> > > @@ -16,6 +16,8 @@
-> > >  #ifndef MMAL_COMMON_H
-> > >  #define MMAL_COMMON_H
-> > > =20
-> > > +#include <media/videobuf2-v4l2.h>
-> > > +
-> >=20
-> > Is this spurious? I could understand the changes up in mmal-vchiq.c
-> > above but I don't see how this relates to the move?
-> >=20
->=20
-> .... which exposed the fact that mmal-common.h references to `struct
-> vb2_v4l2_buffer` without including the relevant header, so clangd
-> complained and populated it for me, and I forgot to mention it in the
-> commit message.
->=20
-> Sorry for the confusion. Not a spurious change. Is this fine as a note in
-> the commit message, or should I fix the header as a separate commit in v2?
+This memory region is used by the DRM/accel driver to allocate addresses
+for buffers that are used for communication with the DSP cores and for
+their intermediate results.
 
-Either is fine I think ;-) It just stood out otherwise!
+Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+---
+ arch/arm64/boot/dts/ti/k3-j722s-ti-ipc-firmware.dtsi | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-With either approach:
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-ti-ipc-firmware.dtsi
+index 3fbff927c4c08bce741555aa2753a394b751144f..b80d2a5a157ad59eaed8e57b22f1f4bce4765a85 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-ti-ipc-firmware.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j722s-ti-ipc-firmware.dtsi
+@@ -42,6 +42,11 @@ c7x_0_memory_region: memory@a3100000 {
+ 		no-map;
+ 	};
+ 
++	c7x_iova_pool: iommu-pool@a7000000 {
++		reg = <0x00 0xa7000000 0x00 0x18200000>;
++		no-map;
++	};
++
+ 	c7x_1_dma_memory_region: memory@a4000000 {
+ 		compatible = "shared-dma-pool";
+ 		reg = <0x00 0xa4000000 0x00 0x100000>;
+@@ -151,13 +156,15 @@ &main_r5fss0_core0 {
+ &c7x_0 {
+ 	mboxes = <&mailbox0_cluster2 &mbox_c7x_0>;
+ 	memory-region = <&c7x_0_dma_memory_region>,
+-			<&c7x_0_memory_region>;
++			<&c7x_0_memory_region>,
++			<&c7x_iova_pool>;
+ 	status = "okay";
+ };
+ 
+ &c7x_1 {
+ 	mboxes = <&mailbox0_cluster3 &mbox_c7x_1>;
+ 	memory-region = <&c7x_1_dma_memory_region>,
+-			<&c7x_1_memory_region>;
++			<&c7x_1_memory_region>,
++			<&c7x_iova_pool>;
+ 	status = "okay";
+ };
 
-Reviewed-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
+-- 
+2.52.0
 
->=20
-> >=20
-> > >  #define MMAL_FOURCC(a, b, c, d) ((a) | (b << 8) | (c << 16) | (d << =
-24))
-> > >  #define MMAL_MAGIC MMAL_FOURCC('m', 'm', 'a', 'l')
-> > > =20
->=20
-> [...]
->=20
-> Thanks,
-> Jai
 
