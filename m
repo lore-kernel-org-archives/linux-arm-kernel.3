@@ -4,179 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B3D3D29DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 05:12:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03252D29DC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 05:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/SiyoqWBdk8SzBc3vUzM1dge/dOQ4gxwpFGDlF/OPH4=; b=mY/v8K8mI1Pe4H6dSObAHzkV7z
-	Kqv/YaNzd9vAkhcFa5507iWWRFfB2mLadrXMD+/QFC0oxgllBrNuWzlan3ZhmAnCJPpCmhouNrbt+
-	8tTC4y7yCo6f/D1g3/Ef8WumqqkcsuAngyoztXhyYdJ1GdBsRQSSQ2Ysr6tMdVYklUYkUWJHilKKg
-	aDNzhEWkQF/HMCcnnMuckrdci2J/Uxu7TbFkIawgQK9HWpkdShpkCl70jPF2ERvgKjBTJKJ5xyxtz
-	HaU2Mrd3bL0pjPrxRnO3jF/w9gchJmvDhtx3jPSRQ2K+dJ4aGy7isOAjwK6VryJsrmH3g5mVq2ilk
-	Tf445KTQ==;
+	bh=qD4M8SXxlsbF3FqUMAGDuku8cKZrTRbMTdZ1JvdGgFM=; b=sCcgBFVE81OITd9GTLBEEivfyL
+	Nt1G282F0hRH1aAiDVf7CQ1DWFIAu0kZUqlcjuHJqyXrzExzCu7nAZROuMf2fjmIpdDAdR1PhpLLu
+	8uybIb7176yFWzoaOsceOfdagbZxIt17ZXoVrueBCi0Q49EQ7bAjPAP94reWx3Rf8ESfUFNpW8SDR
+	dY405rnARbku7mdwECed1N9LYoCQ6HBrAPrOvgY2LBt8mcW7HdB7BYpkxdenL/1+yEKYRwYIHerLi
+	CzNswdPzhImG5Uz2NnWExtLne1Hox7YlIKy/xvGGknLrS+KtNkxRzIamASIi3P81AgPBi4zG0X6Gs
+	0m/shK3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfWhh-00000006XLI-21FE;
-	Tue, 13 Jan 2026 05:12:29 +0000
-Received: from mail-westus2azon11012012.outbound.protection.outlook.com ([52.101.48.12] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1vfWnV-00000006Y25-1IcG;
+	Tue, 13 Jan 2026 05:18:29 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfWhX-00000006XJ1-0XZR
+	id 1vfWnR-00000006Y1U-3WK1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 05:12:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gosL80GCbPsa9uSRXdTEBj87Ocjnt45uv8SmbElAWsAJ7w7Q6YPLUapk1UvdQdQQgJN9/kD2qcJDjRifNAum8RqqWANPKk2kO0/Qm5rU8xTXuG5f8MIJec6Iq0CcMgiKXAFFBzWImQXdA3p3dbnzkTOkyY0M+dtwEdOPQFtQPSUdi/9gYxW91W5R75flzu2kbf6LYBWD3s9rNIarG3SvCqA5WaHtXb82AMgmKXirOnplBCuWsxrrk+NIuLB+NZzHO1IzAJ49EQ3ybbPgs9iiD02VkMHLImaW2muUONIBfQ4F7fmlSzRC/xdjtNx+U5K2PD0wzPFsMOZGpDgl+d7FbA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/SiyoqWBdk8SzBc3vUzM1dge/dOQ4gxwpFGDlF/OPH4=;
- b=fZ+9+2YwdsYIcEsZu4s3mzS/MjiQLEMa2zWuwHjZ5YPv7mIM6AgFN7Mo75hwxWPgFebVCK3wKERFXt1a4G2NgSYRl7ScFa/nkGaiaq9/RZNRimV2VcSMycmr0cHxSfVELaRncE3benIYSlJ1OPzr4R9fJX2UFhSpAkf5v65WH8A914wx1vUccsdX5Z/OVzlacjimvnyzEJPmeaKwzr0U01YhpZ4i1w83JAqIrE1IdhTxUDek96K7IaMuqVw25+3VcVCxQhWR6+xXqc4wH5ar4XvPsXqZe5RIKhT2zUh9n98lpvItwT7fF3H5gjEtxFE9t6WHYH0uA4lJfF/vV2ML5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/SiyoqWBdk8SzBc3vUzM1dge/dOQ4gxwpFGDlF/OPH4=;
- b=G30LhA6DjQ8dXDA76LWcV5nJQJp4uG4i24bHsYeObkRZf9INuEEFAp9CVe9jbFrCvJdta7xXlAE4aNyBGLg8ZEKIBRU8WAUKYck0GX0c1rvUT7DwyAoZHNC2+V4pOo4qJ4XapSV2hhx85uazCwyuXmJtd+TNPMOIoU3J183VO3mvsfwiu3h+hofa/U5aCJqOwIOTm9GoWQ+/YDfcL+FtWJg53luDwe6TKN3GUe2dzT3yaQt+Wtqoqaj8uSY/4tHAz8LSrmWH2Y9aALmc0fQMtSdix/37DRnds2yi/8BpX0+T55XzKe49oqJvIwi2OQcfJxWGBR6fAQXwsjmxAqzIMA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BN5PR12MB9511.namprd12.prod.outlook.com (2603:10b6:408:2a9::14)
- by MW4PR12MB7168.namprd12.prod.outlook.com (2603:10b6:303:22d::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Tue, 13 Jan
- 2026 05:12:12 +0000
-Received: from BN5PR12MB9511.namprd12.prod.outlook.com
- ([fe80::4d8d:5f91:6c3c:dc8c]) by BN5PR12MB9511.namprd12.prod.outlook.com
- ([fe80::4d8d:5f91:6c3c:dc8c%4]) with mapi id 15.20.9499.005; Tue, 13 Jan 2026
- 05:12:10 +0000
-Message-ID: <c8686af9-775e-45bd-bfde-25f995b59ac2@nvidia.com>
-Date: Tue, 13 Jan 2026 10:42:02 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V7 2/4] iommu/arm-smmu-v3: Add device-tree support for
- CMDQV driver
-To: Jon Hunter <jonathanh@nvidia.com>, Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, thierry.reding@gmail.com,
- vdumpa@nvidia.com, jgg@ziepe.ca, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
-References: <20251215064819.3345361-1-amhetre@nvidia.com>
- <20251215064819.3345361-3-amhetre@nvidia.com>
- <23df682e-6d08-4827-994e-1bbd89e5c903@nvidia.com>
- <5e9a0ce1-a0ba-4a31-be95-99f349ec6028@nvidia.com>
- <e7d3e95f-a885-4b13-ab4d-bc82793c5396@nvidia.com>
- <aUROk0jRQoLmBRo3@Asurada-Nvidia>
- <b2df8ce6-d336-457a-8169-f2eccec3c12e@nvidia.com>
- <aUWeUapsFo3KZP7i@Asurada-Nvidia>
- <69e11fa5-558f-4fbd-ab3e-e8f3b8197df6@nvidia.com>
- <1a224921-1e67-4699-a91d-89930db6147f@nvidia.com>
-Content-Language: en-US
-From: Ashish Mhetre <amhetre@nvidia.com>
-In-Reply-To: <1a224921-1e67-4699-a91d-89930db6147f@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: BMXP287CA0004.INDP287.PROD.OUTLOOK.COM
- (2603:1096:b00:2c::23) To BN5PR12MB9511.namprd12.prod.outlook.com
- (2603:10b6:408:2a9::14)
+	Tue, 13 Jan 2026 05:18:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768281506; x=1799817506;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=9iQZnMV3CUdtK45BwWJKiFUt0g3nkqqUh/ffW8zt9kc=;
+  b=anpFuZWQRk5FXrmQHZEyWgEI5oTIjNhNStYKzYCGoFaY0SE9TWMgb8Mf
+   RGD1bJGsv7EzoJZdGxXggB+ZpMqJfS4s3rk0IyePOpyLYtTSWujalqPka
+   TsVsfjpx6xrDHe8SXhWf4MUVycy9Cr/uB1pLvo20cZw62avpqmMN3Z5V5
+   g1nJDDsunaGd46E9vzELWM0151Qh6jTt7CuzpWOYHiOicn/Cv3izZ7HNM
+   Lw+eOVNpS3Ph+Ywd2UWZ7UOYhRDFsDvqrBOQyAhCHmBlXWrAd2ZhyYfkQ
+   4C3DFcD5LrcdZiJasHJ2bdOIYwGAeBgo1gm5gPx1fCDh63hnAjot4srKU
+   g==;
+X-CSE-ConnectionGUID: FQILU+duQvyu5WI2giLoIg==
+X-CSE-MsgGUID: GHIO32olSjuobZ3ktryZlw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11669"; a="73414873"
+X-IronPort-AV: E=Sophos;i="6.21,222,1763452800"; 
+   d="scan'208";a="73414873"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jan 2026 21:18:19 -0800
+X-CSE-ConnectionGUID: 1LVxbLv/TOWxQqR2EIejXQ==
+X-CSE-MsgGUID: 6cF0U2x3R2+ZEDw6B0G6xA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,222,1763452800"; 
+   d="scan'208";a="208801024"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 12 Jan 2026 21:18:15 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vfWnE-00000000EFc-1LjW;
+	Tue, 13 Jan 2026 05:18:12 +0000
+Date: Tue, 13 Jan 2026 13:17:35 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
+	Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next 2/2] net: stmmac: qcom-ethqos: convert to
+ set_clk_tx_rate() method
+Message-ID: <202601131202.sz9WCQgh-lkp@intel.com>
+References: <E1vfMO1-00000002kJF-33UK@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN5PR12MB9511:EE_|MW4PR12MB7168:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3149d4d9-5585-4e09-7ae7-08de52624d9f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cWI5eW95aTZySmRwQjRxYzRMY0JOVFNYa2R6ZTY5VmgwOS9TSXIyL3RoYy9k?=
- =?utf-8?B?V0tEaE84TUpOdG5zTWIxcnVsenBvZE5iVnJjVHpxME8wMm9LRC94bEpKa3NP?=
- =?utf-8?B?UFkvOTNRVndSY3gzYVVVYmlSNEJ0dURyRENGRUlnM0puV2VURlNiYU55WXI3?=
- =?utf-8?B?YkYxclZpUXJoT3VEeW9EQmVESTFwUXB1ZzRTcUJzMHpocTFyV3FZRUhGRnFk?=
- =?utf-8?B?Q1RyOXlYOFljcWlGUmVJVjU2dS9nV1NGRmxKVU5TWlVhUXIwV3A4czRqWjJv?=
- =?utf-8?B?Znp6cEJDeVpDNnBIck5xRldxSHM2cVZ3RUZVNzNuazJYWktnMnFDNE0xbGxn?=
- =?utf-8?B?MHIzT2JDMUJNZncwaU9QSWhCUUc3bTU1cUZWanBPSS9vQTZpOHN4Q1VGQWJq?=
- =?utf-8?B?alVvcytQQ1ZFeU1vOUtlclJPNE1MeWNTdkp2TVZhbkEzM2ZxUVhoV01HNXRk?=
- =?utf-8?B?NDFyWGhaR2hKbzRZVjRMZFZSQ0VBZjN1cjUveCt4cENxeUxwRXA5K3cxQitr?=
- =?utf-8?B?MGU0NzE4dmFqWk9Xb21Tczl1VEZrM1lrWUxpN1Fkbjk5bnpkU3d2TVdCT3F2?=
- =?utf-8?B?YU1Xd0pNZEdkeEpkYnVYOEk5ZDJyYXFtSzg2eTkxWFJBbFdIQnNQaGpIejN3?=
- =?utf-8?B?WlNFcCt4cnYrMTF3L0hZcW1RdjhwVUduRlNoaUNwNE8xeGozSUlKVVE4dlN1?=
- =?utf-8?B?dHRCdFNvQ0Yxd3VSdVhqQWRZTFM4ZFJlVk5yRkpzWTJzR2FRZUxLck1EUXlk?=
- =?utf-8?B?QVlrZ0hMeEREcmthei9uN0dERmVOcEdmYkl1cXgyLzIxa3I3UnNhUmVtOUdt?=
- =?utf-8?B?WVlQRlR4NjFXNUp0eW9HZEZTaTRPdkhudWswTzFVMzRyT24rQkZaQlUwdGdp?=
- =?utf-8?B?WDlUc0tDNEZwWndNKzVneTlhWmN4Z0xRNmtiK1ZoZlAvdEEyaDgvMXJTNEVP?=
- =?utf-8?B?Z1pZbytGQUZkVlZBZnF0L0Y1TmttREVoNUNSOHBBa3RSL21ScnBGd2ZTQ24z?=
- =?utf-8?B?RFV6QUo1ZUtXZmFRREZXZGhHVUkyZEd6Mm9XQzdpYXNiNjdtSVBCU2J3TzZV?=
- =?utf-8?B?cHhra05BcDlQNmFQQ0tCRnZvK04yK1pHKzRiWTBRZGJ6QXNaS0JrbDlkVEoy?=
- =?utf-8?B?UmFsY08rUWlWTHJXTVBMK0JQbE1OcTBRNmZrNG1qeU0wYitIY1R6NnlNa0dw?=
- =?utf-8?B?aXJTaWorQzc1UmRkclFUczJnTFUvUmMzMHBsU1BscUpJNjV3R01Na3NRTWdE?=
- =?utf-8?B?Wk5LdnpQcm9tdi9FZUdHS2YyMGQzbzQyQy91RXVvUGlad2o1N1Y0UUxXMklK?=
- =?utf-8?B?RTg5dDVvYW5Bdk5yQisxSG1sVnFRVnFhK0ZrTFVJelB4MnljU2h5L2NIRFlv?=
- =?utf-8?B?Wi9ITkpKaHBHbkp6SGpwU004dERtb1pRMjh1M1JON1ZxWUlQeVJYaFFhUndu?=
- =?utf-8?B?VEpKOVFGY0RkOEttenJCbEZJeXZlTlJwMzFhc2lnNnhwMGlDQjNWM2JrRm1v?=
- =?utf-8?B?blV3amo4ZXpNR1FzTUpTV2lUUWE1VVFHYUxlbHRVQmhxZnVHcHQ4MTZNQklV?=
- =?utf-8?B?MGNoKzJqTDFWSW1CWlNpYUJ2eXJicXhkeFBaRk9nVGsyR25WL2ZaRFlDMGdL?=
- =?utf-8?B?T3Z6Q3dXSG1tVXFaN3k5UEk5L2FCazB2MnB2dWI0dWp0clEzWmZnOS9ub2Z4?=
- =?utf-8?B?RmVWMThUZWwxREd4bHcyV2hzc2ZQNHZBSC96TEpobGoralNFNVZ3MFVDOFZz?=
- =?utf-8?B?ZzFDaFFYamkrYkVUbERKckY1Z3dYdm1kSkpDK1ZiSXRxQWJGeUNzdTRPdXVq?=
- =?utf-8?B?U2VVVmJna2c3cXAwc0EwWEFUa0lNMU9zWjBxVWJtbUp5N3lsOTQyS2gzMWJB?=
- =?utf-8?B?VXA5QU5hUmtoVGRnUy9CSG84Q3FMcks4MGpET2NpNGVuKy9TbHVpTnJtVXUy?=
- =?utf-8?Q?UI/JotVnvaQbccI8fuccqUYgniEFBu8K?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN5PR12MB9511.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MWVSV3Y4dGEyOExIVWZwdVJvMWdmWTU4c2NTaEdGVUp1R0w2OTNoQ1B2bHFn?=
- =?utf-8?B?dENwa0Y5WmsrZmEyOW5OWFBSbHh1aHJzNDh4VlV1K2NaZFJYRWtJSWphUk1V?=
- =?utf-8?B?aFJMa0Nlb28zZ3pwbDVBTmlac3VkRk94OUwyUzhYUWVzMXRIeFcwZ3cxSEZM?=
- =?utf-8?B?UWtlYWVLZDUxNUJOV0tnbnZxSTZISy9CYmZFQW5nbDFoajF6SndTT0d1TmlY?=
- =?utf-8?B?MkorcHJUYlVSeG5zSHY1RU5DM1lCaHFwT1Azd2daZ29yeURpcjVNY01LRWsv?=
- =?utf-8?B?QUUzV3YvVU0rZERhMjd1Smg5K3ZrTHVQbmIxMlkrZ3BCaWJZa1lTY1dFL2Jl?=
- =?utf-8?B?NjNsN2hHeXdMUUUvdTBsVDc5MEQ1NDJzMjZUY0VoaFoyYkkvd3MvNTBSOXFP?=
- =?utf-8?B?YTVtWk5LMVJJZCsxR3ptMk5EbkNFTng3QW4rOUdBNWIvbGdBcFhPUkFycVZ0?=
- =?utf-8?B?WHF0RC9JRDgyYVE5RjA1QzlQeUJKVTVveUNOWkdNb0VLb3JZcitZemJ1aGFK?=
- =?utf-8?B?TkZDNW91WUZsc1dsODNEQytJNEZWL1UwTDgyTXdjWTd6ai9TbGUzQVA4Yk9m?=
- =?utf-8?B?SFk0YnRseVBVdVRJbEpMcC9rZ3pVTk5hbGxhVjd5MXE1Vlp5Nk03bkpYZW1u?=
- =?utf-8?B?RjJ0VE52Y3F0bHd5eWxKM295alIweHoxMERUNTlXc1dCSGU2NTBlM2dHNTNl?=
- =?utf-8?B?TXRvb3IwSHlPUTRhZHRwaXg5OVhOMGNKMFdkcnZid3A3em1lajZBcjI5Sk5j?=
- =?utf-8?B?MDl6RkJKMHRCTWVWSlRvWTFzNkhnMWgyazhqNjhEdzBLZ0hvUmpSUkxvVVVD?=
- =?utf-8?B?OTJQeCt5TXN1LzhkaTY4NGxIemZuYmlMcTh1U3RCU0x5Z0RTK3htR0NmZGpa?=
- =?utf-8?B?TVpwVGh3NUhIdHdZd3J0SGJuQ05mUFhZekN0MnFERld2NStDaW1XWFYyOWJ6?=
- =?utf-8?B?dyszVnc4c0EvM1ovYUxXejJhNVJvc0RrL1ZBcUZ2TUtnNllGc0ZtQ3dJenpa?=
- =?utf-8?B?aDdCRlYySWlLZi9lVWtKZWlGaFBxR2ZKaDIyZGVvS2xpZlhKazdFdk9yZHor?=
- =?utf-8?B?OWgyS0t1RENPcVBrTjBYWm5xNGhoR0dNMUlkV1BDSWdRZlJhY0hOK1ppUWhS?=
- =?utf-8?B?MzJOOTkvdVAzMUR3MzcxeUZDWWlkSVhTWStxMmFUWWFkakJyaGFCSzh2SHc5?=
- =?utf-8?B?T0txYlNZdnM1QmcwN3lrR1F4WjZXaXEvYjlKenRPcncxRUIyMWdYTHJCbTVn?=
- =?utf-8?B?VUxnRDdraGVIMzRkVmdaK3JwekppMnJROHFDelAyeTRBWDQzYlhVUk9POVln?=
- =?utf-8?B?YXc5RnJtVnpUNmt2WGhhcmlJeDJnck9QdllIV0ZMd1RtdXgwaHRrUStBOENu?=
- =?utf-8?B?enNIdHlSOXZDZ1UzeVNWMEQwWU51K2lYQTJKbSt6eFMvMldMUTZVT1pISDNF?=
- =?utf-8?B?dmVoRldzZjVmM0dxSVllRmdIeXBUY0lKSCtxWkVoL3ZZMlZUNk5LOEpObXht?=
- =?utf-8?B?ZldhbWJ4dmlKSENJYWk0eDFPc2tUVEF2NnJ1aDUwbGtMQ2UwS2c1Kzc5SlVm?=
- =?utf-8?B?K1NzT295TVF4RU14RkFPQmtIZFRveEN2QzR3eFJZV0FZTTdxL2tOOGEwbStN?=
- =?utf-8?B?WnRZN2hqbyt0L0gxblFVSUFybVFsb3BDTHFBRzdoQm5FOXlFOHZiK2JTN2JH?=
- =?utf-8?B?N0ZLYXdoWXRuM1ZoN3FTTmwxNnZ1YzdzNUtFNDdIZC9iNFprU3F4NzIrUTJ0?=
- =?utf-8?B?ZUdiQVR0WHV1RlJXcDB6UWNTcjhxRkc3ejY3b3JISVRDZm83RnRXelFWMzN5?=
- =?utf-8?B?b255ZEZmS3g3eGZFMTk4c3BSUXNIdUptbWpBQXB6QmtzdHM1YTRMSFhFNkM5?=
- =?utf-8?B?QnZXeE1VY1lYUjgybDJYcTM2TzcydkF4OUo5R3cyWFVBS2hrMEFXNWNPeFBI?=
- =?utf-8?B?U3JINklYdzBQMjJCdm1uMW1IeGx6ejlZWmFCeWFKVE8wMXFPMVF6bWJ1cTZi?=
- =?utf-8?B?dUc0QnRsWkFMYjRha0F6VUg4aFJOVEozeTJHM1V3SExMeUNYZjlOenlvK3Nt?=
- =?utf-8?B?OHhzYzEvWThXUjc1dUs2VzBrT09jdWlMUDFQWXUyNGJaQUdienJaWGxid0NV?=
- =?utf-8?B?ejd2T2dXNmkxbnBoRVlqNjFNVC95WkpGMkJkSVhhL3RiaWdxOS96WUNpT1ZK?=
- =?utf-8?B?ZldMTUVEd1R5SXg3empPSlpMc21uZzBNeWJIQnVzR2Jxd29LOGt4S05zK083?=
- =?utf-8?B?RTdDcmhBMkFQMWNOMUl4bk4yOHdyTjBmWVIxdGJVVlQ0bHVoK0g2M053SjRP?=
- =?utf-8?B?Tm9DbVRUYjdOMldVS1VQZW1odk1FaGRBNnhyTHRnM2tNWkt2RjUvZz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3149d4d9-5585-4e09-7ae7-08de52624d9f
-X-MS-Exchange-CrossTenant-AuthSource: BN5PR12MB9511.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2026 05:12:09.8933
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gO9QcuWvTMiXqxg+pyJv2BfbMsnp/85azhxmot+OW41BwqKt4GleLbgGiaXSxTI3qKoVzLv32DuY/AYx5O+bAw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7168
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1vfMO1-00000002kJF-33UK@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_211219_167930_F33D1EE1 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20260112_211825_946221_7114ECB2 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,82 +99,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Russell,
+
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on net-next/main]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Russell-King-Oracle/net-stmmac-qcom-ethqos-remove-mac_base/20260113-061245
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/E1vfMO1-00000002kJF-33UK%40rmk-PC.armlinux.org.uk
+patch subject: [PATCH net-next 2/2] net: stmmac: qcom-ethqos: convert to set_clk_tx_rate() method
+config: loongarch-allmodconfig (https://download.01.org/0day-ci/archive/20260113/202601131202.sz9WCQgh-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260113/202601131202.sz9WCQgh-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601131202.sz9WCQgh-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c:188:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+     188 | }
+         | ^
+   1 warning generated.
 
 
-On 1/9/2026 3:15 PM, Jon Hunter wrote:
->
-> On 07/01/2026 06:44, Ashish Mhetre wrote:
->>
->>
->> On 12/20/2025 12:19 AM, Nicolin Chen wrote:
->>> On Fri, Dec 19, 2025 at 10:48:22AM +0000, Jon Hunter wrote:
->>>> On 18/12/2025 18:57, Nicolin Chen wrote:
->>>>> On Thu, Dec 18, 2025 at 08:48:32AM +0000, Jon Hunter wrote:
->>>>>> On 18/12/2025 06:32, Ashish Mhetre wrote:
->>>>>>> On 12/18/2025 2:13 AM, Jon Hunter wrote:
->>>>>>>>> +    smmu->impl_dev = &pdev->dev;
->>>>>>>>> +    smmu->options |= ARM_SMMU_OPT_TEGRA241_CMDQV;
->>>>>>>>> +    dev_info(smmu->dev, "found companion CMDQV device: %s\n",
->>>>>>>>> +         dev_name(smmu->impl_dev));
->>>>>>>> This seems a bit noisy. dev_dbg?
->>>>>>>>
->>>>>>> This info print is similar to what is there in ACPI path as well.
->>>>>>> It's only a single print per SMMU at boot time. Should I still 
->>>>>>> change
->>>>>>> it to dev_dbg?
->>>>>> Yes, I would.
->>>>> It's really not that bad IMHO, I am not against that though..
->>>>>
->>>>> If we have to change that, we'd need another patch changing the
->>>>> one in the ACPI path as well to keep things aligned.
->>>> Regardless of what is already present, does not mean we need add 
->>>> more prints
->>>> to just say everything is OK.
->>> This is how it looks like for each instance probe():
->>>
->>> [    2.709269] arm-smmu-v3 arm-smmu-v3.10.auto: found companion 
->>> CMDQV device: NVDA200C:00
->>> [    2.709273] arm-smmu-v3 arm-smmu-v3.10.auto: option mask 0x10
->>> [    2.709618] arm-smmu-v3 arm-smmu-v3.10.auto: ias 48-bit, oas 
->>> 48-bit (features 0x001e1fbf)
->>> [    2.716236] arm-smmu-v3 arm-smmu-v3.10.auto: allocated 524288 
->>> entries for cmdq
->>> [    2.719432] arm-smmu-v3 arm-smmu-v3.10.auto: allocated 524288 
->>> entries for evtq
->>> [    2.725898] arm-smmu-v3 arm-smmu-v3.10.auto: allocated 524288 
->>> entries for priq
->>> [    2.736051] arm-smmu-v3 arm-smmu-v3.10.auto: allocated 524288 
->>> entries for vcmdq0
->>> [    2.742553] arm-smmu-v3 arm-smmu-v3.10.auto: allocated 524288 
->>> entries for vcmdq1
->>> [    2.742586] arm-smmu-v3 arm-smmu-v3.10.auto: msi_domain absent - 
->>> falling back to wired irqs
->>> [    2.742759] arm-smmu-v3 arm-smmu-v3.10.auto: no priq irq - PRI 
->>> will be broken
->>>
->>> On a second thought: The CMDQV device has a very unclear naming in
->>> ACPI path: "NVDA200C:00". So, printing it gives us a hint for any
->>> later warning/error tagged with "NVDA200C:00".
->>>
->>> Now, for DT, it might be okay to not print it. But making the two
->>> paths asymmetric feels odd. So, is it really worth nitpicking here
->>> given that each SMMU already prints quite a few lines on probe()?
->>>
->>> Nicolin
->>
->> Hi Jon, Nic,
->>
->> Shall I keep this print or send a new version removing it?
->
-> Make it dev_dbg() and you can always enable it if you want it. 99.9% 
-> of the time you will not need this.
->
-> Thanks!
-> Jon
->
+vim +188 drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
 
-Ack, I'll update this in next version.
+a7c30e62d4b895 Vinod Koul            2019-01-21  175  
+a69650e88a5551 Russell King (Oracle  2026-01-12  176) static int ethqos_set_clk_tx_rate(void *bsp_priv, struct clk *clk_tx_i,
+a69650e88a5551 Russell King (Oracle  2026-01-12  177) 				  phy_interface_t interface, int speed)
+a7c30e62d4b895 Vinod Koul            2019-01-21  178  {
+a69650e88a5551 Russell King (Oracle  2026-01-12  179) 	struct qcom_ethqos *ethqos = bsp_priv;
+98f9928843331f Russell King (Oracle  2025-02-21  180) 	long rate;
+98f9928843331f Russell King (Oracle  2025-02-21  181) 
+a69650e88a5551 Russell King (Oracle  2026-01-12  182) 	if (!phy_interface_mode_is_rgmii(interface))
+a69650e88a5551 Russell King (Oracle  2026-01-12  183) 		return 0;
+26311cd112d05a Sarosh Hasan          2024-02-26  184  
+98f9928843331f Russell King (Oracle  2025-02-21  185) 	rate = rgmii_clock(speed);
+98f9928843331f Russell King (Oracle  2025-02-21  186) 	if (rate > 0)
+a69650e88a5551 Russell King (Oracle  2026-01-12  187) 		clk_set_rate(ethqos->link_clk, rate * 2);
+a7c30e62d4b895 Vinod Koul            2019-01-21 @188  }
+a7c30e62d4b895 Vinod Koul            2019-01-21  189  
 
-Thanks,
-Ashish Mhetre
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
