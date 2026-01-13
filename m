@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51503D2D107
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:00:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 980DBD2D108
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qtQk3v4rRJM84t9rEVAB0irnBh63oX5nb6UzSl4ai5M=; b=lBjOrrAWOi2/FfabT05XzUuSEa
-	6f1vaitlr+U1S8gjF95HEcJzCcAMEpyvOU+O9XLHXg/Cpi45bKOOwzvyBfNw4uOOGrguUiy6sH26/
-	QLrIKYWsokZKugjmzrlX74poeGEn6qgyTaXdxdgLGqNh39F1+TBIMWzT9qioFngL3fAqWxksn1AGX
-	8bGTn6Pn1bxmxbsLNIt/eflTsl0FOHZR8+Af8AJA6RHm2H/KH/8390SZIb/h4yxEJRUTEn/ezjCPR
-	1ot7InqZS9BDOFVTRKZKE9Crp7O4cONumOhRak+VEvStDAmRoEqOS5rusP0jnZpHsuAKb0b99hgEo
-	d0roEnqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Fnp0Twvct/2YyZYn+SyZoiEx7nA/vBDFb7/prmNM1To=; b=ji3GfdFnEfn+PYadkH9BQUXQim
+	0iL+IrYoLzGNVQnlx931vKNHHFih76mJqAv7LH98sOlzPRcgAsVyi+gECgTiqJJLyUjWckvGqkekc
+	VY0ht3m7qVeT/R2myuiqrjiFXTKxkRrlv7nkujxIQ9Y+SOGtZAwLQDyb+gJQgPn5vSqDAPfgwzD0y
+	Ef/CQRhsZU0jmNkgivCkd8oYkcumrHKJaDJ94n42t2LjMnXN95SaxBexxV6CmMNtSwX5AQY80FVZO
+	FEbcd3qW+AzABMg2j4jF5Y87IwJubUfB0jNBrOMjp2v+v8iBU2sgFFah6qlUEWSIS+i/VO4NOU161
+	CKS+YvqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfex1-00000007BxS-4BX2;
-	Tue, 13 Jan 2026 14:00:52 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vfexQ-00000007C1U-2qvT;
+	Tue, 13 Jan 2026 14:01:16 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfeww-00000007Bvl-0cG9;
-	Tue, 13 Jan 2026 14:00:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=qtQk3v4rRJM84t9rEVAB0irnBh63oX5nb6UzSl4ai5M=; b=bRljttlMN6p/FhKzIi3t2+Y3A2
-	0kufUrccpgBgtpX+47gYxWFn6P7ssntYAqerRB73LWJgOHLLJ74W4e2Qre9PNJwFUgA7EqEy9UY5W
-	V1Qh2PykgaElvxKqVIMy4GKVAR+2c0p94JX56K3bpTWig7zvZUw2vhh0g5s6zlPj+dpM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vfewU-002dZq-3P; Tue, 13 Jan 2026 15:00:18 +0100
-Date: Tue, 13 Jan 2026 15:00:18 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: Felix Fietkau <nbd@nbd.name>, John Crispin <john@phrozen.org>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Bc-bocun Chen <bc-bocun.chen@mediatek.com>,
-	Rex Lu <rex.lu@mediatek.com>,
-	Mason-cw Chang <Mason-cw.Chang@mediatek.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next RFC] net: ethernet: mtk_eth_soc: support using
- non-MediaTek DSA switches
-Message-ID: <252d6877-d966-4d19-a38c-cc83ba908494@lunn.ch>
-References: <34647edacab660b4cabed9733d2d3ef22bc041ac.1768273593.git.daniel@makrotopia.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <34647edacab660b4cabed9733d2d3ef22bc041ac.1768273593.git.daniel@makrotopia.org>
+	id 1vfexM-00000007C0w-1JYv
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 14:01:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768312872; x=1799848872;
+  h=date:from:to:cc:subject:message-id;
+  bh=OE8i5lowkRkl33NdO65t+CqcmthaU4AkOQGojvrGkfs=;
+  b=VH/S1XijRqnJN2bvtMxy4VF10vgP8kaZ1PyahBOJiAyLpiv5cXJcaIFQ
+   ATO3tx/R1MeI7UXHy0IcXwExAu0IyHNNp02wE0o+FjVd9P+4IqPK7jwbP
+   lSyOZuWZy17iqzbWJt059RL8ja4PXN3ES6F6T5fxmUnkhptzmKrQxjdoP
+   yjxv58UsmEV1m6C7NvwCGU6ob9FGXAgDB2nUqfvoD0ETQV+7aUcS5IcyT
+   6Ia8z5sCI+ZIPS+VTHgnGdQzC8zg0MNcvN9SuFg7IfRcG+ga5EzOCvDBy
+   io5XMo/m25qLuk2yx9ARvDAgxPjPsgzFmjWs9fVjnEEA/jbKUtLxlPsBX
+   w==;
+X-CSE-ConnectionGUID: 1ZxvH1YqToWZP+C4LWSySg==
+X-CSE-MsgGUID: Dj9m4T8CTU+zkE89wKZ2Nw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11670"; a="80315378"
+X-IronPort-AV: E=Sophos;i="6.21,222,1763452800"; 
+   d="scan'208";a="80315378"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2026 06:01:12 -0800
+X-CSE-ConnectionGUID: aO9kJJqMQ46bS/TtPVsQjQ==
+X-CSE-MsgGUID: ib8WynI2TcaF0IIX5P5FUA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,222,1763452800"; 
+   d="scan'208";a="204473594"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa008.jf.intel.com with ESMTP; 13 Jan 2026 06:01:10 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vfexI-00000000EsB-0fqF;
+	Tue, 13 Jan 2026 14:01:08 +0000
+Date: Tue, 13 Jan 2026 22:00:29 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/dt] BUILD SUCCESS
+ aa5f91ce4fd897d7fdc24521650b6de48e834c34
+Message-ID: <202601132224.TgyBmuS1-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_060046_286733_1AD43B20 
-X-CRM114-Status: GOOD (  25.82  )
+X-CRM114-CacheID: sfid-20260113_060112_362683_9313D130 
+X-CRM114-Status: UNSURE (   5.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,90 +83,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 13, 2026 at 03:11:54AM +0000, Daniel Golle wrote:
-> MediaTek's Ethernet Frame Engine is tailored for use with their
-> switches. This broke checksum and VLAN offloading when attaching a
-> DSA switch which does not use MediaTek special tag format.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
+branch HEAD: aa5f91ce4fd897d7fdc24521650b6de48e834c34  Merge tag 'renesas-dts-for-v6.20-tag1' of git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into soc/dt
 
-This has been seen before. The Freescale FEC has similar problems when
-combined with a Marvell switch, it cannot find the IP header, and so
-checksum offloading does not work.
+elapsed time: 8432m
 
-I thought we solved this be modifying the ndev->feature of the conduit
-interface to disable such offloads. But i don't see such code. So i
-must be remembering wrongly.
+configs tested: 54
+configs skipped: 3
 
-This is assuming the frame engine respects these flags:
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-/usr/sbin/ethtool -k enp2s0
-Features for enp2s0:
-rx-checksumming: on
-tx-checksumming: on
-	tx-checksum-ipv4: on
-	tx-checksum-ip-generic: off [fixed]
-	tx-checksum-ipv6: on
-	tx-checksum-fcoe-crc: off [fixed]
-	tx-checksum-sctp: off [fixed]
+tested configs:
+alpha         allnoconfig    gcc-15.2.0
+alpha        allyesconfig    gcc-15.2.0
+arc          allmodconfig    gcc-15.2.0
+arc           allnoconfig    gcc-15.2.0
+arc          allyesconfig    gcc-15.2.0
+arm           allnoconfig    clang-22
+arm          allyesconfig    gcc-15.2.0
+arm64        allmodconfig    clang-19
+arm64         allnoconfig    gcc-15.2.0
+csky         allmodconfig    gcc-15.2.0
+csky          allnoconfig    gcc-15.2.0
+hexagon      allmodconfig    clang-17
+hexagon       allnoconfig    clang-22
+i386         allmodconfig    gcc-14
+i386          allnoconfig    gcc-14
+i386         allyesconfig    gcc-14
+loongarch    allmodconfig    clang-19
+loongarch     allnoconfig    clang-22
+m68k         allmodconfig    gcc-15.2.0
+m68k          allnoconfig    gcc-15.2.0
+m68k         allyesconfig    gcc-15.2.0
+microblaze    allnoconfig    gcc-15.2.0
+microblaze   allyesconfig    gcc-15.2.0
+mips         allmodconfig    gcc-15.2.0
+mips          allnoconfig    gcc-15.2.0
+mips         allyesconfig    gcc-15.2.0
+nios2        allmodconfig    gcc-11.5.0
+nios2         allnoconfig    gcc-11.5.0
+openrisc     allmodconfig    gcc-15.2.0
+openrisc      allnoconfig    gcc-15.2.0
+parisc       allmodconfig    gcc-15.2.0
+parisc        allnoconfig    gcc-15.2.0
+parisc       allyesconfig    gcc-15.2.0
+powerpc      allmodconfig    gcc-15.2.0
+powerpc       allnoconfig    gcc-15.2.0
+riscv        allmodconfig    clang-22
+riscv         allnoconfig    gcc-15.2.0
+riscv        allyesconfig    clang-16
+s390         allmodconfig    clang-18
+s390          allnoconfig    clang-22
+s390         allyesconfig    gcc-15.2.0
+sh           allmodconfig    gcc-15.2.0
+sh            allnoconfig    gcc-15.2.0
+sh           allyesconfig    gcc-15.2.0
+sparc         allnoconfig    gcc-15.2.0
+sparc64      allmodconfig    clang-22
+um           allmodconfig    clang-19
+um            allnoconfig    clang-22
+um           allyesconfig    gcc-14
+x86_64       allmodconfig    clang-20
+x86_64        allnoconfig    clang-20
+x86_64       allyesconfig    clang-20
+x86_64      rhel-9.4-rust    clang-20
+xtensa        allnoconfig    gcc-15.2.0
 
-When you combine a Marvell Ethernet interface with a Marvell switch
-offloading works of course. So it probably does require some logic in
-the MAC driver to determine if the switch is of the same vendor or
-not.
-
-> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> index e68997a29191b..654b707ee27a1 100644
-> --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> @@ -1459,6 +1459,26 @@ static void setup_tx_buf(struct mtk_eth *eth, struct mtk_tx_buf *tx_buf,
->  	}
->  }
->  
-> +static bool mtk_uses_dsa(struct net_device *dev)
-> +{
-> +#if IS_ENABLED(CONFIG_NET_DSA)
-> +	return netdev_uses_dsa(dev) &&
-> +	       dev->dsa_ptr->tag_ops->proto == DSA_TAG_PROTO_MTK;
-> +#else
-> +	return false;
-> +#endif
-
-I think the concept of determining if the switch is using a specific
-tag in order to enable/disable acceleration should be generic. So i
-would try to make this an helper in include/next/dsa.h. Any MAC driver
-can then use it.
-
-> @@ -1531,7 +1551,7 @@ static void mtk_tx_set_dma_desc_v2(struct net_device *dev, void *txd,
->  		/* tx checksum offload */
->  		if (info->csum)
->  			data |= TX_DMA_CHKSUM_V2;
-> -		if (mtk_is_netsys_v3_or_greater(eth) && netdev_uses_dsa(dev))
-> +		if (mtk_is_netsys_v3_or_greater(eth) && mtk_uses_dsa(dev))
->  			data |= TX_DMA_SPTAG_V3;
-
-This looks to be in the hot path. Do you really want to do this
-evaluation on every frame? You can change the tag protocol via sysfs,
-however, dsa_tree_change_tag_proto() will only allow you to change the
-tag while the conduit interface is down. So it should be safe to look
-at the tag protocol once during open, and cache the result somewhere
-local, struct mtk_eth? That should avoid a few cache misses.
-
-> @@ -3192,6 +3212,14 @@ static netdev_features_t mtk_fix_features(struct net_device *dev,
->  		}
->  	}
->  
-> +	if ((features & NETIF_F_IP_CSUM) &&
-> +	    non_mtk_uses_dsa(dev))
-> +		features &= ~NETIF_F_IP_CSUM;
-> +
-> +	if ((features & NETIF_F_IPV6_CSUM) &&
-> +	    non_mtk_uses_dsa(dev))
-> +		features &= ~NETIF_F_IPV6_CSUM;
-> +
-
-
-When is mtk_fix_features() actually called? I don't know without
-looking at the core. You will want it when open is called, when the
-tagging protocol is fixed.
-
-	Andrew
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
