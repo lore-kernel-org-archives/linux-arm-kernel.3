@@ -4,65 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA10AD2F33A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:27:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08A32D2F338
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yfpTf1rl/C9iunh+ff9S/MAYt41hwnn4QGlkCjjRxZg=; b=3wggZejwck0+Yu89s6HKn3ONiN
-	MHtHVzJoCXCp1lXauJrbQWgXzHQAZS0GS6IWZRKDy5z+PmTKEz0R5S8yLNrath9+IvUaviwYIY6Gu
-	2yteCLpGZF7mUr1uLHKkASIT48hCYFFI3rsFToBWa+hFhncqjR/f3okH0HRuxrKy7uAqhgtEQfe5v
-	2UXUw0aIMcjf/7Z9PtvsxwhgSJzALiGdeOmYMz5xlRQ2gSpYIjWVPEf1ElkiVXZ6Pav6RiXiS9ltz
-	cNTa1JTpOoLfRaqlcWu2zYCKHAnhAdvDPH+CLCKRCSgrlUAE2q1fyKEWkk/bKDSIbKYZc5IcHoNwu
-	7oR+04Vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zLRXg7JVZZko0zZdXj8CGlwR+G7ltrm8Wkc0QXIHPMo=; b=y/qlOUdFywM8DO7FPbIMnYvmae
+	7PjLR9HREn6scaeEVUkbfBGqXL5Ae/rLJocWdRSkVHWna0Tu/tDy7E714ytvPdLB32tWAaTpmIKbf
+	cUfQd2Z9MS/34rsYjN8EGbZSYeKizfhbWJububFvGLhTL19ykM4J+kCxilFNRjbmeO0bUEg+8LbKg
+	yv4+MuJ5L4VLd1YdhzOKmL+IHC++lk3hpjaJ/+fHN34YjafAzm+BOaqUe3P8AaHpxGvAP+BkP0gJL
+	7hY6/6vTO020qYDlWr41sIgfSXJX0RLmYHELGDCb5oPceqjd1N4YqtH2jXoQZbNnWsU8C9IA0ZiKW
+	yQ92wajQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgJ3-00000007MdM-0ADa;
-	Tue, 13 Jan 2026 15:27:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vfgJ8-00000007MgH-1PMw;
+	Tue, 13 Jan 2026 15:27:47 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgJ0-00000007MbQ-3NwL
+	id 1vfgJ0-00000007MbH-3YxJ
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 13 Jan 2026 15:27:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1962F4443E;
-	Tue, 13 Jan 2026 15:27:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E390BC19422;
-	Tue, 13 Jan 2026 15:27:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768318058;
-	bh=YnOpqEglNY3vQ34HlVAtTWoHG1niNCbvODOpEPP4Da0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qUbW/ctGDpVNHIWSDXuEs4Lg//dBztmnD1lFa1/DswaUBhGMQG8LcNuaWyVh8lSqa
-	 bdrX9NbeJiGGjUjpK2fl6RC36mlUcGahyYWHrkY1m2q1xMZ4gnnT6c2IbCC//qp6TV
-	 09uxecf2G5d7dFC76MYa7M5MHwou7AYuciyDmbFLuS1ebmNJWJUsDdm654jCu0m4Hh
-	 ohp2M0fVGDTiBGN2w+FM7hxCGErdkTrYPp7bsn33nEduJX3zTl9i9QWa3zouJsRUqL
-	 rQiinTcLS7VzUANttixMWtyzidyb93Jos0p179GjByaNs3drEjIfBA5lAQoX6nUTDu
-	 VHBFvTrD5RRbg==
-Date: Tue, 13 Jan 2026 20:57:28 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: frank.li@nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de, 
-	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v8 1/2] PCI: dwc: Don't poll L2 if QUIRK_NOL2POLL_IN_PM
- is existing in suspend
-Message-ID: <g3yuqj2yyq236x7fzwdfl5s7onvuwd2ot7btadf3qs36vchleb@4kwfwpo4ni36>
-References: <20260107024553.3307205-1-hongxing.zhu@nxp.com>
- <20260107024553.3307205-2-hongxing.zhu@nxp.com>
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4779adb38d3so52555745e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 07:27:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768318057; x=1768922857; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zLRXg7JVZZko0zZdXj8CGlwR+G7ltrm8Wkc0QXIHPMo=;
+        b=iO185oUadNOXXodEQ7mbojQpBZE6Z7JQcaa1kM6Xjl+psWRdB5QfvacXmqmxgm6Cbs
+         KGiRq/WLY+SMyvOZNIQtLKUT9EvDfOwSIwHxOea5+52RwDl3KJtysu+HKq2woZH0KVM4
+         bF4QUlx21zc6nnZehf5w4wnlb1GdvNNlYw+YHQwx60kExiIjxYTdgJY3ymz1mJEGeFEa
+         +izdRzP7MeFgzzN0pfZ44CNp4jpaA/KSukjEm49R2sSvP5VoBrCCV18wwAxiojyOvIZn
+         hx3Md7Llp/DkurW/IZIlUlw01p5k6OB/nVAkZ5yrXonn6DisedjT9zeXH723+y5B9Hbi
+         vRQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768318057; x=1768922857;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=zLRXg7JVZZko0zZdXj8CGlwR+G7ltrm8Wkc0QXIHPMo=;
+        b=Id2tmDl+X296yXLtV6zpOQmbmZtE0fhliqdQXXC4+rOPsCC+jTH54iq/gpSKFlcPCt
+         tN5Xj1FiXu/GmbZrupndJdyIqD15vFSlogryl7iZsM6ydYWl4OKw8Ny8TKgdQp43+lko
+         14iRXsO4HGNxSB2mdAfF1xI/tIZudc0Z+HKMIiFFWkAM5nT7hXNzWaMETQ5nvQe2ENWB
+         7zs/afDzuyEz746Gtenn32g6J9XiBYwfmayZlijcl+bfLBA6eBkOeafLTGhjggIkdhqZ
+         hMr9AAEszEdgAmfLFrGkjgMegCNNiOf3v4KkSf0QFmhlyZW8SBmB341ME50jpJ+EkUsj
+         dqrA==
+X-Forwarded-Encrypted: i=1; AJvYcCVrlpC7AgXlNYa0c47lvbL1eQSSNfIIbyCfkQldjEQTdaCkJvuGf14zxuggViE0pLxAZDw2p6P+h30zA8DlK1y+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlYqQ0MI0VLRHJYbJiBmc3os1y4Hl03UNwqhFqPmFzgW9PQ1LQ
+	OH4+DLnQlWto0enfba2mDe+bV0z9lwVb712u8yk/6MxC8GySDilVCHD0
+X-Gm-Gg: AY/fxX5CrQB7Gcfoa7WEC5+n63PylF7P9qndJCgpWCNuyKF2ue3FqtvhE9Pf0Vffdxt
+	T4TBGfEJ/hfZ8K3z1W6OfMIPVGJVzH7gy3Myx/BXW3ILwEuN870JMTD2P5xMX9/juX9MgVhygo+
+	Lxa1ZE3rjdQE+/mMWCuA52aJrEgnA8IQkSia+i7V3OEArb+W8IRwe/IbZdbfLaf4o2ZHPJECWB1
+	kJm7PnSWp1et/ObNgdU7Nl7xn/mdN5+INc5gJnrbVBMRx0wrLodIYkFKAsHKJJHvTJj7K2xiqgd
+	VzT0FdClw+gXoyfPyxShmMtOmcAXE8fsZwAlK2TY/3Knf7oHanOjsTQWynHfG4gx9d4Sl7YrAzL
+	yBzobQLyDbrlg4pVPWOP2ahlj5SqLjYsIIcYEhj3alpqV/Jo4jkS50O0CTJ1jeRg8kSe8LrBs2U
+	rNsFBvu6qM1MI12XmGGpVAGJMw6l0QUmSTpDru7lqrpuKlrldij63QFBY=
+X-Google-Smtp-Source: AGHT+IGOGfwbuvnKgA4Zty6EfW/z0NDZGT8+jx/1Ev1TPzxM7TNRuATZo23zi+kv55y3TV6t5AxLVQ==
+X-Received: by 2002:a05:600c:8b66:b0:47e:e20e:bba4 with SMTP id 5b1f17b1804b1-47ee20ebde0mr2858135e9.18.1768318056848;
+        Tue, 13 Jan 2026 07:27:36 -0800 (PST)
+Received: from f4d4888f22f2.ant.amazon.com.com ([15.248.2.27])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d7f68f4ddsm421025325e9.2.2026.01.13.07.27.35
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 13 Jan 2026 07:27:36 -0800 (PST)
+From: Jack Thomson <jackabt.amazon@gmail.com>
+To: maz@kernel.org,
+	oliver.upton@linux.dev,
+	pbonzini@redhat.com
+Cc: joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	shuah@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	isaku.yamahata@intel.com,
+	xmarcalx@amazon.co.uk,
+	kalyazin@amazon.co.uk,
+	jackabt@amazon.com
+Subject: [PATCH v4 1/3] KVM: arm64: Add pre_fault_memory implementation
+Date: Tue, 13 Jan 2026 15:26:40 +0000
+Message-ID: <20260113152643.18858-2-jackabt.amazon@gmail.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260113152643.18858-1-jackabt.amazon@gmail.com>
+References: <20260113152643.18858-1-jackabt.amazon@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260107024553.3307205-2-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_072738_908125_6ECED44B 
-X-CRM114-Status: GOOD (  29.33  )
+X-CRM114-CacheID: sfid-20260113_072738_922142_8B30E141 
+X-CRM114-Status: GOOD (  22.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,150 +113,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 10:45:52AM +0800, Richard Zhu wrote:
-> Refer to PCIe r6.0, sec 5.2, fig 5-1 Link Power Management State Flow
-> Diagram. Both L0 and L2/L3 Ready can be transferred to LDn directly.
-> 
-> It's harmless to let dw_pcie_suspend_noirq() proceed suspend after the
-> PME_Turn_Off is sent out, whatever the LTSSM state is in L2 or L3 after
-> a recommended 10ms max wait refer to PCIe r6.0, sec 5.3.3.2.1 PME
-> Synchronization.
-> 
-> The LTSSM states are inaccessible on i.MX6QP and i.MX7D after the
-> PME_Turn_Off is sent out.
-> 
-> To support this case, don't poll L2 state and apply a simple delay of
-> PCIE_PME_TO_L2_TIMEOUT_US(10ms) if the QUIRK_NOL2POLL_IN_PM flag is set
-> in suspend.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 4774faf854f5 ("PCI: dwc: Implement generic suspend/resume functionality")
-> Fixes: a528d1a72597 ("PCI: imx6: Use DWC common suspend resume method")
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c         |  4 +++
->  .../pci/controller/dwc/pcie-designware-host.c | 34 +++++++++++++------
->  drivers/pci/controller/dwc/pcie-designware.h  |  4 +++
->  3 files changed, 32 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 4668fc9648bf..d84bfcd1079c 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -125,6 +125,7 @@ struct imx_pcie_drvdata {
->  	enum imx_pcie_variants variant;
->  	enum dw_pcie_device_mode mode;
->  	u32 flags;
-> +	u32 quirk;
->  	int dbi_length;
->  	const char *gpr;
->  	const u32 ltssm_off;
-> @@ -1765,6 +1766,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  	if (ret)
->  		return ret;
->  
-> +	pci->quirk_flag = imx_pcie->drvdata->quirk;
->  	pci->use_parent_dt_ranges = true;
->  	if (imx_pcie->drvdata->mode == DW_PCIE_EP_TYPE) {
->  		ret = imx_add_pcie_ep(imx_pcie, pdev);
-> @@ -1849,6 +1851,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.enable_ref_clk = imx6q_pcie_enable_ref_clk,
->  		.core_reset = imx6qp_pcie_core_reset,
->  		.ops = &imx_pcie_host_ops,
-> +		.quirk = QUIRK_NOL2POLL_IN_PM,
->  	},
->  	[IMX7D] = {
->  		.variant = IMX7D,
-> @@ -1860,6 +1863,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
->  		.enable_ref_clk = imx7d_pcie_enable_ref_clk,
->  		.core_reset = imx7d_pcie_core_reset,
-> +		.quirk = QUIRK_NOL2POLL_IN_PM,
->  	},
->  	[IMX8MQ] = {
->  		.variant = IMX8MQ,
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> index 43d091128ef7..06cbfd9e1f1e 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> @@ -1179,15 +1179,29 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
->  			return ret;
->  	}
->  
-> -	ret = read_poll_timeout(dw_pcie_get_ltssm, val,
-> -				val == DW_PCIE_LTSSM_L2_IDLE ||
-> -				val <= DW_PCIE_LTSSM_DETECT_WAIT,
-> -				PCIE_PME_TO_L2_TIMEOUT_US/10,
-> -				PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
-> -	if (ret) {
-> -		/* Only log message when LTSSM isn't in DETECT or POLL */
-> -		dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
-> -		return ret;
-> +	if (dwc_quirk(pci, QUIRK_NOL2POLL_IN_PM)) {
-> +		/*
-> +		 * Add the QUIRK_NOL2_POLL_IN_PM case to avoid the read hang,
-> +		 * when LTSSM is not powered in L2/L3/LDn properly.
-> +		 *
-> +		 * Refer to PCIe r6.0, sec 5.2, fig 5-1 Link Power Management
-> +		 * State Flow Diagram. Both L0 and L2/L3 Ready can be
-> +		 * transferred to LDn directly. On the LTSSM states poll broken
-> +		 * platforms, add a max 10ms delay refer to PCIe r6.0,
-> +		 * sec 5.3.3.2.1 PME Synchronization.
-> +		 */
-> +		mdelay(PCIE_PME_TO_L2_TIMEOUT_US/1000);
-> +	} else {
-> +		ret = read_poll_timeout(dw_pcie_get_ltssm, val,
-> +					val == DW_PCIE_LTSSM_L2_IDLE ||
-> +					val <= DW_PCIE_LTSSM_DETECT_WAIT,
-> +					PCIE_PME_TO_L2_TIMEOUT_US/10,
-> +					PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
-> +		if (ret) {
-> +			/* Only log message when LTSSM isn't in DETECT or POLL */
-> +			dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
-> +			return ret;
-> +		}
->  	}
->  
->  	/*
-> @@ -1204,7 +1218,7 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
->  
->  	pci->suspended = true;
->  
-> -	return ret;
-> +	return 0;
->  }
->  EXPORT_SYMBOL_GPL(dw_pcie_suspend_noirq);
->  
-> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-> index 31685951a080..dd760c17bdcc 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware.h
-> +++ b/drivers/pci/controller/dwc/pcie-designware.h
-> @@ -305,6 +305,9 @@
->  /* Default eDMA LLP memory size */
->  #define DMA_LLP_MEM_SIZE		PAGE_SIZE
->  
-> +#define QUIRK_NOL2POLL_IN_PM		BIT(0)
-> +#define dwc_quirk(pci, val)		(pci->quirk_flag & val)
-> +
+From: Jack Thomson <jackabt@amazon.com>
 
-Though I like this quirk idea, I think at this point a simple flag will do the
-job.
+Add kvm_arch_vcpu_pre_fault_memory() for arm64. The implementation hands
+off the stage-2 faulting logic to either gmem_abort() or
+user_mem_abort().
 
->  struct dw_pcie;
->  struct dw_pcie_rp;
->  struct dw_pcie_ep;
-> @@ -520,6 +523,7 @@ struct dw_pcie {
->  	const struct dw_pcie_ops *ops;
->  	u32			version;
->  	u32			type;
-> +	u32			quirk_flag;
+Add an optional page_size output parameter to user_mem_abort() to
+return the VMA page size, which is needed when pre-faulting.
 
-You can just add a flag "skip_l23_wait" in dw_pcie_rp as this is a Root Port
-behavior.
+Update the documentation to clarify x86 specific behaviour.
 
-- Mani
+Signed-off-by: Jack Thomson <jackabt@amazon.com>
+---
+ Documentation/virt/kvm/api.rst |  3 +-
+ arch/arm64/kvm/Kconfig         |  1 +
+ arch/arm64/kvm/arm.c           |  1 +
+ arch/arm64/kvm/mmu.c           | 79 ++++++++++++++++++++++++++++++++--
+ 4 files changed, 79 insertions(+), 5 deletions(-)
 
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 01a3abef8abb..44cfd9e736bb 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -6493,7 +6493,8 @@ Errors:
+ KVM_PRE_FAULT_MEMORY populates KVM's stage-2 page tables used to map memory
+ for the current vCPU state.  KVM maps memory as if the vCPU generated a
+ stage-2 read page fault, e.g. faults in memory as needed, but doesn't break
+-CoW.  However, KVM does not mark any newly created stage-2 PTE as Accessed.
++CoW.  However, on x86, KVM does not mark any newly created stage-2 PTE as
++Accessed.
+ 
+ In the case of confidential VM types where there is an initial set up of
+ private guest memory before the guest is 'finalized'/measured, this ioctl
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index 4f803fd1c99a..6872aaabe16c 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -25,6 +25,7 @@ menuconfig KVM
+ 	select HAVE_KVM_CPU_RELAX_INTERCEPT
+ 	select KVM_MMIO
+ 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
++	select KVM_GENERIC_PRE_FAULT_MEMORY
+ 	select VIRT_XFER_TO_GUEST_WORK
+ 	select KVM_VFIO
+ 	select HAVE_KVM_DIRTY_RING_ACQ_REL
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 4f80da0c0d1d..19bac68f737f 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -332,6 +332,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ 	case KVM_CAP_COUNTER_OFFSET:
+ 	case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
+ 	case KVM_CAP_ARM_SEA_TO_USER:
++	case KVM_CAP_PRE_FAULT_MEMORY:
+ 		r = 1;
+ 		break;
+ 	case KVM_CAP_SET_GUEST_DEBUG2:
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 48d7c372a4cd..499b131f794e 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1642,8 +1642,8 @@ static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 
+ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 			  struct kvm_s2_trans *nested,
+-			  struct kvm_memory_slot *memslot, unsigned long hva,
+-			  bool fault_is_perm)
++			  struct kvm_memory_slot *memslot, unsigned long *page_size,
++			  unsigned long hva, bool fault_is_perm)
+ {
+ 	int ret = 0;
+ 	bool topup_memcache;
+@@ -1923,6 +1923,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 	kvm_release_faultin_page(kvm, page, !!ret, writable);
+ 	kvm_fault_unlock(kvm);
+ 
++	if (page_size)
++		*page_size = vma_pagesize;
++
+ 	/* Mark the page dirty only if the fault is handled successfully */
+ 	if (writable && !ret)
+ 		mark_page_dirty_in_slot(kvm, memslot, gfn);
+@@ -2196,8 +2199,8 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 		ret = gmem_abort(vcpu, fault_ipa, nested, memslot,
+ 				 esr_fsc_is_permission_fault(esr));
+ 	else
+-		ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, hva,
+-				     esr_fsc_is_permission_fault(esr));
++		ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, NULL,
++				     hva, esr_fsc_is_permission_fault(esr));
+ 	if (ret == 0)
+ 		ret = 1;
+ out:
+@@ -2573,3 +2576,71 @@ void kvm_toggle_cache(struct kvm_vcpu *vcpu, bool was_enabled)
+ 
+ 	trace_kvm_toggle_cache(*vcpu_pc(vcpu), was_enabled, now_enabled);
+ }
++
++long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
++				    struct kvm_pre_fault_memory *range)
++{
++	struct kvm_vcpu_fault_info *fault_info = &vcpu->arch.fault;
++	struct kvm_s2_trans nested_trans, *nested = NULL;
++	unsigned long page_size = PAGE_SIZE;
++	struct kvm_memory_slot *memslot;
++	phys_addr_t ipa = range->gpa;
++	phys_addr_t end;
++	hva_t hva;
++	gfn_t gfn;
++	int ret;
++
++	if (vcpu_is_protected(vcpu))
++		return -EOPNOTSUPP;
++
++	/*
++	 * We may prefault on a shadow stage 2 page table if we are
++	 * running a nested guest.  In this case, we have to resolve the L2
++	 * IPA to the L1 IPA first, before knowing what kind of memory should
++	 * back the L1 IPA.
++	 *
++	 * If the shadow stage 2 page table walk faults, then we return
++	 * -EFAULT
++	 */
++	if (kvm_is_nested_s2_mmu(vcpu->kvm, vcpu->arch.hw_mmu) &&
++	    vcpu->arch.hw_mmu->nested_stage2_enabled) {
++		ret = kvm_walk_nested_s2(vcpu, ipa, &nested_trans);
++		if (ret)
++			return -EFAULT;
++
++		ipa = kvm_s2_trans_output(&nested_trans);
++		nested = &nested_trans;
++	}
++
++	if (ipa >= kvm_phys_size(vcpu->arch.hw_mmu))
++		return -ENOENT;
++
++	/* Generate a synthetic abort for the pre-fault address */
++	fault_info->esr_el2 = (ESR_ELx_EC_DABT_LOW << ESR_ELx_EC_SHIFT) |
++		ESR_ELx_FSC_FAULT_L(KVM_PGTABLE_LAST_LEVEL);
++	fault_info->hpfar_el2 = HPFAR_EL2_NS |
++		FIELD_PREP(HPFAR_EL2_FIPA, ipa >> 12);
++
++	gfn = gpa_to_gfn(ipa);
++	memslot = gfn_to_memslot(vcpu->kvm, gfn);
++	if (!memslot)
++		return -ENOENT;
++
++	if (kvm_slot_has_gmem(memslot)) {
++		/* gmem currently only supports PAGE_SIZE mappings */
++		ret = gmem_abort(vcpu, ipa, nested, memslot, false);
++	} else {
++		hva = gfn_to_hva_memslot_prot(memslot, gfn, NULL);
++		if (kvm_is_error_hva(hva))
++			return -EFAULT;
++
++		ret = user_mem_abort(vcpu, ipa, nested, memslot, &page_size, hva,
++				     false);
++	}
++
++	if (ret < 0)
++		return ret;
++
++	end = ALIGN_DOWN(range->gpa, page_size) + page_size;
++	return min(range->size, end - range->gpa);
++}
 -- 
-மணிவண்ணன் சதாசிவம்
+2.43.0
+
 
