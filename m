@@ -4,70 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15591D0C855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 11:32:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BBEBD0C85E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 11:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B4kWBn9gjdvScHFjE+y4UkWXcGn5pKA7zE+7suaO1v0=; b=ywJzj3TG7gaL2e3P6PrUYE/7C5
-	jgtTs6PrnbouA7/LUVfIf6/QMcXfRwPMG1vT77qOn9SHZp7hkPeoe/53ZJtYb2locyZ/2qTicAMZJ
-	ZjTdJ3zX7zpfShlg/W6IEzRAdXv5r8b08Se7IOvIxk+KfAyK0ZvYcoySfMWQi6Q7cJDXnUdhp7Qym
-	wUPwW/c65htkiU+q/fV7s4dQDrZ7gxqsS1yAQZNVlsFNoar48eDfJ6AWOGZdYilnBCLunyc+isyNW
-	ZSi0ySFWqkJl1BLum+858B6+caD5JbG20NeSWVtdd56S8a3uxJHdGg4gEZvapRQvwQfmsx/WXINis
-	cN+GRfzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=15PeX4g/MRruDh4JAfYiVhc+voMmNMSAGAJ5XZMnZp0=; b=RkrUw4jXwnDkDES2P4a8Wt2iCI
+	z4A8A7FLdePDd+tu4vAVRTtL1QiICifgXoUifGmobF8ETcDXpfEjxPqucpwUiJNPc1r6ERlxShHVq
+	gSxGCuREg8b7J8PjxCWeFdOHJ6i7fPbpGzcxtzEw5TbfGrTKf+AjgCGe/v99ncvEdlKbLZBUK8ram
+	2vYRX/z9cmxgJu5aqDdsypZbo+Zo1H55Yc/2pj2Yn+W7Dz+jAwpACMzCftu9Sl4D7UGivKJD+ksyf
+	cEMd3yVKhQ55EvyVgCZcZpSBHacDXBiFFYqwm4NgvKytV5TSK22R8g8NkiaeAsObrsMMF3ni9r6Dn
+	DUCOoO7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfccr-000000071ep-31xf;
-	Tue, 13 Jan 2026 11:31:55 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vfcnW-000000071zU-0VGQ;
+	Tue, 13 Jan 2026 11:42:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfccp-000000071e9-2Zgh
+	id 1vfcnV-000000071zO-0cfm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 11:31:52 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vfccf-0008LF-8r; Tue, 13 Jan 2026 12:31:41 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vfccf-000Pj3-1h;
-	Tue, 13 Jan 2026 12:31:40 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vfccZ-000000005PZ-3ACz;
-	Tue, 13 Jan 2026 12:31:35 +0100
-Message-ID: <0d3a41526ba02eee28457fafc95f5152a9c7bb4b.camel@pengutronix.de>
-Subject: Re: [PATCH] drm/imx: parallel-display: Prefer bus format set via
- legacy "interface-pix-fmt" DT property
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Marek Vasut <marex@nabladev.com>, dri-devel@lists.freedesktop.org
-Cc: stable@vger.kernel.org, David Airlie <airlied@gmail.com>, Fabio Estevam	
- <festevam@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Simona Vetter <simona@ffwll.ch>,  Thomas Zimmermann <tzimmermann@suse.de>,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Tue, 13 Jan 2026 12:31:35 +0100
-In-Reply-To: <20260110171510.692666-1-marex@nabladev.com>
-References: <20260110171510.692666-1-marex@nabladev.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Tue, 13 Jan 2026 11:42:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 379A660017;
+	Tue, 13 Jan 2026 11:42:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47A74C116C6;
+	Tue, 13 Jan 2026 11:42:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768304571;
+	bh=8ZCIZAy2nNpThhX5goPfWn6peYuTFVOzBqggm9jLdYk=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=jLF0qILWfJSSPsB0tCWU8I2oEnZg4tIJRINrpWsKdIGY6coGzEWna9cXjc6TpfVVa
+	 bWhCzXYeGQA6aTrF1hAR3/CP9CCziRmU5XX/f8lkkzIgEP4l7FdVL7x5Ie00RGYBKB
+	 C4QEaySQTfYIXOLsgJTetxHnWMUwc5PbwyTCFUrBBie6va6++eEyyW4X4BKVAS9CRP
+	 icJYXtRKa9fJ3j08A4cELtESyUT/0PF/8Os4l0WtzIP5QNXw7TYOw3tyXpyP3umCwp
+	 YGlTm4fyH9QsX/dFhWxNKLseXLDPsSoOwt94bRKqL62YemonmMX/gp3Vz4GZjS3gmg
+	 1QU1rqpEkCJ4A==
+From: Mark Brown <broonie@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Vladimir Zapolskiy <vz@mleia.com>
+Cc: Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
+ linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260109075032.3287109-1-vz@mleia.com>
+References: <20260109075032.3287109-1-vz@mleia.com>
+Subject: Re: [PATCH] spi: dt-bindings: nxp,lpc3220-spi: Add DMA specific
+ properties
+Message-Id: <176830457004.25724.10171206431125136162.b4-ty@kernel.org>
+Date: Tue, 13 Jan 2026 11:42:50 +0000
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_033151_696956_09ADE2B5 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-47773
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,22 +73,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sa, 2026-01-10 at 18:14 +0100, Marek Vasut wrote:
-> Prefer bus format set via legacy "interface-pix-fmt" DT property
-> over panel bus format. This is necessary to retain support for
-> DTs which configure the IPUv3 parallel output as 24bit DPI, but
-> connect 18bit DPI panels to it with hardware swizzling.
->
-> This used to work up to Linux 6.12, but stopped working in 6.13,
-> reinstate the behavior to support old DTs.
->=20
-> Cc: stable@vger.kernel.org
-> Fixes: 5f6e56d3319d ("drm/imx: parallel-display: switch to drm_panel_brid=
-ge")
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
+On Fri, 09 Jan 2026 09:50:32 +0200, Vladimir Zapolskiy wrote:
+> NXP LPC32xx SPI controllers supports DMA operations over rx-tx channel,
+> which is muxed with SSP SPI controller DMA.
+> 
+> For additional reference see Table 69 in NXP LPC32xx User Manual.
+> 
+> 
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+Applied to
 
-regards
-Philipp
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+
+Thanks!
+
+[1/1] spi: dt-bindings: nxp,lpc3220-spi: Add DMA specific properties
+      commit: 8672e4b51adfc57150f3862b1665faff0acf1bad
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
