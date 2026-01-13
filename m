@@ -4,84 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2109DD2F34D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 17:45:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE4DD2F356
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 18:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v2l8wIBjsApl5lsjMAOqlkMIbLPfjDWiLseIy2qbcjU=; b=UkvvLXadC6zQp8z1/9+wrR8Xm3
-	FqurqJzhQdg/PX+64ZZD5FRHghes6ssATcgrC78q0gEdTyifEUFOSjASTm+m+Gz6gvqwyvkxkv4Q2
-	Jg/YQLe1Q8KMMNwCou+Sd/1xldq9PcHvaIP+yHTl8yen2lq08D04qa3yPKOBljSeaY9BI/bzhz+G3
-	yYAvEZqzxulsKQ+p8uBZnM5bF6qlSYWa7CryndNeiD3p++/cTSpBNziy+5J0PieXjvmMdjgJS82JR
-	4ZRWblZMIsfDdFlxiLCJtuoY3GLKnOjGYs9Z1Ev74WoRUPM/dlMX7CM+mQsTbUTu2Si+gn9tn5lyv
-	NNdkEr3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z1y+TweL+U/hQ4anp5eAH6/GBJUhqkQ76VBYe7c+P6E=; b=EFe37Im+7QeQkbRovvwL+S5wdG
+	7lUHv6jt9Ko9XhVEtHMNK+AE6zzW97LRMwQhG9Suh5Js7ZJtCa7bi9/GyCDMJqFBmdCniJLMtc7+P
+	onUT/d/bnoVcbSYpap0sxp7LSVf7lO/YLe0G0WwBHVBttMJ3tmv70gRg9bmOHTWaA1tUjI8/BnEvP
+	NFN/WqCYKrn5sdNAcdd8DuXYM9pdo+4A9erIhuMv7KGut359btng/ZJCZbywWhONPnCu8HtEPK39Y
+	/WGFu94wTctj1H9WvaUPqqXsiknMXvtPFz6iOMVcZYe3LuIgGtMb2NNRyZrnV3dVbXx75xT3JZQl/
+	oIuSFD+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfiRv-00000007YDC-1NH0;
-	Tue, 13 Jan 2026 17:44:59 +0000
-Received: from mail-ed1-f44.google.com ([209.85.208.44])
+	id 1vfiqU-00000007ZJh-1KvI;
+	Tue, 13 Jan 2026 18:10:22 +0000
+Received: from mail-centralusazon11010047.outbound.protection.outlook.com ([52.101.61.47] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfiRq-00000007Y9o-3uVb
+	id 1vfiqR-00000007ZJ5-3LHq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 17:44:56 +0000
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-64b9b0b4d5dso16480727a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 09:44:54 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768326293; x=1768931093;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=v2l8wIBjsApl5lsjMAOqlkMIbLPfjDWiLseIy2qbcjU=;
-        b=nPWWunKoHWHVi4Zq20ACdY9pWAODcyPIOs2gs0b5hk9+UBFy5Pa5R2iieM50OlIYt3
-         nSv7ZLqwyqklzei3/5qSmbnzoQTfItPu1CNI2oZDqI/40ukLsofrSmoVQlfpXGM2sl7d
-         OVsC4xyjJz42MRoSkrn3Pwp1Z9X+qJ7cwfLU3TRVjoXl6G43hjAwsysI9BrVkZSkOIHf
-         QhW1WxZOZ8xovV7jdjiIJbJEg7lmhApPsvRYdLo9jUAgrujBb9uwZ+hKUEowKRL2HR5y
-         ek3j2s4GRUL5KGVxc8Qhj75XbRufmzRmyy1W7eWbakqH+YHP9swWIRQpREgYpcNrX/t0
-         gkNw==
-X-Gm-Message-State: AOJu0Ywo/R7a8yc/lrbhSsEWbLPLhsRN7KSnlWbqKsvRZbH1Rm8cg2En
-	GJhtaC9vDnxZi0xF7RXF+VWz9T+bgwIxqWe2wg1dUg28CK661pQl2RHp
-X-Gm-Gg: AY/fxX75d/SbD7AEeH4cjuRldGWCW4d+DUGLioCzCcx3CeIHOxIbiIRGSe6qAp5stue
-	Y/GnXJ4sSqD9I7QrmhX8yWZtqskgfnudCEsOJDX/b/5osIJcrrit1UlSuMwgCuHviGfTVl7PLOF
-	4C2DUZBP6dXWHB+TmRoYhtI8QkW37HqIW25Y++ZyA2ABdwdXOA+53zvQ5ehhtJ8EyoGzwRU+m40
-	eoKqot1rjGC5ZIm55xYll5JWqKqiH+5NrxCC+wEPDS9f7/h9SYaFp6XBOcWeqeT0LwIVKNq//FY
-	aqEzjIILiv4ucH7eDSxbCoPgxHlVndd4qPhlJOPTNNqRcwQhD3fj8Vs1Gb6FX0vwAeV3iAsgHqV
-	G6WbH/rVgfvFunJN6D13DVm43BRfDg1KVYCZG2B2msD3HgwHwRsgGFUZb3Q4I7VBBbp+xhcko+r
-	RNom1BpjKybXfAuPjCgpezdo7BJuQ679yJQisu5sRRTHAa0Q==
-X-Google-Smtp-Source: AGHT+IGYYREEN/5lBbERJSEIoYk6+xX8TKQHB6V6QK9t02Hm3hex4r4o0KRxPxU4VDxzdmDeNKmVmQ==
-X-Received: by 2002:a05:6402:1e92:b0:653:9cd7:2004 with SMTP id 4fb4d7f45d1cf-6539cd72323mr1132657a12.28.1768326292719;
-        Tue, 13 Jan 2026 09:44:52 -0800 (PST)
-Received: from [10.42.0.1] (cst-prg-36-231.cust.vodafone.cz. [46.135.36.231])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6507be655aesm20873259a12.17.2026.01.13.09.44.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Jan 2026 09:44:52 -0800 (PST)
-From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Date: Tue, 13 Jan 2026 18:44:37 +0100
-Subject: [PATCH 3/5] accel/thames: Add IOCTLs for BO creation and mapping
+	Tue, 13 Jan 2026 18:10:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qo6sMMQytbZ912sJuDsOsTKHiysu3ReR9w2HeFkNSRjhhCqFNBu/Xv+6KNaKWEiHyZaCd7b92HNtZ57yUTNb9eeJbYfiLU8eE6dPCBvUHbTUX6Byy7/5hh8BKQcG7B5kdakdY7AT9McVBTdlIIfOyFiUikAWoJpP6y4iWBJ7NbFw1eUAGBOkEwjEEVXbhxCkMltePQts8D4BSG6DtLHMedxFV3M6oBJe6YYhuVc9E1UpFnfh8TAXWWpdln+cHWvBl8HVQCBeDMoEwObhzvcdT6lOyH1caUlP6qdFh0asbE5vKkHkIpmyjKptzWGoHr+sXWFuRNRL9VjQsTZFAvb2Lg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z1y+TweL+U/hQ4anp5eAH6/GBJUhqkQ76VBYe7c+P6E=;
+ b=O/LG5OFsyKclJ7R3+vVQ7sP/CqDS/vFjrbamxj4r5UuxZcPqWBFEjZ4bLikNWSFsmeEv2WbyHEX0DTptkBjAMnKY9IvlSkpuQU73j+XUr09YmQkFVVX0fFjE89lfQqQ7zymG/LHt9UT2+z28S1TDMv0xp/l1kN7xlSRFGinq1i9BnGSMOTBjH9SGWFYZ6jAnwFSlE2vZDnu+9XvVa/v5t6Ze/pa2qg88aJ9qrGZydF2yPJu4gG4jfsKX45Z/JprhLQNG39QxZ3bCdW646yVVHorn6SMTrlXsiMiNU5rGxeatK7AtYigdXoBQqAShxJb6HID42yHNFJMF5PepolY2Sw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=baylibre.com smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=z1y+TweL+U/hQ4anp5eAH6/GBJUhqkQ76VBYe7c+P6E=;
+ b=1kw5LmvaKvJdZDD44EMJ3dEiZpoE+48MNYLU8Md/x9Y/XDG/wkBqtw9yvjnOntYQbEDTWkg4wrFpWIgQ8nXrpUqV76ig+qUxQOR24e7hwXKccmVeApQOK1hksgvY3Yrpwl5rwqhv7TvfyYSKHSLFOzjIggdU8OSubXyY2mhO+ng=
+Received: from SJ0PR13CA0224.namprd13.prod.outlook.com (2603:10b6:a03:2c1::19)
+ by SA1PR12MB8843.namprd12.prod.outlook.com (2603:10b6:806:379::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Tue, 13 Jan
+ 2026 18:10:13 +0000
+Received: from SJ1PEPF00002319.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c1:cafe::ce) by SJ0PR13CA0224.outlook.office365.com
+ (2603:10b6:a03:2c1::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.5 via Frontend Transport; Tue,
+ 13 Jan 2026 18:10:13 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SJ1PEPF00002319.mail.protection.outlook.com (10.167.242.229) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.1 via Frontend Transport; Tue, 13 Jan 2026 18:10:12 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 13 Jan
+ 2026 12:10:12 -0600
+Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Tue, 13 Jan 2026 12:10:08 -0600
+From: Suraj Gupta <suraj.gupta2@amd.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
+	<radhey.shyam.pandey@amd.com>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <michal.simek@amd.com>
+CC: <sean.anderson@linux.dev>, <linux@armlinux.org.uk>,
+	<linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<bmasney@redhat.com>
+Subject: [PATCH V2 1/2] clk: Add devm_clk_bulk_get_optional_enable() helper
+Date: Tue, 13 Jan 2026 23:40:01 +0530
+Message-ID: <20260113181002.200544-2-suraj.gupta2@amd.com>
+X-Mailer: git-send-email 2.49.1
+In-Reply-To: <20260113181002.200544-1-suraj.gupta2@amd.com>
+References: <20260113181002.200544-1-suraj.gupta2@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260113-thames-v1-3-99390026937c@tomeuvizoso.net>
-References: <20260113-thames-v1-0-99390026937c@tomeuvizoso.net>
-In-Reply-To: <20260113-thames-v1-0-99390026937c@tomeuvizoso.net>
-To: Nishanth Menon <nm@ti.com>, "Andrew F. Davis" <afd@ti.com>, 
- Randolph Sapp <rs@ti.com>, Jonathan Humphreys <j-humphreys@ti.com>, 
- Andrei Aldea <a-aldea@ti.com>, Chirag Shilwant <c-shilwant@ti.com>, 
- Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Oded Gabbay <ogabbay@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>, Sumit Semwal <sumit.semwal@linaro.org>, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- linux-doc@vger.kernel.org, linux-media@vger.kernel.org, 
- linaro-mm-sig@lists.linaro.org, Tomeu Vizoso <tomeu@tomeuvizoso.net>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002319:EE_|SA1PR12MB8843:EE_
+X-MS-Office365-Filtering-Correlation-Id: ca3ac914-0d61-4ba3-e9b2-08de52cefeec
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700013|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?v9IqPX0EMadoqSd0lEyyGZkp30k2jYap285oZG4Q7bGgwY8vVSMhQqZpN8Dx?=
+ =?us-ascii?Q?AOJK2oCRqjaRnZadMqYMb4p0ynhHdp5t2J2QkXNmcIPI/bRTofKvrb3hpcZV?=
+ =?us-ascii?Q?Ngx0Jl8UPVFxSX4c06v4ZMwVwOUihMV+R86Dsc6EeLL2KpfrSUHFvAEJNCXx?=
+ =?us-ascii?Q?8EzLxsGYIuY2objQqxNUG2B4SBGSSEAzfH9ng4oMdw93Jv2FP/BqNDud8vTq?=
+ =?us-ascii?Q?MOAnTHpJljoxxt3XtesBezX746daLzzNe9GUgyLRrV3X9skW/tGrRNU4Nsf0?=
+ =?us-ascii?Q?n2kwtgLFImFIX/6k60ZfyZSerxuZZg/nfFycd7So9a/rirmqFf+L50PKtI+K?=
+ =?us-ascii?Q?/9KF2l+yi/caC/QKNWpVfw+SZ3gBopVNff+MqwcKO46oTe6siPSDArl6j7M2?=
+ =?us-ascii?Q?PJRQgz7DFCTrr8Q0sMONrxRXKxaAdZJfx0pRIG0z9GCWmomaQv8YZCAqqTEg?=
+ =?us-ascii?Q?5OJ31QKc1fMl/lBZWSXMVCh97If/yk1PVGCPvsuzrTpWiug+quvv9Fv0HUMS?=
+ =?us-ascii?Q?b0dp8a7Y3zOf39j965/8Lhu5skoQ4iWWZ+lTeQZPHiOqtok4s7QvzDIg6Idw?=
+ =?us-ascii?Q?UzSHRz/ltGgEb9DIVysko3bg9X17F64b52aW31k9cESK+u5BY+oe7lyY20hh?=
+ =?us-ascii?Q?SVRlptaFvML5IUq0isfn36V+U7ZHf+MnBFnLx7UroOKp7hyKIxd1L5cNLK2P?=
+ =?us-ascii?Q?R1rpkyz0we3+3X6VaZSbNGur6awav+ICFhG+/CxLAHJYYHoWjwuXbYZ/z7Pk?=
+ =?us-ascii?Q?ftSXBWx5B8BOXc99EAG97B7UrofogwYYLsXdCLqz/8GxldQJgnnGG32TZwCX?=
+ =?us-ascii?Q?ZDftv1k34iunD2Xqcs/87+rgmSVC4GVGpU2K1HACoIodqRHwkrEerYVy9l3O?=
+ =?us-ascii?Q?RrRC8/89/631itTifROYoTiuLapWe6RN1s83Ghe+xJqSo9+hOKRGKqrNRH7+?=
+ =?us-ascii?Q?fpBXKND4fCDLpjB0cUWrI2168YoacX6Bfx2nS9CfndyfiaXWyMKCNoLE1qS2?=
+ =?us-ascii?Q?r0ArzewzDt2TIp0PLvrayD/Lo2y/ue+y2Ai3y92imzwZKJpEVZzGErFMQviZ?=
+ =?us-ascii?Q?NVlHzHASVvSVIIP6/WrbXyVPqMUYPo5s8/5CofZcn7cv1w2g9CTE357S/tUM?=
+ =?us-ascii?Q?RLQatY0/Yd+N4p7bUMZRWnO8vCFudyFgZkH7ZMeUW7qvhmVsa/y2SBETzxq9?=
+ =?us-ascii?Q?ZBZ+vCwA/sQJCqudfpwJqeiqPaPD+VuY522OJb0XddUaLOvscvKOVwuCj68u?=
+ =?us-ascii?Q?hknNjkzVorCLS9h5OoZ0PhIXaJ2YSchouAd49kG763y3JN5hdqArkVaLPChQ?=
+ =?us-ascii?Q?sgDseTUTFvPx/KiFph8voqcPLaXMk7/fzKfQcYfdppQidTzIskEIMx5K5cE2?=
+ =?us-ascii?Q?BlIhwhmbrOdlAwq1Spj5i4ISDXr69wV7OVYsLzLB22ZH5MrIyIiiEpvvwJRF?=
+ =?us-ascii?Q?1gx0c2CEAxbd6iGVcUsEDWBY/+v+nIJSWIZ/GbloDpD2+3omSRnfHTKKCrg5?=
+ =?us-ascii?Q?9jjVG/C2uAaeyPZ0RP4AhlO6i4+MO4BMOQII1R7NV0YLJp30p4sygzJ4UxKU?=
+ =?us-ascii?Q?VHGTzEjgm4dIQ1N5/cQ=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2026 18:10:12.5767
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ca3ac914-0d61-4ba3-e9b2-08de52cefeec
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002319.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8843
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_094455_051734_E180F502 
-X-CRM114-Status: GOOD (  26.93  )
+X-CRM114-CacheID: sfid-20260113_101019_929621_83BE7EB8 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,562 +149,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Uses the SHMEM DRM helpers, mapping on creation to the device as all
-created buffers are expected to be accessed by the DSPs. We map to all
-DSPs because we cannot know upfront what DSP cores will run a given job.
+Add a new managed clock framework helper function that combines getting
+optional bulk clocks and enabling them in a single operation.
 
-Buffers are mapped for the device by the DSPs themselves, as each
-contains a MMU.
+The devm_clk_bulk_get_optional_enable() function simplifies the common
+pattern where drivers need to get optional bulk clocks, prepare and enable
+them, and have them automatically disabled/unprepared and freed when the
+device is unbound.
 
-Buffers belong to a context, which is used by the DSP to switch to the
-page table that mapped the buffers for the user of the job to execute.
+This new API follows the established pattern of
+devm_clk_bulk_get_all_enabled() and reduces boilerplate code in drivers
+that manage multiple optional clocks.
 
-Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Suggested-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 ---
- drivers/accel/thames/Makefile       |   1 +
- drivers/accel/thames/thames_drv.c   |   5 +-
- drivers/accel/thames/thames_gem.c   | 355 ++++++++++++++++++++++++++++++++++++
- drivers/accel/thames/thames_gem.h   |  41 +++++
- drivers/accel/thames/thames_rpmsg.c |  69 +++++++
- 5 files changed, 470 insertions(+), 1 deletion(-)
+ drivers/clk/clk-devres.c | 50 ++++++++++++++++++++++++++++++++++++++++
+ include/linux/clk.h      | 23 ++++++++++++++++++
+ 2 files changed, 73 insertions(+)
 
-diff --git a/drivers/accel/thames/Makefile b/drivers/accel/thames/Makefile
-index 7ccd8204f0f5ea800f30e84b319f355be948109d..0051e319f2e4966de72bc342d5b6e40b2890c006 100644
---- a/drivers/accel/thames/Makefile
-+++ b/drivers/accel/thames/Makefile
-@@ -6,4 +6,5 @@ thames-y := \
- 	thames_core.o \
- 	thames_device.o \
- 	thames_drv.o \
-+	thames_gem.o \
- 	thames_rpmsg.o
-diff --git a/drivers/accel/thames/thames_drv.c b/drivers/accel/thames/thames_drv.c
-index a288e6ef05d7b1a21741ac0ca9cc8981f33969e4..29a80b9747ae84778b09f5dbd5b8d6d596f1947a 100644
---- a/drivers/accel/thames/thames_drv.c
-+++ b/drivers/accel/thames/thames_drv.c
-@@ -13,6 +13,7 @@
+diff --git a/drivers/clk/clk-devres.c b/drivers/clk/clk-devres.c
+index 5368d92d9b39..994d5bc5168b 100644
+--- a/drivers/clk/clk-devres.c
++++ b/drivers/clk/clk-devres.c
+@@ -179,6 +179,56 @@ int __must_check devm_clk_bulk_get_optional(struct device *dev, int num_clks,
+ }
+ EXPORT_SYMBOL_GPL(devm_clk_bulk_get_optional);
  
- #include "thames_drv.h"
- #include "thames_core.h"
-+#include "thames_gem.h"
- #include "thames_ipc.h"
- 
- static struct platform_device *drm_dev;
-@@ -54,7 +55,8 @@ static void thames_postclose(struct drm_device *dev, struct drm_file *file)
- 
- static const struct drm_ioctl_desc thames_drm_driver_ioctls[] = {
- #define THAMES_IOCTL(n, func) DRM_IOCTL_DEF_DRV(THAMES_##n, thames_ioctl_##func, 0)
--
-+	THAMES_IOCTL(BO_CREATE, bo_create),
-+	THAMES_IOCTL(BO_MMAP_OFFSET, bo_mmap_offset),
- };
- 
- DEFINE_DRM_ACCEL_FOPS(thames_accel_driver_fops);
-@@ -63,6 +65,7 @@ static const struct drm_driver thames_drm_driver = {
- 	.driver_features = DRIVER_COMPUTE_ACCEL | DRIVER_GEM,
- 	.open = thames_open,
- 	.postclose = thames_postclose,
-+	.gem_create_object = thames_gem_create_object,
- 	.ioctls = thames_drm_driver_ioctls,
- 	.num_ioctls = ARRAY_SIZE(thames_drm_driver_ioctls),
- 	.fops = &thames_accel_driver_fops,
-diff --git a/drivers/accel/thames/thames_gem.c b/drivers/accel/thames/thames_gem.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..a153e73a15253e0f955d74020b4765a1fa833fc4
---- /dev/null
-+++ b/drivers/accel/thames/thames_gem.c
-@@ -0,0 +1,355 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/* Copyright 2026 Texas Instruments Incorporated - https://www.ti.com/ */
++static void devm_clk_bulk_release_enable(struct device *dev, void *res)
++{
++	struct clk_bulk_devres *devres = res;
 +
-+#include "drm/drm_gem_shmem_helper.h"
-+#include <drm/drm_device.h>
-+#include <drm/drm_drv.h>
-+#include <drm/drm_print.h>
-+#include <drm/drm_utils.h>
-+#include <drm/thames_accel.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/idr.h>
++	clk_bulk_disable_unprepare(devres->num_clks, devres->clks);
++	clk_bulk_put(devres->num_clks, devres->clks);
++}
 +
-+#include "thames_gem.h"
-+#include "thames_device.h"
-+#include "thames_drv.h"
-+#include "thames_rpmsg.h"
++static int __devm_clk_bulk_get_enable(struct device *dev, int num_clks,
++				      struct clk_bulk_data *clks, bool optional)
++{
++	struct clk_bulk_devres *devres;
++	int ret;
 +
-+#define THAMES_BO_FLAGS DRM_THAMES_BO_NO_MMAP
++	devres = devres_alloc(devm_clk_bulk_release_enable,
++			      sizeof(*devres), GFP_KERNEL);
++	if (!devres)
++		return -ENOMEM;
 +
-+/*
-+ * DSP MMU permission flags for buffer object mappings.
-+ * These control read/write/execute permissions in the DSP's address space.
++	if (optional)
++		ret = clk_bulk_get_optional(dev, num_clks, clks);
++	else
++		ret = clk_bulk_get(dev, num_clks, clks);
++	if (ret)
++		goto err_clk_get;
++
++	ret = clk_bulk_prepare_enable(num_clks, clks);
++	if (ret)
++		goto err_clk_prepare;
++
++	devres->clks = clks;
++	devres->num_clks = num_clks;
++	devres_add(dev, devres);
++
++	return 0;
++
++err_clk_prepare:
++	clk_bulk_put(num_clks, clks);
++err_clk_get:
++	devres_free(devres);
++	return ret;
++}
++
++int __must_check devm_clk_bulk_get_optional_enable(struct device *dev, int num_clks,
++						   struct clk_bulk_data *clks)
++{
++	return __devm_clk_bulk_get_enable(dev, num_clks, clks, true);
++}
++EXPORT_SYMBOL_GPL(devm_clk_bulk_get_optional_enable);
++
+ static void devm_clk_bulk_release_all(struct device *dev, void *res)
+ {
+ 	struct clk_bulk_devres *devres = res;
+diff --git a/include/linux/clk.h b/include/linux/clk.h
+index b607482ca77e..ac0affa16c8a 100644
+--- a/include/linux/clk.h
++++ b/include/linux/clk.h
+@@ -478,6 +478,22 @@ int __must_check devm_clk_bulk_get(struct device *dev, int num_clks,
+  */
+ int __must_check devm_clk_bulk_get_optional(struct device *dev, int num_clks,
+ 					    struct clk_bulk_data *clks);
++/**
++ * devm_clk_bulk_get_optional_enable - Get and enable optional bulk clocks (managed)
++ * @dev: device for clock "consumer"
++ * @num_clks: the number of clk_bulk_data
++ * @clks: pointer to the clk_bulk_data table of consumer
++ *
++ * Behaves the same as devm_clk_bulk_get_optional() but also prepares and enables
++ * the clocks in one operation with management. The clks will automatically be
++ * disabled, unprepared and freed when the device is unbound.
++ *
++ * Returns 0 if all clocks specified in clk_bulk_data table are obtained
++ * and enabled successfully, or for any clk there was no clk provider available.
++ * Otherwise returns valid IS_ERR() condition containing errno.
 + */
-+#define THAMES_BO_PERM_READ (1 << 0)
-+#define THAMES_BO_PERM_WRITE (1 << 1)
-+#define THAMES_BO_PERM_EXEC (1 << 2)
-+#define THAMES_BO_PERM_RWX (THAMES_BO_PERM_READ | THAMES_BO_PERM_WRITE | THAMES_BO_PERM_EXEC)
-+
-+static u64 thames_alloc_vaddr(struct thames_device *tdev, struct thames_gem_object *bo, size_t size)
-+{
-+	int ret;
-+
-+	size = ALIGN(size, SZ_1M);
-+
-+	mutex_lock(&tdev->mm_lock);
-+	ret = drm_mm_insert_node(&tdev->mm, &bo->mm, size);
-+	mutex_unlock(&tdev->mm_lock);
-+
-+	if (ret)
-+		return 0;
-+
-+	return bo->mm.start;
-+}
-+
-+static void thames_free_vaddr(struct thames_device *tdev, struct thames_gem_object *bo)
-+{
-+	if (!drm_mm_node_allocated(&bo->mm))
-+		return;
-+
-+	mutex_lock(&tdev->mm_lock);
-+	drm_mm_remove_node(&bo->mm);
-+	mutex_unlock(&tdev->mm_lock);
-+}
-+
-+static int thames_context_destroy_on_core(struct thames_file_priv *priv, struct thames_core *core)
-+{
-+	struct thames_device *tdev = priv->tdev;
-+	int ret;
-+
-+	ret = thames_rpmsg_send_destroy_context(core, priv->context_id);
-+	if (ret)
-+		dev_warn(tdev->ddev.dev, "Failed to destroy context on core %d: %d", core->index,
-+			 ret);
-+
-+	return ret;
-+}
-+
-+static int thames_context_create_on_core(struct thames_file_priv *priv, struct thames_core *core)
-+{
-+	struct thames_device *tdev = priv->tdev;
-+	int ret;
-+
-+	ret = thames_rpmsg_send_create_context(core, priv->context_id);
-+	if (ret)
-+		dev_warn(tdev->ddev.dev, "Failed to create context on core %d: %d", core->index,
-+			 ret);
-+
-+	return ret;
-+}
-+
-+int thames_context_create(struct thames_file_priv *priv)
-+{
-+	struct thames_device *tdev = priv->tdev;
-+	int i, ret;
-+
-+	ret = ida_alloc_min(&tdev->ctx_ida, 1, GFP_KERNEL);
-+	if (ret < 0)
-+		return ret;
-+
-+	priv->context_id = ret;
-+	priv->context_valid = false;
-+
-+	if (!tdev->num_cores) {
-+		dev_err(tdev->ddev.dev, "No cores available\n");
-+		ret = -ENODEV;
-+		goto err_free_id;
-+	}
-+
-+	for (i = 0; i < tdev->num_cores; i++) {
-+		ret = thames_context_create_on_core(priv, &tdev->cores[i]);
-+		if (ret) {
-+			dev_err(tdev->ddev.dev, "Failed to create context on core %d: %d\n", i,
-+				ret);
-+			goto err_destroy_contexts;
-+		}
-+	}
-+
-+	priv->context_valid = true;
-+	return 0;
-+
-+err_destroy_contexts:
-+	for (i = i - 1; i >= 0; i--)
-+		thames_context_destroy_on_core(priv, &tdev->cores[i]);
-+err_free_id:
-+	ida_free(&tdev->ctx_ida, priv->context_id);
-+	return ret;
-+}
-+
-+void thames_context_destroy(struct thames_file_priv *priv)
-+{
-+	struct thames_device *tdev = priv->tdev;
-+	int i;
-+
-+	if (!priv->context_valid)
-+		return;
-+
-+	for (i = 0; i < tdev->num_cores; i++)
-+		thames_context_destroy_on_core(priv, &tdev->cores[i]);
-+
-+	ida_free(&tdev->ctx_ida, priv->context_id);
-+	priv->context_valid = false;
-+}
-+
-+static int thames_bo_map_to_core(struct thames_gem_object *bo, struct thames_file_priv *file_priv,
-+				 struct thames_core *core, u64 vaddr, u64 paddr, u64 size,
-+				 u32 flags)
-+{
-+	struct thames_device *tdev = file_priv->tdev;
-+	int ret;
-+
-+	ret = thames_rpmsg_send_map_bo(core, file_priv->context_id, bo->id, vaddr, paddr, size);
-+	if (ret)
-+		dev_warn(tdev->ddev.dev, "Failed to map buffer on core %d: %d", core->index, ret);
-+
-+	return ret;
-+}
-+
-+static int thames_bo_map_to_device(struct thames_gem_object *bo, struct thames_file_priv *file_priv)
-+{
-+	struct thames_device *tdev = file_priv->tdev;
-+	struct sg_table *sgt;
-+	dma_addr_t dma_addr;
-+	int i, ret;
-+
-+	if (bo->iova)
-+		return 0;
-+
-+	if (!file_priv->context_valid)
-+		return -EINVAL;
-+
-+	if (!tdev->num_cores)
-+		return -ENODEV;
-+
-+	sgt = drm_gem_shmem_get_pages_sgt(&bo->base);
-+	if (IS_ERR(sgt))
-+		return PTR_ERR(sgt);
-+
-+	dma_addr = sg_dma_address(sgt->sgl);
-+	if (!dma_addr) {
-+		ret = -EINVAL;
-+		goto err_put_pages;
-+	}
-+
-+	bo->iova = thames_alloc_vaddr(tdev, bo, bo->base.base.size);
-+	if (!bo->iova) {
-+		ret = -ENOMEM;
-+		goto err_put_pages;
-+	}
-+
-+	bo->context_id = file_priv->context_id;
-+
-+	for (i = 0; i < tdev->num_cores; i++) {
-+		ret = thames_bo_map_to_core(bo, file_priv, &tdev->cores[i], bo->iova, dma_addr,
-+					    bo->base.base.size, THAMES_BO_PERM_RWX);
-+		if (ret) {
-+			while (--i >= 0)
-+				thames_rpmsg_send_unmap_bo(&tdev->cores[i], bo->context_id, bo->id);
-+			goto err_free_vaddr;
-+		}
-+	}
-+
-+	return 0;
-+
-+err_free_vaddr:
-+	thames_free_vaddr(tdev, bo);
-+	bo->iova = 0;
-+err_put_pages:
-+	dma_resv_lock(bo->base.base.resv, NULL);
-+	drm_gem_shmem_put_pages_locked(&bo->base);
-+	dma_resv_unlock(bo->base.base.resv);
-+	return ret;
-+}
-+
-+static void thames_bo_unmap_from_device(struct thames_gem_object *bo, struct thames_device *tdev)
-+{
-+	int i, ret, failed_unmaps = 0;
-+
-+	if (!bo->iova)
-+		return;
-+
-+	for (i = 0; i < tdev->num_cores; i++) {
-+		ret = thames_rpmsg_send_unmap_bo(&tdev->cores[i], bo->context_id, bo->id);
-+		if (ret) {
-+			dev_err(tdev->ddev.dev, "Failed to unmap BO %u from core %d: %d\n", bo->id,
-+				i, ret);
-+			failed_unmaps++;
-+		}
-+	}
-+
-+	if (failed_unmaps)
-+		drm_WARN(&tdev->ddev, failed_unmaps > 0,
-+			 "BO %u: %d core(s) failed unmap, potential DSP-side leak\n", bo->id,
-+			 failed_unmaps);
-+
-+	thames_free_vaddr(tdev, bo);
-+	bo->iova = 0;
-+
-+	dma_resv_lock(bo->base.base.resv, NULL);
-+	drm_gem_shmem_put_pages_locked(&bo->base);
-+	dma_resv_unlock(bo->base.base.resv);
-+}
-+
-+static void thames_gem_bo_free(struct drm_gem_object *obj)
-+{
-+	struct thames_gem_object *bo = to_thames_bo(obj);
-+	struct thames_device *tdev = to_thames_device(obj->dev);
-+
-+	drm_WARN_ON(obj->dev, refcount_read(&bo->base.pages_use_count) > 1);
-+
-+	if (bo->iova)
-+		thames_bo_unmap_from_device(bo, tdev);
-+
-+	ida_free(&tdev->bo_ida, bo->id);
-+
-+	drm_gem_free_mmap_offset(&bo->base.base);
-+	drm_gem_shmem_free(&bo->base);
-+}
-+
-+static const struct drm_gem_object_funcs thames_gem_funcs = {
-+	.free = thames_gem_bo_free,
-+	.print_info = drm_gem_shmem_object_print_info,
-+	.pin = drm_gem_shmem_object_pin,
-+	.unpin = drm_gem_shmem_object_unpin,
-+	.get_sg_table = drm_gem_shmem_object_get_sg_table,
-+	.vmap = drm_gem_shmem_object_vmap,
-+	.vunmap = drm_gem_shmem_object_vunmap,
-+	.mmap = drm_gem_shmem_object_mmap,
-+	.vm_ops = &drm_gem_shmem_vm_ops,
-+};
-+
-+struct drm_gem_object *thames_gem_create_object(struct drm_device *dev, size_t size)
-+{
-+	struct thames_device *tdev = to_thames_device(dev);
-+	struct thames_gem_object *obj;
-+	int bo_id;
-+
-+	obj = kzalloc(sizeof(*obj), GFP_KERNEL);
-+	if (!obj)
-+		return ERR_PTR(-ENOMEM);
-+
-+	obj->base.base.funcs = &thames_gem_funcs;
-+
-+	bo_id = ida_alloc_min(&tdev->bo_ida, 1, GFP_KERNEL);
-+	if (bo_id < 0) {
-+		kfree(obj);
-+		return ERR_PTR(bo_id);
-+	}
-+	obj->id = bo_id;
-+
-+	return &obj->base.base;
-+}
-+
-+int thames_ioctl_bo_create(struct drm_device *ddev, void *data, struct drm_file *file)
-+{
-+	struct thames_file_priv *file_priv = file->driver_priv;
-+	struct drm_thames_bo_create *args = data;
-+	struct drm_gem_shmem_object *mem;
-+	struct thames_gem_object *bo;
-+	int cookie, ret;
-+
-+	if (!drm_dev_enter(ddev, &cookie))
-+		return -ENODEV;
-+
-+	if (args->handle || args->iova) {
-+		ret = -EINVAL;
-+		goto err_exit;
-+	}
-+
-+	if (!args->size || (args->flags & ~THAMES_BO_FLAGS)) {
-+		ret = -EINVAL;
-+		goto err_exit;
-+	}
-+
-+	mem = drm_gem_shmem_create(ddev, args->size);
-+	if (IS_ERR(mem))
-+		return PTR_ERR(mem);
-+
-+	bo = to_thames_bo(&mem->base);
-+
-+	ret = drm_gem_handle_create(file, &mem->base, &args->handle);
-+	drm_gem_object_put(&mem->base);
-+	if (ret) {
-+		dev_err(ddev->dev, "Failed to create gem handle: %d", ret);
-+		goto err_free;
-+	}
-+
-+	ret = thames_bo_map_to_device(bo, file_priv);
-+	if (ret) {
-+		dev_err(ddev->dev, "Failed to map buffer to DSP on creation: %d", ret);
-+		goto err_free;
-+	}
-+
-+	args->size = bo->base.base.size;
-+	args->iova = bo->iova;
-+
-+	drm_dev_exit(cookie);
-+
-+	return 0;
-+
-+err_free:
-+	drm_gem_shmem_object_free(&mem->base);
-+
-+err_exit:
-+	drm_dev_exit(cookie);
-+
-+	return ret;
-+}
-+
-+int thames_ioctl_bo_mmap_offset(struct drm_device *ddev, void *data, struct drm_file *file)
-+{
-+	struct drm_thames_bo_mmap_offset *args = data;
-+	struct drm_gem_object *obj;
-+
-+	if (args->pad)
-+		return -EINVAL;
-+
-+	obj = drm_gem_object_lookup(file, args->handle);
-+	if (!obj)
-+		return -ENOENT;
-+
-+	args->offset = drm_vma_node_offset_addr(&obj->vma_node);
-+	drm_gem_object_put(obj);
-+
-+	return 0;
-+}
-diff --git a/drivers/accel/thames/thames_gem.h b/drivers/accel/thames/thames_gem.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..785843c40a89a9e84ab634aad77e9ec46111693e
---- /dev/null
-+++ b/drivers/accel/thames/thames_gem.h
-@@ -0,0 +1,41 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/* Copyright 2026 Texas Instruments Incorporated - https://www.ti.com/ */
-+
-+#ifndef __THAMES_GEM_H__
-+#define __THAMES_GEM_H__
-+
-+#include <drm/drm_gem_shmem_helper.h>
-+#include <drm/drm_mm.h>
-+
-+struct thames_device;
-+
-+struct thames_gem_object {
-+	struct drm_gem_shmem_object base;
-+
-+	struct thames_file_priv *driver_priv;
-+
-+	struct drm_mm_node mm;
-+
-+	u32 id;
-+	u32 context_id;
-+	u64 iova;
-+	size_t size;
-+	size_t offset;
-+};
-+
-+struct drm_gem_object *thames_gem_create_object(struct drm_device *dev, size_t size);
-+
-+int thames_ioctl_bo_create(struct drm_device *ddev, void *data, struct drm_file *file);
-+
-+int thames_ioctl_bo_mmap_offset(struct drm_device *ddev, void *data, struct drm_file *file);
-+
-+int thames_context_create(struct thames_file_priv *priv);
-+
-+void thames_context_destroy(struct thames_file_priv *priv);
-+
-+static inline struct thames_gem_object *to_thames_bo(struct drm_gem_object *obj)
-+{
-+	return container_of(to_drm_gem_shmem_obj(obj), struct thames_gem_object, base);
-+}
-+
-+#endif
-diff --git a/drivers/accel/thames/thames_rpmsg.c b/drivers/accel/thames/thames_rpmsg.c
-index ebc34f49353e5e7959734da8e8a935573c130e79..a25465295a177877c5ca2b3c93f52d8288863797 100644
---- a/drivers/accel/thames/thames_rpmsg.c
-+++ b/drivers/accel/thames/thames_rpmsg.c
-@@ -63,6 +63,14 @@ static int thames_rpmsg_callback(struct rpmsg_device *rpdev, void *data, int len
- 		break;
- 	}
- 
-+	case THAMES_MSG_CONTEXT_OP_RESPONSE:
-+		ida_free(&core->tdev->ipc_seq_ida, hdr->seq);
-+		break;
-+
-+	case THAMES_MSG_BO_OP_RESPONSE:
-+		ida_free(&core->tdev->ipc_seq_ida, hdr->seq);
-+		break;
-+
- 	default:
- 		dev_warn(&rpdev->dev, "Unknown message type: %u\n", hdr->type);
- 		break;
-@@ -122,6 +130,67 @@ int thames_rpmsg_send_ping(struct thames_core *core, u32 ping_data, u32 *sequenc
- 	return thames_rpmsg_send_raw(core, &ping_msg, sizeof(ping_msg));
++int __must_check devm_clk_bulk_get_optional_enable(struct device *dev, int num_clks,
++						   struct clk_bulk_data *clks);
+ /**
+  * devm_clk_bulk_get_all - managed get multiple clk consumers
+  * @dev: device for clock "consumer"
+@@ -1029,6 +1045,13 @@ static inline int __must_check devm_clk_bulk_get_optional(struct device *dev,
+ 	return 0;
  }
  
-+int thames_rpmsg_send_create_context(struct thames_core *core, u32 context_id)
++static inline int __must_check devm_clk_bulk_get_optional_enable(struct device *dev,
++								 int num_clks,
++								 struct clk_bulk_data *clks)
 +{
-+	struct thames_msg_context_op msg = {};
-+
-+	msg.hdr.type = THAMES_MSG_CONTEXT_OP;
-+	msg.hdr.seq = ida_alloc(&core->tdev->ipc_seq_ida, GFP_KERNEL);
-+	msg.hdr.len = sizeof(msg);
-+	msg.op = THAMES_CONTEXT_CREATE;
-+	msg.context_id = context_id;
-+
-+	return thames_rpmsg_send_raw(core, &msg, sizeof(msg));
++	return 0;
 +}
 +
-+int thames_rpmsg_send_destroy_context(struct thames_core *core, u32 context_id)
-+{
-+	struct thames_msg_context_op msg = {};
-+
-+	msg.hdr.type = THAMES_MSG_CONTEXT_OP;
-+	msg.hdr.seq = ida_alloc(&core->tdev->ipc_seq_ida, GFP_KERNEL);
-+	msg.hdr.len = sizeof(msg);
-+	msg.op = THAMES_CONTEXT_DESTROY;
-+	msg.context_id = context_id;
-+
-+	return thames_rpmsg_send_raw(core, &msg, sizeof(msg));
-+}
-+
-+int thames_rpmsg_send_map_bo(struct thames_core *core, u32 context_id, u32 bo_id, u64 vaddr,
-+			     u64 paddr, u64 size)
-+{
-+	struct thames_msg_bo_op msg = {};
-+
-+	msg.hdr.type = THAMES_MSG_BO_OP;
-+	msg.hdr.seq = ida_alloc(&core->tdev->ipc_seq_ida, GFP_KERNEL);
-+	msg.hdr.len = sizeof(msg);
-+	msg.op = THAMES_BO_MAP;
-+	msg.context_id = context_id;
-+	msg.bo_id = bo_id;
-+	msg.vaddr = vaddr;
-+	msg.paddr = paddr;
-+	msg.size = size;
-+
-+	return thames_rpmsg_send_raw(core, &msg, sizeof(msg));
-+}
-+
-+int thames_rpmsg_send_unmap_bo(struct thames_core *core, u32 context_id, u32 bo_id)
-+{
-+	struct thames_msg_bo_op msg = {};
-+
-+	msg.hdr.type = THAMES_MSG_BO_OP;
-+	msg.hdr.seq = ida_alloc(&core->tdev->ipc_seq_ida, GFP_KERNEL);
-+	msg.hdr.len = sizeof(msg);
-+	msg.op = THAMES_BO_UNMAP;
-+	msg.context_id = context_id;
-+	msg.bo_id = bo_id;
-+	msg.vaddr = 0;
-+	msg.paddr = 0;
-+	msg.size = 0;
-+
-+	return thames_rpmsg_send_raw(core, &msg, sizeof(msg));
-+}
-+
- int thames_rpmsg_ping_test(struct thames_core *core)
+ static inline int __must_check devm_clk_bulk_get_all(struct device *dev,
+ 						     struct clk_bulk_data **clks)
  {
- 	const u32 test_data = THAMES_PING_TEST_PATTERN;
-
 -- 
-2.52.0
+2.25.1
 
 
