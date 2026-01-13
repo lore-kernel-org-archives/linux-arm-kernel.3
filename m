@@ -4,67 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA7B2D2F339
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:48:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19842D2F339
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:49:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rj6P6vozmH1EvRwA6aSxUolOJmV8G7aB4o/SJ24/mXY=; b=EjKTWriI0zxh+7QVGs+Z/ghgH6
-	t+na6C57bDjEI5hODkFXoErBXO4MfVl5Q3DJgMLEPnR/cF2sTfvn+/OZsFgVZuzE65DpYanB4/mhB
-	xWRrU3/WkM2N0m/Svi2U266MibvQJqGr3xx/SwvQqMooaiIV79xxZVrAv/LeKpdHYpbmhxIbOLqsG
-	rL2440BDRsfV/Y0VkfM3RAXv5CE9r7gSe8co2pbMIMP/gcYyWy4429RKKV3uRy4EWgfYFa+/Qo1g6
-	s31DDUd4UUd83PJ2SGbNk0vq9cNZcjGJvkK/fhk2FL4NFXdEq3tBvnQwmFMYO2T/tGE0nw4irNOPl
-	lnuMxt6A==;
+	bh=L3oLbFvwOOJts0UzMwGyJmDUy99A1kmDLLXXtP4qNCY=; b=v/qVFxDZ8subDA5zbKrW/gBAR5
+	/jMOcfDN/LbjHr7gTTqqE/98o5HUGU++wz2JP+v+tB1Ms6xfqoISEjNUqoWoMNJ3nWB8izZiio+lX
+	8+ZZCCCC2KEUCmJqLH4JbBYF/8uzjjeetVoCrVkz6v8AIj0Zi5Tr+BT1dIDmO/p2EgpCFgb6WB8S9
+	8OFZRuzKo96W08t60/hsEfvHgK0UUvmXo3QH1AUrEnGwISp3rSWhyEuSyod/L0IXXfcdY2fNTKsuU
+	qTLN3LC/80UXZFEzEpEn8nxqnMJ2Rmj8CWd20XOTuMy+2ugKBmeapoI2WHit0nDSKIdstnD8yqBFD
+	17ac5VrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgcn-00000007Pqf-2TsI;
-	Tue, 13 Jan 2026 15:48:05 +0000
-Received: from out-184.mta0.migadu.com ([91.218.175.184])
+	id 1vfgdv-00000007Pyu-0Ydk;
+	Tue, 13 Jan 2026 15:49:15 +0000
+Received: from mail-dl1-x1230.google.com ([2607:f8b0:4864:20::1230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgck-00000007PRK-2nk6
+	id 1vfgds-00000007PyM-1vC4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 15:48:04 +0000
-Message-ID: <d6788510-3ae2-4f13-85f6-c0438c89b9a6@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1768319143;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rj6P6vozmH1EvRwA6aSxUolOJmV8G7aB4o/SJ24/mXY=;
-	b=q1mpDzMVQ4sFCbigI5ukfTND8EiyoDkl6Ckhxgqny2OhbE81/mmJ1WbGePIr9J1xndh1B2
-	1z7lOzMuixBXWH+2jh9y40jNgeXj+OsjmGIYT5h0mMw6lZtyn824jkZKZa+tecKRs7RrzY
-	zznRKdIO1G7a0XhVV0F4g0nuNTowcBk=
-Date: Tue, 13 Jan 2026 10:45:32 -0500
+	Tue, 13 Jan 2026 15:49:13 +0000
+Received: by mail-dl1-x1230.google.com with SMTP id a92af1059eb24-11f1fb91996so447760c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 07:49:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768319349; x=1768924149; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L3oLbFvwOOJts0UzMwGyJmDUy99A1kmDLLXXtP4qNCY=;
+        b=AdCjgOghAnh+/Vfs2z89qythLZKcwNfQtxMaYt87ueMlMiINPc2L1VwZ6QMW0XDYTh
+         3+xsDL79dm7UnOoKn9hDKBvABF4/uSOu/XQ93g963+l7DHo78N5Q3ANTYHnL+CWrAuLa
+         Er0t/dwfKa0TIl2M1cAjI3fPDgdQo0B6/921KCWtIU1NF/t1Hp+kxKyM97TpEYt2K1pJ
+         rANvuuj2kWiwwrj2j6WXDQPiDMvWNxfyGz5Kb78R0sxTp6qfxX/XwTgjk/qzgPZ/Qybf
+         YVO8c3FXb+QCC54k3aorD98YuWJZY/ZRr/MbOKMSSeWPIrN1vIT3blCLISU5yEIu5i6D
+         IBjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768319349; x=1768924149;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=L3oLbFvwOOJts0UzMwGyJmDUy99A1kmDLLXXtP4qNCY=;
+        b=EDnA/C1921akUrm1But3SC3bHFIKizGyFufL5HclXxeOfg+j+XFOSpHd93LKHSVGIR
+         zpMkcgD2dpuxuxMX9OLmQyRC/j+zEezN6mgZVERinj/Lnt2Let0dbeafu0buSOxw+CAG
+         lsQ7Eq/Z25NvgD7ufowGkEcl+DujbJj41V7FtZsZBnEqB8VLWI7wio5Jr4H1qTQer9vX
+         GABTdD5q7Iew5p+jbYa1Yn2s7HmyGeMoq26lcPHGuVpDXNGA2c3VLFASvyvRinLtKtGD
+         YvAABwSNQ+Y7xUp5HrAt4CmPiz+nT25HzvJnyNsaIFRWEp1drRbfqEFwmCIxqwVUHgS/
+         165A==
+X-Forwarded-Encrypted: i=1; AJvYcCUXcAJAvLB8BmppC3oEelIYKrdonkJOBhpU1Ouw3f5+fClqG5nL7NBiiMJ3abCmkwTQ2M6G/yvAEjoo2NlyFn5F@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIE6se6mRL20UIionSZ9Y3WxAW+ruogoPvDpelZZTCvW4lBWHy
+	o6kzcVykGZQhHwIGjSnr4OSpcyfpkIaQDn4Lw0sY19vG2xGN/5F2pcRsEenovamjHzFrNvT6n00
+	pUvoaqFMUsIixTHZztSzV0jj343iFRBw=
+X-Gm-Gg: AY/fxX67LgwldoRUWPKT0nLkpH9COUvv8Iz0amDKy8McqAQwlkT1t0MQQQQY8F5I6+a
+	IXfbpoMmSbEAx5+cO+Dp0Mb//IRruLZ9UlNwWt3jchW4VwjViiz8gUvzeo199hmb5OHuYZ5iK7m
+	5EMuaUiDhaQX1cPpcLuIG305PGmVloVuU9Vi6lmSA/F2mDLLM46kHGMdP0CEX7gVUuAzPOPFRk0
+	fOQnksn0xcHTV8WpFfQGdvwUZVyeJLQ3/KBtnB0wLEidyn0RE/mQxuv+iRW75uF7E7ev7LjMgQj
+	MtZiPKKJjpoyRT7+fIPQCrYgUixPBnAmDIhKEa8cCgwCxN9POXLQmF5BzJNv74xLHgBD04PbECs
+	3C1/Mz1eWESeG5UNgO3L6
+X-Google-Smtp-Source: AGHT+IEtf3xHFMK7bh85v7wy+tj/RylyAyqCoV9aOeql1xusdXvXq6rsq1/RBjQjsVrrgZEZyOQmOhuD4FnrB8WmMNE=
+X-Received: by 2002:a05:701b:2207:b0:11b:9386:a3c1 with SMTP id
+ a92af1059eb24-121f8b750d4mr14170039c88.44.1768319349465; Tue, 13 Jan 2026
+ 07:49:09 -0800 (PST)
 MIME-Version: 1.0
-Subject: Re: [PATCH] usb: dwc3: Always deassert xilinx resets
-To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
- "open list:DESIGNWARE USB3 DRD IP DRIVER" <linux-usb@vger.kernel.org>,
- "Frager, Neal" <neal.frager@amd.com>, "Simek, Michal"
- <michal.simek@amd.com>, open list <linux-kernel@vger.kernel.org>,
- "moderated list:ARM/ZYNQ ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-References: <20260106171018.501612-1-sean.anderson@linux.dev>
- <20260109004901.ygts6mmcxy4vs3y2@synopsys.com>
- <MN0PR12MB59538C2F8613A9C0641BEAFBB782A@MN0PR12MB5953.namprd12.prod.outlook.com>
- <8f0e04a5-49df-4fe3-9c76-9a1c0bd822a0@linux.dev>
- <20260113004941.4fhmvlkhf5pifwgt@synopsys.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <20260113004941.4fhmvlkhf5pifwgt@synopsys.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+References: <20260113-v6-18-topic-clk-fracn-gppll-v3-0-45da70f43c98@pengutronix.de>
+ <20260113-v6-18-topic-clk-fracn-gppll-v3-1-45da70f43c98@pengutronix.de>
+In-Reply-To: <20260113-v6-18-topic-clk-fracn-gppll-v3-1-45da70f43c98@pengutronix.de>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Tue, 13 Jan 2026 17:51:38 +0200
+X-Gm-Features: AZwV_QiQSE65KDDt7M1WU-fsU0Y3sGYlf63F7cu4HgA_-IsmphqZd0FRyAjQOBM
+Message-ID: <CAEnQRZCUJKmH5TM9F9zMHpTtZ8K55bNL+7AtaMysyaCBru3wug@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] clk: imx: fracn-gppll: Add 332.60 MHz Support
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Primoz Fiser <primoz.fiser@norik.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_074802_855228_98154A4D 
-X-CRM114-Status: GOOD (  24.00  )
+X-CRM114-CacheID: sfid-20260113_074912_519521_99DF8B95 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,71 +103,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/12/26 19:49, Thinh Nguyen wrote:
-> On Fri, Jan 09, 2026, Sean Anderson wrote:
->> On 1/9/26 01:01, Pandey, Radhey Shyam wrote:
->> > [AMD Official Use Only - AMD Internal Distribution Only]
->> > 
->> >> -----Original Message-----
->> >> From: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
->> >> Sent: Friday, January 9, 2026 6:19 AM
->> >> To: Sean Anderson <sean.anderson@linux.dev>
->> >> Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>; open list:DESIGNWARE
->> >> USB3 DRD IP DRIVER <linux-usb@vger.kernel.org>; Frager, Neal
->> >> <neal.frager@amd.com>; Simek, Michal <michal.simek@amd.com>; open list
->> >> <linux-kernel@vger.kernel.org>; moderated list:ARM/ZYNQ ARCHITECTURE
->> >> <linux-arm-kernel@lists.infradead.org>; Philipp Zabel <p.zabel@pengutronix.de>;
->> >> Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>; Greg Kroah-Hartman
->> >> <gregkh@linuxfoundation.org>
->> >> Subject: Re: [PATCH] usb: dwc3: Always deassert xilinx resets
->> >>
->> >> On Tue, Jan 06, 2026, Sean Anderson wrote:
->> >> > If we don't have a usb3 phy we don't need to assert the core resets.
->> >> > Deassert them even if we didn't assert them to support booting when
->> >> > the bootloader never released the core from reset.
->> > Is it a customized bootloader ? i.e it assert reset but don't deassert.
->> 
->> No. Most peripheral resets are asserted on PoR. So if the bootloader
->> doesn't deassert them then Linux has to.
->> 
->> My goal is to make init_serdes() in psu_init_gpl.c optional and do all
->> serdes initialization in the phy driver (and in the consumer drivers). I
->> have this working for DP/PCIe. I'm working on SATA, and I don't think
->> USB/SGMII need much special. This gives the following advantages:
->> 
->> - On some boards (mine) the reference clocks may not be configured in
->>   SPL/FSBL. So ILL calibration will fail (and take a long time to do so)
->>   unless we defer initialization to U-Boot/Linux where the phy driver
->>   can request the clocks.
->> - If PCIe/SATA are not used in U-Boot, ILL calibration can be deferred
->>   until Linux when it can be done it parallel with other initialization.
->> - We will have flexibility to switch between different serdes
->>   configurations at runtime. For example, this could allow the
->>   bootloader to fixup the devicetree to support PCIe and SATA M.2
->>   drives, depending on what the user has plugged in.
->> 
->> > I think ideally core /APB reset should be done independent on
->> > MAC 2.0/3.0 configuration.
->> 
->> I agree, but I think the existing code does this optimization to reduce
->> boot time when the bootloader has already initialized USB. I have
->> preserved that in this patch.
->> 
-> 
-> I think all this info is useful. Can we include it in the change log?
+On Tue, Jan 13, 2026 at 4:53=E2=80=AFPM Marco Felsch <m.felsch@pengutronix.=
+de> wrote:
+>
+> Some parallel panels have a pixelclk of 33.260 MHz. Add support for
+> 332.60 MHz so a by 10 divider can be used to derive the exact pixelclk.
+>
+> Reviewed-by: Primoz Fiser <primoz.fiser@norik.com>
+> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 
-OK, how about:
-
-I am working on moving serdes initialization to the phy (and consumer)
-drivers to improve flexibility and boot times (depending on
-configuration). Currently, core resets are released in the bootloader by
-init_serdes() in psu_init_gpl.c. In order to remove init_serdes, we
-need to handle the case where the bootloader never released the core
-resets. If we don't have a usb3 phy we don't need to assert the core
-resets, but deassert them anyway to handle this case.
-
-We could assert all resets every boot, but I believe the existing
-procedure is an optimization to reduce boot time when the bootloader has
-already initialized USB. So this patch preserves the separate code
-paths.
+Acked-by: Daniel Baluta <daniel.baluta@nxp.com>
 
