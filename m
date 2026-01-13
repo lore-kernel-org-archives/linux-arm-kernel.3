@@ -4,109 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5E9AD2D109
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A159D2D108
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vGNeqZdCFRkUH8pVy9i0xdJ5BW3N5lXnZA/HlFDK8XQ=; b=sgOTQXiPzt0BrJpchw74NglP3j
-	6YepomRX+D7oWZJBWVeES7nTWL5Gv8jv3mRe/JDJ/eTXStXmwlZ5hZwpfeDlOujPSnl9Y6ggkne2Y
-	ZDmaE6Gx3cVXSIWMIL7tDY6OAiTED57AxaV95xBRiXjlXKqfhYPGCnVpfhq5CCKL4aXefHeEYR+FF
-	HC/jcP+9+mEVAH7esILJrM51nvrtOoUssdjDx65QbQvH4Mn6hRQnz21lx0pQxPATGtc0sQDId/0to
-	pgaA2xG3AehNhLfR4B8VTRyPfSJ+PtxXlMs+rsKPqDCGUEc9fKVd8ycWAdsQAQvYSSHJKIeOPifXb
-	ECSMCsZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EpPYFuBpeHzrlOUi6OsVjYU9ydxR9fDDFonQuw5LFlU=; b=tLVj5HU/Qvc3GpoWNUvhUkXKsJ
+	DX8ViqqmjMc9Tu5zRPqjCWafJkJfoEGLH7kxBbpC5O81qTD1nhLvu/ohCdNXh/qkZC8awEDR3xKsw
+	sj3awFspegsXkkM9GGm9jyJNB70NZicNXtc1imuloAXUoesqMLUSfNVork4Gmm3o6bnH9xqnyIoe8
+	xtedsHWf2I9z5UWxDt4zMMDsYvvm36p561okbK1trYlAMOXE3uuC0SxViuqtsmUJu28CkoDkfSoGa
+	Ms0Ewuz/i0isQjUcb6L44+GAww7BqG5AwkmXJ6rMRQ2zxaNbTyDtFINn+uqjbohyaE9yQ3rdq7pgn
+	5m1DIJvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vff3X-00000007Cd0-10YY;
-	Tue, 13 Jan 2026 14:07:35 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1vff9N-00000007Cxn-0Oek;
+	Tue, 13 Jan 2026 14:13:37 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vff3V-00000007Cce-1Dqe
+	id 1vff9J-00000007CxA-0hIu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 14:07:34 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-4ffbaaafac4so559771cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 06:07:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768313251; cv=none;
-        d=google.com; s=arc-20240605;
-        b=iR3MRkKzru4UpOJmKtey0xzPUgCGECFo49HJPNUq0oLenx9zpxySYJfMRVt9L7Nzpe
-         XmO6KSuiKpxZYk+ohdc7QEpK2Vr78I2iL0fJuOuPQ0o33rraRlOfl6JI32LIM41zox7u
-         O5cluljEwt4N99gJPxAD8CDaL7DTl+Vpxoh35XJ96yAk6QSNHl7gxMxZ7qj9rG1NC8T0
-         macAbLynIxF3baA9tc7qvy5v+eGK6KxyayKSyy3jCUg3UtcS386XOUUmCyK9mukB/39G
-         DIcKfnSq8bzuhFAbJlp9OdJEGnOE50LbsmUzIFFC0vloTW3RoryF3n0e8cWd7c292iSu
-         8CDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=vGNeqZdCFRkUH8pVy9i0xdJ5BW3N5lXnZA/HlFDK8XQ=;
-        fh=dsA8Wj6FUiuiY3MjjXZrW1AQugc/u9YCofahPA4d1lk=;
-        b=LckUG0z0kQmI6OzV+wNQYa93G7brIf/GJbPoEijdUdQz4YYhytNrX4miHFVlUHNqmb
-         dV2CqrYK4yM5mA38u6DQ+NTi0C3XXJvLjTh927c+dFaZXw/SBnZcaEPnAstxDO812yTQ
-         AeWoFuVtcEkhTqnslDHk57L0TzGEMx0MgQHcy9HH/q/SfCosVzZjFR4ausSXtK90KELg
-         k7PWUnO4bL4N9SSC9nibwkW4HWAylWgs2FavVlRWak8cOJheDSKXqnJ/quFiDz+/gRML
-         3TdjcUGUvxxE4/MRuOA6105FveWAWVx+J26H+MNs6c4Q1QYQeEtQSEXTupFfmepUqZw2
-         maqg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 13 Jan 2026 14:13:35 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-477a2ab455fso69746125e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 06:13:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1768313251; x=1768918051; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=vGNeqZdCFRkUH8pVy9i0xdJ5BW3N5lXnZA/HlFDK8XQ=;
-        b=XeftGGHLwk2vsOXFUcpYXYMGSAtl7uNAUjHh3F/+EfBoBUnPi85z3FP7CfmDj4dWO8
-         Kuy/4qbfE58a8jF1R2t6UBoI0mhrGJmmBvosAygTh5sCl+Fo+3lrrLTful6xRZ4Poefj
-         3rA3IQwawne166ZhJejoFf6CSE81ysXm1h/rlpLeV/fAv2hJ+wQeZ6SNKyE2OxOcOC3y
-         js3/RYjDHuzEY3Ahm9oKcbawLP6IhQd1YXnZOm5M7LtnowVnjRzSvRuppUekltjorxDl
-         WMGCHTQ31GOP+fS5NC0QGcwYJA03TRBz/r1cVRUPmusDjaLtjRO1Q04x7edwbcqagK/0
-         Vahg==
+        d=linaro.org; s=google; t=1768313610; x=1768918410; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=EpPYFuBpeHzrlOUi6OsVjYU9ydxR9fDDFonQuw5LFlU=;
+        b=wlbk7xgbyEsBbD2k5BFLw+gSNDqRpMWJ6liL2lbnPwdCj4uMDIrDz3lNd3wpyikRf/
+         B/5my/CgOuQo+6OSjl+Jcz/ooEM8kNO9QONlPldXwrGq27cs7GSvLlT178rG6njmjG48
+         K9flyuQmbjWQculxhQ9b02CKEihwWWP6SdD3fnk2GqUPAiykr0Y7j3jNcIv3PXs3k+Tt
+         9vE1ZNYwrBbz4I/YW9J5PxPLyLIGn6Bei+IhjY9zkirLHHHve2yKEdbUJ/olSGxY25ht
+         V91pLhjq4vUWvbuwj3YMuAEDxfY+pYFDZIXP/Cq7Xljt4daaYFLdB0ORS9XKsAJrMqDJ
+         wbQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768313251; x=1768918051;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vGNeqZdCFRkUH8pVy9i0xdJ5BW3N5lXnZA/HlFDK8XQ=;
-        b=Pl5k2R3jYMXNMIw6PJNsQPt0YDkuLGNwlkRN0S0TZ0AP9BkIidbdO+tzXRNO87eOWt
-         dkXJ4rR3fR5XDuxyZgBA1l4D5sqwgv85QYHb19H3bY/hJtHZY/WdRSrOa2QlB8HLPK5X
-         WP3e2pIfaDOeSDSCUWFOFGocxzJLDWTp+cvItF4fZ4PiN9FWixYwbPVQ2OouJyf8n1QM
-         kjI0X4tlRleJt/JHPksdFkT04/YUHDhqndtyMd3sDMr68XC0Shmf+lc3RzLmGfO8kFuX
-         EvF41hoVa3JIK6UMmQwJD3fwQ8npnCDAylOOwq09KdULE7yYrsbTTWIhuvbmD9M56eLz
-         Kg3g==
-X-Forwarded-Encrypted: i=1; AJvYcCXcImHl+v+Idp6oS2WkdXRKfSTg1E17VyLcIjeovnFx2W6QP5UaBfWCJVs85gGRfVPJOqkcCvtxv9y8jrcJmgVE@lists.infradead.org
-X-Gm-Message-State: AOJu0YwplQMPip8G/vQpOsPhpbJ/Rec4zpFOgWFitPC0y4UBLOn6pKBO
-	+IY0AlzxXmSbJ8Wl3syrE9xC+sCbdJnSz8OsQx36k5ZLuKj6Ru5T9xcVbiCfw4sFzljj0nnXjWp
-	/ion3gnL079wO01sNYOKO7NEXJmYXFKo+ymheGa4T
-X-Gm-Gg: AY/fxX6IcCZWr2GF+uM+HHtjaFYNLLY/mR0UvqE5+Bw4SGGDL0X/9JfCytQ95beMkXY
-	QvQ8+Hzt5kuUNGpIluK5YADp0uQDQBWdeXS0AXPTHzjsXJP0+s5ZlBz/RkD0tB+ez438FNErjoA
-	hHZmZN11XXob9ZLIM88lFbu1xmfP3q3wK7krcH95CuTsG7hMD0LR6QJliQYDo0Wdlw50kpJLHrN
-	3xoPQLoInKymbd75pKMuxyvUjUeZ2dF/FAmn+vsCmoA+6Wf5sZB+swUG9npP4PoEyEQQx7X8Jlu
-	br/2wJa3NokJZHTpgAwQ/r+Mbg==
-X-Received: by 2002:ac8:7fc1:0:b0:4fb:e3b0:aae6 with SMTP id
- d75a77b69052e-5013af6a711mr9755261cf.1.1768313250350; Tue, 13 Jan 2026
- 06:07:30 -0800 (PST)
+        d=1e100.net; s=20230601; t=1768313610; x=1768918410;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=EpPYFuBpeHzrlOUi6OsVjYU9ydxR9fDDFonQuw5LFlU=;
+        b=SLwtCt3FT3FzeSlO19aiNlNKRwCTsjANEgz72lRVAskduCU3505lTj0bIbRF30FmfD
+         ZJtLXI6jZ9m4X4TonfOxQak4hG/7I2xvv3qOeS2CRwSEdccg17gPDGTJSkVAPPGvoU5l
+         AC3Q0Nwl25qSVV+LRtNMv6Gv/uy7petCHt90glzA4jDQoMqz9PYBTQQ31WunSKS6reE6
+         ymuoaxSnihXzIIXS/Z5ZHePf2rs0RG+MpMVMUiehH2/nJOkr5pFcWyMB6OVCs41zrJza
+         qNHj7GGbUE9KRqml7E/3UEojkuRaQNrQLIwxFnJLJmdhk6tsaelwUtZwYqUXFVCXlHQ8
+         QQkA==
+X-Forwarded-Encrypted: i=1; AJvYcCWLakisbLlMgE/GWUS4/cxGx7vXxISK518niFDaRi8JRsch2YapGTkCuDJtDpOdwrho2HEAlBayeBktmMLdKpo5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yygr7kdjY6i4ds6B8HS+38cIpVrAIvbuGmpr82hQmee+1dWRd6/
+	W8gkxdlh4UHVlq5F32LFeZxQBJzXUVK6zc8L6l+Vd7XwAxcKzGwHVwZAsBv5EO4100I=
+X-Gm-Gg: AY/fxX7uTaJlu3yYW5eTg1TE26ABBRY6VOI7Wno4WfXfHP5mNcWALseQ6Uhi3TL6z55
+	sKXFUOcACm8tLftjXn1BY1DVKWZc6LDEpjuOG/BkhouipF3o0Kr90pOxMT41zXTOs8MyjZwiRYv
+	qLJBGAqr2MBlP3Veb0rePRAuF+2HZHsfzjh2AS5DR8Ovhd2UWvKvlq/3vMr5dK9aRuux/C6Aqix
+	TAwcHR0aAKqchlRSQ8LRyDcbwwUN9vuy+gdLl0W3N+AyEDGEn+GcKDpE10HcOGKK9G/sSMqkxCx
+	URhpmyHH7dynvBYqM2d+y1DNa4yhf8fsoCXY8wC4vFzWgfMeXuSs8VrC5Rob6pC5gwzMUBbT/KW
+	+z7ngZ9EUmOqM9o8Q5kRdtugtG9yxIo8mq7MXIiRGaNIOxvbyOmc/rdXDvB9uZcON0JgrG5AeL8
+	aT36siR9ew1En175KxkSxszttxiB8=
+X-Google-Smtp-Source: AGHT+IESteNDhCsp9djoyMeUvPvQ33cMYgxEEj70wmWesi8MDh/SKjav/Vxq6pmgAEpoaSXmrBuSJw==
+X-Received: by 2002:a05:600c:1392:b0:46e:37fe:f0e6 with SMTP id 5b1f17b1804b1-47d84b3b724mr277918305e9.30.1768313610033;
+        Tue, 13 Jan 2026 06:13:30 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47ee0b45b8fsm1590895e9.4.2026.01.13.06.13.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Jan 2026 06:13:29 -0800 (PST)
+Date: Tue, 13 Jan 2026 17:13:23 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Chester Lin <chester62515@gmail.com>, Frank Li <Frank.li@nxp.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	imx@lists.linux.dev, Jakub Kicinski <kuba@kernel.org>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Matthias Brugger <mbrugger@suse.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, linaro-s32@linaro.org
+Subject: [PATCH v3 0/3] s32g: Use a syscon for GPR
+Message-ID: <cover.1768311583.git.dan.carpenter@linaro.org>
 MIME-Version: 1.0
-References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org> <20251223-kvm-arm64-sme-v9-22-8be3867cb883@kernel.org>
-In-Reply-To: <20251223-kvm-arm64-sme-v9-22-8be3867cb883@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 13 Jan 2026 14:06:53 +0000
-X-Gm-Features: AZwV_QhU40Lwhaq_0NHueSMC3WoVnp6Uc6Xt-liPmw7nnlV9MFwsJtQrpboZVDo
-Message-ID: <CA+EHjTwMy1crsZLqfy8_Y56NFPJZ7vGyN-egc433GhxB_n=7aA@mail.gmail.com>
-Subject: Re: [PATCH v9 22/30] KVM: arm64: Expose SME specific state to userspace
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, Peter Maydell <peter.maydell@linaro.org>, 
-	Eric Auger <eric.auger@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_060733_390322_B4C62702 
-X-CRM114-Status: GOOD (  42.98  )
+X-CRM114-CacheID: sfid-20260113_061333_246900_B8391022 
+X-CRM114-Status: GOOD (  19.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,232 +113,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Dec 2025 at 01:23, Mark Brown <broonie@kernel.org> wrote:
->
-> SME introduces two new registers, the ZA matrix register and the ZT0 LUT
-> register.  Both of these registers are only accessible when PSTATE.ZA is
-> set and ZT0 is only present if SME2 is enabled for the guest. Provide
-> support for configuring these from VMMs.
->
-> The ZA matrix is a single SVL*SVL register which is available when
-> PSTATE.ZA is set. We follow the pattern established by the architecture
-> itself and expose this to userspace as a series of horizontal SVE vectors
-> with the streaming mode vector length, using the format already established
-> for the SVE vectors themselves.
->
-> ZT0 is a single register with a refreshingly fixed size 512 bit register
-> which is like ZA accessible only when PSTATE.ZA is set. Add support for it
-> to the userspace API, as with ZA we allow the register to be read or written
-> regardless of the state of PSTATE.ZA in order to simplify userspace usage.
-> The value will be reset to 0 whenever PSTATE.ZA changes from 0 to 1,
-> userspace can read stale values but these are not observable by the guest
-> without manipulation of PSTATE.ZA by userspace.
->
-> While there is currently only one ZT register the naming as ZT0 and the
-> instruction encoding clearly leave room for future extensions adding more
-> ZT registers. This encoding can readily support such an extension if one is
-> introduced.
->
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  arch/arm64/include/uapi/asm/kvm.h |  17 ++++++
->  arch/arm64/kvm/guest.c            | 114 +++++++++++++++++++++++++++++++++++++-
->  2 files changed, 129 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-> index 498a49a61487..9a19cc58d227 100644
-> --- a/arch/arm64/include/uapi/asm/kvm.h
-> +++ b/arch/arm64/include/uapi/asm/kvm.h
-> @@ -357,6 +357,23 @@ struct kvm_arm_counter_offset {
->  /* SME registers */
->  #define KVM_REG_ARM64_SME              (0x17 << KVM_REG_ARM_COPROC_SHIFT)
->
-> +#define KVM_ARM64_SME_VQ_MIN __SVE_VQ_MIN
-> +#define KVM_ARM64_SME_VQ_MAX __SVE_VQ_MAX
-> +
-> +/* ZA and ZTn occupy blocks at the following offsets within this range: */
-> +#define KVM_REG_ARM64_SME_ZA_BASE      0
-> +#define KVM_REG_ARM64_SME_ZT_BASE      0x600
-> +
-> +#define KVM_ARM64_SME_MAX_ZAHREG       (__SVE_VQ_BYTES * KVM_ARM64_SME_VQ_MAX)
-> +
-> +#define KVM_REG_ARM64_SME_ZAHREG(n, i)                                 \
-> +       (KVM_REG_ARM64 | KVM_REG_ARM64_SME | KVM_REG_ARM64_SME_ZA_BASE | \
-> +        KVM_REG_SIZE_U2048 |                                           \
-> +        (((n) & (KVM_ARM64_SME_MAX_ZAHREG - 1)) << 5) |                \
-> +        ((i) & (KVM_ARM64_SVE_MAX_SLICES - 1)))
-> +
-> +#define KVM_REG_ARM64_SME_ZTREG_SIZE   (512 / 8)
-> +
->  /* Vector lengths pseudo-register: */
->  #define KVM_REG_ARM64_SME_VLS          (KVM_REG_ARM64 | KVM_REG_ARM64_SME | \
->                                          KVM_REG_SIZE_U512 | 0xfffe)
-> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-> index 90dcacb35f01..d4e30eb57a9c 100644
-> --- a/arch/arm64/kvm/guest.c
-> +++ b/arch/arm64/kvm/guest.c
-> @@ -594,23 +594,133 @@ static int set_sme_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->         return set_vec_vls(ARM64_VEC_SME, vcpu, reg);
->  }
->
-> +/*
-> + * Validate SVE register ID and get sanitised bounds for user/kernel SVE
-> + * register copy
-> + */
-> +static int sme_reg_to_region(struct vec_state_reg_region *region,
-> +                            struct kvm_vcpu *vcpu,
-> +                            const struct kvm_one_reg *reg)
-> +{
-> +       /* reg ID ranges for ZA.H[n] registers */
-> +       unsigned int vq = vcpu_sme_max_vq(vcpu) - 1;
-> +       const u64 za_h_max = vq * __SVE_VQ_BYTES;
-> +       const u64 zah_id_min = KVM_REG_ARM64_SME_ZAHREG(0, 0);
-> +       const u64 zah_id_max = KVM_REG_ARM64_SME_ZAHREG(za_h_max - 1,
-> +                                                      SVE_NUM_SLICES - 1);
-> +       unsigned int reg_num;
-> +
-> +       unsigned int reqoffset, reqlen; /* User-requested offset and length */
-> +       unsigned int maxlen; /* Maximum permitted length */
-> +
-> +       size_t sme_state_size;
-> +
-> +       reg_num = (reg->id & SVE_REG_ID_MASK) >> SVE_REG_ID_SHIFT;
+Frank has pushed back on this a bit.  I think he objects to how
+stmmac/dwmac-s32.c controlls the PHY by writing to a register instead
+of through a driver.  Creating a syscon driver will make writing to
+other drivers even easier.  In the end, we're going to need to write
+to register eventually whether it's directly or through an abstraction
+layer.  I feel like this is a good change and when we start dealing
+with SCMI then it's an essential change.  I have fixed Krzysztof's
+complaint about the poor documentation in the nxp,s32-dwmac.yaml
+file.
 
-You use array_index_nospec() below for koffset, but it might be worth
-using it for intermediate values, such as this one.
+The s32g devices have a GPR register region which holds a number of
+miscellaneous registers.  Currently only the stmmac/dwmac-s32.c uses
+anything from there and we just add a line to the device tree to
+access that GMAC_0_CTRL_STS register:
 
-> +
-> +       if (reg->id >= zah_id_min && reg->id <= zah_id_max) {
-> +               if (!vcpu_has_sme(vcpu) || (reg->id & SVE_REG_SLICE_MASK) > 0)
-> +                       return -ENOENT;
-> +
-> +               /* ZA is exposed as SVE vectors ZA.H[n] */
-> +               reqoffset = ZA_SIG_ZAV_OFFSET(vq, reg_num) -
-> +                       ZA_SIG_REGS_OFFSET;
-> +               reqlen = KVM_SVE_ZREG_SIZE;
-> +               maxlen = SVE_SIG_ZREG_SIZE(vq);
-> +       } else if (reg->id == KVM_REG_ARM64_SME_ZT_BASE) {
-> +               /* ZA is exposed as SVE vectors ZA.H[n] */
-> +               if (!kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, SME, SME2) ||
-> +                   (reg->id & SVE_REG_SLICE_MASK) > 0 ||
-> +                   reg_num > 0)
-> +                       return -ENOENT;
-> +
-> +               /* ZT0 is stored after ZA */
-> +               reqlen = KVM_REG_ARM64_SME_ZTREG_SIZE;
-> +               maxlen = KVM_REG_ARM64_SME_ZTREG_SIZE;
-> +       } else {
-> +               return -EINVAL;
-> +       }
-> +
-> +       sme_state_size = vcpu_sme_state_size(vcpu);
+                        reg = <0x4033c000 0x2000>, /* gmac IP */
+                              <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
 
-Is it worth caching this value and storing it in arch, since the state
-size doesn't change after finalization?
+I have included the whole list of registers below.
 
-> +       if (WARN_ON(!sme_state_size))
-> +               return -EINVAL;
-> +
-> +       region->koffset = array_index_nospec(reqoffset, sme_state_size);
-> +       region->klen = min(maxlen, reqlen);
-> +       region->upad = reqlen - region->klen;
-> +
-> +       return 0;
-> +}
-> +
-> +/*
-> + * ZA is exposed as an array of horizontal vectors with the same
-> + * format as SVE, mirroring the architecture's LDR ZA[Wv, offs], [Xn]
-> + * instruction.
-> + */
-> +
->  static int get_sme_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->  {
-> +       int ret;
-> +       struct vec_state_reg_region region;
-> +       char __user *uptr = (char __user *)reg->addr;
-> +
->         /* Handle the KVM_REG_ARM64_SME_VLS pseudo-reg as a special case: */
->         if (reg->id == KVM_REG_ARM64_SME_VLS)
->                 return get_sme_vls(vcpu, reg);
->
-> -       return -EINVAL;
-> +       /* Try to interpret reg ID as an architectural SME register... */
-> +       ret = sme_reg_to_region(&region, vcpu, reg);
-> +       if (ret)
-> +               return ret;
-> +
-> +       if (!kvm_arm_vcpu_vec_finalized(vcpu))
-> +               return -EPERM;
-> +
-> +       /*
-> +        * None of the SME specific registers are accessible unless
-> +        * PSTATE.ZA is set.
-> +        */
-> +       if (!vcpu_za_enabled(vcpu))
-> +               return -EINVAL;
+We still have to maintain backwards compatibility to this format,
+of course, but it would be better to access these registers through a
+syscon.  Putting all the registers together is more organized and shows
+how the hardware actually is implemented.
 
-I think this should be something other than -EINVAL, since the issue
-isn't that the register isn't valid, but that it's inaccessible, as
-the comment says. -EACCESS or something?
+Secondly, in some versions of this chipset those registers can only be
+accessed via SCMI.  It's relatively straight forward to handle this
+by writing a syscon driver and registering it with of_syscon_register_regmap()
+but it's complicated to deal with if the registers aren't grouped
+together.
 
-> +
-> +       if (copy_from_user(vcpu->arch.sme_state + region.koffset, uptr,
-> +                          region.klen))
-> +               return -EFAULT;
+Changed since v2:
+* Improve the documentation in .../bindings/net/nxp,s32-dwmac.yaml
+* "[PATCH v2 2/4] dt-bindings: mfd: syscon: Document the GPR syscon
+  for the NXP S32 SoCs" was applied so drop it.
 
-This should be copy_to_user()
+Changed since v1:
+* Add imx@lists.linux.dev to the CC list.
+* Fix forward porting bug.  s/PHY_INTF_SEL_RGMII/S32_PHY_INTF_SEL_RGMII/
+* Use the correct SoC names nxp,s32g2-gpr and nxp,s32g3-gpr instead of
+  nxp,s32g-gpr which is the SoC family.
+* Fix the phandle name by adding the vendor prefix
+* Fix the documentation for the phandle
+* Remove #address-cells and #size-cells from the syscon block
 
-> +
-> +       return 0;
->  }
->
->  static int set_sme_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->  {
-> +       int ret;
-> +       struct vec_state_reg_region region;
-> +       char __user *uptr = (char __user *)reg->addr;
-> +
->         /* Handle the KVM_REG_ARM64_SME_VLS pseudo-reg as a special case: */
->         if (reg->id == KVM_REG_ARM64_SME_VLS)
->                 return set_sme_vls(vcpu, reg);
->
-> -       return -EINVAL;
-> +       /* Try to interpret reg ID as an architectural SME register... */
-> +       ret = sme_reg_to_region(&region, vcpu, reg);
-> +       if (ret)
-> +               return ret;
-> +
-> +       if (!kvm_arm_vcpu_vec_finalized(vcpu))
-> +               return -EPERM;
-> +
-> +       /*
-> +        * None of the SME specific registers are accessible unless
-> +        * PSTATE.ZA is set.
-> +        */
-> +       if (!vcpu_za_enabled(vcpu))
-> +               return -EINVAL;
+Here is the whole list of registers in the GPR region
 
-Same as get_sme_reg().
+Starting from 0x4007C000
 
-Cheers,
-/fuad
+0  Software-Triggered Faults (SW_NCF)
+4  GMAC Control (GMAC_0_CTRL_STS)
+28 CMU Status 1 (CMU_STATUS_REG1)
+2C CMUs Status 2 (CMU_STATUS_REG2)
+30 FCCU EOUT Override Clear (FCCU_EOUT_OVERRIDE_CLEAR_REG)
+38 SRC POR Control (SRC_POR_CTRL_REG)
+54 GPR21 (GPR21)
+5C GPR23 (GPR23)
+60 GPR24 Register (GPR24)
+CC Debug Control (DEBUG_CONTROL)
+F0 Timestamp Control (TIMESTAMP_CONTROL_REGISTER)
+F4 FlexRay OS Tick Input Select (FLEXRAY_OS_TICK_INPUT_SELECT_REG)
+FC GPR63 Register (GPR63)
 
+Starting from 0x4007CA00
 
+0  Coherency Enable for PFE Ports (PFE_COH_EN)
+4  PFE EMAC Interface Mode (PFE_EMACX_INTF_SEL)
+20 PFE EMACX Power Control (PFE_PWR_CTRL)
+28 Error Injection on Cortex-M7 AHB and AXI Pipe (CM7_TCM_AHB_SLICE)
+2C Error Injection AHBP Gasket Cortex-M7 (ERROR_INJECTION_AHBP_GASKET_CM7)
+40 LLCE Subsystem Status (LLCE_STAT)
+44 LLCE Power Control (LLCE_CTRL)
+48 DDR Urgent Control (DDR_URGENT_CTRL)
+4C FTM Global Load Control (FLXTIM_CTRL)
+50 FTM LDOK Status (FLXTIM_STAT)
+54 Top CMU Status (CMU_STAT)
+58 Accelerator NoC No Pending Trans Status (NOC_NOPEND_TRANS)
+90 SerDes RD/WD Toggle Control (PCIE_TOGGLE)
+94 SerDes Toggle Done Status (PCIE_TOGGLEDONE_STAT)
+E0 Generic Control 0 (GENCTRL0)
+E4 Generic Control 1 (GENCTRL1)
+F0 Generic Status 0 (GENSTAT0)
+FC Cortex-M7 AXI Parity Error and AHBP Gasket Error Alarm (CM7_AXI_AHBP_GASKET_ERROR_ALARM)
 
-> +
-> +       if (copy_from_user(vcpu->arch.sme_state + region.koffset, uptr,
-> +                          region.klen))
-> +               return -EFAULT;
-> +
-> +       return 0;
->  }
-> +
->  int kvm_arch_vcpu_ioctl_get_regs(struct kvm_vcpu *vcpu, struct kvm_regs *regs)
->  {
->         return -EINVAL;
->
-> --
-> 2.47.3
->
+Starting from 4007C800
+
+4  GPR01 Register (GPR01)
+30 GPR12 Register (GPR12)
+58 GPR22 Register (GPR22)
+70 GPR28 Register (GPR28)
+74 GPR29 Register (GPR29)
+
+Starting from 4007CB00
+
+4 WKUP Pad Pullup/Pulldown Select (WKUP_PUS)
+
+Dan Carpenter (3):
+  net: stmmac: s32: use a syscon for S32_PHY_INTF_SEL_RGMII
+  dt-bindings: net: nxp,s32-dwmac: Use the GPR syscon
+  dts: s32g: Add GPR syscon region
+
+ .../bindings/net/nxp,s32-dwmac.yaml           | 12 ++++++++++
+ arch/arm64/boot/dts/freescale/s32g2.dtsi      |  6 +++++
+ arch/arm64/boot/dts/freescale/s32g3.dtsi      |  6 +++++
+ .../net/ethernet/stmicro/stmmac/dwmac-s32.c   | 23 +++++++++++++++----
+ 4 files changed, 42 insertions(+), 5 deletions(-)
+
+-- 
+2.51.0
+
 
