@@ -4,57 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 267B2D2F34B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 17:32:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1522D2F34B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 17:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7QZm1CZeu8P4ksfxFy+d8iaWyvI0I3DKeA/oH7Yr3/E=; b=2C6ZJ7ukqUUoNQxVLE4e9R5EmM
-	TlPXPjdsxMrXtophHdg7Y77lGkGIxDrggAaMtn4RkuT3GsQf1GlMbq2itb1ApeSDBb+zuAHQ0R9AY
-	GV89buC0V0SYAAE7cGr13kOu5kfvfecA7seKSRpYcs44mr8mt5V0q80xuAwtR5euJ53lSRJuKLH4L
-	KZZF11+RB2LuszrIuhh1KmO4nxC39ZT6N8HcUgHzxQ4p/jZrJSLpSyc/M/k30B2R3/HbmRScejutm
-	RZ6H6n2h5I/rXqR2dQ5KNWWeUz5JQoCxfvCWiyMp6XqbtWIOCS+RQakPk0xS/F9w/n5ZJNVI9/sFQ
-	Owyc0ZHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/CVOy4tPw1zWY0e6rYcKRwtfrfRvUlKFzd8YTNoGp5w=; b=K0VnHvtNa4xi9UWLCgWju7vRX9
+	ns4xTNPRBtM1PIDFi2UQudcgm9mZMYTskCSZY3F7+pXM0Ft9Kou8AiAtt+6D1HOfIQtzdFWC6acSI
+	ubr0QRETHkeT1DfsbYWAiBkpldNuZ2xukSYMR0Vx+Ck2A6kpZ73YA0crY5Rz5pzJH38BPt+xkxdKL
+	DeBgxxD35RudbhfpR3iMmAn3tZnoPyGqsH6TvnXKqCbzgHofRAFPs8bLuJbv7xQ+t5aFRVoNFtYnO
+	u3IXj4guvIsExcYUShlus59t2YOwPwpBigAqrSil544u+4Vw8h9K9nwnbtxTkkKSvRXxI4Bx2YD/t
+	h6sqS0Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfiFw-00000007XA4-3bMr;
-	Tue, 13 Jan 2026 17:32:36 +0000
-Received: from mail-244123.protonmail.ch ([109.224.244.123])
+	id 1vfiKa-00000007Xfb-1jeq;
+	Tue, 13 Jan 2026 17:37:24 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfiFu-00000007X9f-1u6k
+	id 1vfiKY-00000007Xef-1W8E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 17:32:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
-	s=protonmail3; t=1768325549; x=1768584749;
-	bh=7QZm1CZeu8P4ksfxFy+d8iaWyvI0I3DKeA/oH7Yr3/E=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=gdXMnEdZmwn+tzH1Y7xVv5t9USdU9qSUiHNLP9uBYfdXrbzyAlzYJYd3+fdOIl8FD
-	 4B1cwjyzCxH099YPM8pclhQdJIQFLPHDmdGXpFFHioTnZOh0Vhr5FMwFhvIPEgRIBg
-	 imCV25e/DmTbnG9EQkSon6a6pbHZT2E4APl5n9XXqw4a2efie1W1vRw1zvk5GoN2BB
-	 CF2NEfpy7D5somELQ6RBkORkPQVKPmlnpRyAdBSR0ORMaXUIdVdaUza5gnyA1Sz/Nl
-	 g+SAZB5ORa63g+Togs39Um3ZPXCS0CiWYkzSCzRD7PN/QZwqJO9kQ2EKunsZqH6L8D
-	 jLRIbJ2fappbQ==
-Date: Tue, 13 Jan 2026 17:32:23 +0000
-To: Andrey Konovalov <andreyknvl@gmail.com>
-From: Maciej Wieczor-Retman <m.wieczorretman@pm.me>
-Cc: Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Samuel Holland <samuel.holland@sifive.com>, Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>, linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Subject: Re: [PATCH v8 02/14] kasan: arm64: x86: Make special tags arch specific
-Message-ID: <aWZ_aRFfWNWiqzik@wieczorr-mobl1.localdomain>
-In-Reply-To: <CA+fCnZfQmhSyF9vh3RzreY7zrQ4GbQOp5NbA0bXLHUMG6p28QQ@mail.gmail.com>
-References: <cover.1768233085.git.m.wieczorretman@pm.me> <be136bf8d1a6ae9ef98686c3ba0b6a4e2ea2e780.1768233085.git.m.wieczorretman@pm.me> <CA+fCnZfQmhSyF9vh3RzreY7zrQ4GbQOp5NbA0bXLHUMG6p28QQ@mail.gmail.com>
-Feedback-ID: 164464600:user:proton
-X-Pm-Message-ID: 023a5d308556f78925918902544da2df5131a718
+	Tue, 13 Jan 2026 17:37:23 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-430f57cd471so3943958f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 09:37:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1768325840; x=1768930640; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/CVOy4tPw1zWY0e6rYcKRwtfrfRvUlKFzd8YTNoGp5w=;
+        b=RI06ZjcUx2YgRorbLPOXIHkMJV7NvKIDeapH0PXsXWGP3eMuP7Y5jNic434/mVF9w/
+         Uss3hnZZlE+8HCBjbHgyuvmnu7b9lgnvFTqlgQjs2aFVRjelsabhvX/+KRo7OrXU2tkv
+         7i7/NKxX/CPUjIsAvUNoeOHQO5K1HLUd1xmWor9o93OMk9Wi1kS00vLq7f8meA0xMgwJ
+         +4Jzw2w1W1O0OY2lTlbe7ByPIBTn540eQwOHGkMBm3WcVpZkAdWCE7ISNLPr0ljAfiSt
+         l8DFLROXSZ9OGErfxpIb3trC+WGD/6dTel4eTzQTyBQ0m0kYm7GPHbpW1CH2AdWDVzXt
+         blJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768325840; x=1768930640;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/CVOy4tPw1zWY0e6rYcKRwtfrfRvUlKFzd8YTNoGp5w=;
+        b=T2TSAB+1UsWfC6KXgSAN4GT/liyVKboa0aNzIbM+sdhqcLFglI6yjykPMnBqUJ+5l7
+         7aR48sZsy6l0GcEpJWrqa5Dh4sbaXUm4Xta+fBg//PWv6AO70bVwX+xxvZueMglwVOEX
+         RcfL7IOJm3cdi3Xj1tS9VsyctLu6lEIA+dvG6Re0GNtuhwi0EHIu1pODFlN1pLl/jt5Z
+         vVLbJSpAZkgtx0MvqTED/R6lRfP19TIsGEIxi5QghlLCm1czaEMN4lqDTEKliRsokraT
+         flYDwUTn1EZO1R8IampQYSSo46rwbecf/Ycf2b5o8oM8LErEwJ274Sl76boUaomUTecm
+         BOQg==
+X-Forwarded-Encrypted: i=1; AJvYcCXTrM7DMEEsNC8I67VzrKVrnV1CTJ1WjX7lkELtqbBKZVnUyaCwBAjM+prFeNotHuqAhM8Bfu2I2oDN0oZAgQb2@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwgKt6oQ6sfKKW5eE9+J2S/GE7AjSKeXnc1zCgMTT4YWY3meuk
+	kreIoD+OTLRWe9QljbdlBR1O7Bf1rwMkBtHTBMK0dTodIv4NSNaUjVXF0t+1CBBty4A=
+X-Gm-Gg: AY/fxX4t1iw03MzGr888KHEaIuZnSweav7jsc+ctGAX1ZAnXn3wWRDgO1THMR3SHi6t
+	i4l+V2GL1ToGut7GyN+Ap6GfDnE94YFgSEb3LDkZXoYlcmj4bBIGOfuiFrsvafT2jpXfuWwfq3w
+	rbDXgg8ycDz5JIXkn18zo7fkduZZXxei/o/GIvp/2lJbuDonojEWmI5twDwijuTdzyLtoYwe4QW
+	D3iPNHjyxHDUekXijklLfT6Ht00nLGeijx4PXG26JUCaV13Yu2qxKvOAzgVlh8Xo4RUoKi5KYop
+	bPFYIGx4ZFK6TahQ7PtZFLwB5l9C0PPdGAo4mjbRxvuJm7bsIywep//dCHT4LhaITrHYlSuaunJ
+	r4/qydLcbdiJN/C15nnqXGwr9NwgHkhoT3Y9KFbv3M+CFRdWmgjLYwvEI94QbuVQjiOZ2adTTag
+	c9jKlpuPJdlBVeLw==
+X-Google-Smtp-Source: AGHT+IHUReQqvVgC0db5F0/UgqAPwHgCcpq2ZD0lhm0g7XnDeEa3Phlj1/GEitKl8zvqkUFbSZC6XA==
+X-Received: by 2002:a05:6000:2dc9:b0:430:fced:902 with SMTP id ffacd0b85a97d-432c36436fbmr29258778f8f.26.1768325840268;
+        Tue, 13 Jan 2026 09:37:20 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432d9610671sm28342147f8f.34.2026.01.13.09.37.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Jan 2026 09:37:19 -0800 (PST)
+Date: Tue, 13 Jan 2026 18:37:17 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: Marcos Paulo de Souza <mpdesouza@suse.com>
+Cc: Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jason Wessel <jason.wessel@windriver.com>,
+	Daniel Thompson <danielt@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	John Ogness <john.ogness@linutronix.de>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
+	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 02/19] printk: Introduce console_is_nbcon
+Message-ID: <aWaCzZ8_UuyAa6xp@pathway.suse.cz>
+References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+ <20251227-printk-cleanup-part3-v1-2-21a291bcf197@suse.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251227-printk-cleanup-part3-v1-2-21a291bcf197@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_093234_657536_7E3D76D0 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20260113_093722_428005_B05B2D0E 
+X-CRM114-Status: GOOD (  31.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,63 +133,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-01-13 at 02:21:07 +0100, Andrey Konovalov wrote:
->On Mon, Jan 12, 2026 at 6:27=E2=80=AFPM Maciej Wieczor-Retman
-><m.wieczorretman@pm.me> wrote:
->>
->> From: Samuel Holland <samuel.holland@sifive.com>
->> diff --git a/arch/x86/include/asm/kasan-tags.h b/arch/x86/include/asm/ka=
-san-tags.h
->> new file mode 100644
->> index 000000000000..68ba385bc75c
->> --- /dev/null
->> +++ b/arch/x86/include/asm/kasan-tags.h
->> @@ -0,0 +1,9 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +#ifndef __ASM_KASAN_TAGS_H
->> +#define __ASM_KASAN_TAGS_H
->> +
->> +#define KASAN_TAG_KERNEL       0xF /* native kernel pointers tag */
->
->One thing that stood out to me here was that for x86, KASAN_TAG_KERNEL
->is defined as a 4-bit value (0xF). Which makes sense, as
->KASAN_TAG_WIDTH =3D=3D 4.
->
->But for arm64, KASAN_TAG_KERNEL and others are defined as 8-bit values
->(0xFF, etc.), even though for HW_TAGS, KASAN_TAG_WIDTH is also =3D=3D 4
->and only the lower 4 bits of these values define the tags.
->
->This happens to work out: for HW_TAGS, __tag_set resets the top byte
->but then uses the given value as is, so the higher 4 bits gets set to
->0xF and the lower set to the tag. And for saving/restoring the tag in
->page->flags, everything also works, as we only store the meaningful
->lower 4 bits in flags, and restore the higher 0xF when doing ^ 0xFF.
->
->But this is not related to this series: I think the way x86 defines
->KASAN_TAG_KERNEL to be 0xF makes sense; we might just need to clean up
->the arm64 implementation at some point.
->
+On Sat 2025-12-27 09:16:09, Marcos Paulo de Souza wrote:
+> Besides checking if the current console is NBCON or not, console->flags
+> is also being read in order to serve as argument of the console_is_usable
+> function.
+> 
+> But CON_NBCON flag is unique: it's set just once in the console
+> registration and never cleared. In this case it can be possible to read
+> the flag when console_srcu_lock is held (which is the case when using
+> for_each_console).
+> 
+> This change makes possible to remove the flags argument from
+> console_is_usable in the next patches.
+> 
+> Signed-off-by: Petr Mladek <pmladek@suse.com>
+> Signed-off-by: Marcos Paulo de Souza <mpdesouza@suse.com>
+> ---
+>  include/linux/console.h   | 27 +++++++++++++++++++++++++++
+>  kernel/debug/kdb/kdb_io.c |  2 +-
+>  kernel/printk/nbcon.c     |  2 +-
+>  kernel/printk/printk.c    | 15 ++++++---------
+>  4 files changed, 35 insertions(+), 11 deletions(-)
+> 
+> diff --git a/include/linux/console.h b/include/linux/console.h
+> index 35c03fc4ed51..dd4ec7a5bff9 100644
+> --- a/include/linux/console.h
+> +++ b/include/linux/console.h
+> @@ -561,6 +561,33 @@ static inline void console_srcu_write_flags(struct console *con, short flags)
+>  	WRITE_ONCE(con->flags, flags);
+>  }
+>  
+> +/**
+> + * console_srcu_is_nbcon - Locklessly check whether the console is nbcon
 
-I suppose while there is only one such mode that stands out from the other =
-two
-there is little hint as to what should be generalized. As you said so far t=
-his
-scheme we have works - altough it is somewhat convoluted.
+There is _srcu in the function name, see below.
 
-One thing I was thinking of was cleaning up all the #ifdefs for different m=
-odes
-into a more ordered structure. I think there are ~24 ifdefs in mm/kasan.h a=
-nd
-include/linux/kasan.h and many of them could potentially be merged.
+> + * @con:	struct console pointer of console to check
+> + *
+> + * Requires console_srcu_read_lock to be held, which implies that @con might
+> + * be a registered console. The purpose of holding console_srcu_read_lock is
+> + * to guarantee that no exit/cleanup routines will run if the console
+> + * is currently undergoing unregistration.
+> + *
+> + * If the caller is holding the console_list_lock or it is _certain_ that
+> + * @con is not and will not become registered, the caller may read
+> + * @con->flags directly instead.
+> + *
+> + * Context: Any context.
+> + * Return: True when CON_NBCON flag is set.
+> + */
+> +static inline bool console_is_nbcon(const struct console *con)
 
-...
->
->Reviewed-by: Andrey Konovalov <andreyknvl@gmail.com>
+And here it is without _srcu.
 
-Thanks :)
+I would prefer the variant with _srcu to make it clear that it
+can be called only under _srcu. Similar to console_srcu_read_flags(con).
 
---=20
-Kind regards
-Maciej Wiecz=C3=B3r-Retman
+> +{
+> +	WARN_ON_ONCE(!console_srcu_read_lock_is_held());
+> +
+> +	/*
+> +	 * The CON_NBCON flag is statically initialized and is never
+> +	 * set or cleared at runtime.
+> +	 */
+> +	return data_race(con->flags & CON_NBCON);
+> +}
+> +
+>  /* Variant of console_is_registered() when the console_list_lock is held. */
+>  static inline bool console_is_registered_locked(const struct console *con)
+>  {
 
+Otherwise, it looks good to me.
+
+With a consistent name, feel free to use:
+
+Reviewed-by: Petr Mladek <pmladek@suse.com>
+
+Best Regards,
+Petr
 
