@@ -4,60 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E5FD2F345
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 17:03:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45A84D2F34B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 17:07:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T/GV8ZeY+TQhdTJIHqbPxYfH9UUTZxr+MygCKf4R/bE=; b=CDbmZ0YqGFVqFo4QcEZKO9zcef
-	hqSFJv2o3JY6PhALkH7Ik2BEgJOe1FdUQDBlUhWGsstS0Ktg002ZCOb76/GM+eTYmLjJ0dPquZICN
-	AswbpTz4VrFqHyNJVzqvRD9qlrNn9WYobGZpWrbZcEWnCLRl9IBPTefxpNojxMT8HAypap4z3U912
-	JA9ZJgPfk/D8P+FHphDZQoLTs7cz7FLN9vj5U9COO7sQHC2j4zda4HATdLHVMy9c7NMI4Gy/la1Bn
-	I7Vrc2sBHfIzMIwYPEYGI2slMWQ7r/tfZHMJyORQmk96gom7Fu8fqVyGnLwvsfe7YcRdtX/Dgeb58
-	U49f+4og==;
+	bh=h7lOqExgMcdugcI9HIbQ5JeCIYCF/f+YAISpiToc7uE=; b=0nD10nx/U7Y3NykYASXmpwn1+e
+	Lyc/lM21pXWZFXLVWrzFWeH/Jbt7l3HGRz6zkftfod/8GhcKGZ2GZHLay2l/4M5LGKg/OMyuQHwuf
+	5/zLsVF6JJtx960/ZLeFfJhpImFMeaoD6u0f0dBSVT+KFGtQgYaGNcskrIrdCH075qvB5vnSH+GcX
+	n73ZJxjQ5dKGaMu61uAj26L+dc17BOTbIr37XVtYNLX/AtFIwMNP7fODeloFNi4aWWtW2FkERI6TN
+	5ZOco9DBACu9JIR1qLVOOEiEdTLxYc1xTEFcz31Le7MmpILHOUiTE+loIRdOf1Kt3xpYprKL7U5wX
+	FDtnbkVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfhnw-00000007VMa-1ac1;
-	Tue, 13 Jan 2026 17:03:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfhns-00000007VM4-1cnB
+	id 1vfhrW-00000007Vcd-3Vn0;
+	Tue, 13 Jan 2026 17:07:22 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfhrU-00000007Vc0-2Mvc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 17:03:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D421497;
-	Tue, 13 Jan 2026 09:03:26 -0800 (PST)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 26FA03F632;
-	Tue, 13 Jan 2026 09:03:30 -0800 (PST)
-Date: Tue, 13 Jan 2026 17:03:28 +0000
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: mark.rutland@arm.com, james.morse@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [RFC PATCH v6 03/35] KVM: arm64: Add CONFIG_KVM_ARM_SPE Kconfig
- option
-Message-ID: <aWZ64AaWctSjkCFv@raptor>
-References: <20251114160717.163230-1-alexandru.elisei@arm.com>
- <20251114160717.163230-4-alexandru.elisei@arm.com>
- <1aaffbcd-ba0c-4371-80d7-ce59ac7f13a9@linaro.org>
- <aWTaXBse_R_LjJE-@raptor>
- <d7db9f17-012e-43d7-a0a5-58b254dd7e33@linaro.org>
- <aWUQ3bYuxpMEWTUk@raptor>
- <aWYdob5IfyOQcu6I@raptor>
- <43ec5e82-88a6-4c7b-983a-b5aa32673913@linaro.org>
+	Tue, 13 Jan 2026 17:07:21 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2a0bb2f093aso53099855ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 09:07:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768324039; x=1768928839; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=h7lOqExgMcdugcI9HIbQ5JeCIYCF/f+YAISpiToc7uE=;
+        b=R41sGJtwz6U6iGnp/RN4EaNt0lhsf26etRyABSh9rdFzqIf0OkxUPKzoCAvzGj9VVb
+         dB6ueGz11MH1oc8O3ZTRM++6VS1MjfFyUh29SPILkislSZYymJwVhRmi3fr14tITKKax
+         +4eVPFHAfyAxyaRM3J84bp+cqzoNQEa1LdvkU/BVBYu3IjeoHRumA1KObGdtvr51R+xD
+         5o6/KxwsdjzmML/C+iUcRnAwWEgUu1uIWiYesCWDHsP3JoOIAwYGmISxi3i/OsYW3jA9
+         ZcxgXndhmqiLXudnMdWW19vK6W378b9hn6dieBzPPrRHXxKLxrsSRmFkbzlMeyFg1bal
+         REGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768324039; x=1768928839;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=h7lOqExgMcdugcI9HIbQ5JeCIYCF/f+YAISpiToc7uE=;
+        b=I6GSXlE5MKgp/Mw80yotgQXiALQKyfYo0kXRzD7PKoL2Z/OqiTRcAkjo3brgz5Y0Wz
+         NW4gG2+FMxkXMq3p4/gF/TJbLZLinvBpgmxFfoBL8C2+t6sYgbfx3IlmP6guj959I4pp
+         s71LHXIVsPsgcOfS2yCQgy5CtcOdyGYHRj+7kmVDBXL2KQkbfcAsQxL/KCE1MojpnM26
+         q/lpVY+DbU03bxQmgASeqVyG8Dn/doXV9iV3e04DFE3ObPzKRf0F43SAdBrNWTqXn6jx
+         WyfrL/yM+ZB0MxEK17zBgafGT61evSMpJNOIh+Nh5wRjkgtPvmRBRu8fsRHHLpwte3a5
+         TvfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVSLToeNhccLbW8LgEFm9JdE87dyMXU/82JOml5PCxayQcu9OB+IdDk0WC05fp1443s6BCKuksYJAmIRv2nNIq7@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTPriMZ+aZdK1WtqOnuIxKUq6D7XvhtYucGeonssEgsh70Og/6
+	elqempm5V7pLhn1bzGmIYDPo3UIkuAYWilyRnvg/CQ+UCxg/4H5wYBp6UEe2s/f9D14=
+X-Gm-Gg: AY/fxX6xDGMoeAn+JHAHE6JXRKZ9t6mE8ey4C43qEajBjYEhmd6cABJ3TDz7han0TTn
+	Z8ODDaZS2M2uY49kcMO0Y7Vm/s37nqYplIhvFwABdlXToz6VHxdePuxrYwLrw5p66biRpdJbu7q
+	FMCoSsC/TOBrAClHFPYjkTdzvYn5UAsUSHBk4yXBh8be5Ewc8uBYYx3HQxnIYXwJQRLTwQOTsvt
+	ZFeER2HcCAPEP3tCDYypolrbAygTHdXnxcrIoccbjqSufghYEgEkwllwfSL5WiSCxciHiyJc6E0
+	5M3c19lFPE1Gw5CM84b6pjXnbmk7ulkylsi/xPnGY3S8wfW6ss0LtIXGo8I0fwOSykdBJDNTSPK
+	c/Ja8xaW+rKhF+54h3vd5/TIiNQjOUIYQ+V32eWuhQsNEuwqnPv/EkXor3gtuXzHAD6QIPooVfz
+	wKF7KYjwtFw1vppA==
+X-Google-Smtp-Source: AGHT+IFOvPJP9R1hw4cpVp6os/r5K7GEms65q/AlzRFH4grW4yqI7xvevFuJtgCcEOr5tWpPHLh0Mg==
+X-Received: by 2002:a17:902:ce92:b0:2a0:b62e:e016 with SMTP id d9443c01a7336-2a3ee4aad5amr188877205ad.32.1768324039181;
+        Tue, 13 Jan 2026 09:07:19 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:82f2:906c:a8da:1fdb])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3cd3632sm208565395ad.95.2026.01.13.09.07.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Jan 2026 09:07:18 -0800 (PST)
+Date: Tue, 13 Jan 2026 10:07:15 -0700
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>, Frank Li <Frank.Li@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v6 0/6] remoteproc: imx_rproc: Support i.MX95
+Message-ID: <aWZ7w5g7mYMDoffv@p14s>
+References: <20260109-imx95-rproc-2026-1-8-v6-0-d2fefb36263d@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <43ec5e82-88a6-4c7b-983a-b5aa32673913@linaro.org>
+In-Reply-To: <20260109-imx95-rproc-2026-1-8-v6-0-d2fefb36263d@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_090336_507173_929B7689 
-X-CRM114-Status: GOOD (  54.27  )
+X-CRM114-CacheID: sfid-20260113_090720_617180_A8C1CD4E 
+X-CRM114-Status: GOOD (  32.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,158 +107,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+On Fri, Jan 09, 2026 at 08:08:00PM +0800, Peng Fan (OSS) wrote:
+> This patchset is pick up a previous patchset [1] with rebased on
+> next-20251030, and some changes applied.
+>  - Add runtime ops to separate cpu ops and lmm ops
+>  - added more comments
+>  - moved some check imx_sm_rproc_detect_mode() from imx_rproc_sm_prepare().
+> 
+> No changes to the dt-binding patch, so R-b/A-b are kept.
+> More info could be found in commit message of each patch and below.
+> 
+> [1]https://lore.kernel.org/linux-remoteproc/20250821-imx95-rproc-1-v5-0-e93191dfac51@nxp.com/
+> 
+> i.MX95 features a Cortex-M33 core, six Cortex-A55 cores, and
+> one Cortex-M7 core. The System Control Management Interface(SCMI)
+> firmware runs on the M33 core. The i.MX95 SCMI firmware named System
+> Manager(SM) includes vendor extension protocols, Logical Machine
+> Management(LMM) protocol and CPU protocol and etc.
+> 
+> There are three cases for M7:
+> (1) M7 in a separate Logical Machine(LM) that Linux couldn't control it.
+> (2) M7 in a separate Logical Machine that Linux could control it using
+>     LMM protocol
+> (3) M7 runs in same Logical Machine as A55, so Linux could control it
+>     using CPU protocol
+> 
+> In patch 3, Use LMM and CPU protocol to manage M7. More info could be
+> found in the patch commit log
+>     Current setup relies on pre-Linux software(U-Boot) to do
+> M7 TCM ECC initialization. In future, we could add the support in Linux
+> 
+> Patchset was tested with below boot images when the patchset based on next-20251030:
+> imx-boot-variant-rpmsg-imx95-19x19-lpddr5-evk-sd.bin-flash_lpboot_sm_a55 (Use LMM protocol)
+> imx-boot-variant-alt-imx95-19x19-lpddr5-evk-sd.bin-flash_alt (Use CPU protocol)
+> imx-boot-imx95-19x19-lpddr5-evk-sd.bin-flash_all (M7 not under A55 control)
+> 
+> Also tested i.MX8MP/8ULP-EVK.
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+> Changes in v6:
+> Added R-b from Frank for patch 4
+> Following Mathieu's suggestions for patch 4
+>  - Renamed IMX_RPROC_FLAGS_SM_LMM_AVAIL to IMX_RPROC_FLAGS_SM_LMM_CTRL
+>  - Added comment in imx_rproc_sm_lmm_start and add comment for
+>    imx_rproc_sm_lmm_check, and update comment to use "M7"
+>  - Following the suggested code snippets, update imx_rproc_sm_lmm_prepare
+>    and imx_rproc_sm_lmm_check
+>  - With above done, separate the CPU API support into a separate patch,
+>    no other changes.
+> 
+> Changes in v5:
+> - Add R-b from Daniel for patch 4
+> - Patch 4, per Mathieu's comments:
+>   Move imx_rproc_ops_sm_lmm and imx_rproc_ops_sm_cpu to bottom of the file.
+>   Set IMX_RPROC_FLAGS_SM_LMM_AVAIL when scmi_imx_lmm_operation(shutdown)
+>   pass or m7 is started before Linux.
+> - Link to v4: https://lore.kernel.org/r/20251216-imx95-rproc-2025-12-15-v4-0-bf1064ea8daf@nxp.com
+> 
+> Changes in V4:
+> - Rebased to 6.19-rc1 to resolve conflicts.
+> - Address Frank's comment patch 4 regarding "if (ret != 0)" -> "if (ret)"
+> - Link to v3: https://lore.kernel.org/linux-remoteproc/20251122-imx95-rproc-2025-11-20-v3-0-9ae6ee619a78@nxp.com/#t
+> 
+> Changes in v3:
+> - Add R-b for patch 2,3,5
+> - Patch 4:
+>   Rename imx_rproc_ops_sm to imx_rproc_ops_sm_lmm.
+>   Add more comments in code
+>   Simplify if check in imx_rproc_sm_lmm_prepare()
+>   Update commit log
+>   Use dev_err for failure path
+> - Link to v2: https://lore.kernel.org/linux-remoteproc/20251031-imx95-rproc-2025-10-31-v2-0-758b2e547a55@nxp.com/T/#t
+> 
+> Changes in v2:
+> - Patch 2: Change to const pointer for ops, update commit log and add R-b from Frank
+> - Patch 3: New patch, introduce prepare ops
+> - Patch 4: Rename imx_rproc_sm_prepare to imx_rproc_sm_lmm_prepare
+>            drop IMX_RPROC_FLAGS_SM_CPU_OP and IMX_RPROC_FLAGS_SM_LMM_OP
+>            Add a bool for dcfg->lmid and info->lmid check.
+>            Provide separate plat ops for lmm and cpu setup.
+>            Move LM permission check to a separate function.
+> - Patch 5: Drop macro IMX95_M7_CPUID and IMX95_M7_LMID
+> - Link to v1: https://lore.kernel.org/r/20251028-imx95-rproc-2025-10-28-v1-0-ce9e7db9edcb@nxp.com
+> 
+> ---
+> Peng Fan (6):
+>       dt-bindings: remoteproc: fsl,imx-rproc: Add support for i.MX95
+>       remoteproc: imx_rproc: Add runtime ops copy to support dynamic behavior
+>       remoteproc: imx_rproc: Introduce prepare ops for imx_rproc_dcfg
+>       remoteproc: imx_rproc: Add support for System Manager LMM API
+>       remoteproc: imx_rproc: Add support for System Manager CPU API
+>       remoteproc: imx_rproc: Add support for i.MX95
+> 
+>  .../bindings/remoteproc/fsl,imx-rproc.yaml         |   1 +
+>  drivers/remoteproc/Kconfig                         |   2 +
+>  drivers/remoteproc/imx_rproc.c                     | 249 +++++++++++++++++++--
+>  drivers/remoteproc/imx_rproc.h                     |   4 +
+>  4 files changed, 243 insertions(+), 13 deletions(-)
 
-On Tue, Jan 13, 2026 at 03:00:34PM +0000, James Clark wrote:
-> 
-> 
-> On 13/01/2026 10:25 am, Alexandru Elisei wrote:
-> > Hi James,
-> > 
-> > On Mon, Jan 12, 2026 at 03:18:53PM +0000, Alexandru Elisei wrote:
-> > > Hi James,
-> > > 
-> > > On Mon, Jan 12, 2026 at 12:09:19PM +0000, James Clark wrote:
-> > > > 
-> > > > 
-> > > > On 12/01/2026 11:26 am, Alexandru Elisei wrote:
-> > > > > Hi James,
-> > > > > 
-> > > > > On Fri, Jan 09, 2026 at 04:29:50PM +0000, James Clark wrote:
-> > > > > > 
-> > > > > > 
-> > > > > > On 14/11/2025 4:06 pm, Alexandru Elisei wrote:
-> > > > > > > Add a new configuration option that will be used for KVM SPE emulation.
-> > > > > > > CONFIG_KVM_ARM_SPE depends on the SPE driver being builtin because:
-> > > > > > > 
-> > > > > > > 1. The SPE driver maintains a cpumask of physical CPUs that support SPE,
-> > > > > > >       and that will be used by KVM to emulate SPE on heterogeneous systems.
-> > > > > > > 
-> > > > > > > 2. KVM will rely on the SPE driver enabling the SPE interrupt at the GIC
-> > > > > > >       level.
-> > > > > > > 
-> > > > > > > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
-> > > > > > > ---
-> > > > > > >     arch/arm64/kvm/Kconfig | 8 ++++++++
-> > > > > > >     1 file changed, 8 insertions(+)
-> > > > > > > 
-> > > > > > > diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-> > > > > > > index 4f803fd1c99a..31388b5b2655 100644
-> > > > > > > --- a/arch/arm64/kvm/Kconfig
-> > > > > > > +++ b/arch/arm64/kvm/Kconfig
-> > > > > > > @@ -83,4 +83,12 @@ config PTDUMP_STAGE2_DEBUGFS
-> > > > > > >     	  If in doubt, say N.
-> > > > > > > +config KVM_ARM_SPE
-> > > > > > > +	bool
-> > > > > > > +	depends on KVM && ARM_SPE_PMU=y
-> > > > > > 
-> > > > > > I think the most common configuration is module, so requiring built-in isn't
-> > > > > > great. If there's any way of avoiding it, even if it costs a little bit of
-> > > > > > pain, it would be good for adoption.
-> > > > > 
-> > > > > I'm not sure how that could be done. You need the buffer maintenance interrupt
-> > > > > to do a VM exit so KVM can inject the virtual interrupt back into the guest,
-> > > > > otherwise there's a possibility of a large blackout window when the buffer is
-> > > > > full.
-> > > > 
-> > > > Without expanding more I don't see how injecting an interrupt is strongly
-> > > > related to the way it's compiled.
-> > > 
-> > > It's the SPE driver that enables the hardware interrupt in the GIC.
-> > > 
-> > > > 
-> > > > > 
-> > > > > The code also relies on the SPE driver to probe all the SPUs in the system.
-> > > > > 
-> > > > 
-> > > > I don't think that's a hard requirement either, the KVM code could fairly
-> > > > easily do this itself. Inline the common code and put it in a shared header
-> > > > etc. I'm sure there are lots of creative ways to flip the dependencies that
-> > > > might not be "proper" software engineering. But like I said a bit of pain
-> > > > here might be beneficial overall.
-> > > 
-> > > Userspace gets the maximum buffer size and the SPE instance id from the sysfs
-> > > files.
-> > > 
-> > > So KVM would have to parse the DTB, read PMBIDR_EL1 and PMSIDR_EL1 on each
-> > > physical CPU in the system, create the sysfs files (at least 'type', 'cpumask'
-> > > and 'max_buffer_size' or whatever that ends up being named) and install a dummy
-> > > IRQ handler before the SPE driver is loaded.
-> > > 
-> > > Then when the SPE driver is loaded, the driver would have to remove the IRQ
-> > > handler and install its own, and create the rest of the sysfs files.
-> > > 
-> > > That's assuming that the SPE driver is loaded after KVM. I think it's possible
-> > > for the SPE driver to be loaded first. So both KVM and SPE would have be able to
-> > > communicate with one other in case the other probed first.
-> > > 
-> > > Is having to change the symbol ARM_SPE_PMU from 'm' to 'y' worth this? I am not
-> > > convinced and I don't see much use for going down this rabbit hole at this stage
-> > > of the series.
-> 
-> No, definitely not something that needs to be done at this point.
-> 
-> > > 
-> > > Also, since KVM would partially populate the sysfs directory for each SPE
-> > > instance, would it be reasonable for software to assume that the SPE driver is
-> > > loaded based on this and start using it? For example, how does perf detect the
-> > > presence of the arm_spe event?
-> > 
-> > Coming back to this, I do understand and agree with your concerns, so after
-> > talking in private I came up with exporting the symbol kvm_host_spe_init() -
-> > that's the function which adds the SPE instance to the list of SPUs.
-> > 
-> > With this change the SPE driver can be built as a module, but SPE for a VM is
-> > available only as long as the driver is loaded.
-> > 
-> > I hope that improves the adoption story :)
-> > 
-> > Thanks,
-> > Alex
-> 
-> Nice, if it's not too horrible we should try it. If it turns out to be
-> horrible then yes we'll have to ask people to change their configs.
-
-It was only a few lines of code:
-
-+void kvm_spe_add_instance(struct arm_spe_pmu *arm_spu)
-+{
-+       struct arm_spu_entry *entry;
-+
-+       guard(mutex)(&arm_spus_lock);
-+
-+       entry = kmalloc(sizeof(*entry), GFP_KERNEL);
-+       if (!entry)
-+               return;
-+
-+       entry->arm_spu = arm_spu;
-+       list_add_tail(&entry->link, &arm_spus);
-+}
-+EXPORT_SYMBOL_FOR_MODULES(kvm_spe_add_instance, "arm_spe_pmu");
-+
-+void kvm_spe_remove_instance(struct arm_spe_pmu *arm_spu)
-+{
-+       struct arm_spu_entry *entry, *tmp;
-+
-+       guard(mutex)(&arm_spus_lock);
-+
-+       if (list_empty(&arm_spus))
-+               return;
-+
-+       list_for_each_entry_safe(entry, tmp, &arm_spus, link) {
-+               if (entry->arm_spu == arm_spu) {
-+                       list_del(&entry->link);
-+                       break;
-+               }
-+       }
-+}
-+EXPORT_SYMBOL_FOR_MODULES(kvm_spe_remove_instance, "arm_spe_pmu");
-+
-+bool kvm_supports_spe(void)
-+{
-+       return !list_empty(&arm_spus);
-+}
+I have applied this set.
 
 Thanks,
-Alex
+Mathieu
+
+> ---
+> base-commit: fc4e91c639c0af93d63c3d5bc0ee45515dd7504a
+> change-id: 20260108-imx95-rproc-2026-1-8-04f759890742
+> 
+> Best regards,
+> -- 
+> Peng Fan <peng.fan@nxp.com>
+> 
 
