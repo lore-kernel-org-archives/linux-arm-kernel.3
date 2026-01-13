@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDDF3D2F35E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 19:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0AF4D2F35C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 19:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KNtYmBHG67l0jpDJBoaImyojMnMN73WHzgZpBZO20/s=; b=06YYltgzn7DAflyacR61cKI4C6
-	3eNDVWD8khRWdjKam5wR1KoS7O8nuq8HRCxU7FS8TnZM6FkrsxkSLGz5wcu6BtueN+llW4aSirrrI
-	bOJvDDR7ly8IvldU0SC8NUsJ0FNsZnkaKFcVCey8pp8ITtfT89P6LVMv9uyW5diyuhs0inHEdku5J
-	gxGszpP+HENDCpW3j/3oGEnfy+cnfDpM1cZ0A4LEnW84glQpK/Ogif56pIrRhId0Z/rf0QvjyG3Ez
-	B52H8Hmj+VPqfhiIbiAGh23LnEn9OXtYqynSJmHDs2nau6okXlk3+CV+PZzx2x8Ur3zQ68Dvs9bxy
-	u+NI0WzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uCqFOt8UAqbV0h3LdcZ+DnwU8GRIMsB+VaDCx0uMUmQ=; b=khHle/VP2jqvF8apqklE0r6tj7
+	kd6vr8RhXVMWCjVD9QmQpxAYpi39k5+cFndXUDqvapgaqghUTO8yfTlXb7DiQY9d7zIkJffoRxzNy
+	fg6hqqusvQ+E6jA60PThLllNEGTQ6uM6GLHeGZIBgprKCqHlesUMy614IUz2domsb5hp800mmA0Zo
+	ooSQhqvrKqXyV22tVMDvbavup14anJw8MfYYPcJLhXaIHBwVeS3IW2eS4xo2RRxTNP9s+PmpivMaf
+	z/gkx/ylU3EYKAT4AC5/Qs3P/keSEe1D/AHs6pWrfP0uqmXiW3wLADDcE6rJGocpfn+eqHlL0T6hY
+	iCMnrFOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfjjJ-00000007bkM-1QSZ;
-	Tue, 13 Jan 2026 19:07:01 +0000
+	id 1vfjk7-00000007bsP-15xC;
+	Tue, 13 Jan 2026 19:07:51 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfjjG-00000007bjx-0lCv
+	id 1vfjk4-00000007br5-0BeJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 19:06:59 +0000
+	Tue, 13 Jan 2026 19:07:49 +0000
 Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <m.felsch@pengutronix.de>)
-	id 1vfjiT-00082u-3f; Tue, 13 Jan 2026 20:06:09 +0100
+	id 1vfjjn-0008Q2-M1; Tue, 13 Jan 2026 20:07:31 +0100
 From: Marco Felsch <m.felsch@pengutronix.de>
-Date: Tue, 13 Jan 2026 20:06:08 +0100
-Subject: [PATCH v3] arm64: dts: imx93-phyboard-segin: Add peb-av-02 overlay
+Date: Tue, 13 Jan 2026 20:07:27 +0100
+Subject: [PATCH v8 1/3] dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC
+ subnode to schema and example
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260113-v6-18-topic-imx93-phyboard-segin-av-02-display-v3-1-fcbb85b0fbe5@pengutronix.de>
-X-B4-Tracking: v=1; b=H4sIAJ+XZmkC/53NwWrDMAyA4VcpPk8jijMn7mnvUXpwbTURdLaxM
- 5MQ8u51Cz3ttF4EvxD6NpEpMWVxPGwiUeHMwdeQHwdhJ+NHAna1Rdu0X1gHFAU4wBwiW+CfRUu
- I03oJJjnINLIHU6CeOc7xZlawqIbeGLT22on6NCa68vIET+faE+c5pPXpF3xs36YKQgPaYnchZ
- fuuH74j+fF3TsHz8ulIPLzSvgzVIMp/Gy0gSC21ps4pje6Pse/7HZsS1WFVAQAA
-X-Change-ID: 20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-c1687aa1ccf4
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+Message-Id: <20260113-v6-18-topic-imx93-parallel-display-v8-1-4abccdc473a5@pengutronix.de>
+References: <20260113-v6-18-topic-imx93-parallel-display-v8-0-4abccdc473a5@pengutronix.de>
+In-Reply-To: <20260113-v6-18-topic-imx93-parallel-display-v8-0-4abccdc473a5@pengutronix.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
  Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, andrej.picej@norik.com, 
- primoz.fiser@norik.com, c.hemp@phytec.de, s.mueller-klieser@phytec.de, 
- n.wesp@phytec.de, c.stoidner@phytec.de
-Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+ Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, kernel@pengutronix.de, 
+ dri-devel@lists.freedesktop.org, kernel@pengutronix.de, 
  Marco Felsch <m.felsch@pengutronix.de>
 X-Mailer: b4 0.14.2
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::28
@@ -63,8 +63,8 @@ X-SA-Exim-Mail-From: m.felsch@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_110658_383828_9ACD9B32 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20260113_110748_087194_C291155D 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,236 +79,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andrej Picej <andrej.picej@norik.com>
+From: Liu Ying <victor.liu@nxp.com>
 
-Add overlay for Audio-Video module PEB-AV-02. Add support for panel
-display, capacitive touchscreen and backlight.
+i.MX93 SoC mediamix blk-ctrl contains one DISPLAY_MUX register which
+configures parallel display format by using the "PARALLEL_DISP_FORMAT"
+field. Document the Parallel Display Format Configuration(PDFC) subnode
+and add the subnode to example.
 
-The pwm-backlight uses the GPIO based PWM implementation for now. Switch
-to the FlexIO PWM support once available.
-
-Signed-off-by: Andrej Picej <andrej.picej@norik.com>
-[rework commit message, use local regulator, remove compatible]
-Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-Signed-off-by: Christian Hemp <c.hemp@phytec.de>
-[m.felsch@pengutronix.de: cleanup downstream commit]
-Tested-by: Primoz Fiser <primoz.fiser@norik.com>
+Signed-off-by: Liu Ying <victor.liu@nxp.com>
+[m.felsch@pengutronix.de: port to v6.18-rc1]
+[m.felsch@pengutronix.de: add bus-width]
 Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 ---
-Hi,
+ .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 79 ++++++++++++++++++++++
+ 1 file changed, 79 insertions(+)
 
-this small series add the support for the phyBOARD-Segin DisplayKit
-AV-02 evaluation kit. This patchset depends on the following patchsets:
+diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+index 34aea58094e55365a2f9c86092f637e533f954ff..82d30e4140f4d511bc59665370d561efe7a707bd 100644
+--- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
++++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+@@ -40,6 +40,58 @@ properties:
+     minItems: 8
+     maxItems: 10
+ 
++  dpi-bridge:
++    type: object
++    additionalProperties: false
++
++    properties:
++      compatible:
++        enum:
++          - nxp,imx91-pdfc
++          - nxp,imx93-pdfc
++
++      ports:
++        $ref: /schemas/graph.yaml#/properties/ports
++
++        properties:
++          port@0:
++            $ref: /schemas/graph.yaml#/properties/port
++            description: Input port node to receive pixel data.
++
++          port@1:
++            $ref: /schemas/graph.yaml#/$defs/port-base
++            unevaluatedProperties: false
++            description: Output port node to downstream pixel data receivers.
++
++            properties:
++              endpoint:
++                $ref: /schemas/media/video-interfaces.yaml#
++                unevaluatedProperties: false
++
++                properties:
++                  bus-width:
++                    enum: [ 16, 18, 24 ]
++                    description:
++                      Specify the physical parallel bus width.
++
++                      This property is optional if the display bus-width
++                      matches the SoC bus-width, e.g. a 18-bit RGB666 (display)
++                      is connected and all 18-bit data lines are muxed to the
++                      parallel-output pads.
++
++                      This property must be set to 18 to cut only the LSBs
++                      instead of the MSBs in case a 24-bit RGB888 display is
++                      connected and only the lower 18-bit data lanes are muxed
++                      to the parallel-output pads.
++
++        required:
++          - port@0
++          - port@1
++
++    required:
++      - compatible
++      - ports
++
+ allOf:
+   - if:
+       properties:
+@@ -81,6 +133,7 @@ allOf:
+             - const: isi
+             - const: csi
+             - const: dsi
++
+ required:
+   - compatible
+   - reg
+@@ -112,4 +165,30 @@ examples:
+                clock-names = "apb", "axi", "nic", "disp", "cam",
+                              "pxp", "lcdif", "isi", "csi", "dsi";
+       #power-domain-cells = <1>;
++
++      dpi-bridge {
++        compatible = "nxp,imx93-pdfc";
++
++        ports {
++          #address-cells = <1>;
++          #size-cells = <0>;
++
++          port@0 {
++            reg = <0>;
++
++            pdfc_from_lcdif: endpoint {
++              remote-endpoint = <&lcdif_to_pdfc>;
++            };
++          };
++
++          port@1 {
++            reg = <1>;
++
++            pdfc_to_panel: endpoint {
++              remote-endpoint = <&panel_from_pdfc>;
++              bus-width = <18>;
++            };
++          };
++        };
++      };
+     };
 
- - https://lore.kernel.org/linux-arm-kernel/20251202-v6-18-topic-imx93-blkctrl-v2-0-e73501034adc@pengutronix.de/
- - https://lore.kernel.org/linux-arm-kernel/20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de/
- - https://lore.kernel.org/all/20260113-v6-18-topic-clk-fracn-gppll-v3-0-45da70f43c98@pengutronix.de/
-
-My test setup was:
-- phyCORE-i.MX93 +
-- phyBOARD-Segin + 
-- DisplayKit
-
-and I used 'modeset -r' to validate the display output.
-
-Regards,
- Marco
----
-Changes in v3:
-- Link to v2: https://lore.kernel.org/r/20260113-v6-18-topic-imx93-phyboard-segin-av-02-display-v2-1-39399e4d691d@pengutronix.de
-- adapt commit message accordingly
-
-Changes in v2:
-- Link to v1: https://lore.kernel.org/r/20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-v1-0-9c14be6c7478@pengutronix.de
-- Add tested-by and r-b (Primoz)
-- Rebase to v6.19-rc1 (Primoz)
-- Rename power supply name (Primoz)
-- add vcc/iovcc-supply (Primoz)
-- add wakeup-source (Primoz)
-- add pwm-backlight and gpio-pwm
----
- arch/arm64/boot/dts/freescale/Makefile             |   2 +
- .../freescale/imx93-phyboard-segin-peb-av-02.dtso  | 146 +++++++++++++++++++++
- 2 files changed, 148 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index f30d3fd724d0ce6b38f7bef10e3970ac34f70f4a..a850cf5d8c0298c1bcfbff0fe857c39745ac7a6c 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -384,12 +384,14 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
- imx93-phyboard-nash-jtag-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-jtag.dtbo
- imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
- imx93-phyboard-nash-pwm-fan-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-pwm-fan.dtbo
-+imx93-phyboard-segin-peb-av-02-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-av-02.dtbo
- imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
- imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
- imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-jtag.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-peb-wlbt-07.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-pwm-fan.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-av-02.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..af330756abfd127f2dd0a7e54c2e141300462889
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso
-@@ -0,0 +1,146 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-+ * Copyright (C) 2025 Pengutronix
-+ *
-+ * Author: Andrej Picej <andrej.picej@norik.com>
-+ * Author: Marco Felsch <kernel@pengutronix.de>
-+ */
-+
-+#include <dt-bindings/clock/imx93-clock.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include "imx93-pinfunc.h"
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&{/} {
-+	backlight: backlight {
-+		compatible = "pwm-backlight";
-+		brightness-levels = <0 4 8 16 32 64 128 255>;
-+		default-brightness-level = <5>;
-+		power-supply = <&reg_vcc_3v3_con>;
-+		pwms = <&pwm7 0 5000000 0>;
-+	};
-+
-+	panel {
-+		compatible = "edt,etm0700g0edh6";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_panel>;
-+
-+		backlight = <&backlight>;
-+		enable-gpios = <&gpio4 29 GPIO_ACTIVE_HIGH>;
-+		power-supply = <&reg_vcc_3v3_con>;
-+
-+		port {
-+			panel_in: endpoint {
-+				remote-endpoint = <&dpi_to_panel>;
-+			};
-+		};
-+	};
-+
-+	/* TODO: Convert to FlexIO PWM once supported */
-+	pwm7: pwm-7 {
-+		compatible = "pwm-gpio";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pwm7>;
-+		gpios = <&gpio4 28 GPIO_ACTIVE_HIGH>;
-+		#pwm-cells = <3>;
-+	};
-+
-+	reg_vcc_3v3_con: regulator-vcc-3v3-con {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VCC3V3_CON";
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+	};
-+};
-+
-+&dpi_bridge {
-+	status = "okay";
-+};
-+
-+&dpi_to_panel {
-+	remote-endpoint = <&panel_in>;
-+};
-+
-+&lcdif {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_lcdif>;
-+	assigned-clocks = <&clk IMX93_CLK_VIDEO_PLL>;
-+	assigned-clock-rates = <332600000>;
-+	status = "okay";
-+};
-+
-+&lpi2c2 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	touchscreen@38 {
-+		compatible = "edt,edt-ft5406";
-+		reg = <0x38>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_touchscreen>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <12 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>;
-+		vcc-supply = <&reg_vcc_3v3_con>;
-+		iovcc-supply = <&reg_vcc_3v3_con>;
-+		touchscreen-size-x = <1792>;
-+		touchscreen-size-y = <1024>;
-+		wakeup-source;
-+	};
-+};
-+
-+&media_blk_ctrl {
-+	status = "okay";
-+};
-+
-+&iomuxc {
-+	pinctrl_lcdif: lcdifgrp {
-+		fsl,pins = <
-+			MX93_PAD_GPIO_IO00__MEDIAMIX_DISP_CLK		0x50e
-+			MX93_PAD_GPIO_IO01__MEDIAMIX_DISP_DE		0x50e
-+			MX93_PAD_GPIO_IO02__MEDIAMIX_DISP_VSYNC		0x50e
-+			MX93_PAD_GPIO_IO03__MEDIAMIX_DISP_HSYNC		0x50e
-+			MX93_PAD_GPIO_IO04__MEDIAMIX_DISP_DATA00	0x50e
-+			MX93_PAD_GPIO_IO05__MEDIAMIX_DISP_DATA01	0x50e
-+			MX93_PAD_GPIO_IO06__MEDIAMIX_DISP_DATA02	0x50e
-+			MX93_PAD_GPIO_IO07__MEDIAMIX_DISP_DATA03	0x50e
-+			MX93_PAD_GPIO_IO08__MEDIAMIX_DISP_DATA04	0x50e
-+			MX93_PAD_GPIO_IO09__MEDIAMIX_DISP_DATA05	0x51e
-+			MX93_PAD_GPIO_IO10__MEDIAMIX_DISP_DATA06	0x50e
-+			MX93_PAD_GPIO_IO11__MEDIAMIX_DISP_DATA07	0x50e
-+			MX93_PAD_GPIO_IO12__MEDIAMIX_DISP_DATA08	0x50e
-+			MX93_PAD_GPIO_IO13__MEDIAMIX_DISP_DATA09	0x50e
-+			MX93_PAD_GPIO_IO14__MEDIAMIX_DISP_DATA10	0x50e
-+			MX93_PAD_GPIO_IO15__MEDIAMIX_DISP_DATA11	0x50e
-+			MX93_PAD_GPIO_IO16__MEDIAMIX_DISP_DATA12	0x506
-+			MX93_PAD_GPIO_IO17__MEDIAMIX_DISP_DATA13	0x506
-+			MX93_PAD_GPIO_IO18__MEDIAMIX_DISP_DATA14	0x506
-+			MX93_PAD_GPIO_IO19__MEDIAMIX_DISP_DATA15	0x506
-+			MX93_PAD_GPIO_IO20__MEDIAMIX_DISP_DATA16	0x506
-+			MX93_PAD_GPIO_IO21__MEDIAMIX_DISP_DATA17	0x506
-+		>;
-+	};
-+
-+	pinctrl_panel: panelgrp {
-+		fsl,pins = <
-+			MX93_PAD_CCM_CLKO4__GPIO4_IO29			0x1133e
-+		>;
-+	};
-+
-+	pinctrl_pwm7: pwm7grp {
-+		fsl,pins = <
-+			MX93_PAD_CCM_CLKO3__GPIO4_IO28			0x1133e
-+		>;
-+	};
-+
-+	pinctrl_touchscreen: touchscreengrp {
-+		fsl,pins = <
-+			MX93_PAD_ENET1_MDIO__GPIO4_IO01			0x11e
-+			MX93_PAD_ENET1_RD2__GPIO4_IO12			0x1133e
-+		>;
-+	};
-+};
-
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-c1687aa1ccf4
-
-Best regards,
 -- 
-Marco Felsch <m.felsch@pengutronix.de>
+2.47.3
 
 
