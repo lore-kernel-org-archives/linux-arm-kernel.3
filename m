@@ -4,217 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B44D30CEE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 22:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB3ED30CDB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 22:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B/U0fWtnqJfPO9QOGMxWQYPMN3lnCTPVy72s8Zg4oSI=; b=cxxwLM3Yjf+OCIB1sG3frwA/Kl
-	QPhSfO5aFJeDuLadnx92+PPnOah3cbuJG24QPBleANqfRZ4uE0nxAa3MRDOl+XO+bre1twB67T9Fe
-	G6dT+899wdpWHNVldvX1qpcFJ3QKI6nu1vAssM3KDLIh3CrOklFwu3vad7HrNmxXnCEQ6N/NYI7OK
-	SzrENyp7KZ/edNgcLdZVGChBBZKMdXjoriAFtKTsle4IbVnBddZOfZLtGSG/UGR3hkmavfTjWV008
-	G32qy6Dzh1HOvFyd0y3SwINQ/U3cXR96YqVKDwuwWS4dLypRi53RloRuedulE4nCQjNSlGM7BP1DX
-	5K5YbBZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pmmfdk/VKZ1fvQfbgF33VHoYwFfmSOZu5CB3CRtPMbs=; b=BIpxAK4LGxXrQv+Nnn1mc6FeIJ
+	htLEnmXTCUGnesZWx4F4Z/+ebHUgkq2YweyM0TsYV4D5n4whg6/B0ifk9wccEFbH6Ko4HUGJLn9WX
+	WEhmMNGZ+ZpSupVDxGTADE3MZCjVgZK7O6Il5y5BSJPnlHnBVIgggwFr2u6Flls6Q/AMsHpt+apIN
+	AdhK0jSnteNQcmoMiJ51SyODj8bSGKkGmAIxrSy3U5UN2DrBGHAg7T8aL9VUwZZ7icMU5nU2uyD6d
+	9Ce5JF52si8rHGTtaObsKbgR90yfHTIfFRZZd5G/MqIPFBSaZJd9KL/6UxsXfetPzIbp1yqNbf5bP
+	uTc/2dIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfmjg-00000007omn-16T6;
-	Tue, 13 Jan 2026 22:19:36 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1vfmsc-00000007pGv-1rsa;
+	Tue, 13 Jan 2026 22:28:50 +0000
+Received: from mail-dl1-x1232.google.com ([2607:f8b0:4864:20::1232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfmje-00000007omP-16S6
+	id 1vfmsZ-00000007pGX-3s1L
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 22:19:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768342774; x=1799878774;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=qL9gcuo8umnhxF+PTeU5/x5XH7Evu5gmXADmbtKl7u4=;
-  b=cWtwiC+mVJ2fJXghmWvD6bkKjRr4iJxUOO84Z8cmjVfRvFmw4g203Qf7
-   vEFNxPZj65SdIUezH7JxBIAZAnaMlnbBQASGEb77Vwr51GkevrmFJauez
-   CsqXVe+ap2cwb8ZOd+qyxJgq1IqyfRgA9532iypAvByp313xkidIOVm7U
-   qC97Ggm2HZIm0ZoIRHbrRtAprg8WEOIv2jRMSNaWzNLIAQ2x4LZm+o4Av
-   wqbfS2y6Lb3Hy2nQe5UtUuRrVNYI3uzeE3P8+fqUmwrdTzWXOBPlC3+xe
-   zfrJjqpJbaFwHZfrOPxFBx3xf1QushHu0ro4JLMrIgsVUOn1EhJ1lsfmK
-   Q==;
-X-CSE-ConnectionGUID: SXBdIraASkqhag3FPQq4Fg==
-X-CSE-MsgGUID: Tdk/ZnllQvu15Os6mIdPTA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11670"; a="80360289"
-X-IronPort-AV: E=Sophos;i="6.21,224,1763452800"; 
-   d="scan'208";a="80360289"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2026 14:19:33 -0800
-X-CSE-ConnectionGUID: Jz4jOFKAQcq7+REO+HqMbQ==
-X-CSE-MsgGUID: 9AJ0epMKTYWlyqoeBJDKZw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,224,1763452800"; 
-   d="scan'208";a="209030668"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2026 14:19:33 -0800
-Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Tue, 13 Jan 2026 14:19:31 -0800
-Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
- FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29 via Frontend Transport; Tue, 13 Jan 2026 14:19:31 -0800
-Received: from DM5PR21CU001.outbound.protection.outlook.com (52.101.62.16) by
- edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Tue, 13 Jan 2026 14:19:31 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vkNgEzqi5GNlVKSbxAbxNBR6Ar9drUvivO9vMJ7kOR44/lnA9VTjaTWwHxoN44QPQbGH+23e0bBNRMNVjZkIXvg70HERoedwHla1kUhFxNKm/ILOeUHS2VO+7qi/IZdjD8OtfBUFu3h1ahsTE86ZNK7Y4E/QI/ZPcJDnvEnis0T2vKK9lTDgfwAdfTJU8aAav2ZVe7R7rVC2yhKWCrde+bVO2zrc7cAYIjW1IYtHznJbWrcBCmVxiQBGvv8py8U7moUNdB9NQh90uvwx0SWMK+1p5ylkKaW0paZ1oKpMfsUH7YHv7M+kCrbPaXjnE9BLHWPR+JQx6Ef5WZ7mDV+OyQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=B/U0fWtnqJfPO9QOGMxWQYPMN3lnCTPVy72s8Zg4oSI=;
- b=ZlP6JMN9APjZXQ3kk5A3EaSIXzjCFe1BdhThMEOV2l0WlmNmNRIozWg73s86erYIt1z3NlN9tt90glticmU+gWnVu/JWGDxdJ9quaP3RhJY7xs1+Ab9dToVxh1N6/BbOPOU61JTvh7h70CvKrRNwzwj1ejsu+KKLk5kBM6vjsVr3Mr1suixg9mh37dG9SrWCPC//iB+Wf1BWusfktA9pYz44H+C4OLqk4xcgXSNWYrHW/c7CfGYyUvO6w9OktN0XhpnFkwiZbE+vaHQHdxxCuqOlOf5BSJvOpf9jYAxXghazb0ZpbvsjiUWZjJ4qvG7UP2j0/Vrgr0M2Wa/g7dI2tA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SN7PR11MB7566.namprd11.prod.outlook.com (2603:10b6:806:34d::7)
- by CY8PR11MB7265.namprd11.prod.outlook.com (2603:10b6:930:98::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Tue, 13 Jan
- 2026 22:19:29 +0000
-Received: from SN7PR11MB7566.namprd11.prod.outlook.com
- ([fe80::eccb:f6e0:36cd:a989]) by SN7PR11MB7566.namprd11.prod.outlook.com
- ([fe80::eccb:f6e0:36cd:a989%5]) with mapi id 15.20.9499.005; Tue, 13 Jan 2026
- 22:19:28 +0000
-Message-ID: <a48260d0-108c-470f-be72-1fd5235cf136@intel.com>
-Date: Tue, 13 Jan 2026 14:18:48 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 27/47] arm_mpam: resctrl: Add support for 'MB' resource
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
-	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
-	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
-	<quic_jiles@quicinc.com>, <rohit.mathew@arm.com>,
-	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
-	<tan.shaopeng@fujitsu.com>, <xhao@linux.alibaba.com>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <corbet@lwn.net>,
-	<maz@kernel.org>, <oupton@kernel.org>, <joey.gouly@arm.com>,
-	<suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>, Zeng Heng
-	<zengheng4@huawei.com>
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-28-ben.horgan@arm.com>
-Content-Language: en-US
-From: Reinette Chatre <reinette.chatre@intel.com>
-In-Reply-To: <20260112165914.4086692-28-ben.horgan@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR04CA0232.namprd04.prod.outlook.com
- (2603:10b6:303:87::27) To SN7PR11MB7566.namprd11.prod.outlook.com
- (2603:10b6:806:34d::7)
+	Tue, 13 Jan 2026 22:28:49 +0000
+Received: by mail-dl1-x1232.google.com with SMTP id a92af1059eb24-122008d4054so234023c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 14:28:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768343327; x=1768948127; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pmmfdk/VKZ1fvQfbgF33VHoYwFfmSOZu5CB3CRtPMbs=;
+        b=F7OadhJQs7LAJY7tXcTzkyskLvd79NM9B3M5zt/WWDgEjKzo7A54/Be5SV7ljoC42U
+         Fs2GsD0rVT/Bk8r7TKH9zUwuI5/24/iLSBHhzrduRxbrkf8vxE7L0hjDcE+1ocvjJvAE
+         hB87Btx/B0NK09Zeo5Rcb3UL+av2TbCcuRuJa5GD+MfovgB63MT2vQ5vOuEx4JrOVA3X
+         +jTKO5RFjyxHGC9MGIdXH7AuFWVOWmA8dX2UC1B0bQuwqB/8YjHg9JBQ1ApQ8ESnYweG
+         iLDAtAsOPIWWQ6H6heT3+FO6+uUnsez6H0TY4xnRwOU50mAuySWiCFrw/bmA6C1+W0Gt
+         o8qg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768343327; x=1768948127;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=pmmfdk/VKZ1fvQfbgF33VHoYwFfmSOZu5CB3CRtPMbs=;
+        b=FsCtmx6SpSPkxKN0JFCxjRfUS2DyQh2bqv7/J+kGfOvPigfM3kzb3PhdH5MGEkRhRu
+         nI8f9qMCbtBXR9UgaK6xtPewTwqUgEIiF6pOxTH4EudDkFhy/fCvPFp8SdBjVbJnXHXD
+         FNzur5XcMtt3GzIc/apQ88H04n6b7GJzqW/L1XzY+WzoTNSUoLb2WWAKrUMtkBDy4tFz
+         g9iv8oM+VPJT/7lEJf2i0Jl8YqjETiHzhH24317grVYzEo+2K6P17CSFvw3kYy3InSTD
+         k6Gs9FRDCxzgU3aU7YhbiHEICD1PMeZLrA7qzAwvWT9wV3HSxeNR5N5TMtkuXWLQbJAS
+         vU/g==
+X-Forwarded-Encrypted: i=1; AJvYcCUT5IwNsv5CjAIj8p/ehQNl6SjX8Bu/lOTITwo4ELmw3Y1s4aZ49j5+IAKh9igozfQBrKCmLB9P0YLekTirWh/c@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzAeBTvUA9YF+zQenF5RNXARlIJWwZAZAz2a7bh5lEGYK58ibs
+	Joh1BCteUhaQSBcIPrjcETq7hJO/XA7+kaV520WwHOhbC6oevuGX/usO7bDu3nS9EmP5ZBCh8r/
+	XYW5U8LvO0zZjHUVwdF8155y8p/SJeYM=
+X-Gm-Gg: AY/fxX4XGJMx0obtDOOMdBj/r4vDokqgRK8wZlf8qtx5Ju3v+5KT2vUL25WQ+965nZ6
+	2hUTYfEeM0hGenvIjc2HZejv/UECgdK4v5vSHf5C6ihQQbrd+Y1MiHvl5v6X6o0qBPYJekgxelI
+	6AEFHyHurJ/1EuoRkvNpNwCmoFlZ45vy+G92Q+LFRZQ27Ub9rbobPqW4gD6R8PZvrFBK/wB7lv0
+	LdiXJhz3sBj2jViCrFGDAEX1TycGALMTTdgcomDGkv+w9zItJb6Z/N9410PrR5LN8UG6cQbYFp2
+	c2Hbk6dT
+X-Received: by 2002:a05:7022:6284:b0:121:d898:edae with SMTP id
+ a92af1059eb24-12336ab1486mr479738c88.24.1768343326543; Tue, 13 Jan 2026
+ 14:28:46 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN7PR11MB7566:EE_|CY8PR11MB7265:EE_
-X-MS-Office365-Filtering-Correlation-Id: 87cc2b7c-65f5-4535-420a-08de52f1d13d
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?amRZVTlnODZydWtIRVF3Qjhid3FPUEpERzdLODZMNEVZTEV3WFBRdUgrZEZN?=
- =?utf-8?B?ZHRUMnRiUURsb2lJd1hod0RtenhDMW40czI3TFF2bURBdkpQa3l1N2pPNnIw?=
- =?utf-8?B?U0p6WTRkTG1UYnNnbzd6WHg4QktpME4xSUFNZEdOR2tPZnFDM3ZPL2pkcGY2?=
- =?utf-8?B?bjBndXlwZGxiVE43R3hQZEh6WVVEVFA5UWNpMldVU3VwbWN3QkNnRTJDcVov?=
- =?utf-8?B?U0xaMzd0NUEyVGYrSjJIRTlhenEwV0JtVGx4WXNQYjRxVDFJZG1XeEVhRTM0?=
- =?utf-8?B?YWo4SFFuM3dobjBmLytEQnZuQTRKUzJJb2xJbE5NanNTdWFsRUdQZlZkaVBH?=
- =?utf-8?B?TEJyNEwybFVaNVhmelRWbnV0WnV6TWladEVnd3RMMzBDbmhMTy9tNk9GRXZ4?=
- =?utf-8?B?YVQxb0N4U0FPR2dObDZEaTdoZHFNMkxyeU5XUjhEMGtNVWZObnFOK3oyc0lQ?=
- =?utf-8?B?WTJrc1FFYWZDN3kzUmlTN3gvMFJlV1FORUwra0srYWpzek42WWZQZUxmZGxw?=
- =?utf-8?B?eWtyblF0SjAzWG9IUjdVWGVEN3p6Q2pRdXVWYXlDa1ZaZFluK0lPQlRnMlRD?=
- =?utf-8?B?SnY1YnZvUnVWcTFwZDFHTnhzS0lsZUE0TFdzK1NrNEk4L21YblFjRnNiS0tw?=
- =?utf-8?B?OEpCQk1DS1ZTcGZZZEFQK3Q2YzZQb3RKd0hwV2ovSlFnMFViRytxalkyc3NV?=
- =?utf-8?B?MWs2MlBWVkxZWDY3bVhhQlZ1b2pmQTJUSy90dkJYWlN1V29mMS9YMWdyblFT?=
- =?utf-8?B?aXAwVzRxdTk4UEdQR3JwNzFDdktVRlBCUis5N0NRMlFxQmpLemtSSjkxTFVU?=
- =?utf-8?B?aW44WnNhZ2daVVV1THd6bFVqOWFOVUluVDdGbExWc3EzTy9lZzNuV0RDV3pJ?=
- =?utf-8?B?aUlPUXY0SndTTFd0M2g5aHVXOFZSekJmZTF3ejZkRVF1MjhzR3lSOXRUNUR2?=
- =?utf-8?B?NmlMNkhjeUxTbHh3bGUzM0xwQ3BBandxK0ZQdFJtR1dYZnFTVmsrMFlCQTRq?=
- =?utf-8?B?MDJYZUF1eElpblN0RTV3Wlp4d3B6MmNJbHhZWWl2VDZzU0o0czYraWRwU1d3?=
- =?utf-8?B?emxKVW9oQ1RPb0VPSGw3VkhqWVRCQ1AzcXJMbGJ3OGx1ME8zNUxjcjByOStE?=
- =?utf-8?B?MjNxMGV5cUFLTUVuMmtRd2NBTm1YeW5oVmpmeitWUVZWL3RqL09DUE51UzZO?=
- =?utf-8?B?WkFpaytoM0JzZERibWxkV1A2TmtPdzM3emZqa3VXSGhJNkVRWXFqcDRvRmtp?=
- =?utf-8?B?bTN0azdkUWl0TmRMTEI5RkN6Vy91eFRkbFhoVFJCWWlyK3VwbnllblNOejZB?=
- =?utf-8?B?UmxqRCtVRFlyd1diNzhFbkJna3BuUVhjQ1NRd21sR3UzaWpiQVJuN1JxZHJH?=
- =?utf-8?B?WGdmK0ZWT3RCVDBUbkxxNys0MGxodTZDWi9FMDNqUHFnYnJvS2g4Y2VsTEd1?=
- =?utf-8?B?R20xcXRSN2RJRFNnTTluVEJUS0gzaE5teCtFS0NVbTh4Yk44OHVDUDdLUytz?=
- =?utf-8?B?dis1TFFXa09oS1NVaHlaM0FoYWhEVnZyR3BNWmI1M1BDUnhmSEsvVjJ5NGk3?=
- =?utf-8?B?YXVOa0RyeGk2c3NWblBOdjdzdWd2V2V5MWhGSlB4TE8xSHhVWEdRYjBvczBN?=
- =?utf-8?B?QXhFd2Zkb2pPRFI0em0yZ0JydE9BQ29iNExXU2k0YXd3cHdBZFpXbU5xVEhO?=
- =?utf-8?B?U3h0ZkkvWkRxNFdzck5TcFR0UnByU0RUVGJPUi9nU0h3ZXFIZUo4VjNzSmZQ?=
- =?utf-8?B?K0VjOERIL0ZWeUdOcVZ2d1pITFpQMHNkQWx1WjdBdmdVYU9YdFFwTFlMbmlK?=
- =?utf-8?B?WmdtUHdJZnVUMWVlM3RoM0p1dUluSXVLdjdVMEJ2cTdFQnp6UmVNTC9iUFdH?=
- =?utf-8?B?VkpWM2V3QVo1Q0xsZHJhQmphUkJ1NmVrYncxTnEzSnlSRUMvMDBlUC9jdWtL?=
- =?utf-8?B?V1NqNVNSNlZNQ0tmMUp3MWZpdWtHTWlTL2Z1UnlTYnJPYzl0T05CeGJrTW5R?=
- =?utf-8?B?Mzh4WmxhcWFBPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR11MB7566.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RkU1SFF1RGZtUFVLUDBaOCtMUGF5VGZSZGdVSkp6dkUrRDI0VXRaUXBuRmNw?=
- =?utf-8?B?OVZ6Wk81SitDNnFVV0xiMjVrc1RUYlRKUEZyaEZGSFpTcUJ1S29Wa25SVkdE?=
- =?utf-8?B?bXlMYnNLcjhPenllcnp0a0s3YnpVd2czSHU5dHppZ1ZtOXpFa1FHM2YvL3hh?=
- =?utf-8?B?V01YbEtkNEVySGw5bTVZMHRpY3BYbU0yMWp1cUk3SkQrUHJsSlNEckJ4dUk4?=
- =?utf-8?B?Tk1tdDhtZysxcTd6WWRQdkJMVitsU1J0Zzhad0E3aFdxeW1CZHVxQW5LZkFB?=
- =?utf-8?B?ZXhmVkZFRUY5N0Mvc3N5aG9TeXdENjY4ZWFacHQydzNNS3Q4UVBOa1dZN0Vq?=
- =?utf-8?B?elV5L2I0SEFUSGs1akxHWHpmajVPN3Z2SDZhYjZxdGdpdm5iVmhmNjJDdGp1?=
- =?utf-8?B?OFpMYlNXQ3IvZjE1bU9ZcFlUanNaMy9OME5EZTZyai9SYURtSW1BdGtiMndQ?=
- =?utf-8?B?NytBOTZvK29PcG1uRW1vZVlnY2ZMSUFwUzRQV3VyS0cvcXpOcVRnVGpmbW4v?=
- =?utf-8?B?T3ZzRitXNUFiUjdsUmY0MGZOaGdSRkZrM0RDaFhaMjBDbVg3NkJ2QjlpSEQw?=
- =?utf-8?B?U1hXLzFlcWZseGJnbEhjN3BKMEw4cHo1NnQwTW5yd21Seno2K2tzT0VRUnV5?=
- =?utf-8?B?ODZkT1BrTkRBcVJIVkozSkRCY1YwT3RNVkdJV3RIK09MQkp3T0lVTEJvalVh?=
- =?utf-8?B?NmttN3QzTjJ1U1IxMnhNUVhXUnAyUjh5RmYwdjIwM3d1NTBWSUZRejlpMkph?=
- =?utf-8?B?eS9haWcxQkdxajFjdUErc0xHeXVGWDZUUUsyd0grZ20rS3E4WjR2SVZPenh0?=
- =?utf-8?B?ZXdLNlZCU25uNVBqVmRCZTFqWXNXTS96eWltejdSVCsra3J2dzdZeUJBOWVh?=
- =?utf-8?B?bXlJeEZadXcweUJQQVR2bzljUXhxc2ZYVnBNR3FvMlJMSkwzZFlNMlh1OGpR?=
- =?utf-8?B?ZkpaVXZmQTBwMHBLaUc3cHlVVTRSRGp2U2FHclFUWUdDVnhYMTNBWXhnMTRt?=
- =?utf-8?B?dlF0WkQxRWtUQW8xd25vd3VQWCs2cG5Vb1NaaStHWFA2NkliQUIxVWNDOUFm?=
- =?utf-8?B?eEROZXc5ODVMUmx2V3lHUEFNaGYyaXA4VndxVmJ0RkMxSlRkN2taandZZHla?=
- =?utf-8?B?dWsvVk1FZXoxSDB5RDdMWlErdmM0MVc3MTJCcnBKdHlwdVk5aGROT0FMZEZh?=
- =?utf-8?B?MTJKT2I3cm4zQVdWTk5SWFFoaEVvZnd1ek9YK2xOeVpua0E0bng2VWdnZlJL?=
- =?utf-8?B?V2JJTUR5cjcvSVE2WGF4L3NyZFdwUzVabGFaN01VSnQ5OStLcTRCU1JRYWdq?=
- =?utf-8?B?ZCs5UVVoWC9UZk11WDdFTmhNODNMYkJUN21qL2Mzd1I0VTdyS1RzeWhHQS8v?=
- =?utf-8?B?WU91U0lDa3J3VGpXMmw3OHFCME5jZzRJOXFwanhUcy9CQkk1ZldicncwL3Nk?=
- =?utf-8?B?SVJjTFVRaW9oNTNsdDVKa3E0QnA0T2tnTExvdUhJUDVyVlhaQnNTT0YySCtl?=
- =?utf-8?B?S2pWakR1cE93d21rQlR1Q29HNElLejNVLzRYOVhjOU9zdDZiaUloZzdiNCt6?=
- =?utf-8?B?RFFkdTJEc3pCNGpXaUIrZS92a05jTnRTTENFakw2NFAwK3VxOW12akVMTldI?=
- =?utf-8?B?NGs5VmRuS3hPNUJwUkFldnNORkhSQ2NGVlp3Q1hqU2lta2I1M0ppYmtiNk9J?=
- =?utf-8?B?akdqYWR0cHYzOXowSnIvKzNLOXpvRitMZ1ZFK2NkSnFsQmh6UUJqRlZaY3RL?=
- =?utf-8?B?RGVFUFFSQVh5NDF1amwwVjdkMFBFcGZoWTNxRVM3UGpjeFRINURhRTVBOEc2?=
- =?utf-8?B?Vkp1b2lobkV2WTAraExRQnc3RFZ2aG9IMFNHVGhXdXhIVmswOWo1cEk0TDd6?=
- =?utf-8?B?cllFamN2elF2WG95VnU0ZVo0UWxBK3Erck5URTUwUXJrUEZJU3dkWjJ2S2Zn?=
- =?utf-8?B?bkF1QVFtcjl3ai81eTg2czRxYjhLcitXSTU0RGxxZmhQYlNGVGJTWSs2enNj?=
- =?utf-8?B?SlVMQmtoQjlkTm04RjJtbjFpUUFuZlF0Z0xyQXZMbGx5MDdtNlZYMkRPMjg2?=
- =?utf-8?B?Vk5mbXlrVlphU3l6UEhhZUZQUCsyMWxDd21Demh1MXdlczlSUzk1b0QxS3RK?=
- =?utf-8?B?LzAwdGM1aGI3bEZvRmRJNTB1d3oydnh0TVdUd1dmME15TlBMeExiYnNsQXpl?=
- =?utf-8?B?aGV1Z0VRRjlYRWt5Z2lYVnpaOWRPWjg4QkpFWXdQS1lZY0FTZWdFMENGbUhX?=
- =?utf-8?B?WXlaWVo0MEJ6QitPM2pZdXhXVmtLdXlXTWQvc1ZGMjVxVHpLS3JIVG1QUVRT?=
- =?utf-8?B?Q0pLOG9GcEpkaUNsbm82a1hPbld3SjJEcGtkMktkWEp0RE1Ga0hKbWI1UzhG?=
- =?utf-8?Q?zddy4xQO4paKkVCQ=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 87cc2b7c-65f5-4535-420a-08de52f1d13d
-X-MS-Exchange-CrossTenant-AuthSource: SN7PR11MB7566.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2026 22:19:28.8512
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wF+QgsleYNJESBeFe+gozNNERAvlV4tpytqJfW75E9SaTRiZlm0jwkjPncJ1tMsX0dAfafMKIat1Vl8IoqsC1PaOaVpjR0G8xPW2TD5kcSM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR11MB7265
-X-OriginatorOrg: intel.com
+References: <20260111201040.162880-1-anirudhsriniv@gmail.com>
+ <20260111201040.162880-2-anirudhsriniv@gmail.com> <45bdf2a6c0d33dd6ce0fd3cc279ef6edc509a540.camel@codeconstruct.com.au>
+ <20260112-whimsical-annoying-fulmar-25e4d9@quoll> <CAJ13v3RKydFK+sP_Cm-HnQjsOJSDyX_dsGs_Yy564V=Wc7tQFw@mail.gmail.com>
+ <e97b7a193f8bbfca9ec00037808ad80a5baf9f00.camel@codeconstruct.com.au>
+In-Reply-To: <e97b7a193f8bbfca9ec00037808ad80a5baf9f00.camel@codeconstruct.com.au>
+From: Anirudh Srinivasan <anirudhsriniv@gmail.com>
+Date: Tue, 13 Jan 2026 16:28:34 -0600
+X-Gm-Features: AZwV_Qj3tLQCdlXGc4mVCUHplcJiv-ygH2rDEByc1Cc6_E5RuzTQMstHuy-HUGo
+Message-ID: <CAJ13v3QYWRfyivrbP=+hreHuMkYWGPkngW3kJyq6xNVL6YdpgQ@mail.gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: arm: aspeed: Add Asus IPMI card
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_141934_348140_9F1704E2 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260113_142847_964725_0B3C7CB0 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -229,22 +100,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+Hi Andrew
 
-On 1/12/26 8:58 AM, Ben Horgan wrote:
-> From: James Morse <james.morse@arm.com>
-> 
-> resctrl supports 'MB', as a percentage throttling of traffic somewhere
-> after the L3. This is the control that mba_sc uses, so ideally the class
-> chosen should be as close as possible to the counters used for mba_local.
+On Mon, Jan 12, 2026 at 6:57=E2=80=AFPM Andrew Jeffery
+<andrew@codeconstruct.com.au> wrote:
+>
+> Perhaps we could incorporate either of those?
+>
+>  * asus,e21524-ipmi-expansion-card
+>  * asus,ipmi-expansion-card-r1-04
+>
+> However, they're not without some risk:
+>
+>    1. It's hard to tell whether E21524 is properly representative
+>    2. R1.04 may also problematic as an AST2700-based card will likely
+>       restart the numbering and risk a collision
+>
+> Otherwise, I guess there's:
+>
+>  * asus,ipmi-expansion-card-ast2600
+>
 
-fyi ... [1] enabled total memory bandwidth to also be used as input to
-software controller and additionally enabled user space to set per resource group
-which memory bandwidth event is used as input to the software controller.
+There seem to be multiple revisions of this card. The photos have the
+revision number printed on the board and the manuals have the E21XXX
+number on them.
+R1.01 - E21362 photo [1] manual[2]
+R1.04 - E21524 photo [3] manual[4]
 
-Reinette
+Mine is the latter. There seem to be some differences in the layout of
+the different headers on the board, but the same set of headers are on
+both boards. There is only one fw image on Asus's site, so I guess
+they're the same from a sw point of view.
 
-[1] https://lore.kernel.org/all/20241206163148.83828-1-tony.luck@intel.com/
+I've linked a screenshot [5] from the webui on the stock fw and it
+says that the firmware model is "KOMMANDO". Asus also seems to name
+the fw update file for this board KODO1140.ima (KODO is short for
+KOMMANDO?, 1140 is the version number).
 
+I looked at other Asus Motherboard onboard BMC fw updates and they
+seem to be named <Mobo Model><version>.ima. Example board "Pro WS
+W680M" [6], fw update name W680M1121.ima, another example board "Pro
+WS W790E" [7], fw update name W7901167.ima
 
+"asus,kommando-ipmi-expansion-card" is a bit long, so maybe we should
+go with "asus,kodo-ipmi-expansion-card". SEO for either of the 2 terms
+is not very good, but that's not what we're looking for here are we?
+
+[1] https://uk.store.asus.com/media/catalog/product/9/0/90mc0ah0-mvuby0-7.j=
+pg
+[2] https://manuals.plus/m/8bcc92c2f7a875eda34d546e0e297d339ea55863fea0c6ab=
+cf0f338cd26f299d_optim.pdf
+[3] https://i.ebayimg.com/images/g/Um8AAeSw27JpOYcU/s-l1600.jpg
+[4] https://dlcdnets.asus.com/pub/ASUS/mb/Add-on_card/IPMI_EXPANSION_CARD/E=
+21524_IPMI_Card_QSG_V2_WEB.pdf?model=3DIPMI%20EXPANSION%20CARD
+[5] https://ibb.co/kg96CsYY
+[6] https://www.asus.com/us/motherboards-components/motherboards/workstatio=
+n/pro-ws-w680m-ace-se/helpdesk_bios?model2Name=3DPro-WS-W680M-ACE-SE
+[7] https://www.asus.com/us/motherboards-components/motherboards/workstatio=
+n/pro-ws-w790e-sage-se/helpdesk_bios?model2Name=3DPro-WS-W790E-SAGE-SE
+
+--=20
+Regards
+Anirudh Srinivasan
 
