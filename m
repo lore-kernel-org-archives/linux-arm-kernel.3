@@ -4,139 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 579D7D0C844
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 10:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE78D0C849
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 10:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8mDPaq0hclLjwSYmTrQ6n+kDZ3N8OGbVHga1O58ScVs=; b=STVYV93dHYN9h85tzd9EVUhohQ
-	UdPoF6Bz+og4w3/bRMTUFqABFISp2rUP06JPoAf1OKwCtVciY9IFFdvwKo5kBU298XDikH78DwVMm
-	cIS7mtqXHfL9q6JA8QZOciELkaajGYWjBIruvPApw16cueL1sUsuND7a+VCk0Uf7vlZYgWIuJ0qV+
-	qsrxr5GmUZV65ucPCXSO7uqMAl2DQNd94NkGsSTExMPnzIFhg6LavVP0Yy4rNF6merEUza5fH6Yyw
-	dCOdCd3WTM91LefQ/lhjXhrsHBGn40irRXwdiaV0nYZJVPL5wrW+aQR2r/UTMk4HICk3koJWnZ7FZ
-	UA5xcc3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R57GIPJ1gYSzu3J70ldd/dOjFxjsDbS7YC9aQXM4Nx4=; b=BS8K5rHyn4B0vfTLRXI3VrXW+v
+	E/tU1MFFUXNss2zKBrTxTtvOIP7t89NTlCcQekK/9rWZDaThWXQX1YALz0l9XUapjJLa0zaAaTkbt
+	6rk4Grug7qsd8rb6RCuq3eqrd3c3wqXLQSd70k03Z58KOsTSq0RvrZa9rCnmnbqDvrROiGVOdmQQW
+	SURteHuAf2FspgR+zTTXecxYEY9dC9XzPZXZfQsxdRl5tUzyuRKfL0D7aLCVldbp/wQD2cS9oS4NO
+	nQ2umpmqsoDBF9Rti0G09VmGGiiPt+/MuxcOtCU33gj7LaPp9uchvIF1qtorMAbyL2tPJBSQHBby+
+	8pBF+7bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfbiw-00000006ukt-3OId;
-	Tue, 13 Jan 2026 10:34:06 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vfbo5-00000006v4F-2E6j;
+	Tue, 13 Jan 2026 10:39:25 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfbiv-00000006ukI-08J2
+	id 1vfbo3-00000006v3i-0LrO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 10:34:06 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60D5bAXN3637494
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 10:34:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	8mDPaq0hclLjwSYmTrQ6n+kDZ3N8OGbVHga1O58ScVs=; b=hQchbHPF+Uvlvg1y
-	CXDUcj8D6h1bepkHTMSbtg1vC968XhvjSJE4qiW5DsW9SaCBEsI3esoUAQdlbYQI
-	qKGPy4sSHAwc7Lc+21ue5X79YVxC1CbJfOWibnOCk5E/rvBzH0t4q31aLrJ0yW4n
-	kbZCVvzl7h0QfH4EmXq4H7d2A+7qvbw0HKbJLnpOxH5fDYQian5MUmemgxX4hrPq
-	//38Dd/VLsx423jfBFqPdLODGwriNqJdE+AJGDTdHJp2lk9xjoR7bQ6EO3MC8ISd
-	8+uvP8f+mZeQXflUwfTse+SpNNm2oqDCP1dsigpHVQgsMoA8He7eDc6xBhaepmq4
-	LGYaDw==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bng2c0xj4-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 10:34:04 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8c52d47dfceso252685a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 02:34:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1768300443; x=1768905243; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=8mDPaq0hclLjwSYmTrQ6n+kDZ3N8OGbVHga1O58ScVs=;
-        b=SK+05PTT6O/66bZXfBg2Uk/9rgJGf/H5dpiy09DG7zhVi1gvFO4QBsJJm6v4NvDD2r
-         zC6AzQ42ZzvYchRPd5qwSosUgFCGT/GqQ577Lsa6QUWIcXLEgnpbgQXMNtWSwXVFSDmy
-         hpk/bOz5Ihfy8wDsJ/OsBvBvaH+Tiv91m/C3z6UTWxLBU3LeaBKmaJNWcJ8BoyLim7Hq
-         l9DCnq1nKn9akO9JTLivO/M6OuZ4JFj0MZy0yuf7aUhPkBQUI5/HUCCkKRYqcP4LDBDy
-         mbOVoTg8cGgr8UeNNVYUPuayLbdj+ODTnUGHVv6YIEb3TIun8ajUW37yfdlLo7U6k9YU
-         V97g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768300443; x=1768905243;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8mDPaq0hclLjwSYmTrQ6n+kDZ3N8OGbVHga1O58ScVs=;
-        b=HikNItFxV2xaqoVpbsC2LMljYr8OU/zqGjdNC21CSOxJSRKkURLY04ibZSEutx/6K7
-         WLvWrxt1m5Myw7P4Xp9A5aZIcQln7PgpwZbbnFN+h1ITzjYlsZBLCqrQsJsZRR+QxRb+
-         X4uiv7KBWA8i6rJVg1uylMXfgSgZ7ClL0iYLAe6FHvZDP8NBBYBw9YaBda+ShZtcG4Ny
-         NrEhUUXCM7ud8Uf6Y56Sdot1ROwc3A9IvR5PKt64OlL3JUopOhYTasqTWXoxWjbsUU2r
-         Dsocxm0wuMQDgmyRp/fILX7j+AlCoV2ENCSRABdjLEuzm/GLx4vCzNvS9cBRWeJFYax8
-         wKTA==
-X-Forwarded-Encrypted: i=1; AJvYcCVlEPHM6GcxsWk2OJaGX0gHEss1XD3dvf3YbVdzxTsxu5WGCoVJIw+lc5xwzjhI6q4icw6O2G7kSC3OQz5O7mRl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3XKEA5V3Gln/CgaOsS2h1d48bMEFHt5Q3e4/tDWdvFtLJd1+h
-	p2XMVGBhavVJRLT8DrWvMvF7p4Lo81thJPTsguwo4ulfOrpx31yT6fJPw0N8gr5m07XK2+EFvJr
-	K++zVM8vRJ7g0VXhyx/O5v+rn+ceoRB8jF0Q+saD06QTa4rGQ2lkFUCFQvenigXIPj30zVnsUQ+
-	tmNg==
-X-Gm-Gg: AY/fxX5WfEmCTNdnNuWrw32OEfxPWN4DvQnh9adnRx9g+3g18+V30LQLEsnyDnKO7ye
-	Vi46MO9sVl3oTIc5eeKtBTSGjEvKuY0y4MNoe1YgFggZPN4PA1fLKa63OtZMBr2SALGS1dKLcIH
-	PWwLq0o2yd/zgz3SJHywJnvZfYn5n+WigMwtk1kgI4afJAwlJQrRhzqkucua1FT5z5SOHTzlHoz
-	4SdLaOOG06nxk081lqgco8CqlIP26GiyEpbQM7OgSdgJS+gGykqZNEXtTGKvUQsPZ5Y4D1cNt3d
-	1fgUafPgIq+4hJQoOtpwCszjZfnxeqOeM/7DaqJfZllFnw1TdDIjp50eTWRlUEse/LIJjORzm30
-	KXeKoNnKDr8cFL1sUzXJSX0WfxHZwrhwFGE0Wtxd8Yu39Uqm+L+SwQd6emwbubqDRCOg=
-X-Received: by 2002:a05:620a:bcd:b0:8b2:e19c:67cd with SMTP id af79cd13be357-8c3893fd8femr1953528185a.9.1768300443183;
-        Tue, 13 Jan 2026 02:34:03 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFJACxFutkrDz6BTVbO+uCz2sZFjD+cOF/xK1HFoRB0R+KXXMAzENrCTjFRt6r4V9cac6GAwA==
-X-Received: by 2002:a05:620a:bcd:b0:8b2:e19c:67cd with SMTP id af79cd13be357-8c3893fd8femr1953526085a.9.1768300442628;
-        Tue, 13 Jan 2026 02:34:02 -0800 (PST)
-Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b86fee09153sm899209166b.29.2026.01.13.02.34.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 13 Jan 2026 02:34:01 -0800 (PST)
-Message-ID: <c5569d62-1dd5-4dec-8cb9-dd1c6e3938c6@oss.qualcomm.com>
-Date: Tue, 13 Jan 2026 11:33:59 +0100
+	Tue, 13 Jan 2026 10:39:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tL8paVWqDY/QBf7thOyN8z3A5t4H31aqz9AHu/mWAhBLwvdv6BahOIEnxjHZsnB1b48Jeot2KYEYsaP7UzqzpfKQS9lFNFBdfqGdL+Rrwq36x7jbnPZ39Ai951KeMkfTeUN7L7m6pJM/ZmLUBPqxE/yEl8OE/bsIhXJPgCjl1EH/JmfNhBaJ1Jk2/YymX1iYDRI2HemmnLN/Im37Hp+7D91A1rts4RC4qFwaDSiWoyrN68bXyVp9GxU9xl/ch3c46eswHP8XAZkQ0S5u+S6oVqxjqRgjNbR8HAl6cFrU/9QQQs7KvR9r1w7uoR3C3p74cpVtzBtXam2Xe3IEJjIsVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=R57GIPJ1gYSzu3J70ldd/dOjFxjsDbS7YC9aQXM4Nx4=;
+ b=lZTF1uMW6E3VflPF37XSpRI99fwww5oHPjU7+vSJiSXS5igbvRrskgZIyF0BQy2IvxXVddpY0NrBrWNHn7p14c2ITJ1ZrRkLE4aI+bQSi6RhM+3I4GA/Mp0kmMG08wP8xdXKPkF3zOTrW8ZmyJJfMZiHcLbJKA9uvB7xPA03yhOyrQW5Bm3I2Z/yIZhjFApK49/GuOfa6uOJMFmCG4YRid5fp1lpOc75Pa0tKrdAlzzFUh70ia3gafst/bXPk4yPccfmeqyXncvcUkfey9fU2igm9P8ZQlequwnCt+mx+z+C0BUHxpdJQsD7npBuFAARmUSxQMN2UIS+GwP1ZZMMcw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=R57GIPJ1gYSzu3J70ldd/dOjFxjsDbS7YC9aQXM4Nx4=;
+ b=rPxj08shEDLnWdPgI6Y1vNCkn9wD5tk7dvvDhExdljsLG2W8C8yDK5SsdPEEPyaFqsM2DZJOuzR06d59uoyTzRdsuQIG/07+8rTNDHF9r4HI/ChM6R1T4Xc+ZW2gHIo9gxCDMyruv5pjpqkBk/PQ3eSfBrj1EZ98s4WQGGy7N1s=
+Received: from BN0PR04CA0035.namprd04.prod.outlook.com (2603:10b6:408:e8::10)
+ by SJ0PR10MB5671.namprd10.prod.outlook.com (2603:10b6:a03:3ee::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Tue, 13 Jan
+ 2026 10:39:19 +0000
+Received: from BN2PEPF0000449D.namprd02.prod.outlook.com
+ (2603:10b6:408:e8:cafe::22) by BN0PR04CA0035.outlook.office365.com
+ (2603:10b6:408:e8::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.7 via Frontend Transport; Tue,
+ 13 Jan 2026 10:39:19 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ BN2PEPF0000449D.mail.protection.outlook.com (10.167.243.148) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.1 via Frontend Transport; Tue, 13 Jan 2026 10:39:17 +0000
+Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 13 Jan
+ 2026 04:39:14 -0600
+Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE202.ent.ti.com
+ (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 13 Jan
+ 2026 04:39:14 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE212.ent.ti.com
+ (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 13 Jan 2026 04:39:14 -0600
+Received: from [10.24.73.74] (uda0492258.dhcp.ti.com [10.24.73.74])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60DAd9k82011706;
+	Tue, 13 Jan 2026 04:39:10 -0600
+Message-ID: <25c59291bdf9dbdf01d5225e20062b19f4852b28.camel@ti.com>
+Subject: Re: [PATCH] arm64: dts: ti: k3-*: Replace rgmii-rxid with rgmii-id
+ for CPSW ports
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Tom Rini <trini@konsulko.com>, Francesco Dolcini <francesco@dolcini.it>
+CC: <u-boot@lists.denx.de>, <nm@ti.com>, <vigneshr@ti.com>,
+	<kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<srk@ti.com>, <s-vadapalli@ti.com>
+Date: Tue, 13 Jan 2026 16:10:27 +0530
+In-Reply-To: <20260112180637.GR3416603@bill-the-cat>
+References: <20251025073802.1790437-1-s-vadapalli@ti.com>
+	 <20260112074948.GA101138@francesco-nb>
+	 <20260112075636.GA105765@francesco-nb>
+	 <20260112180637.GR3416603@bill-the-cat>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 2/7] qcom-tgu: Add TGU driver
-To: Songwei Chai <songwei.chai@oss.qualcomm.com>, andersson@kernel.org,
-        alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
-        suzuki.poulose@arm.com, james.clark@arm.com, krzk+dt@kernel.org,
-        conor+dt@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
-        devicetree@vger.kernel.org, gregkh@linuxfoundation.org
-References: <20260109021141.3778421-1-songwei.chai@oss.qualcomm.com>
- <20260109021141.3778421-3-songwei.chai@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260109021141.3778421-3-songwei.chai@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTEzMDA4OSBTYWx0ZWRfX5UIlLqKBUsxq
- pROdaup3wtiB2Vsvx6odW339NO6o9pDiq4I4CrP2sA+RrbaXTTqQ/GPe6ABGS6+Agh4+i6tQYDG
- 19dlmXk0azycZR2wEy1AOs/WL8Y0SJLVzC6wW4ZSGFtxhF+wJ/V3IP6UX0s95tp+uY8lxMYHXFi
- nngKz9nUzVyt13K4TDcovT2XTB0vHFN1uF9o04CcvoKj0F8AcSK0BpnSQMrQ/1whTIG75QqUTWz
- YG60fCkSg1NIWN8upz+wRJ6hHqwTS7i5knJs867RyQxgCSYMCpPRuasSCUUzHJ0wG78kj2Oltzi
- 26RQuFpkjVOyFuihuAoYSvOEDzihzWI9pgzvNwBK5r+cd3W01IUue1nv/3NJHIJxI7DRcGzLlSl
- QWiWvNG0Ql0A9jnwNHB6QM+CpGhQohRi1BE6AhX76LIOAXc2MYLvj1yuAoD37F/Bpst9WJG8t67
- W2ongdzFWR0VOna21Yg==
-X-Authority-Analysis: v=2.4 cv=C5TkCAP+ c=1 sm=1 tr=0 ts=69661f9c cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=VZhoWKq-FIP5gklq0E0A:9
- a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-GUID: fgigffCWtfpSbXyv_2Anj_b2xSH-4TRF
-X-Proofpoint-ORIG-GUID: fgigffCWtfpSbXyv_2Anj_b2xSH-4TRF
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-13_02,2026-01-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 suspectscore=0 lowpriorityscore=0
- malwarescore=0 clxscore=1015 bulkscore=0 impostorscore=0 adultscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
- definitions=main-2601130089
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF0000449D:EE_|SJ0PR10MB5671:EE_
+X-MS-Office365-Filtering-Correlation-Id: 26dcbf20-9c21-4870-6e2f-08de52900101
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700013|34020700016|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UnB0TnVld245UGptbVJ4SFJ1MzJqMGhIcDljaENmZDdoRGp1WGU4bmRPMnNS?=
+ =?utf-8?B?R3hJOURLZDBQemFpcWF6Z3d3WFBIbFplRmhwTGZYM2Fib2dGbVdwdVgvZ0Q4?=
+ =?utf-8?B?cGdMT21Iak4ydEhWL25FNEZjVHdkdzJUODVYU25LSXdpWEdCQmlwcDBGVzU4?=
+ =?utf-8?B?U2FmME5HZGFQTVVhbFdpOWhmeExEbTNaUmlPaWx3Z3pMNFZibHI2dDI3WURB?=
+ =?utf-8?B?aFFyNE5QbzZZbVE4VFRjVkVpYVlWNmNwVndsbGN3Um9qWVRiQndma3pndThE?=
+ =?utf-8?B?U0puMGswU0laTFV2MmtKZTVGSk1HeHJ3OWdVT1RJaUc1OUp5ZkpTcGl6SHAy?=
+ =?utf-8?B?WVE5aklwSG56cWxya20xS0RWb3pGTW1RRi9YQkhtdWxOcmc0K1gwMUxLVkFq?=
+ =?utf-8?B?VjFJMmgzb2pIQXBtaHBNWWJwS0RvVWhocTh3SVk0aDRkcGdiYlovUlZXSTZr?=
+ =?utf-8?B?d3N3ZUQxMXN1ZmcyeXQyempsNEtucCtHemZmY2Q5b1Q1R1NjMVN1aGRnczJw?=
+ =?utf-8?B?Y01BZzB2OHlZM0VUMlBkNkZwNE1lczdXNytmVFV5cEROeFYzQ2FkZlBiY3dC?=
+ =?utf-8?B?RHFlNlBtQmhMM3I3TEpsSitvL29GRE1FSWJaNktSMk8rdEVnaWJ3K3ZVWk45?=
+ =?utf-8?B?OC9COHJGUW10K0tpbGl0SURUWGlkUDV4dmljcExXV25jbjhzWFB2eUZuNDdL?=
+ =?utf-8?B?Uk5zaWV0dlhKSWNVc3ZLdXc4NVcyemwwNThPeFJaMGJ4N3krT21LSFBpaHhP?=
+ =?utf-8?B?cUdtT0tkWnRGMDY1bUtkclNkejdqRTNEQUQ3ZUVzSjc5MGZQWXhZWUZPcDFN?=
+ =?utf-8?B?Z0xjcUFXNVNFbVBRbUxiMVVUNjVLTnJFL1lldGxQbllFTmRXcHpEeGorTFBX?=
+ =?utf-8?B?aVg1cER6aEo4d2tvdDh0TWtaekdIY3hnS1VMUExVYlhPWWQrbkM1T09remV5?=
+ =?utf-8?B?OTJGMGZLZUR6cUNEYUNRcmFZMnRvNWJYeWRDNFpkWndZTVh4QVZ1aEdPNWFh?=
+ =?utf-8?B?a09tNG1Pc3pYS1JuUUgxZE8vSHRoakhaZ1RXc1lJMkpERVlkRThiYU5LbkI1?=
+ =?utf-8?B?Y2dlOGhEQXRnRFVFZ2JGcTU1TkNhcDBvZEhGSXpjZU5HY3NlNExOT1hYUjEz?=
+ =?utf-8?B?UnVTZlBxY1hhbkhrc1JNWEp0TkhsSkIvUFdhdVFHYVBjWHpFVkRyWlpYcVFK?=
+ =?utf-8?B?emZKS21zTHJUUW9qY2RsT3ZBRDcwQ1pPVFhMcVhGb3I0c0RaTFErMTFXYnMz?=
+ =?utf-8?B?UmxiTldIbkhkekhIWUthVUVkZVRFd09lUFd6eVpUU0tTcm40SkUrbG1keE1q?=
+ =?utf-8?B?K2JzbVNoUHJlRGNhNm5DTDlMVUFxVXNWOEVkZEVYN1piby95MWx2dFpPV0FV?=
+ =?utf-8?B?Tnhha1NMeHpxOG5Zc21Pblo2OS8yejdFVi9FWndvcURmWjQwV1p2MFp3MHNE?=
+ =?utf-8?B?NGl5dHYyZDVZWWh2b200NWNpNlAvUlpja2xJUzdDWUF5VXlGTUU3VFd5aHc0?=
+ =?utf-8?B?c2lqSXRkNU40MEs3RjlkdjF6ampOYzZmZkZxVkdYSGE1VnhBc1JVbjF3blFm?=
+ =?utf-8?B?Sk9ONGtEbnhFOThRQjI5b0wwT3hTV2dJS2FyZ2dseFIxRk1sQ245NktyOVlR?=
+ =?utf-8?B?WkFEMTNwNDdVazQ1bmxlN3pLTWZYQ21HVU9qQ0cwWUNpc3o4ZUdXMzkzK0F0?=
+ =?utf-8?B?UXNZZFNVbHo5dDBGMHk1UldFQ1p2Q2ZsUWJ5ZExjSTV6UlZCQ2JLMk4rYmhn?=
+ =?utf-8?B?c2o3bjA3U3p6SS9TaWtmbVpCemNTVkQxOVNBZFV0Zy8zZFNldmN6SjZjaTdw?=
+ =?utf-8?B?ZW1pQVQvRjk3UHFZTEY2dGUxUUdPcjhrVEZYTTM2c1N0U2ZYQ254MnE4S2w0?=
+ =?utf-8?B?eXhJOGFOQjhiYURYTlQrdnZFeXVpbWxsZ1hlYjY4V01KR0V5dityTnludnFs?=
+ =?utf-8?B?WE1aaVh3NUhlK3RVVkpCMithY3N6SUJTTEtVQ2VlMFRrdnUvNUFzbzRKNmdv?=
+ =?utf-8?B?NzUvV1RzMzZLVXJFQ3R3SXVlNHIvYVNDdS9MWlljMnFHenFWRTNZK1VGcWJl?=
+ =?utf-8?B?NVI5VEY5MFhnQkRQRWF2U3ljejIwZ2c3ZWFlMFVTanR6TytweW15YVgxUk9p?=
+ =?utf-8?Q?1blg=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700013)(34020700016)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2026 10:39:17.7645
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 26dcbf20-9c21-4870-6e2f-08de52900101
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF0000449D.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB5671
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_023405_080309_44B39DB6 
-X-CRM114-Status: GOOD (  29.42  )
+X-CRM114-CacheID: sfid-20260113_023923_141906_AF98CE7E 
+X-CRM114-Status: GOOD (  28.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,163 +169,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/9/26 3:11 AM, Songwei Chai wrote:
-> Add driver to support device TGU (Trigger Generation Unit).
-> TGU is a Data Engine which can be utilized to sense a plurality of
-> signals and create a trigger into the CTI or generate interrupts to
-> processors. Add probe/enable/disable functions for tgu.
-> 
-> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
-> ---
+On Mon, 2026-01-12 at 12:06 -0600, Tom Rini wrote:
+> On Mon, Jan 12, 2026 at 08:56:36AM +0100, Francesco Dolcini wrote:
+> > On Mon, Jan 12, 2026 at 08:49:56AM +0100, Francesco Dolcini wrote:
+> > > +Tom +U-Boot ML
+> > >=20
+> > > Hello Siddharth,
+> > >=20
+> > > On Sat, Oct 25, 2025 at 01:07:59PM +0530, Siddharth Vadapalli wrote:
+> > > > The MAC Ports across all of the CPSW instances (CPSW2G, CPSW3G, CPS=
+W5G and
+> > > > CPSW9G) present in various K3 SoCs only support the 'RGMII-ID' mode=
+. This
+> > > > correction has been implemented/enforced by the updates to:
+> > > > a) Device-Tree binding for CPSW [0]
+> > > > b) Driver for CPSW [1]
+> > > > c) Driver for CPSW MAC Port's GMII [2]
+> > > >=20
+> > > > To complete the transition from 'RGMII-RXID' to 'RGMII-ID', update =
+the
+> > > > 'phy-mode' property for all CPSW ports by replacing 'rgmii-rxid' wi=
+th
+> > > > 'rgmii-id'.
+> > > >=20
+> > > > [0]: commit 9b357ea52523 ("dt-bindings: net: ti: k3-am654-cpsw-nuss=
+: update phy-mode in example")
+> > > > [1]: commit ca13b249f291 ("net: ethernet: ti: am65-cpsw: fixup PHY =
+mode for fixed RGMII TX delay")
+> > > > [2]: commit a22d3b0d49d4 ("phy: ti: gmii-sel: Always write the RGMI=
+I ID setting")
+> > >=20
+> > > What about U-Boot?
+> > > I just noticed this in today U-Boot master:
+> > >=20
+> > >   RGMII mode without internal TX delay unsupported; please fix your D=
+evice Tree
+> > >=20
+> > > and I think this is coming from the DTS update from Linux to U-Boot.
+> > >=20
+> > > Can you look into that?
+> >=20
+> > Ok, I think that the issue is that the U-Boot code was updated
+> > correctly, but now we need the v6.19 DT in U-Boot, and as of now we hav=
+e
+> > 6.18 DT.
+> >=20
+> > Tom: are you planning to sync the U-Boot DT to Linux v6.19 before the n=
+ext
+> > U-Boot release?
+>=20
+> Once it's out, yes. But, uh, this tells me some TI folks forgot to
+> backport all of the dts changes too then as we shouldn't have broken
+> platforms in-tree like this.
 
-[...]
+In both Linux and U-Boot, the error (warning) message:
+    RGMII mode without internal TX delay unsupported; please fix your
+Device Tree
+only indicates that the device-tree should be updated to use 'rgmii-id'
+instead of 'rgmii-rxid'. The functionality however remains unaffected. The
+current Linux device-tree patch is not really fixing an issue from a
+functionality perspective, and the same holds true for U-Boot.
 
-> +static void tgu_disable(struct device *dev)
-> +{
-> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-> +
-> +	guard(spinlock)(&drvdata->lock);
-> +	if (drvdata->enable) {
+I realize however that a DT sync patch could (should) have been posted by
+me to the U-Boot mailing list after this patch had been merged to Linux
+instead of waiting for the periodic DT sync.
 
-if (!drvdata->enabled)
-	return
-
-
-> +		TGU_UNLOCK(drvdata->base);
-> +		writel(0, drvdata->base + TGU_CONTROL);
-> +		TGU_LOCK(drvdata->base);
-> +
-> +		drvdata->enable = false;
-> +	}
-> +}
-> +
-> +static ssize_t enable_tgu_show(struct device *dev,
-
-'enabled', in all references to this, please
-
-> +				struct device_attribute *attr, char *buf)
-> +{
-> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
-> +	bool enabled;
-> +
-> +	guard(spinlock)(&drvdata->lock);
-> +	enabled = drvdata->enable;
-> +
-> +	return sysfs_emit(buf, "%d\n", enabled ? 1 : 0);
-
-!!enabled
-
-
-> +}
-> +
-> +/* enable_tgu_store - Configure Trace and Gating Unit (TGU) triggers. */
-> +static ssize_t enable_tgu_store(struct device *dev,
-> +				struct device_attribute *attr,
-> +				const char *buf,
-> +				size_t size)
-> +{
-> +	unsigned long val;
-> +	int ret = 0;
-
-Drop the initialization, you override it immediately a line below
-
-[...]
-
-> +static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
-> +{
-> +	struct device *dev = &adev->dev;
-> +	struct tgu_drvdata *drvdata;
-> +	int ret;
-> +
-> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-> +	if (!drvdata)
-> +		return -ENOMEM;
-> +
-> +	drvdata->dev = &adev->dev;
-> +	dev_set_drvdata(dev, drvdata);
-> +
-> +	drvdata->base = devm_ioremap_resource(dev, &adev->res);
-> +	if (IS_ERR(drvdata->base))
-> +		return PTR_ERR(drvdata->base);
-> +
-> +	spin_lock_init(&drvdata->lock);
-> +
-> +	ret = sysfs_create_groups(&dev->kobj, tgu_attr_groups);
-> +	if (ret) {
-> +		dev_err(dev, "failed to create sysfs groups: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	drvdata->enable = false;
-> +
-> +	pm_runtime_put(&adev->dev);
-> +	return 0;
-
-Please keep a consistent \n above return as you did in all other places
-throughout this file
-
-[...]
-
-> +/* Register addresses */
-> +#define TGU_CONTROL 0x0000
-> +#define TGU_LAR		0xfb0
-> +#define TGU_UNLOCK_OFFSET	0xc5acce55
-
-Please align the values (it's easier with tabs)
-
-> +
-> +static inline void TGU_LOCK(void __iomem *addr)
-> +{
-> +	do {
-> +		/* Wait for things to settle */
-> +		mb();
-
-What are we waiting for here?
-
-> +		writel_relaxed(0x0, addr + TGU_LAR);
-
-If you do a prompt TGU_LOCK()-TGU_UNLOCK() the writes may arrive in
-the order opposite to what you want, I'd say this shouldn't be _relaxed()
-and we should probably have a readback here to make sure the effect has
-taken place immediately
-
-> +	} while (0);
-> +}
-> +
-> +static inline void TGU_UNLOCK(void __iomem *addr)
-> +{
-> +	do {
-> +		writel_relaxed(TGU_UNLOCK_OFFSET, addr + TGU_LAR);
-> +		/* Make sure everyone has seen this */
-> +		mb();
-
-I believe this should be a readback instead
-
-> +	} while (0);
-> +}
-> +
-> +/**
-> + * struct tgu_drvdata - Data structure for a TGU (Trigger Generator Unit)
-> + * @base: Memory-mapped base address of the TGU device
-> + * @dev: Pointer to the associated device structure
-> + * @lock: Spinlock for handling concurrent access
-
-Concurrent access to what? (presumably the TGU?)
-
-> + * @enable: Flag indicating whether the TGU device is enabled
-> + *
-> + * This structure defines the data associated with a TGU device,
-> + * including its base address, device pointers, clock, spinlock for
-> + * synchronization, trigger data pointers, maximum limits for various
-> + * trigger-related parameters, and enable status.
-> + */
-> +struct tgu_drvdata {
-> +	void __iomem *base;
-> +	struct device *dev;
-> +	spinlock_t lock;
-> +	bool enable;
-
-"enabled", please
-
-Konrad
+Regards,
+Siddharth.
 
