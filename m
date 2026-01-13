@@ -4,58 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 678BAD0C83D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 10:26:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E316BD0C83D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 10:26:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uJHiZVZpIf4HEksYHlw9v05MX5yOg1BSih2wUHlS6WI=; b=O8bPC4+cwU9pRRt6ab26CR2cSA
-	JANm97T7BgUwvUDJzkjLxqoCUsErk6X/nrnqYsmm3UGHomBOQakjOLcYnXLQ4H7ndlCjJKTQJfO1q
-	bO2oyQThfvDIKMQTfokH/dpHk0ypN7z79bi6kgH4tNZVXqpp3TPKisIBHD/QMW+KTUYJ0CVzDpaxA
-	QiRqsLaZBswlhou9R47aa6KlYmUhCQcSiOtPfW8NdWzZ/Ygs6Hjyc92wFBt+LGYgdTRjQ4jsaXyB5
-	Fm61NOQnIuGKgC7ZN4tXKALKX4Oht0FfE/PPs6rE9oFdR4LZ7yeJ9BaYIpx5XhdeMS9beaiyZ9YDG
-	fTjovXhQ==;
+	bh=5H/hNTgciu6FD3AcTNuZC1um8OdojwIPslmchvUjaNU=; b=b0g1s1b+1+gawobbPa9HZltBM5
+	Zy9AmMKsvvha9abqVnBOaHJ5AFxpjjdDgpifKVgnz734INF7Hhu7I4sfNc6+d6lQL1aVBjGHymkW6
+	36sicjG8seKJexBUHUA21UhI13+eGMd+YFheFiA5aJ8w0mIHe3v14ghj/gZ+2CEu4tRBpOw8ayhI7
+	M9YinJXHo3yr7nX+AHsYAA6sM6qY+/de/a0El6P8Sytr4q4qdVYE88L2FTVM6vQ554z8AFMXQIuUV
+	jaAblxKIrZlVOuzkv8P4j/VlW1tHrpttN7E+AlRl4JJHI6n9kj+UMlJPaQ/o+GGR1bJODHTStyiev
+	huFJca9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfbat-00000006u0S-3dfW;
-	Tue, 13 Jan 2026 10:25:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfbar-00000006tzq-3fcp
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 10:25:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 89B15497;
-	Tue, 13 Jan 2026 02:25:36 -0800 (PST)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 150023F694;
-	Tue, 13 Jan 2026 02:25:40 -0800 (PST)
-Date: Tue, 13 Jan 2026 10:25:37 +0000
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: mark.rutland@arm.com, james.morse@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [RFC PATCH v6 03/35] KVM: arm64: Add CONFIG_KVM_ARM_SPE Kconfig
- option
-Message-ID: <aWYdob5IfyOQcu6I@raptor>
-References: <20251114160717.163230-1-alexandru.elisei@arm.com>
- <20251114160717.163230-4-alexandru.elisei@arm.com>
- <1aaffbcd-ba0c-4371-80d7-ce59ac7f13a9@linaro.org>
- <aWTaXBse_R_LjJE-@raptor>
- <d7db9f17-012e-43d7-a0a5-58b254dd7e33@linaro.org>
- <aWUQ3bYuxpMEWTUk@raptor>
+	id 1vfbbY-00000006u4P-0sMI;
+	Tue, 13 Jan 2026 10:26:28 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfbbT-00000006u3Q-3UzK;
+	Tue, 13 Jan 2026 10:26:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=5H/hNTgciu6FD3AcTNuZC1um8OdojwIPslmchvUjaNU=; b=f+oe9TAeVNeRg5dxijtlcbewz/
+	8NqL4OlUILWM3MaE4inNGMQXs/GqUCwYjwoj6kn5QKowFEPZR5vIjTVEGRLHYS17UyO0KSxRI/y+Y
+	mVg0qLOAAUPQL4YuGsCGYUtHx429wavsvYetCsCfZ6khZ0Wk9O8NaDL9SBogjxfPXi0DPI3QVJBbg
+	ud+/E4Ebaoik4+Iu4zRvEycPKg3I4XWW02JtvojWYnB5QPBmusI5OZTaoKa4ffwjx+6NT7v6z3yZj
+	Q0XqYllxcHVJ05dYNNgsqwbgZ7Mnc/Jrk9m9KOc/0McOMtf5N6geNPuNCFbQVXbKgdrC4ot9JCjt4
+	TpaIqXUA==;
+Received: from i53875b63.versanet.de ([83.135.91.99] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vfbbR-0025PF-Ey; Tue, 13 Jan 2026 11:26:22 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+ guptarud@gmail.com
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Rudraksha Gupta <guptarud@gmail.com>, Ondrej Jirman <megi@xff.cz>,
+ Martijn Braam <martijn@brixit.nl>,
+ Kamil =?UTF-8?B?VHJ6Y2nFhHNraQ==?= <ayufan@ayufan.eu>
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Remove interrupt GPIO for WiFi for the
+ Pinephone Pro
+Date: Tue, 13 Jan 2026 11:26:21 +0100
+Message-ID: <14738774.lVVuGzaMjS@diego>
+In-Reply-To: <20260112-ppp_connectivity-v1-3-284d6e83b212@gmail.com>
+References: <20260112-ppp_connectivity-v1-0-284d6e83b212@gmail.com>
+ <20260112-ppp_connectivity-v1-3-284d6e83b212@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aWUQ3bYuxpMEWTUk@raptor>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_022545_989885_565FA4A9 
-X-CRM114-Status: GOOD (  44.93  )
+X-CRM114-CacheID: sfid-20260113_022624_136765_42E37921 
+X-CRM114-Status: GOOD (  15.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,103 +76,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+Am Dienstag, 13. Januar 2026, 07:42:26 Mitteleurop=C3=A4ische Normalzeit sc=
+hrieb Rudraksha Gupta via B4 Relay:
+> From: Ondrej Jirman <megi@xff.cz>
+>=20
+> Wifi is currently unusable if interrupts are defined. Let's remove them
+> so that Wifi networks are actually discoverable.
 
-On Mon, Jan 12, 2026 at 03:18:53PM +0000, Alexandru Elisei wrote:
-> Hi James,
-> 
-> On Mon, Jan 12, 2026 at 12:09:19PM +0000, James Clark wrote:
-> > 
-> > 
-> > On 12/01/2026 11:26 am, Alexandru Elisei wrote:
-> > > Hi James,
-> > > 
-> > > On Fri, Jan 09, 2026 at 04:29:50PM +0000, James Clark wrote:
-> > > > 
-> > > > 
-> > > > On 14/11/2025 4:06 pm, Alexandru Elisei wrote:
-> > > > > Add a new configuration option that will be used for KVM SPE emulation.
-> > > > > CONFIG_KVM_ARM_SPE depends on the SPE driver being builtin because:
-> > > > > 
-> > > > > 1. The SPE driver maintains a cpumask of physical CPUs that support SPE,
-> > > > >      and that will be used by KVM to emulate SPE on heterogeneous systems.
-> > > > > 
-> > > > > 2. KVM will rely on the SPE driver enabling the SPE interrupt at the GIC
-> > > > >      level.
-> > > > > 
-> > > > > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
-> > > > > ---
-> > > > >    arch/arm64/kvm/Kconfig | 8 ++++++++
-> > > > >    1 file changed, 8 insertions(+)
-> > > > > 
-> > > > > diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-> > > > > index 4f803fd1c99a..31388b5b2655 100644
-> > > > > --- a/arch/arm64/kvm/Kconfig
-> > > > > +++ b/arch/arm64/kvm/Kconfig
-> > > > > @@ -83,4 +83,12 @@ config PTDUMP_STAGE2_DEBUGFS
-> > > > >    	  If in doubt, say N.
-> > > > > +config KVM_ARM_SPE
-> > > > > +	bool
-> > > > > +	depends on KVM && ARM_SPE_PMU=y
-> > > > 
-> > > > I think the most common configuration is module, so requiring built-in isn't
-> > > > great. If there's any way of avoiding it, even if it costs a little bit of
-> > > > pain, it would be good for adoption.
-> > > 
-> > > I'm not sure how that could be done. You need the buffer maintenance interrupt
-> > > to do a VM exit so KVM can inject the virtual interrupt back into the guest,
-> > > otherwise there's a possibility of a large blackout window when the buffer is
-> > > full.
-> > 
-> > Without expanding more I don't see how injecting an interrupt is strongly
-> > related to the way it's compiled.
-> 
-> It's the SPE driver that enables the hardware interrupt in the GIC.
-> 
-> > 
-> > > 
-> > > The code also relies on the SPE driver to probe all the SPUs in the system.
-> > > 
-> > 
-> > I don't think that's a hard requirement either, the KVM code could fairly
-> > easily do this itself. Inline the common code and put it in a shared header
-> > etc. I'm sure there are lots of creative ways to flip the dependencies that
-> > might not be "proper" software engineering. But like I said a bit of pain
-> > here might be beneficial overall.
-> 
-> Userspace gets the maximum buffer size and the SPE instance id from the sysfs
-> files.
-> 
-> So KVM would have to parse the DTB, read PMBIDR_EL1 and PMSIDR_EL1 on each
-> physical CPU in the system, create the sysfs files (at least 'type', 'cpumask'
-> and 'max_buffer_size' or whatever that ends up being named) and install a dummy
-> IRQ handler before the SPE driver is loaded.
-> 
-> Then when the SPE driver is loaded, the driver would have to remove the IRQ
-> handler and install its own, and create the rest of the sysfs files.
-> 
-> That's assuming that the SPE driver is loaded after KVM. I think it's possible
-> for the SPE driver to be loaded first. So both KVM and SPE would have be able to
-> communicate with one other in case the other probed first.
-> 
-> Is having to change the symbol ARM_SPE_PMU from 'm' to 'y' worth this? I am not
-> convinced and I don't see much use for going down this rabbit hole at this stage
-> of the series.
-> 
-> Also, since KVM would partially populate the sysfs directory for each SPE
-> instance, would it be reasonable for software to assume that the SPE driver is
-> loaded based on this and start using it? For example, how does perf detect the
-> presence of the arm_spe event?
+Please don't describe not what you're doing but why.
 
-Coming back to this, I do understand and agree with your concerns, so after
-talking in private I came up with exporting the symbol kvm_host_spe_init() -
-that's the function which adds the SPE instance to the list of SPUs.
+The interrupt seems to the one that is connected to wifi, so I'd expect
+a description why that causes problems first, instead of going
+"doesn't work for me" - "just remove it" .
 
-With this change the SPE driver can be built as a module, but SPE for a VM is
-available only as long as the driver is loaded.
+As the below just looks like a temporary hack until the real cause is
+found.
 
-I hope that improves the adoption story :)
+> Co-developed-by: Martijn Braam <martijn@brixit.nl>
+> Signed-off-by: Martijn Braam <martijn@brixit.nl>
+> Co-developed-by: Kamil Trzci=C5=84ski <ayufan@ayufan.eu>
+> Signed-off-by: Kamil Trzci=C5=84ski <ayufan@ayufan.eu>
+> Signed-off-by: Ondrej Jirman <megi@xff.cz>
+> Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 3 ---
+>  1 file changed, 3 deletions(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch=
+/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> index 97d0bf455258..69bb9de4ce55 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> @@ -834,9 +834,6 @@ &sdio0 {
+>  	brcmf: wifi@1 {
+>  		compatible =3D "brcm,bcm4329-fmac";
+>  		reg =3D <1>;
+> -		interrupt-parent =3D <&gpio4>;
+> -		interrupts =3D <RK_PD0 IRQ_TYPE_LEVEL_HIGH>;
+> -		interrupt-names =3D "host-wake";
+>  		pinctrl-names =3D "default";
+>  		pinctrl-0 =3D <&wifi_host_wake_l>;
+>  	};
+>=20
+>=20
 
-Thanks,
-Alex
+Thanks
+Heiko
+
+
 
