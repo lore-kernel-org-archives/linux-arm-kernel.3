@@ -4,83 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2402FD30CC0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 20:08:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C64A0D30CC1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 20:08:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kLqIweRiHHZXLWpYMmQpkhFs4IB4LuXUNRGIExyhc/w=; b=1NmqEL5g+idy7FMxvYyknGNFEV
-	RuhQoguX6m2d1OgeRPSJKVZkx1JjsKVCS201XiX3ntDJS1qm3EScH9yuiorpp8pCfaOkPHWOXAn7c
-	N174PVuaKSUQJSfjsZVYFbTJr3ZHjXPjOxV5V5HFraX8kgqDJex0E2gkflGloRmMNINCPiNkSB4fa
-	qFUCdO73SWjhpYX2IAj2d9dVajhD+ZHjKBb57th+OENx1KI+VzfiRQY6+CSv6fWzAzgsRUWX1lcBg
-	B3VhzruoSu0+h81X8DDsXcRlQrVq73z2QT8dEO66ZiPqYgl5aTvDbPk14DXr4wtQUwICAgTlq253r
-	cDDcYC2A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DrEHJRjos7Ma8zKqzyhBjBcISHvlObhk6z3kWVL7VaY=; b=g45/0oVlQNBMDa9bOpYikEAQ3p
+	COwhzcgHQFw7Tc2fSFZ2/YLFV678y56fo3KrzU4LfTk1WXkCvssC+7x5KuwPvryUAdodSrtM1OVR9
+	JDu9PT7fA5QWOZ7Ph/j1vZ8qD3oe2lENbXeiDfgGplszGzuBxdIp7x42UuJTvLm7Z2uUTSMubA9cq
+	i/E29aiX7md+Qh1jWSt9L5uOvVzuR1xJvZ0qrpk/p7FwpUrvzjlBNhLg9MMj0Jy+Ys+F133h0MaK5
+	5xVkRWz4lrrUGOxB66EeOcKUFU0XzF9hqf7psbjm6Qf6v3VB2GGGHu1Icqxgr9KSouZL/4TcQqAbs
+	fzP/Lyqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfkgL-00000007fL4-3Klb;
-	Tue, 13 Jan 2026 20:08:01 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1vfkgO-00000007fMA-3AXP;
+	Tue, 13 Jan 2026 20:08:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfkgI-00000007fKa-1DTm;
-	Tue, 13 Jan 2026 20:07:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1768334866; x=1768939666; i=wahrenst@gmx.net;
-	bh=kLqIweRiHHZXLWpYMmQpkhFs4IB4LuXUNRGIExyhc/w=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=jhHjuAvrtw8Fz9o6/yVBX02h7hXWxxPTd09u5lNlRzM1vtf+Q6xUppzDvWi5RE4v
-	 Tz6oFiIPKuAXirdAaynPc9Lk9GC5wO+8apOkzpRWoorj0mekWKGIs/NRSgViz3ID8
-	 pUYkpoNCrK6d8FHEOBMYG5EY6sNGyb5r6P/q0BRmXhhayjrbTGxQC6QFFNSZ2Dcql
-	 1zGjk2Iut5EiKEOITDpyTrovkPLKckBVjZ0T53EhGSre43xP2Ru5z4c/kwCNz/Gb6
-	 rYKeO7Ib9l/V0+w5AeV63sv8g3+CkWlwDbfqEsnqT3HnBpn/l25rbZnzgW2N9OLPL
-	 8Vj0w7aqthESvKbHNQ==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.156] ([91.41.209.202]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mo6qp-1wCKPh2Oct-00lWnE; Tue, 13
- Jan 2026 21:07:46 +0100
-Message-ID: <c93d7eb0-2591-48e7-97e9-3fd899b1026c@gmx.net>
-Date: Tue, 13 Jan 2026 21:07:43 +0100
+	id 1vfkgN-00000007fLH-3jaY
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 20:08:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DC4816000A;
+	Tue, 13 Jan 2026 20:08:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12FAAC116C6;
+	Tue, 13 Jan 2026 20:08:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768334882;
+	bh=9igyJ2M/3WDceHFKFOZJs2/mHQPx0e7KXBmUWAszlrc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=EGvIonZcgRJFTT49XfOgVFliRum7cU2VZA4GjnGJzA0xfgcSFVWfAYn4gj9p0unYj
+	 VgHN6dxycYsb7/0U8IaX0EVCVdz65IcaXFyFjQqpDIauNAtIT8UBmoRP8o/xQ1VyKX
+	 F7QyxvQ1B0Osio7XZIgcGd7+NgPUi0RITjQuMZPdbfodz1SCx5qPQ0L3t8anH7YN/a
+	 6qmPYERZWj7L8RnsB0ZN8DEiz49CbAsVRzqbfADFS1nzm+UERjHye1OqynonF/dQem
+	 I2qQLsJO9XHsjHy8JtEv6Jt06O35jktFo5Q37myr7KUcLYzAxkAQz0t0vjbwroWXBi
+	 JG6Ccgtd7YCtw==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm/arm64: dts: marvell: Drop unused .dtsi
+Date: Tue, 13 Jan 2026 14:07:42 -0600
+Message-ID: <20260113200744.4174940-1-robh@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: broadcom: bcm2712: Add V3D device node
-To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- kernel-dev@igalia.com
-References: <20260113192902.48046-2-mcanal@igalia.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20260113192902.48046-2-mcanal@igalia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:lk7Dkz0mthlPu9uENRCv7r/Qru9BqtLUqZQ+beOsXhqZ6ni5/n3
- X/PgPxQ55bq21hVZx4ICdOOkb6r16P1eq7u/9SDXJHCaSeMDvXMsAbFbvfF283dEspA8e8E
- woTL0EdTlq4w/7hk1bSe1d01y71F9Bisx3J9zl2tXYbngYiO94gIzSrsqg1s1FHzda8b+X5
- HoWVAcUt+8YZV9ho9XCTA==
-UI-OutboundReport: notjunk:1;M01:P0:FsoGziLSOTE=;zlI6tP8Pudgi47wdOZdRQYNuCXD +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
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_120758_709232_6986C2D8 
-X-CRM114-Status: GOOD (  16.91  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,75 +71,388 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ma=C3=ADra,
+These .dtsi files are not included anywhere in the tree and can't be
+tested.
 
-Am 13.01.26 um 20:28 schrieb Ma=C3=ADra Canal:
-> Commits 0ad5bc1ce463 ("drm/v3d: fix up register addresses for V3D 7.x")
-> and 6fd9487147c4 ("drm/v3d: add brcm,2712-v3d as a compatible V3D device=
-")
-> added driver support for V3D on BCM2712, but the corresponding device
-> tree node is still missing.
->
-> Add the V3D device tree node to the BCM2712 DTS.
->
-> Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
-> ---
->   .../boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts  |  4 ++++
->   arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 14 ++++++++++++++
->   2 files changed, 18 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts b/=
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts
-> index 7d4742ebe247..97522c6803c5 100644
-> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts
-> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts
-this file doesn't exist in linux-next anymore.
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ arch/arm/boot/dts/marvell/armada-380.dtsi     | 148 ------------------
+ arch/arm64/boot/dts/marvell/armada-7020.dtsi  |  10 --
+ arch/arm64/boot/dts/marvell/armada-8020.dtsi  |  20 ---
+ .../boot/dts/marvell/armada-ap806-dual.dtsi   |  60 -------
+ .../dts/marvell/cn9130-db-comexpress.dtsi     |  96 ------------
+ 5 files changed, 334 deletions(-)
+ delete mode 100644 arch/arm/boot/dts/marvell/armada-380.dtsi
+ delete mode 100644 arch/arm64/boot/dts/marvell/armada-7020.dtsi
+ delete mode 100644 arch/arm64/boot/dts/marvell/armada-8020.dtsi
+ delete mode 100644 arch/arm64/boot/dts/marvell/armada-ap806-dual.dtsi
+ delete mode 100644 arch/arm64/boot/dts/marvell/cn9130-db-comexpress.dtsi
 
-Do you mean bcm2712-rpi-5-b-base.dtsi ?
-> @@ -247,3 +247,7 @@ &pcie1 {
->   &pcie2 {
->   	status =3D "okay";
->   };
-> +
-> +&v3d {
-> +	clocks =3D <&firmware_clocks 5>;
-> +};
-> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot=
-/dts/broadcom/bcm2712.dtsi
-> index 330a121ebfcb..4c9c63fcf037 100644
-> --- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-> +++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-> @@ -1,5 +1,6 @@
->   // SPDX-License-Identifier: (GPL-2.0 OR MIT)
->   #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/soc/bcm2835-pm.h>
->  =20
->   / {
->   	compatible =3D "brcm,bcm2712";
-> @@ -642,6 +643,19 @@ mip1: msi-controller@1000131000 {
->   			msi-ranges =3D <&gicv2 GIC_SPI 247 IRQ_TYPE_EDGE_RISING 8>;
->   			brcm,msi-offset =3D <8>;
->   		};
-> +
-> +		v3d: gpu@2000000 {
-Please keep the order of the addresses. In case v3d is really part of=20
-the axi bus, then this should be the first child node of axi (2000000 <=20
-1000100000).
-
-Thanks
-> +			compatible =3D "brcm,2712-v3d";
-> +			reg =3D <0x10 0x02000000 0x0 0x4000>,
-> +			      <0x10 0x02008000 0x0 0x6000>,
-> +			      <0x10 0x02030800 0x0 0x0700>;
-> +			reg-names =3D "hub", "core0", "sms";
-> +
-> +			power-domains =3D <&pm BCM2835_POWER_DOMAIN_GRAFX_V3D>;
-> +			resets =3D <&pm BCM2835_RESET_V3D>;
-> +			interrupts =3D <GIC_SPI 250 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 249 IRQ_TYPE_LEVEL_HIGH>;
-> +		};
->   	};
->  =20
->   	vc4: gpu {
+diff --git a/arch/arm/boot/dts/marvell/armada-380.dtsi b/arch/arm/boot/dts/marvell/armada-380.dtsi
+deleted file mode 100644
+index e94f22b0e9b5..000000000000
+--- a/arch/arm/boot/dts/marvell/armada-380.dtsi
++++ /dev/null
+@@ -1,148 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+-/*
+- * Device Tree Include file for Marvell Armada 380 SoC.
+- *
+- * Copyright (C) 2014 Marvell
+- *
+- * Lior Amsalem <alior@marvell.com>
+- * Gregory CLEMENT <gregory.clement@free-electrons.com>
+- * Thomas Petazzoni <thomas.petazzoni@free-electrons.com>
+- */
+-
+-#include "armada-38x.dtsi"
+-
+-/ {
+-	model = "Marvell Armada 380 family SoC";
+-	compatible = "marvell,armada380";
+-
+-	cpus {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		enable-method = "marvell,armada-380-smp";
+-
+-		cpu@0 {
+-			device_type = "cpu";
+-			compatible = "arm,cortex-a9";
+-			reg = <0>;
+-		};
+-	};
+-
+-	soc {
+-		internal-regs {
+-			pinctrl@18000 {
+-				compatible = "marvell,mv88f6810-pinctrl";
+-			};
+-		};
+-
+-		pcie {
+-			compatible = "marvell,armada-370-pcie";
+-			status = "disabled";
+-			device_type = "pci";
+-
+-			#address-cells = <3>;
+-			#size-cells = <2>;
+-
+-			msi-parent = <&mpic>;
+-			bus-range = <0x00 0xff>;
+-
+-			ranges =
+-			       <0x82000000 0 0x80000 MBUS_ID(0xf0, 0x01) 0x80000 0 0x00002000
+-				0x82000000 0 0x40000 MBUS_ID(0xf0, 0x01) 0x40000 0 0x00002000
+-				0x82000000 0 0x44000 MBUS_ID(0xf0, 0x01) 0x44000 0 0x00002000
+-				0x82000000 0 0x48000 MBUS_ID(0xf0, 0x01) 0x48000 0 0x00002000
+-				0x82000000 0x1 0     MBUS_ID(0x08, 0xe8) 0 1 0 /* Port 0 MEM */
+-				0x81000000 0x1 0     MBUS_ID(0x08, 0xe0) 0 1 0 /* Port 0 IO  */
+-				0x82000000 0x2 0     MBUS_ID(0x04, 0xe8) 0 1 0 /* Port 1 MEM */
+-				0x81000000 0x2 0     MBUS_ID(0x04, 0xe0) 0 1 0 /* Port 1 IO  */
+-				0x82000000 0x3 0     MBUS_ID(0x04, 0xd8) 0 1 0 /* Port 2 MEM */
+-				0x81000000 0x3 0     MBUS_ID(0x04, 0xd0) 0 1 0 /* Port 2 IO  */>;
+-
+-			/* x1 port */
+-			pcie@1,0 {
+-				device_type = "pci";
+-				assigned-addresses = <0x82000800 0 0x80000 0 0x2000>;
+-				reg = <0x0800 0 0 0 0>;
+-				#address-cells = <3>;
+-				#size-cells = <2>;
+-				interrupt-names = "intx";
+-				interrupts-extended = <&gic GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
+-				#interrupt-cells = <1>;
+-				ranges = <0x82000000 0 0 0x82000000 0x1 0 1 0
+-					  0x81000000 0 0 0x81000000 0x1 0 1 0>;
+-				bus-range = <0x00 0xff>;
+-				interrupt-map-mask = <0 0 0 7>;
+-				interrupt-map = <0 0 0 1 &pcie1_intc 0>,
+-						<0 0 0 2 &pcie1_intc 1>,
+-						<0 0 0 3 &pcie1_intc 2>,
+-						<0 0 0 4 &pcie1_intc 3>;
+-				marvell,pcie-port = <0>;
+-				marvell,pcie-lane = <0>;
+-				clocks = <&gateclk 8>;
+-				status = "disabled";
+-
+-				pcie1_intc: interrupt-controller {
+-					interrupt-controller;
+-					#interrupt-cells = <1>;
+-				};
+-			};
+-
+-			/* x1 port */
+-			pcie@2,0 {
+-				device_type = "pci";
+-				assigned-addresses = <0x82001000 0 0x40000 0 0x2000>;
+-				reg = <0x1000 0 0 0 0>;
+-				#address-cells = <3>;
+-				#size-cells = <2>;
+-				interrupt-names = "intx";
+-				interrupts-extended = <&gic GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
+-				#interrupt-cells = <1>;
+-				ranges = <0x82000000 0 0 0x82000000 0x2 0 1 0
+-					  0x81000000 0 0 0x81000000 0x2 0 1 0>;
+-				bus-range = <0x00 0xff>;
+-				interrupt-map-mask = <0 0 0 7>;
+-				interrupt-map = <0 0 0 1 &pcie2_intc 0>,
+-						<0 0 0 2 &pcie2_intc 1>,
+-						<0 0 0 3 &pcie2_intc 2>,
+-						<0 0 0 4 &pcie2_intc 3>;
+-				marvell,pcie-port = <1>;
+-				marvell,pcie-lane = <0>;
+-				clocks = <&gateclk 5>;
+-				status = "disabled";
+-
+-				pcie2_intc: interrupt-controller {
+-					interrupt-controller;
+-					#interrupt-cells = <1>;
+-				};
+-			};
+-
+-			/* x1 port */
+-			pcie@3,0 {
+-				device_type = "pci";
+-				assigned-addresses = <0x82001800 0 0x44000 0 0x2000>;
+-				reg = <0x1800 0 0 0 0>;
+-				#address-cells = <3>;
+-				#size-cells = <2>;
+-				interrupt-names = "intx";
+-				interrupts-extended = <&gic GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
+-				#interrupt-cells = <1>;
+-				ranges = <0x82000000 0 0 0x82000000 0x3 0 1 0
+-					  0x81000000 0 0 0x81000000 0x3 0 1 0>;
+-				bus-range = <0x00 0xff>;
+-				interrupt-map-mask = <0 0 0 7>;
+-				interrupt-map = <0 0 0 1 &pcie3_intc 0>,
+-						<0 0 0 2 &pcie3_intc 1>,
+-						<0 0 0 3 &pcie3_intc 2>,
+-						<0 0 0 4 &pcie3_intc 3>;
+-				marvell,pcie-port = <2>;
+-				marvell,pcie-lane = <0>;
+-				clocks = <&gateclk 6>;
+-				status = "disabled";
+-
+-				pcie3_intc: interrupt-controller {
+-					interrupt-controller;
+-					#interrupt-cells = <1>;
+-				};
+-			};
+-		};
+-	};
+-};
+diff --git a/arch/arm64/boot/dts/marvell/armada-7020.dtsi b/arch/arm64/boot/dts/marvell/armada-7020.dtsi
+deleted file mode 100644
+index 570f901b4f4a..000000000000
+--- a/arch/arm64/boot/dts/marvell/armada-7020.dtsi
++++ /dev/null
+@@ -1,10 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+-/*
+- * Copyright (C) 2016 Marvell Technology Group Ltd.
+- *
+- * Device Tree file for the Armada 7020 SoC, made of an AP806 Dual and
+- * one CP110.
+- */
+-
+-#include "armada-ap806-dual.dtsi"
+-#include "armada-70x0.dtsi"
+diff --git a/arch/arm64/boot/dts/marvell/armada-8020.dtsi b/arch/arm64/boot/dts/marvell/armada-8020.dtsi
+deleted file mode 100644
+index b6fc18876093..000000000000
+--- a/arch/arm64/boot/dts/marvell/armada-8020.dtsi
++++ /dev/null
+@@ -1,20 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+-/*
+- * Copyright (C) 2016 Marvell Technology Group Ltd.
+- *
+- * Device Tree file for the Armada 8020 SoC, made of an AP806 Dual and
+- * two CP110.
+- */
+-
+-#include "armada-ap806-dual.dtsi"
+-#include "armada-80x0.dtsi"
+-
+-/* The RTC requires external oscillator. But on Aramda 80x0, the RTC clock
+- * in CP master is not connected (by package) to the oscillator. So
+- * disable it. However, the RTC clock in CP slave is connected to the
+- * oscillator so this one is let enabled.
+- */
+-
+-&cp0_rtc {
+-	status = "disabled";
+-};
+diff --git a/arch/arm64/boot/dts/marvell/armada-ap806-dual.dtsi b/arch/arm64/boot/dts/marvell/armada-ap806-dual.dtsi
+deleted file mode 100644
+index 82f4dedfc25e..000000000000
+--- a/arch/arm64/boot/dts/marvell/armada-ap806-dual.dtsi
++++ /dev/null
+@@ -1,60 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+-/*
+- * Copyright (C) 2016 Marvell Technology Group Ltd.
+- *
+- * Device Tree file for Marvell Armada AP806.
+- */
+-
+-#include "armada-ap806.dtsi"
+-
+-/ {
+-	cpus {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-
+-		cpu0: cpu@0 {
+-			device_type = "cpu";
+-			compatible = "arm,cortex-a72";
+-			reg = <0x000>;
+-			enable-method = "psci";
+-			#cooling-cells = <2>;
+-			clocks = <&cpu_clk 0>;
+-			i-cache-size = <0xc000>;
+-			i-cache-line-size = <64>;
+-			i-cache-sets = <256>;
+-			d-cache-size = <0x8000>;
+-			d-cache-line-size = <64>;
+-			d-cache-sets = <256>;
+-			next-level-cache = <&l2>;
+-		};
+-		cpu1: cpu@1 {
+-			device_type = "cpu";
+-			compatible = "arm,cortex-a72";
+-			reg = <0x001>;
+-			enable-method = "psci";
+-			#cooling-cells = <2>;
+-			clocks = <&cpu_clk 0>;
+-			i-cache-size = <0xc000>;
+-			i-cache-line-size = <64>;
+-			i-cache-sets = <256>;
+-			d-cache-size = <0x8000>;
+-			d-cache-line-size = <64>;
+-			d-cache-sets = <256>;
+-			next-level-cache = <&l2>;
+-		};
+-
+-		l2: l2-cache {
+-			compatible = "cache";
+-			cache-size = <0x80000>;
+-			cache-line-size = <64>;
+-			cache-sets = <512>;
+-			cache-level = <2>;
+-			cache-unified;
+-		};
+-	};
+-
+-	thermal-zones {
+-		/delete-node/ ap-thermal-cpu2;
+-		/delete-node/ ap-thermal-cpu3;
+-	};
+-};
+diff --git a/arch/arm64/boot/dts/marvell/cn9130-db-comexpress.dtsi b/arch/arm64/boot/dts/marvell/cn9130-db-comexpress.dtsi
+deleted file mode 100644
+index 028496ebc473..000000000000
+--- a/arch/arm64/boot/dts/marvell/cn9130-db-comexpress.dtsi
++++ /dev/null
+@@ -1,96 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+-/*
+- * Copyright (C) 2023 Marvell International Ltd.
+- *
+- * Device tree for the CN9130-DB Com Express CPU module board.
+- */
+-
+-#include "cn9130-db.dtsi"
+-
+-/ {
+-	model = "Marvell Armada CN9130-DB COM EXPRESS type 7 CPU module board";
+-	compatible = "marvell,cn9130-cpu-module", "marvell,cn9130",
+-		     "marvell,armada-ap807-quad", "marvell,armada-ap807";
+-
+-};
+-
+-&ap0_reg_sd_vccq {
+-	regulator-max-microvolt = <1800000>;
+-	states = <1800000 0x1 1800000 0x0>;
+-	/delete-property/ gpios;
+-};
+-
+-&cp0_reg_usb3_vbus0 {
+-	/delete-property/ gpio;
+-};
+-
+-&cp0_reg_usb3_vbus1 {
+-	/delete-property/ gpio;
+-};
+-
+-&cp0_reg_sd_vcc {
+-	status = "disabled";
+-};
+-
+-&cp0_reg_sd_vccq {
+-	status = "disabled";
+-};
+-
+-&cp0_sdhci0 {
+-	status = "disabled";
+-};
+-
+-&cp0_eth0 {
+-	status = "disabled";
+-};
+-
+-&cp0_eth1 {
+-	status = "okay";
+-	phy = <&phy0>;
+-	phy-mode = "rgmii-id";
+-};
+-
+-&cp0_eth2 {
+-	status = "disabled";
+-};
+-
+-&cp0_mdio {
+-	status = "okay";
+-	pinctrl-0 = <&cp0_ge_mdio_pins>;
+-	phy0: ethernet-phy@0 {
+-		status = "okay";
+-	};
+-};
+-
+-&cp0_syscon0 {
+-	cp0_pinctrl: pinctrl {
+-		compatible = "marvell,cp115-standalone-pinctrl";
+-
+-		cp0_ge_mdio_pins: ge-mdio-pins {
+-			marvell,pins = "mpp40", "mpp41";
+-			marvell,function = "ge";
+-		};
+-	};
+-};
+-
+-&cp0_sdhci0 {
+-	status = "disabled";
+-};
+-
+-&cp0_spi1 {
+-	status = "okay";
+-};
+-
+-&cp0_usb3_0 {
+-	status = "okay";
+-	usb-phy = <&cp0_usb3_0_phy0>;
+-	phy-names = "usb";
+-	/delete-property/ phys;
+-};
+-
+-&cp0_usb3_1 {
+-	status = "okay";
+-	usb-phy = <&cp0_usb3_0_phy1>;
+-	phy-names = "usb";
+-	/delete-property/ phys;
+-};
+-- 
+2.51.0
 
 
