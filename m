@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFDACF45DF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 11:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28394D2D0E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 11:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n4OVLfYY0h+IhJRy0NAJNM9iTR92XV2VZ5uyTVzCW10=; b=G8jposzwxIw1qJwfUJntu223N6
-	heOvPw+E9LIapctMoS7l6uxkz7h/xz2S8HpbyIUCn/N7ba8FzZszDdYjeHiQ0989e1kWy49C8sK41
-	+HzsnXoIboD/LZqzdeG2IvPHotW/TX39p4bLobaBQyBlapIEyIIG7MaazJUHB3fnWvrANQ0yJ3R6R
-	OGeJQ4FkpdUnxkyI7N4gLz2NxVwafpEIJarMtwJqFcW6ue5wX9xQyPE79acL++zs0ANrx7iEoYTyH
-	bgvtJXiy2/zaNNDKuqUWXEG+wA8wgCao1TFoaDQVDOZAFwrQIxwTdL50hlvBZOB1yKRJtLIuK+bkL
-	lAqULc4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QVBD+wnt6O22UZEQigSBy5+SctfUwGuWuUsHak5BamQ=; b=OuIqE/0wazQmt1jvMSFwnjev93
+	doXWkOIU66WFxWgqycpaiILZMgf9xmlwkeSHUrkqwtnxvCVXdoSeGTqR7hQAXHNcLsNgF4BdXMBGP
+	M1mUSzK1WLEw66vNkzIqylSBH88hycLr2mRP2jQYST7YkXCHTZnmI9RdzeWo1A1xmKEO1kOMSFdGu
+	5ykACQ7EZRAPllqOm5IXb32l1p0LGfiXcgLA71uxn/qG0o0tf1H1M/SpsQSwXAHChNYOOzt2YgrKL
+	GvgsflDl+AUTZH65NFX7NhaR8VOIdScPMGIDVl2wg3RlUfOxK4m3/3BbzPrGpQ6fdPYcwYbSxZ4hO
+	GnaucGBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfcuv-000000072Yt-39gg;
-	Tue, 13 Jan 2026 11:50:33 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1vfczK-000000072lO-3BEi;
+	Tue, 13 Jan 2026 11:55:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfcur-000000072YJ-3MrS
+	id 1vfczI-000000072l0-35LD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 11:50:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=n4OV
-	LfYY0h+IhJRy0NAJNM9iTR92XV2VZ5uyTVzCW10=; b=IK6cGx348zX7nPG426bj
-	8pPnKRpaSVk7EenccYs2FR7/yoEeCbW95pRoGqMTBs3I4Rx4GXVA2VKIqoiZm3lP
-	i4KGG6AZ8yTUBSwhhme6M4Tb+jyrWuCOfdoAb2OK1uVl/DGQvEeeN4sTV6b6oUxh
-	JX3+mzlFDfkdfFVHJDTMKv+5v4hiUFNPlM86mcoJc3DCYD6p/P2G0FwdXGDxAyCT
-	X74tcUuRdXObFtGQ6Su9RVR+dLqe+0lCYNQxILagDFy/f6uijcSKThYtmM+ZT+uh
-	NWW/idAeMF6/hdDpaKi+GzTZT2BNpV0/aLndK4mEUffpmWU1arEmQE8L+528wqcS
-	eg==
-Received: (qmail 1666866 invoked from network); 13 Jan 2026 12:50:25 +0100
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 13 Jan 2026 12:50:25 +0100
-X-UD-Smtp-Session: l3s3148p1@FUTjmENItsIujnvx
-Date: Tue, 13 Jan 2026 12:50:25 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Khalil Blaiech <kblaiech@nvidia.com>,
-	Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-actions@lists.infradead.org
-Subject: Re: [PATCH 00/12] i2c: add and start using i2c_adapter-specific
- printk helpers
-Message-ID: <aWYxgXn_2WlHLcj1@ninjato>
-References: <20251223-i2c-printk-helpers-v1-0-46a08306afdb@oss.qualcomm.com>
- <aWYiJbtueA8g3srn@ninjato>
- <CAMRc=MfseaLWfYuhz=5MxRw9dtBvOM4X6brPwT2PJ4Fq7rGbfg@mail.gmail.com>
+	Tue, 13 Jan 2026 11:55:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A111544386;
+	Tue, 13 Jan 2026 11:55:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A59C2C116C6;
+	Tue, 13 Jan 2026 11:55:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768305303;
+	bh=vILcIKTOivMzFtpPuiDtPrEY00gIpzY5boW/TOGn4kM=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=FHLSDnDMMMlpFgZy6NpiCaQrw0VOXVGJRB/wEgdmTvWFmGjqUEGUv+KHCkIDoxuLE
+	 lidC8qZtEOKGJffnZd/nUV8VoDfr0GvZCkVHSrLtKJkgHMIL/FpH1/tckSzbwDKgtd
+	 4OWPFVrSxZx8ThahMCpnWhRsIKpCmn+308+MbY98uyVBof0Dkt4HRMqKarKkDWswnr
+	 wrQV93gxIEbL8k1UsJF1hHJ/AWNuSSQH0J9YfB9XYfnTGQut3C/jI7GvmlEgCEhMpc
+	 2rOMHlbsXf3U0Cbfnb0q5SF427xZT5bRgCUHkxO7gYEl5HjMn4EFI+O8iU2gNA+P6v
+	 s/isw68EDmHVA==
+From: Mark Brown <broonie@kernel.org>
+To: linux-kernel@vger.kernel.org, Randy Dunlap <rdunlap@infradead.org>
+Cc: Robert Jarzmik <robert.jarzmik@free.fr>, 
+ Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org, Liam Girdwood <lgirdwood@gmail.com>, 
+ linux-sound@vger.kernel.org, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>
+In-Reply-To: <20251228071041.2246718-1-rdunlap@infradead.org>
+References: <20251228071041.2246718-1-rdunlap@infradead.org>
+Subject: Re: [PATCH] ASoC: pxa: drop unused Kconfig symbol
+Message-Id: <176830530141.30686.5406683094869244016.b4-ty@kernel.org>
+Date: Tue, 13 Jan 2026 11:55:01 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMRc=MfseaLWfYuhz=5MxRw9dtBvOM4X6brPwT2PJ4Fq7rGbfg@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-47773
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_035030_715817_4420BD04 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260113_035504_941492_3FCE76D7 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,15 +75,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, 27 Dec 2025 23:10:41 -0800, Randy Dunlap wrote:
+> Drop a bogus dangling Kconfig symbol for select SND_SOC_AC97_BUS_NEW.
+> 
+> 
 
-> Yes, I agree it's too late to queue it for v7.0. I actually wanted to
-> rename my macro to i2c_debug() to avoid a conflict with saa7134 but
-> you're right, I may submit a patch for that instead for v7.0.
+Applied to
 
-Your choice. I think keeping 'i2c_dbg' is more consistent but the
-dependency on media might not be worth it.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-I set your patches to 'Deferred' in patchwork. Meaning that they will be
-handled as agreed above.
+Thanks!
+
+[1/1] ASoC: pxa: drop unused Kconfig symbol
+      commit: 7af9e30a0c8bb05b7254fdca857c1a1126b652eb
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
