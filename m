@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC908D2F338
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:43:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E8D3D2F326
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H4v5yccwRnwyIzZU/tOnqVXFj3q694NbnMlwjQYPU+o=; b=tq+7fZE0oOtTvvZq/5vDKW+JnJ
-	/+eYlzepewk9kENhfBlSk9daOU4+OejB4i8ccsi+T4i56Db+KpCfmxheb3cPI0tuuJDtdRyDoepZD
-	LhM6VrKlrhNXOcOAXnDiyKg7D76YZ3jYTv5xzvF6ukx0dRDlI+FqhsT3GythLeswKPf/1hUh8AeOt
-	Ns/xScvoliZuZhUL+nAEreokm6peGj9ON6uzfYB4ik5qILHs0/O9W1xfl8DMrcpomxjMl6Mii4XLT
-	cw2AcwEpavAo9drqyUsf2AtNULRQnyXOW1UT/VRE3qc1BiSfQ7hDsG3ToFRqwlTcULOPxmClJDGYz
-	BV2M3jfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xSTCqQjpShfPsd5+rUt0pB6f/JUEjT87BEqGsFlOFP8=; b=hwijlsBfset+dwdoSGkP8275e0
+	4LwTymc3nwhNNruswkMJN1T1VWo4qbaGHXgfR3MTm3m/eE+AY9onycExnFzWOSv3+0vufQgoTnDFu
+	Lx+4mcuMtl/ZuKXhTAhv5zMjmXkrZ0ni+5dPPEcCiN6CyQ8CyHKk6Q9ovkIKL4esx5kgJT5NmIQmI
+	iJSwj17ppTNK7/GOJgZXPke0aN4U6k/8yuR+PFAqts/RXO6Rdc7KhhFIVlco6DqJDKn3pH6eLX4jP
+	oUMK+jFOXdDlNzkqTZ74jnA05mTBo4NMeTzJAfmY6ndWS2g4A+V2vF2ZC+i+PJePKlYU90ZtirGVs
+	psDIzkrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgYA-00000007P0T-3OVf;
-	Tue, 13 Jan 2026 15:43:18 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1vfgYa-00000007P69-1hQf;
+	Tue, 13 Jan 2026 15:43:44 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgY7-00000007OzX-32W5
+	id 1vfgYX-00000007P5S-2QdO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 15:43:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=H4v5
-	yccwRnwyIzZU/tOnqVXFj3q694NbnMlwjQYPU+o=; b=jpyHEriDOxxkOWuXWpbW
-	IrP0PnzWN3ZKbELaYIvtoeAsRsZj3qdM5nPrjqDPKyutPRMHimEsAGH6+iTcUyN/
-	VbAYVbXt/7ZJNKE+v3qOUESwivRmRM6+ZDTuYfPHnBEHEr4lfGaJOApwV4aHRMXT
-	ub4ClZPYxsGKRTa5VHIP+q7/qnZjerxMrkK5o5JzRPQm08J3tPvn9xoiLnpfob92
-	yR2W7GMV3kZIsQSTqtNlIHG9jyw1IG67ULyDOWhVrEFEoeamk03JwRoKe7kdWXuJ
-	SbWqjl7LzBThyJw8MWCg6W3uVIQeQNv2MsRcc7L40ochGYfvkCsigu4HmG6udvP9
-	mg==
-Received: (qmail 1758506 invoked from network); 13 Jan 2026 16:43:12 +0100
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 13 Jan 2026 16:43:12 +0100
-X-UD-Smtp-Session: l3s3148p1@24lj2UZIXocujnvx
-Date: Tue, 13 Jan 2026 16:43:12 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Qii Wang <qii.wang@mediatek.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	kernel@collabora.com, linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] dt-bindings: i2c: i2c-mt65xx: Add compatible for MT8189
- SoC
-Message-ID: <aWZoEIA2shjPDUVz@ninjato>
-References: <20251030-mt8189-dt-bindings-i2c-v1-1-5b60914c6453@collabora.com>
+	Tue, 13 Jan 2026 15:43:42 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.150])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4drD6d0DpYzHnH4f;
+	Tue, 13 Jan 2026 23:43:21 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3934C4056B;
+	Tue, 13 Jan 2026 23:43:39 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 13 Jan
+ 2026 15:43:37 +0000
+Date: Tue, 13 Jan 2026 15:43:36 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
+	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
+	<kobak@nvidia.com>, <lcherian@marvell.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
+	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
+	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
+	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
+	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
+	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>
+Subject: Re: [PATCH v3 42/47] arm_mpam: resctrl: Add kunit test for mbw min
+ control generation
+Message-ID: <20260113154336.000060ac@huawei.com>
+In-Reply-To: <20260112165914.4086692-43-ben.horgan@arm.com>
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+	<20260112165914.4086692-43-ben.horgan@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251030-mt8189-dt-bindings-i2c-v1-1-5b60914c6453@collabora.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_074316_039276_D6014671 
-X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-CacheID: sfid-20260113_074341_758921_71E188EC 
+X-CRM114-Status: UNSURE (   6.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,15 +84,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 30, 2025 at 08:56:29AM +0100, Louis-Alexis Eyraud wrote:
-> Add compatible string for MT8189 SoC.
-> Its multiple I2C controller instances are compatible with the ones
-> found in the MT8188 SoC.
-> 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+On Mon, 12 Jan 2026 16:59:09 +0000
+Ben Horgan <ben.horgan@arm.com> wrote:
 
-Applied to for-next, thanks!
+> By default we generate a minimum bandwidth value that is 5% lower
+> than the maximum bandwidth value given by resctrl.
+> 
+> Add a test for this.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> [horgan: Split test into separate patch]
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+
+
+
 
 
