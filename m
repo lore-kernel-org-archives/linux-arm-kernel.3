@@ -4,61 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7893DD29DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 03:12:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 245CBD29DC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 03:28:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=045EkAASI/mKzK5SIAJvk1GCcho1g4V28O3azTzPzCI=; b=05Dn85NgPPhtLLWIs1vaxlAmhd
-	+OkeH3AzCXousv2VYokYenOxJK08r+v9NnAFeNCDtUQw6uJGwJ0MkF4CmI22lGlUtj38pPjTtCcxV
-	ISpw/RxKtpoGKr/5aVTutFQqJnRBp0/wP8CODViF/29uGXamAnuLmgj6Q/8jx2sJIXUpKzrIdeyyj
-	Arq2V63NnCcN4X1hHAN2SxcLdwgtgCd1by0kal3LopO7qahlgpLEJT+hdXTgZ7RioAge4DubjuHt8
-	HB1UI5Uyevc8tMDbJKeksIQA+fBXZY6ltjA3UabN8Ls+YH4k0kZL6j4l5YDSflchbmXAJBBfUJXqJ
-	dlvXSVmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kdJ4UgolWe5TG4TnfG60pnogZaazG17AzGYzZPOjrtM=; b=RTj7fz3lWodYrI88x8MLb3NJUy
+	UPIjyuEQA7DpOSwVOohe8LuKw0LWFv5suRjMMd4pxIh3SXCyG4r5deY1an83fseRVgAovk+6Slqdt
+	JZQ/pE3L/q71lWiUwEqOoqqZESosfpOc/4+OZpYwCAFojoNmhnHjdRnO2fuzUPEw1h/1iglXiBT2j
+	jmZzdQlzE0GXQkMmQBEXC0wYg5DuPkpaMh24B3xuImGjkqf77pvXRR1ziia19qzMzTJGRUkLdIa8T
+	plHsitWlxum7MiEGftko5VdEnC403tBJsyPg7Z7L8gFwVF83rfZ8zOt4zuFr/mmEkfAEqajU/Nt/L
+	iPjkkcUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfUpO-00000006TBS-12WT;
-	Tue, 13 Jan 2026 03:12:19 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1vfV4X-00000006U2G-3PuE;
+	Tue, 13 Jan 2026 03:27:57 +0000
+Received: from mail-m49208.qiye.163.com ([45.254.49.208])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfUpK-00000006TB4-2xRY;
-	Tue, 13 Jan 2026 03:12:16 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.99)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1vfUp4-000000001Go-14dU;
-	Tue, 13 Jan 2026 03:11:58 +0000
-Date: Tue, 13 Jan 2026 03:11:54 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: Felix Fietkau <nbd@nbd.name>, John Crispin <john@phrozen.org>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Bc-bocun Chen <bc-bocun.chen@mediatek.com>,
-	Rex Lu <rex.lu@mediatek.com>,
-	Mason-cw Chang <Mason-cw.Chang@mediatek.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH net-next RFC] net: ethernet: mtk_eth_soc: support using
- non-MediaTek DSA switches
-Message-ID: <34647edacab660b4cabed9733d2d3ef22bc041ac.1768273593.git.daniel@makrotopia.org>
+	id 1vfV4U-00000006U1d-3q9S;
+	Tue, 13 Jan 2026 03:27:56 +0000
+Received: from [127.0.0.1] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 306a5f42e;
+	Tue, 13 Jan 2026 11:27:47 +0800 (GMT+08:00)
+Message-ID: <568b9e25-bf96-4e78-9af0-4791cbb90a56@rock-chips.com>
+Date: Tue, 13 Jan 2026 11:27:42 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: usb: Add binding for WCH CH334/CH335
+ hub controller
+To: Krzysztof Kozlowski <krzk@kernel.org>, Chaoyi Chen <kernel@airkyi.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Quentin Schulz <quentin.schulz@cherry.de>, Jonas Karlman <jonas@kwiboo.se>,
+ Hsun Lai <i@chainsx.cn>, John Clark <inindev@gmail.com>,
+ Jimmy Hon <honyuenkwun@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
+ Michael Riesch <michael.riesch@collabora.com>,
+ Peter Robinson <pbrobinson@gmail.com>, Alexey Charkov <alchark@gmail.com>,
+ Shawn Lin <shawn.lin@rock-chips.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org
+References: <20260112022823.91-1-kernel@airkyi.com>
+ <20260112022823.91-2-kernel@airkyi.com>
+ <20260112-lively-hallowed-beetle-fc15b2@quoll>
+ <1515a445-576a-4833-a604-c31062f7d3fa@rock-chips.com>
+ <b4eb4ab6-6fde-4c01-8069-470545ffdac4@kernel.org>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <b4eb4ab6-6fde-4c01-8069-470545ffdac4@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9bb565344303abkunm4f7b74c5bb9b2
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR5NTFYeGk9CHR1MQktOGElWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=j8obcMol5+AOwJGWd4CkkJSotssuGuB56Xxp96+E1lKmAzQYeIzcaoyDSvz1xiGd3APhWcqSoGnAIz41qphb61NIPnSgVTf3eE3YChEg8vwlEfPzNxR7NfgJZXRLCJjYtimcvheLwMxkY7URpqko6HPO0z0Qs2NWTcqKjvU4DXs=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=kdJ4UgolWe5TG4TnfG60pnogZaazG17AzGYzZPOjrtM=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_191214_753274_E6CF23F3 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20260112_192755_536876_A7D9C328 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,115 +87,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MediaTek's Ethernet Frame Engine is tailored for use with their
-switches. This broke checksum and VLAN offloading when attaching a
-DSA switch which does not use MediaTek special tag format.
+Hi Krzysztof,
 
-As a work-around, make sure checksum offloading is disabled and
-make sure bits instructing the FE to parse or modify MTK special
-tags aren't set if the attached DSA switch isn't using the
-MediaTek special tag format.
+On 1/12/2026 10:28 PM, Krzysztof Kozlowski wrote:
+> On 12/01/2026 09:59, Chaoyi Chen wrote:
+>>>> +required:
+>>>> +  - compatible
+>>>> +  - reg
+>>>> +
+>>>> +additionalProperties: false
+>>>> +
+>>>> +examples:
+>>>> +  - |
+>>>> +    #include <dt-bindings/gpio/gpio.h>
+>>>> +    usb {
+>>>> +        dr_mode = "host";
+> 
+> One more thing - drop above line.
+> 
 
-Note that this currently also disables checksum and VLAN offloading
-when using DSA switches using 802.1Q-based tags, though that those
-do work fine and can benefit from the offloading features of the
-Ethernet Frame Engine. This is why more feedback from DSA maintainers
-regarding this issue would be very welcome.
+Will fix in next version.
 
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 44 +++++++++++++++------
- 1 file changed, 31 insertions(+), 13 deletions(-)
+>>>> +        #address-cells = <1>;
+>>>> +        #size-cells = <0>;
+>>>> +
+>>>> +        hub: hub@1 {
+>>>> +            compatible = "usb1a86,8091";
+>>>> +            reg = <1>;
+>>>> +            reset-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+>>>
+>>> Are you sure?
+>>
+>> I guess what you're concerned about here is the polarity? 
+>> If that's the case, then there's no problem.
+> 
+> Yes, I was wondering whether polarity is set correctly.
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index e68997a29191b..654b707ee27a1 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -1459,6 +1459,26 @@ static void setup_tx_buf(struct mtk_eth *eth, struct mtk_tx_buf *tx_buf,
- 	}
- }
- 
-+static bool mtk_uses_dsa(struct net_device *dev)
-+{
-+#if IS_ENABLED(CONFIG_NET_DSA)
-+	return netdev_uses_dsa(dev) &&
-+	       dev->dsa_ptr->tag_ops->proto == DSA_TAG_PROTO_MTK;
-+#else
-+	return false;
-+#endif
-+}
-+
-+static bool non_mtk_uses_dsa(struct net_device *dev)
-+{
-+#if IS_ENABLED(CONFIG_NET_DSA)
-+	return netdev_uses_dsa(dev) &&
-+	       dev->dsa_ptr->tag_ops->proto != DSA_TAG_PROTO_MTK;
-+#else
-+	return false;
-+#endif
-+}
-+
- static void mtk_tx_set_dma_desc_v1(struct net_device *dev, void *txd,
- 				   struct mtk_tx_dma_desc_info *info)
- {
-@@ -1531,7 +1551,7 @@ static void mtk_tx_set_dma_desc_v2(struct net_device *dev, void *txd,
- 		/* tx checksum offload */
- 		if (info->csum)
- 			data |= TX_DMA_CHKSUM_V2;
--		if (mtk_is_netsys_v3_or_greater(eth) && netdev_uses_dsa(dev))
-+		if (mtk_is_netsys_v3_or_greater(eth) && mtk_uses_dsa(dev))
- 			data |= TX_DMA_SPTAG_V3;
- 	}
- 	WRITE_ONCE(desc->txd5, data);
-@@ -2350,7 +2370,7 @@ static int mtk_poll_rx(struct napi_struct *napi, int budget,
- 		 * hardware treats the MTK special tag as a VLAN and untags it.
- 		 */
- 		if (mtk_is_netsys_v1(eth) && (trxd.rxd2 & RX_DMA_VTAG) &&
--		    netdev_uses_dsa(netdev)) {
-+		    mtk_uses_dsa(netdev)) {
- 			unsigned int port = RX_DMA_VPID(trxd.rxd3) & GENMASK(2, 0);
- 
- 			if (port < ARRAY_SIZE(eth->dsa_meta) &&
-@@ -3192,6 +3212,14 @@ static netdev_features_t mtk_fix_features(struct net_device *dev,
- 		}
- 	}
- 
-+	if ((features & NETIF_F_IP_CSUM) &&
-+	    non_mtk_uses_dsa(dev))
-+		features &= ~NETIF_F_IP_CSUM;
-+
-+	if ((features & NETIF_F_IPV6_CSUM) &&
-+	    non_mtk_uses_dsa(dev))
-+		features &= ~NETIF_F_IPV6_CSUM;
-+
- 	return features;
- }
- 
-@@ -3508,23 +3536,13 @@ static void mtk_gdm_config(struct mtk_eth *eth, u32 id, u32 config)
- 
- 	val |= config;
- 
--	if (eth->netdev[id] && netdev_uses_dsa(eth->netdev[id]))
-+	if (eth->netdev[id] && mtk_uses_dsa(eth->netdev[id]))
- 		val |= MTK_GDMA_SPECIAL_TAG;
- 
- 	mtk_w32(eth, val, MTK_GDMA_FWD_CFG(id));
- }
- 
- 
--static bool mtk_uses_dsa(struct net_device *dev)
--{
--#if IS_ENABLED(CONFIG_NET_DSA)
--	return netdev_uses_dsa(dev) &&
--	       dev->dsa_ptr->tag_ops->proto == DSA_TAG_PROTO_MTK;
--#else
--	return false;
--#endif
--}
--
- static int mtk_device_event(struct notifier_block *n, unsigned long event, void *ptr)
- {
- 	struct mtk_mac *mac = container_of(n, struct mtk_mac, device_notifier);
+Yes, it is active-low, so during normal operation it should be set to high.
+
 -- 
-2.52.0
+Best, 
+Chaoyi
 
