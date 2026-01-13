@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C2DCD30CEE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 22:54:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEABD30CF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 22:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gn55x6/YZ4/slyCsrh5AT6hhmEgzx3mWUMl3XlI4UJk=; b=MCvbRg1b/mUbD/lMWcRKEgCLPb
-	gLjQStb3DouSYiE5KbKihNRscFsfIq/va8aqPv5Ow8jIvFkS29hVX3/Ufz9h+AZw8XAvt4i9Lxgm+
-	zeh5Zul5oguGZciDrQX7en582V4VAf6Dhm1xRfDYxHdv7nyTSW/ZbtZy8XRVm9WK7Ws/J4bw56AWg
-	uzIygUqcRYVvUOcFdbKJ+1ePkja1mJzXoCzTyn1sF6SiAiV1loiGairKJbISrpy3FuWLz2WpRPYBs
-	p9fb0YIR4mcfVm93o0sOUqMm/oGfI1WF2GKdpU5sYcFz++Zs1buaPqc+wGNhDsNSPwEzx5xrBQIyN
-	aT8wa2AQ==;
+	bh=Y1Tcg/QN1TTrTtAwFCgvWNzKmhKv7vWmWyihU4W7bNg=; b=ujX3ulCRJ6MYrvxcyr0P26TR/I
+	MVv5dCjufNdU1cPiz9vMRHIm0PbzwOuKaTrM2G4h0KVnfpoLN33Rr+ju3FMDyCprDqY5XKvILxIUb
+	ILwOgM+uCO55KEZ+wTbF4mv5kx1uQurrS8/n/F5TghlI5Wut1AAdu8uu74Kn1d7QNz+4Oa/QieFXE
+	xAZBSnwCc9X5MB3tF9gzBp7JSVpgc7BTamHUM0ufNyO4kbiy5lXwJixnahY6tJ1gT9PNXr6nfvvfS
+	YfOwfpE68Ten1gclBQr3rc0wAGIXm3dVsNQp51QFJ+JvjFTSVs2QGdyBRryp9U7akv+18VodvWzMy
+	8qUt+prA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfnGo-00000007qbN-0LOY;
-	Tue, 13 Jan 2026 22:53:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vfnKI-00000007qp1-1yGo;
+	Tue, 13 Jan 2026 22:57:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfnGl-00000007qb0-3Ojd;
-	Tue, 13 Jan 2026 22:53:48 +0000
+	id 1vfnKH-00000007qov-1LCW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 22:57:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A5E943621;
-	Tue, 13 Jan 2026 22:53:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBDD9C116C6;
-	Tue, 13 Jan 2026 22:53:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5BD5160018;
+	Tue, 13 Jan 2026 22:57:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7D34C116C6;
+	Tue, 13 Jan 2026 22:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768344827;
-	bh=2MHv5Sgc3pFqXVzbcr112eYhr4dz8zmnuSF9FChDKqc=;
+	s=k20201202; t=1768345044;
+	bh=/VOHhg+BGXPkNRZ89eA1uek4P5riQp1mlGx8ZixiYbo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eDqGCxraARN2E4kq9xiAODfNysntzYgLFvVCreFPo/qN0DvAqziIxJwnH5briFYcq
-	 DtZg8c0OBejyMyBZR61bDYz+gMViYisessBIZn62p21dHScGPcHsy0saZwlfJxtMgB
-	 Q5EEGXKgy2/OtH1EjvdvvGzyLce/0radOLE6Hrya6bnJdc+670c1yJb9UmRv1Y3mYq
-	 9ik0mXibfa82PYbau9buuGRe1dwXPlfDHczLjrQTiqsCDHo7DN4jm1ft1Ij3hUpuBP
-	 f+/gWYdkl2h2mAJcOeqp7R1niAyPqm5TZUtbC9iYzWD5EdOFbb55CdPNlBLfeiENy7
-	 MvV8u58hsgx6Q==
-Date: Tue, 13 Jan 2026 16:53:46 -0600
-From: Rob Herring <robh@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	b=XFdasWx5pC6fVJ1H8GZcX26x6Gj49Z3Eo2u2mv3//WQIHweZaauLn9+EwlX7pcU+M
+	 066YUvqnxHXqVwFrvOJa0o6C/tLjve6l3sI794elsbdVtASK3YJM3Y8fAAse+pnnrU
+	 SMwNf3uJNb66kwi4v9DatKsP4SMLUQhjrl/j14qpKIt27fhc3p/OLqsBbBKk9e1B3J
+	 DcJxKg2XKFYlJR7qWSiEGTcLs8cc0sGYQvL8l6cxaAcDUGiP42ltDO5n5l2GEh6/R+
+	 ANdgMjn5VOUd1wNyr9Z9MXLKQRDA03EKsMRdi4s9eENmZGytvE0etq8fgKmMBNPacV
+	 GbcO9kPVEhiQg==
+Date: Tue, 13 Jan 2026 16:57:23 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Dinh Nguyen <dinguyen@kernel.org>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Eric Dumazet <edumazet@google.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	bsp-development.geo@leica-geosystems.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Mamta Shukla <mamta.shukla@leica-geosystems.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH 1/3] dt-bindings: arm: mediatek: mmsys: Allow single
- vdo/mmsys endpoint
-Message-ID: <20260113225346.GA367211-robh@kernel.org>
-References: <20260108143934.69634-1-angelogioacchino.delregno@collabora.com>
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Paolo Abeni <pabeni@redhat.com>, linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>
+Subject: Re: [PATCH v3 3/3] dt-bindings: net: altr,socfpga-stmmac: remove
+ TODO note
+Message-ID: <176834504228.390747.7474815974148199421.robh@kernel.org>
+References: <20260108-remove_ocp-v3-0-ea0190244b4c@kernel.org>
+ <20260108-remove_ocp-v3-3-ea0190244b4c@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260108143934.69634-1-angelogioacchino.delregno@collabora.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_145347_875911_4EE8EF47 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260108-remove_ocp-v3-3-ea0190244b4c@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,24 +86,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 08, 2026 at 03:39:32PM +0100, AngeloGioacchino Del Regno wrote:
-> The hardware supports using just a single output while leaving all
-> of the others unconfigured (disabled), but the binding did not
-> really allow specifying a single endpoint@0, because in this case
-> one must either:
->  - Call the subnode `endpoint` and not declare any address and/or
->    size cells; or
->  - Call the subnode `endpoint@0` and have at least one more other
->    endpoint(@1 or @2), and declare address/size cells.
+
+On Thu, 08 Jan 2026 07:08:11 -0600, Dinh Nguyen wrote:
+> The 'stmmaceth-ocp' will no longer be used as a reset-name, going forward
+> and 'ahb' shall be used.
 > 
-> Allow specifying a single `endpoint` subnode, without the `@0`
-> implicit suffix to suppress warnings happening on this kind of
-> valid usecase.
+> Signed-off-by: Dinh Nguyen <dinguyen@kernel.org>
+> ---
+> v3: Addressed Rob Herring's comments and updated commit header/message
+> v2: Introduced
+> v1: n/a
+> ---
+>  Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml | 2 --
+>  1 file changed, 2 deletions(-)
+> 
 
-This series isn't needed. We've dropped this check from dtc. I'll do a 
-sync with upstream.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-In any case, it's also a W=1 warning which wouldn't be my top priority.
-
-Rob
 
