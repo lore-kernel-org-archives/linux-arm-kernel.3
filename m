@@ -4,157 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE78D0C849
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 10:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0E8ED0C84A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 10:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R57GIPJ1gYSzu3J70ldd/dOjFxjsDbS7YC9aQXM4Nx4=; b=BS8K5rHyn4B0vfTLRXI3VrXW+v
-	E/tU1MFFUXNss2zKBrTxTtvOIP7t89NTlCcQekK/9rWZDaThWXQX1YALz0l9XUapjJLa0zaAaTkbt
-	6rk4Grug7qsd8rb6RCuq3eqrd3c3wqXLQSd70k03Z58KOsTSq0RvrZa9rCnmnbqDvrROiGVOdmQQW
-	SURteHuAf2FspgR+zTTXecxYEY9dC9XzPZXZfQsxdRl5tUzyuRKfL0D7aLCVldbp/wQD2cS9oS4NO
-	nQ2umpmqsoDBF9Rti0G09VmGGiiPt+/MuxcOtCU33gj7LaPp9uchvIF1qtorMAbyL2tPJBSQHBby+
-	8pBF+7bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lXYPhxT4VFsm4+vuJl0AaBhCYe20t+H2B88DUgUIoBc=; b=xA0+c3bSEi0zIu
+	HAb1hEQb+CJ0eaAg1kL/SoNS/W/0r+0koa0iQBDolb0OW9D7444MOdpLqj0DD9eWYX66hIfVY3vUB
+	dkvzvAx+8tzRRbdg8KgT9WNb/hg5tYNaIVHf7gkOmPXenAx++5K7Y0ZCCelWucRnrZLa0QlVkx5l9
+	VrcKkLQxhrRbLrO0qyfTHV2tXm1v2kvzGw0vxaTr9rflMlkxmhMgL1jXQovQgUOawf3jNX7YOoTCQ
+	Mz03zcoT8yG8v0begkaJvH5wGZ4RoOlGajinfjbMDT2pv4ZVlk+VKuvXR+ImHJVVK+H1279h0ZuTh
+	wufL50uDT3nlVSKPUzVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfbo5-00000006v4F-2E6j;
-	Tue, 13 Jan 2026 10:39:25 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1vfbow-00000006v9l-3ihj;
+	Tue, 13 Jan 2026 10:40:19 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfbo3-00000006v3i-0LrO
+	id 1vfbot-00000006v8R-2dyJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 10:39:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tL8paVWqDY/QBf7thOyN8z3A5t4H31aqz9AHu/mWAhBLwvdv6BahOIEnxjHZsnB1b48Jeot2KYEYsaP7UzqzpfKQS9lFNFBdfqGdL+Rrwq36x7jbnPZ39Ai951KeMkfTeUN7L7m6pJM/ZmLUBPqxE/yEl8OE/bsIhXJPgCjl1EH/JmfNhBaJ1Jk2/YymX1iYDRI2HemmnLN/Im37Hp+7D91A1rts4RC4qFwaDSiWoyrN68bXyVp9GxU9xl/ch3c46eswHP8XAZkQ0S5u+S6oVqxjqRgjNbR8HAl6cFrU/9QQQs7KvR9r1w7uoR3C3p74cpVtzBtXam2Xe3IEJjIsVQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=R57GIPJ1gYSzu3J70ldd/dOjFxjsDbS7YC9aQXM4Nx4=;
- b=lZTF1uMW6E3VflPF37XSpRI99fwww5oHPjU7+vSJiSXS5igbvRrskgZIyF0BQy2IvxXVddpY0NrBrWNHn7p14c2ITJ1ZrRkLE4aI+bQSi6RhM+3I4GA/Mp0kmMG08wP8xdXKPkF3zOTrW8ZmyJJfMZiHcLbJKA9uvB7xPA03yhOyrQW5Bm3I2Z/yIZhjFApK49/GuOfa6uOJMFmCG4YRid5fp1lpOc75Pa0tKrdAlzzFUh70ia3gafst/bXPk4yPccfmeqyXncvcUkfey9fU2igm9P8ZQlequwnCt+mx+z+C0BUHxpdJQsD7npBuFAARmUSxQMN2UIS+GwP1ZZMMcw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=R57GIPJ1gYSzu3J70ldd/dOjFxjsDbS7YC9aQXM4Nx4=;
- b=rPxj08shEDLnWdPgI6Y1vNCkn9wD5tk7dvvDhExdljsLG2W8C8yDK5SsdPEEPyaFqsM2DZJOuzR06d59uoyTzRdsuQIG/07+8rTNDHF9r4HI/ChM6R1T4Xc+ZW2gHIo9gxCDMyruv5pjpqkBk/PQ3eSfBrj1EZ98s4WQGGy7N1s=
-Received: from BN0PR04CA0035.namprd04.prod.outlook.com (2603:10b6:408:e8::10)
- by SJ0PR10MB5671.namprd10.prod.outlook.com (2603:10b6:a03:3ee::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Tue, 13 Jan
- 2026 10:39:19 +0000
-Received: from BN2PEPF0000449D.namprd02.prod.outlook.com
- (2603:10b6:408:e8:cafe::22) by BN0PR04CA0035.outlook.office365.com
- (2603:10b6:408:e8::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.7 via Frontend Transport; Tue,
- 13 Jan 2026 10:39:19 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- BN2PEPF0000449D.mail.protection.outlook.com (10.167.243.148) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.1 via Frontend Transport; Tue, 13 Jan 2026 10:39:17 +0000
-Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 13 Jan
- 2026 04:39:14 -0600
-Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 13 Jan
- 2026 04:39:14 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE212.ent.ti.com
- (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 13 Jan 2026 04:39:14 -0600
-Received: from [10.24.73.74] (uda0492258.dhcp.ti.com [10.24.73.74])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60DAd9k82011706;
-	Tue, 13 Jan 2026 04:39:10 -0600
-Message-ID: <25c59291bdf9dbdf01d5225e20062b19f4852b28.camel@ti.com>
-Subject: Re: [PATCH] arm64: dts: ti: k3-*: Replace rgmii-rxid with rgmii-id
- for CPSW ports
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Tom Rini <trini@konsulko.com>, Francesco Dolcini <francesco@dolcini.it>
-CC: <u-boot@lists.denx.de>, <nm@ti.com>, <vigneshr@ti.com>,
-	<kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<srk@ti.com>, <s-vadapalli@ti.com>
-Date: Tue, 13 Jan 2026 16:10:27 +0530
-In-Reply-To: <20260112180637.GR3416603@bill-the-cat>
-References: <20251025073802.1790437-1-s-vadapalli@ti.com>
-	 <20260112074948.GA101138@francesco-nb>
-	 <20260112075636.GA105765@francesco-nb>
-	 <20260112180637.GR3416603@bill-the-cat>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Tue, 13 Jan 2026 10:40:17 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-430fbb6012bso5957941f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 02:40:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1768300814; x=1768905614; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lXYPhxT4VFsm4+vuJl0AaBhCYe20t+H2B88DUgUIoBc=;
+        b=Fe0lkXYSISk1ZJB7zdRIsyRth7bL7j/Kx64HxpoBE/QaqaO8r+AqwRZP9me/szmWwQ
+         FmGhbMkgno/A927hXS9DiQpZ9NO72fZwU2FdkeW0fV0DruloFOyprNORLg/hqxTFHj+j
+         Y6xmKTdsGQCMhtF01OfjQeua4ubuoqJ42EsN15W6MPWelC9H4FgOEolW4P0EoGqCwuEC
+         n1WMFoilhJjYOnLohz8ZdXujJdLXVxCMTGFrpiz0UuvWSwvzQXZMSWRcCuQcWkhVPi9Y
+         6aFZSVc/iygT/8o4BOCmHGkM39JdCnVS1YudAfDHRJ1tNfiHKjYllYHFP+01m+iig+mr
+         FXIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768300814; x=1768905614;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lXYPhxT4VFsm4+vuJl0AaBhCYe20t+H2B88DUgUIoBc=;
+        b=JZXo8migwbrfHWipkLapZhm8d0i4S4fmvlDVzKgfVu4FUOFn8cKP3IGhFPpS5L/lSP
+         ZVjI3BiqL+YI/jucP5EsVj5Uk3nWG797kopugKVuotwNv4JutlQW1Sa+FlkIYAHwq/bO
+         RCVmFg0jZN5chNm2T6iz5qloF3t6j/dGm0i8ZnNRTvWPfrgyO8xt+7ZABvynETbwMf8g
+         OOeuNJ47XsBz0EaV3yTfHx4FSEu9YTowRl3y/zatL3UTLhoRFBtzH6DAvVaVwffAHBsu
+         czBwjQdtpmZ74wgtw453SOmxDB6bzXv/dAhQrQCsNT5BwveYr/bwUpwihRFqQCe0VsJ4
+         +9Gw==
+X-Forwarded-Encrypted: i=1; AJvYcCW1H8WH6zjKFbBqr7S6ReViEkq3/7tFVki2my/3Uas77EeRrhWeA17dj5OuMQpNBiv3haDzViHJQG0mrgTUvBvj@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEr2vSM83ssAc7+f7WbAYXlhxcaOQezLP2hX+y9W8nesX35XlO
+	7Etz8364S5nHlHWxs3FMP4/HNO44WrGKso2ahIux/0D8zkPS2KjahgTxH4qo2xmdhJE=
+X-Gm-Gg: AY/fxX6doWYBdjnKggD5VOr8nfLsw1whL5Gx4EDks2zCB/E9eI5vLXCuIuc6Z/4UdRn
+	7qAUgfIt9oFHBTEJClZFlxN10r7ReCE/5Yn/n0He3ebTSFkxf1Z/tyS22Iv2CKzCguqqnXAsx56
+	BZ/s1RyZbkFtVZelAXLmlPOc66XgZUFsGpQ+BjttJjaxzeWEOgjIlLqfBS5QBfFZC2B1tvx13KI
+	Y2MURgeBtFJ3n/NQocoYX6iQgWPrkkZ5oXM2GUVPkAZCNzLR+OISV5bc4Gx2XlG20e1D2f390RT
+	v/wPOm0dKVjguKWsVn8lBNtMtGyNvSWvy6GCBOzjR79uA6221sU8K/9HVqfzvOqVsj7qkGHbEhp
+	zhcCPhrnWNGHPmHkAoCm0pj/bNuWXUdmtKSg4TdlvL3npEdqi2/8C7pNg/Huz4bERQkbyEzNs/7
+	QDJRPCmjIP
+X-Google-Smtp-Source: AGHT+IHFzNYoWJwOUEYhgDUL2jzgr59pL14dNINqiejD4tK6O1TDnQY0+fHQGFbBHWVT74A5TNYbVg==
+X-Received: by 2002:a05:6000:1366:b0:430:fd84:315a with SMTP id ffacd0b85a97d-432c3798332mr20221772f8f.39.1768300813665;
+        Tue, 13 Jan 2026 02:40:13 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:982f:38af:1a7a:b10])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-432bd0e16d2sm44942027f8f.13.2026.01.13.02.40.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Jan 2026 02:40:13 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+Subject: [PATCH 0/2] arm64: dts: amlogic: s4: mmc clock fixups
+Date: Tue, 13 Jan 2026 11:39:51 +0100
+Message-Id: <20260113-amlogic-s4-mmc-fixup-v1-0-1ab1fca0fb2f@baylibre.com>
 MIME-Version: 1.0
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF0000449D:EE_|SJ0PR10MB5671:EE_
-X-MS-Office365-Filtering-Correlation-Id: 26dcbf20-9c21-4870-6e2f-08de52900101
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700013|34020700016|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UnB0TnVld245UGptbVJ4SFJ1MzJqMGhIcDljaENmZDdoRGp1WGU4bmRPMnNS?=
- =?utf-8?B?R3hJOURLZDBQemFpcWF6Z3d3WFBIbFplRmhwTGZYM2Fib2dGbVdwdVgvZ0Q4?=
- =?utf-8?B?cGdMT21Iak4ydEhWL25FNEZjVHdkdzJUODVYU25LSXdpWEdCQmlwcDBGVzU4?=
- =?utf-8?B?U2FmME5HZGFQTVVhbFdpOWhmeExEbTNaUmlPaWx3Z3pMNFZibHI2dDI3WURB?=
- =?utf-8?B?aFFyNE5QbzZZbVE4VFRjVkVpYVlWNmNwVndsbGN3Um9qWVRiQndma3pndThE?=
- =?utf-8?B?U0puMGswU0laTFV2MmtKZTVGSk1HeHJ3OWdVT1RJaUc1OUp5ZkpTcGl6SHAy?=
- =?utf-8?B?WVE5aklwSG56cWxya20xS0RWb3pGTW1RRi9YQkhtdWxOcmc0K1gwMUxLVkFq?=
- =?utf-8?B?VjFJMmgzb2pIQXBtaHBNWWJwS0RvVWhocTh3SVk0aDRkcGdiYlovUlZXSTZr?=
- =?utf-8?B?d3N3ZUQxMXN1ZmcyeXQyempsNEtucCtHemZmY2Q5b1Q1R1NjMVN1aGRnczJw?=
- =?utf-8?B?Y01BZzB2OHlZM0VUMlBkNkZwNE1lczdXNytmVFV5cEROeFYzQ2FkZlBiY3dC?=
- =?utf-8?B?RHFlNlBtQmhMM3I3TEpsSitvL29GRE1FSWJaNktSMk8rdEVnaWJ3K3ZVWk45?=
- =?utf-8?B?OC9COHJGUW10K0tpbGl0SURUWGlkUDV4dmljcExXV25jbjhzWFB2eUZuNDdL?=
- =?utf-8?B?Uk5zaWV0dlhKSWNVc3ZLdXc4NVcyemwwNThPeFJaMGJ4N3krT21LSFBpaHhP?=
- =?utf-8?B?cUdtT0tkWnRGMDY1bUtkclNkejdqRTNEQUQ3ZUVzSjc5MGZQWXhZWUZPcDFN?=
- =?utf-8?B?Z0xjcUFXNVNFbVBRbUxiMVVUNjVLTnJFL1lldGxQbllFTmRXcHpEeGorTFBX?=
- =?utf-8?B?aVg1cER6aEo4d2tvdDh0TWtaekdIY3hnS1VMUExVYlhPWWQrbkM1T09remV5?=
- =?utf-8?B?OTJGMGZLZUR6cUNEYUNRcmFZMnRvNWJYeWRDNFpkWndZTVh4QVZ1aEdPNWFh?=
- =?utf-8?B?a09tNG1Pc3pYS1JuUUgxZE8vSHRoakhaZ1RXc1lJMkpERVlkRThiYU5LbkI1?=
- =?utf-8?B?Y2dlOGhEQXRnRFVFZ2JGcTU1TkNhcDBvZEhGSXpjZU5HY3NlNExOT1hYUjEz?=
- =?utf-8?B?UnVTZlBxY1hhbkhrc1JNWEp0TkhsSkIvUFdhdVFHYVBjWHpFVkRyWlpYcVFK?=
- =?utf-8?B?emZKS21zTHJUUW9qY2RsT3ZBRDcwQ1pPVFhMcVhGb3I0c0RaTFErMTFXYnMz?=
- =?utf-8?B?UmxiTldIbkhkekhIWUthVUVkZVRFd09lUFd6eVpUU0tTcm40SkUrbG1keE1q?=
- =?utf-8?B?K2JzbVNoUHJlRGNhNm5DTDlMVUFxVXNWOEVkZEVYN1piby95MWx2dFpPV0FV?=
- =?utf-8?B?Tnhha1NMeHpxOG5Zc21Pblo2OS8yejdFVi9FWndvcURmWjQwV1p2MFp3MHNE?=
- =?utf-8?B?NGl5dHYyZDVZWWh2b200NWNpNlAvUlpja2xJUzdDWUF5VXlGTUU3VFd5aHc0?=
- =?utf-8?B?c2lqSXRkNU40MEs3RjlkdjF6ampOYzZmZkZxVkdYSGE1VnhBc1JVbjF3blFm?=
- =?utf-8?B?Sk9ONGtEbnhFOThRQjI5b0wwT3hTV2dJS2FyZ2dseFIxRk1sQ245NktyOVlR?=
- =?utf-8?B?WkFEMTNwNDdVazQ1bmxlN3pLTWZYQ21HVU9qQ0cwWUNpc3o4ZUdXMzkzK0F0?=
- =?utf-8?B?UXNZZFNVbHo5dDBGMHk1UldFQ1p2Q2ZsUWJ5ZExjSTV6UlZCQ2JLMk4rYmhn?=
- =?utf-8?B?c2o3bjA3U3p6SS9TaWtmbVpCemNTVkQxOVNBZFV0Zy8zZFNldmN6SjZjaTdw?=
- =?utf-8?B?ZW1pQVQvRjk3UHFZTEY2dGUxUUdPcjhrVEZYTTM2c1N0U2ZYQ254MnE4S2w0?=
- =?utf-8?B?eXhJOGFOQjhiYURYTlQrdnZFeXVpbWxsZ1hlYjY4V01KR0V5dityTnludnFs?=
- =?utf-8?B?WE1aaVh3NUhlK3RVVkpCMithY3N6SUJTTEtVQ2VlMFRrdnUvNUFzbzRKNmdv?=
- =?utf-8?B?NzUvV1RzMzZLVXJFQ3R3SXVlNHIvYVNDdS9MWlljMnFHenFWRTNZK1VGcWJl?=
- =?utf-8?B?NVI5VEY5MFhnQkRQRWF2U3ljejIwZ2c3ZWFlMFVTanR6TytweW15YVgxUk9p?=
- =?utf-8?Q?1blg=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700013)(34020700016)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2026 10:39:17.7645
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 26dcbf20-9c21-4870-6e2f-08de52900101
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF0000449D.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB5671
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPcgZmkC/x2MQQqAIBAAvxJ7bkEtKvtKdFDbbCErlCKI/p50H
+ IaZBxJFpgR98UCkixPvWwZZFuAWs3lCnjKDEqoRUlZowrp7dphqDMHhzPd5oFZm6qwWtrUEOT0
+ iZfFvh/F9PzWi7KdmAAAA
+X-Change-ID: 20260113-amlogic-s4-mmc-fixup-92ad8b90b7be
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, Nick Xie <nick@khadas.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1052; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=teOBXSGPl+wXTHvtP2Og0GZe2H53L4WVvkddC0eSMu8=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBpZiEJ+z5RHj+9WnWssofwZJOg33B60V2w+bpBd
+ qY0coeQCL+JAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCaWYhCQAKCRDm/A8cN/La
+ hfaZEACF5pgbd/q1o0s2UUMpaNbWIzuF7TlR4wFpW2nULLpPJ23Kr2F/i7q4Ajygd1+LhPVt/PJ
+ uSefmwSXECTBZF43x64tJCn6oWhXMYUDVDgTuCr4l9t0iY8LBgAEP2MnmhPg4LyjtaoT0i0A1n6
+ XtffOMurVTWkGKbJt5bci+A9el8wET1gos/S0CN0Cg1tPq+Y380BjUxvM4dSh0dpb/nWFhcm4OF
+ M6yRYjj/+3jlmNgrRp+bVOq1QkDTYubZowzsnqUF2JZ/LyempgIeptjs1JrcSO5x3xwUf+1aYnR
+ qItk2ttafdTSCAT5B+/J/kkzAgQdPqbkcXUK2QXajdLgqsRLgmHkiSRHC803SzcAAXou5krZwoO
+ MLVkjDRKtYq/KvX+sbfkeuMm9A6qDHhk5ocmd8T3iggOVH5z/TYSgStkgWR6t70iEfXKCpqAU0x
+ ZwNp+xeIJVabXyF/Ks4hwNbFZKvY3LcttP5QAgnTq85yIBC9HuSEoptApQUcDocEgFGrZLz7nbV
+ m+VhY4CHq8sHSFoPkRZ18DNbsN0d6KZDTrg/6drh7AaeuwTxWzUO+jdcwDGs4Hl7FO+ounKmhD9
+ YG1mY52rteCT4GkwtKKQmWaJ9exSyTfPaIId/Uw9gZEoie/GkeOf5p7BbXvssbdCoXegMGyufa+
+ EtrJMazGI0Eiy3A==
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_023923_141906_AF98CE7E 
-X-CRM114-Status: GOOD (  28.01  )
+X-CRM114-CacheID: sfid-20260113_024015_693365_3B6179BC 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,71 +124,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2026-01-12 at 12:06 -0600, Tom Rini wrote:
-> On Mon, Jan 12, 2026 at 08:56:36AM +0100, Francesco Dolcini wrote:
-> > On Mon, Jan 12, 2026 at 08:49:56AM +0100, Francesco Dolcini wrote:
-> > > +Tom +U-Boot ML
-> > >=20
-> > > Hello Siddharth,
-> > >=20
-> > > On Sat, Oct 25, 2025 at 01:07:59PM +0530, Siddharth Vadapalli wrote:
-> > > > The MAC Ports across all of the CPSW instances (CPSW2G, CPSW3G, CPS=
-W5G and
-> > > > CPSW9G) present in various K3 SoCs only support the 'RGMII-ID' mode=
-. This
-> > > > correction has been implemented/enforced by the updates to:
-> > > > a) Device-Tree binding for CPSW [0]
-> > > > b) Driver for CPSW [1]
-> > > > c) Driver for CPSW MAC Port's GMII [2]
-> > > >=20
-> > > > To complete the transition from 'RGMII-RXID' to 'RGMII-ID', update =
-the
-> > > > 'phy-mode' property for all CPSW ports by replacing 'rgmii-rxid' wi=
-th
-> > > > 'rgmii-id'.
-> > > >=20
-> > > > [0]: commit 9b357ea52523 ("dt-bindings: net: ti: k3-am654-cpsw-nuss=
-: update phy-mode in example")
-> > > > [1]: commit ca13b249f291 ("net: ethernet: ti: am65-cpsw: fixup PHY =
-mode for fixed RGMII TX delay")
-> > > > [2]: commit a22d3b0d49d4 ("phy: ti: gmii-sel: Always write the RGMI=
-I ID setting")
-> > >=20
-> > > What about U-Boot?
-> > > I just noticed this in today U-Boot master:
-> > >=20
-> > >   RGMII mode without internal TX delay unsupported; please fix your D=
-evice Tree
-> > >=20
-> > > and I think this is coming from the DTS update from Linux to U-Boot.
-> > >=20
-> > > Can you look into that?
-> >=20
-> > Ok, I think that the issue is that the U-Boot code was updated
-> > correctly, but now we need the v6.19 DT in U-Boot, and as of now we hav=
-e
-> > 6.18 DT.
-> >=20
-> > Tom: are you planning to sync the U-Boot DT to Linux v6.19 before the n=
-ext
-> > U-Boot release?
->=20
-> Once it's out, yes. But, uh, this tells me some TI folks forgot to
-> backport all of the dts changes too then as we shouldn't have broken
-> platforms in-tree like this.
+The patchset aims to address the issue raised here [1] for MMC B.
 
-In both Linux and U-Boot, the error (warning) message:
-    RGMII mode without internal TX delay unsupported; please fix your
-Device Tree
-only indicates that the device-tree should be updated to use 'rgmii-id'
-instead of 'rgmii-rxid'. The functionality however remains unaffected. The
-current Linux device-tree patch is not really fixing an issue from a
-functionality perspective, and the same holds true for U-Boot.
+While checking this, I've found that MMC A and C also appear to be
+improperly described in this platform's DT. The 2nd change fixes that.
 
-I realize however that a DT sync patch could (should) have been posted by
-me to the U-Boot mailing list after this patch had been merged to Linux
-instead of waiting for the periodic DT sync.
+I do not have an s4 platform available with me, so these changes have only
+been compile tested but assigning the clock was actually tested on sm1.
 
-Regards,
-Siddharth.
+To be on the safe side, the MMC clock should also be assigned on the other
+SoCs. More changes will follow once things are sorted out for s4.
+
+[1]: https://lore.kernel.org/linux-amlogic/20260113011931.40424-1-nick@khadas.com/
+
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+---
+Jerome Brunet (2):
+      arm64: dts: amlogic: s4: assign mmc b clock to 24MHz
+      arm64: dts: amlogic: s4: fix mmc clock assignment
+
+ arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20260113-amlogic-s4-mmc-fixup-92ad8b90b7be
+
+Best regards,
+-- 
+Jerome
+
 
