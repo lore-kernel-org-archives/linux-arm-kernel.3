@@ -4,62 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9CCD2D0E5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 12:29:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13CB6D2D0E5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 12:29:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pXbP6x65cQ4uLrY56hGkWG67oz5EmOJHTgHrkeUR5j8=; b=dhEPck5eV/UuHq
-	AS6xYgzKqMWhS8sWZ9gNyrQWAxehlnyCVXmeyYWtmFXSbYKtzHFsaQDqpXUwLIgZZ9rGgH/4SeZzM
-	QQtEA724g82StTolCZusBB3/NHfj+6WHhnnWSianjr/S47HBySrWs80GH4Q60XrFz2Dpf5spnjBlQ
-	m3SOV28jlvu3MoMTOVeQjCzRX2bHGA6hoNIRktRbmeTYkUYIeAI1FLkbLWaCcIBnYrT+WXcWb4lXx
-	RDTwe3s3uie0kbWIJqGIFyXREds0qdrPJypBEjpZgqtxb7aK7BlTHzPyeavnfgjdhN4zNBOd5nG9q
-	B1cAcQP0Yek/+G1O6Wkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JY2qs5HiXVSQ4G08EORvC4Wxxk7b0Nzq2mn3YREMPCk=; b=lIYAlrIRT8lsd/ZxQdca7z+AEJ
+	5MOpjuWsleSOJP9Mu3QLLAaxmhUHfQValsqTT0UjwiZxL88QWm8UiVRF+fr7rqyWeujqbxxAXTC8D
+	PWvUSdk2RyMz+VFTriNXur/9vIn78ih/WHuHvU6V8Me/obAUjSziZE8b8N0/SZI6KPJPngb+6XEKN
+	qM7dryUd4Y6FgRqgNDcTF5X+WIdHKxVYNHe9ENuCeYspFC+R3jI63FhrtTVYnY6quU7+cTdtj3rMN
+	E4JnTGvOkfHDTBrVxqZ4i91tialcAvcuQvjX4Lj8IqyDaK/8vms2TnIFSXwsPl3vQw9qp3KAy6qQe
+	MJ6/FXww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfdWN-000000074ah-3LHa;
-	Tue, 13 Jan 2026 12:29:15 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfdWK-000000074Yn-0wtZ
+	id 1vfdWR-000000074cP-1eCU;
+	Tue, 13 Jan 2026 12:29:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfdWK-000000074Z1-45o6
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 13 Jan 2026 12:29:14 +0000
-Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <m.felsch@pengutronix.de>)
-	id 1vfdWG-000338-9Y; Tue, 13 Jan 2026 13:29:08 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-Subject: [PATCH 0/2] Add more PLL frequencies to i.MX FRACN GPLL
-Date: Tue, 13 Jan 2026 13:29:05 +0100
-Message-Id: <20260113-v6-18-topic-clk-fracn-gppll-v1-0-166e674aabf1@pengutronix.de>
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E84F8497;
+	Tue, 13 Jan 2026 04:29:03 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.197.51])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A38F33F59E;
+	Tue, 13 Jan 2026 04:29:09 -0800 (PST)
+Date: Tue, 13 Jan 2026 12:29:07 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	trilok.soni@oss.qualcomm.com
+Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
+Message-ID: <aWY6kx8Bwa_2azIl@bogus>
+References: <20260112-disable_smccc_soc_id-v1-1-a5bee24befb4@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJE6ZmkC/x3MwQqDMAwA0F+RnA2YRsrYr4wdJEs1WGppRQTx3
- y07vsu7oGoxrfDuLih6WLUtNVDfgSxTmhXt1wxucH4gYjw80gv3LZugxBVDmSThnHOM6APxyOJ
- 4FIY25KLBzv/++d73Ax3QSVxtAAAA
-X-Change-ID: 20260113-v6-18-topic-clk-fracn-gppll-6f1343c234c3
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Marco Felsch <m.felsch@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::28
-X-SA-Exim-Mail-From: m.felsch@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260112-disable_smccc_soc_id-v1-1-a5bee24befb4@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_042912_273869_D969EC95 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260113_042913_050953_AC69369C 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,32 +65,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, Jan 12, 2026 at 10:24:06PM -0800, Satya Durga Srinivasu Prabhala wrote:
+> The ARM SMCCC SoC ID driver is currently enabled by default and publishes
+> SMCCC-provided SoC identification into /sys/bus/soc/devices/socX/*.
+> 
+> On platforms where a vendor SoC driver already exposes widely-consumed
+> attributes (e.g. Qualcomm socinfo [1]), enabling the SMCCC driver changes
+> the format of /sys/devices/soc0/soc_id (e.g. "jep106:XXYY:ZZZZ" instead
+> of a vendor logical ID like "519") and breaks existing userspace consumers.
+> 
 
-this adds two new PLL frequencies for the i.MX FRACN GPLL.
+Instead of relying on a vendor-specific SoC driver, we should consider
+disabling it and using the OS-agnostic SoC information interface provided by
+the firmware. The presence of this interface strongly suggests that the
+firmware is designed to support multiple operating systems or software stacks
+that already depend on it. Aligning the Linux kernel with this
+firmware-defined, OS-agnostic mechanism would reduce vendor-specific
+dependencies and improve portability. Any gaps can be addressed by enhancing
+userspace to correctly parse and consume this information. Given these
+advantages, why would this approach not be the better long-term solution?
 
-Patch-1 was previously part of [1]. The new version of [1] will drop the
-the patch which is now part of this patchset.
- 
-[1] https://lore.kernel.org/all/20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-v1-0-9c14be6c7478@pengutronix.de/
-
-Regard,
-  Marco
-
-Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
----
-Marco Felsch (2):
-      clk: imx: fracn-gppll: Add 332.60 MHz Support
-      clk: imx: fracn-gppll: Add 241.90 MHz Support
-
- drivers/clk/imx/clk-fracn-gppll.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
----
-base-commit: 7d0a66e4bb9081d75c82ec4957c50034cb0ea449
-change-id: 20260113-v6-18-topic-clk-fracn-gppll-6f1343c234c3
-
-Best regards,
 -- 
-Marco Felsch <m.felsch@pengutronix.de>
-
+Regards,
+Sudeep
 
