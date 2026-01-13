@@ -4,63 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 311EDD29DE0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 07:58:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7D56D29DE0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 08:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UoFQ4uXVUCe0BxhEj7I3oRPd9wIRjhh2vtMNpjOpuWU=; b=0k+kp5UDii+4ri2DhFkKOKLUzR
-	a3k/tn3Sd7PvoHZvexIpOlXIm3p8mmDD8URPihN4ZsS82JWBauiCMVLB0AxB9i7+n3cgxVesqCa/c
-	hj0GEfIYHPAXWraBTpK5sP7+1GbVea8cFK6hvRjvDLZCnaQoEvdxE8s5nUkfkOkHp0LO9aUEulQq/
-	f9PoY+SWszMoeUGbQ1DDwPV1tN3qptopdMI/U+q+4HPjMFRiheZTk7CukCACoM4O8OgXcIYmlONhV
-	QfxjlCk+t88lB5S8a7ajOcudZNDqodKM09cKumI8+tnFGX/rj7+1ABG2j0RXKSrsX0oH7m/D9wyv6
-	t8hhKIVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h4XBvo9hLhqjOo/eKnVRLKDXh9Sql68mRuoY6ThvJY8=; b=jkt3KVoBDi7vKySIa9AJwkrgMM
+	SUl6eomffWITQwizvInIWH1fYQLjbY8rD8GfexOgndGoeIa7WY8a0lL1os73juCm3+kJU6cJAXzdN
+	ExBkXAAkH/j+tkUvDTM+EIEKkiPGX6U8D30mtF80A6HriKeHwjUqeIMQvqii+cL9hkESQbd8+euLI
+	OXXT2zKEhh50tnwWIwLV1Ac/FVqrfxNrs2splry5fNMlZ11+W5z2De+4bWs/+Q70w8D5GG6zXYRMR
+	E5D8GRu4HoGw/ZIOFNfyeUADxW99tfvgsMoi6lofVs88oD77EW8yo06E4Ci8H871gY4wRq5TavVSG
+	at46d6jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfZIf-00000006h0N-01Jc;
-	Tue, 13 Jan 2026 07:58:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vfZKy-00000006hCo-3KVS;
+	Tue, 13 Jan 2026 08:01:12 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfZIb-00000006gzk-3c1x;
-	Tue, 13 Jan 2026 07:58:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 20382400CF;
-	Tue, 13 Jan 2026 07:58:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 730F9C116C6;
-	Tue, 13 Jan 2026 07:58:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768291125;
-	bh=3lXAgY/S95JPbtfa3piTX96xIrT9coW1vZhiDkowGIE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=I4ZTpJxy5sukEisu2/F6nxdjmlQMYMKB07601B+sXZYup51yVfBRBEptmT4q8xKYt
-	 bKzrM1QWX1/hQQB6L6Il1B6IthUHCJ3Osa54LOetCgBmrPqRQaQ9KEtOL6rmBRFsWA
-	 Ss8ia8LioYltC2zZmRrhMmhKsyLWi8g+8VKFPpmCd0rUsFywe5Du+4jBggBei/lMOK
-	 d65s7Hz62kSHTaL/t6uXeJqbISMdD1v7AF86VLbYFUkBZpXpu0wtzt4TOKi+SkPvSY
-	 AdD6BDWJEsdSZTiCki4VC+sQsch4YWExR8dQrDTrQae4gIRrgUNuRowaDm6Oo9z+86
-	 V7+wm7kCH3geA==
-Date: Tue, 13 Jan 2026 08:58:42 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Joseph Chen <chenjh@rock-chips.com>
-Cc: Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Lee Jones <lee@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: mfd: Add rk801 binding
-Message-ID: <20260113-funny-utopian-doberman-1a55b7@quoll>
-References: <20260112124351.17707-1-chenjh@rock-chips.com>
- <20260112124351.17707-2-chenjh@rock-chips.com>
+	id 1vfZKw-00000006hC6-1UDz
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 08:01:11 +0000
+Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-47774d3536dso52388465e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 00:01:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768291268; x=1768896068; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=h4XBvo9hLhqjOo/eKnVRLKDXh9Sql68mRuoY6ThvJY8=;
+        b=K8Jb0DQ4qDGhPNDtxc6RCk4TbTccZJQjlWsJmgBwcJAu8FwiFlAW6r5xPq9gYAHQn+
+         fwJIfxR84xi/WzoLqDb0oK9ZdpRFyLqfPhJwJ1h0zToWqiZxfroCvFh0oVwpojNeu6I/
+         78dCVCx+7WP+V8zRG9qSN2MBVyTwTT+g1IBshX/vKLOtJ9rjWmLDqLdTdDSBvv9ajY65
+         IpXHr3GV2H32UyD5A1niAs9xjFioW0GjjzC/WV/Q2RR51o+qAti29ZBp93qifp3POf+0
+         ymF2J8CZl0MWzWOd9RoJU8wNHwjqT4wFz5uYvVBFKCNa3vPIJKV3a2jBZmZw0SHSXLRw
+         rYqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768291268; x=1768896068;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=h4XBvo9hLhqjOo/eKnVRLKDXh9Sql68mRuoY6ThvJY8=;
+        b=fAJQisZG7Q1pMMyEpu3bxpFvjiHNH7VIbY4puVVcMnfCJCMu96tx/yeOSlAcH6DpL0
+         gRvvoEEqnDd4dc7KZzKmjI3XJJmFyZP0A5gNj5iJS4TqYsWDU+l9cyzZSDnTnnVwPF4U
+         i5QvHcDjGwtR0RBanKmHTsp6drs+RbhJSwhlLpggQ+35/RpkeigtRubB1jG7z5KgjTvz
+         8dDZADpZ6D6TZB61J67DVG8zr8itHtTyOzzXYzsnsWYddlSyeKdpuH9s+Aa9wLH/af1L
+         NSjcStWXTJ3aXuuBB+U7Np+BXKlPKrMsOebyWeI39xNbbmKcd4mEpmCa8aHIMlCS0M83
+         8kCA==
+X-Gm-Message-State: AOJu0YxSAXyLrLXSAM4Wkjr4ifTsXMH2wHcG0hj93e4e4TzI9BdQ+QuK
+	0+WffLUMwF625tt7k9d1twVrMuuyoXLsJ6PeviKZiYQh8YEv2gDf9CUxS3gtd57KEno=
+X-Gm-Gg: AY/fxX5Br9cTG2OanhzE/rZpxh98p6dpx2+f8OarziqHKd2RyDxqKH/7oKY6+Yifacq
+	Xo09oRbNfyQKGvgCCYrqkWma5QK3k/oA7A89pUDHhKFkX8RRmgkZvkI/WEjPDXWjSr9v1I6IqE0
+	Af16xyNCe4XViaGmPj0sL5p96FOS1djPbbYL/eqlWXUaXJJfDXowLJSVcdgFMVVU09cJFvVj59X
+	finmrEreVeGV+9SCWep/q/Y0XeFhEt/afVNS4PgeDdv8ErznYjpvsZaeEPkOqawx9TuLuzIxJn1
+	hUvQN9yrZ4Pk/5OBq+wgWhs6jlcGQRJdnWjsqRNPVYFgqV+0Zc2s9DuIjxcWwX9fzEbXM2PsyDO
+	33kMhKYOSP1Wg0PEmTT+J8EIJzrCn11FKOECUocpgVHM6Yj0HzrXWRs6JgpqPq5749gHN3ay9zD
+	MkenlJuX06cjVUKn7ZUF4=
+X-Google-Smtp-Source: AGHT+IEfNL67lDlJu2bZvpORWFuC/UNgw2RJDGC9kVaQZva+lj1qWcsb+L91+Qwff3hAYzlXikNsrg==
+X-Received: by 2002:a05:600c:8b44:b0:47d:6c36:a125 with SMTP id 5b1f17b1804b1-47ed7c2afd2mr23274545e9.17.1768291268239;
+        Tue, 13 Jan 2026 00:01:08 -0800 (PST)
+Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080::e97c:97dd])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d8384646fsm358516415e9.15.2026.01.13.00.01.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Jan 2026 00:01:07 -0800 (PST)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: linux-amlogic@lists.infradead.org, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org
+In-Reply-To: <20260109210217.828961-1-martin.blumenstingl@googlemail.com>
+References: <20260109210217.828961-1-martin.blumenstingl@googlemail.com>
+Subject: Re: [PATCH v2] arm64: dts: amlogic: move CPU OPP table and clock
+ assignment to SoC.dtsi
+Message-Id: <176829126747.3571714.16601287953745000295.b4-ty@linaro.org>
+Date: Tue, 13 Jan 2026 09:01:07 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260112124351.17707-2-chenjh@rock-chips.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_235846_340249_29DA585B 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260113_000110_444101_7063E32F 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,18 +101,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 08:43:49PM +0800, Joseph Chen wrote:
-> Add DT binding document for Rockchip's RK801 PMIC
+Hi,
+
+On Fri, 09 Jan 2026 22:02:17 +0100, Martin Blumenstingl wrote:
+> Move the assignment of the CPU clocks and the CPU OPP table(s) from
+> board.dts to SoC.dtsi to reduce the code duplication.
 > 
-> Signed-off-by: Joseph Chen <chenjh@rock-chips.com>
-> ---
->  .../bindings/mfd/rockchip,rk801.yaml          | 197 ++++++++++++++++++
->  1 file changed, 197 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml
+> 
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.20/arm64-dt)
 
-Best regards,
-Krzysztof
+[1/1] arm64: dts: amlogic: move CPU OPP table and clock assignment to SoC.dtsi
+      https://git.kernel.org/amlogic/c/d7b70ebf2bf4a9983fe64b8c221db55f15c4c56c
+
+These changes has been applied on the intermediate git tree [1].
+
+The v6.20/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
+for inclusion in their intermediate git branches in order to be sent to Linus during
+the next merge window, or sooner if it's a set of fixes.
+
+In the cases of fixes, those will be merged in the current release candidate
+kernel and as soon they appear on the Linux master branch they will be
+backported to the previous Stable and Long-Stable kernels [2].
+
+The intermediate git branches are merged daily in the linux-next tree [3],
+people are encouraged testing these pre-release kernels and report issues on the
+relevant mailing-lists.
+
+If problems are discovered on those changes, please submit a signed-off-by revert
+patch followed by a corrective changeset.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+
+-- 
+Neil
 
 
