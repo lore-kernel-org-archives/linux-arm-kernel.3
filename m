@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E8D3D2F326
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BEB9D2F326
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:44:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xSTCqQjpShfPsd5+rUt0pB6f/JUEjT87BEqGsFlOFP8=; b=hwijlsBfset+dwdoSGkP8275e0
-	4LwTymc3nwhNNruswkMJN1T1VWo4qbaGHXgfR3MTm3m/eE+AY9onycExnFzWOSv3+0vufQgoTnDFu
-	Lx+4mcuMtl/ZuKXhTAhv5zMjmXkrZ0ni+5dPPEcCiN6CyQ8CyHKk6Q9ovkIKL4esx5kgJT5NmIQmI
-	iJSwj17ppTNK7/GOJgZXPke0aN4U6k/8yuR+PFAqts/RXO6Rdc7KhhFIVlco6DqJDKn3pH6eLX4jP
-	oUMK+jFOXdDlNzkqTZ74jnA05mTBo4NMeTzJAfmY6ndWS2g4A+V2vF2ZC+i+PJePKlYU90ZtirGVs
-	psDIzkrg==;
+	bh=PHMLXYcYeFMLCHsXk+6wPpFG2rT9iu0Lpjf1Mwx26o0=; b=x4jTSVKJHE2QTc3oCMhftceh+z
+	KxPl0wF7JtM/9CnISoINdlWi9lKxJa9a4OtZOWvd6y3/udFfg69GTiS1GMkFz7rT3zYY1kTIyXIc+
+	xFfEddoi6B6g1PNhCebjhh8nZQzw+C7wPuAQuqEn/6lIFNBeEwG7e+m/FvHESMFcTXeRH/CpgW7v5
+	Rt1Xh8j3FDRWizqQX0IX5uCaGAaRwAtW7poZOPxy6FaanfedJZdhfEmlz5qEBItvT6zOvmM8l07qn
+	VAKiYYyl3mnAo0HhtKx4dVwFvowKK0WgTgCQHZvR9pDhEHE/UiXmwkWptQn0QgJ/qLOwWW5z5xsZy
+	vctV+ZPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgYa-00000007P69-1hQf;
-	Tue, 13 Jan 2026 15:43:44 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vfgZ1-00000007PDg-1PB6;
+	Tue, 13 Jan 2026 15:44:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgYX-00000007P5S-2QdO
+	id 1vfgYx-00000007PCk-0BTB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 15:43:42 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4drD6d0DpYzHnH4f;
-	Tue, 13 Jan 2026 23:43:21 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3934C4056B;
-	Tue, 13 Jan 2026 23:43:39 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 13 Jan
- 2026 15:43:37 +0000
-Date: Tue, 13 Jan 2026 15:43:36 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
-	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
-	<kobak@nvidia.com>, <lcherian@marvell.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
-	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
-	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
-	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
-	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>
-Subject: Re: [PATCH v3 42/47] arm_mpam: resctrl: Add kunit test for mbw min
- control generation
-Message-ID: <20260113154336.000060ac@huawei.com>
-In-Reply-To: <20260112165914.4086692-43-ben.horgan@arm.com>
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
-	<20260112165914.4086692-43-ben.horgan@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+	Tue, 13 Jan 2026 15:44:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 44E0F40905;
+	Tue, 13 Jan 2026 15:44:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A405C116C6;
+	Tue, 13 Jan 2026 15:44:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768319046;
+	bh=PHMLXYcYeFMLCHsXk+6wPpFG2rT9iu0Lpjf1Mwx26o0=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
+	b=tmNtaCHZhnOPkNQtKmhqE0bQ88+IeHPB6ckoskfF7ruYjI/e08Cv3ldpq51A8gL5K
+	 qq0X+J8iT/Grf19XLTgb5OATfWR284kq/RnlqtUlkNoSxo6eibXw0WFnZlU02HB8pw
+	 e2+yJczgiszrzdUco7ZUEptG4UiqdKwfUFwhuaLNX9Vu2S9AuNmlZtb6nkEmMVGIhX
+	 KwjPuHC0MsPjRd7zhbOpkBnj44uodYV/nc/YhTg7NLH8IvjByTZDT7JyzL6OyBRWNg
+	 BTT8J2U3ljOUcbgUGhMiYHM2lYIf0yxPl3TAE7HT3MbvSZLQTMV1LzFo+UA30q7ZDf
+	 YE5fPWPxXXfBg==
+Message-ID: <0985336fa75f27b7a85dd41e54a88e06@kernel.org>
+Date: Tue, 13 Jan 2026 15:44:03 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v2 12/12] drm/bridge: samsung-dsim:
+ samsung_dsim_host_attach: convert to of_drm_find_and_get_bridge()
+In-Reply-To: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-12-8bad3ef90b9f@bootlin.com>
+References: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-12-8bad3ef90b9f@bootlin.com>
+Cc: benjamin.gaignard@linaro.org, dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, "Adrien
+ Grassein" <adrien.grassein@gmail.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "David
+ Airlie" <airlied@gmail.com>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Inki
+ Dae" <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, "Jonas Karlman" <jonas@kwiboo.se>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liu Ying" <victor.liu@nxp.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maxime
+ Ripard" <mripard@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, "Philippe Cornu" <philippe.cornu@st.com>, "Robert
+ Foss" <rfoss@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Shawn
+ Guo" <shawnguo@kernel.org>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_074341_758921_71E188EC 
-X-CRM114-Status: UNSURE (   6.95  )
+X-CRM114-CacheID: sfid-20260113_074407_575939_4687ED49 
+X-CRM114-Status: UNSURE (   7.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,20 +81,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 Jan 2026 16:59:09 +0000
-Ben Horgan <ben.horgan@arm.com> wrote:
+On Fri, 9 Jan 2026 08:31:43 +0100, Luca Ceresoli wrote:
+> of_drm_find_bridge() is deprecated. Move to its replacement
+> of_drm_find_and_get_bridge() which gets a bridge reference, and ensure it
+> is put when done. Also switch to the drm_bridge::next_bridge pointer.
+>=20
+> This needs to handle both cases: when of_drm_find_panel() succeeds and wh=
+en
+>=20
+> [ ... ]
 
-> By default we generate a minimum bandwidth value that is 5% lower
-> than the maximum bandwidth value given by resctrl.
-> 
-> Add a test for this.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> [horgan: Split test into separate patch]
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Acked-by: Maxime Ripard <mripard@kernel.org>
 
-
-
-
+Thanks!
+Maxime
 
