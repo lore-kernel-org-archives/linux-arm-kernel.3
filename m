@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 914B8D2F32D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 19:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69552D2F32D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 19:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eRvqZLEMBeOwnPyxlR0inktt4MlpG/SLRw5izm0CNyo=; b=l4d+wyrsnh6V8HMP76V64cVqjS
-	IK3+pMkV0xviGezizQHd+6h9Dtz0nSZT88iHTWqij0qncnF/pPt2wfzjvrMjOhAxjopbFPZPVN4Xe
-	XsBCSvHliVHAQeu2KCXj6S2dozvlJQ5C/xonfqScO86cNt0Fbg4QtHtD0tt8QE0bLxJKJZcY/sDwv
-	IgrmopVreoNsdlQ9nZKXBd3Cv3C/25IcoaZU9B549kZ6/htah10glTC1kS6QMtRMC7rXjC8rpm1vZ
-	ER9olKMCzfl0Ea3AdpXCJDiM6gfFIglnNN8gXXDgJNavYpxOWCPLyRDJrqK58Vjm6AxJW/h0Q/05U
-	iFx7zyQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1KCJXYmfiMfyBC12yixoXjIeIGcARN4V69yy4SWoKlY=; b=cHIWIg34JMrWNLqH7UoXeDl3p6
+	zSbKNVzGPGqX/ZI5Sg37SrRT1RHptwdxHbhEE3wT0OvoA4zLrguGuvcH8EGzzurl/7bcrf0do/se/
+	f6U0nH4PPxHyhYohflc89cSbJtZ2KGqTRapqIYcucFM6nAZ4Vnals8+gGTEFocaOk83+rlx7prBK/
+	xv+nnFuFCWP3BkIFTOgS2bu71LuS4oAPr34OepbVlCze43nVyRzKJLU1b8wmA8tPSjKmXxP5FgWJy
+	2PZqnCBxgp9Z0c2/jLAQPzuOR17b6kDk92g9MxVntGqWBbDjXMI+7BTAikCC2toHBtBMb/47TzZOq
+	jqnMG+dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfjwO-00000007cyp-1NSB;
-	Tue, 13 Jan 2026 19:20:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vfk01-00000007dBE-1IAr;
+	Tue, 13 Jan 2026 19:24:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfjwM-00000007cyH-0877
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 19:20:31 +0000
+	id 1vfk00-00000007dB5-1hoO;
+	Tue, 13 Jan 2026 19:24:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4192A441E6;
-	Tue, 13 Jan 2026 19:20:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F3C8C116C6;
-	Tue, 13 Jan 2026 19:20:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6ADD360017;
+	Tue, 13 Jan 2026 19:24:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 151DEC116C6;
+	Tue, 13 Jan 2026 19:24:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768332029;
-	bh=qurAIc6DbD1P3VjWT14CBlpPJbKMYx/2lRbDteQqJK4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DaHa3cbXEWuHjYxQZyPsiCHXYiKK9rHndIT3XdWTaG/6sourN0aJq7yqPYNbx22xn
-	 UwNvhMabpIoW8zban8RFgByaiJvtYg71554T9rpFCBpZj90wCnAPDmX+uEc4L4Eu01
-	 1NZsxcAt3x1hJxYysaSl3TOVK1O41SSeBnO894H3fmSljNfa43IHXeVV6L/j6TsOMU
-	 O2lbsaEatx9p3T/guWqUFxOkbMGUh7ILJqDVWD4saquvkehNCjMHpGsNK9pGI3AgKM
-	 HFpPW24VJsUfgHrvDjClx28HsV9GspEm0TaaqnwZt34e0XX1/6E+aXGIkvWs1LBqae
-	 EbXrFf/G9aDPQ==
-Date: Tue, 13 Jan 2026 19:20:22 +0000
+	s=k20201202; t=1768332255;
+	bh=aGHnWKoxrswCR40fkHeiu5haG1V+3VsNg1NaCX4sHok=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=AUUeiyTQsH+8Ff90pRPQiD0ZDy3y8YIaNa3NsR+dHpNAx9NETSLaInWq+zL+UYXEz
+	 Ji4YQKc4VdzBgCOPCOGT9iNsvs5RUMica3J40WLrbUovCLpfsNINQIPHtnyBbjlcbN
+	 R3s6yWMyPrmdW04H8eoTg8YkOB9UcQmPglYsNY5jYPkS8u3KmnA05ohrHmWN59kFFJ
+	 nXZNcF3BhxySjF28POISn6HyMV2uflm8J5RmJ6W56OPlKsxgkJwhYHtyZFcPbLFNuU
+	 HT/hZgK5HVyuZJkRJz69NsV+IdkqaVhRJeYMz2XSzSFqYmDK8OsOEtnu2WVtnDcAC4
+	 1QhkgJn7lSJwA==
 From: Mark Brown <broonie@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v9 19/30] KVM: arm64: Provide assembly for SME register
- access
-Message-ID: <6f0e94ab-7c9c-4705-a90b-aea09ca629de@sirena.org.uk>
-References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
- <20251223-kvm-arm64-sme-v9-19-8be3867cb883@kernel.org>
- <CA+EHjTwQ4fLBE1YXoB6M0eamSgGDW=nfLaC+-_surBfVbh3byQ@mail.gmail.com>
+To: devicetree@vger.kernel.org, Marek Vasut <marex@nabladev.com>
+Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org
+In-Reply-To: <20260107213638.505319-1-marex@nabladev.com>
+References: <20260107213638.505319-1-marex@nabladev.com>
+Subject: Re: [PATCH] regulator: dt-bindings: rpi-panel: Mark 7" Raspberry
+ Pi as GPIO controller
+Message-Id: <176833225281.1138309.16211933019311463007.b4-ty@kernel.org>
+Date: Tue, 13 Jan 2026 19:24:12 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lDAyLxtvXSswRf14"
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTwQ4fLBE1YXoB6M0eamSgGDW=nfLaC+-_surBfVbh3byQ@mail.gmail.com>
-X-Cookie: All models over 18 years of age.
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_112030_138894_6B4F53C5 
-X-CRM114-Status: GOOD (  21.14  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-47773
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,69 +74,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 07 Jan 2026 22:36:25 +0100, Marek Vasut wrote:
+> Mark the Raspberry Pi 7" Display 1 ATTINY based regulator
+> as GPIO controller, because the hardware behaves that way
+> in addition to being a regulator. Add fixed gpio-cells as
+> well.
+> 
+> 
 
---lDAyLxtvXSswRf14
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Applied to
 
-On Mon, Jan 12, 2026 at 05:59:17PM +0000, Fuad Tabba wrote:
-> On Tue, 23 Dec 2025 at 01:22, Mark Brown <broonie@kernel.org> wrote:
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
 
-> > +void __sme_save_state(void const *state, bool restore_zt);
-> > +void __sme_restore_state(void const *state, bool restore_zt);
+Thanks!
 
-> Would it be a good idea to pass the VL to these functions. Currently,
-> they assume that the hardware's current VL matches the buffer's
-> intended layout. But if there is a mismatch between the guest's VL and
-> the current one, this could be difficult to debug. Passing the VL and
-> checking it against _sme_rdsvl would be an inexpensive way to avoid
-> these.
+[1/1] regulator: dt-bindings: rpi-panel: Mark 7" Raspberry Pi as GPIO controller
+      commit: 62b04225e99a5d1c71c5c73d2aa6618bc2c0738f
 
-This mirrors the way that we've handled this for the SVE and for the
-host kernel.  We don't really have any good way to tell anything about
-problems if things go wrong inside the hypervisor.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-> > +SYM_FUNC_START(__sve_get_vl)
-> > +       _sve_rdvl       0, 1
-> > +       ret
-> > +SYM_FUNC_END(__sve_get_vl)
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-> Since this is just one instruction, would it be better to implement it
-> as an inline assembly in the header file rather than a full
-> SYM_FUNC_START, to reduce the overhead?
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-Actually this isn't referenced anymore so could just be deleted.  It
-mirrors what we've got in the host code, we have to hand assemble
-everything because we still don't require binutils that supports SVE,
-let alone SME, and that's done with macros that do argument validation
-which don't play nice with C.  Even with an assembler that supports the
-instruction using a SVE instruction from C code gets annoying.  It has
-crossed my mind to inline but it never seemed worth the effort
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-> > +SYM_FUNC_START(__sme_save_state)
+Thanks,
+Mark
 
-> I think that this needs an isb(). We need to ensure that SMCR updates
-> are visible here. Looking ahead to where you introduce
-> __hyp_sme_save_guest(), that doesn't have a barrier after updating
-> SMCR. The alternative is to call the barrier where it's needed, but
-> make sure that this is well documented.
-
-I think we should put the barrier where the update that needs it is.
-
---lDAyLxtvXSswRf14
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlmmvUACgkQJNaLcl1U
-h9BzvQf/f/p7RflGxj3KstGrHbuuy4Zn+p2w36WodM7yaxNSGN6NOAbQBf6mbd/+
-Gp4Wa+DlxmHvWufQbs4ZVzvcD6cJra7yLtKwDkrUVbwYXZiruLL8mx1TbR31PEel
-YTiZq/e+84A0Iq/I1MJa3Gp6pMKR0wWROTckUgHz84pVh4RKJb8727K7223icJPp
-x5bv2TbtkOOTqEz2Lkinhs/f8aFOaxG5EcibGp2MLK9F15ev8XdervooOujztXSk
-DN0+jPCZgE4U1Ik3RXooRy/dNKtzlU086OecNGWrFghqupbtCFPLGLFXwbOZeFtk
-kPCeRN/8k4SkdXhMDgXAvYhuOOPdQQ==
-=Xzoc
------END PGP SIGNATURE-----
-
---lDAyLxtvXSswRf14--
 
