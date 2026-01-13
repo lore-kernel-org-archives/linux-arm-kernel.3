@@ -4,98 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D92D5D2F338
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:27:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA10AD2F33A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VbTTWN64JGBAoQywDuAxXApY2+pw8bYawwCoCRHZJYI=; b=u5WzlxdieoMa3qN0lqlzGEMxy1
-	f79uE6HpDHdoSVQxTSonTqbqQdoqcp7nqErUndVAOsGDDcTaZgbuILmpB3YtoxBy7Q67FaWrHKYcS
-	cE/7ZGV6xusS8Cc3DxgnQ7vZucmkFI/j6rKNRSx7HR4Qc/+n6rLHLBS/9hm1dzVtZwa1j/7Kk7OLD
-	kqCPVA6JtS3mF24r3qkudp2qbU7bukdZJAK9rMZxNwm9erhBGj9IOy3u9hRKa9jpe/eIQ9U4TiZBP
-	B9SmGYRZiv/1Cf9mmdhoEqbtWUcTVoNFYUKxW0ebWQNUby8wOU3PsWUyKdewdwld63ypOuyC2Qg7r
-	tUXGAIFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yfpTf1rl/C9iunh+ff9S/MAYt41hwnn4QGlkCjjRxZg=; b=3wggZejwck0+Yu89s6HKn3ONiN
+	MHtHVzJoCXCp1lXauJrbQWgXzHQAZS0GS6IWZRKDy5z+PmTKEz0R5S8yLNrath9+IvUaviwYIY6Gu
+	2yteCLpGZF7mUr1uLHKkASIT48hCYFFI3rsFToBWa+hFhncqjR/f3okH0HRuxrKy7uAqhgtEQfe5v
+	2UXUw0aIMcjf/7Z9PtvsxwhgSJzALiGdeOmYMz5xlRQ2gSpYIjWVPEf1ElkiVXZ6Pav6RiXiS9ltz
+	cNTa1JTpOoLfRaqlcWu2zYCKHAnhAdvDPH+CLCKRCSgrlUAE2q1fyKEWkk/bKDSIbKYZc5IcHoNwu
+	7oR+04Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgIz-00000007Mb1-14i7;
-	Tue, 13 Jan 2026 15:27:37 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vfgJ3-00000007MdM-0ADa;
+	Tue, 13 Jan 2026 15:27:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgIv-00000007MaB-3v3q
+	id 1vfgJ0-00000007MbQ-3NwL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 15:27:35 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-477ba2c1ca2so84359705e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 07:27:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768318051; x=1768922851; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=VbTTWN64JGBAoQywDuAxXApY2+pw8bYawwCoCRHZJYI=;
-        b=lKExG9iJ3kB3xz0VxGmteLuhQI+K3kIgZg0LnPnHFSasNN8Yf3j98eUPpkAChQqIZC
-         xxSp7gO0us/OTS+za4EGR2M8QYRzmZC9z7PHHsWI1KLpOl39nDZViPzVS7mE5H8ZL4ef
-         0PHGTN8t4niaSH4+dGDa6d48Gp0zosVuuE0seZdZafoPr53ZlDMxtm/J62guUJM8D8/t
-         4s/zGp+2voTqTdLU6eICbEIHnFHOxRqO8FaANqdcfSegm5/NZLspPo2mjak8oxQRx0Fc
-         g9o0TCOrhaeU9mYQeUw3AcMEK2Ism39p+CsGa0Oq/nW6G0paVEZeuAWp1Uk39iyewxeW
-         eUnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768318051; x=1768922851;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VbTTWN64JGBAoQywDuAxXApY2+pw8bYawwCoCRHZJYI=;
-        b=vWRrSuKMG3RikCPmfhdteLeBv5iojQJlM3RvHtGKkYyaLw3vadLo/SkJg3CinaXPjg
-         CNPyMXNyv3TWh8XcRaU4ENSO6vTFCqxTffOR6Wo2fwCF8kWVFRjq5Ih2MqILlRpUmbtv
-         i8Ys7FwE6Veu9GTk1XP0iaowsQqBDrgQsBrgoEjfsWTRXsFF6xn5bFpeU4Z3fcJKwlai
-         N1VCzWtenItUHyESs6uOaKxUVmLpS+PFfhhrBbS4r4B3AKStTk4T65eGC1eRT/uZ/pft
-         WaXkAJ4iwxvMdGHz9gnzJpUrQO+LkJWzdvu/x4qRYDS7rkuNvyPIGhnwwWK0g/li3Qgy
-         adbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUVh6hOhnpQjti0NoYzUtR/xy/yTvFzK5TLsIMdDHv8dbM/cYokItWviwzgpwPqU+eD2GRQR3Ju2dEl9Un1XoCm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxez/SLIa6P1xjNvUZi/sYvoK6YyQPsm9wBW8/2Kkt5nYbStDGs
-	7fum5Z+XpBp7KkHgn9EOmqdjKXt7BVpPiAzqvh/m8B1XXSd8bRxV12Sq
-X-Gm-Gg: AY/fxX6oQakZ47vXC0tPkgZbYCLhd/YOKP012PJH1KpFKBzW6ucF5RF1Tr2baevnz/g
-	FG9Bta4Zv+dXEh8HLl8Odw6d3nnfKjSre5pAbByx6BXdWJ8UUb1VJNN1J6pW59Fvia4fflN+laz
-	Qjy/D8xVe4Umab1Q69PEG7cmS1i86+0AImreo1eR88HpVZ1ZaMKW9+j6wauh84Ru69LwXyGE8RU
-	FOjoQQp+Vd9dKQ3cpf9b8h7lNkZj7I6PQiiE5im5ZIcat4f8xMjSnYqz9beBvNru8ZJy5Q2qPdV
-	GIr8qbQpn8jUz901Vc0fcBtE/8HvHSm3bhTrLVH005py2wm05vbADJjKkU177gYHtJiGZU9UveX
-	JrXw4AMOA3UNEaOZugS4e95bzrdhs26uDoEzNECLLLtMl79EEp5kUrpj6hpe27754HXIqBSI9wX
-	gs2g1KSaORrjHfsw8Ye3ZyEkLZojv/bHU4j9VqLPU12ztBvCu4KQNynyM=
-X-Google-Smtp-Source: AGHT+IGxO1vUemwqVC6JKUpSwSlNgSOMLT+M80yAIztyVdNJEhHixQ6jTf/ZgIZ7VfPNTxO2jx4HyQ==
-X-Received: by 2002:a05:600c:6096:b0:47a:935f:61a0 with SMTP id 5b1f17b1804b1-47d849ba979mr245697915e9.0.1768318051058;
-        Tue, 13 Jan 2026 07:27:31 -0800 (PST)
-Received: from f4d4888f22f2.ant.amazon.com.com ([15.248.2.27])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d7f68f4ddsm421025325e9.2.2026.01.13.07.27.29
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 13 Jan 2026 07:27:30 -0800 (PST)
-From: Jack Thomson <jackabt.amazon@gmail.com>
-To: maz@kernel.org,
-	oliver.upton@linux.dev,
-	pbonzini@redhat.com
-Cc: joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	isaku.yamahata@intel.com,
-	xmarcalx@amazon.co.uk,
-	kalyazin@amazon.co.uk,
-	jackabt@amazon.com
-Subject: [PATCH v4 0/3] KVM ARM64 pre_fault_memory
-Date: Tue, 13 Jan 2026 15:26:39 +0000
-Message-ID: <20260113152643.18858-1-jackabt.amazon@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	Tue, 13 Jan 2026 15:27:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1962F4443E;
+	Tue, 13 Jan 2026 15:27:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E390BC19422;
+	Tue, 13 Jan 2026 15:27:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768318058;
+	bh=YnOpqEglNY3vQ34HlVAtTWoHG1niNCbvODOpEPP4Da0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qUbW/ctGDpVNHIWSDXuEs4Lg//dBztmnD1lFa1/DswaUBhGMQG8LcNuaWyVh8lSqa
+	 bdrX9NbeJiGGjUjpK2fl6RC36mlUcGahyYWHrkY1m2q1xMZ4gnnT6c2IbCC//qp6TV
+	 09uxecf2G5d7dFC76MYa7M5MHwou7AYuciyDmbFLuS1ebmNJWJUsDdm654jCu0m4Hh
+	 ohp2M0fVGDTiBGN2w+FM7hxCGErdkTrYPp7bsn33nEduJX3zTl9i9QWa3zouJsRUqL
+	 rQiinTcLS7VzUANttixMWtyzidyb93Jos0p179GjByaNs3drEjIfBA5lAQoX6nUTDu
+	 VHBFvTrD5RRbg==
+Date: Tue, 13 Jan 2026 20:57:28 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de, 
+	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v8 1/2] PCI: dwc: Don't poll L2 if QUIRK_NOL2POLL_IN_PM
+ is existing in suspend
+Message-ID: <g3yuqj2yyq236x7fzwdfl5s7onvuwd2ot7btadf3qs36vchleb@4kwfwpo4ni36>
+References: <20260107024553.3307205-1-hongxing.zhu@nxp.com>
+ <20260107024553.3307205-2-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260107024553.3307205-2-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_072733_989542_9BADB965 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20260113_072738_908125_6ECED44B 
+X-CRM114-Status: GOOD (  29.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,70 +77,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jack Thomson <jackabt@amazon.com>
+On Wed, Jan 07, 2026 at 10:45:52AM +0800, Richard Zhu wrote:
+> Refer to PCIe r6.0, sec 5.2, fig 5-1 Link Power Management State Flow
+> Diagram. Both L0 and L2/L3 Ready can be transferred to LDn directly.
+> 
+> It's harmless to let dw_pcie_suspend_noirq() proceed suspend after the
+> PME_Turn_Off is sent out, whatever the LTSSM state is in L2 or L3 after
+> a recommended 10ms max wait refer to PCIe r6.0, sec 5.3.3.2.1 PME
+> Synchronization.
+> 
+> The LTSSM states are inaccessible on i.MX6QP and i.MX7D after the
+> PME_Turn_Off is sent out.
+> 
+> To support this case, don't poll L2 state and apply a simple delay of
+> PCIE_PME_TO_L2_TIMEOUT_US(10ms) if the QUIRK_NOL2POLL_IN_PM flag is set
+> in suspend.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: 4774faf854f5 ("PCI: dwc: Implement generic suspend/resume functionality")
+> Fixes: a528d1a72597 ("PCI: imx6: Use DWC common suspend resume method")
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c         |  4 +++
+>  .../pci/controller/dwc/pcie-designware-host.c | 34 +++++++++++++------
+>  drivers/pci/controller/dwc/pcie-designware.h  |  4 +++
+>  3 files changed, 32 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 4668fc9648bf..d84bfcd1079c 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -125,6 +125,7 @@ struct imx_pcie_drvdata {
+>  	enum imx_pcie_variants variant;
+>  	enum dw_pcie_device_mode mode;
+>  	u32 flags;
+> +	u32 quirk;
+>  	int dbi_length;
+>  	const char *gpr;
+>  	const u32 ltssm_off;
+> @@ -1765,6 +1766,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		return ret;
+>  
+> +	pci->quirk_flag = imx_pcie->drvdata->quirk;
+>  	pci->use_parent_dt_ranges = true;
+>  	if (imx_pcie->drvdata->mode == DW_PCIE_EP_TYPE) {
+>  		ret = imx_add_pcie_ep(imx_pcie, pdev);
+> @@ -1849,6 +1851,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.enable_ref_clk = imx6q_pcie_enable_ref_clk,
+>  		.core_reset = imx6qp_pcie_core_reset,
+>  		.ops = &imx_pcie_host_ops,
+> +		.quirk = QUIRK_NOL2POLL_IN_PM,
+>  	},
+>  	[IMX7D] = {
+>  		.variant = IMX7D,
+> @@ -1860,6 +1863,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+>  		.enable_ref_clk = imx7d_pcie_enable_ref_clk,
+>  		.core_reset = imx7d_pcie_core_reset,
+> +		.quirk = QUIRK_NOL2POLL_IN_PM,
+>  	},
+>  	[IMX8MQ] = {
+>  		.variant = IMX8MQ,
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index 43d091128ef7..06cbfd9e1f1e 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -1179,15 +1179,29 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+>  			return ret;
+>  	}
+>  
+> -	ret = read_poll_timeout(dw_pcie_get_ltssm, val,
+> -				val == DW_PCIE_LTSSM_L2_IDLE ||
+> -				val <= DW_PCIE_LTSSM_DETECT_WAIT,
+> -				PCIE_PME_TO_L2_TIMEOUT_US/10,
+> -				PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
+> -	if (ret) {
+> -		/* Only log message when LTSSM isn't in DETECT or POLL */
+> -		dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
+> -		return ret;
+> +	if (dwc_quirk(pci, QUIRK_NOL2POLL_IN_PM)) {
+> +		/*
+> +		 * Add the QUIRK_NOL2_POLL_IN_PM case to avoid the read hang,
+> +		 * when LTSSM is not powered in L2/L3/LDn properly.
+> +		 *
+> +		 * Refer to PCIe r6.0, sec 5.2, fig 5-1 Link Power Management
+> +		 * State Flow Diagram. Both L0 and L2/L3 Ready can be
+> +		 * transferred to LDn directly. On the LTSSM states poll broken
+> +		 * platforms, add a max 10ms delay refer to PCIe r6.0,
+> +		 * sec 5.3.3.2.1 PME Synchronization.
+> +		 */
+> +		mdelay(PCIE_PME_TO_L2_TIMEOUT_US/1000);
+> +	} else {
+> +		ret = read_poll_timeout(dw_pcie_get_ltssm, val,
+> +					val == DW_PCIE_LTSSM_L2_IDLE ||
+> +					val <= DW_PCIE_LTSSM_DETECT_WAIT,
+> +					PCIE_PME_TO_L2_TIMEOUT_US/10,
+> +					PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
+> +		if (ret) {
+> +			/* Only log message when LTSSM isn't in DETECT or POLL */
+> +			dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
+> +			return ret;
+> +		}
+>  	}
+>  
+>  	/*
+> @@ -1204,7 +1218,7 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+>  
+>  	pci->suspended = true;
+>  
+> -	return ret;
+> +	return 0;
+>  }
+>  EXPORT_SYMBOL_GPL(dw_pcie_suspend_noirq);
+>  
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+> index 31685951a080..dd760c17bdcc 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.h
+> +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> @@ -305,6 +305,9 @@
+>  /* Default eDMA LLP memory size */
+>  #define DMA_LLP_MEM_SIZE		PAGE_SIZE
+>  
+> +#define QUIRK_NOL2POLL_IN_PM		BIT(0)
+> +#define dwc_quirk(pci, val)		(pci->quirk_flag & val)
+> +
 
-This patch series adds ARM64 support for the KVM_PRE_FAULT_MEMORY
-feature, which was previously only available on x86 [1]. This allows us
-to reduce the number of stage-2 faults during execution. This is of
-benefit in post-copy migration scenarios, particularly in memory
-intensive applications, where we are experiencing high latencies due to
-the stage-2 faults.
+Though I like this quirk idea, I think at this point a simple flag will do the
+job.
 
-Patch Overview:
+>  struct dw_pcie;
+>  struct dw_pcie_rp;
+>  struct dw_pcie_ep;
+> @@ -520,6 +523,7 @@ struct dw_pcie {
+>  	const struct dw_pcie_ops *ops;
+>  	u32			version;
+>  	u32			type;
+> +	u32			quirk_flag;
 
- - The first patch adds support for the KVM_PRE_FAULT_MEMORY ioctl
-   on arm64.
+You can just add a flag "skip_l23_wait" in dw_pcie_rp as this is a Root Port
+behavior.
 
- - The second patch updates the pre_fault_memory_test to support
-   arm64.
+- Mani
 
- - The last patch extends the pre_fault_memory_test to cover
-   different vm memory backings.
-
-
-With regards to the additional parameter to `user_mem_abort`, noted in
-the v3 review, would you like this to be fixed in this series or would
-a follow-up series be ok? I also found a series from Sean which looks
-to address this [2].
-
-=== Changes Since v3 [3] ===
-
- - Updated to now return -EOPNOTSUPP for pKVM. Previously this was not 
-   checked.
- - When running a nested guest, properly resolve the L2 IPA to L1 IPA 
-   before pre faulting.
- - Refactoring, page_size is now unsigned and ordered definitions at 
-   top of pre_fault function.
-
-Thanks Marc for your review
-
-=== Changes Since v2 [4] ===
-
- - Update fault info synthesize value. Thanks Suzuki
- - Remove change to selftests for unaligned mmap allocations. Thanks
-   Sean
-
-[1]: https://lore.kernel.org/kvm/20240710174031.312055-1-pbonzini@redhat.com
-[2]: https://lore.kernel.org/linux-arm-kernel/20250821210042.3451147-1-seanjc@google.com/
-[3]: https://lore.kernel.org/linux-arm-kernel/20251119154910.97716-1-jackabt.amazon@gmail.com
-[4]: https://lore.kernel.org/linux-arm-kernel/20251013151502.6679-1-jackabt.amazon@gmail.com
-
-Jack Thomson (3):
-  KVM: arm64: Add pre_fault_memory implementation
-  KVM: selftests: Enable pre_fault_memory_test for arm64
-  KVM: selftests: Add option for different backing in pre-fault tests
-
- Documentation/virt/kvm/api.rst                |   3 +-
- arch/arm64/kvm/Kconfig                        |   1 +
- arch/arm64/kvm/arm.c                          |   1 +
- arch/arm64/kvm/mmu.c                          |  79 +++++++++++-
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../selftests/kvm/pre_fault_memory_test.c     | 115 ++++++++++++++----
- 6 files changed, 169 insertions(+), 31 deletions(-)
-
-
-base-commit: 3611ca7c12b740e250d83f8bbe3554b740c503b0
 -- 
-2.43.0
-
+மணிவண்ணன் சதாசிவம்
 
