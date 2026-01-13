@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1D1FD29DEF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 09:10:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1408ED29DF0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 09:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AL3AmhrXowuR2G2gwigOGPD7FLU1L7Qmmgu+Bu3T/hg=; b=iG8UsRr7uHsOkYGhhL5IxWZD9W
-	/jhoW5wX7Go4K7AGLkQCal50gCUytkwSuKzNTOXmUsnoF5y0rKHuNDt2xRdHbDVS66q3qU68UuEYQ
-	mQBZzB9C6pp+lQEVnYoSpoojNJ4zu5MtOZ9C1ZNtzzya7Gk2CUMfzU5jvz7eQfg0OwLrt79CuCodW
-	GsqLfe2DDm0NmZRy4uWEUAtuo8FGiNmBquYVbPsHD+Ii5R9GJ8zdQI+hhK4v2WgnLHknUDoXJUm76
-	vCbCFB9gWHkEd7LpNQmAJt74xlWOEalrI3fqOadnlBxDtr7Y+3cpMjygtPbh/kVmuPdedlmLwTbZp
-	PlMgUSNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bn5NX0zVHIadFPbViV8yMvWD/kdQPjminzNjM4/y1Bk=; b=dtaWIuQ9bhWA1R1cwmRc44Rn26
+	O3CC86fpot2zNBr77jIKlyBEC/rGdudQCcDBCw43Daqe+i49qyZVcZ6rBJeeXTXBeiq5X6JkRDNcq
+	MAc6yfg7HKt+ZIccyYcXdKurPO02v99KePvzWN6a7xRSq5G4HulQnZM1vioHTa7RYPL0LFm2WnjcJ
+	1VqYkRIyTUQhVQIzMUfjfLmYXO324mVSTzTJWQtM+NEhty1qTAlKhAcqWRfIFzmHH67DRBO4rWsqC
+	g5d8Hc9s9h/Hz95bwB2YYFy0IZnqYNEdcSrcwYFh4rxzmPYBEvyEdRvVtddDw7tMiWgCBeu+Sx+eW
+	kt9CEGfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfaPs-00000006ohk-17Vb;
-	Tue, 13 Jan 2026 09:10:20 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1vfaTe-00000006oyt-0DF5;
+	Tue, 13 Jan 2026 09:14:17 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfaPq-00000006ogx-1M8B
+	id 1vfaTZ-00000006oyV-0Lv9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 09:10:19 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-29f2676bb21so62724135ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 01:10:17 -0800 (PST)
+	Tue, 13 Jan 2026 09:14:12 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-64b9d01e473so12268248a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 01:14:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768295417; x=1768900217; darn=lists.infradead.org;
-        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1768295647; x=1768900447; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=AL3AmhrXowuR2G2gwigOGPD7FLU1L7Qmmgu+Bu3T/hg=;
-        b=c6PxTrfpvoyC0MqHXXgPlecSVs4h9lvDVtDXohetEMJwU9rPfhvQAyr4hBfOLvTjnb
-         FSgyb7nE5ro9PhoxbPPEn2qbsd5sYmNQQLQPegSZVqpreiN87gYp5oULPoUkswDFJdf5
-         HvNDzd2Z0dG0l8zGopvIeXikyRFOOyDeqEfgXebpulwsaWY698GJDo/gy4taHdJwF+e4
-         POGVgJb9yIpSQWYDKLfwR/+QAEh732yisBBy0/jiWiBJOYsqzZciKUlbRcUM3VHY42WA
-         YUBuYdMwJUoaMEtf7O4si6FzLGRpgk4nRIFnb5eJYkeS7RcVBt2tiI4qMyrGX5KRq9BA
-         hZAg==
+        bh=Bn5NX0zVHIadFPbViV8yMvWD/kdQPjminzNjM4/y1Bk=;
+        b=Nf6+qMrXTIIuHy29YFKjmQ1fpQ1pnSLo2m8CWtOnaskmDiPrAbxT1uXvfR0KtpkT4U
+         5PZ14okBFbndo53QzXIk2yg4N8BDi961wX6n17dlSS5GERuKcEfqP1TLFVMBjDQoyWgO
+         4QxXOnCX/kgwalYCYrWZzPlOzk/hQuM85Zy6+j14y5duHDThuAkkgPvkPkJ1R+qXHyQ4
+         G//tP37mQVDJxQblkN4lg2ez9avjl9psEeIO2Zevca6yfIEaxQ9oBFnaUCO6mB90hY9z
+         yTKtUeGuUUBucqmdv663PKbl86+bs5c4YUD+9ADQFI8qbAUs6Z6oZEdjvi8B6AtnPuRC
+         YAjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768295417; x=1768900217;
-        h=message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20230601; t=1768295647; x=1768900447;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=AL3AmhrXowuR2G2gwigOGPD7FLU1L7Qmmgu+Bu3T/hg=;
-        b=IhtSnZBDXSJsP67GS/TTxM8Sg64o10Mb2l64eI6ucU5m4fvgOMcQ8jIemxkkBksjrn
-         Ksm0vgZundOPu0R7owcwK86R15CXysHnpJGnuZuemesHkYsh32meKBH6df2kUpZljh98
-         806V20UCpdP7jUD/umDPH2JvflGhGHoWIybCpFj+0ElS2nnspwLwDKUz8AeVpf4Q45qI
-         H3/CtXvXzKhZ+OxvGEKhjQDhmBE4D1dpCiRwA0yiId/DyLoeFclua1fG4hgj/4Ek5x3F
-         tvQmIwK8Jm/WbLJVR91rD2VH4h8GumUCerPJR8Gca7eSgEPbc0bFbpmfurMDIb6r5Vpm
-         sNaA==
-X-Forwarded-Encrypted: i=1; AJvYcCV9zObG6cvHIouWOqt1wI1dQuz9vPeuVoR7WFC+ocRBJxu0Fmzhw4zFWJqLFlILrHB83+vqQROXMwasKLmoyL6q@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQQiqyzQSY1pIQpBmJui3KdKe5MsVfrTYTdqNx3qHWuyR96Z5e
-	BZqtm/xxS6f8jEuNV3JqJ52+IwfyZzPZEBe/y5vgndic+YTmxRczkliM
-X-Gm-Gg: AY/fxX5pRgiBxNPYel1qwwriYAFbkjibsFB0hh7lkxF5XtkjPmADPGNUD2SVUeW2cf8
-	ynRmc7mBa7jT3qw1vdLsT4KrsFDV+DovmbycybISkjwXcC5LQOg3b8niLtfAGszPIckteDF3U7h
-	v0nkH7slowu6YmeYP8afq5XSCqd2hMoxpuXSZxbzlvPH9rAgB0kPtjSAlJBUzwph7S/GLGW1Hob
-	iAMy8C+L2HHJpzPVXLJxqlSoC4UJeTp6xviJAH2pQurwscONVTnlQ2fu+zcN7NLb9aCiXN7bgt9
-	PqgQVUuMXzEDnbzvrf+BtuH0WEVHscjkPYPaS2wdJ8JVWh+W/MJeUCYK68ceTCcMfbWlFFnCWk9
-	bKAXn33MiMnaWzK7b/1oHwBvY5NqDS2fHqSk0dOvt7Y+60VF3KS39rXtD55ZqSeS24Ikak4pqla
-	/L6y74ufc=
-X-Google-Smtp-Source: AGHT+IE1eZuFWYVL1uwHVIQ6oD0tCHFHyYCy5zhe0eIXjlwMHvn0V3kwTkAqzeYTgYzwyX866SYluA==
-X-Received: by 2002:a17:903:2450:b0:2a0:d6d5:b342 with SMTP id d9443c01a7336-2a3ee491815mr172892915ad.37.1768295416821;
-        Tue, 13 Jan 2026 01:10:16 -0800 (PST)
-Received: from localhost.localdomain ([47.82.78.41])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3c48c0bsm15293915ad.31.2026.01.13.01.10.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Jan 2026 01:10:16 -0800 (PST)
-From: Nick Xie <xieqinick@gmail.com>
-X-Google-Original-From: Nick Xie <nick@khadas.com>
-To: neil.armstrong@linaro.org,
-	khilman@baylibre.com,
-	jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Cc: xianwei.zhao@amlogic.com,
-	christianshewitt@gmail.com,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	nick@khadas.com
-Subject: [PATCH v1 0/2] arm64: dts: meson-s4: add support for Khadas VIM1S
-Date: Tue, 13 Jan 2026 17:09:49 +0800
-Message-Id: <20260113090951.35928-1-nick@khadas.com>
-X-Mailer: git-send-email 2.17.1
+        bh=Bn5NX0zVHIadFPbViV8yMvWD/kdQPjminzNjM4/y1Bk=;
+        b=jk6Hp2nIbgSnoAkRKEZebOOL7K0DzASih29VB+qKZsM6DF1Sjj+V3EJaoHFUnTRG5D
+         9X0WT47bdxVgM9pBHSZw+7CRAtMfvCdJ9O6308X+usU+4EV1OHJDECbc+ZY19zJWbeew
+         eUwU4Zf5BvF7t7LJJONDFpee0Z6JSV1t/+xhYH9U+2ltLh+zosQNHVner6/Z5EygTLHU
+         iXcw5UcXv3I27fzgv2TWiUxoz5cqSqc09V10QiMw5b1lAZSppU9bx1jL2lC5jReORVbZ
+         Dv66KOyUbHBhqny1Klg52VsrNbprXiH9qPWsFUMX8w+h0TAB0RJFQ2ai6dVlU1pH/t3O
+         AXMg==
+X-Forwarded-Encrypted: i=1; AJvYcCV9SQmN3Njf+8+VuF0O2LSAd20UvRo+MHQLV0hXJhhruCoQwT6OOtVlcZH7HetevoiF5ItpfXn+CoM/dTmxJN7J@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxu5caFN9me9wVx7nlNP0MZLfGCDTNVhtWgHF47l5lqvtYn8oOt
+	aNI+VQnD69ROQK6ou+oi21qwLC4P9Gqndt7LH6mibJRNN4IqNYwdU3gZug9RMgouNhZwD5qSeqi
+	QXSuzn4GOvRCYteI64Wtdd04mvM0Qji4n3g05CGxu0w==
+X-Gm-Gg: AY/fxX4rzufd4BSRntPorIxjgTA6VFdv4C1lMsc+ZyCLqgYWQ+ZQfM8UzvrSs2UZUfA
+	SVkEAvf/cAQCRG74b0j4PKxS3Tzw2uuUZWJqlB7FHalJgJb5pDK6WP5oKFEw8drjs8V0CrjBhn7
+	rgfesNPw20FaY8BCuCEp86SCAa20GGh8MEr4ar9g7Rt5Ng/NIzIG+3tSfF7n/t+7SR8yPp7TGr6
+	q5G+NC6K3gO13HHFtO4IUuI7S8p6eoITb8Nw5YC34aa51PFJ89zkDDUDLnoWeYkmxYxQyPmOtPH
+	K1D7+z9Dgiq58yG2edWbMo2U8TM1fNMTFJGLNkk=
+X-Google-Smtp-Source: AGHT+IF/uMz8MYijvgNH6EAmeQTRc6aRXVQ6Ac2y4GTApWuNrbNhRowJgw1xPnWbWQMx4L4kzhRYmGW628wrmJp9buE=
+X-Received: by 2002:a05:6402:524c:b0:647:9380:103c with SMTP id
+ 4fb4d7f45d1cf-65097df5672mr20320306a12.13.1768295646934; Tue, 13 Jan 2026
+ 01:14:06 -0800 (PST)
+MIME-Version: 1.0
+References: <20260112-dpu-clocks-v2-0-bd00903fdeb9@linaro.org>
+ <20260112-dpu-clocks-v2-1-bd00903fdeb9@linaro.org> <ba585515010ab9a9b417d000ba744f8178ca9e24.camel@linaro.org>
+In-Reply-To: <ba585515010ab9a9b417d000ba744f8178ca9e24.camel@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Tue, 13 Jan 2026 09:13:55 +0000
+X-Gm-Features: AZwV_QjDqNTFOct4T-rP7w13f_DSbKkRMZMwlRNVBJ9q5uu_3B70MKV9_itceMo
+Message-ID: <CADrjBPomC-QaL8aR4QsEPm+Uu5_QoWQZUomLMZt+09-ywH3wjA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/5] dt-bindings: clock: google,gs101-clock: fix
+ alphanumeric ordering
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+	Chanwoo Choi <cw00.choi@samsung.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Krzysztof Kozlowski <krzk@kernel.org>, kernel-team@android.com, 
+	Will McVicker <willmcvicker@google.com>, Juan Yescas <jyescas@google.com>, 
+	Doug Anderson <dianders@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_011018_363510_58D67851 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20260113_011411_485563_A49A58DF 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,38 +106,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds initial support for the Khadas VIM1S single board computer.
+Hi Andr=C3=A9,
 
-The Khadas VIM1S is based on the Amlogic S905Y4 (S4 family) SoC.
-It features:
- - 2GB LPDDR4 RAM
- - 16GB eMMC 5.1 storage
- - 32MB SPI flash
- - 100 Base-T Ethernet
- - AP6256 Wireless (802.11 a/b/g/n/ac, BT5.0)
- - HDMI 2.1 video
- - 2x USB 2.0 ports
- - 1x USB-C (power) with USB 2.0 OTG
- - 2x LED's (1x red, 1x white)
- - 3x buttons (power, function, reset)
- - IR receiver
- - 40pin GPIO Header
- - 1x micro SD card slot
+On Mon, 12 Jan 2026 at 14:26, Andr=C3=A9 Draszik <andre.draszik@linaro.org>=
+ wrote:
+>
+> On Mon, 2026-01-12 at 14:16 +0000, Peter Griffin wrote:
+> > Fix the places that don't have correct alphanumeric ordering. This will
+> > make reasoning about where to add future entries more straightforward.
+> >
+> > Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+> > ---
+> >  Documentation/devicetree/bindings/clock/google,gs101-clock.yaml | 6 ++=
++---
+> >  1 file changed, 3 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/clock/google,gs101-clock=
+.yaml b/Documentation/devicetree/bindings/clock/google,gs101-
+> > clock.yaml
+> > index 09e679c1a9def03d53b8b493929911ea902a1763..a8176687bb773ae90800b9c=
+256bcccebfdef2e49 100644
+> > --- a/Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
+> > +++ b/Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
+> > @@ -27,13 +27,13 @@ description: |
+> >  properties:
+> >    compatible:
+> >      enum:
+> > -      - google,gs101-cmu-top
+> >        - google,gs101-cmu-apm
+> > -      - google,gs101-cmu-misc
+> >        - google,gs101-cmu-hsi0
+> >        - google,gs101-cmu-hsi2
+> > +      - google,gs101-cmu-misc
+> >        - google,gs101-cmu-peric0
+> >        - google,gs101-cmu-peric1
+> > +      - google,gs101-cmu-top
+>
+> If we keep 'top' at the top as one outlier, it'd reflect that it is the
+> top unit and all other CMUs are children of it.
 
-The first patch adds the devicetree binding, and the second patch adds
-the board device tree.
+Thanks for the review. I opted to just keep it alphanumeric so it's
+(hopefully) obvious what all future ordering should be.
 
-Nick Xie (2):
-  dt-bindings: arm: amlogic: add Khadas VIM1S binding
-  arm64: dts: add initial device-tree for Khadas VIM1S
+>
+> >
+> >    clocks:
+> >      minItems: 1
+> > @@ -70,8 +70,8 @@ allOf:
+> >          compatible:
+> >            contains:
+> >              enum:
+> > -              - google,gs101-cmu-top
+> >                - google,gs101-cmu-apm
+> > +              - google,gs101-cmu-top
+>
+> And here.
+>
+> Either way, I don't mind:
+> Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 
- .../devicetree/bindings/arm/amlogic.yaml      |   6 +
- arch/arm64/boot/dts/amlogic/Makefile          |   1 +
- .../amlogic/meson-s4-s905y4-khadas-vim1s.dts  | 191 ++++++++++++++++++
- 3 files changed, 198 insertions(+)
- create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
+regards,
 
--- 
-2.34.1
-
+Peter
 
