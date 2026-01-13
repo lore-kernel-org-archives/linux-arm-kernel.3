@@ -4,85 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F9E4CF45DB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 01:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24D28CF45DB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 01:20:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SkjvMLrJnigKmMdCcK2k3H/cAhm9En6UKwdXIu8qM+Q=; b=bDSsfSxvc4w+m6/UwS2Qz+znV6
-	4Hd/Qg/h/R63qpePAi94rg8tgHAEDaXiJ7d4T0NGtSMhRJsBylJnjjTJn8Y6/tWIyhH4Ri50Y7WqX
-	V3WMmBpIq2OIeWWqOKwzSRLRx+xIPS5H2Rd4AirU9riXPs07hcrrWW7kAezNsKEStcm6Y5zk47m8W
-	MDkcxHHXlsGZrLhLQON5doJR1fwxb5oYkQs7PWDD4VfxrO71YFD1wBbF+CJNcJ2+sirE1QYgMfb9t
-	d9GBkqk2PdVsHIOnn9BAukSS7YqBgx2hErVD9oDoC0qaqH8Ur5mpghwDUlg2GwdXqd6mq+XHNWI7V
-	lVu6uGBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=x3CYlMR0Tmf8RQ5i5U0+ElV7tLxxhG2GMXU9rUaD4oQ=; b=wUZyv7IgNw0FxkAf5qcMF/mQvZ
+	3+hybY0xb3JkGsC11YbMgsAOuJ8rN21nuuZabWQ8pipmskoNA3rjtlfgQxVUJFn5m6uXa/r1MY+Z4
+	E3U3c/Hp1VU8MId9NMe4kwcNlbf/nIiUIiUY4sRyx6EHdEU+dsmhgZ3mThMs5q5foVgC+K6IBPwfX
+	sNgsRVrGSsmoSomfyV0VEzyveOseGCWkvcfqGFN9YRhXn9L6ZqaSLSxVbQjfqy+r5A8qEboOM+Vba
+	JPNYnhL0xxd0gPmSxK8n4q2SfXv8CxgCeLC7MoRWXXvL6sAp/sB8Qgsf+xTKkZzFv2izGhJd/iPSG
+	qD9ffNtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfSvw-00000006N1a-1Yns;
-	Tue, 13 Jan 2026 01:10:56 +0000
-Received: from mail-vk1-xa2c.google.com ([2607:f8b0:4864:20::a2c])
+	id 1vfT4n-00000006NdX-2yky;
+	Tue, 13 Jan 2026 01:20:05 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfSvs-00000006N16-1cHi
+	id 1vfT4l-00000006Ncr-0pFt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 01:10:55 +0000
-Received: by mail-vk1-xa2c.google.com with SMTP id 71dfb90a1353d-5636274b338so2951706e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 17:10:49 -0800 (PST)
+	Tue, 13 Jan 2026 01:20:04 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-34c27d14559so3982768a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 17:20:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768266648; x=1768871448; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1768267201; x=1768872001; darn=lists.infradead.org;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=SkjvMLrJnigKmMdCcK2k3H/cAhm9En6UKwdXIu8qM+Q=;
-        b=Y/BNS2CKDDPfLTXR5dIbopZ36adgcMG/VIgfqwkkxUCotGUBHGvMKaMwX7dKoGxttO
-         s1+XR+sqoBSV/T9fv06j5JPGVsOQPw6/hCVX28TkxDxgVt6YU8LJkJm1guzUyVBZBveO
-         7dmuk4SBFKJg28e2lPGAoPNP8nTIcMWXPG2U3R0Elc1NibIL1QNf+DPD5N3yNZhG2V7x
-         TuRzhrt3EF37jaIwH+63O11Ue1/Rox1UQOVlM5A0kCVD+lb0O8rLmv476VHWCIJBdTx5
-         FY0odV+fmumAeJfBPlCbzst2TsfGGfjFUx50+0J5Rx5dkTcu3sqosiZpZJoJxSEWLloQ
-         8y5Q==
+        bh=x3CYlMR0Tmf8RQ5i5U0+ElV7tLxxhG2GMXU9rUaD4oQ=;
+        b=O8l6jzw2rbsblk6VBN8IdxtcVETIHGFspIFV0oAgtyTEnNXBCaxcp04spGE0LbpFqE
+         qiiFLuhVZVgbriBrnakFP7gOi/pVfdowOlNy3Esme81gogm8hNTmlhWttDZV05Eqy961
+         P4RXedQe4tR47MVwwJLiRAt6GYR0e5Rstc4zyT8jd7s7N8GleyzdLPkYvNi15RRqrLdt
+         Pt+V3AytbtGHfGUwDdCnEPUfCypr64Y7I+f1Rc6dk+QOdEiqFYxlYGx6VdJjY5JyWq/f
+         Ej2O47XKeIOH8gteExkKwTfN77dpqCmWWRTES7dNnlE0paYrYrmNmmOcSmB0qp1WAol/
+         zVDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768266648; x=1768871448;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20230601; t=1768267201; x=1768872001;
+        h=message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=SkjvMLrJnigKmMdCcK2k3H/cAhm9En6UKwdXIu8qM+Q=;
-        b=w4RDYeW2OZVtAfLCpC1ZYfjtFDXmJcvQnQpPLK02bBI85tjjdxTthYsSY3lh5m2P51
-         5BxBNOYB4Xl7gydFVTmi6bRO3/9eX3KIO2Xuw3t75EJfFKNoHaLFOTljx1mrqoLzjB2A
-         4A932OsNV/NsFJ3riYh6qTROd8xUg+lh2zZR+9Cjg0Dk34FIxR7hrO2FjFg1A8hDhZQZ
-         WYbzT+X2soO1gXojd+geFXnpJqFXCxwR2vNmmh5iREFe/l+UOScLm95qZqdpD5prbDVf
-         e44zhr9mJAsiF9D2qBf5SR9o+YHbvnxtzi1fl0cf7YIbscFR+p/0vjcD5OPhe/0Tk9HB
-         r0Aw==
-X-Forwarded-Encrypted: i=1; AJvYcCVTfgo0SzFG3O/YXMHzJHOJM/I2i7wCaGujM2DE+InTNFuLxVIJvh4Q/mHOQuRDmPT+Qd5Q1Jtv+sOYC9MUtdXE@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDOrZ8zj+xEybN5PVvjjIEAqWkMkpd/mD0iQmUiWMVMsnlagy4
-	+zqDM2dGNcMj+Faks4NXSFx9P3jlLAPUoidsquklpH2BEZMDKywygZ6aj9Y0wMxEJkLt+SooMjf
-	QlNrMH2AHnrg0OFIASEXFQyg5mPAT8SA=
-X-Gm-Gg: AY/fxX6G0I9tcJT/ZhsR3WMzm/LSzMNPL2f0hdVVT6t/xnQWA0IMm2rz/qTRpI/4Q1a
-	DQEx8CJfqcZktr9r0N33nJSCcl2QZIjftG/wXlDIf/5sGg0Wzh9bmqVMvDqmVg33caskQh4l3nL
-	7ED3hFmm+pjEiHFC5F0X4JPmmoNPwarfNeAWAx+CXCm/Z1pr7je4HArJKsOiOwHU9cAYBTXpCyx
-	jFeYzuCNE96MMsUnp8wC0IDYlXiaKJB/EnXCtIA6n72MEM8O8VgAMbXXr0uWJe+ppbV4luY
-X-Received: by 2002:a05:6122:4896:b0:563:466c:2 with SMTP id
- 71dfb90a1353d-56395c42437mr568534e0c.5.1768266648408; Mon, 12 Jan 2026
- 17:10:48 -0800 (PST)
-MIME-Version: 1.0
-References: <20251224-ventura2_initial_dts-v2-0-f193ba5d4073@gmail.com>
- <20251224-ventura2_initial_dts-v2-2-f193ba5d4073@gmail.com> <baa2e4e86b0b6851a56ef97501f6cad67d7970e6.camel@codeconstruct.com.au>
-In-Reply-To: <baa2e4e86b0b6851a56ef97501f6cad67d7970e6.camel@codeconstruct.com.au>
-From: Kyle Hsieh <kylehsieh1995@gmail.com>
-Date: Tue, 13 Jan 2026 09:10:37 +0800
-X-Gm-Features: AZwV_QgqSsvNI6cCP4eKfzDR4jBHaqaLbqGDWOCo3Ee8aobMZGS6aolRUOmEwl4
-Message-ID: <CAF7HswM1nch2Z1JCQiCowWK7UwrV4zvg_uVJUM6bfnFEWVx9Gw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+        bh=x3CYlMR0Tmf8RQ5i5U0+ElV7tLxxhG2GMXU9rUaD4oQ=;
+        b=IEarO2petDQ2Hy1u6XIitRgusNeDVRxbtt4isIfLUNrmGZtziTyw0Yjqky/mWczdRc
+         GlKxrpbEPioWSGdKDBPa++84NQUbLfKgosq1Vlef7TMJ7Ng4SuKS+NrXyt51EFtO2CvO
+         V/ZTAHHCUHtTg9KdXsdkUEM4PsfY/vhHIwf/FQYhPNsUDXtk0NolmYPGmM923hc0yZ7W
+         phZRlEgeR6snqDb61zEzcwQaVJm9JaLJFuXN8GQJKoZNvJwuAuwsExAxvXyu1zelNNTL
+         8R1Iw4svT9OBtb3WjsmdiLqyRJ789dj1O+w0LPZWyEBa+h5/8Okf3Z8AzOVB3ju2CxAK
+         OMkA==
+X-Forwarded-Encrypted: i=1; AJvYcCWWmlsqOZ96Ge56KyjGgqKxSETWZrLExx4B3QJ8ZgZVpSEwIe2YWv5DGkkYbi9t7A6LZP94oghKdWP3Kez2y6D7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRxLhZn2h8vvSkTcyJ7bDEjZ+b5/tLqpDdN1BLe3GgVzsDv+XK
+	C8INmYRvctRKB2zHTQMhHKVDo7gKrV74sL16HL89h8hTU10Yeh7Wmy+m
+X-Gm-Gg: AY/fxX4SR+TlI4+omtReTmKbz4rsQ7djRwsU6VbUfFBxpJOid+N/HfgdviUQsCf21Sg
+	4Vh05iSDTkaFU8gaOuC8mmOqRsnwqzCO1vd99+0yjbr2nm26GjOukIhtw9b7IXhejBUhRcnadYt
+	pgFXvbCF/V6U49QWsiYB0ybu1926eh305ErDnWHoFqcMx+ngPWgkbYymJPHbAU1CKnMMwApFQ6P
+	HeiCc/pU1pVTzt5PKZNU4nOpJD0NXbLb6Hw1cpa9e2UdJTlTU13pxZdVquNbA3Zl1XIe8V0iU9m
+	04yqp2Rx2YeHeHepzbepJvGIRjsCs2em8/SnjN43Ppp6UDr+CzVYQDOYjqNt871A/tXFv0zPIy7
+	gqpsNb0kNiqHCCDo1N7qxgdM53Jz767xe3dHcgA0Ql9eQc25LjN3z07tI1uiydvzWWUkf29HHDz
+	LupDUwaAA=
+X-Google-Smtp-Source: AGHT+IG8txkoiMCUKW9YZHZofyZykPuk3kA3XK9+QfFe6Sd/CcyTQyE/WnqZnbSHsGDn+shRYOq7Gw==
+X-Received: by 2002:a17:90b:2709:b0:340:bb64:c5e with SMTP id 98e67ed59e1d1-34f68b684c6mr16514934a91.14.1768267201486;
+        Mon, 12 Jan 2026 17:20:01 -0800 (PST)
+Received: from localhost.localdomain ([47.82.78.41])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34f5f7c4141sm18533379a91.6.2026.01.12.17.19.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Jan 2026 17:20:01 -0800 (PST)
+From: Nick Xie <xieqinick@gmail.com>
+X-Google-Original-From: Nick Xie <nick@khadas.com>
+To: neil.armstrong@linaro.org,
+	khilman@baylibre.com,
+	jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com,
+	xianwei.zhao@amlogic.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Cc: krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	robh@kernel.org,
+	nick@khadas.com
+Subject: [PATCH] arm64: dts: amlogic: S4: fix SD card initialization failure
+Date: Tue, 13 Jan 2026 09:19:31 +0800
+Message-Id: <20260113011931.40424-1-nick@khadas.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_171052_580934_CEB1E95B 
-X-CRM114-Status: GOOD (  26.48  )
+X-CRM114-CacheID: sfid-20260112_172003_241126_9358B6FE 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,507 +104,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 8, 2026 at 12:38=E2=80=AFPM Andrew Jeffery
-<andrew@codeconstruct.com.au> wrote:
->
-> On Wed, 2025-12-24 at 14:44 +0800, Kyle Hsieh wrote:
-> > Add linux device tree entry related to the Meta(Facebook) rmc-node.
-> > The system use an AT2600 BMC.
-> > This node is named "ventura2".
-> >
-> > Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
-> > ---
-> >  arch/arm/boot/dts/aspeed/Makefile                  |    1 +
-> >  .../dts/aspeed/aspeed-bmc-facebook-ventura2.dts    | 2945 ++++++++++++=
-++++++++
-> >  2 files changed, 2946 insertions(+)
-> >
-> > diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspe=
-ed/Makefile
-> > index 9adf9278dc94..6b96997629d4 100644
-> > --- a/arch/arm/boot/dts/aspeed/Makefile
-> > +++ b/arch/arm/boot/dts/aspeed/Makefile
-> > @@ -32,6 +32,7 @@ dtb-$(CONFIG_ARCH_ASPEED) +=3D \
-> >       aspeed-bmc-facebook-minipack.dtb \
-> >       aspeed-bmc-facebook-santabarbara.dtb \
-> >       aspeed-bmc-facebook-tiogapass.dtb \
-> > +     aspeed-bmc-facebook-ventura2.dtb \
-> >       aspeed-bmc-facebook-wedge40.dtb \
-> >       aspeed-bmc-facebook-wedge100.dtb \
-> >       aspeed-bmc-facebook-wedge400-data64.dtb \
-> > diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts =
-b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
-> > new file mode 100644
-> > index 000000000000..e22bbaf519ea
-> > --- /dev/null
-> > +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
-> > @@ -0,0 +1,2945 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +// Copyright (c) 2023 Facebook Inc.
-> > +/dts-v1/;
-> > +
-> > +#include "aspeed-g6.dtsi"
-> > +#include <dt-bindings/i2c/i2c.h>
-> > +#include <dt-bindings/gpio/aspeed-gpio.h>
-> > +
-> > +/ {
-> > +     model =3D "Facebook ventura2 RMC";
-> > +     compatible =3D "facebook,ventura2-rmc", "aspeed,ast2600";
-> > +     aliases {
-> > +             serial4 =3D &uart5;
-> > +
-> > +
->
-> *snip*
->
-> > +     };
-> > +
-> > +     chosen {
-> > +             stdout-path =3D "serial4:57600n8";
-> > +     };
-> > +
-> > +     iio-hwmon {
-> > +             compatible =3D "iio-hwmon";
-> > +             io-channels =3D <&adc0 0>, <&adc0 1>, <&adc0 2>, <&adc0 3=
->,
-> > +             <&adc0 4>, <&adc0 5>, <&adc0 6>, <&adc0 7>,
-> > +             <&adc1 2>;
-> > +     };
-> > +
-> > +     leds {
-> > +             compatible =3D "gpio-leds";
-> > +
-> > +             led-0 {
-> > +                     label =3D "bmc_heartbeat_amber";
-> > +                     gpios =3D <&gpio0 ASPEED_GPIO(P, 7) GPIO_ACTIVE_L=
-OW>;
-> > +                     linux,default-trigger =3D "heartbeat";
-> > +             };
-> > +
-> > +             led-1 {
-> > +                     label =3D "fp_id_amber";
-> > +                     default-state =3D "off";
-> > +                     gpios =3D <&gpio0 ASPEED_GPIO(B, 5) GPIO_ACTIVE_H=
-IGH>;
-> > +             };
-> > +
-> > +             led-2 {
-> > +                     label =3D "bmc_ready_noled";
-> > +                     default-state =3D "on";
-> > +                     gpios =3D <&gpio0 ASPEED_GPIO(B, 3) (GPIO_ACTIVE_=
-HIGH|GPIO_TRANSITORY)>;
-> > +             };
-> > +
-> > +             led-3 {
-> > +                     label =3D "power_blue";
-> > +                     default-state =3D "off";
-> > +                     gpios =3D <&gpio0 ASPEED_GPIO(P, 4) GPIO_ACTIVE_H=
-IGH>;
-> > +             };
-> > +     };
-> > +
-> > +     fan_leds {
->
-> Can you please order these unit-address-less nodes (iio-hwmon, leds,
-> fan_leds, etc) alphabetically?
-Yes, I will modify in the v3 patch.
->
-> > +             compatible =3D "gpio-leds";
-> > +
-> > +             led-0 {
-> > +                     label =3D "fcb0fan0_ledd1_blue";
-> > +                     default-state =3D "off";
-> > +                     gpios =3D <&fan_io_expander0 0 GPIO_ACTIVE_LOW>;
-> > +             };
-> > +
-> > +             led-1 {
-> > +                     label =3D "fcb0fan1_ledd2_blue";
-> > +                     default-state =3D "off";
-> > +                     gpios =3D <&fan_io_expander0 1 GPIO_ACTIVE_LOW>;
-> > +             };
-> > +
-> > +             led-2 {
-> > +                     label =3D "fcb0fan2_ledd3_blue";
-> > +                     default-state =3D "off";
-> > +                     gpios =3D <&fan_io_expander1 0 GPIO_ACTIVE_LOW>;
-> > +             };
-> > +
-> > +             led-3 {
-> > +                     label =3D "fcb0fan3_ledd4_blue";
-> > +                     default-state =3D "off";
-> > +                     gpios =3D <&fan_io_expander1 1 GPIO_ACTIVE_LOW>;
-> > +             };
-> > +
-> > +             led-4 {
-> > +                     label =3D "fcb0fan0_ledd1_amber";
-> > +                     default-state =3D "off";
-> > +                     gpios =3D <&fan_io_expander0 4 GPIO_ACTIVE_LOW>;
-> > +             };
-> > +
-> > +             led-5 {
-> > +                     label =3D "fcb0fan1_ledd2_amber";
-> > +                     default-state =3D "off";
-> > +                     gpios =3D <&fan_io_expander0 5 GPIO_ACTIVE_LOW>;
-> > +             };
-> > +
-> > +             led-6 {
-> > +                     label =3D "fcb0fan2_ledd3_amber";
-> > +                     default-state =3D "off";
-> > +                     gpios =3D <&fan_io_expander1 4 GPIO_ACTIVE_LOW>;
-> > +             };
-> > +
-> > +             led-7 {
-> > +                     label =3D "fcb0fan3_ledd4_amber";
-> > +                     default-state =3D "off";
-> > +                     gpios =3D <&fan_io_expander1 5 GPIO_ACTIVE_LOW>;
-> > +             };
-> > +     };
-> > +
-> > +     memory@80000000 {
-> > +             device_type =3D "memory";
-> > +             reg =3D <0x80000000 0x80000000>;
-> > +     };
-> > +
-> > +     p1v8_bmc_aux: regulator-p1v8-bmc-aux {
-> > +             compatible =3D "regulator-fixed";
-> > +             regulator-name =3D "p1v8_bmc_aux";
-> > +             regulator-min-microvolt =3D <1800000>;
-> > +             regulator-max-microvolt =3D <1800000>;
-> > +             regulator-always-on;
-> > +     };
-> > +
-> > +     p2v5_bmc_aux: regulator-p2v5-bmc-aux {
-> > +             compatible =3D "regulator-fixed";
-> > +             regulator-name =3D "p2v5_bmc_aux";
-> > +             regulator-min-microvolt =3D <2500000>;
-> > +             regulator-max-microvolt =3D <2500000>;
-> > +             regulator-always-on;
-> > +     };
-> > +
-> > +     p5v_dac_aux: regulator-p5v-bmc-aux {
-> > +             compatible =3D "regulator-fixed";
-> > +             regulator-name =3D "p5v_dac_aux";
-> > +             regulator-min-microvolt =3D <5000000>;
-> > +             regulator-max-microvolt =3D <5000000>;
-> > +             regulator-always-on;
-> > +     };
-> > +
-> > +     spi1_gpio: spi {
-> > +             compatible =3D "spi-gpio";
-> > +             #address-cells =3D <1>;
-> > +             #size-cells =3D <0>;
-> > +
-> > +             sck-gpios =3D <&gpio0 ASPEED_GPIO(Z, 3) GPIO_ACTIVE_HIGH>=
-;
-> > +             mosi-gpios =3D <&gpio0 ASPEED_GPIO(Z, 4) GPIO_ACTIVE_HIGH=
->;
-> > +             miso-gpios =3D <&gpio0 ASPEED_GPIO(Z, 5) GPIO_ACTIVE_HIGH=
->;
-> > +             cs-gpios =3D <&gpio0 ASPEED_GPIO(Z, 0) GPIO_ACTIVE_LOW>;
-> > +             num-chipselects =3D <1>;
-> > +
-> > +             tpm@0 {
-> > +                     compatible =3D "infineon,slb9670", "tcg,tpm_tis-s=
-pi";
-> > +                     spi-max-frequency =3D <33000000>;
-> > +                     reg =3D <0>;
-> > +             };
-> > +     };
-> > +};
-> > +
-> > +&fmc {
-> > +     status =3D "okay";
-> > +     flash@0 {
-> > +             status =3D "okay";
-> > +             m25p,fast-read;
-> > +             label =3D "bmc";
-> > +             spi-max-frequency =3D <50000000>;
-> > +             #include "openbmc-flash-layout-128.dtsi"
-> > +     };
-> > +     flash@1 {
-> > +             status =3D "okay";
-> > +             m25p,fast-read;
-> > +             label =3D "alt-bmc";
-> > +             spi-max-frequency =3D <50000000>;
-> > +     };
-> > +};
-> > +
-> > +&peci0 {
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&mac2 {
->
-> Same for all the phandle-referenced nodes throughout: please order them
-> alphabetically. Another possible ordering is in unit address order, but
-> I prefer alphabetical in the dts because there's no unit address in
-> sight (it's in the corresponding dtsi).
-I will modify in v3 patch.
->
-> > +     status =3D "okay";
-> > +     phy-mode =3D "rmii";
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&pinctrl_rmii3_default>;
-> > +     fixed-link {
-> > +             speed =3D <100>;
-> > +             full-duplex;
-> > +     };
->
-> Andrew Lunn asked for a comment justifying the fixed-link node in [1]
-> and you said you'd add it in [2], but there's no comment? Can you
-> please add it?
-Last time, I pushed the v2 patch too early, so I have not yet added
-the annotation.
-I will add the annotation next version
->
-> [1]: https://lore.kernel.org/all/32ff7ca8-9cb0-4889-adb0-a6dae735630b@lun=
-n.ch/
-> [2]: https://lore.kernel.org/all/CAF7HswMRrs9hwKo_uHCLMtx7+h46-DPEJRcEqu0=
--zEG4CVvvjg@mail.gmail.com/
->
-> > +};
-> > +
-> > +&mac3 {
-> > +     status =3D "okay";
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&pinctrl_rmii4_default>;
-> > +     use-ncsi;
-> > +};
-> >
->
-> *snip*
->
-> > +
-> > +&sgpiom0 {
-> > +     status =3D "okay";
-> > +     ngpios =3D <128>;
-> > +     bus-frequency =3D <2000000>;
-> > +     gpio-line-names =3D
-> > +     /*"input pin","output pin"*/
-> > +     /*A0 - A7*/
-> > +     "power-chassis-good","FM_PLD_HEARTBEAT_LVC3_R",
-> > +     "host0-ready","",
-> > +     "CONTROL_VT2_SUPPLY1_CLOSE","FM_MDIO_SW_SEL_PLD",
-> > +     "CONTROL_VT2_SUPPLY2_CLOSE","FM_88E6393X_BIN_UPDATE_EN_N",
-> > +     "CONTROL_VT2_SUPPLY3_CLOSE","Sequence_TransFR_Alert",
-> > +     "RETURN_CNTL1_FB","WATER_VALVE1_OPEN",
-> > +     "RETURN_CNTL2_FB","WATER_VALVE2_OPEN",
-> > +     "RETURN_CNTL3_FB","WATER_VALVE3_OPEN",
-> > +     /*B0 - B7*/
-> > +     "IT_STOP_PUMP_R_CPLD","WATER_VALVE1_CLOSE",
-> > +     "IT_STOP_PUMP_SPARE_R_CPLD","WATER_VALVE2_CLOSE",
-> > +     "IT_STOP_PUMP_2_R_CPLD","WATER_VALVE3_CLOSE",
-> > +     "IT_STOP_PUMP_SPARE_2_R_CPLD","REPORT_VT2_SUPPLY1_CLOSE",
-> > +     "RPU_2_READY_SPARE_PLD_R","REPORT_VT2_SUPPLY2_CLOSE",
-> > +     "RPU_2_READY_PLD_R","REPORT_VT2_SUPPLY3_CLOSE",
-> > +     "RPU_READY_SPARE_PLD_R","PCIE_SSD1_PRSNT_N",
-> > +     "RPU_READY_PLD_R","",
-> > +     /*C0 - C7*/
-> > +     "IOEXP8_INT_N","",
-> > +     "SUPPLY_CNTL1_FB","",
-> > +     "SUPPLY_CNTL2_FB","",
-> > +     "SUPPLY_CNTL3_FB","",
-> > +     "PRSNT_TRAY1_TO_40_R_BUF_N","",
-> > +     "PWRGD_TRAY1_TO_40_R_BUF","",
-> > +     "SMALL_LEAK_TRAY1_TO_40_R_BUF_N","",
-> > +     "LEAK_DETECT_TRAY1_TO_40_R_BUF_N","",
-> > +     /*D0 - D7*/
-> > +     "PRSNT_CANBUSP1_TRAY1_TO_32_N","",
-> > +     "PWRGD_CANBUSP1_TRAY1_TO_32_PWROK","",
-> > +     "SMALL_LEAK_CANBUSP1_TRAY1_TO_32_N","",
-> > +     "LEAK_DETECT_CANBUSP1_TRAY1_TO_32_N","",
-> > +     "PRSNT_CANBUSP2_TRAY1_TO_32_N","",
-> > +     "PWRGD_CANBUSP2_TRAY1_TO_32_PWROK","",
-> > +     "SMALL_LEAK_CANBUSP2_TRAY1_TO_32_N","",
-> > +     "LEAK_DETECT_CANBUSP2_TRAY1_TO_32_N","",
-> > +     /*E0 - E7*/
-> > +     "PRSNT_CANBUSP3_TRAY1_TO_32_N","",
-> > +     "PWRGD_CANBUSP3_TRAY1_TO_32_PWROK","",
-> > +     "SMALL_LEAK_CANBUSP3_TRAY1_TO_32_N","",
-> > +     "LEAK_DETECT_CANBUSP3_TRAY1_TO_32_N","",
-> > +     "PRSNT_CANBUSP4_TRAY1_TO_32_N","",
-> > +     "PWRGD_CANBUSP4_TRAY1_TO_32_PWROK","",
-> > +     "SMALL_LEAK_CANBUSP4_TRAY1_TO_32_N","",
-> > +     "LEAK_DETECT_CANBUSP4_TRAY1_TO_32_N","",
-> > +     /*F0 - F7*/
-> > +     "PRSNT_CANBUSP5_TRAY1_TO_32_N","",
-> > +     "PWRGD_CANBUSP5_TRAY1_TO_32_PWROK","",
-> > +     "SMALL_LEAK_CANBUSP5_TRAY1_TO_32_N","",
-> > +     "LEAK_DETECT_CANBUSP5_TRAY1_TO_32_N","",
-> > +     "PRSNT_CANBUSP6_TRAY1_TO_32_N","",
-> > +     "PWRGD_CANBUSP6_TRAY1_TO_32_PWROK","",
-> > +     "SMALL_LEAK_CANBUSP6_TRAY1_TO_32_N","",
-> > +     "LEAK_DETECT_CANBUSP6_TRAY1_TO_32_N","",
-> > +     /*G0 - G7*/
-> > +     "PRSNT_CANBUSP7_TRAY1_TO_32_N","",
-> > +     "PWRGD_CANBUSP7_TRAY1_TO_32_PWROK","",
-> > +     "SMALL_LEAK_CANBUSP7_TRAY1_TO_32_N","",
-> > +     "LEAK_DETECT_CANBUSP7_TRAY1_TO_32_N","",
-> > +     "PRSNT_CANBUSP8_TRAY1_TO_32_N","",
-> > +     "PWRGD_CANBUSP8_TRAY1_TO_32_PWROK","",
-> > +     "SMALL_LEAK_CANBUSP8_TRAY1_TO_32_N","",
-> > +     "LEAK_DETECT_CANBUSP8_TRAY1_TO_32_N","",
-> > +     /*H0 - H7*/
-> > +     "wCHASSIS0_LEAK_Q_N_R","",
-> > +     "wCHASSIS1_LEAK_Q_N_R","",
-> > +     "wCHASSIS2_LEAK_Q_N_R","",
-> > +     "wCHASSIS3_LEAK_Q_N_R","",
-> > +     "wCHASSIS4_LEAK_Q_N_R","",
-> > +     "wCHASSIS5_LEAK_Q_N_R","",
-> > +     "wCHASSIS6_LEAK_Q_N_R","",
-> > +     "wCHASSIS7_LEAK_Q_N_R","",
-> > +     /*I0 - I7*/
-> > +     "wCHASSIS8_LEAK_Q_N_R","",
-> > +     "wCHASSIS9_LEAK_Q_N_R","",
-> > +     "wCHASSIS10_LEAK_Q_N_R","",
-> > +     "wCHASSIS11_LEAK_Q_N_R","",
-> > +     "wAALC_RPU_READY","",
->
-> Out of curiosity, what's going on with the lower-case 'w' prefix here
-> (and again below)?
-The prefix 'w' is the sgpio name, after confirming it can remove this prefi=
-x.
-I will remove it in the next version.
->
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     /*J0 - J7*/
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     /*K0 - K7*/
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     /*L0 - L7*/
-> > +     "wIT_GEAR_RPU_2_LINK_PRSNT_SPARE_N_R","",
-> > +     "wIT_GEAR_RPU_2_LINK_PRSNT_N_R","",
-> > +     "wIT_GEAR_RPU_LINK_PRSNT_SPARE_N_R","",
-> > +     "wIT_GEAR_RPU_LINK_PRSNT_N_R","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     /*M0 - M7*/
-> > +     "","",
-> > +     "","",
-> > +     "wPRSNT_SENSOR_N","",
-> > +     "wPRSNT3_VT2_PLD_N","",
-> > +     "wPRSNT2_VT2_PLD_N","",
-> > +     "wPRSNT1_VT2_PLD_N","",
-> > +     "wPRSNT3_RETURN_PLD_N","",
-> > +     "wPRSNT2_RETURN_PLD_N","",
-> > +     /*N0 - N7*/
-> > +     "wPRSNT1_RETURN_PLD_N","",
-> > +     "wPRSNT3_SUPPLY_PLD_N","",
-> > +     "wPRSNT2_SUPPLY_PLD_N","",
-> > +     "wPRSNT1_SUPPLY_PLD_N","",
-> > +     "wPRSNT_LEAK11_SENSOR_R_PLD_N","",
-> > +     "wPRSNT_LEAK10_SENSOR_R_PLD_N","",
-> > +     "wPRSNT_LEAK9_SENSOR_R_PLD_N","",
-> > +     "wPRSNT_LEAK8_SENSOR_R_PLD_N","",
-> > +     /*O0 - O7*/
-> > +     "wPRSNT_LEAK7_SENSOR_R_PLD_N","",
-> > +     "wPRSNT_LEAK6_SENSOR_R_PLD_N","",
-> > +     "wPRSNT_LEAK5_SENSOR_R_PLD_N","",
-> > +     "wPRSNT_LEAK4_SENSOR_R_PLD_N","",
-> > +     "wPRSNT_LEAK3_SENSOR_R_PLD_N","",
-> > +     "wPRSNT_LEAK2_SENSOR_R_PLD_N","",
-> > +     "wPRSNT_LEAK1_SENSOR_R_PLD_N","",
-> > +     "wPRSNT_LEAK0_SENSOR_R_PLD_N","",
-> > +     /*P0 - P7*/
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","",
-> > +     "","";
-> > +};
-> >
-> >
->
-> *snip*
->
-> > +
-> > +&i2c6 {
-> > +     status =3D "okay";
-> > +
-> > +     eeprom@50 {
-> > +             compatible =3D "atmel,24c64";
-> > +             reg =3D <0x50>;
-> > +     };
-> > +
-> > +     io_expander0: gpio@20 {
-> > +             compatible =3D "nxp,pca9555";
-> > +             reg =3D <0x20>;
-> > +             gpio-controller;
-> > +             #gpio-cells =3D <2>;
-> > +     };
-> > +
-> > +     io_expander1: gpio@21 {
-> > +             compatible =3D "nxp,pca9555";
-> > +             reg =3D <0x21>;
-> > +             gpio-controller;
-> > +             #gpio-cells =3D <2>;
-> > +     };
-> > +
-> > +     io_expander2: gpio@22 {
-> > +             compatible =3D "nxp,pca9555";
-> > +             reg =3D <0x22>;
-> > +             gpio-controller;
-> > +             #gpio-cells =3D <2>;
-> > +     };
-> > +
-> > +     io_expander7: gpio@23 {
-> > +             compatible =3D "nxp,pca9555";
-> > +             reg =3D <0x23>;
-> > +             gpio-controller;
-> > +             #gpio-cells =3D <2>;
-> > +     };
-> > +
-> > +     rtc@51 {
-> > +             compatible =3D "nxp,pcf8563";
-> > +             reg =3D <0x51>;
-> > +     };
-> > +};
-> > +
->
-> *snip*
->
-> > +
-> > +&io_expander0 {
->
-> io_expander0 is a label you've defined in this same dts, just above.
-> Please just include the properties in the original node directly, don't
-> separate them like this.
->
-> Same applies to all other cases of the same pattern.
-Thanks for review, I will put the properties to the same node.
->
-> Andrew
->
-> > +     gpio-line-names =3D
-> > +     "RST_POE_BMC_N", "POE_DISABLE_BMC_N_R",
-> > +     "RST_FT4232_1_BMC_N_R", "RST_FT4232_2_BMC_N_R",
-> > +     "RST_FT4232_3_BMC_N_R", "PRSNT_FANBP_0_PWR_N",
-> > +     "PRSNT_FANBP_0_SIG_N", "PRSNT_POE_PWR_N",
-> > +     "PRSNT_POE_SIG_N", "IRQ_POE_BMC_N_R",
-> > +     "PWRGD_P3V3_ISO_POE_BMC_R", "88E6393X_INT_N_R",
-> > +     "P48V_HSC_ALERT_N", "SMB_TMC75_TEMP_ALERT_N_R",
-> > +     "DEV_DIS_N", "PCI_DIS_N";
-> > +};
-> > +
+The SD controller (sd@fe08a000) requires a clock source capable of
+generating a 400kHz frequency for the identification phase.
+
+Currently, the sd node uses CLKID_SD_EMMC_B as clkin0 and CLKID_FCLK_DIV2
+as clkin1. Both of these are high-frequency clocks (e.g., ~1GHz).
+The internal divider of the SD controller is limited to a maximum value
+of 64 (2^6). With input frequencies significantly higher than 25.6MHz
+(400kHz * 64), the driver is unable to generate the required 400kHz
+clock, causing the probe to fail with -EINVAL.
+
+Fix this by reparenting clkin0 to the 24MHz XTAL clock, consistent with
+the configuration of the sdio and emmc nodes. This allows the divider
+to successfully generate 400kHz (24MHz / 60).
+
+Verified on Khadas VIM1S with SoC S4 S905Y4.
+
+Fixes: 3ab9d54b5d847 ("arm64: dts: amlogic: enable some device nodes for S4")
+
+Signed-off-by: Nick Xie <nick@khadas.com>
+---
+ arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+index 9d99ed2994dfa..b87bc83b5a9bb 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+@@ -833,7 +833,7 @@ sd: mmc@fe08a000 {
+ 			reg = <0x0 0xfe08a000 0x0 0x800>;
+ 			interrupts = <GIC_SPI 177 IRQ_TYPE_EDGE_RISING>;
+ 			clocks = <&clkc_periphs CLKID_SDEMMC_B>,
+-				 <&clkc_periphs CLKID_SD_EMMC_B>,
++				 <&xtal>,
+ 				 <&clkc_pll CLKID_FCLK_DIV2>;
+ 			clock-names = "core", "clkin0", "clkin1";
+ 			resets = <&reset RESET_SD_EMMC_B>;
+-- 
+2.34.1
+
 
