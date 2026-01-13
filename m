@@ -4,130 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4047D29DE4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 08:04:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5CCCD29DE4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 08:07:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PXnbde2QVYAvo1lc9F4COy4pjbix8X4rjsdQ1/Co9n8=; b=EtQVsRQO3gWaiq7TH6+46gFn98
-	QOrPDoeKnfPtST6EbE2dPrv+6QtwYQXLVrp6N7psu6t1sr/STPOef73b9vOnTQ0oQ3WJm0Coht5l0
-	V/40xzOxvCY6QBGsF3J2HDaSxMnaMUdSsnvzqY6pTukMTdLhPDWNRdgX9ojCl/uD14pBuJuH6li+b
-	1Qo4c6SP8tCnJFCANuH3hiidMJmdzHwEJeWZVrVVKStYaSPc6m/3+Zwufy25wF1x6KbKlXIOWqGp7
-	wTXxhFt6+PwGZdxdi608tuGTMGy+LBavH8f1MIvpoeUYGy3XQFJ3n61NjmW+U/ruIiwMrA12vkFQD
-	9AOsit1w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0kBiGdnwoKI9eDWcWQTGe4djU3SzpP0pSq/NoI+kjks=; b=iZoBYRJKgS8fXb
+	dtHgBjbE1T1nqJsQlVOOuAWwPE3bupgA6IIgi0JpwpBcoLvURyLylzhV1XsAv7Yb6TKXlNXvMXi5f
+	JsCDyBhd0QAc6IHZhEtmRxlTI7C6mY4Vtbpl9bVCBlXq/Gh7YaqZ4jfXK9troMS3PV5l9XJeIa2Sv
+	40TSanX0ZUKuhXOQoeLsS9vwA3HBLHaOhhoaQxOzWrg3yhMY6rpU3ScLuPvMOaZieeRfrd7Flb/EY
+	hVNInnNLoQkfLhjmi9CDKgxgCqDLfldhrR1k7lpAcwyKfomiEAEbTHtWK3Z/1mEfU3Bk0rqRkcvhr
+	dHJbyNjMgc0gAJhRf+IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfZNw-00000006hZT-0GE1;
-	Tue, 13 Jan 2026 08:04:16 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vfZQu-00000006hm6-3Bsy;
+	Tue, 13 Jan 2026 08:07:20 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfZNt-00000006hZ8-2ovn
+	id 1vfZQr-00000006hkq-2uev
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 08:04:15 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60D5h3G53816754
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 08:04:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=PXnbde2QVYAvo1lc9F4COy4p
-	jbix8X4rjsdQ1/Co9n8=; b=JC0ApuKg5PKcLR9ANox5pxo02Lbt8OPKzn2DsNh4
-	9PW4eEjA7zLln0PyUjryvw9tiqzVcstUQP4Az8abRtu5DiNSEyzqec3FBPi+024E
-	1cv+WZnvrSdLssKk3OZhTrhuFsNvPG5rQtkEHiptyGUYiLKDPtPqQU+8bTTvZepy
-	qEDcTs9VCKge1erBzBYuY3vvVhL+ku+PCBClc/79v3QPjy+dyn5FxRXOz+Gsa1Ep
-	cJLujQs6UeEnJco2mzUJ8JxbiKJck2ZsxYZ0rlYptBLKPC/x1Yes5PcQ69smhLbh
-	8NY642exsplvNxGqx044kurYgrvtsg6BLzA2Q51lee3vXg==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bng55rd2w-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 08:04:12 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2a0e9e0fd49so53354255ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 00:04:12 -0800 (PST)
+	Tue, 13 Jan 2026 08:07:19 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-42fed090e5fso4065606f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 00:07:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1768291452; x=1768896252; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PXnbde2QVYAvo1lc9F4COy4pjbix8X4rjsdQ1/Co9n8=;
-        b=ClWkkUoJoyPi9/zD2Hp5SylUh97kh+uEzXoSm0gvLWvjdTlDSIKtyFGoHh7EDG0H7n
-         awy1GriVw3foE5xUaHgOIRqCkQuObggTbFIDSbsc/DhlgUqmB0+fiOqjp/G4kfkFd7x9
-         ZoWQpEB+xeh/IjGVVPf2vnGKjy4G5dOQKuBjEpkIqaf+XShbrN/lnmY/CDyjZd1fjq9G
-         zus3ksCTasViz48s3yyMt3Fat/lcQWqSRyDi+Aj0/6eKJf/DqxK5GwfLf9S7Wcafm94t
-         n4z4P9GF3RgcocDh9luS0iHsyxp3h9lpUAIPW3hKdE4I91Hb0/CMQO4ar+RyJ5OUCCYT
-         b/mw==
+        d=linaro.org; s=google; t=1768291636; x=1768896436; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:reply-to:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0kBiGdnwoKI9eDWcWQTGe4djU3SzpP0pSq/NoI+kjks=;
+        b=PX9lqE+6/Eic2peFKr8JIKcgNrEnGBlU16dJquBDrktSEA01VCpf4vRAwAoQljNwL7
+         fxQTXa/hbzJUyjYbJ+iASuzu2+Qjrgj3gORd0pg+cPujAN8Bprci6jVlpk5Z1hBCA1wK
+         xq0SWh3yCNGGmRcPzMwYiub6kgSiYYM6T55dKVo9KrEcw1whOU/aMWcxS4ff7VV6LzLc
+         hnB2TE6DzkXcIqvRkph2MPdCwdwXS4geqcza6lTrPFUam9BewiJyWAorkt3O/mm8C/ld
+         ZTcOEKEbkZJ/+5iDIPPXIXqW+QvtSY4DY/Q09PdY6E+viiZAJ+x54k+mUKuJxcyA3tgH
+         ScOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768291452; x=1768896252;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1768291636; x=1768896436;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:reply-to:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=PXnbde2QVYAvo1lc9F4COy4pjbix8X4rjsdQ1/Co9n8=;
-        b=IpYThdQ63LO5llEZMINVWe3Y5EKPWaiisF076n8hiPpzrRQ84VtA7GOVpjpDxzepAQ
-         Dl9KRmhuoCJoi9iKNvMuT7XgRiGsSZmS7daCiiJCti9UpQJeQSFt2tQedvoPevtujC+i
-         1XUps8OXJsWofU/j5YUplwAW9Rcjb9N0S2oVmthuf7Txj41Xnl75Qzz3MW0YBOY7Lg0V
-         E+CKJmGmnAG0hl+6QysHsMVYCfj0OSZdZ2uBXB2B+l0eR+CkwCgWabB5DPI8wztfwi8b
-         v6t8Ko75KhKMPUpqThZifYbs4h6CvgGCqJFUdF7rdDVviWgeX+SB8vGhQyMSyd5WMAfq
-         Qg8A==
-X-Forwarded-Encrypted: i=1; AJvYcCXTL27xxZuBMDIspXirFG5uGTZs/p/4JjO+EEKHlutFwmurt1u5ILMWP5+SpJpGINtymYJP7pijNZLXKsXQjIQA@lists.infradead.org
-X-Gm-Message-State: AOJu0YylXsdjIbhkvX/iGmcdhjr4UUvYWRiin68cP9ZDkhII8kUslxgj
-	1e1EslUEQv+tbxT/Es7UJKG7szo10hJGQ5KaUaEdntrCRaDLY6YgkvVAi4Bu/+rMhytfvflOAHY
-	DlkoVG22Yi1KF0KDh/AyLobxoAfoezzPX0ZbbRQwY5HGrVRUYJMZuArFT72CqbJXU140Hfjkj4U
-	hR8g==
-X-Gm-Gg: AY/fxX5x4c8SqvQDefOE48pnQpBpKwof3IkvV6O91JhQgptd9dgJ897AX94UZtqwRhb
-	MoSPL+hnHKjte2Rx+ryeOjvkrVKSyy/IgMi37xIF2qw4/vguXWK53iwvj52DDq235dWbjaX8hFP
-	+Y5XzZQP+wLu+WuoRnxTRD1IwTgH9TfRH12QUwGi4jM91/Mo/tZ9xcxpBLSCLc5R8p2FCJm5zZf
-	m22/tUNdV351esgibx4ap4++0XLuydBT6k26s3csrV2BxhPod+ChLoBw9dz8S+vbtOpzzKGBqQs
-	pQ3vWe0l0izWb1iQJqdbotjRgDDciob8D5FkW3UZ9b8eAlybVprjCTYbTZpWSpWyb2RM1hbvugW
-	CFrSAlPAYog8gGNumYmaY3PEk7yACdZWGLuTV
-X-Received: by 2002:a17:903:17c5:b0:299:bda7:ae45 with SMTP id d9443c01a7336-2a58b53655emr16927745ad.25.1768291451935;
-        Tue, 13 Jan 2026 00:04:11 -0800 (PST)
-X-Received: by 2002:a17:903:17c5:b0:299:bda7:ae45 with SMTP id d9443c01a7336-2a58b53655emr16927285ad.25.1768291451333;
-        Tue, 13 Jan 2026 00:04:11 -0800 (PST)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3cd2954sm28707715ad.86.2026.01.13.00.04.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Jan 2026 00:04:10 -0800 (PST)
-Date: Tue, 13 Jan 2026 13:34:05 +0530
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        trilok.soni@oss.qualcomm.com
-Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
-Message-ID: <20260113080405.jr7ky4ypnewojiij@hu-mojha-hyd.qualcomm.com>
-References: <20260112-disable_smccc_soc_id-v1-1-a5bee24befb4@oss.qualcomm.com>
+        bh=0kBiGdnwoKI9eDWcWQTGe4djU3SzpP0pSq/NoI+kjks=;
+        b=M5UaJebVlwDEFcG8ORVh35t1HT23OjQwyPMh+tLBI5Bdgv/Cw0bz2mLLVa+TqFkoqa
+         tAnPrTjlx//5YiZqT+9OjAsvWBIkgB1WWmPsBrSmt2ofK3ZfHhxtXtAjgCifB0V4Rfuh
+         1hBYFJIMNV8wtTDu+8rxEJoZLKKBxJALHhwWT6blsdblTB70VnPLUrqxggmOsLNRZTtL
+         ByfmA7Ip/3HM7Jhl8PppqgWgj4foJWV7l/5yxn1UNC9vwWS2smmJgcghOiiV5z+xY0h5
+         hWUHGtGZUYQojJRD3sJ+bJpKC6OUAPKiGNXqVJDYr0/LrGvfrTwRemGlPYUvH4L5qfSl
+         P8sA==
+X-Forwarded-Encrypted: i=1; AJvYcCWP2ludVo3PbVrwXzyQ4K497jKavpkDbby6YUV+YGr0Mr/pvok+TCCqqFE0bpsnbynjtNIOWHN55Kdd9OZOjhj5@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgRADImClrkARpRfYE1PYGScpDST6QWkoS1AJhny3ldRpNU5sC
+	2jQ3jKWYFARKaFefzUOadocGjprFiswVWuxfN7bVeNb7AFFYG7mSpcCek36UOr1fBUc=
+X-Gm-Gg: AY/fxX6S9GfSMW1iWH56ybx6YtVLGzh6BJGWLnQDzcTdpsGt4VJHvo+0GQFuLvR1lxf
+	XQob/mb2Lm/WbwL+YEk+KIXfi8qMaHrT+uG2gwygwo/bJQh5LnhxQ+M7AEhYxvywyms5JQV+ZLB
+	T76IeBw+x14gmPDu/GG/y4fUMZwrtzWLltyKnGWZoLR6YlZq0NEk1OgLwskzGft6xEXppbnO+8h
+	9nnfd9GXVZPnRz4ehXRl6kUiOgtvroZtxS9/pQBD0lYsqfrs7wXbF1pK0ULzoFINtli1zs8ZhWi
+	dEssNKCorgo3UZ93+il78e0Ju+BmNeYaJPb3cyYWF9JBXv5pH1HKvbBetXlgXDktV9Vw5wHes9S
+	mzi8q9zncw4RjzOIdxC9R+j1DTXJusjnC/QeHfc2G0epmNw5mbMbOQcRZ2X/xxpAsGk3UMrJFN5
+	iNm2j/yf5RuI6Ig48K3GhMV4RLVLqC08SesXaRum+2C6xcTjFgIA==
+X-Google-Smtp-Source: AGHT+IG6fAtmI1EQMhuKQOIVw+wGIFjBkyZewLv2jXMLbnUnN9fabCWnKyTIrO9pUyyRVG2gO/7/VA==
+X-Received: by 2002:a05:6000:178d:b0:432:8537:8592 with SMTP id ffacd0b85a97d-432c3628106mr24027748f8f.4.1768291635424;
+        Tue, 13 Jan 2026 00:07:15 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:3d9:2080::fa42:7768? ([2a01:e0a:3d9:2080::fa42:7768])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0e180csm41710261f8f.10.2026.01.13.00.07.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 13 Jan 2026 00:07:14 -0800 (PST)
+Message-ID: <2f18dda9-7163-44bf-a075-bdd46ac5cef8@linaro.org>
+Date: Tue, 13 Jan 2026 09:07:14 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260112-disable_smccc_soc_id-v1-1-a5bee24befb4@oss.qualcomm.com>
-X-Proofpoint-GUID: gtluNHmTIN87oLgDdBZvLqroRu_tNaIr
-X-Proofpoint-ORIG-GUID: gtluNHmTIN87oLgDdBZvLqroRu_tNaIr
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTEzMDA2NiBTYWx0ZWRfX/v0G7ekSJmNY
- tcCv/nB+i9wgSS9kf49oCkFn2V1BL0Z9MfCZla9OJAKANxO7XlniZd/cTM2RPJpXreeVQklzZ8E
- WSNjHKhTWNkw+2+haZOvnyUWjC92kmevTvyWoL6Y9Ho2a/EQR3n1Brb6+h8M6ChatAlF0UK9awU
- R7uc8wP86raHBvUQpzqH6VQ+XvMpp7FsRUnbds2WQ7yEnyhEaNUVkFrTY2gwP1l5mM0zDZNkRSO
- 4o9zTFJLPBl6SlLEF+Ef09YjLGc3s66MWrlZEoCWVZcnYh06PkbsWo+eXeJ+ZbnAZlF5wDCh9d5
- QPz9mRxQzDJ+kwS2GHcpRXwtuQTfl2M8vLDWiZltYAYtSvqFwNntbBLiMo9amljs//Jh4UZNsJs
- tW7r/cXIRCXq62nOVq7mtUKJ+wpqsxkh5jtdxrg3C1rpV0xKwbgaA7AvzVN/WfKP2xeGA2T1GDI
- n8tpDtoCYkQd1lmbRxw==
-X-Authority-Analysis: v=2.4 cv=IIsPywvG c=1 sm=1 tr=0 ts=6965fc7c cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=p9y6D01phdXxCRIveNUA:9 a=CjuIK1q_8ugA:10 a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-13_01,2026-01-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 malwarescore=0 adultscore=0 clxscore=1015 bulkscore=0
- phishscore=0 priorityscore=1501 suspectscore=0 spamscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601130066
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] phy: rockchip: inno-usb2: Fix a double free bug in
+ rockchip_usb2phy_probe()
+To: Wentao Liang <vulab@iscas.ac.cn>, vkoul@kernel.org, kishon@kernel.org,
+ heiko@sntech.de
+Cc: linux-phy@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ stable@vger.kernel.org
+References: <20260109154626.2452034-1-vulab@iscas.ac.cn>
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20260109154626.2452034-1-vulab@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_000413_716629_7793C30D 
-X-CRM114-Status: GOOD (  25.30  )
+X-CRM114-CacheID: sfid-20260113_000717_759814_8BD16B14 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,62 +128,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 10:24:06PM -0800, Satya Durga Srinivasu Prabhala wrote:
-> The ARM SMCCC SoC ID driver is currently enabled by default and publishes
-> SMCCC-provided SoC identification into /sys/bus/soc/devices/socX/*.
+On 1/9/26 16:46, Wentao Liang wrote:
+> The for_each_available_child_of_node() calls of_node_put() to
+> release child_np in each success loop. After breaking from the
+> loop with the child_np has been released, the code will jump to
+> the put_child label and will call the of_node_put() again if the
+> devm_request_threaded_irq() fails. These cause a double free bug.
 > 
-> On platforms where a vendor SoC driver already exposes widely-consumed
-> attributes (e.g. Qualcomm socinfo [1]), enabling the SMCCC driver changes
-> the format of /sys/devices/soc0/soc_id (e.g. "jep106:XXYY:ZZZZ" instead
-> of a vendor logical ID like "519") and breaks existing userspace consumers.
+> Fix by returning directly to avoid the duplicate of_node_put().
 > 
-> Flip the default of CONFIG_ARM_SMCCC_SOC_ID from y to n. Platforms that
-> prefer SMCCC over a vendor driver can explicitly enable it.
-> 
-> This avoids unexpected format changes and keeps the generic SoC sysfs
-> stable on systems that rely on vendor-specific identification.
-> 
-> [1]
-> Link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/soc/qcom/socinfo.c
-> 
-> Signed-off-by: Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
-
-Fixes tag ??
-
-> ---
->  drivers/firmware/smccc/Kconfig | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/firmware/smccc/Kconfig b/drivers/firmware/smccc/Kconfig
-> index 15e7466179a6..f830d11ebdca 100644
-> --- a/drivers/firmware/smccc/Kconfig
-> +++ b/drivers/firmware/smccc/Kconfig
-> @@ -18,8 +18,11 @@ config HAVE_ARM_SMCCC_DISCOVERY
->  config ARM_SMCCC_SOC_ID
->  	bool "SoC bus device for the ARM SMCCC SOC_ID"
->  	depends on HAVE_ARM_SMCCC_DISCOVERY
-> -	default y
-> +	default n
->  	select SOC_BUS
->  	help
->  	  Include support for the SoC bus on the ARM SMCCC firmware based
->  	  platforms providing some sysfs information about the SoC variant.
-> +	  Note: Several vendor platforms provide their own SoC information
-> +	  drivers under drivers/soc/*. To avoid conflicting sysfs attribute
-> +	  formats in /sys/devices/socX/*, this driver defaults to disabled.
+> Fixes: ed2b5a8e6b98 ("phy: phy-rockchip-inno-usb2: support muxed interrupts")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 > 
 > ---
-> base-commit: b71e635feefc852405b14620a7fc58c4c80c0f73
-> change-id: 20260112-disable_smccc_soc_id-ed09ef4d777f
+> Changes in v2:
+> - Drop error jumping label.
+> ---
+>   drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> Best regards,
-> -- 
-> Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
-> 
+> diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+> index b0f23690ec30..fe97a26297af 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+> @@ -1491,7 +1491,7 @@ static int rockchip_usb2phy_probe(struct platform_device *pdev)
+>   						rphy);
+>   		if (ret) {
+>   			dev_err_probe(rphy->dev, ret, "failed to request usb2phy irq handle\n");
+> -			goto put_child;
+> +			return ret;
+>   		}
+>   	}
+>   
 
--- 
--Mukesh Ojha
+Good catch !
+
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+
+Thanks,
+Neil
 
