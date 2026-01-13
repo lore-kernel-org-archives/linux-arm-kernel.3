@@ -4,147 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E266D2F33E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 16:29:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88E1AD2F345
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 16:40:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z3Nr8ialqxZbEIZ06b753URl0qRRT9pahEbTECOC/pw=; b=i/4cEDkyR70xVu8s8B4EjdppY/
-	Qr9pAMMyUWTUFWFjIW9TsSJOZl7209AQ9PYZiHoRc+XN+cf6Py9abUDvxfIQPXfDhIVi744NaYbon
-	ldAQoAn4vkT9CJx9s8EivTRnlnyfbQXbApeyqbvk8Qn3bbkhT2/u6B2maWWKNRsaSjc2RDJQPdjyi
-	24EdK7tN2v9lA1fNIsN17ep5hqKLtw4Cb72SbDgc2JmGzJFAaCWUoOwGbHvxl4zMTap+CsPd+8Djj
-	rLYuxsDs0pEE7hB2HQNxm5/wDix3rb1DQFWhic+P/hfw8Nzq3VTEiPbmjiEOW4GWyTo3+5bX623d8
-	hkrHftSQ==;
+	bh=Rjkl5ok80PcH/hISbmzT8999rrwgcE/xE7Z2HuVu6js=; b=WJnjnGDLf7X3QNA0DMvlcjlHmM
+	Vw94oAwg1vD78oudksMD2QK1BuuTI/WHx60K81le8E9+sWAAJ8gH8mRfaZ3Mm0MnBxxbBauTK0zIp
+	/08lpaR8yQ2U3bvYHNopYD+9YEbxwiPH2Otcdvh4VizmfYKqcy1TVvFvE9rCUlG+8xS8ULEW+DqeJ
+	lnacFndFN7Z4BNqmEx4+5GOc19UnlJrgDm73uLArH1Q9WiIgHERQxKAxIlZAJa2A1n4CYcR162kwz
+	3iXYIYNAdSLFin5jpSAcYm0Fdt/D8LZMAHPbU9yC6y8gMtkKxwIUT8M3cCEmm8dnh4HopuPJohKyv
+	xdvOUrrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfhGz-00000007Tjb-3ATS;
-	Tue, 13 Jan 2026 16:29:37 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1vfhQw-00000007UCB-0yEM;
+	Tue, 13 Jan 2026 16:39:54 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfhGx-00000007Tip-0V9t
+	id 1vfhQt-00000007UBq-2S4S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 16:29:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P1ntOu58E7o420TxWsN2RJIXCotb7eqvrXk/8M8dYmcOaP6W2jHfbSaGIqiH5hBJqGvzWIdGeV5A8tyh723caZBCnmRumJdOW78KMqRkEx5VGbJrkiLvfOxXUQzqyZ3kxmQmi9ekTWvYU7QGWgqTydEGnHnYrRgBYfmHBbNH0imQmFauI4qnYCmcIJt0EMrsFWxxEdEclspXW/RYAP4pvj90kMbEyZ/QJL0lk3Noy2Gsm2n8A70L4KpDdxh9wpA4ZdLXmtocgw4CY6U9ErluPfHOoIjxYZa6gi8Q1nWL3qZ0RSbZ2VU4738bpqcHLK5stpbjGUpftKMgkEI+9zwkgQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Z3Nr8ialqxZbEIZ06b753URl0qRRT9pahEbTECOC/pw=;
- b=R7AMiHsYo1ShjGipx+ssmRJua77mcGCMLwXwuEiOrYVuR9q7P68CJpEQmovFgdRyuHGBBx4ZrZ3XHQAWCw9UMZ9qPKVt7vYJio5XZD7EVYDWg4gX7H3Rd5mvnAbKXY9D7ExoRyCwfs5HZ6vjrLMv2sAduclXB9wF5dmq6KXLugHvBN6Gcv7sqHB+2twwEFK3C6D835od5Hw3/KRa89JJbZmFGc0D4RZ4mMO4vn7shdagdfASCGJNhzQKqu5YDhwXsX7vucRQIcRIvZm2bUpOW0s1NS2Accz25nnQd3Tiirg8RDxnDxvDTGJvVjrW/N19MchIBRL8rnOKY4fQmGzl0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Z3Nr8ialqxZbEIZ06b753URl0qRRT9pahEbTECOC/pw=;
- b=R45WKOEBKxJJCwz8L4qVESRHiZ0rPMw00TrQqG6M+AyBPYe8eRpBeZGYR0YOlobx9IwJx7x0Gv+OAG9jo/MUcZnW0nbWcSh9/BGZndgOXPQnyY216aP4K/OTxU2Btd9Hdr1jAZeKO81b8Z6tucsEcRR0XSQ/sdhBKgTXLoSeMMw=
-Received: from MN2PR08CA0016.namprd08.prod.outlook.com (2603:10b6:208:239::21)
- by CO6PR10MB5537.namprd10.prod.outlook.com (2603:10b6:303:134::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Tue, 13 Jan
- 2026 16:29:30 +0000
-Received: from BN3PEPF0000B078.namprd04.prod.outlook.com
- (2603:10b6:208:239:cafe::74) by MN2PR08CA0016.outlook.office365.com
- (2603:10b6:208:239::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.4 via Frontend Transport; Tue,
- 13 Jan 2026 16:29:30 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- BN3PEPF0000B078.mail.protection.outlook.com (10.167.243.123) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.1 via Frontend Transport; Tue, 13 Jan 2026 16:29:29 +0000
-Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 13 Jan
- 2026 10:29:27 -0600
-Received: from DFLE201.ent.ti.com (10.64.6.59) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 13 Jan
- 2026 10:29:27 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 13 Jan 2026 10:29:27 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60DGTR2c2555396;
-	Tue, 13 Jan 2026 10:29:27 -0600
-Date: Tue, 13 Jan 2026 10:29:27 -0600
-From: Nishanth Menon <nm@ti.com>
-To: "Padhi, Beleswar" <b-padhi@ti.com>
-CC: <andersson@kernel.org>, <mathieu.poirier@linaro.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <vigneshr@ti.com>,
-	<kristo@kernel.org>, <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>,
-	<linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 2/3] arm64: dts: ti:
- k3-{j784s4-j742s2/j721s2}-mcu-wakeup: Add HSM M4F node
-Message-ID: <20260113162927.hmf5dnkm44kyefpt@stained>
-References: <20260106104755.948086-1-b-padhi@ti.com>
- <20260106104755.948086-3-b-padhi@ti.com>
- <20260109192735.rijejfwwrkunosdp@gauging>
- <8a4692f8-4366-49f2-bcef-b087a7bcc24c@ti.com>
+	Tue, 13 Jan 2026 16:39:53 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vfhQc-0007MI-35; Tue, 13 Jan 2026 17:39:34 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vfhQb-000SBd-12;
+	Tue, 13 Jan 2026 17:39:32 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vfhQa-009v7W-1h;
+	Tue, 13 Jan 2026 17:39:32 +0100
+Date: Tue, 13 Jan 2026 17:39:32 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: dri-devel@lists.freedesktop.org, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Peng Fan <peng.fan@nxp.com>, Liu Ying <victor.liu@nxp.com>,
+	imx@lists.linux.dev,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Abel Vesa <abelvesa@kernel.org>
+Subject: Re: [PATCH v3] drm/bridge: fsl-ldb: Parse register offsets from DT
+Message-ID: <20260113163932.vx4245vyiafwvehg@pengutronix.de>
+References: <20260104213712.128982-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <8a4692f8-4366-49f2-bcef-b087a7bcc24c@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B078:EE_|CO6PR10MB5537:EE_
-X-MS-Office365-Filtering-Correlation-Id: d1fb576e-4114-497b-a5ca-08de52c0ecba
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|34020700016|82310400026|36860700013|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WdplwGRmyewNHPRngd11BUq4TBV65N2NhI8xcQas3mPDL61DsqIeY0IkFB3X?=
- =?us-ascii?Q?jgtDMUk7m6OOWNbgrvSXqLOZDeLu7B7UFw/lSuIPBFmpAuqO2LLW1k7QkRxz?=
- =?us-ascii?Q?xoKgcVbGWNgBPgwCUgcTCmCttoE5OpOPaXDJQvIevb0q2RhCgWfcbosIe2j4?=
- =?us-ascii?Q?mASLKiECME48L+syjrWT19GEvIo7DlDE5qHvb3GVxaAh90K/9iPFwxAAYoFu?=
- =?us-ascii?Q?9zeMTR8sWA2TkwALgW77c/MiUmiJ/gafg1kNGeDiMZrOVTfFTOcqApiKlpOn?=
- =?us-ascii?Q?bAFH7HZo9BnwqeqJYRKIHKz7QPpWCmXYaF3ir4zgfJ/uyq4rCLIruGokouRb?=
- =?us-ascii?Q?IPrVPCwbl7ZxAsI8acayesS3o80DvTHExElqL6j7H4+GU+iOajSymU24pzN0?=
- =?us-ascii?Q?GTFaRgOv4YUAVPMjoVAgBaO5crYAGxn0Zusx1U9+0xzatB5zni7Q5dbqPjOF?=
- =?us-ascii?Q?eXMaso9yCEd7q2iR/5Vz6lCPIe1W5R8h8wSjGZSSUnd1NszFWKFYEG+/lUP3?=
- =?us-ascii?Q?wi0xafCjDM+L9fdynDFNeaBBK/aNHckePyFnvF9+VQgbZnW98bcUP9d2JSIX?=
- =?us-ascii?Q?qtSriY5ETLiBTvW9oEeheISiHvL/ViAASGycYPEcnPbB/6r1RUWezBYXnWxo?=
- =?us-ascii?Q?rmiCybo5vRHnzScq9aoZMktmvpnqfsU2q/43lARhy7XUUcKzzB6fEOqKd044?=
- =?us-ascii?Q?ocbAPct8HIzez7snitQFY9WDAGAIb8csGi3Gmp8/lZoEXAw/H0yJvsDMjGaQ?=
- =?us-ascii?Q?iIhaw/7NhKcCTDLe2tpi4rPVRPIp8Ih8gHUho3V39SLI8bBFw4MbWwgnyHsm?=
- =?us-ascii?Q?6oFyCUjfbXHQqq8GBP40Mw8dVmpWXrwXcuEVShUrAIjqQJq0FpiO38wQast8?=
- =?us-ascii?Q?gpk0S497m0BLm7VQPy1vJHZwTaVDJB2cI6yIeBVWLyhLarPF8M4DfdRsmpNX?=
- =?us-ascii?Q?lxbSAXneCK0l3LX1kXWCGFGHG9NQFm//sTlldAwqjQ4hv1AzpoDNF9dSlZzK?=
- =?us-ascii?Q?nwciFksTbWEytcqaKwsLDUoLhboJ8BK89iAoTBIkudPiwuY2KpxyJLqi2mcZ?=
- =?us-ascii?Q?/sBksV8+wSS6eskrJGkeYidf18fmMZauF3Iq2gMs1xx7znn9fDybOSbWjZZa?=
- =?us-ascii?Q?3oZBrNfA5TKo9HOAO8utp2ihzdIO5w9ZNJQCzLYg5PvGv88vwevscNYH7Rim?=
- =?us-ascii?Q?WlRm/u8pT6JCiCyIQlmluGJdWCaqFQeQBe/C8mKvsZosCGdwy7Z1yuRlg5o+?=
- =?us-ascii?Q?EYO+GAONwukShsEGnXmNt2DC81RTXn5c7cMMMPKkacjtifjlJdiRaGMKvHcF?=
- =?us-ascii?Q?nBMg+Saifha+QpCwSK/zZfVDd85qxW2g/UZQF+dQ6NEH3ANF5e9iqkbAYU53?=
- =?us-ascii?Q?uwsbHC3IFsj1jzrFY7BIDwt6rxqLAv9lJJdR4cy9bQoxDlQOS6reID4x5GYO?=
- =?us-ascii?Q?slas5OWM2JfHp2rhWvFloE6yWHpXfHRq8PrEZG3Z8fHA+ViauvVlzZMUgtVK?=
- =?us-ascii?Q?5iCNq37fEyn8599C9jWCgy4zDSFAdyL6T3VlmGJjq2uhm6dPpSfWhP6xNFrQ?=
- =?us-ascii?Q?UfnAeBlfqd3k7yE5eOk=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(34020700016)(82310400026)(36860700013)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2026 16:29:29.0817
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d1fb576e-4114-497b-a5ca-08de52c0ecba
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B078.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR10MB5537
+In-Reply-To: <20260104213712.128982-1-marek.vasut@mailbox.org>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_082935_162612_ACA25C98 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20260113_083951_780930_44AD7DDF 
+X-CRM114-Status: GOOD (  35.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,32 +87,215 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21:34-20260113, Padhi, Beleswar wrote:
-[...]
+Hi Marek,
 
-> > > +		reg-names = "sram0_0", "sram0_1", "sram1";
-> > > +		resets = <&k3_reset 304 1>;
-> > > +		firmware-name = "hsm.bin";
-> > I am not a fan of putting firmware-name in SoC.dtsi - esp when it is
-> > reserved,
+On 26-01-04, Marek Vasut wrote:
+> The DT bindings for this bridge describe register offsets for the LDB,
+> parse the register offsets from DT instead of hard-coding them in the
+> driver. No functional change.
+
+during the discussion of the i.MX9 PDFC bridge dt-bindings [1] we came
+to the conclusion that the 'reg' property shouldn't have been added to
+the dt-bindings in the first place.
+
+[1] https://lore.kernel.org/all/20251219153537.zgxcokyhcqerw4jp@pengutronix.de/
+
+As descibed in [1], the PDFC and LDB aren't standalone IPs with
+dedicated register spaces. For some cases like the LDB, there may be two
+dedicated registers, but for other cases like the PDFC, there is only a
+single register-field and the register containing this field is shared
+between the PDFC and the MIPI-DSI block.
+
+Therefore the 'reg' DT abstraction is wrong, instead the BLK-CTRL child
+devices should appear without a 'reg' property as simple child devices.
+The child devices need to get the register space from the syscon parent
+and need to code the registers and register-fields within the driver
+like the LDB does currently.
+
+Sorry for the late feedback.
+
+Regards,
+  Marco
+
+> The LDB was always meant to parse the 'reg' offsets out of the DT, it
+> only went somewhat wrong in the process and we ended up with hard-coded
+> reg<->compatible mapping. It was never intended to be that way, so fix
+> it.
+> 
+> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+> ---
+> Cc: Abel Vesa <abelvesa@kernel.org>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+> Cc: Liu Ying <victor.liu@nxp.com>
+> Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> Cc: Lucas Stach <l.stach@pengutronix.de>
+> Cc: Peng Fan <peng.fan@nxp.com>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Shawn Guo <shawnguo@kernel.org>
+> Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> Cc: devicetree@vger.kernel.org
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-clk@vger.kernel.org
+> ---
+> V2: - Switch to of_property_read_reg()
+>     - Parse single-register LDB variants from DT too
+> V3: - Update commit message
+>     - Drop "likely" from the comment
+> ---
+>  drivers/gpu/drm/bridge/fsl-ldb.c | 58 ++++++++++++++++++++------------
+>  1 file changed, 36 insertions(+), 22 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/bridge/fsl-ldb.c b/drivers/gpu/drm/bridge/fsl-ldb.c
+> index 5c3cf37200bce..aa352c70b9ab2 100644
+> --- a/drivers/gpu/drm/bridge/fsl-ldb.c
+> +++ b/drivers/gpu/drm/bridge/fsl-ldb.c
+> @@ -8,6 +8,7 @@
+>  #include <linux/mfd/syscon.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+> +#include <linux/of_address.h>
+>  #include <linux/of_graph.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/regmap.h>
+> @@ -61,24 +62,13 @@ enum fsl_ldb_devtype {
+>  };
+>  
+>  struct fsl_ldb_devdata {
+> -	u32 ldb_ctrl;
+> -	u32 lvds_ctrl;
+>  	bool lvds_en_bit;
+> -	bool single_ctrl_reg;
+>  };
+>  
+>  static const struct fsl_ldb_devdata fsl_ldb_devdata[] = {
+> -	[IMX6SX_LDB] = {
+> -		.ldb_ctrl = 0x18,
+> -		.single_ctrl_reg = true,
+> -	},
+> -	[IMX8MP_LDB] = {
+> -		.ldb_ctrl = 0x5c,
+> -		.lvds_ctrl = 0x128,
+> -	},
+> +	[IMX6SX_LDB] = { },
+> +	[IMX8MP_LDB] = { },
+>  	[IMX93_LDB] = {
+> -		.ldb_ctrl = 0x20,
+> -		.lvds_ctrl = 0x24,
+>  		.lvds_en_bit = true,
+>  	},
+>  };
+> @@ -90,8 +80,11 @@ struct fsl_ldb {
+>  	struct clk *clk;
+>  	struct regmap *regmap;
+>  	const struct fsl_ldb_devdata *devdata;
+> +	u64 ldb_ctrl;
+> +	u64 lvds_ctrl;
+>  	bool ch0_enabled;
+>  	bool ch1_enabled;
+> +	bool single_ctrl_reg;
+>  };
+>  
+>  static bool fsl_ldb_is_dual(const struct fsl_ldb *fsl_ldb)
+> @@ -204,15 +197,15 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
+>  		reg |=	(fsl_ldb->ch0_enabled ? LDB_CTRL_DI0_VSYNC_POLARITY : 0) |
+>  			(fsl_ldb->ch1_enabled ? LDB_CTRL_DI1_VSYNC_POLARITY : 0);
+>  
+> -	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->ldb_ctrl, reg);
+> +	regmap_write(fsl_ldb->regmap, fsl_ldb->ldb_ctrl, reg);
+>  
+> -	if (fsl_ldb->devdata->single_ctrl_reg)
+> +	if (fsl_ldb->single_ctrl_reg)
+>  		return;
+>  
+>  	/* Program LVDS_CTRL */
+>  	reg = LVDS_CTRL_CC_ADJ(2) | LVDS_CTRL_PRE_EMPH_EN |
+>  	      LVDS_CTRL_PRE_EMPH_ADJ(3) | LVDS_CTRL_VBG_EN;
+> -	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, reg);
+> +	regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl, reg);
+>  
+>  	/* Wait for VBG to stabilize. */
+>  	usleep_range(15, 20);
+> @@ -220,7 +213,7 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
+>  	reg |=	(fsl_ldb->ch0_enabled ? LVDS_CTRL_CH0_EN : 0) |
+>  		(fsl_ldb->ch1_enabled ? LVDS_CTRL_CH1_EN : 0);
+>  
+> -	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, reg);
+> +	regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl, reg);
+>  }
+>  
+>  static void fsl_ldb_atomic_disable(struct drm_bridge *bridge,
+> @@ -231,12 +224,12 @@ static void fsl_ldb_atomic_disable(struct drm_bridge *bridge,
+>  	/* Stop channel(s). */
+>  	if (fsl_ldb->devdata->lvds_en_bit)
+>  		/* Set LVDS_CTRL_LVDS_EN bit to disable. */
+> -		regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl,
+> +		regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl,
+>  			     LVDS_CTRL_LVDS_EN);
+>  	else
+> -		if (!fsl_ldb->devdata->single_ctrl_reg)
+> -			regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, 0);
+> -	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->ldb_ctrl, 0);
+> +		if (!fsl_ldb->single_ctrl_reg)
+> +			regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl, 0);
+> +	regmap_write(fsl_ldb->regmap, fsl_ldb->ldb_ctrl, 0);
+>  
+>  	clk_disable_unprepare(fsl_ldb->clk);
+>  }
+> @@ -296,7 +289,7 @@ static int fsl_ldb_probe(struct platform_device *pdev)
+>  	struct device_node *remote1, *remote2;
+>  	struct drm_panel *panel;
+>  	struct fsl_ldb *fsl_ldb;
+> -	int dual_link;
+> +	int dual_link, idx, ret;
+>  
+>  	fsl_ldb = devm_drm_bridge_alloc(dev, struct fsl_ldb, bridge, &funcs);
+>  	if (IS_ERR(fsl_ldb))
+> @@ -309,6 +302,27 @@ static int fsl_ldb_probe(struct platform_device *pdev)
+>  	fsl_ldb->dev = &pdev->dev;
+>  	fsl_ldb->bridge.of_node = dev->of_node;
+>  
+> +	/* No "reg-names" property means single-register LDB */
+> +	idx = of_property_match_string(dev->of_node, "reg-names", "ldb");
+> +	if (idx < 0) {
+> +		fsl_ldb->single_ctrl_reg = true;
+> +		idx = 0;
+> +	}
+> +
+> +	ret = of_property_read_reg(dev->of_node, idx, &fsl_ldb->ldb_ctrl, NULL);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (!fsl_ldb->single_ctrl_reg) {
+> +		idx = of_property_match_string(dev->of_node, "reg-names", "lvds");
+> +		if (idx < 0)
+> +			return idx;
+> +
+> +		ret = of_property_read_reg(dev->of_node, idx, &fsl_ldb->lvds_ctrl, NULL);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+>  	fsl_ldb->clk = devm_clk_get(dev, "ldb");
+>  	if (IS_ERR(fsl_ldb->clk))
+>  		return PTR_ERR(fsl_ldb->clk);
+> -- 
+> 2.51.0
 > 
 > 
-> I thought the opposite way. Since it is reserved (and not a general purpose
-> remote core), it is unlikely boards out there are going to use a separate
-
-Fair enough.. I see that the base firmware name is in SoC.dtsi on a per
-SoC basis. Agreed that exception can be an override if required
-(unlikely in this case). Please document that rationale in the commit
-message.
-
-Since we just have a single HSM in each of the SoCs, am62p-hsm-m4f-fw
-j722s-hsm-m4f-fw etc in SoC.dtsi would make sense.. just dont do a
-generic hsm.bin kind of deal.
-
+> 
 
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+#gernperDu 
+#CallMeByMyFirstName
+
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
