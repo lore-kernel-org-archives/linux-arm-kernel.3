@@ -4,172 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38C5AD29DCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 06:16:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A5CD29DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 06:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=phGumB0fXNKg/vG/b9eCNwoHdsii9lN0Q6641xjEtXE=; b=3IjGigBdYNbCEhJhb4LTGlBvs/
-	AWN3a1ZgzU1zpGFa5Ua656fuFyLMDxVa7OjthjDI9GsGzjMfXQkNFZqmOtnOk3QYmROWdlsMc0+Hf
-	18Um/mcwxzrBJRyXJKtndnZl7kQmNR4n0jjL7Bbybkt/LZMmKPZbxusc+eMtcMB8E034kVgerzeHK
-	CyZveNSNz955EkWjcXbXjHQMNTB8K7+FwAsrnAaTur91Pirt8cj9BjJD1kSzctg/BjD8ydOjLZfuw
-	hqwG3IofGng/CIY/XuQXroLES6dIZVCKQe7pt3kiVJs2tAW46u8Wmiil/+WeOlsDE+bI/1cNEb63z
-	zG6i/9tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3wLl5N/aW4pxrAPVKZWOn2uWWkHkuchBlMXjCsADP6A=; b=Xi1Rr1yx+z8+TowchIGQAWOVGX
+	hOmpUhxvQfAC9nztbtou9OvVz5BdcsnGLHlT909Ph1kVCecbMH9vGShNRXy4sEJtpYWVElyBciS3F
+	Af30x+XFdlwJFb+Z9oqGAXGCkCFFtlZ2lFjxx8MesRhAGDQGadl0EeulY1Uy8oUSY5tGQlsWMgrdJ
+	Wcq58rArumP2DyHAR3KHOy6eEj2/o1EdTTojEfJhjLFZns0RVFBDJJJe0DIg/ahK9iJ/6Vf6HTjBj
+	TMKyEDabbu6mPzbLx6oFx6KhOHuUqwNhbxMxJ+kqq+T/wrO+RUhj8Iiv0AertfikeNuRByVfqdsB0
+	VNFp03Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfXho-00000006aCs-1KcR;
-	Tue, 13 Jan 2026 06:16:40 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1vfXpT-00000006atc-3uA1;
+	Tue, 13 Jan 2026 06:24:35 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfXhl-00000006aCM-0qOw;
-	Tue, 13 Jan 2026 06:16:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ha0lvNIV2wm47aX0lHbqEUCz5CnANn5Ow+iLWqgYQ3vtcLaThy8NnjG9xExoAhC2YKh3Pa2SRtbpzQuGqhnWwXsm/evVdykIRLpdypfRxJfCpjUnOIc4jNVE0mxvTZm26IXkva9RVTa71z+/o5jeH6jzOxyJ7ezHEYUV06zEjok8X0ylHaQAGyE1UxbntjMkdiokyRH/ZcWbXKom5ZO2YB+aXbKZPgEw3uLhX0V7/CkORgY8L0FYRmUq72xASfCohTkRSKWkXQ/znpSDPlI4O6Lt2IaFr61M9iif888O8F+udE47W4f+I0BZLAU2K0LN3aUmfD7HBbXCYFNIV39oSA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=phGumB0fXNKg/vG/b9eCNwoHdsii9lN0Q6641xjEtXE=;
- b=e8MHWsAt66jvQBcR2ov2n/6TpB0+ws/bqQjb+8vhM25CT1IfV8ZlwdqYEkHR7aFD9T+5XEmMlgMpUa+3E7ZSxXAhsBOZxE/qUb3oJbPPAY5ldR5HSVHAOtgoqwpn2pQWlHz6Up169mXHoTaVgoIbPRI12ZGhuG8KkTyTlnXFkywCRJto0tAGdAMP1Q3lqT953G0wMWIDGXVq1hKj0jJUZKavouDxGhgQpFh9VhZXYKaiWhzmnmsbZfUSPSp3JWWy3AFiWYjFuYo1pX/aTY9Nmp29vQ+5qsELl/WkHpUksZxcdu11PuuSlzXXt8FSrWy0V+9EuYJqYbKNxhxH6RgKVw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=phGumB0fXNKg/vG/b9eCNwoHdsii9lN0Q6641xjEtXE=;
- b=W0v2szkeH3+48ucAVkxUxIgMCEHRtfQRzBlbyacuG0SONteY37Dkr/WoX/DTdKCGLTcfd5noAKSBM3JiVsJRPa/a+wY7eou04hF4HAfGltK4hF2dkpdB5pm9S50E1we2+DSwg90wrsRyCYeMfLeG5SoEfbo0vihghrGCWK11dFk3DJXOiaeiixGukzhAGIljS/PhyYmRfrHz+H9bSFou3jBe2bIu84kGCKygmSA8Z/a3q5bWYVAVT9PxkfD8RoV4ClskRvbbbzmThDxGOSNX7m7PIiE3j+YFgQn9FQ9UtzqB6syMLfWbkSKTOCDX+lVFMV4Q8oykEfBkgqHTtX5cyQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received: from PH0PR18MB4558.namprd18.prod.outlook.com (2603:10b6:510:ac::13)
- by BN9PR18MB4345.namprd18.prod.outlook.com (2603:10b6:408:11e::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.4; Tue, 13 Jan
- 2026 06:16:33 +0000
-Received: from PH0PR18MB4558.namprd18.prod.outlook.com
- ([fe80::7a75:75a5:694b:2311]) by PH0PR18MB4558.namprd18.prod.outlook.com
- ([fe80::7a75:75a5:694b:2311%4]) with mapi id 15.20.9499.005; Tue, 13 Jan 2026
- 06:16:33 +0000
-Message-ID: <495b408a-2fd6-4b79-a0fe-9e055fffb59c@axiado.com>
-Date: Tue, 13 Jan 2026 14:16:27 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] Add eMMC PHY support for Axiado AX3000 SoC
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- SriNavmani A <srinavmani@axiado.com>,
- Prasad Bolisetty <pbolisetty@axiado.com>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- openbmc@lists.ozlabs.org
-References: <20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-0-dd43459dbfea@axiado.com>
- <85c3fe42-22a1-4b8d-85a6-f7541d8c942e@kernel.org>
-Content-Language: en-US
-From: Tzu-Hao Wei <twei@axiado.com>
-In-Reply-To: <85c3fe42-22a1-4b8d-85a6-f7541d8c942e@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SN6PR2101CA0018.namprd21.prod.outlook.com
- (2603:10b6:805:106::28) To PH0PR18MB4558.namprd18.prod.outlook.com
- (2603:10b6:510:ac::13)
+	id 1vfXpR-00000006atD-3pcC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 06:24:35 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60CN5BnN2513732
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 06:24:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=3wLl5N/aW4pxrAPVKZWOn2
+	uWWkHkuchBlMXjCsADP6A=; b=TXCQjw9RaOHqz2dB4MHiESOvW2xzkwuuOAfGOp
+	MDSrPxCaKdnvd1wQupyKUcVcdD/gEe5RQTto8c0vVdgyXJqIkWidBsJf53LHOqEY
+	9Fjy9ofTSt2w21FOEFOF8YhKMoJ/TmlJHqO2uAjPlN87l9V7kiUV7c6W0cDtmx99
+	V7FBUWJ9MsEyJTpk1MCmdRB4dnlULk8/6/1UdiQvezxXeO8tHnwZeDAJJU5HzUXj
+	08F9HxCTWB1qV6ad4Nzy9pYTMPKLMYGFlP1c8b3+CBl0TYBpg5ryuq2wGqBOxS6A
+	fC7FVMZ5oU/oRwhBLCZV4S2zyZPCwAs94feIpMWL8BVcsakw==
+Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bn6y8smnh-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 06:24:32 +0000 (GMT)
+Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-1232dd9a256so232270c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 12 Jan 2026 22:24:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1768285472; x=1768890272; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3wLl5N/aW4pxrAPVKZWOn2uWWkHkuchBlMXjCsADP6A=;
+        b=cabtTvHzQufYr3VYxLEgFSq85qdlHdSuFihrr5rJ+0opulZdXKa1MfUT8EKe1QZ27n
+         MPcvpwsxFoNskRq8AQx81kGu6d3RjDvA6Adryr6/FY1tZrpf8C+orab+lWBveoSK8i9o
+         dDerCApZDo7gxuAnxfNBkJ5J0rsFww2Yo8NyqWJQDMonQtuDh0SS/UxG6HdeAZiacmKN
+         XE18YTXGLXNrewFeBxaJCNubvuxuUG1rO8i/UmHYTZ4evsqOWARY/B2tM8EyffFBMhLW
+         NGNHAqHpKf7fON6aswpT1KxQkCfLlSUoE85oDt5dp6bzARd/2/387m/UanDD6NaBialO
+         sgxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768285472; x=1768890272;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3wLl5N/aW4pxrAPVKZWOn2uWWkHkuchBlMXjCsADP6A=;
+        b=WFERkOC66pzPZPmtDTJiRUqaO/8bsIsP1cEvxZ7AWoDp/6AGFECtwgpdpHdMZ0gClm
+         QjvX5FwU2GWwCBzIbMCnOrjI2o0IT52MBdRAHyFuln7KZ69sRYBTGt7Dl1dRsnRf1KPE
+         QfBBUGs5tAQX8iuT01RzZlEJWMjh9a70bkZe8LvorJ3/PFgiNODn8BNtyxeAHmRsbmVK
+         /JW7knsykf2GFkRvjzMqM0HmZyDw3ixzk+Fv4w+Sm5erkpsAXMYhvy73CVkVI4bkTWyy
+         IXGiSms969dfCU/jOakH+hlJHIUUuBcWbJ5dfHBJAzvlqQXGwNtJPQiNE7mBkhKmjuhf
+         JPlg==
+X-Forwarded-Encrypted: i=1; AJvYcCX8o03Pz+vsISS4kCns//V4QooGKgypLaWRC3pjDAKzbuXpepGAatCAnrzBWXvQpVaRc2GNWoaHJoZmuhO9S/9Y@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8/F0f05KQGJItvxNpNeJy+xV9CcoWA+1bVtWI0pKjsKL5niNS
+	WimMFOPvWE7llfPYrpCaFJuswqD8QhG++hMw8xd81vl4lDCJQzQv7NzmgWKFPi7/qTCZtEYiqia
+	ZEc+uCtmnjZewLm+IMXvIBQN95uHiFNpSkKA5eGx0uTSnR1tnLQ/ic8gAhETdD5AtJU4gpRjWjX
+	HIBQ==
+X-Gm-Gg: AY/fxX6kSNabypl3fX04q6SKiDwwI+J9h9SPOk5AVgFzuuOoeBNZ+ukEdtKLwfr7pAb
+	SMdhmHQBYjagINv2zNR6LHktSqP+IgYcgvvxN+MBFNXpKKz/JLGBPvTV4XaQWDFD4Q1/qoWb7yl
+	L2uDrIoZRZD0osfADlXsFkeerTX5jUvoDkDp+J4JP9M/TfeotKkcDOhAlUraO3lN3FG88ogHuJI
+	yaBlWkDYhzrCi4rYIOY51Bs6Deab3HiccXQwc9ybJp5crE81VExSdFFo3AJdRIfd3fIoISlSrLs
+	ZOtlSHD84phENKHyYAX2YZe1UshWA9T1GPjnpY6sE72+pCXiEPQf0J+cjDdjniUjbVYfwv0F4Dw
+	IhWu0zWQ3saCLWgpGY35XmuxMPYYBurZ4HW3U9agChfi/FX/2tewfrtK+RcaGP5Dr
+X-Received: by 2002:a05:7022:307:b0:11d:fc25:af63 with SMTP id a92af1059eb24-1232b5b936bmr2039280c88.11.1768285471885;
+        Mon, 12 Jan 2026 22:24:31 -0800 (PST)
+X-Received: by 2002:a05:7022:307:b0:11d:fc25:af63 with SMTP id a92af1059eb24-1232b5b936bmr2039248c88.11.1768285471259;
+        Mon, 12 Jan 2026 22:24:31 -0800 (PST)
+Received: from hu-satyap-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-121f24346b5sm27572556c88.3.2026.01.12.22.24.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Jan 2026 22:24:30 -0800 (PST)
+From: Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
+Date: Mon, 12 Jan 2026 22:24:06 -0800
+Subject: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR18MB4558:EE_|BN9PR18MB4345:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4b12a80f-ae0b-42c9-30ac-08de526b4c86
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|42112799006|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dVY3NWhMNG5mK1FGdC8rVHZpQ1RmMWpXTmVJazV2S3VlVTF0bThqdWtWditK?=
- =?utf-8?B?bTVnSWpsNXAzYkpZOHo0TmtocGhhL0FickNCdVRhNFRJdnBnNHRyM2E0R1pr?=
- =?utf-8?B?UEFya1BlSUV6cW9zZHJ4dDQwSm53WXUzUHJDT2RjMnlILzFDbGF6UGdZN01D?=
- =?utf-8?B?RU91ZFBYRG9LdHE4aTk2OFUxNUMrZXZwRERRZDBxaVFOaGY5a2NQSnI0b0My?=
- =?utf-8?B?SzRQT1VRbWNCaGZ0VW5MQk4xSDFDSXJ4bFBBMGFUeGI1WWFvdUxVK0FodlVz?=
- =?utf-8?B?TUloVDRmeXliREdFK1ArZzRrTkl0RGNqOThTUVZqeTh0d0ZqZ2VVWlZTQ3di?=
- =?utf-8?B?QzJLZDl1V1NYYkhjVFRiMHZLWWdwNjZ1ekUweXVEZGNIWXU1RHUrdHNJcGE1?=
- =?utf-8?B?Mm0vWkpGYzZwWUJ5MG1TcWU2R0xVT3hjc3lkTGZGK1FJUFFpOXZjS1I2c1Rh?=
- =?utf-8?B?SDFlSzNxdUpBdDEwZjJCbkxWVTJQSHhMS3l1RXZHK0JlaXBkZzc5V2RkR1NR?=
- =?utf-8?B?dFdpT2V1ellITnB1ZG1aY3pBbk1rTVZ0RC9ZSGF3Mk1JQ2dORnUyUzdhbHha?=
- =?utf-8?B?SEdMYmdsRVlzeVM4L3JML3hnbHllbHdFZCtBVWxId2dzckxneGFqMzIxS1hF?=
- =?utf-8?B?Wm9QM3lsTk1iZkdrT2ZBWUZkQUpqb1pqTHlzcnZsdXVFZG5RMjdnOWY0ckRx?=
- =?utf-8?B?ejRKVDZMQ2F2bURCNjdGaWlkdEVQem9yTG5odTArZGN0TzI4M2RkQzh1aVdj?=
- =?utf-8?B?TDNjTmVlNU1uTSt5SjBwNVVUWklZdVhXOWxBdnJ0OGJBeHFCV1Y3SEJHdVVQ?=
- =?utf-8?B?WFByTmpIM0cvUFFiclQyeXU1WWJ5Vk02VmJQYW95bjZEOXUzVkFtWFFpbGFY?=
- =?utf-8?B?amhXQ3M5dms4VWhIblNxeUcwZnlOVjhURis2YXZiTlF2Z3dlcGtOV3ZLZG9I?=
- =?utf-8?B?ZVVEQWxrdjkwQ0lCdHduR2pzY3RLc2t4WkRQMS9PZSthbjduSmdGNlVJY1U2?=
- =?utf-8?B?aFZ1Skd3cUJHVjVSaFBwQSswUURiOVJSeCt0emQ0Sk5DTjgwSUdWSE1pdSty?=
- =?utf-8?B?cmhHanhJMy9MQ05jNGY3TlE5OGVxSVB3STF5amhTUjJoNldEU2xVanhXd2JW?=
- =?utf-8?B?YWR6T1dLUk1xUXAwR3V0NUpZS20xNVczVWV4NlVzWit5OThOY0d2cFVGTURZ?=
- =?utf-8?B?VG5GR3hzdzY0aGhQRTFWZGlUeXc3ZWVvdWJQSEVzQ2NWa2J4dVBiSnY2TzZq?=
- =?utf-8?B?OVYwczN4SEl3dlhlWTdEVTk5ME1NbkFCZUJBQWlqS2ZGaUdJK1NIRkYyenVi?=
- =?utf-8?B?Z1dwOTNpMlZIVHhQNHJnYXpERlNEUmtQVnBGNmhsaUJ1a0ZCcmhPTDl6TDVJ?=
- =?utf-8?B?MEtMMEVmUFA5UHlzV08reXpNQ2kxSWtTdkhsVFdhZU9EOHZTaWdKREk1ODhv?=
- =?utf-8?B?eENMOGpMejhibkpZQUtmS0ZGcWllSjNCNWIwbUVrenVXaVVhQWFVb2RXMzlO?=
- =?utf-8?B?UythZCt4REE2MTB1VHJHOWovWUJFbUdHNnVzK29PSDc0M0pKai9IUlhpQ1J4?=
- =?utf-8?B?SktadmtNUzhTQTJpZzFpZWRHMEk0cFB4RG1NRzhIcGhBdVU4NGtjR1ZKbVVx?=
- =?utf-8?B?UkhONklZODlFbEdSSy9IZXYzVVlCcDhVcWcyT2lpa0dhSkVpbytRR1hjNVFE?=
- =?utf-8?B?cUNUc0V6akNhSE5aUE1HRVdzYUMvL3NkU2o5VTc5U2UvRWNsWTVnNWJpRTBJ?=
- =?utf-8?B?dlV4Yyt0cGpBK2gyOUI4K0p0eHR5ekFGK3NUeXB5WHhEN0cvZnhDRllZcnpT?=
- =?utf-8?B?QmZ5eGRLdHljWHNDOEN0ZkplUHdnOTJNU2Y5cThnbDlxSUQyNHRPS2Z2ZzJM?=
- =?utf-8?B?VXFNTzlnQXlYbmpTbjhVU2ZwdHAvRFhBelpEeHlMcnRjOWRQWjl5dGcxVzI3?=
- =?utf-8?B?ZXpYV2M5V0MrWU51QURTbWloNnFvUXYrYVIzSjQzUXUrbGpPWDVBdWZaajFa?=
- =?utf-8?B?YjRuNDJlamVnPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR18MB4558.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(42112799006)(376014)(7416014)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cmdqRU9oVHNETHdjQ1o2L21xSGF1S1VHMG14bEY5dTBGMzVwRlRpVlg1NlAw?=
- =?utf-8?B?djh0OXM5dGNUZFhQZnRFVHMvNWtZZ2lvSi93TFc0cGtnRDNvR1loOHQvQUVX?=
- =?utf-8?B?a01LVHBjL2pORXVFS3VyZnk2ME9UelRXSTVTbmszZWJLL0VRWUI1MWVOL050?=
- =?utf-8?B?S0hMSGtzd2c4QWxvTzZSUUhoWXRjUkFnRHNsOWlNeFpYUkgwRHJNNjUxSVI0?=
- =?utf-8?B?dm4ySUJnR3pQTkxuSktHZFZETi9Ia1BobmM5eU5aU09LRFdqcjEvb3dlN2N1?=
- =?utf-8?B?WVo4YjNMdUVDenJwM3lKR2N4RUkzM0RLVFluWXliOTdaVXl0Y2JSbWdidnNB?=
- =?utf-8?B?QU1XVWhSOHRBWWpBOGlWRFhIUTE5YlZrL01tSGI5RDc5VEpETnNiM0xMZDdQ?=
- =?utf-8?B?cmtvUnV3cGpYWHhNR0VCUkVubTNsV2drNHpscDFCSjFmUFlWZ0s2Q3dHU0Zy?=
- =?utf-8?B?aXhTaFJnSDIyY2xONmMwWXhiVXRSZTZzQlZaOUZQM0xhVUJQem9Bc1FHdEk3?=
- =?utf-8?B?VHcxRUdnRDA1UW5pbThlTFBlTURpcVkybGtUdjFQOGNBSFoxNzNzVnMvM3dl?=
- =?utf-8?B?Qk8wNEtSbEhOS2JocWVKeCs4TlZFbEp6OTFib05nbEhsRlRObnVsMmw0NDdy?=
- =?utf-8?B?dFl4emFPMTh3WCtmcUpGNERwbHRWSGRKSlNXRGpZNFdFWHhyaUlGNDRLb0sz?=
- =?utf-8?B?aXVYdTRVTllvTzJ3R0xIOGJsdTV0cXNsVGp4eVdOc0lDQ25FTVNWcE8vc2pj?=
- =?utf-8?B?TnpBd214RkdRT1R4REpmanZ2dGc4UkpHa29ZazJkRjBGMXk5Wko4STFpWWdU?=
- =?utf-8?B?R1ZYZTJ0MENuNVlGb25sZ3dSUld5bUxFWEQzdlF0TVk3dWwyNm9qKzlKTHZL?=
- =?utf-8?B?UHVmWE9pZjlRYXBqU0trbzh5OXVoMGhPVzNVcytWb3VKYzlTNlZSN2sydVQ2?=
- =?utf-8?B?WUVDTEtvUGpwcTcwaThzUGtjcFoxaWdTYkp3OVdvRXo5aTdqbHZxc2Zmb2Jl?=
- =?utf-8?B?SHIwU3VTT0tVa092ZXh2RDBxRTJ2RGpkRk5CSmMzS0lmSDIwcHp5cHhXL0lt?=
- =?utf-8?B?TGVUNUlucHNoWkJyTVhSV1NTUGFENzFycjlMb3B4amk1NXlJMW4vMGNQOUkv?=
- =?utf-8?B?aFJLaEVxcllxM1BnY3Z3YTFTSGNBWEV0VVdkRy90NytHSVBJSmNCMHhaZXdx?=
- =?utf-8?B?OW13S1JwVnNLNE41NmZCbGNMNHprQTloOHJyOCtyVzQ2OHp0SzVpRmxORjZ0?=
- =?utf-8?B?K2xFTWY4RjFDbUo3ZXhURGFONlNWZHpSTktDWUVyQ2Q1eHRpa1FpaFMycCtZ?=
- =?utf-8?B?Y2hnV1dzc1lNZ2hJdHV6YlIxU05OK3JYY1BpVy9HRjBnVlBMZVJRWHJPOWND?=
- =?utf-8?B?bE5ZWGlYZVhkWVdNOHBWQUhYcVhWT054YmE0UnY3U29JWlUyR04ra3hPRGNt?=
- =?utf-8?B?MFIwdGs3a085OEF3SlJ1TkJpY3VJVFBKQXVJT1prMGkyd0RrcE9jelViclBx?=
- =?utf-8?B?anRMUmJGUU0xaDV2WSs4T2VOQmYwL1FoWS96c1prN1YxWG11M3Rnb0syeGpL?=
- =?utf-8?B?amVWTVZyUyttY01HdmwxMGxib1VjNWZCYy9TcElaZW94ejFtSEt3SjVsSENM?=
- =?utf-8?B?OTFYWHBiSUNobEVMc3BRWWROYVliYTBuZG13R3RvenlibnArZ2xsTXZGNTln?=
- =?utf-8?B?K0Vvb0RjdkxkMXM2Zjh3ZEJDSmFDaG9hKzdvNmJ3NnhnOFY0RUszd3hqT2xK?=
- =?utf-8?B?ZHh6YW1TOExOT0ZIeTBBMVZVakZGa2xwL2lsem9NTlk0U0FuQVVWT2R5R0Vq?=
- =?utf-8?B?eTJoRW1xUkp1MkNkeWc5Y1NrakRzNmM4dTQ2K082OHg5QWt1a1YvUGR3dEZW?=
- =?utf-8?B?OERmbndTNzVxWjl0bEs4VnZJNllPVGJFTFYwemJaaUtjOFlLQ25rTWRmbDlO?=
- =?utf-8?B?WVUyYVhhVTJpK1hoNkZ6b3hGdUFrczY4STlTdkZUWU5keWRQVGNiRWErdWN4?=
- =?utf-8?B?Z2F6TWdHcnNDN2RKSE5LSWZXbUMyM1o0T1MwRkt0RFoyT0dPQXVMTUFQNVhO?=
- =?utf-8?B?TUMzTkhkRHFZbVlaQ09mSklBQVNJZUgxQjgyWWtoNkY3K084TXYzSTNCT09z?=
- =?utf-8?B?c0tkenNBZ3V1TFk1MnpqZXdlNjZ0MnduZjF6RXdVL1M1c2p6N3NmUlRqUFZ6?=
- =?utf-8?B?SC9OcVJTY1ZDbTczcE1QdGRUWEJWUm4vMStiTjhDVE1nd2N1ODJhRXQ0cVVw?=
- =?utf-8?B?ZVM3VU4vWTRRcXFRTDdaekFVbVpOV0wxWFdaemtxY2lxeSt0M2Z0VlB1dHNS?=
- =?utf-8?B?S2dHOWIzcmN1cEh3c2RnUS8ycjUvbm1va3NBRWZxS0kwbFhCeUdBdz09?=
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4b12a80f-ae0b-42c9-30ac-08de526b4c86
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR18MB4558.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2026 06:16:33.3676
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0Y7pFTs6uPKI0R3JA/9rMDb2TnDYEKUB2QLwbGPwZ4Fwl7bc/zZ1c80Hfxjt7Kxc
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN9PR18MB4345
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260112-disable_smccc_soc_id-v1-1-a5bee24befb4@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAAXlZWkC/x3MQQqEMAxA0atI1hbaIhbnKiJFk1QDjkoDIoh3t
+ 7h8i/9vUM7CCr/qhsynqOxbgasrwGXcZjZCxeCtb61z3pDoOK0c9Y+IUXeMQobJdpwaCiEkKOm
+ ROcn1bfvheV4mS2f7ZgAAAA==
+X-Change-ID: 20260112-disable_smccc_soc_id-ed09ef4d777f
+To: Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Sudeep Holla <sudeep.holla@arm.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, satya.prabhala@oss.qualcomm.com,
+        trilok.soni@oss.qualcomm.com
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768285470; l=1982;
+ i=satya.prabhala@oss.qualcomm.com; h=from:subject:message-id;
+ bh=9R9d5MZ+Rg409Z594WhcPXh/1yixAU8E+fucp+ksQJc=;
+ b=6IhJXSGy4B29tw7x441sQgxggIBB0UmATvgPjlBoFmm9x5/q14EwKP0EqoQvm//CLDHrkfGXK
+ mW7QTeFcS+GDyc8ojDOMuyVe5ah5TjvMz8NMpxnkLiFCkQe2qgw7xo0
+X-Developer-Key: i=satya.prabhala@oss.qualcomm.com; a=ed25519;
+ pk=N96J7WMj6/IKz17G+h6uiK/39yry7OdLwoUtHgPtafw=
+X-Proofpoint-GUID: N3VLsdLSSleBqg146jqJq7EHbh5RyoYw
+X-Authority-Analysis: v=2.4 cv=dK6rWeZb c=1 sm=1 tr=0 ts=6965e520 cx=c_pps
+ a=kVLUcbK0zfr7ocalXnG1qA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=5JjZXzRyNiR89YENP3AA:9 a=QEXdDO2ut3YA:10 a=vr4QvYf-bLy2KjpDp97w:22
+X-Proofpoint-ORIG-GUID: N3VLsdLSSleBqg146jqJq7EHbh5RyoYw
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTEzMDA1MCBTYWx0ZWRfX2YhZo5jNaiVh
+ qvdD8mzRTF6bDDdpfk0aB4jMgGUYKJ1xOZn4JU7JvXhZ4FYFg2kaTPHudKV3dpNPBuoKCMX0tHv
+ IiGHy27Q6pUzRWD1N0zV+cDErbpQJhgElU+ZE/CXSlLJbBS7qSbkwlvJPcpA3n5kBdRZH9rG/XQ
+ RxLBqJafiANFnECSc7rs50IVEys4mLFtAei48uovdRo8WHhFFfxiukKBrWNBjqXcXzXiSF0mk47
+ Es8GeYu7CS0buMR2FZUD1Fw4Kr9dnhqMicsr1/ifq6zq/R/ct+Y1sjq21lEoBEZ7+DdhXyNbTFH
+ 8F0LpnOiwUW/z+CchWftG8NYl8W3/WFOm+yAavW9v8TtFju6dCaUi0GPc/oAalOdAzlduaG5Gy2
+ oBSzYs/rcI/2mEKkdCKN4WI/SKiINoLlC+MtcgqU2YdcH9DUkkOcO6KN3RCyVOfo/aEef0namkj
+ TYVX/xYZWHrw24MwKHg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-13_01,2026-01-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 bulkscore=0 clxscore=1011 impostorscore=0 priorityscore=1501
+ lowpriorityscore=0 spamscore=0 malwarescore=0 adultscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601130050
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_221637_252477_B3A5F970 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20260112_222433_962249_12C6395E 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,49 +152,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/12/2026 4:32 PM, Krzysztof Kozlowski wrote:
-> CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender and know the content is safe.
-> 
-> 
-> On 09/01/2026 10:43, Tzu-Hao Wei wrote:
->> Axiado AX3000 SoC contains Arasan PHY which provides the interface to the
->> HS200 eMMC controller.
->>
->> This series includes:
->> 1. Add bindings for Axiado AX3000 eMMC PHY
->> 2. Add Axiado AX3000 eMMC phy driver
->> 3. Update MAINTAINERS for the new driver
->> 4. Update Axiado AX3000 device tree
->>
->> Changes: (The previous version was mixed with Host driver, so I separate
->> the PHY driver as a new thread)
->> - Fix property order in required section to match properties section
->> - Fixed example to use lowercase hex and proper node naming
->> - Removed wrapper functions, use readl/writel directly
->> - Replaced manual polling loops with read_poll_timeout macro
->> - Used devm_platform_ioremap_resource instead of separate calls
->> - Removed unnecessary of_match_node check
->> - Used dev_err_probe for error reporting
->> - Added proper Kconfig dependencies (ARCH_AXIADO || COMPILE_TEST)
->> - Fixed various coding style issues
->> - Link to previous patches: https://lore.kernel.org/all/20251222-axiado-ax3000-add-emmc-host-driver-support-v1-0-5457d0ebcdb4@axiado.com/
->>
-> 
-> So v2. Always version your patches correctly.
-> 
-> Best regards,
-> Krzysztof
-Hi Krzysztof,
+The ARM SMCCC SoC ID driver is currently enabled by default and publishes
+SMCCC-provided SoC identification into /sys/bus/soc/devices/socX/*.
 
-Understood, thanks for clarifying.
+On platforms where a vendor SoC driver already exposes widely-consumed
+attributes (e.g. Qualcomm socinfo [1]), enabling the SMCCC driver changes
+the format of /sys/devices/soc0/soc_id (e.g. "jep106:XXYY:ZZZZ" instead
+of a vendor logical ID like "519") and breaks existing userspace consumers.
 
-Although the PHY patches were split into a separate thread from the
-previous combined host+phy series, they are a continuation of the same
-work and therefore should follow the existing versioning.
+Flip the default of CONFIG_ARM_SMCCC_SOC_ID from y to n. Platforms that
+prefer SMCCC over a vendor driver can explicitly enable it.
 
-Just to confirm before resending: I will submit the next eMMC PHY series
-as v2. Please let me know if this is not correct.
+This avoids unexpected format changes and keeps the generic SoC sysfs
+stable on systems that rely on vendor-specific identification.
+
+[1]
+Link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/soc/qcom/socinfo.c
+
+Signed-off-by: Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
+---
+ drivers/firmware/smccc/Kconfig | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/firmware/smccc/Kconfig b/drivers/firmware/smccc/Kconfig
+index 15e7466179a6..f830d11ebdca 100644
+--- a/drivers/firmware/smccc/Kconfig
++++ b/drivers/firmware/smccc/Kconfig
+@@ -18,8 +18,11 @@ config HAVE_ARM_SMCCC_DISCOVERY
+ config ARM_SMCCC_SOC_ID
+ 	bool "SoC bus device for the ARM SMCCC SOC_ID"
+ 	depends on HAVE_ARM_SMCCC_DISCOVERY
+-	default y
++	default n
+ 	select SOC_BUS
+ 	help
+ 	  Include support for the SoC bus on the ARM SMCCC firmware based
+ 	  platforms providing some sysfs information about the SoC variant.
++	  Note: Several vendor platforms provide their own SoC information
++	  drivers under drivers/soc/*. To avoid conflicting sysfs attribute
++	  formats in /sys/devices/socX/*, this driver defaults to disabled.
+
+---
+base-commit: b71e635feefc852405b14620a7fc58c4c80c0f73
+change-id: 20260112-disable_smccc_soc_id-ed09ef4d777f
 
 Best regards,
-TH
+-- 
+Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
+
 
