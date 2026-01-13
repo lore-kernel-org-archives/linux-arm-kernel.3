@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0930CD2D11F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 731D7D2D11F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yxpq/1QPPFhuOnIme3cIOzattiDvwrY0xnXt6U8FvsM=; b=Ir+iZuupjXBa8XOT9+KeUSLNtC
-	30ZD5p6YWqioPhQ0DccDruU/rBXmAAs9k/A+wsBhQZffgdjcal5yMdXQDSJx9xegFW8Xv1nb2UMzQ
-	ko5vDgMceRnaOsomJTG7MVebG+ciMR6SMv2ygfwmnDTAMd5JIcMVxWL+j2T17UUpqjiL+yCYhOauZ
-	3hrxAHZ1JM+0hi66NUaBZyY1JR6fXIr20K+JtO0Vkrfnt9kQh5/p2cW60l56w0WWdpesTbDS7F7Nq
-	OQgExwDMaxFGFRQ+DE+jgBEa4DXehpuqIuzz0k6lE6vv5u+Anfzh7LXGWdoLslg09GXM84kOz/VKO
-	TYIPwd2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=acoDpLkXW4eUxCofPcp91HxDqcG05K12zRS71Z1swE0=; b=kNDIg6spoGr4N2H7wZVtoQ7xLN
+	C2ldcppbwnVVuWiXeytyEsbNy2kqBhluIsm0EPDumLoPkYwytP6ZUJzEp2jFpQn/jHyaQb20UVuNH
+	uCyFI+yDx3E8Tp4hSQNohV3kxEwcbOu8JKIpp2OySwwKiOPFuOKdPjfGPC7utb4BU3JcreLBuxK7r
+	wrgCeMk5uIk9SCdXftp9K4E3sZc1ns/NbfCqrHjUBlWqN1jZ/mf11+S1Bua7UqeMn4tQ/t2C4Q5io
+	eUZWeQk1nN/Gzi0np5sFxhfLaP7R/DaOn3kVqTKzo1eE4rjdLcbZ5A/g2UCGBEfdbI2D681IA2/Om
+	r6ZMC5BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vffkd-00000007I6t-3Udj;
-	Tue, 13 Jan 2026 14:52:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vfflQ-00000007IFG-0jdf;
+	Tue, 13 Jan 2026 14:52:56 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vffkY-00000007I64-3q5f;
-	Tue, 13 Jan 2026 14:52:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6CFF4439C8;
-	Tue, 13 Jan 2026 14:52:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2383CC116C6;
-	Tue, 13 Jan 2026 14:52:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768315922;
-	bh=F0CxKKbdK40SFtktNtyMvlAbkTcorF87w45vHgqvGMQ=;
-	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
-	b=Lg2BWOGMjvWVicHAWO0FntNtKDF1FjSt65hgvxdiOmfFCfBj13LId5GWVSsFRRhxn
-	 oglqSvb2/Y6oHj4ebuwFkNEcuS3btxjDzMqs+FI+O2F9RFH1C2QsdeOHTMLu6wqo8A
-	 tHYBdFuaALsfeSCI/27e9jcxev3eiaTPsqhNjCZGoLXik0ld3ziHwE62NMDEwwenlL
-	 z4GzUzw/c6ZXFT4KuNUn8GO07r2fuJXy9rNvdzQWsSPmudOJjm8LZx9KxxeHemiOP7
-	 PbtfV8Dhofw7HvukgTYZ9dw9Xnd7TvRzGVvkgCCndHfmK+uN5Se/QmO8PBEUCpfXH9
-	 FKZugNEYW16Uw==
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 13 Jan 2026 08:52:00 -0600
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+	id 1vfflN-00000007IEQ-3yaF
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 14:52:54 +0000
+Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <m.felsch@pengutronix.de>)
+	id 1vfflD-0004eQ-5m; Tue, 13 Jan 2026 15:52:43 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+Date: Tue, 13 Jan 2026 15:52:41 +0100
+Subject: [PATCH v3 1/2] clk: imx: fracn-gppll: Add 332.60 MHz Support
 MIME-Version: 1.0
-Cc: christianshewitt@gmail.com, nick@khadas.com, 
- linux-arm-kernel@lists.infradead.org, conor+dt@kernel.org, 
- linux-kernel@vger.kernel.org, krzk+dt@kernel.org, 
- linux-amlogic@lists.infradead.org, jbrunet@baylibre.com, 
- neil.armstrong@linaro.org, khilman@baylibre.com, devicetree@vger.kernel.org, 
- martin.blumenstingl@googlemail.com, xianwei.zhao@amlogic.com
-To: Nick Xie <xieqinick@gmail.com>
-In-Reply-To: <20260113090951.35928-1-nick@khadas.com>
-References: <20260113090951.35928-1-nick@khadas.com>
-Message-Id: <176831569012.3744370.1114303217469901788.robh@kernel.org>
-Subject: Re: [PATCH v1 0/2] arm64: dts: meson-s4: add support for Khadas
- VIM1S
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260113-v6-18-topic-clk-fracn-gppll-v3-1-45da70f43c98@pengutronix.de>
+References: <20260113-v6-18-topic-clk-fracn-gppll-v3-0-45da70f43c98@pengutronix.de>
+In-Reply-To: <20260113-v6-18-topic-clk-fracn-gppll-v3-0-45da70f43c98@pengutronix.de>
+To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Marco Felsch <m.felsch@pengutronix.de>, 
+ Primoz Fiser <primoz.fiser@norik.com>
+X-Mailer: b4 0.14.2
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::28
+X-SA-Exim-Mail-From: m.felsch@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_065204_773736_53C73461 
-X-CRM114-Status: GOOD (  17.31  )
+X-CRM114-CacheID: sfid-20260113_065253_978367_37193DC3 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,75 +73,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Some parallel panels have a pixelclk of 33.260 MHz. Add support for
+332.60 MHz so a by 10 divider can be used to derive the exact pixelclk.
 
-On Tue, 13 Jan 2026 17:09:49 +0800, Nick Xie wrote:
-> This series adds initial support for the Khadas VIM1S single board computer.
-> 
-> The Khadas VIM1S is based on the Amlogic S905Y4 (S4 family) SoC.
-> It features:
->  - 2GB LPDDR4 RAM
->  - 16GB eMMC 5.1 storage
->  - 32MB SPI flash
->  - 100 Base-T Ethernet
->  - AP6256 Wireless (802.11 a/b/g/n/ac, BT5.0)
->  - HDMI 2.1 video
->  - 2x USB 2.0 ports
->  - 1x USB-C (power) with USB 2.0 OTG
->  - 2x LED's (1x red, 1x white)
->  - 3x buttons (power, function, reset)
->  - IR receiver
->  - 40pin GPIO Header
->  - 1x micro SD card slot
-> 
-> The first patch adds the devicetree binding, and the second patch adds
-> the board device tree.
-> 
-> Nick Xie (2):
->   dt-bindings: arm: amlogic: add Khadas VIM1S binding
->   arm64: dts: add initial device-tree for Khadas VIM1S
-> 
->  .../devicetree/bindings/arm/amlogic.yaml      |   6 +
->  arch/arm64/boot/dts/amlogic/Makefile          |   1 +
->  .../amlogic/meson-s4-s905y4-khadas-vim1s.dts  | 191 ++++++++++++++++++
->  3 files changed, 198 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
-> 
-> --
-> 2.34.1
-> 
-> 
-> 
+Reviewed-by: Primoz Fiser <primoz.fiser@norik.com>
+Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+---
+ drivers/clk/imx/clk-fracn-gppll.c | 1 +
+ 1 file changed, 1 insertion(+)
 
+diff --git a/drivers/clk/imx/clk-fracn-gppll.c b/drivers/clk/imx/clk-fracn-gppll.c
+index 090d608672508a8819dc68eedec5b8d4a2c140c8..579f76494eb041dfba58b8cd10eb2453a0ec4178 100644
+--- a/drivers/clk/imx/clk-fracn-gppll.c
++++ b/drivers/clk/imx/clk-fracn-gppll.c
+@@ -88,6 +88,7 @@ static const struct imx_fracn_gppll_rate_table fracn_tbl[] = {
+ 	PLL_FRACN_GP(445333333U, 167, 0, 1, 0, 9),
+ 	PLL_FRACN_GP(400000000U, 200, 0, 1, 0, 12),
+ 	PLL_FRACN_GP(393216000U, 163, 84, 100, 0, 10),
++	PLL_FRACN_GP(332600000U, 138, 584, 1000, 0, 10),
+ 	PLL_FRACN_GP(300000000U, 150, 0, 1, 0, 12)
+ };
+ 
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20260113 (exact match)
- Base: tags/next-20260113 (use --merge-base to override)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/amlogic/' for 20260113090951.35928-1-nick@khadas.com:
-
-arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dtb: regulator-sdcard (regulator-fixed): Unevaluated properties are not allowed ('enable-active-low' was unexpected)
-	from schema $id: http://devicetree.org/schemas/regulator/fixed-regulator.yaml
-
-
-
-
+-- 
+2.47.3
 
 
