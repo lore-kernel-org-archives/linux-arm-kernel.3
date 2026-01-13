@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBBDCD2D10E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F2FD2D10E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h7N6/XzwCIE8JUq/iHp/2Tz8+iK3mdLSn6oWAWB7WqA=; b=x5a1wVc3Vgd7Qa5LQ+p3/HEV9v
-	5dmZ2f8WFzHiAQ5nnFFjObFFPDyTHk97ITI6yJcxD3Km0EyGpul5BWbtQ7jXd2mUt/+9A5zYUnHkD
-	sPNvvBR25STgpHL1HVQFLrPPeK7zNW+igUD3PNygmrsqGBxlreooxgRDKFTrCpCYo6TZbAYWi5fx5
-	o3wylwyyFNUkIRH1XeBhgJc0muMcB2oVIkJrtSyY5tm5NhUVwEBkUT5Ew4n1xCkBcxyazW8eLCZ8v
-	LhsF06GSdcg2F4PMwIUONkUZHHBBN64yjP5J5Mt+P4e/P6o0+2uLL5lDq+tWlcNQXqNlJ/cHmsURt
-	qBZ4+6yw==;
+	bh=FrbXOavI6hhdu7okbs60Hv1KLcrk9A9Fk+yY6A7OFGM=; b=GPq5ogSn6zNNEXGCxstZdjeSC5
+	wJ/sNSneW6/sHOIdJF24olaBR++ChPQ3O3jImn/x6NThxUsoGQkiQ/IgjZYv5l2a4+ZR8xhwm32tQ
+	wVQotRrIPmqI8NPgCLGXOjGLpQM/e7SkAfwKXKXbf4ye8vVYaI00UEkfJ1GYVGbc4EAXQnd0z8eqx
+	vN3EYFXpJAbMcVU5OxxNx+2vGqGTN5/pb30jSvbvL7E5OA/z1pIaqBV3kHvh9CIQu7lKa5Ru7D4pK
+	3JkWQW04q0N4ffBc6R4/OSFAcyCNB7arGPXb1gJTccGmTKxA0kjroPSpafUrCh7gAgj5bunzBM9v4
+	Y9XtZnAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vffIE-00000007F8b-1w66;
-	Tue, 13 Jan 2026 14:22:46 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1vffIj-00000007FGW-2FdU;
+	Tue, 13 Jan 2026 14:23:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vffIA-00000007F7Q-2ltc;
-	Tue, 13 Jan 2026 14:22:45 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.99)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1vffHv-000000004Ng-1YDD;
-	Tue, 13 Jan 2026 14:22:27 +0000
-Date: Tue, 13 Jan 2026 14:22:24 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Felix Fietkau <nbd@nbd.name>, John Crispin <john@phrozen.org>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Bc-bocun Chen <bc-bocun.chen@mediatek.com>,
-	Rex Lu <rex.lu@mediatek.com>,
-	Mason-cw Chang <Mason-cw.Chang@mediatek.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next RFC] net: ethernet: mtk_eth_soc: support using
- non-MediaTek DSA switches
-Message-ID: <aWZVIBh6AKiIaxdr@makrotopia.org>
-References: <34647edacab660b4cabed9733d2d3ef22bc041ac.1768273593.git.daniel@makrotopia.org>
- <252d6877-d966-4d19-a38c-cc83ba908494@lunn.ch>
+	id 1vffIi-00000007FG9-2CKX;
+	Tue, 13 Jan 2026 14:23:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A3F316000A;
+	Tue, 13 Jan 2026 14:23:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3A1FC116C6;
+	Tue, 13 Jan 2026 14:23:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768314195;
+	bh=3hwWDMSYImxtTFTuhPzBiBnGPdsb2QRZw+DjmSuu434=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WvqDhf7SpZVQXiVf7n7S78DpkRF/WBp4KpW7zS8/JIHN25h8U1oBUVvAcTKsLUC6J
+	 NaU4yO4i0un0UJUnF7mdkD2jKEhm7Gh3U9ggHJLOY7TbmNi4ZMw+CCNKk5f0eLMAjV
+	 lRXb6VJUfTxlXSTMkhCGCHTAvLbchj24T/9C3nrYDm7j7sxjszczh7fVPusf1qPtt3
+	 rNHdwbuh+7Rl8Qsw2z41Rpzxim8mxzXuw3CeeCQGWZ9qXBrSSaZpFGzsD3PO0rRXrZ
+	 ctlyq9Jyzzq2X4FOdfoTABgkmZSjUl5gO8jXiovg7IFkU4V+rsfy4AJ7cJXfM4HCTe
+	 Qw48AdtHTx5CQ==
+Date: Tue, 13 Jan 2026 15:23:11 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Andi Shyti <andi@smida.it>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, Qianfeng Rong <rongqianfeng@vivo.com>, linux-i2c@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	Khalil Blaiech <kblaiech@nvidia.com>, Asmaa Mnebhi <asmaa@nvidia.com>, 
+	Qii Wang <qii.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Linus Walleij <linusw@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Patrice Chotard <patrice.chotard@foss.st.com>, 
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH v1 1/7] units: Add HZ_PER_GHZ
+Message-ID: <aWZVN6bLbqZMu_mY@zenone.zhora.eu>
+References: <20260112134900.4142954-1-andriy.shevchenko@linux.intel.com>
+ <20260112134900.4142954-2-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <252d6877-d966-4d19-a38c-cc83ba908494@lunn.ch>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_062244_157339_F854B496 
-X-CRM114-Status: GOOD (  38.98  )
+In-Reply-To: <20260112134900.4142954-2-andriy.shevchenko@linux.intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,113 +75,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 13, 2026 at 03:00:18PM +0100, Andrew Lunn wrote:
-> On Tue, Jan 13, 2026 at 03:11:54AM +0000, Daniel Golle wrote:
-> > MediaTek's Ethernet Frame Engine is tailored for use with their
-> > switches. This broke checksum and VLAN offloading when attaching a
-> > DSA switch which does not use MediaTek special tag format.
-> 
-> This has been seen before. The Freescale FEC has similar problems when
-> combined with a Marvell switch, it cannot find the IP header, and so
-> checksum offloading does not work.
-> 
-> I thought we solved this be modifying the ndev->feature of the conduit
-> interface to disable such offloads. But i don't see such code. So i
-> must be remembering wrongly.
-> 
-> This is assuming the frame engine respects these flags:
-> 
-> /usr/sbin/ethtool -k enp2s0
-> Features for enp2s0:
-> rx-checksumming: on
-> tx-checksumming: on
-> 	tx-checksum-ipv4: on
-> 	tx-checksum-ip-generic: off [fixed]
-> 	tx-checksum-ipv6: on
-> 	tx-checksum-fcoe-crc: off [fixed]
-> 	tx-checksum-sctp: off [fixed]
-> 
-> When you combine a Marvell Ethernet interface with a Marvell switch
-> offloading works of course. So it probably does require some logic in
-> the MAC driver to determine if the switch is of the same vendor or
-> not.
+Hi Andy,
 
-MediaTek folks also got back to me in a private message, confirming
-the issue and also clarifying that the length of the tag is the
-limiting factor. Every 4-byte tag can work, sizes other than 4 bytes
-cannot. As MediaTek's tag format includes the 802.1Q VLAN as part of
-the tag itself I suspect VLAN offloading will still need some extra
-care to work on non-MTK 4-byte tags (like RealTek 4B, for example)...
+On Mon, Jan 12, 2026 at 02:46:09PM +0100, Andy Shevchenko wrote:
+> The is going to be a new user of the HZ_PER_GHZ definition besides
+> possibly existing ones. Add that one to the header.
+> 
+> While at it, split Hz and kHz groups of the multipliers for better
+> maintenance and readability.
+> 
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
-> 
-> > diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> > index e68997a29191b..654b707ee27a1 100644
-> > --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> > +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> > @@ -1459,6 +1459,26 @@ static void setup_tx_buf(struct mtk_eth *eth, struct mtk_tx_buf *tx_buf,
-> >  	}
-> >  }
-> >  
-> > +static bool mtk_uses_dsa(struct net_device *dev)
-> > +{
-> > +#if IS_ENABLED(CONFIG_NET_DSA)
-> > +	return netdev_uses_dsa(dev) &&
-> > +	       dev->dsa_ptr->tag_ops->proto == DSA_TAG_PROTO_MTK;
-> > +#else
-> > +	return false;
-> > +#endif
-> 
-> I think the concept of determining if the switch is using a specific
-> tag in order to enable/disable acceleration should be generic. So i
-> would try to make this an helper in include/next/dsa.h. Any MAC driver
-> can then use it.
+Reviewed-by: Andi Shyti <andi.shyti@kernel.org>
 
-Now that I know that the Ethernet driver should have 4 modes:
- - no DSA at all
- - DSA with MediaTek special tag
- - DSA with non-MediaTek but still 4 byte special tag
-   -> VLAN offloading needs to be figured out
- - DSA with special tag size not equal to 4 bytes
-   -> no checksum and no VLAN offloading
+I'm taking this via i2c if no one is against.
 
-> 
-> > @@ -1531,7 +1551,7 @@ static void mtk_tx_set_dma_desc_v2(struct net_device *dev, void *txd,
-> >  		/* tx checksum offload */
-> >  		if (info->csum)
-> >  			data |= TX_DMA_CHKSUM_V2;
-> > -		if (mtk_is_netsys_v3_or_greater(eth) && netdev_uses_dsa(dev))
-> > +		if (mtk_is_netsys_v3_or_greater(eth) && mtk_uses_dsa(dev))
-> >  			data |= TX_DMA_SPTAG_V3;
-> 
-> This looks to be in the hot path. Do you really want to do this
-> evaluation on every frame? You can change the tag protocol via sysfs,
-> however, dsa_tree_change_tag_proto() will only allow you to change the
-> tag while the conduit interface is down. So it should be safe to look
-> at the tag protocol once during open, and cache the result somewhere
-> local, struct mtk_eth? That should avoid a few cache misses.
-
-+1
-
-> 
-> > @@ -3192,6 +3212,14 @@ static netdev_features_t mtk_fix_features(struct net_device *dev,
-> >  		}
-> >  	}
-> >  
-> > +	if ((features & NETIF_F_IP_CSUM) &&
-> > +	    non_mtk_uses_dsa(dev))
-> > +		features &= ~NETIF_F_IP_CSUM;
-> > +
-> > +	if ((features & NETIF_F_IPV6_CSUM) &&
-> > +	    non_mtk_uses_dsa(dev))
-> > +		features &= ~NETIF_F_IPV6_CSUM;
-> > +
-> 
-> 
-> When is mtk_fix_features() actually called? I don't know without
-> looking at the core. You will want it when open is called, when the
-> tagging protocol is fixed.
-
-It's used as .ndo_fix_features operation, which is called by
-__netdev_update_features() at various occasions, and I'm not sure if it
-would be called as well when changing the tag protocol...
+Andi
 
