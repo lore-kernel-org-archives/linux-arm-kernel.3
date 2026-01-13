@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DD71D2D0EB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0930CD2D11F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y8QPX6ZNIf2tJRE8LE0f+mWp9FzhMtW5IaPCrANgiH8=; b=NU9HPOZFp9u66McwLtGNFfx7+1
-	LpSnivV0mfAtAMN7ESnRw6zYsf53ASZkxRnTOzB2c7oPSK8vlZWlGdZRsMRIdkfym+Cm4G6ZFt+2L
-	TnJwlLvGW4Z/8nsnBYvnnh6ygHTX7dPxxZjigkZWkNz7NDRjYNz7X+bpurmiAR75swztHd+KAAidu
-	kDv1Jt7YXD3Mw9ALBJG43Tnh/PAybWpsUlifgUxCcPxdGjJfpiM6ccP7bQnyV2lyb91Fa2PNheXYN
-	3qBr8ginJJB2GYJvLOP2XjGiOKJhLavOxaFsZ4EqiQN9sOAMNZMZ/LwQQODpqUBX+g+24D+HH2Bzl
-	Zcw58pIQ==;
+	bh=yxpq/1QPPFhuOnIme3cIOzattiDvwrY0xnXt6U8FvsM=; b=Ir+iZuupjXBa8XOT9+KeUSLNtC
+	30ZD5p6YWqioPhQ0DccDruU/rBXmAAs9k/A+wsBhQZffgdjcal5yMdXQDSJx9xegFW8Xv1nb2UMzQ
+	ko5vDgMceRnaOsomJTG7MVebG+ciMR6SMv2ygfwmnDTAMd5JIcMVxWL+j2T17UUpqjiL+yCYhOauZ
+	3hrxAHZ1JM+0hi66NUaBZyY1JR6fXIr20K+JtO0Vkrfnt9kQh5/p2cW60l56w0WWdpesTbDS7F7Nq
+	OQgExwDMaxFGFRQ+DE+jgBEa4DXehpuqIuzz0k6lE6vv5u+Anfzh7LXGWdoLslg09GXM84kOz/VKO
+	TYIPwd2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vffg0-00000007Hil-489O;
-	Tue, 13 Jan 2026 14:47:20 +0000
+	id 1vffkd-00000007I6t-3Udj;
+	Tue, 13 Jan 2026 14:52:07 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfffy-00000007Hi8-2wes
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 14:47:20 +0000
+	id 1vffkY-00000007I64-3q5f;
+	Tue, 13 Jan 2026 14:52:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E8FEF41ABD;
-	Tue, 13 Jan 2026 14:47:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE765C19422;
-	Tue, 13 Jan 2026 14:47:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6CFF4439C8;
+	Tue, 13 Jan 2026 14:52:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2383CC116C6;
+	Tue, 13 Jan 2026 14:52:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768315637;
-	bh=bmqIQmLkIZkqUem7xNcRewV5DCcMsK6QQXdiFILHQ0E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=t+RZ1DOBedS4sV6A2tN6gPHd2HAtS3KDmwnCtimAkiaVTt473o8qz37Bo/DVVPnzT
-	 VLc+zPNuLqjjLEubdOyE4PFduehIXRO6QY301c57hvGI4pI1l4rCR6H+3zU73wo49p
-	 sBYgi+JEjlG0pqb0no1Huv9ChlUEBLqI/FcJ3AuqOyIWz5uXFBPZsVCD0pMBjCR0vt
-	 PcKFuobxyYU29g1Soos49w40PmXylg1ltjCWxrVhFNGvb1XREdgtQ464zV6j1nhBEe
-	 +eyUsNY4HfdfyZm5YgoQ4PDpK6+K6T6f2y6VJ/bIPAmMhy9fT/NqsDzvMb06bXnbXO
-	 LwkRMpJy3k9AQ==
-Date: Tue, 13 Jan 2026 08:47:16 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Anshul Dalal <anshuld@ti.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>, devicetree@vger.kernel.org,
-	Tero Kristo <kristo@kernel.org>, Andrew Davis <afd@ti.com>
-Subject: Re: [PATCH v8] dt-bindings: arm: keystone: add boot_* mboxes to
- ti,sci
-Message-ID: <176831563605.3742417.8691359583329615033.robh@kernel.org>
-References: <20260113-k3_syscon_add_boot_mailboxes-v8-1-d43954527b5d@ti.com>
+	s=k20201202; t=1768315922;
+	bh=F0CxKKbdK40SFtktNtyMvlAbkTcorF87w45vHgqvGMQ=;
+	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
+	b=Lg2BWOGMjvWVicHAWO0FntNtKDF1FjSt65hgvxdiOmfFCfBj13LId5GWVSsFRRhxn
+	 oglqSvb2/Y6oHj4ebuwFkNEcuS3btxjDzMqs+FI+O2F9RFH1C2QsdeOHTMLu6wqo8A
+	 tHYBdFuaALsfeSCI/27e9jcxev3eiaTPsqhNjCZGoLXik0ld3ziHwE62NMDEwwenlL
+	 z4GzUzw/c6ZXFT4KuNUn8GO07r2fuJXy9rNvdzQWsSPmudOJjm8LZx9KxxeHemiOP7
+	 PbtfV8Dhofw7HvukgTYZ9dw9Xnd7TvRzGVvkgCCndHfmK+uN5Se/QmO8PBEUCpfXH9
+	 FKZugNEYW16Uw==
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 13 Jan 2026 08:52:00 -0600
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260113-k3_syscon_add_boot_mailboxes-v8-1-d43954527b5d@ti.com>
+Cc: christianshewitt@gmail.com, nick@khadas.com, 
+ linux-arm-kernel@lists.infradead.org, conor+dt@kernel.org, 
+ linux-kernel@vger.kernel.org, krzk+dt@kernel.org, 
+ linux-amlogic@lists.infradead.org, jbrunet@baylibre.com, 
+ neil.armstrong@linaro.org, khilman@baylibre.com, devicetree@vger.kernel.org, 
+ martin.blumenstingl@googlemail.com, xianwei.zhao@amlogic.com
+To: Nick Xie <xieqinick@gmail.com>
+In-Reply-To: <20260113090951.35928-1-nick@khadas.com>
+References: <20260113090951.35928-1-nick@khadas.com>
+Message-Id: <176831569012.3744370.1114303217469901788.robh@kernel.org>
+Subject: Re: [PATCH v1 0/2] arm64: dts: meson-s4: add support for Khadas
+ VIM1S
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_064718_785767_4BD897D8 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20260113_065204_773736_53C73461 
+X-CRM114-Status: GOOD (  17.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,63 +76,74 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 13 Jan 2026 11:08:56 +0530, Anshul Dalal wrote:
-> The bootloader on K3 devices makes use of mailboxes as per the ROM spec
-> which might be different than one's available to the kernel (firmware
-> spec).
+On Tue, 13 Jan 2026 17:09:49 +0800, Nick Xie wrote:
+> This series adds initial support for the Khadas VIM1S single board computer.
 > 
-> Therefore, this patch adds the missing mailbox entries to the DT binding
-> if the matching compatible is ti,am654-sci to represent the mailboxes
-> exposed by the hardware during boot for the purpose of loading the
-> firmware.
+> The Khadas VIM1S is based on the Amlogic S905Y4 (S4 family) SoC.
+> It features:
+>  - 2GB LPDDR4 RAM
+>  - 16GB eMMC 5.1 storage
+>  - 32MB SPI flash
+>  - 100 Base-T Ethernet
+>  - AP6256 Wireless (802.11 a/b/g/n/ac, BT5.0)
+>  - HDMI 2.1 video
+>  - 2x USB 2.0 ports
+>  - 1x USB-C (power) with USB 2.0 OTG
+>  - 2x LED's (1x red, 1x white)
+>  - 3x buttons (power, function, reset)
+>  - IR receiver
+>  - 40pin GPIO Header
+>  - 1x micro SD card slot
 > 
-> The newly added mboxes are made optional by keeping minItems as 2 to
-> remain compliant with existing device-trees. The new 'notify' channel is
-> not supported on all SoCs and is therefore kept at last in the list.
+> The first patch adds the devicetree binding, and the second patch adds
+> the board device tree.
 > 
-> Signed-off-by: Anshul Dalal <anshuld@ti.com>
-> ---
-> Changes in v8:
-> - Refactored the patch to a simplified diff
-> - Link to v7: https://lore.kernel.org/r/20260107-k3_syscon_add_boot_mailboxes-v7-1-d97a943f0a52@ti.com
+> Nick Xie (2):
+>   dt-bindings: arm: amlogic: add Khadas VIM1S binding
+>   arm64: dts: add initial device-tree for Khadas VIM1S
 > 
-> Changes in v7:
-> - Removed ti,am642-sci compatible
-> - Keep examples unchanged
-> - Modify ti,am654-sci ordering to ensure compliance with SoCs without a notify channel
-> - Link to v6: https://lore.kernel.org/r/20251222-k3_syscon_add_boot_mailboxes-v6-1-b93ada9f1d47@ti.com
+>  .../devicetree/bindings/arm/amlogic.yaml      |   6 +
+>  arch/arm64/boot/dts/amlogic/Makefile          |   1 +
+>  .../amlogic/meson-s4-s905y4-khadas-vim1s.dts  | 191 ++++++++++++++++++
+>  3 files changed, 198 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
 > 
-> Changes in v6:
-> - Added ti,am642-sci compatible to represent SoCs without a "notify" channel
-> - Added new examples instead of editing existing ones
-> - Link to v5: https://lore.kernel.org/r/20251215-k3_syscon_add_boot_mailboxes-v5-1-5a8fe567fd31@ti.com
+> --
+> 2.34.1
 > 
-> Changes in v5:
-> - Added commit description for the optional mailboxes
-> - Link to v4: https://lore.kernel.org/r/20251205-k3_syscon_add_boot_mailboxes-v4-1-8e216fb88941@ti.com
 > 
-> Changes in v4:
-> - Make new boot_* mboxes conditional on ti,am654-sci compatible
-> - Link to v3: https://lore.kernel.org/r/20251112-k3_syscon_add_boot_mailboxes-v3-1-66155a4236dc@ti.com
-> 
-> Changes in v3:
-> - Drop [1/2] of the last patch series
-> - Update existing example with boot_* mailboxes instead of adding a new one
-> - Link to v2: https://lore.kernel.org/r/20251112-k3_syscon_add_boot_mailboxes-v2-0-aebc1e47b391@ti.com
-> 
-> Changes in v2:
-> - Remove maxItems entry
-> - Remove RFC tag from patch (added by mistake in v1)
-> - Document the new mailboxes in mboxes instead of mbox-names
-> - Provide example with all the mailboxes set
-> - Update commit title to have "ti,sci"
-> - Split into two patches
-> - Link to v1: https://lore.kernel.org/r/20251111-k3_syscon_add_boot_mailboxes-v1-1-529a27f21076@ti.com
-> ---
->  .../devicetree/bindings/arm/keystone/ti,sci.yaml   | 24 ++++++++++++++++++++++
->  1 file changed, 24 insertions(+)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/next-20260113 (exact match)
+ Base: tags/next-20260113 (use --merge-base to override)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/amlogic/' for 20260113090951.35928-1-nick@khadas.com:
+
+arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dtb: regulator-sdcard (regulator-fixed): Unevaluated properties are not allowed ('enable-active-low' was unexpected)
+	from schema $id: http://devicetree.org/schemas/regulator/fixed-regulator.yaml
+
+
+
+
 
 
