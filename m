@@ -4,57 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DCC1D2F33F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 16:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BAA6D2F33F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 16:26:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sgxXVC2FsBUN9t3WEgWwzTWuclM5HhRFteoBQ8njGPI=; b=m806lxIT+qDjU7DMF8ZBQ35Mk2
-	Qg3VnSNy3UeYC9DFvmanqvItj97pbW8VtlexBCWd+Qa6Yl8SKbTbEMV+3Y83mOGG2BsLDfM6jdxJG
-	ho1Kq96Qs/+fMentR/1dN1gOF07hCxkBGmQ7QEF77k6LzmET4O+zBK3kZV5gyzcYypoaXDBfc3yj0
-	viD3CdIvgRHVK3b1Vm90ntgZRldke4UMkvxBd39xDG9Jx6q0swMa412uP7J6m+KlV8WU1zGqd5V8+
-	EhyGOKvUB3p+BqUTYcFQHwYaE5Ptk8cvpKhY3Iqnk9MNkSqrM/nDGTrIldcvuxyShzqQN8wCMZxpO
-	ddiZQeiQ==;
+	bh=y9kSWtn88k+QkPqpOG7NN6Fxk/gRH5gvJVVHZoYjlVA=; b=OHpNDNVK3/ZioD/B6NAhyvcPDy
+	VmFwrIAaMorp96Y4jfB7KYOX5qTlLBXZRWFvS3dgW+HW4DKx8plOlXxJJgRehz1mTrp5g9D/QijA1
+	f8knGVJnKOZHGEv1Stm89CSGJivefKmOQNworLNe+wlhpmK3ZDrlUDxWgtgkF4fvoEC2YyIpqGlLA
+	tcc6sef7XLul/XpsCHTayJ+MkDV/I84kURNJRKaQsJn5uhHQK3z3aGqdR64XIBxMnsOziRHZHvylA
+	60CgxiCOxp/8zZNdaDlM8UkzZ8NRqzv+ck3zNbziWKGperqcTzLSI0eixDE11stvHQ7krF7uqqnOi
+	ejaOLuiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfh7E-00000007SQj-2XYQ;
-	Tue, 13 Jan 2026 16:19:32 +0000
-Received: from mail1.manjaro.org ([2a01:4f8:c010:b6e8::1])
+	id 1vfhDV-00000007T3T-2Tno;
+	Tue, 13 Jan 2026 16:26:01 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfh7A-00000007SQH-3i3F;
-	Tue, 13 Jan 2026 16:19:32 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id D66D3417BD;
-	Tue, 13 Jan 2026 17:19:17 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
-	t=1768321163; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=sgxXVC2FsBUN9t3WEgWwzTWuclM5HhRFteoBQ8njGPI=;
-	b=dkQBUFnGXLxGcBL1IwTitewtzZlr1MF+dr9gAvL+Rgv4zAXinS/wHcs3mc4RMR6rEzW8FU
-	Y6qYxgljyojIpsBQdri/tSMkvRqOgE1SpHyTILD+sIQbeGERw7yDNJZh0Us4wX9WdijpLJ
-	kp7ptijvu47Of3UZW9CC6J2pLB1oswc91cO2Cb0rWRgDdZyaoDYBmLq6fa28gaSNsIJNUR
-	nCLi/hQlY7n9xQzLqDNe5LAvvNw3/Pi4pphNSccAAR1RWklFA734zq80Z7sdwZ/n9eTJ0T
-	QrAJ9sQTKxJSw4d6dTofRaj6mxXC5Yu1jXHtBvZWixKbIYqJB2/YDv0wkiPlmg==
-From: "Dragan Simic" <dsimic@manjaro.org>
-In-Reply-To: <20260112141300.332996-1-jerrysteve1101@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-References: <20260112141300.332996-1-jerrysteve1101@gmail.com>
-Date: Tue, 13 Jan 2026 17:19:17 +0100
-Cc: heiko@sntech.de, pbrobinson@gmail.com, didi.debian@cknow.org, conor+dt@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-To: "Jun Yan" <jerrysteve1101@gmail.com>
+	id 1vfhDS-00000007T2D-3uk8
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 16:26:00 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-47ed987d51aso8637345e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 08:25:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1768321556; x=1768926356; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=y9kSWtn88k+QkPqpOG7NN6Fxk/gRH5gvJVVHZoYjlVA=;
+        b=AWJ3LjZcCgewUzLSzpg/HVEX/WzvAF4GPmkYCfG6smzzZKcH2v//Xumn3M32dL32FA
+         yi0+jtLmTak6Tq9hCRB6ESorx+h4aWHfcgyCoch+ej39Ga9qMwnoXtn7QIDPKxjQO4uJ
+         gb65kya4ozlFSLwNQ5YklCFOQEfIzNBYT33C0UVsoNzAiMc3fynlQspUKuqE2KdDXRnr
+         /S7DJNToWu3znDzFG3V94VkIia4rLL70stsniHBMfODYVb0+nEKQ3gwAyUEgMwfbueHb
+         RoyHJYhuC/y2JlclnduJ5MgP6rTnh9kuXlWGk5CZuImz16VUfwsbZe2o/DP7JkPWZEwq
+         enJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768321556; x=1768926356;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=y9kSWtn88k+QkPqpOG7NN6Fxk/gRH5gvJVVHZoYjlVA=;
+        b=qD2+z9xQB1xGPdaoexzF/VHdohEqhJQwDsWw6Ial5QDpf5RbwDFI8T/Q+e2zQC9d/g
+         BDSr8eiXNE5tW/xvqNq67EQf13qHpo/YdfeuTKxZF9YAa0YsSQwa3bROacRNxCuQKJhw
+         a+5DBgIiP87Xjq2oGWz8cV/u1VoKyCwcybzgn757tR8PGAcuyzol6JQOaROSAYrskxns
+         7iMUpPM3kVCoDNjKcd0MaC+dvwNhK30QpUXEPj3MHzLv52qqGQgywW0vwexP2KqE4cw3
+         Kz6KECd0CyBkGJFOp44AlIK9MCnE42pCXEuVPqSlvLg2Hi7dCyFho6r+3VBfg6uz9xBz
+         5lZg==
+X-Forwarded-Encrypted: i=1; AJvYcCUpNUpzo/NDEXZ24TJ9nby11Y6aHf9GbfA/tbtT9z4BdZ+oewo48uQ5XsMuvqXV3PgYxnEQs5iP93zO5GlidvLH@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGKAy37MqPxgTwaGrV5jQKJu2z5pwhNxw6fuW/nHew1vxxhxFh
+	KuQq2pb7oHV3KP37ogWIC8m+4hk703lw4ZNs2LAOaSO6s0kFGKM4pejXHZKDEqnVzlQ=
+X-Gm-Gg: AY/fxX5y5ILfpbJLiaWirt/yqtBYl+MqjdjZab7oycrTdGjDq4iwr4L3O1+WgU8J+CJ
+	XjJ66jJMjxIah5l4upL7AL82LKnhWvSAyHrkW8BvGC/qpvWwC8MfLNthato0536nLUlETCysY7t
+	+5wmPB8m8whDq6zEK8hSKbEIe+QtD9WqltXlTwCvZKLNIUs9T5VAh+GyprqS83/6ReoxLZ+lkhd
+	2gba8q8Lmg1ANneCE6UsvlFQj5LHBtxBdKz5S6TYEFm1fTkCK4M4i6mOVqd5I7d7UcbkYfsoMG+
+	nZM9kFFv812d8QoK0F8Jrv7AAyB1nhK+0mo9X9yeQ/4gvgocRaB3vPpCYYFaMgERZ6rL7zEsA66
+	tI4QSLbJk0dL84GAv9C0yoXYR8X+yjgFDyUwntQCBm/bDQ4SmV2STkdlTxcza1z2cX+1/cJvPOx
+	FL6RACpCjuKyJpjvzHZusgsCdQ
+X-Google-Smtp-Source: AGHT+IG4o2sMRbjal/wNqE1AyBhrQEhgOmuQP9i1Wb50Y85ZgDNaJvwCCbv/cl0e10bMkrsnwOfPLQ==
+X-Received: by 2002:a05:600c:1e1c:b0:477:58af:a91d with SMTP id 5b1f17b1804b1-47d84b0aa4bmr229523325e9.5.1768321556267;
+        Tue, 13 Jan 2026 08:25:56 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0dad8bsm45637605f8f.8.2026.01.13.08.25.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Jan 2026 08:25:55 -0800 (PST)
+Date: Tue, 13 Jan 2026 17:25:52 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: Marcos Paulo de Souza <mpdesouza@suse.com>
+Cc: Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jason Wessel <jason.wessel@windriver.com>,
+	Daniel Thompson <danielt@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	John Ogness <john.ogness@linutronix.de>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
+	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 01/19] printk/nbcon: Use an enum to specify the required
+ callback in console_is_usable()
+Message-ID: <aWZyEHsOJFLRLRKT@pathway.suse.cz>
+References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+ <20251227-printk-cleanup-part3-v1-1-21a291bcf197@suse.com>
 MIME-Version: 1.0
-Message-ID: <3468aed9-c760-fe0e-5c5f-4b03129873fd@manjaro.org>
-Subject: =?utf-8?q?Re=3A?= [PATCH] =?utf-8?q?arm64=3A?==?utf-8?q?_dts=3A?=
- =?utf-8?q?_rockchip=3A?= Remove =?utf-8?q?hdmi=5Fsound?= on 
- rk3399-pinebook-pro
-User-Agent: SOGoMail 5.12.3
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: None
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251227-printk-cleanup-part3-v1-1-21a291bcf197@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_081930_939930_41B536EE 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20260113_082558_992833_89ECC9EE 
+X-CRM114-Status: GOOD (  24.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,76 +134,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Jun,
-
-On Monday, January 12, 2026 15:13 CET, Jun Yan <jerrysteve1101@gmail.co=
-m> wrote:
-> According to the Pinebook Pro specification, it lacks HDMI port,
-> but hdmi=5Fsound is wrongly enabled.
->=20
-> This fixes the following warning:
->=20
-> platform hdmi-sound: deferred probe pending: asoc-simple-card: parse =
-error
-
-Thanks for this patch!  I'd suggest that the patch description is rewri=
-tten
-a bit using the standard imperative mood, and without relying on the pa=
-tch
-subject or the patch itself for establishing the required context.
-
-For example, it may all read like this:
-
-  arm64: dts: rockchip: Do not enable hdmi=5Fsound node on Pinebook Pro
-
-  Remove the redundant enabling of the hdmi=5Fsound node in the Pineboo=
-k Pro
-  board dts file, because the HDMI output is unused on this device. [1]=
-[2]
-  This also eliminates the following warning from the kernel log, which
-  also gets emitted on some other devices with HDMI ports, caused by so=
-me
-  other reasons that are still unclear:
-
-    platform hdmi-sound: deferred probe pending: asoc-simple-card: pars=
-e error
-
-  [1] https://files.pine64.org/doc/PinebookPro/pinebookpro=5Fv2.1=5Fmai=
-nboard=5Fschematic.pdf
-  [2] https://files.pine64.org/doc/PinebookPro/pinebookpro=5Fschematic=5F=
-v21a=5F20220419.pdf
-
-As described above, getting rid of the quoted kernel warning is actuall=
-y
-a nice side effect, so to speak.
-
-> Fixes: 5a65505a69884 ("arm64: dts: rockchip: Add initial support for =
-Pinebook Pro")
-> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
-
-The tags should also include "Cc: stable@vger.kernel.org", to have this=
- fix
-propagated into the stable kernels as well.
-
-> ---
->  arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts | 4 ----
->  1 file changed, 4 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts b/a=
-rch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-> index eaaca08a7601..a6ac89567baf 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-> @@ -421,10 +421,6 @@ &gpu {
->  	status =3D "okay";
+On Sat 2025-12-27 09:16:08, Marcos Paulo de Souza wrote:
+> The current usage of console_is_usable() is clumsy. The parameter
+> @use_atomic is boolean and thus not self-explanatory. The function is
+> called twice in situations when there are no-strict requirements.
+> 
+> Replace it with enum nbcon_write_cb which provides a more descriptive
+> values for all 3 situations: atomic, thread or any.
+> 
+> Note that console_is_usable() checks only NBCON_USE_ATOMIC because
+> .write_thread() callback is mandatory. But the other two values still
+> make sense because they describe the intention of the caller.
+> 
+> --- a/include/linux/console.h
+> +++ b/include/linux/console.h
+> @@ -202,6 +202,19 @@ enum cons_flags {
+>  	CON_NBCON_ATOMIC_UNSAFE	= BIT(9),
 >  };
-> =20
-> -&hdmi=5Fsound {
-> -	status =3D "okay";
-> -};
-> -
->  &i2c0 {
->  	clock-frequency =3D <400000>;
->  	i2c-scl-falling-time-ns =3D <4>;
+>  
+> +/**
+> + * enum nbcon_write_cb - Defines which nbcon write() callback must be used based
+> + *                       on the caller context.
+> + * @NBCON_USE_ATOMIC: Use con->write_atomic().
+> + * @NBCON_USE_THREAD: Use con->write_thread().
+> + * @NBCON_USE_ANY:    The caller does not have any strict requirements.
+> + */
+> +enum nbcon_write_cb {
+> +	NBCON_USE_ATOMIC,
+> +	NBCON_USE_THREAD,
+> +	NBCON_USE_ANY,
 
+AFAIK, this would define NBCON_USE_ATOMIC as zero. See below.
+
+> +};
+> +
+>  /**
+>   * struct nbcon_state - console state for nbcon consoles
+>   * @atom:	Compound of the state fields for atomic operations
+> @@ -622,7 +635,8 @@ extern void nbcon_kdb_release(struct nbcon_write_context *wctxt);
+>   * which can also play a role in deciding if @con can be used to print
+>   * records.
+>   */
+> -static inline bool console_is_usable(struct console *con, short flags, bool use_atomic)
+> +static inline bool console_is_usable(struct console *con, short flags,
+> +				     enum nbcon_write_cb nwc)
+>  {
+>  	if (!(flags & CON_ENABLED))
+>  		return false;
+> @@ -631,7 +645,7 @@ static inline bool console_is_usable(struct console *con, short flags, bool use_
+>  		return false;
+>  
+>  	if (flags & CON_NBCON) {
+> -		if (use_atomic) {
+> +		if (nwc & NBCON_USE_ATOMIC) {
+
+This will always be false because NBCON_USE_ATOMIC is zero.
+I think that it was defined as "0x1" in the original proposal.
+
+Let's keep it defined by as zero and use here:
+
+		if (nwc == NBCON_USE_ATOMIC) {
+
+Note that we do _not_ want to return "false" for "NBCON_USE_ANY"
+when con->write_atomic does not exist.
+
+>  			/* The write_atomic() callback is optional. */
+>  			if (!con->write_atomic)
+>  				return false;
+
+
+Otherwise, it looks good to me.
+
+Best Regards,
+Petr
 
