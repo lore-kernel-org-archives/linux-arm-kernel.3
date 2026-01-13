@@ -4,72 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABCB8D2D0E9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 12:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C67DDD2D0EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 12:48:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T/8Bp9EtRi+dBpT7WJ1GJrg8Htbr6gXDuf6Ie0dhaGM=; b=BZ/4DB+y1Vi9b6nFv2/VCjBjiQ
-	/AHxZo1uSVzuhjp4X5rj71qH+a4U1FyJ/Poq/N3s4C6B8C9AOF8BgeqdYYHJtQInl1x/LEJD6Phem
-	rFOYxqlJNzePDpFhkH1yT1XpLNdEItE5XI5ZiCtrYGN5l+cfnPL71HoPsapHDhzn29115cLZn/9/j
-	F2DVJmwDb1fy9cgMpFNCRYs9D3uJ++w4oloKJmgXch1ec0Hu1LK+j+OCIWLiV+wQLEraeVp6PcYNy
-	0bQ6t1vsQ3zQdUJ6dY17yb6POGpCwWYYUqmShA8UBLvubyg2vmALSzxlLkN+986tbDd562B4ZeYoq
-	+Igq3vQQ==;
+	bh=GBn4vzxGDGOP8vN0eGuN0F1an9awLjoq1I6ZyMzSguc=; b=XQQeJoLoIXh5QIw4hrosw6RWf0
+	jYzZgvINiSrNjjC1Qv1DpG+XTL3ZL/cVUTnm12F4Fad2MsceZ7uSaBYxdK7Vt47CS5krgljToMKXD
+	6zSI3Uuz7PeAe1cRXRLAVtUh6kbFi8uvdr4Ne1iUM2/cdkD5BKbJ0YDdyJSCaG13BewHiVF5i6Sj5
+	865a3xNy/Ui9k0g6v1BgODhgGyF0vU2nWJaKduRSns3KAom//2uSotzdJcbCyp3PtdBR38pCLTJqC
+	iuF52y0BMsO2VtsDSayvkniRMj2moPSyv6LpnHVMrH1eSgZY2OeR4oAirc3vtCzhHNf8JC8Er3arK
+	jPaOpmTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfdmf-0000000776R-472U;
-	Tue, 13 Jan 2026 12:46:05 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfdmc-0000000775r-3kr7
+	id 1vfdp4-000000077Fq-1qx6;
+	Tue, 13 Jan 2026 12:48:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfdp1-000000077FE-3pkB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 12:46:04 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vfdmU-0007Pm-HP; Tue, 13 Jan 2026 13:45:54 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vfdmU-000QP4-2E;
-	Tue, 13 Jan 2026 13:45:54 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vfdmT-009sZG-2q;
-	Tue, 13 Jan 2026 13:45:53 +0100
-Date: Tue, 13 Jan 2026 13:45:53 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Daniel Baluta <daniel.baluta@gmail.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] clk: imx: fracn-gppll: Add 241.90 MHz Support
-Message-ID: <20260113124553.qe7rai3bn6bff7hy@pengutronix.de>
-References: <20260113-v6-18-topic-clk-fracn-gppll-v1-0-166e674aabf1@pengutronix.de>
- <20260113-v6-18-topic-clk-fracn-gppll-v1-2-166e674aabf1@pengutronix.de>
- <CAEnQRZBfVjX=vpzrU9sQuOmZGt-NY0P6dt1dZpciLVFa3w2bSA@mail.gmail.com>
+	Tue, 13 Jan 2026 12:48:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5932A497;
+	Tue, 13 Jan 2026 04:48:22 -0800 (PST)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 462EE3F59E;
+	Tue, 13 Jan 2026 04:48:27 -0800 (PST)
+Date: Tue, 13 Jan 2026 12:48:24 +0000
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: mark.rutland@arm.com, james.morse@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Subject: Re: [RFC PATCH v6 19/35] KVM: arm64: Trap PMBIDR_EL1 and PMSIDR_EL1
+Message-ID: <aWY_GGzNW85ZR7dP@raptor>
+References: <20251114160717.163230-1-alexandru.elisei@arm.com>
+ <20251114160717.163230-20-alexandru.elisei@arm.com>
+ <f7d73dc3-aa4a-4c32-aabb-21a61a2f773f@linaro.org>
+ <aWTa76KXpIwzPh4k@raptor>
+ <adacaff6-c6c7-47a5-993a-29f006fe1b86@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAEnQRZBfVjX=vpzrU9sQuOmZGt-NY0P6dt1dZpciLVFa3w2bSA@mail.gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <adacaff6-c6c7-47a5-993a-29f006fe1b86@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_044602_934260_687CBD11 
-X-CRM114-Status: GOOD (  22.86  )
+X-CRM114-CacheID: sfid-20260113_044832_044727_048C6EB2 
+X-CRM114-Status: GOOD (  37.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,51 +68,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-01-13, Daniel Baluta wrote:
-> On Tue, Jan 13, 2026 at 2:29 PM Marco Felsch <m.felsch@pengutronix.de> wrote:
-> >
-> > Some parallel panels have a pixelclk of 24.19 MHz. Add support for
-> > 241.90 MHz so a by 10 divider can be used to derive the exact pixelclk.
-> >
-> > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> > ---
-> >  drivers/clk/imx/clk-fracn-gppll.c | 3 ++-
-> >  1 file changed, 2 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/clk/imx/clk-fracn-gppll.c b/drivers/clk/imx/clk-fracn-gppll.c
-> > index 579f76494eb041dfba58b8cd10eb2453a0ec4178..eb3d5e3c53946f3caf83bcff654c6481611375e3 100644
-> > --- a/drivers/clk/imx/clk-fracn-gppll.c
-> > +++ b/drivers/clk/imx/clk-fracn-gppll.c
-> > @@ -89,7 +89,8 @@ static const struct imx_fracn_gppll_rate_table fracn_tbl[] = {
-> >         PLL_FRACN_GP(400000000U, 200, 0, 1, 0, 12),
-> >         PLL_FRACN_GP(393216000U, 163, 84, 100, 0, 10),
-> >         PLL_FRACN_GP(332600000U, 138, 584, 1000, 0, 10),
-> > -       PLL_FRACN_GP(300000000U, 150, 0, 1, 0, 12)
-> > +       PLL_FRACN_GP(300000000U, 150, 0, 1, 0, 12),
-> > +       PLL_FRACN_GP(241900000U, 201, 584, 1000, 0, 20)
+Hi James,
+
+On Mon, Jan 12, 2026 at 11:54:05AM +0000, James Clark wrote:
 > 
-> Can you please end this line with a comma so that next addition at the end of
-> the array will create a simpler diff?
-
-Thought about this too but I don't know why I didn't added this.
-
-Thanks for the input.
-
-Regards,
-  Marco
-
-> Look for example at int_tbl array in the same file.
 > 
-> thanks,
-> Daniel.
+> On 12/01/2026 11:28 am, Alexandru Elisei wrote:
+> > Hi James,
+> > 
+> > On Fri, Jan 09, 2026 at 04:29:37PM +0000, James Clark wrote:
+> > > 
+> > > 
+> > > On 14/11/2025 4:07 pm, Alexandru Elisei wrote:
+> > > > PMBIDR_EL1 and PMSIDR_EL1 are read-only registers that describe the SPE
+> > > > implementation. Trap reads to allow KVM to control how SPE is described to
+> > > > a virtual machine. In particular, this is needed to:
+> > > > 
+> > > > - Advertise the maximum buffer size set by userspace in
+> > > >     PMBIDR_EL1.MaxBuffSize.
+> > > > - Hide in PMSIDR_EL1, if necessary, the presence of FEAT_SPE_FDS and
+> > > >     FEAT_SPE_FnE, both of which add new registers which are already
+> > > >     trapped via the FGU mechanism.
+> > > > 
+> > > > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> > > > ---
+> > > >    arch/arm64/include/asm/kvm_spe.h |  4 +-
+> > > >    arch/arm64/kvm/config.c          | 13 ++++-
+> > > >    arch/arm64/kvm/spe.c             | 82 +++++++++++++++++++++++++++++++-
+> > > >    arch/arm64/kvm/sys_regs.c        | 13 +++--
+> > > >    4 files changed, 103 insertions(+), 9 deletions(-)
+> > > > 
+> > > > diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
+> > > > index 3506d8c4c661..47b94794cc5f 100644
+> > > > --- a/arch/arm64/include/asm/kvm_spe.h
+> > > > +++ b/arch/arm64/include/asm/kvm_spe.h
+> > > > @@ -40,7 +40,7 @@ int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+> > > >    int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+> > > >    bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val);
+> > > > -u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg);
+> > > > +u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg, u32 encoding);
+> > > >    #else
+> > > >    struct kvm_spe {
+> > > >    };
+> > > > @@ -78,7 +78,7 @@ static inline bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val)
+> > > >    {
+> > > >    	return true;
+> > > >    }
+> > > > -static inline u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg)
+> > > > +static inline u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg, u32 encoding)
+> > > >    {
+> > > >    	return 0;
+> > > >    }
+> > > > diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> > > > index 24bb3f36e9d5..ed6b167b7aa8 100644
+> > > > --- a/arch/arm64/kvm/config.c
+> > > > +++ b/arch/arm64/kvm/config.c
+> > > > @@ -6,6 +6,7 @@
+> > > >    #include <linux/kvm_host.h>
+> > > >    #include <asm/kvm_emulate.h>
+> > > > +#include <asm/kvm_spe.h>
+> > > >    #include <asm/kvm_nested.h>
+> > > >    #include <asm/sysreg.h>
+> > > > @@ -1489,6 +1490,16 @@ static void __compute_hfgwtr(struct kvm_vcpu *vcpu)
+> > > >    		*vcpu_fgt(vcpu, HFGWTR_EL2) |= HFGWTR_EL2_TCR_EL1;
+> > > >    }
+> > > > +static void __compute_hdfgrtr(struct kvm_vcpu *vcpu)
+> > > > +{
+> > > > +	__compute_fgt(vcpu, HDFGRTR_EL2);
+> > > > +
+> > > > +	if (vcpu_has_spe(vcpu)) {
+> > > > +		*vcpu_fgt(vcpu, HDFGRTR_EL2) |= HDFGRTR_EL2_PMBIDR_EL1;
+> > > > +		*vcpu_fgt(vcpu, HDFGRTR_EL2) |= HDFGRTR_EL2_PMSIDR_EL1;
+> > > > +	}
+> > > > +}
+> > > > +
+> > > >    static void __compute_hdfgwtr(struct kvm_vcpu *vcpu)
+> > > >    {
+> > > >    	__compute_fgt(vcpu, HDFGWTR_EL2);
+> > > > @@ -1505,7 +1516,7 @@ void kvm_vcpu_load_fgt(struct kvm_vcpu *vcpu)
+> > > >    	__compute_fgt(vcpu, HFGRTR_EL2);
+> > > >    	__compute_hfgwtr(vcpu);
+> > > >    	__compute_fgt(vcpu, HFGITR_EL2);
+> > > > -	__compute_fgt(vcpu, HDFGRTR_EL2);
+> > > > +	__compute_hdfgrtr(vcpu);
+> > > >    	__compute_hdfgwtr(vcpu);
+> > > >    	__compute_fgt(vcpu, HAFGRTR_EL2);
+> > > > diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
+> > > > index 5b3dc622cf82..92eb46276c71 100644
+> > > > --- a/arch/arm64/kvm/spe.c
+> > > > +++ b/arch/arm64/kvm/spe.c
+> > > > @@ -22,10 +22,16 @@ struct arm_spu_entry {
+> > > >    	struct arm_spe_pmu *arm_spu;
+> > > >    };
+> > > > +static u64 max_buffer_size_to_pmbidr_el1(u64 size);
+> > > > +
+> > > >    void kvm_host_spe_init(struct arm_spe_pmu *arm_spu)
+> > > >    {
+> > > >    	struct arm_spu_entry *entry;
+> > > > +	/* PMBIDR_EL1 cannot be trapped without FEAT_FGT. */
+> > > > +	if (!cpus_have_final_cap(ARM64_HAS_FGT))
+> > > > +		return;
+> > > > +
+> > > 
+> > > Isn't this only required if you want to report a different PMBIDR value? If
+> > > the value in hardware is already what you want to give to guests then it's
+> > > not strictly required. Maybe it's something we can do as an addition later
+> > > to make it usable in more places.
+> > 
+> > The maximum buffer size is advertised in PMBIDR_EL1.
+> > 
+> > Thanks,
+> > Alex
+> > 
 > 
+> I know, but 0 "unlimited" is a valid value, and that's what's already in
+> PMBIDR. You only need to trap if the value doesn't match what's already
+> there.
+> 
+> You can also "probe" the maximum buffer size without this by attempting to
+> set the limit pointer and looking at the buffer management error code.
+> 
+> The first thing I did when I went to use this was comment this out because
+> my hardware doesn't support FGT. But the rest of it works fine without,
+> maybe other people could benefit in the future too.
 
--- 
-#gernperDu 
-#CallMeByMyFirstName
+I could add a new capability for setting the maximum buffer size (or to set a
+buffer size different than what the hardware advertises), enabled when FEAT_FGT
+is implement by the hardware. But that means not allowing KVM SPE on Neoverse
+because of erratum 3023823 [1]. So I don't think you would be able to use KVM
+SPE out of the box on your hardware anyway (if I understood correctly that
+you've been using a Neoverse CPU to test the series).
 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+[1] https://developer.arm.com/documentation/SDEN-885747/34-0
+
+Thanks,
+Alex
 
