@@ -4,166 +4,215 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63ABFD30CEE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 23:00:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8CCED29DDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 23:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qduaxtUhOKGBieCA9upG9ry9upET2745aVf+dmQViTo=; b=g5oZvpvTMmRITOcHxv9PzDspNB
-	yHyj4JlX9kXxYc1XBpu+YR+Yng3wbJhTUd4FPuqho4mBlElPpWony6/xuIhmrNqeefsiU0n1CIqr8
-	olF1h8zPg+ky8UwBYbIgbGcBy/zCqD7gIe/tAh1RtCTUu40ykzFihkk2Lx/hCNziDA9MEPKBwFkp/
-	SifLPTVaDRduQgad7pgeuNDSgGWaq/Q2d1FlDCjgl01mAvsPVU8AQOMNHHjUo8sUuSMkAhcDdlRks
-	nWvtGqA+LHwiplR9FR52towfvWyKk/HronB4U7xhGBm+yj+/mMHxNU43fjbghyOv+4lSl3rfEG8zP
-	BEPnzzgA==;
+	bh=grIdRM0uyfP1t8KHqJwREeKo5jR3aU987h90BzhWuCc=; b=3QjxnuWfaHjWR9wBxoP2tzfxLE
+	XfMzbWpYMt4pVZgygofuediDPVpVLqjmIT/3ITNg89TVRC4TvtOggBvHBs0nsplD4qByr9B0vTaGj
+	Rf0yNemyfDNivw3JpSiNpcxtV9AEPR8TwBTCrb59vOOF3mDfMholmsHO7fPtni/2EI94tq8WtCVSs
+	RqcUqIHSJClRAEpePdpqtHoXrEQKbcb6rgs3XvLnWiDyJ+HVjOvdHHjlWs6jFb+G7c8WyD5XmjVKJ
+	Mo0dx9ZZm1kOXrT2M6QDG14n2J8DyDyq3NFNvncHFTIB24tL1TcoKMNGVNuqMCzLZwci+MP1i7uzj
+	8DcNySWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfnNF-00000007r32-1ikh;
-	Tue, 13 Jan 2026 23:00:29 +0000
-Received: from mail-francesouthazon11011021.outbound.protection.outlook.com ([40.107.130.21] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vfnd4-00000007rZb-2vus;
+	Tue, 13 Jan 2026 23:16:50 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfnNC-00000007r2c-3kZU;
-	Tue, 13 Jan 2026 23:00:28 +0000
+	id 1vfnd0-00000007rZG-36qe
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 23:16:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768346206; x=1799882206;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=XadCUqe2ZWQefF2MdQbFZRap9Sg68KpW7m+TQr3QmYY=;
+  b=EZPwAld7aq3zQxsgBmb88ioMLM89512fV+iSYFVB2GCsbJoYh/qu2TQR
+   F3T0BzmcvqLSVHwoVZEtifg7HKaGuZB8ZvIBE03fn9qOGrS1V4WShQ0cd
+   tv9oovpTEIrchkvcLH5fHuZ1nbUBOxDa53fUohy3knyZPJnC/fcuU3J/p
+   ziXDlUzX52t8niLFJHMbN5yXi8X43JS3K9mKnHuUacXJ5BB31avAIePP2
+   dBW/1/8q082ZmgFBxdjw12TylStHdJMkD7mYeOKNQaKBdc+2CKvbho0DN
+   43rxUroKTKeNRd7Eb7Y6YpRUcwud+YSEzkDVzplTWKVpzHjAqnWqv51Kk
+   g==;
+X-CSE-ConnectionGUID: +Ynp4CgZTYWX8zTJwXop5g==
+X-CSE-MsgGUID: ixoDUDVARVeMM7oHI2F6UQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11670"; a="69563273"
+X-IronPort-AV: E=Sophos;i="6.21,224,1763452800"; 
+   d="scan'208";a="69563273"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2026 15:16:41 -0800
+X-CSE-ConnectionGUID: NWqIkZu1Q5G3/1ISElY8RA==
+X-CSE-MsgGUID: mNvtZXwkR/mW3GUfzRbtew==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,224,1763452800"; 
+   d="scan'208";a="209360121"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2026 15:16:38 -0800
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Tue, 13 Jan 2026 15:16:15 -0800
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29 via Frontend Transport; Tue, 13 Jan 2026 15:16:15 -0800
+Received: from BYAPR05CU005.outbound.protection.outlook.com (52.101.85.4) by
+ edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Tue, 13 Jan 2026 15:16:15 -0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Gm+10UZddL/iAS+i/sebAwZUgmWMgBbgO1+2KCRWuxGn2mWBl8A5l8RlcMxJvU283+5uoHy4abozvsCgic0PuMN/cH0DPoZGWHb9fMvyIEe6ccmaXRYAHgbqmlT8Xz/3p/nn+CU8M1CTNZyObncU23k5nkny+hvup6qa533Yq2hQ109GIk2+FvDeGLu8pAYTx/kXIfaPGS4t2/lDJwMyZnln6xV6HgWYdga9d/kILKsb8zOLpwbkpX6Lxots+ACtpo+s/o2jCRl0oIVtII5v24cxt4+xf+ie5H+T6Kexw+uLtKxTez++A2AxHDmomh+RYLmg+iMmpzY+sNs3Jtm/Ug==
+ b=VGFuBvAt9MSDPTz7CdB8DKC3DJH56CFUa4qa6pY5IiBHBBEOhwofPAKCpk0tpME3iplBp2kyT3DuCmrPnD2pzxLauj2w5+R7qcafV0O9kKb1YoQonW7IpJJ/7WadFDJ5AneICOm/50bho9+slueGPuZFGPBiw3CzennIEfQmOl7XGxURadnR/GHymcLCPUw5VzfkwzvJ88ac7Pw+3OM7k5Tx55kUzk6JfImxzqIx6zn8qniQXzea2F/QWHrzNeuG1mZGrA57U0s1ARmTrIxkm1FBvGFpmhmRz8TpczfjAEAFpihlsa79o3ujGCvfwelmCg6JuEm5+cSjYc4vvIfhhQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qduaxtUhOKGBieCA9upG9ry9upET2745aVf+dmQViTo=;
- b=s84umoOV/rEsksbj0Gb80DNN9ttLaa/L4633CLHkoUr6BglzRPgrLsMRCg4Kg4ciGBx2EatrnEW/ipmc6wem2yEzTLJgGu08W/UnNLRknyt4mtOd4ASM5oDE6joPH6Rj3RObY+AfL2e/GhvVPck5TLe9F5nGREltzNZjCWA00D0Qmcf/V/7UhmGAc/CLwi0yoHAe37IoHkqTx5yr3HHTpASYsplYSxRIsg+41EIX6Bb56uzR7sVwCPKv/qWK6befAI3mqekFSB+g7hG8yKb3movYiA1B/7CjEewbUUo26IUCffUw8iC70OtvxuenIqbawX4B+kcYinz8HhiBs3KknA==
+ bh=grIdRM0uyfP1t8KHqJwREeKo5jR3aU987h90BzhWuCc=;
+ b=yakJBvRVqn+m94FPwIK+Rat9+xAyVwtcVXS71st+Ec8FuEBXZywsfe/IVqfYxu/9RkyDZB+ZamV6WiH+qHqZTIYTFN5EblLplAp+U0Led6Lk4Lls1GcehWITK76jjbQC6XMar7+7kPMIDgX6LWg6pcYoibyiTrXLUFsgAwKoIST4iJBIexB5vvO13vOJy1oIzVE7yxHWfAePQHaWvB1ygeDHhUNDuB1QUQiOaLlYjSzXtFlonpmPNxafNgILYkQXea2jRcKX7mIaJXAGECIqOsaiqaQi3fMTaRzFCb1d2PveMgWmtCdB+l2TPW9koOn+x2x3KmbbV4S3T2YaNiQuag==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qduaxtUhOKGBieCA9upG9ry9upET2745aVf+dmQViTo=;
- b=c5lnPZI6dqcuMrL5LIWAolyvxSJDmuyTOLeLW78XWX+71Wz3R8DAHq53wsrbtq4pcHmXsN7rtg+UfMAiefBwPQL+uTpebaIZ3czt0QQyvsQgIpXrMkbQdMzWd0f9i46DO9TznJlMclsOUoImX1M3Ga1XK8kRGOtul+75rGvtF+FkaBtAjykBLXnSz02hTmtjB44yI6tNR5krw2fTggwWJ8MVufgGkzeQvkhbPBRZZ0xjKalSIhedS1+SVo0hoqQQC3tNAX1PTq+NPeSbiueE06XMfChcJy2TP99N2P4+Vul/e6YaUv8WZ5xIScAKCVFRWAfqOZogeVjRtxjRdfhGCA==
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by GVXPR04MB11041.eurprd04.prod.outlook.com (2603:10a6:150:218::13) with
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SN7PR11MB7566.namprd11.prod.outlook.com (2603:10b6:806:34d::7)
+ by CY8PR11MB7084.namprd11.prod.outlook.com (2603:10b6:930:50::5) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Tue, 13 Jan
- 2026 23:00:18 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9478.004; Tue, 13 Jan 2026
- 23:00:18 +0000
-Date: Tue, 13 Jan 2026 18:00:09 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Michael Riesch <michael.riesch@collabora.com>
-Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Collabora Kernel Team <kernel@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] media: rockchip: add driver for the rockchip mipi
- csi-2 receiver
-Message-ID: <aWbOean+pWoS1KUe@lizhi-Precision-Tower-5810>
-References: <20251114-rockchip-mipi-receiver-v3-0-16e83aa7f395@collabora.com>
- <20251114-rockchip-mipi-receiver-v3-2-16e83aa7f395@collabora.com>
- <aWbAK70dj4EazJ9p@lizhi-Precision-Tower-5810>
- <b1d9800d-54ee-453e-bc8e-7de092265e55@collabora.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b1d9800d-54ee-453e-bc8e-7de092265e55@collabora.com>
-X-ClientProxiedBy: PH7PR13CA0009.namprd13.prod.outlook.com
- (2603:10b6:510:174::12) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+ 2026 23:16:12 +0000
+Received: from SN7PR11MB7566.namprd11.prod.outlook.com
+ ([fe80::eccb:f6e0:36cd:a989]) by SN7PR11MB7566.namprd11.prod.outlook.com
+ ([fe80::eccb:f6e0:36cd:a989%5]) with mapi id 15.20.9499.005; Tue, 13 Jan 2026
+ 23:16:12 +0000
+Message-ID: <e65d2b54-e14c-4b1d-a9ea-04b6e0eb051f@intel.com>
+Date: Tue, 13 Jan 2026 15:14:29 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 28/47] arm_mpam: resctrl: Add support for csu counters
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
+	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
+	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
+	<quic_jiles@quicinc.com>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<tan.shaopeng@fujitsu.com>, <xhao@linux.alibaba.com>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <corbet@lwn.net>,
+	<maz@kernel.org>, <oupton@kernel.org>, <joey.gouly@arm.com>,
+	<suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+ <20260112165914.4086692-29-ben.horgan@arm.com>
+Content-Language: en-US
+From: Reinette Chatre <reinette.chatre@intel.com>
+In-Reply-To: <20260112165914.4086692-29-ben.horgan@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW4PR04CA0201.namprd04.prod.outlook.com
+ (2603:10b6:303:86::26) To SN7PR11MB7566.namprd11.prod.outlook.com
+ (2603:10b6:806:34d::7)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|GVXPR04MB11041:EE_
-X-MS-Office365-Filtering-Correlation-Id: 277a78ff-f196-4a5e-ba35-08de52f78587
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-TrafficTypeDiagnostic: SN7PR11MB7566:EE_|CY8PR11MB7084:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3ca6042f-a418-4c4a-3581-08de52f9be38
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?r1lQhXokto7S65+jCalQQHbCfdKdX6IdQH3jrJzXAKrac8eYAcJdzQNoa65k?=
- =?us-ascii?Q?XwHNN9e+b9wc3KCP4BupbEWAGACwLvdfyzsNTXBY5f72/D6Zie9lYQ6OQmcC?=
- =?us-ascii?Q?U6YfNZhs0Rz672HyBshS79tOfTPRmowNm2o14sGykNQz1V6wU06lewU1tKoE?=
- =?us-ascii?Q?0xGvbjRKdLygsI70ixTMgZlfwBUOtUcUiY0cmZN5q0iR0TwtNa6kqo4wZuRp?=
- =?us-ascii?Q?UIT1ElFTIezGAAq3UHWFtnkzCmgyIraWhRvjcNKHF81+dtzb3/G4h2pVDnyL?=
- =?us-ascii?Q?/NNUdUw5F+WjCWWuMrlcrcsfwz0xzGCOHWsV0av7uwvhLcawdlAeIpaWVouk?=
- =?us-ascii?Q?FF2IAVy2Cfhyr+CWfJxn3EhEP+t9Dl4QyrJ3WoSbkhO57Y/tewiojpXhvOW/?=
- =?us-ascii?Q?W/aHr8SOKh1eRdtxrQHTM0CtE8jLbKDsiYRodOUv+EQ9x6TqQ6lJH8CRqwLP?=
- =?us-ascii?Q?24dpeF42jh6QPwxVnjCadu91MJWZsCzajcqo3GT/KYuyV0xRyILbBqDrNDxb?=
- =?us-ascii?Q?AS88qYs/+eMl/Kc4hQKGQ5RH/5j47s5BTVnsXhzb5cZuFHBKzV8j+QFo3PuY?=
- =?us-ascii?Q?uDXGVV8sHLj7rbdrQalwRjYUyB5s6wZLsuXyO8XepjHavUJ4cCztkcs9B483?=
- =?us-ascii?Q?M9kVMsvmn+JWA3nGPvdXfYDKk04yd7YLhv9eYEA2TdEPYKGAVdHmHHS+miWt?=
- =?us-ascii?Q?uPo4KQ1Chci/MkM3sX0vkCdz8k+h27UTwVcM+Z2t4OKyj5kfv5spByGdezo8?=
- =?us-ascii?Q?I+Xvzn4b6xvfI3ru56EnmFxzeVF1JNEJ+m/G14jTJnWG/FbVdNf7UheaHR59?=
- =?us-ascii?Q?D5sxyuInjwQ3pIA9O2v7/P2kCIuUJgRR6MyIFmSTl6j+8vWsgD8O9f+wMCKe?=
- =?us-ascii?Q?x02Do+9VBCV4o3Wv/oUfOYLierOGuHk9xgDDQjEXVNVwjZCL7LK/RssEcQDS?=
- =?us-ascii?Q?hGwpq0lvJWSmU91iDMnCaQ+nZo2bN4sa4jJSU2CMMqAqDU/gL6jYJH3UJE/r?=
- =?us-ascii?Q?CJgDsWIsZPOXtyAo8yuEGZyFc1BMnZEawRLpjLGDWayx1o2nCsnsWIaHS5TL?=
- =?us-ascii?Q?/SbMSY1NBkudvKUjl9hCizhZRKryfaCtYGEuU/yGo1E1auVnBF2D/HdaMBSu?=
- =?us-ascii?Q?ZQBNQxCn/h6zm6xiw2NwQY/JY+ZjnOL3AzumdPombzkCW91M0v6unnwALjxW?=
- =?us-ascii?Q?R2PasCXA8hFVrl4XZ4Z6tI60NVs1U6kFJXuSOfsWwPL407QVblQ293VCGnGw?=
- =?us-ascii?Q?N2Xx8bAaLbudOktVx1eueaVSRw8W/6h+sJab8bbOR3G77A7l4hanzcwhBHxP?=
- =?us-ascii?Q?8fjRfTA+IXUootP88CK7SDSH7ZBFRxAZwF0Uyf0YkHCCxel1rpxCOdiYKp/H?=
- =?us-ascii?Q?jiuWGRm75RDJp+1s5mpSfpK0DD7gi/onHbmrgE04u5xV/sZaDSprI2moo99x?=
- =?us-ascii?Q?QE4urrkdjmNfLE9YlRoQCFIB2fRRTuNs9X/4gfFbPOSXUv6DiXeXbCXSA9/Q?=
- =?us-ascii?Q?aCiAxYqq9tgc5UWM/4BqC1phconBoko0PYgwi+V7meQr4QMBqO04UGgXqw?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UXJUUW1mSGZtZmZIeEhxaFNMTGIyK1RjL1ByY1dYaFdwcWpQK3psTjd4UU05?=
+ =?utf-8?B?WXZYeUdlL3l4T2J0Y2Uwc001RjhvNzYzOWxrVzFzMHh2ODlmbHBhZFRSMmVN?=
+ =?utf-8?B?UGtIZGdlOWtWaWIrTXg0VHliclg3ZGJQWmFnNEdUcXI1RWJQRndFOHhTNi9R?=
+ =?utf-8?B?MWRwczlid1R2cVcyMGtwMGFZRUtrSWJScUZSNmdRT1NKM1pYbVNNNUc3NDlZ?=
+ =?utf-8?B?cnhZZ091V2lnOWtVNE1kWGdRNzhieGxpVUozRzBIcWNEV3pkMkJtOW91Wktm?=
+ =?utf-8?B?YkQ2UExqMGIwOTBKWndsZ1hmdWJZOEdRUGhVcjZmcFN3WXg2UUl4V040SWw1?=
+ =?utf-8?B?MVVrVWtKbld0Qm1rZk9TWW8yNTV4c0xNZ3BXcUlib012V2ZxYXRSc2MwT21k?=
+ =?utf-8?B?V3FmVzdNWkdGMmpaY25LdVJvM29MUGtQdit0UTFMaVFtOXRyUUg4VVJQaVdH?=
+ =?utf-8?B?YmJrdjFablkyNXhwbXhQbHJtZlF6YzY5WU45UlFnTFV4WHQ0Qy85ejhhSTc5?=
+ =?utf-8?B?azN0bFpaMWdiN3ZJWUQweEo1eHF2eGdIZm81M1ZzbWFCNHJuMWprR3BPbGpq?=
+ =?utf-8?B?UWFtQ05hV2pyamJUWnNreERJcmFYOWZCQkNCa01Yc3VkTkFLZWQ2TERmTktO?=
+ =?utf-8?B?djh3WDF6Njk4cmlRZ1RlN0d4QWRCblkvSVdpbkxHODBKWmh4b1M5VmJVMzVX?=
+ =?utf-8?B?Rjl1NUNtZ1B2V0FMSDg2MUVhNC9lVzY4N28vd0pmckcxSU1tWjBMdzBDRWFF?=
+ =?utf-8?B?VG1ISVdBUjAyRGgzVHgweE0wdHB5dTB4UTN3WThKS2U0aTNRTWJ5UURnZEVN?=
+ =?utf-8?B?MXZ6QWUvaEh3aTNQcVpJN3BBUEw4SFp0cFBmWTRCb3hrZ29wbENZR0NqZE1Y?=
+ =?utf-8?B?UWxDV1VBSjA3bktkdTFDQkh3TTBFNWVPdTZiODFGL2wwek02UlJROWJVSkVL?=
+ =?utf-8?B?SHo4U3g0OFVKTGJPUWsvR2VSMzRIRUU3K2pJMkxLeFJudnlGYWJsR2VWaFlk?=
+ =?utf-8?B?Rm9PRG9sL3R5RkUwVVpYb2VwTE1XRGJoNGhqdGlmbUR5eHJDN2EvQU9yL1Q0?=
+ =?utf-8?B?KzArYnRVaS9ybUhiUG5hamE4eVhQR2ZRMFlWTTZ3a29qcVV4RDdsLzFUaVJD?=
+ =?utf-8?B?RzNRRGJHZ3VzVGZDTWR5bUxzVnMvQ3FmUmNSaEtLMHNieHdIL1NWcFNZNENV?=
+ =?utf-8?B?aEFPVVp0K1NsV3d2ei8weFROanpaSVZBMXVRdHZrNmRxTzB0MitReE5TMnF0?=
+ =?utf-8?B?MENzdXZ1eU5TcnI2YzEyei9EVFlqQWVFNlh1M0IrcHlWdXBPTXZoYzZZMUVh?=
+ =?utf-8?B?aW01QlQxeTVQb3RaVUVrQzVMbXd0elRPYVBDZlVDaFNrZ0tCNWZwcldYU3NC?=
+ =?utf-8?B?WkJZVE4vTTZOeWFBZGh3cU4wMzUyV2FLSkgwQWFkUkNQRG5kdC9jcnFZbU5E?=
+ =?utf-8?B?SDhvM2x6cXJXSjYyR2xBeGdBR25ONmtaMUQ4eCtNZlluZHpxMTg5cTBBbTYw?=
+ =?utf-8?B?c2wzUU5zR1dTeDYxVlhSMmtJZk5ndVRvakkzMEdoVWdFbnlqcmdxSG9LN3Vw?=
+ =?utf-8?B?eUFiTFUvbjhWaW9kK2J1MFl2bEtPQXRPY0M2azNrL3lCQ1c3dWdyVFl0NjNk?=
+ =?utf-8?B?NWRMYStnSUJoZjdtRTdPZHJpRkd4RmtKazc4K0xCbUFFY29qbk13Y0V5RHdJ?=
+ =?utf-8?B?b1o4cXoxam51SWYwd2dLV0xPNkNITmZaU2kxVmFMK0RJam1TNVNCSm13YVBF?=
+ =?utf-8?B?cmxOYkpVSWs0V3plcTBESHlQNytoajArbGFFK21pb0xtT2NqVk14MWExc00z?=
+ =?utf-8?B?YUErcXpwYTlWaWFjV3RLRStNMlpGTlFKa2ZUNEZsbEgrZHlZN1g0elpla3hu?=
+ =?utf-8?B?UWl3QzNpWktxV2VoT0xtcGp2OGpFRERvajNnaTF4UDBvUE40dVhHYVk0bDFG?=
+ =?utf-8?B?RU5WRWFoc0laY3NtYUh2SW5oZ3ZtaVNvZVVIWWdFK0xxZTkxcDZTUk5HaU9L?=
+ =?utf-8?B?b09QeS9UQVV3PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR11MB7566.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IQcpDKg2Yv6GyT8dfN/fpqheBZ8K6LIDeIcfikYoZ4lPcHR2QhhGLxnZnqTB?=
- =?us-ascii?Q?Q9Ko7aDTFVh/pEe8o4Mjft1pO/uJ6HAU3R4Ooc8NKNd4di+hXjr/GkRQaUNu?=
- =?us-ascii?Q?VJq1b2fpKWsJYOm7DkjNFgqfxZEETTghKLst5u+FL0TaUf20or5LZIncjI3q?=
- =?us-ascii?Q?/YZ5qbKRt5/6DpaUm8OIfdbMOEk0FCCl7DKwhoyCrauDubxLaTdv84hBEQTo?=
- =?us-ascii?Q?m9jSZkkEGAm5kWR0ipS7AZP183FtchEtxveH56HEXaMeo4s1bK24HnZfywH1?=
- =?us-ascii?Q?FWTgVE7i6Y57j/jJbbbS9NHDaxj6nf7GpieyJbdYeJrrflOTaR25nvWG/MgX?=
- =?us-ascii?Q?+MElDOe+t9OX0w3iB/4olx5ysId7nHrCI3tMeGW/slmYLYGPDX+T/QAlxFEe?=
- =?us-ascii?Q?42fZbOCP+CufOakA3q1XLkvjRMGW15xeQU2wwivYQJg5g2AId2Rfd55tXYuH?=
- =?us-ascii?Q?c6XImR8za3oeUbyzxB1sO2YKPIb8lKLr8qvEHloDoFbH4TnM++VfNWeNuh4r?=
- =?us-ascii?Q?2M4jmJMd9FRDSCvS7iXf+7GJ2q6K+kbpHXgBx3PHKdUOQuVNBuKqF0hp9hYS?=
- =?us-ascii?Q?LNRUpfMJT4FRKg2mXZxGOBMcxTgJOtAQKJHfUDvw0sCFkSpVem/HFxVJzrH8?=
- =?us-ascii?Q?wUKRalJFS5y/ZnIsDTw82/2lg4HI1DsLYdxMFjHNadYj3AB0rOpAX7TmNIVA?=
- =?us-ascii?Q?305deaRT0KYt4M85Ho1yYJWiDnRoFku+MNg/+TulRzsMo2zj9N/kGT6P64R1?=
- =?us-ascii?Q?HFxltJ097oKugNWQ6Gt606fHWrN7ZAL4sUcHy/QhvMSvjwAPN3bc1qZRefUn?=
- =?us-ascii?Q?hQQIyCwiwkRhczZoYgZNquGejeZUOEmoA+NLpcsGHhzSVxgnC8c7kJ3PtDaa?=
- =?us-ascii?Q?l3Q+0i+Q+Ng0cSyhHMttizca2CLgTbxcncsVkHSSZO2Lr2sbPHhJbR6mZdyM?=
- =?us-ascii?Q?jpp3P9AS8rBFPc1A5sEzgnc/fhtFbXDuj75zVtL9Bs9mhA3FvXOVSjz8pVT/?=
- =?us-ascii?Q?obe9wbdMrlxCmeYKbMpnGjSmwpo5dO/GCQyRAJv1yASUmSTdWOrL+EVxb6uF?=
- =?us-ascii?Q?LiDjxXMoeZwbNe7IF2WgObVKctyQrSzEA0zIzrDQhY4lxXb+ghsWkuDn1h5X?=
- =?us-ascii?Q?o8eioOOPEt97LyxIRjp51M7ypuFY6XNtvxRUDCP+QivWSqdL3Owm5ay8O0eJ?=
- =?us-ascii?Q?FmWOn4UtVNtjl2Hp5+tUqjzQWaGjpHL37MGdG7BOXGy6oVqd5gnYU+ygdkD5?=
- =?us-ascii?Q?4PDiHAwxENCt9czemtnfeai2q4YBWkzivYP/lu+GmKAt/HVMjeF+QHh8SIpY?=
- =?us-ascii?Q?xDgJsrZlOhKKXkE5RnWUDb7lhmZTOeuCeND/twh40IqvwnhHf0TF3EDoRh7J?=
- =?us-ascii?Q?XxaaHDJdQ1TVRhqcLapuqCegH7u5LOEz6ihOnNpJ8wSN2a/gAhfzzYbPVSWy?=
- =?us-ascii?Q?m5yn9ZZ7OWcEP51uhNRN31Z3eSEt/xRtgav+OD+qr/PtekT5D1rVDnhBcld3?=
- =?us-ascii?Q?egbAq+GKIrXENmACYR4djZmM2JDJu4ccwxuF7NiL+JfWs50j5ix41oeDmhit?=
- =?us-ascii?Q?pH9y4HUxMbHxsFgRLgXNwBVALENja7W5VmVN47K5ritmAPf0VnOVSFATj/Rm?=
- =?us-ascii?Q?6LrJ/gMDQacVsahSdoY81wCh7NwrPqEC8ejKHcP+Mit0qTu0gi25hO5Npj1q?=
- =?us-ascii?Q?7qNnGZrZG+esJ8+W/8IJbufLvmfG0Rcbp+YJVmQl+lom5Oy2?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 277a78ff-f196-4a5e-ba35-08de52f78587
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b0lxWlB6ZlpWemV2eE9DT3dvQTB4K042RTNRQWRWak1mNW5HazFuVzBzTTZF?=
+ =?utf-8?B?M056MDQrWkNXNU5IN1UrZkpZSFlNMElnT3FRZVRSL3RPOXRDZlhFV1VjeGJI?=
+ =?utf-8?B?Uk9GR25EZVRsVlhOZGltR0NQejcxYVU5ajgxdzRUY2VlQ2VseGFhNDZ1U2pk?=
+ =?utf-8?B?N2pkamFGcTVaVEpnSkJTdjc1dXEvQWVXNmF6ZDZtM0RuaVRiR21nR3pFUVdz?=
+ =?utf-8?B?bkhCK0NWQVFxVlVFT0paZDVDdXdzVzJsY2J6eThFOWFFV2NPdWxNL3ozVS9n?=
+ =?utf-8?B?RE93Ykc0UHFMSlNjSldiM1kyR2hKbDg3clhneGphQStCaTdrQTdVQzd5RTRC?=
+ =?utf-8?B?QWhhWkFrTGErckhROGtVV1N5MHJ4RTg5RXh4VUNiT21HaHk1RXpWR3dTN0d2?=
+ =?utf-8?B?U1l1ZzJzckJVenZrU0NJc2drMFFzdXNXT3hraDdFRi9zc1VrS3Mxb2EySjBi?=
+ =?utf-8?B?YWc5ZkorZHM1eUdGL0FvRHZweXBtWDBWUjRMaWJ0MDc5MUlqRHJReGNRLzA2?=
+ =?utf-8?B?OGxVMnI2WXhaaWx3TExTaTh3WW8yTDVSUXduMzQ1NVl5bWVjMFJ3czBHRVpQ?=
+ =?utf-8?B?MHZDMm1NQ1puTlVLZU83ajFPaDlscFlmMlpzajBCb0pEZllSSW9Vem15Y0kw?=
+ =?utf-8?B?b3h0TmlEVEJxZFdabGE4RmkrWkdSeU5la2R4TVNsQTRteUxxSzA4TXlVSkFY?=
+ =?utf-8?B?b1dLQVpUSWVXemNUSkFkN1R4TFZEemo0Q2dZRUtIYWEzUTJhcTJKOUttU1Rq?=
+ =?utf-8?B?aUdFY1VWekZQM0pOc1lhcW1OWGxMYlJIZnQrNTVvenhBTThUaVU3NFhrWlU4?=
+ =?utf-8?B?dzdEaGNpNnQ0ME1ITTJhTm0wVDNJT0FvK21wbVMxN09YdDhXT1V5b0ZIYTgz?=
+ =?utf-8?B?cXBwT0M2L0dTOEg2YXNpMjhMS2ZGT3VBcDRPbnZmU0Q5QmxudUVYaGpGWm9S?=
+ =?utf-8?B?SGsxa1NvOWNRRVdzV0JmTjhoM0FOb3BnQjBrUmZhYnJTVzhsZkFEMXB5NXU5?=
+ =?utf-8?B?U01hWEV3YUFYSlRaOGh6OUY5bjJMYnFBOVVHWHZWZWVYQ3FwR2xvZnh3Sk1t?=
+ =?utf-8?B?dzdtblBvWTN4TWlSYlBvYjQwOG5Jd2xqbWFyU1pESEhzbTdwWmdSVElBOEVa?=
+ =?utf-8?B?cnA5UlBuTHpqcnFsREVWdG9MYldmQ2xPdkxqeEJld3NYdkdSZEUxVVVPK1ky?=
+ =?utf-8?B?QURKT0VlNHJ2aThWTUlPSFpxTzk2SVlBVGp1VXJsRzFUeC8rY1ZhOUlkL1F6?=
+ =?utf-8?B?SFc1TUdmcjFIMm5nYzNLenV3RERYaUlyODZ4MFlvTWI5dUNyV3ZqZGFVc21z?=
+ =?utf-8?B?TnNNeStHQUh3SDBBRFZzY3VySEExZjRjOHZ0Q1V5QXh0YVBpTlRzanMzRzFx?=
+ =?utf-8?B?NEQzYU04WGxSVGF0aWFBbWlXUk9TLzVlV2FxNUthYnNvUFZiblJIdTRkK3N4?=
+ =?utf-8?B?ZjVNZjk3cDdhOGdnajVNZUpSdzRsL2RzRUpucnJaSFBOQ1d3eDNSa2E5ZnFV?=
+ =?utf-8?B?dm9HcWhUSzZoTmRHU2NBeDlKdmpEVTExU0grSjdvWnBVSnRDbXFEcVBoTDV1?=
+ =?utf-8?B?dEpNcEwwbnVIYTM2WTAxOGZQOU5ZVmdXMjU0TWRxdGQ0M1RnNEk0V1BrbVZ3?=
+ =?utf-8?B?Ykd0NGgrdXAyZnE2ZlJCSElRS3MybGVNenlXSHdhaGtrRUsraWEyNmdSRlp4?=
+ =?utf-8?B?eEFpZGdQcjAvUXFUZTVOdFdFUk0rMDQ5NEN6S1QwcVBoMHJ2Q3AwUXRLWXJn?=
+ =?utf-8?B?b2VkRGc1dmhxUXZ2RERPcnlsUTVSdzZQSlRkbWFNd2oxNWFCazFjTkhuQ3Iv?=
+ =?utf-8?B?YTl5YmNXdjNqTmZiMXdwWlBrZVJNUFZEaEU3K1Q0aHBTM1pZMElGeHBpM0tM?=
+ =?utf-8?B?d3d3M3JpTTB1dTh6WTlkelhzclAxcmtjMElTcGw4ZmpQRFRsQTNHOFZJYnBo?=
+ =?utf-8?B?Q004dHlsUU9JSnl5NlB4TjBqVWRIYktqaEM1bksyYyt3VnQ2Rm1oUGdLak5i?=
+ =?utf-8?B?NDk4NmZBbGJjUC9vb0VVMGNQdVJaaTFmTkxjejRKN0x5VG1TNmcrcVRObFNv?=
+ =?utf-8?B?UVdLNWFCWnZhNjg5SzQxcnppNzZ4MTRGbnhrQm5oS1VCWDYzcGpZQXk3dll5?=
+ =?utf-8?B?UElyWCtzVEo5eXY1d1VxSGl3MS8rZEhjSkptc0NDRTdtMk00bDJnL3BQUmxY?=
+ =?utf-8?B?eTkzMitmVFZOZUlsc1JPUXlZUCtESFFjdHJGUTFjanBiRmtUUklTREo3MzNS?=
+ =?utf-8?B?RXl5QjVuQzBEaGVUQlFSdEtkRTM5Uy9aUmRQQktpM0VVN09tQ1dFRUlOMTFn?=
+ =?utf-8?B?T1h6Wkl4ZTQyN3V3V1FlK1FhTGYzM3dyejBHTVdFZS9ucXppMWJZMUFFUVNj?=
+ =?utf-8?Q?/V2fXJW5wJmvtdLA=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3ca6042f-a418-4c4a-3581-08de52f9be38
+X-MS-Exchange-CrossTenant-AuthSource: SN7PR11MB7566.namprd11.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2026 23:00:18.6348
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jan 2026 23:16:12.6051
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ktmIDYw62qqf+lFoYFlbWwH+vRn84+Ao+EdNa5ky6FTMFTazFOwDh4PlNgZYnD4C0E9//rRMHwLvHjj3baoI8A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11041
+X-MS-Exchange-CrossTenant-UserPrincipalName: lpNxlt6ROxq2cbjYnDeookJcHyEwHeZWGgm1Wuk/hObcfmctndg7k5g6L97f4J4TfDj24EGRPUUmIg3NHttXPCJKSFFqH4Go2fGWZXWnI+0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR11MB7084
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_150027_181279_2ED93C0F 
-X-CRM114-Status: GOOD (  32.74  )
+X-CRM114-CacheID: sfid-20260113_151646_869409_F18F8067 
+X-CRM114-Status: GOOD (  28.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,791 +227,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 13, 2026 at 11:44:56PM +0100, Michael Riesch wrote:
-> Hi Frank,
->
-> On 1/13/26 22:59, Frank Li wrote:
-> > [...]
-> >> +#define CSI2HOST_N_LANES     0x04
-> >> +#define CSI2HOST_CSI2_RESETN 0x10
-> >> +#define CSI2HOST_PHY_STATE   0x14
-> >> +#define CSI2HOST_ERR1	     0x20
-> >> +#define CSI2HOST_ERR2	     0x24
-> >> +#define CSI2HOST_MSK1	     0x28
-> >> +#define CSI2HOST_MSK2	     0x2c
-> >> +#define CSI2HOST_CONTROL     0x40
-> >
-> > I remember I said before. It is DWC compatible's CSI2 controller, even
-> > it is not name as DWC. The register define and offset is the same.
-> >
-> > Can you move to
-> > drivers/media/platform/synopsys/
-> >
-> > So other vendor can be reuse it easily.
->
-> Quote from my mail from 2025-11-26: "In principle, I agree with
-> refactoring out common code. However, I am
-> not sure how similar these IP cores really are. Again, the answer I
-> received from Rockchip states that this is *not* a Synopsys IP core.
+Hi Ben,
 
-This is not important. Many difference vendor controller is compatible.
+On 1/12/26 8:58 AM, Ben Horgan wrote:
+> From: James Morse <james.morse@arm.com>
+> 
+> resctrl exposes a counter via a file named llc_occupancy. This isn't really
+> a counter as its value goes up and down, this is a snapshot of the cache
+> storage usage monitor.
+> 
+> Add some picking code to find a cache as close as possible to the L3 that
+> supports the CSU monitor.
+> 
+> If there is an L3, but it doesn't have any controls, force the L3 resource
+> to exist. The existing topology_matches_l3() and
+> mpam_resctrl_domain_hdr_init() code will ensure this looks like the L3,
+> even if the class belongs to a later cache.
+> 
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Co-developed-by: Dave Martin <dave.martin@arm.com>
+> Signed-off-by: Dave Martin <dave.martin@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+> Changes since rfc:
+> Allow csu counters however many partid or pmg there are
+> else if -> if
+> reduce scope of local variables
+> drop has_csu
+> 
+> Changes since v2:
+> return -> break so works for mbwu in later patch
+> add for_each_mpam_resctrl_mon
+> return error from mpam_resctrl_monitor_init(). It may fail when is abmc
+> allocation introduced in a later patch.
+> Squashed in patch from Dave Martin:
+> https://lore.kernel.org/lkml/20250820131621.54983-1-Dave.Martin@arm.com/
+> ---
+>  drivers/resctrl/mpam_internal.h |   6 ++
+>  drivers/resctrl/mpam_resctrl.c  | 173 +++++++++++++++++++++++++++++++-
+>  2 files changed, 174 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index f89ceaf7623d..21cc776e57aa 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -349,6 +349,12 @@ struct mpam_resctrl_res {
+>  	struct rdt_resource	resctrl_res;
+>  };
+>  
+> +struct mpam_resctrl_mon {
+> +	struct mpam_class	*class;
+> +
+> +	/* per-class data that resctrl needs will live here */
+> +};
+> +
+>  static inline int mpam_alloc_csu_mon(struct mpam_class *class)
+>  {
+>  	struct mpam_props *cprops = &class->props;
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index 7402bf4293b6..5020a5faed96 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -37,6 +37,21 @@ static struct mpam_resctrl_res mpam_resctrl_controls[RDT_NUM_RESOURCES];
+>  /* The lock for modifying resctrl's domain lists from cpuhp callbacks. */
+>  static DEFINE_MUTEX(domain_list_lock);
+>  
+> +/*
+> + * The classes we've picked to map to resctrl events.
+> + * Resctrl believes all the worlds a Xeon, and these are all on the L3. This
+> + * array lets us find the actual class backing the event counters. e.g.
+> + * the only memory bandwidth counters may be on the memory controller, but to
+> + * make use of them, we pretend they are on L3.
+> + * Class pointer may be NULL.
+> + */
+> +static struct mpam_resctrl_mon mpam_resctrl_counters[QOS_NUM_EVENTS];
+> +
+> +#define for_each_mpam_resctrl_mon(mon, eventid)					\
+> +	for (eventid = 0, mon = &mpam_resctrl_counters[eventid];		\
+> +	     eventid < QOS_NUM_EVENTS;						\
+> +	     eventid++, mon = &mpam_resctrl_counters[eventid])
+> +
 
-Register define and offset is the same.
+Reading the above loop and how it is used to call mpam_resctrl_monitor_init() for every event
+it looks like there is an implicit assumption that MPAM supports all events known to
+resctrl.
 
->
-> Can you maybe test whether the Rockchip MIPI CSI-2 Receiver driver in
-> this series works on your hardware? Then we will know if (and what)
-> parts can be shared." [0]
+Please consider the most recent resctrl feature "telemetry monitoring" currently queued
+for inclusion: https://lore.kernel.org/lkml/20251217172121.12030-1-tony.luck@intel.com/
 
-Laurent have not reply my last email
-https://lore.kernel.org/all/aS3XfZFF8rmt8ZT6@lizhi-Precision-Tower-5810/
+(You can find latest resctrl code queued for inclusion on the x86/cache branch of
+git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git)
 
-If agree base on this patch for DWC CSI2 support, I can start test it
-at my hardware, which need some efforts to adapt it. If maintainer have
-difference idea, that waste efforts.
+New telemetry monitoring introduces several new events known to resctrl. Specifically, here
+is how enum resctrl_event_id looks at the moment:
 
-Frank
->
-> You didn't even bother to reply to that. Of course, I *could* rename the
-> driver and move it (hey, I already did that once [1], why not again),
-> but why should I bother given that you don't even respond to my (I'd
-> still say reasonable) request?
->
-> All that said, this can be resolved quite easily: if you test the driver
-> at hand on your HW and confirm that it works for you, and I don't hear
-> any other objections, I'll rename the driver, change the prefixes to
-> "csirx_", and move it to drivers/media/platform/synopsys/csirx.
-> Suggestions for better naming welcome of course.
->
-> However, if I don't hear from you, I'll ask the maintainers kindly to
-> apply the patches at hand. They have seen 11 iterations in total (v6-v14
-> of the RK3568 VICAP series and v1-v2 of this series) and I doubt there
-> is any harm in accepting it. The driver can be renamed and moved at a
-> later stage as well, BTW.
->
-> Best regards,
-> Michael
->
-> [0]
-> https://lore.kernel.org/all/87049b4c-df7d-454b-a7f4-073975a7ee94@collabora.com/
-> [1]
-> https://lore.kernel.org/all/3aab9697-30fe-4697-a5ac-7fb8ebb61213@collabora.com/
->
->
-> >
-> > Frank
-> >
-> >> +
-> >> +#define SW_CPHY_EN(x)	     ((x) << 0)
-> >> +#define SW_DSI_EN(x)	     ((x) << 4)
-> >> +#define SW_DATATYPE_FS(x)    ((x) << 8)
-> >> +#define SW_DATATYPE_FE(x)    ((x) << 14)
-> >> +#define SW_DATATYPE_LS(x)    ((x) << 20)
-> >> +#define SW_DATATYPE_LE(x)    ((x) << 26)
-> >> +
-> >> +#define RKCSI_CLKS_MAX	     1
-> >> +
-> >> +enum {
-> >> +	RKCSI_PAD_SINK,
-> >> +	RKCSI_PAD_SRC,
-> >> +	RKCSI_PAD_MAX,
-> >> +};
-> >> +
-> >> +struct rkcsi_format {
-> >> +	u32 code;
-> >> +	u8 depth;
-> >> +	u8 csi_dt;
-> >> +};
-> >> +
-> >> +struct rkcsi_device {
-> >> +	struct device *dev;
-> >> +
-> >> +	void __iomem *base_addr;
-> >> +	struct clk_bulk_data *clks;
-> >> +	unsigned int clks_num;
-> >> +	struct phy *phy;
-> >> +	struct reset_control *reset;
-> >> +
-> >> +	const struct rkcsi_format *formats;
-> >> +	unsigned int formats_num;
-> >> +
-> >> +	struct media_pad pads[RKCSI_PAD_MAX];
-> >> +	struct v4l2_async_notifier notifier;
-> >> +	struct v4l2_fwnode_endpoint vep;
-> >> +	struct v4l2_subdev sd;
-> >> +
-> >> +	struct v4l2_subdev *source_sd;
-> >> +	u32 source_pad;
-> >> +};
-> >> +
-> >> +static const struct v4l2_mbus_framefmt default_format = {
-> >> +	.width = 3840,
-> >> +	.height = 2160,
-> >> +	.code = MEDIA_BUS_FMT_SRGGB10_1X10,
-> >> +	.field = V4L2_FIELD_NONE,
-> >> +	.colorspace = V4L2_COLORSPACE_RAW,
-> >> +	.ycbcr_enc = V4L2_YCBCR_ENC_601,
-> >> +	.quantization = V4L2_QUANTIZATION_FULL_RANGE,
-> >> +	.xfer_func = V4L2_XFER_FUNC_NONE,
-> >> +};
-> >> +
-> >> +static const struct rkcsi_format formats[] = {
-> >> +	/* YUV formats */
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_YUYV8_1X16,
-> >> +		.depth = 16,
-> >> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-> >> +	},
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_UYVY8_1X16,
-> >> +		.depth = 16,
-> >> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-> >> +	},
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_YVYU8_1X16,
-> >> +		.depth = 16,
-> >> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-> >> +	},
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_VYUY8_1X16,
-> >> +		.depth = 16,
-> >> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-> >> +	},
-> >> +	/* RGB formats */
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_RGB888_1X24,
-> >> +		.depth = 24,
-> >> +		.csi_dt = MIPI_CSI2_DT_RGB888,
-> >> +	},
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_BGR888_1X24,
-> >> +		.depth = 24,
-> >> +		.csi_dt = MIPI_CSI2_DT_RGB888,
-> >> +	},
-> >> +	/* Bayer formats */
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_SBGGR8_1X8,
-> >> +		.depth = 8,
-> >> +		.csi_dt = MIPI_CSI2_DT_RAW8,
-> >> +	},
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_SGBRG8_1X8,
-> >> +		.depth = 8,
-> >> +		.csi_dt = MIPI_CSI2_DT_RAW8,
-> >> +	},
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_SGRBG8_1X8,
-> >> +		.depth = 8,
-> >> +		.csi_dt = MIPI_CSI2_DT_RAW8,
-> >> +	},
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_SRGGB8_1X8,
-> >> +		.depth = 8,
-> >> +		.csi_dt = MIPI_CSI2_DT_RAW8,
-> >> +	},
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_SBGGR10_1X10,
-> >> +		.depth = 10,
-> >> +		.csi_dt = MIPI_CSI2_DT_RAW10,
-> >> +	},
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_SGBRG10_1X10,
-> >> +		.depth = 10,
-> >> +		.csi_dt = MIPI_CSI2_DT_RAW10,
-> >> +	},
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_SGRBG10_1X10,
-> >> +		.depth = 10,
-> >> +		.csi_dt = MIPI_CSI2_DT_RAW10,
-> >> +	},
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_SRGGB10_1X10,
-> >> +		.depth = 10,
-> >> +		.csi_dt = MIPI_CSI2_DT_RAW10,
-> >> +	},
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_SBGGR12_1X12,
-> >> +		.depth = 12,
-> >> +		.csi_dt = MIPI_CSI2_DT_RAW12,
-> >> +	},
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_SGBRG12_1X12,
-> >> +		.depth = 12,
-> >> +		.csi_dt = MIPI_CSI2_DT_RAW12,
-> >> +	},
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_SGRBG12_1X12,
-> >> +		.depth = 12,
-> >> +		.csi_dt = MIPI_CSI2_DT_RAW12,
-> >> +	},
-> >> +	{
-> >> +		.code = MEDIA_BUS_FMT_SRGGB12_1X12,
-> >> +		.depth = 12,
-> >> +		.csi_dt = MIPI_CSI2_DT_RAW12,
-> >> +	},
-> >> +};
-> >> +
-> >> +static inline struct rkcsi_device *to_rkcsi(struct v4l2_subdev *sd)
-> >> +{
-> >> +	return container_of(sd, struct rkcsi_device, sd);
-> >> +}
-> >> +
-> >> +static inline __maybe_unused void rkcsi_write(struct rkcsi_device *csi_dev,
-> >> +					      unsigned int addr, u32 val)
-> >> +{
-> >> +	writel(val, csi_dev->base_addr + addr);
-> >> +}
-> >> +
-> >> +static inline __maybe_unused u32 rkcsi_read(struct rkcsi_device *csi_dev,
-> >> +					    unsigned int addr)
-> >> +{
-> >> +	return readl(csi_dev->base_addr + addr);
-> >> +}
-> >> +
-> >> +static const struct rkcsi_format *
-> >> +rkcsi_find_format(struct rkcsi_device *csi_dev, u32 mbus_code)
-> >> +{
-> >> +	const struct rkcsi_format *format;
-> >> +
-> >> +	WARN_ON(csi_dev->formats_num == 0);
-> >> +
-> >> +	for (int i = 0; i < csi_dev->formats_num; i++) {
-> >> +		format = &csi_dev->formats[i];
-> >> +		if (format->code == mbus_code)
-> >> +			return format;
-> >> +	}
-> >> +
-> >> +	return NULL;
-> >> +}
-> >> +
-> >> +static int rkcsi_start(struct rkcsi_device *csi_dev)
-> >> +{
-> >> +	struct media_pad *source_pad =
-> >> +		&csi_dev->source_sd->entity.pads[csi_dev->source_pad];
-> >> +	enum v4l2_mbus_type bus_type = csi_dev->vep.bus_type;
-> >> +	union phy_configure_opts opts;
-> >> +	s64 link_freq;
-> >> +	u32 lanes = csi_dev->vep.bus.mipi_csi2.num_data_lanes;
-> >> +	u32 control = 0;
-> >> +	int ret;
-> >> +
-> >> +	if (lanes < 1 || lanes > 4)
-> >> +		return -EINVAL;
-> >> +
-> >> +	/* set mult and div to 0, thus completely rely on V4L2_CID_LINK_FREQ */
-> >> +	link_freq = v4l2_get_link_freq(source_pad, 0, 0);
-> >> +	if (link_freq <= 0)
-> >> +		return -EINVAL;
-> >> +
-> >> +	if (bus_type == V4L2_MBUS_CSI2_DPHY) {
-> >> +		struct phy_configure_opts_mipi_dphy *cfg = &opts.mipi_dphy;
-> >> +
-> >> +		ret = phy_mipi_dphy_get_default_config_for_hsclk(link_freq * 2,
-> >> +								 lanes, cfg);
-> >> +		if (ret)
-> >> +			return ret;
-> >> +
-> >> +		ret = phy_set_mode(csi_dev->phy, PHY_MODE_MIPI_DPHY);
-> >> +		if (ret)
-> >> +			return ret;
-> >> +
-> >> +		ret = phy_configure(csi_dev->phy, &opts);
-> >> +		if (ret)
-> >> +			return ret;
-> >> +
-> >> +		control |= SW_CPHY_EN(0);
-> >> +
-> >> +	} else if (bus_type == V4L2_MBUS_CSI2_CPHY) {
-> >> +		/* TODO: implement CPHY configuration */
-> >> +		return -EOPNOTSUPP;
-> >> +	} else {
-> >> +		return -EINVAL;
-> >> +	}
-> >> +
-> >> +	control |= SW_DATATYPE_FS(0x00) | SW_DATATYPE_FE(0x01) |
-> >> +		   SW_DATATYPE_LS(0x02) | SW_DATATYPE_LE(0x03);
-> >> +
-> >> +	rkcsi_write(csi_dev, CSI2HOST_N_LANES, lanes - 1);
-> >> +	rkcsi_write(csi_dev, CSI2HOST_CONTROL, control);
-> >> +	rkcsi_write(csi_dev, CSI2HOST_CSI2_RESETN, 1);
-> >> +
-> >> +	ret = phy_power_on(csi_dev->phy);
-> >> +	if (ret)
-> >> +		return ret;
-> >> +
-> >> +	return 0;
-> >> +}
-> >> +
-> >> +static void rkcsi_stop(struct rkcsi_device *csi_dev)
-> >> +{
-> >> +	phy_power_off(csi_dev->phy);
-> >> +
-> >> +	rkcsi_write(csi_dev, CSI2HOST_CSI2_RESETN, 0);
-> >> +	rkcsi_write(csi_dev, CSI2HOST_MSK1, ~0);
-> >> +	rkcsi_write(csi_dev, CSI2HOST_MSK2, ~0);
-> >> +}
-> >> +
-> >> +static const struct media_entity_operations rkcsi_media_ops = {
-> >> +	.link_validate = v4l2_subdev_link_validate,
-> >> +};
-> >> +
-> >> +static int rkcsi_enum_mbus_code(struct v4l2_subdev *sd,
-> >> +				struct v4l2_subdev_state *sd_state,
-> >> +				struct v4l2_subdev_mbus_code_enum *code)
-> >> +{
-> >> +	struct rkcsi_device *csi_dev = to_rkcsi(sd);
-> >> +
-> >> +	if (code->pad == RKCSI_PAD_SRC) {
-> >> +		const struct v4l2_mbus_framefmt *sink_fmt;
-> >> +
-> >> +		if (code->index)
-> >> +			return -EINVAL;
-> >> +
-> >> +		sink_fmt = v4l2_subdev_state_get_format(sd_state,
-> >> +							RKCSI_PAD_SINK);
-> >> +		code->code = sink_fmt->code;
-> >> +
-> >> +		return 0;
-> >> +	} else if (code->pad == RKCSI_PAD_SINK) {
-> >> +		if (code->index > csi_dev->formats_num)
-> >> +			return -EINVAL;
-> >> +
-> >> +		code->code = csi_dev->formats[code->index].code;
-> >> +		return 0;
-> >> +	}
-> >> +
-> >> +	return -EINVAL;
-> >> +}
-> >> +
-> >> +static int rkcsi_set_fmt(struct v4l2_subdev *sd,
-> >> +			 struct v4l2_subdev_state *state,
-> >> +			 struct v4l2_subdev_format *format)
-> >> +{
-> >> +	struct rkcsi_device *csi_dev = to_rkcsi(sd);
-> >> +	const struct rkcsi_format *fmt;
-> >> +	struct v4l2_mbus_framefmt *sink, *src;
-> >> +
-> >> +	/* the format on the source pad always matches the sink pad */
-> >> +	if (format->pad == RKCSI_PAD_SRC)
-> >> +		return v4l2_subdev_get_fmt(sd, state, format);
-> >> +
-> >> +	sink = v4l2_subdev_state_get_format(state, format->pad, format->stream);
-> >> +	if (!sink)
-> >> +		return -EINVAL;
-> >> +
-> >> +	fmt = rkcsi_find_format(csi_dev, format->format.code);
-> >> +	if (!fmt)
-> >> +		format->format = default_format;
-> >> +
-> >> +	*sink = format->format;
-> >> +
-> >> +	/* propagate the format to the source pad */
-> >> +	src = v4l2_subdev_state_get_opposite_stream_format(state, format->pad,
-> >> +							   format->stream);
-> >> +	if (!src)
-> >> +		return -EINVAL;
-> >> +
-> >> +	*src = *sink;
-> >> +
-> >> +	return 0;
-> >> +}
-> >> +
-> >> +static int rkcsi_set_routing(struct v4l2_subdev *sd,
-> >> +			     struct v4l2_subdev_state *state,
-> >> +			     enum v4l2_subdev_format_whence which,
-> >> +			     struct v4l2_subdev_krouting *routing)
-> >> +{
-> >> +	int ret;
-> >> +
-> >> +	ret = v4l2_subdev_routing_validate(sd, routing,
-> >> +					   V4L2_SUBDEV_ROUTING_ONLY_1_TO_1);
-> >> +	if (ret)
-> >> +		return ret;
-> >> +
-> >> +	ret = v4l2_subdev_set_routing_with_fmt(sd, state, routing,
-> >> +					       &default_format);
-> >> +	if (ret)
-> >> +		return ret;
-> >> +
-> >> +	return 0;
-> >> +}
-> >> +
-> >> +static int rkcsi_enable_streams(struct v4l2_subdev *sd,
-> >> +				struct v4l2_subdev_state *state, u32 pad,
-> >> +				u64 streams_mask)
-> >> +{
-> >> +	struct rkcsi_device *csi_dev = to_rkcsi(sd);
-> >> +	struct v4l2_subdev *remote_sd;
-> >> +	struct media_pad *sink_pad, *remote_pad;
-> >> +	struct device *dev = csi_dev->dev;
-> >> +	u64 mask;
-> >> +	int ret;
-> >> +
-> >> +	sink_pad = &sd->entity.pads[RKCSI_PAD_SINK];
-> >> +	remote_pad = media_pad_remote_pad_first(sink_pad);
-> >> +	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
-> >> +
-> >> +	mask = v4l2_subdev_state_xlate_streams(state, RKCSI_PAD_SINK,
-> >> +					       RKCSI_PAD_SRC, &streams_mask);
-> >> +
-> >> +	ret = pm_runtime_resume_and_get(dev);
-> >> +	if (ret)
-> >> +		goto err;
-> >> +
-> >> +	ret = rkcsi_start(csi_dev);
-> >> +	if (ret) {
-> >> +		dev_err(dev, "failed to enable CSI hardware\n");
-> >> +		goto err_pm_runtime_put;
-> >> +	}
-> >> +
-> >> +	ret = v4l2_subdev_enable_streams(remote_sd, remote_pad->index, mask);
-> >> +	if (ret)
-> >> +		goto err_csi_stop;
-> >> +
-> >> +	return 0;
-> >> +
-> >> +err_csi_stop:
-> >> +	rkcsi_stop(csi_dev);
-> >> +err_pm_runtime_put:
-> >> +	pm_runtime_put_sync(dev);
-> >> +err:
-> >> +	return ret;
-> >> +}
-> >> +
-> >> +static int rkcsi_disable_streams(struct v4l2_subdev *sd,
-> >> +				 struct v4l2_subdev_state *state, u32 pad,
-> >> +				 u64 streams_mask)
-> >> +{
-> >> +	struct rkcsi_device *csi_dev = to_rkcsi(sd);
-> >> +	struct v4l2_subdev *remote_sd;
-> >> +	struct media_pad *sink_pad, *remote_pad;
-> >> +	struct device *dev = csi_dev->dev;
-> >> +	u64 mask;
-> >> +	int ret;
-> >> +
-> >> +	sink_pad = &sd->entity.pads[RKCSI_PAD_SINK];
-> >> +	remote_pad = media_pad_remote_pad_first(sink_pad);
-> >> +	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
-> >> +
-> >> +	mask = v4l2_subdev_state_xlate_streams(state, RKCSI_PAD_SINK,
-> >> +					       RKCSI_PAD_SRC, &streams_mask);
-> >> +
-> >> +	ret = v4l2_subdev_disable_streams(remote_sd, remote_pad->index, mask);
-> >> +
-> >> +	rkcsi_stop(csi_dev);
-> >> +
-> >> +	pm_runtime_mark_last_busy(dev);
-> >> +	pm_runtime_put_autosuspend(dev);
-> >> +
-> >> +	return ret;
-> >> +}
-> >> +
-> >> +static const struct v4l2_subdev_pad_ops rkcsi_pad_ops = {
-> >> +	.enum_mbus_code = rkcsi_enum_mbus_code,
-> >> +	.get_fmt = v4l2_subdev_get_fmt,
-> >> +	.set_fmt = rkcsi_set_fmt,
-> >> +	.set_routing = rkcsi_set_routing,
-> >> +	.enable_streams = rkcsi_enable_streams,
-> >> +	.disable_streams = rkcsi_disable_streams,
-> >> +};
-> >> +
-> >> +static const struct v4l2_subdev_ops rkcsi_ops = {
-> >> +	.pad = &rkcsi_pad_ops,
-> >> +};
-> >> +
-> >> +static int rkcsi_init_state(struct v4l2_subdev *sd,
-> >> +			    struct v4l2_subdev_state *state)
-> >> +{
-> >> +	struct v4l2_subdev_route routes[] = {
-> >> +		{
-> >> +			.sink_pad = RKCSI_PAD_SINK,
-> >> +			.sink_stream = 0,
-> >> +			.source_pad = RKCSI_PAD_SRC,
-> >> +			.source_stream = 0,
-> >> +			.flags = V4L2_SUBDEV_ROUTE_FL_ACTIVE,
-> >> +		},
-> >> +	};
-> >> +	struct v4l2_subdev_krouting routing = {
-> >> +		.len_routes = ARRAY_SIZE(routes),
-> >> +		.num_routes = ARRAY_SIZE(routes),
-> >> +		.routes = routes,
-> >> +	};
-> >> +	int ret;
-> >> +
-> >> +	ret = v4l2_subdev_set_routing_with_fmt(sd, state, &routing,
-> >> +					       &default_format);
-> >> +
-> >> +	return ret;
-> >> +}
-> >> +
-> >> +static const struct v4l2_subdev_internal_ops rkcsi_internal_ops = {
-> >> +	.init_state = rkcsi_init_state,
-> >> +};
-> >> +
-> >> +static int rkcsi_notifier_bound(struct v4l2_async_notifier *notifier,
-> >> +				struct v4l2_subdev *sd,
-> >> +				struct v4l2_async_connection *asd)
-> >> +{
-> >> +	struct rkcsi_device *csi_dev =
-> >> +		container_of(notifier, struct rkcsi_device, notifier);
-> >> +	int source_pad;
-> >> +
-> >> +	source_pad = media_entity_get_fwnode_pad(&sd->entity, sd->fwnode,
-> >> +						 MEDIA_PAD_FL_SOURCE);
-> >> +	if (source_pad < 0) {
-> >> +		dev_err(csi_dev->dev, "failed to find source pad for %s\n",
-> >> +			sd->name);
-> >> +		return source_pad;
-> >> +	}
-> >> +
-> >> +	csi_dev->source_sd = sd;
-> >> +	csi_dev->source_pad = source_pad;
-> >> +
-> >> +	return media_create_pad_link(&sd->entity, source_pad,
-> >> +				     &csi_dev->sd.entity, RKCSI_PAD_SINK,
-> >> +				     MEDIA_LNK_FL_ENABLED);
-> >> +}
-> >> +
-> >> +static const struct v4l2_async_notifier_operations rkcsi_notifier_ops = {
-> >> +	.bound = rkcsi_notifier_bound,
-> >> +};
-> >> +
-> >> +static int rkcsi_register_notifier(struct rkcsi_device *csi_dev)
-> >> +{
-> >> +	struct v4l2_async_connection *asd;
-> >> +	struct v4l2_async_notifier *ntf = &csi_dev->notifier;
-> >> +	struct v4l2_fwnode_endpoint *vep = &csi_dev->vep;
-> >> +	struct v4l2_subdev *sd = &csi_dev->sd;
-> >> +	struct device *dev = csi_dev->dev;
-> >> +	struct fwnode_handle *ep;
-> >> +	int ret = 0;
-> >> +
-> >> +	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
-> >> +	if (!ep)
-> >> +		return dev_err_probe(dev, -ENODEV, "failed to get endpoint\n");
-> >> +
-> >> +	vep->bus_type = V4L2_MBUS_UNKNOWN;
-> >> +	ret = v4l2_fwnode_endpoint_parse(ep, vep);
-> >> +	if (ret) {
-> >> +		ret = dev_err_probe(dev, ret, "failed to parse endpoint\n");
-> >> +		goto out;
-> >> +	}
-> >> +
-> >> +	if (vep->bus_type != V4L2_MBUS_CSI2_DPHY &&
-> >> +	    vep->bus_type != V4L2_MBUS_CSI2_CPHY) {
-> >> +		ret = dev_err_probe(dev, -EINVAL,
-> >> +				    "invalid bus type of endpoint\n");
-> >> +		goto out;
-> >> +	}
-> >> +
-> >> +	v4l2_async_subdev_nf_init(ntf, sd);
-> >> +	ntf->ops = &rkcsi_notifier_ops;
-> >> +
-> >> +	asd = v4l2_async_nf_add_fwnode_remote(ntf, ep,
-> >> +					      struct v4l2_async_connection);
-> >> +	if (IS_ERR(asd)) {
-> >> +		ret = PTR_ERR(asd);
-> >> +		goto err_nf_cleanup;
-> >> +	}
-> >> +
-> >> +	ret = v4l2_async_nf_register(ntf);
-> >> +	if (ret) {
-> >> +		ret = dev_err_probe(dev, ret, "failed to register notifier\n");
-> >> +		goto err_nf_cleanup;
-> >> +	}
-> >> +
-> >> +	goto out;
-> >> +
-> >> +err_nf_cleanup:
-> >> +	v4l2_async_nf_cleanup(ntf);
-> >> +out:
-> >> +	fwnode_handle_put(ep);
-> >> +	return ret;
-> >> +}
-> >> +
-> >> +static int rkcsi_register(struct rkcsi_device *csi_dev)
-> >> +{
-> >> +	struct media_pad *pads = csi_dev->pads;
-> >> +	struct v4l2_subdev *sd = &csi_dev->sd;
-> >> +	int ret;
-> >> +
-> >> +	ret = rkcsi_register_notifier(csi_dev);
-> >> +	if (ret)
-> >> +		goto err;
-> >> +
-> >> +	v4l2_subdev_init(sd, &rkcsi_ops);
-> >> +	sd->dev = csi_dev->dev;
-> >> +	sd->entity.ops = &rkcsi_media_ops;
-> >> +	sd->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
-> >> +	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE | V4L2_SUBDEV_FL_STREAMS;
-> >> +	sd->internal_ops = &rkcsi_internal_ops;
-> >> +	sd->owner = THIS_MODULE;
-> >> +	snprintf(sd->name, sizeof(sd->name), "rockchip-mipi-csi %s",
-> >> +		 dev_name(csi_dev->dev));
-> >> +
-> >> +	pads[RKCSI_PAD_SINK].flags = MEDIA_PAD_FL_SINK |
-> >> +				     MEDIA_PAD_FL_MUST_CONNECT;
-> >> +	pads[RKCSI_PAD_SRC].flags = MEDIA_PAD_FL_SOURCE;
-> >> +	ret = media_entity_pads_init(&sd->entity, RKCSI_PAD_MAX, pads);
-> >> +	if (ret)
-> >> +		goto err_notifier_unregister;
-> >> +
-> >> +	ret = v4l2_subdev_init_finalize(sd);
-> >> +	if (ret)
-> >> +		goto err_entity_cleanup;
-> >> +
-> >> +	ret = v4l2_async_register_subdev(sd);
-> >> +	if (ret) {
-> >> +		dev_err(sd->dev, "failed to register CSI subdev\n");
-> >> +		goto err_subdev_cleanup;
-> >> +	}
-> >> +
-> >> +	return 0;
-> >> +
-> >> +err_subdev_cleanup:
-> >> +	v4l2_subdev_cleanup(sd);
-> >> +err_entity_cleanup:
-> >> +	media_entity_cleanup(&sd->entity);
-> >> +err_notifier_unregister:
-> >> +	v4l2_async_nf_unregister(&csi_dev->notifier);
-> >> +	v4l2_async_nf_cleanup(&csi_dev->notifier);
-> >> +err:
-> >> +	return ret;
-> >> +}
-> >> +
-> >> +static void rkcsi_unregister(struct rkcsi_device *csi_dev)
-> >> +{
-> >> +	struct v4l2_subdev *sd = &csi_dev->sd;
-> >> +
-> >> +	v4l2_async_unregister_subdev(sd);
-> >> +	v4l2_subdev_cleanup(sd);
-> >> +	media_entity_cleanup(&sd->entity);
-> >> +	v4l2_async_nf_unregister(&csi_dev->notifier);
-> >> +	v4l2_async_nf_cleanup(&csi_dev->notifier);
-> >> +}
-> >> +
-> >> +static const struct of_device_id rkcsi_of_match[] = {
-> >> +	{
-> >> +		.compatible = "rockchip,rk3568-mipi-csi",
-> >> +	},
-> >> +	{}
-> >> +};
-> >> +MODULE_DEVICE_TABLE(of, rkcsi_of_match);
-> >> +
-> >> +static int rkcsi_probe(struct platform_device *pdev)
-> >> +{
-> >> +	struct device *dev = &pdev->dev;
-> >> +	struct rkcsi_device *csi_dev;
-> >> +	int ret;
-> >> +
-> >> +	csi_dev = devm_kzalloc(dev, sizeof(*csi_dev), GFP_KERNEL);
-> >> +	if (!csi_dev)
-> >> +		return -ENOMEM;
-> >> +	csi_dev->dev = dev;
-> >> +	dev_set_drvdata(dev, csi_dev);
-> >> +
-> >> +	csi_dev->base_addr = devm_platform_ioremap_resource(pdev, 0);
-> >> +	if (IS_ERR(csi_dev->base_addr))
-> >> +		return PTR_ERR(csi_dev->base_addr);
-> >> +
-> >> +	ret = devm_clk_bulk_get_all(dev, &csi_dev->clks);
-> >> +	if (ret != RKCSI_CLKS_MAX)
-> >> +		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
-> >> +	csi_dev->clks_num = ret;
-> >> +
-> >> +	csi_dev->phy = devm_phy_get(dev, NULL);
-> >> +	if (IS_ERR(csi_dev->phy))
-> >> +		return dev_err_probe(dev, PTR_ERR(csi_dev->phy),
-> >> +				     "failed to get MIPI CSI PHY\n");
-> >> +
-> >> +	csi_dev->reset = devm_reset_control_get_exclusive(dev, NULL);
-> >> +	if (IS_ERR(csi_dev->reset))
-> >> +		return dev_err_probe(dev, PTR_ERR(csi_dev->reset),
-> >> +				     "failed to get reset\n");
-> >> +
-> >> +	csi_dev->formats = formats;
-> >> +	csi_dev->formats_num = ARRAY_SIZE(formats);
-> >> +
-> >> +	pm_runtime_enable(dev);
-> >> +
-> >> +	ret = phy_init(csi_dev->phy);
-> >> +	if (ret) {
-> >> +		ret = dev_err_probe(dev, ret,
-> >> +				    "failed to initialize MIPI CSI PHY\n");
-> >> +		goto err_pm_runtime_disable;
-> >> +	}
-> >> +
-> >> +	ret = rkcsi_register(csi_dev);
-> >> +	if (ret)
-> >> +		goto err_phy_exit;
-> >> +
-> >> +	return 0;
-> >> +
-> >> +err_phy_exit:
-> >> +	phy_exit(csi_dev->phy);
-> >> +err_pm_runtime_disable:
-> >> +	pm_runtime_disable(dev);
-> >> +	return ret;
-> >> +}
-> >> +
-> >> +static void rkcsi_remove(struct platform_device *pdev)
-> >> +{
-> >> +	struct rkcsi_device *csi_dev = platform_get_drvdata(pdev);
-> >> +	struct device *dev = &pdev->dev;
-> >> +
-> >> +	rkcsi_unregister(csi_dev);
-> >> +	phy_exit(csi_dev->phy);
-> >> +	pm_runtime_disable(dev);
-> >> +}
-> >> +
-> >> +static int rkcsi_runtime_suspend(struct device *dev)
-> >> +{
-> >> +	struct rkcsi_device *csi_dev = dev_get_drvdata(dev);
-> >> +
-> >> +	clk_bulk_disable_unprepare(csi_dev->clks_num, csi_dev->clks);
-> >> +
-> >> +	return 0;
-> >> +}
-> >> +
-> >> +static int rkcsi_runtime_resume(struct device *dev)
-> >> +{
-> >> +	struct rkcsi_device *csi_dev = dev_get_drvdata(dev);
-> >> +	int ret;
-> >> +
-> >> +	reset_control_assert(csi_dev->reset);
-> >> +	udelay(5);
-> >> +	reset_control_deassert(csi_dev->reset);
-> >> +
-> >> +	ret = clk_bulk_prepare_enable(csi_dev->clks_num, csi_dev->clks);
-> >> +	if (ret) {
-> >> +		dev_err(dev, "failed to enable clocks\n");
-> >> +		return ret;
-> >> +	}
-> >> +
-> >> +	return 0;
-> >> +}
-> >> +
-> >> +static const struct dev_pm_ops rkcsi_pm_ops = {
-> >> +	.runtime_suspend = rkcsi_runtime_suspend,
-> >> +	.runtime_resume = rkcsi_runtime_resume,
-> >> +};
-> >> +
-> >> +static struct platform_driver rkcsi_drv = {
-> >> +	.driver = {
-> >> +		   .name = "rockchip-mipi-csi",
-> >> +		   .of_match_table = rkcsi_of_match,
-> >> +		   .pm = &rkcsi_pm_ops,
-> >> +	},
-> >> +	.probe = rkcsi_probe,
-> >> +	.remove = rkcsi_remove,
-> >> +};
-> >> +module_platform_driver(rkcsi_drv);
-> >> +
-> >> +MODULE_DESCRIPTION("Rockchip MIPI CSI-2 Receiver platform driver");
-> >> +MODULE_LICENSE("GPL");
-> >>
-> >> --
-> >> 2.39.5
-> >>
->
+/* Event IDs */                                                                 
+enum resctrl_event_id {                                                         
+	/* Must match value of first event below */                             
+	QOS_FIRST_EVENT			= 0x01,                                 
+                                                                                
+	/*                                                                      
+	 * These values match those used to program IA32_QM_EVTSEL before       
+	 * reading IA32_QM_CTR on RDT systems.                                  
+	 */                                                                     
+	QOS_L3_OCCUP_EVENT_ID		= 0x01,                                 
+	QOS_L3_MBM_TOTAL_EVENT_ID	= 0x02,                                 
+	QOS_L3_MBM_LOCAL_EVENT_ID	= 0x03,                                 
+                                                                                
+	/* Intel Telemetry Events */                                            
+	PMT_EVENT_ENERGY,                                                       
+	PMT_EVENT_ACTIVITY,                                                     
+	PMT_EVENT_STALLS_LLC_HIT,                                               
+	PMT_EVENT_C1_RES,                                                       
+	PMT_EVENT_UNHALTED_CORE_CYCLES,                                         
+	PMT_EVENT_STALLS_LLC_MISS,                                              
+	PMT_EVENT_AUTO_C6_RES,                                                  
+	PMT_EVENT_UNHALTED_REF_CYCLES,                                          
+	PMT_EVENT_UOPS_RETIRED,                                                 
+                                                                                
+	/* Must be the last */                                                  
+	QOS_NUM_EVENTS,                                                         
+};                                     
+
+...
+
+> @@ -582,6 +677,57 @@ static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
+>  	return comp->comp_id;
+>  }
+>  
+> +static int mpam_resctrl_monitor_init(struct mpam_resctrl_mon *mon,
+> +				     enum resctrl_event_id type)
+> +{
+> +	struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
+> +	struct rdt_resource *l3 = &res->resctrl_res;
+> +
+> +	lockdep_assert_cpus_held();
+> +
+> +	/* There also needs to be an L3 cache present */
+> +	if (get_cpu_cacheinfo_id(smp_processor_id(), 3) == -1)
+> +		return 0;
+> +
+> +	/*
+> +	 * If there are no MPAM resources on L3, force it into existence.
+> +	 * topology_matches_l3() already ensures this looks like the L3.
+> +	 * The domain-ids will be fixed up by mpam_resctrl_domain_hdr_init().
+> +	 */
+> +	if (!res->class) {
+> +		pr_warn_once("Faking L3 MSC to enable counters.\n");
+> +		res->class = mpam_resctrl_counters[type].class;
+> +	}
+> +
+> +	/* Called multiple times!, once per event type */
+> +	if (exposed_mon_capable) {
+> +		l3->mon_capable = true;
+> +
+> +		/* Setting name is necessary on monitor only platforms */
+> +		l3->name = "L3";
+> +		l3->mon_scope = RESCTRL_L3_CACHE;
+> +
+> +		resctrl_enable_mon_event(type);
+
+btw, the telemetry work also changed this function prototype to be:
+	bool resctrl_enable_mon_event(enum resctrl_event_id eventid, bool any_cpu,
+				      unsigned int binary_bits, void *arch_priv);
+
+If I understand correctly resctrl_enable_mon_event() will be called for every event in 
+enum resctrl_event_id which now contains events that may not actually be supported. I think it
+may be safer to be specific in which events MPAM wants to enable.
+
+> +
+> +		/*
+> +		 * Unfortunately, num_rmid doesn't mean anything for
+> +		 * mpam, and its exposed to user-space!
+> +		 *
+
+The idea of adding a per MON group "num_mon_groups" file has been floated a couple of
+times now. I have not heard any objections against doing something like this.
+https://lore.kernel.org/all/cbe665c2-fe83-e446-1696-7115c0f9fd76@arm.com/
+https://lore.kernel.org/lkml/46767ca7-1f1b-48e8-8ce6-be4b00d129f9@intel.com/
+
+> +		 * num-rmid is supposed to mean the minimum number of
+> +		 * monitoring groups that can exist simultaneously, including
+> +		 * the default monitoring group for each control group.
+> +		 *
+> +		 * For mpam, each control group has its own pmg/rmid space, so
+> +		 * it is not appropriate to advertise the whole rmid_idx space
+> +		 * here.  But the pmgs corresponding to the parent control
+> +		 * group can be allocated freely:
+> +		 */
+> +		l3->mon.num_rmid = mpam_pmg_max + 1;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+
+Reinette
+
 
