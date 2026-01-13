@@ -4,48 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E616AD2F33A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A07D2F326
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 15:33:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5q3ravDG1w5SjgMDo2WRXLnVcRNkSoxT344OuV9m7l8=; b=PGkSAGl5sCPdTe0pnt4o6FL+Z2
-	uNFxzhcvJcGRCO2PlPUGIiJEcdg/24hH7b9Rg6R1mKNdquzEDxpVwl/48lnjq64/IlNEIAs5MNXfU
-	ONyIbFb3jAFWJx4WIfURrc7wy5LlEAN/FFEwMFeNEHMQpxuOOyZ95Jp2wDNT8oxsy9NVq1epW4LcN
-	FFxLSqSs/+4NiGwKStWv3C0mQmZot96If15pTrlBxQLW93ZRBPgbzfhxo2rTNPrGVZZqab5RZoKRK
-	HMqdGIqW4Bo5ZT7AltJOMXBn2TuePONQOkGLSnLP61rgP/HgBTrLJO6fVdZc2G8b2sps6uFpVAasg
-	FQeSHjrw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TBIjrv4Y8OCNFBCu4sCpO8dv9dAjBKgPmh8xrmvTw4k=; b=I/rBW7/sF2lQW7
+	40a6HzZGFvCzdK7J5QgG7STsEquszY5hySdV7dZ9Er89ZqD0JpCB5diYLKZvpE4Yjkh6wh4BQrVa2
+	bVmpmm8HekrR5whu3e5hIXCk+gBTbYzKJ3M0d2stt8EQJl+f3S+85UJ/0zOh51O8A1df5MuDYCATE
+	QR46bkQIGuMR36rgNR/6zWuuw8c1PMBB+onryosdOEu28xPDigEXf7pUgsbR3FtyzRe+M8NYRDWQv
+	gh1qY3IzNgHfxLChJSgEGA7hTKpmgJ3e4zqk0Ao/hYjYbAfTlMbI97Wvn2WGVKITbPlPw+OzMQZ0W
+	FDF1tyVOsm6c0F6nmORg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgOh-00000007ODU-0MU2;
-	Tue, 13 Jan 2026 15:33:31 +0000
+	id 1vfgOg-00000007OCt-3AXE;
+	Tue, 13 Jan 2026 15:33:30 +0000
 Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfgOc-00000007O9y-34Ee
+	id 1vfgOb-00000007O9z-1pSQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 15:33:29 +0000
+	Tue, 13 Jan 2026 15:33:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=Cc:In-Reply-To:References:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=5q3ravDG1w5SjgMDo2WRXLnVcRNkSoxT344OuV9m7l8=; b=QuTCv7UY7QvdlY5fCbXlDrOV2F
-	BrDH8t1i7MngriXWn5K/I7GyEaP6HXhwtZhss5yBl6ukAB1isJy+uYBgNADRPAyH7FyP8YHM7+1xO
-	eb7x6QRCOexMy87pQK6ciObCBVoPlrBkIO/jalrCkZfV1feFbb/uEJPgDWSzS2reXI/1huIfKgP+J
-	HcP836/B4hcGnFsWUQC5d7riV6FEUsdcRAS+kGcIzUVI37AWI5RzQyhOQMpjM4wChn7mMqaexz8/c
-	IsMe/Z6OpmmpS+EIYM4/2HbRS2C3hCietFOGHvuGZWMcl0fZq52Q1eI6Y7+7QmRVjxwnUEhiMNo56
-	9AMT2/9w==;
+	d=kemnade.info; s=20220719; h=Cc:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=TBIjrv4Y8OCNFBCu4sCpO8dv9dAjBKgPmh8xrmvTw4k=; b=CqykJfQAMzzxW08XAMUVqzuQd/
+	dXeHErJk8dedGFD3st4JDdDkPr0WhUw8QajWMph/fr+cElv98NIcffLsu9o8BD/ZR8hx6n8mAVrsk
+	eJObhJaU6hIey5iDdBkG4hmPZb93FCNC0mgz2Sqyqox3phEdoAA7EQMm8orI4IOpTNVaIrQlj2rHB
+	xYk3FavNqgyJwouerKTB9nvin2dS7ufexoiysNfz6y5tZdcuKAPstEf2OzIMLsMqe2UZc75QP8pL5
+	JMhWAHzFXkyCrdMeBAn3qKdrzY/RGlRjwNRKrefO95ydJdNp91RmEhPV3EygYAr4Ka15qEQ325Kj5
+	tQR9uZcQ==;
 From: Andreas Kemnade <andreas@kemnade.info>
-Date: Tue, 13 Jan 2026 16:31:34 +0100
-Subject: [PATCH 1/3] ARM: dts: imx: tolino-shine2: add tps65185
+Subject: [PATCH 0/3] ARM: dts: imx: wire up the TPS65185 for various
+ ereaders
+Date: Tue, 13 Jan 2026 16:31:33 +0100
+Message-Id: <20260113-tps65185-dt-v1-0-66d376ba5f65@kemnade.info>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260113-tps65185-dt-v1-1-66d376ba5f65@kemnade.info>
-References: <20260113-tps65185-dt-v1-0-66d376ba5f65@kemnade.info>
-In-Reply-To: <20260113-tps65185-dt-v1-0-66d376ba5f65@kemnade.info>
+X-B4-Tracking: v=1; b=H4sIAFVlZmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDQ0Nj3ZKCYjNTQwtT3ZQS3dTUFHOTRAMLS1ODZCWgjoKi1LTMCrBp0bG
+ 1tQATdF29XQAAAA==
+X-Change-ID: 20260113-tps65185-dt-eed74a08950c
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -53,19 +56,20 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Fabio Estevam <festevam@gmail.com>
 Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Andreas Kemnade <andreas@kemnade.info>
+ Andreas Kemnade <andreas@kemnade.info>, Josua Mayer <josua.mayer@jm0.eu>
 X-Mailer: b4 0.15-dev-a6db3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2849; i=andreas@kemnade.info;
- h=from:subject:message-id; bh=n17zCB2DY7rtD9EKlgtwvWjqoDBFr/HFyM+J9npiiZk=;
- b=owGbwMvMwCUm/rzkS6lq2x3G02pJDJlpqbPUuW3jrxfpqpwLFvRc/GRvoajG4YM3VMT2TL/qd
- uZR+TyWjlIWBjEuBlkxRZZf1gpun1Se5QZPjbCHmcPKBDKEgYtTACayq56RYVcEl49fdOKLzdsf
- PPz8O1447MT1aqnZbm/3bfidppTlE87I8K/Gd7d09SON9BiHi93FwX79DrlHi2/b+xyw3rGx0t2
- DEwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1073; i=andreas@kemnade.info;
+ h=from:subject:message-id; bh=bBc+mfqKr3uL9dadx2ba1PgNMN8oNbSq2rlIFExQJKo=;
+ b=owGbwMvMwCUm/rzkS6lq2x3G02pJDJlpqU3yv37qTa68uEWQI5J7o1t1+m6W9NL1J+Vfp669e
+ sD4peimjlIWBjEuBlkxRZZf1gpun1Se5QZPjbCHmcPKBDKEgYtTACayvoPhf0yRbOw8E+XEjM/M
+ ucWtNkuyNcO+vSqwbtilJzz5iMkyCUaGz3vvsMvGbRaLOK5srxY8L49ZyFb607d/6kYPW3e99Fn
+ LDwA=
 X-Developer-Key: i=andreas@kemnade.info; a=openpgp;
  fpr=EEC0DB858E66C0DA70620AC07DBD6AC74DE29324
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_073326_791922_E18F07AF 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20260113_073325_480025_784B8417 
+X-CRM114-Status: UNSURE (   7.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,103 +84,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Wire up the TPS65185 regulator needed for the display.
+As the driver is now upstream, wire it up for various ebook readers
+containing imx6sl/6sll/50 SoCs.
+
+The driver for the EPD itself (not included) still needs polishing
+which would be the consumer for these regulators.
 
 Signed-off-by: Andreas Kemnade <andreas@kemnade.info>
 ---
- .../boot/dts/nxp/imx/imx6sl-tolino-shine2hd.dts    | 55 +++++++++++++++++++++-
- 1 file changed, 54 insertions(+), 1 deletion(-)
+Andreas Kemnade (2):
+      ARM: dts: imx: tolino-shine2: add tps65185
+      ARM: dts: imx: e60k02: add tps65185
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-shine2hd.dts b/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-shine2hd.dts
-index b6c336e3079e..4c655579f43e 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-shine2hd.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-shine2hd.dts
-@@ -37,6 +37,16 @@ chosen {
- 		stdout-path = &uart1;
- 	};
- 
-+	epd_pmic_supply: regulator-epd-pmic-in {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_epd_pmic_supply>;
-+		regulator-name = "epd_pmic_supply";
-+		gpio = <&gpio2 14 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		startup-delay-us = <20000>;
-+	};
-+
- 	gpio_keys: gpio-keys {
- 		compatible = "gpio-keys";
- 		pinctrl-names = "default";
-@@ -147,8 +157,35 @@ zforce: touchscreen@50 {
- 		touchscreen-inverted-x;
- 	};
- 
--	/* TODO: TPS65185 PMIC for E Ink at 0x68 */
-+	tps65185: pmic@68 {
-+		compatible = "ti,tps65185";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_tps65185_gpio>;
-+		reg = <0x68>;
-+		interrupt-parent = <&gpio2>;
-+		interrupts = <9 IRQ_TYPE_LEVEL_LOW>;
-+		vin-supply = <&epd_pmic_supply>;
-+		pwr-good-gpios = <&gpio2 13 GPIO_ACTIVE_HIGH>;
-+		vcom-ctrl-gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>;
-+		wakeup-gpios = <&gpio2 7 GPIO_ACTIVE_HIGH>;
-+		enable-gpios = <&gpio2 8 GPIO_ACTIVE_HIGH>;
-+
-+		regulators {
-+			vcom_reg: vcom {
-+				regulator-name = "vcom";
-+			};
-+
-+			vposneg_reg: vposneg {
-+				regulator-name = "vposneg";
-+				regulator-min-microvolt = <15000000>;
-+				regulator-max-microvolt = <15000000>;
-+			};
- 
-+			v3p3_reg: v3p3 {
-+				regulator-name = "v3p3";
-+			};
-+		};
-+	};
- };
- 
- &i2c3 {
-@@ -328,6 +365,12 @@ MX6SL_PAD_EPDC_PWRCTRL3__GPIO2_IO10 0x10059
- 		>;
- 	};
- 
-+	pinctrl_epd_pmic_supply: epdc-pmic-supplygrp {
-+		fsl,pins = <
-+			MX6SL_PAD_EPDC_PWRWAKEUP__GPIO2_IO14 0x40010059 /* pwrall */
-+		>;
-+	};
-+
- 	pinctrl_gpio_keys: gpio-keysgrp {
- 		fsl,pins = <
- 			MX6SL_PAD_SD1_DAT1__GPIO5_IO08  0x17059
-@@ -425,6 +468,16 @@ MX6SL_PAD_KEY_COL2__GPIO3_IO28	0x1b8b1 /* ricoh619 bat_low_int */
- 		>;
- 	};
- 
-+	pinctrl_tps65185_gpio: tps65185-gpio-grp {
-+		fsl,pins = <
-+			MX6SL_PAD_EPDC_VCOM0__GPIO2_IO03	0x40010059 /* vcom_ctrl */
-+			MX6SL_PAD_EPDC_PWRCTRL0__GPIO2_IO07	0x40010059 /* wakeup */
-+			MX6SL_PAD_EPDC_PWRCTRL1__GPIO2_IO08	0x40010059 /* enable */
-+			MX6SL_PAD_EPDC_PWRCTRL2__GPIO2_IO09	0x17059 /* nINT */
-+			MX6SL_PAD_EPDC_PWRSTAT__GPIO2_IO13	0x17059 /* pwr-good */
-+		>;
-+	};
-+
- 	pinctrl_uart1: uart1grp {
- 		fsl,pins = <
- 			MX6SL_PAD_UART1_TXD__UART1_TX_DATA 0x1b0b1
+Josua Mayer (1):
+      ARM: dts: imx50-kobo-aura: add epd pmic description
 
--- 
-2.47.3
+ arch/arm/boot/dts/nxp/imx/e60k02.dtsi              | 35 ++++++++++++-
+ arch/arm/boot/dts/nxp/imx/imx50-kobo-aura.dts      | 60 +++++++++++++++++++++-
+ .../boot/dts/nxp/imx/imx6sl-tolino-shine2hd.dts    | 55 +++++++++++++++++++-
+ arch/arm/boot/dts/nxp/imx/imx6sl-tolino-shine3.dts | 26 ++++++++++
+ arch/arm/boot/dts/nxp/imx/imx6sll-kobo-clarahd.dts | 26 ++++++++++
+ 5 files changed, 199 insertions(+), 3 deletions(-)
+---
+base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
+change-id: 20260113-tps65185-dt-eed74a08950c
+
+Best regards,
+--  
+Andreas Kemnade <andreas@kemnade.info>
 
 
