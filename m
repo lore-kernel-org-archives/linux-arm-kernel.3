@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E15E7D30CC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 21:37:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3234D30CC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 21:38:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9KN19c29cWR/ZFcZ1ULan+V5dVfqzdATU9lfrb8o3Ys=; b=IznQYqr19vt1sTEb2xGyQVTT/S
-	zKGl979ECttVXrd1QWkHT+rmR1PKor8QTLOxtMo2Xat2Pb44G/GCSj5tvPit39oj2KNTcjd2p9W/D
-	nzOY7UazuepknRJFHCF++6ZC8p2lk7YcO7fk62DIChbo5uMbGSu135Bf9XLgjS8seGjkvOMkYFekQ
-	r8TRShN1B5n9fCcZYqA4MB5BwqftEcdRR1lOAgJJUrQJ66HUZX+fvISwxd0eL7ybPjQT6S/02WHuv
-	7KBbqawnIEvkQjoc3UyxToNFOiet7iefNYiod9YPws4EkGSTkjdGT8a5ZnGfb/5ss03N2pBnZbJR3
-	Duzw2vSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FJsKBdT/ZejIFIg5BrsliCMgMJfpoIKWo+pn82kN2/o=; b=m5HcDhqEf6hwP6+0BktG67iKk5
+	2lVfkyq8z4wiG2UZT2spLwIylFYiQX3ru3DG6l8ggHGg/AaDZjfgUcLTnu31y3RHe89dbNhsXB5TY
+	soE7fqoHGx/AkyVCXmfc6w2rySmCIbGW2DEthJZ3PRBlxz6c2dUm/+DJDMteWhyqLL0Dhj0R2geCq
+	PU3m7aem4jCMNd9aK1JclrCBBarwfozU4rtB7m7ba6KH6KRMkf8cs6pSJSJgeqYYrqeVVH0wOn3lg
+	/J05E+D8HbruiBnOLCyxeKmHsPl3WUKrwN5fhmryRgcdWokGi8i7io6wAqrnqiEo6+fgzU8FTDQOQ
+	+yu2pjDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfm5J-00000007lYs-0ddf;
-	Tue, 13 Jan 2026 21:37:53 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vfm5a-00000007lfu-1ELB;
+	Tue, 13 Jan 2026 21:38:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfm5G-00000007lXz-1u69;
-	Tue, 13 Jan 2026 21:37:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1768340257; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=iGNwv8yUfTLQaBvUuVLTdwi3n4HUNZcg0fy9DwGdGFMvQe+HcL4NYFmjuWVYfacM16XS7yOIpXasW3anCw0IgcZK/ljO+TWHoWTcKmI/QKm/tbpi//WkFmyHl8Wn9omfQiKjNboM/jsTSNHzV76tTUx5i1IRCxwumq6hx9qnNQY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1768340257; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=9KN19c29cWR/ZFcZ1ULan+V5dVfqzdATU9lfrb8o3Ys=; 
-	b=ec71Bx/nsUH+UmLLV28VW1RjmYTMo+dqPVdBqFyidG+VZ4yt/cvf7CtHq2YDAxAaw+pF3sQ5fO6QSuoO+kwlwPrtIAMWfO6Opyb0Aun7s5kZ58ah6VwRiiW8147/6SjCdN6rvSbTLbdlMO+Dapp+xQTNl83DFshCcTiblhUPT/E=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768340257;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=9KN19c29cWR/ZFcZ1ULan+V5dVfqzdATU9lfrb8o3Ys=;
-	b=MS5czSKF1MOYud+jKCOR8jDlvOTk+qJgMrKB5bAhoR8GUS6MMt+4Wc3ibDsKaf5i
-	OAUaUaInYk/ujCqCIeNXHH3MfD4q2Tti7MPJ5/tRnX6obG9NBVKzZzew7rcJfSnG0Sp
-	9iFAFqTvzQvC0IAuU9Qe58xOZwnVuwcO2U76ATdk=
-Received: by mx.zohomail.com with SMTPS id 1768340254235436.27456206601244;
-	Tue, 13 Jan 2026 13:37:34 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id ECA46181010; Tue, 13 Jan 2026 22:37:28 +0100 (CET)
-Date: Tue, 13 Jan 2026 22:37:28 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Andy Yan <andyshrk@163.com>
-Cc: heiko@sntech.de, dmitry.baryshkov@oss.qualcomm.com, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, cristian.ciocaltea@collabora.com, 
-	Laurent.pinchart@ideasonboard.com, mripard@kernel.org, hjc@rock-chips.com, robh@kernel.org, 
-	tzimmermann@suse.de, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH 3/5] drm/bridge: synopsys: dw-dp: Make i2s/spdif clk
- optional
-Message-ID: <aWa6_SvvtGXRnbyh@venus>
-References: <20260109080054.228671-1-andyshrk@163.com>
- <20260109080054.228671-4-andyshrk@163.com>
+	id 1vfm5W-00000007leo-1WRC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 21:38:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A932960018;
+	Tue, 13 Jan 2026 21:38:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F3A9C16AAE;
+	Tue, 13 Jan 2026 21:38:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768340285;
+	bh=Ue0kX6WDxmwPMCZ/GKz/k0/R9KvOYfmHiZqM0wnXDGQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HUtJyVo6tFy6D2+6OTOd9Tv6Ujj2G4eqP8Sqsp6CvXxIi0m6pfEMUN9iQxl2niTkb
+	 MZaA2823gSY+QqfaKURHBIVDbZc6kHXd5Hsqd4GW/aUmuaqZ9Vea7JPQ94ATsXpG+Y
+	 RAtRBh5tNZx6yt9jD7gISK/kxvrTOs0VHn/zOsN8sEa7+raVMmkzjhQIMdXZS2txTA
+	 8s2gr8MCbCvgLXZdWwiugtv+zvnvfh45af0wunCFtZQ8R7v9V0Du6A+WQhnk1Yd8oS
+	 tc7eRpVIAqyjS6oMMCbu1n7emEUzmAUwM2WG51axjcZknTaW+UKkGNvjFyCD2sQYjb
+	 gaJE9bb5U6EGQ==
+Message-ID: <a2dc72ae-0798-4baa-b4d2-fa66c334576a@kernel.org>
+Date: Tue, 13 Jan 2026 15:37:57 -0600
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="d5klvf4s3oaeclto"
-Content-Disposition: inline
-In-Reply-To: <20260109080054.228671-4-andyshrk@163.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.5.1/268.322.40
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_133750_717114_48A5A590 
-X-CRM114-Status: GOOD (  17.55  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] net: stmmac: socfpga: add call to assert/deassert
+ ahb reset line
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Mamta Shukla <mamta.shukla@leica-geosystems.com>,
+ Ahmad Fatoum <a.fatoum@pengutronix.de>,
+ bsp-development.geo@leica-geosystems.com,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20260108-remove_ocp-v3-0-ea0190244b4c@kernel.org>
+ <20260108-remove_ocp-v3-1-ea0190244b4c@kernel.org>
+ <aV_W2yLmnHrTvbTP@shell.armlinux.org.uk>
+Content-Language: en-US
+From: Dinh Nguyen <dinguyen@kernel.org>
+In-Reply-To: <aV_W2yLmnHrTvbTP@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,81 +87,96 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---d5klvf4s3oaeclto
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 3/5] drm/bridge: synopsys: dw-dp: Make i2s/spdif clk
- optional
-MIME-Version: 1.0
 
-Hi,
+On 1/8/26 10:10, Russell King (Oracle) wrote:
+> On Thu, Jan 08, 2026 at 07:08:09AM -0600, Dinh Nguyen wrote:
+>> The "stmmaceth-ocp" reset line of stmmac controller on the SoCFPGA
+>> platform is essentially the "ahb" reset on the standard stmmac
+>> controller. But since stmmaceth-ocp has already been introduced into
+>> the wild, we cannot just remove support for it. But what we can do is
+>> to support both "stmmaceth-ocp" and "ahb" reset names. Going forward we
+>> will be using "ahb", but in order to not break ABI, we will be call reset
+>> assert/de-assert both ahb and stmmaceth-ocp.
+>>
+>> The ethernet hardware on SoCFPGA requires either the stmmaceth-ocp or
+>> ahb reset to be asserted every time before changing the phy mode, then
+>> de-asserted when the phy mode has been set.
+> 
+> This is not SoCFPGA specific. The dwmac core only samples its
+> phy_intf_sel_i signals when coming out of reset, and then latches
+> that as the operating mode.
+> 
+> Currently, the dwmac core driver does not support dynamically changing
+> plat_dat->phy_interface at runtime. That may change in the future, but
+> as it requires a hardware reset which will clear out the PTP state, it
+> would need consideration of that effect.
+> 
+> The SoCFPGA driver only calls the set_phy_mode() methods from
+> socfpga_dwmac_init(), which in turn is called from the plat_dat->init
+> hook. This will be called from:
+> 
+> 1. When stmmac_dvr_probe() is called, prior to allocating any
+>     resources, and prior to the core driver's first call to:
+>     reset_control_deassert(priv->plat->stmmac_ahb_rst);
+> 
+> 2. As plat_dat->resume is not populated by the glue driver, the init
+>     hook will also be called when resuming from stmmac_resume().
+> 
+> Lastly, nothing in the main driver corrently writes to ->phy_interface.
+> 
+> I would like to see the platform glue drivers using more of what is
+> in the core driver, rather than re-inventing it, so I support the
+> idea of getting rid of dwmac->stmmac_ocp_rst.
+> 
+> What I suggest is to get rid of dwmac->stmmac_ocp_rst now.
+> devm_stmmac_probe_config_dt() will parse the device tree, looking for
+> the "ahb" reset, and assigning that to plat->stmmac_ahb_rst. If it
+> doesn't exist, then plat->stmmac-ahb_rst will be NULL.
+> 
+> So, in socfpga_dwmac_probe(), do something like this:
+> 
+> 	struct reset_control *ocp_rst;
+> ...
+> 	if (!plat_dat->stmmac_ahb_rst) {
+> 		ocp_rst = devm_reset_control_get_optional(dev, "stmmaceth-ocp");
+> 		if (IS_ERR(ocp_rst))
+> 			return dev_err_probe(dev, PTR_ERR(ocp_rst),
+> 					     "failed to get ocp reset");
+> 
+> 		if (ocp_rst)
+> 			dev_warn(dev, "ocp reset is deprecated, please update device tree.\n");
+> 
+> 		plat_dat->stmmac_ahb_rst = ocp_rst;
+> 	}
+> 
+> Then, change all remaining instances of dwmac->stmmac_ocp_rst to
+> dwmac->plat_dat->stmmac_ahb_rst... and job done. You have compatibility
+> with device trees that use "ahb", and with device trees that use
+> "stmmaceth-ocp".
+> 
+> Given that struct socfpga_dwmac contains the plat_dat pointer, rather
+> than copying plat_dat->stmmac_rst to your private structure, please
+> use the one in the plat_dat structure.
+> 
+> The next question I have is - do you need to assert both the AHB reset
+> and stmmac_rst to set the PHY interface mode? I don't see a dependency
+> between these two resets in the socfpga code - the driver doesn't treat
+> them as nested. It asserts the AHB reset _then_ the stmmac reset, and
+> then releases them in the same order rather than reverse order. This
+> suggests there's no interdependence between them, and probably it's
+> only necessary to assert the stmmac core's reset (stmmac_rst).
+> 
+> So, maybe the driver can leave the handling of plat_dat->stmmac_ahb_rst
+> to the stmmac core code?
+> 
 
-On Fri, Jan 09, 2026 at 04:00:46PM +0800, Andy Yan wrote:
-> From: Andy Yan <andy.yan@rock-chips.com>
->=20
-> The i2s/spdif clk are mandatory for rk3588, but not used
-> for the upcoming rk3576, so make it optional here.
->=20
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> ---
+Thanks for the suggestion. According to this commit[1], it seems that 
+both reset lines need to get toggled. But I'm going to run some test on 
+HW and make the appropriate changes.
 
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Dinh
 
-Greetings,
+[1] 
+https://lore.kernel.org/all/20250205134428.529625725@linuxfoundation.org/
 
--- Sebastian
-
->  drivers/gpu/drm/bridge/synopsys/dw-dp.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/br=
-idge/synopsys/dw-dp.c
-> index eccf6299bdb7..93e3efe18957 100644
-> --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-> +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-> @@ -2014,13 +2014,13 @@ struct dw_dp *dw_dp_bind(struct device *dev, stru=
-ct drm_encoder *encoder,
->  		return ERR_CAST(dp->aux_clk);
->  	}
-> =20
-> -	dp->i2s_clk =3D devm_clk_get(dev, "i2s");
-> +	dp->i2s_clk =3D devm_clk_get_optional(dev, "i2s");
->  	if (IS_ERR(dp->i2s_clk)) {
->  		dev_err_probe(dev, PTR_ERR(dp->i2s_clk), "failed to get i2s clock\n");
->  		return ERR_CAST(dp->i2s_clk);
->  	}
-> =20
-> -	dp->spdif_clk =3D devm_clk_get(dev, "spdif");
-> +	dp->spdif_clk =3D devm_clk_get_optional(dev, "spdif");
->  	if (IS_ERR(dp->spdif_clk)) {
->  		dev_err_probe(dev, PTR_ERR(dp->spdif_clk), "failed to get spdif clock\=
-n");
->  		return ERR_CAST(dp->spdif_clk);
-> --=20
-> 2.43.0
->=20
-
---d5klvf4s3oaeclto
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmlmuxgACgkQ2O7X88g7
-+ppGLBAAqT8y4oYvP9cg1uT75YXkG+/k9/iLZ/QVqmIa8OcIJxad5z43b35ZiSpt
-lg6lJ1GTGaHluaYFv39FIBnjXqxGhK1vzUcEyOvy042MKciDr01W0TnlygyuvKOc
-5ZYwnRBsSRNQA3PJAakXWaAuBlNh/KX8tH9kh5Wn3sf8nNpBZXDodQzZtUTMft6+
-OsWF5XgzMPXsTDTs6CjxV5Ym9wXjuByZEf+HNOE6rCFPgYXuDUurcY7o0lKHW4Lp
-1RfJ71u0YQfEXWduRilRTqVLbAUHJDOXjuHMgno2Qw6SzLeBy68gkiiz+LJjY5Bx
-dEwQjP65nprz1enbT35aKwrfoqcwKD/HdxplVyj7nOVpBEgWIxfkFijAev3z6cVO
-ZxZtF9Yx7H/v+zkhQ+MC2Fu3g/vnCLiQqRV6XpcOM4g+eE9gGBFKniIM5Y6jwaAu
-IlYoElfj2NHoRUfODaN/VQ1dYIgP9db3APMZGYzPHevi4AkQnxCaXjoqF3wAX+Aw
-Ugks43CsEzeIXXYnlsMSpwHJd+iwxaPq70VruPwn0gaTGIHwZWvByhhMtbAuTrgB
-PMzDGCGJV8n7IQZCoGyyoJb90fFFemBHwkz/pqlKq+NGRh2DBqUGiWUgIzDW2Stl
-VSY4OT8h1zTkNus7WDJBEOCSxiuSXA6peCY3OTZ+EvB1CXmAUBQ=
-=vKk1
------END PGP SIGNATURE-----
-
---d5klvf4s3oaeclto--
 
