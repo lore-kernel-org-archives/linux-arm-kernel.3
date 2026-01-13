@@ -4,121 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1522D2F34B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 17:37:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5778D2F34B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 17:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/CVOy4tPw1zWY0e6rYcKRwtfrfRvUlKFzd8YTNoGp5w=; b=K0VnHvtNa4xi9UWLCgWju7vRX9
-	ns4xTNPRBtM1PIDFi2UQudcgm9mZMYTskCSZY3F7+pXM0Ft9Kou8AiAtt+6D1HOfIQtzdFWC6acSI
-	ubr0QRETHkeT1DfsbYWAiBkpldNuZ2xukSYMR0Vx+Ck2A6kpZ73YA0crY5Rz5pzJH38BPt+xkxdKL
-	DeBgxxD35RudbhfpR3iMmAn3tZnoPyGqsH6TvnXKqCbzgHofRAFPs8bLuJbv7xQ+t5aFRVoNFtYnO
-	u3IXj4guvIsExcYUShlus59t2YOwPwpBigAqrSil544u+4Vw8h9K9nwnbtxTkkKSvRXxI4Bx2YD/t
-	h6sqS0Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=utQYdfvBit8CkZVBBXtgEjLEKrIr7+4lx3lVz5YuoSk=; b=dCbPQfl5PHI+YXO5Twxx1Ijzv7
+	QP5CJtgZxQszve8mNC6yDFQWSqFowwURpdgKmcQ93L494PiVzjj0MqbBQ3uSodVfS1Tv5O7ckQfa0
+	+aNfaA7ElsZKJyNhhGOhsnc4B9lO0Fow9Ie7WrSgUkEV0scAv8YgvrMeq8L0373GQ1vn5rJJKuL2y
+	JjvV9nvNMwKILJURJGrJbvImMRM6bZwMvb+jO2ndzCZOVVZeWBPCB34aWb/LKUhzhd4fyxwEMgadl
+	ghhikSSAaLQ7F+UOEtcXNpvwpCtUxIOJC3LtI9FmYtP4K6R95MCD2kGR/mxJRnhA4UDiEOXlDuyi+
+	SnOhNKsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfiKa-00000007Xfb-1jeq;
-	Tue, 13 Jan 2026 17:37:24 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1vfiQ2-00000007Xyu-3u58;
+	Tue, 13 Jan 2026 17:43:02 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfiKY-00000007Xef-1W8E
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 17:37:23 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-430f57cd471so3943958f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 09:37:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1768325840; x=1768930640; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/CVOy4tPw1zWY0e6rYcKRwtfrfRvUlKFzd8YTNoGp5w=;
-        b=RI06ZjcUx2YgRorbLPOXIHkMJV7NvKIDeapH0PXsXWGP3eMuP7Y5jNic434/mVF9w/
-         Uss3hnZZlE+8HCBjbHgyuvmnu7b9lgnvFTqlgQjs2aFVRjelsabhvX/+KRo7OrXU2tkv
-         7i7/NKxX/CPUjIsAvUNoeOHQO5K1HLUd1xmWor9o93OMk9Wi1kS00vLq7f8meA0xMgwJ
-         +4Jzw2w1W1O0OY2lTlbe7ByPIBTn540eQwOHGkMBm3WcVpZkAdWCE7ISNLPr0ljAfiSt
-         l8DFLROXSZ9OGErfxpIb3trC+WGD/6dTel4eTzQTyBQ0m0kYm7GPHbpW1CH2AdWDVzXt
-         blJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768325840; x=1768930640;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/CVOy4tPw1zWY0e6rYcKRwtfrfRvUlKFzd8YTNoGp5w=;
-        b=T2TSAB+1UsWfC6KXgSAN4GT/liyVKboa0aNzIbM+sdhqcLFglI6yjykPMnBqUJ+5l7
-         7aR48sZsy6l0GcEpJWrqa5Dh4sbaXUm4Xta+fBg//PWv6AO70bVwX+xxvZueMglwVOEX
-         RcfL7IOJm3cdi3Xj1tS9VsyctLu6lEIA+dvG6Re0GNtuhwi0EHIu1pODFlN1pLl/jt5Z
-         vVLbJSpAZkgtx0MvqTED/R6lRfP19TIsGEIxi5QghlLCm1czaEMN4lqDTEKliRsokraT
-         flYDwUTn1EZO1R8IampQYSSo46rwbecf/Ycf2b5o8oM8LErEwJ274Sl76boUaomUTecm
-         BOQg==
-X-Forwarded-Encrypted: i=1; AJvYcCXTrM7DMEEsNC8I67VzrKVrnV1CTJ1WjX7lkELtqbBKZVnUyaCwBAjM+prFeNotHuqAhM8Bfu2I2oDN0oZAgQb2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwgKt6oQ6sfKKW5eE9+J2S/GE7AjSKeXnc1zCgMTT4YWY3meuk
-	kreIoD+OTLRWe9QljbdlBR1O7Bf1rwMkBtHTBMK0dTodIv4NSNaUjVXF0t+1CBBty4A=
-X-Gm-Gg: AY/fxX4t1iw03MzGr888KHEaIuZnSweav7jsc+ctGAX1ZAnXn3wWRDgO1THMR3SHi6t
-	i4l+V2GL1ToGut7GyN+Ap6GfDnE94YFgSEb3LDkZXoYlcmj4bBIGOfuiFrsvafT2jpXfuWwfq3w
-	rbDXgg8ycDz5JIXkn18zo7fkduZZXxei/o/GIvp/2lJbuDonojEWmI5twDwijuTdzyLtoYwe4QW
-	D3iPNHjyxHDUekXijklLfT6Ht00nLGeijx4PXG26JUCaV13Yu2qxKvOAzgVlh8Xo4RUoKi5KYop
-	bPFYIGx4ZFK6TahQ7PtZFLwB5l9C0PPdGAo4mjbRxvuJm7bsIywep//dCHT4LhaITrHYlSuaunJ
-	r4/qydLcbdiJN/C15nnqXGwr9NwgHkhoT3Y9KFbv3M+CFRdWmgjLYwvEI94QbuVQjiOZ2adTTag
-	c9jKlpuPJdlBVeLw==
-X-Google-Smtp-Source: AGHT+IHUReQqvVgC0db5F0/UgqAPwHgCcpq2ZD0lhm0g7XnDeEa3Phlj1/GEitKl8zvqkUFbSZC6XA==
-X-Received: by 2002:a05:6000:2dc9:b0:430:fced:902 with SMTP id ffacd0b85a97d-432c36436fbmr29258778f8f.26.1768325840268;
-        Tue, 13 Jan 2026 09:37:20 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432d9610671sm28342147f8f.34.2026.01.13.09.37.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Jan 2026 09:37:19 -0800 (PST)
-Date: Tue, 13 Jan 2026 18:37:17 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: Marcos Paulo de Souza <mpdesouza@suse.com>
-Cc: Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jason Wessel <jason.wessel@windriver.com>,
-	Daniel Thompson <danielt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	John Ogness <john.ogness@linutronix.de>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
-	linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
-	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 02/19] printk: Introduce console_is_nbcon
-Message-ID: <aWaCzZ8_UuyAa6xp@pathway.suse.cz>
-References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
- <20251227-printk-cleanup-part3-v1-2-21a291bcf197@suse.com>
+	id 1vfiQ0-00000007XyV-3Hoz;
+	Tue, 13 Jan 2026 17:43:02 +0000
+Received: from pendragon.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BF346316;
+	Tue, 13 Jan 2026 18:42:32 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1768326152;
+	bh=wFV93meXFrcLbuXHNLmfKXvFczDRPZgMrWOYRpkc0C0=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=hTm0evM5NXFlhnKK0YGe+knYI3LzpybbZlr/N3nTkfxN07YpJVk/Y2a+JTdAqnOGQ
+	 aFPvEwbyhMSgwkKTvA6g2u7I1vt6C/lSsBFYvngFSzT7uj68jTkTJMg/AUqRPFZAII
+	 ANfOmbaO8X925jp3gjrAwgGcDboGA61k3HvHlLIY=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251227-printk-cleanup-part3-v1-2-21a291bcf197@suse.com>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <176832506332.2379386.7591736247076651406@freya>
+References: <20260113-b4-vchiq-isp-v1-0-ea0b300bffc8@ideasonboard.com> <20260113-b4-vchiq-isp-v1-1-ea0b300bffc8@ideasonboard.com> <176832303070.1230693.13311579665048872008@ping.linuxembedded.co.uk> <176832506332.2379386.7591736247076651406@freya>
+Subject: Re: [PATCH 01/10] platform/raspberrypi: vchiq-mmal: Move headers to include/linux
+From: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, Naushir Patuck <naush@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org
+To: Florian Fainelli <florian.fainelli@broadcom.com>, Jai Luthra <jai.luthra@ideasonboard.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Tomasz Figa <tfiga@chromium.org>
+Date: Tue, 13 Jan 2026 17:42:55 +0000
+Message-ID: <176832617565.1693075.11795770819049418637@ping.linuxembedded.co.uk>
+User-Agent: alot/0.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_093722_428005_B05B2D0E 
-X-CRM114-Status: GOOD (  31.88  )
+X-CRM114-CacheID: sfid-20260113_094300_967221_9B4803AD 
+X-CRM114-Status: GOOD (  25.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,82 +65,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat 2025-12-27 09:16:09, Marcos Paulo de Souza wrote:
-> Besides checking if the current console is NBCON or not, console->flags
-> is also being read in order to serve as argument of the console_is_usable
-> function.
-> 
-> But CON_NBCON flag is unique: it's set just once in the console
-> registration and never cleared. In this case it can be possible to read
-> the flag when console_srcu_lock is held (which is the case when using
-> for_each_console).
-> 
-> This change makes possible to remove the flags argument from
-> console_is_usable in the next patches.
-> 
-> Signed-off-by: Petr Mladek <pmladek@suse.com>
-> Signed-off-by: Marcos Paulo de Souza <mpdesouza@suse.com>
-> ---
->  include/linux/console.h   | 27 +++++++++++++++++++++++++++
->  kernel/debug/kdb/kdb_io.c |  2 +-
->  kernel/printk/nbcon.c     |  2 +-
->  kernel/printk/printk.c    | 15 ++++++---------
->  4 files changed, 35 insertions(+), 11 deletions(-)
-> 
-> diff --git a/include/linux/console.h b/include/linux/console.h
-> index 35c03fc4ed51..dd4ec7a5bff9 100644
-> --- a/include/linux/console.h
-> +++ b/include/linux/console.h
-> @@ -561,6 +561,33 @@ static inline void console_srcu_write_flags(struct console *con, short flags)
->  	WRITE_ONCE(con->flags, flags);
->  }
->  
-> +/**
-> + * console_srcu_is_nbcon - Locklessly check whether the console is nbcon
+Quoting Jai Luthra (2026-01-13 17:24:23)
+> Hi Kieran,
+>=20
+> Quoting Kieran Bingham (2026-01-13 22:20:30)
+> > Quoting Jai Luthra (2026-01-13 09:05:21)
+> > > Now that VCHIQ interface is destaged, different drivers (like ISP or
+> > > codec) no longer live under the same tree as VCHIQ MMAL, but in their
+> > > relevant trees like media or audio.
+> > >=20
+> > > Enable access to VCHIQ headers for such drivers by moving these heade=
+rs
+> > > under include/linux/raspberrypi with other VCHIQ related headers.
+> > >=20
+> > > Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
+> > > ---
+> > >  MAINTAINERS                                                      | 1=
+ +
+> > >  drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c             | 9=
+ ++++-----
+> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-common.h       |=
+ 2 ++
+> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-encodings.h    |=
+ 0
+> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-msg-common.h   |=
+ 0
+> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-msg-format.h   |=
+ 0
+> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-msg-port.h     |=
+ 0
+> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-msg.h          |=
+ 0
+> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-parameters.h   |=
+ 0
+> > >  .../vchiq-mmal =3D> include/linux/raspberrypi}/mmal-vchiq.h        |=
+ 0
+> > >  10 files changed, 7 insertions(+), 5 deletions(-)
+> > >=20
+> > > diff --git a/MAINTAINERS b/MAINTAINERS
+> > > index 816cceb5dc2d066665501aa8bbc04a2edd751087..16002c21fe06913ed57f4=
+95265b0b1ad14772c55 100644
+> > > --- a/MAINTAINERS
+> > > +++ b/MAINTAINERS
+> > > @@ -4927,6 +4927,7 @@ F:        Documentation/devicetree/bindings/pci=
+/brcm,stb-pcie.yaml
+> > >  F:     drivers/pci/controller/pcie-brcmstb.c
+> > >  F:     drivers/platform/raspberrypi/vchiq-*
+> > >  F:     drivers/staging/vc04_services
+> > > +F:     include/linux/raspberrypi/mmal*
+> > >  F:     include/linux/raspberrypi/vchiq*
+> > >  N:     bcm2711
+> > >  N:     bcm2712
+> > > diff --git a/drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c b/d=
+rivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c
+> > > index a228098d8cc0af5d5900b92b2847a1626a6d599c..3ead81dd2d0f48be7a5dd=
+87256c38d6ba0dbcd0e 100644
+> > > --- a/drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c
+> > > +++ b/drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c
+> > > @@ -22,17 +22,16 @@
+> > >  #include <linux/mm.h>
+> > >  #include <linux/slab.h>
+> > >  #include <linux/completion.h>
+> > > +#include <linux/raspberrypi/mmal-common.h>
+> > > +#include <linux/raspberrypi/mmal-parameters.h>
+> > > +#include <linux/raspberrypi/mmal-vchiq.h>
+> > > +#include <linux/raspberrypi/mmal-msg.h>
+> > >  #include <linux/raspberrypi/vchiq.h>
+> > >  #include <linux/raspberrypi/vchiq_arm.h>
+> > >  #include <linux/raspberrypi/vc_sm_knl.h>
+> > >  #include <linux/vmalloc.h>
+> > >  #include <media/videobuf2-vmalloc.h>
+> > > =20
+> > > -#include "mmal-common.h"
+> > > -#include "mmal-parameters.h"
+> > > -#include "mmal-vchiq.h"
+> > > -#include "mmal-msg.h"
+> > > -
+>=20
+> The mmal-common.h header got moved above videobuf2-vmalloc.h here ....
+>=20
+> > >  /*
+> > >   * maximum number of components supported.
+> > >   * This matches the maximum permitted by default on the VPU
+> > > diff --git a/drivers/platform/raspberrypi/vchiq-mmal/mmal-common.h b/=
+include/linux/raspberrypi/mmal-common.h
+> > > similarity index 97%
+> > > rename from drivers/platform/raspberrypi/vchiq-mmal/mmal-common.h
+> > > rename to include/linux/raspberrypi/mmal-common.h
+> > > index 6c5092a68b99594a0234f56b48b785fbc611bf5a..e7f065c539bcae7480a8d=
+c2000d2a1e4cec7883c 100644
+> > > --- a/drivers/platform/raspberrypi/vchiq-mmal/mmal-common.h
+> > > +++ b/include/linux/raspberrypi/mmal-common.h
+> > > @@ -16,6 +16,8 @@
+> > >  #ifndef MMAL_COMMON_H
+> > >  #define MMAL_COMMON_H
+> > > =20
+> > > +#include <media/videobuf2-v4l2.h>
+> > > +
+> >=20
+> > Is this spurious? I could understand the changes up in mmal-vchiq.c
+> > above but I don't see how this relates to the move?
+> >=20
+>=20
+> .... which exposed the fact that mmal-common.h references to `struct
+> vb2_v4l2_buffer` without including the relevant header, so clangd
+> complained and populated it for me, and I forgot to mention it in the
+> commit message.
+>=20
+> Sorry for the confusion. Not a spurious change. Is this fine as a note in
+> the commit message, or should I fix the header as a separate commit in v2?
 
-There is _srcu in the function name, see below.
+Either is fine I think ;-) It just stood out otherwise!
 
-> + * @con:	struct console pointer of console to check
-> + *
-> + * Requires console_srcu_read_lock to be held, which implies that @con might
-> + * be a registered console. The purpose of holding console_srcu_read_lock is
-> + * to guarantee that no exit/cleanup routines will run if the console
-> + * is currently undergoing unregistration.
-> + *
-> + * If the caller is holding the console_list_lock or it is _certain_ that
-> + * @con is not and will not become registered, the caller may read
-> + * @con->flags directly instead.
-> + *
-> + * Context: Any context.
-> + * Return: True when CON_NBCON flag is set.
-> + */
-> +static inline bool console_is_nbcon(const struct console *con)
+With either approach:
 
-And here it is without _srcu.
+Reviewed-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
 
-I would prefer the variant with _srcu to make it clear that it
-can be called only under _srcu. Similar to console_srcu_read_flags(con).
-
-> +{
-> +	WARN_ON_ONCE(!console_srcu_read_lock_is_held());
-> +
-> +	/*
-> +	 * The CON_NBCON flag is statically initialized and is never
-> +	 * set or cleared at runtime.
-> +	 */
-> +	return data_race(con->flags & CON_NBCON);
-> +}
-> +
->  /* Variant of console_is_registered() when the console_list_lock is held. */
->  static inline bool console_is_registered_locked(const struct console *con)
->  {
-
-Otherwise, it looks good to me.
-
-With a consistent name, feel free to use:
-
-Reviewed-by: Petr Mladek <pmladek@suse.com>
-
-Best Regards,
-Petr
+>=20
+> >=20
+> > >  #define MMAL_FOURCC(a, b, c, d) ((a) | (b << 8) | (c << 16) | (d << =
+24))
+> > >  #define MMAL_MAGIC MMAL_FOURCC('m', 'm', 'a', 'l')
+> > > =20
+>=20
+> [...]
+>=20
+> Thanks,
+> Jai
 
