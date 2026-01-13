@@ -4,75 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E37D29DC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 03:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E8EED29DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 03:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RLlZk5JLSHjXxq4/+unFmqq6XhZxTOn9ntEjqGDpUTM=; b=G17f6KXCWLBhyA5z8nsbyGisux
-	UGSKHIMc+qOKwOHYvZBBBnvEKqle1ej45SPPJU3vELspU6QLWfxxKY2WCUSVu1FuFfBmCIRZbANK5
-	lf6JB2ywh+oRRcRuM/ANjqFyvWtZMpc9QWghmYrUVOiR36vJk00iRq2+K3fFbi5Hq4cC8s+BLOXYH
-	WNwDe7IztRAhb0ifUZVzVSRlJe1SBVfjoHwTcvX1afa2tYDaEI0sFl3YElgk830eNdFlVxMnpx/n2
-	QP5SaL6RAlqO7MR2XS+LbBglCREbpWJWIKLgDXTi8woPxD8hCkCJSgs9mRX74GYQUGLlg3W5y7z9q
-	qfxetBNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S/8Trr+R6mhpvWVr4igSvwacEs+82RPMVucapjT1Xlc=; b=zifu8Cs6/YhWYhln7qy/Rhe9vX
+	mj9JklUSKbvesCmDE0itus/I0fNGO1pkYlVtTOwnPHo7R7K9VmulC6FecnDQLTnLj0k4EA8Pu4UAH
+	b3IDGS/O1KiSRS3+6qoydOaZbkane/wjJyVsMOSXaoMTCY0IoFsMZ6LJZD0L4se+g7+0dWMcQatJ5
+	c618+23L8Y5Fnl3QDHj8YkK1GREOll/vLgkryKNAIH/kNO03jfQ0dCteUS6gGiwKpODgH+nAz/siL
+	yFIGzFeqbFZ+mUzh9+MT6g4EXfKGP1MU4kbhW0QrfnYUYvJxZMjCa96T6I8iYOt+5rOV25S6cdSdu
+	0UZnI7QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfVLi-00000006VGm-2vOJ;
-	Tue, 13 Jan 2026 03:45:42 +0000
-Received: from mail-m4920.qiye.163.com ([45.254.49.20])
+	id 1vfVTS-00000006VX6-0SFa;
+	Tue, 13 Jan 2026 03:53:42 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfVLf-00000006VGG-3LnA;
-	Tue, 13 Jan 2026 03:45:41 +0000
-Received: from [127.0.0.1] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 306affc4c;
-	Tue, 13 Jan 2026 11:45:35 +0800 (GMT+08:00)
-Message-ID: <b901011c-d062-4a4f-8a2e-9f918eab3838@rock-chips.com>
-Date: Tue, 13 Jan 2026 11:45:30 +0800
+	id 1vfVTO-00000006VWl-09O8
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 03:53:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768276418; x=1799812418;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=/IRlg/HZqaWarHkvItRChuZKhbeASWJFIkTvLPcavzU=;
+  b=eKfcxiAtWlC8rWX7aNs0zATyd1sWWCkgHr/HcFShCsumXy5qmLWfKms6
+   LgK2qOWTZdJLArtK0zjsu2hcvIT9gxq/qE8J0yveG9dzkfq2kBtuBDOdH
+   0Cmuk+bwG9FRiWQcTcAe5LIjgDubhZXBrkGjbiKAMoekDbSS+DCNMmL9I
+   hQBX2DHnoRY7Ds+n9qR8OOlYSTi22Pi7XrB/pFM0d6z7juJDHwvS+941h
+   LyGV4Jxra8JpQmi1ZA1PWJsOBCEM2fmNLDeuDXr7qXfoYfNz/1rjpH+YE
+   GrNgfJHduN2EW3sMtrj++P9JqJcnOMBIflG6wNM6jF5RO9eTi0zDjL0nV
+   w==;
+X-CSE-ConnectionGUID: N9zZ0oaGRNKq4xVGD9jWww==
+X-CSE-MsgGUID: 1LlbB4JBSNi2yKGOofWZ+Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11669"; a="69613563"
+X-IronPort-AV: E=Sophos;i="6.21,222,1763452800"; 
+   d="scan'208";a="69613563"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jan 2026 19:53:37 -0800
+X-CSE-ConnectionGUID: ZcgYCdDKQQa6FHqWUrNpng==
+X-CSE-MsgGUID: mlgWcsnIQTGOQJ6oXCw5Ug==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,222,1763452800"; 
+   d="scan'208";a="227496203"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 12 Jan 2026 19:53:33 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vfVTH-00000000EBU-1ImV;
+	Tue, 13 Jan 2026 03:53:31 +0000
+Date: Tue, 13 Jan 2026 11:52:52 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: oe-kbuild-all@lists.linux.dev,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
+	Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next 2/2] net: stmmac: qcom-ethqos: convert to
+ set_clk_tx_rate() method
+Message-ID: <202601131106.zgy17BPH-lkp@intel.com>
+References: <E1vfMO1-00000002kJF-33UK@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: usb: Add binding for WCH CH334/CH335
- hub controller
-To: Krzysztof Kozlowski <krzk@kernel.org>, Chaoyi Chen <kernel@airkyi.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Quentin Schulz <quentin.schulz@cherry.de>, Jonas Karlman <jonas@kwiboo.se>,
- Hsun Lai <i@chainsx.cn>, John Clark <inindev@gmail.com>,
- Jimmy Hon <honyuenkwun@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
- Michael Riesch <michael.riesch@collabora.com>,
- Peter Robinson <pbrobinson@gmail.com>, Alexey Charkov <alchark@gmail.com>,
- Shawn Lin <shawn.lin@rock-chips.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org
-References: <20260112022823.91-1-kernel@airkyi.com>
- <20260112022823.91-2-kernel@airkyi.com>
- <20260112-lively-hallowed-beetle-fc15b2@quoll>
- <1515a445-576a-4833-a604-c31062f7d3fa@rock-chips.com>
- <b4eb4ab6-6fde-4c01-8069-470545ffdac4@kernel.org>
- <568b9e25-bf96-4e78-9af0-4791cbb90a56@rock-chips.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <568b9e25-bf96-4e78-9af0-4791cbb90a56@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9bb575818903abkunm0fc5f439c0aac
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkoaHlZPGEoaHRlPH0tPGRhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=ICLXnlUCKdw0l4C5PwjkIWI+IVk7r4/+WwkYTgaVw86rZ636qn6GnsMAlH3m9KDe331gcSkS3TklrGhw8/QrO0k6/hTC3s1bGoI9x213B9d26cr4/F/RDXu76m2tvVwDtwq+Qyw1eBwnYz+/a3EN9/JjCw818hD+5H3XmHoPYvc=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=RLlZk5JLSHjXxq4/+unFmqq6XhZxTOn9ntEjqGDpUTM=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1vfMO1-00000002kJF-33UK@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260112_194540_027104_125E3EC5 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20260112_195338_145482_191E0095 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,50 +99,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/13/2026 11:27 AM, Chaoyi Chen wrote:
-> Hi Krzysztof,
-> 
-> On 1/12/2026 10:28 PM, Krzysztof Kozlowski wrote:
->> On 12/01/2026 09:59, Chaoyi Chen wrote:
->>>>> +required:
->>>>> +  - compatible
->>>>> +  - reg
->>>>> +
->>>>> +additionalProperties: false
->>>>> +
->>>>> +examples:
->>>>> +  - |
->>>>> +    #include <dt-bindings/gpio/gpio.h>
->>>>> +    usb {
->>>>> +        dr_mode = "host";
->>
->> One more thing - drop above line.
->>
-> 
-> Will fix in next version.
-> 
->>>>> +        #address-cells = <1>;
->>>>> +        #size-cells = <0>;
->>>>> +
->>>>> +        hub: hub@1 {
->>>>> +            compatible = "usb1a86,8091";
->>>>> +            reg = <1>;
->>>>> +            reset-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
->>>>
->>>> Are you sure?
->>>
->>> I guess what you're concerned about here is the polarity? 
->>> If that's the case, then there's no problem.
->>
->> Yes, I was wondering whether polarity is set correctly.
-> 
-> Yes, it is active-low, so during normal operation it should be set to high.
-> 
+Hi Russell,
 
-Sorry, I didn't consider the driver situation. 
-I will fix it in the next version.
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on net-next/main]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Russell-King-Oracle/net-stmmac-qcom-ethqos-remove-mac_base/20260113-061245
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/E1vfMO1-00000002kJF-33UK%40rmk-PC.armlinux.org.uk
+patch subject: [PATCH net-next 2/2] net: stmmac: qcom-ethqos: convert to set_clk_tx_rate() method
+config: arc-allyesconfig (https://download.01.org/0day-ci/archive/20260113/202601131106.zgy17BPH-lkp@intel.com/config)
+compiler: arc-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260113/202601131106.zgy17BPH-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601131106.zgy17BPH-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c: In function 'ethqos_set_clk_tx_rate':
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c:188:1: warning: control reaches end of non-void function [-Wreturn-type]
+     188 | }
+         | ^
+
+
+vim +188 drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+
+a7c30e62d4b895 Vinod Koul            2019-01-21  175  
+a69650e88a5551 Russell King (Oracle  2026-01-12  176) static int ethqos_set_clk_tx_rate(void *bsp_priv, struct clk *clk_tx_i,
+a69650e88a5551 Russell King (Oracle  2026-01-12  177) 				  phy_interface_t interface, int speed)
+a7c30e62d4b895 Vinod Koul            2019-01-21  178  {
+a69650e88a5551 Russell King (Oracle  2026-01-12  179) 	struct qcom_ethqos *ethqos = bsp_priv;
+98f9928843331f Russell King (Oracle  2025-02-21  180) 	long rate;
+98f9928843331f Russell King (Oracle  2025-02-21  181) 
+a69650e88a5551 Russell King (Oracle  2026-01-12  182) 	if (!phy_interface_mode_is_rgmii(interface))
+a69650e88a5551 Russell King (Oracle  2026-01-12  183) 		return 0;
+26311cd112d05a Sarosh Hasan          2024-02-26  184  
+98f9928843331f Russell King (Oracle  2025-02-21  185) 	rate = rgmii_clock(speed);
+98f9928843331f Russell King (Oracle  2025-02-21  186) 	if (rate > 0)
+a69650e88a5551 Russell King (Oracle  2026-01-12  187) 		clk_set_rate(ethqos->link_clk, rate * 2);
+a7c30e62d4b895 Vinod Koul            2019-01-21 @188  }
+a7c30e62d4b895 Vinod Koul            2019-01-21  189  
 
 -- 
-Best, 
-Chaoyi
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
