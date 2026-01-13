@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72312D29DEF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 09:08:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB8DD29DEF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 09:08:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NSD4L20CeuMm6ThnQKNhpcgjNlaKDDx6hSPUMcsVxQE=; b=FJHs4tZwfoxcEA5kDAojzDYFC7
-	M2p/FVY6Wr10beo+SL4sL3EzdDZOyHJIX9DfZiOkokG7RAhH6H7p9JylvGUZfmx8p25ZOge3DMIef
-	OQ9820SIG/LJDujnoP7Gm4a5FK4HcA/d+OoB88M5h0Yc3zTWPuYGp938bycvJVTrNog+h4/rktaLw
-	y5QY6dliF9IKhx72fnRvSCqi4xEp7S4i1TJyhcPRR23HMdSQP40AvzAZJHOZiFXH72luySTNQgdwF
-	i0veFLL2YkhF6A0Mx3yulsNMUIsjuDintUcfEgCvGeB/fZJP5KQYlzFy0QMieivw0vN3M6JsRF3KX
-	+vCllo1g==;
+	bh=TZ1hoFZXyU6BZ5oabn0l+rj1sPSKhOPz8oxSSQnew28=; b=01vy2UdwtVbbQ5bedZcDiYDly2
+	T/fta3EVdQCcz+pi6lJJThCoP38ngmvLFN4cZVccAQQ8Fx3s0c5U45SOX+/BWjREzQdvycCcz3zF0
+	riPA8vor5dKhCP4yrUT/GcfERd7MBQzNglfT+EO7BKQQpgasQuejnpcaYcZJ7S76Lr2xVvKSX4OOd
+	WOY1GV0cTvH981b0RQbK+JldeD+URm1owhR2Z/aSS+ndcdk50o2iQVDQ8eHNGREIrzMUJViCztcOx
+	GqaNSYT+3GKm/g4O5L23Lo3AvKlO+/h7Wj1snL7lxP9w8CqhE7S67Bj4kXNQdWlm9wpiWXXGH+5jO
+	HedCROzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfaNe-00000006o39-3ZtB;
-	Tue, 13 Jan 2026 09:08:02 +0000
+	id 1vfaNp-00000006oB1-0Zme;
+	Tue, 13 Jan 2026 09:08:13 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfaNc-00000006nzU-16ZS;
-	Tue, 13 Jan 2026 09:08:01 +0000
+	id 1vfaNm-00000006o8E-2RZf;
+	Tue, 13 Jan 2026 09:08:11 +0000
 Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c68:a473:c554:ed1f:46ad:1ead])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 75EAA2E0;
-	Tue, 13 Jan 2026 10:07:32 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E9B4B316;
+	Tue, 13 Jan 2026 10:07:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1768295252;
-	bh=C2D8ZrofyoQF+2NV+5i1Wn9PVdCVY7W973Seq32HEiQ=;
+	s=mail; t=1768295263;
+	bh=kyfIWiZKsIFqoHeQCFtMxJTG9Er3B3wsG9OKJw8XEeE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Y2xMHsCMArE5DVTBfwE1/pIGK+k+oxEbghUjV0chBAsZzrslfqPuhTs2KXc+3FSWM
-	 ih27eGOMKh8qwfIzUh3mqQPU2Uopp0SzDShMGiJ46UqDgCmvzgv2tgW5f+0SPTWKnz
-	 LfkceRxIoUELCEgqYEDWeAw8yE6MeAPkRdUsIKhU=
+	b=LjjQuPF4NLsPuuoY7GzWIM7Bzw1t/bZc/EsbOfU76mbFQ7C9z9YWAwDpaswSGN3tW
+	 MPbfyYccAsHXSJYtl1v42bRI3L6XFt9Pao0jwwkIwyYF4Gsxc7H+OCnLhO6iqTzcDS
+	 P3qLmkAixYY3URLmzaZH3rnpzs5yWFQKynY5pYpw=
 From: Jai Luthra <jai.luthra@ideasonboard.com>
-Date: Tue, 13 Jan 2026 14:35:25 +0530
-Subject: [PATCH 05/10] media: videobuf2: Allow exporting of a struct dmabuf
+Date: Tue, 13 Jan 2026 14:35:27 +0530
+Subject: [PATCH 07/10] media: uapi: v4l2-core: Add ISP statistics output
+ V4L2 fourcc type
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260113-b4-vchiq-isp-v1-5-ea0b300bffc8@ideasonboard.com>
+Message-Id: <20260113-b4-vchiq-isp-v1-7-ea0b300bffc8@ideasonboard.com>
 References: <20260113-b4-vchiq-isp-v1-0-ea0b300bffc8@ideasonboard.com>
 In-Reply-To: <20260113-b4-vchiq-isp-v1-0-ea0b300bffc8@ideasonboard.com>
 To: Florian Fainelli <florian.fainelli@broadcom.com>, 
@@ -55,29 +56,28 @@ Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
  Dave Stevenson <dave.stevenson@raspberrypi.com>, 
  Naushir Patuck <naush@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>, 
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-media@vger.kernel.org, Jai Luthra <jai.luthra@ideasonboard.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.org>
+ linux-media@vger.kernel.org, Jai Luthra <jai.luthra@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3305;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4266;
  i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
- bh=j7qzDqakzZei+9a6emX3yapjgMO8lsfF6tpVIix0pJs=;
- b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBpZgtH+lptJm6nWwFPUpR8CUfI/3bGTOPtR4oEZ
- StDFij9t9OJAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaWYLRwAKCRBD3pH5JJpx
- RaGLD/9crGSKCvfjDyfQI5Lr8R8+nDa6cgUjoczSF5D/Oek+pPFraOf0Mc7AvfoWTlRiz54KlbZ
- 2XZWdmbfIZ07KvYclZKAza4lx2f63bPTqXiFKZ0fUKQaESMoRrnzBbnZ3py1WNUFt8cec6Jx+VF
- J5HckusxSmPmzCYxFt0m3tGqzLVzcTJVy9GetBzy7lIkS1THm4MEXsrDOK2Q56eX96FxpmEE5Xe
- kbmopu+R37bxjxw+6Jt09TKrqJ7375nF4BfA0FD5L/3mb07d+VCh6DEHkHyP+XrAYzhrxcLriF7
- xcruGh3U0QVahh/+pqe1y6uUkYJUHVHhv7EpCIR7dtIL6GTaM8tmUzkVshA4Bba81yykmlZ0YB7
- 7u0CQwfTvnyIe454uathFBgiS7771cwKrOisAAk95S0Z+QTCYY6N96dwfVvpIzEBb7TxcZ7SqyS
- Q/VBoUUflb8f2myPQkSPk0HcuXSv/wXrkeKz8/nfhrJJVqB9abq3rJEWHV/B405nD+ASWtRkAlx
- vgrZWBkqlnPF1sX0juxTCTJKdc0pNKa520C6T/3KwIg9uyVrtZSmNQWPM/RPgxYLFadCXEvTz7+
- gyNUTPpvoyXttYmWRqZcoOIyiGJeVVqwe2G5sK9ZxPzfX+m7PKOlxdf9iFiSbbty20wQl8XL+LW
- IePgYkjQKNPAZ7A==
+ bh=Z+stu8A+Ltko3z//8/Zz66mt7iixZehU8eSefkNFPwg=;
+ b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBpZgtJOwtmrwy2Ha8asPz2z/UDSL9rd86LL6ekn
+ G/CH4HNj1qJAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaWYLSQAKCRBD3pH5JJpx
+ RXjFD/0UXPxitRefjxzA74sEwsQDmf2VOIQVX7tBlBPirPuvIm1aZ578ExWYni2ySYMwJ/BLmCo
+ QioENHDb+/BCogmK/7efVyDZ+DtZXOtjOlv5WfjCDvqdnPB7GPDWURjlLfnKTpzGzQi2ulF9qnM
+ MUDVVaHwzKKAWDnhysU0J/3OijePLV4BW4wDJP7i7afCIjjH5tkiW2xcr5KzWCuCR81Jl1SD5sd
+ V/+Lizv+C1nUvDlX/pMI2wGDX98uaxbNZldOa4tcJe9zm4ssGyCGQmPx95UjJ6v5WCnKEy+E4fT
+ ccXE1E/B4LVcIUFMqJTyxBsP8Ngd72KTWim5BWSo1ZwyWhY9rmHpORXQkIDZELDVDuWhS47OSx/
+ PjCaVNv1KlObw2nIo5LplmMUqfUFzU2hwKWAU06kciirWxY/ulzyKc3uZ8taJ760ORU44RhEvW9
+ SCb+wR/1vcpGzxkeP6PFAe3ZW6JTfxtshDL0qHtGLEv6LuHk2kFBObv5aTuZnyuIsGPwDa5Cky9
+ 2RmMVhH7CIaNukF0zhsF74xjL3dITbIRhUr5tQskJwZ0E102ljUEwhFInqb3s2M+hMJsEEcxd0L
+ 4UiZerkJPmbyXLvU/PPlkUEpm330GPTnjujOJ6AL7te66sWIXJ4igGw3LShTwLwT1RV9Z4wTd/h
+ Pv2IQ3DHB7jJdiw==
 X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
  fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_010800_473362_DAA14434 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20260113_010810_766864_066E2EDA 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,90 +92,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dave Stevenson <dave.stevenson@raspberrypi.org>
+From: Naushir Patuck <naush@raspberrypi.com>
 
-videobuf2 only allowed exporting a dmabuf as a file descriptor,
-but there are instances where having the struct dma_buf is
-useful within the kernel.
+Add V4L2_META_FMT_BCM2835_ISP_STATS V4L2 format type.
 
-Split the current implementation into two, one step which
-exports a struct dma_buf, and the second which converts that
-into an fd.
+This new format will be used by the BCM2835 ISP device to return
+out ISP statistics for 3A.
 
-Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.org>
+Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
 Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
 ---
- drivers/media/common/videobuf2/videobuf2-core.c | 21 ++++++++++++++++++---
- include/media/videobuf2-core.h                  | 15 +++++++++++++++
- 2 files changed, 33 insertions(+), 3 deletions(-)
+ .../userspace-api/media/v4l/meta-formats.rst       |  1 +
+ .../media/v4l/pixfmt-meta-bcm2835-isp-stats.rst    | 35 ++++++++++++++++++++++
+ drivers/media/v4l2-core/v4l2-ioctl.c               |  1 +
+ include/uapi/linux/videodev2.h                     |  1 +
+ 4 files changed, 38 insertions(+)
 
-diff --git a/drivers/media/common/videobuf2/videobuf2-core.c b/drivers/media/common/videobuf2/videobuf2-core.c
-index 2df566f409b65eb99fa7fbe308b8e3afe1bdcbca..f316864d99fc5c5abb2e5a27779cbc371c1a211d 100644
---- a/drivers/media/common/videobuf2/videobuf2-core.c
-+++ b/drivers/media/common/videobuf2/videobuf2-core.c
-@@ -2431,11 +2431,11 @@ static int __find_plane_by_offset(struct vb2_queue *q, unsigned long offset,
- 	return 0;
- }
+diff --git a/Documentation/userspace-api/media/v4l/meta-formats.rst b/Documentation/userspace-api/media/v4l/meta-formats.rst
+index 3e0cab153f0ac5e6d76696c5b78eebb0db43b354..be3f20f0e68fd225274428b4a712275654bf539c 100644
+--- a/Documentation/userspace-api/media/v4l/meta-formats.rst
++++ b/Documentation/userspace-api/media/v4l/meta-formats.rst
+@@ -14,6 +14,7 @@ These formats are used for the :ref:`metadata` interface only.
+     :maxdepth: 1
  
--int vb2_core_expbuf(struct vb2_queue *q, int *fd, unsigned int type,
--		    struct vb2_buffer *vb, unsigned int plane, unsigned int flags)
-+int vb2_core_expbuf_dmabuf(struct vb2_queue *q, unsigned int type,
-+			   struct vb2_buffer *vb, unsigned int plane,
-+			   unsigned int flags, struct dma_buf **dmabuf)
- {
- 	struct vb2_plane *vb_plane;
--	int ret;
- 	struct dma_buf *dbuf;
+     metafmt-arm-mali-c55
++    metafmt-bcm2835-isp-stats
+     metafmt-c3-isp
+     metafmt-d4xx
+     metafmt-generic
+diff --git a/Documentation/userspace-api/media/v4l/pixfmt-meta-bcm2835-isp-stats.rst b/Documentation/userspace-api/media/v4l/pixfmt-meta-bcm2835-isp-stats.rst
+new file mode 100644
+index 0000000000000000000000000000000000000000..d5d71f3ae752a41b86f755c24b487c7cfadfac4b
+--- /dev/null
++++ b/Documentation/userspace-api/media/v4l/pixfmt-meta-bcm2835-isp-stats.rst
+@@ -0,0 +1,35 @@
++.. SPDX-License-Identifier: GFDL-1.1-no-invariants-or-later
++.. c:namespace:: V4L
++
++.. _v4l2-meta-fmt-bcm2835-isp-stats:
++
++*****************************************
++V4L2_META_FMT_BCM2835_ISP_STATS  ('BSTA')
++*****************************************
++
++BCM2835 ISP Statistics
++
++Description
++===========
++
++The BCM2835 ISP hardware calculate image statistics for an input Bayer frame.
++These statistics are obtained from the "bcm2835-isp0-capture3" device node
++using the :c:type:`v4l2_meta_format` interface. They are formatted as described
++by the :c:type:`bcm2835_isp_stats` structure below.
++
++.. code-block:: c
++
++	#define DEFAULT_AWB_REGIONS_X 16
++	#define DEFAULT_AWB_REGIONS_Y 12
++
++	#define NUM_HISTOGRAMS 2
++	#define NUM_HISTOGRAM_BINS 128
++	#define AWB_REGIONS (DEFAULT_AWB_REGIONS_X * DEFAULT_AWB_REGIONS_Y)
++	#define FLOATING_REGIONS 16
++	#define AGC_REGIONS 16
++	#define FOCUS_REGIONS 12
++
++.. kernel-doc:: include/uapi/linux/bcm2835-isp.h
++   :functions: bcm2835_isp_stats_hist bcm2835_isp_stats_region
++	             bcm2835_isp_stats_focus bcm2835_isp_stats
++
+diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
+index 98512ea4cc5b9d725e1851af2ed38df85bb4fa8c..30bfa35ae9f5119dd89251716e4da45e88d30aa9 100644
+--- a/drivers/media/v4l2-core/v4l2-ioctl.c
++++ b/drivers/media/v4l2-core/v4l2-ioctl.c
+@@ -1488,6 +1488,7 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
+ 	case V4L2_META_FMT_GENERIC_CSI2_16:	descr = "8-bit Generic Meta, 16b CSI-2"; break;
+ 	case V4L2_META_FMT_GENERIC_CSI2_20:	descr = "8-bit Generic Meta, 20b CSI-2"; break;
+ 	case V4L2_META_FMT_GENERIC_CSI2_24:	descr = "8-bit Generic Meta, 24b CSI-2"; break;
++	case V4L2_META_FMT_BCM2835_ISP_STATS: descr = "BCM2835 ISP Image Statistics"; break;
  
- 	if (q->memory != VB2_MEMORY_MMAP) {
-@@ -2480,6 +2480,21 @@ int vb2_core_expbuf(struct vb2_queue *q, int *fd, unsigned int type,
- 		return -EINVAL;
- 	}
+ 	default:
+ 		/* Compressed formats */
+diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
+index add08188f06890182a5c399a223c1ab0a546cae1..b0dff5e124d7eaab933e57909b8421c475de1da3 100644
+--- a/include/uapi/linux/videodev2.h
++++ b/include/uapi/linux/videodev2.h
+@@ -869,6 +869,7 @@ struct v4l2_pix_format {
+ #define V4L2_META_FMT_D4XX        v4l2_fourcc('D', '4', 'X', 'X') /* D4XX Payload Header metadata */
+ #define V4L2_META_FMT_UVC_MSXU_1_5  v4l2_fourcc('U', 'V', 'C', 'M') /* UVC MSXU metadata */
+ #define V4L2_META_FMT_VIVID	  v4l2_fourcc('V', 'I', 'V', 'D') /* Vivid Metadata */
++#define V4L2_META_FMT_BCM2835_ISP_STATS v4l2_fourcc('B', 'S', 'T', 'A') /* BCM2835 ISP image statistics output */
  
-+	*dmabuf = dbuf;
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(vb2_core_expbuf_dmabuf);
-+
-+int vb2_core_expbuf(struct vb2_queue *q, int *fd, unsigned int type,
-+		    struct vb2_buffer *vb, unsigned int plane, unsigned int flags)
-+{
-+	struct dma_buf *dbuf;
-+	int ret;
-+
-+	ret = vb2_core_expbuf_dmabuf(q, type, vb, plane, flags, &dbuf);
-+	if (ret)
-+		return ret;
-+
- 	ret = dma_buf_fd(dbuf, flags & ~O_ACCMODE);
- 	if (ret < 0) {
- 		dprintk(q, 3, "buffer %d, plane %d failed to export (%d)\n",
-diff --git a/include/media/videobuf2-core.h b/include/media/videobuf2-core.h
-index 9b02aeba41089c42b552998b49f27906dc70eeae..c75b4f14581a353d8dbe68d8bedd2b2ee86934d2 100644
---- a/include/media/videobuf2-core.h
-+++ b/include/media/videobuf2-core.h
-@@ -967,6 +967,21 @@ int vb2_core_streamon(struct vb2_queue *q, unsigned int type);
-  */
- int vb2_core_streamoff(struct vb2_queue *q, unsigned int type);
- 
-+/**
-+ * vb2_core_expbuf_dmabuf() - Export a buffer as a dma_buf structure
-+ * @q:         videobuf2 queue
-+ * @type:      buffer type
-+ * @index:     id number of the buffer
-+ * @plane:     index of the plane to be exported, 0 for single plane queues
-+ * @flags:     flags for newly created file, currently only O_CLOEXEC is
-+ *             supported, refer to manual of open syscall for more details
-+ * @dmabuf:    Returns the dmabuf pointer
-+ *
-+ */
-+int vb2_core_expbuf_dmabuf(struct vb2_queue *q, unsigned int type,
-+			   struct vb2_buffer *vb, unsigned int plane,
-+			   unsigned int flags, struct dma_buf **dmabuf);
-+
- /**
-  * vb2_core_expbuf() - Export a buffer as a file descriptor.
-  * @q:		pointer to &struct vb2_queue with videobuf2 queue.
+ /* Vendor specific - used for RK_ISP1 camera sub-system */
+ #define V4L2_META_FMT_RK_ISP1_PARAMS	v4l2_fourcc('R', 'K', '1', 'P') /* Rockchip ISP1 3A Parameters */
 
 -- 
 2.52.0
