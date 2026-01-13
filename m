@@ -4,55 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78203D2F34B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 17:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2685FD2F349
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 17:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
+	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gjjJfC53twxmBm+Qk3XwMU7iflsa1zYBVB4xaX414jE=; b=3FACiNB3zeTp3GE3JlJRWSTXVq
-	7uim1AHbz0/Mq1gn5MB4S7Q9skZP599e2gcWZHZaSzObLYiSYxkdxwujvi9mjhPLS0tt3P87PmM2S
-	BCXX1NNQ6WdfyV3y/PyCeWwqTfBlA2Yu/eJfth7GlME58nXrsjJ4jx1yApsMMtKOZF6r1fnvsSiGD
-	/Rv7u7T+T5AvDUWudppozT93lqcFGrxubt4cVFxGz7vYLJ0eTGGc6nFGaCEYFOmoQ7B3ESqx2ZsHE
-	3M/y55rqtPwFjAYaPFGYggTE7JOERzgcifCzPJvx/+vdPauI8A2JsKIZ25MWqkiXoV0z6t44cKE8v
-	Aan3me7A==;
+	bh=ArN+gzNluv41ve7tNs9bCuLTGUt8HRF4hQp5onhOiSg=; b=fjebRdpVd1/WY3NVxF/6lsX5Lh
+	Mj6a8R0GuSXwH85atFbSqzDykPwRIroJcWeU3oBbOFYdtnltQTN+ReJIQSF1n/Unhy43/7K0TLuf1
+	NLvUBJ5zj6eSU8e0LShH1/OdgrQz6GhppT3gUYRlKF8hav9X9tLw64KxFFALrdGo2OSanUdXEjCw9
+	BpGZ6ilV3C95qtcAcSueHZb4bbW8hvWKJieBnNrhUt+RW9qalL6nC/bEgJehFCEvmsyYEcokj3Nly
+	VoPVkBI0OAo12Tfs4Mbp6sMSH4Hd5NSrC9A6DF1c045+H+Cm/l3dZOogbNF/ZMxKuPxUgJuBzU0Ut
+	D4wUyPuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfiDt-00000007WqU-46iN;
-	Tue, 13 Jan 2026 17:30:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfiDr-00000007Wpc-2BZ5
+	id 1vfiEi-00000007WwP-1QWH;
+	Tue, 13 Jan 2026 17:31:20 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfiEf-00000007Wv5-1zjl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 17:30:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AC8C9497;
-	Tue, 13 Jan 2026 09:30:16 -0800 (PST)
-Received: from [192.168.178.30] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8E8553F632;
-	Tue, 13 Jan 2026 09:30:20 -0800 (PST)
-Message-ID: <c4ff0ea7-db2f-4a1a-a095-c3f8249d294a@arm.com>
-Date: Tue, 13 Jan 2026 17:30:10 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 0/5] Arm LFA: Improvements and interrupt support
-To: Vedashree Vidwans <vvidwans@nvidia.com>, salman.nabi@arm.com,
- sudeep.holla@arm.com, lpieralisi@kernel.org, mark.rutland@arm.com
-Cc: ardb@kernel.org, chao.gao@intel.com,
- linux-arm-kernel@lists.infradead.org, linux-coco@lists.linux.dev,
- linux-kernel@vger.kernel.org, sdonthineni@nvidia.com, vsethi@nvidia.com,
- vwadekar@nvidia.com
-References: <20251208221319.1524888-1-vvidwans@nvidia.com>
-Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20251208221319.1524888-1-vvidwans@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	Tue, 13 Jan 2026 17:31:19 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 8EF031A2839;
+	Tue, 13 Jan 2026 17:31:12 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 43C8360701;
+	Tue, 13 Jan 2026 17:31:12 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 089C0103C81D3;
+	Tue, 13 Jan 2026 18:30:59 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1768325470; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ArN+gzNluv41ve7tNs9bCuLTGUt8HRF4hQp5onhOiSg=;
+	b=SbsgZNDgkfZHCx/r34yGumijNEEAujBA1Asley4Zy9v924+EMnfgnRIOcSjOdM5mvGqWPR
+	lWsq+4rbWv1be42TFPaquIJOTEqiazGpexh6KgVqdj/vsp21Futc53PdAYnOxHNcXKfXWM
+	UPMA6t4YXAPOUmX4w/xDnACUO3E4LMeMErPwCMH1EWAjKXwOnIsQ28a7Nib3ZS84y0pFQm
+	0r3v24ZarNzuyfppzipCFobDWeOQLNpJc0/4gSmi7B9gJ2tirl0htm/b1q7gv8HVWCGTPs
+	rlMphTDPohwx9XlNXbinFpmLjBit+nuMZZCTpdBFpyRuhJNgeuQUSxvN+fm7cQ==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 13 Jan 2026 18:30:58 +0100
+Message-Id: <DFNN251V4JL9.2ECEDGOKN8I4F@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v2 2/6] drm/meson/dw-hdmi: convert to
+ of_drm_find_and_get_bridge()
+Cc: "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
+ Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Kevin
+ Hilman" <khilman@baylibre.com>, "Jerome Brunet" <jbrunet@baylibre.com>,
+ "Philipp Zabel" <p.zabel@pengutronix.de>, "Shawn Guo"
+ <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
+ <festevam@gmail.com>, "Chun-Kuang Hu" <chunkuang.hu@kernel.org>, "Matthias
+ Brugger" <matthias.bgg@gmail.com>, "AngeloGioacchino Del Regno"
+ <angelogioacchino.delregno@collabora.com>, "Inki Dae"
+ <inki.dae@samsung.com>, "Seung-Woo Kim" <sw0312.kim@samsung.com>, "Kyungmin
+ Park" <kyungmin.park@samsung.com>, "Krzysztof Kozlowski" <krzk@kernel.org>,
+ "Alim Akhtar" <alim.akhtar@samsung.com>, "Laurent Pinchart"
+ <laurent.pinchart+renesas@ideasonboard.com>, "Tomi Valkeinen"
+ <tomi.valkeinen+renesas@ideasonboard.com>, "Kieran Bingham"
+ <kieran.bingham+renesas@ideasonboard.com>, "Geert Uytterhoeven"
+ <geert+renesas@glider.be>, "Magnus Damm" <magnus.damm@gmail.com>, "Marek
+ Szyprowski" <m.szyprowski@samsung.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>,
+ "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+ <linux-amlogic@lists.infradead.org>,
+ <linux-arm-kernel@lists.infradead.org>, <imx@lists.linux.dev>,
+ <linux-mediatek@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+ <linux-renesas-soc@vger.kernel.org>
+To: "Martin Blumenstingl" <martin.blumenstingl@googlemail.com>
+X-Mailer: aerc 0.20.1
+References: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-3-v2-0-8d7a3dbacdf4@bootlin.com> <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-3-v2-2-8d7a3dbacdf4@bootlin.com> <CAFBinCBWUXNwEDCJNEmdCtOcGO9eVFfZFC9p9fpdRTesZ7xBSQ@mail.gmail.com>
+In-Reply-To: <CAFBinCBWUXNwEDCJNEmdCtOcGO9eVFfZFC9p9fpdRTesZ7xBSQ@mail.gmail.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_093027_693359_B691D5B8 
-X-CRM114-Status: GOOD (  27.44  )
+X-CRM114-CacheID: sfid-20260113_093117_639854_234F556E 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,91 +102,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vedashree,
+Hello Martin,
 
-thanks for your efforts on this, and sorry for the delay on our side. We 
-were hold up by a combination of spec changes and non-overlapping holidays.
+On Mon Jan 12, 2026 at 11:21 PM CET, Martin Blumenstingl wrote:
+> Hi Luca,
+>
+> On Fri, Jan 9, 2026 at 11:03=E2=80=AFAM Luca Ceresoli <luca.ceresoli@boot=
+lin.com> wrote:
+>>
+>> of_drm_find_bridge() is deprecated. Move to its replacement
+>> of_drm_find_and_get_bridge() which gets a bridge reference, and ensure i=
+t
+>> is put when done.
+>>
+>> dw_hdmi->bridge is used only in dw_hdmi_top_thread_irq(), so in order to
+>> avoid potential use-after-free ensure the irq is freed before putting th=
+e
+>> dw_hdmi->bridge reference.
+>>
+>> Acked-by: Maxime Ripard <mripard@kernel.org>
+>> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+>
+> [...]
+>> @@ -789,8 +789,12 @@ static void meson_dw_hdmi_unbind(struct device *dev=
+, struct device *master,
+>>                                    void *data)
+>>  {
+>>         struct meson_dw_hdmi *meson_dw_hdmi =3D dev_get_drvdata(dev);
+>> +       struct platform_device *pdev =3D to_platform_device(dev);
+>> +       int irq =3D platform_get_irq(pdev, 0);
+>>
+>> +       devm_free_irq(dev, irq, meson_dw_hdmi);
+> I have one question (so I can understand things better):
+> is there a particular reason why you went with free'ing the IRQ
+> instead of "just" masking it (so the hardware won't fire anymore of
+> those IRQs)?
 
-On 08/12/2025 22:13, Vedashree Vidwans wrote:
-> Hello,
-> 
-> The patches update the proposed Arm Live Firmware Activation (LFA)
-> kernel driver [1] to incorporate review feedback [2] and refine the
-> activation flow while remaining aligned with the LFA specification
-> DEN0147 [3] and the SMCCC 1.2 calling convention. The series keeps
-> the existing functionality but restructures and extends it to improve
-> robustness, reviewability, and future extensibility.​
+One reason is symmetry: _bind requests the irq, so _unbind does the
+reverse.
 
-I would propose we change that approach a bit. We have updated and 
-improved the driver internally, but were waiting for the new version of 
-the spec (BET1) to be released, which happened some weeks ago. Salman 
-will send out a new version of the driver in the next few days. Anything 
-that is a bug (like the omission of the SMCCC v1.2 interface) will be 
-addressed there, as there is no point to merge with a known buggy base 
-patch. Also we will incorporate the changes we made so far, including 
-adjustments for the new spec version.
+Another is I don't have the hardware, so I wanted my changes to be as small
+and clear as possible.
 
-Anything that can be added as independent patches should be done so, I 
-think for instance the interrupt support is such a candidate. Ideally 
-you can rebase your series on the changed base patch once this has been 
-posted.
-For other things like the platform driver introduction we can use your 
-series here as a discussion base, as it allows us to reason and discuss 
-this easier than by looking at a from-scratch patch.
+In principle one could request/free the irq in probe/remove and then
+enable/disable it in bind/unbind. Whether it would be a good or bad idea I
+don't know, but surely it would be more complex and I wouldn't want to do
+it without any chance to test it on hardware.
 
-Does this make sense?
+Also, that would only optimize the case of multiple bind/unbind cycles,
+which are not quite realistic without bridge hotplug. And brigde hotplug
+does not exist yet in mainline, and when it will arrive it will be used
+only for a few use cases.
 
-Also please note that the DT and ACPI part has changed in the latest 
-version of the spec. I will send a DT binding patch ASAP, to get this 
-part out of the way.
+I hope this answers your question.
 
-Cheers,
-Andre
+Best regards,
+Luca
 
-
- > > The SMCCC usage in the driver is updated to consistently use the
-> SMCCC 1.2 register-based calling convention, consolidating arguments
-> and results into a single struct to reduce stack usage and simplify
-> the SMC interface. The patches also split the original changes into
-> focused pieces and document the device node bindings in the commit
-> messages, making it easier to follow and validate the implementation
-> against the specification.​
-> 
-> The kernel driver is registered as a platform driver in accordence to
-> the LFA device defined by the specification [3]. The driver now extends
-> interface for interrupt-based enablement of LFA. During LFA, the
-> interrupt
-> thread refreshes firmware component details after each activation step
-> and iterates over all activable components until no further activation
-> is pending, matching the spec’s allowance for component detail changes
-> after activation. This ensures that sysfs exposure of LFA components
-> remains consistent with the authoritative information provided by the
-> secure firmware.​
-> 
-> The handling of CPU rendezvous is adjusted so that the kernel now
-> honors the rendezvous policy chosen by the firmware, instead of
-> unconditionally forcing a rendezvous. This reflects experience with
-> existing firmware deployments where mandatory rendezvous is not
-> required, while still allowing the firmware to request it when
-> needed.​
-> 
-> Thank you,
-> Veda
-> 
-> [1] https://lore.kernel.org/lkml/20250926123145.268728-1-salman.nabi@arm.com/
-> [2] https://lkml.org/lkml/2025/10/8/980
-> [3] https://developer.arm.com/documentation/den0147/latest/
-> 
-> Vedashree Vidwans (5):
->    firmware: smccc: LFA: use smcc 1.2
->    firmware: smccc: LFA: refactor
->    firmware: smccc: add timeout, touch wdt
->    firmware: smccc: register as platform driver
->    firmware: smccc: lfa: refresh fw details
-> 
->   drivers/firmware/smccc/Kconfig  |   3 +-
->   drivers/firmware/smccc/lfa_fw.c | 478 +++++++++++++++++++++++++-------
->   2 files changed, 380 insertions(+), 101 deletions(-)
-> 
-
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
