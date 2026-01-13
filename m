@@ -4,59 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12ED0D2D11F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE171D2D11F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 14:58:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=to+rIAaUsFzHBBTw1pP8Vvw5y87DGsrmyZf6Qtijn4Q=; b=sL6ZONTvV9N0p9bYbzzZFz709r
-	xF99r7F0n6FVB9pKhGhfbxGxe/CWWo9AdgRHXQYilz50Y39ktMfYwgHXmEd96ykoMoSyl3GFqSMmb
-	FVoANK2ka20z1NwKyDWnLpyui+8jz+HgHs2OTK17bShQZcVDv+BfMLLsAF8d6CVBrzsFkQliECgEX
-	FiIVgid4ksGrMEtg7KnWyekR5SfUuycmo6BEtoFEf/4SPUOjpDkaKkvRpRTuQQZ1tA2Mf3pRUP1/4
-	QmqI+pOvqGxG9jNpvSn8OJ2vmnJJiDToA8fRVRw1MwSrreLGP0G46X+pPWf8KTDhP+FBa2Kd87j4l
-	pnUwVi5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5ZI8Bt7/KMKdPs9SV3ne7hN/o57JvvEygen56EnmiE8=; b=wuOw89XlMV/0FANYDv+tma9d12
+	aeq738VRWyO9gTk9Z0lhPQOEz5ILD6pervrlWw16GyqhvgfLrnM3kHiulEEEMk8t6yC6WtbNvmfpY
+	XjdMvC6AQTIoiET5zmt8o02bl3qelWMAGIFN6Ydx+jTQVVZl6yNt8MNJY+zcS2FwCmGNmb1f0sXJL
+	GlqWhgn5R44gazLgRR8k5DPN+pLqWdWl7iCdyKI51ZKxtP+5ibSaXceT4dL1QkQG/qTTbpl8lpt5D
+	rvxhYTKN0fdIUzFH0qwAqPvs6gSRzbQg67oFo52BrPKSeVU+XxhRvtbLuoSM4tRgH3SvWOOLDKfVw
+	o4S2QANg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vffp8-00000007IlL-0KGZ;
-	Tue, 13 Jan 2026 14:56:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vffp4-00000007IkY-1au2;
-	Tue, 13 Jan 2026 14:56:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7460F6000A;
-	Tue, 13 Jan 2026 14:56:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4680C16AAE;
-	Tue, 13 Jan 2026 14:56:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768316201;
-	bh=mddwGk9E211pqqLNC87BrcxRIxMRADenQX665fNT+nM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bQEy7znOEvUxQVJxKZIutih3qVH2s3AZ7kK6fZPcaUm9v3ikfbWiVeujHa7YYbOwf
-	 HLkcSgTKMKZYjqRCgu4MtT2LzkWVtea1D0KE2bD3KXeCkWEP1ov/JAFQIki+qqS4yv
-	 KQSJh4jbhl0E3RpHy4q1qlecCr6bqMgC6iVCuoXiCIMN4xX/D+65DxU47Xj7h/JHI2
-	 +QpUSLZVdh4YQaS907kjL7ftjsMmPmyp8ZgmnmqMEosxO2u9caB21mCed5JEZfLz/E
-	 SZX++KBa9Hj7Cxe1//y39fxHiELp6Bqet2nE7a0uK0igrZYrgiAZJAHYi/vGrua72Y
-	 YawIfjvtPDD2g==
-Date: Tue, 13 Jan 2026 15:56:38 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Aleksander Jan Bajkowski <olek2@wp.pl>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: airoha: implement get_link_ksettings
-Message-ID: <aWZdJoELeXE4GtGY@lore-desk>
-References: <20260110170212.570793-1-olek2@wp.pl>
+	id 1vffrA-00000007J2L-0JlK;
+	Tue, 13 Jan 2026 14:58:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vffr7-00000007J1x-39wI
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 14:58:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA131497;
+	Tue, 13 Jan 2026 06:58:41 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6C2B23F632;
+	Tue, 13 Jan 2026 06:58:43 -0800 (PST)
+Message-ID: <de0e4d8b-c9d2-4493-9379-ec16de0af795@arm.com>
+Date: Tue, 13 Jan 2026 14:58:41 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="F0XY5+WqgebaVLDU"
-Content-Disposition: inline
-In-Reply-To: <20260110170212.570793-1-olek2@wp.pl>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 17/47] arm_mpam: resctrl: Implement
+ resctrl_arch_reset_all_ctrls()
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ Zeng Heng <zengheng4@huawei.com>
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+ <20260112165914.4086692-18-ben.horgan@arm.com>
+ <20260113144635.00000755@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20260113144635.00000755@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260113_065849_842225_28F1957C 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,54 +78,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jonathan, Zeng,
 
---F0XY5+WqgebaVLDU
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 1/13/26 14:46, Jonathan Cameron wrote:
+> On Mon, 12 Jan 2026 16:58:44 +0000
+> Ben Horgan <ben.horgan@arm.com> wrote:
+> 
+>> From: James Morse <james.morse@arm.com>
+>>
+>> We already have a helper for resetting an mpam class and component.  Hook
+>> it up to resctrl_arch_reset_all_ctrls() and the domain offline path.
+>>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> 
+> There was a question from Zhengheng on v2 that doesn't seem to be addressed
+> and I'm not seeing a reply on list.  Maybe an email snafu?
 
-> Implement the .get_link_ksettings to get the rate, duplex, and
-> auto-negotiation status.
->=20
-> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index 315d97036ac1..00cae2833f09 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -2803,6 +2803,7 @@ static const struct ethtool_ops airoha_ethtool_ops =
-=3D {
->  	.get_drvinfo		=3D airoha_ethtool_get_drvinfo,
->  	.get_eth_mac_stats      =3D airoha_ethtool_get_mac_stats,
->  	.get_rmon_stats		=3D airoha_ethtool_get_rmon_stats,
-> +	.get_link_ksettings	=3D phy_ethtool_get_link_ksettings,
->  	.get_link		=3D ethtool_op_get_link,
->  };
+Yes, sorry! For some reason I don't get his emails. :( It happened on
+the base mpam driver series too. I'll keep a better look at lore and
+reply to his v2 query.
 
-Tested-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> 
+> https://lore.kernel.org/all/20260109034506.1176234-1-zengheng4@huawei.com/
+> 
+> Please +CC zhengheng on future versions if we need them!
 
-Regards,
-Lorenzo
+Will do. Should be CC'd on this version too. I don't if there is an
+email issue with that too.
 
-> =20
-> --=20
-> 2.47.3
->=20
+Thanks,
 
---F0XY5+WqgebaVLDU
-Content-Type: application/pgp-signature; name=signature.asc
+Ben
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaWZdJgAKCRA6cBh0uS2t
-rFqnAP90urg3GOxbCoFAMqLCFB/L1q7Qs9YnOIYJFgJgDjGEOgEApHYGEt+vKXfJ
-hqWzAes4qvKgR6IWh7zYpF5BMJQ3pAI=
-=6pTG
------END PGP SIGNATURE-----
-
---F0XY5+WqgebaVLDU--
 
