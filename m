@@ -4,90 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25380D0C84D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 10:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93B95D0C84D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 10:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kzWAvWlKk1ivM3WNqFslwu42j6W682o4xLEKdFkEC58=; b=AXM4kBjPTflWxUU6yCbawDVTqQ
-	6usp4YTZqdlpazjCo/f99V3GYWrhNpqWt0M5iQQHT65nW8qk+ScMcMg3GPEeVCB4DOfXF2wspixhr
-	A+Imsw7RKEcfNZPa/aRBbwHQwO67dNdaLflwrOxOzK2+jtty2enfdaiQeG3ITJqmnOfiVB3cW1eNS
-	HLy+DvCBT/XbYJ+HVIUU+YvGU3FF/U9mpyHIM3dKy82uEbdjlt5E0sCORwLnKG8GT2HKgrU2IFETy
-	dEjaMzZnHYbp4iaXpM0+GQWhq7DiN31DdbWXLjNKmaPGNdGkQF5ShqHnVER1mG3R8ysLj34NWVCBy
-	+Yry1k/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8XhAt7LMsgvpB8v/kjOzoMgfr7UvUpv4cZmXKtrjIrA=; b=jTNoIoGNRdr/Fl
+	tWnQgb+qMH36ihC2gRKWgymvsM5WWHu6osYl/rOqghFmmNIUzMwUDZaq5rmOmYhVkZ8I11LfeTNUK
+	ZJhhYJXyEDACq8+ZfiNnVxraAZ6izOyVALglUXLJARY+mHgn6jWSH4Zeg16ggUWev+bnz8/NGHIRe
+	xWQCi9LyUj9nrG0ddNFkavLaApQHWndRh2h0gVZjsgdGEQHtIkuTg5FvzyoQNDTJNH3ClFmw8yB7o
+	nAoe2fN56TtdcREioVVPEOhqERFVnEebAsbHWf65tevHHPYcQrtB/abddUShtRya06R/AJGghLaeD
+	bURyr1HbBZlHLTZ7mnXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfc5d-00000006wJX-2C8l;
-	Tue, 13 Jan 2026 10:57:33 +0000
-Received: from mail-qk1-f181.google.com ([209.85.222.181])
+	id 1vfc7Z-00000006wYg-3gTA;
+	Tue, 13 Jan 2026 10:59:33 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfc5Z-00000006wIY-3Xlc
+	id 1vfc7W-00000006wXb-4AsU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 10:57:32 +0000
-Received: by mail-qk1-f181.google.com with SMTP id af79cd13be357-8b2d32b9777so1121285285a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 02:57:29 -0800 (PST)
+	Tue, 13 Jan 2026 10:59:32 +0000
+Received: by mail-wr1-x443.google.com with SMTP id ffacd0b85a97d-42fbc305914so5272358f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 02:59:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768301969; x=1768906769; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8XhAt7LMsgvpB8v/kjOzoMgfr7UvUpv4cZmXKtrjIrA=;
+        b=DXBcNAtLyCzzbpjbaWRwgUYWWKx9rwCg2C82cWbMClZYj+zE6ZbyVSqpL4ZAz05/GK
+         XZQrQpG7UGca1V797WxIm//0pa663wCb5IEKrrJMHkfdjdwPmkClAqOdIBOOD4zX08+Q
+         GCWuvhqb1wZAAKElULWAn6lGVw41hJi75Bdb5CoBGJ4bQlNr3c68C+yW2WnWKuDMuPac
+         ARPCjdhOtjs/81Y+mDgy63nS169+6EYEKoEl1BDoWEcOYhugOYaSGXvtsB5uqY7XS3uU
+         t1A3gVkRuUyTgBOeTWqvnSUdhLlcDJU8r5UB+L9SRRGBRWTpfb531wezAtMcfEGdtoZa
+         OLsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768301848; x=1768906648;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1768301969; x=1768906769;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=kzWAvWlKk1ivM3WNqFslwu42j6W682o4xLEKdFkEC58=;
-        b=Qb1j7IpuB0UwbJUyUpiUi3eJCculF75U0W56tXDjT9FOoP0ixqC1jQugLGgDJfe68y
-         uX6rGdAPHgBOhfsYPQonSTXoHiNbelk046jVyN3LPnbbLWOjNG/ZkemFFfpXdviGzqYA
-         8VRGpqYczgLOqrZbt0BUPhSQd/tLy1gEnDXfVp3+GfN0NFlUZkC/IVwdzM/nCqvOcutB
-         edxiCapt/oPhBhrVOEbHX3qCypEz96Z+ucKFh/X9mGJarrRfDBCfwmslNApwAmzmirA0
-         HvB0ynJfY9YKu2UkG+r09O8qkLXkU8ehcY0m6CRcX5Hmkr44y0fhd0YYmbWc3XqapUPo
-         1dXA==
-X-Forwarded-Encrypted: i=1; AJvYcCVTLuQFCPTc4apBEMKh27vl6RObcjspvFmo4wbca3EfLTxngELBfsr0PIYW2ENQGOGAJAdTe4610h3ab/0RpeO6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMsgrfUbohnPDsE2A8nPPzty2s7amc9OGL4YJKudU8QC+M+KFa
-	d97LUk+y/ZEI1XHGKrKasIl5dCFESoM+JGbo6NG0M+0xPTMLjamww0qXLruSGm3T
-X-Gm-Gg: AY/fxX6+4OC2GosysGp4JgN3IW53Li55/qWuCPIe3F7sU0goGVeCcG23MM8o6+5ggEu
-	zrQI/XkkNcDC6G/JTad8HlvJiEBJZlMbjXRHgs5LYCYSgoUamQa1RIyhCvuIIEZTPymAcbLQIGI
-	00TGOODeWBvmuaDYupod1ozyNaSgFOg4f0+6yWGsxigR0uaO3qNUWVkyvhArLVQ6AnYhyYQc4/R
-	5RBqKrIOJb7dLKjDixqJLCIZ3M2JrMs/YN3xfG/Mn5tVlfTgn4YEMI7ZF+uwVeCICcdyM82Yc50
-	DwYOADNpydLoPCK7rxE+C2LZ8X1rMECjLa9KdUoyt/oIWAWaxa/OvuMhM6hWqLMERO+c69/m+oP
-	7LUG9OInWVLwknYRDTnF8JUxVfIUYCv8YWJZaOGNuKWnyzq0WHGDatoQNN5isptuTRwXd4qnY1/
-	R0faU94q/nf1NiSOM+FjudO8Zkf4xTrFe3otPUQByIIOiOrY5YSo6BWlwDG/AIbTs=
-X-Google-Smtp-Source: AGHT+IHVkHLlFn4vIZFiJLiX4H14vaV9D/R7BVIOfbGbB4BBhf46NH8nyDiCIbUDwUIrGfItjpedCg==
-X-Received: by 2002:a05:620a:4442:b0:8c3:1719:9b84 with SMTP id af79cd13be357-8c38942be70mr2724391285a.82.1768301848393;
-        Tue, 13 Jan 2026 02:57:28 -0800 (PST)
-Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com. [209.85.160.169])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c37f51ceb5sm1798342385a.35.2026.01.13.02.57.28
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 13 Jan 2026 02:57:28 -0800 (PST)
-Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-4ee1879e6d9so87476511cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 02:57:28 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUCNN08ynBtQ1Fu0Jhb7JvXgKTkkT2Z+tIdyXqv8bvhyTpaTKK2Qffobkm24R9HGK9kKZCBuyYSJV3jgvTFbOri@lists.infradead.org
-X-Received: by 2002:a05:6102:4412:b0:4e6:a338:a421 with SMTP id
- ada2fe7eead31-5ecb5cbb070mr8601476137.6.1768301516773; Tue, 13 Jan 2026
- 02:51:56 -0800 (PST)
+        bh=8XhAt7LMsgvpB8v/kjOzoMgfr7UvUpv4cZmXKtrjIrA=;
+        b=BUcZm+u/809RkV4lw+eBs6phSTaGIKPovkiMUE14amujIlp7pyK8I92qoHF4wRPP6Z
+         tRtlfY8hsy0mrcAqarnPlVK9B2M2ilaq/hcM6NH/HJQojMI8O2WA4pw1H6lL2zx+NwFJ
+         fK5LKW3pIPzXgErn7D+P/sq//fCANosQxTO404/o8vnIFw+3np46/aOhbxbxGFP+ig0f
+         n/kjm/UKk53tH2TZMuN5swO3/exHNYyhAAdq6Ax8w8b9qiwBesX/FlovemuI7SiGxQXZ
+         za0G2mIhTtjRiPAQ+Wq4/beIs6DHu7RIv2LOH7yk9y5Qh9i7W7fHRA8JY1ZCrDuOD/KH
+         OEkQ==
+X-Gm-Message-State: AOJu0YyG8QsfcMd9CjZbI16EGIpVojCFPF9lAafsBnFZS9vF7oCDeYnc
+	GLbU4jmRvwWKiwULIPjeVgYJPyXGDqbaVODyE7ubCeV70Zxfbv0sq+oQ6U/yxfj1VVE=
+X-Gm-Gg: AY/fxX7ImBuohqxbzygmv8vHVAL7qbP7wxsBQf6AvK6Ntyg+phj38LANEY6vbJWL3Fl
+	YHFSM8wP6BXaP6NaISlgWY8ouYYNmBbI4u4jCO4rLKMlVpwD5htxtvEcwnvS8t+KBE0KVvpzFa8
+	CYiX4KBXYX1znJFk3T19rPytQ5J1zCSXXQdZjUcUm+bcmHGyMLj8NoACev76yF5Cx7S3kr400hk
+	Ky7GsIBJwTN2BcQAOlhdVmvkY5o9VfFt17mSlhsIZp/3UHs3MU864iDACxWTZo1gMWHQz9EotGA
+	imJMmzovJntb4pj+9PmExOlUNlsrKgpzXaUDmCRn5FHD0G2GXBnFUk/PC320ocmz+mOAuq6fWY0
+	zNn9swhwyGF7WZSxJA5xrDYNswiwlXcCioWRJF7G+UAQadk9JiQ736N9DabQUBv2rPmNJlEWQKv
+	WDpceNGCBCyreMms8yujZzxHr7p5QjyhbfAG52EzihfN8=
+X-Google-Smtp-Source: AGHT+IHPP8E397ddDu3o9zgJP63v4IoEWOOqp/lbdVOOIhYtrhd91pvL0rOORIqkiDNS3f3ry5RnIA==
+X-Received: by 2002:a05:6000:4387:b0:42c:b8fd:21b3 with SMTP id ffacd0b85a97d-432c37a756bmr27436701f8f.57.1768301968536;
+        Tue, 13 Jan 2026 02:59:28 -0800 (PST)
+Received: from gpeter-l.roam.corp.google.com ([2a00:23c7:3122:c601:3454:384:9eef:8e29])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd5ee243sm43729881f8f.31.2026.01.13.02.59.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Jan 2026 02:59:28 -0800 (PST)
+From: Peter Griffin <peter.griffin@linaro.org>
+Subject: [PATCH v3 0/5] gs101: Add support for Display Process Unit (DPU)
+ clocks
+Date: Tue, 13 Jan 2026 10:58:57 +0000
+Message-Id: <20260113-dpu-clocks-v3-0-cb85424f2c72@linaro.org>
 MIME-Version: 1.0
-References: <20251230080115.2120612-1-zhenglifeng1@huawei.com> <20251230080115.2120612-4-zhenglifeng1@huawei.com>
-In-Reply-To: <20251230080115.2120612-4-zhenglifeng1@huawei.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 13 Jan 2026 11:51:45 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVeHk-Enc-M9ztwSdeAtE8YPKtJwq+273bGPEFOEsu=Rw@mail.gmail.com>
-X-Gm-Features: AZwV_QisLfN-JbYTCLd4Pwog5D8ewcnp0Gg5r8ROYeUNPNSxroJTI4oVjqJhvbQ
-Message-ID: <CAMuHMdVeHk-Enc-M9ztwSdeAtE8YPKtJwq+273bGPEFOEsu=Rw@mail.gmail.com>
-Subject: Re: [REPOST PATCH v6 3/3] arm64: topology: Handle AMU FIE setup on
- CPU hotplug
-To: Lifeng Zheng <zhenglifeng1@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, 
-	viresh.kumar@linaro.org, sudeep.holla@arm.com, gregkh@linuxfoundation.org, 
-	dakr@kernel.org, beata.michalska@arm.com, ionela.voinescu@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linuxarm@huawei.com, jonathan.cameron@huawei.com, vincent.guittot@linaro.org, 
-	zhanjie9@hisilicon.com, lihuisong@huawei.com, yubowen8@huawei.com, 
-	zhangpengjie2@huawei.com, wangzhi12@huawei.com, linhongye@h-partners.com, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAHElZmkC/22N0Q6CIBhGX6VxHe0HI7Gr3qN1AfKrLCcGymrOd
+ w9trbl1eb7tnG8iAb3FQM67iXiMNljXJcj2O1I2qquRWpOYcOCCMQ7U9CMtW1feA8215MKAkJA
+ rkoTeY2Wfa+x6+7DHx5iaw29sbBicf62HkS3r33ZkFChjAiSIIyotL63tlHcH52uydCL/uidI8
+ sblydUGoICsMqiLjTvP8xsvu6O39gAAAA==
+X-Change-ID: 20251120-dpu-clocks-7b825d05807a
+To: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
+ kernel-team@android.com, Will McVicker <willmcvicker@google.com>, 
+ Juan Yescas <jyescas@google.com>, Doug Anderson <dianders@google.com>, 
+ Peter Griffin <peter.griffin@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1767;
+ i=peter.griffin@linaro.org; h=from:subject:message-id;
+ bh=CHO2mHwrm92wINaWstQ8U09Ky5omfheOG0ViEni1uMQ=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBpZiV2dj/A4la90pq8Wq3OcJqogArhyATRztD94
+ Xi05WVnQ66JAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaWYldgAKCRDO6LjWAjRy
+ uvzVD/9eazRIIipWQcMIGhXHhDnbX12Xk7FphJC2LDJIasxsO2zJmF0JEiZItCVxRH6Q/vsPn6i
+ 2Tmv0aIg3rjiBz25ONamSVsBVWKnuQf3hbfwe+jxyL0LhS/quJG7mcbG44PvJUKv+c9RO7tGab0
+ +fWWOfaw+o7u+tqLzdWPQmB7VibTRBZ1n4aEpFVXZ0TeN2N+XSfR2ZgMeCG6+fj7pViDFYqB9bC
+ /LVv8zcm70ISlqZ/AmCj7w6NImCeRcW2D7nUs+5nvbGY/W2BzxDOJOegyskmJDwHzDJv7ytvfet
+ pPGsbeVJQiU/cDaI66ioPUmJ/tsbX3ZsFijLW1XYrBquvoXwdRPor6uDXjNAqWT9eohCC8SC5yU
+ BjH3VIN69FzboxL2IGduOZRPbRQ4MMp/SqL/T4Y5REhOUDV6ze9Qe9BnqfBU4aCXK0C+4eynj0i
+ 5mRCtY3KROIXtHW0Wby24JBMJmxP403ZAwgnwNWh+IYAzMYoi1dpW19f0JeJACnvTGaxvJVRqrX
+ 7KeHLa6wPbeFVl/U+udLk/DPDXD9xZhNbarn19Fki9nqH+KMalllC4T6YfNJnuy8xB1kQ1UfeoQ
+ 3bKfl7uAStXfVi4G9cGxbAB5YVI/eJfAkdT8t/6rmILA/re2QvqNq69wvw92KVCwxkDwu9PVbNC
+ 9egFCemFXC4tR0w==
+X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
+ fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_025731_512291_B31713CE 
-X-CRM114-Status: GOOD (  39.82  )
+X-CRM114-CacheID: sfid-20260113_025931_071052_2E8C9C98 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,168 +130,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lifeng,
+Hi folks,
 
-On Tue, 30 Dec 2025 at 09:02, Lifeng Zheng <zhenglifeng1@huawei.com> wrote:
-> Currently, when a cpufreq policy is created, the AMU FIE setup process
-> checks all CPUs in the policy -- including those that are offline. If any
-> of these CPUs are offline at that time, their AMU capability flag hasn't
-> been verified yet, leading the check fail. As a result, AMU FIE is not
-> enabled, even if the CPUs that are online do support it.
->
-> Later, when the previously offline CPUs come online and report AMU support,
-> there's no mechanism in place to re-enable AMU FIE for the policy. This
-> leaves the entire frequency domain without AMU FIE, despite being eligible.
->
-> Restrict the initial AMU FIE check to only those CPUs that are online at
-> the time the policy is created, and allow CPUs that come online later to
-> join the policy with AMU FIE enabled.
->
-> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
-> Acked-by: Beata Michalska <beata.michalska@arm.com>
+This series adds support for the Display Process Unit (DPU) Clock
+Management Unit (CMU) aka CMU_DPU found on gs101. These will be used for
+the IOMMU and display enablement.
 
-Thanks for your patch, which is now commit 6fd9be0b7b2e957d
-("arm64: topology: Handle AMU FIE setup on CPU hotplug") in
-arm64/for-next/core (next-20260107 and later).
+As all the patches will go via Krzysztof tree it has been sent as one
+series.
 
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -284,7 +284,7 @@ static int init_amu_fie_callback(struct notifier_block *nb, unsigned long val,
->         struct cpufreq_policy *policy = data;
->
->         if (val == CPUFREQ_CREATE_POLICY)
-> -               amu_fie_setup(policy->related_cpus);
-> +               amu_fie_setup(policy->cpus);
->
->         /*
->          * We don't need to handle CPUFREQ_REMOVE_POLICY event as the AMU
-> @@ -303,10 +303,71 @@ static struct notifier_block init_amu_fie_notifier = {
->         .notifier_call = init_amu_fie_callback,
->  };
->
-> +static int cpuhp_topology_online(unsigned int cpu)
-> +{
-> +       struct cpufreq_policy *policy = cpufreq_cpu_policy(cpu);
-> +
-> +       /* Those are cheap checks */
-> +
-> +       /*
-> +        * Skip this CPU if:
-> +        *  - it has no cpufreq policy assigned yet,
-> +        *  - no policy exists that spans CPUs with AMU counters, or
-> +        *  - it was already handled.
-> +        */
-> +       if (unlikely(!policy) || !cpumask_available(amu_fie_cpus) ||
-> +           cpumask_test_cpu(cpu, amu_fie_cpus))
-> +               return 0;
-> +
-> +       /*
-> +        * Only proceed if all already-online CPUs in this policy
-> +        * support AMU counters.
-> +        */
-> +       if (unlikely(!cpumask_subset(policy->cpus, amu_fie_cpus)))
-> +               return 0;
-> +
-> +       /*
-> +        * If the new online CPU cannot pass this check, all the CPUs related to
-> +        * the same policy should be clear from amu_fie_cpus mask, otherwise they
-> +        * may use different source of the freq scale.
-> +        */
-> +       if (!freq_counters_valid(cpu)) {
-> +               pr_warn("CPU[%u] doesn't support AMU counters\n", cpu);
+regards,
 
-This is triggered during resume from s2ram on Renesas R-Car H3
-(big.LITTLE 4x Cortex-A57 + 4x Cortex-A53), when enabling the first
-little core:
+Peter.
 
-    AMU: CPU[4] doesn't support AMU counters
+Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+---
+Changes in v3:
+- alphanumeric for cmu_top children in .c & .h files (André)
+- collect up tags
+- Link to v2: https://lore.kernel.org/r/20260112-dpu-clocks-v2-0-bd00903fdeb9@linaro.org
 
-Adding debug code:
+Changes in v2:
+- Fix alphanumeric ordering (Krzysztof)
+- Update gout_dpu_dpu_pclk to gout_dpu_gpc_dpu_pclk (Peter)
+- Fix dout_dpu_busp parent (Peter)
+- Rebased onto next-20260109
+- Link to v1: https://lore.kernel.org/r/20251120-dpu-clocks-v1-0-11508054eab8@linaro.org
 
-    pr_info("Calling
-topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, %*pbl)\n",
-cpumask_pr_args(policy->related_cpus));
-    pr_info("Calling cpumask_andnot(..., %*pbl, %*pbl)\n",
-cpumask_pr_args(amu_fie_cpus), cpumask_pr_args(policy->related_cpus));
+---
+Peter Griffin (5):
+      dt-bindings: clock: google,gs101-clock: fix alphanumeric ordering
+      dt-bindings: clock: google,gs101-clock: Add DPU clock management unit
+      dt-bindings: samsung: exynos-sysreg: add gs101 dpu compatible
+      clk: samsung: gs101: add support for Display Process Unit (DPU) clocks
+      arm64: dts: exynos: gs101: add cmu_dpu and sysreg_dpu dt nodes
 
-gives:
+ .../bindings/clock/google,gs101-clock.yaml         |  21 +-
+ .../soc/samsung/samsung,exynos-sysreg.yaml         |   2 +
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi       |  17 ++
+ drivers/clk/samsung/clk-gs101.c                    | 283 +++++++++++++++++++++
+ include/dt-bindings/clock/google,gs101.h           |  36 +++
+ 5 files changed, 358 insertions(+), 1 deletion(-)
+---
+base-commit: f417b7ffcbef7d76b0d8860518f50dae0e7e5eda
+change-id: 20251120-dpu-clocks-7b825d05807a
 
-    AMU: Calling topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, 4-7)
-    AMU: Calling cpumask_andnot(..., , 4-7)
-
-so AMU is disabled for all little cores.
-
-Since this only happens during s2ram, and not during initial CPU
-bring-up on boot, this looks wrong to me?
-
-> +               topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH,
-> +                                                policy->related_cpus);
-> +               cpumask_andnot(amu_fie_cpus, amu_fie_cpus, policy->related_cpus);
-> +               return 0;
-> +       }
-> +
-> +       cpumask_set_cpu(cpu, amu_fie_cpus);
-> +
-> +       topology_set_scale_freq_source(&amu_sfd, cpumask_of(cpu));
-> +
-> +       pr_debug("CPU[%u]: counter will be used for FIE.", cpu);
-> +
-> +       return 0;
-> +}
-> +
->  static int __init init_amu_fie(void)
->  {
-> -       return cpufreq_register_notifier(&init_amu_fie_notifier,
-> +       int ret;
-> +
-> +       ret = cpufreq_register_notifier(&init_amu_fie_notifier,
->                                         CPUFREQ_POLICY_NOTIFIER);
-> +       if (ret)
-> +               return ret;
-> +
-> +       ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
-> +                                       "arm64/topology:online",
-> +                                       cpuhp_topology_online,
-> +                                       NULL);
-> +       if (ret < 0) {
-> +               cpufreq_unregister_notifier(&init_amu_fie_notifier,
-> +                                           CPUFREQ_POLICY_NOTIFIER);
-> +               return ret;
-> +       }
-> +
-> +       return 0;
->  }
->  core_initcall(init_amu_fie);
->
-> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> index 84ec92bff642..c0ef6ea9c111 100644
-> --- a/drivers/base/arch_topology.c
-> +++ b/drivers/base/arch_topology.c
-> @@ -34,7 +34,14 @@ EXPORT_PER_CPU_SYMBOL_GPL(capacity_freq_ref);
->
->  static bool supports_scale_freq_counters(const struct cpumask *cpus)
->  {
-> -       return cpumask_subset(cpus, &scale_freq_counters_mask);
-> +       int i;
-> +
-> +       for_each_cpu(i, cpus) {
-> +               if (cpumask_test_cpu(i, &scale_freq_counters_mask))
-> +                       return true;
-> +       }
-> +
-> +       return false;
->  }
->
->  bool topology_scale_freq_invariant(void)
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
+Best regards,
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Peter Griffin <peter.griffin@linaro.org>
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
