@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28394D2D0E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 11:55:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE0B5D2D0E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 11:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QVBD+wnt6O22UZEQigSBy5+SctfUwGuWuUsHak5BamQ=; b=OuIqE/0wazQmt1jvMSFwnjev93
-	doXWkOIU66WFxWgqycpaiILZMgf9xmlwkeSHUrkqwtnxvCVXdoSeGTqR7hQAXHNcLsNgF4BdXMBGP
-	M1mUSzK1WLEw66vNkzIqylSBH88hycLr2mRP2jQYST7YkXCHTZnmI9RdzeWo1A1xmKEO1kOMSFdGu
-	5ykACQ7EZRAPllqOm5IXb32l1p0LGfiXcgLA71uxn/qG0o0tf1H1M/SpsQSwXAHChNYOOzt2YgrKL
-	GvgsflDl+AUTZH65NFX7NhaR8VOIdScPMGIDVl2wg3RlUfOxK4m3/3BbzPrGpQ6fdPYcwYbSxZ4hO
-	GnaucGBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/t1TqJ/QytQ4pwnW0ti9Z6aH6KsPUuA9eSuB4Dv3RC0=; b=BWLp1cAwXyfGCsWPBwr0ywiUBz
+	zVSsvD+laGjvvZY0bO+WDcQ12LB4FtwKt8IWZ6hTcH8fDHPY/OwuAJkRNP8RlpK5eWGAvGgET43Ri
+	0aD02F8Gt7dnI2rNqFjGYzqbPb4lNSrKH0tLm2w97UAOfTXTHKTstoNUXSn46GFMkrU9ihsn3icM5
+	5rAtXYywvnE3P2Ar++WFFsXMWbeUyVimqrkLNJQSVnUNqYeR3pK9+C3jaUbOXk3dXa4lt8MaTk0Zi
+	qqXDOChuQptgu+xL+AANK6V027Ggv5A+9PA1/sSSz+M76AfpkVtXrD34JILGg0d+hBLjhUCx/nLVs
+	pashLt5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfczK-000000072lO-3BEi;
-	Tue, 13 Jan 2026 11:55:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vfczc-000000072nW-0QT7;
+	Tue, 13 Jan 2026 11:55:24 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfczI-000000072l0-35LD
+	id 1vfczZ-000000072mk-0jp2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 13 Jan 2026 11:55:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A111544386;
-	Tue, 13 Jan 2026 11:55:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A59C2C116C6;
-	Tue, 13 Jan 2026 11:55:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768305303;
-	bh=vILcIKTOivMzFtpPuiDtPrEY00gIpzY5boW/TOGn4kM=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=FHLSDnDMMMlpFgZy6NpiCaQrw0VOXVGJRB/wEgdmTvWFmGjqUEGUv+KHCkIDoxuLE
-	 lidC8qZtEOKGJffnZd/nUV8VoDfr0GvZCkVHSrLtKJkgHMIL/FpH1/tckSzbwDKgtd
-	 4OWPFVrSxZx8ThahMCpnWhRsIKpCmn+308+MbY98uyVBof0Dkt4HRMqKarKkDWswnr
-	 wrQV93gxIEbL8k1UsJF1hHJ/AWNuSSQH0J9YfB9XYfnTGQut3C/jI7GvmlEgCEhMpc
-	 2rOMHlbsXf3U0Cbfnb0q5SF427xZT5bRgCUHkxO7gYEl5HjMn4EFI+O8iU2gNA+P6v
-	 s/isw68EDmHVA==
-From: Mark Brown <broonie@kernel.org>
-To: linux-kernel@vger.kernel.org, Randy Dunlap <rdunlap@infradead.org>
-Cc: Robert Jarzmik <robert.jarzmik@free.fr>, 
- Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
- linux-arm-kernel@lists.infradead.org, Liam Girdwood <lgirdwood@gmail.com>, 
- linux-sound@vger.kernel.org, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>
-In-Reply-To: <20251228071041.2246718-1-rdunlap@infradead.org>
-References: <20251228071041.2246718-1-rdunlap@infradead.org>
-Subject: Re: [PATCH] ASoC: pxa: drop unused Kconfig symbol
-Message-Id: <176830530141.30686.5406683094869244016.b4-ty@kernel.org>
-Date: Tue, 13 Jan 2026 11:55:01 +0000
+	Tue, 13 Jan 2026 11:55:22 +0000
+Date: Tue, 13 Jan 2026 12:55:15 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1768305316;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/t1TqJ/QytQ4pwnW0ti9Z6aH6KsPUuA9eSuB4Dv3RC0=;
+	b=aNUIsG7ODXHBXQCF7fvbI53vWnCXJ7BjljV3qdn53vS+0hFdDKZCyxHxZId/nq+kwqrKGp
+	mU8TRE2qBujeQzZswDXy1EFSLk0QKxnBbx+pwdp6D9+GIHN3o5G383gvOiQmcb1Lc+R+0a
+	3DmkFkFThf7xlcTikmuVeGpGj+m7xb8DN8TbEtNVVPKghgimbwvH9U3tEXz0qC20XUVGpj
+	mLC6/p+Y0rhJZUIih0pLIBLiR0ZMzYxdMoCJy4uE8u0xN+RT7cgVelg1IqgyhhW8mcTBdl
+	M7MmhjEV4/VCQTTQVF5rnVnd3Ld6yeGUppFZm8xZTrAZyYxP4s8bEQTcvn4clQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1768305316;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/t1TqJ/QytQ4pwnW0ti9Z6aH6KsPUuA9eSuB4Dv3RC0=;
+	b=IR1pUfTN8KG8eSEJOvT2Nop/9mwi3jU1rVIWE0jaKQ7DjndFPE6lXIzZHIPqNs/IXVoBHv
+	mncQ3oCkNt+WuyDA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Waiman Long <llong@redhat.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+	Alexei Starovoitov <ast@kernel.org>
+Subject: Re: [PATCH] irqchip/gic-v3-its: Don't acquire rt_spin_lock in
+ allocate_vpe_l1_table()
+Message-ID: <20260113115515.98Mc29Nm@linutronix.de>
+References: <20260107215353.75612-1-longman@redhat.com>
+ <864iowmrx6.wl-maz@kernel.org>
+ <87ms2nsqju.ffs@tglx>
+ <86wm1qlq7l.wl-maz@kernel.org>
+ <87ecnwij44.ffs@tglx>
+ <86v7h8l9ht.wl-maz@kernel.org>
+ <40cec799-f363-4642-969b-24f5a2d56dfb@redhat.com>
+ <87cy3eg94y.ffs@tglx>
+ <5f4bfd8b-8699-4bef-bf49-f29965e95ca4@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-47773
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <5f4bfd8b-8699-4bef-bf49-f29965e95ca4@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_035504_941492_3FCE76D7 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20260113_035521_360434_EB967B81 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,37 +88,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 27 Dec 2025 23:10:41 -0800, Randy Dunlap wrote:
-> Drop a bogus dangling Kconfig symbol for select SND_SOC_AC97_BUS_NEW.
+On 2026-01-12 12:14:30 [-0500], Waiman Long wrote:
+> On 1/12/26 10:09 AM, Thomas Gleixner wrote:
+> > They might be acquired though. Only alloc_pages_nolock() guarantees that
+> > no lock is taken IIRC.
 > 
-> 
+> Thanks for the suggestion. I will look into using that for page allocation.
+> I had actually attempt to use kmalloc_nolock() to replace kzalloc()
+> initially. Even though it removed the call to rmqueue(), but there were
+> other spinlocks in the slub code that were still being acquired like the
+> local_lock() or the spinlock in the get_random() code. So I gave up using
+> that. Anyway, kmalloc_nolock() doesn't seem to be fully working yet.
 
-Applied to
+with kmalloc_nolock() you have to be able to deal with a NULL pointer.
+Looking at kmalloc_nolock(), it has this (in_nmi() || in_hardirq())
+check on PREEMPT_RT. The reasoning was unconditional raw_spinlock_t
+locking and bad lock-owner recording for hardirq.
+There was a trylock path for local_lock to make it work from atomic
+context. But from what I can tell this goes
+  kmalloc_nolock_noprof() -> __slab_alloc_node() -> __slab_alloc() ->
+  ___slab_alloc() -> local_lock_cpu_slab()
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+The last one does local_lock_irqsave() on PREEMPT_RT which does a
+spin_lock(). That means atomic context is not possible. Where did I make
+a wrong turn? Or did this change recently? I do remember that Alexei
+reworked parts of the allocator to make the local_lock based trylock
+allocation work.
 
-Thanks!
+> Cheers,
+> Longman
 
-[1/1] ASoC: pxa: drop unused Kconfig symbol
-      commit: 7af9e30a0c8bb05b7254fdca857c1a1126b652eb
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Sebastian
 
