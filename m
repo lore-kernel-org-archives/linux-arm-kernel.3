@@ -4,64 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E316BD0C83D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 10:26:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5BC3D0C83B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 13 Jan 2026 10:27:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5H/hNTgciu6FD3AcTNuZC1um8OdojwIPslmchvUjaNU=; b=b0g1s1b+1+gawobbPa9HZltBM5
-	Zy9AmMKsvvha9abqVnBOaHJ5AFxpjjdDgpifKVgnz734INF7Hhu7I4sfNc6+d6lQL1aVBjGHymkW6
-	36sicjG8seKJexBUHUA21UhI13+eGMd+YFheFiA5aJ8w0mIHe3v14ghj/gZ+2CEu4tRBpOw8ayhI7
-	M9YinJXHo3yr7nX+AHsYAA6sM6qY+/de/a0El6P8Sytr4q4qdVYE88L2FTVM6vQ554z8AFMXQIuUV
-	jaAblxKIrZlVOuzkv8P4j/VlW1tHrpttN7E+AlRl4JJHI6n9kj+UMlJPaQ/o+GGR1bJODHTStyiev
-	huFJca9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wW2RV5GZiteOIDgKP3C/DU2CD20lK7usX0CbcTmS+0w=; b=KzohulLxdydHdkFwuY75KF0l5z
+	yumyqKeEK/5TWBM9kV4D2JlPVH2e065mEck8nTjh1hY6T7RDzmaW6w++V4DHBpEybTkf54FVEtI7/
+	ScPGtk6fZtKRtyX4bfda1MBq8PLWuTAiRkzKeBXXms4fAZxGltjVshGf3xEQpihS2Oop2z1nwSWwD
+	V8g6UG1CntoadCQr+Mj9DzOp2yD4Bp/aATRtU0MGsE2MRILMR9AubUtQxyUpE85IpjVU9GCEbXmJE
+	yUu1JqBofKdQZYLGc9CAJPkUYQkDz558SRd6lH2MJdhjdzw0pF7R1H3s59zW3wiww6AR1W18SIayZ
+	zVq0TmhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfbbY-00000006u4P-0sMI;
-	Tue, 13 Jan 2026 10:26:28 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vfbca-00000006uIl-26FK;
+	Tue, 13 Jan 2026 10:27:32 +0000
+Received: from mail-dl1-x1230.google.com ([2607:f8b0:4864:20::1230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfbbT-00000006u3Q-3UzK;
-	Tue, 13 Jan 2026 10:26:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=5H/hNTgciu6FD3AcTNuZC1um8OdojwIPslmchvUjaNU=; b=f+oe9TAeVNeRg5dxijtlcbewz/
-	8NqL4OlUILWM3MaE4inNGMQXs/GqUCwYjwoj6kn5QKowFEPZR5vIjTVEGRLHYS17UyO0KSxRI/y+Y
-	mVg0qLOAAUPQL4YuGsCGYUtHx429wavsvYetCsCfZ6khZ0Wk9O8NaDL9SBogjxfPXi0DPI3QVJBbg
-	ud+/E4Ebaoik4+Iu4zRvEycPKg3I4XWW02JtvojWYnB5QPBmusI5OZTaoKa4ffwjx+6NT7v6z3yZj
-	Q0XqYllxcHVJ05dYNNgsqwbgZ7Mnc/Jrk9m9KOc/0McOMtf5N6geNPuNCFbQVXbKgdrC4ot9JCjt4
-	TpaIqXUA==;
-Received: from i53875b63.versanet.de ([83.135.91.99] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vfbbR-0025PF-Ey; Tue, 13 Jan 2026 11:26:22 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
- guptarud@gmail.com
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Rudraksha Gupta <guptarud@gmail.com>, Ondrej Jirman <megi@xff.cz>,
- Martijn Braam <martijn@brixit.nl>,
- Kamil =?UTF-8?B?VHJ6Y2nFhHNraQ==?= <ayufan@ayufan.eu>
-Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Remove interrupt GPIO for WiFi for the
- Pinephone Pro
-Date: Tue, 13 Jan 2026 11:26:21 +0100
-Message-ID: <14738774.lVVuGzaMjS@diego>
-In-Reply-To: <20260112-ppp_connectivity-v1-3-284d6e83b212@gmail.com>
-References: <20260112-ppp_connectivity-v1-0-284d6e83b212@gmail.com>
- <20260112-ppp_connectivity-v1-3-284d6e83b212@gmail.com>
+	id 1vfbcY-00000006uIB-1R9F
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 13 Jan 2026 10:27:31 +0000
+Received: by mail-dl1-x1230.google.com with SMTP id a92af1059eb24-12332910300so264501c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 02:27:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768300049; x=1768904849; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wW2RV5GZiteOIDgKP3C/DU2CD20lK7usX0CbcTmS+0w=;
+        b=bYHsB63Lb+DkJSAhAhOeQ8r9KtR+Ti0+4/kAWJhhHd+D4O76SgByUjpPkRiZ5x6d4a
+         Qyzl8cThxoSgI8/E7R988fdFIYZq4p7GLtYEOfP+PAcNMqrez6/OwAHX1pLzyLRLfkP5
+         6NeVCzptax44XRdS+exxEVZy01G0w0I8usgp1n4231iGNLTxVv974IfAMBjsWQeTjMjE
+         aQCaUbg9jA2Ena6hmN4OYiE+c7aXohMhediII+QqJVJy7l0gUjGITIrMrVZ27RNHdNRK
+         13jpMhALDLKoHoOl5jqgGign6IqncSguuzGexyT1YEDMGJ3/1OMuj/LPX34aPRfXmsNr
+         cAaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768300049; x=1768904849;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=wW2RV5GZiteOIDgKP3C/DU2CD20lK7usX0CbcTmS+0w=;
+        b=kkIkP3iTUgz/c91LRTFej0ro7HsUbn4XN6ZvATcbAfQMSeBEpVff3nzrgHAUeTd9oF
+         ygTxHS8B8Y0gJCxo/p6tal62tWc2cxurGlHUdqyuBtza/0mkjSTqnvANo/7+OZn3H+ux
+         K4Fajp/C6spXv3j6ECFuCD8OYKr4WFH8cass8jtZgSmdr9dmPpGpaVwd+sN17ZtaMuuc
+         MXhuB/Udz9+gN0UedBvMhjHXXZm0lmTOcryN9ZpWXU3zueFLsMe2tA+23CxUKvRI1NvT
+         wWWjQTVNOwLq3OVzcUmhht7ZBm0nTQFrqDdvE8TKQ7SLBTf5K5p+Gwf3cxejwoeWpTf8
+         tVIw==
+X-Forwarded-Encrypted: i=1; AJvYcCXk3Xyyygmn0sm7YiEU17HoD6yKoLxb13S/SmhX+ryInee5gMt8VHDyGeD2bVEubTULii94d8dPshHrZgRGvFPY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTobYVx22kK6MCi7JeBbdQhj/eAQDlv/nFyHDnMrUv6JTMOo26
+	KtoLcj8NjVtZ5SEkENo4oZoYvOf8m1wWHMS1kjHxo9jmnMJIh6VOK/Ly2c1i1o31gMug6SfajCy
+	48ElgmcGBnjcIgXwf1dN88sh/d/OOPm0=
+X-Gm-Gg: AY/fxX5TeTxzsKnh0ipkumcD5FoM2VMDtHnlnTetolq6k75wThcnQTwaS0VGOqQtioS
+	pE/Y78HRYDakfzcqLxaB5UaPLlYWSiSY2PXVHX90FhadUHrZ11Ssh5LVu5NbimpSydRMOkbgKm/
+	neXnUWG/aHb5bCYvHFseRKdTu3sXf6j49comZKDOXrX6hkPzBFHvsEkrAy9YDCXw+HfEr9DOCOS
+	wVLiWtVnJxpcEtytzeDV/qWRq6POFqC54QtqcVphlr5UoGnXBt2tatJC5WuzXP369zqyis5V6pb
+	ca9w6QLp6sWBEigOq7AUK+r9Nz7mkznBGJRnV/oUOxyccjVF3LRM97L3upCIe4IrAJ66w9l1TpL
+	F+nGsLpC85Dk29Crapyzz
+X-Google-Smtp-Source: AGHT+IGfZnTOvyA+GnXypmSKKp8ss0rUr7qVhUutqVZTtjEFsV9r1oGBsX3My8UCe04SYXGn8hA8XADTEg/VbdC5KTM=
+X-Received: by 2002:a05:7022:621:b0:122:9d:bd43 with SMTP id
+ a92af1059eb24-122009dc38cmr17343117c88.19.1768300048919; Tue, 13 Jan 2026
+ 02:27:28 -0800 (PST)
 MIME-Version: 1.0
+References: <20260109-imx95-rproc-2026-1-8-v6-0-d2fefb36263d@nxp.com> <20260109-imx95-rproc-2026-1-8-v6-5-d2fefb36263d@nxp.com>
+In-Reply-To: <20260109-imx95-rproc-2026-1-8-v6-5-d2fefb36263d@nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Tue, 13 Jan 2026 12:29:58 +0200
+X-Gm-Features: AZwV_Qhqne5fRPBq_W-RkiEIzWVDm8CQPMcCvVpNRV8tzXEGjqNR0mdGDlyatAc
+Message-ID: <CAEnQRZDjfyrcMj5ykvAQX1RzTMBCj-EaiM8SSKePb=6FyG+1cg@mail.gmail.com>
+Subject: Re: [PATCH v6 5/6] remoteproc: imx_rproc: Add support for System
+ Manager CPU API
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Daniel Baluta <daniel.baluta@nxp.com>, Frank Li <Frank.Li@nxp.com>, 
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_022624_136765_42E37921 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20260113_022730_380471_9A86B35E 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,52 +104,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 13. Januar 2026, 07:42:26 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb Rudraksha Gupta via B4 Relay:
-> From: Ondrej Jirman <megi@xff.cz>
->=20
-> Wifi is currently unusable if interrupts are defined. Let's remove them
-> so that Wifi networks are actually discoverable.
+On Fri, Jan 9, 2026 at 2:16=E2=80=AFPM Peng Fan (OSS) <peng.fan@oss.nxp.com=
+> wrote:
+>
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> When the System Manager configuration places the M7 core in the same
+> Logical Machine(LM) as the A55 cores (M7 LM ID equals A55 LM ID), Linux
+> can control M7 using the CPU protocol API. For more details, see the
+> previous patch that adds LMM API support.
+>
+> Changes include:
+> - Introduce imx_rproc_ops_sm_cpu for CPU API operations.
+> - Reuse imx_rproc_sm_detect_mode to detect shared LM and set priv->ops to
+>   imx_rproc_ops_sm_cpu.
+> - Implement imx_rproc_sm_cpu_{start,stop} to handle M7 start and stop.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-Please don't describe not what you're doing but why.
-
-The interrupt seems to the one that is connected to wifi, so I'd expect
-a description why that causes problems first, instead of going
-"doesn't work for me" - "just remove it" .
-
-As the below just looks like a temporary hack until the real cause is
-found.
-
-> Co-developed-by: Martijn Braam <martijn@brixit.nl>
-> Signed-off-by: Martijn Braam <martijn@brixit.nl>
-> Co-developed-by: Kamil Trzci=C5=84ski <ayufan@ayufan.eu>
-> Signed-off-by: Kamil Trzci=C5=84ski <ayufan@ayufan.eu>
-> Signed-off-by: Ondrej Jirman <megi@xff.cz>
-> Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 3 ---
->  1 file changed, 3 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch=
-/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> index 97d0bf455258..69bb9de4ce55 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> @@ -834,9 +834,6 @@ &sdio0 {
->  	brcmf: wifi@1 {
->  		compatible =3D "brcm,bcm4329-fmac";
->  		reg =3D <1>;
-> -		interrupt-parent =3D <&gpio4>;
-> -		interrupts =3D <RK_PD0 IRQ_TYPE_LEVEL_HIGH>;
-> -		interrupt-names =3D "host-wake";
->  		pinctrl-names =3D "default";
->  		pinctrl-0 =3D <&wifi_host_wake_l>;
->  	};
->=20
->=20
-
-Thanks
-Heiko
-
-
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
