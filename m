@@ -4,71 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9507FD37E56
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 15:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA2C0D37E5C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 15:49:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CBr2BK5D27V/PcPYSFJv9kPkNc1DPU603R6WzfJnacE=; b=UjHoqk+V3W5nTmTFFtoGGXHZB4
-	9GpiZm6/PdTOvZLTfZ1uyTnNilS8GmM33gUsDoSgrg6vp42mMWic+bIEoVXnDQOssWQoMF6s2i4cz
-	49zMVjfr8Qz65ruvyAU8zaz8QQ1C1htfrwWJIzMDj+IQNkn1TmY6A1No1ATDFh5/R0ePhPPYrV03u
-	oikAApzWzCvUZbzXOacWivZJJN03471XQcaWKYDv0pRDMugOlNSGgAbo+WxHCusZHbehOREHwdarl
-	1AiKSgES6uunzEejZgTWQhWGrZBX3sJpJnjHceRL5J9dlYo2tV0edjvm/gZ0vE1ULp1UHVDFFMBOX
-	z+FIZz1Q==;
+	bh=Hewq6sKfyqMWuY04fEC1TGPKE79y9zR1LTOJeM3Fj4A=; b=uYbFyXi32OFLSXuxJ4GqtDhfpa
+	MafGC5ZweFlM/hXc4BA9HaRMLglEG+UU4fgXwCxyv6z3+Z0m9mNPP0vWrZOGAJ9WI76eLZspw8Tyg
+	67llLDZoDGROVie7gOyyo2fJfKVzOktPaQp58XjS7AA1FIlzjmLZNBsk98EfeESzUG+hrCk+kFWAv
+	XA0pieJbxcahxMRUGh+pue7aq0Uev94TZawqvl+WsTHRE/g+/jWjS+aIWopCOfwQbYQNHUpMZS6t+
+	u79tvQcxAAi7g+Oga/JBJLNlontSbuvcwG0VM0s5CmXZKiSM6hbEBeQgOWXA9JeObqgzFmed01Q8U
+	1td2uG9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg35l-00000009lfj-2D9t;
-	Wed, 14 Jan 2026 15:47:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vg37k-00000009m4d-03uh;
+	Wed, 14 Jan 2026 15:49:32 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg35i-00000009lfM-3Gd3
+	id 1vg37h-00000009m3o-2l6q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 15:47:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1776A60122;
-	Wed, 14 Jan 2026 15:47:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EDF5C16AAE;
-	Wed, 14 Jan 2026 15:47:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768405645;
-	bh=StlWp9SlvJnlDU6iyBFhbKlgusG5Kwh8+x4EmYEVyRQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fGGxtXsibtNTAMVb3D+xeu/7EtrYgBrlypiOS/VJ8u/q9bUzEBiorJ2izIQh/NS/z
-	 3QsCsW+/hCmaksTrpfGA0DQ/EangxU+hCyC3Ez5bT55/GSaQF8oUfBJekvcCDJVRBR
-	 2CY/3uBfPKU4Bv3WL1OLcqm4vlZ71ZwALutBrMsDw/TfbM2Saums5pM1/f5Abo0110
-	 m8myOEkA7JcMOtpzJs2CmMOjBQtnQ0ymoOumuIUbRGfYtIbnH2IviP3ODGkGYDoqKu
-	 9pVShB6PljaXL9ZHFHn9JkWrHkkiBe67hSGXH68yJ+47BN3RWHw1RoEjOWYCQBKKUj
-	 imZCCx+wj1Dlg==
-Date: Wed, 14 Jan 2026 12:47:22 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 02/14] perf evsel: Refactor
- evsel__set_config_if_unset() arguments
-Message-ID: <aWe6igmKMq25GJP9@x1>
-References: <20251222-james-perf-config-bits-v4-0-0608438186fc@linaro.org>
- <20251222-james-perf-config-bits-v4-2-0608438186fc@linaro.org>
- <aWbDg0kmo-isxkz2@x1>
- <4eda1bd6-ec36-4d0b-85de-ef0bd190e5e7@linaro.org>
+	Wed, 14 Jan 2026 15:49:30 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2a0d06cfa93so76685ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 07:49:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1768405768; x=1769010568; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Hewq6sKfyqMWuY04fEC1TGPKE79y9zR1LTOJeM3Fj4A=;
+        b=PKRgJ3kKRsDML60FJvRk8ObLdswfUm4Yiub1jSvGAcDY8+5sxxgqQi+I9ddRVyvx+v
+         kGknOI5+qzvxR20WFvklYVKLKHPxRIrPmdAw0P293H/c0WXBRYkjtON3LH4lW5mAeVqj
+         d4QoF9KI67tqE5xji3C/ulLcGE1OTOzKutKdM7xTtZ/yGqaTC88QUpddfwVYhw7x2WNY
+         P2fD7tscqCBq/uWxCaPKFNJ2bRBMhD+l8DgPOEYZXbBsOOCGHtpWS+ltF8vgbmoDIIxl
+         86V8Na1Dx6Dtdwj2GrkkiQ7zAe/qWzO9axCm6BbY8ardo3pe1KU9nC/OFbpujdxRvTT2
+         al1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768405768; x=1769010568;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Hewq6sKfyqMWuY04fEC1TGPKE79y9zR1LTOJeM3Fj4A=;
+        b=M6QXHoq7oCQMvAh0UBgrSrp9pZTdBjb7N4JBpIJrX680FliMh59JzSsp1QT5AKvuuP
+         Z/p8np1etb1hEFaqBiwOdpL+fm89wM1bSm0SMLwX+S2faTTp2xN/9NJwY+ZIoqwM8+zO
+         8wgO10KuWIPqzyjVtI3/8TrBsq48jlxO0tgeFLy7zDAREyTm+sho4fZBT8uGKGhnD5bu
+         owe4/ckWHSoxLZD+Tf+HyT/azxxosMAR0NjSVu7P+SKVOCABPiA6DM6SoZFUL/VTR0ti
+         VXjjkZFyPtd/Ax3YQdDX8hm6rDzI90unUyUjNdZPUoZVYDXzUO/BuGMiC9WgwrVLWmvT
+         D2Xg==
+X-Forwarded-Encrypted: i=1; AJvYcCXZsRlxDDWIhX+zTryZRzJd2dB6WNdiUgnP7grzXpzrLvOdoOTP+tzZT/k7UNF4Eow3KJf//PsE4iQLHngHP/j5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzfenhdto71iyXuAqdW47BShYVNaCHad1nPblUesQoX+oZKtRe9
+	VLZD1hOsILvF9iCtzeUhNJbulsSih+TYlStbqI6Y9PuE2J9juuIsAPqssBR3iBna8w==
+X-Gm-Gg: AY/fxX5dxuRoiyYlEN/0zq47mkPEV+OCAEjKzAK+syjgnk2VFgSbayB/lHL0rBXYjSc
+	5UtCN9MS2Sywa2fwr+5LCI1877Ruw906JsdDCwTCsaL+UeA24s04R+lSytRNvyM9V4k2ZgROJeJ
+	mMFuc9pzahbkLt8XX7ADK/u/H1GQ/yYJZgWBd9cJIaf9y1atSJZcJst93DFTRQC6u3ghiLFRUP0
+	/YNkx1n1U5wOO0IRYeDR9aUbgECCWCldKylJz1sI+Y+QkHn6SqkXpkNTInQ6WrSbaqRfKuuIA/F
+	aA4VA2JusYDhVcrhi85tTQhh+UmAcEsQC+YYBOaD2Bi7cTyhYCDJl7NIV48WG/Plw+QIY38ebfH
+	dXRTnJdW4fQTo5yuzNlcnE3LndX3oRXtud4uqNvsDm0swoUMv+YacmHxZ5AA8dp1wVgvui/v730
+	lOwdsnC4jS3TfWaG7DTK/YpqzQkRe9FdqkbGXyOgjto3CfC4Hu
+X-Received: by 2002:a17:902:d583:b0:292:b6a0:80df with SMTP id d9443c01a7336-2a599aec680mr2522025ad.10.1768405767789;
+        Wed, 14 Jan 2026 07:49:27 -0800 (PST)
+Received: from google.com (222.245.187.35.bc.googleusercontent.com. [35.187.245.222])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-819c530133csm23442851b3a.31.2026.01.14.07.49.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 07:49:26 -0800 (PST)
+Date: Wed, 14 Jan 2026 15:49:21 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, jgg@nvidia.com, robin.murphy@arm.com, joro@8bytes.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, skolothumtho@nvidia.com,
+	xueshuai@linux.alibaba.com, smostafa@google.com
+Subject: Re: [PATCH rc v6 1/4] iommu/arm-smmu-v3: Add update_safe bits to fix
+ STE update sequence
+Message-ID: <aWe7AUG7PPGX7mkl@google.com>
+References: <cover.1768248467.git.nicolinc@nvidia.com>
+ <b80ddc54f439a239e74bd7c0bf33ffb73e2eed1d.1768248467.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <4eda1bd6-ec36-4d0b-85de-ef0bd190e5e7@linaro.org>
+In-Reply-To: <b80ddc54f439a239e74bd7c0bf33ffb73e2eed1d.1768248467.git.nicolinc@nvidia.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_074929_697729_22C0F30E 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,46 +101,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 14, 2026 at 12:14:43PM +0000, James Clark wrote:
-> On 13/01/2026 10:13 pm, Arnaldo Carvalho de Melo wrote:
-> > On Mon, Dec 22, 2025 at 03:14:27PM +0000, James Clark wrote:
-> > > Make the evsel argument first to match the other evsel__* functions
-> > > and remove the redundant pmu argument, which can be accessed via evsel.
+On Mon, Jan 12, 2026 at 12:20:14PM -0800, Nicolin Chen wrote:
+> From: Jason Gunthorpe <jgg@nvidia.com>
+> 
+> C_BAD_STE was observed when updating nested STE from an S1-bypass mode to
+> an S1DSS-bypass mode. As both modes enabled S2, the used bit is slightly
+> different than the normal S1-bypass and S1DSS-bypass modes. As a result,
+> fields like MEV and EATS in S2's used list marked the word1 as a critical
+> word that requested a STE.V=0. This breaks a hitless update.
+> 
+> However, both MEV and EATS aren't critical in terms of STE update. One
+> controls the merge of the events and the other controls the ATS that is
+> managed by the driver at the same time via pci_enable_ats().
+> 
+> Add an arm_smmu_get_ste_update_safe() to allow STE update algorithm to
+> relax those fields, avoiding the STE update breakages.
+> 
+> After this change, entry_set has no caller checking its return value, so
+> change it to void.
+> 
+> Note that this change is required by both MEV and EATS fields, which were
+> introduced in different kernel versions. So add get_update_safe() first.
+> MEV and EATS will be added to arm_smmu_get_ste_update_safe() separately.
+> 
+> Fixes: 1e8be08d1c91 ("iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+> Reviewed-by: Mostafa Saleh <smostafa@google.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
-> > I haven't checked if this is the exactly where this takes place but
-> > should be in this series, 32-bit build is broken:
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 
-> >     3: almalinux:9-i386WARNING: image platform (linux/386) does not match the expected platform (linux/amd64)
-> > WARNING: image platform (linux/386) does not match the expected platform (linux/amd64)
-> >      21.72 almalinux:9-i386              : FAIL gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC)
-> >       1378 |         perf_pmu__format_pack(&bits, val, vp, /*zero=*/true);
-> >            |                               ^~~~~
-> >            |                               |
-> >            |                               u64 * {aka long long unsigned int *}
-> >      In file included from util/evsel.h:14,
-> >                       from util/evsel.c:38:
-> >      util/pmu.h:282:43: note: expected ‘long unsigned int *’ but argument is of type ‘u64 *’ {aka ‘long long unsigned int *’}
-> >        282 | void perf_pmu__format_pack(unsigned long *format, __u64 value, __u64 *v,
-> >            |                            ~~~~~~~~~~~~~~~^~~~~~
- 
-> > What I have is in perf-tools-next/tmp.perf-tools-next BTW, I'll try and
-> > fix this tomorrow if you don't do it first. :-)
- 
-> Taking a look, but I'm wondering if this is already not working properly.
-> There are existing "unsigned long"s in pmu.c that operate on the config bits
-> which is what I copied.
- 
-> On this target an unsigned long is 32bits but struct
-> perf_event_attr->configs are __u64. So it looks like it might leave the top
-> bits unset sometimes.
- 
-> I'll look at a fix for that which should fix the compilation error at the
-> same time.
- 
-> Another question is, do we actually care about this platform?
-
-It failed for other 32-bit platforms too, so the question is if we care
-about 32-bit at all.
-
-- Arnaldo
+Thanks!
 
