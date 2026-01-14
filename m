@@ -4,67 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 426E6D29FEF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 12:06:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC076D29FEF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 12:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GSEQCzndpMCTzZAiElbDw0E8ooqH9Iv/C1Bw0XbM1/4=; b=o/G9BolKYGZnmGe8AYpLD4wbe/
-	iVfJx9Tg0vasxPKhQJpYhC3el7SdoQPiPOcBS2O9Mo+ccsDF9KzC9Pdje2sxA2rxIHLVP0NiYMbmR
-	9E6sSnPcsRaWExFOykaU5gNXPDQdjnbNNs40ibqj/sC1EMgeiarmKfz+5KcwDcv+axzcscWouJ+YR
-	mfUfod5opCcTOQHCGYn5cyKy+VbzP+gdJbXl5bjxdsgAp6HIX+J+ApamMjD/HRB+5HtCjzg7Q7vJD
-	g1c7zyaFRLFQPBlKvGUL5GrWakOe68/iOOXAuS25FAoQD3TMykVUuX2MNHdolZUrAdnPZAR5lEcD/
-	LG5B0ljQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3pnFDZOJMe91m1QVq4sRpcpQyhtr0ZmwRl1v6B3xoYE=; b=2kPtcHVqceJGlwBuhrS3lBWZAG
+	X9BEuJzXQUF28gg7pTZ/NtHBbsPfXN9jOrPwlO2e2hz7dZzwcPW/B3bvoTW/u9T0BGnstLFXwxV8W
+	pns8Aff3JC0pl9OsLRBa3bIMvW/61ltN6VKQgDYjQ5v/hsDjwkoThA91rVuDuCmV9+lxp+IQFuFr3
+	pprWuvfIGmI3VVm6gR265XgLA9vYCOq5C5hPC/G6QVidD3g1PfAVC5ujxb4c+A0gBJro2WBPO82ZO
+	QzRloGAbKLWE+7UM7y1r9RLrjI22q7cQuQDdMrmXDBQOW9c7j/Z3c0uwoN0u62uW6CCDY0E4KUiwm
+	0gBTF9Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfze9-000000095fN-2CRU;
-	Wed, 14 Jan 2026 12:06:45 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1vfzeR-000000095n8-29rn;
+	Wed, 14 Jan 2026 12:07:03 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzdy-000000095bz-2Ygz;
-	Wed, 14 Jan 2026 12:06:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:
-	Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=GSEQCzndpMCTzZAiElbDw0E8ooqH9Iv/C1Bw0XbM1/4=; b=YJTJh68aWzrZwZ47DWwKJG7Eha
-	4tmnURY7cqRMZVdvqPSVMAf5a+XIuXekwSYreq8LqNWKg01dxTeJJ5RCySnJn+hlT2a7R2MvbjEaI
-	fe5K7PBSIOm9Gj+tVzuuoT6UNG7Mw8IpqX202IeAlBS/E+wKF+kSnhulCJZCn6bReC4/DuvL0GIAI
-	59trsW9munV1V1oqX+qOlYLHhf5CtMjhfv09p5CYd8XxFuPGGJOaFY9lldZuax7H3ziNdn0VndmRK
-	+hhqRndk2XqcBNhc/aJM+DjLMyKV0dBiF2Mn9izwoT0mMWTEpZv/tiYE2UVaBR3DABvoDMcMaMdk4
-	2QbHI0EQ==;
-Received: from [187.36.210.68] (helo=localhost.localdomain)
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA512__CHACHA20_POLY1305:256) (Exim)
-	id 1vfzdm-005GCf-8h; Wed, 14 Jan 2026 13:06:22 +0100
-From: =?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel-dev@igalia.com,
-	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>
-Subject: [PATCH v2] arm64: dts: broadcom: bcm2712: Add V3D device node
-Date: Wed, 14 Jan 2026 09:04:58 -0300
-Message-ID: <20260114120610.82531-1-mcanal@igalia.com>
-X-Mailer: git-send-email 2.52.0
+	id 1vfzeN-000000095kV-2Nvo
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Jan 2026 12:07:02 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-430f57cd471so4387120f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 04:06:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768392418; x=1768997218; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3pnFDZOJMe91m1QVq4sRpcpQyhtr0ZmwRl1v6B3xoYE=;
+        b=qVoK9FFkWGgclKXIZhELw5dd9xLv4ACW6XS0x3wKOxfkBSjOL1YPFLvqzJmyOnL0h4
+         oz5erYRovxSHOwwzkBLoRPP0CTBm9h+uHieY0GuWS4r2xkt8fhQQ481Ya3qMmoDWVwzO
+         +lAJ667KgKWFZBZyY9/ceg0BOtp4gNK/D5JugWbB07lAEOUpafCOqlbPOndPvFeT+JHb
+         scQJWPtiaTXkSvs14B8wm3AkexAacDB4pQlfrkLdWGmXzCxY+2zr3MVnTJts002bSCD9
+         YhcJUxQ4STeermL+qQyebgpNTlro+cVEhcaHw5GavmTiyulpj51e+K82oDsRmSoCmU4t
+         R2aA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768392418; x=1768997218;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3pnFDZOJMe91m1QVq4sRpcpQyhtr0ZmwRl1v6B3xoYE=;
+        b=Jid/IjIeENqF80XAWcU/41jKg+3LFuZDqtDqVzyh/18BTC/Ids9K9ShfkSuZcIkKV8
+         1/HZpAZnjuSJOsMxAIfqUKCeCQDLEZMclFmOSintxWrrtL7opHyu5CesdLLXBOSgM1Vr
+         dEaDiwPpdUzRP1VbzEq8WufRDdZkTOc3WJ9qYdRlnO7Nq1Og+Irn/ySZTOm/r5VeykMG
+         3VkoX1PIoprQzB1maD7frjalZruyfNTICQhgXbQfCjMWJ2zjSbgkJX4d7K/CJxp9257N
+         PKnaCXk8pCmxDBob7wy9oanziLOQ/wkUo9RNNBgpZ3RyHIrtEz2q3PO2fRAlrmY33XQ2
+         T4Tw==
+X-Forwarded-Encrypted: i=1; AJvYcCX+I5XAm5gHVUFmDkyIgVjmPWnOICvEprxxhJ4oy6qE/C2xfbZ/Bk19ECXpL1sZgM8I9zJd0U61+9FCQVGo+xCg@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCYZxN51/A9nAukty31W3aJB3oIP9N0+oNCrnCNkTG+toml31W
+	NUEiHREstEk1xcbl9xSLG/7Ftzkro43KHAkJuY23HHhTm3mhZkibjdbmBpvbR2GtJ3I=
+X-Gm-Gg: AY/fxX6RjHGFAsXYoIMwO4vOCZacOFsb28DunQRWHXSCcQycMOPGsuAMlqNvE4towGL
+	b9bwSq2oVemHfvnD/9thNcyiyqte9Eg6c5zzsyw233q9/1kCzrqq8d3ty2h+V6PEssrDS+1yRHQ
+	FeOmDHdWg1hBZW7CbMYUQTJ68fWiNzdXPGWcPxDk47s58PQzKDvdBYxbbf7Uq6ggsDagX+ekn4C
+	L/OTEZiactfMxp/FCsIJ9s+T7kwnNUV42kOy5pc7mEF0iQyULSvhZxyovOZIGzOTHgH8PCgssN9
+	kLXWwSJJuTd1j/lAAWuws/u9wLFd1GVC+FPN4A3bq93gh3zs+5+GMbU8FSEi/LZRghiOV9XXTsh
+	CgRUmoJjJd5OPhz+virMIDjHyTLwiNzobg/x1Twh2cVJFJ4ooq7dpafmWhO/RxmY+TtgsRacQUU
+	6BypO8aVC5EM3MA59BF5nva0LxvjdOToBAjPksJPTk89d5dCP44ZlzAGpNxrj8NKc=
+X-Received: by 2002:a05:6000:2911:b0:430:f58d:40da with SMTP id ffacd0b85a97d-4342c4ef0a9mr2625034f8f.10.1768392417548;
+        Wed, 14 Jan 2026 04:06:57 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:3d9:2080:b357:7e03:65d5:1450? ([2a01:e0a:3d9:2080:b357:7e03:65d5:1450])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0860f5sm49164912f8f.0.2026.01.14.04.06.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 14 Jan 2026 04:06:57 -0800 (PST)
+Message-ID: <4c0e0a34-7612-4bd6-9e9d-5599cbeb8fd0@linaro.org>
+Date: Wed, 14 Jan 2026 13:06:56 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+User-Agent: Mozilla Thunderbird
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm: amlogic: add Khadas VIM1S
+ binding
+To: Krzysztof Kozlowski <krzk@kernel.org>, Nick Xie <xieqinick@gmail.com>
+Cc: khilman@baylibre.com, jbrunet@baylibre.com,
+ martin.blumenstingl@googlemail.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, xianwei.zhao@amlogic.com,
+ christianshewitt@gmail.com, krzk+dt@kernel.org, robh@kernel.org,
+ conor+dt@kernel.org, nick@khadas.com
+References: <20260114062549.68954-1-nick@khadas.com>
+ <20260114062549.68954-2-nick@khadas.com>
+ <20260114-slick-passionate-mink-216a3a@quoll>
+ <CAP4nuTXeC1-6ktwLpDt_1ZRHxPSiNAoDKTxLzqEYJUfcnVogcQ@mail.gmail.com>
+ <39bb1820-6e4d-4f50-87e0-93844d779f6c@kernel.org>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <39bb1820-6e4d-4f50-87e0-93844d779f6c@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_040638_136991_F68C2F76 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20260114_040700_526783_1DB4F2F1 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,73 +133,81 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commits 0ad5bc1ce463 ("drm/v3d: fix up register addresses for V3D 7.x")
-and 6fd9487147c4 ("drm/v3d: add brcm,2712-v3d as a compatible V3D device")
-added driver support for V3D on BCM2712, but the corresponding device
-tree node is still missing.
+On 1/14/26 11:33, Krzysztof Kozlowski wrote:
+> On 14/01/2026 11:07, Nick Xie wrote:
+>> Krzysztof Kozlowski <krzk@kernel.org> 于2026年1月14日周三 16:51写道：
+>>>
+>>> On Wed, Jan 14, 2026 at 02:25:48PM +0800, Nick Xie wrote:
+>>>> Add devicetree binding for Khadas VIM1S board based on
+>>>> Amlogic S4 S905Y4 SoC.
+>>>>
+>>>> Signed-off-by: Nick Xie <nick@khadas.com>
+>>>
+>>> You still have the same From/SoB mismatch.
+>>
+>> OK,  I will fix it in next version.
+>>
+>>>
+>>>> ---
+>>>>   Documentation/devicetree/bindings/arm/amlogic.yaml | 6 ++++++
+>>>>   1 file changed, 6 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/arm/amlogic.yaml b/Documentation/devicetree/bindings/arm/amlogic.yaml
+>>>> index 08d9963fe9259..55663e0f7f915 100644
+>>>> --- a/Documentation/devicetree/bindings/arm/amlogic.yaml
+>>>> +++ b/Documentation/devicetree/bindings/arm/amlogic.yaml
+>>>> @@ -247,6 +247,12 @@ properties:
+>>>>                 - amlogic,aq222
+>>>>             - const: amlogic,s4
+> 
+> Look here
+> 
+>>>>
+>>>> +      - description: Boards with the Amlogic Meson S4 S905Y4 SoC
+>>>> +        items:
+>>>> +          - enum:
+>>>
+>>> Yopu already have exactly such enum with such description, so your
+>>> compatible goes there. Look - it is called "Boards" - plural.
+>>
+>> The exist board aq222 is based on SoC S905X2, but the new board vim1s
+>> is baed on S905Y4,
+>> they are different SoC, so we need to put S905Y4 under S805X2 ?
+> 
+> What is the point of having two separate lists with enums ending the
+> same SoC compatible?
 
-Add the V3D device tree node to the BCM2712 DTS.
+It's very usual for SoC vendors to reuse the same SoC design (here Amlogic S4)
+into multiple different packages, with some different features enabled & so on,
+and even new version of the die with some bugfixes.
 
-Signed-off-by: Maíra Canal <mcanal@igalia.com>
+We did this in the past for goop reasons, and here it also applies.
+In fact the currently supported SoC (S805X2) is a stripped down
+version of the S4 SoC like it was done for the S805X which was aalso a stripped
+down version of the S905X, with a different IO layout and different internal
+characteristics even if the die logic was the same.
 
----
-v1 -> v2:
+Neil
 
-- Rebased on top of linux-next (Stefan Wahren)
-- Fixed node's address (2000000 -> 1002000000) (Stefan Wahren)
-- Link to v1: https://lore.kernel.org/linux-devicetree/20260113192902.48046-2-mcanal@igalia.com/
----
- .../boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi    |  4 ++++
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 14 ++++++++++++++
- 2 files changed, 18 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-index 7d4742ebe247..97522c6803c5 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-@@ -247,3 +247,7 @@ &pcie1 {
- &pcie2 {
- 	status = "okay";
- };
-+
-+&v3d {
-+	clocks = <&firmware_clocks 5>;
-+};
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-index 330a121ebfcb..661668ef7419 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-@@ -1,5 +1,6 @@
- // SPDX-License-Identifier: (GPL-2.0 OR MIT)
- #include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/soc/bcm2835-pm.h>
- 
- / {
- 	compatible = "brcm,bcm2712";
-@@ -642,6 +643,19 @@ mip1: msi-controller@1000131000 {
- 			msi-ranges = <&gicv2 GIC_SPI 247 IRQ_TYPE_EDGE_RISING 8>;
- 			brcm,msi-offset = <8>;
- 		};
-+
-+		v3d: gpu@1002000000 {
-+			compatible = "brcm,2712-v3d";
-+			reg = <0x10 0x02000000 0x00 0x4000>,
-+			      <0x10 0x02008000 0x00 0x6000>,
-+			      <0x10 0x02030800 0x00 0x0700>;
-+			reg-names = "hub", "core0", "sms";
-+
-+			power-domains = <&pm BCM2835_POWER_DOMAIN_GRAFX_V3D>;
-+			resets = <&pm BCM2835_RESET_V3D>;
-+			interrupts = <GIC_SPI 250 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 249 IRQ_TYPE_LEVEL_HIGH>;
-+		};
- 	};
- 
- 	vc4: gpu {
--- 
-2.52.0
+> 
+>>
+>>>
+>>>> +              - khadas,vim1s
+>>>> +          - const: amlogic,s4
+> 
+> And here.
+> 
+>>>
+>>> Best regards,
+>>> Krzysztof
+>>>
+> 
+> 
+> Best regards,
+> Krzysztof
 
 
