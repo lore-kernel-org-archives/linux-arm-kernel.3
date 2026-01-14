@@ -4,104 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 715CFD38FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:29:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AECE4D38FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:30:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wOGask9npR+YlnkUj5CzN/Pzieo1MzhAPrMcaH9JsNk=; b=ivZX/SMWW2WH3wvUnPQ0Bc3tK3
-	WCzTXv0iNZv+24c65rcRnSjvfIgfB9Hs+vI0a9C/yGFqwNXHVgbrNtwOWIJZMDMg6ro7gufoL637U
-	wi94dqpvlmUZiEfrnlykuqYomo34mo9JePLLB9wRTcwL4lBurbYt83j1R0KU8F1RlKLfG+OlEn8n8
-	bqx9UwApJXO0zBsjAu18KTSJAXmCtjRvwSZIr8d9di7GJFbgFJsKC3ghAFzGqBUKag6M1SLAQ8eE+
-	4VHXXx9s2cMYEqwL81CtKsbys9YB2otCkP0eY/Z5YyOQFynMl8rQHwvG8TfR8BE9K1FoYguJ1mZhO
-	1lsuIjQg==;
+	bh=9OmrMJYTk0QTc9HUpPBbGAYWuS8RW+O3QCjvFJwIg/c=; b=YvSBkZ11WhRHFqO/9WxO3hYwhi
+	QMoTMD1X8YL+KNM4AyLR4RBHYy8ceZmH10nKKDz6c0xJyC+pm6AnqjzTjzRtSGLZhzkc3T84QxS7y
+	XYNmAQu0dhPgmocwcQ0eDHBrlqrnJXfgDRu5cY1mR1hiao5kGmT4yTIqNg++Wdo9Av1GQJwp2PvQe
+	XK5tDW8rF3KoGD6qxAnAV9lM/w4E7VuqbPhtaDrz/VqqP7gBFP+tllNqLfJK2OCOWQGgro/AFEtgr
+	+2J7SDwJ5Zg9ysQa7dqhokfJ16M8qhBbCOregDXNbib6cksLuECk68gJLO71X62/CFPFbpicWiHrd
+	MD2cfW5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg3kX-00000009vb4-2KBn;
-	Wed, 14 Jan 2026 16:29:37 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1vg3kp-00000009vhd-105l;
+	Wed, 14 Jan 2026 16:29:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg3kT-00000009vYf-2I3y
+	id 1vg3km-00000009vg4-1L3a
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 16:29:34 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-42fbad1fa90so39794f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 08:29:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768408171; x=1769012971; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=wOGask9npR+YlnkUj5CzN/Pzieo1MzhAPrMcaH9JsNk=;
-        b=X+8LkvPSguzTaoMwIe1vCq89RzpIJ5HbrO/6SUZnwIs73Bo87PzhH4oYwfaluCOqCp
-         MfDEk9AjHwniLm/gujP6pKmcuDsY1a6qIe7fV2EYxpGqbzw86c6VXFTLw7H6KFqJdCs4
-         Zt8p5jcvg015ktaJx2sJfxWyfEtni9WDLJnWNPkk7UqkqEbzpUVbYJLHYzwAUWvyz1Nq
-         3XUMqE/+vwDSqW0Ski/aZDEOMDyNINQ/jAjBZuYPGBqmnZ9vBIy5fiAaxuONj138xRUn
-         OhS08Tg3sdfb9HadG8x5eoXq9ELOuZaU4qlF0xPzjJ1k90Q6SaYhTbzYF19BJjj17jeE
-         it5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768408171; x=1769012971;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wOGask9npR+YlnkUj5CzN/Pzieo1MzhAPrMcaH9JsNk=;
-        b=LT52ih8UbDLmswGQ7epFovhF93zwRFAxYN2u3B+34xvG6pMZk5EB2V55GbOhYYM8AD
-         UuphaYItkBMBeE5z/GVO5DhDSLeizgwvfhRfGu4G3kUzEgy+ZSpCB0mh3JKQHAX72Y+b
-         2NZ1KOOZI2J9H/RwuwZNan04S4jJntRiKe2WAorIyi254xc6pJ/ihQz/kKbKbcglZeYJ
-         H267xm0oBtezxFMt9ZdsdMNEnwZIBfXwtazORCkK8eec2PH16c5FQ/flhWt2rVStWAwJ
-         5hE/OCTW/CTp6vi/RXUQYjdNwXcu6y8oZy42g+nvkuWawYbl7QMCPUo/PRirbEC/Htry
-         E2WA==
-X-Forwarded-Encrypted: i=1; AJvYcCUX/s/LkT1T184ClFCXsF+yPkm7UHnnqI1DchVV+OoQvkZ09jqIoOL7L1ZFFi2OdBfRUFOhXqEg8Wc8N908gcqm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwT4YttrVPolVSWDebP26iy4XU0OSvjbhZN6aBp3HTGy3tt3ri8
-	0BFjkCJ9mtWdk24bLytpIC0UgPEHtudp7V6S6NmP94r+lS53wNRBTAC7
-X-Gm-Gg: AY/fxX5COshtzkR+YUHWqHt/YQV2v0hPfOTKfRMIgHFZgQYAbQTUvlQ+oPFt+9BRUXm
-	gxDRla+BPsfaCFLlkOs/f+8sXsZz1Bn8aQuAvPCW5QqowM50GQM7fgeAssC9UhcowJUk8dLVUKZ
-	Ns6C+KDN0rJ2e/YCGssECgSu53MHppE192f2ysHi2aW5KAI3p8Mvwb1AzCoGQYKLAVlalIVOHeB
-	QU0go23PNytVk868aa4x8+qkGAs1cQpiU4/2W/AhzPMEStxe3wnBaE771GnFH3czsraHZHX1XAp
-	SgMTK7InyxbP5KIXehwpwppDrKPM6uwf6ssi6A4ir8vY5jqCZ9LuP2kVbTtuKBY/go6u9U/qwmf
-	TUtDfDoxA13tBJp0q6bfsKc0En8xUrm1CzYSfH4dNUhMUCgv2nGrHq3SAgzbNVYl7RgRQop5DsL
-	nQfDK0sf8veJj9M/phXV58fc96Dn4h0SedduKBwio=
-X-Received: by 2002:a05:6000:310b:b0:430:fe22:5f1c with SMTP id ffacd0b85a97d-4342d5dd3d4mr3043280f8f.59.1768408171137;
-        Wed, 14 Jan 2026 08:29:31 -0800 (PST)
-Received: from Ansuel-XPS. (93-34-88-81.ip49.fastwebnet.it. [93.34.88.81])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-434af6b2988sm147835f8f.28.2026.01.14.08.29.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Jan 2026 08:29:30 -0800 (PST)
-Message-ID: <6967c46a.5d0a0220.1ba90b.393c@mx.google.com>
-X-Google-Original-Message-ID: <aWfEaBla1K6AZnsY@Ansuel-XPS.>
-Date: Wed, 14 Jan 2026 17:29:28 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Wed, 14 Jan 2026 16:29:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0F19D438E3;
+	Wed, 14 Jan 2026 16:29:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF3DEC19422;
+	Wed, 14 Jan 2026 16:29:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768408190;
+	bh=I8+1WljunbvUFxqo0uuMi1ljN83aDJ7digha0oFhW3g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oK8kMI3fsbLCJ/RO7O6RmMGSUrb/KnoHVeDxCL6SU1hSw0dCGz5jpy8TeYhMWijFy
+	 4Y6l18gHBFG01liU5Xd+7/x+lZ3tnTslJAn6x+tKCdm6wwrlDsh3Js9D11r9dUQUQ1
+	 P1rmPWzPGFverhc/RQcT1t9ZTITamH1PIldcqXQfo2/+dubDFbFW3yKSCHjWgQnyns
+	 WjDrp/vHQi6HX0si/ACs6w/Qkc68jUC2mryk4JkZYnH1hpGw4hotvd3LrKaBHD1aBV
+	 nwKWnjBSc/zXqvv7fcVjp0htConpPi10Cu6PnhI2/UT0myjPLMDmSr89eYSeRe5wPz
+	 3m9l/mvN//0oA==
+Date: Wed, 14 Jan 2026 16:29:44 +0000
+From: Daniel Thompson <danielt@kernel.org>
+To: Maud Spierings <maudspierings@gocontroll.com>
+Cc: Daniel Thompson <daniel@riscstar.com>, Lee Jones <lee@kernel.org>,
+	Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next v2 1/2] dt-bindings: net: airoha: npu: Add
- EN7581-7996 support
-References: <20260113-airoha-npu-firmware-name-v2-0-28cb3d230206@kernel.org>
- <20260113-airoha-npu-firmware-name-v2-1-28cb3d230206@kernel.org>
- <20260114-heretic-optimal-seahorse-bb094d@quoll>
- <aWdbWN6HS0fRqeDk@lore-desk>
- <75f9d8c9-20a9-4b7e-a41c-8a17c8288550@kernel.org>
- <69676b6c.050a0220.5afb9.88e4@mx.google.com>
- <e2d2c011-e041-4cf7-9ff5-7d042cd9005f@kernel.org>
- <69677256.5d0a0220.2dc5a5.fad0@mx.google.com>
- <76bbffa8-e830-4d02-a676-b494616568a2@lunn.ch>
+	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, dri-devel@lists.freedesktop.org,
+	linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 2/4] backlight: add max25014atg backlight
+Message-ID: <aWfEd0hldSrwrh9-@aspen.lan>
+References: <20251201-max25014-v6-0-88e3ac8112ff@gocontroll.com>
+ <20251201-max25014-v6-2-88e3ac8112ff@gocontroll.com>
+ <aTG0EK_zuSB-U_bb@aspen.lan>
+ <8a9a59b8-d5c0-46b3-8f86-a4cd910b7af3@gocontroll.com>
+ <aTaqCxsGj_waN92Y@aspen.lan>
+ <fc5aad54-08fe-453e-a3cf-621414c8a060@gocontroll.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <76bbffa8-e830-4d02-a676-b494616568a2@lunn.ch>
+In-Reply-To: <fc5aad54-08fe-453e-a3cf-621414c8a060@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_082933_603366_F1199FFD 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20260114_082952_378779_A9DE0253 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,36 +88,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 14, 2026 at 04:56:02PM +0100, Andrew Lunn wrote:
-> > > Yes. What you plug into PCI is not a part of this hardware, so cannot be
-> > > part of the compatible.
-> > > 
-> > 
-> > Thanks for the quick response. Just to make sure Lorenzo doesn't get
-> > confused, I guess a v3 would be sending v1 again (firmware-names
-> > implementation series) with the review tag and we should be done with
-> > this.
-> 
-> Since this is a PCI device, you can ask it what it is, and then load
-> the correct firmware based on the PCI vendor:product. You don't need
-> to describe the hardware in DT because it is enumerable.
-> 
+On Fri, Jan 09, 2026 at 09:55:18AM +0100, Maud Spierings wrote:
+> Do you have any comments about:
+>
+> > +static void max25014_remove(struct i2c_client *cl)
+> > +{
+> > +	struct max25014 *maxim = i2c_get_clientdata(cl);
+> > +
+> > +	maxim->bl->props.brightness = 0;
+> > +	max25014_update_status(maxim->bl);
+> > +	gpiod_set_value_cansleep(maxim->enable, 0);
+> > +	regulator_disable(maxim->vin);
+> > +}
+>
+> I'm feeling like the setting of the brightness + update status maybe should
+> be a call to backlight_device_set_brightness() or maybe it shouldn't really
+> be there at all?
 
-Hi Andrew,
+Using backlight_device_set_brightness() makes sense (although there is
+still a window where userspace could come back in and turn the backlight
+on again). And, if both the GPIO and regulator were optional then it is
+sensible to set the brightness to zero before removing the driver.
 
-I think it's problematic to create a bind between the NPU and
-PCIe.
 
-Do you have any hint on how it's possible to read the PCI
-device attached? I'm not aware of any API that can be used
-to enumerate what pcie devices is present on the device?
-
-Considering how tightly integrated things are in this SoC
-I still feel firmware-names is the most effective solution
-for this. The WiFi offload is mostly optional and sadly
-due to Airoha limitation, it's not possible to have separate
-blob for the single feature/support.
-
--- 
-	Ansuel
+Daniel.
 
