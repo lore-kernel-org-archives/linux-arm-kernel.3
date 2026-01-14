@@ -4,55 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F48D37E37
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 14:07:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4C81D37E37
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 14:07:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1DR9bBTsCoU/xXRrfCDqm9jLT2QzaU8vv+qHZr8GQJE=; b=YnjJWN9gMBqnbKV95Xb70nShIa
-	xvVko9MNfFbJKQPwtgvKLI4gQ9i5d1NO9ZFiT0g1y0aYyoHAgrjfJqYv5ccY72L4pZ/78Ntb9WIVh
-	rkGZ/pFgd4ld8hq7eDQvAHfELpP4aEPyPzSB8gKOwMz0cTu7P3ZrGj+pn99w4sY7Yh0IG3L2k3+pr
-	OwIZk3BZFBXDmabt6i3yI+FbId+5FuCy6kFQsc7MKgR50VpsRE6pLIVeDJyM3ALjCApcIEja8n1cM
-	wMa+8OtLjh0BYwJVfr+AxkTWIm9reFeufxpcf5Z+AwALhLtk1pcekMtJ4JL2Cul1TGyGqfwpWKr8y
-	oNOVTJ8g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MClOrbVdfNuOtK0G8j9yjUjsNpRvnKkQ8QMN5BlfSOE=; b=tDzojVyR3p8cYJ
+	veA8bgMw8ml8yO795eENmiXmwRA1497uZjkXaJDNWKj+q6MHSIsIqw45XW9RckXSpYlb3994K5tCk
+	d5AnX68QAtpeHyI6xZ/bG99J1jInR2W6JBfYlnuBtERl3LFGWGJYrsC2aqX4zWU84GcjRWDsMpVjE
+	4eKx8yF1745HMh4bN8YlVep5fHLOpVT95XO+p8JVZy4gl9h/SUes5eAdil6r2G9KE3Of4wjQMy+gk
+	9wskbCjCvHUYQLk3a1sqYTTFkA5v0chZ4VjEp3UaxRREf9r0IALjw1MnWFs6VXDGbktMH7pPFT7Pm
+	5ZgdkbcLJVYfHZ59pS6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg1Wd-00000009SPi-22Nn;
-	Wed, 14 Jan 2026 14:07:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg1WX-00000009SOh-3EXT
+	id 1vg1X1-00000009SUv-3KVW;
+	Wed, 14 Jan 2026 14:07:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vg1X0-00000009SUW-3EJz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 14:07:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E9BE1515;
-	Wed, 14 Jan 2026 06:06:52 -0800 (PST)
-Received: from orionap.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 08C2E3F632;
-	Wed, 14 Jan 2026 06:06:56 -0800 (PST)
-Date: Wed, 14 Jan 2026 14:06:53 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Giulio Benetti <giulio.benetti@benettiengineering.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: dts: sun7i: a20: fix MMC index enumeration
-Message-ID: <20260114140653.05365221@orionap.fritz.box>
-In-Reply-To: <20260114105005.3136045-1-giulio.benetti@benettiengineering.com>
-References: <20260114105005.3136045-1-giulio.benetti@benettiengineering.com>
-Organization: ARM
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
+	Wed, 14 Jan 2026 14:07:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B04EE6000A
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 14:07:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 673EBC16AAE
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 14:07:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768399649;
+	bh=9kXxSsD9GPZ8ilXPJKnyKVYaA4WA4dkOMaJ60ml6/Uk=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=Q8ramvssNJ4BQjBaXEh8TD6iXyrk1R+mTA/1T8UjA2D+a1yvCL2th6EOUIpX+2/Rz
+	 9G1aRaIVLAuQshr+/vxDSQrDn19x26iRS3xHmDyD5tPpsFjuJbaQ9PwJk9OKm6hn/K
+	 ScSRYEl3Aq/Qw7WP4fpy4BgNdo6bToVD5ZSeZicplUtL0QmejHw6GI8R5lh2RVAnqV
+	 QOmGxY29XsHZehYaPr80OxM9R++Zi93xohtgKMkMLO5zIRaI4PegyDxsPVuJknFZCI
+	 p5X4beyVZ8ZrYCqiR0NqIrTLp+MqvsR82SWfVg7LoBkH8Fj5e/k+t7xD627v3pROfi
+	 nWxd21k+XUKCA==
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-59b7bb3b913so1215710e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 06:07:29 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCW+PWWfjnJ/pY01e15/5lSWQtFZaFe+RAtzuQe7LFlxbLOdeOXXhfqxzfwWD7E4JRJUTCIWiJdTwAbUmm63nTjl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2tYjB306v6prV2kArfZU5JUyRLCCmUa/S08ejAMRPE6/+bAgs
+	ds3euvxCXh/LYF0Gl7vdswt0WyfquN2oZU7IBmOdW8CQRFMujHeWd0pPTZgLzAmj2r9CvvQ8thM
+	zG5+Xg3YqnCbtwLlc8CwUf39R9TSikJI=
+X-Received: by 2002:a05:6512:39cf:b0:59b:7804:f149 with SMTP id
+ 2adb3069b0e04-59b9941fe05mr2533661e87.17.1768399647739; Wed, 14 Jan 2026
+ 06:07:27 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_060703_879921_DF666BBB 
-X-CRM114-Status: GOOD (  21.14  )
+References: <20260114105005.3136045-1-giulio.benetti@benettiengineering.com>
+In-Reply-To: <20260114105005.3136045-1-giulio.benetti@benettiengineering.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Wed, 14 Jan 2026 22:07:16 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66gpmreQiDMDJ8NE1QJ-e+iBUVicw9sv=RgiwuONfUFAA@mail.gmail.com>
+X-Gm-Features: AZwV_QgyMFwMvO53ZaT5aNqrfV7muoxJxa1mFM3R5z3QBXkoO24uW2v55PGRm7Y
+Message-ID: <CAGb2v66gpmreQiDMDJ8NE1QJ-e+iBUVicw9sv=RgiwuONfUFAA@mail.gmail.com>
+Subject: Re: [PATCH] ARM: dts: sun7i: a20: fix MMC index enumeration
+To: Giulio Benetti <giulio.benetti@benettiengineering.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,55 +79,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 14 Jan 2026 11:50:04 +0100
-Giulio Benetti <giulio.benetti@benettiengineering.com> wrote:
-
-Hi Giulio,
-
+On Wed, Jan 14, 2026 at 6:50=E2=80=AFPM Giulio Benetti
+<giulio.benetti@benettiengineering.com> wrote:
+>
 > Currently, the OLinuXino-A20-Micro experiences non-deterministic MMC
 > enumeration during boot. When both an SDIO WiFi module (MMC1) and
 > an SD card (MMC0) are present, the kernel may swap their indices.
-> 
+>
 > Explicitly define mmc* aliases to ensure consistent device naming
 > and prevent mapping conflicts.
 
-So this comes up every now and then, but for sunxi it was decided to not
-support this. The enumeration of devices in the kernel is never guaranteed
-to follow some order, and this is widely accepted for SCSI (/dev/sda) and
-NVMe. Distros are coping with this forever since, using more sustainable
-designations like UUIDs or labels.
-
-If you don't want to change the way you communicate the root device to the
-kernel, you can actually use U-Boot's DTs, which adds the indicies for its
-own purposes, and can pass this on to the kernel. Just don't load a DT
-from storage (which you shouldn't be doing anyways), and just use
-$fdtcontroladdr as the DT address when booting the kernel.
-
-Cheers,
-Andre
+Years ago we (sunxi maintainers) decided against this.
 
 > Signed-off-by: Giulio Benetti <giulio.benetti@benettiengineering.com>
 > ---
 >  arch/arm/boot/dts/allwinner/sun7i-a20.dtsi | 4 ++++
+
+And aliases are per board, so this definitely doesn't belong here.
+
+
+ChenYu
+
 >  1 file changed, 4 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/allwinner/sun7i-a20.dtsi b/arch/arm/boot/dts/allwinner/sun7i-a20.dtsi
+>
+> diff --git a/arch/arm/boot/dts/allwinner/sun7i-a20.dtsi b/arch/arm/boot/d=
+ts/allwinner/sun7i-a20.dtsi
 > index 5f44f09c5545..a958400bcd7c 100644
 > --- a/arch/arm/boot/dts/allwinner/sun7i-a20.dtsi
 > +++ b/arch/arm/boot/dts/allwinner/sun7i-a20.dtsi
 > @@ -55,6 +55,10 @@ / {
->  	#size-cells = <1>;
->  
->  	aliases {
-> +		mmc0 = &mmc0;
-> +		mmc1 = &mmc1;
-> +		mmc2 = &mmc2;
-> +		mmc3 = &mmc3;
->  		ethernet0 = &gmac;
->  	};
->  
-
+>         #size-cells =3D <1>;
+>
+>         aliases {
+> +               mmc0 =3D &mmc0;
+> +               mmc1 =3D &mmc1;
+> +               mmc2 =3D &mmc2;
+> +               mmc3 =3D &mmc3;
+>                 ethernet0 =3D &gmac;
+>         };
+>
+> --
+> 2.47.3
+>
+>
 
