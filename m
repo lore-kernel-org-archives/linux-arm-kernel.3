@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE15AD39000
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E307D38FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=esm9WrD4BKpKvvKYouyabdzOJD1xFs4WzI7btg4LvbY=; b=IPoFfadcWkKBBy24ye98PlQIn9
-	PbC0HM84WsUrFVnX2e4spmgngrE8HDs4zXqMsZoBtsl/EPEyXG0jo4Tn+aHttKsSH9Yrm7BfjmufI
-	qSgLxvtPnviUmS8wgN2AtIO8oiA6fn3zfEhPjwq11y+VW29aHdGmX8HA5fuOF4p3VLng1b6SBDhnu
-	wP0y2EnhFYUP3/Q6tx6b4BA9bdMYXkqaf+dYHJq2CaOeuVsPlh6wluF7wL4zw1D/j/XpIgBe5MUJ7
-	0nj7eyr6mtCmx8+YrX/9U0P7B6IdlKsyCcUip0MPlWXsoRD5zkwR3stCw/0YamIkk2nY18xx3qigm
-	YUpdiYag==;
+	bh=y+DBbvvsjSacZfh+vdqxQk3ZYT1PpuyeaAD7nC6BeRs=; b=4yWLh+pofX0PynmeJLW5zlGMI4
+	HrtnSCNBfY3OItdIpifvGHwIPOxg7R29CU7aR03K/q0PMBx3INczYHOkll411CEoGw7sEGVHYMR45
+	BpT23zmp7tSK5aWjkRBeuRjNvSUb3ubCpMwCa2eep8zPXirC/pjbZ6zzRFhWpKrxMCmG6TuWmv9x1
+	UPMITsUtcYO/X56Oz9wxNse/N2I49JaeXbGb9x3JaAemR2RyBywR3+U7HuL7ZWwHCoS1YGirMG2gu
+	lAfRLu1koDGOiU3DOv9F9G8V4ecdQpS1RiNT+E4Z+G/RCLLAloPIo/Az9WHYmvCXTjzSXBv0/jaFO
+	Mc0F0QEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4nG-0000000A9kv-0a3d;
-	Wed, 14 Jan 2026 17:36:30 +0000
+	id 1vg4nJ-0000000A9mw-40AV;
+	Wed, 14 Jan 2026 17:36:33 +0000
 Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4nD-0000000A9jL-3gBP
+	id 1vg4nD-0000000A9jU-3W2A
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 14 Jan 2026 17:36:29 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HrAerts/KZAITCY7izQmEiIOd33+70cqTA1ff7s/+O7E2Sc6yYfbRyptlw7UdBOTt8N61CYWxSRj2GYKkkK2QXGgh030TxUc7gcqkXtbzjYRsMbZZoec/qp/G5aJ5aOY08Ojvu0Lw3ks1QULTmhdJSHm5XXOSkk+kg9csPV6alRgzTOpCuZckQ8f6c7t/0HFX7AEok8kmABRKhtWxFmJWX8qTS/OzkMgwZBPX4I31bHmke5c0QxAw8ywHNwG+ntQiD2ywV2tWfrEy+iFgdTUWliK2k94FOTet4y9ZY8mD9ygby9uq+p0sBVt8n/j4Jd3gDMEQZdY7IU5O0fqDzGyAg==
+ b=sB5u0lW/J4engVAPbDaVHWlLNAwrbDkZfRFXlXlNOWsmGO79+I7yNZPiygI3G7ZAV3Eq5+8vMG33GZqqzbj3wwpMLc1E7apM+vJjP0sQgvukweLRdmOvPghFOJ1zUpGKQxEMRZS7FJTgzHPoDJBUG8rNqCajHqaprI9cN0wfFvssaK7HuzcWmuMYxZHcCQMpn+dYP9H0QXiVKYPzVH6Ueb1wi5TwD/u8iPsweagt6Hx8nBQ0jomSntmw7SYS32fC3IzBL0OzKzYkM8rV6zErKj22oylijlr5ftFvW7da+GHbOd2EOcXUQpdKUZNc67cLg1MhoZNRm8Gtta7BtFa3Cg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=esm9WrD4BKpKvvKYouyabdzOJD1xFs4WzI7btg4LvbY=;
- b=EP9YFL+yXQBnf19OhQlUqoMR1WTOkeUNkIHIMmiTFu7ooF00Nt9v28Na9KezynnEKusQlZJNakUXVDCCCU2tk/ESyZ8y2YSSsWizyTyiYsbl+3gu5uSApgXyETILcvv4zAE2SfkFmJmN5lo1Vc90DRbmd3WmO0GX4aRMxSRqxooSKtm/SiEHkJQyqAPsvmvp/8Q+KxYzQEdTCx5uP8Y417KMa1duZxIQhh0abV51NetCdb5g/RVvHs0eZXi6Ci9mIhURl5hC9NE2pHqIYiV+/uc6bRiTSMmM981PqrLjxXL/tmrLCEvap91C/sOlyi9RsJ00d3wotoUTLvR86CaDjg==
+ bh=y+DBbvvsjSacZfh+vdqxQk3ZYT1PpuyeaAD7nC6BeRs=;
+ b=vWhAcF3vFYJgFVg7RPQw9DGyLSfge1rDjhyY4JvzB1NBmT6A81QlgjnSfhwQASDSSf17t3WrNEj72PRr0zOwSuD0ENvxr7JJeehF4Ojhjbf6dE8j7atD4tAMXZ7IiLeXgHivotV622q2frVVxZWPePPDKy9BhugnKFsyl8OtTA/JB2deO3f0LwKCxyogLzO71nvSlclcqTECtLeYFC3VrKpbI2AJCdxIdKaz4XrFnYeO6RI+n44f3wkIxORrBPgIXO5c//C+WDMy6E2mw3M7mtD8SlqClRc/AGuECsXtAOnE9BXUplYGenrhfc08GwGOdIZdwBLIVsyC2b1/Hh7kEQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=esm9WrD4BKpKvvKYouyabdzOJD1xFs4WzI7btg4LvbY=;
- b=kfHtQhvksLk+/197JPo1GxLf8rWio1TRdp8dg+sNxzf3FzxChSYOEyTkdUjvxRvuvsRkQSJumw2EJ4zjeziWizp4Ef3d6tL3B7bydj897+FM9FP3GobQthJQE/g6oEMPpXV/3lu6ZwfOQHi+supqHS9SQOihisw22RXS1PDSUPo=
-Received: from MN0PR05CA0006.namprd05.prod.outlook.com (2603:10b6:208:52c::31)
- by CH3PR10MB6738.namprd10.prod.outlook.com (2603:10b6:610:149::7) with
+ bh=y+DBbvvsjSacZfh+vdqxQk3ZYT1PpuyeaAD7nC6BeRs=;
+ b=HN7eehvbNwnD+2nU8OhhjeDpGhdr/hwoZpeVetRVKtOwJLyDwriBKNIbQhb6BJMN38AeKQD4OK3YJyZevxUZHURSei/NGRfs42n6se5XWsLtC7D8zgXiKquIUbcc03+fHJuwcm6e8isN76DU483yoNlqVSrhLTEZXPLo08dWlCs=
+Received: from MN0PR05CA0004.namprd05.prod.outlook.com (2603:10b6:208:52c::10)
+ by BN0PR10MB5205.namprd10.prod.outlook.com (2603:10b6:408:116::15) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Wed, 14 Jan
- 2026 17:36:20 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.6; Wed, 14 Jan
+ 2026 17:36:26 +0000
 Received: from MN1PEPF0000F0E3.namprd04.prod.outlook.com
- (2603:10b6:208:52c:cafe::d8) by MN0PR05CA0006.outlook.office365.com
- (2603:10b6:208:52c::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.2 via Frontend Transport; Wed,
- 14 Jan 2026 17:36:19 +0000
+ (2603:10b6:208:52c:cafe::39) by MN0PR05CA0004.outlook.office365.com
+ (2603:10b6:208:52c::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.5 via Frontend Transport; Wed,
+ 14 Jan 2026 17:36:26 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
@@ -61,31 +61,31 @@ Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
 Received: from flwvzet201.ext.ti.com (198.47.21.195) by
  MN1PEPF0000F0E3.mail.protection.outlook.com (10.167.242.41) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.1 via Frontend Transport; Wed, 14 Jan 2026 17:36:18 +0000
-Received: from DFLE210.ent.ti.com (10.64.6.68) by flwvzet201.ext.ti.com
+ 15.20.9520.1 via Frontend Transport; Wed, 14 Jan 2026 17:36:25 +0000
+Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet201.ext.ti.com
  (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 14 Jan
- 2026 11:36:00 -0600
-Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE210.ent.ti.com
- (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 11:36:05 -0600
+Received: from DFLE215.ent.ti.com (10.64.6.73) by DFLE202.ent.ti.com
+ (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 14 Jan
- 2026 11:36:00 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE207.ent.ti.com
- (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 11:36:04 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE215.ent.ti.com
+ (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 14 Jan 2026 11:36:00 -0600
+ Transport; Wed, 14 Jan 2026 11:36:04 -0600
 Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60EHZpkN040370;
-	Wed, 14 Jan 2026 11:35:56 -0600
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60EHZpkO040370;
+	Wed, 14 Jan 2026 11:36:01 -0600
 From: Beleswar Padhi <b-padhi@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
 	<krzk+dt@kernel.org>, <conor+dt@kernel.org>
 CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>, <b-padhi@ti.com>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v3 1/2] arm64: dts: ti: k3-{j784s4-j742s2/j721s2}-mcu-wakeup: Add HSM M4F node
-Date: Wed, 14 Jan 2026 23:05:50 +0530
-Message-ID: <20260114173551.2545088-2-b-padhi@ti.com>
+Subject: [PATCH v3 2/2] arm64: dts: ti: k3-am62p-j722s-common-main: Add HSM M4F node
+Date: Wed, 14 Jan 2026 23:05:51 +0530
+Message-ID: <20260114173551.2545088-3-b-padhi@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260114173551.2545088-1-b-padhi@ti.com>
 References: <20260114173551.2545088-1-b-padhi@ti.com>
@@ -95,54 +95,54 @@ Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0E3:EE_|CH3PR10MB6738:EE_
-X-MS-Office365-Filtering-Correlation-Id: a099397b-739b-431c-c733-08de53936d0b
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0E3:EE_|BN0PR10MB5205:EE_
+X-MS-Office365-Filtering-Correlation-Id: 98fac0e3-aefe-4a16-db42-08de539370f2
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|34020700016|36860700013|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?uX5QEKoQPCN+57+iicSzd0X5YgSFht90Z7laOi2lylLwvL0ug7YJd8K5ld9f?=
- =?us-ascii?Q?YB5Kz/YIg++MM2gRmDcFVIfrYNOW/1TH2bg2F1SRyb3GrI9A4fKdtzakaAL9?=
- =?us-ascii?Q?PnfCFa5przGhvLmid0M1epaq/Z3lw+OH6dOcQ4VAY2M/KWAl1bTPEfJa7NEm?=
- =?us-ascii?Q?iPMirFhSAcHjb2nhbxMyD1Y+Lb1cVcQLSdIWg7GGN+zUyW+EXh6MZx/66m5/?=
- =?us-ascii?Q?zzOcKHHp4NOD/NHe71OEHDa9f2IY+VWxqoKZ2HnzyU47P4gLMZ4tZwvirQxS?=
- =?us-ascii?Q?5CAa9NNBN3nztq6GRR4uZ+vbVBFw72MJqh7xEXgA7dT3Lr4jfcAf/C3vst91?=
- =?us-ascii?Q?JhQd3RqFoda5nSpTMsWtiTIxg/fc+5FSy12YiJuzhpBwkRJRaR8a9bE3KF8a?=
- =?us-ascii?Q?SrBOTXHcDGwlzYUfp1xTOyO6TjbPQCH3SjUaR/qho8hablanis0w0OjKvliF?=
- =?us-ascii?Q?HZK3HjPmzQkgUdMqWV3AUmcjXHVX3iTGWUdW1osSvdjeJRRlQ+V251Oxrip3?=
- =?us-ascii?Q?b4LQTot+rdkFAbelVw/dtqdAG1bZYznE67OxrYXBaIidkIw8PlmVP9XsQdSj?=
- =?us-ascii?Q?7HX4PR2NPEUg3yptEvVSSH4LgL2HxdFu6/JdNIJO5IVtZwwVGa56MPyKVc+L?=
- =?us-ascii?Q?a7gUhbK555L3PaP49EimxJa744tTFY4RbtuuwTKxIdRt5u73xSUOJwMY/Q/T?=
- =?us-ascii?Q?SOJdoh/bKh7AUn8VQJrJH233tqjHEaJFnOaoW+LZjmU6YoJMA+SF+lQTRI1t?=
- =?us-ascii?Q?2oe8Af4/W6e1334b3b/TQVbd1opfnFiHPhajhUFujj3FBuFvEWmikPMvwLHx?=
- =?us-ascii?Q?mMH1ikV3m4sTDgaaJxTxGtA5Ry4PvrSvJIlue2QjSDIeqNUWVId0YfZyse2R?=
- =?us-ascii?Q?RIGV4L4ZmR6HIlnpXa6B2VGFhI/v66pDE6yRZb9MdoxoUWhDBvNaza7Uz5XP?=
- =?us-ascii?Q?6wOdUxKgs5J0M/oPR7w9VTph13zpL2NrZpLLucnTpW8FCUJBnnymy7Tpqe5w?=
- =?us-ascii?Q?dsVxJ4wVJ6yZeTZY6lCQ3WALqeOeI1XPTaqjAwXjJtiX+3WbfciIWKgNV0sh?=
- =?us-ascii?Q?SeVYJD0vJ4MSs/BzwfeSjSDUvciQ6pgmTUWoQhd90QSh9iDtTU9gVnhOli0q?=
- =?us-ascii?Q?bYScRl0KjCUC/Bobst+KVj8byPuxNbHwEvPNrc0q1wlYOVONz3+DgVJ9fSji?=
- =?us-ascii?Q?d2uaes+Ch6VAa7n59OzFWWGwXRZic4kjheRM71ZrHAu90SH6kc/bu+4OSeD1?=
- =?us-ascii?Q?0ZCYMR901exwK8d1b65SYciQCvaFjbV0HICnjjbKFnSBLl514udG/FCuSJi9?=
- =?us-ascii?Q?05CGu3SUGJhI7nnXKD46IYkS4QWTqg/ndTQBm1zrv/cifnLJifGAjUhwIMQv?=
- =?us-ascii?Q?POucPvP3PR767XRHmTdwNR67OW0nLJPo4X6kpTiiUc5N+OquOJrRv/R5JW80?=
- =?us-ascii?Q?YbouVn5oIuvUuc1FRhDK13IqlHHkuS+7p7phTHdFYKNbe5BRfU+/N1qfpZOT?=
- =?us-ascii?Q?/70VHxbczDDcUYetVSHx/5SL0L2nJz3DxjD8v9GB2uzgCWolYWfLj9fzJQU2?=
- =?us-ascii?Q?/dRy0pZH/vl4sKpTNpIUSYljZzq622C7/0QrgvVfgu9Hi2LVqDo7cMCru6Zc?=
- =?us-ascii?Q?xiGXPUMhkCGc7NvF0YwHnCvl89iBNCCnP9UyhmL1hV98+8sXJ/QJZg36lsyS?=
- =?us-ascii?Q?lhIlQuXkTma0pdXSC3ttCVUbNyo=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(34020700016)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|34020700016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?p8p6UXAE3wU9+iKgTSQpufESnq8ljqHdbtkd6ulC1lzR51W4T8MmOjJID1rA?=
+ =?us-ascii?Q?YQRTrTqeczrc+pytOF8xME/KBmm8HlgaPQILdeULvTEAWiEiHTGhRAHV99ht?=
+ =?us-ascii?Q?9ou9Y302FWNyy4JT+1AM8HofwD2F3tZJNK7cDGVvyT9VA0AHVG+tbxhcMgyz?=
+ =?us-ascii?Q?JXqfAN9PXEWV0p0s/kBdyZUL+xgpTWL1ipS2gpQqDplckvYZ1lhuh9D+CbRm?=
+ =?us-ascii?Q?uhhuMXlMabLjmCTq46wYZ24ogF9SAZTmpiYcWWJntdLQImW0ZI6cNuX+yYNw?=
+ =?us-ascii?Q?Lzk19u4kTuaQ1KxYUTuZgBI9OwyBf5fbZpvjXy7HX0g8pLuqOR+o4fuVsHL7?=
+ =?us-ascii?Q?3gEthwm6ziNXA0eGQnQAi+DjzeSWNQbMNh6VJH7t8KFiMBJo4y7tRvBVYaiE?=
+ =?us-ascii?Q?Mrz5FSbWC9sLvuFPHF4a9PzEEFdjXqDQLDFRaIhbHHbzlvohzzUrDXfuZJKw?=
+ =?us-ascii?Q?phRjXPSmTo9YC/ivK3geVfjfjJ7QsiGZ6MFxCAcdy+nrbHVuDrom1VinaPKG?=
+ =?us-ascii?Q?gyw5nx6iNE3jNnILweFrF+hhD6FFEHUdMQi6sPXgJxzuvO7aO7A5LF4TYRtJ?=
+ =?us-ascii?Q?sQxdEVwUJl+DecW2aEwsNA7qlm+U8GzjVrZRreh2Vc5H1sh7UALnmUu06vl/?=
+ =?us-ascii?Q?ST2c93/dcTCUIHbA0VsZKYNmKHgi6iB5PsUXpZelJWj/k2jB9tT+eFUM1NMK?=
+ =?us-ascii?Q?ClVYeHpM0x4KBNjT28sWn4ICOq8RlAzFYxqLhYVLBGxed70L6SbOV/TvesUr?=
+ =?us-ascii?Q?qWQyn23NCTgC3XlxEuX0spkNIj4HkIm2TQVx9w05zFrhBaiUy6VP/4QVCQzY?=
+ =?us-ascii?Q?3l5sxLxKpmTX+adJVy9+MhZ0/6Z5wYfZik26lRj97phIZCINlXHWmTxlqSMJ?=
+ =?us-ascii?Q?IENvA0nnSb4jdAcXh1YdvQXjHvExz8P3H8ADo7AU+hw1QN3OvDmCoCRnt7T1?=
+ =?us-ascii?Q?vnV8Oz0zUm2iEY1rrqIKVR8wbxA0+m9tbpDRzU8P17eV+nHJ+Tn1kUp1OaI8?=
+ =?us-ascii?Q?iB9tX2BpHFDzwcPah6X44Ry9csm+l/p283mh3snx0DFMQelyE9a6WIaRFzZ+?=
+ =?us-ascii?Q?ZLCFmqvQNwfnYyLVvEwo3Rcpjp6abHR7DJLucPzNbMN1VMN0/PO8L2dARdnG?=
+ =?us-ascii?Q?dLS7auBnT6pUS4YsOem4mMKf6R73UzBUXqO5UyEMn1fr27CTcyP+ZM4yJK1h?=
+ =?us-ascii?Q?Foi3OLsu2CP0wfOyW66azFEAN8CeOO4D5+nZNdoJhMOL2EOuPYbnCXx2tB5K?=
+ =?us-ascii?Q?LcZQ2Yvp+bykzImukadsljWE5cQSX2G3mJ4PoS0OshnRc1IulHznfdExJe21?=
+ =?us-ascii?Q?KYHLOd1u40j5+Pq5DCJlimzOvdESuGftL+ZW577CGcs8zNkmXZ1wiv99q9k6?=
+ =?us-ascii?Q?yn9hmAJfXIndQ7bRD0Ug6LkWZJRERZhCXIAWcYHmObw6VOsdwOmimIbKj+eL?=
+ =?us-ascii?Q?uyq9UmQlvIItUM4z6MNuU8Oxhcy1Mfw0Lca3E/uKLndj0BiYyQZDLtBNGVdW?=
+ =?us-ascii?Q?KTlQp99MteUf6DSFowu1szNIzWtC1PZJJTfSVo7GychPEVVRrvsH7ZxoASwj?=
+ =?us-ascii?Q?bFwgvQryF9KGWP4tfQ9d7mjvCHCtHZiLET3cYW8Q/d/Jhg3MA1A8VTDVryF5?=
+ =?us-ascii?Q?Y32EtqGW1z8iwXQSUs+64nhrTp2BFueH3x7OzsuZwg2y01+VnKw0V2vIYazK?=
+ =?us-ascii?Q?pbcw+g=3D=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(34020700016)(376014)(1800799024);DIR:OUT;SFP:1101;
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2026 17:36:18.5944
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2026 17:36:25.2245
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a099397b-739b-431c-c733-08de53936d0b
+X-MS-Exchange-CrossTenant-Network-Message-Id: 98fac0e3-aefe-4a16-db42-08de539370f2
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
 X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0E3.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB6738
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB5205
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_093627_922543_FBAC1A41 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20260114_093627_884872_C8EB2FDD 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,16 +157,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TI K3 J721S2, J784S4 and J742S2 SoCs have a HSM (High Security
-Module) M4F core in the Wakeup Voltage Domain which could be used to run
-secure services like Authentication. Add Device Tree Node definitions
-for the HSM core in the respective SoC wakeup dtsi files.
+The TI K3 AM62P and J722S SoCs have a HSM (High Security Module) M4F
+core in the MAIN Voltage Domain which could be used to run secure
+services like Authentication. Add Device Tree Node definitions for the
+HSM core in the respective SoC common main dtsi file.
 
 The HSM node is reserved to be loaded and booted by the early-stage
 bootloader. The firmware-name property is defined at the SoC level
 since the HSM is not a general-purpose remote core and boards are
 unlikely to use separate firmware. If needed in exceptional cases,
 board-specific device trees can override this property.
+
+The corresponding reg ranges of HSM node has also been added to its
+parent node's (cbass_main bus) ranges property.
 
 Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
 ---
@@ -181,26 +184,27 @@ v3: Changelog:
  7. Update commit msg adding rationale for firmware-name in SoC.dtsi
 
 Link to v2:
-https://lore.kernel.org/all/20260106104755.948086-3-b-padhi@ti.com/
+https://lore.kernel.org/all/20260106104755.948086-4-b-padhi@ti.com/
 
 v2: Changelog:
 1. None
 
 Link to v1:
-https://lore.kernel.org/all/20251231165102.950644-3-b-padhi@ti.com/
+https://lore.kernel.org/all/20251231165102.950644-4-b-padhi@ti.com/
 
- .../arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi | 17 +++++++++++++++++
- .../arm64/boot/dts/ti/k3-j742s2-mcu-wakeup.dtsi |  4 ++++
- .../ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi  | 17 +++++++++++++++++
- 3 files changed, 38 insertions(+)
+ .../boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 17 +++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62p.dtsi            |  1 +
+ arch/arm64/boot/dts/ti/k3-j722s-main.dtsi       |  5 +++++
+ arch/arm64/boot/dts/ti/k3-j722s.dtsi            |  1 +
+ 4 files changed, 24 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
-index fd01437726ab4..32ee8031cfcb6 100644
---- a/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
-@@ -766,4 +766,21 @@ mcu_watchdog1: watchdog@40610000 {
- 		/* reserved for MCU_R5F0_1 */
- 		status = "reserved";
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+index 3cf7c2b3ce2dd..0e1af2a69ca2e 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+@@ -1117,4 +1117,21 @@ vpu: video-codec@30210000 {
+ 		clocks = <&k3_clks 204 2>;
+ 		power-domains = <&k3_pds 204 TI_SCI_PD_EXCLUSIVE>;
  	};
 +
 +	hsm: remoteproc@43c00000 {
@@ -210,54 +214,56 @@ index fd01437726ab4..32ee8031cfcb6 100644
 +		      <0x00 0x43c20000 0x00 0x10000>,
 +		      <0x00 0x43c30000 0x00 0x10000>;
 +		reg-names = "sram0_0", "sram0_1", "sram1";
-+		resets = <&k3_reset 304 1>;
-+		firmware-name = "j721s2-hsm-m4f-fw";
++		resets = <&k3_reset 225 1>;
++		firmware-name = "am62p-hsm-m4f-fw";
 +		bootph-pre-ram;
-+		ti,sci = <&sms>;
-+		ti,sci-dev-id = <304>;
++		ti,sci = <&dmsc>;
++		ti,sci-dev-id = <225>;
 +		ti,sci-proc-ids = <0x80 0xff>;
 +		/* reserved for early-stage bootloader */
 +		status = "reserved";
 +	};
  };
-diff --git a/arch/arm64/boot/dts/ti/k3-j742s2-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j742s2-mcu-wakeup.dtsi
-index 61db2348d6a47..2f40afcfa67c4 100644
---- a/arch/arm64/boot/dts/ti/k3-j742s2-mcu-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j742s2-mcu-wakeup.dtsi
-@@ -15,3 +15,7 @@ &mcu_r5fss0_core0 {
- &mcu_r5fss0_core1 {
- 	firmware-name = "j742s2-mcu-r5f0_1-fw";
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p.dtsi b/arch/arm64/boot/dts/ti/k3-am62p.dtsi
+index e2c01328eb298..9d6266d6ddb82 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p.dtsi
+@@ -96,6 +96,7 @@ cbass_main: bus@f0000 {
+ 			 <0x00 0x31100000 0x00 0x31100000 0x00 0x00050000>, /* USB1 DWC3 Core window */
+ 			 <0x00 0x40900000 0x00 0x40900000 0x00 0x00030000>, /* SA3UL */
+ 			 <0x00 0x43600000 0x00 0x43600000 0x00 0x00010000>, /* SA3 sproxy data */
++			 <0x00 0x43c00000 0x00 0x43c00000 0x00 0x00040000>, /* HSM SRAM ranges */
+ 			 <0x00 0x44043000 0x00 0x44043000 0x00 0x00000fe0>, /* TI SCI DEBUG */
+ 			 <0x00 0x44860000 0x00 0x44860000 0x00 0x00040000>, /* SA3 sproxy config */
+ 			 <0x00 0x48000000 0x00 0x48000000 0x00 0x06408000>, /* DMSS */
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+index 873415ec4fa37..9ee5d0c8ffd1e 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+@@ -429,6 +429,11 @@ &wkup_r5fss0_core0 {
+ 	firmware-name = "j722s-wkup-r5f0_0-fw";
  };
-+
+ 
++/* MAIN domain overrides */
 +&hsm {
-+	firmware-name = "j742s2-hsm-m4f-fw";
++	firmware-name = "j722s-hsm-m4f-fw";
 +};
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi
-index cc22bfb5f5996..df37902c963ff 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi
-@@ -762,4 +762,21 @@ mcu_watchdog1: watchdog@40610000 {
- 		/* reserved for MCU_R5F0_1 */
- 		status = "reserved";
- 	};
 +
-+	hsm: remoteproc@43c00000 {
-+		compatible = "ti,hsm-m4fss";
-+		/* contiguous regions but instantiated separately in HW */
-+		reg = <0x00 0x43c00000 0x00 0x20000>,
-+		      <0x00 0x43c20000 0x00 0x10000>,
-+		      <0x00 0x43c30000 0x00 0x10000>;
-+		reg-names = "sram0_0", "sram0_1", "sram1";
-+		resets = <&k3_reset 371 1>;
-+		firmware-name = "j784s4-hsm-m4f-fw";
-+		bootph-pre-ram;
-+		ti,sci = <&sms>;
-+		ti,sci-dev-id = <371>;
-+		ti,sci-proc-ids = <0x80 0xff>;
-+		/* reserved for early-stage bootloader */
-+		status = "reserved";
-+	};
- };
+ &main_conf {
+ 	serdes_ln_ctrl: mux-controller@4080 {
+ 		compatible = "reg-mux";
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s.dtsi b/arch/arm64/boot/dts/ti/k3-j722s.dtsi
+index c8b634c346779..059c65ece183f 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j722s.dtsi
+@@ -173,6 +173,7 @@ cbass_main: bus@f0000 {
+ 			 <0x00 0x31200000 0x00 0x31200000 0x00 0x00040000>, /* USB1 DWC3 Core window */
+ 			 <0x00 0x40900000 0x00 0x40900000 0x00 0x00030000>, /* SA3UL */
+ 			 <0x00 0x43600000 0x00 0x43600000 0x00 0x00010000>, /* SA3 sproxy data */
++			 <0x00 0x43c00000 0x00 0x43c00000 0x00 0x00040000>, /* HSM SRAM ranges */
+ 			 <0x00 0x44043000 0x00 0x44043000 0x00 0x00000fe0>, /* TI SCI DEBUG */
+ 			 <0x00 0x44860000 0x00 0x44860000 0x00 0x00040000>, /* SA3 sproxy config */
+ 			 <0x00 0x48000000 0x00 0x48000000 0x00 0x06408000>, /* DMSS */
 -- 
 2.34.1
 
