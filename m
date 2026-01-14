@@ -4,123 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C98ED31A3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 10:14:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5A7ED30CDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 10:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3rWsPZP9GypSrCbApSvZEqf+XkVVNq8YSJJcRm2PJVg=; b=4Gz8fTxYvq24kfV3PrZS7bf/mK
-	1OYG8HsRUX5ZFTWmJG63qz6iF2jR/ysINzKVQwMTCYOOmPhaqy3+6yTVy1PNYACxCaWuKeRBShB6r
-	12dbSOwY24muQME+Bg73Y/qf+C6SdpLmGa1z4Zrn+1Iessxtmw6agKKsLrKyh9OaeitT3cjD1hHrT
-	7vbYo1pJkDXqGw0IphTy9bazVPPyCPSQP8Ni9KkjV48winmt88+elSCbQVJ2XlDYbhmQOxUz8hXnu
-	EEkJu5H5cj3FWHY5oRqY3uLEtwdWJQ1qIeHuwlNRtklitSjnj68vMxXJTPbGVongvZEf6ozaECXYo
-	qMBliJHQ==;
+	bh=8eibjd2N5XiVRRI4N4yeokngezFp8SvzkItH6b1iECM=; b=RSZjATJ6mPTA0x8Jxseb4kzPHD
+	8dRLi53amNJJ1KgeglxKRrbOIHTxLIV6AvkHjiwJ8eWQlu2jczFYp6R4KUIrTAt+2hDw/UE7MuGqz
+	Y5qlN4MmdpmapdbPtQuD25mXh5+Y7f756+kRt1awGu7bR3syS7fJxd4iRJ85rVvXasfE9k5z/eJuR
+	2re2BJ4VYI8mZSI7EY+GD3phdFDKisYVItb1R1LsQIPKJVdRru1cEqAGvxOvyyEZfo7GQYc22MoWy
+	T3fAD7D+N7jSDcdTJxqTiGrkni2IXeeA/9QQx9dxLoMmwJAxABqzLfGKamlIwtBYvCrwb92uaDJsM
+	NytYPdVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfxsr-00000008jPv-2Jiz;
-	Wed, 14 Jan 2026 10:13:49 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1vfxyd-00000008kkr-0qg2;
+	Wed, 14 Jan 2026 10:19:47 +0000
+Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfxso-00000008jNU-235N
+	id 1vfxyb-00000008kk3-0ASH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 10:13:48 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-42fb0fc5aa9so4047739f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 02:13:45 -0800 (PST)
+	Wed, 14 Jan 2026 10:19:46 +0000
+Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-11f36012fb2so11467946c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 02:19:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768385624; x=1768990424; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3rWsPZP9GypSrCbApSvZEqf+XkVVNq8YSJJcRm2PJVg=;
-        b=A7K7mKYz1/bYcIuaA/217EGQwkOjVtZ3RuE+3ND8ognOAslo8kzhbdBU20wbyBhmlq
-         I03OgNFVeV1QzgmFeaM36a8INjYeJmiljom+feniKIy70hfUhXBjaKPd+DVVDPKblgP6
-         4OR/sMyBMXNJlvCyNB8xbWnP6m2e7GCZdFyfE8GdQLWOjeZ1umnWl6rzrpiK02A56LCO
-         60mFbuzYG+Jg9S0GDZns06xokQniPssNTm8szwHkr3f6qUxYODlLpgffNVlYvIy8pcVp
-         QA3MP0I+/OXvbkQscIjA7BYMmDbwFkxHP4qa1zBtdwPmErBFUsuVmYVU4vak6qi+px8w
-         ldSg==
+        d=linaro.org; s=google; t=1768385984; x=1768990784; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=8eibjd2N5XiVRRI4N4yeokngezFp8SvzkItH6b1iECM=;
+        b=CetWCl3Uyld89mxnNhN3K74Vn7fqxYB/+FMdOX/v8p3jYRr/HCNpGrGOtrqzUDAdjt
+         I7uGVt69kJF548XipamVwQxw9lb0emDNmcXDusGourD6EB8lWTvxOFIDcA9dV+ZKCm9a
+         iclqrJyZpvwCLd1PzOIHZM6Suee/34T2q/bhmKl+M5wxUD5CWJuTG5NhxHLpK2/LB33L
+         ItY03at9QRHJQ1OtnIrj31N+bQ1sA750sq2hA93RmVQ5tg5Ohx1bvSJM0mJ7WFzWw3b8
+         l5Yr64lxEXOeB2aKZTv/Bwp1I9BYLfy28M4u3FCOycQDLnpqxBjtVYuRGJHA+vmpwrR2
+         9pKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768385624; x=1768990424;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3rWsPZP9GypSrCbApSvZEqf+XkVVNq8YSJJcRm2PJVg=;
-        b=eHxWtW2knBnMudSjFj4F43lne9Jtoz+149d2aQFxPJ4AonQ0whH2EPNCstEWb0YJmP
-         EQqxVDy7ZWiW4osgwuMriQghxRo2Hv6Eikuwxbu/H8pU4FQ4h5wBeSuFrzYFBwJ1IPeh
-         gw6oD+MsXCcNT5qeG6MsNQCK/lTF0R5u3/TWMOaZiQ8nyBh4609xYTlHcbWJE8nxsCOl
-         +dtOz/fMbQP3uNIa1HRVGCJGLnPNQYU0QLGOARpiFfaWa++xsmmS9L4YwCHHCtL4A6+b
-         LNd42JGSDQASbXDrwSwVd6YA3+4OO8g8q5pPEaaX/V/kFY6/VEjzbQg2fgkY0SCS9hf2
-         H/Kw==
-X-Forwarded-Encrypted: i=1; AJvYcCWVonBhIxtzHnf2p6I0lPRkRcbljdHtwx78pUtQ3Y3lz2RWDBOvdM5FFL22YXRNlgYDnZanhDZsUsuwefE3A8kp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAsqFVdmZn4wzx5aZg3EallFJchv46y5l+E2cUlWvqA1H/KVoT
-	6Ro/teKbqxqeo3fr66bGul+OVUaLiIFFjO0xCl7kIkqZ4J7VMDQ5jJxJH2obu1sNJ+U=
-X-Gm-Gg: AY/fxX6RVPdzbUelTN6wnXp63VCinMBPf3HRtyew4UW3C03lJwEtVvcES7eQYnxUyHP
-	FTAFAnVBj1+XK2WDyChn0mGSFEDQQz3Y53PMOUut8A6RhxThH3osV1sIv+7HIzKmWnfUPe6hhQs
-	6ot8737N0bJfZouvI2TnNyWmJ9+MLUmBj4On1xiEmwzNRhx5n0c3RU+mGNSvlXXn9nf8Hq6vx6t
-	xBIa3r98eZtnj6zkKyXxdgGhTl/MffIvV/yQXSVTHhyQ6FMiyN3AZNcJYwZgDepBp+aO0+Pl+NC
-	B+4uYJVrrz88Aj9U8y4/TukhvChvsgHWW4DBSPp/bukPUDPrbvzgO/5B3HigiLsARx8MgLr+Uz0
-	nM2vYz1haprBsf74hhagJ/QObszVFBNM+vj6chBAxiJsEXflaMY9e798LB80RlO7fOaeggMDfqs
-	bJZhSud9itQsuyCfwAWO7MgucegvKq/Akkl4UxBVux/MnebZI9L/Zm9c4uYjNI5D8=
-X-Received: by 2002:a5d:64e5:0:b0:432:c37c:d840 with SMTP id ffacd0b85a97d-4342c4fc9afmr2140894f8f.20.1768385623587;
-        Wed, 14 Jan 2026 02:13:43 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:3d9:2080:b357:7e03:65d5:1450? ([2a01:e0a:3d9:2080:b357:7e03:65d5:1450])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0e199bsm48795733f8f.16.2026.01.14.02.13.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 14 Jan 2026 02:13:42 -0800 (PST)
-Message-ID: <f1d9d4c4-8fe0-4593-8c8f-1fa30cc6ee49@linaro.org>
-Date: Wed, 14 Jan 2026 11:13:41 +0100
+        d=1e100.net; s=20230601; t=1768385984; x=1768990784;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8eibjd2N5XiVRRI4N4yeokngezFp8SvzkItH6b1iECM=;
+        b=cStXf1EiRPzsN7ton8lIJu+DuYIeA9As4/lQb6iTGNuh/B2bLDjaL08tqktlnAC/0o
+         AGRKoEO0WG+C9QY5ZQBbLlteG11EH9DtmGsch2xcs8hJ4UZdIyoAH9k/Shd1Dbs+/lbB
+         iAfGEaG7ykq3sBI9uKGREfAyT4qyU050JD+c/Hvapwqj/o9GKXX1JcxP6DTqU0zxAZnh
+         KDTp0AdpsZZR+xYxCZgnksPRBuYUvS0O06BPJY2vrqFpUtd8VExSP0lU3q/NPutggadi
+         prDEz6TZv15wmL/f5sbIaxuyMniOBEy01fqUVrvmtnrIi+48FUOtGJVSb8ypB5vbViip
+         cX+A==
+X-Forwarded-Encrypted: i=1; AJvYcCUkWw1OG/cmdhIm/vAOCMymUzTSrfIP+XH3pTgvqiUdp0J35Vkdmp62fBSetvz9iLfhfouTH93cTocBxgLcy0wD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfArHgEXSPRqfGu9U+U3rMiNGyNcDs7tPLcWf4su90HWWg7ni1
+	ltB67oCKlYlQjNMisIA6u8HdcDQhj20j+JvMWKgCINfaZ4cx+KbNP0XB71rx0Z4ZM8g=
+X-Gm-Gg: AY/fxX70MuWZ88K/0TUzlTRkweOBRTaa8Qpcdagbn40NDalulaz7OGHLOVS7rsIRU6G
+	XFKCuJ1jHP5wz2J7bW1QpQI5SVEsOLKdzmmgLGJ2wyQAI0Yiij1zI/G7YspNdFcVVVuEGDrNxOO
+	TuOJaWNDbNKRcD7a2BtIKNsUIYBlsVwLiOEfZcs2XoxlSJFRp5t0sbSTK8ro2/yVPsKelGb6EcN
+	kL9aqTgZd8KfQ2kH1122iqHwW5PyZY/Zrg0KnMTZtfRMIELMxqRXS8ErTFlEFASRFvRSNfbCfad
+	kiTnJIuUsr+ixB4Tjb11POQ+IiIgETcSzHzbKC/7e0wjONoaLHfEyvMluMENq0wEXmWmyKfD5/Z
+	hdIpsgvK2jbpGtEc3h+TDIHFfM29R4PSxNiTPbg3XpOepiRk06B8Xb2+AlUZIHDOSRIXp8JlEBp
+	mmFpBtHGffbc7f/uy0
+X-Received: by 2002:a05:693c:3008:b0:2a4:3593:ddf3 with SMTP id 5a478bee46e88-2b4871d0cc3mr3162205eec.32.1768385983766;
+        Wed, 14 Jan 2026 02:19:43 -0800 (PST)
+Received: from draszik.lan ([212.129.75.26])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b170673b2esm19824293eec.6.2026.01.14.02.19.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 02:19:42 -0800 (PST)
+Message-ID: <48d52ef389ee0e878c36184efbfaa85071f5549a.camel@linaro.org>
+Subject: Re: [PATCH v3 4/5] power: supply: max77759: add charger driver
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Amit Sunil Dhamne <amitsd@google.com>, Sebastian Reichel
+ <sre@kernel.org>,  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Lee Jones
+ <lee@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Badhri
+ Jagan Sridharan	 <badhri@google.com>, Heikki Krogerus
+ <heikki.krogerus@linux.intel.com>,  Peter Griffin
+ <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Alim
+ Akhtar	 <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, RD
+ Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
+Date: Wed, 14 Jan 2026 10:20:17 +0000
+In-Reply-To: <378ee786-2b44-44e7-a3f6-0cd1db3c0481@google.com>
+References: <20251227-max77759-charger-v3-0-54e664f5ca92@google.com>
+	 <20251227-max77759-charger-v3-4-54e664f5ca92@google.com>
+	 <298ca35590d2180fdcf334f94964b6110e17c606.camel@linaro.org>
+	 <50c29a62-1fdb-4de2-8887-0d551eee5ec0@google.com>
+	 <255d7726-6758-43ed-b35f-db14726bcc9b@google.com>
+	 <2869d309358f27652289c40810ca36b2ec155d1d.camel@linaro.org>
+	 <bb9b9afa-0bfa-428e-9372-549d9ba8603c@google.com>
+	 <6b37b88e9b7ee57eb1c006916fd995c813ab5e6e.camel@linaro.org>
+	 <378ee786-2b44-44e7-a3f6-0cd1db3c0481@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-2+build3 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: arm: amlogic: add Khadas VIM1S
- binding
-To: Nick Xie <xieqinick@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, xianwei.zhao@amlogic.com,
- christianshewitt@gmail.com, krzk+dt@kernel.org, robh@kernel.org,
- conor+dt@kernel.org, nick@khadas.com
-References: <20260114062549.68954-1-nick@khadas.com>
- <20260114062549.68954-2-nick@khadas.com>
- <20260114-slick-passionate-mink-216a3a@quoll>
- <CAP4nuTXeC1-6ktwLpDt_1ZRHxPSiNAoDKTxLzqEYJUfcnVogcQ@mail.gmail.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <CAP4nuTXeC1-6ktwLpDt_1ZRHxPSiNAoDKTxLzqEYJUfcnVogcQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_021346_553035_90DDE9D9 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20260114_021945_086420_BEE4F427 
+X-CRM114-Status: GOOD (  44.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,60 +113,186 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/14/26 11:07, Nick Xie wrote:
-> Krzysztof Kozlowski <krzk@kernel.org> 于2026年1月14日周三 16:51写道：
->>
->> On Wed, Jan 14, 2026 at 02:25:48PM +0800, Nick Xie wrote:
->>> Add devicetree binding for Khadas VIM1S board based on
->>> Amlogic S4 S905Y4 SoC.
->>>
->>> Signed-off-by: Nick Xie <nick@khadas.com>
->>
->> You still have the same From/SoB mismatch.
-> 
-> OK,  I will fix it in next version.
-> 
->>
->>> ---
->>>   Documentation/devicetree/bindings/arm/amlogic.yaml | 6 ++++++
->>>   1 file changed, 6 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/arm/amlogic.yaml b/Documentation/devicetree/bindings/arm/amlogic.yaml
->>> index 08d9963fe9259..55663e0f7f915 100644
->>> --- a/Documentation/devicetree/bindings/arm/amlogic.yaml
->>> +++ b/Documentation/devicetree/bindings/arm/amlogic.yaml
->>> @@ -247,6 +247,12 @@ properties:
->>>                 - amlogic,aq222
->>>             - const: amlogic,s4
->>>
->>> +      - description: Boards with the Amlogic Meson S4 S905Y4 SoC
->>> +        items:
->>> +          - enum:
->>
->> Yopu already have exactly such enum with such description, so your
->> compatible goes there. Look - it is called "Boards" - plural.
-> 
-> The exist board aq222 is based on SoC S905X2, but the new board vim1s
-> is baed on S905Y4,
-> they are different SoC, so we need to put S905Y4 under S805X2 ?
+On Tue, 2026-01-13 at 16:47 -0800, Amit Sunil Dhamne wrote:
+> Hi Andre',
+>=20
+> On 1/13/26 2:02 AM, Andr=C3=A9 Draszik wrote:
+> > Hi Amit,
+> >=20
+> > On Mon, 2026-01-12 at 11:37 -0800, Amit Sunil Dhamne wrote:
+> > > Hi Andre',
+> > >=20
+> > > On 1/12/26 5:47 AM, Andr=C3=A9 Draszik wrote:
+> > > > Hi Amit,
+> > > >=20
+> > > > On Tue, 2026-01-06 at 17:14 -0800, Amit Sunil Dhamne wrote:
+> > > > > On 1/6/26 3:41 PM, Amit Sunil Dhamne wrote:
+> > > > > > Hi Andre',
+> > > > > >=20
+> > > > > > On 1/5/26 9:32 AM, Andr=C3=A9 Draszik wrote:
+> > > > > > > Hi Amit,
+> > > > > > >=20
+> > > > > > > I haven't done a full review, but a few things caught my eye.
+> > > > > > >=20
+> > > > > > > On Sat, 2025-12-27 at 00:04 +0000, Amit Sunil Dhamne via B4 R=
+elay wrote:
+> > > > > > > > diff --git a/drivers/power/supply/Makefile
+> > > > > > > > b/drivers/power/supply/Makefile
+> > > > > > > > index 4b79d5abc49a..6af905875ad5 100644
+> > > > > > > > --- a/drivers/power/supply/Makefile
+> > > > > > > > +++ b/drivers/power/supply/Makefile
+> > > > > > > > [...]
+> > > > > > > > +
+> > > > > > > > +static irqreturn_t irq_handler(int irq, void *data)
+> > > > > > > > +{
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 struct max77759_charger *chg =3D data;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 struct device *dev =3D chg->dev;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 u32 chgint_ok;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 int i;
+> > > > > > > > +
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 regmap_read(chg->regmap, MAX77759_CHGR_=
+REG_CHG_INT_OK,
+> > > > > > > > &chgint_ok);
+> > > > > > > You might want to check the return value and return IRQ_NONE =
+if it
+> > > > > > > didn't
+> > > > > > > work?
+> > > > > > >=20
+> > > > > > > > +
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 for (i =3D 0; i < ARRAY_SIZE(irqs); i++=
+) {
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (irqs[i] =3D=
+=3D irq)
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 break;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 }
+> > > > > > > > +
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 switch (i) {
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 case AICL:
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "A=
+ICL mode: %s",
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 str_no_yes(chgint_ok & MAX77759_CHGR_REG_CHG_INT_AICL));
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 case CHGIN:
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "C=
+HGIN input valid: %s",
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 str_yes_no(chgint_ok & MAX77759_CHGR_REG_CHG_INT_CHGIN));
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 case CHG:
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "C=
+HG status okay/off: %s",
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 str_yes_no(chgint_ok & MAX77759_CHGR_REG_CHG_INT_CHG));
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 case INLIM:
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "C=
+urrent Limit reached: %s",
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 str_no_yes(chgint_ok & MAX77759_CHGR_REG_CHG_INT_INLIM));
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 case BAT_OILO:
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "B=
+attery over-current threshold crossed");
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 case CHG_STA_CC:
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "C=
+harger reached CC stage");
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 case CHG_STA_CV:
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "C=
+harger reached CV stage");
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 case CHG_STA_TO:
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "C=
+harger reached TO stage");
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0 case CHG_STA_DONE:
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "C=
+harger reached TO stage");
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
+> > > > > > > Are the above debug messages really all needed?
+> > > > > I forgot to respond to this comment in my previous email.
+> > > > >=20
+> > > > > I think we can keep AICL, BAT_OILO, INLIM. They're either special
+> > > > > conditions (AICL) or faulty conditions (like BAT_OILO) and we can=
+ in
+> > > > > fact keep them at dev_info level. Rest can be removed and a
+> > > > > power_supply_changed() is sufficient.
+> > > > >=20
+> > > > > Let me know what you think?
+> > > > I don't think dev_info() in an interrupt handler is appropriate. At
+> > > > least it should be ratelimited.
+> > > >=20
+> > > > If it's something special / unexpected that needs attention, having
+> > > > a dev_dbg() message only will usually not be visible to anybody.
+> > > I agree. I can change the prints to dev_info_ratelimited for the stuf=
+f
+> > > we care about.
+> > If it's an erroneous condition, maybe warn or even err are more appropr=
+iate?
+> >=20
+> > But then, what is the expectation upon the user observing these message=
+s?
+> > What can or should they do? Who is going to look at these and can do
+> > something sensible based on them?
+>=20
+> The logging will help in postmortem analysis which may or may not=20
+> possible with just publishing uevents to userspace hoping that they log=
+=20
+> the psy properties. Illustrating a situation:
+>=20
+> 1. Over current situation happened where the Battery to System current=
+=20
+> exceeds the BAT_OILO threshold. This would also generate an interrupt.
+>=20
+> 2. The MAX77759 takes protective measures if the condition lasts for a=
+=20
+> certain specified time and reset. Resetting will cause Vsys to collapse=
+=20
+> to 0 if the system is only battery powered.
+>=20
+> 3. It'd be better that the BAT_OILO interrupt is logged in dmesg,=20
+> instead of just delegating it to user space as user can debug this=20
+> condition by looking at last_kmsg or pstore.
+>=20
+> 4. This signal can help the user debug conditions such as moisture (this=
+=20
+> signal + contaminant detection) or indicative of a mechanical failure.
+>=20
+> I do agree though that this is a hypothetical or very rare situation and=
+=20
+> if you have a strong opinion against this I am okay with removing the=20
+> prints completely.
 
-It depends, if the S805X2 and the S905Y4 are not compatible (different dies)
-and not the same die in 2 different but compatible packages, then a secondary
-compatible should be added like we did for amlogic,g12b or amlogic,meson-gxl.
+Thanks for details. OK, they sound useful in this case, but should still
+be warn, not dbg.
 
-Neil
+> > >=20
+>=20
+>=20
+> >=20
+> > Also, I just noticed there is a max77705 charger driver. It seems quite
+> > similar to this one, maybe it can be leveraged / extended?
+>=20
+> Thanks for the feedback. I reviewed the max77705 charger driver. .
+>=20
+> Here is a breakdown of why I believe a separate driver may be a better=
+=20
+> approach:
 
-> 
->>
->>> +              - khadas,vim1s
->>> +          - const: amlogic,s4
->>
->> Best regards,
->> Krzysztof
->>
+[...]
 
+Thanks for the analysis, I agree with your conclusion. Mainly I noticed tha=
+t
+as part of AICL interrupt handling that driver does a bit of work, while he=
+re
+we don't. I am wondering if that is applicable here is well.
+
+Cheers,
+Andre'
 
