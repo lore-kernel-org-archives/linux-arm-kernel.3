@@ -4,57 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35ACED30CFE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:09:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24842D37E59
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:09:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ngszkxum/tZvtKinEoxwk/p/9svR2Xe08KvZi4FkbPc=; b=doi6oD1IQO/RJZfynT4qTFwM1D
-	1fpC6geZdZ1HNffG6CoW207rz8hnydxHXJxOQZ8wlKuRfmuQEvNEdNDPOb6UN6rSJKLi+xeoWwTc7
-	JglYEPLdDWx/bTkfvb1umymbsZngVJst6/I1mAXnFV6qNEDkh7ktgAwrAqWATonhObR56x7T1M974
-	22c3qdpYhjork7yLmEE9WE0pjeNX4UsDmZR6ktFd941c25DV90XoTH154e2t3OulCBQfhJu3bYybD
-	QeZhlpI26iTtmu1rdC9a3SOS/rUznedDtHft1AeB01BjapjmTj0h+WjsxQ7ketiidi+g/G3lzzkvf
-	VCdqK6zA==;
+	bh=CvSobjH77Q9GEAjWyqemD7/74Kg/Yj+9ZW2qiuIARXI=; b=EufVnR9xhzNZqRzmp4DsJfk5fd
+	cuHWl9vEFeF7NHopTMo8kjHXUEEjCMWD46yb5jCVS/Lfg81eKLhVAt4UdTvXjX0qioCjQ/PslNohv
+	FgbTBS4q7iT+46Seuf2KuKXOYybz0M+gG7Xo9PrYFwirV36QJEVLofiBEH3OOnAirOrvCtwzsLNSi
+	tRxBk9aOKRocKJafnWag51Hcc5+yGgxC8hS/xGtSskgJihBTsZizG+Yrrgjysm4tMlJGB0rDmFwBX
+	bDSPt99p6bXgQh7FP3TcIxBpPUhF9kcqPZSES1f0BPzxBUTPpuymEY6SRLku3M1R+lR7g+27NGLFT
+	K9/nruWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg3Ql-00000009rzQ-1Cmv;
-	Wed, 14 Jan 2026 16:09:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vg3RO-00000009s9d-3hVR;
+	Wed, 14 Jan 2026 16:09:50 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg3Qj-00000009ryu-3Hvo;
-	Wed, 14 Jan 2026 16:09:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C89E56000A;
-	Wed, 14 Jan 2026 16:09:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ECE9C4CEF7;
-	Wed, 14 Jan 2026 16:09:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768406948;
-	bh=RcWDWr8WdqPhjE1J0vAZphz5xlYpd8I6Uc8jAUxHLV4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SNON+7sMgvAO846vVwuFiwEchPZY5sEB8s+BwIKxwK+FoldG+9Rc0SfCB6XBlDrOQ
-	 yWaA24WCZwBS+INft/dKuws0m8eFL0s8/oYvLas3DIgWLeqWtdacie+fz/FB/ZdB5c
-	 OIs9f0++VWq3LLygegd0fBNBqD9dh0hRa13NAdrHsbG/IWuyGyDCDMb7ex/oeks0/D
-	 B5zgWE+alovSasC99A+EGt7qShwFFdVF2lpCYcFbqJFoW2jDNc/aSiMjFObRN7WPTY
-	 GG6vBsj/RugTAlB5zN7qSHBbmCNr2hZcoJEUfrm4CNfcCb/pK0jw+iikU40Jr/snS2
-	 jpJbm5gt6kegA==
-Date: Wed, 14 Jan 2026 21:39:04 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: neil.armstrong@linaro.org, shawnguo@kernel.org, kernel@pengutronix.de,
-	festevam@gmail.com, jun.li@nxp.com, Frank.Li@nxp.com,
-	linux-phy@lists.infradead.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] phy: fsl-imx8mq-usb: enable RxTermination_override_sel
-Message-ID: <aWe_oNDOqHnQo0X2@vaman>
-References: <20251224111807.2925675-1-xu.yang_2@nxp.com>
+	id 1vg3RM-00000009s8a-0BEa
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Jan 2026 16:09:49 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-8c24f867b75so901248085a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 08:09:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768406987; x=1769011787; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=CvSobjH77Q9GEAjWyqemD7/74Kg/Yj+9ZW2qiuIARXI=;
+        b=A7Q9/wtzBumBmIjI+xApUwlrGuyoJ2PlG3adv61Sxxe8remUeNjLFEtZkRMJw4HNZy
+         oMilsrgELWXp7f0vjVddDoAWXcrDIFwCZg0Or4sOjehntHlFgDx9KI2dSTA5ROO/IL+W
+         1e6XBeDfib5GLmG21aAntH+Z/qv7hvm3PSr0jIKrPaDeE17LnwXj3p5JafH2KZFJBIUt
+         J/Wa0A8SG3VUvqoI0b9KSTQGvUR15uyQ7aywmncK6G8JwW/p6p6Ft/hGgb2j13NbAjlz
+         //GmUnJ3XB+XCZwy7xR795nMV8xkyqSGd4/Jg17/jI51Iqj0bXYTC0NGgsTlD+hti4T2
+         WoDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768406987; x=1769011787;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CvSobjH77Q9GEAjWyqemD7/74Kg/Yj+9ZW2qiuIARXI=;
+        b=Hh+9iTPr6w5NmJAfhFSEaB9h1NHUw8Ik9kpftPV5EO472/35TVRZhvTWnkEakXGVyc
+         sxaPJrp/CG7ysKPbTulcYgmgXHK6VBIW2LeSHGL6FmnTY0HKKQTz79FL3QSX0ibHaUI3
+         1RkyiI024EipEN9jUO2DEh69IzMU+dmN7A9MiBkYSKOAUV1WgiQVz5/N5zjBJyUSGHcn
+         T79Sof4M7LT7+yjTjMt5BErV2RiBBfYwVuCEnyWAZoEvGBkcBZclIeUwBARckRXI1FZi
+         3Yf2pFUUGNOngrK6QnturqTcmdTtssO2BAFkQwxsuZ8K1mu+0wzk4WPtJ6Yr5XfI5GFP
+         kiWw==
+X-Forwarded-Encrypted: i=1; AJvYcCUImwYNwD+4qh0/8ESK9t07ASXy1WjJ0MVjj38EARgiqJCYPereJrVu1EOSsic5+7lfVsaFICkMgwlsZ15A2Re/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxJFUZPPRHJw0tH7E/NV7wEcew7DFnBk7Hiw2FD8e7URcXGjPR
+	Jrpz3zdYMJop20NHu895m3HcXEFZXEIKuV49uv/6+MhfUNWPb6bzl6Nj
+X-Gm-Gg: AY/fxX74zyWJZvChOxLS7NdcAtDNsxHnGA1tst7aMkSU9fQYv3fDlwjYgB7ba4+zX27
+	C5uDnYYCwu2YNv0utTa5gGev6UHtQOBeg7AX2+X7LBzwbkufO0Q8ua4FkBEGKDkeNNOcqWZ+GQM
+	uTQnA2f5RLfA/s5bp3VWKat0yKijqeGIvZXE92ziOeXU6QcL4tF2LhZe8c5/HoYW3VqDtvdz2QN
+	9mIkoDBtAqgYHTmrNbtvvHPV48lfGG2v9te9Z4CUKjlk0zw+w6CmQtDxHd6racpWu1i6DrW2hOP
+	2F2vkntSS9HzuPGkVqWGFG8N2i+sklZ3QefC0C8bszMNG4vmlRdwc77J0yQ3DxcHb0Gcn1fV/0G
+	KUyVO3Lz+V8SfXAmwcGTEHgl0wcNgoezsnk21wublpqiGAT32/8Px1dfZ1p6FzPhHOdAbVd2jiP
+	a44jYrnYihrW3cN7Jv3TK6Si2UNZOPzjysZFGHhtPRogUH/GkYkrN9E5dnPlB7PuKqrA/COhxW7
+	IBpn6ONqikebT4=
+X-Received: by 2002:a05:620a:4804:b0:8c5:1fb5:1631 with SMTP id af79cd13be357-8c52fbcf18fmr451977085a.76.1768406986626;
+        Wed, 14 Jan 2026 08:09:46 -0800 (PST)
+Received: from RDEALENC-L01.ad.analog.com ([24.206.116.131])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c5319a3b59sm155280685a.22.2026.01.14.08.09.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 08:09:45 -0800 (PST)
+From: Rodrigo Alencar <455.rodrigo.alencar@gmail.com>
+X-Google-Original-From: Rodrigo Alencar <rdealenc@rdealenc-l01.ad.analog.com>
+Date: Wed, 14 Jan 2026 16:09:39 +0000
+To: Mark Brown <broonie@kernel.org>, 
+	Rodrigo Alencar <455.rodrigo.alencar@gmail.com>
+Cc: Jun Guo <jun.guo@cixtech.com>, peter.chen@cixtech.com, 
+	fugang.duan@cixtech.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	linux-spi@vger.kernel.org, michal.simek@amd.com, cix-kernel-upstream@cixtech.com, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] spi: spi-cadence: supports transmission with
+ bits_per_word of 16 and 32
+Message-ID: <lbijvnnwsnddonmm5pveqzap6iibxhl4maneq43x4j6w64dev6@u75qhm5cwiob>
+References: <20251031073003.3289573-1-jun.guo@cixtech.com>
+ <20251031073003.3289573-3-jun.guo@cixtech.com>
+ <fu4ujdxwlhyhuwjtsiebje5pyc32rfs52vo2gyy7nay2krkxeh@wpls44xdfgy4>
+ <0dbf3a5b-6a60-46d8-a358-61b8d527a8da@sirena.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251224111807.2925675-1-xu.yang_2@nxp.com>
+In-Reply-To: <0dbf3a5b-6a60-46d8-a358-61b8d527a8da@sirena.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_080948_112372_BBDB2AE4 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,83 +106,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24-12-25, 19:18, Xu Yang wrote:
+On 26/01/14 02:16PM, Mark Brown wrote:
+> On Wed, Jan 14, 2026 at 02:14:35PM +0000, Rodrigo Alencar wrote:
+> > On 25/10/31 03:30PM, Jun Guo wrote:
+> 
+> > > +	if (xspi->txbuf) {
+> > > +		switch (xspi->n_bytes) {
+> > > +		case CDNS_SPI_N_BYTES_U8:
+> > > +			txw = *(u8 *)xspi->txbuf;
+> > > +			break;
+> 
+> > > +		cdns_spi_write(xspi, CDNS_SPI_TXD, txw);
+> > > +		xspi->txbuf = (u8 *)xspi->txbuf + xspi->n_bytes;
+> > > +	}
+> 
+> > cdns_spi_write(xspi, CDNS_SPI_TXD, txw) needs to be called regardless of xspi->txbuf.
+> > Otherwise, there will be no clock for the read operation to work.
+> > This is a bug I am seeing on a Zedboard running on 6.19
+> 
+> So the device needs to be flagged as SPI_CONTROLLER_MUST_TX?
 
-What is the with the CamelCase on the patch title! We dont do that
-please
+yes, It works if
 
-> This is to resolve the problem of wakeup system by USB3 device insertion
-> if HSIOMIX on, in that case, the USB3 device detects RX term on so the
-> USB3 device doesn't downgrade to high-speed, we can't expect CONN wakeup
-> (for USB3) happen because the 24MHz OSC is required ON to trigger it.
-> Because the device works at Super-speed so DP/DM wakeup can't happen
-> either. Then the entire systen can't be waken up by such device attach
-> event.
-> 
-> With this override bit we can force the RX term off when enters system
-> suspend, and disable the override after system resume. Therefore, the
-> USB3 device will always downgrade to High-speed, then DP/DM wakeup can
-> always happen. It will correctly switch to Super-speed later when the
-> host reset it after the system resume back.
-> 
-> Signed-off-by: Li Jun <jun.li@nxp.com>
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-> 
-> ---
-> Changes in v2:
->  - rephase the message
-> ---
->  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 15 ++++++++++++++-
->  1 file changed, 14 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> index 92c5c233bad9..e991a480b882 100644
-> --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> @@ -51,6 +51,7 @@
->  #define PHY_CTRL5_PCS_TX_SWING_FULL_MASK	GENMASK(6, 0)
->  
->  #define PHY_CTRL6			0x18
-> +#define PHY_CTRL6_RXTERM_OVERRIDE_SEL	BIT(29)
->  #define PHY_CTRL6_ALT_CLK_EN		BIT(1)
->  #define PHY_CTRL6_ALT_CLK_SEL		BIT(0)
->  
-> @@ -630,6 +631,7 @@ static int imx8mp_usb_phy_init(struct phy *phy)
->  static int imx8mq_phy_power_on(struct phy *phy)
->  {
->  	struct imx8mq_usb_phy *imx_phy = phy_get_drvdata(phy);
-> +	u32 value;
->  	int ret;
->  
->  	ret = regulator_enable(imx_phy->vbus);
-> @@ -646,12 +648,23 @@ static int imx8mq_phy_power_on(struct phy *phy)
->  		return ret;
->  	}
->  
-> -	return ret;
-> +	/* Disable rx term override */
-> +	value = readl(imx_phy->base + PHY_CTRL6);
-> +	value &= ~PHY_CTRL6_RXTERM_OVERRIDE_SEL;
-> +	writel(value, imx_phy->base + PHY_CTRL6);
-> +
-> +	return 0;
->  }
->  
->  static int imx8mq_phy_power_off(struct phy *phy)
->  {
->  	struct imx8mq_usb_phy *imx_phy = phy_get_drvdata(phy);
-> +	u32 value;
-> +
-> +	/* Override rx term to be 0 */
-> +	value = readl(imx_phy->base + PHY_CTRL6);
-> +	value |= PHY_CTRL6_RXTERM_OVERRIDE_SEL;
-> +	writel(value, imx_phy->base + PHY_CTRL6);
->  
->  	clk_disable_unprepare(imx_phy->alt_clk);
->  	clk_disable_unprepare(imx_phy->clk);
-> -- 
-> 2.34.1
+ctlr->flags = SPI_CONTROLLER_MUST_TX;
 
--- 
-~Vinod
+is added to the probe function. At least for my case handling with "xlnx,zynq-spi-r1p6"
+
+kind regards,
+
+Rodrigo Alencar
+
 
