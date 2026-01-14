@@ -4,86 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 799D9D30CFE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 01:44:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2839DD31A00
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 01:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JtDaMTrCVYTenPyLUxDxSKCKTU8w9pk7EHSNHOX9HKM=; b=2D1BBlbtWrDliSg73H7TvuaBZK
-	p8K/QwFlL3RDS98ToNoHAHiDFleqRYc9vFYSNfoBFWC6aGJvXof7kEk4DVFm678SWuG2B2Hx8hajH
-	RTkPIzSwREuyZQMeZsEi0B1GrT3unBeKVZowwRswBl36ETp01U+RB0JltFlumsAMJgeJ2wP/oBvmR
-	2Rz2J2MO64bQhieC7nZJEkFS+ERAqMYbmYlEba6kGEYtnwAILlaTzZTOlkE1sfCv3n7IMJGLIm05R
-	KTb4SvizwTl9XYtrXp2NfVzPxBTU+SofReoeSyKQO+uMek5xRplvz+b4GpWRJPOpdFrv0NreRo3oe
-	odCX/VFg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ghttvb0OITFC54BUl3AexgRbFvczWJIWdZaxuWodWic=; b=dbFYeLXwVl2kBIXaA1TkqsFGJd
+	K3ryUSX5+bHdnyKkktAIhRTSBo/VIMA107W4wCZBr9yFl5BkGDhWFqg6YgKm8EE42EKXTbbycR/Zk
+	Pdx6ig2lndVulsz1Z6LS3MvA+oG7kIRs/YZL/r/R6ZEtvRxKfJLbAyvOse66uUkKD47Wh9Em1utK3
+	pAbM4T+8kgtjxQZfyeV3twkrrqkbSv7PDQ6vjwLcJPTszM+OSqoJHi4J7kU7UZ8YVm0lRZnvFE9nP
+	0NsDoFThCgjrKBiEi3u3fxJsvuPeJGdaKWZlKhwWWcnx0+O/e5Zb/Th6hrytxDxdMyrM0ZFBMffzj
+	spTt56iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfpvl-00000007xQQ-0PSo;
-	Wed, 14 Jan 2026 01:44:17 +0000
-Received: from smtpbgsg1.qq.com ([54.254.200.92])
+	id 1vfpyo-00000007xg1-2vDu;
+	Wed, 14 Jan 2026 01:47:26 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfpvi-00000007xOk-3iiJ;
-	Wed, 14 Jan 2026 01:44:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1768354970;
-	bh=JtDaMTrCVYTenPyLUxDxSKCKTU8w9pk7EHSNHOX9HKM=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=cwGDN4CV1gVhbiig7lhSn9Wzhuy88NCCh/A+Jo5pEUFHUXNDaERE0br5EUoaX5N/e
-	 SuxU/EJbjYzlu7YSvIWm8SoGsvrePUGD5Gil241qPp/1yHEOQ0SH2hIyza4E+t1IXf
-	 qfNVbjHVbUBacSVElx3xg4NUbVh/mjyoVtd8xQcs=
-X-QQ-mid: esmtpgz12t1768354962tdb7ab234
-X-QQ-Originating-IP: C3zBYr1GJh9vpI3rU4BSSw305QsfwgZ2bJEwtEh/f9c=
-Received: from [172.16.12.51] ( [58.22.7.114])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 14 Jan 2026 09:42:40 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 7794570359675995168
-Message-ID: <C5D30204B8186D5B+5f2f87f2-3fff-403e-a439-847fda61e2d8@airkyi.com>
-Date: Wed, 14 Jan 2026 09:42:39 +0800
+	id 1vfpyl-00000007xej-1oS9
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Jan 2026 01:47:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Gh
+	ttvb0OITFC54BUl3AexgRbFvczWJIWdZaxuWodWic=; b=kFiCIipdFAty0k2S6i
+	PjjTs3aP9xwAQYK43iFB+Xng1zyjdAzWbuU43umkYe/LN8MuKggq5JvEpG1keTeC
+	eizlc4TV8uJam5D91wlV+KJe1DGPvvVFlYG3h0tjuEGZHnJ9lee2DEBxNlEiddBl
+	WwX3JqnN//KK6o7n6MZ1RdIpw=
+Received: from X13.domain.sensetime.com (unknown [])
+	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wC3LauU9WZpRimXFw--.34345S2;
+	Wed, 14 Jan 2026 09:47:02 +0800 (CST)
+From: junan <junan76@163.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	junan76@163.com
+Subject: [PATCH] arm64: kconfig: Make STRICT_KERNEL_RWX visable.
+Date: Wed, 14 Jan 2026 09:38:42 +0800
+Message-ID: <20260114013859.498148-2-junan76@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/5] Add DisplayPort support for rk3576
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Andy Yan <andyshrk@163.com>, heiko@sntech.de,
- dmitry.baryshkov@oss.qualcomm.com, krzk+dt@kernel.org, conor+dt@kernel.org,
- cristian.ciocaltea@collabora.com, Laurent.pinchart@ideasonboard.com,
- mripard@kernel.org, hjc@rock-chips.com, robh@kernel.org,
- tzimmermann@suse.de, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- Andy Yan <andy.yan@rock-chips.com>
-References: <20260109080054.228671-1-andyshrk@163.com>
- <aWa8mvBkTrKhZBFo@venus>
-Content-Language: en-US
-From: Chaoyi Chen <kernel@airkyi.com>
-In-Reply-To: <aWa8mvBkTrKhZBFo@venus>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: OatzRg8pHEjp9nPMuOfAIDYiogTmRS1w5otD66gS7MphYXe6UQYMhFfe
-	PvwbI57UVt/joEGMsR952ECncWatZRD4OdaWX5TZJBomWpHzEfqzKSburwN7u3HSZg0lyoV
-	9AMNtcdBJUIzaE9Gt+Xl81Zcs4UlVjjmwVXcNuGkTr9VWQuBGEuo059Lf2ty8VKpgsLyE4I
-	wufOnPyenTz6D7hW81M/25uT75zjoXn3E+1R/VK3iS8MdpgPszr7KvaPFhImPHNfK7bkj0M
-	wNPTyNz8ZmAYji5O7/kj7vvGTBnSGjr7EpyqzgtuAZkQfa1eHGggcw9AIAyinZcjexl3TSM
-	JitP7fgKXHW1dQQ67i7QXGOqbdhD4EnJdhulmt6TGeTZPFbani7HXJ/AqF2N2uWIbNqjXLs
-	G4pp0jT9bwGWLRLjV1UQYz/PibOVgV2ZKf/IDwGrzp3NdmzW0i4RNP9akmx7QAXx6h7hVoL
-	2Z8YYFAGDQKHwGudImNOdXsdqa0wKDqsOvROsbqgJIRLhelcPL+iGQeffcDNzJbZxBYr/Rb
-	Um5LOnGnsF2/itseh3lQgebXnT3HzUVPNxf95x3cS3+Pb3+tHwPvzts5F7HySaFRfT724k4
-	R1YO/MjXprSbwSuEM05XqDuU790RaRlcGXqcZSL5Wk9yyKzciXEc8ntoVAcR7qC59INtip/
-	YX9JFHzSmC9lEKv9Td45InmAqTc+YFmVIoV9Su1yihGR/QL7MdHOhMcalSgr0AJEyMnG4G9
-	fYMNDBbzyygsRBOU2ZclucB9hZJbUgRwFEaVGeDksTpCqpEi+dtDsWVBv6ecl/5u+l1A2ci
-	g8d9Y06KYZEA7sBbFWuLZGmOkg3vGCGgsPDXSBYxUnliCO6f1NYYdD9Ho6gpnWINPdC4zuW
-	nhJ9YiYV565NgskJpQhIaJR/z0oOTr50QKB91AHRAUPuoF/NhzELzqBVVfSeZjZqhlx2/kc
-	7xNai/pEiC4+4xxVl341uNMmZxu+CqAW6X1WkEf+7FVKEZIk3ukznoqeH
-X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
-X-QQ-RECHKSPAM: 0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wC3LauU9WZpRimXFw--.34345S2
+X-Coremail-Antispam: 1Uf129KBjvdXoW7JFWxtF1xWrW5Zry7ur4kWFg_yoWfKFg_Ja
+	97JF1kAr18Ja4j9w4IgrWxury7K3yUuFyruryjvrnrZ3W2vw13Wwnxtas8ZF1Yqr15KFWf
+	Zan3tFn8AF4YgjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRiHUD5UUUUU==
+X-Originating-IP: [182.148.52.15]
+X-CM-SenderInfo: pmxqt0ixw6il2tof0z/xtbC1BiXSWlm9ZjerAAA3C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_174415_442750_269BE91B 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20260113_174723_887702_BD72F755 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +73,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+Make "STRICT_KERNEL_RWX" visable to menuconfig on arm64 platform.
 
-On 1/14/2026 5:51 AM, Sebastian Reichel wrote:
-> Hi,
-> 
-> On Fri, Jan 09, 2026 at 04:00:43PM +0800, Andy Yan wrote:
->> From: Andy Yan <andy.yan@rock-chips.com>
->>
->> The DisplayPort found on RK3576 is very similar to that of RK3588,
->> but work in qual pixel mode and support for MST.
->>
->> This patch series aims to add basic display output, not include
->> audio and MST, which will be the work for the next stage.
->>
->> Only test with 2 lane standard DP port output now.
-> 
-> This is a nice minimal series :) I got it working to some degree on
-> the RK3576 Sige5 USB-C port. The display connection detection is
-> _very_ unstable, but that part is handled by the TypeC Port Manager
-> and unrelated to the DP controller (and already an issue on the RK3588
-> based Rock 5B). IF the display is detected (i.e. USB-C side worked
-> properly), the DP controller managed to do proper output too. Thus
-> I believe this should be merged. I plan to look into the TCPM issues
-> in the meantime.
+I can not set breakpoints when using kgdb/kdb on arm64, the document
+says "STRICT_KERNEL_RWX" should be "n", but it's not visable in
+menuconfig and the default value is "y".
 
-Based on experience with other platforms, I suspect that some HPD events
-are not being properly propagated to the DP driver. This might be worth 
-looking into.
+kgdb/kdb doc: https://docs.kernel.org/process/debugging/kgdb.html
 
+Signed-off-by: junan <junan76@163.com>
+---
+ arch/arm64/Kconfig | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 93173f0a09c7..cc3aaffa1e12 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -52,6 +52,8 @@ config ARM64
+ 	select ARCH_STACKWALK
+ 	select ARCH_HAS_STRICT_KERNEL_RWX
+ 	select ARCH_HAS_STRICT_MODULE_RWX
++	select ARCH_OPTIONAL_KERNEL_RWX		if ARCH_HAS_STRICT_KERNEL_RWX
++	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
+ 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+ 	select ARCH_HAS_SYNC_DMA_FOR_CPU
+ 	select ARCH_HAS_SYSCALL_WRAPPER
 -- 
-Best, 
-Chaoyi
+2.43.0
 
 
