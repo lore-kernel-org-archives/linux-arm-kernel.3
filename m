@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5738DD31A0E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 06:26:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46002D31A0E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 06:39:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GqboQ4ROVgM/dfJzro4IzHUtcI9B21cZXNDgBmCYmWI=; b=HSd5aeKtRWZx1hx3UGhg7doiU3
-	L4fbqjhkOzEoHMoif1O5RO3vwqOT5ZwZ9hBpnRYB9x2tKbrDJCV2cdiHPTb0R0lhDsEvKOfU4IJVW
-	VrEw8p6+hTN5pYOlB2Fdl/FO3IxBkt4ESiSR33okn/c0krXrN5i00yfSagvi/NDLDR9o+TiZUMc+h
-	x8RdD9/YkFLOrycj2TjFDQxWaPLP/qdJgl0W0P+oWhfAKhErgLsVzAsJqNxrEaHwTP3S92MdwkL4H
-	9mCoikFUZ2Q7L7qr0CR2uZ+3ujfCv+0pns9O3+05+QRjgbqaeyEXtq/qVcEINKNM2xk/sdZru8sbk
-	3bpuG15A==;
+	bh=YulQyABCOhh08KuJ/4XR2JYgn3KjSXLroNIV1O9N5jY=; b=eqA2LvTM9iP74atgKNc2D/QSOz
+	1eqlqKmVW6tfhdU9BKGKbT3o4Zs0iMUazyOxG0+V6YrgDIWaPGMa4m+66jXcbxDlN+9NT6ON99Msr
+	SVmevKxbuWQU8GLHiQcKxcNEwpAjvmHsgHVQg7vMGBb56dwhHhZRCdn8ScucWe9/gbkY+gottHJdQ
+	zHdebij3UChbXOJrCEfGTL4KSr3LQ9SWPXwz3jc19YbBuQLnYoOUvEbyfaiq9JeMPkT4ZhW3m5t4y
+	u810hYDL+O3NXfAREkvqsQa3qAGkVtQA4SnTwLleqf8TnTOFgDJBXn8OAJrL9manGJ5qd2Z68v2aW
+	TezEtJ9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfuKh-000000087Pv-1b0x;
-	Wed, 14 Jan 2026 06:26:19 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1vfuX0-000000088GW-0ern;
+	Wed, 14 Jan 2026 06:39:02 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfuKc-000000087Ns-2W5K
+	id 1vfuWv-000000088G3-2X95
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 06:26:15 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-c0c24d0f4ceso3205559a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 22:26:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768371973; x=1768976773; darn=lists.infradead.org;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=GqboQ4ROVgM/dfJzro4IzHUtcI9B21cZXNDgBmCYmWI=;
-        b=MJ8FHuGurZ8qoFOXlDq1jsQe4ieeSUhwHwtKvn5QlpzIX52iEiG1n+gY50IIBMcHAN
-         +KdGErt//HOyY+4lH2bTZX5xDo6L3eBpRrnhw6ZBV3YGl+t0q0GQCxqxjTKQ/de+p9CK
-         T+1geM5w0YvbNJOEV/IhltKrQu5cnHJ8zpVMmNx+Mjd+aFvED10IHvAO6jFhiSigX9x+
-         14xw/qccINsK2cb5l5Th46n6XghrOXXiwnhSbdCMc89F6YHRmdGF5zv79Nozaw6lhiUA
-         EKq+qR5XuVhRLpmd+x+jfZwzE4OBQ3rvsTa8kPdoc/5TmTsCkcpsPxDN1vDr9GS3wASq
-         QFMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768371973; x=1768976773;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GqboQ4ROVgM/dfJzro4IzHUtcI9B21cZXNDgBmCYmWI=;
-        b=mgYAQO6kovIzOU7MchA5yqVg7GjeF5Dwa4DEb7a2IhUbi0vCeLEg+8FjJyFLfrP6/E
-         TqblqTzjgFXN88tC/fKUUXxKTGiMmyiCsB5U7PtKPV9S7tOGAW3qrNlRNUDSVCK54an9
-         nCuDT8h7O0eA74EizTaoNmEMHgbDmVFQCT/reUWZ7HUjnEJXgkNauqat0wBhW+Mk3nZv
-         IbQcJLJlwO5zlwNjF2VJW1ze/K26GR4eDqSEMcLEM4kg32Ou70a671693vtlUPZqGlAX
-         nkAFjYSIbz+tM5gEfkfLndw7lobYilD7ER3BPAQNQNDikmNJrlXCNRac5I4CC6vDNdnM
-         MRdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV/6Cd6RGoQo8IcYoA24o75akCALxAllEWusDDRxn6D4hSkJGXGv307wijjoMJn5R/cIO0gluqDZw1CUmduIwqR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxtJjE2w9m+rWGpWABk6i20i+UVHgFZE54vFt8JflQ0IM/GmnpP
-	+rYfhvXzEtzW2ZeHGcF5O2guDoCgQecfUQ4KwqSYwEDbUCRGRUEDeYelPGJxU8yY9I6+Zwml
-X-Gm-Gg: AY/fxX6j51E1JHqzkw+vjsK/lHp9yUTYa26pSAT1X6B3lhJ/2xjR33fZJqpegAM+zdt
-	d8aWnzPbnDss0deXIqEe8MeyizLLSCKpxWXECdicVNO8yOuTFrtypmqERaU3OqctMssJnJClcd7
-	uslvtWj2TNLbzLKN8RDAdC7XWa/0XHfFhlhY86aMsVkzWN0zqGV6VVtYKgQKxvxCT24WN2O+ENG
-	DZg/Zpuo0ABitlk6pYkwyv1TTLNG9Lxp/nBzaWIl4qd2x+EIxdpnsMT+knlWZo84OTWPvr6StCu
-	JgxDtnGANlpq6HrtcEwBap1029hhz2MIz50pQL+2IpLBvlrTa5q/USYRhOteJwh5BsqwvGq4l+5
-	Y1uOlTDqulJZ9VpnrbKVwtzz3+1cXwiXbK5qqz9s+wcbsTG5QSY2JuYf9JyW/xsr8o5Dx9ftVrh
-	nXCCyL1BE=
-X-Received: by 2002:a17:90a:e7cc:b0:340:bb56:79de with SMTP id 98e67ed59e1d1-351091780eemr1590209a91.30.1768371973579;
-        Tue, 13 Jan 2026 22:26:13 -0800 (PST)
-Received: from localhost.localdomain ([47.82.78.41])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35109d88f0esm891791a91.5.2026.01.13.22.26.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Jan 2026 22:26:13 -0800 (PST)
-From: Nick Xie <xieqinick@gmail.com>
-X-Google-Original-From: Nick Xie <nick@khadas.com>
-To: neil.armstrong@linaro.org,
-	khilman@baylibre.com,
-	jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Cc: xianwei.zhao@amlogic.com,
-	christianshewitt@gmail.com,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	nick@khadas.com
-Subject: [PATCH v2 2/2] arm64: dts: add initial device-tree for Khadas VIM1S
-Date: Wed, 14 Jan 2026 14:25:49 +0800
-Message-Id: <20260114062549.68954-3-nick@khadas.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260114062549.68954-1-nick@khadas.com>
-References: <20260114062549.68954-1-nick@khadas.com>
+	Wed, 14 Jan 2026 06:39:01 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vfuWn-0007HT-29; Wed, 14 Jan 2026 07:38:49 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vfuWm-000Xuc-1Z;
+	Wed, 14 Jan 2026 07:38:47 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vfuWl-00Bca9-2D;
+	Wed, 14 Jan 2026 07:38:47 +0100
+Date: Wed, 14 Jan 2026 07:38:47 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>, kernel test robot <lkp@intel.com>,
+	Dan Carpenter <error27@gmail.com>
+Subject: Re: [PATCH] soc: imx8m: Fix error handling for clk_prepare_enable()
+Message-ID: <20260114063847.bu6dx5w7h5jlg7dg@pengutronix.de>
+References: <20260114-fix-soc-imx8m-v1-1-143de91ef077@nxp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260114-fix-soc-imx8m-v1-1-143de91ef077@nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_222614_637149_0BC85A87 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20260113_223858_873869_FB5754C6 
+X-CRM114-Status: UNSURE (   7.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,242 +80,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Khadas VIM1S uses the Amlogic S905Y4 SoC, based on the
-Amlogic S4 SoC family, on a board with the same form factor as the
-VIM/VIM2/VIM3/VIM4 models. Serial debug console, ethernet, SD card
-work with this initial device-tree.
+On 26-01-14, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> imx8m_soc_prepare() directly returns the result of clk_prepare_enable(),
+> which skips proper cleanup if the clock enable fails. Check the return
+> value of clk_prepare_enable() and release resources if failure.
+> 
+> Reported-by: kernel test robot <lkp@intel.com>
+> Reported-by: Dan Carpenter <error27@gmail.com>
+> Closes: https://lore.kernel.org/r/202601111406.ZVV3YaiU-lkp@intel.com/
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-It features:
- - 2GB LPDDR4 RAM
- - 16GB eMMC 5.1 storage
- - 32MB SPI flash
- - 100 Base-T Ethernet
- - AP6256 Wireless (802.11 a/b/g/n/ac, BT5.0)
- - HDMI 2.1 video
- - 2x USB 2.0 ports
- - 1x USB-C (power) with USB 2.0 OTG
- - 2x LED's (1x red, 1x white)
- - 3x buttons (power, function, reset)
- - IR receiver
- - 40pin GPIO Header
- - 1x micro SD card slot
-
-Signed-off-by: Nick Xie <nick@khadas.com>
----
- arch/arm64/boot/dts/amlogic/Makefile          |   1 +
- .../amlogic/meson-s4-s905y4-khadas-vim1s.dts  | 190 ++++++++++++++++++
- 2 files changed, 191 insertions(+)
- create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
-
-diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
-index 219fb088c704d..15f9c817e5023 100644
---- a/arch/arm64/boot/dts/amlogic/Makefile
-+++ b/arch/arm64/boot/dts/amlogic/Makefile
-@@ -85,6 +85,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-gxm-ugoos-am3.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-gxm-vega-s96.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-gxm-wetek-core2.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-s4-s805x2-aq222.dtb
-+dtb-$(CONFIG_ARCH_MESON) += meson-s4-s905y4-khadas-vim1s.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air-gbit.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-sm1-bananapi-m2-pro.dtb
-diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts b/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
-new file mode 100644
-index 0000000000000..a371ddcdb5e99
---- /dev/null
-+++ b/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
-@@ -0,0 +1,190 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2026 Khadas Technology Co., Ltd.
-+ */
-+
-+/dts-v1/;
-+
-+#include "meson-s4.dtsi"
-+
-+/ {
-+	model = "Khadas VIM1S";
-+	compatible = "khadas,vim1s", "amlogic,s4";
-+	interrupt-parent = <&gic>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	aliases {
-+		mmc0 = &emmc; /* eMMC */
-+		mmc1 = &sd; /* SD card */
-+		mmc2 = &sdio; /* SDIO */
-+		serial0 = &uart_b;
-+	};
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x0 0x0 0x80000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		/* 52 MiB reserved for ARM Trusted Firmware */
-+		secmon_reserved: secmon@5000000 {
-+			reg = <0x0 0x05000000 0x0 0x3400000>;
-+			no-map;
-+		};
-+	};
-+
-+	sdio_32k: sdio-32k {
-+		compatible = "pwm-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <32768>;
-+		pwms = <&pwm_ef 0 30518 0>; /* PWM_E at 32.768KHz */
-+	};
-+
-+	sdio_pwrseq: sdio-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&gpio GPIOX_6 GPIO_ACTIVE_LOW>;
-+		clocks = <&sdio_32k>;
-+		clock-names = "ext_clock";
-+	};
-+
-+	main_5v: regulator-main-5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "5V";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+
-+	sd_3v3: regulator-sd-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "SD_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&gpio GPIOD_4 GPIO_ACTIVE_LOW>;
-+		regulator-always-on;
-+	};
-+
-+	vddio_sd: regulator-vddio-sd {
-+		compatible = "regulator-gpio";
-+		regulator-name = "VDDIO_SD";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpios = <&gpio GPIOD_9 GPIO_ACTIVE_HIGH>;
-+		gpios-states = <1>;
-+		states = <1800000 1
-+				3300000 0>;
-+	};
-+
-+	/* SY8120B1ABC DC/DC Regulator. */
-+	vddcpu: regulator-vddcpu {
-+		compatible = "pwm-regulator";
-+
-+		regulator-name = "VDDCPU";
-+		regulator-min-microvolt = <689000>;
-+		regulator-max-microvolt = <1049000>;
-+
-+		vin-supply = <&main_5v>;
-+
-+		pwms = <&pwm_ij 1 1500 0>;
-+		pwm-dutycycle-range = <100 0>;
-+
-+		regulator-boot-on;
-+		regulator-always-on;
-+		/* Voltage Duty-Cycle */
-+		voltage-table = <1049000 0>,
-+				<1039000 3>,
-+				<1029000 6>,
-+				<1019000 9>,
-+				<1009000 12>,
-+				<999000 14>,
-+				<989000 17>,
-+				<979000 20>,
-+				<969000 23>,
-+				<959000 26>,
-+				<949000 29>,
-+				<939000 31>,
-+				<929000 34>,
-+				<919000 37>,
-+				<909000 40>,
-+				<899000 43>,
-+				<889000 45>,
-+				<879000 48>,
-+				<869000 51>,
-+				<859000 54>,
-+				<849000 56>,
-+				<839000 59>,
-+				<829000 62>,
-+				<819000 65>,
-+				<809000 68>,
-+				<799000 70>,
-+				<789000 73>,
-+				<779000 76>,
-+				<769000 79>,
-+				<759000 81>,
-+				<749000 84>,
-+				<739000 87>,
-+				<729000 89>,
-+				<719000 92>,
-+				<709000 95>,
-+				<699000 98>,
-+				<689000 100>;
-+	};
-+};
-+
-+&ethmac {
-+	status = "okay";
-+	phy-handle = <&internal_ephy>;
-+	phy-mode = "rmii";
-+};
-+
-+&ir {
-+	status = "okay";
-+	pinctrl-0 = <&remote_pins>;
-+	pinctrl-names = "default";
-+};
-+
-+&pwm_ef {
-+	status = "okay";
-+	pinctrl-0 = <&pwm_e_pins1>;
-+	pinctrl-names = "default";
-+};
-+
-+&pwm_ij {
-+	status = "okay";
-+};
-+
-+&sd {
-+	status = "okay";
-+	pinctrl-0 = <&sdcard_pins>;
-+	pinctrl-1 = <&sdcard_clk_gate_pins>;
-+	pinctrl-names = "default", "clk-gate";
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	sd-uhs-sdr12;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	max-frequency = <200000000>;
-+	disable-wp;
-+
-+	cd-gpios = <&gpio GPIOC_6 GPIO_ACTIVE_LOW>;
-+
-+	vmmc-supply = <&sd_3v3>;
-+	vqmmc-supply = <&vddio_sd>;
-+};
-+
-+&spicc0 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&spicc0_pins_x>;
-+	cs-gpios = <&gpio GPIOX_10 GPIO_ACTIVE_LOW>;
-+};
-+
-+&uart_b {
-+	status = "okay";
-+};
--- 
-2.34.1
-
+Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
 
