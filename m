@@ -4,74 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FDA6D37E2F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 13:11:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A48C3D37E2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 13:12:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4hNT9bMCTFBIbSQvqXd0vDReNnQZh/9obugkKAGLY2o=; b=yILsuCa2xVqW638XNL52qKNK/O
-	u1q6Dh1Gk8YLRtdHYPM5+QWfMqUFHAFhcZyhI5xGYsBrfIHaSF7sUdNxUBYsjpztjmsuWs2ZQeSjk
-	9I4VaqaimUH3aVrHPptFLsfMwXx46PV32RdjIyBBWnZ9OLs03hSTjGRAR3hn3xYSFDH2k3nf1A6zq
-	j2mVf6gbPWqbV7AByTbt/qWn4rKZwHSOrYyG+/IihLC+w2M+dE3mNTJ2ChJ3wAefWbletA6jYzgDp
-	T6NZlRnbMs12olckJiORMYqD+D7QDeLzQ9mLKThkimqcd9jyt/00+Si7e61Y1x0k3C5J5ml/RWgxk
-	2h9OPrTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ucpTGToIn8N6Wm60fm7MZ05SRRlKYptl+ek5X25PfwQ=; b=N0jR4jpJOSrYKG7O3gAtGG//zr
+	TFR24cbkWQS1g4OnZJlROrGtnttP2ASkvR0J6kxo2Ckv1fuiuvwfJ2SwOASdWAn0CKA1A1ypwui1n
+	0x0lT1casKkpSXIjFocLmtqITxI3IzbPvu3Nt+uPPw5WD2epU+824oqUhG5GGbrU/zy2mOM5HFpTN
+	qK0prc6Y9EKfX/dwZvDrTY7cMNR5fZn9bd0c5Iaq9iuTLKdJE/ZlWBWlyHUiqCrZfE4eB1rRLpqtj
+	VH4HlKiG4ARBQG8m/t/k6rvJb8UxF000syPFcx+oK7jl5QaWJAlE1uYkpdZA2lg4eHErMo1IxxODt
+	ujLXEKHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg0eZ-00000009Haa-0r4l;
-	Wed, 14 Jan 2026 13:11:18 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vg0fk-00000009Hxt-0L0i;
+	Wed, 14 Jan 2026 13:12:28 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg0eT-00000009HYz-2wUl;
-	Wed, 14 Jan 2026 13:11:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1768396254; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=fzE7FgxAedH8uxX0VAeiDhzKipXVqRZ2kiSaXoud202thrp2+5O0CXyk+xIlkiRZd5FelhJ7OfDbg7xjDiPjBQHnMrFQA4eg5yMHe2vJFDsPFTzStZaMYkZ+0a6VwBMQrDybVis6CkxQNWYIKk2FvDI+mq8EJsjL31tFIBxCJhE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1768396254; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=4hNT9bMCTFBIbSQvqXd0vDReNnQZh/9obugkKAGLY2o=; 
-	b=Z3ypKbyrmN4UqyBQ/OpBF0Xt+PTnoN3lrsmi+bnS58U5VogPFE79P61hocJTfKf5V4yeQUd9Dfy44nOaW/WC25OHnrTWbgoBS3LtfodwTnaOr6emvOzBy7xsnqNFLv3pUEjJzX10wSd/uftfocWF4QyMhk9grdCDQXvxtzl1+lU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768396254;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=4hNT9bMCTFBIbSQvqXd0vDReNnQZh/9obugkKAGLY2o=;
-	b=X0ks54VN6tfrUJdG2MPakQ5UFB3h6zKvKNfKKUpWpfUgWbgTHNnEgeD2+PI0HybV
-	/b/+j9T6abRwqDw2PyUsCs8QMYnRBo+QkfQoyl0BFB0gA9BjsbvJnHM3TbfTefcK6+5
-	tNFmo4rlMi7g8x4CgqPkwptI/h8vsuTzlNYwEVbs=
-Received: by mx.zohomail.com with SMTPS id 1768396253114813.88687353656;
-	Wed, 14 Jan 2026 05:10:53 -0800 (PST)
-Message-ID: <db0950f1-b357-47c2-9829-e33262ab456d@collabora.com>
-Date: Wed, 14 Jan 2026 14:10:48 +0100
+	id 1vg0fg-00000009HwT-2fhC
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Jan 2026 13:12:26 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-47d3ffa5f33so39470635e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 05:12:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1768396343; x=1769001143; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ucpTGToIn8N6Wm60fm7MZ05SRRlKYptl+ek5X25PfwQ=;
+        b=YGMlSKQgbnJyDG06D9b3Noa1IcejXdO1zusOy8eTfhSxslGHK+lToxk6/g+d6wK5Cq
+         Ls4971XgzEDmhoWLrQhcxQOzVD2+wzgCwzeZCOhV/yRpWGIPM/CFoNr+R5eUvgt+5fYS
+         8Kj8hD0352ZifkYAQAAbPAJkAtjhbIWmYMtXEHzDpp6dTB1lPr+R8iiJVenOugqq6Gq0
+         ltUV+zV+Gddqta6dHHgbmFBizQq+twsQPFWZbfnRFwqA/VK4He+2u9rm6mbb6siiME7y
+         nRTp5qaeWHkz5d7qtMUnc5z3MIax36zByh2RwZd6gJu70gt69C+4RuPXTxjRPHlPqAqe
+         Ho2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768396343; x=1769001143;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ucpTGToIn8N6Wm60fm7MZ05SRRlKYptl+ek5X25PfwQ=;
+        b=EewVt4avzIGnIa2xN+apC+q00USg0h3IAuUSA7Xe4+584MhNUgvadhO/XF2y78NgFU
+         D7l+vrbJFKh8Sejl6PBfVuYYl6iI+UgYdxA+3lafq9/8Lo2x/9gOEV/LEQ63/R4ex3DO
+         s3+qXUzydwu6oMziZEv6MM592UVgJvoH5eXuuRJhLtDXmQ3ryfo8UL7j9x36RlZiPnHO
+         DIStkv7mpaWgcGKjLVkbkfXR4J5KeGhoBWHijsAd0hxNtSAygEHPi2KbgjRzwcwuktaS
+         GrtqYrr+sJ4rzUojJIjRXy8uD8Mi+LEbe+fkZ+T0a4ofrcDeskbRrAPL98vHOIGQ0R2d
+         ZgXw==
+X-Forwarded-Encrypted: i=1; AJvYcCWK4lBWI/LoP65ZTt71eRzEbhIp5wkSnLV9oO33u6EF+nFygAgdfjg1k/pUjKMp+s7vbabrmFn/Ab/dXAxR80Gf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyv4XtF1REMK2TNOv3Ywuxsmnx/x+EWmF3hn2b8vcQo2J0fu85Q
+	Pxci5072P6dQnvj+n/Gi5bVpuSynAv+LSbjU7mIXFlMYbubvN0GVunwbZTf5bg6jHNQ=
+X-Gm-Gg: AY/fxX5sNsZ97NZL53pOoQb3woEigh18Sg9cNOlE3OR/ZofeiEq7bMhGL46PBo2V1qR
+	V+oyI0HwjTiPy4qfQs4HNPtJ+v82z/WZYC38d5atmDYGCuTRqNlIb95PxXPiEh4UA1a9P5x+FUb
+	V1w+VYTUd7yyJ8T+Vv2ForrjfbtPO63FGEgR2RkOB+Am2/d1w5E2AB2it5HfINbPW7Z4Uk4GScu
+	ex8qfUPZEb6pGYYcvIJwBOeQd/CNy/7+xFMpphWLYwEuMJVTdyCyZEWfeOWyF9qioCL6Pc/ai5A
+	ComAeDhjYIbhMBGNkQzzezaZd1PDWXo3d16BIwXbehJGFrDMl1ua+xKc+xUQchp7X5XvLGGYWal
+	V6HjCxSSMN1aUF+TkeLJo5YoDF+ll/fSambVUpoE0gCJSOR6QkWYg8pb9uiNWqnfIVn/UEkhtwY
+	8s8sLtvKwztwUpLrZNhMmSa/HU
+X-Received: by 2002:a05:600c:5490:b0:479:3876:22a8 with SMTP id 5b1f17b1804b1-47ee3356d5dmr36820375e9.16.1768396341643;
+        Wed, 14 Jan 2026 05:12:21 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47ee54b8c9bsm27274065e9.3.2026.01.14.05.12.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 05:12:21 -0800 (PST)
+Date: Wed, 14 Jan 2026 14:12:18 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: Marcos Paulo de Souza <mpdesouza@suse.com>
+Cc: Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jason Wessel <jason.wessel@windriver.com>,
+	Daniel Thompson <danielt@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	John Ogness <john.ogness@linutronix.de>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
+	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 04/19] printk: Reintroduce consoles_suspended global state
+Message-ID: <aWeWMga1VaT0sYwj@pathway.suse.cz>
+References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+ <20251227-printk-cleanup-part3-v1-4-21a291bcf197@suse.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 3/7] iommu: Add verisilicon IOMMU driver
-To: Will Deacon <will@kernel.org>
-Cc: joro@8bytes.org, robin.murphy@arm.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- nicolas.dufresne@collabora.com, p.zabel@pengutronix.de, mchehab@kernel.org,
- iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
- kernel@collabora.com
-References: <20260107101005.84039-1-benjamin.gaignard@collabora.com>
- <20260107101005.84039-4-benjamin.gaignard@collabora.com>
- <aWZui-rn5RDPwpEO@willie-the-truck>
- <68a49f8b-178c-4fa2-b4a9-315ad602271d@collabora.com>
- <aWeTQ50DOtntcniN@willie-the-truck>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <aWeTQ50DOtntcniN@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251227-printk-cleanup-part3-v1-4-21a291bcf197@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_051110_746956_E905CDAA 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20260114_051225_276409_6A310E42 
+X-CRM114-Status: GOOD (  24.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,113 +132,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat 2025-12-27 09:16:11, Marcos Paulo de Souza wrote:
+> This change partially reverts commit 9e70a5e109a4
+> ("printk: Add per-console suspended state"). The intent of the original
+> commit was to move the management of the console suspended state to the
+> consoles themselves to be able to use SRCU instead of console lock.
+> 
+> But having a global state is still useful when checking if the global
+> suspend was triggered by power management. This way, instead of setting
+> the state of each individual console, the code would only set/read from the
+> global state.
+> 
+> Along with this change, two more fixes are necessary: change
+> console_{suspend,resume} to set/clear CON_SUSPEND instead of setting
+> CON_ENABLED and change show_cons_active to call __console_is_usable to
+> check console usefulness.
 
-Le 14/01/2026 à 13:59, Will Deacon a écrit :
-> On Tue, Jan 13, 2026 at 05:25:38PM +0100, Benjamin Gaignard wrote:
->> Le 13/01/2026 à 17:10, Will Deacon a écrit :
->>> Hi Benjamin,
->>>
->>> Thanks for posting a v11.
->>>
->>> On Wed, Jan 07, 2026 at 11:09:53AM +0100, Benjamin Gaignard wrote:
->>>> The Verisilicon IOMMU hardware block can be found in combination
->>>> with Verisilicon hardware video codecs (encoders or decoders) on
->>>> different SoCs.
->>>> Enable it will allow us to use non contiguous memory allocators
->>>> for Verisilicon video codecs.
->>>> If both decoder and this iommu driver are compiled has modules
->>>> there is undefined symboles issues so this iommu driver could
->>>> only be compiled has built-in.
->>>>
->>>> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
->>>> ---
->>>> changes in version 11:
->>>> - Fix dependency issue when decoder driver is build as module.
->>>>
->>>>    drivers/iommu/Kconfig     |  11 +
->>>>    drivers/iommu/Makefile    |   1 +
->>>>    drivers/iommu/vsi-iommu.c | 808 ++++++++++++++++++++++++++++++++++++++
->>>>    include/linux/vsi-iommu.h |  21 +
->>>>    4 files changed, 841 insertions(+)
->>>>    create mode 100644 drivers/iommu/vsi-iommu.c
->>>>    create mode 100644 include/linux/vsi-iommu.h
->>> Based on your reply to v9:
->>>
->>> https://lore.kernel.org/all/0eff8b1a-c45f-47b1-a871-59f4a0101f0f@collabora.com/
->>>
->>> I took another look at this to see whether it had changed significantly
->>> from v6 when compared to the rockchip driver. Sadly, they still look
->>> very similar to me and I continue to suspect that the hardware is a
->>> derivative. I really don't understand why having a shared implementation
->>> of the default domain ops is difficult or controversial. Have you tried
->>> to write it?
->>>
->>> However, given that nobody from the Rockchip side has contributed to the
->>> discussion and you claim that this is a distinct piece of IP, I don't
->>> want to block the merging of the driver by leaving the conversation
->>> hanging.
->>>
->>> There is still one thing I don't understand (which, amusingly, the
->>> rockchip driver doesn't seem to suffer from):
->>>
->>>> +static void vsi_iommu_flush_tlb_all(struct iommu_domain *domain)
->>>> +{
->>>> +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
->>>> +	struct list_head *pos;
->>>> +	unsigned long flags;
->>>> +
->>>> +	spin_lock_irqsave(&vsi_domain->lock, flags);
->>>> +
->>>> +	list_for_each(pos, &vsi_domain->iommus) {
->>>> +		struct vsi_iommu *iommu;
->>>> +		int ret;
->>>> +
->>>> +		iommu = list_entry(pos, struct vsi_iommu, node);
->>>> +		ret = pm_runtime_resume_and_get(iommu->dev);
->>>> +		if (ret < 0)
->>>> +			continue;
->>>> +
->>>> +		spin_lock(&iommu->lock);
->>>> +
->>>> +		writel(VSI_MMU_BIT_FLUSH, iommu->regs + VSI_MMU_FLUSH_BASE);
->>>> +		writel(0, iommu->regs + VSI_MMU_FLUSH_BASE);
->>>> +
->>>> +		spin_unlock(&iommu->lock);
->>>> +		pm_runtime_put_autosuspend(iommu->dev);
->>>> +	}
->>>> +
->>>> +	spin_unlock_irqrestore(&vsi_domain->lock, flags);
->>>> +}
->>> [...]
->>>
->>>> +static const struct iommu_ops vsi_iommu_ops = {
->>>> +	.identity_domain = &vsi_identity_domain,
->>>> +	.release_domain = &vsi_identity_domain,
->>>> +	.domain_alloc_paging = vsi_iommu_domain_alloc_paging,
->>>> +	.of_xlate = vsi_iommu_of_xlate,
->>>> +	.probe_device = vsi_iommu_probe_device,
->>>> +	.release_device = vsi_iommu_release_device,
->>>> +	.device_group = generic_single_device_group,
->>>> +	.owner = THIS_MODULE,
->>>> +	.default_domain_ops = &(const struct iommu_domain_ops) {
->>>> +		.attach_dev		= vsi_iommu_attach_device,
->>>> +		.map_pages		= vsi_iommu_map,
->>>> +		.unmap_pages		= vsi_iommu_unmap,
->>>> +		.flush_iotlb_all	= vsi_iommu_flush_tlb_all,
->>> This has no callers and so your unmap routine appears to be broken.
->> It is a leftover of previous attempt to allow video decoder to clean/flush
->> the iommu by using a function from the API.
->> Now it is using vsi_iommu_restore_ctx().
->> I while remove it in version 12.
-> Don't you still need some invalidation on the unmap path?
+I would invert the logic a bit. I think that the main motivation
+is to replace CON_ENABLE -> CON_SUSPEND.
 
-In vsi_iommu_unmap_iova() page is invalided by calling vsi_mk_pte_invalid().
-That clear BIT(0) so the hardware knows the page is invalid.
-Do I have miss something here ?
+<proposal>
+The flag CON_ENABLE is cleared when serial drivers get suspended. This
+"hack" has been added by the commit 33c0d1b0c3ebb6 ("[PATCH] Serial
+driver stuff") back in v2.5.28.
 
-Benjamin
+Stop hijacking CON_ENABLE flag and use the CON_SUSPEND flag instead.
 
->
-> Will
->
+Still allow to distinguish when:
+
+  - the backing device is being suspended, see console_suspend().
+
+  - the power management wants to calm down all consoles using
+    a big-hammer, see console_suspend_all().
+
+And restore the global "consoles_suspended" flag which was removed
+by the commit 9e70a5e109a4 ("printk: Add per-console suspended state").
+
+The difference is that accesses to the new global flag are
+synchronized the same way as to the CON_SUSPEND flag. It allows
+to read it under console_srcu_read_lock().
+
+Finally, use __console_is_usable() in show_cons_active(). It is the
+last location where the CON_ENABLED flag was checked directly.
+
+The patch should not change the existing behavior because all users check
+the state of the console using console_is_usable().
+</proposal>
+
+> diff --git a/drivers/tty/tty_io.c b/drivers/tty/tty_io.c
+> index e2d92cf70eb7..7d2bded75b75 100644
+> --- a/drivers/tty/tty_io.c
+> +++ b/drivers/tty/tty_io.c
+> @@ -3552,9 +3552,9 @@ static ssize_t show_cons_active(struct device *dev,
+>  	for_each_console(c) {
+>  		if (!c->device)
+>  			continue;
+> -		if (!(c->flags & CON_NBCON) && !c->write)
+> -			continue;
+> -		if ((c->flags & CON_ENABLED) == 0)
+> +		if (!__console_is_usable(c, c->flags,
+> +					 consoles_suspended,
+> +					 NBCON_USE_ANY))
+
+It would be better to move this into a separate patch.
+
+>  			continue;
+>  		cs[i++] = c;
+>  		if (i >= ARRAY_SIZE(cs))
+
+Otherwise, it looks good.
+
+Best Regards,
+Petr
 
