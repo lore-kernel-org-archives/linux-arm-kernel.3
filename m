@@ -4,174 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF0ABD38FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:59:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E912FD39000
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 18:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qfh28KCuJd78caeqTvGjjRVKHqXAjgHnmjbKOepb0LQ=; b=WCmufBN+2IIy+EclpnjsNrnIy+
-	Eket0Knnv2ukEhziIEPuIBCGSzHKlRcRtiBwj2N5Pee5hynLDf0YFceUVkyHkc654Z719Bjks9uLr
-	HlaDhGI6snJNrIPOhTaQw+En7ebS51dbSxsmJ52F9NUcFZXfLLopVwxt0NpT/hSWteKSIPziQTAru
-	QzOr4UEVtukeLshZefHPXGh0vWFukDUZZf2GuhCRfE8b+umNkUwRz6I9+AyTzhDkuJ2LOmMOS7aNI
-	a3dIQv7rEgkc4TSYYXA+qUJ22w9s9uqXVALqB2tz/k02rFFR9BuNn9sJFnpbbdOyC6FX50hSSiu1i
-	Dg86KhEQ==;
+	bh=V/yuBBaDAznftGhhFsXmsET3hkGuuS/ENIedWO8VvpY=; b=Th5+TEVeM3zMR0cXkz87j2TL+/
+	UFJg5WNjyp+tgYbGmaaz9VdjCe++iTa9L/a2MILb+2yxrMi6WiS2zeVXUH3BGvmfn1Tv8BsRndNqy
+	JVcI+UwZT5V9GZMKyMbIik9STWsHo+8OfsDiPJ/qMcb7yUat3lZQj4TSY1rqKxBoq4amirk+CPk7R
+	NF4PqtD5gcKyOAcCxQUM6H+jCWx3BcPedZvaLW08N4Gn/kDtp4+lFxOCg/vXniTFxkQImaHuRIH9y
+	fY5al+5TGWI9B0V2ORSFTnxkF8yxut7l9p0PF5h74Fdivz1n3yjQ6jh0ZbQr8FMbruqIhT5aqkeXz
+	Dd3loGhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg59L-0000000AFCS-2sCq;
-	Wed, 14 Jan 2026 17:59:19 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1vg5Bw-0000000AFuW-26l7;
+	Wed, 14 Jan 2026 18:02:00 +0000
+Received: from mail-southcentralusazhn150120000.outbound.protection.outlook.com ([2a01:111:f403:d90f::] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg59H-0000000AF8A-0fd2
+	id 1vg5Bu-0000000AFtg-0NQ2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 17:59:16 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id BC146349B0;
-	Wed, 14 Jan 2026 17:59:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1768413551; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=qfh28KCuJd78caeqTvGjjRVKHqXAjgHnmjbKOepb0LQ=;
-	b=Yh9fqL6RvfZ4t41JSSU8Hdlhw4Lq7RUdrw2rbBZ10Y1fZFPHmr+afKsZqSkSEp+lpnrDvE
-	tuvVs9QVKavsLZpmf9GMZE0iOoP8Ncz5uo3+uhoBGBVNuqouks/t+Z/HIMTaY0+ywvyDel
-	hBpDCM3WJCoun/gid/A31DNPQT9DTk8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1768413551;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=qfh28KCuJd78caeqTvGjjRVKHqXAjgHnmjbKOepb0LQ=;
-	b=zCRnoy6+o+LHnj6zMJIYJWGczyGxDfAMqbdO9ebgFwVCNjw3R/P1Sq3HpOYelLZ9FhL/k5
-	lLKg6SCLtR7sSOAQ==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=Yh9fqL6R;
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=zCRnoy6+
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1768413551; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=qfh28KCuJd78caeqTvGjjRVKHqXAjgHnmjbKOepb0LQ=;
-	b=Yh9fqL6RvfZ4t41JSSU8Hdlhw4Lq7RUdrw2rbBZ10Y1fZFPHmr+afKsZqSkSEp+lpnrDvE
-	tuvVs9QVKavsLZpmf9GMZE0iOoP8Ncz5uo3+uhoBGBVNuqouks/t+Z/HIMTaY0+ywvyDel
-	hBpDCM3WJCoun/gid/A31DNPQT9DTk8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1768413551;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=qfh28KCuJd78caeqTvGjjRVKHqXAjgHnmjbKOepb0LQ=;
-	b=zCRnoy6+o+LHnj6zMJIYJWGczyGxDfAMqbdO9ebgFwVCNjw3R/P1Sq3HpOYelLZ9FhL/k5
-	lLKg6SCLtR7sSOAQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 950B53EA63;
-	Wed, 14 Jan 2026 17:59:11 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id X38PJG/ZZ2muIwAAD6G6ig
-	(envelope-from <vbabka@suse.cz>); Wed, 14 Jan 2026 17:59:11 +0000
-Message-ID: <0c33bdee-6de8-4d9f-92ca-4f72c1b6fb9f@suse.cz>
-Date: Wed, 14 Jan 2026 18:59:11 +0100
+	Wed, 14 Jan 2026 18:01:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rgPYrwVBd+sAxcZzDUtXRJMr7xRe45tNMkDj0ycU9lzOgLdU6hqPXzUYuaJCsV4Zu2v26rJeSX/GAg0HSUbS9zbwn3UujP0ozrfgCln9JN/q4K5vdvr7Yb+6EASlbDwMcnI/OHXXRczIXZ1V6mkK/jcqj5TjLxkaLofcytQiR8pVRhYmHr1dsD8LxNIYvCtUezBZX0DIn94Ujz9g+t1brUpTy5KVK4/tfwJI/dT6sdOe6ncl5C2nhwfNq7WlEpKbJq4XvO8QISoCawywELvkciJ2DPNJPLqC79kkBG5EiS8Ug0yLRMnfwl0eo+y7WUxiAAzYugwh8NPHm7cC8/YVyw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=V/yuBBaDAznftGhhFsXmsET3hkGuuS/ENIedWO8VvpY=;
+ b=J8cshxXT/PXFHtWk9CUZixSAi2NwJ2Un9tMhfjyDFnk/GJoPMrYzjv+tj645n8OlXY0f6yUERu6JX1u7ewFZMR6hwA9QgKw/3ZPoooqWsLeDZ8Gs0EnQLFcfYQph48tgwHkNR51Ls34C5kBCtpwgQauSycl9EQ5abBJVD+OkRwYyAZ+TIanXG9NADmkSWG//SYeHKjaL8zkGkNoG/IrYfdSjjKzStATta9ZT38DZYR6lR98x6fj+aL4WHwP1BtIAC+wzea7dV3HTxV3aHuUpuegObEw7EHvJMFulnIwzEZRDAwLn4NscnJFeU3+MiSLEVoTgUouDC3hqP+6plTqv8g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=lists.linaro.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=V/yuBBaDAznftGhhFsXmsET3hkGuuS/ENIedWO8VvpY=;
+ b=waolrKMsxJF5mP5CAwCNmDGFpDeZceMFhrfqfmXObXNlKxzfJhmJOHEuKA+aWjczXs3VT6Vo3MmNFdoArjvvB0yE34Nlzy2ViA3pUJFbrPPIQpYlk2+95wY8+t+Nw6b86xEXgwXEzw7NwF2rzZ5OgDHEEdqGAZ4vVZjvxLYHFQg=
+Received: from BYAPR11CA0051.namprd11.prod.outlook.com (2603:10b6:a03:80::28)
+ by IA3PR10MB8323.namprd10.prod.outlook.com (2603:10b6:208:583::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.4; Wed, 14 Jan
+ 2026 18:01:43 +0000
+Received: from CO1PEPF000066E7.namprd05.prod.outlook.com
+ (2603:10b6:a03:80:cafe::e4) by BYAPR11CA0051.outlook.office365.com
+ (2603:10b6:a03:80::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.4 via Frontend Transport; Wed,
+ 14 Jan 2026 18:01:42 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ CO1PEPF000066E7.mail.protection.outlook.com (10.167.249.9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.1 via Frontend Transport; Wed, 14 Jan 2026 18:01:42 +0000
+Received: from DLEE211.ent.ti.com (157.170.170.113) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 14 Jan
+ 2026 12:01:42 -0600
+Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE211.ent.ti.com
+ (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 14 Jan
+ 2026 12:01:34 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE206.ent.ti.com
+ (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 14 Jan 2026 12:01:34 -0600
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60EI1XDc196359;
+	Wed, 14 Jan 2026 12:01:34 -0600
+Message-ID: <7628b04f-df46-47cc-a33d-c40650b256e7@ti.com>
+Date: Wed, 14 Jan 2026 12:01:33 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] irqchip/gic-v3-its: Don't acquire rt_spin_lock in
- allocate_vpe_l1_table()
+Subject: Re: [PATCH v2 2/5] accel/thames: Add driver for the C7x DSPs in TI
+ SoCs
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Nishanth Menon <nm@ti.com>,
+	"Randolph Sapp" <rs@ti.com>, Jonathan Humphreys <j-humphreys@ti.com>, Andrei
+ Aldea <a-aldea@ti.com>, Chirag Shilwant <c-shilwant@ti.com>, Vignesh
+ Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet
+	<corbet@lwn.net>, Sumit Semwal <sumit.semwal@linaro.org>,
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, Robert Nelson
+	<robertcnelson@gmail.com>, David Airlie <airlied@gmail.com>, Simona Vetter
+	<simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+	<linux-doc@vger.kernel.org>, <linux-media@vger.kernel.org>,
+	<linaro-mm-sig@lists.linaro.org>
+References: <20260114-thames-v2-0-e94a6636e050@tomeuvizoso.net>
+ <20260114-thames-v2-2-e94a6636e050@tomeuvizoso.net>
 Content-Language: en-US
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Waiman Long <llong@redhat.com>
-Cc: Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rt-devel@lists.linux.dev, Alexei Starovoitov <ast@kernel.org>
-References: <20260107215353.75612-1-longman@redhat.com>
- <864iowmrx6.wl-maz@kernel.org> <87ms2nsqju.ffs@tglx>
- <86wm1qlq7l.wl-maz@kernel.org> <87ecnwij44.ffs@tglx>
- <86v7h8l9ht.wl-maz@kernel.org>
- <40cec799-f363-4642-969b-24f5a2d56dfb@redhat.com> <87cy3eg94y.ffs@tglx>
- <5f4bfd8b-8699-4bef-bf49-f29965e95ca4@redhat.com>
- <20260113115515.98Mc29Nm@linutronix.de>
-From: Vlastimil Babka <vbabka@suse.cz>
-Autocrypt: addr=vbabka@suse.cz; keydata=
- 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
- m6M14QORSWTLRg==
-In-Reply-To: <20260113115515.98Mc29Nm@linutronix.de>
-Content-Type: text/plain; charset=UTF-8
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20260114-thames-v2-2-e94a6636e050@tomeuvizoso.net>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Spamd-Result: default: False [-4.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCVD_TLS_ALL(0.00)[];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_COUNT_SEVEN(0.00)[10];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	TO_DN_SOME(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DKIM_TRACE(0.00)[suse.cz:+]
-X-Rspamd-Queue-Id: BC146349B0
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000066E7:EE_|IA3PR10MB8323:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7093ad7f-5d98-4c27-6dd9-08de5396f971
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|36860700013|34020700016|1800799024|376014|921020|12100799066;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Sm81cXhEYUFvV0V0T3BCSFgwMG5GalYvdFA5TVdRM2JzM2EycVBBclI5cHB6?=
+ =?utf-8?B?MXpFWWQ0azRWcThUYXlwUXdvYnBEZDFFZTJ4UExBaWNRcTVHbHkyQlk4YjlM?=
+ =?utf-8?B?YlFSYW0vbHh2NmRxREVXMmVhdmdESGlHOXNqNXYxdUFucGswSGFLOHl4QjVM?=
+ =?utf-8?B?TVF2SnpPNktyTE9hT3piUFRYdDZRUG1BUGFyYlpDRkh5bC9sZi91cC9YaGpM?=
+ =?utf-8?B?WGQzQmVPTmVJVkZCTU5SVG9wMFpHM1YwWDU5bDBWTzNaN0hBckRyRnRJeXlB?=
+ =?utf-8?B?K1hud2FjWlFrUzgxRDQrUVUyakFOa1JXQkk4ZTg3aDI1eFFQT2dKZ3VIblpO?=
+ =?utf-8?B?VHRSTkFORThuRGJBS21wYWRJdnBURktnZVkyUWJNL09WVWhieVB1MzgvOG44?=
+ =?utf-8?B?MVhSaml3YUFaUVYwUTlBSm5lZU5GM1hTSUgrWmFxM0FrQ05KVDBHbEh0eG1t?=
+ =?utf-8?B?Zk5WRDlnelRQZzZ4K01ieGFwN2crZHlwVjhYQmFvVEhmOGN1dUI5b0krUTF5?=
+ =?utf-8?B?QUN3U3pXNUpLZGVGSUF6am9wRUNHdlpyTVdMcjdQbC9tMWdLL2RGd3VWbytl?=
+ =?utf-8?B?R1FnZisxZFRMNFVZYUZJdkttczdDZXdUeERFQ1dPbkllZ0xoNDlDMWZJOFBC?=
+ =?utf-8?B?MTdDNUNKajZzcjlUUmJ4RTNIeDV4NEFMMXA4Y1RiRnVjMlNhOVo5M1ZYZkpn?=
+ =?utf-8?B?M1VmYTdpREtkVHgyMzhGaHcvcjJOSWtLcGMvSUtBUnBaV21RL3RkV3ptbk9I?=
+ =?utf-8?B?KzBPMk1PTWg0YmhYUC80bk9GYTJ1SFQ0TnV6OEgvaE1YeWluTlhtNHIwQUZu?=
+ =?utf-8?B?dklsY0luV3N1dFByalJMVnF1VXhsVGxEWWo0YjE3eHFrRnpoMzNwVUd0VVgv?=
+ =?utf-8?B?NE9hTUpmem1qVDBpQ1pQZGo3QnhJSWFqZGZZRWk3WTk3SFNxM2FIZUM2SGVt?=
+ =?utf-8?B?M3hTN29pQ3o3SDN0T2hkamExL25QbUsvYXJnOGwvNXlxSEdJeWxCUkFDWWx2?=
+ =?utf-8?B?OFJmelZMQWtiQTdJQlZ5di9BWFNSNmV4VkpuVjlDNjRlQTZyM2xQYVg5dm1Q?=
+ =?utf-8?B?YVV0ZFFqN1U2bDBLaktpcVJrL0kwQ21TMWt6UmxLSGtObm9mWTRoUDN6T1h1?=
+ =?utf-8?B?b1hOaUx0aVkzM2FJaGJpVDM5SHRhV1lGczhTTzd6alR3WDBBcDRCTkwzRkFB?=
+ =?utf-8?B?R3NSdGk0eHh5eFdpMmFpSmMvTk9DOURBRkxyVkt1c0VvR3RKZzZLSGttblBi?=
+ =?utf-8?B?ZEtTYm80cm5uNFdMV3B4SXNrVjRvNlU3bVMrcFFkN2wrQWxKTDFkUnk5UnVq?=
+ =?utf-8?B?cld5Wkh1WitSK25lb2FtL204SEVqMFNOTVJWeTB2T3Z3STZNRjN6dnoxRkpY?=
+ =?utf-8?B?Rzc2bzkxbWFCRW1QS1dqZUxubllYSC9abzViekJBVGR5K2F6aTRjcTkrNkpX?=
+ =?utf-8?B?NzNtNFBjZW0vWVdPeGxXYldFRUdTSWYwMTA4M3dxb1RxT3dnN1VBYUhKaGVw?=
+ =?utf-8?B?d3h5WFJsc0luckxuU3F3cTRlc3ZzMnRFd0wxVlFkaEh5djBYa1dvczhodEsr?=
+ =?utf-8?B?cVBhSUo2QVVmZ2hkbGtFN1VoaTVUUm4yVTAxbU1PVEUzWnpJSmZGQzNiaGlD?=
+ =?utf-8?B?Y3BsSGdzOXU3c0pURUxhaGZ4dU9LOGZmaGlYRVo3Y0ptd1NTaFF5S3pia25R?=
+ =?utf-8?B?aVAwUk5EN1pRVDl3YmUweDJBVTUweU04d0xsQ1E1YzcwL0FjUzdlSEtIek5E?=
+ =?utf-8?B?d0dvTHIwak5ETlYxam5acXg0aXNidFV6K3FLOHZUYVdxMWk2TnVrSjB2MHpZ?=
+ =?utf-8?B?L25RSHNwd2ZoV1FJcURtWHdHUW1sV251RHBzWFdwMjFLMGxQQkdtMy91eHZU?=
+ =?utf-8?B?YS9hdDdqZUc4SEhZMStIWGFqM3FrSmRZaXBnS0pSbjk2Vit4YkJaT1czWVE3?=
+ =?utf-8?B?cEw2SlBWbzViV2RXOXZocC8yeVZDaXllVFZFbjFJV2FodHMyVmhlYzdraWZQ?=
+ =?utf-8?B?U0ZUbjRScFJjMUtnQXZic0hrL3ZiVlVIZFlQZkR0Z3E5K0FnUUVsc0Zqb2FO?=
+ =?utf-8?B?NXVwZGZJdWczMWcwZEFsSUFsRG5MOS8xM1pYeHlscUJZd0lmVHhyNkNpYnc2?=
+ =?utf-8?B?L0xTc3g1YlM5T0pXUi8xRGdyZnR3QmNVdWdaUW94VlBjRTFKTk9UTVVySnEr?=
+ =?utf-8?Q?E5fVoL49n8Td/uiAHMicOck=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(36860700013)(34020700016)(1800799024)(376014)(921020)(12100799066);DIR:OUT;SFP:1501;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2026 18:01:42.7078
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7093ad7f-5d98-4c27-6dd9-08de5396f971
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E7.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB8323
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_095915_358777_5CBD7695 
-X-CRM114-Status: GOOD (  21.03  )
+X-CRM114-CacheID: sfid-20260114_100158_182368_2AF81570 
+X-CRM114-Status: GOOD (  28.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,47 +178,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/13/26 12:55, Sebastian Andrzej Siewior wrote:
-> On 2026-01-12 12:14:30 [-0500], Waiman Long wrote:
->> On 1/12/26 10:09 AM, Thomas Gleixner wrote:
->> > They might be acquired though. Only alloc_pages_nolock() guarantees that
->> > no lock is taken IIRC.
->> 
->> Thanks for the suggestion. I will look into using that for page allocation.
->> I had actually attempt to use kmalloc_nolock() to replace kzalloc()
->> initially. Even though it removed the call to rmqueue(), but there were
->> other spinlocks in the slub code that were still being acquired like the
->> local_lock() or the spinlock in the get_random() code. So I gave up using
-
-Hmm if get_random() code takes a spinlock, we have an unsolved
-incompatibility with kmalloc_nolock() and CONFIG_SLAB_FREELIST_RANDOM.
-
->> that. Anyway, kmalloc_nolock() doesn't seem to be fully working yet.
+On 1/14/26 2:46 AM, Tomeu Vizoso wrote:
+> Some SoCs from Texas Instruments contain DSPs that can be used for
+> general compute tasks.
 > 
-> with kmalloc_nolock() you have to be able to deal with a NULL pointer.
-
-Yes. So even after we fix the current problems with incompatible context, I
-think kmalloc_nolock() would still be a bad fit for hw bringup code that
-should not really fail. Because the possibility of failure will always
-exist. The BPF use case that motivated it is quite different.
-
-> Looking at kmalloc_nolock(), it has this (in_nmi() || in_hardirq())
-> check on PREEMPT_RT. The reasoning was unconditional raw_spinlock_t
-> locking and bad lock-owner recording for hardirq.
-> There was a trylock path for local_lock to make it work from atomic
-> context. But from what I can tell this goes
->   kmalloc_nolock_noprof() -> __slab_alloc_node() -> __slab_alloc() ->
->   ___slab_alloc() -> local_lock_cpu_slab()
+> This driver provides a drm/accel UABI to userspace for submitting jobs
+> to the DSP cores and managing the input, output and intermediate memory.
 > 
-> The last one does local_lock_irqsave() on PREEMPT_RT which does a
-> spin_lock(). That means atomic context is not possible. Where did I make
-> a wrong turn? Or did this change recently? I do remember that Alexei
-> reworked parts of the allocator to make the local_lock based trylock
-> allocation work.
+> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> ---
+>   Documentation/accel/thames/index.rst |  28 +++++
+>   MAINTAINERS                          |   9 ++
+>   drivers/accel/Kconfig                |   1 +
+>   drivers/accel/Makefile               |   3 +-
+>   drivers/accel/thames/Kconfig         |  26 +++++
+>   drivers/accel/thames/Makefile        |   9 ++
+>   drivers/accel/thames/thames_core.c   | 155 ++++++++++++++++++++++++++
+>   drivers/accel/thames/thames_core.h   |  53 +++++++++
+>   drivers/accel/thames/thames_device.c |  93 ++++++++++++++++
+>   drivers/accel/thames/thames_device.h |  46 ++++++++
+>   drivers/accel/thames/thames_drv.c    | 155 ++++++++++++++++++++++++++
+>   drivers/accel/thames/thames_drv.h    |  21 ++++
+>   drivers/accel/thames/thames_ipc.h    | 204 +++++++++++++++++++++++++++++++++++
+>   drivers/accel/thames/thames_rpmsg.c  | 155 ++++++++++++++++++++++++++
+>   drivers/accel/thames/thames_rpmsg.h  |  27 +++++
+>   15 files changed, 984 insertions(+), 1 deletion(-)
 > 
->> Cheers,
->> Longman
-> 
-> Sebastian
+> diff --git a/Documentation/accel/thames/index.rst b/Documentation/accel/thames/index.rst
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..ca8391031f226f7ef1dc210a356c86acbe126c6f
+> --- /dev/null
+> +++ b/Documentation/accel/thames/index.rst
+> @@ -0,0 +1,28 @@
+> +.. SPDX-License-Identifier: GPL-2.0-only
+> +
+> +============================================================
+> + accel/thames Driver for the C7x DSPs from Texas Instruments
+> +============================================================
+> +
+> +The accel/thames driver supports the C7x DSPs inside some Texas Instruments SoCs
+> +such as the J722S. These can be used as accelerators for various workloads,
+> +including machine learning inference.
+> +
+> +This driver controls the power state of the hardware via :doc:`remoteproc </staging/remoteproc>`
+> +and communicates with the firmware running on the DSP via :doc:`rpmsg_virtio </staging/rpmsg_virtio>`.
+> +The kernel driver itself allocates buffers, manages contexts, and submits jobs
+> +to the DSP firmware. Buffers are mapped by the DSP itself using its MMU,
+> +providing memory isolation among different clients.
+> +
+> +The source code for the firmware running on the DSP is available at:
+> +https://gitlab.freedesktop.org/tomeu/thames_firmware/.
+> +
+> +Everything else is done in userspace, as a Gallium driver (also called thames)
+> +that is part of the Mesa3D project: https://docs.mesa3d.org/teflon.html
+> +
+> +If there is more than one core that advertises the same rpmsg_virtio service
+> +name, the driver will load balance jobs between them with drm-gpu-scheduler.
+> +
+> +Hardware currently supported:
+> +
+> +* J722S
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index dc731d37c8feeff25613c59fe9c929927dadaa7e..a3fc809c797269d0792dfe5202cc1b49f6ff57e9 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -7731,6 +7731,15 @@ F:	Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
+>   F:	drivers/accel/rocket/
+>   F:	include/uapi/drm/rocket_accel.h
+>   
+> +DRM ACCEL DRIVER FOR TI C7x DSPS
+> +M:	Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> +L:	dri-devel@lists.freedesktop.org
+> +S:	Supported
+> +T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
+> +F:	Documentation/accel/thames/
+> +F:	drivers/accel/thames/
+> +F:	include/uapi/drm/thames_accel.h
+> +
+>   DRM COMPUTE ACCELERATORS DRIVERS AND FRAMEWORK
+>   M:	Oded Gabbay <ogabbay@kernel.org>
+>   L:	dri-devel@lists.freedesktop.org
+> diff --git a/drivers/accel/Kconfig b/drivers/accel/Kconfig
+> index bdf48ccafcf21b2fd685ec963e39e256196e6e17..cb49c71cd4e4a4220624f7041a75ba950a1a2ee1 100644
+> --- a/drivers/accel/Kconfig
+> +++ b/drivers/accel/Kconfig
+> @@ -30,5 +30,6 @@ source "drivers/accel/habanalabs/Kconfig"
+>   source "drivers/accel/ivpu/Kconfig"
+>   source "drivers/accel/qaic/Kconfig"
+>   source "drivers/accel/rocket/Kconfig"
+> +source "drivers/accel/thames/Kconfig"
+>   
+>   endif
+> diff --git a/drivers/accel/Makefile b/drivers/accel/Makefile
+> index 1d3a7251b950f39e2ae600a2fc07a3ef7e41831e..8472989cbe22746f1e7292d2401fa0f7424a6c15 100644
+> --- a/drivers/accel/Makefile
+> +++ b/drivers/accel/Makefile
+> @@ -5,4 +5,5 @@ obj-$(CONFIG_DRM_ACCEL_ARM_ETHOSU)	+= ethosu/
+>   obj-$(CONFIG_DRM_ACCEL_HABANALABS)	+= habanalabs/
+>   obj-$(CONFIG_DRM_ACCEL_IVPU)		+= ivpu/
+>   obj-$(CONFIG_DRM_ACCEL_QAIC)		+= qaic/
+> -obj-$(CONFIG_DRM_ACCEL_ROCKET)		+= rocket/
+> \ No newline at end of file
+> +obj-$(CONFIG_DRM_ACCEL_ROCKET)		+= rocket/
+> +obj-$(CONFIG_DRM_ACCEL_THAMES)		+= thames/
+> \ No newline at end of file
+> diff --git a/drivers/accel/thames/Kconfig b/drivers/accel/thames/Kconfig
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..50e0b6ac2a16a942ba8463333991f5b0161b99ac
+> --- /dev/null
+> +++ b/drivers/accel/thames/Kconfig
+> @@ -0,0 +1,26 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +
+> +config DRM_ACCEL_THAMES
+> +	tristate "Thames (support for TI C7x DSP accelerators)"
+> +	depends on DRM_ACCEL
+> +	depends on TI_K3_R5_REMOTEPROC || COMPILE_TEST
 
+COMPILE_TEST part shouldn't be needed here, TI_K3_R5_REMOTEPROC can be built
+under COMPILE_TEST so TI_K3_R5_REMOTEPROC would just be enabled to test.
+
+> +	depends on RPMSG
+> +	depends on MMU
+> +	select DRM_SCHED
+> +	select DRM_GEM_SHMEM_HELPER
+> +	help
+> +	  Choose this option if you have a Texas Instruments SoC that contains
+> +	  C7x DSP cores that can be used as compute accelerators. This includes
+> +	  SoCs such as the AM62A, J721E, J721S2, and J784S4.
+> +
+> +	  The C7x DSP cores can be used for general-purpose compute acceleration
+> +	  and are exposed through the DRM accel subsystem.
+> +
+> +	  The interface exposed to userspace is described in
+> +	  include/uapi/drm/thames_accel.h and is used by the Thames userspace
+> +	  driver in Mesa3D.
+> +
+> +	  If unsure, say N.
+> +
+> +	  To compile this driver as a module, choose M here: the
+> +	  module will be called thames.
+> diff --git a/drivers/accel/thames/Makefile b/drivers/accel/thames/Makefile
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..7ccd8204f0f5ea800f30e84b319f355be948109d
+> --- /dev/null
+> +++ b/drivers/accel/thames/Makefile
+> @@ -0,0 +1,9 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +
+> +obj-$(CONFIG_DRM_ACCEL_THAMES) := thames.o
+> +
+> +thames-y := \
+> +	thames_core.o \
+> +	thames_device.o \
+> +	thames_drv.o \
+> +	thames_rpmsg.o
+> diff --git a/drivers/accel/thames/thames_core.c b/drivers/accel/thames/thames_core.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..92af1d68063116bcfa28a33960cbe829029fc1bf
+> --- /dev/null
+> +++ b/drivers/accel/thames/thames_core.c
+> @@ -0,0 +1,155 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/* Copyright 2026 Texas Instruments Incorporated - https://www.ti.com/ */
+> +
+> +#include "linux/remoteproc.h"
+> +#include <linux/dev_printk.h>
+> +#include <linux/err.h>
+> +#include <linux/of.h>
+> +#include <linux/of_address.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/completion.h>
+> +#include <linux/jiffies.h>
+> +#include <linux/rpmsg.h>
+> +
+> +#include "thames_core.h"
+> +#include "thames_device.h"
+> +#include "thames_rpmsg.h"
+> +
+> +/* Shift to convert bytes to megabytes (divide by 1048576) */
+> +#define THAMES_BYTES_TO_MB_SHIFT 20
+
+Seems unused/unneeded.
+
+[...]
+
+> +
+> +static const struct rpmsg_device_id thames_rpmsg_id_table[] = { { .name = THAMES_SERVICE_NAME },
+> +								{} };
+> +
+
+Some odd formatting here.
+
+> +static struct rpmsg_driver thames_rpmsg_driver = {
+> +	.drv = {
+> +		.name = "thames",
+> +		.owner = THIS_MODULE,
+
+Above line shoulnd't be needed.
+
+Andrew
 
