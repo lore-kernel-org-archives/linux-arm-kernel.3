@@ -4,98 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9886CD38FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D21F6D38FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GYBoGaWLHXCd8PqOgncqDf0BayRCOnmKkumvRRhT/88=; b=nSJRntpO1sckZz5SjbLSphbNPS
-	w/LTsdFWyHdprYUtQLRRkVuBSidfYJZPOPpaFcNoD3WzHMf2p9dO5woqnykIhzjhgDGuq9tvDPR/j
-	yP3myFI17j2OCgaYBe8FbQKs6/vq917ge9Rau9jckXzBSzSp9H7ncuQ1/DOA8326Hnt/2DrTUC5gC
-	OwHkCad2fsrrC6mItjV7nUJH+pyTBTEoyNZvL+pYs3QZqSfF5+SOLw+PCK7eYZKZigOG8ZKE5ph9z
-	XUbj1hYqLRrRaEjsOkTus0EaVkDwxDLViHysqNOMUsTQtop0xJBCxug9Rjs1vo6LkJib9FScjhLnV
-	0UkquGJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=reYbQywtfs6l3YId6TEn7g/nU2+zvlCK5bs8kkfE33Q=; b=C+fj+Rx66ijOLp
+	zR47JPTTcidwzj94aGwaOBvsVjdbIyN5EBsq77DYX8eu7Df4WQmhjegXUfiXIFSY6TBOGbsxnZcbF
+	AUVLxj1cHJFsHtrRFydXvanK/lHbiMQGs3l+xAGJseF3voWB7tFeiFmXcovCp4XGGVWBOg+VUwvRO
+	NVZevObtnEO3I+j2EtCZtIpbz/I6j2xuHIFfJtEw2UX8RiL4CoyRBz5NTEaQGJBYVTkUw5qqi/XIQ
+	lFdkktYjzXm3oZpOSYkde5ec1CrorbtIFieZGw/NSQn1DbcrI40MtiQhqjX1n3fnhx2KBFGCMA3Vp
+	JA0wpY0HW5LgBMuN+oBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4Mw-0000000A3JG-2BZy;
-	Wed, 14 Jan 2026 17:09:18 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1vg4N2-0000000A3OP-1nbI;
+	Wed, 14 Jan 2026 17:09:24 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4Mp-0000000A3GC-3hjr
+	id 1vg4Mx-0000000A3JE-3e5r
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 17:09:17 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2a07f8dd9cdso528945ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 09:09:11 -0800 (PST)
+	Wed, 14 Jan 2026 17:09:22 +0000
+Received: by mail-wr1-x443.google.com with SMTP id ffacd0b85a97d-42fbbc3df8fso33315f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 09:09:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768410550; x=1769015350; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GYBoGaWLHXCd8PqOgncqDf0BayRCOnmKkumvRRhT/88=;
-        b=v+29Sx3qQg7nNnvofvjDn7O4wha65xzI5dNI+07cT0focmkpSNQHCJt9/wOGJjszVF
-         4oV3JpxUBd0Brn5UM6l+/WafQnnyJ02rTTcRA8q3DjcLpsm5I9Y/zipdEEpxjA63v1z6
-         STwqHjSNvZoukNSa9J4jDhqxC3RCK2o9hN+OIJEODMGjPRUIfcjmqK3IslfKmsK7REGs
-         tqxdUwUtIYN8bNqb+0a1QuidwNCn2L2k51P4e3EbFyPHP2VqlOxYzJXFqcpXlMvfvwTC
-         TLelfQ+2huHLEGwxOsD24aeMb8s+Y+xZ5oDNo0VySaYiZOfTxs5XRVZmQS4aC8h089Fe
-         yzmQ==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1768410558; x=1769015358; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=reYbQywtfs6l3YId6TEn7g/nU2+zvlCK5bs8kkfE33Q=;
+        b=lGjBr0yUkhCGRPorgTPWyeDs/Vs0cHar69Ami9M6XzbrARFqqXoBuQ3XxfZsnozeLC
+         f/A6ZZKlHTyG7V9NNQ/CBs6XKw5po5j59MntCiFrAlg/hFgdlogr6KPmUrDlGZYzn0+V
+         G/6V41a7KpFElcQ3iXWsrpnU9e3iYhS3YeeUWqrQ7WZP0Yy5X8or6hHByH/XOkiWjSL/
+         H744/k1aRq/qlNeBDGBPn1jvKOw0T58u/d1+vkmVUH4DtApZLK7iF7+0RkD1vIiV6y7t
+         VfopGcAfEzXBeMkIc6zh3zIgjseym39dQclw90sLhWwCoBd4+LZl+xg3xyX0cr+zIXhB
+         vnxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768410550; x=1769015350;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GYBoGaWLHXCd8PqOgncqDf0BayRCOnmKkumvRRhT/88=;
-        b=n6XxtyncovDQ+R2/pT5HHVFQUa2T65HgyUoeJpsETfnVOktYh4SP6E7LfOJFrrl6lF
-         2YLbkXNnl4lawiQWqcgI5mL9709rLtCrTcgFeA3MYCqwbXPIERpNhhGzK/O8lav5wH/d
-         65vwSV5/M6HbPo0wBi7Bbht42xk4mOEjqYFBdWwCwM/HGFao1RezjnMK4HnwMEqj/ByQ
-         v5ob44Ow15cyRHZB2uhizZg2tiLqdp7VU3bTp1z1YGjQ57bCxX0fq0qqq++bUaTzEzs5
-         pnKwJegDbVtrFGzTTahCNv/au/C5efTXKpKgVbYuin2g61Mduc34Vi9k+z7aGSTGiExe
-         pp+A==
-X-Forwarded-Encrypted: i=1; AJvYcCX8I8jVxoQxaHQN3yzL1k0TuBa7YokGS/cGtoFk434pH4N8ZlijNMNCriw67sZTzrSqlnOf8WLHdAbqVMDzxrLr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDx6gsZuVbP6npUrixbr4TAhJ2YuUBqrghKHi1oiwBC1pefDmE
-	/7XGV84nH1grPIwfUz69TX4Pg0NaxFGgPtmMoK23AzKzTpk22ooxVAGankWeZjIUzLc=
-X-Gm-Gg: AY/fxX7JJdv8iqRvd35oEKYWr7iucbR7l9bu5kR1Ipjdxi3V2SBd6wvoihYrgh7orDy
-	+LYdOlaDGzw/EznSVWNT+TaehushmpC4fokKcAfx5/IQ4L9IgnOWiKsEiJ6CYmU1h/KuPOaLhkK
-	K+iJ6IaNxg6g4Eqt8IP9mYvuT5DE65eNq2coD6BLXQIqCzMuZRs/Z/Uh+pZTYYlV+uyfOmvsUhS
-	uqVHPlgGo3zqpxMu2K7Gg3+AIzGl4EKEDUW8UZKZzxERmydWlBLXdwVY/wm3hV/Cf1+MwK3Yu+Q
-	0FXo2rcAr856IHgVIE01kE6OD4OiXvYpnsSyOfTRb+eO1YooV0lwtYsOhbQuFllq2L3te5FTEFn
-	jomrFkvLuXihwdC26VJh/72WceTkJh7sFLrPLivSdw/NRJJkkGAZq10s4gsDSi+QAFUN3v//BBA
-	vqzQoIkPkUS6T1JA==
-X-Received: by 2002:a17:902:c949:b0:2a0:992c:c54e with SMTP id d9443c01a7336-2a599e33f1dmr33469595ad.48.1768410550174;
-        Wed, 14 Jan 2026 09:09:10 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:c447:f90e:a227:47bf])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3cc88d8sm231003025ad.80.2026.01.14.09.09.08
+        d=1e100.net; s=20230601; t=1768410558; x=1769015358;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=reYbQywtfs6l3YId6TEn7g/nU2+zvlCK5bs8kkfE33Q=;
+        b=A7bRCdOc+TzXMQZDLAyGSg3rc0ibEJA5gyHwl2AtKkcIDSY/0h5crGRuYNsW/ajUPI
+         qE9pn8zHuy5BCDc5aooyW7/v+OYBa8mFRLXPo+Jedt/htyjYfGvLmV6/I4JG6lSJkhtC
+         U72nPkDeCrjD3+o/L0zCD3XfSFE1+pat1/SaroX06N/WJEQsADKm/og4owUoDKLCaU6r
+         094Te2vkgH0lDUGqjhC6gTx4SFhAWmVxY8G6dSip7VIKJu8AfbR+GzbvljtfdYSketmY
+         by/67Wq5D0i4i0LxWbPx2AR8C5oo9ZxvnYveGWouf+ScfDltkoNDO2myATTLCz5AMha8
+         VkPw==
+X-Gm-Message-State: AOJu0YzGwa7ykZA7x24f060cgpivIKztcVmlTtRC96kTeK5T7EPBotfW
+	Zt4JDz5SkU8sPS271O/Xvtq8ArLYtst1Zj+Kv6udwMcBxUPJc6nLJv2Uk0Ub6XPdze8=
+X-Gm-Gg: AY/fxX7MFX52PVUJWw1M5gmHFRrVn8uot/zUCQiTz2TEr861AAGI/qyRQLiTNerr2wY
+	RDhsaSgHmowDKQ7OyiWCbVp2zyUrd1CwTAl92wfu1wuzyO1FVfNIYD6O16ixyx0JKiakVu1PKeq
+	X5BNNtvy14YYHLvgZVnC9tyL9JjATnW8i5iv6FhNCO4fQsXx565jAd+bmIFw3W4JEbL7jznLC16
+	dLVjnieKvxd/cbKD4htnWo8G3cCqd4X1lasl21iFDMBzb0dCBifm49z3liIOuJqV4C1wM22RI/Z
+	kjrtwUS7Uy/2l1Da41Q4VCvVQdZm5L3A2MtuxgyHI8SaFa2MSSthzGq/sln7zqLLBqmKBsNqsvt
+	PaeA9ODcx0eSNWGv/dHawByZ3KQCTWmLzxkVGBDkuYRlithD6BW0BcnO5LDRvAQE5sF+Rr4g4Vd
+	IwHGMp9I45aw==
+X-Received: by 2002:a05:6000:1847:b0:430:ff81:2947 with SMTP id ffacd0b85a97d-4342c535b91mr4556126f8f.40.1768410557880;
+        Wed, 14 Jan 2026 09:09:17 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:d3d1:7ba4:2f56:d18a])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-434af653632sm428077f8f.11.2026.01.14.09.09.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Jan 2026 09:09:09 -0800 (PST)
-Date: Wed, 14 Jan 2026 10:09:06 -0700
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-imx@nxp.com
-Subject: Re: [PATCH v6 0/5] Enable Remote GPIO over RPMSG on i.MX Platform
-Message-ID: <aWfNsrpC5Rgiwwp3@p14s>
-References: <20251212194341.966387-1-shenwei.wang@nxp.com>
+        Wed, 14 Jan 2026 09:09:17 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+Subject: [PATCH 0/6] arm64: dts: amlogic: assign the MMC signal clocks
+Date: Wed, 14 Jan 2026 18:08:47 +0100
+Message-Id: <20260114-amlogic-mmc-clocks-followup-v1-0-a999fafbe0aa@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251212194341.966387-1-shenwei.wang@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJ/NZ2kC/x3MSwrCMBAA0KuUWTuQTz/qVYqLME7bwaRTEtRC6
+ d0NLt/mHVA4Cxe4Nwdk/kgRXSvspQFawjozyrManHG9sbbFkKLOQpgSIUWlV8FJY9Tve8NgBu+
+ Jupu7eqjDlnmS/b+Pj/P8AWHOBLZtAAAA
+X-Change-ID: 20260114-amlogic-mmc-clocks-followup-a0733cc59283
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Yixun Lan <yixun.lan@amlogic.com>, Nan Li <nan.li@amlogic.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1373; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=osL3XON6lRfI69E18cOlW4Vk5fOS+vLWguNhE5gZqKM=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBpZ82qSDQH6O9jmtXAKWRTCoF+LxEBOk9KYznRS
+ Zd6puz8K6OJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCaWfNqgAKCRDm/A8cN/La
+ heaED/9btb9Oa74WI86rTRohOlO3HHZXXSA93nDaSoSWSFXdvpZcHmSQG9jFM67Cs7/lCekRJnT
+ 1QKo9KcmQmLDJWuvi31AjnTRy2LcmfauU1tweirotmb3i5MmlUR90jma1qBBo6w3dqEmLBzLCDx
+ FavwLmK8mFn1Oq4gC7q8WbIWn1N0J1Oqrw9Q0EcekLoEQEFgpRvvYuxnNr6CIE4m2vkRkVSgLxl
+ XlZ93u0gadznFmppwbYckjrP4sNg42qQ4zPDvUySI/3o72DO/3mI4b4AAxVgAe76+t+jJ+kB+n+
+ FK6uXbkPsNwcM/y3zo6fESeg1YQNaLp9BXotqQeE3ZfLOFU2sNCaAmBaIPoKOOsizhy9l8wxvgh
+ 9nHqASssLqwUiDLG94JwjlNSgL2AArURMcgmyWjUYplZdcBu6zpLXkn5H48v0XwyGYrjDV93w1H
+ pC1qoV+wj9mOjtWWy2H5j+gz5wHZXwz6x28H+h1o9y+afu1PHXwcpzjp/8oEVH7OHtJQJn9CnmZ
+ 4bbHWgaBbDZJiENt6SdYd52Iu4f21OCzIi4W51ZWsnwMyMjbCWaLYQv9krAwx7JI5786PdqdC1a
+ l9ud+ACyxYzvRHWQd4+CijXikNgk1xgzIHQz9u0GK5HF2W8S0bHnwcNSBb2dY41NteiJzSNePgy
+ PCHKqKf+gbUoQpw==
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_090911_945003_CB7D7D68 
-X-CRM114-Status: GOOD (  23.60  )
+X-CRM114-CacheID: sfid-20260114_090920_270107_F20D607F 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,73 +122,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 12, 2025 at 01:43:36PM -0600, Shenwei Wang wrote:
-> Support the remote devices on the remote processor via the RPMSG bus on
-> i.MX platform.
-> 
-> Changes in v6:
->  - make the driver more generic with the actions below:
->      rename the driver file to gpio-rpmsg.c
->      remove the imx related info in the function and variable names
->      rename the imx_rpmsg.h to rpdev_info.h
->      create a gpio-rpmsg.yaml and refer it in imx_rproc.yaml
->  - update the gpio-rpmsg.rst according to the feedback from Andrew and
->    move the source file to driver-api/gpio
->  - fix the bug reported by Zhongqiu Han
->  - remove the I2C related info
->
+The amlogic MMC driver operate with the assumption that MMC clock
+is configured to provide 24MHz. It uses this path for low
+rates such as 400kHz.
 
-NAK - I asked to use the virtio interface (in this case virtio-gpio), something
-I do not see in the above summary and the first 2 patches in this series.  This
-work will not move forward until that happens.
- 
-> Changes in v5:
->  - move the gpio-rpmsg.rst from admin-guide to staging directory after
->    discussion with Randy Dunlap.
->  - add include files with some code improvements per Bartosz's comments.
-> 
-> Changes in v4:
->  - add a documentation to describe the transport protocol per Andrew's
->    comments.
->  - add a new handler to get the gpio direction.
-> 
-> Changes in v3:
->  - fix various format issue and return value check per Peng 's review
->    comments.
->  - add the logic to also populate the subnodes which are not in the
->    device map per Arnaud's request. (in imx_rproc.c)
->  - update the yaml per Frank's review comments.
-> 
-> Changes in v2:
->  - re-implemented the gpio driver per Linus Walleij's feedback by using
->    GPIOLIB_IRQCHIP helper library.
->  - fix various format issue per Mathieu/Peng 's review comments.
->  - update the yaml doc per Rob's feedback
-> 
-> Shenwei Wang (5):
->   dt-bindings: remoteproc: imx_rproc: Add "rpmsg" subnode support
->   remoteproc: imx_rproc: Populate devices under "rpmsg" subnode
->   docs: driver-api: gpio: generic gpio driver over rpmsg bus
->   gpio: rpmsg: add generic rpmsg GPIO driver
->   arm64: dts: imx8ulp: Add rpmsg node under imx_rproc
-> 
->  .../devicetree/bindings/gpio/gpio-rpmsg.yaml  |  49 ++
->  .../bindings/remoteproc/fsl,imx-rproc.yaml    |  54 ++
->  Documentation/driver-api/gpio/gpio-rpmsg.rst  | 232 +++++++++
->  Documentation/driver-api/gpio/index.rst       |   1 +
->  arch/arm64/boot/dts/freescale/imx8ulp.dtsi    |  27 +
->  drivers/gpio/Kconfig                          |  16 +
->  drivers/gpio/Makefile                         |   1 +
->  drivers/gpio/gpio-rpmsg.c                     | 490 ++++++++++++++++++
->  drivers/remoteproc/imx_rproc.c                | 143 +++++
->  include/linux/rpmsg/rpdev_info.h              |  33 ++
->  10 files changed, 1046 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
->  create mode 100644 Documentation/driver-api/gpio/gpio-rpmsg.rst
->  create mode 100644 drivers/gpio/gpio-rpmsg.c
->  create mode 100644 include/linux/rpmsg/rpdev_info.h
-> 
-> --
-> 2.43.0
-> 
+Assign the clocks to make sure they are properly configured
+
+This fix has been split into multiple changes to get the Fixes tag
+right and help stable pick up the change.
+
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+---
+Jerome Brunet (6):
+      arm64: dts: amlogic: c3: assign the MMC signal clocks
+      arm64: dts: amlogic: a1: align the mmc clock setup
+      arm64: dts: amlogic: axg: assign the MMC signal clocks
+      arm64: dts: amlogic: gx: assign the MMC signal clocks
+      arm64: dts: amlogic: g12: assign the MMC B and C signal clocks
+      arm64: dts: amlogic: g12: assign the MMC A signal clock
+
+ arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi       | 7 +++++++
+ arch/arm64/boot/dts/amlogic/meson-a1.dtsi         | 5 +++--
+ arch/arm64/boot/dts/amlogic/meson-axg.dtsi        | 6 ++++++
+ arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi | 9 +++++++++
+ arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi       | 9 +++++++++
+ arch/arm64/boot/dts/amlogic/meson-gxl.dtsi        | 9 +++++++++
+ 6 files changed, 43 insertions(+), 2 deletions(-)
+---
+base-commit: cd3b654a413c14648d0074ca160da62e4e29ac88
+change-id: 20260114-amlogic-mmc-clocks-followup-a0733cc59283
+
+Best regards,
+-- 
+Jerome
+
 
