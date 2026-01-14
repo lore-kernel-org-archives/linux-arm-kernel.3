@@ -4,58 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75AD7D3900B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 18:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD27D3900E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 18:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zcnIuWiSTIZZ0AACUI8rXLp5eXesHA5I/iZOlgjvMlE=; b=VdzU8eFzkqVM1tjQK+p2RJY6qA
-	qwMFfK4wXqMkU/lhzTEHqGk2mwkR8s1DDig79AMAT1DbSJh58pMs9ACQf5xHLjMdAoNJCcA2qODpZ
-	GDZtOuTkWvvRSb6UQLLmzpQS2EZ86ifQ3gPv0F2nt8iAZT/REUKaM9yprhROJFMKhikUlRh7p7+xk
-	o68/RfUAGFP5mKO6QhmsY8SWg8epiULJw8R1BCLzl0uS5TbDeJUr0MZws6B1KFKjQpOum2DYcWjVQ
-	wpdUDGjjAD5Oc14imVv8wmH3ecbUzH+YmO4ByRGDB+srLVcV40+AGmMVMDsO2mq4hwlh+4qqj1k3w
-	iissxNpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iTNLp10Ro+X5fPkwXrfSV4iRZlIf0RMpE69VDQnSaDU=; b=XMgwVYbqgPVDqDQGt+DPfJcCOd
+	HorQ3fOafetUolKxtZRIpCNzDn3D8HTh9J8ELTFeOAZ2yq9+ex7Ue7yvx7mdGatumpTZOfPkWevb1
+	zagS777vN/YAiF1Qyc1U/X5VL0n6G6rFgIG9Ikbw89rrqvbQ/cLtKKx0QV4Hwv356jPor/LPDTcCr
+	nXLUIELIDCvTggrSytGCigviYhy2YrGrhR7BwpaTjVbaRNf/QXSjWrwwQhybbdPzOwhj8f70eczn6
+	/PtV5VG6GCO/U9kLXoGDGpxxdKl9inGlN8TPVm89fTFo7a4pQPjeBnlKPj/MLC3MyElLXUkG8rXRs
+	EwSu+h6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg60N-0000000AOKN-08FG;
-	Wed, 14 Jan 2026 18:54:07 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg60K-0000000AOJo-1FEC;
-	Wed, 14 Jan 2026 18:54:04 +0000
-Message-ID: <d5ff6967-ddf4-42df-840e-d960f7fab257@infradead.org>
-Date: Wed, 14 Jan 2026 10:54:03 -0800
+	id 1vg624-0000000AOeg-1nad;
+	Wed, 14 Jan 2026 18:55:52 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vg620-0000000AOdj-427E;
+	Wed, 14 Jan 2026 18:55:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=iTNLp10Ro+X5fPkwXrfSV4iRZlIf0RMpE69VDQnSaDU=; b=1LhRzFKXkFPsaaOO+voWBOqmCx
+	WlnkLzJfHlydzw2SupdC0FtuHxJFpWUTE3rHxleSIvoNimmsJ74c4uQvhjZ5mKgk1erkai5LToTCu
+	KGmiXHFeAVwhRvi7Dr7f08JrQRzAfcc9+n1xowSCaSCfv74kEjtro56lOmizuDoQHXoweuV6H04bA
+	ATi3Udti/sDsrn/o9G3B40TwksP84ndpiOAovq7FyzWG+L++U1By4AXv4Q1+iLLOGqE4SWX74XiWb
+	zisnyNCoVk3fB4Ad/jxIeqn8mldsG2eB5Re8HQizk8XYDzCQuP/9mG7DR3gHc8DKVBNFTX2s9SJQa
+	Viw5474Q==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40706)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vg61r-000000000b8-1JiZ;
+	Wed, 14 Jan 2026 18:55:39 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vg61n-000000001sW-0Hze;
+	Wed, 14 Jan 2026 18:55:35 +0000
+Date: Wed, 14 Jan 2026 18:55:34 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next 03/14] phy: qcom-sgmii-eth: add .set_mode() and
+ .validate() methods
+Message-ID: <aWfmpq-dJ-mUCvz1@shell.armlinux.org.uk>
+References: <aWfWDsCoBc3YRKKo@shell.armlinux.org.uk>
+ <aWfWDsCoBc3YRKKo@shell.armlinux.org.uk>
+ <E1vg4vs-00000003SFt-1Fje@rmk-PC.armlinux.org.uk>
+ <E1vg4vs-00000003SFt-1Fje@rmk-PC.armlinux.org.uk>
+ <20260114184705.djvad5phrnfen6wx@skbuf>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] accel/thames: Add driver for the C7x DSPs in TI
- SoCs
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Nishanth Menon <nm@ti.com>,
- "Andrew F. Davis" <afd@ti.com>, Randolph Sapp <rs@ti.com>,
- Jonathan Humphreys <j-humphreys@ti.com>, Andrei Aldea <a-aldea@ti.com>,
- Chirag Shilwant <c-shilwant@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Oded Gabbay <ogabbay@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Sumit Semwal <sumit.semwal@linaro.org>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- Robert Nelson <robertcnelson@gmail.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-doc@vger.kernel.org, linux-media@vger.kernel.org,
- linaro-mm-sig@lists.linaro.org
-References: <20260114-thames-v2-0-e94a6636e050@tomeuvizoso.net>
- <20260114-thames-v2-2-e94a6636e050@tomeuvizoso.net>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20260114-thames-v2-2-e94a6636e050@tomeuvizoso.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260114184705.djvad5phrnfen6wx@skbuf>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_105549_284234_07D28374 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,150 +94,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 1/14/26 12:46 AM, Tomeu Vizoso wrote:
-> Some SoCs from Texas Instruments contain DSPs that can be used for
-> general compute tasks.
+On Wed, Jan 14, 2026 at 08:47:05PM +0200, Vladimir Oltean wrote:
+> On Wed, Jan 14, 2026 at 05:45:24PM +0000, Russell King (Oracle) wrote:
+> > qcom-sgmii-eth is an Ethernet SerDes supporting only Ethernet mode
+> > using SGMII, 1000BASE-X and 2500BASE-X.
+> > 
+> > Add an implementation of the .set_mode() method, which can be used
+> > instead of or as well as the .set_speed() method. The Ethernet
+> > interface modes mentioned above all have a fixed data rate, so
+> > setting the mode is sufficient to fully specify the operating
+> > parameters.
+> > 
+> > Add an implementation of the .validate() method, which will be
+> > necessary to allow discovery of the SerDes capabilities for platform
+> > independent SerDes support in the stmmac netowrk driver.
 > 
-> This driver provides a drm/accel UABI to userspace for submitting jobs
-> to the DSP cores and managing the input, output and intermediate memory.
+> s/netowrk/network/
 > 
-> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-> ---
->  Documentation/accel/thames/index.rst |  28 +++++
->  MAINTAINERS                          |   9 ++
->  drivers/accel/Kconfig                |   1 +
->  drivers/accel/Makefile               |   3 +-
->  drivers/accel/thames/Kconfig         |  26 +++++
->  drivers/accel/thames/Makefile        |   9 ++
->  drivers/accel/thames/thames_core.c   | 155 ++++++++++++++++++++++++++
->  drivers/accel/thames/thames_core.h   |  53 +++++++++
->  drivers/accel/thames/thames_device.c |  93 ++++++++++++++++
->  drivers/accel/thames/thames_device.h |  46 ++++++++
->  drivers/accel/thames/thames_drv.c    | 155 ++++++++++++++++++++++++++
->  drivers/accel/thames/thames_drv.h    |  21 ++++
->  drivers/accel/thames/thames_ipc.h    | 204 +++++++++++++++++++++++++++++++++++
->  drivers/accel/thames/thames_rpmsg.c  | 155 ++++++++++++++++++++++++++
->  drivers/accel/thames/thames_rpmsg.h  |  27 +++++
->  15 files changed, 984 insertions(+), 1 deletion(-)
+> > 
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > ---
 > 
+> Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 
-> diff --git a/drivers/accel/Makefile b/drivers/accel/Makefile
-> index 1d3a7251b950f39e2ae600a2fc07a3ef7e41831e..8472989cbe22746f1e7292d2401fa0f7424a6c15 100644
-> --- a/drivers/accel/Makefile
-> +++ b/drivers/accel/Makefile
-> @@ -5,4 +5,5 @@ obj-$(CONFIG_DRM_ACCEL_ARM_ETHOSU)	+= ethosu/
->  obj-$(CONFIG_DRM_ACCEL_HABANALABS)	+= habanalabs/
->  obj-$(CONFIG_DRM_ACCEL_IVPU)		+= ivpu/
->  obj-$(CONFIG_DRM_ACCEL_QAIC)		+= qaic/
-> -obj-$(CONFIG_DRM_ACCEL_ROCKET)		+= rocket/
-> \ No newline at end of file
-> +obj-$(CONFIG_DRM_ACCEL_ROCKET)		+= rocket/
-> +obj-$(CONFIG_DRM_ACCEL_THAMES)		+= thames/
-> \ No newline at end of file
-
-Please eliminate these warnings.
-
-
-> diff --git a/drivers/accel/thames/thames_ipc.h b/drivers/accel/thames/thames_ipc.h> new file mode 100644
-> index 0000000000000000000000000000000000000000..60297b4bc2ffd990315cb735a96a23429d390f43
-> --- /dev/null
-> +++ b/drivers/accel/thames/thames_ipc.h
-> @@ -0,0 +1,204 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright 2026 Texas Instruments Incorporated - https://www.ti.com/
-> + *
-> + * This header defines the RPMSG message structures exchanged between
-> + * the Linux kernel (host) and the C7x DSP (remote) firmware for the
-> + * Thames DRM/accel driver.
-> + */
-> +
-> +#ifndef _THAMES_IPC_H
-> +#define _THAMES_IPC_H
-> +
-> +#ifdef __KERNEL__
-> +#include <linux/types.h>
-> +#else
-> +#include <stdint.h>
-> +typedef uint8_t __u8;
-> +typedef uint16_t __u16;
-> +typedef uint32_t __u32;
-> +typedef uint64_t __u64;
-> +#endif
-> +
-> +#define THAMES_SERVICE_NAME "thames-service"
-> +
-> +/**
-> + * @THAMES_MSG_TYPE: Simplified message type enumeration
-> + */
-
-"/**" means "this is kernel-doc format", which should look like:
-
-/**
- * enum thames_msg_type - Simplified message type enumeration
- */
-
-and then each enum value should be documented as well.
-
-> +enum thames_msg_type {
-> +	/* --- Host (Kernel) -> Remote (DSP) --- */
-> +	THAMES_MSG_PING = 0x100, /* Ping message to test communication */
-> +	THAMES_MSG_CONTEXT_OP, /* Create/destroy context */
-> +	THAMES_MSG_BO_OP, /* Map/unmap buffer objects */
-> +	THAMES_MSG_SUBMIT_JOB, /* Submit job for execution */
-> +
-> +	/* --- Remote (DSP) -> Host (Kernel) --- */
-> +	THAMES_MSG_PING_RESPONSE = 0x200,
-> +	THAMES_MSG_CONTEXT_OP_RESPONSE,
-> +	THAMES_MSG_BO_OP_RESPONSE,
-> +	THAMES_MSG_SUBMIT_JOB_RESPONSE,
-> +};
-> +
-> +/**
-> + * @THAMES_CONTEXT_OP: Context operation types
-
- * enum thames_context_op - Context operations types
-
-> + */
-> +enum thames_context_op {
-> +	THAMES_CONTEXT_CREATE = 0,
-> +	THAMES_CONTEXT_DESTROY,
-> +};
-> +
-> +/**
-> + * @THAMES_BO_OP: Buffer Object operation types
-
- * enum thames_bo_op - Buffer Object operation types
-
-> + */
-> +enum thames_bo_op {
-> +	THAMES_BO_MAP = 0,
-> +	THAMES_BO_UNMAP,
-> +};
-> +
-> +/**
-> + * @THAMES_RESP_STATUS: Response status codes
-
- * enum thames_resp_status - Response status codes
-
-> + */
-> +enum thames_resp_status {
-> +	THAMES_RESP_SUCCESS = 0,
-> +	THAMES_RESP_ERR_GENERIC = 1,
-> +	THAMES_RESP_ERR_NOMEM = 2,
-> +	THAMES_RESP_ERR_INVAL = 3,
-> +	THAMES_RESP_ERR_NO_CTX = 4,
-> +	THAMES_RESP_ERR_MMU = 5,
-> +	THAMES_RESP_ERR_JOB_TIMEOUT = 6,
-> +};
-
-Or you could just use "/*" so that they aren't considered as
-kernel-doc.
-
+According to patchwork (I forgot the RFC tag on the patches) it needs
+linux/phy.h included. Plesae let me know if you'd like me to retain
+your r-b. Thanks.
 
 -- 
-~Randy
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
