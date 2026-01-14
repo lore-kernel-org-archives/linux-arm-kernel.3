@@ -4,56 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 932AFD29FEF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 11:49:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7FA8D29FF7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 11:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bBfMjrGo4Jxvu45aSn6YILJa6MyAoiKKy1rZ35UryF8=; b=TpRYC/w5cL/J4hI5IeVkfZZOho
-	KQF3ZDmC26ycy6R4CCn9IG1RYOARmfuRZ1xQvxeK2v6f34asNfPw6BoJh8ZvTEZWuJjV41sSdkV9Z
-	V2Cu1RrYa6JhHafgCvbhn7/wAnzAk/yORI4GeMw3BCpG7iQF8fNRP8N6r2+PgVoqF4UZwwL6biznz
-	XUzRBAoSdkuIb/iKeAGJyUWScFrJr7vEbaYcYjkR8TmNyn8MxtIQRNu40syURDrBL0+QuIpFd4Kvr
-	d6ubLQEtdwhqkoxP0fTa5ELHpcN/QJcnc9/d5thkPzpAYyumS9iZktpgE5NARcvy3hBaJ+zXyQw84
-	TJktiEDA==;
+	bh=fATf/St2y2YgIn8oxgkSgNLL6dxB/Sz4b5lYp4lukmY=; b=fjPL4IQ391ifZYKODpeJ1c+DRW
+	Z9m+EBDotTyWWxMerVpCdWKPnmAK2U4F1/KGAJIctp5WTAgl7qujy3QnsbnCvVS/HE6ej5dr6rClD
+	Qz8joxdfqoFnV0rvXnX3PoMpKHyWGapggYwKnRx4TZaO1nzUKwapaixxa5exgwsC+qpmQ9tjK+Oc7
+	AhGwWD9WXrKzkrbOKEWD6OTk5d10PO0WxVGsXoBcmfUf/yxuxmaTaFmc84NI7pOaj0Hq3U6kwWSog
+	xdedJ9PmTO4zUMj15H/vNNvNAu3WdGahTWExcqpmARrhgX5413vaKisof/iqf+1pESh4W8YwsD/VD
+	jyihvGfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzNQ-0000000920s-2XUg;
-	Wed, 14 Jan 2026 11:49:28 +0000
-Received: from mail1.manjaro.org ([142.132.176.110])
+	id 1vfzTc-000000093PB-2VrS;
+	Wed, 14 Jan 2026 11:55:52 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzNG-000000091rk-0XZK;
-	Wed, 14 Jan 2026 11:49:26 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 4409941A8A;
-	Wed, 14 Jan 2026 12:49:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
-	t=1768391353; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=bBfMjrGo4Jxvu45aSn6YILJa6MyAoiKKy1rZ35UryF8=;
-	b=v4U3pivYB5Ma0GveQD03fyuz4PEEBG/2vRZ/ToB5VLr5AMAuV7YFpG3Ms3jPjoxwEyQ4sI
-	FVOIk7iomjkvi820S+w1kWqZPawHztknia/Fqu+02pZrLhVhA+A+Egiaxhu/N+pgl/HB38
-	HKiMJuIPTXhBhgnn8wDye1FJ5YFZNLkANh8a2E6XY9ecvORG3cWpzeDSh4yZP/TcB2q9DU
-	jW3/b06Ms6y8rC+u8Yo5DzVfKbWf6e9GFYS8N6sllkZl94wscWZ1CPCH2esisuICasAVDS
-	30bpti0zOyTn13fh1UInsf497F7Ck5uM91hiLaNqmrZ2LlvOCfNkITGQ5lNXJg==
-From: "Dragan Simic" <dsimic@manjaro.org>
-In-Reply-To: <0b9488badb467ef83a0a464eeea921f59e32e6b0.1767111809.git.robin.murphy@arm.com>
-Content-Type: text/plain; charset="utf-8"
-References: <cover.1767111804.git.robin.murphy@arm.com> <0b9488badb467ef83a0a464eeea921f59e32e6b0.1767111809.git.robin.murphy@arm.com>
-Date: Wed, 14 Jan 2026 12:49:09 +0100
-Cc: heiko@sntech.de, neil.armstrong@linaro.org, dianders@chromium.org, thierry.reding@gmail.com, sam@ravnborg.org, jesszhan0024@gmail.com, dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-To: "Robin Murphy" <robin.murphy@arm.com>
+	id 1vfzTX-000000093Mi-2FNG;
+	Wed, 14 Jan 2026 11:55:48 +0000
+X-UUID: f0b55f22f13f11f09f706fa2197c6ceb-20260114
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=fATf/St2y2YgIn8oxgkSgNLL6dxB/Sz4b5lYp4lukmY=;
+	b=nBvJ7pQBl+rUhepdxlTYUewLWBxyYTrV9q1X6WkU5lc0HTB/Yf051M0Bai0HX64yhPciP0GQPeJb9GcAzd/HY9d5sHlCcogZIm7BspCex6XkP/tL4NGA5bc+eTTArZSvStbcJKe3pGAcXc/u8LmbVviQV8o3fjFCDHE8+Jae9vc=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.9,REQID:02ca79d4-1268-4268-9caa-ea2c9e8d69e9,IP:0,UR
+	L:0,TC:0,Content:3,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:3
+X-CID-META: VersionHash:5047765,CLOUDID:1a9281e8-ef90-4382-9c6f-55f2a0689a6b,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|836|888|898,TC:-5,Co
+	ntent:4|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,CO
+	L:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: f0b55f22f13f11f09f706fa2197c6ceb-20260114
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
+	(envelope-from <dengjun.su@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1647405638; Wed, 14 Jan 2026 04:55:37 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Wed, 14 Jan 2026 19:55:34 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Wed, 14 Jan 2026 19:55:33 +0800
+From: Dengjun Su <dengjun.su@mediatek.com>
+To: <peterz@infradead.org>
+CC: <angelogioacchino.delregno@collabora.com>, <bsegall@google.com>,
+	<dengjun.su@mediatek.com>, <dietmar.eggemann@arm.com>,
+	<haiqiang.gong@mediatek.com>, <juri.lelli@redhat.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mediatek@lists.infradead.org>, <matthias.bgg@gmail.com>,
+	<mgorman@suse.de>, <mike.zhang@mediatek.com>, <mingo@redhat.com>,
+	<peijun.huang@mediatek.com>, <rostedt@goodmis.org>,
+	<vincent.guittot@linaro.org>, <vschneid@redhat.com>
+Subject: Re: [PATCH] sched/rt: fix incorrect schedstats for rt thread
+Date: Wed, 14 Jan 2026 19:55:31 +0800
+Message-ID: <20260114115533.2959537-1-dengjun.su@mediatek.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260112163814.GP830755@noisy.programming.kicks-ass.net>
+References: <20260112163814.GP830755@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-Message-ID: <81fcd769-d7a5-e909-7105-23cd3d09e473@manjaro.org>
-Subject: =?utf-8?q?Re=3A?= [PATCH 3/4] =?utf-8?q?arm64=3A?==?utf-8?q?_dts=3A?=
- =?utf-8?q?_rockchip=3A?= Move RK3399 eDP pinctrl to boards
-User-Agent: SOGoMail 5.12.3
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: None
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_034918_432429_DAB69DD8 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20260114_035547_639666_70B59210 
+X-CRM114-Status: GOOD (  30.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,99 +91,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Robin,
-
-On Tuesday, December 30, 2025 18:20 CET, Robin Murphy <robin.murphy@arm=
-.com> wrote:
-> The EDP=5FHOTPLUG pin is optional, and muxed with other functions (no=
-tably
-> HDMI CEC), so move its selection from the SoC DTSI to the boards whic=
-h
-> apparently want it, namely those which enable eDP without "force-hpd"=
-.
-> By the same token we drop it from Pinebook Pro, which already uses
-> "force-hpd", and according to the schematics does not have the pin wi=
-red
-> at all.
->=20
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+On Mon, 2026-01-12 at 17:38 +0100, Peter Zijlstra wrote:
+> On Fri, Jan 09, 2026 at 03:24:47PM +0800, Dengjun Su wrote:
+>
+> > For __update_stats_wait_end(), task_on_rq_migrating(p) is needed to
+> > distinguish between stage 2 and stage 4 because they involve
+> > different
+> > processing flows, but for __update_stats_wait_start(), it is not
+> > necessary
+> > to distinguish between stage 1 and stage 3.
+> >
+> > As for adding the condition wait_start > prev_wait_start, I think
+> > it is
+> > more like a mechanism to prevent statistical deviations caused by
+> > time
+> > inconsistencies.
+>
+> It looks like nonsense to me.. since you have a test-case, could you
+> see
+> what this does for you?
+>
+> Specifically:
+>
+>  - it ensures that when not in a migration, prev_wait_start must be 0
+>
+>  - it unconditionally subtracts; unsigned types are defined to wrap
+>    nicely (2s complement) and it all should work just fine.
+>
 > ---
->  arch/arm64/boot/dts/rockchip/rk3399-base.dtsi              | 2 --
->  arch/arm64/boot/dts/rockchip/rk3399-gru-chromebook.dtsi    | 2 ++
->  arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts       | 2 --
->  arch/arm64/boot/dts/rockchip/rk3399-sapphire-excavator.dts | 2 ++
->  4 files changed, 4 insertions(+), 4 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi b/arch/arm=
-64/boot/dts/rockchip/rk3399-base.dtsi
-> index 4dcceb9136b7..19a312baa9f1 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
-> @@ -2145,8 +2145,6 @@ edp: dp@ff970000 {
->  		interrupts =3D <GIC=5FSPI 10 IRQ=5FTYPE=5FLEVEL=5FHIGH 0>;
->  		clocks =3D <&cru PCLK=5FEDP>, <&cru PCLK=5FEDP=5FCTRL>, <&cru PCLK=
-=5FVIO=5FGRF>;
->  		clock-names =3D "dp", "pclk", "grf";
-> -		pinctrl-names =3D "default";
-> -		pinctrl-0 =3D <&edp=5Fhpd>;
->  		power-domains =3D <&power RK3399=5FPD=5FEDP>;
->  		resets =3D <&cru SRST=5FP=5FEDP=5FCTRL>;
->  		reset-names =3D "dp";
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-gru-chromebook.dtsi =
-b/arch/arm64/boot/dts/rockchip/rk3399-gru-chromebook.dtsi
-> index 9d07353df52c..3f3cb0eb5809 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399-gru-chromebook.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-gru-chromebook.dtsi
-> @@ -241,6 +241,8 @@ &dmc {
->  };
-> =20
->  &edp {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&edp=5Fhpd>;
->  	status =3D "okay";
-> =20
->  	/*
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts b/a=
-rch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-> index eaaca08a7601..dcab04863d28 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-> @@ -401,8 +401,6 @@ &cpu=5Fl3 {
-> =20
->  &edp {
->  	force-hpd;
-> -	pinctrl-names =3D "default";
-> -	pinctrl-0 =3D <&edp=5Fhpd>;
->  	status =3D "okay";
->  };
-> =20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-sapphire-excavator.d=
-ts b/arch/arm64/boot/dts/rockchip/rk3399-sapphire-excavator.dts
-> index a4ceafe6dd7a..80d6ea0eda84 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399-sapphire-excavator.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-sapphire-excavator.dts
-> @@ -141,6 +141,8 @@ sdio=5Fpwrseq: sdio-pwrseq {
->  };
-> =20
->  &edp {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&edp=5Fhpd>;
->  	status =3D "okay";
->  };
+>
+> diff --git a/kernel/sched/stats.c b/kernel/sched/stats.c
+> index d1c9429a4ac5..144b23029327 100644
+> --- a/kernel/sched/stats.c
+> +++ b/kernel/sched/stats.c
+> @@ -12,8 +12,10 @@ void __update_stats_wait_start(struct rq *rq,
+> struct task_struct *p,
+>  	wait_start = rq_clock(rq);
+>  	prev_wait_start = schedstat_val(stats->wait_start);
+>  
+> -	if (p && likely(wait_start > prev_wait_start))
+> +	if (p) {
+> +		WARN_ON_ONCE(!task_on_rq_migrating(p) &&
+> prev_wait_start);
+>  		wait_start -= prev_wait_start;
+> +	}
+>  
+>  	__schedstat_set(stats->wait_start, wait_start);
+>  }
 
-Thanks for this patch!  These changes are looking good to me, and the
-board dts files changed in this patch are the right ones, i.e. those th=
-at
-enable the "edp" node without specifying the "force-hpd" property.
+Hi Peter,
 
-Additionally,"/omit-if-no-ref/" should be added to the "edp" pinctrl no=
-de
-in rk3399-base.dtsi, to not include the "edp=5Fhpd" pinctrl definition =
-in
-the board dtb files where that actuually isn't used.
+I have confirm in my current test case, adding this change or not
+have no impact. I think this is reasonable, task_on_rq_migrating(p)
+should be true in my test case.
 
-With the note above addressed, please feel free to include
+Base on original patch that adds this, I think the logic of 
+__update_stats_wait_start is:
 
-Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+  1. If migrating and the time is updated normally, it records the 
+  waiting time on the previous queue.
 
+  2. If time is abnormal, it updates wait_start to the current time. 
+  For migrating, it will discards the previously counted waiting time 
+  on the previous queue (perhaps this statistical value itself 
+  is abnormal).
+
+According to the current modification, if there is a time abnormal,
+wait_start will not be updated to current time.
+
+Partial fragments of the original patch are as follows.
+
+---
+
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 9a5e60f..53ec4d4 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -738,27 +738,41 @@ static void update_curr_fair(struct rq *rq)
+ }
+ 
+ static inline void
+-update_stats_wait_start(struct cfs_rq *cfs_rq, struct sched_entity *se)
++update_stats_wait_start(struct cfs_rq *cfs_rq, struct sched_entity *se,
++			bool migrating)
+ {
+-	schedstat_set(se->statistics.wait_start, rq_clock(rq_of(cfs_rq)));
++	schedstat_set(se->statistics.wait_start,
++		migrating &&
++		likely(rq_clock(rq_of(cfs_rq)) > se->statistics.wait_start) ?
++		rq_clock(rq_of(cfs_rq)) - se->statistics.wait_start :
++		rq_clock(rq_of(cfs_rq)));
+ }
 
