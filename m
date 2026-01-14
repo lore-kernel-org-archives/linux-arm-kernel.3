@@ -4,78 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67B28D37E32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 13:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23571D37E32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 13:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aWlL6GvAfyQK8Vann1h5mv1UdVufxpOFRRTw5dwPxjY=; b=eFMWiwgh41gRUMntybYhVdKdTP
-	oP3IQ4i2+eNNZrg3A/wKsTTnmTHzDYxjx7zVVQBNW/TO8vMdW4h9Qr53tX2xbqEPiQU+F0mQNP4uP
-	jfmY8Uta3lzoCOtdZ5R+EXi2G/T8eXi6++kwu4dvZqfeq+MxeinLoZS4piI2qK6YEyXPqd5OhnvBT
-	XAqQ6Um6CJ8fqEPhsWgSe+ExP2oX+0aCyQGMoivcDk1q/FOHxgzDiEY+nQBYb3LVaZwCLRA+yc5IJ
-	9NpphoubavsmdYS2VMfDYvDOJsWwNjf2xjIsBtlRTt7ZcDa0xu7gbBllp9A3Atm7jo7qrIeL54Mx8
-	smi5GK5g==;
+	bh=sWiGwjTB0ZEpbDkwRFO+MVJzM9uZpDrSFPQIlzRZfsU=; b=T2DSgbnV6thuq8WLgvprpYnwfC
+	hDrzqvwDsUGrEK6nJwIu+Xtm0yhtt2kv04EeVF6hcRZDdWppC4ug2rc+Q2Fd7dsFEVdK4pa0RkNPP
+	ANloYpgAD5Lu3fdbUzQ7DHNZBK7lz6coEjqgQDG4A2z6HRGg+ZV2RFiibzd5WdGu1vv5I+XtoDbND
+	kmTErWSXXgLiIuhuwlKzEVtJlXEnjMm8hysxrPB6DyC/NPWZUdA3dgksrIdolR+uqnzmysDy6VAMT
+	ZjIi7wHVDpyISMbSnxZMjnqH+N5mEzN0en8jzzoJcEtYH3YIR9yUbItT7Gr5nJljjQHnbLWQ7/Yxz
+	lk4Kvp1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg0m3-00000009Ipw-1y2t;
-	Wed, 14 Jan 2026 13:18:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vg0nO-00000009J9q-1bvA;
+	Wed, 14 Jan 2026 13:20:22 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg0m1-00000009IpN-3yL0;
-	Wed, 14 Jan 2026 13:18:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EC8D360051;
-	Wed, 14 Jan 2026 13:18:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0E64C19422;
-	Wed, 14 Jan 2026 13:18:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768396736;
-	bh=GzNGsGiv+Dat6D0sdE8p2iGYKVBLSwgdtjTPkzDp6KU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ayuX/yInGW/t2HtHRKGrsgyznv2o+2fOAGPkd0SpYjXtXQPdEbGCPnkGym489mU4Q
-	 rWIQf3SEJf03N/1f4m31O9VsSL9IV0rQAjdhPGGfzKOgbDSynFuKuSMIeitLctFBSJ
-	 eNcgXX7HHVaqOOs6m4CC7hYEpkg8qBpAUrW/S5Mgzbxi4LRIA4yujf4thdtsr1+cz7
-	 t8JQKzcB+CUW1L60x/eZo47DBluELyYYH3dNfO6DqtG6sFcVzSqsLJxFiAccXLzfEl
-	 hBXtogq3ulvLF4L+5mcUcRyIg59mcuNFHcf+h+cBx7QkLIcn2Nde9pOqKBAUW2r+Pv
-	 PFHUFUdqJQWsQ==
-Date: Wed, 14 Jan 2026 18:48:52 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Daniel Golle <daniel@makrotopia.org>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	=?iso-8859-1?Q?Bj=F8rn?= Mork <bjorn@mork.no>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
+	id 1vg0nL-00000009J8S-2JVE
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Jan 2026 13:20:21 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-432755545fcso5095195f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 05:20:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1768396817; x=1769001617; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=sWiGwjTB0ZEpbDkwRFO+MVJzM9uZpDrSFPQIlzRZfsU=;
+        b=b572ExB/x727A9YqtI/1tYNHeNm3xL1U7aChGC7H5nyLA2CNd+Yu+90rB5bzVLfxI3
+         ymaODXT2y8ceZGDUcKWo7AX38k8reGQod6dYiwDXd3GRjtBH1Ahln/nqCz3Sn79+R6ZK
+         7NATuUaUOlUKWdAzN2gXK7spbAGjAnwNpJ1xERsq4f6ElcvPpSrnlKRZpgeDU2FOAclq
+         yXDvuS7aKAP6iw77FZdYrHBYe6uWuCz0iD/A8Jzu+4KxB0/dxnwlo73YFL7XBupKsyTv
+         RBffnuxrCrjctZMBvcU0F9fXGiBzdFwCJf7vMASljT6cIqSp15S6h5pmXubxKznNmorC
+         htsQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768396817; x=1769001617;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sWiGwjTB0ZEpbDkwRFO+MVJzM9uZpDrSFPQIlzRZfsU=;
+        b=RoHaRoqYoeOkDXfW3ziUfc/h/nD1n5tyFZ3S7SELkIw3dYkEkl3/mF8Ezgc3GcUqf6
+         bgeYNUZCxB3iI0+ENV6ModjPD1AfwMKG/8ggzGdFnbK4X3PpkdRADCHAVevl7MSiupUL
+         csJS4YTZlR6VCUpu+jZvcEtEMFhykFWpRNDQMDVfu8lpxCu9kpL43qmr+uLJqE4iKrCz
+         tSjhi2xlN7vLGTGgu6hb6xAj2PrQ0ZHvqGZ/Lg+Co/NSxNhIfv2Cz1R4tRM5MxC9g+ID
+         C8FavmKVXuoT0BjYNxwwFOGHChrQp9q7A/b1S1C9qhuOsCVOpgR0JbcCWbET3iQIJuzS
+         +0KQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWzQzs9a8l79QGa5PSn8LKpAdO5uSVZv6rE3rChAIPOTnjt61SN/grERSwxZgdiUVM8D0GdiWMzkANAHVaxoTdq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzd6MGhllrjerBHMlhdu6pRnORHn/O5ta4+84CBi4OqhUIdJbat
+	7U6WCsonbQ5LsjEo43pXH/iY09LCn18UjadS90x12B4T+98VwdjHGFIK7lI0J+3ngiY=
+X-Gm-Gg: AY/fxX6UpPrZCCFaRicnddxVP+Fjh5/CWivEHnsa55z0M3MkA7qG2Ioog7BtmBStUIE
+	HoHiDSSFENNJ2P3iKUsG6cTKiaXuSuMDldSHcug8VfWOOE4b6qka8U+VU/1YTXmEVkAeMlMancy
+	iAGqG+hrn8gaGcCNKXgNBmXk89k7K0O5XiWK/SSWCubgvgvYSAw1rnkTZ3RDQpeKjOzfSncj7UG
+	gKyikbo0R2eJ9GJNPOgLml36lOve7vRvBSJYdMw4Ewj7v74T5RsTktjFNaZ7udY04Jfms+qADIM
+	tWgXBZkwu4c+UrWwIvsqSyyriZNOR/XtD8mNVLCli2iwgoJmZf7soGiixoHifjIbQhyQDDzi0N9
+	NqqyQ6zxEBcSxre3dcGyg6fFgH9AbKhzcD/TtSK6rlrsKB4HUexFTd8hyeiIjYanKZG/EdAZRSp
+	WXB18WPwD3SNBGoA==
+X-Received: by 2002:a05:6000:2511:b0:431:9b2:61c0 with SMTP id ffacd0b85a97d-4342d5b2ab9mr2581603f8f.24.1768396817421;
+        Wed, 14 Jan 2026 05:20:17 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0dacd1sm49153435f8f.4.2026.01.14.05.20.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 05:20:16 -0800 (PST)
+Date: Wed, 14 Jan 2026 14:20:14 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: Marcos Paulo de Souza <mpdesouza@suse.com>
+Cc: Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jason Wessel <jason.wessel@windriver.com>,
+	Daniel Thompson <danielt@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	John Ogness <john.ogness@linutronix.de>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Eric Woudstra <ericwouds@gmail.com>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>
-Subject: Re: [PATCH v3 net-next 00/10] PHY polarity inversion via generic
- device tree properties
-Message-ID: <aWeXvFcGNK5T6As9@vaman>
-References: <20260111093940.975359-1-vladimir.oltean@nxp.com>
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
+	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 05/19] printk: Add more context to suspend/resume
+ functions
+Message-ID: <aWeYDoMsdBNkJEqO@pathway.suse.cz>
+References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+ <20251227-printk-cleanup-part3-v1-5-21a291bcf197@suse.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260111093940.975359-1-vladimir.oltean@nxp.com>
+In-Reply-To: <20251227-printk-cleanup-part3-v1-5-21a291bcf197@suse.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_052019_607533_2FC82888 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,165 +133,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11-01-26, 11:39, Vladimir Oltean wrote:
-> Introduce "rx-polarity" and "tx-polarity" device tree properties.
-> Convert two existing networking use cases - the EN8811H Ethernet PHY and
-> the Mediatek LynxI PCS.
+On Sat 2025-12-27 09:16:12, Marcos Paulo de Souza wrote:
+> The new comments clarifies from where the functions are supposed to be
+> called.
 > 
-> Requested merge strategy:
-> Patches 1-5 through linux-phy
+> Signed-off-by: Marcos Paulo de Souza <mpdesouza@suse.com>
 
+The improved comments would have helped to understand the previous patch.
+I would either merge it into the previous patch or switch the
+ordering.
 
-The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
+If this stays as a separate patch, feel free to use:
 
-  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+Reviewed-by: Petr Mladek <pmladek@suse.com>
 
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git tags/phy_common_properties
-
-for you to fetch changes up to e7556b59ba65179612bce3fa56bb53d1b4fb20db:
-
-  phy: add phy_get_rx_polarity() and phy_get_tx_polarity() (2026-01-14 18:16:05 +0530)
-
-----------------------------------------------------------------
-phy common properties
-
-Vladimir Oltean <vladimir.oltean@nxp.com> wrote:
-
-Introduce "rx-polarity" and "tx-polarity" device tree properties with
-Kunit tests
-
-----------------------------------------------------------------
-Vladimir Oltean (5):
-      dt-bindings: phy: rename transmit-amplitude.yaml to phy-common-props.yaml
-      dt-bindings: phy-common-props: create a reusable "protocol-names" definition
-      dt-bindings: phy-common-props: ensure protocol-names are unique
-      dt-bindings: phy-common-props: RX and TX lane polarity inversion
-      phy: add phy_get_rx_polarity() and phy_get_tx_polarity()
-
- .../devicetree/bindings/phy/phy-common-props.yaml  | 157 ++++++++
- .../bindings/phy/transmit-amplitude.yaml           | 103 -----
- MAINTAINERS                                        |  10 +
- drivers/phy/Kconfig                                |  22 ++
- drivers/phy/Makefile                               |   2 +
- drivers/phy/phy-common-props-test.c                | 422 +++++++++++++++++++++
- drivers/phy/phy-common-props.c                     | 209 ++++++++++
- include/dt-bindings/phy/phy.h                      |   4 +
- include/linux/phy/phy-common-props.h               |  32 ++
- 9 files changed, 858 insertions(+), 103 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/phy/phy-common-props.yaml
- delete mode 100644 Documentation/devicetree/bindings/phy/transmit-amplitude.yaml
- create mode 100644 drivers/phy/phy-common-props-test.c
- create mode 100644 drivers/phy/phy-common-props.c
- create mode 100644 include/linux/phy/phy-common-props.h
-
-> linux-phy provides stable branch or tag to netdev
-> patches 6-10 through netdev
-> 
-> v2 at:
-> https://lore.kernel.org/netdev/20260103210403.438687-1-vladimir.oltean@nxp.com/
-> Changes since v2:
-> - fix bug with existing fwnode which is missing polarity properties.
->   This is supposed to return the default value, not an error. (thanks to
->   Bjørn Mork).
-> - fix inconsistency between PHY_COMMON_PROPS and GENERIC_PHY_COMMON_PROPS
->   Kconfig options by using PHY_COMMON_PROPS everywhere (thanks to Bjørn
->   Mork).
-> 
-> v1 at:
-> https://lore.kernel.org/netdev/20251122193341.332324-1-vladimir.oltean@nxp.com/
-> Changes since v1:
-> - API changes: split error code from returned value; introduce two new
->   helpers for simple driver cases
-> - Add KUnit tests
-> - Bug fixes in core code and in drivers
-> - Defer XPCS patches for later (*)
-> - Convert Mediatek LynxI PCS
-> - Logical change: rx-polarity and tx-polarity refer to the currently
->   described block, and not necessarily to device pins
-> - Apply Rob's feedback
-> - Drop the "joint maintainership" idea.
-> 
-> (*) To simplify the generic XPCS driver, I've decided to make
-> "tx-polarity" default to <PHY_POL_NORMAL>, rather than <PHY_POL_NORMAL>
-> OR <PHY_POL_INVERT> for SJA1105. But in order to avoid breakage, it
-> creates a hard dependency on this patch set being merged *first*:
-> https://lore.kernel.org/netdev/20251118190530.580267-1-vladimir.oltean@nxp.com/
-> so that the SJA1105 driver can provide an XPCS fwnode with the right
-> polarity specified. All patches in context can be seen at:
-> https://github.com/vladimiroltean/linux/tree/phy-polarity-inversion
-> 
-> Original cover letter:
-> 
-> Polarity inversion (described in patch 4/10) is a feature with at least
-> 4 potential new users waiting for a generic description:
-> - Horatiu Vultur with the lan966x SerDes
-> - Daniel Golle with the MaxLinear GSW1xx switches
-> - Bjørn Mork with the AN8811HB Ethernet PHY
-> - Me with a custom SJA1105 board, switch which uses the DesignWare XPCS
-> 
-> I became interested in exploring the problem space because I was averse
-> to the idea of adding vendor-specific device tree properties to describe
-> a common need.
-> 
-> This set contains an implementation of a generic feature that should
-> cater to all known needs that were identified during my documentation
-> phase.
-> 
-> Apart from what is converted here, we also have the following, which I
-> did not touch:
-> - "st,px_rx_pol_inv" - its binding is a .txt file and I don't have time
->   for such a large detour to convert it to dtschema.
-> - "st,pcie-tx-pol-inv" and "st,sata-tx-pol-inv" - these are defined in a
->   .txt schema but are not implemented in any driver. My verdict would be
->   "delete the properties" but again, I would prefer not introducing such
->   dependency to this series.
-> 
-> Vladimir Oltean (10):
->   dt-bindings: phy: rename transmit-amplitude.yaml to
->     phy-common-props.yaml
->   dt-bindings: phy-common-props: create a reusable "protocol-names"
->     definition
->   dt-bindings: phy-common-props: ensure protocol-names are unique
->   dt-bindings: phy-common-props: RX and TX lane polarity inversion
->   phy: add phy_get_rx_polarity() and phy_get_tx_polarity()
->   dt-bindings: net: airoha,en8811h: deprecate "airoha,pnswap-rx" and
->     "airoha,pnswap-tx"
->   net: phy: air_en8811h: deprecate "airoha,pnswap-rx" and
->     "airoha,pnswap-tx"
->   dt-bindings: net: pcs: mediatek,sgmiisys: deprecate "mediatek,pnswap"
->   net: pcs: pcs-mtk-lynxi: pass SGMIISYS OF node to PCS
->   net: pcs: pcs-mtk-lynxi: deprecate "mediatek,pnswap"
-> 
->  .../bindings/net/airoha,en8811h.yaml          |  11 +-
->  .../bindings/net/pcs/mediatek,sgmiisys.yaml   |   7 +-
->  .../bindings/phy/phy-common-props.yaml        | 157 +++++++
->  .../bindings/phy/transmit-amplitude.yaml      | 103 -----
->  MAINTAINERS                                   |  10 +
->  drivers/net/dsa/mt7530-mdio.c                 |   4 +-
->  drivers/net/ethernet/mediatek/mtk_eth_soc.c   |  19 +-
->  drivers/net/pcs/Kconfig                       |   1 +
->  drivers/net/pcs/pcs-mtk-lynxi.c               |  63 ++-
->  drivers/net/phy/Kconfig                       |   1 +
->  drivers/net/phy/air_en8811h.c                 |  53 ++-
->  drivers/phy/Kconfig                           |  22 +
->  drivers/phy/Makefile                          |   2 +
->  drivers/phy/phy-common-props-test.c           | 422 ++++++++++++++++++
->  drivers/phy/phy-common-props.c                | 209 +++++++++
->  include/dt-bindings/phy/phy.h                 |   4 +
->  include/linux/pcs/pcs-mtk-lynxi.h             |   5 +-
->  include/linux/phy/phy-common-props.h          |  32 ++
->  18 files changed, 979 insertions(+), 146 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/phy/phy-common-props.yaml
->  delete mode 100644 Documentation/devicetree/bindings/phy/transmit-amplitude.yaml
->  create mode 100644 drivers/phy/phy-common-props-test.c
->  create mode 100644 drivers/phy/phy-common-props.c
->  create mode 100644 include/linux/phy/phy-common-props.h
-> 
-> -- 
-> 2.43.0
-
--- 
-~Vinod
+Best Regards,
+Petr
 
