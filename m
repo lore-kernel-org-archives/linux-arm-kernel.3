@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71F07D38FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:09:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61223D38FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cLfTQh/qlV++IGofMzGCRcDA4hRAyZAGlY1gT7J+2+A=; b=UUIsNXB9IFsoNdYRz3bOLRdLvI
-	OCCpbfSNWnO4axKfsVArDvBOT9/MMxIDezQ3ka7ZzqGj3NfHWI7Wtaxw7T7e7DdF+IeUiDnKnPTXu
-	RAPxcO4TbmnzWruQqLfrciI0yYBfyNrhJzMZ6d//f65OftpB8t469iq0OdfViUPqknU+C9c+gCDLY
-	qGSibN0JJM6uJh4NHrrB8iZ4HBGO7X20o4gvtEA6z03pkQechkn5yt9zi1TI1PL59uEiHQeATGn2j
-	/5JlLMgo2FYSw1TjZp0z7O75GeCidyxp3lfvyLMa0hv4QRY4kW+l00ruFKjApUIhaNxvl7G+BYXNG
-	SIvnxIUg==;
+	bh=sLZ+PvAjnR7DEP7BUAREJ2OVzk7/JAMCQdO1bdqxiqQ=; b=cQ2My73nf4WFOtcpWg8Dg0niFc
+	lTuOIlexjsUxr6bRlQrYJHBm6hD8XROrsq7Xa4WQ32GvREfpT1gs6r4rwhbJAmkl1mO62CYKxx6FV
+	e0ocmV+fieO7bXCAj7uNbAXoWHRDpWgwbFe4ERv40GixHkZXoxAmIM9WY9bL2NGtAgVN8xZBsqc7U
+	ynY4SJLgUoH002lGNywNSmui7HcqLC87r4lmSrMVc4/9hBrAZVaAuhXWb3jvYS1mNRV2LBV81XsTE
+	j/+PieFipYJo7AiZ3pD2zQaslWobYk5/NTxId5K9RmdVlOQSiF8XgwMnjC3UAGwPnxsTv5sOrbQ5h
+	4UYhmvzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4NA-0000000A3Wf-3T8x;
-	Wed, 14 Jan 2026 17:09:35 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1vg4NJ-0000000A3dv-2kML;
+	Wed, 14 Jan 2026 17:09:43 +0000
+Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4N3-0000000A3OQ-1qwb
+	id 1vg4N5-0000000A3QE-3J0s
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 17:09:28 +0000
-Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-47d493a9b96so431895e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 09:09:25 -0800 (PST)
+	Wed, 14 Jan 2026 17:09:29 +0000
+Received: by mail-wr1-x444.google.com with SMTP id ffacd0b85a97d-42fbc544b09so52361f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 09:09:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1768410564; x=1769015364; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1768410566; x=1769015366; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=cLfTQh/qlV++IGofMzGCRcDA4hRAyZAGlY1gT7J+2+A=;
-        b=pXnm3w58cqgchMqi7zUSeX/vsjcOQhiM1eitW9+loM3iatwVzGGZHL0bXg6LAirXGp
-         Xnbyih+djW2EKdFw7TiBz9hU3jUuSIVDwcR/UTSXOQN3anu0SUrN161rV3HBo86h9hKk
-         6eeSJxwt4oLBcPTSNi0NbTZs56+wdtPpBfpJUqYNAqSf+x07FE49NxTAyUrhf9dPkaZM
-         FWZiKSOSKkxas8++brXfLi887HhrQb8jX5GOHB0xrY+T/S55ojU/+39lyt0WYlw0jO6T
-         Gg7SgNwvp62565DKbdBDYvRdmiQmBxOPFVWzPqeavZEl+8ZBxpFuN3SOMd0O4FiVKd0n
-         trGg==
+        bh=sLZ+PvAjnR7DEP7BUAREJ2OVzk7/JAMCQdO1bdqxiqQ=;
+        b=ysMqd2QjGvujjCSUXh3cIvc7rcGo9faR/uViY7TXGV371ZBvJcx0k7BysEadjjWDgX
+         FUCkBNk027yCXGk+ULNro7ogvPm+ivPzW3DtUoEH3JGSL2Asl0JDCrnjf6W9pnvWEsk0
+         2DjalY29dU013ZUlAp0t+2ARlbq2Avp13qx7Pr4HB/HQhgMBnCSpwtW0ilO9o9oj+lGg
+         I94tOpZZeoqwYNzYbissgNE337pGbNbb8SYEjgNT2cnSbe1+n64weYwrTeK61SF2HKuN
+         4Iw8HQ3uC6zZCFOC+o0y2plnAEpwpP/iMkmkarGoDkqdf1i+kxDphs3YpzClipYfNbP0
+         AnRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768410564; x=1769015364;
+        d=1e100.net; s=20230601; t=1768410566; x=1769015366;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=cLfTQh/qlV++IGofMzGCRcDA4hRAyZAGlY1gT7J+2+A=;
-        b=T43sXhKhdXfzSJSLejDoot6zPvXFQHpYEfBgfVitabQW+cO2athCvunLRo0zpoBIjx
-         7GCE599YUzZMke3JBYNS0Ad+hYb8OY5vt02q9bNAhNAi/3BiGtI73zOu0niSMyH/BP7w
-         uHTEPwTiHLidauq2N7g3M7Oz1DCZEidVTQEba6Ijytwsc1N6VqCwVLEdWGG1Tq3R+yeg
-         I81CGF/QlwZBB8rOmQihZKVi02tTRjBZjF7NO82jS80lcDJ9iaHSbNL9adleJI4nHtP5
-         l/6J425cMI0MSfd9msl46SKBl63ZYmPdCiYVwcQJlKsQr1FZCLdl71qkbDBDw15SC/V5
-         BJ+Q==
-X-Gm-Message-State: AOJu0YwTlX7NjBUtzczAIcjWiGHctBfgY34MuWgKv5FwaJR4eeLIH5lk
-	ok3ch4YPwq+JsB0BME9XjyyOUjZHGEACWgNJweAKj1tkeT3dqF/JXfIA6bGrHB9Xr9gkhaA2wiL
-	0T9Ms2DY=
-X-Gm-Gg: AY/fxX7lCyMYC6USxLIo0Xmo/Eqgm73JwgZAP+fZy7yT+xMuG7kDovPMIXH01tvczTz
-	Dmx0FCjxjMnqNwF9Wr10vbZpu2yvVpe4bqdKWVbOWIOd5RPyk56tERq2kYv6nc6ltPY3gHLycgO
-	jF4LV8QWwm/tf7YKmT7NTkGVCjjFTAxEOnnI57p6Zn5JeBMFVb9NglwYjx2AIwJHAVJEsnhvyhf
-	mXE/1z+5brLDvnQLspMl2ECWtaw1FA6+FDvDTTZrWmgjqxb26D1AzJNj9ORzz0y44sZoJcIcTf2
-	uCLtDlz2UuboEiV1SGsc1fHIsePAaesfHOSNaV40HGMoHEqp6SsTXnzsZUMNrdtfoBNEa9bYJvy
-	R7lNp6K5LC0SJP2ddXSCwyEgwAGELPib0HKVmFn2OOtQ6xOWWVqhksPGRTY0XxJ15PhlL+dlut+
-	25IzXRI9Lmyw==
-X-Received: by 2002:a05:600c:46c9:b0:47e:e949:37e8 with SMTP id 5b1f17b1804b1-47ee94939a1mr15738575e9.30.1768410563776;
-        Wed, 14 Jan 2026 09:09:23 -0800 (PST)
+        bh=sLZ+PvAjnR7DEP7BUAREJ2OVzk7/JAMCQdO1bdqxiqQ=;
+        b=E8L1LzzlOM/hZaPSzIsTd8nDAPATSourpRMq9f9VTB+Dy2aH3sInz6185tjnreXn1g
+         15+h7ZHieh3QKiYtCGAD3LL+594n42TpOKEpE6CzreMMeJojStC+VJ/6rgU2goxAukLU
+         bwtIRd/e0rrqc+wvubb5V7FtsBzd8s8/zTz7yBd2SMwql0CSCbjrQHtmaOMOfgqT2ueU
+         jgSLCczo1yanRtKmvb65uAdFXuEXnRqTLdhPc6dqf+h6qDi2nB3gCaGnUAOCV7nIk3uj
+         iVXyGszW/R5GVf4iPZ6Wc5cwLVLtzEh9vGYhcJ3UJl1Ev3SPZpi63jllshxXKtnWCFxM
+         kC2A==
+X-Gm-Message-State: AOJu0YwVPfelrItkCwC0uWsTQXClsPa7m8HiOUGAk+9mFqtuCOtevFRs
+	P60YvQVp6hFT8KJRxCKR5PLaYxJkL46M3d4h1DdEbIVUG+H3uHUlkTzPywcPjuGSfyg=
+X-Gm-Gg: AY/fxX5vYedNh5QSJOmik5jpUTrsjhAkkE5tBQj1NzpIpKXM4zLoyTwSvljIkYMktGk
+	Arxx9tCVcKQIe/rN2+HPxDm32CsJamZ5yQhee1t9+/UK2otM3An1sYk3GSNIS3REZclmm2ZZ2xb
+	FrFybV0/13qHqRQCfn3hyNMqkmR/z+Lvu0rJA8EQNsVgvXX0SN35z9S+e+DPtDR0nGT8uGsCYJq
+	PRgBqT6yJwSka5XSTLWo23fBsxeS7zWWKLZStIMt4sbrCPSYzFdkRjN4Yuj0oSepYNaexeHUSgX
+	EUOpdTTfhuDomwHHSxI5tScFjB3X4Y35YxBuNc9D8TCy0+Oc/fCznMSNwVmgq0HAFm/qXMSr2AU
+	5yK4uHeQz/psinx9nbenP8YKZ9LaHh1pFMt8v/Swy3VY07lQf9Pj3GWNOnUi43LZCPsfu+ItRde
+	RXgDcRzEtf1A==
+X-Received: by 2002:a5d:64c5:0:b0:432:84ef:715b with SMTP id ffacd0b85a97d-4342c3905dfmr3372260f8f.0.1768410565786;
+        Wed, 14 Jan 2026 09:09:25 -0800 (PST)
 Received: from localhost ([2a01:e0a:3c5:5fb1:d3d1:7ba4:2f56:d18a])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-47f4289b7aasm1832825e9.2.2026.01.14.09.09.23
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-434af6d909fsm356157f8f.31.2026.01.14.09.09.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Jan 2026 09:09:23 -0800 (PST)
+        Wed, 14 Jan 2026 09:09:25 -0800 (PST)
 From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Wed, 14 Jan 2026 18:08:50 +0100
-Subject: [PATCH 3/6] arm64: dts: amlogic: axg: assign the MMC signal clocks
+Date: Wed, 14 Jan 2026 18:08:51 +0100
+Subject: [PATCH 4/6] arm64: dts: amlogic: gx: assign the MMC signal clocks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260114-amlogic-mmc-clocks-followup-v1-3-a999fafbe0aa@baylibre.com>
+Message-Id: <20260114-amlogic-mmc-clocks-followup-v1-4-a999fafbe0aa@baylibre.com>
 References: <20260114-amlogic-mmc-clocks-followup-v1-0-a999fafbe0aa@baylibre.com>
 In-Reply-To: <20260114-amlogic-mmc-clocks-followup-v1-0-a999fafbe0aa@baylibre.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -88,25 +87,25 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Jerome Brunet <jbrunet@baylibre.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1307; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=YGYnp6gzI4AxtwJzZWhrklYj/srysFtYicdu+gMMI1U=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBpZ824JyrNtw2KARGstg1jZ0xJArTDmwFFfnr7t
- CVRKFh50+iJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCaWfNuAAKCRDm/A8cN/La
- hXXTEACb+KQNPCisYBpunAO5l/fotBt43vzRWz23gV7sxlWMa+DBJHIDjWZB6ih0K84HSdO883X
- LxsDYNKAX2AmAVWFYXwPOWyIX+mz7OOvPZV57g81hn+TaDlOP5qlU+zeJgQHJWqBnEYLdAI0W9M
- Rt1x3bpoWLvdVy5REb5ockyDlIpE0H4NMJIDVlgqBLkTjRjfEab483hgc6Zk9pQjnv1wIRKX1PH
- mGHwxGaqLqW+0zRXGH2KPGho7RTD/Ig3EF1dG6A/5leYDs7DieS5HJP45Po4nLqz5T29mYtTP9n
- oqjjcZt2e1V4F3V8bFJ3ls9XDp236X+mj4Q9Q/L5q6oZVVjoUSsBsSUqIobShK3D6juGfJRFRWp
- 5hNOHVns40JmGdbHhoc9cSj7dc6vso7fgaELHTmRlCzg1SeBl8K85obRoO1rZLxPQsp6RGwfb4l
- 2f081YUC/EaeSrDpi+p/Uehb4WRahpAJ+y987OPLEYntt1jWuM8yIhh+lzKrJO3oEeT7gQ8ZsxQ
- OwolYrioFxl3n5NNsjC6dahVWsh13Ooc87tfRBnqaWPh3hAoOXGMMUy1Z1TZkJUGggkCjMaTfY9
- lBX9/ieqeLKOkuNu8f1uS5mjMlQnDnBjeglBFeWuWXA/E1liOnIP99+pQteQVAt1tvTCAxQgJYE
- JsN/olrqrO+rPXw==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2593; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=9p95wrx4RVIpeGNcY2S7+iJZeATm0jJX+K1/uJDs0y4=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBpZ825kW94g5pcZvsr+i9/i6GRnLfGgNa7pFFhK
+ lmKhfwUVT2JAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCaWfNuQAKCRDm/A8cN/La
+ hZVBEACqMuM881Nt8EJivf+CishVsuj4EC53+9mHxQCCW7WYXZtVp7tlD2DS5+2RAgJoYqTkLOl
+ qCtSY66mv8M3w6UF8gdlisZrLCpDIQ34bZcnowKSd6NZESLyM/nv5jCqOwTNjjPqoATxHoH0JBD
+ nZHtINboSwbmn8feJyOdDaZ71nk7evUI2FIZmXUr/dsMW+vs0X37K0blL42/6kBt8HDWV63J1Y1
+ IVacEkKDMqfjHBxz4uvWbl0uG8KOur1oElrsC5JA08kVl0FQ1uSBJJylIf26fq/Hj2ULJjUcDTi
+ 0rz7EqE35lpGWYwa6b78hrixY3LWSYVWPVZkJb61lJ4QpqRc68N8pa0SmScoXw24oVF4FJRe5tO
+ jDIq7hfL1XquYyKg8vVpRsUqxFl5B4uLP7hrHiRRzCTFTVbm9ncUsV18UaNGHSLN97Ix1SH/yev
+ CSfSi9n4HtaOa1hbgQFUlFOT2hA+hQdky626J/D4NHNUsyyRXm46TP7QMqTaKDfnmYr4U8Cjr2a
+ fQmnGevOmt4L5R2jqr3h1l6pctbu1STvfSVHagoyzVlxl26Tkln4YZQsdcB+YpSSt00Ee91jhzr
+ 7l8plfEx05/qUlV+VuqTEBNuozgSTCtlCmRaF33Av931U4wTvOvb3y4NMGFGrH5SYn2LXKlNZ3r
+ 897NydBJCJWlL4g==
 X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
  fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_090925_504214_83D227F9 
-X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-CacheID: sfid-20260114_090927_901150_C0F64D1C 
+X-CRM114-Status: UNSURE (   9.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,36 +127,81 @@ rates such as 400kHz.
 
 Assign the clocks to make sure they are properly configured
 
-Fixes: 221cf34bac54 ("ARM64: dts: meson-axg: enable the eMMC controller")
+Fixes: 50662499f911 ("ARM64: dts: meson-gx: Use correct mmc clock source 0")
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- arch/arm64/boot/dts/amlogic/meson-axg.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi | 9 +++++++++
+ arch/arm64/boot/dts/amlogic/meson-gxl.dtsi  | 9 +++++++++
+ 2 files changed, 18 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-axg.dtsi b/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
-index e95c91894968..cc72491eaf6f 100644
---- a/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
-@@ -1960,6 +1960,9 @@ sd_emmc_b: mmc@5000 {
- 					<&clkc CLKID_FCLK_DIV2>;
- 				clock-names = "core", "clkin0", "clkin1";
- 				resets = <&reset RESET_SD_EMMC_B>;
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi
+index f69923da07fe..a9c830a570cc 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi
+@@ -824,6 +824,9 @@ &sd_emmc_a {
+ 		 <&clkc CLKID_FCLK_DIV2>;
+ 	clock-names = "core", "clkin0", "clkin1";
+ 	resets = <&reset RESET_SD_EMMC_A>;
 +
-+				assigned-clocks = <&clkc CLKID_SD_EMMC_B_CLK0>;
-+				assigned-clock-rates = <24000000>;
- 			};
++	assigned-clocks = <&clkc CLKID_SD_EMMC_A_CLK0>;
++	assigned-clock-rates = <24000000>;
+ };
  
- 			sd_emmc_c: mmc@7000 {
-@@ -1972,6 +1975,9 @@ sd_emmc_c: mmc@7000 {
- 					<&clkc CLKID_FCLK_DIV2>;
- 				clock-names = "core", "clkin0", "clkin1";
- 				resets = <&reset RESET_SD_EMMC_C>;
+ &sd_emmc_b {
+@@ -832,6 +835,9 @@ &sd_emmc_b {
+ 		 <&clkc CLKID_FCLK_DIV2>;
+ 	clock-names = "core", "clkin0", "clkin1";
+ 	resets = <&reset RESET_SD_EMMC_B>;
 +
-+				assigned-clocks = <&clkc CLKID_SD_EMMC_C_CLK0>;
-+				assigned-clock-rates = <24000000>;
- 			};
++	assigned-clocks = <&clkc CLKID_SD_EMMC_B_CLK0>;
++	assigned-clock-rates = <24000000>;
+ };
  
- 			nfc: nand-controller@7800 {
+ &sd_emmc_c {
+@@ -840,6 +846,9 @@ &sd_emmc_c {
+ 		 <&clkc CLKID_FCLK_DIV2>;
+ 	clock-names = "core", "clkin0", "clkin1";
+ 	resets = <&reset RESET_SD_EMMC_C>;
++
++	assigned-clocks = <&clkc CLKID_SD_EMMC_C_CLK0>;
++	assigned-clock-rates = <24000000>;
+ };
+ 
+ &simplefb_hdmi {
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi
+index ba535010a3c9..e202d84f0672 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi
+@@ -894,6 +894,9 @@ &sd_emmc_a {
+ 		 <&clkc CLKID_FCLK_DIV2>;
+ 	clock-names = "core", "clkin0", "clkin1";
+ 	resets = <&reset RESET_SD_EMMC_A>;
++
++	assigned-clocks = <&clkc CLKID_SD_EMMC_A_CLK0>;
++	assigned-clock-rates = <24000000>;
+ };
+ 
+ &sd_emmc_b {
+@@ -902,6 +905,9 @@ &sd_emmc_b {
+ 		 <&clkc CLKID_FCLK_DIV2>;
+ 	clock-names = "core", "clkin0", "clkin1";
+ 	resets = <&reset RESET_SD_EMMC_B>;
++
++	assigned-clocks = <&clkc CLKID_SD_EMMC_B_CLK0>;
++	assigned-clock-rates = <24000000>;
+ };
+ 
+ &sd_emmc_c {
+@@ -910,6 +916,9 @@ &sd_emmc_c {
+ 		 <&clkc CLKID_FCLK_DIV2>;
+ 	clock-names = "core", "clkin0", "clkin1";
+ 	resets = <&reset RESET_SD_EMMC_C>;
++
++	assigned-clocks = <&clkc CLKID_SD_EMMC_C_CLK0>;
++	assigned-clock-rates = <24000000>;
+ };
+ 
+ &simplefb_hdmi {
 
 -- 
 2.47.3
