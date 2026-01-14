@@ -4,89 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CF0AD37E59
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 15:59:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7308DD37E5F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 15:59:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0On5mUa4Ad9udUf6v9yU0CLcZogBODduyNyvpvin/+A=; b=n68VxHee524BhDO4naVe8lbyEo
-	Y9mpIooJb5fX+EmB5duIehJkhdW8WhA0TRFy//Pr3iHX/Ybfb95cp4EaRI8IpKckRtsLOc1tR14YM
-	pdVShuQQfgNz9k8NXjxTQJW/5AWKgJWup1Q7kHxlr3KRMBBM+IDiTwxE0YkGENbuoPdvs38QCEogW
-	BfOGghVmhs+eOvpru9xkoJtDu6koOXK+fwjb8pxyUrJxEes7kL30z3fazn2C4HhnmKdENHryR6aA0
-	C55QTQmI/Ywt/UZMGbvZhwEXdQsOhG2fVRyPsbstkoce9myH+ShdnH+L85uiOUt2DN9PjkP7P7Asr
-	7ZKfVIMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hQ6gUIG0hogTITaw7mPekGOG/hf6nxZKRl0EFURpZdA=; b=b0VFC6PROlHXSwPoc/kTUm+MqR
+	t9yYqz3rvu9yCT/LHVvixgYZdf0od2sSuEzG3/s1kkNo1t2pvGA5vnEYfyGEF9jGCVGu/mH7VJD99
+	t8ufktvwNok0SMfl7SgHFwY1U49dQCEaHIx325DYvTASmjfDnlgshZ89wu36moGnf7aqMwVjbBpQG
+	E1lHH6HdRe3BQkqdJg4NhS175wyeFHCQgbNsqC1eXQFUJiqVxitrxTXPbOKV45sE0Nufi50DS6+RD
+	+d4ISoVTd8lXx+RKyYFgUt2XlowU5C9EESxgcB+tvA3/uTzIwFMeEBPfMUE6wNPJdiJEcRfSY8gSL
+	U8gF/RBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg3Gh-00000009oz5-1dgM;
-	Wed, 14 Jan 2026 15:58:47 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1vg3H1-00000009pAx-2R0z;
+	Wed, 14 Jan 2026 15:59:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg3G6-00000009oUL-1Wwb
+	id 1vg3Gz-00000009p86-328f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 15:58:14 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2a1462573caso85355ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 07:58:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1768406289; x=1769011089; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0On5mUa4Ad9udUf6v9yU0CLcZogBODduyNyvpvin/+A=;
-        b=Q0KqHFAkzTraGZAFpCz7wPydgcfblKZs36/MAZeCeG880nwD3+BWhCc0qoMJ66c6YD
-         bm0vIuGvt7a4c0CWAyEDRS5U8yRdJ+PFdLuuKV0iLUz0fzDy88CRi/BW5/wm2mGO3wET
-         jc4iDF8W2uHBB+3McaK4dGohOS3vO+goDNstR+Vr0zUvjAm/JrDZExR9PmiuNC/Bnb6S
-         wQpuw/G805iXus9HHlSdQ5ndW0h/xhVUdEL61LbNheiZayZ7FT47qBPkNfjfn65CqUhw
-         rhEP7yGf2MeKPyXUFf15N1Zyhw5AT0urniVMXMfXCVps31kWqQamFfgA0xAfTiVetsnJ
-         zkrg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768406289; x=1769011089;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0On5mUa4Ad9udUf6v9yU0CLcZogBODduyNyvpvin/+A=;
-        b=xIxfvygIWzf4E65eX4BpmiGYS/F7Mxr3ZftVbk2eT3Os1aWVVe+wJKvV6aRjvihADz
-         MOzJstK745Mal9F4dKsGeY+QJae/Oy+/xks5d2s+QbuaaZUjz8CIKI4mUNbQJymDGMSB
-         mJ52AQybbs8eKGTmiE3T7Iv13IUFwLvmTB+0RhQtB+VxdsuzUBmBoIa4oUTi+MpLjbR1
-         uL4KYm+U6ADv8r0pmJm8/UdNbRVPH9EgKgIih20bH5W1q8gEhXR5vv9gDQFdbKqe1ZzC
-         X2ue9vXDo29zjVR0xG2fX/tFY84B4klb6J5b6Pm220btZBuGNa43xAwA9w6sJ1pZ5pLn
-         eQ0w==
-X-Forwarded-Encrypted: i=1; AJvYcCXvg9Za5B3p+xJfHC4oqw+0omi/sdU5pWRCAOtBV+HJc4jU8UZ4BkuRV69Y28I0VbdOBjf9f1pQHie6HsI6r6yT@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrMlwHzS48/Rqk3LpUIePkedR91KcTr1WurWShQVE0TFdJvQLd
-	lckwpILxe5zT0PyTqb/mbswnzvvru7qcMkKnat5P/lwKqVB331jIrb58GNrTY4fbAA==
-X-Gm-Gg: AY/fxX5fBOACu4YGZB9AfcAhcndsNgaOKb6k3Oem5eQ+cOLAI1NV5bxQL4MzFZ/JU6u
-	7IzjIfhXv1dubAZ76Pwi4t++Z+D6evV8y8oltKIr9u4JHZKfjnQrz5y6uoYBUpqG23fp2BWVHru
-	008TNNz50/1b7V20XWlfrzT5co9GulAWxkDy1l0Wnzg/8X6HeyLZG6cmALuCdSjE0+IGrQ1biYr
-	6reGINvbAhqEZquaFLcaGcMPJiSaqw3ttzzQNDlCqnIrIY3xjcTtl0m28wUHYz0LeSCOmTeRxAp
-	aP9cElCfWO0Ir9t7oQy6TyDGEX0I0dllQLCWU2K1puvDD7cRmmEzQNf1WFSh/ONdasww+iLOUvx
-	cD4Tn+BoHEJu6vR6jL9+KQDC9tQN6eq+BA9y4H7AbFto8kh6J4julDq/qpSdxWyTUMsNtyHCKCc
-	8sKh30x88haFVNb07r0dj3/5zCc6cgWUEht8Mr0EsYaZahyvCo
-X-Received: by 2002:a17:903:238b:b0:2a1:3cdc:7720 with SMTP id d9443c01a7336-2a59aa609bemr2426085ad.21.1768406288994;
-        Wed, 14 Jan 2026 07:58:08 -0800 (PST)
-Received: from google.com (222.245.187.35.bc.googleusercontent.com. [35.187.245.222])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c4cca06b2edsm22922269a12.32.2026.01.14.07.58.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Jan 2026 07:58:08 -0800 (PST)
-Date: Wed, 14 Jan 2026 15:58:03 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, jgg@nvidia.com, robin.murphy@arm.com, joro@8bytes.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, skolothumtho@nvidia.com,
-	xueshuai@linux.alibaba.com, smostafa@google.com
-Subject: Re: [PATCH rc v6 3/4] iommu/arm-smmu-v3: Mark STE EATS safe when
- computing the update sequence
-Message-ID: <aWe9C8wwfszvqxR6@google.com>
-References: <cover.1768248467.git.nicolinc@nvidia.com>
- <b8055e0f0f1b4473db2583586350b4f7aa8f3b4c.1768248467.git.nicolinc@nvidia.com>
+	Wed, 14 Jan 2026 15:59:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BE6096001D;
+	Wed, 14 Jan 2026 15:59:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDB60C4CEF7;
+	Wed, 14 Jan 2026 15:59:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768406344;
+	bh=QS7SeFGYO9O6xcOoIo97cX6Nf7H2BcdEECaiGjkLsB8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TA8w8b4HDC+VSe/5R+ww2BESytB7iO0d2ZBddkANunV+G8osNluIKsIPxu3lCSSQu
+	 mcWw9VRF1YKGncQhcQQBk8gE0Yv2ENVb9QqODkc7f64xI7P1zeMrZEK9lhY1NJJzs7
+	 kYHw3A9NACKszs0MTqteRNKUQ8kO9NKnRBkxZ3FvLnCd61F0EW31wYF95garCShHLk
+	 Dp9mGp7JzzfLj5M1nKNzJLjN3zldGbUV/UILZ1/62EgA4nNwg44zHiysui0Y9wTgSU
+	 IEJH0fqeyEXKcOcN8/E/lCgs2tuNdOLe8Y8vMUHZr+Psf78P86oupZpVpvmiW1e5oh
+	 3E3gdwGBlFgow==
+Message-ID: <ed99a966-6c10-4156-846a-4ae02621dcf3@kernel.org>
+Date: Wed, 14 Jan 2026 16:58:58 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b8055e0f0f1b4473db2583586350b4f7aa8f3b4c.1768248467.git.nicolinc@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_075811_453761_5795692F 
-X-CRM114-Status: GOOD (  29.61  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] dt-bindings: watchdog: fsl-imx: document continue
+ in low power mode
+To: Nandor Han <nandor.han@gehealthcare.com>, wim@linux-watchdog.org,
+ linux@roeck-us.net, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de
+Cc: kernel@pengutronix.de, festevam@gmail.com,
+ linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251230-pastoral-enigmatic-chamois-b65343@quoll>
+ <20260112130849.3748465-2-nandor.han@gehealthcare.com>
+ <e66a3dd5-1cf0-4d45-9ed2-55f50faaa0ae@kernel.org>
+ <1359781c-a1cc-43ff-88e2-f381e8ab81d2@gehealthcare.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <1359781c-a1cc-43ff-88e2-f381e8ab81d2@gehealthcare.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,66 +121,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 12:20:16PM -0800, Nicolin Chen wrote:
-> From: Jason Gunthorpe <jgg@nvidia.com>
+On 14/01/2026 14:22, Nandor Han wrote:
 > 
-> If a VM wants to toggle EATS off at the same time as changing the CFG, the
-> hypervisor will see EATS change to 0 and insert a V=0 breaking update into
-> the STE even though the VM did not ask for that.
+> On 1/12/26 15:55, Krzysztof Kozlowski wrote:
+>> CAUTION: This email originated from outside of GE HealthCare. Only open links or attachments if you trust the sender. Report suspicious emails using Outlook’s “Report” button.
+>>
+>> On 12/01/2026 14:08, Nandor Han wrote:
+>>> Property "fsl,wdt-continue-in-low-power" allows the watchdog to continue
+>>> running in low power modes (STOP and DOZE). By default, the watchdog is
+>>> suspended in these modes. This property provides the option to keep the
+>>> watchdog active during low power states when needed.
+>>>
+>>> Signed-off-by: Nandor Han <nandor.han@gehealthcare.com>
+>> Do not attach (thread) your patchsets to some other threads (unrelated
+>> or older versions). This buries them deep in the mailbox and might
+>> interfere with applying entire sets. See also:
+>> https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
 > 
-> In bare metal, EATS is ignored by CFG=ABORT/BYPASS, which is why this does
-> not cause a problem until we have nested where CFG is always a variation of
-> S2 trans that does use EATS.
+> Apologies, will not do that on the next version.
 > 
-> Relax the rules for EATS sequencing, we don't need it to be exact because
-> the enclosing code will always disable ATS at the PCI device if we are
-> changing EATS. This ensures there are no ATS transactions that can race
-> with an EATS change so we don't need to carefully sequence these bits.
 > 
-> Fixes: 1e8be08d1c91 ("iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 18 ++++++++++++++++++
->  1 file changed, 18 insertions(+)
+> <snip>
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index ccd6357fa5a8..58008fe94ab3 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -1096,6 +1096,24 @@ void arm_smmu_get_ste_update_safe(const __le64 *cur, const __le64 *target,
->  	 *  fault records even when MEV == 0.
->  	 */
->  	safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_MEV);
-> +
-> +	/*
-> +	 * When a STE comes to change EATS the sequencing code in the attach
-> +	 * logic already will have the PCI cap for ATS disabled. Thus at this
-> +	 * moment we can expect that the device will not generate ATS queries
-> +	 * and so we don't care about the sequencing of EATS. The purpose of
-> +	 * EATS is to protect the system from hostile untrusted devices that
-> +	 * issue ATS when the PCI config space is disabled. However, if EATS
-> +	 * is being changed then we already must be trusting the device since
-> +	 * the EATS security block is being disabled.
-> +	 *
-> +	 *  Note: Since we moved the EATS update to the first phase, changing
-> +	 *  S2S and EATS might transiently set S2S=1 and EATS=1, resulting in
-> +	 *  a bad STE. See "5.2 Stream Table Entry". In such a case, we can't
-> +	 *  do a hitless update.
-> +	 */
-> +	if (!((cur[2] | target[2]) & cpu_to_le64(STRTAB_STE_2_S2S)))
-> +		safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_EATS);
+>>> +  fsl,wdt-continue-in-low-power:
+>>> +    $ref: /schemas/types.yaml#/definitions/flag
+>>> +    description: |
+>> Do not need '|' unless you need to preserve formatting.
+> 
+> Thanks, will update.
+> 
+>>> +      If present, the watchdog device continues to run in low power modes
+>>> +      (STOP and DOZE).
+>> Not much improved. My questions how this petting is suppose to work
+>> remain unanswered.
+>>
+>> Again, system load is really not relevant whether watchdog works or not
+>> in low power mode.
+> 
+> Our use case is that we do not allow the CPU (i.MX7) to enter low-power modes.
 
-I understand what we're trying to do here but isn't this implicitly
-saying it is safe to transition hitlessly to any non-zero EATS value,
-including S1CHK or RSVD. S1CHK might have other config dependencies?
+That's very close to OS policy... or some sort of runtime choice.
 
->  }
->  EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_update_safe);
->  
+> 
+> To enforce this, we explicitly enable the watchdog during low-power states so that if the system enters such a mode for any reason, the watchdog will reset the CPU.
 
-Thanks,
-Praan
+So finally this is explained. You actually want to trigger the bite by
+lack of petting.
+
+You can as well set the bit moment you put the system to suspend. You do
+not need DT flag for this.
+
+I unfortunately do not see how this could be anything else than OS
+policy, so it is not suitable for DT. Maybe some rephrasing could help
+and that's what I would expect usually, but I already raised objections
+and then you sent v2 with the same ignoring these objections (really,
+never do that), so I doubt that discussing will change anything and you
+need very specific answer: no.
+
+> Since in STOP and DOZE modes the CPU is halted and systemd can no longer service the watchdog, the watchdog will eventually trigger a reset.
+
+
+
+Best regards,
+Krzysztof
 
