@@ -4,73 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02994D3CC82
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 21:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19ABFD3CC81
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 21:56:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LSOcdavoZFD3+9Io9+zkbQmRh6qWauZUx+7D4aAGCYM=; b=EHQjAtdM6NWY4tB1mMYJYjGGhA
-	435JeuUYKL9NxZIo6GVx5+FT+x4zaLaJNNnKaLVNBDPhv7S5pBIJVZQfJYoRGyhx685dRuEchE6K9
-	pStY9IQwUX7CW0chpuUkKtbAvtok+UoPRhq/wGA6MZJG7pc0GXuFS/iszTnfr3ZK0En36E/91m6bq
-	vwc/gZLvq53FEN3EXan4p5dFW7dWcIReL+1lPCcsbqX/md/4eTounErzx2WRl6JRyCln6Fl9A0U0Q
-	Mmzh68IB6b3PEJ02Oo2Ad88imbh95+JeEAio23hFlMk4PguM29DLBZ5HKrFY/dJaiamuAIQZ2BisO
-	VU5fxyOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V2IFPWB+T8VdoZY6NJv4zwx5iiV744THuNeTgWC4nyo=; b=2XyM4LUGCMxVGXsJpV7MiAMlVF
+	nUyHjJbwrGOFEy+XO+A9dzEJRYGe2pqw+vzVx5YxWhZsYiuyJduRXS9ZEyM2Yu+7jM+iMK4T1nmAi
+	m7uwfJTGs/CwFAHCWc1X0crBy7fdSy1XWrhxhNld+S3rHyJ3yLqayA+tPEDNFFAJ7GUCe6kz0FXXM
+	Pq+/SaYOYUXC/EUqWRDecZYTm9NldXHR0ZBUt5j+3RRPiDXIpR6I8ojHrL3CQDD2au/Zk5kLZNlTT
+	QhKNw7uDMlVqV94kZCdGE0yAEaFPXOgukpHy2Z9RkxE+sduuLZ9kcD4Hyp2pYQrHTIoHV5FHKjTAK
+	EUgrWyzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg8me-0000000Apjx-38an;
-	Wed, 14 Jan 2026 21:52:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vg8qp-0000000AqQF-1QZ5;
+	Wed, 14 Jan 2026 21:56:27 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg8mb-0000000Apj8-2xbt
+	id 1vg8qn-0000000AqPe-1PZJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 21:52:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E1728437C2;
-	Wed, 14 Jan 2026 21:52:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B14CC4CEF7;
-	Wed, 14 Jan 2026 21:52:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768427524;
-	bh=M1gJhCbLOU4I/BZFPxEOzvEA0Bnn9+kKwnxcwbbgbkE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kwWwxikyHO4uMF7uRfY8WsAKTfTOC5gGgvBeg80DGMtleeRKM40iWnh8pdsn4DKtp
-	 q3Y+R51snbfadJlsqcQeacKH64t3GUoczhhBU38DtbP1sMw06HgZmdfHubYNXatH1f
-	 Uj3y3WqXHdBr5rDXDrwOO6/BBE9pOxRD73krvnp661saWIQ3hjOh4GCHlOXMS1nLxV
-	 AhBWXK1AHTENiCh5Usa0mwV6rXL6dAFEXxm4CxblQmzHW9SqxakDsS+IOsHhSFRFaF
-	 PFUV/1ffmIP+0IHbpsi1UQ/iBwZbkUr5wD6CULCpPSQ/eFEiBcsJPSfEon0yr2gxHz
-	 I1+eqycXqmEMA==
-Date: Wed, 14 Jan 2026 15:52:03 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Alain Volmat <alain.volmat@foss.st.com>
-Cc: dri-devel@lists.freedesktop.org, linux-media@vger.kernel.org,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	devicetree@vger.kernel.org,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	linaro-mm-sig@lists.linaro.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Hugues Fruchet <hugues.fruchet@foss.st.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-kernel@vger.kernel.org,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>
-Subject: Re: [PATCH v2 09/12] dt-bindings: media: st: dcmi: add DMA-MDMA
- chaining properties
-Message-ID: <176842752326.3259543.1333457446847101857.robh@kernel.org>
-References: <20260106-stm32-dcmi-dma-chaining-v2-0-70688bccd80a@foss.st.com>
- <20260106-stm32-dcmi-dma-chaining-v2-9-70688bccd80a@foss.st.com>
+	Wed, 14 Jan 2026 21:56:26 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-47a95efd2ceso2517795e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 13:56:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768427783; x=1769032583; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=V2IFPWB+T8VdoZY6NJv4zwx5iiV744THuNeTgWC4nyo=;
+        b=A4CifVlibjaK/rYR/ZN3Dzp3ms+OTEQ9SDfomviuWE7cpcXwKBD6s4IRHR23fovH9Q
+         VWjTKujunOC2OTPPXNmG7ZFR8GNSaDr6zKCPptKLsCrepNcZiH0uEgH9Xax3nyzzxDeH
+         BjnmHDssazePl4fqgc/CNpQ32WidDSzu7/gAVuGiQx/p3G6UMwHDsyH0J+DgI6edCxzb
+         6rVZFzOTiAbZbfLurrTL53CdAzNP3gkjuYUlklTUc2m3X972yVDJ9N8WzahgHt7cYynn
+         VWCQGdUJcaHI2yT8eq+pDSV70aFGskLPk4fa0HDPMDHVb2K4EUY0y2NCPP5cLQj/GGoB
+         c9EQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768427783; x=1769032583;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=V2IFPWB+T8VdoZY6NJv4zwx5iiV744THuNeTgWC4nyo=;
+        b=R/UIzW0KrXbUr0BkI1PVFfwbdOdmNMc7MPnberxo90gmc0G6X6TlCiXHvrCn/iDxtP
+         KXAD2QrpO504jSsxERXUPXaJIKFX0Ihj56hiV+Hav2u6GWUGuEE0hFFRdwAS9gU28+xo
+         N8KNn7IBcYIQcJJWI17nNeLg5VF9qHlV7erKoBArDkqRM2JhlSBNdH8QzqVV86scjd5s
+         bQf/MRQmKbteiIlbTQy4pn5E59cBLkYJdB4o49tBIMqMxeV711ymCcsFMWX7T/NNgBXo
+         aZt5T1rIcMOR/AFWQbmr3fzJa3FpuunGW9MoztYuvGKvmEXWKhrJFINABcQwJKbYCsQK
+         oE1A==
+X-Forwarded-Encrypted: i=1; AJvYcCXrEhSwOaE/fReKEYVTlcmzwYGPq/7LCC/yueE4rPoYU2AvBjBK/7h8u6i/84EHPkt2R5NxzDqWkmJzQsjyrFXA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7rt3lOn+Fs+7VNL78cAIbYvoFe1LuM0m6XauivVNEUZOxSyfQ
+	pWVONoLhPYkfGhQKywsvw7ZE0Try4da0tv5FG9U6tzA0J16E4nDteVgflQQIZO2ORYrKExR8BUz
+	dvcub7rIffwNOmcFqcnB++QJqSSfFm68=
+X-Gm-Gg: AY/fxX4uesWqThwbwAoawDDPTN38azzHOb3cCnuxiQq9qiHIXqQhiOiTWagt7OHtifu
+	qU37cnG41czXhdzLqAW2FaFXLmprRUNrcvbL92yPvDXRWONWDCRyNtHrD8RdqHHq0Q1vH91ddss
+	6//jg1CbuFxLJ69qFKDZQD5h8fEOSIx3U4cBDcl95IABu2325D2EU2xk5KUPrRKok4/NL+bDRoW
+	WxmH9HJAvqBuMb/G1Ld8X0qI4DPAcx/L/i4SEwO0eUeRAT8qQlJVuUC31JGj9urxn/ynAZ4pc98
+	HMo/DpFfdYKmiwpCIf5iIG+ZMNla
+X-Received: by 2002:a05:600c:4f0b:b0:477:c71:1fc1 with SMTP id
+ 5b1f17b1804b1-47ee4819f30mr39840995e9.19.1768427783081; Wed, 14 Jan 2026
+ 13:56:23 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260106-stm32-dcmi-dma-chaining-v2-9-70688bccd80a@foss.st.com>
+References: <20260102150032.53106-1-leon.hwang@linux.dev> <CAADnVQJugf_t37MJbmvhrgPXmC700kJ25Q2NVGkDBc7dZdMTEQ@mail.gmail.com>
+ <aWd9z8GVYO12YsaH@krava> <CAADnVQLxo1uPbutGNKrv=f=bSVkzxOfSof0ea8n7VvqsaU+S3w@mail.gmail.com>
+ <aWgD3zH7vsiBdIcr@krava>
+In-Reply-To: <aWgD3zH7vsiBdIcr@krava>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Wed, 14 Jan 2026 13:56:11 -0800
+X-Gm-Features: AZwV_QjPeGyIa5g7MAD4JaS1tAElwUa_x4uErmV3ep-P21EZz9S74OzD-I8OSSs
+Message-ID: <CAADnVQLHVogD1mjMCsHcJOayuZW4OwadEN0g9wu=6d97uRSWqQ@mail.gmail.com>
+Subject: Re: [PATCH bpf-next 0/4] bpf: tailcall: Eliminate max_entries and
+ bpf_func access at runtime
+To: Jiri Olsa <olsajiri@gmail.com>
+Cc: Leon Hwang <leon.hwang@linux.dev>, bpf <bpf@vger.kernel.org>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Puranjay Mohan <puranjay@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	"David S . Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, 
+	"H . Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Network Development <netdev@vger.kernel.org>, kernel-patches-bot@fb.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_135205_787075_D34ECD17 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20260114_135625_410943_46EE8F86 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,22 +110,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 06 Jan 2026 12:34:37 +0100, Alain Volmat wrote:
-> Add properties update and new sram property necessary in order
-> to enable the DMA-MDMA chaining.
-> 
-> Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
-> 
+On Wed, Jan 14, 2026 at 1:00=E2=80=AFPM Jiri Olsa <olsajiri@gmail.com> wrot=
+e:
+>
+> >
+> > > fyi I briefly discussed that with Andrii indicating that it might not
+> > > be worth the effort at this stage.
+> >
+> > depending on complexity of course.
+>
+> for my tests I just had to allow BPF_MAP_TYPE_PROG_ARRAY map
+> for sleepable programs
+>
+> jirka
+>
+>
 > ---
-> Change in v2:
->   - correct typo (phandles -> phandle)
->   - remove explanation about generic binding sram.yaml
-> ---
->  Documentation/devicetree/bindings/media/st,stm32-dcmi.yaml | 11 ++++++++++-
->  1 file changed, 10 insertions(+), 1 deletion(-)
-> 
+> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+> index faa1ecc1fe9d..1f6fc74c7ea1 100644
+> --- a/kernel/bpf/verifier.c
+> +++ b/kernel/bpf/verifier.c
+> @@ -20969,6 +20969,7 @@ static int check_map_prog_compatibility(struct bp=
+f_verifier_env *env,
+>                 case BPF_MAP_TYPE_STACK:
+>                 case BPF_MAP_TYPE_ARENA:
+>                 case BPF_MAP_TYPE_INSN_ARRAY:
+> +               case BPF_MAP_TYPE_PROG_ARRAY:
+>                         break;
+>                 default:
+>                         verbose(env,
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
+Think it through, add selftests, ship it.
+On the surface the easy part is to make
+__bpf_prog_map_compatible() reject sleepable/non-sleepable combo.
+Maybe there are other things.
 
