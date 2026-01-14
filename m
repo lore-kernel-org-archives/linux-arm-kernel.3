@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05747D37E33
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 14:17:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17953D37E33
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 14:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YO5IPtO5cdGkzvneXRvi+dlXdyTwC85OfiFr6xfp5RY=; b=m9PaUn/ARg3z41qSU81Zfe5CmQ
-	W76pBmMn2Xq3CygatQhJtMdMx1VIW8PAvr4IYO6WQ3NYQqLwX7krj4w0av6jwicFWPWzjkRXR8XGV
-	q+YPHHIFXsHxT0v/8HEwFiz/pMa4KkUcg6caJ28AsJWUCE55tKqiqDH0Ukx+Xi3GoICO6eeucXz/R
-	6gReCxNCFHnzpfe+p7lA34WSpEV6TYFKglCxIFOKpnJUdtluinTdIWOfJfezAh9fjJP2gdaC5amOi
-	w47G0uYfuFdDAX/3wesj9SsktK7B6kpQtNLQYfmFjevZfiyV/v3rR0xN5bDATbd9QKp+cuznTHjrq
-	2huI3eGw==;
+	bh=8IE45J8JgDPeyrAViCtUZj6ANewtTif+SN8oHgJqm5M=; b=gJxBb/qhZk6e55LQCah0c6+Gxi
+	KQ7ih4Xwo5hii5fxe65aIjJAmVsIybUk8f1x8r+uiqErANTuS1N46XpcnXyY+n9y4JX7XWbXw46NS
+	/I1kTTSpCwubOVCSODjospx6DQb/79qhn/RH9I72ZUdhQMyVh05s3X5vHkDcvOEHTmmBugQjDoyR0
+	1sA3rBOIxRS9HUELPb10z3ZcmiA/jhbslfw/VO+zPIm5TzydCqluvwULASr+BITWwROkkCX15BIdr
+	WieC3ewqkHNnpJQsVdVPbSvjHvFR2vYlSl/nPgDorSYdhlaWus/zZqNr5ndVDwabVyCPersdZgpAa
+	l2HgaG8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg1gP-00000009UMx-3vkH;
-	Wed, 14 Jan 2026 14:17:13 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vg1gV-00000009UQO-18hk;
+	Wed, 14 Jan 2026 14:17:19 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg1gM-00000009UJb-2goo
+	id 1vg1gS-00000009UNl-37XX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 14:17:11 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4775895d69cso43943945e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 06:17:09 -0800 (PST)
+	Wed, 14 Jan 2026 14:17:18 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-47ee0291921so11860285e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 06:17:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768400229; x=1769005029; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1768400235; x=1769005035; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=YO5IPtO5cdGkzvneXRvi+dlXdyTwC85OfiFr6xfp5RY=;
-        b=ZarzNo7WKzuswVMmLNNCWejr5VixuSu2LRSyecX8rerZvzSP5KgdHIJFoN00lZRL2w
-         oDOY8VqxQNIQLOIvBSJKnvWoiznIwYdrNNxbcCMGAj9uI+9bUbRJwtir9NBYLikm1Msb
-         l6cYuRfTDixPVfrsUm9Je5IXL2LQaa7T6UKifau8AybG8V/v1KmiepTSPVrm1EM23EhG
-         GzzckEQ7YmwIGTelCOKcIu8WS9KHkTA9gTG8iXzWEdk7ZawqCapJOmn3cdIv05uiV1v2
-         e0p3+onvBLUD9fdpZB/TNwld+P79x2wsSY65eEtUiuzrm9+oc0rlyL6BS5w9w/hQSwSX
-         iZ+w==
+        bh=8IE45J8JgDPeyrAViCtUZj6ANewtTif+SN8oHgJqm5M=;
+        b=FfBU2sgSLamQbP/gUhPNu8tJwaQQnXIu+BkOGmWa6JOssYBwpnfvlPe3Im+XOQCYrK
+         MhknGyKHdAjvPxhEXLpYwUgUmjwlDOwgojOZMpIjPliuhXGe1BNjecwkz9qRQAKeInVP
+         5ptfTt7/Isnbm43Rihtl7RrAJVLsUTLARdSll5/w7WbYrdbZW3dYcTBjzoU+fR3mtTWO
+         a/7K7L1MqCvEdf1yrvC5x7A1U63BXhbUc9VOdrSWE7TY/tNvdmjPPJfXZRS+CoywdZ9l
+         DBmYwyamazT+bCKRiF54CIJm+/SYieABEGSrUAD5z9DV/2j/gOxYegPnJQNgwcWeHN/n
+         AweA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768400229; x=1769005029;
+        d=1e100.net; s=20230601; t=1768400235; x=1769005035;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=YO5IPtO5cdGkzvneXRvi+dlXdyTwC85OfiFr6xfp5RY=;
-        b=o1NFsnBPK6kc2eTNLnAaJBIzCrDKTZ4wQJTDjlAcMzcn9MDK9HOsl25K8D8KThsK5S
-         hjZf9SnBKcVhqRho+LZybRB8hi93NknCh1mPrkCA88ZfrEUB2TSBPa8tMOX9j2RGCJ+v
-         +wWwL8V/SKhwBHWCC0+QcoRF0nbfI+dr1kp7v44MKnzgGKM4DllyEQB6AdO6Xm2Dht3/
-         04BtTihW+JNNyI0js3/kBo+AYVK0ZBRzfoz3Fik/UK3deZUF2DXJ5ervXus1YhWaVoOJ
-         oo1OG40+UM2EFdQW/tnVJ9ePw5gfSGTOv+SgjFgcb76g5RTYBILyQ8yXj7LWwDMB2zr0
-         C7ow==
-X-Forwarded-Encrypted: i=1; AJvYcCWhz+HeG+wOMCTYS/mm4ppjmTb7AuCPmRaQhhrDIDROH3txmuniSrDPufnIZgMAU44de14SjRiCKHF7vzTXnDtJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyocG5G6A39TitifG+6HwOX/wCahTjGREXypVONEl3qUuAs4XX4
-	HRR064/8M5+E1nY1YP3nV16LgqpmN9/0ZGA+RaCN8FMzIPU4Rr+57D7gTj8X7MfEt00=
-X-Gm-Gg: AY/fxX5yDXI0MXw54l8WOAKPLkV9Qx43uE7BPo86B2NSVPlx0XuArr6fQPY9jbubqT1
-	MsVssKvppXt88NGJPL9DWwfY2FQW7X05ffmAPp5+e6BmkZ5fDNNX2XbmkzvO/47r3eazAUpZjXS
-	KXDATDY02c+IHGzWEYc1YyDf6mmq6sz9hyRg9e726iuWmw8WcTbq+kfYuQQV/EZApfa0rgbmhUn
-	wJugRJYdnqmzMSm/zjDqARXdeivmlcMoiyj/D4Bj9qjGzynY3qKsqVWSIgnVcgPPhS57u5FBhY+
-	GKNRRwESc21URnmX4yQJIu+mtdJeoPSY6fBVuOasYaJDYdsW09xXXqzrL7qon9YRpLeZX0V8e5d
-	S2EUrJ7KghAk1b2PBqiGE3oWp8lOZR/m+c0hQ1Dma3umKH5I+MrQKI0a204J2aJb+EL/yX2QSM6
-	uh06hIWAZ25J/sKTRPQ7t5dE6sBpVSfxthjmwdLwUjKVhz6ErSfKSvGKn5ITZTh1mtwNHBmg==
-X-Received: by 2002:a05:600c:3555:b0:47b:e2a9:2bd7 with SMTP id 5b1f17b1804b1-47ee3363c12mr38044285e9.19.1768400228580;
-        Wed, 14 Jan 2026 06:17:08 -0800 (PST)
+        bh=8IE45J8JgDPeyrAViCtUZj6ANewtTif+SN8oHgJqm5M=;
+        b=c5l79cTw7UPP6Gvhp3hxGUtGI6+zYyVER5vBUcIfBJWNHG7RbIDPetjgPETg+ogLrt
+         wn/pPwo+MHPJT/LKrUY/ZbqSSl3iOIrkPPy2CRBOw726oB59s6LU9ZCQ63vtx/mRrZUy
+         svbjsEjCO9m+Lz5QIsXE6g6a1I/TIYUFq9gs2THFL3/VfiXmH1PDFto53bmgy0ssCLoM
+         agdZuazPm4MGMUiWX7xP5IGZVTCndxBPFAjiUTJp/QDvNonZlBg3LOHnYmhdg6gQ5n77
+         C40PtBborBpzPeCcwQFKtsn8s51vIBkxsCkEv8Y1vb0WEpNYPQjd+Z4UtxM56wr2yfde
+         JpIA==
+X-Forwarded-Encrypted: i=1; AJvYcCUKMjWTv45r83JkoXzFa4YX6PX8Dh/XLudI4zXsAcWx/jwpAhWDblv5fqsl7bXt5IC5Es4cPBfZ/s2XvWgeUJ2n@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4TDhDoIwFart5brZWdy5A6xM3UGWlO/8Qhmczt3DlJ61GpNlN
+	3KfxSt5/LYKMSVhVNDGFBy8Q1NJ3m3jqNngsOQAFLPh3mMTIOvVPqMIsHlxd000RLtE=
+X-Gm-Gg: AY/fxX6MIfk/3Xpe3xAPPflKVdYfHYrVQsjW6UR4igK/7atc3iZHNLPP9g9hSpB4+pe
+	sIv+BrCjCF5hOPCO7z4/figGOxvXEY4qCxnKBl0+rAPOGuN+iUEw9vacG2YzhCyZiXoLHQr2wyZ
+	avgZCcwrOb0qe8j3CJTyAPdJXD6LMPZExd2WyU3bxg3dDw9yB5OShh6GOOip+xqQIMHkQyU4Mk9
+	xqwEHRbsYLIGEPoxRNn+MidkD3LUEZBjlLs0cSGZyrUMIaXi4klqdhOOlqZHHtUgDKOKak9H9t9
+	lTg4hscyMzgcM9hBERiVgDZKrEbiZ0UajGzq7uo8Mkq4kqqg+XwZzWnKFebvIHSXtArn5Z1yQla
+	cDE0f6Uifq4Ri4qMrR9pB97G7h+4rUjdoK9w/pv5sD/2qdMp92hZdhia4/syRdTAf/ZbmLdNvjS
+	QIKBBl0dIVvQ5/ARdI6aCVbZLNP4ewre0pRHfz+pJhNk7gj9e4M19ZhU4KsL2gYhA5moNkEGuZZ
+	CNX9fAI
+X-Received: by 2002:a05:600c:870b:b0:471:9da:5232 with SMTP id 5b1f17b1804b1-47ee3349d27mr34820035e9.15.1768400234736;
+        Wed, 14 Jan 2026 06:17:14 -0800 (PST)
 Received: from ta2.c.googlers.com (164.102.240.35.bc.googleusercontent.com. [35.240.102.164])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47ee57a2613sm29595445e9.6.2026.01.14.06.17.06
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47ee57a2613sm29595445e9.6.2026.01.14.06.17.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Jan 2026 06:17:07 -0800 (PST)
+        Wed, 14 Jan 2026 06:17:08 -0800 (PST)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Wed, 14 Jan 2026 14:16:30 +0000
-Subject: [PATCH 2/8] dt-bindings: firmware: google,gs101-acpm-ipc: Add TMU
- child node
+Date: Wed, 14 Jan 2026 14:16:31 +0000
+Subject: [PATCH 3/8] dt-bindings: mfd: Add Google GS101 TMU Syscon
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260114-acpm-tmu-v1-2-cfe56d93e90f@linaro.org>
+Message-Id: <20260114-acpm-tmu-v1-3-cfe56d93e90f@linaro.org>
 References: <20260114-acpm-tmu-v1-0-cfe56d93e90f@linaro.org>
 In-Reply-To: <20260114-acpm-tmu-v1-0-cfe56d93e90f@linaro.org>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
@@ -96,16 +96,16 @@ Cc: willmcvicker@google.com, jyescas@google.com, shin.son@samsung.com,
  linux-samsung-soc@vger.kernel.org, linux-hardening@vger.kernel.org, 
  Tudor Ambarus <tudor.ambarus@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768400224; l=1633;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768400224; l=1858;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=Y+qelmK4bAlyv/krT1u3T7mbMOZyLus+NJ7siKthjMI=;
- b=C+ZHlnpywyNkQkIYeZeMHaDsZBGpz38Vgp8+GMBcn0/FwlaNnjHtHkxAETXB7iXLe1n+GG1Bf
- Y6UwZZFTUyAB9FjKozYqzSJoOTCshklD/jjZIt4actl242H/wICUhN9
+ bh=8UojV7uTS3mheivu+7sw0eF9oi43bOc4wBfGZPuFRE4=;
+ b=L7ka53Pavk7o7iv9buy1Uk9Hui9JJggaZxvrQ3ziB2ZiI1QLIDOWA/yKh7O8c0KHhKHL9SBVE
+ ZcmvuXqrAbVA3WmMGUQlhnK9rs6sZ/WjzLR5VHO/HfFM7tqZ8VIaPf2
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_061710_704587_CDD0A2A3 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20260114_061716_809772_3DB73D58 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,50 +120,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Google GS101 Thermal Management Unit (TMU) is a child device of the
-ACPM (Alive Clock and Power Manager) block, as it relies on the ACPM
-protocol for configuration and initialization.
+Document the bindings for the Thermal Management Unit (TMU) System
+Controller found on Google GS101 SoCs.
 
-Update the ACPM binding to include the thermal-sensor child node.
+This memory-mapped block exposes the registers required for reading
+thermal interrupt status bits. It functions as a syscon provider,
+allowing the main thermal driver to access these registers while
+the firmware manages the core thermal logic.
 
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
- .../bindings/firmware/google,gs101-acpm-ipc.yaml        | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+ .../bindings/mfd/google,gs101-tmu-syscon.yaml      | 37 ++++++++++++++++++++++
+ 1 file changed, 37 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/firmware/google,gs101-acpm-ipc.yaml b/Documentation/devicetree/bindings/firmware/google,gs101-acpm-ipc.yaml
-index d3bca6088d128485618bb2b538ed8596b4ba14f0..4043a6453a9897b9e1d0e618489f79c19f32f247 100644
---- a/Documentation/devicetree/bindings/firmware/google,gs101-acpm-ipc.yaml
-+++ b/Documentation/devicetree/bindings/firmware/google,gs101-acpm-ipc.yaml
-@@ -52,6 +52,15 @@ properties:
-       are used for passing messages to/from the ACPM firmware.
-     maxItems: 1
- 
-+  thermal-sensor:
-+    description: Child node describing a Thermal Management Unit instance.
-+    type: object
-+    additionalProperties: true
+diff --git a/Documentation/devicetree/bindings/mfd/google,gs101-tmu-syscon.yaml b/Documentation/devicetree/bindings/mfd/google,gs101-tmu-syscon.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..6a11e43abeaa23ee473be2153478436856277714
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mfd/google,gs101-tmu-syscon.yaml
+@@ -0,0 +1,37 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mfd/google,gs101-tmu-syscon.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+    properties:
-+      compatible:
-+        const: google,gs101-tmu-top
++title: Google GS101 TMU System Controller
 +
- required:
-   - compatible
-   - "#clock-cells"
-@@ -93,4 +102,12 @@ examples:
-                 };
-             };
-         };
++maintainers:
++  - Tudor Ambarus <tudor.ambarus@linaro.org>
 +
-+        thermal-sensor {
-+            compatible = "google,gs101-tmu-top";
-+            clocks = <&cmu_misc 71>;
-+            interrupts = <0 769 4 0>;
-+            syscon = <&tmu_top_syscon>;
-+            #thermal-sensor-cells = <1>;
-+        };
-     };
++description: |
++  The TMU System Controller provides a memory-mapped interface for
++  accessing the interrupt status registers of the Thermal Management
++  Unit. It is used as a syscon provider for the main TMU driver.
++
++properties:
++  compatible:
++    items:
++      - const: google,gs101-tmu-syscon
++      - const: syscon
++
++  reg:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    syscon@100a0000 {
++        compatible = "google,gs101-tmu-syscon", "syscon";
++        reg = <0x100a0000 0x800>;
++    };
 
 -- 
 2.52.0.457.g6b5491de43-goog
