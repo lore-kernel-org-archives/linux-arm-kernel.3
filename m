@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC076D29FEF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 12:07:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2069DD29FF5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 12:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3pnFDZOJMe91m1QVq4sRpcpQyhtr0ZmwRl1v6B3xoYE=; b=2kPtcHVqceJGlwBuhrS3lBWZAG
-	X9BEuJzXQUF28gg7pTZ/NtHBbsPfXN9jOrPwlO2e2hz7dZzwcPW/B3bvoTW/u9T0BGnstLFXwxV8W
-	pns8Aff3JC0pl9OsLRBa3bIMvW/61ltN6VKQgDYjQ5v/hsDjwkoThA91rVuDuCmV9+lxp+IQFuFr3
-	pprWuvfIGmI3VVm6gR265XgLA9vYCOq5C5hPC/G6QVidD3g1PfAVC5ujxb4c+A0gBJro2WBPO82ZO
-	QzRloGAbKLWE+7UM7y1r9RLrjI22q7cQuQDdMrmXDBQOW9c7j/Z3c0uwoN0u62uW6CCDY0E4KUiwm
-	0gBTF9Ug==;
+	bh=4dooFeIUOZ2AYn0yuxNU1dgV5MLYuRIoZtKgKCQ/5bI=; b=umBOEu+/EpEbS+TKeVFfRUSvSF
+	E6xQhhl4o85VV7bLzfZuSsWQuGwaEIwTv+ejsYkSnkR3Pj2nt13yeoRjjWB8fCnllczkfS2/Iqidw
+	GrjW5cKdtMGA0TFZmlH4JYVzVYKX34O5pCKOc2MI5JJzTCVlg8zVV/FXaN4Y+BuN0A5qnZJXYc0/c
+	r5p3S9eFkF0tyrHwIE3ruFT8ornb8q1jfD0DmQrGsMYvHGwHyQBnPTzhqE6psrLDBBZmyaOqWIReZ
+	12daiBa1fhRz3P0wMoyjiWoU4Hx6P49I9dUT1N6/xETsGMOaqqpBIkFFKdjku3dGgYFSaBowr4pS8
+	6UBPYHxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzeR-000000095n8-29rn;
-	Wed, 14 Jan 2026 12:07:03 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1vfzev-00000009604-2Viw;
+	Wed, 14 Jan 2026 12:07:33 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzeN-000000095kV-2Nvo
+	id 1vfzer-000000095xS-0lf8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 12:07:02 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-430f57cd471so4387120f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 04:06:58 -0800 (PST)
+	Wed, 14 Jan 2026 12:07:32 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-477ba2c1ca2so94295515e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 04:07:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768392418; x=1768997218; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1768392447; x=1768997247; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=3pnFDZOJMe91m1QVq4sRpcpQyhtr0ZmwRl1v6B3xoYE=;
-        b=qVoK9FFkWGgclKXIZhELw5dd9xLv4ACW6XS0x3wKOxfkBSjOL1YPFLvqzJmyOnL0h4
-         oz5erYRovxSHOwwzkBLoRPP0CTBm9h+uHieY0GuWS4r2xkt8fhQQ481Ya3qMmoDWVwzO
-         +lAJ667KgKWFZBZyY9/ceg0BOtp4gNK/D5JugWbB07lAEOUpafCOqlbPOndPvFeT+JHb
-         scQJWPtiaTXkSvs14B8wm3AkexAacDB4pQlfrkLdWGmXzCxY+2zr3MVnTJts002bSCD9
-         YhcJUxQ4STeermL+qQyebgpNTlro+cVEhcaHw5GavmTiyulpj51e+K82oDsRmSoCmU4t
-         R2aA==
+        bh=4dooFeIUOZ2AYn0yuxNU1dgV5MLYuRIoZtKgKCQ/5bI=;
+        b=oCGZieGihsXlJ/WXytHaSrI97kWZ93/BmqjIDYprJEVuzSTbB0/x+1EI/oyeUc0ME8
+         FqtqXf8fo5XHP9Rn7F23h7Tg9tkf98FLAvLvYBfhFhaZsb26XqteeYOXHk+8vMJa7LFF
+         mSjRSyrx6SCoknPRVAEHz4AhWgFkI+DKNUEsHtZepOvMGKvrmh7eu/B7rXWBoV9BfdoP
+         BRdyzf62m+LIF7FlwkYf+Maen35fYSviKwuoQB5FwGEYxE7muRIOKeJhsz8jx/9UyfCl
+         pPeHZUHC4gT4uGr4BtIRBXXV+Q3ogqlSIH6BuizYurub92Ujzk4zIQqwQ8KElVhjmVX4
+         Umbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768392418; x=1768997218;
+        d=1e100.net; s=20230601; t=1768392447; x=1768997247;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=3pnFDZOJMe91m1QVq4sRpcpQyhtr0ZmwRl1v6B3xoYE=;
-        b=Jid/IjIeENqF80XAWcU/41jKg+3LFuZDqtDqVzyh/18BTC/Ids9K9ShfkSuZcIkKV8
-         1/HZpAZnjuSJOsMxAIfqUKCeCQDLEZMclFmOSintxWrrtL7opHyu5CesdLLXBOSgM1Vr
-         dEaDiwPpdUzRP1VbzEq8WufRDdZkTOc3WJ9qYdRlnO7Nq1Og+Irn/ySZTOm/r5VeykMG
-         3VkoX1PIoprQzB1maD7frjalZruyfNTICQhgXbQfCjMWJ2zjSbgkJX4d7K/CJxp9257N
-         PKnaCXk8pCmxDBob7wy9oanziLOQ/wkUo9RNNBgpZ3RyHIrtEz2q3PO2fRAlrmY33XQ2
-         T4Tw==
-X-Forwarded-Encrypted: i=1; AJvYcCX+I5XAm5gHVUFmDkyIgVjmPWnOICvEprxxhJ4oy6qE/C2xfbZ/Bk19ECXpL1sZgM8I9zJd0U61+9FCQVGo+xCg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCYZxN51/A9nAukty31W3aJB3oIP9N0+oNCrnCNkTG+toml31W
-	NUEiHREstEk1xcbl9xSLG/7Ftzkro43KHAkJuY23HHhTm3mhZkibjdbmBpvbR2GtJ3I=
-X-Gm-Gg: AY/fxX6RjHGFAsXYoIMwO4vOCZacOFsb28DunQRWHXSCcQycMOPGsuAMlqNvE4towGL
-	b9bwSq2oVemHfvnD/9thNcyiyqte9Eg6c5zzsyw233q9/1kCzrqq8d3ty2h+V6PEssrDS+1yRHQ
-	FeOmDHdWg1hBZW7CbMYUQTJ68fWiNzdXPGWcPxDk47s58PQzKDvdBYxbbf7Uq6ggsDagX+ekn4C
-	L/OTEZiactfMxp/FCsIJ9s+T7kwnNUV42kOy5pc7mEF0iQyULSvhZxyovOZIGzOTHgH8PCgssN9
-	kLXWwSJJuTd1j/lAAWuws/u9wLFd1GVC+FPN4A3bq93gh3zs+5+GMbU8FSEi/LZRghiOV9XXTsh
-	CgRUmoJjJd5OPhz+virMIDjHyTLwiNzobg/x1Twh2cVJFJ4ooq7dpafmWhO/RxmY+TtgsRacQUU
-	6BypO8aVC5EM3MA59BF5nva0LxvjdOToBAjPksJPTk89d5dCP44ZlzAGpNxrj8NKc=
-X-Received: by 2002:a05:6000:2911:b0:430:f58d:40da with SMTP id ffacd0b85a97d-4342c4ef0a9mr2625034f8f.10.1768392417548;
-        Wed, 14 Jan 2026 04:06:57 -0800 (PST)
+        bh=4dooFeIUOZ2AYn0yuxNU1dgV5MLYuRIoZtKgKCQ/5bI=;
+        b=YLADUhjsfFjEXmm4IP6k6/fqCNrmoak077t0kjFgBXBrIbprsYyrFaje/3mywrAGaB
+         qUAsz7QhZDJjLNEFsQlJD/WUvQJ5dm569sDfHtvHfGqpisoHc7Oz6Lv3BUw+Ybtv+phR
+         pPFNIniPXduYT67kQVhtfNXK6wmwcx9nDDvpM/FqPdunhC2QCENW95Bm6rd9lwId/hfa
+         MoPICc4dXAA/i3DyPC67RxuIjOPwr4r1aIWMRsp4kNb1EsLLGfABYx/nreVGQDnZv1vq
+         5sPvkrNSd4wumFK2OQTzi1EpYGkK0Vm8WQaSHtr7qWwWHwH0/BzKy2rvECNyepwaFkov
+         U+Lg==
+X-Forwarded-Encrypted: i=1; AJvYcCXwm8aGVxtlF9tIxE8rpZuYOGAvlm67ILo+YIUVRfHZka9JNGCKZRKwQdCXy0ocK+v7+G8kdYP/1bo0nFfotbq/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmfEc5P4iK0jQaXRtK+50wq+ojxdQZHKkJpQGCvhYDZd0gWzyr
+	qoqaMa/GyRPKoG6yZQeVjXsOStvsWaF5IUAtqiUFLQ3EjoC7H5z2j/JZFz+LpkulpF8=
+X-Gm-Gg: AY/fxX5JQ5/iiJmGkwIfTPyu9BhcgDVLtoEhegwKbcAt9wokOBtpvi0sNHeMgosamb5
+	dbpk9/dQPoyy3DYe1X1st2B+WxEfMkfH+VvnC5oJxQTg8r0oLcETsfgZqrHG5zGnS8IT5dXojYx
+	gBDukmHpyaZWRHi9sU5oUkT+SHNGKl7ClVTLeR7fuabTAkOR5zjvT5CWpBdXhHF19GS++GmE7pe
+	VdPYL1cCUAcT0MrUrzEYIEL/oRnnmoAPsa+ZjBjbgA+aabPdb425zrmbmqIORri0k4XGwZSFLiS
+	jQWPV5nJ+2AjIVGrMq27GgiSE2cPLsegAfOZgDTg9VYQ72JrW9GEISDUUlGteuS7WNxGlxbq0xf
+	I4gkeKhmbDyvoIEdm1q9X0DoP+fH467owuswj6ld/MB+L/qkh9JZjyskD0zR8bU+LHYu7PjlN21
+	/gL8ZiwgULAKjS8EEjBIj+9xvVqo6IRShv0Hs2GrYoJbQOGmS5807JqzPJbvVAiv4=
+X-Received: by 2002:a05:600c:5285:b0:47a:935f:61a0 with SMTP id 5b1f17b1804b1-47ee30709e8mr30476765e9.0.1768392446880;
+        Wed, 14 Jan 2026 04:07:26 -0800 (PST)
 Received: from ?IPV6:2a01:e0a:3d9:2080:b357:7e03:65d5:1450? ([2a01:e0a:3d9:2080:b357:7e03:65d5:1450])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0860f5sm49164912f8f.0.2026.01.14.04.06.56
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47ee281dde4sm19667005e9.4.2026.01.14.04.07.25
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 14 Jan 2026 04:06:57 -0800 (PST)
-Message-ID: <4c0e0a34-7612-4bd6-9e9d-5599cbeb8fd0@linaro.org>
-Date: Wed, 14 Jan 2026 13:06:56 +0100
+        Wed, 14 Jan 2026 04:07:26 -0800 (PST)
+Message-ID: <b017db65-54c2-473c-8263-4fecfbf9a330@linaro.org>
+Date: Wed, 14 Jan 2026 13:07:25 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: neil.armstrong@linaro.org
 Subject: Re: [PATCH v2 1/2] dt-bindings: arm: amlogic: add Khadas VIM1S
  binding
-To: Krzysztof Kozlowski <krzk@kernel.org>, Nick Xie <xieqinick@gmail.com>
+To: Nick Xie <xieqinick@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>
 Cc: khilman@baylibre.com, jbrunet@baylibre.com,
  martin.blumenstingl@googlemail.com, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
@@ -90,6 +90,7 @@ References: <20260114062549.68954-1-nick@khadas.com>
  <20260114-slick-passionate-mink-216a3a@quoll>
  <CAP4nuTXeC1-6ktwLpDt_1ZRHxPSiNAoDKTxLzqEYJUfcnVogcQ@mail.gmail.com>
  <39bb1820-6e4d-4f50-87e0-93844d779f6c@kernel.org>
+ <CAP4nuTX556F6a+aMndYayu-29u-SsYi0g0ie8ONz8b5GStgv-g@mail.gmail.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -116,12 +117,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <39bb1820-6e4d-4f50-87e0-93844d779f6c@kernel.org>
+In-Reply-To: <CAP4nuTX556F6a+aMndYayu-29u-SsYi0g0ie8ONz8b5GStgv-g@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_040700_526783_1DB4F2F1 
-X-CRM114-Status: GOOD (  18.46  )
+X-CRM114-CacheID: sfid-20260114_040729_309394_91B5CE43 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,77 +138,98 @@ Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/14/26 11:33, Krzysztof Kozlowski wrote:
-> On 14/01/2026 11:07, Nick Xie wrote:
->> Krzysztof Kozlowski <krzk@kernel.org> 于2026年1月14日周三 16:51写道：
->>>
->>> On Wed, Jan 14, 2026 at 02:25:48PM +0800, Nick Xie wrote:
->>>> Add devicetree binding for Khadas VIM1S board based on
->>>> Amlogic S4 S905Y4 SoC.
+On 1/14/26 12:25, Nick Xie wrote:
+> Krzysztof Kozlowski <krzk@kernel.org> 于2026年1月14日周三 18:33写道：
+>>
+>> On 14/01/2026 11:07, Nick Xie wrote:
+>>> Krzysztof Kozlowski <krzk@kernel.org> 于2026年1月14日周三 16:51写道：
 >>>>
->>>> Signed-off-by: Nick Xie <nick@khadas.com>
->>>
->>> You still have the same From/SoB mismatch.
->>
->> OK,  I will fix it in next version.
->>
->>>
->>>> ---
->>>>   Documentation/devicetree/bindings/arm/amlogic.yaml | 6 ++++++
->>>>   1 file changed, 6 insertions(+)
+>>>> On Wed, Jan 14, 2026 at 02:25:48PM +0800, Nick Xie wrote:
+>>>>> Add devicetree binding for Khadas VIM1S board based on
+>>>>> Amlogic S4 S905Y4 SoC.
+>>>>>
+>>>>> Signed-off-by: Nick Xie <nick@khadas.com>
 >>>>
->>>> diff --git a/Documentation/devicetree/bindings/arm/amlogic.yaml b/Documentation/devicetree/bindings/arm/amlogic.yaml
->>>> index 08d9963fe9259..55663e0f7f915 100644
->>>> --- a/Documentation/devicetree/bindings/arm/amlogic.yaml
->>>> +++ b/Documentation/devicetree/bindings/arm/amlogic.yaml
->>>> @@ -247,6 +247,12 @@ properties:
->>>>                 - amlogic,aq222
->>>>             - const: amlogic,s4
-> 
-> Look here
-> 
+>>>> You still have the same From/SoB mismatch.
+>>>
+>>> OK,  I will fix it in next version.
+>>>
 >>>>
->>>> +      - description: Boards with the Amlogic Meson S4 S905Y4 SoC
->>>> +        items:
->>>> +          - enum:
->>>
->>> Yopu already have exactly such enum with such description, so your
->>> compatible goes there. Look - it is called "Boards" - plural.
+>>>>> ---
+>>>>>   Documentation/devicetree/bindings/arm/amlogic.yaml | 6 ++++++
+>>>>>   1 file changed, 6 insertions(+)
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/arm/amlogic.yaml b/Documentation/devicetree/bindings/arm/amlogic.yaml
+>>>>> index 08d9963fe9259..55663e0f7f915 100644
+>>>>> --- a/Documentation/devicetree/bindings/arm/amlogic.yaml
+>>>>> +++ b/Documentation/devicetree/bindings/arm/amlogic.yaml
+>>>>> @@ -247,6 +247,12 @@ properties:
+>>>>>                 - amlogic,aq222
+>>>>>             - const: amlogic,s4
 >>
->> The exist board aq222 is based on SoC S905X2, but the new board vim1s
->> is baed on S905Y4,
->> they are different SoC, so we need to put S905Y4 under S805X2 ?
+>> Look here
+>>
+>>>>>
+>>>>> +      - description: Boards with the Amlogic Meson S4 S905Y4 SoC
+>>>>> +        items:
+>>>>> +          - enum:
+>>>>
+>>>> Yopu already have exactly such enum with such description, so your
+>>>> compatible goes there. Look - it is called "Boards" - plural.
+>>>
+>>> The exist board aq222 is based on SoC S905X2, but the new board vim1s
+>>> is baed on S905Y4,
+>>> they are different SoC, so we need to put S905Y4 under S805X2 ?
+>>
+>> What is the point of having two separate lists with enums ending the
+>> same SoC compatible?
 > 
-> What is the point of having two separate lists with enums ending the
-> same SoC compatible?
+> Actually S805X2 and S905Y4 are different SoC. So maybe like this ?
+> 
+> S805X2:
+> - description: Boards with the Amlogic Meson S4 S805X2 SoC
+>    items:
+>      - enum:
+>          - amlogic,aq222
+>      - const: amlogic,s805x2
+>      - const: amlogic,s4
+> 
+> S905Y4:
+> - description: Boards with the Amlogic Meson S4 S905Y4 SoC
+>    items:
+>      - enum:
+>          - khadas,vim1s
+>      - const: amlogic,s905y4
+>      - const: amlogic,s4
 
-It's very usual for SoC vendors to reuse the same SoC design (here Amlogic S4)
-into multiple different packages, with some different features enabled & so on,
-and even new version of the die with some bugfixes.
+It's ok for me, but you'll need to update the aq222 DT aswell.
 
-We did this in the past for goop reasons, and here it also applies.
-In fact the currently supported SoC (S805X2) is a stripped down
-version of the S4 SoC like it was done for the S805X which was aalso a stripped
-down version of the S905X, with a different IO layout and different internal
-characteristics even if the die logic was the same.
-
-Neil
-
+> 
+> Same as Amlogic A311D & S922X
+> 
+> S922X:
+> - const: amlogic,s922x
+> - const: amlogic,g12b
+> 
+> A311D:
+> - const: amlogic,a311d
+> - const: amlogic,g12b
 > 
 >>
 >>>
->>>> +              - khadas,vim1s
->>>> +          - const: amlogic,s4
-> 
-> And here.
-> 
->>>
->>> Best regards,
->>> Krzysztof
->>>
-> 
-> 
-> Best regards,
-> Krzysztof
+>>>>
+>>>>> +              - khadas,vim1s
+>>>>> +          - const: amlogic,s4
+>>
+>> And here.
+>>
+>>>>
+>>>> Best regards,
+>>>> Krzysztof
+>>>>
+>>
+>>
+>> Best regards,
+>> Krzysztof
 
 
