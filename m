@@ -4,92 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA2AD37E3A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 14:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87B2AD37E33
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 14:16:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ngcbeZxEgHt+JNZ+WGmatkfACIVP9YV9ttrHXNi6YxE=; b=4QsgxW3cuO4MhI0oK3xjk12UnX
-	lgHkqysVsQVtz5uAO+Tz6yAcujvrXDHP0iq8T22nAEtDYSAZLTkOC2LPqwQGkOMpZkZPRcmJb/pzj
-	GkwHYjeHqTCJzPyPzUumdgPMPEfD59Kr/urOq5FICX6oUtT1YlsQcYNcMZH/ncord/skliYRjbWh5
-	lGlIuuGJHeHOxDscE5i0jKuF/l6BCbHd+SthMjwxLK89FbOUiG3GF/BLfTWAgmTA4pK6wpIv69Ksq
-	qeP1Hrk66Nsa4cgahzBzUSmkElcqj1Ljotgr9vHpgNz1m4s4vlC7ILBSTCXYoYAOQy+vVbWF0xkiL
-	rmqLVPtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5hjPkkzMohS45ECF+5/vRW6fDsFf40jPRuoL50s4x7Q=; b=oEHxnAKgzMAYCHkOSH+Lq9PeZ5
+	YH6WbG6nR4XUPSoVottEzDb3+ULYQM9BslcRvHCdDZuyZmPR1qvWwzMMdVuQopN9MDryyAGmgahKk
+	FQjvGTEiU4ScHm42QXMjyu8/nCP4PqA+rUdLR9wmuNUW4q1WfttWK0VJNdAEdhU7xn98jmAY0Yhd2
+	Ndsr+UIu0jXTyopO0rAAgmWd00Ncw3bO3yHTAwZFZ5Pk7ojHTawCzzO+BKgrJ27Y44PO+3Eun/GPD
+	RDjcF4r1cSihOvz50/NOKZhOZEagfl29DliPy2B2z3bRKAYg3wChYAVlyY0Q59CBxmtteaU96MNGw
+	50fF7nWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg1e1-00000009Tf0-0vn3;
-	Wed, 14 Jan 2026 14:14:45 +0000
-Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
+	id 1vg1f8-00000009TxR-0NHX;
+	Wed, 14 Jan 2026 14:15:54 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg1dz-00000009Tdk-0YS2
+	id 1vg1f6-00000009TwP-2QRY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 14:14:44 +0000
-Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-8c52e25e636so168121085a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 06:14:42 -0800 (PST)
+	Wed, 14 Jan 2026 14:15:53 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-59b7b27ebf2so5590820e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 06:15:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768400081; x=1769004881; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ngcbeZxEgHt+JNZ+WGmatkfACIVP9YV9ttrHXNi6YxE=;
-        b=ILvbjAwTEZPEJhmwBA7r3+yIIXZsvkhOi9zf0LDsf9Qea005XzAswxxHmWLgB49iq3
-         ytvn/rvEcd1YRu5Kts0QnhIZSO5CrenbsJFzhJm38Huc7up6N8jj4PZp/q0N0zl1G26u
-         0OXfZd2JnC0P0J402B+qI7nOn0hwVsiOvicUpL3dIvvwkqdlzgiAorfwV/dGCF+5cgoC
-         W7YWlk3l/vskDN4CgZW2b7VfWm/TBKDuuFV4jXCtICqmLHnLGWYAi1WAULmdBkMUPF8o
-         zgKbsypB+C+p2PGGwZ6ZPo5IDS6fmizKb/W6ShqXKu6V7Rc6yB+Epg9WRNalk72xTt2D
-         XpCg==
+        d=suse.com; s=google; t=1768400149; x=1769004949; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5hjPkkzMohS45ECF+5/vRW6fDsFf40jPRuoL50s4x7Q=;
+        b=eZ6HiiXe+sUWNu3TMjCuGIDUqDBeDStxOKEdH7KEgyksisUfyVOsRU4NbRnR+N1izg
+         /Jsq7dnlweOXzSc1PbKwcqyWQe0TNphN5t8lP6msOdfs0nxXU04MfgPrweqGH4Wnp2oS
+         si3Q27PzlxW6FYZZdtR4612XT7Ttlui1JZiXoVJeB8bBJT0oDa1ScfwQnda6mxTF7S5D
+         D/BTuKTE6R0i2Yow8/xhHBro0CfpzP3c0jSCaYpZVpBEMpO3VhaQdTNPuYyj9wyhenpZ
+         1n8DzQCcHNgLXMi6UjTM5w9YFr55g/N4SdfRziM1QyB7kOioxvKCKd7wCNHpwUgc+BaL
+         qC+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768400081; x=1769004881;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ngcbeZxEgHt+JNZ+WGmatkfACIVP9YV9ttrHXNi6YxE=;
-        b=pIkDR5IGiOo5S2UV9MN8B6MDw/7O7KtH/AGOb9SJX+e5kmaUbAirKhnsaur3kvP8M9
-         +I+Cv4MPdydlqZRHqCbQn0VL1UEzPLQTtijh4FUMxSqXHhbxG6UgD/8eP8KN/6+OxDHf
-         /KXa57UxmZALQ0pXaKakuwxqmqDWtB3XGyj55wyOH9BJMcttuvnLxt7oiKBxSftLaKHf
-         Wk+lbW3ivjYkEZdSwrH3M8IiksMNfkHtkUv7p/VjImgZXqbQp+De/K/BeHnVGSlEYmvx
-         /0C9i/7U0y/w3x/wRWetEoW2DQo1UEdlfV/lpu3wlgIcRLDYJYCbmoXTt5jNs3i5wlU6
-         s45Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW4k8F6ZPvwSe1BvXagtQ8Axp6vMUVFhz9gF1vtwlEkjcXwAkz+F5xfJ1x9FoeuBmlKQGpl0guKycG1hDfd1V8I@lists.infradead.org
-X-Gm-Message-State: AOJu0YyruSJGl8+OTXZIpyb1eUWJWxbFUkVAaMIbZEmFvRBkhzBcsQLe
-	aWpDBM9NkLt9qv0mLlH7ycZhjayZLqh4fXJiJNKRfh8wnUfYA3sV0R7b
-X-Gm-Gg: AY/fxX59ogbisKAjUwiu4DrgV0Yn80P8croOo6QAmoWZ13jq91mt71OCg6+mc6IrrcQ
-	tHuFKFoRXy0kl2sMt2ZZgMdNDVNhAhqAd05aRzWkTfXtagX5Hv8I3lwdyjyCxxBCyLbZduZ4MkF
-	zLjuJv8ikoKGFLtMqAJ32YeXM3zab9tgWm5GW0FieLZVEJ53+LEEXlffCzXN51K+ZqkP/gaGYsO
-	vpHR6J2rJuc+a4/SlGuvNJSOfI1FGUk27b3LXtE3AKZAkJwiddUXNvF9Z12OI36//Z4xHJ1C23l
-	qVPFzSF8nY+zof224gOcXyZuI8zxTKUBrAXpCuuoJLdWTqTzrnfrU7NXsN+GlD5GK56u4MtDuO7
-	YcF6RLusQF3wEqPUX50cp0AyWTB8G0j+6dkRbtYWU9gNXV+BGqrXd+t77KZqooACaW7rqW1DrE1
-	OaeIpDjg7HNE59sathAxhWrVecLNNPY3gUG2Y+LigWpkp/L2IhyBvQ0sUKK+jTfv9jqzNBlsRdj
-	Y8k
-X-Received: by 2002:a05:620a:372a:b0:8c5:2eb9:7be8 with SMTP id af79cd13be357-8c52fb9a133mr375377585a.47.1768400081038;
-        Wed, 14 Jan 2026 06:14:41 -0800 (PST)
-Received: from RDEALENC-L01.ad.analog.com ([24.206.116.131])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-890770cdfb0sm179880536d6.6.2026.01.14.06.14.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Jan 2026 06:14:40 -0800 (PST)
-From: Rodrigo Alencar <455.rodrigo.alencar@gmail.com>
-X-Google-Original-From: Rodrigo Alencar <rdealenc@rdealenc-l01.ad.analog.com>
-Date: Wed, 14 Jan 2026 14:14:35 +0000
-To: Jun Guo <jun.guo@cixtech.com>, peter.chen@cixtech.com, 
-	fugang.duan@cixtech.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	broonie@kernel.org
-Cc: linux-spi@vger.kernel.org, michal.simek@amd.com, 
-	cix-kernel-upstream@cixtech.com, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] spi: spi-cadence: supports transmission with
- bits_per_word of 16 and 32
-Message-ID: <fu4ujdxwlhyhuwjtsiebje5pyc32rfs52vo2gyy7nay2krkxeh@wpls44xdfgy4>
-References: <20251031073003.3289573-1-jun.guo@cixtech.com>
- <20251031073003.3289573-3-jun.guo@cixtech.com>
+        d=1e100.net; s=20230601; t=1768400149; x=1769004949;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=5hjPkkzMohS45ECF+5/vRW6fDsFf40jPRuoL50s4x7Q=;
+        b=MniMk8cZK2oiLF6KL6RL7D3capDDk3w4U8GjU0n7zPXi/bFA6/cyZgnE4OcEoNtcJ9
+         tTTFnVRgQAiL0zKFupxHcnSXQbpfV6INAGXGgAf1oovEBZ5U+4aWPW2OfUUP4tjk9NK0
+         Me3Gl/01ccmuzvmbAOpL4PD1Unoe9LGppQOGggY0LNIiui5saA+etcuAZacK66HRFGnh
+         ETCMNhB68E7njVxwiRH17OAN6/JAOv8xNKT2p4woGyO4r0TUvzMK5ElLW6RG9GMnbmkk
+         lqtxZxK96tjAvTA1rVrqz5G2L9HFPaifGY83CdzIrZgAMgb8nIPsXk5vLk/zQbajFUNO
+         Z20w==
+X-Forwarded-Encrypted: i=1; AJvYcCXUiYTBCULFXH33JYgtWP1qz2XkfC3q18pz9F25t2Rb7Wemb0FhUhZ8wTXtOO7gGs+NddaFXOQcoWQAQ8opqtwh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/MYlNYvaKw2HX1WCuwxefcTXO2TlZ7Em8gGAMRbiSO2V0dwH2
+	dr+76haFFSyxsyGBFvXVgt0gvdGnDGqdHwo3AVuapzKn/ZxETiWmL2Pe7F0RTFWaXuI4VupVpF5
+	gqtSBQ0BdWD+Munwc+9iA5O5/ubyfdkADxq8ophfA2w==
+X-Gm-Gg: AY/fxX7S1eNzdVGeX0509iP36Ku2lEPS/SIgo7LrtFRSAwHWXiz/HzsgcpQD1iGzQRz
+	uN+NtGiZ6AYMhSU7HDScrNfkc+1FGT3iBrxLWKUu7GpGbdrhJS1QiEE1VXpPOqCTCrehXouGCHp
+	gf6PXN0Z5+k+vCPf288kVEZ8BfqiD5E6iKanq6UbSK4KHfRtADZcWXUNlvMmy23gIVXQ0+kM03N
+	IzcrAVjNikglkDDtsMKjUgZqIUfdauvscGeH0/MJOMH5ykTDDxPQJP0l2FNXVbVwgRrN3upPD6j
+	7hXix2XiR61zhj0+ve8ez0AyGcYm
+X-Received: by 2002:a05:6512:3401:b0:59b:794e:dfed with SMTP id
+ 2adb3069b0e04-59ba0f813d9mr955411e87.25.1768400149484; Wed, 14 Jan 2026
+ 06:15:49 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251031073003.3289573-3-jun.guo@cixtech.com>
+References: <20251105152023.259813-1-marco.crivellari@suse.com> <176839928954.937923.15095865192573263958.b4-ty@kernel.org>
+In-Reply-To: <176839928954.937923.15095865192573263958.b4-ty@kernel.org>
+From: Marco Crivellari <marco.crivellari@suse.com>
+Date: Wed, 14 Jan 2026 15:15:36 +0100
+X-Gm-Features: AZwV_Qgj3UUsI_qnNsOnW1eSo8sD6BvrOvfDzZ-kVDXYnmGSUkrSa02nUWpKX50
+Message-ID: <CAAofZF6n_BVQhoPGOc+BeKgBr8YncgKzkLrRQKDrZHO0EtUpug@mail.gmail.com>
+Subject: Re: [PATCH] phy: sun4i-usb: replace use of system_wq with system_percpu_wq
+To: Vinod Koul <vkoul@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>, 
+	Frederic Weisbecker <frederic@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+	Michal Hocko <mhocko@suse.com>, Kishon Vijay Abraham I <kishon@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Chen-Yu Tsai <wens@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_061443_181509_BFDBFB21 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20260114_061552_623937_0802CD05 
+X-CRM114-Status: UNSURE (   7.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,51 +101,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/10/31 03:30PM, Jun Guo wrote:
-> The default FIFO data width of the Cadence SPI IP is 8 bits, but
-> the hardware supports configurations of 16 bits and 32 bits.
-> This patch enhances the driver to support communication with both
-> 16-bits and 32-bits FIFO data widths.
-> 
-> Signed-off-by: Jun Guo <jun.guo@cixtech.com>
+On Wed, Jan 14, 2026 at 3:01=E2=80=AFPM Vinod Koul <vkoul@kernel.org> wrote=
+:
+>
+> [...]
+> Applied, thanks!
+>
+> [1/1] phy: sun4i-usb: replace use of system_wq with system_percpu_wq
+>       commit: 877686f9f42b58b04e4e25d07034bc95cadc20f3
 
-...
+Many thanks!
 
-> +static inline void cdns_spi_writer(struct cdns_spi *xspi)
-> +{
-> +	u32 txw = 0;
-> +
-> +	if (xspi->txbuf && !IS_ALIGNED((uintptr_t)xspi->txbuf, xspi->n_bytes)) {
-> +		pr_err("%s: txbuf address is not aligned for %d bytes\n",
-> +		       __func__, xspi->n_bytes);
-> +		return;
-> +	}
-> +
-> +	if (xspi->txbuf) {
-> +		switch (xspi->n_bytes) {
-> +		case CDNS_SPI_N_BYTES_U8:
-> +			txw = *(u8 *)xspi->txbuf;
-> +			break;
-> +		case CDNS_SPI_N_BYTES_U16:
-> +			txw = *(u16 *)xspi->txbuf;
-> +			break;
-> +		case CDNS_SPI_N_BYTES_U32:
-> +			txw = *(u32 *)xspi->txbuf;
-> +			break;
-> +		default:
-> +			pr_err("%s invalid n_bytes %d\n", __func__,
-> +			       xspi->n_bytes);
-> +			return;
-> +		}
-> +		cdns_spi_write(xspi, CDNS_SPI_TXD, txw);
-> +		xspi->txbuf = (u8 *)xspi->txbuf + xspi->n_bytes;
-> +	}
+--=20
 
-cdns_spi_write(xspi, CDNS_SPI_TXD, txw) needs to be called regardless of xspi->txbuf.
-Otherwise, there will be no clock for the read operation to work.
-This is a bug I am seeing on a Zedboard running on 6.19
+Marco Crivellari
 
-kind regards,
-
-Rodrigo Alencar
+L3 Support Engineer
 
