@@ -4,80 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 453FBD31A2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 09:20:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94391D31A2F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 09:23:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WjJyvsR9yqhTPxg+MJk7t6ZaEUOWaBy9df7kfMCCVZc=; b=UxDOjoTB609GIwOJhPRrV6A5/l
-	tDLwwnv63ZWLUJ38Fdv3ZSJulv7K2nLB5cdUYYPjpQahL73z+ll7pfEwibdHTPITGArmD/zqvOnOj
-	MV7HQ0qx238BFvXB/mIL/88ISe2qJjZu5Jsl8fzZR3g27NB7QtkRxD1FW6ZiB2wDoB0oWHrSb1kRI
-	hQd1wA/0L95eMwu27LYiFBw6q9uP77BS3ZrKDpQG7RQ3XAgq4Q+r38E3EjtvdVKGoocrD7gLu3PR2
-	B/mZrnT2LcRcxhwqjrcz45Qz7oBCzkq8NFJdqaQNCqTD9eUiJAVQjEFkpNoBVufrk60DYmE+58Eg4
-	N8ufkThw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jBri2FSO9ova+6N8irDgqT8faDyY4fKEpF2RXzIi/cc=; b=UJDDVjjv/0NEWyM5sofw/lGzmR
+	6A1uFQ9ydZ+qEu2NKllapdkiBadbsXzKxUkCqOPap0236+05VHZgg/34Tnf/qzKgiUABz1/qp+tls
+	VAv/jOq6GOEBQif/MJiPT6ZZ6M+1j0Pguch220t3hC5NvjErHUpfjfPmWR+X3YrW1XbruQoGGQfI+
+	/UWIOdbuk0z7uuMDOPQHuS77O9vzjQE2tEZOC5TLfgPUGc2FiIg8fY3hK1Z+yWlnAH2YeVp83OO67
+	VURRd8cjucmu7ls5xTMcEhq8mznRpjWGPkKOOsUqdySEAgOl33PR9nZCydEqUrjaTbTaDBN/XQKYE
+	hPiABzlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfx2r-00000008V6T-2gWq;
-	Wed, 14 Jan 2026 09:20:05 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1vfx5r-00000008Wm9-0jGv;
+	Wed, 14 Jan 2026 09:23:11 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfx2X-00000008Uwr-21lE
+	id 1vfx5m-00000008Wk6-3vGd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 09:19:52 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4drgXG1x40zKHMSk
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 17:18:38 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id 1B9CA40573
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 17:19:30 +0800 (CST)
-Received: from k01.k01 (unknown [10.67.174.197])
-	by APP2 (Coremail) with SMTP id Syh0CgCXsYCfX2dpDhLdDg--.16789S4;
-	Wed, 14 Jan 2026 17:19:29 +0800 (CST)
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-To: bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Wed, 14 Jan 2026 09:23:09 +0000
+Received: by mail-pf1-x442.google.com with SMTP id d2e1a72fcca58-81df6a302b1so4552954b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 01:23:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1768382585; x=1768987385; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jBri2FSO9ova+6N8irDgqT8faDyY4fKEpF2RXzIi/cc=;
+        b=ZJqgw87H4zjxSm0J+E00nN96VbjOQv25hBZ7fpXJmLNMJzPl/b9/kMfj/qmnf2Ciuf
+         RGiL+fs0KrerKsHwJm9jcSwONUXQa2jvjptEZTV5spe8YmynkK/4dVJI+8r/QR6l/o7g
+         K19IUre3eVBPYCY28DDZ37TyV4I9a6heoUwBk=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768382585; x=1768987385;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jBri2FSO9ova+6N8irDgqT8faDyY4fKEpF2RXzIi/cc=;
+        b=h9MYQ6gFbjHQeUvklS2ffpAzLT/4J1xSOn7ZSv9bDM77IbJ4oA22mVcKRGRKWMCMGD
+         zwEpjW6igApmfgfM6FF4pVr1fW1UFtlXkdy4pk3N2BMSjZhg07w1G2QCISvyMoj7pWSj
+         J0Vlk4QTkgxCtjIQBA6ck77RqH5vsY9nbmH08OfUZ4AnBHAREgMTsDTFZ8219yPLk31o
+         PcjEGAipjQfAuMbRXxSSJv0i3HKtHBG2xoLQEq5uxO6IePiUaGHYqgNQfTmCqJsqN7x/
+         KCzgiBrpRqydHDqfKDi4psiHaFUFR9THpAqpNxWLXYK0dEMqiKNxL+GK+s5DqtjjKu/a
+         yfCg==
+X-Forwarded-Encrypted: i=1; AJvYcCVy57RqLaRUVg+lzYUp+bK2wADbuAKjqyDWS/+M3vuEueJj1zVc1uV4+8sUL/f7yYLPiSZf3j3nA/5EjC7HZRNE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzh+z8705TRKokTAsToJf3W/KhTfHgFro37GOoFovzgEj5ohaE0
+	fkQWjOLmukOhlt+w7AHJMqpLqF0vwsWk8/FOTj+zkbZeSyyueNnBW1eWmFsHFfIu6w==
+X-Gm-Gg: AY/fxX5f76DY9k5++GLfF3hZGirP9Fkdm1Pg1Kj+dsfWgB4oICAOQlg7koUD8I+6sYn
+	QGf5SiQwe4qdwUKwRJIxWWvrzdHwGJqtXQh8Z4aaZi9lAPMvw8R6v8pHOWJg8Qvnfpvjr9nJ1kG
+	0Kb8x3BoJOn7OXZdMgIonuWa+Gwb3aMdIRlaCp0O3NksBS3qOEyP26OCZ9U0SY9cA2/jhxxD0h7
+	J4vleiVpC9N8PoEJXX8SdeCyBR6Zj6CIIZKU4qbnvemrQGviyPkm5XapEBegqw0yQ9wRf8YQ8wE
+	+Ht75IzZNK57YNFMGJ3d+4wq8oS/zu/blUMdZG5nJ7SAgRTskMfD1Cwxgs+0JNXeSsqfoyywDI6
+	KyfnItYsRLZOwPJwxNdtXrsCBu0BGthZx1JYGzQJEP8rWVwfVrAjXkSrt1k/smlLtTXPzxTHkdz
+	7YCopl1l5GTbh6bFEubTPSjYA193WYUp7+cKJ+3rHv+2tqABy4v2IabC8WsnN5uzyyvT7p
+X-Received: by 2002:a05:6a20:c525:b0:38d:e87c:48d5 with SMTP id adf61e73a8af0-38de88b96c6mr144807637.21.1768382585505;
+        Wed, 14 Jan 2026 01:23:05 -0800 (PST)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:c346:2298:451a:a3f3])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c4cc8d29516sm22099403a12.19.2026.01.14.01.23.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 01:23:04 -0800 (PST)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	linux-mediatek@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Anton Protopopov <a.s.protopopov@gmail.com>
-Subject: [PATCH bpf-next v4 2/4] bpf: Add helper to detect indirect jump targets
-Date: Wed, 14 Jan 2026 17:39:12 +0800
-Message-ID: <20260114093914.2403982-3-xukuohai@huaweicloud.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260114093914.2403982-1-xukuohai@huaweicloud.com>
-References: <20260114093914.2403982-1-xukuohai@huaweicloud.com>
+Subject: [PATCH] drm/mediatek: dpi: Find next bridge during probe
+Date: Wed, 14 Jan 2026 17:22:42 +0800
+Message-ID: <20260114092243.3914836-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: Syh0CgCXsYCfX2dpDhLdDg--.16789S4
-X-Coremail-Antispam: 1UD129KBjvJXoW3Cw47JF4rCF47XFWDKF1UGFg_yoWDWw43pF
-	4DW3s7Ar4UXrsFgwnrAa18Ary3ta1rWa4DKFW7W3y8Aw1YqrnYgF4F9FWavF98trWUCw1x
-	ZF4j9rW7Wry7ZFJanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmab4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUXw
-	A2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
-	w2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
-	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
-	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMc
-	Ij6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_
-	Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI
-	0_Jw0_GFylc7CjxVAKzI0EY4vE52x082I5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCj
-	c4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4
-	CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1x
-	MIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF
-	4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsG
-	vfC2KfnxnUUI43ZEXa7IU8go7tUUUUU==
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_011945_916524_D8006764 
-X-CRM114-Status: GOOD (  28.21  )
+X-CRM114-CacheID: sfid-20260114_012308_491630_4E816222 
+X-CRM114-Status: GOOD (  18.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,296 +97,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xu Kuohai <xukuohai@huawei.com>
+Trying to find the next bridge and deferring probe in the bridge attach
+callback is much too late. At this point the driver has already finished
+probing and is now running the component bind code path. What's even
+worse is that in the specific case of the DSI host being the last
+component to be added as part of the dsi_host_attach callback, the code
+path that this is in:
 
-Introduce helper bpf_insn_is_indirect_target to determine whether a BPF
-instruction is an indirect jump target. This helper will be used by
-follow-up patches to decide where to emit indirect landing pad instructions.
+ -> devm_drm_of_get_bridge()
+    mtk_dpi_bridge_attach()
+    drm_bridge_attach()
+    mtk_dpi_bind()
+    ...
+    component_add()
+    mtk_dsi_host_attach()
+    anx7625_attach_dsi()
+    anx7625_link_bridge() - done_probing callback for of_dp_aux_populate_bus()
+    of_dp_aux_populate_bus()
+    anx7625_i2c_probe()
 
-Add a new flag to struct bpf_insn_aux_data to mark instructions that are
-indirect jump targets. The BPF verifier sets this flag, and the helper
-checks it to determine whether an instruction is an indirect jump target.
+_cannot_ return probe defer:
 
-Since bpf_insn_aux_data is only available before JIT stage, add a new
-field to struct bpf_prog_aux to store a pointer to the bpf_insn_aux_data
-array, making it accessible to the JIT.
+    anx7625 4-0058: [drm:anx7625_bridge_attach] drm attach
+    mediatek-drm mediatek-drm.15.auto: bound 14014000.dsi (ops mtk_dsi_component_ops)
+    mediatek-drm mediatek-drm.15.auto: error -EPROBE_DEFER: failed to attach bridge /soc/dpi@14015000 to encoder TMDS-37
+    [drm:mtk_dsi_host_attach] *ERROR* failed to add dsi_host component: -517
+    anx7625 4-0058: [drm:anx7625_link_bridge] *ERROR* fail to attach dsi to host.
+    panel-simple-dp-aux aux-4-0058: DP AUX done_probing() can't defer
+    panel-simple-dp-aux aux-4-0058: probe with driver panel-simple-dp-aux failed with error -22
+    anx7625 4-0058: [drm:anx7625_i2c_probe] probe done
 
-For programs with multiple subprogs, each subprog uses its own private
-copy of insn_aux_data, since subprogs may insert additional instructions
-during JIT and need to update the array. For non-subprog, the verifier's
-insn_aux_data array is used directly to avoid unnecessary copying.
+This results in the whole display driver failing to probe.
 
-Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
+Perhaps this was an attempt to mirror the structure in the DSI driver;
+but in the DSI driver the next bridge is retrieved in the DSI attach
+callback, not the bridge attach callback.
+
+Move the code finding the next bridge back to the probe function so that
+deferred probing works correctly. Also rework the fallback to the old OF
+graph endpoint numbering scheme so that deferred probing logs in both
+cases.
+
+This issue was found on an MT8183 Jacuzzi device with an extra patch
+enabling the DPI-based external display pipeline. Also tested on an
+MT8192 Hayato device with both DSI and DPI display pipelines enabled.
+
+Fixes: 4c932840db1d ("drm/mediatek: Implement OF graphs support for display paths")
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- include/linux/bpf.h          |  2 ++
- include/linux/bpf_verifier.h | 10 ++++---
- kernel/bpf/core.c            | 51 +++++++++++++++++++++++++++++++++---
- kernel/bpf/verifier.c        | 51 +++++++++++++++++++++++++++++++++++-
- 4 files changed, 105 insertions(+), 9 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_dpi.c | 23 +++++++++--------------
+ 1 file changed, 9 insertions(+), 14 deletions(-)
 
-diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-index 5936f8e2996f..e7d7e705327e 100644
---- a/include/linux/bpf.h
-+++ b/include/linux/bpf.h
-@@ -1533,6 +1533,7 @@ bool bpf_has_frame_pointer(unsigned long ip);
- int bpf_jit_charge_modmem(u32 size);
- void bpf_jit_uncharge_modmem(u32 size);
- bool bpf_prog_has_trampoline(const struct bpf_prog *prog);
-+bool bpf_insn_is_indirect_target(const struct bpf_prog *prog, int idx);
- #else
- static inline int bpf_trampoline_link_prog(struct bpf_tramp_link *link,
- 					   struct bpf_trampoline *tr,
-@@ -1760,6 +1761,7 @@ struct bpf_prog_aux {
- 	struct bpf_stream stream[2];
- 	struct mutex st_ops_assoc_mutex;
- 	struct bpf_map __rcu *st_ops_assoc;
-+	struct bpf_insn_aux_data *insn_aux;
- };
- 
- #define BPF_NR_CONTEXTS        4       /* normal, softirq, hardirq, NMI */
-diff --git a/include/linux/bpf_verifier.h b/include/linux/bpf_verifier.h
-index 130bcbd66f60..758086b384df 100644
---- a/include/linux/bpf_verifier.h
-+++ b/include/linux/bpf_verifier.h
-@@ -574,16 +574,18 @@ struct bpf_insn_aux_data {
- 
- 	/* below fields are initialized once */
- 	unsigned int orig_idx; /* original instruction index */
--	bool jmp_point;
--	bool prune_point;
-+	u32 jmp_point:1;
-+	u32 prune_point:1;
- 	/* ensure we check state equivalence and save state checkpoint and
- 	 * this instruction, regardless of any heuristics
- 	 */
--	bool force_checkpoint;
-+	u32 force_checkpoint:1;
- 	/* true if instruction is a call to a helper function that
- 	 * accepts callback function as a parameter.
- 	 */
--	bool calls_callback;
-+	u32 calls_callback:1;
-+	/* true if the instruction is an indirect jump target */
-+	u32 indirect_target:1;
- 	/*
- 	 * CFG strongly connected component this instruction belongs to,
- 	 * zero if it is a singleton SCC.
-diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-index e0b8a8a5aaa9..bb870936e74b 100644
---- a/kernel/bpf/core.c
-+++ b/kernel/bpf/core.c
-@@ -1486,6 +1486,35 @@ static void adjust_insn_arrays(struct bpf_prog *prog, u32 off, u32 len)
- #endif
- }
- 
-+static int adjust_insn_aux(struct bpf_prog *prog, int off, int cnt)
-+{
-+	size_t size;
-+	struct bpf_insn_aux_data *new_aux;
-+
-+	if (cnt == 1)
-+		return 0;
-+
-+	/* prog->len already accounts for the cnt - 1 newly inserted instructions */
-+	size = array_size(prog->len, sizeof(struct bpf_insn_aux_data));
-+	new_aux = vrealloc(prog->aux->insn_aux, size, GFP_KERNEL_ACCOUNT | __GFP_ZERO);
-+	if (!new_aux)
-+		return -ENOMEM;
-+
-+	/* follow the same behavior as adjust_insn_array(): leave [0, off] unchanged and shift
-+	 * [off + 1, end) to [off + cnt, end). Otherwise, the JIT would emit landing pads at
-+	 * wrong locations, as the actual indirect jump target remains at off.
-+	 */
-+	size = array_size(prog->len - off - cnt, sizeof(struct bpf_insn_aux_data));
-+	memmove(new_aux + off + cnt, new_aux + off + 1, size);
-+
-+	size = array_size(cnt - 1, sizeof(struct bpf_insn_aux_data));
-+	memset(new_aux + off + 1, 0, size);
-+
-+	prog->aux->insn_aux = new_aux;
-+
-+	return 0;
-+}
-+
- struct bpf_prog *bpf_jit_blind_constants(struct bpf_prog *prog)
+diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediatek/mtk_dpi.c
+index 61cab32e213a..53360b5d12ba 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dpi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
+@@ -836,20 +836,6 @@ static int mtk_dpi_bridge_attach(struct drm_bridge *bridge,
+ 				 enum drm_bridge_attach_flags flags)
  {
- 	struct bpf_insn insn_buff[16], aux[2];
-@@ -1541,6 +1570,11 @@ struct bpf_prog *bpf_jit_blind_constants(struct bpf_prog *prog)
- 		clone = tmp;
- 		insn_delta = rewritten - 1;
+ 	struct mtk_dpi *dpi = bridge_to_dpi(bridge);
+-	int ret;
+-
+-	dpi->next_bridge = devm_drm_of_get_bridge(dpi->dev, dpi->dev->of_node, 1, -1);
+-	if (IS_ERR(dpi->next_bridge)) {
+-		ret = PTR_ERR(dpi->next_bridge);
+-		if (ret == -EPROBE_DEFER)
+-			return ret;
+-
+-		/* Old devicetree has only one endpoint */
+-		dpi->next_bridge = devm_drm_of_get_bridge(dpi->dev, dpi->dev->of_node, 0, 0);
+-		if (IS_ERR(dpi->next_bridge))
+-			return dev_err_probe(dpi->dev, PTR_ERR(dpi->next_bridge),
+-					     "Failed to get bridge\n");
+-	}
  
-+		if (adjust_insn_aux(clone, i, rewritten)) {
-+			bpf_jit_prog_release_other(prog, clone);
-+			return ERR_PTR(-ENOMEM);
-+		}
-+
- 		/* Instructions arrays must be updated using absolute xlated offsets */
- 		adjust_insn_arrays(clone, prog->aux->subprog_start + i, rewritten);
+ 	return drm_bridge_attach(encoder, dpi->next_bridge,
+ 				 &dpi->bridge, flags);
+@@ -1319,6 +1305,15 @@ static int mtk_dpi_probe(struct platform_device *pdev)
+ 	if (dpi->irq < 0)
+ 		return dpi->irq;
  
-@@ -1553,6 +1587,11 @@ struct bpf_prog *bpf_jit_blind_constants(struct bpf_prog *prog)
- 	clone->blinded = 1;
- 	return clone;
- }
-+
-+bool bpf_insn_is_indirect_target(const struct bpf_prog *prog, int idx)
-+{
-+	return prog->aux->insn_aux && prog->aux->insn_aux[idx].indirect_target;
-+}
- #endif /* CONFIG_BPF_JIT */
- 
- /* Base function for offset calculation. Needs to go into .text section,
-@@ -2540,24 +2579,24 @@ struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
- 	if (!bpf_prog_is_offloaded(fp->aux)) {
- 		*err = bpf_prog_alloc_jited_linfo(fp);
- 		if (*err)
--			return fp;
-+			goto free_insn_aux;
- 
- 		fp = bpf_int_jit_compile(fp);
- 		bpf_prog_jit_attempt_done(fp);
- 		if (!fp->jited && jit_needed) {
- 			*err = -ENOTSUPP;
--			return fp;
-+			goto free_insn_aux;
- 		}
- 	} else {
- 		*err = bpf_prog_offload_compile(fp);
- 		if (*err)
--			return fp;
-+			goto free_insn_aux;
- 	}
- 
- finalize:
- 	*err = bpf_prog_lock_ro(fp);
- 	if (*err)
--		return fp;
-+		goto free_insn_aux;
- 
- 	/* The tail call compatibility check can only be done at
- 	 * this late stage as we need to determine, if we deal
-@@ -2566,6 +2605,10 @@ struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
- 	 */
- 	*err = bpf_check_tail_call(fp);
- 
-+free_insn_aux:
-+	vfree(fp->aux->insn_aux);
-+	fp->aux->insn_aux = NULL;
-+
- 	return fp;
- }
- EXPORT_SYMBOL_GPL(bpf_prog_select_runtime);
-diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index 22605d9e0ffa..f2fe6baeceb9 100644
---- a/kernel/bpf/verifier.c
-+++ b/kernel/bpf/verifier.c
-@@ -3852,6 +3852,11 @@ static bool is_jmp_point(struct bpf_verifier_env *env, int insn_idx)
- 	return env->insn_aux_data[insn_idx].jmp_point;
- }
- 
-+static void mark_indirect_target(struct bpf_verifier_env *env, int idx)
-+{
-+	env->insn_aux_data[idx].indirect_target = true;
-+}
-+
- #define LR_FRAMENO_BITS	3
- #define LR_SPI_BITS	6
- #define LR_ENTRY_BITS	(LR_SPI_BITS + LR_FRAMENO_BITS + 1)
-@@ -20337,6 +20342,7 @@ static int check_indirect_jump(struct bpf_verifier_env *env, struct bpf_insn *in
- 	}
- 
- 	for (i = 0; i < n; i++) {
-+		mark_indirect_target(env, env->gotox_tmp_buf->items[i]);
- 		other_branch = push_stack(env, env->gotox_tmp_buf->items[i],
- 					  env->insn_idx, env->cur_state->speculative);
- 		if (IS_ERR(other_branch))
-@@ -21243,6 +21249,37 @@ static void convert_pseudo_ld_imm64(struct bpf_verifier_env *env)
- 	}
- }
- 
-+static int clone_insn_aux_data(struct bpf_prog *prog, struct bpf_verifier_env *env, u32 off)
-+{
-+	u32 i;
-+	size_t size;
-+	bool has_indirect_target = false;
-+	struct bpf_insn_aux_data *insn_aux;
-+
-+	for (i = 0; i < prog->len; i++) {
-+		if (env->insn_aux_data[off + i].indirect_target) {
-+			has_indirect_target = true;
-+			break;
-+		}
++	dpi->next_bridge = devm_drm_of_get_bridge(dpi->dev, dpi->dev->of_node, 1, -1);
++	if (IS_ERR(dpi->next_bridge) && PTR_ERR(dpi->next_bridge) == -ENODEV) {
++		/* Old devicetree has only one endpoint */
++		dpi->next_bridge = devm_drm_of_get_bridge(dpi->dev, dpi->dev->of_node, 0, 0);
 +	}
++	if (IS_ERR(dpi->next_bridge))
++		return dev_err_probe(dpi->dev, PTR_ERR(dpi->next_bridge),
++				     "Failed to get bridge\n");
 +
-+	/* insn_aux is copied into bpf_prog so the JIT can check whether an instruction is an
-+	 * indirect jump target. If no indirect jump targets exist, copying is unnecessary.
-+	 */
-+	if (!has_indirect_target)
-+		return 0;
-+
-+	size = array_size(sizeof(struct bpf_insn_aux_data), prog->len);
-+	insn_aux = vzalloc(size);
-+	if (!insn_aux)
-+		return -ENOMEM;
-+
-+	memcpy(insn_aux, env->insn_aux_data + off, size);
-+	prog->aux->insn_aux = insn_aux;
-+
-+	return 0;
-+}
-+
- /* single env->prog->insni[off] instruction was replaced with the range
-  * insni[off, off + cnt).  Adjust corresponding insn_aux_data by copying
-  * [0, off) and [off, end) to new locations, so the patched range stays zero
-@@ -22239,6 +22276,10 @@ static int jit_subprogs(struct bpf_verifier_env *env)
- 		if (!i)
- 			func[i]->aux->exception_boundary = env->seen_exception;
+ 	platform_set_drvdata(pdev, dpi);
  
-+		err = clone_insn_aux_data(func[i], env, subprog_start);
-+		if (err < 0)
-+			goto out_free;
-+
- 		/*
- 		 * To properly pass the absolute subprog start to jit
- 		 * all instruction adjustments should be accumulated
-@@ -22306,6 +22347,8 @@ static int jit_subprogs(struct bpf_verifier_env *env)
- 	for (i = 0; i < env->subprog_cnt; i++) {
- 		func[i]->aux->used_maps = NULL;
- 		func[i]->aux->used_map_cnt = 0;
-+		vfree(func[i]->aux->insn_aux);
-+		func[i]->aux->insn_aux = NULL;
- 	}
- 
- 	/* finally lock prog and jit images for all functions and
-@@ -22367,6 +22410,7 @@ static int jit_subprogs(struct bpf_verifier_env *env)
- 	for (i = 0; i < env->subprog_cnt; i++) {
- 		if (!func[i])
- 			continue;
-+		vfree(func[i]->aux->insn_aux);
- 		func[i]->aux->poke_tab = NULL;
- 		bpf_jit_free(func[i]);
- 	}
-@@ -25350,6 +25394,7 @@ int bpf_check(struct bpf_prog **prog, union bpf_attr *attr, bpfptr_t uattr, __u3
- 	env->verification_time = ktime_get_ns() - start_time;
- 	print_verification_stats(env);
- 	env->prog->aux->verified_insns = env->insn_processed;
-+	env->prog->aux->insn_aux = env->insn_aux_data;
- 
- 	/* preserve original error even if log finalization is successful */
- 	err = bpf_vlog_finalize(&env->log, &log_true_size);
-@@ -25428,7 +25473,11 @@ int bpf_check(struct bpf_prog **prog, union bpf_attr *attr, bpfptr_t uattr, __u3
- 	if (!is_priv)
- 		mutex_unlock(&bpf_verifier_lock);
- 	clear_insn_aux_data(env, 0, env->prog->len);
--	vfree(env->insn_aux_data);
-+	/* on success, insn_aux_data will be freed by bpf_prog_select_runtime */
-+	if (ret) {
-+		vfree(env->insn_aux_data);
-+		env->prog->aux->insn_aux = NULL;
-+	}
- err_free_env:
- 	bpf_stack_liveness_free(env);
- 	kvfree(env->cfg.insn_postorder);
+ 	dpi->bridge.of_node = dev->of_node;
 -- 
-2.47.3
+2.52.0.457.g6b5491de43-goog
 
 
