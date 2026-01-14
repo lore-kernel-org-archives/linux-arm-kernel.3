@@ -4,99 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B621D37E32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 13:34:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C54D37E2A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 13:37:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WhwfNazPWHuLWawIgxRJ1ZBzLc6u01DE788YteykMdA=; b=s3k8fxAWCcqfLWHav9i/ybdqAU
-	Kpmo7NzeoUcaGpSLXnMOAuyQrA5lE75nJilPIRtwuN/wIjjk74yf1/Uf533EdHbrvWkmMI+D4469e
-	RcFc5+Ku3gTt0s6bH1Xrq2H9RY/yWPUjpLTArkxc6a9t1mLA3XzWku+kkRvoTFu/WWZvQ9hHafsbW
-	bZoWrhzmqXEBx78yDZKG+6rl+IN81RJKxiwGWyuRWA1EtYk2BRQphHmrRcn60jV2kFiiBRHjeigVY
-	0txDFNOS/r6MGDLxBLOIDDAxlBkt0ZuDg7N+atNq6lB4t3BirNCj0GEARNkklsbihIQCi3Kq/KDQX
-	b2JaP0Ag==;
+	bh=iV2zIwFS7NHR+Qp/+VWDRZd4JeaS2I3vbQOZ53pHX20=; b=XqwjPbjvCi/t19ywV/dABNn315
+	xJWIAZ6CpnmqBs3O08HdK5qbqKXFU8DZ6djWLvrkFOJAZlmJbIZixtoUXwOC/OhrmLCqxQwsaBWPf
+	gr7lE0xD//HWY8S+G7UzmH3gPcaoX6IgcaprmnjVEz06St2LvD2ann6gk3sSKNFSiwlnuDjDXhMeB
+	eYRBMx9NeP2t8/5jVx4mBH0QptuIxi/CMldbTBxmZKozR2FEbiNkowyMvxI18lnrqhYHXiqO/mYU2
+	r7ysj0DI2MR1L7xnuy8BfXHWTSf1AfS1IEXmn+NyCo6JumI9srO3Z/og/FFOVx+YnlphZfEu4fr4D
+	D6As1FQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg10R-00000009LPy-3vH8;
-	Wed, 14 Jan 2026 13:33:51 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1vg13S-00000009LpJ-2ZgH;
+	Wed, 14 Jan 2026 13:36:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg10O-00000009LP5-1XoF
+	id 1vg13R-00000009LoL-11jt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 13:33:49 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-42fb4eeb482so5020025f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 05:33:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768397626; x=1769002426; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=WhwfNazPWHuLWawIgxRJ1ZBzLc6u01DE788YteykMdA=;
-        b=GK1yp7R5we958oC5X8GD/MV1wKb2LTS7TEqmN6174C86700Td34t+jeDvgm5hAefix
-         V3eMKsylzKE1EbCl17+gJzXNCG5PaVjUmf5aDuzL786A6qttWk/MKrJrzmCQ94we5ebZ
-         JxoyfRKN0n3VEFnPncM9jKeQSUe3D/GxkLYHQVQQpU2uMu4CIRQ94r01oKbsVGbwD3os
-         vdUZiJcz8NjWS+Tjaf8asoSIGZD7FPyXJ4eP1VbdaRz6SgOLvAL1fWYv9qlirfzLpcif
-         eFa8w+/RPXdqe0F4Vw0Zog+cdiV0g4xB5bmhjeF+eE95AySc3nN/OCA1/fOj3uL4Xe0u
-         F63A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768397626; x=1769002426;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WhwfNazPWHuLWawIgxRJ1ZBzLc6u01DE788YteykMdA=;
-        b=oanwKy/qXKjGvkIkWqH6D+IRcIRWzZEwyGgM4f39e/s6CwfFTyTuQIhCQtwg+matS2
-         U4gdfP1GRzsxGwGslNDlHbR67czVvqgdkWwVvPb5k41XpumQ0Kf5ScWIs5lKTGIDdDlY
-         QdQUnNLSW42bZcZLh65SAyeRy9u272biJP51CIg8z2G3497jlE0xH1tokubkMLwf92J3
-         0UAbU1Q9E+zp8Q9qUOYHCfprWi/cnf0p702JUvW3jriQl3uGTE0uexWHqLJczzUBHzKk
-         8MgbIGoGVhqJtCPGQGsJaqbfBgr/09WYulb0WAw46ojg30RSydT3/pr6x+y5g1WvDE3V
-         BUWA==
-X-Forwarded-Encrypted: i=1; AJvYcCW9B6rawhAWUvhb+pAzJvS5C0j15fJOxeMjSwdpLl7jmmJFZRxVHm8G6j5Vol+jEwA6iRtuzzWviE+C2e9VclZU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwynDv6zQ3dVo9/l/agtpBJGdYBdCsfUSCLXlbNq5k5C8iqfiw1
-	P3He3bpIOe6LbbqboU/5AziNd9+mJEOjmKuiKGmiVXv6Dthp0xieHxn7dRfGFMjVFLo=
-X-Gm-Gg: AY/fxX5UmywGNKIR5JyGborHYt9uDSOvb6GoTjAc60MuLXdlgaMK6vc+yTN0duDi0iy
-	7zrSDF8dgmTdzLfk1IfNlHtEDTS2k+JFvMjp4NwfikREg75RaVvfIU3yUrlMwxFniEmmXdfl2HB
-	Ox0WORlccRY11D77MM94VVl+zUhUbukit7rVjXuFlrmMR/VJxmscvgMIwp7MbzkrxOdDkdfssZx
-	ucXkg/jarCwiwFsg/HLa3eMZOGtTXJeVTp++O5kF5pYro8ZxXRQ54rAVaG3ZhsuWPXjp//djwl/
-	TFbb+q7t/ZB46nW+KQAzp647oRVgIs+1XyflJpG21yUqBbpXJDh3BLQprN8XBZp2nPxhSl2Nyiv
-	RGXvUy4x965t23teDgzK33xtSpuyF3Evp2YL+yJbDTuHRb5w9MEYkoa63HKBLzLs2rB1JB0GMCs
-	/wxRcb98IZHIfg6P5AXTR/WPa4HHM=
-X-Received: by 2002:a05:6000:2c03:b0:430:f7c9:94c3 with SMTP id ffacd0b85a97d-4342c5011f7mr3399526f8f.25.1768397626345;
-        Wed, 14 Jan 2026 05:33:46 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0dacc5sm49990183f8f.5.2026.01.14.05.33.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 14 Jan 2026 05:33:45 -0800 (PST)
-Message-ID: <3905ee5b-79fe-408c-b776-125c51ac7824@linaro.org>
-Date: Wed, 14 Jan 2026 13:33:44 +0000
+	Wed, 14 Jan 2026 13:36:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5CB72600AA
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 13:36:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11E13C4CEF7
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 13:36:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768397816;
+	bh=iV2zIwFS7NHR+Qp/+VWDRZd4JeaS2I3vbQOZ53pHX20=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ae/SLp+z8fcLXH7RjdXP5OAlh7q/HTebZf2fJPxbwc15QolLGGVph0dLQBokF4x/Y
+	 xvDxihJvfZC0zAng2G6VQSKu2JeoFzWDcpO9YokI6i1QQeh5s4Eb4dzzJOtwGW9s2k
+	 /dpDYtxCK2yJ5OPgbY23PqJe5iv+oNC9WIQXT1TxJzrF+q6fo5bGq6HG6A3VmBEuuF
+	 tSdo5EXyexBqO5oiRGBarXJyHxVSCarKFySdMwlhkxU+PH5d10tzEnIZTBPtF8vYyJ
+	 Q/aOQAakcB3L3QEMDUHSrY2cO+MNcBUDPPqpzSxhlgIIFZj5DOc6UYfEhv/fgQCVT3
+	 Dwmt13t+b2lAQ==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-59b76c092acso5902591e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 05:36:55 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUvCsgfP3Dj452u56R6GLy6sqNoTOyq6PRPQx/LCUlAQY9qxnF44f27CBkluaQx8jAzfBI5+t8I+UoC/3kTNmfM@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPm4Q8Uj1usIToi7XYEKTGRimFQSuBzj8ED1piix35dGHZMora
+	V8HfTbEtXWdX62F7/ms2Xl7R0SCoI30zmVfXu6B+hF0NA42iEF/JTGsR9c2R6+8EkUlfVAWYx2s
+	M8BP04qB7GBjW4DKRk7oggrk3PCfgz+ihDbzicHw3Fw==
+X-Received: by 2002:a05:6512:3e10:b0:59b:70e7:4121 with SMTP id
+ 2adb3069b0e04-59ba174d90emr764517e87.36.1768397814581; Wed, 14 Jan 2026
+ 05:36:54 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 02/14] perf evsel: Refactor
- evsel__set_config_if_unset() arguments
-From: James Clark <james.clark@linaro.org>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-References: <20251222-james-perf-config-bits-v4-0-0608438186fc@linaro.org>
- <20251222-james-perf-config-bits-v4-2-0608438186fc@linaro.org>
- <aWbDg0kmo-isxkz2@x1> <4eda1bd6-ec36-4d0b-85de-ef0bd190e5e7@linaro.org>
-Content-Language: en-US
-In-Reply-To: <4eda1bd6-ec36-4d0b-85de-ef0bd190e5e7@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_053348_472179_71813F8F 
-X-CRM114-Status: GOOD (  32.94  )
+References: <20251223-i2c-printk-helpers-v1-0-46a08306afdb@oss.qualcomm.com> <aWYiJbtueA8g3srn@ninjato>
+In-Reply-To: <aWYiJbtueA8g3srn@ninjato>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Wed, 14 Jan 2026 14:36:42 +0100
+X-Gmail-Original-Message-ID: <CAMRc=MeDZf=J4L8M9QTAP+JXGNUFfs1_HyD3fbMOQ18AR29GYw@mail.gmail.com>
+X-Gm-Features: AZwV_QiYLMexanAhF-BM1IfGaqguSnDiL1N1XOc2vJYCEMxqR8GZei0usNH3TDU
+Message-ID: <CAMRc=MeDZf=J4L8M9QTAP+JXGNUFfs1_HyD3fbMOQ18AR29GYw@mail.gmail.com>
+Subject: Re: [PATCH 00/12] i2c: add and start using i2c_adapter-specific
+ printk helpers
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Andi Shyti <andi.shyti@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Khalil Blaiech <kblaiech@nvidia.com>, Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	=?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+	Manivannan Sadhasivam <mani@kernel.org>, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-actions@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,181 +88,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jan 13, 2026 at 11:45=E2=80=AFAM Wolfram Sang
+<wsa+renesas@sang-engineering.com> wrote:
+>
+> Hi Bart,
+>
+> > can be *revoked*. To that end we need to hide all dereferences of
+> > adap->dev in drivers.
+>
+> I haven't actually tested the code yet (but will do so this week). But I
+> already want to feed back that I approve of the general concept of
+> abstracting away drivers access to the struct device by something we can
+> then convert to SRCU in a central place.
+>
+> This mail is to discuss the timeline of these series. My preferred
+> solution is to aim for inclusion right after 7.0-rc1 is released. That
+> gives me enough time to test and you some more time to address review
+> comments. Bold wish, but maybe we can even get dependencies into 6.19
+> before (like the i2c_dbg rename for the saa7134 driver. Is there a patch
+> for it already?).
+>
 
+FYI: I think the road-map will look something like this: v7.1 will get
+new interfaces and most controllers under drivers/i2c/ converted as
+this can be done within your tree exclusively. For v7.2 (with the new
+interfaces upstream) we can think about converting all i2c controller
+drivers treewide to the new helpers. Once v7.2-rc1 is tagged, I would
+try to remove struct device from struct i2c_adapter locally and send
+it to autobuilders for testing. If that goes well, we could create
+struct i2c_adapter_private or something like this and store its
+address in struct i2c_adapter. This new struct would be controlled by
+i2c core and contain struct device. With that out of the way, for v7.4
+we could think about adding SRCU into the mix (possibly using the
+then-available revocable).
 
-On 14/01/2026 12:14 pm, James Clark wrote:
-> 
-> 
-> On 13/01/2026 10:13 pm, Arnaldo Carvalho de Melo wrote:
->> On Mon, Dec 22, 2025 at 03:14:27PM +0000, James Clark wrote:
->>> Make the evsel argument first to match the other evsel__* functions
->>> and remove the redundant pmu argument, which can be accessed via evsel.
->>
->> I haven't checked if this is the exactly where this takes place but
->> should be in this series, 32-bit build is broken:
->>
->>     3: almalinux:9-i386WARNING: image platform (linux/386) does not 
->> match the expected platform (linux/amd64)
->> WARNING: image platform (linux/386) does not match the expected 
->> platform (linux/amd64)
->>      21.72 almalinux:9-i386              : FAIL gcc version 11.4.1 
->> 20231218 (Red Hat 11.4.1-3) (GCC)
->>       1378 |         perf_pmu__format_pack(&bits, val, vp, /*zero=*/ 
->> true);
->>            |                               ^~~~~
->>            |                               |
->>            |                               u64 * {aka long long 
->> unsigned int *}
->>      In file included from util/evsel.h:14,
->>                       from util/evsel.c:38:
->>      util/pmu.h:282:43: note: expected ‘long unsigned int *’ but 
->> argument is of type ‘u64 *’ {aka ‘long long unsigned int *’}
->>        282 | void perf_pmu__format_pack(unsigned long *format, __u64 
->> value, __u64 *v,
->>            |                            ~~~~~~~~~~~~~~~^~~~~~
->>
->>
->> What I have is in perf-tools-next/tmp.perf-tools-next BTW, I'll try and
->> fix this tomorrow if you don't do it first. :-)
-> 
-> Taking a look, but I'm wondering if this is already not working 
-> properly. There are existing "unsigned long"s in pmu.c that operate on 
-> the config bits which is what I copied.
-> 
-> On this target an unsigned long is 32bits but struct perf_event_attr- 
->  >configs are __u64. So it looks like it might leave the top bits unset 
-> sometimes.
-> 
-> I'll look at a fix for that which should fix the compilation error at 
-> the same time.
+If all goes well, we should be done in early 2027. :)
 
-False alarm, I was confusing a pointer to a single unsigned long with 
-what are actually DECLARE_BITMAP()s. So they're two longs in this case 
-for 64 bits.
-
-I'll send a fix for the compilation issue and double check the patches 
-to make sure that misunderstanding hasn't caused any issues.
-
-> 
-> Another question is, do we actually care about this platform?
-> 
->>
->> There are some more build problems in other containers/distros, I'll be
->> reporting as replies to the patches that looks related
->>
->> - Arnaldo
->>> Signed-off-by: James Clark <james.clark@linaro.org>
->>> ---
->>>   tools/perf/arch/arm/util/cs-etm.c    | 9 +++------
->>>   tools/perf/arch/arm64/util/arm-spe.c | 2 +-
->>>   tools/perf/arch/x86/util/intel-pt.c  | 3 +--
->>>   tools/perf/util/evsel.h              | 4 ++--
->>>   tools/perf/util/pmu.c                | 6 +++---
->>>   5 files changed, 10 insertions(+), 14 deletions(-)
->>>
->>> diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/ 
->>> util/cs-etm.c
->>> index ea891d12f8f4..c28208361d91 100644
->>> --- a/tools/perf/arch/arm/util/cs-etm.c
->>> +++ b/tools/perf/arch/arm/util/cs-etm.c
->>> @@ -441,10 +441,8 @@ static int cs_etm_recording_options(struct 
->>> auxtrace_record *itr,
->>>        * when a context switch happened.
->>>        */
->>>       if (!perf_cpu_map__is_any_cpu_or_is_empty(cpus)) {
->>> -        evsel__set_config_if_unset(cs_etm_pmu, cs_etm_evsel,
->>> -                       "timestamp", 1);
->>> -        evsel__set_config_if_unset(cs_etm_pmu, cs_etm_evsel,
->>> -                       "contextid", 1);
->>> +        evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
->>> +        evsel__set_config_if_unset(cs_etm_evsel, "contextid", 1);
->>>       }
->>>       /*
->>> @@ -453,8 +451,7 @@ static int cs_etm_recording_options(struct 
->>> auxtrace_record *itr,
->>>        * timestamp tracing.
->>>        */
->>>       if (opts->sample_time_set)
->>> -        evsel__set_config_if_unset(cs_etm_pmu, cs_etm_evsel,
->>> -                       "timestamp", 1);
->>> +        evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
->>>       /* Add dummy event to keep tracking */
->>>       err = parse_event(evlist, "dummy:u");
->>> diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/ 
->>> arm64/util/arm-spe.c
->>> index d5ec1408d0ae..51014f8bff97 100644
->>> --- a/tools/perf/arch/arm64/util/arm-spe.c
->>> +++ b/tools/perf/arch/arm64/util/arm-spe.c
->>> @@ -274,7 +274,7 @@ static void arm_spe_setup_evsel(struct evsel 
->>> *evsel, struct perf_cpu_map *cpus)
->>>        */
->>>       if (!perf_cpu_map__is_any_cpu_or_is_empty(cpus)) {
->>>           evsel__set_sample_bit(evsel, CPU);
->>> -        evsel__set_config_if_unset(evsel->pmu, evsel, "ts_enable", 1);
->>> +        evsel__set_config_if_unset(evsel, "ts_enable", 1);
->>>       }
->>>       /*
->>> diff --git a/tools/perf/arch/x86/util/intel-pt.c b/tools/perf/arch/ 
->>> x86/util/intel-pt.c
->>> index b394ad9cc635..c131a727774f 100644
->>> --- a/tools/perf/arch/x86/util/intel-pt.c
->>> +++ b/tools/perf/arch/x86/util/intel-pt.c
->>> @@ -664,8 +664,7 @@ static int intel_pt_recording_options(struct 
->>> auxtrace_record *itr,
->>>           return 0;
->>>       if (opts->auxtrace_sample_mode)
->>> -        evsel__set_config_if_unset(intel_pt_pmu, intel_pt_evsel,
->>> -                       "psb_period", 0);
->>> +        evsel__set_config_if_unset(intel_pt_evsel, "psb_period", 0);
->>>       err = intel_pt_validate_config(intel_pt_pmu, intel_pt_evsel);
->>>       if (err)
->>> diff --git a/tools/perf/util/evsel.h b/tools/perf/util/evsel.h
->>> index a08130ff2e47..2cf87bc67df7 100644
->>> --- a/tools/perf/util/evsel.h
->>> +++ b/tools/perf/util/evsel.h
->>> @@ -575,8 +575,8 @@ void evsel__uniquify_counter(struct evsel *counter);
->>>       ((((src) >> (pos)) & ((1ull << (size)) - 1)) << (63 - ((pos) + 
->>> (size) - 1)))
->>>   u64 evsel__bitfield_swap_branch_flags(u64 value);
->>> -void evsel__set_config_if_unset(struct perf_pmu *pmu, struct evsel 
->>> *evsel,
->>> -                const char *config_name, u64 val);
->>> +void evsel__set_config_if_unset(struct evsel *evsel, const char 
->>> *config_name,
->>> +                u64 val);
->>>   bool evsel__is_offcpu_event(struct evsel *evsel);
->>> diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
->>> index 956ea273c2c7..e87c12946d71 100644
->>> --- a/tools/perf/util/pmu.c
->>> +++ b/tools/perf/util/pmu.c
->>> @@ -1382,8 +1382,8 @@ bool evsel__is_aux_event(const struct evsel 
->>> *evsel)
->>>    * something to true, pass 1 for val rather than a pre shifted value.
->>>    */
->>>   #define field_prep(_mask, _val) (((_val) << (ffsll(_mask) - 1)) & 
->>> (_mask))
->>> -void evsel__set_config_if_unset(struct perf_pmu *pmu, struct evsel 
->>> *evsel,
->>> -                const char *config_name, u64 val)
->>> +void evsel__set_config_if_unset(struct evsel *evsel, const char 
->>> *config_name,
->>> +                u64 val)
->>>   {
->>>       u64 user_bits = 0, bits;
->>>       struct evsel_config_term *term = evsel__get_config_term(evsel, 
->>> CFG_CHG);
->>> @@ -1391,7 +1391,7 @@ void evsel__set_config_if_unset(struct perf_pmu 
->>> *pmu, struct evsel *evsel,
->>>       if (term)
->>>           user_bits = term->val.cfg_chg;
->>> -    bits = perf_pmu__format_bits(pmu, config_name);
->>> +    bits = perf_pmu__format_bits(evsel->pmu, config_name);
->>>       /* Do nothing if the user changed the value */
->>>       if (bits & user_bits)
->>>
->>> -- 
->>> 2.34.1
->>>
-> 
-
+Bartosz
 
