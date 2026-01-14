@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 199BDD38FEC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:50:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25048D38FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:51:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FZchd0EVjeZPDpfSc5KLMc9HueJ8+rJRI0TjdGf6xTs=; b=wiZ0FIqhg9n75u5ZxUVvBvR+yi
-	vJR34XvxsVQjD8XWTWPpylHmUr2b40/eZkiu7pD6KiXpmJrrARxRLxWHr0fnHX8OBUi3AADf2ao3f
-	T/fbu2U1VeTklkxanEGIzadzHTsULHhPdBhE6+6rUB+UoYyGKYv3vIBi2l3JbCXCuiRH2iT+lCPIk
-	/OPKTCWTuKb8xdnoMC7g6VZQ4XNVI0Ykl6nlPV6PBKOWRSqFQZtVqV9+ENl3opqJSB6tcnh/ijCaH
-	gSlObu95K22D18o96fdOnnaPlIOdxwJpAi1JydkhKuQL++TYZ4+D1R8e/xNYrp8nqCuy8NDorB/UW
-	d25MU9kA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NYh1woO3a8XEASbOHlaRaUnQlAGZTW0Vgy8M22Wjpwc=; b=MZ8ZIZ0X0EEtGiziuuzxIH1/ab
+	/728Thm1X7UFk/Ky3dxDP9FlH13eDtuwmsGiJodf7QiQOGfZrLyYd/VTtvXM9IDQRPd/MmDN0bkz4
+	YX+/WhiB+ELw2OhoAxjct2NjIimsYlQG0nITybnVkBq/3EGCe6B+7kaDDF7DZ0Za+d87MvwzNr33r
+	WMT0Td48V4jvZWQ1JppnPc//1XbJP2kGI/B9US4NpXlU8VfX1XqQFpB0n20Blev0FR25DHHgkeOU5
+	ra2EPDRQmXB0DhhOqqwvMcZTy5TS4U5QqrytJ64mgIkbeWqwuuRKItFUG96OwbODZp4iWYfv7xHB9
+	KeRv5UHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg44v-00000009zAz-0Ya0;
-	Wed, 14 Jan 2026 16:50:41 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg44s-00000009z8h-0UC2
+	id 1vg45F-00000009zJ2-0Yxv;
+	Wed, 14 Jan 2026 16:51:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vg45C-00000009zHi-2nRN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 16:50:39 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id A75A44E420D7
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 16:50:33 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 682FE6074A;
-	Wed, 14 Jan 2026 16:50:33 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0EF3910B682A0;
-	Wed, 14 Jan 2026 17:50:29 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1768409432; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=FZchd0EVjeZPDpfSc5KLMc9HueJ8+rJRI0TjdGf6xTs=;
-	b=gmUPcwmnox7arbqkymc/qtB90PaAhg2we8YkoV33vJaDAMGVKGXNW90hJDwel3tDiEEtAr
-	+uHLWRzLz1XDiruulPXjwsx9xm4pQg2Kd7H9RkI5rxIn1RrwuFZaMN3FKxLmLNO8u0OESD
-	TNxQfePqwfX0NUA42bZUx9nQQTcGVE53LW9jQgWvxlxkfMvgPThOkS7sh5EHvH7ZZoPGC8
-	5eizFw6nCyGx8GM10Mvn3h9x53w0wyY+JkUvzs0iy2RRgxbHaLt0sBu/7IpNDgKn/HKSz6
-	Ilb5BYrkqTikoLh0a6wDrdgOqiLHwbiIf/Rb2/mORE6JjqkRJnsDwdwVKQ0Zdg==
-From: Thomas Richard <thomas.richard@bootlin.com>
-Date: Wed, 14 Jan 2026 17:50:23 +0100
-Subject: [PATCH] phy: freescale: imx8qm-hsio: fix NULL pointer dereference
+	Wed, 14 Jan 2026 16:50:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 547731515;
+	Wed, 14 Jan 2026 08:50:50 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 32FBE3F632;
+	Wed, 14 Jan 2026 08:50:52 -0800 (PST)
+Message-ID: <fe013731-4bbf-47c2-85f8-842f781ae2f3@arm.com>
+Date: Wed, 14 Jan 2026 16:50:50 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 13/47] KVM: arm64: Use kernel-space partid
+ configuration for hypercalls
+From: Ben Horgan <ben.horgan@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, oupton@kernel.org, joey.gouly@arm.com,
+ suzuki.poulose@arm.com, kvmarm@lists.linux.dev
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+ <20260112165914.4086692-14-ben.horgan@arm.com> <86o6mwl7kl.wl-maz@kernel.org>
+ <b9e10419-b4de-4cb6-93b6-07e878d2072a@arm.com>
+Content-Language: en-US
+In-Reply-To: <b9e10419-b4de-4cb6-93b6-07e878d2072a@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260114-phy-fsl-imx8qm-hsio-fix-null-pointer-dereference-v1-1-730e941be464@bootlin.com>
-X-B4-Tracking: v=1; b=H4sIAE7JZ2kC/x2NwQrCMBBEf6Xs2YWk1UT8FfGg7cYspNuYaImU/
- ruLhzk8hjezQaXCVOHSbVBo5cqLKNhDB2O8y5OQJ2XoTe+MtUfM8YuhJuS5nV8zRhUwcEP5pIR
- 5YXlTwYkKBY2MhM4/rDVuOAXvQWezVtz+l9fbvv8A6zmjQYIAAAA=
-X-Change-ID: 20260114-phy-fsl-imx8qm-hsio-fix-null-pointer-dereference-67b110635f77
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
- Richard Zhu <hongxing.zhu@nxp.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- linux-phy@lists.infradead.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Thomas Richard <thomas.richard@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_085038_280981_89CF72E7 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20260114_085058_825887_24DD86DD 
+X-CRM114-Status: GOOD (  22.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,38 +77,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During the probe the refclk_pad pointer is set to NULL if the
-'fsl,refclk-pad-mode' property is not defined in the devicetree node. But
-in imx_hsio_configure_clk_pad() this pointer is unconditionally used which
-could result in a NULL pointer dereference. So check the pointer before to
-use it.
+Hi Marc,
 
-Fixes: 82c56b6dd24f ("phy: freescale: imx8qm-hsio: Add i.MX8QM HSIO PHY driver support")
-Signed-off-by: Thomas Richard <thomas.richard@bootlin.com>
----
- drivers/phy/freescale/phy-fsl-imx8qm-hsio.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On 1/14/26 14:39, Ben Horgan wrote:
+> Hi Marc,
+> 
+> On 1/14/26 12:09, Marc Zyngier wrote:
+>> On Mon, 12 Jan 2026 16:58:40 +0000,
+>> Ben Horgan <ben.horgan@arm.com> wrote:
+>>>
+>>> On nVHE systems whether or not MPAM is enabled, EL2 continues to use
+>>> partid-0 for hypercalls, even when the host may have configured its kernel
+>>> threads to use a different partid. 0 may have been assigned to another
+>>> task. Copy the EL1 MPAM register to EL2. This ensures hypercalls use the
+>>> same partid as the kernel thread does on the host.
+>>>
+>>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>>> ---
+>>> Changes since v2:
+>>> Use mask
+>>> Use read_sysreg_el1 to cope with hvhe
+>>> ---
+>>>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 8 ++++++++
+>>>  1 file changed, 8 insertions(+)
+>>>
+>>> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+>>> index a7c689152f68..ad99d8a73a9e 100644
+>>> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+>>> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+>>> @@ -635,6 +635,14 @@ static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
+>>>  	unsigned long hcall_min = 0;
+>>>  	hcall_t hfn;
+>>>  
+>>> +	if (system_supports_mpam()) {
+>>> +		u64 mask = MPAM1_EL1_PARTID_D | MPAM1_EL1_PARTID_I |
+>>> +			MPAM1_EL1_PMG_D | MPAM1_EL1_PMG_I;
+>>> +
+>>> +		write_sysreg_s(read_sysreg_el1(SYS_MPAM1) & mask, SYS_MPAM2_EL2);
+>>> +		isb();
+>>> +	}
+>>
+>> Is it really OK to not preserve the rest of MPAM2_EL2? This explicitly
+>> clears MPAM2_EL2.MPAMEN, which feels counter-productive.
+>>
+>> 	M.
+>>
+> 
+> There are 3 things to consider:
+> 1. traps - these are only relevant when we leave EL2 and are dealt with
+> in __activate_traps_mpam(). (This also covers EnMPAMSM which is a
+> not-trap bit.)
+> 2. MPAM2_EL2.MPAMEN - this is read only as long as we have an EL3 and if
+> we don't have EL3 will be 0 anyway from el2_setup.h and MPAM won't be
+> considered supported in the kernel.
+> 3. The alternate partid space fields which are kept as zero and relate
+> to FEAT_RME.
+> 
+> So, safe. Ok with you or would you rather I make it more obviously safe?
 
-diff --git a/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c b/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
-index 977d21d753a5..279b8ac7822d 100644
---- a/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
-+++ b/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
-@@ -251,7 +251,7 @@ static void imx_hsio_configure_clk_pad(struct phy *phy)
- 	struct imx_hsio_lane *lane = phy_get_drvdata(phy);
- 	struct imx_hsio_priv *priv = lane->priv;
- 
--	if (strncmp(priv->refclk_pad, "output", 6) == 0) {
-+	if (priv->refclk_pad && strncmp(priv->refclk_pad, "output", 6) == 0) {
- 		pll = true;
- 		regmap_update_bits(priv->misc, HSIO_CTRL0,
- 				   HSIO_IOB_A_0_TXOE | HSIO_IOB_A_0_M1M0_MASK,
+As discussed offline, to avoid having to reason about MPAM2_EL2.MPAMEN
+I'll set this bit to 1 in this write as we are already assuming mpam is
+enabled and we want to keep it enabled.
 
----
-base-commit: c537e12daeecaecdcd322c56a5f70659d2de7bde
-change-id: 20260114-phy-fsl-imx8qm-hsio-fix-null-pointer-dereference-67b110635f77
+> 
+> Thanks,
+> 
+> Ben
+> 
+> 
 
-Best regards,
--- 
-Thomas Richard <thomas.richard@bootlin.com>
+Thanks,
+
+Ben
 
 
