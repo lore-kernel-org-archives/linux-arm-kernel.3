@@ -4,75 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CC4D31A28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:39:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F5A3D31A29
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C/NnyVVxCgBClNBVo/1YIzVFqn3Nm57ufCsyfbrWaiA=; b=v3FkTs1Gi1zRLeBSkl8akCi7go
-	VfEkl8WXfQqj0E0ME2pBf9DxxDh186C2uzkk0NdOFAcleysWCiW8yIbraAtACz+tYhI3Nm73/1htJ
-	s3UqhbzNhYdIDrK2WqdQSNd0OcvwWhFvkBqpqCl9KFnfeKpyTfOXsl2mTiXkJOpCPFzC2WZajuYn+
-	gAi3y+Qo8vCkguu8pzLVGCgRl7NvHSXGLx7Of+TepwzYV6CLLplKlI/kZ7FJjsxrBZ+o6D6jbEvYc
-	QoQTfcW7O0Q9EkeVqW9usvk4mvLzqTBzJq0KNoEyouh7hQ2I0WbcbXZwSuiiTcfVbBbzwjJsZUH/L
-	Qs3bkcvg==;
+	bh=/Nn9M/VPDoeuifL+P7no8o5FApQZk7zNKYvSR+p2CRU=; b=DNcoa7c2WUKOPYJXSLwxkNcH7U
+	ob6shTdHKYIGr06V3PMQ79J7i3p/LqMdT3aBV6/fDyZ5DNDSa5KEu4UNDA1D4wUQOCgPNanGBm6+H
+	b4swUYG/k7UXgsKIL06MOWZJiteW7jfju2Uv+n2Ta908sxWZ/EEtx1SBeO43K3uuGSxaqgUylCdtX
+	Wgbk5ejNOQhFnVUuoThBl9MdHdCZL6Zj0aiFR9sT/7BR3Evt9LcSlVXs0UN4EO/al1A6BDKbUXbXl
+	Sbcy9+v7MNOVjf4DgzVIHVHRDKZh1u2b0ueftm9ttWrIKwkf1lnWwboFGQq+SfkyZT0bHVezmSetN
+	oAe9mOPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfwPe-00000008NKP-2KOK;
-	Wed, 14 Jan 2026 08:39:34 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1vfwUI-00000008OC5-37SU;
+	Wed, 14 Jan 2026 08:44:22 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfwPc-00000008NIs-00rZ
+	id 1vfwUC-00000008OB5-3ZBm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 08:39:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768379972; x=1799915972;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=FpbGobcUnn9BvrhoRngQbgrWv8+ZNcmz4Jg3YXrezBk=;
-  b=e8wX8cklr+40k53+IkadO5BTU5GBmlQZ3YJjUm/C/fWw54bBOd3/lzlR
-   qftAARhHKge7G5YQ30JWbRLmyUz4y7tbIZscx7zTGmJ41eLWde2bj3gex
-   l38gSfcYYP0x30wXFhzn49s8BYo94A3BWlSFzXc8LDDES9VK6ggpXkcNE
-   RLkUtyqPB+F1IITeOIKII29EANyYD2In72eaAiPBsHTLA3DVdoEfQ6o4u
-   om68VJlF7AG2d0N42Gv6i0/tC6cVLGyicTABAVfrkVAFxGG3myoXdP8KA
-   S3Vr99gZ8wrUEP2Ux5PQ/PdJvtBTICPa6vgXqFraRVFYJWz2Wr1j0aVJg
-   w==;
-X-CSE-ConnectionGUID: UnrgK5wNQ2mE3iJUG4swYA==
-X-CSE-MsgGUID: Vqne/6L2S8mKMMXXcQL07A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11670"; a="80394581"
-X-IronPort-AV: E=Sophos;i="6.21,225,1763452800"; 
-   d="scan'208";a="80394581"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2026 00:39:28 -0800
-X-CSE-ConnectionGUID: d7i21hmySbO6IqYbAmb+Lw==
-X-CSE-MsgGUID: I70zfkCESle5ChLBYCnRuQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,225,1763452800"; 
-   d="scan'208";a="209079255"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by fmviesa005.fm.intel.com with ESMTP; 14 Jan 2026 00:39:26 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vfwPU-00000000G5I-1s7m;
-	Wed, 14 Jan 2026 08:39:24 +0000
-Date: Wed, 14 Jan 2026 16:38:45 +0800
-From: kernel test robot <lkp@intel.com>
-To: junan <junan76@163.com>, catalin.marinas@arm.com, will@kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, junan76@163.com
-Subject: Re: [PATCH] arm64: kconfig: Make STRICT_KERNEL_RWX visable.
-Message-ID: <202601141630.sCPCgSYw-lkp@intel.com>
-References: <20260114013859.498148-2-junan76@163.com>
+	Wed, 14 Jan 2026 08:44:19 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-432d256c2e6so4679592f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 00:44:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1768380255; x=1768985055; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/Nn9M/VPDoeuifL+P7no8o5FApQZk7zNKYvSR+p2CRU=;
+        b=G7YD9GT9MNwkv7GZp7I46HAKE/2DaWiOGkuFcp7CIEWkCHExzYkeWGJ+/neNbppQsn
+         P6/D4UFb0SZalcxfQLR7SKbCf0gq6ZJo8Az6skkP0C49bGV1SPVcambmHhDfdJw295my
+         ebabyiZtdDCN6CjQqmXAtP28KFXa4ZCyAzkqNuu8nxEozbre8l4k3+tG5s0DZEbzOUuy
+         5HgbJVhEmSODoEblLggTtQd96UGVnNXFy3cutrr/jCbtulNCbRFWrc2PFNwgSBW0+nsf
+         59CmNk8DowXdIgMrIAbdrTsbLxVPZcNbupF9k2kTi1qWTtczet7b8uud31TzBp4zDCwG
+         HxKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768380255; x=1768985055;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/Nn9M/VPDoeuifL+P7no8o5FApQZk7zNKYvSR+p2CRU=;
+        b=h+nA1H3YD9cZrE0FAU8nwDI8SmYSs6rldN4cuCjvNr67mxUdc1/sp0YSQ3/dvZEmUb
+         /Kzq9gMntFdVTmiUk+opdS49ASXH6g6ozGqSz09FOXu0BPOUy2VvU6mwTx7druTcN5no
+         T/DjaDAu/o+lIQcIcYcK+CJlkx8B0iBUr+wxMy1H7vG3NxlhFRk7gTzvSmol28WYDxcT
+         /O9N2FBEnW9AjXwt+lkY2pLFjH1Rr7umFvtLAa00IBzSXA5SGEt6fHAcpXRuNMD3cZ96
+         ptGyFeOX0Guv0h95+lb7k2Ho+mIMre02DwuakFbInYhRUJSR30/ikLBw5mD4tgfKnix9
+         Zjyw==
+X-Forwarded-Encrypted: i=1; AJvYcCX6MIge1EkVPCDG0k56GaMcIpTGsASrLJDP0zNsFk5O8xfi6hFbpcaTJdUGfkjJM//yqO5s0DpA9ItmMJ9RHtjF@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVeWq1cxIOAIot0m3DM2zrSnNtFO5e+P93Ujfe2ALnjIG8v8dG
+	xPJxydUi9blsaH8s9y3Vm9b4FF+F1XnUvPD2vxsZK8R/8tDrTPPaj8fgUshkXVbOb/8=
+X-Gm-Gg: AY/fxX5iBwNCUx4vfeCk1ncASMi5RBweXCopewd0ptkMW1ACT6n9KV9n0oT3/gDyTpx
+	D/5Xz67cJ+9MmPGjuOxZTlU0pwgyeYMV7zLEOZ11gfaRxAB+AD/2jx/WlYAm2/VJdn5MMEfISct
+	8bwwzyOOnlCKTY+jCTm0n6ySzjhWpIp+zctZETWYD9FjmkMh9JEkTHd8edjHvdmnPuR9xpTOLIF
+	BDD3bkKH0niA2e/zikQm97DUytebP2Zezu0IKhvW9dVRk136tQbueiU3xk3DLE5U834xo3dSmpt
+	VDCez5mefy9gQ8GhPAOrWjsspS6O7mrW829yR6b9ntUAZ0YDeQXE7zsqNf7O8THDOzBR2OkYtnX
+	4NnnhsE3y17oP/6PYorWYD/HTq6wBe7mpna5pZ4Pwus0JeJiGsjFlMW8sU4ze8oVk9F7pa0gEIF
+	dUqEZhLrUJcs3NTA==
+X-Received: by 2002:a05:6000:61e:b0:431:a38:c2f7 with SMTP id ffacd0b85a97d-4342c574bedmr1500621f8f.59.1768380254886;
+        Wed, 14 Jan 2026 00:44:14 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd5ee5e3sm48685590f8f.35.2026.01.14.00.44.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 00:44:14 -0800 (PST)
+Date: Wed, 14 Jan 2026 09:44:11 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: Marcos Paulo de Souza <mpdesouza@suse.com>
+Cc: Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jason Wessel <jason.wessel@windriver.com>,
+	Daniel Thompson <danielt@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	John Ogness <john.ogness@linutronix.de>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
+	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 03/19] printk: Drop flags argument from console_is_usable
+Message-ID: <aWdXW6ohfQ7_z2B_@pathway.suse.cz>
+References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+ <20251227-printk-cleanup-part3-v1-3-21a291bcf197@suse.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260114013859.498148-2-junan76@163.com>
+In-Reply-To: <20251227-printk-cleanup-part3-v1-3-21a291bcf197@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_003932_054042_CDEE33DE 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20260114_004416_942359_D12A783B 
+X-CRM114-Status: GOOD (  21.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,38 +132,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi junan,
+On Sat 2025-12-27 09:16:10, Marcos Paulo de Souza wrote:
+> The flags argument was also used to check if CON_NBCON was set, but their
+> usage was fixed in the last commit. All current users are reading the
+> variable just to call console_is_usable.
+> 
+> By calling console_srcu_read_flags inside console_is_usable makes the
+> code cleaner and removes one argument from the function.
+> 
+> Along with it, create a variant called __console_is_usable that can be
+> used under console_list_lock(), like unregister_console_locked.
+> 
+> --- a/include/linux/console.h
+> +++ b/include/linux/console.h
+> @@ -656,13 +656,8 @@ extern bool nbcon_kdb_try_acquire(struct console *con,
+>  				  struct nbcon_write_context *wctxt);
+>  extern void nbcon_kdb_release(struct nbcon_write_context *wctxt);
+>  
+> -/*
+> - * Check if the given console is currently capable and allowed to print
+> - * records. Note that this function does not consider the current context,
+> - * which can also play a role in deciding if @con can be used to print
+> - * records.
+> - */
+> -static inline bool console_is_usable(struct console *con, short flags,
+> +/* Variant of console_is_usable() when the console_list_lock is held. */
 
-kernel test robot noticed the following build errors:
+Nit: The comment is a bit misleading because this function is called
+     also from console_is_usable() under console_srcu_read_lock().
 
-[auto build test ERROR on arm64/for-next/core]
-[also build test ERROR on linus/master v6.19-rc5 next-20260114]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+     I would say something like:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/junan/arm64-kconfig-Make-STRICT_KERNEL_RWX-visable/20260114-094935
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
-patch link:    https://lore.kernel.org/r/20260114013859.498148-2-junan76%40163.com
-patch subject: [PATCH] arm64: kconfig: Make STRICT_KERNEL_RWX visable.
-config: arm64-allnoconfig (https://download.01.org/0day-ci/archive/20260114/202601141630.sCPCgSYw-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260114/202601141630.sCPCgSYw-lkp@intel.com/reproduce)
+/*
+ * The caller must ensure that @con can't disappear either by taking
+ * console_list_lock() or console_srcu_read_lock(). See also
+ * console_is_usable().
+ */
+> +static inline bool __console_is_usable(struct console *con, short flags,
+>  				     enum nbcon_write_cb nwc)
+>  {
+>  	if (!(flags & CON_ENABLED))
+> @@ -707,6 +702,18 @@ static inline bool console_is_usable(struct console *con, short flags,
+>  	return true;
+>  }
+>  
+> +/*
+> + * Check if the given console is currently capable and allowed to print
+> + * records. Note that this function does not consider the current context,
+> + * which can also play a role in deciding if @con can be used to print
+> + * records.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601141630.sCPCgSYw-lkp@intel.com/
+And I would add here something like:
 
-All errors (new ones prefixed by >>):
+ *
+ * Context: Must be called under console_srcu_read_lock().
 
-   aarch64-linux-ld: arch/arm64/mm/mmu.o: in function `map_entry_trampoline':
->> mmu.c:(.init.text+0x578): undefined reference to `rodata_enabled'
-   aarch64-linux-ld: arch/arm64/mm/mmu.o: relocation R_AARCH64_ADR_PREL_PG_HI21 against symbol `rodata_enabled' which may bind externally can not be used when making a shared object; recompile with -fPIC
->> mmu.c:(.init.text+0x578): dangerous relocation: unsupported relocation
->> aarch64-linux-ld: mmu.c:(.init.text+0x584): undefined reference to `rodata_enabled'
+> + */
+> +static inline bool console_is_usable(struct console *con,
+> +				     enum nbcon_write_cb nwc)
+> +{
+> +	return __console_is_usable(con, console_srcu_read_flags(con), nwc);
+> +}
+> +
+>  #else
+>  static inline void nbcon_cpu_emergency_enter(void) { }
+>  static inline void nbcon_cpu_emergency_exit(void) { }
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Otherwise, it looks good. It is a nice clean up.
+
+Best Regards,
+Petr
 
