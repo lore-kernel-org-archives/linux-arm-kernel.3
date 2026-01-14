@@ -4,104 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48FF4D39000
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B212D39000
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I0Ccu6HcHah+WxcjmmvF1EVk3EKdbitiT+d2x7pv3NE=; b=q9RjuvhIog4/bhlr+9kofTRfus
-	bLYXaJHO2JzdsvLM2yByFoLq7OG/lqJwDrBo0nlQ+VSZDaUMphw6VZBnkiwbgQhtZ0ac7xE+eX/J3
-	2Y5wRFT4plJiNb2TOR59WbRlJ7SBG0q590SZgwD7mmdkKKEXpT91rR4qcVUFNRA19/MSdT9iZNX6Y
-	guZNY8jX3xE03qy14O95s9DQ1XOa2l0A1NszcX7kBEMtJgg/tSf0MV8+9AQjLSWVvxNeOG7/jRHxG
-	NQDgn6oA6bBf2FjdhVyVWAsbjnk+jugZ9JP0SBhhtUdK0tQ1uCcx8IpC6vKHKZOys87x1PPDqiGxj
-	HblyIeqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gU7E9DUC/tzvoHkYBZS23VcZDnNNdcvckzbt+soynXQ=; b=4njylJZWIplVyn8lXBmosCh4kc
+	VO5T2S9cUPm393rgmDGHvucatOxZzuSw4ucWelYINer2VzqHA15RhaATFO1OWNbkwmjJCwN46PaZh
+	qxy42dGWjcWMA6QpPG8lsyKnn1VdTaD8p5XlUObmy1LvwAQR+amTKnDsF++hhvJpKC3eGlagJBhMW
+	m2Tt0fYT4rCpkuAnC89qXOQcdHTblqJvHTSBSBKVOT6qMTfnWdjhXMCVJnhgXxfuQCHHvd/kp4Grl
+	/tYXMutAGunWX4RJkCwhmTxIxoDsW9mikD26AF1XMFuWT5toCjxFnBgySR4FI85IILAm/ckY4F/n3
+	z9Sq7qNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg50r-0000000AD1v-2K0p;
-	Wed, 14 Jan 2026 17:50:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vg51I-0000000ADAy-1ohQ;
+	Wed, 14 Jan 2026 17:51:00 +0000
+Received: from smtpdh19-1.aruba.it ([62.149.155.148])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg50p-0000000AD0q-0MeN
+	id 1vg51F-0000000ACwT-1qYe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 17:50:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8CA5F438B6;
-	Wed, 14 Jan 2026 17:50:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 634AAC4CEF7;
-	Wed, 14 Jan 2026 17:50:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768413030;
-	bh=F6cbQLf9UARh7CD8RoRzbiMKpPHFPVB2C0c+e23aWI4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=AoFOzJDPAV+aUvTHu2W1JqLU2FVetimtn0KpFkscDiPAQyeYmjTPqLbuFeQxvAbTG
-	 c02gAa9SQhDKO6dZvMF07gxCfIX8sCJM/DqZ08HLr791QULxdWwaRLsmqfiK+2bsdU
-	 q4btGoUwuQ652ws305BUnp5P++cB1HCU6/1tWgDO/+I0JXjyZGd9B1EflgGY3Nx8y7
-	 xBfPEXi7zjCwJxYyhL5e27L8laEPoxZm9gDAGyebUqXlXgM9s9+OZYkmIQjbgy2mLh
-	 NTvqDv9hjo8ysTI6F1yPEAkGNqK6zKAi7K2reLSNWeDclIbT7+hqtpiH4bqZImrleY
-	 Wex2pcc3BzGtw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vg50l-00000002H1E-2GRL;
-	Wed, 14 Jan 2026 17:50:27 +0000
-Date: Wed, 14 Jan 2026 17:50:26 +0000
-Message-ID: <86ms2gkrrx.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v3 13/47] KVM: arm64: Use kernel-space partid configuration for hypercalls
-In-Reply-To: <fe013731-4bbf-47c2-85f8-842f781ae2f3@arm.com>
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
-	<20260112165914.4086692-14-ben.horgan@arm.com>
-	<86o6mwl7kl.wl-maz@kernel.org>
-	<b9e10419-b4de-4cb6-93b6-07e878d2072a@arm.com>
-	<fe013731-4bbf-47c2-85f8-842f781ae2f3@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ben.horgan@arm.com, amitsinght@marvell.com, baisheng.gao@unisoc.com, baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com, dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com, fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, peternewman@google.com, punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 14 Jan 2026 17:50:58 +0000
+Received: from [192.168.50.220] ([84.33.84.190])
+	by Aruba SMTP with ESMTPSA
+	id g51EvJo0PclBZg51Ev2sWZ; Wed, 14 Jan 2026 18:50:56 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aruba.it; s=a1;
+	t=1768413056; bh=QYH47T3+q1nxGSrtGTBSP5UWkWbV4qDT/rcPu4Xa+Rc=;
+	h=Date:MIME-Version:Subject:To:From:Content-Type;
+	b=eTsFIiwn4gewslrI50V0fn4RWbprop4YjERP65Cb/Jhuru42kavUuBXbfQLd8nW8x
+	 znM+EVKD6EMMEO5xct4QxYW30o3H8F9U45I7ddFi0d+3WYnFxGQlbk7tCBMmH3EPHw
+	 84dapkXfFDQv4QKqLcxCUs9ClA8FXUpl6KInyGPawLo0+d/L9N8jvtLxAAor0OaFGw
+	 XSwzMHiVtSwPnnyXutOSJnxU7k2fXtsG2x2H3jRucfAphQu6lRrBTGLkmAsJ81xxfm
+	 jt1cI3WYoGTSta3wmLf7BguaXP3Ks1GuzyHkT9A7ySqoDPhUWmEJRHEX3/cc1CewDT
+	 O+OVQu0EvZ6hw==
+Message-ID: <9fca977f-4179-44de-b0dd-8e68d57addd4@benettiengineering.com>
+Date: Wed, 14 Jan 2026 18:50:56 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: sun7i: a20: fix MMC index enumeration
+To: wens@kernel.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260114105005.3136045-1-giulio.benetti@benettiengineering.com>
+ <CAGb2v66gpmreQiDMDJ8NE1QJ-e+iBUVicw9sv=RgiwuONfUFAA@mail.gmail.com>
+Content-Language: en-US
+From: Giulio Benetti <giulio.benetti@benettiengineering.com>
+In-Reply-To: <CAGb2v66gpmreQiDMDJ8NE1QJ-e+iBUVicw9sv=RgiwuONfUFAA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CMAE-Envelope: MS4xfI4O5EWksWdoOgtzKoloOwVUZ8Bj6+ptlGREGTz6tAhvPr/Ogj++Q0AR9lt5iCBb1rmZSuXEipnK/dxCtqPH2FkzJWOmpOYqH3E42/49WB6fsiay4zSz
+ Vz8sg3phLDYnVUWeib75lZr5qrZNbPuNjsIcKRwd3ZcigeMMV+mD9ykFJ4dUQeKA17Vc1lDJWCGFsPu07hl3phHSQv9qN0VN4S2C/fgl11+9OUW8epQeNNhz
+ GXeWpDA8pEeeiYHvVmVVAL2TGTJZU8MpPV+rrhlKuekTUodUgkuuCLexry1kPI7u94pr3nQSZadeSpjFkFehySUK/p5HNQp72kc2wWAKjsWtzKnLsBs2CCqC
+ Gh4zGWHtEXojm6435e6b/oTDY5EXsFANYUM9OfabvXUQs37ZRsktuwUAYyp1B7puLcEqkA7koXEG3efBO+MuvhcG89SFD8K8+POeWArZpdZv1vLgAj1e7kd6
+ dCW+rASKABkd+d8c5H6puH7FzMJ+Bw2eWVqsHlcFDVuJwYZdt+ZG37UebV6hKeEizqAYtT8QIVnhldPR
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_095032_024132_07D6CCE7 
-X-CRM114-Status: GOOD (  33.47  )
+X-CRM114-CacheID: sfid-20260114_095057_638087_6BA18124 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,75 +79,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 14 Jan 2026 16:50:50 +0000,
-Ben Horgan <ben.horgan@arm.com> wrote:
+On 1/14/26 15:07, Chen-Yu Tsai wrote:
+> On Wed, Jan 14, 2026 at 6:50 PM Giulio Benetti
+> <giulio.benetti@benettiengineering.com> wrote:
+>>
+>> Currently, the OLinuXino-A20-Micro experiences non-deterministic MMC
+>> enumeration during boot. When both an SDIO WiFi module (MMC1) and
+>> an SD card (MMC0) are present, the kernel may swap their indices.
+>>
+>> Explicitly define mmc* aliases to ensure consistent device naming
+>> and prevent mapping conflicts.
 > 
-> Hi Marc,
+> Years ago we (sunxi maintainers) decided against this.
 > 
-> On 1/14/26 14:39, Ben Horgan wrote:
-> > Hi Marc,
-> > 
-> > On 1/14/26 12:09, Marc Zyngier wrote:
-> >> On Mon, 12 Jan 2026 16:58:40 +0000,
-> >> Ben Horgan <ben.horgan@arm.com> wrote:
-> >>>
-> >>> On nVHE systems whether or not MPAM is enabled, EL2 continues to use
-> >>> partid-0 for hypercalls, even when the host may have configured its kernel
-> >>> threads to use a different partid. 0 may have been assigned to another
-> >>> task. Copy the EL1 MPAM register to EL2. This ensures hypercalls use the
-> >>> same partid as the kernel thread does on the host.
-> >>>
-> >>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> >>> ---
-> >>> Changes since v2:
-> >>> Use mask
-> >>> Use read_sysreg_el1 to cope with hvhe
-> >>> ---
-> >>>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 8 ++++++++
-> >>>  1 file changed, 8 insertions(+)
-> >>>
-> >>> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> >>> index a7c689152f68..ad99d8a73a9e 100644
-> >>> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> >>> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> >>> @@ -635,6 +635,14 @@ static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
-> >>>  	unsigned long hcall_min = 0;
-> >>>  	hcall_t hfn;
-> >>>  
-> >>> +	if (system_supports_mpam()) {
-> >>> +		u64 mask = MPAM1_EL1_PARTID_D | MPAM1_EL1_PARTID_I |
-> >>> +			MPAM1_EL1_PMG_D | MPAM1_EL1_PMG_I;
-> >>> +
-> >>> +		write_sysreg_s(read_sysreg_el1(SYS_MPAM1) & mask, SYS_MPAM2_EL2);
-> >>> +		isb();
-> >>> +	}
-> >>
-> >> Is it really OK to not preserve the rest of MPAM2_EL2? This explicitly
-> >> clears MPAM2_EL2.MPAMEN, which feels counter-productive.
-> >>
-> >> 	M.
-> >>
-> > 
-> > There are 3 things to consider:
-> > 1. traps - these are only relevant when we leave EL2 and are dealt with
-> > in __activate_traps_mpam(). (This also covers EnMPAMSM which is a
-> > not-trap bit.)
-> > 2. MPAM2_EL2.MPAMEN - this is read only as long as we have an EL3 and if
-> > we don't have EL3 will be 0 anyway from el2_setup.h and MPAM won't be
-> > considered supported in the kernel.
-> > 3. The alternate partid space fields which are kept as zero and relate
-> > to FEAT_RME.
-> > 
-> > So, safe. Ok with you or would you rather I make it more obviously safe?
+>> Signed-off-by: Giulio Benetti <giulio.benetti@benettiengineering.com>
+>> ---
+>>   arch/arm/boot/dts/allwinner/sun7i-a20.dtsi | 4 ++++
 > 
-> As discussed offline, to avoid having to reason about MPAM2_EL2.MPAMEN
-> I'll set this bit to 1 in this write as we are already assuming mpam is
-> enabled and we want to keep it enabled.
+> And aliases are per board, so this definitely doesn't belong here.
 
-Sounds good, thanks.
+I see, thank you for taking care.
 
-	M.
+Best regards
+Giulio
 
--- 
-Without deviation from the norm, progress is not possible.
+> 
+> ChenYu
+> 
+>>   1 file changed, 4 insertions(+)
+>>
+>> diff --git a/arch/arm/boot/dts/allwinner/sun7i-a20.dtsi b/arch/arm/boot/dts/allwinner/sun7i-a20.dtsi
+>> index 5f44f09c5545..a958400bcd7c 100644
+>> --- a/arch/arm/boot/dts/allwinner/sun7i-a20.dtsi
+>> +++ b/arch/arm/boot/dts/allwinner/sun7i-a20.dtsi
+>> @@ -55,6 +55,10 @@ / {
+>>          #size-cells = <1>;
+>>
+>>          aliases {
+>> +               mmc0 = &mmc0;
+>> +               mmc1 = &mmc1;
+>> +               mmc2 = &mmc2;
+>> +               mmc3 = &mmc3;
+>>                  ethernet0 = &gmac;
+>>          };
+>>
+>> --
+>> 2.47.3
+>>
+>>
+
 
