@@ -4,79 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7FA8D29FF7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 11:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C6D4D29FEF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 11:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fATf/St2y2YgIn8oxgkSgNLL6dxB/Sz4b5lYp4lukmY=; b=fjPL4IQ391ifZYKODpeJ1c+DRW
-	Z9m+EBDotTyWWxMerVpCdWKPnmAK2U4F1/KGAJIctp5WTAgl7qujy3QnsbnCvVS/HE6ej5dr6rClD
-	Qz8joxdfqoFnV0rvXnX3PoMpKHyWGapggYwKnRx4TZaO1nzUKwapaixxa5exgwsC+qpmQ9tjK+Oc7
-	AhGwWD9WXrKzkrbOKEWD6OTk5d10PO0WxVGsXoBcmfUf/yxuxmaTaFmc84NI7pOaj0Hq3U6kwWSog
-	xdedJ9PmTO4zUMj15H/vNNvNAu3WdGahTWExcqpmARrhgX5413vaKisof/iqf+1pESh4W8YwsD/VD
-	jyihvGfw==;
+	bh=GXkNecrxbuyAnuKyU3aq/LVQMWeL6gu37OXrgGd4uo8=; b=md+Nhwr17SnnJVDKT4d/AQxR9I
+	BpasCGx1Nl6BZr8J7uNFrpwdIul/hyFDMgVsRolDhm/hwgb9SmwBuZRMmGz2J0utVyNCSqH2MEUjJ
+	gUwawtzMpkg6jHy5S8RicTfH3PBhroiqForrTkDyI6x/23fS6lLtQwkH+fAWK7/HTCGbewHZRLBHm
+	4DvPurI5amASAotkkLKk9uJTapdiqpeeFXeLzRsixOg9JnMvdM1ZDhuuWtPBalMOayLvCRXb4B1XZ
+	43gmzf8A6wUpnqTC+rgw0FS6rTLaJGSIj84rhRtGBrTmzQAPu2NxfSceTRV0wOkdLoFG1YkaKlaCr
+	ReRng3Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzTc-000000093PB-2VrS;
-	Wed, 14 Jan 2026 11:55:52 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzTX-000000093Mi-2FNG;
-	Wed, 14 Jan 2026 11:55:48 +0000
-X-UUID: f0b55f22f13f11f09f706fa2197c6ceb-20260114
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=fATf/St2y2YgIn8oxgkSgNLL6dxB/Sz4b5lYp4lukmY=;
-	b=nBvJ7pQBl+rUhepdxlTYUewLWBxyYTrV9q1X6WkU5lc0HTB/Yf051M0Bai0HX64yhPciP0GQPeJb9GcAzd/HY9d5sHlCcogZIm7BspCex6XkP/tL4NGA5bc+eTTArZSvStbcJKe3pGAcXc/u8LmbVviQV8o3fjFCDHE8+Jae9vc=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.9,REQID:02ca79d4-1268-4268-9caa-ea2c9e8d69e9,IP:0,UR
-	L:0,TC:0,Content:3,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:3
-X-CID-META: VersionHash:5047765,CLOUDID:1a9281e8-ef90-4382-9c6f-55f2a0689a6b,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|836|888|898,TC:-5,Co
-	ntent:4|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,CO
-	L:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: f0b55f22f13f11f09f706fa2197c6ceb-20260114
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
-	(envelope-from <dengjun.su@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1647405638; Wed, 14 Jan 2026 04:55:37 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Wed, 14 Jan 2026 19:55:34 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Wed, 14 Jan 2026 19:55:33 +0800
-From: Dengjun Su <dengjun.su@mediatek.com>
-To: <peterz@infradead.org>
-CC: <angelogioacchino.delregno@collabora.com>, <bsegall@google.com>,
-	<dengjun.su@mediatek.com>, <dietmar.eggemann@arm.com>,
-	<haiqiang.gong@mediatek.com>, <juri.lelli@redhat.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mediatek@lists.infradead.org>, <matthias.bgg@gmail.com>,
-	<mgorman@suse.de>, <mike.zhang@mediatek.com>, <mingo@redhat.com>,
-	<peijun.huang@mediatek.com>, <rostedt@goodmis.org>,
-	<vincent.guittot@linaro.org>, <vschneid@redhat.com>
-Subject: Re: [PATCH] sched/rt: fix incorrect schedstats for rt thread
-Date: Wed, 14 Jan 2026 19:55:31 +0800
-Message-ID: <20260114115533.2959537-1-dengjun.su@mediatek.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260112163814.GP830755@noisy.programming.kicks-ass.net>
-References: <20260112163814.GP830755@noisy.programming.kicks-ass.net>
+	id 1vfzUv-000000093eN-0cp2;
+	Wed, 14 Jan 2026 11:57:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vfzUo-000000093cB-3GV9
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Jan 2026 11:57:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3FF8D497;
+	Wed, 14 Jan 2026 03:56:59 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4BC5C3F632;
+	Wed, 14 Jan 2026 03:57:04 -0800 (PST)
+Date: Wed, 14 Jan 2026 11:56:52 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Sergey Shtylyov <s.shtylyov@auroraos.dev>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>, arm-scmi@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] cpufreq: scmi: correct SCMI explanation
+Message-ID: <aWeEdFdAuIiN6QJ5@pluto>
+References: <e6c2e7af-ad87-4d38-9dbb-f9d6ae81fe83@auroraos.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e6c2e7af-ad87-4d38-9dbb-f9d6ae81fe83@auroraos.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_035547_639666_70B59210 
-X-CRM114-Status: GOOD (  30.82  )
+X-CRM114-CacheID: sfid-20260114_035711_056900_F0A752A7 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,95 +66,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2026-01-12 at 17:38 +0100, Peter Zijlstra wrote:
-> On Fri, Jan 09, 2026 at 03:24:47PM +0800, Dengjun Su wrote:
->
-> > For __update_stats_wait_end(), task_on_rq_migrating(p) is needed to
-> > distinguish between stage 2 and stage 4 because they involve
-> > different
-> > processing flows, but for __update_stats_wait_start(), it is not
-> > necessary
-> > to distinguish between stage 1 and stage 3.
-> >
-> > As for adding the condition wait_start > prev_wait_start, I think
-> > it is
-> > more like a mechanism to prevent statistical deviations caused by
-> > time
-> > inconsistencies.
->
-> It looks like nonsense to me.. since you have a test-case, could you
-> see
-> what this does for you?
->
-> Specifically:
->
->  - it ensures that when not in a migration, prev_wait_start must be 0
->
->  - it unconditionally subtracts; unsigned types are defined to wrap
->    nicely (2s complement) and it all should work just fine.
->
+On Tue, Jan 13, 2026 at 10:33:30PM +0300, Sergey Shtylyov wrote:
+> SCMI stands for System Control and Management Interface, not System Control
+> and Power Interface -- apparently, Sudeep Holla copied this line from his
+> SCPI driver and then just forgot to update the acronym explanation... :-)
+> 
+
+Hi,
+
+> Fixes: 99d6bdf33877 ("cpufreq: add support for CPU DVFS based on SCMI message protocol")
+> Signed-off-by: Sergey Shtylyov <s.shtylyov@auroraos.dev>
 > ---
->
-> diff --git a/kernel/sched/stats.c b/kernel/sched/stats.c
-> index d1c9429a4ac5..144b23029327 100644
-> --- a/kernel/sched/stats.c
-> +++ b/kernel/sched/stats.c
-> @@ -12,8 +12,10 @@ void __update_stats_wait_start(struct rq *rq,
-> struct task_struct *p,
->  	wait_start = rq_clock(rq);
->  	prev_wait_start = schedstat_val(stats->wait_start);
->  
-> -	if (p && likely(wait_start > prev_wait_start))
-> +	if (p) {
-> +		WARN_ON_ONCE(!task_on_rq_migrating(p) &&
-> prev_wait_start);
->  		wait_start -= prev_wait_start;
-> +	}
->  
->  	__schedstat_set(stats->wait_start, wait_start);
->  }
 
-Hi Peter,
+Good catch..was up there all the time and never noticed :P 
 
-I have confirm in my current test case, adding this change or not
-have no impact. I think this is reasonable, task_on_rq_migrating(p)
-should be true in my test case.
+... but I would certainly drop the Fixes tag.
 
-Base on original patch that adds this, I think the logic of 
-__update_stats_wait_start is:
-
-  1. If migrating and the time is updated normally, it records the 
-  waiting time on the previous queue.
-
-  2. If time is abnormal, it updates wait_start to the current time. 
-  For migrating, it will discards the previously counted waiting time 
-  on the previous queue (perhaps this statistical value itself 
-  is abnormal).
-
-According to the current modification, if there is a time abnormal,
-wait_start will not be updated to current time.
-
-Partial fragments of the original patch are as follows.
-
----
-
-diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 9a5e60f..53ec4d4 100644
---- a/kernel/sched/fair.c
-+++ b/kernel/sched/fair.c
-@@ -738,27 +738,41 @@ static void update_curr_fair(struct rq *rq)
- }
- 
- static inline void
--update_stats_wait_start(struct cfs_rq *cfs_rq, struct sched_entity *se)
-+update_stats_wait_start(struct cfs_rq *cfs_rq, struct sched_entity *se,
-+			bool migrating)
- {
--	schedstat_set(se->statistics.wait_start, rq_clock(rq_of(cfs_rq)));
-+	schedstat_set(se->statistics.wait_start,
-+		migrating &&
-+		likely(rq_clock(rq_of(cfs_rq)) > se->statistics.wait_start) ?
-+		rq_clock(rq_of(cfs_rq)) - se->statistics.wait_start :
-+		rq_clock(rq_of(cfs_rq)));
- }
+Thanks,
+Cristian
 
