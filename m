@@ -4,75 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71FEBD31A0F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 05:15:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9CB1D31A0E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 06:26:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=n5KJ7xfoSy75xmhqBg1REdpcmm4WLMDw6b5oCQ6qgV4=; b=KJpjEw1V0htIuH4iYytSe/qoeX
-	0SHGFqrvqAU+0gTlpFfNfelzHAhEJIniqWbxnHApsrmSpSHbNKlaV1cHbwOfk9qsauFPKM2ZU0aWt
-	clrKENeHvbY6NiGZQLmX/nREl1sLtToocsZ26csI1FVnN7Y9O3oPXxK7N4MoB1Q7XrhOo3AteSWJp
-	D7A/Fo3TjVwmZ8pdX+LTp3OTbYw7yc4s8h/MiVopeITaiWtglvW6PV0hSqd2xlYJmnr1KDBXUVzd7
-	PuRSg5otjxGKAqj6Ut9/kU5ZxtJ+7Tc7QLpeBMBV53ABPjVzKJHeJKOQ8jGtdDF7Ad70X8uNGawS1
-	q/lVF0/w==;
+	bh=ph6IxAnp6q3+uLiFT21GgPymCv9JqfeKX9RiduzDODk=; b=XdEQLkNokUykK79sTTyXkrn/nw
+	RmHr4JSK7C20+fdWJ+Cbj6ZYU1ITKaZeJPc/DkJ8+tHV0Ri5Ov1/ea4Uizt++9zdDA/rS+Vw1kKFY
+	LMXJP1MVLXB6dINcaNrdJGxbQFseoLyflRpFafUQlcW9eFLfqWW4UsNicpJbwdzWsbfU76jte69bV
+	F5LbCZHUf1x+T4Smzy/wdUxYfc3Lqmci1EpolMzszDCM9vMfCQRMHIn4xfPI8cYShy489cEndJblN
+	x7ITEQtuzdwUS1D8u1ulJPQFLcLcX5PqGh17SgWvdxYPSKBfwVy0Vrz1/9Dvhi6L3Jr2mYipoaN++
+	G6wTrsEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vftED-000000085Dr-0wK7;
-	Wed, 14 Jan 2026 05:15:33 +0000
-Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
+	id 1vfuKZ-000000087Mn-2W13;
+	Wed, 14 Jan 2026 06:26:11 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vftEA-000000085DZ-3PmH
+	id 1vfuKX-000000087Lu-1ZGh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 05:15:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1768367725; bh=JWtyRdM+P6tjlZl/Fi7+mI2HKpt62sZAbA5v+QE1ZTY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Nzkb9AkztrrBUgW2G58ZUWxQ/L1uLbAF58+7XtReHjwaiqMMuf7XEki1rjxx3STZo
-	 SxflWxzL6wpz60h4/qNThmCEqNVfUMgTEgV44sKEwFWELJdxfqOHlg/IpdehWmBK1V
-	 X0U54QNwUobdmmmhe7HonN++7ZzdaR2kY6cfmMFqZsvo+rUgaafMf/qGYVBpeWIzin
-	 B4TpbqElMW3NNrWEOMKTmxV6+Vhw4Sn/PmO9VVUEd0EV7zQbgCzHVOIpAjcWnANWko
-	 ysTIVL86wY9LKW7txjYGhvJ6DPDevG0kTsU3orCWuxRISIs4GAk2vGpp9iFAvhLE8p
-	 62+XWcgM9GCpw==
-Received: from mail.mleia.com (localhost [127.0.0.1])
-	by mail.mleia.com (Postfix) with ESMTP id C68123EC67A;
-	Wed, 14 Jan 2026 05:15:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1768367725; bh=JWtyRdM+P6tjlZl/Fi7+mI2HKpt62sZAbA5v+QE1ZTY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Nzkb9AkztrrBUgW2G58ZUWxQ/L1uLbAF58+7XtReHjwaiqMMuf7XEki1rjxx3STZo
-	 SxflWxzL6wpz60h4/qNThmCEqNVfUMgTEgV44sKEwFWELJdxfqOHlg/IpdehWmBK1V
-	 X0U54QNwUobdmmmhe7HonN++7ZzdaR2kY6cfmMFqZsvo+rUgaafMf/qGYVBpeWIzin
-	 B4TpbqElMW3NNrWEOMKTmxV6+Vhw4Sn/PmO9VVUEd0EV7zQbgCzHVOIpAjcWnANWko
-	 ysTIVL86wY9LKW7txjYGhvJ6DPDevG0kTsU3orCWuxRISIs4GAk2vGpp9iFAvhLE8p
-	 62+XWcgM9GCpw==
-Received: from mail.mleia.com (91-159-24-186.elisa-laajakaista.fi [91.159.24.186])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.mleia.com (Postfix) with ESMTPSA id 63B083EC06A;
-	Wed, 14 Jan 2026 05:15:25 +0000 (UTC)
-From: Vladimir Zapolskiy <vz@mleia.com>
-To: Vinod Koul <vkoul@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org,
-	dmaengine@vger.kernel.org
-Subject: [PATCH] dma: iop32x-adma: Remove a leftover header file
-Date: Wed, 14 Jan 2026 07:14:58 +0200
-Message-ID: <20260114051508.3908807-1-vz@mleia.com>
-X-Mailer: git-send-email 2.51.0
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
-X-CRM114-CacheID: sfid-20260114_051525_831279_E0BE60B8 
-X-CRM114-Status: GOOD (  13.68  )
-/bin/ln: failed to access 'reaver_cache/texts/20260114_051525_831279_E0BE60B8': No such file or directory
+	Wed, 14 Jan 2026 06:26:10 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-34c24f4dfb7so4439906a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 22:26:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768371967; x=1768976767; darn=lists.infradead.org;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ph6IxAnp6q3+uLiFT21GgPymCv9JqfeKX9RiduzDODk=;
+        b=jEHAsgf6CVHvpX9Z8+GI4fk5P5hmYt87csSnknRdhs4fXglMCzz97ule4z4joywNYf
+         +AeQr3n3z24b97amycGFnrpxhoYOqxGwKv3tVK7NnTYLfmGsXy7X/4U0AhRpvaf5zsQd
+         VH3c07jns0U4maitIqpdgPHBxHC3lutFPS8ox0QG6gqCeJnlDhC1Y5klNy48qUksGwN1
+         PY1fmSpBDiuwjRY4G9iLpxkb0PbLZCA71cN2JzBV6hEJzDrhzD+CpcMthfeQtxD4Bt8x
+         HLwlSpE7hWFGKJJcb7xOnTRRolqRoH5kAMeXTLbbZsOBUfgSBZscLjjIgSb0cCnzm9I2
+         jktA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768371967; x=1768976767;
+        h=message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ph6IxAnp6q3+uLiFT21GgPymCv9JqfeKX9RiduzDODk=;
+        b=PTaysD8IgONwtPG1EhuZvY5Afk+IHY1FUEwbzKoaEQmlJBhiNphFVQX/3DsNvHSGSo
+         MXxvgiwVFe+kiN/guoZ4E4BYUTKqLXWBy1uWZm5SDEynoYag7CdgO+cgnunkj1sOz5wl
+         y1OAqT7XFPASQEPa4ZR4d3LF4nZ/4LRYnArFIsRQAUPtO6PgamUZSD/YzbfVLgRWvIy7
+         AQKdYPxLVBEJnYpjFqiVM0baaWvaQPRfSz+cszmmcvLFWXGc5Q2ESQqAdm/qAzi6/BmB
+         tRLUOnyB1D+agG9c8L73lw+pPn/eelpW1Gf0H/TNGmqJ5GvW+F/SD/k+Dm1RCzQcaX+M
+         s2bg==
+X-Forwarded-Encrypted: i=1; AJvYcCVBWEp/4s3k8kFFempm/2VCzD6epj1MOLDu9GkPGgjsg3OCA/IaBKr+sO+nrkCZuxl1ZUu8qicp15aybU81Cu9I@lists.infradead.org
+X-Gm-Message-State: AOJu0YwP7DYQeGqXjFL/kgRaecMBiX6aZsHGFA2xGSO9vE/kQxMFruun
+	O6ks/dZ23GergJLiDT728JPGHCsL8Fa4l56nAk/zXV1H/AALnD30OipNt3D5evVKf9PbGsPq
+X-Gm-Gg: AY/fxX4xqpv3faV4Q0WvsuKRKPGGGB1SM9BGqMOeAEpvj0wV5KdGHSeixUCSpqgWacu
+	YUQ5KvXaT2rD3umFmQM6A4DKfwPpuHwYDaDQvwxlKJ+RooWQn9OzZ0Q4KZ+eTS20RQxXDE0uYGV
+	9Kh7shV/LD0Z+SDvMMFW+J7bEAUJ6FeiazsNQjeFtbi/1BCe4+XkmZQHWosqMFU6Ku6DY3c11za
+	2X0pQV+K74nSzSHAfYDuBXQCNbs5GhQcIF+F9cLK4XlKt9PE7zyZ5ZezIpT4K1RF9ReZkB4EXho
+	nyNvFutnB3kdbUSo66BWQfA3i5VMnJDdgvTPR/p+bM22Nw0ou86mXIROfQVtv13aKiGQ8d1GO7Z
+	UeF2P9nWpZgaumcnC9wG+TaiIpC7epwbIAY2eDAB41GC4i/ji2ZK7WdXWlLjJYJp/2KQOQTje9R
+	TC7J/LLJo=
+X-Received: by 2002:a17:90b:3d8f:b0:32d:e07f:3236 with SMTP id 98e67ed59e1d1-3510915bb29mr1745385a91.22.1768371967515;
+        Tue, 13 Jan 2026 22:26:07 -0800 (PST)
+Received: from localhost.localdomain ([47.82.78.41])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35109d88f0esm891791a91.5.2026.01.13.22.26.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Jan 2026 22:26:07 -0800 (PST)
+From: Nick Xie <xieqinick@gmail.com>
+X-Google-Original-From: Nick Xie <nick@khadas.com>
+To: neil.armstrong@linaro.org,
+	khilman@baylibre.com,
+	jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Cc: xianwei.zhao@amlogic.com,
+	christianshewitt@gmail.com,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	conor+dt@kernel.org,
+	nick@khadas.com
+Subject: [PATCH v2 0/2] arm64: dts: meson-s4: add support for Khadas VIM1S
+Date: Wed, 14 Jan 2026 14:25:47 +0800
+Message-Id: <20260114062549.68954-1-nick@khadas.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_051525_831279_E0BE60B8 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20260113_222609_412420_728AAF2A 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,133 +104,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Intel IOPx3xx platform was completely removed in commit b91a69d162aa
-("ARM: iop32x: remove the platform"), and it'd be safe to remove an unused
-and leftover platform data specific header file dma-iop32x.h also.
+This series adds initial support for the Khadas VIM1S single board computer.
 
-Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
----
- include/linux/platform_data/dma-iop32x.h | 110 -----------------------
- 1 file changed, 110 deletions(-)
- delete mode 100644 include/linux/platform_data/dma-iop32x.h
+The Khadas VIM1S is based on the Amlogic S905Y4 (S4 family) SoC.
+It features:
+ - 2GB LPDDR4 RAM
+ - 16GB eMMC 5.1 storage
+ - 32MB SPI flash
+ - 100 Base-T Ethernet
+ - AP6256 Wireless (802.11 a/b/g/n/ac, BT5.0)
+ - HDMI 2.1 video
+ - 2x USB 2.0 ports
+ - 1x USB-C (power) with USB 2.0 OTG
+ - 2x LED's (1x red, 1x white)
+ - 3x buttons (power, function, reset)
+ - IR receiver
+ - 40pin GPIO Header
+ - 1x micro SD card slot
 
-diff --git a/include/linux/platform_data/dma-iop32x.h b/include/linux/platform_data/dma-iop32x.h
-deleted file mode 100644
-index ac83cff89549..000000000000
---- a/include/linux/platform_data/dma-iop32x.h
-+++ /dev/null
-@@ -1,110 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * Copyright © 2006, Intel Corporation.
-- */
--#ifndef IOP_ADMA_H
--#define IOP_ADMA_H
--#include <linux/types.h>
--#include <linux/dmaengine.h>
--#include <linux/interrupt.h>
--
--#define IOP_ADMA_SLOT_SIZE 32
--#define IOP_ADMA_THRESHOLD 4
--#ifdef DEBUG
--#define IOP_PARANOIA 1
--#else
--#define IOP_PARANOIA 0
--#endif
--#define iop_paranoia(x) BUG_ON(IOP_PARANOIA && (x))
--
--#define DMA0_ID 0
--#define DMA1_ID 1
--#define AAU_ID 2
--
--/**
-- * struct iop_adma_device - internal representation of an ADMA device
-- * @pdev: Platform device
-- * @id: HW ADMA Device selector
-- * @dma_desc_pool: base of DMA descriptor region (DMA address)
-- * @dma_desc_pool_virt: base of DMA descriptor region (CPU address)
-- * @common: embedded struct dma_device
-- */
--struct iop_adma_device {
--	struct platform_device *pdev;
--	int id;
--	dma_addr_t dma_desc_pool;
--	void *dma_desc_pool_virt;
--	struct dma_device common;
--};
--
--/**
-- * struct iop_adma_chan - internal representation of an ADMA device
-- * @pending: allows batching of hardware operations
-- * @lock: serializes enqueue/dequeue operations to the slot pool
-- * @mmr_base: memory mapped register base
-- * @chain: device chain view of the descriptors
-- * @device: parent device
-- * @common: common dmaengine channel object members
-- * @last_used: place holder for allocation to continue from where it left off
-- * @all_slots: complete domain of slots usable by the channel
-- * @slots_allocated: records the actual size of the descriptor slot pool
-- * @irq_tasklet: bottom half where iop_adma_slot_cleanup runs
-- */
--struct iop_adma_chan {
--	int pending;
--	spinlock_t lock; /* protects the descriptor slot pool */
--	void __iomem *mmr_base;
--	struct list_head chain;
--	struct iop_adma_device *device;
--	struct dma_chan common;
--	struct iop_adma_desc_slot *last_used;
--	struct list_head all_slots;
--	int slots_allocated;
--	struct tasklet_struct irq_tasklet;
--};
--
--/**
-- * struct iop_adma_desc_slot - IOP-ADMA software descriptor
-- * @slot_node: node on the iop_adma_chan.all_slots list
-- * @chain_node: node on the op_adma_chan.chain list
-- * @hw_desc: virtual address of the hardware descriptor chain
-- * @phys: hardware address of the hardware descriptor chain
-- * @group_head: first operation in a transaction
-- * @slot_cnt: total slots used in an transaction (group of operations)
-- * @slots_per_op: number of slots per operation
-- * @idx: pool index
-- * @tx_list: list of descriptors that are associated with one operation
-- * @async_tx: support for the async_tx api
-- * @group_list: list of slots that make up a multi-descriptor transaction
-- *	for example transfer lengths larger than the supported hw max
-- * @xor_check_result: result of zero sum
-- * @crc32_result: result crc calculation
-- */
--struct iop_adma_desc_slot {
--	struct list_head slot_node;
--	struct list_head chain_node;
--	void *hw_desc;
--	struct iop_adma_desc_slot *group_head;
--	u16 slot_cnt;
--	u16 slots_per_op;
--	u16 idx;
--	struct list_head tx_list;
--	struct dma_async_tx_descriptor async_tx;
--	union {
--		u32 *xor_check_result;
--		u32 *crc32_result;
--		u32 *pq_check_result;
--	};
--};
--
--struct iop_adma_platform_data {
--	int hw_id;
--	dma_cap_mask_t cap_mask;
--	size_t pool_size;
--};
--
--#define to_iop_sw_desc(addr_hw_desc) \
--	container_of(addr_hw_desc, struct iop_adma_desc_slot, hw_desc)
--#define iop_hw_desc_slot_idx(hw_desc, idx) \
--	( (void *) (((unsigned long) hw_desc) + ((idx) << 5)) )
--#endif
+The first patch adds the devicetree binding, and the second patch adds
+the board device tree.
+
+Changes in v2:
+- dts: fixed dtbs_check warning: removed unsupported 'enable-active-low' property
+  from regulator-sd-3v3 node
+- Link to v1: https://lore.kernel.org/linux-amlogic/20260113090951.35928-1-nick@khadas.com/
+
+Nick Xie (2):
+  dt-bindings: arm: amlogic: add Khadas VIM1S binding
+  arm64: dts: add initial device-tree for Khadas VIM1S
+
+ .../devicetree/bindings/arm/amlogic.yaml      |   6 +
+ arch/arm64/boot/dts/amlogic/Makefile          |   1 +
+ .../amlogic/meson-s4-s905y4-khadas-vim1s.dts  | 190 ++++++++++++++++++
+ 3 files changed, 197 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
+
 -- 
-2.51.0
+2.34.1
 
 
