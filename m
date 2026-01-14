@@ -4,150 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE07ED37E33
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 13:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B621D37E32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 13:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NUwHdBIvTLsKsKR8Ly0Gbh+6BpiQRQUlrz49UGLMS3k=; b=M2pmkdTqlntSyBIsHUWQTPfG/a
-	O73/BvlFULtcpjrpzl3RT/JFuCQa9HGHbMd/9n2EVW87Zs9qVIeYFOlu6IAj0628q2cVDi32bn5wy
-	h1J8MlGPnZWgQ16Jne6zlfVP152NiTnHCnHw938uaXWb/XqBhfhXKesoj7lAbQlMBZjiKgOW/VVHw
-	+tGySj3p1PitkE4DcI6xuWlZeAtTNAFdnmQqLGwv047Qw+Br+h0AzYqJq//6siQqmOYvcUoNdohvH
-	K32C5rKGQteudIhP5Gj3zi3cGdfT50y/8itSAMGRVM2A4Aok9oM2XHMV4pRT+IuobanXr65uBE4xs
-	0jgeJA6A==;
+	bh=WhwfNazPWHuLWawIgxRJ1ZBzLc6u01DE788YteykMdA=; b=s3k8fxAWCcqfLWHav9i/ybdqAU
+	Kpmo7NzeoUcaGpSLXnMOAuyQrA5lE75nJilPIRtwuN/wIjjk74yf1/Uf533EdHbrvWkmMI+D4469e
+	RcFc5+Ku3gTt0s6bH1Xrq2H9RY/yWPUjpLTArkxc6a9t1mLA3XzWku+kkRvoTFu/WWZvQ9hHafsbW
+	bZoWrhzmqXEBx78yDZKG+6rl+IN81RJKxiwGWyuRWA1EtYk2BRQphHmrRcn60jV2kFiiBRHjeigVY
+	0txDFNOS/r6MGDLxBLOIDDAxlBkt0ZuDg7N+atNq6lB4t3BirNCj0GEARNkklsbihIQCi3Kq/KDQX
+	b2JaP0Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg0qa-00000009JqI-0I5J;
-	Wed, 14 Jan 2026 13:23:41 +0000
-Received: from mail-westusazon11012068.outbound.protection.outlook.com ([52.101.43.68] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1vg10R-00000009LPy-3vH8;
+	Wed, 14 Jan 2026 13:33:51 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg0q7-00000009JkG-3AsK
+	id 1vg10O-00000009LP5-1XoF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 13:23:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pnipYssRwRJd7Ju3738XW7zzqzJPUW26T00SihBtwCBpS7CDlfdrQixAxd3Ggn20k0cE7n7BPWX2Aso/iUW4HElbjm75MWt4TqKZIZ5Al0/MTGmNQLmeZb3p8a4a0OGcMC7qqltEhJ/1GShNDsAM54mMLS5tjdPcmE5W4FmzRytcYx8v+xqn7ER8Ix5AWdSKqT+8ECwyQadtwKlW21wO4pGBIGFr8qMUAD74C/9iWFyYMSXGsCAvLRkZM+jF6MqUB21GT82XW1XU7lDLfyq7rBGwVFlX/Ud3JqaEiCt5N++1RGen+k09SLMd7Ukng1cuPbHVvNDXacJSnYzoCJ/MAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NUwHdBIvTLsKsKR8Ly0Gbh+6BpiQRQUlrz49UGLMS3k=;
- b=QvlV0bcYoow6V3LUjIUnIoVqAeWHMKUoqHDWbpjyDCDVoZ49O/ksSJB8Vzu91aXuNz6nb/OXw8ccrRG6as66e5IDM7Q0E5pbDtJpKwqcLCSpL1vvV6sL85dgsO1WCMHstO/SKlvldSYIxbD+vfdNSsUmvqeCqZ/ivfXjn1HV8fCdvNGS1QDj1c3ue55GRL6ZLxZVw9AtRQpfy6Wwb6sC1jw33S0bWgnX+uyCokxK9DXfgkijFppPH7RQ8rT3EWO+CH18FC7TR45tkCSsd3iuPx2MZcngk1p9k++c1fw/KB2zEDlgaUKj5Ya0PdlPICu6iJ9q5h+hqciRLl4CY0ToOg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 165.85.157.49) smtp.rcpttodomain=lists.infradead.org
- smtp.mailfrom=gehealthcare.com; dmarc=fail (p=quarantine sp=quarantine
- pct=100) action=quarantine header.from=gehealthcare.com; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gehealthcare.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NUwHdBIvTLsKsKR8Ly0Gbh+6BpiQRQUlrz49UGLMS3k=;
- b=Vl1J4VYvmKlB4I54vqjEU35zcdaAZB1l6jRSQVUXJcMrfKyTi7ivDcfZu2WqDYaCLw8G+FxDDEaM4rnSfvDQlxSJZqxurXGaz6E6U/63VgNS1MbtW1o82EG93t5HfvyU7iUmSmMXH1Y9fvK02koy7px4Sg2DiALMuWvNSsTsiZJ5MnbXyBN9qnU9v3iKrmx4xjCecAV9toHsL047hu/2WQrtNGKNqXFdwjsfm29dM7J33CBl4c0/8bIRg1cJdHn9cJcQXNrO4mAY5QR89DzS7jJNIXji3XZG4idPfrJBddu5J+7aUf414mQ9L9hlLyo27rUWWccyApO5UN4Xr9JUDg==
-Received: from SJ0PR05CA0122.namprd05.prod.outlook.com (2603:10b6:a03:33d::7)
- by MN0PR22MB5686.namprd22.prod.outlook.com (2603:10b6:208:4bd::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.5; Wed, 14 Jan
- 2026 13:23:05 +0000
-Received: from SJ5PEPF000001F0.namprd05.prod.outlook.com
- (2603:10b6:a03:33d:cafe::6a) by SJ0PR05CA0122.outlook.office365.com
- (2603:10b6:a03:33d::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.4 via Frontend Transport; Wed,
- 14 Jan 2026 13:23:05 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 165.85.157.49)
- smtp.mailfrom=gehealthcare.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=gehealthcare.com;
-Received-SPF: Fail (protection.outlook.com: domain of gehealthcare.com does
- not designate 165.85.157.49 as permitted sender)
- receiver=protection.outlook.com; client-ip=165.85.157.49;
- helo=mkerelay1.compute.ge-healthcare.net;
-Received: from mkerelay1.compute.ge-healthcare.net (165.85.157.49) by
- SJ5PEPF000001F0.mail.protection.outlook.com (10.167.242.68) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.1 via Frontend Transport; Wed, 14 Jan 2026 13:23:04 +0000
-Received: from [127.0.0.1] (zoo10.fihel.lab.ge-healthcare.net [10.168.174.92])
-	by builder1.fihel.lab.ge-healthcare.net (Postfix) with ESMTP id 899EDE8F21;
-	Wed, 14 Jan 2026 15:23:01 +0200 (EET)
-Message-ID: <1359781c-a1cc-43ff-88e2-f381e8ab81d2@gehealthcare.com>
-Date: Wed, 14 Jan 2026 15:22:56 +0200
+	Wed, 14 Jan 2026 13:33:49 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-42fb4eeb482so5020025f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 05:33:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768397626; x=1769002426; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=WhwfNazPWHuLWawIgxRJ1ZBzLc6u01DE788YteykMdA=;
+        b=GK1yp7R5we958oC5X8GD/MV1wKb2LTS7TEqmN6174C86700Td34t+jeDvgm5hAefix
+         V3eMKsylzKE1EbCl17+gJzXNCG5PaVjUmf5aDuzL786A6qttWk/MKrJrzmCQ94we5ebZ
+         JxoyfRKN0n3VEFnPncM9jKeQSUe3D/GxkLYHQVQQpU2uMu4CIRQ94r01oKbsVGbwD3os
+         vdUZiJcz8NjWS+Tjaf8asoSIGZD7FPyXJ4eP1VbdaRz6SgOLvAL1fWYv9qlirfzLpcif
+         eFa8w+/RPXdqe0F4Vw0Zog+cdiV0g4xB5bmhjeF+eE95AySc3nN/OCA1/fOj3uL4Xe0u
+         F63A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768397626; x=1769002426;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WhwfNazPWHuLWawIgxRJ1ZBzLc6u01DE788YteykMdA=;
+        b=oanwKy/qXKjGvkIkWqH6D+IRcIRWzZEwyGgM4f39e/s6CwfFTyTuQIhCQtwg+matS2
+         U4gdfP1GRzsxGwGslNDlHbR67czVvqgdkWwVvPb5k41XpumQ0Kf5ScWIs5lKTGIDdDlY
+         QdQUnNLSW42bZcZLh65SAyeRy9u272biJP51CIg8z2G3497jlE0xH1tokubkMLwf92J3
+         0UAbU1Q9E+zp8Q9qUOYHCfprWi/cnf0p702JUvW3jriQl3uGTE0uexWHqLJczzUBHzKk
+         8MgbIGoGVhqJtCPGQGsJaqbfBgr/09WYulb0WAw46ojg30RSydT3/pr6x+y5g1WvDE3V
+         BUWA==
+X-Forwarded-Encrypted: i=1; AJvYcCW9B6rawhAWUvhb+pAzJvS5C0j15fJOxeMjSwdpLl7jmmJFZRxVHm8G6j5Vol+jEwA6iRtuzzWviE+C2e9VclZU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwynDv6zQ3dVo9/l/agtpBJGdYBdCsfUSCLXlbNq5k5C8iqfiw1
+	P3He3bpIOe6LbbqboU/5AziNd9+mJEOjmKuiKGmiVXv6Dthp0xieHxn7dRfGFMjVFLo=
+X-Gm-Gg: AY/fxX5UmywGNKIR5JyGborHYt9uDSOvb6GoTjAc60MuLXdlgaMK6vc+yTN0duDi0iy
+	7zrSDF8dgmTdzLfk1IfNlHtEDTS2k+JFvMjp4NwfikREg75RaVvfIU3yUrlMwxFniEmmXdfl2HB
+	Ox0WORlccRY11D77MM94VVl+zUhUbukit7rVjXuFlrmMR/VJxmscvgMIwp7MbzkrxOdDkdfssZx
+	ucXkg/jarCwiwFsg/HLa3eMZOGtTXJeVTp++O5kF5pYro8ZxXRQ54rAVaG3ZhsuWPXjp//djwl/
+	TFbb+q7t/ZB46nW+KQAzp647oRVgIs+1XyflJpG21yUqBbpXJDh3BLQprN8XBZp2nPxhSl2Nyiv
+	RGXvUy4x965t23teDgzK33xtSpuyF3Evp2YL+yJbDTuHRb5w9MEYkoa63HKBLzLs2rB1JB0GMCs
+	/wxRcb98IZHIfg6P5AXTR/WPa4HHM=
+X-Received: by 2002:a05:6000:2c03:b0:430:f7c9:94c3 with SMTP id ffacd0b85a97d-4342c5011f7mr3399526f8f.25.1768397626345;
+        Wed, 14 Jan 2026 05:33:46 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0dacc5sm49990183f8f.5.2026.01.14.05.33.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 14 Jan 2026 05:33:45 -0800 (PST)
+Message-ID: <3905ee5b-79fe-408c-b776-125c51ac7824@linaro.org>
+Date: Wed, 14 Jan 2026 13:33:44 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: watchdog: fsl-imx: document continue
- in low power mode
-To: Krzysztof Kozlowski <krzk@kernel.org>, wim@linux-watchdog.org,
- linux@roeck-us.net, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de, festevam@gmail.com,
- linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20251230-pastoral-enigmatic-chamois-b65343@quoll>
- <20260112130849.3748465-2-nandor.han@gehealthcare.com>
- <e66a3dd5-1cf0-4d45-9ed2-55f50faaa0ae@kernel.org>
+Subject: Re: [PATCH v4 02/14] perf evsel: Refactor
+ evsel__set_config_if_unset() arguments
+From: James Clark <james.clark@linaro.org>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+References: <20251222-james-perf-config-bits-v4-0-0608438186fc@linaro.org>
+ <20251222-james-perf-config-bits-v4-2-0608438186fc@linaro.org>
+ <aWbDg0kmo-isxkz2@x1> <4eda1bd6-ec36-4d0b-85de-ef0bd190e5e7@linaro.org>
 Content-Language: en-US
-From: Nandor Han <nandor.han@gehealthcare.com>
-In-Reply-To: <e66a3dd5-1cf0-4d45-9ed2-55f50faaa0ae@kernel.org>
+In-Reply-To: <4eda1bd6-ec36-4d0b-85de-ef0bd190e5e7@linaro.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F0:EE_|MN0PR22MB5686:EE_
-X-MS-Office365-Filtering-Correlation-Id: a978b924-9aaa-4fa2-1d2b-08de53700cf0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014|13003099007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eTY4bHpVc25TWm1KZTR3c2pzYUJ5Y1JCQXV5V2dkSG5IODBuR1kweFVldTAw?=
- =?utf-8?B?dFFYVWJ1a3REUTlZd1BNdlA5Q0tMKzBMN3RSODlNcCtBb1BVMERZUm8zWkwv?=
- =?utf-8?B?TDVHclcyQllHekFEVzczbk9RM0Z3a1h1VjB3LzZIc2liMjV5WmkxTjNFNlNa?=
- =?utf-8?B?SGR2OTN2M3Q3Ykg0aitlVjJCb2ZMRXZIOUJHZkdYLzNDRnhObE1GMWc0a0NN?=
- =?utf-8?B?L1czdTFzY01MR0g5NWxERGRxZ3g1WUJqakx5bDh1dWtac1ZlUDM2dUFZOUdk?=
- =?utf-8?B?OFNsN2RuK3ZCNVNxWG1zS2E3ZGNWajluWk9JdmpSN2NMcjdld2ZUeXRUVVlx?=
- =?utf-8?B?bUxWREZabVl2WXpVNXQ2S21OdCtKSHZ1UTFGM0RheGpsNFEzYUEyZ1RoK2ox?=
- =?utf-8?B?cW5iNEhRa3duUThIOXJ2bzJZL21pWlVJWVJyUWRnVWFXTkZJdVdpZDNSdXps?=
- =?utf-8?B?SnhkRCtOcmtJa1dCT2Q3aUNvblhWajJmRGFNanZoR1haT2dIcWN4emRDWERU?=
- =?utf-8?B?RW5JNzZNTlI4YzR4MWV2c09idTQwNG1XTEE2TU1OWlNJVXp0Y2JRTjgyRU9w?=
- =?utf-8?B?UndtaSs2NmttUXVtVU9hZ3VHNS81UjVrOWQ0RGdTU0UwSENYQUJVVGFPdW9r?=
- =?utf-8?B?T3ptSUEwcE8zOWlFWTVTOFRUUnBIb2k1ZjVILzROSW5kQitYRnBoVFoweVZm?=
- =?utf-8?B?ZWdLWm5SVmhsckZuYXNSY09aOTJNNkRqSTFTUmtMWHhCcnZaVFg5RHJmUHlT?=
- =?utf-8?B?MWRmMVNvams4SjBVTmdWWElxUmo3L0Z1aDliaXB1QmFFckpXMW93Z0plZk9M?=
- =?utf-8?B?anYycEtkYW9pY25uc2NCTDNucmFMZDNBQjBQWkg4UDJheWplT2xkOWs2T0ZK?=
- =?utf-8?B?UFZKc3V1TzJ3UEZYYUQ0VENDNnBVVEIzdEVIZnJtci9vREdzWFBielFwR1g5?=
- =?utf-8?B?aS9rL2lDRi84bCtaalNTSWZ1WXVwVzlPY3ZRRTNqSjY5N3pJWm13d3lhNWZF?=
- =?utf-8?B?ZzQrU0kxMkJTekdkdWhXNEp5SlBWSjZac3VGbHd3SGdxREMyVEtKT1BvNmRS?=
- =?utf-8?B?REY4Ty93VVVRYlh6bXFzREZiMDE2U1U2M3hUSXRSKzdHK25PZnYwTXYwQ3Fm?=
- =?utf-8?B?MTZ3amtVZmZxOFVwMjBWVkRodk5kYng2bHVNdnVRUFNRYnZGL3FueFVUTVBK?=
- =?utf-8?B?eHN5bTFSSGhaSzc0UlEwMWpXYkNEME15bDBxMlIyb1Z0MUZMU25CckNYVEg2?=
- =?utf-8?B?WDBPYk1kNm8zdXlSaHZJWkVPOE9HTmV1QW1pdVAzNEIzR0lFTGtiWm9wWkVy?=
- =?utf-8?B?SVJsdmFETE5EcEh4N3JKNDRGSmx5OTB6djVGWjZBd2ErdDlpdWU0aFVZUDFK?=
- =?utf-8?B?ZUl6Q0F3QlE4YWdnelV1M3dNWW8rQXE5WWordk41NkI0YkZpc0JGWDN3bEVF?=
- =?utf-8?B?UHprQy9TZWs4enJWYWZaOFByQXJEcFowUXhJTWJROHMyUXZreEFQbHJoTjNY?=
- =?utf-8?B?ZGRidmRuUVovcCtoZ2ozOC9FTEZTQ0IzVldKa0FLOWVJaHhFRy8vdEZqYTV5?=
- =?utf-8?B?WWpCSHpRdHBvblp0cHlWTms2ZVpxMGV4dDFvbG1ybjhock9tYmdHTTJGVmk4?=
- =?utf-8?B?SDVBVDQ2b2xLb3hjbGpicFBUdGFOOWJIb0dGZ1ZsWEpEdkEyakhSZG9UeTBt?=
- =?utf-8?B?dWlYN2VydkMyYm9BWkFKN1RYeGh3Y2d0OGhLY0dLRXdqOHo3Tkp4cStHUmtt?=
- =?utf-8?B?UXVuNG1YQXVORmJUYno3eFBHbU1wa0JjQkQ2Y2thMlNLbTljaW5uWDEzZmt0?=
- =?utf-8?B?QWM0RXBEblRWRzQyQWdsemlPbkxxS0ZMMVVQWFVOdU9EWENTQ0oyZ1FBcWM2?=
- =?utf-8?B?TlpqU3V3a3hPdzluR09NNDNocHRxOXZVbFplZWw1WnZldG4vM3pvVzZwaHNH?=
- =?utf-8?B?MnZsWUtsSWNyY2FMZnpZbm4zZTVZMlA4Z29mdEpsa25uQXhCSHlVc3lyYytK?=
- =?utf-8?B?MEJkNk8rQXh3TTVjNGkvdHg3b25sRXhUK3huTjgrdU1XbzkybkFXVFEvREs0?=
- =?utf-8?B?eEFOTktWbHBBNWRRMHQ5Vlk0bTR5VzJKa1IvS01Tek5GWW1IQjEyZFB0a2dR?=
- =?utf-8?B?OWt3ekpZdHVlU1ZRai81dW4rRTVkT1lNQjhHWmxBYTVBSEhUTHErZ2hpSHBq?=
- =?utf-8?B?QnFWY2pTdkt1R0RJMHlBZ1l2R2JlTWh4dC9yaEZ0KzVFYU9SOVYyRk1LNFJa?=
- =?utf-8?B?ZklVSHQxcUVGRGp3d2tqcTVFczNBPT0=?=
-X-Forefront-Antispam-Report: CIP:165.85.157.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mkerelay1.compute.ge-healthcare.net;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: gehealthcare.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2026 13:23:04.9443
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a978b924-9aaa-4fa2-1d2b-08de53700cf0
-X-MS-Exchange-CrossTenant-Id: 9a309606-d6ec-4188-a28a-298812b4bbbf
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=9a309606-d6ec-4188-a28a-298812b4bbbf;Ip=[165.85.157.49];Helo=[mkerelay1.compute.ge-healthcare.net]
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-SJ5PEPF000001F0.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR22MB5686
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_052311_830254_77C75DE5 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20260114_053348_472179_71813F8F 
+X-CRM114-Status: GOOD (  32.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,47 +112,180 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 1/12/26 15:55, Krzysztof Kozlowski wrote:
-> CAUTION: This email originated from outside of GE HealthCare. Only open links or attachments if you trust the sender. Report suspicious emails using Outlook’s “Report” button.
->
-> On 12/01/2026 14:08, Nandor Han wrote:
->> Property "fsl,wdt-continue-in-low-power" allows the watchdog to continue
->> running in low power modes (STOP and DOZE). By default, the watchdog is
->> suspended in these modes. This property provides the option to keep the
->> watchdog active during low power states when needed.
+
+On 14/01/2026 12:14 pm, James Clark wrote:
+> 
+> 
+> On 13/01/2026 10:13 pm, Arnaldo Carvalho de Melo wrote:
+>> On Mon, Dec 22, 2025 at 03:14:27PM +0000, James Clark wrote:
+>>> Make the evsel argument first to match the other evsel__* functions
+>>> and remove the redundant pmu argument, which can be accessed via evsel.
 >>
->> Signed-off-by: Nandor Han <nandor.han@gehealthcare.com>
-> Do not attach (thread) your patchsets to some other threads (unrelated
-> or older versions). This buries them deep in the mailbox and might
-> interfere with applying entire sets. See also:
-> https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
+>> I haven't checked if this is the exactly where this takes place but
+>> should be in this series, 32-bit build is broken:
+>>
+>>     3: almalinux:9-i386WARNING: image platform (linux/386) does not 
+>> match the expected platform (linux/amd64)
+>> WARNING: image platform (linux/386) does not match the expected 
+>> platform (linux/amd64)
+>>      21.72 almalinux:9-i386              : FAIL gcc version 11.4.1 
+>> 20231218 (Red Hat 11.4.1-3) (GCC)
+>>       1378 |         perf_pmu__format_pack(&bits, val, vp, /*zero=*/ 
+>> true);
+>>            |                               ^~~~~
+>>            |                               |
+>>            |                               u64 * {aka long long 
+>> unsigned int *}
+>>      In file included from util/evsel.h:14,
+>>                       from util/evsel.c:38:
+>>      util/pmu.h:282:43: note: expected ‘long unsigned int *’ but 
+>> argument is of type ‘u64 *’ {aka ‘long long unsigned int *’}
+>>        282 | void perf_pmu__format_pack(unsigned long *format, __u64 
+>> value, __u64 *v,
+>>            |                            ~~~~~~~~~~~~~~~^~~~~~
+>>
+>>
+>> What I have is in perf-tools-next/tmp.perf-tools-next BTW, I'll try and
+>> fix this tomorrow if you don't do it first. :-)
+> 
+> Taking a look, but I'm wondering if this is already not working 
+> properly. There are existing "unsigned long"s in pmu.c that operate on 
+> the config bits which is what I copied.
+> 
+> On this target an unsigned long is 32bits but struct perf_event_attr- 
+>  >configs are __u64. So it looks like it might leave the top bits unset 
+> sometimes.
+> 
+> I'll look at a fix for that which should fix the compilation error at 
+> the same time.
 
-Apologies, will not do that on the next version.
+False alarm, I was confusing a pointer to a single unsigned long with 
+what are actually DECLARE_BITMAP()s. So they're two longs in this case 
+for 64 bits.
 
+I'll send a fix for the compilation issue and double check the patches 
+to make sure that misunderstanding hasn't caused any issues.
 
-<snip>
-
->> +  fsl,wdt-continue-in-low-power:
->> +    $ref: /schemas/types.yaml#/definitions/flag
->> +    description: |
-> Do not need '|' unless you need to preserve formatting.
-
-Thanks, will update.
-
->> +      If present, the watchdog device continues to run in low power modes
->> +      (STOP and DOZE).
-> Not much improved. My questions how this petting is suppose to work
-> remain unanswered.
->
-> Again, system load is really not relevant whether watchdog works or not
-> in low power mode.
-
-Our use case is that we do not allow the CPU (i.MX7) to enter low-power modes.
-
-To enforce this, we explicitly enable the watchdog during low-power states so that if the system enters such a mode for any reason, the watchdog will reset the CPU.
-Since in STOP and DOZE modes the CPU is halted and systemd can no longer service the watchdog, the watchdog will eventually trigger a reset.
-
-Regards,
-Nandor
+> 
+> Another question is, do we actually care about this platform?
+> 
+>>
+>> There are some more build problems in other containers/distros, I'll be
+>> reporting as replies to the patches that looks related
+>>
+>> - Arnaldo
+>>> Signed-off-by: James Clark <james.clark@linaro.org>
+>>> ---
+>>>   tools/perf/arch/arm/util/cs-etm.c    | 9 +++------
+>>>   tools/perf/arch/arm64/util/arm-spe.c | 2 +-
+>>>   tools/perf/arch/x86/util/intel-pt.c  | 3 +--
+>>>   tools/perf/util/evsel.h              | 4 ++--
+>>>   tools/perf/util/pmu.c                | 6 +++---
+>>>   5 files changed, 10 insertions(+), 14 deletions(-)
+>>>
+>>> diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/ 
+>>> util/cs-etm.c
+>>> index ea891d12f8f4..c28208361d91 100644
+>>> --- a/tools/perf/arch/arm/util/cs-etm.c
+>>> +++ b/tools/perf/arch/arm/util/cs-etm.c
+>>> @@ -441,10 +441,8 @@ static int cs_etm_recording_options(struct 
+>>> auxtrace_record *itr,
+>>>        * when a context switch happened.
+>>>        */
+>>>       if (!perf_cpu_map__is_any_cpu_or_is_empty(cpus)) {
+>>> -        evsel__set_config_if_unset(cs_etm_pmu, cs_etm_evsel,
+>>> -                       "timestamp", 1);
+>>> -        evsel__set_config_if_unset(cs_etm_pmu, cs_etm_evsel,
+>>> -                       "contextid", 1);
+>>> +        evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
+>>> +        evsel__set_config_if_unset(cs_etm_evsel, "contextid", 1);
+>>>       }
+>>>       /*
+>>> @@ -453,8 +451,7 @@ static int cs_etm_recording_options(struct 
+>>> auxtrace_record *itr,
+>>>        * timestamp tracing.
+>>>        */
+>>>       if (opts->sample_time_set)
+>>> -        evsel__set_config_if_unset(cs_etm_pmu, cs_etm_evsel,
+>>> -                       "timestamp", 1);
+>>> +        evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
+>>>       /* Add dummy event to keep tracking */
+>>>       err = parse_event(evlist, "dummy:u");
+>>> diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/ 
+>>> arm64/util/arm-spe.c
+>>> index d5ec1408d0ae..51014f8bff97 100644
+>>> --- a/tools/perf/arch/arm64/util/arm-spe.c
+>>> +++ b/tools/perf/arch/arm64/util/arm-spe.c
+>>> @@ -274,7 +274,7 @@ static void arm_spe_setup_evsel(struct evsel 
+>>> *evsel, struct perf_cpu_map *cpus)
+>>>        */
+>>>       if (!perf_cpu_map__is_any_cpu_or_is_empty(cpus)) {
+>>>           evsel__set_sample_bit(evsel, CPU);
+>>> -        evsel__set_config_if_unset(evsel->pmu, evsel, "ts_enable", 1);
+>>> +        evsel__set_config_if_unset(evsel, "ts_enable", 1);
+>>>       }
+>>>       /*
+>>> diff --git a/tools/perf/arch/x86/util/intel-pt.c b/tools/perf/arch/ 
+>>> x86/util/intel-pt.c
+>>> index b394ad9cc635..c131a727774f 100644
+>>> --- a/tools/perf/arch/x86/util/intel-pt.c
+>>> +++ b/tools/perf/arch/x86/util/intel-pt.c
+>>> @@ -664,8 +664,7 @@ static int intel_pt_recording_options(struct 
+>>> auxtrace_record *itr,
+>>>           return 0;
+>>>       if (opts->auxtrace_sample_mode)
+>>> -        evsel__set_config_if_unset(intel_pt_pmu, intel_pt_evsel,
+>>> -                       "psb_period", 0);
+>>> +        evsel__set_config_if_unset(intel_pt_evsel, "psb_period", 0);
+>>>       err = intel_pt_validate_config(intel_pt_pmu, intel_pt_evsel);
+>>>       if (err)
+>>> diff --git a/tools/perf/util/evsel.h b/tools/perf/util/evsel.h
+>>> index a08130ff2e47..2cf87bc67df7 100644
+>>> --- a/tools/perf/util/evsel.h
+>>> +++ b/tools/perf/util/evsel.h
+>>> @@ -575,8 +575,8 @@ void evsel__uniquify_counter(struct evsel *counter);
+>>>       ((((src) >> (pos)) & ((1ull << (size)) - 1)) << (63 - ((pos) + 
+>>> (size) - 1)))
+>>>   u64 evsel__bitfield_swap_branch_flags(u64 value);
+>>> -void evsel__set_config_if_unset(struct perf_pmu *pmu, struct evsel 
+>>> *evsel,
+>>> -                const char *config_name, u64 val);
+>>> +void evsel__set_config_if_unset(struct evsel *evsel, const char 
+>>> *config_name,
+>>> +                u64 val);
+>>>   bool evsel__is_offcpu_event(struct evsel *evsel);
+>>> diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
+>>> index 956ea273c2c7..e87c12946d71 100644
+>>> --- a/tools/perf/util/pmu.c
+>>> +++ b/tools/perf/util/pmu.c
+>>> @@ -1382,8 +1382,8 @@ bool evsel__is_aux_event(const struct evsel 
+>>> *evsel)
+>>>    * something to true, pass 1 for val rather than a pre shifted value.
+>>>    */
+>>>   #define field_prep(_mask, _val) (((_val) << (ffsll(_mask) - 1)) & 
+>>> (_mask))
+>>> -void evsel__set_config_if_unset(struct perf_pmu *pmu, struct evsel 
+>>> *evsel,
+>>> -                const char *config_name, u64 val)
+>>> +void evsel__set_config_if_unset(struct evsel *evsel, const char 
+>>> *config_name,
+>>> +                u64 val)
+>>>   {
+>>>       u64 user_bits = 0, bits;
+>>>       struct evsel_config_term *term = evsel__get_config_term(evsel, 
+>>> CFG_CHG);
+>>> @@ -1391,7 +1391,7 @@ void evsel__set_config_if_unset(struct perf_pmu 
+>>> *pmu, struct evsel *evsel,
+>>>       if (term)
+>>>           user_bits = term->val.cfg_chg;
+>>> -    bits = perf_pmu__format_bits(pmu, config_name);
+>>> +    bits = perf_pmu__format_bits(evsel->pmu, config_name);
+>>>       /* Do nothing if the user changed the value */
+>>>       if (bits & user_bits)
+>>>
+>>> -- 
+>>> 2.34.1
+>>>
+> 
 
 
