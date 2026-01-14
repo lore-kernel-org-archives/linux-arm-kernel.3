@@ -4,93 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2069DD29FF5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 12:07:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16D96D29FF5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 12:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4dooFeIUOZ2AYn0yuxNU1dgV5MLYuRIoZtKgKCQ/5bI=; b=umBOEu+/EpEbS+TKeVFfRUSvSF
-	E6xQhhl4o85VV7bLzfZuSsWQuGwaEIwTv+ejsYkSnkR3Pj2nt13yeoRjjWB8fCnllczkfS2/Iqidw
-	GrjW5cKdtMGA0TFZmlH4JYVzVYKX34O5pCKOc2MI5JJzTCVlg8zVV/FXaN4Y+BuN0A5qnZJXYc0/c
-	r5p3S9eFkF0tyrHwIE3ruFT8ornb8q1jfD0DmQrGsMYvHGwHyQBnPTzhqE6psrLDBBZmyaOqWIReZ
-	12daiBa1fhRz3P0wMoyjiWoU4Hx6P49I9dUT1N6/xETsGMOaqqpBIkFFKdjku3dGgYFSaBowr4pS8
-	6UBPYHxQ==;
+	bh=U3BIAKEVNAk9w++/Pw/AkpPOpkkgEFQigQGBuRd+nh0=; b=Vc3k3QIlYVut0rbgiM3Sprj0to
+	yViWPcNsbMCCS0K57fxM2qx7Vjm27jZ8ekuN/Ay/4F1jhsA/4THhbhim0OG2fyTm3FTeBjVq6Ll3W
+	7YTHWc9Fysb5rb1u0BMqG45RAcl2S17uTaNkn0NxXh006qLYwKi7giSZO0MjPd/GiFtdNwBZxIopk
+	JgPATSe7HUwv1HWlQ8M5ZVB23YewANZ5QZaNiRVI/smvD/oE2Rx/tk85XsEbUWs/Rbw4HfOOry8ov
+	OeTBlHWG+NQ8C1vRqUJa0NKDxEabHIW6wbcbCBN314dpNrt8hGKLwMztCGSK1L5r9cqGcPUrlYjmc
+	PlEjqLCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzev-00000009604-2Viw;
-	Wed, 14 Jan 2026 12:07:33 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vfzf7-0000000967D-1UA5;
+	Wed, 14 Jan 2026 12:07:45 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzer-000000095xS-0lf8
+	id 1vfzf5-0000000964m-165F
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 12:07:32 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-477ba2c1ca2so94295515e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 04:07:28 -0800 (PST)
+	Wed, 14 Jan 2026 12:07:44 +0000
+Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-477a219dbcaso68643175e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 04:07:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768392447; x=1768997247; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1768392461; x=1768997261; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4dooFeIUOZ2AYn0yuxNU1dgV5MLYuRIoZtKgKCQ/5bI=;
-        b=oCGZieGihsXlJ/WXytHaSrI97kWZ93/BmqjIDYprJEVuzSTbB0/x+1EI/oyeUc0ME8
-         FqtqXf8fo5XHP9Rn7F23h7Tg9tkf98FLAvLvYBfhFhaZsb26XqteeYOXHk+8vMJa7LFF
-         mSjRSyrx6SCoknPRVAEHz4AhWgFkI+DKNUEsHtZepOvMGKvrmh7eu/B7rXWBoV9BfdoP
-         BRdyzf62m+LIF7FlwkYf+Maen35fYSviKwuoQB5FwGEYxE7muRIOKeJhsz8jx/9UyfCl
-         pPeHZUHC4gT4uGr4BtIRBXXV+Q3ogqlSIH6BuizYurub92Ujzk4zIQqwQ8KElVhjmVX4
-         Umbg==
+        bh=U3BIAKEVNAk9w++/Pw/AkpPOpkkgEFQigQGBuRd+nh0=;
+        b=J5HenwgRGYIc7KAdA3LglSlWBrijEEWhl3UTMh8RptsefbSUxY0uZ+L0cHEwdc0RhQ
+         r+JYNwTiGRGkbjJh3iBuCmhnzyfcVoV4bLXL/vE9VRWFFzXhGfTkzqfjIFeLNtdcNnmA
+         23OenM67myc2U4kYRio1FSb/fMiWo+RXM8DxLC/L165EvXvsceY98n6yJYVSEm3QCcg9
+         q2GZeSYfdJr/KlJ1rLaJzDhnsarFERxeYsDKXiKtrGTnuy9tPMHYNzqdXphn3X4iDg8Z
+         n6hKlqDtng15Dq5zC3OFdgoQSKctkI4HQaURrz14cOxQy30OWdmViThzAD7xL+g2vMrF
+         uj1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768392447; x=1768997247;
+        d=1e100.net; s=20230601; t=1768392461; x=1768997261;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=4dooFeIUOZ2AYn0yuxNU1dgV5MLYuRIoZtKgKCQ/5bI=;
-        b=YLADUhjsfFjEXmm4IP6k6/fqCNrmoak077t0kjFgBXBrIbprsYyrFaje/3mywrAGaB
-         qUAsz7QhZDJjLNEFsQlJD/WUvQJ5dm569sDfHtvHfGqpisoHc7Oz6Lv3BUw+Ybtv+phR
-         pPFNIniPXduYT67kQVhtfNXK6wmwcx9nDDvpM/FqPdunhC2QCENW95Bm6rd9lwId/hfa
-         MoPICc4dXAA/i3DyPC67RxuIjOPwr4r1aIWMRsp4kNb1EsLLGfABYx/nreVGQDnZv1vq
-         5sPvkrNSd4wumFK2OQTzi1EpYGkK0Vm8WQaSHtr7qWwWHwH0/BzKy2rvECNyepwaFkov
-         U+Lg==
-X-Forwarded-Encrypted: i=1; AJvYcCXwm8aGVxtlF9tIxE8rpZuYOGAvlm67ILo+YIUVRfHZka9JNGCKZRKwQdCXy0ocK+v7+G8kdYP/1bo0nFfotbq/@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmfEc5P4iK0jQaXRtK+50wq+ojxdQZHKkJpQGCvhYDZd0gWzyr
-	qoqaMa/GyRPKoG6yZQeVjXsOStvsWaF5IUAtqiUFLQ3EjoC7H5z2j/JZFz+LpkulpF8=
-X-Gm-Gg: AY/fxX5JQ5/iiJmGkwIfTPyu9BhcgDVLtoEhegwKbcAt9wokOBtpvi0sNHeMgosamb5
-	dbpk9/dQPoyy3DYe1X1st2B+WxEfMkfH+VvnC5oJxQTg8r0oLcETsfgZqrHG5zGnS8IT5dXojYx
-	gBDukmHpyaZWRHi9sU5oUkT+SHNGKl7ClVTLeR7fuabTAkOR5zjvT5CWpBdXhHF19GS++GmE7pe
-	VdPYL1cCUAcT0MrUrzEYIEL/oRnnmoAPsa+ZjBjbgA+aabPdb425zrmbmqIORri0k4XGwZSFLiS
-	jQWPV5nJ+2AjIVGrMq27GgiSE2cPLsegAfOZgDTg9VYQ72JrW9GEISDUUlGteuS7WNxGlxbq0xf
-	I4gkeKhmbDyvoIEdm1q9X0DoP+fH467owuswj6ld/MB+L/qkh9JZjyskD0zR8bU+LHYu7PjlN21
-	/gL8ZiwgULAKjS8EEjBIj+9xvVqo6IRShv0Hs2GrYoJbQOGmS5807JqzPJbvVAiv4=
-X-Received: by 2002:a05:600c:5285:b0:47a:935f:61a0 with SMTP id 5b1f17b1804b1-47ee30709e8mr30476765e9.0.1768392446880;
-        Wed, 14 Jan 2026 04:07:26 -0800 (PST)
+        bh=U3BIAKEVNAk9w++/Pw/AkpPOpkkgEFQigQGBuRd+nh0=;
+        b=v+DnUf1y0DEka6B6k9GvJ4u++PWPbuFfPys4W59ig7lgAFBHvdC1rCImFpg75xAGYA
+         gRbjSA5BpKodApN0b3v1qTm1sm4rRpea/p/CgTqqMXaFBIk4qUHvwC+w6rsRR8ZJGxlk
+         ACRiw0QFWbdTcqw0NZGLiXkh5mPdOxf8hBd1d4EtP1E22R+xzrsUxOKjADP4tBgyX+PE
+         3eqysonJLFPmzwiWjI4Rmy8hOMHm+7hNYRSqm0P5t8Zcwo0DEabWpdqTjhmNDv79cJRR
+         v5mHGDLo7HsrhyfqJN0bUT3m2Z69+PhVE6QmnzFfh1R1yNBTgWc+r6YtW0Sm+fEaZqET
+         C6yA==
+X-Forwarded-Encrypted: i=1; AJvYcCVGkUBrAPoFpiIaPWsJOROal4/sARWDtoZOhcenwVatJyGbm7NILbZ/QuvVgLCsbilnAyYt4h9dZpFZeIlSVOEh@lists.infradead.org
+X-Gm-Message-State: AOJu0YxktgI2fR1SN2qWBRsYoZnfBH7O44rB9RpY65u6kYtV0GHjoem8
+	YuSLP6bYWMjeYGm4WKuNEL5P3ibho7sz9os4aseB9Tq2NQ/vvT1sIA+NaTpk2p9APDc=
+X-Gm-Gg: AY/fxX6GBhSnlqHHa3hzFfqU2IRGAijG5CKFjLTnZSNa8rBe+pY2Bd1csSwtH5FW/QM
+	dm4Pi0dkklCOHzeuqXm68B0pQL0BTYyMPPxjZrbNgaYldB4qH6ewg+f00QW2Z+a94rzDj5HrpIv
+	g3gRUk51M5WTd0wyhFs3clMGrOq/FU4TFCkWjlteAIO7/hbW+1pMBl7VsyBHCGvOVgDmuZhu0aA
+	p67JD6mSjA7Nalv1CzxGbIyaioz+g3M2O8e2AKbYF7d8O/VGpvVveoidg1KVrKvDP7rLqcvu3OA
+	1xB7hgfg3WoDXMkvXx5zl0N9W7gyWLa5qfKouEypQv7YpRyvsQWKgxWS/xtXTEehfYzcSdVpdX6
+	xBDF+llglZws8Z+rRN7F6ZpPuHl3hKHdrdEHUj0FekJ9EJnM6B19RZCQK9yXVaGpbFxTkcAW4sx
+	a+MzRJSwz3TAwY2LG5VQHryDZnI+0FGub5Gr5OB2AMqlx55hXI7IGbG/CNxnnrDoc=
+X-Received: by 2002:a05:600c:c4a6:b0:47d:3690:7490 with SMTP id 5b1f17b1804b1-47ee47c8db0mr22733155e9.9.1768392461180;
+        Wed, 14 Jan 2026 04:07:41 -0800 (PST)
 Received: from ?IPV6:2a01:e0a:3d9:2080:b357:7e03:65d5:1450? ([2a01:e0a:3d9:2080:b357:7e03:65d5:1450])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47ee281dde4sm19667005e9.4.2026.01.14.04.07.25
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47ee54b8c9bsm24625715e9.3.2026.01.14.04.07.40
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 14 Jan 2026 04:07:26 -0800 (PST)
-Message-ID: <b017db65-54c2-473c-8263-4fecfbf9a330@linaro.org>
-Date: Wed, 14 Jan 2026 13:07:25 +0100
+        Wed, 14 Jan 2026 04:07:40 -0800 (PST)
+Message-ID: <695594a6-9c7b-4c9c-8134-f42e8729b0cd@linaro.org>
+Date: Wed, 14 Jan 2026 13:07:40 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: arm: amlogic: add Khadas VIM1S
- binding
-To: Nick Xie <xieqinick@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, xianwei.zhao@amlogic.com,
- christianshewitt@gmail.com, krzk+dt@kernel.org, robh@kernel.org,
- conor+dt@kernel.org, nick@khadas.com
-References: <20260114062549.68954-1-nick@khadas.com>
- <20260114062549.68954-2-nick@khadas.com>
- <20260114-slick-passionate-mink-216a3a@quoll>
- <CAP4nuTXeC1-6ktwLpDt_1ZRHxPSiNAoDKTxLzqEYJUfcnVogcQ@mail.gmail.com>
- <39bb1820-6e4d-4f50-87e0-93844d779f6c@kernel.org>
- <CAP4nuTX556F6a+aMndYayu-29u-SsYi0g0ie8ONz8b5GStgv-g@mail.gmail.com>
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v3 0/2] arm64: dts: amlogic: s4: mmc clock fixups
+To: Jerome Brunet <jbrunet@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, Nick Xie <nick@khadas.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260114-amlogic-s4-mmc-fixup-v3-0-a4d3e136b3f2@baylibre.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -117,12 +111,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <CAP4nuTX556F6a+aMndYayu-29u-SsYi0g0ie8ONz8b5GStgv-g@mail.gmail.com>
+In-Reply-To: <20260114-amlogic-s4-mmc-fixup-v3-0-a4d3e136b3f2@baylibre.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_040729_309394_91B5CE43 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20260114_040743_330905_A4F220FD 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,98 +132,42 @@ Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/14/26 12:25, Nick Xie wrote:
-> Krzysztof Kozlowski <krzk@kernel.org> 于2026年1月14日周三 18:33写道：
->>
->> On 14/01/2026 11:07, Nick Xie wrote:
->>> Krzysztof Kozlowski <krzk@kernel.org> 于2026年1月14日周三 16:51写道：
->>>>
->>>> On Wed, Jan 14, 2026 at 02:25:48PM +0800, Nick Xie wrote:
->>>>> Add devicetree binding for Khadas VIM1S board based on
->>>>> Amlogic S4 S905Y4 SoC.
->>>>>
->>>>> Signed-off-by: Nick Xie <nick@khadas.com>
->>>>
->>>> You still have the same From/SoB mismatch.
->>>
->>> OK,  I will fix it in next version.
->>>
->>>>
->>>>> ---
->>>>>   Documentation/devicetree/bindings/arm/amlogic.yaml | 6 ++++++
->>>>>   1 file changed, 6 insertions(+)
->>>>>
->>>>> diff --git a/Documentation/devicetree/bindings/arm/amlogic.yaml b/Documentation/devicetree/bindings/arm/amlogic.yaml
->>>>> index 08d9963fe9259..55663e0f7f915 100644
->>>>> --- a/Documentation/devicetree/bindings/arm/amlogic.yaml
->>>>> +++ b/Documentation/devicetree/bindings/arm/amlogic.yaml
->>>>> @@ -247,6 +247,12 @@ properties:
->>>>>                 - amlogic,aq222
->>>>>             - const: amlogic,s4
->>
->> Look here
->>
->>>>>
->>>>> +      - description: Boards with the Amlogic Meson S4 S905Y4 SoC
->>>>> +        items:
->>>>> +          - enum:
->>>>
->>>> Yopu already have exactly such enum with such description, so your
->>>> compatible goes there. Look - it is called "Boards" - plural.
->>>
->>> The exist board aq222 is based on SoC S905X2, but the new board vim1s
->>> is baed on S905Y4,
->>> they are different SoC, so we need to put S905Y4 under S805X2 ?
->>
->> What is the point of having two separate lists with enums ending the
->> same SoC compatible?
+On 1/14/26 11:43, Jerome Brunet wrote:
+> The patchset aims to address the issue raised here [1] for MMC B.
 > 
-> Actually S805X2 and S905Y4 are different SoC. So maybe like this ?
+> While checking this issue, I've found that MMC A and C also appear to be
+> improperly described in this platform's DT. The 2nd change fixes that.
 > 
-> S805X2:
-> - description: Boards with the Amlogic Meson S4 S805X2 SoC
->    items:
->      - enum:
->          - amlogic,aq222
->      - const: amlogic,s805x2
->      - const: amlogic,s4
+> To be on the safe side, the MMC clock should also be assigned on the other
+> SoCs. More changes will follow once things are sorted out for s4.
 > 
-> S905Y4:
-> - description: Boards with the Amlogic Meson S4 S905Y4 SoC
->    items:
->      - enum:
->          - khadas,vim1s
->      - const: amlogic,s905y4
->      - const: amlogic,s4
+> [1]: https://lore.kernel.org/linux-amlogic/20260113011931.40424-1-nick@khadas.com/
+> 
+> Changes in v3:
+> - Dropped useless assigned-clock-parents
+> - Link to v2: https://lore.kernel.org/r/20260114-amlogic-s4-mmc-fixup-v2-0-7e9ab5f12286@baylibre.com
+> 
+> Changes in v2:
+> - Collect Tested-by from Nick
+> - Fix some typos in the commit description
+> - Link to v1: https://lore.kernel.org/r/20260113-amlogic-s4-mmc-fixup-v1-0-1ab1fca0fb2f@baylibre.com
+> 
+> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> ---
+> Jerome Brunet (2):
+>        arm64: dts: amlogic: s4: assign mmc b clock to 24MHz
+>        arm64: dts: amlogic: s4: fix mmc clock assignment
+> 
+>   arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 13 +++++++++++--
+>   1 file changed, 11 insertions(+), 2 deletions(-)
+> ---
+> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+> change-id: 20260113-amlogic-s4-mmc-fixup-92ad8b90b7be
+> 
+> Best regards,
 
-It's ok for me, but you'll need to update the aq222 DT aswell.
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-> 
-> Same as Amlogic A311D & S922X
-> 
-> S922X:
-> - const: amlogic,s922x
-> - const: amlogic,g12b
-> 
-> A311D:
-> - const: amlogic,a311d
-> - const: amlogic,g12b
-> 
->>
->>>
->>>>
->>>>> +              - khadas,vim1s
->>>>> +          - const: amlogic,s4
->>
->> And here.
->>
->>>>
->>>> Best regards,
->>>> Krzysztof
->>>>
->>
->>
->> Best regards,
->> Krzysztof
-
+Thanks,
+Neil
 
