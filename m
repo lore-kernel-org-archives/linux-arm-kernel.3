@@ -4,101 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F668D29FEF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 12:06:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 426E6D29FEF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 12:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=USNHuLFwPRQ9K5vdWe/euxnsqLlwiBOFDxiRkRA+v0s=; b=XW4Jwq9KRLPhrGsLCbt/bjL9qk
-	r255QnnQHkji5Wx9QsBulvZdgq1zIfdIXREmYGxssGsbK97uum6sbuUEFlJtJeOV53+STAw0SoT2Y
-	viQGxP4pDStSciyhQhrsHY/0+eSJRWrQMX0HTVIYh/M6zKjAVzhmWKSi+yDcud9NoOe/HkfxA+/Qb
-	rz7hWaOZQsO0QrpXgHousp1d1SNM1Qbee87WbY1jqjit7UW+R8mFjZpBAmdbnMefr5AofveavC4nq
-	eZBQDmOgLPZSBNkcv0fo4/Bc9jWBSvg/Wnoy4j9BLXbYa52BVEWsvNZw6fwDPLjXGK0JT/evxOdDx
-	P//Mx69w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GSEQCzndpMCTzZAiElbDw0E8ooqH9Iv/C1Bw0XbM1/4=; b=o/G9BolKYGZnmGe8AYpLD4wbe/
+	iVfJx9Tg0vasxPKhQJpYhC3el7SdoQPiPOcBS2O9Mo+ccsDF9KzC9Pdje2sxA2rxIHLVP0NiYMbmR
+	9E6sSnPcsRaWExFOykaU5gNXPDQdjnbNNs40ibqj/sC1EMgeiarmKfz+5KcwDcv+axzcscWouJ+YR
+	mfUfod5opCcTOQHCGYn5cyKy+VbzP+gdJbXl5bjxdsgAp6HIX+J+ApamMjD/HRB+5HtCjzg7Q7vJD
+	g1c7zyaFRLFQPBlKvGUL5GrWakOe68/iOOXAuS25FAoQD3TMykVUuX2MNHdolZUrAdnPZAR5lEcD/
+	LG5B0ljQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfze5-000000095dt-27u0;
-	Wed, 14 Jan 2026 12:06:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vfze9-000000095fN-2CRU;
+	Wed, 14 Jan 2026 12:06:45 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzdw-000000095c3-2eHA
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 12:06:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A27EA402F9;
-	Wed, 14 Jan 2026 12:06:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73D1CC16AAE;
-	Wed, 14 Jan 2026 12:06:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768392391;
-	bh=IXiea1JAWy8hq5EFO/KtmMlzvJWcD+fDKDcocQOcQFk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DOF9TCfDTk6eih11jEFeuuENrvGypFtZ6oAZOvC8fddU3ObXKUkomJ3EBphmogvlI
-	 lbzyTJ7ODiErL3sk+WZIGKvpN2GSfjVVf1M6XAwYmgkJRj2Y3JJHe842j9dOpdk4b/
-	 /gWuRf3m7/3JHU25MM8R5fcZZ9UAFMJBQt9FXhdCLfzdl0ThRIHAY6JIV3XXcltMBc
-	 PJYphZmZ8pN4WNZhQ+oi02UI5wgpEQafeU0sAQX/8lFVLn9koX2rE9KvyWi3K2GQwx
-	 h+ZKO4Ia7nkrG4WTFhaqLv5ZUW+/rtZ9G4c5bwnbQMjhWlFt2T+Mi3KZqmoY+yGYDY
-	 kZxSYGqWMsDBw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vfzds-00000002AbS-4B8R;
-	Wed, 14 Jan 2026 12:06:29 +0000
-Date: Wed, 14 Jan 2026 12:06:28 +0000
-Message-ID: <86pl7cl7p7.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
+	id 1vfzdy-000000095bz-2Ygz;
+	Wed, 14 Jan 2026 12:06:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:
+	Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=GSEQCzndpMCTzZAiElbDw0E8ooqH9Iv/C1Bw0XbM1/4=; b=YJTJh68aWzrZwZ47DWwKJG7Eha
+	4tmnURY7cqRMZVdvqPSVMAf5a+XIuXekwSYreq8LqNWKg01dxTeJJ5RCySnJn+hlT2a7R2MvbjEaI
+	fe5K7PBSIOm9Gj+tVzuuoT6UNG7Mw8IpqX202IeAlBS/E+wKF+kSnhulCJZCn6bReC4/DuvL0GIAI
+	59trsW9munV1V1oqX+qOlYLHhf5CtMjhfv09p5CYd8XxFuPGGJOaFY9lldZuax7H3ziNdn0VndmRK
+	+hhqRndk2XqcBNhc/aJM+DjLMyKV0dBiF2Mn9izwoT0mMWTEpZv/tiYE2UVaBR3DABvoDMcMaMdk4
+	2QbHI0EQ==;
+Received: from [187.36.210.68] (helo=localhost.localdomain)
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA512__CHACHA20_POLY1305:256) (Exim)
+	id 1vfzdm-005GCf-8h; Wed, 14 Jan 2026 13:06:22 +0100
+From: =?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v3 12/47] KVM: arm64: Force guest EL1 to use user-space's partid configuration
-In-Reply-To: <20260112165914.4086692-13-ben.horgan@arm.com>
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
-	<20260112165914.4086692-13-ben.horgan@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ben.horgan@arm.com, amitsinght@marvell.com, baisheng.gao@unisoc.com, baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com, dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com, fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, peternewman@google.com, punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	kernel-dev@igalia.com,
+	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>
+Subject: [PATCH v2] arm64: dts: broadcom: bcm2712: Add V3D device node
+Date: Wed, 14 Jan 2026 09:04:58 -0300
+Message-ID: <20260114120610.82531-1-mcanal@igalia.com>
+X-Mailer: git-send-email 2.52.0
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_040633_972706_C1B1D310 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20260114_040638_136991_F68C2F76 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,70 +79,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 Jan 2026 16:58:39 +0000,
-Ben Horgan <ben.horgan@arm.com> wrote:
-> 
-> From: James Morse <james.morse@arm.com>
-> 
-> While we trap the guest's attempts to read/write the MPAM control
-> registers, the hardware continues to use them. Guest-EL0 uses KVM's
-> user-space's configuration, as the value is left in the register, and
-> guest-EL1 uses either the host kernel's configuration, or in the case of
-> VHE, the UNKNOWN reset value of MPAM1_EL1.
-> 
-> We want to force the guest-EL1 to use KVM's user-space's MPAM
-> configuration. On nVHE rely on MPAM0_EL1 and MPAM1_EL1 always being
-> programmed the same and on VHE copy MPAM0_EL1 into the guest's
-> MPAM1_EL1. There is no need to restore as this is out of context once TGE
-> is set.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
-> Changes since rfc:
-> Drop the unneeded __mpam_guest_load() in nvhre and the MPAM1_EL1 save restore
-> Defer EL2 handling until next patch
-> 
-> Changes since v2:
-> Use mask (Oliver)
-> ---
->  arch/arm64/kvm/hyp/vhe/sysreg-sr.c | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-> index f28c6cf4fe1b..9fb8e6628611 100644
-> --- a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-> +++ b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-> @@ -183,6 +183,18 @@ void sysreg_restore_guest_state_vhe(struct kvm_cpu_context *ctxt)
->  }
->  NOKPROBE_SYMBOL(sysreg_restore_guest_state_vhe);
->  
-> +/*
-> + * The _EL0 value was written by the host's context switch and belongs to the
-> + * VMM. Copy this into the guest's _EL1 register.
-> + */
-> +static inline void __mpam_guest_load(void)
-> +{
-> +	u64 mask = MPAM0_EL1_PARTID_D | MPAM0_EL1_PARTID_I | MPAM0_EL1_PMG_D | MPAM0_EL1_PMG_I;
-> +
-> +	if (system_supports_mpam())
-> +		write_sysreg_el1(read_sysreg_s(SYS_MPAM0_EL1) & mask, SYS_MPAM1);
-> +}
-> +
->  /**
->   * __vcpu_load_switch_sysregs - Load guest system registers to the physical CPU
->   *
-> @@ -222,6 +234,7 @@ void __vcpu_load_switch_sysregs(struct kvm_vcpu *vcpu)
->  	 */
->  	__sysreg32_restore_state(vcpu);
->  	__sysreg_restore_user_state(guest_ctxt);
-> +	__mpam_guest_load();
+Commits 0ad5bc1ce463 ("drm/v3d: fix up register addresses for V3D 7.x")
+and 6fd9487147c4 ("drm/v3d: add brcm,2712-v3d as a compatible V3D device")
+added driver support for V3D on BCM2712, but the corresponding device
+tree node is still missing.
 
-What's the rationale for doing this independently of rest of the MPAM
-stuff in __activate_traps_mpam()?
+Add the V3D device tree node to the BCM2712 DTS.
 
-	M.
+Signed-off-by: Maíra Canal <mcanal@igalia.com>
 
+---
+v1 -> v2:
+
+- Rebased on top of linux-next (Stefan Wahren)
+- Fixed node's address (2000000 -> 1002000000) (Stefan Wahren)
+- Link to v1: https://lore.kernel.org/linux-devicetree/20260113192902.48046-2-mcanal@igalia.com/
+---
+ .../boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi    |  4 ++++
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 14 ++++++++++++++
+ 2 files changed, 18 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
+index 7d4742ebe247..97522c6803c5 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
++++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
+@@ -247,3 +247,7 @@ &pcie1 {
+ &pcie2 {
+ 	status = "okay";
+ };
++
++&v3d {
++	clocks = <&firmware_clocks 5>;
++};
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+index 330a121ebfcb..661668ef7419 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
++++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+@@ -1,5 +1,6 @@
+ // SPDX-License-Identifier: (GPL-2.0 OR MIT)
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
++#include <dt-bindings/soc/bcm2835-pm.h>
+ 
+ / {
+ 	compatible = "brcm,bcm2712";
+@@ -642,6 +643,19 @@ mip1: msi-controller@1000131000 {
+ 			msi-ranges = <&gicv2 GIC_SPI 247 IRQ_TYPE_EDGE_RISING 8>;
+ 			brcm,msi-offset = <8>;
+ 		};
++
++		v3d: gpu@1002000000 {
++			compatible = "brcm,2712-v3d";
++			reg = <0x10 0x02000000 0x00 0x4000>,
++			      <0x10 0x02008000 0x00 0x6000>,
++			      <0x10 0x02030800 0x00 0x0700>;
++			reg-names = "hub", "core0", "sms";
++
++			power-domains = <&pm BCM2835_POWER_DOMAIN_GRAFX_V3D>;
++			resets = <&pm BCM2835_RESET_V3D>;
++			interrupts = <GIC_SPI 250 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 249 IRQ_TYPE_LEVEL_HIGH>;
++		};
+ 	};
+ 
+ 	vc4: gpu {
 -- 
-Without deviation from the norm, progress is not possible.
+2.52.0
+
 
