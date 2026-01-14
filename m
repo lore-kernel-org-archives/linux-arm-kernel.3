@@ -4,67 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FE70D31A22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:18:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C34F9D31A26
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ajwkw9+NGX/WfC1IKpsfCbjnOybGHKbfekZPQpU9How=; b=3Y7tqeRjDOQi7JB4NexTtT54L+
-	lSYaxzCdhGIkGzc2QFHJC7S8C93aH1XkD+xtDF/RJKdRcwPNQqnZN8jggrokneJ+CWhoY0qyULHez
-	JQ9ndXFZA6IrCtC7ZqVkbVeu+m8D1y5rPaUNbF2ShcF0IZCRBHQdl3Jg1FItKEIesoB5sBmQ3eBsR
-	CS+x8/njEPrHLKhlVWXzLilxBN8I/UpEi1l8g/UmFVE1CJq0v1r/kKpqFYli6niAon4ZdRt/RESQW
-	k5PntACtCDwnlS4tlbQ7mNti4PS311qXglv8D83YEAgPT0uofsS9R5g7OdH14EyIfRu6y7MDwPHb2
-	LFlXH9Hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kOjWICKElajAktcnLTxDO0a0hjOrXuTPJG+TIiIDMlE=; b=K2GSzaTIGZ6En/kTg3zpKTUTPh
+	z/BBw0t8uvi7WyekBFvnH48pZ3bbhlidChSitNV+pnGlnpYvKPP/YPrBAUOrEYYoppVpts+yZ9jcx
+	T+YfmgU7uiNodEsYROCcatgCYaPtergfU4T+jlSD7ppzezA8g6fzeL8Gs4bURnq+yqyG0QCAfy9Eq
+	dO0pkOlKqFI9MlkQIHSFAu1HK5c9rNVCmRrsWXIVaczFEZc009TR8f+DueaFuiFun8/sZLxSFz/99
+	0PEf1QqEctlA2Jor8unhJZ9IYxLodq/WivFcTAc8iuiBPGSWUouHDi6jzIznDPkBXzXkHFQaoCd3K
+	IX+Qsk9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfw5F-00000008Io8-2QdU;
-	Wed, 14 Jan 2026 08:18:29 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1vfw7B-00000008JIP-0CVx;
+	Wed, 14 Jan 2026 08:20:29 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfw5C-00000008Ile-3eoe
+	id 1vfw78-00000008JH7-0hF8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 08:18:28 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5221810DFEC;
-	Wed, 14 Jan 2026 09:18:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1768378696; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=Ajwkw9+NGX/WfC1IKpsfCbjnOybGHKbfekZPQpU9How=;
-	b=RS5oaMfHKR7qffACVNzlScaYa5fCYSMQRLi8g9avCRUkSiD8P4vVzwIeg/1n3RVaoBkSRw
-	yM53bftxByHwsxuGfEoT9WjDMYgUZqKUFjevFUGx/MpPkkVJ805UcJ8no/IHA7mmjYaRco
-	//tEIasJFXW0QmVZrFmbmGL+zRQRiMODy4ZkcBIpoOjcVMfnaWI1CgiXpmHmwXEl2bHmXP
-	XW3B09lTcnYg3CT62Tw71+Hz8b2R9x5uQVh/HJwpY6fzlJHNB/e+ZxK81xptzWUl3tAe5H
-	gvpTwovD9QcMLxlD0y2fyjrfIXv7LmOGd0H3PZyYSS8wVaDey1smjxhdvW41kA==
-From: Marek Vasut <marex@nabladev.com>
-To: netdev@vger.kernel.org
-Cc: Marek Vasut <marex@nabladev.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Wed, 14 Jan 2026 08:20:27 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-42fbbc3df8fso4537804f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 00:20:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1768378824; x=1768983624; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=kOjWICKElajAktcnLTxDO0a0hjOrXuTPJG+TIiIDMlE=;
+        b=JWCjoqMUuIlb9/NRh8Y6ACNHoI5mYnD0bb+ar5yqcyHl/wwxloIywo2WSPlCJnz8kj
+         C9eknrL9IeqvDqxVWSr46UgDmbdggZu/3FE5GKIeMS5m3xh4mXH5ywTvZ8s3nqCsjYGa
+         3qs9EOEOjyN+NCG3LGZoZ56gmLk0jREwp/bVFHm5NRG5cenFEvUyJal+R1r2PmUhKyl1
+         ckJambW6+tblIOOG4jvi7/ON/D05jHodaUaDB0FEec/9cO7zUNTg4HpJfdMmmhIRSMef
+         5uym+h+HqziPil0zXxcru4T4R2R1DIl+qbAswmyjI3uSQMLN3mBpUs3f2LqqiWPMLdWf
+         cp0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768378824; x=1768983624;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kOjWICKElajAktcnLTxDO0a0hjOrXuTPJG+TIiIDMlE=;
+        b=PDqSbFk9ZhP7aVGKEARZf4OBC+EzAyHZV5YmobbRmr+0Qa5LV40JenLNzR+WMH3Ukp
+         DGlTV8oLFkxK89NJEM//7G1zQmrjgzEsKGGdFlg3xndCMH+UgqWpfiqT59uJeT+/wXDm
+         oVhffFdC7Lvvx52PP57sCQVGmNLnRQK2RTLAIgfwNGBHK9BQTmleX9dobYNCMnRpRXkM
+         aQEJsO5ZcyoCuB6p5L3QZPjPeRyleqb30A3YgWMF9StdDagY9R2NzmnQgTB5YkRrFKgM
+         kieN2xYKryO2HXX5XrQXVpJJzB6pzxKNzh4u3/nd/O0V1dD1gt/MbEFCY2ALWEPLGiOf
+         RPEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX/g+L8COkvPvDE2DdiDhTW6vcuOw8OmzTm/rr8z2UJJquW8CtLVoZyoYyEuZcKQ2FeQAUHWMACP6mebVT8FuNk@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQ/lkPxezjzLeLwsanRZShvRyWIHGoGxy1ScVCnEGlmaMxVJRW
+	quJx8Ep5iykWykro5KnZm7w5emlAgun15nPVJW83Wb4DIb3JQNOT9y9o3aEoHzCITvY=
+X-Gm-Gg: AY/fxX44hZ2BrbDnFQL+RBgvDRbtDA8eoTcfOg1/EYa+fHZCSDmX8foAAjCYJqKmM3q
+	K6nP/qZ9rAJq0q3GWlRW8DSkFtegRyCiCpMO4CDvPYzPc2TW2BqVSFoVkeSXh6l0KDyeYZrt4a7
+	6GG/rBz59ekXzYlL4r+OEJd3Qf0frgTQWUe9PyW8cXRM4VNbMtGL7G2HNery04Ih0aUkHyr13l8
+	4QgHHwexXTRQ37OvK4dGsJaeB0ZyGULPVXgiqJ2MjnLgBV3m37MOg3hNHJBy6OysNR9nLtQRs5H
+	KlN6KR9iSF51pHP+C2Fk94y4R9VKfjX8oGAglNW3m9259V+ukUfdbGw73qM6eH5t40jrPfgH0/Q
+	ow6GzImGMx7RYXfKPj5jqbAB4Gxr/HauE4CQoEym4RCIs/VxWorUlQNjAG3dXpH6RzLmnHAEaqU
+	iN9o7Q1NbUpzVjeA==
+X-Received: by 2002:a05:6000:40e1:b0:432:5b81:498 with SMTP id ffacd0b85a97d-4342c4f4a32mr1782744f8f.23.1768378823922;
+        Wed, 14 Jan 2026 00:20:23 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0dad8bsm49346913f8f.8.2026.01.14.00.20.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 00:20:23 -0800 (PST)
+Date: Wed, 14 Jan 2026 09:20:20 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: Marcos Paulo de Souza <mpdesouza@suse.com>
+Cc: Daniel Thompson <daniel@riscstar.com>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jason Wessel <jason.wessel@windriver.com>,
+	Daniel Thompson <danielt@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	John Ogness <john.ogness@linutronix.de>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Christophe Roullier <christophe.roullier@st.com>,
+	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	kernel@dh-electronics.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [net-next,PATCH] net: stmmac: stm32: Do not suspend downed interface
-Date: Wed, 14 Jan 2026 09:17:54 +0100
-Message-ID: <20260114081809.12758-1-marex@nabladev.com>
-X-Mailer: git-send-email 2.51.0
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
+	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 00/19] printk cleanup - part 3
+Message-ID: <aWdRxBbJOEIZ-KjE@pathway.suse.cz>
+References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+ <aVuz_hpbrk8oSCVC@aspen.lan>
+ <aVvF2hivCm0vIlfE@aspen.lan>
+ <a5d83903fe2d2c2eb21de1527007913ff00847c5.camel@suse.com>
+ <89409a0f48e6998ff6dd2245691b9954f0e1e435.camel@suse.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <89409a0f48e6998ff6dd2245691b9954f0e1e435.camel@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_001827_125614_C04508D4 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20260114_002026_250761_381FE0FA 
+X-CRM114-Status: GOOD (  49.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,77 +138,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If an interface is down, the ETHnSTP clock are not running. Suspending
-such an interface will attempt to stop already stopped ETHnSTP clock,
-and produce a warning in the kernel log about this.
+On Tue 2026-01-13 21:32:33, Marcos Paulo de Souza wrote:
+> On Tue, 2026-01-13 at 09:41 -0300, Marcos Paulo de Souza wrote:
+> > On Mon, 2026-01-05 at 14:08 +0000, Daniel Thompson wrote:
+> > > On Mon, Jan 05, 2026 at 12:52:14PM +0000, Daniel Thompson wrote:
+> > > > Hi Marcos
+> > > > 
+> > > > On Sat, Dec 27, 2025 at 09:16:07AM -0300, Marcos Paulo de Souza
+> > > > wrote:
+> > > > > The parts 1 and 2 can be found here [1] and here[2].
+> > > > > 
+> > > > > The changes proposed in this part 3 are mostly to clarify the
+> > > > > usage of
+> > > > > the interfaces for NBCON, and use the printk helpers more
+> > > > > broadly.
+> > > > > Besides it, it also introduces a new way to register consoles
+> > > > > and drop thes the CON_ENABLED flag. It seems too much, but in
+> > > > > reality
+> > > > > the changes are not complex, and as the title says, it's
+> > > > > basically a
+> > > > > cleanup without changing the functional changes.
+> > > > 
+> > > > I ran this patchset through the kgdb test suite and I'm afraid it
+> > > > is
+> > > > reporting functional changes.
+> > > > 
+> > > > Specifically the earlycon support for kdb has regressed (FWIW the
+> > > > problem bisects down to the final patch in the series where
+> > > > CON_ENABLED
+> > > > is removed).
+> > > > 
+> > > > Reproduction on x86-64 KVM outside of the test suite should be
+> > > > easy:
+> > > > 
+> > > >     make defconfig
+> > > >     scripts/config \
+> > > >         --enable DEBUG_INFO \
+> > > > 	--enable DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT \
+> > > > 	--enable DEBUG_FS \
+> > > > 	--enable KALLSYMS_ALL \
+> > > > 	--enable MAGIC_SYSRQ \
+> > > > 	--enable KGDB \
+> > > > 	--enable KGDB_TESTS \
+> > > > 	--enable KGDB_KDB \
+> > > > 	--enable KDB_KEYBOARD \
+> > > > 	--enable LKDTM \
+> > > > 	--enable SECURITY_LOCKDOWN_LSM
+> > > >     make olddefconfig
+> > > >     make -j$(nproc)
+> > > >     qemu-system-x86_64 \
+> > > >         -m 1G -smp 2 -nographic \
+> > > > 	-kernel arch/x86/boot/bzImage \
+> > > > 	-append "console=ttyS0,115200 kgdboc=ttyS0
+> > > > earlycon=uart8250,io,0x3f8 kgdboc_earlycon kgdbwait"
+> > > 
+> > > Actually I realized there was a simpler reproduction (hinted at by
+> > > the
+> > > missing "printk: legacy bootconsole [uart8250] enabled" in the
+> > > regressed
+> > > case). It looks like the earlycon simply doesn't work and that
+> > > means
+> > > the
+> > > reproduction doesn't require anything related to kgdb at all.
+> > > Simply:
+> > > 
+> > >     make defconfig
+> > >     make -j$(nproc)
+> > >     qemu-system-x86_64 -m 1G -smp 2 -nographic -kernel
+> > > arch/x86/boot/bzImage \
+> > >         -append "earlycon=uart8250,io,0x3f8"
+> > > 
+> > > With the part 3 patchset applied I get no output from the earlycon
+> > > (without the patch set I get the early boot messages which, as
+> > > expected,
+> > > stop when tty0 comes up).
+> > 
+> > Hi Daniel, sorry for the late reply! Lots of things to check lately
+> > :)
+> > 
+> > Ok, I reproduced here, thanks a lot for testing kgdboc, it's a quick
+> > way to check that the new register_console_force is not working. Let
+> > me
+> > take a look to find what's wrong. Thanks a lot for finding this
+> > issue!
+> 
+> Ok, I did a bisect and found out that the issue lies in the last
+> commit, where CON_ENABLED was removed. After it, I then checked what
+> was wrong, since everything was being plumbed correctly (tm), and then
+> I found that it was not:
+> 
+> On _register_console, the function try_enable_default_console is called
+> when there are not registered consoles, and then it sets CON_ENABLED
+> for the console. Later on, try_enable_preferred_console it checks if
+> the console was specified by the user, and at the same time it had
+> CON_ENABLED set.
+> 
+> It worked by chance, but now, we don't have this flag anymore, and then
+> we are not _marking_ the console on try_enable_default_console so
+> try_enable_preferred_console returns ENOENT.
 
-STM32MP25xx that is booted from NFS root via its first ethernet MAC
-(also the consumer of ck_ker_eth1stp) and with its second ethernet
-MAC downed produces the following warnings during suspend resume
-cycle. This can be provoked even using pm_test:
+Great catch! Yeah, it worked just by chance.
 
-"
-$ echo devices > /sys/power/pm_test
-$ echo mem > /sys/power/state
-...
-ck_ker_eth2stp already disabled
-...
-ck_ker_eth2stp already unprepared
-...
-"
+> So, without any console kgdb is activated much later in the boot
+> process, as you found it.
+> 
+> I talked with Petr Mladek and it would need to rework the way that we
+> register a console, and he's already working on it.
 
-Fix this by not manipulating with the clock during suspend resume
-of interfaces which are downed.
+Yes, I have some patches in early stages of developnent of another
+feature which would help here.
 
-Signed-off-by: Marek Vasut <marex@nabladev.com>
----
-Cc: "David S. Miller" <davem@davemloft.net>
-Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>
-Cc: Christophe Roullier <christophe.roullier@st.com>
-Cc: Eric Dumazet <edumazet@google.com>
-Cc: Jakub Kicinski <kuba@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>
-Cc: kernel@dh-electronics.com
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
-Cc: netdev@vger.kernel.org
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+> For now I believe
+> that we could take a look in all the patches besides the last one that
+> currently breaks the earlycon with kgdb and maybe other usecases.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
-index e1b260ed4790b..5b0d111afcac3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
-@@ -618,11 +618,21 @@ static void stm32_dwmac_remove(struct platform_device *pdev)
- 
- static int stm32mp1_suspend(struct stm32_dwmac *dwmac)
- {
-+	struct net_device *ndev = dev_get_drvdata(dwmac->dev);
-+
-+	if (!ndev || !netif_running(ndev))
-+		return 0;
-+
- 	return clk_prepare_enable(dwmac->clk_ethstp);
- }
- 
- static void stm32mp1_resume(struct stm32_dwmac *dwmac)
- {
-+	struct net_device *ndev = dev_get_drvdata(dwmac->dev);
-+
-+	if (!ndev || !netif_running(ndev))
-+		return;
-+
- 	clk_disable_unprepare(dwmac->clk_ethstp);
- }
- 
--- 
-2.51.0
+I agree. I am going to review this patchset first. Then I'll try to
+clean up the patches which remove the ugly side effect from
+try_enable_preferred_console(). Then we could discuss how
+to move forward. It might make sense to push this patchset
+first without the last patch...
 
+> Sorry for not catching this issue before. I'll use kgdb next time to
+> make sure that it keeps working :)
+
+Do not worry at all. It was a well hidden catch. It is great that
+Daniel found the regression in time...
+
+Best Regards,
+Petr
 
