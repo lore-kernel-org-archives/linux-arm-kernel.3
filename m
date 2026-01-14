@@ -4,120 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F5A3D31A29
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:44:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4657D31A26
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:47:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Nn9M/VPDoeuifL+P7no8o5FApQZk7zNKYvSR+p2CRU=; b=DNcoa7c2WUKOPYJXSLwxkNcH7U
-	ob6shTdHKYIGr06V3PMQ79J7i3p/LqMdT3aBV6/fDyZ5DNDSa5KEu4UNDA1D4wUQOCgPNanGBm6+H
-	b4swUYG/k7UXgsKIL06MOWZJiteW7jfju2Uv+n2Ta908sxWZ/EEtx1SBeO43K3uuGSxaqgUylCdtX
-	Wgbk5ejNOQhFnVUuoThBl9MdHdCZL6Zj0aiFR9sT/7BR3Evt9LcSlVXs0UN4EO/al1A6BDKbUXbXl
-	Sbcy9+v7MNOVjf4DgzVIHVHRDKZh1u2b0ueftm9ttWrIKwkf1lnWwboFGQq+SfkyZT0bHVezmSetN
-	oAe9mOPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=BM8f7jH0taMvYnkaVr76MNplqROK/eiMRxPqXZYuq2Y=; b=qA1S8TGYq3VG7m
+	hqgmE2KGiLUqrtgIAfQcdGIecaTkRXRKiXgFeHcqhoTlmW12q9Ce1GT4DQ3oM7N6fZbBUekYISzDz
+	oeKmdOLm4Gxx8QXZ11XbOPsGryeoLCZ0WPvEvP6IqDVvCmW1CnehpZlgOiTPoQvAQLBX7XKMfD2lM
+	c7WHRiKLIKMkInTzW4T3jAeH/+zYz0xp2dehpCHxzbmN1SpWa0m7CoOXdYLV1Wa9k0MvAdD/hQSJA
+	g78u42pLPdQ2vootLHEPYfz50ojjCrp21wPtrvK49x+z8osspNyxXD9TcBUxtyarg30jBZWIhbCv+
+	XlLd2wyUw1oqz90+qu7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfwUI-00000008OC5-37SU;
-	Wed, 14 Jan 2026 08:44:22 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1vfwX8-00000008OfT-37sd;
+	Wed, 14 Jan 2026 08:47:18 +0000
+Received: from mail-ej1-f53.google.com ([209.85.218.53])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfwUC-00000008OB5-3ZBm
+	id 1vfwX5-00000008OeR-0upC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 08:44:19 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-432d256c2e6so4679592f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 00:44:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1768380255; x=1768985055; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/Nn9M/VPDoeuifL+P7no8o5FApQZk7zNKYvSR+p2CRU=;
-        b=G7YD9GT9MNwkv7GZp7I46HAKE/2DaWiOGkuFcp7CIEWkCHExzYkeWGJ+/neNbppQsn
-         P6/D4UFb0SZalcxfQLR7SKbCf0gq6ZJo8Az6skkP0C49bGV1SPVcambmHhDfdJw295my
-         ebabyiZtdDCN6CjQqmXAtP28KFXa4ZCyAzkqNuu8nxEozbre8l4k3+tG5s0DZEbzOUuy
-         5HgbJVhEmSODoEblLggTtQd96UGVnNXFy3cutrr/jCbtulNCbRFWrc2PFNwgSBW0+nsf
-         59CmNk8DowXdIgMrIAbdrTsbLxVPZcNbupF9k2kTi1qWTtczet7b8uud31TzBp4zDCwG
-         HxKA==
+	Wed, 14 Jan 2026 08:47:17 +0000
+Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-b8765be29d6so51945666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 00:47:14 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768380255; x=1768985055;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/Nn9M/VPDoeuifL+P7no8o5FApQZk7zNKYvSR+p2CRU=;
-        b=h+nA1H3YD9cZrE0FAU8nwDI8SmYSs6rldN4cuCjvNr67mxUdc1/sp0YSQ3/dvZEmUb
-         /Kzq9gMntFdVTmiUk+opdS49ASXH6g6ozGqSz09FOXu0BPOUy2VvU6mwTx7druTcN5no
-         T/DjaDAu/o+lIQcIcYcK+CJlkx8B0iBUr+wxMy1H7vG3NxlhFRk7gTzvSmol28WYDxcT
-         /O9N2FBEnW9AjXwt+lkY2pLFjH1Rr7umFvtLAa00IBzSXA5SGEt6fHAcpXRuNMD3cZ96
-         ptGyFeOX0Guv0h95+lb7k2Ho+mIMre02DwuakFbInYhRUJSR30/ikLBw5mD4tgfKnix9
-         Zjyw==
-X-Forwarded-Encrypted: i=1; AJvYcCX6MIge1EkVPCDG0k56GaMcIpTGsASrLJDP0zNsFk5O8xfi6hFbpcaTJdUGfkjJM//yqO5s0DpA9ItmMJ9RHtjF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVeWq1cxIOAIot0m3DM2zrSnNtFO5e+P93Ujfe2ALnjIG8v8dG
-	xPJxydUi9blsaH8s9y3Vm9b4FF+F1XnUvPD2vxsZK8R/8tDrTPPaj8fgUshkXVbOb/8=
-X-Gm-Gg: AY/fxX5iBwNCUx4vfeCk1ncASMi5RBweXCopewd0ptkMW1ACT6n9KV9n0oT3/gDyTpx
-	D/5Xz67cJ+9MmPGjuOxZTlU0pwgyeYMV7zLEOZ11gfaRxAB+AD/2jx/WlYAm2/VJdn5MMEfISct
-	8bwwzyOOnlCKTY+jCTm0n6ySzjhWpIp+zctZETWYD9FjmkMh9JEkTHd8edjHvdmnPuR9xpTOLIF
-	BDD3bkKH0niA2e/zikQm97DUytebP2Zezu0IKhvW9dVRk136tQbueiU3xk3DLE5U834xo3dSmpt
-	VDCez5mefy9gQ8GhPAOrWjsspS6O7mrW829yR6b9ntUAZ0YDeQXE7zsqNf7O8THDOzBR2OkYtnX
-	4NnnhsE3y17oP/6PYorWYD/HTq6wBe7mpna5pZ4Pwus0JeJiGsjFlMW8sU4ze8oVk9F7pa0gEIF
-	dUqEZhLrUJcs3NTA==
-X-Received: by 2002:a05:6000:61e:b0:431:a38:c2f7 with SMTP id ffacd0b85a97d-4342c574bedmr1500621f8f.59.1768380254886;
-        Wed, 14 Jan 2026 00:44:14 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd5ee5e3sm48685590f8f.35.2026.01.14.00.44.13
+        d=1e100.net; s=20230601; t=1768380433; x=1768985233;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BM8f7jH0taMvYnkaVr76MNplqROK/eiMRxPqXZYuq2Y=;
+        b=DCWVoJf7L20XoK/dJ7oSvIaU6Vz2XIhL4MFEqZTimu1sLo4yU5+haL8Hg9GPRR23MM
+         FBJYJN3egzGXq+ApYqcnG6mVjnI1TCC/w+UCsZ/t3L/CR9q7OX17fxiOV/uatjqO+CoX
+         FSPBVtNXWmjaHSXd5N++5QTLC8jCrUl/sMVcPER1q+MH17odcN2uFIn1tjQpiv3Ro/Wq
+         aJQ76bJZrtYvGydUL81f6RwJ+o8OIZogAsA8E27MzulGF+YiKGkFJ8lg3MkNh7R6xQxe
+         //CFbmEknf9bav0byzG6tHvVfnSQBIDtLVrEIMHYqz4oQaoGGmNV342IBvW1Jy1tN4vU
+         dh7w==
+X-Gm-Message-State: AOJu0YyGAv911BFENnWbDbq7z+irndC9xdq1T4ao5fmFgZOTlZnBq+vj
+	0ZhxrlO8dfQaYFcU6lC2wjlHfZhdvTwNIU3P9YzmypYniGXWuaxpVSZy
+X-Gm-Gg: AY/fxX4DRBGXUEDpGbKV13qU5/Wo5vK/I7o+RnHDeRUY9YovZpsJGhwQJWwPPqH8he6
+	FiTvVHNDaKFEZlOWcq+mCVOlONthOfwkCBylHBc9tdzubtmWGw3QmM+HRpCbu2wzuYpsFp2NA8b
+	iEJ1wLZBmSBiNsKKxkdwDhzMF85bJvrSNowgnQvbLd6j1bhUeGcUHje4shU1nWsTJoGmBY/IyXZ
+	WQr/P526pAdAzSGf/kdeZ+dzJTAgdkBBRzvNnF/HAmdsFb5P0YuggFQ4wtEKFfGM3mAAU8vpdPO
+	KfvTOJFky/Qu/QuukZR+Y1ZJZdERjnlD4dbfu9agZie288yJJ7CvQv8m4JeQxgMk/n0A6yqooL5
+	r4dF0uAXy/rVTj+FfEiTlzZ+h4RmqI6ejDLT5nboogDTvPz468VZjMWuYFRd7iYipcj6jQN5svn
+	lC59/rY51U8t67CtMWdtIu3Jywc03GSLOZC6MUquOPI39Hkw==
+X-Received: by 2002:a17:907:2da0:b0:b83:972c:77fe with SMTP id a640c23a62f3a-b876770a4famr96020166b.2.1768380432976;
+        Wed, 14 Jan 2026 00:47:12 -0800 (PST)
+Received: from [10.42.0.1] (cst-prg-36-231.cust.vodafone.cz. [46.135.36.231])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6507bf6d5d4sm22379136a12.32.2026.01.14.00.47.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Jan 2026 00:44:14 -0800 (PST)
-Date: Wed, 14 Jan 2026 09:44:11 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: Marcos Paulo de Souza <mpdesouza@suse.com>
-Cc: Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jason Wessel <jason.wessel@windriver.com>,
-	Daniel Thompson <danielt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	John Ogness <john.ogness@linutronix.de>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
-	linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
-	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 03/19] printk: Drop flags argument from console_is_usable
-Message-ID: <aWdXW6ohfQ7_z2B_@pathway.suse.cz>
-References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
- <20251227-printk-cleanup-part3-v1-3-21a291bcf197@suse.com>
+        Wed, 14 Jan 2026 00:47:12 -0800 (PST)
+From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Subject: [PATCH v2 0/5] New DRM accel driver for Texas Instruments' C7x
+ DSPs
+Date: Wed, 14 Jan 2026 09:46:47 +0100
+Message-Id: <20260114-thames-v2-0-e94a6636e050@tomeuvizoso.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251227-printk-cleanup-part3-v1-3-21a291bcf197@suse.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPdXZ2kC/2WMQQ7CIBBFr9LMWgwDxgZX3sN0QcoosygYoERtu
+ LvYrcv3/8vbIFNiynAZNkhUOXMMHdRhgNnb8CDBrjMoqc4SUYvi7UJZaH1CNVrlDDro8jPRnV9
+ 76DZ19pxLTO+9W/G3/iUqCimM0Ub2w+hxvpa40Fr5E3M8Biowtda+r3H/yaIAAAA=
+X-Change-ID: 20260113-thames-334127a2d91d
+To: Nishanth Menon <nm@ti.com>, "Andrew F. Davis" <afd@ti.com>, 
+ Randolph Sapp <rs@ti.com>, Jonathan Humphreys <j-humphreys@ti.com>, 
+ Andrei Aldea <a-aldea@ti.com>, Chirag Shilwant <c-shilwant@ti.com>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Oded Gabbay <ogabbay@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Sumit Semwal <sumit.semwal@linaro.org>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Robert Nelson <robertcnelson@gmail.com>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ linux-doc@vger.kernel.org, linux-media@vger.kernel.org, 
+ linaro-mm-sig@lists.linaro.org, Tomeu Vizoso <tomeu@tomeuvizoso.net>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_004416_942359_D12A783B 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20260114_004715_299238_CEA1261A 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,74 +102,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat 2025-12-27 09:16:10, Marcos Paulo de Souza wrote:
-> The flags argument was also used to check if CON_NBCON was set, but their
-> usage was fixed in the last commit. All current users are reading the
-> variable just to call console_is_usable.
-> 
-> By calling console_srcu_read_flags inside console_is_usable makes the
-> code cleaner and removes one argument from the function.
-> 
-> Along with it, create a variant called __console_is_usable that can be
-> used under console_list_lock(), like unregister_console_locked.
-> 
-> --- a/include/linux/console.h
-> +++ b/include/linux/console.h
-> @@ -656,13 +656,8 @@ extern bool nbcon_kdb_try_acquire(struct console *con,
->  				  struct nbcon_write_context *wctxt);
->  extern void nbcon_kdb_release(struct nbcon_write_context *wctxt);
->  
-> -/*
-> - * Check if the given console is currently capable and allowed to print
-> - * records. Note that this function does not consider the current context,
-> - * which can also play a role in deciding if @con can be used to print
-> - * records.
-> - */
-> -static inline bool console_is_usable(struct console *con, short flags,
-> +/* Variant of console_is_usable() when the console_list_lock is held. */
+This series adds a new DRM/Accel driver that supports the C7x DSPs
+inside some Texas Instruments SoCs such as the J722S. These can be used
+as accelerators for various workloads, including machine learning
+inference.
 
-Nit: The comment is a bit misleading because this function is called
-     also from console_is_usable() under console_srcu_read_lock().
+This driver controls the power state of the hardware via remoteproc and
+communicates with the firmware running on the DSP via rpmsg_virtio.  The
+kernel driver itself allocates buffers, manages contexts, and submits
+jobs to the DSP firmware. Buffers are mapped by the DSP itself using its
+MMU, providing memory isolation among different clients.
 
-     I would say something like:
+The source code for the firmware running on the DSP is available at:
+https://gitlab.freedesktop.org/tomeu/thames_firmware/.
 
-/*
- * The caller must ensure that @con can't disappear either by taking
- * console_list_lock() or console_srcu_read_lock(). See also
- * console_is_usable().
- */
-> +static inline bool __console_is_usable(struct console *con, short flags,
->  				     enum nbcon_write_cb nwc)
->  {
->  	if (!(flags & CON_ENABLED))
-> @@ -707,6 +702,18 @@ static inline bool console_is_usable(struct console *con, short flags,
->  	return true;
->  }
->  
-> +/*
-> + * Check if the given console is currently capable and allowed to print
-> + * records. Note that this function does not consider the current context,
-> + * which can also play a role in deciding if @con can be used to print
-> + * records.
+Everything else is done in userspace, as a Gallium driver (also called
+thames) that is part of the Mesa3D project: https://docs.mesa3d.org/teflon.html
 
-And I would add here something like:
+If there is more than one core that advertises the same rpmsg_virtio
+service name, the driver will load balance jobs between them with
+drm-gpu-scheduler.
 
- *
- * Context: Must be called under console_srcu_read_lock().
+Userspace portion of the driver: https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/39298
 
-> + */
-> +static inline bool console_is_usable(struct console *con,
-> +				     enum nbcon_write_cb nwc)
-> +{
-> +	return __console_is_usable(con, console_srcu_read_flags(con), nwc);
-> +}
-> +
->  #else
->  static inline void nbcon_cpu_emergency_enter(void) { }
->  static inline void nbcon_cpu_emergency_exit(void) { }
+Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+---
+Changes in v2:
+- Add thames_accel.h UAPI header (Robert Nelson).
+- Link to v1: https://lore.kernel.org/r/20260113-thames-v1-0-99390026937c@tomeuvizoso.net
 
-Otherwise, it looks good. It is a nice clean up.
+---
+Tomeu Vizoso (5):
+      arm64: dts: ti: k3-j722s-ti-ipc-firmware: Add memory pool for DSP i/o buffers
+      accel/thames: Add driver for the C7x DSPs in TI SoCs
+      accel/thames: Add IOCTLs for BO creation and mapping
+      accel/thames: Add IOCTL for job submission
+      accel/thames: Add IOCTL for memory synchronization
 
-Best Regards,
-Petr
+ Documentation/accel/thames/index.rst               |  28 ++
+ MAINTAINERS                                        |   9 +
+ .../boot/dts/ti/k3-j722s-ti-ipc-firmware.dtsi      |  11 +-
+ drivers/accel/Kconfig                              |   1 +
+ drivers/accel/Makefile                             |   3 +-
+ drivers/accel/thames/Kconfig                       |  26 ++
+ drivers/accel/thames/Makefile                      |  11 +
+ drivers/accel/thames/thames_core.c                 | 161 +++++++
+ drivers/accel/thames/thames_core.h                 |  53 +++
+ drivers/accel/thames/thames_device.c               |  93 +++++
+ drivers/accel/thames/thames_device.h               |  46 ++
+ drivers/accel/thames/thames_drv.c                  | 180 ++++++++
+ drivers/accel/thames/thames_drv.h                  |  21 +
+ drivers/accel/thames/thames_gem.c                  | 405 ++++++++++++++++++
+ drivers/accel/thames/thames_gem.h                  |  45 ++
+ drivers/accel/thames/thames_ipc.h                  | 204 +++++++++
+ drivers/accel/thames/thames_job.c                  | 463 +++++++++++++++++++++
+ drivers/accel/thames/thames_job.h                  |  51 +++
+ drivers/accel/thames/thames_rpmsg.c                | 276 ++++++++++++
+ drivers/accel/thames/thames_rpmsg.h                |  27 ++
+ include/uapi/drm/thames_accel.h                    | 189 +++++++++
+ 21 files changed, 2300 insertions(+), 3 deletions(-)
+---
+base-commit: 27927a79b3c6aebd18f38507a8160294243763dc
+change-id: 20260113-thames-334127a2d91d
+
+Best regards,
+-- 
+Tomeu Vizoso <tomeu@tomeuvizoso.net>
+
 
