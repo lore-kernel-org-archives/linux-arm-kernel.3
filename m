@@ -4,136 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B94ADD38FEF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3D6AD38FEF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:59:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dFg0ZU1cAsHhMYlwQqI8U+srvs69g9Bu04eiqf48wEo=; b=zxxiu5oO5gYAAQEILMSVdUK0+o
-	PA/qNzO5dUhAjYnEGF964qPQVv39MUmFTMdanrRh7aAXLd3RJRYzt+CVMmApADMtS+1ylvnNNkFEY
-	2NTMRiFBWTVBqL2Ng2MXxd2TEmQrhjkxZIQmCPdiEYRR7VmCPX6aurUzWIBtl7aj3JTO14xm+FzQe
-	0dSfFvgTxtTzSbwQ/t5xxzlYoEH93r6R0BikfsKWxU7VZr6grBtVGY9CRNO2enCBFSe9eMJwVTi8w
-	iSitaNha68fZgp5MwAVYQ/3aaGmpn4mWQScE5DNFHHoYyecqO34bmZ2KJxUd/WjLx1eU0mYLtmt3b
-	Cg8sawXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nvlZDl7Sj74xagDLD4MC5KELnDbe4Vh9GRDyybbfdBA=; b=OUmcss/4FUsXq4dbVL1y2jXGAp
+	YMcbHBxSiIYLKErwUzCYlPY+lkgfcRgD9ihL+hNwur+761XzIsCtsNtmLBtqPrzB1bHp8mal5xnbW
+	ttio+arMzGi5SggDNQ5kyYsFCxjtEx0RZENKgNJLP10+uUmrfWirDHsu4g+DPjza8p9dcjJE5Kltm
+	Dm2//AMIEJ87Czvrn7EzSQHFd7TrcnqFnBQAadQI54miRa210obx4STw4N3R553zyCsobf9TtgH/s
+	32tczHPWbdsNNOzkDtPTkwhPOPimhoa17Bc4UBAuAdAhbOT9iIxdSWlbXDfeR6v8HDU+Oyu02jBnp
+	vvGQhfIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4C7-0000000A18r-0QGb;
-	Wed, 14 Jan 2026 16:58:07 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vg4DA-0000000A1Mf-1vZB;
+	Wed, 14 Jan 2026 16:59:12 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4C5-0000000A18A-1uoM
+	id 1vg4D7-0000000A1LM-1G3S
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 16:58:06 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60E9IF6c2552992
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 16:58:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	dFg0ZU1cAsHhMYlwQqI8U+srvs69g9Bu04eiqf48wEo=; b=lztIuwx9z6zbyPP7
-	kEdfuM6akt9+ukcFEgDy8gDnzbIjDO5xmvMUVkss5JruUb7ullgmDGURkDVBPprr
-	529g5B3i2P4Dut1aBIGK/hqcCxLNhgNxmAtLIDM0OAXA8EWBd6PtZl421BnbCM9k
-	pPjdScQh2AsTcc+ejlv7DUQ3id+G4mysWLY6RiLj6wSk5YqpBNWs9gzLgx8Am7/6
-	VqWpFUKx7x9VKSZRe3fR8TggDoT8L3Z/ykTcY5ET1GnSRx5NyUIZxxbnPpTAta4P
-	UAX4CH3nv3bow7p7IAJqs/4m+MDQLMM5nbsGmNJLdVJM6D1jTZT1JgVLpPoJlVKN
-	CNJqdQ==
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bp8d31jgj-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 16:58:03 +0000 (GMT)
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-2b47ce772e4so63910eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 08:58:03 -0800 (PST)
+	Wed, 14 Jan 2026 16:59:10 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-29f02651fccso93805ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 08:59:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1768409883; x=1769014683; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=dFg0ZU1cAsHhMYlwQqI8U+srvs69g9Bu04eiqf48wEo=;
-        b=SSx1J2/7fd9MqN1QCrKSoRD77PHD/wm5JLSSTNSxy7Kv19SKJLAwfUrnHltZuuFGLa
-         6G4xl/ztho3/xEm5Qo57XxzhXW20PFsR+z7vhbD0lnEnm2YoVJL0kJtcIWoEBoCr2H+w
-         HOkq+Kk3kLygQoibFJUl70o887AuK/xACn+FsVje/W91pKL0jkh7YvF4ZE7Folbbs9kz
-         JMoRIrOpOQV3cRyVz0jLGW21NzVB/YYVKQDsIiMisIm27CIe8llHPK/zujx4chFXeuns
-         fOA+6h1TDkaKRF4z0ijLD8t0st59gctnr5yShDdWY5QWJ8GvHIJGvjlK3F2LN9kZNh0s
-         al1Q==
+        d=google.com; s=20230601; t=1768409948; x=1769014748; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=nvlZDl7Sj74xagDLD4MC5KELnDbe4Vh9GRDyybbfdBA=;
+        b=qJpMyHh6ii/Yp7c+jgc7UCJHpeyF1hetClWDePj31dsVeCuvBsMnzvp8Sd70u0eDf/
+         TKfarE1SZ5duPBlqH2HPjsmOBjEegoZudo3zoXIXkmB+Zpxyt6eTYfX7QR43NB6fz+o+
+         7nkrPtNGNV411+8hH0GzHpwb5upN9JxjY/EmZdGxu7sImjeZP4FIcZh58lMzGy1Gg39m
+         /YPmrOA057AFHMr0N0b6PsUyJbAbSTjgdtb6NVQzgp0BCnnbGo5gW5QDlWPAqeFHY3Yw
+         ZyotCEIcGadUXPWiXtbHYW/0zchzDciA0cPIh7kSTHfuQA6AfoHtcIzpeSt1soj0aNjm
+         F4Dg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768409883; x=1769014683;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dFg0ZU1cAsHhMYlwQqI8U+srvs69g9Bu04eiqf48wEo=;
-        b=OFMjx/G4ZrAJwJ4GSDzkfsDtnKe+MVjNzw/RlCYfge6nhZLPscmX9vN3eSIWwqr8yJ
-         Qi9YCdyu7RjxjfdVUSmxF+1sBIrnqdo7Abax8u285cAXogOnKconTfZwrUkg/t1dbHCv
-         3+EX8VVoV6Ubf2dLUZaYXragkXM9WCrChNXHS7ACa/rk9ZvHrAZx/IQ2rx4vAzgqUfJ9
-         pwhfusEOlzMaJCpJCkSb7iEst1DsRmCX4EVTLinIweZJQSur3FXyoC0OH9kPzqzWXmqh
-         xU52bb2NG86euBe3eysa0vnVbm/rOmTT/u3K5ivjxZXUvo9nkdn6TAl9ZvQNJn4TKVoZ
-         njFw==
-X-Forwarded-Encrypted: i=1; AJvYcCU2s+OzH+EzYeqnNhcsMoiy5MsmTmqgFtBqYv3MqCExWpzzKAipxmu6hhlL3dvSeosA3MP5N3Gsg02qA5qP19Yc@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCoMs2EfN50yvKyV1vg3XBC+jOrn9SL7WvpWZ3jQL+MH5oh2si
-	Zk8ha5+D7MN3Z2mGNGjgMScDJ9t4AEGQ/1FuZQHAR7Utj/dOFF3ceDu6OrRkL4WIaW8ns3bvaW0
-	ymycQaurM9NqB5vyuc446DDibJ+BPnbUOf7bnRHtz3JYnn+mox1RbvNKpgHIGJ+K69fdnjWYtdE
-	RLlQ==
-X-Gm-Gg: AY/fxX6LKWUb2qMrT4m6FcHA8Jqnjta/XQIcEuOQDvLKB02y5q2HKQvgc1xekCrA0uE
-	Swww4yl8WSzNUbEb1uzshYAuOP4bJnTo/DHGpMn+mdT0hlY5oL2NfbBfcC9pzP5fH+DjNFz5wW3
-	0baVkQ2JeCZF23OYS19mSg8lwxQDr20Il3+4+HQ0TTgtR9rqlW41JGTGSfcxTuH4lfBNWFj8Muh
-	QjYJbit8QIT295xE8C0tX2LcEP4SmaQeJUfD5aLp4tZiYryU7Y6eYQSIQPNloW844m/DbHju9zm
-	AUKSg+4kmlHuuTTseCo26+3rYSOTtLDmZKVP4mYnbMYGCu587YjXC0Mv7WL7J8IWEcN3RE3+qpO
-	w6L6c6CKv3PNSxXOfaFMCL1btSOVijPsw96n2g+6XsA==
-X-Received: by 2002:a05:7300:cb10:b0:2ae:5020:afe1 with SMTP id 5a478bee46e88-2b486c94e69mr3996892eec.14.1768409882903;
-        Wed, 14 Jan 2026 08:58:02 -0800 (PST)
-X-Received: by 2002:a05:7300:cb10:b0:2ae:5020:afe1 with SMTP id 5a478bee46e88-2b486c94e69mr3996862eec.14.1768409882321;
-        Wed, 14 Jan 2026 08:58:02 -0800 (PST)
-Received: from [192.168.68.59] ([76.93.176.75])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b17078dd8fsm23272007eec.20.2026.01.14.08.58.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 14 Jan 2026 08:58:01 -0800 (PST)
-Message-ID: <6e674553-d0e5-449a-a49f-84f5d32cec94@oss.qualcomm.com>
-Date: Wed, 14 Jan 2026 08:58:01 -0800
+        d=1e100.net; s=20230601; t=1768409948; x=1769014748;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nvlZDl7Sj74xagDLD4MC5KELnDbe4Vh9GRDyybbfdBA=;
+        b=ILkc8F8cD9j9m1JXp1uE4hEbQB4QgPXDPadCRp4PW1xMDXKnA0eBZ2Kvx2Fz+BYwUS
+         XaxwuweKQ13CeL9uSZjmddkxn565dnhxPRZW/soGg/Di6XWMJklZXHzrdeVOzqhQprGO
+         X2k4xQz9fYykJKPqc6kfHuDFN45UT9eyY5CQxO7iqHSjDQTum729Geh6an1AhG04SbTW
+         78yM0FXb0BoPUIP/TcAFH8yZ+EE0Ta+rrLH+JqL69eq3oxAr6QO2Om9WiwZieP7/xhY5
+         GS6jJ4ldv8OjuIeZ3gYpZDwy8vPqfHMfxsbxtoQebu+92lfgKfasP/HJ1oPJxxRvS1N5
+         o96g==
+X-Forwarded-Encrypted: i=1; AJvYcCWElYqMTx49KQWtm8mW2GbV0BTFPHaL9yG3Li76zkWq05DNGBwJ4j5EVgWozlx92ORxRurkkdZLc8wPe1b5USt9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyF+b5whqEBHMGFM3Lk1Qwy9lckQCXjwZD10TrZKO1qKzTtPBCH
+	wNtkhsVUzjZkhMfFU8n8TW2OMNan6HaeD8aO83/SGazq2Yd2EzcT3XTP+2p/4csEZw==
+X-Gm-Gg: AY/fxX4MI9hDIfmmgfctAM/0npuUSbzsfQ+Q6/xEQVdAApJSBRbhvTj2nzdQMlfftC+
+	r41yIM7PIQGjiTfobUuq1WRr/rQdHUqj7/jNQRw3AFKpA0pK8v4DW/JP3w+LgeUEp+s8cYDcH4G
+	n1keYqiOT87byKoaF6ln8kKnOFT3SqmORpB4Xd05Epe8957FqNJe9Lpw/3M1rj6WQJN5XeaFb0j
+	pVZhnmSxnJ07xEUIXUuvWSwBkd4tk025bqT7PQXjpF5SgOq4QYQ3c35gNo9m/Z7BmrREmL/kwHi
+	JTvaY7BsGlDV2CkuQ7YaJg/CBFXztJ2yjEDJoq9UcpPyWrcFGV+I2q8jZxn6kL2BnE/1s/6uRC4
+	I0iVF80N2ma6aPqTz5PNUwMojpEo6OK0jCT7h2Xk8cTNcRElT3M9pHpW15vddFt2av8Jb9DHNd1
+	cdLMFQlt6msfi1g3CssLeoRh6/anen6XQXVwpz1PgwzlipUZp6
+X-Received: by 2002:a17:902:e890:b0:265:e66:6c10 with SMTP id d9443c01a7336-2a599a24a2amr3823475ad.4.1768409948061;
+        Wed, 14 Jan 2026 08:59:08 -0800 (PST)
+Received: from google.com (222.245.187.35.bc.googleusercontent.com. [35.187.245.222])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-81f8e381d7csm135568b3a.0.2026.01.14.08.59.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 08:59:07 -0800 (PST)
+Date: Wed, 14 Jan 2026 16:59:02 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+	robin.murphy@arm.com, joro@8bytes.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, skolothumtho@nvidia.com,
+	xueshuai@linux.alibaba.com, smostafa@google.com
+Subject: Re: [PATCH rc v6 3/4] iommu/arm-smmu-v3: Mark STE EATS safe when
+ computing the update sequence
+Message-ID: <aWfLVlDNZR5ecesC@google.com>
+References: <cover.1768248467.git.nicolinc@nvidia.com>
+ <b8055e0f0f1b4473db2583586350b4f7aa8f3b4c.1768248467.git.nicolinc@nvidia.com>
+ <aWe9C8wwfszvqxR6@google.com>
+ <20260114161557.GB961588@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
-To: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        trilok.soni@oss.qualcomm.com
-References: <20260112-disable_smccc_soc_id-v1-1-a5bee24befb4@oss.qualcomm.com>
- <aWYk_qGvA9Kn0xGe@willie-the-truck>
-Content-Language: en-US
-From: Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
-In-Reply-To: <aWYk_qGvA9Kn0xGe@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: KXK2f0kIECqx7fIm6O1fsyKcNvczRHnv
-X-Authority-Analysis: v=2.4 cv=fbWgCkQF c=1 sm=1 tr=0 ts=6967cb1c cx=c_pps
- a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=Q5rFrUx7DTp4enn/YD2GRQ==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=JZMqPXA25EcJQqw1oVMA:9
- a=QEXdDO2ut3YA:10 a=6Ab_bkdmUrQuMsNx7PHu:22
-X-Proofpoint-ORIG-GUID: KXK2f0kIECqx7fIm6O1fsyKcNvczRHnv
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE0MDE0MiBTYWx0ZWRfX/itQ2wx3oqOn
- d1RtINKrh2BLbKNstbfzUHTvIKHh7zKpJlBKof/pETJfP4riylhlmv9wyKF8ZpZcQxuykOeB+Q0
- TbCo4jqqMzEdBH6vvWWjEUyYdXj/60MNt25QjGHQn1GPvjO0B9A+jpm7dxKfPoafpgc0p3vS2Uf
- yFhM7otDxXgH7NtaV6sfZVdSl7F1XP3ixQgWg6Ktuymzu4R+ZnlXX5TNVvZ2aSkpKbiW8687vMm
- opMXzxH1UQiztfwCc8MdC58YnI3HZW4/pUxb3Z6hOllceGI2JPxF3gffxczOIDegTaeTHmLzwSq
- vgD7Ff0JAZKv6a1cxi7caQaf68slzO3SxISOVsLvM9xmCDUqP7adSfydkJoC3aYEHZNF+nwEzvL
- C/vkw2J+IRA0jxw/yXYtqTn8oE41ReLF2Iz42jovbglPtAmwg9CtL/t5CPuEQ2mj1DJhmL7iara
- nsMNediQWZwiik8cxzQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-14_05,2026-01-14_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 suspectscore=0 impostorscore=0 phishscore=0 priorityscore=1501
- adultscore=0 clxscore=1015 malwarescore=0 bulkscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601140142
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260114161557.GB961588@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_085805_639905_6E785A2F 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20260114_085909_337634_596237A0 
+X-CRM114-Status: GOOD (  24.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,34 +104,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Will,
+On Wed, Jan 14, 2026 at 12:15:57PM -0400, Jason Gunthorpe wrote:
+> On Wed, Jan 14, 2026 at 03:58:03PM +0000, Pranjal Shrivastava wrote:
+> > > +
+> > > +	/*
+> > > +	 * When a STE comes to change EATS the sequencing code in the attach
+> > > +	 * logic already will have the PCI cap for ATS disabled. Thus at this
+> > > +	 * moment we can expect that the device will not generate ATS queries
+> > > +	 * and so we don't care about the sequencing of EATS. The purpose of
+> > > +	 * EATS is to protect the system from hostile untrusted devices that
+> > > +	 * issue ATS when the PCI config space is disabled. However, if EATS
+> > > +	 * is being changed then we already must be trusting the device since
+> > > +	 * the EATS security block is being disabled.
+> > > +	 *
+> > > +	 *  Note: Since we moved the EATS update to the first phase, changing
+> > > +	 *  S2S and EATS might transiently set S2S=1 and EATS=1, resulting in
+> > > +	 *  a bad STE. See "5.2 Stream Table Entry". In such a case, we can't
+> > > +	 *  do a hitless update.
+> > > +	 */
+> > > +	if (!((cur[2] | target[2]) & cpu_to_le64(STRTAB_STE_2_S2S)))
+> > > +		safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_EATS);
+> > 
+> > I understand what we're trying to do here but isn't this implicitly
+> > saying it is safe to transition hitlessly to any non-zero EATS value,
+> > including S1CHK or RSVD. S1CHK might have other config dependencies?
+> 
+> Will pointed this issue with S1CHK, Nicolin has a suggestion to fix it here:
+> 
+> https://lore.kernel.org/linux-iommu/aWarF90zBqxD0Gef@Asurada-Nvidia/
+> 
+> It would block RSVD too.
+> 
 
-On 1/13/2026 2:57 AM, Will Deacon wrote:
-> On Mon, Jan 12, 2026 at 10:24:06PM -0800, Satya Durga Srinivasu Prabhala wrote:
->> The ARM SMCCC SoC ID driver is currently enabled by default and publishes
->> SMCCC-provided SoC identification into /sys/bus/soc/devices/socX/*.
->>
->> On platforms where a vendor SoC driver already exposes widely-consumed
->> attributes (e.g. Qualcomm socinfo [1]), enabling the SMCCC driver changes
->> the format of /sys/devices/soc0/soc_id (e.g. "jep106:XXYY:ZZZZ" instead
->> of a vendor logical ID like "519") and breaks existing userspace consumers.
-> Isn't the fundamental issue here that you have multiple callers of
-> soc_device_register() and your userspace is only looking at soc0?
-Yes, that is right. The issue is we have several products which already
-uses the soc0 interface as vendor interface [1] existed even before the
-SMCCC SCM ID [2]. Also, per SMCCC specification, SOC ID is an optional
-feature. So, vendor specific implementation can take precedence over
-standard implementation or a way to disable SMCCC SOC ID could help.
+Ohh okay, sounds good then, my client dropped it somehow. I'll defer
+this to Will.
 
-Best,
-Satya
->
-> Will
-[1]
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/drivers/soc/qcom/socinfo.c?id=efb448d0a3fca01bb987dd70963da6185b81751e
-[2]
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/drivers/firmware/smccc/soc_id.c?id=821b67fa46390baea0ac5139a60eaa48805261b2 
+> Thanks,
+> Jason
 
-
-
+Thanks,
+Praan
 
