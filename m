@@ -4,121 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3FD2D30CF5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 00:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D8BD30CF5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 00:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gaWdSFFdOKkEXTHGFmdiT7EpMTfrWly43NlKkw7Tnic=; b=I0bg79eahJmR4M6LfeBHJrYjdB
-	C5VRcnnFkF4cLjw2rRO6CUh6hcw63BVNPkQm+BtySlR1qxqKqG2BpHDGyiXXwD7HYNugrQ8lRi5rG
-	2ZtnZvUO6sYj22euzCfNond2SF8/4eaJ8juDzSlkYJbVPTNa4/Cr/KHnzKM89sM0700eRVHJ13D0J
-	JaGJXY5Ek711oYngHVcoxGf8KKt+xA1Hd6oWN0cj2OYS9nKFCaUGgV+Ly7R8q0k4x6m7MjLBgEsV4
-	1PGk3ZoEjv/4UphF0rfWAVzaogGUy4ooHsxrtOER/7Kd7HPNh0+U978cu6Y8VR/qrIxYTzTIbQEzq
-	3YjWaKpg==;
+	bh=Wk1MtC65BmzTTj4u6OLX9Z1CSSD/bx5Qfl3TBNC+yNI=; b=dohIzfmyDQxVB01rXu19bo2uiu
+	0ZHUox5GM9gUvpcwTIBkuR3uKgNBGh2mHibBIVhRAwnbYQyr4uYqWIiw1iX1e66YGDPb7I9lfJe3A
+	qqE4c9QkfKI15mWe5kKJMCuhsxj9FAsdHtzLRrEoq7ihimVnSZBSB6zKMVGOLfdU+/sAKqFub8Ka+
+	LmK4kEjLVVQ8z60yedmWEwgHg/aTAUMPQ/4HJ5U6nzSDWwwcBoXNAdT2hu5iOFS6WgPMMWSlDkiL5
+	3PbWpYPVUeSJQYl15gmPUaj6VLIbL2TZNDt/sMiEri4E9yOuuVoyz+SkzbEOd2jiPkBGq2CQIPTmo
+	XDVXg+Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfoof-00000007uSV-2Tg4;
-	Wed, 14 Jan 2026 00:32:53 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vfos1-00000007uk5-0sbE;
+	Wed, 14 Jan 2026 00:36:21 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfooc-00000007uRB-32b7
+	id 1vforx-00000007ujZ-48OG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 00:32:52 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-47ee301a06aso2930695e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 16:32:49 -0800 (PST)
+	Wed, 14 Jan 2026 00:36:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PeVIFur2VBgNCqtGoXm90osaNu8dLdqnU27e3HD+o06Lw6jOawbOv7uuH5iuIrZoHb/Z2GnbcEk3izRwpwfReGNlkIfd1bv8FfpK+pBEq+F8ZhaBVHkjc7+QFgpbeCIedA6KA5RvYspLBTIvsKahr4fBniIai3aC7tNG1O0zGfF1jeF4JdAwbXnBOeaKTVVT162loSnkC6cAQYiqaCinPheNCPgDWmRYPJ+EFvvSf68bAwaHVYOlcOfjHrTfPtrtjXa/A2kfFymrwI2v7dNrikU34HrdRyexYGRdbSsg/tcQ0Hbz4QkBZkF71fS3WGYBPxQu7bBMfRJTHhuTm44e1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Wk1MtC65BmzTTj4u6OLX9Z1CSSD/bx5Qfl3TBNC+yNI=;
+ b=TyiPrlEhvm9uxRkuVumI5qjyH9075dN29fLleTcsyg++INM5qFiIdXL8oHSY0kHyYcS6icdVM7PfIS0I/41omaVd1Od7rqKNn0tkiB1/eoNbrkki6LGWUpYzSaYSMDXXLWa6QbxDyqkuzsO6Q8zaIagz3lLzbamknQJC93+Dmj6wZnz+EAbyd0smyatFvFCw2vjmCEUxWGgLW4UcfelGG99PRDKjn4GOEmHGg8cbcK7krF2Oda3CLGCELhD919ECUko0aRutYDRn3PSh7I8tEVTtsrTD3/Q91agZIHq+iV1/nqfoiYpJNjzHJqOU7R22CTBVi3ZywJYvUDyjIowdfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1768350768; x=1768955568; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:autocrypt
-         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=gaWdSFFdOKkEXTHGFmdiT7EpMTfrWly43NlKkw7Tnic=;
-        b=KUQmf8RHIEWRTQ6LPatPP6DEEqSC9h5n3JtnllYNhVGQ/hWireKp40v0saxttn+SEb
-         cejlR1zBBTmfPLGN5W6Q5RWAyYjcNAMhrbsUNWItgGQyq+KBw8rCfv+T9Uif1wGJ8aHu
-         iYR+XdfH56vboU0/HBaLIhPFjVnJF4YspmMnRmo2XZK+ij/Vyh4Tk3MGPM4CM+HoZ9QK
-         aV2KYOofIt63veUyCOFQuauYEAw3QZ37lQGVzFRGLUyTobWjCXlngqrOlhoHV4kn9g0Y
-         ISQ3W9xUYly4n8GyOhkWfg2PosTH/VWTYbgHYblRKnvsAkT3xTCKNIdIDeZ3iXmrsAhv
-         QLyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768350768; x=1768955568;
-        h=mime-version:user-agent:content-transfer-encoding:autocrypt
-         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gaWdSFFdOKkEXTHGFmdiT7EpMTfrWly43NlKkw7Tnic=;
-        b=ov4e8ZrAa/pOW/MOHlKwwtCMLfeY+6693Nmmpizi/iRq16n3Pki5GYykhfKRraOCBM
-         FOMytYRKkZZ8Fq2V9u449zHA5wFZ4lK/FHg1I4vWdOI/V7PIh/uV5f8wZ4B+gD/CSj5V
-         TJcJy2ISiPjovQ1K83kfZ3KkhQ38FHesk+otnDNrQnNXgHwVFG3SBLgglQy8MsIR5EVn
-         fFQZFD/wSCGP0IL/dja2p8RsWKaalBUoiA4AD8c3qVVRo4GTzmMwujfqxqgupYlczhdG
-         4SqDGGfDAE6uRt0m9pmGgI4QOXFDFNYD934tBEHDpEsQfNXs3eA5UnoJxslqXI0OAC3M
-         aKXA==
-X-Forwarded-Encrypted: i=1; AJvYcCVtyndddvp6RW1/CZmv13ya4CDXwn8zVeF2bTDnyPOVQdaAjfuiqLZn88T0rJNzkdWTrdF+iDKzq3Fxm44JZvor@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPcYEKyitWe6J0/H8RDojmUpdd5sEhmngKkIjXuP4pQeExZGZ1
-	IpCTAkDzKGvM36HrLHkEHjIZ44N70q43iVy4Yam1NA8IBlAILI5oUXwZYnwcO8crwck=
-X-Gm-Gg: AY/fxX7du/MzMGPdttDM3tvQiVyn/YPO54Xm/t6TCRiDxlwi9XELp/0Q+R+qtSGh19M
-	RGHdQi88WRed2ql82Dz48PgvTVtZlxy2dXTUyjOXZQGms9/3jsUnSpnQdv3XnQ01U6lUfF8PW4j
-	qVR3o9aVjlY8YVGyvyxbbuJ3HX6N9g2nQcJTPjbBkumrERbhK2nY3UqC88r8YHMQR/Hn38PTolv
-	fOS8q9976wvHd9QQYBdBVzIFEgZskWW7hXiCMR8MTMGQNpl2d7c7NepfaYLldDpOFOL8nSrc9uY
-	elRCXMOYOPxa3fh+F9NUc9Vzd2Jh9xqIl2A0SbvE4fMuzjs6xNLtkNOXVAwqZziy+53vb3dZcUT
-	0qEm1S+WlYd0Qg/CIRmV+rutoG6ijQ2QOGCwRewr28ejx3/fga52nGOtR139LqFd7OxrCBdOVvi
-	AhbV4L59tI0cf2zMJy3JTVKxIEkLRIGXL0i4v7hFEwIg==
-X-Received: by 2002:a05:600c:a101:b0:47e:e48b:506d with SMTP id 5b1f17b1804b1-47ee48b510fmr2972975e9.16.1768350767989;
-        Tue, 13 Jan 2026 16:32:47 -0800 (PST)
-Received: from [192.168.3.33] (218.37.160.45.gramnet.com.br. [45.160.37.218])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd5df9c5sm48257391f8f.22.2026.01.13.16.32.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Jan 2026 16:32:47 -0800 (PST)
-Message-ID: <89409a0f48e6998ff6dd2245691b9954f0e1e435.camel@suse.com>
-Subject: Re: [PATCH 00/19] printk cleanup - part 3
-From: Marcos Paulo de Souza <mpdesouza@suse.com>
-To: Daniel Thompson <daniel@riscstar.com>
-Cc: Richard Weinberger <richard@nod.at>, Anton Ivanov	
- <anton.ivanov@cambridgegreys.com>, Johannes Berg
- <johannes@sipsolutions.net>,  Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Jason Wessel <jason.wessel@windriver.com>,
- Daniel Thompson	 <danielt@kernel.org>, Douglas Anderson
- <dianders@chromium.org>, Petr Mladek	 <pmladek@suse.com>, Steven Rostedt
- <rostedt@goodmis.org>, John Ogness	 <john.ogness@linutronix.de>, Sergey
- Senozhatsky <senozhatsky@chromium.org>,  Jiri Slaby <jirislaby@kernel.org>,
- Breno Leitao <leitao@debian.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>, Kees Cook	
- <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli"	
- <gpiccoli@igalia.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael
- Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy	 <christophe.leroy@csgroup.eu>, Andreas Larsson
- <andreas@gaisler.com>,  Alexander Shishkin
- <alexander.shishkin@linux.intel.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue	
- <alexandre.torgue@foss.st.com>, Jacky Huang <ychuang3@nuvoton.com>, 
- Shan-Chun Hung <schung@nuvoton.com>, Laurentiu Tudor
- <laurentiu.tudor@nxp.com>, linux-um@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kgdb-bugreport@lists.sourceforge.net, 
-	linux-serial@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-hardening@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, 	linux-fsdevel@vger.kernel.org
-Date: Tue, 13 Jan 2026 21:32:33 -0300
-In-Reply-To: <a5d83903fe2d2c2eb21de1527007913ff00847c5.camel@suse.com>
-References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
-		 <aVuz_hpbrk8oSCVC@aspen.lan> <aVvF2hivCm0vIlfE@aspen.lan>
-	 <a5d83903fe2d2c2eb21de1527007913ff00847c5.camel@suse.com>
-Autocrypt: addr=mpdesouza@suse.com; prefer-encrypt=mutual;
- keydata=mDMEZ/0YqhYJKwYBBAHaRw8BAQdA4JZz0FED+JD5eKlhkNyjDrp6lAGmgR3LPTduPYGPT
- Km0Kk1hcmNvcyBQYXVsbyBkZSBTb3V6YSA8bXBkZXNvdXphQHN1c2UuY29tPoiTBBMWCgA7FiEE2g
- gC66iLbhUsCBoBemssEuRpLLUFAmf9GKoCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
- QemssEuRpLLWGxwD/S1I0bjp462FlKb81DikrOfWbeJ0FOJP44eRzmn20HmEBALBZIMrfIH2dJ5eM
- GO8seNG8sYiP6JfRjl7Hyqca6YsE
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.2 (by Flathub.org) 
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Wk1MtC65BmzTTj4u6OLX9Z1CSSD/bx5Qfl3TBNC+yNI=;
+ b=ALNculwIfoe/gTFXf8nvVyNb8aD50ENDmOIbAY7BQQ5GahT33mitl/ZzV1a3dq/3JgWm51PjiYUgRhpXEhzTg9DQwR6wjYqzuoFfj5j5fro6bL4NoRuEVZLkuokAuMqF9OgkxY7nVaZl6N1LMleSA98gS1Ak0tXCZxJA3Ch3OIo=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ DM8PR01MB7015.prod.exchangelabs.com (2603:10b6:8:18::5) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9499.7; Wed, 14 Jan 2026 00:36:11 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::46eb:64a3:667c:c1a0%4]) with mapi id 15.20.9520.003; Wed, 14 Jan 2026
+ 00:36:10 +0000
+Message-ID: <5f1bfe55-454c-40d5-ac45-1aed651b3747@os.amperecomputing.com>
+Date: Tue, 13 Jan 2026 16:36:06 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v5 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
+To: Will Deacon <will@kernel.org>
+Cc: catalin.marinas@arm.com, ryan.roberts@arm.com, cl@gentwo.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260107002944.2940963-1-yang@os.amperecomputing.com>
+ <aWZYXhrT6D2M-7-N@willie-the-truck>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <aWZYXhrT6D2M-7-N@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SJ0PR05CA0208.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::33) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|DM8PR01MB7015:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1d4fd4c1-c02b-4359-a08e-08de5304e9ac
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?c1hRVUlDam9VeWJpWVJHUW04aDY5MS9yUmN4bU5pNit1YVFiWmxQcDZoeHFY?=
+ =?utf-8?B?a3JzZ08wREtIK2ZpOTUwU3cyLzlKMERZaHg1Q2ttZFQvNDZvelZqZng0RlBu?=
+ =?utf-8?B?MFo5SkVGSVZJUkxqVWVOTzlrVnRuU0s0dmlkV0dPMmV5S3JjekdHYnZ3emxO?=
+ =?utf-8?B?K0hmTENxa2NheEViOVRjSHRpSnBadCs3ODIvTGplc0dNdDhDWXpidTVhZ0tp?=
+ =?utf-8?B?elY3UGt2ZzBDYXgwUTNPdDA0RDE2L05OZ2JGMEo5dEh3UlN6S2I4c29SZ0I5?=
+ =?utf-8?B?S3NxdEswOEFKekFhL2RqZzhUTG5acWszR2Vuc3RQcUJYVFNlbnVneElTN1Z2?=
+ =?utf-8?B?dGZuZGd4L2taK3ExOXRyeEJvWlBhU1E3V1o2ZlVGWkRHbUJJcHJidzhRMXIx?=
+ =?utf-8?B?ckl1cjZUWVdXaU1kWEpPZXBRZE54N3FpMnFTaG9ZS2JXajVZWjhNMDVJdGEv?=
+ =?utf-8?B?a0N4MWFwYWRKUngvZEdMaVp2RDJJazV0UStRNTlleGRNSmg1OTFFTU9zVUts?=
+ =?utf-8?B?R2NEa0xPbnUxMzBFM2duemplMzRZcmV1ZUhIazdsMjJJdkdJTitSWjh6U0x6?=
+ =?utf-8?B?b3FpY1pYY1VwYzN4SGIzOUpueGIvWDV0eVNYWVN0WTRLcVpkaWRPVEp4WWor?=
+ =?utf-8?B?WnVKakhSQTJiaHRoV2V1SEFrZWI4ZU0yVmtkUlYxcHZWZGQ3YXFFRUhtWEJt?=
+ =?utf-8?B?SCtHUkhVaTJoZVl1enVDc0FXN1BnMXFnNHJ4d3pkL2pvVmFreHBsYldUVG5B?=
+ =?utf-8?B?b3F2SG9GdnM5ZzBOM1hzMndiRFdneGM3YjhTaVJoVVY3Ymd6NXNrcTBqeG1s?=
+ =?utf-8?B?N1QrbDhjTlVQVWlWMUNESXBpcm1BVytqaFEyYWpseGpOWWtteEE3UXZ2ZVAz?=
+ =?utf-8?B?U2ttcVZSQ0I0Nit3LzdWWDVWMFlOdjd3NktIR0dyU3FtRnJTVkNtdzZCaE16?=
+ =?utf-8?B?ck03MjZCSzVQRTFyYzNTMEVkZ1l1VVlqd2g1dmZ4bkNnRE5LWUpYQ2tYeFhX?=
+ =?utf-8?B?MG0remRFM29FbHFwakVDMlk3bVphMWJBTTIrZzlvMEl1ZVlqYms0ZVNBbTUz?=
+ =?utf-8?B?dTNQelFTWUZseFhJL1RuZXM4cmtpKzRNNjEremdoZGNXWXBXeEJRdFl1M1pt?=
+ =?utf-8?B?dng0a21uM1dudzBrRVpkdll1cjQrS1JTOUo3NytEM21IM3NmZFVLS3Fla1dI?=
+ =?utf-8?B?UVRBcytCK3Vud1hqMWVBTUdTVWRXZ3QxV1U3UU9YcjFqV3hlQU1vcmk3L1RQ?=
+ =?utf-8?B?akhsSzJ4SERtVWdFNjNKWGhaMzlPMUhzYzdPU1FZcjduZDQvTEIzUXo4TENj?=
+ =?utf-8?B?MVMzRWFCQVZyUHBiUmR2NXFnbGx0YWFxQ1R4U0NHYTJ0b2kzdE0wa0p6ekM4?=
+ =?utf-8?B?T2RkemNmNm9CaVVoNU40V3RBVkJhczlhTkRmUDNoUi9sc0lqTStobHRmckIy?=
+ =?utf-8?B?TGplSXpQckpyM0ZiS3lYWG9PRFNmVG1UbGJpWmk1cjVBYWhMdG5uRjlDbTlz?=
+ =?utf-8?B?SjNsWGVwNlpEc0F2Ky91TE1tYi9OYTdMaSt0LzMvc2d2cllvRVRJc3lYMkhn?=
+ =?utf-8?B?cW05RUNROGVJZUVyQlFMb2liRHF5ckRVUUl4TmxtUlJlNm03TlgzbndLUFVZ?=
+ =?utf-8?B?SFNGK282UTQxSW92ZmYyamdPNzNjT0dialBMamF4M0wwbU5rZzZrTVlyaktw?=
+ =?utf-8?B?YlpFSElYVERGQkpPb09iVWtvVGxpQ0E1VlpCZDByTEY3Y3hUM0RtSUtoTy9S?=
+ =?utf-8?B?SjZ3emkzeDB6eno0RmhUUHR6TUJSblhyNkRQME5TU0NreTRiRlgzM3dIRkF3?=
+ =?utf-8?B?WndVQmdmY2VsckVKZk12dkVjc2FaVnIzQUJVdU40WVlCd1I3aGlsd1ovRlFG?=
+ =?utf-8?B?WnBuQk1ERDlVQWw5N2FHU2dUcVpwMGxKV1dQbTVmVjBwaWFJcS8xQjVjZTgz?=
+ =?utf-8?Q?NY7yKyhGTzkZl3ZZdSIKYpyHAwoXtani?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bEFaMzE3M1o3eStBeW9IdEJiVHJBdlJyVzBGSzdDM3ZodFpOQUZZbGV1aFdL?=
+ =?utf-8?B?eVpMdWZ4RUU3cFVmQ1ZWNnNLSTl5RW1xQXRzaExkYmNxaSt0aWRrOXpkMXkx?=
+ =?utf-8?B?UUZOQy8rdDBLbFdZbkp4YkpXRXhFZEZLQU80ajNiSG13djltZ2Y5OUlzNjhC?=
+ =?utf-8?B?NVVjc1h0b2JaV0FuL3JpaUptL0FUaHJla1l1TCthTW0rZldJeHlqMWlEdW9x?=
+ =?utf-8?B?T05LUUxuTiszcmxjNVhjK1lRdmNGbVo3RTZYY1ZJMXcrZHlsMENHVXA3TEZ1?=
+ =?utf-8?B?VWtzSG15UFFTWmNvZ3BKSzQ1Q0xhSjFFY216QnJzd1pjVFZ6UE01dkNjVDlu?=
+ =?utf-8?B?NWtlWk1TZzZEejB3UlFsVFI3Rm9oSkd5eEZpa29BN2xoclBlYkpmdWFERG5h?=
+ =?utf-8?B?SjFBN3FPZEs3Z0xoSkREMFhIcVJ5R01TOHpTOUV1bWRxVnQ5cmRFbVp5VjFk?=
+ =?utf-8?B?UEx6eXVsQ3B1KzhncFVwdTVqeGNlRkNzZDRSdm82SEptckd2eEpQYW5sa3d6?=
+ =?utf-8?B?L0dXeEN6ZFpMdmZkTlhWUGFXbUJDWW45eEdKd2c3a21BNHh5RkdOa1FtemVw?=
+ =?utf-8?B?SkI2akNLSWJTZUVoRU5xd1AzdUZjQnRET0JQaXpMaHZvSUlrQWVZVWx2NzAr?=
+ =?utf-8?B?dDZhZFN0QjFVNnJCWUtmeHBpYlZtMVlHck1KY2xvckNXOER4WXVnTFhjSTJG?=
+ =?utf-8?B?Q1d5cFAvZ3RqZUkvN2k3NlNZSXc0NGg1QmxpcGlxakNwMURvT04xS0NwVEU3?=
+ =?utf-8?B?bTNYcEEvSzdQQ0swbmdXc0NaeDN4NjFEUklMeDhwa1pOSForWitCTmhqSDN4?=
+ =?utf-8?B?MmNlVUlPMEcrWi9PQkp2TW1zM1FVNGx2dXFRT1hMY24rOExSajRhWmlSQ0tq?=
+ =?utf-8?B?Tzg3YTN0bzFabFBHUFJya2s5VUVVM0RYZ1RhVEZId1lHcjhOTlY2QndsQldB?=
+ =?utf-8?B?d0RSL1FWbFRqM0kxOUpFVGFOZjJHU0dlbkt4Tm1GSERmNTcwSEQ5eWkwSDVT?=
+ =?utf-8?B?LzU4YVRvbExKaktxV3lwYXU2aWNoNjhkdlUrUmxNS0xDQlhGNStUTEJha2xl?=
+ =?utf-8?B?akpCRFFXOHhDcnhyOVloa0RVK0JGMkFrL1ZJTDlHOHNBQ29ST3NRd3ZGWSt3?=
+ =?utf-8?B?S0Jja2IzU21xRDlDeWhveGFzZGQzZlIrN3Z6ZUppMld4bWsxenVnN0lBTW5Y?=
+ =?utf-8?B?RWJkNDR6NUxDeFo3bEpyTEJzTllNMW1NZ1ZBTFBTdHVtKzZ4OXQ5cEt1V2ZH?=
+ =?utf-8?B?QWVZVHZMNk5QWXpLRW14Qnc3ZDJjcWhiN3Y3RWVmNG9Kenpwck9XYXBmeDJM?=
+ =?utf-8?B?UGJQalAxcXZ0V1M3WG1BbnVXR1FPMEpSN090QnJmbmFGcTFVeDNDT0g1Wks1?=
+ =?utf-8?B?TGcyek16VlptaW1HYUJ6QlEva202RTVNdkRlK1ZPZUpad2dVeXhMdEtoUjBy?=
+ =?utf-8?B?NVhmSmVsclhaV0tRamdhVk5VUDJkcTMyem9zbGNTZ2RvTjdZTzBPNE1oQnY1?=
+ =?utf-8?B?UmpVc0o1OGVHdUtWaHpzaVJtSzdrSkQ5YmR3NXROKzhsU3JkaW9CUmw2QVhS?=
+ =?utf-8?B?U29MUmZWTWlUem1zRnJSMTRIMFVEb2VPRU9LU3Uxd1VlaUdmV01mTE8xaUJl?=
+ =?utf-8?B?UU1DcmJOa05UZzZESUU1VWJkdm54cjZ1QUVRbVR5bTdVYTVnZUJYdE4ycGdR?=
+ =?utf-8?B?eUtpVllSU0tOcEprV1VWenpoVkVaZDJxUkM0WlRlNnhRTnhyQkh0cFZmaVhk?=
+ =?utf-8?B?QXRybDdhQ1gyVTBuSi8wNnY5UitVVmlmeFdjdWdjbjZNQlNRQzB1ci9lbU5Q?=
+ =?utf-8?B?MXBEOCt3a245ZWlaZFdoZUNiUEwrVmZFbU5SV0JjMk9BUjRaN3YrWjZac1E4?=
+ =?utf-8?B?UjBFU05pVlpncDcvZmNQdjUzQmV5cko1b0RUaVNDbE1TaVVUTy9LNW5aUFBa?=
+ =?utf-8?B?VWxXRnM3eE9rQ1JvenY2cENEMkFsenJvQlJWdGs4cjdHK3hlVkY2M0c5TjE3?=
+ =?utf-8?B?NTdCemNybmVXUUFOYWtnUE5CNE82MFlkbWZhN2VheFh6cGlrd3VMTDFFUFhO?=
+ =?utf-8?B?WkFQMkRmUlFNQ09HdllydmYvYVMzc3JJVzhzVVRNdTBmMHpmc0hPcFE5b1Qx?=
+ =?utf-8?B?MS9oLzZoL1h1MHJva0NISU9aUSsrK3lDUTdidkgxaG5IR2dYbWkrZno5ekRl?=
+ =?utf-8?B?aERzcjYxOUtWTE9QTHE0S1ZTMWRtWHl3U3RPdStTOUN2eWhJdUdVVzFMT2lT?=
+ =?utf-8?B?NTdVd1o4bk9aWXlHWFMzR3dEUDRqQnhzMXp0UnVrWDdEa1ZqTGVWT005WkN1?=
+ =?utf-8?B?TSttYzdaZHc5NUZFVTlGSHUyWkNJRUZxTzNGUS9xRmZpMVBpNkZ3Qk1JT3JN?=
+ =?utf-8?Q?zWS/4h/O+E0Vb7DQ=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1d4fd4c1-c02b-4359-a08e-08de5304e9ac
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2026 00:36:10.0850
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sNyjGh+VsKTJwwFmE5p/DO6mlq1UYBT499wZDLN32LzrDExG8AaZr+x2dPTQmBI022keY/QpMBxUShlf9XERA0A/4rCCDyPfpLPjUZAFUfI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM8PR01MB7015
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_163250_815463_03C1F9E5 
-X-CRM114-Status: GOOD (  42.76  )
+X-CRM114-CacheID: sfid-20260113_163618_043373_71488BF7 
+X-CRM114-Status: GOOD (  23.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,189 +181,265 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2026-01-13 at 09:41 -0300, Marcos Paulo de Souza wrote:
-> On Mon, 2026-01-05 at 14:08 +0000, Daniel Thompson wrote:
-> > On Mon, Jan 05, 2026 at 12:52:14PM +0000, Daniel Thompson wrote:
-> > > Hi Marcos
-> > >=20
-> > > On Sat, Dec 27, 2025 at 09:16:07AM -0300, Marcos Paulo de Souza
-> > > wrote:
-> > > > The parts 1 and 2 can be found here [1] and here[2].
-> > > >=20
-> > > > The changes proposed in this part 3 are mostly to clarify the
-> > > > usage of
-> > > > the interfaces for NBCON, and use the printk helpers more
-> > > > broadly.
-> > > > Besides it, it also introduces a new way to register consoles
-> > > > and drop thes the CON_ENABLED flag. It seems too much, but in
-> > > > reality
-> > > > the changes are not complex, and as the title says, it's
-> > > > basically a
-> > > > cleanup without changing the functional changes.
-> > >=20
-> > > I ran this patchset through the kgdb test suite and I'm afraid it
-> > > is
-> > > reporting functional changes.
-> > >=20
-> > > Specifically the earlycon support for kdb has regressed (FWIW the
-> > > problem bisects down to the final patch in the series where
-> > > CON_ENABLED
-> > > is removed).
-> > >=20
-> > > Reproduction on x86-64 KVM outside of the test suite should be
-> > > easy:
-> > >=20
-> > > =C2=A0=C2=A0=C2=A0 make defconfig
-> > > =C2=A0=C2=A0=C2=A0 scripts/config \
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 --enable DEBUG_INFO \
-> > > 	--enable DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT \
-> > > 	--enable DEBUG_FS \
-> > > 	--enable KALLSYMS_ALL \
-> > > 	--enable MAGIC_SYSRQ \
-> > > 	--enable KGDB \
-> > > 	--enable KGDB_TESTS \
-> > > 	--enable KGDB_KDB \
-> > > 	--enable KDB_KEYBOARD \
-> > > 	--enable LKDTM \
-> > > 	--enable SECURITY_LOCKDOWN_LSM
-> > > =C2=A0=C2=A0=C2=A0 make olddefconfig
-> > > =C2=A0=C2=A0=C2=A0 make -j$(nproc)
-> > > =C2=A0=C2=A0=C2=A0 qemu-system-x86_64 \
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 -m 1G -smp 2 -nographic \
-> > > 	-kernel arch/x86/boot/bzImage \
-> > > 	-append "console=3DttyS0,115200 kgdboc=3DttyS0
-> > > earlycon=3Duart8250,io,0x3f8 kgdboc_earlycon kgdbwait"
-> >=20
-> > Actually I realized there was a simpler reproduction (hinted at by
-> > the
-> > missing "printk: legacy bootconsole [uart8250] enabled" in the
-> > regressed
-> > case). It looks like the earlycon simply doesn't work and that
-> > means
-> > the
-> > reproduction doesn't require anything related to kgdb at all.
-> > Simply:
-> >=20
-> > =C2=A0=C2=A0=C2=A0 make defconfig
-> > =C2=A0=C2=A0=C2=A0 make -j$(nproc)
-> > =C2=A0=C2=A0=C2=A0 qemu-system-x86_64 -m 1G -smp 2 -nographic -kernel
-> > arch/x86/boot/bzImage \
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 -append "earlycon=3Duart8250=
-,io,0x3f8"
-> >=20
-> > With the part 3 patchset applied I get no output from the earlycon
-> > (without the patch set I get the early boot messages which, as
-> > expected,
-> > stop when tty0 comes up).
->=20
-> Hi Daniel, sorry for the late reply! Lots of things to check lately
-> :)
->=20
-> Ok, I reproduced here, thanks a lot for testing kgdboc, it's a quick
-> way to check that the new register_console_force is not working. Let
-> me
-> take a look to find what's wrong. Thanks a lot for finding this
-> issue!
-
-Ok, I did a bisect and found out that the issue lies in the last
-commit, where CON_ENABLED was removed. After it, I then checked what
-was wrong, since everything was being plumbed correctly (tm), and then
-I found that it was not:
-
-On _register_console, the function try_enable_default_console is called
-when there are not registered consoles, and then it sets CON_ENABLED
-for the console. Later on, try_enable_preferred_console it checks if
-the console was specified by the user, and at the same time it had
-CON_ENABLED set.
-
-It worked by chance, but now, we don't have this flag anymore, and then
-we are not _marking_ the console on try_enable_default_console so
-try_enable_preferred_console returns ENOENT.
-
-I have added logs for both cases first the case with the patchset
-applied but the last one patch, and it works:
-
-$ vng --append "console=3DttyS0,115200 earlyprintk=3DttyS0,115200
-kgdboc=3DttyS0 earlycon=3Duart8250,io,0x3f8 kgdboc_earlycon kgdbwait" --
-verbose
-
-Decompressing Linux... Parsing ELF... Performing relocations... done.
-Booting the kernel (entry_offset: 0x000000000450d530).
-XXX register_console earlyser
-XXX try_enable_default_console earlyser enabled
-XXX try_enable_preferred_console earlyser user_specified 1 returned -
-ENOENT
-XXX try_enable_preferred_console earlyser user_specified 0 returned 0
-because flags was ENABLED
-
-^^ here, returning 0 means that the console was accepted and will be
-registered
-
-XXX __register_console earlyser registered
-XXX register_console uart
-XXX try_enable_default_console uart enabled
-XXX try_enable_preferred_console uart user_specified 1 returned -ENOENT
-XXX try_enable_preferred_console uart user_specified 0 returned 0
-because flags was ENABLED
-XXX __register_console uart registered
-
-^^^^ same here
-
-Going to register kgdb with earlycon 'uart'
-Entering kdb (current=3D0x0000000000000000, pid 0)=20
 
 
-Now, the logs of the patchset with the last patch also applied:
+On 1/13/26 6:36 AM, Will Deacon wrote:
+> On Tue, Jan 06, 2026 at 04:29:44PM -0800, Yang Shi wrote:
+>> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
+>> rodata=full"), the direct mapping may be split on some machines instead
+>> keeping static since boot. It makes more sense to show the direct mapping
+>> use in /proc/meminfo than before.
+>> This patch will make /proc/meminfo show the direct mapping use like the
+>> below (4K base page size):
+>> DirectMap4K:	   94792 kB
+>> DirectMap64K:	  134208 kB
+>> DirectMap2M:	 1173504 kB
+>> DirectMap32M:	 5636096 kB
+>> DirectMap1G:	529530880 kB
+>>
+>> Although just the machines which support BBML2_NOABORT can split the
+>> direct mapping, show it on all machines regardless of BBML2_NOABORT so
+>> that the users have consistent view in order to avoid confusion.
+>>
+>> Although ptdump also can tell the direct map use, but it needs to dump
+>> the whole kernel page table. It is costly and overkilling. It is also
+>> in debugfs which may not be enabled by all distros. So showing direct
+>> map use in /proc/meminfo seems more convenient and has less overhead.
+>>
+>> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+>> ---
+>> v5: * Rebased to v6.19-rc4
+>>      * Fixed the build error for !CONFIG_PROC_FS
+>> v4: * Used PAGE_END instead of _PAGE_END(VA_BITS_MIN) per Ryan
+>>      * Used shorter name for the helpers and variables per Ryan
+>>      * Fixed accounting for memory hotunplug
+>> v3: * Fixed the over-accounting problems per Ryan
+>>      * Introduced helpers for add/sub direct map use and #ifdef them with
+>>        CONFIG_PROC_FS per Ryan
+>>      * v3 is a fix patch on top of v2
+>> v2: * Counted in size instead of the number of entries per Ryan
+>>      * Removed shift array per Ryan
+>>      * Use lower case "k" per Ryan
+>>      * Fixed a couple of build warnings reported by kernel test robot
+>>      * Fixed a couple of poential miscounts
+>>
+>>   arch/arm64/mm/mmu.c | 202 +++++++++++++++++++++++++++++++++++++++-----
+>>   1 file changed, 181 insertions(+), 21 deletions(-)
+>>
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index 8e1d80a7033e..422441c9a992 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -29,6 +29,7 @@
+>>   #include <linux/mm_inline.h>
+>>   #include <linux/pagewalk.h>
+>>   #include <linux/stop_machine.h>
+>> +#include <linux/proc_fs.h>
+>>   
+>>   #include <asm/barrier.h>
+>>   #include <asm/cputype.h>
+>> @@ -171,6 +172,85 @@ static void init_clear_pgtable(void *table)
+>>   	dsb(ishst);
+>>   }
+>>   
+>> +enum dm_type {
+>> +	PTE,
+>> +	CONT_PTE,
+>> +	PMD,
+>> +	CONT_PMD,
+>> +	PUD,
+>> +	NR_DM_TYPE,
+>> +};
+>> +
+>> +#ifdef CONFIG_PROC_FS
+>> +static unsigned long dm_meminfo[NR_DM_TYPE];
+>> +
+>> +void arch_report_meminfo(struct seq_file *m)
+>> +{
+>> +	char *size[NR_DM_TYPE];
+> const?
 
+Yeah, it can be const.
 
-Decompressing Linux... Parsing ELF... Performing relocations... done.
-Booting the kernel (entry_offset: 0x000000000450d530).
-XXX register_console earlyser
-XXX try_enable_default_console earlyser enabled
-XXX try_enable_preferred_console earlyser user_specified 1 returned -
-ENOENT
-XXX try_enable_preferred_console earlyser user_specified 0 returned -
-ENOENT
-XXX register_console uart
-XXX try_enable_default_console uart enabled
-XXX try_enable_preferred_console uart user_specified 1 returned -ENOENT
-XXX try_enable_preferred_console uart user_specified 0 returned -ENOENT
+>
+>> +
+>> +#if defined(CONFIG_ARM64_4K_PAGES)
+>> +	size[PTE] = "4k";
+>> +	size[CONT_PTE] = "64k";
+>> +	size[PMD] = "2M";
+>> +	size[CONT_PMD] = "32M";
+>> +	size[PUD] = "1G";
+>> +#elif defined(CONFIG_ARM64_16K_PAGES)
+>> +	size[PTE] = "16k";
+>> +	size[CONT_PTE] = "2M";
+>> +	size[PMD] = "32M";
+>> +	size[CONT_PMD] = "1G";
+>> +#elif defined(CONFIG_ARM64_64K_PAGES)
+>> +	size[PTE] = "64k";
+>> +	size[CONT_PTE] = "2M";
+>> +	size[PMD] = "512M";
+>> +	size[CONT_PMD] = "16G";
+>> +#endif
+>> +
+>> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+>> +			size[PTE], dm_meminfo[PTE] >> 10);
+>> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+>> +			size[CONT_PTE],
+>> +			dm_meminfo[CONT_PTE] >> 10);
+>> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+>> +			size[PMD], dm_meminfo[PMD] >> 10);
+>> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+>> +			size[CONT_PMD],
+>> +			dm_meminfo[CONT_PMD] >> 10);
+>> +	if (pud_sect_supported())
+>> +		seq_printf(m, "DirectMap%s:	%8lu kB\n",
+>> +			size[PUD], dm_meminfo[PUD] >> 10);
+> This seems a bit brittle to me. If somebody adds support for l1 block
+> mappings for !4k pages in future, they will forget to update this and
+> we'll end up returning kernel stack in /proc/meminfo afaict.
 
-^^^^ here, it should have registered the console
+I can initialize size[PUD] to "NON_SUPPORT" by default. If the case 
+happens, /proc/meminfo just shows "DirectMapNON_SUPPORT", then we will 
+notice something is missed, but no kernel stack data will be leak.
 
-XXX console_setup hvc0
-XXX __add_preferred_console hvc added, idx 0 i 0
-XXX console_setup ttyS0,115200
-XXX __add_preferred_console ttyS added, idx 0 i 1
-Poking KASLR using RDRAND RDTSC...
-XXX register_console tty
-XXX try_enable_preferred_console tty user_specified 1 returned -ENOENT
-XXX try_enable_preferred_console tty user_specified 0 returned -ENOENT
+>
+>> +static inline bool is_dm_addr(unsigned long addr)
+>> +{
+>> +	return (addr >= PAGE_OFFSET) && (addr < PAGE_END);
+>> +}
+>> +
+>> +static inline void dm_meminfo_add(unsigned long addr, unsigned long size,
+>> +				  enum dm_type type)
+>> +{
+>> +	if (is_dm_addr(addr))
+>> +		dm_meminfo[type] += size;
+>> +}
+>> +
+>> +static inline void dm_meminfo_sub(unsigned long addr, unsigned long size,
+>> +				  enum dm_type type)
+>> +{
+>> +	if (is_dm_addr(addr))
+>> +		dm_meminfo[type] -= size;
+>> +}
+>> +#else
+>> +static inline void dm_meminfo_add(unsigned long addr, unsigned long size,
+>> +				  enum dm_type type)
+>> +{
+>> +}
+>> +
+>> +static inline void dm_meminfo_sub(unsigned long addr, unsigned long size,
+>> +				  enum dm_type type)
+>> +{
+>> +}
+>> +#endif
+>> +
+>>   static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+>>   		     phys_addr_t phys, pgprot_t prot)
+>>   {
+>> @@ -236,6 +316,11 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+>>   
+>>   		init_pte(ptep, addr, next, phys, __prot);
+>>   
+>> +		if (pgprot_val(__prot) & PTE_CONT)
+>> +			dm_meminfo_add(addr, (next - addr), CONT_PTE);
+>> +		else
+>> +			dm_meminfo_add(addr, (next - addr), PTE);
+>> +
+>>   		ptep += pte_index(next) - pte_index(addr);
+>>   		phys += next - addr;
+>>   	} while (addr = next, addr != end);
+>> @@ -266,6 +351,17 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>>   		    (flags & NO_BLOCK_MAPPINGS) == 0) {
+>>   			pmd_set_huge(pmdp, phys, prot);
+>>   
+>> +			/*
+>> +			 * It is possible to have mappings allow cont mapping
+>> +			 * but disallow block mapping. For example,
+>> +			 * map_entry_trampoline().
+>> +			 * So we have to increase CONT_PMD and PMD size here
+>> +			 * to avoid double counting.
+>> +			 */
+>> +			if (pgprot_val(prot) & PTE_CONT)
+>> +				dm_meminfo_add(addr, (next - addr), CONT_PMD);
+>> +			else
+>> +				dm_meminfo_add(addr, (next - addr), PMD);
+> I don't understand the comment you're adding here. If somebody passes
+> NO_BLOCK_MAPPINGS then that also prevents contiguous entries except at
+> level 3.
 
+The comment may be misleading. I meant if we have the accounting code 
+for CONT_PMD in alloc_init_cont_pmd(), for example,
 
-^^^ again, it fails because we don't flag the console with CON_ENABLED
-as before.
+@@ -433,6 +433,11 @@ static int alloc_init_cont_pmd(pud_t *pudp, 
+unsigned long addr,
+                 if (ret)
+                         goto out;
 
-XXX register_console hvc
-XXX register_console ttyS
-XXX try_enable_preferred_console ttyS user_specified 1 returned 0 with
-user specified
-XXX __register_console ttyS registered
-[    0.000000] Linux version 6.18.0+ (mpdesouza@daedalus) (clang
-version 21.1.7, LLD 21.1.7) #374 SMP PREEMPT_RT Tue J
-an 13 21:08:34 -03 2026 reserved
-[    0.000000] earlycon: uart8250 at I/O port 0x3f8 (options '')     =20
-[    0.000000] kgdboc: No suitable earlycon yet, will try later       =20
++               if (pgprot_val(prot) & PTE_CONT)
++                       dm_meminfo_add(addr, (next - addr), CONT_PMD);
 
+                 pmdp += pmd_index(next) - pmd_index(addr);
+                 phys += next - addr;
+         } while (addr = next, addr != end);
 
-So, without any console kgdb is activated much later in the boot
-process, as you found it.
+If the described case happens, we actually miscount CONT_PMD. So I need 
+to check whether it is CONT in init_pmd() instead. If the comment is 
+confusing, I can just remove it.
 
-I talked with Petr Mladek and it would need to rework the way that we
-register a console, and he's already working on it. For now I believe
-that we could take a look in all the patches besides the last one that
-currently breaks the earlycon with kgdb and maybe other usecases.
+> It also doesn't look you handle the error case properly when the mapping
+> fails.
 
-Sorry for not catching this issue before. I'll use kgdb next time to
-make sure that it keeps working :)
+I don't quite get what fail do you mean? pmd_set_huge() doesn't fail. Or 
+you meant hotplug fails? If so the hot unplug will decrease the 
+counters, which is called in the error handling path.
+
+>
+>> -static void unmap_hotplug_pte_range(pmd_t *pmdp, unsigned long addr,
+>> +static void unmap_hotplug_pte_range(pte_t *ptep, unsigned long addr,
+>>   				    unsigned long end, bool free_mapped,
+>>   				    struct vmem_altmap *altmap)
+>>   {
+>> -	pte_t *ptep, pte;
+>> +	pte_t pte;
+>>   
+>>   	do {
+>> -		ptep = pte_offset_kernel(pmdp, addr);
+>>   		pte = __ptep_get(ptep);
+>>   		if (pte_none(pte))
+>>   			continue;
+>>   
+>>   		WARN_ON(!pte_present(pte));
+>>   		__pte_clear(&init_mm, addr, ptep);
+>> +		dm_meminfo_sub(addr, PAGE_SIZE, PTE);
+>>   		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+>>   		if (free_mapped)
+>>   			free_hotplug_page_range(pte_page(pte),
+>>   						PAGE_SIZE, altmap);
+> Is the existing code correct for contiguous entries here? I'd have
+> thought that we'd need to make the range non-contiguous before knocking
+> out the TLB.
+
+Thanks for pointing this out. I didn't pay too much attention to such 
+details to the existing code. Actually I did notice hot unplug code 
+doesn't handle contiguous mappings, so I added 
+unmap_hotplug_cont_{pmd|pte}_range() in this patch in order to maintain 
+the counters correctly. I'm not sure it is intended (or maybe just 
+unnecessary) or just an overlook.
+
+You are concerned this may result in misprogramming issue? TBH, I'm a 
+little bit confused by the "misprogramming contiguous bit" described in 
+ARM ARM. In this case, the TLB flush should remove the large contiguous 
+TLB entry, so there should be no overlapping entries in TLB. Or this is 
+still a problem because some entries have contiguous bit set, but some 
+don't? But when we change the contiguous bit for a range of entries, 
+there is always a moment that some have contiguous bit set, but some 
+don't. My understanding is it is fine as long as there is no overlapping 
+entries in TLB. Anyway I may misunderstand it.
+
+Thanks,
+Yang
+
+>
+> Will
+
 
