@@ -4,155 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED883D38FEA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:44:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1883D38FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:47:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pB2Dka2h9dV4OQhA4vL9qhRvXvwE7dh5oqaT4ryNkf4=; b=H7ojaBdJ6SzBkXuFMFJ7xlOLfS
-	4bymGFOhZiawqzee3+Uqq52efZSMIStdMsXAbtvYGnjCtGREQoZ7uA0epsSWOFKB2T9W1Gomqgdke
-	DMagLnguKx9FfFiFtxQbgtORXLlcCJU3FaIiq4TdGsfnzQHrK8lhUQFoR72tyynlmHvoPmDe5b4wW
-	uVWTEsVrel1tKUnlB/P9a9q94UPDTwan6xtVIAZkWj5qarByTuDL8euLhBo8bETd5fxHBqgjmqU1G
-	hA8gY+WRRzYyIeZofeXRpdyC5PFIVHCbyFFnV+EEfnKaGWBO85mdJygCakMndv3fJMrtPYNIOJjH6
-	js5S2AVg==;
+	bh=FZlBW19ism8Y4Q+UfrF9L1TFnOQE4myOHmJa56c20bc=; b=2rQppPC2umFD7vZhC7dDRTXuqD
+	mhNWlFSA9CWt4c3UpuQHwtIGKFFMm3/wl6jpXIwc3g7rO1mgBM1Os92SfWxlwAe5fGWrflnZVQeAX
+	cob9X5Lcp3s/BGm/AF98NEglb7hdray878VqwP4rkwiylcrKbOEjvKpIJCsWlGWIlD48sdeMbikUz
+	Gt3RBhh3Ghx/3/XR1Xq3VnwpghgtnnWhMSLmhCGHSVVr8bJBn0khgccUqgi31yNjF7Vgr8ymxq+Tf
+	qibDoMXPdDGoJ3qJVo2ynaUsv1Q7ok4uNR8Dtxxt5a1sc2EFl9Qw89kOGPMP2JxCpnhNLDakR3aqM
+	8vJCEJpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg3yQ-00000009y2d-3fGr;
-	Wed, 14 Jan 2026 16:44:00 +0000
-Received: from mail-norwayeastazon11013008.outbound.protection.outlook.com ([40.107.159.8] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vg41W-00000009ybH-19MV;
+	Wed, 14 Jan 2026 16:47:10 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg3yP-00000009y0w-0QbK
+	id 1vg41T-00000009yaP-1Agy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 16:43:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HU0QiCopdRq1oZNJT7o7ckTg2r3aXYRgAgpVwDKPF1zwWSYpVjpHPjYKJD3AAMcsNiviFPt1ZSNP1EfIeEreaduH+uzjv0h+ACHHpJzVy6qhSOuJPx0C7F+hAVIS7DuKH1m6M1rbBCZxgHw3hhdpkiRjWOcjLFlqq4K3+8FQxFVEQLFzVIlYujYqhh/wbouRfew5ChLEDx/EnvCk9wfxMl+3o0IZUeUuqZjjia1TAXbEBb7kX1k5gvTTQoi/ZTay+6vvyQATsapu3JWkR8iMTl86CEzzROlhHWmuy8Dz4ZkPjS/k0hP3upJFXFZDWJX3MH0bmThi33eiai0uxMhzbQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pB2Dka2h9dV4OQhA4vL9qhRvXvwE7dh5oqaT4ryNkf4=;
- b=wQaeatEOiUjGN6YEmw9T8M0fak00JiEKzybNt+AeLMyhqSrqvXydvdcon9zV+tUSjTbZfqudndX8y141nUagWPIeTKoSCNuBJOuQu86YowabyTkmbBqmmNHTEXVKhzZwy7qtksBERUlMgabHpjkNPaFoeldz/43rTNBLCF9YQmdOQbKmYeiJkVWdIlcrJCBD6OOJCsBnC2jsuozSiePD2nctbiT4FL1gpDK1vUBXjBxi96BdZrkcw7U9DfcM5+InPwOrjhTMzo1pBM1a5VT87gExBw1NY7YqKO5rYAhunsV63+ciXUWW8VpPeg/ShfeXeCDwjw6t7A2ZZuo8oH/S3Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pB2Dka2h9dV4OQhA4vL9qhRvXvwE7dh5oqaT4ryNkf4=;
- b=NwzXTt7aus7uZak+wDFz96liGSn9SdNTIoXNLlNwpsJfv2YIzb9L/UnCgqUcqsaeCkBMAftkh84A8uoGXwpq1jllsatD8T5jvG/yTx9Wg+0+LhWisrVbQqOmu7aG9bKQOBX7hTziG3p5VPGI2svTyaoq4TuQ/LZdR96vdXzWAlWwC9jXrPMB3kAVxNBozYg4IvoouV8+aYRPUAJ5f2nLB3O5DTuESVaxZU1R+54zRc66p8c8jHUq8DuGWQU7M6+WgMyJt7n+7rUopaPYWg9bVn/tOfV16/5GUB7UFWGgvLJAVRggmBa8ANtYIuFCFM2oW6rR0OdqyVvdXoaLpZMLQA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from GV1PR04MB9071.eurprd04.prod.outlook.com (2603:10a6:150:22::11)
- by VI0PR04MB12079.eurprd04.prod.outlook.com (2603:10a6:800:310::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Wed, 14 Jan
- 2026 16:43:50 +0000
-Received: from GV1PR04MB9071.eurprd04.prod.outlook.com
- ([fe80::b7f2:1d0:6b6a:ba58]) by GV1PR04MB9071.eurprd04.prod.outlook.com
- ([fe80::b7f2:1d0:6b6a:ba58%3]) with mapi id 15.20.9499.005; Wed, 14 Jan 2026
- 16:43:49 +0000
-Date: Wed, 14 Jan 2026 10:43:44 -0600
-From: Han Xu <han.xu@nxp.com>
-To: Haibo Chen <haibo.chen@nxp.com>
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-spi@vger.kernel.org,
-	imx@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] arm64: dts: imx952-evk: add MT35XU01G spi nor flash
-Message-ID: <20260114164344.whdnpnyob6xuxhms@cozumel>
-References: <20260114-xspi-imx952-v1-0-acc60a5a2a9d@nxp.com>
- <20260114-xspi-imx952-v1-3-acc60a5a2a9d@nxp.com>
+	Wed, 14 Jan 2026 16:47:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768409227; x=1799945227;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=EzycDMpq2jHVOqqH80bCxoEYvUe/tN0Q/0cmWc3xYEo=;
+  b=PR41azQlfBxGawLtbYKy1ntX+u4LPNDmEAaNBdH841HRRPYAx6qqM2S1
+   s7ADCgxYshA8c5DtDVXduYChua5d/LuIIprSqb4xQyCXrg5/byWiYuCRn
+   ni4rElRgSReS6DNksZabDjWG2zUoUPgdmYggdzQUmP5oZinON9jAo8RAe
+   kNJY9z5Hmvf91Uj0SbvSCDY5VUGu7UtX1uoR8v3ZktRSIkW/1vjnYN+6x
+   e7YbXx6Ev7xrxF+MKpf2BKAcW1wH3IL+AQRNmhjoX1STcQuFRqNUm7NR8
+   zNJQJ2Om3eDe3WvjDe4pcTYqseZB0Muv4olFzKDNURIV6WVZpKpfH9XMX
+   g==;
+X-CSE-ConnectionGUID: AL4HF6wQRAOMY7JNN9SATw==
+X-CSE-MsgGUID: bFnOyrQeQgOeKJkJAOAVdQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11671"; a="80433684"
+X-IronPort-AV: E=Sophos;i="6.21,225,1763452800"; 
+   d="scan'208";a="80433684"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2026 08:47:05 -0800
+X-CSE-ConnectionGUID: cM7znGc7Q2G6xSzcbsfusQ==
+X-CSE-MsgGUID: Lu3opdRzTP+yYXUyMxmeiQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,225,1763452800"; 
+   d="scan'208";a="209771997"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa005.jf.intel.com with ESMTP; 14 Jan 2026 08:47:02 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vg41L-00000000GfS-0sEs;
+	Wed, 14 Jan 2026 16:46:59 +0000
+Date: Thu, 15 Jan 2026 00:46:30 +0800
+From: kernel test robot <lkp@intel.com>
+To: Xu Kuohai <xukuohai@huaweicloud.com>, bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Anton Protopopov <a.s.protopopov@gmail.com>
+Subject: Re: [PATCH bpf-next v4 3/4] bpf, x86: Emit ENDBR for indirect jump
+ targets
+Message-ID: <202601150016.x24DRk9R-lkp@intel.com>
+References: <20260114093914.2403982-4-xukuohai@huaweicloud.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260114-xspi-imx952-v1-3-acc60a5a2a9d@nxp.com>
-X-ClientProxiedBy: PH7P220CA0054.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32b::11) To GV1PR04MB9071.eurprd04.prod.outlook.com
- (2603:10a6:150:22::11)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV1PR04MB9071:EE_|VI0PR04MB12079:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1e17eed5-4764-440e-ea57-08de538c17cf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|19092799006|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wNLCGs8MZIkMImfmBzWQcjrFrzohyhJHiuPjQEeHHWn0QK+9f1bqtwXnW16R?=
- =?us-ascii?Q?5uGVLZ+BvfkPDpA+9Bo191BcDLNWWdN5sFycS/gFFliVOW1wRb53p3JsBHtR?=
- =?us-ascii?Q?1QC5HM273x7WowbWD2quariBx3kpIR+eGD2FwfiWd1K2Jli7bditqBGK4T7f?=
- =?us-ascii?Q?ouHpzAiXHP5QdsAOfrrgLDnpeLv27w3ngwDBJb37V6hStLzckPTTjSKPhe63?=
- =?us-ascii?Q?CbKetztATidEGU98sAgkwjWkSSkkQNKGpufBMd9m4GuwXiVrfo7OYczhGr3A?=
- =?us-ascii?Q?5FTERy2vgczFOpeQ7JR8toyb2j7oF0xInb3hpnhZkUr+kJwXu6OBhZk+iWo6?=
- =?us-ascii?Q?VY+5iXzljTpFsSa/nIVBCs4Te15pPoh002txJWUr2crDHULemm5Rlt+PGPPs?=
- =?us-ascii?Q?WraThmplZJAskWtPIJXqdO0D1Zxaad0VWk4Kz0RD7QhsSkW5LBVTL7zY4fMP?=
- =?us-ascii?Q?zVVUxhdk3/Q935m8sqKRClQJef0JuKZOloEHWRYKSRRuRTk2le4P6CtDz5Wb?=
- =?us-ascii?Q?eFisnWu65An0ru87YrMFpoc5vqcSidsZZFy01qaUdG+KzWyT9QxLusliwRVW?=
- =?us-ascii?Q?D5lUkUUrCkFh4N4RBQI/I4y5EkAQbyJdZzqyxaW6H+puOm75SFTjLFWCzimY?=
- =?us-ascii?Q?QZCOsMVs93BVr6Pj0mZQn819IGUXz53lk3Ltt/7J4gfa0QN30JIPSkIXrffT?=
- =?us-ascii?Q?C8hCV8SWXWS9DkUTYPmEWY3hwsOrcKE/zObRjcDT0d37MGUmskWHoJGxtrjx?=
- =?us-ascii?Q?CbNs8lYNXEGgvtyINUyr5cmykaeatmn8E3tSnq80TOtvCZB9W5NoL2HGTZHm?=
- =?us-ascii?Q?JnTC3BsyFyeg5LH7pobmxDF6UcK4BIN6vZ4U29QhNuZfsqXuwtTzxSNiTcwe?=
- =?us-ascii?Q?+PkbU8G+F7E1R26KQM281PyRlXBF0XU1KeCYhUJcz6tNd8D2ZDeVxuOv1e/V?=
- =?us-ascii?Q?QaYC2GrxBxGC/ld/v1NiDx5fvzEGAVx7XRseTHKfgxHSSWcEjIbffrGdqwFP?=
- =?us-ascii?Q?2PYWwnPOpbnYigPZwPy6aTt1HsGw+kANE/A9V5MmHONKCWT5r3lTzh+R5nE7?=
- =?us-ascii?Q?J5S7OkiixkJbaABykz8pLC7iUQRTzRvv+QxYRuW6qmJ2LNd4lB4nAFN6HT1g?=
- =?us-ascii?Q?9UXRPbR6KUlTMKqg1yx9sf0sbHQzxmqhhsQa4xFWvtRw5B86XhfG6tfOV7Vt?=
- =?us-ascii?Q?k3uXsNuwMn/GOM1vzX56D7/tbxU7gcH0fsY1fXAuT+uXAkLoUKusv8gsuYw/?=
- =?us-ascii?Q?TZy6XLZYwTyTn6VzcrlR1Ego5bfB9xiamBCEpuDogu5HoJgO1jHDFdGnajKS?=
- =?us-ascii?Q?CjP2bJ6x9hgzHWu+ax40k+oznMaDiuEkCtozd4ydRixKW8ei2vMaAXl4AUVs?=
- =?us-ascii?Q?ciKGxikPi53NXGjnVO/WcWj69arTyBhZ0JhpsnODlTz8atQzasUFZhFWdbU6?=
- =?us-ascii?Q?FTZ+4wLDOoQ2yi8VPFCIaXzK6iUgeF2hstgZxFAX3R/QiobO14aUNd2+j5og?=
- =?us-ascii?Q?bNovX+a9oO8W+aA09lCqUCqitrsAdxSxSMiuGZ4exNK3BkAMbL6D5oiQ3Dgx?=
- =?us-ascii?Q?tqJ6wi+uLMZzbwxbruUxu0rgW53OYaUV9Y5k1O3o3NbQ+dn4WJuo1sQEGka1?=
- =?us-ascii?Q?v8E2vZX/w9ZrjnkK98dHVVA=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB9071.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(19092799006)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6B59heZsqEnW5vHP5Jh+fdpa695la4yuuY638k7cJQsimWlaM90xbtmbPY0d?=
- =?us-ascii?Q?9LFUe7YskC20hG8gyx9IfVop5G6+5sQjWSaA5fptX2bRam57VEkcwqm5mUX0?=
- =?us-ascii?Q?8El43h8paUH7WmnejGNo50aaM47B6uj1NXuDu4MW4e6/3+NHYmx87SGQso1W?=
- =?us-ascii?Q?27je5f72z6x98D/HM9ulECydAmna+/WhYLQ5QFxLvevy4IsFWeZNZzPCRs0b?=
- =?us-ascii?Q?/yDtRESL8ViM4/85Q2SgfKOvPEHKefdm9u+bYEfMzhsZRF6H497VhqI1f5KC?=
- =?us-ascii?Q?HcgAbZQcXWsfbTTSKEVK/PR+C0HIC9GvMnyqLSZK0tsiBJ1GcATvGbQ2LR5b?=
- =?us-ascii?Q?5ysSEdM6ul4JRAb3DJnF+CuR+PQtB1QeZrw3zl4ARBKj0ydhG69j7amFeo1Y?=
- =?us-ascii?Q?pmzNgAjLNAZh8zHqPz0CI0wH9W4WtzR9p5n3efcJ8mGZtfP0WL2hoWp4y1mJ?=
- =?us-ascii?Q?A4vn3Ia62WG9EyyECC6RKYWakilndMHETI9RHlYCQyBhheI/Cuwoy1sdItOz?=
- =?us-ascii?Q?vYd9ALFratuM91tQcxwHpIkQLDzpm180wGuQk6eNeYrJcgK7FAd/faOZZf5S?=
- =?us-ascii?Q?dnytTGyXlSdc4Xo3uBmUcDdlcjINfHC7qFpgTaXkIDt8wCEWg5h0h7+P7Q/y?=
- =?us-ascii?Q?p2LyE30S6iPVojjgBvmYy507Ai2OgX9IJhlFy0wuGj5B7VS0DFImuLA69v8n?=
- =?us-ascii?Q?od2fA7H6iBxthbm2IuT/63GNtykDHhUZzlWmbLAirDvMq5lfixHJ2zDloRv/?=
- =?us-ascii?Q?+IA7iqrxZMI7COJCVN1wzphynITprnLMjY/7OOCtgnEpjTieYfCSqJo0IDNT?=
- =?us-ascii?Q?nogOXcCTh5kvhb5yGdAIlp9FVJ1VmuZfMdDuLVeru8qkpEK+vYZ5eQOshiqb?=
- =?us-ascii?Q?/MhW+oG6lZSld7TB6jFcOSpWDIlBcY9epXMWRoi8mk+BF0K1SkyxuvL4fn/S?=
- =?us-ascii?Q?7zjSspfWmoSOExEikTB+gGChQ/MSVfJcZ4fP4XzrYplCIAR1HMh+gelTaAJ6?=
- =?us-ascii?Q?+JDiVIoHIHxZ52LcqKDVJdB6BzXa5/WSDOGWvnxUhdT2oK+jZ038eZKAoiu5?=
- =?us-ascii?Q?iy/90KD9YXSsN+E87UVfkUIpmPyXozzIls84BCXSb7fOqrrFdkvTsxb1wMHR?=
- =?us-ascii?Q?VnUC5dctktGyt8SYBZGquHNPqm7ex85jbJcLUXo/pESoCFXG86d1VMEEyKxr?=
- =?us-ascii?Q?3pgQMUEWhoz7P9ukUezrG1hNviKFiEm7j5Nrj06j9M8SgCSvzNvmXArEju0M?=
- =?us-ascii?Q?BFIpBB3VW3FYLiv9pp01eEtQ5Bp+KtSzvigB76nLRcgR/5OzYHrB/rsHpl0o?=
- =?us-ascii?Q?rIjtcfRNT/FYvo2lMRxh5tHcSqPt8OtZBne1j9Vn3Pqrb2KqSjew0Ks0XDGK?=
- =?us-ascii?Q?oUtbSyHijosYWcWFfXILFQOeWSedPJFEi284mgGDZEKZj8NZSiAstNMvhqk7?=
- =?us-ascii?Q?JlsxyCmopQyU+hID240qwM6OLfOpN3Tl/uKg2FRx0Ds0UbqUTju8UHAGkPOQ?=
- =?us-ascii?Q?Knzpq/5VzInD21/YvJhOJMB7djxzTqKN5YJC/+nIeOcMuCKgbQKeaY5CDSGU?=
- =?us-ascii?Q?Pi/cQzlRhQg+rPRr+MxnN8r0vYrSDWqmei19b0v3U16/HVX4PDgIDenI0o42?=
- =?us-ascii?Q?FeNJ+OumrQC9GOHrt6NaHMytXuC1MlCPK7tPwKc2wNDzzyb5EyqxD1SiEIfT?=
- =?us-ascii?Q?58ug+3wyEYIP78yKuRLqbflG0Uki7D4oY2s87iWNqC02obJB?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1e17eed5-4764-440e-ea57-08de538c17cf
-X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB9071.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2026 16:43:49.5413
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DD6cLWzhm7f65Y6Nx/dV6VEC1uMlkvwT2LNExp3TUYbDrL5bejPsEmR1Ai8X2tU8
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12079
+In-Reply-To: <20260114093914.2403982-4-xukuohai@huaweicloud.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_084357_174870_F8CE0A8C 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20260114_084707_369399_243EEF1C 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,77 +95,523 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/01/14 02:49PM, Haibo Chen wrote:
-> Add spi nor flash MT35XU01G support, it support OCT DTR mode
-> at 200MHz.
-> 
-> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+Hi Xu,
 
-Reviewed-by: Han Xu <han.xu@nxp.com>
+kernel test robot noticed the following build warnings:
 
-> ---
->  arch/arm64/boot/dts/freescale/imx952-evk.dts | 41 ++++++++++++++++++++++++++++
->  1 file changed, 41 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/imx952-evk.dts b/arch/arm64/boot/dts/freescale/imx952-evk.dts
-> index 2c753fcbae3c5d545f5d835bd70492667061d626..534c93e527d0f3fb14ff3f21114993aae1d88a88 100644
-> --- a/arch/arm64/boot/dts/freescale/imx952-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx952-evk.dts
-> @@ -111,6 +111,25 @@ &usdhc2 {
->  	status = "okay";
->  };
->  
-> +&xspi1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_xspi1>;
-> +	status = "okay";
-> +
-> +	mt35xu01gbba: flash@0 {
-> +		compatible = "jedec,spi-nor";
-> +		reg = <0>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_xspi1_reset>;
-> +		reset-gpios = <&gpio5 11 GPIO_ACTIVE_LOW>;
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		spi-max-frequency = <200000000>;
-> +		spi-tx-bus-width = <8>;
-> +		spi-rx-bus-width = <8>;
-> +	};
-> +};
-> +
->  &scmi_iomuxc {
->  	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
->  		fsl,pins = <
-> @@ -214,4 +233,26 @@ pinctrl_usdhc2_gpio: usdhc2gpiogrp {
->  			IMX952_PAD_SD2_CD_B__WAKEUPMIX_TOP_GPIO3_IO_0		0x31e
->  		>;
->  	};
-> +
-> +	pinctrl_xspi1: xspi1grp {
-> +		fsl,pins = <
-> +			IMX952_PAD_XSPI1_DATA0__WAKEUPMIX_TOP_XSPI1_A_DATA_0		0x39e
-> +			IMX952_PAD_XSPI1_DATA1__WAKEUPMIX_TOP_XSPI1_A_DATA_1		0x39e
-> +			IMX952_PAD_XSPI1_DATA2__WAKEUPMIX_TOP_XSPI1_A_DATA_2		0x39e
-> +			IMX952_PAD_XSPI1_DATA3__WAKEUPMIX_TOP_XSPI1_A_DATA_3		0x39e
-> +			IMX952_PAD_XSPI1_DATA4__WAKEUPMIX_TOP_XSPI1_A_DATA_4		0x39e
-> +			IMX952_PAD_XSPI1_DATA5__WAKEUPMIX_TOP_XSPI1_A_DATA_5		0x39e
-> +			IMX952_PAD_XSPI1_DATA6__WAKEUPMIX_TOP_XSPI1_A_DATA_6		0x39e
-> +			IMX952_PAD_XSPI1_DATA7__WAKEUPMIX_TOP_XSPI1_A_DATA_7		0x39e
-> +			IMX952_PAD_XSPI1_DQS__WAKEUPMIX_TOP_XSPI1_A_DQS			0x39e
-> +			IMX952_PAD_XSPI1_SCLK__WAKEUPMIX_TOP_XSPI1_A_SCLK		0x39e
-> +			IMX952_PAD_XSPI1_SS0_B__WAKEUPMIX_TOP_XSPI1_A_SS0_B		0x39e
-> +		>;
-> +	};
-> +
-> +	pinctrl_xspi1_reset: xspi1-reset-grp {
-> +		fsl,pins = <
-> +			IMX952_PAD_XSPI1_SS1_B__WAKEUPMIX_TOP_GPIO5_IO_11	0x39e
-> +		>;
-> +	};
->  };
-> 
-> -- 
-> 2.34.1
-> 
+[auto build test WARNING on bpf-next/master]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Xu-Kuohai/bpf-Fix-an-off-by-one-error-in-check_indirect_jump/20260114-172632
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
+patch link:    https://lore.kernel.org/r/20260114093914.2403982-4-xukuohai%40huaweicloud.com
+patch subject: [PATCH bpf-next v4 3/4] bpf, x86: Emit ENDBR for indirect jump targets
+config: x86_64-buildonly-randconfig-002-20260114 (https://download.01.org/0day-ci/archive/20260115/202601150016.x24DRk9R-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260115/202601150016.x24DRk9R-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601150016.x24DRk9R-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   arch/x86/net/bpf_jit_comp.c: In function 'do_jit':
+>> arch/x86/net/bpf_jit_comp.c:1737:37: warning: suggest braces around empty body in an 'if' statement [-Wempty-body]
+    1737 |                         EMIT_ENDBR();
+         |                                     ^
+
+
+vim +/if +1737 arch/x86/net/bpf_jit_comp.c
+
+  1650	
+  1651	static int do_jit(struct bpf_prog *bpf_prog, int *addrs, u8 *image, u8 *rw_image,
+  1652			  int oldproglen, struct jit_context *ctx, bool jmp_padding)
+  1653	{
+  1654		bool tail_call_reachable = bpf_prog->aux->tail_call_reachable;
+  1655		struct bpf_insn *insn = bpf_prog->insnsi;
+  1656		bool callee_regs_used[4] = {};
+  1657		int insn_cnt = bpf_prog->len;
+  1658		bool seen_exit = false;
+  1659		u8 temp[BPF_MAX_INSN_SIZE + BPF_INSN_SAFETY];
+  1660		void __percpu *priv_frame_ptr = NULL;
+  1661		u64 arena_vm_start, user_vm_start;
+  1662		void __percpu *priv_stack_ptr;
+  1663		int i, excnt = 0;
+  1664		int ilen, proglen = 0;
+  1665		u8 *prog = temp;
+  1666		u32 stack_depth;
+  1667		int err;
+  1668	
+  1669		stack_depth = bpf_prog->aux->stack_depth;
+  1670		priv_stack_ptr = bpf_prog->aux->priv_stack_ptr;
+  1671		if (priv_stack_ptr) {
+  1672			priv_frame_ptr = priv_stack_ptr + PRIV_STACK_GUARD_SZ + round_up(stack_depth, 8);
+  1673			stack_depth = 0;
+  1674		}
+  1675	
+  1676		arena_vm_start = bpf_arena_get_kern_vm_start(bpf_prog->aux->arena);
+  1677		user_vm_start = bpf_arena_get_user_vm_start(bpf_prog->aux->arena);
+  1678	
+  1679		detect_reg_usage(insn, insn_cnt, callee_regs_used);
+  1680	
+  1681		emit_prologue(&prog, image, stack_depth,
+  1682			      bpf_prog_was_classic(bpf_prog), tail_call_reachable,
+  1683			      bpf_is_subprog(bpf_prog), bpf_prog->aux->exception_cb);
+  1684	
+  1685		bpf_prog->aux->ksym.fp_start = prog - temp;
+  1686	
+  1687		/* Exception callback will clobber callee regs for its own use, and
+  1688		 * restore the original callee regs from main prog's stack frame.
+  1689		 */
+  1690		if (bpf_prog->aux->exception_boundary) {
+  1691			/* We also need to save r12, which is not mapped to any BPF
+  1692			 * register, as we throw after entry into the kernel, which may
+  1693			 * overwrite r12.
+  1694			 */
+  1695			push_r12(&prog);
+  1696			push_callee_regs(&prog, all_callee_regs_used);
+  1697		} else {
+  1698			if (arena_vm_start)
+  1699				push_r12(&prog);
+  1700			push_callee_regs(&prog, callee_regs_used);
+  1701		}
+  1702		if (arena_vm_start)
+  1703			emit_mov_imm64(&prog, X86_REG_R12,
+  1704				       arena_vm_start >> 32, (u32) arena_vm_start);
+  1705	
+  1706		if (priv_frame_ptr)
+  1707			emit_priv_frame_ptr(&prog, priv_frame_ptr);
+  1708	
+  1709		ilen = prog - temp;
+  1710		if (rw_image)
+  1711			memcpy(rw_image + proglen, temp, ilen);
+  1712		proglen += ilen;
+  1713		addrs[0] = proglen;
+  1714		prog = temp;
+  1715	
+  1716		for (i = 1; i <= insn_cnt; i++, insn++) {
+  1717			const s32 imm32 = insn->imm;
+  1718			u32 dst_reg = insn->dst_reg;
+  1719			u32 src_reg = insn->src_reg;
+  1720			u8 b2 = 0, b3 = 0;
+  1721			u8 *start_of_ldx;
+  1722			s64 jmp_offset;
+  1723			s16 insn_off;
+  1724			u8 jmp_cond;
+  1725			u8 *func;
+  1726			int nops;
+  1727	
+  1728			if (priv_frame_ptr) {
+  1729				if (src_reg == BPF_REG_FP)
+  1730					src_reg = X86_REG_R9;
+  1731	
+  1732				if (dst_reg == BPF_REG_FP)
+  1733					dst_reg = X86_REG_R9;
+  1734			}
+  1735	
+  1736			if (bpf_insn_is_indirect_target(bpf_prog, i - 1))
+> 1737				EMIT_ENDBR();
+  1738	
+  1739			switch (insn->code) {
+  1740				/* ALU */
+  1741			case BPF_ALU | BPF_ADD | BPF_X:
+  1742			case BPF_ALU | BPF_SUB | BPF_X:
+  1743			case BPF_ALU | BPF_AND | BPF_X:
+  1744			case BPF_ALU | BPF_OR | BPF_X:
+  1745			case BPF_ALU | BPF_XOR | BPF_X:
+  1746			case BPF_ALU64 | BPF_ADD | BPF_X:
+  1747			case BPF_ALU64 | BPF_SUB | BPF_X:
+  1748			case BPF_ALU64 | BPF_AND | BPF_X:
+  1749			case BPF_ALU64 | BPF_OR | BPF_X:
+  1750			case BPF_ALU64 | BPF_XOR | BPF_X:
+  1751				maybe_emit_mod(&prog, dst_reg, src_reg,
+  1752					       BPF_CLASS(insn->code) == BPF_ALU64);
+  1753				b2 = simple_alu_opcodes[BPF_OP(insn->code)];
+  1754				EMIT2(b2, add_2reg(0xC0, dst_reg, src_reg));
+  1755				break;
+  1756	
+  1757			case BPF_ALU64 | BPF_MOV | BPF_X:
+  1758				if (insn_is_cast_user(insn)) {
+  1759					if (dst_reg != src_reg)
+  1760						/* 32-bit mov */
+  1761						emit_mov_reg(&prog, false, dst_reg, src_reg);
+  1762					/* shl dst_reg, 32 */
+  1763					maybe_emit_1mod(&prog, dst_reg, true);
+  1764					EMIT3(0xC1, add_1reg(0xE0, dst_reg), 32);
+  1765	
+  1766					/* or dst_reg, user_vm_start */
+  1767					maybe_emit_1mod(&prog, dst_reg, true);
+  1768					if (is_axreg(dst_reg))
+  1769						EMIT1_off32(0x0D,  user_vm_start >> 32);
+  1770					else
+  1771						EMIT2_off32(0x81, add_1reg(0xC8, dst_reg),  user_vm_start >> 32);
+  1772	
+  1773					/* rol dst_reg, 32 */
+  1774					maybe_emit_1mod(&prog, dst_reg, true);
+  1775					EMIT3(0xC1, add_1reg(0xC0, dst_reg), 32);
+  1776	
+  1777					/* xor r11, r11 */
+  1778					EMIT3(0x4D, 0x31, 0xDB);
+  1779	
+  1780					/* test dst_reg32, dst_reg32; check if lower 32-bit are zero */
+  1781					maybe_emit_mod(&prog, dst_reg, dst_reg, false);
+  1782					EMIT2(0x85, add_2reg(0xC0, dst_reg, dst_reg));
+  1783	
+  1784					/* cmove r11, dst_reg; if so, set dst_reg to zero */
+  1785					/* WARNING: Intel swapped src/dst register encoding in CMOVcc !!! */
+  1786					maybe_emit_mod(&prog, AUX_REG, dst_reg, true);
+  1787					EMIT3(0x0F, 0x44, add_2reg(0xC0, AUX_REG, dst_reg));
+  1788					break;
+  1789				} else if (insn_is_mov_percpu_addr(insn)) {
+  1790					/* mov <dst>, <src> (if necessary) */
+  1791					EMIT_mov(dst_reg, src_reg);
+  1792	#ifdef CONFIG_SMP
+  1793					/* add <dst>, gs:[<off>] */
+  1794					EMIT2(0x65, add_1mod(0x48, dst_reg));
+  1795					EMIT3(0x03, add_2reg(0x04, 0, dst_reg), 0x25);
+  1796					EMIT((u32)(unsigned long)&this_cpu_off, 4);
+  1797	#endif
+  1798					break;
+  1799				}
+  1800				fallthrough;
+  1801			case BPF_ALU | BPF_MOV | BPF_X:
+  1802				if (insn->off == 0)
+  1803					emit_mov_reg(&prog,
+  1804						     BPF_CLASS(insn->code) == BPF_ALU64,
+  1805						     dst_reg, src_reg);
+  1806				else
+  1807					emit_movsx_reg(&prog, insn->off,
+  1808						       BPF_CLASS(insn->code) == BPF_ALU64,
+  1809						       dst_reg, src_reg);
+  1810				break;
+  1811	
+  1812				/* neg dst */
+  1813			case BPF_ALU | BPF_NEG:
+  1814			case BPF_ALU64 | BPF_NEG:
+  1815				maybe_emit_1mod(&prog, dst_reg,
+  1816						BPF_CLASS(insn->code) == BPF_ALU64);
+  1817				EMIT2(0xF7, add_1reg(0xD8, dst_reg));
+  1818				break;
+  1819	
+  1820			case BPF_ALU | BPF_ADD | BPF_K:
+  1821			case BPF_ALU | BPF_SUB | BPF_K:
+  1822			case BPF_ALU | BPF_AND | BPF_K:
+  1823			case BPF_ALU | BPF_OR | BPF_K:
+  1824			case BPF_ALU | BPF_XOR | BPF_K:
+  1825			case BPF_ALU64 | BPF_ADD | BPF_K:
+  1826			case BPF_ALU64 | BPF_SUB | BPF_K:
+  1827			case BPF_ALU64 | BPF_AND | BPF_K:
+  1828			case BPF_ALU64 | BPF_OR | BPF_K:
+  1829			case BPF_ALU64 | BPF_XOR | BPF_K:
+  1830				maybe_emit_1mod(&prog, dst_reg,
+  1831						BPF_CLASS(insn->code) == BPF_ALU64);
+  1832	
+  1833				/*
+  1834				 * b3 holds 'normal' opcode, b2 short form only valid
+  1835				 * in case dst is eax/rax.
+  1836				 */
+  1837				switch (BPF_OP(insn->code)) {
+  1838				case BPF_ADD:
+  1839					b3 = 0xC0;
+  1840					b2 = 0x05;
+  1841					break;
+  1842				case BPF_SUB:
+  1843					b3 = 0xE8;
+  1844					b2 = 0x2D;
+  1845					break;
+  1846				case BPF_AND:
+  1847					b3 = 0xE0;
+  1848					b2 = 0x25;
+  1849					break;
+  1850				case BPF_OR:
+  1851					b3 = 0xC8;
+  1852					b2 = 0x0D;
+  1853					break;
+  1854				case BPF_XOR:
+  1855					b3 = 0xF0;
+  1856					b2 = 0x35;
+  1857					break;
+  1858				}
+  1859	
+  1860				if (is_imm8(imm32))
+  1861					EMIT3(0x83, add_1reg(b3, dst_reg), imm32);
+  1862				else if (is_axreg(dst_reg))
+  1863					EMIT1_off32(b2, imm32);
+  1864				else
+  1865					EMIT2_off32(0x81, add_1reg(b3, dst_reg), imm32);
+  1866				break;
+  1867	
+  1868			case BPF_ALU64 | BPF_MOV | BPF_K:
+  1869			case BPF_ALU | BPF_MOV | BPF_K:
+  1870				emit_mov_imm32(&prog, BPF_CLASS(insn->code) == BPF_ALU64,
+  1871					       dst_reg, imm32);
+  1872				break;
+  1873	
+  1874			case BPF_LD | BPF_IMM | BPF_DW:
+  1875				emit_mov_imm64(&prog, dst_reg, insn[1].imm, insn[0].imm);
+  1876				insn++;
+  1877				i++;
+  1878				break;
+  1879	
+  1880				/* dst %= src, dst /= src, dst %= imm32, dst /= imm32 */
+  1881			case BPF_ALU | BPF_MOD | BPF_X:
+  1882			case BPF_ALU | BPF_DIV | BPF_X:
+  1883			case BPF_ALU | BPF_MOD | BPF_K:
+  1884			case BPF_ALU | BPF_DIV | BPF_K:
+  1885			case BPF_ALU64 | BPF_MOD | BPF_X:
+  1886			case BPF_ALU64 | BPF_DIV | BPF_X:
+  1887			case BPF_ALU64 | BPF_MOD | BPF_K:
+  1888			case BPF_ALU64 | BPF_DIV | BPF_K: {
+  1889				bool is64 = BPF_CLASS(insn->code) == BPF_ALU64;
+  1890	
+  1891				if (dst_reg != BPF_REG_0)
+  1892					EMIT1(0x50); /* push rax */
+  1893				if (dst_reg != BPF_REG_3)
+  1894					EMIT1(0x52); /* push rdx */
+  1895	
+  1896				if (BPF_SRC(insn->code) == BPF_X) {
+  1897					if (src_reg == BPF_REG_0 ||
+  1898					    src_reg == BPF_REG_3) {
+  1899						/* mov r11, src_reg */
+  1900						EMIT_mov(AUX_REG, src_reg);
+  1901						src_reg = AUX_REG;
+  1902					}
+  1903				} else {
+  1904					/* mov r11, imm32 */
+  1905					EMIT3_off32(0x49, 0xC7, 0xC3, imm32);
+  1906					src_reg = AUX_REG;
+  1907				}
+  1908	
+  1909				if (dst_reg != BPF_REG_0)
+  1910					/* mov rax, dst_reg */
+  1911					emit_mov_reg(&prog, is64, BPF_REG_0, dst_reg);
+  1912	
+  1913				if (insn->off == 0) {
+  1914					/*
+  1915					 * xor edx, edx
+  1916					 * equivalent to 'xor rdx, rdx', but one byte less
+  1917					 */
+  1918					EMIT2(0x31, 0xd2);
+  1919	
+  1920					/* div src_reg */
+  1921					maybe_emit_1mod(&prog, src_reg, is64);
+  1922					EMIT2(0xF7, add_1reg(0xF0, src_reg));
+  1923				} else {
+  1924					if (BPF_CLASS(insn->code) == BPF_ALU)
+  1925						EMIT1(0x99); /* cdq */
+  1926					else
+  1927						EMIT2(0x48, 0x99); /* cqo */
+  1928	
+  1929					/* idiv src_reg */
+  1930					maybe_emit_1mod(&prog, src_reg, is64);
+  1931					EMIT2(0xF7, add_1reg(0xF8, src_reg));
+  1932				}
+  1933	
+  1934				if (BPF_OP(insn->code) == BPF_MOD &&
+  1935				    dst_reg != BPF_REG_3)
+  1936					/* mov dst_reg, rdx */
+  1937					emit_mov_reg(&prog, is64, dst_reg, BPF_REG_3);
+  1938				else if (BPF_OP(insn->code) == BPF_DIV &&
+  1939					 dst_reg != BPF_REG_0)
+  1940					/* mov dst_reg, rax */
+  1941					emit_mov_reg(&prog, is64, dst_reg, BPF_REG_0);
+  1942	
+  1943				if (dst_reg != BPF_REG_3)
+  1944					EMIT1(0x5A); /* pop rdx */
+  1945				if (dst_reg != BPF_REG_0)
+  1946					EMIT1(0x58); /* pop rax */
+  1947				break;
+  1948			}
+  1949	
+  1950			case BPF_ALU | BPF_MUL | BPF_K:
+  1951			case BPF_ALU64 | BPF_MUL | BPF_K:
+  1952				maybe_emit_mod(&prog, dst_reg, dst_reg,
+  1953					       BPF_CLASS(insn->code) == BPF_ALU64);
+  1954	
+  1955				if (is_imm8(imm32))
+  1956					/* imul dst_reg, dst_reg, imm8 */
+  1957					EMIT3(0x6B, add_2reg(0xC0, dst_reg, dst_reg),
+  1958					      imm32);
+  1959				else
+  1960					/* imul dst_reg, dst_reg, imm32 */
+  1961					EMIT2_off32(0x69,
+  1962						    add_2reg(0xC0, dst_reg, dst_reg),
+  1963						    imm32);
+  1964				break;
+  1965	
+  1966			case BPF_ALU | BPF_MUL | BPF_X:
+  1967			case BPF_ALU64 | BPF_MUL | BPF_X:
+  1968				maybe_emit_mod(&prog, src_reg, dst_reg,
+  1969					       BPF_CLASS(insn->code) == BPF_ALU64);
+  1970	
+  1971				/* imul dst_reg, src_reg */
+  1972				EMIT3(0x0F, 0xAF, add_2reg(0xC0, src_reg, dst_reg));
+  1973				break;
+  1974	
+  1975				/* Shifts */
+  1976			case BPF_ALU | BPF_LSH | BPF_K:
+  1977			case BPF_ALU | BPF_RSH | BPF_K:
+  1978			case BPF_ALU | BPF_ARSH | BPF_K:
+  1979			case BPF_ALU64 | BPF_LSH | BPF_K:
+  1980			case BPF_ALU64 | BPF_RSH | BPF_K:
+  1981			case BPF_ALU64 | BPF_ARSH | BPF_K:
+  1982				maybe_emit_1mod(&prog, dst_reg,
+  1983						BPF_CLASS(insn->code) == BPF_ALU64);
+  1984	
+  1985				b3 = simple_alu_opcodes[BPF_OP(insn->code)];
+  1986				if (imm32 == 1)
+  1987					EMIT2(0xD1, add_1reg(b3, dst_reg));
+  1988				else
+  1989					EMIT3(0xC1, add_1reg(b3, dst_reg), imm32);
+  1990				break;
+  1991	
+  1992			case BPF_ALU | BPF_LSH | BPF_X:
+  1993			case BPF_ALU | BPF_RSH | BPF_X:
+  1994			case BPF_ALU | BPF_ARSH | BPF_X:
+  1995			case BPF_ALU64 | BPF_LSH | BPF_X:
+  1996			case BPF_ALU64 | BPF_RSH | BPF_X:
+  1997			case BPF_ALU64 | BPF_ARSH | BPF_X:
+  1998				/* BMI2 shifts aren't better when shift count is already in rcx */
+  1999				if (boot_cpu_has(X86_FEATURE_BMI2) && src_reg != BPF_REG_4) {
+  2000					/* shrx/sarx/shlx dst_reg, dst_reg, src_reg */
+  2001					bool w = (BPF_CLASS(insn->code) == BPF_ALU64);
+  2002					u8 op;
+  2003	
+  2004					switch (BPF_OP(insn->code)) {
+  2005					case BPF_LSH:
+  2006						op = 1; /* prefix 0x66 */
+  2007						break;
+  2008					case BPF_RSH:
+  2009						op = 3; /* prefix 0xf2 */
+  2010						break;
+  2011					case BPF_ARSH:
+  2012						op = 2; /* prefix 0xf3 */
+  2013						break;
+  2014					}
+  2015	
+  2016					emit_shiftx(&prog, dst_reg, src_reg, w, op);
+  2017	
+  2018					break;
+  2019				}
+  2020	
+  2021				if (src_reg != BPF_REG_4) { /* common case */
+  2022					/* Check for bad case when dst_reg == rcx */
+  2023					if (dst_reg == BPF_REG_4) {
+  2024						/* mov r11, dst_reg */
+  2025						EMIT_mov(AUX_REG, dst_reg);
+  2026						dst_reg = AUX_REG;
+  2027					} else {
+  2028						EMIT1(0x51); /* push rcx */
+  2029					}
+  2030					/* mov rcx, src_reg */
+  2031					EMIT_mov(BPF_REG_4, src_reg);
+  2032				}
+  2033	
+  2034				/* shl %rax, %cl | shr %rax, %cl | sar %rax, %cl */
+  2035				maybe_emit_1mod(&prog, dst_reg,
+  2036						BPF_CLASS(insn->code) == BPF_ALU64);
+  2037	
+  2038				b3 = simple_alu_opcodes[BPF_OP(insn->code)];
+  2039				EMIT2(0xD3, add_1reg(b3, dst_reg));
+  2040	
+  2041				if (src_reg != BPF_REG_4) {
+  2042					if (insn->dst_reg == BPF_REG_4)
+  2043						/* mov dst_reg, r11 */
+  2044						EMIT_mov(insn->dst_reg, AUX_REG);
+  2045					else
+  2046						EMIT1(0x59); /* pop rcx */
+  2047				}
+  2048	
+  2049				break;
+  2050	
+  2051			case BPF_ALU | BPF_END | BPF_FROM_BE:
+  2052			case BPF_ALU64 | BPF_END | BPF_FROM_LE:
+  2053				switch (imm32) {
+  2054				case 16:
+  2055					/* Emit 'ror %ax, 8' to swap lower 2 bytes */
+  2056					EMIT1(0x66);
+  2057					if (is_ereg(dst_reg))
+  2058						EMIT1(0x41);
+  2059					EMIT3(0xC1, add_1reg(0xC8, dst_reg), 8);
+  2060	
+  2061					/* Emit 'movzwl eax, ax' */
+  2062					if (is_ereg(dst_reg))
+  2063						EMIT3(0x45, 0x0F, 0xB7);
+  2064					else
+  2065						EMIT2(0x0F, 0xB7);
+  2066					EMIT1(add_2reg(0xC0, dst_reg, dst_reg));
+  2067					break;
+  2068				case 32:
+  2069					/* Emit 'bswap eax' to swap lower 4 bytes */
+  2070					if (is_ereg(dst_reg))
+  2071						EMIT2(0x41, 0x0F);
+  2072					else
+  2073						EMIT1(0x0F);
+  2074					EMIT1(add_1reg(0xC8, dst_reg));
+  2075					break;
+  2076				case 64:
+  2077					/* Emit 'bswap rax' to swap 8 bytes */
+  2078					EMIT3(add_1mod(0x48, dst_reg), 0x0F,
+  2079					      add_1reg(0xC8, dst_reg));
+  2080					break;
+  2081				}
+  2082				break;
+  2083	
+  2084			case BPF_ALU | BPF_END | BPF_FROM_LE:
+  2085				switch (imm32) {
+  2086				case 16:
+  2087					/*
+  2088					 * Emit 'movzwl eax, ax' to zero extend 16-bit
+  2089					 * into 64 bit
+  2090					 */
+  2091					if (is_ereg(dst_reg))
+  2092						EMIT3(0x45, 0x0F, 0xB7);
+  2093					else
+  2094						EMIT2(0x0F, 0xB7);
+  2095					EMIT1(add_2reg(0xC0, dst_reg, dst_reg));
+  2096					break;
+  2097				case 32:
+  2098					/* Emit 'mov eax, eax' to clear upper 32-bits */
+  2099					if (is_ereg(dst_reg))
+  2100						EMIT1(0x45);
+  2101					EMIT2(0x89, add_2reg(0xC0, dst_reg, dst_reg));
+  2102					break;
+  2103				case 64:
+  2104					/* nop */
+  2105					break;
+  2106				}
+  2107				break;
+  2108	
+  2109				/* speculation barrier */
+  2110			case BPF_ST | BPF_NOSPEC:
+  2111				EMIT_LFENCE();
+  2112				break;
+  2113	
+  2114				/* ST: *(u8*)(dst_reg + off) = imm */
+  2115			case BPF_ST | BPF_MEM | BPF_B:
+  2116				if (is_ereg(dst_reg))
+  2117					EMIT2(0x41, 0xC6);
+  2118				else
+  2119					EMIT1(0xC6);
+  2120				goto st;
+  2121			case BPF_ST | BPF_MEM | BPF_H:
+  2122				if (is_ereg(dst_reg))
+  2123					EMIT3(0x66, 0x41, 0xC7);
+  2124				else
+  2125					EMIT2(0x66, 0xC7);
+  2126				goto st;
+  2127			case BPF_ST | BPF_MEM | BPF_W:
+  2128				if (is_ereg(dst_reg))
+  2129					EMIT2(0x41, 0xC7);
+  2130				else
+  2131					EMIT1(0xC7);
+  2132				goto st;
+  2133			case BPF_ST | BPF_MEM | BPF_DW:
+  2134				EMIT2(add_1mod(0x48, dst_reg), 0xC7);
+  2135	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
