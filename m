@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB1B9D31A35
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 09:28:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61BBCD31A3A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 09:32:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=l/E7ExTubkkyxXCzVbpQxo2KmM1nm2KyOFnCzexyVgA=; b=LcGt+IuNKI9OKmNQNxD4r5N6xy
-	PZGtjlChZtnm0+2GweFZU4ShS3lUj0ZLXt1Ecz7v3L7v4f8M8mAx9gDedL4Dhg1UdNzOfonfLGMag
-	9MR5iSkDhPs8sIx/om1R9FKnC3Kkr2z2+qZu2Ir8MZqC6t/viMjUASErVPt6PEddHd1Bq0yfDp4AC
-	78FVi5n6Myrmhuz0HEFKEOoTzY18miOcm5r9C2uqqdK0Ti+baMxEubvBkS+o9vycKeRCPYYIunlYV
-	z02EVvHAwmD6djjJzSCd8WfYD46eftHmbBZDHN4MtUmV5S48uOmKcgQXk1jco4+5Pvn5YU1h2oyaF
-	1sP8N0dg==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zSUdcgC/EKugyxh8nCC/VrXygJiNrzdd7eFrxnHVnxM=; b=ixeIh3P0U7F7sZWbHzglac6pGg
+	xqW8YXYmSZ3j7V9YXtJTAjUeYjPGSxHrS99htpVPTEF2spfXtr9OBRg2J9wKZ6N4VBEAA5oC/z5Sv
+	6qiuf3GA4V0D48WRcy+qfjZLIS0dQR8z/IfiNvyCH2cNvmPxENvf3esWBUEyTptsZG+fhiz7i5O2O
+	fxJvZh/LW2rkzJ9fFeI2ruAT6QQsV6lF7Tqr1mm4zcU3E9Wx6qJFpzq9wtv0sJRBSStpItHRL48nY
+	y7RNg476kzdPqgPhJ6cetrCTVyoEMR2m7wZH3RVP/m8k0Tfkdxa2XQNq4PNGJcFwV9yk6lj32XiMC
+	6GobqGpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfxAq-00000008YHl-32aH;
-	Wed, 14 Jan 2026 09:28:20 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1vfxF7-00000008Zt7-1yxP;
+	Wed, 14 Jan 2026 09:32:45 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfxAk-00000008YGY-2MbE
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 09:28:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768382894; x=1799918894;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=Dx8wdyZ1+Rq3DObPX6zf0dh3NrSxxmnlPzpX3UXG2ec=;
-  b=P4BSMhKYvqJAwZobesf3jmcjdbhF0WFdLxSrbbOSxABpSvM/VfqkDOcd
-   imexW5Cl065II8Ib/TB5wq0zCFySLeopwRH79VMQ6lqz/LWCM3/BFwwZE
-   NfU5ZeyhCs8aUiMOvUEPTLAZ5FREAE0I8pyZswAHdwI8osGDmzgIySKhf
-   Yma/kyrkVDMO7eRcl0lURvxfc0R8SLtlTzANI2oNKIX0Y+vcfPiyqEhM8
-   hP3JAs4+xrbat1ViN3k3xqNnvAMqZxszpYvKpT7Mm8fVMWrl2YjWXR7Nb
-   Yt7PWmDy4hTqfZ4lNim0lVEkT8UXGsWaG6Y0YLDgkX/JV1RlW2RaZaO/X
-   w==;
-X-CSE-ConnectionGUID: V4H94M3gS5upY1aEwqiUDA==
-X-CSE-MsgGUID: 8fIXLuICQ1Sx1qpbHVWgAA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11670"; a="87258427"
-X-IronPort-AV: E=Sophos;i="6.21,225,1763452800"; 
-   d="scan'208";a="87258427"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2026 01:28:14 -0800
-X-CSE-ConnectionGUID: bRaxQtijQleZaZYRzDl9dg==
-X-CSE-MsgGUID: PoJBeXJ0T52sf7c7XXKeZA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,225,1763452800"; 
-   d="scan'208";a="209474968"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa004.fm.intel.com with ESMTP; 14 Jan 2026 01:28:11 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id 9737998; Wed, 14 Jan 2026 10:28:10 +0100 (CET)
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-pm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Subject: [PATCH v1 1/1] thermal: stm32: Use predefined HZ_PER_MHZ instead of a custom one
-Date: Wed, 14 Jan 2026 10:28:08 +0100
-Message-ID: <20260114092808.273695-1-andriy.shevchenko@linux.intel.com>
-X-Mailer: git-send-email 2.50.1
+	id 1vfxEy-00000008ZrK-1jQp;
+	Wed, 14 Jan 2026 09:32:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1768383154;
+	bh=RQZW8N3E4EpxjaX/E336krRniaaouBTQ7ZoD68DziUM=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Beo1AHPN648OlmZMqfNKSiAawQOs1X2tQQ+JnS52QD0N/CSA6TXlI13KX3LaUXrZQ
+	 ZlemAD3JoS2qvMu+xyjJfhvPnz2HRBvARFoNprqC/Kfg+0/2KdtYk5HEiBgXANBp4W
+	 s4DQydLjrYf/8hD39Ua9g7s7MTM+Onsd7TKL+cmFufB82HWX+MuxRKWFk8ZRWn17Dv
+	 lGPgbLGW1OJs7tqXo6omN9IfGgwqDUqBxxNzyNi3IkNPSHRztR+Q66QtJsXw4vBPPp
+	 lx6Yyp8owuuMG3df+ImpL/MKRyUkiViRnj2idnPFfWgwWv+ORRqx7FgIN9eeCSKFWA
+	 Xa/qylgMW2tgw==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E4A8917E150E;
+	Wed, 14 Jan 2026 10:32:33 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ Chen-Yu Tsai <wenst@chromium.org>
+Cc: linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260114092605.3916367-1-wenst@chromium.org>
+References: <20260114092605.3916367-1-wenst@chromium.org>
+Subject: Re: [PATCH] arm64: dts: mediatek: mt8183-kukui: Clean up IT6505
+ regulator supply
+Message-Id: <176838315384.13786.449316758672672364.b4-ty@collabora.com>
+Date: Wed, 14 Jan 2026 10:32:33 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_012814_730731_266F39E3 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20260114_013236_693787_1B315BF5 
+X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,43 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use predefined HZ_PER_MHZ instead of a custom one. No functional changes.
+On Wed, 14 Jan 2026 17:26:04 +0800, Chen-Yu Tsai wrote:
+> Align the name of the regulator with the design schematic. Also fix up
+> the gpio property to the new "gpios" property name, and add the
+> GPIO_ACTIVE_HIGH flag. The flag is actively ignored in Linux in favor of
+> the old "enable-active-high" property; nevertheless it is the correct
+> description.
+> 
+> 
+> [...]
 
-Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
----
- drivers/thermal/st/stm_thermal.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Applied to v6.19-next/dts64, thanks!
 
-diff --git a/drivers/thermal/st/stm_thermal.c b/drivers/thermal/st/stm_thermal.c
-index 6e90eb9f414d..5d8170bfb382 100644
---- a/drivers/thermal/st/stm_thermal.c
-+++ b/drivers/thermal/st/stm_thermal.c
-@@ -16,6 +16,7 @@
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/thermal.h>
-+#include <linux/units.h>
- 
- #include "../thermal_hwmon.h"
- 
-@@ -76,7 +77,6 @@
- 
- /* Constants */
- #define ADJUST			100
--#define ONE_MHZ			1000000
- #define POLL_TIMEOUT		5000
- #define STARTUP_TIME		40
- #define TS1_T0_VAL0		30000  /* 30 celsius */
-@@ -205,7 +205,7 @@ static int stm_thermal_calibration(struct stm_thermal_sensor *sensor)
- 		return -EINVAL;
- 
- 	prescaler = 0;
--	clk_freq /= ONE_MHZ;
-+	clk_freq /= HZ_PER_MHZ;
- 	if (clk_freq) {
- 		while (prescaler <= clk_freq)
- 			prescaler++;
--- 
-2.50.1
+[1/1] arm64: dts: mediatek: mt8183-kukui: Clean up IT6505 regulator supply
+      commit: d33d77044c37aa97f24e3e3adf2f781aba774db2
+
+Cheers,
+Angelo
+
 
 
