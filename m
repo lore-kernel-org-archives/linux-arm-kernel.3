@@ -4,126 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C34F9D31A26
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:20:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FFC8D31A28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:24:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kOjWICKElajAktcnLTxDO0a0hjOrXuTPJG+TIiIDMlE=; b=K2GSzaTIGZ6En/kTg3zpKTUTPh
-	z/BBw0t8uvi7WyekBFvnH48pZ3bbhlidChSitNV+pnGlnpYvKPP/YPrBAUOrEYYoppVpts+yZ9jcx
-	T+YfmgU7uiNodEsYROCcatgCYaPtergfU4T+jlSD7ppzezA8g6fzeL8Gs4bURnq+yqyG0QCAfy9Eq
-	dO0pkOlKqFI9MlkQIHSFAu1HK5c9rNVCmRrsWXIVaczFEZc009TR8f+DueaFuiFun8/sZLxSFz/99
-	0PEf1QqEctlA2Jor8unhJZ9IYxLodq/WivFcTAc8iuiBPGSWUouHDi6jzIznDPkBXzXkHFQaoCd3K
-	IX+Qsk9w==;
+	bh=L6uGCquBWH6uiGdYe5lVZ12ucv1OD63hx3BorOh4YcA=; b=AWsvY+kEULCEv/HOV/0ZeQcKoo
+	Nj4y9oqp3KDg0lh/L9ht4nIIfxJ4/97OXnuFjxwIcEgAH3Y4gYvaSvURQgSCXIwAnVJW3rzgE+ofh
+	rpDLG6oCwPhVmvBuazLuTcrjS8kA/I/KJK1Nh9fd1TXnU93Rh6Z0zrC3klVAkm3qcmVCRXbiyMbz2
+	NhJVuCplEVwLjDCwYUXZLNOMrCh96+j/bhkXoJdxOZ5qguzSQXybWD4XhJIJvQCDGy76+Bdftood5
+	oL3Yd+oBA2hEjBbJTh1yyKjsL6Ec30pdLBsOEnW4Z6lVuXP6zHJidSnCW9lQaEOvnK6so6rgiiI6O
+	dpUsaaMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfw7B-00000008JIP-0CVx;
-	Wed, 14 Jan 2026 08:20:29 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1vfwAc-00000008K97-2C1o;
+	Wed, 14 Jan 2026 08:24:02 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfw78-00000008JH7-0hF8
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 08:20:27 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-42fbbc3df8fso4537804f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 00:20:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1768378824; x=1768983624; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=kOjWICKElajAktcnLTxDO0a0hjOrXuTPJG+TIiIDMlE=;
-        b=JWCjoqMUuIlb9/NRh8Y6ACNHoI5mYnD0bb+ar5yqcyHl/wwxloIywo2WSPlCJnz8kj
-         C9eknrL9IeqvDqxVWSr46UgDmbdggZu/3FE5GKIeMS5m3xh4mXH5ywTvZ8s3nqCsjYGa
-         3qs9EOEOjyN+NCG3LGZoZ56gmLk0jREwp/bVFHm5NRG5cenFEvUyJal+R1r2PmUhKyl1
-         ckJambW6+tblIOOG4jvi7/ON/D05jHodaUaDB0FEec/9cO7zUNTg4HpJfdMmmhIRSMef
-         5uym+h+HqziPil0zXxcru4T4R2R1DIl+qbAswmyjI3uSQMLN3mBpUs3f2LqqiWPMLdWf
-         cp0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768378824; x=1768983624;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kOjWICKElajAktcnLTxDO0a0hjOrXuTPJG+TIiIDMlE=;
-        b=PDqSbFk9ZhP7aVGKEARZf4OBC+EzAyHZV5YmobbRmr+0Qa5LV40JenLNzR+WMH3Ukp
-         DGlTV8oLFkxK89NJEM//7G1zQmrjgzEsKGGdFlg3xndCMH+UgqWpfiqT59uJeT+/wXDm
-         oVhffFdC7Lvvx52PP57sCQVGmNLnRQK2RTLAIgfwNGBHK9BQTmleX9dobYNCMnRpRXkM
-         aQEJsO5ZcyoCuB6p5L3QZPjPeRyleqb30A3YgWMF9StdDagY9R2NzmnQgTB5YkRrFKgM
-         kieN2xYKryO2HXX5XrQXVpJJzB6pzxKNzh4u3/nd/O0V1dD1gt/MbEFCY2ALWEPLGiOf
-         RPEQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX/g+L8COkvPvDE2DdiDhTW6vcuOw8OmzTm/rr8z2UJJquW8CtLVoZyoYyEuZcKQ2FeQAUHWMACP6mebVT8FuNk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQ/lkPxezjzLeLwsanRZShvRyWIHGoGxy1ScVCnEGlmaMxVJRW
-	quJx8Ep5iykWykro5KnZm7w5emlAgun15nPVJW83Wb4DIb3JQNOT9y9o3aEoHzCITvY=
-X-Gm-Gg: AY/fxX44hZ2BrbDnFQL+RBgvDRbtDA8eoTcfOg1/EYa+fHZCSDmX8foAAjCYJqKmM3q
-	K6nP/qZ9rAJq0q3GWlRW8DSkFtegRyCiCpMO4CDvPYzPc2TW2BqVSFoVkeSXh6l0KDyeYZrt4a7
-	6GG/rBz59ekXzYlL4r+OEJd3Qf0frgTQWUe9PyW8cXRM4VNbMtGL7G2HNery04Ih0aUkHyr13l8
-	4QgHHwexXTRQ37OvK4dGsJaeB0ZyGULPVXgiqJ2MjnLgBV3m37MOg3hNHJBy6OysNR9nLtQRs5H
-	KlN6KR9iSF51pHP+C2Fk94y4R9VKfjX8oGAglNW3m9259V+ukUfdbGw73qM6eH5t40jrPfgH0/Q
-	ow6GzImGMx7RYXfKPj5jqbAB4Gxr/HauE4CQoEym4RCIs/VxWorUlQNjAG3dXpH6RzLmnHAEaqU
-	iN9o7Q1NbUpzVjeA==
-X-Received: by 2002:a05:6000:40e1:b0:432:5b81:498 with SMTP id ffacd0b85a97d-4342c4f4a32mr1782744f8f.23.1768378823922;
-        Wed, 14 Jan 2026 00:20:23 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd0dad8bsm49346913f8f.8.2026.01.14.00.20.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Jan 2026 00:20:23 -0800 (PST)
-Date: Wed, 14 Jan 2026 09:20:20 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: Marcos Paulo de Souza <mpdesouza@suse.com>
-Cc: Daniel Thompson <daniel@riscstar.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jason Wessel <jason.wessel@windriver.com>,
-	Daniel Thompson <danielt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	John Ogness <john.ogness@linutronix.de>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
-	linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
-	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 00/19] printk cleanup - part 3
-Message-ID: <aWdRxBbJOEIZ-KjE@pathway.suse.cz>
-References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
- <aVuz_hpbrk8oSCVC@aspen.lan>
- <aVvF2hivCm0vIlfE@aspen.lan>
- <a5d83903fe2d2c2eb21de1527007913ff00847c5.camel@suse.com>
- <89409a0f48e6998ff6dd2245691b9954f0e1e435.camel@suse.com>
+	id 1vfwAZ-00000008K8F-2zTP;
+	Wed, 14 Jan 2026 08:24:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768379040; x=1799915040;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=TpSIK25RbvWDNg7QiWIOtxQKPzkkGQzeiPPfyvIi0gk=;
+  b=g+LDosqMgXqI7uaIaZhjqLhXC4FdDirifXXYbS2+8Y4qxZ9duevkPIdt
+   e0VZXly5X2MAul2toIDmhIimwd9EGyqV0GTG58UiIkBL6umOzNvIA0BYZ
+   j8qU6X73nvHRYqnyLJZQC4v8KIzzzONHuisMB4CaexiTnH4XWu/AvghY+
+   M7tyV1Kip3u49sH4AHwyZ31se1lEXYh+9iMA3L5tdwUMOrkRKWAOmwCcH
+   3IiWfc/3ughwMJsGfZoO5A9AxZAS/efh7ZLLs97RVBpgtBxjz4kKmIPkH
+   8Rx5nod5a3pqO+xFenUwzb8oNCnl6H5Uqiba5D9Fqnp9po+RvWaHKRcQH
+   A==;
+X-CSE-ConnectionGUID: KseNro3xRF6l64WxT55mbA==
+X-CSE-MsgGUID: N++AtQT/Sm2/Zmu2FvyhaA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11670"; a="73309097"
+X-IronPort-AV: E=Sophos;i="6.21,225,1763452800"; 
+   d="scan'208";a="73309097"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2026 00:23:58 -0800
+X-CSE-ConnectionGUID: g2NXVMXRT7+6Jm3R7rO9aA==
+X-CSE-MsgGUID: pmU4TLcgSYmvaqOcW2kQ5A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,225,1763452800"; 
+   d="scan'208";a="235333811"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.83])
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2026 00:23:54 -0800
+Date: Wed, 14 Jan 2026 10:23:51 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Andi Shyti <andi.shyti@kernel.org>
+Cc: Andi Shyti <andi@smida.it>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Qianfeng Rong <rongqianfeng@vivo.com>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Khalil Blaiech <kblaiech@nvidia.com>,
+	Asmaa Mnebhi <asmaa@nvidia.com>, Qii Wang <qii.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Linus Walleij <linusw@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH v1 0/7] i2c: busses: Introduce and use HZ_PER_GHZ
+Message-ID: <aWdSlzLuU_psG_EV@smile.fi.intel.com>
+References: <20260112134900.4142954-1-andriy.shevchenko@linux.intel.com>
+ <aWdHRszwPfcniL1q@zenone.zhora.eu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <89409a0f48e6998ff6dd2245691b9954f0e1e435.camel@suse.com>
+In-Reply-To: <aWdHRszwPfcniL1q@zenone.zhora.eu>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_002026_250761_381FE0FA 
-X-CRM114-Status: GOOD (  49.74  )
+X-CRM114-CacheID: sfid-20260114_002359_853131_3E565E63 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,132 +97,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue 2026-01-13 21:32:33, Marcos Paulo de Souza wrote:
-> On Tue, 2026-01-13 at 09:41 -0300, Marcos Paulo de Souza wrote:
-> > On Mon, 2026-01-05 at 14:08 +0000, Daniel Thompson wrote:
-> > > On Mon, Jan 05, 2026 at 12:52:14PM +0000, Daniel Thompson wrote:
-> > > > Hi Marcos
-> > > > 
-> > > > On Sat, Dec 27, 2025 at 09:16:07AM -0300, Marcos Paulo de Souza
-> > > > wrote:
-> > > > > The parts 1 and 2 can be found here [1] and here[2].
-> > > > > 
-> > > > > The changes proposed in this part 3 are mostly to clarify the
-> > > > > usage of
-> > > > > the interfaces for NBCON, and use the printk helpers more
-> > > > > broadly.
-> > > > > Besides it, it also introduces a new way to register consoles
-> > > > > and drop thes the CON_ENABLED flag. It seems too much, but in
-> > > > > reality
-> > > > > the changes are not complex, and as the title says, it's
-> > > > > basically a
-> > > > > cleanup without changing the functional changes.
-> > > > 
-> > > > I ran this patchset through the kgdb test suite and I'm afraid it
-> > > > is
-> > > > reporting functional changes.
-> > > > 
-> > > > Specifically the earlycon support for kdb has regressed (FWIW the
-> > > > problem bisects down to the final patch in the series where
-> > > > CON_ENABLED
-> > > > is removed).
-> > > > 
-> > > > Reproduction on x86-64 KVM outside of the test suite should be
-> > > > easy:
-> > > > 
-> > > >     make defconfig
-> > > >     scripts/config \
-> > > >         --enable DEBUG_INFO \
-> > > > 	--enable DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT \
-> > > > 	--enable DEBUG_FS \
-> > > > 	--enable KALLSYMS_ALL \
-> > > > 	--enable MAGIC_SYSRQ \
-> > > > 	--enable KGDB \
-> > > > 	--enable KGDB_TESTS \
-> > > > 	--enable KGDB_KDB \
-> > > > 	--enable KDB_KEYBOARD \
-> > > > 	--enable LKDTM \
-> > > > 	--enable SECURITY_LOCKDOWN_LSM
-> > > >     make olddefconfig
-> > > >     make -j$(nproc)
-> > > >     qemu-system-x86_64 \
-> > > >         -m 1G -smp 2 -nographic \
-> > > > 	-kernel arch/x86/boot/bzImage \
-> > > > 	-append "console=ttyS0,115200 kgdboc=ttyS0
-> > > > earlycon=uart8250,io,0x3f8 kgdboc_earlycon kgdbwait"
-> > > 
-> > > Actually I realized there was a simpler reproduction (hinted at by
-> > > the
-> > > missing "printk: legacy bootconsole [uart8250] enabled" in the
-> > > regressed
-> > > case). It looks like the earlycon simply doesn't work and that
-> > > means
-> > > the
-> > > reproduction doesn't require anything related to kgdb at all.
-> > > Simply:
-> > > 
-> > >     make defconfig
-> > >     make -j$(nproc)
-> > >     qemu-system-x86_64 -m 1G -smp 2 -nographic -kernel
-> > > arch/x86/boot/bzImage \
-> > >         -append "earlycon=uart8250,io,0x3f8"
-> > > 
-> > > With the part 3 patchset applied I get no output from the earlycon
-> > > (without the patch set I get the early boot messages which, as
-> > > expected,
-> > > stop when tty0 comes up).
-> > 
-> > Hi Daniel, sorry for the late reply! Lots of things to check lately
-> > :)
-> > 
-> > Ok, I reproduced here, thanks a lot for testing kgdboc, it's a quick
-> > way to check that the new register_console_force is not working. Let
-> > me
-> > take a look to find what's wrong. Thanks a lot for finding this
-> > issue!
+On Wed, Jan 14, 2026 at 08:36:09AM +0100, Andi Shyti wrote:
+> > Andy Shevchenko (7):
+> >   units: Add HZ_PER_GHZ
+> >   i2c: mlxbf: Use HZ_PER_GHZ constant instead of custom one
+> >   i2c: mt65xx: Use HZ_PER_GHZ constant instead of plain number
+> >   i2c: nomadik: Use HZ_PER_GHZ constant instead of plain number
+> >   i2c: rk3x: Use HZ_PER_GHZ constant instead of plain number
+> >   i2c: st: Use HZ_PER_GHZ constant instead of plain number
+> >   i2c: synquacer: Use HZ_PER_GHZ constant instead of plain number
 > 
-> Ok, I did a bisect and found out that the issue lies in the last
-> commit, where CON_ENABLED was removed. After it, I then checked what
-> was wrong, since everything was being plumbed correctly (tm), and then
-> I found that it was not:
-> 
-> On _register_console, the function try_enable_default_console is called
-> when there are not registered consoles, and then it sets CON_ENABLED
-> for the console. Later on, try_enable_preferred_console it checks if
-> the console was specified by the user, and at the same time it had
-> CON_ENABLED set.
-> 
-> It worked by chance, but now, we don't have this flag anymore, and then
-> we are not _marking_ the console on try_enable_default_console so
-> try_enable_preferred_console returns ENOENT.
+> merged to i2c/i2c-host.
 
-Great catch! Yeah, it worked just by chance.
+Thank you!
 
-> So, without any console kgdb is activated much later in the boot
-> process, as you found it.
-> 
-> I talked with Petr Mladek and it would need to rework the way that we
-> register a console, and he's already working on it.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Yes, I have some patches in early stages of developnent of another
-feature which would help here.
 
-> For now I believe
-> that we could take a look in all the patches besides the last one that
-> currently breaks the earlycon with kgdb and maybe other usecases.
-
-I agree. I am going to review this patchset first. Then I'll try to
-clean up the patches which remove the ugly side effect from
-try_enable_preferred_console(). Then we could discuss how
-to move forward. It might make sense to push this patchset
-first without the last patch...
-
-> Sorry for not catching this issue before. I'll use kgdb next time to
-> make sure that it keeps working :)
-
-Do not worry at all. It was a well hidden catch. It is great that
-Daniel found the regression in time...
-
-Best Regards,
-Petr
 
