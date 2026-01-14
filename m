@@ -4,149 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B482BD38FE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88BD1D38FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yqLLPrQJARBCtf9IpQ2+zX7BzGKVvWxE9LNXzj1MnLU=; b=x3ogR8eSo7/z57zXUUcciYchTM
-	iG17CMiDLiKEsLM36Dvfcyqc1W0YVBhC97gNLKnlH9qnSO/1128ZOup+2UXwnVXiOtRRgXJxyouHr
-	6O1Zp7OZwZ5b6U7cv9yHM1U9CTHbjJJZQHCLBeBgjlGRZ8umtrdkwQT0WLejsN1CkW/TraXo6S3YS
-	EYrslDukViR9jkr+K7jGiXPKXhmYL2Kg8PsbpZ8Co+31GkH00fngf16KG2xDNtIWUdraauQQPu4v6
-	x6rSNZpQr9J0DrudhHgVbQHs5eDJ4wzJ9rpmFAO57xXSH9I1nTukdz2Z8uojaqIYdR7ILFaE0EKtL
-	PHADfOrw==;
+	bh=jDEZj2tQ/lWE441pwvzkJV5WL54sUoxA3nZX64TSvWs=; b=uDf6Vb7kgfxyw0R1m8cb6z3+RR
+	I/fkXmdK6SUo4IG9InAfDMK7hIymInetO3QR+i+lmnp7GpYA7b/NvhuDEbZWJwZncamlwvW3+KZhR
+	0pfo6HNQZjkm19obrjqPtk007lJIQN5kd7JBhNG4tmDjRLfe2Lb0kYoBDXaDKLaRoYGg2HrYriBdM
+	ILlTnGaOtH3KZomwkuwr5DKdHPvcOlQlYrSkKEtbC6fgahtLpFrsDsUVjJo7Eartb1GWnx+TmhLre
+	md2rlvyA2NdptcH8aMpAWjj/jMVzIs1AAeND8BV3XrSsfPFF5iISsX/xgj2wBVJW/lTd8IJsoJBqT
+	RYNGqe1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg3Xx-00000009tJo-2VQF;
-	Wed, 14 Jan 2026 16:16:37 +0000
-Received: from mail-westus2azolkn19010035.outbound.protection.outlook.com ([52.103.10.35] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1vg3Y8-00000009tPO-1isD;
+	Wed, 14 Jan 2026 16:16:49 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg3Xu-00000009tIa-2xrd;
-	Wed, 14 Jan 2026 16:16:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iiKQrpbsJRvvcqpWaZVIbInS/TsTX5soGPtnFOKTluAJ7UcFYlMoPNCxvXvsac54uCRixW+6WnKp6hKCeRI+voTczvGnsTzQRHauzsUk5D8jVVocv/eSRNg4t2eSD8NRLX2OkAkBQvvfl5OdF89LMDqXa3/RiF1YIIA4S2sYHGtnEc99onwe3+abYiukZJl7EWntXoSgul75f1RER/IKV+hSRow8h+eSx76yjpU1sDzkQeY8VKiMcBpmmYZWZFjWM9WJfAuikVkoXf9JNOEOQgwE1IXfqH85P8WNSJEy4yDKjpfqlMRdD38+7zwDTn98FkI9P3x1LxLCcu9Tm1uvZg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yqLLPrQJARBCtf9IpQ2+zX7BzGKVvWxE9LNXzj1MnLU=;
- b=l5s5EZQmZNeCWLFCcz4d5Ox+uryOsu10cq/c0+8Uc0PXqR5GGM4E6WBop6AGGwOxODlz1yWcTYo4ZNEyEyRHXuwb4bANE55bKv2CeDMVyTibMzs3rxP+hVjQg9iosoY7Lo8rL2eYBcr3jBscaSTgrAHG+jqqO909I2pLZUHoMfHehuXGfmOmn2ebFjDVEtYs23dFc8gUp+lfVtbeMhdWgmZiHITuyj39VpWMbEU+44Y5CYmTmfd9KRZPDRKnpbEoELGtKTVcwaSKSEs3LhfsbLUkEJg0PZPsKVSkKZbg+Y5DnXbEDUSeWczWkdqPCc6TQJLl9nnIIjckSBfrAcPA+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yqLLPrQJARBCtf9IpQ2+zX7BzGKVvWxE9LNXzj1MnLU=;
- b=C5BSC+GX08ZpeIqtzW8vsjfrZYBbowARX+vtQk4DfeCBPpoRmRmQWBYXmxm8jvQBMX/j/zS23FZuVzdWn+vR+V060bLXxeetdjrlZTZZ8B94thps9amkhdkrVtKekrRQJB8dVisqAf5yHHwGfuulOfAOF3u/jKUkYC/k5toubCYxT3wr8Bl/Tz8tPI3BwAn7imOc5xIkI7eEQe5/iWjoVglQ8LW+ExWd1jwUZnUCJoRMJIMq7FVlOUIYGgAn/Gem5kFNA6oZmXM+woyVuLdfKqvMi5z7xFHsKZNJEmFDG7rBRkzlI8qDxN36DXGOEXBHQTqhJMdFGbpIFmqHpwNyAw==
-Received: from SN6PR1901MB4654.namprd19.prod.outlook.com (2603:10b6:805:b::18)
- by IA1PR19MB7229.namprd19.prod.outlook.com (2603:10b6:208:42e::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.5; Wed, 14 Jan
- 2026 16:16:28 +0000
-Received: from SN6PR1901MB4654.namprd19.prod.outlook.com
- ([fe80::57b1:b92:26fc:c937]) by SN6PR1901MB4654.namprd19.prod.outlook.com
- ([fe80::57b1:b92:26fc:c937%3]) with mapi id 15.20.9499.005; Wed, 14 Jan 2026
- 16:16:28 +0000
-Date: Wed, 14 Jan 2026 10:16:25 -0600
-From: Chris Morgan <macromorgan@hotmail.com>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	Maud Spierings <maud_spierings@hotmail.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH v2 0/4] Add HDMI 2.0 support to DW HDMI QP TX
-Message-ID: <SN6PR1901MB465494AAFA4090D8806D7B12A58FA@SN6PR1901MB4654.namprd19.prod.outlook.com>
-References: <20260113-dw-hdmi-qp-scramb-v2-0-ae7b2c58d24d@collabora.com>
- <0b28ae6d-295d-4958-9571-190fedd95efe@collabora.com>
+	id 1vg3Y5-00000009tMK-0Ljp
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Jan 2026 16:16:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=jDEZj2tQ/lWE441pwvzkJV5WL54sUoxA3nZX64TSvWs=; b=UglqIB+1S2BMn0y/oTec/Afhcf
+	yhA5dUCtFPFLb/p3Om/n3BSg5GuABbW0u7WsnGhQfh25a6uF/CH6zjb+LpEDzP7RQBsKWjKoQKTcU
+	FAVu2lNhugMS8uZCf/X+urcd9gkmUMfVIfWEreUbEXt+/dWDSfUh38OEszcOlHG1Mi0mmS0DT5AT3
+	B/Z1SSOSOcstJIDGAWbP8iEIvaxp7CLyuKt3sTuW9g6ZQLRNbwgqP+8VE6On97ZJxB8wUzIcCbDuW
+	ga+f5WTl2BgzLwOknYY4qVSP4BmbGvyj/PpVGJTlBgnscypeUWszsgGhB9vvttXMcWfGHXN6nnfiP
+	AgGXLAQQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52560)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vg3Xi-000000000M3-0AFG;
+	Wed, 14 Jan 2026 16:16:22 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vg3Xd-000000001mY-0K7W;
+	Wed, 14 Jan 2026 16:16:17 +0000
+Date: Wed, 14 Jan 2026 16:16:16 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: SHUKLA Mamta <mamta.shukla@leica-geosystems.com>
+Cc: Dinh Nguyen <dinguyen@kernel.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>,
+	GEO-CHHER-bsp-development <bsp-development.geo@leica-geosystems.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-stm32@st-md-mailman.stormreply.com" <linux-stm32@st-md-mailman.stormreply.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+Subject: Re: [PATCH v3 1/3] net: stmmac: socfpga: add call to assert/deassert
+ ahb reset line
+Message-ID: <aWfBUPxvykOdygLO@shell.armlinux.org.uk>
+References: <20260108-remove_ocp-v3-0-ea0190244b4c@kernel.org>
+ <20260108-remove_ocp-v3-1-ea0190244b4c@kernel.org>
+ <aV_W2yLmnHrTvbTP@shell.armlinux.org.uk>
+ <a2dc72ae-0798-4baa-b4d2-fa66c334576a@kernel.org>
+ <c18fbdf0-b8e2-4fa7-8bb7-a3fed8960970@leica-geosystems.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <0b28ae6d-295d-4958-9571-190fedd95efe@collabora.com>
-X-ClientProxiedBy: SA0PR11CA0012.namprd11.prod.outlook.com
- (2603:10b6:806:d3::17) To SN6PR1901MB4654.namprd19.prod.outlook.com
- (2603:10b6:805:b::18)
-X-Microsoft-Original-Message-ID: <aWfBWejGjvumqvZ-@wintermute.localhost.fail>
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN6PR1901MB4654:EE_|IA1PR19MB7229:EE_
-X-MS-Office365-Filtering-Correlation-Id: 96546c94-ed4b-4a54-39f1-08de5388453f
-X-Microsoft-Antispam: BCL:0;ARA:14566002|6090799003|461199028|5072599009|39105399006|15080799012|23021999003|8060799015|19110799012|3412199025|440099028|41105399003|40105399003|56899033;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?POtFJ9px6YzoUcstx3V/DBnVxCvpQxuqIwG92HFT9Yf/uUgpx+shO3I2mH3x?=
- =?us-ascii?Q?bt1hqGI8r/5yTZPpT8Kr5mk8AQD/qQEXleYm9ldUqTp4LTxjE4OUPDD9xWRM?=
- =?us-ascii?Q?kLXUdMyJTrJT6T8/xlMcBK25C5UA0D77b2Y799dNGmqYxEjtwMJk0JMoca9q?=
- =?us-ascii?Q?tVHrHBbCzjVyj7ptuBFvX3dVfihKLH2R7hQ7qoqXG99nzFg+SvBD3VJVnEuW?=
- =?us-ascii?Q?AZkgaqkoqZSOzYgNLzXVBP7YVBs4q/kPx0p75RU52WI7UiMTS1MfBoBKWQzx?=
- =?us-ascii?Q?Mlbodd+mR91yj4JT7DyjAcT3vCyHDXH0Tu9q2s6UBj48S3tzju+YN2sFlPVA?=
- =?us-ascii?Q?aonYjFzIq708GhQ/t9aACS8cFHbzQhrjME4klIrmtJ0shKfjWiECMo3cdo8d?=
- =?us-ascii?Q?hTikhyATS/qDcN1uxxA4zJnxiAJjQ1qtroNhi6jHI+zIhkVoRT0rTF15ds58?=
- =?us-ascii?Q?ayQJUisi4Qu1ufg6IBVilQFJ3vBz1t2ogWJ8esrCbM545wEuIq8uHS/SAbak?=
- =?us-ascii?Q?z/trOL9o8dk+ilgZAIaFAdbiXgq0e0MFkh/Vb7kFTAbKX8LvKgeGPfI8Ewcd?=
- =?us-ascii?Q?Xh/MmmRXFOzRf9yAFLlYRtvkD+G0Iw+0CyFf/xSwv0ljazIykyXBV8uFEGT9?=
- =?us-ascii?Q?1srWA8l04NB5JOJzfIz1paje8nw7Pvz/ALkkI0p9C222epW73o/KLxMh1WQu?=
- =?us-ascii?Q?o/RyTIp/r97QfqY8Ml48u7qcRHQGLTjikCZ2QfdSiGYWOTVBEUugGddNuyQs?=
- =?us-ascii?Q?WXpow69fkf7IvRHdujTjpVF9LktkprY/bCAyYkgFbg4pM1S7MWg+xvP4RPXV?=
- =?us-ascii?Q?5vGirIm+xcLAEx5Csu/vCIW+tXFs2MJnSZQdZ3jeDvOEmxcOH5fWUqed73SA?=
- =?us-ascii?Q?kZcbxdw3Mk2owantq8GZIOxhsUO0Pfq7E+EDV6mCWZA0MjD0/8pI+IDcT8PP?=
- =?us-ascii?Q?uzw+ikvr7QU4RuJYFhJvlLED3nc9f+rQRvgx70xPHkpBAoCnCDnLvcPlaPDj?=
- =?us-ascii?Q?AvNE7eAomEo6MxK1ZB7ZWZ4LTCHv0m2bqerRqFajRpQuJ+6Zyh94sn1XmNz8?=
- =?us-ascii?Q?cfBNbCrRgV+7bFKze1JkaBCXGF5AH7AE0W3MeaP7RyYfuL6WSDYVleHwdio+?=
- =?us-ascii?Q?f3+JSa4Oux/KvS52mCO1vEvq7uBPZa5z8STFzrYtf9ZjYRxj7bBNRNeN2Dau?=
- =?us-ascii?Q?eR7F5Id2JBy+GViSbOB2j5XuFfRmoxsiI33JdJuJd9ikylTEvA+NzO91iZk?=
- =?us-ascii?Q?=3D?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Xq9bTnpg7TUxkTAeDRsqiKayLjj6l45YGeokbNKPmloP2PqkD8Ar/jJz3JZM?=
- =?us-ascii?Q?jWA5s/HVj2fXqrBWXMIhTYcELnr56RBhE4GJWKb8NUhcbV8dluVcQyDKLcS1?=
- =?us-ascii?Q?RT+Uh7FF0WQcl6qi90I63+b25Out3V4j854XCK5QQJV/wWT8xBJG0u6u2nZA?=
- =?us-ascii?Q?eveto10qzat1GVO8TU1N3hvAjifTVxD5/gyuzcEdh6VDnvcLLaDRkeL7Z4e0?=
- =?us-ascii?Q?3EIGlEWs7zcZ37OdL8nGSoRK6d/5BDhvJE6cKdBPfEn2tJ9ihPvOK2yVZfsk?=
- =?us-ascii?Q?fwpW0Qi+H5SOhg4AOtD+mkQ2z9Xw89vLqu2Of/e2NV/mWLZnyT8z6NlpdFMb?=
- =?us-ascii?Q?Rvg7kzzTNjYErQJuDANLPt3Y8pzEI2YIRcWwsotnJX8aoifxO9VQIWM2p5ev?=
- =?us-ascii?Q?LcNPzkuMSjYO7DOeMx24mSaHR73tNZPJSI6vF3o+c+gmgrWE/rGE7ikURuSw?=
- =?us-ascii?Q?jai3CF14C2lq9oyvbX2JkHj7vKnJX2SokHsFzuvcLY5MQf30fxVnEza1/B0c?=
- =?us-ascii?Q?AKcBAU9DiS73VCNDjijIXjbeTMQgaie/LmxiXPt2ru+bjpU+5mSWJBAZAam+?=
- =?us-ascii?Q?6Dv6rBrlbNPOIS8cYE+8LLO6GddaZp9BzL3y6RJyPkwGG4JehQElPDpfhmoX?=
- =?us-ascii?Q?TqYb4FQujNcA/yntIIVIb4PgX4ym/j3nsZzMmJYSwZRASuxNH9mTCmmYwf55?=
- =?us-ascii?Q?FJ5GibyDzeQ4rSrAV4J6IecQxSBEanlXL2VdwwYrfjxg9xqKW1BANUxhnDSR?=
- =?us-ascii?Q?jTIUe+hHESX/G9oqlsI/oIbsKluBzrJTWO67CBOJWvaKj2StMHOYq8lkntSY?=
- =?us-ascii?Q?aXHhsAPoCbr8HPMd8Oy7fsBqf84sJXka29bmRRyxOd1ccsvSVWzlpBk6B6j/?=
- =?us-ascii?Q?728Cm7vZZkLiB4VLagX9uNa1nNL0Wik4JvEPemt4UbhUbZ68aAXbLGQOfIMs?=
- =?us-ascii?Q?stHe+fY20sdaV4jqratrSUxZt0I27SusIK0bKroR1pYIQBI+vZQLc+kQHhQm?=
- =?us-ascii?Q?4n2Kja08XUCfB2PhSsW6veVToP+tEBuSPbqbfa4ObGpgapFVk6CU3OV10l7B?=
- =?us-ascii?Q?9q6ulQj1Scm2BVA+OixJfsaojvEeh/4IyG8kgCI+ayr2OMih4TAI3nFYspDO?=
- =?us-ascii?Q?G4n00i9LGUrzqJlGh7Q0FSMl/qH9xGHogP2I1wJozZ0D2YFvm1GzBdGqW1ky?=
- =?us-ascii?Q?91p76Lc2lhoHjqt6Xscb1rl3Q0t4HzLW1ya7yM6sf3uZMgMzmkqiir6WQVmJ?=
- =?us-ascii?Q?Aehbu0fNTctvtSKypnAAd57W5BtgYvTO172LW5wF/PvzsOgQyA1SGdDTvXcv?=
- =?us-ascii?Q?UMzHVTj2M3CtgCphGppI0AhiT2lKxb0mhnsBuSIchbgZHb26fBBdU3gt5IjE?=
- =?us-ascii?Q?v/082jjW4Efxuph5+QzHvwTuGErs8MiPnJKEaprkbzK5s700HA=3D=3D?=
-X-OriginatorOrg: sct-15-20-9412-3-msonline-outlook-6f20a.templateTenant
-X-MS-Exchange-CrossTenant-Network-Message-Id: 96546c94-ed4b-4a54-39f1-08de5388453f
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR1901MB4654.namprd19.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2026 16:16:28.3152
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR19MB7229
+In-Reply-To: <c18fbdf0-b8e2-4fa7-8bb7-a3fed8960970@leica-geosystems.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_081634_755844_03294427 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20260114_081645_132245_A42DDEDD 
+X-CRM114-Status: GOOD (  22.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,38 +101,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 13, 2026 at 12:40:46AM +0200, Cristian Ciocaltea wrote:
-> On 1/13/26 12:26 AM, Cristian Ciocaltea wrote:
-> > This patch series provides the missing support for high TMDS clock ratio
-> > and scrambling to DW HDMI QP TX library, required for handling HDMI 2.0
-> > display modes on RK3576 & RK3588 SoCs.
-> > 
-> > In order to allow addressing the SCDC status lost on sink disconnects,
-> > it adds an atomic variant of the drm_bridge_funcs.detect callback and a
-> > new drm_bridge_detect_ctx() helper, which is further used in
-> > drm_bridge_connector to switch to ->detect_ctx hook.
-> > 
-> > Furthermore, it optimizes HPD event handling in dw_hdmi_qp Rockchip
-> > platform driver to run the detect cycle on the affected connector only.
-> > 
-> > Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> > ---
-> > Changes in v2:
-> > - Collected Tested-by tags from Diederik and Maud
-> > - Rebased onto latest drm-misc-next
-> > - Ensured the recently introduced 'no-hpd' support for dealing with
-> >   unconnected/repurposed/broken HPD pin is limited to HDMI 1.4 rates
+On Wed, Jan 14, 2026 at 02:09:27PM +0000, SHUKLA Mamta wrote:
+> Hello Dinh,
 > 
-> Chris, could you please confirm no-hpd is still functional with this series on
-> your Gameforce Ace board when testing with a HDMI 2.0 display?
+> On Arria10 socfpga, both reset lines i.e stmmac_ocp_rst and stmmac_rst 
+> are needed since EMAC Controller on Arria10 supports Tx Rx FIFO with ECC
 > 
-> Thanks,
-> Cristian
+> RAM and as per datasheet[1]:
 > 
+> `An EMAC ECC RAM reset asserts a reset to both the memory and the 
+> multiplexed EMAC bus interface clock, ap_clk. You should ensure that 
+> both the EMAC ECC RAM and the EMAC Module resets are deasserted before 
+> beginning transactions. Program the emac*ocp bits and the emac* bits in 
+> the per0modrst register of the Reset Manager to deassert reset in the 
+> EMAC's ECC RAM and the EMAC module, respectively.`
+> 
+> [1]https://docs.altera.com/r/docs/683711/22.3/intel-arria-10-hard-processor-system-technical-reference-manual/taking-the-ethernet-mac-out-of-reset
 
-I can confirm no-hpd still works with this series, but I don't have an
-HDMI 2.0 monitor to test with.
+Let's look at exactly what this is saying.
 
-Thank you,
-Chris
+"An EMAC ECC RAM reset asserts a reset to both the memory and the
+multiplexed EMAC bus interface clock, ap_clk."
+
+1. Asserting the EMAC ECC RAM reset asserts reset to two items:
+    - memory
+    - the EMAC bus interface clock, ap_clk.
+   This is not referring to any other modules, but it does suggest that
+   the bus clock will be affected in some way, potentially stopping the
+   clock.
+
+"You should ensure that both the EMAC ECC RAM and the EMAC Module resets
+are deasserted before beginning transactions."
+
+2. This states that both resets (EMAC ECC RAM and EMAC module) need to
+   be deasserted in order to access the EMAC. This is logical.
+
+   If the EMAC ECC RAM reset is asserted, then, because it affects the
+   bus interface clock, this may mean that accesses over the APB bus
+   can not be performed because there could be no clock to allow them
+   to complete. Thus attempting an access will probably stall the
+   processor. (We've seen SoCs where this happens.)
+
+   As having the DWMAC reset asserted means that the entire DWMAC
+   hardware would be held in reset, including the bus interface,
+   meaning that it will not respond to accesses. Whether that also
+   hangs the processor is questionable, because APB has error reporting.
+
+"Program the emac*ocp bits and the emac* bits in the per0modrst register
+of the Reset Manager to deassert reset in the EMAC's ECC RAM and the EMAC
+module, respectively.`
+
+3. This states where the reset bits allegedly are in the register set.
+   There is a link to https://docs.altera.com/r/docs/683711/22.3/intel-arria-10-hard-processor-system-technical-reference-manual/module-reset-signals
+   but interestingly, the per0modrst (which implies per0 group) doesn't
+   list emac*ocp resets. In fact, there is only one reference to "ocp"
+   on that web page, which is in a diagram of the reset controller,
+   specifically its bus interface.
+
+So, the quoted section doesn't state anything about the requirements for
+resetting the dwmac core.
+
+What it does state is that both resets need to be deasserted before any
+access is made, which is reasonable.
+
+> OTOH, we can't have both scp and ahb rst together while setting phy 
+> mode, since they are basically same reset lines and having both leads to 
+> warning:
+
+So it seems that you actually have a single reset bit, and you have
+that represented as a single shared reset - shared between your
+"stmamc_rst" and "stmmac_ocp_rst".
+
+I notice Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
+doesn't describe the resets, but has:
+  # TODO: Determine how to handle the Arria10 reset-name, stmmaceth-ocp, that
+  # does not validate against net/snps,dwmac.yaml.
+
+as dwmac describes at least one reset between one called "stmmaceth"
+and the other called "ahb".
+
+The only possibility I see for these "EMAC ECC RAM" resets are in
+Table 25.  RAM Clear Group, Generated Module Resets, there's a bunch
+of signals described there "emacN(tx|rx)_sec_ram_rst_n, and that
+table suggests that these resets are asserted and deasserted on
+cold and warm system level resets.
+
+Given that there seems to be no way for software to control these
+EMAC ECC RAM resets, they seem to be outside the realm of needing
+to be handled within the driver, and also should not be described
+in DT.
+
+Maybe I missed something?
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
