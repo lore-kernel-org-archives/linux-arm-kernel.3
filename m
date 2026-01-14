@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9CB1D31A0E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 06:26:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6702D31A10
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 06:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ph6IxAnp6q3+uLiFT21GgPymCv9JqfeKX9RiduzDODk=; b=XdEQLkNokUykK79sTTyXkrn/nw
-	RmHr4JSK7C20+fdWJ+Cbj6ZYU1ITKaZeJPc/DkJ8+tHV0Ri5Ov1/ea4Uizt++9zdDA/rS+Vw1kKFY
-	LMXJP1MVLXB6dINcaNrdJGxbQFseoLyflRpFafUQlcW9eFLfqWW4UsNicpJbwdzWsbfU76jte69bV
-	F5LbCZHUf1x+T4Smzy/wdUxYfc3Lqmci1EpolMzszDCM9vMfCQRMHIn4xfPI8cYShy489cEndJblN
-	x7ITEQtuzdwUS1D8u1ulJPQFLcLcX5PqGh17SgWvdxYPSKBfwVy0Vrz1/9Dvhi6L3Jr2mYipoaN++
-	G6wTrsEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bot5yzHGRpdORn4dGLGp5ZsMsBNZegUjwbOB3QegdQ8=; b=qVq/xoHkmGCIMd2ITe7hMPvaJE
+	VVU1T5o+qvaIkENaOQQXq7PMi0ModLsMrmY17vQqEEGkA8WTyQIXUocl2IW89rO94TzJPb1TWGBSv
+	6z8PRwPwKR3RggYYWApjRhXGT5GSuygLH2rHSHN6dk42J/KEFyjSt6x3fLY244v4jm6QMpOrwqr9+
+	vqH8YkYHOlGKMuzPjHJH7Aqcbc+79zVr1IlGJCqCHEjbL2Chu4xeJm0FJvBDnl1TYRFanvU3LfYuw
+	nhbkZsjG16u3KVs49gqC3s+dLOS6ivT5xqK4szIzcJC3m10mzZEcNKpmmdQC54JNYxYzTomYGu+fh
+	4ktM139g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfuKZ-000000087Mn-2W13;
-	Wed, 14 Jan 2026 06:26:11 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1vfuKe-000000087Ov-1evj;
+	Wed, 14 Jan 2026 06:26:16 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfuKX-000000087Lu-1ZGh
+	id 1vfuKZ-000000087MZ-2GDt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 06:26:10 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-34c24f4dfb7so4439906a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 22:26:08 -0800 (PST)
+	Wed, 14 Jan 2026 06:26:12 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-34ccb7ad166so4655674a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 13 Jan 2026 22:26:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768371967; x=1768976767; darn=lists.infradead.org;
-        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ph6IxAnp6q3+uLiFT21GgPymCv9JqfeKX9RiduzDODk=;
-        b=jEHAsgf6CVHvpX9Z8+GI4fk5P5hmYt87csSnknRdhs4fXglMCzz97ule4z4joywNYf
-         +AeQr3n3z24b97amycGFnrpxhoYOqxGwKv3tVK7NnTYLfmGsXy7X/4U0AhRpvaf5zsQd
-         VH3c07jns0U4maitIqpdgPHBxHC3lutFPS8ox0QG6gqCeJnlDhC1Y5klNy48qUksGwN1
-         PY1fmSpBDiuwjRY4G9iLpxkb0PbLZCA71cN2JzBV6hEJzDrhzD+CpcMthfeQtxD4Bt8x
-         HLwlSpE7hWFGKJJcb7xOnTRRolqRoH5kAMeXTLbbZsOBUfgSBZscLjjIgSb0cCnzm9I2
-         jktA==
+        d=gmail.com; s=20230601; t=1768371970; x=1768976770; darn=lists.infradead.org;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=bot5yzHGRpdORn4dGLGp5ZsMsBNZegUjwbOB3QegdQ8=;
+        b=XSS0q/GCFR53F5hLdXJg5hZ+G6/W9FYbH22BnbJjcuSQ+NggnrExaC71KieS7+PczA
+         pMZ5+d9E5eV2gGjd2ZB0ul7euncOwaPvBBhRApchC/SD+YmMp813oo/x/8QxFa9Jl1fi
+         mJGNmMrgKircBdc5lc8JuQlUBEV/6B/WdZOphIrRsOZg9VPUeQdmTtHQZnzvqdikHMTT
+         rMpXO2PysBfGSCj1eBGWKUz6C1jeyCBAhgcDPlD8ftiZeDpWnZTfP7Eq/ialhrawSPXI
+         fSGllEMzF1YxwiuKBi4rGah7Gr6trUwKiAkxPdk6SJnqFoiwYozPcCT3iCGYzwxq5xQ6
+         l8Hw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768371967; x=1768976767;
-        h=message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ph6IxAnp6q3+uLiFT21GgPymCv9JqfeKX9RiduzDODk=;
-        b=PTaysD8IgONwtPG1EhuZvY5Afk+IHY1FUEwbzKoaEQmlJBhiNphFVQX/3DsNvHSGSo
-         MXxvgiwVFe+kiN/guoZ4E4BYUTKqLXWBy1uWZm5SDEynoYag7CdgO+cgnunkj1sOz5wl
-         y1OAqT7XFPASQEPa4ZR4d3LF4nZ/4LRYnArFIsRQAUPtO6PgamUZSD/YzbfVLgRWvIy7
-         AQKdYPxLVBEJnYpjFqiVM0baaWvaQPRfSz+cszmmcvLFWXGc5Q2ESQqAdm/qAzi6/BmB
-         tRLUOnyB1D+agG9c8L73lw+pPn/eelpW1Gf0H/TNGmqJ5GvW+F/SD/k+Dm1RCzQcaX+M
-         s2bg==
-X-Forwarded-Encrypted: i=1; AJvYcCVBWEp/4s3k8kFFempm/2VCzD6epj1MOLDu9GkPGgjsg3OCA/IaBKr+sO+nrkCZuxl1ZUu8qicp15aybU81Cu9I@lists.infradead.org
-X-Gm-Message-State: AOJu0YwP7DYQeGqXjFL/kgRaecMBiX6aZsHGFA2xGSO9vE/kQxMFruun
-	O6ks/dZ23GergJLiDT728JPGHCsL8Fa4l56nAk/zXV1H/AALnD30OipNt3D5evVKf9PbGsPq
-X-Gm-Gg: AY/fxX4xqpv3faV4Q0WvsuKRKPGGGB1SM9BGqMOeAEpvj0wV5KdGHSeixUCSpqgWacu
-	YUQ5KvXaT2rD3umFmQM6A4DKfwPpuHwYDaDQvwxlKJ+RooWQn9OzZ0Q4KZ+eTS20RQxXDE0uYGV
-	9Kh7shV/LD0Z+SDvMMFW+J7bEAUJ6FeiazsNQjeFtbi/1BCe4+XkmZQHWosqMFU6Ku6DY3c11za
-	2X0pQV+K74nSzSHAfYDuBXQCNbs5GhQcIF+F9cLK4XlKt9PE7zyZ5ZezIpT4K1RF9ReZkB4EXho
-	nyNvFutnB3kdbUSo66BWQfA3i5VMnJDdgvTPR/p+bM22Nw0ou86mXIROfQVtv13aKiGQ8d1GO7Z
-	UeF2P9nWpZgaumcnC9wG+TaiIpC7epwbIAY2eDAB41GC4i/ji2ZK7WdXWlLjJYJp/2KQOQTje9R
-	TC7J/LLJo=
-X-Received: by 2002:a17:90b:3d8f:b0:32d:e07f:3236 with SMTP id 98e67ed59e1d1-3510915bb29mr1745385a91.22.1768371967515;
-        Tue, 13 Jan 2026 22:26:07 -0800 (PST)
+        d=1e100.net; s=20230601; t=1768371970; x=1768976770;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bot5yzHGRpdORn4dGLGp5ZsMsBNZegUjwbOB3QegdQ8=;
+        b=ZRk7CxHB+i5VckeL8g6t0fbsTMTptjJ90orlfSCVmwfmbv5PZ4BcZq9jceAk6zfZdX
+         hi1ei9NA63yjZZg9EI6Jqu462J8A12xdEG1qU8w3K+ddsOIxHP24l4n/7B8wMwKTZvyr
+         o6QOv+kUF5cHMMcIyyxzbf3mzcWsa5f8kwzDraBGVmWMS+gJrxwUKygOG/1eej/JRZqT
+         chwMLhnIJzinD21tuKwFiRbwNMDJo3OPGym3te33ElgHcC1dwJzLh5s0B+bTXRMgH1Vl
+         i4d6fcWRQVCk7nn30StvYMzr4iXfz0XEF6WudjYYmxzJfDgmqJA5/AjHgI0+OYbCHGh0
+         LROw==
+X-Forwarded-Encrypted: i=1; AJvYcCVnaWlgMUgTIJ/uqp03gP9nu7N3luXnX8nz7GhMIoaZBIS6SsPM5qRvN2H1sA1llEuRWrc/1wlADWojRP4hGT2B@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5OhF7rdD2zuTHWCGAObvOcfcpTmAUiVt6bit6KJe/3zz8rccZ
+	Kl8lDH3/n70Hx6AT5uERqLvzhew4XpApie110dpnwlVd8sKYlx9gGsia
+X-Gm-Gg: AY/fxX4qhTzjHbhPIV+eY8TrIJN9z8EcIdO9fMrCY4XYfyQzzVc1xiB8S2GgcKaNa1s
+	lD/clz8REsRhDA8wxR7ir9G3WWmj+Nn3UEKjlVIaaKFuFPPuWDYkDYRsj1Gg8d6Ddm23yAWQyvb
+	DE0UM3jWMO5r4R+m+/4ecp8Sh7q8FBtC2Cb0I7uD1fDakyTl+bvWoyWPGgLcjgfdRagsJS9hlsJ
+	teoi4jelO2xfGQf3NDVlB85o9dBHg642HjVdmz98r4zMOfruoQkQf9+7MbFdq99Ga8EJC5SABbS
+	Vlmiu1KvlIiJRRR/FO/JdkRGd/NcOB53OQmV7P77cZENdu+7T4z+prfL63kjh6dOIex/CdG2hzP
+	tgPsxq/4r5GS5fIe1C4jwOthXh8X2P5qHl7iG7p2Td56YdZHvITdgy2462RKaffrj0CfgJ6ET4t
+	uooq+NY8I=
+X-Received: by 2002:a17:90b:2782:b0:340:9d52:44c1 with SMTP id 98e67ed59e1d1-3510916b54fmr1625255a91.35.1768371970530;
+        Tue, 13 Jan 2026 22:26:10 -0800 (PST)
 Received: from localhost.localdomain ([47.82.78.41])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35109d88f0esm891791a91.5.2026.01.13.22.26.04
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35109d88f0esm891791a91.5.2026.01.13.22.26.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Jan 2026 22:26:07 -0800 (PST)
+        Tue, 13 Jan 2026 22:26:10 -0800 (PST)
 From: Nick Xie <xieqinick@gmail.com>
 X-Google-Original-From: Nick Xie <nick@khadas.com>
 To: neil.armstrong@linaro.org,
@@ -83,13 +83,16 @@ Cc: xianwei.zhao@amlogic.com,
 	robh@kernel.org,
 	conor+dt@kernel.org,
 	nick@khadas.com
-Subject: [PATCH v2 0/2] arm64: dts: meson-s4: add support for Khadas VIM1S
-Date: Wed, 14 Jan 2026 14:25:47 +0800
-Message-Id: <20260114062549.68954-1-nick@khadas.com>
+Subject: [PATCH v2 1/2] dt-bindings: arm: amlogic: add Khadas VIM1S binding
+Date: Wed, 14 Jan 2026 14:25:48 +0800
+Message-Id: <20260114062549.68954-2-nick@khadas.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20260114062549.68954-1-nick@khadas.com>
+References: <20260114062549.68954-1-nick@khadas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_222609_412420_728AAF2A 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20260113_222611_605319_BDF9F8A6 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,42 +107,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds initial support for the Khadas VIM1S single board computer.
+Add devicetree binding for Khadas VIM1S board based on
+Amlogic S4 S905Y4 SoC.
 
-The Khadas VIM1S is based on the Amlogic S905Y4 (S4 family) SoC.
-It features:
- - 2GB LPDDR4 RAM
- - 16GB eMMC 5.1 storage
- - 32MB SPI flash
- - 100 Base-T Ethernet
- - AP6256 Wireless (802.11 a/b/g/n/ac, BT5.0)
- - HDMI 2.1 video
- - 2x USB 2.0 ports
- - 1x USB-C (power) with USB 2.0 OTG
- - 2x LED's (1x red, 1x white)
- - 3x buttons (power, function, reset)
- - IR receiver
- - 40pin GPIO Header
- - 1x micro SD card slot
+Signed-off-by: Nick Xie <nick@khadas.com>
+---
+ Documentation/devicetree/bindings/arm/amlogic.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-The first patch adds the devicetree binding, and the second patch adds
-the board device tree.
-
-Changes in v2:
-- dts: fixed dtbs_check warning: removed unsupported 'enable-active-low' property
-  from regulator-sd-3v3 node
-- Link to v1: https://lore.kernel.org/linux-amlogic/20260113090951.35928-1-nick@khadas.com/
-
-Nick Xie (2):
-  dt-bindings: arm: amlogic: add Khadas VIM1S binding
-  arm64: dts: add initial device-tree for Khadas VIM1S
-
- .../devicetree/bindings/arm/amlogic.yaml      |   6 +
- arch/arm64/boot/dts/amlogic/Makefile          |   1 +
- .../amlogic/meson-s4-s905y4-khadas-vim1s.dts  | 190 ++++++++++++++++++
- 3 files changed, 197 insertions(+)
- create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
-
+diff --git a/Documentation/devicetree/bindings/arm/amlogic.yaml b/Documentation/devicetree/bindings/arm/amlogic.yaml
+index 08d9963fe9259..55663e0f7f915 100644
+--- a/Documentation/devicetree/bindings/arm/amlogic.yaml
++++ b/Documentation/devicetree/bindings/arm/amlogic.yaml
+@@ -247,6 +247,12 @@ properties:
+               - amlogic,aq222
+           - const: amlogic,s4
+ 
++      - description: Boards with the Amlogic Meson S4 S905Y4 SoC
++        items:
++          - enum:
++              - khadas,vim1s
++          - const: amlogic,s4
++
+       - description: Boards with the Amlogic S6 S905X5 SoC
+         items:
+           - enum:
 -- 
 2.34.1
 
