@@ -4,72 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00DFCD38FEF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:07:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9886CD38FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=coPAkiz6ujPpgLfd+yc/7+bTn1ZsoI0u0cVZPbi1idE=; b=UDi3hsp2hS7cqLEehWmwJQ9irt
-	jy+RMhyQlYuBnGLbJOU8qncPoMCovaGc/GTMDQ1pNd5cPKPHFt6LkZOdFPgvm1cYpuabWEPlBxsb5
-	UwA2YimxUbpPHaF2gJVTtNzEExiCGPc4jdzYGrDFMj0leXXIddQ3hvLU2pKyyxCCYy7xroA4wJy46
-	+Rn8TnON6fFl6HE1zSa4nb6ghHVuis/Bl+FSGmgnOR7Zsjd1Eu3UrOVn/8zPUtxAiCIvEg7tLTrAz
-	VjcC3Zx8k/263m1sdwoAN6XcxM3PPPutKB2X0VB/Px2jSYxXN4WSBVrekwTGT659H8zxjG4MHAyJX
-	+MAQAQdA==;
+	bh=GYBoGaWLHXCd8PqOgncqDf0BayRCOnmKkumvRRhT/88=; b=nSJRntpO1sckZz5SjbLSphbNPS
+	w/LTsdFWyHdprYUtQLRRkVuBSidfYJZPOPpaFcNoD3WzHMf2p9dO5woqnykIhzjhgDGuq9tvDPR/j
+	yP3myFI17j2OCgaYBe8FbQKs6/vq917ge9Rau9jckXzBSzSp9H7ncuQ1/DOA8326Hnt/2DrTUC5gC
+	OwHkCad2fsrrC6mItjV7nUJH+pyTBTEoyNZvL+pYs3QZqSfF5+SOLw+PCK7eYZKZigOG8ZKE5ph9z
+	XUbj1hYqLRrRaEjsOkTus0EaVkDwxDLViHysqNOMUsTQtop0xJBCxug9Rjs1vo6LkJib9FScjhLnV
+	0UkquGJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4LG-0000000A2jW-0RtZ;
-	Wed, 14 Jan 2026 17:07:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vg4Mw-0000000A3JG-2BZy;
+	Wed, 14 Jan 2026 17:09:18 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4LE-0000000A2jA-3BXF
+	id 1vg4Mp-0000000A3GC-3hjr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 17:07:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1C00E6000A;
-	Wed, 14 Jan 2026 17:07:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE6DFC4CEF7;
-	Wed, 14 Jan 2026 17:07:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768410451;
-	bh=MGElqEXwoRbt8mMzLI9gWMm6tx51R4BHJkiacnjgofs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vEolMwCHO3gyuvdGmOE3O9pKCM5M8SbSniKQidIWzOSx0PpTJ7Hj4ZwnGYFesCRZ3
-	 nUL/jdfJLelH5D0whFKOjdwr35MISlOXKDOa6Lbi19ptoggFUpvSTGZlhxy8wcydSe
-	 2ru/TkW9rbl9o0etsJta6Ukc466KaXjOjS0EZlRUsIFFI5uicpeVB9DXRy+PEASF5k
-	 BFWehX7gdc0YEru5parDTnCckbHf4EXKG0ybaCo62t3jvZVfDovR7/4iu9t8FWPKOS
-	 0BvNX/YWefxE1P6ozppwQ4KuBl43vg9R78UIaOZkuSwgv6K/q5DHyUyj8B/+g5oMax
-	 iic2DLJRvz0ug==
-Date: Wed, 14 Jan 2026 17:07:25 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v9 22/30] KVM: arm64: Expose SME specific state to
- userspace
-Message-ID: <1b5493ed-2d44-47e2-916b-3a5052e3b88f@sirena.org.uk>
-References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
- <20251223-kvm-arm64-sme-v9-22-8be3867cb883@kernel.org>
- <CA+EHjTwMy1crsZLqfy8_Y56NFPJZ7vGyN-egc433GhxB_n=7aA@mail.gmail.com>
+	Wed, 14 Jan 2026 17:09:17 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2a07f8dd9cdso528945ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 09:09:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768410550; x=1769015350; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=GYBoGaWLHXCd8PqOgncqDf0BayRCOnmKkumvRRhT/88=;
+        b=v+29Sx3qQg7nNnvofvjDn7O4wha65xzI5dNI+07cT0focmkpSNQHCJt9/wOGJjszVF
+         4oV3JpxUBd0Brn5UM6l+/WafQnnyJ02rTTcRA8q3DjcLpsm5I9Y/zipdEEpxjA63v1z6
+         STwqHjSNvZoukNSa9J4jDhqxC3RCK2o9hN+OIJEODMGjPRUIfcjmqK3IslfKmsK7REGs
+         tqxdUwUtIYN8bNqb+0a1QuidwNCn2L2k51P4e3EbFyPHP2VqlOxYzJXFqcpXlMvfvwTC
+         TLelfQ+2huHLEGwxOsD24aeMb8s+Y+xZ5oDNo0VySaYiZOfTxs5XRVZmQS4aC8h089Fe
+         yzmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768410550; x=1769015350;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GYBoGaWLHXCd8PqOgncqDf0BayRCOnmKkumvRRhT/88=;
+        b=n6XxtyncovDQ+R2/pT5HHVFQUa2T65HgyUoeJpsETfnVOktYh4SP6E7LfOJFrrl6lF
+         2YLbkXNnl4lawiQWqcgI5mL9709rLtCrTcgFeA3MYCqwbXPIERpNhhGzK/O8lav5wH/d
+         65vwSV5/M6HbPo0wBi7Bbht42xk4mOEjqYFBdWwCwM/HGFao1RezjnMK4HnwMEqj/ByQ
+         v5ob44Ow15cyRHZB2uhizZg2tiLqdp7VU3bTp1z1YGjQ57bCxX0fq0qqq++bUaTzEzs5
+         pnKwJegDbVtrFGzTTahCNv/au/C5efTXKpKgVbYuin2g61Mduc34Vi9k+z7aGSTGiExe
+         pp+A==
+X-Forwarded-Encrypted: i=1; AJvYcCX8I8jVxoQxaHQN3yzL1k0TuBa7YokGS/cGtoFk434pH4N8ZlijNMNCriw67sZTzrSqlnOf8WLHdAbqVMDzxrLr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDx6gsZuVbP6npUrixbr4TAhJ2YuUBqrghKHi1oiwBC1pefDmE
+	/7XGV84nH1grPIwfUz69TX4Pg0NaxFGgPtmMoK23AzKzTpk22ooxVAGankWeZjIUzLc=
+X-Gm-Gg: AY/fxX7JJdv8iqRvd35oEKYWr7iucbR7l9bu5kR1Ipjdxi3V2SBd6wvoihYrgh7orDy
+	+LYdOlaDGzw/EznSVWNT+TaehushmpC4fokKcAfx5/IQ4L9IgnOWiKsEiJ6CYmU1h/KuPOaLhkK
+	K+iJ6IaNxg6g4Eqt8IP9mYvuT5DE65eNq2coD6BLXQIqCzMuZRs/Z/Uh+pZTYYlV+uyfOmvsUhS
+	uqVHPlgGo3zqpxMu2K7Gg3+AIzGl4EKEDUW8UZKZzxERmydWlBLXdwVY/wm3hV/Cf1+MwK3Yu+Q
+	0FXo2rcAr856IHgVIE01kE6OD4OiXvYpnsSyOfTRb+eO1YooV0lwtYsOhbQuFllq2L3te5FTEFn
+	jomrFkvLuXihwdC26VJh/72WceTkJh7sFLrPLivSdw/NRJJkkGAZq10s4gsDSi+QAFUN3v//BBA
+	vqzQoIkPkUS6T1JA==
+X-Received: by 2002:a17:902:c949:b0:2a0:992c:c54e with SMTP id d9443c01a7336-2a599e33f1dmr33469595ad.48.1768410550174;
+        Wed, 14 Jan 2026 09:09:10 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:c447:f90e:a227:47bf])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3cc88d8sm231003025ad.80.2026.01.14.09.09.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 09:09:09 -0800 (PST)
+Date: Wed, 14 Jan 2026 10:09:06 -0700
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-imx@nxp.com
+Subject: Re: [PATCH v6 0/5] Enable Remote GPIO over RPMSG on i.MX Platform
+Message-ID: <aWfNsrpC5Rgiwwp3@p14s>
+References: <20251212194341.966387-1-shenwei.wang@nxp.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wWm1d/lEDlGXNOgF"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CA+EHjTwMy1crsZLqfy8_Y56NFPJZ7vGyN-egc433GhxB_n=7aA@mail.gmail.com>
-X-Cookie: Absence makes the heart grow frantic.
+In-Reply-To: <20251212194341.966387-1-shenwei.wang@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_090911_945003_CB7D7D68 
+X-CRM114-Status: GOOD (  23.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,50 +110,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Dec 12, 2025 at 01:43:36PM -0600, Shenwei Wang wrote:
+> Support the remote devices on the remote processor via the RPMSG bus on
+> i.MX platform.
+> 
+> Changes in v6:
+>  - make the driver more generic with the actions below:
+>      rename the driver file to gpio-rpmsg.c
+>      remove the imx related info in the function and variable names
+>      rename the imx_rpmsg.h to rpdev_info.h
+>      create a gpio-rpmsg.yaml and refer it in imx_rproc.yaml
+>  - update the gpio-rpmsg.rst according to the feedback from Andrew and
+>    move the source file to driver-api/gpio
+>  - fix the bug reported by Zhongqiu Han
+>  - remove the I2C related info
+>
 
---wWm1d/lEDlGXNOgF
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Tue, Jan 13, 2026 at 02:06:53PM +0000, Fuad Tabba wrote:
-> On Tue, 23 Dec 2025 at 01:23, Mark Brown <broonie@kernel.org> wrote:
-
-> > +static int sme_reg_to_region(struct vec_state_reg_region *region,
-> > +                            struct kvm_vcpu *vcpu,
-> > +                            const struct kvm_one_reg *reg)
-> > +{
-
-> > +       reg_num = (reg->id & SVE_REG_ID_MASK) >> SVE_REG_ID_SHIFT;
-
-> You use array_index_nospec() below for koffset, but it might be worth
-> using it for intermediate values, such as this one.
-
-This is following the existing pattern for the SVE registers, I'm
-trusting the logic there.
-
-> > +       sme_state_size = vcpu_sme_state_size(vcpu);
-
-> Is it worth caching this value and storing it in arch, since the state
-> size doesn't change after finalization?
-
-It feels marginal, and we've not been caching it for SVE all this time.
-Most of the time we use the value we're doing so as part of a fairly
-expensive operation so it seems like a reasonable choice.
-
---wWm1d/lEDlGXNOgF
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlnzUwACgkQJNaLcl1U
-h9Cvrgf7BgTXha0CzEi5j4VgVBXcclvOZGymP1dBDz6D4Y8U/TMKH/bpOQcIjws/
-lkQGHPmKpBCHKgkE9ZCJu5oOQqQdCjFh9pHQQZwJM1QMRg/P/cwzO+CoyMsIkb1A
-4o2x/8WgiXF4LRsm4hmHRDR51VYSsH+Pg2dVgpSdiyIG1xi02AzthMF9vY0/fEiE
-GHKptYCfpxgy14m/Ns0VKGfgNXAXH6reAeVqWVo5BQ0K9a5M1pFAIoLyaKFulRTR
-0jgqosqFLXemYeGJ99w1TFrJRO3bltyiVULxBQBDupshqNvIwApsbjn92T0Qh8ir
-VwMGpz89Lk6CAe/3AHGVTw/0GgAFBw==
-=h+Uy
------END PGP SIGNATURE-----
-
---wWm1d/lEDlGXNOgF--
+NAK - I asked to use the virtio interface (in this case virtio-gpio), something
+I do not see in the above summary and the first 2 patches in this series.  This
+work will not move forward until that happens.
+ 
+> Changes in v5:
+>  - move the gpio-rpmsg.rst from admin-guide to staging directory after
+>    discussion with Randy Dunlap.
+>  - add include files with some code improvements per Bartosz's comments.
+> 
+> Changes in v4:
+>  - add a documentation to describe the transport protocol per Andrew's
+>    comments.
+>  - add a new handler to get the gpio direction.
+> 
+> Changes in v3:
+>  - fix various format issue and return value check per Peng 's review
+>    comments.
+>  - add the logic to also populate the subnodes which are not in the
+>    device map per Arnaud's request. (in imx_rproc.c)
+>  - update the yaml per Frank's review comments.
+> 
+> Changes in v2:
+>  - re-implemented the gpio driver per Linus Walleij's feedback by using
+>    GPIOLIB_IRQCHIP helper library.
+>  - fix various format issue per Mathieu/Peng 's review comments.
+>  - update the yaml doc per Rob's feedback
+> 
+> Shenwei Wang (5):
+>   dt-bindings: remoteproc: imx_rproc: Add "rpmsg" subnode support
+>   remoteproc: imx_rproc: Populate devices under "rpmsg" subnode
+>   docs: driver-api: gpio: generic gpio driver over rpmsg bus
+>   gpio: rpmsg: add generic rpmsg GPIO driver
+>   arm64: dts: imx8ulp: Add rpmsg node under imx_rproc
+> 
+>  .../devicetree/bindings/gpio/gpio-rpmsg.yaml  |  49 ++
+>  .../bindings/remoteproc/fsl,imx-rproc.yaml    |  54 ++
+>  Documentation/driver-api/gpio/gpio-rpmsg.rst  | 232 +++++++++
+>  Documentation/driver-api/gpio/index.rst       |   1 +
+>  arch/arm64/boot/dts/freescale/imx8ulp.dtsi    |  27 +
+>  drivers/gpio/Kconfig                          |  16 +
+>  drivers/gpio/Makefile                         |   1 +
+>  drivers/gpio/gpio-rpmsg.c                     | 490 ++++++++++++++++++
+>  drivers/remoteproc/imx_rproc.c                | 143 +++++
+>  include/linux/rpmsg/rpdev_info.h              |  33 ++
+>  10 files changed, 1046 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
+>  create mode 100644 Documentation/driver-api/gpio/gpio-rpmsg.rst
+>  create mode 100644 drivers/gpio/gpio-rpmsg.c
+>  create mode 100644 include/linux/rpmsg/rpdev_info.h
+> 
+> --
+> 2.43.0
+> 
 
