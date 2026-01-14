@@ -4,163 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 382D6D38FEF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:19:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 027FDD38FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EvWuWXWXjEUxNLU5czt6GUjFPl1XLAbh1E6O8lrPmX8=; b=tA3Yjar1PlH9y9dNFdjAfbzYLA
-	E00aZbMm/8EdBt4s4/OKGqwpMPNGPx/v/2MItWrwFXwriV7fMbRhP+RX8xn2n43JG9WnuthPJ5Udd
-	3yY/fTGVLCh3IuL/tTRcIdV9b15GmCEZnri5y2fLRbTLz9y+P35KgryhHXZyeXoag//Ta2A1hhWbQ
-	HA32YkaNt7YF4yHBNQVP9Bf8uK9Zs47q+fu25SnmJivJILvvBaU5DcELTT4ERNH6NiMVTeo+2X3vh
-	eF0+mZX1+a0NrPBAGoRwVtvMw4xOhczAOaTllaVs9yW6vbZfna4PyQnrtPLuyDlvN3mJyIYGFe/+G
-	fU8jCHlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hRZjQ1dMGsBxeFPWfiu+bZPHAYMAVWmC/3j5u54zOEY=; b=XSCEJHf8zBQcN6z2IfqqmG740l
+	aSTxl2q3okaCw29cRpEBo1YOeId/PZofXlW5Dkexkw0q94zD4OX0kJa3FPAkYrEPKn4VqG2PtF5wt
+	cRhl631yyYYVy1zS8reKobPVABnWwhXZNxmxYCyrwzkvsYdia2cnbDHa3STJ9SZDMX65JRcCZ0TMF
+	924L6bT3g3LxUfnfb2U0QY0K7ViQUDn9A8ITt1erUh8eaqjDp7RXkACMlQbpBw69ij4GQ+0t4jSLw
+	LfdvgzWdleb/LiFlEQNo+w/Fclv9uCPEgUAVRCSmMTHu7g6ZL+YsFkYr/gwne6F8oAqPhoQovs/SF
+	zB5dSgvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4Ws-0000000A6qC-0k62;
-	Wed, 14 Jan 2026 17:19:34 +0000
-Received: from mail-northeuropeazon11010062.outbound.protection.outlook.com ([52.101.84.62] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vg4f3-0000000A8L2-245M;
+	Wed, 14 Jan 2026 17:28:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4Wp-0000000A6ox-2xQh;
-	Wed, 14 Jan 2026 17:19:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aN/oJMas+EtmGo+jsBisOZy7V9mPyRjMw0oCon/LAN63hFJOwrWcTxSQ+eaypB0zmSPQ960LOPNZs0yohpdJAcWS5AISglwnv11sxQ/9Bd+oZna1clFWyZVhQD+66l21d2hTwR5gbmyvqv7PKdMb76y5KnUfy+v+NE17xnWFt+A4tqCBlcI9SuxDSF24ELZWqedrANpGNU2O4Wm49xxJixXnGYeQZHxejnFIjlucxWPQ6FoafhDubQav3UkXveqrMMtjGYRcmbrB4uR+golJUvw6X0xjHcXipbr1/tGVeufOMWq0PqaUw2qW186mpQo847473XLYuZkAjPivbP5rTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EvWuWXWXjEUxNLU5czt6GUjFPl1XLAbh1E6O8lrPmX8=;
- b=p8HGdCWdsyr+Z/DGdJGzjNjM++fV9OL/biqFBIGyKv/gzcYReNAB7Bijkp5IeKswwA1yVgpMg7nL2PU3f0Ksn5UrRnvWwqeKJmFR1BcIKZGfqmUiIKMkmIfc4MB175PUAAEUyLLcVJTNEiz3N5eNENMP2fnC8oAD4bxcmS1JF5s4rRWYMB87FeHbyls17AY3cEqacUdwN7LwjZEDgSiStVT/sMsc6el3hXNtvo1vl5Hixrhii3hPjkzDq0KLF/M3TxzXYoFqHrscGK/moQabOvJtXg7/ZAFkwfiICk6rigbhJt5HASJugoUq90bRQU2Do4umCEvHGIshBqiH78Ypqw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=oss.qualcomm.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EvWuWXWXjEUxNLU5czt6GUjFPl1XLAbh1E6O8lrPmX8=;
- b=SSJ3ifyStutH3IR7GhpCTD1UCW3oBYFPkNMh8c6Ev1+R6vhbSewxVTUGogKIakcCAseaxd0F9erbxnDkkCNGe811W54m290haBQtRiv0YBv8rZeWLzAEPSv3PPUjpdSyWpdklwv0MKQKwCX3ADOfEiXBnOZ8VfWcNrU6N1ikI7SdVZ0vpS3mfAGuBPmgvGFIELr0E+uFlcuZVvRmwd6nvaIRtQcKACw8BHrs5gQ9fi9HhTmT+D8MeN+MzyB8x+OnxU4OOcVlTTUH1mE7vs2PfkxTGmcSpxhTu/iFCLzAvI2c+Yd/1sQnq7XrTGNntkdrhZfrFgtbyuWpm7jFmYSGGg==
-Received: from DUZPR01CA0246.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b5::12) by DUZPR10MB8228.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:10:4b2::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.4; Wed, 14 Jan
- 2026 17:19:25 +0000
-Received: from DB3PEPF00008860.eurprd02.prod.outlook.com
- (2603:10a6:10:4b5:cafe::da) by DUZPR01CA0246.outlook.office365.com
- (2603:10a6:10:4b5::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.5 via Frontend Transport; Wed,
- 14 Jan 2026 17:19:53 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DB3PEPF00008860.mail.protection.outlook.com (10.167.242.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.1 via Frontend Transport; Wed, 14 Jan 2026 17:19:25 +0000
-Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Wed, 14 Jan
- 2026 18:20:42 +0100
-Received: from [10.48.87.93] (10.48.87.93) by STKDAG1NODE1.st.com
- (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Wed, 14 Jan
- 2026 18:19:23 +0100
-Message-ID: <92b95ceb-3c99-4977-b467-7bc5ee39a4d8@foss.st.com>
-Date: Wed, 14 Jan 2026 18:19:22 +0100
+	id 1vg4f2-0000000A8Ko-3EBu
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Jan 2026 17:28:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D95B16001A;
+	Wed, 14 Jan 2026 17:27:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D171AC4CEF7;
+	Wed, 14 Jan 2026 17:27:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768411679;
+	bh=MKErPubq+4dytiNTQQKxbBYuZq0PRZbULHtHlGPOA9U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NPNzAUNVJjw7ci4jNIO2uMrDaRZ+xEVkHOjM5IQaB+UAc/c442sRxq+JFqShLlNHu
+	 XfqXYF3w43bN21mG+uwwl5Iy8UmeqdAF6OK+8BA3dJRHuc3qxpeZ7sISIDpad07B+b
+	 jv0O9lGX3cAw6lWQMYieUSLvbvMcZ62jwgH84qc3c3mRz2fGAgBep8rPfPeqZAy0jo
+	 2dfXmVozyUzfknjXc8Ivt7BoXalm2KIXNSEnqIHuiqB0zUpwqgkgpaDN17ovsedGUq
+	 yYEBZ8Lc+y9wmjLpRmdkKVnH4HYJqOsm4rroiYmT2UWZVGLhiIVe2pKwFyE4zUS7iv
+	 BdEdk1L1lKyHw==
+Date: Wed, 14 Jan 2026 17:27:53 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v9 23/30] KVM: arm64: Context switch SME state for guests
+Message-ID: <5a053bb6-5052-4664-b0cb-f05d56d4679d@sirena.org.uk>
+References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
+ <20251223-kvm-arm64-sme-v9-23-8be3867cb883@kernel.org>
+ <CA+EHjTyYcrWwBR0AwwdWFfOSwbmTMOhSee7y_-vrMfOxphrvqw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 11/11] pinctrl: st: Annotate st_pinconf_dbg_show() as
- holding mutex
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Andrew Jeffery
-	<andrew@codeconstruct.com.au>, Linus Walleij <linusw@kernel.org>, "Joel
- Stanley" <joel@jms.id.au>, Emil Renner Berthing <kernel@esmil.dk>, Hal Feng
-	<hal.feng@starfivetech.com>, Chen Wang <unicorn_wang@outlook.com>, "Inochi
- Amaoto" <inochiama@gmail.com>, Basavaraj Natikar <Basavaraj.Natikar@amd.com>,
-	Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, Bartosz Golaszewski
-	<brgl@kernel.org>, Steen Hegelund <Steen.Hegelund@microchip.com>, "Daniel
- Machon" <daniel.machon@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	"Thierry Reding" <thierry.reding@gmail.com>, Jonathan Hunter
-	<jonathanh@nvidia.com>, Heiko Stuebner <heiko@sntech.de>
-CC: <linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
-	<linux-gpio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <sophgo@lists.linux.dev>,
-	<linux-tegra@vger.kernel.org>, <linux-rockchip@lists.infradead.org>
-References: <20260114-pinctrl-cleanup-guard-v1-0-a14572685cd3@oss.qualcomm.com>
- <20260114-pinctrl-cleanup-guard-v1-11-a14572685cd3@oss.qualcomm.com>
-Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20260114-pinctrl-cleanup-guard-v1-11-a14572685cd3@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.93]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE1.st.com
- (10.75.128.132)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB3PEPF00008860:EE_|DUZPR10MB8228:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9be893a2-de39-4b63-3129-08de539110fd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|1800799024|32650700017|36860700013|7053199007|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aU52cXNUbUZBcktMc2ZRM2QxNll1RFlvZ3BFd01ldUdrQUdqY1kwZldoMWpm?=
- =?utf-8?B?anJUeXVFUkhqMTlxWXNwY2VKNkhMdDVoME1vd0tOcGc0UEExbFRWYWJsUU0x?=
- =?utf-8?B?dExEMDl5NU5DcmtCb0FuUzU3Z0pZWEI2NnBNUGhQL2RjNExGV0ZRNmpyNUhK?=
- =?utf-8?B?RDhDUkNjejcwQTdOYVJ5NktmYkpNUjVsQ29vQmtJOGxZdmZBZXdiVkZsaFQv?=
- =?utf-8?B?R2ZLTldxTFVSdUpyblFhUUNGMHZ5N2d0U0tRMTg1WHRUUDhKbmdxNEpkZ29H?=
- =?utf-8?B?dVZyZ0NTNEczWlc2VE8ybmtwNGNvcUZmNWdPalJteXA0SnA1ZU9rVCswZU5n?=
- =?utf-8?B?Qy9WWHdmbzlVcHlYa0dhc044SkpxRUR2c3B6MWRIVm5rNFMrc1Y5ZGVHbnY3?=
- =?utf-8?B?SzBGcTA3cVJla1RYcWdiMGkxdkszZ2RrOHozNFhhOG1FZzVBS2RzbnBhWUl0?=
- =?utf-8?B?RURjQnJoWm55OGloRlBsOTMvZnBIRldnSVkra2U1RUlXbVpWTGQvdEpwRytq?=
- =?utf-8?B?YlZCSTI0cXIwaUNvMHJ1RUw4c1NPNXI4ZXN2SkZDb0V2bkFYNFpDc2FKNGMw?=
- =?utf-8?B?Y0FwVU5FMER0d0R5VnV2eGFrM2V2TEdtQ05SZnZ4R1NJb0t0VWJFeUhSS2VJ?=
- =?utf-8?B?Uk9ZbjRQNkdwN2ZneTN1Y2xqcFVmMUR3ejdJN1NLaDVMdDhHTm4rVlMwTjZV?=
- =?utf-8?B?TjE5RTNHYVVtdHRrTmE4SmZDcjBUeFhwWTh0b05QeGdUZ1UyKzNzR3NzSXJ2?=
- =?utf-8?B?Q0V6cVYySkFjNW1obUE3Z21pVTJiTzhDOG1RbEVMQzNSRzR6aHZCS2hYR20z?=
- =?utf-8?B?RjNQTUJ4MXBrS2NSNmJqWXNuNERXU1RmY2JWQWY0Y1ZEVWJCZnQxUWx2UDlF?=
- =?utf-8?B?YkZWYzJEY1liWi9xTUN4cjNnUngzT3pPSFRvOUJWOWluZXpaT1hyVDF1SE9Y?=
- =?utf-8?B?M1lhT1VUZ1gyQjZGR0NyWHFpTkVHL3VMcUxxbjdjd2Y1aWV6cWN3TlRmYWJY?=
- =?utf-8?B?K0dXQUhUcEs0QTlnbU4ycmdNNm9UV2RiYjNlZCtteEZNRElKUHBtWnJvV0tl?=
- =?utf-8?B?ZEdoT284LzhiY09oWXhLUGIxbTM4dHNDZGlKdklkSXlnK3V0dGtJcGdiUDJL?=
- =?utf-8?B?bVVhUHpORVVOZlVGbmZ5R3kzMDZ6ekh6VFF1S3lLWnhDTjNjTDVEQjJXUFA3?=
- =?utf-8?B?VU5OZVV0dW5rajQyTHA2SmVyaVdQQWVJRmZGU0xhWFNCcEI4WlRVVXFuVGRJ?=
- =?utf-8?B?TW1kOTF3OHB5TEJHK1YrTUpudFB3UndudVZuSjV6YlVhK0dncTc1YS9jR0Ft?=
- =?utf-8?B?eStmaGQwOUlnNmdkdEo3aU85dDFTbWhxZ0V5aWZVNUJOTVp3R0hyMmo3Yndh?=
- =?utf-8?B?blZDbU9PTURCMWVDV2YwU1VmTmE5dFFkeEFRUk9Tc1dEV1BXY1o0b1VnM2xH?=
- =?utf-8?B?eVp4aHZFUnNhMXNRQkFLbEEvd1lzWlphOXgyUlRJMmhhMXpld2xtdGlhdDRF?=
- =?utf-8?B?REFITkRPb0pGY04xU1BaOG53a0dWSWV2Snk0c20rbkR0a0hVVnJ4WlBZWGJu?=
- =?utf-8?B?NXAyN0Y3TGVwLzM0UXB2TVE0cG9NdFpSUlpjR3NEVGh1N3JVTGd4RGprcmow?=
- =?utf-8?B?MFlEN1hOR05kaEZER0RnM2tCMjU5dmRuN20wZXJzQnQxaUdPTUJ2bXJOMTFU?=
- =?utf-8?B?c1I1T0k4MU1wdHhQaGZmcXM2Mkt3eWVnaVFTNGlPVjJIckMydE5mV3E2c3NP?=
- =?utf-8?B?b3NOdGp0UnRBK2wySFVBUjhzV0JxUVBUZHluNlA0YUQ3ZjBSZmxQR3ZWK2dS?=
- =?utf-8?B?RlAwVVZrc3FubU9adHNHZndNSkhiVWs1NWo4bVpGdXRQWEtvelFIL29GV3o0?=
- =?utf-8?B?YndKckdab2RPT1N5STJaei8xMmhmT05IeHpuR2xEYTBOc0t5UUVnWTFJT3li?=
- =?utf-8?B?dExNWUE5c1V2NjI4MzFLSCtFTHNLQ3ltVEVsWjZGNitodDBDeWwrNGJpb1la?=
- =?utf-8?B?UnJEcG5GTE93cklwcFMrSUNDc2hxanFhUlhUNXA5OHFvN3VEc1lIT3haS0hB?=
- =?utf-8?B?blowMy95UVpjaUJ1K2I5cUxPbFNzZjN1Z0xRVkJlMmpMQVZXUnQ4MUUyTzlO?=
- =?utf-8?B?MXBya0xVY29oYXlYZFVYYVYvQXZxejhNRGE2MGxGS1hydXA5enhoazI4aWx3?=
- =?utf-8?B?d3ZjMkZuT21qY1FxUXJRdE1CSXMyZEtHby9lLzBRT2JaZ3FHdmhoV0NVc2x0?=
- =?utf-8?Q?ktY4lbFiL5eI7gMy5g69JDtgDcU1GxcGTMK0B4ra6w=3D?=
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(1800799024)(32650700017)(36860700013)(7053199007)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: A1bMcRBDS/lcQoSy1atY1UrHjea7eClkRqHv0eBCYATsFtlzmQxTF+1KUYUyMhF9CAqeqq7bumy9GP3SvwMoUVfDBbeoMDHGC7FM1aywJwT4pCv395XucmZjD7ySLBpPAjYm0UmhyxPTvvr9ksdXs56KPtULE7yoWnlcRiv4fx8ljgAkAphSCtoa9NzLm3Qyyds8qvW2A06CxNngIzNU0wjOw4ra4dFrZXiMK4Fzsg2uUaT7fBGNQx9iO7Jja/1bgCEIBDkBSvgD5cstUYH+EDz91Z7TA3lPLzuPOIfF38HAJ2oQZqukIXfZN/6w7mQnQtJJ6MS9EvOfCn3lk2WAakt51K7wV2NG85+l9j42t1S/TPJlpWEnThTUk7TZUZEV7YYPp5RBrI9WW8L7z1pRq7f1tM+PkSctfjsLvAwn0vyND3ZsndMxPTvnydsLhS9sHvXDPsi5hosQX5zkK7e1Aa6Xiik2Z2ot3JRVsWc5EEEfByi6wDp3/BkzUrfcj/qYaVZzC33qETncxKJ/T3slc3jCoYjaRJ9ghjT0cjaLyn1MC7DdEqfE++FQfOJhGW5sZh5hfG7B0mR4rQTysOniPpROK5XznrjrDRBrOWqJfWUlX1rn82tS7J71Z80gsdQsXAK/blGcB5gu8NKeiC8bN6Kmpjay2I7Vl2UgZNJuPRJUM934jhRk0T6zJ47y6uAp
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2026 17:19:25.2514
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9be893a2-de39-4b63-3129-08de539110fd
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF00008860.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR10MB8228
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_091932_002016_15B1D6D6 
-X-CRM114-Status: GOOD (  16.67  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="5VzuVXkE42Zf47rW"
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTyYcrWwBR0AwwdWFfOSwbmTMOhSee7y_-vrMfOxphrvqw@mail.gmail.com>
+X-Cookie: Absence makes the heart grow frantic.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,44 +84,39 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--5VzuVXkE42Zf47rW
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On 1/14/26 16:30, Krzysztof Kozlowski wrote:
-> st_pinconf_dbg_show() unlocks and locks the pinctrl_dev mutex, so it
-> must be called by the pinctrl core with the mutex hold.  Annotate the
-> function with sparse __must_hold, so any changes in pinctrl locking will
-> be statically detected.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> 
-> ---
-> 
-> I think this is still useful, although maybe a bit pointless if core
-> explicitly always locks every pin_config_dbg_show() call? Anyway,
-> pattern of unlock+lock feels to me like something worth annotating.
-> 
-> I left the patch at the end of the set so it can be nicely discarded.
-> ---
->  drivers/pinctrl/pinctrl-st.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/pinctrl/pinctrl-st.c b/drivers/pinctrl/pinctrl-st.c
-> index d3cea3437d7f..8ce88e591f47 100644
-> --- a/drivers/pinctrl/pinctrl-st.c
-> +++ b/drivers/pinctrl/pinctrl-st.c
-> @@ -987,6 +987,7 @@ static int st_pinconf_get(struct pinctrl_dev *pctldev,
->  
->  static void st_pinconf_dbg_show(struct pinctrl_dev *pctldev,
->  				   struct seq_file *s, unsigned pin_id)
-> +	__must_hold(&pctldev->mutex)
->  {
->  	struct st_pio_control *pc;
->  	unsigned long config;
-> 
+On Tue, Jan 13, 2026 at 02:24:56PM +0000, Fuad Tabba wrote:
+> On Tue, 23 Dec 2025 at 01:23, Mark Brown <broonie@kernel.org> wrote:
 
-Hi Krzysztof
+> > +#define sme_cond_update_smcr_vq(val, reg)                      \
+> > +       do {                                                    \
+> > +               u64 __smcr = read_sysreg_s((reg));              \
+> > +               u64 __new = __smcr & ~SMCR_ELx_LEN_MASK;        \
+> > +               __new |= (val) & SMCR_ELx_LEN_MASK;             \
 
-Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> Similar to what I pointed out in patch 15 [1], I think you need to
+> preserve the other bits, since SMCR isn't just about the length.
 
-Thanks
-Patrice
+This does preserve the existing bits?  It reads SMCR, masks out and then
+replaces the length.
+
+--5VzuVXkE42Zf47rW
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmln0hgACgkQJNaLcl1U
+h9BMEAf/RF9rOJl8ekbOzDRQR11JDX39xOnp1XjKNL/LwADVFknoshEFGbwNHbg7
+57daW1rnmcC+bbYUI884dlgzpo1QO8eu4Ln3iZDbBO3RiskXsxPq0/Aw9YPMpukh
+389uJu/fYy9Ag03Cgwp1Gcp7bMqs3eDrjnW6q4Rdaqc6tzECGGKLYT25uZjD9qdu
+n5jJy4QwQfmTpm1eH93FgHCkiW5PHP8wUv+dYDQ02i/Bg1ZOuiOeiof+YcAfZoxn
+okZ9Seieeb/x/OD9CYTtepifFAelR40y3pF8VLhESbkMzGiy7v6SmiCWhPvFhNkF
+uyOxnmGui2Xy46sOprB2XcG91p5l5g==
+=e2HB
+-----END PGP SIGNATURE-----
+
+--5VzuVXkE42Zf47rW--
 
