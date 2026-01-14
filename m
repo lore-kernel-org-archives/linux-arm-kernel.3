@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7A90D29FF7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 11:47:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73357D29FF7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 11:47:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=W3Q2Zbx6XYZHfxTQa7SlJv/PoUlBElFODIxA2YQSHak=; b=PsXv0DQs2ihQEjFpLndle+Z28G
-	DaJyl1NaEJXPBGXazln6JqclhHbB/Pi6UpVElcxl/uh1i2d8NVnK6mM6NoPtAieFWzAWw5Y+y37m5
-	o+fLID6YjNX56CxNxiD2oMIWgeagGqqnjuuIQmRlhuhlfPGQ+S8Xq6a5J6gkUBNwvbj6BAHX3UBYH
-	GLkctluJeNUxWhIE7iDPv7oNTnf83Eq1LlNSr6bTSjL5M2V5xp5c2XU/V+iiEHQGwbsykXMMHGz1J
-	unB6tvehnBUMjKsO5Bp8JjFO9fgq+bveh0pKztSFiTEBTfSH2gtfKkWV10qogYBVJzzswnzNIjpDu
-	mNx+eqJg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gblRN09g39uQx4MJIHEXfEifIX2jWlNrvirBPgN+3bc=; b=2WARTtjbuhHlT8XzlC7lsDgnZn
+	iiABoywg32h5foiUtky2Lbd3j3UT3bIhRhmFo/Y/heg3J0xkzOgVPUY8ZSEnnedSYc44r1QHu4mEG
+	56BZkzoIn1slUA0jdjWMMzcuTYqUSudkX826/ApYXMi1Qm0LkdhqMsKWASfYeI65n39UCgKvIrS2U
+	bofMCBCS7xdP/Vh+KrBEUSu+AC7dIAJOI2w3Wk71q8ZQM33TpqIjI4KQOjVX7d4aidXtuhfdnTSES
+	ZZnqO2Rmfq3VDv3Brw1x45fFKMHeMxrJm6yNdaNDaR08usbrnhUh+grXJF39nDdVdg6FkMjzHlL/X
+	5b9Z0jUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzLU-000000090KV-201U;
-	Wed, 14 Jan 2026 11:47:28 +0000
+	id 1vfzLi-000000090QN-189D;
+	Wed, 14 Jan 2026 11:47:42 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzLQ-000000090JJ-3qgx
+	id 1vfzLd-000000090NK-0yOo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 11:47:26 +0000
+	Wed, 14 Jan 2026 11:47:38 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43078339;
-	Wed, 14 Jan 2026 03:47:14 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2C79497;
+	Wed, 14 Jan 2026 03:47:29 -0800 (PST)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 49D523F59E;
-	Wed, 14 Jan 2026 03:47:17 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E6C8D3F59E;
+	Wed, 14 Jan 2026 03:47:32 -0800 (PST)
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -53,15 +53,17 @@ Cc: sudeep.holla@arm.com,
 	philip.radford@arm.com,
 	souvik.chakravarty@arm.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v2 00/17] Introduce SCMI Telemetry FS support
-Date: Wed, 14 Jan 2026 11:46:04 +0000
-Message-ID: <20260114114638.2290765-1-cristian.marussi@arm.com>
+Subject: [PATCH v2 04/17] uapi: Add ARM SCMI definitions
+Date: Wed, 14 Jan 2026 11:46:08 +0000
+Message-ID: <20260114114638.2290765-5-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260114114638.2290765-1-cristian.marussi@arm.com>
+References: <20260114114638.2290765-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_034725_064203_DBEA83F5 
-X-CRM114-Status: GOOD (  32.02  )
+X-CRM114-CacheID: sfid-20260114_034737_361860_FB301772 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,485 +78,326 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+Add a number of structures and ioctls definitions used by the ARM
+SCMI Telemetry protocol.
 
-the upcoming SCMI v4.0 specification [0] introduces a new SCMI protocol
-dedicated to System Telemetry.
-
-In a nutshell, the SCMI Telemetry protocol allows an agent to discover at
-runtime the set of Telemetry Data Events (DEs) available on a specific
-platform and provides the means to configure the set of DEs that a user is
-interested into, while reading them back using the collection method that
-is deeemd more suitable for the usecase at hand. (amongst the various
-collection methods allowed by SCMI specification)
-
-Without delving into the gory details of the whole SCMI Telemetry protocol
-let's just say that the SCMI platform firmware advertises a number of
-Telemetry Data Events, each one identified by a 32bit unique ID, and an
-agent, like Linux, can discover them and read back at will the associated
-data value in a number of ways.
-Data collection is mainly intended to happen on demand via shared memory
-areas exposed by the platform firmware, discovered dynamically via SCMI
-Telemetry and accessed by Linux on-demand, but some DE can also be reported
-via SCMI Notifications or direct dedicated FastChannels (another kind of
-SCMI MMIO): all of this underlying mechanism is anyway hidden to the user
-since it is mediated by the kernel which will return the proper data value
-when queried.
-
-Anyway, the set of well-known architected DE IDs defined by the spec is
-limited to a dozen IDs, which means that the vast majority of DE IDs are
-customizable per-platform: as a consequence the same ID, say '0x1234',
-could represent completely different things on different systems.
-
-Precise definitions and semantic of such custom Data Event IDs are out of
-the scope of the SCMI Telemetry specification and of this implementation:
-they are supposed to be provided using some kind of JSON-like description
-file that will have to be consumed by a userspace tool which would be
-finally in charge of making sense of the set of available DEs.
-
-IOW, in turn, this means that even though the DEs enumerated via SCMI come
-with some sort of topological and qualitative description provided by the
-protocol (like unit of measurements, name, topology info etc), kernel-wise
-we CANNOT be completely sure of "what is what" without being fed-back some
-sort of information about the DEs by the above mentioned userspace tool.
-
-For these reasons, currently this series does NOT attempt to register any
-of these DEs with any of the usual in-kernel subsystems (like HWMON IIO,
-PERF etc), simply because we cannot be sure which DE is suitable or even
-desirable for a given subsystem. This also means there are NO in-kernel
-users of these Telemetry data events as of now.
-
-So, while we do not exclude, in the future, to feed/register some of the
-discovered DEs with some of the above mentioned Kernel subsystems, as of
-now we have ONLY modeled a custom userspace API to make SCMI Telemetry
-available to userspace tools.
-
-In deciding which kind of interface to expose SCMI Telemetry data to a
-user, this new SCMI Telemetry driver aims at satisfying 2 main reqs:
-
- - exposing some sort of FS-based human-readable interface that can be used
-   to discover, configure and access our Telemetry data directly from the
-   shell
-
- - exposing alternative machine-friendly, more-performant, binary
-   interfaces that can be used to avoid the overhead of multiple accesses
-   to the VFS and that can be more suitable to be accessed with a custom
-   tool
-
-In the initial RFC posted a few months ago [2], the above was achieved
-with a combination of a SysFS interface, for the human-readable side of
-the story, and a classic chardev/ioctl for the plain binary access.
-
-Since V1, instead, we moved away from this combined approach, especially
-away from SysFS, for the following reason:
-
- 1. "Abusing SysFS": SysFS is a handy way to expose device related
-      properties in a common way, using a few common helpers built on
-      kernfs; this means, though, that unfortunately in our scenario I had
-      to generate a dummy simple device for EACH SCMI Telemetry DataEvent
-      that I got to discover at runtime and attach to them, all of the
-      properties I need.
-      This by itself seemed to me abusing the SysFS framework, but even
-      ignoring this, the impact on the system when we have to deal with
-      hundreds or tens of thousands od DEs is sensible.
-      In some test scenario I ended with 50k devices and half-a-millon
-      related property files ... O_o
-
- 2. "SysFS constraints": SysFS usage itself has its well-known constraints
-      and best practices, like the one-file/one-value rule, and due to the
-      fact that any virtual file with a complex structure or handling logic
-      is frowned upon, you can forget about IOTCLs and mmap'ing to provide
-      a more performant interface, which is the reason why, in the previous
-      RFC, there was an additional alternative chardev interface.
-      These latter limitations around the implementation of files with a
-      more complex semantic (i.e. with a broader set of file_operations)
-      derive from the underlying KernFS support, so KernFS is equally not
-      suitable as a building block for our implementation.
-
- 2. "Chardev limitations": Given the nature of the protocol, the hybrid
-      approach employing character devices was itself problematic: first
-      of all because there is an upper limit on the number of chardev we
-      can create, dictated by the range of available minor numbers and
-      then because the fact itself to have to maintain 2 completely
-      different interfaces (FS + chardev) is a pain.
-
-As a final remark, please NOTE THAT all of this is supposed to be available
-in production systems across a number of heterogeneous platforms: for these
-reasons the easy choice, debugFS, is not an option.
-
-Due to the above reasoning, since V1 we opted for a new approach with the
-proposed interfaces now based on a full fledged, unified, virtual pseudo
-filesystem implemented from scratch so that we can:
-
- - expose all the DEs property we like as before with SysFS, but without
-   any of the constraint imposed by the usage of SysFs or kernfs.
-
- - easily expose additional alternative views of the same set of DEs
-   using symlinking capabilities (e.g. alternative topological view)
-
- - additionally expose a few alternative and more performant interfaces
-   by embedding in that same FS, a few special virtual files:
-
-   + 'control': to issue IOCTLs for quicker discovery and on-demand access
-   		to data
-   + 'pipe' [TBD]: to provide a stream of events using a virtual
-		   infinite-style file
-   + 'raw_<N>' [TBD]: to provide direct memory mapped access to the raw
-   		      SCMI Telemetry data
-
- - use a mount option to enable a lazy enumeration operation mode to delay
-   SCMI related background discovery activities to the effective point in
-   time when the user needs it (if ever)
-
-
-INTERFACES
-===========
-
-We propose a couple of interfaces, both rooted in the same unified
-SCMI Telemetry Filesystem STLMFS, which can be mounted with:
-
-	mount -t stlmfs none /sys/fs/arm_telemetry/
-
-In a nutshell, we expose the following interfaces, rooted at different
-points in the FS:
-
- 1. a FS based human-readable API tree
-
-   This API present the discovered DEs and DEs-groups rooted under a
-   structrure like this:
-
-	/sys/fs/arm_telemetry/tlm_0/
-	|-- all_des_enable
-	|-- all_des_tstamp_enable
-	|-- available_update_intervals_ms
-	|-- current_update_interval_ms
-	|-- de_implementation_version
-	|-- des
-	|   |-- 0x00000000
-	|   |-- 0x00000016
-	|   |-- 0x00001010
-	|   |-- 0x0000A000
-	|   |-- 0x0000A001
-	|   |-- 0x0000A002
-	|   |-- 0x0000A005
-	|   |-- 0x0000A007
-	|   |-- 0x0000A008
-	|   |-- 0x0000A00A
-	|   |-- 0x0000A00B
-	|   |-- 0x0000A00C
-	|   `-- 0x0000A010
-	|-- des_bulk_read
-	|-- des_single_sample_read
-	|-- groups
-	|   |-- 0
-	|   `-- 1
-	|-- intervals_discrete
-	|-- reset
-	|-- tlm_enable
-	`-- version
-
-	At the top level we have general configuration knobs to:
-
-	- enable/disable all DEs with or without tstamp
-	- configure the update interval that the platform will use
-	- enable Telemetry as a whole rest the whole stack
-	- read all the enabled DEs in a buffer one-per-line
-		<DE_ID> <TIMESTAMP> <DATA_VALUE>
-	- des_single_sample_read to request an immediate updated read of
-	  all the enabled DEs in a single buffer one-per-line:
-		<DE_ID> <TIMESTAMP> <DATA_VALUE>
-        
-	where each DE in turn is represented by a flat subtree like:
-
-	tlm_0/des/0xA001/
-	|-- compo_instance_id
-	|-- compo_type
-	|-- enable
-	|-- instance_id
-	|-- name
-	|-- persistent
-	|-- tstamp_enable
-	|-- tstamp_exp
-	|-- type
-	|-- unit
-	|-- unit_exp
-	`-- value
-
-	where, beside a bunch of description items, you can:
-
-	- enable/disable a single DE
-	- read back its tstamp and data from 'value' as in:
-		<TIMESTAMP>: <DATA_VALUE>
-
-	then for each discovered group of DEs:
-
-	scmi_tlm_0/groups/0/
-	|-- available_update_intervals_ms
-	|-- composing_des
-	|-- current_update_interval_ms
-	|-- des_bulk_read
-	|-- des_single_sample_read
-	|-- enable
-	|-- intervals_discrete
-	`-- tstamp_enable
-
-	you can find the knobs to:
-	
-	- enable/disable the group as a whole
-	- lookup group composition
-	- set a per-group update interval (if supported)
-	- des_bulk_read to read all the enabled DEs for this group in a
-	  single buffer one-per-line:
-		<DE_ID> <TIMESTAMP> <DATA_VALUE>
-	- des_single_sample_read to request an immediate updated read of
-	  all the enabled DEs for this group in a single buffer
-	  one-per-line:
-		<DE_ID> <TIMESTAMP> <DATA_VALUE>
-
- 2. Leveraging the capabilities of a full-fledged filesystem and the
-    topological information provided by SCMI Telemetry we expose also
-    and alternative view of the above tree, by symlinking a few of the
-    same entries above under another, topologically sorted, subtree:
-
-    components/
-    |-- cpu
-    |   |-- 0
-    |   |   |-- celsius
-    |   |   |   `-- 0
-    |   |   |       `-- 0x0001
-    |   |   |           |-- compo_instance_id
-    |   |   |           |-- compo_type
-    |   |   |           |-- enable
-    |   |   |           |-- instance_id
-    |   |   |           |-- name
-    |   |   |           |-- persistent
-    |   |   |           |-- tstamp_enable
-    |   |   |           |-- tstamp_exp
-    |   |   |           |-- type
-    |   |   |           |-- unit
-    |   |   |           |-- unit_exp
-    |   |   |           `-- value
-    |   |   `-- cycles
-    |   |       |-- 0
-    |   |       |   `-- 0x1010
-    |   |	    |    ....
-	.................
-	...............
-    |   |-- 1
-    |   |   `-- celsius
-    |   |       `-- 0
-    |   |           `-- 0x0002
-    |   |           .........
-    |   `-- 2
-    |       `-- celsius
-    |           `-- 0
-    |               `-- 0x0003
-    |-- interconnnect
-    |   `-- 0
-    |       `-- hertz
-    |           `-- 0
-    |               |-- 0xA008
-    |               `-- 0xA00B
-    |-- mem_cntrl
-    |   `-- 0
-    |       |-- bps
-    |       |   `-- 0
-    |       |       `-- 0xA00A
-    |       |-- celsius
-    |       |   `-- 0
-    |       |       `-- 0xA007
-    |       `-- joules
-    |           `-- 0
-    |               `-- 0xA002
-    |-- periph
-    |   |-- 0
-    |   |   `-- messages
-    |   |       `-- 0
-    |   |           `-- 0x0016
-    |   |-- 1
-    |   |   `-- messages
-    |   |       `-- 0
-    |   |           `-- 0x0017
-    |   `-- 2
-    |       `-- messages
-    |           `-- 0
-    |               `-- 0x0018
-    `-- unspec
-    `-- 0
-    |-- celsius
-    |   `-- 0
-    |       `-- 0xA005
-
-
-   ...so as to provide the human user with a more understandable layout.
-
-
-All of this is nice and fancy human-readable, easily scriptable, but
-certainly not the fastest possible to access especially on huge trees...
-
- ... so for the afore-mentioned reasons we alternatively expose also:
-
- 3. a more performant API based on IOCTLs as described fully in:
-
-	include/uapi/linux/scmi.h
-
-   As described succinctly in the above UAPI header too, this API is meant
-   to be called on a few special files named 'control' that are populated
-   into the tree:
-
-   .
-   |-- all_des_enable
-   .....
-   |-- components
-   |   |-- cpu
-   |   |-- ...
-   |   |-- periph
-   |   `-- unspec
-   |-- control                   <<<<<<<<<<<<<<
-   .....................
-
-   |-- groups
-   |   |-- 0
-   |   |   |-- available_update_intervals_ms
-   |   |   |-- composing_des
-   |   |   |-- control           <<<<<<<<<<<<<<
-   .....................
-   |   |-- 1
-   |   |   |-- available_update_intervals_ms
-   |   |   |-- composing_des
-   |   |   |-- control           <<<<<<<<<<<<<<
-   .....................
-   |   `-- 2
-   |       |-- available_update_intervals_ms
-   |       |-- composing_des
-   |       |-- control           <<<<<<<<<<<<<<
-   .....................
-
-  This will allow a tool to:
-
-   - use some IOCTLs to configure a set of properties equivalent to the
-     ones above in FS
-   - use some other IOCTLs for direct access to data in binary format
-     for a single DEs or all of them
-
- 4. [FUTURE/NOT IN THIS V2]
-    Another alternative and completely binary direct raw access interface
-    accessible via a new set of memory .mmap'able special files so as to
-    allow userspace tools to access SCMI Telemetry data directly in binary
-    form without any kernel mediation.
-
-
-NOTE THAT this series, though, at the firmware interface level still
-supports ONLY the previous SCMI Telemetry ALPHA_0 [1] specification NOT the
-new recently released BETA [0].
-
-
-Missing feats & next steps
---------------------------
- - support SCMI v4.0 BETA
- - add direct access interface via mmap-able 'raw' files
- - add streaming mode interface via 'pipe' file (tentative)
- - evolve/enhance app in tools/testing/scmi/stlm to be interactive
- 
-
-KNOWN ISSUES
-------------
- - STLMFS code layout and location...nothing lives in fs/ and no FS Kconfig
- - lazy filesystem population implementation is dubious (albeit simpler:D)
- - Documentation is still incomplete
- - residual sparse/smatch static analyzers errors
- - stlm tool utility is minimal for testing or development
-
-Based on V6.19-rc3, tested on an emulated setup.
-
-Any feedback welcome,
-
-Thanks,
-Cristian
-
-----
-
-V1 --> V2
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- - rebased on v6.19-rc3
- - harden TDCF shared memory areas accesses by using proper accessors
- - reworked protocol resources lifecycle to allow lazy enumeration
- - using NEW FS mount API
- - reworked FS inode allocation to use a std kmem_cache
- - fixed a few IOCTLs support routine to support lazy enumeration
- - added (RFC) a new FS lazy mount option to support lazily population of
-   some subtrees of the FS (des/ groups/ components/)
- - reworked implementation of components/ alternative FS view to use
-   symlinks instead of hardlinks
- - added a basic simple (RFC) testing tool to exercise UAPI ioctls interface
- - hardened Telmetry protocol and driver to support partial out-of-spec FW
-   lacking some cmds (best effort)
- - reworked probing races handling
- - reviewed behaviour on unmount/unload
- - added support for Boot_ON Telemetry by supporting SCMI Telemetry cmds:
-   + DE_ENABLED_LIST
-   + CONFIG_GET
- - added FS and ABI docs
-
-RFC --> V1
+v1 --> v2
+ - Added proper __counted_by marks
+ - Fixed a few dox comments
+ - Renamed reserved[] fields to pad[]
 ---
- - moved from SysFS/chardev to a full fledged FS
- - added support for SCMI Telemetry BLK timestamps
-
-
-Thanks,
-Cristian
-
-[0]: https://developer.arm.com/documentation/den0056/fb/?lang=en
-[1]: https://developer.arm.com/documentation/den0056/f/?lang=en
-[2]: https://lore.kernel.org/arm-scmi/20250620192813.2463367-1-cristian.marussi@arm.com/
-
-
-Cristian Marussi (17):
-  firmware: arm_scmi: Define a common SCMI_MAX_PROTOCOLS value
-  firmware: arm_scmi: Reduce the scope of protocols mutex
-  firmware: arm_scmi: Allow protocols to register for notifications
-  uapi: Add ARM SCMI definitions
-  firmware: arm_scmi: Add Telemetry protocol support
-  include: trace: Add Telemetry trace events
-  firmware: arm_scmi: Use new Telemetry traces
-  firmware: arm_scmi: Add System Telemetry driver
-  fs/stlmfs: Document ARM SCMI Telemetry filesystem
-  firmware: arm_scmi: Add System Telemetry ioctls support
-  fs/stlmfs: Document alternative ioctl based binary interface
-  firmware: arm_scmi: Add Telemetry components view
-  fs/stlmfs: Document alternative topological view
-  [RFC] docs: stlmfs: Document ARM SCMI Telemetry FS ABI
-  [RFC] firmware: arm_scmi: Add lazy population support to Telemetry FS
-  fs/stlmfs: Document lazy mode and related mount option
-  [RFC] tools/scmi: Add SCMI Telemetry testing tool
-
- Documentation/ABI/testing/stlmfs              |  153 +
- Documentation/filesystems/stlmfs.rst          |  311 ++
- MAINTAINERS                                   |    1 +
- drivers/firmware/arm_scmi/Kconfig             |   10 +
- drivers/firmware/arm_scmi/Makefile            |    3 +-
- drivers/firmware/arm_scmi/common.h            |    4 +
- drivers/firmware/arm_scmi/driver.c            |   64 +-
- drivers/firmware/arm_scmi/notify.c            |   32 +-
- drivers/firmware/arm_scmi/notify.h            |    8 +-
- drivers/firmware/arm_scmi/protocols.h         |    7 +
- .../firmware/arm_scmi/scmi_system_telemetry.c | 2927 +++++++++++++++++
- drivers/firmware/arm_scmi/telemetry.c         | 2710 +++++++++++++++
- include/linux/scmi_protocol.h                 |  191 +-
- include/trace/events/scmi.h                   |   48 +-
- include/uapi/linux/scmi.h                     |  287 ++
- tools/testing/scmi/Makefile                   |   25 +
- tools/testing/scmi/stlm.c                     |  385 +++
- 17 files changed, 7125 insertions(+), 41 deletions(-)
- create mode 100644 Documentation/ABI/testing/stlmfs
- create mode 100644 Documentation/filesystems/stlmfs.rst
- create mode 100644 drivers/firmware/arm_scmi/scmi_system_telemetry.c
- create mode 100644 drivers/firmware/arm_scmi/telemetry.c
+ MAINTAINERS               |   1 +
+ include/uapi/linux/scmi.h | 287 ++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 288 insertions(+)
  create mode 100644 include/uapi/linux/scmi.h
- create mode 100644 tools/testing/scmi/Makefile
- create mode 100644 tools/testing/scmi/stlm.c
 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 12f49de7fe03..1c0ccaddc3f3 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -25392,6 +25392,7 @@ F:	drivers/regulator/scmi-regulator.c
+ F:	drivers/reset/reset-scmi.c
+ F:	include/linux/sc[mp]i_protocol.h
+ F:	include/trace/events/scmi.h
++F:	include/uapi/linux/scmi.h
+ F:	include/uapi/linux/virtio_scmi.h
+ 
+ SYSTEM CONTROL MANAGEMENT INTERFACE (SCMI) i.MX Extension Message Protocol drivers
+diff --git a/include/uapi/linux/scmi.h b/include/uapi/linux/scmi.h
+new file mode 100644
+index 000000000000..e4e9939a1bf8
+--- /dev/null
++++ b/include/uapi/linux/scmi.h
+@@ -0,0 +1,287 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
++/*
++ * Copyright (C) 2026 ARM Ltd.
++ */
++#ifndef _UAPI_LINUX_SCMI_H
++#define _UAPI_LINUX_SCMI_H
++
++/*
++ * Userspace interface SCMI Telemetry
++ */
++
++#include <linux/ioctl.h>
++#include <linux/types.h>
++
++#define SCMI_TLM_DE_IMPL_MAX_DWORDS	4
++
++#define SCMI_TLM_GRP_INVALID            0xFFFFFFFF
++
++/**
++ * scmi_tlm_base_info - Basic info about an instance
++ *
++ * @version: SCMI Telemetry protocol version
++ * @de_impl_version: SCMI Telemetry DE implementation revision
++ * @num_de: Number of defined DEs
++ * @num_groups Number of defined DEs groups
++ * @num_intervals: Number of update intervals available (instance-level)
++ * @flags: Instance specific feature-support bitmap
++ *
++ * Used by:
++ *	RO - SCMI_TLM_GET_INFO
++ *
++ * Supported by:
++ *	control/
++ */
++struct scmi_tlm_base_info {
++	__u32 version;
++	__u32 de_impl_version[SCMI_TLM_DE_IMPL_MAX_DWORDS];
++	__u32 num_des;
++	__u32 num_groups;
++	__u32 num_intervals;
++	__u32 flags;
++#define SCMI_TLM_CAN_RESET	(1 << 0)
++};
++
++/**
++ * scmi_tlm_config  - Whole instance or group configuration
++ *
++ * @enable: Enable/Disable Telemetry for the whole instance or the group.
++ * @t_enable: Enable/Disable timestamping for all the DEs belonging to a group.
++ * @pad: Padding fields to enforce alignment.
++ * @current_update_interval: Get/Set currently active update interval for the
++ *			     whole instance or a group.
++ *
++ * Used by:
++ *	RO - SCMI_TLM_GET_CFG
++ *	WO - SCMI_TLM_SET_CFG
++ *
++ * Supported by:
++ *	control/
++ *	groups/<N>/control
++ */
++struct scmi_tlm_config {
++	__u8 enable;
++	__u8 t_enable;
++	__u8 pad[2];
++	__u32 current_update_interval;
++};
++
++/**
++ * scmi_tlm_intervals  - Update intervals descriptor
++ *
++ * @discrete: Flag to indicate the nature of the intervals described in
++ *	      @update_intervals.
++ *	      When 'false' @update_intervals is a triplet: min/max/step
++ * @pad: Padding fields to enforce alignment.
++ * @num: Number of entries of @update_intervals
++ * @update_intervals: A variably-sized array containing the update intervals
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_INTRVS
++ *
++ * Supported by:
++ *	control/
++ *	groups/<N>/control
++ */
++struct scmi_tlm_intervals {
++	__u8 discrete;
++	__u8 pad[3];
++	__u32 num;
++#define SCMI_TLM_UPDATE_INTVL_SEGMENT_LOW	0
++#define SCMI_TLM_UPDATE_INTVL_SEGMENT_HIGH	1
++#define SCMI_TLM_UPDATE_INTVL_SEGMENT_STEP	2
++	__u32 update_intervals[] __counted_by(num);
++};
++
++/**
++ * scmi_tlm_de_config  - DE configuration
++ *
++ * @id: Identifier of the DE to act upon (ignored by SCMI_TLM_SET_ALL_CFG)
++ * @enable: A boolean to enable/disable the DE
++ * @t_enable: A boolean to enable/disable the timestamp for this DE
++ *	      (if supported)
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_DE_CFG
++ *	RW - SCMI_TLM_SET_DE_CFG
++ *	WO - SCMI_TLM_SET_ALL_CFG
++ *
++ * Supported by:
++ *	control/
++ */
++struct scmi_tlm_de_config {
++	__u32 id;
++	__u32 enable;
++	__u32 t_enable;
++};
++
++/**
++ * scmi_tlm_de_info  - DE Descriptor
++ *
++ * @id: DE identifier
++ * @grp_id: Identifier of the group which this DE belongs to; reported as
++ *	    SCMI_TLM_GRP_INVALID when not part of any group
++ * @data_sz: DE data size in bytes
++ * @type: DE type
++ * @unit: DE unit of measurements
++ * @unit_exp: Power-of-10 multiplier for DE unit
++ * @tstamp_exp: Power-of-10 multiplier for DE timestamp (if supported)
++ * @instance_id: DE instance ID
++ * @compo_instance_id: DE component instance ID
++ * @compo_type: Type of component which is associated to this DE
++ * @persistent: Data value for this DE survives reboot (non-cold ones)
++ * @name: Optional name of this DE
++ *
++ * Used to get the full description of a DE: it reflects DE Descriptors
++ * definitions in 3.12.4.6.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_DE_INFO
++ *
++ * Supported by:
++ *	control/
++ */
++struct scmi_tlm_de_info {
++	__u32 id;
++	__u32 grp_id;
++	__u32 data_sz;
++	__u32 type;
++	__u32 unit;
++	__s32 unit_exp;
++	__s32 tstamp_exp;
++	__u32 instance_id;
++	__u32 compo_instance_id;
++	__u32 compo_type;
++	__u32 persistent;
++	__u8 name[16];
++};
++
++/**
++ * scmi_tlm_des_list  - List of all defined DEs
++ *
++ * @num_des: Number of entries in @des
++ * @des: An array containing descriptors for all defined DEs
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_DE_LIST
++ *
++ * Supported by:
++ *	control/
++ */
++struct scmi_tlm_des_list {
++	__u32 num_des;
++	struct scmi_tlm_de_info des[] __counted_by(num_des);
++};
++
++/**
++ * scmi_tlm_de_sample - A DE reading
++ *
++ * @id: DE identifier
++ * @tstamp: DE reading timestamp (equal 0 is NOT supported)
++ * @val: Reading of the DE data value
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_DE_VALUE
++ *
++ * Supported by:
++ *	control/
++ */
++struct scmi_tlm_de_sample {
++	__u32 id;
++	__u64 tstamp;
++	__u64 val;
++};
++
++/**
++ * scmi_tlm_data_read - Bulk read of multiple DEs
++ *
++ * @num_samples: Number of entries returned in @samples
++ * @samples: An array of samples containing an entry for each DE that was
++ *	     enabled when the single sample read request was issued.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_SINGLE_SAMPLE
++ *	RW - SCMI_TLM_BULK_READ
++ *
++ * Supported by:
++ *	control/
++ *	groups/<N>/control
++ */
++struct scmi_tlm_data_read {
++	__u32 num_samples;
++	struct scmi_tlm_de_sample samples[] __counted_by(num_samples);
++};
++
++/**
++ * scmi_tlm_grp_info  - DE-group descriptor
++ *
++ * @id: Group ID number
++ * @num_des: Number of DEs part of this group
++ * @num_intervals: Number of update intervals supported. Zero if group does not
++ *		   support per-group update interval configuration.
++ *
++ * Used by:
++ *	RO - SCMI_TLM_GET_GRP_INFO
++ *
++ * Supported by:
++ *	groups/<N>control/
++ */
++struct scmi_tlm_grp_info {
++	__u32 id;
++	__u32 num_des;
++	__u32 num_intervals;
++};
++
++/**
++ * scmi_tlm_grps_list  - DE-groups List
++ *
++ * @num_grps: Number of entries returned in @grps
++ * @grps: An array containing descriptors for all defined DE Groups
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_GRP_LIST
++ *
++ * Supported by:
++ *	control/
++ */
++struct scmi_tlm_grps_list {
++	__u32 num_grps;
++	struct scmi_tlm_grp_info grps[] __counted_by(num_grps);
++};
++
++/**
++ * scmi_tlm_grp_desc  - Group descriptor
++ *
++ * @num_des: Number of DEs part of this group
++ * @composing_des: An array containing the DE IDs that belongs to this group.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_GRP_DESC
++ *
++ * Supported by:
++ *	groups/<N>control/
++ */
++struct scmi_tlm_grp_desc {
++	__u32 num_des;
++	__u32 composing_des[] __counted_by(num_des);
++};
++
++#define SCMI 0xF1
++
++#define SCMI_TLM_GET_INFO	_IOR(SCMI,  0x00, struct scmi_tlm_base_info)
++#define SCMI_TLM_GET_CFG	_IOR(SCMI,  0x01, struct scmi_tlm_config)
++#define SCMI_TLM_SET_CFG	_IOW(SCMI,  0x02, struct scmi_tlm_config)
++#define SCMI_TLM_GET_INTRVS	_IOWR(SCMI, 0x03, struct scmi_tlm_intervals)
++#define SCMI_TLM_GET_DE_CFG	_IOWR(SCMI, 0x04, struct scmi_tlm_de_config)
++#define SCMI_TLM_SET_DE_CFG	_IOWR(SCMI, 0x05, struct scmi_tlm_de_config)
++#define SCMI_TLM_GET_DE_INFO	_IOWR(SCMI, 0x06, struct scmi_tlm_de_info)
++#define SCMI_TLM_GET_DE_LIST	_IOWR(SCMI, 0x07, struct scmi_tlm_des_list)
++#define SCMI_TLM_GET_DE_VALUE	_IOWR(SCMI, 0x08, struct scmi_tlm_de_sample)
++#define SCMI_TLM_SET_ALL_CFG	_IOW(SCMI,  0x09, struct scmi_tlm_de_config)
++#define SCMI_TLM_GET_GRP_LIST	_IOWR(SCMI, 0x0A, struct scmi_tlm_grps_list)
++#define SCMI_TLM_GET_GRP_INFO	_IOR(SCMI,  0x0B, struct scmi_tlm_grp_info)
++#define SCMI_TLM_GET_GRP_DESC	_IOWR(SCMI, 0x0C, struct scmi_tlm_grp_desc)
++#define SCMI_TLM_SINGLE_SAMPLE	_IOWR(SCMI, 0x0D, struct scmi_tlm_data_read)
++#define SCMI_TLM_BULK_READ	_IOWR(SCMI, 0x0E, struct scmi_tlm_data_read)
++
++#endif /* _UAPI_LINUX_SCMI_H */
 -- 
 2.52.0
 
