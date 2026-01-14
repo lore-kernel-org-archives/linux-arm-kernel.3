@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5708D29FEA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 11:48:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2542D29FEF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 11:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e57ia0pPBvfOSRYVv1cQPSzKWhy8gR2AkhQxVzEQ8zM=; b=VP6EsD9B6YWIeIckAnE/XaVaon
-	Kb4dbrldOAYXZd+0aQRUmyectnpWh0v7glLgzyNNUyfmDot0Yem7v9wr75HEirGeEuF0oAdpY+65S
-	pwovF61N67hi2LywkxIXv6ovohSdY0zyCoSxW8P9wZyQr4Sn0j8fawIe3ejQ8vzr8jWM/2C/aNK9v
-	G48aHghIZwdc420jmz8Wx/hikQLDE/l/gCOiQtiFyigvnfBippcY1ckvBKET3pDWdtqSesweNBztE
-	yfej/YhxjWBrF6jf5EuO+0ju/YpgL9Gu4OKNz6YqQeks51t570O1abxJWpQJR6G+sno+Nke3PF4T9
-	U8fHk/Bg==;
+	bh=xY795Nf9dXOU6+cCunLNYbIJ555wz7wpWptILpgIPds=; b=DSho7VSFApyCpEdMfQQXMGyoOy
+	XpgYf9uihpKjcnFgRhrlFruMwI4NNZ82Yi3BhgU9c0drOzD4gtyBpJCeQNV9W+P11TV1L2B1fdqjc
+	Qd0QyoJXaXUBQig8svS5lX7kGzMoCbDLHEsgeCSFEOmQmynkyr7JGgh04rMUIxy2HQpB1Fu/GxaJi
+	U09oGELw5uDgR4lhn+mWvoj9chH3EDvNegipyqCc2GzEuVPaiv7Zu7CwJkpfPRN7B1VGR1SfnwXF2
+	52zhCs8Gs+MijBGN7aXfUC3C05CqkacniF0FKUY0kOPIusqhO5qTKBpIM2agVp+CcTGN5V0HcoHBu
+	sprjEhsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzMg-000000091K6-3po2;
-	Wed, 14 Jan 2026 11:48:42 +0000
+	id 1vfzMk-000000091Np-3uSX;
+	Wed, 14 Jan 2026 11:48:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzMN-000000090la-2qwE
+	id 1vfzMR-000000090wQ-0Rf7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 11:48:33 +0000
+	Wed, 14 Jan 2026 11:48:39 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E603497;
-	Wed, 14 Jan 2026 03:48:16 -0800 (PST)
-Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 440073F59E;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D927E1424;
 	Wed, 14 Jan 2026 03:48:19 -0800 (PST)
+Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2306F3F59E;
+	Wed, 14 Jan 2026 03:48:22 -0800 (PST)
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -53,17 +53,17 @@ Cc: sudeep.holla@arm.com,
 	philip.radford@arm.com,
 	souvik.chakravarty@arm.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v2 16/17] fs/stlmfs: Document lazy mode and related mount option
-Date: Wed, 14 Jan 2026 11:46:20 +0000
-Message-ID: <20260114114638.2290765-17-cristian.marussi@arm.com>
+Subject: [PATCH v2 17/17] [RFC] tools/scmi: Add SCMI Telemetry testing tool
+Date: Wed, 14 Jan 2026 11:46:21 +0000
+Message-ID: <20260114114638.2290765-18-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260114114638.2290765-1-cristian.marussi@arm.com>
 References: <20260114114638.2290765-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_034823_828530_BAC218C0 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20260114_034827_378497_E4803B0E 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,52 +78,444 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document optional lazy enumeration behaviour and related mount option.
+Add a testing tool that exercises the SCMI ioctls UAPI interface: as of
+now the tool simply queries the initial state of the SCMI Telemetry
+subsystem, tries to enable all the existent Data Events and dumps all
+the Telemetry data.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- Documentation/filesystems/stlmfs.rst | 21 +++++++++++++++++++--
- 1 file changed, 19 insertions(+), 2 deletions(-)
+Basic implementation just to exercise a few IOCTls: to be refined and
+extended to support a more interactive usage.
+---
+ tools/testing/scmi/Makefile |  25 +++
+ tools/testing/scmi/stlm.c   | 385 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 410 insertions(+)
+ create mode 100644 tools/testing/scmi/Makefile
+ create mode 100644 tools/testing/scmi/stlm.c
 
-diff --git a/Documentation/filesystems/stlmfs.rst b/Documentation/filesystems/stlmfs.rst
-index cc9585f77ba5..79633cdc71b8 100644
---- a/Documentation/filesystems/stlmfs.rst
-+++ b/Documentation/filesystems/stlmfs.rst
-@@ -73,8 +73,12 @@ Design
- STLMFS is a pseudo filesystem used to expose ARM SCMI Telemetry data
- discovered dynamically at run-time via SCMI.
- 
--Inodes are all dynamically created at mount-time from a dedicated
--kmem_cache based on the gathered available SCMI Telemetry information.
-+Normally all of the top level file/inodes are dynamically created at
-+mount-time from a dedicated kmem_cache based on the gathered available
-+SCMI Telemetry information, but it is possible to enable a lazy enumeration
-+and FS population mode that delays SCMI Telemetry resources enumerations
-+and related FS population till the moment a user steps into the related FS
-+subdirectories: *des/* *groups/* and *components/*.
- 
- Since inodes represent the discovered Telemetry entities, which in turn are
- statically defined at the platform level and immutable throughout the same
-@@ -104,6 +108,19 @@ The filesystem can be typically mounted with::
- 
- 	mount -t stlmfs none /sys/fs/arm_telemetry
- 
-+It is possible to mount it in lazy-mode by using the *lazy* mount option::
+diff --git a/tools/testing/scmi/Makefile b/tools/testing/scmi/Makefile
+new file mode 100644
+index 000000000000..a6a101f8398b
+--- /dev/null
++++ b/tools/testing/scmi/Makefile
+@@ -0,0 +1,25 @@
++# SPDX-License-Identifier: GPL-2.0-or-later
 +
-+	mount -t stlmfs -o lazy none /sys/fs/arm_telemetry
++CC?=$(CROSS_COMPILE)gcc
++OBJS = stlm.o
 +
-+In this latter case, the des/ groups/ and components/ directory will be
-+created empty at mount-time and only filled later when 'walked in'.
++CFLAGS=-Wall -static -std=gnu11 -I ../../../include/uapi/
++ifneq ($(DEBUG), )
++	CFLAGS+=-O0 -g -ggdb
++else
++	CFLAGS+=-static
++endif
 +
-+This allows a user to benefit from a lazy enumeration scheme of the SCMI
-+Telemetry resources by delaying such, usually expensive, message exchanges
-+to the last possible moment: ideally, even never, if using some of the
-+other alternative binary interfaces that does not need any resource
-+enumeration at all.
++all: stlm
 +
- It will proceed to create a top subdirectory for each of the discovered
- SCMI Telemetry instances named as 'tlm_<N>' under which it will create
- the following directory structure::
++stlm: $(OBJS)
++	$(CC) $(CFLAGS) $^ -o $@
++
++%.o: %.c
++	$(CC) $(CFLAGS) -c $<
++
++clean:
++	rm -f *.o
++	rm -f stlm
++
++.PHONY: clean
+diff --git a/tools/testing/scmi/stlm.c b/tools/testing/scmi/stlm.c
+new file mode 100644
+index 000000000000..137ef278d1dd
+--- /dev/null
++++ b/tools/testing/scmi/stlm.c
+@@ -0,0 +1,385 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#include <errno.h>
++#include <fcntl.h>
++#include <stddef.h>
++#include <stdint.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <sys/ioctl.h>
++
++#include <unistd.h>
++
++#include <linux/scmi.h>
++
++#define SLEEP_MS	3000
++#define DEF_TLM_ROOT	"/sys/fs/arm_telemetry/"
++
++#define IOCTL_ERR_STR(_ioctl)	"IOCTL:" #_ioctl
++
++struct tlm_de {
++	struct scmi_tlm_de_info *info;
++	struct scmi_tlm_de_config cfg;
++	struct scmi_tlm_de_sample sample;
++};
++
++struct tlm_group {
++	int fd;
++	struct scmi_tlm_grp_info *info;
++	struct scmi_tlm_grp_desc *desc;
++	struct scmi_tlm_intervals *ivs;
++};
++
++struct tlm_state {
++	int dfd;
++	int fd;
++	int g_dfd;
++	const char *path;
++	struct scmi_tlm_base_info info;
++	struct scmi_tlm_config cfg;
++	struct scmi_tlm_intervals *ivs;
++	unsigned int num_des;
++	struct tlm_de *des;
++	unsigned int num_groups;
++	struct tlm_group *grps;
++};
++
++static inline void dump_state(struct tlm_state *st)
++{
++	uint32_t *uuid32 = st->info.de_impl_version;
++	uint16_t *uuid16 = (uint16_t *)&st->info.de_impl_version[1];
++
++	fprintf(stdout, "- SYSTEM TELEMETRY @instance: %s\n\n", st->path);
++	fprintf(stdout, "+ Version: 0x%08X\n", st->info.version);
++	fprintf(stdout, "+ DEs#: %d\n", st->info.num_des);
++	fprintf(stdout, "+ GRPS#: %d\n", st->info.num_groups);
++	fprintf(stdout, "+ INTRV#: %d\n", st->info.num_intervals);
++
++	fprintf(stdout, "+ UUID: ");
++	fprintf(stdout, "%X-", uuid32[0]);
++	fprintf(stdout, "%X-", uuid16[0]);
++	fprintf(stdout, "%X-", uuid16[1]);
++	fprintf(stdout, "%X", uuid16[2]);
++	fprintf(stdout, "%X\n", uuid32[3]);
++
++	fprintf(stdout, "\n+ TLM_ENABLED: %d\n", st->cfg.enable);
++	fprintf(stdout, "+ CURRENT_UPDATE_INTERVAL: %d\n",
++		st->cfg.current_update_interval);
++
++	fprintf(stdout, "+ Found #%u Global Update Intervals\n",
++		st->info.num_intervals);
++	for (int i = 0; i < st->ivs->num; i++)
++		fprintf(stdout, "\t[%d]::%u\n", i, st->ivs->update_intervals[i]);
++
++	if (st->info.num_des != st->num_des) {
++		fprintf(stdout, "\n++++++ DES NOT FULLY_ENUMERATED ++++++\n");
++		fprintf(stdout, "+++ DECLARED:%u  ENUMERATED:%u +++\n",
++			st->info.num_des, st->num_des);
++	}
++
++	fprintf(stdout, "\n+ Found #%d DEs:\n", st->num_des);
++	for (int i = 0; i < st->num_des; i++)
++		fprintf(stdout, "\t0x%08X %s %s -- TS:%16llu %016llX\n",
++			st->des[i].info->id,
++			st->des[i].cfg.enable ? "ON" : "--",
++			st->des[i].cfg.t_enable ? "TS_ON" : "-----",
++			st->des[i].sample.tstamp, st->des[i].sample.val);
++	fprintf(stdout, "\n");
++
++	fprintf(stdout, "+ Found %d GRPs: ", st->num_groups);
++	for (int i = 0; i < st->num_groups; i++) {
++		fprintf(stdout, "\n\tGRP_ID:%d  DES#:%d  INTRVS#:%d\n",
++			st->grps[i].info->id, st->grps[i].info->num_des,
++			st->grps[i].info->num_intervals);
++
++		fprintf(stdout, "\tCOMPOSING_DES:");
++		for (int j = 0; j < st->grps[i].desc->num_des; j++)
++			fprintf(stdout, "0x%08X ",
++				st->grps[i].desc->composing_des[j]);
++		fprintf(stdout, "\n");
++	}
++}
++
++static int discover_base_info(int fd, struct scmi_tlm_base_info *info)
++{
++	int ret;
++
++	ret = ioctl(fd, SCMI_TLM_GET_INFO, info);
++	if (ret) {
++		perror(IOCTL_ERR_STR(SCMI_TLM_GET_INFO));
++		return ret;
++	}
++
++	return ret;
++}
++
++static struct scmi_tlm_des_list *scmi_get_des_list(int fd, int num_des)
++{
++	struct scmi_tlm_des_list *dsl;
++	size_t size = sizeof(*dsl) + num_des * sizeof(dsl->des[0]);
++	int ret;
++
++	dsl = malloc(size);
++	if (!dsl)
++		return NULL;
++
++	bzero(dsl, size);
++	dsl->num_des = num_des;
++	ret = ioctl(fd, SCMI_TLM_GET_DE_LIST, dsl);
++	if (ret) {
++		perror(IOCTL_ERR_STR(SCMI_TLM_GET_DE_LIST));
++		return NULL;
++	}
++
++	return dsl;
++}
++
++static struct tlm_de *enumerate_des(struct tlm_state *st)
++{
++	struct scmi_tlm_des_list *dsl;
++	struct tlm_de *des;
++
++	dsl = scmi_get_des_list(st->fd, st->info.num_des);
++	if (!dsl)
++		return NULL;
++
++	st->num_des = dsl->num_des;
++	des = malloc(sizeof(*des) * st->num_des);
++	if (!des)
++		return NULL;
++
++	bzero(des, sizeof(*des) * st->num_des);
++	for (int i = 0; i < st->num_des; i++) {
++		struct tlm_de *de = &des[i];
++		int ret;
++
++		de->info = &dsl->des[i];
++		de->cfg.id = de->info->id;
++		ret = ioctl(st->fd, SCMI_TLM_GET_DE_CFG, &de->cfg);
++		if (ret) {
++			perror(IOCTL_ERR_STR(SCMI_TLM_GET_DE_CFG));
++			continue;
++		}
++
++		if (!de->cfg.enable)
++			continue;
++
++		/* Collect initial sample */
++		de->sample.id = de->info->id;
++		ret = ioctl(st->fd, SCMI_TLM_GET_DE_VALUE, &de->sample);
++		if (ret) {
++			perror(IOCTL_ERR_STR(SCMI_TLM_GET_DE_VALUE));
++			continue;
++		}
++	}
++
++	return des;
++}
++
++static int get_current_config(int fd, struct scmi_tlm_config *cfg)
++{
++	int ret;
++
++	ret = ioctl(fd, SCMI_TLM_GET_CFG, cfg);
++	if (ret) {
++		perror(IOCTL_ERR_STR(SCMI_TLM_GET_CFG));
++		return ret;
++	}
++
++	return ret;
++}
++
++static struct scmi_tlm_grps_list *scmi_get_grps_list(int fd, int num_groups)
++{
++	struct scmi_tlm_grps_list *gsl;
++	size_t size = sizeof(*gsl) + num_groups * sizeof(gsl->grps[0]);
++	int ret;
++
++	gsl = malloc(size);
++	if (!gsl)
++		return NULL;
++
++	bzero(gsl, size);
++	gsl->num_grps = num_groups;
++	ret = ioctl(fd, SCMI_TLM_GET_GRP_LIST, gsl);
++	if (ret) {
++		perror(IOCTL_ERR_STR(SCMI_TLM_GET_GRP_LIST));
++		return NULL;
++	}
++
++	return gsl;
++}
++
++static struct scmi_tlm_intervals *enumerate_intervals(int fd, int num_intervals)
++{
++	struct scmi_tlm_intervals *ivs;
++	size_t sz;
++	int ret;
++
++	sz = sizeof(*ivs) + sizeof(*ivs->update_intervals) * num_intervals;
++	ivs = malloc(sz);
++	if (!ivs)
++		return NULL;
++
++	memset(ivs, 0, sz);
++
++	ivs->num = num_intervals;
++	ret = ioctl(fd, SCMI_TLM_GET_INTRVS, ivs);
++	if (ret) {
++		perror(IOCTL_ERR_STR(SCMI_TLM_GET_INTRVS));
++		free(ivs);
++		return NULL;
++	}
++
++	return ivs;
++}
++
++static struct tlm_group *enumerate_groups(struct tlm_state *st)
++{
++	struct scmi_tlm_grps_list *gsl;
++	struct tlm_group *grps;
++
++	gsl = scmi_get_grps_list(st->fd, st->info.num_groups);
++	if (!gsl)
++		return NULL;
++
++	st->g_dfd = openat(st->dfd, "groups", O_RDONLY);
++	if (st->g_dfd < 0)
++		return NULL;
++
++	st->num_groups = gsl->num_grps;
++	grps = malloc(sizeof(*grps) * st->num_groups);
++	if (!grps)
++		return NULL;
++
++	bzero(grps, sizeof(*grps) * st->num_groups);
++	for (int i = 0; i < st->num_groups; i++) {
++		struct tlm_group *grp = &grps[i];
++		char gctrl[32];
++		size_t size;
++		int ret;
++
++		snprintf(gctrl, 32, "%d/control", i);
++		grp->fd = openat(st->g_dfd, gctrl, O_RDWR);
++		if (grp->fd < 0)
++			return NULL;
++
++		grp->info = &gsl->grps[i];
++		size = sizeof(*grp->desc) + sizeof(uint32_t) * grp->info->num_des;
++		grp->desc = malloc(size);
++		if (!grp->desc)
++			return NULL;
++
++		bzero(grp->desc, size);
++		grp->desc->num_des = grp->info->num_des;
++		ret = ioctl(grp->fd, SCMI_TLM_GET_GRP_DESC, grp->desc);
++		if (ret) {
++			perror(IOCTL_ERR_STR(SCMI_TLM_GET_GRP_DESC));
++			continue;
++		}
++
++		grp->ivs = enumerate_intervals(grp->fd, grp->info->num_intervals);
++	}
++
++	return grps;
++}
++
++static int get_tlm_state(const char *path, struct tlm_state *st)
++{
++	int ret;
++
++	st->dfd = open(path, O_RDONLY);
++	if (st->dfd < 0) {
++		perror("open");
++		return st->dfd;
++	}
++
++	st->fd = openat(st->dfd, "control", O_RDWR);
++	if (st->fd < 0) {
++		perror("openat");
++		return st->fd;
++	}
++
++	ret = discover_base_info(st->fd, &st->info);
++	if (ret)
++		return ret;
++
++	st->ivs = enumerate_intervals(st->fd, st->info.num_intervals);
++	if (!st->ivs)
++		return -1;
++
++	ret = get_current_config(st->fd, &st->cfg);
++	if (ret)
++		return ret;
++
++	if (st->info.num_des)
++		st->des = enumerate_des(st);
++
++	if (st->info.num_groups)
++		st->grps = enumerate_groups(st);
++
++	st->path = path;
++
++	return 0;
++}
++
++int main(int argc, char **argv)
++{
++	const char *tlm_root_instance = DEF_TLM_ROOT "tlm_0/";
++	struct scmi_tlm_data_read *bulk;
++	struct scmi_tlm_de_config de_cfg = {};
++	struct tlm_state st = {};
++	size_t bulk_sz;
++	int ret;
++
++	ret = get_tlm_state(tlm_root_instance, &st);
++	if (ret)
++		return ret;
++
++	dump_state(&st);
++
++	bulk_sz = sizeof(*bulk) + sizeof(bulk->samples[0]) * st.info.num_des;
++	bulk = malloc(bulk_sz);
++	if (!bulk)
++		return -1;
++
++	bzero(bulk, bulk_sz);
++	bulk->num_samples = st.info.num_des;
++	ret = ioctl(st.fd, SCMI_TLM_SINGLE_SAMPLE, bulk);
++	if (ret) {
++		perror(IOCTL_ERR_STR(SCMI_TLM_SINGLE_SAMPLE));
++		return -1;
++	}
++
++	fprintf(stdout, "\n--- Enabling ALL DEs with timestamp...\n");
++	de_cfg.enable = 1;
++	de_cfg.t_enable = 1;
++	ret = ioctl(st.fd, SCMI_TLM_SET_ALL_CFG, &de_cfg);
++	if (ret) {
++		perror(IOCTL_ERR_STR(SCMI_TLM_SET_ALL_CFG));
++		return ret;
++	}
++
++	fprintf(stdout, "\n- Single ASYNC read -\n-------------------\n");
++	for (int i = 0; i < bulk->num_samples; i++)
++		fprintf(stdout, "0x%08X %016llu %016llX\n",
++			bulk->samples[i].id, bulk->samples[i].tstamp,
++			bulk->samples[i].val);
++
++	bzero(bulk, bulk_sz);
++	bulk->num_samples = st.info.num_des;
++	ret = ioctl(st.fd, SCMI_TLM_BULK_READ, bulk);
++	if (ret) {
++		perror(IOCTL_ERR_STR(SCMI_TLM_BULK_READ));
++		return -1;
++	}
++
++	fprintf(stdout, "\n- BULK read -\n-------------------\n");
++	for (int i = 0; i < bulk->num_samples; i++)
++		fprintf(stdout, "0x%08X %016llu %016llX\n",
++			bulk->samples[i].id, bulk->samples[i].tstamp,
++			bulk->samples[i].val);
++
++	return 0;
++}
 -- 
 2.52.0
 
