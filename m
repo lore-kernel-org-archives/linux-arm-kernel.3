@@ -4,53 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B43B4D29FF7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 12:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84406D29FF8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 12:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hiQAyAGaTklDiE5d3K2rREYbl+X7hXd2COWAipHE4Ug=; b=aHq4LgtoyzlKlj5aDG1fsWaq6v
-	aXal7ROwtjdA0TPsqYKJ7QC3I2Md+C6kpmAV59MzLA4K3NaWdXp57FJWwTCT7TBhvZu67pi0h60sZ
-	OLuOx3dBdxP+L2GNByJy0tydBVCHnnYsSV81VCMp6kuqXpnyeRzpPb2vtMRi0A2+a+3kxIXeWQE5G
-	qscYZTJKJxAwID9YI+MM/B5ejtmU53Ppvc/rgkxD/BrJ6/A6qciMtD/EGe8jq37GjC9L7EfYMQX/Q
-	8Ak/23HxFgOPeD52BIpo890ewmf0FT/my726Vc9VLf+7bFXnElsXL1PZJz6ABEvRCVmHYA5fx6tjf
-	D8EVPZUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9rjIaF5fJ8UoaWfhIhoBLfz3F/qzdEKOA9hJH/g1xSA=; b=HxyHen7TZDoYOBPtTgKcW+Z+Jd
+	tSZyQDDPTpxR/R9G7v2rW2Fwz4Nv2r3OaN5Cfd2e5bExXFfTJ95sIc7pUO62nDut6V12wW5NOaZ9X
+	+/xT3NxJN5gBBF41HL8rMCrzwJo3n1LDhGBkyVnHFZNJTEPj4tANAWnfvXCQQ1dBW6Wnm6YMNf8Mg
+	xq6Q2IDcYc//mp7EUlE+XiRYEOWG4Ae/cjuc4tuJUn3nu7GqanIqg2gDlPBHox4BoK1CSYQ/9PafP
+	0dzzHLgTbjkEH3A3MKOS+td9Tw1AKT0hu0ClS/z2xxVY8o2eIIInKyLYYkD5BGFzdKRDTsdzr05oO
+	uFwHaBqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfztb-00000009A4R-0fi2;
-	Wed, 14 Jan 2026 12:22:43 +0000
+	id 1vg0FY-00000009DxE-3He6;
+	Wed, 14 Jan 2026 12:45:24 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfztY-00000009A3h-3TRB
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 12:22:42 +0000
+	id 1vg0FU-00000009DvK-0wH9;
+	Wed, 14 Jan 2026 12:45:23 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 61D3C1424;
-	Wed, 14 Jan 2026 04:22:33 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.197.51])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 320D63F632;
-	Wed, 14 Jan 2026 04:22:39 -0800 (PST)
-Date: Wed, 14 Jan 2026 12:22:37 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Sergey Shtylyov <s.shtylyov@auroraos.dev>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>, arm-scmi@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] cpufreq: scmi: correct SCMI explanation
-Message-ID: <aWeKjehftu2GFj4m@bogus>
-References: <e6c2e7af-ad87-4d38-9dbb-f9d6ae81fe83@auroraos.dev>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 10B0C1515;
+	Wed, 14 Jan 2026 04:45:09 -0800 (PST)
+Received: from [10.57.50.170] (unknown [10.57.50.170])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 482E43F632;
+	Wed, 14 Jan 2026 04:45:14 -0800 (PST)
+Message-ID: <abf8a1cd-488f-43d7-80f1-37ba8917b17b@arm.com>
+Date: Wed, 14 Jan 2026 12:45:07 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e6c2e7af-ad87-4d38-9dbb-f9d6ae81fe83@auroraos.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] arm64: dts: rockchip: Move RK3399 eDP pinctrl to
+ boards
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: heiko@sntech.de, neil.armstrong@linaro.org, dianders@chromium.org,
+ thierry.reding@gmail.com, sam@ravnborg.org, jesszhan0024@gmail.com,
+ dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <cover.1767111804.git.robin.murphy@arm.com>
+ <0b9488badb467ef83a0a464eeea921f59e32e6b0.1767111809.git.robin.murphy@arm.com>
+ <81fcd769-d7a5-e909-7105-23cd3d09e473@manjaro.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <81fcd769-d7a5-e909-7105-23cd3d09e473@manjaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_042240_927417_27772244 
-X-CRM114-Status: UNSURE (   7.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260114_044522_797544_5E7C3E10 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,17 +68,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 13, 2026 at 10:33:30PM +0300, Sergey Shtylyov wrote:
-> SCMI stands for System Control and Management Interface, not System Control
-> and Power Interface -- apparently, Sudeep Holla copied this line from his
-> SCPI driver and then just forgot to update the acronym explanation... :-)
->
+On 2026-01-14 11:49 am, Dragan Simic wrote:
+> Hello Robin,
+> 
+> On Tuesday, December 30, 2025 18:20 CET, Robin Murphy <robin.murphy@arm.com> wrote:
+>> The EDP_HOTPLUG pin is optional, and muxed with other functions (notably
+>> HDMI CEC), so move its selection from the SoC DTSI to the boards which
+>> apparently want it, namely those which enable eDP without "force-hpd".
+>> By the same token we drop it from Pinebook Pro, which already uses
+>> "force-hpd", and according to the schematics does not have the pin wired
+>> at all.
+>>
+>> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+>> ---
+>>   arch/arm64/boot/dts/rockchip/rk3399-base.dtsi              | 2 --
+>>   arch/arm64/boot/dts/rockchip/rk3399-gru-chromebook.dtsi    | 2 ++
+>>   arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts       | 2 --
+>>   arch/arm64/boot/dts/rockchip/rk3399-sapphire-excavator.dts | 2 ++
+>>   4 files changed, 4 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
+>> index 4dcceb9136b7..19a312baa9f1 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
+>> @@ -2145,8 +2145,6 @@ edp: dp@ff970000 {
+>>   		interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH 0>;
+>>   		clocks = <&cru PCLK_EDP>, <&cru PCLK_EDP_CTRL>, <&cru PCLK_VIO_GRF>;
+>>   		clock-names = "dp", "pclk", "grf";
+>> -		pinctrl-names = "default";
+>> -		pinctrl-0 = <&edp_hpd>;
+>>   		power-domains = <&power RK3399_PD_EDP>;
+>>   		resets = <&cru SRST_P_EDP_CTRL>;
+>>   		reset-names = "dp";
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-gru-chromebook.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-gru-chromebook.dtsi
+>> index 9d07353df52c..3f3cb0eb5809 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3399-gru-chromebook.dtsi
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3399-gru-chromebook.dtsi
+>> @@ -241,6 +241,8 @@ &dmc {
+>>   };
+>>   
+>>   &edp {
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&edp_hpd>;
+>>   	status = "okay";
+>>   
+>>   	/*
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
+>> index eaaca08a7601..dcab04863d28 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
+>> @@ -401,8 +401,6 @@ &cpu_l3 {
+>>   
+>>   &edp {
+>>   	force-hpd;
+>> -	pinctrl-names = "default";
+>> -	pinctrl-0 = <&edp_hpd>;
+>>   	status = "okay";
+>>   };
+>>   
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-sapphire-excavator.dts b/arch/arm64/boot/dts/rockchip/rk3399-sapphire-excavator.dts
+>> index a4ceafe6dd7a..80d6ea0eda84 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3399-sapphire-excavator.dts
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3399-sapphire-excavator.dts
+>> @@ -141,6 +141,8 @@ sdio_pwrseq: sdio-pwrseq {
+>>   };
+>>   
+>>   &edp {
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&edp_hpd>;
+>>   	status = "okay";
+>>   };
+> 
+> Thanks for this patch!  These changes are looking good to me, and the
+> board dts files changed in this patch are the right ones, i.e. those that
+> enable the "edp" node without specifying the "force-hpd" property.
+> 
+> Additionally,"/omit-if-no-ref/" should be added to the "edp" pinctrl node
+> in rk3399-base.dtsi, to not include the "edp_hpd" pinctrl definition in
+> the board dtb files where that actuually isn't used.
 
-Yikes! Indeed it is copy-paste. Thanks for spotting and fixing this.
+Ah, indeed - I can't think of a realistic good reason for the pinctrl to 
+only be selected by an overlay rather than the base board, and even if 
+anyone did conjure up some such crazy modular system, they could always 
+change it back. Good thing I got distracted and didn't get round to 
+sending v2 last night :)
 
-Reviewed-by:  Sudeep Holla <sudeep.holla@arm.com>
+> With the note above addressed, please feel free to include
+> 
+> Reviewed-by: Dragan Simic <dsimic@manjaro.org>
 
--- 
-Regards,
-Sudeep
+Thanks!
+
+Robin.
+
 
