@@ -4,62 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 091D2D31A23
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:09:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A1AD31A22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8+Ps+QJX7O1TTlQB7KtvJFbgo7HUqA8ymA/xt0D2c0U=; b=A50sszsIbBIE2k8kIxSowa9wOU
-	CA7Ru4PDlZSBoCBzg1VFCbmCUNFPuQPInkHlBH4y1v29Ni/Phd3bIH9qFnR+p1OxzpxecnIwu4WDW
-	DsQhGHuqDO7c4MGrFufA2A8HiO1Zgwr9+5bCyAW8TAcYD0wtdAhZifQeFbxd8m6l2GYEYmif77b53
-	bsSxXcborTjywF5+Zk5SkabCgBxYPv/3S8i7DPCGYDhr5bSyq7huGhOGh/fei2cSdTKQkP7DECUYB
-	AVWdRsfqJzN1vQ9HyQjEd+NbLMwwCm+i+dZpfpw7RWb4FkSKxfeO3V+oBrZSN3DbalICuo+nzPMQN
-	3zqF9Hvw==;
+	bh=OC/Dw/aj2c+iGoV4mMFgj1KT3b4DGhGfHvAlSHugi9I=; b=Sv4zbJTSGEVhfJL9ylxxMPf/Db
+	RiRgB0o+NprqQ7J/X9TyTr8u54J0+XHS8OQ6dLMaWMxRG2i+tc1RvdouhTOmzzpSPedbSJQiUQFeb
+	Tcm0yHTuQ2l17/CQv+92cyWQhpTKhsmO9CSaYu0XPdKhfaV5NlNFkaKpTRq9blbickhYjP4MiP9yF
+	9nl0DWp7DsDWQDyIe2WBVslLH4DPr8WK4RTJf82P/G7ErNMccDHIH2gxdO/t2eqcoSKICFXSWmtLk
+	Gx7crdVzZe4hP22XHUNroIrBnBjwhtAQAnvNuF4WEuMUMNJY8OH9noyBcnrsXKDFB6kMk+en+VHi7
+	a8uLDeDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfvw5-00000008HEz-1ozf;
-	Wed, 14 Jan 2026 08:09:03 +0000
-Received: from mail-m49219.qiye.163.com ([45.254.49.219])
+	id 1vfw2G-00000008IGP-0CcZ;
+	Wed, 14 Jan 2026 08:15:24 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfvvz-00000008HBH-3vxW;
-	Wed, 14 Jan 2026 08:08:59 +0000
-Received: from [172.16.12.14] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 309b22e7b;
-	Wed, 14 Jan 2026 16:08:44 +0800 (GMT+08:00)
-Message-ID: <6934ae0d-16c5-436f-97f6-c11d304ca51d@rock-chips.com>
-Date: Wed, 14 Jan 2026 16:08:43 +0800
+	id 1vfw2D-00000008IF9-2tyj
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Jan 2026 08:15:22 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-47d63594f7eso50292605e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 00:15:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768378520; x=1768983320; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=OC/Dw/aj2c+iGoV4mMFgj1KT3b4DGhGfHvAlSHugi9I=;
+        b=inV/uPUe85cggbmy2o02hYvBOcBWXFSTNiSb0HGTcm/9wXiM6od7AFCWhKBoYiSWkM
+         6m5lZVX47kKMLC3oMuDyzwOWrncQzx6wP4P2RwzRckf+nXhOoGsnrPltwaPuLu9qSdGq
+         5BWGyp5gG2Nd6CC9XgwKH6pKEhq4BNYf1bgseIzRrFx+oINEOcwMHiKyo5XDulWGircl
+         kP7b2m+wVyenUxEM5QM+xU7UZMW33ybzL1gjgRZklxkBpPuhRl67ozwoDbfBh/5mwgVU
+         qzNuQ0XETmlyAkQ8hiPpBspu7dRIJCl6BDDC9oLqdlKDptb1NuGAEDpqvO4p2tRMKa9X
+         XYJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768378520; x=1768983320;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=OC/Dw/aj2c+iGoV4mMFgj1KT3b4DGhGfHvAlSHugi9I=;
+        b=ouEG0lsnFJV6zqKNd9nm/hbYZb0t0NRU4CTWCN8cHd9lvHrFDt2ZgN0LmXHnxuv4kJ
+         jCiBVyC9qz8CZ7dfC8smZy35uzQUqq7lNDKLJZGaxq7pbuVWP7Co7UCYS2OpclMwFDWw
+         MAAU3wlqnSSZsgz0EqwiD3EdfnBUjQ6UKKYMjGz+H5K2oISoe9ye9KwwI6Alku6GpmGs
+         DdvlIJarTO0LhnYFCzDE50Bnd61kc6ll3tOJwPgeUXuJEqfMVLhC0alOD3zXLURKdSpn
+         iOKTOtLPRUYFUeJcUBejhkp4NLOYJ1SghD/GpVWb3pPe8qiDcb8KImgWtj1xjad8bDp1
+         g2ww==
+X-Forwarded-Encrypted: i=1; AJvYcCUJaFO/yhxB4LVPM7uonHeMaBzTPDFBfyhC9jqEkmTdmy2Rtt6pXTJuD3i6nl7Nk/waYtuoU2++7UsJWtWkZkID@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxw/tvFW4zYA3e1CGHkriL09U6uYYzsdctQ/sQmFZR1sx84pQmc
+	pXE4xLiTM2XzCLLKXp07jjsmmeInDm0O4MYWmc4bjCKJKAG4O9waTppw
+X-Gm-Gg: AY/fxX4Hs+CJxqBI2DVz9U4A5Avrmpbodok7uqpWhCVexYKrqIIeIQ50nsD3kmfBUvV
+	ZB+MIZiZjUY0uuYm+scTCgc6xuBUSr+v/yYlQCgP+QrkI3MUtBf4lwhrx4pctelTPIP0zgKOoP8
+	9RGP8rKTucht6+JqPRi45aMy/Xh0sd9a72CHtq8AcLxu3jTbF8A7Y7L5mADDLxI/MTvNy427GNb
+	NS5LyLLdLp9qvY9+FC7KgZyz/XcxlDY0uriZ3rYSTxpVmuEPvSAJu/17oBhJrz6gAkT545ouK2V
+	eQnY+Oi3XfQczYHlV3IcTWnjWGW1KaH/5qAnELOdiMoPbo5kvKOaoCoI5OTrB7BGbA6mQPoHei5
+	XnwU21aZajDzlMLPw3aKPkHw+hqTUivX7szJOJkh35qx8t6PJPqubl9ZRZWMU13aK0Ndo0eZxzk
+	Ti/4xd74LLzpTA++ztFAea375CgSnCRKu9uqudIv5UvIX001EzFs6yfnbiurfwzH1ZqYQ=
+X-Received: by 2002:a05:600c:314e:b0:477:9cdb:e337 with SMTP id 5b1f17b1804b1-47ee47bc03dmr11164035e9.7.1768378519599;
+        Wed, 14 Jan 2026 00:15:19 -0800 (PST)
+Received: from [192.168.1.27] (84.121.134.198.dyn.user.ono.com. [84.121.134.198])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47ee563ce5fsm15437185e9.13.2026.01.14.00.15.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 14 Jan 2026 00:15:18 -0800 (PST)
+Message-ID: <46785ec4-d222-4897-8427-82e3d3b1dbca@gmail.com>
+Date: Wed, 14 Jan 2026 09:15:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-rockchip@lists.infradead.org,
- linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, heiko@sntech.de, ulf.hansson@linaro.org
-Subject: Re: [PATCH v1 0/3] mmc: dw_mmc-rockchip: Add stability quirk for
- NanoPi R76S
-To: Marco Schirrmeister <mschirrmeister@gmail.com>
-References: <20260110010715.1610159-1-mschirrmeister@gmail.com>
- <67ccb8f6-f9bd-4266-b79a-b688bd6d030b@rock-chips.com>
- <8536413c-8687-4d75-befb-8f25e54838bf@rock-chips.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <8536413c-8687-4d75-befb-8f25e54838bf@rock-chips.com>
+Subject: Re: [PATCH] arm64: dts: mediatek: mt8173-evb: Add interrupts to
+ DA9211 regulator
+Content-Language: en-GB
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-mediatek@lists.infradead.org
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com
+References: <20260113110026.37032-1-angelogioacchino.delregno@collabora.com>
+From: Matthias Brugger <matthias.bgg@gmail.com>
+In-Reply-To: <20260113110026.37032-1-angelogioacchino.delregno@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9bbb8cc99a09cckunm9a308b3948f3f9
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkxMQlYaGE5PSx5OGkxPH05WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=jt/DYDIZPuInsl91a4KACW2hxs/z0RuH25bcKV7dul2XAuJBK6dSpkMoPrFZiufslHvTBdw6k63r1heN1qGUMdrl+snPB6OUfwOyQteYKn1TnIfMxUSGknCjppyYocg8r9VyH4ToDIZgaLjI1ib6+xWaECZ+pAEW1uzaL95PNsQ=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=8+Ps+QJX7O1TTlQB7KtvJFbgo7HUqA8ymA/xt0D2c0U=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_000856_560111_369F710B 
-X-CRM114-Status: GOOD (  24.22  )
+X-CRM114-CacheID: sfid-20260114_001521_752858_9E7B4DAE 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,136 +105,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2026/01/12 星期一 11:56, Shawn Lin 写道:
-> 在 2026/01/12 星期一 9:32, Shawn Lin 写道:
->> 在 2026/01/10 星期六 9:07, Marco Schirrmeister 写道:
->>> This series addresses a microSD stability issue on the FriendlyElec
->>> NanoPi R76S (RK3576). The board currently suffers from a 400kHz
->>> retuning loop when the controller attempts to enter runtime-suspend
->>> during idle periods.
->>>
->>> Evidence of the failure in dmesg:
->>> [Fri Jan  2 01:28:02 2026] mmc_host mmc1: Bus speed (slot 0) = 400000Hz
->>> [Fri Jan  2 01:28:03 2026] mmc_host mmc1: Bus speed (slot 0) = 
->>> 198000000Hz
->>> [Fri Jan  2 01:28:03 2026] dwmmc_rockchip 2a310000.mmc: Successfully 
->>> tuned phase to 233
->>> [Fri Jan  2 01:28:04 2026] mmc_host mmc1: Bus speed (slot 0) = 400000Hz
->>>
->>
->> Does this problem happen with all microSDs or just *a* microSD per
->> your description?
->> Have you ever tried to disable SDR104 support?
->>
+On 13/1/26 12:00, AngeloGioacchino Del Regno wrote:
+> Add the required pinmux and assign the right interrupts-extended
+> to the DA9211 regulator (PIO pin 15).
 > 
-> A quick update.
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+Reviewed-by: Matthias Brugger <matthias.bgg@gmail.com>
+
+> ---
+>   arch/arm64/boot/dts/mediatek/mt8173-evb.dts | 8 ++++++++
+>   1 file changed, 8 insertions(+)
 > 
-> I found several problems on RK3576 for supporting sd cards. I wondered
-> how all upstream RK3576 boards claiming SD support work? Anyway, I sent
-> a series to the list[1], not sure if it fixes the problem you faced, but
-> these should be the right patches you should have a try.
-> 
-> 
-> [1]https://lore.kernel.org/linux-rockchip/1768189768-96333-1-git-send- 
-> email-shawn.lin@rock-chips.com/T/#t
-
-
-Except for the patch mentioned above for fixing the hot-plug problem
-which you confirmed to work fine. I looked the code a bit and see
-a potential problem related to the runtime suspend + power-domain.
-Please check the patch to see if it fixes your problem:
-
---- a/drivers/mmc/host/dw_mmc-rockchip.c
-+++ b/drivers/mmc/host/dw_mmc-rockchip.c
-@@ -36,6 +36,8 @@ struct dw_mci_rockchip_priv_data {
-         int                     default_sample_phase;
-         int                     num_phases;
-         bool                    internal_phase;
-+       int                     sample_phase;
-+       int                     drv_phase;
-  };
-
-  /*
-@@ -573,9 +575,43 @@ static void dw_mci_rockchip_remove(struct 
-platform_device *pdev)
-         dw_mci_pltfm_remove(pdev);
-  }
-
-+static int dw_mci_rockchip_runtime_suspend(struct device *dev)
-+{
-+       struct platform_device *pdev = to_platform_device(dev);
-+       struct dw_mci *host = platform_get_drvdata(pdev);
-+       struct dw_mci_rockchip_priv_data *priv = host->priv;
-+
-+       if (priv->internal_phase) {
-+               priv->sample_phase = rockchip_mmc_get_phase(host, true);
-+               priv->drv_phase = rockchip_mmc_get_phase(host, false);
-+       }
-+
-+       return dw_mci_runtime_suspend(dev);
-+}
-+
-+static int dw_mci_rockchip_runtime_resume(struct device *dev)
-+{
-+       struct platform_device *pdev = to_platform_device(dev);
-+       struct dw_mci *host = platform_get_drvdata(pdev);
-+       struct dw_mci_rockchip_priv_data *priv = host->priv;
-+       int ret;
-+
-+       ret = dw_mci_runtime_resume(dev);
-+       if (ret)
-+               return ret;
-+
-+       if (priv->internal_phase) {
-+               rockchip_mmc_set_phase(host, true, priv->sample_phase);
-+               rockchip_mmc_set_phase(host, false, priv->drv_phase);
-+               mci_writel(host, MISC_CON, MEM_CLK_AUTOGATE_ENABLE);
-+       }
-+
-+       return ret;
-+}
-+
-  static const struct dev_pm_ops dw_mci_rockchip_dev_pm_ops = {
-         SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend, 
-pm_runtime_force_resume)
--       RUNTIME_PM_OPS(dw_mci_runtime_suspend, dw_mci_runtime_resume, NULL)
-+       RUNTIME_PM_OPS(dw_mci_rockchip_runtime_suspend, 
-dw_mci_rockchip_runtime_resume, NULL)
-  };
-
-  static struct platform_driver dw_mci_rockchip_pltfm_driver = {
-
-
-
-
-> 
->>> Testing confirmed that the issue can be manually addressed by
->>> disabling runtime PM via sysfs:
->>> echo on > /sys/devices/platform/soc/2a310000.mmc/power/control
->>>
->>> I experimented with various changes in the Device Tree, including
->>> lowering the bus frequency and attempting to keep the power domains
->>> active, but nothing stopped the retuning loop.
->>> The issue only went away when I forced the controller to stay active
->>> by disabling the runtime power management.
->>>
->>> This quirk is the only way I have found to keep the SDR104 link from
->>> crashing on the NanoPi R76S, I am open to suggestions if there is
->>> a better way to handle this in the driver or the DTS.
->>>
->>> Marco Schirrmeister (3):
->>>    dt-bindings: mmc: rockchip-dw-mshc: add rockchip,disable-runtime-pm
->>>    mmc: host: dw_mmc-rockchip: add rockchip,disable-runtime-pm quirk
->>>    arm64: dts: rockchip: add stability quirk to NanoPi R76S
->>>
->>>   .../bindings/mmc/rockchip-dw-mshc.yaml        |  8 ++++++
->>>   .../boot/dts/rockchip/rk3576-nanopi-r76s.dts  |  1 +
->>>   drivers/mmc/host/dw_mmc-rockchip.c            | 25 ++++++++++++++++---
->>>   3 files changed, 31 insertions(+), 3 deletions(-)
->>>
->>
->>
-> 
-> 
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8173-evb.dts b/arch/arm64/boot/dts/mediatek/mt8173-evb.dts
+> index 51118a4149d8..1049877e6cda 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt8173-evb.dts
+> +++ b/arch/arm64/boot/dts/mediatek/mt8173-evb.dts
+> @@ -117,6 +117,7 @@ &i2c1 {
+>   	buck: da9211@68 {
+>   		compatible = "dlg,da9211";
+>   		reg = <0x68>;
+> +		interrupts-extended = <&pio 15 IRQ_TYPE_LEVEL_LOW>;
+>   
+>   		regulators {
+>   			da9211_vcpu_reg: BUCKA {
+> @@ -179,6 +180,13 @@ pins1 {
+>   		};
+>   	};
+>   
+> +	i2c1_pins_a: i2c1-pins {
+> +		pins-da9211 {
+> +			pinmux = <MT8173_PIN_15_EINT15__FUNC_GPIO15>;
+> +			bias-pull-up;
+> +		};
+> +	};
+> +
+>   	mmc0_pins_default: mmc0-default-pins {
+>   		pins-cmd-dat {
+>   			pinmux = <MT8173_PIN_57_MSDC0_DAT0__FUNC_MSDC0_DAT0>,
 
 
