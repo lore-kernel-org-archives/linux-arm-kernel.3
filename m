@@ -4,69 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C32D29FE5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 10:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA6F4D29FE5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 10:52:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=htkP6Pi1hR5sLWZLIAp5bvw4UNy0AcaV5hG702kfd58=; b=qawkAznorG/5DDlAExRKQjT3qV
-	QK8aaGoPnc7Ott/VW/s7yJ8jCOfsDpyL1767QITOZYDp6ReY6a0QWDn/zXQgqjTmmXgPjL7AoT0GY
-	R7hZpk0SNGuGhfBeU3xnZnK8tU4bv6YMKUChRpHHuYnlt09gyjgaQ6doP3MfQKE67Oey/hXqpwFhn
-	FbBtXc1oIB4aTO7BgXpTSE8V/p4AarYIuPD+a6UQdTLpxp6TghgGQdIROgtiDgnmfHKRKp24fJ/Ua
-	z8qF8Z3uwvRGAZw/vQ22uy1hgkoRYC+z0g9OooBPMrtr23Hx6CcpfmgaptUylpZ5Bi0E/Thk2pScV
-	Za9/LHMQ==;
+	bh=ui5ucFbccyXj13ISXUj4kSPvspJNkpSYnw3ZZwIl7bo=; b=fIcfUHRRTih2FVMQt+kPTdxzkQ
+	s8yx8z6mgaIuw2uM3oYn2PN7w7fskFGuUX4FCYIlCeAB4Ntsd4cB7DzX2LhTWIg0pQcw1MGnJjwoN
+	RMBRg0ggvIH4FhT+Uzn5Wv+ii4BPAv1HSi7LOzKOQemdAzb+wArTKMpU2aQ44mGyXI87tlkSBqs5s
+	QgsR+fX+OaBuiL/jhLs6U3pPs4uAT/l7tso2D9FpGresB9EKcln0vHWVvS1jkpfh7UiqXEHMRmiDC
+	7L2UnhG6IsEij1ZcLQXLVs2gh/QVKlbuKjq7zSn9m7QCr0NTrXQk1BCgSA7ZrOQ0TRev2vuuNDYFH
+	3e4uLiKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfySU-00000008ric-0ewY;
-	Wed, 14 Jan 2026 10:50:38 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vfyTi-00000008s2X-3MVC;
+	Wed, 14 Jan 2026 10:51:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfySQ-00000008rfw-0qZb;
-	Wed, 14 Jan 2026 10:50:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=htkP6Pi1hR5sLWZLIAp5bvw4UNy0AcaV5hG702kfd58=; b=UEIBZrdr1CmlYzAy7kRNlvxawY
-	IDzrS4vRHXt+fHD+cx3IXvqcDTN0QW8v068Gi1oA4GrB0WKM0yGvFeNIBKfin62LNUuOuV/wfEgrV
-	TqZLFUa5ijcXJN095vLknAdY/vkDShw6gMtQggZW/vjh5pySxNxKEmdiAsdSCIC3JK33N9Kucjuw3
-	Wbmvadt9deH+XyMLSRtslWTMYoML1KXeGDgqyIiINIvqsOPY1DX2GV7yt+s48I4yPPcUrXs6pJnn/
-	NiITrxMGcg4py/kF41oY4Mqw3WGgyspoJr9LXyoTEGy47TxGmoAGnH+/0y6uZId2gtdqMql0FVY7r
-	W8PKwZgg==;
-Received: from i53875b96.versanet.de ([83.135.91.150] helo=phil..)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vfyS7-002HSK-Vs; Wed, 14 Jan 2026 11:50:16 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Sandy Huang <hjc@rock-chips.com>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	dri-devel@lists.freedesktop.org,
+	id 1vfyTb-00000008s0s-49Eg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Jan 2026 10:51:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1303560052;
+	Wed, 14 Jan 2026 10:51:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B78BFC4CEF7;
+	Wed, 14 Jan 2026 10:51:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768387906;
+	bh=wSQt6iTfo1UGib9b417yObSp4mmt++JkZhlLk3sAcGo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KT1EsKq4HelA+9mqCbB0nP9Xaa0Hf7XYTqCB10k4v6RkHiy3yUOM0K7z2rMr87leR
+	 a/7DzFDzFPi2QFab8nswo2tStijl9NcBUHqgi9Y6IVUrfvf3uSpGtNPfOAhg3PL0hG
+	 1zahwuWUU+NxnEVqZeNWI19p7QvOyQMUnD6jWOdZY+T3CjqCj5E1qBS5FSaMvs4mKo
+	 sFRxMw+918rCwWENRrgHu2hDLkj6eBUkjg1pKhV//UlMrcG7r3Tk/IBBNn3hVEOux9
+	 j3t0DB9cx3/xhn/TonPHDRLI4OG2FaplvzL1wASd+BXlc762diEFlIEb+FNhkhpojj
+	 ghR5Y3S01uxZQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vfyTY-00000002975-0nDK;
+	Wed, 14 Jan 2026 10:51:44 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	Petteri Kangaslampi <pekangas@google.com>
+Cc: Vincent Donnefort <vdonnefort@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/rockchip: DRM_ROCKCHIP should depend on ARCH_ROCKCHIP
-Date: Wed, 14 Jan 2026 11:50:14 +0100
-Message-ID: <176838780308.4067705.6421121345360126054.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <5db192d31cc51f027f107c01c01a353a0569ebf4.1768310045.git.geert+renesas@glider.be>
-References: <5db192d31cc51f027f107c01c01a353a0569ebf4.1768310045.git.geert+renesas@glider.be>
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oupton@kernel.org>
+Subject: Re: [PATCH v2 0/1] KVM: arm64: Calculate hyp VA size only once
+Date: Wed, 14 Jan 2026 10:51:37 +0000
+Message-ID: <176838788525.3448059.9914160373754507949.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260113194409.2970324-1-pekangas@google.com>
+References: <20260113194409.2970324-1-pekangas@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_025034_291023_11B62929 
-X-CRM114-Status: GOOD (  11.05  )
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, pekangas@google.com, vdonnefort@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oupton@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,23 +87,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 13 Jan 2026 14:15:01 +0100, Geert Uytterhoeven wrote:
-> Rockchip display hardware is only available on Rockchip SoCs.  Hence add
-> a dependency on ARCH_ROCKCHIP, to prevent asking the user about this
-> driver when configuring a kernel without Rockchip platform support.
+On Tue, 13 Jan 2026 19:44:08 +0000, Petteri Kangaslampi wrote:
+> All,
 > 
-> Before, this dependency was implicit through a hard dependency on
-> ROCKCHIP_IOMMU.
+> Here's a reworked fix to keep VA size calculations consistent between
+> the MMU and layout initialization code paths.
+> 
+> Previously, if the kernel was configured with a VA size of less than
+> 48 bits (like happens in our environment), the assumptions used to
+> calculate hyp_physvirt_offset in kvm_compute_layout() and the code
+> that determines the VA size used in the rest of the system (calculated
+> in kvm_mmu_init()) would get out of sync. This could eventually result
+> in mapping failures.
 > 
 > [...]
 
-Applied, thanks!
+Applied to next, thanks!
 
-[1/1] drm/rockchip: DRM_ROCKCHIP should depend on ARCH_ROCKCHIP
-      commit: cd98e73492102a2ff54923f08c37a2780979ac4c
+[1/1] KVM: arm64: Calculate hyp VA size only once
+      commit: 8e8eb10c107e67f22f87cd8c963d30ea73f04d5f
 
-Best regards,
+Cheers,
+
+	M.
 -- 
-Heiko Stuebner <heiko@sntech.de>
+Without deviation from the norm, progress is not possible.
+
+
 
