@@ -4,84 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FFC8D31A28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:24:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D827D31A28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L6uGCquBWH6uiGdYe5lVZ12ucv1OD63hx3BorOh4YcA=; b=AWsvY+kEULCEv/HOV/0ZeQcKoo
-	Nj4y9oqp3KDg0lh/L9ht4nIIfxJ4/97OXnuFjxwIcEgAH3Y4gYvaSvURQgSCXIwAnVJW3rzgE+ofh
-	rpDLG6oCwPhVmvBuazLuTcrjS8kA/I/KJK1Nh9fd1TXnU93Rh6Z0zrC3klVAkm3qcmVCRXbiyMbz2
-	NhJVuCplEVwLjDCwYUXZLNOMrCh96+j/bhkXoJdxOZ5qguzSQXybWD4XhJIJvQCDGy76+Bdftood5
-	oL3Yd+oBA2hEjBbJTh1yyKjsL6Ec30pdLBsOEnW4Z6lVuXP6zHJidSnCW9lQaEOvnK6so6rgiiI6O
-	dpUsaaMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7gkLDGpcH2ixv9Hp34Yj1+ZbXrSOZHF+yU29hk2sNpw=; b=Z8ZElbKIX07rfwtVU8tTKxPkcD
+	iM03h3lO32JwTf2ryBCPGiWcn5CXWYe7FCODfxgPCbzlbjucal4oQ1TQgw8OqtKD3d90rit5XAzJE
+	hyAB79S11/KHhdEtxnk6RMhHYqU5b4CJNBxtG5EjRnKelGR7J7J7Aw3JQnripesUMfs4FmEBd3mGy
+	rPoggdgRdnLKCqZea+KkX2nDl4ZsVzQN0J+LgryV+UyvIq9Pnwa7OFHqkZkUdlYnlfL2QBKfEPIY/
+	AKa4PGKBo4A24zsOU9/YUXn2RWGenLAiyjx6WU/x0YImfaUydIVIgHUg4NB/Px7ayKGJIc01WlDUM
+	MEas1efw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfwAc-00000008K97-2C1o;
-	Wed, 14 Jan 2026 08:24:02 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1vfwE9-00000008KqP-1pgL;
+	Wed, 14 Jan 2026 08:27:41 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfwAZ-00000008K8F-2zTP;
-	Wed, 14 Jan 2026 08:24:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768379040; x=1799915040;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=TpSIK25RbvWDNg7QiWIOtxQKPzkkGQzeiPPfyvIi0gk=;
-  b=g+LDosqMgXqI7uaIaZhjqLhXC4FdDirifXXYbS2+8Y4qxZ9duevkPIdt
-   e0VZXly5X2MAul2toIDmhIimwd9EGyqV0GTG58UiIkBL6umOzNvIA0BYZ
-   j8qU6X73nvHRYqnyLJZQC4v8KIzzzONHuisMB4CaexiTnH4XWu/AvghY+
-   M7tyV1Kip3u49sH4AHwyZ31se1lEXYh+9iMA3L5tdwUMOrkRKWAOmwCcH
-   3IiWfc/3ughwMJsGfZoO5A9AxZAS/efh7ZLLs97RVBpgtBxjz4kKmIPkH
-   8Rx5nod5a3pqO+xFenUwzb8oNCnl6H5Uqiba5D9Fqnp9po+RvWaHKRcQH
-   A==;
-X-CSE-ConnectionGUID: KseNro3xRF6l64WxT55mbA==
-X-CSE-MsgGUID: N++AtQT/Sm2/Zmu2FvyhaA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11670"; a="73309097"
-X-IronPort-AV: E=Sophos;i="6.21,225,1763452800"; 
-   d="scan'208";a="73309097"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2026 00:23:58 -0800
-X-CSE-ConnectionGUID: g2NXVMXRT7+6Jm3R7rO9aA==
-X-CSE-MsgGUID: pmU4TLcgSYmvaqOcW2kQ5A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,225,1763452800"; 
-   d="scan'208";a="235333811"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.83])
-  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2026 00:23:54 -0800
-Date: Wed, 14 Jan 2026 10:23:51 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: Andi Shyti <andi@smida.it>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Qianfeng Rong <rongqianfeng@vivo.com>, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Khalil Blaiech <kblaiech@nvidia.com>,
-	Asmaa Mnebhi <asmaa@nvidia.com>, Qii Wang <qii.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Linus Walleij <linusw@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH v1 0/7] i2c: busses: Introduce and use HZ_PER_GHZ
-Message-ID: <aWdSlzLuU_psG_EV@smile.fi.intel.com>
-References: <20260112134900.4142954-1-andriy.shevchenko@linux.intel.com>
- <aWdHRszwPfcniL1q@zenone.zhora.eu>
+	id 1vfwE6-00000008KpE-3n6R;
+	Wed, 14 Jan 2026 08:27:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1768379254;
+	bh=8MK2K1fASDPVnowqxQJ1JsgFLtEXmJrr6pW4o1QRCyc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UdOb5SP5TUuhuFc/WhQJMKtJekNVy54o3R38/WoQOOwEqbI7Va76TVfEYmO9/o7G0
+	 osO2Dkd+3GI4pdGm9DxibTNa3cFFqVe8WfdT+MsFCvNhTXYBstc3/Cqb95tBD0rmIZ
+	 CJ6f+G2Di4ibr0mPV+RLLFpmBuhlT0vNaDbYp21iDG1XCJzos/SAbwVajHb7AAOaKD
+	 WBia4g9eXgNJ4B5l0m6bUV+DiclrhgU/GxxWQTWZRQcoLuhex+WX+X3acRLMP8N2cM
+	 1TqAIYUYg0uEW9ekIygOQAyOdpljqwakRH+bvff9FedRviDiosITXaBb58PXcW+RS0
+	 ZJVO7cSIognsw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 73DE517E0139;
+	Wed, 14 Jan 2026 09:27:34 +0100 (CET)
+Message-ID: <b38823d4-1bce-496b-a063-75f2139aa3bd@collabora.com>
+Date: Wed, 14 Jan 2026 09:27:33 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aWdHRszwPfcniL1q@zenone.zhora.eu>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: arm: mediatek: mmsys: Allow single
+ vdo/mmsys endpoint
+To: Rob Herring <robh@kernel.org>
+Cc: krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ kernel@collabora.com
+References: <20260108143934.69634-1-angelogioacchino.delregno@collabora.com>
+ <20260113225346.GA367211-robh@kernel.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260113225346.GA367211-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_002359_853131_3E565E63 
-X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-CacheID: sfid-20260114_002739_153682_4CA9AB77 
+X-CRM114-Status: UNSURE (   9.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,23 +79,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 14, 2026 at 08:36:09AM +0100, Andi Shyti wrote:
-> > Andy Shevchenko (7):
-> >   units: Add HZ_PER_GHZ
-> >   i2c: mlxbf: Use HZ_PER_GHZ constant instead of custom one
-> >   i2c: mt65xx: Use HZ_PER_GHZ constant instead of plain number
-> >   i2c: nomadik: Use HZ_PER_GHZ constant instead of plain number
-> >   i2c: rk3x: Use HZ_PER_GHZ constant instead of plain number
-> >   i2c: st: Use HZ_PER_GHZ constant instead of plain number
-> >   i2c: synquacer: Use HZ_PER_GHZ constant instead of plain number
+Il 13/01/26 23:53, Rob Herring ha scritto:
+> On Thu, Jan 08, 2026 at 03:39:32PM +0100, AngeloGioacchino Del Regno wrote:
+>> The hardware supports using just a single output while leaving all
+>> of the others unconfigured (disabled), but the binding did not
+>> really allow specifying a single endpoint@0, because in this case
+>> one must either:
+>>   - Call the subnode `endpoint` and not declare any address and/or
+>>     size cells; or
+>>   - Call the subnode `endpoint@0` and have at least one more other
+>>     endpoint(@1 or @2), and declare address/size cells.
+>>
+>> Allow specifying a single `endpoint` subnode, without the `@0`
+>> implicit suffix to suppress warnings happening on this kind of
+>> valid usecase.
 > 
-> merged to i2c/i2c-host.
+> This series isn't needed. We've dropped this check from dtc. I'll do a
+> sync with upstream.
+> 
+> In any case, it's also a W=1 warning which wouldn't be my top priority.
+> 
+> Rob
 
-Thank you!
+Oh, okay! Thanks for the feedback :D
 
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Cheers,
+Angelo
 
