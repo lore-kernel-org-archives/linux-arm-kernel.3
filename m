@@ -4,98 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C97FD29FF5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 12:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 211A0D29FEF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 12:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LCLLSplQbkqRnful4ce0nyXBN1i8f3fvRXkCMzJlx2c=; b=DW5iimYfT7oQcZA8mKiYWmKQlj
-	cjJtHiTKqWckzn7VkxTlHqa63hjFtJr7+h6b5cSnNCwWcUDMAhPT1dA7TzJ6PNie2v53Si94sQXh7
-	9ZiIkUws1q7oNNoPjQl3mTKM0ZQyoZAfjWNB3GLDh+E6EIjRD6oY72JEbu69MG9SSmjaqoF++4dil
-	oacXjnJcjaciMikPDK2ChG1BF3PCXBlVeKaq4HMKagvkZV0byrvOnVklqLTIVvogN5s1SUyRfNpvu
-	hiV7UqoE7Sl6/X6Itc6xeZ14viDx8RWCTkrbV4r36Xao+0GIMCSNq22kDKPImOmennnLDd/Ja+EFT
-	3y8H1BNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bvNQSaYKyUim5tFkK4HAPN4WA2RLqZuiV376Fz2XMpk=; b=UmdlcyrD0bKBB4WKg4gd9C6Onm
+	MjiGzvbyX0kNMQ/IWLxHBNXmsUVrNjsNFazSujXd3ShpbmrUg3Gn/2lpIeNl7DOjtblOype25tQ5w
+	/JZmPcBCa/D49mVturc+C161Z9G/Vtd1UAo1OyI0ibFOBZofAqR+BfokFBXe/xFvqg0qzhqQjIRFp
+	leQwgoMQyikW0kjM+4Nsp2P+rGhTWtyM4t2RFcdalnN48+CMoWrRdbuswPxY5/NkbI9JNORxtojku
+	jzrrh8+Z91A9tcDFogdTqc+dluJdCmoOPBPBmVD4aWe3WbmtStmIZWpW0W3b5CilxCDLp1g+IAyc/
+	8aTVUQzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzgd-000000096cQ-0CFR;
-	Wed, 14 Jan 2026 12:09:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vfziY-00000009740-2JHb;
+	Wed, 14 Jan 2026 12:11:18 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzgc-000000096c2-1rJE
+	id 1vfziV-0000000971y-3Tvw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 12:09:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7A69160051;
-	Wed, 14 Jan 2026 12:09:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25D8DC4CEF7;
-	Wed, 14 Jan 2026 12:09:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768392557;
-	bh=UZ6UaW73MvuZLl2m3trmg4FmJ33q86AJAI/EqVwy3eo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=r5PGkgA+XlzZQU2HUMFnrn0jhMvX+OUhlgjjF1MIYiSHvbV+R9hnpC50s1ZlIKEgo
-	 gMXXz7MCvIoUk3qJpF3sF6AfBRUf6thwF2wBB5oBIbfibRcB6etYDN4yZMao1z4KcH
-	 BvIN7zdV25pkC7PHtof5b9GafMqbRWI8S3hBTsmr93Gq0mz1QF7QfpUZcGg84VCPL+
-	 fMmj90AMIKc8eqqUmJSJG0pmb/tevR51m6CJh/X6RsAvbXY/gq8J30FfaNi35akuBM
-	 RqqMZo5xv8+nlH5MnUSJQrHAzoo2p+nqyNym4ibNGgpuxcmJF7CYX/lwS2G9tnheL9
-	 DSTA4fWm5e3Yg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vfzgY-00000002AgB-45bU;
-	Wed, 14 Jan 2026 12:09:15 +0000
-Date: Wed, 14 Jan 2026 12:09:14 +0000
-Message-ID: <86o6mwl7kl.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v3 13/47] KVM: arm64: Use kernel-space partid configuration for hypercalls
-In-Reply-To: <20260112165914.4086692-14-ben.horgan@arm.com>
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
-	<20260112165914.4086692-14-ben.horgan@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ben.horgan@arm.com, amitsinght@marvell.com, baisheng.gao@unisoc.com, baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com, dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com, fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, peternewman@google.com, punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 14 Jan 2026 12:11:17 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-47796a837c7so58987775e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 04:11:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768392674; x=1768997474; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bvNQSaYKyUim5tFkK4HAPN4WA2RLqZuiV376Fz2XMpk=;
+        b=ePZkmR3z2tEkg+Jc6kK2ITd3pGTdXHl3wt35Rm9UYfddL6hCohS5vGej7oajDrw95x
+         R5EuQdCzyRP65A3iCpvNBYPl7SyDucCao8RBw6T6sECfrCJubSf3xXEYOEo6akg//VHE
+         itK+P5dNOu+7PY2BBUQNkHtClxhxFvACGvTjDVZ8dVqHPWNSLL+z/NyK5bVF+MI2l7v/
+         PSDv/Qiw4TnqvfTJJNdw29aZOffqrE0BcQWV9fLJChz0E8utPxdh5Ii5lqbUXWDY/7eb
+         WYNQUv3t6KdjS2hBSUlJcbEoHsH6Vu+bANJ1f7HOop48yjURSILf1ZjIAZlsv8HpofIi
+         8YhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768392674; x=1768997474;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=bvNQSaYKyUim5tFkK4HAPN4WA2RLqZuiV376Fz2XMpk=;
+        b=O4sXCL++ttRI0P1om2cR+t3Pw/hk483+PMxRMvVsNerefwyJy+YItCwYW0JqPRDIKZ
+         fUPVBZtMppKfO25CS9VvnqINFLyZ/9K1kmVwGFC2u4F+6dKOFKc5zX2R/rO7U4HIvc1G
+         jzywO3mpLmgcJ2bSNfY4brqvQtMD/HrvCZFffe6D5EDa6pvi1ie5DcYqp8LhtJQ7SQTb
+         FBhltItU9thRyGKgs4hOrv2h0FXDW8DWFZiQ5pS11ZiARsXugl8+8MbDE5U5XB74qaoj
+         piUDiglPHS9bX7XShwSC2hrrjevp5q0BzE/DFcydUWBkbM0a7CWbrZeyIaUOQ9nmHfre
+         kDKA==
+X-Forwarded-Encrypted: i=1; AJvYcCUNtwNFGjbbh7y8ns5TIxu5ua1cSdNaM69LN4W3XxLrZRUVTh2eVvouPHxBB5yT4Q2/YFWo13K/DIEAngGYqBxp@lists.infradead.org
+X-Gm-Message-State: AOJu0YytUxrHixjT80c6ZWAAyFAmGq945PBbU7dj6JptzXMkS5XVdebY
+	/SL7TNLuXn3zxeDY5h9Zap4eWSYyNdeNWfMUE96WGV5r9nS9Bd6/aVKESZACjztW0hY=
+X-Gm-Gg: AY/fxX7A+PogsFxG/0CJ6Vpc1JHr7GxdPQIUKabkqI+UXLa3Yir8r7QMJW/qpl1SXaW
+	Ynu8d0Ohpe5ouDP1UMhp4TO7Kc7hkuayQlxaXOc4+0e8dE1xCk4q9fqS/TtK1VQYf+0tLzwUdUK
+	p4mOCa+BRxw9mRIx7SZQBnjyPZj8GV3BXgMIjT2YR0E3CDgGJ6UckzlbKHncVKeAVJINcInRpgE
+	3QvDiyU078zXklkJiPQ/1fNcQPyAofD174YP3zh3BYy9jrFfgMZ4ycLLIiuYe6IZdRIxJVXhN/B
+	Rgv2GmcKUgqoX5qfuyhmJ/QqTi1g5DAxVUYwkMShhroDjwl40zy1onaZA10zlJ2juNGWMlkL4Wi
+	ULfRXXZE4SkngAdsAAYSkk0nZ/hgUmc0A9aHGu8XLvq2D6zEm1jGZsmouauvz8d86FyDxUBG9Lo
+	TzOHHV3x74OfUL5bLMRuJufMgn1MNFmbQ=
+X-Received: by 2002:a05:600c:500d:b0:47d:3ffb:16c9 with SMTP id 5b1f17b1804b1-47ee33917d1mr23304285e9.23.1768392673795;
+        Wed, 14 Jan 2026 04:11:13 -0800 (PST)
+Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:8261:5fff:fe11:bdda])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bd5fe83bsm50158222f8f.38.2026.01.14.04.11.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 04:11:13 -0800 (PST)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, Nick Xie <nick@khadas.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260114-amlogic-s4-mmc-fixup-v3-0-a4d3e136b3f2@baylibre.com>
+References: <20260114-amlogic-s4-mmc-fixup-v3-0-a4d3e136b3f2@baylibre.com>
+Subject: Re: [PATCH v3 0/2] arm64: dts: amlogic: s4: mmc clock fixups
+Message-Id: <176839267313.2837299.1195775819800428515.b4-ty@linaro.org>
+Date: Wed, 14 Jan 2026 13:11:13 +0100
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_041116_472372_F68FB929 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,45 +103,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 Jan 2026 16:58:40 +0000,
-Ben Horgan <ben.horgan@arm.com> wrote:
-> 
-> On nVHE systems whether or not MPAM is enabled, EL2 continues to use
-> partid-0 for hypercalls, even when the host may have configured its kernel
-> threads to use a different partid. 0 may have been assigned to another
-> task. Copy the EL1 MPAM register to EL2. This ensures hypercalls use the
-> same partid as the kernel thread does on the host.
-> 
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
-> Changes since v2:
-> Use mask
-> Use read_sysreg_el1 to cope with hvhe
-> ---
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index a7c689152f68..ad99d8a73a9e 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -635,6 +635,14 @@ static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
->  	unsigned long hcall_min = 0;
->  	hcall_t hfn;
->  
-> +	if (system_supports_mpam()) {
-> +		u64 mask = MPAM1_EL1_PARTID_D | MPAM1_EL1_PARTID_I |
-> +			MPAM1_EL1_PMG_D | MPAM1_EL1_PMG_I;
-> +
-> +		write_sysreg_s(read_sysreg_el1(SYS_MPAM1) & mask, SYS_MPAM2_EL2);
-> +		isb();
-> +	}
+Hi,
 
-Is it really OK to not preserve the rest of MPAM2_EL2? This explicitly
-clears MPAM2_EL2.MPAMEN, which feels counter-productive.
+On Wed, 14 Jan 2026 11:43:10 +0100, Jerome Brunet wrote:
+> The patchset aims to address the issue raised here [1] for MMC B.
+> 
+> While checking this issue, I've found that MMC A and C also appear to be
+> improperly described in this platform's DT. The 2nd change fixes that.
+> 
+> To be on the safe side, the MMC clock should also be assigned on the other
+> SoCs. More changes will follow once things are sorted out for s4.
+> 
+> [...]
 
-	M.
+Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.20/arm64-dt)
+
+[1/2] arm64: dts: amlogic: s4: assign mmc b clock to 24MHz
+      https://git.kernel.org/amlogic/c/86124a8becb43eed3103f2459399daee8af2c99d
+[2/2] arm64: dts: amlogic: s4: fix mmc clock assignment
+      https://git.kernel.org/amlogic/c/3a115d42922cffc91b303992eadf220111d66c31
+
+These changes has been applied on the intermediate git tree [1].
+
+The v6.20/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
+for inclusion in their intermediate git branches in order to be sent to Linus during
+the next merge window, or sooner if it's a set of fixes.
+
+In the cases of fixes, those will be merged in the current release candidate
+kernel and as soon they appear on the Linux master branch they will be
+backported to the previous Stable and Long-Stable kernels [2].
+
+The intermediate git branches are merged daily in the linux-next tree [3],
+people are encouraged testing these pre-release kernels and report issues on the
+relevant mailing-lists.
+
+If problems are discovered on those changes, please submit a signed-off-by revert
+patch followed by a corrective changeset.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
 
 -- 
-Without deviation from the norm, progress is not possible.
+Neil
+
 
