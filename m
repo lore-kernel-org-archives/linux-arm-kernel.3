@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B99D5D37E39
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 14:01:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98975D37E37
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 14:02:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZxVasJkcaqm6bitRKKD5UGSxJOAVeK5x3UBtIDmYx64=; b=oPTmHNtGIwPQeHVrDFt9LEcqMw
-	N2UrQfVMmyGq+JptSwpujXk1HOuDFQCNKd6G8f1/LgtAj3SytFgXQf7+EaqXL67Mlx07LFliYQSAY
-	ySmWFCWwdpiFI9a2aDxRbb0XXvF8mAHBvMnobsLynAgM6ymoFHe8dMp8tNKQQZkhYnQZco8MnPJbN
-	+c2cw8y5woTRhobRRDaojVY3LzSMBuw4cUa0hithK6q7VAw8wndgd4b+eYsv5xhOuAC3l0/jWnHx4
-	PIE6K5YTFwWy2B+XTEYf/VqaHgc0AUBRdHoxJHEsAHxvdQAYiJfTJdu60VV7XkLUdaj4L/mNVpSO2
-	49hnRXFQ==;
+	bh=ND7EaywdTB+cVRpzlKgTzWHha3N31cEDgQpxFHeAwY0=; b=rdsCsMDnJqJec6m15OxugBgRUI
+	tbdI4e+3ZyPm5WA8DJ3qZOOnTbgeHQCJxetzBW2MPPXYF71JEUxYKjBev3xWtGIxK+lB52uOa6GJW
+	doGaSRzk6LX4fOLSJDA2i/wfzuNi2Jz1wqkWxYDGNuXZoYFgV+oUc2hars3VyCDYWBZNBnOoA4Mgy
+	5shQAgnFX2E/Km+1eJwcREnK3ku0BcU0N9NibNUZ0XwxW24WF5f+EZJ1XXjyBRmVpKe4Uw1+qdfMC
+	h+oYehHQYAkfaJt+C0pMHeH2Jx5GwAB4sOzZSNIIk+y4rtgrWZfBkpUv3q8iJ3VvLLxITmCd5sD03
+	cQk9iyWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg1RG-00000009RHN-3XEw;
-	Wed, 14 Jan 2026 14:01:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vg1RZ-00000009RNd-17d6;
+	Wed, 14 Jan 2026 14:01:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg1RG-00000009RH9-1Zc7;
-	Wed, 14 Jan 2026 14:01:34 +0000
+	id 1vg1RW-00000009RMl-2Pzp;
+	Wed, 14 Jan 2026 14:01:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC32F600AA;
-	Wed, 14 Jan 2026 14:01:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF47CC19422;
-	Wed, 14 Jan 2026 14:01:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3D56B43624;
+	Wed, 14 Jan 2026 14:01:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D78FC4CEF7;
+	Wed, 14 Jan 2026 14:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768399293;
-	bh=+PlGFhehw9pvT1fTeNTIF8koULdH0BUOJ+fDH8yqZwY=;
+	s=k20201202; t=1768399310;
+	bh=JhUn9TqR1P15NoVS+X8zJgLMi4jcAWVe91/hg+g8+XQ=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Ugq2Q7NMaYTXFV1ThT3q7e3DBYSOPt5A5bWniBbCjgJXaA05WP/krfSl5A9BbkAGX
-	 BTZwYp7zx0Zrm/Z7kw76XROcjIZVCBX/4KwGQ/P6kqE2GSxSiALKqjwCyC+aSXSFr4
-	 0nX7SOjhtqgmL611RkqV7D+ScQM8xafLX89pziD86o6Ax6/LuWtQbeh82PZ6mkJLh3
-	 Tz3v8cz/PVjXFsztQv35sTwE8Stzg20MW66DmT4SJMbD8GghbNumwbTOal/Z3+B1p0
-	 2wjDQn3sWPuqdC2Guy9TeUUank2Rg16llMwtHneJzS7ZifJosxHckmcZgdNXNP2lKO
-	 VOkPUF6U1iVfw==
+	b=Ujjep2OnS5oFpyvmoHdhTj2gamsTcVSU4u2dMzbdeUj9Ames4AbCRjiZ4scWPntoO
+	 Mr62FQH2GPiYqNOj+b3PT2JKHlzOajo7w/EHzRhcbQKb0QW0sWPzveOlisNjhliRu5
+	 NWXSv7F1APi52affZvTC4Wl9DKUWiSuSun7USJu7tNwhw6P4nKHuShoVePZlgFl/Qs
+	 5/vuIHzt1xrDvuN0r9ngeUiDmL8W7rLbsHLG6vctEdtcomKytQOPrShFx0sBtAn7/O
+	 EkOnt4lY4E80bInnl5tZZwvWdV/lgDv5+IRxDyqLQz5nLckFYMo7DaVVI3NuRCeTA8
+	 nysyN2h98geGQ==
 From: Vinod Koul <vkoul@kernel.org>
-To: linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Marco Crivellari <marco.crivellari@suse.com>
-Cc: Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Michal Hocko <mhocko@suse.com>, Kishon Vijay Abraham I <kishon@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@kernel.org>
-In-Reply-To: <20251105152023.259813-1-marco.crivellari@suse.com>
-References: <20251105152023.259813-1-marco.crivellari@suse.com>
-Subject: Re: [PATCH] phy: sun4i-usb: replace use of system_wq with
- system_percpu_wq
-Message-Id: <176839928954.937923.15095865192573263958.b4-ty@kernel.org>
-Date: Wed, 14 Jan 2026 19:31:29 +0530
+To: neil.armstrong@linaro.org, robh@kernel.org, krzk+dt@kernel.org, 
+ conor+dt@kernel.org, sjakhade@cadence.com, rogerq@kernel.org, 
+ thomas.richard@bootlin.com, Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: andrew@lunn.ch, linux-phy@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, srk@ti.com
+In-Reply-To: <20260112054636.108027-1-s-vadapalli@ti.com>
+References: <20260112054636.108027-1-s-vadapalli@ti.com>
+Subject: Re: [PATCH v3 0/2] Cadence: Torrent: Enable PCIe + XAUI multilink
+ configuration
+Message-Id: <176839930614.937923.15521389501056523456.b4-ty@kernel.org>
+Date: Wed, 14 Jan 2026 19:31:46 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.13.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_060150_648939_82F802CE 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,21 +76,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 05 Nov 2025 16:20:23 +0100, Marco Crivellari wrote:
-> Currently if a user enqueues a work item using schedule_delayed_work() the
-> used wq is "system_wq" (per-cpu wq) while queue_delayed_work() use
-> WORK_CPU_UNBOUND (used when a cpu is not specified). The same applies to
-> schedule_work() that is using system_wq and queue_work(), that makes use
-> again of WORK_CPU_UNBOUND.
+On Mon, 12 Jan 2026 11:16:29 +0530, Siddharth Vadapalli wrote:
+> This patch series adds the dt-binding for PHY_TYPE_XAUI and adds the
+> driver support for enabling PCIe + XAUI multilink configuration.
 > 
-> This lack of consistency cannot be addressed without refactoring the API.
+> Patch series is based on linux-next tagged next-20260109.
+> 
+> v2 of this patch series is at:
+> https://lore.kernel.org/r/20260104114422.2868321-1-s-vadapalli@ti.com/
+> Changes since v2:
+> - Collected Acked-by tag from Rob Herring (Arm) <robh@kernel.org>
+>   https://lore.kernel.org/r/176772419699.2512006.6478554353373580831.robh@kernel.org/
+> - The commit message in the second patch has been updated to explain the
+>   changes made to the LINKx_MASK/SHIFT and REFCLKx_MASK/SHIFT macros to
+>   address feedback from Andrew Lunn <andrew@lunn.ch> at:
+>   https://lore.kernel.org/r/7fd42221-d602-4ce4-9f7f-6754ed91e7aa@lunn.ch/
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] phy: sun4i-usb: replace use of system_wq with system_percpu_wq
-      commit: 877686f9f42b58b04e4e25d07034bc95cadc20f3
+[1/2] dt-bindings: phy: Add PHY_TYPE_XAUI definition
+      commit: a632a2a0db8b4d24076a03889efa25c6058d0746
+[2/2] phy: cadence-torrent: Add PCIe + XAUI multilink configuration for 100MHz refclk
+      commit: 02cf3710c55d55d956f080e6610b841e2b6ddca0
 
 Best regards,
 -- 
