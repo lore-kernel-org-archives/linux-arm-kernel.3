@@ -4,60 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48DFED3CC89
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 23:07:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1707D3CC84
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 23:27:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YbatM8JK6Cu45VHt4p9eaYIeoU98okLTZUPN7BjFQyg=; b=SDT4hX3g+vu1V3RT2qujGpPssB
-	PV49VnBd0idgE9jYD+g/e058Rp6Lk4y2EoqpCMmHKJ0yv1gHpbtOzFKjBsaLE2E2fUspkNLuW6lgp
-	ZuImIYCgDOp9rk+1svS8U4Musn6n9ZN96SbvZ/U1DiRJLMeZ7z2UxW03RVQ7d+w+QX+/0i/vYhvB7
-	7AhZKXsatOpeCGqo/kA+UiOQGtudjXOl2tKSiM0gPVXCmVA+dJ8C0aD/LVWePyOv3V6IIq/lGrp2f
-	ZLLl6qqMaMIFsNhTqUeoTrptMkwWVti7+g6Y7gjVzd1DWKzYQR3pM/ezvWeBNq0RgWMS9sfiegNnY
-	F5K9q5jA==;
+	bh=IiEt5tJdQlHAgpu2iagQYFNv192gre7oSLS/ZJhMtzE=; b=koPRr04ZvRQkQ2wCkElYoFnVzD
+	5iHZDfb/oGgK6RrKoj9f3hlWlzD9ORsaJfzxq4SGrV+nfSB0g5y60KVGfU7gSD2o7elRzU7sT0AYA
+	hoDMFnjDQo4fHtX8jHJ9nWItIAEblVhvWva41rZalHj+W8WFhmMx87Oeb93BJuJTOgtHk581VfUxH
+	c/qSXaw/ZfgWfr9NXjDQqME2umS5nBwGG32hoYZ2NPbvDdQBw/sLRmmDfZZzBvYlVP+LE1lxkrq3L
+	CuLAEHLpQba6Py+WM9ZpggpeJluxoC0Ld7/5kgSVXF59KrZWReJoM4eZJXRP1AnL+bnteWYa6nCWR
+	E76dnAmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg9xf-0000000B1qH-1Dpc;
-	Wed, 14 Jan 2026 23:07:35 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vgAGl-0000000B5gc-37sw;
+	Wed, 14 Jan 2026 23:27:21 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg9xW-0000000B1hI-1m12;
-	Wed, 14 Jan 2026 23:07:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
-	bh=YbatM8JK6Cu45VHt4p9eaYIeoU98okLTZUPN7BjFQyg=; b=IrpzQueHohmPFasUoeGeKibkxG
-	RPfW4KNoCpED6KAyy3jKwqwFwYKMQXRf+v5vEe6S3INdUE+Z6uZPyBqGCes6ovdZN0RBZnDG6lXY3
-	QPXMUQ3gX3dnR/ooGKNYPAVWj9Mbw8XH0AVCbaCeLhRIuPs/AE+FB+S66wzy3icNW+DVbDEAouDGw
-	LWGRYSTA+2oXC6+JrOYVPZD0GwrLqa0qOSU7IYnSKc+xnOAuSExiIQl+0lpgaXvTpxQxQ5pbsYyXG
-	1rdSYbzYEaO0vnKgVNZLTht0+XHzkdRLPJo0hIBBIwVcXNSYbYvN8f2e4RRGp5POUYZV9zd4GwHE7
-	dq7qfi3w==;
-Received: from i53875b96.versanet.de ([83.135.91.150] helo=phil..)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vg9xU-002N2m-50; Thu, 15 Jan 2026 00:07:24 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: heiko@sntech.de
-Cc: quentin.schulz@cherry.de,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: [PATCH v3 3/5] arm64: dts: rockchip: Enable HDMI output on RK3368-Lion-Haikou
-Date: Thu, 15 Jan 2026 00:07:05 +0100
-Message-ID: <20260114230707.4175162-4-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20260114230707.4175162-1-heiko@sntech.de>
-References: <20260114230707.4175162-1-heiko@sntech.de>
+	id 1vgAGi-0000000B5fn-2x2c
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Jan 2026 23:27:18 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2988210BED7;
+	Thu, 15 Jan 2026 00:27:07 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1768433233;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=IiEt5tJdQlHAgpu2iagQYFNv192gre7oSLS/ZJhMtzE=;
+	b=YUg1qGLJSITou0JJmJWYIydNnCKQ1FkTkndzOlAplCVJORItwbrLJGylBFPxYUvrzwguKA
+	88r+FXMfkjMQZyWds34VpeotYk0TorwZZ/wOWAJvlrLntLf9r423sH6R5u3kF6bFI5fTi6
+	t/zJ7TqUpNjZI1gU2qzNc9IYc5yH5daf2Ax6np8YLkc/xkoHgxu5zL2yZcJu7KCF3yXm+Y
+	Eq2MbN0RVOHKU4JX9BUTSYsM0SsKibe71KoAogQVM2Wdsqwx/dgZlQrdPgU6lFB8a0Sx7J
+	PndaRF57SYoIC4rvW18yVEfDNt82vOkMitOcqIGTq5HFtE9srI9um8AO6BMPfA==
+Message-ID: <6c9cadc2-67b7-4bfe-9cf7-2b102a0a3c21@nabladev.com>
+Date: Thu, 15 Jan 2026 00:27:05 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [net-next,PATCH] net: stmmac: stm32: Do not suspend downed
+ interface
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>,
+ Christophe Roullier <christophe.roullier@st.com>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, Paolo Abeni
+ <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20260114081809.12758-1-marex@nabladev.com>
+ <aWfEXX1iMHy3V5sK@shell.armlinux.org.uk>
+ <aWfOYf_YmJFUakvP@shell.armlinux.org.uk>
+Content-Language: en-US
+From: Marek Vasut <marex@nabladev.com>
+In-Reply-To: <aWfOYf_YmJFUakvP@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_150726_464293_0A6BF77A 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260114_152716_972461_D6249581 
+X-CRM114-Status: GOOD (  24.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,67 +82,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@cherry.de>
+On 1/14/26 6:12 PM, Russell King (Oracle) wrote:
+> On Wed, Jan 14, 2026 at 04:29:17PM +0000, Russell King (Oracle) wrote:
+>> On Wed, Jan 14, 2026 at 09:17:54AM +0100, Marek Vasut wrote:
+>>> If an interface is down, the ETHnSTP clock are not running. Suspending
+>>> such an interface will attempt to stop already stopped ETHnSTP clock,
+>>> and produce a warning in the kernel log about this.
+>>>
+>>> STM32MP25xx that is booted from NFS root via its first ethernet MAC
+>>> (also the consumer of ck_ker_eth1stp) and with its second ethernet
+>>> MAC downed produces the following warnings during suspend resume
+>>> cycle. This can be provoked even using pm_test:
+>>>
+>>> "
+>>> $ echo devices > /sys/power/pm_test
+>>> $ echo mem > /sys/power/state
+>>> ...
+>>> ck_ker_eth2stp already disabled
+>>> ...
+>>> ck_ker_eth2stp already unprepared
+>>> ...
+>>> "
+>>>
+>>> Fix this by not manipulating with the clock during suspend resume
+>>> of interfaces which are downed.
+>>
+>> I don't think this is the correct fix. Looking back at my commits:
+>> b51f34bc85e3 net: stmmac: platform: legacy hooks for suspend()/resume() methods
+>> 07bbbfe7addf net: stmmac: add suspend()/resume() platform ops
+>>
+>> I think I changed the behaviour of the suspend/resume callbacks
+>> unintentionally. Sorry, I don't have time to complete this email
+>> (meeting.)
+> 
+> I think I'm going to start over, trying to figure out what happened.
+> 
+> c7308b2f3d0d net: stmmac: stm32: convert to suspend()/resume() methods
+> 
+> Did the conversion, and it always called stm32_dwmac_clk_disable() and
+> where it exists, dwmac->ops->suspend() on suspend, provided
+> stmmac_suspend() returns zero (which it will do, even if the interface
+> is down. On resume, it always calls dwmac->ops->resume() and
+> stm32_dwmac_init() before calling stmmac_resume().
+> 
+> The conversion added hooks into ny new ->suspend() and ->resume()
+> methods to handle the stm32_dwmac_clk_disable(), dwmac->ops->suspend(),
+> dwmac->ops->resume() and stm32_dwmac_init() steps.
+> 
+> However, in 07bbbfe7addf I failed to realise that, in order to keep
+> things compatible with how stuff works, we need to call
+> priv->plat->suspend() even if the interface is down. This is where
+> the bug is, not in your glue driver.
+> 
+> Please try this:
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index a8a78fe7d01f..2acbb0107cd3 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -8066,7 +8066,7 @@ int stmmac_suspend(struct device *dev)
+>   	u32 chan;
+>   
+>   	if (!ndev || !netif_running(ndev))
+> -		return 0;
+> +		goto suspend_bsp;
+>   
+>   	mutex_lock(&priv->lock);
+>   
+> @@ -8106,6 +8106,7 @@ int stmmac_suspend(struct device *dev)
+>   	if (stmmac_fpe_supported(priv))
+>   		ethtool_mmsv_stop(&priv->fpe_cfg.mmsv);
+>   
+> +suspend_bsp:
+>   	if (priv->plat->suspend)
+>   		return priv->plat->suspend(dev, priv->plat->bsp_priv);
+>   
+This works too, thank you.
 
-Enable the VOP and HDMI controller on the Lion-Haikou board.
-
-Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
----
- .../boot/dts/rockchip/rk3368-lion-haikou.dts     | 16 ++++++++++++++++
- arch/arm64/boot/dts/rockchip/rk3368-lion.dtsi    |  5 +++++
- 2 files changed, 21 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts b/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts
-index abd1af97456a..ec843a1b0266 100644
---- a/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts
-@@ -58,6 +58,14 @@ vcc5v0_otg: regulator-vcc5v0-otg {
- 	};
- };
- 
-+&display_subsystem {
-+	status = "okay";
-+};
-+
-+&hdmi {
-+	status = "okay";
-+};
-+
- &i2c_lvds_blc {
- 	eeprom: eeprom@50 {
- 		compatible = "atmel,24c01";
-@@ -101,6 +109,14 @@ &uart1 {
- 	status = "disabled";
- };
- 
-+&vop {
-+	status = "okay";
-+};
-+
-+&vop_mmu {
-+	status = "okay";
-+};
-+
- &pinctrl {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&haikou_pin_hog>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3368-lion.dtsi b/arch/arm64/boot/dts/rockchip/rk3368-lion.dtsi
-index 61c52bd91784..4b4305b90055 100644
---- a/arch/arm64/boot/dts/rockchip/rk3368-lion.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3368-lion.dtsi
-@@ -164,6 +164,11 @@ &gmac {
- 	status = "okay";
- };
- 
-+&hdmi {
-+	avdd-0v9-supply = <&vdd10_video>;
-+	avdd-1v8-supply = <&vcc18_video>;
-+};
-+
- &i2c0 {
- 	status = "okay";
- 
--- 
-2.47.2
-
+Will you send this fix ?
 
