@@ -4,71 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60BB8D38FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:52:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9D5AD38FED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:52:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AktLvPe8H+QOEqAnIJuyH/z6LVnTQ55zbH0krRUA2wI=; b=tPVZIHkBuGJhEsn68t8jptDmWC
-	oRqodf+hcGs/CLeEfH32qA4bsy8LkBN9ZjLJLxZhdhoSFaMSfEP88TFwQqZHWq7iSlTmi2g2HWOx6
-	13GvGqjsTN/Qu+P+DvoP+cq9YP9RYWJPmRkXS3mA/PCB27LYnEwGWQWtykrN63xTrc1zQtqd3ZuMy
-	rywR8/nr72dRBLsLHmm8f4o4ggSqY5zEz58+BcJxQAnHCTMXcEJoTHJsKOBFlwecPVVK8yhMs6RXX
-	k9Qeol+2FbwdJKJF23O069OoJRoy/jcLLP1fqWCPMHho1a3h7Yk2S0AdBXoMxWvdz5sXjCu67Q9R4
-	qdkZUwug==;
+	bh=OI1+23JWX8FsCJMhCllis4rPC5JKUcNnLtovuqpzj+8=; b=3t/c0OKzCGTqkcENXhEhQcAcBH
+	alK3dUiPQnIt9b9NPuqXYAvZqy6tZdE+3lRVk/If0H1woG9xchNYo7RZxXtVMYlNhKJr8UG3GvwuL
+	k8prEvAPs7VvQty6DfqskK5CShREpG3nIbH66NesY8vGyzSs+t476wQl4yI8xqpJQXhbHddXDqhY8
+	fuhGyjiNP7so40s69IluitAUxLSYbTqyV/+CV/ibYzmFMC/0GT+ekSP1mpBkHEVMpCHHvRr14bCP1
+	iCwWA3m8IszWHjpvaPC9YZh+b46Yz9E34TkQXkQxL9iODxOEXER6GUcwYehGvBmcYKPj+tmPDcBxd
+	3UyrjGuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg46c-00000009zss-1lWA;
-	Wed, 14 Jan 2026 16:52:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vg46m-0000000A01I-2Jxm;
+	Wed, 14 Jan 2026 16:52:36 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg46J-00000009zi6-3vJB;
-	Wed, 14 Jan 2026 16:52:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 93B4C419FE;
-	Wed, 14 Jan 2026 16:52:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67B5EC4CEF7;
-	Wed, 14 Jan 2026 16:52:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768409527;
-	bh=UNYfWTgs2Wu0kYNxydtgUIcaXgFHmwIxZQCk0gOPwM0=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=LCDZ5kcyZcLkuJBrwbw9oNMtXV5ea2Rxx/LOEwxzgyDHPNn8fXQGdLGge4grZWutn
-	 1FgeDa8FsHPk5bIrMvfqyNAl/8ZgWgdb/SDWRKRo0i7CU720s5//HUeVlT2dzeystu
-	 phuWpamonrsqKCqmamppizZ4i7jN0658W0KP2xLNIAYEwhEv5OWG1H78L4Gspb/pUo
-	 ddB8mp8J+ZkUrLEHcqcz7mXIInkYHmUcJjG0jQAxQHG4nbhF10ZPD9Q0wIQqMEFS5X
-	 u+aKzkO5hqm0yT1E192TnszKiM9iuNAVzyk8gPx0SP58x8EPWkR5IZT53BCQ1HzX2D
-	 k5IsO8ASysBEg==
-From: Vinod Koul <vkoul@kernel.org>
-To: Kishon Vijay Abraham I <kishon@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Roy Luo <royluo@google.com>
-Cc: Badhri Jagan Sridharan <badhri@google.com>, 
- Doug Anderson <dianders@google.com>, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20251227-phyb4-v10-0-e8caf6b93fe7@google.com>
-References: <20251227-phyb4-v10-0-e8caf6b93fe7@google.com>
-Subject: Re: [PATCH v10 0/2] Add Google Tensor SoC USB PHY support
-Message-Id: <176840952204.979558.17473922474901235501.b4-ty@kernel.org>
-Date: Wed, 14 Jan 2026 22:22:02 +0530
+	id 1vg46U-00000009zml-29DH
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Jan 2026 16:52:21 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2a1462573caso91855ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 08:52:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768409537; cv=none;
+        d=google.com; s=arc-20240605;
+        b=O0xc7KeKlV+Z3ZT/T3215jGljWbD7U//qjxSkpduiOlmWKGmmtelY6t2693syu9zz+
+         cgWSS/l9aNwItzadZZL1EifuH2tT1UVbJ7UkT+sJ0DimOUEHvShTEm/XG2RFWvnz19P6
+         y/EbWWaL0GiOP9ORPEmnkPTcNUh7LrpuRHmKAxMftPLUfEg1LNAcQXC8XJKqBlAZOMnj
+         LSh2UQshp+w4UWwHSD1xsD7UrbWPE1/gHx5KHLsIymfr/mFPD2+kdJ4WizHpUGp2pBS8
+         t175advL2empfaU5Tu7CfWd2SOFZRl2UbuFdVsXLIprYlOA5Ts4v35AC3x0rdfr4be20
+         KU6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=OI1+23JWX8FsCJMhCllis4rPC5JKUcNnLtovuqpzj+8=;
+        fh=Kra5hHLM8KmoyLU+OYplz3x2kIKLKInJJIfKwMzX3OA=;
+        b=H481nD+GVllYJp4Utto7MDlciMc8dIDGbXbpsxCEa+IwP0mr+VEfYAQk1GBYDRZnET
+         8GA5kG3FxuO5rKe2uvVpiouapPfycAKeHKTrcBWdV6U1MZLTo5rYnS+XzXw+utpTWgbh
+         OsE1XO2X2Red7bkjvF7kPpCx28ARsIjrHqbibAAwY6RSeWRJuP17zCrgkv729sCzZ/tF
+         pTj5VXINHy3a3Gq/gCUtywMZ7gTyL+zMDFW2yGEEikhEKm9uZoR4cNyh4TDwehm0uJ9V
+         u8EmDQ9Ic0HOSMCrjt4oDC+ybuaxYS1+JjGzGeeAdABuDt20IMayT9At5xbTfw7SCZbn
+         BTog==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1768409537; x=1769014337; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OI1+23JWX8FsCJMhCllis4rPC5JKUcNnLtovuqpzj+8=;
+        b=Bnh8kG+nlPEgW5R5oaUoFKDU5z1dcNq2nhF95JRUAB+hzjKNnKYsl1bVRX1M5V16Sq
+         3bYXwnGIYE5rhreLJBzxyE/odS5x8i8Jz1Wz2dJ4JxlP9aGnaPKlp5dqmPR/UD3Fm4a2
+         0foAFf0vPbwcmZyjHRP7R0Ap3eB6HTLvdbPo8t6FqaTlGyHl/gjmQyoNG7GvKkOMUy7e
+         pS/KlyUZyovSLb2BXFBaFSDFNyOsUfHd1iN9hxvn3XC6V+edfCRRSsH1rscoDHF3lBM1
+         b6LPzpUPUMo256TXoW+TZ58O8HUkZAeDgXtB6VpbklxGe1AR1CzI06qz0mWV0caT5ODX
+         y6hg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768409537; x=1769014337;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=OI1+23JWX8FsCJMhCllis4rPC5JKUcNnLtovuqpzj+8=;
+        b=oFU5XR03GR+T+Nfrezd2wNbK2Vy+921XHyzguCpKi1Cq2HwO4BWIfeFkU7/RzIGD/n
+         qrfxgizq3W7HUX0S4Q87Z3cWsBGr9KY6u61PS8ozqjIlbCDhBzDM8jw9kch5SLGWFfXw
+         4LyVU63RcPmOoukplh9rcr86/496ThiFU3sU2O70ClHC5QcRIAP/XGC6Ch1biFo5pu7Z
+         cUeb2gDYCoe5LPYy1LBc6QPl4C7l/nI3418HONwy2pJwCwaeLKCEmOoFznGPCU7ydUvA
+         zOAlptv8sP2VHSi1YakuKeJEWRsO3OQDvtToYUej9Cs3boQFoZRdLlbkekFUkDFqu1uW
+         SCfA==
+X-Forwarded-Encrypted: i=1; AJvYcCXkNbluD5VlpexFC+pX78klErQ2JBWO6yDFO/8qgfTs93C+W7xc0wX2cJYe7ZNuIsFYG0VxDwNAc0VGZojeS1y1@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVKIA+mwu8VqGb9o/PnB8jmUEk0zFtncfMYfcTLiR7RzUwKXrR
+	GDfOVgiiGxk6ZruSvDhhi9xpDET+TYUNRaEvvc9QzojO2xyF0T9vkqlBTR8UTGtUS3s+P2BjpK4
+	6iF0b4ites9T2xLV4pTQQAuFXBHTITme273GNRhPm
+X-Gm-Gg: AY/fxX7IDUCreHVt7N5Y37jdgbLqvy3CgFYg0+l5os1Cra+7Y/SgkvSVybD+RIywT71
+	ZtVuPZ4eI1m14ZacUSWkShslG8hBoeh0KHXdWVE3CRfD6LkWW9I/40vaxTTmFLut9KvGdt8DBE+
+	G1zvqbf9zlBcsIJgGf5UBrY9fTmnK2YWPAKb8G738jQdo+MhOGItdsWK8JAoi7hOEXaHa9LNknd
+	cAbuDplaZteE/QfWOMeHF6IP6zyYrgTzcTkkWPayf575kVlqMcrFL/yV0WRJgXTMjvzeByhTcCY
+	DaCPYFH2AuWTp5v1NHGwzkWxMA==
+X-Received: by 2002:a17:903:2b06:b0:297:dad6:fe58 with SMTP id
+ d9443c01a7336-2a599977232mr3419075ad.0.1768409537092; Wed, 14 Jan 2026
+ 08:52:17 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.13.0
+References: <20260114-james-perf-config-bits-v5-0-0ef97aaf1ac0@linaro.org> <20260114-james-perf-config-bits-v5-3-0ef97aaf1ac0@linaro.org>
+In-Reply-To: <20260114-james-perf-config-bits-v5-3-0ef97aaf1ac0@linaro.org>
+From: Ian Rogers <irogers@google.com>
+Date: Wed, 14 Jan 2026 08:52:05 -0800
+X-Gm-Features: AZwV_QiKCUV62tv-YCq7vPDV3_F8u4hrLGMT5SirXiVOr8SHGdpodOsJ0fMh5j8
+Message-ID: <CAP-5=fUhHJOiWCKZVKNpRYMvM-6c=xAaqwwSz=bpZSk=X-QKeQ@mail.gmail.com>
+Subject: Re: [PATCH v5 03/14] perf evsel: Move evsel__* functions to evsel.c
+To: James Clark <james.clark@linaro.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>, 
+	Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_085208_040629_CC92166B 
-X-CRM114-Status: UNSURE (   8.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260114_085218_975189_72EAD48B 
+X-CRM114-Status: GOOD (  28.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,31 +123,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jan 14, 2026 at 7:57=E2=80=AFAM James Clark <james.clark@linaro.org=
+> wrote:
+>
+> At least one of these were put here to avoid a Python binding linking
+> issue which is no longer present. Put them back in their correct
+> location to avoid confusion about which file to add a new evsel__*
+> function to later.
+>
+> Link: https://lore.kernel.org/all/ZEbAS2yx2fguW60w@kernel.org/
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
-On Sat, 27 Dec 2025 00:53:27 +0000, Roy Luo wrote:
-> This series introduces USB PHY support for the Google Tensor G5
-> SoC (codename: Laguna), a new generation of Google silicon first
-> launched with Pixel 10 devices.
-> 
-> The Tensor G5 represents a significant architectural overhaul compared
-> to previous Tensor generations (e.g., gs101), which were based on Samsung
-> Exynos IP. Although the G5 still utilizes Synopsys IP for the USB
-> components, the custom top-level integration introduces a completely new
-> design for clock, reset scheme, register interfaces and programming
-> sequence, necessitating new drivers and device tree bindings.
-> 
-> [...]
+Reviewed-by: Ian Rogers <irogers@google.com>
 
-Applied, thanks!
+Thanks,
+Ian
 
-[1/2] dt-bindings: phy: google: Add Google Tensor G5 USB PHY
-      commit: 876dc58c3fa532e38cd1b287a7b8143a1a4c5dc7
-[2/2] phy: Add Google Tensor SoC USB PHY driver
-      commit: cbce66669c82ee9ae0e26523c0fcd3c721fcfe85
-
-Best regards,
--- 
-~Vinod
-
-
+> ---
+>  tools/perf/util/evsel.c | 40 ++++++++++++++++++++++++++++++++++++++++
+>  tools/perf/util/pmu.c   | 40 ----------------------------------------
+>  2 files changed, 40 insertions(+), 40 deletions(-)
+>
+> diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
+> index ec6552a6f667..21878e9bd029 100644
+> --- a/tools/perf/util/evsel.c
+> +++ b/tools/perf/util/evsel.c
+> @@ -1314,6 +1314,35 @@ struct evsel_config_term *__evsel__get_config_term=
+(struct evsel *evsel, enum evs
+>         return found_term;
+>  }
+>
+> +/*
+> + * Set @config_name to @val as long as the user hasn't already set or cl=
+eared it
+> + * by passing a config term on the command line.
+> + *
+> + * @val is the value to put into the bits specified by @config_name rath=
+er than
+> + * the bit pattern. It is shifted into position by this function, so to =
+set
+> + * something to true, pass 1 for val rather than a pre shifted value.
+> + */
+> +#define field_prep(_mask, _val) (((_val) << (ffsll(_mask) - 1)) & (_mask=
+))
+> +void evsel__set_config_if_unset(struct evsel *evsel, const char *config_=
+name,
+> +                               u64 val)
+> +{
+> +       u64 user_bits =3D 0, bits;
+> +       struct evsel_config_term *term =3D evsel__get_config_term(evsel, =
+CFG_CHG);
+> +
+> +       if (term)
+> +               user_bits =3D term->val.cfg_chg;
+> +
+> +       bits =3D perf_pmu__format_bits(evsel->pmu, config_name);
+> +
+> +       /* Do nothing if the user changed the value */
+> +       if (bits & user_bits)
+> +               return;
+> +
+> +       /* Otherwise replace it */
+> +       evsel->core.attr.config &=3D ~bits;
+> +       evsel->core.attr.config |=3D field_prep(bits, val);
+> +}
+> +
+>  void __weak arch_evsel__set_sample_weight(struct evsel *evsel)
+>  {
+>         evsel__set_sample_bit(evsel, WEIGHT);
+> @@ -4098,6 +4127,17 @@ void evsel__set_leader(struct evsel *evsel, struct=
+ evsel *leader)
+>         evsel->core.leader =3D &leader->core;
+>  }
+>
+> +bool evsel__is_aux_event(const struct evsel *evsel)
+> +{
+> +       struct perf_pmu *pmu;
+> +
+> +       if (evsel->needs_auxtrace_mmap)
+> +               return true;
+> +
+> +       pmu =3D evsel__find_pmu(evsel);
+> +       return pmu && pmu->auxtrace;
+> +}
+> +
+>  int evsel__source_count(const struct evsel *evsel)
+>  {
+>         struct evsel *pos;
+> diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
+> index e87c12946d71..e3a1f26213ec 100644
+> --- a/tools/perf/util/pmu.c
+> +++ b/tools/perf/util/pmu.c
+> @@ -1362,46 +1362,6 @@ void perf_pmu__warn_invalid_formats(struct perf_pm=
+u *pmu)
+>         }
+>  }
+>
+> -bool evsel__is_aux_event(const struct evsel *evsel)
+> -{
+> -       struct perf_pmu *pmu;
+> -
+> -       if (evsel->needs_auxtrace_mmap)
+> -               return true;
+> -
+> -       pmu =3D evsel__find_pmu(evsel);
+> -       return pmu && pmu->auxtrace;
+> -}
+> -
+> -/*
+> - * Set @config_name to @val as long as the user hasn't already set or cl=
+eared it
+> - * by passing a config term on the command line.
+> - *
+> - * @val is the value to put into the bits specified by @config_name rath=
+er than
+> - * the bit pattern. It is shifted into position by this function, so to =
+set
+> - * something to true, pass 1 for val rather than a pre shifted value.
+> - */
+> -#define field_prep(_mask, _val) (((_val) << (ffsll(_mask) - 1)) & (_mask=
+))
+> -void evsel__set_config_if_unset(struct evsel *evsel, const char *config_=
+name,
+> -                               u64 val)
+> -{
+> -       u64 user_bits =3D 0, bits;
+> -       struct evsel_config_term *term =3D evsel__get_config_term(evsel, =
+CFG_CHG);
+> -
+> -       if (term)
+> -               user_bits =3D term->val.cfg_chg;
+> -
+> -       bits =3D perf_pmu__format_bits(evsel->pmu, config_name);
+> -
+> -       /* Do nothing if the user changed the value */
+> -       if (bits & user_bits)
+> -               return;
+> -
+> -       /* Otherwise replace it */
+> -       evsel->core.attr.config &=3D ~bits;
+> -       evsel->core.attr.config |=3D field_prep(bits, val);
+> -}
+> -
+>  static struct perf_pmu_format *
+>  pmu_find_format(const struct list_head *formats, const char *name)
+>  {
+>
+> --
+> 2.34.1
+>
 
