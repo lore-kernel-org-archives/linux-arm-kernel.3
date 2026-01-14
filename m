@@ -4,84 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB28CD29FF5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 12:05:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F668D29FEF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 12:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eQB9s03mSjxS0jmvZJsXPh5oI6zSk/GcyRq9LX2EdUc=; b=dVzxojdR5H7tCrlrktaAFQvI4y
-	vFjn7dZgVA7zBl6gq8WjmY75Vj9UIkHvpFYYPLRh2vGg4NNTEDkoL9ltPhj17qaPDfaNTNFiK99Dr
-	iZyqR3ouhgF2UX/jf6ZJtAl7MgdPW4ih926GYqvzPMHknXW9GwoaLpTFKpY2SYwAJwHQLBiQIifI7
-	e1HQyZCHMdajD5dbE0FHnNl0r70zOqmGakFHDm5jzy/G7GCT8jcmYzZ9/57zKB3GNMnnD3KquqLvx
-	2HTImJESH+kCZQNrR1n1ePtSNfxoamDcthH3oatyE9Is/MPf1gzkURoy5bZsPk/8aGXAK1/MCT+tJ
-	ws5T3StQ==;
+	bh=USNHuLFwPRQ9K5vdWe/euxnsqLlwiBOFDxiRkRA+v0s=; b=XW4Jwq9KRLPhrGsLCbt/bjL9qk
+	r255QnnQHkji5Wx9QsBulvZdgq1zIfdIXREmYGxssGsbK97uum6sbuUEFlJtJeOV53+STAw0SoT2Y
+	viQGxP4pDStSciyhQhrsHY/0+eSJRWrQMX0HTVIYh/M6zKjAVzhmWKSi+yDcud9NoOe/HkfxA+/Qb
+	rz7hWaOZQsO0QrpXgHousp1d1SNM1Qbee87WbY1jqjit7UW+R8mFjZpBAmdbnMefr5AofveavC4nq
+	eZBQDmOgLPZSBNkcv0fo4/Bc9jWBSvg/Wnoy4j9BLXbYa52BVEWsvNZw6fwDPLjXGK0JT/evxOdDx
+	P//Mx69w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzcY-000000095HP-3O3b;
-	Wed, 14 Jan 2026 12:05:06 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1vfze5-000000095dt-27u0;
+	Wed, 14 Jan 2026 12:06:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfzcO-000000095DJ-0gTO
+	id 1vfzdw-000000095c3-2eHA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 12:05:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768392297; x=1799928297;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=8Vys6z8x451y8jCfmv4tHJdqji+vE+8qZ4G6/y7V1fs=;
-  b=bTleEYBvTPwiLQ7JdoJfPVn5CnnqxLFhU0cJXLT/WCocWWV+IrIsxH9Y
-   m0O+NZ88XyF+18CNPzRXV+VuIKzKFJndh2UouFGnHK9RfHykWen8hM8Im
-   PECNs5SOYDUMPhMAWf8HbHONDZDsw9jmPT9dqONtaIK1DCp6WyyL82VuX
-   Zz+6jMwMlMN02c2QjbeqHSXes9D9feSJOieYOPG5rpAUDvOI6rLE7hGLU
-   bjjZ/Z/vDvGUICwkPtxPbV8EW/++9bKIrK8N4YTpLbW8kU1guoQY1ubiV
-   7p7sjp6LuDgrBeVkI0uCHxM5QBqbrGD/Fka48fmiW5GEl6U2SqTahuao1
-   A==;
-X-CSE-ConnectionGUID: J6TU9m2RRN6Rsk5pL/b8QQ==
-X-CSE-MsgGUID: IacYwwR3T5ik5sTSeMCWTg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11670"; a="69608382"
-X-IronPort-AV: E=Sophos;i="6.21,225,1763452800"; 
-   d="scan'208";a="69608382"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2026 04:04:56 -0800
-X-CSE-ConnectionGUID: L5TFJIbzQHuz1awGSe6Qmg==
-X-CSE-MsgGUID: UaaRHJhvTS+nCq8qGoc/sQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,225,1763452800"; 
-   d="scan'208";a="242205696"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.246.94])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2026 04:04:48 -0800
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Nishanth Menon <nm@ti.com>,
- "Andrew F. Davis" <afd@ti.com>, Randolph Sapp <rs@ti.com>, Jonathan
- Humphreys <j-humphreys@ti.com>, Andrei Aldea <a-aldea@ti.com>, Chirag
- Shilwant <c-shilwant@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Oded
- Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Sumit
- Semwal <sumit.semwal@linaro.org>, Christian =?utf-8?Q?K=C3=B6nig?=
- <christian.koenig@amd.com>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-doc@vger.kernel.org, linux-media@vger.kernel.org,
- linaro-mm-sig@lists.linaro.org, Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Subject: Re: [PATCH 4/5] accel/thames: Add IOCTL for job submission
-In-Reply-To: <20260113-thames-v1-4-99390026937c@tomeuvizoso.net>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
- 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
-References: <20260113-thames-v1-0-99390026937c@tomeuvizoso.net>
- <20260113-thames-v1-4-99390026937c@tomeuvizoso.net>
-Date: Wed, 14 Jan 2026 14:04:44 +0200
-Message-ID: <1acdffd8f05eae0a3531d43d3919d8bd4558f37a@intel.com>
-MIME-Version: 1.0
-Content-Type: text/plain
+	Wed, 14 Jan 2026 12:06:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A27EA402F9;
+	Wed, 14 Jan 2026 12:06:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73D1CC16AAE;
+	Wed, 14 Jan 2026 12:06:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768392391;
+	bh=IXiea1JAWy8hq5EFO/KtmMlzvJWcD+fDKDcocQOcQFk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=DOF9TCfDTk6eih11jEFeuuENrvGypFtZ6oAZOvC8fddU3ObXKUkomJ3EBphmogvlI
+	 lbzyTJ7ODiErL3sk+WZIGKvpN2GSfjVVf1M6XAwYmgkJRj2Y3JJHe842j9dOpdk4b/
+	 /gWuRf3m7/3JHU25MM8R5fcZZ9UAFMJBQt9FXhdCLfzdl0ThRIHAY6JIV3XXcltMBc
+	 PJYphZmZ8pN4WNZhQ+oi02UI5wgpEQafeU0sAQX/8lFVLn9koX2rE9KvyWi3K2GQwx
+	 h+ZKO4Ia7nkrG4WTFhaqLv5ZUW+/rtZ9G4c5bwnbQMjhWlFt2T+Mi3KZqmoY+yGYDY
+	 kZxSYGqWMsDBw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vfzds-00000002AbS-4B8R;
+	Wed, 14 Jan 2026 12:06:29 +0000
+Date: Wed, 14 Jan 2026 12:06:28 +0000
+Message-ID: <86pl7cl7p7.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: amitsinght@marvell.com,
+	baisheng.gao@unisoc.com,
+	baolin.wang@linux.alibaba.com,
+	carl@os.amperecomputing.com,
+	dave.martin@arm.com,
+	david@kernel.org,
+	dfustini@baylibre.com,
+	fenghuay@nvidia.com,
+	gshan@redhat.com,
+	james.morse@arm.com,
+	jonathan.cameron@huawei.com,
+	kobak@nvidia.com,
+	lcherian@marvell.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	peternewman@google.com,
+	punit.agrawal@oss.qualcomm.com,
+	quic_jiles@quicinc.com,
+	reinette.chatre@intel.com,
+	rohit.mathew@arm.com,
+	scott@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	tan.shaopeng@fujitsu.com,
+	xhao@linux.alibaba.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	corbet@lwn.net,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v3 12/47] KVM: arm64: Force guest EL1 to use user-space's partid configuration
+In-Reply-To: <20260112165914.4086692-13-ben.horgan@arm.com>
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+	<20260112165914.4086692-13-ben.horgan@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ben.horgan@arm.com, amitsinght@marvell.com, baisheng.gao@unisoc.com, baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com, dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com, fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, peternewman@google.com, punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_040456_250167_9964F832 
-X-CRM114-Status: UNSURE (   5.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260114_040633_972706_C1B1D310 
+X-CRM114-Status: GOOD (  25.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,25 +113,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 Jan 2026, Tomeu Vizoso <tomeu@tomeuvizoso.net> wrote:
-> +#include "linux/dev_printk.h"
+On Mon, 12 Jan 2026 16:58:39 +0000,
+Ben Horgan <ben.horgan@arm.com> wrote:
+> 
+> From: James Morse <james.morse@arm.com>
+> 
+> While we trap the guest's attempts to read/write the MPAM control
+> registers, the hardware continues to use them. Guest-EL0 uses KVM's
+> user-space's configuration, as the value is left in the register, and
+> guest-EL1 uses either the host kernel's configuration, or in the case of
+> VHE, the UNKNOWN reset value of MPAM1_EL1.
+> 
+> We want to force the guest-EL1 to use KVM's user-space's MPAM
+> configuration. On nVHE rely on MPAM0_EL1 and MPAM1_EL1 always being
+> programmed the same and on VHE copy MPAM0_EL1 into the guest's
+> MPAM1_EL1. There is no need to restore as this is out of context once TGE
+> is set.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+> Changes since rfc:
+> Drop the unneeded __mpam_guest_load() in nvhre and the MPAM1_EL1 save restore
+> Defer EL2 handling until next patch
+> 
+> Changes since v2:
+> Use mask (Oliver)
+> ---
+>  arch/arm64/kvm/hyp/vhe/sysreg-sr.c | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+> index f28c6cf4fe1b..9fb8e6628611 100644
+> --- a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+> +++ b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+> @@ -183,6 +183,18 @@ void sysreg_restore_guest_state_vhe(struct kvm_cpu_context *ctxt)
+>  }
+>  NOKPROBE_SYMBOL(sysreg_restore_guest_state_vhe);
+>  
+> +/*
+> + * The _EL0 value was written by the host's context switch and belongs to the
+> + * VMM. Copy this into the guest's _EL1 register.
+> + */
+> +static inline void __mpam_guest_load(void)
+> +{
+> +	u64 mask = MPAM0_EL1_PARTID_D | MPAM0_EL1_PARTID_I | MPAM0_EL1_PMG_D | MPAM0_EL1_PMG_I;
+> +
+> +	if (system_supports_mpam())
+> +		write_sysreg_el1(read_sysreg_s(SYS_MPAM0_EL1) & mask, SYS_MPAM1);
+> +}
+> +
+>  /**
+>   * __vcpu_load_switch_sysregs - Load guest system registers to the physical CPU
+>   *
+> @@ -222,6 +234,7 @@ void __vcpu_load_switch_sysregs(struct kvm_vcpu *vcpu)
+>  	 */
+>  	__sysreg32_restore_state(vcpu);
+>  	__sysreg_restore_user_state(guest_ctxt);
+> +	__mpam_guest_load();
 
-Random drive-by comment, please use <> instead of "" for include/
-headers.
+What's the rationale for doing this independently of rest of the MPAM
+stuff in __activate_traps_mpam()?
 
-> +#include <drm/drm_file.h>
-> +#include <drm/drm_gem.h>
-> +#include <drm/drm_print.h>
-> +#include <drm/thames_accel.h>
-> +#include <linux/platform_device.h>
-
-In general, I think it will make everyone's life easier in the long run
-if the include directives are grouped and sorted.
-
-BR,
-Jani.
-
+	M.
 
 -- 
-Jani Nikula, Intel
+Without deviation from the norm, progress is not possible.
 
