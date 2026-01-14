@@ -4,89 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF30AD31A16
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 07:28:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E94D31A1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 07:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JoLWp43HOYjwRJyNJsc67cs6D8z3kCKzn/0ykuDh8HA=; b=wq9rCkBClq3DHiamYsgfOUUXEz
-	pebvgcZJ4C80ACJAtKHbc5Tpnaph/9rbDMc1e6NoTcuWyoe3lOmR3denFxf6vYmtiBoCsDPbejVXn
-	lfwqw02+EjQ9E+nxIFYCwt9yR1d8zMMPQb6Qq3hLFnHBNuqEfdUb6RDT0vgOha95CoUXh8V8AnJ1P
-	O6MZbL1v2b4LYL0rUR4vK1BVvM9UHY8nMybymfilAK8ObuclhKSBgwSvwmRQXLoJQqbQpd2P1ePL5
-	HGalEtuZXz9mOkwdhUgdTt1qZPiC+NkInnzDEHsjY1KlaMVqOy/rA/HqvFjQ4+uTvLGr2GLTDZm2W
-	TcKf4jTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mXOoPefyW4YJoJDaug/A7xf5w8lSV44uaqzA/Tcxgcw=; b=0/VSS+ptGcss0+
+	XpvdzNLfHDc3blyiAAWa3ortZIqybflh0f/MdtMDzAd/VvFMbwwK7tfMHOTdSl0Fztzd2+bc9quuo
+	MshFqy+10Ds9Gz/x1nkgQIKmOKHYTMdJL8z0VdXUnJPNY2QhQDSTqcItJWBmV4VcYrh/Msrf8ZR2a
+	lPGYvgjfzlJd5OvFTngtfI59z3Rj62oP5hdf6jU++WP+clQbGh4dVmWKX/dmd0Qu41aalIP7HKGg+
+	Iha5uGhUVQh4SykOMxpK2crxoD7pUnRovtiNVgYVuu3WmdyZKcfJyWWYLuyvjL+JpB2c6lC4Lqmow
+	T7TPaxUGm+g/zdoOSsuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfvIH-00000008C5H-298B;
-	Wed, 14 Jan 2026 07:27:53 +0000
-Received: from smtp-out3.simply.com ([94.231.106.210])
+	id 1vfvIq-00000008CDk-1Rnr;
+	Wed, 14 Jan 2026 07:28:28 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfvIE-00000008C4r-49fu
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 07:27:52 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by smtp.simply.com (Simply.com) with ESMTP id 4drd4P0pSdz1DR2x;
-	Wed, 14 Jan 2026 08:27:49 +0100 (CET)
-Received: from [192.168.0.25] (h-98-128-223-123.NA.cust.bahnhof.se [98.128.223.123])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by smtp.simply.com (Simply.com) with ESMTPSA id 4drd4M6G39z1DDdR;
-	Wed, 14 Jan 2026 08:27:47 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gaisler.com;
-	s=simplycom2; t=1768375668;
-	bh=JoLWp43HOYjwRJyNJsc67cs6D8z3kCKzn/0ykuDh8HA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=U/MxLTb8zVdLMDfDaOBJbtayShpVqfmLzNsYBnvb64wtspGFMsgZTsrPC3wOoIaLu
-	 kywwgDewFftKwA6/dELQHSxQdr6U4eCgbU5b2Xv1hnprAYzD6M28R5fasXD6TsgefO
-	 KmidDVQEATQE2TP78neAQZVbaqPpTu5dP9dDpFmN85FmL+ftYaO/Rrjcs0ASbXQD2y
-	 W24XwIYxbWV0LDjwKC7UzmRqMIEpZwEprXedMxQaZGak44dCLvtMH16KyfU1yvIpsR
-	 AKhv2uLMHt2sI3Gcd+z9fbTl4EjeW/ZFS3inFDmkwr/j1qOMllDjqxmUZAxnM2akcS
-	 wSePWEQv/mSSw==
-Message-ID: <45e4a43d-8996-4296-9df9-d5f2a8efcefd@gaisler.com>
-Date: Wed, 14 Jan 2026 08:27:47 +0100
+	id 1vfvIn-00000008CBP-27cH;
+	Wed, 14 Jan 2026 07:28:26 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1768375701;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=mXOoPefyW4YJoJDaug/A7xf5w8lSV44uaqzA/Tcxgcw=;
+	b=WPAE4nVN356pmJs2KHN1PTaTncE6vb8ROHVeBoRXn/B2cXoNErp09wKpaFt+MuTU6Zp1DC
+	qjYT5wtDe3ycc5/wVQ4HzzOvcyQP3dxvGQB+2w0nNMJxAKU1y9bGgCh/TQ2EjIYBC2ACOA
+	7fDelQ2KoW2FJCD3w3ULleViyqRQsllNTGm7pucnlLpN1ctETXeM4fv5QO4DZDKDOXhJef
+	CKhG82j5Bv0Wje9hIyScox5qfJXze/knv+wmF+/L+e/pX5kPcuxSp34KFi2UXlinCBvTr4
+	cM1X3GdmYYHJbnOC+jzod3zwFULfVMvqdsxhpMwA6+SSOdkronVqb69FpkNn5w==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1768375701;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=mXOoPefyW4YJoJDaug/A7xf5w8lSV44uaqzA/Tcxgcw=;
+	b=hQyPK7F/cdd3hb3Xe4yGcEZmoYY4bMQY04jZRtPZs8lAoVAh7UEtH5zw01v1e3NTOQkZM/
+	F2YT58m4xCWCcKCQ==
+Subject: [PATCH v3 0/5] uapi: fix remaining kconfig leaks in UAPI headers
+Date: Wed, 14 Jan 2026 08:28:12 +0100
+Message-Id: <20260114-headers_install-config-leak-v3-0-c14cde735a79@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 06/14] mm: introduce CONFIG_ARCH_HAS_LAZY_MMU_MODE
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251215150323.2218608-1-kevin.brodsky@arm.com>
- <20251215150323.2218608-7-kevin.brodsky@arm.com>
-Content-Language: en-US
-From: Andreas Larsson <andreas@gaisler.com>
-In-Reply-To: <20251215150323.2218608-7-kevin.brodsky@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAIxFZ2kC/33NTQ6CMBCG4auQrq3pD2Bx5T2MMYUOMLEppsUGQ
+ 7i7hejGBbN7Z/F8MwngEQI5ZzPxEDHg4FLIQ0aaXrsOKJrURDBRcCEq2oM24MMdXRi1tbQZXIs
+ dtaAftFa6ErwyqpYNScLTQ4vTpl9vqXsM4+Df21jk6/frSrbrRk4ZhbbWRVModpLmYtG9Rj84n
+ I4GyGpH8fNKxrnY90TycqOYytOVTP57y7J8AKAD47kaAQAA
+X-Change-ID: 20251229-headers_install-config-leak-b8a9219d8b3c
+To: Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Dinh Nguyen <dinguyen@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>
+Cc: linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768375700; l=1833;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=O3gy1aejCT+Re+qAfKDxCmkgzvWYuY4jLw++qa5054M=;
+ b=EDQmfJkXOCC6sUNJXISeegObpPcU0uJNUnCPIg4H5uBC6WqbN3ayHFAqduV0YSKTgMR/8vIZB
+ ZbTbsTiYK4dCFfS+WUIHqX1knRF+WbVZH/DBwuh96qIsfIUoCvFC2eT
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_232751_191553_186D10AD 
-X-CRM114-Status: GOOD (  28.80  )
+X-CRM114-CacheID: sfid-20260113_232825_687777_96259B28 
+X-CRM114-Status: UNSURE (   7.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,203 +90,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-12-15 16:03, Kevin Brodsky wrote:
-> Architectures currently opt in for implementing lazy_mmu helpers by
-> defining __HAVE_ARCH_ENTER_LAZY_MMU_MODE.
-> 
-> In preparation for introducing a generic lazy_mmu layer that will
-> require storage in task_struct, let's switch to a cleaner approach:
-> instead of defining a macro, select a CONFIG option.
-> 
-> This patch introduces CONFIG_ARCH_HAS_LAZY_MMU_MODE and has each
-> arch select it when it implements lazy_mmu helpers.
-> __HAVE_ARCH_ENTER_LAZY_MMU_MODE is removed and <linux/pgtable.h>
-> relies on the new CONFIG instead.
-> 
-> On x86, lazy_mmu helpers are only implemented if PARAVIRT_XXL is
-> selected. This creates some complications in arch/x86/boot/, because
-> a few files manually undefine PARAVIRT* options. As a result
-> <asm/paravirt.h> does not define the lazy_mmu helpers, but this
-> breaks the build as <linux/pgtable.h> only defines them if
-> !CONFIG_ARCH_HAS_LAZY_MMU_MODE. There does not seem to be a clean
-> way out of this - let's just undefine that new CONFIG too.
-> 
-> Acked-by: David Hildenbrand <david@redhat.com>
-> Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
->  arch/arm64/Kconfig                                 | 1 +
->  arch/arm64/include/asm/pgtable.h                   | 1 -
->  arch/powerpc/include/asm/book3s/64/tlbflush-hash.h | 2 --
->  arch/powerpc/platforms/Kconfig.cputype             | 1 +
->  arch/sparc/Kconfig                                 | 1 +
->  arch/sparc/include/asm/tlbflush_64.h               | 2 --
->  arch/x86/Kconfig                                   | 1 +
->  arch/x86/boot/compressed/misc.h                    | 1 +
->  arch/x86/boot/startup/sme.c                        | 1 +
->  arch/x86/include/asm/paravirt.h                    | 1 -
->  include/linux/pgtable.h                            | 2 +-
->  mm/Kconfig                                         | 7 +++++++
->  12 files changed, 14 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 93173f0a09c7..3fb4603c0e16 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -35,6 +35,7 @@ config ARM64
->  	select ARCH_HAS_KCOV
->  	select ARCH_HAS_KERNEL_FPU_SUPPORT if KERNEL_MODE_NEON
->  	select ARCH_HAS_KEEPINITRD
-> +	select ARCH_HAS_LAZY_MMU_MODE
->  	select ARCH_HAS_MEMBARRIER_SYNC_CORE
->  	select ARCH_HAS_MEM_ENCRYPT
->  	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index 64d5f1d9cce9..f7d66c261347 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -80,7 +80,6 @@ static inline void queue_pte_barriers(void)
->  	}
->  }
->  
-> -#define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
->  static inline void arch_enter_lazy_mmu_mode(void)
->  {
->  	/*
-> diff --git a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
-> index 2d45f57df169..565c1b7c3eae 100644
-> --- a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
-> +++ b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
-> @@ -24,8 +24,6 @@ DECLARE_PER_CPU(struct ppc64_tlb_batch, ppc64_tlb_batch);
->  
->  extern void __flush_tlb_pending(struct ppc64_tlb_batch *batch);
->  
-> -#define __HAVE_ARCH_ENTER_LAZY_MMU_MODE
-> -
->  static inline void arch_enter_lazy_mmu_mode(void)
->  {
->  	struct ppc64_tlb_batch *batch;
-> diff --git a/arch/powerpc/platforms/Kconfig.cputype b/arch/powerpc/platforms/Kconfig.cputype
-> index 4c321a8ea896..f399917c17bd 100644
-> --- a/arch/powerpc/platforms/Kconfig.cputype
-> +++ b/arch/powerpc/platforms/Kconfig.cputype
-> @@ -93,6 +93,7 @@ config PPC_BOOK3S_64
->  	select IRQ_WORK
->  	select PPC_64S_HASH_MMU if !PPC_RADIX_MMU
->  	select KASAN_VMALLOC if KASAN
-> +	select ARCH_HAS_LAZY_MMU_MODE
->  
->  config PPC_BOOK3E_64
->  	bool "Embedded processors"
-> diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
-> index a630d373e645..2bad14744ca4 100644
-> --- a/arch/sparc/Kconfig
-> +++ b/arch/sparc/Kconfig
-> @@ -112,6 +112,7 @@ config SPARC64
->  	select NEED_PER_CPU_PAGE_FIRST_CHUNK
->  	select ARCH_SUPPORTS_SCHED_SMT if SMP
->  	select ARCH_SUPPORTS_SCHED_MC  if SMP
-> +	select ARCH_HAS_LAZY_MMU_MODE
->  
->  config ARCH_PROC_KCORE_TEXT
->  	def_bool y
-> diff --git a/arch/sparc/include/asm/tlbflush_64.h b/arch/sparc/include/asm/tlbflush_64.h
-> index 925bb5d7a4e1..4e1036728e2f 100644
-> --- a/arch/sparc/include/asm/tlbflush_64.h
-> +++ b/arch/sparc/include/asm/tlbflush_64.h
-> @@ -39,8 +39,6 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
->  
->  void flush_tlb_kernel_range(unsigned long start, unsigned long end);
->  
-> -#define __HAVE_ARCH_ENTER_LAZY_MMU_MODE
-> -
->  void flush_tlb_pending(void);
->  void arch_enter_lazy_mmu_mode(void);
->  void arch_flush_lazy_mmu_mode(void);
-> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-> index 80527299f859..2427a66cb0fe 100644
-> --- a/arch/x86/Kconfig
-> +++ b/arch/x86/Kconfig
-> @@ -808,6 +808,7 @@ config PARAVIRT
->  config PARAVIRT_XXL
->  	bool
->  	depends on X86_64
-> +	select ARCH_HAS_LAZY_MMU_MODE
->  
->  config PARAVIRT_DEBUG
->  	bool "paravirt-ops debugging"
-> diff --git a/arch/x86/boot/compressed/misc.h b/arch/x86/boot/compressed/misc.h
-> index fd855e32c9b9..4f86c5903e03 100644
-> --- a/arch/x86/boot/compressed/misc.h
-> +++ b/arch/x86/boot/compressed/misc.h
-> @@ -11,6 +11,7 @@
->  #undef CONFIG_PARAVIRT
->  #undef CONFIG_PARAVIRT_XXL
->  #undef CONFIG_PARAVIRT_SPINLOCKS
-> +#undef CONFIG_ARCH_HAS_LAZY_MMU_MODE
->  #undef CONFIG_KASAN
->  #undef CONFIG_KASAN_GENERIC
->  
-> diff --git a/arch/x86/boot/startup/sme.c b/arch/x86/boot/startup/sme.c
-> index e7ea65f3f1d6..b76a7c95dfe1 100644
-> --- a/arch/x86/boot/startup/sme.c
-> +++ b/arch/x86/boot/startup/sme.c
-> @@ -24,6 +24,7 @@
->  #undef CONFIG_PARAVIRT
->  #undef CONFIG_PARAVIRT_XXL
->  #undef CONFIG_PARAVIRT_SPINLOCKS
-> +#undef CONFIG_ARCH_HAS_LAZY_MMU_MODE
->  
->  /*
->   * This code runs before CPU feature bits are set. By default, the
-> diff --git a/arch/x86/include/asm/paravirt.h b/arch/x86/include/asm/paravirt.h
-> index b5e59a7ba0d0..13f9cd31c8f8 100644
-> --- a/arch/x86/include/asm/paravirt.h
-> +++ b/arch/x86/include/asm/paravirt.h
-> @@ -526,7 +526,6 @@ static inline void arch_end_context_switch(struct task_struct *next)
->  	PVOP_VCALL1(cpu.end_context_switch, next);
->  }
->  
-> -#define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
->  static inline void arch_enter_lazy_mmu_mode(void)
->  {
->  	PVOP_VCALL0(mmu.lazy_mode.enter);
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index 1abc4a1c3d72..d46d86959bd6 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -235,7 +235,7 @@ static inline int pmd_dirty(pmd_t pmd)
->   *
->   * Nesting is not permitted and the mode cannot be used in interrupt context.
->   */
-> -#ifndef __HAVE_ARCH_ENTER_LAZY_MMU_MODE
-> +#ifndef CONFIG_ARCH_HAS_LAZY_MMU_MODE
->  static inline void arch_enter_lazy_mmu_mode(void) {}
->  static inline void arch_leave_lazy_mmu_mode(void) {}
->  static inline void arch_flush_lazy_mmu_mode(void) {}
-> diff --git a/mm/Kconfig b/mm/Kconfig
-> index bd0ea5454af8..62073bd61544 100644
-> --- a/mm/Kconfig
-> +++ b/mm/Kconfig
-> @@ -1464,6 +1464,13 @@ config PT_RECLAIM
->  config FIND_NORMAL_PAGE
->  	def_bool n
->  
-> +config ARCH_HAS_LAZY_MMU_MODE
-> +	bool
-> +	help
-> +	  The architecture uses the lazy MMU mode. This allows changes to
-> +	  MMU-related architectural state to be deferred until the mode is
-> +	  exited. See <linux/pgtable.h> for details.
-> +
->  source "mm/damon/Kconfig"
->  
->  endmenu
+A few UAPI headers still contained references to kconfig symbols.
+Clean them all up and afterwards remove the now useless exception
+machinery in headers_install.sh.
 
-Acked-by: Andreas Larsson <andreas@gaisler.com> # sparc
+Intended to be routed through the kbuild tree.
 
-Cheers,
-Andreas
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+---
+Changes in v3:
+- Replace ARCH_USE_BUILTIN_BSWAP with manual 'swape' inline asm.
+- Link to v2: https://lore.kernel.org/r/20260112-headers_install-config-leak-v2-0-4d8084444603@linutronix.de
+
+Changes in v2:
+- Drop ARC_HAS_SWAPE kconfig option, use ARCH_USE_BUILTIN_BSWAP
+- Drop PSR_ENDSTATE from the ARM ptrace.h header.
+- Drop nios2 uapi asm/swab.h.
+- Link to v1: https://lore.kernel.org/r/20251230-headers_install-config-leak-v1-0-efba5c58073d@linutronix.de
+
+---
+Thomas Weißschuh (5):
+      ARC: Always use SWAPE instructions for __arch_swab32()
+      ARM: uapi: Drop PSR_ENDSTATE
+      nios2: uapi: Remove custom asm/swab.h from UAPI
+      x86/uapi: Stop leaking kconfig references to userspace
+      scripts: headers_install.sh: Remove config leak ignore machinery
+
+ arch/arc/Kconfig                         |  5 ---
+ arch/arc/Makefile                        |  3 +-
+ arch/arc/include/uapi/asm/swab.h         | 63 --------------------------------
+ arch/arm/include/asm/processor.h         |  3 +-
+ arch/arm/include/uapi/asm/ptrace.h       |  9 -----
+ arch/arm/kernel/signal.c                 |  3 +-
+ arch/nios2/include/{uapi => }/asm/swab.h |  0
+ arch/x86/include/uapi/asm/auxvec.h       |  2 +-
+ scripts/headers_install.sh               | 30 +--------------
+ 9 files changed, 8 insertions(+), 110 deletions(-)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20251229-headers_install-config-leak-b8a9219d8b3c
+
+Best regards,
+-- 
+Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 
 
