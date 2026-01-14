@@ -4,162 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CCC4D3CC80
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 22:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E6D4D3CC86
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 22:18:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YcuviV6iTrj+v93xcw3oDimjjG68EGscqDwSZXpeJG0=; b=G3TlnE4jVkHvZ8+4RqjoRBDivW
-	jdlmcTSgPloDGcuth/R1ymAY9Avf/04eunigFjBlQQrW3w1Cm/FGmXN+pqXlwaLO7I7kSlKpS50lP
-	AiKQ1Cldi6dj+llUaqv8g3aaRCk3b7Za4/AaVUI5b5jIEVisq2wTrFvYB/Odk8sEkgSW0iEPa5OBx
-	pU2T2vdtZOUgtBfAhNjqFJmihkg6kYkKMtAQyX3hn/VCEe5MgdYxR2/qYehcLM1eZHpPqjkI7w3MM
-	UFsrBPFnKHdExVYd7O33/5BKBtulbLf6EC3QXRcpNhxRrtf/ST7DZbdul4Mmz9b2jtw0bwIxlGiZG
-	pP37sd5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3QsmNE/dBOKmZVY75i8Uf1eQVIlPFgA+6+ZN6q48cI0=; b=2R4bvafzS4RnPVmm9jjOMVi7/R
+	O/LnaC/pJ37syrknQ7+PdDg6w56dcVvgZqAdqk0ZgJGPBUgoZFp6TqIjWUHCDvHKaYQwTMpepqWWg
+	eDb71BlBc65UsQxHTpjx1mtP0pNP1wQU0vhV3fZA+dNPSyXa6qgYALO5ESCdhaC5HZtM50i8/4miS
+	ZjxzIhGpl2mjf1B3VFlf8IFhJEVG/cqTANmvzz0w/b2Admf/QPZ4iIdLdAJvM2wUFVu+RZKRCmEaV
+	b8J7j4UM7yzIHUvaQxEM2QMhIjLSp1+lLS1I1FbMTZLAdiRFJkeAlb5Z/PilejMifnegMZZCvJ4s8
+	QMtmQSWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg8yn-0000000Ardf-22XM;
-	Wed, 14 Jan 2026 22:04:41 +0000
-Received: from mail-eastus2azhn15010016.outbound.protection.outlook.com ([52.102.138.16] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1vg9BY-0000000AtIQ-2ySb;
+	Wed, 14 Jan 2026 22:17:52 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg8yj-0000000ArcU-0uqJ
+	id 1vg9BV-0000000AtHF-3p13
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 22:04:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nNuzGVsGs+xV9GB2N6cksbOmREVxOjt6TxTSBmDmZs3rMKSq9OqXMJ6JrZEQ2zrRTSR5fbuQ2iLJE0DgeATDEGOl8qjmpqtGKYhLUfFDJxoPmlyhaV2POBS86nnSGwefqNO3Vcx3bePglypbG7WBZj6aQP6MY/qF45pnaXDlJsz7n3DPnIC78k/+bnul/o8lGRFioIiM6Q8PNLhxjurWtDwcjJwAKwmpNqqiSmsp80X26m4OwelPJsKuhlEZuvRpLbBlbF12tv5COB90PptIlUzbf8HKcK6EEGItOj0ONp5moxvH99f8/XU6T5tsNpm5i5w6xZdvXADt9CG3TnRo0w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YcuviV6iTrj+v93xcw3oDimjjG68EGscqDwSZXpeJG0=;
- b=djCysDg6mdJxmyXfUNzEcNwms0VxVek0RR+d6hGzMN1C/ClO9qQ3/gtJaXgpPbDLrsb4x7M0KRTL/UdMZcXx46u4luciW5Npndm2LB9Q49y+ubonHVXeO12kdommX15LIEdUC8AyQ0rNhahfJCcRWdOLzZ18TIV33XWW0F53sicndS9jJpsQMv8GqtWF4hYH2ZCJYgND8/yxnozipW+qpMstF3jynqkTiX1FH71CS0QoI5M+TnwFvjRTJOU/CQ4aP+S/13XmfMfGAfwmAQhkK1IYoVFySXdc0IAqFTg0f37ZMsjaED3KKm2YHPgU8tOYPV4jFSs06Tkdy+/qmwaQVg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YcuviV6iTrj+v93xcw3oDimjjG68EGscqDwSZXpeJG0=;
- b=sDseGpzmnPNJWGpDlK0ULS1Bt3HhiVpC0iMU5HmLGAOT8NregPgBvJpcTQSXXE0qsXvv80JgGwTipfCIjgh/1NLgPrya28DG7IGMl7s98plfv+pVSqdWS0AwqRNX2MwPnS/RnssM7El1HbqLun5p28lid3/Cw2wpbqjx28dImoo=
-Received: from SA1P222CA0073.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:2c1::23)
- by SJ0PR10MB5835.namprd10.prod.outlook.com (2603:10b6:a03:3ef::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Wed, 14 Jan
- 2026 22:04:32 +0000
-Received: from SA2PEPF00003AE7.namprd02.prod.outlook.com
- (2603:10b6:806:2c1:cafe::f0) by SA1P222CA0073.outlook.office365.com
- (2603:10b6:806:2c1::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.5 via Frontend Transport; Wed,
- 14 Jan 2026 22:04:30 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- SA2PEPF00003AE7.mail.protection.outlook.com (10.167.248.7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.1 via Frontend Transport; Wed, 14 Jan 2026 22:04:32 +0000
-Received: from DLEE204.ent.ti.com (157.170.170.84) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 14 Jan
- 2026 16:04:30 -0600
-Received: from DLEE208.ent.ti.com (157.170.170.97) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 14 Jan
- 2026 16:04:29 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE208.ent.ti.com
- (157.170.170.97) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 14 Jan 2026 16:04:29 -0600
-Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60EM4TYL480239;
-	Wed, 14 Jan 2026 16:04:29 -0600
-Message-ID: <1a91fd40-e814-4b4c-8914-d8f0c4768e07@ti.com>
-Date: Wed, 14 Jan 2026 16:04:29 -0600
+	Wed, 14 Jan 2026 22:17:51 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-64c72418c6eso35271a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 14:17:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768429068; x=1769033868; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=3QsmNE/dBOKmZVY75i8Uf1eQVIlPFgA+6+ZN6q48cI0=;
+        b=VCqoyAzV0eiZ5wgoI2Z/RIcUKQgX2WsA0MLzZs7z/KeCzVCL1fCrd5JHzhCRpB86xk
+         p5ZY7JpvLvm+Gzq33HLFV3OuBp93qByq8ZxdB7nzEF2DIe9Orhain+O5d1Ot6vTMvmmb
+         pPsWCQRydv+krzUm5oMg7TgqPRqxoj63aoyz0fTexjC2nl62NevHoE/tv9e5YIRe40NH
+         9J0VNedUFPRvOcLeG4VdzKqy+22YM0xmumUMfQIatGQXCE+UxZR1B6/xrw5w5c2+q4ZP
+         Er5eoPnYlyAGkgy0jsv7ZtnHB2k4pYnloNsaufkiBrqDrmqlb+GyYkzsVPgjoynGFF8N
+         fCXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768429068; x=1769033868;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3QsmNE/dBOKmZVY75i8Uf1eQVIlPFgA+6+ZN6q48cI0=;
+        b=VzgXclz6gaW3uWnsdkovDrbaYSC1jchvymH7QGDfnwclRKVxumznOSQ0A1ZHSAnD4B
+         S3Lsv014lRViu0Z3x247JyPEKtzDOi5HeJvd3GIqzl1oV7wvhm6mi4PLt9gYCQYZFES/
+         AmRVmfWGrwQ1HJfJAI9wDmtZDpFhyh64MmBAl1dZDTpVT/F3epHHPEx9HMzfGWodlSDl
+         OvbSswWIrbZo7xfLtMTndAeFBAeKQJBihObCvi0Jwn2vmgAqsmXwkermm32kiVOvYmHj
+         AYEMNvPGbFJ2UjrPqzCam9u/F/IU0T7lX5JgTxge6sApPyEMhVdfJZqnobxLvlRNOHv5
+         celw==
+X-Forwarded-Encrypted: i=1; AJvYcCWLzcNSHdgzwlejrGc4mG5uPnQtN3dmFdJSqObUhpafiEVERS6p1iKPQwgKG7/6bWoeNMM9qI8VOvJHUYBu8iMw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxze5un/YHU0TSgTTVsV+N0fU330/LIZhhESFmfpZPo2Ww2zHuF
+	S6/thbtgB31Jr97uaJt8N4m4feffw2Q2Bm8PSiVy+g9bLWSsZiDY0Ylh
+X-Gm-Gg: AY/fxX6EqW4j/tVLu8tj5x53wleKwtTXBr326n5Y46QB4W+J7Cnz9AlXGBNHJpozUmq
+	FrXl3476MuraqqZ9xeeG2s4yEytBwNu8H/yt1RBgL4smYC5ho4R/OH4JEE7Ukz+gKzhoNi4+zHR
+	MN8dDuiz7HkMYdu3RF3CIQrrtbPOyGQUVvzmC0E77NWQHcaRGN4Xhjd8lh6DZf/kVMMw0VGDOHg
+	y2H8+ZL26lpL2DIFqu17VojFJGPwrG2QXErtVGtvxETI0mzwfKH94aj2gEAGC+kk2gGfPCT1MXk
+	YxAqj5f09KbzFwZGfwLIrDAcyIp7uyh00FgQjA8erP2+f2yrEeWDS81e/xRBqNxrek7a7gllPeI
+	HEID4FU9ak8eJWoPeeHo94e8l7wBCJUO63zD2NpRFQTQGWmB5lAxe/KsFHQ0mt+jwJ8Is0Z39EP
+	+jZQ==
+X-Received: by 2002:a05:6402:5186:b0:64b:a1e6:8013 with SMTP id 4fb4d7f45d1cf-653ec46689fmr1892486a12.6.1768429067635;
+        Wed, 14 Jan 2026 14:17:47 -0800 (PST)
+Received: from skbuf ([2a02:2f04:d703:5400:d5b0:b41:b5b3:8c4d])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-65412084155sm650905a12.29.2026.01.14.14.17.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 14:17:47 -0800 (PST)
+Date: Thu, 15 Jan 2026 00:17:43 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Daniel Golle <daniel@makrotopia.org>, Felix Fietkau <nbd@nbd.name>,
+	John Crispin <john@phrozen.org>, Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Bc-bocun Chen <bc-bocun.chen@mediatek.com>,
+	Rex Lu <rex.lu@mediatek.com>,
+	Mason-cw Chang <Mason-cw.Chang@mediatek.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next RFC] net: ethernet: mtk_eth_soc: support using
+ non-MediaTek DSA switches
+Message-ID: <20260114221743.tb56lxfi6eqoh2rw@skbuf>
+References: <34647edacab660b4cabed9733d2d3ef22bc041ac.1768273593.git.daniel@makrotopia.org>
+ <252d6877-d966-4d19-a38c-cc83ba908494@lunn.ch>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62a7-sk: Disable mmc Schmitt Trigger
-To: Markus Schneider-Pargmann <msp@baylibre.com>, Alexander Sverdlin
-	<alexander.sverdlin@gmail.com>
-CC: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
-	Dhruva Gole <d-gole@ti.com>, Sebin Francis <sebin.francis@ti.com>, "Kendall
- Willis" <k-willis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Rob
- Herring" <robh@kernel.org>, <linux-kernel@vger.kernel.org>, Nishanth Menon
-	<nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo
-	<kristo@kernel.org>
-References: <20260106-topic-am62a-mmc-pinctrl-v6-19-next-v1-1-1190ac29aadb@baylibre.com>
- <c47697b4-6ebb-4af9-be96-c964d990835d@ti.com>
- <DFO764ES0FNP.1SUQK9R0EUUDQ@baylibre.com>
-Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <DFO764ES0FNP.1SUQK9R0EUUDQ@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003AE7:EE_|SJ0PR10MB5835:EE_
-X-MS-Office365-Filtering-Correlation-Id: f25fbb9e-4b46-419b-9377-08de53b8e5a1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|34020700016|7416014|376014|12100799066;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aTdNNFNLQ2NOa2YrZW16YTZROE5nYVp6KzFBRmpnblFUbG5BVnh3STk3dk54?=
- =?utf-8?B?bzNXbDV6bTFqUDd4aUZmL0gvQjdYNU5UbWxRcGJMS2JhUm9jMFpzaGQyazdQ?=
- =?utf-8?B?cndlbnBwbEUzSVAxTjljTG5mUDRGQlVDakd6Z2tyT3hjd0RZKzU3bC9KaFZC?=
- =?utf-8?B?azBOTW5WMHRvVTBuZ2poWlN0MVM0cnZTWE1nRHpYdEtYV1YvTUl4SXFkS3U4?=
- =?utf-8?B?aFFJbFFGRlNGNlNwT1JYQWp2Y1F2eUcySGtiRHFtazdIZ0NkcCt2TXB6bFEx?=
- =?utf-8?B?emxKbS9aanB1MkJOUlI3V0xCK082NU9mREVKOENEVVVQdkUrQlg0VkhzanJm?=
- =?utf-8?B?cjBsVDB1blF2VE4xYXovSHhCU01RVk1jVytGUldPRGMrQ21sVWg3UWkveU0z?=
- =?utf-8?B?bWIvQzQxa2N6MS9wZzcweXE1RkVOT1hkTFdjdTRVRDNtOTExV24xTTFDL1pj?=
- =?utf-8?B?T2ZQUjBDT3U1TzQ3bXVueEtab3RIQjBjNlUwWjVLNXVBaDVOeldyV3R6OEly?=
- =?utf-8?B?Ykd0dXc3RU5VMzExL1hGVkxINVdtM1NoYVZkY25ZY2dScWRZeWpQYWt3MnVq?=
- =?utf-8?B?NHUzWmhWMmtTUlFjVmU5cjhvY09vMklnM0Ezc3BqOFFodUQ2amNBWXdONkRp?=
- =?utf-8?B?YWh1eWZEdXh2YTBHekV4alJtd2EvYnp1YXNhSkJFKzlVZmJsM0RpU1I1VFpK?=
- =?utf-8?B?ZWJGYXhPOHZ3S0haZ1JMc1lrUTlQbDBkaUVvQ1dZSDNZb2MxUVJHUVl2bXFM?=
- =?utf-8?B?L1pVUHNDZmVnaURhQWZpYVB4MVN2U2RTTjRSUzQvUVdESVRxNVNrWjVJeDI2?=
- =?utf-8?B?VWQ1WSs2enRqa09DdEVkbWtKR2NTRmtlL1lFakNKT0ZmQ2YzSVpVY0ZLMUpQ?=
- =?utf-8?B?SmxUZWF0ZGVGUXJpdVNGMXA4M1lXNFZ4dE1LME5wY0hHT1VhZkFwMFByRTRu?=
- =?utf-8?B?TG9LY3BSUVJtRXJpcHJjKysvNElsK1RDWWw0dXhMeUFydmhCeVdEZWdFMVRs?=
- =?utf-8?B?WkZmTWRIaG9tOGtSdWpESDYxUzBUMW9WbUJkVG1vZ1hUaG5WTStZdURJclhn?=
- =?utf-8?B?dXRkUSswUFZvaFNnL0RVNnkyN1Nmd0hvY3JGa2RmYTdpOEhFNGRhcVFOeFBB?=
- =?utf-8?B?MFBmZi9Cb2FMeFJReVlWdHVXVnc4eloxMXRyeTZVNTQrUVpQNEp0WlN3ZU5I?=
- =?utf-8?B?eU1lb21qV2Y3dzhmVUNpdnlkYzB5eWRBbXAzQmw0aENjWGtwd1JqK3JYbW9o?=
- =?utf-8?B?OGFkSEhGVzM3dDVUeGFxa1JlTXBVcHF5T2h5WlJwR0xMU1ViN25XQmlwdGRG?=
- =?utf-8?B?ZHQrRUlQZElFdXQ5eVBsQ01hZE5sd2xLZEhuOFluZWwxMnNnNTZaTkQyOTV0?=
- =?utf-8?B?UzIrd3lDM2RCMnNFbUltcXpIRUFSMVlURUQwZ3BiR25CQ1FSaExuUjJwdG5M?=
- =?utf-8?B?MlhHSUN2YzhGTVRSalRndFpTYTA2MFFPemI0R3hjWmpobDRsWVZ3ZWswZ3dF?=
- =?utf-8?B?UW1tOTRIOUFUTm1SU0RKOVhEZzByQWJkaUJJMm9DSVFmRjR6aXhHdVNzMUQx?=
- =?utf-8?B?UkR0QmVzZ2I0NHQ1b0VIbVZISXNoaitEamdyakpuNjhBOGNEcUZsL1pjeUxJ?=
- =?utf-8?B?ZC9RWmxrSncwODE4RHRZWUNIUFoxaUsxTkVLbEZuYnd5cVpIbzJuWDA0eE9N?=
- =?utf-8?B?NnhwQVF3cmo5SVQ4M3FZT3RvWGZLcFRpejNQd1ZkU21jWXhOSFY1MkpVRXAx?=
- =?utf-8?B?WDhyMGI5OWw4M1BwWkNkN2ZBT1FHamJXaUpicVVHZjJuck9tK3pjdFp1cFRq?=
- =?utf-8?B?ODJGT2Q4dzc3cko4ZEtrQWYrNFBZWEQwQ2k3UXZTZ05uS29QWnBaM0V0dW81?=
- =?utf-8?B?dGp1NStkV3N6b2pIT1laSXlTNkJSUCt2MklSOCtOd3kvNUFRblNrWUtERWx0?=
- =?utf-8?B?N3J2akc4Snk3Y1dVQ3haUEpyUjB5aCtmZnJFaXo3dWxnWEs5SzNjRUxZaWhG?=
- =?utf-8?B?SFhqRzFJWC9HRjRGVTBlMUF6djhmWWdtTjQyWmh1d1dpRGxSY1lQS0ROTFhX?=
- =?utf-8?B?cU11L01wTE0vWWNHRVBkSTNEaVpvWTNHK1ZDVllJVDBsejNpTitBbjdhS0FS?=
- =?utf-8?B?T1U1Kys2Y3pqWVhhQkNoRGY1M0I4ZSsxSTRadjBHNkhRMHFLUnhkRExlQXR5?=
- =?utf-8?B?bUNMOHdUZlRMZjZ4WWFLM2pSY2JSeFI1aGo5UDZBTlhWalZjYkFZOUtWdzJ5?=
- =?utf-8?B?ZG8zdkFFZmFOa3BVTllQR0VLSjN3PT0=?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(34020700016)(7416014)(376014)(12100799066);DIR:OUT;SFP:1501;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2026 22:04:32.4100
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f25fbb9e-4b46-419b-9377-08de53b8e5a1
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003AE7.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB5835
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <252d6877-d966-4d19-a38c-cc83ba908494@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_140437_370820_7B91D000 
-X-CRM114-Status: GOOD (  19.52  )
+X-CRM114-CacheID: sfid-20260114_141749_971649_D5EC52DE 
+X-CRM114-Status: GOOD (  24.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,61 +112,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Markus,
-
-On 1/14/26 3:16 AM, Markus Schneider-Pargmann wrote:
-> Hi Judith,
+On Tue, Jan 13, 2026 at 03:00:18PM +0100, Andrew Lunn wrote:
+> On Tue, Jan 13, 2026 at 03:11:54AM +0000, Daniel Golle wrote:
+> > MediaTek's Ethernet Frame Engine is tailored for use with their
+> > switches. This broke checksum and VLAN offloading when attaching a
+> > DSA switch which does not use MediaTek special tag format.
 > 
-> On Tue Jan 13, 2026 at 1:29 AM CET, Judith Mendez wrote:
->> On 1/6/26 10:22 AM, Markus Schneider-Pargmann (TI.com) wrote:
->>> Remove Schmitt Trigger from mmc pins. With Schmitt Trigger enabled
->>> u-boot SPL is not able to read u-boot from mmc:
->>>
->>>       Trying to boot from MMC2
->>>       Error reading cluster
->>>       spl_load_image_fat: error reading image u-boot.img, err - -22
->>>       Error: -22
->>>       SPL: Unsupported Boot Device!
->>>       SPL: failed to boot from all boot devices
->>>       ### ERROR ### Please RESET the board ###
->>>
->>> I bisected this issue between u-boot v2025.10 and v2026.01 and found the
->>> devicetree merge to be the problem. At a closer look I found the
->>> k3-pinctrl.h changes. Disabling the Schmitt Trigger fixes the u-boot SPL
->>> failure to read from mmc.
->>
->> I have tested 4 AM62A SK boards and I cannot replicate the issue
->> you are seeing. I do not see an issue with Schmitt Trigger in U-boot
->> nor Linux /:
+> This has been seen before. The Freescale FEC has similar problems when
+> combined with a Marvell switch, it cannot find the IP header, and so
+> checksum offloading does not work.
 > 
-> Thanks for testing.
+> I thought we solved this be modifying the ndev->feature of the conduit
+> interface to disable such offloads. But i don't see such code. So i
+> must be remembering wrongly.
 > 
->> Can you please run a quick tap sweep on MMC1 and MMC0 interfaces like
->> so? https://gist.github.com/jmenti/f4a73a8323e44bf717c6d2c528c499ca
->>
->> This will give me an idea if whether we should be talking about
->> revisiting characterization with ST_ENA=1.
+> This is assuming the frame engine respects these flags:
 > 
-> The patch was a bit broken, but I think I managed to apply it to
-> v2026.01 as it was supposed to be. (master currently doesn't boot even
-> SPL, I don't have time right now to debug that).
-
-as Nishanth, mentioned, master is missing two patches [0][1]
-
+> /usr/sbin/ethtool -k enp2s0
+> Features for enp2s0:
+> rx-checksumming: on
+> tx-checksumming: on
+> 	tx-checksum-ipv4: on
+> 	tx-checksum-ip-generic: off [fixed]
+> 	tx-checksum-ipv6: on
+> 	tx-checksum-fcoe-crc: off [fixed]
+> 	tx-checksum-sctp: off [fixed]
 > 
-> I attached the boot log. It does boot with your patch. Also can this be
-> an issue with different SD cards?
+> When you combine a Marvell Ethernet interface with a Marvell switch
+> offloading works of course. So it probably does require some logic in
+> the MAC driver to determine if the switch is of the same vendor or
+> not.
 
-Something does not quite add up,
+I don't know about FEC, but we did end up documenting this:
 
-Can you try the following 2 commands?
+If the DSA conduit driver still uses the legacy NETIF_F_IP_CSUM
+or NETIF_F_IPV6_CSUM in vlan_features, the offload might only work if the
+offload hardware already expects that specific tag (perhaps due to matching
+vendors). DSA user ports inherit those flags from the conduit, and it is up to
+the driver to correctly fall back to software checksum when the IP header is not
+where the hardware expects.
 
-# mmc dev 1
-# md.w 0xfa0810c
+I would suggest searching for skb_checksum_help() in xmit() implementations.
+For example c2945c435c99 ("net: stmmac: Prevent DSA tags from breaking COE").
 
-
-[0] https://gist.github.com/jmenti/92da6526e366e3f5cf41911724886471
-[1] https://gist.github.com/jmenti/8cf589d0302248ad26da37128f622e98
-
-~ Judith
+This is just at a first glance having read the commit message and the
+discussion, not necessarily the code.
 
