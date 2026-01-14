@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E3CD30CDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 00:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 253B2D30CFD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 01:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Ext8msLhoBecX7Fpbdp+73tXE9MeV0UomGOCXQFEQM=; b=fUKbOG6Doj5sHPTIFDuw6Ov+TO
-	fW76IGK70151fOoJxxrfnMH1SWUWnK/2ll3C9bB/pXc5s34ieHVMKEprMX66Z0G6njYibDf+yl6eZ
-	ldoIVBNYlqVjhYs2YiHbGiEUIUkV2f5nen9fLbvYxbH66mOGOglC3ugURx7pQhmvZIMwQkR/2ebaG
-	AASrj7WQZpG4hINPEq/gxdeGAOJRDB35kmLnXUtMMHgFHqCCEIWM4h5SGrxIUkx8ldV1aHgktcsOG
-	DeO9mL0hWJv6uyl1rkdEC0U9e1TmFBoGV/t+CVoIfya4yy4Z1Vg1++A2oynIjrXnG72xtHhnGmoXx
-	3UykHLiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1uTh0EQC6lqkCsAgQhRjn3zfEKwMUYjvrAvQXQocgsA=; b=np6W8sCdmd/MDQu/svtTg7128L
+	vOAYwT0k1vvdEvYlQSTmdSCNmNlAelBdOUh2FCc0LpI9wIiibivus5jhvY6A+ahfRX2phvB6/dgMJ
+	qgMhL/sYlZ3ahZtrWP2flChJp+qNqnQxJrz70v0Xg60eDIFmEIyIF/qFWioOlegARWw70lb+CF2jw
+	tpbYknTbENn+gjYjQ1KvJIAMdQmbCyEJHuYjU+Uv/93XbhffIF+J1A4m77bG4XvX9Yzddn5UuxM02
+	W6X75XvGbxA1fyNTTLvb5WcVIn9pD8p4AANMKJyqp/WWtYSeM+UA7a87PRoSopvj1wgyWMtf6jrEJ
+	t3YJXkeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfpB3-00000007vYC-1MHv;
-	Wed, 14 Jan 2026 00:56:01 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vfpqj-00000007x0p-3XFE;
+	Wed, 14 Jan 2026 01:39:05 +0000
+Received: from mx1.unisoc.com ([222.66.158.135] helo=SHSQR01.spreadtrum.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfpB0-00000007vXq-3RPZ
+	id 1vfpqf-00000007wyF-0ncU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 00:56:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1768352154; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=me9Ls9oYKtfulWvqnrW70RBJKuT3fgrHZlaS6eZZIlmo2fBZp8RpzLKj1pRsVQJRHIeo/g7hTGsNT0x/l8Ee8T/tRuaTkgQ0Hpltl4NUEy5Y6IXozvNSRabS8wwq19GnAJIjUrQwIxHLpX9qQTHnPrEXEAXIe1tv6buBzxMXxEs=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1768352154; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=+Ext8msLhoBecX7Fpbdp+73tXE9MeV0UomGOCXQFEQM=; 
-	b=ZA53bfwfeeTbNZ1beM57SYhMTcuC7W56YEQo6wYuyO465DYkyD2HnMaCR4ZLIQHSqX1k8Ix3I4anJdAaH+xip5dXh2NFnkEChQXVFazVXI2OAaLNGEuR0omeS+GBrovLZ4kFgX1fLqSMyoz1C9lUftrX6ZI803a3M5O59wCeYEU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768352154;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=+Ext8msLhoBecX7Fpbdp+73tXE9MeV0UomGOCXQFEQM=;
-	b=ERWZVRixuIRt4OzNh7HTLrMngknLqEDfsmVUuTd/aILZuNqhvFmtw5KWG3O7mBgh
-	HYrxV2Gs6iozUBdS039SiIYyNQq1xZgpPuqnVnwwQKeCoGEmUkT8AoQLTzIcTevCbC2
-	fEjU4VJV8NlGFJCVwtNxB1XS5ejYqteYHuMumQy8=
-Received: by mx.zohomail.com with SMTPS id 1768352152701661.3386817883359;
-	Tue, 13 Jan 2026 16:55:52 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id BDB05181010; Wed, 14 Jan 2026 01:55:47 +0100 (CET)
-Date: Wed, 14 Jan 2026 01:55:47 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Josua Mayer <josua.mayer@jm0.eu>
-Cc: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
-	Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 3/4] power: supply: add battery driver for netronix ec
-Message-ID: <aWblrimQTy5-khZF@venus>
-References: <20260102-kobo-aura-battery-v1-0-501f2a8fa575@jm0.eu>
- <20260102-kobo-aura-battery-v1-3-501f2a8fa575@jm0.eu>
+	Wed, 14 Jan 2026 01:39:04 +0000
+Received: from dlp.unisoc.com ([10.29.3.86])
+	by SHSQR01.spreadtrum.com with ESMTP id 60E1c4L1027006;
+	Wed, 14 Jan 2026 09:38:04 +0800 (+08)
+	(envelope-from zhaoyang.huang@unisoc.com)
+Received: from SHDLP.spreadtrum.com (BJMBX01.spreadtrum.com [10.0.64.7])
+	by dlp.unisoc.com (SkyGuard) with ESMTPS id 4drTBX0zgTz2K5hqn;
+	Wed, 14 Jan 2026 09:32:36 +0800 (CST)
+Received: from bj03382pcu03.spreadtrum.com (10.0.73.40) by
+ BJMBX01.spreadtrum.com (10.0.64.7) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.48; Wed, 14 Jan 2026 09:38:01 +0800
+From: "zhaoyang.huang" <zhaoyang.huang@unisoc.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Zhaoyang Huang <huangzhaoyang@gmail.com>, <steve.kang@unisoc.com>
+CC: <jeson.gao@unisoc.com>, <xuewen.yan@unisoc.com>
+Subject: [PATCH] arch: arm64: set __nocfi on swsusp_arch_resume
+Date: Wed, 14 Jan 2026 09:37:45 +0800
+Message-ID: <20260114013745.133439-1-zhaoyang.huang@unisoc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="sqik7oiq3dkakjj4"
-Content-Disposition: inline
-In-Reply-To: <20260102-kobo-aura-battery-v1-3-501f2a8fa575@jm0.eu>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.5.1/268.322.40
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.0.73.40]
+X-ClientProxiedBy: SHCAS03.spreadtrum.com (10.0.1.207) To
+ BJMBX01.spreadtrum.com (10.0.64.7)
+X-MAIL: SHSQR01.spreadtrum.com 60E1c4L1027006
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=unisoc.com;
+	s=default; t=1768354697;
+	bh=1uTh0EQC6lqkCsAgQhRjn3zfEKwMUYjvrAvQXQocgsA=;
+	h=From:To:CC:Subject:Date;
+	b=GNoBQbyCAwOT+dApA46MSE8J1k4LJ0YSKj0MORbWAgkNfgbPDpkCv0lsS0k5JV9T5
+	 NAmLuO/jGWfTXJyPGutJD7Q1cbQxKgWQLufPp1MpWs4zN3XauULOAqlJUqfBJCbtuQ
+	 RAIp2gId80ScnZa8CipBaGoyelcLpKiYn2ZFV8P6m36pdh4QYkIPh+amozE6lGa5b8
+	 V3+4I2bum/TN23JJqWwOVSCezV1L9RVTOJ0VkyLyqUJTfqddyOE4o/Sozsw3xXuEi6
+	 SNbKJ7BtGDH0wzszRPFRzwFV+h/5gQzblN1gXQBvAB6pxsM6RObsgTHU/KUi+0njur
+	 zLlXaO2k73NSw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260113_165558_929704_5965C566 
-X-CRM114-Status: GOOD (  32.59  )
+X-CRM114-CacheID: sfid-20260113_173902_370159_E73E4CF7 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,213 +80,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
 
---sqik7oiq3dkakjj4
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 3/4] power: supply: add battery driver for netronix ec
-MIME-Version: 1.0
+A DABT is reported[1] on an android based system when resume from hiberate,
+which is root caused as CFI will plant stub code[2] to verify the
+swsusp_arch_suspend_exit's authentication, where the hash value is stored
+before the page that alloced by create_safe_exec_page. We also have
+tried to copy the hash value together with the function but get failed since
+the value is not on the desired position(src_start - 4). So we solve
+this issue by setting __nocfi on swsusp_arch_resume and it works.
 
-Hi,
+[1]
+[   22.991934][    T1] Unable to handle kernel paging request at virtual address 0000000109170ffc
+[   22.991934][    T1] Mem abort info:
+[   22.991934][    T1]   ESR = 0x0000000096000007
+[   22.991934][    T1]   EC = 0x25: DABT (current EL), IL = 32 bits
+[   22.991934][    T1]   SET = 0, FnV = 0
+[   22.991934][    T1]   EA = 0, S1PTW = 0
+[   22.991934][    T1]   FSC = 0x07: level 3 translation fault
+[   22.991934][    T1] Data abort info:
+[   22.991934][    T1]   ISV = 0, ISS = 0x00000007, ISS2 = 0x00000000
+[   22.991934][    T1]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+[   22.991934][    T1]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+[   22.991934][    T1] [0000000109170ffc] user address but active_mm is swapper
+[   22.991934][    T1] Internal error: Oops: 0000000096000007 [#1] PREEMPT SMP
+[   22.991934][    T1] Dumping ftrace buffer:
+[   22.991934][    T1]    (ftrace buffer empty)
+[   22.991934][    T1] Modules linked in:
+[   22.991934][    T1] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 6.6.98-android15-8-g0b1d2aee7fc3-dirty-4k #1 688c7060a825a3ac418fe53881730b355915a419
+[   22.991934][    T1] Hardware name: Unisoc UMS9360-base Board (DT)
+[   22.991934][    T1] pstate: 804000c5 (Nzcv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[   22.991934][    T1] pc : swsusp_arch_resume+0x2ac/0x344
+[   22.991934][    T1] lr : swsusp_arch_resume+0x294/0x344
+[   22.991934][    T1] sp : ffffffc08006b960
+[   22.991934][    T1] x29: ffffffc08006b9c0 x28: 0000000000000000 x27: 0000000000000000
+[   22.991934][    T1] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000820
+[   22.991934][    T1] x23: ffffffd0817e3000 x22: ffffffd0817e3000 x21: 0000000000000000
+[   22.991934][    T1] x20: ffffff8089171000 x19: ffffffd08252c8c8 x18: ffffffc080061058
+[   22.991934][    T1] x17: 00000000529c6ef0 x16: 00000000529c6ef0 x15: 0000000000000004
+[   22.991934][    T1] x14: ffffff8178c88000 x13: 0000000000000006 x12: 0000000000000000
+[   22.991934][    T1] x11: 0000000000000015 x10: 0000000000000001 x9 : ffffffd082533000
+[   22.991934][    T1] x8 : 0000000109171000 x7 : 205b5d3433393139 x6 : 392e32322020205b
+[   22.991934][    T1] x5 : 000000010916f000 x4 : 000000008164b000 x3 : ffffff808a4e0530
+[   22.991934][    T1] x2 : ffffffd08058e784 x1 : 0000000082326000 x0 : 000000010a283000
+[   22.991934][    T1] Call trace:
+[   22.991934][    T1]  swsusp_arch_resume+0x2ac/0x344
+[   22.991934][    T1]  hibernation_restore+0x158/0x18c
+[   22.991934][    T1]  load_image_and_restore+0xb0/0xec
+[   22.991934][    T1]  software_resume+0xf4/0x19c
+[   22.991934][    T1]  software_resume_initcall+0x34/0x78
+[   22.991934][    T1]  do_one_initcall+0xe8/0x370
+[   22.991934][    T1]  do_initcall_level+0xc8/0x19c
+[   22.991934][    T1]  do_initcalls+0x70/0xc0
+[   22.991934][    T1]  do_basic_setup+0x1c/0x28
+[   22.991934][    T1]  kernel_init_freeable+0xe0/0x148
+[   22.991934][    T1]  kernel_init+0x20/0x1a8
+[   22.991934][    T1]  ret_from_fork+0x10/0x20
+[   22.991934][    T1] Code: a9400a61 f94013e0 f9438923 f9400a64 (b85fc110)
 
-On Fri, Jan 02, 2026 at 07:00:32PM +0100, Josua Mayer wrote:
-> Implement a simple battery driver for monitoring voltage with the
-> netronix embedded controller found in certain ebook readers.
->=20
-> Signed-off-by: Josua Mayer <josua.mayer@jm0.eu>
-> ---
->  drivers/power/supply/Kconfig         |   9 ++++
->  drivers/power/supply/Makefile        |   1 +
->  drivers/power/supply/ntxec-battery.c | 101 +++++++++++++++++++++++++++++=
-++++++
+[2]
+0xffffffd08064a878 <swsusp_arch_resume+596>:	mov	x0, x24
+0xffffffd08064a87c <swsusp_arch_resume+600>:	mov	x1, x20
+0xffffffd08064a880 <swsusp_arch_resume+604>:	mov	x2, x21
+0xffffffd08064a884 <swsusp_arch_resume+608>:	mov	x3, x22
+0xffffffd08064a888 <swsusp_arch_resume+612>:	mov	x4, x23
+0xffffffd08064a88c <swsusp_arch_resume+616>:	ldur	w16, [x25, #-4]
+0xffffffd08064a890 <swsusp_arch_resume+620>:	movk	w17, #0x5d7b
+0xffffffd08064a894 <swsusp_arch_resume+624>:	movk	w17, #0xb6ad, lsl #16
+0xffffffd08064a898 <swsusp_arch_resume+628>:	cmp	w16, w17
+0xffffffd08064a89c <swsusp_arch_resume+632>:	b.eq	0xffffffd08064a8a4 <swsusp_arch_resume+640>  // b.none
+0xffffffd08064a8a0 <swsusp_arch_resume+636>:	brk	#0x8239
+0xffffffd08064a8a4 <swsusp_arch_resume+640>:	blr	x25
 
-That's indeed simple :)
+Signed-off-by: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
+---
+ arch/arm64/kernel/hibernate.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
->  3 files changed, 111 insertions(+)
->=20
-> diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
-> index 92f9f7aae92f..0f944c10e50b 100644
-> --- a/drivers/power/supply/Kconfig
-> +++ b/drivers/power/supply/Kconfig
-> @@ -1132,4 +1132,13 @@ config FUEL_GAUGE_MM8013
->  	  the state of charge, temperature, cycle count, actual and design
->  	  capacity, etc.
-> =20
-> +config BATTERY_NTXEC
-> +	tristate "Battery driver for Netronix embedded controller"
-> +	depends on MFD_NTXEC
+diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
+index 18749e9a6c2d..9717568518ba 100644
+--- a/arch/arm64/kernel/hibernate.c
++++ b/arch/arm64/kernel/hibernate.c
+@@ -402,7 +402,7 @@ int swsusp_arch_suspend(void)
+  * Memory allocated by get_safe_page() will be dealt with by the hibernate code,
+  * we don't need to free it here.
+  */
+-int swsusp_arch_resume(void)
++int __nocfi swsusp_arch_resume(void)
+ {
+ 	int rc;
+ 	void *zero_page;
+-- 
+2.25.1
 
-You can add "|| COMPILE_TEST"
-
-> +	help
-> +	  Say yes here to enable netronix ec battery monitoring driver.
-> +	  It enables the monitoring battery voltage on certain e-book readers
-> +	  using an embedded controller by ODM Netronix. Battery design
-> +	  characteristics are read from device-tree if available.
-> +
->  endif # POWER_SUPPLY
-> diff --git a/drivers/power/supply/Makefile b/drivers/power/supply/Makefile
-> index 4b79d5abc49a..db6fc815f9da 100644
-> --- a/drivers/power/supply/Makefile
-> +++ b/drivers/power/supply/Makefile
-> @@ -128,3 +128,4 @@ obj-$(CONFIG_CHARGER_SURFACE)	+=3D surface_charger.o
->  obj-$(CONFIG_BATTERY_UG3105)	+=3D ug3105_battery.o
->  obj-$(CONFIG_CHARGER_QCOM_SMB2)	+=3D qcom_smbx.o
->  obj-$(CONFIG_FUEL_GAUGE_MM8013)	+=3D mm8013.o
-> +obj-$(CONFIG_BATTERY_NTXEC)	+=3D ntxec-battery.o
-> diff --git a/drivers/power/supply/ntxec-battery.c b/drivers/power/supply/=
-ntxec-battery.c
-> new file mode 100644
-> index 000000000000..f49f0966d18d
-> --- /dev/null
-> +++ b/drivers/power/supply/ntxec-battery.c
-> @@ -0,0 +1,101 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * The Netronix embedded controller is a microcontroller found in some
-> + * e-book readers designed by the original design manufacturer Netronix,=
- Inc.
-> + * It contains RTC, battery monitoring, system power management, and PWM
-> + * functionality.
-> + *
-> + * This driver implements battery monitoring.
-> + *
-> + * Copyright 2021 Josua Mayer <josua.mayer@jm0.eu>
-> + */
-> +
-> +#include <linux/mfd/ntxec.h>
-
-^ you probably don't need this with my comments down below :)
-
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/power_supply.h>
-> +#include <linux/property.h>
-> +#include <linux/regmap.h>
-> +
-> +static const enum power_supply_property ntxec_battery_properties[] =3D {
-> +	POWER_SUPPLY_PROP_VOLTAGE_NOW,
-> +};
-> +
-> +struct ntxec_battery {
-> +	struct ntxec *ec;
-> +};
-
-Store the regmap instead of the ec. You don't need anything else.
-
-> +#define NTXEC_REG_READ_BATTERY	0x41
-> +
-> +static int ntxec_battery_get_property(struct power_supply *psy,
-> +				     enum power_supply_property psp,
-> +				     union power_supply_propval *val)
-> +{
-> +	struct ntxec_battery *priv =3D power_supply_get_drvdata(psy);
-> +	int ret;
-> +	unsigned int value;
-> +
-> +	switch (psp) {
-> +		case POWER_SUPPLY_PROP_VOLTAGE_NOW:
-> +			ret =3D regmap_read(priv->ec->regmap, NTXEC_REG_READ_BATTERY, &value);
-> +			if (ret < 0)
-> +				return ret;
-> +
-> +			/* ec value to microvolt conversion:
-> +			 * vendor kernel source suggests linear behaviour from 3V to 4.2V
-> +			 * with readings 767 to 1023; each increment represents 4687,5uV.
-
-4687.5uV ?
-
-> +			 * adjust 3V boundary slightly to report exactly 4.2V when full.
-> +			 */
-> +			val->intval =3D 2999872 + (value - 767) * 4688;
-> +			break;
-> +		default:
-> +			dev_err(&psy->dev, "%s: invalid property %u\n", __func__, psp);
-> +			return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct power_supply_desc ntxec_battery_desc =3D {
-> +	.name =3D "ec-battery",
-> +	.type =3D POWER_SUPPLY_TYPE_BATTERY,
-> +	.properties =3D ntxec_battery_properties,
-> +	.get_property =3D ntxec_battery_get_property,
-> +	.num_properties =3D ARRAY_SIZE(ntxec_battery_properties),
-> +};
-> +
-> +static int ntxec_battery_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev =3D &pdev->dev;
-> +	struct ntxec *ec =3D dev_get_drvdata(dev->parent);
-
-Based on the regmap comment above, I think you can just do the
-following and completley avoid 'struct ntxec' (please test):
-
-struct regmap *regmap =3D dev_get_regmap(dev->parent, NULL);
-
-> +	struct power_supply_config psy_cfg =3D {};
-> +	struct ntxec_battery *priv;
-> +	struct power_supply *psy;
-> +
-> +	priv =3D devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> +	if (!priv)
-> +		return -ENOMEM;
-> +
-> +	priv->ec =3D ec;
-> +	psy_cfg.drv_data =3D priv;
-> +	psy_cfg.fwnode =3D dev_fwnode(dev->parent);
-> +	psy_cfg.no_wakeup_source =3D true;
-> +	psy =3D devm_power_supply_register(dev, &ntxec_battery_desc, &psy_cfg);
-> +	if (IS_ERR(psy))
-> +		return PTR_ERR(psy);
-> +
-> +	return 0;
-> +}
-> +
-> +static struct platform_driver ntxec_battery_driver =3D {
-> +	.driver =3D {
-> +		.name =3D "ntxec-battery",
-> +	},
-> +	.probe =3D ntxec_battery_probe,
-> +};
-> +module_platform_driver(ntxec_battery_driver);
-> +
-> +MODULE_AUTHOR("Josua Mayer <josua.mayer@jm0.eu>");
-> +MODULE_DESCRIPTION("Battery driver for Netronix EC");
-> +MODULE_LICENSE("GPL");
-> +MODULE_ALIAS("platform:ntxec-battery");
-
-I know there are a bunch of wrong examples in my subsystem, but the
-proper way to do this is to drop this alias and instead add a
-platform_device_id table together with MODULE_DEVICE_TABLE(platform, ...).
-See for example cros_peripheral_charger.c
-
-Greetings,
-
--- Sebastian
-
---sqik7oiq3dkakjj4
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmlm6ZAACgkQ2O7X88g7
-+pq9fg/9G9xfrQVyTahHnzobU36zUpcA4CWZCRUiREKpiVLJYXLaR3j6bhluf4cU
-DUP7DBU5U+OqFxS6pLuPJUe4m92iy2t3YEGiSCxGUmf7Mss5z2UytzFl1aqaZzgX
-UZeu6n073CtgPwILLykDZJq6dFDlVFVRS2JuN27XiqZy/rZ0XbE6YKna/HxLAHCo
-MNPg0kjtfya69ULOtiTxk1PJqkyoq5k6D4A/2kEDtKBPAgj/fosghtJZAaepPLz+
-5TrtBW0XeSMz1u0aKKvdyRWHM67NqTggXhxVa9R9gRVzaCAp9wUWmQBSHKgaXEGg
-jTz4N3VJMtcFrPVMnE5J1TgKRZT68xJlgnmd3tX1Eby2SoiiBdzgzNwaILnoyDDL
-fidH96UM9/lC8GlWM0FKeoY5xlWMcEbj8vogBRfO2XSfgAhGIaX8986QE7d6tMtW
-K5A6LRfjtvpZCA6uSJK/Flw7MDZ+3z6bwL1WlLAjeVh4ubxU+aWjgQRgH381DjlO
-FDqJgfQf3WCEMfmfhCpCeGQc7xRKcvL3U5ymJD2eh256p0XS47Oj2qzgQ+kr7KNQ
-Bcp0IIypmebUyoo3xYaRIctevxdB++pFvFPBioCSHRjxH0nwaFBeel900VW2Yq04
-qIweScg+GJjyzepFcjxN/CDE9pfLfW4yK+0lVz8pm0L4UxKp8yE=
-=fqrB
------END PGP SIGNATURE-----
-
---sqik7oiq3dkakjj4--
 
