@@ -4,102 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46FE4D39007
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 18:47:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D9B2D3900B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 18:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J9ken08GWaBvhZybEJhtrMx7vEhMPkB4XYNJbjZoLig=; b=PRRlBcxNo4aUgILGaw33AlaDTm
-	kKNgkipi25DzWwueFbEGhOt6nwudmUuaiRqYTWxy8TylYrymGttgk0abxltTdfJyVgczIYFPLX/HO
-	5IoZtBWZg4ieFhpYTkNcLp/TYL+poxX05xk6Nkn/OHB1ifQbyxzaBcxKgZqlebPbkYYxSQujnU/Lg
-	9wZpS/OCPOvcy/fsAShKH+lq3jB0yu7JMEGJzVduOR6U54fXN8YFExfb5bDFodPi89XKW7Xim4AFR
-	jQkroQpyfTayao31iYKmZjZo+ln/d6O19rrMGMR71f4WFgC7yDk1c85N9L0JpWp2lEsT1/NRJNU0v
-	rPG3ZZTA==;
+	bh=VEuJXJ2URoPc4TljZ3LWG+cbp2uSGV41RD+NDGAlbTo=; b=D5dr3zyOAVP4BpK/BJbUpBcC0a
+	SjJ9+8NikKKgbe232kmiSjvZC82atbrKPuqccK838ytjU4mlNPRCB2NBoCRy+8BTU95TVuzWGUJBY
+	AzB9E/mt4t3DhboSvAivfefZCmpFEpSOYChYXxoF0nHBGEx5mIA/e4opeqworsjVAKA5LvlQq+2j+
+	/sqDFpzDtG94G05lLMLT7M1KIKfzKpvrcEfMO66puQMWUPvCG9zEBCrBnrwsxAqHl1Zpn3Uk0fnc2
+	3Gh+D9ue3LbWez3zwgkWuQGt2FTH3g7WfBqPsB67eRKgWzw26sBiUeGuJ9xy42I1SSPCKduGF9qCe
+	I/nNA1NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg5ti-0000000ANEb-3Ifz;
-	Wed, 14 Jan 2026 18:47:14 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1vg5v9-0000000ANVs-3DT0;
+	Wed, 14 Jan 2026 18:48:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg5tg-0000000ANDR-0H2m
+	id 1vg5v7-0000000ANVQ-3z0z
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 18:47:13 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-64b6f22bc77so13372a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 10:47:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768416430; x=1769021230; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=J9ken08GWaBvhZybEJhtrMx7vEhMPkB4XYNJbjZoLig=;
-        b=geWuAwJ8C0N17skAiO155plU3dmZ25fGT6bFg8Vl34br7sWkebRj/3rMd3lGEGsCqq
-         SJB0PCvdLsKlmLC1y25hz8EwfAMvqX0gI8CXQem+aY8BJQeN6HcLQKAFlrSiXDpwU9jg
-         xR8ZOYY75a64Tr2aHZ0F1JuQmqY6OZsRRNv/NvthKBhEnQJrGC8A9iQDp6KI2X1psVVF
-         7shuBnsoQ72LMIeEgaxXGFH8tjkfhQxpG17Zj21vobm4BTW/WAUyHCsY4Cyr7i6FLWfZ
-         P00rZj7XAFemuG26mQfQUjEO1fKx84W9x+Q363X7W7pRdvrf/hvTkKnEfSIu5e9zDMvp
-         ZG0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768416430; x=1769021230;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=J9ken08GWaBvhZybEJhtrMx7vEhMPkB4XYNJbjZoLig=;
-        b=Y+iQI9PxIbEMwV0mUcdBg48aRXcXEVxO7odTyyAQU7dKmdJ4/EEgubvl1eVyySWNzv
-         FIGeDWeANrHxcY19kl/U/6MlJWPYntY6HlgX131P8nvWADHcptnuB5pyRhL8e8wC94Hq
-         AWTNd5AgQbtKrX5NRdOQPBuzjrvColbdJmFWfRKUr0hS3FZwwx9wHbSahl3L8Cj3JZuF
-         hTbh7z2MQHWQwWb0T9ykapsrqTrIMpRm28+XR345jbV4i1lnKtIajmcxC1sjuLp5B58c
-         VQqJRHLgQTX4pUM3mCJChpzipfIy46MKH5K0ari+4JDWq1snoGQGKr1zazBxM0vnkYW2
-         Mk6A==
-X-Forwarded-Encrypted: i=1; AJvYcCVFrerEn9popmxMX8HR52uEFwa5XC67QGM/F8T3AirBWrpTl/Ma/HVZX5Ta3Lw5mAGwjg5fxbeuzNCrDooC9iHV@lists.infradead.org
-X-Gm-Message-State: AOJu0YxU3+jTCmr1bAbsbIaP1DlUahLEGUXfgc+xVxmZaTMf78TTyQHR
-	k+s+VAQQnOwiG8c6Xh3mY1IqYsN3W7hbEYgDm+TZ2J1deYp01pR4u1g5
-X-Gm-Gg: AY/fxX73XpcFRgKlcCy8JVbtUs/fTwx7tn7pWa8rlJpK6bk1XRCDaxjy2WNIfji6qXT
-	2WGFi8JkripSyRmIJLh3JlzQoqZaksZRFEJlHdcH2ICQe8TdHi7sG5gICsEaFdi1wdYQJQynT4l
-	4sOWzAeJ0XSCpAveSkoZByuDfzoTSs7PTfsXL8tfd/Su3QyfWVDSJM0OXEIhJEXpil0DgopRMQ5
-	1ZFurF9jD++2dEyaQhuTgYaD+vO1ON9e47dEdrlFls1SIPegSwmLREmcbsS+tpSKWGiGr2dnYyM
-	V2XbML9S1OJ/WCmoGaJH6oRQJEQ0Whx+vYkZ+UsFfq2em9BHq3AKklTvV7iJICSCXFwkA/aFwoS
-	BuIaBDKHBB8YBVy+4X6HQDEjj4SOGd5CV7IHy2ugM1bg2H2QQenoPlVj0W0drGHOJP/MvSYBEjI
-	u+AGE=
-X-Received: by 2002:a05:6402:1ed6:b0:64d:46f:320 with SMTP id 4fb4d7f45d1cf-653ec47b906mr1748710a12.7.1768416429553;
-        Wed, 14 Jan 2026 10:47:09 -0800 (PST)
-Received: from skbuf ([2a02:2f04:d703:5400:9b39:8144:8a26:667e])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-65411882043sm327189a12.11.2026.01.14.10.47.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Jan 2026 10:47:08 -0800 (PST)
-Date: Wed, 14 Jan 2026 20:47:05 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next 03/14] phy: qcom-sgmii-eth: add .set_mode() and
- .validate() methods
-Message-ID: <20260114184705.djvad5phrnfen6wx@skbuf>
-References: <aWfWDsCoBc3YRKKo@shell.armlinux.org.uk>
- <aWfWDsCoBc3YRKKo@shell.armlinux.org.uk>
- <E1vg4vs-00000003SFt-1Fje@rmk-PC.armlinux.org.uk>
- <E1vg4vs-00000003SFt-1Fje@rmk-PC.armlinux.org.uk>
+	Wed, 14 Jan 2026 18:48:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EFFF76001A;
+	Wed, 14 Jan 2026 18:48:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4C58C4CEF7;
+	Wed, 14 Jan 2026 18:48:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768416520;
+	bh=8KBWIbkpJwQyTeH+b5e850ZKQFUEMxvg18f8SI8BdoE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=t/3YuIa8oSi/xC/GW3dpb1lZoupC4+ZqSiMYqsiRYtEJqPu5VpCncmLyynSJcab6m
+	 lBJCYevFVEIqegwtLZxHvJqoCjsSXqVVmVsUGI2i5/xAgIiynXIiqV3aVETrQ8pzsj
+	 j/r3LUKh0rJQ7on5AQeo4bk0Y9Xj1uCAYfpwyc9l9iKtksfZ0yQ/yrGOwPx+9pRZO+
+	 FlEG6BL+gLBeSR4cWfZovOpnukvKBAAhf14aDSHc0HB+ZCwyzzyOikgCTwD7+I5dJw
+	 RenN+N1iQg2SsDCExcca65J2x4S77imYS+qqfgCjzcZzgOuVQUnogF40oQgmb+PTt6
+	 U6IahqNfIZSFA==
+Date: Wed, 14 Jan 2026 18:48:34 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v9 26/30] KVM: arm64: Provide interface for configuring
+ and enabling SME for guests
+Message-ID: <3be5b6a7-3b26-4899-8313-c849c28300ca@sirena.org.uk>
+References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
+ <20251223-kvm-arm64-sme-v9-26-8be3867cb883@kernel.org>
+ <CA+EHjTxFfY_XkEQrNvme94uHoxQLWEaX1q1MikbcmwmUMq=NwA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="oq+yxN5i7kBipvCG"
 Content-Disposition: inline
-In-Reply-To: <E1vg4vs-00000003SFt-1Fje@rmk-PC.armlinux.org.uk>
- <E1vg4vs-00000003SFt-1Fje@rmk-PC.armlinux.org.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_104712_120783_695BC2F2 
-X-CRM114-Status: GOOD (  12.85  )
+In-Reply-To: <CA+EHjTxFfY_XkEQrNvme94uHoxQLWEaX1q1MikbcmwmUMq=NwA@mail.gmail.com>
+X-Cookie: Absence makes the heart grow frantic.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,25 +84,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 14, 2026 at 05:45:24PM +0000, Russell King (Oracle) wrote:
-> qcom-sgmii-eth is an Ethernet SerDes supporting only Ethernet mode
-> using SGMII, 1000BASE-X and 2500BASE-X.
-> 
-> Add an implementation of the .set_mode() method, which can be used
-> instead of or as well as the .set_speed() method. The Ethernet
-> interface modes mentioned above all have a fixed data rate, so
-> setting the mode is sufficient to fully specify the operating
-> parameters.
-> 
-> Add an implementation of the .validate() method, which will be
-> necessary to allow discovery of the SerDes capabilities for platform
-> independent SerDes support in the stmmac netowrk driver.
 
-s/netowrk/network/
+--oq+yxN5i7kBipvCG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
+On Tue, Jan 13, 2026 at 02:40:58PM +0000, Fuad Tabba wrote:
+> On Tue, 23 Dec 2025 at 01:23, Mark Brown <broonie@kernel.org> wrote:
 
-Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+> > Due to the overlap with sizing the SVE state we finalise both SVE and
+> > SME with a single finalization, preventing any further changes to the
+> > SVE and SME configuration once KVM_ARM_VCPU_VEC (an alias for _VCPU_SVE)
+> > has been finalised. This is not a thing of great elegance but it ensures
+
+> With KVM_ARM_VCPU_VEC being an alias for KVM_ARM_VCPU_SVE, wouldn't
+> kvm_arm_vcpu_finalize() fail for guests that have only SME enabled but
+> not SVE?
+
+If one of the extensions hasn't been enabled then the goal is that
+finalizing should lock in the current state and prevent enabling it in
+future but you should be able to finalize.  The check for vcpu_has_sve()
+which blocks finialization is changed to vcpu_has_vec() which is true if
+either SVE or SME is enabled.
+
+We should, however, ensure that the VL of disabled vector types isn't
+taken into account when allocating state in order to avoid wasting
+memory - I'll update for that.
+
+--oq+yxN5i7kBipvCG
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmln5QEACgkQJNaLcl1U
+h9Afugf/W7S3f9Opih1jYVPqRq1ITFPwn4oIVQt8vWQtOp6phpgeaEbVAIaBYQIe
+eD4G1cgA3KXUU+K2fKQo2Ar61nctTEgEr+58MPeuamj4Z1hB2a3Vy5hTGB5LyIv9
+U1EE5voSYFgHHl9+EZafvLf6DuTiPu6MksgwgBDiYvXF+sxtbZSKMHRPMVSYw8BQ
+CEtdcOsodX04euF5khtGm1eSiHeJKuUAaPAEuqMYrFbMSzUHm6MZWm9rWP9JV1Po
+p57BJt8/aUj19+5Q0LS6gnK/ozmrxfxf12t+3HXTcVxD79OOh1Tzw9DxwLDQVhnA
+PbSht5ECwKz//OhF0SUzlplD7m5Wwg==
+=bu0G
+-----END PGP SIGNATURE-----
+
+--oq+yxN5i7kBipvCG--
 
