@@ -4,104 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5A7ED30CDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 10:19:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB25DD30CF8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 10:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8eibjd2N5XiVRRI4N4yeokngezFp8SvzkItH6b1iECM=; b=RSZjATJ6mPTA0x8Jxseb4kzPHD
-	8dRLi53amNJJ1KgeglxKRrbOIHTxLIV6AvkHjiwJ8eWQlu2jczFYp6R4KUIrTAt+2hDw/UE7MuGqz
-	Y5qlN4MmdpmapdbPtQuD25mXh5+Y7f756+kRt1awGu7bR3syS7fJxd4iRJ85rVvXasfE9k5z/eJuR
-	2re2BJ4VYI8mZSI7EY+GD3phdFDKisYVItb1R1LsQIPKJVdRru1cEqAGvxOvyyEZfo7GQYc22MoWy
-	T3fAD7D+N7jSDcdTJxqTiGrkni2IXeeA/9QQx9dxLoMmwJAxABqzLfGKamlIwtBYvCrwb92uaDJsM
-	NytYPdVg==;
+	bh=hGsBnBGnrh5GWqFiAd50Xj6Kf9Z4MbPCxq5OgC98qGU=; b=BBcjqmknjw2HtSDzH48t44nfbk
+	1vttHiYFOfaY3v0IYrriUBJ/I3dsfJwh7FHGe2V8EvcT1RFb/pBp2qj3XP/p9sdWSVIgjJU+M3IAt
+	j76qjT0QO5NFC7/FTDsPv5iEef3XvrPHLw2HvTyZ36d9SR9Y7aNZB+ptJjuj2kkFnHGAFUT+cAobc
+	rwGDOwkV2M2BcH0Ls3HqVhpmaiaIGF/0lb895IUCStImWr3JozR8v24o5SgmObq4aPAQSOcP+tHGQ
+	LsgGzMp4WLiLrEwocpOY803hCIWdf+6+BL51taY6Tw/L5GIatJPE/96nXBHxkuV+VwIKCY7GUJvSG
+	wzhq0WEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfxyd-00000008kkr-0qg2;
-	Wed, 14 Jan 2026 10:19:47 +0000
-Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
+	id 1vfy0o-00000008l8j-2B3M;
+	Wed, 14 Jan 2026 10:22:02 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfxyb-00000008kk3-0ASH
+	id 1vfy0m-00000008l85-49Vf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 10:19:46 +0000
-Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-11f36012fb2so11467946c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 02:19:44 -0800 (PST)
+	Wed, 14 Jan 2026 10:22:02 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-64dfb22c7e4so1273546a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 02:21:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768385984; x=1768990784; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=8eibjd2N5XiVRRI4N4yeokngezFp8SvzkItH6b1iECM=;
-        b=CetWCl3Uyld89mxnNhN3K74Vn7fqxYB/+FMdOX/v8p3jYRr/HCNpGrGOtrqzUDAdjt
-         I7uGVt69kJF548XipamVwQxw9lb0emDNmcXDusGourD6EB8lWTvxOFIDcA9dV+ZKCm9a
-         iclqrJyZpvwCLd1PzOIHZM6Suee/34T2q/bhmKl+M5wxUD5CWJuTG5NhxHLpK2/LB33L
-         ItY03at9QRHJQ1OtnIrj31N+bQ1sA750sq2hA93RmVQ5tg5Ohx1bvSJM0mJ7WFzWw3b8
-         l5Yr64lxEXOeB2aKZTv/Bwp1I9BYLfy28M4u3FCOycQDLnpqxBjtVYuRGJHA+vmpwrR2
-         9pKA==
+        d=gmail.com; s=20230601; t=1768386118; x=1768990918; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hGsBnBGnrh5GWqFiAd50Xj6Kf9Z4MbPCxq5OgC98qGU=;
+        b=lKhSetBUtcpoLHU9ovxKz/KuUlMD1M6SCv0cf5ISUFMs9N4nfUHI+bvFlMc79RvXFA
+         OF9MpZH60ETM7v/lwtYg0TqOenGZ38+yOfdnyIaA0hApvSXicmFKlVjqU/PKFQZ6Zk6e
+         oiAgwFht9Wsr4zBlxz0txPepjbt7Fqlo7iwbLF1AmLITvK9g4m7p9ExA8BTjF2Z8oohF
+         9m47QV9LRxaVwF3izfr8OWtBPF4l8cCy0IsKsVKi2998K+k3Xbr+o6sCwGmwvekuViwD
+         KfPuZVhbwXm2jU6uLySQaohK6Fln6M+jy4ZUg4L11EzWE7/KEWY1ptGs2Ec1My4obGog
+         0DaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768385984; x=1768990784;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8eibjd2N5XiVRRI4N4yeokngezFp8SvzkItH6b1iECM=;
-        b=cStXf1EiRPzsN7ton8lIJu+DuYIeA9As4/lQb6iTGNuh/B2bLDjaL08tqktlnAC/0o
-         AGRKoEO0WG+C9QY5ZQBbLlteG11EH9DtmGsch2xcs8hJ4UZdIyoAH9k/Shd1Dbs+/lbB
-         iAfGEaG7ykq3sBI9uKGREfAyT4qyU050JD+c/Hvapwqj/o9GKXX1JcxP6DTqU0zxAZnh
-         KDTp0AdpsZZR+xYxCZgnksPRBuYUvS0O06BPJY2vrqFpUtd8VExSP0lU3q/NPutggadi
-         prDEz6TZv15wmL/f5sbIaxuyMniOBEy01fqUVrvmtnrIi+48FUOtGJVSb8ypB5vbViip
-         cX+A==
-X-Forwarded-Encrypted: i=1; AJvYcCUkWw1OG/cmdhIm/vAOCMymUzTSrfIP+XH3pTgvqiUdp0J35Vkdmp62fBSetvz9iLfhfouTH93cTocBxgLcy0wD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfArHgEXSPRqfGu9U+U3rMiNGyNcDs7tPLcWf4su90HWWg7ni1
-	ltB67oCKlYlQjNMisIA6u8HdcDQhj20j+JvMWKgCINfaZ4cx+KbNP0XB71rx0Z4ZM8g=
-X-Gm-Gg: AY/fxX70MuWZ88K/0TUzlTRkweOBRTaa8Qpcdagbn40NDalulaz7OGHLOVS7rsIRU6G
-	XFKCuJ1jHP5wz2J7bW1QpQI5SVEsOLKdzmmgLGJ2wyQAI0Yiij1zI/G7YspNdFcVVVuEGDrNxOO
-	TuOJaWNDbNKRcD7a2BtIKNsUIYBlsVwLiOEfZcs2XoxlSJFRp5t0sbSTK8ro2/yVPsKelGb6EcN
-	kL9aqTgZd8KfQ2kH1122iqHwW5PyZY/Zrg0KnMTZtfRMIELMxqRXS8ErTFlEFASRFvRSNfbCfad
-	kiTnJIuUsr+ixB4Tjb11POQ+IiIgETcSzHzbKC/7e0wjONoaLHfEyvMluMENq0wEXmWmyKfD5/Z
-	hdIpsgvK2jbpGtEc3h+TDIHFfM29R4PSxNiTPbg3XpOepiRk06B8Xb2+AlUZIHDOSRIXp8JlEBp
-	mmFpBtHGffbc7f/uy0
-X-Received: by 2002:a05:693c:3008:b0:2a4:3593:ddf3 with SMTP id 5a478bee46e88-2b4871d0cc3mr3162205eec.32.1768385983766;
-        Wed, 14 Jan 2026 02:19:43 -0800 (PST)
-Received: from draszik.lan ([212.129.75.26])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b170673b2esm19824293eec.6.2026.01.14.02.19.36
+        d=1e100.net; s=20230601; t=1768386118; x=1768990918;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hGsBnBGnrh5GWqFiAd50Xj6Kf9Z4MbPCxq5OgC98qGU=;
+        b=wRNxcT+U71s2mjCMj9tEYkw3cApzzcdB03wlJwrjPtox3xvWgZdPYT7PTAEnfJXZhI
+         2GAWV+s/16buSABlhPHP1QeKvCySaq3tqfG8hthoK8mF1vmauxpDwSvjSFrBqRz/Vl8q
+         JxUItIPb5HpgmPxRQ+Dp2VTPKNCivSirzMnHGVRejwOtDutP4Xgad1C5+yzxIinCVux3
+         lecirKx4XOu34TfD3egu7lyKwRqwTx5JSAEWRfYGDa8VtAu66Hj9RuHT/LNk8LrHG5gl
+         8Y1M4Q5lfngONKoKQm46yxQ6enDpnP8FSd3h5ItJbG5sYXKn7ebioYsCTkk8NQwGcRG9
+         BmPg==
+X-Forwarded-Encrypted: i=1; AJvYcCU4Q9wt2WwiCHJw+QdMFWywMAmdDyR9fjH/vnhOdvFW4EfXV4AFaAkS1g1hn151XcEW3XhOWSnYZN4+o68iEIBi@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyvcEEpAcrixfW6hXMjTwfWPwG+qWXy7S8mgBgL3YP4pzr1qYM
+	TvzfgAhg03cJmQk0qBO0X8JkxpBi22wm+xK8si5DvUi3Gf3huGBkspJL
+X-Gm-Gg: AY/fxX4qwiWzPNCeMb+LNy8ALaVxEKS7ngr4jrlFN/LascmFFtGqmQ7/bTA+G7m5miM
+	zKYRlwVnF17WNcFEK7ek9N0uOSalzKr25JESuwVrmgOygh+mirkK4xDPaC12OevOkldOvViyWpG
+	u3GGXsPIPEARQYe7xhTRL0Y++Hfp1Om6XEhNKF76ccKg4eqhOFAfSDFfq6XCF/ObZzEDKnmw5Ad
+	9qyoslriN2zzNCjFHopHWIs8kIjNtQI7QrYCRz1QzMiiquwnTbmu5bzlG0sCUE3J1ThnlQgSh7Y
+	nY7M8rzBPk5gLCbETbPFytnQu0Xx4mAAeVwC4a1z8as3LFB4t0hueDxQVcQvWQ65KeB7BrJMj4D
+	Y3DqF1M1C9Q36saJBcYMIaIB0SLTIHzgfwxgI4x436x84SlZHqofwUyWgeR87qDtwSZY/qw827j
+	YsPhQLZlhR9j/7UmlSPcxsOaGMTei7Tg0=
+X-Received: by 2002:a05:6402:3487:b0:636:2699:3812 with SMTP id 4fb4d7f45d1cf-653ebedc568mr1854657a12.0.1768386118153;
+        Wed, 14 Jan 2026 02:21:58 -0800 (PST)
+Received: from mail.gmail.com ([2a04:ee41:4:b2de:1ac0:4dff:fe0f:3782])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6507bf6d5e0sm22281306a12.31.2026.01.14.02.21.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Jan 2026 02:19:42 -0800 (PST)
-Message-ID: <48d52ef389ee0e878c36184efbfaa85071f5549a.camel@linaro.org>
-Subject: Re: [PATCH v3 4/5] power: supply: max77759: add charger driver
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Amit Sunil Dhamne <amitsd@google.com>, Sebastian Reichel
- <sre@kernel.org>,  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Lee Jones
- <lee@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Badhri
- Jagan Sridharan	 <badhri@google.com>, Heikki Krogerus
- <heikki.krogerus@linux.intel.com>,  Peter Griffin
- <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Alim
- Akhtar	 <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, RD
- Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-Date: Wed, 14 Jan 2026 10:20:17 +0000
-In-Reply-To: <378ee786-2b44-44e7-a3f6-0cd1db3c0481@google.com>
-References: <20251227-max77759-charger-v3-0-54e664f5ca92@google.com>
-	 <20251227-max77759-charger-v3-4-54e664f5ca92@google.com>
-	 <298ca35590d2180fdcf334f94964b6110e17c606.camel@linaro.org>
-	 <50c29a62-1fdb-4de2-8887-0d551eee5ec0@google.com>
-	 <255d7726-6758-43ed-b35f-db14726bcc9b@google.com>
-	 <2869d309358f27652289c40810ca36b2ec155d1d.camel@linaro.org>
-	 <bb9b9afa-0bfa-428e-9372-549d9ba8603c@google.com>
-	 <6b37b88e9b7ee57eb1c006916fd995c813ab5e6e.camel@linaro.org>
-	 <378ee786-2b44-44e7-a3f6-0cd1db3c0481@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2+build3 
+        Wed, 14 Jan 2026 02:21:57 -0800 (PST)
+Date: Wed, 14 Jan 2026 10:29:44 +0000
+From: Anton Protopopov <a.s.protopopov@gmail.com>
+To: Xu Kuohai <xukuohai@huaweicloud.com>
+Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>
+Subject: Re: [PATCH bpf-next v4 1/4] bpf: Fix an off-by-one error in
+ check_indirect_jump
+Message-ID: <aWdwGKLsL7G7IQ3z@mail.gmail.com>
+References: <20260114093914.2403982-1-xukuohai@huaweicloud.com>
+ <20260114093914.2403982-2-xukuohai@huaweicloud.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260114093914.2403982-2-xukuohai@huaweicloud.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_021945_086420_BEE4F427 
-X-CRM114-Status: GOOD (  44.75  )
+X-CRM114-CacheID: sfid-20260114_022201_053851_4E369C07 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,183 +106,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2026-01-13 at 16:47 -0800, Amit Sunil Dhamne wrote:
-> Hi Andre',
->=20
-> On 1/13/26 2:02 AM, Andr=C3=A9 Draszik wrote:
-> > Hi Amit,
-> >=20
-> > On Mon, 2026-01-12 at 11:37 -0800, Amit Sunil Dhamne wrote:
-> > > Hi Andre',
-> > >=20
-> > > On 1/12/26 5:47 AM, Andr=C3=A9 Draszik wrote:
-> > > > Hi Amit,
-> > > >=20
-> > > > On Tue, 2026-01-06 at 17:14 -0800, Amit Sunil Dhamne wrote:
-> > > > > On 1/6/26 3:41 PM, Amit Sunil Dhamne wrote:
-> > > > > > Hi Andre',
-> > > > > >=20
-> > > > > > On 1/5/26 9:32 AM, Andr=C3=A9 Draszik wrote:
-> > > > > > > Hi Amit,
-> > > > > > >=20
-> > > > > > > I haven't done a full review, but a few things caught my eye.
-> > > > > > >=20
-> > > > > > > On Sat, 2025-12-27 at 00:04 +0000, Amit Sunil Dhamne via B4 R=
-elay wrote:
-> > > > > > > > diff --git a/drivers/power/supply/Makefile
-> > > > > > > > b/drivers/power/supply/Makefile
-> > > > > > > > index 4b79d5abc49a..6af905875ad5 100644
-> > > > > > > > --- a/drivers/power/supply/Makefile
-> > > > > > > > +++ b/drivers/power/supply/Makefile
-> > > > > > > > [...]
-> > > > > > > > +
-> > > > > > > > +static irqreturn_t irq_handler(int irq, void *data)
-> > > > > > > > +{
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 struct max77759_charger *chg =3D data;
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 struct device *dev =3D chg->dev;
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 u32 chgint_ok;
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 int i;
-> > > > > > > > +
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 regmap_read(chg->regmap, MAX77759_CHGR_=
-REG_CHG_INT_OK,
-> > > > > > > > &chgint_ok);
-> > > > > > > You might want to check the return value and return IRQ_NONE =
-if it
-> > > > > > > didn't
-> > > > > > > work?
-> > > > > > >=20
-> > > > > > > > +
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 for (i =3D 0; i < ARRAY_SIZE(irqs); i++=
-) {
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (irqs[i] =3D=
-=3D irq)
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 break;
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 }
-> > > > > > > > +
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 switch (i) {
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 case AICL:
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "A=
-ICL mode: %s",
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 str_no_yes(chgint_ok & MAX77759_CHGR_REG_CHG_INT_AICL));
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 case CHGIN:
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "C=
-HGIN input valid: %s",
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 str_yes_no(chgint_ok & MAX77759_CHGR_REG_CHG_INT_CHGIN));
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 case CHG:
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "C=
-HG status okay/off: %s",
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 str_yes_no(chgint_ok & MAX77759_CHGR_REG_CHG_INT_CHG));
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 case INLIM:
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "C=
-urrent Limit reached: %s",
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 str_no_yes(chgint_ok & MAX77759_CHGR_REG_CHG_INT_INLIM));
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 case BAT_OILO:
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "B=
-attery over-current threshold crossed");
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 case CHG_STA_CC:
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "C=
-harger reached CC stage");
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 case CHG_STA_CV:
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "C=
-harger reached CV stage");
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 case CHG_STA_TO:
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "C=
-harger reached TO stage");
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
-> > > > > > > > +=C2=A0=C2=A0=C2=A0 case CHG_STA_DONE:
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_dbg(dev, "C=
-harger reached TO stage");
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
-> > > > > > > Are the above debug messages really all needed?
-> > > > > I forgot to respond to this comment in my previous email.
-> > > > >=20
-> > > > > I think we can keep AICL, BAT_OILO, INLIM. They're either special
-> > > > > conditions (AICL) or faulty conditions (like BAT_OILO) and we can=
- in
-> > > > > fact keep them at dev_info level. Rest can be removed and a
-> > > > > power_supply_changed() is sufficient.
-> > > > >=20
-> > > > > Let me know what you think?
-> > > > I don't think dev_info() in an interrupt handler is appropriate. At
-> > > > least it should be ratelimited.
-> > > >=20
-> > > > If it's something special / unexpected that needs attention, having
-> > > > a dev_dbg() message only will usually not be visible to anybody.
-> > > I agree. I can change the prints to dev_info_ratelimited for the stuf=
-f
-> > > we care about.
-> > If it's an erroneous condition, maybe warn or even err are more appropr=
-iate?
-> >=20
-> > But then, what is the expectation upon the user observing these message=
-s?
-> > What can or should they do? Who is going to look at these and can do
-> > something sensible based on them?
->=20
-> The logging will help in postmortem analysis which may or may not=20
-> possible with just publishing uevents to userspace hoping that they log=
-=20
-> the psy properties. Illustrating a situation:
->=20
-> 1. Over current situation happened where the Battery to System current=
-=20
-> exceeds the BAT_OILO threshold. This would also generate an interrupt.
->=20
-> 2. The MAX77759 takes protective measures if the condition lasts for a=
-=20
-> certain specified time and reset. Resetting will cause Vsys to collapse=
-=20
-> to 0 if the system is only battery powered.
->=20
-> 3. It'd be better that the BAT_OILO interrupt is logged in dmesg,=20
-> instead of just delegating it to user space as user can debug this=20
-> condition by looking at last_kmsg or pstore.
->=20
-> 4. This signal can help the user debug conditions such as moisture (this=
-=20
-> signal + contaminant detection) or indicative of a mechanical failure.
->=20
-> I do agree though that this is a hypothetical or very rare situation and=
-=20
-> if you have a strong opinion against this I am okay with removing the=20
-> prints completely.
+On 26/01/14 05:39PM, Xu Kuohai wrote:
+> From: Xu Kuohai <xukuohai@huawei.com>
+> 
+> Fix an off-by-one error in check_indirect_jump() that skips the last
+> element returned by copy_insn_array_uniq().
+> 
+> Fixes: 493d9e0d6083 ("bpf, x86: add support for indirect jumps")
+> Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
+> ---
+>  kernel/bpf/verifier.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+> index faa1ecc1fe9d..22605d9e0ffa 100644
+> --- a/kernel/bpf/verifier.c
+> +++ b/kernel/bpf/verifier.c
+> @@ -20336,7 +20336,7 @@ static int check_indirect_jump(struct bpf_verifier_env *env, struct bpf_insn *in
+>  		return -EINVAL;
+>  	}
+>  
+> -	for (i = 0; i < n - 1; i++) {
+> +	for (i = 0; i < n; i++) {
+>  		other_branch = push_stack(env, env->gotox_tmp_buf->items[i],
+>  					  env->insn_idx, env->cur_state->speculative);
+>  		if (IS_ERR(other_branch))
+> -- 
+> 2.47.3
 
-Thanks for details. OK, they sound useful in this case, but should still
-be warn, not dbg.
-
-> > >=20
->=20
->=20
-> >=20
-> > Also, I just noticed there is a max77705 charger driver. It seems quite
-> > similar to this one, maybe it can be leveraged / extended?
->=20
-> Thanks for the feedback. I reviewed the max77705 charger driver. .
->=20
-> Here is a breakdown of why I believe a separate driver may be a better=
-=20
-> approach:
-
-[...]
-
-Thanks for the analysis, I agree with your conclusion. Mainly I noticed tha=
-t
-as part of AICL interrupt handling that driver does a bit of work, while he=
-re
-we don't. I am wondering if that is applicable here is well.
-
-Cheers,
-Andre'
+Nack, the last state doesn't require a push_stack() call, it is
+verified directly under this loop. Instead of this patch, just
+add another call to mark_indirect_target().
 
