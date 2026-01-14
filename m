@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 027FDD38FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:28:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF494D38FF9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hRZjQ1dMGsBxeFPWfiu+bZPHAYMAVWmC/3j5u54zOEY=; b=XSCEJHf8zBQcN6z2IfqqmG740l
-	aSTxl2q3okaCw29cRpEBo1YOeId/PZofXlW5Dkexkw0q94zD4OX0kJa3FPAkYrEPKn4VqG2PtF5wt
-	cRhl631yyYYVy1zS8reKobPVABnWwhXZNxmxYCyrwzkvsYdia2cnbDHa3STJ9SZDMX65JRcCZ0TMF
-	924L6bT3g3LxUfnfb2U0QY0K7ViQUDn9A8ITt1erUh8eaqjDp7RXkACMlQbpBw69ij4GQ+0t4jSLw
-	LfdvgzWdleb/LiFlEQNo+w/Fclv9uCPEgUAVRCSmMTHu7g6ZL+YsFkYr/gwne6F8oAqPhoQovs/SF
-	zB5dSgvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=fqrv+uluXUdCwqRqMV1mDM3218han9vFyABHpAgrIZQ=; b=UH3Y7YGHPg3NuRunmiF8Prl/YD
+	fxY6MwtRctJ4qk/VpYiYnmKoPmjJ3t09P065rmVm26Pgd86L1m0dFt3UWvS4aNg4ibWgNlmUWujX8
+	05VT7BtZ0TPVSQFJyGHyYx+SbcSkTTtWl9m0UYwm6ShkC7XD/vq52hMGMMFgAZHfj+KRJGvCQta6m
+	6IOKNWpPR2ujkRfvleu4r6UHY345XT9sfuYRGgqBSg2HN12qvuRSZoqkqsrpXiM6vwKQW6mWHqrOY
+	wJ6z+yiHLLIukfqImOXRZK7vsn+71cLiJqLGcR6u5hio8v17n/+Ghz33NxICAxZqRocQmA4YnchRL
+	1q9QbtJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4f3-0000000A8L2-245M;
-	Wed, 14 Jan 2026 17:28:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vg4fd-0000000A8T9-3S4M;
+	Wed, 14 Jan 2026 17:28:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4f2-0000000A8Ko-3EBu
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 17:28:00 +0000
+	id 1vg4fb-0000000A8S8-04in;
+	Wed, 14 Jan 2026 17:28:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D95B16001A;
-	Wed, 14 Jan 2026 17:27:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D171AC4CEF7;
-	Wed, 14 Jan 2026 17:27:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0C95F43F56;
+	Wed, 14 Jan 2026 17:28:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFB82C4CEF7;
+	Wed, 14 Jan 2026 17:28:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768411679;
-	bh=MKErPubq+4dytiNTQQKxbBYuZq0PRZbULHtHlGPOA9U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NPNzAUNVJjw7ci4jNIO2uMrDaRZ+xEVkHOjM5IQaB+UAc/c442sRxq+JFqShLlNHu
-	 XfqXYF3w43bN21mG+uwwl5Iy8UmeqdAF6OK+8BA3dJRHuc3qxpeZ7sISIDpad07B+b
-	 jv0O9lGX3cAw6lWQMYieUSLvbvMcZ62jwgH84qc3c3mRz2fGAgBep8rPfPeqZAy0jo
-	 2dfXmVozyUzfknjXc8Ivt7BoXalm2KIXNSEnqIHuiqB0zUpwqgkgpaDN17ovsedGUq
-	 yYEBZ8Lc+y9wmjLpRmdkKVnH4HYJqOsm4rroiYmT2UWZVGLhiIVe2pKwFyE4zUS7iv
-	 BdEdk1L1lKyHw==
-Date: Wed, 14 Jan 2026 17:27:53 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v9 23/30] KVM: arm64: Context switch SME state for guests
-Message-ID: <5a053bb6-5052-4664-b0cb-f05d56d4679d@sirena.org.uk>
-References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
- <20251223-kvm-arm64-sme-v9-23-8be3867cb883@kernel.org>
- <CA+EHjTyYcrWwBR0AwwdWFfOSwbmTMOhSee7y_-vrMfOxphrvqw@mail.gmail.com>
+	s=k20201202; t=1768411713;
+	bh=wD/5RVHhGR99Mqb9HHrjiTflC51aStRb6BACeDI9CVE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=Zqg9qRe7uE1FygMozTkXAaWZGBj3D7YBYFSZBt2LQQMbz/euQHCq7j+XgVkO0tu7u
+	 JOlzmj+7L/Y7CHZalggRJh8YXrB20UtopsY6u1mnVrgdsaluAeKicAY8SXllN7Dfu2
+	 3QISaTvRBf0YFR9tYou4x/FG6TNAco1E7o0XPfiym71SxLBUsjzb8n2ebIu6haa0v3
+	 UhiyTtn9QkYieySz+Ylamyd+PFXJU7XTgkBHMcjR7ZrmnyINnmagPfv/ZwPPluruMF
+	 zHteLNNVXbIywvPHoC/jJGBElYbpoqmm4hCQHPKgJgy4q+BwvwumT5oWNdnpoaoATg
+	 nz59CcWh7LSDQ==
+Date: Wed, 14 Jan 2026 11:28:32 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Johnny-CC Chang =?utf-8?B?KOW8teaZi+WYiSk=?= <Johnny-CC.Chang@mediatek.com>
+Cc: "lukas@wunner.de" <lukas@wunner.de>,
+	Project_Global_Digits_Upstream_Group <Project_Global_Digits_Upstream_Group@mediatek.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Alex Williamson <alex@shazbot.org>
+Subject: Re: [PATCH] PCI: Mark Nvidia GB10 to avoid bus reset
+Message-ID: <20260114172832.GA822909@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="5VzuVXkE42Zf47rW"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CA+EHjTyYcrWwBR0AwwdWFfOSwbmTMOhSee7y_-vrMfOxphrvqw@mail.gmail.com>
-X-Cookie: Absence makes the heart grow frantic.
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <8d91c98a99a0a1b368691a93141f4f14e5ece44c.camel@mediatek.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_092835_081559_56993883 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,40 +79,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+[+cc Jason, Alex for Nvidia input]
 
---5VzuVXkE42Zf47rW
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Wed, Jan 14, 2026 at 06:39:24AM +0000, Johnny-CC Chang (張晋嘉) wrote:
+> On Tue, 2025-11-18 at 17:39 +0800, Johnny-CC Chang wrote:
+> > On Thu, 2025-11-13 at 10:39 +0100, Lukas Wunner wrote:
+> > > On Thu, Nov 13, 2025 at 04:44:06PM +0800, Johnny Chang wrote:
+> > > > Nvidia GB10 PCIe hosts will encounter problem occasionally
+> > > > after SBR(secondary bus reset) is applied.
+> > > 
+> > > Could you elaborate what kinds of problems occur, how often they
+> > > occur, etc?
+> > 
+> > There is about 1/1000 chance that after SBR is applied, any further
+> > access via this root port will be blocked and make system crash. 
 
-On Tue, Jan 13, 2026 at 02:24:56PM +0000, Fuad Tabba wrote:
-> On Tue, 23 Dec 2025 at 01:23, Mark Brown <broonie@kernel.org> wrote:
+What sort of crash happens?  It's useful if we can include a bread
+crumb that will help people identify the crash and find a fix.
 
-> > +#define sme_cond_update_smcr_vq(val, reg)                      \
-> > +       do {                                                    \
-> > +               u64 __smcr = read_sysreg_s((reg));              \
-> > +               u64 __new = __smcr & ~SMCR_ELx_LEN_MASK;        \
-> > +               __new |= (val) & SMCR_ELx_LEN_MASK;             \
+What I would expect is some kind of PCIe error like a config read
+timeout or unsupport request error.  But usually those just result in
+~0 data back to the CPU, which usually doesn't directly cause a crash.
 
-> Similar to what I pointed out in patch 15 [1], I think you need to
-> preserve the other bits, since SMCR isn't just about the length.
+> I would like to update below description to replace original comment in
+> v1 patch, is this information sufficient? 
+> --------
+> /*
+>  * After SBR(secondary bus reset) is applied on an Nvidia GB10
+>  * PCIe root port, there is 1/1000 chance that further requests
+>  * via this root port will be blocked and cause system unstable.
 
-This does preserve the existing bits?  It reads SMCR, masks out and then
-replaces the length.
+I'm confused about what the topology is.  I first assumed GB10 was a
+PCIe Endpoint, since Secondary Bus Reset only applies to devices below
+a bridge, so SBR would be applied to a device by a config write to
+that bridge.
 
---5VzuVXkE42Zf47rW
-Content-Type: application/pgp-signature; name="signature.asc"
+But you mention a GB10 Root Port here, which obviously is not an
+Endpoint, so there's no bridge upstream from the GB10 that could
+initiate SBR to the GB10.
 
------BEGIN PGP SIGNATURE-----
+If this is actually a GB10 issue, it sounds like a hardware erratum
+that lots of users would see and Nvidia would likely be aware of. 
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmln0hgACgkQJNaLcl1U
-h9BMEAf/RF9rOJl8ekbOzDRQR11JDX39xOnp1XjKNL/LwADVFknoshEFGbwNHbg7
-57daW1rnmcC+bbYUI884dlgzpo1QO8eu4Ln3iZDbBO3RiskXsxPq0/Aw9YPMpukh
-389uJu/fYy9Ag03Cgwp1Gcp7bMqs3eDrjnW6q4Rdaqc6tzECGGKLYT25uZjD9qdu
-n5jJy4QwQfmTpm1eH93FgHCkiW5PHP8wUv+dYDQ02i/Bg1ZOuiOeiof+YcAfZoxn
-okZ9Seieeb/x/OD9CYTtepifFAelR40y3pF8VLhESbkMzGiy7v6SmiCWhPvFhNkF
-uyOxnmGui2Xy46sOprB2XcG91p5l5g==
-=e2HB
------END PGP SIGNATURE-----
-
---5VzuVXkE42Zf47rW--
+Bjorn
 
