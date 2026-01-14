@@ -4,111 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9D5AD38FED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B94ADD38FEF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 16:58:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OI1+23JWX8FsCJMhCllis4rPC5JKUcNnLtovuqpzj+8=; b=3t/c0OKzCGTqkcENXhEhQcAcBH
-	alK3dUiPQnIt9b9NPuqXYAvZqy6tZdE+3lRVk/If0H1woG9xchNYo7RZxXtVMYlNhKJr8UG3GvwuL
-	k8prEvAPs7VvQty6DfqskK5CShREpG3nIbH66NesY8vGyzSs+t476wQl4yI8xqpJQXhbHddXDqhY8
-	fuhGyjiNP7so40s69IluitAUxLSYbTqyV/+CV/ibYzmFMC/0GT+ekSP1mpBkHEVMpCHHvRr14bCP1
-	iCwWA3m8IszWHjpvaPC9YZh+b46Yz9E34TkQXkQxL9iODxOEXER6GUcwYehGvBmcYKPj+tmPDcBxd
-	3UyrjGuw==;
+	bh=dFg0ZU1cAsHhMYlwQqI8U+srvs69g9Bu04eiqf48wEo=; b=zxxiu5oO5gYAAQEILMSVdUK0+o
+	PA/qNzO5dUhAjYnEGF964qPQVv39MUmFTMdanrRh7aAXLd3RJRYzt+CVMmApADMtS+1ylvnNNkFEY
+	2NTMRiFBWTVBqL2Ng2MXxd2TEmQrhjkxZIQmCPdiEYRR7VmCPX6aurUzWIBtl7aj3JTO14xm+FzQe
+	0dSfFvgTxtTzSbwQ/t5xxzlYoEH93r6R0BikfsKWxU7VZr6grBtVGY9CRNO2enCBFSe9eMJwVTi8w
+	iSitaNha68fZgp5MwAVYQ/3aaGmpn4mWQScE5DNFHHoYyecqO34bmZ2KJxUd/WjLx1eU0mYLtmt3b
+	Cg8sawXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg46m-0000000A01I-2Jxm;
-	Wed, 14 Jan 2026 16:52:36 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1vg4C7-0000000A18r-0QGb;
+	Wed, 14 Jan 2026 16:58:07 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg46U-00000009zml-29DH
+	id 1vg4C5-0000000A18A-1uoM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 16:52:21 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2a1462573caso91855ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 08:52:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768409537; cv=none;
-        d=google.com; s=arc-20240605;
-        b=O0xc7KeKlV+Z3ZT/T3215jGljWbD7U//qjxSkpduiOlmWKGmmtelY6t2693syu9zz+
-         cgWSS/l9aNwItzadZZL1EifuH2tT1UVbJ7UkT+sJ0DimOUEHvShTEm/XG2RFWvnz19P6
-         y/EbWWaL0GiOP9ORPEmnkPTcNUh7LrpuRHmKAxMftPLUfEg1LNAcQXC8XJKqBlAZOMnj
-         LSh2UQshp+w4UWwHSD1xsD7UrbWPE1/gHx5KHLsIymfr/mFPD2+kdJ4WizHpUGp2pBS8
-         t175advL2empfaU5Tu7CfWd2SOFZRl2UbuFdVsXLIprYlOA5Ts4v35AC3x0rdfr4be20
-         KU6w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=OI1+23JWX8FsCJMhCllis4rPC5JKUcNnLtovuqpzj+8=;
-        fh=Kra5hHLM8KmoyLU+OYplz3x2kIKLKInJJIfKwMzX3OA=;
-        b=H481nD+GVllYJp4Utto7MDlciMc8dIDGbXbpsxCEa+IwP0mr+VEfYAQk1GBYDRZnET
-         8GA5kG3FxuO5rKe2uvVpiouapPfycAKeHKTrcBWdV6U1MZLTo5rYnS+XzXw+utpTWgbh
-         OsE1XO2X2Red7bkjvF7kPpCx28ARsIjrHqbibAAwY6RSeWRJuP17zCrgkv729sCzZ/tF
-         pTj5VXINHy3a3Gq/gCUtywMZ7gTyL+zMDFW2yGEEikhEKm9uZoR4cNyh4TDwehm0uJ9V
-         u8EmDQ9Ic0HOSMCrjt4oDC+ybuaxYS1+JjGzGeeAdABuDt20IMayT9At5xbTfw7SCZbn
-         BTog==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 14 Jan 2026 16:58:06 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60E9IF6c2552992
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 16:58:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	dFg0ZU1cAsHhMYlwQqI8U+srvs69g9Bu04eiqf48wEo=; b=lztIuwx9z6zbyPP7
+	kEdfuM6akt9+ukcFEgDy8gDnzbIjDO5xmvMUVkss5JruUb7ullgmDGURkDVBPprr
+	529g5B3i2P4Dut1aBIGK/hqcCxLNhgNxmAtLIDM0OAXA8EWBd6PtZl421BnbCM9k
+	pPjdScQh2AsTcc+ejlv7DUQ3id+G4mysWLY6RiLj6wSk5YqpBNWs9gzLgx8Am7/6
+	VqWpFUKx7x9VKSZRe3fR8TggDoT8L3Z/ykTcY5ET1GnSRx5NyUIZxxbnPpTAta4P
+	UAX4CH3nv3bow7p7IAJqs/4m+MDQLMM5nbsGmNJLdVJM6D1jTZT1JgVLpPoJlVKN
+	CNJqdQ==
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bp8d31jgj-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 16:58:03 +0000 (GMT)
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-2b47ce772e4so63910eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 08:58:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1768409537; x=1769014337; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OI1+23JWX8FsCJMhCllis4rPC5JKUcNnLtovuqpzj+8=;
-        b=Bnh8kG+nlPEgW5R5oaUoFKDU5z1dcNq2nhF95JRUAB+hzjKNnKYsl1bVRX1M5V16Sq
-         3bYXwnGIYE5rhreLJBzxyE/odS5x8i8Jz1Wz2dJ4JxlP9aGnaPKlp5dqmPR/UD3Fm4a2
-         0foAFf0vPbwcmZyjHRP7R0Ap3eB6HTLvdbPo8t6FqaTlGyHl/gjmQyoNG7GvKkOMUy7e
-         pS/KlyUZyovSLb2BXFBaFSDFNyOsUfHd1iN9hxvn3XC6V+edfCRRSsH1rscoDHF3lBM1
-         b6LPzpUPUMo256TXoW+TZ58O8HUkZAeDgXtB6VpbklxGe1AR1CzI06qz0mWV0caT5ODX
-         y6hg==
+        d=oss.qualcomm.com; s=google; t=1768409883; x=1769014683; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=dFg0ZU1cAsHhMYlwQqI8U+srvs69g9Bu04eiqf48wEo=;
+        b=SSx1J2/7fd9MqN1QCrKSoRD77PHD/wm5JLSSTNSxy7Kv19SKJLAwfUrnHltZuuFGLa
+         6G4xl/ztho3/xEm5Qo57XxzhXW20PFsR+z7vhbD0lnEnm2YoVJL0kJtcIWoEBoCr2H+w
+         HOkq+Kk3kLygQoibFJUl70o887AuK/xACn+FsVje/W91pKL0jkh7YvF4ZE7Folbbs9kz
+         JMoRIrOpOQV3cRyVz0jLGW21NzVB/YYVKQDsIiMisIm27CIe8llHPK/zujx4chFXeuns
+         fOA+6h1TDkaKRF4z0ijLD8t0st59gctnr5yShDdWY5QWJ8GvHIJGvjlK3F2LN9kZNh0s
+         al1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768409537; x=1769014337;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=OI1+23JWX8FsCJMhCllis4rPC5JKUcNnLtovuqpzj+8=;
-        b=oFU5XR03GR+T+Nfrezd2wNbK2Vy+921XHyzguCpKi1Cq2HwO4BWIfeFkU7/RzIGD/n
-         qrfxgizq3W7HUX0S4Q87Z3cWsBGr9KY6u61PS8ozqjIlbCDhBzDM8jw9kch5SLGWFfXw
-         4LyVU63RcPmOoukplh9rcr86/496ThiFU3sU2O70ClHC5QcRIAP/XGC6Ch1biFo5pu7Z
-         cUeb2gDYCoe5LPYy1LBc6QPl4C7l/nI3418HONwy2pJwCwaeLKCEmOoFznGPCU7ydUvA
-         zOAlptv8sP2VHSi1YakuKeJEWRsO3OQDvtToYUej9Cs3boQFoZRdLlbkekFUkDFqu1uW
-         SCfA==
-X-Forwarded-Encrypted: i=1; AJvYcCXkNbluD5VlpexFC+pX78klErQ2JBWO6yDFO/8qgfTs93C+W7xc0wX2cJYe7ZNuIsFYG0VxDwNAc0VGZojeS1y1@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVKIA+mwu8VqGb9o/PnB8jmUEk0zFtncfMYfcTLiR7RzUwKXrR
-	GDfOVgiiGxk6ZruSvDhhi9xpDET+TYUNRaEvvc9QzojO2xyF0T9vkqlBTR8UTGtUS3s+P2BjpK4
-	6iF0b4ites9T2xLV4pTQQAuFXBHTITme273GNRhPm
-X-Gm-Gg: AY/fxX7IDUCreHVt7N5Y37jdgbLqvy3CgFYg0+l5os1Cra+7Y/SgkvSVybD+RIywT71
-	ZtVuPZ4eI1m14ZacUSWkShslG8hBoeh0KHXdWVE3CRfD6LkWW9I/40vaxTTmFLut9KvGdt8DBE+
-	G1zvqbf9zlBcsIJgGf5UBrY9fTmnK2YWPAKb8G738jQdo+MhOGItdsWK8JAoi7hOEXaHa9LNknd
-	cAbuDplaZteE/QfWOMeHF6IP6zyYrgTzcTkkWPayf575kVlqMcrFL/yV0WRJgXTMjvzeByhTcCY
-	DaCPYFH2AuWTp5v1NHGwzkWxMA==
-X-Received: by 2002:a17:903:2b06:b0:297:dad6:fe58 with SMTP id
- d9443c01a7336-2a599977232mr3419075ad.0.1768409537092; Wed, 14 Jan 2026
- 08:52:17 -0800 (PST)
+        d=1e100.net; s=20230601; t=1768409883; x=1769014683;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dFg0ZU1cAsHhMYlwQqI8U+srvs69g9Bu04eiqf48wEo=;
+        b=OFMjx/G4ZrAJwJ4GSDzkfsDtnKe+MVjNzw/RlCYfge6nhZLPscmX9vN3eSIWwqr8yJ
+         Qi9YCdyu7RjxjfdVUSmxF+1sBIrnqdo7Abax8u285cAXogOnKconTfZwrUkg/t1dbHCv
+         3+EX8VVoV6Ubf2dLUZaYXragkXM9WCrChNXHS7ACa/rk9ZvHrAZx/IQ2rx4vAzgqUfJ9
+         pwhfusEOlzMaJCpJCkSb7iEst1DsRmCX4EVTLinIweZJQSur3FXyoC0OH9kPzqzWXmqh
+         xU52bb2NG86euBe3eysa0vnVbm/rOmTT/u3K5ivjxZXUvo9nkdn6TAl9ZvQNJn4TKVoZ
+         njFw==
+X-Forwarded-Encrypted: i=1; AJvYcCU2s+OzH+EzYeqnNhcsMoiy5MsmTmqgFtBqYv3MqCExWpzzKAipxmu6hhlL3dvSeosA3MP5N3Gsg02qA5qP19Yc@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCoMs2EfN50yvKyV1vg3XBC+jOrn9SL7WvpWZ3jQL+MH5oh2si
+	Zk8ha5+D7MN3Z2mGNGjgMScDJ9t4AEGQ/1FuZQHAR7Utj/dOFF3ceDu6OrRkL4WIaW8ns3bvaW0
+	ymycQaurM9NqB5vyuc446DDibJ+BPnbUOf7bnRHtz3JYnn+mox1RbvNKpgHIGJ+K69fdnjWYtdE
+	RLlQ==
+X-Gm-Gg: AY/fxX6LKWUb2qMrT4m6FcHA8Jqnjta/XQIcEuOQDvLKB02y5q2HKQvgc1xekCrA0uE
+	Swww4yl8WSzNUbEb1uzshYAuOP4bJnTo/DHGpMn+mdT0hlY5oL2NfbBfcC9pzP5fH+DjNFz5wW3
+	0baVkQ2JeCZF23OYS19mSg8lwxQDr20Il3+4+HQ0TTgtR9rqlW41JGTGSfcxTuH4lfBNWFj8Muh
+	QjYJbit8QIT295xE8C0tX2LcEP4SmaQeJUfD5aLp4tZiYryU7Y6eYQSIQPNloW844m/DbHju9zm
+	AUKSg+4kmlHuuTTseCo26+3rYSOTtLDmZKVP4mYnbMYGCu587YjXC0Mv7WL7J8IWEcN3RE3+qpO
+	w6L6c6CKv3PNSxXOfaFMCL1btSOVijPsw96n2g+6XsA==
+X-Received: by 2002:a05:7300:cb10:b0:2ae:5020:afe1 with SMTP id 5a478bee46e88-2b486c94e69mr3996892eec.14.1768409882903;
+        Wed, 14 Jan 2026 08:58:02 -0800 (PST)
+X-Received: by 2002:a05:7300:cb10:b0:2ae:5020:afe1 with SMTP id 5a478bee46e88-2b486c94e69mr3996862eec.14.1768409882321;
+        Wed, 14 Jan 2026 08:58:02 -0800 (PST)
+Received: from [192.168.68.59] ([76.93.176.75])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b17078dd8fsm23272007eec.20.2026.01.14.08.58.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 14 Jan 2026 08:58:01 -0800 (PST)
+Message-ID: <6e674553-d0e5-449a-a49f-84f5d32cec94@oss.qualcomm.com>
+Date: Wed, 14 Jan 2026 08:58:01 -0800
 MIME-Version: 1.0
-References: <20260114-james-perf-config-bits-v5-0-0ef97aaf1ac0@linaro.org> <20260114-james-perf-config-bits-v5-3-0ef97aaf1ac0@linaro.org>
-In-Reply-To: <20260114-james-perf-config-bits-v5-3-0ef97aaf1ac0@linaro.org>
-From: Ian Rogers <irogers@google.com>
-Date: Wed, 14 Jan 2026 08:52:05 -0800
-X-Gm-Features: AZwV_QiKCUV62tv-YCq7vPDV3_F8u4hrLGMT5SirXiVOr8SHGdpodOsJ0fMh5j8
-Message-ID: <CAP-5=fUhHJOiWCKZVKNpRYMvM-6c=xAaqwwSz=bpZSk=X-QKeQ@mail.gmail.com>
-Subject: Re: [PATCH v5 03/14] perf evsel: Move evsel__* functions to evsel.c
-To: James Clark <james.clark@linaro.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>, 
-	Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
+To: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Sudeep Holla <sudeep.holla@arm.com>, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        trilok.soni@oss.qualcomm.com
+References: <20260112-disable_smccc_soc_id-v1-1-a5bee24befb4@oss.qualcomm.com>
+ <aWYk_qGvA9Kn0xGe@willie-the-truck>
+Content-Language: en-US
+From: Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
+In-Reply-To: <aWYk_qGvA9Kn0xGe@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: KXK2f0kIECqx7fIm6O1fsyKcNvczRHnv
+X-Authority-Analysis: v=2.4 cv=fbWgCkQF c=1 sm=1 tr=0 ts=6967cb1c cx=c_pps
+ a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=Q5rFrUx7DTp4enn/YD2GRQ==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=JZMqPXA25EcJQqw1oVMA:9
+ a=QEXdDO2ut3YA:10 a=6Ab_bkdmUrQuMsNx7PHu:22
+X-Proofpoint-ORIG-GUID: KXK2f0kIECqx7fIm6O1fsyKcNvczRHnv
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE0MDE0MiBTYWx0ZWRfX/itQ2wx3oqOn
+ d1RtINKrh2BLbKNstbfzUHTvIKHh7zKpJlBKof/pETJfP4riylhlmv9wyKF8ZpZcQxuykOeB+Q0
+ TbCo4jqqMzEdBH6vvWWjEUyYdXj/60MNt25QjGHQn1GPvjO0B9A+jpm7dxKfPoafpgc0p3vS2Uf
+ yFhM7otDxXgH7NtaV6sfZVdSl7F1XP3ixQgWg6Ktuymzu4R+ZnlXX5TNVvZ2aSkpKbiW8687vMm
+ opMXzxH1UQiztfwCc8MdC58YnI3HZW4/pUxb3Z6hOllceGI2JPxF3gffxczOIDegTaeTHmLzwSq
+ vgD7Ff0JAZKv6a1cxi7caQaf68slzO3SxISOVsLvM9xmCDUqP7adSfydkJoC3aYEHZNF+nwEzvL
+ C/vkw2J+IRA0jxw/yXYtqTn8oE41ReLF2Iz42jovbglPtAmwg9CtL/t5CPuEQ2mj1DJhmL7iara
+ nsMNediQWZwiik8cxzQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-14_05,2026-01-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 suspectscore=0 impostorscore=0 phishscore=0 priorityscore=1501
+ adultscore=0 clxscore=1015 malwarescore=0 bulkscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601140142
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_085218_975189_72EAD48B 
-X-CRM114-Status: GOOD (  28.24  )
+X-CRM114-CacheID: sfid-20260114_085805_639905_6E785A2F 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,153 +148,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 14, 2026 at 7:57=E2=80=AFAM James Clark <james.clark@linaro.org=
-> wrote:
->
-> At least one of these were put here to avoid a Python binding linking
-> issue which is no longer present. Put them back in their correct
-> location to avoid confusion about which file to add a new evsel__*
-> function to later.
->
-> Link: https://lore.kernel.org/all/ZEbAS2yx2fguW60w@kernel.org/
-> Signed-off-by: James Clark <james.clark@linaro.org>
+Hello Will,
 
-Reviewed-by: Ian Rogers <irogers@google.com>
+On 1/13/2026 2:57 AM, Will Deacon wrote:
+> On Mon, Jan 12, 2026 at 10:24:06PM -0800, Satya Durga Srinivasu Prabhala wrote:
+>> The ARM SMCCC SoC ID driver is currently enabled by default and publishes
+>> SMCCC-provided SoC identification into /sys/bus/soc/devices/socX/*.
+>>
+>> On platforms where a vendor SoC driver already exposes widely-consumed
+>> attributes (e.g. Qualcomm socinfo [1]), enabling the SMCCC driver changes
+>> the format of /sys/devices/soc0/soc_id (e.g. "jep106:XXYY:ZZZZ" instead
+>> of a vendor logical ID like "519") and breaks existing userspace consumers.
+> Isn't the fundamental issue here that you have multiple callers of
+> soc_device_register() and your userspace is only looking at soc0?
+Yes, that is right. The issue is we have several products which already
+uses the soc0 interface as vendor interface [1] existed even before the
+SMCCC SCM ID [2]. Also, per SMCCC specification, SOC ID is an optional
+feature. So, vendor specific implementation can take precedence over
+standard implementation or a way to disable SMCCC SOC ID could help.
 
-Thanks,
-Ian
+Best,
+Satya
+>
+> Will
+[1]
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/drivers/soc/qcom/socinfo.c?id=efb448d0a3fca01bb987dd70963da6185b81751e
+[2]
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/drivers/firmware/smccc/soc_id.c?id=821b67fa46390baea0ac5139a60eaa48805261b2 
 
-> ---
->  tools/perf/util/evsel.c | 40 ++++++++++++++++++++++++++++++++++++++++
->  tools/perf/util/pmu.c   | 40 ----------------------------------------
->  2 files changed, 40 insertions(+), 40 deletions(-)
->
-> diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
-> index ec6552a6f667..21878e9bd029 100644
-> --- a/tools/perf/util/evsel.c
-> +++ b/tools/perf/util/evsel.c
-> @@ -1314,6 +1314,35 @@ struct evsel_config_term *__evsel__get_config_term=
-(struct evsel *evsel, enum evs
->         return found_term;
->  }
->
-> +/*
-> + * Set @config_name to @val as long as the user hasn't already set or cl=
-eared it
-> + * by passing a config term on the command line.
-> + *
-> + * @val is the value to put into the bits specified by @config_name rath=
-er than
-> + * the bit pattern. It is shifted into position by this function, so to =
-set
-> + * something to true, pass 1 for val rather than a pre shifted value.
-> + */
-> +#define field_prep(_mask, _val) (((_val) << (ffsll(_mask) - 1)) & (_mask=
-))
-> +void evsel__set_config_if_unset(struct evsel *evsel, const char *config_=
-name,
-> +                               u64 val)
-> +{
-> +       u64 user_bits =3D 0, bits;
-> +       struct evsel_config_term *term =3D evsel__get_config_term(evsel, =
-CFG_CHG);
-> +
-> +       if (term)
-> +               user_bits =3D term->val.cfg_chg;
-> +
-> +       bits =3D perf_pmu__format_bits(evsel->pmu, config_name);
-> +
-> +       /* Do nothing if the user changed the value */
-> +       if (bits & user_bits)
-> +               return;
-> +
-> +       /* Otherwise replace it */
-> +       evsel->core.attr.config &=3D ~bits;
-> +       evsel->core.attr.config |=3D field_prep(bits, val);
-> +}
-> +
->  void __weak arch_evsel__set_sample_weight(struct evsel *evsel)
->  {
->         evsel__set_sample_bit(evsel, WEIGHT);
-> @@ -4098,6 +4127,17 @@ void evsel__set_leader(struct evsel *evsel, struct=
- evsel *leader)
->         evsel->core.leader =3D &leader->core;
->  }
->
-> +bool evsel__is_aux_event(const struct evsel *evsel)
-> +{
-> +       struct perf_pmu *pmu;
-> +
-> +       if (evsel->needs_auxtrace_mmap)
-> +               return true;
-> +
-> +       pmu =3D evsel__find_pmu(evsel);
-> +       return pmu && pmu->auxtrace;
-> +}
-> +
->  int evsel__source_count(const struct evsel *evsel)
->  {
->         struct evsel *pos;
-> diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-> index e87c12946d71..e3a1f26213ec 100644
-> --- a/tools/perf/util/pmu.c
-> +++ b/tools/perf/util/pmu.c
-> @@ -1362,46 +1362,6 @@ void perf_pmu__warn_invalid_formats(struct perf_pm=
-u *pmu)
->         }
->  }
->
-> -bool evsel__is_aux_event(const struct evsel *evsel)
-> -{
-> -       struct perf_pmu *pmu;
-> -
-> -       if (evsel->needs_auxtrace_mmap)
-> -               return true;
-> -
-> -       pmu =3D evsel__find_pmu(evsel);
-> -       return pmu && pmu->auxtrace;
-> -}
-> -
-> -/*
-> - * Set @config_name to @val as long as the user hasn't already set or cl=
-eared it
-> - * by passing a config term on the command line.
-> - *
-> - * @val is the value to put into the bits specified by @config_name rath=
-er than
-> - * the bit pattern. It is shifted into position by this function, so to =
-set
-> - * something to true, pass 1 for val rather than a pre shifted value.
-> - */
-> -#define field_prep(_mask, _val) (((_val) << (ffsll(_mask) - 1)) & (_mask=
-))
-> -void evsel__set_config_if_unset(struct evsel *evsel, const char *config_=
-name,
-> -                               u64 val)
-> -{
-> -       u64 user_bits =3D 0, bits;
-> -       struct evsel_config_term *term =3D evsel__get_config_term(evsel, =
-CFG_CHG);
-> -
-> -       if (term)
-> -               user_bits =3D term->val.cfg_chg;
-> -
-> -       bits =3D perf_pmu__format_bits(evsel->pmu, config_name);
-> -
-> -       /* Do nothing if the user changed the value */
-> -       if (bits & user_bits)
-> -               return;
-> -
-> -       /* Otherwise replace it */
-> -       evsel->core.attr.config &=3D ~bits;
-> -       evsel->core.attr.config |=3D field_prep(bits, val);
-> -}
-> -
->  static struct perf_pmu_format *
->  pmu_find_format(const struct list_head *formats, const char *name)
->  {
->
-> --
-> 2.34.1
->
+
+
 
