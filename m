@@ -4,66 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE705D3901B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 21:09:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58755D3901B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 21:13:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XbdwHN5Unw1sHLXGB6XuyerjfI2+/RO0oOZU7dEUE9U=; b=GW4tDJm7D1siuLepsRHbVDNXhd
-	0cc1Zsps4sfguLD7aQ50qrSEYHk0FtUpFKcEgOvyXfkxt+IUjn4jP6oWVojIkcJVrdUl8/p4r0r06
-	3UthxQ/zAltT/E0sD6C/CviWvUIMCv2JwwNQxx03DwJHJq8h6ik1rilx+eKHeqvu87N02gUO/3yyR
-	N7hgchC8K975Bh69MmiuSUmCgPaq/SikjATfiB8y7fYMMAbQXnuhNtcMtVeqzLNl9Ac9//dIf9RlI
-	fi5nKAjh7f5EjmKL9JP3PkYwufGGthdld9GKWHAwWpPFPAkci+qwHjbaz2ZrvbPubAxEzgqUvnGPd
-	aGFiLVow==;
+	bh=4LsoFmz+aZmX1T3XaT99HOYStWp7eRbqS93II9I84WE=; b=KuWbKvfBhosLfIRIlEnQOq2dNs
+	ro4RDDG9UMpj2lEWOIJGTtAVPB5qrNCzN1Ext2fJAZdEuED0eHG8uYyJxeQflucaOdiR5Qb3Q9+VG
+	dGuLfIuT2ersiaM9RSjA0CjUgfG4vCwxUO7bXDeQBy+H+fvG5+pA2KuV5mFbA+8nSs4KPOOQxEScN
+	MVptF3p3gJa8tps7KwE3DMmNvW7S3XmzzB3k9mipOZlheQk8HpSb8apD1R+3nCerAeOFnRQM5WX2t
+	Pa0b05FcC2TSmYngD/7SGTW+b/ErbKfDx4OfLnXx8S12e2bVs7fjlKM8a77JILJVj01+3nUZPdd1v
+	fWWevYOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg86x-0000000AjYj-377E;
-	Wed, 14 Jan 2026 21:09:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg86w-0000000AjYJ-0nHY;
-	Wed, 14 Jan 2026 21:09:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 09B616001D;
-	Wed, 14 Jan 2026 21:09:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F8A1C4CEF7;
-	Wed, 14 Jan 2026 21:09:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768424940;
-	bh=WY2v7TTkVAMIoJ6VgjyCIHMaXfZc57Ip7xvQxHTv4p8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MQlP4ogzmIg+JA/pCvyHUUO5wvv/C5zQHlnBqXHSLlASijL8pmOpQxN6Mp9g8yjZF
-	 JSbWr/fkUFCssMc/dFWx53WUUKe4zHJ6ZYkSjNd6r1yX3mp12SLuUxgl9ozv63ZnlZ
-	 jl3raBW0MaXvD6R6YWE58deFr8RmXTmk8TGzXsH0Sdi35Ya/1ZFr2ubX1tizPnxouv
-	 dvucGK7xwkmHYbzM9vwJrQRTq/Y/S9jRrITCBXqvHPHWZJixTXbAVxA08Spk1KIgSe
-	 lOZgKwHm4frxFppMK3Q/ZKKdz7ijGrqpXG3ah1bIYM6EXceqoiApHVgyMomBL50l0S
-	 HZqj6PBTuoFBQ==
-Date: Wed, 14 Jan 2026 15:08:59 -0600
-From: Rob Herring <robh@kernel.org>
-To: Coiby Xu <coxu@redhat.com>
-Cc: kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>,
-	Baoquan he <bhe@redhat.com>, Dave Young <dyoung@redhat.com>,
-	Kairui Song <ryncsn@gmail.com>, Pingfan Liu <kernelfans@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE" <devicetree@vger.kernel.org>
-Subject: Re: [PATCH] arm64/kdump: pass dm-crypt keys to kdump kernel
-Message-ID: <20260114210859.GA3197242-robh@kernel.org>
-References: <20251226141116.1379601-1-coxu@redhat.com>
- <CAL_JsqLEsUV34tMZWSMc6w-xDV=M0JpOmS95TxrtbbBMRoD3Jw@mail.gmail.com>
- <aV49pPV3OViTDe8c@Rk>
+	id 1vg8BG-0000000AkDv-1SXn;
+	Wed, 14 Jan 2026 21:13:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vg8BE-0000000AkD4-19nw
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Jan 2026 21:13:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 798151515;
+	Wed, 14 Jan 2026 13:13:19 -0800 (PST)
+Received: from bogus (unknown [10.57.49.158])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC7353F59E;
+	Wed, 14 Jan 2026 13:13:23 -0800 (PST)
+Date: Wed, 14 Jan 2026 21:13:20 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	trilok.soni@oss.qualcomm.com
+Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
+Message-ID: <aWgG8EbNgn_wXPjh@bogus>
+References: <20260112-disable_smccc_soc_id-v1-1-a5bee24befb4@oss.qualcomm.com>
+ <aWYk_qGvA9Kn0xGe@willie-the-truck>
+ <6e674553-d0e5-449a-a49f-84f5d32cec94@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aV49pPV3OViTDe8c@Rk>
+In-Reply-To: <6e674553-d0e5-449a-a49f-84f5d32cec94@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_131328_361753_7C4DAF74 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,58 +67,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 07, 2026 at 07:39:24PM +0800, Coiby Xu wrote:
-> On Tue, Jan 06, 2026 at 09:44:37AM -0600, Rob Herring wrote:
-> > On Fri, Dec 26, 2025 at 8:11 AM Coiby Xu <coxu@redhat.com> wrote:
-> > > 
-> > > Based on the CONFIG_CRASH_DM_CRYPT feature, this patch adds
-> > > LUKS-encrypted device dump target support to ARM64 by addressing two
-> > > challenges [1],
-> > >  - Kdump kernel may not be able to decrypt the LUKS partition. For some
-> > >    machines, a system administrator may not have a chance to enter the
-> > >    password to decrypt the device in kdump initramfs after the 1st kernel
-> > >    crashes
-> > > 
-> > >  - LUKS2 by default use the memory-hard Argon2 key derivation function
-> > >    which is quite memory-consuming compared to the limited memory reserved
-> > >    for kdump.
-> > > 
-> > > 1st kernel will add device tree property dmcryptkeys as similar to
-> > > elfcorehdr to pass the memory address of the stored info of dm-crypt
-> > > keys to the kdump kernel.
-> > 
-> > Is there not any security issue with putting the key into the DT? The
-> > DT is provided to userspace. There's provisions already to not expose
-> > "security-*" properties to userspace (see __of_add_property_sysfs).
-> > Though I think that has a hole in that the FDT is also provided as-is.
-> > However, I don't even know who or what uses these properties.
-> > 
-> > Rob
+On Wed, Jan 14, 2026 at 08:58:01AM -0800, Satya Durga Srinivasu Prabhala wrote:
+> Hello Will,
 > 
-> Hi Rob,
+> On 1/13/2026 2:57 AM, Will Deacon wrote:
+> > On Mon, Jan 12, 2026 at 10:24:06PM -0800, Satya Durga Srinivasu Prabhala wrote:
+> > > The ARM SMCCC SoC ID driver is currently enabled by default and publishes
+> > > SMCCC-provided SoC identification into /sys/bus/soc/devices/socX/*.
+> > > 
+> > > On platforms where a vendor SoC driver already exposes widely-consumed
+> > > attributes (e.g. Qualcomm socinfo [1]), enabling the SMCCC driver changes
+> > > the format of /sys/devices/soc0/soc_id (e.g. "jep106:XXYY:ZZZZ" instead
+> > > of a vendor logical ID like "519") and breaks existing userspace consumers.
+> > Isn't the fundamental issue here that you have multiple callers of
+> > soc_device_register() and your userspace is only looking at soc0?
+> Yes, that is right. The issue is we have several products which already
+> uses the soc0 interface as vendor interface [1] existed even before the
+> SMCCC SCM ID [2]. Also, per SMCCC specification, SOC ID is an optional
+> feature.
+
+Yes it is optional and that means kernel won't complain if it is not
+implemented in the firmware.
+
+> So, vendor specific implementation can take precedence over
+> standard implementation or a way to disable SMCCC SOC ID could help.
 > 
-> Thanks for raising the concern! If I understand DT correctly, this
-> property is only accessible to the kexec'ed kdump kernel. A new DT is
-> allocated and set up by of_kexec_alloc_and_setup_fdt. Btw, to be
-> precise, it's putting the memory address where the key is stored but
-> not the key itself into DT. The key is stored in the memory exclusively
-> reserved for kdump. For more info on by who and how this property will
-> used, I've created a dt-schema pull request as suggested by Krzysztof,
-> https://github.com/devicetree-org/dt-schema/pull/181
 
-Okay, that's a bit less sensitive. That still could expose a memory 
-address to user space which has generally been locked down in recent 
-years. Though I'm not sure we'd consider addresses of blobs passed by 
-kexec sensitive or secure.
+Yet this vendor specific implementation chose to implement the optional
+feature when it needed the vendor specific implementation can take precedence
+over this. It had the choice and when it implemented it, it choose and
+it can't expect the generic OS to ignore firmware standard interface
+just because it has vendor specific implementation else where.
 
-> 
-> And yes, there is no need for even userspace of the kdump kernel to
-> access it. So this idea of "security-*" properties/__of_add_property_sysfs
-> seems desirable. Thanks for bringing it up! I'll give it a try.
+And one of the reasons some of the vendors needed this SOC_ID in the
+SMCCC is o avoid or have precedence over any other interface(like DT/ACPI)
+that can override or provide other information.
 
-Since it is just the memory address, kdump just moving the key would be 
-sufficient. Or the property can be removed early on. I think we do that 
-with kaslr seed IIRC.
-
-Rob
+-- 
+Regards,
+Sudeep
 
