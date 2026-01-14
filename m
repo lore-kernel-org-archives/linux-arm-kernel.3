@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D57F8D39000
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:48:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA8BD38FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 17:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XG98XXWLm122wWN3H5/0OaDdF3a45orRwXDXa/HYuAA=; b=IfysL0TV4Ypsd4x4Q3Rx5ejCC6
-	KWx9PieidK3Ix/lizpY6GwK87g0DZy41rJxX6pKkvlSCyOquMgbHqLLbdJV+8FEzg6jIHfOYgKqxb
-	76Dv9BtY0JDNBNz9v78L+p/CqhPcx7YtKozt5qbC2win20DCgrlPyhIjGGTp0VrmbrK/I1CikhoVE
-	Sy7I+naKeSE2vxJNz6t5Tkrbu6Kx3XQTnsraI5CSrPbIxY+Jh00yzzPlc01oF7YF8TUpdwHopI4YP
-	ov4tXSRJTzlgnwnIufo3tteTOn840Yzv2h2SvPmi+2PmpT1bVbRwZHaymA7u2zLFkp2qez5zN/kyH
-	jzVw5YWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9TJ56owaA/niKs62kHQlZBqWStUJL2ADR9XxgX9yLoM=; b=1/pWWfU+gNMeMB0ekW2BQ2TvQX
+	QYrgkNQQ/gQZb/hI2KBZtQw+F+RIvcMyYTm7X6CuStA77i/cpC48a4AU8nDYEFaaf9S5nrDBOde+b
+	F+fapUV03IkEjoNxZDizkmu7WgDUP8+1yBDegcHdM6wjvjzDFRF54ovlObhIRJCO+xWhAWH1aA1zX
+	FlqoI773360P64Gp7ceUg7/qtVt+icDiDuml0iZWjf6z4EHgkLdP+k2Pdp6lcNaVQXJgdwGimUQOa
+	im+sVyBU+tJlYXCiv3RTxm23UcN9RWtY4g+TP8oYiSEt5kAKNAfaDFJOGvjWqo+7mSxDEJgzZ9uft
+	TlwlEI3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4yN-0000000ACZj-25Be;
-	Wed, 14 Jan 2026 17:47:59 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vg50V-0000000ACxF-0WyX;
+	Wed, 14 Jan 2026 17:50:11 +0000
+Received: from smtpdh19-1.aruba.it ([62.149.155.148])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg4yL-0000000ACYR-1YNn;
-	Wed, 14 Jan 2026 17:47:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=XG98XXWLm122wWN3H5/0OaDdF3a45orRwXDXa/HYuAA=; b=RP/MpWm/ItaE40/w2jeE8X5Mfj
-	8D7l4clLFVFkOuKMoIH7cj+YPrydgMJ1eeQvcBL5wzmhpO3j41n1f3/Ftttyp8T54tWXWClcU644Z
-	EV3OyyU3H6wYLsEim1iqclB57Y7VjaD9WXT0G7PUz6PZ9fBJpnh9wGCoT5iw1wkOOQC0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vg4yA-002pWl-OJ; Wed, 14 Jan 2026 18:47:46 +0100
-Date: Wed, 14 Jan 2026 18:47:46 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next v2 1/2] dt-bindings: net: airoha: npu: Add
- EN7581-7996 support
-Message-ID: <9340a82a-bae8-4ef6-9484-3d2842cf34aa@lunn.ch>
-References: <20260113-airoha-npu-firmware-name-v2-0-28cb3d230206@kernel.org>
- <20260113-airoha-npu-firmware-name-v2-1-28cb3d230206@kernel.org>
- <20260114-heretic-optimal-seahorse-bb094d@quoll>
- <aWdbWN6HS0fRqeDk@lore-desk>
- <75f9d8c9-20a9-4b7e-a41c-8a17c8288550@kernel.org>
- <69676b6c.050a0220.5afb9.88e4@mx.google.com>
- <e2d2c011-e041-4cf7-9ff5-7d042cd9005f@kernel.org>
- <69677256.5d0a0220.2dc5a5.fad0@mx.google.com>
- <76bbffa8-e830-4d02-a676-b494616568a2@lunn.ch>
- <6967c46a.5d0a0220.1ba90b.393c@mx.google.com>
+	id 1vg50Q-0000000ACwT-1mfn
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 14 Jan 2026 17:50:09 +0000
+Received: from [192.168.50.220] ([84.33.84.190])
+	by Aruba SMTP with ESMTPSA
+	id g50KvJnVjclBZg50Lv2sF0; Wed, 14 Jan 2026 18:50:02 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aruba.it; s=a1;
+	t=1768413002; bh=qCiNYpj/fD6QvcI2JnZSyaYV1FRFHfQHPffRlHULXxE=;
+	h=Date:MIME-Version:Subject:To:From:Content-Type;
+	b=nREDKuJnqIoQQLsYftRsNn5nffXuySjn+oCgGh/Aa5t0Q0a7eWV0SN6QAmFU4XMyy
+	 3nZE71xJ1f4M+0d/Q4X0Fkcgb7PtJFXtGxIxLbAjQ9Zc4sW6s35pZjuItnX3z6uvae
+	 /vK3laL1CG4P13W2ppwDOdFrhgITxtN6Eit8b0RejdXXE8PlCUZh5Y1WhMaigNymWi
+	 kXVxxoY+bQLsM1HRyw0ornvuC4+deQcX0VHxjb+y7nE0dTp4dxdsEpHzETWSbI6IIo
+	 anxFGkkrwox9yVxPWntXOB2WDnD32f3L0wGa1rc91w/t0GCNZM1bh1sVHUeqfW4COl
+	 7N47H0FQPGCqA==
+Message-ID: <40e45abf-7640-49a6-814b-9924510395c1@benettiengineering.com>
+Date: Wed, 14 Jan 2026 18:50:00 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6967c46a.5d0a0220.1ba90b.393c@mx.google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: sun7i: a20: fix MMC index enumeration
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20260114105005.3136045-1-giulio.benetti@benettiengineering.com>
+ <20260114140653.05365221@orionap.fritz.box>
+Content-Language: en-US
+From: Giulio Benetti <giulio.benetti@benettiengineering.com>
+In-Reply-To: <20260114140653.05365221@orionap.fritz.box>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CMAE-Envelope: MS4xfOlfoxKjK0AY8atOCrqaGKkGzr99mKANRPOLxddXbdjSNeayXmE2yayY5do5xlWoXgqwZ0wwuOZyDy/9xoYnWY/z0Eyv44tXtd1AXJK4SwhypD0kUp3z
+ JMLMPL3ZhNEjNLrr9cMDRDd8OFCabBPVktqMmNzuc1UGoRXwBzZufKP14t0S/uZ3RADKlty6Z4n55EOKI/oUicZC7KCRVq8J+Anb6/bPhcvClSeqjevTKybG
+ YTJM0uTLXxJc7nslKra1WzQk3HdtR35Ar6PsjeuwigKSxenZdW5+qFdhIV2DqHea45pA1t4wEqIztGzgRHvB0NUlyuAj2cWpDCplJGidGqEJ6OaB9IOQwTAN
+ sGdX5XHxCThh1sGYd9pjXpKA3aHPAF0zTFWl7aalLNCpNCgHEGTXgGdGyPtrCU+6D331vOUnCQNqESN1W0VBkNNIkd5Gsc07dto9tkyG4mybvrwiG/u8nGDZ
+ 6i8zKyXRNbW0NXAI+F8cHZzNyM7RevCE7m4TD/7nmTcvU1r/hIxuQy+33HSHB4QunkDl7/lWLCEjXNvRSbtBh4jil2ZsS8yLf9+R8g==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_094757_407074_0C2A0CDA 
-X-CRM114-Status: GOOD (  19.57  )
+X-CRM114-CacheID: sfid-20260114_095007_560214_29D7FF99 
+X-CRM114-Status: GOOD (  21.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,29 +80,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 14, 2026 at 05:29:28PM +0100, Christian Marangi wrote:
-> On Wed, Jan 14, 2026 at 04:56:02PM +0100, Andrew Lunn wrote:
-> > > > Yes. What you plug into PCI is not a part of this hardware, so cannot be
-> > > > part of the compatible.
-> > > > 
-> > > 
-> > > Thanks for the quick response. Just to make sure Lorenzo doesn't get
-> > > confused, I guess a v3 would be sending v1 again (firmware-names
-> > > implementation series) with the review tag and we should be done with
-> > > this.
-> > 
-> > Since this is a PCI device, you can ask it what it is, and then load
-> > the correct firmware based on the PCI vendor:product. You don't need
-> > to describe the hardware in DT because it is enumerable.
-> > 
+On 1/14/26 15:06, Andre Przywara wrote:
+> On Wed, 14 Jan 2026 11:50:04 +0100
+> Giulio Benetti <giulio.benetti@benettiengineering.com> wrote:
 > 
-> Hi Andrew,
+> Hi Giulio,
 > 
-> I think it's problematic to create a bind between the NPU and
-> PCIe.
+>> Currently, the OLinuXino-A20-Micro experiences non-deterministic MMC
+>> enumeration during boot. When both an SDIO WiFi module (MMC1) and
+>> an SD card (MMC0) are present, the kernel may swap their indices.
+>>
+>> Explicitly define mmc* aliases to ensure consistent device naming
+>> and prevent mapping conflicts.
+> 
+> So this comes up every now and then, but for sunxi it was decided to not
+> support this. The enumeration of devices in the kernel is never guaranteed
+> to follow some order, and this is widely accepted for SCSI (/dev/sda) and
+> NVMe. Distros are coping with this forever since, using more sustainable
+> designations like UUIDs or labels.
 
-But the NPU must already be bound to PCIe. How else does it know which
-PCIe slot the WiFi card is on, so it can make use of it?
+I see,
 
-     Andrew
+> If you don't want to change the way you communicate the root device to the
+> kernel, you can actually use U-Boot's DTs, which adds the indicies for its
+> own purposes, and can pass this on to the kernel. Just don't load a DT
+> from storage (which you shouldn't be doing anyways), and just use
+> $fdtcontroladdr as the DT address when booting the kernel.
+
+Thanks for pointing, let's see if Buildroot Maintainers accept this
+patch as is, otherwise I'll probably go with UUID.
+
+Thank you for taking care and explaining.
+
+Best regards
+Giulio
+
+> Cheers,
+> Andre
+> 
+>> Signed-off-by: Giulio Benetti <giulio.benetti@benettiengineering.com>
+>> ---
+>>   arch/arm/boot/dts/allwinner/sun7i-a20.dtsi | 4 ++++
+>>   1 file changed, 4 insertions(+)
+>>
+>> diff --git a/arch/arm/boot/dts/allwinner/sun7i-a20.dtsi b/arch/arm/boot/dts/allwinner/sun7i-a20.dtsi
+>> index 5f44f09c5545..a958400bcd7c 100644
+>> --- a/arch/arm/boot/dts/allwinner/sun7i-a20.dtsi
+>> +++ b/arch/arm/boot/dts/allwinner/sun7i-a20.dtsi
+>> @@ -55,6 +55,10 @@ / {
+>>   	#size-cells = <1>;
+>>   
+>>   	aliases {
+>> +		mmc0 = &mmc0;
+>> +		mmc1 = &mmc1;
+>> +		mmc2 = &mmc2;
+>> +		mmc3 = &mmc3;
+>>   		ethernet0 = &gmac;
+>>   	};
+>>   
+> 
+
+
 
