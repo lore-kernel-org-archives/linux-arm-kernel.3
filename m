@@ -4,76 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1219D31A3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 10:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A03CAD31A3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 10:08:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
-	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z9hmPzenFNHaMEP2WOiENDOqLl4/pBzRMvq4zXQDd30=; b=Wj4M7i6HyrsD89G3nmJfMRgrzN
-	AOfkENIgbMzDVUQGNpFMlkpNSiFLcm3ob0afrJtUcyeh9wJTrhIlEPbdHc483OnSyB4rw+r1EFtZr
-	N9O0XxtJz84dfxMAw4Pqgs2Wgx8bntAWOg0GtKyoJFyd/kOvM1Dl+IjTojg0Eu83Jr3AHiDNGG8uO
-	Nfi6OdRW96g/9fS/ifZ/o5WOYvjNPKrsFLGWjpxa4mL1NZMF+AaVor9mRefHa6oia09jDyFCUeWKo
-	7gwGWc8/4kgalw+5gBmwhB001IU7rnRV/k9c/iwSJ4BxSB84NUpUOJws9UwBWi9raruDoIKhbFMAb
-	tXwYqkTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/VVV4Ijmp3Ls2wh1WtR/yQpGrW85l4Zba4/iPpipd0s=; b=RNr8CEGM5cZsSfpktwKWNgb6KQ
+	WqGnsca3o34RCI1zTu3clKoKGCTonMUFTSU1v8rg7wwZ2AUV8r/WCjNZsLShHh/WvJR3Dqim9rHt+
+	TforpYgzdxpelSny285Zu/DPS3v4LBgVQ0fKVJp7x/x9ShQrid4pfDLOfTqQyvByOKyOFwFAlhWnG
+	x0HPJQBLTsn+ifwvlNLMPKh34cHDcbQWZx/nX7CebDsYCUlR4XtNpQv3iRu/wlymaDy08bR5kVUzy
+	VpVXwRVgzr2UC31G1XFB6CJU2zW92nweZc1uwAhYj+a8nHrgFj9JXtVRqIw/PLA12Pr15A/FSpAbz
+	Kedjm39Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfxno-00000008hA6-0AOg;
-	Wed, 14 Jan 2026 10:08:36 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vfxo2-00000008hEw-1cKl;
+	Wed, 14 Jan 2026 10:08:50 +0000
+Received: from mail-dy1-x132c.google.com ([2607:f8b0:4864:20::132c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfxnj-00000008h84-2z3l
+	id 1vfxnx-00000008hD5-02ej
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 10:08:33 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 189B54E420D3;
-	Wed, 14 Jan 2026 10:08:30 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DE5BE6074A;
-	Wed, 14 Jan 2026 10:08:29 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AFEF7103C8951;
-	Wed, 14 Jan 2026 11:08:21 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1768385308; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=Z9hmPzenFNHaMEP2WOiENDOqLl4/pBzRMvq4zXQDd30=;
-	b=GDEsWcN0OQmo0Xuf/4owyxd3IfW887wWvn+avOzD4aebrRZvNrcrd+7b+JuvSYf/BJ2o6y
-	XIRcpeASb8PCAFWvW13V53ww6G0cRESJL1ONydT3pTPnkqlGmG5Vnk8GkyMM+nZD6hJq+G
-	YjHdiw7GlND0SzDh6MFC1+1avZpJPzvWtDApAQci2AKko5jsCmwxcvh3wjpNaYEu74iBq0
-	e/rxHVQAoVuKHA+lxL3W0mS/U/v0ZIIKQ7sD5vFM9QBgIEtrC/pSFi985sfqLAIyyx5l8m
-	Wm0d2FaBgc1R1hO/tZQw8f/pw8h2Lfk2Q5VSnRmMfl84dJz8EzN8LCd2Kjz+8g==
-Mime-Version: 1.0
+	Wed, 14 Jan 2026 10:08:48 +0000
+Received: by mail-dy1-x132c.google.com with SMTP id 5a478bee46e88-2b04a410f42so7623621eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 02:08:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768385324; x=1768990124; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=/VVV4Ijmp3Ls2wh1WtR/yQpGrW85l4Zba4/iPpipd0s=;
+        b=R4rNzc17Wnuz0GGbrBitx4iRWzi96bXCC4NjkpinklVHbaAzZKDkNdcvqUpUqojA9S
+         QCykyp/l1qW3WEhpaWlSdnvqmw+kONT4isIues2XeFbsvPq3mmgL6DeWE8ThhPwNqHV3
+         WbpoVA2e2ZEDGXJPv3336sPKcW1Eb84TSvU7VwpF5uIqSd2z7UembtZoibU2Vi75wEYN
+         sdp7jO9NAGrrWH2n/edFGkGbIXM5FwV0g8tOaQZ+mihghIDe6lYjqWGktB9XEYYPGtLn
+         VexnxvzSrDk5xPgfauYC1HacSfwSpML1EwfTbZFmxlTlWV6wAkcMPai8GbN3LqLiqkcs
+         zQNw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768385324; x=1768990124;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/VVV4Ijmp3Ls2wh1WtR/yQpGrW85l4Zba4/iPpipd0s=;
+        b=ayBXu+dwmDXZiTRRQ9l+14ZnTS0iY/4gGPhlhIxUa0rUry508kkl8Wm/meeyqS3/P+
+         1VgDzJnPWoXIbYoMQpeIZhuzR6NiTOJqfPVXUp7ohmpXnFkwRsyUOllm66CtbaIocLcw
+         WYFktpOLbjtZcMHNB60HQdJ6QMaOP54kwkJfYXg9A9Of2fk60iFiDYjwXmM7egzYiSlA
+         3u5UrRsIjIBAPmrHNCG6bZohpnmBYJuIWF3mTsxHUvupNkvr4Yak0apV3V/LgRT/AQ65
+         gK+iOhdeedChVDjJlBt7HCUsgKsITlgd6HlFmfmlAnQH05VBAkIW0LjyyKVe2RTsWQ3z
+         N23w==
+X-Gm-Message-State: AOJu0Yz6fOT0BA+8d8m21HXcn5xsSvA8i9o7D1TwJ8f+gqNx4Nx0zFtD
+	B54Ku56vKyuka24O23Xf31Oj3A0sEi3eW2DIuB5E77sHOaX3I1UJ4WyPOcA68Aenc8Q=
+X-Gm-Gg: AY/fxX506fMp8fGQa/qThJkGnZ/gRb8+xRC6ejPK1yIYRfijk1AlAHUUeZMVJorC1HL
+	6jBuycx3+bJVMmvj6WXVofo3TgZyv82ZmzeWoUPAYRj9UjyC/xW+UuqxHZMw3y87GgzldfoZ6S+
+	Fm+/Rrc6bCjLOKONRDgTrjIdCum7VVR/1B7Nzy5YHjogGPgK+KgC7cqr85yX9oyMt38KvjdR/Ny
+	o23fnGstJP7aX+OSdm28pmFhWfhBSBONpaSA/wZKyj0nkPtG+KeznP8cmWfth+xuMn6O188JC3B
+	Y4ao/It/HMGXQ/S2ek6w9iFvFs4ZdY+f4lbgHrK2GbOatXEg3iK/TKOZqJL3Ie/oy8z9PcEGxVY
+	PNPWqQac83+4OBqryVzOTpa414rA7CEL+SqO61bKX+SmDUkCOKlb9yuF4aUT1gfwGk5Ke3l41GJ
+	xk0w30kAG0EtGGj+11
+X-Received: by 2002:a05:7301:4e08:b0:2ac:1c5a:9950 with SMTP id 5a478bee46e88-2b4871eb693mr2526439eec.34.1768385323644;
+        Wed, 14 Jan 2026 02:08:43 -0800 (PST)
+Received: from draszik.lan ([212.129.75.26])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b1707d60b1sm19790893eec.31.2026.01.14.02.08.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 02:08:43 -0800 (PST)
+Message-ID: <c449218000258224fd9460e898b9705c1d0d415e.camel@linaro.org>
+Subject: Re: [PATCH v3 4/5] clk: samsung: gs101: add support for Display
+ Process Unit (DPU) clocks
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus	
+ <tudor.ambarus@linaro.org>, Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>, Alim
+ Akhtar <alim.akhtar@samsung.com>, Sylwester Nawrocki	
+ <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ 	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
+	kernel-team@android.com, Will McVicker <willmcvicker@google.com>, Juan
+ Yescas	 <jyescas@google.com>, Doug Anderson <dianders@google.com>
+Date: Wed, 14 Jan 2026 10:09:20 +0000
+In-Reply-To: <20260113-dpu-clocks-v3-4-cb85424f2c72@linaro.org>
+References: <20260113-dpu-clocks-v3-0-cb85424f2c72@linaro.org>
+	 <20260113-dpu-clocks-v3-4-cb85424f2c72@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 14 Jan 2026 11:08:20 +0100
-Message-Id: <DFO89S1NDME1.1644YSMOMAAJ6@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v2 1/4] drm/bridge: Add ->detect_ctx hook and
- drm_bridge_detect_ctx()
-Cc: <kernel@collabora.com>, <dri-devel@lists.freedesktop.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, "Diederik de Haas"
- <diederik@cknow-tech.com>, "Maud Spierings" <maud_spierings@hotmail.com>
-To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Sandy Huang"
- <hjc@rock-chips.com>, =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- "Andy Yan" <andy.yan@rock-chips.com>
-X-Mailer: aerc 0.20.1
-References: <20260113-dw-hdmi-qp-scramb-v2-0-ae7b2c58d24d@collabora.com>
- <20260113-dw-hdmi-qp-scramb-v2-1-ae7b2c58d24d@collabora.com>
-In-Reply-To: <20260113-dw-hdmi-qp-scramb-v2-1-ae7b2c58d24d@collabora.com>
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Evolution 3.56.2-2+build3 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_020832_007358_71DB6904 
-X-CRM114-Status: GOOD (  29.92  )
+X-CRM114-CacheID: sfid-20260114_020845_051612_E58E7D86 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,153 +108,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Cristian,
-
-On Mon Jan 12, 2026 at 11:26 PM CET, Cristian Ciocaltea wrote:
-> Add an atomic variant of the ->detect callback and a new helper to call
-> the hook while passing an optional drm_modeset_acquire_ctx reference.
->
-> When both ->detect_ctx and ->detect are defined, the latter is ignored.
-> If acquire_ctx is unset, the function takes care of the locking,
-> while also handling EDEADLK.
->
-> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
-> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+On Tue, 2026-01-13 at 10:59 +0000, Peter Griffin wrote:
+> cmu_dpu is the clock management unit used for the Display Process Unit
+> block. It generates clocks for image scaler, compressor etc.
+>=20
+> Add support for the muxes, dividers and gates in cmu_dpu.
+>=20
+> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 > ---
->  drivers/gpu/drm/drm_bridge.c | 58 ++++++++++++++++++++++++++++++++++++++=
-++++++
->  include/drm/drm_bridge.h     | 30 +++++++++++++++++++++++
->  2 files changed, 88 insertions(+)
->
-> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-> index 6dcf8f6d3ecf..0ef12bf98011 100644
-> --- a/drivers/gpu/drm/drm_bridge.c
-> +++ b/drivers/gpu/drm/drm_bridge.c
-> @@ -1344,6 +1344,64 @@ drm_bridge_detect(struct drm_bridge *bridge, struc=
-t drm_connector *connector)
->  }
->  EXPORT_SYMBOL_GPL(drm_bridge_detect);
->
-> +/**
-> + * drm_bridge_detect_ctx - check if anything is attached to the bridge o=
-utput
-> + * @bridge: bridge control structure
-> + * @connector: attached connector
-> + * @ctx: acquire_ctx, or NULL to let this function handle locking
-> + *
-> + * If the bridge supports output detection, as reported by the
-> + * DRM_BRIDGE_OP_DETECT bridge ops flag, call &drm_bridge_funcs.detect_c=
-tx
-> + * or &drm_bridge_funcs.detect for the bridge and return the connection =
-status.
-> + * Otherwise return connector_status_unknown.
-> + *
-> + * When both @ctx and &drm_bridge_funcs.detect_ctx are not set, this hel=
-per
-> + * function is equivalent to drm_bridge_detect() above.
-> + *
-> + * RETURNS:
-> + * The detection status on success, or connector_status_unknown if the b=
-ridge
-> + * doesn't support output detection.
-> + * If @ctx is set, it might also return -EDEADLK.
-> + */
-> +int drm_bridge_detect_ctx(struct drm_bridge *bridge,
-> +			  struct drm_connector *connector,
-> +			  struct drm_modeset_acquire_ctx *ctx)
+> Changes in v3
+> =C2=A0- Alpabetic ordering for all cmu_top children (Andr=C3=A9)
+>=20
+> Changes in v2:
+> =C2=A0- Update gout_dpu_dpu_pclk to gout_dpu_gpc_dpu_pclk (Peter)
+> =C2=A0- Fix dout_dpu_busp parent (Peter)
+> ---
+> =C2=A0drivers/clk/samsung/clk-gs101.c | 283 +++++++++++++++++++++++++++++=
++++++++++++
+> =C2=A01 file changed, 283 insertions(+)
 
-Shouldn't this new function return the same type as detect, i.e. enum
-drm_connector_status?
-
-Otherwise (see below)...
-
-> +{
-> +	if (!(bridge->ops & DRM_BRIDGE_OP_DETECT))
-> +		return connector_status_unknown;
-> +
-> +	if (bridge->funcs->detect_ctx) {
-> +		struct drm_modeset_acquire_ctx br_ctx;
-> +		int ret;
-> +
-> +		if (ctx)
-> +			return bridge->funcs->detect_ctx(bridge, connector, ctx);
-> +
-> +		drm_modeset_acquire_init(&br_ctx, 0);
-> +retry:
-> +		ret =3D drm_modeset_lock(&connector->dev->mode_config.connection_mutex=
-,
-> +				       &br_ctx);
-> +		if (!ret)
-> +			ret =3D bridge->funcs->detect_ctx(bridge, connector, &br_ctx);
-> +
-> +		if (ret =3D=3D -EDEADLK) {
-> +			drm_modeset_backoff(&br_ctx);
-> +			goto retry;
-> +		}
-> +
-> +		if (ret < 0)
-> +			ret =3D connector_status_unknown;
-> +
-> +		drm_modeset_drop_locks(&br_ctx);
-> +		drm_modeset_acquire_fini(&br_ctx);
-> +
-> +		return ret;
-> +	}
-> +
-> +	return bridge->funcs->detect(bridge, connector);
-
-...here you're converting an enum into an int, which is ok-isk but not
-ideal.
-
-> --- a/include/drm/drm_bridge.h
-> +++ b/include/drm/drm_bridge.h
-> @@ -664,6 +664,33 @@ struct drm_bridge_funcs {
->  	enum drm_connector_status (*detect)(struct drm_bridge *bridge,
->  					    struct drm_connector *connector);
->
-> +	/**
-> +	 * @detect_ctx:
-> +	 *
-> +	 * Check if anything is attached to the bridge output.
-> +	 *
-> +	 * This callback is optional, if not implemented the bridge will be
-> +	 * considered as always having a component attached to its output.
-> +	 * Bridges that implement this callback shall set the
-> +	 * DRM_BRIDGE_OP_DETECT flag in their &drm_bridge->ops.
-> +	 *
-> +	 * This is the atomic version of &drm_bridge_funcs.detect.
-
-I may be missing something, but I'm a bit puzzled by the "atomic" word
-here. For other funcs in this struct there's the old non-atomic func X and
-the new atomic_X func that receives a pointer to struct drm_atomic_state.
-
-Here I think you are using "atomic" with a more generic meaning. Maybe we'd
-better use another wording to not confuse readers?
-
-> +	 *
-> +	 * To avoid races against concurrent connector state updates, the
-> +	 * helper libraries always call this with ctx set to a valid context,
-> +	 * and &drm_mode_config.connection_mutex will always be locked with
-> +	 * the ctx parameter set to this ctx. This allows taking additional
-> +	 * locks as required.
-> +	 *
-> +	 * RETURNS:
-> +	 *
-> +	 * &drm_connector_status indicating the bridge output status,
-> +	 * or the error code returned by drm_modeset_lock(), -EDEADLK.
-> +	 */
-> +	int (*detect_ctx)(struct drm_bridge *bridge,
-> +			  struct drm_connector *connector,
-> +			  struct drm_modeset_acquire_ctx *ctx);
-
-As above, shouldn't this new func return the same type as detect?
-
-Best regards,
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 
