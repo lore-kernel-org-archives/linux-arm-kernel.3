@@ -4,84 +4,205 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 435B8D30CF8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 10:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9DD2D29FE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 10:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PQb4APq8JZCf6vJkgFja2UsHU1/oiSPOSOYM2wa7H1g=; b=dE/qps+2TV7OasptHHdLYmquYT
-	7BqSoS3tFMX76A8X/2BjfxQt9lMugutSOJn7v/5h8++z3v+d+Mx1i5BAeLPOcBH7Ji1AusVYgPx1M
-	NEgf8suZGZ/a4yaJ0vhlcQUbdBiGhGx700GX0hNf4YPdbjKuHEPdCMCl8LMNEQCiFltks2eioWElc
-	ZmXbJVbhTzBSZNDuZaofDkOUmBSc6Y/JAuedo0QDK1sxQb32o+KwBEhfWVlOZVnDCM60EzmGp+tWq
-	7iL0EYrreGoqo3HuFbrpiySnGvj1eMaroca2xzUqgDFY3WSaO7GcMSwGENKZv4B3WJcQJSJ2AFa9L
-	8iKagyRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=82iaYBcUjYhHV+8ExsjUoWsMsqMtFzhosVFhS9i75Yw=; b=D7qNNbZBLFrFtp
+	YLE3/YPTPzJlauj5jONQnRs84yZ+ls7GhBCXXU2hRowYKLp2eFc7G8uoMhEks5doshRQWyGS6vsIj
+	88QNcaa7/aN8cn4TvRRa8YMXMafmxdRP+wUKwLLqztqOBmac2DPHGpyOJdQr/2ckGJtrWDszXhnXq
+	SELjgPfgW0cqxBY8kYF9r8XTLErAM8EUrNUfKLrD+MC5pailywQmHCOiOgw6HSjcFdxRQz3pIN1ob
+	mR+T17iuCZ2DPX2xB2DAs/GSydwQo1mOxaenWvWcbtp1hWjpfAT4TuOwxgy+VCLdC3RyeiTz6pFB0
+	JhOB1P0NfqcZ/HjNSl+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfy1d-00000008lOg-1uGy;
-	Wed, 14 Jan 2026 10:22:54 +0000
-Received: from mail-vk1-f175.google.com ([209.85.221.175])
+	id 1vfy8l-00000008mgH-3EQw;
+	Wed, 14 Jan 2026 10:30:15 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfy1Z-00000008lMr-48uy
+	id 1vfy8g-00000008met-2cij
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 10:22:51 +0000
-Received: by mail-vk1-f175.google.com with SMTP id 71dfb90a1353d-56379cb870bso1042037e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 02:22:49 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768386168; x=1768990968;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PQb4APq8JZCf6vJkgFja2UsHU1/oiSPOSOYM2wa7H1g=;
-        b=W1I7m+v/p+ongwf5n+zi2I9hbwDnCa87NVBY/W7wd6ngaigFhw2nfWgg4Zrp1snBn5
-         ZdeD4Hb3RONDpmU0zXOZ5vCPItk1y39L7bkJSC2LpgL4xXuYm1xX0AiUoiQlYJvcKC9W
-         FiYXtb+00xx56rfq2WYEzwd+dp6+iESZSl81aFhjCPZ9JnfQ/AN/6Dn0nSp27eYWkaW/
-         dT1lXRa9MGGXsWZrhrz0PaCMzVQS1rgWjcepr4UmqPtWP+6LAdqGlFWSsC2ClEqCfuFS
-         QNdThb/xhIvjwcS1pkdShP06SsomoNAiZ0wT88xCWSEj6lVroEwpKMyaincNolIcWp8c
-         Frqw==
-X-Gm-Message-State: AOJu0Yx6IQyXRvFelwHhXQ+4SaRoj/CVJASMzLfu7o0/rnL1NzCbx50w
-	X+XtFwEqulaY2IwxV3SZYZlVAb1CsDgJs/Tdg+pwn9hx7cZL+hn0nMVCUoiWUyLd
-X-Gm-Gg: AY/fxX66sfuumPjrG+x5jZUV9UwcmxrWf7xTvUJv7S81FYxTvEsznhk3GZqCtAJR0HS
-	y2PHg9Jkm+8gx+loyb5RffNk2if+nSTsJ3vmqb6MiHnGgDqjDdnaTQJum0kTpdstNDyFcAUS2w2
-	CHBEYmoUweyXcQMm2hA4UEVkMBJcBs9AL/bRw4uBMPmSpF+NrzBX/LFHPYyJpy+zEGCrwXYrrqa
-	5L7b5308DPAcKsfK7SggT0PFmV3Cj4yV2nOFrb5fqrB62ha3GSXU+3FMXbUhkW2jZ6cU2JLpUAg
-	hcQLoih8KVKG3jPqlPpG19LHojACvLfnLBk7pJRmYMZVghiafUDEJN+ddVmiM/UBj9uNBzKN92m
-	L+jKHjwl+xl8bAFv47ymPEIjoI9a7IbZbcX8S8dN583kdmIRV5XoW2cU8MEFSpO3eCfUwKwPBXo
-	rxuB4UkXawIF0Sh/5eEarMJHddcT9uwBNKgxS95pn3SnhIAB2a
-X-Received: by 2002:a05:6122:311b:b0:563:6df6:1b8 with SMTP id 71dfb90a1353d-563a2050b15mr518929e0c.1.1768386168026;
-        Wed, 14 Jan 2026 02:22:48 -0800 (PST)
-Received: from mail-ua1-f50.google.com (mail-ua1-f50.google.com. [209.85.222.50])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5637f6ce00esm10286463e0c.0.2026.01.14.02.22.47
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 14 Jan 2026 02:22:47 -0800 (PST)
-Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-93f573ba819so3399430241.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 02:22:47 -0800 (PST)
-X-Received: by 2002:a05:6102:50a6:b0:5ee:a93d:2cdd with SMTP id
- ada2fe7eead31-5f183c02702mr366472137.40.1768386167018; Wed, 14 Jan 2026
- 02:22:47 -0800 (PST)
+	Wed, 14 Jan 2026 10:30:12 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60EAPiY3139261;
+	Wed, 14 Jan 2026 11:29:47 +0100
+Received: from as8pr04cu009.outbound.protection.outlook.com (mail-westeuropeazon11011037.outbound.protection.outlook.com [52.101.70.37])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4bp7bjrnp5-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 14 Jan 2026 11:29:47 +0100 (CET)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dtInVOmnWBekEaOZ0cNRlPJlCV+6o0rNNB0dWgA7r6hlD2+haF2sHiON7JluwLSuJSaBrOsQgu5aya3lEo2mOJtH1UlJoc2BIeMn6MdgniJvR0bX7Ol0LzQsku+X9lObKHst7RYC7jsv6XnQJTiuUCFnlX+DezzdF/n15vyF3+fMEdTkchG0OfXSxcZ2ECB3fZx0QkbrlZ6xkwTy3ak5NZvvwDn8HZCfYwFAkVttHqyUke68qBAG2tOTOVouqeLkTBr9F48mD4MIWkDzJ0CgcDCfi+j742isghSkqyuEl/CWiC3QpC8d8RtLEVDTehOjJDZVRaQui2YBp9OeMk/TcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=82iaYBcUjYhHV+8ExsjUoWsMsqMtFzhosVFhS9i75Yw=;
+ b=raYQSbh3oPSKtjt0RghV4oa94ezCaBWoIZVEyBu50szRhZAI0lqCkOzreq/gHagcIh9C0a4XkY13qwQSnyW/oD7TChseGHzIXYcVJ5IhAEe296oyqH5m6fySlxVEQFmOqej+nGViM4952lECuYaXkTBAAuXAHH9gRCgOnCIsmffGzyx/yqJxI27jRhiIbq6s+WrGfFV/O8lQ/Bs2fDa/TfiY3W+kH96aRAvJNEhic3L2OiqNp/tHLVZbFpZEw99+E3pWl1iEXCS7DHSx20TlwDwrTgBvm18FKbi8H1CI2nlemwo+sRcWsJoqdWeF4HDJCG3a3oRsH50A7SkZ0e1oOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=linaro.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=82iaYBcUjYhHV+8ExsjUoWsMsqMtFzhosVFhS9i75Yw=;
+ b=exkts00xxssTF0xwjoUuuIBHnagLx7jjvLWv7zxUzYl9fqtl5liWLBhYklMEDW0TPe83csyTUB0g+qbxwYB4m5sPjLfDCf+AU0W5rPcXpiV1Swf0ySinsOht7MbTBu3thKVrY2djH9orCucx8VPUUhhPxwo6KqLmF8KuX4UL/ToIt9dm3GuZhC2LdDsnnlmx/Kk+g64nKKsbPkVLz8Hg4KhaBeQ46uGd7l+qb3z5LU0QTcn/xHbXUmCci3ob1RpdhyBUREjI+tFIC7MCZaYl0SlDCUzSi0H4Ni65mqKLtao3CebGXITALPVjIJkHc4eNp3dvoTCwLtgudWclsg6P+A==
+Received: from DU7P250CA0018.EURP250.PROD.OUTLOOK.COM (2603:10a6:10:54f::31)
+ by PAWPR10MB7717.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:360::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Wed, 14 Jan
+ 2026 10:29:44 +0000
+Received: from DB5PEPF00014B8A.eurprd02.prod.outlook.com
+ (2603:10a6:10:54f:cafe::f4) by DU7P250CA0018.outlook.office365.com
+ (2603:10a6:10:54f::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.9 via Frontend Transport; Wed,
+ 14 Jan 2026 10:29:44 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DB5PEPF00014B8A.mail.protection.outlook.com (10.167.8.198) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.1 via Frontend Transport; Wed, 14 Jan 2026 10:29:43 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Wed, 14 Jan
+ 2026 11:31:00 +0100
+Received: from localhost (10.48.86.212) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Wed, 14 Jan
+ 2026 11:29:43 +0100
+From: Gatien Chevallier <gatien.chevallier@foss.st.com>
+Subject: [PATCH v2 00/11] bus: add stm32 debug bus and coresight support
+ for stm32mp1x platforms
+Date: Wed, 14 Jan 2026 11:29:14 +0100
+Message-ID: <20260114-debug_bus-v2-0-5475c7841569@foss.st.com>
 MIME-Version: 1.0
-References: <20260101203938.159161-1-marek.vasut+renesas@mailbox.org> <20260101203938.159161-2-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260101203938.159161-2-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 14 Jan 2026 11:22:36 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWZzL7nUCv6LnDaDhpMwfrnJp3ZYPAqQtDJ3BsZyH9k6g@mail.gmail.com>
-X-Gm-Features: AZwV_Qi-Eu9-CR2_DSC2JlXjPpAlkxhHqejeDJ45jkp3qmHmsOBPHJManLtOH4I
-Message-ID: <CAMuHMdWZzL7nUCv6LnDaDhpMwfrnJp3ZYPAqQtDJ3BsZyH9k6g@mail.gmail.com>
-Subject: Re: [PATCH 01/11] dt-bindings: phy: renesas: usb3-phy: add r8a77990 support
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Vinod Koul <vkoul@kernel.org>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
-	devicetree@vger.kernel.org, linux-phy@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPpvZ2kC/03MSwqDMBSF4a3IHTeSRxtjR91HkZLERDOokVyVF
+ snemwqFDv/D4dsBXQoO4VrtkNwWMMSpBD9VYEc9DY6EvjRwyiVlVJHemXV4mBWJaLmU0jZaaA3
+ lPyfnw+uw7l3pMeAS0/ugN/Zdf0r7p2yMUKI8Z2duLroR6uYjYo1LbeMTupzzB4aNlTikAAAA
+X-Change-ID: 20260108-debug_bus-392666c7a3aa
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Leo Yan
+	<leo.yan@linux.dev>,
+        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?=
+	<legoffic.clement@gmail.com>,
+        Linus Walleij <linusw@kernel.org>,
+        "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        <jens.wiklander@linaro.org>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-gpio@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        Gatien Chevallier <gatien.chevallier@foss.st.com>,
+        Antonio Borneo
+	<antonio.borneo@foss.st.com>
+X-Mailer: b4 0.14.3
+X-Originating-IP: [10.48.86.212]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB5PEPF00014B8A:EE_|PAWPR10MB7717:EE_
+X-MS-Office365-Filtering-Correlation-Id: f81e0d9a-4356-4362-252c-08de5357d55a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|1800799024|7416014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZnRJSWk1VGV4b3NrZDRWSDk1ZzNraTNrWk1yNTRMaHhiNWNFTlR3TExZQkJJ?=
+ =?utf-8?B?S3NFNStZeHRZSWtFTTIwY2dlV3Q0bENrdlFrcksxb3NjWE4ycFBxdElVR3Rs?=
+ =?utf-8?B?cFNIVTB4QzJDYXRnMHNnam1ENlhpK0ZNWW5mRnVvbkhjUWR3NzhLYm8xZjYw?=
+ =?utf-8?B?aUp5TC95NVJSUHhMNUFRUlFMbi80TGVNVTZGMCttdkMxRDZzaHN0a21SRm15?=
+ =?utf-8?B?RG5jbkNFYVBWSENBand1VG9DV3FUTHFCaUJZeXFBc1NWaGR6Qk1PR2YvUmpG?=
+ =?utf-8?B?bU41VERaKzFRbmVSbFlhUnZsMVNvUTBHNmM1cGVRY2JiWTNIME1vYmJhNDhC?=
+ =?utf-8?B?TXlTNDhaUXBUWXd3dmlVOHBaZTBGang3Zk90UTNCUkx3N3FML0NzZ0FQL3Na?=
+ =?utf-8?B?cTZWRVdBQWMydmN4cTJrS01QY3RsZGxRWi9pVzZ4cVRxa3pPOFNXTGlsNmVt?=
+ =?utf-8?B?TU51a1lObW5ZdVR5Wkd3Wk44NmdtNXQvTzdaT3d2NVY2MGR5c3BKbnFIVDVs?=
+ =?utf-8?B?VHhzc0YrTHpQTkJqTjJTTHlnMkt6T00wc1Z1eDdhOTVvQ1FpWHRjaDhhcFBY?=
+ =?utf-8?B?U1VxTWFtRzRqNGROdDFtTHJRTTAzSnhGQVllOWFVUWFmVTY2YUlvU2dXTEVW?=
+ =?utf-8?B?NFI4UnZRQnMydWp3dlZqYXJ2N3NkNUc5M09lWWxSY1FUODY5RUt0ejllQjY0?=
+ =?utf-8?B?THZIZ3ZKU0xNK1BmaG1YQ0tTNW00b1VTTy9hVC9wUlpsejhPZWE1RXhPNm84?=
+ =?utf-8?B?bTR2MUpSLy9CUlVXakRaWUZGZXNoT3c4UWhOUjRZNytjYXBWWVVHa2taZk4y?=
+ =?utf-8?B?SkFFWXk3Z3BhSXVxV2JWVTM4dEtMdHdlOVBlbkY1RENJd0ZHUXZHMkxQYjZl?=
+ =?utf-8?B?WWhVTXppUjI2SHJTaUZLTVdRT0R4Ym5DMFRDSHBJdm5iR0lkT2FsN3QycmNG?=
+ =?utf-8?B?OGJhamdBMzFtQ2JtUHdRTU5OWlhKWW96Q2F2UjhRbUhLdHZVVEFLaGtrZWlN?=
+ =?utf-8?B?QVZJbUV5L2h4SjhvNk42K29pOGl6clFYTGlOZnJaMzRvSTlHSngrVjBwNlJ2?=
+ =?utf-8?B?VDBsUmRHSGo2aXU1cEQzZ1pjNUd4eWlXMW1vc3Z6UUxlN1VxTmxvQWJoYU5n?=
+ =?utf-8?B?bUZtazVxc3RSck1lekdRcFFmVk9JWjJ5enMxVDBaRlZWWnNSWVJlUm1yRGNM?=
+ =?utf-8?B?aERsMCtHN3NlVWpJQjROZ2VxbjcxR1k5bWMwaXh2OEJ4T2I0eWMxQS80aThp?=
+ =?utf-8?B?WHR1ZzFaWjlYMWlZYjB6Z3JaMHUrejloWEdpY2tNdTJGRCswdkF3NlVXTG1L?=
+ =?utf-8?B?UjMvVDV0WHNrdndOdko0NzFFZ0RsM3ZLS2tRU2hFRlhOd056SVFEeDBObDRt?=
+ =?utf-8?B?Q1QyZGw4V1hJVHBMTCtQbUg2eExCeUQyWTM1NCtXZDBsQUhXS0ozK1MrU2Ur?=
+ =?utf-8?B?V0luMktaeWxvbXUzYkZ2bnMyQzJGQUg1bHhVOC9ZQ2kvNy9DR212dVlmZkJG?=
+ =?utf-8?B?TytmV241Mm5ldmVyV1I2TjhaUTlxbzJqcHp6eHV3clhLR3RNbE4yMnRydGxs?=
+ =?utf-8?B?dFR1QVdDWFNMT3U0dTI2NlZMR1VUREhyRXBmM2NuRXVCaWtLdUhMeWRFejN3?=
+ =?utf-8?B?NmtCL0FubWkwcEcwYVBtTmcxRXJITGhUTzk0ZWpCbjRLQ0x5MDI3M2R5RC9o?=
+ =?utf-8?B?WEMzZDRRNHpGR0dDdU1QYVAwbjhqNURjTjJlRmdIM0lMWVg1bmdCNUE2Y3NX?=
+ =?utf-8?B?Tk1rZ1BIWks5VGNwcEdQNDNTT3l2NSs5dXZVNjhqUmI3V2M0aVJuWWxwVnBp?=
+ =?utf-8?B?cWRaRjBZZGdGdVo4Z0pVMjJMR3hTalVsWXRXcVhmVDN2S1FZTy84L3VWdS9P?=
+ =?utf-8?B?TTFHM2x3YXIyK244d2UwbDEzdEJmU0tLU0JSR0YzUDViaTZLMEk5akVxSE1V?=
+ =?utf-8?B?ZURsTDAxYmlJZ0ExSlJYMWVpVEcwUFlXRXV1RUZuTGpDcFMzQldJUFRyZC9S?=
+ =?utf-8?B?UlNGaExlMmZmaUl1SmhNTHBZQ1BobU9XZGo1aElXM0wyMnFVbDNDcTArWlZl?=
+ =?utf-8?B?dGpxYUdiOFRhbjc4bm5hNEV1WTREM2Q2bHJGVG8vcXFoWnJBa1k2aGFZQzg1?=
+ =?utf-8?B?MzFYb0d1TGw3NFQvTzhtWXBHdFVPbVZVYWd6RkttMy9RcytyVmo5Sm43L2xq?=
+ =?utf-8?B?S0MzWHdldy9NczVvTjFlRG5ZTXZLSHJtUGJCRUlRNlNTaTFiTE9xSEZHUnU2?=
+ =?utf-8?Q?v/4ukC5GLUxrvjnt+RC9X3+ljXaVWkVa2LXvPc00Ko=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(1800799024)(7416014)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2026 10:29:43.8851
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f81e0d9a-4356-4362-252c-08de5357d55a
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B8A.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR10MB7717
+X-Proofpoint-ORIG-GUID: 7crT-O5lVJAyWnH8un_yKRgW2Er6-kH-
+X-Proofpoint-GUID: 7crT-O5lVJAyWnH8un_yKRgW2Er6-kH-
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE0MDA4NiBTYWx0ZWRfX/MakmwTS+KYN
+ gJLjBaKJT4PczmozJwcnRFdEupQTqpF/HomHQusEP3F61vj9gWblLXyCUoqoMo+ppBLjco0rp43
+ nusAt8QvZXy/1IQ9j0rTpmhDVnMDlA20hhNzgbXnfITB9rcftmuYb2wTARv/qH5MiX5TuQ3zKsI
+ 4IsSEZp7apYWnmnVBqAWQlywjpH+22Urx9I32gltKbEzNX91QyMT8QRFQouSevBGWxvxtNonlHl
+ c8b38fk12YSqRUZHKSFzZzQQMHBRDf6Rt/bGZgUsdNS5zK8oOOvLff0a23zQuVaKpdJCpmfhgac
+ WgjD04U/bR7gBVtZJymODyks3/R+CAR05GmyrAlcxT6cXrrNXAiRn21KyjWbncKte4AkhLfKUGm
+ h4/1YDKpvP5s8TnI/NAoj5avS0a8gNnsGiprd8UVVfr722YIl1VHDik7Tl8PhaXXo0BN7JEZH92
+ 2DXLAJ634S33YqCDUWA==
+X-Authority-Analysis: v=2.4 cv=YvYChoYX c=1 sm=1 tr=0 ts=6967701b cx=c_pps
+ a=le7R1DPsL10lBYSFBlTEnw==:117 a=uCuRqK4WZKO1kjFMGfU4lQ==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=rg8MelPR9j8A:10 a=IkcTkHD0fZMA:10
+ a=vUbySO9Y5rIA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=NEAV23lmAAAA:8 a=VwQbUJbxAAAA:8 a=8b9GpE9nAAAA:8
+ a=ypHp3MR7veaYCG1KK1EA:9 a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-14_03,2026-01-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 impostorscore=0
+ bulkscore=0 adultscore=0 spamscore=0 lowpriorityscore=0 malwarescore=0
+ suspectscore=0 phishscore=0 clxscore=1015 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601140086
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_022250_025058_643A06EA 
-X-CRM114-Status: GOOD (  19.67  )
+X-CRM114-CacheID: sfid-20260114_023011_460445_54C4B74D 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,43 +217,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+Stm32 SoCs embed debug peripherals such as Coresight. These peripherals
+can monitor the activity of the cores. Because of that, they can be
+used only if some features in the debug configuration are enabled.
+Else, errors or firewall exceptions can be observed. Similarly to
+the ETZPC(on stm32mp1x platforms) or the RIFSC(on stm32mp2x platforms),
+debug-related peripherals access can be assessed at bus level to
+prevent these issues from happening.
 
-On Thu, 1 Jan 2026 at 21:39, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> This patch adds support for r8a77990 (R-Car E3).
->
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+The debug configuration can only be accessed by the secure world.
+That means that a service must be implemented in the secure world for
+the kernel to check the firewall configuration. On OpenSTLinux, it is
+done through a Debug access PTA in OP-TEE [1].
+To represent the debug peripherals present on a dedicated debug bus,
+create a debug bus node in the device tree and the associated driver
+that will interact with this PTA.
 
-Thanks for your patch!
+[1]: https://github.com/OP-TEE/optee_os/pull/7673
 
-> --- a/Documentation/devicetree/bindings/phy/renesas,usb3-phy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/renesas,usb3-phy.yaml
-> @@ -20,6 +20,7 @@ properties:
->            - renesas,r8a7796-usb3-phy  # R-Car M3-W
->            - renesas,r8a77961-usb3-phy # R-Car M3-W+
->            - renesas,r8a77965-usb3-phy # R-Car M3-N
-> +          - renesas,r8a77990-usb3-phy # R-Car E3
->        - const: renesas,rcar-gen3-usb3-phy
->
->    reg:
+Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+---
+Changes in v2:
+- Fix kernel robot error by documenting the access-controllers property
+  in the missing coresight peripheral binding files.
+- List the access controller items for HDP
+- Various minor fixes in the debug bus binding file.
+- Remove clock documentation and its presence in the DT node and driver.
+  Bus clock will be handled by the child nodes' drivers.
+- stm32 debug bus driver:
+	- Depopulate the bus when .remove() is called
+	- Remove trace when error on devm_kzalloc() as the trace
+	function does nothing in case of ENOMEM.
+	- Remove use of of_match_ptr()
+	- Use tee bus callbacks
+- Link to v1: https://lore.kernel.org/r/20260109-debug_bus-v1-0-8f2142b5a738@foss.st.com
 
-According to Section 76.1.3.5 ("PHY Register Configuration"), the
-USB3.0 PHY register block is only present on R-Car H3, M3-W, M3-W+,
-and M3-N, but not on R-Car E3?
+---
+Gatien Chevallier (11):
+      dt-bindings: document access-controllers property for coresight peripherals
+      dt-bindings: pinctrl: document access-controllers property for stm32 HDP
+      dt-bindings: bus: document the stm32 debug bus
+      bus: stm32_firewall: allow check on different firewall controllers
+      drivers: bus: add the stm32 debug bus driver
+      arm: dts: stm32: introduce the debug bus for stm32mp1x platforms
+      arm: dts: stm32: enable the debug bus on stm32mp1x boards
+      arm: dts: stm32: enable CoreSight on stm32mp15xx-dkx boards
+      arm: dts: stm32: enable CoreSight on the stm32mp157c-ev1 board
+      arm: dts: stm32: enable CoreSight on the stm32mp135f-dk board
+      pinctrl: stm32: add firewall checks before probing the HDP driver
 
-Likewise, Figure 76.1 ("Clock Distribution [R-Car H3, H3-N, M3-W,
-M3-W+, M3-N]") does not cover R-Car E3. Unfortunately there is no
-separate picture for R-Car E3.
+ .../devicetree/bindings/arm/arm,coresight-cti.yaml |   3 +
+ .../bindings/arm/arm,coresight-dynamic-funnel.yaml |   3 +
+ .../devicetree/bindings/arm/arm,coresight-etm.yaml |   3 +
+ .../devicetree/bindings/arm/arm,coresight-stm.yaml |   3 +
+ .../devicetree/bindings/arm/arm,coresight-tmc.yaml |   3 +
+ .../bindings/arm/arm,coresight-tpiu.yaml           |   3 +
+ .../bindings/bus/st,stm32mp131-dbg-bus.yaml        |  79 +++++++
+ .../devicetree/bindings/pinctrl/st,stm32-hdp.yaml  |   6 +
+ MAINTAINERS                                        |   1 +
+ arch/arm/boot/dts/st/stm32mp131.dtsi               | 118 +++++++++++
+ arch/arm/boot/dts/st/stm32mp135f-dk.dts            |  24 +++
+ arch/arm/boot/dts/st/stm32mp151.dtsi               | 172 +++++++++++++++
+ arch/arm/boot/dts/st/stm32mp153.dtsi               |  68 ++++++
+ arch/arm/boot/dts/st/stm32mp157c-ev1.dts           |  40 ++++
+ arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi          |  40 ++++
+ drivers/bus/Kconfig                                |  10 +
+ drivers/bus/Makefile                               |   1 +
+ drivers/bus/stm32_dbg_bus.c                        | 236 +++++++++++++++++++++
+ drivers/bus/stm32_firewall.c                       |   2 +-
+ drivers/pinctrl/stm32/pinctrl-stm32-hdp.c          |  41 ++++
+ 20 files changed, 855 insertions(+), 1 deletion(-)
+---
+base-commit: 92fad96aea24fc19abe1eae2249402b61de3a3e2
+change-id: 20260108-debug_bus-392666c7a3aa
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
+Best regards,
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Gatien Chevallier <gatien.chevallier@foss.st.com>
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
