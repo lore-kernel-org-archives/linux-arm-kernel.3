@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D827D31A28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B84DD31A25
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:32:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7gkLDGpcH2ixv9Hp34Yj1+ZbXrSOZHF+yU29hk2sNpw=; b=Z8ZElbKIX07rfwtVU8tTKxPkcD
-	iM03h3lO32JwTf2ryBCPGiWcn5CXWYe7FCODfxgPCbzlbjucal4oQ1TQgw8OqtKD3d90rit5XAzJE
-	hyAB79S11/KHhdEtxnk6RMhHYqU5b4CJNBxtG5EjRnKelGR7J7J7Aw3JQnripesUMfs4FmEBd3mGy
-	rPoggdgRdnLKCqZea+KkX2nDl4ZsVzQN0J+LgryV+UyvIq9Pnwa7OFHqkZkUdlYnlfL2QBKfEPIY/
-	AKa4PGKBo4A24zsOU9/YUXn2RWGenLAiyjx6WU/x0YImfaUydIVIgHUg4NB/Px7ayKGJIc01WlDUM
-	MEas1efw==;
+	bh=ghz7Ajm3bUckJQ+8UCG7+zPaTgPrics1K66DUP0I1/E=; b=gZx7oVJsGkaKfu6LKCcEmhbqfw
+	o7cb97YAbpaIpzRM7cnWuoq0PltaY6AfVdQFFaOW6W0MfA20S5nTjFnlnM0XhY119H9mBp0tvnhEq
+	5AAIgu/LDLByhLw6V0Q/WpWcJYKseSjoSb6v+UUPdfAuP1UB6P/qCmL5M1R812BRKd4D+1Ncwe/L9
+	wC2ZIQmyytFW+oySZd8vU0cFlBd+NXpZ74enuFPfx4Nzs8ixbBUyojnwTcL++EVCLiAwQtj6mx957
+	+d8HrUdRA4Sv2efzs7Mx5s0bL67Smxoz4HJJYrk0Gh+cpwYml29rgLnBYvtqspsV8943SnrTnd+a/
+	TAIY/PvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfwE9-00000008KqP-1pgL;
-	Wed, 14 Jan 2026 08:27:41 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vfwJ8-00000008LjC-2ZHx;
+	Wed, 14 Jan 2026 08:32:50 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfwE6-00000008KpE-3n6R;
-	Wed, 14 Jan 2026 08:27:40 +0000
+	id 1vfwJ4-00000008LhF-3QTh;
+	Wed, 14 Jan 2026 08:32:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1768379254;
-	bh=8MK2K1fASDPVnowqxQJ1JsgFLtEXmJrr6pW4o1QRCyc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UdOb5SP5TUuhuFc/WhQJMKtJekNVy54o3R38/WoQOOwEqbI7Va76TVfEYmO9/o7G0
-	 osO2Dkd+3GI4pdGm9DxibTNa3cFFqVe8WfdT+MsFCvNhTXYBstc3/Cqb95tBD0rmIZ
-	 CJ6f+G2Di4ibr0mPV+RLLFpmBuhlT0vNaDbYp21iDG1XCJzos/SAbwVajHb7AAOaKD
-	 WBia4g9eXgNJ4B5l0m6bUV+DiclrhgU/GxxWQTWZRQcoLuhex+WX+X3acRLMP8N2cM
-	 1TqAIYUYg0uEW9ekIygOQAyOdpljqwakRH+bvff9FedRviDiosITXaBb58PXcW+RS0
-	 ZJVO7cSIognsw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	s=mail; t=1768379562;
+	bh=RJ3P574FlAZERZAookuqu7G/qskejska98y0K/BBMrw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=oIPu0WZ4g0LaxJFYhidwQ794+AoBt7zpxZ1MTVCOTfFRvyg5JKPv+aRq/+AxJOIYz
+	 g7H5bHxO0wX+v3BEBFsRPfa0a/tn6FxoOMPn8JmxCQT5tYZw+KAE824bPHo7NjOqRg
+	 nwP5cu/HjRbgbWOozi2YRVsz5hKaenPEEfxYGD3dREko/JWRZTtgPl2Chf67UpfbXm
+	 59lqP7spQwl7Qoq8NF5POSvT7OihCTzBJ2FPBiF4Yom+7/sn/gs7Jr9Ad890gJURvy
+	 xMSooIW1RGF4e+LW7pKoEisDeR3aeGJloBu9jJLkXYb9kgNETiD0G+PMQ0tdxZ4ukT
+	 KqcbqsBxiwDng==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 73DE517E0139;
-	Wed, 14 Jan 2026 09:27:34 +0100 (CET)
-Message-ID: <b38823d4-1bce-496b-a063-75f2139aa3bd@collabora.com>
-Date: Wed, 14 Jan 2026 09:27:33 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: arm: mediatek: mmsys: Allow single
- vdo/mmsys endpoint
-To: Rob Herring <robh@kernel.org>
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- kernel@collabora.com
-References: <20260108143934.69634-1-angelogioacchino.delregno@collabora.com>
- <20260113225346.GA367211-robh@kernel.org>
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E0B6417E01E7;
+	Wed, 14 Jan 2026 09:32:41 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260113225346.GA367211-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+To: linux-mediatek@lists.infradead.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ sen.chu@mediatek.com, sean.wang@mediatek.com, macpaul.lin@mediatek.com, 
+ lee@kernel.org, matthias.bgg@gmail.com, lgirdwood@gmail.com, 
+ broonie@kernel.org, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ kernel@collabora.com
+In-Reply-To: <20260113110000.36953-1-angelogioacchino.delregno@collabora.com>
+References: <20260113110000.36953-1-angelogioacchino.delregno@collabora.com>
+Subject: Re: (subset) [PATCH 0/6] Fix dtbs_check warnings for MediaTek
+ Helio X10 platform
+Message-Id: <176837956184.8998.8649107668672128960.b4-ty@collabora.com>
+Date: Wed, 14 Jan 2026 09:32:41 +0100
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_002739_153682_4CA9AB77 
-X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-CacheID: sfid-20260114_003247_057865_45491874 
+X-CRM114-Status: UNSURE (   5.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,30 +80,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 13/01/26 23:53, Rob Herring ha scritto:
-> On Thu, Jan 08, 2026 at 03:39:32PM +0100, AngeloGioacchino Del Regno wrote:
->> The hardware supports using just a single output while leaving all
->> of the others unconfigured (disabled), but the binding did not
->> really allow specifying a single endpoint@0, because in this case
->> one must either:
->>   - Call the subnode `endpoint` and not declare any address and/or
->>     size cells; or
->>   - Call the subnode `endpoint@0` and have at least one more other
->>     endpoint(@1 or @2), and declare address/size cells.
->>
->> Allow specifying a single `endpoint` subnode, without the `@0`
->> implicit suffix to suppress warnings happening on this kind of
->> valid usecase.
+On Tue, 13 Jan 2026 11:59:54 +0100, AngeloGioacchino Del Regno wrote:
+> This series fixes various dtbs_check warnings happening on the MediaTek
+> Helio X10 platform devicetrees.
 > 
-> This series isn't needed. We've dropped this check from dtc. I'll do a
-> sync with upstream.
+> Depending on correctness, either the bindings or the devicetree was
+> changed as a dtbs_check warning fix.
 > 
-> In any case, it's also a W=1 warning which wouldn't be my top priority.
+> AngeloGioacchino Del Regno (6):
+>   dt-bindings: mfd: mediatek,mt8195-scpsys: Add mediatek,mt6795-scpsys
+>   dt-bindings: mfd: mediatek: mt6397: Add missing MT6331 regulator
+>     compat
+>   dt-bindings: regulator: mediatek,mt6331: Add missing ldo-vio28 vreg
+>   arm64: dts: mediatek: mt6331: Fix VCAM IO regulator name
+>   arm64: dts: mediatek: mt6795: Fix issues in SCPSYS node
+>   arm64: dts: mediatek: mt6795-xperia-m5: Rename PMIC leds node
 > 
-> Rob
+> [...]
 
-Oh, okay! Thanks for the feedback :D
+Applied to v6.19-next/dts64, thanks!
+
+[4/6] arm64: dts: mediatek: mt6331: Fix VCAM IO regulator name
+      commit: 178c08fd8ce53c77910fb16cc99e932049b6c6e8
+[5/6] arm64: dts: mediatek: mt6795: Fix issues in SCPSYS node
+      commit: aec5445dd7c8c6c84d46f2dbf07967ac54393595
+[6/6] arm64: dts: mediatek: mt6795-xperia-m5: Rename PMIC leds node
+      commit: a40901fe6f5c27856b7112a6e635b13446ec4c7b
 
 Cheers,
 Angelo
+
+
 
