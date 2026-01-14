@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63789D31A2A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 09:20:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1650DD31A2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 09:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ajKHfaO4v+1muKcNvPZwHjUhxqRRpkJ79ZJEwkyEG/g=; b=lOwShOmm/eht8dS+oGhBL3kns8
-	FOV3T78+zZeii4vGlxRfvU9QUjcTxTEykGg3XPAuc6Gpn8Lv6M+yJfOyjdEBdpILHz6KdXz1Z5HLE
-	yp+GQBoDHFO5LQw60Ae1K5KqF/kNsPpMwouTwJ1U+CrDww2oRjbrWuYpXMHktUzWPDrIrlGSDwCkz
-	ulPtz8GtfYEQ3A4Wa9+H0QuVJn1JzyanDZThTppTs5Q9Xns088PNv+Yf6hKxpBwPJgOvMo5gSSJdP
-	66A5PI6czu/+aBlzPPW4T86qmsE4BjrAtJY2eXIBMPfanBkfkYysLRtStUDtK5KV0YKQ39RS1DUpS
-	CrPI2zYg==;
+	bh=9sIOIDUz+a+rJoM5aZbU9NF6txwBcBGmoSklwUJ87hg=; b=eOPz6SOsxGwEPqqs3zYkG+se/f
+	DL43g3pIFjgrKSKe95Grox+HdnnMS9w3yNEEhJ0GcNhyP5SK/iEKruOwDUq8fOp5+vyfmyHgSHLqu
+	MyLHAcvUfNhzmh/xp691su98i794/C0eHhEy49ICWTSITD60vJFb1BcC5ksIoAcOT9qeNPUEtAZOI
+	zIopyG69HiT+Kqx8vJoWkAnnrXCaTidLDJv7xXUytHfDe4jzM2UKZVl+F0Qwqj9z0RGk3TMinGLfx
+	cyQIHSWcxsSpSiqygO42aBTSE5GeZKa/O4ijFXwp3twWjRSN3nddMujUycKfN4rqugrV1IVodb4Bk
+	sH4I9H+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfx2r-00000008V5r-1Jwi;
-	Wed, 14 Jan 2026 09:20:05 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1vfx2m-00000008V47-0mlj;
+	Wed, 14 Jan 2026 09:20:00 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfx2a-00000008Uvy-1aY5
+	id 1vfx2Z-00000008Uwo-3ps8
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 14 Jan 2026 09:19:52 +0000
 Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4drgY040wrzYQtxF
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 17:19:16 +0800 (CST)
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4drgXG2vRRzKHMf3
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 17:18:38 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id 0A7F440576
+	by mail.maildlp.com (Postfix) with ESMTP id 3CBC840578
 	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 17:19:30 +0800 (CST)
 Received: from k01.k01 (unknown [10.67.174.197])
-	by APP2 (Coremail) with SMTP id Syh0CgCXsYCfX2dpDhLdDg--.16789S3;
-	Wed, 14 Jan 2026 17:19:29 +0800 (CST)
+	by APP2 (Coremail) with SMTP id Syh0CgCXsYCfX2dpDhLdDg--.16789S6;
+	Wed, 14 Jan 2026 17:19:30 +0800 (CST)
 From: Xu Kuohai <xukuohai@huaweicloud.com>
 To: bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -48,36 +48,36 @@ Cc: Alexei Starovoitov <ast@kernel.org>,
 	Yonghong Song <yonghong.song@linux.dev>,
 	Puranjay Mohan <puranjay@kernel.org>,
 	Anton Protopopov <a.s.protopopov@gmail.com>
-Subject: [PATCH bpf-next v4 1/4] bpf: Fix an off-by-one error in check_indirect_jump
-Date: Wed, 14 Jan 2026 17:39:11 +0800
-Message-ID: <20260114093914.2403982-2-xukuohai@huaweicloud.com>
+Subject: [PATCH bpf-next v4 4/4] bpf, arm64: Emit BTI for indirect jump target
+Date: Wed, 14 Jan 2026 17:39:14 +0800
+Message-ID: <20260114093914.2403982-5-xukuohai@huaweicloud.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260114093914.2403982-1-xukuohai@huaweicloud.com>
 References: <20260114093914.2403982-1-xukuohai@huaweicloud.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: Syh0CgCXsYCfX2dpDhLdDg--.16789S3
-X-Coremail-Antispam: 1UD129KBjvdXoWruFy3tw4UXry8tFyxAFy3twb_yoWfXrc_G3
-	yrXw4DWws3CF4fZF13Aa47Wa4j9rnYgFy0kr12gryDJryqq34v9r95GF95ZryDJFZrAFZx
-	CrZxWrZ0qr1fZjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbvkYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E6xAIw20E
-	Y4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l82xGYIkIc2x26280x7IE14v26r18M2
-	8IrcIa0xkI8VCY1x0267AKxVW8JVW5JwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK
-	021l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r
-	4UJVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
-	GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx
-	0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWU
-	JVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxV
-	WUtVW8ZwCY1x0264kExVAvwVAq07x20xyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Y
-	z7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zV
-	AF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4l
-	IxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCw
-	CI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnI
-	WIevJa73UjIFyTuYvjxUI2-eUUUUU
+X-CM-TRANSID: Syh0CgCXsYCfX2dpDhLdDg--.16789S6
+X-Coremail-Antispam: 1UD129KBjvJXoWruFy3XrykAw4rCFy3ZF1xuFg_yoW8JrWrpa
+	1DCwnI9rZY9a109a1DX3ZrZr1akF4UKF4UArW5trWfG3WYgryagF15K3ZIkrs8ArWYvw4r
+	XFWjkF1kCaykJw7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmmb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAV
+	Cq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0
+	rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0cI8IcVCY1x0267
+	AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E
+	14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7
+	xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Y
+	z7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2
+	AFwI0_Jw0_GFylc7CjxVAKzI0EY4vE52x082I5MxAIw28IcxkI7VAKI48JMxC20s026xCa
+	FVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_Jr
+	Wlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j
+	6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r
+	1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1U
+	YxBIdaVFxhVjvjDU0xZFpf9x07j5CzZUUUUU=
 X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_011948_597866_685AB97F 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20260114_011948_133337_E73E4AC4 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,28 +94,41 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Xu Kuohai <xukuohai@huawei.com>
 
-Fix an off-by-one error in check_indirect_jump() that skips the last
-element returned by copy_insn_array_uniq().
+On CPUs that support BTI, the indirect jump selftest triggers a kernel
+panic because there is no BTI instructions at the indirect jump targets.
 
-Fixes: 493d9e0d6083 ("bpf, x86: add support for indirect jumps")
+Fix it by emitting a BTI instruction for each indirect jump target.
+
+For reference, below is a sample panic log.
+
+Internal error: Oops - BTI: 0000000036000003 [#1]  SMP
+...
+Call trace:
+ bpf_prog_2e5f1c71c13ac3e0_big_jump_table+0x54/0xf8 (P)
+ bpf_prog_run_pin_on_cpu+0x140/0x468
+ bpf_prog_test_run_syscall+0x280/0x3b8
+ bpf_prog_test_run+0x22c/0x2c0
+
+Fixes: f4a66cf1cb14 ("bpf: arm64: Add support for indirect jumps")
 Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
 ---
- kernel/bpf/verifier.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/net/bpf_jit_comp.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index faa1ecc1fe9d..22605d9e0ffa 100644
---- a/kernel/bpf/verifier.c
-+++ b/kernel/bpf/verifier.c
-@@ -20336,7 +20336,7 @@ static int check_indirect_jump(struct bpf_verifier_env *env, struct bpf_insn *in
- 		return -EINVAL;
- 	}
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index 0c4d44bcfbf4..370ae0751b9e 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -1231,6 +1231,9 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
+ 	int ret;
+ 	bool sign_extend;
  
--	for (i = 0; i < n - 1; i++) {
-+	for (i = 0; i < n; i++) {
- 		other_branch = push_stack(env, env->gotox_tmp_buf->items[i],
- 					  env->insn_idx, env->cur_state->speculative);
- 		if (IS_ERR(other_branch))
++	if (bpf_insn_is_indirect_target(ctx->prog, i))
++		emit_bti(A64_BTI_J, ctx);
++
+ 	switch (code) {
+ 	/* dst = src */
+ 	case BPF_ALU | BPF_MOV | BPF_X:
 -- 
 2.47.3
 
