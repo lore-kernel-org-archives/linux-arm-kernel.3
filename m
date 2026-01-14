@@ -4,94 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB25DD30CF8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 10:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 435B8D30CF8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 10:23:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hGsBnBGnrh5GWqFiAd50Xj6Kf9Z4MbPCxq5OgC98qGU=; b=BBcjqmknjw2HtSDzH48t44nfbk
-	1vttHiYFOfaY3v0IYrriUBJ/I3dsfJwh7FHGe2V8EvcT1RFb/pBp2qj3XP/p9sdWSVIgjJU+M3IAt
-	j76qjT0QO5NFC7/FTDsPv5iEef3XvrPHLw2HvTyZ36d9SR9Y7aNZB+ptJjuj2kkFnHGAFUT+cAobc
-	rwGDOwkV2M2BcH0Ls3HqVhpmaiaIGF/0lb895IUCStImWr3JozR8v24o5SgmObq4aPAQSOcP+tHGQ
-	LsgGzMp4WLiLrEwocpOY803hCIWdf+6+BL51taY6Tw/L5GIatJPE/96nXBHxkuV+VwIKCY7GUJvSG
-	wzhq0WEw==;
+	bh=PQb4APq8JZCf6vJkgFja2UsHU1/oiSPOSOYM2wa7H1g=; b=dE/qps+2TV7OasptHHdLYmquYT
+	7BqSoS3tFMX76A8X/2BjfxQt9lMugutSOJn7v/5h8++z3v+d+Mx1i5BAeLPOcBH7Ji1AusVYgPx1M
+	NEgf8suZGZ/a4yaJ0vhlcQUbdBiGhGx700GX0hNf4YPdbjKuHEPdCMCl8LMNEQCiFltks2eioWElc
+	ZmXbJVbhTzBSZNDuZaofDkOUmBSc6Y/JAuedo0QDK1sxQb32o+KwBEhfWVlOZVnDCM60EzmGp+tWq
+	7iL0EYrreGoqo3HuFbrpiySnGvj1eMaroca2xzUqgDFY3WSaO7GcMSwGENKZv4B3WJcQJSJ2AFa9L
+	8iKagyRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfy0o-00000008l8j-2B3M;
-	Wed, 14 Jan 2026 10:22:02 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1vfy1d-00000008lOg-1uGy;
+	Wed, 14 Jan 2026 10:22:54 +0000
+Received: from mail-vk1-f175.google.com ([209.85.221.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfy0m-00000008l85-49Vf
+	id 1vfy1Z-00000008lMr-48uy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 10:22:02 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-64dfb22c7e4so1273546a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 02:21:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768386118; x=1768990918; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hGsBnBGnrh5GWqFiAd50Xj6Kf9Z4MbPCxq5OgC98qGU=;
-        b=lKhSetBUtcpoLHU9ovxKz/KuUlMD1M6SCv0cf5ISUFMs9N4nfUHI+bvFlMc79RvXFA
-         OF9MpZH60ETM7v/lwtYg0TqOenGZ38+yOfdnyIaA0hApvSXicmFKlVjqU/PKFQZ6Zk6e
-         oiAgwFht9Wsr4zBlxz0txPepjbt7Fqlo7iwbLF1AmLITvK9g4m7p9ExA8BTjF2Z8oohF
-         9m47QV9LRxaVwF3izfr8OWtBPF4l8cCy0IsKsVKi2998K+k3Xbr+o6sCwGmwvekuViwD
-         KfPuZVhbwXm2jU6uLySQaohK6Fln6M+jy4ZUg4L11EzWE7/KEWY1ptGs2Ec1My4obGog
-         0DaQ==
+	Wed, 14 Jan 2026 10:22:51 +0000
+Received: by mail-vk1-f175.google.com with SMTP id 71dfb90a1353d-56379cb870bso1042037e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 02:22:49 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768386118; x=1768990918;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hGsBnBGnrh5GWqFiAd50Xj6Kf9Z4MbPCxq5OgC98qGU=;
-        b=wRNxcT+U71s2mjCMj9tEYkw3cApzzcdB03wlJwrjPtox3xvWgZdPYT7PTAEnfJXZhI
-         2GAWV+s/16buSABlhPHP1QeKvCySaq3tqfG8hthoK8mF1vmauxpDwSvjSFrBqRz/Vl8q
-         JxUItIPb5HpgmPxRQ+Dp2VTPKNCivSirzMnHGVRejwOtDutP4Xgad1C5+yzxIinCVux3
-         lecirKx4XOu34TfD3egu7lyKwRqwTx5JSAEWRfYGDa8VtAu66Hj9RuHT/LNk8LrHG5gl
-         8Y1M4Q5lfngONKoKQm46yxQ6enDpnP8FSd3h5ItJbG5sYXKn7ebioYsCTkk8NQwGcRG9
-         BmPg==
-X-Forwarded-Encrypted: i=1; AJvYcCU4Q9wt2WwiCHJw+QdMFWywMAmdDyR9fjH/vnhOdvFW4EfXV4AFaAkS1g1hn151XcEW3XhOWSnYZN4+o68iEIBi@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyvcEEpAcrixfW6hXMjTwfWPwG+qWXy7S8mgBgL3YP4pzr1qYM
-	TvzfgAhg03cJmQk0qBO0X8JkxpBi22wm+xK8si5DvUi3Gf3huGBkspJL
-X-Gm-Gg: AY/fxX4qwiWzPNCeMb+LNy8ALaVxEKS7ngr4jrlFN/LascmFFtGqmQ7/bTA+G7m5miM
-	zKYRlwVnF17WNcFEK7ek9N0uOSalzKr25JESuwVrmgOygh+mirkK4xDPaC12OevOkldOvViyWpG
-	u3GGXsPIPEARQYe7xhTRL0Y++Hfp1Om6XEhNKF76ccKg4eqhOFAfSDFfq6XCF/ObZzEDKnmw5Ad
-	9qyoslriN2zzNCjFHopHWIs8kIjNtQI7QrYCRz1QzMiiquwnTbmu5bzlG0sCUE3J1ThnlQgSh7Y
-	nY7M8rzBPk5gLCbETbPFytnQu0Xx4mAAeVwC4a1z8as3LFB4t0hueDxQVcQvWQ65KeB7BrJMj4D
-	Y3DqF1M1C9Q36saJBcYMIaIB0SLTIHzgfwxgI4x436x84SlZHqofwUyWgeR87qDtwSZY/qw827j
-	YsPhQLZlhR9j/7UmlSPcxsOaGMTei7Tg0=
-X-Received: by 2002:a05:6402:3487:b0:636:2699:3812 with SMTP id 4fb4d7f45d1cf-653ebedc568mr1854657a12.0.1768386118153;
-        Wed, 14 Jan 2026 02:21:58 -0800 (PST)
-Received: from mail.gmail.com ([2a04:ee41:4:b2de:1ac0:4dff:fe0f:3782])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6507bf6d5e0sm22281306a12.31.2026.01.14.02.21.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Jan 2026 02:21:57 -0800 (PST)
-Date: Wed, 14 Jan 2026 10:29:44 +0000
-From: Anton Protopopov <a.s.protopopov@gmail.com>
-To: Xu Kuohai <xukuohai@huaweicloud.com>
-Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Puranjay Mohan <puranjay@kernel.org>
-Subject: Re: [PATCH bpf-next v4 1/4] bpf: Fix an off-by-one error in
- check_indirect_jump
-Message-ID: <aWdwGKLsL7G7IQ3z@mail.gmail.com>
-References: <20260114093914.2403982-1-xukuohai@huaweicloud.com>
- <20260114093914.2403982-2-xukuohai@huaweicloud.com>
+        d=1e100.net; s=20230601; t=1768386168; x=1768990968;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PQb4APq8JZCf6vJkgFja2UsHU1/oiSPOSOYM2wa7H1g=;
+        b=W1I7m+v/p+ongwf5n+zi2I9hbwDnCa87NVBY/W7wd6ngaigFhw2nfWgg4Zrp1snBn5
+         ZdeD4Hb3RONDpmU0zXOZ5vCPItk1y39L7bkJSC2LpgL4xXuYm1xX0AiUoiQlYJvcKC9W
+         FiYXtb+00xx56rfq2WYEzwd+dp6+iESZSl81aFhjCPZ9JnfQ/AN/6Dn0nSp27eYWkaW/
+         dT1lXRa9MGGXsWZrhrz0PaCMzVQS1rgWjcepr4UmqPtWP+6LAdqGlFWSsC2ClEqCfuFS
+         QNdThb/xhIvjwcS1pkdShP06SsomoNAiZ0wT88xCWSEj6lVroEwpKMyaincNolIcWp8c
+         Frqw==
+X-Gm-Message-State: AOJu0Yx6IQyXRvFelwHhXQ+4SaRoj/CVJASMzLfu7o0/rnL1NzCbx50w
+	X+XtFwEqulaY2IwxV3SZYZlVAb1CsDgJs/Tdg+pwn9hx7cZL+hn0nMVCUoiWUyLd
+X-Gm-Gg: AY/fxX66sfuumPjrG+x5jZUV9UwcmxrWf7xTvUJv7S81FYxTvEsznhk3GZqCtAJR0HS
+	y2PHg9Jkm+8gx+loyb5RffNk2if+nSTsJ3vmqb6MiHnGgDqjDdnaTQJum0kTpdstNDyFcAUS2w2
+	CHBEYmoUweyXcQMm2hA4UEVkMBJcBs9AL/bRw4uBMPmSpF+NrzBX/LFHPYyJpy+zEGCrwXYrrqa
+	5L7b5308DPAcKsfK7SggT0PFmV3Cj4yV2nOFrb5fqrB62ha3GSXU+3FMXbUhkW2jZ6cU2JLpUAg
+	hcQLoih8KVKG3jPqlPpG19LHojACvLfnLBk7pJRmYMZVghiafUDEJN+ddVmiM/UBj9uNBzKN92m
+	L+jKHjwl+xl8bAFv47ymPEIjoI9a7IbZbcX8S8dN583kdmIRV5XoW2cU8MEFSpO3eCfUwKwPBXo
+	rxuB4UkXawIF0Sh/5eEarMJHddcT9uwBNKgxS95pn3SnhIAB2a
+X-Received: by 2002:a05:6122:311b:b0:563:6df6:1b8 with SMTP id 71dfb90a1353d-563a2050b15mr518929e0c.1.1768386168026;
+        Wed, 14 Jan 2026 02:22:48 -0800 (PST)
+Received: from mail-ua1-f50.google.com (mail-ua1-f50.google.com. [209.85.222.50])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5637f6ce00esm10286463e0c.0.2026.01.14.02.22.47
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 14 Jan 2026 02:22:47 -0800 (PST)
+Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-93f573ba819so3399430241.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 02:22:47 -0800 (PST)
+X-Received: by 2002:a05:6102:50a6:b0:5ee:a93d:2cdd with SMTP id
+ ada2fe7eead31-5f183c02702mr366472137.40.1768386167018; Wed, 14 Jan 2026
+ 02:22:47 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260114093914.2403982-2-xukuohai@huaweicloud.com>
+References: <20260101203938.159161-1-marek.vasut+renesas@mailbox.org> <20260101203938.159161-2-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260101203938.159161-2-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 14 Jan 2026 11:22:36 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWZzL7nUCv6LnDaDhpMwfrnJp3ZYPAqQtDJ3BsZyH9k6g@mail.gmail.com>
+X-Gm-Features: AZwV_Qi-Eu9-CR2_DSC2JlXjPpAlkxhHqejeDJ45jkp3qmHmsOBPHJManLtOH4I
+Message-ID: <CAMuHMdWZzL7nUCv6LnDaDhpMwfrnJp3ZYPAqQtDJ3BsZyH9k6g@mail.gmail.com>
+Subject: Re: [PATCH 01/11] dt-bindings: phy: renesas: usb3-phy: add r8a77990 support
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Vinod Koul <vkoul@kernel.org>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
+	devicetree@vger.kernel.org, linux-phy@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_022201_053851_4E369C07 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20260114_022250_025058_643A06EA 
+X-CRM114-Status: GOOD (  19.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,35 +96,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/01/14 05:39PM, Xu Kuohai wrote:
-> From: Xu Kuohai <xukuohai@huawei.com>
-> 
-> Fix an off-by-one error in check_indirect_jump() that skips the last
-> element returned by copy_insn_array_uniq().
-> 
-> Fixes: 493d9e0d6083 ("bpf, x86: add support for indirect jumps")
-> Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
-> ---
->  kernel/bpf/verifier.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-> index faa1ecc1fe9d..22605d9e0ffa 100644
-> --- a/kernel/bpf/verifier.c
-> +++ b/kernel/bpf/verifier.c
-> @@ -20336,7 +20336,7 @@ static int check_indirect_jump(struct bpf_verifier_env *env, struct bpf_insn *in
->  		return -EINVAL;
->  	}
->  
-> -	for (i = 0; i < n - 1; i++) {
-> +	for (i = 0; i < n; i++) {
->  		other_branch = push_stack(env, env->gotox_tmp_buf->items[i],
->  					  env->insn_idx, env->cur_state->speculative);
->  		if (IS_ERR(other_branch))
-> -- 
-> 2.47.3
+Hi Marek,
 
-Nack, the last state doesn't require a push_stack() call, it is
-verified directly under this loop. Instead of this patch, just
-add another call to mark_indirect_target().
+On Thu, 1 Jan 2026 at 21:39, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> This patch adds support for r8a77990 (R-Car E3).
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+
+Thanks for your patch!
+
+> --- a/Documentation/devicetree/bindings/phy/renesas,usb3-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/renesas,usb3-phy.yaml
+> @@ -20,6 +20,7 @@ properties:
+>            - renesas,r8a7796-usb3-phy  # R-Car M3-W
+>            - renesas,r8a77961-usb3-phy # R-Car M3-W+
+>            - renesas,r8a77965-usb3-phy # R-Car M3-N
+> +          - renesas,r8a77990-usb3-phy # R-Car E3
+>        - const: renesas,rcar-gen3-usb3-phy
+>
+>    reg:
+
+According to Section 76.1.3.5 ("PHY Register Configuration"), the
+USB3.0 PHY register block is only present on R-Car H3, M3-W, M3-W+,
+and M3-N, but not on R-Car E3?
+
+Likewise, Figure 76.1 ("Clock Distribution [R-Car H3, H3-N, M3-W,
+M3-W+, M3-N]") does not cover R-Car E3. Unfortunately there is no
+separate picture for R-Car E3.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
