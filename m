@@ -4,109 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7308DD37E5F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 15:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16902D2A00B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 15:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hQ6gUIG0hogTITaw7mPekGOG/hf6nxZKRl0EFURpZdA=; b=b0VFC6PROlHXSwPoc/kTUm+MqR
-	t9yYqz3rvu9yCT/LHVvixgYZdf0od2sSuEzG3/s1kkNo1t2pvGA5vnEYfyGEF9jGCVGu/mH7VJD99
-	t8ufktvwNok0SMfl7SgHFwY1U49dQCEaHIx325DYvTASmjfDnlgshZ89wu36moGnf7aqMwVjbBpQG
-	E1lHH6HdRe3BQkqdJg4NhS175wyeFHCQgbNsqC1eXQFUJiqVxitrxTXPbOKV45sE0Nufi50DS6+RD
-	+d4ISoVTd8lXx+RKyYFgUt2XlowU5C9EESxgcB+tvA3/uTzIwFMeEBPfMUE6wNPJdiJEcRfSY8gSL
-	U8gF/RBQ==;
+	bh=yMsLC4oXhwGy0P6KOpq9XSVOc6j5iFEz/aKGZr4fbqw=; b=k4Q4KHBvwnWwR5JmhMi+ozJAIr
+	xRW/G9BVfY82b3u130koyE1XRPNzu9vkoKKFePamqD2/FCfVg4v1Ze4g1Rt3OaFKqZrMyL+Oawhbm
+	3gIL1D4A3Riy5Ef7IZVJ+bJjhKaE+iCdgjVGvFibwK8OwrEJYN14L4615BIDFedCXgpgdpNFnTmhj
+	HYulZ1LC0wkBE+TZam3VovmLsDjG98iFkgZ34b0N1+2L8wgQZO6FZf+/I7CpBFvFkLG3lSU59Q4dZ
+	ZJOU80BUMV+D7PBYRzTA9gGENjEfnMbUh+MB1eJtSMf5gH87IYO52XD/2A7bSUmRMWhnQnS0O3Grq
+	U+2PjsIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg3H1-00000009pAx-2R0z;
-	Wed, 14 Jan 2026 15:59:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vg3HG-00000009pLR-06vW;
+	Wed, 14 Jan 2026 15:59:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg3Gz-00000009p86-328f
+	id 1vg3H1-00000009pAF-1jb5
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 14 Jan 2026 15:59:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=yMsLC4oXhwGy0P6KOpq9XSVOc6j5iFEz/aKGZr4fbqw=; b=fX6vyvDgZQZZQ0RngcYqhboHKv
+	DZyXhShJA4S2Pm8NoufaBQz0qG63D2HqVZ7SQiKu0NFoY10vy9Brh0E5BeL/7EUqwg6jGr3QuxC+L
+	NJnmhTVf3W3vt7Y18vwXRQ50ozP1gE4LZDR8ZbvaO6zdgyap/T7dABf014/Wn6+TG3R5ehcdgMlAQ
+	SFWxfjnOjbPKx3rd+si/Q1aqWFBPnkRspwxaeNOaSobnNLdQNrv5z3WVGpIDTqqE/etw4mXU13iJ4
+	dGEiXGxR2YDdTZeNnlNosYbeV74IcPhB2Q/QlusinDmB6QWRHlqsLYKzcAZr4dlxlYKWQd6rqLpdD
+	XUd9sQ0w==;
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vg3Gw-00000005BbP-2GY3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 15:59:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BE6096001D;
-	Wed, 14 Jan 2026 15:59:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDB60C4CEF7;
-	Wed, 14 Jan 2026 15:59:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768406344;
-	bh=QS7SeFGYO9O6xcOoIo97cX6Nf7H2BcdEECaiGjkLsB8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TA8w8b4HDC+VSe/5R+ww2BESytB7iO0d2ZBddkANunV+G8osNluIKsIPxu3lCSSQu
-	 mcWw9VRF1YKGncQhcQQBk8gE0Yv2ENVb9QqODkc7f64xI7P1zeMrZEK9lhY1NJJzs7
-	 kYHw3A9NACKszs0MTqteRNKUQ8kO9NKnRBkxZ3FvLnCd61F0EW31wYF95garCShHLk
-	 Dp9mGp7JzzfLj5M1nKNzJLjN3zldGbUV/UILZ1/62EgA4nNwg44zHiysui0Y9wTgSU
-	 IEJH0fqeyEXKcOcN8/E/lCgs2tuNdOLe8Y8vMUHZr+Psf78P86oupZpVpvmiW1e5oh
-	 3E3gdwGBlFgow==
-Message-ID: <ed99a966-6c10-4156-846a-4ae02621dcf3@kernel.org>
-Date: Wed, 14 Jan 2026 16:58:58 +0100
+	Wed, 14 Jan 2026 15:59:06 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-42fbc305882so6236f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 07:59:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768406341; x=1769011141; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=yMsLC4oXhwGy0P6KOpq9XSVOc6j5iFEz/aKGZr4fbqw=;
+        b=FHtrxFTAsvIVcc2jpuFGJ2qJ8TVyKOO0miHVO39iAQdfza/3QW2lbZCSLOv9ICMG+N
+         QALZ1Je9ct3uxfd+ihYKgbjRZz2lSGQWgvtDyuRQzFAv+xOO5j+OZQqFDikhY3dqXPe+
+         a6WgOkoCg7wNorisFqW3MBLbiQz6cDas13TWR1kF3WDQm6//Lcm0Og/+qnxiTG63rbHS
+         9LDdj8N1R7FdIoxvjATgkiE8ntF36plEHKrSBlq67t/dxp+iEAUQBbMyRybjf62AU8qL
+         KxnG50Qsz2XvSZLPXEulHbQEj5/2YYqt7E+Vsq/SixCKhrl7sN9dBP0NUcLAVfI5BVWN
+         zJjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768406341; x=1769011141;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yMsLC4oXhwGy0P6KOpq9XSVOc6j5iFEz/aKGZr4fbqw=;
+        b=MuBmMidXCjPQ61jEHw0F8PdrKVoSN7n60hlFWNKqA7+kRNsgjPwcE4ZgcaI9m+oVO0
+         x9a1zP9SRw0GoSfSPApEwGO08/x38czHvZZky+WPiMwxQBhWI5hw5TvYPQh8g2VVkfe+
+         8RDKOwDiUwMadn580LTHOORGB8Mj8U7oIHRa6ma/bnqj8j9dbnB8dNexvcyl9ufRvhlB
+         iupvgj+u6zUYk4moCX6CQo/3QkRlv0dF/PVEPRMS5z10ruFuiyOuaapephhLGRbD5I0W
+         bzUUEl9of9uA7XYI0zLhOwl1vEzT9qikP5FKad4SraxqNjwmU1Ecgq+To8O+RH0GmDt4
+         IcMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU2rp0Tx8tjo7lAGNGTQobSTv+IynGNW6XHd8tLyhjl9ugytueYYKzKkqkBRmxwMVIFn7Oi1pAm+/IF1KJid40g@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJQ2ORmj7twdbfzSkOcLIshG+bRVexH53YaTAhdArwLeQBgunL
+	bsJ7yY5IsFmqtU3Q4A3Oy0k2URBWU4cAUrUafCmMu8Q7Bmn4MmvfPI+bheIx/lCvOZg=
+X-Gm-Gg: AY/fxX7CIgc1RHiQzMVZ4AvkE7u8axWLoe1C6MIV8BPOBYwLhY5lVVLqU6B8IU377Xq
+	7nAj5JkWxv/tYNcbrpK8rB3bupgAn3CpQIGLvHKaMZr+uqvwaBWREeCiEK/rGhyg3vBGjl+5Cui
+	lrwHcQkALMuO+FrTGE62TSocWGwBcoK3ekuleWqg0XxTCdxqVNi98MWGXZbwwLHlBQUlLdhzhM8
+	SfIslQa2UcfumWHk3N4WFaW57onUEo2EUHcoi5KeAUgl3E6UpVJRXm6ADN7IjyESTixeyfMsO5N
+	CJpcszwT0MttpWv9Cknd5x8/w+ZknZKAEwraVZhZSrPXlhJNNZqzKa+HChOiYpV0ykWirhc+F80
+	7FZi4K4KzwSlC6+rjC+zqNhpo1eKE+Z004PSq4YcjoBLpBLbHDzlEHHS+jeeWzvKukKpXw7oLYi
+	SYltxMseJSAGX577hi
+X-Received: by 2002:a5d:650f:0:b0:431:864:d48d with SMTP id ffacd0b85a97d-4342d59bf42mr2978448f8f.5.1768406341148;
+        Wed, 14 Jan 2026 07:59:01 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-434af64a65bsm66061f8f.7.2026.01.14.07.58.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 14 Jan 2026 07:59:00 -0800 (PST)
+Message-ID: <6a31e9e4-653a-4a8d-af91-4325b37535c7@linaro.org>
+Date: Wed, 14 Jan 2026 15:58:59 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: watchdog: fsl-imx: document continue
- in low power mode
-To: Nandor Han <nandor.han@gehealthcare.com>, wim@linux-watchdog.org,
- linux@roeck-us.net, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de, festevam@gmail.com,
- linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20251230-pastoral-enigmatic-chamois-b65343@quoll>
- <20260112130849.3748465-2-nandor.han@gehealthcare.com>
- <e66a3dd5-1cf0-4d45-9ed2-55f50faaa0ae@kernel.org>
- <1359781c-a1cc-43ff-88e2-f381e8ab81d2@gehealthcare.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v4 02/14] perf evsel: Refactor
+ evsel__set_config_if_unset() arguments
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+References: <20251222-james-perf-config-bits-v4-0-0608438186fc@linaro.org>
+ <20251222-james-perf-config-bits-v4-2-0608438186fc@linaro.org>
+ <aWbDg0kmo-isxkz2@x1> <4eda1bd6-ec36-4d0b-85de-ef0bd190e5e7@linaro.org>
+ <aWe6igmKMq25GJP9@x1>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <1359781c-a1cc-43ff-88e2-f381e8ab81d2@gehealthcare.com>
-Content-Type: text/plain; charset=UTF-8
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <aWe6igmKMq25GJP9@x1>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_155902_634296_26CD3496 
+X-CRM114-Status: GOOD (  26.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,67 +128,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/01/2026 14:22, Nandor Han wrote:
-> 
-> On 1/12/26 15:55, Krzysztof Kozlowski wrote:
->> CAUTION: This email originated from outside of GE HealthCare. Only open links or attachments if you trust the sender. Report suspicious emails using Outlook’s “Report” button.
->>
->> On 12/01/2026 14:08, Nandor Han wrote:
->>> Property "fsl,wdt-continue-in-low-power" allows the watchdog to continue
->>> running in low power modes (STOP and DOZE). By default, the watchdog is
->>> suspended in these modes. This property provides the option to keep the
->>> watchdog active during low power states when needed.
->>>
->>> Signed-off-by: Nandor Han <nandor.han@gehealthcare.com>
->> Do not attach (thread) your patchsets to some other threads (unrelated
->> or older versions). This buries them deep in the mailbox and might
->> interfere with applying entire sets. See also:
->> https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
-> 
-> Apologies, will not do that on the next version.
-> 
-> 
-> <snip>
-> 
->>> +  fsl,wdt-continue-in-low-power:
->>> +    $ref: /schemas/types.yaml#/definitions/flag
->>> +    description: |
->> Do not need '|' unless you need to preserve formatting.
-> 
-> Thanks, will update.
-> 
->>> +      If present, the watchdog device continues to run in low power modes
->>> +      (STOP and DOZE).
->> Not much improved. My questions how this petting is suppose to work
->> remain unanswered.
->>
->> Again, system load is really not relevant whether watchdog works or not
->> in low power mode.
-> 
-> Our use case is that we do not allow the CPU (i.MX7) to enter low-power modes.
-
-That's very close to OS policy... or some sort of runtime choice.
-
-> 
-> To enforce this, we explicitly enable the watchdog during low-power states so that if the system enters such a mode for any reason, the watchdog will reset the CPU.
-
-So finally this is explained. You actually want to trigger the bite by
-lack of petting.
-
-You can as well set the bit moment you put the system to suspend. You do
-not need DT flag for this.
-
-I unfortunately do not see how this could be anything else than OS
-policy, so it is not suitable for DT. Maybe some rephrasing could help
-and that's what I would expect usually, but I already raised objections
-and then you sent v2 with the same ignoring these objections (really,
-never do that), so I doubt that discussing will change anything and you
-need very specific answer: no.
-
-> Since in STOP and DOZE modes the CPU is halted and systemd can no longer service the watchdog, the watchdog will eventually trigger a reset.
 
 
+On 14/01/2026 3:47 pm, Arnaldo Carvalho de Melo wrote:
+> On Wed, Jan 14, 2026 at 12:14:43PM +0000, James Clark wrote:
+>> On 13/01/2026 10:13 pm, Arnaldo Carvalho de Melo wrote:
+>>> On Mon, Dec 22, 2025 at 03:14:27PM +0000, James Clark wrote:
+>>>> Make the evsel argument first to match the other evsel__* functions
+>>>> and remove the redundant pmu argument, which can be accessed via evsel.
+> 
+>>> I haven't checked if this is the exactly where this takes place but
+>>> should be in this series, 32-bit build is broken:
+> 
+>>>      3: almalinux:9-i386WARNING: image platform (linux/386) does not match the expected platform (linux/amd64)
+>>> WARNING: image platform (linux/386) does not match the expected platform (linux/amd64)
+>>>       21.72 almalinux:9-i386              : FAIL gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC)
+>>>        1378 |         perf_pmu__format_pack(&bits, val, vp, /*zero=*/true);
+>>>             |                               ^~~~~
+>>>             |                               |
+>>>             |                               u64 * {aka long long unsigned int *}
+>>>       In file included from util/evsel.h:14,
+>>>                        from util/evsel.c:38:
+>>>       util/pmu.h:282:43: note: expected ‘long unsigned int *’ but argument is of type ‘u64 *’ {aka ‘long long unsigned int *’}
+>>>         282 | void perf_pmu__format_pack(unsigned long *format, __u64 value, __u64 *v,
+>>>             |                            ~~~~~~~~~~~~~~~^~~~~~
+>   
+>>> What I have is in perf-tools-next/tmp.perf-tools-next BTW, I'll try and
+>>> fix this tomorrow if you don't do it first. :-)
+>   
+>> Taking a look, but I'm wondering if this is already not working properly.
+>> There are existing "unsigned long"s in pmu.c that operate on the config bits
+>> which is what I copied.
+>   
+>> On this target an unsigned long is 32bits but struct
+>> perf_event_attr->configs are __u64. So it looks like it might leave the top
+>> bits unset sometimes.
+>   
+>> I'll look at a fix for that which should fix the compilation error at the
+>> same time.
+>   
+>> Another question is, do we actually care about this platform?
+> 
+> It failed for other 32-bit platforms too, so the question is if we care
+> about 32-bit at all.
+> 
+> - Arnaldo
 
-Best regards,
-Krzysztof
+I suppose the answer is we still do then.
+
+I sent another version. A couple of patches were changed a bit where I 
+used more bitfields instead of converting to u64s which was probably the 
+right thing to do regardless of the build issue.
+
 
