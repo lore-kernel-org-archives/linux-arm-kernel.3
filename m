@@ -4,166 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E912FD39000
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 18:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24660D39000
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 18:04:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V/yuBBaDAznftGhhFsXmsET3hkGuuS/ENIedWO8VvpY=; b=Th5+TEVeM3zMR0cXkz87j2TL+/
-	UFJg5WNjyp+tgYbGmaaz9VdjCe++iTa9L/a2MILb+2yxrMi6WiS2zeVXUH3BGvmfn1Tv8BsRndNqy
-	JVcI+UwZT5V9GZMKyMbIik9STWsHo+8OfsDiPJ/qMcb7yUat3lZQj4TSY1rqKxBoq4amirk+CPk7R
-	NF4PqtD5gcKyOAcCxQUM6H+jCWx3BcPedZvaLW08N4Gn/kDtp4+lFxOCg/vXniTFxkQImaHuRIH9y
-	fY5al+5TGWI9B0V2ORSFTnxkF8yxut7l9p0PF5h74Fdivz1n3yjQ6jh0ZbQr8FMbruqIhT5aqkeXz
-	Dd3loGhA==;
+	bh=SL14u53oLehAZHfQANT0oFSrbbdA5b2exafsoYQkccI=; b=Tmgik3oRCq0gdXMYzkHBzMq2nz
+	6jsDZMeDeKkBxm5KZlB90nWCHIHPY2EuzZEPPsxE4IS+/porUeV/4pINE78+v5ybxi4BEPlO6AtUO
+	zbxFnAEsHoqRsVbCISfolHhXLLLnUxQ5M9MJp+9HpdOCHKac51bf9yvBfdSJ596suy6ArAtgRO/Aj
+	wtplI7asqiHtkLPJaWlE3X/5Xrm8OVzC2fk0ub7GN7PO2OlCb1MevRTMpnieoI4SRnUtuo/8sd98g
+	U6AHmFT6JJ71CnVpLDC70zGo4liFa6bWyyQKU8+kcxMnVuM2mTDII+ZBe21BYlMh0El7K31V7X4B5
+	oPTf3Vqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg5Bw-0000000AFuW-26l7;
-	Wed, 14 Jan 2026 18:02:00 +0000
-Received: from mail-southcentralusazhn150120000.outbound.protection.outlook.com ([2a01:111:f403:d90f::] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1vg5EM-0000000AGM3-3XNo;
+	Wed, 14 Jan 2026 18:04:30 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vg5Bu-0000000AFtg-0NQ2
+	id 1vg5EI-0000000AGKx-0kOx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 18:01:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rgPYrwVBd+sAxcZzDUtXRJMr7xRe45tNMkDj0ycU9lzOgLdU6hqPXzUYuaJCsV4Zu2v26rJeSX/GAg0HSUbS9zbwn3UujP0ozrfgCln9JN/q4K5vdvr7Yb+6EASlbDwMcnI/OHXXRczIXZ1V6mkK/jcqj5TjLxkaLofcytQiR8pVRhYmHr1dsD8LxNIYvCtUezBZX0DIn94Ujz9g+t1brUpTy5KVK4/tfwJI/dT6sdOe6ncl5C2nhwfNq7WlEpKbJq4XvO8QISoCawywELvkciJ2DPNJPLqC79kkBG5EiS8Ug0yLRMnfwl0eo+y7WUxiAAzYugwh8NPHm7cC8/YVyw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=V/yuBBaDAznftGhhFsXmsET3hkGuuS/ENIedWO8VvpY=;
- b=J8cshxXT/PXFHtWk9CUZixSAi2NwJ2Un9tMhfjyDFnk/GJoPMrYzjv+tj645n8OlXY0f6yUERu6JX1u7ewFZMR6hwA9QgKw/3ZPoooqWsLeDZ8Gs0EnQLFcfYQph48tgwHkNR51Ls34C5kBCtpwgQauSycl9EQ5abBJVD+OkRwYyAZ+TIanXG9NADmkSWG//SYeHKjaL8zkGkNoG/IrYfdSjjKzStATta9ZT38DZYR6lR98x6fj+aL4WHwP1BtIAC+wzea7dV3HTxV3aHuUpuegObEw7EHvJMFulnIwzEZRDAwLn4NscnJFeU3+MiSLEVoTgUouDC3hqP+6plTqv8g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.linaro.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=V/yuBBaDAznftGhhFsXmsET3hkGuuS/ENIedWO8VvpY=;
- b=waolrKMsxJF5mP5CAwCNmDGFpDeZceMFhrfqfmXObXNlKxzfJhmJOHEuKA+aWjczXs3VT6Vo3MmNFdoArjvvB0yE34Nlzy2ViA3pUJFbrPPIQpYlk2+95wY8+t+Nw6b86xEXgwXEzw7NwF2rzZ5OgDHEEdqGAZ4vVZjvxLYHFQg=
-Received: from BYAPR11CA0051.namprd11.prod.outlook.com (2603:10b6:a03:80::28)
- by IA3PR10MB8323.namprd10.prod.outlook.com (2603:10b6:208:583::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.4; Wed, 14 Jan
- 2026 18:01:43 +0000
-Received: from CO1PEPF000066E7.namprd05.prod.outlook.com
- (2603:10b6:a03:80:cafe::e4) by BYAPR11CA0051.outlook.office365.com
- (2603:10b6:a03:80::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.4 via Frontend Transport; Wed,
- 14 Jan 2026 18:01:42 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- CO1PEPF000066E7.mail.protection.outlook.com (10.167.249.9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.1 via Frontend Transport; Wed, 14 Jan 2026 18:01:42 +0000
-Received: from DLEE211.ent.ti.com (157.170.170.113) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 14 Jan
- 2026 12:01:42 -0600
-Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE211.ent.ti.com
- (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 14 Jan
- 2026 12:01:34 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 14 Jan 2026 12:01:34 -0600
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60EI1XDc196359;
-	Wed, 14 Jan 2026 12:01:34 -0600
-Message-ID: <7628b04f-df46-47cc-a33d-c40650b256e7@ti.com>
-Date: Wed, 14 Jan 2026 12:01:33 -0600
+	Wed, 14 Jan 2026 18:04:27 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60EHocYn3296151
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 18:04:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	SL14u53oLehAZHfQANT0oFSrbbdA5b2exafsoYQkccI=; b=JjScVXapKcA3XvUy
+	7B5ZfLrcvljnDGZy1Mgq1U8gCrOne7kju/4EWEAn4X7zbfW2HVpxDZM44XeiZq/o
+	o8P9AZ9hpGa7QO2K4pJN8r7nrfbCXA1LQlulTZu/H8giD8N8MZ343Q7I1uCnF99e
+	fJMq4czpvA5Xeksb9eNlGaMCdJB2JbZs+eb/AiV8q37Gw8hlhbZwEA4Wt/CKDyH5
+	XhAX6S3JG3ecOp32PSbnpsxv9fAhuEFGBZ9XNoKCUM3n8xDqmGUVLZYMer4MdwGn
+	PedHLB343qhnvpDhp2vLEnurmwzO4XZuMSsAYMR21F1O7hQq+yTZnWE0yIUfTmGa
+	NFZ0oQ==
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bp8t2srap-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 18:04:24 +0000 (GMT)
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-2b0530846d3so162133eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 10:04:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1768413864; x=1769018664; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=SL14u53oLehAZHfQANT0oFSrbbdA5b2exafsoYQkccI=;
+        b=il/rwa5Vy7D55pY0FZLAvYtrUxvYRwgv90CS5iPDIGsCT7sl3lHUaBI1eHt+0MiIMy
+         Y7tv5ttWNPU9/bgsYiEehLq5jfrVrf+emh/7uMjIbyAw9gJW19lV1584DWCLTft+BEP7
+         yWn6AoHrEpCtoU62RAN4RAHH9FMG7v6IXd/gvZGte9nAy17uK5GeLi9x0TFzBPWotcXh
+         DQfLsPyC3S4zay+1QXWxCDapNF58ty/rnNnTQ5hNssrD6t8Pry599+zuI/QmGyyMquN2
+         OwUkESRIFj4WGZYftCZWFqTzPTRJlrNX6V//4oHTwGKxvmgj8iQLduvRRV3anNSDk4Cq
+         2QrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768413864; x=1769018664;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SL14u53oLehAZHfQANT0oFSrbbdA5b2exafsoYQkccI=;
+        b=Rzl73DJsVwf3o1p4Graj5VvJA3yz64TGdqIdC+6p01mg3Vuz8wWlcruWQ5lD/0ltoA
+         7d2DdFMIMv98sn/GQT53/4EdQ4thCQ8w81wuV/6pDFM7K8IK6/J8/n8ZgrIrzLsrKWCU
+         C/Zz8n9z5cCwUgMa7mxBMbZQG+rPexHWbqM8BcZHtRcZVR91fByTk/FCBHG3Mh2DCYm5
+         UfZXJexHwpHVYMCVhh0UQXp+cqX4HhxXFb7koJpEvea/7FMfsanjtzCqC2d/MPF+rISn
+         I9gKNIxOvYVysGo3JYo15JrWp5qCymFPpWxK0v+dlvukqj8XZeHvb+0kXSRNuXVzVp1x
+         oz3w==
+X-Forwarded-Encrypted: i=1; AJvYcCX1J2hYQh2wn1nKMY2zEP3HPwOCk6mcv6vlHmbcv8HarAGq3JU2CtU75/FO6GCnWVnXfhRwZkfZAm+dyTUp0QCn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy17Z1bXptVGuGoaalZ9UIu5IC8qdV9XHu48W943YERlQqkegpu
+	f/r3nI8GOdqd1spXip4YrGK0liX7pRNJD5OyfJf9bTQk3u7HECA/z0FDYz/i+vi0wjo+10phybE
+	UU+wWALiJgflw7SeisnlxP06JvLS7cGiZoqafsUXSo6BhHY50kMn/3d3HDCcGDOvpcr4gI+V4NT
+	hXmQ==
+X-Gm-Gg: AY/fxX6yOSlbfTMdzyYy+7aMU2SLU45eyT00h40E41oO2gBjXI7hJyPvNT+tldirIeY
+	6O166eT06yjvdNbgqQp2xTb3DyW8xpkLzxNUQZK9e84VDzFZFrKZVP6hnKY2OU+tf/mJ4xX3YH2
+	v0RLYwAw73tAdWgX+7V8muDcBny/+hgi0Mrzwxo86j6mXkZT4HyOSUzmK7HCEJrA6qffqyYyv6s
+	1nBdPfs03aCG+6c8DSxO7NnG6/eB6KO9oPWMAC4See1Em4f74RPwR6PCMYi5zIQjFJyGvCMPBQY
+	v0V4Dx+Qo0Zel/Ln/vHtMAq4SeVwOZHdcKS33hrM3KBJTUXQoHCmj9MSqoSihUJJHnQ8GKJ8gln
+	gHD1eEGMipTXA/T+CQWuXCl+tuKU44s/6f2M6PqdUnA==
+X-Received: by 2002:a05:701b:220b:b0:119:e56b:98bf with SMTP id a92af1059eb24-12336a82526mr3365243c88.38.1768413863391;
+        Wed, 14 Jan 2026 10:04:23 -0800 (PST)
+X-Received: by 2002:a05:701b:220b:b0:119:e56b:98bf with SMTP id a92af1059eb24-12336a82526mr3365184c88.38.1768413862595;
+        Wed, 14 Jan 2026 10:04:22 -0800 (PST)
+Received: from [192.168.68.59] ([76.93.176.75])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-121f243421esm31712742c88.2.2026.01.14.10.04.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 14 Jan 2026 10:04:22 -0800 (PST)
+Message-ID: <619f20eb-77e4-4250-ba5e-78db741ebbef@oss.qualcomm.com>
+Date: Wed, 14 Jan 2026 10:04:21 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] accel/thames: Add driver for the C7x DSPs in TI
- SoCs
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Nishanth Menon <nm@ti.com>,
-	"Randolph Sapp" <rs@ti.com>, Jonathan Humphreys <j-humphreys@ti.com>, Andrei
- Aldea <a-aldea@ti.com>, Chirag Shilwant <c-shilwant@ti.com>, Vignesh
- Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet
-	<corbet@lwn.net>, Sumit Semwal <sumit.semwal@linaro.org>,
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, Robert Nelson
-	<robertcnelson@gmail.com>, David Airlie <airlied@gmail.com>, Simona Vetter
-	<simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-	<linux-doc@vger.kernel.org>, <linux-media@vger.kernel.org>,
-	<linaro-mm-sig@lists.linaro.org>
-References: <20260114-thames-v2-0-e94a6636e050@tomeuvizoso.net>
- <20260114-thames-v2-2-e94a6636e050@tomeuvizoso.net>
+Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Sudeep Holla <sudeep.holla@arm.com>, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        trilok.soni@oss.qualcomm.com
+References: <20260112-disable_smccc_soc_id-v1-1-a5bee24befb4@oss.qualcomm.com>
+ <7ruiccdm7q5fg2pixmszr3fqvclvymdlkv4x4xbavkaeczrxgc@5l6usxqfi5fe>
 Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20260114-thames-v2-2-e94a6636e050@tomeuvizoso.net>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000066E7:EE_|IA3PR10MB8323:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7093ad7f-5d98-4c27-6dd9-08de5396f971
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|36860700013|34020700016|1800799024|376014|921020|12100799066;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Sm81cXhEYUFvV0V0T3BCSFgwMG5GalYvdFA5TVdRM2JzM2EycVBBclI5cHB6?=
- =?utf-8?B?MXpFWWQ0azRWcThUYXlwUXdvYnBEZDFFZTJ4UExBaWNRcTVHbHkyQlk4YjlM?=
- =?utf-8?B?YlFSYW0vbHh2NmRxREVXMmVhdmdESGlHOXNqNXYxdUFucGswSGFLOHl4QjVM?=
- =?utf-8?B?TVF2SnpPNktyTE9hT3piUFRYdDZRUG1BUGFyYlpDRkh5bC9sZi91cC9YaGpM?=
- =?utf-8?B?WGQzQmVPTmVJVkZCTU5SVG9wMFpHM1YwWDU5bDBWTzNaN0hBckRyRnRJeXlB?=
- =?utf-8?B?K1hud2FjWlFrUzgxRDQrUVUyakFOa1JXQkk4ZTg3aDI1eFFQT2dKZ3VIblpO?=
- =?utf-8?B?VHRSTkFORThuRGJBS21wYWRJdnBURktnZVkyUWJNL09WVWhieVB1MzgvOG44?=
- =?utf-8?B?MVhSaml3YUFaUVYwUTlBSm5lZU5GM1hTSUgrWmFxM0FrQ05KVDBHbEh0eG1t?=
- =?utf-8?B?Zk5WRDlnelRQZzZ4K01ieGFwN2crZHlwVjhYQmFvVEhmOGN1dUI5b0krUTF5?=
- =?utf-8?B?QUN3U3pXNUpLZGVGSUF6am9wRUNHdlpyTVdMcjdQbC9tMWdLL2RGd3VWbytl?=
- =?utf-8?B?R1FnZisxZFRMNFVZYUZJdkttczdDZXdUeERFQ1dPbkllZ0xoNDlDMWZJOFBC?=
- =?utf-8?B?MTdDNUNKajZzcjlUUmJ4RTNIeDV4NEFMMXA4Y1RiRnVjMlNhOVo5M1ZYZkpn?=
- =?utf-8?B?M1VmYTdpREtkVHgyMzhGaHcvcjJOSWtLcGMvSUtBUnBaV21RL3RkV3ptbk9I?=
- =?utf-8?B?KzBPMk1PTWg0YmhYUC80bk9GYTJ1SFQ0TnV6OEgvaE1YeWluTlhtNHIwQUZu?=
- =?utf-8?B?dklsY0luV3N1dFByalJMVnF1VXhsVGxEWWo0YjE3eHFrRnpoMzNwVUd0VVgv?=
- =?utf-8?B?NE9hTUpmem1qVDBpQ1pQZGo3QnhJSWFqZGZZRWk3WTk3SFNxM2FIZUM2SGVt?=
- =?utf-8?B?M3hTN29pQ3o3SDN0T2hkamExL25QbUsvYXJnOGwvNXlxSEdJeWxCUkFDWWx2?=
- =?utf-8?B?OFJmelZMQWtiQTdJQlZ5di9BWFNSNmV4VkpuVjlDNjRlQTZyM2xQYVg5dm1Q?=
- =?utf-8?B?YVV0ZFFqN1U2bDBLaktpcVJrL0kwQ21TMWt6UmxLSGtObm9mWTRoUDN6T1h1?=
- =?utf-8?B?b1hOaUx0aVkzM2FJaGJpVDM5SHRhV1lGczhTTzd6alR3WDBBcDRCTkwzRkFB?=
- =?utf-8?B?R3NSdGk0eHh5eFdpMmFpSmMvTk9DOURBRkxyVkt1c0VvR3RKZzZLSGttblBi?=
- =?utf-8?B?ZEtTYm80cm5uNFdMV3B4SXNrVjRvNlU3bVMrcFFkN2wrQWxKTDFkUnk5UnVq?=
- =?utf-8?B?cld5Wkh1WitSK25lb2FtL204SEVqMFNOTVJWeTB2T3Z3STZNRjN6dnoxRkpY?=
- =?utf-8?B?Rzc2bzkxbWFCRW1QS1dqZUxubllYSC9abzViekJBVGR5K2F6aTRjcTkrNkpX?=
- =?utf-8?B?NzNtNFBjZW0vWVdPeGxXYldFRUdTSWYwMTA4M3dxb1RxT3dnN1VBYUhKaGVw?=
- =?utf-8?B?d3h5WFJsc0luckxuU3F3cTRlc3ZzMnRFd0wxVlFkaEh5djBYa1dvczhodEsr?=
- =?utf-8?B?cVBhSUo2QVVmZ2hkbGtFN1VoaTVUUm4yVTAxbU1PVEUzWnpJSmZGQzNiaGlD?=
- =?utf-8?B?Y3BsSGdzOXU3c0pURUxhaGZ4dU9LOGZmaGlYRVo3Y0ptd1NTaFF5S3pia25R?=
- =?utf-8?B?aVAwUk5EN1pRVDl3YmUweDJBVTUweU04d0xsQ1E1YzcwL0FjUzdlSEtIek5E?=
- =?utf-8?B?d0dvTHIwak5ETlYxam5acXg0aXNidFV6K3FLOHZUYVdxMWk2TnVrSjB2MHpZ?=
- =?utf-8?B?L25RSHNwd2ZoV1FJcURtWHdHUW1sV251RHBzWFdwMjFLMGxQQkdtMy91eHZU?=
- =?utf-8?B?YS9hdDdqZUc4SEhZMStIWGFqM3FrSmRZaXBnS0pSbjk2Vit4YkJaT1czWVE3?=
- =?utf-8?B?cEw2SlBWbzViV2RXOXZocC8yeVZDaXllVFZFbjFJV2FodHMyVmhlYzdraWZQ?=
- =?utf-8?B?U0ZUbjRScFJjMUtnQXZic0hrL3ZiVlVIZFlQZkR0Z3E5K0FnUUVsc0Zqb2FO?=
- =?utf-8?B?NXVwZGZJdWczMWcwZEFsSUFsRG5MOS8xM1pYeHlscUJZd0lmVHhyNkNpYnc2?=
- =?utf-8?B?L0xTc3g1YlM5T0pXUi8xRGdyZnR3QmNVdWdaUW94VlBjRTFKTk9UTVVySnEr?=
- =?utf-8?Q?E5fVoL49n8Td/uiAHMicOck=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(36860700013)(34020700016)(1800799024)(376014)(921020)(12100799066);DIR:OUT;SFP:1501;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2026 18:01:42.7078
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7093ad7f-5d98-4c27-6dd9-08de5396f971
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E7.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB8323
+From: Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
+In-Reply-To: <7ruiccdm7q5fg2pixmszr3fqvclvymdlkv4x4xbavkaeczrxgc@5l6usxqfi5fe>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=YPaSCBGx c=1 sm=1 tr=0 ts=6967daa8 cx=c_pps
+ a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=Q5rFrUx7DTp4enn/YD2GRQ==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=-vY5I4PW3rQ7Gd5RY6YA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=6Ab_bkdmUrQuMsNx7PHu:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE0MDE1MCBTYWx0ZWRfX9jnfDVMERBx1
+ 1S4Yeoi0ekXwqxzydNQw+3sERNdOAQByMiQRdf/dKqPLrn5WV6sdcrPSnMWqN3RCnaOi3qNbwsE
+ f9SKDrhynbMqc2WDnq61ziyEoy5yfXWSTQ1HO+5WBolfzLR3oLgVUExIIWZiUqW5Tlo3QdNYwDT
+ pReiv06xW5DJZkA6TuxXm6msZxTRyNciKhzYMwKkbXSAmaB0oW+NHF+513GXvlQ7T82STUxfjIc
+ RMJYf93wwC7t4odNpCcPPSigHPBusu+2UNaSsIPdbCoQJVnsm4kTGrtr6D62WlAji3033fz3rKS
+ tMQehU/H/AsRf7M/Ulv5hBPJBHGJAhf3GdPwur/UyHoUMKCan9PC0qxrHjg/r4QxbZwtgR8mrVz
+ E1m7BLb41bZIc9R/4hTgdDp576baf2k00NPqKRL8CZD1VgRtwz5oArvqpCDoEQA9v5oOUDsmhMb
+ emz7bjPFgZPc1GRYO0A==
+X-Proofpoint-GUID: cE0aO5xZ-zBywmfMOhChMcYdhxHrDThC
+X-Proofpoint-ORIG-GUID: cE0aO5xZ-zBywmfMOhChMcYdhxHrDThC
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-14_05,2026-01-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 bulkscore=0 impostorscore=0 suspectscore=0 malwarescore=0
+ phishscore=0 lowpriorityscore=0 priorityscore=1501 spamscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601140150
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_100158_182368_2AF81570 
-X-CRM114-Status: GOOD (  28.59  )
+X-CRM114-CacheID: sfid-20260114_100426_342358_820727CB 
+X-CRM114-Status: GOOD (  19.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,204 +149,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/14/26 2:46 AM, Tomeu Vizoso wrote:
-> Some SoCs from Texas Instruments contain DSPs that can be used for
-> general compute tasks.
-> 
-> This driver provides a drm/accel UABI to userspace for submitting jobs
-> to the DSP cores and managing the input, output and intermediate memory.
-> 
-> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-> ---
->   Documentation/accel/thames/index.rst |  28 +++++
->   MAINTAINERS                          |   9 ++
->   drivers/accel/Kconfig                |   1 +
->   drivers/accel/Makefile               |   3 +-
->   drivers/accel/thames/Kconfig         |  26 +++++
->   drivers/accel/thames/Makefile        |   9 ++
->   drivers/accel/thames/thames_core.c   | 155 ++++++++++++++++++++++++++
->   drivers/accel/thames/thames_core.h   |  53 +++++++++
->   drivers/accel/thames/thames_device.c |  93 ++++++++++++++++
->   drivers/accel/thames/thames_device.h |  46 ++++++++
->   drivers/accel/thames/thames_drv.c    | 155 ++++++++++++++++++++++++++
->   drivers/accel/thames/thames_drv.h    |  21 ++++
->   drivers/accel/thames/thames_ipc.h    | 204 +++++++++++++++++++++++++++++++++++
->   drivers/accel/thames/thames_rpmsg.c  | 155 ++++++++++++++++++++++++++
->   drivers/accel/thames/thames_rpmsg.h  |  27 +++++
->   15 files changed, 984 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/accel/thames/index.rst b/Documentation/accel/thames/index.rst
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..ca8391031f226f7ef1dc210a356c86acbe126c6f
-> --- /dev/null
-> +++ b/Documentation/accel/thames/index.rst
-> @@ -0,0 +1,28 @@
-> +.. SPDX-License-Identifier: GPL-2.0-only
-> +
-> +============================================================
-> + accel/thames Driver for the C7x DSPs from Texas Instruments
-> +============================================================
-> +
-> +The accel/thames driver supports the C7x DSPs inside some Texas Instruments SoCs
-> +such as the J722S. These can be used as accelerators for various workloads,
-> +including machine learning inference.
-> +
-> +This driver controls the power state of the hardware via :doc:`remoteproc </staging/remoteproc>`
-> +and communicates with the firmware running on the DSP via :doc:`rpmsg_virtio </staging/rpmsg_virtio>`.
-> +The kernel driver itself allocates buffers, manages contexts, and submits jobs
-> +to the DSP firmware. Buffers are mapped by the DSP itself using its MMU,
-> +providing memory isolation among different clients.
-> +
-> +The source code for the firmware running on the DSP is available at:
-> +https://gitlab.freedesktop.org/tomeu/thames_firmware/.
-> +
-> +Everything else is done in userspace, as a Gallium driver (also called thames)
-> +that is part of the Mesa3D project: https://docs.mesa3d.org/teflon.html
-> +
-> +If there is more than one core that advertises the same rpmsg_virtio service
-> +name, the driver will load balance jobs between them with drm-gpu-scheduler.
-> +
-> +Hardware currently supported:
-> +
-> +* J722S
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index dc731d37c8feeff25613c59fe9c929927dadaa7e..a3fc809c797269d0792dfe5202cc1b49f6ff57e9 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -7731,6 +7731,15 @@ F:	Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
->   F:	drivers/accel/rocket/
->   F:	include/uapi/drm/rocket_accel.h
->   
-> +DRM ACCEL DRIVER FOR TI C7x DSPS
-> +M:	Tomeu Vizoso <tomeu@tomeuvizoso.net>
-> +L:	dri-devel@lists.freedesktop.org
-> +S:	Supported
-> +T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
-> +F:	Documentation/accel/thames/
-> +F:	drivers/accel/thames/
-> +F:	include/uapi/drm/thames_accel.h
-> +
->   DRM COMPUTE ACCELERATORS DRIVERS AND FRAMEWORK
->   M:	Oded Gabbay <ogabbay@kernel.org>
->   L:	dri-devel@lists.freedesktop.org
-> diff --git a/drivers/accel/Kconfig b/drivers/accel/Kconfig
-> index bdf48ccafcf21b2fd685ec963e39e256196e6e17..cb49c71cd4e4a4220624f7041a75ba950a1a2ee1 100644
-> --- a/drivers/accel/Kconfig
-> +++ b/drivers/accel/Kconfig
-> @@ -30,5 +30,6 @@ source "drivers/accel/habanalabs/Kconfig"
->   source "drivers/accel/ivpu/Kconfig"
->   source "drivers/accel/qaic/Kconfig"
->   source "drivers/accel/rocket/Kconfig"
-> +source "drivers/accel/thames/Kconfig"
->   
->   endif
-> diff --git a/drivers/accel/Makefile b/drivers/accel/Makefile
-> index 1d3a7251b950f39e2ae600a2fc07a3ef7e41831e..8472989cbe22746f1e7292d2401fa0f7424a6c15 100644
-> --- a/drivers/accel/Makefile
-> +++ b/drivers/accel/Makefile
-> @@ -5,4 +5,5 @@ obj-$(CONFIG_DRM_ACCEL_ARM_ETHOSU)	+= ethosu/
->   obj-$(CONFIG_DRM_ACCEL_HABANALABS)	+= habanalabs/
->   obj-$(CONFIG_DRM_ACCEL_IVPU)		+= ivpu/
->   obj-$(CONFIG_DRM_ACCEL_QAIC)		+= qaic/
-> -obj-$(CONFIG_DRM_ACCEL_ROCKET)		+= rocket/
-> \ No newline at end of file
-> +obj-$(CONFIG_DRM_ACCEL_ROCKET)		+= rocket/
-> +obj-$(CONFIG_DRM_ACCEL_THAMES)		+= thames/
-> \ No newline at end of file
-> diff --git a/drivers/accel/thames/Kconfig b/drivers/accel/thames/Kconfig
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..50e0b6ac2a16a942ba8463333991f5b0161b99ac
-> --- /dev/null
-> +++ b/drivers/accel/thames/Kconfig
-> @@ -0,0 +1,26 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +
-> +config DRM_ACCEL_THAMES
-> +	tristate "Thames (support for TI C7x DSP accelerators)"
-> +	depends on DRM_ACCEL
-> +	depends on TI_K3_R5_REMOTEPROC || COMPILE_TEST
+Hello Dmitry,
 
-COMPILE_TEST part shouldn't be needed here, TI_K3_R5_REMOTEPROC can be built
-under COMPILE_TEST so TI_K3_R5_REMOTEPROC would just be enabled to test.
+On 1/13/2026 3:25 AM, Dmitry Baryshkov wrote:
+> On Mon, Jan 12, 2026 at 10:24:06PM -0800, Satya Durga Srinivasu Prabhala wrote:
+>> The ARM SMCCC SoC ID driver is currently enabled by default and publishes
+>> SMCCC-provided SoC identification into /sys/bus/soc/devices/socX/*.
+>>
+>> On platforms where a vendor SoC driver already exposes widely-consumed
+>> attributes (e.g. Qualcomm socinfo [1]), enabling the SMCCC driver changes
+>> the format of /sys/devices/soc0/soc_id (e.g. "jep106:XXYY:ZZZZ" instead
+>> of a vendor logical ID like "519") and breaks existing userspace consumers.
+>>
+>> Flip the default of CONFIG_ARM_SMCCC_SOC_ID from y to n. Platforms that
+>> prefer SMCCC over a vendor driver can explicitly enable it.
+> NAK, the userspace should not depend on the exact kernel configuration.
+> Consider working with distribution kernels, which would enable this
+> driver anyway.
+As I mentioned in the other replies, vendor interface exists before the 
+standard
+interface and user space heavily relies on soc0 already. If not 
+disabling the
+SMCCC SOC ID by default. I believe, we should  at-least have a way to make
+sure vendors can disable SMCCC SOC ID by some means or have vendor
+interface takes precedence.
 
-> +	depends on RPMSG
-> +	depends on MMU
-> +	select DRM_SCHED
-> +	select DRM_GEM_SHMEM_HELPER
-> +	help
-> +	  Choose this option if you have a Texas Instruments SoC that contains
-> +	  C7x DSP cores that can be used as compute accelerators. This includes
-> +	  SoCs such as the AM62A, J721E, J721S2, and J784S4.
-> +
-> +	  The C7x DSP cores can be used for general-purpose compute acceleration
-> +	  and are exposed through the DRM accel subsystem.
-> +
-> +	  The interface exposed to userspace is described in
-> +	  include/uapi/drm/thames_accel.h and is used by the Thames userspace
-> +	  driver in Mesa3D.
-> +
-> +	  If unsure, say N.
-> +
-> +	  To compile this driver as a module, choose M here: the
-> +	  module will be called thames.
-> diff --git a/drivers/accel/thames/Makefile b/drivers/accel/thames/Makefile
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..7ccd8204f0f5ea800f30e84b319f355be948109d
-> --- /dev/null
-> +++ b/drivers/accel/thames/Makefile
-> @@ -0,0 +1,9 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +
-> +obj-$(CONFIG_DRM_ACCEL_THAMES) := thames.o
-> +
-> +thames-y := \
-> +	thames_core.o \
-> +	thames_device.o \
-> +	thames_drv.o \
-> +	thames_rpmsg.o
-> diff --git a/drivers/accel/thames/thames_core.c b/drivers/accel/thames/thames_core.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..92af1d68063116bcfa28a33960cbe829029fc1bf
-> --- /dev/null
-> +++ b/drivers/accel/thames/thames_core.c
-> @@ -0,0 +1,155 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/* Copyright 2026 Texas Instruments Incorporated - https://www.ti.com/ */
-> +
-> +#include "linux/remoteproc.h"
-> +#include <linux/dev_printk.h>
-> +#include <linux/err.h>
-> +#include <linux/of.h>
-> +#include <linux/of_address.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/completion.h>
-> +#include <linux/jiffies.h>
-> +#include <linux/rpmsg.h>
-> +
-> +#include "thames_core.h"
-> +#include "thames_device.h"
-> +#include "thames_rpmsg.h"
-> +
-> +/* Shift to convert bytes to megabytes (divide by 1048576) */
-> +#define THAMES_BYTES_TO_MB_SHIFT 20
-
-Seems unused/unneeded.
-
-[...]
-
-> +
-> +static const struct rpmsg_device_id thames_rpmsg_id_table[] = { { .name = THAMES_SERVICE_NAME },
-> +								{} };
-> +
-
-Some odd formatting here.
-
-> +static struct rpmsg_driver thames_rpmsg_driver = {
-> +	.drv = {
-> +		.name = "thames",
-> +		.owner = THIS_MODULE,
-
-Above line shoulnd't be needed.
-
-Andrew
+Best,
+Satya
+>
+>> This avoids unexpected format changes and keeps the generic SoC sysfs
+>> stable on systems that rely on vendor-specific identification.
+>>
+>> [1]
+>> Link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/soc/qcom/socinfo.c
+>>
+>> Signed-off-by: Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
+>> ---
+>>   drivers/firmware/smccc/Kconfig | 5 ++++-
+>>   1 file changed, 4 insertions(+), 1 deletion(-)
+>>
 
