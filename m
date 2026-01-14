@@ -4,77 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4FC9D31A23
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:02:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C30CCD31A24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 08:05:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OrlcgvLEASE7cgCAVQW4sEC2L2tinvXr+j0pOUZUjvY=; b=49GVAKMqz5HUdfuh32PqGpao1n
-	8B3tq8NaeMS+OF6emYWVBcxatgA6MVMWhaXgPWmlVomw7+Gkn+sSAGI9xzQslK/kViN1mtb1zKvqu
-	17b4+EV9A7MdoynJDS5tPXTs2kUFLMrRyvedfyIW0zLwUJ1VLZ7YuImpFwwgli5Gv2d3psDHshqiy
-	x2Zxobpql3L0PIFQ4I3MKtCFeR4WOHQeG6WAzA1/+18C2qOfNNB1difoh3TZsuKGjwc/Fe5sIfXaz
-	XUp5bymmd4huqxyAsWzI/WKjqwdDC1lLXa3LpHVRhKm8opBQg3zc1DfZnsDMV3xOjhlSga1u6hUvN
-	Zq9w1vPA==;
+	bh=jYPkzS8uwgSyR2vpbKtgewGdh4NqLZqcruiqtTuKQyY=; b=GKJnwPI2hWmvRND1jmiNNdz7g7
+	X+KbZpe2tTEzrzIM63yv28QymcGSiJF7YjpLLRScTrlgBV3R5MW40zMTeU4aVMIPQ0XhTrBRPhjy4
+	UH3wuaweEPrYss/nbtAnV8IS+ZiG1x8s6W0uBL0OWWUKYs2gvXoj7+DS0TvvwcKIVC8nX+eiEDXlt
+	v/eyfWts4o3/SmcKlEwOt/8Ryzfn9RfaQLp0wS6lPSTKd0XDj5ox9tBhC7Hlfk14JYHF1LBbyhnWI
+	BR4Mpf2fqooAzAbXbfb3jIlVrtST1U6qQxGrfLfZmbPOHLHtFzSTJrQvxq11DOUWkfuiWEo7KY6iq
+	JZ89Smkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfvq7-00000008GJe-3dxP;
-	Wed, 14 Jan 2026 08:02:51 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vfvsF-00000008Gou-1kWg;
+	Wed, 14 Jan 2026 08:05:03 +0000
+Received: from mail-dl1-x1233.google.com ([2607:f8b0:4864:20::1233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vfvq3-00000008GFA-3lWc
+	id 1vfvsC-00000008GoJ-0mjL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 08:02:50 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 4B0061A2857;
-	Wed, 14 Jan 2026 08:02:44 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 0E5C76074A;
-	Wed, 14 Jan 2026 08:02:44 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 95556103C82AE;
-	Wed, 14 Jan 2026 09:02:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1768377762; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=OrlcgvLEASE7cgCAVQW4sEC2L2tinvXr+j0pOUZUjvY=;
-	b=x88kuLUqFra37jp+2L7Hmyl1rJK9Luj34PccVPygGuBCC5mIUNebQlygEiXB90nJrOOq+B
-	bdtRJbNiaHF/QALBf/DPpUr60ZpM5vhmVOXLlkv7oMKeKJQNP+BV4YdafCKgB1jDyaAPS2
-	tq5kA2oEP25DWOWvI0u2Fyifk3icvqsLbMsUmjXV3ejO7GBvLUNaiqfEvB2ZkGbiC+5LTu
-	zHYrpWi9KCbcQZYi3IgsxHlw0lA3zBo1u/c47qXxbQWSy3rWbbKhvEIWU87kPC41Ert43H
-	A1ighEQjWb6vQJdU5S1OfOJxLVA3ZVpXbWi0B45Cr3vvnRFlbka6Iwu8FsX63Q==
-Mime-Version: 1.0
+	Wed, 14 Jan 2026 08:05:01 +0000
+Received: by mail-dl1-x1233.google.com with SMTP id a92af1059eb24-12332910300so2842687c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 00:04:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768377899; x=1768982699; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jYPkzS8uwgSyR2vpbKtgewGdh4NqLZqcruiqtTuKQyY=;
+        b=MonzUBAY/Boy4cMZRNuEQh8OIvb9Lk2U2rBgZRyMcHei5HslCeib1aqN7dAhnckogX
+         38VbPRrAYOdLEE8EsmylCsN612AbiEA9wZtm1Q1J4qMw9vIJ1qu75/114Jl3tMa+w+5j
+         JBymkOQ6rGxCEKZUPjB/zkkK0mMYVv3C9brF6DUucD0w7c/51bOmq8EAqeBXagOHAzTv
+         062zARd106XK02UL80LXLmWxrL/ZoOh4cOLfosFSaIveC6+R1V9bSHinOKf48C0quSL1
+         tJjcRP6PPvFxro29oaEV918IoQuFK0jxfM+zeYVFGEoDKek4mnfK8uZNx9Uh1uChUI7N
+         E2Og==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768377899; x=1768982699;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=jYPkzS8uwgSyR2vpbKtgewGdh4NqLZqcruiqtTuKQyY=;
+        b=QZnlLv9b5LC+Y6UURI7sPMqHe4FH6J6yP51oMMNNIxnUipNTJyvTV9pMqSmT5xovK/
+         rABxQ42RTxi8vEQt9aGJQYxo0vVXV+7lkOtX/ZC18inKiA2mJzjXdU6oumUQX7FX0zJw
+         Qc7C2+/fyxtJZcF/xAkMNVMtmc9YcbgSpPrW/UK1f+UhiKqI4kD8cZ+RKbeI8gKcKCJ5
+         bqCGVAxiI9TRa2K962ddEFBEHBOw1RB4biQAGXFau5eD471hYwwtrzR8PxnXsFcyXmM+
+         Z3MHYCDPkVzM+JXFXsNTmywMjsDZ8Z3zOWuoFl3zlcg7nADrWAyo23nfrIorXEEQIG30
+         /0JQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVHaEZg0w7CsTFfqcJ898pJBJ5HlJ41apHq7jgz7Veehf+zPpZ6rttevKo+O50zKalGuA/dzbPUahEurT0pbD5r@lists.infradead.org
+X-Gm-Message-State: AOJu0YwF8abaoe2BnComXKzwZdqcOH5+0ZVoVG9nWTkX3iDjq3QUjd5c
+	U/Y+uHnZgd3QExnytWSsBgSDaGnmg/lxU0jNGGfAnxHahMdzwfHCCzdK3FRxnk1xGEn0Onu1Svk
+	s4QoiTDHU4SyFp0oFlpx6rc53yEZTEsQ=
+X-Gm-Gg: AY/fxX7NOwyPF66hRXg2YCKaXDCLMfN6fZQfwApaEopuBlqel1cEsT4mCMgCGz8RY7z
+	er8g1pW3rFvUdgliQtIa3FeZ0ds0TD2bl7sbuz54qPiN3Yo4M2uFEaFcZBsas+8/37LNL4yWm+U
+	RNOMCKEG+XOlO9M4/Do7XiTSzOMoK8Qa/I4bTEMrv5k53NC7m/XyVJnfRnZpSqSdoX+KbtfqmAd
+	EpYRjqH1mJqvq5667HGQ74hCmLCjueDQKp7eSA+LbDmsJ76cTkJuxmggLNXafFO8ULxfUvEaAgZ
+	9l2aHosTTL1ACda9oNoqEW8EvkAlC/ajP8DGgRCu8jqmxP6E+/TaDZuN2vLF1UhHVE1mbn8lBkg
+	GV2SKkznrIg==
+X-Received: by 2002:a05:701b:2211:b0:123:2d38:929a with SMTP id
+ a92af1059eb24-12336ab506emr1783847c88.38.1768377899101; Wed, 14 Jan 2026
+ 00:04:59 -0800 (PST)
+MIME-Version: 1.0
+References: <20260114-fix-soc-imx8m-v1-1-143de91ef077@nxp.com>
+In-Reply-To: <20260114-fix-soc-imx8m-v1-1-143de91ef077@nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Wed, 14 Jan 2026 10:07:40 +0200
+X-Gm-Features: AZwV_QiQ2GxOfUl7_qoYYXBsoM4-1o56L0DpD7bTOn0TWKITOwqTzpk0MfT3zD4
+Message-ID: <CAEnQRZAX4HVjaaPbdUBp6aOreba8BNfkDXeyt4_OH9WVajcCTQ@mail.gmail.com>
+Subject: Re: [PATCH] soc: imx8m: Fix error handling for clk_prepare_enable()
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Marco Felsch <m.felsch@pengutronix.de>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Peng Fan <peng.fan@nxp.com>, kernel test robot <lkp@intel.com>, Dan Carpenter <error27@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 14 Jan 2026 09:02:35 +0100
-Message-Id: <DFO5LHWDD7S2.19P595M4CWIPI@bootlin.com>
-Cc: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <dri-devel@lists.freedesktop.org>
-To: "Marco Felsch" <m.felsch@pengutronix.de>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Shawn Guo" <shawnguo@kernel.org>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
- <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Peng Fan"
- <peng.fan@nxp.com>, "Liu Ying" <victor.liu@nxp.com>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v8 2/3] drm/bridge: imx: Add i.MX93 parallel display
- format configuration support
-X-Mailer: aerc 0.20.1
-References: <20260113-v6-18-topic-imx93-parallel-display-v8-0-4abccdc473a5@pengutronix.de> <20260113-v6-18-topic-imx93-parallel-display-v8-2-4abccdc473a5@pengutronix.de>
-In-Reply-To: <20260113-v6-18-topic-imx93-parallel-display-v8-2-4abccdc473a5@pengutronix.de>
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_000248_208892_16FDEDDF 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20260114_000500_477304_23FA4CA5 
+X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,113 +100,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Marco, Liu,
-
-On Tue Jan 13, 2026 at 8:07 PM CET, Marco Felsch wrote:
-> From: Liu Ying <victor.liu@nxp.com>
+On Wed, Jan 14, 2026 at 12:13=E2=80=AFAM Peng Fan (OSS) <peng.fan@oss.nxp.c=
+om> wrote:
 >
-> NXP i.MX93 mediamix blk-ctrl contains one DISPLAY_MUX register which
-> configures parallel display format by using the "PARALLEL_DISP_FORMAT"
-> field. Add a DRM bridge driver to support the display format configuratio=
-n.
+> From: Peng Fan <peng.fan@nxp.com>
 >
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
-> [m.felsch@pengutronix.de: port to v6.19-rc1]
-> [m.felsch@pengutronix.de: add review feedback (Alexander)]
-> [m.felsch@pengutronix.de: fix to short Kconfig description (checkpath)]
-> [m.felsch@pengutronix.de: use "GPL" instead of "GPL v2" (checkpatch)]
-> [m.felsch@pengutronix.de: add bus-width support]
-> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-
-I'm sorry to be reviewing at v8 only, I hadn't noticed this series before.
-
-> ---
->  drivers/gpu/drm/bridge/imx/Kconfig      |  11 ++
->  drivers/gpu/drm/bridge/imx/Makefile     |   1 +
->  drivers/gpu/drm/bridge/imx/imx93-pdfc.c | 221 ++++++++++++++++++++++++++=
-++++++
->  3 files changed, 233 insertions(+)
+> imx8m_soc_prepare() directly returns the result of clk_prepare_enable(),
+> which skips proper cleanup if the clock enable fails. Check the return
+> value of clk_prepare_enable() and release resources if failure.
 >
-> diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridge/=
-imx/Kconfig
-> index b9028a5e5a065c3237b404111d8df57e8e017f9d..181ee87bc0f9f65ee0b6e5edb=
-b48ba808dfbb71f 100644
-> --- a/drivers/gpu/drm/bridge/imx/Kconfig
-> +++ b/drivers/gpu/drm/bridge/imx/Kconfig
-> @@ -99,4 +99,15 @@ config DRM_IMX93_MIPI_DSI
->  	  Choose this to enable MIPI DSI controller found in Freescale i.MX93
->  	  processor.
->
-> +config DRM_IMX93_PARALLEL_DISP_FMT_CONFIG
-> +	tristate "NXP i.MX91/i.MX93 parallel display format configuration"
+> Reported-by: kernel test robot <lkp@intel.com>
+> Reported-by: Dan Carpenter <error27@gmail.com>
+> Closes: https://lore.kernel.org/r/202601111406.ZVV3YaiU-lkp@intel.com/
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-Minor nit: this is a driver for a device, so calling it "configuration"
-seems weird. From the code it looks like a device converting the color
-format, so what about "NXP i.MX91/i.MX93 parallel display format
-converter"?
-
-[...]
-
-> +static int imx93_pdfc_bridge_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev =3D &pdev->dev;
-> +	struct imx93_pdfc *pdfc;
-> +	struct device_node *ep;
-> +	int err;
-> +
-> +	pdfc =3D devm_drm_bridge_alloc(dev, struct imx93_pdfc, bridge, &funcs);
-> +	if (IS_ERR(pdfc))
-> +		return PTR_ERR(pdfc);
-> +
-> +	pdfc->regmap =3D syscon_node_to_regmap(dev->of_node->parent);
-> +	if (IS_ERR(pdfc->regmap))
-> +		return dev_err_probe(dev, PTR_ERR(pdfc->regmap),
-> +				     "failed to get regmap\n");
-> +
-> +	/* No limits per default */
-> +	pdfc->phy_bus_width =3D 24;
-> +
-> +	/* Get output ep (port1/endpoint) */
-> +	ep =3D of_graph_get_endpoint_by_regs(dev->of_node, 1, -1);
-> +	if (ep) {
-> +		err =3D of_property_read_u32(ep, "bus-width", &pdfc->phy_bus_width);
-> +		of_node_put(ep);
-> +
-> +		/* bus-width is optional but it must have valid data if present */
-> +		if (err && err !=3D -EINVAL)
-> +			return dev_err_probe(dev, err,
-> +					     "failed to query bus-width\n");
-> +	}
-> +
-> +	pdfc->next_bridge =3D devm_drm_of_get_bridge(dev, dev->of_node, 1, 0);
-> +	if (IS_ERR(pdfc->next_bridge))
-> +		return dev_err_probe(dev, PTR_ERR(pdfc->next_bridge),
-> +				     "failed to get next bridge\n");
-> +
-> +	pdfc->dev =3D dev;
-> +	pdfc->bridge.driver_private =3D pdfc;
-
-pdfc embeds the struct drm_bridge, which is the mandatory design since
-devm_drm_bridge_alloc() got added, so driver_private shouldn't be needed
-anymore. Most drivers have a bridge_to_foo() inline function using
-component_of() to get the private struct from the drm_bridge pointer,
-e.g. [0] and [1].
-
-[0] https://elixir.bootlin.com/linux/v6.18.5/source/drivers/gpu/drm/bridge/=
-simple-bridge.c#L39-L43
-[1] https://elixir.bootlin.com/linux/v6.18.5/source/drivers/gpu/drm/bridge/=
-ti-sn65dsi83.c#L287-L290
-
-A short discussion took place a few months ago about driver_private, kind
-of suggesting it might be removed after all drivers have switched to
-devm_drm_bridge_alloc(). I think we should at least not introduce new users
-of driver_private at least.
-
-Best regards,
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
