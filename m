@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C21ABD3CC92
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 00:49:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D859D3CC88
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 01:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fibLDiv5UUGAgvXNRj0aodIc0SorV59XBE18JhLB0hc=; b=YvRUF4p4XMaKCnm+NT5ZVpZou6
-	GP/dG6l/XFS8Imf89sCeu53222vMnfoz15TAU3gynaxRVjsyDCNxDJD2v5GiLee3JcrJPBq+aVIqS
-	tesRcPSBZXYm21tTdGJ2ifbTR9O2eGjLGot25JXsc0vp4ZuELUukFdx/EwkXjHTeOWAcDgQvgFX0s
-	agLOo9evToLRFaAmT9Krz01UnJNV6xylUmQYG1tf5QpMtgJBxkaGMHd8jtDLjToFkP1Gg/bWyQ4Cv
-	L74PWPfWQRrQSMPu9TSAPJIu3atFhtVMeecXDGSygntc3iJ4bDXOza61QBlXHS+lgGFCSfsp3CAlY
-	4qj7SQUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vNKDUiHsavl59v4nItB4xiNjLlP9UEeSBtTXPjQXdBc=; b=l47TZ5+b7xFn/9UHfYnW0CRy01
+	/Ad3i0Z8A9X1E+F1kv0dJTejW0TUDH1jEn2jASWVsQ51CUPwe8vuB8uwKHOfMn7XHoEKkziLfcrvb
+	buvIuk2dDV0jF2Tk3cgysPvqHKFyjDT31/l9FGnHW8XbLcxHa/6ytso5oEGafjdhPatbjYDbefg9o
+	wEH5OQK7xT/wUgdVs4T4mGE5Ruv01RhSWBwlAX6wpfQ6GkKa3gG6LFrMnSa5KUH8RI4icujV/9BTg
+	HHEZV+ckvPbAUqdTYQ8KonXWxiuPYzYsnnd2HTp6WsV7alctjpinXz2o3uhQ2RWcziUmY4RKjXoBN
+	Qbj6L3rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgBYQ-0000000BHjv-3Gp1;
-	Thu, 15 Jan 2026 00:49:38 +0000
-Received: from mout-p-202.mailbox.org ([80.241.56.172])
+	id 1vgBlp-0000000BK4q-04jf;
+	Thu, 15 Jan 2026 01:03:29 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgBYM-0000000BHhj-2Fym
+	id 1vgBll-0000000BK2h-0Nra
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 00:49:35 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4ds4BM2wF5z9tFN;
-	Thu, 15 Jan 2026 01:49:31 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1768438171;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fibLDiv5UUGAgvXNRj0aodIc0SorV59XBE18JhLB0hc=;
-	b=SF5CWzRo1YG4ooEsJ6xYhrzCeG/gfCXXHgPOf5wzIEguAXVS7S1aonpL0BltFW/edR8yb6
-	P5cniITTV19GtlH86mKOn6H29RZyUbFXiJ5112rCHzZu8rYa9hwYQmrwh0Tzl2PzrKKbRd
-	c27/AtPtD7MknuTIscZOsMekbEkraz7ECmOa5RBQueCs9aqHlXTqC5dJRfAM8SfmaOzSwe
-	4HVYVPVlVabK7TxDPbsFylycVF1tm5bUp2cVstGKVFnCsLTXcEXvcSV+0MAXyyqQlMcV07
-	K/Rg8JT10uWGypzyuLOqG3KGfRmqsWg0HLbVAB5uu5XjPX6kVwuHCEiyTCFneg==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=I5ZfffJb;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1768438169;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fibLDiv5UUGAgvXNRj0aodIc0SorV59XBE18JhLB0hc=;
-	b=I5ZfffJbwh0/nFUYO4qV4SOJCxkd/sVQFjkiyq5667RUPn2QlvzDrQ74ymcwsBCs7qiHHO
-	lic1tjSmET0ZTp9erOh6t3OtLhhwcseeMN7ETE27oAlaZCaXDwSLQlDRYPJrwddpWgLhQ3
-	ctUVzYI41846YOE7czCZcGt5r1QUphY81NrIhf8qe2dmVYQks/UI/DtVeSdv6/P6uAAFRq
-	hHHVEz8kuUBgCVJYGaIfxgr83wALnomqeiLbEglZIZehz52m3xarGr8Jub40pZl/+ZC4Fr
-	FpNnroCtkrVtOqDNqGnwkTf2l8q+rikVxJWN4y0YBoZp4G3SgEBgjsvBpXO2pQ==
-To: arm-scmi@vger.kernel.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v3 2/2] firmware: arm_scmi: Implement arm,no-completion-irq property
-Date: Thu, 15 Jan 2026 01:48:57 +0100
-Message-ID: <20260115004921.548282-2-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260115004921.548282-1-marek.vasut+renesas@mailbox.org>
-References: <20260115004921.548282-1-marek.vasut+renesas@mailbox.org>
+	Thu, 15 Jan 2026 01:03:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1768438987;
+	bh=vNKDUiHsavl59v4nItB4xiNjLlP9UEeSBtTXPjQXdBc=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=cxdHa5zeFDY6ZQnhIBWDefU1M3cQbxocCQ7lpdhq5qtapmWol2FGMOJxCqBflrrfm
+	 2GDKsyZcArL5RqSJOVYKqE3alXTxuLN+Jt+Vko31snrBEI+ygi/+XwGXuASYwOlthc
+	 JZ6QqdbH+Ay/AZWpWqBG6dEDfRyUaZN3I28MQD/zF00dacVfua4mY2VrKVtm96hTyO
+	 Jfyvfbnt4r9nbhM8diehDeLkz93y56kcabXAmO/9GsZgKW0Kh98+sn9fOTVGaU2Eoz
+	 Yi0/TWf4YQNG3KCTb1beASIYgiKRGtUDRsTYeCb7O2i3q9QMmGa1B72V3ojdIf77LO
+	 VTDiLha813c9g==
+Received: from [192.168.68.115] (unknown [180.150.112.60])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id BEDD46472A;
+	Thu, 15 Jan 2026 09:03:05 +0800 (AWST)
+Message-ID: <0e611132794491eecbcd3426222b6dca09a35b84.camel@codeconstruct.com.au>
+Subject: Re: [PATCH 1/2] dt-bindings: arm: aspeed: Add Asus IPMI card
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Anirudh Srinivasan <anirudhsriniv@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	 <joel@jms.id.au>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org
+Date: Thu, 15 Jan 2026 11:33:04 +1030
+In-Reply-To: <CAJ13v3QYWRfyivrbP=+hreHuMkYWGPkngW3kJyq6xNVL6YdpgQ@mail.gmail.com>
+References: <20260111201040.162880-1-anirudhsriniv@gmail.com>
+	 <20260111201040.162880-2-anirudhsriniv@gmail.com>
+	 <45bdf2a6c0d33dd6ce0fd3cc279ef6edc509a540.camel@codeconstruct.com.au>
+	 <20260112-whimsical-annoying-fulmar-25e4d9@quoll>
+	 <CAJ13v3RKydFK+sP_Cm-HnQjsOJSDyX_dsGs_Yy564V=Wc7tQFw@mail.gmail.com>
+	 <e97b7a193f8bbfca9ec00037808ad80a5baf9f00.camel@codeconstruct.com.au>
+	 <CAJ13v3QYWRfyivrbP=+hreHuMkYWGPkngW3kJyq6xNVL6YdpgQ@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 555a4aa9c6b107d7af9
-X-MBO-RS-META: 9sd5h5jh3fran9x4bgwhrg1xhawsyszs
-X-Rspamd-Queue-Id: 4ds4BM2wF5z9tFN
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_164934_716300_BE737051 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20260114_170325_351071_4EE2D690 
+X-CRM114-Status: GOOD (  27.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,80 +80,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement new property arm,no-completion-irq, which sets all SCMI
-operation into poll mode. This is meant to work around uncooperative
-SCP implementations, which do not generate completion interrupts.
-This applies to mbox/shmem based implementations.
+On Tue, 2026-01-13 at 16:28 -0600, Anirudh Srinivasan wrote:
+> Hi Andrew
+>=20
+> On Mon, Jan 12, 2026 at 6:57=E2=80=AFPM Andrew Jeffery
+> <andrew@codeconstruct.com.au> wrote:
+> >=20
+> > Perhaps we could incorporate either of those?
+> >=20
+> > =C2=A0* asus,e21524-ipmi-expansion-card
+> > =C2=A0* asus,ipmi-expansion-card-r1-04
+> >=20
+> > However, they're not without some risk:
+> >=20
+> > =C2=A0=C2=A0 1. It's hard to tell whether E21524 is properly representa=
+tive
+> > =C2=A0=C2=A0 2. R1.04 may also problematic as an AST2700-based card wil=
+l likely
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 restart the numbering and risk a collisi=
+on
+> >=20
+> > Otherwise, I guess there's:
+> >=20
+> > =C2=A0* asus,ipmi-expansion-card-ast2600
+> >=20
+>=20
+> There seem to be multiple revisions of this card. The photos have the
+> revision number printed on the board and the manuals have the E21XXX
+> number on them.
+> R1.01 - E21362 photo [1] manual[2]
+> R1.04 - E21524 photo [3] manual[4]
+>=20
+> Mine is the latter. There seem to be some differences in the layout of
+> the different headers on the board, but the same set of headers are on
+> both boards. There is only one fw image on Asus's site, so I guess
+> they're the same from a sw point of view.
 
-With this property set, such implementations which do not generate
-interrupts can be interacted with, until they are fixed to generate
-interrupts properly.
+Ah, interesting. So the R1.01 card also has an 'E' number silkscreened
+on it - 'E248779', though this is different to E21362 from the manual.
+E248779 seems to alias to a lot of other ASUS things. Given the
+variance and aliasing it's probably a good idea to avoid them.
 
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>
-Cc: arm-scmi@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-renesas-soc@vger.kernel.org
----
-V2: Drop no IRQ handling from SMC transport and update commit message
-V3: Rename property from arm,poll-transport to arm,no-completion-irq
----
- drivers/firmware/arm_scmi/common.h | 4 ++++
- drivers/firmware/arm_scmi/driver.c | 4 ++++
- 2 files changed, 8 insertions(+)
+>=20
+> I've linked a screenshot [5] from the webui on the stock fw and it
+> says that the firmware model is "KOMMANDO". Asus also seems to name
+> the fw update file for this board KODO1140.ima (KODO is short for
+> KOMMANDO?, 1140 is the version number).
 
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index 7c35c95fddbaf..7c9617d080a02 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -235,6 +235,9 @@ struct scmi_transport_ops {
-  *		      to have an execution latency lesser-equal to the threshold
-  *		      should be considered for atomic mode operation: such
-  *		      decision is finally left up to the SCMI drivers.
-+ * @no_completion_irq: Flag to indicate that this transport has no completion
-+ *		       interrupt and has to be polled. This is similar to the
-+ *		       force_polling below, except this is set via DT property.
-  * @force_polling: Flag to force this whole transport to use SCMI core polling
-  *		   mechanism instead of completion interrupts even if available.
-  * @sync_cmds_completed_on_ret: Flag to indicate that the transport assures
-@@ -254,6 +257,7 @@ struct scmi_desc {
- 	int max_msg;
- 	int max_msg_size;
- 	unsigned int atomic_threshold;
-+	bool no_completion_irq;
- 	const bool force_polling;
- 	const bool sync_cmds_completed_on_ret;
- 	const bool atomic_enabled;
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 3e76a3204ba4f..f167194f7cf67 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2735,6 +2735,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
- 	cinfo->is_p2a = !tx;
- 	cinfo->rx_timeout_ms = info->desc->max_rx_timeout_ms;
- 	cinfo->max_msg_size = info->desc->max_msg_size;
-+	cinfo->no_completion_irq = info->desc->no_completion_irq;
- 
- 	/* Create a unique name for this transport device */
- 	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
-@@ -3150,6 +3151,9 @@ static const struct scmi_desc *scmi_transport_setup(struct device *dev)
- 	if (ret && ret != -EINVAL)
- 		dev_err(dev, "Malformed arm,max-msg DT property.\n");
- 
-+	trans->desc.no_completion_irq = of_property_read_bool(dev->of_node,
-+							      "arm,no-completion-irq");
-+
- 	dev_info(dev,
- 		 "SCMI max-rx-timeout: %dms / max-msg-size: %dbytes / max-msg: %d\n",
- 		 trans->desc.max_rx_timeout_ms, trans->desc.max_msg_size,
--- 
-2.51.0
+> I looked at other Asus Motherboard onboard BMC fw updates and they
+> seem to be named <Mobo Model><version>.ima. Example board "Pro WS
+> W680M" [6], fw update name W680M1121.ima, another example board "Pro
+> WS W790E" [7], fw update name W7901167.ima
+>=20
+> "asus,kommando-ipmi-expansion-card" is a bit long, so maybe we should
+> go with "asus,kodo-ipmi-expansion-card". SEO for either of the 2 terms
+> is not very good, but that's not what we're looking for here are we?
 
+So downloading the releases and poking around a bit, there's this:
+
+   > for f in */*.ima; echo $f; dd if=3D$f bs=3D$(math 0x100) count=3D1 ski=
+p=3D$(math 0x3ff00) 2>/dev/null | strings | sed 's/^/\t/'; echo; end
+   IPMI_EXPANSION_CARD-1.1.26/KODO1126.ima
+   	$MODULE$
+   	ast2600e
+   	UFW_VERSION=3D1.01.26
+   	FW_DATE=3DJan 9 2023
+   	FW_BUILDTIME=3D10:23:36 UTC
+   	FW_DESC=3DAST2600EVB SPX-13 TB2
+   	FW_PRODUCTID=3D1
+   	FW_RELEASEID=3DRR9
+   	FW_CODEBASEVERSION=3D5.X
+  =20
+   IPMI_EXPANSION_CARD-1.1.33/KODO1133.ima
+   	$MODULE$
+   	ast2600e
+   	UFW_VERSION=3D1.01.33
+   	FW_DATE=3DJul 17 2023
+   	FW_BUILDTIME=3D09:25:13 UTC
+   	FW_DESC=3DAST2600EVB SPX-13 TB2
+   	FW_PRODUCTID=3D1
+   	FW_RELEASEID=3DRR9
+   	FW_CODEBASEVERSION=3D5.X
+  =20
+   IPMI_EXPANSION_CARD-1.1.34/KODO1134.ima
+   	$MODULE$
+   	ast2600e
+   	UFW_VERSION=3D1.01.34
+   	FW_DATE=3DFeb 27 2024
+   	FW_BUILDTIME=3D07:45:26 UTC
+   	FW_DESC=3DAST2600EVB SPX-13 TB2
+   	FW_PRODUCTID=3D1
+   	FW_RELEASEID=3DRR9
+   	FW_CODEBASEVERSION=3D5.X
+  =20
+   IPMI_EXPANSION_CARD-1.1.35/KODO1135.ima
+   	$MODULE$
+   	ast2600e
+   	UFW_VERSION=3D1.01.35
+   	FW_DATE=3DAug 20 2024
+   	FW_BUILDTIME=3D08:32:35 UTC
+   	FW_DESC=3DAST2600EVB SPX-13 TB2
+   	FW_PRODUCTID=3D1
+   	FW_RELEASEID=3DRR9
+   	FW_CODEBASEVERSION=3D5.X
+  =20
+   IPMI_EXPANSION_CARD-1.1.40/KODO1140.ima
+   	$MODULE$
+   	Oast2600e
+   	UFW_VERSION=3D1.01.40
+   	FW_DATE=3DApr 15 2025
+   	FW_BUILDTIME=3D09:52:26 UTC
+   	FW_DESC=3DAST2600EVB KOMMANDO SPX-13 TB2
+   	FW_PRODUCTID=3D1
+   	FW_RELEASEID=3DRR9
+   	FW_CODEBASEVERSION=3D5.X
+
+KODO is pretty consistent in the firmware update file name. KOMMANDO as
+the product identifier also seems reasonable, even if it only appears
+in FW_DESC in the latest release. KODO -> KOMMANDO seems reasonable.
+
+A brief bit of binwalking suggests it's an AMI MegaRAC implementation,
+and so I expect 'SPX-13' in FW_DESC refers to MegaRAC SP-X[1]. The
+significance of 'TB2' isn't yet unclear to me.
+
+I'm not super concerned about the length of "asus,kommando-ipmi-
+expansion-card" - I'd prefer it over incorporating the 'kodo'
+contraction.
+
+I guess it's still unclear whether 'kommando' is a (future) line of
+products or refers to the specific AST2600-based design. Perhaps we
+could solve a few problems with 'asus,kommando-ast2600' and including
+the phrase 'IPMI expansion card' in the binding description for
+something searchable.
+
+Andrew
+
+[1]: https://9443417.fs1.hubspotusercontent-na1.net/hubfs/9443417/Data_Shee=
+ts/Firmware_Solutions/MegaRAC_SP-X_Data_Sheet_PUB.pdf
 
