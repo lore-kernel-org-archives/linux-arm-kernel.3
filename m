@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F9B3D41151
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 09:51:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E596D41149
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 09:51:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oXpew4cDk0UrNh7eLUCRmYFZER8zCn2IwNYv41sZQeQ=; b=P69iNCWUtBLcS3eS7sruVgj+D+
-	YVwwqTSlz2f0MwGTM6zJpecw2nevhnmjP6FrVYuFD7DfB/epsgKY0COhM61sPvjYQUYGSfZqJKl4/
-	8d7PGMM8qvjp7I/mnvXakgZi3vtIBcegStsEs7sw1kgAK9tcX6bpykbOAaGOo2TtaOTMdvP0Whax4
-	pcFSOENBkSBcWn5qmb0EfGCUuIVs+sNXp9JMK1X9icBEmsYd0Vt0l8sqMUffQkreu9cJY8Gmh/Som
-	pi0iT/ba2fUwPF0Tj4BqxEudhBpWM+dRWMnJpTL+rfor67PbbAJTUnwU5u1jX6yMgxuZvTeM+7Ely
-	Ri3mEYaQ==;
+	bh=yKX9tKlLFd9yZ9qQhjwkPKYRIBNTll1YOBUjMA40ICw=; b=JFPuQzqDNLeCP6mN4bJWaKu4Uf
+	n2S2b5WmctlIt7GHWUAqvCGb4uSnUZXH+VB1JKnuc2TiP8xpiE77J4EVWM2NUiHnf6M4+b1uhGVWA
+	/isQvasKZCkU1X6+nXLl/9uSUkplw3IaSI+f17k57jkW4CDHLqsj76TOsW55nbZlEYD8A5RQ6iy8n
+	KEApmElrrv866nw4gfDWamiV6dOMywmOmvcO+kHWNwdKuTD+b7X28UA4yk01rryJZCO7dUqsHjpBy
+	SS4ygcyxArBtDqn7x+HHy80cAInD/pNWAwx11mfDrdeShuOORT6KlhBYI2OKUevkGw0tZ2p/tOkfy
+	JrBPlKjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgK0a-0000000C69S-2Tko;
-	Thu, 15 Jan 2026 09:51:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vgK0d-0000000C6Am-3pBN;
+	Thu, 15 Jan 2026 09:51:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgK0Y-0000000C68Z-0OQN
+	id 1vgK0b-0000000C69j-27qb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 09:51:14 +0000
+	Thu, 15 Jan 2026 09:51:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 27CDA601B8;
+	by sea.source.kernel.org (Postfix) with ESMTP id C138543BF0;
+	Thu, 15 Jan 2026 09:51:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51B51C116D0;
 	Thu, 15 Jan 2026 09:51:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B831C116D0;
-	Thu, 15 Jan 2026 09:51:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768470672;
-	bh=YBaXKAlozW+FYMpEzXzll2PzBijH4+E23WmpoK+kcUE=;
+	s=k20201202; t=1768470676;
+	bh=aTM+15MuMBWcKYpMkd2t27DnfiaoGuCnRx72X7ugcxU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=HnSOVkL4OrQiSP2yCQeizqnkagsNgPPwPBF66l8foQfSAlklF+e5AaEjavQA4KYyT
-	 jGi7AbKnc87EgONLRTOV0dmACVXNCvrExT3uS8eae74cUZQAHcrrV3lCwBPJe/yLJY
-	 6AXMry/xt41t+868fgUxf2gXhuqvi/0ds8GY3cj4gnFdO0gQX6HSBfoQ+W7F6I+Bh1
-	 OO+ysDCSfnFXhILpK+OUG3oBro9Wh54u2Cvy0dzkjF6/3+X8Xwx5ODeEDErrHGJdJs
-	 /31yCPOI12Jum05n0jwN6q4NACHNC4c3RGIRC/6aW7Rc+kn9zbxrDbMAfoulDWCrWc
-	 BNUjVdINHiPCQ==
+	b=EuVCJ74vrP6Po2rDh46/ZydRo60pFY8Gpd13cGcWTBD2XMDvrqIkdbZzt1V7L26LN
+	 BNC2WOLZxdEBp1kaG7vDtS9+ha+T4iaL4SwN+jPWz9bFP7n5WEuhLoqdykUfQiilxG
+	 bDf8ihLDNuJ5vDrKEiLbQE+KIe4s8dwDNZ4lK2wrKbBkdwhsP0JZ8Y2Wo5bjoQFr0D
+	 yRULNNzWN55GiW214LnBVTcTqmO51xV1YHeD9KftUqy0B6aUZ3JZ4bsj8q8ZGDbgRM
+	 /F2xH7sIGV1JPK5BxiFPnOpNunl+Lot7IM+H863EC5Ea2FYx9qrhIgxrRJQPzMj9xN
+	 Eb5GnJdvPWUrg==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Thu, 15 Jan 2026 10:50:47 +0100
-Subject: [PATCH v3 1/6] irqdomain: Add parent field to struct irqchip_fwid
+Date: Thu, 15 Jan 2026 10:50:48 +0100
+Subject: [PATCH v3 2/6] PCI/MSI: Make the pci_msi_map_rid_ctlr_node()
+ interface firmware agnostic
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260115-gicv5-host-acpi-v3-1-c13a9a150388@kernel.org>
+Message-Id: <20260115-gicv5-host-acpi-v3-2-c13a9a150388@kernel.org>
 References: <20260115-gicv5-host-acpi-v3-0-c13a9a150388@kernel.org>
 In-Reply-To: <20260115-gicv5-host-acpi-v3-0-c13a9a150388@kernel.org>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
@@ -60,6 +61,9 @@ Cc: linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-pci@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>
 X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260115_015117_597059_AF423F89 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,133 +78,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GICv5 driver IRQ domain hierarchy requires adding a parent field to
-struct irqchip_fwid so that core code can reference a fwnode_handle parent
-for a given fwnode.
+To support booting with OF and ACPI seamlessly, GIC ITS parent code
+requires the PCI/MSI irqdomain layer to implement a function to retrieve
+an MSI controller fwnode and map an RID in a firmware agnostic way
+(ie pci_msi_map_rid_ctlr_node()).
 
-Add a parent field to struct irqchip_fwid and update the related kernel API
-functions to initialize and handle it.
+Convert pci_msi_map_rid_ctlr_node() to an OF agnostic interface
+(fwnode_handle based) and update the GIC ITS MSI parent code to reflect
+the pci_msi_map_rid_ctlr_node() change.
 
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 Cc: Thomas Gleixner <tglx@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>
 Cc: Marc Zyngier <maz@kernel.org>
 ---
- include/linux/irqdomain.h | 30 ++++++++++++++++++++++++++----
- kernel/irq/irqdomain.c    | 14 +++++++++++++-
- 2 files changed, 39 insertions(+), 5 deletions(-)
+ drivers/irqchip/irq-gic-its-msi-parent.c |  8 ++++----
+ drivers/pci/msi/irqdomain.c              | 21 ++++++++++++++++-----
+ include/linux/msi.h                      |  3 ++-
+ 3 files changed, 22 insertions(+), 10 deletions(-)
 
-diff --git a/include/linux/irqdomain.h b/include/linux/irqdomain.h
-index 62f81bbeb490..73c25d40846c 100644
---- a/include/linux/irqdomain.h
-+++ b/include/linux/irqdomain.h
-@@ -257,7 +257,8 @@ static inline void irq_domain_set_pm_device(struct irq_domain *d, struct device
- 
- #ifdef CONFIG_IRQ_DOMAIN
- struct fwnode_handle *__irq_domain_alloc_fwnode(unsigned int type, int id,
--						const char *name, phys_addr_t *pa);
-+						const char *name, phys_addr_t *pa,
-+						struct fwnode_handle *parent);
- 
- enum {
- 	IRQCHIP_FWNODE_REAL,
-@@ -267,18 +268,39 @@ enum {
- 
- static inline struct fwnode_handle *irq_domain_alloc_named_fwnode(const char *name)
+diff --git a/drivers/irqchip/irq-gic-its-msi-parent.c b/drivers/irqchip/irq-gic-its-msi-parent.c
+index 12f45228c867..4d1ad1ee005d 100644
+--- a/drivers/irqchip/irq-gic-its-msi-parent.c
++++ b/drivers/irqchip/irq-gic-its-msi-parent.c
+@@ -104,7 +104,7 @@ static int its_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
+ static int its_v5_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
+ 				  int nvec, msi_alloc_info_t *info)
  {
--	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED, 0, name, NULL);
-+	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED, 0, name, NULL, NULL);
-+}
-+
-+static inline
-+struct fwnode_handle *irq_domain_alloc_named_parented_fwnode(const char *name,
-+							     struct fwnode_handle *parent)
-+{
-+	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED, 0, name, NULL, parent);
+-	struct device_node *msi_node = NULL;
++	struct fwnode_handle *msi_node = NULL;
+ 	struct msi_domain_info *msi_info;
+ 	struct pci_dev *pdev;
+ 	phys_addr_t pa;
+@@ -116,15 +116,15 @@ static int its_v5_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
+ 
+ 	pdev = to_pci_dev(dev);
+ 
+-	rid = pci_msi_map_rid_ctlr_node(pdev, &msi_node);
++	rid = pci_msi_map_rid_ctlr_node(domain->parent, pdev, &msi_node);
+ 	if (!msi_node)
+ 		return -ENODEV;
+ 
+-	ret = its_translate_frame_address(msi_node, &pa);
++	ret = its_translate_frame_address(to_of_node(msi_node), &pa);
+ 	if (ret)
+ 		return -ENODEV;
+ 
+-	of_node_put(msi_node);
++	fwnode_handle_put(msi_node);
+ 
+ 	/* ITS specific DeviceID */
+ 	info->scratchpad[0].ul = rid;
+diff --git a/drivers/pci/msi/irqdomain.c b/drivers/pci/msi/irqdomain.c
+index a329060287b5..3a4038640fda 100644
+--- a/drivers/pci/msi/irqdomain.c
++++ b/drivers/pci/msi/irqdomain.c
+@@ -376,23 +376,34 @@ u32 pci_msi_domain_get_msi_rid(struct irq_domain *domain, struct pci_dev *pdev)
  }
  
- static inline struct fwnode_handle *irq_domain_alloc_named_id_fwnode(const char *name, int id)
- {
- 	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED_ID, id, name,
--					 NULL);
-+					 NULL, NULL);
-+}
-+
-+static inline
-+struct fwnode_handle *irq_domain_alloc_named_id_parented_fwnode(const char *name, int id,
-+								struct fwnode_handle *parent)
-+{
-+	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED_ID, id, name,
-+					 NULL, parent);
- }
- 
- static inline struct fwnode_handle *irq_domain_alloc_fwnode(phys_addr_t *pa)
- {
--	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_REAL, 0, NULL, pa);
-+	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_REAL, 0, NULL, pa, NULL);
-+}
-+
-+static inline struct fwnode_handle *irq_domain_alloc_parented_fwnode(phys_addr_t *pa,
-+								     struct fwnode_handle *parent)
-+{
-+	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_REAL, 0, NULL, pa, parent);
- }
- 
- void irq_domain_free_fwnode(struct fwnode_handle *fwnode);
-diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
-index 2652c4cfd877..baf77cd167c4 100644
---- a/kernel/irq/irqdomain.c
-+++ b/kernel/irq/irqdomain.c
-@@ -33,6 +33,7 @@ static void irq_domain_free_one_irq(struct irq_domain *domain, unsigned int virq
- 
- struct irqchip_fwid {
- 	struct fwnode_handle	fwnode;
-+	struct fwnode_handle	*parent;
- 	unsigned int		type;
- 	char			*name;
- 	phys_addr_t		*pa;
-@@ -53,8 +54,16 @@ static const char *irqchip_fwnode_get_name(const struct fwnode_handle *fwnode)
- 	return fwid->name;
- }
- 
-+static struct fwnode_handle *irqchip_fwnode_get_parent(const struct fwnode_handle *fwnode)
-+{
-+	struct irqchip_fwid *fwid = container_of(fwnode, struct irqchip_fwid, fwnode);
-+
-+	return fwid->parent;
-+}
-+
- const struct fwnode_operations irqchip_fwnode_ops = {
- 	.get_name = irqchip_fwnode_get_name,
-+	.get_parent = irqchip_fwnode_get_parent,
- };
- EXPORT_SYMBOL_GPL(irqchip_fwnode_ops);
- 
-@@ -65,6 +74,7 @@ EXPORT_SYMBOL_GPL(irqchip_fwnode_ops);
-  * @id:		Optional user provided id if name != NULL
-  * @name:	Optional user provided domain name
-  * @pa:		Optional user-provided physical address
-+ * @parent:	Optional parent fwnode_handle
+ /**
+- * pci_msi_map_rid_ctlr_node - Get the MSI controller node and MSI requester id (RID)
++ * pci_msi_map_rid_ctlr_node - Get the MSI controller fwnode_handle and MSI requester id (RID)
++ * @domain:	The interrupt domain
+  * @pdev:	The PCI device
+- * @node:	Pointer to store the MSI controller device node
++ * @node:	Pointer to store the MSI controller fwnode_handle
   *
-  * Allocate a struct irqchip_fwid, and return a pointer to the embedded
-  * fwnode_handle (or NULL on failure).
-@@ -76,7 +86,8 @@ EXPORT_SYMBOL_GPL(irqchip_fwnode_ops);
+- * Use the firmware data to find the MSI controller node for @pdev.
++ * Use the firmware data to find the MSI controller fwnode_handle for @pdev.
+  * If found map the RID and initialize @node with it. @node value must
+  * be set to NULL on entry.
+  *
+  * Returns: The RID.
   */
- struct fwnode_handle *__irq_domain_alloc_fwnode(unsigned int type, int id,
- 						const char *name,
--						phys_addr_t *pa)
-+						phys_addr_t *pa,
-+						struct fwnode_handle *parent)
+-u32 pci_msi_map_rid_ctlr_node(struct pci_dev *pdev, struct device_node **node)
++u32 pci_msi_map_rid_ctlr_node(struct irq_domain *domain, struct pci_dev *pdev,
++			      struct fwnode_handle **node)
  {
- 	struct irqchip_fwid *fwid;
- 	char *n;
-@@ -104,6 +115,7 @@ struct fwnode_handle *__irq_domain_alloc_fwnode(unsigned int type, int id,
- 	fwid->type = type;
- 	fwid->name = n;
- 	fwid->pa = pa;
-+	fwid->parent = parent;
- 	fwnode_init(&fwid->fwnode, &irqchip_fwnode_ops);
- 	return &fwid->fwnode;
+ 	u32 rid = pci_dev_id(pdev);
+ 
+ 	pci_for_each_dma_alias(pdev, get_msi_id_cb, &rid);
+ 
+-	return of_msi_xlate(&pdev->dev, node, rid);
++	/* Check whether the domain fwnode is an OF node */
++	if (irq_domain_get_of_node(domain)) {
++		struct device_node *msi_ctlr_node = NULL;
++
++		rid = of_msi_xlate(&pdev->dev, &msi_ctlr_node, rid);
++		if (msi_ctlr_node)
++			*node = of_fwnode_handle(msi_ctlr_node);
++	}
++
++	return rid;
  }
+ 
+ /**
+diff --git a/include/linux/msi.h b/include/linux/msi.h
+index 8003e3218c46..8ddb05d5c96a 100644
+--- a/include/linux/msi.h
++++ b/include/linux/msi.h
+@@ -702,7 +702,8 @@ void __pci_write_msi_msg(struct msi_desc *entry, struct msi_msg *msg);
+ void pci_msi_mask_irq(struct irq_data *data);
+ void pci_msi_unmask_irq(struct irq_data *data);
+ u32 pci_msi_domain_get_msi_rid(struct irq_domain *domain, struct pci_dev *pdev);
+-u32 pci_msi_map_rid_ctlr_node(struct pci_dev *pdev, struct device_node **node);
++u32 pci_msi_map_rid_ctlr_node(struct irq_domain *domain, struct pci_dev *pdev,
++			      struct fwnode_handle **node);
+ struct irq_domain *pci_msi_get_device_domain(struct pci_dev *pdev);
+ void pci_msix_prepare_desc(struct irq_domain *domain, msi_alloc_info_t *arg,
+ 			   struct msi_desc *desc);
 
 -- 
 2.50.1
