@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E57DD4115D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 10:37:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C9DBD4116B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 10:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HJqo6LxSFvjymO08OBbA4HDFLrBYb+JurpJL/gCPr80=; b=MpclQ87tx6Wtq/rLP5ob8XoM8e
-	j0ZI/iyt8GxeKZ10EYdq8PbMPdZVcgg3qydso7IQUf4Kj832UgG66HYJhgal4+oXgpyZ5BO4NXSe3
-	EQkuTTKzHIo3vvF0vtZaNEDv0r5M2NQMexaS01rADPlzM0Apzj+ZcOtXLx0oEsCgEgC0tyK7GfIyg
-	VQa3yr/44TtL5sTmKeIMfHmoAtZsHrpjyqRKCWZjFmLJZZwquFP77LZblCC/i70TxOf38dE1vRPTM
-	VbDWFFzzoAl/GMo3OmbPe39pV92Fzz+Q84vLkT8K9cTar70RAZB3ox9Y4djix47OwWslKNz4WCVkA
-	bTioCy/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1p2XoRu+N3MN1gMwzSh5wyB5gfaCBHLjeZ1kZTlyHmo=; b=nvMER04A//P7SvBCmLsEdABpgm
+	TfKp7pmHv/sBhP4jUowHa+g7p1D6fWHgwmWGQiIMOSq/1CMs5yQXCc82RbGNewU3gUK62c2VlD/2V
+	vFEpwMNWBkiEQay5j3h/tnCCUIRRG+rryJUz1tLwG40ugR1aHfYDMYvZjAASOayjFBznotJaSRwx5
+	WCFqM3G+DSDoJ7Xnq78Jw/PcqljMOWxHKaf2FFlrVXg182KHsIV/sObZLIburhqZ7kVCQjYpp7Olu
+	k3O/G5NtbuolKWgHo41bDqREbTYw7emEAwX5zn9+KxTba79bmrCxwRIE/Gbcy8fjQvpi5VWSBV0Yn
+	xoQYTtqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgKiu-0000000CAEi-17Kg;
-	Thu, 15 Jan 2026 10:37:04 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1vgKmB-0000000CARp-1Mco;
+	Thu, 15 Jan 2026 10:40:27 +0000
+Received: from mail-ua1-f51.google.com ([209.85.222.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgKir-0000000CADx-1tR1
+	id 1vgKm9-0000000CARV-0V4s
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 10:37:03 +0000
-Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-47d59da3d81so7514845e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 02:37:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768473419; x=1769078219; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HJqo6LxSFvjymO08OBbA4HDFLrBYb+JurpJL/gCPr80=;
-        b=LaVcw42IK81JNjnxhnuyx0cEVB3rR/hbFS9h++NaLHWpt+GPrJ3Z/jfwho4r/swHur
-         iClkfVVvclper2YiPuoLYDh56VzC0RYcAgPjtc4zS/HKRI8ELKChsjrTQZbq2Vy55UPL
-         I44C6tXuqGf+takcNDgMMn/Yb+P3xlYq0O5oLTnTSBHkv/VsHUQQPBl83QNEqHZXBNmJ
-         D00+gw1iYtHihtgMyO5U9Qqb80zS34RVdl+E0PaLCD5Bnj5mSLuALz89Nw56ClneOief
-         gGbPxKS0TkJIop9jVFpXh+FdHRGRzFTo0UYFXigYY5n44OorMkts6/PDtcSSCDTVQgNC
-         J+kg==
+	Thu, 15 Jan 2026 10:40:26 +0000
+Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-93f5905e60eso483219241.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 02:40:24 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768473419; x=1769078219;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=HJqo6LxSFvjymO08OBbA4HDFLrBYb+JurpJL/gCPr80=;
-        b=UQBhyDeRnEXL3EabvYrIsz2PkP67GoVeNHqh6wtlq+QmeCQq3AiEpXykAp5e+qP8gk
-         +63FiJ1RSJ7L1dV+YqA66DpsHIHnFIwOxX7XFNlFGaLFUXjua3F7IfdBN00Ll56ZyQoI
-         YtBFDXIglvyjRRvzBNGdnxa/HDHMgpQf/m4k2KtOoeqHo4NduRe9gVeLFk0X5HB4tGCD
-         VO7vr0/h/VLra4NmAP4QTJcqIUDHiQt1kWM1G0ho5UnkRzKnJaDbzstbUXHFwQFzKJXS
-         Uc1d3VHEEnhsmr5aBTdN9tJYbJW6sayIvoO3fKIPem3O3UrvwIfWYQHZDQ7C2MVPsjSb
-         KxrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWKtBNFQx33nd00oglQ1kCBTqBxKsIpIsdNm9rW9j6MOHxLasx2AjVrUH/J2VocHvrwAS+k3VaexALly/zt0Mxu@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGCglj0SrWhE3bnDdOkXxTwOzvV1voT4w5VvPUfmrkqjheUROV
-	B0e0RIWZAv+1r6WYhoxcTKoZV5SgelrAH9A29wklKZhNPGM8adqWdOk/Uv7QmPwwWhc=
-X-Gm-Gg: AY/fxX57C1efx2dBvHdEZWYb1fuYxNhlcdzE2TJJu123TKw9x+Z6JJEDD8XEgOrYCzY
-	7udyD7tb4RlRrtH3q7RBvyQ8MR7elzjhRUC678SGmWtxF2sHfgqQbvh3cA+3pmhaSDy+yBzmBq+
-	tRny4sd/vu7ZMrCFamRwes4dSnBfKAyTKTFLeGnLokz9D/9togpxvsOnbAceM6Ts0LSHXc4zKmU
-	FUglLISAnXE/hbaAlJVuYuJEzJ4Rsrjim/eUtjVuOi3lxqsJ1GYloEhlscEkwfIyqqyGB194nzC
-	CJtR14KPK4bLX+1kefuN+VROngj5VM9fjxQf31cHfqbkAn5wtNIFm2v8cymamAXwpK4FpWk/cQk
-	guwc6eJqm615otplWs3OLZnxZ7DDXutM2u8coMoOUUY1SJhVxyJNHShuekBI7v3ynkE8LKcyIbb
-	ZkrsXNZBtBwTjHvYQyAAeKH7iGLtszHZw=
-X-Received: by 2002:a05:6000:4027:b0:429:d3c9:b8af with SMTP id ffacd0b85a97d-434d75b7003mr2802540f8f.25.1768473419171;
-        Thu, 15 Jan 2026 02:36:59 -0800 (PST)
-Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:52eb:f6ff:feb3:451a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-434af64a65bsm5120132f8f.7.2026.01.15.02.36.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 02:36:58 -0800 (PST)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: khilman@baylibre.com, jbrunet@baylibre.com, 
- martin.blumenstingl@googlemail.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, Nick Xie <nick@khadas.com>
-Cc: xianwei.zhao@amlogic.com, christianshewitt@gmail.com, 
- krzk+dt@kernel.org, robh@kernel.org, conor+dt@kernel.org, 
- nick@xieqinick.com
-In-Reply-To: <20260115030015.1334517-1-nick@khadas.com>
-References: <20260115030015.1334517-1-nick@khadas.com>
-Subject: Re: [PATCH v3 0/3] arm64: dts: meson-s4: add support for Khadas
- VIM1S
-Message-Id: <176847341849.1377446.5257760418462522600.b4-ty@linaro.org>
-Date: Thu, 15 Jan 2026 11:36:58 +0100
+        d=1e100.net; s=20230601; t=1768473623; x=1769078423;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1p2XoRu+N3MN1gMwzSh5wyB5gfaCBHLjeZ1kZTlyHmo=;
+        b=WydX88PHlFPHLho3uGSN4vrX2BmJCFsJS0KkQWc5XuwsHM7xFVaja0Zi+F7hJgQZe0
+         pwUoK2sY1MFjlPzcQkRaaGDxtP0hWucoHe56zzGLY1p8DBmOID0V3UMuBmtsxUVRnd4n
+         xlIGjiksrt8Kj2Dnqfg/E+44phgKavwp/KxxbFo/hSaWMKNtyI2z/v8nimRRLaLLZpYf
+         rwjD/+tYpueI2ETuW1LxqP96/aunjLcSiyaC0f3rS/vrNt6tFwXK6x8uluFONXgDXSZ/
+         MJx0No51t0VlofsNqHe831oDr1EhdjD8O7AOIR7jCmg7JFTAcArQPrCJkL2oy7oYapdB
+         Ko7w==
+X-Forwarded-Encrypted: i=1; AJvYcCVPcBMTNnfy1dwiGJDvybh6/o72JpBxO19jha5AIgpM/97phnz7b5+qchIIqZuJcv27iC/WBgX3iI8P8H22F+yC@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrEt3Vjr+E9qFLRg1iYKN2sckiI6VqXiJY/l5E2MYHSgmOvd/i
+	65VygUllMS7qogCYKICy4d98HWYPLSE+2uJr3h5Nc181kTQT6lUkF7dCsB21T78Jo1w=
+X-Gm-Gg: AY/fxX5mQ+0awyYw2r7mxgu35+Gv4Gg4XoYunxm8Y8z8bURMerIWlkLGPuG1dMrczHo
+	1gPUwk24FCTUn779Ydeyku92f1YEkyA1wUkoaJuJCXj9gVg5qjpZgIUu6mAmOiDIQkYdmX0V5Jx
+	Nj/UruKpIlnM/t86fIF2AmG+UrZm4RDpSNWR5KNmOph64KDbGuadz6jn9Q5hnE0e1BK57aVNF2z
+	rlLfxmaxIDOJgBMppRVykp+A/4mACojDBoZq/3+d4W8/Fr3l2VxM1bDhQZZHyvyO7hguKsT91Hj
+	ncmpIqPnekrS2gmwpHypITKo23xXXSpQR2zC1GbnP6EloGXuAW+6HKro+6UOIXUYV8MVj+XBjc9
+	5/jKo7u2A2K5F264RqtKkMApMY8xNR7IYABwp/6hCHAJ4U3+Zk3OTKhDHG44AYe+zAtIGufqbMT
+	eqQAyFWtddaYVH6BfreGh1usHd7IDTo+vVOIbRk51lXPEYL59Cxq9F
+X-Received: by 2002:a05:6102:3754:b0:5f1:6c5d:9b28 with SMTP id ada2fe7eead31-5f17f44450dmr2524459137.15.1768467575899;
+        Thu, 15 Jan 2026 00:59:35 -0800 (PST)
+Received: from mail-vk1-f179.google.com (mail-vk1-f179.google.com. [209.85.221.179])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-944124a34acsm24823931241.10.2026.01.15.00.59.35
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 Jan 2026 00:59:35 -0800 (PST)
+Received: by mail-vk1-f179.google.com with SMTP id 71dfb90a1353d-56376c3e866so533213e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 00:59:35 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVp8W2qUmlmaOI+dCEXEKoB5DqfK90wA9uboUMQtYK8fg3Ior7BSm7jvDX7iobJzVwPHejdmWCKfcTY2BADbXgr@lists.infradead.org
+X-Received: by 2002:a05:6102:4b83:b0:5f1:4fb8:6b92 with SMTP id
+ ada2fe7eead31-5f17f58c046mr2296699137.22.1768467196661; Thu, 15 Jan 2026
+ 00:53:16 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+References: <20251230080115.2120612-1-zhenglifeng1@huawei.com>
+ <20251230080115.2120612-4-zhenglifeng1@huawei.com> <CAMuHMdVeHk-Enc-M9ztwSdeAtE8YPKtJwq+273bGPEFOEsu=Rw@mail.gmail.com>
+ <aWZriVlQZ5jRx2o4@arm.com> <CAMuHMdVgbQnaCQ8U8FK6J1vJLsqc0_MC7zSTX2B=rsuF2kpEKg@mail.gmail.com>
+ <41b7398c-b1a4-4b87-b6f9-07eacf4f4752@huawei.com> <CAMuHMdUuTrF=eN5tMsjmOfWuuT9r7aCOTS7=YP6+KrSdNrhEpw@mail.gmail.com>
+In-Reply-To: <CAMuHMdUuTrF=eN5tMsjmOfWuuT9r7aCOTS7=YP6+KrSdNrhEpw@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 15 Jan 2026 09:53:05 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVxZ5bbkDqib7jyG50YEnKX=KuHs-svMX7-o2SPz8WF6g@mail.gmail.com>
+X-Gm-Features: AZwV_QiQCjp_xx6Rd7qqH4UVq_yR09vqEc-Jt_NOVYext6gLSj5FqsRdjfyRE28
+Message-ID: <CAMuHMdVxZ5bbkDqib7jyG50YEnKX=KuHs-svMX7-o2SPz8WF6g@mail.gmail.com>
+Subject: Re: [REPOST PATCH v6 3/3] arm64: topology: Handle AMU FIE setup on
+ CPU hotplug
+To: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
+Cc: Beata Michalska <beata.michalska@arm.com>, catalin.marinas@arm.com, will@kernel.org, 
+	rafael@kernel.org, viresh.kumar@linaro.org, sudeep.holla@arm.com, 
+	gregkh@linuxfoundation.org, dakr@kernel.org, ionela.voinescu@arm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+	linuxarm@huawei.com, jonathan.cameron@huawei.com, vincent.guittot@linaro.org, 
+	zhanjie9@hisilicon.com, lihuisong@huawei.com, yubowen8@huawei.com, 
+	zhangpengjie2@huawei.com, wangzhi12@huawei.com, linhongye@h-partners.com, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_023701_518372_C020AC23 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20260115_024025_169424_55176663 
+X-CRM114-Status: GOOD (  24.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,60 +104,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, 15 Jan 2026 at 09:37, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> On Thu, 15 Jan 2026 at 03:25, zhenglifeng (A) <zhenglifeng1@huawei.com> wrote:
+> > On 2026/1/14 21:54, Geert Uytterhoeven wrote:
+> > > The confusing part is in the (absence of) logging.
+> > > If AMU is not supported, freq_counters_valid() uses:
+> > >
+> > >      pr_debug("CPU%d: counters are not supported.\n", cpu);
+> > >
+> > > which is typically not printed, unless DEBUG is enabled.
+> > >
+> > > If freq_counters_valid() failed, the new cpuhp_topology_online() uses:
+> > >
+> > >     pr_warn("CPU[%u] doesn't support AMU counters\n", cpu);
+> > >
+> > > which is always printed.
+> > >
+> > > Given freq_counters_valid() already prints a (debug) message, I think
+> > > the pr_warn() should just be removed.  Do you agree, or is there still
+> > > another incorrect check that should prevent getting this far?
+> >
+> > I'm OK with removing it.
+>
+> OK, I will send a patch.
 
-On Thu, 15 Jan 2026 11:00:12 +0800, Nick Xie wrote:
-> This series adds initial support for the Khadas VIM1S single board computer.
-> 
-> The Khadas VIM1S is based on the Amlogic S905Y4 (S4 family) SoC.
-> It features:
->  - 2GB LPDDR4 RAM
->  - 16GB eMMC 5.1 storage
->  - 32MB SPI flash
->  - 100M Ethernet
->  - AP6256 Wireless (802.11 a/b/g/n/ac, BT5.0)
->  - HDMI 2.1 video
->  - 2x USB 2.0 ports
->  - 1x USB-C (power) with USB 2.0 OTG
->  - 2x LED's (1x red, 1x white)
->  - 3x buttons (power, function, reset)
->  - IR receiver
->  - 40pin GPIO Header
->  - 1x micro SD card slot
-> 
-> [...]
+https://lore.kernel.org/a8dbf49bfa44a6809fa4f34b918516847dc14460.1768466986.git.geert+renesas@glider.be/
 
-Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.20/arm64-dt)
+Gr{oetje,eeting}s,
 
-[1/3] dt-bindings: arm: amlogic: introduce specific compatibles for S4 family
-      https://git.kernel.org/amlogic/c/fee65328ab35d5491ac5c9c697c52da3fd068268
-[2/3] arm64: dts: meson-s4-aq222: update compatible string with s805x2
-      https://git.kernel.org/amlogic/c/9ba73c18b14ac297b9fae92b684ca4dafa5e0361
-[3/3] arm64: dts: meson-s4-s905y4-khadas-vim1s: add initial device tree
-      https://git.kernel.org/amlogic/c/6186af6bd9b1e778e295a176c9281dba970da7eb
-
-These changes has been applied on the intermediate git tree [1].
-
-The v6.20/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
-for inclusion in their intermediate git branches in order to be sent to Linus during
-the next merge window, or sooner if it's a set of fixes.
-
-In the cases of fixes, those will be merged in the current release candidate
-kernel and as soon they appear on the Linux master branch they will be
-backported to the previous Stable and Long-Stable kernels [2].
-
-The intermediate git branches are merged daily in the linux-next tree [3],
-people are encouraged testing these pre-release kernels and report issues on the
-relevant mailing-lists.
-
-If problems are discovered on those changes, please submit a signed-off-by revert
-patch followed by a corrective changeset.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+                        Geert
 
 -- 
-Neil
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
