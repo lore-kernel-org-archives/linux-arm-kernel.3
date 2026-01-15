@@ -4,82 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90EC7D44C7B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 16:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B13D44C7A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 16:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UcPjMQs8wlZ69D72bOHJHv8LmpfNACepVb1D7xG/5V4=; b=wyiy+WAZuL0cVNZVBvHlQS6pD5
-	mOZ+d2NRm7XHP1qy+PliDL4a5sxxA4lYmpl0zfZtm3ICofo1gWdsWSODOg85BCSQ9bj1WkDcoYdVD
-	2W0cw0SVXvgrZCsTqecEIAWzr5nM05SzihoLDG3YpZ9m1+4IITQXHL95nzbkD3PMMbtlSyffIHL0H
-	/GOOFcONFIEc5dVjzVXsLn6hz2fOXt5RFt+SOKLsP0hgvygZLHLE/20jiWkwK3/TFDP/8OAj6IdGx
-	+AMB8/ioWLKvjo1HjtE9MqaSBfPdx2MvQGmKYtPcR+DvVqLpCArh4RONVp+D2MD/SR/ZhDmE8Ihkm
-	0vYtMr0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f+jXMyMhXs04yFOKhEush+PUVMJWmYgOyDXql4Fgxvw=; b=ROr1CoMKujLbaF/+O8lL2VS6f6
+	QEfGz041HlbqGw4kr1WLekfOH24PGW1ykI0xOKuNYgMaM3T5yepzK0hnTZO8pNW9I6wmP3WIxUDwD
+	OX4++kRvsnPIVTanC9gD+J4O8TUmYA/aAZuWqpwXwvmA7JZUT+GxxpmSTnfH3u84CXihFuIjIFbRo
+	eXLKRwTiy377dMNYBml8h7zPewLrMjXSOGCpj8WciRs9u3Bl67qJrn5X1ijumtQDgdIUHrUB0X8VM
+	QCR3eokUAYp9yfiHpQioJOOx488c/jdMicHswfwqrJkHwqizHu4WKnGQoyY9VfKdr4jyvSpigp1QF
+	A1jrcLfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgQ9A-0000000CgNO-3o6x;
-	Thu, 15 Jan 2026 16:24:32 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1vgQ9n-0000000CgTs-28gM;
+	Thu, 15 Jan 2026 16:25:11 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgQ98-0000000CgMK-15FE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 16:24:31 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-38301bf7864so19993091fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 08:24:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768494268; x=1769099068; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=UcPjMQs8wlZ69D72bOHJHv8LmpfNACepVb1D7xG/5V4=;
-        b=FcCBqeabsyrDr7QQx9SRaI62TwFgj1yv3JvIc8xKw3cnyUfYpIfSyaYePGMINKUyrh
-         31HcRmltKEog6MyUyx+JQm9gKENZI6YAIx5+7wgNBiyrNQL0pd3KtytQ1blnUmYXworR
-         j/IJAjDEf5hK7lEnCCM5IBPIMHlawitQeGzRWDK9AiCQsyEKwjYrZMueM4OPcg9Ufrq/
-         82ctX4+K4+mXd1JEaAsAaRf9O7ZT/sG/C4x1STDZJI3cxEexqcjHkwfM9EJ9UEYGeVSl
-         6wBh3Tsg31DWl28iSuoRJnKmQs+Sw63Aul0MbwlQddRVgjbZBbs/t/onL+kjhrG2SdYo
-         WSIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768494268; x=1769099068;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UcPjMQs8wlZ69D72bOHJHv8LmpfNACepVb1D7xG/5V4=;
-        b=e/Af0LkK9ZqgOs2gskOLPxRLfpXHUh/jRexhAwioJLM+Ht3nzCR1PB/I6FXxvw67h3
-         XeHLW+tRvd+jb4OiVpn5Jf9nWYwZbeiMu/LCkBiJ1v2NFM0/kQTE+8oG74wivBvSvEua
-         WM/NU/O5gxeQWow43+G1E+OVOew3wwjhQ//jOWtpNRkKZO8r5OX8/UoJL8UaqK7hondp
-         RlXB2HtXI+q9vns4csFpUUYT2ooxAEaUKQOB0IKKkpgnjKAIZqCVsG6dV8lS962VTZXA
-         BQ9/KUR2pv9/JdQ4tNduJZOOINcXiUlWJMqdf/g+Mm2nGImg+AUOHY18U6J4+2oWHL0G
-         +zxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUbzW83ib/d/UBysfpj301tpH0+7gZvCZXzDGXrPJZXTK2aifAYH/QRFPkwPeB5ZvVp4AgC1Pgij8jeHb1Gt9TY@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHN96uTIMsk+n3w25SgKIhkCrhd1SqlYWNwb3dEzGF7zf7tic9
-	Y9kWV/0/TqLcvzVysLGhJRca9T25Uh7JGhodPOifMdythQVu/9POIqzYMNkeOrlrrjiGKxvGhaR
-	iMEZR5AvoeurJxsGaOpjf7Ff0Im0YZVCGh5+9h7F7uA==
-X-Gm-Gg: AY/fxX45ZBM0+F6PorOmqEU9tDmNRQcrOfeboym/CIq9TOlhAgYxIUzL58Db/DI3qwZ
-	eUyGd0MEYeJgTvsk7gByGoXC1t548cAeICaq9ZxMnrmkAGfQSWgx+LXTPuBjlGCtHMMVQQKMuAZ
-	xSzIpymaHxHR4xb9Dc1FrR7fIE9+Jy/+Ct75aet3mxFvR90M/c44Thb5Lk/eqcxRWXIHA4V/pWT
-	fYPjDv3v2Gr17aGTMi6l2sYksnosrHOMNsVqRJj+F+2MHjT/j+zzlCVyUw9FIjUa1HtXL99
-X-Received: by 2002:a2e:3003:0:b0:383:543:66d with SMTP id 38308e7fff4ca-3836f09c3afmr8580341fa.16.1768494267944;
- Thu, 15 Jan 2026 08:24:27 -0800 (PST)
+	id 1vgQ9j-0000000CgS8-0s8P;
+	Thu, 15 Jan 2026 16:25:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1768494304;
+	bh=sZkcmxgPloiZOgcyn0CucYEXzZq6QpSQQfwD2zQtYb0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=JWBfxwqX5FBqNKey+KoyFDp9aSS9Uvly3g/ZY5dIiWJUO85ZF91M2sxIxPRbVEDxJ
+	 cAjj+AvfWSKd7GAxs/ebD0maPRPOrL2jS7++4wjjnCcbDShSBTubLgPXTLheIvDfCN
+	 eqvhjM8PkUqNkdgGz+AMBDyUvlobK88l7FUNOCHFfXa/DsLprBmPDGr7vACdg1bPEj
+	 LisAP8WUJe+qTXSA6+Uuf70fbLDXjpmmqEmYu6m480+L65kX56fQp3useqlHs7aIfF
+	 iGJ3b30LVtR+u8tYf8BKMrPeP9CD3rp8pBhBkej9DN5zo/dxdd7tOzIjBLl8XHjqdY
+	 c1tt6E0eCPWEw==
+Received: from localhost (unknown [82.79.138.145])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3B9C317E07FA;
+	Thu, 15 Jan 2026 17:25:04 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 15 Jan 2026 18:24:43 +0200
+Subject: [PATCH 1/2] drm/rockchip: dw_hdmi_qp: Fix RK3576 HPD interrupt
+ handling
 MIME-Version: 1.0
-References: <20260113110012.36984-1-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20260113110012.36984-1-angelogioacchino.delregno@collabora.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 15 Jan 2026 17:23:51 +0100
-X-Gm-Features: AZwV_Qgstc2v5holxo2-uqRefc6HR54B_5kwg-eT_5uV86kY4RNFn6HUBQ_JID8
-Message-ID: <CAPDyKFohjOfdg1vz1o4FAhThm_1CTF46SgrWSJuJYt3mLLJwNA@mail.gmail.com>
-Subject: Re: [PATCH 0/5] Fix dtbs_check warnings for MediaTek MT7622 platform
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, mturquette@baylibre.com, sboyd@kernel.org, 
-	matthias.bgg@gmail.com, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-pm@vger.kernel.org, kernel@collabora.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260115-dw-hdmi-qp-hpd-v1-1-e59c166eaa65@collabora.com>
+References: <20260115-dw-hdmi-qp-hpd-v1-0-e59c166eaa65@collabora.com>
+In-Reply-To: <20260115-dw-hdmi-qp-hpd-v1-0-e59c166eaa65@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_082430_303051_5687F735 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20260115_082507_403105_E51324D2 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,38 +80,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 Jan 2026 at 12:00, AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> This series fixes various dtbs_check warnings happening on the MediaTek
-> MT7622 Home Router platforms devicetrees.
->
-> Depending on correctness, either the bindings or the devicetree was
-> changed as a dtbs_check warning fix.
->
-> AngeloGioacchino Del Regno (5):
->   dt-bindings: clock: mediatek,mt7622-pciesys: Remove syscon compatible
->   dt-bindings: power: mt7622-power: Add MT7622_POWER_DOMAIN_AUDIO
->   pmdomain: mediatek: scpsys: Add MT7622 Audio power domain to legacy
->     driver
->   arm64: dts: mediatek: mt7622: Add missing clock to audio-controller
->   arm64: dts: mediatek: mt7622: Add missing power domain to afe
->
->  .../bindings/clock/mediatek,mt7622-pciesys.yaml        | 10 ++++------
->  arch/arm64/boot/dts/mediatek/mt7622.dtsi               |  7 +++++--
->  drivers/pmdomain/mediatek/mtk-scpsys.c                 | 10 ++++++++++
->  include/dt-bindings/power/mt7622-power.h               |  1 +
->  4 files changed, 20 insertions(+), 8 deletions(-)
->
-> --
-> 2.52.0
->
+The threaded interrupt handler on RK3576 checks HPD IRQ status before
+deciding to continue with interrupt clearing and unmasking.
 
-Patch 2 and 3 applied for next, thanks!
+This is not only redundant, since a similar verification has been
+already performed by the hard IRQ handler before masking the interrupt,
+but is also error prone, because it might happen that hardware clears
+the status register right after the masking operation completes, and
+before the threaded handler reads its value.
 
-Note, the DT patch (patch2) is also available at the immutable dt
-branch, for soc maintainers to pull in.
+The consequence is that HPD IRQ gets never unmasked, which breaks
+hotplug detection until reloading the driver or rebooting the system.
 
-Kind regards
-Uffe
+Drop the unnecessary verification of the HPD interrupt status from the
+threaded interrupt handler.
+
+Fixes: 36439120efbd ("drm/rockchip: dw_hdmi_qp: Add basic RK3576 HDMI output support")
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+index c4365909c3e7..33b0f032258a 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+@@ -280,12 +280,7 @@ static irqreturn_t dw_hdmi_qp_rk3576_hardirq(int irq, void *dev_id)
+ static irqreturn_t dw_hdmi_qp_rk3576_irq(int irq, void *dev_id)
+ {
+ 	struct rockchip_hdmi_qp *hdmi = dev_id;
+-	u32 intr_stat, val;
+-
+-	regmap_read(hdmi->regmap, RK3576_IOC_HDMI_HPD_STATUS, &intr_stat);
+-
+-	if (!intr_stat)
+-		return IRQ_NONE;
++	u32 val;
+ 
+ 	val = FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_CLR, 1);
+ 	regmap_write(hdmi->regmap, RK3576_IOC_MISC_CON0, val);
+
+-- 
+2.52.0
+
 
