@@ -4,64 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D52D3CC8C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 00:25:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D26AD3CC92
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 00:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B4QfrPMND0dKajSMmYvgDtwoZx9Otg3YeOPfV5ej2AA=; b=jmTDGSHhRgss9sje1HrPjtOfPB
-	nuFOKg4xCPiXZ6Skv1C0oSMxTe2u4DAC4Y02NTg3BT3TV78ngQ+dzvX0dGyp8tKwyXbiHjeLFH+4B
-	twVZUqlWlTqRDwWpmpo4IH4Pe1aMMco1qRBBfnZjuISMpMFtaetXiKtbpLJJe5GWszVqtuuZeQ79u
-	Q5JWCmdr+LE277GNIhFiXa1tXLcCBkWPl6FjyKnfhhHOliTWPJyUYQepQjgedHZDqVsrN6nvae0Ab
-	SYG8q/m+z+UJH4nhP6V6p0Ve0mXFs4dHYR3G1NXArcSz1zFx41quJ9laz1ZRiQ0wMrOIuV3RVd52W
-	phbCrC8w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=roN4NcJtuzGWonO7OQ8fdkqgHT0peC+VlYJ/zBMgNDM=; b=T278/C80Gj3+BrJ/32fdKU9jrv
+	dn62FTp28YF90zU4i1aNc8ruDqlsN04KcQCjtKdBazhFYDCkTHiX5z8YQB5Uinwm0RPq408RpH9UE
+	4QzhDJGoRxuX/2OJleLhen6RWPE5eb/XHnaoo5FXJenCYrZcrcNdUBRIuVTV7lz3mZCkRHpDLfK8Z
+	knJVZ9Oy5k0QW/ymVocV+dvwpNMEPbnp09pJD3UCffvgusXolXDIwXlB9V6AyljCK/L2RcCHU00Fn
+	zG3Wmyx2HSCzcavqYs1pTeeCga8YpIFCkGQfcvH6tZVqbMeatronw2Y+GeZ60yd1ke3UxIZSYq7tN
+	Anm7XfSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgBB6-0000000BDbc-11Fz;
-	Thu, 15 Jan 2026 00:25:32 +0000
-Received: from mail-m49229.qiye.163.com ([45.254.49.229])
+	id 1vgBEf-0000000BEAu-2V2T;
+	Thu, 15 Jan 2026 00:29:13 +0000
+Received: from mail-dl1-x1234.google.com ([2607:f8b0:4864:20::1234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgBB2-0000000BDaY-3Y6C;
-	Thu, 15 Jan 2026 00:25:31 +0000
-Received: from [172.16.12.14] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 30af7ff73;
-	Thu, 15 Jan 2026 08:25:20 +0800 (GMT+08:00)
-Message-ID: <b49b223e-e728-4ce9-b972-242ed9b5fa4a@rock-chips.com>
-Date: Thu, 15 Jan 2026 08:25:17 +0800
+	id 1vgBEa-0000000BEA9-1SSa
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Jan 2026 00:29:11 +0000
+Received: by mail-dl1-x1234.google.com with SMTP id a92af1059eb24-11f1fb91996so842496c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 16:29:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nexthop.ai; s=google; t=1768436947; x=1769041747; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=roN4NcJtuzGWonO7OQ8fdkqgHT0peC+VlYJ/zBMgNDM=;
+        b=TYYLeVXbAOTwt2VyhdRjhRHeTMVbIfLMJMsqDCe1wDz8jScd4xoaMDhs2In168Ppyn
+         oAOdaLZxNfO5M564BUYklRrkLPtcBhggKdARrCWnpkJrexIlqPl8HSST5ZrGv9GWcd6C
+         VhNvhMEIjpN2qps40iOYVw9O4W/XgKkplb0+sxD23qwxEqB0MaPTIiww1HCKTo5uSgG9
+         31S/fpD52tygVCsSonu9ozpY59kuJ2t9trpb4ZBzM9WW4jedoYAhTLu1nZ3DHIYH2ATU
+         LZh0vOiL/4bRr6y5u/237FwL153qj/xFAVOP+b4ivlLk6VldrlG4x+mWf9XqjaumchtF
+         Id4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768436947; x=1769041747;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=roN4NcJtuzGWonO7OQ8fdkqgHT0peC+VlYJ/zBMgNDM=;
+        b=Zl35TLrMgOFjgADSSpymF35duvCB+kGu5jJbCf4yOhq1nyGF4ENBHam3RWx3TaCMPD
+         XdCcF3rps2rGeTeqmD1K/jjVnyFx3mLjt9STHmBbr/qlllFDZcOPjh6AGsB7d6X5peqq
+         ae1JfA5d0rlXmxqA4ZsFeEK++GORM12i9HmdeZhAmBz0p1tYtNrnkLlK+TT8aIbVZ76P
+         wy69xNNvMCEczWWBZe0MSsn+cLVAlVOlk4OA822uNBsWZxnPrXGObmOV5QPhjAVm7Wb3
+         WYWgy2XD8ZtujcxZL4JUmdU1O6PnOk2WBL2+E007NU73vwf0hep6ZsIwAV4cXyJVJPCX
+         n0zQ==
+X-Gm-Message-State: AOJu0Yx79YhUJ2pXtHP1iUt1yMKwv8SvVZQFmmajQZPFuWHUxZNDzj4M
+	0D+NJ08ywx2tcahUtJD/3ucWsUFLSFMWgHazmxTPS5E94ISsnpvvkxV1Y6AbvmKxJWg=
+X-Gm-Gg: AY/fxX52ZZgYaW5mhBPMRVNEy7SW1oPvX0J85JhDa5XPJ3fCTdKbIRNFg950NHwNY7M
+	mQE2Vj3kHCWr8iwrir9gF61rMHg1E9A3rcN5FgnS/gC1g23UB2HTBX4vol7mCc/BRZMao25PjK+
+	Qc++poiWweJnpYfpC7Oim9nZjwFukOHcTzLK5xqLuP5E2b1GnrFBR4PN3juPmgLdItgSr7Hkv+H
+	cbJL5tNheVIQdCLr9R+KkICVa4G2CRR8qtsJewQAHunAbucGovr5ESaLQ1nzWY0iiI4iMfsNr1v
+	O2MUWRaSRiMZjXN3sb98z3b1XLgwN0w77UtwmH1TSQyxQj5IF4BN9pTPEka7pVu1MghXqkxQST2
+	4/G2AfUWhO4J6sDEvLWFN2u3yyzPg1ebXZ1D5ppjL14uQmfY57S5gpso3luz1+goehBxo4xmYSs
+	keZ1IloHspCiS1u7o5zkPK/w==
+X-Received: by 2002:a05:7022:660a:b0:11b:ceee:b78a with SMTP id a92af1059eb24-12336a64fcdmr4929101c88.19.1768436946763;
+        Wed, 14 Jan 2026 16:29:06 -0800 (PST)
+Received: from localhost ([50.145.100.178])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12331d95110sm4462526c88.8.2026.01.14.16.29.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 16:29:06 -0800 (PST)
+From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+To: Michal Simek <michal.simek@amd.com>,
+	Andi Shyti <andi.shyti@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Subject: [PATCH] i2c: xiic: add ACPI support
+Date: Thu, 15 Jan 2026 00:28:46 +0000
+Message-ID: <20260115002846.25389-1-abdurrahman@nexthop.ai>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-rockchip@lists.infradead.org,
- linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, heiko@sntech.de, ulf.hansson@linaro.org
-Subject: Re: [PATCH v1 0/3] mmc: dw_mmc-rockchip: Add stability quirk for
- NanoPi R76S
-To: Marco Schirrmeister <mschirrmeister@gmail.com>
-References: <20260110010715.1610159-1-mschirrmeister@gmail.com>
- <67ccb8f6-f9bd-4266-b79a-b688bd6d030b@rock-chips.com>
- <8536413c-8687-4d75-befb-8f25e54838bf@rock-chips.com>
- <6934ae0d-16c5-436f-97f6-c11d304ca51d@rock-chips.com>
- <CAGJh8eDXT43_PfmUbShL4Hysfkd21R=sCerRNe_AGQANbwvSPA@mail.gmail.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <CAGJh8eDXT43_PfmUbShL4Hysfkd21R=sCerRNe_AGQANbwvSPA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9bbf0ae48909cckunmf5ba25fc501b74
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkwZSVYaSExMTk1CGh5KSRhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=BxhOpBRTnQz+GPMIuPHkTUo8xgEUj3FoCSXW6s6PPy6OzyKosh4qIlUkrCft0RHY5hB8sma8mOnoGsD2/ynKIdEgaFgTzt1Tuv7raFbq7O0p21F9Z96Bl2QUbKDo39AB9n0HHNOjAjl8Q0LDzBio2SGKNaXeTGNwtLwIx5qgycs=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=B4QfrPMND0dKajSMmYvgDtwoZx9Otg3YeOPfV5ej2AA=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_162529_758779_0E350AF9 
-X-CRM114-Status: GOOD (  25.13  )
+X-CRM114-CacheID: sfid-20260114_162908_393986_B3B716EC 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,174 +97,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2026/01/15 星期四 3:51, Marco Schirrmeister 写道:
-> Hello Shawn,
-> 
-> On Wed, Jan 14, 2026 at 9:08 AM Shawn Lin <shawn.lin@rock-chips.com> wrote:
->>
->> Except for the patch mentioned above for fixing the hot-plug problem
->> which you confirmed to work fine. I looked the code a bit and see
->> a potential problem related to the runtime suspend + power-domain.
->> Please check the patch to see if it fixes your problem:
-> 
-> I tested your patch and the issue is still present. For verification I did
-> add some debug statements and just to see what it saves and restores.
-> 
-> The symbols are there.
-> root@nanopi-r76s ~# grep dw_mci_rockchip_runtime /proc/kallsyms
-> ffff800080bf27a0 t dw_mci_rockchip_runtime_suspend
-> ffff800080bf29c0 t dw_mci_rockchip_runtime_resume
-> 
-> # dmesg output
-> [Wed Jan 14 20:13:46 2026] E220d: Restoring phases: sample=231, drv=180
-> [Wed Jan 14 20:13:46 2026] mmc_host mmc1: Bus speed (slot 0) = 400000Hz
-> [Wed Jan 14 20:13:47 2026] mmc_host mmc1: Bus speed (slot 0) = 198000000Hz
-> [Wed Jan 14 20:13:47 2026] dwmmc_rockchip 2a310000.mmc: Successfully
-> tuned phase to 232
-> [Wed Jan 14 20:13:48 2026] E220d: Saving phases: sample=231, drv=180
-> [Wed Jan 14 20:13:48 2026] E220d: Restoring phases: sample=231, drv=180
-> [Wed Jan 14 20:13:48 2026] mmc_host mmc1: Bus speed (slot 0) = 400000Hz
-> [Wed Jan 14 20:13:48 2026] mmc_host mmc1: Bus speed (slot 0) = 198000000Hz
-> [Wed Jan 14 20:13:48 2026] dwmmc_rockchip 2a310000.mmc: Successfully
-> tuned phase to 231
-> [Wed Jan 14 20:13:48 2026] E220d: Saving phases: sample=231, drv=180
-> 
-> Based on this, it makes me believe that power to the sd card is completely cut
-> and when it wakes up and knows how to continue, it still must go through the
-> retraining phase.
-> 
+Use generic device property accessors.
+Make the clock optional assuming it's managed by firmware.
 
-This is another mistake for your NanoPi R76S board. Before sent this
-patch, I already checked the dts and saw sdmmc uses vmmc-supply =
-<&vcc_3v3_s3> which is marked as regulator-always-on, but it's *NOT*
-actually per the shcematic[1][2]. So need another fix for your board
-to make it actually gpio-based power controller instaed of function
-IO based, as when powering off the power domain, the power control bit
-will not be able to maintain.
+Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+---
+ drivers/i2c/busses/i2c-xiic.c | 20 ++++++++------------
+ 1 file changed, 8 insertions(+), 12 deletions(-)
 
-
-[1] 
-https://wiki.friendlyelec.com/wiki/images/6/60/NanoPi_R76S_LP4X_2411_SCH.pdf
-[2] 
-https://wiki.friendlyelec.com/wiki/images/9/90/NanoPi_R76S_LP5_2411_SCH.pdf
-
-Except for the patches you have tested, please append the blow patch as 
-well to test.
-
---- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts
-@@ -192,6 +192,18 @@
-                 regulator-name = "vcc_3v3_s0";
-                 vin-supply = <&vcc_3v3_s3>;
-         };
-+
-+       vcc3v3_sd: regulator-vcc-3v3-sd {
-+               compatible = "regulator-fixed";
-+               enable-active-high;
-+               gpios = <&gpio0 RK_PB6 GPIO_ACTIVE_HIGH>;
-+               pinctrl-names = "default";
-+               pinctrl-0 = <&sdmmc_pwren>;
-+               regulator-name = "vcc3v3_sd";
-+               regulator-min-microvolt = <3300000>;
-+               regulator-max-microvolt = <3300000>;
-+               vin-supply = <&vcc_3v3_s0>;
-+       };
-  };
-
-  &combphy0_ps {
-@@ -726,6 +738,12 @@
-                 };
-         };
-
-+       sdmmc {
-+               sdmmc_pwren: sdmmc-pwren {
-+                       rockchip,pins = <0 RK_PB6 RK_FUNC_GPIO 
-&pcfg_pull_none>;
-+               };
-+       };
-+
-         usb {
-                 usb_otg0_pwren_h: usb-otg0-pwren-h {
-                         rockchip,pins = <0 RK_PD1 RK_FUNC_GPIO 
-&pcfg_pull_none>;
-@@ -751,11 +769,14 @@
-         bus-width = <4>;
-         cap-mmc-highspeed;
-         cap-sd-highspeed;
-+       cd-gpios = <&gpio0 RK_PA7 GPIO_ACTIVE_LOW>;
-         disable-wp;
-         no-mmc;
-         no-sdio;
-+       pinctrl-names = "default";
-+       pinctrl-0 = <&sdmmc0_clk &sdmmc0_cmd &sdmmc0_det &sdmmc0_bus4>;
-         sd-uhs-sdr104;
--       vmmc-supply = <&vcc_3v3_s3>;
-+       vmmc-supply = <&vcc3v3_sd>;
-         vqmmc-supply = <&vccio_sd_s0>;
-         status = "okay";
-
-
-
-
->> --- a/drivers/mmc/host/dw_mmc-rockchip.c
->> +++ b/drivers/mmc/host/dw_mmc-rockchip.c
->> @@ -36,6 +36,8 @@ struct dw_mci_rockchip_priv_data {
->>           int                     default_sample_phase;
->>           int                     num_phases;
->>           bool                    internal_phase;
->> +       int                     sample_phase;
->> +       int                     drv_phase;
->>    };
->>
->>    /*
->> @@ -573,9 +575,43 @@ static void dw_mci_rockchip_remove(struct
->> platform_device *pdev)
->>           dw_mci_pltfm_remove(pdev);
->>    }
->>
->> +static int dw_mci_rockchip_runtime_suspend(struct device *dev)
->> +{
->> +       struct platform_device *pdev = to_platform_device(dev);
->> +       struct dw_mci *host = platform_get_drvdata(pdev);
->> +       struct dw_mci_rockchip_priv_data *priv = host->priv;
->> +
->> +       if (priv->internal_phase) {
->> +               priv->sample_phase = rockchip_mmc_get_phase(host, true);
->> +               priv->drv_phase = rockchip_mmc_get_phase(host, false);
->> +       }
->> +
->> +       return dw_mci_runtime_suspend(dev);
->> +}
->> +
->> +static int dw_mci_rockchip_runtime_resume(struct device *dev)
->> +{
->> +       struct platform_device *pdev = to_platform_device(dev);
->> +       struct dw_mci *host = platform_get_drvdata(pdev);
->> +       struct dw_mci_rockchip_priv_data *priv = host->priv;
->> +       int ret;
->> +
->> +       ret = dw_mci_runtime_resume(dev);
->> +       if (ret)
->> +               return ret;
->> +
->> +       if (priv->internal_phase) {
->> +               rockchip_mmc_set_phase(host, true, priv->sample_phase);
->> +               rockchip_mmc_set_phase(host, false, priv->drv_phase);
->> +               mci_writel(host, MISC_CON, MEM_CLK_AUTOGATE_ENABLE);
->> +       }
->> +
->> +       return ret;
->> +}
->> +
->>    static const struct dev_pm_ops dw_mci_rockchip_dev_pm_ops = {
->>           SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
->> pm_runtime_force_resume)
->> -       RUNTIME_PM_OPS(dw_mci_runtime_suspend, dw_mci_runtime_resume, NULL)
->> +       RUNTIME_PM_OPS(dw_mci_rockchip_runtime_suspend,
->> dw_mci_rockchip_runtime_resume, NULL)
->>    };
->>
->>    static struct platform_driver dw_mci_rockchip_pltfm_driver = {
-> 
+diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
+index 28015d77599d..ee4731570977 100644
+--- a/drivers/i2c/busses/i2c-xiic.c
++++ b/drivers/i2c/busses/i2c-xiic.c
+@@ -1408,7 +1408,6 @@ static const struct i2c_adapter xiic_adapter = {
+ 	.algo = &xiic_algorithm,
+ };
+ 
+-#if defined(CONFIG_OF)
+ static const struct xiic_version_data xiic_2_00 = {
+ 	.quirks = DYNAMIC_MODE_READ_BROKEN_BIT,
+ };
+@@ -1419,13 +1418,12 @@ static const struct of_device_id xiic_of_match[] = {
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, xiic_of_match);
+-#endif
+ 
+ static int xiic_i2c_probe(struct platform_device *pdev)
+ {
+ 	struct xiic_i2c *i2c;
+ 	struct xiic_i2c_platform_data *pdata;
+-	const struct of_device_id *match;
++	const struct xiic_version_data *data;
+ 	struct resource *res;
+ 	int ret, irq;
+ 	u8 i;
+@@ -1435,12 +1433,9 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 	if (!i2c)
+ 		return -ENOMEM;
+ 
+-	match = of_match_node(xiic_of_match, pdev->dev.of_node);
+-	if (match && match->data) {
+-		const struct xiic_version_data *data = match->data;
+-
++	data = device_get_match_data(&pdev->dev);
++	if (data)
+ 		i2c->quirks = data->quirks;
+-	}
+ 
+ 	i2c->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+ 	if (IS_ERR(i2c->base))
+@@ -1458,13 +1453,14 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 	i2c_set_adapdata(&i2c->adap, i2c);
+ 	i2c->adap.dev.parent = &pdev->dev;
+ 	i2c->adap.dev.of_node = pdev->dev.of_node;
++	ACPI_COMPANION_SET(&i2c->adap.dev, ACPI_COMPANION(&pdev->dev));
+ 	snprintf(i2c->adap.name, sizeof(i2c->adap.name),
+ 		 DRIVER_NAME " %s", pdev->name);
+ 
+ 	mutex_init(&i2c->lock);
+ 	spin_lock_init(&i2c->atomic_lock);
+ 
+-	i2c->clk = devm_clk_get_enabled(&pdev->dev, NULL);
++	i2c->clk = devm_clk_get_optional_enabled(&pdev->dev, NULL);
+ 	if (IS_ERR(i2c->clk))
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(i2c->clk),
+ 				     "failed to enable input clock.\n");
+@@ -1477,8 +1473,8 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 
+ 	/* SCL frequency configuration */
+ 	i2c->input_clk = clk_get_rate(i2c->clk);
+-	ret = of_property_read_u32(pdev->dev.of_node, "clock-frequency",
+-				   &i2c->i2c_clk);
++	ret = device_property_read_u32(&pdev->dev, "clock-frequency",
++				       &i2c->i2c_clk);
+ 	/* If clock-frequency not specified in DT, do not configure in SW */
+ 	if (ret || i2c->i2c_clk > I2C_MAX_FAST_MODE_PLUS_FREQ)
+ 		i2c->i2c_clk = 0;
+@@ -1493,7 +1489,7 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	i2c->singlemaster =
+-		of_property_read_bool(pdev->dev.of_node, "single-master");
++		device_property_read_bool(&pdev->dev, "single-master");
+ 
+ 	/*
+ 	 * Detect endianness
+-- 
+2.52.0
 
 
