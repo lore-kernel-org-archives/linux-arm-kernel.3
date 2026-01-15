@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEEAAD46607
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 17:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD738D4660A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 17:58:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=m64nINcAmfe9ovg2r/6E4DWy5dyHvDUZoKTc6iLqs6k=; b=gMPgMN9gQxA7fdSs+S9/G22QY8
-	19gTZRsU3eWnPHKMhDk6uNcvfMK97HjuWn6JBndNDsNeLW+gdU1txi5ch/S2i30+PLhY9/JzXNXBf
-	ceGhFpPXff6SlL1JBFCnZHuNbWedBnz+pdnEGsaOKHPQ5207jcTFX27HNH3WY2Y926bpUXiqlVHCX
-	0qZCioX6125pyuM62xnCpqkNt8jxMTk+rlUOlMTkr1RxD/WfVPBrjKZxKmCQvVrQM6HJurvWCZhIE
-	l3MWdT0VhLI3gN9xkXxF5/TSP0zUxFgPq4XwHfNCE/Zsh5WACcO48aoLN2hfbNqZLYhgrHxUNwJir
-	voq3H7Xg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2sctf2sbhpGEwbYoz83tcfpXjWueupcooSyy4CsiMWw=; b=fgyUTrn9O/HrZQxjTY7O1W0rzp
+	HMLpB2bpZz8CPzBl3c7BJjEfe11D7sCn8wNSH939fAkF3ZUtykmY82UZdkqZqxUFkn6hLT85VhdZ8
+	J6kiD62KUk+PyNn0jWy7nc3/MCi7iKCFUf6grB2V8Fd5Ct9I0UQFo0WVOvxgHf/ycS9HFy/7taJjo
+	8sMjXp5xSceBL0znnsibC2zSpoU/Ib+cDt8qCucEcncF2dKn8FU3ugbOaZ6mrcn1OBGUfOkvZtnJd
+	HCZ/XIjG1pJ9LvAx1glhSnsqJoCm1nKJI/7ewzBnqjJLuo4HrXnHNMw3RMpT1vg+cCW1IVW2HvaVY
+	BCh/O3Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgRWg-0000000CuWh-13id;
-	Thu, 15 Jan 2026 17:52:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgRWe-0000000CuWI-0mVv;
-	Thu, 15 Jan 2026 17:52:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8331D601BC;
-	Thu, 15 Jan 2026 17:52:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 37891C16AAE;
-	Thu, 15 Jan 2026 17:52:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768499571;
-	bh=SbiGDK7jyygOqLt6KSZkwL24dXZAECNwCnh0R9ahBI8=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=c5mVqqOATHWZPi2fWp2GWMHCEMldRrSgIIQqgNRq3vzDIA6wObuWGHgSMXgeC2gTZ
-	 uCalfRXvdAuLZnaEcUxrempp6a4m8qkyA+FI1SZ+rdRJ4yzkf98pdJgaUt0EtVbe+z
-	 tisT0HP/7NQF/ZZpBGKdNfXbz16ewWGiusx0B247JVobd8DgCz/9C2DIhPOZWERLsU
-	 iwCKZjJ3mVUbYCKgkMStsh6etdFTc8EnOf+o1sOsLOD6fI3crICA/uTG3iKQGN/nDJ
-	 uFpmAwTUmLvEyQ/vNZ2aSbqv0df2q89P2qT70CANS9IhZVeVkR3rtSxWgwGPISpB8V
-	 DxWrjQLNsxpow==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 296CED46608;
-	Thu, 15 Jan 2026 17:52:51 +0000 (UTC)
-From: Ricardo Pardini via B4 Relay <devnull+ricardo.pardini.net@kernel.org>
-Date: Thu, 15 Jan 2026 18:52:46 +0100
-Subject: [PATCH v2] arm64: dts: amlogic: add the type-c controller on Radxa
- Zero 2
+	id 1vgRc7-0000000CutD-0NF4;
+	Thu, 15 Jan 2026 17:58:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vgRc3-0000000Cusj-3Hi5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Jan 2026 17:58:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DC2261515;
+	Thu, 15 Jan 2026 09:58:16 -0800 (PST)
+Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3ADC73F632;
+	Thu, 15 Jan 2026 09:58:18 -0800 (PST)
+Date: Thu, 15 Jan 2026 17:58:15 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+	baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+	dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+	fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+	jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+	quic_jiles@quicinc.com, reinette.chatre@intel.com,
+	rohit.mathew@arm.com, scott@os.amperecomputing.com,
+	sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com,
+	xhao@linux.alibaba.com, will@kernel.org, corbet@lwn.net,
+	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, kvmarm@lists.linux.dev
+Subject: Re: [PATCH v3 06/47] arm64: mpam: Context switch the MPAM registers
+Message-ID: <aWkqt37FJ5l6QD0E@arm.com>
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+ <20260112165914.4086692-7-ben.horgan@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260115-arm64-dts-amlogic-radxa-zero2-additions-v2-1-948bb0479a45@pardini.net>
-X-B4-Tracking: v=1; b=H4sIAG0paWkC/5WNSw6DIBQAr9Kw7msAP9Gueo/GBfoe+pIKBoixN
- d691Bt0ObOY2UWkwBTF/bKLQCtH9i6Dvl7EMBk3EjBmFlrqWipVgglzXQKmCGZ++ZEHCAY3Ax8
- KXoNB5JQTEVpZVWVre8KCRK4tgSxv5+nZZZ44Jh/e53hVP/v/Y1UgoemrAW2hG4v0WExAdnxzl
- ER3HMcX81QDj+AAAAA=
-X-Change-ID: 20260114-arm64-dts-amlogic-radxa-zero2-additions-905549fbed3e
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Ricardo Pardini <ricardo@pardini.net>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3379;
- i=ricardo@pardini.net; h=from:subject:message-id;
- bh=o6AdblgGh5ZdlDwrmpT3OM+dmaO8Ys6WxijQzUk1YWc=;
- b=owEBbQGS/pANAwAIATteP+Oex+3pAcsmYgBpaSlypZjIsZFbEWdFKZ7C9I9qk7XcIl/qzQUBa
- S+t3dWpDrOJATMEAAEIAB0WIQSsGCMM9q/qytxIiJM7Xj/jnsft6QUCaWkpcgAKCRA7Xj/jnsft
- 6ZGUCACHpy7luG8T/fuQ+ektuogyYcMdc9EJcgK8F2Yw6FKSqqUEOADHTiEY0VBQhhl5FXdmqEt
- ME1F0D1GKoQ/XfjtKNGwSZi9t2pstp4LkLIiLEcjBWjRFAkUcjN17AYOVuZr69Wnjj9M4bdKjT5
- rrkbFhXbzjIws3ayW2eZYVZxqSTRelFe3qdYDA4UBfbEn1w0XfRtG1WVKqmS81YzA4kPHvlTw6S
- gJfRZjREETuGIRtZXmPoQK7qsyEy4ZEK6UJOeCFdApVUyJ2DrLAdfBit08qghdDpGKLVf9aPr+t
- lIqJivTfrQGUU/klUmFoW820L0AWnNuNzE9MSzs0cBUeSgid
-X-Developer-Key: i=ricardo@pardini.net; a=openpgp;
- fpr=AC18230CF6AFEACADC4888933B5E3FE39EC7EDE9
-X-Endpoint-Received: by B4 Relay for ricardo@pardini.net/default with
- auth_id=588
-X-Original-From: Ricardo Pardini <ricardo@pardini.net>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260112165914.4086692-7-ben.horgan@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260115_095827_957668_CEE8E7C8 
+X-CRM114-Status: GOOD (  27.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,108 +71,104 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: ricardo@pardini.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ricardo Pardini <ricardo@pardini.net>
+On Mon, Jan 12, 2026 at 04:58:33PM +0000, Ben Horgan wrote:
+>  menu "ARMv8.5 architectural features"
+> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
+> new file mode 100644
+> index 000000000000..14011e5970ce
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/mpam.h
+> @@ -0,0 +1,67 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/* Copyright (C) 2025 Arm Ltd. */
+> +
+> +#ifndef __ASM__MPAM_H
+> +#define __ASM__MPAM_H
+> +
+> +#include <linux/jump_label.h>
+> +#include <linux/percpu.h>
+> +#include <linux/sched.h>
+> +
+> +#include <asm/sysreg.h>
+> +
+> +DECLARE_STATIC_KEY_FALSE(mpam_enabled);
+> +DECLARE_PER_CPU(u64, arm64_mpam_default);
+> +DECLARE_PER_CPU(u64, arm64_mpam_current);
+> +
+> +/*
+> + * The value of the MPAM0_EL1 sysreg when a task is in resctrl's default group.
+> + * This is used by the context switch code to use the resctrl CPU property
+> + * instead. The value is modified when CDP is enabled/disabled by mounting
+> + * the resctrl filesystem.
+> + */
+> +extern u64 arm64_mpam_global_default;
+> +
+> +/*
+> + * The resctrl filesystem writes to the partid/pmg values for threads and CPUs,
+> + * which may race with reads in mpam_thread_switch(). Ensure only one of the old
+> + * or new values are used. Particular care should be taken with the pmg field as
+> + * mpam_thread_switch() may read a partid and pmg that don't match, causing this
+> + * value to be stored with cache allocations, despite being considered 'free' by
+> + * resctrl.
+> + */
+> +#ifdef CONFIG_ARM64_MPAM
+> +static inline u64 mpam_get_regval(struct task_struct *tsk)
+> +{
+> +	return READ_ONCE(task_thread_info(tsk)->mpam_partid_pmg);
+> +}
+> +
+> +static inline void mpam_thread_switch(struct task_struct *tsk)
+> +{
+> +	u64 oldregval;
+> +	int cpu = smp_processor_id();
+> +	u64 regval = mpam_get_regval(tsk);
+> +
+> +	if (!static_branch_likely(&mpam_enabled))
+> +		return;
+> +
+> +	if (regval == READ_ONCE(arm64_mpam_global_default))
+> +		regval = READ_ONCE(per_cpu(arm64_mpam_default, cpu));
+> +
+> +	oldregval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
+> +	if (oldregval == regval)
+> +		return;
+> +
+> +	write_sysreg_s(regval, SYS_MPAM1_EL1);
+> +	isb();
+> +
+> +	/* Synchronising the EL0 write is left until the ERET to EL0 */
+> +	write_sysreg_s(regval, SYS_MPAM0_EL1);
 
-The Radxa Zero2 has an FUSB302 controller on i2c3 at address 0x22 and
-INT# wired to GPIOA-13; include a minimal connector.
+Since we have an isb() already, does it make any difference if we write
+MPAM0 before the barrier? Similar question for other places where we
+write these two registers.
 
-Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
----
-This series adds a few things missing from the Radxa Zero 2:
+At some point, we should go through __switch_to() and coalesce the isbs
+into fewer as we keep accumulating them (e.g. all those switch function
+setting some sync variable if needed).
 
-1) NPU (etnaviv), just enable the node, similar to what was done for VIM3
-   (dropped as was already picked up in [1])
-2) i2c3 (also exposed on the 40-pin header) and the FUSB302 at 0x22.
-   Describes it minimally, adding no functionality, but reserving the 0x22
-   address since i2c3 is also exposed on user-accessible 40-pin header.
+> +
+> +	WRITE_ONCE(per_cpu(arm64_mpam_current, cpu), regval);
 
-Krzysztof: v1 followed the node name I had found used in amlogic; I've
-           looked around more broadly and found 'fusb0: typec-portc@22'
-           to be quite popular, so went with this. Hope it is acceptable.
+Is it too expensive to read the MPAM sysregs and avoid carrying around
+another per-CPU state? You use it for pm restoring but we could just
+save it in cpu_do_suspend() like other sysregs. Not a big issue, it just
+feels like this function got unnecessarily complicated (it took me a bit
+to figure out what it all does).
 
-Neil: I've fixed the interrupts pin, and described the required connector
-      even more minimally than you suggested, as to avoid including pd.h.
-      It is also done this way in a few other boards, hope it's correct.
-      I've rebased your/Christian's full-enablement patches on top of this,
-      tested with an r8152 which then works both ways, it's available at [2]
+A related question - is resctrl_arch_set_cdp_enabled() always called in
+non-preemptible contexts? We potentially have a race between setting
+current->mpam_partid_msg and arm64_mpam_global_default, so the check in
+mpam_thread_switch() can get confused.
 
-[1] https://git.kernel.org/amlogic/c/29deec49146162d06b17739c627d062191e03814
-[2] https://github.com/rpardini/linux/tree/radxa-zero2-fusb302-minimal-plus-full-impl-rebase
----
-Changes in v2:
-- npu: dropped NPU enablement patch as it was already picked up by Neil
-- fusb302: dropped 'status = "okay"'
-- fusb302: declare as 'fusb0: typec-portc@22' instead of 'fusb302@22'
-- fusb302: use correct pin (74 -> gpioA13) for interrupts
-- fusb302: add a (very minimal) connector so dtbs_check passes
-- Link to v1: https://lore.kernel.org/r/20260114-arm64-dts-amlogic-radxa-zero2-additions-v1-0-8b5cdf328fde@pardini.net
----
- .../boot/dts/amlogic/meson-g12b-radxa-zero2.dts    | 34 ++++++++++++++++++++++
- 1 file changed, 34 insertions(+)
+And I couldn't figure out where the MPAMx_EL1 registers are written. If
+any global/per-cpu/per-task value is changed, does the kernel wait until
+the next thread switch to write the sysreg? The only places I can found
+touching these sysregs are the thread switch, pm notifiers and KVM.
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-radxa-zero2.dts b/arch/arm64/boot/dts/amlogic/meson-g12b-radxa-zero2.dts
-index 1e5c6f9849456..5d32c04de938e 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12b-radxa-zero2.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12b-radxa-zero2.dts
-@@ -364,12 +364,46 @@ hdmi_tx_tmds_out: endpoint {
- 	};
- };
- 
-+/* Also exposed on the 40-pin header: SDA pin 3, SCL pin 5 */
-+&i2c3 {
-+	pinctrl-0 = <&i2c3_sda_a_pins>, <&i2c3_sck_a_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	fusb0: typec-portc@22 {
-+		compatible = "fcs,fusb302";
-+		reg = <0x22>;
-+
-+		pinctrl-0 = <&fusb302_irq_pins>;
-+		pinctrl-names = "default";
-+		interrupt-parent = <&gpio_intc>;
-+		interrupts = <74 IRQ_TYPE_LEVEL_LOW>;
-+
-+		vbus-supply = <&ao_5v>;
-+
-+		connector {
-+			compatible = "usb-c-connector";
-+		};
-+	};
-+};
-+
- &ir {
- 	status = "disabled";
- 	pinctrl-0 = <&remote_input_ao_pins>;
- 	pinctrl-names = "default";
- };
- 
-+&periphs_pinctrl {
-+	fusb302_irq_pins: fusb302-irq {
-+		mux {
-+			groups = "GPIOA_13";
-+			function = "gpio_periphs";
-+			bias-pull-up;
-+			output-disable;
-+		};
-+	};
-+};
-+
- &pwm_ab {
- 	pinctrl-0 = <&pwm_a_e_pins>;
- 	pinctrl-names = "default";
-
----
-base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
-change-id: 20260114-arm64-dts-amlogic-radxa-zero2-additions-905549fbed3e
-
-Best regards,
 -- 
-Ricardo Pardini <ricardo@pardini.net>
-
-
+Catalin
 
