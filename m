@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82387D44C41
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 12:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B093DD44C40
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 12:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KL0uB+x8yIt84TUPjO5/h7+5sOBtPXgqTdDubQjCqp4=; b=ih48tdrYduVmbkkVifB7GbYsoo
-	BQYrM5dkOdnzV9CAOYOVkTUi0pM1xlo+qC3XPP9dnoPlgf96HeXEcu/7bAWuRgJ1w87TPyd+KuDQT
-	XDzqB/G4sirVl4zFa8hHuTlqjQt1SxgCDtAA5eLZBspsO6LwJgH+mNLBZZvG94W7W4cP/jqAN+o9R
-	0sGw2ngqoAl98RH5NyOi9FHYJoPp2+5oGCY352e3S4h0LTpvfSnj39WRTbdg+JBor5eI3DfQtpkO7
-	iuQENli71neAAnC6V/YR//tJCW93URqbDRbR14IP10RuCYSUf2kfQrkLfl5/SEAqRwCAjbmbRqZJT
-	jehptGgQ==;
+	bh=yD6nT3v6oH6Au9mO+OB5W6Q3ufsJeHFGibUsIMnmghY=; b=wU/7qb8RsCEV/gizcGsGTql/rD
+	J/AsIggDSrPodWpPsHY1e6SmnKlzQldkK3kVq+FsOibKfXJAnZZfLQ5YDGJhveVExRRg4Yk6t8iKL
+	2o7no7Dx2du/btbhCDe87CbQuObkxKhFY3yk6rxamn7VXXWxfFiHz3tY6HVG0wxG51sbtYtNwSctp
+	FL/Sca6sXPUsS+xGl4nOabpM2VWaU88KGnr+dgBrxsad58rfHhKXsjjq+XOmQPD5pGJZAl1wWnSY2
+	FFYCZFaDC8IBTySRU01oQbSjyuieaGBWCxQiz9lWV0oGz/JbjKc2D7D+O74PMhQQKoSPlSoywp5MT
+	uBL44n1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgMpn-0000000CMFU-1xUT;
-	Thu, 15 Jan 2026 12:52:19 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1vgMuF-0000000CMTH-3uk9;
+	Thu, 15 Jan 2026 12:56:55 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgMpk-0000000CMF6-16oT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 12:52:17 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=KL0uB+x8yIt84TUPjO5/h7+5sOBtPXgqTdDubQjCqp4=;
-	b=N4x9Fo7BkyMJr1WkVNoBqhHWd9yz4+GPOKJ4VjS6LdUalm9Ar6TfasK1IhiOZxBRqdOx6t1jD
-	NLwno7Sol/7A9udOhX0HsYp5JT58lKf/qp/pA9YV6egVluPL8vGtgHodtD1NABN/cmR7XzQnGwt
-	h7YWZzABKmL15BCYkVt1iSw=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dsN7s6YvTzcb45;
-	Thu, 15 Jan 2026 20:48:25 +0800 (CST)
-Received: from kwepemf200001.china.huawei.com (unknown [7.202.181.227])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8AFF540363;
-	Thu, 15 Jan 2026 20:52:12 +0800 (CST)
-Received: from [10.67.121.90] (10.67.121.90) by kwepemf200001.china.huawei.com
- (7.202.181.227) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 15 Jan
- 2026 20:52:12 +0800
-Message-ID: <7f156aa7-c723-4580-aa82-b2f0fe6d3845@huawei.com>
-Date: Thu, 15 Jan 2026 20:52:11 +0800
+	id 1vgMuA-0000000CMQS-3rlI;
+	Thu, 15 Jan 2026 12:56:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1768481808;
+	bh=7B+xKo0mpKeN6a69BBeF6xLjGA21Jku6TgKwUt5s5vM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=NjuA6UjTaxtjEZyZleGy2pYld0mX3nAVYJKipbI9C8eFK9QaBICff4C7U0iup6/LY
+	 NGu75uyWAGXttPXOSI00qm0PSS/RkKgR9I+19ETmT8bvOf17ThI3AIU+ViTUpilW9i
+	 hy/az0plG3VYy+2R6hurcslIPIvntGbQbUor9Xo3EECYoNDMsjjR4/7xJ2tZW5R6Ew
+	 bSDSGLxw5HiN04dP6lmlcYZeyfK16PFw9Nh5rXmyGNxocJ61CTUfp4TLXY1WxNXUj/
+	 sD/Ld8aDIjMmS+YnYtW3D9Opfpo0+ySjCBTbPiqz6bMvlf2LJ6BwQ2VtlusxQXtZlp
+	 C1h1ikWroYwOw==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7C3BC17E1274;
+	Thu, 15 Jan 2026 13:56:47 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: robh@kernel.org
+Cc: krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	tudor.ambarus@linaro.org,
+	pratyush@kernel.org,
+	mwalle@kernel.org,
+	miquel.raynal@bootlin.com,
+	richard@nod.at,
+	vigneshr@ti.com,
+	lgirdwood@gmail.com,
+	broonie@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	julien.massot@collabora.com,
+	eugen.hristev@linaro.org,
+	jiaxin.yu@mediatek.com,
+	shane.chien@mediatek.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mtd@lists.infradead.org,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	kernel@collabora.com
+Subject: [PATCH 1/4] dt-bindings: mtd: jedec,spi-nor: Add Winbond W25Q(32/64/128/256)JWM
+Date: Thu, 15 Jan 2026 13:56:21 +0100
+Message-ID: <20260115125624.73598-2-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260115125624.73598-1-angelogioacchino.delregno@collabora.com>
+References: <20260115125624.73598-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: topology: Do not warn on missing AMU in
- cpuhp_topology_online()
-To: Geert Uytterhoeven <geert+renesas@glider.be>, Beata Michalska
-	<beata.michalska@arm.com>, Will Deacon <will@kernel.org>, Catalin Marinas
-	<catalin.marinas@arm.com>
-CC: <linux-arm-kernel@lists.infradead.org>,
-	<linux-renesas-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-References: <a8dbf49bfa44a6809fa4f34b918516847dc14460.1768466986.git.geert+renesas@glider.be>
-From: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
-In-Reply-To: <a8dbf49bfa44a6809fa4f34b918516847dc14460.1768466986.git.geert+renesas@glider.be>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.90]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemf200001.china.huawei.com (7.202.181.227)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_045216_466267_45CA51EE 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20260115_045651_132497_97D55AFC 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,41 +94,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/1/15 16:51, Geert Uytterhoeven wrote:
-> When CONFIG_CPUMASK_OFFSTACK is not enabled, and resuming from s2ram on
-> Renesas R-Car H3 (big.LITTLE 4x Cortex-A57 + 4x Cortex-A53), during
-> enabling of the first little core, a warning message is printed:
-> 
->     AMU: CPU[4] doesn't support AMU counters
-> 
-> This confuses users, as during boot amu_fie_setup() does not print such
-> a message, unless debugging is enabled (freq_counters_valid() prints
-> "CPU%d: counters are not supported.\n" at debug level in that case).
-> 
-> Hence drop the warning, freq_counters_valid() has already printed a
-> debug message anyway.
-> 
-> Fixes: 6fd9be0b7b2e957d ("arm64: topology: Handle AMU FIE setup on CPU hotplug")
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
->  arch/arm64/kernel/topology.c | 1 -
->  1 file changed, 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index 539b3893518281ec..3fe1faab03620e78 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -332,7 +332,6 @@ static int cpuhp_topology_online(unsigned int cpu)
->  	 * may use different source of the freq scale.
->  	 */
->  	if (!freq_counters_valid(cpu)) {
-> -		pr_warn("CPU[%u] doesn't support AMU counters\n", cpu);
->  		topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH,
->  						 policy->related_cpus);
->  		cpumask_andnot(amu_fie_cpus, amu_fie_cpus, policy->related_cpus);
+Add Winbond W25Q32JWM, W25Q64JWM, W25Q128JWM, W25Q256JWM to the
+allowed compatible strings pattern.
 
-Thanks!
+This also resolves a dtbs_check warning happening on all of the
+MediaTek MT8192 Chromebooks devicetrees (for winbond,w25q64jwm).
 
-Reviewed-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml b/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+index 587af4968255..2db446c9ca9b 100644
+--- a/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
++++ b/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+@@ -29,7 +29,7 @@ properties:
+               (sst,)?sst26wf016b|\
+               (sst,)?sst25wf(040b|080)|\
+               winbond,w25x(80|32)|\
+-              (winbond,)?w25q(16|32(w|dw)?|64(dw)?|80bl|128(fw)?|256))$"
++              (winbond,)?w25q(16|32(w|dw)?|64(dw|jwm)?|80bl|128(fw|jwm)?|256(jwm)?))$"
+           - const: jedec,spi-nor
+       - items:
+           - enum:
+-- 
+2.52.0
 
 
