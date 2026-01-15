@@ -4,60 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD828D46603
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 17:16:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 986B8D46603
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 17:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nTQZnv34DAjTZEd7quvl5eWf+Bs88jcQBsc8cMge4ow=; b=Vm9lQmsSBD9g2CVxvZcz7ZqiaO
-	srMS0A1w14zwgxaKHpmZ++QdRl/sZsXM9bsj/QeOuN9J6c+z2Ayk3wU/EO8IY6gNPrCZEozlxSMrV
-	z7QgNFr3Jxl9VuyvzUUDNksOTVprJIBA45U6bT/wbEJZQRcdTSFpc0QzQ4W25/rJhBvKFabnWYqdF
-	cRDUYavzpBs1EEps1OWIESKL0PmVhcvHizS0+ZxkaH+Mve+5HVkudMyEIK1Aur1l29aS+Ef5DVYzu
-	TBCFfH/shtDOXtnT/+JISlTfFV3L4/z+wQo8xukGVvEj1e4pUdLPB4ThOEIzUTfyLGJ+I6LkiAHjz
-	UUbcK9lQ==;
+	bh=P8UmHeMMzvJqnjpOgjdoV+/1TDmvNPKy5a/62m/jS5s=; b=k5cwSz9ZXe31V1+tFYSYMKphFh
+	FHmRC4zfcsjHLiY/9ySc+kz9knxh6PgYkL8W9BueC+RU1UggEG4ucU+EtbItTP7c9WQWXlzLlzdpX
+	IGVGK7WPyXORn57dQSvLUN0pxEEdMKzKYI7JpCNWPtpBu9Jj+KAoPE5MR3WlaqWM1kK5+VlLqyEXi
+	nX8qT+DxyMZRI0nYXexGheX7Feaev3211MXxMrQUg6B0b1yK2FrZ4CYxHwrMNWgfU49JuF9qH7AXd
+	Taa/GO1FNnJsoOSfY8hyQ7WRSDtxHXDjP1+6ExkwIMs0eplxs/pvu0bzXPcVuuJSInYj4iFELP5MN
+	7Z6b0Ryg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgQxX-0000000CpoE-0m1t;
-	Thu, 15 Jan 2026 17:16:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vgQz6-0000000Cpzv-2TJi;
+	Thu, 15 Jan 2026 17:18:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgQxV-0000000Cpns-2OIY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 17:16:33 +0000
+	id 1vgQz1-0000000CpzG-1lM2;
+	Thu, 15 Jan 2026 17:18:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A7D5060007;
-	Thu, 15 Jan 2026 17:16:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39E66C116D0;
-	Thu, 15 Jan 2026 17:16:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A11D040E25;
+	Thu, 15 Jan 2026 17:18:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59700C116D0;
+	Thu, 15 Jan 2026 17:18:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768497392;
-	bh=EoDuHPKYADtTQ3CbH8ajn3cz4Fwrwq6IKHjrNnSNqVA=;
+	s=k20201202; t=1768497486;
+	bh=tlBpdMlQBYBLhVmEgUbSIOIS5UI2VXeT9ZB6zSWIxfM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KlESdXIRDi4LaDQt/CNKvfnKjJ7Y6Snc9KH+I3n6uqvXVDaiD4jZonAkz0RnY/GL4
-	 GArii35s6IZn9a/VYHwwlHrTzMC3vtBQ3r7Ytdvly+/ZbnHNqztKL/2BdT/FpIX642
-	 pXqXb8QllzIwqfiOB3DMMA+jIvzb/MPRjHqx9o5KgjbLEp+bDjg4MBGAUHkyvsfGkL
-	 YAiO6lSUymNqEMVRqCF8UlmBAu5tURwePPF/G1aNsiGLYTLamyrpQmYvHf8k+ISQnT
-	 9NVBQ/Paj2Z6XSTvkKb5IWXSVGtGudZO50YkPbINj2jsI9QIjJrNz5/9Vm5igbRy1Z
-	 Hp9f4ilsveKnQ==
-Date: Thu, 15 Jan 2026 11:16:31 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org,
-	Andrew Jeffery <andrew@aj.id.au>, Joel Stanley <joel@jms.id.au>,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, Lee Jones <lee@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH] dt-bindings: mfd: Document smp-memram subnode for
- aspeed,ast2x00-scu
-Message-ID: <176849739064.906870.7559981756194987059.robh@kernel.org>
-References: <20260109-dev-dt-warnings-mfd-v1-1-1aabe37e9a14@codeconstruct.com.au>
+	b=qVtLmSXjo6FvIftTAePkjMMLYNqnHXAPCPRIa7DqU14V+8o3w+FBwz+BiGQnqr0/2
+	 UGqn/mQNnRRVeh2KonGBrK9BEtHlocbBpBsHSksMlFKqnTDIJuVPrzbUwkBrSNdlJV
+	 4dcJ8bcNjnXbpFPGzs4XWvfIPjxYcrZWo61PllT94t8xxvcutq6myX3Bj++3oKRGGU
+	 8KY7fBXvOliTtwAn9Z7S5zVXgjzCpfUX4D9NtgpxnlPMqGGH7FdV0o5LvmpEXQ6xji
+	 h7My1VZziSebUI/weJ0pgoX77FjOCHsTuz5jLlveDNby9+xU1TnktE3QU/bJpqRN3t
+	 jxH+XHvLWF+Gg==
+Date: Thu, 15 Jan 2026 11:18:05 -0600
+From: Rob Herring <robh@kernel.org>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Andy Yan <andyshrk@163.com>, heiko@sntech.de,
+	dmitry.baryshkov@oss.qualcomm.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, cristian.ciocaltea@collabora.com,
+	Laurent.pinchart@ideasonboard.com, mripard@kernel.org,
+	hjc@rock-chips.com, tzimmermann@suse.de, devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH 1/5] dt-bindings: display: rockchip: Add rk3576
+ DisplayPort
+Message-ID: <20260115171805.GA907039-robh@kernel.org>
+References: <20260109080054.228671-1-andyshrk@163.com>
+ <20260109080054.228671-2-andyshrk@163.com>
+ <aWa5i52PTNQ_QTQ7@venus>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260109-dev-dt-warnings-mfd-v1-1-1aabe37e9a14@codeconstruct.com.au>
+In-Reply-To: <aWa5i52PTNQ_QTQ7@venus>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260115_091807_632156_0FED4D22 
+X-CRM114-Status: GOOD (  19.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,34 +80,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jan 13, 2026 at 10:33:52PM +0100, Sebastian Reichel wrote:
+> Hi,
+> 
+> On Fri, Jan 09, 2026 at 04:00:44PM +0800, Andy Yan wrote:
+> > From: Andy Yan <andy.yan@rock-chips.com>
+> > 
+> > The DisplayPort found on RK3576 is very similar to that of RK3588,
+> > but work in dual pixel mode. And itself does not depend on the I2S
+> > clock or the SPDIF clock when transmit audio.
+> > 
+> > Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> > 
+> > ---
+> > 
+> >  .../display/rockchip/rockchip,dw-dp.yaml      | 29 +++++++++++++++++--
+> >  1 file changed, 26 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+> > index 6345f0132d43..1bfe1bd6404a 100644
+> > --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+> > +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+> > @@ -27,13 +27,11 @@ description: |
+> >    * Pixel clock up to 594MHz
+> >    * I2S, SPDIF audio interface
+> >  
+> > -allOf:
+> > -  - $ref: /schemas/sound/dai-common.yaml#
+> > -
+> >  properties:
+> >    compatible:
+> >      enum:
+> >        - rockchip,rk3588-dp
+> > +      - rockchip,rk3576-dp
+> >  
+> >    reg:
+> >      maxItems: 1
+> > @@ -42,6 +40,7 @@ properties:
+> >      maxItems: 1
+> >  
+> >    clocks:
+> > +    minItems: 3
+> >      items:
+> >        - description: Peripheral/APB bus clock
+> >        - description: DisplayPort AUX clock
+> > @@ -50,6 +49,7 @@ properties:
+> >        - description: SPDIF interfce clock
+> >  
+> >    clock-names:
+> > +    minItems: 3
+> >      items:
+> >        - const: apb
+> >        - const: aux
+> > @@ -95,6 +95,29 @@ required:
+> >    - ports
+> >    - resets
+> >  
+> > +allOf:
+> > +  - $ref: /schemas/sound/dai-common.yaml#
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          contains:
+> > +            enum:
+> > +              - rockchip,rk3588-dp
+> > +    then:
+> > +      properties:
+> > +        clocks:
+> > +          minItems: 5
+> > +          maxItems: 5
+> > +        clock-names:
+> > +          minItems: 5
+> > +          maxItems: 5
+> 
+> I think maxItems is not needed, since 6 items would not work for the
+> specified items list anyways. Otherwise:
 
-On Fri, 09 Jan 2026 17:05:18 +1030, Andrew Jeffery wrote:
-> The platform initialisation code for the AST2600 implements the custom
-> SMP bringup protocol, and searches for the relevant compatible. As a
-> consequence, define the requisite node and the compatible string, which
-> in-turn tidies up the dtb check results.
-> 
-> Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
-> ---
-> Hello,
-> 
-> This change was original part of an RFC series tidying up the AST2600
-> EVB devicetree at [1]. Many of those ended up being merged directly, so
-> I'm splitting out what remains into separate, smaller series.
-> 
-> Please review.
-> 
-> Changes since RFC:
-> - Address the warning from Rob's bot
-> - Tidy a description line that was dropped unnecessarily
-> - Remove RFC label
-> 
-> Link: https://lore.kernel.org/all/20251211-dev-dt-warnings-all-v1-16-21b18b9ada77@codeconstruct.com.au/ [1]
-> ---
->  .../devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml     | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
-> 
+Correct.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
+Rob
 
