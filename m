@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7410BD44C5A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 14:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94532D44C56
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 14:51:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+QYowkF0ylQwr81E7dNDCYNQ4alDslj2K3oqmZv522g=; b=zkLMXc9ognuuLS1LpCR/LXi6Rb
-	8cKux5UZ5Jl29dk/oO1Tq2q3iP5WUdsZaxPbf8WE248FPWiOtyVDNP91za9MCbjTCCK93mM00CM7S
-	6Ht4eD7w5o3lYzN+SERHBgsEHKQftnY4rvCu0yoHr1FgvztR1I8gbG3KAMZvtW2WsbnO55YHT1jOO
-	ZJ+j78ZpIYOjjDLYSQMU00aU3N8LCzAatP72YTA+URnEVtiAaQPXU5KqN0/1ooxXOxQHJmx5CW0xI
-	NTAt+PaGFY24TDRhRUpWtqtrW0hEJhOGzag0pv2i/2QFXQWT3CBOkdNP2HjVJr5/pcSfSPapVy4I9
-	nAmK5/XQ==;
+	bh=8Mz5BYjVFbHiN1pe+EdOPlkJX9l3s1WWUf9/4J/AUi4=; b=jXCmPKvWzaN6UlT1UV+BxRedLj
+	GleXvuP5aV1EvHStX6YXrtQObOlIDfb23vvXkQ6qrhjw3TjzPMhtZwaObpWdkWnwRcHtZtTpYNNCX
+	XSCRiNotKLYNv7+UyngNcScVW6nPnXW6A1CjuQmb3Y400PtyEFCHieQ8G9Q/AF/oxWdriH537rNu4
+	R1ViybOmpBoZwY1r4IIOZd0VFqG3lLy2g9gQuwp/t96cVsP2gRED/Lwl2GZ7+cJPkeJssQvUEsy89
+	Z04YkACuhQ2Q2uWkGnt26U4rB1VvojqWKxzMU65KlTPRNRMDmgBdad3P7/cnONZOsZ0FI2GzdhDZT
+	v+X6J4cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgOeY-0000000CWnY-1grQ;
-	Thu, 15 Jan 2026 14:48:50 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vgOgl-0000000CX7N-1ZX4;
+	Thu, 15 Jan 2026 14:51:07 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgOeV-0000000CWmy-21vN;
-	Thu, 15 Jan 2026 14:48:48 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id D273B1A2880;
-	Thu, 15 Jan 2026 14:48:45 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A0645606B6;
-	Thu, 15 Jan 2026 14:48:45 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0368510B685B3;
-	Thu, 15 Jan 2026 15:48:40 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1768488524; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=+QYowkF0ylQwr81E7dNDCYNQ4alDslj2K3oqmZv522g=;
-	b=oUheIc45ljAvwXYhk0Aau0jRxamfAh6xH0rQ4hZbzgdHLYgXV/BtH6dfKAGDefWVtGM4lo
-	iaHN8MCwCkmjKP1GF4/BS7krnuSlGSpac7jaH25lzfm6/aQMOFQTQm+NKX3Y/hGOhsaZ/P
-	snd1qOC5zqOk5oBGrCwOQIGzRGwc9UAUPWjtzJQyGXzNSbsN7a1a1doSqVOydrHPsa/0nz
-	LDNcnsM0eeB1E+PNzjAoI/LO3TCcJs61WnLDcaoxlGHsvaIoqRKE2abbphB2UZnXXNOImm
-	XMcheO6zkttudxz3PTioR0vMaAaB79bo7QXKFMj1RE8UETvfKnraWS7O9OBVBQ==
-Message-ID: <a91a0937-93cd-40f2-9759-8823fb08f48c@bootlin.com>
-Date: Thu, 15 Jan 2026 15:48:40 +0100
+	id 1vgOgi-0000000CX6G-3ieo;
+	Thu, 15 Jan 2026 14:51:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1768488661;
+	bh=BRGsOfOVfXBLkhozhMEHPG5fQHPNHu2lNFxYGy94qGk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oY7LcciRQYo38+nmrMdl7O9KkL0YsviEmUF9HoC9dnsYWB9N3IU/e736OW3qtYvv7
+	 7cX6v72M0iy3UtjkHDbXFgz73Z2UTg8aaI7Gw6ybiUabdefpoY3cJ+csVlecvD0gAA
+	 fqRwnRBH4CZ+Qpt7WQoG3pJHnIL2EBTmD5Ilc2p9RBt/M+jQTOWXj5BWSrMRNQPaH8
+	 51lyCKS2jBT+cttg0BsaBHS2qgXiap1d/zbK8eDR+4NJBPZ6jj4DUbaOGbGSuujisw
+	 1957Xhz0Us1fKU4E6/+MXAKRGqc6Eq73VsTV6L4EI7+IwDziyPwBQoT5740s4ZtSir
+	 PJp9Qq+Pw5OdQ==
+Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 516DF17E12E5;
+	Thu, 15 Jan 2026 15:51:00 +0100 (CET)
+Message-ID: <fc15b8e5-c7ae-4e0e-b3b7-7ce5b5139455@collabora.com>
+Date: Thu, 15 Jan 2026 15:50:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 05/14] net: stmmac: add stmmac core serdes
- support
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-References: <aWfWDsCoBc3YRKKo@shell.armlinux.org.uk>
- <E1vg4w2-00000003SG5-2FH5@rmk-PC.armlinux.org.uk>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Subject: Re: [PATCH v3 2/3] media: rockchip: add driver for the rockchip mipi
+ csi-2 receiver
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Hans Verkuil <hverkuil@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Collabora Kernel Team <kernel@collabora.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251114-rockchip-mipi-receiver-v3-0-16e83aa7f395@collabora.com>
+ <20251114-rockchip-mipi-receiver-v3-2-16e83aa7f395@collabora.com>
+ <aWdjGuhk9g1iaJuN@kekkonen.localdomain>
 Content-Language: en-US
-In-Reply-To: <E1vg4w2-00000003SG5-2FH5@rmk-PC.armlinux.org.uk>
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <aWdjGuhk9g1iaJuN@kekkonen.localdomain>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_064847_804651_B83E64AC 
-X-CRM114-Status: GOOD (  33.70  )
+X-CRM114-CacheID: sfid-20260115_065105_245658_74D4CD9A 
+X-CRM114-Status: GOOD (  29.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,366 +88,718 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+Hi Sakari,
 
-On 14/01/2026 18:45, Russell King (Oracle) wrote:
-> Rather than having platform glue implement SerDes PHY support, add it
-> to the core driver, specifically to the stmmac integrated PCS driver
-> as the SerDes is connected to the integrated PCS.
+On 1/14/26 10:34, Sakari Ailus wrote:
+> Hi Michael,
 > 
-> Platforms using external PCS can also populate plat->serdes, and the
-> core driver will call phy_init() and phy_exit() when the administrative
-> state of the interface changes, but the other phy methods will not be
-> called.
+> Thanks for the set.
+
+Thanks for the review :-)
+
+>> [...]
+>> diff --git a/drivers/media/platform/rockchip/rkcsi/rkcsi.c b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
+>> new file mode 100644
+>> index 000000000000..03597f03f08f
+>> --- /dev/null
+>> +++ b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
+>> @@ -0,0 +1,742 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * Rockchip MIPI CSI-2 Receiver Driver
+>> + *
+>> + * Copyright (C) 2019 Rockchip Electronics Co., Ltd.
+>> + * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
+>> + * Copyright (C) 2026 Collabora, Ltd.
+>> + */
+>> +
+>> +#include <linux/clk.h>
+>> +#include <linux/delay.h>
+>> +#include <linux/io.h>
+>> +#include <linux/module.h>
+>> +#include <linux/of.h>
+>> +#include <linux/of_graph.h>
+>> +#include <linux/of_platform.h>
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> Are the above two needed?
 
-Unfortunately I have no way to test. But still,
+They are not, apparently. I'll remove them.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
-> ---
->  drivers/net/ethernet/stmicro/stmmac/Makefile  |   2 +-
->  .../net/ethernet/stmicro/stmmac/stmmac_main.c |  14 ++-
->  .../net/ethernet/stmicro/stmmac/stmmac_pcs.c  |  38 +++++-
->  .../net/ethernet/stmicro/stmmac/stmmac_pcs.h  |   1 +
->  .../ethernet/stmicro/stmmac/stmmac_serdes.c   | 111 ++++++++++++++++++
->  .../ethernet/stmicro/stmmac/stmmac_serdes.h   |  16 +++
->  include/linux/stmmac.h                        |   2 +
->  7 files changed, 180 insertions(+), 4 deletions(-)
->  create mode 100644 drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c
->  create mode 100644 drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.h
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> index c9263987ef8d..a3c2cd5d0c91 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> @@ -7,7 +7,7 @@ stmmac-objs:= stmmac_main.o stmmac_ethtool.o stmmac_mdio.o ring_mode.o	\
->  	      dwmac4_dma.o dwmac4_lib.o dwmac4_core.o dwmac5.o hwif.o \
->  	      stmmac_tc.o dwxgmac2_core.o dwxgmac2_dma.o dwxgmac2_descs.o \
->  	      stmmac_xdp.o stmmac_est.o stmmac_fpe.o stmmac_vlan.o \
-> -	      stmmac_pcs.o $(stmmac-y)
-> +	      stmmac_pcs.o stmmac_serdes.o $(stmmac-y)
->  
->  stmmac-$(CONFIG_STMMAC_SELFTESTS) += stmmac_selftests.o
->  
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 24a2555ca329..6c515f9efbe7 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -48,6 +48,7 @@
->  #include "stmmac_fpe.h"
->  #include "stmmac.h"
->  #include "stmmac_pcs.h"
-> +#include "stmmac_serdes.h"
->  #include "stmmac_xdp.h"
->  #include <linux/reset.h>
->  #include <linux/of_mdio.h>
-> @@ -3549,12 +3550,16 @@ static void stmmac_safety_feat_configuration(struct stmmac_priv *priv)
->  
->  static void stmmac_clk_rx_i_require(struct stmmac_priv *priv)
->  {
-> +	dwmac_serdes_power_on(priv);
-> +	/* Only sets the SerDes mode if it wasn't already configured. */
-> +	dwmac_serdes_init_mode(priv, priv->plat->phy_interface);
->  	phylink_rx_clk_stop_block(priv->phylink);
->  }
->  
->  static void stmmac_clk_rx_i_release(struct stmmac_priv *priv)
->  {
->  	phylink_rx_clk_stop_unblock(priv->phylink);
-> +	dwmac_serdes_power_off(priv);
->  }
->  
->  /**
-> @@ -4152,10 +4157,14 @@ static int stmmac_open(struct net_device *dev)
->  	if (ret)
->  		goto err_runtime_pm;
->  
-> -	ret = __stmmac_open(dev, dma_conf);
-> +	ret = dwmac_serdes_init(priv);
->  	if (ret)
->  		goto err_disconnect_phy;
->  
-> +	ret = __stmmac_open(dev, dma_conf);
-> +	if (ret)
-> +		goto err_serdes;
-> +
->  	kfree(dma_conf);
->  
->  	/* We may have called phylink_speed_down before */
-> @@ -4163,6 +4172,8 @@ static int stmmac_open(struct net_device *dev)
->  
->  	return ret;
->  
-> +err_serdes:
-> +	dwmac_serdes_exit(priv);
->  err_disconnect_phy:
->  	phylink_disconnect_phy(priv->phylink);
->  err_runtime_pm:
-> @@ -4226,6 +4237,7 @@ static int stmmac_release(struct net_device *dev)
->  
->  	__stmmac_release(dev);
->  
-> +	dwmac_serdes_exit(priv);
->  	phylink_disconnect_phy(priv->phylink);
->  	pm_runtime_put(priv->device);
->  
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-> index 2f826fe7229b..4d1902f3a58f 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-> @@ -1,12 +1,25 @@
->  // SPDX-License-Identifier: GPL-2.0-only
->  #include "stmmac.h"
->  #include "stmmac_pcs.h"
-> +#include "stmmac_serdes.h"
->  
->  static int dwmac_integrated_pcs_enable(struct phylink_pcs *pcs)
->  {
->  	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
-> +	struct stmmac_priv *priv = spcs->priv;
-> +	int ret;
->  
-> -	stmmac_mac_irq_modify(spcs->priv, 0, spcs->int_mask);
-> +	ret = dwmac_serdes_power_on(priv);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (spcs->interface != PHY_INTERFACE_MODE_NA) {
-> +		ret = dwmac_serdes_set_mode(priv, spcs->interface);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	stmmac_mac_irq_modify(priv, 0, spcs->int_mask);
->  
->  	return 0;
->  }
-> @@ -14,8 +27,11 @@ static int dwmac_integrated_pcs_enable(struct phylink_pcs *pcs)
->  static void dwmac_integrated_pcs_disable(struct phylink_pcs *pcs)
->  {
->  	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
-> +	struct stmmac_priv *priv = spcs->priv;
->  
-> -	stmmac_mac_irq_modify(spcs->priv, spcs->int_mask, 0);
-> +	stmmac_mac_irq_modify(priv, spcs->int_mask, 0);
-> +
-> +	dwmac_serdes_power_off(priv);
->  }
->  
->  static void dwmac_integrated_pcs_get_state(struct phylink_pcs *pcs,
-> @@ -32,6 +48,15 @@ static int dwmac_integrated_pcs_config(struct phylink_pcs *pcs,
->  				       bool permit_pause_to_mac)
->  {
->  	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
-> +	int ret;
-> +
-> +	if (spcs->interface != interface) {
-> +		ret = dwmac_serdes_set_mode(spcs->priv, interface);
-> +		if (ret)
-> +			return ret;
-> +
-> +		spcs->interface = interface;
-> +	}
->  
->  	dwmac_ctrl_ane(spcs->base, 0, 1, spcs->priv->hw->reverse_sgmii_enable);
->  
-> @@ -71,6 +96,7 @@ int stmmac_integrated_pcs_init(struct stmmac_priv *priv, unsigned int offset,
->  			       u32 int_mask)
->  {
->  	struct stmmac_pcs *spcs;
-> +	int ret;
->  
->  	spcs = devm_kzalloc(priv->device, sizeof(*spcs), GFP_KERNEL);
->  	if (!spcs)
-> @@ -81,6 +107,14 @@ int stmmac_integrated_pcs_init(struct stmmac_priv *priv, unsigned int offset,
->  	spcs->int_mask = int_mask;
->  	spcs->pcs.ops = &dwmac_integrated_pcs_ops;
->  
-> +	if (priv->plat->serdes) {
-> +		ret = dwmac_serdes_validate(priv, PHY_INTERFACE_MODE_SGMII);
-> +		if (ret)
-> +			dev_warn(priv->device,
-> +				 "serdes does not support SGMII: %pe\n",
-> +				 ERR_PTR(ret));
-> +	}
-> +
->  	__set_bit(PHY_INTERFACE_MODE_SGMII, spcs->pcs.supported_interfaces);
->  
->  	priv->integrated_pcs = spcs;
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
-> index c4e6b242d390..36bf75fdf478 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
-> @@ -53,6 +53,7 @@ struct stmmac_pcs {
->  	struct stmmac_priv *priv;
->  	void __iomem *base;
->  	u32 int_mask;
-> +	phy_interface_t interface;
->  	struct phylink_pcs pcs;
->  };
->  
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c
-> new file mode 100644
-> index 000000000000..3003e1ae38d2
-> --- /dev/null
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c
-> @@ -0,0 +1,111 @@
-> +#include <linux/phy/phy.h>
-> +
-> +#include "stmmac.h"
-> +#include "stmmac_serdes.h"
-> +
-> +static phy_interface_t dwmac_serdes_phy_modes[] = {
-> +	PHY_INTERFACE_MODE_SGMII,
-> +	PHY_INTERFACE_MODE_1000BASEX,
-> +	PHY_INTERFACE_MODE_2500BASEX
-> +};
-> +
-> +int dwmac_serdes_validate(struct stmmac_priv *priv, phy_interface_t interface)
-> +{
-> +	return phy_validate(priv->plat->serdes, PHY_MODE_ETHERNET, interface,
-> +			    NULL);
-> +}
-> +
-> +int dwmac_serdes_init(struct stmmac_priv *priv)
-> +{
-> +	size_t i;
-> +	int ret;
-> +
-> +	if (!priv->plat->serdes)
-> +		return 0;
-> +
-> +	/* Encourage good implementation of the SerDes PHY driver, so that
-> +	 * we can discover which Ethernet modes the SerDes supports.
-> +	 * Unfortunately, some implementations are noisy (bad), others
-> +	 * require phy_set_speed() to select the correct speed first
-> +	 * (which then reprograms the SerDes, negating the whole point of
-> +	 * phy_validate().) Weed out these incompatible implementations.
-> +	 */
-> +	for (i = 0; i < ARRAY_SIZE(dwmac_serdes_phy_modes); i++) {
-> +		ret = phy_validate(priv->plat->serdes, PHY_MODE_ETHERNET,
-> +				   dwmac_serdes_phy_modes[i], NULL);
-> +		if (ret == 0 || ret == -EOPNOTSUPP)
-> +			break;
-> +	}
-> +
-> +	if (ret == -EOPNOTSUPP)
-> +		dev_warn(priv->device,
-> +			 "SerDes driver does not implement phy_validate()\n");
-> +	if (ret) {
-> +		/* The SerDes PHY failed validation, refuse to use it. */
-> +		dev_warn(priv->device,
-> +			 "SerDes driver fails to validate SGMII, 1000BASE-X nor 2500BASE-X\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	ret = phy_init(priv->plat->serdes);
-> +	if (ret)
-> +		dev_err(priv->device, "failed to initialize SerDes: %pe\n",
-> +			ERR_PTR(ret));
-> +
-> +	return ret;
-> +}
-> +
-> +int dwmac_serdes_power_on(struct stmmac_priv *priv)
-> +{
-> +	int ret;
-> +
-> +	ret = phy_power_on(priv->plat->serdes);
-> +	if (ret)
-> +		dev_err(priv->device, "failed to power on SerDes: %pe\n",
-> +			ERR_PTR(ret));
-> +
-> +	return ret;
-> +}
-> +
-> +int dwmac_serdes_init_mode(struct stmmac_priv *priv, phy_interface_t interface)
-> +{
-> +	struct phy *serdes = priv->plat->serdes;
-> +
-> +	if (phy_get_mode(serdes) == PHY_MODE_ETHERNET)
-> +		return 0;
-> +
-> +	return dwmac_serdes_set_mode(priv, interface);
-> +}
-> +
-> +int dwmac_serdes_set_mode(struct stmmac_priv *priv, phy_interface_t interface)
-> +{
-> +	struct phy *serdes = priv->plat->serdes;
-> +	int ret;
-> +
-> +	ret = phy_set_mode_ext(serdes, PHY_MODE_ETHERNET, interface);
-> +	if (ret)
-> +		dev_err(priv->device,
-> +			"failed to set SerDes mode %s: %pe\n",
-> +			phy_modes(interface), ERR_PTR(ret));
-> +
-> +	return ret;
-> +}
-> +
-> +void dwmac_serdes_power_off(struct stmmac_priv *priv)
-> +{
-> +	int ret;
-> +
-> +	ret = phy_power_off(priv->plat->serdes);
-> +	if (ret)
-> +		dev_err(priv->device, "failed to power off SerDes: %pe\n",
-> +			ERR_PTR(ret));
-> +}
-> +
-> +void dwmac_serdes_exit(struct stmmac_priv *priv)
-> +{
-> +	int ret = phy_exit(priv->plat->serdes);
-> +
-> +	if (ret)
-> +		dev_err(priv->device, "failed to shutdown SerDes: %pe\n",
-> +			ERR_PTR(ret));
-> +}
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.h
-> new file mode 100644
-> index 000000000000..a31e6c9e0570
-> --- /dev/null
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.h
-> @@ -0,0 +1,16 @@
-> +#ifndef STMMAC_SERDES_H
-> +#define STMMAC_SERDES_H
-> +
-> +#include <linux/phy.h>
-> +
-> +struct stmmac_priv;
-> +
-> +int dwmac_serdes_validate(struct stmmac_priv *priv, phy_interface_t interface);
-> +int dwmac_serdes_init(struct stmmac_priv *priv);
-> +int dwmac_serdes_power_on(struct stmmac_priv *priv);
-> +int dwmac_serdes_init_mode(struct stmmac_priv *priv, phy_interface_t interface);
-> +int dwmac_serdes_set_mode(struct stmmac_priv *priv, phy_interface_t interface);
-> +void dwmac_serdes_power_off(struct stmmac_priv *priv);
-> +void dwmac_serdes_exit(struct stmmac_priv *priv);
-> +
-> +#endif
-> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-> index f1054b9c2d8a..4db506e5cf13 100644
-> --- a/include/linux/stmmac.h
-> +++ b/include/linux/stmmac.h
-> @@ -193,6 +193,7 @@ enum dwmac_core_type {
->  #define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(13)
->  
->  struct mac_device_info;
-> +struct phy;
->  
->  struct plat_stmmacenet_data {
->  	enum dwmac_core_type core_type;
-> @@ -222,6 +223,7 @@ struct plat_stmmacenet_data {
->  	 * that phylink uses.
->  	 */
->  	phy_interface_t phy_interface;
-> +	struct phy *serdes;
->  	struct stmmac_mdio_bus_data *mdio_bus_data;
->  	struct device_node *phy_node;
->  	struct fwnode_handle *port_node;
+>> +#include <linux/phy/phy.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/pm_runtime.h>
+> 
+> #include <linux/property.h>
+
+Ack.
+
+>> +#include <linux/reset.h>
+>> [...]
+>> +
+>> +static const struct rkcsi_format *
+>> +rkcsi_find_format(struct rkcsi_device *csi_dev, u32 mbus_code)
+>> +{
+>> +	const struct rkcsi_format *format;
+> 
+> This can be declared within the loop.
+
+Ack.
+
+> 
+>> +
+>> +	WARN_ON(csi_dev->formats_num == 0);
+>> +
+>> +	for (int i = 0; i < csi_dev->formats_num; i++) {
+> 
+> unsigned int?
+
+Ack.
+
+> 
+>> +		format = &csi_dev->formats[i];
+>> +		if (format->code == mbus_code)
+>> +			return format;
+>> +	}
+>> +
+>> +	return NULL;
+>> +}
+>> +
+>> +static int rkcsi_start(struct rkcsi_device *csi_dev)
+>> +{
+>> +	struct media_pad *source_pad =
+>> +		&csi_dev->source_sd->entity.pads[csi_dev->source_pad];
+>> +	enum v4l2_mbus_type bus_type = csi_dev->vep.bus_type;
+>> +	union phy_configure_opts opts;
+>> +	s64 link_freq;
+>> +	u32 lanes = csi_dev->vep.bus.mipi_csi2.num_data_lanes;
+>> +	u32 control = 0;
+>> +	int ret;
+>> +
+>> +	if (lanes < 1 || lanes > 4)
+>> +		return -EINVAL;
+>> +
+>> +	/* set mult and div to 0, thus completely rely on V4L2_CID_LINK_FREQ */
+>> +	link_freq = v4l2_get_link_freq(source_pad, 0, 0);
+>> +	if (link_freq <= 0)
+>> +		return -EINVAL;
+> 
+> Could you return link_freq here?
+
+Ack.
+
+> 
+>> +
+>> +	if (bus_type == V4L2_MBUS_CSI2_DPHY) {
+>> +		struct phy_configure_opts_mipi_dphy *cfg = &opts.mipi_dphy;
+>> +
+>> +		ret = phy_mipi_dphy_get_default_config_for_hsclk(link_freq * 2,
+>> +								 lanes, cfg);
+>> +		if (ret)
+>> +			return ret;
+>> +
+>> +		ret = phy_set_mode(csi_dev->phy, PHY_MODE_MIPI_DPHY);
+>> +		if (ret)
+>> +			return ret;
+>> +
+>> +		ret = phy_configure(csi_dev->phy, &opts);
+>> +		if (ret)
+>> +			return ret;
+>> +
+>> +		control |= SW_CPHY_EN(0);
+>> +
+>> +	} else if (bus_type == V4L2_MBUS_CSI2_CPHY) {
+>> +		/* TODO: implement CPHY configuration */
+>> +		return -EOPNOTSUPP;
+> 
+> How about a switch()?
+
+Ok!
+
+> 
+>> +	} else {
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	control |= SW_DATATYPE_FS(0x00) | SW_DATATYPE_FE(0x01) |
+>> +		   SW_DATATYPE_LS(0x02) | SW_DATATYPE_LE(0x03);
+>> +
+>> +	rkcsi_write(csi_dev, CSI2HOST_N_LANES, lanes - 1);
+>> +	rkcsi_write(csi_dev, CSI2HOST_CONTROL, control);
+>> +	rkcsi_write(csi_dev, CSI2HOST_CSI2_RESETN, 1);
+>> +
+>> +	ret = phy_power_on(csi_dev->phy);
+> 
+> 	return ...;
+
+Ack.
+
+> 
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static void rkcsi_stop(struct rkcsi_device *csi_dev)
+>> +{
+>> +	phy_power_off(csi_dev->phy);
+>> +
+>> +	rkcsi_write(csi_dev, CSI2HOST_CSI2_RESETN, 0);
+>> +	rkcsi_write(csi_dev, CSI2HOST_MSK1, ~0);
+>> +	rkcsi_write(csi_dev, CSI2HOST_MSK2, ~0);
+>> +}
+>> +
+>> +static const struct media_entity_operations rkcsi_media_ops = {
+>> +	.link_validate = v4l2_subdev_link_validate,
+>> +};
+>> +
+>> +static int rkcsi_enum_mbus_code(struct v4l2_subdev *sd,
+>> +				struct v4l2_subdev_state *sd_state,
+>> +				struct v4l2_subdev_mbus_code_enum *code)
+>> +{
+>> +	struct rkcsi_device *csi_dev = to_rkcsi(sd);
+>> +
+>> +	if (code->pad == RKCSI_PAD_SRC) {
+>> +		const struct v4l2_mbus_framefmt *sink_fmt;
+>> +
+>> +		if (code->index)
+>> +			return -EINVAL;
+>> +
+>> +		sink_fmt = v4l2_subdev_state_get_format(sd_state,
+>> +							RKCSI_PAD_SINK);
+>> +		code->code = sink_fmt->code;
+>> +
+>> +		return 0;
+>> +	} else if (code->pad == RKCSI_PAD_SINK) {
+> 
+> switch() would be nice here.
+
+Ack.
+
+> 
+>> +		if (code->index > csi_dev->formats_num)
+>> +			return -EINVAL;
+>> +
+>> +		code->code = csi_dev->formats[code->index].code;
+>> +		return 0;
+>> +	}
+>> +
+>> +	return -EINVAL;
+>> +}
+>> +
+>> +static int rkcsi_set_fmt(struct v4l2_subdev *sd,
+>> +			 struct v4l2_subdev_state *state,
+>> +			 struct v4l2_subdev_format *format)
+>> +{
+>> +	struct rkcsi_device *csi_dev = to_rkcsi(sd);
+>> +	const struct rkcsi_format *fmt;
+>> +	struct v4l2_mbus_framefmt *sink, *src;
+>> +
+>> +	/* the format on the source pad always matches the sink pad */
+>> +	if (format->pad == RKCSI_PAD_SRC)
+>> +		return v4l2_subdev_get_fmt(sd, state, format);
+>> +
+>> +	sink = v4l2_subdev_state_get_format(state, format->pad, format->stream);
+>> +	if (!sink)
+>> +		return -EINVAL;
+>> +
+>> +	fmt = rkcsi_find_format(csi_dev, format->format.code);
+>> +	if (!fmt)
+>> +		format->format = default_format;
+>> +
+>> +	*sink = format->format;
+>> +
+>> +	/* propagate the format to the source pad */
+>> +	src = v4l2_subdev_state_get_opposite_stream_format(state, format->pad,
+>> +							   format->stream);
+>> +	if (!src)
+>> +		return -EINVAL;
+>> +
+>> +	*src = *sink;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int rkcsi_set_routing(struct v4l2_subdev *sd,
+>> +			     struct v4l2_subdev_state *state,
+>> +			     enum v4l2_subdev_format_whence which,
+>> +			     struct v4l2_subdev_krouting *routing)
+>> +{
+>> +	int ret;
+>> +
+>> +	ret = v4l2_subdev_routing_validate(sd, routing,
+>> +					   V4L2_SUBDEV_ROUTING_ONLY_1_TO_1);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = v4l2_subdev_set_routing_with_fmt(sd, state, routing,
+>> +					       &default_format);
+> 
+> 	return ...;
+
+Ack.
+
+> 
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int rkcsi_enable_streams(struct v4l2_subdev *sd,
+>> +				struct v4l2_subdev_state *state, u32 pad,
+>> +				u64 streams_mask)
+>> +{
+>> +	struct rkcsi_device *csi_dev = to_rkcsi(sd);
+>> +	struct v4l2_subdev *remote_sd;
+>> +	struct media_pad *sink_pad, *remote_pad;
+>> +	struct device *dev = csi_dev->dev;
+>> +	u64 mask;
+>> +	int ret;
+>> +
+>> +	sink_pad = &sd->entity.pads[RKCSI_PAD_SINK];
+>> +	remote_pad = media_pad_remote_pad_first(sink_pad);
+>> +	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
+>> +
+>> +	mask = v4l2_subdev_state_xlate_streams(state, RKCSI_PAD_SINK,
+>> +					       RKCSI_PAD_SRC, &streams_mask);
+>> +
+>> +	ret = pm_runtime_resume_and_get(dev);
+>> +	if (ret)
+>> +		goto err;
+>> +
+>> +	ret = rkcsi_start(csi_dev);
+>> +	if (ret) {
+>> +		dev_err(dev, "failed to enable CSI hardware\n");
+>> +		goto err_pm_runtime_put;
+>> +	}
+>> +
+>> +	ret = v4l2_subdev_enable_streams(remote_sd, remote_pad->index, mask);
+>> +	if (ret)
+>> +		goto err_csi_stop;
+>> +
+>> +	return 0;
+>> +
+>> +err_csi_stop:
+>> +	rkcsi_stop(csi_dev);
+>> +err_pm_runtime_put:
+>> +	pm_runtime_put_sync(dev);
+>> +err:
+>> +	return ret;
+>> +}
+>> +
+>> +static int rkcsi_disable_streams(struct v4l2_subdev *sd,
+>> +				 struct v4l2_subdev_state *state, u32 pad,
+>> +				 u64 streams_mask)
+>> +{
+>> +	struct rkcsi_device *csi_dev = to_rkcsi(sd);
+>> +	struct v4l2_subdev *remote_sd;
+>> +	struct media_pad *sink_pad, *remote_pad;
+>> +	struct device *dev = csi_dev->dev;
+>> +	u64 mask;
+>> +	int ret;
+>> +
+>> +	sink_pad = &sd->entity.pads[RKCSI_PAD_SINK];
+>> +	remote_pad = media_pad_remote_pad_first(sink_pad);
+>> +	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
+>> +
+>> +	mask = v4l2_subdev_state_xlate_streams(state, RKCSI_PAD_SINK,
+>> +					       RKCSI_PAD_SRC, &streams_mask);
+>> +
+>> +	ret = v4l2_subdev_disable_streams(remote_sd, remote_pad->index, mask);
+>> +
+>> +	rkcsi_stop(csi_dev);
+>> +
+>> +	pm_runtime_mark_last_busy(dev);
+> 
+> Redundant, please drop.
+
+Ack.
+
+> 
+>> +	pm_runtime_put_autosuspend(dev);
+> 
+> The driver doesn't enable autosuspend so the autosuspend variant isn't
+> useful. Maybe just switch to pm_runtime_put(), as resume probably takes
+> very little time?
+
+Ack.
+
+> 
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static const struct v4l2_subdev_pad_ops rkcsi_pad_ops = {
+>> +	.enum_mbus_code = rkcsi_enum_mbus_code,
+>> +	.get_fmt = v4l2_subdev_get_fmt,
+>> +	.set_fmt = rkcsi_set_fmt,
+>> +	.set_routing = rkcsi_set_routing,
+>> +	.enable_streams = rkcsi_enable_streams,
+>> +	.disable_streams = rkcsi_disable_streams,
+>> +};
+>> +
+>> +static const struct v4l2_subdev_ops rkcsi_ops = {
+>> +	.pad = &rkcsi_pad_ops,
+>> +};
+>> +
+>> +static int rkcsi_init_state(struct v4l2_subdev *sd,
+>> +			    struct v4l2_subdev_state *state)
+>> +{
+>> +	struct v4l2_subdev_route routes[] = {
+>> +		{
+>> +			.sink_pad = RKCSI_PAD_SINK,
+>> +			.sink_stream = 0,
+>> +			.source_pad = RKCSI_PAD_SRC,
+>> +			.source_stream = 0,
+>> +			.flags = V4L2_SUBDEV_ROUTE_FL_ACTIVE,
+>> +		},
+>> +	};
+>> +	struct v4l2_subdev_krouting routing = {
+>> +		.len_routes = ARRAY_SIZE(routes),
+>> +		.num_routes = ARRAY_SIZE(routes),
+>> +		.routes = routes,
+>> +	};
+>> +	int ret;
+>> +
+>> +	ret = v4l2_subdev_set_routing_with_fmt(sd, state, &routing,
+>> +					       &default_format);
+> 
+> 	return ...;
+
+Ack.
+
+> 
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static const struct v4l2_subdev_internal_ops rkcsi_internal_ops = {
+>> +	.init_state = rkcsi_init_state,
+>> +};
+>> +
+>> +static int rkcsi_notifier_bound(struct v4l2_async_notifier *notifier,
+>> +				struct v4l2_subdev *sd,
+>> +				struct v4l2_async_connection *asd)
+>> +{
+>> +	struct rkcsi_device *csi_dev =
+>> +		container_of(notifier, struct rkcsi_device, notifier);
+>> +	int source_pad;
+>> +
+>> +	source_pad = media_entity_get_fwnode_pad(&sd->entity, sd->fwnode,
+>> +						 MEDIA_PAD_FL_SOURCE);
+> 
+> Could you use v4l2_create_fwnode_links_to_pad()?
+
+Ack.
+
+> 
+>> +	if (source_pad < 0) {
+>> +		dev_err(csi_dev->dev, "failed to find source pad for %s\n",
+>> +			sd->name);
+>> +		return source_pad;
+>> +	}
+>> +
+>> +	csi_dev->source_sd = sd;
+> 
+> I'd just use media_pad_remote_pad_unique() to obtain the remote pad when
+> needed.
+
+Ack.
+
+> 
+>> +	csi_dev->source_pad = source_pad;
+>> +
+>> +	return media_create_pad_link(&sd->entity, source_pad,
+>> +				     &csi_dev->sd.entity, RKCSI_PAD_SINK,
+>> +				     MEDIA_LNK_FL_ENABLED);
+>> +}
+>> +
+>> +static const struct v4l2_async_notifier_operations rkcsi_notifier_ops = {
+>> +	.bound = rkcsi_notifier_bound,
+>> +};
+>> +
+>> +static int rkcsi_register_notifier(struct rkcsi_device *csi_dev)
+>> +{
+>> +	struct v4l2_async_connection *asd;
+>> +	struct v4l2_async_notifier *ntf = &csi_dev->notifier;
+>> +	struct v4l2_fwnode_endpoint *vep = &csi_dev->vep;
+>> +	struct v4l2_subdev *sd = &csi_dev->sd;
+>> +	struct device *dev = csi_dev->dev;
+>> +	struct fwnode_handle *ep;
+>> +	int ret = 0;
+> 
+> Redundant initialisation.
+
+Ack.
+
+> 
+>> +
+>> +	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
+>> +	if (!ep)
+>> +		return dev_err_probe(dev, -ENODEV, "failed to get endpoint\n");
+>> +
+>> +	vep->bus_type = V4L2_MBUS_UNKNOWN;
+> 
+> If you only need the number of lanes and PHY type, I'd store them to the
+> driver's own context struct. struct v4l2_fwnode_endpoint isn't tiny.
+
+Ack.
+
+> 
+>> +	ret = v4l2_fwnode_endpoint_parse(ep, vep);
+>> +	if (ret) {
+>> +		ret = dev_err_probe(dev, ret, "failed to parse endpoint\n");
+>> +		goto out;
+>> +	}
+>> +
+>> +	if (vep->bus_type != V4L2_MBUS_CSI2_DPHY &&
+>> +	    vep->bus_type != V4L2_MBUS_CSI2_CPHY) {
+>> +		ret = dev_err_probe(dev, -EINVAL,
+>> +				    "invalid bus type of endpoint\n");
+>> +		goto out;
+>> +	}
+>> +
+>> +	v4l2_async_subdev_nf_init(ntf, sd);
+>> +	ntf->ops = &rkcsi_notifier_ops;
+>> +
+>> +	asd = v4l2_async_nf_add_fwnode_remote(ntf, ep,
+>> +					      struct v4l2_async_connection);
+>> +	if (IS_ERR(asd)) {
+>> +		ret = PTR_ERR(asd);
+>> +		goto err_nf_cleanup;
+>> +	}
+>> +
+>> +	ret = v4l2_async_nf_register(ntf);
+>> +	if (ret) {
+>> +		ret = dev_err_probe(dev, ret, "failed to register notifier\n");
+>> +		goto err_nf_cleanup;
+>> +	}
+>> +
+>> +	goto out;
+>> +
+>> +err_nf_cleanup:
+>> +	v4l2_async_nf_cleanup(ntf);
+>> +out:
+>> +	fwnode_handle_put(ep);
+>> +	return ret;
+>> +}
+>> +
+>> +static int rkcsi_register(struct rkcsi_device *csi_dev)
+>> +{
+>> +	struct media_pad *pads = csi_dev->pads;
+>> +	struct v4l2_subdev *sd = &csi_dev->sd;
+>> +	int ret;
+>> +
+>> +	ret = rkcsi_register_notifier(csi_dev);
+>> +	if (ret)
+>> +		goto err;
+>> +
+>> +	v4l2_subdev_init(sd, &rkcsi_ops);
+>> +	sd->dev = csi_dev->dev;
+>> +	sd->entity.ops = &rkcsi_media_ops;
+>> +	sd->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
+>> +	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE | V4L2_SUBDEV_FL_STREAMS;
+>> +	sd->internal_ops = &rkcsi_internal_ops;
+>> +	sd->owner = THIS_MODULE;
+>> +	snprintf(sd->name, sizeof(sd->name), "rockchip-mipi-csi %s",
+>> +		 dev_name(csi_dev->dev));
+> 
+> Do you need to give it an explicit name? (v4l2_i2c_subdev_init() already
+> does that.)
+
+I do, actually. I don't call the _i2c_ variant. This is a platform device.
+
+> 
+>> +
+>> +	pads[RKCSI_PAD_SINK].flags = MEDIA_PAD_FL_SINK |
+>> +				     MEDIA_PAD_FL_MUST_CONNECT;
+>> +	pads[RKCSI_PAD_SRC].flags = MEDIA_PAD_FL_SOURCE;
+>> +	ret = media_entity_pads_init(&sd->entity, RKCSI_PAD_MAX, pads);
+>> +	if (ret)
+>> +		goto err_notifier_unregister;
+>> +
+>> +	ret = v4l2_subdev_init_finalize(sd);
+>> +	if (ret)
+>> +		goto err_entity_cleanup;
+>> +
+>> +	ret = v4l2_async_register_subdev(sd);
+>> +	if (ret) {
+>> +		dev_err(sd->dev, "failed to register CSI subdev\n");
+>> +		goto err_subdev_cleanup;
+>> +	}
+>> +
+>> +	return 0;
+>> +
+>> +err_subdev_cleanup:
+>> +	v4l2_subdev_cleanup(sd);
+>> +err_entity_cleanup:
+>> +	media_entity_cleanup(&sd->entity);
+>> +err_notifier_unregister:
+>> +	v4l2_async_nf_unregister(&csi_dev->notifier);
+>> +	v4l2_async_nf_cleanup(&csi_dev->notifier);
+>> +err:
+>> +	return ret;
+>> +}
+>> +
+>> +static void rkcsi_unregister(struct rkcsi_device *csi_dev)
+>> +{
+>> +	struct v4l2_subdev *sd = &csi_dev->sd;
+>> +
+>> +	v4l2_async_unregister_subdev(sd);
+>> +	v4l2_subdev_cleanup(sd);
+>> +	media_entity_cleanup(&sd->entity);
+>> +	v4l2_async_nf_unregister(&csi_dev->notifier);
+>> +	v4l2_async_nf_cleanup(&csi_dev->notifier);
+>> +}
+>> +
+>> +static const struct of_device_id rkcsi_of_match[] = {
+>> +	{
+>> +		.compatible = "rockchip,rk3568-mipi-csi",
+>> +	},
+>> +	{}
+>> +};
+>> +MODULE_DEVICE_TABLE(of, rkcsi_of_match);
+>> +
+>> +static int rkcsi_probe(struct platform_device *pdev)
+>> +{
+>> +	struct device *dev = &pdev->dev;
+>> +	struct rkcsi_device *csi_dev;
+>> +	int ret;
+>> +
+>> +	csi_dev = devm_kzalloc(dev, sizeof(*csi_dev), GFP_KERNEL);
+>> +	if (!csi_dev)
+>> +		return -ENOMEM;
+>> +	csi_dev->dev = dev;
+>> +	dev_set_drvdata(dev, csi_dev);
+>> +
+>> +	csi_dev->base_addr = devm_platform_ioremap_resource(pdev, 0);
+>> +	if (IS_ERR(csi_dev->base_addr))
+>> +		return PTR_ERR(csi_dev->base_addr);
+>> +
+>> +	ret = devm_clk_bulk_get_all(dev, &csi_dev->clks);
+>> +	if (ret != RKCSI_CLKS_MAX)
+>> +		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
+>> +	csi_dev->clks_num = ret;
+>> +
+>> +	csi_dev->phy = devm_phy_get(dev, NULL);
+>> +	if (IS_ERR(csi_dev->phy))
+>> +		return dev_err_probe(dev, PTR_ERR(csi_dev->phy),
+>> +				     "failed to get MIPI CSI PHY\n");
+>> +
+>> +	csi_dev->reset = devm_reset_control_get_exclusive(dev, NULL);
+>> +	if (IS_ERR(csi_dev->reset))
+>> +		return dev_err_probe(dev, PTR_ERR(csi_dev->reset),
+>> +				     "failed to get reset\n");
+>> +
+>> +	csi_dev->formats = formats;
+>> +	csi_dev->formats_num = ARRAY_SIZE(formats);
+>> +
+>> +	pm_runtime_enable(dev);
+> 
+> You're not resuming the device in probe(). I guess you depend on CONFIG_PM?
+
+I do depend on CONFIG_PM.
+
+I don't think there is need to resume in probe -> resume in
+_enable_streams should do the trick, right?
+
+> 
+>> +
+>> +	ret = phy_init(csi_dev->phy);
+>> +	if (ret) {
+>> +		ret = dev_err_probe(dev, ret,
+>> +				    "failed to initialize MIPI CSI PHY\n");
+>> +		goto err_pm_runtime_disable;
+>> +	}
+>> +
+>> +	ret = rkcsi_register(csi_dev);
+>> +	if (ret)
+>> +		goto err_phy_exit;
+>> +
+>> +	return 0;
+>> +
+>> +err_phy_exit:
+>> +	phy_exit(csi_dev->phy);
+>> +err_pm_runtime_disable:
+>> +	pm_runtime_disable(dev);
+> 
+> A newline would be nice here.
+
+Ack.
+
+> 
+>> +	return ret;
+>> +}
+>> +
+>> +static void rkcsi_remove(struct platform_device *pdev)
+>> +{
+>> +	struct rkcsi_device *csi_dev = platform_get_drvdata(pdev);
+>> +	struct device *dev = &pdev->dev;
+>> +
+>> +	rkcsi_unregister(csi_dev);
+>> +	phy_exit(csi_dev->phy);
+>> +	pm_runtime_disable(dev);
+>> +}
+>> +
+>> +static int rkcsi_runtime_suspend(struct device *dev)
+>> +{
+>> +	struct rkcsi_device *csi_dev = dev_get_drvdata(dev);
+>> +
+>> +	clk_bulk_disable_unprepare(csi_dev->clks_num, csi_dev->clks);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int rkcsi_runtime_resume(struct device *dev)
+>> +{
+>> +	struct rkcsi_device *csi_dev = dev_get_drvdata(dev);
+>> +	int ret;
+>> +
+>> +	reset_control_assert(csi_dev->reset);
+>> +	udelay(5);
+>> +	reset_control_deassert(csi_dev->reset);
+>> +
+>> +	ret = clk_bulk_prepare_enable(csi_dev->clks_num, csi_dev->clks);
+>> +	if (ret) {
+>> +		dev_err(dev, "failed to enable clocks\n");
+>> +		return ret;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static const struct dev_pm_ops rkcsi_pm_ops = {
+>> +	.runtime_suspend = rkcsi_runtime_suspend,
+>> +	.runtime_resume = rkcsi_runtime_resume,
+>> +};
+> 
+> Could you use DEFINE_RUNTIME_DEV_PM_OPS() (add static in front)?
+
+Ack.
+
+v4 coming up soon!
+
+Best regards,
+Michael
+
+> 
+>> +
+>> +static struct platform_driver rkcsi_drv = {
+>> +	.driver = {
+>> +		   .name = "rockchip-mipi-csi",
+>> +		   .of_match_table = rkcsi_of_match,
+>> +		   .pm = &rkcsi_pm_ops,
+>> +	},
+>> +	.probe = rkcsi_probe,
+>> +	.remove = rkcsi_remove,
+>> +};
+>> +module_platform_driver(rkcsi_drv);
+>> +
+>> +MODULE_DESCRIPTION("Rockchip MIPI CSI-2 Receiver platform driver");
+>> +MODULE_LICENSE("GPL");
+>>
+> 
 
 
