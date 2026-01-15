@@ -4,58 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05302D41178
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 11:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C85ED41178
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 12:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FcDFS31au9qcPdLbViVvar0GyZ40bB3+m6qReZrPxAk=; b=iy+mrJMTBVIauAmWTEXOiG84vL
-	XV05QT07Hsw8lrxY2anKOop0gyQQf1xjclPy6D3zKMxbikN2m1CGM6J7NV4E8YAA5kB4Fj3GFyEUx
-	x9lupfNniqjBHIjeQ9ZYmobi0k41IiNZUjbYZYA8meoZaQCKMBfc0Pq/YcX0xJ0GUQaFnmvfB0dMo
-	fwuX7qcvDyvGZFlkBIY+uDdhAyGltZWCgPfe/lsL5oco7poT34btNkdnKDSwt+yOu4H5fSANcP4TT
-	QGtHVvnHahlcOgi2tzkyDu1WDo+W2qPCedfYbIdlSHYOTrxaVYRHyy0dW4tSg979SoNXCF6oSP6/z
-	e8/0IQXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F2eEHI1RcQwXpr1qVMMa/Qj7mYYEH64V17sGaZjxOf0=; b=sFTt87zUr0oou3aJ7n2UjvA/bV
+	jIvoGm5pcjFoNSMOrQeOZkBgGgcNWd9khcXHvNENNBIddNaDa8C4qmH/LESoSV86sD0cVlvl2Ll2o
+	xM/ZlVeQWj2HWdac1oEBGp7Up8osK6EAUgYPeIBu0SX3/kKMKhLS7qRPD211WS3Zarh8PgLb7kZmn
+	IooPBNYk6LTT07HBu8yEQsdWd0zPH14RbKcBqca3Sffv9H7YiLcjsxCZmnVLCgFISRZKfIvSZIW9/
+	GpSqyY5W5aSBEUw+4blUD1ximRPERIsDS0weBX1Lovz1gSQDLRk5BHTbCN9e4r0+BjtCaBJXd0XwQ
+	Q0aTZttg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgLyw-0000000CH1V-1bwN;
-	Thu, 15 Jan 2026 11:57:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgLys-0000000CH19-1XTn
+	id 1vgM8T-0000000CIRA-4AvF;
+	Thu, 15 Jan 2026 12:07:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vgM8R-0000000CIQk-3rtA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 11:57:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6F6D8FEC;
-	Thu, 15 Jan 2026 03:57:29 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.197.51])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BDCFD3F632;
-	Thu, 15 Jan 2026 03:57:34 -0800 (PST)
-Date: Thu, 15 Jan 2026 11:57:32 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: arm-scmi@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+	Thu, 15 Jan 2026 12:07:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 12C9142D57;
+	Thu, 15 Jan 2026 12:07:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1CC3C116D0;
+	Thu, 15 Jan 2026 12:07:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768478850;
+	bh=f9T+RVKITvC3zGHO9fSKmJDHGMMiKmOzSVT26F83cNE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=U2dIoPLxARHFp6Wt9YYVD65OkaRzS6qKuuOMzIhOCpfcMkc94p4VpEEiiGCQ063QI
+	 ivQL6K3tIdrgQXsyhRhjqXDT2VeXRqGkCAjHfF/3WE3qNGK3WDZpyKTvkbO6DNvsuS
+	 /14JK3r3wWVrZ2BScofbQbl3r4a1eUZd1BCqn2iQaDQJU7AplAWk0o0aFg7GaDXVhY
+	 CB7+44tkTPhNEUhDau5kaHq6a9m+Nkulvy4ImNk+HLLtuFzUdwC9I7phmjCBjGPJWb
+	 9Da+p6v+u5RvQ3/XGpiqA9VFAH8w2dFJUf5fIOtnVEazRRaEom2briQBnh4hdr2nY5
+	 Ps+oU0G7G7dBg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vgM8O-00000002W0n-3UaY;
+	Thu, 15 Jan 2026 12:07:28 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] dt-bindings: firmware: arm,scmi: Document
- arm,no-completion-irq property
-Message-ID: <aWjWLFi6xUIn3_GQ@bogus>
-References: <20260115004921.548282-1-marek.vasut+renesas@mailbox.org>
+	Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>
+Subject: Re: [PATCH v4 0/9] KVM: arm64: Add support for FEAT_IDST
+Date: Thu, 15 Jan 2026 12:07:22 +0000
+Message-ID: <176847883532.3732984.5442091537766378905.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260108173233.2911955-1-maz@kernel.org>
+References: <20260108173233.2911955-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260115004921.548282-1-marek.vasut+renesas@mailbox.org>
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, ben.horgan@arm.com, yaoyuan@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_035739_810140_83CC29E3 
-X-CRM114-Status: GOOD (  24.76  )
+X-CRM114-CacheID: sfid-20260115_040731_978974_B970BCFB 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,75 +89,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 15, 2026 at 01:48:56AM +0100, Marek Vasut wrote:
-> Document new property arm,no-completion-irq, which sets all SCMI
-> operation into poll mode. This is meant to work around uncooperative
-> SCP implementations, which do not generate completion interrupts.
-> This applies primarily on mbox shmem based implementations.
+On Thu, 08 Jan 2026 17:32:24 +0000, Marc Zyngier wrote:
+> FEAT_IDST appeared in ARMv8.4, and allows ID registers to be trapped
+> if they are not implemented. This only concerns 3 registers (GMID_EL1,
+> CCSIDR2_EL1 and SMIDR_EL1), which are part of features that may not be
+> exposed to the guest even if present on the host.
 > 
-> With this property set, such implementations which do not generate
-> interrupts can be interacted with, until they are fixed to generate
-> interrupts properly.
+> For these registers, the HW should report them with EC=0x18, even if
+> the feature isn't implemented.
 > 
-> Note that, because the original base protocol exchange also requires
-> some sort of completion mechanism, it is not possible to query SCMI
-> itself for this property and it must be described in DT. While this
-> does look a bit like policy, the SCMI provider is part of the
-> hardware, hence DT.
-> 
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> ---
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Cristian Marussi <cristian.marussi@arm.com>
-> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Sudeep Holla <sudeep.holla@arm.com>
-> Cc: arm-scmi@vger.kernel.org
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-renesas-soc@vger.kernel.org
-> ---
-> V2: s@mean@&t and limit poll transport to mailbox/shmem only
-> V3: - Reformat the commit message, expand property description to
->       explicitly spell out this is hardware description.
->     - Rename property from arm,poll-transport to arm,no-completion-irq
-> ---
->  .../devicetree/bindings/firmware/arm,scmi.yaml        | 11 +++++++++++
->  1 file changed, 11 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> index be817fd9cc34b..46d9a0a9a0e58 100644
-> --- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> +++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> @@ -146,6 +146,14 @@ properties:
->        this platform. If set, the value should be non-zero.
->      minimum: 1
->  
-> +  arm,no-completion-irq:
-> +    type: boolean
-> +    description:
-> +      An optional property which unconditionally forces polling in all transports,
-> +      meant for hardware which does not generate completion interrupts. This is
-> +      mainly meant to work around uncooperative SCP or SCP firmware, which does
-> +      not generate completion interrupts.
-> +
+> [...]
 
-I would swap the order of the above two points.
+Applied to next, thanks!
 
-“This optional property is intended for hardware that does not generate
-completion interrupts and can be used to unconditionally enable forced polling
-mode of operation.”
+[1/9] arm64: Repaint ID_AA64MMFR2_EL1.IDS description
+      commit: 4a7fe842b8a3f3c173c3075f03c60c3f9f62e299
+[2/9] KVM: arm64: Add trap routing for GMID_EL1
+      commit: 1ad9767accfcb81f404aa3d37d46b3eb494dce2f
+[3/9] KVM: arm64: Add a generic synchronous exception injection primitive
+      commit: 19f75678238734ef383f9e10d8e1020873e97170
+[4/9] KVM: arm64: Handle FEAT_IDST for sysregs without specific handlers
+      commit: d78a14decd494caf72ea0144624621e7e43ae451
+[5/9] KVM: arm64: Handle CSSIDR2_EL1 and SMIDR_EL1 in a generic way
+      commit: f07ef1bef67ca08799df262cc901971ac274783d
+[6/9] KVM: arm64: Force trap of GMID_EL1 when the guest doesn't have MTE
+      commit: 70a5ce4efc0e1194718aad6f26332c99e6a119db
+[7/9] KVM: arm64: pkvm: Add a generic synchronous exception injection primitive
+      commit: e5d40a5a97c1d57e89aa5f324734065c6580b436
+[8/9] KVM: arm64: pkvm: Report optional ID register traps with a 0x18 syndrome
+      commit: 592dc2c020686536dae1c427c78cf558a3df4414
+[9/9] KVM: arm64: selftests: Add a test for FEAT_IDST
+      commit: b638a9d0f8965b98403022cb91d8f3b31170eb35
 
-You need to update the commit message accordingly. We do not want to indicate
-how this property should be used, as that is left to the implementation. The
-emphasis should be on what this property indicates to its users.
+Cheers,
 
-Please update only if DT maintainers are also in agreement. I have just
-expressed my opinion. IIUC, it is aligned to standard DT binding rules but
-I may be wrong.
-
+	M.
 -- 
-Regards,
-Sudeep
+Without deviation from the norm, progress is not possible.
+
+
 
