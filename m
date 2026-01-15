@@ -4,64 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA702D46617
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 20:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A79D46623
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 20:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=iBNBsyavN8r7wjI1AwpVpvnHilN3gHX54gWqAIo5Dpw=; b=eRd00PzFCpR86B
-	tQw3wUmhtJZEt2MvPj8B29zN4a57JXjmvPnvTNJocXkMki8xerVybWaTVF3lHPpSPOKQeLWf5Smei
-	Jj655W/0FnTj8hwFBVvJK9IQCMUvsZqiDnkTexRNdJgdQ5UwNhD/kIlMq0RyPs9bXiXtpx1RxRNnA
-	FxbFzffVrfxNWMa/YG9QxefOUlMz3OZkTdhRKZdx1cxbE4RUkDHvuFGsLj1+uYsjAbEqCE0szAgZA
-	YmA2o99TJ2InKfcxtENDQeStWyrMd4PqivpmIzEbZEp3VVEireW6DKSKlJ22Lm9ATi0UrTxFmQ5Cr
-	ayqLfc4QDAVoNDy92Aqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FvKP3Hxmy17b6fp9G697nE3SHqObhCdnyp1WxCXp1xw=; b=t8tMregePnA2hxgAtnOtI8q9Am
+	72TBEnKVwMyNuDswIk/vlmUYBe4hC7dRsGeBYs7xey4MMcxc+ouQtA5hAmCKs91/S5H2zKYtjXmwq
+	TpZneeDUyAZtu7jQ2gS6Bpu0a0xMjI/NI/RdP9ehMQ4fQoQUdG/PTP3AmIcRU1OWHYOFfysTb2sDQ
+	tgi1qYvXEYD6TKlQMbrjOPihkXAkPCaBXjPIhPfu0XYgLrZzCscp0ZMRzN4M0/f9WbdQ0RxhXbAAH
+	KP7grKOvjFYeLsGuD/6Jcas+rYZ0IlfkjZw0b/z7HqHYo/XVNZ7027AmtWivhOKqNEDTNDTgzx721
+	tyHMbqpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgULn-0000000DBRg-2oBx;
-	Thu, 15 Jan 2026 20:53:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vgUNi-0000000DBaw-1LzQ;
+	Thu, 15 Jan 2026 20:55:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgULm-0000000DBRX-0sr3;
-	Thu, 15 Jan 2026 20:53:50 +0000
+	id 1vgUNe-0000000DBaZ-2fcK
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Jan 2026 20:55:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4D6A560130;
-	Thu, 15 Jan 2026 20:53:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D89D4C116D0;
-	Thu, 15 Jan 2026 20:53:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E698F43645;
+	Thu, 15 Jan 2026 20:55:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B1EDC19422;
+	Thu, 15 Jan 2026 20:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768510429;
-	bh=kUIIoYoPjMjhLb2Ikm1Imwe9wIvpSRMNJmMBdsX0NfY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=cypro30Ix2LyXok4K5JmT0bXfJdd660c0A8Q0TCWcPRwJ5x6+j8Nzw2MC/95i7rgp
-	 0Mt2iOjN6bcNUaOlkI5mTnGAL8NLFDXqEyWwxoMhMgn9lKOKPh6ulzdpALJoADIrbS
-	 nvGzMApAfZ0Leo5ZTmwROkFDAvON0A3IVZ9e4E2abJsOwuqmwRdQdWx/k6/nBGeXnH
-	 aCgXIKyeM8FTD82xWgiu+hcONJNWPcSaYUzZxtoe/EOVbTc13SE69zzuGtF+aTk5y+
-	 lSXduIOieNL9xib+Nmclwnnsc0L/LqNwUI1oW0fTunZ8Ew5QvgCPP26PYCiObGwTSm
-	 E6oi31K5cm+vQ==
-Date: Thu, 15 Jan 2026 14:53:47 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Terje Bergstrom <tbergstrom@nvidia.com>
-Cc: Johnny-CC Chang =?utf-8?B?KOW8teaZi+WYiSk=?= <Johnny-CC.Chang@mediatek.com>,
-	"lukas@wunner.de" <lukas@wunner.de>,
-	Project_Global_Digits_Upstream_Group <Project_Global_Digits_Upstream_Group@mediatek.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Alex Williamson <alex@shazbot.org>
-Subject: Re: [PATCH] PCI: Mark Nvidia GB10 to avoid bus reset
-Message-ID: <20260115205347.GA881345@bhelgaas>
+	s=k20201202; t=1768510545;
+	bh=xi5LcqCgDaiuqSvT2omAUMxDmTQ8rZgS0cXcFkGJRIg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qHhTHhlwtgSGPzcDt6CAUNAF7nJukxtzf5nBiO7r9guVDAK4t4vgBIfL/pz9L//qq
+	 sQqwbEUUEiMn+HEk74oalcgFKfgj2AmKZZOAtsibFiZwESrnZRWyTSBNfE0RR41V5e
+	 pZ7UVLxBcjXUTbnLTeNDpjhpmvdU6MEypRTKFr1p7Dvft5utA7IH3+q3dAXX/PXrJr
+	 8IHKSEMoiw7EQRzjPCtIx22Z5H/Y+Q6OJqv/83QNTpqwNt+3rqfb2psUY+cHX8rRql
+	 HK4K3Wy40Gp1tmTGlN03YxIy/GyPkm3OMv6WX2/1djmyUt3yS4sBbEiH1Z/BQ/yu+G
+	 zWu8Hb5Aj7U4w==
+Message-ID: <4e8ffb51-28d3-42bf-a069-afb7fbf57bad@kernel.org>
+Date: Thu, 15 Jan 2026 21:55:36 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <db8fb91b-e132-4d8e-ab7a-d7954fc6629d@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] spi: dt-bindings: nxp,imx94-xspi: add nxp,imx952-xspi
+To: Frank Li <Frank.li@nxp.com>
+Cc: Haibo Chen <haibo.chen@nxp.com>, Han Xu <han.xu@nxp.com>,
+ Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-spi@vger.kernel.org,
+ imx@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260114-xspi-imx952-v1-0-acc60a5a2a9d@nxp.com>
+ <20260114-xspi-imx952-v1-1-acc60a5a2a9d@nxp.com>
+ <20260115-imaginary-banana-beaver-7b45ea@quoll>
+ <aWkEnEJRj01JSZj5@lizhi-Precision-Tower-5810>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <aWkEnEJRj01JSZj5@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260115_125546_744919_85F4BA18 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,37 +126,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 15, 2026 at 12:11:09PM -0800, Terje Bergstrom wrote:
-> On 1/14/26 09:28, Bjorn Helgaas wrote:
+On 15/01/2026 16:15, Frank Li wrote:
+> On Thu, Jan 15, 2026 at 10:39:20AM +0100, Krzysztof Kozlowski wrote:
+>> On Wed, Jan 14, 2026 at 02:49:45PM +0800, Haibo Chen wrote:
+>>> Document i.MX952 XSPI compatible, which is derived from
+>>> i.MX94 XSPI.
+>>>
+>>> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+>>> ---
+>>>  Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml | 4 ++++
+>>>  1 file changed, 4 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml b/Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml
+>>> index a0f4b162c85855c55d06c6ea1a2417af5121fab2..16a0598c6d033554ce5a42a13a3265315a16992e 100644
+>>> --- a/Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml
+>>> +++ b/Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml
+>>> @@ -15,6 +15,10 @@ properties:
+>>>      oneOf:
+>>>        - enum:
+>>>            - nxp,imx94-xspi
+>>> +      - items:
+>>> +          - enum:
+>>> +              - nxp,imx952-xspi
+>>> +          - const: nxp,imx94-xspi
+>>
+>> You never checked your DTS and broke all existing users. And existing
+>> tools would clearly tell you that if you tried.
 > 
-> > What sort of crash happens?  It's useful if we can include a bread
-> > crumb that will help people identify the crash and find a fix.
->
-> We observed retraining to lower PCIe lane count and config read
-> timeout.  So yes crash is not the best way to describe it.
+> Krzysztof:
 > 
-> > I'm confused about what the topology is.  I first assumed GB10 was
-> > a PCIe Endpoint, since Secondary Bus Reset only applies to devices
-> > below a bridge, so SBR would be applied to a device by a config
-> > write to that bridge.
->
-> gb10 is an SoC designed by NVIDIA and Mediatek in collaboration.
-> It's not an endpoint, but has its own PCIe controller for connecting
-> PCIe peripherals like NVMe drives, NIC, etc.
+> 	what's wrong?
+> 
+> 	I have not find any warnings under arch/arm64/boot/dts/freescale by
+> 
+> 	make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j8 CHECK_DTBS=y dtbs
 
-OK, so you do SBR to some endpoint below a GB10 Root Port, and after
-the SBR, the link to the endpoint retrains with a lower lane count and
-config reads to the endpoint time out?
+I misread the diff context and patch is obviously fine. Thanks for
+correcting me.
 
-I see you're from NVIDIA, so if you're confirming that this is a
-hardware erratum (not an issue with the GB10 PCI controller driver),
-we should definitely apply this, and I'll wordsmith the commit log and
-comment something like this:
 
-  When asserting Secondary Bus Reset to downstream devices via a GB10
-  Root Port, the link doesn't retrain correctly.  The link may retrain
-  with a lower lane count, and config accesses to downstream devices
-  may fail.
-
-Bjorn
+Best regards,
+Krzysztof
 
