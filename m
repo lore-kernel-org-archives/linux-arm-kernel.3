@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 368C5D41149
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 09:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1976D41149
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 09:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HvgoqOMTULNkALVPI+xURsoQUao/Y4F/rp5sgFtpXZU=; b=G/vyXCVNmrYU0JIbkLx0OPjw8J
-	xvQVZP8y2p3M7/i92eu9Gqx7NQM8Levz2dlFeKEblJDnGSuIUd3Rri61vvM6GblWVh9ESNy4Etzb3
-	pOj1UXR8PpJYWi9E880Q1qIH22X/u4a2S+NCOtl1B0fzGyNz3aRLMZk1g0DUHCxDtTo0QLp9oBIUj
-	i5q43ZojBmnNcx3XAu81coPkJ8JDS4s4ZIYoJeyO09iAM7AtAbt8HUxSRzcAIMXnsw+CYrqAbxvQr
-	VQl0mj5AWieXJFfe9wqATf7CBQ0KCsrgawiRtaKbGwIUoLfBsIArlouS1By1mXR8CR9qXgNSLX/si
-	ayprbVtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aGlwSKq2zX2P4f9aLrPryVDwKDHo//dV3dLfTEez1CM=; b=4FNxjyWINi+DC4pyg6T9BYTSyb
+	FXQgFtyeqget+FNUFa4iAHrycEdWsHVCMK8K1VTGYngGRtfqLsc9kxd2ya+ssaDcuBMqEBaBSD9Vn
+	CkUcC7XBtOBnCXsaB8aQq4ni9VxPYnJ71vbxjYAkOPto3t/sKVN1QcGnzdOK4s8p7bPminmIMmMUt
+	t3yP+fM1ghdH45Rkz6i4EIkYqtfJ8P7zUAMjxaB98O0bJ6X+NoWZPI7lqA2gpOLI47U4uqptuxrRg
+	tEXsQoNTINmuvWhLZoswkIS1tbpmpiSnfnjRitkTmumuoJpiASe9kV/e0EybEU8btOfpPIMgSnXyj
+	pwRdLBaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgK0p-0000000C6I7-1V1D;
+	id 1vgK0p-0000000C6IW-2rdR;
 	Thu, 15 Jan 2026 09:51:31 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgK0l-0000000C6FE-33bt
+	id 1vgK0m-0000000C6GH-3m8j
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 09:51:27 +0000
+	Thu, 15 Jan 2026 09:51:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 26EC3601BA;
-	Thu, 15 Jan 2026 09:51:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF707C19424;
-	Thu, 15 Jan 2026 09:51:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4D5F3601B4;
+	Thu, 15 Jan 2026 09:51:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C167BC116D0;
+	Thu, 15 Jan 2026 09:51:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768470686;
-	bh=Dg++9WKqNwA597VTObyEBdbA+vIt0RmzeX+Nfr5j6CI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=JZA1aBjq+1+js8ZjrrqdMwdE/DwgHCvT6DcCZ01uIlzIeHyKfkAgvc0zo9Steja2J
-	 +C/r6gi5NjV1rampsRnxmDmZUoZa3nzujeeRiyb9LWFNeeKmtjaYkuh4ukYP50vfzr
-	 IorBfc7yQb6Dw+9hC+BtTX1tN2609A9+ZjeVHQOhiOWr5siOW2obkJVBC+748dxWfO
-	 Mhwq7eqGXZjCnEILMWeUf+Zkv0p1mQn1vcSMJ4yew1kAgSKN5z4DlfR0RyITiDpj8p
-	 dWO46FeW4cKGJ/OayB/e9D+7VZBEgVaGVfxKWEqGuYDzn2ttgFs0CbGj7mPnI1mI2e
-	 GCh+o0WNdBwew==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vgK0i-00000002TQq-1ZPm;
-	Thu, 15 Jan 2026 09:51:24 +0000
-Date: Thu, 15 Jan 2026 09:51:23 +0000
-Message-ID: <86jyxjkxus.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Jack Thomson <jackabt.amazon@gmail.com>
-Cc: oliver.upton@linux.dev,
-	pbonzini@redhat.com,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	isaku.yamahata@intel.com,
-	xmarcalx@amazon.co.uk,
-	kalyazin@amazon.co.uk,
-	jackabt@amazon.com, Vladimir Murzin <vladimir.murzin@arm.com>
-Subject: Re: [PATCH v4 1/3] KVM: arm64: Add pre_fault_memory implementation
-In-Reply-To: <20260113152643.18858-2-jackabt.amazon@gmail.com>
-References: <20260113152643.18858-1-jackabt.amazon@gmail.com>
-	<20260113152643.18858-2-jackabt.amazon@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: jackabt.amazon@gmail.com, oliver.upton@linux.dev, pbonzini@redhat.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, isaku.yamahata@intel.com, xmarcalx@amazon.co.uk, kalyazin@amazon.co.uk, jackabt@amazon.com, vladimir.murzin@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1768470688;
+	bh=SivqKgXw7pxzLdkxoHg1alNOYwKdrnDTSYrk0OF0ZaE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=imhjIHig+KihtVH76ExVagwxmSs1aA5Z6eunysMTGy66Ew/SrCJ8cs+P/PdnusvZn
+	 KEGq2GLR3MpDrCzoVOi7jBVkhWhh/3dcB40kf4JTlmFPtzUzyqOduTaNcZKqcuXGrb
+	 LDVEaCQ6wKsz8uIKEg078WfZTtYeUvTAv5HOKzuP4ssF8MIJKZHB+dk8h40UpCKPTa
+	 7XkKK5zANQMIkVtg+JYkYpQ/x8PCB2bx8t/GwdH2p0S4uZhov9co1vr6VGOphTq6xH
+	 Q+xX00iBAM4kocFQWeYZNW8R7kggEnn+mIwdM7r3KNFBffWeaY9MJV1rkas1HGve7B
+	 Y0z4/84irD2HQ==
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Date: Thu, 15 Jan 2026 10:50:51 +0100
+Subject: [PATCH v3 5/6] irqchip/gic-v5: Add ACPI ITS probing
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260115-gicv5-host-acpi-v3-5-c13a9a150388@kernel.org>
+References: <20260115-gicv5-host-acpi-v3-0-c13a9a150388@kernel.org>
+In-Reply-To: <20260115-gicv5-host-acpi-v3-0-c13a9a150388@kernel.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Robert Moore <robert.moore@intel.com>, Hanjun Guo <guohanjun@huawei.com>, 
+ Sudeep Holla <sudeep.holla@arm.com>, Marc Zyngier <maz@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Thomas Gleixner <tglx@kernel.org>, 
+ Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-pci@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,187 +74,500 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+ Vladimir, who was also looking at this patch]
+On ACPI ARM64 systems the GICv5 ITS configuration and translate frames
+are described in the MADT table.
 
-On Tue, 13 Jan 2026 15:26:40 +0000,
-Jack Thomson <jackabt.amazon@gmail.com> wrote:
-> 
-> From: Jack Thomson <jackabt@amazon.com>
-> 
-> Add kvm_arch_vcpu_pre_fault_memory() for arm64. The implementation hands
-> off the stage-2 faulting logic to either gmem_abort() or
-> user_mem_abort().
-> 
-> Add an optional page_size output parameter to user_mem_abort() to
-> return the VMA page size, which is needed when pre-faulting.
-> 
-> Update the documentation to clarify x86 specific behaviour.
-> 
-> Signed-off-by: Jack Thomson <jackabt@amazon.com>
-> ---
->  Documentation/virt/kvm/api.rst |  3 +-
->  arch/arm64/kvm/Kconfig         |  1 +
->  arch/arm64/kvm/arm.c           |  1 +
->  arch/arm64/kvm/mmu.c           | 79 ++++++++++++++++++++++++++++++++--
->  4 files changed, 79 insertions(+), 5 deletions(-)
-> 
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index 01a3abef8abb..44cfd9e736bb 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -6493,7 +6493,8 @@ Errors:
->  KVM_PRE_FAULT_MEMORY populates KVM's stage-2 page tables used to map memory
->  for the current vCPU state.  KVM maps memory as if the vCPU generated a
->  stage-2 read page fault, e.g. faults in memory as needed, but doesn't break
-> -CoW.  However, KVM does not mark any newly created stage-2 PTE as Accessed.
-> +CoW.  However, on x86, KVM does not mark any newly created stage-2 PTE as
-> +Accessed.
->  
->  In the case of confidential VM types where there is an initial set up of
->  private guest memory before the guest is 'finalized'/measured, this ioctl
-> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-> index 4f803fd1c99a..6872aaabe16c 100644
-> --- a/arch/arm64/kvm/Kconfig
-> +++ b/arch/arm64/kvm/Kconfig
-> @@ -25,6 +25,7 @@ menuconfig KVM
->  	select HAVE_KVM_CPU_RELAX_INTERCEPT
->  	select KVM_MMIO
->  	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
-> +	select KVM_GENERIC_PRE_FAULT_MEMORY
->  	select VIRT_XFER_TO_GUEST_WORK
->  	select KVM_VFIO
->  	select HAVE_KVM_DIRTY_RING_ACQ_REL
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 4f80da0c0d1d..19bac68f737f 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -332,6 +332,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->  	case KVM_CAP_COUNTER_OFFSET:
->  	case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
->  	case KVM_CAP_ARM_SEA_TO_USER:
-> +	case KVM_CAP_PRE_FAULT_MEMORY:
->  		r = 1;
->  		break;
->  	case KVM_CAP_SET_GUEST_DEBUG2:
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 48d7c372a4cd..499b131f794e 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1642,8 +1642,8 @@ static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  
->  static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  			  struct kvm_s2_trans *nested,
-> -			  struct kvm_memory_slot *memslot, unsigned long hva,
-> -			  bool fault_is_perm)
-> +			  struct kvm_memory_slot *memslot, unsigned long *page_size,
-> +			  unsigned long hva, bool fault_is_perm)
->  {
->  	int ret = 0;
->  	bool topup_memcache;
-> @@ -1923,6 +1923,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  	kvm_release_faultin_page(kvm, page, !!ret, writable);
->  	kvm_fault_unlock(kvm);
->  
-> +	if (page_size)
-> +		*page_size = vma_pagesize;
-> +
->  	/* Mark the page dirty only if the fault is handled successfully */
->  	if (writable && !ret)
->  		mark_page_dirty_in_slot(kvm, memslot, gfn);
-> @@ -2196,8 +2199,8 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->  		ret = gmem_abort(vcpu, fault_ipa, nested, memslot,
->  				 esr_fsc_is_permission_fault(esr));
->  	else
-> -		ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, hva,
-> -				     esr_fsc_is_permission_fault(esr));
-> +		ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, NULL,
-> +				     hva, esr_fsc_is_permission_fault(esr));
->  	if (ret == 0)
->  		ret = 1;
->  out:
-> @@ -2573,3 +2576,71 @@ void kvm_toggle_cache(struct kvm_vcpu *vcpu, bool was_enabled)
->  
->  	trace_kvm_toggle_cache(*vcpu_pc(vcpu), was_enabled, now_enabled);
->  }
-> +
-> +long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
-> +				    struct kvm_pre_fault_memory *range)
-> +{
-> +	struct kvm_vcpu_fault_info *fault_info = &vcpu->arch.fault;
-> +	struct kvm_s2_trans nested_trans, *nested = NULL;
-> +	unsigned long page_size = PAGE_SIZE;
-> +	struct kvm_memory_slot *memslot;
-> +	phys_addr_t ipa = range->gpa;
-> +	phys_addr_t end;
-> +	hva_t hva;
-> +	gfn_t gfn;
-> +	int ret;
-> +
-> +	if (vcpu_is_protected(vcpu))
-> +		return -EOPNOTSUPP;
+Refactor the current GICv5 ITS driver code to share common functions
+between ACPI and OF and implement ACPI probing in the GICv5 ITS driver.
 
-This feels pretty odd. If you have advertised the capability, then
-saying "not supported" at this stage is not on.
+Add iort_msi_xlate() to map a device ID and retrieve an MSI controller
+fwnode node for ACPI systems and update pci_msi_map_rid_ctlr_node() to
+use it in its ACPI code path.
 
-> +
-> +	/*
-> +	 * We may prefault on a shadow stage 2 page table if we are
-> +	 * running a nested guest.  In this case, we have to resolve the L2
-> +	 * IPA to the L1 IPA first, before knowing what kind of memory should
-> +	 * back the L1 IPA.
-> +	 *
-> +	 * If the shadow stage 2 page table walk faults, then we return
-> +	 * -EFAULT
-> +	 */
-> +	if (kvm_is_nested_s2_mmu(vcpu->kvm, vcpu->arch.hw_mmu) &&
-> +	    vcpu->arch.hw_mmu->nested_stage2_enabled) {
-> +		ret = kvm_walk_nested_s2(vcpu, ipa, &nested_trans);
-> +		if (ret)
-> +			return -EFAULT;
+Add the required functions to IORT code for deviceID retrieval and IRQ
+domain registration and look-up so that the GICv5 ITS driver in an
+ACPI based system can be successfully probed.
 
-And then what? Userspace is completely screwed here, with no way to
-make any forward progress, because the L1 is in charge of that S2, and
-L1 is not running. What's the outcome? Light a candle and pray?
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: Thomas Gleixner <tglx@kernel.org>
+Cc: Hanjun Guo <guohanjun@huawei.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+---
+ drivers/acpi/arm64/iort.c                |  98 ++++++++++++++++++-----
+ drivers/irqchip/irq-gic-its-msi-parent.c |  39 ++++-----
+ drivers/irqchip/irq-gic-v5-irs.c         |   7 +-
+ drivers/irqchip/irq-gic-v5-its.c         | 132 ++++++++++++++++++++++++++++++-
+ drivers/pci/msi/irqdomain.c              |   2 +
+ include/linux/acpi_iort.h                |  10 ++-
+ include/linux/irqchip/arm-gic-v5.h       |   1 +
+ 7 files changed, 244 insertions(+), 45 deletions(-)
 
-Also, the IPA you are passing as a parameter means absolutely nothing
-in the context of L2. Userspace doesn't have the faintest clue about
-the memory map presented to L2, as that's L1 business. L1 can
-absolutely present to L2 a memory map that doesn't have a single
-address in common with its own.
-
-So this really doesn't work at all.
-
-> +
-> +		ipa = kvm_s2_trans_output(&nested_trans);
-> +		nested = &nested_trans;
-> +	}
-> +
-> +	if (ipa >= kvm_phys_size(vcpu->arch.hw_mmu))
-> +		return -ENOENT;
-> +
-> +	/* Generate a synthetic abort for the pre-fault address */
-> +	fault_info->esr_el2 = (ESR_ELx_EC_DABT_LOW << ESR_ELx_EC_SHIFT) |
-> +		ESR_ELx_FSC_FAULT_L(KVM_PGTABLE_LAST_LEVEL);
-
-Why level 3? You must present a fault that matches the level at which
-the emulated fault would actually occur, because the rest of the
-infrastructure relies on that (at least on the permission path, and
-more to come).
-
-Taking a step back on all this, 90% of the problems are there because
-you are trying to support prefaulting a guest that is already running.
-If you limited this to actually *pre*-faulting the guest, it would be
-the easiest thing ever, and wouldn't suffer from any of the above (you
-can't be in a nested context if you haven't run).
-
-What prevents you from doing so? I'm perfectly happy to make this a
-separate API if this contradicts other implementations. Or are you
-relying on other side effects of the "already running" state?
-
-Thanks,
-
-	M.
+diff --git a/drivers/acpi/arm64/iort.c b/drivers/acpi/arm64/iort.c
+index 65f0f56ad753..ddd857f05f46 100644
+--- a/drivers/acpi/arm64/iort.c
++++ b/drivers/acpi/arm64/iort.c
+@@ -595,45 +595,45 @@ u32 iort_msi_map_id(struct device *dev, u32 input_id)
+ }
+ 
+ /**
+- * iort_pmsi_get_dev_id() - Get the device id for a device
++ * iort_msi_xlate() - Map a MSI input ID for a device
+  * @dev: The device for which the mapping is to be done.
+- * @dev_id: The device ID found.
++ * @input_id: The device input ID.
++ * @fwnode: Pointer to store the fwnode.
+  *
+- * Returns: 0 for successful find a dev id, -ENODEV on error
++ * Returns: mapped MSI ID on success, input ID otherwise
++ *	    On success, the fwnode pointer is initialized to the MSI
++ *	    controller fwnode handle.
+  */
+-int iort_pmsi_get_dev_id(struct device *dev, u32 *dev_id)
++u32 iort_msi_xlate(struct device *dev, u32 input_id, struct fwnode_handle **fwnode)
+ {
+-	int i, index;
++	struct acpi_iort_its_group *its;
+ 	struct acpi_iort_node *node;
++	u32 dev_id;
+ 
+ 	node = iort_find_dev_node(dev);
+ 	if (!node)
+-		return -ENODEV;
++		return input_id;
+ 
+-	index = iort_get_id_mapping_index(node);
+-	/* if there is a valid index, go get the dev_id directly */
+-	if (index >= 0) {
+-		if (iort_node_get_id(node, dev_id, index))
+-			return 0;
+-	} else {
+-		for (i = 0; i < node->mapping_count; i++) {
+-			if (iort_node_map_platform_id(node, dev_id,
+-						      IORT_MSI_TYPE, i))
+-				return 0;
+-		}
+-	}
++	node = iort_node_map_id(node, input_id, &dev_id, IORT_MSI_TYPE);
++	if (!node)
++		return input_id;
+ 
+-	return -ENODEV;
++	/* Move to ITS specific data */
++	its = (struct acpi_iort_its_group *)node->node_data;
++
++	*fwnode = iort_find_domain_token(its->identifiers[0]);
++
++	return dev_id;
+ }
+ 
+-static int __maybe_unused iort_find_its_base(u32 its_id, phys_addr_t *base)
++int iort_its_translate_pa(struct fwnode_handle *node, phys_addr_t *base)
+ {
+ 	struct iort_its_msi_chip *its_msi_chip;
+ 	int ret = -ENODEV;
+ 
+ 	spin_lock(&iort_msi_chip_lock);
+ 	list_for_each_entry(its_msi_chip, &iort_msi_chip_list, list) {
+-		if (its_msi_chip->translation_id == its_id) {
++		if (its_msi_chip->fw_node == node) {
+ 			*base = its_msi_chip->base_addr;
+ 			ret = 0;
+ 			break;
+@@ -644,6 +644,62 @@ static int __maybe_unused iort_find_its_base(u32 its_id, phys_addr_t *base)
+ 	return ret;
+ }
+ 
++static int __maybe_unused iort_find_its_base(u32 its_id, phys_addr_t *base)
++{
++	struct fwnode_handle *fwnode = iort_find_domain_token(its_id);
++
++	if (!fwnode)
++		return -ENODEV;
++
++	return iort_its_translate_pa(fwnode, base);
++}
++
++/**
++ * iort_pmsi_get_msi_info() - Get the device id and translate frame PA for a device
++ * @dev: The device for which the mapping is to be done.
++ * @dev_id: The device ID found.
++ * @pa: optional pointer to store translate frame address.
++ *
++ * Returns: 0 for successful devid and pa retrieval, -ENODEV on error
++ */
++int iort_pmsi_get_msi_info(struct device *dev, u32 *dev_id, phys_addr_t *pa)
++{
++	struct acpi_iort_node *node, *parent = NULL;
++	struct acpi_iort_its_group *its;
++	int i, index;
++
++	node = iort_find_dev_node(dev);
++	if (!node)
++		return -ENODEV;
++
++	index = iort_get_id_mapping_index(node);
++	/* if there is a valid index, go get the dev_id directly */
++	if (index >= 0) {
++		parent = iort_node_get_id(node, dev_id, index);
++	} else {
++		for (i = 0; i < node->mapping_count; i++) {
++			parent = iort_node_map_platform_id(node, dev_id,
++						      IORT_MSI_TYPE, i);
++			if (parent)
++				break;
++		}
++	}
++
++	if (!parent)
++		return -ENODEV;
++
++	if (pa) {
++		int ret;
++
++		its = (struct acpi_iort_its_group *)node->node_data;
++		ret = iort_find_its_base(its->identifiers[0], pa);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
+ /**
+  * iort_dev_find_its_id() - Find the ITS identifier for a device
+  * @dev: The device.
+diff --git a/drivers/irqchip/irq-gic-its-msi-parent.c b/drivers/irqchip/irq-gic-its-msi-parent.c
+index 4d1ad1ee005d..a832cdb2e697 100644
+--- a/drivers/irqchip/irq-gic-its-msi-parent.c
++++ b/drivers/irqchip/irq-gic-its-msi-parent.c
+@@ -19,18 +19,24 @@
+ 				 MSI_FLAG_PCI_MSIX      |	\
+ 				 MSI_FLAG_MULTI_PCI_MSI)
+ 
+-static int its_translate_frame_address(struct device_node *msi_node, phys_addr_t *pa)
++static int its_translate_frame_address(struct fwnode_handle *msi_node, phys_addr_t *pa)
+ {
+ 	struct resource res;
+ 	int ret;
+ 
+-	ret = of_property_match_string(msi_node, "reg-names", "ns-translate");
+-	if (ret < 0)
+-		return ret;
++	if (is_of_node(msi_node)) {
++		struct device_node *msi_np = to_of_node(msi_node);
+ 
+-	ret = of_address_to_resource(msi_node, ret, &res);
+-	if (ret)
+-		return ret;
++		ret = of_property_match_string(msi_np, "reg-names", "ns-translate");
++		if (ret < 0)
++			return ret;
++
++		ret = of_address_to_resource(msi_np, ret, &res);
++		if (ret)
++			return ret;
++	} else {
++		ret = iort_its_translate_pa(msi_node, &res.start);
++	}
+ 
+ 	*pa = res.start;
+ 	return 0;
+@@ -120,7 +126,7 @@ static int its_v5_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
+ 	if (!msi_node)
+ 		return -ENODEV;
+ 
+-	ret = its_translate_frame_address(to_of_node(msi_node), &pa);
++	ret = its_translate_frame_address(msi_node, &pa);
+ 	if (ret)
+ 		return -ENODEV;
+ 
+@@ -161,7 +167,7 @@ static int of_pmsi_get_msi_info(struct irq_domain *domain, struct device *dev, u
+ 				ret = -EINVAL;
+ 
+ 			if (!ret && pa)
+-				ret = its_translate_frame_address(it.node, pa);
++				ret = its_translate_frame_address(of_fwnode_handle(it.node), pa);
+ 
+ 			if (!ret)
+ 				*dev_id = args;
+@@ -176,11 +182,6 @@ static int of_pmsi_get_msi_info(struct irq_domain *domain, struct device *dev, u
+ 	return of_map_id(dev->of_node, dev->id, "msi-map", "msi-map-mask", &msi_ctrl, dev_id);
+ }
+ 
+-int __weak iort_pmsi_get_dev_id(struct device *dev, u32 *dev_id)
+-{
+-	return -1;
+-}
+-
+ static int its_pmsi_prepare(struct irq_domain *domain, struct device *dev,
+ 			    int nvec, msi_alloc_info_t *info)
+ {
+@@ -191,7 +192,7 @@ static int its_pmsi_prepare(struct irq_domain *domain, struct device *dev,
+ 	if (dev->of_node)
+ 		ret = of_pmsi_get_msi_info(domain->parent, dev, &dev_id, NULL);
+ 	else
+-		ret = iort_pmsi_get_dev_id(dev, &dev_id);
++		ret = iort_pmsi_get_msi_info(dev, &dev_id, NULL);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -214,10 +215,10 @@ static int its_v5_pmsi_prepare(struct irq_domain *domain, struct device *dev,
+ 	u32 dev_id;
+ 	int ret;
+ 
+-	if (!dev->of_node)
+-		return -ENODEV;
+-
+-	ret = of_pmsi_get_msi_info(domain->parent, dev, &dev_id, &pa);
++	if (dev->of_node)
++		ret = of_pmsi_get_msi_info(domain->parent, dev, &dev_id, &pa);
++	else
++		ret = iort_pmsi_get_msi_info(dev, &dev_id, &pa);
+ 	if (ret)
+ 		return ret;
+ 
+diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
+index a27a01f9e7a2..fcd032b5e2fa 100644
+--- a/drivers/irqchip/irq-gic-v5-irs.c
++++ b/drivers/irqchip/irq-gic-v5-irs.c
+@@ -814,8 +814,11 @@ void __init gicv5_irs_its_probe(void)
+ {
+ 	struct gicv5_irs_chip_data *irs_data;
+ 
+-	list_for_each_entry(irs_data, &irs_nodes, entry)
+-		gicv5_its_of_probe(to_of_node(irs_data->fwnode));
++	if (acpi_disabled)
++		list_for_each_entry(irs_data, &irs_nodes, entry)
++			gicv5_its_of_probe(to_of_node(irs_data->fwnode));
++	else
++		gicv5_its_acpi_probe();
+ }
+ 
+ int __init gicv5_irs_of_probe(struct device_node *parent)
+diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
+index 8e22134b9f48..e24ce3d9fb62 100644
+--- a/drivers/irqchip/irq-gic-v5-its.c
++++ b/drivers/irqchip/irq-gic-v5-its.c
+@@ -5,6 +5,8 @@
+ 
+ #define pr_fmt(fmt)	"GICv5 ITS: " fmt
+ 
++#include <linux/acpi.h>
++#include <linux/acpi_iort.h>
+ #include <linux/bitmap.h>
+ #include <linux/iommu.h>
+ #include <linux/init.h>
+@@ -1115,7 +1117,7 @@ static int gicv5_its_init_domain(struct gicv5_its_chip_data *its, struct irq_dom
+ }
+ 
+ static int __init gicv5_its_init_bases(void __iomem *its_base, struct fwnode_handle *handle,
+-				       struct irq_domain *parent_domain)
++				       struct irq_domain *parent_domain, bool noncoherent)
+ {
+ 	struct device_node *np = to_of_node(handle);
+ 	struct gicv5_its_chip_data *its_node;
+@@ -1208,7 +1210,8 @@ static int __init gicv5_its_init(struct device_node *node)
+ 	}
+ 
+ 	ret = gicv5_its_init_bases(its_base, of_fwnode_handle(node),
+-				   gicv5_global_data.lpi_domain);
++				   gicv5_global_data.lpi_domain,
++				   of_property_read_bool(node, "dma-noncoherent"));
+ 	if (ret)
+ 		goto out_unmap;
+ 
+@@ -1231,3 +1234,128 @@ void __init gicv5_its_of_probe(struct device_node *parent)
+ 			pr_err("Failed to init ITS %s\n", np->full_name);
+ 	}
+ }
++
++#ifdef CONFIG_ACPI
++
++#define ACPI_GICV5_ITS_MEM_SIZE (SZ_64K)
++
++static struct acpi_madt_gicv5_translator *current_its_entry __initdata;
++static struct fwnode_handle *current_its_fwnode __initdata;
++
++static int __init gic_acpi_parse_madt_its_translate(union acpi_subtable_headers *header,
++						    const unsigned long end)
++{
++	struct acpi_madt_gicv5_translate_frame *its_frame;
++	struct fwnode_handle *msi_dom_handle;
++	struct resource res = {};
++	int err;
++
++	its_frame = (struct acpi_madt_gicv5_translate_frame *)header;
++	if (its_frame->linked_translator_id != current_its_entry->translator_id)
++		return 0;
++
++	res.start = its_frame->base_address;
++	res.end = its_frame->base_address + ACPI_GICV5_ITS_MEM_SIZE - 1;
++	res.flags = IORESOURCE_MEM;
++
++	msi_dom_handle = irq_domain_alloc_parented_fwnode(&res.start, current_its_fwnode);
++	if (!msi_dom_handle) {
++		pr_err("ITS@%pa: Unable to allocate GICv5 ITS translate domain token\n",
++		       &res.start);
++		return -ENOMEM;
++	}
++
++	err = iort_register_domain_token(its_frame->translate_frame_id, res.start,
++					 msi_dom_handle);
++	if (err) {
++		pr_err("ITS@%pa: Unable to register GICv5 ITS domain token (ITS TRANSLATE FRAME ID %d) to IORT\n",
++		       &res.start, its_frame->translate_frame_id);
++		irq_domain_free_fwnode(msi_dom_handle);
++		return err;
++	}
++
++	return 0;
++}
++
++static int __init gic_acpi_free_madt_its_translate(union acpi_subtable_headers *header,
++						   const unsigned long end)
++{
++	struct acpi_madt_gicv5_translate_frame *its_frame;
++	struct fwnode_handle *msi_dom_handle;
++
++	its_frame = (struct acpi_madt_gicv5_translate_frame *)header;
++	if (its_frame->linked_translator_id != current_its_entry->translator_id)
++		return 0;
++
++	msi_dom_handle = iort_find_domain_token(its_frame->translate_frame_id);
++	if (!msi_dom_handle)
++		return 0;
++
++	iort_deregister_domain_token(its_frame->translate_frame_id);
++	irq_domain_free_fwnode(msi_dom_handle);
++
++	return 0;
++}
++
++static int __init gic_acpi_parse_madt_its(union acpi_subtable_headers *header,
++					  const unsigned long end)
++{
++	struct acpi_madt_gicv5_translator *its_entry;
++	struct fwnode_handle *dom_handle;
++	struct resource res = {};
++	void __iomem *its_base;
++	int err;
++
++	its_entry = (struct acpi_madt_gicv5_translator *)header;
++	res.start = its_entry->base_address;
++	res.end = its_entry->base_address + ACPI_GICV5_ITS_MEM_SIZE - 1;
++	res.flags = IORESOURCE_MEM;
++
++	if (!request_mem_region(res.start, resource_size(&res), "GICv5 ITS"))
++		return -EBUSY;
++
++	dom_handle = irq_domain_alloc_fwnode(&res.start);
++	if (!dom_handle) {
++		pr_err("ITS@%pa: Unable to allocate GICv5 ITS domain token\n",
++		       &res.start);
++		err = -ENOMEM;
++		goto out_rel_res;
++	}
++
++	current_its_entry = its_entry;
++	current_its_fwnode = dom_handle;
++
++	acpi_table_parse_madt(ACPI_MADT_TYPE_GICV5_ITS_TRANSLATE,
++			      gic_acpi_parse_madt_its_translate, 0);
++
++	its_base = ioremap(res.start, ACPI_GICV5_ITS_MEM_SIZE);
++	if (!its_base) {
++		err = -ENOMEM;
++		goto out_unregister;
++	}
++
++	err = gicv5_its_init_bases(its_base, dom_handle, gicv5_global_data.lpi_domain,
++				   its_entry->flags & ACPI_MADT_GICV5_ITS_NON_COHERENT);
++	if (err)
++		goto out_unmap;
++
++	return 0;
++
++out_unmap:
++	iounmap(its_base);
++out_unregister:
++	acpi_table_parse_madt(ACPI_MADT_TYPE_GICV5_ITS_TRANSLATE,
++			      gic_acpi_free_madt_its_translate, 0);
++	irq_domain_free_fwnode(dom_handle);
++out_rel_res:
++	release_mem_region(res.start, resource_size(&res));
++	return err;
++}
++
++void __init gicv5_its_acpi_probe(void)
++{
++	acpi_table_parse_madt(ACPI_MADT_TYPE_GICV5_ITS, gic_acpi_parse_madt_its, 0);
++}
++#else
++void __init gicv5_its_acpi_probe(void) { }
++#endif
+diff --git a/drivers/pci/msi/irqdomain.c b/drivers/pci/msi/irqdomain.c
+index 3a4038640fda..6e65f0f44112 100644
+--- a/drivers/pci/msi/irqdomain.c
++++ b/drivers/pci/msi/irqdomain.c
+@@ -401,6 +401,8 @@ u32 pci_msi_map_rid_ctlr_node(struct irq_domain *domain, struct pci_dev *pdev,
+ 		rid = of_msi_xlate(&pdev->dev, &msi_ctlr_node, rid);
+ 		if (msi_ctlr_node)
+ 			*node = of_fwnode_handle(msi_ctlr_node);
++	} else {
++		rid = iort_msi_xlate(&pdev->dev, rid, node);
+ 	}
+ 
+ 	return rid;
+diff --git a/include/linux/acpi_iort.h b/include/linux/acpi_iort.h
+index d4ed5622cf2b..2d22268677a9 100644
+--- a/include/linux/acpi_iort.h
++++ b/include/linux/acpi_iort.h
+@@ -27,12 +27,14 @@ int iort_register_domain_token(int trans_id, phys_addr_t base,
+ 			       struct fwnode_handle *fw_node);
+ void iort_deregister_domain_token(int trans_id);
+ struct fwnode_handle *iort_find_domain_token(int trans_id);
+-int iort_pmsi_get_dev_id(struct device *dev, u32 *dev_id);
+ 
+ #ifdef CONFIG_ACPI_IORT
+ u32 iort_msi_map_id(struct device *dev, u32 id);
++u32 iort_msi_xlate(struct device *dev, u32 id, struct fwnode_handle **node);
++int iort_its_translate_pa(struct fwnode_handle *node, phys_addr_t *base);
+ struct irq_domain *iort_get_device_domain(struct device *dev, u32 id,
+ 					  enum irq_domain_bus_token bus_token);
++int iort_pmsi_get_msi_info(struct device *dev, u32 *dev_id, phys_addr_t *pa);
+ void acpi_configure_pmsi_domain(struct device *dev);
+ void iort_get_rmr_sids(struct fwnode_handle *iommu_fwnode,
+ 		       struct list_head *head);
+@@ -46,9 +48,15 @@ phys_addr_t acpi_iort_dma_get_max_cpu_address(void);
+ #else
+ static inline u32 iort_msi_map_id(struct device *dev, u32 id)
+ { return id; }
++static inline u32 iort_msi_xlate(struct device *dev, u32 id, struct fwnode_handle **node)
++{ return id; }
++static inline int iort_its_translate_pa(struct fwnode_handle *node, phys_addr_t *base)
++{ return -ENODEV; }
+ static inline struct irq_domain *iort_get_device_domain(
+ 	struct device *dev, u32 id, enum irq_domain_bus_token bus_token)
+ { return NULL; }
++static inline int iort_pmsi_get_msi_info(struct device *dev, u32 *dev_id, phys_addr_t *pa)
++{ return -ENODEV; }
+ static inline void acpi_configure_pmsi_domain(struct device *dev) { }
+ static inline
+ void iort_get_rmr_sids(struct fwnode_handle *iommu_fwnode, struct list_head *head) { }
+diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
+index ff5b1a4931d7..334b6986435c 100644
+--- a/include/linux/irqchip/arm-gic-v5.h
++++ b/include/linux/irqchip/arm-gic-v5.h
+@@ -392,4 +392,5 @@ int gicv5_alloc_lpi(void);
+ void gicv5_free_lpi(u32 lpi);
+ 
+ void __init gicv5_its_of_probe(struct device_node *parent);
++void __init gicv5_its_acpi_probe(void);
+ #endif
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.50.1
+
 
