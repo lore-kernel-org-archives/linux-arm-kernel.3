@@ -4,58 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86A45D41170
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 11:01:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD779D41170
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 11:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K9QgFKu4POEbqThOG7MbWJaVLVaPAmiu24tvkBHAhEE=; b=jGuRoWfV3qzPqPx/QRP3Pic8TR
-	DAgON9VRE5KMMkL1x3fG+BbjoymOXRgeRzEkfiIuJ1d0SsoY/N2nUEJgSYNkrqpto+yGYg2v/1Rfc
-	zJPGkJBXYE6jhEk9cvWC+jyxFYaE1UCWygHXnbXCdMCl4t62kJ+z4ercELQv96Z5L95+LQG/mnLJg
-	RfU/ULrYbAJZxYeAoPk+ilcaJASNawbDMzTbLCYHcqQZr5yN8K4bWZ1YSzvOdNYBs/p1rbrd6VHv3
-	dweC5pTHv35JYPoY+qOoFS/HL1upT/kPAqGwe6F9ub2FBvozFynW/9WMW28zeakcKisHkKq7RU610
-	j42Q8SAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AuZzUvIQYamq4W1YoLrzX7y0En5/TpcBTyFE7gx3A0A=; b=OEeG3bImY/TE8mG1cPFpxNGKVv
+	jCZAJg5sf/a/WeObQZEtiyccdFBQi1aLTf/FHdTMhqACguAFa4huq9Pd0VQHW30qK9UXn2sZjDmy0
+	AuEV6zpZsgnc5b3gViTRj9harbWiMcpNG1PqwW7LV7Ktt86UwlBaPjcK7NlT43Pc7SWqT4JQ1xg6p
+	n6Zsy0ptFBKyv0m+19yNPzgMs9uUtGHcvRWK5CgtMmrHAjacsyeeQxwYN4+6PKK57rBLj2r148FsR
+	boL+ocPrpiSlkmKKGXJVSgq3lwTzj7a6/S2WI0UJYph5d9YajAAyPfv4Dt+iZqPosxPWqMEe3XXzN
+	VwiMchUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgL6I-0000000CBaN-2B3N;
-	Thu, 15 Jan 2026 11:01:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vgLAt-0000000CBwn-12G4;
+	Thu, 15 Jan 2026 11:05:59 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgL6G-0000000CBaH-0Ofa
+	id 1vgLAq-0000000CBvq-2spw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 11:01:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2E735601B2;
-	Thu, 15 Jan 2026 11:01:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D23A1C116D0;
-	Thu, 15 Jan 2026 11:01:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768474870;
-	bh=d0Vzuczske8axf2UyF1IUpB7lCBCclkqh2MRNLD0Cdo=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=E2NGhJvzPH5ATDgD0v9reZeQkr9u7NU9g4CBTx518gShlhujAhOpU8d2o3xh6eYOH
-	 /HYuW9l9QKiqiVMcyJ1yRb3b+X1SFIcnNWHjCDo0ey1U7SYY7wM82LhKLgXodVm+/f
-	 0maJyth99RpO3KUJvEo8BRO9HWymU1F/BWFtnlAbWdw6vAcJpzE7a9Q17EDy1KvxEb
-	 7klTFtMV+X2urQz27kF2BznUSjTic2opZ0m+E/mkWpWHQRsheH92hDxjbSkGrpgGox
-	 sfOKzjOXMlwA5ccd7ojTmTqm9GmaLSnvJIcuPbQKpxA1okj5aVxX2ogBiEW5x8X3cE
-	 LOWoqJ+/Pvohg==
-From: Srinivas Kandagatla <srini@kernel.org>
-To: linux-arm-kernel@lists.infradead.org, michal.simek@amd.com, 
- Harsh Jain <h.jain@amd.com>
-Cc: Ivan Vera <ivanverasantos@gmail.com>, 
- Ivan Vera <ivan.vera@enclustra.com>, Harish Ediga <harish.ediga@amd.com>
-In-Reply-To: <20260106103748.3993455-1-h.jain@amd.com>
-References: <20260106103748.3993455-1-h.jain@amd.com>
-Subject: Re: [PATCH] nvmem: zynqmp_nvmem: Fix buffer size in DMA and memcpy
-Message-Id: <176847486942.51768.18380774096253426400.b4-ty@kernel.org>
-Date: Thu, 15 Jan 2026 11:01:09 +0000
+	Thu, 15 Jan 2026 11:05:58 +0000
+Received: by mail-wr1-x443.google.com with SMTP id ffacd0b85a97d-42fb6ce71c7so674898f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 03:05:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1768475155; x=1769079955; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=AuZzUvIQYamq4W1YoLrzX7y0En5/TpcBTyFE7gx3A0A=;
+        b=Qw4arvJVLoeCqhOololrbO0XwQbt9yni9tW+SVo0N9+8kOj/mzb0VvXAMEQf442QLj
+         mEBPl8JxDXSYGss2Rp7hHG6CcheE4T9yXdZTSa+HDPc1G2ZBnnYJBfseXKjfNX7pQiMD
+         KuvN//NdJ2D1Hj6quatThqnYPm0hzw0CHRYx/yk9mDbk4U19V/c9A24NwRMed8irqffD
+         1/cSLjdgkZO4ykYxt0guciZQO2uBEq1ia+RKOZzL4v/IAoXn7BIUpNlKJR5cjVmXrSg6
+         CNZyrVExq0viUTBsN/6Gia6A3ZcFaPWNFKS6fVnzhcYmtJXTWIl3Zr/Ah97iMDeC9kFD
+         VArA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768475155; x=1769079955;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=AuZzUvIQYamq4W1YoLrzX7y0En5/TpcBTyFE7gx3A0A=;
+        b=hjI4WhZGYlSqZ6eroS64i/t7+hVlcnqpvrtEaHFkj8BaV6Ah1F6h9NS42rue97C9WD
+         pjpLULY1LwANHTZ/u/GD5OAyW9ipWhMnV+Yas1YQv5ZcH2KltaUw//31Ya8pKzQcTfrr
+         1AbjW/pnjK+vlESJXqG67KmOLBP6HtBjEJqLfJYXld6Ngvh7URSqQYslm+c73KlDjk4S
+         zrUUf3/hqmInvED/QoIHmdCZUspJ5qJFnAhUw/QaQgNISA046CzpfoFZrLBGbJm2XAOb
+         VWV/pvuRR2cXuCWAAUBAJvPrvSGtr6+6xB5WovdgefQc4U3et6alQ/XAFSkzqUVClvbe
+         P12g==
+X-Forwarded-Encrypted: i=1; AJvYcCVvb5noR4G3aBZE3uX2Z7ZIRHAx+DkTBAMFp2RXDJYtsm8N98lgibo6V/eraQ7aNn5xaKjXfzvS9JiCw+0D2J59@lists.infradead.org
+X-Gm-Message-State: AOJu0YyktkY4JfgS3loNYP3dsvbPLU/LagAlsED/oRuHjfwUONrHRL40
+	7I/Rjh5kUCvZxX/bOktGCMDY9T7xl7KKqT09CXN3MWuUaVoZjQfHv335BnfTqY3/FmI=
+X-Gm-Gg: AY/fxX5p7+k4JhGgT2ObMriijjehTRpil9VjGihWxo067AjMCp34minUpzBcYNf3gjN
+	ED9WavQ9FN5fYASfX8uhp13rCxNB4INpR+gU1sFuCMo0m5/uAUhWqeFJxb7gwsxaxs7RPBHX0eA
+	b9ts5omcO2ZtZMssATvjMoPYar7EQehMi0qWvDa7B8RmiNTnacmJV4PTm+QaMBsoTbZs8N815FO
+	MJgRvCi5IImxWtDslq0o/RLAlZNOuHuUae7+q7LfxRh1E9SU8nV7Ylfyka75Ioj2GvGR0NMfuuD
+	3znFZTDVCjXb1EyPUgpuU3e0iKOM8Ktz6eusQsfCUdP2N1HY3zMgFPcePNbWpgctxuGBUQjM76C
+	ORNAwsVbDxxoZTxwwEv0xvpGh6QhMzID3j+i61N6ozUcgK2/X9FhgtktWFdDFkwpdUF8eFj/PTe
+	SxyPim6FW48V1asQ==
+X-Received: by 2002:a05:6000:2f84:b0:430:fa9a:74d with SMTP id ffacd0b85a97d-4342d3912bcmr7103110f8f.24.1768475154515;
+        Thu, 15 Jan 2026 03:05:54 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-434af6d909fsm5297949f8f.31.2026.01.15.03.05.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Jan 2026 03:05:53 -0800 (PST)
+Date: Thu, 15 Jan 2026 12:05:51 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: Marcos Paulo de Souza <mpdesouza@suse.com>
+Cc: Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jason Wessel <jason.wessel@windriver.com>,
+	Daniel Thompson <danielt@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	John Ogness <john.ogness@linutronix.de>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
+	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 10/19] fs: pstore: platform: Migrate to
+ register_console_force helper
+Message-ID: <aWjKD4jv8CySV0Rj@pathway.suse.cz>
+References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+ <20251227-printk-cleanup-part3-v1-10-21a291bcf197@suse.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251227-printk-cleanup-part3-v1-10-21a291bcf197@suse.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260115_030557_312589_4C43BFDF 
+X-CRM114-Status: GOOD (  18.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,22 +133,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 06 Jan 2026 16:07:48 +0530, Harsh Jain wrote:
-> Buffer size used in dma allocation and memcpy is wrong.
-> It can lead to undersized DMA buffer access and possible
-> memory corruption. use correct buffer size in dma_alloc_coherent
-> and memcpy.
+On Sat 2025-12-27 09:16:17, Marcos Paulo de Souza wrote:
+> The register_console_force function was introduced to register consoles
+> even on the presence of default consoles, replacing the CON_ENABLE flag
+> that was forcing the same behavior.
 > 
-> 
+> No functional changes.
 
-Applied, thanks!
+> --- a/fs/pstore/platform.c
+> +++ b/fs/pstore/platform.c
+> @@ -418,10 +418,10 @@ static void pstore_register_console(void)
+>  		sizeof(pstore_console.name));
+>  	/*
+>  	 * Always initialize flags here since prior unregister_console()
+> -	 * calls may have changed settings (specifically CON_ENABLED).
+> +	 * calls may have changed settings.
+>  	 */
+> -	pstore_console.flags = CON_PRINTBUFFER | CON_ENABLED | CON_ANYTIME;
+> -	register_console(&pstore_console);
+> +	pstore_console.flags = CON_PRINTBUFFER | CON_ANYTIME;
 
-[1/1] nvmem: zynqmp_nvmem: Fix buffer size in DMA and memcpy
-      commit: 7b08445cc7da049e66189d6d2dbc3cf37f9788d9
+As the original comment suggests, this was done primary because
+of CON_ENABLED flag. Otherwise, the console was not registered again.
 
-Best regards,
--- 
-Srinivas Kandagatla <srini@kernel.org>
+register_console() might remove CON_PRINTBUFFER when there was
+a boot console and the newly registered console will get associated
+with /dev/console. But I consider this a corner case. Other console
+drivers ignore this scenario.
 
+I suggest to define the two flags statically in
+struct console pstore_console definition as it is done by
+other console drivers. Remove this explicit dynamic assigment.
+And add the following into the commit message:
+
+<proposal>
+Define the remaining console flags statically in the structure definition
+as it is done by other console drivers.
+
+The flags were re-defined primary because of the CON_ENABLED flag.
+Otherwise, the re-registration failed.
+
+The CON_PRINTBUFFER might get cleared when a boot console was registered
+and the pstrore console got associated with /dev/console. In this
+case, the pstore console would not re-play the entire ring buffer
+on re-registration. But it is a corner case. And it actually might
+be a desired behavior.
+</proposal>
+
+Otherwise, the next generations of kernel developers might think that
+the re-assigment was there because of CON_PRINTBUFFER flag.
+And it might cause non-necessary headaches ;-)
+
+
+> +	register_console_force(&pstore_console);
+>  }
+>  
+>  static void pstore_unregister_console(void)
+
+Best Regards,
+Petr
 
