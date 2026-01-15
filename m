@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB5BAD41176
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 11:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43BD8D41176
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 11:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cYThfrCqrT00LXV0OTAO8hRxDqFU2JdJDLnv+fTCySs=; b=uinghe0PzYSHte2AOhpw08EXFz
-	EOiWF/MRYW7bti1nkPk1cmwAaJuyJ8BgI+eXSGRLL4IEpYAaDU2w525B/prteq9w/R9P/lZz/ejQb
-	cqu+nyWmPUL9wMHoVGI78cLTD1PrOdZf+6oDiFHDXzNWzr0+D8j5Sdgv+tEkGpfnGdOkpyd3o28ig
-	aG/ElcMry2HK2XrpYLli/y1yantdjfSWJQnxnro+TBOI2IguC7jQSlMrfydUHIk9CM/kKgor3CooL
-	o89eJ5yz7+cS5jB75h/+yNk5zrvgsAQ0++pBS/GIOA+UivyzCFyW5tuwj9ueVFBx++WWUi0yQCfgb
-	aeNm1snA==;
+	bh=jyqWPUPdksTIWYuKZmgo4nd2lHSjHXcu6SXb4jlQ4Xc=; b=gyUMli9z6MJ3z278huDk+uTdlx
+	SfXqCU7SqaUjeHwYvTGvRkSVDtjzU1G5NIeR2v9jALGzb1pIKVdX1yQjvJh5zJ6MwR+Q2/it5j/a9
+	1Ml/jGrLcgHvg5yeLt/AJPVheMeybP9H2JRQ4Ry+pbpJBpzWTHaNicJZYHzhTc02ktdGNI6MghpIP
+	oRWxHpLlicptHOyXnJqlDKZa+ARjCO8qV4S8qzD7a5pod8FkGL6aOdfyqTGaZPVbnWzmGuP94hzcC
+	Daj8FmYiv87dMvY5XoxVZefxfTa2KHxJ/qghYocZE4vLEBqugtrgqbI7uqzJJDbguamJ64l+uiFza
+	OCTUDrFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgLir-0000000CFBn-0gSS;
-	Thu, 15 Jan 2026 11:41:05 +0000
-Received: from mail-dl1-x1231.google.com ([2607:f8b0:4864:20::1231])
+	id 1vgLiy-0000000CFEz-3J4Z;
+	Thu, 15 Jan 2026 11:41:12 +0000
+Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgLio-0000000CFAZ-3tYZ
+	id 1vgLiw-0000000CFDx-3Ga4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 11:41:04 +0000
-Received: by mail-dl1-x1231.google.com with SMTP id a92af1059eb24-1233b953bebso1971533c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 03:41:02 -0800 (PST)
+	Thu, 15 Jan 2026 11:41:12 +0000
+Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-12336c0a8b6so1524282c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 03:41:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1768477262; x=1769082062; darn=lists.infradead.org;
+        d=sartura.hr; s=sartura; t=1768477270; x=1769082070; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cYThfrCqrT00LXV0OTAO8hRxDqFU2JdJDLnv+fTCySs=;
-        b=VphwmEAdtOJj0Al0yEmMiX4jaqiIUCL2oClzVXB2K2jS+qLndbN3i+saav7TcBsC24
-         iGWR/2i9dR/sVpvZ4LsAAg4HAzoGDqd5J6pim4TCmCQMLJP+we8D4VPtZQ4EgyRLIerM
-         p2tCDPYts3Hdsm0OtzN3Bgah56H7guiesw41UO3Im5i72g2Szz3nZ+zFso60DBjzrVzZ
-         KDcGYE8s14c7ry1LC5qH+9HgdUS1cyfzvmm5Nrikz9YEieHmWYxMPNt2vrDvgWObVwEX
-         tneTazTJ8Z7q/dP1WRIAbFxEdAOR4CLC9IHOZ/P9RZFg7BlnEa576TBXIzMDLvTy7nwI
-         dCyA==
+        bh=jyqWPUPdksTIWYuKZmgo4nd2lHSjHXcu6SXb4jlQ4Xc=;
+        b=sFGL+qii3EHiKnAZnbqkqoXANm0VWivGyf28Q+5EhnZQSTZAYIMDTq8SVbYsNF0rF5
+         1zDG5D2u8UhwGA1/qVG/O1Z36wXcXncPTg5bNpJBU0dCqXNd/HK+5THuXQdhn06mSWZp
+         PokUMV1F/rjuo8wUVoa9UnN0DXdALzyYrGkL7gl4kyT5jFlI936j+TsvdYJ85M0JpSbY
+         h+nZgSIJTj4ekh+95tWdqwkcDlnD3T+YjEeq8AHLwRhOYGYpLD99qUxIW/Y1fDKo5gbP
+         Ohf5fQuiH127J26c0cMTXSYD3VJLdTrwA1NwAoM8bR86qm/sO05/rXOv8gzExbNt7VQM
+         i7Og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768477262; x=1769082062;
+        d=1e100.net; s=20230601; t=1768477270; x=1769082070;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=cYThfrCqrT00LXV0OTAO8hRxDqFU2JdJDLnv+fTCySs=;
-        b=Q0whheckziOyWy2KaWykzi8qA25wHTHV6EFrL6snVt/uXZ6w24SfpqQcXbVp3SvUBz
-         mXQXySMzsBjm/TplzICuctG2ZsLptiqlgAv1NNq0Yp/CbXsqpbnXh53LmH5rh0ODeZA5
-         Sc96HKqskzRVVBicOGiOjfY0CFhb7x0D1Ux7lCZdJai59mUZq0D3dZ28+/l9mB1VFIcI
-         eqJibh1rADxf7B9vkT+PBDzd8MsudAj9y7SzQcEXYzMn0nIUUoW/cL8AJ/cFIahMyGxs
-         HxznCoyAP6B9DjrQn1gBBhiBjUt/PyN4LeCHOr4wnj3kgBvFHnJKIms5hGXsC4mYJzHy
-         Okxg==
-X-Forwarded-Encrypted: i=1; AJvYcCWEkXTfGeQHqVivbWJMo/IfdsqkmpN0fLkwxcDh9VlG6MKkva2G0nPAvraNo8EZOqOgeyTldVYFqM+AzVVg5EXr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQqaOoYPgQR2FcurjstuT9lBZ40rA6ySeRBJNisP729pszXMg2
-	Fz5NRiXvemUX0NvfVEyFJHYsmzqyU0/uv/8pXIMMaj5JKDrPaLSA7sU27jlSEPt8yd0=
-X-Gm-Gg: AY/fxX6MKIurqED21x338qRPTxcdi/nK8N3SFTmk0/KeeS5r6qKLOH1J3OkMcdMr6mK
-	MmXT9ciPb7iM4+YUR33UUV2tQD5zrdq0HRPdbwqW9b85OvJarvWF122XRr1hf1VROynty5OKz+H
-	txk3CTmqdgupcrHOgbPwbUVBmjip8phMVqrVRDxYZBmLYw9sFkjPXO7y51yvqwexe/N3y8vPkj0
-	VXxaQTI1TmAfYa1NXXMh1OfUXDeqiQwjb2Ap2W69xI9TqB0lolio5yk/ig9jtP1tGSMS25jxGOZ
-	Ml5EvEBUkQ1QqDMC/yanDvtwH6YfCLgzx9aK/eRrKIcRIWnzK3I132SzsjbGjvdB8qncwbqu69U
-	fuXmnhWF/byLVNyi4Ju86Wov839V/E+zhrb9AGTrCqM3l6a8Ke6pCTLwar8X0hfz+qGjqvcaeQD
-	5sW/Gr9FdidiMwvXRGNqI3+eufLyBzEmUsGbxaMjkOpIO6Ilugm0KMmCJKkgOTCpQxMmUbxa7cq
-	2MB/xy2
-X-Received: by 2002:a05:7022:1101:b0:11e:353:57b0 with SMTP id a92af1059eb24-12336aabde5mr4547440c88.50.1768477262077;
-        Thu, 15 Jan 2026 03:41:02 -0800 (PST)
+        bh=jyqWPUPdksTIWYuKZmgo4nd2lHSjHXcu6SXb4jlQ4Xc=;
+        b=ZFZP15xJkjVKOzEv4dCQTVGqzIzUoSnqsoG9k8NqddmFzGCRtdXLgwSQJ8dx0rejIF
+         Wkv0yg2T+Ww+pJ1N98huyUVeFpnLABvV7w6xRnMjT23hnd4yuRJuaHJcaEiDieF37PPm
+         Nk9ZfmL5HHqgpyfdBcZCMJgGmD/VW5Mt/cZbcBKvPBFv1xPUjNCqUwQfQN5xUIXL5JVD
+         GlXvJ0Svud+PgbLxMo7yXBDkP4Adc0pNmekCoEi84mX34uvAHodEiTbf+DUSFffI5V4O
+         8MFGVFeAHy7VOuR2kkqIyzOWHPsi2jwJUDnL6J714oWgLmL9RddsMvJqVbNmK6OWP1sg
+         h9Gg==
+X-Forwarded-Encrypted: i=1; AJvYcCUtt4n3JnOXt0EZMmPQBYO8at301e9HkVRSOVio8yJsSGsdaQO6XUx7LLOulCVynFUWhJfgAFjXjXCCzVfPMQ4/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzy9RSgipH9JhKG7GbwVl+2/nqm5tM0cbHUjxysRitnGGsn6onf
+	0WWtWmVWr75CBCcwKINASkTcXfdISgrlOsY9A21P6Z1SH0MD2F2Bm3Snqd1zBINdsFU=
+X-Gm-Gg: AY/fxX5o0ien5vLDCwnfjJMOToEX6uwJgK3GYuRXpfZO+fvHBubjJUiqhV8QD/YCvux
+	xa8M4fqiAw6lf0sTnUIvlep2YyqWQa3EBnqS7u3EjnG78/apqcjJwK4OqHYwbGTh0VsHJRbMA4x
+	RHxIaJSgHqVOceRZVS4O0FYcXYuRvNs1fQQlFQaCQp1tmbCCfIuP3SVFk6/sKEn6hE1/+uRNddQ
+	O6KDZTCjW8qrKDb/DG53cOEFePduI18wmXeIUa0qNKVi76H7m9qzsEFUPlZxinXa8IAy5J4NdZP
+	5zhvV0uqlHs0tISETNIUisrFCvtIyH6sE6geB46O99HeK9NHFJRBjn3a63Boyvue3Zi9SIzFsHF
+	KSoMVu/iV4fQ4tLXAuviCJJLp/5nwbnHR8azosql2H3dSvy7+nXue5TduWyTudTzGcSU34BehBB
+	B2rHgsdJYuws3bvwWZ+q5yegwCN9swCtIymdBTWabG4pGpm23ys/MEU/WHA2Kc1m/JaXnWEV/C6
+	OLwR8x3
+X-Received: by 2002:a05:701a:ca0e:b0:123:2c98:f6af with SMTP id a92af1059eb24-12336a45a0bmr7461678c88.14.1768477270097;
+        Thu, 15 Jan 2026 03:41:10 -0800 (PST)
 Received: from fedora (dh207-14-52.xnet.hr. [88.207.14.52])
-        by smtp.googlemail.com with ESMTPSA id a92af1059eb24-123370a051esm4875347c88.15.2026.01.15.03.40.54
+        by smtp.googlemail.com with ESMTPSA id a92af1059eb24-123370a051esm4875347c88.15.2026.01.15.03.41.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 03:41:01 -0800 (PST)
+        Thu, 15 Jan 2026 03:41:09 -0800 (PST)
 From: Robert Marko <robert.marko@sartura.hr>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -109,17 +109,17 @@ To: robh@kernel.org,
 Cc: luka.perkov@sartura.hr,
 	Robert Marko <robert.marko@sartura.hr>,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v5 03/11] dt-bindings: rng: atmel,at91-trng: add microchip,lan9691-trng
-Date: Thu, 15 Jan 2026 12:37:28 +0100
-Message-ID: <20260115114021.111324-4-robert.marko@sartura.hr>
+Subject: [PATCH v5 04/11] dt-bindings: crypto: atmel,at91sam9g46-aes: add microchip,lan9691-aes
+Date: Thu, 15 Jan 2026 12:37:29 +0100
+Message-ID: <20260115114021.111324-5-robert.marko@sartura.hr>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260115114021.111324-1-robert.marko@sartura.hr>
 References: <20260115114021.111324-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_034102_969000_B429F307 
-X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-CacheID: sfid-20260115_034110_824786_6342D866 
+X-CRM114-Status: UNSURE (   8.43  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -135,7 +135,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document Microchip LAN969X TRNG compatible.
+Document Microchip LAN969x AES compatible.
 
 Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
@@ -147,21 +147,21 @@ Changes in v5:
 Changes in v3:
 * Pick Acked-by from Conor
 
- Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml | 1 +
+ .../devicetree/bindings/crypto/atmel,at91sam9g46-aes.yaml        | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml b/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml
-index f78614100ea8..3628251b8c51 100644
---- a/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml
-+++ b/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml
-@@ -19,6 +19,7 @@ properties:
-           - microchip,sam9x60-trng
+diff --git a/Documentation/devicetree/bindings/crypto/atmel,at91sam9g46-aes.yaml b/Documentation/devicetree/bindings/crypto/atmel,at91sam9g46-aes.yaml
+index 19010f90198a..f3b6af6baf15 100644
+--- a/Documentation/devicetree/bindings/crypto/atmel,at91sam9g46-aes.yaml
++++ b/Documentation/devicetree/bindings/crypto/atmel,at91sam9g46-aes.yaml
+@@ -16,6 +16,7 @@ properties:
+       - const: atmel,at91sam9g46-aes
        - items:
            - enum:
-+              - microchip,lan9691-trng
-               - microchip,sama7g5-trng
-           - const: atmel,at91sam9g45-trng
-       - items:
++              - microchip,lan9691-aes
+               - microchip,sam9x7-aes
+               - microchip,sama7d65-aes
+           - const: atmel,at91sam9g46-aes
 -- 
 2.52.0
 
