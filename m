@@ -4,83 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00B54D3CCAF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 06:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B44FDD3CCB2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 06:41:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sDL2VEo1K40CbIHkD6w0yhETsm2brUV92i2ZA2PzHJw=; b=SDvrMcgB4WM1EWBuagubZhVkuq
-	avviGI2WtVESulZvWuIxUADgR0j9HYVAy/F1MuMGUwvxe8z2daSLH5iOs14UdLHjncLX2ABG468fX
-	Bp4op4MtkxwqPzYgoyOlVhxtV+4gGHcf81rvTPamHnLVEQS9lqFARizfteRNAvpfn1x50kb6h2I7y
-	1uk6xKxtzOn47/KxJozEc8taMzHtFK9LyALPXET7W2E0DWpmqztDhsi4YiWXNl9dcYLX00nzkg2HB
-	zvEoJUjFksG1/Wg2K9QoSKbJEyUX1d4x2PFcjS6Y+X4REIE51KFfHyM1uAoi2vOjnknEE8vmsmCbZ
-	CABTn0sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2Vky4xlT/KdK6YWVitpVisDdHQI89YOi/CFwhM/gHQU=; b=EDpCgY2jByyRnWcZ+Nb1th6XqE
+	xs3FwN2+9G1i057l5MzFVD6rImvPhyX3j76ckzAV2VR39bBeNP+/kzLsSCZ4hNN7IEj/cXsQ/Q8iS
+	fackaRVnBmYgN1ZJNArIjouqQgXjGGMd/Y+1ixFDvQgDge8drTJjuL3sYfjVYHirC8Voassf+nN/9
+	QDW/odHID2OGdPYL+NhFUiDpW1imiR8t+mKtn4GZJyUAqLmCKFaZ6fIzvw1dgGJAQ3wapN+JPpcAj
+	Y4S+2nrHV2OVsQnIQAVA7Mb8mzJdXgpkFKDQYQFYwhDK2ax8hLyFCNxXW3kzJywGnFi4mS9LB8OVY
+	4uBDuXwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgGxD-0000000BrTo-3kGa;
-	Thu, 15 Jan 2026 06:35:35 +0000
-Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
+	id 1vgH2R-0000000Brmj-1fP5;
+	Thu, 15 Jan 2026 06:40:59 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgGxB-0000000BrTT-1HPz
+	id 1vgH2O-0000000Brm3-2ErQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 06:35:34 +0000
-Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-646b8d2431dso432728d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 22:35:32 -0800 (PST)
+	Thu, 15 Jan 2026 06:40:57 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c026e074373so262868a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 22:40:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768458932; x=1769063732; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=sDL2VEo1K40CbIHkD6w0yhETsm2brUV92i2ZA2PzHJw=;
-        b=A+08cVoFZk9vUcH+ET/LTL2F7bE+e1+oY713bb3KDBvJoB5IzoWqibzlkXKqJosLY9
-         DEEwDhr6ITZdrFqW+3DOKBKolGLw6dTOqUgscHwP28Uq52aGakMyWxJZ7IRZiTqG/8F5
-         7vITq8wUbs+ZkjGGMVcAjLDaUXZ//tp29zeQplMvY4UCUkV7rcRgMrnX3Hy1bv123Ujb
-         4IlVD9j4/tjmZlqLlpHNAwWblrfxtAGLUskuLxcAMDHCtKZaPBW0OE50//scPoEVf15H
-         Vbdn647JZvFwPnmR4nfryW/UvMp5EdNRRyqXdA3FjkndVge4ePdoJZlibQiuxXSsoihl
-         EJkA==
+        d=gmail.com; s=20230601; t=1768459255; x=1769064055; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=2Vky4xlT/KdK6YWVitpVisDdHQI89YOi/CFwhM/gHQU=;
+        b=ZiHTN4SeeY06IxJOLXQ+mSq1p3+BSynKL8uVFZDZQNz8Cf88zWQm0QsPtN0s7v1ds1
+         /6eiGE/6aOKMzu9utbQOw5iidxeqZR6n6m6ylDnKUt9g9CyLVRR4KeXsQY5GwAB9oxhD
+         HO33bLWvN+7Du6F197iM5ckZwM1Xhu5LSJi/UiLXP5kHqm88HPYAdn6WLu0OlCzmixNF
+         ImtTnsfrQSuH1EWXIoyFKCi6YAiK2aHAlkx2yJy9xkJLjvQePCDp+vzNUs0/wq+QJy6L
+         rWUp/2GK6bhOW8sFbzG/26w4jHiBnRglRelhEpTgPHSh4RhMCk+EUvZzAr8MAWiZbgkr
+         +/og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768458932; x=1769063732;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1768459255; x=1769064055;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=sDL2VEo1K40CbIHkD6w0yhETsm2brUV92i2ZA2PzHJw=;
-        b=js63LLG1qODvJWjOJPkpv8fvkAytHg/6uiGCerVMHcU2+bn0pFabNrcaR3T+eoH3kl
-         atBAmEY8JwNZVrqa9botqHXJ/x/V7xYIhgMyJTrKwHozXke+Jd3Ut8fuZTxznXDWzlI2
-         QMhHFdIVHCI3tl/os+UXcU2Bzn/CMlAvbEk6n+v5WD6NIGlNrSOYo917TmXv3Dx22urE
-         DRONzBP7XMKNf1405S2cdf7WZuvZ1TiTZIhban6+GyR6J0XldNc4wx8TFn7B2VF862vf
-         mahxEUCBwuYWfJYztZzN+hC9krYQ3Wfb0f2bXpjoRIMzF6I+9lffaxbgoAMZ9vWLcjlr
-         UQaA==
-X-Forwarded-Encrypted: i=1; AJvYcCVoItflmbO2w8x5QujZ4jYXKRU+k7ak/u4Aud0MY2RCNwm+w8TVv3W0owglvM5nEm8KfS3NJSApeCnPlIQ1zjd5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOQgUo8/615kKr2GktaRg1ytKyE7ZMXQkriinJBjXsvNrdHIxu
-	ferKDIclFKnph/TZU8tpvnlehhx+WqtFxhIazzoyeT5gD5/n+J6l2vhpIDGYPU1CV0R6Zy8bfw3
-	1LxlS17wFOAsbsqMJZHHKfYHy7RZ1Gt8=
-X-Gm-Gg: AY/fxX67X70kqFv6ebdF5rdQArMED8QjDwBXoo28WibZ5pYjP7ImFXaAMsOBwSy+AtI
-	S0eEO2Wd1ZDggIpcyixmAJ1SBxwvlstpiHhDbb5oAVghX7p2pDe9tPZVUfcgxNFKAJ5lfv0hhin
-	ZD+BvR0WazAGcnxCU3Ce45HD4D2x226tBW8QFj6fsETDjK4qjHGwG/E3xI4hZUSVOVdM1BST1bj
-	L+2tnaMYVT8rIizcFr7o30R5MdN55MRm0fCv74juS4h7nxk+DlCHW9YIY4i6kd49JgF9ksX
-X-Received: by 2002:a05:690e:1883:b0:644:45ca:7bfd with SMTP id
- 956f58d0204a3-64901aaebb3mr3938691d50.36.1768458931647; Wed, 14 Jan 2026
- 22:35:31 -0800 (PST)
+        bh=2Vky4xlT/KdK6YWVitpVisDdHQI89YOi/CFwhM/gHQU=;
+        b=e9tEdOp2vySZ4Hk4BdzCAfxHYg4X1uLbiPXeXsOv1rYi/ZKYYT6PeW3guVBwy8TzWX
+         toFD5E8g1bvgdHERsJydFM0Rdq5L9U0L3pg//sxHDUfoTn2ASuA/fXTAyEZcEt5VdtD9
+         0pfm7stONJMLkgbaf31OcnOeXyo6JEyhm+gmjCEwpogheE67tQlzS93BnsvP/FIsKdJf
+         8tCxO2cCUXXD6Ba22PmuloLCJxinqrUCWBwNLJpmupjk7h1kACz35TwHtRzBT7S7f0lA
+         fwnCYzEFcetWwejPPTz0THy0mL9MGpFMBE5W3Y6TzlU04DV7Ljrl+u3LH2Muv25Gbtvg
+         gUEg==
+X-Gm-Message-State: AOJu0YwKKE4oQ0UZWIZsysBKMzY/dlGNIi2CUMagckZhrgNF8wUtlsXU
+	FqY0tzOvHXWYj2kB6aNK//iuBXdiwmzmsOcscEPQD5glOqJ911t8g5scucWNgQ==
+X-Gm-Gg: AY/fxX6geOZpp8hZF7JIltwETAaEciXEffejJx0eBsV2GcynBy6Y6+GpwDx/PA4NJu5
+	uEr5sllR8lneTYM2T2/kvuXtT/oLd6D0yzIVsMpNMqyKKw3ntz5Vcf5hzxSTZPX5GpkjBDKH9vo
+	uPM1KUnEWilEYLsJhcTXbSKr1LlWL1R5jTrvL7ZC6IMcBGVXMBGPWFxaq7OLdkFOo5Lt0LXZrfP
+	Huy2DiU+/3fPiQXve/dZnJAgh7g/tsmrCjtMimQekIqR5T4AgfnL4U7aKogzvFoJc5IvpgU4j62
+	BKdlt7yR3JdMYOwPBz9mrM+TS/5GnThNz33WARTZ3wqjJXHw8gK6vmzXPdHCyeABApCHAyA7u+J
+	uyRzkvTxmlc81jjIm51KgtLT6Xvy3LGEX5wJra77B2SA/oatp1aTCKIPhxcHMdTrw4Ry+dMfel6
+	zP/E3vb01DSVRRWGAdxC2r
+X-Received: by 2002:a17:90b:5211:b0:340:b912:536 with SMTP id 98e67ed59e1d1-3510913ea6dmr4852462a91.31.1768459255024;
+        Wed, 14 Jan 2026 22:40:55 -0800 (PST)
+Received: from nbai25050028.lan ([2409:4090:807d:4601:85d:6566:6475:3c1])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c4cc9e7e824sm24129855a12.30.2026.01.14.22.40.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 22:40:54 -0800 (PST)
+From: Sayantan Nandy <sayantann11@gmail.com>
+To: lorenzo@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	sayantan.nandy@airoha.com,
+	bread.hsu@airoha.com,
+	kuldeep.malik@airoha.com,
+	aniket.negi@airoha.com,
+	Sayantan Nandy <sayantann11@gmail.com>
+Subject: [PATCH] net: airoha_eth: increase max MTU to 9220 for DSA jumbo frame support the industry standard for jumbo frame MTU is 9216 bytes. When using DSA sub-system, an extra 4 byte tag is added to each frame. To allow users to set the standard 9216-byte MTU via ifconfig ,increase AIROHA_MAX_MTU to 9220 bytes (9216+4).
+Date: Thu, 15 Jan 2026 12:10:43 +0530
+Message-ID: <20260115064043.45589-1-sayantann11@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260109-b4-macsmc-power-v2-0-93818f1e7d62@gmail.com>
- <20260109-b4-macsmc-power-v2-1-93818f1e7d62@gmail.com> <aWbq2pgTJlOWC07w@venus>
-In-Reply-To: <aWbq2pgTJlOWC07w@venus>
-From: Michael Reeves <michael.reeves077@gmail.com>
-Date: Thu, 15 Jan 2026 17:35:20 +1100
-X-Gm-Features: AZwV_Qj589lgXQNeagebL0kthy66zD-IRnj2VDG_vPH0jpjOKd17rg1RUVEIdJs
-Message-ID: <CANpmGNvBvasft9U3_=G2=B9VF1Q0P7aG8QsdLF7H+NJH9oTfKw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] power: supply: Add macsmc-power driver for Apple Silicon
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
-	Lee Jones <lee@kernel.org>, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Hector Martin <marcan@marcan.st>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_223533_381641_E5B9A205 
-X-CRM114-Status: GOOD (  35.45  )
+X-CRM114-CacheID: sfid-20260114_224056_563933_4F52E344 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,146 +100,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+This change ensures compatibility with common network equipment and jumbo frame configurations.
 
-Thanks for the review.
+Signed-off-by: Sayantan Nandy <sayantann11@gmail.com>
+---
+ drivers/net/ethernet/airoha/airoha_eth.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On Wed, Jan 14, 2026 at 1:10 PM Sebastian Reichel
-<sebastian.reichel@collabora.com> wrote:
-> > +     case POWER_SUPPLY_CHARGE_BEHAVIOUR_INHIBIT_CHARGE:
-> > +             if (power->has_chte)
-> > +                     return apple_smc_write_u32(power->smc, SMC_KEY(CHTE), 1);
-> > +             else if (power->has_ch0c)
-> > +                     return apple_smc_write_u8(power->smc, SMC_KEY(CH0C), 1);
-> > +             else
-> > +                     return -EOPNOTSUPP;
-> > +     break;
->
-> Indentation?
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index fbbc58133364..20e602d61e61 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -21,7 +21,7 @@
+ #define AIROHA_MAX_NUM_IRQ_BANKS	4
+ #define AIROHA_MAX_DSA_PORTS		7
+ #define AIROHA_MAX_NUM_RSTS		3
+-#define AIROHA_MAX_MTU			9216
++#define AIROHA_MAX_MTU			9220
+ #define AIROHA_MAX_PACKET_SIZE		2048
+ #define AIROHA_NUM_QOS_CHANNELS		4
+ #define AIROHA_NUM_QOS_QUEUES		8
+-- 
+2.43.0
 
-Fixed.
-
-> > +     case POWER_SUPPLY_CHARGE_BEHAVIOUR_FORCE_DISCHARGE:
-> > +             if (!power->has_ch0i)
-> > +                     return -EOPNOTSUPP;
-> > +     return apple_smc_write_u8(power->smc, SMC_KEY(CH0I), 1);
->
-> Indentation?
-
-Fixed.
-
-> > +     case POWER_SUPPLY_PROP_VOLTAGE_MAX_DESIGN:
-> > +             /* Calculate total max design voltage from per-cell nominal voltage */
->
-> Using the nominal voltage here doesn't make much sense. As the
-> comment above mentions not having nominal voltage data for the
-> battery, I suppose the comment is wrong and this uses the per-cell
-> **maximum** voltage?
-
-You are correct. I've checked again just to confirm the comment is
-definitely incorrect, and not the code, and the key reports ~4.4V.
-Updated now to reflect that it is using the per-cell maximum voltage,
-I think I got my words mixed up when writing the comment.
-
-> > +     case POWER_SUPPLY_PROP_CHARGE_CONTROL_START_THRESHOLD:
-> > +             /*
-> > +              * Read-only reflection of end threshold logic.
-> > +              * Allowed to be written to avoid userspace confusion, but ignored.
-> > +              */
-> > +             return 0;
->
-> I think it's better to fix userspace and expose the value read-only.
-> In any case this creates an ABI and requires proper documentation in
-> Documentation/ABI/testing/sysfs-class-power. My suggestion would be
-> to drop this for now and handle it in a separate patchset, so that
-> ABI discussion don't block the remaining driver.
-
-Agreed. I have dropped the threshold properties for now to avoid ABI churn.
-
-> > +static int macsmc_power_probe(struct platform_device *pdev)
-> > +{
-> > +     struct apple_smc *smc = dev_get_drvdata(pdev->dev.parent);
->
-> You have a bunch of &pdev->dev further ahead, so I think it's
-> sensible to create 'struct dev = &pdev->dev;' and use it everywhere
-> in the probe function.
-
-Done.
-
-> > +             power->batt_desc.properties = power->batt_props;
->
-> It seems 'power->batt_props' is not used anywhere and you can just
-> use 'power->batt_desc.properties' directly?
-
-Fixed. I've removed the struct members and assigned directly to desc.properties.
-
-> > +             power->batt = devm_power_supply_register(&pdev->dev, &power->batt_desc, &psy_cfg);
-> > +             if (IS_ERR(power->batt)) {
-> > +                     ret = dev_err_probe(&pdev->dev, PTR_ERR(power->batt),
-> > +                                         "Failed to register battery\n");
->
-> No need to assign ret; it is unused. But it becomes necessary with
-> a follow-up suggestion from me.
-
-Fixed.
-
-> > +             power->ac_desc.properties = power->ac_props;
->
-> Just like 'power->batt_props': You can drop power->ac_props and use
-> power->ac_desc.properties directly.
-
-Done.
-
-> > +                     /* If battery also failed or didn't exist, this is a fatal error */
-> > +                     if (!power->batt)
-> > +                             return ret;
->
-> You can just drop this check and instead rely on the "Final check"
-
-Done.
-
-> > +     /* Final check: did we register anything? */
-> > +     if (!power->batt && !power->ac)
-> > +             return -ENODEV;
->
-> You can just return ret here, if you assign -ENODEV as initial
-> value. In that case the correct error code will be returned in all
-> cases.
-
-Done. I initialised ret to -ENODEV and updated the flow to return it.
-
-> > +     power->nb.notifier_call = macsmc_power_event;
-> > +     blocking_notifier_chain_register(&smc->event_handlers, &power->nb);
-> > +
-> > +     INIT_WORK(&power->critical_work, macsmc_power_critical_work);
->
-> This must happen before registering the event handler, which in
-> theory might instant-trigger an event creating a race condition. You
-> already have the correct order in the remove handler (which also
-> hints about this problem :)). After reordering you can further
-> simplify by just using devm_work_autocancel().
-
-Fixed. Moved INIT_WORK to the top of probe and switched to devm_work_autocancel.
-
-> > +static struct platform_driver macsmc_power_driver = {
-> > +     .driver = {
-> > +             .name = "macsmc-power",
-> > +             .owner = THIS_MODULE,
->
-> There is no need to set platform_driver.driver.owner manually. It is
-> handled automatically, so please drop.
-
-Dropped.
-
-> > +MODULE_ALIAS("platform:macsmc-power");
->
-> Drop MODULE_ALIAS and instead add a platform_device_id table with
-> MODULE_DEVICE_TABLE(platform, <NAME>);
-
-Done.
-
-I will send v3 shortly.
-
-Best regards,
-Michael
 
