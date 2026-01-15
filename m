@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF101D3CC88
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 00:14:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D52D3CC8C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 00:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C2EzlVROqB2WDA6Pfe0fjYxuGy8i+tTBtHgwz97po6Q=; b=0PCCnSN34lP8Jq6a4Mx9dxQiIB
-	/qp59XUoGPAdRx8SdX5ocZtFrKyv5UMQs3ad7vHxeQcKh+v1fScqld62QIDF6SdcqwXwDj+jSD9aF
-	CYARd40lfIz/BxAnWEViupWHqTDDzXBrOFi6R/fkpHrCHyEURA4X5h0L9fTPG5AP1TwcWAfXXxp64
-	E75Kqn3WPyszCWKgmDJu3hB4gME9wkgQzqWOGqGeOwCUGJPYC1ss0KfALu4yKHlc1M1bzr8j13zys
-	asWTIfR9jYnD4gjEVvahsy5NBMDM40TUIp3SWy8snLnu6VQJWUQmMHRrLNvCyw0gRc32rBIgeryMZ
-	hWyhkV7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B4QfrPMND0dKajSMmYvgDtwoZx9Otg3YeOPfV5ej2AA=; b=jmTDGSHhRgss9sje1HrPjtOfPB
+	nuFOKg4xCPiXZ6Skv1C0oSMxTe2u4DAC4Y02NTg3BT3TV78ngQ+dzvX0dGyp8tKwyXbiHjeLFH+4B
+	twVZUqlWlTqRDwWpmpo4IH4Pe1aMMco1qRBBfnZjuISMpMFtaetXiKtbpLJJe5GWszVqtuuZeQ79u
+	Q5JWCmdr+LE277GNIhFiXa1tXLcCBkWPl6FjyKnfhhHOliTWPJyUYQepQjgedHZDqVsrN6nvae0Ab
+	SYG8q/m+z+UJH4nhP6V6p0Ve0mXFs4dHYR3G1NXArcSz1zFx41quJ9laz1ZRiQ0wMrOIuV3RVd52W
+	phbCrC8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgB0M-0000000BBj2-0TYu;
-	Thu, 15 Jan 2026 00:14:26 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1vgBB6-0000000BDbc-11Fz;
+	Thu, 15 Jan 2026 00:25:32 +0000
+Received: from mail-m49229.qiye.163.com ([45.254.49.229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgB0K-0000000BBi6-0Q4E;
-	Thu, 15 Jan 2026 00:14:25 +0000
-X-UUID: 225394baf1a711f08b17dd397dc63300-20260114
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=C2EzlVROqB2WDA6Pfe0fjYxuGy8i+tTBtHgwz97po6Q=;
-	b=Nn0FNCwHPIVkg7NjqU5uE28QJEb5jHxVFvvycJfwYSnCK/K/4ezcxzqGtArdt8KW2Uhfq4oaAHjKfvdPpy2fJKUW4634zRo6TL+2hatWduPRJr9+NY6W5USxU27r7Vosanwm5iukxBgjsM4kfG01udRtwSx74NwMYSE4k83NzR0=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.9,REQID:34ab7bb1-5998-4531-9740-8110a6c747b5,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:5047765,CLOUDID:f05285e8-ef90-4382-9c6f-55f2a0689a6b,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|123|836|888|898,TC:-5,Content:0|
-	15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:
-	0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 225394baf1a711f08b17dd397dc63300-20260114
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <robin.kuo@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 856363866; Wed, 14 Jan 2026 17:14:18 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 15 Jan 2026 08:14:15 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Thu, 15 Jan 2026 08:14:15 +0800
-From: <robin.kuo@mediatek.com>
-To: <robin.kuo@mediatek.com>, Andrew Morton <akpm@linux-foundation.org>, Chris
- Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi
-	<shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He
-	<bhe@redhat.com>, Barry Song <baohua@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <wsd_upstream@mediatek.com>, <casper.li@mediatek.com>,
-	<chinwen.chang@mediatek.com>, <Andrew.Yang@mediatek.com>,
-	<Qun-wei.Lin@mediatek.com>, <oliver.sang@intel.com>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-Subject: [PATCH 1/1] Restore swap_space attr aviod krn panic
-Date: Thu, 15 Jan 2026 08:13:43 +0800
-Message-ID: <20260115001405.3513440-1-robin.kuo@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1vgBB2-0000000BDaY-3Y6C;
+	Thu, 15 Jan 2026 00:25:31 +0000
+Received: from [172.16.12.14] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 30af7ff73;
+	Thu, 15 Jan 2026 08:25:20 +0800 (GMT+08:00)
+Message-ID: <b49b223e-e728-4ce9-b972-242ed9b5fa4a@rock-chips.com>
+Date: Thu, 15 Jan 2026 08:25:17 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, heiko@sntech.de, ulf.hansson@linaro.org
+Subject: Re: [PATCH v1 0/3] mmc: dw_mmc-rockchip: Add stability quirk for
+ NanoPi R76S
+To: Marco Schirrmeister <mschirrmeister@gmail.com>
+References: <20260110010715.1610159-1-mschirrmeister@gmail.com>
+ <67ccb8f6-f9bd-4266-b79a-b688bd6d030b@rock-chips.com>
+ <8536413c-8687-4d75-befb-8f25e54838bf@rock-chips.com>
+ <6934ae0d-16c5-436f-97f6-c11d304ca51d@rock-chips.com>
+ <CAGJh8eDXT43_PfmUbShL4Hysfkd21R=sCerRNe_AGQANbwvSPA@mail.gmail.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <CAGJh8eDXT43_PfmUbShL4Hysfkd21R=sCerRNe_AGQANbwvSPA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-HM-Tid: 0a9bbf0ae48909cckunmf5ba25fc501b74
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkwZSVYaSExMTk1CGh5KSRhWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=BxhOpBRTnQz+GPMIuPHkTUo8xgEUj3FoCSXW6s6PPy6OzyKosh4qIlUkrCft0RHY5hB8sma8mOnoGsD2/ynKIdEgaFgTzt1Tuv7raFbq7O0p21F9Z96Bl2QUbKDo39AB9n0HHNOjAjl8Q0LDzBio2SGKNaXeTGNwtLwIx5qgycs=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=B4QfrPMND0dKajSMmYvgDtwoZx9Otg3YeOPfV5ej2AA=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_161424_152620_B2B6A75D 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20260114_162529_758779_0E350AF9 
+X-CRM114-Status: GOOD (  25.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,74 +76,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "robin.kuo" <robin.kuo@mediatek.com>
+在 2026/01/15 星期四 3:51, Marco Schirrmeister 写道:
+> Hello Shawn,
+> 
+> On Wed, Jan 14, 2026 at 9:08 AM Shawn Lin <shawn.lin@rock-chips.com> wrote:
+>>
+>> Except for the patch mentioned above for fixing the hot-plug problem
+>> which you confirmed to work fine. I looked the code a bit and see
+>> a potential problem related to the runtime suspend + power-domain.
+>> Please check the patch to see if it fixes your problem:
+> 
+> I tested your patch and the issue is still present. For verification I did
+> add some debug statements and just to see what it saves and restores.
+> 
+> The symbols are there.
+> root@nanopi-r76s ~# grep dw_mci_rockchip_runtime /proc/kallsyms
+> ffff800080bf27a0 t dw_mci_rockchip_runtime_suspend
+> ffff800080bf29c0 t dw_mci_rockchip_runtime_resume
+> 
+> # dmesg output
+> [Wed Jan 14 20:13:46 2026] E220d: Restoring phases: sample=231, drv=180
+> [Wed Jan 14 20:13:46 2026] mmc_host mmc1: Bus speed (slot 0) = 400000Hz
+> [Wed Jan 14 20:13:47 2026] mmc_host mmc1: Bus speed (slot 0) = 198000000Hz
+> [Wed Jan 14 20:13:47 2026] dwmmc_rockchip 2a310000.mmc: Successfully
+> tuned phase to 232
+> [Wed Jan 14 20:13:48 2026] E220d: Saving phases: sample=231, drv=180
+> [Wed Jan 14 20:13:48 2026] E220d: Restoring phases: sample=231, drv=180
+> [Wed Jan 14 20:13:48 2026] mmc_host mmc1: Bus speed (slot 0) = 400000Hz
+> [Wed Jan 14 20:13:48 2026] mmc_host mmc1: Bus speed (slot 0) = 198000000Hz
+> [Wed Jan 14 20:13:48 2026] dwmmc_rockchip 2a310000.mmc: Successfully
+> tuned phase to 231
+> [Wed Jan 14 20:13:48 2026] E220d: Saving phases: sample=231, drv=180
+> 
+> Based on this, it makes me believe that power to the sd card is completely cut
+> and when it wakes up and knows how to continue, it still must go through the
+> retraining phase.
+> 
 
-Restore swap_space attr avoid krn panic
+This is another mistake for your NanoPi R76S board. Before sent this
+patch, I already checked the dts and saw sdmmc uses vmmc-supply =
+<&vcc_3v3_s3> which is marked as regulator-always-on, but it's *NOT*
+actually per the shcematic[1][2]. So need another fix for your board
+to make it actually gpio-based power controller instaed of function
+IO based, as when powering off the power domain, the power control bit
+will not be able to maintain.
 
-Commit 8b47299a411a ('mm, swap: mark swap address space ro and add
-context debug check') made the swap address space read-only.
-It may lead to kernel panic if arch_prepare_to_swap returns a failure 
-under heavy memory pressure as follows,
 
-el1_abort+0x40/0x64
-el1h_64_sync_handler+0x48/0xcc
-el1h_64_sync+0x84/0x88
-errseq_set+0x4c/0xb8 (P)
-__filemap_set_wb_err+0x20/0xd0
-shrink_folio_list+0xc20/0x11cc
-evict_folios+0x1520/0x1be4
-try_to_shrink_lruvec+0x27c/0x3dc
-shrink_one+0x9c/0x228
-shrink_node+0xb3c/0xeac
-do_try_to_free_pages+0x170/0x4f0
-try_to_free_pages+0x334/0x534
-__alloc_pages_direct_reclaim+0x90/0x158
-__alloc_pages_slowpath+0x334/0x588
-__alloc_frozen_pages_noprof+0x224/0x2fc
-__folio_alloc_noprof+0x14/0x64
-vma_alloc_zeroed_movable_folio+0x34/0x44
-do_pte_missing+0xad4/0x1040
-handle_mm_fault+0x4a4/0x790
-do_page_fault+0x288/0x5f8
-do_translation_fault+0x38/0x54
-do_mem_abort+0x54/0xa8
+[1] 
+https://wiki.friendlyelec.com/wiki/images/6/60/NanoPi_R76S_LP4X_2411_SCH.pdf
+[2] 
+https://wiki.friendlyelec.com/wiki/images/9/90/NanoPi_R76S_LP5_2411_SCH.pdf
 
-Restore swap address space as not ro to avoid the panic.
+Except for the patches you have tested, please append the blow patch as 
+well to test.
 
-Signed-off-by: robin.kuo <robin.kuo@mediatek.com>
----
- mm/swap.h       | 2 +-
- mm/swap_state.c | 3 +--
- 2 files changed, 2 insertions(+), 3 deletions(-)
+--- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts
+@@ -192,6 +192,18 @@
+                 regulator-name = "vcc_3v3_s0";
+                 vin-supply = <&vcc_3v3_s3>;
+         };
++
++       vcc3v3_sd: regulator-vcc-3v3-sd {
++               compatible = "regulator-fixed";
++               enable-active-high;
++               gpios = <&gpio0 RK_PB6 GPIO_ACTIVE_HIGH>;
++               pinctrl-names = "default";
++               pinctrl-0 = <&sdmmc_pwren>;
++               regulator-name = "vcc3v3_sd";
++               regulator-min-microvolt = <3300000>;
++               regulator-max-microvolt = <3300000>;
++               vin-supply = <&vcc_3v3_s0>;
++       };
+  };
 
-diff --git a/mm/swap.h b/mm/swap.h
-index d034c13d8dd2..1bd466da3039 100644
---- a/mm/swap.h
-+++ b/mm/swap.h
-@@ -198,7 +198,7 @@ int swap_writeout(struct folio *folio, struct swap_iocb **swap_plug);
- void __swap_writepage(struct folio *folio, struct swap_iocb **swap_plug);
- 
- /* linux/mm/swap_state.c */
--extern struct address_space swap_space __ro_after_init;
-+extern struct address_space swap_space __read_mostly;
- static inline struct address_space *swap_address_space(swp_entry_t entry)
- {
- 	return &swap_space;
-diff --git a/mm/swap_state.c b/mm/swap_state.c
-index 5f97c6ae70a2..44d228982521 100644
---- a/mm/swap_state.c
-+++ b/mm/swap_state.c
-@@ -37,8 +37,7 @@ static const struct address_space_operations swap_aops = {
- #endif
- };
- 
--/* Set swap_space as read only as swap cache is handled by swap table */
--struct address_space swap_space __ro_after_init = {
-+struct address_space swap_space __read_mostly = {
- 	.a_ops = &swap_aops,
- };
- 
--- 
-2.45.2
+  &combphy0_ps {
+@@ -726,6 +738,12 @@
+                 };
+         };
+
++       sdmmc {
++               sdmmc_pwren: sdmmc-pwren {
++                       rockchip,pins = <0 RK_PB6 RK_FUNC_GPIO 
+&pcfg_pull_none>;
++               };
++       };
++
+         usb {
+                 usb_otg0_pwren_h: usb-otg0-pwren-h {
+                         rockchip,pins = <0 RK_PD1 RK_FUNC_GPIO 
+&pcfg_pull_none>;
+@@ -751,11 +769,14 @@
+         bus-width = <4>;
+         cap-mmc-highspeed;
+         cap-sd-highspeed;
++       cd-gpios = <&gpio0 RK_PA7 GPIO_ACTIVE_LOW>;
+         disable-wp;
+         no-mmc;
+         no-sdio;
++       pinctrl-names = "default";
++       pinctrl-0 = <&sdmmc0_clk &sdmmc0_cmd &sdmmc0_det &sdmmc0_bus4>;
+         sd-uhs-sdr104;
+-       vmmc-supply = <&vcc_3v3_s3>;
++       vmmc-supply = <&vcc3v3_sd>;
+         vqmmc-supply = <&vccio_sd_s0>;
+         status = "okay";
+
+
+
+
+>> --- a/drivers/mmc/host/dw_mmc-rockchip.c
+>> +++ b/drivers/mmc/host/dw_mmc-rockchip.c
+>> @@ -36,6 +36,8 @@ struct dw_mci_rockchip_priv_data {
+>>           int                     default_sample_phase;
+>>           int                     num_phases;
+>>           bool                    internal_phase;
+>> +       int                     sample_phase;
+>> +       int                     drv_phase;
+>>    };
+>>
+>>    /*
+>> @@ -573,9 +575,43 @@ static void dw_mci_rockchip_remove(struct
+>> platform_device *pdev)
+>>           dw_mci_pltfm_remove(pdev);
+>>    }
+>>
+>> +static int dw_mci_rockchip_runtime_suspend(struct device *dev)
+>> +{
+>> +       struct platform_device *pdev = to_platform_device(dev);
+>> +       struct dw_mci *host = platform_get_drvdata(pdev);
+>> +       struct dw_mci_rockchip_priv_data *priv = host->priv;
+>> +
+>> +       if (priv->internal_phase) {
+>> +               priv->sample_phase = rockchip_mmc_get_phase(host, true);
+>> +               priv->drv_phase = rockchip_mmc_get_phase(host, false);
+>> +       }
+>> +
+>> +       return dw_mci_runtime_suspend(dev);
+>> +}
+>> +
+>> +static int dw_mci_rockchip_runtime_resume(struct device *dev)
+>> +{
+>> +       struct platform_device *pdev = to_platform_device(dev);
+>> +       struct dw_mci *host = platform_get_drvdata(pdev);
+>> +       struct dw_mci_rockchip_priv_data *priv = host->priv;
+>> +       int ret;
+>> +
+>> +       ret = dw_mci_runtime_resume(dev);
+>> +       if (ret)
+>> +               return ret;
+>> +
+>> +       if (priv->internal_phase) {
+>> +               rockchip_mmc_set_phase(host, true, priv->sample_phase);
+>> +               rockchip_mmc_set_phase(host, false, priv->drv_phase);
+>> +               mci_writel(host, MISC_CON, MEM_CLK_AUTOGATE_ENABLE);
+>> +       }
+>> +
+>> +       return ret;
+>> +}
+>> +
+>>    static const struct dev_pm_ops dw_mci_rockchip_dev_pm_ops = {
+>>           SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
+>> pm_runtime_force_resume)
+>> -       RUNTIME_PM_OPS(dw_mci_runtime_suspend, dw_mci_runtime_resume, NULL)
+>> +       RUNTIME_PM_OPS(dw_mci_rockchip_runtime_suspend,
+>> dw_mci_rockchip_runtime_resume, NULL)
+>>    };
+>>
+>>    static struct platform_driver dw_mci_rockchip_pltfm_driver = {
+> 
 
 
