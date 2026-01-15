@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E0B4D46617
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 20:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA702D46617
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 20:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JHiV60RInJ4eituFivtzOayNDVgKZkDvtZ7bVjXaEgQ=; b=4ku7keDJsS8/+ylv6ft7RCeswZ
-	2Ekh2Cz+c/L8aU7LctpmDg6biwGnk4xKl8Yllb+9TFErJnJ4ZApxp5/ke2ru7IG3dVlvX8yaMhQCt
-	0A+ykTANWQ0KXWzFJpjuZWO8/luWF9n33RkS7FZaI4RlfbnYYYWRjsQ+iV5wy3MXjTKVMJ/YEvBIg
-	UnOlpZVwdbA+iX1eHQfy+QGVSfMlFQYdgfPT59YDXBaSE0WXOJ0YDisgUHgNFyGK51l95TgeCiVXT
-	XIT0z948X7xloroOTfFhal1HKlIa0lnzqYz+TJKXrPqN4DvVwpYWEuJmczVPpFZoH+etq7HqTSOrO
-	+pxnXCVQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=iBNBsyavN8r7wjI1AwpVpvnHilN3gHX54gWqAIo5Dpw=; b=eRd00PzFCpR86B
+	tQw3wUmhtJZEt2MvPj8B29zN4a57JXjmvPnvTNJocXkMki8xerVybWaTVF3lHPpSPOKQeLWf5Smei
+	Jj655W/0FnTj8hwFBVvJK9IQCMUvsZqiDnkTexRNdJgdQ5UwNhD/kIlMq0RyPs9bXiXtpx1RxRNnA
+	FxbFzffVrfxNWMa/YG9QxefOUlMz3OZkTdhRKZdx1cxbE4RUkDHvuFGsLj1+uYsjAbEqCE0szAgZA
+	YmA2o99TJ2InKfcxtENDQeStWyrMd4PqivpmIzEbZEp3VVEireW6DKSKlJ22Lm9ATi0UrTxFmQ5Cr
+	ayqLfc4QDAVoNDy92Aqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgUEo-0000000DB8G-41Ke;
-	Thu, 15 Jan 2026 20:46:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vgULn-0000000DBRg-2oBx;
+	Thu, 15 Jan 2026 20:53:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgUEn-0000000DB7n-2oX3;
-	Thu, 15 Jan 2026 20:46:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=JHiV60RInJ4eituFivtzOayNDVgKZkDvtZ7bVjXaEgQ=; b=BMdtoQPQ8hyAbCpjH+VrX9zCBh
-	AJgRYoeL5Xi/tWfaDSlO9F1cGnKzCX3r+0xsPKEDBsG08Z9vOmZ/z5EazSdmJFJtVxUIDRHbgRA1z
-	geDml0x47uwc/BJLrXAycVEn/vZYZOSJUk0iHtHPglcka1jiPBCnx31hLKXAtzLlfk5B05KQwzA+c
-	UOhEQb3VlXXzV15Drcd5ho+evd4EWvpeARm5lPY+BrX7jS+ZXRbOnfKh0AeQa67P4gOqVeCxMS1Am
-	dXz9/OcguKKIGZqetOwLCdpeRzzsjN7ma4/PkFpXO0bQzuQ0JiXC6k+7b+xLDNm032fQQuSZTDBbq
-	DDa7++9w==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgUDy-00000007chY-20g4;
-	Thu, 15 Jan 2026 20:46:34 +0000
+	id 1vgULm-0000000DBRX-0sr3;
+	Thu, 15 Jan 2026 20:53:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E1B2B40164;
-	Thu, 15 Jan 2026 20:45:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 144BAC116D0;
-	Thu, 15 Jan 2026 20:45:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4D6A560130;
+	Thu, 15 Jan 2026 20:53:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D89D4C116D0;
+	Thu, 15 Jan 2026 20:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768509939;
-	bh=TrVJ81gNlKGWflE9lzJbsnP9K0M2Q7j3JRWiu7197P4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u+snff/V7iHtCcygjYFJPTDIRB2va5QWcv2YTvthzYkkKO1dcLaPj0r1cWb+Qb0Ai
-	 ZVpOJ/eQka5sAfYC6lulUHJjHAJpvcWXM+J1c9dpGfWO8QtlVm/Cw2UmGDfsxb+hb2
-	 IyAaokiFcv3t0x5Ft7gH2uq7nPZ/1cVZRdTZbS2YPI+uHUJfIZ2X9X7c3kyukr5qNM
-	 R+2zdGs48Km5Khd4oVNLQDGIKWfd0F+kukNy4BH3hlSFRi//OC1itB5pkumE0828um
-	 nikeLbBlI0f+FnI5/oQ1XMHlgzziQOiqCsrTkLzNGbBUcWTeyZjD33D9GwKuEKNpfZ
-	 SyUTiXJoNf48g==
-Date: Thu, 15 Jan 2026 12:45:37 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Harald Freudenberger <freude@linux.ibm.com>
-Subject: Re: [PATCH v2 00/35] AES library improvements
-Message-ID: <20260115204537.GB3138@quark>
-References: <20260112192035.10427-1-ebiggers@kernel.org>
+	s=k20201202; t=1768510429;
+	bh=kUIIoYoPjMjhLb2Ikm1Imwe9wIvpSRMNJmMBdsX0NfY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=cypro30Ix2LyXok4K5JmT0bXfJdd660c0A8Q0TCWcPRwJ5x6+j8Nzw2MC/95i7rgp
+	 0Mt2iOjN6bcNUaOlkI5mTnGAL8NLFDXqEyWwxoMhMgn9lKOKPh6ulzdpALJoADIrbS
+	 nvGzMApAfZ0Leo5ZTmwROkFDAvON0A3IVZ9e4E2abJsOwuqmwRdQdWx/k6/nBGeXnH
+	 aCgXIKyeM8FTD82xWgiu+hcONJNWPcSaYUzZxtoe/EOVbTc13SE69zzuGtF+aTk5y+
+	 lSXduIOieNL9xib+Nmclwnnsc0L/LqNwUI1oW0fTunZ8Ew5QvgCPP26PYCiObGwTSm
+	 E6oi31K5cm+vQ==
+Date: Thu, 15 Jan 2026 14:53:47 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Terje Bergstrom <tbergstrom@nvidia.com>
+Cc: Johnny-CC Chang =?utf-8?B?KOW8teaZi+WYiSk=?= <Johnny-CC.Chang@mediatek.com>,
+	"lukas@wunner.de" <lukas@wunner.de>,
+	Project_Global_Digits_Upstream_Group <Project_Global_Digits_Upstream_Group@mediatek.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Alex Williamson <alex@shazbot.org>
+Subject: Re: [PATCH] PCI: Mark Nvidia GB10 to avoid bus reset
+Message-ID: <20260115205347.GA881345@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260112192035.10427-1-ebiggers@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_204630_767650_549DA840 
-X-CRM114-Status: UNSURE (   6.87  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <db8fb91b-e132-4d8e-ab7a-d7954fc6629d@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,16 +76,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 11:19:58AM -0800, Eric Biggers wrote:
-> This series applies to libcrypto-next.  It can also be retrieved from:
+On Thu, Jan 15, 2026 at 12:11:09PM -0800, Terje Bergstrom wrote:
+> On 1/14/26 09:28, Bjorn Helgaas wrote:
 > 
->     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git aes-lib-v2
+> > What sort of crash happens?  It's useful if we can include a bread
+> > crumb that will help people identify the crash and find a fix.
+>
+> We observed retraining to lower PCIe lane count and config read
+> timeout.  So yes crash is not the best way to describe it.
 > 
-> This series makes three main improvements to the kernel's AES library:
+> > I'm confused about what the topology is.  I first assumed GB10 was
+> > a PCIe Endpoint, since Secondary Bus Reset only applies to devices
+> > below a bridge, so SBR would be applied to a device by a config
+> > write to that bridge.
+>
+> gb10 is an SoC designed by NVIDIA and Mediatek in collaboration.
+> It's not an endpoint, but has its own PCIe controller for connecting
+> PCIe peripherals like NVMe drives, NIC, etc.
 
-FYI, applied to https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-next
+OK, so you do SBR to some endpoint below a GB10 Root Port, and after
+the SBR, the link to the endpoint retrains with a lower lane count and
+config reads to the endpoint time out?
 
-As always, additional reviews still appreciated!
+I see you're from NVIDIA, so if you're confirming that this is a
+hardware erratum (not an issue with the GB10 PCI controller driver),
+we should definitely apply this, and I'll wordsmith the commit log and
+comment something like this:
 
-- Eric
+  When asserting Secondary Bus Reset to downstream devices via a GB10
+  Root Port, the link doesn't retrain correctly.  The link may retrain
+  with a lower lane count, and config accesses to downstream devices
+  may fail.
+
+Bjorn
 
