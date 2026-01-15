@@ -4,116 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B16D44C69
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 15:34:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF46D44C67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 15:36:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wMkEqy+uDWrHSQF+ACfJj7LpWMdWf144VOaBVvCOyHQ=; b=R/WG7al+YBeEz0aJgbXMvbzWl5
-	Bg9z/Yu0aqvcNZnFIs4pCsD1b6naPojHRgaevc9F8ZCpFpW+l9cqtJM5FHWGfXqFBY0EuTEQ8aJ7Z
-	fvnj0Kh1P/1HtjypZUhyr7xCU6HPx7ALoq0qU1xtAfuzZ7HHS/UkIdUDsHa86hV69B0ckG3nha8vM
-	IshquYQQC1a3PCL0qtVXk6wGJp7xPGLD6/y6yVbHWj41iVfrPMZGK8tqM+XUsCsvE1Y8NjQZRU7LW
-	HhIQ7Np4DOV/Q0skYICSE9fVBxb+Wc4DoEzf65ovDnA1Lj2JRrN1Ts0MMXwg4K771Ff2+1RWNzYYW
-	UHU9N49Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yt5/Jla47xnRpCTeglQDnku1TanwOQ9fk9T2xPq3hAg=; b=CANYJnDGwoDws0PpJKdVQCyQWz
+	5UPhJ9nJkDAR6ZV60BTPqutpR6xVn0Otq1lDYmyMJU7EWHUm+Nl7hdOEbb2+FKEbqoDoeicFM4p+D
+	E7neqz9W78x04tpnxZj5JCIgfTQf5aAHGUVc9tDWn6pHPWmqr+X7rOw7jTW0BIS8X7FR6tlVXJglp
+	rE1MS1/WThs1sfa3R1CCMudCziPux7FgjJ/AN6UedDyyrG2KWBwTBzWgiLEN8hWyh82L3tKrwNBRl
+	UB2j146tG0rk8ThayYuoA3kuwDPGrZWctfydcChLZCA6+bu/XPbO7a403CplIfi3/su0qOFx1wNgr
+	p/4VJtJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgPN4-0000000CbjU-1mZc;
-	Thu, 15 Jan 2026 15:34:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vgPOF-0000000CbsQ-1Ftg;
+	Thu, 15 Jan 2026 15:36:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgPN2-0000000CbjM-2Yb7
+	id 1vgPOC-0000000Cbrx-3shc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 15:34:48 +0000
+	Thu, 15 Jan 2026 15:36:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1814E6001A;
-	Thu, 15 Jan 2026 15:34:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC273C116D0;
-	Thu, 15 Jan 2026 15:34:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CC9F840DF5;
+	Thu, 15 Jan 2026 15:35:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE23EC116D0;
+	Thu, 15 Jan 2026 15:35:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768491286;
-	bh=0JxRnZ4zP0bNYiDg6+YLfy06LKhjX39gyT0+B2N4vG8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oPMKsVzDcCt+ji0XfhGCxdFchmNMT8/iu5YPNYfGkGwthPZPabD/negWeDvxnRiXM
-	 xQip8+Hs8JehnqDmYpBQhtLttYVYQtSVRljY35Gf6PTJkck9zfxe9h+OcXPee7IRxW
-	 NHxuqZ8jsWMFtcb8uOnUuD1vgL4zjn1efTGjxEP8ZnYDRPy6ZJbvcepFVb9wesUvt+
-	 LjCzV7ZyCawnDLw7i4RS3aK/GLRL9lFvJia0I5E4Cvh95KwPThGbIKQZoA+T2NPh4P
-	 zMblEjwY1yEe74hbSaLTSlUK6zAXCxesj5sZJMrAK4Og3wQseLMN5Gd9uARNI3zxTY
-	 uu0rWf1GEuXZg==
-Message-ID: <e2f028d6-774f-4773-889f-7d56b833067e@kernel.org>
-Date: Thu, 15 Jan 2026 16:34:39 +0100
+	s=k20201202; t=1768491359;
+	bh=ba4TWvFWpSIOZy47Mwu+Mtaoe2Sy+4tdPfiDGXoPsgY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CYM4CjX9tlHYehK4JYmPMTSTc+H2yn9ztnTSQD1VHNDXoY8xVduFYQ+yXBwvKJcmw
+	 mODvHP41pzinHYaNSg/h03Azc4gfzgBFQ8QWv8VNtAuPdLWQLT+p/dV0OmuQUWJU+J
+	 qyc6+R42hoIVDNVBZCC5Rk4HPe6WRggwvj72CHc0vrPszPj7PBHQLEQKBHHo+cbv+9
+	 4JUSrqpmoW3eDI38d1Hit39os9PtI7mTBtWE1WeKmZsjnKQquygmSbvgmEOjDMK5eM
+	 6jgomLdWialEZcebnX3avfpLPtzf82gBm0z+2kqJTMmqzQRJr/eUW4cSokEH+nNv7Q
+	 Av4+8r8sZ6fEQ==
+Date: Thu, 15 Jan 2026 21:05:44 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Hongxing Zhu <hongxing.zhu@nxp.com>
+Cc: Frank Li <frank.li@nxp.com>, 
+	"jingoohan1@gmail.com" <jingoohan1@gmail.com>, "l.stach@pengutronix.de" <l.stach@pengutronix.de>, 
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>, 
+	"robh@kernel.org" <robh@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>, 
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: Re: [PATCH v8 2/2] PCI: dwc: Don't return error when wait for link
+ up in dw_pcie_resume_noirq()
+Message-ID: <egnjo4t6odkhnbcusy2daosqm37a36bu6xc25pdgr4bbli2v5j@r7cwxkwfafbj>
+References: <20260107024553.3307205-1-hongxing.zhu@nxp.com>
+ <20260107024553.3307205-3-hongxing.zhu@nxp.com>
+ <7akwvdfve5jcj2tm7jiwowkvcctsmqeslia4pulvtdgcgicp4p@h5ztwyp4h7ft>
+ <AS8PR04MB8833FD0095481ADD280363628C8FA@AS8PR04MB8833.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] dt-bindings: mfd: Add Google GS101 TMU Syscon
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>, willmcvicker@google.com,
- jyescas@google.com, shin.son@samsung.com, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-hardening@vger.kernel.org
-References: <20260114-acpm-tmu-v1-0-cfe56d93e90f@linaro.org>
- <20260114-acpm-tmu-v1-3-cfe56d93e90f@linaro.org>
- <20260115-slim-denim-potoo-cad9cb@quoll>
- <200d34bf-150e-4f8a-b400-2f54863502ac@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <200d34bf-150e-4f8a-b400-2f54863502ac@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <AS8PR04MB8833FD0095481ADD280363628C8FA@AS8PR04MB8833.eurprd04.prod.outlook.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260115_073601_001687_94299FE7 
+X-CRM114-Status: GOOD (  27.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,115 +83,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/01/2026 15:53, Tudor Ambarus wrote:
+On Wed, Jan 14, 2026 at 06:46:23AM +0000, Hongxing Zhu wrote:
+> > -----Original Message-----
+> > From: Manivannan Sadhasivam <mani@kernel.org>
+> > Sent: 2026年1月13日 23:30
+> > To: Hongxing Zhu <hongxing.zhu@nxp.com>
+> > Cc: Frank Li <frank.li@nxp.com>; jingoohan1@gmail.com;
+> > l.stach@pengutronix.de; lpieralisi@kernel.org; kwilczynski@kernel.org;
+> > robh@kernel.org; bhelgaas@google.com; shawnguo@kernel.org;
+> > s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com;
+> > linux-pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+> > imx@lists.linux.dev; linux-kernel@vger.kernel.org; stable@vger.kernel.org
+> > Subject: Re: [PATCH v8 2/2] PCI: dwc: Don't return error when wait for link up
+> > in dw_pcie_resume_noirq()
+> >
+> > On Wed, Jan 07, 2026 at 10:45:53AM +0800, Richard Zhu wrote:
+> > > When waiting for the PCIe link to come up, both link up and link down
+> > > are valid results depending on the device state.
+> > >
+> > > Since the link may come up later and to get rid of the following
+> > > mis-reported PM errors. Do not return an -ETIMEDOUT error, as the
+> > > outcome has already been reported in dw_pcie_wait_for_link().
+> > >
+> > > PM error logs introduced by the -ETIMEDOUT error return.
+> > > imx6q-pcie 33800000.pcie: Phy link never came up imx6q-pcie
+> > > 33800000.pcie: PM: dpm_run_callback(): genpd_resume_noirq returns -110
+> > > imx6q-pcie 33800000.pcie: PM: failed to resume noirq: error -110
+> > >
+> > > Cc: stable@vger.kernel.org
+> > > Fixes: 4774faf854f5 ("PCI: dwc: Implement generic suspend/resume
+> > > functionality")
+> > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> > > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > > ---
+> > >  drivers/pci/controller/dwc/pcie-designware-host.c | 7 +++----
+> > >  1 file changed, 3 insertions(+), 4 deletions(-)
+> > >
+> > > diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c
+> > > b/drivers/pci/controller/dwc/pcie-designware-host.c
+> > > index 06cbfd9e1f1e..025e11ebd571 100644
+> > > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> > > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> > > @@ -1245,10 +1245,9 @@ int dw_pcie_resume_noirq(struct dw_pcie *pci)
+> > >     if (ret)
+> > >             return ret;
+> > >
+> > > -   ret = dw_pcie_wait_for_link(pci);
+> > > -   if (ret)
+> > > -           return ret;
+> > > +   /* Ignore errors, the link may come up later */
+> > > +   dw_pcie_wait_for_link(pci);
+> >
+> > It is not safe to ignore failures during resume. Because, if a device gets
+> > removed during suspend, the link up error will be unnoticed. I've proposed a
+> > different logic in this series, which should address your issue:
+> > https://lore.kern/
+> > el.org%2Flinux-pci%2F20260107-pci-dwc-suspend-rework-v4-0-9b5f3c72df0a%
+> > 40oss.qualcomm.com%2F&data=05%7C02%7Chongxing.zhu%40nxp.com%7Cf8
+> > 79871f9d0445aa0a3c08de52b8a2c0%7C686ea1d3bc2b4c6fa92cd99c5c301635
+> > %7C0%7C0%7C639039150121991830%7CUnknown%7CTWFpbGZsb3d8eyJFbXB
+> > 0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbC
+> > IsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=PNdsT530dbRQkgYsrr99gB1cUE
+> > BLOkynvciC9tiB0Ic%3D&reserved=0
+> >
+> > Please test it out.
+> Hi Mani:
+> You're right.
+> Tested on i.MX platforms, no error return anymore. Only "Device not found" is
+>  dumped out when no endpoint device is connected. Thanks.
+> Tested-by: Richard Zhu <hongxing.zhu@nxp.com>
 > 
-> 
-> On 1/15/26 3:36 PM, Krzysztof Kozlowski wrote:
->> On Wed, Jan 14, 2026 at 02:16:31PM +0000, Tudor Ambarus wrote:
->>> Document the bindings for the Thermal Management Unit (TMU) System
->>> Controller found on Google GS101 SoCs.
->>>
->>> This memory-mapped block exposes the registers required for reading
->>> thermal interrupt status bits. It functions as a syscon provider,
->>
->> I don't think this is syscon, but the actual TMU. Syscon is various,
->> unrelated system configuration registers.
->>
->>> allowing the main thermal driver to access these registers while
->>> the firmware manages the core thermal logic.
->>>
->>> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
->>> ---
->>>  .../bindings/mfd/google,gs101-tmu-syscon.yaml      | 37 ++++++++++++++++++++++
->>>  1 file changed, 37 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/mfd/google,gs101-tmu-syscon.yaml b/Documentation/devicetree/bindings/mfd/google,gs101-tmu-syscon.yaml
->>> new file mode 100644
->>> index 0000000000000000000000000000000000000000..6a11e43abeaa23ee473be2153478436856277714
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/mfd/google,gs101-tmu-syscon.yaml
->>
->> Not MFD either, but soc.
-> 
-> You are right, it's not a syscon, it's just a normal thermal IP block
-> from which I need to access the interrupt pending registers.
-> 
-> Then I guess I shall describe the new binding in bindings/thermal/,
-> please correct me if I'm wrong.
-> 
->>
->>> @@ -0,0 +1,37 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/mfd/google,gs101-tmu-syscon.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: Google GS101 TMU System Controller
->>> +
->>> +maintainers:
->>> +  - Tudor Ambarus <tudor.ambarus@linaro.org>
->>> +
->>> +description: |
->>
->> Drop |
->>
->>> +  The TMU System Controller provides a memory-mapped interface for
->>> +  accessing the interrupt status registers of the Thermal Management
->>> +  Unit. It is used as a syscon provider for the main TMU driver.
->>
->> No, it is not a syscon provider. Entire last sentence is incorrect. You
->> must describe here hardware and this hardware does not provide any sort
->> of syscon to any sort of driver.
->>
-> 
-> Indeed.
-> 
-> I'm going to link the ACPM TMU child node with the TMU node via a
-> "samsung,tmu-regs" property.
 
-This could be fine, but I actually wonder what's there. What registers
-exactly. For example modern Exynos 88xx, already with APM block, still
-have exactly the same TMU unit at 0x1008{04}000 with all typical
-triminfo, current temperature and thresholds.
+Please share the tag by replying to that series.
 
-> 
-> Some concern that I have is that I describe the clocks and interrupts in
-> the ACPM TMU child node. Usually the clocks and interrupts belong to the
-> node that contains the reg property. But I guess that's alright because
-> the interrupts property is expected to be in the node that the driver
-> binds to. For the clocks, by placing it in the ACPM child node, I allow
-> runtime PM to manage it.
+- Mani
 
-You have to first know whether these clocks and interrupts are going TO
-the ACPM node.
-
-All this looks like designing for drivers, sorry.
-
-> 
-> Do you think the below description is accurate?
-> 
-> soc: soc@0 {
->     tmu_top: thermal-sensor@100a0000 {
->         compatible = "google,gs101-tmu-top";
->         reg = <0x100a0000 0x800>;
->     };
-> };
-> 
-> firmware {
->     acpm_ipc: power-management {
->         compatible = "google,gs101-acpm-ipc";
->         /* ... */
-> 
->         thermal-sensor {
->             compatible = "google,gs101-acpm-tmu-top";
->             clocks = <&cmu_misc CLK_GOUT_MISC_TMU_TOP_PCLK>;
->             interrupts = <GIC_SPI 769 IRQ_TYPE_LEVEL_HIGH 0>;
-
-This I doubt, really. Why would ACPM child be hooked via CPU clock and
-interrupts?
-
-
-Best regards,
-Krzysztof
+-- 
+மணிவண்ணன் சதாசிவம்
 
