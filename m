@@ -4,119 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D51A9D44C7F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 16:28:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0548D44C7D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 16:29:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=URJX5xTHolO9FC46ryjpGruJ5TGEDEyfrbwATuqwgLQ=; b=UbVGd9wTNNRHUoattdfgRexEaD
-	yn0dLWnXvnXxYkY8FRXHhbUaRS24viZl8HsPFGdZpT6YdlxD04H82I1VIskFyMcvFCk2vEs4EMKuV
-	vxfYLyntYOMfj2WUVHI0eoy8HMyxJJzt49TN4d9/GQWAbK+gvrItjgXnbZcDX7ofHol4Z09MipjFi
-	6Qs5ZYZfE7IM3SUVnbf4iK7TYA4Krlk3E2U2qbmS0yF1PiimAOUf9ePRVaa4bZIOD49e6DO6OYvtc
-	qKet4L2GKGzBEK4gUrnVxLLRKsaUajucUk34QRHnQ/wgJSDwfnN+BxOgTRSTCoy+HUh/tTOQagX3j
-	coaOvPOA==;
+	bh=qxog1eCx7h7Hrm36bCFeJVuKEXiDXl65p+sUNcgC/KA=; b=i5Qb8ZCgrUCu3m4u830hxmItsK
+	4HrRFzTp0TV7mDcrcLAqLhrMk+5jfnmyyEfoJY2QojuxeNWJ4kW7KPDDmgoeKIzrYVX7tpaVY9xxh
+	VLAfTefzh7sS7K7gPjb2RZLZNzz3DmpTZ1JVQScp4sFGeRTrH4OkhwiMSatFZU0PcARLYjohGfZRH
+	7p/IU9L8C47yqI59z6HVhcTvv3VwB4Rc8XKJqO/RQ/QY/Zo1S3IFktRaBJshm+gQ79Tna8DJH/BSX
+	tmLrEflQegg+XVx06ci+ZJJtaKyrLK8tMdBn2+CB03YUn3nffdQ7Lj0mRlYr1pQcKgEWTXb6a4XHd
+	x0/DeNvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgQDM-0000000Ch28-3vbb;
-	Thu, 15 Jan 2026 16:28:52 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1vgQDx-0000000Ch7Y-2b9B;
+	Thu, 15 Jan 2026 16:29:29 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgQDK-0000000Ch11-2CzX
+	id 1vgQDv-0000000Ch6y-0Jgx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 16:28:51 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-432d256c2e6so892729f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 08:28:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1768494529; x=1769099329; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=URJX5xTHolO9FC46ryjpGruJ5TGEDEyfrbwATuqwgLQ=;
-        b=ALZOzStXIPkGagswmZPpSJpDPHck/uP3TMJADyIj6zYsevpH+4211o+B+qmY7+G/QS
-         RvfTRQ7qLds56ALcOlZOL0nV6Zfr/Gn29CMBA+GS5zVR2Su5H9Kg4Ye3lBSlGLXBbADP
-         Zt2VSVSUu377b/Z3DUbCldH1rRYcGFgvCWXJtLQNWrI0sWueJnf5uW0dLPWNWqp/tsWl
-         Z5t/dzY9gpkM9L1BJLJJyHXchyDk2l4QDeewjOpHAje8OAQcLMe8t7yb52bnZbBROQkH
-         HTtKkPYqmjyjx7M9H0AiMBwMwdV1kHw5ySynoX0ckphR8vD0/bck7VxRJTv/OSM1Qtr3
-         0Vwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768494529; x=1769099329;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=URJX5xTHolO9FC46ryjpGruJ5TGEDEyfrbwATuqwgLQ=;
-        b=nMpZmbhx/5sbaT9BOgN8Tq5WsXcIqoXu+YLZgaZ7A+WuOBwn85pJJJhQ+2IHL4cIJV
-         7K8ZYbPQOm3uhffr1oERvuk/jQ+OBGebJ0zkeh9LRfnkuZBdHoOoAvgKMrHMwuVEiUQh
-         sPR9YFjuZprm6DTFtwulEcKZb/SFtxLVaovLS9hdlOqdxXTHSENsIkbXacqp0TX/gTPx
-         B4qXtZfX44xTq+PWkbd6srOPBgIaN49lzQUixHeGmxXQlfhjC4aEEFAFUy+nD65whn7Z
-         kZ2KFINo9LpdG638ok12+dt226xqeQS6yejD1vQISv11F8Zz43WF0zXVFTKErrI5Si8T
-         4rqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVy6B900IZnVjqCfdXmb9yKOCmczysZCJT1OSzB6IBxgUillswdcEx82uwzJtailBK2ZGGES4Imypg8Sv8o6DU2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyz+HklppK8sLMKtctVIh+7FuaNN1UANMOyvbdfkr9WygpQ4giq
-	xRd08TkdFEbSM6xlwLj/QScEAZhcQ7vfr2Vlf0wRgRkAT9FFk3sUd1U93wCrV6S0ihY=
-X-Gm-Gg: AY/fxX5NWJqOTg+ewYVGp7b6oX9WsWCc7gIPDqogvO/HqGslOVVzNv0UEPr1nHQkzxA
-	eKIV+xPO6gtQSqskjUqmFJXh63/ygxS509WzuMiWQhgPuBbTdao+CqKOzd1W6W+lykyjJRsOHCZ
-	eVFRgpA4+10m/XEg2ICBLd8u9kcIFaIDhURGAdyIqBtPgOilcRFvuFxZss4KIGk7g9oCpkYvFEf
-	nRh2PxxKn4G/So31yQ+WF6R2bBU0aeJubiQv0ZKCXS351Gel4ufR6uMfl6jkQ10JNroSZa24Rbj
-	5Kk9IoE6c4ZTtnyqoZIye7nP4PNYwSQUhPTvx6dVCW6Id0wG9YWFbSzIxePJ2MRCqoYP9eh6ilQ
-	I3+2K17IUDtxy+tW4eVPP8979HCqBfelDFy92JH8L646Lf/Y15CD9IX8n6Ybp8gQLGPjjkabguN
-	0tAEcI1DpsMb0oHQ==
-X-Received: by 2002:a5d:64c5:0:b0:430:fd0f:2910 with SMTP id ffacd0b85a97d-4342c501a57mr9777353f8f.26.1768494528600;
-        Thu, 15 Jan 2026 08:28:48 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-434af6e148bsm6604069f8f.33.2026.01.15.08.28.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 08:28:47 -0800 (PST)
-Date: Thu, 15 Jan 2026 17:28:44 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: Marcos Paulo de Souza <mpdesouza@suse.com>
-Cc: Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jason Wessel <jason.wessel@windriver.com>,
-	Daniel Thompson <danielt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	John Ogness <john.ogness@linutronix.de>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>, linux-um@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kgdb-bugreport@lists.sourceforge.net,
-	linux-serial@vger.kernel.org, netdev@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-hardening@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 16/19] drivers: tty: serial: ma35d1_serial: Migrate to
- register_console_force helper
-Message-ID: <aWkVvCu74HhV7W9s@pathway.suse.cz>
-References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
- <20251227-printk-cleanup-part3-v1-16-21a291bcf197@suse.com>
-MIME-Version: 1.0
+	Thu, 15 Jan 2026 16:29:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UFkMdUgoxtf7K+vwuIDvqQdYRfKLBzFWkuEBut9yg/fe2dmJ6AA8D62dVybfBEpPB/lJ+foUhhhAlzXpgjOcf7/fSoS6hTkYz1HYY2J7CK19S9qq3MbG2vm423Bxy7tUcClrIIdKJYHOwMvQu00fNMw4NZIXiuG2w6V1plVh+6JeHrCw0XtiO1V9Q1iHfSOmAlJpzsokLKPIQwnKRoO3gG9a+1SuTYa3K1Xgn1edh2ugXGNpZJO83M+dlIfcOqRXc5M7hiAB/RsyIxSavp6ZoPNbcyWvYvlvziHv+UCinGYRBZzmsqOT6O9k5TD5hzXVsMJHU04SBJxLh26wm48FYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qxog1eCx7h7Hrm36bCFeJVuKEXiDXl65p+sUNcgC/KA=;
+ b=gnTOVtG/SOK60L24CTKS5uGDjIsm/ff6fy9uUZCjyvaJ0/pnUR+EFSZSu7TL30FJQfjsB7/76fwqnvSmM8+fOEKR8BYtUaa6u43ct+QFrVMXKUsltgjC431rjF0AcVevxCHyQ/9dOuZ5cWpgCjU3uPgjLC3e32bz7ZUgC4GTZeU/tfohatn7WrmncsdsK91j7VvxlOPivnE/mr0RSYsKqlG1naTC0nCOOGSX4ddDp/X1o+jzu3ftNqRVKLQ/TPzGALonIuwriRhuEMA5mLefnIJGm/Q6aI7NnnApE1Un0vnSmePYmtc+z1cWqshHxgY5QAf1U2QwqBky6n7ND0jP/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qxog1eCx7h7Hrm36bCFeJVuKEXiDXl65p+sUNcgC/KA=;
+ b=jBrUmz0KXtutdvf9lFhVgzKVhJaQDpJmYnTSI5vo36nXI7bRNdtUlltCg9R9MQlE0Psi6wovX0ECGz2JC9EEdTFXlIlkY4uKC3HT5/HO6NOh3eOomk6diArW9w7Z6c8V4/2oDXgVkuaSMwvILKZzbotEv1Lw6Z+OcTFqTpbMjMYBSOWOeKuQ9hqE9xtUXA39X/Bvum1Q37kGWMntXmSgVbTjLmDQxImXKv6lIWSaRfX1dUNFF5zTnw4CSQaeCbXnDgvDGhHBUIY88zN8W3LI0sl7ud/2ZRnmWOQ8DJEoOmwXYndSGeULH1TiUA/elAZ+VMIJiTjqT1SBVSM7lzjyZw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CY1PR12MB9601.namprd12.prod.outlook.com (2603:10b6:930:107::16)
+ by CY8PR12MB8065.namprd12.prod.outlook.com (2603:10b6:930:73::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.6; Thu, 15 Jan
+ 2026 16:29:21 +0000
+Received: from CY1PR12MB9601.namprd12.prod.outlook.com
+ ([fe80::cd76:b497:475f:4de3]) by CY1PR12MB9601.namprd12.prod.outlook.com
+ ([fe80::cd76:b497:475f:4de3%6]) with mapi id 15.20.9499.005; Thu, 15 Jan 2026
+ 16:29:21 +0000
+Date: Thu, 15 Jan 2026 12:29:19 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, robin.murphy@arm.com, joro@8bytes.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, skolothumtho@nvidia.com,
+	praan@google.com, xueshuai@linux.alibaba.com, smostafa@google.com
+Subject: Re: [PATCH rc v5 1/4] iommu/arm-smmu-v3: Add update_safe bits to fix
+ STE update sequence
+Message-ID: <20260115162919.GG961588@nvidia.com>
+References: <20260108003646.GA537728@nvidia.com>
+ <aWUY-f3kvM94z4qh@willie-the-truck>
+ <20260112161010.GC812923@nvidia.com>
+ <aWVETpwlx9Rhs8Kw@Asurada-Nvidia>
+ <aWZfUNXEka3GBf9s@willie-the-truck>
+ <20260113161253.GG812923@nvidia.com>
+ <aWarF90zBqxD0Gef@Asurada-Nvidia>
+ <20260113205112.GJ812923@nvidia.com>
+ <20260115131151.GA1081267@nvidia.com>
+ <aWkU4a1wj5jsWFev@Asurada-Nvidia>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251227-printk-cleanup-part3-v1-16-21a291bcf197@suse.com>
+In-Reply-To: <aWkU4a1wj5jsWFev@Asurada-Nvidia>
+X-ClientProxiedBy: MN2PR01CA0058.prod.exchangelabs.com (2603:10b6:208:23f::27)
+ To CY1PR12MB9601.namprd12.prod.outlook.com (2603:10b6:930:107::16)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9601:EE_|CY8PR12MB8065:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2376199f-3bb3-4f8a-3e13-08de54533c96
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?w6MmcMBNsuZ3Gf4SyASAwj4MiI1YVtWeXQNpday8IuLfqFI1aIluWUw09tEh?=
+ =?us-ascii?Q?Q+VuxYowp/qpcNxecUK0KcS/2dWydPZz3qhgdH5yAECEjvAQgunaHrdVA05U?=
+ =?us-ascii?Q?z/X9H4D1pdYCbMA89cA/JDOOBMl3fKzSDQUgtSQuoHFXdRC07/XXbuGgZt9V?=
+ =?us-ascii?Q?xuQAq/ENpi03suttjc9M1em2KINVVjr2i3gPc1iHqFukdKwq0cohh0MKn9B+?=
+ =?us-ascii?Q?q+IWuLpe75yYlXx1TVpeOuR9j9kTU1F/tat+EpXLiwazp89ayjDT996qhVU0?=
+ =?us-ascii?Q?bjN6gH2i9om33C/iY4/3ePNp6syOIreavpjgKz+Nh+Ji1leJNewVKUEmc+gB?=
+ =?us-ascii?Q?bicciT7s1nakXu7GsVyRvRd25/SuxEtlkODTiy+azXPhyqEbOGanhYJ+WbvG?=
+ =?us-ascii?Q?hBZvTU1TIRsUQF/IvHEseqt6fZfruk3bIdjIQWXjqnMxoN32Mplw0WSY/2TA?=
+ =?us-ascii?Q?zMRfqPgymxL+R8A09YrDKaymtbVnm4WKBmwYUfwYsNoSg+BE+H3PI6bDh/ZV?=
+ =?us-ascii?Q?FurpZSobFcJybBZM+b5jXh3z3lNB6MOpVrbO3wD/5wHQvTL58sp4p6nZYHNy?=
+ =?us-ascii?Q?iRg+hYdGue4FYGhuL5auEJKNSPQJ3mKIIyhBg5WSO1bodiNipQV3bpQvofDL?=
+ =?us-ascii?Q?Sasx/MiC9Ai/ruMAaHCfy+efQQNyaaIguNb5fiQk943Xyy3V5umIIdKwaQXf?=
+ =?us-ascii?Q?J+xwljEI0i4Z6dFOsUFweGR+/B33+EhoIx+sR+szw0gKeiEN8S1yO2wF71jQ?=
+ =?us-ascii?Q?OwPmYq6nnN/rIo6XoUN5iNBU+IKm3wQs5IwWtXhbWQDkPM1FT8Z7Q9IAt2Ek?=
+ =?us-ascii?Q?/8GixSR+FmDkcUdjJfMWGex/GX51jlt2lQ6SGbE0RY1IlsdPyjOcQpkyFi0Y?=
+ =?us-ascii?Q?LSFU3hXemO92DErBqwXGYb9gAlqeUNItx05Nr2euEOVdIivfdeA1uj3h1O45?=
+ =?us-ascii?Q?zBz6TD/Wux7wdbwiVUblPKGhLxYhiGdMvC8bT9zRtdvFZNRPX+VJG9BHrUA0?=
+ =?us-ascii?Q?unJEzLyeru0iM2YUotyyXJ3OpYFArWqpUxfZSIUQkuZ0egyXyUuAzL+DirKd?=
+ =?us-ascii?Q?VFP2uF5LNRqPe+b0SfE3U+FNJbAkEzk4lbJeWybIa1wyuTB0XSRCQ/ds1cuL?=
+ =?us-ascii?Q?2x4ghxtS9LfHaSju3jDzjzaoSKZhCNqx7CcmTvoGAKUkTzH6q0occ9DXUExq?=
+ =?us-ascii?Q?gpjZYTpbzaTd288VgpCWiirH9SS53KjI7B/wsxURyyZoMXXauxJVwTO8Fv51?=
+ =?us-ascii?Q?kwniKC0u+Ih0nizob7pGHxJSAFEMjofreJz8KS3nnKWYAwJnbLTdfIN2HiN7?=
+ =?us-ascii?Q?qvP8P71WABB03r05mCG3K/AGa6UGKFWDVYb2Eji9XFZ+0v+KdHwgUvkTz6UO?=
+ =?us-ascii?Q?R7lW5hPsGkPzsTgewfNdZvSCgXSwfYNfVKKSvt1OPva2F25Zz1jEhVB0uLH2?=
+ =?us-ascii?Q?8Wvig9IVuUUYQ+EmIFzBm/ZhZmhZulEewdLti0WUff4BFWyjR0FpNTM9Z0SE?=
+ =?us-ascii?Q?JxkLQwkoaWLQ4hC/yXxeCTPEtdIHfy7X7CZKgRujC8H4hyaih0sD15xzcdJk?=
+ =?us-ascii?Q?AaP9hRdLvYPdHEhS3r0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9601.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/xYR0MWfpbONdxgtRzrTYoEscToudOxEh8nAv5ZODqJeyL1EHlZ2QK2t+dgZ?=
+ =?us-ascii?Q?bvYfwQrruYtzM5Vg87YS5HKKAtmMf8QuZeHcdzGaAdoDQNEz/Fz1tC1l6l3k?=
+ =?us-ascii?Q?r3v5cTPkH/xKnE+uDvbkkbp0ucw5Z85uGuVomK5s6W+kby2RE1X0MaVPPXhX?=
+ =?us-ascii?Q?nbCVsOma/m88+jsK5SGhUqduCq42k4aZHSzhKRaSMSYbPZGoV3MXz6QZ5KgX?=
+ =?us-ascii?Q?k5JTOJ+nbS2yowpM5BX3Pcrg/pTUnyxIT6vGHi6RnPzMDnFYTUUnRrh3fvGF?=
+ =?us-ascii?Q?vbRV7tbu1lYWiIOHRY/SXtUPljSceob5UU1n5AnO8Srog1ZFnrqb9qIXuPt5?=
+ =?us-ascii?Q?prCDnqUw4wJwEAGKiDpHXIIx0Btf6H68QR3Fh6NviGa307vqifLw8IH/4evX?=
+ =?us-ascii?Q?u7HF4qao0sVmrJcLcRbsj0kUpegt2mSqlT96C9onM3u0LXI5hTr1Eq/981Pf?=
+ =?us-ascii?Q?irRHEXNJtZQhAY/+BQD/wtaz5MCAl0z8Q7swja9pdAxVy2HcsVUYYX4TlWMe?=
+ =?us-ascii?Q?3I2ldCI359gJbt+HtlO4onqAIDviDotvHYy2+D8RLHjn5zZ4K/71ymQtIEuj?=
+ =?us-ascii?Q?I3DvRGDRWLyLsepYeBu2gg8qAhW3QUHRzWMsUrj9Hnd/trPKu0qT8xpSHw9+?=
+ =?us-ascii?Q?NYMH/iwrg4BdQJxZeFwvgFf+/azJbYeKDa/fk0sFq5vPb5QlMKpjJAklgmJd?=
+ =?us-ascii?Q?7qaF8psgyhgzQY4/fUd9ZokJTFDqV2zgTZx+KGtTZtmWq9kb5efN2NrMRxvQ?=
+ =?us-ascii?Q?QlF9SfrLQOr00q3D2B+mD/vZKay+mnlSECdvnug/QLloYbJryYfVG0pHqXGC?=
+ =?us-ascii?Q?6Tapq+Odj0yx68SOHcB++J5vaHUEZ5ry+UXrvOFS/caihLR+vFOTIl8dR+v3?=
+ =?us-ascii?Q?YDm/Wxcqdc3U9vvpveGjobZdPKUlywoh0lqkwI0b3KNbtbsQEvQe0FJb9sLz?=
+ =?us-ascii?Q?P3kzjPBxEcE8tYux2/8mVzwbJFJiBTkETce2tPAOaBwK4bFhdG9jvLr96Kde?=
+ =?us-ascii?Q?3qhKCy3naQlqFB2GR1ZjFQep3Q5p75rn5Q56fEqh3d6gH7rYhYxI7lCjaccH?=
+ =?us-ascii?Q?9yhmVEj9G36DmGXvdQYKZWdaTb21uTBTYkySUb22+Ns7LEesPIsRSLiiJBDs?=
+ =?us-ascii?Q?PxvaiX2xC9iIBkCw/EP4cR3iuvdrMN5HLdWaHUrET1oNfH/nOKaIoJYX7pmP?=
+ =?us-ascii?Q?zSqvHe9jVLV9OMIlqpYTKY6fLiwLxmWBRT+WeJHEFkM1dRphzt1lN6ylxubX?=
+ =?us-ascii?Q?HvtgKuTh731O64YcuU8FBokb4PxSRYCL4r2VFFE5RlZ0Im16x9scQVz95Azm?=
+ =?us-ascii?Q?QhdzvWTPfvYTpHLdjLKO76eLh0/j2jj4NALef+8TV830AAW8Xf9HXHILHdFZ?=
+ =?us-ascii?Q?rbddSDZmD9G4mFIOLRx1DLbw2u5QYp4Js4ZmfIRkQLO48PB3qadYJhcpOzNn?=
+ =?us-ascii?Q?p310iiWCr2DwK65zApyL0/ziCdrCpuHWEZaBwo7fHjRv+GAO54wIxDpkgI8e?=
+ =?us-ascii?Q?PGb70kfkjYWNj2ZU+py3Y8zYKvKbNTdnHPpsJUS/Fu3caSELjksFtS7/eYnb?=
+ =?us-ascii?Q?F8M40DW4vliFDCN4AzpHHGltnK58MNAHz3vRHOArErE4bB25OKgXetmbUm5/?=
+ =?us-ascii?Q?+tZuqJiFAt31ExdVAL3oQ0V1w0GnlP11AlwuYBKEXvwNOo//BoEg9LNDUbNo?=
+ =?us-ascii?Q?XclsOGY4mF0tR9Vy6W1q8rXetI2+raTU5QW0mq3/POYXhk1nwBA43m4t4wOG?=
+ =?us-ascii?Q?xVzL15jE6A=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2376199f-3bb3-4f8a-3e13-08de54533c96
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9601.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2026 16:29:21.2702
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZePZsDhDPKG0bnVQ6IT7dYy1ugjb3BOXXCC06wyjRn5Yuqq4ri796lRdAdIW49Zz
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8065
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_082850_596067_D2648FEE 
-X-CRM114-Status: GOOD (  25.47  )
+X-CRM114-CacheID: sfid-20260115_082927_115481_39FC26CD 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,111 +172,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat 2025-12-27 09:16:23, Marcos Paulo de Souza wrote:
-> The register_console_force function was introduced to register consoles
-> even on the presence of default consoles, replacing the CON_ENABLE flag
-> that was forcing the same behavior.
+On Thu, Jan 15, 2026 at 08:25:05AM -0800, Nicolin Chen wrote:
+> On Thu, Jan 15, 2026 at 09:11:51AM -0400, Jason Gunthorpe wrote:
+> > On Tue, Jan 13, 2026 at 04:51:12PM -0400, Jason Gunthorpe wrote:
+> > > > -       safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_EATS);
+> > > > +       if (!((cur[2] | target[2]) & cpu_to_le64(STRTAB_STE_2_S2S)))
+> > > > +               safe_bits[1] |= cpu_to_le64(
+> > > > +                       FIELD_PREP(STRTAB_STE_1_EATS, STRTAB_STE_1_EATS_TRANS));
+> > > > --------------------------------------------------------------------------
+> > > > 
+> > > > @will, does this look good to you? I can send a v7 with this.
+> > > 
+> > > That is an easy way to address Will's observation, makes sense to me.
+> > 
+> > Ah, but it looks like it can generate an errant view of a EATS that is
+> > neither old or new. Ie value 3, reserved.
+> > 
+> > I think you should just check if old or new has EATS bit 1 set:
+> > 
+> > if (!((cur[2] | target[2]) & cpu_to_le64(STRTAB_STE_2_S2S)) &&
+> >     !((cur[1] | target[1]) & cpu_to_le64(FIELD_PREP(STRTAB_STE_1_EATS, 2))))
+> > 
+> > Which the current driver never does..
 > 
-> No functional changes.
+> The EATS field is completely controlled by the driver. So, we are
+> safe for now, right?
 > 
-> Signed-off-by: Marcos Paulo de Souza <mpdesouza@suse.com>
-> ---
->  drivers/tty/serial/ma35d1_serial.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/tty/serial/ma35d1_serial.c b/drivers/tty/serial/ma35d1_serial.c
-> index 285b0fe41a86..d1e03dee5579 100644
-> --- a/drivers/tty/serial/ma35d1_serial.c
-> +++ b/drivers/tty/serial/ma35d1_serial.c
-> @@ -633,7 +633,7 @@ static struct console ma35d1serial_console = {
->  	.write   = ma35d1serial_console_write,
->  	.device  = uart_console_device,
->  	.setup   = ma35d1serial_console_setup,
-> -	.flags   = CON_PRINTBUFFER | CON_ENABLED,
-> +	.flags   = CON_PRINTBUFFER,
->  	.index   = -1,
->  	.data    = &ma35d1serial_reg,
->  };
-> @@ -657,7 +657,7 @@ static void ma35d1serial_console_init_port(void)
->  static int __init ma35d1serial_console_init(void)
->  {
->  	ma35d1serial_console_init_port();
-> -	register_console(&ma35d1serial_console);
-> +	register_console_force(&ma35d1serial_console);
+> Should we add this when the driver has the actual support for the
+> split stage thing?
 
-Sigh, I am afraid that this is not enough.
+If we have figured it out now I would add it because it would be a big
+leap to think the next person will remember about this detail..
 
-I double checked how "ma35d1serial_console" was used. I guess
-that it could get registered also via the generic uart device
-driver code. I see the following:
+But yes, this and the S2S thing don't effect the driver as it is now,
+it is just doing work to help future people.
 
-#ifdef CONFIG_SERIAL_NUVOTON_MA35D1_CONSOLE
-[...]
-#define MA35D1SERIAL_CONSOLE    (&ma35d1serial_console)
-#else
-#define MA35D1SERIAL_CONSOLE    NULL
-#endif
-
-static struct uart_driver ma35d1serial_reg = {
-[...]
-	.cons         = MA35D1SERIAL_CONSOLE,
-[...]
-};
-
-static int __init ma35d1serial_init(void)
-{
-[...]
-	ret = uart_register_driver(&ma35d1serial_reg);
-[...]
-	ret = platform_driver_register(&ma35d1serial_driver);
-[...]
-}
-
-And the gneric code:
-
-uart_configure_port(struct uart_driver *drv, struct uart_state *state,
-		    struct uart_port *port)
-{
-[...]
-		/*
-		 * If this driver supports console, and it hasn't been
-		 * successfully registered yet, try to re-register it.
-		 * It may be that the port was not available.
-		 */
-		if (port->cons && !console_is_registered(port->cons))
-			register_console(port->cons);
-
-[...]
-}
-
-, which can called via from:
-
-  + mux_probe()
-    + uart_add_one_port()
-      + serial_ctrl_register_port()
-	+serial_core_register_port()
-	  + serial_core_add_one_port()
-	    + uart_configure_port()
-	      + register_console()
-
-
-Honestly, I am not 100% sure. The struct console is assigned to
-.cons in struct uart_driver. And uart_configure_port() function
-passes port->cons from struct uart_port *port. But I believe
-that they can get assigned somewhere in the maze of
-the init/probe code.
-
-I would feel more comfortable if we kept the information as
-as flag in struct console so that even the generic callbacks
-could use it.
-
-Anyway, it makes sense to create a sepate flag for this
-purpose, e.g. CON_FORCE or CON_FORCE_ENABLE.
-
->  	return 0;
->  }
->  console_initcall(ma35d1serial_console_init);
-
-Best Regards,
-Petr
+Jason
 
