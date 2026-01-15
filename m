@@ -4,74 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0667FD44C76
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 16:15:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90EC7D44C7B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 16:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zjAI4sw5fZWleNcy5E+bpQXvW8kKtlqPBKTICHmyuec=; b=r9YXPNq/+5k2xjZ/tBo5nIc8Si
-	h92xbLk8SJYQi4zoCozcA5jRzF58N/2Kzas7yBSM4e5H3vnsY9Fl7Rp0sHmthdJt16JEyXX1T/OIr
-	lcgtJsTHaAcfDfqQRvPCY5qLe7pKuk5jwGIAepAvz8ISojC2O5EiOAPAMFNseMObUwNxY3iPzfW/5
-	I+5qaRfrbjb18Rf8QXHmSyk63kD2TtKLAsoAAkyb5P1t2fEbeT8lGxG0Zj8JlUtlX1Aduv3TZJ7/U
-	QlodB4ZHmROoQnFrp/0YvrQCjO6ecxQFoLWX0+muuw7ne6PdD2NfbNw5FcVrZjuQ1k93S09Kydm/K
-	BXWfb1aQ==;
+	bh=UcPjMQs8wlZ69D72bOHJHv8LmpfNACepVb1D7xG/5V4=; b=wyiy+WAZuL0cVNZVBvHlQS6pD5
+	mOZ+d2NRm7XHP1qy+PliDL4a5sxxA4lYmpl0zfZtm3ICofo1gWdsWSODOg85BCSQ9bj1WkDcoYdVD
+	2W0cw0SVXvgrZCsTqecEIAWzr5nM05SzihoLDG3YpZ9m1+4IITQXHL95nzbkD3PMMbtlSyffIHL0H
+	/GOOFcONFIEc5dVjzVXsLn6hz2fOXt5RFt+SOKLsP0hgvygZLHLE/20jiWkwK3/TFDP/8OAj6IdGx
+	+AMB8/ioWLKvjo1HjtE9MqaSBfPdx2MvQGmKYtPcR+DvVqLpCArh4RONVp+D2MD/SR/ZhDmE8Ihkm
+	0vYtMr0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgQ0N-0000000CfVa-1Z2m;
-	Thu, 15 Jan 2026 16:15:27 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vgQ9A-0000000CgNO-3o6x;
+	Thu, 15 Jan 2026 16:24:32 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgQ0I-0000000CfTs-0ImD;
-	Thu, 15 Jan 2026 16:15:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=zjAI4sw5fZWleNcy5E+bpQXvW8kKtlqPBKTICHmyuec=; b=SgdIcZUflo3NqJzUtZoYf3GC3K
-	JoftSOW3X/lY1Pi0hsKuGnEAdP4Xkf5RvordXf9jqy/NXsqZI+Z3rm0864ea3sOV7wd/8n9x7TvtR
-	ARiOH/6XDRwyxFUUZHmrpZt0rTw3cKAEfr/8D2rBa/g7KXdHd4XnhJA71SnSWDqVtE46lIRk+gy1J
-	Q0WOnuPWm0qZF9cm/OdeCNOkNotf4XE+ZUvm31xeAo65yyG78TGmmnh9t5FRX88lrDB46GzObUFAh
-	+/gpCNBZZk3YysdtvJL0VWcu3kTeeVsfbo57gmVuXzvKtkhX3JI40zs0p7BTnQcxIo1BAyB3m1W7H
-	bUiVO0eg==;
-Received: from i53875b85.versanet.de ([83.135.91.133] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vgPzV-002UXc-0C; Thu, 15 Jan 2026 17:14:33 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Andrew Jeffery <andrew@codeconstruct.com.au>,
- Linus Walleij <linusw@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Emil Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
- Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>,
- Basavaraj Natikar <Basavaraj.Natikar@amd.com>,
- Shyam Sundar S K <Shyam-sundar.S-k@amd.com>,
- Bartosz Golaszewski <brgl@kernel.org>,
- Steen Hegelund <Steen.Hegelund@microchip.com>,
- Daniel Machon <daniel.machon@microchip.com>, UNGLinuxDriver@microchip.com,
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Patrice Chotard <patrice.chotard@foss.st.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
- linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, sophgo@lists.linux.dev,
- linux-tegra@vger.kernel.org, linux-rockchip@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH 10/11] pinctrl: rockchip: Simplify locking with scoped_guard()
-Date: Thu, 15 Jan 2026 17:14:32 +0100
-Message-ID: <2415619.22IY78Rhhi@diego>
-In-Reply-To: <20260114-pinctrl-cleanup-guard-v1-10-a14572685cd3@oss.qualcomm.com>
-References: <20260114-pinctrl-cleanup-guard-v1-0-a14572685cd3@oss.qualcomm.com>
- <20260114-pinctrl-cleanup-guard-v1-10-a14572685cd3@oss.qualcomm.com>
+	id 1vgQ98-0000000CgMK-15FE
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Jan 2026 16:24:31 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-38301bf7864so19993091fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 08:24:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768494268; x=1769099068; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=UcPjMQs8wlZ69D72bOHJHv8LmpfNACepVb1D7xG/5V4=;
+        b=FcCBqeabsyrDr7QQx9SRaI62TwFgj1yv3JvIc8xKw3cnyUfYpIfSyaYePGMINKUyrh
+         31HcRmltKEog6MyUyx+JQm9gKENZI6YAIx5+7wgNBiyrNQL0pd3KtytQ1blnUmYXworR
+         j/IJAjDEf5hK7lEnCCM5IBPIMHlawitQeGzRWDK9AiCQsyEKwjYrZMueM4OPcg9Ufrq/
+         82ctX4+K4+mXd1JEaAsAaRf9O7ZT/sG/C4x1STDZJI3cxEexqcjHkwfM9EJ9UEYGeVSl
+         6wBh3Tsg31DWl28iSuoRJnKmQs+Sw63Aul0MbwlQddRVgjbZBbs/t/onL+kjhrG2SdYo
+         WSIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768494268; x=1769099068;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UcPjMQs8wlZ69D72bOHJHv8LmpfNACepVb1D7xG/5V4=;
+        b=e/Af0LkK9ZqgOs2gskOLPxRLfpXHUh/jRexhAwioJLM+Ht3nzCR1PB/I6FXxvw67h3
+         XeHLW+tRvd+jb4OiVpn5Jf9nWYwZbeiMu/LCkBiJ1v2NFM0/kQTE+8oG74wivBvSvEua
+         WM/NU/O5gxeQWow43+G1E+OVOew3wwjhQ//jOWtpNRkKZO8r5OX8/UoJL8UaqK7hondp
+         RlXB2HtXI+q9vns4csFpUUYT2ooxAEaUKQOB0IKKkpgnjKAIZqCVsG6dV8lS962VTZXA
+         BQ9/KUR2pv9/JdQ4tNduJZOOINcXiUlWJMqdf/g+Mm2nGImg+AUOHY18U6J4+2oWHL0G
+         +zxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUbzW83ib/d/UBysfpj301tpH0+7gZvCZXzDGXrPJZXTK2aifAYH/QRFPkwPeB5ZvVp4AgC1Pgij8jeHb1Gt9TY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHN96uTIMsk+n3w25SgKIhkCrhd1SqlYWNwb3dEzGF7zf7tic9
+	Y9kWV/0/TqLcvzVysLGhJRca9T25Uh7JGhodPOifMdythQVu/9POIqzYMNkeOrlrrjiGKxvGhaR
+	iMEZR5AvoeurJxsGaOpjf7Ff0Im0YZVCGh5+9h7F7uA==
+X-Gm-Gg: AY/fxX45ZBM0+F6PorOmqEU9tDmNRQcrOfeboym/CIq9TOlhAgYxIUzL58Db/DI3qwZ
+	eUyGd0MEYeJgTvsk7gByGoXC1t548cAeICaq9ZxMnrmkAGfQSWgx+LXTPuBjlGCtHMMVQQKMuAZ
+	xSzIpymaHxHR4xb9Dc1FrR7fIE9+Jy/+Ct75aet3mxFvR90M/c44Thb5Lk/eqcxRWXIHA4V/pWT
+	fYPjDv3v2Gr17aGTMi6l2sYksnosrHOMNsVqRJj+F+2MHjT/j+zzlCVyUw9FIjUa1HtXL99
+X-Received: by 2002:a2e:3003:0:b0:383:543:66d with SMTP id 38308e7fff4ca-3836f09c3afmr8580341fa.16.1768494267944;
+ Thu, 15 Jan 2026 08:24:27 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+References: <20260113110012.36984-1-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260113110012.36984-1-angelogioacchino.delregno@collabora.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 15 Jan 2026 17:23:51 +0100
+X-Gm-Features: AZwV_Qgstc2v5holxo2-uqRefc6HR54B_5kwg-eT_5uV86kY4RNFn6HUBQ_JID8
+Message-ID: <CAPDyKFohjOfdg1vz1o4FAhThm_1CTF46SgrWSJuJYt3mLLJwNA@mail.gmail.com>
+Subject: Re: [PATCH 0/5] Fix dtbs_check warnings for MediaTek MT7622 platform
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, mturquette@baylibre.com, sboyd@kernel.org, 
+	matthias.bgg@gmail.com, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-pm@vger.kernel.org, kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_081522_750288_16345547 
-X-CRM114-Status: UNSURE (   7.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260115_082430_303051_5687F735 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,14 +94,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 14. Januar 2026, 16:30:11 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb Krzysztof Kozlowski:
-> Simplify error handling by removing two mutex_unlock() calls with
-> scoped_guard().
->=20
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+On Tue, 13 Jan 2026 at 12:00, AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> This series fixes various dtbs_check warnings happening on the MediaTek
+> MT7622 Home Router platforms devicetrees.
+>
+> Depending on correctness, either the bindings or the devicetree was
+> changed as a dtbs_check warning fix.
+>
+> AngeloGioacchino Del Regno (5):
+>   dt-bindings: clock: mediatek,mt7622-pciesys: Remove syscon compatible
+>   dt-bindings: power: mt7622-power: Add MT7622_POWER_DOMAIN_AUDIO
+>   pmdomain: mediatek: scpsys: Add MT7622 Audio power domain to legacy
+>     driver
+>   arm64: dts: mediatek: mt7622: Add missing clock to audio-controller
+>   arm64: dts: mediatek: mt7622: Add missing power domain to afe
+>
+>  .../bindings/clock/mediatek,mt7622-pciesys.yaml        | 10 ++++------
+>  arch/arm64/boot/dts/mediatek/mt7622.dtsi               |  7 +++++--
+>  drivers/pmdomain/mediatek/mtk-scpsys.c                 | 10 ++++++++++
+>  include/dt-bindings/power/mt7622-power.h               |  1 +
+>  4 files changed, 20 insertions(+), 8 deletions(-)
+>
+> --
+> 2.52.0
+>
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Patch 2 and 3 applied for next, thanks!
 
+Note, the DT patch (patch2) is also available at the immutable dt
+branch, for soc maintainers to pull in.
 
+Kind regards
+Uffe
 
