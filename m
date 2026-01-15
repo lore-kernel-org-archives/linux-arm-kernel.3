@@ -4,113 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1D18D3CCA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 02:13:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2556AD3CC9E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 02:15:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Toy1ZyaLVodwPTTRmNCo/wZeyOVmB3/xwLKWz+z4Kq0=; b=E7y3kHzri9zTokCg27DetZK0h9
-	z4EXwkXSYxulgQ34rDvPt5Dlsb79AV/h3rNZGgveorn9R5VZnlMY7i99l5I1lYkPTVwe9Zo3kJS10
-	rzzZzLAxxk1TIsGwI7pxOoJkffWWpkPFawdRVGjTZQlKqfda184Iul1v2vQBGmVtRu5fVgS1thZT5
-	N/k6pnLt+wYd+t2fS07IZXL9awfEExkAeAfmd6JLh0UW1amH3e7cATZKrPIMf5FwRJlgkJii/L33i
-	tFZdkReBqRUL6GkAdalkOQAFRJbNeJgkSjSKd6RgGxpYDaAG0LxszzgDMLwGgBCajkrT1Sc2U60It
-	cVMShEDg==;
+	bh=yBd/uOr7Tfjqx2ZFIk1KhV0s5KsOum1wlt8qSseZ4Yg=; b=uQj7voWStxlFLDmVaU0Z4/Z/U9
+	wAmu+/H/08YB3hTzs73M9KOm6ykqmuNgEX3KHPzO4sCQ13U3kIlDFIEyEwWH4t4HUY2rql04mQM/V
+	KQR9AwR/wOWISl1r9eStht3IXc1kNjgWh9CvRs7M+twPrgYXYHkr/WagQ07rGQ+4LPIB73ZNRN2Gn
+	NDu99lBxTphDXHbFVcGu24U+KYaSyZ6G/GWzXL3NCoLQwetCD5O8QlbtMO3inWEwXmj4ogyAnpm7C
+	O620Ep2SPD8ExM2qcoRb+UowRhzsStmgHezQ8oWrqBpR6AvDc5VBa1pyych/7gYC9NSAA80RJUCA0
+	bpv1J9RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgCrT-0000000BVbk-0dI8;
-	Thu, 15 Jan 2026 02:13:23 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vgCt5-0000000BVqH-2joO;
+	Thu, 15 Jan 2026 02:15:03 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgCrQ-0000000BVac-0IeA
+	id 1vgCt1-0000000BVpA-26bE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 02:13:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1768443197;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Toy1ZyaLVodwPTTRmNCo/wZeyOVmB3/xwLKWz+z4Kq0=;
-	b=hLUlIcDyO3z2i3trfMPWNSxYWuIyvrWuuc/Qo2CZJfyBkH8DNwZY/KKcH3vX344XMew4QB
-	tXpmRnKoIpoqX4dndYm4beuw9Al1jekRTr01jNdO0LxrAuncSnDuVmjFXgyTttC2BxneAu
-	rPXK9faHi5TI891zSZkBxtoRgN2inpc=
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
- [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-490-uvFRDQOeNYmOIlifHJ5OcA-1; Wed, 14 Jan 2026 21:13:15 -0500
-X-MC-Unique: uvFRDQOeNYmOIlifHJ5OcA-1
-X-Mimecast-MFC-AGG-ID: uvFRDQOeNYmOIlifHJ5OcA_1768443194
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-34cc8bf226cso392797a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 18:13:15 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768443194; x=1769047994;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Toy1ZyaLVodwPTTRmNCo/wZeyOVmB3/xwLKWz+z4Kq0=;
-        b=FH+bxVHvEGyFLwO3j8s/1kSUsPY5jw2UPioILbQcsOluouHQKz3y2pF4RAY7q/2McO
-         1Iu0FY2N7l03r/vuBqRwOSAVg9z8NdeyKrS/DW1e/af0INm3/DgL2Pq/miFCGjXU3AXj
-         /KshQrgJ3IbB6s5dTrm+P+90AtcYG/O5/W31AStM6QU9L/KopQrQnmD7pGSFDh6gQodY
-         H9BgHEeNeXqdDysJT2m+MRvMlRvO5SpPGoQaaoxAB8Ehpe6mctZBGdL9HVomZxlcKIE2
-         OcHD4no8yJdMXCmLqmLus+Zncm2rEFPoZLJUZA8BiH2fW0v/luZQ25qEdFLcXGiK64q0
-         3nng==
-X-Forwarded-Encrypted: i=1; AJvYcCX8c3gCAtrULIbjtSCWfS3jLY5HABF5r8eJV7YNvX5LPTgIASzQunRDL20j0pam2Ys1ZYQb/iHAZIkLUeG0186X@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjCJShBZg/OwKEa6XVxn21SYJfyERgHB7ETgch0vEmH5Pq2ehC
-	BPaDgiRKfw431wceJPm49Gl+8e6YNafJEQjhcPp2ye0fzZE6df/j8o/gjDwn1w+s6aT9gNQ6St/
-	C9tkcHtQ9Aah+XAd4DiNs+GiqzeuICEeGfRhyMPmLm5l85zjASW53Fp4XH8SUPgB4vhUXUSdoqS
-	LA
-X-Gm-Gg: AY/fxX6/btJLVKdiAGeUl/HuMsVTdvpDyh1gqJTnaIxdlXWvxNXAEEQOxZu0xiAMUYi
-	dg3UBQIPdkZgMjuOh0KrFaCc1fMyqmyTgrOuf8EVBcrAyXq2ikRybmh0xfumhTs8/+3Zy8D70dK
-	nkncnF+vnMuW2+/rvn3OF2Gk1+43ghQ9lA8lk4uSN0UKY9MBivwaVNjCWpu8UKX1XCpyVAMy0KF
-	L90X3YdE+MT7L+N9ko0UqmLKgqkJINzDCG8SmtCwtFtYtGB1g08E40KB6gw6Rx5XpcJaG7io0/s
-	iSqHj4RDQ8kBTTH0lZ4qSZ7m7TvgG7bZ6LBoxuAzHZAQAVLYhFE5tvhnl8HHagWEYR+yQTiotmc
-	f0A1noDAEXRU=
-X-Received: by 2002:a17:90b:3b87:b0:34a:b8e0:dd64 with SMTP id 98e67ed59e1d1-3510b08f706mr3668284a91.1.1768443194141;
-        Wed, 14 Jan 2026 18:13:14 -0800 (PST)
-X-Received: by 2002:a17:90b:3b87:b0:34a:b8e0:dd64 with SMTP id 98e67ed59e1d1-3510b08f706mr3668262a91.1.1768443193741;
-        Wed, 14 Jan 2026 18:13:13 -0800 (PST)
-Received: from [10.72.112.168] ([209.132.188.88])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-352678c6a10sm574950a91.15.2026.01.14.18.13.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 14 Jan 2026 18:13:12 -0800 (PST)
-Message-ID: <aee2390d-faa8-4060-8441-9d70d6d7bc67@redhat.com>
-Date: Thu, 15 Jan 2026 10:12:57 +0800
+	Thu, 15 Jan 2026 02:15:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HVWJp4eqJ8DReAyNYgGnlgeXxEcxwzwm0NtRHW3nbBSuawl5rrOLScQFELCUdVSRGRfezdn2zgU3SiDF0STw/AMZimOLodhRSekGsTxBPLk/HBZO5oP7rFho9ObRR/k7v1wW9NdTlByMb7/3l7h/OaVb+iijXNErYYKV1u1kV5USz5FGTGCdWkmsYtYkeGc2rRwTJ/dTElce3bzs3iWN3pFpRwFVczx+fBh1B2O6S3mcja/rmdPbK1eIUulzvc2hXkUrVHk0T2jeQMaipKaKK42chu3p/oHcS99/68uqIt0CrpSU110w+5wL36Ge5sPrghh8hhZjuYL/zJN6ck2Z4A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yBd/uOr7Tfjqx2ZFIk1KhV0s5KsOum1wlt8qSseZ4Yg=;
+ b=nIP1RgefJd6AN5/40q/SMVvl0O7W9PULmUyipZXJYO8kcyIBC0InAWi7FC9LjNu7C/T5UOxFkJdYBqtjEJBqMhLAmVl8dTGM6sV1slCuulqbaTmwcWTgmPX30nOzcyxR54F/aMtYVUWmRnzy2mLz8TKyrMhTSaWDvDu2G1ShE/GC42c28AaLponWC4vuQwkWfgGW2LXcul4cK/QnMBt66OW4Umd196QwvzTrv7NSmmXEGsJ7hdJgfqsEtyM7kZwni3MnicjCIKpXNX02OBy4Q4hxMrigpFir9juoLYTbcRQadl0ITWaJw/3VzfEB4odm2vOFWmHFHOhcB1/25Srkag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=amd.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from PS2PR02CA0082.apcprd02.prod.outlook.com (2603:1096:300:5c::22)
+ by PUZPR06MB5538.apcprd06.prod.outlook.com (2603:1096:301:ec::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.5; Thu, 15 Jan
+ 2026 02:14:50 +0000
+Received: from TY2PEPF0000AB88.apcprd03.prod.outlook.com
+ (2603:1096:300:5c:cafe::7b) by PS2PR02CA0082.outlook.office365.com
+ (2603:1096:300:5c::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.5 via Frontend Transport; Thu,
+ 15 Jan 2026 02:14:50 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ TY2PEPF0000AB88.mail.protection.outlook.com (10.167.253.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.1 via Frontend Transport; Thu, 15 Jan 2026 02:14:50 +0000
+Received: from [172.20.96.43] (unknown [172.20.96.43])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id CBDF14160CA0;
+	Thu, 15 Jan 2026 10:14:48 +0800 (CST)
+Message-ID: <896a47be-20cc-405c-9a4a-c4112b30d4cb@cixtech.com>
+Date: Thu, 15 Jan 2026 10:14:48 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 01/47] arm_mpam: Remove duplicate linux/srcu.h header
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, james.morse@arm.com, jonathan.cameron@huawei.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
- Jiapeng Chong <jiapeng.chong@linux.alibaba.com>,
- Abaci Robot <abaci@linux.alibaba.com>
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-2-ben.horgan@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260112165914.4086692-2-ben.horgan@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: gmjcqMsX9_HAGOgOnpYTQ2Ps2vD74ISURYlAS7p5cwg_1768443194
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH v3 2/3] spi: spi-cadence: supports transmission with
+ bits_per_word of 16 and 32
+To: Rodrigo Alencar <455.rodrigo.alencar@gmail.com>,
+ Mark Brown <broonie@kernel.org>
+Cc: peter.chen@cixtech.com, fugang.duan@cixtech.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, linux-spi@vger.kernel.org,
+ michal.simek@amd.com, cix-kernel-upstream@cixtech.com,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20251031073003.3289573-1-jun.guo@cixtech.com>
+ <20251031073003.3289573-3-jun.guo@cixtech.com>
+ <fu4ujdxwlhyhuwjtsiebje5pyc32rfs52vo2gyy7nay2krkxeh@wpls44xdfgy4>
+ <0dbf3a5b-6a60-46d8-a358-61b8d527a8da@sirena.org.uk>
+ <lbijvnnwsnddonmm5pveqzap6iibxhl4maneq43x4j6w64dev6@u75qhm5cwiob>
 Content-Language: en-US
+From: Jun Guo <jun.guo@cixtech.com>
+In-Reply-To: <lbijvnnwsnddonmm5pveqzap6iibxhl4maneq43x4j6w64dev6@u75qhm5cwiob>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB88:EE_|PUZPR06MB5538:EE_
+X-MS-Office365-Filtering-Correlation-Id: cb72f6c4-2bdd-41fd-29ee-08de53dbdce5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?aWlhSkhlWElZNHZJd3pSaFVpNVVSZndrMk52anNVTWZkakVaamJrTEhWZWc1?=
+ =?utf-8?B?NU9XOXFPQ2lOeVJTbzZucnRoMlB5N2YzaU84NGYydi91cFFlU09ydm5DUVJ1?=
+ =?utf-8?B?cGN4WklXekN3SGQ1WXhFSmJsUzZJUm5paXFIaXBYSmo3MmRuR1RoU2h0azNa?=
+ =?utf-8?B?QythRnFRYldMY0VQZ29CQkczamdNeGdNTmxKYmoyWkFTZURJaU1mTVl1aTcx?=
+ =?utf-8?B?ZW1LdzgyZEd3bW5kSDlhWnBOSUZKMmFDdlMzd0Y4bjkxYmxRYUsvaUNsUVRR?=
+ =?utf-8?B?OUh2Z2MzWExwYWhXL05DOWtCcHlHNCtjQ0wxRVcxd0tnKzhwYms0WTBKVGxQ?=
+ =?utf-8?B?aStYRWg0a3l2ZUpEcVZ0VmdGWDRuSG5QVnVNVDJaRXIveEZOL1JWQnVKRU13?=
+ =?utf-8?B?SW5RNFl6Qi94ZkhnMW9SYUtsb29CcVJORUdWUlFPM1E4dG53bWx2V1YrejNM?=
+ =?utf-8?B?eG5aeGdaSXFzdU9TK0ROcnVrcWQ1ZG5qMEJ6cWdtb09Bb3d5YVBVeFFrd3Zw?=
+ =?utf-8?B?UUplbW9CRkcwaGlZZ014RUh4Z1FhdDJxeXFiVFpmbm44b3hoUWgzOThZOFRY?=
+ =?utf-8?B?a0lTWTFHcDQ0dHVUeWpCODBiaWdjVFo2Sm9SQ2JYcmtZZ3VpaHBUK3REdjFL?=
+ =?utf-8?B?RE9pQ2N3TDgzWFRlMTRLbzI3OFhVcTV1R05WNG5TNEFXVE93V3NOTERGVVo3?=
+ =?utf-8?B?aGdXWHZ4TE1jbDdaSjdEcVVvSndMbVlnOXg3K3o5THovNzNJKzdmVk9PejI1?=
+ =?utf-8?B?VUF4WDR1cmpJWVdSUUpoa0pIbktXZlA3TjRIclRTM2JsUmdGRmpwcnBJOXM3?=
+ =?utf-8?B?dHViaXlsNkt4NmZRV2sxLzdTbFk2VWtzSTZBVTNvdFNWNTdnMCtOSnlEZzRn?=
+ =?utf-8?B?bHp5dytxeXZiUE9ZM3c1OFNlSHprZENZU085aDU4L05pWnk3SHU5L21Mc1l4?=
+ =?utf-8?B?aDJmZWo5WW9QVFZXN1huc1QvWmhuQ1FTK2Zoc3JyL0dudlo1WjZwYk5BVUFU?=
+ =?utf-8?B?MVd1RDMxU1NXc1FlSGplMHdHVm10LzN5K20wVDh6QUlPdmpyMCt2amZVS3hF?=
+ =?utf-8?B?a3c5eTk3eWJiV1hVbnU2YzdPV2psVzhTQjArVC9HQXo2WU5TRmMrQ0lzdHd4?=
+ =?utf-8?B?WGRybWI1T2pIVUEvTWhvWHpRYU1wei9ManEvelgwdFFPU1orMnVRdTNRazE4?=
+ =?utf-8?B?bnM0TVlvMWhhUUMwUkNQRXJwdUx6dExKTVhoTHBoYVAwQ21vWVVwV3ZsV0Ju?=
+ =?utf-8?B?VFlnM1hzaDY5UHAvM1ZWelZ3YUxKQzVWRUtYenJBMk5tZ0o0cXVEN29vVGli?=
+ =?utf-8?B?WVM5OG5ZaUExeW9oTGd6N1M5VFgxdmZ3dEpNdEExRUQ2MnFmcVFORy9yYWkv?=
+ =?utf-8?B?QzQ3T2ZPUU8xOUprVThxYnUrWFpPK21Lenp4VURHbzRVR0srdElqYkhKTlB1?=
+ =?utf-8?B?YTYzR0VrMzdOWnMwVkJUSG96OXh3TlNXKzluQyt3TUJYMWZjZFg2V0IzVnlH?=
+ =?utf-8?B?L215bWxENkR4eXJycE5kYVFKSXFqcG5TaS9PWkZzNWJ3bUNJdVJkeE81VHRQ?=
+ =?utf-8?B?eUFuZmZ6UEI5ZW9ZQlFKMTF1R3VyN3ZyV3E2SVhHT2p1N3VtNmMvT2VSQTda?=
+ =?utf-8?B?THhMMml0L2NYOVdsMG9jS1loVjlkOHBycllaQUk5YTBaMWx6ZTlqa1ZQM3Iv?=
+ =?utf-8?B?WVh3aWtYNCt4QWZ6NGZ6U2wrVjhFUVRRSGtDbm92dmFJL3hnMjd2MUloWmJG?=
+ =?utf-8?B?UmVYZ3IrUTRiM01TU01NQk5TdEJYblNKd25MQlRGYnplT0Juc0ViclMvUFZw?=
+ =?utf-8?B?QTZuSWNvUm9zZThHbFlESTJhS1plVTFKd3FhdGhUWkJlbzhDcjFEV3UwTktE?=
+ =?utf-8?B?MytMb2ZIYkdWYjVGTnY1NnpRMkJtWU9xNllFdExVb2tGbGhGR3JSZXJOQ085?=
+ =?utf-8?B?Ty8wejdLcVh6TXVpdG9zYXZVNlVWVENORGdNN3cvMkNYMGVraDFWMFlwckRa?=
+ =?utf-8?B?eVhra0JUM2pLaHJPMk1zNUR6ekFwTjVRWlRnWFR4UkFtZmgzdldhbG13dXIx?=
+ =?utf-8?B?WE9rOFpkUVJ1ZE9vSklHbnFMWDZlWXRnT1htU2NtYURjcmUydit2b3hwRk9C?=
+ =?utf-8?B?aGdBSThHT0VXcHJDZG5NNmlLQ1UxRlMzUmFjOEgvWFVZSVFnZ0FxRmo4TEVN?=
+ =?utf-8?B?ODJ2cDdFRzVtdzNxVFhWaHltU1Y3THRkdmtzM1BWZFZJcUN6alIzNGw2UDRS?=
+ =?utf-8?B?UFRjWTZLNWtaS2hKU3ZjdDBaWTBBPT0=?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(36860700013)(82310400026);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2026 02:14:50.0063
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cb72f6c4-2bdd-41fd-29ee-08de53dbdce5
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB88.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB5538
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_181320_188989_B49B7142 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260114_181459_569169_B4297560 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,23 +157,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/13/26 12:58 AM, Ben Horgan wrote:
-> From: Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
-> 
-> ./drivers/resctrl/mpam_internal.h: linux/srcu.h is included more than once.
-> 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reported-by: Abaci Robot <abaci@linux.alibaba.com>
-> Closes: https://bugzilla.openanolis.cn/show_bug.cgi?id=27328
-> Signed-off-by: Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
-> Acked-by: James Morse <james.morse@arm.com>
-> [BH: Keep alphabetical order]
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
->   drivers/resctrl/mpam_internal.h | 1 -
->   1 file changed, 1 deletion(-)
-> 
+hi Rodrigo,
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+   I'm very sorry for introducing this issue. Thank you for your 
+reminder. I will immediately submit a patch to add 
+SPI_CONTROLLER_MUST_TX to the flags during probe to resolve this problem.
+
+On 1/15/2026 12:09 AM, Rodrigo Alencar wrote:
+> [You don't often get email from 455.rodrigo.alencar@gmail.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+> 
+> EXTERNAL EMAIL
+> 
+> On 26/01/14 02:16PM, Mark Brown wrote:
+>> On Wed, Jan 14, 2026 at 02:14:35PM +0000, Rodrigo Alencar wrote:
+>>> On 25/10/31 03:30PM, Jun Guo wrote:
+>>
+>>>> + if (xspi->txbuf) {
+>>>> +         switch (xspi->n_bytes) {
+>>>> +         case CDNS_SPI_N_BYTES_U8:
+>>>> +                 txw = *(u8 *)xspi->txbuf;
+>>>> +                 break;
+>>
+>>>> +         cdns_spi_write(xspi, CDNS_SPI_TXD, txw);
+>>>> +         xspi->txbuf = (u8 *)xspi->txbuf + xspi->n_bytes;
+>>>> + }
+>>
+>>> cdns_spi_write(xspi, CDNS_SPI_TXD, txw) needs to be called regardless of xspi->txbuf.
+>>> Otherwise, there will be no clock for the read operation to work.
+>>> This is a bug I am seeing on a Zedboard running on 6.19
+>>
+>> So the device needs to be flagged as SPI_CONTROLLER_MUST_TX?
+> 
+> yes, It works if
+> 
+> ctlr->flags = SPI_CONTROLLER_MUST_TX;
+> 
+> is added to the probe function. At least for my case handling with "xlnx,zynq-spi-r1p6"
+> 
+> kind regards,
+> 
+> Rodrigo Alencar
+> 
 
 
