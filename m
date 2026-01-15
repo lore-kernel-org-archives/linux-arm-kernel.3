@@ -4,57 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FC8D41149
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 09:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F9B3D41151
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 09:51:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Ck81Ki9W0YHtOSpuJal2y3UEQEIKX6XtTO5XoFMyzXI=; b=Cm7cTTsOYtBL+c
-	tqODsiTtga9VtDn+Tjg+RKIARSY/QVWfetUW7MnQYMqfga1CbBX6We9cjxBhNSywJDCQkDDoJr2o0
-	GwmGi5Jp2GAtUj1yi7M1Ki6zgSBaOfRQN1qXDuLI1fkrBbOu/QkIyvpYbuaPpX1sHws5+9Xo4m7xX
-	OujL8BlETmZCitDA0sstWvdjMKfV/GniPnbeA7SX8oy+SSXuwMV7I6vmH3brMvhBIWcPfw037fW+e
-	swKqBwwuL3Rqrn/dsKagWyhVitnee7Af5ITHC9z7PM1YBHKiC6JuAaY+JPeBjLSrkuV+iFhmzgIeI
-	3LlbmUrRqFdavBCxk7IQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oXpew4cDk0UrNh7eLUCRmYFZER8zCn2IwNYv41sZQeQ=; b=P69iNCWUtBLcS3eS7sruVgj+D+
+	YVwwqTSlz2f0MwGTM6zJpecw2nevhnmjP6FrVYuFD7DfB/epsgKY0COhM61sPvjYQUYGSfZqJKl4/
+	8d7PGMM8qvjp7I/mnvXakgZi3vtIBcegStsEs7sw1kgAK9tcX6bpykbOAaGOo2TtaOTMdvP0Whax4
+	pcFSOENBkSBcWn5qmb0EfGCUuIVs+sNXp9JMK1X9icBEmsYd0Vt0l8sqMUffQkreu9cJY8Gmh/Som
+	pi0iT/ba2fUwPF0Tj4BqxEudhBpWM+dRWMnJpTL+rfor67PbbAJTUnwU5u1jX6yMgxuZvTeM+7Ely
+	Ri3mEYaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgK0X-0000000C68a-3BQr;
-	Thu, 15 Jan 2026 09:51:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vgK0a-0000000C69S-2Tko;
+	Thu, 15 Jan 2026 09:51:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgK0U-0000000C687-1wkY
+	id 1vgK0Y-0000000C68Z-0OQN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 09:51:11 +0000
+	Thu, 15 Jan 2026 09:51:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 321B240C48;
+	by tor.source.kernel.org (Postfix) with ESMTP id 27CDA601B8;
+	Thu, 15 Jan 2026 09:51:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B831C116D0;
 	Thu, 15 Jan 2026 09:51:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA3C1C116D0;
-	Thu, 15 Jan 2026 09:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768470669;
-	bh=pRUo4IfxKSIdmqxfjlq5gep3aUZS10dP72qqvU6sP+k=;
-	h=From:Subject:Date:To:Cc:From;
-	b=HzIJoWu6DQj06GQph5RB+kUjQyIrbkLnNGn26cDf5NdD8j+0RNIrOScndC0SyvYor
-	 l7+sVNrsv6eEJN1LpsWDgOOPOC9HjuMvH74m+uW9pXTPqpQq9H48f1Ak50zHwJ+APw
-	 GII9f1zjX46qSFcpdxKVHscq05XSQYCNDknbVKgy8cqnZ9HaP+AYq4xZH16R4WAlfM
-	 GXxr/zB8BOIcWndxZJM26VIZSgtImg6Jwbom5E0hDw18NNpLcMMpC1SD+NoooSeZKR
-	 lEZ6g95O6Z1HPxQclKxEhgtjogNnVusxksq0VhBNKBkI4+vsB7YHx7/uazqby4cGzM
-	 nXu7E4ucjcOkQ==
+	s=k20201202; t=1768470672;
+	bh=YBaXKAlozW+FYMpEzXzll2PzBijH4+E23WmpoK+kcUE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=HnSOVkL4OrQiSP2yCQeizqnkagsNgPPwPBF66l8foQfSAlklF+e5AaEjavQA4KYyT
+	 jGi7AbKnc87EgONLRTOV0dmACVXNCvrExT3uS8eae74cUZQAHcrrV3lCwBPJe/yLJY
+	 6AXMry/xt41t+868fgUxf2gXhuqvi/0ds8GY3cj4gnFdO0gQX6HSBfoQ+W7F6I+Bh1
+	 OO+ysDCSfnFXhILpK+OUG3oBro9Wh54u2Cvy0dzkjF6/3+X8Xwx5ODeEDErrHGJdJs
+	 /31yCPOI12Jum05n0jwN6q4NACHNC4c3RGIRC/6aW7Rc+kn9zbxrDbMAfoulDWCrWc
+	 BNUjVdINHiPCQ==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: [PATCH v3 0/6] irqchip/gic-v5: Code first ACPI boot support
-Date: Thu, 15 Jan 2026 10:50:46 +0100
-Message-Id: <20260115-gicv5-host-acpi-v3-0-c13a9a150388@kernel.org>
+Date: Thu, 15 Jan 2026 10:50:47 +0100
+Subject: [PATCH v3 1/6] irqdomain: Add parent field to struct irqchip_fwid
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHe4aGkC/23PTU7DMBAF4KtEXuPInuL8CaFKPQBiC2LhjCeJK
- YlbOxiqqnfHSYUQguUbab6Zd2aBvKXAmuzMPEUbrJtS2NxkDAc99cStSZmBACUFAO8tRsUHF2a
- u8WC5UbUpUJqNESVLWwdPnf1cxeeXlAcbZudP64Eol+m3Vf2xouSCC6mrAjpqFertnvxEb7nzP
- VuwCD8AyH8ASAARlgUaaW5F+wu4XN/zdHxPPefrj2ykEPTas8nuJFQAic4falcWTyY+7rZedzo
- Rr/nHKTjc2/ulZqsDcXTjaOcmi0Uua+5RpRuXL1I6CLhTAQAA
-X-Change-ID: 20251022-gicv5-host-acpi-d59d6c1d3d07
+Message-Id: <20260115-gicv5-host-acpi-v3-1-c13a9a150388@kernel.org>
+References: <20260115-gicv5-host-acpi-v3-0-c13a9a150388@kernel.org>
+In-Reply-To: <20260115-gicv5-host-acpi-v3-0-c13a9a150388@kernel.org>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
  Robert Moore <robert.moore@intel.com>, Hanjun Guo <guohanjun@huawei.com>, 
  Sudeep Holla <sudeep.holla@arm.com>, Marc Zyngier <maz@kernel.org>, 
@@ -64,9 +60,6 @@ Cc: linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-pci@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>
 X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_015110_552012_4C2044ED 
-X-CRM114-Status: GOOD (  19.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,154 +74,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ACPI and ACPI IORT specifications were updated to support bindings
-required to describe GICv5 based systems.
+The GICv5 driver IRQ domain hierarchy requires adding a parent field to
+struct irqchip_fwid so that core code can reference a fwnode_handle parent
+for a given fwnode.
 
-The ACPI specification GICv5 bindings ECR [1] were approved and the
-required changes merged in the ACPICA upstream repository[5].
-
-The Arm IORT specification [2] has been updated to include GICv5 IWB
-specific bindings in revision E.g.
-
-Implement kernel code that - based on the aforementioned bindings - adds
-support for GICv5 ACPI probing.
-
-ACPICA changes supporting the bindings were posted [6] - this series
-depends on [6] to work and should not be merged stand alone.
-
-The ACPI bindings were prototyped in edk2 - code available in these
-branches [3][4].
-
-===========================
-Kernel implementation notes
-===========================
-
-IRS and ITS probing is triggered using the standard irqchip ACPI probing
-mechanism - there is no significant difference compared to previous GIC
-versions other.
-
-The only difference that is worth noting is that GICv3/4 systems include a
-single MADT component describing the interrupt controller (ie GIC distributor)
-whereas GICv5 systems include one or more IRSes. The probing code is
-implemented so that an MADT IRS detection triggers probing for all IRSes
-in one go.
-
-The IWB driver probes like any other ACPI device. IORT code is updated so
-that a deviceID for the IWB can be detected.
-
-The only major change compared to GICv3/4 systems is the GSI namespace that
-is split between PPI/SPI IRQs and IWB backed IRQs.
-
-The main GSI handle - to map an IRQ - has to detect whether to look-up
-using the top level GSI domain or an IWB domain in that the two IRQ
-namespaces are decoupled.
-
-IORT code implements the logic to retrieve an IWB domain by looking up its
-IWB frame id, as described in [1].
-
-Most important implementation detail worth noting is that - at this stage -
-ACPI code is not capable of handling devices probe order IRQ dependency on
-the interrupt controller driver their IRQ is routed to.
-
-This is not an issue on GICv3/4 systems in that the full GIC hierarchy
-probes earlier than any other device, so by the time IRQs mappings have to
-be carried out (ie acpi_register_gsi()) the GIC drivers have already
-probed.
-
-On GICv5 systems, the IWB is modelled as a device and its device driver
-probes at device_initcall time. That's when the IWB IRQ domain is actually
-registered - which poses problems for devices whose IRQs are IWB routed and
-require to resolve the IRQ mapping before the IWB driver has a chance to
-probe.
-
-Work on resolving devices<->IWB probe order dependency has started in
-parallel with this series and will be posted shortly.
-
-For PPI/SPI/LPI backed IRQs the probe dependency is not a problem because
-in GICv5 systems the IRSes and ITSes probe early so their IRQ domain are
-set in place before devices require IRQ mappings.
-
-[1] https://github.com/tianocore/edk2/issues/11148
-[2] https://developer.arm.com/documentation/den0049/eg
-[3] https://github.com/LeviYeoReum/edk2/tree/levi/gicv5_patch
-[4] https://github.com/LeviYeoReum/edk2-platforms/tree/levi/gicv5_patch
-[5] https://github.com/acpica/acpica/commits/master/
-[6] https://lore.kernel.org/linux-acpi/12822121.O9o76ZdvQC@rafael.j.wysocki/
+Add a parent field to struct irqchip_fwid and update the related kernel API
+functions to initialize and handle it.
 
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Thomas Gleixner <tglx@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
 ---
-Changes in v3:
-- Dropped ACPICA patches
-- Split IRS OF refactoring into a separate patch
-- Renamed new fwnode interface according to review
-- Applied minor review comments
-- Rebased on v6.19-rc5
-- Link to v2: https://lore.kernel.org/r/20251218-gicv5-host-acpi-v2-0-eec76cd1d40b@kernel.org
+ include/linux/irqdomain.h | 30 ++++++++++++++++++++++++++----
+ kernel/irq/irqdomain.c    | 14 +++++++++++++-
+ 2 files changed, 39 insertions(+), 5 deletions(-)
 
-Changes in v2:
-- Cherry-picked ACPICA upstream changes
-- Minor editorial changes
-- Removed the "not for merging" tag because now ACPI specs are approved
-- Rebased against v6.19-rc1
-- Link to v1: https://lore.kernel.org/r/20251028-gicv5-host-acpi-v1-0-01a862feb5ca@kernel.org
+diff --git a/include/linux/irqdomain.h b/include/linux/irqdomain.h
+index 62f81bbeb490..73c25d40846c 100644
+--- a/include/linux/irqdomain.h
++++ b/include/linux/irqdomain.h
+@@ -257,7 +257,8 @@ static inline void irq_domain_set_pm_device(struct irq_domain *d, struct device
+ 
+ #ifdef CONFIG_IRQ_DOMAIN
+ struct fwnode_handle *__irq_domain_alloc_fwnode(unsigned int type, int id,
+-						const char *name, phys_addr_t *pa);
++						const char *name, phys_addr_t *pa,
++						struct fwnode_handle *parent);
+ 
+ enum {
+ 	IRQCHIP_FWNODE_REAL,
+@@ -267,18 +268,39 @@ enum {
+ 
+ static inline struct fwnode_handle *irq_domain_alloc_named_fwnode(const char *name)
+ {
+-	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED, 0, name, NULL);
++	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED, 0, name, NULL, NULL);
++}
++
++static inline
++struct fwnode_handle *irq_domain_alloc_named_parented_fwnode(const char *name,
++							     struct fwnode_handle *parent)
++{
++	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED, 0, name, NULL, parent);
+ }
+ 
+ static inline struct fwnode_handle *irq_domain_alloc_named_id_fwnode(const char *name, int id)
+ {
+ 	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED_ID, id, name,
+-					 NULL);
++					 NULL, NULL);
++}
++
++static inline
++struct fwnode_handle *irq_domain_alloc_named_id_parented_fwnode(const char *name, int id,
++								struct fwnode_handle *parent)
++{
++	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_NAMED_ID, id, name,
++					 NULL, parent);
+ }
+ 
+ static inline struct fwnode_handle *irq_domain_alloc_fwnode(phys_addr_t *pa)
+ {
+-	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_REAL, 0, NULL, pa);
++	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_REAL, 0, NULL, pa, NULL);
++}
++
++static inline struct fwnode_handle *irq_domain_alloc_parented_fwnode(phys_addr_t *pa,
++								     struct fwnode_handle *parent)
++{
++	return __irq_domain_alloc_fwnode(IRQCHIP_FWNODE_REAL, 0, NULL, pa, parent);
+ }
+ 
+ void irq_domain_free_fwnode(struct fwnode_handle *fwnode);
+diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
+index 2652c4cfd877..baf77cd167c4 100644
+--- a/kernel/irq/irqdomain.c
++++ b/kernel/irq/irqdomain.c
+@@ -33,6 +33,7 @@ static void irq_domain_free_one_irq(struct irq_domain *domain, unsigned int virq
+ 
+ struct irqchip_fwid {
+ 	struct fwnode_handle	fwnode;
++	struct fwnode_handle	*parent;
+ 	unsigned int		type;
+ 	char			*name;
+ 	phys_addr_t		*pa;
+@@ -53,8 +54,16 @@ static const char *irqchip_fwnode_get_name(const struct fwnode_handle *fwnode)
+ 	return fwid->name;
+ }
+ 
++static struct fwnode_handle *irqchip_fwnode_get_parent(const struct fwnode_handle *fwnode)
++{
++	struct irqchip_fwid *fwid = container_of(fwnode, struct irqchip_fwid, fwnode);
++
++	return fwid->parent;
++}
++
+ const struct fwnode_operations irqchip_fwnode_ops = {
+ 	.get_name = irqchip_fwnode_get_name,
++	.get_parent = irqchip_fwnode_get_parent,
+ };
+ EXPORT_SYMBOL_GPL(irqchip_fwnode_ops);
+ 
+@@ -65,6 +74,7 @@ EXPORT_SYMBOL_GPL(irqchip_fwnode_ops);
+  * @id:		Optional user provided id if name != NULL
+  * @name:	Optional user provided domain name
+  * @pa:		Optional user-provided physical address
++ * @parent:	Optional parent fwnode_handle
+  *
+  * Allocate a struct irqchip_fwid, and return a pointer to the embedded
+  * fwnode_handle (or NULL on failure).
+@@ -76,7 +86,8 @@ EXPORT_SYMBOL_GPL(irqchip_fwnode_ops);
+  */
+ struct fwnode_handle *__irq_domain_alloc_fwnode(unsigned int type, int id,
+ 						const char *name,
+-						phys_addr_t *pa)
++						phys_addr_t *pa,
++						struct fwnode_handle *parent)
+ {
+ 	struct irqchip_fwid *fwid;
+ 	char *n;
+@@ -104,6 +115,7 @@ struct fwnode_handle *__irq_domain_alloc_fwnode(unsigned int type, int id,
+ 	fwid->type = type;
+ 	fwid->name = n;
+ 	fwid->pa = pa;
++	fwid->parent = parent;
+ 	fwnode_init(&fwid->fwnode, &irqchip_fwnode_ops);
+ 	return &fwid->fwnode;
+ }
 
----
-Lorenzo Pieralisi (6):
-      irqdomain: Add parent field to struct irqchip_fwid
-      PCI/MSI: Make the pci_msi_map_rid_ctlr_node() interface firmware agnostic
-      irqchip/gic-v5: Split IRS probing into OF and generic portions
-      irqchip/gic-v5: Add ACPI IRS probing
-      irqchip/gic-v5: Add ACPI ITS probing
-      irqchip/gic-v5: Add ACPI IWB probing
-
- drivers/acpi/arm64/iort.c                | 193 +++++++++++++++++++-----
- drivers/acpi/bus.c                       |   3 +
- drivers/irqchip/irq-gic-its-msi-parent.c |  43 +++---
- drivers/irqchip/irq-gic-v5-irs.c         | 247 ++++++++++++++++++++++++-------
- drivers/irqchip/irq-gic-v5-its.c         | 132 ++++++++++++++++-
- drivers/irqchip/irq-gic-v5-iwb.c         |  42 ++++--
- drivers/irqchip/irq-gic-v5.c             | 138 ++++++++++++++---
- drivers/pci/msi/irqdomain.c              |  23 ++-
- include/linux/acpi.h                     |   1 +
- include/linux/acpi_iort.h                |  11 +-
- include/linux/irqchip/arm-gic-v5.h       |   8 +
- include/linux/irqdomain.h                |  30 +++-
- include/linux/msi.h                      |   3 +-
- kernel/irq/irqdomain.c                   |  14 +-
- 14 files changed, 734 insertions(+), 154 deletions(-)
----
-base-commit: d0e305301e82474223bf26185e86e7dc2eb85350
-change-id: 20251022-gicv5-host-acpi-d59d6c1d3d07
-prerequisite-message-id: <12822121.O9o76ZdvQC@rafael.j.wysocki>
-prerequisite-patch-id: 9f722bfc7e4861af40637017a83826401b3958e4
-prerequisite-patch-id: f619b4724a25a5c2b95032ef4c6d0b53dde45142
-prerequisite-patch-id: 3738d015d93d77b3d381ba8de056be533df48794
-prerequisite-patch-id: 50b1ee01b2ee63f6db21276ec24dadd645f8931e
-prerequisite-patch-id: 6671f1c96dc89d5e375196e545c9750c2378f010
-prerequisite-patch-id: b5d91dce8f61ab75796ba6a766d499d7321c0231
-prerequisite-patch-id: 1f433eeb8848ce51c2b2fe601813939a042c6c0e
-prerequisite-patch-id: 4f9aab64e4f4a75c18ae692bd903266069100d34
-prerequisite-patch-id: 793a7b3fab40b903ffa0855e0db5336acb69505b
-prerequisite-patch-id: 3eeebe1df8abadc1606cc6dadd15031ad46ff64f
-prerequisite-patch-id: 3477bb220e91c9cdb4d778ce15e44babbefddf23
-prerequisite-patch-id: 153be22f930d0c05bc04b37006bdb1e286883a92
-prerequisite-patch-id: 1a7dcfd7e1317aeec52c772f3150c115e965af52
-prerequisite-patch-id: 43a604c0109163e51a892d888c728794bca8a0a3
-prerequisite-patch-id: 580debc0f26b7c301160504e2360de6765e7a179
-prerequisite-patch-id: 15f2c86c557c835e4aed0cb914c23e04da1392ed
-prerequisite-patch-id: 00986721db8da2e52c733971b482b9cf0c32910e
-prerequisite-patch-id: 9d0607df90015bac8768549cbb0a19580f0b2661
-prerequisite-patch-id: f478f56f3ded4d0ce43254418deb5e10f49555ef
-prerequisite-patch-id: 6f9563683e92392564935f24cc5e8be23301790c
-prerequisite-patch-id: 4d701f77a597391e0d04c5da3d6f1cb24d1e40d0
-prerequisite-patch-id: d70577c2355648acbc7c857c5512df21280e917f
-prerequisite-patch-id: 8c6408293baa1a758b0b0b4f078eaf7dbe1404e0
-prerequisite-patch-id: 84008a72aa67b54af8a294a0fc07d2b6eaede597
-prerequisite-patch-id: 97acab35d513bc6b091efa4185a9826262d5ed79
-prerequisite-patch-id: 04652a3bfdf9f4fa2ba829631c899ea3569f11a2
-
-Best regards,
 -- 
-Lorenzo Pieralisi <lpieralisi@kernel.org>
+2.50.1
 
 
