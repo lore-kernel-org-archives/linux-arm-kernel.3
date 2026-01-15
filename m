@@ -4,59 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8980FD44C5E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 14:55:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00D8DD44C60
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 14:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cl/D6Y5XRR/X0rVkaamOrKMkHf4HUkXbmNOec8DxBHw=; b=UzXjyR3P2p2SEjTf7Hk0pipuzg
-	Kplo3EVD6gwIkY4IdEdVJbY/H8e71tAHJRvlYkmeKPPi0xDvwNH+mXmcZBXLtafTcH36yYqS2oenD
-	6COftokoqI5xfiwTVtBmxZss3eKYhLpXF0H8cPngErj7gyGKhAdDN5/kWKjT2Z1w94TqjxtEG+DRY
-	G5ki5zBeXKmffnhkbeLM0qPXMSROaL0I+EKVvKj7lYkyrRxczA90iMuh8jWb1k7ASgjby2ur0N748
-	gVV0r5JSNKEB+dMxrCVMCrPZvzFitc3VULXzBQpYMcN/DYVUkMRh+g9VZD93ygsYz9P3OuBcvZmOm
-	Y2u2PsTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CiWQl3af/62TGWr0WjMhGelheVUSaf6JrH170IRFLws=; b=Gh7n5ErXOWkzlnUg/bRhB5Wcet
+	5jMje9kBtHJ/Eeh9m42cPwPQdHSgsQlAlkLaZL1Dju7PK4+ZpaLaj541b+NFbTphyMqycrC5qIbTc
+	9+xJAs03xiq80hzwRmGN0sWZyLabL5dx5+44hD504qEh5vlVOEwcFdmhv2noToOh1VyRN/+NZYTl+
+	8qtpghlayAC9S95wp1NXBepj0jxVt0EEZUJmmAENKN4IzVV6fZ0bMtkAv+oZxW3raUO/EO+xBCg9+
+	YwiXwuDuu4k3pK+dWOgV8rmO6Fefrh9PotnMrR0dHiOl3QpYt0yAf0QRYmVnDvMCdQkVobkx+7oDO
+	4mHWJihA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgOkp-0000000CXy6-1o4m;
-	Thu, 15 Jan 2026 14:55:19 +0000
-Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
+	id 1vgOn7-0000000CYOu-0LKB;
+	Thu, 15 Jan 2026 14:57:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgOkn-0000000CXOB-09el
+	id 1vgOn4-0000000CYNo-3nhv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 14:55:19 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1768488745;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=cl/D6Y5XRR/X0rVkaamOrKMkHf4HUkXbmNOec8DxBHw=;
-	b=xrENCad4vW3ND5AXKrKq00Hm/S2mXOTqE3I5/NOiiGCGlsmgflNe55U+hMK51pjBwGf/gT
-	v1ZTeg4J6zWWOIf+ZDeO8fV8R2vMNWtn7VaBd9Y89Y90FFibiglAttnkl79Aa1Nv4dhtjv
-	ABZjA8gRuKfqnOQx4nXtRZbiwCGINQE=
-From: Sean Anderson <sean.anderson@linux.dev>
-To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	linux-usb@vger.kernel.org
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Neal Frager <neal.frager@amd.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Michal Simek <michal.simek@amd.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sean Anderson <sean.anderson@linux.dev>
-Subject: [PATCH v2] usb: dwc3: Always deassert xilinx resets
-Date: Thu, 15 Jan 2026 09:51:53 -0500
-Message-Id: <20260115145153.3332570-1-sean.anderson@linux.dev>
+	Thu, 15 Jan 2026 14:57:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0C40142A2E;
+	Thu, 15 Jan 2026 14:57:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69E4AC116D0;
+	Thu, 15 Jan 2026 14:57:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768489057;
+	bh=ikCvdOXi3FprM5XeYlF5j+h1c627PrYNjEIksGSN63U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DlSnY+wNH4LqKcXJ2MRlFDUISiNZuAB1mAjqkVlqcJNlJChcmrxrif0kWS5qipu67
+	 2fKSrtqHbwKa+0Sj1AzvuOi6VUSeSp8EPTrPcWPvv05faBO5kj9WSgqFfcvxcul46T
+	 UAjmlFtBA8IQU2J+jtN6fLMHrSFA0MrX2iuWWPcEUCTN7h011EvACFTlDa/+g5yUdu
+	 zYQAoLtyQZOwuW5Ib0NBeZLKrCX1xgJARCcA8rDjXerrSHIMhdnWZsE3Vce1zc/OWO
+	 gBo6YXCctfSPvfh5AE0noWgFT8EYR5pejOqHDitfjr9mYV9rUy7a7Q1Expt0Q4yqBX
+	 AEMb2yxvonClQ==
+Date: Thu, 15 Jan 2026 14:57:32 +0000
+From: Simon Horman <horms@kernel.org>
+To: Meghana Malladi <m-malladi@ti.com>
+Cc: vadim.fedorenko@linux.dev, jacob.e.keller@intel.com, afd@ti.com,
+	pmohan@couthit.com, basharath@couthit.com, vladimir.oltean@nxp.com,
+	rogerq@kernel.org, danishanwar@ti.com, pabeni@redhat.com,
+	kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
+	andrew+netdev@lunn.ch, linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, srk@ti.com,
+	Vignesh Raghavendra <vigneshr@ti.com>
+Subject: Re: [PATCH net-next 1/2] net: ti: icssg-prueth: Add Frame Preemption
+ MAC Merge support
+Message-ID: <aWkAXHXHHOD9SDBt@horms.kernel.org>
+References: <20260107125111.2372254-1-m-malladi@ti.com>
+ <20260107125111.2372254-2-m-malladi@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260107125111.2372254-2-m-malladi@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_065517_438217_A12009F6 
-X-CRM114-Status: GOOD (  20.98  )
+X-CRM114-CacheID: sfid-20260115_065738_979575_CBFD2539 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,130 +78,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I am working on moving serdes initialization to the phy (and consumer)
-drivers to improve flexibility and boot times (depending on configuration).
-Currently, core resets are released in the bootloader by init_serdes() in
-psu_init_gpl.c. In order to remove init_serdes, we need to handle the case
-where the bootloader never released the core resets. If we don't have a
-usb3 phy we don't need to assert the core resets, but deassert them anyway
-to handle this case.
+On Wed, Jan 07, 2026 at 06:21:10PM +0530, Meghana Malladi wrote:
+> This patch adds utility functions to configure firmware to enable
+> IET FPE. The highest priority queue is marked as Express queue and
+> lower priority queues as pre-emptable, as the default configuration
+> which will be overwritten by the mqprio tc mask passed by tc qdisc.
+> Driver optionally allow configure the Verify state machine in the
+> firmware to check remote peer capability. If remote fails to respond
+> to Verify command, then FPE is disabled by firmware and TX FPE active
+> status is disabled.
+> 
+> This also adds the necessary hooks to enable IET/FPE feature in ICSSG
+> driver. IET/FPE gets configured when Link is up and gets disabled when link
+> goes down or device is stopped.
+> 
+> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
 
-We could assert all resets every boot, but I believe the existing procedure
-is an optimization to reduce boot time when the bootloader has already
-initialized USB. So this patch preserves the separate code paths.
+...
 
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
----
+>  /* The buf includes headroom compatible with both skb and xdpf */
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.c b/drivers/net/ethernet/ti/icssg/icssg_qos.c
 
-Changes in v2:
-- Update commit message
+...
 
- drivers/usb/dwc3/dwc3-xilinx.c | 67 ++++++++++++++++------------------
- 1 file changed, 32 insertions(+), 35 deletions(-)
+> +static int emac_tc_setup_mqprio(struct net_device *ndev, void *type_data)
+> +{
+> +	struct tc_mqprio_qopt_offload *mqprio = type_data;
+> +	struct prueth_emac *emac = netdev_priv(ndev);
+> +	struct prueth_qos_mqprio *p_mqprio;
+> +	int ret;
+> +
+> +	if (mqprio->qopt.hw == TC_MQPRIO_HW_OFFLOAD_TCS)
+> +		return -EOPNOTSUPP;
+> +
+> +	if (!mqprio->qopt.num_tc) {
+> +		netdev_reset_tc(ndev);
+> +		p_mqprio->preemptible_tcs = 0;
 
-diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
-index 0a8c47876ff9..f41b0da5e89d 100644
---- a/drivers/usb/dwc3/dwc3-xilinx.c
-+++ b/drivers/usb/dwc3/dwc3-xilinx.c
-@@ -132,21 +132,6 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 		goto err;
- 	}
- 
--	/*
--	 * The following core resets are not required unless a USB3 PHY
--	 * is used, and the subsequent register settings are not required
--	 * unless a core reset is performed (they should be set properly
--	 * by the first-stage boot loader, but may be reverted by a core
--	 * reset). They may also break the configuration if USB3 is actually
--	 * in use but the usb3-phy entry is missing from the device tree.
--	 * Therefore, skip these operations in this case.
--	 */
--	if (!priv_data->usb3_phy) {
--		/* Deselect the PIPE Clock Select bit in FPD PIPE Clock register */
--		writel(PIPE_CLK_DESELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
--		goto skip_usb3_phy;
--	}
--
- 	crst = devm_reset_control_get_exclusive(dev, "usb_crst");
- 	if (IS_ERR(crst)) {
- 		ret = PTR_ERR(crst);
-@@ -171,22 +156,31 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 		goto err;
- 	}
- 
--	ret = reset_control_assert(crst);
--	if (ret < 0) {
--		dev_err(dev, "Failed to assert core reset\n");
--		goto err;
--	}
-+	/*
-+	 * Asserting the core resets is not required unless a USB3 PHY is used.
-+	 * They may also break the configuration if USB3 is actually in use but
-+	 * the usb3-phy entry is missing from the device tree. Therefore, skip
-+	 * a full reset cycle and just deassert the resets if the phy is
-+	 * absent.
-+	 */
-+	if (priv_data->usb3_phy) {
-+		ret = reset_control_assert(crst);
-+		if (ret < 0) {
-+			dev_err(dev, "Failed to assert core reset\n");
-+			goto err;
-+		}
- 
--	ret = reset_control_assert(hibrst);
--	if (ret < 0) {
--		dev_err(dev, "Failed to assert hibernation reset\n");
--		goto err;
--	}
-+		ret = reset_control_assert(hibrst);
-+		if (ret < 0) {
-+			dev_err(dev, "Failed to assert hibernation reset\n");
-+			goto err;
-+		}
- 
--	ret = reset_control_assert(apbrst);
--	if (ret < 0) {
--		dev_err(dev, "Failed to assert APB reset\n");
--		goto err;
-+		ret = reset_control_assert(apbrst);
-+		if (ret < 0) {
-+			dev_err(dev, "Failed to assert APB reset\n");
-+			goto err;
-+		}
- 	}
- 
- 	ret = phy_init(priv_data->usb3_phy);
-@@ -201,11 +195,15 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 		goto err;
- 	}
- 
--	/* Set PIPE Power Present signal in FPD Power Present Register*/
--	writel(FPD_POWER_PRSNT_OPTION, priv_data->regs + XLNX_USB_FPD_POWER_PRSNT);
--
--	/* Set the PIPE Clock Select bit in FPD PIPE Clock register */
--	writel(PIPE_CLK_SELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
-+	if (priv_data->usb3_phy) {
-+		/* Set PIPE Power Present signal in FPD Power Present Register*/
-+		writel(FPD_POWER_PRSNT_OPTION, priv_data->regs + XLNX_USB_FPD_POWER_PRSNT);
-+		/* Set the PIPE Clock Select bit in FPD PIPE Clock register */
-+		writel(PIPE_CLK_SELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
-+	} else {
-+		/* Deselect the PIPE Clock Select bit in FPD PIPE Clock register */
-+		writel(PIPE_CLK_DESELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
-+	}
- 
- 	ret = reset_control_deassert(crst);
- 	if (ret < 0) {
-@@ -225,7 +223,6 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 		goto err;
- 	}
- 
--skip_usb3_phy:
- 	/* ulpi reset via gpio-modepin or gpio-framework driver */
- 	reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
- 	if (IS_ERR(reset_gpio)) {
--- 
-2.35.1.1320.gc452695387.dirty
+Hi MD & Meghana,
 
+p_mqprio is dereferenced here.
+But it isn't initialised yet.
+
+Flagged by Clang 21.1.7 W=1 build for arm64.
+
+> +		return 0;
+> +	}
+> +
+> +	ret = prueth_mqprio_validate(ndev, mqprio);
+> +	if (ret)
+> +		return ret;
+> +
+> +	p_mqprio = &emac->qos.mqprio;
+> +	memcpy(&p_mqprio->mqprio, mqprio, sizeof(*mqprio));
+> +	netdev_set_num_tc(ndev, mqprio->qopt.num_tc);
+> +
+> +	return 0;
+> +}
+
+...
 
