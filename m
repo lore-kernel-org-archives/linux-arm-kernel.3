@@ -4,77 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60208D4661B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 19:20:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B51C4D4661C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 19:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E4fJp9wbmRI1vmPAbrx5E9O/lqTVncJXTTCym1eiIps=; b=uJXpahmFYhln1Q+YzNAgXiilb9
-	gZ9dtlz+mY0o4ylbflkl6nXyv2oZEz8NdsgNxgK/zbcORjF1PJV3C4V029jagLHgefqncPLUyCzIT
-	cMSh14wWnyKFkJ76SpuQCmRXzSR9qnvDV8q7fWSNFBhj6toIEDkSJf7KOR7f9bMfc1R+Lt94u24TP
-	6Y8+Z7wKZq5mxzAc2eC2J0s4r1YXbtq7RXnRlJC7tCVNr069aT/2bOz9GNQwWOcKXNXGnSOuEVsY9
-	XvWz7puXQxSTpl6QyaJvQi4ELgbrrin1zXW3fEjInlsMxLSullzr2fKjVrxhiBXXtXPhaypLwOnrc
-	BlGrepuQ==;
+	Content-Type:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BVuRcIp9C9aDs7YujmRCIsJWyiCOSqmqC7FZNs5wMUU=; b=F8MCcSULBHGuObGis5sz0iuije
+	OTBiVOpBoVskIXmykMWjusY3h8Pz9kbykFuJjR5i363/UzwudOy6/05RQtxRKHGgxUsav31gvtxkT
+	ICpbkRAq2heRIquCkx6VXZfSBZZGZNCVefz5GlBCXn79HJ7/oRxAHT/j36OpgOqlts169AgoZz2N0
+	d5DcP13k7knTM1UOoyCk/mnfR/QWqpEoWZ4zN7Q5+5hTeQh3kS69F9SqPDUk0LWOKGr5uoFeyg86r
+	BP/MZMNlAu7GSmnGGxPVGKmlFnboxuRfzoqHklp72hfvfEssC4UHxHbIv/Yuzgvze7McNKOVLfiis
+	4+688WSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgStQ-0000000D3hm-0q2J;
-	Thu, 15 Jan 2026 19:20:28 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1vgT8F-0000000D4l1-4189;
+	Thu, 15 Jan 2026 19:35:49 +0000
+Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgStN-0000000D3eK-41Dk
+	id 1vgT8D-0000000D4kj-0abr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 19:20:27 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4dsXr15RVQz9tDR;
-	Thu, 15 Jan 2026 20:20:17 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1768504817;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=E4fJp9wbmRI1vmPAbrx5E9O/lqTVncJXTTCym1eiIps=;
-	b=ggALHCEdtM7NcWEy/LIWICqAGbbnkDV3aCDwdbB+blQ58j9V1ZoauYI2fBb4Q21SxMKTfn
-	eipkD+RBlBujcFWGe8yusmki5H31ndlFJUMRHwnUKstNuuv4Wza/A6nSL4Ux8Srtn9DXiC
-	ptHSqFvKtMmkmJSu7DaNjK5HJCuUrqPQOg/Zf8hX4jVTZBpZ1LtOANWXRtcToRpP0nIJBM
-	59iz2fcIVXZpP5IcHStCiH/nkvKJPzOisZlFdN865VphWsiOQY5Yjr43PTiL5poH110cXb
-	NvmJUdImwHXq4/IJqhe86h+olYyyxQ0y+zF3RrM1KswR9vWNmFR7Vp22FelXOA==
-Message-ID: <85ff0eb2-d942-4f85-8f1d-c5982bd31bec@mailbox.org>
-Date: Thu, 15 Jan 2026 20:20:03 +0100
+	Thu, 15 Jan 2026 19:35:46 +0000
+Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-8804f1bd6a7so11118796d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 11:35:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768505743; cv=none;
+        d=google.com; s=arc-20240605;
+        b=e3jX2s9pceB46Sqo49c6RlheyaGtqKpfUvosLvNk3MZtK8PJ/raPEC8jK4gf12EEGJ
+         gAGgASbNj7vLh6mu9LQmiGGN2rurMZf5PkwAZaFt1w+60K5sEgxK4QKdV197l9jtivXC
+         RH9aP5uazxXa4Rm2uxgi3k7MPApNEqhapx0JNX/3Dk5bnjjm4vFLiAoeIGl0OI9xY8ne
+         TUcPt9txNPQsUssKe9DoV06WYO6avGiD/KnFul9xW9PV5D27pX+gkfoYonic+WSFAG44
+         V+l7aFINjslHS+TjCirAA86+xS0qBz3j8SIhCtwEfyjmsWJpdZbul7KISkOPzw6Oe3E+
+         htJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :mime-version:dkim-signature;
+        bh=BVuRcIp9C9aDs7YujmRCIsJWyiCOSqmqC7FZNs5wMUU=;
+        fh=8vNO1dkkRYv2WCqrndXkrgBOYNK44ZQ6URpdFRIB6Ck=;
+        b=DhuPd0naBzeEYbVsSlbCupGGY21h5raZBP+7z6jtLRvA84U1QKzsGOQ7/4VQIpBBy7
+         VpTSmL3pGAE43+xIKNxu+4rmqpHsZFkxNE1BS+KefplC5UOMAQfZJRd83csPI7u9KWiA
+         Q/bicx/AhSwX3KP6LSE8+Essx2hFzhE5pQysCbkMKDQW9T2M7CV9K6iJi2aSBsmPEiUp
+         BZo1jLYaTTCUCrPmGLUpeNdDIo5h3JkkUysrhSNenpX/qbyJj081FpleIyQtdxudE1Se
+         MpJHj6Bgggb6HWZYxqMtEfDzNo9pYkuNo7oQVMguDCUuIawcdVFyVo50U2dWuNUFhCFq
+         Qrrw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oasis-open-org.20230601.gappssmtp.com; s=20230601; t=1768505743; x=1769110543; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=BVuRcIp9C9aDs7YujmRCIsJWyiCOSqmqC7FZNs5wMUU=;
+        b=YxZXZKjbDKpbi2Z96HUvrl7tpVnPCD4Ikkq8XDTD7IWpJVxtgszI/KXBWZULSc7PFo
+         mIcYQsAUbdLz4XBK7BWa0e/y8j1om8aLvb/lPOnFZ+K0ejqdw7wX8YLymxW7k/s1iOqa
+         YFyCOWC6jqhhxQke0IVlRozTQek/GjcdHJaLq6SsrKY0EAt6P0dmaU7KvKoRboakY/bz
+         k+ld+TCFW9leld+X5aap2KxCY+1U2CMEc5Huux0DXaFSQfXLc0bg5J65eddZ2f6pUTDw
+         Pr6Wj5DqCLrP8pyG7vgLRVbI5QbfJVJlSdrbq/32nk4Zi96y44OqLrbToXtS1tYg1DLN
+         MsmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768505743; x=1769110543;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BVuRcIp9C9aDs7YujmRCIsJWyiCOSqmqC7FZNs5wMUU=;
+        b=mzqqgvQ2MbSs4V0aLkSMv8PS0be3XygZAEFbgZgVqEeTN9E1KnblpjA0XZJIqDX/sU
+         wLRBQZNYFfryf0PQUzM/8KB/2ymJ3YuYP5Wik16Il+VYzwwCnQjuUrCrKluFfZNrkLB2
+         XB+QopjMLgLSvFRkE+P6EtdkKWnJkyuzSmzHIt+ip/Dhz6aXOwaO/XyT7sFylTFZPWMm
+         xr1rmv78ooMmUxKbr0EDfjzg28Rs98Y3uNQW4HjyAZFThJmOl29XQjgCa58vnyMTRyxe
+         N2upuXhCERyi3pMHYX7fniihLYgiTdZJdPWVWCVJ4a5DjevowHwg2GMQrSkefvLNy77j
+         NvHw==
+X-Gm-Message-State: AOJu0Yznfxx7SvJfaIviuId/AH8IluBP+Peq5RN9wr8IZukBbIUkv9EC
+	kNDVj0dLpD1nSp4fg535lCSBVKNyepmWwSfqT93ArvKqrkl1k1rtw56LJLqDVU+Vm5FtPAUScMl
+	X70HfStTFJqeVg1O4ZiY8qUHmcyZu8l9jfpbJgXZyk4b+IaBbmfjXJb8=
+X-Gm-Gg: AY/fxX62ZDn/8+33qcd3MyR3tEGyciSsDHR933vcWQWTfFozvEkAYeDCyZg6u8nDXFd
+	ihV5WC0EoSHpeL8kkagJhboK5jpuzFbSY+5OQcfrf9hl4Xf3NafIMMoWu9PfXJSdS+febc3HblL
+	uvkD3s1DxHdAys5KQo426bXzp8toCTxNerx5MW517S0P+ST0TuqaOFEW58jB5uTm38PEe3KkJ9T
+	eGBeT0i+oZTa8JS/pPg/scqyg5YX+6DlZpbIh5ekGMcQbbpXMOaFDnSPcJ4mRhYZhFn19WHFPv+
+	FkQUkRasBluAYcYLjwGFH827L07LrsVslJvk0PpNvGol4A4WpqyPDSOZh+sb
+X-Received: by 2002:a05:6214:d47:b0:88a:529a:a53a with SMTP id
+ 6a1803df08f44-8942dda1d24mr8930856d6.51.1768505743595; Thu, 15 Jan 2026
+ 11:35:43 -0800 (PST)
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/2] dt-bindings: display: panel: Fork Waveshare panels
- into separate document
-To: Rob Herring <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- David Airlie <airlied@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Jessica Zhang <jesszhan0024@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Sam Ravnborg <sam@ravnborg.org>,
- Simona Vetter <simona@ffwll.ch>, Thierry Reding <thierry.reding@gmail.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org
-References: <20260113000715.231238-1-marek.vasut+renesas@mailbox.org>
- <20260115174047.GA930768-robh@kernel.org>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <20260115174047.GA930768-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 744ec2472507d528058
-X-MBO-RS-META: qcfhjoyang9zs5kdamujjdinfhhwheqm
+From: Kelly Cullinane <kelly.cullinane@oasis-open.org>
+Date: Thu, 15 Jan 2026 14:35:07 -0500
+X-Gm-Features: AZwV_QhropN7OOEQe7SzLZu0u6FbF8gq4rxHZ2TE7KF9NIDey1yJAE4n_7mFWGg
+Message-ID: <CAAiF603H-2OYj8izUo3jK5Sw-as1kc-+Q-i4a6tf9+Rw6K-6eg@mail.gmail.com>
+Subject: Invitation to comment on VIRTIO v1.4 CSD01
+To: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_112026_145926_0F411B3D 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20260115_113545_186499_F53D815F 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,23 +111,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/15/26 6:40 PM, Rob Herring wrote:
-> On Tue, Jan 13, 2026 at 01:05:30AM +0100, Marek Vasut wrote:
->> Move the Waveshare panels description into separate document, so they
->> can be properly described with compatible = "waveshare,...", "panel-dpi"
->> and attached to "waveshare,dsi2dpi" bridge.
-> 
-> But why do we need "panel-dpi"? Adding that requires changing a DT.
-> Can't you make the kernel handle these compatible strings as a
-> "panel-dpi" without the compatible?
-I can, but wouldn't we then miss the more specific compatible strings in 
-the DT ?
+OASIS members and other interested parties,
 
-compatible = "waveshare,13.3inch-panel", "panel-dpi";
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^
-              this ... would be removed. Do we want that ?
+OASIS and the VIRTIO TC are pleased to announce that VIRTIO v1.4 CSD01
+is now available for public review and comment.
 
-The other option would be to add the timings into panel-simple driver, 
-then we wouldn't have to change the bindings at all. Maybe that would be 
-preferable ?
+VIRTIO TC aims to enhance the performance of virtual devices by
+standardizing key features of the VIRTIO (Virtual I/O) Device
+Specification.
+
+Virtual I/O Device (VIRTIO) Version 1.4
+Committee Specification Draft 01 / Public Review Draft 01
+09 December 2025
+
+TEX: https://docs.oasis-open.org/virtio/virtio/v1.4/csprd01/virtio-v1.4-csp=
+rd01.html
+(Authoritative)
+HTML: https://docs.oasis-open.org/virtio/virtio/v1.4/csprd01/virtio-v1.4-cs=
+prd01.html
+PDF: https://docs.oasis-open.org/virtio/virtio/v1.4/csprd01/virtio-v1.4-csp=
+rd01.pdf
+
+The ZIP containing the complete files of this release is found in the direc=
+tory:
+https://docs.oasis-open.org/virtio/virtio/v1.4/csprd01/virtio-v1.4-csprd01.=
+zip
+
+How to Provide Feedback
+OASIS and the VIRTIO TC value your feedback. We solicit input from
+developers, users and others, whether OASIS members or not, for the
+sake of improving the interoperability and quality of its technical
+work.
+
+The public review is now open and ends Friday, February 13 2026 at 23:59 UT=
+C.
+
+Comments may be submitted to the project=E2=80=99s comment mailing list at
+virtio-comment@lists.linux.dev. You can subscribe to the list by
+sending an email to
+virtio-comment+subscribe@lists.linux.dev.
+
+All comments submitted to OASIS are subject to the OASIS Feedback
+License, which ensures that the feedback you provide carries the same
+obligations at least as the obligations of the TC members. In
+connection with this public review, we call your attention to the
+OASIS IPR Policy applicable especially to the work of this technical
+committee. All members of the TC should be familiar with this
+document, which may create obligations regarding the disclosure and
+availability of a member's patent, copyright, trademark and license
+rights that read on an approved OASIS specification.
+
+OASIS invites any persons who know of any such claims to disclose
+these if they may be essential to the implementation of the above
+specification, so that notice of them may be posted to the notice page
+for this TC's work.
+
+Additional information about the specification and the VIRTIO TC can
+be found at the TC=E2=80=99s public homepage.
 
