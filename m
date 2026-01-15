@@ -4,160 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343B2D3CCB1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 05:54:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BAE2D3CCB5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 06:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MQT/8/FPeUydS8ane286/XtD5doNbYTfE1Tnu6gtWmY=; b=jKdWWSaTzY9U6B5Q4ywKKhlcgK
-	lHB9h5nvp3KDX+GAO9o9v28p4Y955ceuroPLTx8eoWaAtt67OtB7Kq8q0wu1/3Suw/1tWququQXnU
-	Hv5IjWAUP55JbIZhxWwTnjjCAZGZTADVX1svKCoQZg7SlyqDOfK/wIwEXd8dpxSQrqvVB4ckvFZnK
-	EKofUuLDySSkZoe0iaBAkejHzRUqtfj8/KVYIUv+n4fDIiW0FbfodwKuKLlZTgsXapG9W8Mivero3
-	3vw7ABVCCFD+nykSMjWXN3e3m8rLyLDD/x75x9yaMkiDdKoa/ME1/ljP209DXNKWEd9fiIg9+ZbbY
-	RqvmiEdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gFjWdO1Kr7nTH1rvXfR75t9SJ08y/Dca1mE8vULWp3A=; b=jQ8RGYznCDYqF48p/PmC2bNrDs
+	2fUYjqdrETvyIigwz9oLr6PaKVCBt14/QGlSMwvhM0Kpesec11V5zi+PPYVKNVck95mvjefLsDynH
+	IoovWJuM1yEh+pnCNOauFS0U7EzS2fLSmFQgFd+WivIvCc+OaLqlEgrmSefLoV2cH8cCkuUpigjoP
+	de1rFI1qVjEA4/gS2Ds6Nlqx05XQP3oDuI6SPYiMo2YK/V7pvgPFqR/Nw+lW6Dg04JV047gklfG0X
+	SFqzkpsH+QwrXbWl1yLJg5sk0jn/a2IGOYSJctLWuqFKcKOk12CLVafBUebgKa9EkxYe9+SvNjPeT
+	Wmc7SS5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgGIw-0000000BotO-3FSN;
-	Thu, 15 Jan 2026 05:53:58 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1vgGc8-0000000BpkS-45tU;
+	Thu, 15 Jan 2026 06:13:48 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgGIu-0000000Bose-2psb
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 05:53:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hr+i8058FLEn8zDxEfxJxz/KqduyUmjxH3lDWyTixvmoOxuCYMvxrFM77dZMNCi94KqMF1SOVcSF7c50JPCD/6tKYtLfHY2FIRmhjme6SA02k6ze5mAThA/gn+ylwZcepbAoP4Sustr1PSq1i44e8pjJUKyMsmGsltheUVjnuyrBPVNWgEccsoQM7LYduYwj6MZI9w9Su+RKqdj9ypkkgpYPS0a/LO+UyjkeFCLteer/Ey1640PeHNJDUoS0ZE10asWxZV+czvdxOONG/qZ9Jq65qX2VjOKZlgpS9I99n6xkoDK/Te6B2pU7JM06V26Yxu5h6Y9BBEXGrz2fJWlPxg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MQT/8/FPeUydS8ane286/XtD5doNbYTfE1Tnu6gtWmY=;
- b=nvr//yr56QdNm2axRZxerPiL0GzvSUDJBPmxzFm1T4HhTJpAuzMYzPIzhxDBN7aFzw+p5Dkg4yUbXs9MOrtIZ5dNQKHPSy2vx4IOUmLcpra+KhhEda1aIzUDa31f1Bzux2cFI/5z/V4KNIwN/KySTrfgHOQNrL+1WMomuxdLuLnVov6SvpesLc8QvYmXt+VUWhxDLSkhcG0pOohDYLDRn8fGeAciVhVOZJpW6teejhbBg0DA+o11HLZY7sJZ2tP9wMOUizBnj8eWvbCtndorVHXW48rZQF3KXsg/a5ekxrfJoRWa+NMI3ut9SljmApnnLKgW1wAV/d/F2voKW+ayqw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MQT/8/FPeUydS8ane286/XtD5doNbYTfE1Tnu6gtWmY=;
- b=kJUP/jymsman+MR/5LrNxrK6OBb/oeSapWWWtkUnRWHiDQBiAgWprJ/RVmijNxIfN9/Ei47aZWsWG4X36OS3SCWDbcVmXDlmz9htcbq1d6tif6r5PuqUyT/dwqv3Q3PtTWiETIYnQU7H3sFOqvAbWWGEmbxNi7DKVvRW07sytRo=
-Received: from BYAPR06CA0031.namprd06.prod.outlook.com (2603:10b6:a03:d4::44)
- by PH0PR10MB7100.namprd10.prod.outlook.com (2603:10b6:510:28b::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.5; Thu, 15 Jan
- 2026 05:53:51 +0000
-Received: from CO1PEPF000066E8.namprd05.prod.outlook.com
- (2603:10b6:a03:d4:cafe::96) by BYAPR06CA0031.outlook.office365.com
- (2603:10b6:a03:d4::44) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.6 via Frontend Transport; Thu,
- 15 Jan 2026 05:53:51 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CO1PEPF000066E8.mail.protection.outlook.com (10.167.249.6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.1 via Frontend Transport; Thu, 15 Jan 2026 05:53:49 +0000
-Received: from DFLE214.ent.ti.com (10.64.6.72) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 14 Jan
- 2026 23:53:33 -0600
-Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE214.ent.ti.com
- (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 14 Jan
- 2026 23:53:33 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 14 Jan 2026 23:53:33 -0600
-Received: from [10.249.130.12] ([10.249.130.12])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60F5rSU2908196;
-	Wed, 14 Jan 2026 23:53:29 -0600
-Message-ID: <4eea8956-fcd9-4be4-acc3-b983f1cbe55b@ti.com>
-Date: Thu, 15 Jan 2026 11:23:27 +0530
+	id 1vgGc6-0000000Bpk5-3vx6;
+	Thu, 15 Jan 2026 06:13:48 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 60F0GKV4004876;
+	Thu, 15 Jan 2026 06:13:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=gFjWdO
+	1Kr7nTH1rvXfR75t9SJ08y/Dca1mE8vULWp3A=; b=ifeEmi/XL7ojfXZkMHcjw5
+	2XT3BUZIK+ze+KC6Dgtm0PFYhYa5rdZNPSG5rlppZoKqAcfp/tzCSuq5nD5bsr15
+	vekI1/9vh208hoezzbOp+AnDzJ85eFOzAsWDkO/GLz2W070bQ5sL1XsfaQfVMPcm
+	uyyQSEY8nJiGP4A2kvfsJ293a0IThT44VrmuFMdPhJkX/UJbQ/JPIc6MuptSHm3o
+	8wuioXgC1oe0K+rDQi4HP4CW1QbR8Itc1HnfWeI3s4kM8yryz8OtjekqyCl9yOQS
+	yPhckJj60F+C+R44/GrM1TeqYYAm1Sdgo6xtwsVZOwfZTtbIaRwuuGJenKr+DvsQ
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bkedt4mck-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 15 Jan 2026 06:13:36 +0000 (GMT)
+Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 60F64Wro029529;
+	Thu, 15 Jan 2026 06:13:36 GMT
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bkedt4mcg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 15 Jan 2026 06:13:35 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 60F4icPp030146;
+	Thu, 15 Jan 2026 06:13:35 GMT
+Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4bm3ajx75t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 15 Jan 2026 06:13:35 +0000
+Received: from smtpav03.dal12v.mail.ibm.com (smtpav03.dal12v.mail.ibm.com [10.241.53.102])
+	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 60F6DF1Y11207328
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 15 Jan 2026 06:13:15 GMT
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3DAA15805A;
+	Thu, 15 Jan 2026 06:13:33 +0000 (GMT)
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id EDC9E5803F;
+	Thu, 15 Jan 2026 06:13:27 +0000 (GMT)
+Received: from jarvis.ozlabs.ibm.com (unknown [9.90.171.232])
+	by smtpav03.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 15 Jan 2026 06:13:27 +0000 (GMT)
+Message-ID: <cc97397d3c75d796ee71081cc842c867a62ce39a.camel@linux.ibm.com>
+Subject: Re: [PATCH v18 00/12] Support page table check on PowerPC
+From: Andrew Donnellan <ajd@linux.ibm.com>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Pasha Tatashin
+	 <pasha.tatashin@soleen.com>
+Cc: linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org,
+        Andrew Morton	
+ <akpm@linux-foundation.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Nicholas Piggin <npiggin@gmail.com>, Rohan McLure <rmclure@nvidia.com>,
+        Alexandre Ghiti <alex@ghiti.fr>, x86@kernel.org,
+        Nicholas Miehlbradt
+ <nicholas@linux.ibm.com>,
+        Sweet Tea Dorminy	 <sweettea-kernel@dorminy.me>,
+        Andrew Donnellan <andrew+kernel@donnellan.id.au>,
+        Srish Srinivasan
+ <ssrish@linux.ibm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org
+Date: Thu, 15 Jan 2026 17:13:26 +1100
+In-Reply-To: <b6c39059-faed-41a8-80b2-addaa229c143@kernel.org>
+References: <20251219-pgtable_check_v18rebase-v18-0-755bc151a50b@linux.ibm.com>
+	 <CA+CK2bBjoQmheEstv1MacGev_srdx=m5v=hwxdyfAKogbpG3FA@mail.gmail.com>
+	 <bf0def77b07a34c00928cedb46030ea17be4fceb.camel@linux.ibm.com>
+	 <b6c39059-faed-41a8-80b2-addaa229c143@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] arm64: dts: ti: k3-am62p-j722s-common-main: Add
- HSM M4F node
-To: "Kumar, Udit" <u-kumar1@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-	<kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>
-CC: <afd@ti.com>, <hnagalla@ti.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20260114173551.2545088-1-b-padhi@ti.com>
- <20260114173551.2545088-3-b-padhi@ti.com>
- <f4319457-6c2e-42b6-a57e-6f326c93fdcd@ti.com>
- <3a62d6f7-ff88-4f5a-8dfd-ded3e5ff1c86@ti.com>
- <cf8f1087-34d0-42c3-8245-38dc7312b29c@ti.com>
-Content-Language: en-US
-From: "Padhi, Beleswar" <b-padhi@ti.com>
-In-Reply-To: <cf8f1087-34d0-42c3-8245-38dc7312b29c@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000066E8:EE_|PH0PR10MB7100:EE_
-X-MS-Office365-Filtering-Correlation-Id: 79828c3b-591f-486f-16b8-08de53fa74aa
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|34020700016|36860700013|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y1JUcnMvbjhhM09oT2JMRVB6bGNKaDkyM0hsYlVOeTB2ejFqVTBQKzVNV0ZZ?=
- =?utf-8?B?NDd3VkVWOUpnK1czQUFGVmt0NWdnVTEwekVYSll0ZWxxcDQrWG9GUzR4cVdH?=
- =?utf-8?B?TUJyOVBJSGsxd2hGbVV5N094QmhhMXA4MWxrb25FTVh2VTNncW52UU93ZnAw?=
- =?utf-8?B?aUV2clB5Q0Izckc2RDRnNjZFMmUyMnZhZHlGTkgrS25JcXdNTmR4V2RCb3E3?=
- =?utf-8?B?RmFNN29GSHhxYkNpV1BJZmlBU004dnQ1VWM4aFdUUldlN216dGNiVVQ1MXJO?=
- =?utf-8?B?dVdJZSs2dFRGa3gzUUpoUjlJWExhSlNDdnhoMjlmUGVtWjRhblQzMTV2Z29T?=
- =?utf-8?B?UThyNFZmMlBoMzcxcDdiY0FtSno1WldWeXV4cnd6ZU04RC8yWVNvZ0txdVhF?=
- =?utf-8?B?TzN6YTRsYms3SlJROHBxSXM1b1E0V2xjZS8rOUlYWTRSS21QckNpV0l4VlRM?=
- =?utf-8?B?ODBMVEVjUExnQ1VPMm80cXN2UFZvaEcrRFo3QlE1SjhYa09oRVZYZkdUaGlH?=
- =?utf-8?B?ck9Oa05KTVdVS0tIRjljaEhqVEI2alA0ZUVIQ01rU0Zwb0UxSHc4SGptZzZu?=
- =?utf-8?B?THVkeEJ2V0F4RXBiVzFzVTBXcG9QVXlCWGlwenFSOXBMUXV1bDFOZDJheU5z?=
- =?utf-8?B?WU1tN1AxRndNVDdNVHM1NEFWMUdBZHZvNG9QeDlSR25iNXhsdGVlaWw4WmNw?=
- =?utf-8?B?K1RFVWlIRnhGd3hvTzF1OEM5NXQ1MEhJY1ZhaFJSZnYwNnNncnlwOURSRlRC?=
- =?utf-8?B?RE5kN1ZDVXFwemtnS1BkODU3QUNWUXJpN2ZESHRJQzZDSWlCTzlPWDFHTkFM?=
- =?utf-8?B?SEY1ampPN3U3UEdCak1ZMURhNGl0ZFBmS0ZUbXRWeitBS1VTSEhqdnJzZmZh?=
- =?utf-8?B?SWZZOVcyT0wzSnduemtiRnViaVJjNEJ2UVBiQ3A1THZYUmNLcFA5OFhSNkc2?=
- =?utf-8?B?ZDh0RFRBemFaWU0yS3dDU1VaN2M5NmF0UHVhbFVDQnVtNnJTNk14d0ZHaWtn?=
- =?utf-8?B?R0lMTUZ2OFdjRGJkWUJmZW1vUklBMnNHQ1UycjJLbGVzeUs4dFB4N2JwREwy?=
- =?utf-8?B?N3lzNWkxWHE3bWI1ejNJSVFOMHhJM2tvYkdiVG9laFdiamNDZnRNQ1JPaXh2?=
- =?utf-8?B?djlIQWRpb0E5dEZUKzU4VXBnMkk0eDRyQ0VPdU0rR1NkTnpaSEcrRnkvQy8z?=
- =?utf-8?B?MlZ3ckhveW1ja0RiazZrTzJkbUkyTTdZOExaNXp6TTY5VUZSSHFzK2hyQ1lK?=
- =?utf-8?B?Z2JhWnIxckVHbkUyc3o4ZnAxR2RIVnkzcGduWTVnSWorYmZXSzdaKzlMaTdt?=
- =?utf-8?B?T3BuSm9YT21UeWh5Vm9NMVdOZDViVnJkYTRBa2x6b2NUcVN5elFFZ3JwNzdV?=
- =?utf-8?B?L01sT2crSlpEYnVvangvaE9aMnZjd25BSFlPY0RQYTZxMmNnSXp5R2R4MVhv?=
- =?utf-8?B?ODg5UUlGbUVuS08wT0YyOTI3VnZ6bk5TK1UwMXMzVTRmYm5HS0x6TTZxQ2l6?=
- =?utf-8?B?U3RVVkR4S2crNHh2Z0Vadk8xWHcrdkZzMlZKcnppVWZ0YTM1eG83azRjWTRj?=
- =?utf-8?B?SkxhSXJaZGNUY0ZPdlUveW9kcXB1RTNyUW1JOXRhV1I0Q21weFRXcVNYUDRp?=
- =?utf-8?B?bHhNR0pqaEZOemVEYXRuMEJlc2xJU2c0aWtvNnhBUjNVRTJaTFJ0bHpSQ2pT?=
- =?utf-8?B?TmYxWkxnSCtGbTh0eVA3dXU1VFpHMW1QNFBTcUljVDdhN25hdllVekU1ZmJ3?=
- =?utf-8?B?MUtTbWN4ZTB2TTFDNWtLQVhYc1NYRFRkaXZNNlZkZC9abnk0ZmRpdnF2Q1dL?=
- =?utf-8?B?MkRHQzFkSEFTdGl4ZmY4TzhRYUw5bkVqV0tMNEVIQ3FwSGM1dHlTN09rYmpN?=
- =?utf-8?B?VFVyRWhSV0tJZk52VEkzNWR5YmF3cUV3aFhRVmRMcHN1N09vQS9lQkZOUzNw?=
- =?utf-8?B?eWNqNlFnYmRrbTQ1Ykk3MSt6aEJDak5hYUg3UWdxa2EzRnYxOHVkMXJQYVIw?=
- =?utf-8?B?OHcvNkgwR2M0ZDNCSVpkYWFzdlR5RThzcGVrSjcwZ1R0WTF6UVJzMGJucllj?=
- =?utf-8?B?R2w4UDZCVW9uWHBQZGVmMjd0Y0p3OWZ1NklEcWlZSHo3L0J5REVEN0R1aXlP?=
- =?utf-8?B?OHZ6Zm1wYWZveVJYRHVBRk9aSStUenZzenJwRjZJeVkzVUpIU2lLbWhydENQ?=
- =?utf-8?B?L0ZIMHhjV2xnZ3I1NnpEdjJ1Q3l3RExZQ0FIdlVGVjNTU1UyWUp1R1lNVzht?=
- =?utf-8?Q?DwmZwSl3Jns5J6aKNt9fv7RKa7v3E0hQa7SIwLvxpU=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(34020700016)(36860700013)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2026 05:53:49.6113
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 79828c3b-591f-486f-16b8-08de53fa74aa
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E8.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB7100
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE1MDAzNSBTYWx0ZWRfX53I7DiMu6h3z
+ raXZ/+frnSM8CMCW6s6EycApm3s6hEGJYKo4nVxjhzW2dpvC/SLuvXwOt2bFBxnDU2o8HyeArEP
+ KgqH3dyQwLP6m+aU6EMMPgT7xOMlk4XQygjZ3zRSFtE5O3/2hzrHiyzeLjD6xCJngU5YVP1Y2DT
+ M4oOYAvD+GbWzvH+yn69QZZex6VaPw03MenupSF6+0KKMyiJMfTGamOtrUz5U5OeL4yE7ACOpax
+ 1V8Bm9LBMmtQsGTbCTGGGhgIOoJlbp/8o+p+pCMkCtiFQ4KW0rqOTgOdVYjIRjzAS2GCYw4Xb2T
+ dYscTh1Jr06MtPwi5UgOTV/7Za1UdB4jl0ciUkhgXmHH2jej+be2xLWsydOaEreH/y8qTjgm1Hd
+ 6XW+9NYpu5bD/aXhf59z6H/VZnDjoETDJhvhkp2Y6kFxg5AC1B5HfLqjKMyh6ewlpPtTA2XNRZp
+ JF93iBCdf7rwfjpdlhg==
+X-Proofpoint-GUID: fME1BWB4YoztfUCI-TzSeij8lia_ZbwX
+X-Authority-Analysis: v=2.4 cv=WLJyn3sR c=1 sm=1 tr=0 ts=69688590 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VnNF1IyMAAAA:8 a=U6BpzXCMtsgkVx3qoqkA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: e7mbieSo6rWsEOFCa9zukzvR3P93ImOy
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-15_01,2026-01-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 adultscore=0 malwarescore=0 phishscore=0 suspectscore=0
+ priorityscore=1501 bulkscore=0 clxscore=1015 impostorscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2512120000
+ definitions=main-2601150035
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_215356_750901_0FB6F074 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20260114_221347_097423_98E5EC5E 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,135 +142,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 2026-01-14 at 10:34 +0100, Christophe Leroy (CS GROUP) wrote:
+> What is the merge plan ? I see all powerpc commits are acked by Maddy,=
+=20
+> will the series be merged by Andrew into the mm tree ?
 
-On 1/15/2026 11:16 AM, Kumar, Udit wrote:
->
-> On 1/15/2026 11:11 AM, Padhi, Beleswar wrote:
->> Hi Udit,
->>
->> On 1/15/2026 10:06 AM, Kumar, Udit wrote:
->>> Hi Beleswar,
->>>
->>> On 1/14/2026 11:05 PM, Beleswar Padhi wrote:
->>>> The TI K3 AM62P and J722S SoCs have a HSM (High Security Module) M4F
->>>> core in the MAIN Voltage Domain which could be used to run secure
->>>> services like Authentication. Add Device Tree Node definitions for the
->>>> HSM core in the respective SoC common main dtsi file.
->>>>
->>>> The HSM node is reserved to be loaded and booted by the early-stage
->>>> bootloader. The firmware-name property is defined at the SoC level
->>>> since the HSM is not a general-purpose remote core and boards are
->>>> unlikely to use separate firmware. If needed in exceptional cases,
->>>> board-specific device trees can override this property.
->>>>
->>>> The corresponding reg ranges of HSM node has also been added to its
->>>> parent node's (cbass_main bus) ranges property.
->>>>
->>>> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
->>>> ---
->>>> v3: Changelog:
->>>> [Nishanth]:
->>>>   1. Use generic node name 'remoteproc'
->>>>   2. Use label 'hsm' instead of 'hsm_m4fss'
->>>>   3. Add a comment for separate SRAMs
->>>>   4. Update firmware-name property to match existing naming 
->>>> conventions
->>>>   5. Change status to 'reserved' and add a commment
->>>>   6. Re-order bootph-pre-ram property before vendor properties
->>>>   7. Update commit msg adding rationale for firmware-name in SoC.dtsi
->>>>
->>>> Link to v2:
->>>> https://lore.kernel.org/all/20260106104755.948086-4-b-padhi@ti.com/
->>>>
->>>> v2: Changelog:
->>>> 1. None
->>>>
->>>> Link to v1:
->>>> https://lore.kernel.org/all/20251231165102.950644-4-b-padhi@ti.com/
->>>>
->>>>   .../boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 17 
->>>> +++++++++++++++++
->>>>   arch/arm64/boot/dts/ti/k3-am62p.dtsi            |  1 +
->>>>   arch/arm64/boot/dts/ti/k3-j722s-main.dtsi       |  5 +++++
->>>>   arch/arm64/boot/dts/ti/k3-j722s.dtsi            |  1 +
->>>>   4 files changed, 24 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi 
->>>> b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
->>>> index 3cf7c2b3ce2dd..0e1af2a69ca2e 100644
->>>> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
->>>> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
->>>> @@ -1117,4 +1117,21 @@ vpu: video-codec@30210000 {
->>>>           clocks = <&k3_clks 204 2>;
->>>>           power-domains = <&k3_pds 204 TI_SCI_PD_EXCLUSIVE>;
->>>>       };
->>>> +
->>>> +    hsm: remoteproc@43c00000 {
->>>> +        compatible = "ti,hsm-m4fss";
->>>> +        /* contiguous regions but instantiated separately in HW */
->>>> +        reg = <0x00 0x43c00000 0x00 0x20000>,
->>>> +              <0x00 0x43c20000 0x00 0x10000>,
->>>> +              <0x00 0x43c30000 0x00 0x10000>;
->>>> +        reg-names = "sram0_0", "sram0_1", "sram1";
->>>> +        resets = <&k3_reset 225 1>;
->>>> +        firmware-name = "am62p-hsm-m4f-fw";
->>>
->>> you don't need clock and power-domain for this ?
->>
->>
->> That info is abstracted out via ti-sci calls. ti_sci_cmd_get_device()
->> takes care of setting clocks and power domains for us.
->>
->> Same for other rprocs:
->> https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi#L178 
->>
->
->
-> Is this specific handling for m4 core ? 
+This is what I was expecting - this revision is rebased on mm-new as it sto=
+od
+around when I sent it.
 
-
-For all single cores like M4, DSP, R5F0_0/R5F0_1 etc.
-
-> , I see other rproc got power at cluster level
-
-
-We don't make any ti-sci calls for the cluster level, which is why we
-need that info here in DT. Otherwise, ti-sci calls take care of the
-individual cores for us. That's why R5F child cores don't have
-power domain info in the DT:
-https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi#L1521-L1535
-
-Thanks,
-Beleswar
-
->
-> https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi#L1518 
->
->
->
->>
->> Thanks,
->> Beleswar
->>
->>>
->>>
->>>> +        bootph-pre-ram;
->>>> +        ti,sci = <&dmsc>;
->>>> +        ti,sci-dev-id = <225>;
->>>> +        ti,sci-proc-ids = <0x80 0xff>;
->>>> +        /* reserved for early-stage bootloader */
->>>> +        status = "reserved";
->>>> +    };
->>>>   };
->>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62p.dtsi 
->>>> b/arch/arm64/boot/dts/ti/k3-am62p.dtsi
->>>> index e2c01328eb298..9d6266d6ddb82 100644
->>>> --- a/arch/arm64/boot/dts/ti/k3-am62p.dtsi
->>>> +++ b/arch/arm64/boot/dts/ti/k3-am62p.dtsi
->>>> @@ -96,6 +96,7 @@ cbass_main: bus@f0000 {
->>>>                <0x00 0x31100000 0x00 0x31100000 0x00 0x00050000>, 
->>>> /* USB1 DWC3 Core window */
->>>>                <0x00 0x40900000 0x00 0x40900000 0x00 0x00030000>, 
->>>> /* SA3UL */
->>>> [..]
+--=20
+Andrew Donnellan    OzLabs, ADL Canberra
+ajd@linux.ibm.com   IBM Australia Limited
 
