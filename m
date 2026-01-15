@@ -4,78 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E79D9D3CC95
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 01:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84BF2D3CC88
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 01:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w8qv7zGjKLg/PB6Q6k/X+xJDPtRPLbBTgNo+kvs+s14=; b=z86S+093Iezhz57gIXymZYsdWn
-	PWH4yFGVAJTkCbEwQe50yQ+rRvh9KQuHxlnrkxWXUoCDfed0P/LtyTAINwDVceSaKEH+LuGIriipc
-	f+zhvGdYswMONlcLpDNwHgGhFXfA8LXI415zKhNuus5QEYS8OdX0luzhe7A0rGQnhB6wlPrTgq8Tq
-	av96auhbRXAplqo3IDKtVH8mW+Ve+pGj3D3ZgEU0E71+yXqXP6sw5cqGsUwggO+ZooleQWRMF4ClC
-	ixAMFvjFaYIwAKB76FBfAZz/F7vJqct5XfjfjsNKyaQa0hrMgO/IPFYuTgT1zEv8eGoxCgojESCdL
-	E8RKIF9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qLVC1Sx22S+P1rmUYfTfSUmJADen9+YAlvvuMx9b1+o=; b=kuGtL/byK7s+1eEkUo9UYa+tTN
+	ytxwBfpquvXBCx7QefWqMlcJRCjrjUWsDv8/mRbw+8aKzdi2N9dYzNiMSd8w+VrNLG8cPIQVpr40T
+	f0xOYPKMw79MgT+ZFQ/yix5nooqoRhgnXsYKa8uh1WSrLIdkdH1uI4MDAcHeJrGL7FT30SpcAwp5t
+	C5zXqe8k2iIlGgFG3Tgj3AC8TsNZLrksbAi+JcfjLTDdbTs4NK/2Fcysw0isIE/syS4/NVXV1viws
+	7rwpw5WzYFhRg0uyJrBJst/FPkCrHMHM6nOIqAHl5AHm68zgBJfn8v0ed1EEGUCSlYulauXdW73gJ
+	R0doUoIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgBvH-0000000BLkf-0mLC;
-	Thu, 15 Jan 2026 01:13:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vgBvQ-0000000BLoP-22FH;
+	Thu, 15 Jan 2026 01:13:24 +0000
+Received: from mail-northcentralusazon11010034.outbound.protection.outlook.com ([52.101.193.34] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgBvF-0000000BLkN-1QLq
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 15 Jan 2026 01:13:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=w8qv7zGjKLg/PB6Q6k/X+xJDPtRPLbBTgNo+kvs+s14=; b=IIu9EHH5V8GudQAAjAqiuGk9B5
-	isZdrT0yphR9rotC6a6N36AmkKzoVJ2CAiikjHlZV+Am92wwpELOp5bcBV8hvxFuIkqf4jME0c1Kc
-	QMz85OhaZzy5J/OwHciT9MCP9mG0VnJtNDBp9GqpT7u77Lfbjwy8jnLAaMGar/9c/5C8pHD4FQ+oK
-	3PMKusbOBrAIw6HCzVrhoZeJTdz6z2vGUHo0DzHvKd0DxtDUWY/uaieOijdXUiAjwGFEB0od++RSo
-	CI2JRrh4d7E0ioQNySY76+R+AzLaijUMKuayZ1Je+EwEmsS/s787a0ZdfKF+LikEXalhH7m/lbnQM
-	M4x7kEsA==;
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgBv3-00000005tDj-2Cmm
+	id 1vgBvN-0000000BLmu-2DQN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 01:13:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1768439566;
-	bh=w8qv7zGjKLg/PB6Q6k/X+xJDPtRPLbBTgNo+kvs+s14=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=REOw9Uf4sZS4m++NHjUuL06qkr98+A08cZmsmF48lK0ym7qvP+7KNER4qUUCM6SWg
-	 Y0ZXtHU8pHvntidwMv3EicjRZe9P9aRaPTRaeTurl5e8mEJkWDdsFmhe8VSV9dH/XI
-	 2O+NTS41YBC70cEUAvg1/rLJrpmXUwuR49Kx1eX/QLnekXayK6n7jaZkA8Xcn+THyK
-	 C2m5QScS9gBSfHobr2RK4y85PCueDDG5mRgpp7DA2NkTAqFBuPFEkGJJMTMN/T1IZ3
-	 j/72Mwat04UwCNCJKOsjqKgLZvVA4ZyU0d6iN7TR36UXFP/+1i15u0BVisGKa7NdB2
-	 CvthhyFlzMEqw==
-Received: from [192.168.68.115] (unknown [180.150.112.60])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 286836472A;
-	Thu, 15 Jan 2026 09:12:46 +0800 (AWST)
-Message-ID: <9cdf03250dd923859638de4850ce4b4e4279bf8a.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v3 0/2] Add Meta(Facebook) ventura2 BMC(AST2600)
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Kyle Hsieh <kylehsieh1995@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, Krzysztof
- Kozlowski	 <krzysztof.kozlowski@oss.qualcomm.com>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley	 <joel@jms.id.au>
-Date: Thu, 15 Jan 2026 11:42:45 +1030
-In-Reply-To: <c391ded8-6569-48a2-9c49-6b68838f91b0@oss.qualcomm.com>
-References: <20260113-ventura2_initial_dts-v3-0-2dbfda6a5b47@gmail.com>
-	 <c391ded8-6569-48a2-9c49-6b68838f91b0@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Thu, 15 Jan 2026 01:13:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rnBIV+hj85+6osW2U3MvLQ8Ev14KVjoie1+jFAas6UyEkZe0cD4+F0PyNwh2cbQ25f5Ip2oeSDiVbSXLfEiObqWWG7C+MvAUy6rwHsNhFQhEGukdkdNgUxDB/rmHlNzAPsAV7uRejBbMkwrDcuZngBE4fEvclnlehrmKJSAMvfF7mao09LnUH1Vd49NrmmUgoPE8URFXiUKBD6ITpI8gYV4u6XkWjd81ahV9+KGrKcHJKTd+Zri4VYtbmpZaNz7HBhkbE0wzxcS6sEsqmLuCsD9jGG0NzqPy2ar/+lxbVASHZs2qvK/i1iRxn/wW7xintiDvltKlrcTyRcR8Wknj5A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qLVC1Sx22S+P1rmUYfTfSUmJADen9+YAlvvuMx9b1+o=;
+ b=IzD6ffrEYAFMSVEsY3KHtEJiUzbpAppLQ4JXiQHlgqFA3IqgIYiXBhzo0NrCA6oPNKr9DKwvuT4+I6N/cM3jTK2WNfZ5hSjzkjqShP1K0QX2F0AGbakdH1d/49NBVlfne0GTyckftT5X1CVOVUDhZ3mb03gdyhgdjhsxcR/AFj3DTX1FMqjCasbVoqv+BP4/qcACmq/dMp1kCO2Eac/mxdRv+d1ATB10I913C+LpkQuMPr+w7IBkAGtl9pBq12XpblJ6oAYJFpdGfzYb4cW/DKlXIsgQ/qX3b7VlgbYTb5gK/9z7auNjgY/Tp7GoORN0qhWqcHJlf2PyOYqGMYVqJw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qLVC1Sx22S+P1rmUYfTfSUmJADen9+YAlvvuMx9b1+o=;
+ b=DP0L4mFfNzBVsiz0OJi0cui4JsL5QLVLl18+mARMd224l6xMf2s7EWNSDN+otALZAC4mlh3oYKFZaApKH/MTvb3Uhj1iFu8zQ/B+YBDJ6fX3p3k/jSUV/7he1cyYpt4blhUK8C+ZLa/zoYeJnoPm8OAzEBCtc+64p8bhioM/T8I209X2bwxnZTBLnxfAz5Jpesq5llhDq8LvCSg/EW0L5W/AIWBAFGFN71e6THhPmhT85hQCOig8QILHE9udUo9zyQNkTre2w38BzZmQiKYovagVb9fQjhSP3Ymj0oRwHkf7mFq8B1glLRxcM+vlSTh1AuYF8ElSXWAhKloHL9mAEQ==
+Received: from DM6PR02CA0112.namprd02.prod.outlook.com (2603:10b6:5:1b4::14)
+ by DM6PR12MB4121.namprd12.prod.outlook.com (2603:10b6:5:220::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.4; Thu, 15 Jan
+ 2026 01:13:14 +0000
+Received: from CH3PEPF00000016.namprd21.prod.outlook.com
+ (2603:10b6:5:1b4:cafe::d6) by DM6PR02CA0112.outlook.office365.com
+ (2603:10b6:5:1b4::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.6 via Frontend Transport; Thu,
+ 15 Jan 2026 01:13:14 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ CH3PEPF00000016.mail.protection.outlook.com (10.167.244.121) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9542.0 via Frontend Transport; Thu, 15 Jan 2026 01:13:14 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 14 Jan
+ 2026 17:13:01 -0800
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Wed, 14 Jan 2026 17:13:01 -0800
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.14) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Wed, 14 Jan 2026 17:13:01 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <will@kernel.org>
+CC: <jgg@nvidia.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<praan@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH rc] iommu/arm-smmu-v3: Do not set disable_ats unless vSTE is Translate
+Date: Wed, 14 Jan 2026 17:12:43 -0800
+Message-ID: <20260115011243.1302402-1-nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF00000016:EE_|DM6PR12MB4121:EE_
+X-MS-Office365-Filtering-Correlation-Id: bcc36d73-74cb-4721-806a-08de53d34235
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nuQUW9qxtICfHhLFpxyUpVVrttt46et7+UZiJGuaIjmtYNc6YDAB/odmv7AP?=
+ =?us-ascii?Q?m23T45/tAWG9RimLtZzk0q1Z+0cEl97kj6dn8A1nNJcL4S1lRHbEI524C9Ck?=
+ =?us-ascii?Q?2B786yAR7g9seO3U8p6y4F21W28sDvlD/1GcZqkHrogWKOrKtDQ3B69BkLGC?=
+ =?us-ascii?Q?xTYY4q0gBWqhc0PpFkA25TSJiERT3JCVaHNQmCaMuVT9ZqV3+BU0RKJqRw32?=
+ =?us-ascii?Q?y8l19ahUkC3S4dv0VXCDMfWqoWzXt8251M4xVOHO+iHafB05NzH+ybfvOn+n?=
+ =?us-ascii?Q?sRIWIPmVqJcDa9jCUd+gMCC6+1z3lzp3abdtaZND/zhJbrtZWhBPXWZf7NIP?=
+ =?us-ascii?Q?H19BKD1f9Hsewg+1nFby1oQVptFW6JVsz0QPq3tWzsvONKeTAgXxtlcqGf+d?=
+ =?us-ascii?Q?AMdePMwu/5VxDczMeazdRvncw2d0bmgYdjG4jZEOkbYZPk+RV59ssawkjymx?=
+ =?us-ascii?Q?4cBuQop033mwiXMKFNo6IIoSJJn3vN3wBAClWIPSJoq5dbXuujJwK/y2UgeC?=
+ =?us-ascii?Q?RlbLXuXQdeNlelj8BLIjWxiKMEI/ft1ypyqAxSZCHoPzsfONyFzAsdhcksb1?=
+ =?us-ascii?Q?Pj+IBPqZLM4br5u3UcRWZLORyhiWeH9bz+T9/Z8nY9HKiqS5OX8wbuPK5DMM?=
+ =?us-ascii?Q?Tbl6Lxf2GcsdaQ0uUNFWxPzErwDVhDgT67qUjlRmG/1h3NdGo/spwxWPLVto?=
+ =?us-ascii?Q?yaVy3KecSQurp5xiPsDkkf7ERRvKyYRttWGRMY/xGdH3EIZ4FpVclKJnb1T1?=
+ =?us-ascii?Q?8e+G+6lh3VhjcceJ5JKHRPEEEGh1Uqta1Z//CCN0IdKZ5jYprOoXP/UWAR++?=
+ =?us-ascii?Q?kAl9WtlDsYf7QuLcYuGBM5eZyVZOpTWIpb7Z/RdMeQwMOObpyu9PtVHndxu+?=
+ =?us-ascii?Q?u3fekIb6HE/Laku3Br0cfR84JIR4dOKuJmWMmZLlXGU2ZgpKaxAGkLvq3zBn?=
+ =?us-ascii?Q?qW+snSks+BLV+qypRI7whEX+fxS640xWszxDkaCqFao5gK7Tabpj17FfgOvW?=
+ =?us-ascii?Q?49Z48HYzOcUcXafjL0d/UATID2/u/lDQoTnFROnE+2yWcn5JWS6dvDu8YNmO?=
+ =?us-ascii?Q?B4ZShSNLqrZ/5wksYnIQoz19Ys0PL7GC39orXN12VW0Lwy5RbScNWNe8RgSI?=
+ =?us-ascii?Q?Q32uuZ5RWuXyIqpuj1+rBIzwWCWgiz52AnaYBNUX871bEkmcj4bE2gE3h6SD?=
+ =?us-ascii?Q?/IbgiUZF89slEYUQ6/f1OJFRVeiEU1AgtVTC0yzyj4V2VX2CEVHcdGSx7K3x?=
+ =?us-ascii?Q?xFqWOLJqyBm+4AprocdObS3LHV3LSuWJzBZvOVGBcew2G/Im+9je6xksF/HC?=
+ =?us-ascii?Q?bxT95OImnE/3hUgEiy8dT5hL/2tSddBc2ZHxkLyV9r94/QzMEMthsNHjS8ua?=
+ =?us-ascii?Q?GriXYZEfHH0gmC4TtU/IDYe4JB28UT1XIqPcwYS7Q8gprdcD6xUhHg7Tsrxh?=
+ =?us-ascii?Q?MWirroPVuQLMQyKudjMCWZCDgZC4UJ9od43Wf1Xi+5r3LZjj4dFdA1yJsroP?=
+ =?us-ascii?Q?c02XEpl/2kViqXn4EEIcLpjCX/itlrN0LnNs5tdyP2uodEGlcyJuIFgJ599P?=
+ =?us-ascii?Q?erZ9+1uGpxIgE2gUrbPcN9liIZc964TOksb0Fg3F1yIxzfq6BN4RAEzZwPJ6?=
+ =?us-ascii?Q?LvEWQPz7yOF53+0s0QN3QQTO1AKBQC9t5bzX6/AxRPnuYrGOlW09p+kqCDPk?=
+ =?us-ascii?Q?0hq2fA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2026 01:13:14.5849
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bcc36d73-74cb-4721-806a-08de53d34235
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000016.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_011308_601077_4D8F8DF2 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260114_171321_586229_E8B6D7D3 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,34 +151,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2026-01-13 at 08:17 +0100, Krzysztof Kozlowski wrote:
-> On 13/01/2026 03:57, Kyle Hsieh wrote:
-> > Summary:
-> > Add linux device tree entry related to Meta(Facebook) ventura2.
-> > specific devices connected to BMC(AST2600) SoC.
-> >=20
-> > Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
-> > Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->=20
-> Where? How is this possible?
+A vSTE may have three configuration types: Abort, Bypass, and Translate.
 
-Kyle: Tags only apply to the patches they were provided for. Tacking
-this one on the cover letter implies Krzysztof has acked the devicetree
-as well, which is not the case with respect to [1].
+An Abort vSTE wouldn't enable ATS, but the other two might.
 
-[1]: https://lore.kernel.org/all/20251223-ginger-worm-of-swiftness-a8fa05@q=
-uoll/
+It makes sense for a Transalte vSTE to rely on the guest vSTE.EATS field.
 
-It appears you're already using b4. b4 also handles tags for you:
+For a Bypass vSTE, it would end up with an S2-only physical STE, similar
+to an attachment to a regular S2 domain. However, the nested case always
+disables ATS following the Bypass vSTE, while the regular S2 case always
+enables ATS so long as arm_smmu_ats_supported(master) == true.
 
-https://b4.docs.kernel.org/en/latest/contributor/trailers.html
+Note that ATS is needed for certain VM centric workloads and historically
+non-vSMMU cases have relied on this automatic enablement. So, having the
+nested case behave differently causes problems.
 
-As it suggests, run `b4 trailers -u` to automatically and correctly
-apply tags you have received for your changes.
+To fix that, add a condition to disable_ats, so that it might enable ATS
+for a Bypass vSTE, aligning with the regular S2 case.
 
-Please fix the issue here (remove the tag from the cover-letter, apply
-tags to the correct patches) and send again, _after_ you've addressed
-all further feedback on v3.
+Fixes: f27298a82ba0 ("iommu/arm-smmu-v3: Allow ATS for IOMMU_DOMAIN_NESTED")
+Cc: stable@vger.kernel.org
+Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-Andrew
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+index 93fdadd07431..823461a26659 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+@@ -177,7 +177,9 @@ static int arm_smmu_attach_dev_nested(struct iommu_domain *domain,
+ 	 * config bit here base this off the EATS value in the STE. If the EATS
+ 	 * is set then the VM must generate ATC flushes.
+ 	 */
+-	state.disable_ats = !nested_domain->enable_ats;
++	if (FIELD_GET(STRTAB_STE_0_CFG, le64_to_cpu(nested_domain->ste[0])) ==
++	    STRTAB_STE_0_CFG_S1_TRANS)
++		state.disable_ats = !nested_domain->enable_ats;
+ 	ret = arm_smmu_attach_prepare(&state, domain);
+ 	if (ret) {
+ 		mutex_unlock(&arm_smmu_asid_lock);
+-- 
+2.43.0
+
 
