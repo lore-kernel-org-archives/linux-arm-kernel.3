@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DA17D44C51
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 14:38:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 283DED44C51
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 14:38:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=otSP3WumEJ9ljtBMFrQYAuqQcsR+pe8+cqNgEJVYYfU=; b=JB6owH/ux/szjwmxAH/rusKjwp
-	NnbGpf7oQgmYtmFxQDAesK7OWSCmrXywiuVpF0iZn1dBczOr3ExjYO3zFwsKafXI3WQVbKX94sIJH
-	nUNC+pv3wYabtDLVf9/UmVcBGX/tUsseuKzs3Zqunrd/USQsP53tlae1b4tosqGUXh+8ex7S57ilI
-	cLY0TovhyKrYu9RSpjtr9wEXmc9qBJBOdZ8EBes8/QcXYqVbsGwc3ywfp8D7PNPMP1O6y5Ta9B5mZ
-	Jtgee7kI/e3K1pSSibTmkCPX34oeu+a81g4drow8V/AhbFdIMEbZF4100UI/VbaENnklgpg+96TSz
-	A92LGixA==;
+	bh=a/GYuhAPyxh2VtKR9ECrwYwGFXjwcnfw71zewQTg4IU=; b=XJICwUPnYCfXqkKKOKFzaeFesC
+	xmKEG/Tqcncpzy3K8T0ccJyPl2ZgSbqHUXF5eagqZnoYk9wDj45WUeyYh9pGkytBc32C9g8N6XOfk
+	qD9BH3K8F6qDLdomORvqWfCGHpIJqii0o3h8bA0e1PNJnF5KtEipb/plDqXD9/F0S513el8n6ryD2
+	DxN09sNhGF1itRGK18apLQ9VBRySeC0QIEDAORotSEJk6tmyheTlyEex0KQnfNrOwSjCSVMCV518x
+	LX0+hynq+vE3lRv2hPhrQssv9UAjZLu2HGksw3FBifhcIfIClIC01bzQ+SAS0nsPzp5xNAqGNYyiY
+	hftYpoYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgOUZ-0000000CVDW-1NQZ;
-	Thu, 15 Jan 2026 14:38:31 +0000
-Received: from mail-ot1-f49.google.com ([209.85.210.49])
+	id 1vgOUh-0000000CVQD-3Msl;
+	Thu, 15 Jan 2026 14:38:39 +0000
+Received: from mail-oa1-f42.google.com ([209.85.160.42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgOUP-0000000CV2B-2J4u
+	id 1vgOUR-0000000CV5I-23k7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 14:38:23 +0000
-Received: by mail-ot1-f49.google.com with SMTP id 46e09a7af769-7cfd0f349c4so628403a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 06:38:21 -0800 (PST)
+	Thu, 15 Jan 2026 14:38:27 +0000
+Received: by mail-oa1-f42.google.com with SMTP id 586e51a60fabf-3ffc3d389a8so669169fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 06:38:23 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768487900; x=1769092700;
+        d=1e100.net; s=20230601; t=1768487903; x=1769092703;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=otSP3WumEJ9ljtBMFrQYAuqQcsR+pe8+cqNgEJVYYfU=;
-        b=Sv30Pcj/tZF3lez+AGNTg/e8JO6Yf94GC85Yy6ro/34IIYVDwzPPhrL6L0xpBJlNmF
-         vGAddPaiUGw4ZGNJrSMey67M2K3y5cFTaKHubGxB40e5QXQnFvpfpbxWVbMlTMjhBoT6
-         QSolZiEz4UQcyLXR86l8WZnipKTgFy3iFgglwOHZn8Iz7bU1Xvt5oU9r5/05TF2zS6G3
-         WAPPw4GpPMkp/nh1v0AZKntsvCuS3X9FJFtOZFk7BfpHHlzV1exJIDBwc/ksZIr7HC8B
-         EM0LfAE058liG6tl9tQOt44I5tTvUL/7mqh7sTzcrJQjvl1qkGcBLn3Xf+Pcxe94apTz
-         6lrw==
-X-Forwarded-Encrypted: i=1; AJvYcCUCSeb1MF8TFceC4bb1ezLb0mfM3OKH/nKopYKdw9w+7tUzlSOMuqMhwgy04wb3JUMlTlMnSpJRkr867Qnlxasu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw71+Uu0G0o6BgkLoncC7TmufEzSYl+Po48PAbCIPw/P2LOwWjM
-	gp+WNYh7YKxiB2rNt2hKKXvKCK++pCRIDKrSbwYwEfyi30zEiSne3Jct
-X-Gm-Gg: AY/fxX6wEXm3YsoO6fCa6yQ13Szxp1IzkuI6jQSSOokAFPxXLQ2otU6/VMcxPZ0Q2ZS
-	njywVVM1T452BI7cYLfEy4/2Nmwhd95EN71lsLs6ZxfI29A8ESvWZJQf5qLugTNOZaDXUb1fhtc
-	zio7Zk9QL7mIKLNjKw4b7+8JyRUhZGVjmihwDjYm/bHnFyEmrWknqVXmmC9bOHSg6mTM8oII3rf
-	MpMHl1pnBn/qOviDQo9phYTGBBaa0KMvvJERtyiiiEJiSRUgDgmRAc3+QGYunI1Y8YioSZY8o2K
-	IAYrjIPfg0xd6oyEwNmgFwohh6zMBUaywxwW+8zMtt6pp61aqJR5sLjNf4rGqIvU7zyNoWBJiAB
-	5xIrFBUhuksRTgO12j9QpDkU0vHQSbTpMpFVv/CdYIVOgJNHsHoArqw7iPUXHjxbxnLM14rEafR
-	0MaA==
-X-Received: by 2002:a05:6830:358e:b0:7cf:da97:57d5 with SMTP id 46e09a7af769-7cfda9757ecmr957520a34.34.1768487900523;
-        Thu, 15 Jan 2026 06:38:20 -0800 (PST)
-Received: from localhost ([2a03:2880:10ff:55::])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7cfd68b13fesm1559488a34.3.2026.01.15.06.38.19
+        bh=a/GYuhAPyxh2VtKR9ECrwYwGFXjwcnfw71zewQTg4IU=;
+        b=mw0murtGZqEZRSgneu00EAx56kANTqxvUkbXBKcyHbjXsVcaS1GIZHXdJ6yFjKSKd8
+         YTgqgQiy+Ny2qtLrfdlnpBp7DIyVNLhGvZAZ0uxKSys3W/RfcojZKncB8gorC9a9ZaYW
+         osXsRMOsSQLgJtc1fGIrjX8/tPhyj5N/t4ZV51S2iEsLXGPoGb/OoWQXgiYQPXm3/Uyi
+         HC9AyrdFuqG3143nX0ttFauiMlqk0YDQNJB9pUFxuCj+aZDxqTDZPvDYcbA46IkL0xbC
+         PC/zV3CM1VpR6KB6XZytUav1Mx4PoTNp8rOwKY00g9wtZ01dyEyn/qKR0fPTM1PngiLM
+         V7eg==
+X-Forwarded-Encrypted: i=1; AJvYcCVOapvlbhA18bovQ6MNxVjEP2vN8a4GkviMLU+qo++oCjGgrIZ6pqbsQoFsRt+9+bPEbxm+YOaWT8zxSvi5waOW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzm0hFXx3ALZ3N7/4w7YX9T0Vv5N4Yl9mQVuYtlW/2gyiTVV3z5
+	Igtmrod6qFcdjk3+cOEOOGnGBRwwP/ly40Iztr8R/QbeRGQ3bsDrsqUi
+X-Gm-Gg: AY/fxX6/gXeCzgPiDCm4Vc/1X6wrYYrqHbxLeNIFUExMmM9dfBK5S0ik7X//HAQYioy
+	l/p9BkRKUHNdejQdqvyCuLIRuQkpYqKJX4Wp8lBa1Vidr+EgVDEV86nQ+XOlck7AkloPal598c0
+	dPi2YZUN4dZoy2TDjPh2whJVLyngqZ2PXJ5sgIzkC7SAh2w6noe8n/HNxF96TB8+dGTOpPvFCNc
+	Axc9+E+VeTss/PqeYF5LHfpQdN4XC8hFHDsPtZ+Ef05f0AtgtJKk+VLiz38DQx0Lat2/AHR0gyy
+	rsr0VcxigNYCk7nJFa2/LKmsfrvAX2bDVCVHLLn7Sq+veu4a+xYyZWOba8KQfrC07JrDg5DcaMt
+	0Ow3gRRExEKjm9U0ncKQvafYYyvutrLWAbRtfeRIbSOV4/axHuvkhGlVz/2GgxkR1EZM8g2zRdB
+	Cr659VXRKnBV4=
+X-Received: by 2002:a05:6870:864b:b0:3f6:2118:2d37 with SMTP id 586e51a60fabf-40407155e60mr4009310fac.42.1768487902673;
+        Thu, 15 Jan 2026 06:38:22 -0800 (PST)
+Received: from localhost ([2a03:2880:10ff:3::])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4041a20051csm3187622fac.17.2026.01.15.06.38.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 06:38:20 -0800 (PST)
+        Thu, 15 Jan 2026 06:38:22 -0800 (PST)
 From: Breno Leitao <leitao@debian.org>
-Date: Thu, 15 Jan 2026 06:37:54 -0800
-Subject: [PATCH net-next 7/9] net: cxgb4: convert to use .get_rx_ring_count
+Date: Thu, 15 Jan 2026 06:37:56 -0800
+Subject: [PATCH net-next 9/9] net: txgbe: convert to use .get_rx_ring_count
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260115-grxring_big_v2-v1-7-b3e1b58bced5@debian.org>
+Message-Id: <20260115-grxring_big_v2-v1-9-b3e1b58bced5@debian.org>
 References: <20260115-grxring_big_v2-v1-0-b3e1b58bced5@debian.org>
 In-Reply-To: <20260115-grxring_big_v2-v1-0-b3e1b58bced5@debian.org>
 To: Ajit Khaparde <ajit.khaparde@broadcom.com>, 
@@ -90,25 +90,25 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  Breno Leitao <leitao@debian.org>
 X-Mailer: b4 0.15-dev-47773
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1593; i=leitao@debian.org;
- h=from:subject:message-id; bh=mTt9g4AIDDCE/wyHFNRn7ITIDqk1FNXdFvVq0NDOWRs=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBpaPvSKI56w6S51MA1g4GESPyU+3R/PgLYWFpyg
- RPCz4ftjtyJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaWj70gAKCRA1o5Of/Hh3
- bT6nEACvWlpHECCXJWCsSIz2b2fYD3jmE+YC812EOVG5+Zgom6pRSjYRnpNtdw6aB4pt4AqHazt
- HZFziZXiPwrVJ2KHKtvLJZoxKPasMBVoOXL66e2D5tK5/mI0KYr9tm7YPRiMH5dGlcGJKU6XNsA
- G6N+dTc7KGSezfQbek6Bd8dWIpoxHoewdIhlkQFtiQ/X0GnV8CP+YBxfN8e7VxS6ORKI9Eu2w1E
- KRO2JjSj1cz2bfntjyD/I3tzznYWFgp1+ghvduFHDLRfEOFyjxdMyJ9/2hwXO/SiLOUDqhFIK2I
- xHata1GinUobVH5wC/JDB4I24G7sUoqrW1vUQVFScu8p+i90ajthRDbJFsAIEJ3AdeAWWu3VKMI
- 57ArKtwl6Qv6V7N6KfHRPi8sFD6PdAv2wVDq4w/LJbAzSfug48nxIM664m9EihWEaVEvEZLpiDZ
- A/ODC9UEICyZdjzs/yEz6P3R3/Oyjrh5u0HffU7u8PEUU48MpBTkw/WaTy+sTzjhAAm3+DYsLGT
- YxghWqGbpydPH6FaGSUgKB8ISAEFYnUsA3Zy0MBeZ4UbwKOTxFAIC3JhDyrH2GLh70WwgTyGEjC
- ZMISm3UWHjF23jaIfJBhLLEk7ANEUDZd0JZ3YumtwhGKWR0ZvjOj/uQRxh1k5rkMRlHSNhqRCZv
- YJxvQ2AHmSnZF5g==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1635; i=leitao@debian.org;
+ h=from:subject:message-id; bh=iHjMCRl1osOPGeWzfnK2KNM/9EoiAxwpcSWI+XP02wM=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBpaPvS2jwDA4B5OVdm2pYfwE5wwEoA1TjfN+vFk
+ Oq4iqdDPU6JAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaWj70gAKCRA1o5Of/Hh3
+ baEtD/0e4jxGdtSnXlNdd3Ym+AmQnqmw+uQARxVH3fvJRkHoecl3Hzt6HnkNMpJ2bHcL+Ykuo+2
+ bqDVJi17xCAxz/JJ+E5uhNl7rq1nzJiOdALOcbtS+q0vaAqaZANFIQTUTAtwvr8Vcykq8fnNkr0
+ 2xiADYMIU5s+WuQsMpxl097cT8oXChiukHlT6HsJ222668dm5nRiPA0evqv/2pWsVDaAywkAi6x
+ aeiwdgG4iQxbfanDh2VKer1hvyDYRelxSgXXwz9N4xwcSk8Wfz5aDDHNrzSYqDMGdS+E+kjPat0
+ t4kMwgKvDihLCIWfhFIASs4E9SQRkuqb8Jl9NPamj3g0kSm4VqPztopV3u/iPeb9hidjshOk1GS
+ qxDrEiy97dK97aot5HKc9ujq+XVUI/Q51g0H3img2C95IaK5r7LWia1OALMEcV2cBy/rbsNPfas
+ K0QBWLVLDq2PqiUc25Jxy+TG+ctt4emx4tKPDjc0Pe1pk1H3Tgi06WXLVavvwsW9ksgo8O7Sf6a
+ Db19Wi8PouSxa3fu+u38JygBavrl/AFKs1l0aVN5h73ufNH1bOfS1xHmgvxnchF0HmnRm3G+CHb
+ KvdDaYueCtvOsJYb1eivSnDKOoF+M7LQRcakwSN6tgiUiFJI8r9TH1aKmpkYtvWyA4rRbcHIk/q
+ pdghbi7qVDQhMoQ==
 X-Developer-Key: i=leitao@debian.org; a=openpgp;
  fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_063821_616777_C571EDEF 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20260115_063823_541289_DC05FA51 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,45 +128,46 @@ of handling ETHTOOL_GRXRINGS directly in .get_rxnfc().
 
 Signed-off-by: Breno Leitao <leitao@debian.org>
 ---
- drivers/net/ethernet/chelsio/cxgb4/cxgb4_ethtool.c | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+ drivers/net/ethernet/wangxun/txgbe/txgbe_ethtool.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/net/ethernet/chelsio/cxgb4/cxgb4_ethtool.c b/drivers/net/ethernet/chelsio/cxgb4/cxgb4_ethtool.c
-index 23326235d4ab..faf8f7e86520 100644
---- a/drivers/net/ethernet/chelsio/cxgb4/cxgb4_ethtool.c
-+++ b/drivers/net/ethernet/chelsio/cxgb4/cxgb4_ethtool.c
-@@ -1784,6 +1784,13 @@ static int cxgb4_get_rxfh_fields(struct net_device *dev,
+diff --git a/drivers/net/ethernet/wangxun/txgbe/txgbe_ethtool.c b/drivers/net/ethernet/wangxun/txgbe/txgbe_ethtool.c
+index f3cb00109529..59d758acccf0 100644
+--- a/drivers/net/ethernet/wangxun/txgbe/txgbe_ethtool.c
++++ b/drivers/net/ethernet/wangxun/txgbe/txgbe_ethtool.c
+@@ -193,6 +193,13 @@ static int txgbe_get_ethtool_fdir_all(struct txgbe *txgbe,
  	return 0;
  }
  
-+static u32 get_rx_ring_count(struct net_device *dev)
++static u32 txgbe_get_rx_ring_count(struct net_device *dev)
 +{
-+	const struct port_info *pi = netdev_priv(dev);
++	struct wx *wx = netdev_priv(dev);
 +
-+	return pi->nqsets;
++	return wx->num_rx_queues;
 +}
 +
- static int get_rxnfc(struct net_device *dev, struct ethtool_rxnfc *info,
- 		     u32 *rules)
+ static int txgbe_get_rxnfc(struct net_device *dev, struct ethtool_rxnfc *cmd,
+ 			   u32 *rule_locs)
  {
-@@ -1793,9 +1800,6 @@ static int get_rxnfc(struct net_device *dev, struct ethtool_rxnfc *info,
- 	int ret = 0;
+@@ -201,10 +208,6 @@ static int txgbe_get_rxnfc(struct net_device *dev, struct ethtool_rxnfc *cmd,
+ 	int ret = -EOPNOTSUPP;
  
- 	switch (info->cmd) {
+ 	switch (cmd->cmd) {
 -	case ETHTOOL_GRXRINGS:
--		info->data = pi->nqsets;
--		return 0;
+-		cmd->data = wx->num_rx_queues;
+-		ret = 0;
+-		break;
  	case ETHTOOL_GRXCLSRLCNT:
- 		info->rule_cnt =
- 		       adap->ethtool_filters->port[pi->port_id].in_use;
-@@ -2200,6 +2204,7 @@ static const struct ethtool_ops cxgb_ethtool_ops = {
- 	.get_regs          = get_regs,
- 	.get_rxnfc         = get_rxnfc,
- 	.set_rxnfc         = set_rxnfc,
-+	.get_rx_ring_count = get_rx_ring_count,
- 	.get_rxfh_indir_size = get_rss_table_size,
- 	.get_rxfh	   = get_rss_table,
- 	.set_rxfh	   = set_rss_table,
+ 		cmd->rule_cnt = txgbe->fdir_filter_count;
+ 		ret = 0;
+@@ -587,6 +590,7 @@ static const struct ethtool_ops txgbe_ethtool_ops = {
+ 	.set_channels		= txgbe_set_channels,
+ 	.get_rxnfc		= txgbe_get_rxnfc,
+ 	.set_rxnfc		= txgbe_set_rxnfc,
++	.get_rx_ring_count	= txgbe_get_rx_ring_count,
+ 	.get_rxfh_fields	= wx_get_rxfh_fields,
+ 	.set_rxfh_fields	= wx_set_rxfh_fields,
+ 	.get_rxfh_indir_size	= wx_rss_indir_size,
 
 -- 
 2.47.3
