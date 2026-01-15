@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA2E5D44C59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 14:38:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E22F7D44C5A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 14:38:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n4pj0G+Abgyush+HjB0g/8sWijDo1hvace6ej6tDD+M=; b=IvWmsA2w3qXb9QpDawU+TkKyQd
-	uveAC0KRvHstiUr/QEQu2RARJjni+9XQOCQUm7IPRuyGG8yUeRSSfJfxITU69X5BkZFlT8NcOaLMG
-	11hRB2ClAwFqhlqaG3H4YuCOegxzwt7HFvkaTFGJsdsM5CL2e9V66Q853Tq9QCsoRMFsVUBUiJJKs
-	kLcfrKahMajJOCo0VIY+DG1n0QksUwFVtOOHpbiduSrTSxnN3m688CW0PefBEvYnY+GR+qfXSH2kB
-	eBDGzFAmNX2BzBXveKnsKaT72xyMWtWOJBMRardGYv8BHwyD0rEd8OQFv8Ag0PoxQMXUpBUWGmIOC
-	oXU3KYfg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=obRPckYhjEiJNPLv4O3955QSZYUHJdHSvxM4hv9Cxmk=; b=r7ZiZv4/e1Z6H9
+	grNWA5+z51g3q0V5QertaeHoGDx50+GLvR05X57PUy8FmbP8RF1xufgCT/6hfGq4bN6BoNc63Es/c
+	KUbNYc9L93iPISa3GDUSQlCg66qpwHLUSpwB9l38/zfrxoheVJ/RUUZ9wNEYtCkNlA3v5RB7Xq3GJ
+	nae/1ylURF5RbbgcqKLIsqLLla1y9EThoeJTaax/l96PJtzDxfGp1O8ZbE8Mo6vNwJ2iw8PPlCOGl
+	9X8kD+Nb6TwcQdblfw2Ni2yPp/w70dhG0yrYZbLwJKTj1/rALyvlyJC95grDoal4OjZGIipc5cXZJ
+	8/Z5LM9EEqi38G5PBwSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgOUO-0000000CV0e-1Vgj;
-	Thu, 15 Jan 2026 14:38:20 +0000
-Received: from mail-oa1-f42.google.com ([209.85.160.42])
+	id 1vgOUW-0000000CV9o-48NC;
+	Thu, 15 Jan 2026 14:38:28 +0000
+Received: from mail-oi1-f170.google.com ([209.85.167.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgOUJ-0000000CUtz-37tX
+	id 1vgOUM-0000000CUwa-1Jl3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 14:38:17 +0000
-Received: by mail-oa1-f42.google.com with SMTP id 586e51a60fabf-4042f55de3aso640084fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 06:38:15 -0800 (PST)
+	Thu, 15 Jan 2026 14:38:19 +0000
+Received: by mail-oi1-f170.google.com with SMTP id 5614622812f47-45c715116dbso631910b6e.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 06:38:17 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768487894; x=1769092694;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=n4pj0G+Abgyush+HjB0g/8sWijDo1hvace6ej6tDD+M=;
-        b=fM+Kns77YcmYRqrqFbPaOZeiz3PfQLUz9l8be7t0gRgzI+14Hq9nk8mGNleMf0asGs
-         h8Fc5NbbLsrYELud8eDBM/rhLJSoqq/wPhdaERr9PAMH/VUEr6K7eYDb3OApvHafHD5+
-         KHaKxQIKGEpMvJLEV0/003V+nqabZovM2vT0zMGUtVbjUvivh6j5BV3C6avhyUxq2ibC
-         iwf1cPkraOwjjMkg8wua0FFPkZVdF8y9NaxleQIYl9QPdrxhiDTq5GQLiDWefBVAjMgU
-         NuWON7zDx7FBIbue/y0K9tDWiKTE1NkS5t68C83kN7iNxXOBK3/pmxWb99mnGezisxBq
-         qXLw==
-X-Forwarded-Encrypted: i=1; AJvYcCXWIuvRcYEFagzhjhO8rilimutZs1juQvDDtbeon3M2DchVwipIOVF7cdeKBRuAECnIPuQVWtlFTruRCl/KwdSc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUwprZORz4ZxPLnyUXrlc+ZaR1dJzZajpVRicIdcsyf/cIG6Ux
-	hyAccPGJF3aMMB4QfFZdkhiasmFGfzUnSq8ELYH2cgPSPcwDU17wIT9m
-X-Gm-Gg: AY/fxX4TPzT49RCl7zPH0v4WUvT+gbcywKAat8WegCoJwqp+6snBj3ImastQYeto1/8
-	HZsABF0J8BZJw6hNDIZ8EzofE3SBfPZ/i9OhQGrCoNCdrJMq8UdXrwvGVIpiV3nXqMAlcK+p0cv
-	Ju5z3rUcuTV0joBChfJe2ttzh38Hw9oOPPc+hSqc1+SPB2ofCPaqMqRb4YPzaZb9rTosQzxWjyA
-	zaqsY8CgkDmUOv8BIIxGpWvH0nMWhDmbfSjZTSSI1uiUXuRu6rhSth12/ihPZ1GUmbV6f2kielg
-	XVJuTmH4hZJ3OVqWiyVPzDNnNfAqNf2odyt6BQdyzsElhDwCH/dPWzEvlVgufJqKmvJ/2PWmZSQ
-	yW9xmlggYY9DWSdsyWE8TGN+VFwnfsxQh4jCoYZIa5RQBLwLG+NUWLQph+APtwrXZ8gtB/HyMbE
-	jVBw==
-X-Received: by 2002:a05:6871:e2d7:b0:3ff:c029:d24c with SMTP id 586e51a60fabf-40429044c12mr1905592fac.17.1768487894611;
-        Thu, 15 Jan 2026 06:38:14 -0800 (PST)
-Received: from localhost ([2a03:2880:10ff:42::])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4040cba2d2asm3965570fac.5.2026.01.15.06.38.13
+        d=1e100.net; s=20230601; t=1768487897; x=1769092697;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=obRPckYhjEiJNPLv4O3955QSZYUHJdHSvxM4hv9Cxmk=;
+        b=OX0BccdejYGOidksVET8TZshfkkisnRWArxxd5d5y9a4+j6eYcgkUDMZeQ+3lTodlV
+         HDJtipE06qM3rgegmEycoSldeTq+BE7uWeSquPfpyp6Pc+dRAPf3Q1MymFwGfdY4fWYE
+         86AwCowLlXDXaFzhdlLJi8Sq3ZkbZYecaPggaSjNTCIgRsrKwrXjMd6g4LV4cdxDoH5+
+         3zj7oJVjZtIKYNeddKQ6Lhm/FxgMqoxK7VzKsQ5+Ck7FkQqLco4owprym8AidVxHycAx
+         h6vMhe4lO+8dc2TGkDHMjV0RAa4MLFEdpb1syGH+qnDqPE+tMQ4zgcQS+CojpIZ2Xn7J
+         uKXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXOs5W3irK8cdQLeoHvNRz2hDRMpiGxqg1VglQX8THHhTySG/uBoC3crFHEe1ljnxmh9QtcUycGExbmwwElJ4U2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy14Yxr4IdJ7J84ZddRs4pda617uDpt5qqPqWy5jTj20D4Orf/A
+	ZRNI4WnUQ51U3z1WI4izl5jKV9nxtrt9kb9N9Th+RO6TiXzWHr7KuOgz
+X-Gm-Gg: AY/fxX4gKsKqm3/pOSgDytCLCdI8VbiCtAyMd+M6gH6UZ+SJCbq+4OHQ8udWXFUjWWa
+	DoKxZhcgADmLNrmT9veilzpblk1fN5Endo7S+9dwX+h4YikEQB0Gq7PMa276yblvp5iwJvw0DJR
+	M8csaVxCGIgqJa5VDgdP/iEAN3Rz2uB0W4PYXqtgb4Un304ZwsceukG9J2R1rhzXx5C8Rn4rl/6
+	Xvlvh7JTh9tvSBaKelpPbqbP2+43J2eOzqbb1lP8r7vhgOw9WxTtFybw/KuLbAhpSV7Kcket6qn
+	wl+DdLjYgBtCrsZKoV5c+NW9jhRcop2Y0MjmvYOiKqOKgNQxrl/5rdibSpFA7kweP01wm/dLWro
+	bbKwHtgyg99lAvdsWZRfAGMYtuvLuTzm+t5zgztOA8xSOO4ZGgIxmnWmvr/ZizO5rHSAzN2cEm6
+	Pr6LS3G+FFqbjG
+X-Received: by 2002:a05:6808:83cd:b0:45c:73b0:893c with SMTP id 5614622812f47-45c73b0aae1mr3347077b6e.11.1768487892230;
+        Thu, 15 Jan 2026 06:38:12 -0800 (PST)
+Received: from localhost ([2a03:2880:10ff:5e::])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-45a5dfb6256sm12849514b6e.0.2026.01.15.06.38.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 06:38:14 -0800 (PST)
+        Thu, 15 Jan 2026 06:38:11 -0800 (PST)
 From: Breno Leitao <leitao@debian.org>
-Date: Thu, 15 Jan 2026 06:37:49 -0800
-Subject: [PATCH net-next 2/9] net: tsnep: convert to use .get_rx_ring_count
+Subject: [PATCH net-next 0/9] net: convert drivers to .get_rx_ring_count
+ (part 2)
+Date: Thu, 15 Jan 2026 06:37:47 -0800
+Message-Id: <20260115-grxring_big_v2-v1-0-b3e1b58bced5@debian.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260115-grxring_big_v2-v1-2-b3e1b58bced5@debian.org>
-References: <20260115-grxring_big_v2-v1-0-b3e1b58bced5@debian.org>
-In-Reply-To: <20260115-grxring_big_v2-v1-0-b3e1b58bced5@debian.org>
+X-B4-Tracking: v=1; b=H4sIAL37aGkC/yXMTQrCMBAG0KuEb91AklrRXEWk9GeM42KUSSyB0
+ ruL7frBW5FJmTKiWaG0cOa3IBrfGEzPQRJZnhENggtn531nk1ZlSf3IqV+CJZqvQ3dx7an1aAw
+ +Sg+ue3iDULFCteB+SP6OL5rK/8O2/QCuTJhFfAAAAA==
+X-Change-ID: 20260115-grxring_big_v2-eed9a5803431
 To: Ajit Khaparde <ajit.khaparde@broadcom.com>, 
  Sriharsha Basavapatna <sriharsha.basavapatna@broadcom.com>, 
  Somnath Kotur <somnath.kotur@broadcom.com>, 
@@ -90,25 +93,26 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  Breno Leitao <leitao@debian.org>
 X-Mailer: b4 0.15-dev-47773
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1647; i=leitao@debian.org;
- h=from:subject:message-id; bh=VqwV07kQH4CtC2dzFBLL5ZX1yoUM3ruiZh1l3J4At1o=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBpaPvRXdQiLep1rFYIYQ2D4H5vs5OvolAtazC0M
- O/7iI/pc/uJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaWj70QAKCRA1o5Of/Hh3
- bdcNEACK6R+vJJPtW8yLH04hKVq5d3PRhPSvRYiADaz5srmrMsfCXAVavitSAfOLb29EpgQlEef
- 6I95MtC+vloxjsg+uluNGS/j5LTm2U3A8fHWijO3PQXNngVL1c5I+rBBBWZQqJEb3UEaKgtIBKz
- MLowyR2FFvubs0MEGXemyyR67ofdf5CtNDGpd8TPz0WmBkjX8DJ7bvjqG6mZ624T00ODQWAY2lv
- PHEMcm9ZfccLDCJiQhRk5+gdrSjED1Gz9+Ku5yOPue7p6ArvHR1z4vDWrjVgtMBs4I/l6P39tw9
- lsHE4X+ZRFztAZam0EzU1nF/0n1idvfdRN9boefz6WwwnzShz0tpgvq8U6BW8PoEFFLeGfeW1PG
- fmzmZSWz7D5RcOiTubf/h7/+vqsk7bD1EDJwVBanoEUYv8J+rbRSGgye321FGo/6hPSIW8gYB8a
- OodoPKdZoNLbib5yL+VPTnXSjFn0uilyPPw/Vsb7HF+E/nEtd+0qLUlpUue93flveq8kf/6OggZ
- 43tIwDvSUydlJEGQfOAEbIC0eh1u+fuLacrxoxvTJKaT79Ea0gWw8/5n/cxTOBj3NOX2URG2UDK
- yqsKFU04o2wH1tFSJTpwYsNEY+KGV+igZGmLK76DdcwsVlIXCevVKZ6+SMQsluSW7n26vLg4fWE
- Q+QEg46BHDlNhlw==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2118; i=leitao@debian.org;
+ h=from:subject:message-id; bh=Jym+hB7alQQy54wZeliTw3/vUjoLAwmzKirUqnTIOwM=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBpaPvR64rLYjr2/iNqLeLLq4WUcZf2UrXiopTlb
+ njcXO6FZImJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaWj70QAKCRA1o5Of/Hh3
+ bZroD/0RDCaNjdoDbu0mv1OiLrdFYjfSMbkXoNZQmy/Ib1BSBZcMkshG7AJyuWcGBafcCmjj03x
+ VKqJbxcSyWQ+tpj8TL1dqoqagPpMLEixz4HugR9MHu39GxRHg67sAwg+bPc4+wBaKuZLdJrov+i
+ k4fLF83CLgthdt8vpKY08wNYHyNdWcaH9Gf1xQ1hbACXK2Knoyo3vVPYYVqwqG4Mrjc1N6tnItO
+ ShNU2XPOjTekErc+spOHazhTgbPOS2cL1cBA5An3oEfBvoryhf7jy/IljJdNYk3YOJxER/wCgWH
+ DktqZGJ03Tmty7FkBdzUv01Q7oMMOdia7Xa9xf7HBkWx1OmpOATfQhLnUwSusKwm6zxbDTy6jqL
+ 5h0No4RHrYc/ivjDAoBCmrG8u8LrAxElbmUm48x6nm7hIF8rSY/U0/FT87qYDJJuFycgyP2cQnR
+ mUzjeKJYEDqQw+vGd4Pg9Gjl+EenugTNENvN4aV8R3+z7BaR4NIsrT7N39bXBBxKSIOK9I26bGc
+ IkQovYC7ZbWc5SU7+e4ShGDEeeEjC9S8qIdwuLLXtglOSDGpEPrWbZDLSSURHuVTjjIzuEnFupK
+ C4GynyaMc4wqYJmfPgo5TVI7Bu+0yzeda7t8AfkbLDXnzDtVS07r4lJVG/ZyrVOJVsUKD89MXcG
+ 47Q/f6pZkmqcEEg==
 X-Developer-Key: i=leitao@debian.org; a=openpgp;
  fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_063815_803786_1A6CAFAD 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20260115_063818_376194_B2D21F5B 
+X-CRM114-Status: UNSURE (   8.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,51 +127,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the newly introduced .get_rx_ring_count ethtool ops callback instead
-of handling ETHTOOL_GRXRINGS directly in .get_rxnfc().
+Commit 84eaf4359c36 ("net: ethtool: add get_rx_ring_count callback to
+optimize RX ring queries") added specific support for GRXRINGS callback,
+simplifying .get_rxnfc.
 
-Signed-off-by: Breno Leitao <leitao@debian.org>
+Remove the handling of GRXRINGS in .get_rxnfc() by moving it to the new
+.get_rx_ring_count().
+
+This simplifies the RX ring count retrieval and aligns the following
+drivers with the new ethtool API for querying RX ring parameters.
+  * emulex/benet
+  * engleder/tsnep
+  * mediatek
+  * amazon/ena
+  * microchip/lan743x
+  * amd/xgbe
+  * chelsio/cxgb4
+  * wangxun/txgbe
+  * cadence/macb
+
+Part 1 is already merged in net-next and can be seen in
+https://lore.kernel.org/all/20260109-grxring_big_v1-v1-0-a0f77f732006@debian.org/
+
+PS: all of these change were compile-tested only.
 ---
- drivers/net/ethernet/engleder/tsnep_ethtool.c | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+Breno Leitao (9):
+      net: benet: convert to use .get_rx_ring_count
+      net: tsnep: convert to use .get_rx_ring_count
+      net: mediatek: convert to use .get_rx_ring_count
+      net: ena: convert to use .get_rx_ring_count
+      net: lan743x: convert to use .get_rx_ring_count
+      net: xgbe: convert to use .get_rx_ring_count
+      net: cxgb4: convert to use .get_rx_ring_count
+      net: macb: convert to use .get_rx_ring_count
+      net: txgbe: convert to use .get_rx_ring_count
 
-diff --git a/drivers/net/ethernet/engleder/tsnep_ethtool.c b/drivers/net/ethernet/engleder/tsnep_ethtool.c
-index 228a638eae16..d11168278515 100644
---- a/drivers/net/ethernet/engleder/tsnep_ethtool.c
-+++ b/drivers/net/ethernet/engleder/tsnep_ethtool.c
-@@ -257,15 +257,19 @@ static int tsnep_ethtool_get_sset_count(struct net_device *netdev, int sset)
- 	}
- }
- 
-+static u32 tsnep_ethtool_get_rx_ring_count(struct net_device *netdev)
-+{
-+	struct tsnep_adapter *adapter = netdev_priv(netdev);
-+
-+	return adapter->num_rx_queues;
-+}
-+
- static int tsnep_ethtool_get_rxnfc(struct net_device *netdev,
- 				   struct ethtool_rxnfc *cmd, u32 *rule_locs)
- {
- 	struct tsnep_adapter *adapter = netdev_priv(netdev);
- 
- 	switch (cmd->cmd) {
--	case ETHTOOL_GRXRINGS:
--		cmd->data = adapter->num_rx_queues;
--		return 0;
- 	case ETHTOOL_GRXCLSRLCNT:
- 		cmd->rule_cnt = adapter->rxnfc_count;
- 		cmd->data = adapter->rxnfc_max;
-@@ -469,6 +473,7 @@ const struct ethtool_ops tsnep_ethtool_ops = {
- 	.get_sset_count = tsnep_ethtool_get_sset_count,
- 	.get_rxnfc = tsnep_ethtool_get_rxnfc,
- 	.set_rxnfc = tsnep_ethtool_set_rxnfc,
-+	.get_rx_ring_count = tsnep_ethtool_get_rx_ring_count,
- 	.get_channels = tsnep_ethtool_get_channels,
- 	.get_ts_info = tsnep_ethtool_get_ts_info,
- 	.get_coalesce = tsnep_ethtool_get_coalesce,
+ drivers/net/ethernet/amazon/ena/ena_ethtool.c      | 22 +++------------
+ drivers/net/ethernet/amd/xgbe/xgbe-ethtool.c       | 15 +++--------
+ drivers/net/ethernet/cadence/macb_main.c           | 11 +++++---
+ drivers/net/ethernet/chelsio/cxgb4/cxgb4_ethtool.c | 11 +++++---
+ drivers/net/ethernet/emulex/benet/be_ethtool.c     | 31 ++++++----------------
+ drivers/net/ethernet/engleder/tsnep_ethtool.c      | 11 +++++---
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c        | 15 ++++++-----
+ drivers/net/ethernet/microchip/lan743x_ethtool.c   | 13 +++------
+ drivers/net/ethernet/wangxun/txgbe/txgbe_ethtool.c | 12 ++++++---
+ 9 files changed, 58 insertions(+), 83 deletions(-)
+---
+base-commit: cc75d43783f74fe0a1c288aba9e6ac55f1444977
+change-id: 20260115-grxring_big_v2-eed9a5803431
 
--- 
-2.47.3
+Best regards,
+--  
+Breno Leitao <leitao@debian.org>
 
 
