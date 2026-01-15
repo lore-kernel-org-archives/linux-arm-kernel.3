@@ -4,178 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D9BED4662F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 21:55:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383C9D4662F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 22:00:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+uXAZdPmUkessXAgUMjkvbcm7U/qGJZZHHbg5dFlXpE=; b=m6jG6botzL3ddxkXgVg94yGSvY
-	JO0kbJuvJZV0Wv8f89WvvPSD3sFuWcDvjEI17J1ocNu4yHPoYGxVVftU0F/3LWKx8dH0+vh9ma9Ro
-	7dzHg3y+ndjfFM2f25LyQoVz1vkBnOxjg5EiCWmQONzuxZg+7eTZToevDEiLGnBQGLTieRJmJrKd6
-	ToJkIHjR9moPaWHsjqKa6liIgBWTV9ql9W6cjhoE6daKputAahPPcX73xLHQudT6LfWMxrUT71csj
-	BFySAqjC5yG1YKvR4K2x93sAaiiOvpK8B802fX92ftE4FBA+SmRvj6atD11V5Qpy/4I8eiMh1WYx+
-	RHV99T4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fn2sWs9rsdbV0vxeRVrjmzY9BmEC+XTCv1XXSHerLL8=; b=NPfhDYmwPRX6m2CQQkiOGfq20m
+	iU4B73g6gDHV37Fdf28MoGzNNk/Uj/UVDeAhyF/U1Uihx522DMxaqhgRB5w8Ya8XZ8kYp3uS7Ot8g
+	Y66bT/Ws7bwNtDdEmQe2/ubnZy1KghhZEoFxL2ub0JHVgwA/04Q5xO9zFjwrAlgI4xc2+NaGaZs1W
+	IJcOXeH00p2jnSAfXGNv5Pq0ftDFd9Awt2PVaQT9YNjSchayhHFc62YQbuVPl2838ZgyxsjLVNAva
+	8e3t3YK4EcgRKCjkOpHZJSgBkfr1vmByvj3N6Aer0aUCIwwZb6tu0139X2wd1pg+H52DyJMleYRQZ
+	3ZnOfyKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgVJK-0000000DFEs-1X0D;
-	Thu, 15 Jan 2026 21:55:22 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1vgVOC-0000000DFZd-3icR;
+	Thu, 15 Jan 2026 22:00:24 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgVJH-0000000DFE7-46Ty;
-	Thu, 15 Jan 2026 21:55:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lIqIlRPuj+iUQSXa7OKSfFMWf5KGN2TtRRUj5eFCdWVN2e9VyOsqXweYr+r4qhPN/2mpoROckUTNLdMc6IXpb7iRhfuAt8WOjx8s1oMGFyGd4kV02+NPvPNjQ4p9rKLEW4+iHAV8l9UDYPLVelsj4EiPrvn3b6bFhKc0QD9NRCGI/vH3n1p9o0ttPac7QrKSqf+1b0L5K5QQ+yc2ulIfBvXtSctFq36G+5VqfQLw6s4ZKdJvIxxA7iAqMufQFYtqP3UFivHD/hz520keWHLeEZjSDwCSBVgN9hVJzW4ANs18mkoTYpN1eDkuHZunpmI+OyFYrhaJMNs9MiQuIyx4pg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+uXAZdPmUkessXAgUMjkvbcm7U/qGJZZHHbg5dFlXpE=;
- b=C4jN3XVTzYTRt1s19BfMumM91aDjP7vvF4nbiL3Wc8pvLUllLsRi/Z5KuEOv384xPmIq87ohwqIJnqBJvvf8gL6h59uqiUuszgb2ZO0P/x336/9yevH+tHc5gIJi0vVsudoEsq2UQucH8ZfO6ZPXLrWWVftivyiSBl9otzRCXV4Imn/QfNJjv8XejCwJ1xZDGXEavWK58vYG31C1cB2xopbKpHTg4sYM/CFyXb5B8IGHSiLJMKaDYj+25WbUjwCQiUWDJTfmbwLbTVnJbgHxJmyIiGOCMnxYOal9CjGUUygq5KYLY+KjxOvGzBJ3wGhKorHYAz9cWTJ661s4FTUVmg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+uXAZdPmUkessXAgUMjkvbcm7U/qGJZZHHbg5dFlXpE=;
- b=bK3odI/rNnVPzvtCg3rZ4K3/ZwQ9XMFUYxQ6iuTcbXeDnu3FfjrbpBFYnMVgF9dMkxfx6YYG8KnsJd+w6/fvC7UdBXgN+azpAnQ+kQn/KotHR+HhdC4tFw9eR5WG4m7VLEqyU9s5Uirmr8L8NqBSzvr3E1E0jSuX3fHfiM4olzy3ayRzsxWf3S6mEteQsBjwW71kMIQAIu+voYRqkd/3neuH26r5EAfMAczO2JvTNAou3u7beqyeTCOVvzOYtbAzCoNqtDflJ/hiE3VDAJ5psF025gAF3DTcbJCfFu0qlw8tRy2fcereNKweIdv24hBdf5O+T6ZdBcahU7McDEfs4g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB7630.namprd12.prod.outlook.com (2603:10b6:8:11d::6) by
- CH2PR12MB4326.namprd12.prod.outlook.com (2603:10b6:610:af::11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9499.7; Thu, 15 Jan 2026 21:55:15 +0000
-Received: from DS0PR12MB7630.namprd12.prod.outlook.com
- ([fe80::c81a:611d:7325:7744]) by DS0PR12MB7630.namprd12.prod.outlook.com
- ([fe80::c81a:611d:7325:7744%2]) with mapi id 15.20.9520.005; Thu, 15 Jan 2026
- 21:55:15 +0000
-Message-ID: <080d7aef-0139-4da4-8f43-aedbf9bb9948@nvidia.com>
-Date: Thu, 15 Jan 2026 13:55:09 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] PCI: Mark Nvidia GB10 to avoid bus reset
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: =?UTF-8?B?Sm9obm55LUNDIENoYW5nICjlvLXmmYvlmIkp?=
- <Johnny-CC.Chang@mediatek.com>, "lukas@wunner.de" <lukas@wunner.de>,
- Project_Global_Digits_Upstream_Group
- <Project_Global_Digits_Upstream_Group@mediatek.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "bhelgaas@google.com" <bhelgaas@google.com>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- Jason Gunthorpe <jgg@nvidia.com>, Alex Williamson <alex@shazbot.org>
-References: <20260115205347.GA881345@bhelgaas>
-Content-Language: en-US
-From: Terje Bergstrom <tbergstrom@nvidia.com>
-In-Reply-To: <20260115205347.GA881345@bhelgaas>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BY3PR05CA0049.namprd05.prod.outlook.com
- (2603:10b6:a03:39b::24) To DS0PR12MB7630.namprd12.prod.outlook.com
- (2603:10b6:8:11d::6)
+	id 1vgVOA-0000000DFYq-1Duu;
+	Thu, 15 Jan 2026 22:00:23 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 60FHEjlW023973;
+	Thu, 15 Jan 2026 22:00:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=fn2sWs
+	9rsdbV0vxeRVrjmzY9BmEC+XTCv1XXSHerLL8=; b=UhWJ1/AD1XNfi2W0E653MX
+	rWZ+eYl1wyhuYHNXvRBwfqnQcJBJKmgA74Jf0/kUgkcmeHe/8SH7NJyLR8QZTf5d
+	aOOI1LZEJrl6W61v8hK+vC/CK7c0e2LMKgEU9Ofk0672o5Dpv9Vakg9XGuol6vgO
+	eARfjFasmy52XTIeOhomSw6z8EYo6++NggXM8w1EXcectmP+2Rlr5b1Xk+Fj8/nU
+	pO7pK8Jl2szqf/da1q4WNVGbwL6Jk0mNl/sCr3e1np+rimYa7OBQGJxvLx6X93cg
+	iK7o+oUuDtt+GjO1TLdfqg1ufeFKqdeYkot8h9G+F+JjU4cU87CpInckkGyjhN3Q
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bkd6egeye-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 15 Jan 2026 22:00:16 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 60FKkCfH014255;
+	Thu, 15 Jan 2026 22:00:15 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4bm1fyjsh3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 15 Jan 2026 22:00:15 +0000
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 60FM0DTZ60162344
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 15 Jan 2026 22:00:13 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 37DDF20040;
+	Thu, 15 Jan 2026 22:00:13 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D33902004B;
+	Thu, 15 Jan 2026 22:00:12 +0000 (GMT)
+Received: from [9.111.195.181] (unknown [9.111.195.181])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 15 Jan 2026 22:00:12 +0000 (GMT)
+Message-ID: <03ba58e6-0eaf-4970-8d27-ffe29bc9a7bf@linux.ibm.com>
+Date: Thu, 15 Jan 2026 23:00:12 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB7630:EE_|CH2PR12MB4326:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70068931-b83a-4eb4-9072-08de5480c3c7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WE93ckU5dGMzbFZhaXRmbG9KMjV5eFFaWFdGWlAzZ3Jkang0aFJGeE9Wb2Zv?=
- =?utf-8?B?WmNlYytWd2JMaU9HN1VGSWhUYzNXYndMUXA4WU0vM3ZFZlJLRFBPNUhkYnVX?=
- =?utf-8?B?N0FDVHFnV3AyZ1ZoTnN3eHY3QWVLNXErdVpCZ1JxTlh3a2g4Q3NPaDR6TjIv?=
- =?utf-8?B?ZWRXaWhPMEs5aTF6SnZrUXZRbUk0Y3FnYkVJM0NMeE5HemlmT3BLQ3pzUTVH?=
- =?utf-8?B?SXBtcVpwdnpacHdGNmpDbEphOHNHRnpsYmdBQUhVRVppQmxqRE5EdVhEcFZR?=
- =?utf-8?B?d214eVRwblNRbkpISEoyeG1nakNienhIMFlCRGh5eHNOd3pFOXZBTy81RkJ3?=
- =?utf-8?B?cUg1d2RMRTZqYnA3VkhPRzRkbnJTTWhuTnhNQlhVaUQ3V2NTWm4zczc1enF4?=
- =?utf-8?B?VUVJc0x3dktBM3pTOHdMeEZ3YzJXd2lRNU9hTEZuME40andCeU1wYjkxN2Iw?=
- =?utf-8?B?T3RHU3ZZeUhPQWVnZU5SME9mOVRpUWkxT3BTRUcraWFHaG4xMXpCTVh1dGxi?=
- =?utf-8?B?WStmNGwvMm9RVFZZNjlFMENrSDJDRjBkbktrVU12Wlc5eU1EQ21jc1Z5VmtJ?=
- =?utf-8?B?YkVXaXZSd1FvRDcwdEVJU3BSMTZFQTMzMC9YMElzeDJEOHRwSlZJQjBYT2ww?=
- =?utf-8?B?QUFpMXpMQm9uYmlEQnQrbDEzd3VPUUMraktHbENCUU1VNGl5K3k3SUd1NmZG?=
- =?utf-8?B?VDRNTW1DYmNxQ2ZVQ1pGbVNXdW4wRkFlUnFzSEthUStKN3dwd0lTK1NpbFhp?=
- =?utf-8?B?a01wNkNXamtJQ0JjMVVQS2RQSXZ6WjM4VVhPaHdid1QyL3N3dXBpZ2NNMldV?=
- =?utf-8?B?VkJNY2hsSE5zWUVMNWZpREhiVldOdG9uM3Nid0M5QkVhMGdBQWdSWms2WElr?=
- =?utf-8?B?dzV4Q1R3bEJqQzhIMjdwa1RGTVZzV3dmTm9lWVdUUXQ1Y2I1OVRPOElNSGZ3?=
- =?utf-8?B?RHJuTk5PS2J4Nk9JS3IycFlhS0NZc3MwNFdHMGlNVi8zZ2tGUmp4cWh2QWdJ?=
- =?utf-8?B?NE9IbkJrSXp3OGkvRVJEV2lpaktZY1dyMmFoU042MDg0K0gxZjhzRnYzTmpB?=
- =?utf-8?B?QnN4WnpqTDJEVmlnbGtyN0ovaGdlQTdjWm1DV1Z1TGhlU05oenJOcmpWQVNw?=
- =?utf-8?B?S3VuZWNlMXhEL1pHVHhmUWl3QjByMXA1UldhQStwTng5N1Q5WmdOakY2TVJY?=
- =?utf-8?B?WmlqUElnbG8wZ0lRZ1FUbmJwUm0wdnp4Q0pZUlBXbXpKOVdlbWVyQlpuaFhI?=
- =?utf-8?B?UlNzU2djRUdqR1BHQmo3Y21NU3R0YmpWZ2k0Q25HQmpkWGJ0aWpWRUJzVXpB?=
- =?utf-8?B?LzIwUk92SVM5aDJYYllEcDVPSkw2MU8zVEpkbzRUWGVPS0xhWXFRQ2lFK01j?=
- =?utf-8?B?TndrdjVvYnMzdU9GbXptUHpxTUFjblErZkZwRzRwMytsN2R1OGt3cmlNeDk5?=
- =?utf-8?B?QlJLSWJhTjh5T0VvZEhML2VYbzdYQTZPdW1rOExUUURXaTIvRXREbTk2NlBQ?=
- =?utf-8?B?ZWY3b0lLT1BlZWxDZlZOQ1QrdlhCSklROHZGZVhkQ0x6b2djMDJHdUxnYlI3?=
- =?utf-8?B?a0VkaTRNRVFad3VTeVN0SEdPV3lLK2p3SzRuMmZXYk82M1dRRnZGS3hOUmQ5?=
- =?utf-8?B?SE83U1RReUcxdThJRnpqUFFUd052N3NQQnA4RnA4bDdmQ0hKVnpvcGZuZDAx?=
- =?utf-8?B?Y2pVTEFoUDR3NHd6OW4xaFVMSVZQQ3J2bk5DNGMvU0pSZmMwVEN2dWlwWkNC?=
- =?utf-8?B?YjBsZ1FsdmpJeW8rSEhwZmtyWU9aNkhLNE4vamlKM0lHR3g4TWlyeUMremhn?=
- =?utf-8?B?bmZyaFFJZFZkWGt1MUVpR3JvNkFReW9zQmdER0xDTDZkeW5NUkcrbHVoNWhl?=
- =?utf-8?B?dGtDMFJxaFZNWXZiRTZ1ZTBjamFIR1Y2eTh4WFptY1VEVUlYYUJUQlRzam9k?=
- =?utf-8?B?amJBanE3ZTNSck83WjhjQXJlUjFCckV5Sm9pcGpidndETVNoTGdZQ2FmN2cr?=
- =?utf-8?B?cWIxQm1tZVVwTFF3K2c0RHo3aUgwdFYxYVRlWjJDMDFBVlkzekRadlJNeDV5?=
- =?utf-8?B?cDR5NzRSVUJEaWswTjJVZkZFODZSZkw1NzBrd0ZCa1V1d0daejU0MUdiUjl2?=
- =?utf-8?Q?OT6k=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7630.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MmhaVUc1eTFSaWNyOUhBUjJpcUdLK1BqRXhyT3JMVjZIRWdrNFY1eG83dE0y?=
- =?utf-8?B?bG4vYzB5UEJ1eFZiQy9FdUkyS3huTFdvaUpTY0piQmFjdE1GaFJlamFEYWZh?=
- =?utf-8?B?eVVUekxPbmh4Z0JHQW9OTTFqeUUrNHlGUlNwWmRVWHlTejFFUDlDdVFQVXFX?=
- =?utf-8?B?YnZ4WUhqblhDQ210M2VFWVd4N1pHOCtwZnIxa1lJZzU1cWsrTCtyQzBKR0dZ?=
- =?utf-8?B?emIzM29uSFdka1pENmkxblVVRjdCOC9Jd1ZYMVRsU1BVTEVLS3ZTdTVpcDB3?=
- =?utf-8?B?RE00QmFObkJQZnloR3JIVEJuUllwYnlHN0ZWYTVkZnFKeEZLdEhScXpWMG9v?=
- =?utf-8?B?dFlSd24zOGRZc3EvWDBPSzlWNUwxR3l6MjdrNmtzUFowaXk1TEh1clVmWnJl?=
- =?utf-8?B?R3hEZjcyRXRJQVlBSytyQzVnMExiellhOVI4OEpMbzd2WVV4WXdPUVZPZngv?=
- =?utf-8?B?ZGwrSXhuV3U1RDNaOCt5UGoyVHRxbjd5a05zMWgzSURyVG4zMVBvTlBFaUha?=
- =?utf-8?B?ZnJwRFF5Zm1TdmowWVlFME8xbDZhMjUxcDJ1SHdtRWtUS1JBWWpXVE9lWXdJ?=
- =?utf-8?B?TWZsdlFGQUtvaWV4czhkT0ZXUDZuWjJvRHRVK1ZwRGFyZGI5ZkxSRWo0K3hJ?=
- =?utf-8?B?a0VkVERDeVc3N1VQSi94UmlNTEhJckVQQk9WMUVnQ05VVFBsSjRYR0hkNjkz?=
- =?utf-8?B?V3NheCt3UWM4c0RzSnBZYkVKdmhyM2kza0FCZGgvQjZ6eUVkQVBrWXdNYzlI?=
- =?utf-8?B?cjlSVnBzaS9pY1hmMkFhZlE5Y1JtZmh3aFdEaXZKU0lkNnQ3cEtJVTM2UjNI?=
- =?utf-8?B?dkl2T2JZQ1hIWkw2R1BsRWQrODVlK0Z0djBkU0NNb0FEc1FyU25qem1TVDRo?=
- =?utf-8?B?UXhLKzZ4d085S3dTTmhWd2NDU1ZoOTUzRnVFVFdtZkFXMnVtN0pzZFlJSFdW?=
- =?utf-8?B?c0xsRmxjMTM0RVBOa2RGYlhrOEJVQ1hkY2ExeG1MbVdJNlptT0hGQktUZXBl?=
- =?utf-8?B?V2Z0OWlwc1NlUFV5SXBZVTEzbXdPYnVpeWJNZUpGdXdTL3BFLzdNZDYvQVR3?=
- =?utf-8?B?MHhnd1dFemxkNXh2UlJ5cVROYXdSbnpaVnQ5K3c0TEVQT0tJYXNoZjhnNklF?=
- =?utf-8?B?dHRESnRvNXlqbGdEVmNtSEhMSTlvV1QvNHhTQ1NHWVR4dWlJT3czYmdIQVYy?=
- =?utf-8?B?Smw1aXdZdVFZS2JQMGNIK2xCa20xTUhJdUZ4RlNVcmJxMGIzYjVUdmxQNTJS?=
- =?utf-8?B?VWRBWTQ3SkhLaUJhOWloRXAyci9qV3VPU21uRm9MclZ3dEJwQS8zeiswS2Yz?=
- =?utf-8?B?MkRWaE9ibWczVlMzK3dZc21NOXk3WjlzQXdGcUlCRUxKLzhxZmY1OHIwVmNY?=
- =?utf-8?B?S01Nb2VUWnBiS0gxZVpvb1BldjdJUXBhSElyL1R0WTI4VmhiamNIUHloNjM5?=
- =?utf-8?B?bGxnZjZiRWxLdGw1MUdpcEVMaVNSVXVWbUp0UkJ4KzBBZm1lQUdHVGZaRWtj?=
- =?utf-8?B?WVBBN0c3cTdBQlVUek5SbThjNVVOUWsxckFwVk8xR1RQUXh5SkVVcUJEb1dH?=
- =?utf-8?B?L1k4NHl2ZVZJUDFwWEZROTdMUmprV0VZVzNZVmhHdzNzYlRIU1Y2YVY2YU40?=
- =?utf-8?B?R0JQZG9iTTV4cmZjMlkvMzAvKythcDdhWi91Qk1Jem44clEyQ1NoUEpGdUtL?=
- =?utf-8?B?ZyszNlUzVjFYU3JiMnhkejdvVmJzaUVPc3NHT3hLRW1FY0xONWpnNkNWczRC?=
- =?utf-8?B?blNUT1A5R0pYYWMyc3BPTng0SXdHbmNiMXFDNGhETlBxUTQrNDVid2NUZmZ5?=
- =?utf-8?B?WWtRS3NmeHJGSmdwdmNuMzZUYS90aFplTHM2MStVQStQRndxUUdENkNWVG1x?=
- =?utf-8?B?ald2UkN6MmFJakRWdi9rcE1wMi9yd0ZrNDJ1VjBGK284MVBkbVJzL0dOaWxW?=
- =?utf-8?B?bjhoZHA2aU1MazA2L2xhcnl1WXhnQkhuanZOMmI3bUduY0lRalJPakc1dnFM?=
- =?utf-8?B?YUxpYkgyQ1lqTnMxNVdYVEg3RGppMWdFVFZsZVhwa29FcjJOYnJueDV3aXI0?=
- =?utf-8?B?RWwzQUM1SXVpODJUTitLc1cyV0h3VXdtb0M2WVg4VkdZUWNCeTZtS2VyZnly?=
- =?utf-8?B?bHlDZktvT1ZRZGxoZ205bmEydkp0OXh3eVhZejlhdkhrTmFORUdGNFVuMDJ3?=
- =?utf-8?B?T3lBSGxnd0xqS0hYbWVpeWYrR3JSM3dFNHB5Mk14Q1cwNVZpcGhFT0RGOERD?=
- =?utf-8?B?dDVFZzQ1MzNzZTRVaXlnYTVVQUZ5ak9EYUZUUTU5TlZjZlJzVURKN0xvRmxo?=
- =?utf-8?B?dldZWm5Xb210ck1RWHJLM1NRNzZCa2hDMENlY1RQL2tnNURhU3QyZz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70068931-b83a-4eb4-9072-08de5480c3c7
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7630.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2026 21:55:15.3427
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: X3CyCAmlltNyq5I+sz9OO92BzIuZ/0F2cboS0Ghmxqj1NdBz7LgGpwgqoJgVVNR93oQw8R9XD2kRaNVyME26BQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4326
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 15/35] lib/crypto: s390/aes: Migrate optimized code
+ into library
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+        "Jason A . Donenfeld" <Jason@zx2c4.com>,
+        Herbert Xu <herbert@gondor.apana.org.au>,
+        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        sparclinux@vger.kernel.org, x86@kernel.org,
+        Harald Freudenberger <freude@linux.ibm.com>,
+        linux-crypto@vger.kernel.org
+References: <20260112192035.10427-1-ebiggers@kernel.org>
+ <20260112192035.10427-16-ebiggers@kernel.org>
+From: Holger Dengler <dengler@linux.ibm.com>
+Content-Language: de-DE
+In-Reply-To: <20260112192035.10427-16-ebiggers@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 6p5z8nBCPsT3_rpKVRy3lnJhFN25wKw4
+X-Authority-Analysis: v=2.4 cv=LLxrgZW9 c=1 sm=1 tr=0 ts=69696370 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=w4HzK-rsqA_2YikTyBoA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=0lgtpPvCYYIA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE1MDE3MSBTYWx0ZWRfXz5BoL5J7pcUU
+ EZ3HWHibhHjFOAoKQCeCAZQZFMw/rVxT3IT4w9ASJsDdLE0sXatur5m8WX/gRMd2Mvjk9EaFY5D
+ C/Y4bvVEpB3VqE2+10CoQfUpEs64m3duyFEDGkeNQ4xeUUr2AEUG0ynVzNXFgKzknUbAS2y45W1
+ dA34Ek0N1Un5SPKN09kDdU7nbue+a4UqMMJjlQn3bIyoNUk9mRpfFnYqdetqw7Nw1y7ntYTzKNI
+ BcddjFCun4THIVcuAjbj91UfZX3GenM7j++LCuimK57ylm2xCH1S4KQzxPnj6RsL9R2HbSYujVK
+ uvRKRDYg4HGrPP/KnsIX8bLXU6I40Het/QKY/mhLxoOshgIjE4/phJIiOKwt/3Rw7wNztuDmfZT
+ 1Lr8WlCzPTGKSsXxJT+I/p/uJbjtxbpFvRqsk4x7QlvgLbabrSlm0K6nh/BMNn3NUmYgv/OZiLz
+ uZY40rcvNmYBRee4FVw==
+X-Proofpoint-ORIG-GUID: 6p5z8nBCPsT3_rpKVRy3lnJhFN25wKw4
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-15_06,2026-01-15_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 clxscore=1015 spamscore=0 impostorscore=0
+ malwarescore=0 phishscore=0 adultscore=0 lowpriorityscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2512120000 definitions=main-2601150171
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_135520_028742_7A89FDE7 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20260115_140022_474136_B809A9AC 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,18 +126,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/15/26 12:53, Bjorn Helgaas wrote:
-> OK, so you do SBR to some endpoint below a GB10 Root Port, and after > the SBR, the link to the endpoint retrains with a lower lane count > and config reads to the endpoint time out?
+On 12/01/2026 20:20, Eric Biggers wrote:
+> Implement aes_preparekey_arch(), aes_encrypt_arch(), and
+> aes_decrypt_arch() using the CPACF AES instructions.
+> 
+> Then, remove the superseded "aes-s390" crypto_cipher.
+> 
+> The result is that both the AES library and crypto_cipher APIs use the
+> CPACF AES instructions, whereas previously only crypto_cipher did (and
+> it wasn't enabled by default, which this commit fixes as well).
+> 
+> Note that this preserves the optimization where the AES key is stored in
+> raw form rather than expanded form.  CPACF just takes the raw key.
+> 
+> Acked-by: Ard Biesheuvel <ardb@kernel.org>
+> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 
-That's right. The symptoms can vary, i.e. sometimes it retrains with lower
-lane count, and sometimes config reads start timing out, and very often
-it works just fine.
+Thanks!
 
-> I see you're from NVIDIA, so if you're confirming that this is a > hardware erratum (not an issue with the GB10 PCI controller driver), > we should definitely apply this, and I'll wordsmith the commit log > and comment something like this: > > When asserting Secondary Bus Reset to downstream devices via a GB10 > Root Port, the link doesn't retrain correctly. The link may retrain > with a lower lane count, and config accesses to downstream devices > may fail.
+Tested-by: Holger Dengler <dengler@linux.ibm.com>
+Reviewed-by: Holger Dengler <dengler@linux.ibm.com>
 
-Yes, I confirm this is a HW erratum. The problem doesn't occur every time, so
-"the link may not retrain correctly" would be more correct, but that's a minor
-comment.
+-- 
+Mit freundlichen Grüßen / Kind regards
+Holger Dengler
+--
+IBM Systems, Linux on IBM Z Development
+dengler@linux.ibm.com
 
-Terje
 
