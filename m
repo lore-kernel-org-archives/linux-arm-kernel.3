@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AECBFD33A3C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 12:48:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82387D44C41
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 12:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6jTaVvJetpVEyGDvDl2RyA9KbI4Ts5JisjFEezXGbd4=; b=unAGnSV+ok9pCZbo2rSEy8W5YR
-	keE/AV4x+rQ66cGuWI70RI1J4/FzgmY3sc8pp2a70gpzLk3Ff06Lm9mRujuSjsz1vONCoF5kXbR3+
-	AHAHlPrpk+YWY1YmLcbn4JkmZCjpxehJU9QGpmS91EKNHWQ3wFkpL40cFKFwqB5udn8iPoJmqFDow
-	wuICMPMFXtqQrbXejngnfTWlUASA7uazo9+O7EH33oA4w4PM6uze2umivLsMGB5xltOsHmE+AM+pE
-	syee4K76T3TiDpa4/wQDYmQcNo6MZ0e9e2kXlM6A2y5WNiOteN0X5B7jjXp0EFoTLj+yboSNQO/Kr
-	gX0Cyhtw==;
+	bh=KL0uB+x8yIt84TUPjO5/h7+5sOBtPXgqTdDubQjCqp4=; b=ih48tdrYduVmbkkVifB7GbYsoo
+	BQYrM5dkOdnzV9CAOYOVkTUi0pM1xlo+qC3XPP9dnoPlgf96HeXEcu/7bAWuRgJ1w87TPyd+KuDQT
+	XDzqB/G4sirVl4zFa8hHuTlqjQt1SxgCDtAA5eLZBspsO6LwJgH+mNLBZZvG94W7W4cP/jqAN+o9R
+	0sGw2ngqoAl98RH5NyOi9FHYJoPp2+5oGCY352e3S4h0LTpvfSnj39WRTbdg+JBor5eI3DfQtpkO7
+	iuQENli71neAAnC6V/YR//tJCW93URqbDRbR14IP10RuCYSUf2kfQrkLfl5/SEAqRwCAjbmbRqZJT
+	jehptGgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgMlj-0000000CM1N-1Clc;
-	Thu, 15 Jan 2026 12:48:07 +0000
+	id 1vgMpn-0000000CMFU-1xUT;
+	Thu, 15 Jan 2026 12:52:19 +0000
 Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgMlf-0000000CM0r-3oqc
+	id 1vgMpk-0000000CMF6-16oT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 12:48:05 +0000
+	Thu, 15 Jan 2026 12:52:17 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=6jTaVvJetpVEyGDvDl2RyA9KbI4Ts5JisjFEezXGbd4=;
-	b=6gP2pQtQdzLkisDzZteVyZXPHUttTDnrNLeSbKQcQgWoaGOa98hhFg93PEuSEFFFTZESC8Hw9
-	KaeDu94kalBjHVQ/XGE2NXhPjTDcq1rIztp6xf/jGbxDal9xgrnlXeBdbKvqu8MxlTD6P/DK6IT
-	7Plqher27Z0sM2dEImf1ZFQ=
+	bh=KL0uB+x8yIt84TUPjO5/h7+5sOBtPXgqTdDubQjCqp4=;
+	b=N4x9Fo7BkyMJr1WkVNoBqhHWd9yz4+GPOKJ4VjS6LdUalm9Ar6TfasK1IhiOZxBRqdOx6t1jD
+	NLwno7Sol/7A9udOhX0HsYp5JT58lKf/qp/pA9YV6egVluPL8vGtgHodtD1NABN/cmR7XzQnGwt
+	h7YWZzABKmL15BCYkVt1iSw=
 Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dsN2r1nrvzcb45;
-	Thu, 15 Jan 2026 20:44:04 +0800 (CST)
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dsN7s6YvTzcb45;
+	Thu, 15 Jan 2026 20:48:25 +0800 (CST)
 Received: from kwepemf200001.china.huawei.com (unknown [7.202.181.227])
-	by mail.maildlp.com (Postfix) with ESMTPS id D769940363;
-	Thu, 15 Jan 2026 20:47:50 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 8AFF540363;
+	Thu, 15 Jan 2026 20:52:12 +0800 (CST)
 Received: from [10.67.121.90] (10.67.121.90) by kwepemf200001.china.huawei.com
  (7.202.181.227) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 15 Jan
- 2026 20:47:49 +0800
-Message-ID: <1d526984-4566-430d-bb31-b969f71bfc6e@huawei.com>
-Date: Thu, 15 Jan 2026 20:47:49 +0800
+ 2026 20:52:12 +0800
+Message-ID: <7f156aa7-c723-4580-aa82-b2f0fe6d3845@huawei.com>
+Date: Thu, 15 Jan 2026 20:52:11 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [REPOST PATCH v6 3/3] arm64: topology: Handle AMU FIE setup on
- CPU hotplug
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-CC: Beata Michalska <beata.michalska@arm.com>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <rafael@kernel.org>, <viresh.kumar@linaro.org>,
-	<sudeep.holla@arm.com>, <gregkh@linuxfoundation.org>, <dakr@kernel.org>,
-	<ionela.voinescu@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-pm@vger.kernel.org>, <linuxarm@huawei.com>,
-	<jonathan.cameron@huawei.com>, <vincent.guittot@linaro.org>,
-	<zhanjie9@hisilicon.com>, <lihuisong@huawei.com>, <yubowen8@huawei.com>,
-	<zhangpengjie2@huawei.com>, <wangzhi12@huawei.com>,
-	<linhongye@h-partners.com>, Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-References: <20251230080115.2120612-1-zhenglifeng1@huawei.com>
- <20251230080115.2120612-4-zhenglifeng1@huawei.com>
- <CAMuHMdVeHk-Enc-M9ztwSdeAtE8YPKtJwq+273bGPEFOEsu=Rw@mail.gmail.com>
- <aWZriVlQZ5jRx2o4@arm.com>
- <CAMuHMdVgbQnaCQ8U8FK6J1vJLsqc0_MC7zSTX2B=rsuF2kpEKg@mail.gmail.com>
- <41b7398c-b1a4-4b87-b6f9-07eacf4f4752@huawei.com>
- <CAMuHMdUuTrF=eN5tMsjmOfWuuT9r7aCOTS7=YP6+KrSdNrhEpw@mail.gmail.com>
+Subject: Re: [PATCH] arm64: topology: Do not warn on missing AMU in
+ cpuhp_topology_online()
+To: Geert Uytterhoeven <geert+renesas@glider.be>, Beata Michalska
+	<beata.michalska@arm.com>, Will Deacon <will@kernel.org>, Catalin Marinas
+	<catalin.marinas@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>,
+	<linux-renesas-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <a8dbf49bfa44a6809fa4f34b918516847dc14460.1768466986.git.geert+renesas@glider.be>
 From: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
-In-Reply-To: <CAMuHMdUuTrF=eN5tMsjmOfWuuT9r7aCOTS7=YP6+KrSdNrhEpw@mail.gmail.com>
+In-Reply-To: <a8dbf49bfa44a6809fa4f34b918516847dc14460.1768466986.git.geert+renesas@glider.be>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
 X-Originating-IP: [10.67.121.90]
 X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
  kwepemf200001.china.huawei.com (7.202.181.227)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_044804_631013_472A5DEE 
-X-CRM114-Status: GOOD (  29.35  )
+X-CRM114-CacheID: sfid-20260115_045216_466267_45CA51EE 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,220 +80,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/1/15 16:37, Geert Uytterhoeven wrote:
-> Hi Lifeng,
+On 2026/1/15 16:51, Geert Uytterhoeven wrote:
+> When CONFIG_CPUMASK_OFFSTACK is not enabled, and resuming from s2ram on
+> Renesas R-Car H3 (big.LITTLE 4x Cortex-A57 + 4x Cortex-A53), during
+> enabling of the first little core, a warning message is printed:
 > 
-> On Thu, 15 Jan 2026 at 03:25, zhenglifeng (A) <zhenglifeng1@huawei.com> wrote:
->> On 2026/1/14 21:54, Geert Uytterhoeven wrote:
->>> On Tue, 13 Jan 2026 at 16:58, Beata Michalska <beata.michalska@arm.com> wrote:
->>>> On Tue, Jan 13, 2026 at 11:51:45AM +0100, Geert Uytterhoeven wrote:
->>>>> On Tue, 30 Dec 2025 at 09:02, Lifeng Zheng <zhenglifeng1@huawei.com> wrote:
->>>>>> Currently, when a cpufreq policy is created, the AMU FIE setup process
->>>>>> checks all CPUs in the policy -- including those that are offline. If any
->>>>>> of these CPUs are offline at that time, their AMU capability flag hasn't
->>>>>> been verified yet, leading the check fail. As a result, AMU FIE is not
->>>>>> enabled, even if the CPUs that are online do support it.
->>>>>>
->>>>>> Later, when the previously offline CPUs come online and report AMU support,
->>>>>> there's no mechanism in place to re-enable AMU FIE for the policy. This
->>>>>> leaves the entire frequency domain without AMU FIE, despite being eligible.
->>>>>>
->>>>>> Restrict the initial AMU FIE check to only those CPUs that are online at
->>>>>> the time the policy is created, and allow CPUs that come online later to
->>>>>> join the policy with AMU FIE enabled.
->>>>>>
->>>>>> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
->>>>>> Acked-by: Beata Michalska <beata.michalska@arm.com>
->>>>>
->>>>> Thanks for your patch, which is now commit 6fd9be0b7b2e957d
->>>>> ("arm64: topology: Handle AMU FIE setup on CPU hotplug") in
->>>>> arm64/for-next/core (next-20260107 and later).
->>>>>
->>>>>> --- a/arch/arm64/kernel/topology.c
->>>>>> +++ b/arch/arm64/kernel/topology.c
->>>>>> @@ -284,7 +284,7 @@ static int init_amu_fie_callback(struct notifier_block *nb, unsigned long val,
->>>>>>         struct cpufreq_policy *policy = data;
->>>>>>
->>>>>>         if (val == CPUFREQ_CREATE_POLICY)
->>>>>> -               amu_fie_setup(policy->related_cpus);
->>>>>> +               amu_fie_setup(policy->cpus);
->>>>>>
->>>>>>         /*
->>>>>>          * We don't need to handle CPUFREQ_REMOVE_POLICY event as the AMU
->>>>>> @@ -303,10 +303,71 @@ static struct notifier_block init_amu_fie_notifier = {
->>>>>>         .notifier_call = init_amu_fie_callback,
->>>>>>  };
->>>>>>
->>>>>> +static int cpuhp_topology_online(unsigned int cpu)
->>>>>> +{
->>>>>> +       struct cpufreq_policy *policy = cpufreq_cpu_policy(cpu);
->>>>>> +
->>>>>> +       /* Those are cheap checks */
->>>>>> +
->>>>>> +       /*
->>>>>> +        * Skip this CPU if:
->>>>>> +        *  - it has no cpufreq policy assigned yet,
->>>>>> +        *  - no policy exists that spans CPUs with AMU counters, or
->>>>>> +        *  - it was already handled.
->>>>>> +        */
->>>>>> +       if (unlikely(!policy) || !cpumask_available(amu_fie_cpus) ||
->>>>>> +           cpumask_test_cpu(cpu, amu_fie_cpus))
->>>>>> +               return 0;
->>>>>> +
->>>>>> +       /*
->>>>>> +        * Only proceed if all already-online CPUs in this policy
->>>>>> +        * support AMU counters.
->>>>>> +        */
->>>>>> +       if (unlikely(!cpumask_subset(policy->cpus, amu_fie_cpus)))
->>>>>> +               return 0;
->>>>>> +
->>>>>> +       /*
->>>>>> +        * If the new online CPU cannot pass this check, all the CPUs related to
->>>>>> +        * the same policy should be clear from amu_fie_cpus mask, otherwise they
->>>>>> +        * may use different source of the freq scale.
->>>>>> +        */
->>>>>> +       if (!freq_counters_valid(cpu)) {
->>>>>> +               pr_warn("CPU[%u] doesn't support AMU counters\n", cpu);
->>>>>
->>>>> This is triggered during resume from s2ram on Renesas R-Car H3
->>>>> (big.LITTLE 4x Cortex-A57 + 4x Cortex-A53), when enabling the first
->>>>> little core:
->>>>>
->>>>>     AMU: CPU[4] doesn't support AMU counters
->>>>>
->>>>> Adding debug code:
->>>>>
->>>>>     pr_info("Calling
->>>>> topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, %*pbl)\n",
->>>>> cpumask_pr_args(policy->related_cpus));
->>>>>     pr_info("Calling cpumask_andnot(..., %*pbl, %*pbl)\n",
->>>>> cpumask_pr_args(amu_fie_cpus), cpumask_pr_args(policy->related_cpus));
->>>>>
->>>>> gives:
->>>>>
->>>>>     AMU: Calling topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, 4-7)
->>>>>     AMU: Calling cpumask_andnot(..., , 4-7)
->>>>>
->>>>> so AMU is disabled for all little cores.
->>>>>
->>>>> Since this only happens during s2ram, and not during initial CPU
->>>>> bring-up on boot, this looks wrong to me?
->>>> This does look rather surprising. If that CPU was marked as supporting AMUs at
->>>> the initial bring-up it should be part of amu_fie_cpus mask, so the hp callback
->>>> should bail out straight away. Would you be able to add some logs to see what
->>>> that mask actually contains ?
->>>> Furthermore, freq_counters_valid is logging issues when validating the counters.
->>>> Would you be able to re-run it with the debug level to see what might be
->>>> happening under the hood, although I am still unsure why it is even reaching
->>>> that point ...
->>>
->>> Adding extra debugging info, and "#define DEBUG" at the top.
->>>
->>> During boot:
->>>
->>>     AMU: amu_fie_setup:260: cpus 0-3 amu_fie_cpus
->>>     ^^^ empty amu_fie_cpus
->>>     AMU: CPU0: counters are not supported.
->>>     ^^^ pr_debug
->>>     AMU: amu_fie_setup:260: cpus 4-7 amu_fie_cpus
->>>     ^^^ empty amu_fie_cpus
->>>     AMU: CPU4: counters are not supported.
->>>     ^^^ pr_debug
->>>
->>> During resume from s2ram:
->>>
->>>     AMU: cpuhp_topology_online:314: cpu 1 amu_fie_cpus
->>>     AMU: cpuhp_topology_online:343: skipped
->>> (!cpumask_subset(policy->cpus, amu_fie_cpus))
->>>     AMU: cpuhp_topology_online:314: cpu 2 amu_fie_cpus
->>>     AMU: cpuhp_topology_online:343: skipped
->>> (!cpumask_subset(policy->cpus, amu_fie_cpus))
->>>     AMU: cpuhp_topology_online:314: cpu 3 amu_fie_cpus
->>>     AMU: cpuhp_topology_online:343: skipped
->>> (!cpumask_subset(policy->cpus, amu_fie_cpus))
->>>     AMU: cpuhp_topology_online:314: cpu 4 amu_fie_cpus
->>>     AMU: CPU4: counters are not supported.
->>>     ^^^ pr_debug
->>>     AMU: CPU[4] doesn't support AMU counters
->>>     ^^^ pr_warn
->>>     AMU: Calling topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, 4-7)
->>>     AMU: Calling cpumask_andnot(..., , 4-7)
->>
->> Something strange here. If AMU is not supported at all, amu_fie_cpus should
->> never be available and cpuhp_topology_online() should return in the first
->> 'if'. Why it runs this far?
+>     AMU: CPU[4] doesn't support AMU counters
 > 
-> You mean the "!cpumask_available(amu_fie_cpus)" test?
+> This confuses users, as during boot amu_fie_setup() does not print such
+> a message, unless debugging is enabled (freq_counters_valid() prints
+> "CPU%d: counters are not supported.\n" at debug level in that case).
 > 
-> include/linux/cpumask.h:
+> Hence drop the warning, freq_counters_valid() has already printed a
+> debug message anyway.
 > 
->     #ifdef CONFIG_CPUMASK_OFFSTACK
->     static __always_inline bool cpumask_available(cpumask_var_t mask)
->     {
->             return mask != NULL;
->     }
->     #else
->     static __always_inline bool cpumask_available(cpumask_var_t mask)
->     {
->             return true;
->     }
->     #endif /* CONFIG_CPUMASK_OFFSTACK */
+> Fixes: 6fd9be0b7b2e957d ("arm64: topology: Handle AMU FIE setup on CPU hotplug")
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+>  arch/arm64/kernel/topology.c | 1 -
+>  1 file changed, 1 deletion(-)
 > 
-> include/linux/cpumask_types.h:
-> 
->     #ifdef CONFIG_CPUMASK_OFFSTACK
->     typedef struct cpumask *cpumask_var_t;
->     #else
->     typedef struct cpumask cpumask_var_t[1];
->     #endif /* CONFIG_CPUMASK_OFFSTACK */
-> 
-> So if CONFIG_CPUMASK_OFFSTACK is not enabled, it always returns true.
-> 
-> arch/arm64/Kconfig:
-> 
->     config ARM64
->         [...]
->         select CPUMASK_OFFSTACK if NR_CPUS > 256
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index 539b3893518281ec..3fe1faab03620e78 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -332,7 +332,6 @@ static int cpuhp_topology_online(unsigned int cpu)
+>  	 * may use different source of the freq scale.
+>  	 */
+>  	if (!freq_counters_valid(cpu)) {
+> -		pr_warn("CPU[%u] doesn't support AMU counters\n", cpu);
+>  		topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH,
+>  						 policy->related_cpus);
+>  		cpumask_andnot(amu_fie_cpus, amu_fie_cpus, policy->related_cpus);
 
-OK. Then nothing's wrong here. Thanks for explanation.
+Thanks!
 
-> 
->>>     AMU: cpuhp_topology_online:314: cpu 5 amu_fie_cpus
->>>     AMU: cpuhp_topology_online:343: skipped
->>> (!cpumask_subset(policy->cpus, amu_fie_cpus))
->>>     AMU: cpuhp_topology_online:314: cpu 6 amu_fie_cpus
->>>     AMU: cpuhp_topology_online:343: skipped
->>> (!cpumask_subset(policy->cpus, amu_fie_cpus))
->>>     AMU: cpuhp_topology_online:314: cpu 7 amu_fie_cpus
->>>     AMU: cpuhp_topology_online:343: skipped
->>> (!cpumask_subset(policy->cpus, amu_fie_cpus))
->>>
->>> Hence there is no issue, as AMU is not supported at all!
->>>
->>> The confusing part is in the (absence of) logging.
->>> If AMU is not supported, freq_counters_valid() uses:
->>>
->>>      pr_debug("CPU%d: counters are not supported.\n", cpu);
->>>
->>> which is typically not printed, unless DEBUG is enabled.
->>>
->>> If freq_counters_valid() failed, the new cpuhp_topology_online() uses:
->>>
->>>     pr_warn("CPU[%u] doesn't support AMU counters\n", cpu);
->>>
->>> which is always printed.
->>>
->>> Given freq_counters_valid() already prints a (debug) message, I think
->>> the pr_warn() should just be removed.  Do you agree, or is there still
->>> another incorrect check that should prevent getting this far?
->>
->> I'm OK with removing it.
-> 
-> OK, I will send a patch.
-> 
-> Gr{oetje,eeting}s,
-> 
->                         Geert
-> 
+Reviewed-by: Lifeng Zheng <zhenglifeng1@huawei.com>
 
 
