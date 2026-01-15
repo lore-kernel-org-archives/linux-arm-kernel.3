@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EABBAD3CC9E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 01:27:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F2BD3CC88
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 01:30:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7nFOQdtCY5WT4xucC+l+5Wmqy1J150GYREjDqaA3sxY=; b=qeQqkXH5/Wuv+cuZ1xSg4qz2qT
-	a4403rdZpjRG1EXD3etDP83buRCc19g7uWeEn+4mVrHlsdmBjdGfzWGYJ/YK0sW1Cbev7cKt2hxL3
-	ieiVfr/+3Xv9vk95BUCQam8tjpqvjcfomvzyZ1Z7lsxBPHvwi4u5tgjbPI6GT3DmAmBKXeW/5aZp2
-	6JGBBXiMZFjsG/+7l20ymxV2TIssHR3zcehnGlnHuIMPumbE1iNgMdzUGIahPfcC2f4FYsQ1DXp7V
-	Q4dHHOm2z1dL1pH0L4Sh90SN7wag5CbsYQP8C7/G9MjkcKwqm6RFpiPliWT0BqEO6uQB4pIlz6IV4
-	Nb/xNXgg==;
+	bh=JacTlUk1HuaCLrtV/Vf44fWWraUgKuwLbZmZaKiYjzQ=; b=RvA9OUGiITAFW/xYo/2x5ezv+H
+	g+j+U2lJPNx4dXetOkcgnqyCX3lySLezEEmqkF4h23LHbXo8MBOM2lYVK132Ge7OBrJFHl7gFfq+f
+	B6GD3FxVYbYOcAOaQ/qli3/njbvuGRK9iVbJOoPAhDteMtFG5chRSC9dnXzbrxdrXsSIKugAxxlEp
+	gWllApy99Xk5wkXNTgbSGTs9Pb0XmSky+Wq546GBy2iYVxaNUVkYivpiCfZ//yZGUBaxvRBtz4mPf
+	xVVdgTEkARr48pMxoxWyCP70RsVx5JGW/SCT0HL8suMPNMiVmZgzpOkobt3ZcP9Y4Wnl2HGNW9M2N
+	jUngRAwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgC9K-0000000BOc1-1Od7;
-	Thu, 15 Jan 2026 01:27:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vgCCK-0000000BP7g-2AB1;
+	Thu, 15 Jan 2026 01:30:52 +0000
+Received: from mail-m19731104.qiye.163.com ([220.197.31.104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgC9I-0000000BObE-2FPJ;
-	Thu, 15 Jan 2026 01:27:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 74B3060008;
-	Thu, 15 Jan 2026 01:27:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 902FAC4CEF7;
-	Thu, 15 Jan 2026 01:27:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1768440463;
-	bh=pQ8j9Tn71UcjHmJ1kXhLWOF2qZTGUivD/SECa9XZwOg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=WaCZwQ2lpVB23m9mvRB7P1BdVy4CxTZrspTarWWH7iC1Y7Vm/y2UnRmacHj8EcHAi
-	 ILBqqksvYmtDVXZ3XjC5q4/lRdA6RQISezqaHVwQig0DO+PKG9cDjQodE6vsbkLH2g
-	 IIRxd/QP6TbOPmU3cW4acl9BGtSbgdbu/uCwtsCg=
-Date: Wed, 14 Jan 2026 17:27:41 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: <robin.kuo@mediatek.com>
-Cc: Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng
- Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He
- <bhe@redhat.com>, Barry Song <baohua@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, <wsd_upstream@mediatek.com>,
- <casper.li@mediatek.com>, <chinwen.chang@mediatek.com>,
- <Andrew.Yang@mediatek.com>, <Qun-wei.Lin@mediatek.com>,
- <oliver.sang@intel.com>, <linux-mm@kvack.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH 1/1] Restore swap_space attr aviod krn panic
-Message-Id: <20260114172741.b8b6cb9aae39a5ae7a199eed@linux-foundation.org>
-In-Reply-To: <20260115001405.3513440-1-robin.kuo@mediatek.com>
-References: <20260115001405.3513440-1-robin.kuo@mediatek.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+	id 1vgCCG-0000000BP6B-3Abh;
+	Thu, 15 Jan 2026 01:30:51 +0000
+Received: from [127.0.0.1] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 30b1d617a;
+	Thu, 15 Jan 2026 09:25:37 +0800 (GMT+08:00)
+Message-ID: <8f7880cc-5469-4ac1-9fcc-9bd33327e571@rock-chips.com>
+Date: Thu, 15 Jan 2026 09:25:34 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/5] arm64: dts: rockchip: Enable HDMI output on
+ RK3368-Lion-Haikou
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: quentin.schulz@cherry.de, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20260114230707.4175162-1-heiko@sntech.de>
+ <20260114230707.4175162-4-heiko@sntech.de>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <20260114230707.4175162-4-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9bbf4215a203abkunm214bc3be3234c5
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUpIH1ZNSR1KGR4fTUhDSh9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=TMftbF1zFQAlW75PgYyksAAUvtot55QwAUdwv0T8fY+YNNoyONq74dcyK2IAqv0LTiQ+E/k1JZTdK8R6+FxSWfAHxExXa5WilSUjEQc7SabHsMv/iDt4LUvuFrfnDYlY7qg1Fkfrkk6jvRc+XS6/h5KrKRdLBG9R6vWBnFKi5Wo=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=JacTlUk1HuaCLrtV/Vf44fWWraUgKuwLbZmZaKiYjzQ=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_173048_985417_EB5842B0 
+X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,50 +74,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 Jan 2026 08:13:43 +0800 <robin.kuo@mediatek.com> wrote:
+Hi Heiko,
 
-> From: "robin.kuo" <robin.kuo@mediatek.com>
+On 1/15/2026 7:07 AM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
 > 
-> Restore swap_space attr avoid krn panic
-
-Thanks, and welcome to Linux ;)
-
-> Commit 8b47299a411a ('mm, swap: mark swap address space ro and add
-> context debug check') made the swap address space read-only.
-> It may lead to kernel panic if arch_prepare_to_swap returns a failure 
-> under heavy memory pressure as follows,
+> Enable the VOP and HDMI controller on the Lion-Haikou board.
 > 
-> el1_abort+0x40/0x64
-> el1h_64_sync_handler+0x48/0xcc
-> el1h_64_sync+0x84/0x88
-> errseq_set+0x4c/0xb8 (P)
-> __filemap_set_wb_err+0x20/0xd0
-> shrink_folio_list+0xc20/0x11cc
-> evict_folios+0x1520/0x1be4
-> try_to_shrink_lruvec+0x27c/0x3dc
-> shrink_one+0x9c/0x228
-> shrink_node+0xb3c/0xeac
-> do_try_to_free_pages+0x170/0x4f0
-> try_to_free_pages+0x334/0x534
-> __alloc_pages_direct_reclaim+0x90/0x158
-> __alloc_pages_slowpath+0x334/0x588
-> __alloc_frozen_pages_noprof+0x224/0x2fc
-> __folio_alloc_noprof+0x14/0x64
-> vma_alloc_zeroed_movable_folio+0x34/0x44
-> do_pte_missing+0xad4/0x1040
-> handle_mm_fault+0x4a4/0x790
-> do_page_fault+0x288/0x5f8
-> do_translation_fault+0x38/0x54
-> do_mem_abort+0x54/0xa8
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> ---
+>  .../boot/dts/rockchip/rk3368-lion-haikou.dts     | 16 ++++++++++++++++
+>  arch/arm64/boot/dts/rockchip/rk3368-lion.dtsi    |  5 +++++
+>  2 files changed, 21 insertions(+)
 > 
-> Restore swap address space as not ro to avoid the panic.
 
-Well damn.  We have checking tools which should be able to detect this:
-we referenced something which was dropped from kernel memory in the
-calling function's context.  i don't know who I should report this to.
+I guess NPLL is an independent PLL available for VOP, 
+could you give it a try?
 
-I shall add cc:stable to this patch, to help ensure that it is
-backported into 6.18.x.
-
-
+-- 
+Best, 
+Chaoyi
 
