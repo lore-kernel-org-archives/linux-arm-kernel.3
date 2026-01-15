@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B38D46606
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 18:02:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77A13D4660A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 18:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rJlnrgsaFVoPcoz34q36AUaoD7Zky3yzLdKE9x1VEEs=; b=Mqj/eG9v8X6Uh0of467G3Vk+aQ
-	iushPVg1OdmttJIV6ZKkVFYm0YA45+v/2CGwW5mWO8RQMydzoZGJox4flDGH+Y/wiXZtZRtjiS+dy
-	t5i9tu10hhOCqbB1fWiy4PIGhCpNMZkJSQN3FT8ESbhFbANvnmm97BJmf4hq/Rq3GKCcrnDNClhzZ
-	NqxTUL4OviP7geG2OWUvg2TREXlaXH7Kd2hSg1KhCqN+5K1anIPHGJ1oUQGqJ45SHBjblWg3+t4TO
-	iuJjR2Mv+r42euo/UEWyzDpM4N2yM3Mp8HrdU6u4dXucyFvUOz//BBqw6B7+O6CzRQFq8k159hwTE
-	YhyMkmkA==;
+	bh=QL/FA85K8sSYHfJRl3fg2QgT24vQ3vJqCT+7fJqpI7w=; b=wKF9Mt7lIHmz57mVHgtQEb3F6K
+	DbUnWJ7WI+gJ0ARKm21xJ8KE7QRfeKlaRX/qcf0iz9wUL7C5S8/yeXrGBZYPfnrGH7z/gbVIkhT74
+	LwVAJLfb6gLsppgcwQgIdb8wDC217BmezntkwHnLHaUNPWbM4V53huFftguep2/8lHbCTiL0gVYPT
+	GPlLe66MMpBHx3N7fyKs2tSNXqlfUAu+1fqoM88OyuBN0YOac8Cn+Cs/Lgwx3hpoLNH+Ws90GkfC9
+	vkLzY2W5pJLdGO9uiifrLMMCfsQK4+ofndVVmyFr09W4QXLuOpTKI3yQVIeXpW+Tt7cA3VU8OWthy
+	8wITQIAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgRfs-0000000CvVA-0CeY;
-	Thu, 15 Jan 2026 18:02:24 +0000
+	id 1vgRhD-0000000CvdJ-23LX;
+	Thu, 15 Jan 2026 18:03:47 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgRfq-0000000CvUq-0SeB
+	id 1vgRh1-0000000CvcN-05zm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 18:02:22 +0000
+	Thu, 15 Jan 2026 18:03:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3043960130;
-	Thu, 15 Jan 2026 18:02:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A19EC116D0;
-	Thu, 15 Jan 2026 18:02:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 71DB0601BC;
+	Thu, 15 Jan 2026 18:03:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23B77C16AAE;
+	Thu, 15 Jan 2026 18:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768500140;
-	bh=Kn6CM13muJURtMblhTu+B8XKHuWGrLq8ki08pxGulnM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EnqmmgYLIO6vRVPEhJA3xqQRcAHI6Tr3rX+0ylbgKHHb5hZzfFXPsbTSHSvUoTfcy
-	 KSEvpK0KVybSKHRc9Mk22oQmrUiJfX6pOUH/YzS6T51JTeH3qJ38gmod01boQy8jqo
-	 K35TBA4GxXb79819zJk5FTZ9ho+8gmxwDHciXSKrh45aHekKYMN+BJwNVdDSkq8hL7
-	 IORdvIetisScuTmE9sGnsLeiqZOFuNuYEGCDYzZ3ZVovKy/YM8jkjJohVCRKXhg465
-	 xtFDN2HOrzraBuxvz5OPud2GyD4ZVDXuC0Efsy/YU6x4r6gu2PY7zv5onXLoqE3IBh
-	 AG+iQhZhbQCYA==
-Date: Thu, 15 Jan 2026 18:02:15 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
-Cc: clg@kaod.org, boris.brezillon@bootlin.com, joel@jms.id.au,
-	andrew@codeconstruct.com.au, linux-aspeed@lists.ozlabs.org,
-	openbmc@lists.ozlabs.org, linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	BMC-SW@aspeedtech.com
-Subject: Re: [PATCH 2/2] spi: aspeed: Add support for non-spi-mem devices
-Message-ID: <1adf54a9-56f5-4fc4-bba2-837a132fd123@sirena.org.uk>
-References: <20260115150454.1575970-1-chin-ting_kuo@aspeedtech.com>
- <20260115150454.1575970-3-chin-ting_kuo@aspeedtech.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xvW1NsWVoVmF5xI9"
-Content-Disposition: inline
-In-Reply-To: <20260115150454.1575970-3-chin-ting_kuo@aspeedtech.com>
-X-Cookie: Are you sure the back door is locked?
+	s=k20201202; t=1768500214;
+	bh=jsOCVRbDYK9JC0QzEE3fZQhFzKNeuG1HxlOeYltavZU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=TpvAZTz0D6AvekolmeASjyDdjp3fxMuAvqjOFCgZ2Pbq117gVPwnk9tG9Cl007zaO
+	 ey/tbk145Xi7BzZ3Zl6G2nkvzkAlhPhfyL/fFjAS2RwEkh+7SLvZjODzKE+Bl2kl80
+	 KnE2+KEtwVQ0wFOeDHdA1lhBxV6uzT/549OnIsybPFLnS8bcbOLxGJGWPiWkhuumq4
+	 KGPKrZ/7vNVh/bZbiJX2GZa7U2uU8oEexKsJRMm0/IWrukPaiwxgtEHRLpw2An0gCu
+	 u/nUn5pw9oTfjBPsbKaZUDlveyxUXyXU48/d2aj7gZq2Bmp1Q2xSI2fIJ29j8KebuS
+	 d6LpHGl4DEFow==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vgRgx-00000002cUt-3lXd;
+	Thu, 15 Jan 2026 18:03:32 +0000
+Date: Thu, 15 Jan 2026 18:03:27 +0000
+Message-ID: <86bjiuda8g.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,	linux-arm-kernel@lists.infradead.org,	oliver.upton@linux.dev,	will@kernel.org,	joey.gouly@arm.com,	suzuki.poulose@arm.com,	yuzenghui@huawei.com,	catalin.marinas@arm.com,	vladimir.murzin@arm.com
+Subject: Re: [PATCH v6 8/9] KVM: arm64: Check whether a VM IOCTL is allowed in pKVM
+In-Reply-To: <CA+EHjTwX-kDg24LMHCyMVP3Xpdpv55WyP2AxeWXa5CKk1yyudQ@mail.gmail.com>
+References: <20251211104710.151771-1-tabba@google.com>
+	<20251211104710.151771-9-tabba@google.com>
+	<86h5smlxyo.wl-maz@kernel.org>
+	<CA+EHjTzEtPta5VHr5R0r0v7ui7-8xv5me29uk2devZ=S14RHqw@mail.gmail.com>
+	<86fr86lv3d.wl-maz@kernel.org>
+	<CA+EHjTwX-kDg24LMHCyMVP3Xpdpv55WyP2AxeWXa5CKk1yyudQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, vladimir.murzin@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,42 +84,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 15 Jan 2026 16:14:39 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> On Thu, 15 Jan 2026 at 16:05, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > On Thu, 15 Jan 2026 15:19:48 +0000,
+> > Fuad Tabba <tabba@google.com> wrote:
+> > >
+> > > Hi Marc,
+> > >
+> > > On Thu, 15 Jan 2026 at 15:03, Marc Zyngier <maz@kernel.org> wrote:
+> > > >
+> > > > On Thu, 11 Dec 2025 10:47:08 +0000,
+> > > > Fuad Tabba <tabba@google.com> wrote:
+> > > > >
+> > > > > Certain VM IOCTLs are tied to specific VM features. Since pKVM does not
+> > > > > support all features, restrict which IOCTLs are allowed depending on
+> > > > > whether the associated feature is supported.
+> > > > >
+> > > > > Use the existing VM capability check as the source of truth to whether
+> > > > > an IOCTL is allowed for a particular VM by mapping the IOCTLs with their
+> > > > > associated capabilities.
+> > > > >
+> > > > > Suggested-by: Oliver Upton <oupton@kernel.org>
+> > > > > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > > > > ---
+> > > > >  arch/arm64/include/asm/kvm_pkvm.h | 21 +++++++++++++++++++++
+> > > > >  arch/arm64/kvm/arm.c              |  3 +++
+> > > > >  2 files changed, 24 insertions(+)
+> > > > >
+> > > > > diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> > > > > index 5b564576160d..0fa8c84816fd 100644
+> > > > > --- a/arch/arm64/include/asm/kvm_pkvm.h
+> > > > > +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> > > > > @@ -9,6 +9,7 @@
+> > > > >  #include <linux/arm_ffa.h>
+> > > > >  #include <linux/memblock.h>
+> > > > >  #include <linux/scatterlist.h>
+> > > > > +#include <asm/kvm_host.h>
+> > > > >  #include <asm/kvm_pgtable.h>
+> > > > >
+> > > > >  /* Maximum number of VMs that can co-exist under pKVM. */
+> > > > > @@ -43,6 +44,7 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
+> > > > >       case KVM_CAP_ARM_SVE:
+> > > > >       case KVM_CAP_ARM_PTRAUTH_ADDRESS:
+> > > > >       case KVM_CAP_ARM_PTRAUTH_GENERIC:
+> > > > > +     case KVM_CAP_ARM_BASIC:
+> > > >
+> > > > Can we instead rely on an existing VM capability? I'm not overly keen
+> > > > exposing something new to userspace (KVM_CAP_ARM_BASIC) for something
+> > > > that really is KVM's own internal problems.
+> > > >
+> > > > Looking at the history, a bunch of things have always been present:
+> > > > KVM_CAP_NR_VCPUS, for example. You could even #define
+> > > > KVM_CAP_ARM_BASIC to that if you want.
+> > >
+> > > I wasn't too crazy about that either. I like the idea of defining it
+> > > as an alias of KVM_CAP_NR_VCPUS. I'll do that when I respin.
+> >
+> > I've done something [1]. If that works for you, let me know and I'll
+> > just merge that.
+> 
+> That works for the previous patch (7/9), which is where you've made
+> the change. But since the alias is defined in `arm.c` it wouldn't work
+> in this patch (8/9), because the function kvm_pkvm_ext_allowed() is
+> defined in  `asm/kvm_pkvm.h`.
 
---xvW1NsWVoVmF5xI9
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+I dropped it from patch 8/9 for the reason below.
 
-On Thu, Jan 15, 2026 at 11:04:54PM +0800, Chin-Ting Kuo wrote:
+> Defining the alias in `asm/kvm_pkvm.h`
+> or in `asm/kvm_host.h` should solve this, since both files are visible
+> in arm.c (and in kvm_pkvm.h in both cases).
 
-> +static int aspeed_spi_user_transfer(struct spi_controller *ctlr,
-> +				    struct spi_message *msg)
-> +{
+Nope. The compiler spots that this is the same value twice in the
+switch, and compile fails. I only kept it as syntactic sugar in arm.c,
+but I could otherwise drop it entirely.
 
-I'm not seeing anything here that won't work with transfer_one() rather
-than transfer_one_message(), that would reduce open coding so if you can
-do it it's preferable.
+Thanks,
 
-> +	ctrl_val = chip->ctl_val[ASPEED_SPI_BASE];
-> +	ctrl_val &= ~CTRL_IO_MODE_MASK & data->hclk_mask;
-> +	ctrl_val |= clk_div;
-> +	chip->ctl_val[ASPEED_SPI_BASE] = ctrl_val;
+	M.
 
-This should fit with the prepare_message() callback.
-
---xvW1NsWVoVmF5xI9
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlpK6cACgkQJNaLcl1U
-h9DIhwf/W8/a6WTvTXkoR6TsMYE4X1woUmylZmwsFN2UaCmgI1L/AfPz/YPV++Kg
-zpWoAhy89sXrI0dewD0d/9r5c6eV/TvYD0nF4IHAwCU7lDxZf3fet4WOztYITdcI
-J9XpQD+PGCwrjHTRjq+aXUYYhrS7vGhDUOUuY0xwgglOgygS/c8TRAAe7kcaR/jg
-a2X3FYPadw1n/Y44EqG84FWyElTCFCz3V38pry5fc5IPQ9eYIgxD+MkxWa5ReSAg
-byWuVsR0D55WyOEdf+ZSkYm4tvHmiM29MuVJmF5MXfP9jnJeG+2KSwKoDRYDQYWZ
-9bvRisvSKoCqiQKNeacaATDXKGw6Eg==
-=ENSf
------END PGP SIGNATURE-----
-
---xvW1NsWVoVmF5xI9--
+-- 
+Without deviation from the norm, progress is not possible.
 
