@@ -4,179 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE3D9D46638
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 23:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EE4BD47CA3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 23:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZaTJr1HFM4sMHAzzUSeXCYZJRvOA64vdwnaFBY2BqQk=; b=bOfDYvEtvJTJhSGF7ga+UZChyW
-	nTF22t9AOggDaPXn13zEB++dpsaypDquVcV1TU0Rj6Eibd/lP+vxF3FiHDp/1hp+fiFfoYg5IZHRZ
-	hThpID6XKIznFGydaKIiBe1+hpnmPc+k3c1KCOoB34f8/iA8yBd8u9c/eQCTxDEJf872KUWiodDd9
-	WnE4XhMcwrmg/rSMJ+e4V58Yv0d8OHlOrloRD1V7MF6m6fD+5MBE4vlIUgA6Avldoo/nnUKyHAKo2
-	Qx3K712gbevDywmHAxQDVXKT11Dok2ln9XbMvCp5MNO5sjFzOonSz6iWQYbA03DBhZ1mMykXZQbaz
-	fJq+xtaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wtQxe+AZQJSs++TYSSTE4wMUFQyVbkymd/GwI60xIz8=; b=tzmEHJGy1jSIeBZPV2PEgw8XB+
+	ZW1bVwkEAa9LVIpeTYvPnW9IfPsW8eWWkXVavQLMJOZo6PjdhU5CDXPglhak5Obx/xtDjkync5+24
+	Jso4JfxIMhTthXjQgZ7kiSCxSGknmwmzJnkR02l3d8TFUxgUm74xQNL4QhzqrT4yBAmCkKjclMOYu
+	4vVQjFz/ZUKfK7KUJl6KEhINHrh6EqJo279p7tTzc4hFYv8Y1xZ1AYWaEFoHk0FaxkTADc11Jj2Tk
+	iZLdmhN4VDCpvfnfym9nJaCBH2Cp6u8lf0g9FV+CNqr3Zz4/zPRxR9vfr2oAy8arrg9rbbCzytygy
+	ew+emDWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgWeN-0000000DJaC-26mq;
-	Thu, 15 Jan 2026 23:21:11 +0000
-Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vgX7r-0000000DLIF-2IA9;
+	Thu, 15 Jan 2026 23:51:39 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgWeH-0000000DJZe-1KVh
+	id 1vgX7o-0000000DLHs-39oJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 23:21:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZvJxUlqtZGNh/iQMhLZA5no7LT/q/zKlV2YeK6lFhclbsMmMV4egO53PknXxSt0vD1fUO9a41hbVQQMymWpLCc/a2SkL11BuOyP3eBTK1tu3EK0Dy4+vYg5SqVHHvF8cmthVbk5cT4zYJgObOVYn6riKVR4d43j6dpxPrnguzX2JLf6LOsmxqq+iSvfClV1e7IcKDQI7uDcLAGvZAnyRXihGQRp6N3icULKVRLNBDCKl9YcrO6kwKp4O/CdVvYllUL/nWIqDi23AguSqHtxoo7HSjZ/2J/FX5SmBuc88WFB4Bh+bJjqgoWlhzUJIRN8dwXwdABnMfAQxQBGbJZwfbw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZaTJr1HFM4sMHAzzUSeXCYZJRvOA64vdwnaFBY2BqQk=;
- b=FPLhBPccxrLOw3LqFFfZuxBv2BWUilpeKXAsYomw2Dfy1ccNSoJelx2NPAdevUgnJoT1Oe00PdA+4XU4LPfOzUSiOxGwPw2sf/Pxg9aSI3Fq5abLRemTcGiwjT0KrWVtbbHIuw920DJ9T6uxoo+FpaihsPsF5g1ksphPacx9eln0QYCo23FI7sfyBpad7MR9LtQk29S79B/U5rDSsxmr1GPLarC5mRj0L3VcC3GjoYYrEkQmjPQQlfaZmP4182XfNTpbia0Zhq8ktbEng0MdorTcKWfqG597Bh1ChpnPmIqmGSlIQUkohTite513rQyS8tnKJy5f0GMtVTNEDa+gDA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZaTJr1HFM4sMHAzzUSeXCYZJRvOA64vdwnaFBY2BqQk=;
- b=YJz0+kawQOtcHbQ0f3VYILCGFk7RzR3cdxf1fEdL8nD4JDHro5jmkP0SoW5+6WzNCrtR8WRzMllummpKnWEYAqb+YCnHGnnxXbN8MbhT7Ns39LzsTfXm2Gqe9frWiFj3clvsHuCXmZwXRxt5SZlinJDsnLI4pAljATw27rA1MUgivWUgMbefsONy5FddNoL8tfg55BOT8D9JWtYNsYInMglKQS/brhHIr3RZgm6WM0XfofvL8jemHNZe8GsQvTAfZShUY/Afjxfm/LrKJDZmSVW9aUyGIdFW1TsQIM15ZBbORctxD5G7haVNj/eUrD7/hbmxmCvjh2A4Sx3kr2z7sg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
- DS0PR12MB7677.namprd12.prod.outlook.com (2603:10b6:8:136::13) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.4; Thu, 15 Jan 2026 23:20:59 +0000
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::aa9a:b827:90c6:506b]) by DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::aa9a:b827:90c6:506b%7]) with mapi id 15.20.9520.005; Thu, 15 Jan 2026
- 23:20:58 +0000
-Message-ID: <23f08379-301d-4ffc-bf6f-d6a7bb952724@nvidia.com>
-Date: Thu, 15 Jan 2026 15:20:55 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 45/47] arm_mpam: Add workaround for T241-MPAM-4
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-46-ben.horgan@arm.com>
-Content-Language: en-US
-From: Fenghua Yu <fenghuay@nvidia.com>
-In-Reply-To: <20260112165914.4086692-46-ben.horgan@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR13CA0017.namprd13.prod.outlook.com
- (2603:10b6:a03:2c0::22) To DM6PR12MB2667.namprd12.prod.outlook.com
- (2603:10b6:5:42::28)
+	Thu, 15 Jan 2026 23:51:38 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60FMbbiO3596353
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 23:51:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	wtQxe+AZQJSs++TYSSTE4wMUFQyVbkymd/GwI60xIz8=; b=fAkGSITdOLVDSZgw
+	uInoMR/a8vKztMCydd1E1+Z4IXXnkaYXJz3XbhKMDlw/sguh1SFICxOHk+bpvQtt
+	gXQ2KH/zro4A1A84uc6/hid70Uxlzi3yKf+j5XlPEcdq+7G96l8Z8pwUi9uTg0IR
+	i84J20OQSCoPzQZpA00SiFY8AK89vc4UVRQ9+A6yynrUFUCMCPcQHiOEFkpQxf9g
+	oVrvavsRGWVTVGtj5oAID5pjdS7KzNtMTptP0vpG33G3Ty5qmYGjcZ+V3erLgPon
+	2rIxRlru+8oL+40HAcSdtVaUqcufNd9m1PT50iVGGhPZPW1wMeI2aNW+1sCTnWsY
+	mzAFgA==
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bq96rr4vq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 23:51:35 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-2ac363a9465so1765506eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 15:51:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1768521095; x=1769125895; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=wtQxe+AZQJSs++TYSSTE4wMUFQyVbkymd/GwI60xIz8=;
+        b=hTfiSV4qFcPYDqp6g6CCTtqfj/XdFArOuXB2czIZ/mhHoJjXOIkZ8ka8C9FKE4fKjo
+         f/2wOMYT7CS/rS2GBLmgUUco62SiisPoZ8Bk0nz8z+xhLigz1fKUk5akBcLaVFy6S9FB
+         BeWfEagXdabXbFcNcVNIHvu5lFlQgM/HgOeadnf1hheQqiYGnEWwVM7xaSxBuByRl93m
+         j8MilYRFKOv5Thg/48S2V0RcO2dhlHp5KJczDzJVsvoukvQ6liSqkzWQg6ducN1xFbnH
+         GwzA6uyuwIqOAYhSpBm6yporjmI1Trt9Mf9PFXsNumRSXFhOmv+xl7kxoLT8lkSDXb7s
+         2aBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768521095; x=1769125895;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wtQxe+AZQJSs++TYSSTE4wMUFQyVbkymd/GwI60xIz8=;
+        b=may2iYfIqsb4Af/lqE4UJn+IdrSghNRunRbP1rMbVvMFLzveUdsWlDtIrAfqIRoBFc
+         kEq71rIPN0kQ5KNNu5o6k5FAl084/LB1jrcUlSTkwbsh7HQf7G5g+os7oQJ1jCjJbNNI
+         xc8gf841dqBfN/Xkemq+Zrn6hc5KJLbWz0C4IFB95Je8FPq8VI6eYrhhge2bgjb+hsZ7
+         PxyMeCI7I96U5AsmG0cb6ee81uezloe16LEFeP16sEWOu7+YkXexrVCfrdE3HOvDXCCk
+         lRcOe9JaOODIoGEnqAEzXPC12yc+wiavAj3BoZ6DUSWVA0AqQWYDmDJ7bUaXSwGtFE/L
+         ph9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX3UrI1LgcHuMS4seo+sR93vEgizHa/IDvagHI3uMGWPzUYaY34IPvNu0zwQXQlh2EBdSjiMdi4uq1qRb0TbSlf@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQqrnL0zRjxanrzezdlUo2HrN/OLyK/dEfyxI5hy78+GgHeMfL
+	FQl6EMHOZVrcJnXPSeAZXlpMjez3C+UdGDe8QJejLlszTenQl+obI12jxH4lMSJ5DPtNrk3kCLl
+	BDk96Rc8lAy5n5qvdF7+BMgNsKQTd6sFuI3wYFTffZjAr72IwhhYIRs6scKuMXSiHcLkbu6lu8T
+	rygg==
+X-Gm-Gg: AY/fxX4rGO4LiVM5N/rNpKE34Ps5QsrjL6yq7b3zWQT/KHUGehgQtFlPXqKSKzMF9FV
+	iGQqLk73CUMr0NI9M9J88JpNSENIe6ZZPk7PVri1ox4S2P0xOAJ5+HVrFbvMQryV1S7asncM1w5
+	lGyhSHrQodU7RVeaD9q0Zk4k9vN7T5Xj6kZVyNOgrsBA1Evsmd/gMTNJC+vIcZ1QU4wBbI6Pxlc
+	7+T+y3iuhtCkVM//c/Ami/DgyBto/SlxmMd7f4x6O7KHedujzva4/yuBD0K4s9TWVZr/0ciZDta
+	jrFsJFEJhGSsmKKIy+fRN0vD88pehKSIXTVPf/4NLQuhaBoMlDSU+A4mgFUiEGPUdKBwM7e8XwV
+	tCd3BGaZwzt0ZUp6MurEautaZmvhNc1vQw2tExaK60FR7s6R37EP5bpSQd4n7
+X-Received: by 2002:a05:7300:ec0c:b0:2ae:5a13:9e3a with SMTP id 5a478bee46e88-2b6b412acafmr1004548eec.40.1768521095112;
+        Thu, 15 Jan 2026 15:51:35 -0800 (PST)
+X-Received: by 2002:a05:7300:ec0c:b0:2ae:5a13:9e3a with SMTP id 5a478bee46e88-2b6b412acafmr1004533eec.40.1768521094447;
+        Thu, 15 Jan 2026 15:51:34 -0800 (PST)
+Received: from [10.73.212.179] (pat_11.qualcomm.com. [192.35.156.11])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b6b351e38bsm747551eec.14.2026.01.15.15.51.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 Jan 2026 15:51:34 -0800 (PST)
+Message-ID: <dc26dc7e-a0c1-44db-b719-1d8f34c2470b@oss.qualcomm.com>
+Date: Thu, 15 Jan 2026 15:51:33 -0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|DS0PR12MB7677:EE_
-X-MS-Office365-Filtering-Correlation-Id: d590a08a-d2d7-4ca3-1dbd-08de548cbd8e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?V09Ed2Q0c2NiaHNHc0hZV0pkVXFucU9ienpqbEFLWTAvSjlPSmYxMUtyS2Zn?=
- =?utf-8?B?U3VucnRldDREQmtSeVpMYXRjSTh2bHBSL2prSEk4c2gvay9aZjZmUTRyWnFw?=
- =?utf-8?B?bUFvZXlKYXV2MVRQcUNWZWovRGxqem9OSmtpa1g5T1FpRnF4NGhObW56WjVZ?=
- =?utf-8?B?ZGN6YTRJMlBTcko1RC84eEt5c1FDNTBpbnZicXIyRjVWM3NNRUFsRWpMRWw4?=
- =?utf-8?B?MG5XZ05JLzdIeVM5enFkTUk2QWl6UlBwNVdmbEtzQjBsSGI4dFNEZHM0Zjlj?=
- =?utf-8?B?OU51UVp0Y08ybE85QmQ1YWxzdy81dVNhMTN6L3lJUEMxaWs2d3A5RFk0Y1JD?=
- =?utf-8?B?RCs3cFpWd1YzaEJ3MTBpWG5XbGF2dUR4aVNQSVJtcjBWQnhWQTVrNWVNT3dW?=
- =?utf-8?B?MkkwVSttUjdHamMrYU51S2tGSExYRUNpRG1EZFNwTy9BNkJRVHRjQ3RxeGpj?=
- =?utf-8?B?WmFnZHRkNWNVTXZKb0R3VDkvSGVzQlQ1d2ZFV1EvZnQ0NGZ6VlFOUHJSUkcy?=
- =?utf-8?B?MTVLbjBQNzcva3FZT1U1ZEkwamwwRXlnbGN2Y2hsK2I0U0Y5THJwTkFwTlFh?=
- =?utf-8?B?WWFqK0VRMHJ2cHAwZzVwaEhCOXUzMkovUTBGalFGdGNsY3ZpSmpUWjdjUmFO?=
- =?utf-8?B?ZHlMNTBRU0JMaFU1c3FQN2tTQWNsYUdOY1p3ZzMzRDN2NnF4Q0gxRjhsUVpj?=
- =?utf-8?B?aUUxT0l4Uzg1NFlOWERRempDOUZ5ZXg3dWppTy94SDAxeU1YbUk2M0Z1ck50?=
- =?utf-8?B?a0lWcjBEVVVhaFZMVUlEb2dsTFp5QVhTT09MeDJ0T2ViTU1MNnZSMEQxOVhJ?=
- =?utf-8?B?QkZXT2g4K1U3TGhrWStkL2xyQXJhRC9uNTV2MVBkalVJdWtUUGg0YS9PRDNa?=
- =?utf-8?B?czY5bTVzOERFNDczUW5pYTk3QmRpNURVWllxL1dsNXhaYnQwdzBqL05uK1Zv?=
- =?utf-8?B?Vy91Q2ttRGVNR3kwcTZUSmNQQjF1YVhjNjBOSzlXWjRkQjBiWUhLeGl4M3E2?=
- =?utf-8?B?WlZmUlJPUHZNUzFZOW1ZbEFKdVI1VW94eHNmMmhGYkRXbTFnc2NwNm5HNXlx?=
- =?utf-8?B?ZW1PUTVjellRUFo2ZFpzczlPVHZ6TEtkeFVCRWlLdm5yVGw0ZWdqck5vbkJu?=
- =?utf-8?B?WUJMV01wSkFIZ05aNmJ4VGx1b29tQ0VnRUxSQklUWmNselZwWjJJUm1QcWNU?=
- =?utf-8?B?L0N2MHpkNGRoM3FuaTcwVHA5SUZqT3ZCMWFPbkVuQVA4bEZWaVl3ZXQ4M1h6?=
- =?utf-8?B?aFdiRGJhdVZ6Mi9Td1Bhak9nVjh2TFMybzlMM1Q1VHd0bHdKZ2tVNk1YUFk0?=
- =?utf-8?B?VlQrWWRJV01qcHJ5VWNlSE9oa2R3eDZKdmliK1FpOGdkWERsWXFWVm9Pem1z?=
- =?utf-8?B?UW9DTWdzV3hOU3VCWkd3c1BOS1ZNMlBJMjFZcjdxZERmazB6QzhocVMwRnlm?=
- =?utf-8?B?UmxTOWV2L25rVElMd1dTQ3c1V21ySHBJRCtUa1lUWUVEbnFJdFdGUDJzaDQx?=
- =?utf-8?B?SmlEaVhjOEVmWC9iTWd3UFZjTk1sNDc4ZnlMTEQrUzZvTmFyL3Z1TGxmRUQ2?=
- =?utf-8?B?b2lhT2UvVU1wcnIvK0ZwMW1rNjd5VzZ4dmF1Z09COXVWclNWR1BHazFKbDBX?=
- =?utf-8?B?eVRpQURvb0xoWi9EMVVPZHlmdlowdUNIZ2dvYVhlTDk5V2FDVGx5VDMxY3l1?=
- =?utf-8?B?QVdRUnk5M01sWnltTHlZSTNXWEw0QTh6MjYweEE5eFZUcDJQV1JnaktXSzA4?=
- =?utf-8?B?V1h5ODJkcDBGa0wwaEJyTjF5ck5qTzZISVcxVXdWUEQvZUxtT1pRb0g2K2x3?=
- =?utf-8?B?aEtNeVhOYTFmZXFtSFRQQ3hXZCtFS2p4STBhbEhIQjU4cmhTT1R4bDNwWnRz?=
- =?utf-8?B?QU1VZVN2TkcwLzNDeWptTjhHejhJbjU0S2Izc1VJeDJxdmdobmIydjhDOUY1?=
- =?utf-8?B?RGx5dWdLZGtQeUlXdkFOSVp1cXJqRDBmaFltalBMNHJqNFoyaWdlRFVITk02?=
- =?utf-8?B?b2tpNktIdXRqT1BObzJsdUJFeTdmWkZmMkhCV09UTUR3SW9NV2NuTVFEc3Jl?=
- =?utf-8?B?ZEcyZE1pYjhnb1d5cDlLMmpLdDlITy9mSGc5OFNMbXNJeDRkcjRSbXdUWXNF?=
- =?utf-8?Q?Sc9U=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aFJsMjc4NnUyRDBJMUNlc0t2dVFHb1lHM2gvQk9SNG5yalBUeGFOWStjSnhp?=
- =?utf-8?B?RDAyditKZ05Fa25ydkorL2g0VERqN2cvNWpudEluTHlLeFpkL25BM2p3R3Jk?=
- =?utf-8?B?ZG5IN0lXT0F6eDdjb0ZLMWxHNmVIOFN6NHpaUzc1Vm85RXpOYkNOVjhkSXpR?=
- =?utf-8?B?SU45R1hVK0xWcXhhOUdLZWZoTENuTitaTGFkZzc5bllBYmt5bnNYeTN4am9V?=
- =?utf-8?B?UFJZSENVNW1iTStFODgwRm9lZDJhOWpLalNtaHZpWDVtdy8xdUNvL0pPUU56?=
- =?utf-8?B?aXgwaGZ5bUhXc2VVLy9oRVhhRGRyVW1TR1l0V0dEQ2V4M1dEendQSGpUcE5u?=
- =?utf-8?B?RE1lZVpwQWl0dll2K2tjaXJqTTlpNURId0cySDBBWUpFZVEzSnNycHpGWVZG?=
- =?utf-8?B?OTNUdGpaRitrajR2L3Z2YWlEYVdIMkZySHluK0NaRHExcDRoWWR1NVg0ZElm?=
- =?utf-8?B?RGI0MWNUSmdxQVpIN2k4ODh6RWpnaVhCTVdnSnNCQmNxTERQMkl1Rm8xaW9C?=
- =?utf-8?B?NnB0VkJ3UExEZE1TVUJqMS9HRmlwTDI0N0xXakhud0x4L1NnQTYyL3dPWXZl?=
- =?utf-8?B?MVRrR1kzcHNuWFNVSnU2YVU1akZPdU5iU3hGWStLTW1uUXRHcmdHSVp6WlNL?=
- =?utf-8?B?US9PdGl2VG1YVGJZcVlDaUdHMFgwNDJhZjFadkl1QlZCK2tnazJFTjZ6VmJj?=
- =?utf-8?B?QlJDZWJwQlVPYVZYNnRtV1ZLdlFMaVhZRWdyMmJZQzlOWmIyWWRZdXlScTRV?=
- =?utf-8?B?MnhUTmdZR2FZaERIcGZISlhueDNJZUtORHVCVnpmaVBQV1hkV0FyQTY2MVpx?=
- =?utf-8?B?RWF5TFVPR1BWSURkK1lVRnRlZ3BMdzBWQk0yYnJpMFdjZG9NZ2pGRjU4b2oy?=
- =?utf-8?B?ajkwYmZlSTRzQ3NCamVUZnUxUEQ1VU9MQlA5YmpCTEw0aUhockp1VHlYeE16?=
- =?utf-8?B?cG9BQUJuQ2JxdHg5Uk5QZ3ZJTEE3M1gxd0p0VnB2QWJ3cjdXdDM0cDlKZSsr?=
- =?utf-8?B?RFdKc2pGZ3BMQXczVXVxZmcwUk91K0luakx4dFh0OVJNN3BxSjVVb2FXbm92?=
- =?utf-8?B?M1FDZTV6ZHlTMVFGdUttOW1nWVMrRE1JOUN5YU1OdHVCYmRtQTRZZnNNcktL?=
- =?utf-8?B?MEh6cm9ycVZhcm43NGJpRnA1UXJ3QXhqRWUycHhMbmsrODlsVC9ZY1paT2RM?=
- =?utf-8?B?NTdZNGZydWZ1bnNqRXpuSnRUN3RjTmFhZ0Rqd29XdUtIUllTY2NuUUdSYjVI?=
- =?utf-8?B?VXJCamhOVmt4d2JmbHNEdEt2SFpHN21yTmNka1VDNXhlTGlkM01jbmZwbWlq?=
- =?utf-8?B?YW5nalMxeUZlVWNRWnh1ZU9Qa25qTEd6L2dieWRRUU1LK0RRZi9pemJ0clIz?=
- =?utf-8?B?YzhCWjZ6VEo0TUFQVDR0aEVMdTBTNnJJZFk5dFFnSjRFM2VQZUdnYkdSUW1B?=
- =?utf-8?B?dWFnSnQ1aWh2eUR0MGlsNVVKbzBzcVVOTFRmU0kxNkU1NUthaXA3QjI4OVlC?=
- =?utf-8?B?Wm9xcWsvWGJYUHp1aktLL3dONzJ1OW9vY0h2MWR4QkkzQ3hteG03U1FHTVlr?=
- =?utf-8?B?RVNTeHJYVmROMWw1dWNqMmlnaW9jb2lSRm5jR2FCdnlKdTBQTGJPWkk2d0dF?=
- =?utf-8?B?TFQ3T2E1MXcyUGR6aFQ3TWFJTGFHSXZtUC95ZTd0aW9FVXdxaytvMlkwU0pI?=
- =?utf-8?B?cDIwdTVNTzRSQzBHMmErRmZoRDdaM2hzOVBIOCtUM0FNQVhGQXdpNEU2MkFu?=
- =?utf-8?B?MGhXaCtZTTZVR2t3U1FndFUxWUE1WUZVWFFuamdFb25NSzdySktjYjRYTDFv?=
- =?utf-8?B?ZDZ5MVZiSVVHbnZhazkzUFAvK2VHczFoOTJQVFdFQld0a2taSDdwckpNZzV1?=
- =?utf-8?B?bDF5dWlhejdDSXFGMVgrb01tVFdoNEVaT0VnOHpNSFIrY05NZjBoMVZFdU4r?=
- =?utf-8?B?RXc5V2YrbWZHV01VMkVzSFJ2UFVUTjM4aXdZaHhLRDJBeEJqdFFJN3B0ekxr?=
- =?utf-8?B?eG5XMFlPbFZiWlZodnJFQmliL2VpUzQ3OURyNFdRd01CclFydUxmbzBkdnVK?=
- =?utf-8?B?UXUrbmtvK0I2Uk8xVlMyZUY1UE05cWdNeUs0U0IyRlo1T1VUU25HdERQMDBJ?=
- =?utf-8?B?dTZUbFBiUXRrRE0rQnJMckZicWRqYWlHaWg0a3JiME9iMEgvTjNyTkswNUpS?=
- =?utf-8?B?K1l3MDd2Um1kZkFEZ05FZGFoQUtXWk1DOWdnTmROM1loS00zYkh6V1BGV0xp?=
- =?utf-8?B?OUlMK3FHdS9UaUFrcW1mbFlEU2NiZzF0VjdUc1gvN1NzTmRIdnE0dWl3WUlD?=
- =?utf-8?B?VnRZTEVDa3VmbCs1a0kvSjVzQmJaVTNrRGxSUW1RWEJWdktoSmsxUT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d590a08a-d2d7-4ca3-1dbd-08de548cbd8e
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2026 23:20:58.8700
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZRmfZJaAgl/DqUC7csd8kDoqjLHJyDhXc8xdFj9cMk4cTXJT/wrgzQE6/SvaCfic2Muj8OM1udjmKTaZIvYLVA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7677
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, trilok.soni@oss.qualcomm.com
+References: <20260112-disable_smccc_soc_id-v1-1-a5bee24befb4@oss.qualcomm.com>
+ <aWY6kx8Bwa_2azIl@bogus>
+ <86331062-301b-40b1-9df1-78f7751508b4@oss.qualcomm.com>
+ <aWgEDAlglnGrzdR4@bogus>
+ <4fab824f-8067-49d7-8e6c-dedd67a8454d@oss.qualcomm.com>
+ <ebm6tn3swrzqqzp5qnd7zkasqxo4nqcz2gt3w7j6sxqx2ryyn4@pwrkiumm442t>
+Content-Language: en-US
+From: Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
+In-Reply-To: <ebm6tn3swrzqqzp5qnd7zkasqxo4nqcz2gt3w7j6sxqx2ryyn4@pwrkiumm442t>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE1MDE4OSBTYWx0ZWRfXz7ol4gL8jjSF
+ 4jIUA/97rj6fjHNIT/fbatU8SSPcFxmvmcbBQL7tsq7u1q3CPJh4TPDZCRMIm4vhymdgT3Wzs8k
+ gUAHDRXr56hWhv1NfJG6aJz3uv+3AFQDBy6A9qfMEA/77gb50ST0j4OJ79pPAwa3LHaK07K89NF
+ bF7beF2L0o646RAc8CIHVqfxIEhhHQ7Wj0xTtn9NJtnnZO/XjVZ04sR6swlReEcPcZjGlt8Z+de
+ SJnhXJx0ozdMn0JyEO57JNNEuNFyeBmWHuFzewAyjNmoS3u4/6p8W3CX9fzHCI5jiFj3i2Okma4
+ bIp5EPMsZi23VcHgP4j1teyOLey9BI2BeeebIAwJdyc15k+7oiZgHtiueFqaQtXQZKKHzl6J8DW
+ rfZHyOjS71dJpcRLvpvYrkBadzImToZ4bczt1uaer5mTgRPZhQQSo2M9WzyZMlK0tRW9WmIaSHz
+ BSoUNX1qMSXxuMyl0dw==
+X-Proofpoint-ORIG-GUID: RFjJmGgX0PdMN9rTgbOktN8NOd82dpcy
+X-Proofpoint-GUID: RFjJmGgX0PdMN9rTgbOktN8NOd82dpcy
+X-Authority-Analysis: v=2.4 cv=TsTrRTXh c=1 sm=1 tr=0 ts=69697d88 cx=c_pps
+ a=cFYjgdjTJScbgFmBucgdfQ==:117 a=ZdW6uxA9NKXbfdqeeS2OGA==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Oh2cFVv5AAAA:8 a=ZFde01yRvqAbkRv1oOAA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=scEy_gLbYbu1JhEsrz4S:22
+ a=7KeoIwV6GZqOttXkcoxL:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-15_07,2026-01-15_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 impostorscore=0 malwarescore=0 phishscore=0
+ priorityscore=1501 bulkscore=0 suspectscore=0 adultscore=0 spamscore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
+ definitions=main-2601150189
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_152105_413420_D75A3401 
-X-CRM114-Status: GOOD (  27.97  )
+X-CRM114-CacheID: sfid-20260115_155137_189551_EB4386E7 
+X-CRM114-Status: GOOD (  39.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,144 +153,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Shanker and Ben,
+Hello Dmitry,
 
-On 1/12/26 08:59, Ben Horgan wrote:
-> From: Shanker Donthineni <sdonthineni@nvidia.com>
-> 
-> In the T241 implementation of memory-bandwidth partitioning, in the absence
-> of contention for bandwidth, the minimum bandwidth setting can affect the
-> amount of achieved bandwidth. Specifically, the achieved bandwidth in the
-> absence of contention can settle to any value between the values of
-> MPAMCFG_MBW_MIN and MPAMCFG_MBW_MAX.  Also, if MPAMCFG_MBW_MIN is set
-> zero (below 0.78125%), once a core enters a throttled state, it will never
-> leave that state.
-> 
-> The first issue is not a concern if the MPAM software allows to program
-> MPAMCFG_MBW_MIN through the sysfs interface. This patch ensures program
-> MBW_MIN=1 (0.78125%) whenever MPAMCFG_MBW_MIN=0 is programmed.
+On 1/15/2026 12:18 PM, Dmitry Baryshkov wrote:
 
-When MBW_MIN=1, min mem bw can be very low when contention. This may 
-drop mem access performance. Is it possible to set MBW_MIN bigger so 
-that ensure the floor of mem access is high?
+> On Thu, Jan 15, 2026 at 10:42:51AM -0800, Satya Durga Srinivasu Prabhala wrote:
+>> Hello Sudeep,
+>>
+>> Thanks for the feedback.
+>>
+>> On 1/14/2026 1:01 PM, Sudeep Holla wrote:
+>>> On Wed, Jan 14, 2026 at 08:50:23AM -0800, Satya Durga Srinivasu Prabhala wrote:
+>>>> Hello Sudeep,
+>>>>
+>>>> On 1/13/2026 4:29 AM, Sudeep Holla wrote:
+>>>>> On Mon, Jan 12, 2026 at 10:24:06PM -0800, Satya Durga Srinivasu Prabhala wrote:
+>>>>>> The ARM SMCCC SoC ID driver is currently enabled by default and publishes
+>>>>>> SMCCC-provided SoC identification into /sys/bus/soc/devices/socX/*.
+>>>>>>
+>>>>>> On platforms where a vendor SoC driver already exposes widely-consumed
+>>>>>> attributes (e.g. Qualcomm socinfo [1]), enabling the SMCCC driver changes
+>>>>>> the format of /sys/devices/soc0/soc_id (e.g. "jep106:XXYY:ZZZZ" instead
+>>>>>> of a vendor logical ID like "519") and breaks existing userspace consumers.
+>>>>>>
+>>>>> Instead of relying on a vendor-specific SoC driver, we should consider
+>>>>> disabling it and using the OS-agnostic SoC information interface provided by
+>>>>> the firmware.
+>>>> Would like to add some history here. Vendor interface existed [1] even
+>>>> before
+>>>> SMCCC SMC ID was introduced [2]. And there are several user space entities
+>>>> which
+>>>> uses the soc0 interface already.
+>>> True, but that's not the main point.
+>> That is one of the point which needs to be considered in my honest opinion.
+>> Vendor driver existed from long time (v3.10 Kernels) in Android
+>> https://android.googlesource.com/kernel/msm/+/refs/heads/android-msm-angler-3.10-marshmallow-dr/drivers/soc/qcom/socinfo.c
+>> and lot of user space entities in Android depends on soc0 which is not just
+>> limited
+>> Qualcomm user space, but also, 3rd party ones.
+>>
+>>>>> The presence of this interface strongly suggests that the
+>>>>> firmware is designed to support multiple operating systems or software stacks
+>>>>> that already depend on it.
+>>>> That is correct. We started seeing the issue with user space when our
+>>>> firmware
+>>>> started implementing support for SMCCC SOC ID recently for non-Linux based
+>>>> product.
+>>>> As the firmware remain same across OSes, user space is broken on Linux.
+>>> What exactly do you mean by "firmware started implementing support for SMCCC
+>>> SOC ID recently for non-Linux based product" ? Does that really mean that
+>>> you can change the firmware for Linux based products ? I don't think so and
+>>> hence we are in this discussion.
+>>>
+>>> 1. Either it exists in which case deal with it by disabling vendor driver
+>>>      and/or fixing the userspace.
+>>>
+>>> or
+>>>
+>>> 2. It doesn't exist which is not a problem.
+>> Allow me to add some more details, so far, our firmware hasn't been
+>> supporting
+>> SMCCC SMC ID.  Due a requirement on non-Linux based product, firmware
+>> started
+>> to support the feature and same firmware is used even on Linux Android
+>> (android16-6.12)
+>> based product.
+>>
+>> I would say, firmware started supporting the feature on our newer product
+>> instead
+>> of firmware being updated on any older products.
+> These are two different cases. But as you explicitly state that it is
+> only for a new products, then you can fix the userspace to check all
+> SoC devices. Broken userspace was never _shipped_ on those.
 
-Thanks.
+Though it's a new product with updated firmware which supports the SMCCC 
+SOC ID,
+Kernel & user space remain same (Android16 based) and shared with other 
+SoCs.
 
--Fenghua
+>> Now, as the user space remain same and is relying on soc0 interface already,
+> Why does it have to be the same for new devices?
 
-> 
-> In the scenario where the resctrl doesn't support the MBW_MIN interface via
-> sysfs, to achieve bandwidth closer to MBW_MAX in the absence of contention,
-> software should configure a relatively narrow gap between MBW_MIN and
-> MBW_MAX. The recommendation is to use a 5% gap to mitigate the problem.
-> 
-> [ morse: Added as second quirk, adapted to use the new intermediate values
-> in mpam_extend_config() ]
-> 
-> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
-> Changes since rfc:
-> MPAM_IIDR_NVIDIA_T421 -> MPAM_IIDR_NVIDIA_T241
-> Handling when reset_mbw_min is set
-> ---
->   Documentation/arch/arm64/silicon-errata.rst |  2 ++
->   drivers/resctrl/mpam_devices.c              | 34 +++++++++++++++++++--
->   drivers/resctrl/mpam_internal.h             |  1 +
->   3 files changed, 34 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-> index 4e86b85fe3d6..b18bc704d4a1 100644
-> --- a/Documentation/arch/arm64/silicon-errata.rst
-> +++ b/Documentation/arch/arm64/silicon-errata.rst
-> @@ -248,6 +248,8 @@ stable kernels.
->   +----------------+-----------------+-----------------+-----------------------------+
->   | NVIDIA         | T241 MPAM       | T241-MPAM-1     | N/A                         |
->   +----------------+-----------------+-----------------+-----------------------------+
-> +| NVIDIA         | T241 MPAM       | T241-MPAM-4     | N/A                         |
-> ++----------------+-----------------+-----------------+-----------------------------+
->   +----------------+-----------------+-----------------+-----------------------------+
->   | Freescale/NXP  | LS2080A/LS1043A | A-008585        | FSL_ERRATUM_A008585         |
->   +----------------+-----------------+-----------------+-----------------------------+
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index bdf13a22d98f..884ca6a6d8f3 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -679,6 +679,12 @@ static const struct mpam_quirk mpam_quirks[] = {
->   	.iidr_mask  = MPAM_IIDR_MATCH_ONE,
->   	.workaround = T241_SCRUB_SHADOW_REGS,
->   	},
-> +	{
-> +	/* NVIDIA t241 erratum T241-MPAM-4 */
-> +	.iidr       = MPAM_IIDR_NVIDIA_T241,
-> +	.iidr_mask  = MPAM_IIDR_MATCH_ONE,
-> +	.workaround = T241_FORCE_MBW_MIN_TO_ONE,
-> +	},
->   	{ NULL } /* Sentinel */
->   };
->   
-> @@ -1464,6 +1470,17 @@ static void mpam_quirk_post_config_change(struct mpam_msc_ris *ris, u16 partid,
->   		mpam_apply_t241_erratum(ris, partid);
->   }
->   
-> +static u16 mpam_wa_t241_force_mbw_min_to_one(struct mpam_props *props)
-> +{
-> +	u16 max_hw_value, min_hw_granule, res0_bits;
-> +
-> +	res0_bits = 16 - props->bwa_wd;
-> +	max_hw_value = ((1 << props->bwa_wd) - 1) << res0_bits;
-> +	min_hw_granule = ~max_hw_value;
-> +
-> +	return min_hw_granule + 1;
-> +}
-> +
->   /* Called via IPI. Call while holding an SRCU reference */
->   static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
->   				      struct mpam_config *cfg)
-> @@ -1508,10 +1525,15 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
->   
->   	if (mpam_has_feature(mpam_feat_mbw_min, rprops) &&
->   	    mpam_has_feature(mpam_feat_mbw_min, cfg)) {
-> -		if (cfg->reset_mbw_min)
-> -			mpam_write_partsel_reg(msc, MBW_MIN, 0);
-> -		else
-> +		if (cfg->reset_mbw_min) {
-> +			u16 reset = 0;
-> +
-> +			if (mpam_has_quirk(T241_FORCE_MBW_MIN_TO_ONE, msc))
-> +				reset = mpam_wa_t241_force_mbw_min_to_one(rprops);
-> +			mpam_write_partsel_reg(msc, MBW_MIN, reset);
-> +		} else {
->   			mpam_write_partsel_reg(msc, MBW_MIN, cfg->mbw_min);
-> +		}
->   	}
->   
->   	if (mpam_has_feature(mpam_feat_mbw_max, rprops) &&
-> @@ -2570,6 +2592,12 @@ static void mpam_extend_config(struct mpam_class *class, struct mpam_config *cfg
->   		cfg->mbw_min = max(min, min_hw_granule);
->   		mpam_set_feature(mpam_feat_mbw_min, cfg);
->   	}
-> +
-> +	if (mpam_has_quirk(T241_FORCE_MBW_MIN_TO_ONE, class) &&
-> +	    cfg->mbw_min <= min_hw_granule) {
-> +		cfg->mbw_min = min_hw_granule + 1;
-> +		mpam_set_feature(mpam_feat_mbw_min, cfg);
-> +	}
->   }
->   
->   static void mpam_reset_component_cfg(struct mpam_component *comp)
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index 9d15d37d4b5a..7b4566814945 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -224,6 +224,7 @@ struct mpam_props {
->   /* Workaround bits for msc->quirks */
->   enum mpam_device_quirks {
->   	T241_SCRUB_SHADOW_REGS,
-> +	T241_FORCE_MBW_MIN_TO_ONE,
->   	MPAM_QUIRK_LAST
->   };
->   
+It's a software stack composition where Kernel & User space is shared 
+and expected
+to have no changes (shared with other SoCs / Products as well).
+
+>> user space is broken as SMCCC SOC ID enabled by default which gets compiled
+>> into Kernel and takes precedence over vendor driver which is a vendor module
+>> in case of Android.
+>>
+>>> The userspace
+>>> tool seem to have made a wrong assumption and can't expect the kernel to
+>>> magically fix the issue here.
+>>>
+>>> E.g. We didn't disable HMP(a.k.a big little platforms) as the assumptions
+>>> made by several userspace tools(e.g. lscpu IIRC) was wrong at the time.
+>> Sorry, at risk of repeating the same thing again, the user space was using
+>> soc0 interface on Linux Android products for a long time base on vendor
+>> implementation. While I agree that, user space had some assumptions based
+>> on vendor implementation, if not disabling the SMCCC SOC ID by default, we
+>> should at-least have a way to disable it (via cmdline) based on vendor
+>> requirements.
+> How will that command line parameter be set and passed to the kernel?
+
+Either from Device Tree or Bootloader.
+
+>
+> A better approach would be to fix the issue where is is broken:
+> - Add a switch to the firmware, letting it ignore SMCCC SOC_ID calls
+>    (like it was beforehand)
+>
+> OR
+>
+> - Fix the userspace
+>
+> The kernel was never broken, it is not a kernel change that introduced
+> the regression. Why are you trying to change the kernel? If it ain't
+> broken, don't fix it.
+
+Sure, if we can't do anything in Kernel, we will explore these options.
 
 
