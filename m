@@ -4,138 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F097ED46617
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 20:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E0B4D46617
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 20:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nrk2lcPhO5Z76+PzZInZRQZYnvNreYuDoWWtkxxVEu4=; b=ZEBX0FLcZYOAFjRIbLKn/N1U0G
-	CzIbuyBemstshhcGs6yFXlW/wmUuCUHppGhHL7ojpjH2AO6lJFt3zlZYz23zB+ACe79hCgRHRvUmS
-	cOR3oE3Ex5Q2WcShX+lL6I4I4Q0Vx8Fjh5TZnNGkYrr9p5qvn1gLn/kjh5fQaNg4AP/lVB9oNdGmW
-	fTQjgFiJSTyN/eUKFBH5W3CB0dhRELQDAcX4YfNEn65pIUpWmJ/n9Xvhvq4NvQpGDfkudO+MzZn+W
-	WqpHcgGi/exUp0GmANz7WabW79lcmrNh806VFjUUqIT16F3t2aulEc8NYgilWtEM2kP62z8rBc/hg
-	MXWgRsLg==;
+	bh=JHiV60RInJ4eituFivtzOayNDVgKZkDvtZ7bVjXaEgQ=; b=4ku7keDJsS8/+ylv6ft7RCeswZ
+	2Ekh2Cz+c/L8aU7LctpmDg6biwGnk4xKl8Yllb+9TFErJnJ4ZApxp5/ke2ru7IG3dVlvX8yaMhQCt
+	0A+ykTANWQ0KXWzFJpjuZWO8/luWF9n33RkS7FZaI4RlfbnYYYWRjsQ+iV5wy3MXjTKVMJ/YEvBIg
+	UnOlpZVwdbA+iX1eHQfy+QGVSfMlFQYdgfPT59YDXBaSE0WXOJ0YDisgUHgNFyGK51l95TgeCiVXT
+	XIT0z948X7xloroOTfFhal1HKlIa0lnzqYz+TJKXrPqN4DvVwpYWEuJmczVPpFZoH+etq7HqTSOrO
+	+pxnXCVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgU8o-0000000DAtm-0hMN;
-	Thu, 15 Jan 2026 20:40:26 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vgUEo-0000000DB8G-41Ke;
+	Thu, 15 Jan 2026 20:46:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgU8j-0000000DAtP-3Fb7
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 20:40:24 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60FFfxZD2311995
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 20:40:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Nrk2lcPhO5Z76+PzZInZRQZYnvNreYuDoWWtkxxVEu4=; b=gchOspAJ8ZwScfqg
-	txOdUwFx5lZjkBtMroXfJrTOdvmp7BmhvCT7b9Qy5oUDc9KNoqr/ZoWFbFIVAtzJ
-	ml3BImHzJDEcnF6BiQAhTFmLb8OrIC54BLdZJtcwRxep5f/oHUaI4FC/Ex5F/ELb
-	q/9lWnPraYO7GL+CsT/GgU9PXoRYPZ0NL9LqKRkC1QY9xwrD8MOJjDcB3f9HfjUZ
-	Nm8PBu9E2qrfZdEYOHmuLfgP15AIhVYcd73Efft5ORFUgadgyhtbYyqUuTiwWa/3
-	9P8hjT4vABaQ6eKe0uJByYelscDhiX5quekQE/M4mcgj/7sPcbOgF8xEahx2/wvf
-	7Ag2eA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bq340h14y-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 20:40:20 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8c6a291e7faso274450985a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 12:40:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1768509620; x=1769114420; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Nrk2lcPhO5Z76+PzZInZRQZYnvNreYuDoWWtkxxVEu4=;
-        b=i++Th1BrvBDZBa6ohWD9vURoqFWi77uY0cH2THfyiBT4FJMM6zSIFMV7pUewP0xDUU
-         9IKrhLCKzeWeF1mTlJQzXaruS9JoMWM+g6tjXQk9Dq6WZBv+B+GmBCNJsjthTVSRFSkX
-         LuE+JKgTPAk3KlZ0FnYTmsXLhttesWj3T7iScoZyCx7Zkw7JZer4ZKPhuqXtpKK+L7Sd
-         lAi0Op8r3kVZjF5Hs4L8TqFV5h/GtlJPsLYo4M+pfil3Cou8V4/Gy71xqjtmIrxFpVXp
-         ZihGYe1dT8dMmfOcWTwawgHjSnloudNxu0mCQVcIIGrdZRmWXKO0G3Mp5ErwTfVCyW+D
-         mpDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768509620; x=1769114420;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Nrk2lcPhO5Z76+PzZInZRQZYnvNreYuDoWWtkxxVEu4=;
-        b=A07tNwmDiEGHpYL8FiWFqxRKGB9kibLA48zBSs3nuER4+VC532sN2UocIc79lmm8BQ
-         q9p/2vYtSuGoCRnTLqsbbwE8OJB9X9vLhfOanUVx5JS1RUDLfGioXwdHb68FRlCZ9w6g
-         tElecWPCGCYKmA1uvSY2Kod7DwiCiCnh6zWMvdlV3e8nLyIk0GMmNd/RnzZq/NwswlTE
-         la+cj2fwFpCqhEf1T9+/pyLy/zuSFgNqKZHI6mE+zLnVnnweZRNEggXuvsGm26a4j4Gp
-         6NUcRpKtxQhJc7C4Yr20eUgIx1GFOjiyKC0fmrFPr5xtgvQ1efPuQ3zGqFjgCTdsnnuH
-         /H+A==
-X-Forwarded-Encrypted: i=1; AJvYcCXS0RxD96bIwm2Mo209QcBwZFkxgfaZ1NYM62ZnqLHjCb9xz8g6uiqix4Aj+vOjSGl/WAfuXwS6V/j2KJ9kQoRE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7tyCCK2Qi26h/JFyHbHcaR6iL9m8kr7XqH7vQMIoz856Zr95f
-	CZ1Wa0PxAKmEvQeUFEbliHbZfLvxL5HQxc8wyITp0OrXkbl7Dnoh+DOrUvhpZLCffO0d9fC9K7C
-	kFqQ3edJFUs9tzRZXQ2yAyAN2qBc3RdoFWlPHWgT4ui0hKtAq3V1nESHqhvZUAqb/LOsw5pi2VQ
-	oJ4Q==
-X-Gm-Gg: AY/fxX5WnhsgYLIXk/9Mh4z5vg0eKC6tWiRPbA5WRQ3HyTqcrszbROaX+jz6YvXTct5
-	En6c3bf+n+hjwrZhP+lQW1xo3gDuS4tAITZuRyc6zTUGDEA0S4YyyUml0PrgriCWoYsee7fl3iB
-	vR2z5CkYRXdsgkDHvZb71i1feUknzG/38/Aj9m1K0LO5ik+UeLxdxqJqVNa4FK2N5bvc7+DkaGF
-	Uwj4r5kcwuLIiVtIoBXNC/oQc3DB2LjTvLvQcWPi3H/SVN0LTD71ywJe70eY7JA9Qu5kYGy0o/B
-	uvDVYhH+asNVgTCACmQ8JOgUgH1YufrPLU6ijNBDCCz3WsRivdqRbHM9prYLwYJrRtBwkLIxHwF
-	5f7IxwFwk3SDbNQKSCmDezZ+r+fObSZIACI8uBK0gPolVmBStggwKK1nkRF7DfJlSTjuwGiUR3j
-	0lLBU/FUBzhni1aLXT4xHkjXw=
-X-Received: by 2002:a05:620a:318a:b0:8c5:390b:6eb6 with SMTP id af79cd13be357-8c6a69569f5mr108764285a.47.1768509618489;
-        Thu, 15 Jan 2026 12:40:18 -0800 (PST)
-X-Received: by 2002:a05:620a:318a:b0:8c5:390b:6eb6 with SMTP id af79cd13be357-8c6a69569f5mr108759485a.47.1768509617910;
-        Thu, 15 Jan 2026 12:40:17 -0800 (PST)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59baf397684sm139058e87.58.2026.01.15.12.40.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 12:40:17 -0800 (PST)
-Date: Thu, 15 Jan 2026 22:40:15 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        trilok.soni@oss.qualcomm.com
-Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
-Message-ID: <ax35tcjafo2qvvjpg2al5o6gz7khbwmtp2jrh5xemiwjq6rpo7@64cown27pueg>
-References: <20260112-disable_smccc_soc_id-v1-1-a5bee24befb4@oss.qualcomm.com>
- <7ruiccdm7q5fg2pixmszr3fqvclvymdlkv4x4xbavkaeczrxgc@5l6usxqfi5fe>
- <619f20eb-77e4-4250-ba5e-78db741ebbef@oss.qualcomm.com>
- <7jhqea42453esyx4sv3okowy7jrdcrd4sxjpm4t2snsyi3nfl4@ieja4c4q3jj5>
- <53760601-dfd7-4536-9cd5-9241800c6c73@oss.qualcomm.com>
+	id 1vgUEn-0000000DB7n-2oX3;
+	Thu, 15 Jan 2026 20:46:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=JHiV60RInJ4eituFivtzOayNDVgKZkDvtZ7bVjXaEgQ=; b=BMdtoQPQ8hyAbCpjH+VrX9zCBh
+	AJgRYoeL5Xi/tWfaDSlO9F1cGnKzCX3r+0xsPKEDBsG08Z9vOmZ/z5EazSdmJFJtVxUIDRHbgRA1z
+	geDml0x47uwc/BJLrXAycVEn/vZYZOSJUk0iHtHPglcka1jiPBCnx31hLKXAtzLlfk5B05KQwzA+c
+	UOhEQb3VlXXzV15Drcd5ho+evd4EWvpeARm5lPY+BrX7jS+ZXRbOnfKh0AeQa67P4gOqVeCxMS1Am
+	dXz9/OcguKKIGZqetOwLCdpeRzzsjN7ma4/PkFpXO0bQzuQ0JiXC6k+7b+xLDNm032fQQuSZTDBbq
+	DDa7++9w==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vgUDy-00000007chY-20g4;
+	Thu, 15 Jan 2026 20:46:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E1B2B40164;
+	Thu, 15 Jan 2026 20:45:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 144BAC116D0;
+	Thu, 15 Jan 2026 20:45:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768509939;
+	bh=TrVJ81gNlKGWflE9lzJbsnP9K0M2Q7j3JRWiu7197P4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=u+snff/V7iHtCcygjYFJPTDIRB2va5QWcv2YTvthzYkkKO1dcLaPj0r1cWb+Qb0Ai
+	 ZVpOJ/eQka5sAfYC6lulUHJjHAJpvcWXM+J1c9dpGfWO8QtlVm/Cw2UmGDfsxb+hb2
+	 IyAaokiFcv3t0x5Ft7gH2uq7nPZ/1cVZRdTZbS2YPI+uHUJfIZ2X9X7c3kyukr5qNM
+	 R+2zdGs48Km5Khd4oVNLQDGIKWfd0F+kukNy4BH3hlSFRi//OC1itB5pkumE0828um
+	 nikeLbBlI0f+FnI5/oQ1XMHlgzziQOiqCsrTkLzNGbBUcWTeyZjD33D9GwKuEKNpfZ
+	 SyUTiXJoNf48g==
+Date: Thu, 15 Jan 2026 12:45:37 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org,
+	Holger Dengler <dengler@linux.ibm.com>,
+	Harald Freudenberger <freude@linux.ibm.com>
+Subject: Re: [PATCH v2 00/35] AES library improvements
+Message-ID: <20260115204537.GB3138@quark>
+References: <20260112192035.10427-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <53760601-dfd7-4536-9cd5-9241800c6c73@oss.qualcomm.com>
-X-Proofpoint-GUID: 6kqM4xKdQnOvM3j_1x-8M0aY9dxi30s9
-X-Authority-Analysis: v=2.4 cv=bp9BxUai c=1 sm=1 tr=0 ts=696950b4 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=8nJEP1OIZ-IA:10
- a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=HHlNd980bnHNeqQiqeIA:9 a=3ZKOabzyN94A:10
- a=wPNLvfGTeEIA:10 a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-ORIG-GUID: 6kqM4xKdQnOvM3j_1x-8M0aY9dxi30s9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE1MDE2MiBTYWx0ZWRfX9KcOZ5BG6aE2
- ul/MuDE4z4kXuVx7ItDAKqx4iipR2+FAXpk9B5poS3+IP3f8yu+ci85w2icNwohqxSSgxlZNwz6
- ELB1hQzWxtNt/GOOgTIp/DX/U4B+OIdRyqu4HM3KMyGcl+4xyloq6AkWta4NWVqcHKEZoa//JI7
- vz7vswGHqbVX2T9yyMcZkF9V6FCDVHZsuEgIv0MCH7JJybHirZO2ZHV6Q9BPXtfq9KVqtMGI53k
- sWsoTnKLLGxlRXJjHQoutq8nLQvyaVQYrQuSOWCkON+9XR8+upWZgM1gZEntCDhb1OKcIFHgkGw
- ss8qd3jFxDWTt8B8DQicD2Ro6Gm9BMlnQMhQnRnQ/SG6RqHECPZV/Sfl0YRctmZktesC1xNL2n+
- Nq7e1OCSrrWc1gLQD+iR+aOX/Eb0C6t4AFR/1UfI1SowiBE0UlF1Eg7cmFEMff/vKiN/fG+irB+
- GwPDqcxp65YqbvWyupw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-15_06,2026-01-15_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0 bulkscore=0 impostorscore=0 malwarescore=0
- lowpriorityscore=0 phishscore=0 clxscore=1015 priorityscore=1501 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601150162
+In-Reply-To: <20260112192035.10427-1-ebiggers@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_124023_303645_C844E99D 
-X-CRM114-Status: GOOD (  43.45  )
+X-CRM114-CacheID: sfid-20260115_204630_767650_549DA840 
+X-CRM114-Status: UNSURE (   6.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,90 +91,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 15, 2026 at 12:14:15PM -0800, Satya Durga Srinivasu Prabhala wrote:
+On Mon, Jan 12, 2026 at 11:19:58AM -0800, Eric Biggers wrote:
+> This series applies to libcrypto-next.  It can also be retrieved from:
 > 
-> On 1/14/2026 11:37 AM, Dmitry Baryshkov wrote:
-> > On Wed, Jan 14, 2026 at 10:04:21AM -0800, Satya Durga Srinivasu Prabhala wrote:
-> > > Hello Dmitry,
-> > > 
-> > > On 1/13/2026 3:25 AM, Dmitry Baryshkov wrote:
-> > > > On Mon, Jan 12, 2026 at 10:24:06PM -0800, Satya Durga Srinivasu Prabhala wrote:
-> > > > > The ARM SMCCC SoC ID driver is currently enabled by default and publishes
-> > > > > SMCCC-provided SoC identification into /sys/bus/soc/devices/socX/*.
-> > > > > 
-> > > > > On platforms where a vendor SoC driver already exposes widely-consumed
-> > > > > attributes (e.g. Qualcomm socinfo [1]), enabling the SMCCC driver changes
-> > > > > the format of /sys/devices/soc0/soc_id (e.g. "jep106:XXYY:ZZZZ" instead
-> > > > > of a vendor logical ID like "519") and breaks existing userspace consumers.
-> > > > > 
-> > > > > Flip the default of CONFIG_ARM_SMCCC_SOC_ID from y to n. Platforms that
-> > > > > prefer SMCCC over a vendor driver can explicitly enable it.
-> > > > NAK, the userspace should not depend on the exact kernel configuration.
-> > > > Consider working with distribution kernels, which would enable this
-> > > > driver anyway.
-> > > As I mentioned in the other replies, vendor interface exists before the
-> > > standard
-> > > interface and user space heavily relies on soc0 already. If not disabling
-> > > the
-> > > SMCCC SOC ID by default. I believe, we should  at-least have a way to make
-> > > sure vendors can disable SMCCC SOC ID by some means or have vendor
-> > > interface takes precedence.
-> > Please correct me if I'm wrong, what do you observe? SMCCC device on
-> > soc0 and qcom_socinfo at soc1?
+>     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git aes-lib-v2
 > 
-> Yes, that is absolutely correct, Dmitry.
-> 
-> > In such a case the ABI file, Documentation/ABI/testing/sysfs-devices-soc clearly
-> > defines that there might be several different SoC devices (identified by
-> > different drivers, etc). If the userspace depends on qcom_socinfo device
-> > being soc0, then the userspace is broken.
-> 
-> 
-> Yes, there is no question about that. User space had certain assumption on
-> SoC Devices. The point to note is, user space had those assumptions based on
-> vendor interfaces which existed from long time.
+> This series makes three main improvements to the kernel's AES library:
 
-As I wrote in another email, you are correct here. But not precise.
-Userspace had certain assumptions regarding vendor _firmware_.
+FYI, applied to https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-next
 
-The whole situation is different from e.g. somebody deciding to add
-soc_device_register() call to the BT/WiFi SoC driver. In the latter case
-it would be a kernel regressing the userspace (which is generally
-disallowed). In you case it's Qualcomm firmware regressing
-Qualcomm-specific Android userspace.
+As always, additional reviews still appreciated!
 
-> > Last, but not least, the soc_id format is documented in the ABI
-> > document. It is clearly allowed to have jep106 format in the soc_id. So,
-> > I think, you have two options: disable SMCCC 1.2+ in the firmware or
-> > adapt the userspace. You can't control e.g. the kernel that will be
-> > running on your platform (it very well can be a standard distro kernel
-> > from Debian, Ubuntu or Fedora, which obviously will have that driver
-> > enabled).
-> 
-> 
-> IMHO, vendors at-least should have a way to choose what interface needs to
-> be
-> exposed to user space (vendor vs SMCCC).
-
-But you already have. Kconfig options, etc. What you can do is turn
-ARM_SMCCC_SOC_ID into a module (I'm not sure if SMCCC maintainers would
-agree to that, but at least it is something which makes sense to me).
-
-> > > Best,
-> > > Satya
-> > > > > This avoids unexpected format changes and keeps the generic SoC sysfs
-> > > > > stable on systems that rely on vendor-specific identification.
-> > > > > 
-> > > > > [1]
-> > > > > Link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/soc/qcom/socinfo.c
-> > > > > 
-> > > > > Signed-off-by: Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
-> > > > > ---
-> > > > >    drivers/firmware/smccc/Kconfig | 5 ++++-
-> > > > >    1 file changed, 4 insertions(+), 1 deletion(-)
-> > > > > 
-
--- 
-With best wishes
-Dmitry
+- Eric
 
