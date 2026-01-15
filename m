@@ -4,97 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBBE3D44C48
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 13:29:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 894EAD44C46
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 13:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iK603Yrl6cAoskvtZuzt5inDzVXwdlPWfjvT+cpZDag=; b=ALwM3RY2X33kLsy+y2EnbhUIsq
-	a1d+lfuxdlELmCslEpqQ1eQoLW5eOeDTYdorvxTh9KT0XwjWtQwZqLG/Q7aBZ4sDLT38FNOXsfFPS
-	RERNof0Md/3uFAL24pWTHCJPDrDnNRHoZZJ7dON10AgFaHKVSMaLZC0Fo2YvzIK2PgySmsBHQy69R
-	6yCeHWiKCyYXF185OFiMqQa//Mbtkatk1q8qG1hIjwlzg1c7jkZoA9Yjkj+Voj0n+J8aXHWX3X4QS
-	jASKsU371gyDZ200O0pNM6FXomvxJH2rOVbMVA42VvvhKwlhqoSyq+Z1MB1qjoIBQUQFgAQJ9tdJH
-	y+8zorXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1IfOxXhxhg4RI/LWYRyXDH5frP3XuVWiAsIJx80MpyU=; b=T0h6YlJh5/sA1stmTbQM89DNIT
+	LevnBhg7aZc81azfMAqpkv9MbEtWVDfp6WxHLYPCjTPsTmZy3mb9rjTvhdsR1GEUz/HkhS/AqBizG
+	dAkfYk6uNcYx6IukUOTsZkFxfn1URo+Od73gUJ8BSk64C5l9Z/yhfh/hgMnKt0gatetyrBCl5/DLC
+	jdPOxJK05tLtuVtyWzwKT3wwfnaU4Zv9A+y2qXmbPAkgUKXx2x1GyEqytTUNtKG3NjPAlrQwxV5Fx
+	queNnGdre62qk10njE3sXKC+M76QI6LcgN3+cnHLE/9vlI6fSPe/Xfknj0cPmgQPV3vpAcOCbj9oP
+	nJhbbWcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgNPJ-0000000CQBe-1wIF;
-	Thu, 15 Jan 2026 13:29:01 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vgNSr-0000000CQZ8-2x0I;
+	Thu, 15 Jan 2026 13:32:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgNPF-0000000CQ9k-2zk4
+	id 1vgNSp-0000000CQYO-1VzQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 13:28:59 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4801bc328easo4145755e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 05:28:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768483735; x=1769088535; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iK603Yrl6cAoskvtZuzt5inDzVXwdlPWfjvT+cpZDag=;
-        b=R9cDOlbxD47UkHQ+w08keOku5Y6MQLPfpR6feSPmVyhrIcZbXqxtm0u/9gBQ4xWnPP
-         gbIYPVmpx8sdmwExrnYmEXUlLZ5dsHg3X1cdpE1KkLUU50vpF0wX5BQn1bXUob4QnjTp
-         K9afTmn8IJ6vslMk+3pfXS+O6LSWafXeX9EUTppVecQiA+zp8Tv5b/d9uXD4YxJF98Me
-         lgZhboEbFSn6vXKWQ1KqXL9ji0Tlx7QGFVSgQ3OELcMVQINakzbzvA3PSJNbX/BUTcu8
-         /YvK4MQmqAPwR2BwwRulcgJdzz6wvlS9DDDIP+lMqnvg/e5kp6siJXRV7s9zF/9vtyLa
-         +5Fw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768483735; x=1769088535;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=iK603Yrl6cAoskvtZuzt5inDzVXwdlPWfjvT+cpZDag=;
-        b=SJeFStFZBEyYQ8P2fLzirBVHqlZrWgSqEVWF3jvyXThau/kqcDt6w6znpV4oEHK3o6
-         obQ8xjLsTMnBuaPbXahsOVHnPx074Psl6JoUmH1dBlATDTMpHZ7EkIMIfGC978pN7R1p
-         hEGcQm+u9oPS2t3z6A17rpl2VBT9aIHxFW2U9UTr7B1ygEtJa2GIxDXSETYueVNmhzOQ
-         /ZnKLmapg5WAx1pDRyMFedsrrWgctiEDMlAq4L5LDHJf9wqXkyMNmiT+XFfW3M7lDI+A
-         GifZpP4cve/tn9QM+ve/hJu8htlF8JpCSaTudz/kv2rkS0UYLlw4E7S7eHLk6x1cHOF/
-         Ax6w==
-X-Forwarded-Encrypted: i=1; AJvYcCUOLXFN1q3zyHsBZU//J24i272m135hqpg5pGvgXG1NMSp9WetnUm384f1zmWjCRRcCBdsBBUFNUmyXm/MBR31B@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSRBfL+4YCKKYIN7ippFLnXKT3acZNaADLv3ko+K8kiaQjVlHY
-	i+Xwmlnv+YcUpQ/kZBpiIP+oJraToE2yMZGiwHmu2dUm8gZKmSBaADcFQFWUtQ8FyDQ=
-X-Gm-Gg: AY/fxX6TXYmLx7nBY4N9H94o/RBuuh7hm/eBilVW8D8o/VR0yHZ0fHyj8QdnUU7SPcF
-	1KKOQADOfkXoJzTYe4pkwkBQx+Sd7DBFJheWpfq6rY5mlvvSkvR7U5rK6bZX3ubYFgApguy4XRb
-	JoBkp2ica9Z/AXAufflPshyD50Bp70U+eKyfIS2HSSiGlLFkRplA0Q1k5bBN1vFRvkM+TShL+g9
-	mHk6LNlhfds/XztI8wLyKizVFCrEfuaITImXevjRM/RNYeXDUK6T2fjiT1TT/Zpv+coUZB0Iuyk
-	9pRum7CAatY3MTvI7488IjGb8Swd+rjpUlfxFgKrKH3i35dC3s9L2NnsMaOl5ClkmghVVYuofGJ
-	z5F3Hocu9dzcp4m7suq6J6EAeTEQ7EXQ4NYvQZjH4MGDSQLU2kB7amg9Ng/a2cwT8WfDxC+WSe2
-	eES3QLkQbrLT44RjVFRNNqqio1x+e6GZXe6ENhEfgvpimU/nZSJt//CPWBz+r39wBo
-X-Received: by 2002:a05:600c:8217:b0:47d:403e:4eaf with SMTP id 5b1f17b1804b1-47ee3311593mr71935275e9.10.1768483735319;
-        Thu, 15 Jan 2026 05:28:55 -0800 (PST)
-Received: from ?IPV6:2a00:f2a:e0df:cca0:40b7:95ab:607c:4e79? ([2a00:f2a:e0df:cca0:40b7:95ab:607c:4e79])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47ee0b488d4sm50415825e9.0.2026.01.15.05.28.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 15 Jan 2026 05:28:54 -0800 (PST)
-Message-ID: <e1ed2a68-683c-4235-890b-9b2c5ad93e38@linaro.org>
-Date: Thu, 15 Jan 2026 15:28:49 +0200
+	Thu, 15 Jan 2026 13:32:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id ADBEC423CD;
+	Thu, 15 Jan 2026 13:32:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F833C116D0;
+	Thu, 15 Jan 2026 13:32:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768483958;
+	bh=VHYL1nkOzjGIBxU6anuNNYGVykvMwehpUoJm26Swras=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YUVFT4Pv+GbNch5ybevpHXCZtTqQsFPxF/zCQoI92R853eUEEkPraTqmDBf8PFues
+	 PBAT0N7DIFFZI+2V38qolM+jE95dcVW1dtt8Zi3RufdjUNm4249uwuoVAvPOWT32om
+	 ElCvSXlvlCunrL+UGjScZyA3Kqyh1whgxN6RBVdU9sUR6ZiRAsG4UZyIWUJRtmiq9r
+	 sSG6SiKXsem7/4gozdb/ihcZC9ZXMk8jxgOhwZMcpArGmXAP6ZMNycnSGaPFVbLV5o
+	 pfl8Sk7Zd0mWyAJI8Od3SCrrgYTQ9thn096k7gyAkwE4Ixfhtq8T2zWSgps3bA/1/3
+	 dt5tNSV+5L8iQ==
+Date: Thu, 15 Jan 2026 14:32:36 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+	Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Peter Griffin <peter.griffin@linaro.org>, 
+	=?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, 
+	Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	willmcvicker@google.com, jyescas@google.com, shin.son@samsung.com, 
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH 1/8] dt-bindings: thermal: Add Google GS101 TMU
+Message-ID: <20260115-ultramarine-wildebeest-of-completion-ea1bc0@quoll>
+References: <20260114-acpm-tmu-v1-0-cfe56d93e90f@linaro.org>
+ <20260114-acpm-tmu-v1-1-cfe56d93e90f@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] ASoC: dt-bindings: mt8192-afe-pcm: Fix clocks and
- clock-names
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, tudor.ambarus@linaro.org,
- pratyush@kernel.org, mwalle@kernel.org, miquel.raynal@bootlin.com,
- richard@nod.at, vigneshr@ti.com, lgirdwood@gmail.com, broonie@kernel.org,
- matthias.bgg@gmail.com, julien.massot@collabora.com, jiaxin.yu@mediatek.com,
- shane.chien@mediatek.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org,
- linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, kernel@collabora.com, robh@kernel.org
-References: <20260115125624.73598-1-angelogioacchino.delregno@collabora.com>
- <20260115125624.73598-3-angelogioacchino.delregno@collabora.com>
-From: Eugen Hristev <eugen.hristev@linaro.org>
-Content-Language: en-US
-In-Reply-To: <20260115125624.73598-3-angelogioacchino.delregno@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260114-acpm-tmu-v1-1-cfe56d93e90f@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_052857_804118_5B7FB932 
-X-CRM114-Status: GOOD (  15.72  )
+X-CRM114-CacheID: sfid-20260115_053239_436406_FAFDAADC 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,232 +81,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 1/15/26 14:56, AngeloGioacchino Del Regno wrote:
-> Both clocks and clock-names are missing (a lot of) entries: add
-> all the used audio clocks and their description and also fix the
-> example node.
-
-Hi Angelo,
-
-This does not really look like a fix, if it was a fix I would expect a
-Fixes tag, otherwise, it looks like you are adding a lot of clocks which
-were not defined before
-
-Eugen
+On Wed, Jan 14, 2026 at 02:16:29PM +0000, Tudor Ambarus wrote:
+> Add device tree bindings for the Google GS101 Thermal Management Unit
+> (TMU).
 > 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> The GS101 TMU is a hybrid thermal solution:
+> 1. Configuration (thresholds, hysteresis) is handled via the Alive
+>    Clock and Power Manager (ACPM) firmware protocol.
+> 2. Interrupt handling is handled by the kernel via direct register
+>    access.
+> 
+> This binding documents the required resources, including the APB clock
+> for register access and the phandle to the associated syscon node.
+> 
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 > ---
->  .../bindings/sound/mt8192-afe-pcm.yaml        | 176 ++++++++++++++++--
->  1 file changed, 162 insertions(+), 14 deletions(-)
+>  .../bindings/thermal/google,gs101-tmu-top.yaml     | 64 ++++++++++++++++++++++
+>  1 file changed, 64 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/sound/mt8192-afe-pcm.yaml b/Documentation/devicetree/bindings/sound/mt8192-afe-pcm.yaml
-> index 8ddf49b0040d..16ae3328f70d 100644
-> --- a/Documentation/devicetree/bindings/sound/mt8192-afe-pcm.yaml
-> +++ b/Documentation/devicetree/bindings/sound/mt8192-afe-pcm.yaml
-> @@ -47,16 +47,118 @@ properties:
->        - description: AFE clock
->        - description: ADDA DAC clock
->        - description: ADDA DAC pre-distortion clock
-> -      - description: audio infra sys clock
-> -      - description: audio infra 26M clock
-> +      - description: ADDA ADC clock
-> +      - description: ADDA6 ADC clock
-> +      - description: Audio low-jitter 22.5792m clock
-> +      - description: Audio low-jitter 24.576m clock
-> +      - description: Audio PLL1 tuner clock
-> +      - description: Audio PLL2 tuner clock
-> +      - description: Audio Time-Division Multiplexing interface clock
-> +      - description: ADDA ADC Sine Generator clock
-> +      - description: audio Non-LE clock
-> +      - description: Audio DAC High-Resolution clock
-> +      - description: Audio High-Resolution ADC clock
-> +      - description: Audio High-Resolution ADC SineGen clock
-> +      - description: Audio ADDA6 High-Resolution ADC clock
-> +      - description: Tertiary ADDA DAC clock
-> +      - description: Tertiary ADDA DAC pre-distortion clock
-> +      - description: Tertiary ADDA DAC Sine Generator clock
-> +      - description: Tertiary ADDA DAC High-Resolution clock
-> +      - description: Audio infra sys clock
-> +      - description: Audio infra 26M clock
-> +      - description: Mux for audio clock
-> +      - description: Mux for audio internal bus clock
-> +      - description: Mux main divider by 4
-> +      - description: Primary audio mux
-> +      - description: Primary audio PLL
-> +      - description: Secondary audio mux
-> +      - description: Secondary audio PLL
-> +      - description: Primary audio en-generator clock
-> +      - description: Primary PLL divider by 4 for IEC
-> +      - description: Secondary audio en-generator clock
-> +      - description: Secondary PLL divider by 4 for IEC
-> +      - description: Mux selector for I2S port 0
-> +      - description: Mux selector for I2S port 1
-> +      - description: Mux selector for I2S port 2
-> +      - description: Mux selector for I2S port 3
-> +      - description: Mux selector for I2S port 4
-> +      - description: Mux selector for I2S port 5
-> +      - description: Mux selector for I2S port 6
-> +      - description: Mux selector for I2S port 7
-> +      - description: Mux selector for I2S port 8
-> +      - description: Mux selector for I2S port 9
-> +      - description: APLL1 and APLL2 divider for I2S port 0
-> +      - description: APLL1 and APLL2 divider for I2S port 1
-> +      - description: APLL1 and APLL2 divider for I2S port 2
-> +      - description: APLL1 and APLL2 divider for I2S port 3
-> +      - description: APLL1 and APLL2 divider for I2S port 4
-> +      - description: APLL1 and APLL2 divider for IEC
-> +      - description: APLL1 and APLL2 divider for I2S port 5
-> +      - description: APLL1 and APLL2 divider for I2S port 6
-> +      - description: APLL1 and APLL2 divider for I2S port 7
-> +      - description: APLL1 and APLL2 divider for I2S port 8
-> +      - description: APLL1 and APLL2 divider for I2S port 9
-> +      - description: Top mux for audio subsystem
-> +      - description: 26MHz clock for audio subsystem
->  
->    clock-names:
->      items:
->        - const: aud_afe_clk
->        - const: aud_dac_clk
->        - const: aud_dac_predis_clk
-> +      - const: aud_adc_clk
-> +      - const: aud_adda6_adc_clk
-> +      - const: aud_apll22m_clk
-> +      - const: aud_apll24m_clk
-> +      - const: aud_apll1_tuner_clk
-> +      - const: aud_apll2_tuner_clk
-> +      - const: aud_tdm_clk
-> +      - const: aud_tml_clk
-> +      - const: aud_nle
-> +      - const: aud_dac_hires_clk
-> +      - const: aud_adc_hires_clk
-> +      - const: aud_adc_hires_tml
-> +      - const: aud_adda6_adc_hires_clk
-> +      - const: aud_3rd_dac_clk
-> +      - const: aud_3rd_dac_predis_clk
-> +      - const: aud_3rd_dac_tml
-> +      - const: aud_3rd_dac_hires_clk
->        - const: aud_infra_clk
->        - const: aud_infra_26m_clk
-> +      - const: top_mux_audio
-> +      - const: top_mux_audio_int
-> +      - const: top_mainpll_d4_d4
-> +      - const: top_mux_aud_1
-> +      - const: top_apll1_ck
-> +      - const: top_mux_aud_2
-> +      - const: top_apll2_ck
-> +      - const: top_mux_aud_eng1
-> +      - const: top_apll1_d4
-> +      - const: top_mux_aud_eng2
-> +      - const: top_apll2_d4
-> +      - const: top_i2s0_m_sel
-> +      - const: top_i2s1_m_sel
-> +      - const: top_i2s2_m_sel
-> +      - const: top_i2s3_m_sel
-> +      - const: top_i2s4_m_sel
-> +      - const: top_i2s5_m_sel
-> +      - const: top_i2s6_m_sel
-> +      - const: top_i2s7_m_sel
-> +      - const: top_i2s8_m_sel
-> +      - const: top_i2s9_m_sel
-> +      - const: top_apll12_div0
-> +      - const: top_apll12_div1
-> +      - const: top_apll12_div2
-> +      - const: top_apll12_div3
-> +      - const: top_apll12_div4
-> +      - const: top_apll12_divb
-> +      - const: top_apll12_div5
-> +      - const: top_apll12_div6
-> +      - const: top_apll12_div7
-> +      - const: top_apll12_div8
-> +      - const: top_apll12_div9
-> +      - const: top_mux_audio_h
-> +      - const: top_clk26m_clk
->  
->  required:
->    - compatible
-> @@ -83,23 +185,69 @@ examples:
->      afe: mt8192-afe-pcm {
->          compatible = "mediatek,mt8192-audio";
->          interrupts = <GIC_SPI 202 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks = <&audsys CLK_AUD_AFE>, <&audsys CLK_AUD_DAC>,
-> +                 <&audsys CLK_AUD_DAC_PREDIS>, <&audsys CLK_AUD_ADC>,
-> +                 <&audsys CLK_AUD_ADDA6_ADC>, <&audsys CLK_AUD_22M>,
-> +                 <&audsys CLK_AUD_24M>, <&audsys CLK_AUD_APLL_TUNER>,
-> +                 <&audsys CLK_AUD_APLL2_TUNER>, <&audsys CLK_AUD_TDM>,
-> +                 <&audsys CLK_AUD_TML>, <&audsys CLK_AUD_NLE>,
-> +                 <&audsys CLK_AUD_DAC_HIRES>, <&audsys CLK_AUD_ADC_HIRES>,
-> +                 <&audsys CLK_AUD_ADC_HIRES_TML>, <&audsys CLK_AUD_ADDA6_ADC_HIRES>,
-> +                 <&audsys CLK_AUD_3RD_DAC>, <&audsys CLK_AUD_3RD_DAC_PREDIS>,
-> +                 <&audsys CLK_AUD_3RD_DAC_TML>, <&audsys CLK_AUD_3RD_DAC_HIRES>,
-> +                 <&infracfg CLK_INFRA_AUDIO>, <&infracfg CLK_INFRA_AUDIO_26M_B>,
-> +                 <&topckgen CLK_TOP_AUDIO_SEL>, <&topckgen CLK_TOP_AUD_INTBUS_SEL>,
-> +                 <&topckgen CLK_TOP_MAINPLL_D4_D4>, <&topckgen CLK_TOP_AUD_1_SEL>,
-> +                 <&topckgen CLK_TOP_APLL1>, <&topckgen CLK_TOP_AUD_2_SEL>,
-> +                 <&topckgen CLK_TOP_APLL2>, <&topckgen CLK_TOP_AUD_ENGEN1_SEL>,
-> +                 <&topckgen CLK_TOP_APLL1_D4>, <&topckgen CLK_TOP_AUD_ENGEN2_SEL>,
-> +                 <&topckgen CLK_TOP_APLL2_D4>, <&topckgen CLK_TOP_APLL_I2S0_M_SEL>,
-> +                 <&topckgen CLK_TOP_APLL_I2S1_M_SEL>, <&topckgen CLK_TOP_APLL_I2S2_M_SEL>,
-> +                 <&topckgen CLK_TOP_APLL_I2S3_M_SEL>, <&topckgen CLK_TOP_APLL_I2S4_M_SEL>,
-> +                 <&topckgen CLK_TOP_APLL_I2S5_M_SEL>, <&topckgen CLK_TOP_APLL_I2S6_M_SEL>,
-> +                 <&topckgen CLK_TOP_APLL_I2S7_M_SEL>, <&topckgen CLK_TOP_APLL_I2S8_M_SEL>,
-> +                 <&topckgen CLK_TOP_APLL_I2S9_M_SEL>, <&topckgen CLK_TOP_APLL12_DIV0>,
-> +                 <&topckgen CLK_TOP_APLL12_DIV1>, <&topckgen CLK_TOP_APLL12_DIV2>,
-> +                 <&topckgen CLK_TOP_APLL12_DIV3>, <&topckgen CLK_TOP_APLL12_DIV4>,
-> +                 <&topckgen CLK_TOP_APLL12_DIVB>, <&topckgen CLK_TOP_APLL12_DIV5>,
-> +                 <&topckgen CLK_TOP_APLL12_DIV6>, <&topckgen CLK_TOP_APLL12_DIV7>,
-> +                 <&topckgen CLK_TOP_APLL12_DIV8>, <&topckgen CLK_TOP_APLL12_DIV9>,
-> +                 <&topckgen CLK_TOP_AUDIO_H_SEL>, <&clk26m>;
-> +        clock-names = "aud_afe_clk", "aud_dac_clk",
-> +                      "aud_dac_predis_clk", "aud_adc_clk",
-> +                      "aud_adda6_adc_clk", "aud_apll22m_clk",
-> +                      "aud_apll24m_clk", "aud_apll1_tuner_clk",
-> +                      "aud_apll2_tuner_clk", "aud_tdm_clk",
-> +                      "aud_tml_clk", "aud_nle",
-> +                      "aud_dac_hires_clk", "aud_adc_hires_clk",
-> +                      "aud_adc_hires_tml", "aud_adda6_adc_hires_clk",
-> +                      "aud_3rd_dac_clk", "aud_3rd_dac_predis_clk",
-> +                      "aud_3rd_dac_tml", "aud_3rd_dac_hires_clk",
-> +                      "aud_infra_clk", "aud_infra_26m_clk",
-> +                      "top_mux_audio", "top_mux_audio_int",
-> +                      "top_mainpll_d4_d4", "top_mux_aud_1",
-> +                      "top_apll1_ck", "top_mux_aud_2",
-> +                      "top_apll2_ck", "top_mux_aud_eng1",
-> +                      "top_apll1_d4", "top_mux_aud_eng2",
-> +                      "top_apll2_d4", "top_i2s0_m_sel",
-> +                      "top_i2s1_m_sel", "top_i2s2_m_sel",
-> +                      "top_i2s3_m_sel", "top_i2s4_m_sel",
-> +                      "top_i2s5_m_sel", "top_i2s6_m_sel",
-> +                      "top_i2s7_m_sel", "top_i2s8_m_sel",
-> +                      "top_i2s9_m_sel", "top_apll12_div0",
-> +                      "top_apll12_div1", "top_apll12_div2",
-> +                      "top_apll12_div3", "top_apll12_div4",
-> +                      "top_apll12_divb", "top_apll12_div5",
-> +                      "top_apll12_div6", "top_apll12_div7",
-> +                      "top_apll12_div8", "top_apll12_div9",
-> +                      "top_mux_audio_h", "top_clk26m_clk";
-> +        memory-region = <&afe_dma_mem>;
-> +        power-domains = <&scpsys MT8192_POWER_DOMAIN_AUDIO>;
->          resets = <&watchdog MT8192_TOPRGU_AUDIO_SW_RST>;
->          reset-names = "audiosys";
->          mediatek,apmixedsys = <&apmixedsys>;
->          mediatek,infracfg = <&infracfg>;
->          mediatek,topckgen = <&topckgen>;
-> -        power-domains = <&scpsys MT8192_POWER_DOMAIN_AUDIO>;
-> -        clocks = <&audsys CLK_AUD_AFE>,
-> -                 <&audsys CLK_AUD_DAC>,
-> -                 <&audsys CLK_AUD_DAC_PREDIS>,
-> -                 <&infracfg CLK_INFRA_AUDIO>,
-> -                 <&infracfg CLK_INFRA_AUDIO_26M_B>;
-> -        clock-names = "aud_afe_clk",
-> -                      "aud_dac_clk",
-> -                      "aud_dac_predis_clk",
-> -                      "aud_infra_clk",
-> -                      "aud_infra_26m_clk";
-> -        memory-region = <&afe_dma_mem>;
->      };
->  
->  ...
+> diff --git a/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml b/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..ecf4a315ecf1ea0649c4e96a207d531c696282f4
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml
+> @@ -0,0 +1,64 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/thermal/google,gs101-tmu-top.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Google GS101 Thermal Management Unit (TMU)
+> +
+> +maintainers:
+> +  - Tudor Ambarus <tudor.ambarus@linaro.org>
+> +
+> +description: |
+> +  The Google GS101 TMU is a thermal sensor block managed via the ACPM
+> +  (Active Core Power Management) firmware. While the firmware handles
+> +  the thermal algorithm and thresholds, the kernel requires direct
+> +  access to the interrupt pending registers via a syscon interface to
+> +  acknowledge and clear thermal interrupts.
+> +
+> +properties:
+> +  compatible:
+> +    const: google,gs101-tmu-top
+> +
+> +  clocks:
+> +    maxItems: 1
+> +    description: |
+> +      Phandle to the APB peripheral clock (PCLK) required to access
+> +      the TMU registers.
+
+Drop all the redundancies, so:
+items:
+ - description: APB peripheral clock (PCLK) for TMU register access
+
+
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +    description: |
+> +      The combined thermal interrupt signal (Level High).
+
+Drop description
+
+> +
+> +  syscon:
+
+I feel like suddenly you sent something completely different than what
+have you been working for the past 4 years.
+
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: |
+> +      Phandle to the device node representing the TMU System Controller
+> +      (compatible with "google,gs101-tmu-syscon"). This node provides the
+> +      regmap for INTPEND and INTCLEAR registers.
+> +
+> +  "#thermal-sensor-cells":
+> +    const: 1
+> +
+
+No supply?
+
+Best regards,
+Krzysztof
 
 
