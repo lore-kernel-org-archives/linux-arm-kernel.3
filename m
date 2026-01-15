@@ -4,179 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD51D41149
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 09:39:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FC8D41149
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 09:51:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L8iKIBJkgjuO6bNLyopIMzrrI5CEW+FwMVUUNMgQ7mo=; b=hYoMKsbQIz9hu3QdN12so9Q4j7
-	avrjeDP7AhYVcxUGj21SNWsBxb7H3Hrc4o7+Dsp1oNJRdDAAuBAJP58ScrGnV1Zz8NEhxAXW2ttr7
-	cg6bMFcoIWNllDKH8fApEhiUeVceBniw9S9ZAICA5NL5aPISMX0aj0X8lpHPeJ/vw9dksFKTXK6i3
-	6ZgxVYytO5hfP+TlU1vLs/ORySXi4k56+IwEiWBlzyXD5Jb9rVgX+GYZOB0zBX3Gj6lHh1gPMdP0s
-	oJ+99hEpdQLpCypb8UjoOkZXtsrLjKKnrmWM1JyeLJ5apTAEDleguZ+WdN3aAj+e3HyOmWD+mMJ44
-	DFplHVDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ck81Ki9W0YHtOSpuJal2y3UEQEIKX6XtTO5XoFMyzXI=; b=Cm7cTTsOYtBL+c
+	tqODsiTtga9VtDn+Tjg+RKIARSY/QVWfetUW7MnQYMqfga1CbBX6We9cjxBhNSywJDCQkDDoJr2o0
+	GwmGi5Jp2GAtUj1yi7M1Ki6zgSBaOfRQN1qXDuLI1fkrBbOu/QkIyvpYbuaPpX1sHws5+9Xo4m7xX
+	OujL8BlETmZCitDA0sstWvdjMKfV/GniPnbeA7SX8oy+SSXuwMV7I6vmH3brMvhBIWcPfw037fW+e
+	swKqBwwuL3Rqrn/dsKagWyhVitnee7Af5ITHC9z7PM1YBHKiC6JuAaY+JPeBjLSrkuV+iFhmzgIeI
+	3LlbmUrRqFdavBCxk7IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgJpN-0000000C5XB-38ui;
-	Thu, 15 Jan 2026 09:39:41 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vgK0X-0000000C68a-3BQr;
+	Thu, 15 Jan 2026 09:51:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgJpJ-0000000C5VW-0X2C;
-	Thu, 15 Jan 2026 09:39:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pjR69AFwZwL5SdFd1OBiN+gZyRO9BSkxthFbC3IwTEke/WX6/47deh6c5Dkxqx/KkzMrOUZrTPegLSYbtJ38HBw+xhliBkZWxPjZFg97jQ7Mk3OLhny8MpQ+pzYxKd9P1IJptf9N67s/5zf+riZI9IbsCI5ZEh+41SJH47uDyjfBGWxMTBJKDqnnQaAJRzOR5ZCNX5663Qp/PtGbX2I9jAzl7cTbmaPmcnj3MuHV7MQ6Yn8+xC7tJ0dJpHp+A0APzgfNVI3koQm0fpOxsFLHIxAdDDhVDTnfyMK3PUparZs/3H+S8ZG0iYD3SmMe3JuQ84jhoA3t5RSzX6emL7uKYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=k6SkURbgMCB4EOuxnc3xx9cr5FD3N+HfwTz0gbtQcjo=;
- b=xfCdBSRHcasYeG03RMlvQxuRfwEgTwXo5YXpzIZk8wOwhXJ/9jx1p5dfVrsOP2OwYCWHRLBboB9x8hESh4FJWHVCzOGWDKK1P8LHF5MQl/6vT+yKb7jHTBNEbutNG1mDTtQvHykTncHwqJHNjFWqvSF5vOHZ25AJVcpIv1FhbqSBo7ICRq1G2B0VVKxZWkVvqTJJV0uXh2KrvJiq29U0Akd75Q+IRgE3rjfEL9KbFu79BW+fb4lRPv/Qu3tXZNNzSCgBmwIrpvrsp4giYMjiTo2eoIilTtpl9Jy1pg07cmwrcG2FGFy7X40xPdd14vA1EGRHB7mXmWeAj/VzrZ6w5A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=k6SkURbgMCB4EOuxnc3xx9cr5FD3N+HfwTz0gbtQcjo=;
- b=l5O7Q+1VWIDSJW/+4fYJa5vkftLMdPQi7Enm1O0f0AgwlfKUT5pbeb59wZ5XxGn4NcQcJFL01lWHIYogfv1eNUOfbtfixoVe0y/MZJZZ7V7Dprl+lakVRRiMMSymg/JQC6WpDfs3VGIHXODEE2HdIQkBkpZNJ2spMhM70DqwBxr0N+hVs5gcYmZcQxMmZZFdr3YErujuT4DLD4tGkJ4wHgs5Mg/tZZKO1JSC58fokuWcv3uNFHAKMnQPRue8pKdJ8MYYo1nZWZHHivLJT6ePTHfTF692IbUh+0W3PM5SoMIqMTEa3Z9epBkS2msR1WYQhwylQX06CA6Rtp2b0+8W6w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by DU2PR04MB8503.eurprd04.prod.outlook.com (2603:10a6:10:2d2::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.6; Thu, 15 Jan
- 2026 09:39:31 +0000
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9520.003; Thu, 15 Jan 2026
- 09:39:31 +0000
-Date: Thu, 15 Jan 2026 11:39:28 +0200
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: =?utf-8?B?QmrDuHJu?= Mork <bjorn@mork.no>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-phy@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Daniel Golle <daniel@makrotopia.org>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Eric Woudstra <ericwouds@gmail.com>,
-	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH v3 net-next 05/10] phy: add phy_get_rx_polarity() and
- phy_get_tx_polarity()
-Message-ID: <20260115093928.hdqlxkt6bd5w4xud@skbuf>
-References: <20260111093940.975359-1-vladimir.oltean@nxp.com>
- <20260111093940.975359-6-vladimir.oltean@nxp.com>
- <87o6n04b84.fsf@miraculix.mork.no>
- <20260111141549.xtl5bpjtru6rv6ys@skbuf>
- <aWeV1CEaEMvImS-9@vaman>
- <33ff22b4-ead6-4703-8ded-1be5b5d0ead0@redhat.com>
- <173d1032-386c-4188-933c-ca91ce36468f@redhat.com>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <173d1032-386c-4188-933c-ca91ce36468f@redhat.com>
-X-ClientProxiedBy: VI1PR07CA0146.eurprd07.prod.outlook.com
- (2603:10a6:802:16::33) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
+	id 1vgK0U-0000000C687-1wkY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Jan 2026 09:51:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 321B240C48;
+	Thu, 15 Jan 2026 09:51:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA3C1C116D0;
+	Thu, 15 Jan 2026 09:51:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768470669;
+	bh=pRUo4IfxKSIdmqxfjlq5gep3aUZS10dP72qqvU6sP+k=;
+	h=From:Subject:Date:To:Cc:From;
+	b=HzIJoWu6DQj06GQph5RB+kUjQyIrbkLnNGn26cDf5NdD8j+0RNIrOScndC0SyvYor
+	 l7+sVNrsv6eEJN1LpsWDgOOPOC9HjuMvH74m+uW9pXTPqpQq9H48f1Ak50zHwJ+APw
+	 GII9f1zjX46qSFcpdxKVHscq05XSQYCNDknbVKgy8cqnZ9HaP+AYq4xZH16R4WAlfM
+	 GXxr/zB8BOIcWndxZJM26VIZSgtImg6Jwbom5E0hDw18NNpLcMMpC1SD+NoooSeZKR
+	 lEZ6g95O6Z1HPxQclKxEhgtjogNnVusxksq0VhBNKBkI4+vsB7YHx7/uazqby4cGzM
+	 nXu7E4ucjcOkQ==
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: [PATCH v3 0/6] irqchip/gic-v5: Code first ACPI boot support
+Date: Thu, 15 Jan 2026 10:50:46 +0100
+Message-Id: <20260115-gicv5-host-acpi-v3-0-c13a9a150388@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|DU2PR04MB8503:EE_
-X-MS-Office365-Filtering-Correlation-Id: b1b664e3-a81d-4ec8-c398-08de5419fc49
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|10070799003|19092799006|1800799024;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?leDsOMrDuot4f5icJ565AH2QWxq+bnEfTQ996pXHYJNQVqCITiy3k7ZuQa?=
- =?iso-8859-1?Q?nxXPQYotjeMD8j4vjQVTMqUSWKe9E1CVezLho1N9k6SnHyz69dmoIvNmdH?=
- =?iso-8859-1?Q?VJScnsyKA0qeCzIFOMIF4bV+YZxNrWvvB+1d9pCQ9IJ+NWuXuPAYq2uT6k?=
- =?iso-8859-1?Q?z0q2zzYca8akf/7PP1chv9w5yJhmqDdUa+BcuWDm8R1Fk1PAjadhARltUu?=
- =?iso-8859-1?Q?zPkPj2cXwgIB3vw9BfXwE+xYfFddhqFCWuDdMBUMq/cS3Lv0RYIJPZ7778?=
- =?iso-8859-1?Q?pijDogQc1JpjQdsVLGzrPRsmBAso7tM1LjcETPIFwH6YipeEMXqES2V2o7?=
- =?iso-8859-1?Q?F/td6RZuAfYO0qun6yMQFSwuhmVf8Qw+QBmrIAMmGu5039BnXKMsvOwQGH?=
- =?iso-8859-1?Q?N8YGQge6YeujYxa4dFDI0eDkfkZfUAOeWtjW12iJ0K2QlhOx8wRvmH5pw6?=
- =?iso-8859-1?Q?7Le8+z6XNfqGpQcag+imIBTTuryd0F9gJSucd7iFV459fr2usxaFVDxo/Q?=
- =?iso-8859-1?Q?hU+dSvQ6LvfNZnPkzZD38Z2qOIrRMZRsbxQ89V79jMLLCWsr9JpV8RSUXx?=
- =?iso-8859-1?Q?zhkxJAwgbZoHeojbxAnhbLroDnnX8sZnYH86aHpcdL3GsUw6+zljgIVKlT?=
- =?iso-8859-1?Q?LXtMB2gAoXPyJAj1WMwe2eqiDDlQtZDZM08uBqJEefrhkWyijRJ60TXUmo?=
- =?iso-8859-1?Q?WUrw5Z4Aafr7gnb5zIvXYWqBW6r6+8kzF9M96GE9JmceltMHKvv1U31/Bm?=
- =?iso-8859-1?Q?gTs909LKoHUPh9R06uwbplNskwHkWwQiBC9K+5m7VVX6sUo78xKVpwyAcn?=
- =?iso-8859-1?Q?TLWgG2vP2o6dBvI+ly+cLRA/x6n9qO81jEG1G4Cp0PWF52NT9EqRCnMyQp?=
- =?iso-8859-1?Q?BO/6252+gwKGNqkmR6/p8Kp0XOftN6GibnEFDczmKjGleaDKRt92xF4710?=
- =?iso-8859-1?Q?CNNMIFQQRkSD5UD+o2eznOCz84Ifw3NxWRjNlF2wKYX6yv0qt18tbfFgPE?=
- =?iso-8859-1?Q?LdnxAsD2eJz3Acnb4He35ddHQcWZkuJsmQr+jLi0Ov8JbrcYEhM+aNka13?=
- =?iso-8859-1?Q?Vq0DryB28c6hpUt1n3qwtgLMBPoB0U4CoGGF4jR+idlsJ22yY4ThME5MVE?=
- =?iso-8859-1?Q?CObvj1ig3iEfygO72t2Jz8V2EmmQtJQYdFwjvFZim88mG7A3WQQKIN5xF7?=
- =?iso-8859-1?Q?McEgVkQN6Y90F4S2r4SyzQZ9y5ViYgNEAB5YP88kPXCIGyPmiVb8vVVHpZ?=
- =?iso-8859-1?Q?yRyORHxY273cklidnbTVbUUnhNKVI/C9HFfGFhSNgdkzdWYcPwiazB5MbI?=
- =?iso-8859-1?Q?RZ0hEVSSqyV4n5Tsq2ku/HLL8v76Y3lztjuFxeX3Pnhrn+WXqimzvJdBM1?=
- =?iso-8859-1?Q?sGbwsvu6meOU49PicvTItrbhuHJF7Wg40lpzEO5DdPn41APDKs3QetMzXD?=
- =?iso-8859-1?Q?yH3HS1IC7bLKEJOVqVOBicsvxo5A3QE/BPZVGNAqQdwfPreIQPdU3SplOo?=
- =?iso-8859-1?Q?zYPRXpFgRbEONXAPK2hVmEgZdRwsOHHKvxZbcJ1xQeGopmfwvAMcFoDLPH?=
- =?iso-8859-1?Q?gt2pHP1wK3WzGdnaHb2jYtGbU9XegJDERSyVSVYOuy4XrlLvEZxKAqtUJB?=
- =?iso-8859-1?Q?QHlrvdqPSnpp8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(10070799003)(19092799006)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?LTosrikQAsb4xQZmyUhJbAlFR3+GJITOzOWBo9P35mDeriIlgL2cpsDSVG?=
- =?iso-8859-1?Q?rRrP25RLy1pXA/GTiQvMS304uJxzDZDCZFpir4xcON5OOGJVc3umfWUy7k?=
- =?iso-8859-1?Q?4F5CN9HpVF0sCoqDctgrZulzX1y+Q8iOk0uR4EPjFV16bfl9aqdA+cP9ck?=
- =?iso-8859-1?Q?/voNsQAJmJeFUw5zPtzR+OaqGszFAVbnmjP0VSxwqmgdvFZyXovKy8J3hG?=
- =?iso-8859-1?Q?APcrLY5+LwNuCR6q0sa0e/ztXWt0GYlEi2IHdK6wWMhaeopyFm59lSnMvN?=
- =?iso-8859-1?Q?cP/u4DzHqJcrN5LCO/ywzR2lXXLf9C7nz3DEWrmET+3P2sNU75AVzvA0fN?=
- =?iso-8859-1?Q?O52UXfqpctp8GEov6h4XFwvCDFO1YpJI5O2Tda+DGjrsB8BBAEB+30M6Tp?=
- =?iso-8859-1?Q?IZIuFfLBxwt1t5Ebght3H2a524FHMo39hmP6AqXd1k83nHbYSkbn48IxZQ?=
- =?iso-8859-1?Q?PbPhaC+uXvCqy3bsi8+tv0vZH4j5F1jGLltaubLYHt79FfU383IyzoXxH8?=
- =?iso-8859-1?Q?KqoImgkNT/J6qaOEsFuEpRDSztO05juoJ/IrHu1LVONPzkvlgFzYYqn9Qs?=
- =?iso-8859-1?Q?zhp5qKTddnkZBnCAWqxi5WM5uGKzwoydgug5PUdNoMoE18VlC7Z6MSAfp5?=
- =?iso-8859-1?Q?Osd08TN39hDs7WthMh04an/wONdCvvQ3y4qF5CkXQ/4OmVduzw9QZhVdYr?=
- =?iso-8859-1?Q?aQXXLfX1rCYRU7siYXoEMbMRocyTsWjkDilFGiipumcmlRbeWuTwOA8dSE?=
- =?iso-8859-1?Q?ZZG0elxy8Jfq3JLLlWzBxh4cMVHbBPnXkq8PI1TSTsuAhUGEUiNO4eIoXy?=
- =?iso-8859-1?Q?TqhvHX4ZO9pVn4EWRaAWY9AZXut9Ih4EoEQ0Se+UzIWvdZ4QZ88hTXIYzE?=
- =?iso-8859-1?Q?qPTbq7kzBBAkshMmboV6j/CbXLFuL1PeODSnOSrBJs+Lj5MrmlkNp4R86M?=
- =?iso-8859-1?Q?+XrOLsqZoCA4E6HQX5saHOqKmaTGsLm+xKj5Gqm1sBUWcTeIOqFFwpNMfx?=
- =?iso-8859-1?Q?IzRZoQ5xXTt+dgAng2jg1UiL4aG4FlVbZw3mtymPzFuqk1yYbVPFslCBVz?=
- =?iso-8859-1?Q?MAB9ZOOnRy/wOKHAO+ZDi0mnSsi4+NSjbRY5rZrxIamf4a+WPBOPhn1s/i?=
- =?iso-8859-1?Q?pd2Edb+CY84QFAT6AMq4VkcYt931nUzRcM3tf0mBE2aYoOfBX3NTxyHnUl?=
- =?iso-8859-1?Q?7fsiMS+jTMDgqbheHxiWvTZBjZOmvmVtvXs+6OQd4Fhk8v9pyjk43H6YyD?=
- =?iso-8859-1?Q?9Ojk8u5znODvDRHnwnswDet/eoSX3EYZDoqyl3yTcRaxCLM7gE/xg4D/Mm?=
- =?iso-8859-1?Q?wLETNSPeqCeE7zIpCniGNq4vOu9giLN+GZww85N2aSjw1pEKNU62mNy3TN?=
- =?iso-8859-1?Q?TnsvImJc/baPEdFJ11gkMrS/Z373ZMkmByK07WH8LuC/X4KYOeGQJrck9d?=
- =?iso-8859-1?Q?iWHvvp5yXQooSTPqlbmZqxxSvT09tnfDc1GbslnSPnVMXMe8kFWiF2Td5W?=
- =?iso-8859-1?Q?SiVFEypxkANZ4OZL7q9EhLAeYklAJGjmKcyAbT2VtTeqlpy73ld1s+Q2sF?=
- =?iso-8859-1?Q?mps83otJ97OR9XYqOZ9U4nwmHwgvTHJE22Y8p+NNg0mAPNI+4fvRSnYC9s?=
- =?iso-8859-1?Q?WCNpv+otRz4dTz5aRVu3prezWOx4nGSPoxGE9r0RT0ESAfIConWKsMSmGj?=
- =?iso-8859-1?Q?xcFDzUgkgTgW2UcSWQLhgc8i7pEit/FVisMitfP8y6M2dXwb5StmvhxbK+?=
- =?iso-8859-1?Q?W/xnSymxwb1Kq4Gllz1v3lget+AMOWHuR2z1jkHplwYUdnPOpMsVhxxI8i?=
- =?iso-8859-1?Q?vz+w1cXxJ3iwzM0Qh+GtxKDnMW7TWItnXzOlDTLxON652Pbgu5ZjVMBLJr?=
- =?iso-8859-1?Q?Gm?=
-X-MS-Exchange-AntiSpam-MessageData-1: A55+88YUQPPxVXK9nH0DPiZLTDHr8HxeSbw=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b1b664e3-a81d-4ec8-c398-08de5419fc49
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2026 09:39:31.8288
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CPQ+hc7UYObVIOmnz1JWxRWxStjeHaSQVAY8sQAKZUga2s4gvkM1NtH8FdKdyRssV1b92rLO29ute0OT8DINWA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8503
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHe4aGkC/23PTU7DMBAF4KtEXuPInuL8CaFKPQBiC2LhjCeJK
+ YlbOxiqqnfHSYUQguUbab6Zd2aBvKXAmuzMPEUbrJtS2NxkDAc99cStSZmBACUFAO8tRsUHF2a
+ u8WC5UbUpUJqNESVLWwdPnf1cxeeXlAcbZudP64Eol+m3Vf2xouSCC6mrAjpqFertnvxEb7nzP
+ VuwCD8AyH8ASAARlgUaaW5F+wu4XN/zdHxPPefrj2ykEPTas8nuJFQAic4falcWTyY+7rZedzo
+ Rr/nHKTjc2/ulZqsDcXTjaOcmi0Uua+5RpRuXL1I6CLhTAQAA
+X-Change-ID: 20251022-gicv5-host-acpi-d59d6c1d3d07
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Robert Moore <robert.moore@intel.com>, Hanjun Guo <guohanjun@huawei.com>, 
+ Sudeep Holla <sudeep.holla@arm.com>, Marc Zyngier <maz@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Thomas Gleixner <tglx@kernel.org>, 
+ Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-pci@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_013937_172285_4D032944 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20260115_015110_552012_4C2044ED 
+X-CRM114-Status: GOOD (  19.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,42 +81,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paolo,
+The ACPI and ACPI IORT specifications were updated to support bindings
+required to describe GICv5 based systems.
 
-On Thu, Jan 15, 2026 at 10:37:33AM +0100, Paolo Abeni wrote:
-> On 1/15/26 10:34 AM, Paolo Abeni wrote:
-> > On 1/14/26 2:10 PM, Vinod Koul wrote:
-> >> On 11-01-26, 16:15, Vladimir Oltean wrote:
-> >>> On Sun, Jan 11, 2026 at 12:53:15PM +0100, Bjørn Mork wrote:
-> >>>> Vladimir Oltean <vladimir.oltean@nxp.com> writes:
-> >>>>
-> >>>>> Add helpers in the generic PHY folder which can be used using 'select
-> >>>>> GENERIC_PHY_COMMON_PROPS' from Kconfig
-> >>>>
-> >>>> The code looks good to me now.
-> >>>>
-> >>>> But renaming stuff is hard. Leftover old config symbol in the commit
-> >>>> description here. Could be fixed up on merge, maybe?
-> >>>>
-> >>>>
-> >>>> Bjørn
-> >>>
-> >>> This is unfortunate. I'll let Vinot comment on the preferred approach,
-> >>> although I also wouldn't prefer resending to fix a minor commit message
-> >>> mistake. Thanks for spotting and for the review in general.
-> >>
-> >> Yes fixed that while applying
-> > 
-> > Could you please share a stable branch/tag, so that we can pull patches
-> > 1-5 into the net-next tree from there?
-> 
-> Vladimir, could you please re-post patches 1-5 after that Vinod shares
-> the above? So that we don't keep in PW the dangling (current) series.
-> 
-> Thanks,
-> 
-> Paolo
->
-Vinod did share the PR:
-https://lore.kernel.org/netdev/aWeXvFcGNK5T6As9@vaman/
+The ACPI specification GICv5 bindings ECR [1] were approved and the
+required changes merged in the ACPICA upstream repository[5].
+
+The Arm IORT specification [2] has been updated to include GICv5 IWB
+specific bindings in revision E.g.
+
+Implement kernel code that - based on the aforementioned bindings - adds
+support for GICv5 ACPI probing.
+
+ACPICA changes supporting the bindings were posted [6] - this series
+depends on [6] to work and should not be merged stand alone.
+
+The ACPI bindings were prototyped in edk2 - code available in these
+branches [3][4].
+
+===========================
+Kernel implementation notes
+===========================
+
+IRS and ITS probing is triggered using the standard irqchip ACPI probing
+mechanism - there is no significant difference compared to previous GIC
+versions other.
+
+The only difference that is worth noting is that GICv3/4 systems include a
+single MADT component describing the interrupt controller (ie GIC distributor)
+whereas GICv5 systems include one or more IRSes. The probing code is
+implemented so that an MADT IRS detection triggers probing for all IRSes
+in one go.
+
+The IWB driver probes like any other ACPI device. IORT code is updated so
+that a deviceID for the IWB can be detected.
+
+The only major change compared to GICv3/4 systems is the GSI namespace that
+is split between PPI/SPI IRQs and IWB backed IRQs.
+
+The main GSI handle - to map an IRQ - has to detect whether to look-up
+using the top level GSI domain or an IWB domain in that the two IRQ
+namespaces are decoupled.
+
+IORT code implements the logic to retrieve an IWB domain by looking up its
+IWB frame id, as described in [1].
+
+Most important implementation detail worth noting is that - at this stage -
+ACPI code is not capable of handling devices probe order IRQ dependency on
+the interrupt controller driver their IRQ is routed to.
+
+This is not an issue on GICv3/4 systems in that the full GIC hierarchy
+probes earlier than any other device, so by the time IRQs mappings have to
+be carried out (ie acpi_register_gsi()) the GIC drivers have already
+probed.
+
+On GICv5 systems, the IWB is modelled as a device and its device driver
+probes at device_initcall time. That's when the IWB IRQ domain is actually
+registered - which poses problems for devices whose IRQs are IWB routed and
+require to resolve the IRQ mapping before the IWB driver has a chance to
+probe.
+
+Work on resolving devices<->IWB probe order dependency has started in
+parallel with this series and will be posted shortly.
+
+For PPI/SPI/LPI backed IRQs the probe dependency is not a problem because
+in GICv5 systems the IRSes and ITSes probe early so their IRQ domain are
+set in place before devices require IRQ mappings.
+
+[1] https://github.com/tianocore/edk2/issues/11148
+[2] https://developer.arm.com/documentation/den0049/eg
+[3] https://github.com/LeviYeoReum/edk2/tree/levi/gicv5_patch
+[4] https://github.com/LeviYeoReum/edk2-platforms/tree/levi/gicv5_patch
+[5] https://github.com/acpica/acpica/commits/master/
+[6] https://lore.kernel.org/linux-acpi/12822121.O9o76ZdvQC@rafael.j.wysocki/
+
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+---
+Changes in v3:
+- Dropped ACPICA patches
+- Split IRS OF refactoring into a separate patch
+- Renamed new fwnode interface according to review
+- Applied minor review comments
+- Rebased on v6.19-rc5
+- Link to v2: https://lore.kernel.org/r/20251218-gicv5-host-acpi-v2-0-eec76cd1d40b@kernel.org
+
+Changes in v2:
+- Cherry-picked ACPICA upstream changes
+- Minor editorial changes
+- Removed the "not for merging" tag because now ACPI specs are approved
+- Rebased against v6.19-rc1
+- Link to v1: https://lore.kernel.org/r/20251028-gicv5-host-acpi-v1-0-01a862feb5ca@kernel.org
+
+---
+Lorenzo Pieralisi (6):
+      irqdomain: Add parent field to struct irqchip_fwid
+      PCI/MSI: Make the pci_msi_map_rid_ctlr_node() interface firmware agnostic
+      irqchip/gic-v5: Split IRS probing into OF and generic portions
+      irqchip/gic-v5: Add ACPI IRS probing
+      irqchip/gic-v5: Add ACPI ITS probing
+      irqchip/gic-v5: Add ACPI IWB probing
+
+ drivers/acpi/arm64/iort.c                | 193 +++++++++++++++++++-----
+ drivers/acpi/bus.c                       |   3 +
+ drivers/irqchip/irq-gic-its-msi-parent.c |  43 +++---
+ drivers/irqchip/irq-gic-v5-irs.c         | 247 ++++++++++++++++++++++++-------
+ drivers/irqchip/irq-gic-v5-its.c         | 132 ++++++++++++++++-
+ drivers/irqchip/irq-gic-v5-iwb.c         |  42 ++++--
+ drivers/irqchip/irq-gic-v5.c             | 138 ++++++++++++++---
+ drivers/pci/msi/irqdomain.c              |  23 ++-
+ include/linux/acpi.h                     |   1 +
+ include/linux/acpi_iort.h                |  11 +-
+ include/linux/irqchip/arm-gic-v5.h       |   8 +
+ include/linux/irqdomain.h                |  30 +++-
+ include/linux/msi.h                      |   3 +-
+ kernel/irq/irqdomain.c                   |  14 +-
+ 14 files changed, 734 insertions(+), 154 deletions(-)
+---
+base-commit: d0e305301e82474223bf26185e86e7dc2eb85350
+change-id: 20251022-gicv5-host-acpi-d59d6c1d3d07
+prerequisite-message-id: <12822121.O9o76ZdvQC@rafael.j.wysocki>
+prerequisite-patch-id: 9f722bfc7e4861af40637017a83826401b3958e4
+prerequisite-patch-id: f619b4724a25a5c2b95032ef4c6d0b53dde45142
+prerequisite-patch-id: 3738d015d93d77b3d381ba8de056be533df48794
+prerequisite-patch-id: 50b1ee01b2ee63f6db21276ec24dadd645f8931e
+prerequisite-patch-id: 6671f1c96dc89d5e375196e545c9750c2378f010
+prerequisite-patch-id: b5d91dce8f61ab75796ba6a766d499d7321c0231
+prerequisite-patch-id: 1f433eeb8848ce51c2b2fe601813939a042c6c0e
+prerequisite-patch-id: 4f9aab64e4f4a75c18ae692bd903266069100d34
+prerequisite-patch-id: 793a7b3fab40b903ffa0855e0db5336acb69505b
+prerequisite-patch-id: 3eeebe1df8abadc1606cc6dadd15031ad46ff64f
+prerequisite-patch-id: 3477bb220e91c9cdb4d778ce15e44babbefddf23
+prerequisite-patch-id: 153be22f930d0c05bc04b37006bdb1e286883a92
+prerequisite-patch-id: 1a7dcfd7e1317aeec52c772f3150c115e965af52
+prerequisite-patch-id: 43a604c0109163e51a892d888c728794bca8a0a3
+prerequisite-patch-id: 580debc0f26b7c301160504e2360de6765e7a179
+prerequisite-patch-id: 15f2c86c557c835e4aed0cb914c23e04da1392ed
+prerequisite-patch-id: 00986721db8da2e52c733971b482b9cf0c32910e
+prerequisite-patch-id: 9d0607df90015bac8768549cbb0a19580f0b2661
+prerequisite-patch-id: f478f56f3ded4d0ce43254418deb5e10f49555ef
+prerequisite-patch-id: 6f9563683e92392564935f24cc5e8be23301790c
+prerequisite-patch-id: 4d701f77a597391e0d04c5da3d6f1cb24d1e40d0
+prerequisite-patch-id: d70577c2355648acbc7c857c5512df21280e917f
+prerequisite-patch-id: 8c6408293baa1a758b0b0b4f078eaf7dbe1404e0
+prerequisite-patch-id: 84008a72aa67b54af8a294a0fc07d2b6eaede597
+prerequisite-patch-id: 97acab35d513bc6b091efa4185a9826262d5ed79
+prerequisite-patch-id: 04652a3bfdf9f4fa2ba829631c899ea3569f11a2
+
+Best regards,
+-- 
+Lorenzo Pieralisi <lpieralisi@kernel.org>
+
 
