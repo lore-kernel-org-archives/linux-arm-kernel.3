@@ -4,48 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E23D3CCB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 06:26:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1FFD3CCB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 06:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rd4uquxchhYlI1uf+9FDWEl0NlqA5AmaEDZzEOPLiMs=; b=PsmC6BjxgQk2unubsLTqrr3nhq
-	V4aPpiwkKfDfBt2nVjfMqJxgjQaA80AwQMBf50NfDTp8IByp76+aypVmTD99lyFR/5F47A6i+3loq
-	yn4VyMRx3W2VWWbZwl2i8SUv2UV9R1d5dvftwu2aIxZmT7DQgtQNSHKySP9fJePt/dC6mV9VfE+FP
-	fNln89Z2Y5VBM6nuWe1opsii5gYrd/5vhlmiS4O6ThbmDiukzEo52KneMGWmQCyZcm2YKy2I4BV2W
-	zX8NoYH9j1IszYzsY7a5cGGqdzmOs3yjPb4Ok1mD7of+Wo7/SQ+PfjI4nWSZVQYj1t36+QWuhpBCJ
-	bQjF2uGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xK1im2sAlmRNN7BXrq1rFYNPvIT8yHRpRMOS6x3iiAw=; b=dxDehSFwdL98zO
+	yXUVRhUpUNSlZsJIfSEjQns0UEmMs/Id1L5rlT/oAJlgdIE7UdJgea2htb9qlDoTzoG/e8LRLP4wv
+	JyhgGDfxcrCf9G5SaVIf0BopXFZOAt2+2v2M1/U057YB8yJJi3QX13RfPgOQ+WXkGZMaKvjn7YAA8
+	1HZ3GTIuHXmSlEbs08+2yDk3sYt7wH6BWiEYC1UltzpIbfW1J+VTPQN6prtSvQGyWvmWHAPw/VsmF
+	GBKC0EETwiL0ny+uaIobMIR5P+IP7WJZbVDdP6RRiegHbBzBPsJFkgAEl1/e6rIOKtGTrnsJwCFh8
+	OjVzBuzAOoT3ig+psuzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgGoF-0000000Bqpb-0ID7;
-	Thu, 15 Jan 2026 06:26:19 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgGoC-0000000BqpL-44N7;
-	Thu, 15 Jan 2026 06:26:17 +0000
-Message-ID: <e08ada29-556e-4251-b4bb-c122ca3ec3e0@infradead.org>
-Date: Wed, 14 Jan 2026 22:26:16 -0800
+	id 1vgGpq-0000000Bqy7-2Guc;
+	Thu, 15 Jan 2026 06:27:58 +0000
+Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vgGpn-0000000BqxM-2qVC
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Jan 2026 06:27:57 +0000
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfout.stl.internal (Postfix) with ESMTP id 68DCB1D000A1;
+	Thu, 15 Jan 2026 01:27:51 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-06.internal (MEProxy); Thu, 15 Jan 2026 01:27:51 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=traverse.com.au;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:message-id:mime-version
+	:reply-to:subject:subject:to:to; s=fm1; t=1768458471; x=
+	1768544871; bh=xK1im2sAlmRNN7BXrq1rFYNPvIT8yHRpRMOS6x3iiAw=; b=d
+	QZMiUQB72rOpw4P0wuCfbiTUISnC7zjLiGpu0rg7SFn1+nQtkUK019KTlX9afIOv
+	7vhiFez/H7BFhUxwBJyqaGkBkQeXhcc4XZvmOqW3Ej7KZyhposQOcSbfgJtcH9Pp
+	WBEtEAepKMv2d3b1jhbCk5LJzO78lNiKfV35UnF71ndjIr+ezfrhFG6oyXZadc53
+	KrqSoSwlr3ds6yl2nIO9cYms8txIbtkemWwK0R2RF02AayVQAIl23UshaW3ofhoQ
+	AIvj726ifA0F7HX9/kSPseHP7RPKAOf9B1oMR+vKmY5hJqpYhblvEkq4k7SMwxa7
+	6kChsB+wvnYR6N5pLqvXQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1768458471; x=1768544871; bh=xK1im2sAlmRNN7BXrq1rFYNPvIT8
+	yHRpRMOS6x3iiAw=; b=WsM5v/ue1Xa09XrenWe2gklMuCDQgplG6byA6A6Tjtbl
+	vfX0N3ggVAq/2v550B7TajVf+0SJRkm3Zp1qUTUMsI9tzH9ATiy5GwY2mPamDpBx
+	hG+6jLfdIPA1LT5+uFir7vrqC+qbm+RLWp9ryXdZSSvcGlU/OHoSUlCAHlyRMk5w
+	yeNR5dcQ1oY6ElbB8J5M50o7WcM0bpLds4Q+UUQa45457dEDxXekrUlgh4kbDSmC
+	2D+QEz5s1Hyjym04vZrPrwnmdeD/Y+pX0hufiGEYn+pbP8vyPnhsEJDXIn3FCfLJ
+	DflLEtvrFCV0uDc7EwYEUWOJWv++4bHpPWqKWYg8HA==
+X-ME-Sender: <xms:5ohoaUwfEa4OJHXTZw3d7DLs18hOFQdOjdvQQb5EP_QmSGLJwkjvdQ>
+    <xme:5ohoaa17LHSoEPc1Z15k1TXDWKllX22QV-gKIWnzlg5eQ2yeFipsh_zzcfrbdeDXs
+    AdhC62-UXp6sMAr8sBGaHWRVnncnK0-UwHD3SwJzrpWHrSlEj-PdHU>
+X-ME-Received: <xmr:5ohoaZ_rp_72k1X71NehmIIUzzyO7suYsUJU6jnCkETea_rxRXyCUPkWG7yaPOikCPUh3vCP_xaIOFLbdMu2_AG1CFib7Hh8z7APviqEaPoBEIFWrGhQqb0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduvdehfeegucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhephffufffkgggtgffvvefosehtjeertdertdejnecuhfhrohhmpeforghthhgvficu
+    ofgtuehrihguvgcuoehmrghtthesthhrrghvvghrshgvrdgtohhmrdgruheqnecuggftrf
+    grthhtvghrnhepvdekueefuedvueevfffhueeufedtveeludeguefgtedvheffieefleef
+    udeuleetnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
+    epmhgrthhtsehtrhgrvhgvrhhsvgdrtghomhdrrghupdhnsggprhgtphhtthhopeekpdhm
+    ohguvgepshhmthhpohhuthdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdroh
+    hrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthht
+    ohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopeguvghvihgtvg
+    htrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgr
+    rhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtth
+    hopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphht
+    thhopehmrghtthesthhrrghvvghrshgvrdgtohhmrdgruhdprhgtphhtthhopehrohgshh
+    eskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:5ohoaSriUHHcmCZSFhrvMTKIkmwyfdvo2u-R_PKZKoGyRbEQSifmjw>
+    <xmx:54hoabQ32lYHr5Wtp-BDc3SQDphzySuLDRj3x7Z0luCGB4vXOak0VA>
+    <xmx:54hoadMlh4z4NogII4Ybw0tctdJN5CZ3E69KD5mRHl41xCz9VnNu6g>
+    <xmx:54hoaRipEeP_GYXRVEXeQeBWWbfeMCt_eeCoD_p1VV9z2SDTzLzjsA>
+    <xmx:54hoaWmTi1kQD-fBGTK-XTgbHN15Xc0tmU-CjtURPyxi72eNiR7XtoqP>
+Feedback-ID: i426947f3:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 15 Jan 2026 01:27:48 -0500 (EST)
+From: Mathew McBride <matt@traverse.com.au>
+Subject: [PATCH 0/3] arm64: dts: ten64: updates for hwmon/thermal, mmc and
+ gpio
+Date: Thu, 15 Jan 2026 17:26:42 +1100
+Message-Id: <20260115-ten64-dts-updates-2025-12-v1-0-a56380bbb2ac@traverse.com.au>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm64: errata: Workaround for SI L1 downstream
- coherency issue
-To: Lucas Wei <lucaswei@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, sjadavani@google.com,
- stable@vger.kernel.org, kernel-team@android.com,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, robin.murphy@arm.com, maz@kernel.org
-References: <20260114145243.3458315-1-lucaswei@google.com>
- <d10116ae-fc21-42e3-8ee0-a68d3bb72425@infradead.org>
- <CAPTxkvRXmVB9MbPX2vkyhAnLDyJX7YviekOH=y3EcS_1e796Zg@mail.gmail.com>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <CAPTxkvRXmVB9MbPX2vkyhAnLDyJX7YviekOH=y3EcS_1e796Zg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKKIaGkC/x2MwQ6CMBAFf4Xs2U26i3LwVwyHQp+6l0q6xZAQ/
+ p3qcTKZ2clRDE73bqeCr7l9cgO5dDS/Y36BLTUmDXoTDT1X5OHKqTqvS4oVzj/FojzFPgxQmQO
+ EWr8UPG37vx/jcZxjHW99awAAAA==
+X-Change-ID: 20251203-ten64-dts-updates-2025-12-ba306e21c0e1
+To: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Mathew McBride <matt@traverse.com.au>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768458468; l=1169;
+ i=matt@traverse.com.au; s=20260115; h=from:subject:message-id;
+ bh=S087UL4u+aARVy3r+45/NCQpjQ0CxAgkIwQszbbl3uU=;
+ b=1oLD8Vpod1gC+ZjMx1rM8aBe/T9YODB/JdWUPwwt1iQaoLuH97KvOjPln8TrS4Nn8bHeU4VNJ
+ MLE9fgW/roLD75W3jLTQno6yO5bCUCYhaOlXMnOEy2tkl8U6mYwocOV
+X-Developer-Key: i=matt@traverse.com.au; a=ed25519;
+ pk=SM+aGm9Y2fPJ2prfH/b5lab73fTBrKL5UsJwdzv7Pbg=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260114_222756_162589_13373B07 
+X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,33 +126,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series implements some changes to the Ten64 DTS:
+1. Add a thermal setpoints for the fan connected to the
+emc2301 fan controller.
+The values described here are intended for users of the Ten64
+desktop enclosure and are rather conservative, it is expected
+some facility to override them (e.g via device tree overlays)
+will be provided in the firmware.
 
+2. Reduce the maximum SD/MMC bus speed to improve stability
+with some microSD cards
 
-On 1/14/26 6:11 PM, Lucas Wei wrote:
-> Hi Randy,
-> 
+3. Add gpio-line-names for all GPIOs that have defined purposes
+(both for system purposes and those routed to the expansion header)
 
->>> +/*
->>> + * We have some earlier use cases to call cache maintenance operation functions, for example,
->>> + * dcache_inval_poc() and dcache_clean_poc() in head.S, before making decision to turn on this
->>> + * workaround. Since the scope of this workaround is limited to non-coherent DMA agents, its
->>> + * safe to have the workaround off by default.
->>
->> But it's not off by default...
-> 
-> I think it's off by default.
-> Would you point me to where the workaround was enabled without cmdline?
+Signed-off-by: Mathew McBride <matt@traverse.com.au>
+---
+Mathew McBride (3):
+      arm64: dts: ten64: add emc2301 fan controller and thermal set points
+      arm64: dts: ten64: reduce maximum SD card speed
+      arm64: dts: ten64: provide gpio-line-names for all system gpios
 
-I'm probably confused by the Kconfig option defaulting to 'y' but the run-time option
-itself is still off by default.  Sorry for the noise.
+ .../arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts | 111 +++++++++++++++++++++
+ 1 file changed, 111 insertions(+)
+---
+base-commit: 944aacb68baf7624ab8d277d0ebf07f025ca137c
+change-id: 20251203-ten64-dts-updates-2025-12-ba306e21c0e1
 
-+config ARM64_ERRATUM_4311569
-+	bool "SI L1: 4311569: workaround for premature CMO completion erratum"
-+	default y
-+	help
-+	  This option adds the workaround for ARM SI L1 erratum 4311569.
-
+Best regards,
 -- 
-~Randy
+Mathew McBride <matt@traverse.com.au>
 
 
