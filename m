@@ -4,90 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E42D29FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 08:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE4A0D3CC9F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 08:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eI5Aks8p/qGW9HFMkJeBYiCSRBBx6IXlghuKINHgvU8=; b=nI6X3Wuk6Bkq+I9cYGNLrsYrZ8
-	4iqfBovo6OgfR4xl7VOAz15M1lUxefrk4MVBKhD68/IXB1JCQlL/TZb7A2ed3LjtnYa0TPdDBQ4l9
-	WVSlaMbpdrBtLYVJtPUyv/A6/jebE/Z9Q3ZEsRbuG0afvlnd/ED8KF6zpiczAiYi16zUnUeBk94L9
-	tru2T1411zb3uR9uIQI1Y9Q87EiSrvviD6gi7aG5J9WbkClnr/2Vgkn6TNvNoiYPX/L5kNbaM64n/
-	pC9n8s9pDIYsdSXDXbhmMgoii4mCt5Lf8GH30AjwIRjCcwQnU1Dvr7m+eOt9YZZXdGC19xobZwquI
-	Cua7wTnw==;
+	bh=5whZZY0NFTuaVPJTKC+j24tM3a2qyIAuO69Q21m6x8s=; b=v2LfO4dV3WmePjA81fCsPw3EDa
+	soczh0Xy+vH7mXmY6XNhst0WRsobApeTLlhkqThnEtwYr78tWeiD9tZdndggxyTyZopy1kKAPqSts
+	o6JaraLYAYNhzDhq5x5TRXPaUCztlvKqmnV+kwOfVJTk2s/AtdkY6367kXq4Yhfg8/zHJ3PWdhss9
+	ZJeivC/3yddLjoiq41UGveL/xiEMJazrw3TjMAJMC0HFn4FnTRbyFdcBLV9p7F0tJM4uaZLqpdGF4
+	+vUZD1APOtF29qtH//2WZeQGTo69sUJ+5KNk9Sf5eUEtBQf3WLXcifR5ySzp9XJEQtDaQ+4k4HaTs
+	LxmbimuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgIMQ-0000000By0Q-2kXE;
-	Thu, 15 Jan 2026 08:05:42 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1vgING-0000000By8k-3GVZ;
+	Thu, 15 Jan 2026 08:06:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgIMN-0000000Bxzk-3wX9
+	id 1vgIN9-0000000By7O-3HpG
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 15 Jan 2026 08:06:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=5whZZY0NFTuaVPJTKC+j24tM3a2qyIAuO69Q21m6x8s=; b=WKJNk65WlIVj9qIQfSlAacVwob
+	7EjUbPwR9R8xY0NXvoDe7Ry1DUaopTJ5vr3v+FDR8qAgEVBTMGaGklJQXupqoESo/QJxvdfQuUJ1z
+	JBwnbqNinWlhBDvrJoHzBDCB/WK1QdZ+aW68dI4SzOwtH0wmuToQ14Bk4EYdABbONnHeXYqnTlnC/
+	UYjCDlWVBBd56Iho4n/RQQUEA9vU89zAEdxcIgjb02wet6rI/It8xsRsMyWgINCDXXB1oJXI6fbbH
+	RaW9JA66lHNCWNa63+0sYcL+uoOZC+jLv7pis+JgrCmS8ONccVASsne0Plxbr7aBZTRsNLZfzvUoU
+	BFEtDNhQ==;
+Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vgIN4-00000006HAl-3yp5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 08:05:41 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-350fe1f8ea3so262804a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 00:05:39 -0800 (PST)
+	Thu, 15 Jan 2026 08:06:25 +0000
+Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-4801c1ad878so987605e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 00:06:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768464339; x=1769069139; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1768464380; x=1769069180; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=eI5Aks8p/qGW9HFMkJeBYiCSRBBx6IXlghuKINHgvU8=;
-        b=QWaL28tr57H9hATBxXL1idG3iOjt+q39zvrTmLdQkOCDP5yvW5a6GBhNMe7/szjMG9
-         WpVkJAT1D0nmIls89YJGwekNaWBXSA9O9FKUkSet6sLzh4U87q1mbCNHf23IshYzflX/
-         uM7iMQJsb7waqVD1Klr+nRy98QmwYCUc4QovcIpgcItImWlyJxNAuxvye+LXqHZoxJ1H
-         5VZk9xeXmoV3Ud5SSgR0e3EoOZ2NKfvZh7gplxS5TIR0NhF/uaxLct6zMK9wzknzYE2A
-         4styQjXaUiZAX4ETq75wVPHi7o7KEWKFiV+Wt1XN72AZ30lnVydTJ4p4RYtbjtCZLNU5
-         uTIQ==
+        bh=5whZZY0NFTuaVPJTKC+j24tM3a2qyIAuO69Q21m6x8s=;
+        b=oC//F3DW5A6xSr1NmNlMgcEig94QueIriAwkOqR4n0k+Z0/HOILTjOuFOLWFT2kPIF
+         aGF+S7+F8ydKKVCrnHvEu+u4hqFh1E2/qTm5ndLUn33jKVwT6nrqsTEe65QWmJ4UC6yt
+         xqAGM86bCtwgTtEpmqihA5CbbYSUKeXOS8HXDLznvYW32EKg+5X9pq5Z/YHeJvX9NukB
+         s61dZxJuQwzb3bf/3594O52ifFKkTMG4GneOe34rdgiJAlfHRW7bLJtJ79aOxsnyx4aT
+         TjwJeRCx4uPTP2Z31nbPoCj/pFiczLyyTF4SbSk/91Q4U0k3KUa3VuWe6na1ZxzxTF9x
+         xXpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768464339; x=1769069139;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20230601; t=1768464380; x=1769069180;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=eI5Aks8p/qGW9HFMkJeBYiCSRBBx6IXlghuKINHgvU8=;
-        b=gRW1VgrthZUUax/yrk4GafQBsmQexwSzMDmw13a0a1uIfJ3kou5fJ8UFlCgrn5/2Q0
-         Ry8cTitf7OYGFnmaXKy8QmF9/IPnZQueZ6WAbjGgzpyl/UknqJI4+lxwLdu/gM3DdSNY
-         p+3Mm5EVMDN/DJ2WpHUA7XijnKg1OSHqq8rxsaELGAB6eN6VtVVkQGnw2xT2dEvXfk2A
-         Zg9r9pPrNsOedxmWfkSaK2tE/f2n8o28pcqYzUq4mRqOFOmu5Cljrz+Lhs88/sbzZxis
-         A9uidwwGCT71+6YMVOptO74RNEz+d4QCmP9S/ZtJoIMOTK1rEl6gOcSaOp+ACDQRWnF+
-         j7BA==
-X-Forwarded-Encrypted: i=1; AJvYcCWlCLGdGOXEEcm7mYPJV1qrI6cnpyjQYvomE7N77c9XjpAZhXrGclHuG41rUYOchM1WaDNFAlSW0djebeV7Sy7h@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyx3hdI/dtuj4TwF+eRBawPuSqtNsjrXJys//Z10GVrtL9k7ubp
-	e4WQ7SUb6phRJ/EugKdGDT3MIfxuud0S99JnPRoj7npqInGSYzgmMB6oBLQuU+5qAJI3BFDgW2f
-	AhPRJxoqZ9DAttXejNE80P2VUlbYaAFc=
-X-Gm-Gg: AY/fxX622RVzFYf0t+bm3gQnNjcvAltQOcJvUAORbA7DtGveXpr6D1iWMK+LFnN+IAJ
-	cQZ2yl596As524ujXvzESfFjKyoEhNC7s/btQiClUReQ/aZNkfTFTybJJyIrUmVYQ8fvd3y++WG
-	8SWoh9SKn+4YuGz2Xp47gDso8M2ojm9W56Th1atpJ58TJvz6PAeZmWEpc2N6x5fMGbNCKpqA0Q+
-	r9+DhcchWc/OUNCWJD/P9TVSXYVfjEK1KnK5WflZiYnzNmpgjfucizbTzX7tCf4N4J/zDUJBpIC
-	VNL9jzAewJvURA8yX4kG3FFpkbwH
-X-Received: by 2002:a17:90b:1d4e:b0:34f:6312:f22c with SMTP id
- 98e67ed59e1d1-3510afcbd46mr4909265a91.0.1768464338603; Thu, 15 Jan 2026
- 00:05:38 -0800 (PST)
+        bh=5whZZY0NFTuaVPJTKC+j24tM3a2qyIAuO69Q21m6x8s=;
+        b=knoJ3+mVJxIlrf8SItvyAZOJyKGURxgG+fzL/4gFRJTqKTrMMKbe923xNuzjUgoMpu
+         W6U6Qa2+jOq9ahv+A21FuC3BYoBQW2fLBQcB2/oatpMniLIhvtZ4uaWZLCpM7/EKQlYu
+         YFhFMkFKqRlZzYw+CO+lzfQjR5TfV1Wjv+U7VUr4/TNetEfIaUaXY1eVFDylPKUcyLNv
+         F2E9+scFGQEpbxMRJlNI/jw8qKIDQ0NUPZQ8GuB56vhKICaWnfzbHV52DR/AevlbZdB/
+         oX3XJYgjvRAwe4qzBGCrs3TfZpKD94e+s9yuBbOPCmXV6z2Bk1dZsgX/kfZq9VFBZLK8
+         yEcA==
+X-Forwarded-Encrypted: i=1; AJvYcCUEYfEOd+z3kFms3/eLsThd7r2fQ9D+t4VcJzlLCYwZiY+coPywBPrZnzdGkc36mBtv3VeRgWCQvFWa7Nd9GkCW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4e28SKKHWNsBrlTC7fQOovfUijAXDshI6puZDO+HAaa9Dz3pB
+	yQnlXbXBL3S0bBJDVthq9xFMHmSJu6KK/aWQnxnewf2itlI15wFGluV3rQl7S9lY+Xg=
+X-Gm-Gg: AY/fxX7o7N+5nOnEAtTVvcJa71I5Anf/KeCOtxJZeP1CswFKVdo8RO9MPDrNF4S4vMo
+	fWVy/GBLo+fuspnz0vRVwvBegiFhSnQVpdwpjCk0PD6z8zdoTjDFrYsP9Q6x9bxUqgacS90+uIj
+	NljILpbItdRAeAkuMM7OwDTUX+m6/DuNsngx2i0AcI7P0kUIRvLXbvf1kJnHXrnsEOamSl1lQjS
+	r9CPDfEV4HwmzTymubWHyAPtSDUSffyegVKb+WAD+dUgWvlpfg9lvcdVIdZxs5Ma7dP9Je69kWS
+	f/WO3XEbhmIwC6tJ4b1kq4VdKS8nxfrFlB8t0KMzpZU3KmVy5FpWZ5ibNFExbBfraw8G77Pr60n
+	48yX0Nz2YxSl4xN3cuVXnY0EX+dh6O7K9FbrulQTPFrHZkbpM3nROoVe3MphjDKzCG6mTvpy7t2
+	YN+t2BnjCbn7Ez2FyQpxghDrJK1lcc51eQLmw+TzMS6Q==
+X-Received: by 2002:a05:600c:314f:b0:477:7991:5d1e with SMTP id 5b1f17b1804b1-47ee335fb15mr57018655e9.25.1768464380292;
+        Thu, 15 Jan 2026 00:06:20 -0800 (PST)
+Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:52eb:f6ff:feb3:451a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47f4289b789sm32875245e9.1.2026.01.15.00.06.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Jan 2026 00:06:19 -0800 (PST)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Ricardo Pardini <ricardo@pardini.net>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260114-arm64-dts-amlogic-radxa-zero2-additions-v1-0-8b5cdf328fde@pardini.net>
+References: <20260114-arm64-dts-amlogic-radxa-zero2-additions-v1-0-8b5cdf328fde@pardini.net>
+Subject: Re: [PATCH 0/2] NPU and i2c3 + FUSB302 addition for Radxa Zero 2
+Message-Id: <176846437964.1204537.11505642254935473121.b4-ty@linaro.org>
+Date: Thu, 15 Jan 2026 09:06:19 +0100
 MIME-Version: 1.0
-References: <20260115001405.3513440-1-robin.kuo@mediatek.com>
-In-Reply-To: <20260115001405.3513440-1-robin.kuo@mediatek.com>
-From: Kairui Song <ryncsn@gmail.com>
-Date: Thu, 15 Jan 2026 16:04:58 +0800
-X-Gm-Features: AZwV_QgPLO0RVfJdVJxqFZ4Y4W_kG-gmBtwevH7JFUpri4EIC-T2EJV0cJ8my68
-Message-ID: <CAMgjq7CrKv7QJNFO_vg1_nXA+RSW83mu8X4cMSVd2tfMA==Wew@mail.gmail.com>
-Subject: Re: [PATCH 1/1] Restore swap_space attr aviod krn panic
-To: robin.kuo@mediatek.com
-Cc: Andrew Morton <akpm@linux-foundation.org>, Chris Li <chrisl@kernel.org>, 
-	Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, 
-	Baoquan He <bhe@redhat.com>, Barry Song <baohua@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, wsd_upstream@mediatek.com, 
-	casper.li@mediatek.com, chinwen.chang@mediatek.com, Andrew.Yang@mediatek.com, 
-	Qun-wei.Lin@mediatek.com, oliver.sang@intel.com, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_000540_018719_A33EF87A 
-X-CRM114-Status: GOOD (  26.14  )
+X-CRM114-CacheID: sfid-20260115_080623_358966_F8A9C606 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,163 +118,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 15, 2026 at 8:14=E2=80=AFAM <robin.kuo@mediatek.com> wrote:
->
-> From: "robin.kuo" <robin.kuo@mediatek.com>
->
-> Restore swap_space attr avoid krn panic
->
-> Commit 8b47299a411a ('mm, swap: mark swap address space ro and add
-> context debug check') made the swap address space read-only.
-> It may lead to kernel panic if arch_prepare_to_swap returns a failure
-> under heavy memory pressure as follows,
->
-> el1_abort+0x40/0x64
-> el1h_64_sync_handler+0x48/0xcc
-> el1h_64_sync+0x84/0x88
-> errseq_set+0x4c/0xb8 (P)
-> __filemap_set_wb_err+0x20/0xd0
-> shrink_folio_list+0xc20/0x11cc
-> evict_folios+0x1520/0x1be4
-> try_to_shrink_lruvec+0x27c/0x3dc
-> shrink_one+0x9c/0x228
-> shrink_node+0xb3c/0xeac
-> do_try_to_free_pages+0x170/0x4f0
-> try_to_free_pages+0x334/0x534
-> __alloc_pages_direct_reclaim+0x90/0x158
-> __alloc_pages_slowpath+0x334/0x588
-> __alloc_frozen_pages_noprof+0x224/0x2fc
-> __folio_alloc_noprof+0x14/0x64
-> vma_alloc_zeroed_movable_folio+0x34/0x44
-> do_pte_missing+0xad4/0x1040
-> handle_mm_fault+0x4a4/0x790
-> do_page_fault+0x288/0x5f8
-> do_translation_fault+0x38/0x54
-> do_mem_abort+0x54/0xa8
->
-> Restore swap address space as not ro to avoid the panic.
+Hi,
 
-Hi Robin
+On Wed, 14 Jan 2026 23:48:35 +0100, Ricardo Pardini wrote:
+> This series adds a few things missing from the Radxa Zero 2:
+> 
+> 1) NPU (etnaviv), just enable the node, similar to what was done for VIM3
+> 2) i2c3 (also exposed on the 40-pin header) and the FUSB302 at 0x22
+> 
+> 
 
-Thanks very much for the patch! I'm fine with it with some suggestions:
+Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.20/arm64-dt)
 
-Marking it as RO was intentional to avoid silent unexpected usages of
-the swap space, the swap space is hollow now, as all content is now in
-the swap table.
+[1/2] arm64: dts: amlogic: Enable the npu node on Radxa Zero 2
+      https://git.kernel.org/amlogic/c/29deec49146162d06b17739c627d062191e03814
+[2/2] arm64: dts: amlogic: add the type-c controller on Radxa Zero 2
+      https://git.kernel.org/amlogic/c/8f5aa8d444d1d200715c36a8f072054a49bfb410
 
-For example the one you posted, calling filemap_set_wb_err for the
-swap space is meaningless, the error info will be ignored without any
-notice.
-In the comment for mapping_set_error (wrapper for filemap_set_wb_err):
- * When a writeback error occurs, most filesystems will want to call
- * mapping_set_error to record the error in the mapping so that it can be
- * reported when the application calls fsync(2).
+These changes has been applied on the intermediate git tree [1].
 
-So far there is no fsync for swap or other ways to report mapping
-errors to userspace. For example, __end_swap_bio_write will just print
-an error log if writetback failed. I went through the code, currently
-only arch_prepare_to_swap will cause a call to filemap_set_wb_err.
-Swap is not a persistent storage like normal FS, so simply bouncing
-the writeback folio back as active is good enough for almost all
-cases, like the one in end_swap_bio_write.
+The v6.20/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
+for inclusion in their intermediate git branches in order to be sent to Linus during
+the next merge window, or sooner if it's a set of fixes.
 
-Catching potential issues with RO/panic is overkill indeed. So I'm
-fine with dropping the RO by default. But perhaps we can keep the RO
-attribute at least for VM_DEBUG build? Like this:
+In the cases of fixes, those will be merged in the current release candidate
+kernel and as soon they appear on the Linux master branch they will be
+backported to the previous Stable and Long-Stable kernels [2].
 
-diff --git a/mm/swap.h b/mm/swap.h
-index eba4c04ad039..307cc71d3635 100644
---- a/mm/swap.h
-+++ b/mm/swap.h
-@@ -220,7 +220,12 @@ int swap_writeout(struct folio *folio, struct
-swap_iocb **swap_plug);
- void __swap_writepage(struct folio *folio, struct swap_iocb **swap_plug);
+The intermediate git branches are merged daily in the linux-next tree [3],
+people are encouraged testing these pre-release kernels and report issues on the
+relevant mailing-lists.
 
- /* linux/mm/swap_state.c */
--extern struct address_space swap_space __ro_after_init;
-+#ifdef CONFIG_DEBUG_VM
-+#define __swap_space_attr __ro_after_init
-+#else
-+#define __swap_space_attr __read_mostly
-+#endif
-+extern struct address_space swap_space __swap_space_attr;
- static inline struct address_space *swap_address_space(swp_entry_t entry)
- {
-        return &swap_space;
-diff --git a/mm/swap_state.c b/mm/swap_state.c
-index 3916d144eddc..11273e0ec811 100644
---- a/mm/swap_state.c
-+++ b/mm/swap_state.c
-@@ -38,7 +38,7 @@ static const struct address_space_operations swap_aops =
-=3D {
- };
+If problems are discovered on those changes, please submit a signed-off-by revert
+patch followed by a corrective changeset.
 
- /* Set swap_space as read only as swap cache is handled by swap table */
--struct address_space swap_space __ro_after_init =3D {
-+struct address_space swap_space __swap_space_attr =3D {
-        .a_ops =3D &swap_aops,
- };
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
 
----
+-- 
+Neil
 
-And as for this particular error marking issue you posted, maybe we
-should just drop the handle_write_error I think. That helper was
-useful when the filesystems are still using the .writepage interface,
-but now all filesystem have switched to .writepages and only swap may
-call that helper, which is no longer helpful, as the error info is
-completely ignored with no report back to userspace. Maybe we need
-something like this:
-
-diff --git a/mm/vmscan.c b/mm/vmscan.c
-index 39f0336d9c29..62fe433aac0b 100644
---- a/mm/vmscan.c
-+++ b/mm/vmscan.c
-@@ -477,27 +477,6 @@ static int reclaimer_offset(struct scan_control *sc)
-        return PGSTEAL_DIRECT - PGSTEAL_KSWAPD;
- }
-
--/*
-- * We detected a synchronous write error writing a folio out.  Probably
-- * -ENOSPC.  We need to propagate that into the address_space for a subseq=
-uent
-- * fsync(), msync() or close().
-- *
-- * The tricky part is that after writepage we cannot touch the mapping: no=
-thing
-- * prevents it from being freed up.  But we have a ref on the folio and on=
-ce
-- * that folio is locked, the mapping is pinned.
-- *
-- * We're allowed to run sleeping folio_lock() here because we know
-the caller has
-- * __GFP_FS.
-- */
--static void handle_write_error(struct address_space *mapping,
--                               struct folio *folio, int error)
--{
--       folio_lock(folio);
--       if (folio_mapping(folio) =3D=3D mapping)
--               mapping_set_error(mapping, error);
--       folio_unlock(folio);
--}
--
- static bool skip_throttle_noprogress(pg_data_t *pgdat)
- {
-        int reclaimable =3D 0, write_pending =3D 0;
-@@ -650,9 +629,10 @@ static pageout_t writeout(struct folio *folio,
-struct address_space *mapping,
-        else
-                res =3D swap_writeout(folio, plug);
-
--       if (res < 0)
--               handle_write_error(mapping, folio, res);
--       if (res =3D=3D AOP_WRITEPAGE_ACTIVATE) {
-+       if (res < 0) {
-+               pr_alert_ratelimited("Swap failure of folio (order:
-%d, error: %d)\n",
-+                                    folio_order(folio), res);
-+       } else if (res =3D=3D AOP_WRITEPAGE_ACTIVATE) {
-                folio_clear_reclaim(folio);
-                return PAGE_ACTIVATE;
-        }
 
