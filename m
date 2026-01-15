@@ -4,87 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA74ED3CC87
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 14 Jan 2026 23:27:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF101D3CC88
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 00:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zO7/rwLXC5yGRDXneYIJQs+eB1xaWdUmRL6MCrxGUVo=; b=dhLI2kWJQV5HY4xsIHYG0+BJmp
-	dFqOx1n9U8EqvJVWvXqIu42W8roeuC4lAEhK0ACNE5SyLFagPgDFwd7aIC7556krzTyjATTCRlJlz
-	pCpKznBkeRXzxKd693dMg5QsEnE7RNKO5yQ+1yfAiWHSKjxKr60tNFhiqtDgu5u9CxsOpgfgvGzN1
-	wrdKfCK4r4BiWPvX0/kH3KUPzGZiWc4nnc14H4KrtM6zOSqenCaCGFWjHEu4LvM+46DIKLqE7UiKd
-	nD/V2oA1yD4kmMAhDWwdq1Dc1nbKsRpAqA5pyBb1TCXD9lxs9epjYw/4sofIw6ZQo7yRVVd8lYWsn
-	DQBDKqNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C2EzlVROqB2WDA6Pfe0fjYxuGy8i+tTBtHgwz97po6Q=; b=0PCCnSN34lP8Jq6a4Mx9dxQiIB
+	/qp59XUoGPAdRx8SdX5ocZtFrKyv5UMQs3ad7vHxeQcKh+v1fScqld62QIDF6SdcqwXwDj+jSD9aF
+	CYARd40lfIz/BxAnWEViupWHqTDDzXBrOFi6R/fkpHrCHyEURA4X5h0L9fTPG5AP1TwcWAfXXxp64
+	E75Kqn3WPyszCWKgmDJu3hB4gME9wkgQzqWOGqGeOwCUGJPYC1ss0KfALu4yKHlc1M1bzr8j13zys
+	asWTIfR9jYnD4gjEVvahsy5NBMDM40TUIp3SWy8snLnu6VQJWUQmMHRrLNvCyw0gRc32rBIgeryMZ
+	hWyhkV7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgAH0-0000000B5iH-3Upw;
-	Wed, 14 Jan 2026 23:27:34 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1vgB0M-0000000BBj2-0TYu;
+	Thu, 15 Jan 2026 00:14:26 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgAGy-0000000B5hn-1QNG
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 14 Jan 2026 23:27:33 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-59b8364e4ccso386559e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 15:27:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768433250; x=1769038050; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zO7/rwLXC5yGRDXneYIJQs+eB1xaWdUmRL6MCrxGUVo=;
-        b=l+7HqnX7xpWptSPjXlQGmxd0X8hWEgnboNZpN1JeqNrnP29eDPO3Qs7e/wgGaqZONt
-         CzEbKyG7vSMCnjXZvl6XAZs6I65+fIKEFwyrrflizeRyHO1AEPeBQM+zI+QfwkJ2yyZE
-         jTAx2l1QvXI6eMaR0CBa925PMLzS5qQ+HVIJLkTGNviuM4SWNp8YvATf+UXcf9WsYqkf
-         T0X0m52hruXX6Dl0sDdsH/SGvdF5YUf9T51b0lh3Lq4RjitTDqkHlx4HIf/cdkXAM702
-         /olQxG/mTIrmE0/66RV6IHJhx++u+tao1nkk0FJ3ngqujLQg+JFqVUJ6kpKRHpkQLsNd
-         5suA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768433250; x=1769038050;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=zO7/rwLXC5yGRDXneYIJQs+eB1xaWdUmRL6MCrxGUVo=;
-        b=a+n8yZYdtHaA5aa4JTyeEEDdLwf9os33MvUI7r0N8gxIOdl9gTohrOv4C4wDZAP0k9
-         vwtdgHq8b6cTCwjvv1IW74sAdr/ruFXRkKvRL0QvQ4ej1qn2ZIt9fgpOcc0Q4Bc/2Vkr
-         EKIsytOjvqxoqsaZpmrIrTq9qRo2MA64R3w+65dDhnQCWOBx2kmYwEWh6WVct1hBRMrM
-         VsJtvN3nUVZYesalY9U+BcJWQ9GiI1BpuI7drRcRErGXlMp1svHaudOGeT7+EBH8NqhM
-         s9+3UU16x2BEL2xAo/i5+NYY2/7lJled8E6k16jVnxN/SHnkDY3/TA1NTfuEg7twcthm
-         WdMw==
-X-Forwarded-Encrypted: i=1; AJvYcCUOLEbX6+6UBcxdunrbxH+GsnurzO9dZd0Xa6LhLx7apKXcg2nyWnPxsBH0maLUmLx0EVNG7PocmIjmfKkKnEB5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaFbwUiQS9DqADtE5U870ZfSssYhw7JRHBaK5HxQTpA7ffK9Om
-	5niftKjtTt7Z49MFMNbKqSDJmLqDzmR+GPm/SJqkFqFyp/SKXxqgvPciZwc5LAdF7wuaFhMcYu7
-	zDJ9xDG/7x2VGhKOf4RNPiQYTObWETqY=
-X-Gm-Gg: AY/fxX4PMdB9biPfMInYjO/vN2Ktflq6LfYhmPR0XFnEz04FLBAsXuS7Yt0yHtTMdp2
-	EFapFPQ1ePBECL5hcbOmbFph83BuvoV92VrjYXlsBXy+KfMd5FQIhzq20o6Uyr0pFMSrkFU/wT4
-	Lge9go9oFi5EXHeM73r7K3vK65jPRU++EOlQgDnMfjLvGWDbM2knpGgn1bLq8fcYS7fRQycvHqE
-	G40kR9S9Xu+ROXzQQs5bcUVYrrgmWA01pPjs3OKFr87kPq2wh8mDC+j3lo5AVpRzEoRdCk9ubsI
-	7TlL5Gco4+nSM0FRCgTIWoEcdYY=
-X-Received: by 2002:a05:6512:b90:b0:594:25a6:9996 with SMTP id
- 2adb3069b0e04-59ba0f5fd8bmr1478472e87.10.1768433249392; Wed, 14 Jan 2026
- 15:27:29 -0800 (PST)
+	id 1vgB0K-0000000BBi6-0Q4E;
+	Thu, 15 Jan 2026 00:14:25 +0000
+X-UUID: 225394baf1a711f08b17dd397dc63300-20260114
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=C2EzlVROqB2WDA6Pfe0fjYxuGy8i+tTBtHgwz97po6Q=;
+	b=Nn0FNCwHPIVkg7NjqU5uE28QJEb5jHxVFvvycJfwYSnCK/K/4ezcxzqGtArdt8KW2Uhfq4oaAHjKfvdPpy2fJKUW4634zRo6TL+2hatWduPRJr9+NY6W5USxU27r7Vosanwm5iukxBgjsM4kfG01udRtwSx74NwMYSE4k83NzR0=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.9,REQID:34ab7bb1-5998-4531-9740-8110a6c747b5,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:5047765,CLOUDID:f05285e8-ef90-4382-9c6f-55f2a0689a6b,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|123|836|888|898,TC:-5,Content:0|
+	15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:
+	0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 225394baf1a711f08b17dd397dc63300-20260114
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
+	(envelope-from <robin.kuo@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 856363866; Wed, 14 Jan 2026 17:14:18 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 15 Jan 2026 08:14:15 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Thu, 15 Jan 2026 08:14:15 +0800
+From: <robin.kuo@mediatek.com>
+To: <robin.kuo@mediatek.com>, Andrew Morton <akpm@linux-foundation.org>, Chris
+ Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi
+	<shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He
+	<bhe@redhat.com>, Barry Song <baohua@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <wsd_upstream@mediatek.com>, <casper.li@mediatek.com>,
+	<chinwen.chang@mediatek.com>, <Andrew.Yang@mediatek.com>,
+	<Qun-wei.Lin@mediatek.com>, <oliver.sang@intel.com>, <linux-mm@kvack.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Subject: [PATCH 1/1] Restore swap_space attr aviod krn panic
+Date: Thu, 15 Jan 2026 08:13:43 +0800
+Message-ID: <20260115001405.3513440-1-robin.kuo@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-References: <20260114-mxsdma-module-v1-0-9b2a9eaa4226@nxp.com> <20260114-mxsdma-module-v1-2-9b2a9eaa4226@nxp.com>
-In-Reply-To: <20260114-mxsdma-module-v1-2-9b2a9eaa4226@nxp.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Wed, 14 Jan 2026 20:27:18 -0300
-X-Gm-Features: AZwV_QhLF-nZE9rj0D3-1M6Zo3V1EfOAoeRCu5Cv2BQMtPfiN1SS9FZTgf1Ap2k
-Message-ID: <CAOMZO5AF5-=-2F2W_U9=VbkwtBp2_hzKkJziefLeufD97xNj=g@mail.gmail.com>
-Subject: Re: [PATCH 02/13] dmaengine: mxs-dma: Use local dev variable in probe()
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, Vinod Koul <vkoul@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, dmaengine@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Shawn Guo <shawn.guo@freescale.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_152732_388954_6439CD0B 
-X-CRM114-Status: UNSURE (   7.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260114_161424_152620_B2B6A75D 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,13 +90,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 14, 2026 at 7:33=E2=80=AFPM Frank Li <Frank.Li@nxp.com> wrote:
+From: "robin.kuo" <robin.kuo@mediatek.com>
 
->         ret =3D of_dma_controller_register(np, mxs_dma_xlate, mxs_dma);
->         if (ret) {
-> -               dev_err(mxs_dma->dma_device.dev,
-> +               dev_err(dev,
->                         "failed to register controller\n");
+Restore swap_space attr avoid krn panic
 
-Better put the dev_err() into a single line now.
+Commit 8b47299a411a ('mm, swap: mark swap address space ro and add
+context debug check') made the swap address space read-only.
+It may lead to kernel panic if arch_prepare_to_swap returns a failure 
+under heavy memory pressure as follows,
+
+el1_abort+0x40/0x64
+el1h_64_sync_handler+0x48/0xcc
+el1h_64_sync+0x84/0x88
+errseq_set+0x4c/0xb8 (P)
+__filemap_set_wb_err+0x20/0xd0
+shrink_folio_list+0xc20/0x11cc
+evict_folios+0x1520/0x1be4
+try_to_shrink_lruvec+0x27c/0x3dc
+shrink_one+0x9c/0x228
+shrink_node+0xb3c/0xeac
+do_try_to_free_pages+0x170/0x4f0
+try_to_free_pages+0x334/0x534
+__alloc_pages_direct_reclaim+0x90/0x158
+__alloc_pages_slowpath+0x334/0x588
+__alloc_frozen_pages_noprof+0x224/0x2fc
+__folio_alloc_noprof+0x14/0x64
+vma_alloc_zeroed_movable_folio+0x34/0x44
+do_pte_missing+0xad4/0x1040
+handle_mm_fault+0x4a4/0x790
+do_page_fault+0x288/0x5f8
+do_translation_fault+0x38/0x54
+do_mem_abort+0x54/0xa8
+
+Restore swap address space as not ro to avoid the panic.
+
+Signed-off-by: robin.kuo <robin.kuo@mediatek.com>
+---
+ mm/swap.h       | 2 +-
+ mm/swap_state.c | 3 +--
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/mm/swap.h b/mm/swap.h
+index d034c13d8dd2..1bd466da3039 100644
+--- a/mm/swap.h
++++ b/mm/swap.h
+@@ -198,7 +198,7 @@ int swap_writeout(struct folio *folio, struct swap_iocb **swap_plug);
+ void __swap_writepage(struct folio *folio, struct swap_iocb **swap_plug);
+ 
+ /* linux/mm/swap_state.c */
+-extern struct address_space swap_space __ro_after_init;
++extern struct address_space swap_space __read_mostly;
+ static inline struct address_space *swap_address_space(swp_entry_t entry)
+ {
+ 	return &swap_space;
+diff --git a/mm/swap_state.c b/mm/swap_state.c
+index 5f97c6ae70a2..44d228982521 100644
+--- a/mm/swap_state.c
++++ b/mm/swap_state.c
+@@ -37,8 +37,7 @@ static const struct address_space_operations swap_aops = {
+ #endif
+ };
+ 
+-/* Set swap_space as read only as swap cache is handled by swap table */
+-struct address_space swap_space __ro_after_init = {
++struct address_space swap_space __read_mostly = {
+ 	.a_ops = &swap_aops,
+ };
+ 
+-- 
+2.45.2
+
 
