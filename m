@@ -4,182 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABF9D44C77
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 16:08:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D9E0D44C73
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 16:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kzXVUfCikU/CH6YenUvZ8dbJ+qttDoX5n9MFRjohbnM=; b=PAvUAXt8hntCZ9z/yPX3yEixcY
-	2pWwEfrYCQ2ZnMG8Egqx7+gRSE96RxjJcBv6eX9Q3jlIjnwjgt9nn9rY5M8CLXp3403V22s4ITQtC
-	V4Aa3WK7C82BaOE6JiFFK+RkNTAdo0cf7NH9QM18Ys9GLDhcNfnvn9+27mNq5SoLe8gpuFX4zbhRr
-	pUDBJFKeXSDBcjO2X2+wvfCh9H5o9BQLGnLwObu/xHSlM/DqcB7L4Psq2UU8NH3efan8mH0qh+rDE
-	PQqDRVGDM/cJqiYSYVPscg1kXiL2pxYTJ42K6Mk6MV+7R4V0+Ciccd02nH9MHRLLnV0ZtzlayKFa/
-	OYF6jzgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gQXGgSx7jpUFKQjZ6iyGO811lP9xodhRioXDBaDurfQ=; b=qBwpBd74E6QYWmgGt3wlHosyeg
+	pf/VUJ6P0OsgRfPW7RRtBjjjPdCRGL9NYc8lGS7yLNeBJRz+Q/wr7ojW6Q+vGDt6nyZVG6jjODNI9
+	FKx32lmNadGqGsG6ADLjN3cz9XDpKMdBHjJX/GfnMLAmcDuWTWY2fY5/hNUe5FubJVwnM/hktqJu4
+	jLNMhZ+C2YRkcSmA69pnQ8/6Ty7CsNUZtKZugy23xd6OjqIo+KfGmheizZ41XjB+3AP99utpRemiS
+	/+73zl41U7MQKGFjaM/qjOp7uylo54/w76HMMzZNVISNEUbiq5eW3ru3K94SjQL8PmL+sPqaKC/5G
+	dsb8CWIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgPt8-0000000CeXB-3JAP;
-	Thu, 15 Jan 2026 16:07:58 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vgPvd-0000000CfEL-1jW2;
+	Thu, 15 Jan 2026 16:10:33 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgPt2-0000000CeOp-26p9
+	id 1vgPvZ-0000000CfDm-3MTv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 16:07:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Xu/S5n0QL0PkpYU7Jufy2bYKzch/ERpKT29MPDw4K7AKK+7PPYNAF2XiiBPlm76OCLTaeRMb2qNuUTT/rHBCAAyKghiTEIdLX/96JfVthF86PCDmxE6YpidyMm5YVko/XjlfSNzTUfu9YuNXnz9QEM0vZ42VHvKIz36ADkU/20LPMwdqbhqJ5UefvS/ixetg2VxVqZ+6maxL/+rIJPeULHQfW6cF8zJSB/tF8d6wQUZHAAA83HYSwoKU/2H8/ZsxmGN10oEbuehxI2YvYcCLB8DAhnuzIL4ALxkHn4w7B8mp6Lo/ddZN6RT27CyPDZTG8I0JSuGi8BCSlePU32bLAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kzXVUfCikU/CH6YenUvZ8dbJ+qttDoX5n9MFRjohbnM=;
- b=fab83swoASsj0h0KlYk9UeBTeTBoc9JgEYX7PkLEVwPSKo2yZrOPEJdJgBCctBWgk0575FzDVqgvhbRBh6xR1bdwGSF3FDNkbExJfdA3ZEST57K71bVFB2/8hODLNQE7h7CRU1fXCLz/WAD3aN7SQ5DCBzAvyVkstlpzN8e1tjEXJ6WNeGLGRWhhptsq3QjR/YNeWn70DvC9X7shUbJTRORc74H3UBmEEla+NbXToXvugwZo/iO9MBU+PVkGshhBxEAXTWcHgK6uvP4soD4i18RSEmCBDyv9MRJ5+YXuAtFFoInGi5Io96DSKEUNpRzMnmEDcQOuTQF1112XOVgK/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kzXVUfCikU/CH6YenUvZ8dbJ+qttDoX5n9MFRjohbnM=;
- b=WtOIsJyDwLwN+XNHABJ+VoIgL0cpAiqHFKZPbd5lBi75Hez8KsIA0w2rsEcP5yEHKab4gRfdjG3a0IdvitD724oUlbn/raQSKwlSOiX1NWlQzjz1AfEdjIbZQe6YjY5wnf4oW52RUJN3yIoz6oI1nT6iVFdUCqV2kL/+dceuDc4Z/0I/ET/STSmSlXOtcC8wz+9Al70mjgdcqbm0ZcSswAZfTQg5hDUum4et5t74oEN7hr5dWcjanhhAVURBlS7BmwkF+uuDweNa6g2fS2Kyc/bt5mSvnfPtcOiz06+gt1ZcjW/6PYvaqEbxolqZpy4h37GnhtjfXR7FjROhNsvEjg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8948.eurprd04.prod.outlook.com (2603:10a6:20b:42f::17)
- by DBBPR04MB7628.eurprd04.prod.outlook.com (2603:10a6:10:204::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.5; Thu, 15 Jan
- 2026 16:07:48 +0000
-Received: from AS8PR04MB8948.eurprd04.prod.outlook.com
- ([fe80::843f:752e:60d:3e5e]) by AS8PR04MB8948.eurprd04.prod.outlook.com
- ([fe80::843f:752e:60d:3e5e%4]) with mapi id 15.20.9499.002; Thu, 15 Jan 2026
- 16:07:48 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Thu, 15 Jan 2026 11:06:52 -0500
-Subject: [PATCH v2 13/13] dmaengine: fsl-qdma: Use dev_err_probe() to
- simplify code
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260115-mxsdma-module-v2-13-0e1638939d03@nxp.com>
-References: <20260115-mxsdma-module-v2-0-0e1638939d03@nxp.com>
-In-Reply-To: <20260115-mxsdma-module-v2-0-0e1638939d03@nxp.com>
-To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
- Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Shawn Guo <shawn.guo@freescale.com>, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768493221; l=2838;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=qa12qCvVjcto3KZzY4Y3LKmNK5yieXGtyEDDIcjU46c=;
- b=GTyQ1POY7w5He4cY/TqtgmQ1ll/pc7KDEnaf6hxXNgPyTBxVYEhrtw5ZUNSoAov7w7CBezqu/
- 2qOGteGcc9WDbkLUmC0UDMTyysPKPi+1hsJSuVxZ+/3CRz0CvSTsZ7M
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: PH7PR03CA0018.namprd03.prod.outlook.com
- (2603:10b6:510:339::15) To AS8PR04MB8948.eurprd04.prod.outlook.com
- (2603:10a6:20b:42f::17)
+	Thu, 15 Jan 2026 16:10:31 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-47d6a1f08bbso4115095e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 08:10:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768493428; x=1769098228; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=gQXGgSx7jpUFKQjZ6iyGO811lP9xodhRioXDBaDurfQ=;
+        b=SGrrBJPRGjI7Ta9wP92xqVa+apbsdpLe8HC0Y29tuvMlt+qIhjShSdhwd4LEPu0grG
+         mAmaTFvshuudmFHBgQ6+90dutxjcY8+8xCOm34Sel11TU3YXhJgt2tOALjPe+eHImJjs
+         Uh/tBChEOhbX08bRr+21CclGTpCZa1fyF/k6dF8btG8JSappP+rz2EhG8DfPFzuMUZOX
+         WjC/gKVrQ5TDFZL81EXbF/EgT+0TieChdeg6X2WDaM5d0YECyDhAPg8M4hSV1/+NVXCX
+         SSagNCkGKsRhall1h9tjGJ0/7yODRCrQClTWDOKdpgduVHr7iWMjbQk4Al+Coepa5bN/
+         m0fQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768493428; x=1769098228;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gQXGgSx7jpUFKQjZ6iyGO811lP9xodhRioXDBaDurfQ=;
+        b=YFf8s2osjdBgx+Iv/r0WmZ7h9CvcdNkJgwzeYe3TNehjG8OUWGB6RbYNzbTLadX6FD
+         etsWTLk4AcrUybpmbpkuVDnOdeOnUDsJSDth6TafYH4b4KVWY0zDtA6ZjSrmZpmfpsSx
+         n4iXD+73wQGUParIjLSON4BgaWxqsEe07aMVOizM6hBfm5LRtvHxY6QYq9aak9A9lL65
+         rP/y4jPrljP/b28eKCAKW3PVg2CUrP56YRBltVFp4t9kb3tpFJoCdYA6VAvU6P6c7YTT
+         mG0uuH3/XNcCmY3C2mttXgx8quyDzrBi6v7OEha27w13+irW1DQO/f1xWv97aOfD/xH4
+         B4NA==
+X-Forwarded-Encrypted: i=1; AJvYcCXH9WYZMHq8U/146JBNcq7rjGj5NoTgRmfmqBki77nPBx63O7jsXwTSk/gtiCMMXoObq/s0HI8XZzCjCZQFHjih@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXP8bOmhWiidhWYn2P3ONwRnxwdd/HGsQRE/66ERlsJ6CdfuXb
+	nsLJctrandkm8tyu/og7ZzlxHJQcwwyTlhg7y56CNc5/6e0LBw6VKHCujoxJqHhHC00=
+X-Gm-Gg: AY/fxX5AHpexq9C1DBb3B66FahK4o1rBWfSULRycvYb4PxTXkvbeXeaiHQmUSignoL9
+	wk95m7VlsHL2lfUPaxy3zyhDiPT8SmXpDEJi0HIbfCrGBfJ3/0NkcJGuvY1VD6X5FyD4BH9eDIg
+	V7Z9yTH7yKwYk56zgXO7Uep8D+QU4UkCHYNBEwVi5Qe9LuV1Rvw9st/kYiTvKvslnJniDp2x8yy
+	xjOtKs8zYL+g0l1LhEBzXtsjByKeqeW6sxdAtMizhC0cWxL7H+f5swhp+J4BcmTSEZqsEIwgLRf
+	ZhV+xnFWBs6nObOFJ5boYgs3T54A6Ay2pxuh8vYvdBKLFfQScJ34sihbx4EDrInsGbb9InIwtqk
+	fezsPAlDGIneYnxZUKlCDs9xuf550mZt1E0eyJQ/452xAu4/nvDMZ5nAMMkB2Y8q24Tm6g/OSVr
+	zFKC29cSg8JEJo4wB1Hg==
+X-Received: by 2002:a05:600c:c162:b0:475:de14:db1e with SMTP id 5b1f17b1804b1-4801e3387cdmr3797345e9.24.1768493427759;
+        Thu, 15 Jan 2026 08:10:27 -0800 (PST)
+Received: from [10.11.12.107] ([86.127.43.8])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47f4289b789sm53724735e9.1.2026.01.15.08.10.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 Jan 2026 08:10:27 -0800 (PST)
+Message-ID: <fcc5405e-189d-4195-8db0-3acf35bbc0a9@linaro.org>
+Date: Thu, 15 Jan 2026 18:10:24 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8948:EE_|DBBPR04MB7628:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2b70f63f-b435-4907-7b46-08de54503a45
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|366016|19092799006|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UjlXSlNRWkJySTI1TlZTb2ZIdm5WaCtFdWJKNlBWZE1wazVCakFHQ0RORFFp?=
- =?utf-8?B?MGg0SEJNcEE1K1BLMVVyNXczSzl0N09VdURDUjE5ZkdEU0g3WHB3dVNFYzFW?=
- =?utf-8?B?VWJ2SUNubEJ6V0JMUHgvZkk5Y01CYVZFUmkyemJmd2grWWxza0ExbTF4NGpQ?=
- =?utf-8?B?bG1vZHQ3K05aT3dpRGZ3Mnlab0NndlNFbmZMdGZhNEI0cXJ2Zi9Sajh3NkZC?=
- =?utf-8?B?NHlPRG5YQk5Tb0ZqRFhCenhsekl2T0VjTFlPOUhkOXc3NStOM0V6Nm9ZbUxI?=
- =?utf-8?B?TE81elJ0ZE5FTHl0VGJ5VUZKRlVnN252Z0tTRGV1RURqN0hzdmhsbm5SSTRX?=
- =?utf-8?B?dEJNY3ZtQzVxYlBGalZOMnFlRUNwODBpMEozNmFPbUQra0U0dURFUExuRllF?=
- =?utf-8?B?UGdqLzBmQWRxSHJPSUNRQXRPVTJ0RUJIMDUzUjlGT3orZSszN2VENkJ3QlJn?=
- =?utf-8?B?YmNBZTZJTFhsU3JXYkwxQ21DaUk3bXdiNDg2NElBUWNaNTg0elBUR3NjUjI1?=
- =?utf-8?B?VkROZ0VYZG1yZitCdExVOGs0clgxWTFiZUxnRmJWbkdibUtkMnFVRnJXaVho?=
- =?utf-8?B?U1A4VmN4SEpQSXZUTVNwKzd3TUlSUTlIa3RJUEptYmR5VVJLUzF5RjZuMDBh?=
- =?utf-8?B?eitNUEtMWGNwQmtYN2ExUWpnMjQ0K01lRnBIOElHaytnTXpuNFpEdEFFR1Fw?=
- =?utf-8?B?aHVhYjErMVVpWVFPZDUxREw4d25DWkJDOWl6cWNnV1dFZ3FpT3R6SjRYdVlt?=
- =?utf-8?B?Nm5pRkY4QXd4NGQzcE5QZG84aXFuWTgvMHdER2RmaWo3blFUekcra0pSQmEz?=
- =?utf-8?B?bDJCK1NIckcrNG1VYmtVYis4SUd5V1d5Yjc4WXc1Y1cxcGxqSlFJSWQ2ZDh0?=
- =?utf-8?B?bDFLUm1BTitVS2R1WlNWQkU3NHk5Zlpib2pva3UvQW9BWHhZT3Y4cnZTdzdt?=
- =?utf-8?B?N3hPak95cVY0Y3dtMDJWUFB3WjZOb3JVSEIxVS96QXJZYUptMWlMZUUycmpR?=
- =?utf-8?B?eW01UHhqZHlBWnZKQ0MrbkVPZkxRc0g5TVVhY0pvaVlaOUVJUGV2a2FtU2Jp?=
- =?utf-8?B?RlJSTGFPYVhFZHAvcWhiM3pUdmEwclN0TjVTSWo3YnM5bnJyaGluRFZxOTJx?=
- =?utf-8?B?azRtQ3lZL3NVSTd0V3ptMTBXV1RLeU9QSjJueXdOU0NzVzlhbUtFNXBrcXNB?=
- =?utf-8?B?dFpvK2hpaTZqVmpMSlRheHhuUVJoL0VCZStCb05EM1AwZmZybzNRcEoxZFln?=
- =?utf-8?B?bFRDeDdOa3BZdjkxYjBmY05CT3BDcm92WDJhWUZiVFFmTUZ1M2svdEdmWXAw?=
- =?utf-8?B?OStWQ25pRjA2VlFIRXNTTm1qQVQyOEJ4RUxkUHVGTEh5VGVEWFM1UityMlE4?=
- =?utf-8?B?T0RINm1GNGFDeFhadDg5NHNpSlQ1Qkh6eG4zOGFMbzM3cDN5RDd4ZGI0aEc2?=
- =?utf-8?B?SWlEeFB6SktTZ3N3RUUxTjJ3anZsSW8vV2x2Z0t6bE5jSGdqVDJEdjdZdlBl?=
- =?utf-8?B?SDJjWkFtTklBd1dLTDJqZVQ0M0RPOWZ6bkcvTzdFUGNyUVN1aDNYQ0xQVDJC?=
- =?utf-8?B?cmNRTDIyOUhtTWZQMGl3UWxXN3cvK0R3d0NUaGhsUDNCTTNiMjdmYlRTUm45?=
- =?utf-8?B?a1o2TkxZTkxFQmJFU005ODBVdC8rclFsUTM4UlN4V0tWWk5maitJNExEbU5S?=
- =?utf-8?B?ZzRNR0FxYk1rN1pieXM5am5NUDZjdk5LL0N4c0R6bmlFd0tWM3RLVU1DUGhi?=
- =?utf-8?B?NFc3eG1ZR2VNZ0luWTltTGdHZzZlaEpyT3kwN3hYLzVVbzFvZEk5cklyZnA5?=
- =?utf-8?B?Zk1iSXQ1dEp3ZlhXYzVIekxmSVRkSGVyRnZmZFIvOEE1QlhtMFJiblpLY1R2?=
- =?utf-8?B?eXR0VkNkUEtxWkg5VnZVY0EyMnFvN3ZWK2lPaUV4b2t5QWNiUkhVSGx2cjdM?=
- =?utf-8?B?RW5VNitEOW5zMWN6U0xVMnF2QUp3YVRlZG1NZm1rOXVpbkRPVTJ3UlFHaExD?=
- =?utf-8?B?NmJPSW5PT3JDNUJmZjZ6MTJuWHk1L1hjNCtOR2R3Z0djMEhhQ3dudXAxUmxG?=
- =?utf-8?B?UnpMMzdkQVZzZVkzOHhFc1hpMm01emlNcEdodUZzTEl6cEhWYmNWckJOd0lv?=
- =?utf-8?B?Y08zc3M3REwxLzFGaGlWaDVLKzd1Z0l6UUR2OG5hZGJndXE0V2xoY1VlRkFl?=
- =?utf-8?Q?n5esAyAQdZ04iDQmIdv9McI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8948.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(366016)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TGp5S0dRN1hsNkk5SHBnSUR3bmE3ZEorekRMR2JWcEZVSGprc2dTV0Z5SS81?=
- =?utf-8?B?Q3kwWjJaanFrOEtMVkkzZWk2Tk9qV0NISGhOKzlZMFc3cEJkK01QS3JOamJJ?=
- =?utf-8?B?eGVGOU40QlhObmdvSkV5ZXNWRjdCZHNmT210aHp5cStLUXhleWVQbTlkZVlw?=
- =?utf-8?B?QXdIM3lIYjVpMkh2OTRFYVZSbTBqTFA4cEFENGJ3Z0tDZkV1dUtRUE1KZVI4?=
- =?utf-8?B?WFRvY2wyZ2tFalR4VTV3THZXalNtWUlUV1pUdGR5WFpkQ0Y4Y0ZLTHorZm5w?=
- =?utf-8?B?TzhpaVdFNklobFZGTS81MnhPWUhQOU1ra0pjeUtjM0lsUUNKblhtMk5Pa0Ri?=
- =?utf-8?B?cWFnWkI1dTNBTWZsOHlwV01sTzh0RFBRYjJPSE8xRGxOWXQ1Zi9ZU2tja3VS?=
- =?utf-8?B?ZHBqMC9ZWkRDVHJEcy8zRjlHYkFJbmFxNjFtRm1Za2JJR3ptSWthclR3RUQ2?=
- =?utf-8?B?d1pHQjFHTk14R1c3Q0VEcGowcjNJUGNiT1dUYnM1MGtuWnBGemhWdEZuajlY?=
- =?utf-8?B?ZzlXTWhUZVlaQ3VzSGpYRmJPWUtqelc2MEoxUld6M0YreVBhVGMyVzZNUCtq?=
- =?utf-8?B?U1VtYUpVTVlDUXZsVVFESjhvTlNSeUlBMUx5azA1cXAyb1Byc0JHQytLcHZ1?=
- =?utf-8?B?YkloaHVYWS9HRUFMRjltdUtaalNuNmswMlBBbFJNNUt6WWhIYnFaeXhaRWxu?=
- =?utf-8?B?bERNNGhNWnEyOUxRR0RqVHNYMElFdTNsd1BrRjIyaklPYnZvYjJSUVgyV01Z?=
- =?utf-8?B?aE1yNmY4VkRCOGRQMkVNei9OY2JaNEwyemFvZ3FPdGZNYXprZkxrSUs0OTV0?=
- =?utf-8?B?ajFhUndHa3E2bHVheU9tdytEQ202c2N1SFVtaHMwWkZBUGhXRE42MVA2a1Rs?=
- =?utf-8?B?K2NpeTVQMCswTDdqWjVqMTdhM0YxWml6UkR3SGpRL2FTSVM1OHZvMmpTME4x?=
- =?utf-8?B?ekdQZFlwNm9IS0x6Sm43ZDZYUVRPblJTMDVCSlZLZHNIaVVGRlpIVHFqaDll?=
- =?utf-8?B?eXI5VU51ME01aUV4ZFR4QkdpVFdJQ05vaHFoVzMzN1R5SjZLMVIrQ3NPR1R4?=
- =?utf-8?B?WnB2Tm5KbWxzZHN6eWVrT2JBeTBNc0tBMzAwMUNBY3gxWGluUklJZUJ2aDZH?=
- =?utf-8?B?RjhTMnUrczhiTVRBcHlUQU1mWU5VZGpRVHpoSDduNnoxcUUvNVpOenNITmt0?=
- =?utf-8?B?dXZ3ZWJKNEZiZTBCZExwL05UaFQ5VkpTM1ZGTE12TEw1bjNKVmJlb054SGpa?=
- =?utf-8?B?TGtTOE5lZ1Yrb2Z6TWIzREhjMjNVNW1FZFBVNzNoMkNEclEvYm1zcE9RSjNQ?=
- =?utf-8?B?emdiT0NzNmRrUUNpdXhvOTZvc2Z0UGhzYnlXc3dEWjJRSytEOSs2TXNSMmJv?=
- =?utf-8?B?d3hQTHpzdU5vMGE1Y0Y1eFJEWStzcEVjbE43a3ArNThSTWVQT2o5YVJXVEN0?=
- =?utf-8?B?WXJWajZuUVhkT0ZRNm15WUFhOTI0Vyt4djc0UTl2eDYyeDg5VFhZMGVhQ2Ns?=
- =?utf-8?B?Mml4L2NXWStZdVZXWWx1S0FMSTdEeFRlSXpQYUxkSVgxS2RVblZZTmNrSEE5?=
- =?utf-8?B?ck5Pa0QycXY0YnVTY1FZT2tSWHhmdVB0enVvWGN2OStGaUtWbUJUSGY3RkdQ?=
- =?utf-8?B?aWVacjV4L2pXdVplUTdYaVVpU1RSczNlVGNIMDFBQUZQdHlsbEZicmxsOE8v?=
- =?utf-8?B?VnZ0cmhWcVQreHMyTi82a0FPUEJYOTRPWm93T3NhUVA4cFNvUy92WXp5OXBR?=
- =?utf-8?B?ZmtDdE5mNmFMbEtiZ3pqbUVzT3U5VXR6a0ZDQyt5YlpLYVN3cDNZa0RldGVx?=
- =?utf-8?B?TUU0SmZHOWt4WWlZT1pVRE1VMGtZOVF3cm54S3dxMHhwL0MzSUR6b3VRSTBo?=
- =?utf-8?B?VGpuTHFsaDVsSTN1eldlYUh1dGlkYjJnQTZlUjhDWUFRSmJURE80TDZpTzlQ?=
- =?utf-8?B?TnErNnhDdk00aHRsSDYwY3RHT0syVmdWMGZkei9QbVZlV2J2MlFvNWw0dkNr?=
- =?utf-8?B?MFUyYlE5bHhXZ0d0WitZNGs2NkJCYXdwaDBYVWFReU8yazNqNkNEYlFwYjZj?=
- =?utf-8?B?bGtyL0xSbDlsM2xzb1JuRlh4bGdvTVY2SWxvVFRVeW8rU2lzUU5ITGNEV1lK?=
- =?utf-8?B?OWgyVFJ0ekpKVy8ybG1qaC9SRXpINlVVYXZKMG9HMHpQU3N2VGJuVmppWXZr?=
- =?utf-8?B?cDU0RVd0MWhRVHUzOG94NE9oeEJWdXBXVTVsU1ZhcnhyS3JQYnpXdzA5aGY5?=
- =?utf-8?B?QjQxUjNrbU84V1I5WWtUMkxOeUJmNDVYS3gvdkFIZ2pGSGpHM1BDWnF0S20z?=
- =?utf-8?B?d21KNU40djNDOEdITDBuZTcwY0hac1hEdXZiNkdLY2tNR2RxejJvQT09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2b70f63f-b435-4907-7b46-08de54503a45
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8948.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2026 16:07:48.6237
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2fBlQ6EGOKi9dGDgu3SaT1tUDpejzlHt3Ehm5IF6sXvBOhcfaoIAn9ODPZnpXWoV3AMQzpm9zXWmvncVj9WylA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7628
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/8] dt-bindings: mfd: Add Google GS101 TMU Syscon
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Kees Cook <kees@kernel.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>, willmcvicker@google.com,
+ jyescas@google.com, shin.son@samsung.com, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20260114-acpm-tmu-v1-0-cfe56d93e90f@linaro.org>
+ <20260114-acpm-tmu-v1-3-cfe56d93e90f@linaro.org>
+ <20260115-slim-denim-potoo-cad9cb@quoll>
+ <200d34bf-150e-4f8a-b400-2f54863502ac@linaro.org>
+ <e2f028d6-774f-4773-889f-7d56b833067e@kernel.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <e2f028d6-774f-4773-889f-7d56b833067e@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_080752_571667_45D130B1 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20260115_081030_480481_FC1C43C6 
+X-CRM114-Status: GOOD (  33.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,101 +117,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use dev_err_probe() to simplify code. No functional change.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/dma/fsl-qdma.c | 47 +++++++++++++++++++----------------------------
- 1 file changed, 19 insertions(+), 28 deletions(-)
 
-diff --git a/drivers/dma/fsl-qdma.c b/drivers/dma/fsl-qdma.c
-index 6ace5bf80c40be4226b17503fbe8caf8f08dd139..4c3a06653c909ce89677b66aa6a900c82c38a872 100644
---- a/drivers/dma/fsl-qdma.c
-+++ b/drivers/dma/fsl-qdma.c
-@@ -1127,22 +1127,19 @@ static int fsl_qdma_probe(struct platform_device *pdev)
- 	struct device_node *np = pdev->dev.of_node;
- 
- 	ret = of_property_read_u32(np, "dma-channels", &chans);
--	if (ret) {
--		dev_err(&pdev->dev, "Can't get dma-channels.\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Can't get dma-channels.\n");
- 
- 	ret = of_property_read_u32(np, "block-offset", &blk_off);
--	if (ret) {
--		dev_err(&pdev->dev, "Can't get block-offset.\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Can't get block-offset.\n");
- 
- 	ret = of_property_read_u32(np, "block-number", &blk_num);
--	if (ret) {
--		dev_err(&pdev->dev, "Can't get block-number.\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Can't get block-number.\n");
- 
- 	blk_num = min_t(int, blk_num, num_online_cpus());
- 
-@@ -1167,10 +1164,8 @@ static int fsl_qdma_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	ret = of_property_read_u32(np, "fsl,dma-queues", &queues);
--	if (ret) {
--		dev_err(&pdev->dev, "Can't get queues.\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "Can't get queues.\n");
- 
- 	fsl_qdma->desc_allocated = 0;
- 	fsl_qdma->n_chans = chans;
-@@ -1231,28 +1226,24 @@ static int fsl_qdma_probe(struct platform_device *pdev)
- 	fsl_qdma->dma_dev.device_terminate_all = fsl_qdma_terminate_all;
- 
- 	ret = dma_set_mask(&pdev->dev, DMA_BIT_MASK(40));
--	if (ret) {
--		dev_err(&pdev->dev, "dma_set_mask failure.\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "dma_set_mask failure.\n");
- 
- 	platform_set_drvdata(pdev, fsl_qdma);
- 
- 	ret = fsl_qdma_reg_init(fsl_qdma);
--	if (ret) {
--		dev_err(&pdev->dev, "Can't Initialize the qDMA engine.\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Can't Initialize the qDMA engine.\n");
- 
- 	ret = fsl_qdma_irq_init(pdev, fsl_qdma);
- 	if (ret)
- 		return ret;
- 
- 	ret = dma_async_device_register(&fsl_qdma->dma_dev);
--	if (ret) {
--		dev_err(&pdev->dev, "Can't register NXP Layerscape qDMA engine.\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Can't register NXP Layerscape qDMA engine.\n");
- 
- 	return 0;
- }
+On 1/15/26 5:34 PM, Krzysztof Kozlowski wrote:
+> On 15/01/2026 15:53, Tudor Ambarus wrote:
+>>
+>>
+>> On 1/15/26 3:36 PM, Krzysztof Kozlowski wrote:
+>>> On Wed, Jan 14, 2026 at 02:16:31PM +0000, Tudor Ambarus wrote:
+>>>> Document the bindings for the Thermal Management Unit (TMU) System
+>>>> Controller found on Google GS101 SoCs.
+>>>>
+>>>> This memory-mapped block exposes the registers required for reading
+>>>> thermal interrupt status bits. It functions as a syscon provider,
+>>>
+>>> I don't think this is syscon, but the actual TMU. Syscon is various,
+>>> unrelated system configuration registers.
+>>>
+>>>> allowing the main thermal driver to access these registers while
+>>>> the firmware manages the core thermal logic.
+>>>>
+>>>> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+>>>> ---
+>>>>  .../bindings/mfd/google,gs101-tmu-syscon.yaml      | 37 ++++++++++++++++++++++
+>>>>  1 file changed, 37 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/mfd/google,gs101-tmu-syscon.yaml b/Documentation/devicetree/bindings/mfd/google,gs101-tmu-syscon.yaml
+>>>> new file mode 100644
+>>>> index 0000000000000000000000000000000000000000..6a11e43abeaa23ee473be2153478436856277714
+>>>> --- /dev/null
+>>>> +++ b/Documentation/devicetree/bindings/mfd/google,gs101-tmu-syscon.yaml
+>>>
+>>> Not MFD either, but soc.
+>>
+>> You are right, it's not a syscon, it's just a normal thermal IP block
+>> from which I need to access the interrupt pending registers.
+>>
+>> Then I guess I shall describe the new binding in bindings/thermal/,
+>> please correct me if I'm wrong.
+>>
+>>>
+>>>> @@ -0,0 +1,37 @@
+>>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>>> +%YAML 1.2
+>>>> +---
+>>>> +$id: http://devicetree.org/schemas/mfd/google,gs101-tmu-syscon.yaml#
+>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>> +
+>>>> +title: Google GS101 TMU System Controller
+>>>> +
+>>>> +maintainers:
+>>>> +  - Tudor Ambarus <tudor.ambarus@linaro.org>
+>>>> +
+>>>> +description: |
+>>>
+>>> Drop |
+>>>
+>>>> +  The TMU System Controller provides a memory-mapped interface for
+>>>> +  accessing the interrupt status registers of the Thermal Management
+>>>> +  Unit. It is used as a syscon provider for the main TMU driver.
+>>>
+>>> No, it is not a syscon provider. Entire last sentence is incorrect. You
+>>> must describe here hardware and this hardware does not provide any sort
+>>> of syscon to any sort of driver.
+>>>
+>>
+>> Indeed.
+>>
+>> I'm going to link the ACPM TMU child node with the TMU node via a
+>> "samsung,tmu-regs" property.
+> 
+> This could be fine, but I actually wonder what's there. What registers
+> exactly. For example modern Exynos 88xx, already with APM block, still
+> have exactly the same TMU unit at 0x1008{04}000 with all typical
+> triminfo, current temperature and thresholds.
+> 
 
--- 
-2.34.1
+It's the same for gs101, the TMU instances have all the typical registers,
+it's just that everything is handled via ACPM but the intpend registers.
 
+>>
+>> Some concern that I have is that I describe the clocks and interrupts in
+>> the ACPM TMU child node. Usually the clocks and interrupts belong to the
+>> node that contains the reg property. But I guess that's alright because
+>> the interrupts property is expected to be in the node that the driver
+>> binds to. For the clocks, by placing it in the ACPM child node, I allow
+>> runtime PM to manage it.
+> 
+> You have to first know whether these clocks and interrupts are going TO
+> the ACPM node.
+
+They aren't, the clocks and interrupts are going to the TMU node.
+
+> 
+> All this looks like designing for drivers, sorry.
+> 
+
+It's fine, I'm not looking to cut corners. Thanks for the feedback, it
+helps us coming up to a better solution.
+
+>>
+>> Do you think the below description is accurate?
+>>
+>> soc: soc@0 {
+>>     tmu_top: thermal-sensor@100a0000 {
+>>         compatible = "google,gs101-tmu-top";
+>>         reg = <0x100a0000 0x800>;
+>>     };
+>> };
+>>
+>> firmware {
+>>     acpm_ipc: power-management {
+>>         compatible = "google,gs101-acpm-ipc";
+>>         /* ... */
+>>
+>>         thermal-sensor {
+>>             compatible = "google,gs101-acpm-tmu-top";
+>>             clocks = <&cmu_misc CLK_GOUT_MISC_TMU_TOP_PCLK>;
+>>             interrupts = <GIC_SPI 769 IRQ_TYPE_LEVEL_HIGH 0>;
+> 
+> This I doubt, really. Why would ACPM child be hooked via CPU clock and
+> interrupts?
+> 
+
+Yeah, that was my concern as well. Then the clocks and interrupts will
+be described in the TMU node, not in the ACPM TMU child. The bindings
+are clear to me now, thanks.
+
+In what concerns the interrupts, I can obtain them via the phandle to the
+TMU node.
+
+The trickier part will be on how to handle runtime pm, I can no longer use
+pm_runtime_get_sync(dev) in the ACPM child. But I think I can handle it with
+device links. Get a pointer to the TMU device node and use device links:
+
+device_link_add(acpm_dev, &tmu_pdev->dev, DL_FLAG_PM_RUNTIME | DL_FLAG_AUTOREMOVE_CONSUMER);
+
+This tells the kernel that when the ACPM TMU driver is active, the TMU
+hardware block must also be active.
+
+Please let me know if this sounds reasonable. I'll start reworking the set.
+
+Thanks for the help, I appreciate it!
+ta
 
