@@ -4,107 +4,218 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F90D4660D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 18:54:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5213D4660F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 18:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EpbTbJbIYQW2HGVw5tfKbZOFlETWSnwKBDBmcbacs/s=; b=kQvohN35rfyyFYpD23nsUGTJqK
-	bviqfZ1fqeV8LCVH5IVb0oIHRvi6bKKHGt+NLoZCoRcSL20cOE0jJr7e/QIA5b24ODG9RDSZOeQF9
-	mueffruLguqmv6zyvyFRJr8hO6nLw6TprB1ZWL52hVfc3+T85qUOTnAj9pm6KnFbrTfKIaavvqu+V
-	G8nUwHXa0qSCTrYw8GymK0izYjV9JFu1rNucs8NAZTmjYuRTaS1hYb4fH+DMJ2jLvtx/8b+T89srw
-	yzt6Po+x5BbGrlQNmVLHgU83CeNfi252+9LRWdan33qzKNl841jIPmzuXeWhSEdIWTUlIFiNAwMyj
-	tViN02YQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tLGQyLz9MAJTRz+MF6IxHuP/nanpAdl1YTlmaihqucw=; b=vX2oms9MHeNMvSLxw1EpV/TWzB
+	1Rlnnkh2m8b6RAg+EvvvXv/InqDI2OJo7xP3/pOiGyPwUNgbO276Guo8K7/EQJHeJtYBsVnI0f88o
+	IYmCyd7+xQeHoMl/txXuYy4NBiKnFvmaLlRibRiK4RVp1ow8dxtqBg1OAZsZcdlNW3E1wzf2NXTlG
+	LxWpodkLws54cxQGsbQSEPkcn3M3/WVo6NVYxu2JJkta5SVsXTDdA7wVcLRJWco/Ij6fhJxGI4xGx
+	dhp/RxDuLWAddxkktisXvtgxWhwGTQq4KZoqdhPk2TQVcenZ2KVR3YwB7xWe9xg/FiLSJ5Exztq2W
+	S7eS3ygw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgSUL-0000000D0K9-3R5y;
-	Thu, 15 Jan 2026 18:54:34 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1vgSVl-0000000D0aY-2rmc;
+	Thu, 15 Jan 2026 18:56:01 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgSUB-0000000D0IY-0giZ
+	id 1vgSVb-0000000D0Yh-3HBa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 18:54:29 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-c3e921afad1so500704a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 10:54:22 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768503262; cv=none;
-        d=google.com; s=arc-20240605;
-        b=L0FblaW8K71mKJ/1pzlr7nZNzXLIMUhfAYvdIdMCch/cKWyemVoJdFmVX4HThPumcg
-         rGINTWp5HcR90ta2KUlxWeVn19RnxsUtsILPKCj5HG7ekLeIETN+qfL9Jvz3HMNNRXd+
-         OYZOGbcO5dd7TRtmhAqyGMvUSmGHfcXK9HMiIAyg0Z89IYpzb0aFy3hDyGK47YZPGXXM
-         ennok9BmY05fQgb8xHC3n/XexWXk5uJkAIkFW3IA8nLWULSkpJEDNLEukCuqDuGEbAUj
-         9U/E1j42LuEv8slWfzzOLAQ4W7RqRmENd8FAdPk4Kl+vOXNBhXkezDhmJehrgdIYaUAr
-         IuOg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=EpbTbJbIYQW2HGVw5tfKbZOFlETWSnwKBDBmcbacs/s=;
-        fh=T0H2W0GauBNxYGAyO8Kvri/slz6ySgtccYa+yTzV0Kk=;
-        b=Mp4VHzu1wOASjeuWKL4qCsaHwHsnFoUkQWNNdJ1h/GET46ZSmh2kyua+gkdLuSAOIP
-         5IfNXLG7hAuVscdG3nNsU9MO+4YQllpaUtNY3smUaQ4YEQnwp4HVvrQUbkZetVABJn/i
-         PsfsqF8YRwXvBZ3kruzyB0IKBAsqqEaRZAuH9TXEMTYUhrfBiOEWM/qTUrBDPzapDIE3
-         QvtZ0q7rz7zSu1t47omTFFILBZsYJmHCL0JrmDBjPn9Ht0Rm7zwPy94RSr/ONScBmynu
-         ECnKH7G53tjkFNKgyI+lrkO7/orfwdh3nR4GYziSrel5t3zdJMdd0rK4Q+LHJdaxVT99
-         snJQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768503262; x=1769108062; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EpbTbJbIYQW2HGVw5tfKbZOFlETWSnwKBDBmcbacs/s=;
-        b=h0smgP6oQxj13/kXSRRkOM/5zFeyHHNCZ7HJ4gKzA0O8VfgU0hM82sx4fVDXrAVkNt
-         DqhJ33H7wpgR0hNOOamv9jnZeAWNJebi/dNodJoKDRkOXuYd2eKjDQ9sYmzOhD/O8lV2
-         uwlcbId7U18VsqfmEdsZ9eYkr7fGhd0G6cXc28kBPZ4WM9ufmmcxXdAip88YhRTHo+l7
-         9tPL2Xgsd3s8gulQMiNuCPaFLO4k2i9LcZxEZFih3IhJbUYUgoeRqFN+g09p9ofqGzm1
-         M/sOqvHa+r5WwFM2cWR2AbewO+x4d98ileIHZz8p+HJ+O7zBxbN92mZVM5SsBnbeyHaN
-         OGlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768503262; x=1769108062;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=EpbTbJbIYQW2HGVw5tfKbZOFlETWSnwKBDBmcbacs/s=;
-        b=DlfLtweJkIc+j0ujQftD9g3zC/AVrZ380GOn2LXHuaXE0CwJk7rUtPF7V3Wwfpq1qO
-         KUaAwwnkXPiQmqXZUy+YwXgkV7BL9ZN46UNXADrm5hms0DZ9yCLTVKaNWbnYn2E5QJMF
-         FYlYvtmiXfoW9PreY3dFMfAcb3LwMW2r0z+v6x9hVMaJtvMkbVG3fyWSIynn4STAI5mu
-         cuo2S8wsdFq0y858RHUUu85UGCsKDhjJJQbm2yH3blxtc2GC1ve0dB3Sfo4FRgwNhoOR
-         U7QK3/Nh23RpwTN6empLSJzXnYZZz36YziojVoRY7iyT95noHlsoVZ92l3lnQXFK4zZz
-         lb2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCU9g0vFtxCakx5JV1c14F8Ap35WkRoEm42rGL56Q06H0P19HptlXdryDmGCtXpUSsdTAljFMzS3t3iplQWYngBL@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGw7sdfCrHkg259UyNr2KPMvAOBxJc7QECvxvJ4xADIYLz/4sV
-	oueu1xtr4Dv+/SFApIBIK7Cm/mx0kTh4A0cNHDSbXHqyyX59TjLuMwFxVkmnaWCC3El1pVx5Rao
-	Oy5/OWE8/OtBIGSk4Pe6udyHGmCgiW3s=
-X-Gm-Gg: AY/fxX6iVIiRlV9ZQepAwnOV5p47N1kWnf4X/FuNxXYda4F4WJ6A8h2nIELDzJEhyOf
-	BaEHwlj5KOHAw/gPE/HjSUo7rZcrELnXZtPrhte5/p/hlM3zsjBpF9gX8uMebskKz21W6yqZ/xa
-	LQPX0p/MA/NJaULl+6j3l57hXgni5hPwKEU7/k8NJmj2W27VnKglmWn9YSPnrCjnwb0brdHBtx7
-	euq88hasJfD9be4kCiKXh18HWFSrR0tD83mhyHdxWug7Q9Yk3cV7K3Ow9qZ70vW5hPkvcywSfqB
-	BvLZhYx6
-X-Received: by 2002:a17:90b:2682:b0:341:88c9:ca62 with SMTP id
- 98e67ed59e1d1-35272f8c54bmr287868a91.31.1768503261661; Thu, 15 Jan 2026
- 10:54:21 -0800 (PST)
-MIME-Version: 1.0
-References: <20251230145010.103439-1-jolsa@kernel.org>
-In-Reply-To: <20251230145010.103439-1-jolsa@kernel.org>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Thu, 15 Jan 2026 10:54:09 -0800
-X-Gm-Features: AZwV_QiwkBtwLCiJrqG34-zTIw_OQKLb1v72y1BxE2HMZ_jpyB1tumI3srsjTrw
-Message-ID: <CAEf4BzaRU0DoM9hHtW5Bm7njodfg06JzTOe=ABAqZ6iMjAt4iQ@mail.gmail.com>
-Subject: Re: [PATCHv6 bpf-next 0/9] ftrace,bpf: Use single direct ops for bpf trampolines
-To: Jiri Olsa <jolsa@kernel.org>, Steven Rostedt <rostedt@kernel.org>
-Cc: Florent Revest <revest@google.com>, Mark Rutland <mark.rutland@arm.com>, bpf@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Menglong Dong <menglong8.dong@gmail.com>, Song Liu <song@kernel.org>
+	Thu, 15 Jan 2026 18:55:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768503352; x=1800039352;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=MD4EC4wBX1hoKk+AnzYVboEgn0c6EFTZJ+xFc1ftwnw=;
+  b=j27r0nT2UuhDSM0gbYgKfM7SU9gChM6aFazkMir+J6ODwM3nzfwxpN9b
+   57V7qpwnHiIcyJGeYwSn1DpN+CulhVzy8gie6ajV5VGCziXaJWvDpx9+a
+   6WU1P8KyJRyGddpLLMux5sUq7pr4E7kZTvfEuJXFeloEdWC+2GPHzamPR
+   AJL7Sp7oY/ghz9uNlESbsXVHNvIsYLFW5OQuYEYosXG8k1MF2sDI5zIF7
+   eDUA+XxSRVePibmIF5Vy5ahiR1LhgIx6inHQUsZ3ImrVU8gut0mum5lEe
+   wsatey0TuzEregZ/AAS56yS5pPSWTJGrmwylBwOGSGIXv2/dyfcO2HTfK
+   g==;
+X-CSE-ConnectionGUID: Xx2+ZJYcTzCge49nvHlg7g==
+X-CSE-MsgGUID: g3oYOh+BTYiFCP13yPJCDA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11672"; a="80928241"
+X-IronPort-AV: E=Sophos;i="6.21,229,1763452800"; 
+   d="scan'208";a="80928241"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2026 10:55:50 -0800
+X-CSE-ConnectionGUID: 9bCYubVKSvabrv/iknCE1A==
+X-CSE-MsgGUID: PjQo5pNrSr+h+K2HFFKYLg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,229,1763452800"; 
+   d="scan'208";a="209512491"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2026 10:55:49 -0800
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 15 Jan 2026 10:55:48 -0800
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29 via Frontend Transport; Thu, 15 Jan 2026 10:55:48 -0800
+Received: from SJ2PR03CU001.outbound.protection.outlook.com (52.101.43.55) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 15 Jan 2026 10:55:47 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FyWuzuVjfKeeaSBA9RorygMk0j1l5sCvWuR36S/AlWtUtK2niiiGrZnmv2PEzV5D8rs+jedVNfDEOHn0PGfirq+WFfkwDpnOE45/AuJEOWUoLPl0xfU5xwYyP8XRcopJ2z1XYnqNUfYeoiTeD/Ek86T+2sdQtFJ3Le9PbeMyG01XzMexH+pqGAyV4GMdXxN7fHR1AVsN77j2I4VV0yWYtLOJRlk/OUWs0r32qX5DAfEm1B1whQzj8rA77sLYwtQRZEGN1pjayHeLsuuUWAsvHpJWi3fYSuBYA4ecRvW4p/a0z6sNHFz6q3OUOT+VdScL4sgz3fu8/Sfyza5uxH+Qog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tLGQyLz9MAJTRz+MF6IxHuP/nanpAdl1YTlmaihqucw=;
+ b=mV5gYcLGfK0e29gjIJAHWISHPf6ZcuNGZS25TMWhCWZjsP5CIsJEG9kWRlIrYJ4Y5b56R+pEjU16OKm7S1owAsmg8TyvW3bSGtYbZA5wEoaqoU/oMFv92R5rxPgKeMx3vfSZF+rGGaIy8afKrZ0HD0FMx8bXQN+CdE/b21CURl9QUgQbg0hgOswAzUmTJXTvQQNWWnk/xuUxPYixkdHGzuEUbyKZNKLCo47I1xNOl1Qir9kkzB7013n6oIyNk/zyAfsosYbkWdFyjYhLrmVx+RP6AV8dqnUpuWjdxZPlVMQ2TzpCfXp5UseJP6Ert+RM2etwuQYqDpztANoNTWZmjw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SJ2PR11MB7573.namprd11.prod.outlook.com (2603:10b6:a03:4d2::10)
+ by SN7PR11MB6775.namprd11.prod.outlook.com (2603:10b6:806:264::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Thu, 15 Jan
+ 2026 18:55:42 +0000
+Received: from SJ2PR11MB7573.namprd11.prod.outlook.com
+ ([fe80::61a:aa57:1d81:a9cf]) by SJ2PR11MB7573.namprd11.prod.outlook.com
+ ([fe80::61a:aa57:1d81:a9cf%3]) with mapi id 15.20.9520.005; Thu, 15 Jan 2026
+ 18:55:42 +0000
+Message-ID: <f2e9d7e2-1f99-45e4-9cf9-49e1ce2f08e9@intel.com>
+Date: Thu, 15 Jan 2026 10:54:45 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 28/47] arm_mpam: resctrl: Add support for csu counters
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
+	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
+	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
+	<quic_jiles@quicinc.com>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<tan.shaopeng@fujitsu.com>, <xhao@linux.alibaba.com>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <corbet@lwn.net>,
+	<maz@kernel.org>, <oupton@kernel.org>, <joey.gouly@arm.com>,
+	<suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+ <20260112165914.4086692-29-ben.horgan@arm.com>
+ <e65d2b54-e14c-4b1d-a9ea-04b6e0eb051f@intel.com>
+ <90561371-96f0-4bdb-8316-1b657f26da54@arm.com>
+From: Reinette Chatre <reinette.chatre@intel.com>
+Content-Language: en-US
+In-Reply-To: <90561371-96f0-4bdb-8316-1b657f26da54@arm.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BY1P220CA0020.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:a03:5c3::7) To SJ2PR11MB7573.namprd11.prod.outlook.com
+ (2603:10b6:a03:4d2::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB7573:EE_|SN7PR11MB6775:EE_
+X-MS-Office365-Filtering-Correlation-Id: ea922b32-7d8f-44d4-257d-08de5467aee8
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eXVqZmtIaWg3bkNFQlp4SGwyeW95SkZudFZZZ2pQazRnRWxpU2FMdUR0d2Fy?=
+ =?utf-8?B?dWUvSTE2bXFieGNBSjkvZHJucFdReFpjSm9kZlJuYTJlY3VBSUVlSkN0SC9X?=
+ =?utf-8?B?TFo2eFU2SGs2U1VWaGUyYjF2ZHdhU3JtV2tsU01IYnRoT29BY1FQNnJiV3RF?=
+ =?utf-8?B?bVJvMVBhRWpvQVU4ZDQ2QmpSYUZYeGQ3MVozcHdSS3NGbUR6N0ExSmQ5R0Zl?=
+ =?utf-8?B?eWdKL1g5bVRKUy9FWmRtdXo0ckRRZlR3dXB5SmZ6ZXZFYzA1U0RXRkdwL3lt?=
+ =?utf-8?B?YjRnbFZhQlRMcmlHb1JZTFlFaG8xTXlpeThmbm9USi9CVUtBVTIxT0FuK2hH?=
+ =?utf-8?B?VlllaFBEakhLWEZiQ2hTQnVuK2RGOWlsT3hPVktNVjN2SkxHNlJibFpDRkVJ?=
+ =?utf-8?B?YlJOZkZ3SnhtNEl0T04zUFR6c25QQWk2R0lyOG1SbUViTTA3L3hvSHZmMGp1?=
+ =?utf-8?B?aXBtbys0dmJPZ09aSTN5eXdKTVp2eEFPZHlqMmQva0cwQjFYemNlNHZWZnp4?=
+ =?utf-8?B?ZWxtT2FOZ0h3cER0cS9lOGlZTHNSNS9McnFhSDFlTkE5bldydU5hT3RDWEF5?=
+ =?utf-8?B?c0lqQTI1ODl0YjNsVjgxanA0UmxSKy9vZzYyVW5HZGZYMDhGVVgrU2U3dVhj?=
+ =?utf-8?B?ak96Q2M1OUxGanZ5SWFLbFVvUmRETjFFelR6ZWZaYXMrbzVHdTJpRjlQNzhZ?=
+ =?utf-8?B?Tmh5dXBKS2VraWczNGhPMFNtbnlyWUhMejUyMk56OXg3YU00eVpZcDRJckZG?=
+ =?utf-8?B?bzJUUjNyc3ZoeEJla0g0REpadUtLZVZtbzNHeCtPQnhUNTI0TEx1cWZKMk1x?=
+ =?utf-8?B?R0dMWEJSdStET1krRUFsaStqRmdFYmJCY1ZGeEt3dXdYbmN3dWZaSkI0UnZH?=
+ =?utf-8?B?UmpqckZ3K0Q1Y1ZmaWNDQnphbk0ydjR4NS8vZG9HQUhtdXFHbE9zRVY2SzJv?=
+ =?utf-8?B?ZXBOaVpyQjV1OEhGN1lQTWswS0U2eGF6TzRJSXpGWS9sUmxCak5DNFRIUE5s?=
+ =?utf-8?B?QklSU1VQUC9yaXlLT3IrT3Npb0twUE03UWM4cmoxdGh6SURHQjl1WW5ZaW9z?=
+ =?utf-8?B?Vko5T3RSQmRML21ZY0RWemhqWWVMVjlHdmRxVUlsdHNuRENNa1pnMWRHSVlI?=
+ =?utf-8?B?WG8wSzYvWUVoOTg0d3lNbmRnNHNVbE9kdDc2MzVLOWFCT0ZPTFhtNUpLMGln?=
+ =?utf-8?B?N0szNVNacERueVp5dG5IRmNsN2lGampham5UMFVKc3k1andoRFBtWjFnR0N5?=
+ =?utf-8?B?cTUzRWtSS1pEQ0hYOUNJT3JJbXNteGZPSzB1YUUxR3Z0ZHJYZGFmRGFJMVcx?=
+ =?utf-8?B?SlNhOUJBOENEc0Jpa2R2eGRuSTliM1ZiQUJrOVpUQ1NFVDBLZ0tRQnJFY1hX?=
+ =?utf-8?B?WGdmdnVQVm8wWFpjZVE5clc5b0tjS3BhV0xlSGl5d2lZNVlTQ1EzWFYraEFl?=
+ =?utf-8?B?R0FkK3BLVit3ZGovbkFYTGRSWlBNbjhhZzNDeGhlRGs2alNVZ1U2MEN5ejU2?=
+ =?utf-8?B?blQraDcxMXNHc1NQNVJleW40NVBYQ09LcmlhdW5CWENrVmhvQWRDWTBOREk0?=
+ =?utf-8?B?amJRSjlhc25hTjBRNGFQdkVlaUY3TFJTQUsvNjM1STUrVUJZbkxuVDlNRDZo?=
+ =?utf-8?B?N0x3eUF1UjdyeFRsZDFwaHdGSk9PNVk4cXVKa0c5eG5IaU5VNzJ0aDJNbmFQ?=
+ =?utf-8?B?OFB1cDdVM3NLeGN4cXd1NTJ1K2NWVWdEL1huTXVrNGJSaE04cG1PY2lMcUdJ?=
+ =?utf-8?B?akZBUVJHVTBZem5kOG10TkpuRUw2c3h2OVdNdnF2K3VtWlczVmZsSE4rSjVY?=
+ =?utf-8?B?aGF4Nkw2UzAvZ01JRkhuUnFqbEFrNWs3ZzcvWkVrOUdpbGVrM3cvaUdPQ1JV?=
+ =?utf-8?B?T1g0YWIwRnhVeDRyYVdTbGhieTAvVXJzS2pqVE9KL3hYOGpEQXN1NVRHUVUw?=
+ =?utf-8?B?L0Z2ZXIrWDZCRVBaQ2RDZm5nMG1CQlJJa29PWWwvVmREc2Rkc2xtWCt6WHlW?=
+ =?utf-8?B?c1NwbkFOZnNsWXJESFZTSFM3eVkvejNJWFVqSG4vY20rUm5TYVVLVXdzS0Uz?=
+ =?utf-8?B?V09ZbmlaelRxSzI4ZUpvV01rZUlWTUFhejRvNkJQZXk0aTVzNE5CS3BhaDI3?=
+ =?utf-8?Q?YTN/FnI/z8ZhBoMith2I6xanw?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB7573.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UElRK0J4VjB4YUJDRWlhbzZHOHNkWmZIdFhrNnNFK0xFZS91dm51emwyTG1X?=
+ =?utf-8?B?c1FzVUJrL2xOdnZiRXhwK1ZYTTAxaTEvNXpzdnA0MFZha1ZzWnJxaXNNZEl4?=
+ =?utf-8?B?NUVhd3lYRlFDUzJrYVBuekMyUXJBbkg2WGx3d3Bld2NVWGwzWEVwSVh6L1NY?=
+ =?utf-8?B?RGVWTGVTdTJpcnBFVVE3N2tBNUwzakFicmwyRVZ0TGVJcmRTK2dKWFM5YjRZ?=
+ =?utf-8?B?WmZmRUZML0JzUlVtUmFhRmRzM1JpcEw0RUFjdUJEK3JQcUlhYW8waVVkSGNy?=
+ =?utf-8?B?TUZtQWVNcHR2UjF4MFYxYzg4OXhjM0dEdnkybzFBSEVYRzJKV0tFUDBMTjVa?=
+ =?utf-8?B?WmRuSWcwMUZ2bTMwYVdLWllOSkpjaDJXTUxQLytreDVGb0JqdHpHbktKcmpJ?=
+ =?utf-8?B?Q0w4SHBMN0FUS1QzSkpNdlgxMGo0bGF1UTlsRElvNUhlWDZySWNsMWllS2Zn?=
+ =?utf-8?B?aG4vTTcvczVyVk1ZMjdFZVAzcVRCYkZwdEs1MmNHVHpyaEN1U0ErYTdQUnNH?=
+ =?utf-8?B?SEFFaXhrTGh0Sm42YmNlV0pDeFA2aWY0WTlmTzRMSHl0aHdMTWN0M3BzWHJX?=
+ =?utf-8?B?ZmdoMVFxOGxDOThwenhJajEyWi9aUHZad3QxelNnbXJTUTdWMFVOQ1FDaDdi?=
+ =?utf-8?B?WDFKZTBwUUJ6NDRORVZsTHRGNk9EOXlXYWZNbUhLVWJrL1R5dldWY2FXZm9z?=
+ =?utf-8?B?Q1M4WWhXQ2Y4cHNkMm5ScCtad0RXNWZDWHUyams3aG5vU0llTE5rMDJpdmsv?=
+ =?utf-8?B?ejBPanlENTZmL3hoL3dIbHlTWVM2S0c3RDZxTCtxYU4rc2t6cktCVy8xZGZS?=
+ =?utf-8?B?cnRzdVA4WW9DZDZGY3JSTDZxMjl0eUJDSmY3S0hOSTRUZ1JhSVJ2SjU5WVJr?=
+ =?utf-8?B?UlZiSldCSkdybDVkeDFORmE0RDdwNFhLVTA2YmNBUVlFMWRuTFJxY0xXTFhu?=
+ =?utf-8?B?NlFmTjVvNXJJeWdzOXRESE9RQkhSNGRqRlF3QnhDazRXQXJETmFUV2dtSEZV?=
+ =?utf-8?B?eFBBZ09ZTWVYQ3NYVFcxWGFpR2ZsVkNMeDRia1ZoNXFkSmgyYUVVbVd6MnlX?=
+ =?utf-8?B?YVJTV1EwN010aFNJTU11TXIxK2x4c05DalJGaFVnTVMwaE12ZlFWQkJGQk9H?=
+ =?utf-8?B?TjVNbXFMbC96MXJxUW5xaG11cUtQZVdjdUFRd1c4RVE0cDJDZnRGVEdaekRt?=
+ =?utf-8?B?Qm1QeEpQVjdHRE9VSCsyejBmVnN1YXBRa0RLWHJlNC9PRStQYVIrOXoybU12?=
+ =?utf-8?B?dkpTVm5CTUpaUjkwR1VTV1RUUHNGSk9hNHhGdWUyOGpwbTlKb0FiRjlvUytR?=
+ =?utf-8?B?NFhDdWdWaUdMbk4wa1N4dEFTYzhGKzd6VFpUQmdaN28vOUJDTkZuZDBad3BF?=
+ =?utf-8?B?YklVUHI1bmNHRWdCTm03ZjlBd2tmQTRyNW5JQ2FTWVVmbmhkWTdEU2VTRUxY?=
+ =?utf-8?B?TWMwcG1ZQ0lVNmZrWk1HZGY3RHk0ZzNLWm45Vm9iUys4amFGR1FlMm1MMFlz?=
+ =?utf-8?B?cXh5Tm5hdllWSkpSdkNCWlFkUmV6UzVOVVhRVTZiNExVVWRSdis0Tm1GR21K?=
+ =?utf-8?B?N2pwa3Fucm1NQU1aTEhzUVlWMFhMbzNOV203cm94OVV1ekRXZG9OS09wOFNG?=
+ =?utf-8?B?bzdBb1ltam9LVTExT0hWdHg1Z1hwRFV0ZFcxOWVnZWs1SWVjajczMWtETkZL?=
+ =?utf-8?B?d2xTYlRjU3RYTVlKalM3NWgwZkkvdmZxa09WMitGSVdtdjdNWko4MjFpOU5w?=
+ =?utf-8?B?NzZOZFE1UENJUVpBVXlORDdvT0QwaWREL3dzWFVUVFpXbUV5QStsOEkvV2ds?=
+ =?utf-8?B?UUpIUjRWVmRGeW56NU9vd2RPU1Z4WU5aR3VvUm9BcGR6YTgvcE1FUjB0WjVL?=
+ =?utf-8?B?S0RzbGljTDNDajk4dGswbmRXN2FwUHRjZXRCQ2RKMm04UmhxRE5BeUZxbENH?=
+ =?utf-8?B?YXcwQ3FwT2FHaXJRZkI5MUxNSjdkdkZaVTRpQXN0Zkg2eENpWHhFSisxVUdW?=
+ =?utf-8?B?dDVQRDc4ZFZ4cnh4MWI1ZVNTOG1zOHh4ME9NRGtWY0Ria0NUdCtTSmVhd3BJ?=
+ =?utf-8?B?N0RxcnF2WGhGdlgwWi9xK2xsWmttYnpnVWZIcmF0SzR6bk9xdVBiQWszc0FT?=
+ =?utf-8?B?U2owTWw2NHljZGgxTERSTGZRS3RLTGduc0N4alZyeEJsa2I2aVVJNFpWckxO?=
+ =?utf-8?B?TFVIQ2p4YmhlSHRaYUs5UldsWWhDS1NTWWcxci8yTXl2THQxLzB4VGxLcFpy?=
+ =?utf-8?B?Rm9sT3I3b2kzTzI3UUZJTjE3eTdwbUtpdU1CcHFVVWZTRUZWajBpNncyUFYy?=
+ =?utf-8?B?Zkt3VkVwSGdSTldMYVl0Nkp3T0M1QkZpNVJQMTB2aUdvY2pKMzRWZz09?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: ea922b32-7d8f-44d4-257d-08de5467aee8
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB7573.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2026 18:55:42.7332
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 266fURtxAu/6VqFNg2aN5wR8nXbpZES9OOGi87qbqljivtpplZeGXKQxR4vNykYtLAxOBhw6SNkDSGbh1wTkE7TDcSTh+EQLfo1AcNKos3Q=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR11MB6775
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_105423_343323_C103226F 
-X-CRM114-Status: GOOD (  26.34  )
+X-CRM114-CacheID: sfid-20260115_105556_812985_FD908A89 
+X-CRM114-Status: GOOD (  21.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,150 +230,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 30, 2025 at 6:50=E2=80=AFAM Jiri Olsa <jolsa@kernel.org> wrote:
->
-> hi,
-> while poking the multi-tracing interface I ended up with just one ftrace_=
-ops
-> object to attach all trampolines.
->
-> This change allows to use less direct API calls during the attachment cha=
-nges
-> in the future code, so in effect speeding up the attachment.
->
-> In current code we get a speed up from using just a single ftrace_ops obj=
-ect.
->
-> - with current code:
->
->   Performance counter stats for 'bpftrace -e fentry:vmlinux:ksys_* {} -c =
-true':
->
->      6,364,157,902      cycles:k
->        828,728,902      cycles:u
->      1,064,803,824      instructions:u                   #    1.28  insn =
-per cycle
->     23,797,500,067      instructions:k                   #    3.74  insn =
-per cycle
->
->        4.416004987 seconds time elapsed
->
->        0.164121000 seconds user
->        1.289550000 seconds sys
->
->
-> - with the fix:
->
->    Performance counter stats for 'bpftrace -e fentry:vmlinux:ksys_* {} -c=
- true':
->
->      6,535,857,905      cycles:k
->        810,809,429      cycles:u
->      1,064,594,027      instructions:u                   #    1.31  insn =
-per cycle
->     23,962,552,894      instructions:k                   #    3.67  insn =
-per cycle
->
->        1.666961239 seconds time elapsed
->
->        0.157412000 seconds user
->        1.283396000 seconds sys
->
->
->
-> The speedup seems to be related to the fact that with single ftrace_ops o=
-bject
-> we don't call ftrace_shutdown anymore (we use ftrace_update_ops instead) =
-and
-> we skip the synchronize rcu calls (each ~100ms) at the end of that functi=
-on.
->
-> rfc: https://lore.kernel.org/bpf/20250729102813.1531457-1-jolsa@kernel.or=
-g/
-> v1:  https://lore.kernel.org/bpf/20250923215147.1571952-1-jolsa@kernel.or=
-g/
-> v2:  https://lore.kernel.org/bpf/20251113123750.2507435-1-jolsa@kernel.or=
-g/
-> v3:  https://lore.kernel.org/bpf/20251120212402.466524-1-jolsa@kernel.org=
-/
-> v4:  https://lore.kernel.org/bpf/20251203082402.78816-1-jolsa@kernel.org/
-> v5:  https://lore.kernel.org/bpf/20251215211402.353056-10-jolsa@kernel.or=
-g/
->
-> v6 changes:
-> - rename add_hash_entry_direct to add_ftrace_hash_entry_direct [Steven]
-> - factor hash_add/hash_sub [Steven]
-> - add kerneldoc header for update_ftrace_direct_* functions [Steven]
-> - few assorted smaller fixes [Steven]
-> - added missing direct_ops wrappers for !CONFIG_DYNAMIC_FTRACE_WITH_DIREC=
-T_CALLS
->   case [Steven]
->
+Hi Ben,
 
-So this looks good from BPF side, I think. Steven, if you don't mind
-giving this patch set another look and if everything is to your liking
-giving your ack, we can then apply it to bpf-next. Thanks!
+On 1/15/26 7:43 AM, Ben Horgan wrote:
+> On 1/13/26 23:14, Reinette Chatre wrote:
+>> On 1/12/26 8:58 AM, Ben Horgan wrote:
+...
+>>> +
+>>> +		/*
+>>> +		 * Unfortunately, num_rmid doesn't mean anything for
+>>> +		 * mpam, and its exposed to user-space!
+>>> +		 *
+>>
+>> The idea of adding a per MON group "num_mon_groups" file has been floated a couple of
+>> times now. I have not heard any objections against doing something like this.
+>> https://lore.kernel.org/all/cbe665c2-fe83-e446-1696-7115c0f9fd76@arm.com/
+>> https://lore.kernel.org/lkml/46767ca7-1f1b-48e8-8ce6-be4b00d129f9@intel.com/
+> 
+> Hmm, I see now that 'num_rmid' is documented as an upper bound and so
+> neither 1 or mpam_pmg_max + 1 agree with the documentation.
+> 
+> "
+> "num_rmids":
+> 		The number of RMIDs available. This is the
+> 		upper bound for how many "CTRL_MON" + "MON"
+> 		groups can be created.
+> "
 
-> v5 changes:
-> - do not export ftrace_hash object [Steven]
-> - fix update_ftrace_direct_add new_filter_hash leak [ci]
->
-> v4 changes:
-> - rebased on top of bpf-next/master (with jmp attach changes)
->   added patch 1 to deal with that
-> - added extra checks for update_ftrace_direct_del/mod to address
->   the ci bot review
->
-> v3 changes:
-> - rebased on top of bpf-next/master
-> - fixed update_ftrace_direct_del cleanup path
-> - added missing inline to update_ftrace_direct_* stubs
->
-> v2 changes:
-> - rebased on top fo bpf-next/master plus Song's livepatch fixes [1]
-> - renamed the API functions [2] [Steven]
-> - do not export the new api [Steven]
-> - kept the original direct interface:
->
->   I'm not sure if we want to melt both *_ftrace_direct and the new interf=
-ace
->   into single one. It's bit different in semantic (hence the name change =
-as
->   Steven suggested [2]) and I don't think the changes are not that big so
->   we could easily keep both APIs.
->
-> v1 changes:
-> - make the change x86 specific, after discussing with Mark options for
->   arm64 [Mark]
->
-> thanks,
-> jirka
->
->
-> [1] https://lore.kernel.org/bpf/20251027175023.1521602-1-song@kernel.org/
-> [2] https://lore.kernel.org/bpf/20250924050415.4aefcb91@batman.local.home=
-/
-> ---
-> Jiri Olsa (9):
->       ftrace,bpf: Remove FTRACE_OPS_FL_JMP ftrace_ops flag
->       ftrace: Make alloc_and_copy_ftrace_hash direct friendly
->       ftrace: Export some of hash related functions
->       ftrace: Add update_ftrace_direct_add function
->       ftrace: Add update_ftrace_direct_del function
->       ftrace: Add update_ftrace_direct_mod function
->       bpf: Add trampoline ip hash table
->       ftrace: Factor ftrace_ops ops_func interface
->       bpf,x86: Use single ftrace_ops for direct calls
->
->  arch/x86/Kconfig        |   1 +
->  include/linux/bpf.h     |   7 ++-
->  include/linux/ftrace.h  |  31 +++++++++-
->  kernel/bpf/trampoline.c | 259 ++++++++++++++++++++++++++++++++++++++++++=
-++++++++++++++++++++++++---------------
->  kernel/trace/Kconfig    |   3 +
->  kernel/trace/ftrace.c   | 406 ++++++++++++++++++++++++++++++++++++++++++=
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
-++--------
->  6 files changed, 632 insertions(+), 75 deletions(-)
->
+Please note that this documentation has been refactored (without changing its
+meaning). The above quoted text is specific to L3 monitoring and with the
+addition of telemetry monitoring the relevant text now reads:
+	The upper bound for how many "CTRL_MON" + "MON" can be created                  
+	is the smaller of the L3_MON and PERF_PKG_MON "num_rmids" values.  
+
+> 
+> So, if I understand correctly you're proposing setting
+> num_rmids = num_pmg * num_partids on arm platforms and that in the
+> interim this can then be used to calculate the num_pmg by calculating
+> num_closid/num_rmid but that a per CTRL_MON num_mon_groups should be
+> added to make this consistent across architectures?
+
+Yes for num_rmids = num_pmg * num_partids. The motivation for this is that to me
+this looks like the value that best matches the num_rmids documentation. I understand
+the RMID vs PMG is difficult so my proposal is certainly not set in stone and I would like to
+hear motivation for different interpretations. "calculating num_pmg" is not obvious
+though. I interpret "num_pmg" here as number of monitor groups per control group and on
+an Arm system this is indeed num_closid/num_rmids (if num_rmids = num_pmg * num_partids)
+but on x86 it is just num_rmids. Having user space depend on such computation to determine how
+many monitor groups per control group would thus require that user space knows whether the
+underlying system is Arm or x86 and would go against goal of having resctrl as a generic interface.
+
+The way forward may be to deprecate (somehow) num_rmids and transition to something
+like "num_mon_groups" but it is currently vague how "num_mon_groups" may look like. That thread 
+(https://lore.kernel.org/lkml/46767ca7-1f1b-48e8-8ce6-be4b00d129f9@intel.com/) fizzled
+out after raising a few options how it may look.
+
+Another proposal was to add a "mon_id_includes_control_id" to use as another "guide" to
+determine how many monitoring groups can be created but at the time it seemed an intermediary
+step for user to determine the number of monitor groups that resctrl can also provide.
+https://lore.kernel.org/lkml/CALPaoChad6=xqz+BQQd=dB915xhj1gusmcrS9ya+T2GyhTQc5Q@mail.gmail.com/
+
+Making this consistent across architectures is the goal since resctrl aims to be
+a generic interface. Users should not need to do things like infer which system they
+are running on by looking at output of resctrl files as mentioned.
+
+fwiw ...  there seems to be a usage by Google to compare num_rmids to num_closids to determine
+how to interact with resctrl:
+https://lore.kernel.org/lkml/CALPaoCgSO7HzK9BjyM8yL50oPyq9kBj64Nkgyo1WEJrWy5uHUg@mail.gmail.com/
+
+Reinette
 
