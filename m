@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C94D7D4116C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 11:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F1DD41171
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 11:30:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EX2/pdJmOHGJyOPWOoO/jYiC22gEmhP8fRpbvVz1tbA=; b=0zp/SiEU5NmEfbqZknseVZwXY4
-	EvozT2R1IyYAUy4lui0f8sL8gWI/Slj32mR3pFcwlfqOv6YIhstTjj+Lh2G15t7Awp2CoLxNs+0kt
-	6CcNq1eMWj0GpaqTXccI5r+LjVQjR80oi8sij6W749BHW7IT7ORVwBamFwXnQif7ibk48bqxCXtff
-	ruUhJft7aPVSlFlAlhxsJ95jvS1k6Jf6Rf5dWjBvqjyzkIjuyqcKjS7JEHcPFmjtRGl9dw4Nok+dE
-	Zr7qebHPCLTCMu1Qe/SyhdsNiEN5HKwL1RrJpnhtehHIAdiNNy1KNhfZf92IJtzF4gl1JOGDJgF/F
-	H7j9X9mQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gi7D4YXu7EUgXjV736V9eU724sbQ2xTksDlaUry8yuQ=; b=tm1U2yog3i8JsocmQMdQhI8Ils
+	sIEZO7iwKbU4vSyMMDhczH4jt/mcuwBPmQ5OYdJnqAw0JsiGOSKhJvSY1rJmhzqrXO01HFYMeFd8v
+	KAizvwyyNnIRIECtXBaw1XtR5Z3v6xRI1jVILUTfAICoyfLHP1ws5HBuF+MjdlgQr9zimt9h1oZy6
+	agLnKfWhygGEMB8Ns2Wj9yPxa//T7PgF7UukRY4brkEJ3iZYe5NBPVeaXF/5Zdtf66DJbcEpnfJzf
+	HN7WrjNtkHbK2k07YY+bbnCUc54jnYW/77aKH5t8tG52lmRniy5FotvMKzIn/W4Vlhqv/McVO1DkD
+	5op/uYHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgLLU-0000000CCse-30mj;
-	Thu, 15 Jan 2026 11:16:56 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vgLYG-0000000CE3H-1qz8;
+	Thu, 15 Jan 2026 11:30:08 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgLLS-0000000CCrp-1CU8;
-	Thu, 15 Jan 2026 11:16:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1768475810;
-	bh=gDZnxx6q0qOAWO0hBNhp6yUK/DLiEBqTd5LIFfrJ1sQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=gTE6zypqItfbmjm4GsreCssgWqf+84qPC4TokgTWJNKpwq5RYs5tHiEH3uJn/m99u
-	 AH8FwNMvh1YyfIWI/e2MusG9Djm3r6VBt/kXeR6jfYjiSWu+F0gYX2M20ZicFEK680
-	 0u0w4kedPWkziui13uMLqPQWmBJOIDj3whkJRnySwQvPozQ5pQh4O8G+2ABsWhZE3y
-	 cxukh4oKq8JUJxKdQPzTM6LvMKqT5JEdYZUj4MmNjiW3YRsH1RYzZc/sLCMWXnXibJ
-	 ymJ35HYNQasnzrxYo96OvH82COZ8Hs4YMvhpFGZFOhrmDPriEA6S/FHmj1DplKK1n8
-	 Ef25U81+5sVXA==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E019717E10C8;
-	Thu, 15 Jan 2026 12:16:49 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: devicetree@vger.kernel.org
-Cc: andersson@kernel.org,
-	mathieu.poirier@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	tinghan.shen@mediatek.com,
-	olivia.wen@mediatek.com,
-	linux-remoteproc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH v2] dt-bindings: remoteproc: mediatek: Remove l1tcm MMIO from MT8188 dual
-Date: Thu, 15 Jan 2026 12:16:45 +0100
-Message-ID: <20260115111645.63295-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.52.0
+	id 1vgLYC-0000000CE2l-40aI
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Jan 2026 11:30:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768476605; x=1800012605;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=sPpPbvhryAMe1NmcPn+z0LM6XHiUVy15HOBXB0+Othg=;
+  b=QuS7t6XSFUNZVTyrjEGyBS43jCb/q+ZZqRUha4q1+k0u+uKL0bqKvvrM
+   K1YFw36DZ2v0yKHHzi9u/uxL4qije3q+wQ9d3US/dqU13UVEv6utPVKT4
+   gk9IfZ9QVRXj5kJhBfYuxepmW9Izfg8mfkErOCN08o4W9IzycvXgbmkjT
+   gd0xj7qONYlP+Xx1bkt5K9RdhFY72vLELdoJcKoi94ZyrDQHA2qDzW2Ll
+   ax4+hsrB9qh4Hv8al4MZZWQnIp7G5tJMWtE4MJesI4lsoNzwu9hyFez3n
+   rH6aE8mtvfUqGbUTIFLU9d/ifE5ZCv8xZz11MA+3sA4FyE6nZzoLBaXK+
+   g==;
+X-CSE-ConnectionGUID: RknPocVuRFW6sE9//RxBIQ==
+X-CSE-MsgGUID: MyZEYDOzRNu+cuNkbhxc7w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11671"; a="72365566"
+X-IronPort-AV: E=Sophos;i="6.21,228,1763452800"; 
+   d="scan'208";a="72365566"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2026 03:30:04 -0800
+X-CSE-ConnectionGUID: wowK3yctQJ6kdZmJLCRrOg==
+X-CSE-MsgGUID: I0F7nP7lR+Wm+3bfXfMI7A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,228,1763452800"; 
+   d="scan'208";a="235643729"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa002.jf.intel.com with ESMTP; 15 Jan 2026 03:30:01 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vgLY6-00000000Hsy-0Utw;
+	Thu, 15 Jan 2026 11:29:58 +0000
+Date: Thu, 15 Jan 2026 19:29:47 +0800
+From: kernel test robot <lkp@intel.com>
+To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: oe-kbuild-all@lists.linux.dev, dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 01/13] dmaengine: of_dma: Add
+ devm_of_dma_controller_register()
+Message-ID: <202601151942.cEs9s8Tj-lkp@intel.com>
+References: <20260114-mxsdma-module-v1-1-9b2a9eaa4226@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260114-mxsdma-module-v1-1-9b2a9eaa4226@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_031654_483498_10073060 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260115_033005_043558_ED1A061D 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,83 +95,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Even though the MT8188 SoC's Dual-Core SCP IP is practically the
-same as the one found on MT8195, it doesn't have a dedicated L1
-TCM and relies only on SRAM.
+Hi Frank,
 
-Set reg/reg-names minItems to 1 globally and override it in all of
-the conditionals for the SoCs that require more, and then split
-the mt8195/8188 conditionals to allow specifying only the cfg MMIO
-on MT8188.
+kernel test robot noticed the following build errors:
 
-Fixes: 91e0d560b9fd ("dt-bindings: remoteproc: mediatek: Support MT8188 dual-core SCP")
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
+[auto build test ERROR on 8f0b4cce4481fb22653697cced8d0d04027cb1e8]
 
-Changes in v2:
- - Fix dtc warnings and validate again
+url:    https://github.com/intel-lab-lkp/linux/commits/Frank-Li/dmaengine-of_dma-Add-devm_of_dma_controller_register/20260115-063955
+base:   8f0b4cce4481fb22653697cced8d0d04027cb1e8
+patch link:    https://lore.kernel.org/r/20260114-mxsdma-module-v1-1-9b2a9eaa4226%40nxp.com
+patch subject: [PATCH 01/13] dmaengine: of_dma: Add devm_of_dma_controller_register()
+config: x86_64-randconfig-r071-20260115 (https://download.01.org/0day-ci/archive/20260115/202601151942.cEs9s8Tj-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.4.0-5) 12.4.0
+smatch version: v0.5.0-8985-g2614ff1a
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260115/202601151942.cEs9s8Tj-lkp@intel.com/reproduce)
 
-  CHKDT   ./Documentation/devicetree/bindings
-  LINT    ./Documentation/devicetree/bindings
-  DTEX    Documentation/devicetree/bindings/remoteproc/mtk,scp.example.dts
-  DTC [C] Documentation/devicetree/bindings/remoteproc/mtk,scp.example.dtb
-Done.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601151942.cEs9s8Tj-lkp@intel.com/
 
- .../bindings/remoteproc/mtk,scp.yaml          | 19 +++++++++++++++----
- 1 file changed, 15 insertions(+), 4 deletions(-)
+All errors (new ones prefixed by >>):
 
-diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-index 179c98b33b4d..f0cae3e4bc78 100644
---- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-+++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-@@ -28,11 +28,11 @@ properties:
-     description:
-       Should contain the address ranges for memory regions SRAM, CFG, and,
-       on some platforms, L1TCM.
--    minItems: 2
-+    minItems: 1
-     maxItems: 3
- 
-   reg-names:
--    minItems: 2
-+    minItems: 1
-     maxItems: 3
- 
-   clocks:
-@@ -185,7 +185,7 @@ allOf:
-     then:
-       properties:
-         reg:
--          maxItems: 3
-+          minItems: 3
-         reg-names:
-           items:
-             - const: sram
-@@ -196,11 +196,22 @@ allOf:
-         compatible:
-           enum:
-             - mediatek,mt8188-scp-dual
-+    then:
-+      properties:
-+        reg:
-+          maxItems: 1
-+        reg-names:
-+          items:
-+            - const: cfg
-+  - if:
-+      properties:
-+        compatible:
-+          enum:
-             - mediatek,mt8195-scp-dual
-     then:
-       properties:
-         reg:
--          maxItems: 2
-+          minItems: 2
-         reg-names:
-           items:
-             - const: cfg
+   In file included from drivers/tty/serial/fsl_lpuart.c:22:
+>> include/linux/of_dma.h:88:1: error: return type defaults to 'int' [-Werror=implicit-int]
+      88 | devm_of_dma_controller_register(struct device *dev, struct device_node *np,
+         | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   cc1: some warnings being treated as errors
+
+
+vim +/int +88 include/linux/of_dma.h
+
+    86	
+    87	static inline
+  > 88	devm_of_dma_controller_register(struct device *dev, struct device_node *np,
+    89					struct dma_chan *(*of_dma_xlate)
+    90					(struct of_phandle_args *, struct of_dma *),
+    91					void *data)
+    92	{
+    93		return -ENODEV;
+    94	}
+    95	
+
 -- 
-2.52.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
