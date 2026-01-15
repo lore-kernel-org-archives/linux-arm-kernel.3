@@ -4,121 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99157D4115E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 10:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65849D41161
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 10:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Blw9ol92Adxv0ebGIyoRpKSiGhl8JOSAW1An3S4C+Hw=; b=AG3FLSN2qFrhE8Mc340dS+549W
-	zrz9WL0+npED9ZbTXOQHTFcBAyXaZY6175ogp+hrPpaKkpEI3LIfdwFyD/kK7q1xab0tOfYWQZvS3
-	7DPbcUu6N7g3mjKeqHbA+2HfLmasNHEtfLP/hew5oXBavOMfc8s9R1arE1jNnAu0wOW/ydlA/dL4k
-	qSvIBAx+RSnQmnZuprqkpM574l5tWzJ/Np5RulRkVHuFUljn0HBOFy77y6wRWS9AWerB4HDB0FD0x
-	/Hb0lAOQm9wCJywh6k6RNY0yHFk5UmHYr+okZk6JB+n3BbIOJYnRMhwtWZIaLwg9wdcwgVzjhmjnK
-	kSfkpUNw==;
+	bh=JUtR5fZCMCFDv1L2fMuKGaJoYYlZ9nsRbdS8uOlBfMA=; b=HGuj+XT995OvpDHeQi2ZTlSF2I
+	tz76mPNM90a70sL+4sizvGcIaAd4i2I10DDWL8glOk95vyboi6PKslwUWwA7/t9+H8fgCppovpJaH
+	VTSkCtBa8bORNx7uzAmAFlxlG01X8xUWRztjB/b/Ihe0vpVRBqNhAph6NMcTgCqNM6tClugBrTzGq
+	7w4cb9/NbGZoqYHmoz1UL7uogOAkGJ8v501zBfML9lqHuZuK3KCZBTylbtrDMcPmHe3UN1ffAZgfQ
+	5assAsUkfOkNg7cXKdQyv0CJB4ROem2aj0svkHAqnujVzB0ajdfxDpshbSpBdtBWpxXawSFZQ7GSx
+	7EuN9bsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgKSX-0000000C93U-2IDt;
-	Thu, 15 Jan 2026 10:20:09 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1vgKWN-0000000C9Ti-19cr;
+	Thu, 15 Jan 2026 10:24:07 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgKST-0000000C90q-3mDK
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 10:20:08 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-430f2ee2f00so381493f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 02:20:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1768472404; x=1769077204; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Blw9ol92Adxv0ebGIyoRpKSiGhl8JOSAW1An3S4C+Hw=;
-        b=UFMIHyzm/mf800Jak0zNRj0vP6X0MI0TFuKqT01CTbC6+Xx5GYUy2f9JphAbXSZLYB
-         7NVwoXj+kOM6UlfXWmuNqnuhxUS9oPCq8bt79RTFCL92q+BPWFj7S67ogv4QQ52EDM9B
-         TiF39Jiel2uT296nK6GMYcPBkgnXtEgxKX4GXBggd2Eq8z3icgurBaUdzQ4EQGYw+PYN
-         g19657coTDLDyc3ElfG9JQ0fyi6ZbyGfkNCbkqSpN3JIZ8NzhB4Bv75uLhPUVm1g70Zk
-         zB00NLej72oHt8s4GmqGjNM40RRmlIZHifp5PqEX/P1KY3ZApHhIqYuOtkicGkrKPrHs
-         5drw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768472404; x=1769077204;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Blw9ol92Adxv0ebGIyoRpKSiGhl8JOSAW1An3S4C+Hw=;
-        b=vDoCJsfbNbmhTPunbeTibykWnLPKVVftanir1ej8jMloMPQkc+/w5WX51r8AATp20+
-         azjdh4oqJ5BAqyDtSIWtV/OystFqbdZmwU1GuCKZOir97Vlo3kUk/6b/kedd496wJhov
-         RnUe8GuG/vwodDzagRCt+O9h3XNnOjNUh6XMSvkgtYpcU/XA0ZOPVjVuEIMSctIWrhm+
-         V/EdUFpsXI3fXo1yIbg5+p7JCN/3jcIDCCZeUAZnWeft6qQOo2fb+UrI8Il8sLrUm+Ro
-         2k7f5bpFyg8KxCmmdt0idm9FTPRqf6FOAXo0idnih7v54y8gYhsuejYyrYA5E9MxWNFX
-         8nKg==
-X-Forwarded-Encrypted: i=1; AJvYcCXxpxc4rgvXwgj6HOALXvJA6tBimMEukWcVfCi3YOf/P+2XOpPdKXp5YeqVOP8lVBomI1GIoNhZWBE3RyeUVNVt@lists.infradead.org
-X-Gm-Message-State: AOJu0YyX30QEaptrB5ndqroy7/uFZNYSZfdlADHDo1qamvf0wqirKHCu
-	OS19qcJA0+Bf89w74QmJIcA8jqMyLyrB8u+7exBqn1u+4oMr9p24KblHI+6HDPYUCPQ=
-X-Gm-Gg: AY/fxX5OUYKOaZypp0p5SeTLLfqw1d3DFhdDzZsD6ILXDCQU7sH9RDeEOpTPg6nCHaL
-	vwkBx6M38rr79t98H99zGKNG9aJm10M/xxyofwJrycCtl4DBk6mJjhQlIVjBQ5oKxWAxvLPp+yK
-	dKd89ctHwjN858oX3YnEaLx/S6i++bPIG1bUUTGBkFp5ABVkovT9uTU2yZOid73rctlvqsgXNUx
-	hZOXz77l2tMxo8O5fuf2AWagrQPoLTXi3jt0GCUNJxc+YJGrk6nLyy1zicnoE077n9eC8M/C2wJ
-	ldyHnxjaFbTsXC3zGqJ89z708wVJKJWLrwshtcJP3l8OgEp8cRVcTZXgPTzCd9ZBsAfAGZd3gKK
-	jVaucmNZ7DT9vbeH5EX9KOSCKWEmxOU9ByghdZhYFSircwqzh1s4XM7B6HGCMtuT4AbmTnDgqtM
-	qXyqmUrI6WXAUiMw==
-X-Received: by 2002:a5d:6b41:0:b0:432:a9db:f99d with SMTP id ffacd0b85a97d-4342c535db3mr5505744f8f.36.1768472403629;
-        Thu, 15 Jan 2026 02:20:03 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-434af653632sm5139931f8f.11.2026.01.15.02.20.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 02:20:02 -0800 (PST)
-Date: Thu, 15 Jan 2026 11:20:00 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: Marcos Paulo de Souza <mpdesouza@suse.com>
-Cc: Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jason Wessel <jason.wessel@windriver.com>,
-	Daniel Thompson <danielt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	John Ogness <john.ogness@linutronix.de>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	id 1vgKWK-0000000C9TJ-2yHN;
+	Thu, 15 Jan 2026 10:24:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768472645; x=1800008645;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=p9miV0nNryyvHyd1FyrzdZUkZX6TLv1ioe/BqF8c1NU=;
+  b=jRjRqbcwrVvgD4v2swy7XNyecUwR5mCapexxWS0KLD/0ePG523r74JxF
+   ZXNdz7qygSeCj3IYjrNffeOK3pWl36lmlDc8Q50USe3KxiM2KF4t0S+nt
+   p28WW1DQOp9GHDG+Lo78U8qDCtByKjtTL4bfsWL7byJY4EVNZuWkbRKgP
+   Pj8T0lMNpaFAZzoGTzjXWRU3GzBvIoHOb0/qJ76Du8NKPOEbbG6epPvP6
+   XCfOJ97D7h+CvlDQCLisfwyca/sHwrDkkghxJts9QPgjByKeWKkn1MQ31
+   DOwlRVqfZl/xqPR0eYQvG+dxqRHTPl/yOHNZ1t5J81QESy6T/um0XNyUR
+   Q==;
+X-CSE-ConnectionGUID: wFQ7inWkTuaFo5eaKQPLlQ==
+X-CSE-MsgGUID: izvHOQvtTFOfkjrj/c1m+w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11671"; a="68787905"
+X-IronPort-AV: E=Sophos;i="6.21,228,1763452800"; 
+   d="scan'208";a="68787905"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2026 02:24:02 -0800
+X-CSE-ConnectionGUID: 1DP/q8OUSOaiDbgrzWpjsw==
+X-CSE-MsgGUID: +4l+nVOsSCmGCnreoNkZIQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,228,1763452800"; 
+   d="scan'208";a="209393799"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 15 Jan 2026 02:23:58 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vgKWB-00000000HqG-0nOs;
+	Thu, 15 Jan 2026 10:23:55 +0000
+Date: Thu, 15 Jan 2026 18:23:48 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
-	linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
-	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 08/19] debug: debug_core: Migrate to
- register_console_force helper
-Message-ID: <aWi_UJcrphO9Esxw@pathway.suse.cz>
-References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
- <20251227-printk-cleanup-part3-v1-8-21a291bcf197@suse.com>
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next 03/14] phy: qcom-sgmii-eth: add .set_mode() and
+ .validate() methods
+Message-ID: <202601151700.IjgxseKd-lkp@intel.com>
+References: <E1vg4vs-00000003SFt-1Fje@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251227-printk-cleanup-part3-v1-8-21a291bcf197@suse.com>
+In-Reply-To: <E1vg4vs-00000003SFt-1Fje@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_022005_971505_DB7C2435 
-X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-CacheID: sfid-20260115_022404_784728_09ECFF0D 
+X-CRM114-Status: UNSURE (   8.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -134,19 +100,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat 2025-12-27 09:16:15, Marcos Paulo de Souza wrote:
-> The register_console_force function was introduced to register consoles
-> even on the presence of default consoles, replacing the CON_ENABLE flag
-> that was forcing the same behavior.
-> 
-> No functional changes.
-> 
-> Signed-off-by: Marcos Paulo de Souza <mpdesouza@suse.com>
+Hi Russell,
 
-LGTM, nice cleanup!
+kernel test robot noticed the following build errors:
 
-Reviewed-by: Petr Mladek <pmladek@suse.com>
+[auto build test ERROR on net-next/main]
 
-Best Regards,
-Petr
+url:    https://github.com/intel-lab-lkp/linux/commits/Russell-King-Oracle/net-stmmac-qcom-ethqos-remove-mac_base/20260115-054728
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/E1vg4vs-00000003SFt-1Fje%40rmk-PC.armlinux.org.uk
+patch subject: [PATCH net-next 03/14] phy: qcom-sgmii-eth: add .set_mode() and .validate() methods
+config: powerpc-randconfig-002-20260115 (https://download.01.org/0day-ci/archive/20260115/202601151700.IjgxseKd-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 9b8addffa70cee5b2acc5454712d9cf78ce45710)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260115/202601151700.IjgxseKd-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601151700.IjgxseKd-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/phy/qualcomm/phy-qcom-sgmii-eth.c:294:17: error: use of undeclared identifier 'PHY_INTERFACE_MODE_SGMII'
+     294 |         if (submode == PHY_INTERFACE_MODE_SGMII ||
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/phy/qualcomm/phy-qcom-sgmii-eth.c:295:17: error: use of undeclared identifier 'PHY_INTERFACE_MODE_1000BASEX'
+     295 |             submode == PHY_INTERFACE_MODE_1000BASEX)
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/phy/qualcomm/phy-qcom-sgmii-eth.c:298:17: error: use of undeclared identifier 'PHY_INTERFACE_MODE_2500BASEX'
+     298 |         if (submode == PHY_INTERFACE_MODE_2500BASEX)
+         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   3 errors generated.
+
+
+vim +/PHY_INTERFACE_MODE_SGMII +294 drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
+
+   288	
+   289	static int qcom_dwmac_sgmii_phy_speed(enum phy_mode mode, int submode)
+   290	{
+   291		if (mode != PHY_MODE_ETHERNET)
+   292			return -EINVAL;
+   293	
+ > 294		if (submode == PHY_INTERFACE_MODE_SGMII ||
+ > 295		    submode == PHY_INTERFACE_MODE_1000BASEX)
+   296			return SPEED_1000;
+   297	
+ > 298		if (submode == PHY_INTERFACE_MODE_2500BASEX)
+   299			return SPEED_2500;
+   300	
+   301		return -EINVAL;
+   302	}
+   303	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
