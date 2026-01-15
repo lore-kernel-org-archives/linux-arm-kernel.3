@@ -4,59 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C3D9D46605
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 17:42:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E6C9D46604
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 17:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+kDi0Nl3A+slky2xKqNT3JRyrF+r1xn6UkkHjegXuiw=; b=lYapWJeRXc33dnt2G+zJ3BfXtS
-	lOka2+CPP6clIDX+h21kDci2Un1zoKL1UZc97sKnQZP4hEzwO35kyWi9PJmE6jG2MAxC+FKKieL34
-	23RLOkqrr5kVtPhS/02in77BTlbBAUQfR5ACCsECnKcNJ30aHZ+Rek/S6cGHk3rgQ3lAJroF5sRcz
-	sj+8Ao6Cbn3idgLVRcrNut1BsXO/DHWlGIRFPWcctzLs58lBeYzkNYhTveSjqzNoZAXP7Y2xVmW59
-	GjdbMFyJPYeEl2ZZl+/NWMlpSMX4HReJ46kSEBhCn4+xHIY3vMJ87HKbiW+Yu6XUIhKkkRDeVWS8G
-	qcvsJRdQ==;
+	bh=+6xb8o2Ek3tuPFQPXpObbPkIvoMHfb2HLA4bjqRg0b8=; b=vR0CHih97J9gYFoECCNgRwhtfP
+	j/vyg3kkPmKxOp2wgE8Z+C/ZuShxOPrzigB9hivYzTS0jJ57Lm/PK+9SpzPmKgXrbgZjNJCyHCG9t
+	4LYYmGbdmBQRMNaWicHUocM67gAiV0fU7E+I35bsWPXy0uDqj+vmFnLgSaZHj5sT+m6H9SVuWzS6i
+	jxQQKtteAteTgsXWhmKk9AHq6wL7UkWRO288CIe983QRIRijJOj+x7bCTvPqH2RN3y8K/fFx++REy
+	j4VTVQlap69yJx93rEA+65YSaoGXIradWZXrtaEKkETiw3XOSXdP9w2tpeJVH7y6Zt7vZ13ucJGaT
+	7LMtEKBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgRM4-0000000Crw0-0Kyo;
-	Thu, 15 Jan 2026 17:41:56 +0000
+	id 1vgRUe-0000000Ctqw-1FVm;
+	Thu, 15 Jan 2026 17:50:48 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgRM2-0000000CrvC-0x1R;
-	Thu, 15 Jan 2026 17:41:55 +0000
+	id 1vgRUb-0000000CtnS-2SWL;
+	Thu, 15 Jan 2026 17:50:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=+kDi0Nl3A+slky2xKqNT3JRyrF+r1xn6UkkHjegXuiw=; b=CbsUxWnatxSQjbieGBw08x9PxE
-	oq3z3oR4bitdTyXDbS8VOFY86Uzf2NksTtTUqWX8gpKqAOMbTplPjvC+NFbsMw13y5o5XahFqPXmT
-	QuDVSYVQukaQuaPwJoApwSiD3K4GXnX0SOwPlYf8Y9CHBF9BgGzCPp3+RECaCaqNvlkY=;
+	bh=+6xb8o2Ek3tuPFQPXpObbPkIvoMHfb2HLA4bjqRg0b8=; b=2AAm5y+BIP3Fmq4cxnlrEl8McR
+	9Coy+P/Sw/9CfvKmeA37H8zDpdfSD+ghP7fGsvCEFdS9V1+H3+I0UPCoSFVSpu50iBGwSdv7kZEcr
+	zfCofb+xjPW52CFxyW4ruicCj190SdVYDcXe4DPTF+iT1QNriiVK5qotGs18dEaGk1XU=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1vgRLv-002xwl-OO; Thu, 15 Jan 2026 18:41:47 +0100
-Date: Thu, 15 Jan 2026 18:41:47 +0100
+	id 1vgRUT-002y26-C2; Thu, 15 Jan 2026 18:50:37 +0100
+Date: Thu, 15 Jan 2026 18:50:37 +0100
 From: Andrew Lunn <andrew@lunn.ch>
-To: Sayantan Nandy <sayantann11@gmail.com>
-Cc: lorenzo@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	sayantan.nandy@airoha.com, bread.hsu@airoha.com,
-	kuldeep.malik@airoha.com, aniket.negi@airoha.com,
-	rajeev.kumar@airoha.com
-Subject: Re: [PATCH] net: airoha_eth: increase max mtu to 9220 for DSA jumbo
- frames
-Message-ID: <e86cea28-1495-4b1a-83f1-3b0f1899b85f@lunn.ch>
-References: <20260115084837.52307-1-sayantann11@gmail.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Christian Marangi <ansuelsmth@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next v2 1/2] dt-bindings: net: airoha: npu: Add
+ EN7581-7996 support
+Message-ID: <13947d52-b50d-425e-b06d-772242c75153@lunn.ch>
+References: <75f9d8c9-20a9-4b7e-a41c-8a17c8288550@kernel.org>
+ <69676b6c.050a0220.5afb9.88e4@mx.google.com>
+ <e2d2c011-e041-4cf7-9ff5-7d042cd9005f@kernel.org>
+ <69677256.5d0a0220.2dc5a5.fad0@mx.google.com>
+ <76bbffa8-e830-4d02-a676-b494616568a2@lunn.ch>
+ <6967c46a.5d0a0220.1ba90b.393c@mx.google.com>
+ <9340a82a-bae8-4ef6-9484-3d2842cf34aa@lunn.ch>
+ <aWfdY53PQPcqTpYv@lore-desk>
+ <e8b48d9e-f5ba-400b-8e4a-66ea7608c9ae@lunn.ch>
+ <aWgaHqXylN2eyS5R@lore-desk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260115084837.52307-1-sayantann11@gmail.com>
+In-Reply-To: <aWgaHqXylN2eyS5R@lore-desk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_094154_263153_E33B7745 
-X-CRM114-Status: UNSURE (   6.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260115_095045_628546_712C7950 
+X-CRM114-Status: GOOD (  18.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,14 +85,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 15, 2026 at 02:18:37PM +0530, Sayantan Nandy wrote:
-> The Industry standard for jumbo frame MTU is 9216 bytes. When using DSA
-> sub-system, an extra 4 byte tag is added to each frame. To allow users
-> to set the standard 9216-byte MTU via ifconfig,increase AIROHA_MAX_MTU
-> to 9220 bytes (9216+4).
+On Wed, Jan 14, 2026 at 11:35:10PM +0100, Lorenzo Bianconi wrote:
+> > > In the current codebase the NPU driver does not need to access the WiFi PCIe
+> > > slot (or any other external device) since the offloading (wired and wireless)
+> > > is fully managed by the NPU chip (hw + firmware binaries).
+> > 
+> > Are you saying the NPU itself enumerates the PCI busses and finds the
+> > WiFi device?  If it can do that, why not ask it which PCI device it is
+> > using?
+> 
+> nope, we do not need any PCI enumeration in the NPU driver at the moment
+> (please see below).
+> 
+> > 
+> > Or this the PCI slot to use somehow embedded within the firmware?
+> 
+> in the current implementation the NPU driver does not need any reference to
+> WiFi or Ethernet devices. The NPU exports offloading APIs to consumer devices
+> (e.g. WiFi or Ethernet devices). In particular,
+> 1- during NPU module probe, the NPU driver configures NPU hw registers and
+>    loads the NPU firmware binaries.
+> 2- NPU consumers (ethernet and/or wifi devices) get a reference to the NPU
+>    device via device-tree in order to consume NPU APIs for offloading.
+> 3- netfilter flowtable offloads traffic to the selected ethernet and/or WiFi
+>    device that runs the NPU APIs accessible via the NPU reference obtained via
+>    dts.
+> 
+> The issue here is the NPU firmware binaries for EN7581, loaded by the NPU
+> driver during NPU probe and used for offloading, depend on the WiFi chipset
+> (e.g. MT7996 or MT7992) available on the EN7581 board (we have two different
+> NPU binaries for MT7996 offloading and for MT7992 offloading).
 
-What does the hardware actually support? Is 9220 the real limit? 10K?
-16K?
+Maybe i'm getting the NPU wrong, but i assumed it was directly talking
+to the Ethernet and WiFi device on the PCIe bus, bypassing the host?
+If so, it most somehow know what PCIe slots these devices use?
 
-	Andrew
+   Andrew
 
