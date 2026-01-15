@@ -4,119 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE0AD4117A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 12:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A90D41178
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 12:18:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zx4s5ogULMWiwAg3H50k8gmoVyZOh2DwfMGC+/dY5Co=; b=K9Sqkr8B+a2RIERAzI2e39zOo0
-	bZ5XhZtbKhttuaF8NXHuHJyfsqAzWeUqIM0sz2oAp5WtYBPeQY9R9Gr60geX3uaMk/eCVPtxTJx+7
-	/z+oEizqsYheW23UIG3qBHyTdqwjEHtFAHXi4DGexiHuarhb6zFR3sEvRPENDX4+eXH0RdjSSvbap
-	I7HvjYzyiVzyqDL6K5qgngMwrYdg6+Bvmbzf7Mfk9xiimsKzyyIP2N7r6p/jyOegYI7OnXB+OexX7
-	nO41nBEcxolXiRsIBfzlO1m1TsXDSJiTwSBPO1Zs1IE1QxmKJx0O/RIRXWv0gZN3XpQsT82Spow8g
-	FILCFMQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vWywO9iVXCuuLdGNmwF5lIVd/dU9LUM5EC9/H03tSxU=; b=xabvfF5bSpUvtHqxZ/0SAJFlQ8
+	0XMEdOYCyMe5N9xcewvfFZZGOTK74kzHTHcPEmABu91u7IiPzQPcEW0QzgSrv4OUUO9c+Av7Pt3Aw
+	lWzrZ9pS/yhCAYpYyROlkxiXk/v6s9jMSKGz9al9oG01z2I+V/o0qoNF1stW0sYjW/YS1laisBiRx
+	ZopvMxgNj+RabEK9FGp6L4r5uZzgt4iCoIKTQwdOcMXJ84BJ6nbR/+TfIe3n3CZv9VytFFJMeFp+R
+	4VPfUpRa/iBJQpEcUsHKLlfApPOXf6wWsxibuoSOHMK5h7+c5zpWS5PdvuDeCZgyDhcjWj9I/hV/Z
+	L5UG50yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgMFR-0000000CJMu-2uqK;
-	Thu, 15 Jan 2026 12:14:45 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1vgMIc-0000000CJff-0TlM;
+	Thu, 15 Jan 2026 12:18:02 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgMFP-0000000CJM5-1YdG
+	id 1vgMIZ-0000000CJfH-0MKl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 12:14:44 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-42fb0fc5aa4so659157f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 04:14:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1768479281; x=1769084081; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zx4s5ogULMWiwAg3H50k8gmoVyZOh2DwfMGC+/dY5Co=;
-        b=D7OpQpZCobeJmp7R5mrq/jM7l3nx4NeYuLBH2osT1EgQPO85F+k+2NM0yt3nw6k9c2
-         KFoy+fjOVLel7tJRsyzIRv8cVxjkkPXLTtrqFhFMZtF6YgSpjq6SkVDqqPdmSVAf9GFB
-         cRCSjEvEQtie/FVGSNTyjnGmsjNRDukWnFY2XYvfqx7+Xm3uT3wYbVYg//RdnMoo9QDd
-         DhG9ynGHPtHq6ZdwIxCheBsVTMonJekfbsd9s9aN7CpqMWVvEU0Wl/OWUrZ7FYM/hQMe
-         mAqxiaEXx6kM6U2eektVy+jovqzgDqG2Vs5j6VVXyusDlzlsej2TfIG86OtdPDqvo1rE
-         BL6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768479281; x=1769084081;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zx4s5ogULMWiwAg3H50k8gmoVyZOh2DwfMGC+/dY5Co=;
-        b=xSbNWcR+3MePYQ42LB5puyCgiCJG6JtstlmrLNyMptfa+Z3kBGflrTup6jZ6uMzuqu
-         Es9yvkd4NySWm1mlfnmPaRqJ5x4rVbqqqQc7H48g30jw3+EUkVXeraKIOI1FOFL3vcpg
-         jkyY20MEW1i5rSr3UGG9njMmHZMbg3RogC3EDQpjFDjMhz70fnSEBHl3pbjCX4IL/Iwk
-         7J1jcsCEfLo01QrILebB/lRCRcf8RVAGfi+9MAkURbZP7oNdwrSxwOhu6jodHUdGue8z
-         ggXm0saIz1BDsPRhIsgwEbjAnA9KQaNVY1HJ91dVmaubHEBCntKh70ZeYEohI6YZuFB4
-         D7hg==
-X-Forwarded-Encrypted: i=1; AJvYcCUTvNfRWCT++STdX4KlQuo0j3BLne01oDyROceI3kNKUC+c9dJKUoIby/VBXJFE2KsOUJsKkgMYkrRi1Qg3DmDU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+1m3Jm7vlGLlsOKpah/7FIXom5w4pOu2a47x39Kin/vxy6tkK
-	fKTbh32JiXzNhBJQLonNGVagW8kxZgwBIPT52Ag3hZrI28+PuEfEWtgUtq0cudTgMK4=
-X-Gm-Gg: AY/fxX6Lm2er5QKJLFV4Is2bFsObQBuSj6/1SmZyQEsn0cUFCBUrEE+SbjeYCjhkfoC
-	08MQMZRFfRbAHKPbZq5ljbdFxjuB54RlQsZIjpEiofX+5qgTBvHplSZtLRMNPk+LpBncg2yGQF3
-	3RpDYbkucu+Sodm7mUjeUk84KxTvIICHnO69kJvUXxupYeEVjtryeyd2SaZk/HHPMpudDGlGscN
-	9QWRPpvGaZlVpSktHtmjzyNwy9DL4F2C+LI94Xsmpwqyr1jzM9jWK/Y6y3mjLKNsZkPDzLUN/Ft
-	+hwHOkEqfPXzrr/NUA6+Bdz1SxhDOzsK5CsfaAm/m2xt2YzoYEbxrhCKmZTmSm8BIsbM5EfP2Uq
-	6CHxs0OuJcdZr3rrxqMBQ6ZRfz1WydS1xOHI4+kkLkhFJn7GQ4Yioz3/GVS/jTfKPV4BTVfrMZH
-	nIFtUSB6dpV+6Vpg==
-X-Received: by 2002:a05:6000:3101:b0:431:abb:942f with SMTP id ffacd0b85a97d-4342c557b93mr7715812f8f.54.1768479281353;
-        Thu, 15 Jan 2026 04:14:41 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-434af64a778sm5591185f8f.3.2026.01.15.04.14.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jan 2026 04:14:40 -0800 (PST)
-Date: Thu, 15 Jan 2026 13:14:38 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: Marcos Paulo de Souza <mpdesouza@suse.com>
-Cc: Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jason Wessel <jason.wessel@windriver.com>,
-	Daniel Thompson <danielt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	John Ogness <john.ogness@linutronix.de>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>, linux-um@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kgdb-bugreport@lists.sourceforge.net,
-	linux-serial@vger.kernel.org, netdev@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-hardening@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 12/19] sparc: kernel: btext: Migrate to
- register_console_force helper
-Message-ID: <aWjaLhzRoTLalIrM@pathway.suse.cz>
-References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
- <20251227-printk-cleanup-part3-v1-12-21a291bcf197@suse.com>
+	Thu, 15 Jan 2026 12:18:00 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.150])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dsMSC4c9LzHnH7D;
+	Thu, 15 Jan 2026 20:17:31 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8029340563;
+	Thu, 15 Jan 2026 20:17:53 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 15 Jan
+ 2026 12:17:52 +0000
+Date: Thu, 15 Jan 2026 12:17:51 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+CC: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Robert Moore <robert.moore@intel.com>, Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Marc Zyngier <maz@kernel.org>, "Bjorn
+ Helgaas" <bhelgaas@google.com>, Thomas Gleixner <tglx@kernel.org>,
+	<linux-acpi@vger.kernel.org>, <acpica-devel@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-pci@vger.kernel.org>
+Subject: Re: [PATCH v3 1/6] irqdomain: Add parent field to struct
+ irqchip_fwid
+Message-ID: <20260115121751.00004b9f@huawei.com>
+In-Reply-To: <20260115-gicv5-host-acpi-v3-1-c13a9a150388@kernel.org>
+References: <20260115-gicv5-host-acpi-v3-0-c13a9a150388@kernel.org>
+	<20260115-gicv5-host-acpi-v3-1-c13a9a150388@kernel.org>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251227-printk-cleanup-part3-v1-12-21a291bcf197@suse.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_041443_425420_E16DDE3E 
-X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-CacheID: sfid-20260115_041759_267546_8222321D 
+X-CRM114-Status: UNSURE (   8.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -132,19 +78,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat 2025-12-27 09:16:19, Marcos Paulo de Souza wrote:
-> The register_console_force function was introduced to register consoles
-> even on the presence of default consoles, replacing the CON_ENABLE flag
-> that was forcing the same behavior.
+On Thu, 15 Jan 2026 10:50:47 +0100
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+
+> The GICv5 driver IRQ domain hierarchy requires adding a parent field to
+> struct irqchip_fwid so that core code can reference a fwnode_handle parent
+> for a given fwnode.
 > 
-> No functional changes.
+> Add a parent field to struct irqchip_fwid and update the related kernel API
+> functions to initialize and handle it.
 > 
-> Signed-off-by: Marcos Paulo de Souza <mpdesouza@suse.com>
+> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Thomas Gleixner <tglx@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
 
-LGTM, nice cleanup!
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
-Reviewed-by: Petr Mladek <pmladek@suse.com>
-
-Best Regards,
-Petr
 
