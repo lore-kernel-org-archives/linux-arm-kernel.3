@@ -4,72 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2293D3CCA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 02:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49DCD3CCA3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 02:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ieCfMt02g5PkyDbzSDXCUy1JmlbaHrmoOcZmySeh3bo=; b=JwE4tuokzWKjIdDV7O8oDu7KW1
-	baL6ux1v+Sqz/hScTYBwVUpEQwAWsiJqyO7+EuEI70d0ejKY/j8KlVs9SEIFCI23ifeNpzXT/MNqR
-	nwG74V25oLnH6dcSyITegtJxxkceTsNv8x14t4yp0CB7xmKv0dx774Hz4fweeEm6GxkGLwz9UwGH5
-	CbN+Jpt1BQ/z2S24xMPwXuFkECy4GqlSuByxm/Un5ijppAEOYJ9EWKRWeiCIDIMbSV4MaLYHL1GF4
-	r0x/hdwlQ8RG6Lbvs4AJ935EPfgXM6Vmc5ZcU2JK/4/4Wt27DIoN9pallA5Lf7zuWIWUJohkRhk3l
-	WLHkTvCw==;
+	bh=vA4sG2LcbrHKYOPfRfHsAEkNum7WWXZhFvlb2/tyyv4=; b=pIpj5FeatGK8uZDMuNPE4A28UI
+	bvP0xT8BHJZMZ4XVo4nLesA0nR0vV0CQuh7VJYBuyF/SkOyj9eddt+OKMGA+y1FrBdtNhuwkVqDxO
+	xVbviRtwbMo+OzFNcTisu23t0qQKYWlyjz2daV0mwqRJTixjtBgcN0bLVCr6bAJGZ5NKmJJ2b4De3
+	1SSjHg8a9ggz1sBySr73M9rpdi7KedpL5qV1DysQbehopjjp85D9gD0+0gvcr9r+Aoi0eANmixfd0
+	AolrE3YNnhSnHuUzAP0IUFfGFBNEJEnPjd9MG0SLDYAb19Hgdg8iB/qdF6vWaPIYYuBfiM4KG4hGF
+	qdz0vaWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgDG3-0000000BZ5T-3PuF;
-	Thu, 15 Jan 2026 02:38:47 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1vgDM4-0000000BZuJ-2iso;
+	Thu, 15 Jan 2026 02:45:00 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgDG0-0000000BZ4Z-2vf3
+	id 1vgDM0-0000000BZsw-1ycm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 02:38:47 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-03 (Coremail) with SMTP id rQCowABXZMsuU2hpD2YxBQ--.43886S2;
-	Thu, 15 Jan 2026 10:38:38 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: peter.griffin@linaro.org,
-	andre.draszik@linaro.org,
-	tudor.ambarus@linaro.org,
-	Thinh.Nguyen@synopsys.com,
-	gregkh@linuxfoundation.org
+	Thu, 15 Jan 2026 02:44:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=vA
+	4sG2LcbrHKYOPfRfHsAEkNum7WWXZhFvlb2/tyyv4=; b=TFYyYYtBiwIdA4AhIj
+	OI27ipBY6bTZD7fnjgVPi2lLbHb5s5LAbNlh1yZ8qn0eM/7IndXz+ZTHkYpdx9SO
+	LAvSyAD/Bo6RoWlqNsgVC+BkvqA7VJkqqhjbFtcG0XGQgz/HGxoTq4aaRyEiQmac
+	/XClkkUEObqhczSmcbuRDDb2k=
+Received: from X13.domain.sensetime.com (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgBHirCJVGhp+fTaLA--.16632S2;
+	Thu, 15 Jan 2026 10:44:28 +0800 (CST)
+From: junan <junan76@163.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-usb@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH] usb: dwc3: google: Remove redundant dev_err()
-Date: Thu, 15 Jan 2026 10:38:00 +0800
-Message-Id: <20260115023800.4142416-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	oe-kbuild-all@lists.linux.dev,
+	junan76@163.com,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH v2] arm64: kconfig: Make STRICT_KERNEL_RWX visable.
+Date: Thu, 15 Jan 2026 10:34:18 +0800
+Message-ID: <20260115023456.621586-2-junan76@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowABXZMsuU2hpD2YxBQ--.43886S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7JF1xtry3JF1ktw4kGryUZFb_yoWDCrX_C3
-	48CrZ2k3yDA398tryjvr43ZrWUur4rZFy8uF1qqa47KFyUGayUXry0gF95Ga4xZrW29ryD
-	urs8Crya9r93AjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbTAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26F4UJV
-	W0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWrXVW3AwAv7VC2z280aVAFwI0_GcC_XcWlOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_Gr1l42xK82IYc2Ij64vIr4
-	1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK
-	67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI
-	8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAv
-	wI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14
-	v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUbEfoUUUUU
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
+X-CM-TRANSID: PygvCgBHirCJVGhp+fTaLA--.16632S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7KrW8uFW3JF17JF18Zr4UXFb_yoW8CrW7pw
+	n3uwnrJFW7Grn3JaykK3y3uF45Zan5Jay3WFW5C34jyrnrA34DuF9YvwnIvFWDX34Uu3yf
+	ua4Sv3W2qw18XwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pRVyxZUUUUU=
+X-Originating-IP: [182.148.52.15]
+X-CM-SenderInfo: pmxqt0ixw6il2tof0z/xtbC1A2sXmloVI0FzgAA34
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_183845_118133_C3AFE10D 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260114_184456_922996_22A9FD13 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,34 +74,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The platform_get_irq_byname() function already prints an error message
-internally upon failure using dev_err_probe(). Therefore, the explicit
-dev_err() is redundant and results in duplicate error logs.
+Make "STRICT_KERNEL_RWX" visable to menuconfig on arm64 platform.
 
-Remove the redundant dev_err() call to clean up the error path.
+Breakpoints can not be set when using kgdb/kdb if "STRICT_KERNEL_RWX"
+equals to "y", but it has a default value "y" and is not visable in
+menuconfig on arm64.
 
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+Link to kgdb/kdb doc: https://docs.kernel.org/process/debugging/kgdb.html
+
+Changes in v2:
+	- Fix link error of "rodata_enabled" when allnoconfig is set
+	- link to v1: https://lore.kernel.org/linux-arm-kernel/20260114013859.498148-2-junan76@163.com/
+
+Signed-off-by: junan <junan76@163.com>
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202601141630.sCPCgSYw-lkp@intel.com/
 ---
- drivers/usb/dwc3/dwc3-google.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ arch/arm64/Kconfig  | 2 ++
+ arch/arm64/mm/mmu.c | 4 ++++
+ 2 files changed, 6 insertions(+)
 
-diff --git a/drivers/usb/dwc3/dwc3-google.c b/drivers/usb/dwc3/dwc3-google.c
-index a19857bd6b13..2105c72af753 100644
---- a/drivers/usb/dwc3/dwc3-google.c
-+++ b/drivers/usb/dwc3/dwc3-google.c
-@@ -228,10 +228,8 @@ static int dwc3_google_request_irq(struct dwc3_google *google, struct platform_d
- 	int irq;
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 93173f0a09c7..cc3aaffa1e12 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -52,6 +52,8 @@ config ARM64
+ 	select ARCH_STACKWALK
+ 	select ARCH_HAS_STRICT_KERNEL_RWX
+ 	select ARCH_HAS_STRICT_MODULE_RWX
++	select ARCH_OPTIONAL_KERNEL_RWX		if ARCH_HAS_STRICT_KERNEL_RWX
++	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
+ 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+ 	select ARCH_HAS_SYNC_DMA_FOR_CPU
+ 	select ARCH_HAS_SYSCALL_WRAPPER
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 8e1d80a7033e..4770204d9e22 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1314,7 +1314,11 @@ void __init kpti_install_ng_mappings(void)
  
- 	irq = platform_get_irq_byname(pdev, irq_name);
--	if (irq < 0) {
--		dev_err(google->dev, "invalid irq name %s\n", irq_name);
-+	if (irq < 0)
- 		return irq;
--	}
+ static pgprot_t __init kernel_exec_prot(void)
+ {
++#if defined(CONFIG_STRICT_KERNEL_RWX) || defined(CONFIG_STRICT_MODULE_RWX)
+ 	return rodata_enabled ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
++#else
++	return PAGE_KERNEL_EXEC;
++#endif
+ }
  
- 	irq_set_status_flags(irq, IRQ_NOAUTOEN);
- 	ret = devm_request_threaded_irq(google->dev, irq, NULL,
+ static int __init map_entry_trampoline(void)
 -- 
-2.25.1
+2.43.0
 
 
