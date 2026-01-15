@@ -4,218 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5213D4660F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 18:56:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BEA7D4660D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 19:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tLGQyLz9MAJTRz+MF6IxHuP/nanpAdl1YTlmaihqucw=; b=vX2oms9MHeNMvSLxw1EpV/TWzB
-	1Rlnnkh2m8b6RAg+EvvvXv/InqDI2OJo7xP3/pOiGyPwUNgbO276Guo8K7/EQJHeJtYBsVnI0f88o
-	IYmCyd7+xQeHoMl/txXuYy4NBiKnFvmaLlRibRiK4RVp1ow8dxtqBg1OAZsZcdlNW3E1wzf2NXTlG
-	LxWpodkLws54cxQGsbQSEPkcn3M3/WVo6NVYxu2JJkta5SVsXTDdA7wVcLRJWco/Ij6fhJxGI4xGx
-	dhp/RxDuLWAddxkktisXvtgxWhwGTQq4KZoqdhPk2TQVcenZ2KVR3YwB7xWe9xg/FiLSJ5Exztq2W
-	S7eS3ygw==;
+	bh=9ZfVIgbU+zwipEaxhvW1yg/fdl+UqBXrb6cwXyjrg7E=; b=0lCqLqCNblvMl5lHpXiUNuaukD
+	B1sZFAw2jmF3EG+OvDEGU17YUdb2sonQfPbZZZr1UO2P3Zv7Dobwt8BMZzff+wZTBmtKhtqSCB5xl
+	MBJQYs8LGTohokS0oatkbkFr7gA6EPIvzTqdNMu3LuKwioJF6qaemuVu313R8SL9E+rIjkUlgwvZC
+	t/VwfQtmZL+F2cTu+8Ucv0nst8M2Vjhr2trVRLEi50ZYG4YGFPZg6V2+WKoAk72zAWr7XDB5W97zr
+	FjH4Yn1kQqDGAQE5yWOJmtEwKWvD6icodqIEa9Trad7szDh/fBG7kFohwlvSQqiHeQOclf75Q+62G
+	tuKYylSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgSVl-0000000D0aY-2rmc;
-	Thu, 15 Jan 2026 18:56:01 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1vgSap-0000000D0pz-20nQ;
+	Thu, 15 Jan 2026 19:01:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgSVb-0000000D0Yh-3HBa
+	id 1vgSao-0000000D0pj-2Qfk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 18:55:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768503352; x=1800039352;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=MD4EC4wBX1hoKk+AnzYVboEgn0c6EFTZJ+xFc1ftwnw=;
-  b=j27r0nT2UuhDSM0gbYgKfM7SU9gChM6aFazkMir+J6ODwM3nzfwxpN9b
-   57V7qpwnHiIcyJGeYwSn1DpN+CulhVzy8gie6ajV5VGCziXaJWvDpx9+a
-   6WU1P8KyJRyGddpLLMux5sUq7pr4E7kZTvfEuJXFeloEdWC+2GPHzamPR
-   AJL7Sp7oY/ghz9uNlESbsXVHNvIsYLFW5OQuYEYosXG8k1MF2sDI5zIF7
-   eDUA+XxSRVePibmIF5Vy5ahiR1LhgIx6inHQUsZ3ImrVU8gut0mum5lEe
-   wsatey0TuzEregZ/AAS56yS5pPSWTJGrmwylBwOGSGIXv2/dyfcO2HTfK
-   g==;
-X-CSE-ConnectionGUID: Xx2+ZJYcTzCge49nvHlg7g==
-X-CSE-MsgGUID: g3oYOh+BTYiFCP13yPJCDA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11672"; a="80928241"
-X-IronPort-AV: E=Sophos;i="6.21,229,1763452800"; 
-   d="scan'208";a="80928241"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2026 10:55:50 -0800
-X-CSE-ConnectionGUID: 9bCYubVKSvabrv/iknCE1A==
-X-CSE-MsgGUID: PjQo5pNrSr+h+K2HFFKYLg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,229,1763452800"; 
-   d="scan'208";a="209512491"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2026 10:55:49 -0800
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 15 Jan 2026 10:55:48 -0800
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29 via Frontend Transport; Thu, 15 Jan 2026 10:55:48 -0800
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (52.101.43.55) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 15 Jan 2026 10:55:47 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FyWuzuVjfKeeaSBA9RorygMk0j1l5sCvWuR36S/AlWtUtK2niiiGrZnmv2PEzV5D8rs+jedVNfDEOHn0PGfirq+WFfkwDpnOE45/AuJEOWUoLPl0xfU5xwYyP8XRcopJ2z1XYnqNUfYeoiTeD/Ek86T+2sdQtFJ3Le9PbeMyG01XzMexH+pqGAyV4GMdXxN7fHR1AVsN77j2I4VV0yWYtLOJRlk/OUWs0r32qX5DAfEm1B1whQzj8rA77sLYwtQRZEGN1pjayHeLsuuUWAsvHpJWi3fYSuBYA4ecRvW4p/a0z6sNHFz6q3OUOT+VdScL4sgz3fu8/Sfyza5uxH+Qog==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tLGQyLz9MAJTRz+MF6IxHuP/nanpAdl1YTlmaihqucw=;
- b=mV5gYcLGfK0e29gjIJAHWISHPf6ZcuNGZS25TMWhCWZjsP5CIsJEG9kWRlIrYJ4Y5b56R+pEjU16OKm7S1owAsmg8TyvW3bSGtYbZA5wEoaqoU/oMFv92R5rxPgKeMx3vfSZF+rGGaIy8afKrZ0HD0FMx8bXQN+CdE/b21CURl9QUgQbg0hgOswAzUmTJXTvQQNWWnk/xuUxPYixkdHGzuEUbyKZNKLCo47I1xNOl1Qir9kkzB7013n6oIyNk/zyAfsosYbkWdFyjYhLrmVx+RP6AV8dqnUpuWjdxZPlVMQ2TzpCfXp5UseJP6Ert+RM2etwuQYqDpztANoNTWZmjw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB7573.namprd11.prod.outlook.com (2603:10b6:a03:4d2::10)
- by SN7PR11MB6775.namprd11.prod.outlook.com (2603:10b6:806:264::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Thu, 15 Jan
- 2026 18:55:42 +0000
-Received: from SJ2PR11MB7573.namprd11.prod.outlook.com
- ([fe80::61a:aa57:1d81:a9cf]) by SJ2PR11MB7573.namprd11.prod.outlook.com
- ([fe80::61a:aa57:1d81:a9cf%3]) with mapi id 15.20.9520.005; Thu, 15 Jan 2026
- 18:55:42 +0000
-Message-ID: <f2e9d7e2-1f99-45e4-9cf9-49e1ce2f08e9@intel.com>
-Date: Thu, 15 Jan 2026 10:54:45 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 28/47] arm_mpam: resctrl: Add support for csu counters
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
-	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
-	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
-	<quic_jiles@quicinc.com>, <rohit.mathew@arm.com>,
-	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
-	<tan.shaopeng@fujitsu.com>, <xhao@linux.alibaba.com>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <corbet@lwn.net>,
-	<maz@kernel.org>, <oupton@kernel.org>, <joey.gouly@arm.com>,
-	<suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-29-ben.horgan@arm.com>
- <e65d2b54-e14c-4b1d-a9ea-04b6e0eb051f@intel.com>
- <90561371-96f0-4bdb-8316-1b657f26da54@arm.com>
-From: Reinette Chatre <reinette.chatre@intel.com>
-Content-Language: en-US
-In-Reply-To: <90561371-96f0-4bdb-8316-1b657f26da54@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BY1P220CA0020.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:5c3::7) To SJ2PR11MB7573.namprd11.prod.outlook.com
- (2603:10b6:a03:4d2::10)
+	Thu, 15 Jan 2026 19:01:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9A5EA60130;
+	Thu, 15 Jan 2026 19:01:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AD8AC116D0;
+	Thu, 15 Jan 2026 19:01:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768503673;
+	bh=kbDE4I87P0BVWxV+dNPffz+z+PAooAzag8YpvFHu/SE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SzQdeiORsmFVr3W2xywsEeCDLaLp7l83NC37XK+pawV9POmYfLWH7j3bTeU0/Foav
+	 vh3KegliIHHQqPQC4/HVSBz9oh44YoXok+Zq8VSDfurZS/7WO/zx/S/I1GSiUUctIO
+	 6flNjhHYBt2Fb1Z5VBbO3NHHw7hWix2ub+kbz85TC1pU9NwMAMj3c0bB9hzwGVMtLD
+	 Ql2MWpIaeLI0OfoVyaGtefaA1v6Z7yBh2QUZKJiDVJ5aJuHVV5ySbhy5v6F/3ren1G
+	 tXmVmDAkFmN1ucJGeMP611PUCSSQbtOiFLkca+AlQmh1q4SqNzELMGaW799fr/2ik+
+	 NgIMAR8w1heHA==
+Date: Thu, 15 Jan 2026 13:01:12 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Gatien Chevallier <gatien.chevallier@foss.st.com>
+Cc: jens.wiklander@linaro.org, linux-stm32@st-md-mailman.stormreply.com,
+	Linus Walleij <linusw@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Leo Yan <leo.yan@linux.dev>,
+	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <legoffic.clement@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	coresight@lists.linaro.org, Conor Dooley <conor+dt@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-gpio@vger.kernel.org, Mike Leach <mike.leach@linaro.org>
+Subject: Re: [PATCH v2 02/11] dt-bindings: pinctrl: document
+ access-controllers property for stm32 HDP
+Message-ID: <176850367158.1015177.14103390194697312038.robh@kernel.org>
+References: <20260114-debug_bus-v2-0-5475c7841569@foss.st.com>
+ <20260114-debug_bus-v2-2-5475c7841569@foss.st.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB7573:EE_|SN7PR11MB6775:EE_
-X-MS-Office365-Filtering-Correlation-Id: ea922b32-7d8f-44d4-257d-08de5467aee8
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|13003099007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eXVqZmtIaWg3bkNFQlp4SGwyeW95SkZudFZZZ2pQazRnRWxpU2FMdUR0d2Fy?=
- =?utf-8?B?dWUvSTE2bXFieGNBSjkvZHJucFdReFpjSm9kZlJuYTJlY3VBSUVlSkN0SC9X?=
- =?utf-8?B?TFo2eFU2SGs2U1VWaGUyYjF2ZHdhU3JtV2tsU01IYnRoT29BY1FQNnJiV3RF?=
- =?utf-8?B?bVJvMVBhRWpvQVU4ZDQ2QmpSYUZYeGQ3MVozcHdSS3NGbUR6N0ExSmQ5R0Zl?=
- =?utf-8?B?eWdKL1g5bVRKUy9FWmRtdXo0ckRRZlR3dXB5SmZ6ZXZFYzA1U0RXRkdwL3lt?=
- =?utf-8?B?YjRnbFZhQlRMcmlHb1JZTFlFaG8xTXlpeThmbm9USi9CVUtBVTIxT0FuK2hH?=
- =?utf-8?B?VlllaFBEakhLWEZiQ2hTQnVuK2RGOWlsT3hPVktNVjN2SkxHNlJibFpDRkVJ?=
- =?utf-8?B?YlJOZkZ3SnhtNEl0T04zUFR6c25QQWk2R0lyOG1SbUViTTA3L3hvSHZmMGp1?=
- =?utf-8?B?aXBtbys0dmJPZ09aSTN5eXdKTVp2eEFPZHlqMmQva0cwQjFYemNlNHZWZnp4?=
- =?utf-8?B?ZWxtT2FOZ0h3cER0cS9lOGlZTHNSNS9McnFhSDFlTkE5bldydU5hT3RDWEF5?=
- =?utf-8?B?c0lqQTI1ODl0YjNsVjgxanA0UmxSKy9vZzYyVW5HZGZYMDhGVVgrU2U3dVhj?=
- =?utf-8?B?ak96Q2M1OUxGanZ5SWFLbFVvUmRETjFFelR6ZWZaYXMrbzVHdTJpRjlQNzhZ?=
- =?utf-8?B?Tmh5dXBKS2VraWczNGhPMFNtbnlyWUhMejUyMk56OXg3YU00eVpZcDRJckZG?=
- =?utf-8?B?bzJUUjNyc3ZoeEJla0g0REpadUtLZVZtbzNHeCtPQnhUNTI0TEx1cWZKMk1x?=
- =?utf-8?B?R0dMWEJSdStET1krRUFsaStqRmdFYmJCY1ZGeEt3dXdYbmN3dWZaSkI0UnZH?=
- =?utf-8?B?UmpqckZ3K0Q1Y1ZmaWNDQnphbk0ydjR4NS8vZG9HQUhtdXFHbE9zRVY2SzJv?=
- =?utf-8?B?ZXBOaVpyQjV1OEhGN1lQTWswS0U2eGF6TzRJSXpGWS9sUmxCak5DNFRIUE5s?=
- =?utf-8?B?QklSU1VQUC9yaXlLT3IrT3Npb0twUE03UWM4cmoxdGh6SURHQjl1WW5ZaW9z?=
- =?utf-8?B?Vko5T3RSQmRML21ZY0RWemhqWWVMVjlHdmRxVUlsdHNuRENNa1pnMWRHSVlI?=
- =?utf-8?B?WG8wSzYvWUVoOTg0d3lNbmRnNHNVbE9kdDc2MzVLOWFCT0ZPTFhtNUpLMGln?=
- =?utf-8?B?N0szNVNacERueVp5dG5IRmNsN2lGampham5UMFVKc3k1andoRFBtWjFnR0N5?=
- =?utf-8?B?cTUzRWtSS1pEQ0hYOUNJT3JJbXNteGZPSzB1YUUxR3Z0ZHJYZGFmRGFJMVcx?=
- =?utf-8?B?SlNhOUJBOENEc0Jpa2R2eGRuSTliM1ZiQUJrOVpUQ1NFVDBLZ0tRQnJFY1hX?=
- =?utf-8?B?WGdmdnVQVm8wWFpjZVE5clc5b0tjS3BhV0xlSGl5d2lZNVlTQ1EzWFYraEFl?=
- =?utf-8?B?R0FkK3BLVit3ZGovbkFYTGRSWlBNbjhhZzNDeGhlRGs2alNVZ1U2MEN5ejU2?=
- =?utf-8?B?blQraDcxMXNHc1NQNVJleW40NVBYQ09LcmlhdW5CWENrVmhvQWRDWTBOREk0?=
- =?utf-8?B?amJRSjlhc25hTjBRNGFQdkVlaUY3TFJTQUsvNjM1STUrVUJZbkxuVDlNRDZo?=
- =?utf-8?B?N0x3eUF1UjdyeFRsZDFwaHdGSk9PNVk4cXVKa0c5eG5IaU5VNzJ0aDJNbmFQ?=
- =?utf-8?B?OFB1cDdVM3NLeGN4cXd1NTJ1K2NWVWdEL1huTXVrNGJSaE04cG1PY2lMcUdJ?=
- =?utf-8?B?akZBUVJHVTBZem5kOG10TkpuRUw2c3h2OVdNdnF2K3VtWlczVmZsSE4rSjVY?=
- =?utf-8?B?aGF4Nkw2UzAvZ01JRkhuUnFqbEFrNWs3ZzcvWkVrOUdpbGVrM3cvaUdPQ1JV?=
- =?utf-8?B?T1g0YWIwRnhVeDRyYVdTbGhieTAvVXJzS2pqVE9KL3hYOGpEQXN1NVRHUVUw?=
- =?utf-8?B?L0Z2ZXIrWDZCRVBaQ2RDZm5nMG1CQlJJa29PWWwvVmREc2Rkc2xtWCt6WHlW?=
- =?utf-8?B?c1NwbkFOZnNsWXJESFZTSFM3eVkvejNJWFVqSG4vY20rUm5TYVVLVXdzS0Uz?=
- =?utf-8?B?V09ZbmlaelRxSzI4ZUpvV01rZUlWTUFhejRvNkJQZXk0aTVzNE5CS3BhaDI3?=
- =?utf-8?Q?YTN/FnI/z8ZhBoMith2I6xanw?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB7573.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UElRK0J4VjB4YUJDRWlhbzZHOHNkWmZIdFhrNnNFK0xFZS91dm51emwyTG1X?=
- =?utf-8?B?c1FzVUJrL2xOdnZiRXhwK1ZYTTAxaTEvNXpzdnA0MFZha1ZzWnJxaXNNZEl4?=
- =?utf-8?B?NUVhd3lYRlFDUzJrYVBuekMyUXJBbkg2WGx3d3Bld2NVWGwzWEVwSVh6L1NY?=
- =?utf-8?B?RGVWTGVTdTJpcnBFVVE3N2tBNUwzakFicmwyRVZ0TGVJcmRTK2dKWFM5YjRZ?=
- =?utf-8?B?WmZmRUZML0JzUlVtUmFhRmRzM1JpcEw0RUFjdUJEK3JQcUlhYW8waVVkSGNy?=
- =?utf-8?B?TUZtQWVNcHR2UjF4MFYxYzg4OXhjM0dEdnkybzFBSEVYRzJKV0tFUDBMTjVa?=
- =?utf-8?B?WmRuSWcwMUZ2bTMwYVdLWllOSkpjaDJXTUxQLytreDVGb0JqdHpHbktKcmpJ?=
- =?utf-8?B?Q0w4SHBMN0FUS1QzSkpNdlgxMGo0bGF1UTlsRElvNUhlWDZySWNsMWllS2Zn?=
- =?utf-8?B?aG4vTTcvczVyVk1ZMjdFZVAzcVRCYkZwdEs1MmNHVHpyaEN1U0ErYTdQUnNH?=
- =?utf-8?B?SEFFaXhrTGh0Sm42YmNlV0pDeFA2aWY0WTlmTzRMSHl0aHdMTWN0M3BzWHJX?=
- =?utf-8?B?ZmdoMVFxOGxDOThwenhJajEyWi9aUHZad3QxelNnbXJTUTdWMFVOQ1FDaDdi?=
- =?utf-8?B?WDFKZTBwUUJ6NDRORVZsTHRGNk9EOXlXYWZNbUhLVWJrL1R5dldWY2FXZm9z?=
- =?utf-8?B?Q1M4WWhXQ2Y4cHNkMm5ScCtad0RXNWZDWHUyams3aG5vU0llTE5rMDJpdmsv?=
- =?utf-8?B?ejBPanlENTZmL3hoL3dIbHlTWVM2S0c3RDZxTCtxYU4rc2t6cktCVy8xZGZS?=
- =?utf-8?B?cnRzdVA4WW9DZDZGY3JSTDZxMjl0eUJDSmY3S0hOSTRUZ1JhSVJ2SjU5WVJr?=
- =?utf-8?B?UlZiSldCSkdybDVkeDFORmE0RDdwNFhLVTA2YmNBUVlFMWRuTFJxY0xXTFhu?=
- =?utf-8?B?NlFmTjVvNXJJeWdzOXRESE9RQkhSNGRqRlF3QnhDazRXQXJETmFUV2dtSEZV?=
- =?utf-8?B?eFBBZ09ZTWVYQ3NYVFcxWGFpR2ZsVkNMeDRia1ZoNXFkSmgyYUVVbVd6MnlX?=
- =?utf-8?B?YVJTV1EwN010aFNJTU11TXIxK2x4c05DalJGaFVnTVMwaE12ZlFWQkJGQk9H?=
- =?utf-8?B?TjVNbXFMbC96MXJxUW5xaG11cUtQZVdjdUFRd1c4RVE0cDJDZnRGVEdaekRt?=
- =?utf-8?B?Qm1QeEpQVjdHRE9VSCsyejBmVnN1YXBRa0RLWHJlNC9PRStQYVIrOXoybU12?=
- =?utf-8?B?dkpTVm5CTUpaUjkwR1VTV1RUUHNGSk9hNHhGdWUyOGpwbTlKb0FiRjlvUytR?=
- =?utf-8?B?NFhDdWdWaUdMbk4wa1N4dEFTYzhGKzd6VFpUQmdaN28vOUJDTkZuZDBad3BF?=
- =?utf-8?B?YklVUHI1bmNHRWdCTm03ZjlBd2tmQTRyNW5JQ2FTWVVmbmhkWTdEU2VTRUxY?=
- =?utf-8?B?TWMwcG1ZQ0lVNmZrWk1HZGY3RHk0ZzNLWm45Vm9iUys4amFGR1FlMm1MMFlz?=
- =?utf-8?B?cXh5Tm5hdllWSkpSdkNCWlFkUmV6UzVOVVhRVTZiNExVVWRSdis0Tm1GR21K?=
- =?utf-8?B?N2pwa3Fucm1NQU1aTEhzUVlWMFhMbzNOV203cm94OVV1ekRXZG9OS09wOFNG?=
- =?utf-8?B?bzdBb1ltam9LVTExT0hWdHg1Z1hwRFV0ZFcxOWVnZWs1SWVjajczMWtETkZL?=
- =?utf-8?B?d2xTYlRjU3RYTVlKalM3NWgwZkkvdmZxa09WMitGSVdtdjdNWko4MjFpOU5w?=
- =?utf-8?B?NzZOZFE1UENJUVpBVXlORDdvT0QwaWREL3dzWFVUVFpXbUV5QStsOEkvV2ds?=
- =?utf-8?B?UUpIUjRWVmRGeW56NU9vd2RPU1Z4WU5aR3VvUm9BcGR6YTgvcE1FUjB0WjVL?=
- =?utf-8?B?S0RzbGljTDNDajk4dGswbmRXN2FwUHRjZXRCQ2RKMm04UmhxRE5BeUZxbENH?=
- =?utf-8?B?YXcwQ3FwT2FHaXJRZkI5MUxNSjdkdkZaVTRpQXN0Zkg2eENpWHhFSisxVUdW?=
- =?utf-8?B?dDVQRDc4ZFZ4cnh4MWI1ZVNTOG1zOHh4ME9NRGtWY0Ria0NUdCtTSmVhd3BJ?=
- =?utf-8?B?N0RxcnF2WGhGdlgwWi9xK2xsWmttYnpnVWZIcmF0SzR6bk9xdVBiQWszc0FT?=
- =?utf-8?B?U2owTWw2NHljZGgxTERSTGZRS3RLTGduc0N4alZyeEJsa2I2aVVJNFpWckxO?=
- =?utf-8?B?TFVIQ2p4YmhlSHRaYUs5UldsWWhDS1NTWWcxci8yTXl2THQxLzB4VGxLcFpy?=
- =?utf-8?B?Rm9sT3I3b2kzTzI3UUZJTjE3eTdwbUtpdU1CcHFVVWZTRUZWajBpNncyUFYy?=
- =?utf-8?B?Zkt3VkVwSGdSTldMYVl0Nkp3T0M1QkZpNVJQMTB2aUdvY2pKMzRWZz09?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: ea922b32-7d8f-44d4-257d-08de5467aee8
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB7573.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2026 18:55:42.7332
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 266fURtxAu/6VqFNg2aN5wR8nXbpZES9OOGi87qbqljivtpplZeGXKQxR4vNykYtLAxOBhw6SNkDSGbh1wTkE7TDcSTh+EQLfo1AcNKos3Q=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR11MB6775
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_105556_812985_FD908A89 
-X-CRM114-Status: GOOD (  21.92  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260114-debug_bus-v2-2-5475c7841569@foss.st.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -230,73 +82,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
 
-On 1/15/26 7:43 AM, Ben Horgan wrote:
-> On 1/13/26 23:14, Reinette Chatre wrote:
->> On 1/12/26 8:58 AM, Ben Horgan wrote:
-...
->>> +
->>> +		/*
->>> +		 * Unfortunately, num_rmid doesn't mean anything for
->>> +		 * mpam, and its exposed to user-space!
->>> +		 *
->>
->> The idea of adding a per MON group "num_mon_groups" file has been floated a couple of
->> times now. I have not heard any objections against doing something like this.
->> https://lore.kernel.org/all/cbe665c2-fe83-e446-1696-7115c0f9fd76@arm.com/
->> https://lore.kernel.org/lkml/46767ca7-1f1b-48e8-8ce6-be4b00d129f9@intel.com/
+On Wed, 14 Jan 2026 11:29:16 +0100, Gatien Chevallier wrote:
+> HDP being functional depends on the debug configuration on the platform
+> that can be checked using the access-controllers property, document it.
 > 
-> Hmm, I see now that 'num_rmid' is documented as an upper bound and so
-> neither 1 or mpam_pmg_max + 1 agree with the documentation.
+> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+> ---
+>  Documentation/devicetree/bindings/pinctrl/st,stm32-hdp.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
-> "
-> "num_rmids":
-> 		The number of RMIDs available. This is the
-> 		upper bound for how many "CTRL_MON" + "MON"
-> 		groups can be created.
-> "
 
-Please note that this documentation has been refactored (without changing its
-meaning). The above quoted text is specific to L3 monitoring and with the
-addition of telemetry monitoring the relevant text now reads:
-	The upper bound for how many "CTRL_MON" + "MON" can be created                  
-	is the smaller of the L3_MON and PERF_PKG_MON "num_rmids" values.  
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-> 
-> So, if I understand correctly you're proposing setting
-> num_rmids = num_pmg * num_partids on arm platforms and that in the
-> interim this can then be used to calculate the num_pmg by calculating
-> num_closid/num_rmid but that a per CTRL_MON num_mon_groups should be
-> added to make this consistent across architectures?
-
-Yes for num_rmids = num_pmg * num_partids. The motivation for this is that to me
-this looks like the value that best matches the num_rmids documentation. I understand
-the RMID vs PMG is difficult so my proposal is certainly not set in stone and I would like to
-hear motivation for different interpretations. "calculating num_pmg" is not obvious
-though. I interpret "num_pmg" here as number of monitor groups per control group and on
-an Arm system this is indeed num_closid/num_rmids (if num_rmids = num_pmg * num_partids)
-but on x86 it is just num_rmids. Having user space depend on such computation to determine how
-many monitor groups per control group would thus require that user space knows whether the
-underlying system is Arm or x86 and would go against goal of having resctrl as a generic interface.
-
-The way forward may be to deprecate (somehow) num_rmids and transition to something
-like "num_mon_groups" but it is currently vague how "num_mon_groups" may look like. That thread 
-(https://lore.kernel.org/lkml/46767ca7-1f1b-48e8-8ce6-be4b00d129f9@intel.com/) fizzled
-out after raising a few options how it may look.
-
-Another proposal was to add a "mon_id_includes_control_id" to use as another "guide" to
-determine how many monitoring groups can be created but at the time it seemed an intermediary
-step for user to determine the number of monitor groups that resctrl can also provide.
-https://lore.kernel.org/lkml/CALPaoChad6=xqz+BQQd=dB915xhj1gusmcrS9ya+T2GyhTQc5Q@mail.gmail.com/
-
-Making this consistent across architectures is the goal since resctrl aims to be
-a generic interface. Users should not need to do things like infer which system they
-are running on by looking at output of resctrl files as mentioned.
-
-fwiw ...  there seems to be a usage by Google to compare num_rmids to num_closids to determine
-how to interact with resctrl:
-https://lore.kernel.org/lkml/CALPaoCgSO7HzK9BjyM8yL50oPyq9kBj64Nkgyo1WEJrWy5uHUg@mail.gmail.com/
-
-Reinette
 
