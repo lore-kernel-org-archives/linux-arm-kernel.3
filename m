@@ -4,82 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2553D46630
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 22:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99EC8D46627
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 22:43:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VyNaz6TnzQq6pqdp5vEpIcVyRU/KbKD0UdQlSGfMrWI=; b=s9POZO34p8QqWciEVbmJG34dcq
-	mteuqWyVrZ2atdeVAjR4FjG75a3ueJ33SWbX2m49YrR/bqZIj963Ik50x8xsOHAbWcHunSvmF4KKp
-	DRFyFEnqyi8r6bksOBaOCdxXmQKSbj1WNnrQrdKmZdfDgU4TmhLRVkC3FN0s8LpPQr6J0qa6v6sIV
-	X3M+g6F5OQ5DNQ4IWZazCuQEMEG5byBhFIOP+bwFFF50Pyj/fFleE/M7spq9y/4smrPB2FpWNiHD8
-	kjaThLbKFKF2dtrkH5J2ecnpgL4IEyB56YcOM0iGzRc8sy9YTPnVXjL4Ctz053iSdkTkNrBJIWKAG
-	dFo6PgdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vQuagjPxslA3/GbLy8OgugPdFRJI5tMwgAjobUXXgeg=; b=A1gKDFwSvE3pbNtsCxeHsgewA4
+	fVXfaOBmQxNkjq2PuETJO1L21Vej4C381ZTL9ywV3/ZPklzVLtYzMUTObVPFhcVdlgErrnnaLwaZj
+	fFpZYaQ/krGosoxi0HY6hlJYdwe64bSd63Mct/Zo6Z4qsN/KwHhyp7tQNwDPYNvRwFPIXU5Vu7T1s
+	x/B+v6Ns9G64mUUnYtbaOz0MKogA6F/8x9IxqIaibia+l0S3fPSyxLn6jbI+3dzbCDH6U4vQBi9GN
+	A7jbMRGpmSZU+OfXbuUsrBjIjtKUnI58JZJs3bLIemp3oa01A5h0Nvv9ZF64zIhnr3j3/dKa0WB8g
+	8CwIMeSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgVjX-0000000DH3V-3kVW;
-	Thu, 15 Jan 2026 22:22:27 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1vgW3M-0000000DHkp-2tpm;
+	Thu, 15 Jan 2026 22:42:56 +0000
+Received: from mail-lf1-f50.google.com ([209.85.167.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgVjU-0000000DH33-1q0V;
-	Thu, 15 Jan 2026 22:22:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768515744; x=1800051744;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=GlSRthmmIe146YTP1TyKrEKATP5VoHXNP14ZSFLxRDI=;
-  b=X7NF3ea2D2Nu76TbrvB41lZsQsXr/PgQqSKDZo2iAl0i2omU2dV3CHzu
-   4bE8TXiblpi076xOy4HgdIrULDS0RD4XILIYYqtNTNSCBnVUUEiOyP+56
-   QzvVTMPwmPrOUvNmlax9H98xO3QnqKnGaJ8467mXHalyMjnaghham3I44
-   VCP5btvjvAZ1J8qw/nC+L8s7Wp6QVNxfa1hpG5vrKo3v2i7JtCzVu/ZcS
-   RupUa7vIfCy8htJwr1YbIzEoaH1ZTkfzIOC3KgrsE8k0gm7wbrk4sU5Am
-   waZBozsATJxWKW0nUkV6/iUBd/pMz9oplzEEiLLslp27UPrbMgEdBLlAQ
-   A==;
-X-CSE-ConnectionGUID: SeNPU4IoTwK+gB4vDOCK7Q==
-X-CSE-MsgGUID: 7tdw2VC4QFe4xxwmXPHvfA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11672"; a="73683712"
-X-IronPort-AV: E=Sophos;i="6.21,229,1763452800"; 
-   d="scan'208";a="73683712"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2026 14:22:21 -0800
-X-CSE-ConnectionGUID: JKJfZTyAT8SvyZZ64I1AXg==
-X-CSE-MsgGUID: S39XQe80ROehLb43Zu6oZg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,229,1763452800"; 
-   d="scan'208";a="228127414"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 15 Jan 2026 14:22:18 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vgVjM-00000000K3s-0tal;
-	Thu, 15 Jan 2026 22:22:16 +0000
-Date: Fri, 16 Jan 2026 06:22:08 +0800
-From: kernel test robot <lkp@intel.com>
-To: Tzu-Hao Wei <twei@axiado.com>, SriNavmani A <srinavmani@axiado.com>,
-	Prasad Bolisetty <pbolisetty@axiado.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
-	Tzu-Hao Wei <twei@axiado.com>
-Subject: Re: [PATCH 2/4] phy: axiado: add Axiado eMMC PHY driver
-Message-ID: <202601160610.y8FbB5x1-lkp@intel.com>
-References: <20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-2-dd43459dbfea@axiado.com>
+	id 1vgW3K-0000000DHkS-1D3t
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Jan 2026 22:42:55 +0000
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-59b9fee27ccso179873e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 14:42:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768516971; x=1769121771; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=vQuagjPxslA3/GbLy8OgugPdFRJI5tMwgAjobUXXgeg=;
+        b=H+p9C6IWAhh6Lvh2O0NgZontL9CJEVhf7H0b06cB5GbJt2dCYDU8AS97YMN1zP2hZT
+         QjIwHmpwH0FmtCkFEAcIyE6p/RZCNkdONVh9cn7mHrOLLZXjr7Kr1P2eepoWH6M68deH
+         iQielQ+ZPIJ1Wo1lQLu6XMr5q2KBoj+xhoqxt7SlPWx+zhbm/Pe4kcvCwn9vg5yW74Zx
+         kalqd1H52TqKuItXyalBD0saVv92mC+qEKlkXOQi3vb6eTDFGoNh7H3WICGD5lktyH6/
+         8hwWdZJQmvHzRYTy9RHo1eAvbZXHnLPuIlmu7g1Y1hqc1HFRMScvKhWtZwl9x4z9NOWR
+         INMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768516971; x=1769121771;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vQuagjPxslA3/GbLy8OgugPdFRJI5tMwgAjobUXXgeg=;
+        b=b3Wgd+/dwwlXsLTSLvPhnZa+eFmUfoPqcB9T8v0q0nLvS66hY+DilZDLVViobF+OIg
+         +V+vy94oKWJZPNH/3GnSYap+6YOflCDom2NN1F2Mob0Edxrf6TgCv3/auEMSIX7axoof
+         q0eZTaY/e0IEx0VBoYfv1uA11li6sCaBIZQo33R5rN641Ms8NNxbwtWZivElZXqb7gGW
+         3+W9UBTqEHGPHEhqd0ncCA1BcumymcEpIEGS8ITUSmxJe5tWWlKEPsuA6IVNVNmJY3CA
+         71UQFJp5iUHMjbDqb5lH+SSVZqOARpdx2XJYvFYduTn05NR2fOKZ/pUSBmoyTI4aC7dQ
+         jhGw==
+X-Forwarded-Encrypted: i=1; AJvYcCVSgz0Nh9vpyJGDiPSx5emXQh5h2luVpW/LQN7MAtOv40vAdpxqIW4Iuo5RX57bPFafrMBR8FVIMVjLps3siaMK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwK1GLmbk2sEU1a/JZgv/luGH/Y4g5wMnHJs9yGMu4V9s0gXwst
+	uZca2b/Nc97aw1uk3BBbIXsLAOLT+EWrd6kjPoYupTqozrZEGiqboKxP
+X-Gm-Gg: AY/fxX4+eh0QPStXENp4qXSKUwAM3F29UcuQLHRfcDINhqNrZRZMS/xZrXU05MYG0w3
+	UeE+0U0jQ6GZGYOwyklCOS5M4FeMBRZC8XdGLwHWlrSnmN7sSoDTft6PUws8qi6pYL563dJFSFn
+	6mntxqrtHgiQ/ztJiuCzEbCZ0GoLq6CoWxEBIkm+Z/UeMfNWJUvNumyorVGxjuHNMb3fCAFNyh/
+	Jf0BYYKtrRYS5r32KJoIqZadcDOAboZMCCQPOijAAD72iGuKB4NOLe4NPEljcevhZERlQdiI9dJ
+	kHpypUJ9cvDoM3nC+VeCguGBj9z2mU0XpKydukBm/pcln9yPdVbiBC98agBrVBHdt7l6We5BOHl
+	UNBMOFOQ/osh3fbHgE9+A5hPnQfyQ/r2XwQSpXoZGQSTZBiumSe2bezpb5wKU6zSolNj2w8+vl9
+	+SJZGIcSKkvL0V2VhCNAQ=
+X-Received: by 2002:a05:6512:63d1:20b0:59b:7be4:8c40 with SMTP id 2adb3069b0e04-59baef130e4mr131958e87.8.1768516970797;
+        Thu, 15 Jan 2026 14:42:50 -0800 (PST)
+Received: from [192.168.0.18] ([87.116.178.235])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59baf35434bsm209044e87.45.2026.01.15.14.42.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 Jan 2026 14:42:50 -0800 (PST)
+Message-ID: <2592f303-05f5-4646-b59f-38cb7549834e@gmail.com>
+Date: Thu, 15 Jan 2026 23:42:02 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-2-dd43459dbfea@axiado.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 01/14] kasan: sw_tags: Use arithmetic shift for shadow
+ computation
+To: Maciej Wieczor-Retman <m.wieczorretman@pm.me>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Jan Kiszka <jan.kiszka@siemens.com>, Kieran Bingham <kbingham@kernel.org>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+ Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
+ linux-mm@kvack.org, llvm@lists.linux.dev
+References: <cover.1768233085.git.m.wieczorretman@pm.me>
+ <4f31939d55d886f21c91272398fe43a32ea36b3f.1768233085.git.m.wieczorretman@pm.me>
+Content-Language: en-US
+From: Andrey Ryabinin <ryabinin.a.a@gmail.com>
+In-Reply-To: <4f31939d55d886f21c91272398fe43a32ea36b3f.1768233085.git.m.wieczorretman@pm.me>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_142224_502135_072DF39A 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20260115_144254_360331_2D1B4E53 
+X-CRM114-Status: GOOD (  19.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,129 +115,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tzu-Hao,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on f0b9d8eb98dfee8d00419aa07543bdc2c1a44fb1]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Tzu-Hao-Wei/dt-bindings-phy-axiado-ax3000-emmc-phy-add-Axiado-eMMC-PHY/20260109-174938
-base:   f0b9d8eb98dfee8d00419aa07543bdc2c1a44fb1
-patch link:    https://lore.kernel.org/r/20260109-axiado-ax3000-add-emmc-phy-driver-support-v1-2-dd43459dbfea%40axiado.com
-patch subject: [PATCH 2/4] phy: axiado: add Axiado eMMC PHY driver
-config: m68k-allmodconfig (https://download.01.org/0day-ci/archive/20260116/202601160610.y8FbB5x1-lkp@intel.com/config)
-compiler: m68k-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260116/202601160610.y8FbB5x1-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601160610.y8FbB5x1-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from include/linux/swab.h:5,
-                    from include/uapi/linux/byteorder/big_endian.h:14,
-                    from include/linux/byteorder/big_endian.h:5,
-                    from arch/m68k/include/uapi/asm/byteorder.h:5,
-                    from include/asm-generic/bitops/le.h:6,
-                    from arch/m68k/include/asm/bitops.h:569,
-                    from include/linux/bitops.h:67,
-                    from include/linux/thread_info.h:27,
-                    from include/asm-generic/preempt.h:5,
-                    from ./arch/m68k/include/generated/asm/preempt.h:1,
-                    from include/linux/preempt.h:79,
-                    from arch/m68k/include/asm/processor.h:11,
-                    from include/linux/sched.h:13,
-                    from include/linux/delay.h:13,
-                    from drivers/phy/axiado/phy-axiado-emmc.c:11:
-   drivers/phy/axiado/phy-axiado-emmc.c: In function 'axiado_emmc_phy_power_on':
->> drivers/phy/axiado/phy-axiado-emmc.c:69:34: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
-      69 | #define OTAP_SEL(x)             (FIELD_PREP(OTAP_SEL_MASK, x) | OTAPDLY_EN)
-         |                                  ^~~~~~~~~~
-   include/uapi/linux/swab.h:118:38: note: in definition of macro '__swab32'
-     118 |         (__u32)(__builtin_constant_p(x) ?       \
-         |                                      ^
-   include/linux/byteorder/generic.h:88:21: note: in expansion of macro '__cpu_to_le32'
-      88 | #define cpu_to_le32 __cpu_to_le32
-         |                     ^~~~~~~~~~~~~
-   arch/m68k/include/asm/io_mm.h:373:26: note: in expansion of macro 'out_le32'
-     373 | #define writel(val,addr) out_le32((addr),(val))
-         |                          ^~~~~~~~
-   drivers/phy/axiado/phy-axiado-emmc.c:147:9: note: in expansion of macro 'writel'
-     147 |         writel(val | OTAP_SEL(OTAP_DLY), ax_phy->reg_base + PHY_CTRL_2);
-         |         ^~~~~~
-   drivers/phy/axiado/phy-axiado-emmc.c:147:22: note: in expansion of macro 'OTAP_SEL'
-     147 |         writel(val | OTAP_SEL(OTAP_DLY), ax_phy->reg_base + PHY_CTRL_2);
-         |                      ^~~~~~~~
 
 
-vim +/FIELD_PREP +69 drivers/phy/axiado/phy-axiado-emmc.c
+On 1/12/26 6:27 PM, Maciej Wieczor-Retman wrote:
+  
+> diff --git a/mm/kasan/report.c b/mm/kasan/report.c
+> index 62c01b4527eb..b5beb1b10bd2 100644
+> --- a/mm/kasan/report.c
+> +++ b/mm/kasan/report.c
+> @@ -642,11 +642,39 @@ void kasan_non_canonical_hook(unsigned long addr)
+>  	const char *bug_type;
+>  
+>  	/*
+> -	 * All addresses that came as a result of the memory-to-shadow mapping
+> -	 * (even for bogus pointers) must be >= KASAN_SHADOW_OFFSET.
+> +	 * For Generic KASAN, kasan_mem_to_shadow() uses the logical right shift
+> +	 * and never overflows with the chosen KASAN_SHADOW_OFFSET values (on
+> +	 * both x86 and arm64). Thus, the possible shadow addresses (even for
+> +	 * bogus pointers) belong to a single contiguous region that is the
+> +	 * result of kasan_mem_to_shadow() applied to the whole address space.
+>  	 */
+> -	if (addr < KASAN_SHADOW_OFFSET)
+> -		return;
+> +	if (IS_ENABLED(CONFIG_KASAN_GENERIC)) {
+> +		if (addr < (unsigned long)kasan_mem_to_shadow((void *)(0ULL)) ||
+> +		    addr > (unsigned long)kasan_mem_to_shadow((void *)(~0ULL)))
+> +			return;
+> +	}
+> +
+> +	/*
+> +	 * For Software Tag-Based KASAN, kasan_mem_to_shadow() uses the
+> +	 * arithmetic shift. Normally, this would make checking for a possible
+> +	 * shadow address complicated, as the shadow address computation
+> +	 * operation would overflow only for some memory addresses. However, due
+> +	 * to the chosen KASAN_SHADOW_OFFSET values and the fact the
+> +	 * kasan_mem_to_shadow() only operates on pointers with the tag reset,
+> +	 * the overflow always happens.
+> +	 *
+> +	 * For arm64, the top byte of the pointer gets reset to 0xFF. Thus, the
+> +	 * possible shadow addresses belong to a region that is the result of
+> +	 * kasan_mem_to_shadow() applied to the memory range
+> +	 * [0xFF000000000000, 0xFFFFFFFFFFFFFFFF]. Despite the overflow, the
+                  ^ Missing couple 00 here
 
-  > 11	#include <linux/delay.h>
-    12	#include <linux/io.h>
-    13	#include <linux/iopoll.h>
-    14	#include <linux/module.h>
-    15	#include <linux/of.h>
-    16	#include <linux/phy/phy.h>
-    17	#include <linux/platform_device.h>
-    18	
-    19	/* Arasan eMMC 5.1 - PHY configuration registers */
-    20	#define CAP_REG_IN_S1_LSB		0x00
-    21	#define CAP_REG_IN_S1_MSB		0x04
-    22	#define PHY_CTRL_1			0x38
-    23	#define PHY_CTRL_2			0x3C
-    24	#define PHY_CTRL_3			0x40
-    25	#define STATUS				0x50
-    26	
-    27	#define DLL_ENBL	BIT(26)
-    28	#define RTRIM_EN	BIT(21)
-    29	#define PDB_ENBL	BIT(23)
-    30	#define RETB_ENBL	BIT(1)
-    31	
-    32	#define REN_STRB	BIT(27)
-    33	#define REN_CMD		BIT(12)
-    34	#define REN_DAT0	BIT(13)
-    35	#define REN_DAT1	BIT(14)
-    36	#define REN_DAT2	BIT(15)
-    37	#define REN_DAT3	BIT(16)
-    38	#define REN_DAT4	BIT(17)
-    39	#define REN_DAT5	BIT(18)
-    40	#define REN_DAT6	BIT(19)
-    41	#define REN_DAT7	BIT(20)
-    42	#define REN_CMD_EN	(REN_CMD | REN_DAT0 | REN_DAT1 | REN_DAT2 | \
-    43			REN_DAT3 | REN_DAT4 | REN_DAT5 | REN_DAT6 | REN_DAT7)
-    44	
-    45	/* Pull-UP Enable on CMD Line */
-    46	#define PU_CMD		BIT(3)
-    47	#define PU_DAT0		BIT(4)
-    48	#define PU_DAT1		BIT(5)
-    49	#define PU_DAT2		BIT(6)
-    50	#define PU_DAT3		BIT(7)
-    51	#define PU_DAT4		BIT(8)
-    52	#define PU_DAT5		BIT(9)
-    53	#define PU_DAT6		BIT(10)
-    54	#define PU_DAT7		BIT(11)
-    55	#define PU_CMD_EN (PU_CMD | PU_DAT0 | PU_DAT1 | PU_DAT2 | PU_DAT3 | \
-    56			PU_DAT4 | PU_DAT5 | PU_DAT6 | PU_DAT7)
-    57	
-    58	/* Selection value for the optimum delay from 1-32 output tap lines */
-    59	#define OTAP_DLY	0x02
-    60	/* DLL charge pump current trim default [1000] */
-    61	#define DLL_TRM_ICP	0x08
-    62	/* Select the frequency range of DLL Operation */
-    63	#define FRQ_SEL	0x01
-    64	
-    65	#define OTAP_SEL_MASK		GENMASK(10, 7)
-    66	#define DLL_TRM_MASK		GENMASK(25, 22)
-    67	#define DLL_FRQSEL_MASK		GENMASK(27, 25)
-    68	
-  > 69	#define OTAP_SEL(x)		(FIELD_PREP(OTAP_SEL_MASK, x) | OTAPDLY_EN)
-    70	#define DLL_TRM(x)		(FIELD_PREP(DLL_TRM_MASK, x) | DLL_ENBL)
-    71	#define DLL_FRQSEL(x)	FIELD_PREP(DLL_FRQSEL_MASK, x)
-    72	
+> +	 * resulting possible shadow region is contiguous, as the overflow
+> +	 * happens for both 0xFF000000000000 and 0xFFFFFFFFFFFFFFFF.
+                                  ^ same as above
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> +	 */
+> +	if (IS_ENABLED(CONFIG_KASAN_SW_TAGS) && IS_ENABLED(CONFIG_ARM64)) {
+> +		if (addr < (unsigned long)kasan_mem_to_shadow((void *)(0xFFULL << 56)) ||
+
+This will not work for inline mode because compiler uses logical shift.
+Consider NULL-ptr derefernce. Compiler will calculate shadow address for 0 as:
+      (((0x0 | 0xffULL) << 56) >> 4)+0xffff800000000000ULL = 0x0fef8000....0
+Which is less than ((0xFF00...00LL) >> 4) +  0xffff800000000000ULL = 0xffff800...0
+So we will bail out here.
+Perhaps we could do addr |= 0xFFLL to fix this
+
+> +		    addr > (unsigned long)kasan_mem_to_shadow((void *)(~0ULL)))
+> +			return;
+> +	}
+>  
+>  	orig_addr = (unsigned long)kasan_shadow_to_mem((void *)addr);
+>  
 
