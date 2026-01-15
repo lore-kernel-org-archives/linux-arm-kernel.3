@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 240C2D44C62
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 15:05:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E165AD44C62
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 15:05:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=niR+VuOPISft49uKWVuN3uJ8mcdCDT7kQgn6mpEoa04=; b=xzXfWdO/9TlWz/p32WZL2MpN/G
-	/LQYgqHuOp8sOxmth9FYczGcffy8oDT1OlSMddDuiaAomoEVYLVEQO5d9WprULiuzqQMdKMDFX0Nz
-	kKoYnUheRUWkSOP6Beo4PmlprE/aZ4dT1WvOiBgA17S/SDJPYY6hErrA9C9QYZTkNfYNEMOQffpWU
-	BKEkF6n0yWUYDZ+kVt0wLFGsxiqJzoCB4tCnoJEvBmkUtfzKZlwmDlGxjXuE5PIljckIN8V3Qh2jr
-	iEqNMr2/YFSDJKpw3sfpfilVzdjwYr3t5G07CHITQ5X1jULkEC6lzxs1ReszZQ5oshISMtUVMSbSA
-	u052WdYw==;
+	bh=0VWijppNr/zSR+EIsgO4g/b7G4Wg12Gw4zAMj2vjSHU=; b=P6HYlvnb0Qm2+zoHmtbfaIdpkG
+	0WTrv+gPANiCirD7V7jTbNSNN1SaeQ7Z8BYICyLenojLRSfkzYX6lR+Ct24U92U/PT0Gh1682/U67
+	JfbWWhA8J2+ie87SMO9MVDCLe6hkQUPUz5UaSUE0b3Kh/D1CUTb9ra58XdA2ldGCaonYMjJdYOQ1a
+	qHddUuUSnQuEKmjkuvAo7rz74uc2G3k5pJNSTo5HZk48NsFgNgYLTCcBltgM5ByD+yvsU/Mh4tXZn
+	CrKtqZkVZeZzDfX6eXG46nrtR6hGoY6jaJ3ic618+Owq/+HIE+5vtoWQrLHSIXOlRtr7ccS30D9xi
+	LiqThCbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgOuT-0000000CYsA-0ScH;
+	id 1vgOuT-0000000CYsU-1h9Y;
 	Thu, 15 Jan 2026 15:05:17 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgOuO-0000000CYpa-29OC
+	id 1vgOuQ-0000000CYpa-0isw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 15:05:13 +0000
+	Thu, 15 Jan 2026 15:05:15 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 15 Jan
@@ -40,9 +40,9 @@ To: <clg@kaod.org>, <broonie@kernel.org>, <boris.brezillon@bootlin.com>,
 	<linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
 	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <BMC-SW@aspeedtech.com>
-Subject: [PATCH 1/2] spi: spi-mem: Protect dirmap_create() with spi_mem_access_start/end
-Date: Thu, 15 Jan 2026 23:04:53 +0800
-Message-ID: <20260115150454.1575970-2-chin-ting_kuo@aspeedtech.com>
+Subject: [PATCH 2/2] spi: aspeed: Add support for non-spi-mem devices
+Date: Thu, 15 Jan 2026 23:04:54 +0800
+Message-ID: <20260115150454.1575970-3-chin-ting_kuo@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260115150454.1575970-1-chin-ting_kuo@aspeedtech.com>
 References: <20260115150454.1575970-1-chin-ting_kuo@aspeedtech.com>
@@ -50,9 +50,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_070512_549950_3AD1B827 
-X-CRM114-Status: UNSURE (   8.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260115_070514_214025_08DF072F 
+X-CRM114-Status: GOOD (  21.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,43 +66,270 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-spi_mem_dirmap_create() may reconfigure controller-wide settings,
-which can interfere with concurrent transfers to other devices
-sharing the same SPI controller but using different chip selects.
+The ASPEED FMC/SPI controller may be shared by spi-mem devices and
+other SPI peripherals that do not use the spi-mem framework.
 
-Wrap the ->dirmap_create() callback with spi_mem_access_start() and
-spi_mem_access_end() to serialize access and prevent cross-CS
-interference during dirmap creation.
+The driver currently assumes spi-mem semantics for all devices,
+while the controller also supports direct user mode access commonly
+used by non-spi-mem devices. This mismatch can result in incorrect
+behavior when different types of devices share the same controller.
+
+Update the driver to properly handle non-spi-mem devices, allowing
+them to operate correctly in pure user mode alongside spi-mem
+devices on a shared SPI controller.
 
 Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
 ---
- drivers/spi/spi-mem.c | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+ drivers/spi/spi-aspeed-smc.c | 121 +++++++++++++++++++++++++++++++++--
+ 1 file changed, 115 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/spi/spi-mem.c b/drivers/spi/spi-mem.c
-index c8b2add2640e..85702a77b3c8 100644
---- a/drivers/spi/spi-mem.c
-+++ b/drivers/spi/spi-mem.c
-@@ -708,9 +708,18 @@ spi_mem_dirmap_create(struct spi_mem *mem,
+diff --git a/drivers/spi/spi-aspeed-smc.c b/drivers/spi/spi-aspeed-smc.c
+index db3e096f2eb0..93ad72634e42 100644
+--- a/drivers/spi/spi-aspeed-smc.c
++++ b/drivers/spi/spi-aspeed-smc.c
+@@ -48,6 +48,8 @@
+ /* CEx Address Decoding Range Register */
+ #define CE0_SEGMENT_ADDR_REG		0x30
  
- 	desc->mem = mem;
- 	desc->info = *info;
--	if (ctlr->mem_ops && ctlr->mem_ops->dirmap_create)
-+	if (ctlr->mem_ops && ctlr->mem_ops->dirmap_create) {
-+		ret = spi_mem_access_start(mem);
-+		if (ret) {
-+			kfree(desc);
-+			return ERR_PTR(ret);
-+		}
++#define FULL_DUPLEX_RX_DATA		0x1e4
 +
- 		ret = ctlr->mem_ops->dirmap_create(desc);
+ /* CEx Read timing compensation register */
+ #define CE0_TIMING_COMPENSATION_REG	0x94
  
-+		spi_mem_access_end(mem);
+@@ -81,6 +83,7 @@ struct aspeed_spi_data {
+ 	u32	hclk_mask;
+ 	u32	hdiv_max;
+ 	u32	min_window_size;
++	bool	full_duplex;
+ 
+ 	phys_addr_t (*segment_start)(struct aspeed_spi *aspi, u32 reg);
+ 	phys_addr_t (*segment_end)(struct aspeed_spi *aspi, u32 reg);
+@@ -105,6 +108,7 @@ struct aspeed_spi {
+ 
+ 	struct clk		*clk;
+ 	u32			 clk_freq;
++	u8			 cs_change;
+ 
+ 	struct aspeed_spi_chip	 chips[ASPEED_SPI_MAX_NUM_CS];
+ };
+@@ -280,7 +284,8 @@ static ssize_t aspeed_spi_write_user(struct aspeed_spi_chip *chip,
+ }
+ 
+ /* support for 1-1-1, 1-1-2 or 1-1-4 */
+-static bool aspeed_spi_supports_op(struct spi_mem *mem, const struct spi_mem_op *op)
++static bool aspeed_spi_supports_mem_op(struct spi_mem *mem,
++				       const struct spi_mem_op *op)
+ {
+ 	if (op->cmd.buswidth > 1)
+ 		return false;
+@@ -305,7 +310,8 @@ static bool aspeed_spi_supports_op(struct spi_mem *mem, const struct spi_mem_op
+ 
+ static const struct aspeed_spi_data ast2400_spi_data;
+ 
+-static int do_aspeed_spi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
++static int do_aspeed_spi_exec_mem_op(struct spi_mem *mem,
++				     const struct spi_mem_op *op)
+ {
+ 	struct aspeed_spi *aspi = spi_controller_get_devdata(mem->spi->controller);
+ 	struct aspeed_spi_chip *chip = &aspi->chips[spi_get_chipselect(mem->spi, 0)];
+@@ -367,11 +373,12 @@ static int do_aspeed_spi_exec_op(struct spi_mem *mem, const struct spi_mem_op *o
+ 	return ret;
+ }
+ 
+-static int aspeed_spi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
++static int aspeed_spi_exec_mem_op(struct spi_mem *mem,
++				  const struct spi_mem_op *op)
+ {
+ 	int ret;
+ 
+-	ret = do_aspeed_spi_exec_op(mem, op);
++	ret = do_aspeed_spi_exec_mem_op(mem, op);
+ 	if (ret)
+ 		dev_err(&mem->spi->dev, "operation failed: %d\n", ret);
+ 	return ret;
+@@ -773,8 +780,8 @@ static ssize_t aspeed_spi_dirmap_read(struct spi_mem_dirmap_desc *desc,
+ }
+ 
+ static const struct spi_controller_mem_ops aspeed_spi_mem_ops = {
+-	.supports_op = aspeed_spi_supports_op,
+-	.exec_op = aspeed_spi_exec_op,
++	.supports_op = aspeed_spi_supports_mem_op,
++	.exec_op = aspeed_spi_exec_mem_op,
+ 	.get_name = aspeed_spi_get_name,
+ 	.dirmap_create = aspeed_spi_dirmap_create,
+ 	.dirmap_read = aspeed_spi_dirmap_read,
+@@ -843,6 +850,99 @@ static void aspeed_spi_enable(struct aspeed_spi *aspi, bool enable)
+ 		aspeed_spi_chip_enable(aspi, cs, enable);
+ }
+ 
++static void aspeed_spi_user_transfer_tx(struct aspeed_spi *aspi,
++					struct spi_device *spidev,
++					const u8 *tx_buf, u8 *rx_buf,
++					void *dst, u32 len)
++{
++	const struct aspeed_spi_data *data = aspi->data;
++	bool full_duplex_transfer = data->full_duplex && tx_buf == rx_buf;
++	u32 i;
++
++	if (full_duplex_transfer &&
++	    !!(spidev->mode & (SPI_TX_DUAL | SPI_TX_QUAD |
++			       SPI_RX_DUAL | SPI_RX_QUAD))) {
++		dev_err(aspi->dev,
++			"full duplex is only supported for single IO mode\n");
++		return;
 +	}
 +
- 	if (ret) {
- 		desc->nodirmap = true;
- 		if (!spi_mem_supports_op(desc->mem, &desc->info.op_tmpl))
++	for (i = 0; i < len; i++) {
++		writeb(tx_buf[i], dst);
++		if (full_duplex_transfer)
++			rx_buf[i] = readb(aspi->regs + FULL_DUPLEX_RX_DATA);
++	}
++}
++
++static int aspeed_spi_user_transfer(struct spi_controller *ctlr,
++				    struct spi_message *msg)
++{
++	struct aspeed_spi *aspi =
++		(struct aspeed_spi *)spi_controller_get_devdata(ctlr);
++	const struct aspeed_spi_data *data = aspi->data;
++	struct spi_device *spidev = msg->spi;
++	u32 cs = spi_get_chipselect(spidev, 0);
++	struct aspeed_spi_chip *chip = &aspi->chips[cs];
++	void __iomem *ahb_base = aspi->chips[cs].ahb_base;
++	u32 ctrl_val;
++	u32 clk_div = data->get_clk_div(chip, spidev->max_speed_hz);
++	struct spi_transfer *xfer;
++	const u8 *tx_buf;
++	u8 *rx_buf;
++	u32 i = 0;
++
++	ctrl_val = chip->ctl_val[ASPEED_SPI_BASE];
++	ctrl_val &= ~CTRL_IO_MODE_MASK & data->hclk_mask;
++	ctrl_val |= clk_div;
++	chip->ctl_val[ASPEED_SPI_BASE] = ctrl_val;
++
++	if (aspi->cs_change == 0)
++		aspeed_spi_start_user(chip);
++
++	dev_dbg(aspi->dev, "cs: %d\n", cs);
++	list_for_each_entry(xfer, &msg->transfers, transfer_list) {
++		dev_dbg(aspi->dev,
++			"xfer[%d]: width %d, len %u, tx %p, rx %p\n",
++			i,
++			xfer->bits_per_word, xfer->len,
++			xfer->tx_buf, xfer->rx_buf);
++
++		tx_buf = xfer->tx_buf;
++		rx_buf = xfer->rx_buf;
++
++		if (tx_buf) {
++			if (spidev->mode & SPI_TX_DUAL)
++				aspeed_spi_set_io_mode(chip, CTRL_IO_DUAL_DATA);
++			else if (spidev->mode & SPI_TX_QUAD)
++				aspeed_spi_set_io_mode(chip, CTRL_IO_QUAD_DATA);
++
++			aspeed_spi_user_transfer_tx(aspi, spidev, tx_buf, rx_buf,
++						    (void *)ahb_base, xfer->len);
++		}
++
++		if (rx_buf && rx_buf != tx_buf) {
++			if (spidev->mode & SPI_RX_DUAL)
++				aspeed_spi_set_io_mode(chip, CTRL_IO_DUAL_DATA);
++			else if (spidev->mode & SPI_RX_QUAD)
++				aspeed_spi_set_io_mode(chip, CTRL_IO_QUAD_DATA);
++
++			ioread8_rep(ahb_base, rx_buf, xfer->len);
++		}
++
++		msg->actual_length += xfer->len;
++		aspi->cs_change = xfer->cs_change;
++		i++;
++	}
++
++	if (aspi->cs_change == 0)
++		aspeed_spi_stop_user(chip);
++
++	msg->status = 0;
++	spi_finalize_current_message(ctlr);
++
++	return 0;
++}
++
+ static int aspeed_spi_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+@@ -899,6 +999,7 @@ static int aspeed_spi_probe(struct platform_device *pdev)
+ 	ctlr->cleanup = aspeed_spi_cleanup;
+ 	ctlr->num_chipselect = of_get_available_child_count(dev->of_node);
+ 	ctlr->dev.of_node = dev->of_node;
++	ctlr->transfer_one_message = aspeed_spi_user_transfer;
+ 
+ 	aspi->num_cs = ctlr->num_chipselect;
+ 
+@@ -1455,6 +1556,7 @@ static const struct aspeed_spi_data ast2400_fmc_data = {
+ 	.hclk_mask     = 0xfffff0ff,
+ 	.hdiv_max      = 1,
+ 	.min_window_size = 0x800000,
++	.full_duplex   = false,
+ 	.calibrate     = aspeed_spi_calibrate,
+ 	.get_clk_div   = aspeed_get_clk_div_ast2400,
+ 	.segment_start = aspeed_spi_segment_start,
+@@ -1471,6 +1573,7 @@ static const struct aspeed_spi_data ast2400_spi_data = {
+ 	.timing	       = 0x14,
+ 	.hclk_mask     = 0xfffff0ff,
+ 	.hdiv_max      = 1,
++	.full_duplex   = false,
+ 	.get_clk_div   = aspeed_get_clk_div_ast2400,
+ 	.calibrate     = aspeed_spi_calibrate,
+ 	/* No segment registers */
+@@ -1485,6 +1588,7 @@ static const struct aspeed_spi_data ast2500_fmc_data = {
+ 	.hclk_mask     = 0xffffd0ff,
+ 	.hdiv_max      = 1,
+ 	.min_window_size = 0x800000,
++	.full_duplex   = false,
+ 	.get_clk_div   = aspeed_get_clk_div_ast2500,
+ 	.calibrate     = aspeed_spi_calibrate,
+ 	.segment_start = aspeed_spi_segment_start,
+@@ -1502,6 +1606,7 @@ static const struct aspeed_spi_data ast2500_spi_data = {
+ 	.hclk_mask     = 0xffffd0ff,
+ 	.hdiv_max      = 1,
+ 	.min_window_size = 0x800000,
++	.full_duplex   = false,
+ 	.get_clk_div   = aspeed_get_clk_div_ast2500,
+ 	.calibrate     = aspeed_spi_calibrate,
+ 	.segment_start = aspeed_spi_segment_start,
+@@ -1520,6 +1625,7 @@ static const struct aspeed_spi_data ast2600_fmc_data = {
+ 	.hclk_mask     = 0xf0fff0ff,
+ 	.hdiv_max      = 2,
+ 	.min_window_size = 0x200000,
++	.full_duplex   = false,
+ 	.get_clk_div   = aspeed_get_clk_div_ast2600,
+ 	.calibrate     = aspeed_spi_ast2600_calibrate,
+ 	.segment_start = aspeed_spi_segment_ast2600_start,
+@@ -1538,6 +1644,7 @@ static const struct aspeed_spi_data ast2600_spi_data = {
+ 	.hclk_mask     = 0xf0fff0ff,
+ 	.hdiv_max      = 2,
+ 	.min_window_size = 0x200000,
++	.full_duplex   = false,
+ 	.get_clk_div   = aspeed_get_clk_div_ast2600,
+ 	.calibrate     = aspeed_spi_ast2600_calibrate,
+ 	.segment_start = aspeed_spi_segment_ast2600_start,
+@@ -1556,6 +1663,7 @@ static const struct aspeed_spi_data ast2700_fmc_data = {
+ 	.hclk_mask     = 0xf0fff0ff,
+ 	.hdiv_max      = 2,
+ 	.min_window_size = 0x10000,
++	.full_duplex   = true,
+ 	.get_clk_div   = aspeed_get_clk_div_ast2600,
+ 	.calibrate     = aspeed_spi_ast2600_calibrate,
+ 	.segment_start = aspeed_spi_segment_ast2700_start,
+@@ -1573,6 +1681,7 @@ static const struct aspeed_spi_data ast2700_spi_data = {
+ 	.hclk_mask     = 0xf0fff0ff,
+ 	.hdiv_max      = 2,
+ 	.min_window_size = 0x10000,
++	.full_duplex   = true,
+ 	.get_clk_div   = aspeed_get_clk_div_ast2600,
+ 	.calibrate     = aspeed_spi_ast2600_calibrate,
+ 	.segment_start = aspeed_spi_segment_ast2700_start,
 -- 
 2.34.1
 
