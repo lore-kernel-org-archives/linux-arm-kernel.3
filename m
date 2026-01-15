@@ -4,100 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 773BED41143
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 09:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86577D41143
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 09:08:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VqzndATjDWvQ582QaKNRu40lX/OVCyENGNaOUf+Og1o=; b=Z/LG1tJkGNNryFrOZdiY8VfQ10
-	5EgEW60XVkOcIQkQEpbA83PHQWD0egexGn3eTLlyGmtQlbp9F6+NxP9HJnsLyHjXIF2M5qnW8CEvM
-	0IRPSLfVa7AGp+5xoG4dUF/BvRkziJ0R5NPPphNHlFQWv7jHn/2PGgvhN4obIndipNhK3HStVmpeP
-	ocfMESsRP/EIJjDmk+9u09fCMsicQ3AUY3GqdHrxNsdhgI7mfQF8Mr23FiX5Kb01cYJPTa9H2GAHt
-	Cwa6NqygkxtgUFiG6jq5H6P/q4zY/NBZch/wGjKnJwEoh7NncNZUtto3FBzGHaneNH6lLlIZu/1G5
-	CACuHwcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ebrJu83xT0CkrGYFabbjyIgdiIrnqNzfM/D7mZPEbPg=; b=YESa+7L+dmm309REXXE2/eRoOz
+	Fs3AZrA9FNIk7JlzTwurNRnSco3gHTJXAncLqqrH/4jGTpnEBOGBQCTEz4v8ka1xTqhPaBzW1TBVn
+	vYr5E73mmUIY0QT0fZxKQqBijxLQBq3qSU+fvGVyCsgInje1uKruDb6Soh3hxqO4RiuwnN3i2fWoT
+	RBfWLnNkhFTM2n7vxXPfMmKXZZW2uNd5H3lpj93oL9aMGxEMHdjc2f4Las9sOrIt29xwzVes/I+h3
+	dYcWgJzFGPuFN7O0eOTnn9uWYfnISx0FA+FoFhHEUQkJfsRjWyFNa3amEVL+2I7TmovmIxJgaY0F9
+	6RKI7IRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgJIN-0000000C2W0-1OQS;
-	Thu, 15 Jan 2026 09:05:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vgJKk-0000000C2gJ-3NM1;
+	Thu, 15 Jan 2026 09:08:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgJIL-0000000C2Vd-2JPy
+	id 1vgJKi-0000000C2fy-2TXg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 09:05:33 +0000
+	Thu, 15 Jan 2026 09:08:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A87F1601AF;
-	Thu, 15 Jan 2026 09:05:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CE16C19421;
-	Thu, 15 Jan 2026 09:05:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D4B8543F83;
+	Thu, 15 Jan 2026 09:07:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9597C116D0;
+	Thu, 15 Jan 2026 09:07:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768467932;
-	bh=SbCaNkzKCMcW9Kc/6M5IX9Rq4Uea6Zy1g6Z7MZnMaOY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=mqu1/tn/H1Cn66X0wOisAmEkgVqjyp4CrHzPw3OgDvP/7/cBIh3t/MW2MvKutZ7hu
-	 BS0BcwtIGbRKcGhqM/Mz5IN///efYhJUMSQFi+93xwhcZruDD6zdgHN2WIAuFgaJHJ
-	 6zRuv/meI2OtrEa52DwTarq31eGXod4jIzPscqZ8vRaFPv58+MTjYbE9Nn4xWRxTx8
-	 L8XUEAEfiRtNwu3TqzzP7ms5KR8W3e2wzgvSO+JjJwYNlddx45/WhjMdW8LXX79ay6
-	 7T3tTMv+tKLNviYUXwbvp7PwYHj13t5pAk2X/ImqL21eJAqHelogqbg05VqgxFcscB
-	 RNug2W6D0KpNw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vgJIH-00000002SKy-1xCP;
-	Thu, 15 Jan 2026 09:05:29 +0000
-Date: Thu, 15 Jan 2026 09:05:28 +0000
-Message-ID: <86ldhzkzzb.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	carl@os.amperecomputing.com,
-	dave.martin@arm.com,
-	david@kernel.org,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gshan@redhat.com,
-	james.morse@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	peternewman@google.com,
-	punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com,
-	reinette.chatre@intel.com,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v3 12/47] KVM: arm64: Force guest EL1 to use user-space's partid configuration
-In-Reply-To: <92041294-b332-4b8b-aeed-d8bbad1a7289@arm.com>
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
-	<20260112165914.4086692-13-ben.horgan@arm.com>
-	<86pl7cl7p7.wl-maz@kernel.org>
-	<92041294-b332-4b8b-aeed-d8bbad1a7289@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ben.horgan@arm.com, amitsinght@marvell.com, baisheng.gao@unisoc.com, baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com, dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com, fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, peternewman@google.com, punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1768468079;
+	bh=N42SD1ABqhzU0innJEqJrDbsZ2gSL7z14ABovwt38ew=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ddRfQ/rj7dfC7ztz4VHAjgoa+yVt7ft1PylX15Wm8PwYmsBPhtjgZmWepaK1rT4R6
+	 B40M3Un/+9Ibdu7n/anYTAJUdLyG5NVEcRmpszH4c2HL8hilC025uHCXOtIPVBFCyk
+	 8T+QZWLTkCw9zGSuC6b0av7munsQ2P4E4ri5MeodWalEs/4SbjjIC80KNTRDgAyzJx
+	 wmniTviUQ6lwhhyL8LQC3OPlCGQme2ncgE67b92MAnHNTrH6x6uEXR0N/b8+5yaR20
+	 Lcv3mg7t9Xjb9kb7bJApYQMFHlg0tu4I+wjlN1JWYtSBOk1RqXxrM0VDN3GIEbUj7b
+	 hWgshIYleMdzw==
+Message-ID: <eadcc6da-ffff-4f3c-91db-b70998b50f6d@kernel.org>
+Date: Thu, 15 Jan 2026 10:07:53 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] dt-bindings: PCI: fsl,imx6q-pcie: Remove the
+ deprecated "reset-gpio-active-high" property
+To: Sherry Sun <sherry.sun@nxp.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ festevam@gmail.com, kwilczynski@kernel.org, mani@kernel.org,
+ andriy.shevchenko@linux.intel.com, bhelgaas@google.com,
+ hongxing.zhu@nxp.com, frank.li@nxp.com, l.stach@pengutronix.de,
+ lpieralisi@kernel.org
+Cc: kernel@pengutronix.de, devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260115071816.115798-1-sherry.sun@nxp.com>
+ <20260115071816.115798-4-sherry.sun@nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260115071816.115798-4-sherry.sun@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260115_010801_228168_5DE3C8D7 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,98 +123,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 14 Jan 2026 14:50:22 +0000,
-Ben Horgan <ben.horgan@arm.com> wrote:
+On 15/01/2026 08:18, Sherry Sun wrote:
+> Commit 2e81122d681c ("PCI: imx6: Convert to use agnostic GPIO API")
+> deleted the support of "reset-gpio-active-high" property in imx6 PCIe
+> driver. This deprecated preoperty is no longer used in any DTS file,
+> let's also remove this in dt-binding.
 > 
-> Hi Marc,
+> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> ---
+>  Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml | 6 ------
+>  1 file changed, 6 deletions(-)
 > 
-> On 1/14/26 12:06, Marc Zyngier wrote:
-> > On Mon, 12 Jan 2026 16:58:39 +0000,
-> > Ben Horgan <ben.horgan@arm.com> wrote:
-> >>
-> >> From: James Morse <james.morse@arm.com>
-> >>
-> >> While we trap the guest's attempts to read/write the MPAM control
-> >> registers, the hardware continues to use them. Guest-EL0 uses KVM's
-> >> user-space's configuration, as the value is left in the register, and
-> >> guest-EL1 uses either the host kernel's configuration, or in the case of
-> >> VHE, the UNKNOWN reset value of MPAM1_EL1.
-> >>
-> >> We want to force the guest-EL1 to use KVM's user-space's MPAM
-> >> configuration. On nVHE rely on MPAM0_EL1 and MPAM1_EL1 always being
-> >> programmed the same and on VHE copy MPAM0_EL1 into the guest's
-> >> MPAM1_EL1. There is no need to restore as this is out of context once TGE
-> >> is set.
-> >>
-> >> Signed-off-by: James Morse <james.morse@arm.com>
-> >> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> >> ---
-> >> Changes since rfc:
-> >> Drop the unneeded __mpam_guest_load() in nvhre and the MPAM1_EL1 save restore
-> >> Defer EL2 handling until next patch
-> >>
-> >> Changes since v2:
-> >> Use mask (Oliver)
-> >> ---
-> >>  arch/arm64/kvm/hyp/vhe/sysreg-sr.c | 13 +++++++++++++
-> >>  1 file changed, 13 insertions(+)
-> >>
-> >> diff --git a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-> >> index f28c6cf4fe1b..9fb8e6628611 100644
-> >> --- a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-> >> +++ b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-> >> @@ -183,6 +183,18 @@ void sysreg_restore_guest_state_vhe(struct kvm_cpu_context *ctxt)
-> >>  }
-> >>  NOKPROBE_SYMBOL(sysreg_restore_guest_state_vhe);
-> >>  
-> >> +/*
-> >> + * The _EL0 value was written by the host's context switch and belongs to the
-> >> + * VMM. Copy this into the guest's _EL1 register.
-> >> + */
-> >> +static inline void __mpam_guest_load(void)
-> >> +{
-> >> +	u64 mask = MPAM0_EL1_PARTID_D | MPAM0_EL1_PARTID_I | MPAM0_EL1_PMG_D | MPAM0_EL1_PMG_I;
-> >> +
-> >> +	if (system_supports_mpam())
-> >> +		write_sysreg_el1(read_sysreg_s(SYS_MPAM0_EL1) & mask, SYS_MPAM1);
-> >> +}
-> >> +
-> >>  /**
-> >>   * __vcpu_load_switch_sysregs - Load guest system registers to the physical CPU
-> >>   *
-> >> @@ -222,6 +234,7 @@ void __vcpu_load_switch_sysregs(struct kvm_vcpu *vcpu)
-> >>  	 */
-> >>  	__sysreg32_restore_state(vcpu);
-> >>  	__sysreg_restore_user_state(guest_ctxt);
-> >> +	__mpam_guest_load();
-> > 
-> > What's the rationale for doing this independently of rest of the MPAM
-> > stuff in __activate_traps_mpam()?
-> 
-> The __activate_traps_mpam() is relevant even for nvhe but
-> __mpam_guest_load() is only need in vhe as otherwise we can rely on
-> MPAM1_EL1 and MPAM0_EL0 having the same partid/pmg configuration
+> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> index 12a01f7a5744..6b18264afecf 100644
+> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> @@ -63,12 +63,6 @@ properties:
+>        reset signal. It's not polarity aware and defaults to active-low reset
+>        sequence (L=reset state, H=operation state) (optional required).
+>  
+> -  reset-gpio-active-high:
+> -    description: If present then the reset sequence using the GPIO
+> -      specified in the "reset-gpio" property is reversed (H=reset state,
+> -      L=operation state) (optional required).
 
-It is completely unclear to me what enforces this. Please point me to
-the code that does that.
+You had one command to run before preparing such patch:
 
-> (although this MPAM policy will likely become configurable sometime down
-> the line).
+git grep reset-gpio-active-high
 
-Or not. the VM only exists as an extension of userspace, and I don't
-see on what grounds it should get its own MPAM configuration.
+so now you made this ABI undocumented.
 
-> Besides that it just makes the naming less exact.
-
-I don't care about the naming. I care about how the configuration flow
-is organised. And so far, this seems extremely messy.
-
-Can you please document what gets configured when and in which mode?
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Best regards,
+Krzysztof
 
