@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 894EAD44C46
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 13:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15FB0D44C4B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 13:36:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1IfOxXhxhg4RI/LWYRyXDH5frP3XuVWiAsIJx80MpyU=; b=T0h6YlJh5/sA1stmTbQM89DNIT
-	LevnBhg7aZc81azfMAqpkv9MbEtWVDfp6WxHLYPCjTPsTmZy3mb9rjTvhdsR1GEUz/HkhS/AqBizG
-	dAkfYk6uNcYx6IukUOTsZkFxfn1URo+Od73gUJ8BSk64C5l9Z/yhfh/hgMnKt0gatetyrBCl5/DLC
-	jdPOxJK05tLtuVtyWzwKT3wwfnaU4Zv9A+y2qXmbPAkgUKXx2x1GyEqytTUNtKG3NjPAlrQwxV5Fx
-	queNnGdre62qk10njE3sXKC+M76QI6LcgN3+cnHLE/9vlI6fSPe/Xfknj0cPmgQPV3vpAcOCbj9oP
-	nJhbbWcQ==;
+	bh=ASevxqxMwARuQYFajLlVPpJafYog+lGJPcZ7jKogYrs=; b=lZagp7pPfEZLkQYdTAKo1HfQyr
+	OkEDkQD1c+/pBOkzLH/5jqe84xX3elPRyAHE318bblnnl5B14NLkx69KfCAGcXv7odkvQL2ChJ3RA
+	pk3dpMZSkjWt1g7fAH/p2YR1cs43urMMHkJf+ThW9gAYzC6x8jM83wC0qgq2totGgQQrMG54mmqlM
+	a+uaoZu84l30tablNSG1tLNyO7tUfGvbNuo7gMasUkkyzXLz3qO1YN6CzujnBwMEjxL9I3KY/gqUv
+	lAyTJT3N88KOJx2fJWrqC1Rbqf25BMWH2QlBusN56hxhEac59QOU4nUXwvlPmv8ozLiS1+/y/BAhZ
+	Gxh7lUJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgNSr-0000000CQZ8-2x0I;
-	Thu, 15 Jan 2026 13:32:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vgNWA-0000000CQim-1DbI;
+	Thu, 15 Jan 2026 13:36:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgNSp-0000000CQYO-1VzQ
+	id 1vgNW8-0000000CQiD-45f5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 13:32:40 +0000
+	Thu, 15 Jan 2026 13:36:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ADBEC423CD;
-	Thu, 15 Jan 2026 13:32:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F833C116D0;
-	Thu, 15 Jan 2026 13:32:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0ECD360195;
+	Thu, 15 Jan 2026 13:36:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FC40C16AAE;
+	Thu, 15 Jan 2026 13:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768483958;
-	bh=VHYL1nkOzjGIBxU6anuNNYGVykvMwehpUoJm26Swras=;
+	s=k20201202; t=1768484163;
+	bh=0W6V9fyTShLK7ULIIxW8FNo5OfRF3NXJTodFVN9ZRdM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YUVFT4Pv+GbNch5ybevpHXCZtTqQsFPxF/zCQoI92R853eUEEkPraTqmDBf8PFues
-	 PBAT0N7DIFFZI+2V38qolM+jE95dcVW1dtt8Zi3RufdjUNm4249uwuoVAvPOWT32om
-	 ElCvSXlvlCunrL+UGjScZyA3Kqyh1whgxN6RBVdU9sUR6ZiRAsG4UZyIWUJRtmiq9r
-	 sSG6SiKXsem7/4gozdb/ihcZC9ZXMk8jxgOhwZMcpArGmXAP6ZMNycnSGaPFVbLV5o
-	 pfl8Sk7Zd0mWyAJI8Od3SCrrgYTQ9thn096k7gyAkwE4Ixfhtq8T2zWSgps3bA/1/3
-	 dt5tNSV+5L8iQ==
-Date: Thu, 15 Jan 2026 14:32:36 +0100
+	b=UvNex5q2V6dpcWncjXAuZswFgvOfUKB9y8VJ+T9KyiTvWPfqGe20p26fqk/KPKdCy
+	 fC2w61TTrdGLFSrazUHLDWG8EIQf2mYn5yZfbB8r93Ln8Fxp3SwJE8NiFPHReq8BWZ
+	 HuKz33cfCWzSTQLUjcBZW90t3pL5F1DXCVoka3Hwei35ATDkkqP6WnCLur1V6F+wnX
+	 gEgU/xfdqJTaX/u9Tba9WHGjKOvHk32N3c2VEGD+OrwZHN5QV2hMhnQAuvzciZXDk8
+	 9v3lzyqXTA4/OKcWVkYmldl+k7Ndb+ApMLf0hzt4zLmrvsgDjM7obnvfZgS9qVbLYx
+	 Gpp78xR32pXiA==
+Date: Thu, 15 Jan 2026 14:36:01 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Tudor Ambarus <tudor.ambarus@linaro.org>
 Cc: "Rafael J. Wysocki" <rafael@kernel.org>, 
@@ -56,17 +56,14 @@ Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
 	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
 	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH 1/8] dt-bindings: thermal: Add Google GS101 TMU
-Message-ID: <20260115-ultramarine-wildebeest-of-completion-ea1bc0@quoll>
+Subject: Re: [PATCH 3/8] dt-bindings: mfd: Add Google GS101 TMU Syscon
+Message-ID: <20260115-slim-denim-potoo-cad9cb@quoll>
 References: <20260114-acpm-tmu-v1-0-cfe56d93e90f@linaro.org>
- <20260114-acpm-tmu-v1-1-cfe56d93e90f@linaro.org>
+ <20260114-acpm-tmu-v1-3-cfe56d93e90f@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260114-acpm-tmu-v1-1-cfe56d93e90f@linaro.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_053239_436406_FAFDAADC 
-X-CRM114-Status: GOOD (  20.83  )
+In-Reply-To: <20260114-acpm-tmu-v1-3-cfe56d93e90f@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,88 +78,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 14, 2026 at 02:16:29PM +0000, Tudor Ambarus wrote:
-> Add device tree bindings for the Google GS101 Thermal Management Unit
-> (TMU).
+On Wed, Jan 14, 2026 at 02:16:31PM +0000, Tudor Ambarus wrote:
+> Document the bindings for the Thermal Management Unit (TMU) System
+> Controller found on Google GS101 SoCs.
 > 
-> The GS101 TMU is a hybrid thermal solution:
-> 1. Configuration (thresholds, hysteresis) is handled via the Alive
->    Clock and Power Manager (ACPM) firmware protocol.
-> 2. Interrupt handling is handled by the kernel via direct register
->    access.
-> 
-> This binding documents the required resources, including the APB clock
-> for register access and the phandle to the associated syscon node.
+> This memory-mapped block exposes the registers required for reading
+> thermal interrupt status bits. It functions as a syscon provider,
+
+I don't think this is syscon, but the actual TMU. Syscon is various,
+unrelated system configuration registers.
+
+> allowing the main thermal driver to access these registers while
+> the firmware manages the core thermal logic.
 > 
 > Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 > ---
->  .../bindings/thermal/google,gs101-tmu-top.yaml     | 64 ++++++++++++++++++++++
->  1 file changed, 64 insertions(+)
+>  .../bindings/mfd/google,gs101-tmu-syscon.yaml      | 37 ++++++++++++++++++++++
+>  1 file changed, 37 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml b/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml
+> diff --git a/Documentation/devicetree/bindings/mfd/google,gs101-tmu-syscon.yaml b/Documentation/devicetree/bindings/mfd/google,gs101-tmu-syscon.yaml
 > new file mode 100644
-> index 0000000000000000000000000000000000000000..ecf4a315ecf1ea0649c4e96a207d531c696282f4
+> index 0000000000000000000000000000000000000000..6a11e43abeaa23ee473be2153478436856277714
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml
-> @@ -0,0 +1,64 @@
+> +++ b/Documentation/devicetree/bindings/mfd/google,gs101-tmu-syscon.yaml
+
+Not MFD either, but soc.
+
+> @@ -0,0 +1,37 @@
 > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/thermal/google,gs101-tmu-top.yaml#
+> +$id: http://devicetree.org/schemas/mfd/google,gs101-tmu-syscon.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: Google GS101 Thermal Management Unit (TMU)
+> +title: Google GS101 TMU System Controller
 > +
 > +maintainers:
 > +  - Tudor Ambarus <tudor.ambarus@linaro.org>
 > +
 > +description: |
-> +  The Google GS101 TMU is a thermal sensor block managed via the ACPM
-> +  (Active Core Power Management) firmware. While the firmware handles
-> +  the thermal algorithm and thresholds, the kernel requires direct
-> +  access to the interrupt pending registers via a syscon interface to
-> +  acknowledge and clear thermal interrupts.
-> +
-> +properties:
-> +  compatible:
-> +    const: google,gs101-tmu-top
-> +
-> +  clocks:
-> +    maxItems: 1
-> +    description: |
-> +      Phandle to the APB peripheral clock (PCLK) required to access
-> +      the TMU registers.
 
-Drop all the redundancies, so:
-items:
- - description: APB peripheral clock (PCLK) for TMU register access
+Drop |
 
+> +  The TMU System Controller provides a memory-mapped interface for
+> +  accessing the interrupt status registers of the Thermal Management
+> +  Unit. It is used as a syscon provider for the main TMU driver.
 
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +    description: |
-> +      The combined thermal interrupt signal (Level High).
-
-Drop description
-
-> +
-> +  syscon:
-
-I feel like suddenly you sent something completely different than what
-have you been working for the past 4 years.
-
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: |
-> +      Phandle to the device node representing the TMU System Controller
-> +      (compatible with "google,gs101-tmu-syscon"). This node provides the
-> +      regmap for INTPEND and INTCLEAR registers.
-> +
-> +  "#thermal-sensor-cells":
-> +    const: 1
-> +
-
-No supply?
+No, it is not a syscon provider. Entire last sentence is incorrect. You
+must describe here hardware and this hardware does not provide any sort
+of syscon to any sort of driver.
 
 Best regards,
 Krzysztof
