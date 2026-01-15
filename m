@@ -4,162 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFF0D31A0B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 08:26:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2061D41141
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 08:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ihCYjBor/TJ7yvCsPjjKpFf3GYyFK9nhdlTTkYZ1ZVM=; b=QjbKhbJUc7TKcWIxglO3y7i6Vu
-	LY9Fvc0+IQ+WvDG6QNzzrUv6UlsgTSHUwkFCegO4SRvtKlU3Nenplua6oeh0KD3AENOAnCjTnMmgW
-	HmE7JJNMno6qcnsMWtepgKYdh7VNbjjHFiM+76M88Q3q9qxgUkFQ/jtp2o3xUfE64hEvjneegqzZA
-	l/aCztFNpheBKlLYNEnqbzGCchVsli/gG8UpkJ2ngDvGv0Xu9d3GF+T++DD7qtcAuFNEGObsW9mqW
-	xtsLF58cgH02sp8vwwAiRUE7MsJFwitQqGtFiOFb+7oxX8DYLnd0u0QxFNdNIJnizK2AYs7jAFWSA
-	Wcj1tb/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yEhW79U6doUL/JqAk9Ut/HyEczQFD5R9B9xZcFtsnOI=; b=tU8X2A9ZwmT+JAZ/G9K3S5Xqyw
+	1dVHsViykA1Ygw9lUfXHmsrYsCaGFkRVIp2lhTg+FAziEn9++p4ZbwZhi2Ge8V0nA9oaLYQAMGo+5
+	yhjmqwP5Yo/3PgqqbKaq7jNoX8iA9TNstySINfvVwJZzXEFsGQJoM2rRK7BpbcJebs0IuFQHDIVnt
+	+Tftwu/UGIFH2eiRp9vAZkO2h1BWyRiahnoqk1cYuzklH2ZcqwvE+QTrg2lrocRRkAQ8aneJoM7rp
+	LiOlF75nlzc8UzDr8vNvNOV2TMv1ASd+DnjtYYEPqE3vr6eQBJ9WlnFkDNx9rS2RFCCHucMaL8HLP
+	RPQuCfgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgIgh-0000000BzeN-27rn;
-	Thu, 15 Jan 2026 08:26:39 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1vgIrV-0000000C0SE-0lft;
+	Thu, 15 Jan 2026 08:37:49 +0000
+Received: from mail-vk1-f174.google.com ([209.85.221.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgIge-0000000Bzdd-2DGN
+	id 1vgIrR-0000000C0Rp-2Lll
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 08:26:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lNsvplxPN+sAZ1KnU0SjWeMi8oWrjWnzGEOhNtgnE3btciQwa2hL9OsELvN4lXdAvuwlt67xT9ZXOEBJvFg0zxxPmDpS0KyJI5msMABeSwadOyyOKwrdNgBPfUx2vFDts8okvKXrqcAa7bWdgj7o3fzeq3OAdBHfEZfl3AspMcXtSd+/I6Vc25frONjWZXZqpjpz+5XrzgwC/cg9Z/k3MRFrHehcAeeOkiZe9YPk9+HYuXN1LQmeC8n4u9Ce6u+HuAHc2R7UyEvQw202l10KLnjK/tviLJlGVdpwKenhgQQAGNA0Gu2wdDudQRz+WW+ERcfb6QxDm9DydU5Ewk0TnQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ihCYjBor/TJ7yvCsPjjKpFf3GYyFK9nhdlTTkYZ1ZVM=;
- b=K/QeCpZBnqQRL2yK1H+gz0flQ1ZGltkeOcQseyy79azHK0ZvtIHLUVfWyhDrr4XsQ2uFYJnwadbkHwnbACYLzNwarGgPDM8gG4sCkD3WhqWyj5LuyLB5rKapqNmRfjEwLlCO15vVYxFMihU8xEoGtI12+0ODWlFbEEWaMg/1z8vL/mhHyVXwO59z7LlGvbhL/vE8Plasp0AF4u56DUGJ015tZ8zB5tg7Ftfg97x+q+cVrvBfx7Dp6xMsChOvRxozaaUFU/lcCdiR/teA0JTdWTIqFE4LyWA9vBzAaCxEdONAc0LLFBWewlSMfVoxGmffoOshLFYzdFON/lHp48NZCg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ihCYjBor/TJ7yvCsPjjKpFf3GYyFK9nhdlTTkYZ1ZVM=;
- b=XPRgKIHmvDiiO9LyFOjflgB/AOzZLw0YQLbrk58h7q2sStW9Skmf0uZCsXaRopTzPLV2nJCSSedYUmpexaiv8bU3uJH9XvdIjpYuo/aJFkp05swKjktMH/EAyZe7YuTBS+5Dtx9WgL1aHINM2/0HT0uIfV8gJqCTE7LSccaG6gk=
-Received: from SN7P220CA0015.NAMP220.PROD.OUTLOOK.COM (2603:10b6:806:123::20)
- by MW4PR10MB5749.namprd10.prod.outlook.com (2603:10b6:303:184::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.5; Thu, 15 Jan
- 2026 08:26:32 +0000
-Received: from SN1PEPF00036F3C.namprd05.prod.outlook.com
- (2603:10b6:806:123:cafe::78) by SN7P220CA0015.outlook.office365.com
- (2603:10b6:806:123::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.5 via Frontend Transport; Thu,
- 15 Jan 2026 08:26:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SN1PEPF00036F3C.mail.protection.outlook.com (10.167.248.20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9542.4 via Frontend Transport; Thu, 15 Jan 2026 08:26:30 +0000
-Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 15 Jan
- 2026 02:26:29 -0600
-Received: from DFLE208.ent.ti.com (10.64.6.66) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 15 Jan
- 2026 02:26:29 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE208.ent.ti.com
- (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 15 Jan 2026 02:26:29 -0600
-Received: from [172.24.31.151] (lt5cd2489kgj.dhcp.ti.com [172.24.31.151])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60F8QO8I1257973;
-	Thu, 15 Jan 2026 02:26:25 -0600
-Message-ID: <f66cda39-acf7-4a88-8528-a4dd41750259@ti.com>
-Date: Thu, 15 Jan 2026 13:56:23 +0530
+	Thu, 15 Jan 2026 08:37:47 +0000
+Received: by mail-vk1-f174.google.com with SMTP id 71dfb90a1353d-5634feea416so540815e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 00:37:44 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768466264; x=1769071064;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yEhW79U6doUL/JqAk9Ut/HyEczQFD5R9B9xZcFtsnOI=;
+        b=PMp/lyjZUTtqBki93AQS0ouSAVTCAFOYFPgMasaqn4mW8w3GmcVHZ5cFz3Rf0bhUHP
+         svnYVzjmX5GJA2IAmka8hh/TDqgm0BC3z4fTgGX6cq3ADt+f/dxENihvGuSmO/ARYTNd
+         Rry4GuqAqCE9H60GEinyOuAtafrgdv9Gx1H33ZojNuizWMb5CW6YnX4sAuZgbPqYk0GQ
+         Cd2FyrTSL4r7izW32lOi7QwbQlr1tDbt5RS5lapzKlzImgqdqTxTkgxZYckaXLaXPcse
+         wig4TumwHrTQMmqymFSpoJ2inn+jBt9UNgvCDA36bZKta1OfSfN9zrZyEL8JMVzYbuqn
+         VCQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXN/N4jfoo4X3bIqMzAbrMXshXs5TN27hArG0wedLHMms+46IB2bsge4ckZYAyJK+TaTgLeiM6jAIJmNmaoOIUm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwVdNuBUjy8PjIcyIAH6NQh+7Jjz7Fxt+5F0pZhCc3CbsdZavi
+	pU6ZLU/FyYHoPryTx/SQaP9DsCxVxvw/9qgFy37R7jRI2DCYl0D3p76tAUx3lXFN
+X-Gm-Gg: AY/fxX4CpPfJ9eXmH8dq+tiRB9KEcSG5Mck//PJy+Mh3l5fTk+UniuFlkxddjfCwhLV
+	23c9eppdc+QLc0+kYe0NBt4irn9SJekbps2yDZ1wFvucaKSGEp1omZuURpXs6XoW58aN9RtfzPi
+	6Cr89XBiYSkdy5289UBjFKxjKlKz/hUqMl8I0s9modswYMFzM6xRLSVd3IRKRHqOpLIGMEl8tHF
+	ZsPPdw8tGDNvlqMrDKAQe0NQTfIVgL5qjpE8WZSoBNuawMh7mfOdPPH4m/Ov0MY33GHse2gokxS
+	KmJG4Qd9u2RzfENGXvzFcuIodf9RfFmLakg97/6RcKYsN8GwJ0ajtPj/RUO8OoSu7YuSJQt2A+k
+	H+NAnxNqHAaAs8f/Jt+f0EAnwUX2kIhicYIfWPWP01yvrM5LSBVBsTh8Un8TIONLFzpdrBXLXoy
+	wfLQOTLiiWTZkgFUcVoQVJHpbHTiQaC3SkaIbFYgwENXiDIVhA5JQQ
+X-Received: by 2002:a05:6102:442b:b0:5ed:dda:d16c with SMTP id ada2fe7eead31-5f1838c26d7mr1935324137.13.1768466263574;
+        Thu, 15 Jan 2026 00:37:43 -0800 (PST)
+Received: from mail-vk1-f176.google.com (mail-vk1-f176.google.com. [209.85.221.176])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5efaf4b2963sm15342151137.13.2026.01.15.00.37.42
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 Jan 2026 00:37:42 -0800 (PST)
+Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-5634feea416so540791e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 00:37:42 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWRH00sM7SMgnfl3yMDvBnqgMcM9mmzZibytQiBNRbyjXbo57FetW4hz5z23icpnUl9YUwu2h9SO7ZBuiStk+ao@lists.infradead.org
+X-Received: by 2002:a05:6122:3b81:b0:563:4a88:6ea5 with SMTP id
+ 71dfb90a1353d-563a2093a5dmr1838362e0c.5.1768466262231; Thu, 15 Jan 2026
+ 00:37:42 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] arm64: dts: ti: k3-am62p-j722s-common-main: Add
- HSM M4F node
-To: "Padhi, Beleswar" <b-padhi@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-	<kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>
-CC: <afd@ti.com>, <hnagalla@ti.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<u-kumar1@ti.com>
-References: <20260114173551.2545088-1-b-padhi@ti.com>
- <20260114173551.2545088-3-b-padhi@ti.com>
- <f4319457-6c2e-42b6-a57e-6f326c93fdcd@ti.com>
- <3a62d6f7-ff88-4f5a-8dfd-ded3e5ff1c86@ti.com>
- <cf8f1087-34d0-42c3-8245-38dc7312b29c@ti.com>
- <4eea8956-fcd9-4be4-acc3-b983f1cbe55b@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <4eea8956-fcd9-4be4-acc3-b983f1cbe55b@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF00036F3C:EE_|MW4PR10MB5749:EE_
-X-MS-Office365-Filtering-Correlation-Id: 226612b0-8737-4ef6-d8b7-08de540fc939
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|34020700016|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?N1d3SjNraTl6UFlmbkt3MTcrNXloT1F4Z2liS2tXNWRqbmZwa25ZZGphV1Fk?=
- =?utf-8?B?ZDN4M3V4R1RNc2Q2VnVEOXh4cm1WdGhaQ2kwSktUZ0huaGJrZTg5TzJmanpF?=
- =?utf-8?B?V2tMcEVabzVoQ3F0cVN4b2Qybm5XcmYxVVpPTEwzVTZxZDZLODZkeCtrelow?=
- =?utf-8?B?eG5SL3VDS3lMVVBxTEVYOVU0ZTVlbFFpbUhLcG9JRDRTdkNCbi9GN0JBOFR1?=
- =?utf-8?B?RmRoRTFVK2V6aytaUDlSS3ZmcklDTGpudENTMGFzblUraUNJRzFVVy9NVEd5?=
- =?utf-8?B?NTc5TUYydG1ySzhRcDhsUmtPZlhjK0p0RmNYaGVCcVJJQUwzbTRXTEJPb0VR?=
- =?utf-8?B?aGllakI2dGF4b1Q5QU5sWnFMN0dMQkRVUmt4elZlL08yL3ltZ1dPandrZ1dJ?=
- =?utf-8?B?UmVCdHh1dm00Si9ZYnhiRWM5MFY5Q1AvSVlUWSsxNXhWTGtVTzFrMnVwN0k0?=
- =?utf-8?B?Y1lkZWozc0UzOG16UElHWUFNT1ZGalhjeEx2TitCNmNGYUp6ZUpiSGpaNHFn?=
- =?utf-8?B?emxxdDlXTFQ0MytxRG1QMFhYQXFhRmlma01FajVvNHJNN3VDV3VEeGs2OXJy?=
- =?utf-8?B?V3FnOTlqU1N6RGJNRmtVRmx5K3FRK20vYVJoLzlmNmkyMDhRdllicE1Bbisr?=
- =?utf-8?B?Z1ZaMEpZMjJBTnhmekZPNHVlRUl3N0JhajI3QzlQU0FlcWFReGRUSktoSEJq?=
- =?utf-8?B?NWpORHRrZzNVK29ZZzF4ODVOeWlud3F3dFkvSEZXRkxiNmJ2YUU5Mnh1UkRV?=
- =?utf-8?B?R1JaU2ZQcE9GVEtFdndWQTcwcnc5ZnRXUElZWFVkTGQ0elJSSkFNZERmWmw4?=
- =?utf-8?B?TmxaNTBRN08zVFYvdjhVMjkzWmhsTGgyWUtQMmp5YVlqRmFmeUticWpyNmdS?=
- =?utf-8?B?UGFoQmpHWHRwWE9pQWd2S1NnRUtKMno3eHRLZjBoOCtCZ1BIeG9LV0oyVlJh?=
- =?utf-8?B?Y05KcWF2TnAyUHc3a0pORDQwaTZBUnovdGUvT1MwRTNCaE9HbG4zSW50RDhr?=
- =?utf-8?B?YkZyanhQaGRPYmsrUC9Jc0hHcDQxZ3MwckE1WnozVy8xNTBYOXp6TTF4RktC?=
- =?utf-8?B?THFiNGgzOWF3WjRXeHhSd2JuT1YySUorTGVkYzArSDh0bUk0Zms3cnc3eHlq?=
- =?utf-8?B?eWVGMkVtY2I1SXZsR0JVRkVqb3dMOXBRWTdpbG1qcUkra0RHeWVPZDJoWVNJ?=
- =?utf-8?B?Wm81eTcwa21PMWFHaUxrSEdRaUxYUW5GNWUrVmFOaVE5QjY4SVBFZE1jZnBs?=
- =?utf-8?B?SjZBSHVLVEd1akFEekZwOVkvOEwrWWRQZFlNV0pWMmlpNG5MYWNxeDlLVUZa?=
- =?utf-8?B?RGx3MFRlMitPemFvVVRsdjRQNkl4TUkrbkptMFgzWVFqVjdEMml6MTRGUWJi?=
- =?utf-8?B?amxzS2crVmpwd3Q5L1Y0RUN6L1dJVktkL3NJbTdXTXBaall4WnlSSG9zN0VI?=
- =?utf-8?B?eGQxRFYxU2dNL2lURzJHWGNHVG85NXUwUndram9aUTVOdG54dG90WHZhMEFJ?=
- =?utf-8?B?b2VEVi8yK3o3dXJWRkc1TkpnM3ZSYzJObGp5SEwwdHhyU0h5aDYrbTUwOC96?=
- =?utf-8?B?Z0Z0MFNRaFEvenBNNVdUK1dDWjZHc3YybHhiV3I3dHJvL3c1THdmMXR0cFhi?=
- =?utf-8?B?dlE5OC9sWm1BTFhYV1RoRzdjMFZDa1pFekxzM3hsWS8zWlpJUlp1K2VMd2Ex?=
- =?utf-8?B?WjhKTnA1bnl6ZVF1bXl0ZWk2NFZxNkUwQ2dGcWk5eEErWmNvR002UHI4Z2p4?=
- =?utf-8?B?SXIrTW4xeWdvMjVFWFdmeTJBZnpjYkVJYmF6azNFZ0dWRzNIM0JpRVBoY1U2?=
- =?utf-8?B?VnNHRHo2MDZnNE1mR2dlcVJJWDN1U1VLZHd6MVYxMjV1cnVSUmd0TXk2Q1Fo?=
- =?utf-8?B?eVYyTFNrdDZua1lQY3cxc2FuZXFOSzVuWlljTHBoSTlMYk50eXBjY2FVdGx3?=
- =?utf-8?B?cXRYcVgvZ2Y1RlNmMWdrazRCV2xod2doRnE0Q09vTzZ6QzNRWEpMVFllbm1v?=
- =?utf-8?B?aExQNnk5L1ZhbGV6RGh6dmFOSEh6ODladUZjV2lrNkNiZ1NRRStNRGJGckFF?=
- =?utf-8?B?SXJSMktkMmJIVzVaQVR2MEJtQ0xQclhGY0RGRk9ITTlSK0RKNG5nTC83a1N2?=
- =?utf-8?B?MURJSXdlNU9XcnQrY3p1ZHFiVEFWcXd2YWpvZFlrdW5CUVVpYUxvaWhxd1Yy?=
- =?utf-8?B?SmFrellpOHBBeTkrdVBNU1RnTk82MlRTLzNGRHZIL3BoQmllOG92cklkMmo0?=
- =?utf-8?B?VzRadG5CUUUwNHRYWHJBdmlGTnV3PT0=?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(34020700016)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2026 08:26:30.9671
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 226612b0-8737-4ef6-d8b7-08de540fc939
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F3C.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB5749
+References: <20251230080115.2120612-1-zhenglifeng1@huawei.com>
+ <20251230080115.2120612-4-zhenglifeng1@huawei.com> <CAMuHMdVeHk-Enc-M9ztwSdeAtE8YPKtJwq+273bGPEFOEsu=Rw@mail.gmail.com>
+ <aWZriVlQZ5jRx2o4@arm.com> <CAMuHMdVgbQnaCQ8U8FK6J1vJLsqc0_MC7zSTX2B=rsuF2kpEKg@mail.gmail.com>
+ <41b7398c-b1a4-4b87-b6f9-07eacf4f4752@huawei.com>
+In-Reply-To: <41b7398c-b1a4-4b87-b6f9-07eacf4f4752@huawei.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 15 Jan 2026 09:37:31 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUuTrF=eN5tMsjmOfWuuT9r7aCOTS7=YP6+KrSdNrhEpw@mail.gmail.com>
+X-Gm-Features: AZwV_QgJfgfwWgiDZ0xWQqvqqWOvLCpdrYhSVw3ZJkes_w8m6CntQRIYTUo-KYk
+Message-ID: <CAMuHMdUuTrF=eN5tMsjmOfWuuT9r7aCOTS7=YP6+KrSdNrhEpw@mail.gmail.com>
+Subject: Re: [REPOST PATCH v6 3/3] arm64: topology: Handle AMU FIE setup on
+ CPU hotplug
+To: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
+Cc: Beata Michalska <beata.michalska@arm.com>, catalin.marinas@arm.com, will@kernel.org, 
+	rafael@kernel.org, viresh.kumar@linaro.org, sudeep.holla@arm.com, 
+	gregkh@linuxfoundation.org, dakr@kernel.org, ionela.voinescu@arm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+	linuxarm@huawei.com, jonathan.cameron@huawei.com, vincent.guittot@linaro.org, 
+	zhanjie9@hisilicon.com, lihuisong@huawei.com, yubowen8@huawei.com, 
+	zhangpengjie2@huawei.com, wangzhi12@huawei.com, linhongye@h-partners.com, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_002636_599296_3420C39C 
-X-CRM114-Status: GOOD (  19.42  )
+X-CRM114-CacheID: sfid-20260115_003745_645266_BDA2E691 
+X-CRM114-Status: GOOD (  50.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,155 +104,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Lifeng,
 
-On 1/15/2026 11:23 AM, Padhi, Beleswar wrote:
+On Thu, 15 Jan 2026 at 03:25, zhenglifeng (A) <zhenglifeng1@huawei.com> wrote:
+> On 2026/1/14 21:54, Geert Uytterhoeven wrote:
+> > On Tue, 13 Jan 2026 at 16:58, Beata Michalska <beata.michalska@arm.com> wrote:
+> >> On Tue, Jan 13, 2026 at 11:51:45AM +0100, Geert Uytterhoeven wrote:
+> >>> On Tue, 30 Dec 2025 at 09:02, Lifeng Zheng <zhenglifeng1@huawei.com> wrote:
+> >>>> Currently, when a cpufreq policy is created, the AMU FIE setup process
+> >>>> checks all CPUs in the policy -- including those that are offline. If any
+> >>>> of these CPUs are offline at that time, their AMU capability flag hasn't
+> >>>> been verified yet, leading the check fail. As a result, AMU FIE is not
+> >>>> enabled, even if the CPUs that are online do support it.
+> >>>>
+> >>>> Later, when the previously offline CPUs come online and report AMU support,
+> >>>> there's no mechanism in place to re-enable AMU FIE for the policy. This
+> >>>> leaves the entire frequency domain without AMU FIE, despite being eligible.
+> >>>>
+> >>>> Restrict the initial AMU FIE check to only those CPUs that are online at
+> >>>> the time the policy is created, and allow CPUs that come online later to
+> >>>> join the policy with AMU FIE enabled.
+> >>>>
+> >>>> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+> >>>> Acked-by: Beata Michalska <beata.michalska@arm.com>
+> >>>
+> >>> Thanks for your patch, which is now commit 6fd9be0b7b2e957d
+> >>> ("arm64: topology: Handle AMU FIE setup on CPU hotplug") in
+> >>> arm64/for-next/core (next-20260107 and later).
+> >>>
+> >>>> --- a/arch/arm64/kernel/topology.c
+> >>>> +++ b/arch/arm64/kernel/topology.c
+> >>>> @@ -284,7 +284,7 @@ static int init_amu_fie_callback(struct notifier_block *nb, unsigned long val,
+> >>>>         struct cpufreq_policy *policy = data;
+> >>>>
+> >>>>         if (val == CPUFREQ_CREATE_POLICY)
+> >>>> -               amu_fie_setup(policy->related_cpus);
+> >>>> +               amu_fie_setup(policy->cpus);
+> >>>>
+> >>>>         /*
+> >>>>          * We don't need to handle CPUFREQ_REMOVE_POLICY event as the AMU
+> >>>> @@ -303,10 +303,71 @@ static struct notifier_block init_amu_fie_notifier = {
+> >>>>         .notifier_call = init_amu_fie_callback,
+> >>>>  };
+> >>>>
+> >>>> +static int cpuhp_topology_online(unsigned int cpu)
+> >>>> +{
+> >>>> +       struct cpufreq_policy *policy = cpufreq_cpu_policy(cpu);
+> >>>> +
+> >>>> +       /* Those are cheap checks */
+> >>>> +
+> >>>> +       /*
+> >>>> +        * Skip this CPU if:
+> >>>> +        *  - it has no cpufreq policy assigned yet,
+> >>>> +        *  - no policy exists that spans CPUs with AMU counters, or
+> >>>> +        *  - it was already handled.
+> >>>> +        */
+> >>>> +       if (unlikely(!policy) || !cpumask_available(amu_fie_cpus) ||
+> >>>> +           cpumask_test_cpu(cpu, amu_fie_cpus))
+> >>>> +               return 0;
+> >>>> +
+> >>>> +       /*
+> >>>> +        * Only proceed if all already-online CPUs in this policy
+> >>>> +        * support AMU counters.
+> >>>> +        */
+> >>>> +       if (unlikely(!cpumask_subset(policy->cpus, amu_fie_cpus)))
+> >>>> +               return 0;
+> >>>> +
+> >>>> +       /*
+> >>>> +        * If the new online CPU cannot pass this check, all the CPUs related to
+> >>>> +        * the same policy should be clear from amu_fie_cpus mask, otherwise they
+> >>>> +        * may use different source of the freq scale.
+> >>>> +        */
+> >>>> +       if (!freq_counters_valid(cpu)) {
+> >>>> +               pr_warn("CPU[%u] doesn't support AMU counters\n", cpu);
+> >>>
+> >>> This is triggered during resume from s2ram on Renesas R-Car H3
+> >>> (big.LITTLE 4x Cortex-A57 + 4x Cortex-A53), when enabling the first
+> >>> little core:
+> >>>
+> >>>     AMU: CPU[4] doesn't support AMU counters
+> >>>
+> >>> Adding debug code:
+> >>>
+> >>>     pr_info("Calling
+> >>> topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, %*pbl)\n",
+> >>> cpumask_pr_args(policy->related_cpus));
+> >>>     pr_info("Calling cpumask_andnot(..., %*pbl, %*pbl)\n",
+> >>> cpumask_pr_args(amu_fie_cpus), cpumask_pr_args(policy->related_cpus));
+> >>>
+> >>> gives:
+> >>>
+> >>>     AMU: Calling topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, 4-7)
+> >>>     AMU: Calling cpumask_andnot(..., , 4-7)
+> >>>
+> >>> so AMU is disabled for all little cores.
+> >>>
+> >>> Since this only happens during s2ram, and not during initial CPU
+> >>> bring-up on boot, this looks wrong to me?
+> >> This does look rather surprising. If that CPU was marked as supporting AMUs at
+> >> the initial bring-up it should be part of amu_fie_cpus mask, so the hp callback
+> >> should bail out straight away. Would you be able to add some logs to see what
+> >> that mask actually contains ?
+> >> Furthermore, freq_counters_valid is logging issues when validating the counters.
+> >> Would you be able to re-run it with the debug level to see what might be
+> >> happening under the hood, although I am still unsure why it is even reaching
+> >> that point ...
+> >
+> > Adding extra debugging info, and "#define DEBUG" at the top.
+> >
+> > During boot:
+> >
+> >     AMU: amu_fie_setup:260: cpus 0-3 amu_fie_cpus
+> >     ^^^ empty amu_fie_cpus
+> >     AMU: CPU0: counters are not supported.
+> >     ^^^ pr_debug
+> >     AMU: amu_fie_setup:260: cpus 4-7 amu_fie_cpus
+> >     ^^^ empty amu_fie_cpus
+> >     AMU: CPU4: counters are not supported.
+> >     ^^^ pr_debug
+> >
+> > During resume from s2ram:
+> >
+> >     AMU: cpuhp_topology_online:314: cpu 1 amu_fie_cpus
+> >     AMU: cpuhp_topology_online:343: skipped
+> > (!cpumask_subset(policy->cpus, amu_fie_cpus))
+> >     AMU: cpuhp_topology_online:314: cpu 2 amu_fie_cpus
+> >     AMU: cpuhp_topology_online:343: skipped
+> > (!cpumask_subset(policy->cpus, amu_fie_cpus))
+> >     AMU: cpuhp_topology_online:314: cpu 3 amu_fie_cpus
+> >     AMU: cpuhp_topology_online:343: skipped
+> > (!cpumask_subset(policy->cpus, amu_fie_cpus))
+> >     AMU: cpuhp_topology_online:314: cpu 4 amu_fie_cpus
+> >     AMU: CPU4: counters are not supported.
+> >     ^^^ pr_debug
+> >     AMU: CPU[4] doesn't support AMU counters
+> >     ^^^ pr_warn
+> >     AMU: Calling topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, 4-7)
+> >     AMU: Calling cpumask_andnot(..., , 4-7)
 >
-> On 1/15/2026 11:16 AM, Kumar, Udit wrote:
->>
->> On 1/15/2026 11:11 AM, Padhi, Beleswar wrote:
->>> Hi Udit,
->>>
->>> On 1/15/2026 10:06 AM, Kumar, Udit wrote:
->>>> Hi Beleswar,
->>>>
->>>> On 1/14/2026 11:05 PM, Beleswar Padhi wrote:
->>>>> The TI K3 AM62P and J722S SoCs have a HSM (High Security Module) M4F
->>>>> core in the MAIN Voltage Domain which could be used to run secure
->>>>> services like Authentication. Add Device Tree Node definitions for 
->>>>> the
->>>>> HSM core in the respective SoC common main dtsi file.
->>>>>
->>>>> The HSM node is reserved to be loaded and booted by the early-stage
->>>>> bootloader. The firmware-name property is defined at the SoC level
->>>>> since the HSM is not a general-purpose remote core and boards are
->>>>> unlikely to use separate firmware. If needed in exceptional cases,
->>>>> board-specific device trees can override this property.
->>>>>
->>>>> The corresponding reg ranges of HSM node has also been added to its
->>>>> parent node's (cbass_main bus) ranges property.
->>>>>
->>>>> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
->>>>> ---
->>>>> v3: Changelog:
->>>>> [Nishanth]:
->>>>>   1. Use generic node name 'remoteproc'
->>>>>   2. Use label 'hsm' instead of 'hsm_m4fss'
->>>>>   3. Add a comment for separate SRAMs
->>>>>   4. Update firmware-name property to match existing naming 
->>>>> conventions
->>>>>   5. Change status to 'reserved' and add a commment
->>>>>   6. Re-order bootph-pre-ram property before vendor properties
->>>>>   7. Update commit msg adding rationale for firmware-name in SoC.dtsi
->>>>>
->>>>> Link to v2:
->>>>> https://lore.kernel.org/all/20260106104755.948086-4-b-padhi@ti.com/
->>>>>
->>>>> v2: Changelog:
->>>>> 1. None
->>>>>
->>>>> Link to v1:
->>>>> https://lore.kernel.org/all/20251231165102.950644-4-b-padhi@ti.com/
->>>>>
->>>>>   .../boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 17 
->>>>> +++++++++++++++++
->>>>>   arch/arm64/boot/dts/ti/k3-am62p.dtsi            |  1 +
->>>>>   arch/arm64/boot/dts/ti/k3-j722s-main.dtsi       |  5 +++++
->>>>>   arch/arm64/boot/dts/ti/k3-j722s.dtsi            |  1 +
->>>>>   4 files changed, 24 insertions(+)
->>>>>
->>>>> diff --git 
->>>>> a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi 
->>>>> b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
->>>>> index 3cf7c2b3ce2dd..0e1af2a69ca2e 100644
->>>>> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
->>>>> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
->>>>> @@ -1117,4 +1117,21 @@ vpu: video-codec@30210000 {
->>>>>           clocks = <&k3_clks 204 2>;
->>>>>           power-domains = <&k3_pds 204 TI_SCI_PD_EXCLUSIVE>;
->>>>>       };
->>>>> +
->>>>> +    hsm: remoteproc@43c00000 {
->>>>> +        compatible = "ti,hsm-m4fss";
->>>>> +        /* contiguous regions but instantiated separately in HW */
->>>>> +        reg = <0x00 0x43c00000 0x00 0x20000>,
->>>>> +              <0x00 0x43c20000 0x00 0x10000>,
->>>>> +              <0x00 0x43c30000 0x00 0x10000>;
->>>>> +        reg-names = "sram0_0", "sram0_1", "sram1";
->>>>> +        resets = <&k3_reset 225 1>;
->>>>> +        firmware-name = "am62p-hsm-m4f-fw";
->>>>
->>>> you don't need clock and power-domain for this ?
->>>
->>>
->>> That info is abstracted out via ti-sci calls. ti_sci_cmd_get_device()
->>> takes care of setting clocks and power domains for us.
->>>
->>> Same for other rprocs:
->>> https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi#L178 
->>>
->>
->>
->> Is this specific handling for m4 core ? 
+> Something strange here. If AMU is not supported at all, amu_fie_cpus should
+> never be available and cpuhp_topology_online() should return in the first
+> 'if'. Why it runs this far?
+
+You mean the "!cpumask_available(amu_fie_cpus)" test?
+
+include/linux/cpumask.h:
+
+    #ifdef CONFIG_CPUMASK_OFFSTACK
+    static __always_inline bool cpumask_available(cpumask_var_t mask)
+    {
+            return mask != NULL;
+    }
+    #else
+    static __always_inline bool cpumask_available(cpumask_var_t mask)
+    {
+            return true;
+    }
+    #endif /* CONFIG_CPUMASK_OFFSTACK */
+
+include/linux/cpumask_types.h:
+
+    #ifdef CONFIG_CPUMASK_OFFSTACK
+    typedef struct cpumask *cpumask_var_t;
+    #else
+    typedef struct cpumask cpumask_var_t[1];
+    #endif /* CONFIG_CPUMASK_OFFSTACK */
+
+So if CONFIG_CPUMASK_OFFSTACK is not enabled, it always returns true.
+
+arch/arm64/Kconfig:
+
+    config ARM64
+        [...]
+        select CPUMASK_OFFSTACK if NR_CPUS > 256
+
+> >     AMU: cpuhp_topology_online:314: cpu 5 amu_fie_cpus
+> >     AMU: cpuhp_topology_online:343: skipped
+> > (!cpumask_subset(policy->cpus, amu_fie_cpus))
+> >     AMU: cpuhp_topology_online:314: cpu 6 amu_fie_cpus
+> >     AMU: cpuhp_topology_online:343: skipped
+> > (!cpumask_subset(policy->cpus, amu_fie_cpus))
+> >     AMU: cpuhp_topology_online:314: cpu 7 amu_fie_cpus
+> >     AMU: cpuhp_topology_online:343: skipped
+> > (!cpumask_subset(policy->cpus, amu_fie_cpus))
+> >
+> > Hence there is no issue, as AMU is not supported at all!
+> >
+> > The confusing part is in the (absence of) logging.
+> > If AMU is not supported, freq_counters_valid() uses:
+> >
+> >      pr_debug("CPU%d: counters are not supported.\n", cpu);
+> >
+> > which is typically not printed, unless DEBUG is enabled.
+> >
+> > If freq_counters_valid() failed, the new cpuhp_topology_online() uses:
+> >
+> >     pr_warn("CPU[%u] doesn't support AMU counters\n", cpu);
+> >
+> > which is always printed.
+> >
+> > Given freq_counters_valid() already prints a (debug) message, I think
+> > the pr_warn() should just be removed.  Do you agree, or is there still
+> > another incorrect check that should prevent getting this far?
 >
->
-> For all single cores like M4, DSP, R5F0_0/R5F0_1 etc.
+> I'm OK with removing it.
 
-Ok
+OK, I will send a patch.
 
+Gr{oetje,eeting}s,
 
->
->> , I see other rproc got power at cluster level
->
->
-> We don't make any ti-sci calls for the cluster level, which is why we
-> need that info here in DT. Otherwise, ti-sci calls take care of the
-> individual cores for us. That's why R5F child cores don't have
-> power domain info in the DT:
-> https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi#L1521-L1535 
->
+                        Geert
 
-R5 cores are inside cluster , it is be better to handle core and cluster 
-in same way.
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-But this patch is not related to R5.
-
-So
-
-Reviewed-by: Udit Kumar <u-kumar1@ti.com>
-
-
->
-> Thanks,
-> Beleswar
->
->>
->> https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi#L1518 
->>
->>
->>
->>>
->>> Thanks,
->>> Beleswar
->>>
->>>>
->>>>
->>>>> +        bootph-pre-ram;
->>>>> +        ti,sci = <&dmsc>;
->>>>> +        ti,sci-dev-id = <225>;
->>>>> +        ti,sci-proc-ids = <0x80 0xff>;
->>>>> +        /* reserved for early-stage bootloader */
->>>>> +        status = "reserved";
->>>>> +    };
->>>>>   };
->>>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62p.dtsi 
->>>>> b/arch/arm64/boot/dts/ti/k3-am62p.dtsi
->>>>> index e2c01328eb298..9d6266d6ddb82 100644
->>>>> --- a/arch/arm64/boot/dts/ti/k3-am62p.dtsi
->>>>> +++ b/arch/arm64/boot/dts/ti/k3-am62p.dtsi
->>>>> @@ -96,6 +96,7 @@ cbass_main: bus@f0000 {
->>>>>                <0x00 0x31100000 0x00 0x31100000 0x00 0x00050000>, 
->>>>> /* USB1 DWC3 Core window */
->>>>>                <0x00 0x40900000 0x00 0x40900000 0x00 0x00030000>, 
->>>>> /* SA3UL */
->>>>> [..]
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
