@@ -4,93 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46359D46612
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 19:05:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B573D46613
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 19:05:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rr2uuRVZLqUYSrynWXRUh0/8+Ov/0sGQjhqLxsdA/sA=; b=boJzR2kS351uKxgKsD3ZFKTzL7
-	LOdgkmFqFcSfUuI1yL5G1JWs8282ToVmjWUC0DxbJftX9bs4jg7vOdgHShOA7d1mMQA89DqODf2su
-	e8FpiGX/sOH37BkLjf4rwXE2pZJEGu0QgPGxHBitmeGZ8Sqd8Ehtg07PbY8rh5o/R7Y2mCeNEc78F
-	iaXHCQO8ypeoJnJscNgMftJAozcok8R6tbNcccMEQJu8HNP6gO4xVzrAfFe7FA/od1eJCmtAwRYDR
-	LejUQ7hhYzLGh6MfFebZ+0sCl3iEmtJs2228smdyyJIc1Aw/tQ4uWu7c2cxqSaBA1xhIY0dRpF6y7
-	TvduWIdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r+07H+7XNbP1jD4SRzSXdkEkFi8Ke2qGjcFOVQR+4tQ=; b=iAnK9jSXGY0VSZEReafZOkNqrg
+	UGI1Y0CiPPn+bU6ZdvcfOIZUlLDBWS1nBA4BZrBbrvEKqYYKrT/AuLzKZ0vxwU2P0qVHIs3AM521O
+	IG4PYBN8WRzNolZthjf9S+HimSqw9neftEECe+kzqdOIPYv6Ft/k8LbE2ArKvSRIRF/8Q+PS1sNpi
+	ccxehSifPU5gHkeKtTyEBMXwAVmWMc8rtbLcrFrVd1VCRL3NCtQ6qCZaL3/wfbo8Phv1kizhOEX49
+	z4SnYvmLHcvwwKGMboA7lr5fLgYYtBbvr1GABbzuaTeHyuXZObG+5ytXJFSyWPyiogSckVLzJb2Su
+	Pf4BYlrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgSeM-0000000D16x-1bQZ;
-	Thu, 15 Jan 2026 19:04:54 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1vgSef-0000000D1CA-0uAh;
+	Thu, 15 Jan 2026 19:05:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgSeJ-0000000D16X-2rwm
+	id 1vgSeb-0000000D1B1-3yvg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 19:04:53 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2a0d67f1877so8420255ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 15 Jan 2026 11:04:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1768503891; x=1769108691; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rr2uuRVZLqUYSrynWXRUh0/8+Ov/0sGQjhqLxsdA/sA=;
-        b=Sns/bn9HzrzNWUHq2Ro8rBRTv01cEOTOKO/l2WJgeOi0gOwwOBHtsTmL+j9KG4p8KZ
-         1jUh+1570JKv9ZAl4vdDO5FKGWiAMtSwZg9rNDFJknSniDtU4NuinZvlt3e9nvSmrJhr
-         IWS00c+WDzHn+9X2+26mmihmBwNPhWmbgUZv1mk/xZSXSKvyVpWs2YNWvEJcLJsKDRRb
-         O3SPDLyPOqy6mteql0q4krff8C/Ypk6qnrQRZDtFrGIY1ZXKCCPIpyjtP9J6BZHJNRAd
-         LObY0dryboPnd4+UCl2RHI4J36S3x0sWuFc86cwN2pY0h3JsowEoOHqqmoGc72wEbDc6
-         hLsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768503891; x=1769108691;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rr2uuRVZLqUYSrynWXRUh0/8+Ov/0sGQjhqLxsdA/sA=;
-        b=P2gX8L5kXGC9ILa79CG1exU16DUdkkwZRm8j7NR6lL9/muKNVPNukuRSTmTqZIpfgr
-         /D5VjxOHeLjwzFpOhaAKipEujb2Pr3sJ+fY6KKjy1YzR084bKhRhWCOo/v2Vs6CNmg2w
-         BMPbYoNA/R33SHrGUDA0Tj+HwGQYKqcWJgz6d5CwNPI4tV5bOmaKHwZWsKHL9uJVMYNq
-         s8+3fblFwKPDobneLzZ+00D/U73eJhtW1uv+pljskH/9bVY44bKP1XLivEzy84JVQvHG
-         aSS/wo19Ykg6XHEPX7awGXe1+590Q9vney7LdTUxGYOIYNor/FvsyOnYoGajj03ecfKv
-         kVKw==
-X-Forwarded-Encrypted: i=1; AJvYcCXOrIAqRCuRlDMmI+8NNEUEJQSg6EwqRZsaQuRtk1CGlFUuXbKhdhES0B7BUGAmyF2qFy5resYsuWYU7AfJj/7d@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtDpGrHlJ4qx3f6pwqfxoY6DPFIoQNIP3jZmhwruoYx7I/IFc/
-	HdImuFsJn4d9115JOmuzEBx+gp4fkAiZ8Ehx0zFtEgsXtmwQUGnN25eiqZddRzO/ARunizMwFaW
-	zj2o758M=
-X-Gm-Gg: AY/fxX5umAayCUjdCVtM0mUWnZXQCeeG1ekhOGszPKHo++I1+xkkfDlCDXNGGm16fIj
-	ub88DC04JivXlBkgwWQARtWp5roxsiBbyLJ/VxEbBGBiFZhdc/rvE4SCbP3XWCyKSnqD47Uo9SO
-	vfECgy3vK0GVW5+2SH4EfxeLxDNKYKh1kTHjyawSa7VHClqwV7KScZJqW3Ey6qtfa3HQcWTxgXi
-	rfGEYYP6JXQKIpJNK4cXKDWi1ILeIJcmKA5Otil3qc0KFTiIIaYmsj3QqbUEPiV0RvC2rrMaDIK
-	pkXn8KiTmwL/WjSwc3zk4LzzfQAO+3JTu14pDDfKYQLYxjnT0WSbtC3IGPCJcHwvnQXXghYrQOj
-	ECZbWIbGyHvvkLaUb8x6LRmIgAF238oCIgPmmtw3p+sywwi26ypwRfe/6M+7jCcHyAU9se3jUsg
-	Zy+aHJAoDqvpoL6nXla1nX9EVYEnNYMt4lJ4iesUlVhzPU9zt0GKHFAHfNWLj5j+oaRg==
-X-Received: by 2002:a17:902:ccc7:b0:2a0:d5b0:dd82 with SMTP id d9443c01a7336-2a718a743e4mr2047095ad.61.1768503890626;
-        Thu, 15 Jan 2026 11:04:50 -0800 (PST)
-Received: from smtpclient.apple (c-24-16-26-157.hsd1.wa.comcast.net. [24.16.26.157])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a7193dd19asm480895ad.59.2026.01.15.11.04.49
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 15 Jan 2026 11:04:50 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
-Subject: Re: [PATCH] i2c: xiic: add ACPI support
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-In-Reply-To: <aWjlTKrM34lfDsfC@shikoro>
-Date: Thu, 15 Jan 2026 11:04:39 -0800
-Cc: Michal Simek <michal.simek@amd.com>,
- Andi Shyti <andi.shyti@kernel.org>,
- linux-arm-kernel@lists.infradead.org,
- linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <AAB5CE7A-9264-4CE1-8A49-2FD3043B0A80@nexthop.ai>
-References: <20260115002846.25389-1-abdurrahman@nexthop.ai>
- <aWjlTKrM34lfDsfC@shikoro>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-X-Mailer: Apple Mail (2.3864.300.41.1.7)
+	Thu, 15 Jan 2026 19:05:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 92CBF41969;
+	Thu, 15 Jan 2026 19:05:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B515C116D0;
+	Thu, 15 Jan 2026 19:05:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768503909;
+	bh=XGxk5XqmTMXOuSSsKOdhgAHvgmaYT8PkS0TUquQx3Kc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cwln90jqVWwSRdAOYxtgSZO0omEPgP8ktrPfGmotvNNPVIcYxhHjdgRRMcFkpwUSB
+	 ZqGC6WhFUPSdqaGrsjTlxfrX1oY52fUkiw3Kyk9YEpJub9jtJW8y9kMDGgkYb6OyNl
+	 ZbOivC8lgXJpP1M0wjVOku/8Uv2pJrbmjmPq1b7XEikmHJAynvnxRyOSWdm7nJ2kB9
+	 QZqGPu9q3XGBQq/OEMzFJyJK0nZ5EQiE+HXAoYaUKsdlAboi42SfEKoEHxvwxn3z9D
+	 BvLiPI17UUsNxB7VP1SV6l+N64QQwB4JKHer229ntugF0sE2ezFuglptl1PmrvT30a
+	 1mY8YCTVMND1Q==
+Date: Thu, 15 Jan 2026 13:04:36 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Gatien Chevallier <gatien.chevallier@foss.st.com>
+Cc: linux-gpio@vger.kernel.org,
+	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <legoffic.clement@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	linux-arm-kernel@lists.infradead.org, Leo Yan <leo.yan@linux.dev>,
+	coresight@lists.linaro.org, linux-kernel@vger.kernel.org,
+	James Clark <james.clark@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	jens.wiklander@linaro.org, devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Mike Leach <mike.leach@linaro.org>
+Subject: Re: [PATCH v2 01/11] dt-bindings: document access-controllers
+ property for coresight peripherals
+Message-ID: <176850387192.1025633.5139708031708243841.robh@kernel.org>
+References: <20260114-debug_bus-v2-0-5475c7841569@foss.st.com>
+ <20260114-debug_bus-v2-1-5475c7841569@foss.st.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260114-debug_bus-v2-1-5475c7841569@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_110451_726082_0D3815A8 
-X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-CacheID: sfid-20260115_110510_008629_D427BDD2 
+X-CRM114-Status: UNSURE (   9.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,37 +88,21 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On Wed, 14 Jan 2026 11:29:15 +0100, Gatien Chevallier wrote:
+> Document the access-controllers for coresight peripherals in case some
+> access checks need to be performed to use them.
+> 
+> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+> ---
+>  Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml           | 3 +++
+>  .../devicetree/bindings/arm/arm,coresight-dynamic-funnel.yaml          | 3 +++
+>  Documentation/devicetree/bindings/arm/arm,coresight-etm.yaml           | 3 +++
+>  Documentation/devicetree/bindings/arm/arm,coresight-stm.yaml           | 3 +++
+>  Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml           | 3 +++
+>  Documentation/devicetree/bindings/arm/arm,coresight-tpiu.yaml          | 3 +++
+>  6 files changed, 18 insertions(+)
+> 
 
-> On Jan 15, 2026, at 5:02=E2=80=AFAM, Wolfram Sang =
-<wsa+renesas@sang-engineering.com> wrote:
->=20
-> On Thu, Jan 15, 2026 at 12:28:46AM +0000, Abdurrahman Hussain wrote:
->> Use generic device property accessors.
->> Make the clock optional assuming it's managed by firmware.
->>=20
->> Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
->=20
-> On which hardware has this been tested?
->=20
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-This was tested on nexthop.ai data-center NH-4010 switch with Xilinx =
-based FPGA.
-
-The following ACPI ASL fragment was used to describe the device:
-
-            Device (I2C2) {
-                Name (_HID, "PRP0001")
-                Name (_CRS, ResourceTemplate () {
-                    Memory32Fixed (ReadWrite, 0x80a40400, 0x00000200)
-                    GpioInt (Level, ActiveHigh, Exclusive, PullNone, 0,
-                        "\\_SB.PCI0.GPP5.FPGA") { 10 }
-                })
-                Name (_DSD, Package () {
-                    ToUUID ("daffd814-6eba-4d8c-8a91-bc9bbf4aa301"),
-                    Package () {
-                       Package () { "compatible", "xlnx,axi-iic-2.1" },
-                       Package () { "single-master", 1 },
-                    }
-                })
-            }=
 
