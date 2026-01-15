@@ -4,89 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0486D3CCAE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 04:38:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC4A2D3CCB1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 05:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K6fjjXfXdXI+f3gfu+7LUUm7YVOdAS+PartG2/fB8Co=; b=Q8Gb3P5c3/YFBRvPSIY7vUDwLy
-	vnMzUAMFNLLPGUVEUAYoexZyrYrQvuJhftBL07jEKUDP8p4YW27sk7Dd/iGxw98VS46Trggws53go
-	ZOI1kdYgqg3T5C5dYTN6aVS+rd6+PeeDY6psR935BB3bfJ6JJ/R7ISogO+EyyVBp7zohJTEVnj9lo
-	VlOvaPb+8fuGHSKu8oZI1Xxv/ICTR3ljU5QuzWHS/rJR2hZdyss5577H0l60JGBsZMaYB3VsYEdy+
-	JCb1ZZb0wjkp00nHs+xbFiUVM2iiRq7wd0t0+SmE8K1Av80LoS/CnxFdZd9lk8smPMtvGxCJN6lPt
-	AVGjkasw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=AzrY2zyUlFdBwp56KpRsHxbj2guX634diWbsvb3BOuw=; b=gNp48Y8qv/9tDM
+	Ejh9PftSyzbycDDWUnN7y+fm3KuivwZSQB0USm3V+BFPt5zWwxzjeYItU9xe8DMB8ujvK2K8lA8kg
+	kHtEqs1WauD0Ar9ix1Q0ObLIofvk5nPlFeahup/bq/xpBMZnoOaWVYRZzxqtTQiTSaITIyD5DaWi9
+	SxzGhPqEoyXWKUyGB8S9VpLWLXmv7Snsv4sODxlyyeI0W9+KLMtR1vY+8Jl9J5VPsHkS+z3+DS+bF
+	5FJyD2pdLX4yiZNIMi3GwzG6bdKAFxpNmaVGDE+uMlk7uceGSqgpE/ygHX5Oeb76VSaNVFFcHeOcB
+	fWtJUmuJJxT6qxLD+3fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgF82-0000000BmK5-2kyl;
-	Thu, 15 Jan 2026 04:38:38 +0000
-Received: from mail-dl1-x1231.google.com ([2607:f8b0:4864:20::1231])
+	id 1vgFxI-0000000Bnz4-3lVf;
+	Thu, 15 Jan 2026 05:31:36 +0000
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgF80-0000000BmJZ-0dG4
+	id 1vgFxF-0000000Bny2-3YsK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 15 Jan 2026 04:38:37 +0000
-Received: by mail-dl1-x1231.google.com with SMTP id a92af1059eb24-121bf277922so673421c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 20:38:35 -0800 (PST)
+	Thu, 15 Jan 2026 05:31:35 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-79088484065so5350967b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 21:31:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768451915; x=1769056715; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K6fjjXfXdXI+f3gfu+7LUUm7YVOdAS+PartG2/fB8Co=;
-        b=nq3HiRhUa//DlwWYCCND8s8K65k6Rnwg+/v3s0BIFJhVPpH2HxNoH5MokXB6jUmugo
-         KA9nVH9/82K8r9gZ4jBuPRfDogbodlavgJMa+kn7FdRlrKC5dSRJ7PXwoNMkLjD65w6D
-         RvfWdIWDEsqcNAPj41pWKBrpJCxSDrNod3yKCsUOR22ird6y6fWZMWpB0al5VQ3vh1On
-         zdxm9t87g5xyTxB7d6VaXgzNfUL8MoOtkmh3a9uDLSWGcTS+YFEFjL1MVELAU7rRXvfk
-         sCqEnahA3BUOLzidwnYkx1mJ86aZ2v4EnHbX4lxJ26vPnL9bSjyjDplMQrrFyt/sKNq0
-         aI3A==
+        d=gmail.com; s=20230601; t=1768455092; x=1769059892; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=AzrY2zyUlFdBwp56KpRsHxbj2guX634diWbsvb3BOuw=;
+        b=QTFA399UrNCb9nve0++2VOOesPzg+3O5+iqp+8Tf8sEs7o5CS3fjCFnHnSrNrVuhqn
+         cMTetFhdFF5ph+x9zQ/oRgZIVnPPCA+eFZrIkmu3N6q7bBsQdXTKPpe0sOl9ChQgmOoP
+         t+RRpBdrPvOwxypx/4ZOAkk1juotiMghKqDOgb3N/XvKK5A1RZzJzbxkmPPS9MBLGgBe
+         q5VKqUD2ITa3YQDTRF3xYHoHU4+krEY9HL9LPPYFaf73Egyy8rVABt3C/iCdPWhuFL6w
+         10lyXhvWeFAVfUOQQq90mKHN4D/GMzCifajVS+cBAOURZtQJML9flDiipeRXebBx/30W
+         Ajfg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768451915; x=1769056715;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=K6fjjXfXdXI+f3gfu+7LUUm7YVOdAS+PartG2/fB8Co=;
-        b=ZtjSsA5cQOqZPRGfqGxMwN9p7IuTy1x1LJDsGQsEv5AaB3lj1/mlL5/Mp554uNMCyE
-         B3bgqC8yqkvcAsvd1UZxGHfwuYtUPzvevPYO8ogIC/TkMQBlxFqWltbKXeDrzTqgvFVx
-         Zergq8oBQtnv1N2V0PkzBuLJD8rIEy5fygCh0UDR2P/w1TkJiEBhBvkZlomSSpVMXhxc
-         GzxFoarN38j6RcJ2bL5CR8F1SvNstHf7Nz+VS7M4Wlw7OHiZ/86Kazj4CG3oFPsymFgu
-         /yD3f+CijP3VR5pOQrzy36PUCifnUqnV1u7+FUTKfTCeP8TNATnod51BhVyoVmMDOhIi
-         DHYg==
-X-Forwarded-Encrypted: i=1; AJvYcCXhWjySs3bkuXtc9y/ylF2HhQEeolCCagSA+jhe8VbN5SX+W5sVoff0/zTAGCD64LGrf+554Pp//Bjm2p8bHJQJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDmJbqGHPrF/ZcuyAM8arGSN4Ps/00nq/vE8elcgkPK194ylvO
-	mSIMA6lAha/GH46xOEBl+zZRp97WEUjeejYyJkwJPHcYvgVX7zXJ2XiQPyWl3XxLheWtO4TL0r9
-	2W7JJwDb5BCJ9F1CRtRMcja9EBRhBwJw=
-X-Gm-Gg: AY/fxX6iyQCqIVMFNZVIESmwEyZF5UeuGWIa9C7hnFU0dN5aJKteoBccUMOgPkiIuDt
-	eXmNMvJyv7tjhqaG+P4JuxB1FiFYYmcgr2GJ/MxbTPKz9hYmewk1Ca6HYcwGIbrf9f6XHOvX9CQ
-	ptqupBNMMijewkBRA/FluUnwKFtbqr1tnN/DoI+w7KPbPdDvLweyK0/s/RqGUE8URgOYWlScZd1
-	tVckav1Q1x3DhrV/YKhMWFKDIUZHKPKLgW3+GIOYQDUR9chwGEkzWSFFcQt0/CAYw9zw6pTEw2q
-	awBK7g==
-X-Received: by 2002:a05:701b:2714:b0:11b:ceee:a49f with SMTP id
- a92af1059eb24-12336a247cdmr4745181c88.8.1768451914862; Wed, 14 Jan 2026
- 20:38:34 -0800 (PST)
-MIME-Version: 1.0
-References: <20260111201040.162880-1-anirudhsriniv@gmail.com>
- <20260111201040.162880-2-anirudhsriniv@gmail.com> <45bdf2a6c0d33dd6ce0fd3cc279ef6edc509a540.camel@codeconstruct.com.au>
- <20260112-whimsical-annoying-fulmar-25e4d9@quoll> <CAJ13v3RKydFK+sP_Cm-HnQjsOJSDyX_dsGs_Yy564V=Wc7tQFw@mail.gmail.com>
- <e97b7a193f8bbfca9ec00037808ad80a5baf9f00.camel@codeconstruct.com.au>
- <CAJ13v3QYWRfyivrbP=+hreHuMkYWGPkngW3kJyq6xNVL6YdpgQ@mail.gmail.com> <0e611132794491eecbcd3426222b6dca09a35b84.camel@codeconstruct.com.au>
-In-Reply-To: <0e611132794491eecbcd3426222b6dca09a35b84.camel@codeconstruct.com.au>
+        d=1e100.net; s=20230601; t=1768455092; x=1769059892;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AzrY2zyUlFdBwp56KpRsHxbj2guX634diWbsvb3BOuw=;
+        b=AGS4gzgPQjmCZOvLahclAQw2X8nCBGwTZ5ZnYOfdpSfRm96yMhPfkN0W7xcl5q5CRc
+         8AD9LPYt7gPrAfjuwh4jr6lYmJg7rYtdNVyCZiYiH0OmkN7scu40btrDFAobrK2wgW6X
+         us7V7n4bC6R34lUQLWGrsjnqAG2qLnbBcGke0c2MZo26+UqBz+2iz7huSKcP+deIOscQ
+         pvrWLAokemnAYLMHXNZu3uGFTbcyWRbeTDkvtUbdELDAidI4MRIWt5GrZuJrPaK6gTKI
+         c92p6H7vzEZ5D9uI7FtVkbqtY9e6JuILkzVbODA7MfuSDNZDB9BZ5AfJwI4wMJVYi0cl
+         tOcg==
+X-Forwarded-Encrypted: i=1; AJvYcCXBIwZUrLXkguxvRJeLijLqzr1tRqmP8sCPbWpRqLLfJJyDqWEq8Mm+jNedMkSgz75syHxDaC6aOVh+4Dg7bG4u@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGcIuAd6SAbDHTFPbYcyzW7zG+CTQ8T+B0zIsbPgAb6/Up1oid
+	iPhaeaGYFylPrNUIlulQKQ9eVodBbkjfoWSSMIMbufAoCWvDr0guz5pmu32T2w==
+X-Gm-Gg: AY/fxX7D+l/QxzFf6I5eVWEdUR0HBo7NwfpDFnu+lB1L98HDwbSybZ0v1GovTXsnT3r
+	MJb7xSHrxVqbq77X8UeGIgxwwKS5l5Jkjojccr+8H2d4h3ArXtmX5PHSgdtMOgVQ5EXG362R3Ak
+	u1NEHlyPeAGYkb2fzXyJ//Cv4GdVGEsHLIjEm07NMP7+ytQmb+KAuQ9tIoHgBrobIp7+cLgN4MI
+	LMYt9Q9CO5Pfw7edX55XI8T/wxkVvw2k6zCqc7siypvR2jnjLb8bdw6guZ806fKPgzLDQ3t7wxA
+	g2hFmC3fGfUEYuXvlj2Iv2cDurErceyAWjRiiGjY4Aot+HQFBx52fGUjDS7+4cJ/WaKFq+rfrOa
+	+35dQ9eP3GU6Rs1VfEbDRyKRp17nXpEl2JCg1DGpZdae250s2/F6U7kSny7X1fwiZWu8pDr8gxf
+	iS8NX9
+X-Received: by 2002:a05:690c:6a06:b0:789:3f0f:ac6a with SMTP id 00721157ae682-793a19ba6e5mr95950467b3.16.1768455092178;
+        Wed, 14 Jan 2026 21:31:32 -0800 (PST)
+Received: from [192.168.2.165] ([2600:1700:220:59e0::914])
+        by smtp.googlemail.com with ESMTPSA id 00721157ae682-790aa553172sm99259437b3.11.2026.01.14.21.31.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 21:31:31 -0800 (PST)
 From: Anirudh Srinivasan <anirudhsriniv@gmail.com>
-Date: Wed, 14 Jan 2026 22:38:22 -0600
-X-Gm-Features: AZwV_QiAZ2miykzbN0XeJ-opRxy8zZQtPtnuJhtoFTPjOMJKnrOQBUdwpXszwIE
-Message-ID: <CAJ13v3S+u7fi2h1MUQ1QvFm6Ouz4TDrNwJq3fJvDmBf37h8LGQ@mail.gmail.com>
-Subject: Re: [PATCH 1/2] dt-bindings: arm: aspeed: Add Asus IPMI card
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: [PATCH v2 0/2] Add device tree for Asus Kommando IPMI Card
+Date: Wed, 14 Jan 2026 23:31:06 -0600
+Message-Id: <20260114-asus-ipmi-expansion-card-v2-0-12b72d20a9b9@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJp7aGkC/5XOQQqDMBCF4atI1h1J0iK2q95DXExNNANNIhMVi
+ 3j3RndddvnDm4/ZRLJMNolHsQm2CyWKIYe+FKJzGAYLZHILLXUllVKAaU5Aoyew64jh2EOHbOC
+ FxiBeq7uujcjnI9ue1pNu2tw9Rw+TY4s/oJZK3mSpKl3XErIfiGfjElOg5Tl4pHfZRX+IjtIU+
+ XP+uqjD/Vtp933/AraGxV30AAAA
+X-Change-ID: 20260111-asus-ipmi-expansion-card-baddaa36928d
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+ linux-kernel@vger.kernel.org, Anirudh Srinivasan <anirudhsriniv@gmail.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_203836_195411_08219E70 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20260114_213133_902585_E8E7AF9F 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,49 +104,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 14, 2026 at 7:03=E2=80=AFPM Andrew Jeffery
-<andrew@codeconstruct.com.au> wrote:
->
-> KODO is pretty consistent in the firmware update file name. KOMMANDO as
-> the product identifier also seems reasonable, even if it only appears
-> in FW_DESC in the latest release. KODO -> KOMMANDO seems reasonable.
->
-> A brief bit of binwalking suggests it's an AMI MegaRAC implementation,
-> and so I expect 'SPX-13' in FW_DESC refers to MegaRAC SP-X[1]. The
-> significance of 'TB2' isn't yet unclear to me.
+Adds support for Asus Kommando IPMI Card [1] [2], which is a PCIe card
+with an AST2600 on it that provides BMC functionality to any host
+without an onboard BMC as long as it has a PCIe slot. The model name
+Kommando is based off the model description in the vendor fw.
 
-Yup. The screenshot in the PDF you linked looks a lot like the webui
-on stock firmware. AMI has sources for a bunch of stuff ( "unmodified"
-source tarballs and patches to apply on top of them manually) over
-here [1].
+Currently supported functionality includes UART, booting from SPI,
+KVM functionality(usb gadget for host, reading VGA framebuffer from
+host) and LED/Power Control via GPIOs. NIC support is not included,
+requiring additional patches which will be sent later on [3]. The
+entire BMC functionality has been tested on an OpenBMC build 
+available here [4] (which uses a modified u-boot device tree [5]).
 
->
-> I'm not super concerned about the length of "asus,kommando-ipmi-
-> expansion-card" - I'd prefer it over incorporating the 'kodo'
-> contraction.
+The card supports some additional functionality in it's vendor firmware
+like fan headers with fan speed control, host bios flashing via SPI, PSU
+monitoring via an SMBUS connector, a custom ASUS SMBUS connector to talk
+to select ASUS motherboards that support it and exposing a IPMI device
+via PCIe to the host. These are unsupported at the moment.
 
-Understood.
+[1] https://www.asus.com/ie/business/resources/news/asus-ipmi-expansion-card-gaming-pc-to-workstation/
+[2] https://www.asus.com/supportonly/ipmi%20expansion%20card/helpdesk_manual/
+[3] https://github.com/openbmc/linux/compare/dev-6.18...Genius1237:linux:asus-ipmi-card-6.18
+[4] https://github.com/openbmc/openbmc/compare/master...Genius1237:openbmc:asus-ipmi-card
+[5] https://github.com/Genius1237/u-boot/commit/1b1b7daa85f6c998e5f404296b3da43077a2758e
 
->
-> I guess it's still unclear whether 'kommando' is a (future) line of
-> products or refers to the specific AST2600-based design. Perhaps we
-> could solve a few problems with 'asus,kommando-ast2600' and including
-> the phrase 'IPMI expansion card' in the binding description for
-> something searchable.
+---
+Changes in v2:
+- Changed board name/compatible/dtb to be consistent with product name
+- Added ast2600 to the compatible string to bindings
+- Removed ethernet mac and phy, and extra blank lines from DT
+- Reordered phandle references in alpabetic order in DT
+- Added a label for LED nodes in DT
+- Link to v1: https://lore.kernel.org/r/20260111201040.162880-1-anirudhsriniv@gmail.com
 
-I will make the compatible "asus,ast2600-kommando-ipmi-card" and have
-the model name in the DT contain the phrase "IPMI expansion card" for
-searchability. You mention about adding something to the binding
-description (that'd end up being more than a one line change to the
-bindings) but we could just have the DT model name have that
-information.
+---
+Anirudh Srinivasan (2):
+      dt-bindings: arm: aspeed: Add Asus Kommando IPMI card
+      ARM: dts: aspeed: Add Asus Kommando IPMI card
 
-I'll send out a second version of this series shortly. Thank you for
-bearing with me on this. Naming things is hard.
+ .../devicetree/bindings/arm/aspeed/aspeed.yaml     |   1 +
+ arch/arm/boot/dts/aspeed/Makefile                  |   1 +
+ .../aspeed/aspeed-bmc-asus-kommando-ipmi-card.dts  | 117 +++++++++++++++++++++
+ 3 files changed, 119 insertions(+)
+---
+base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
+change-id: 20260111-asus-ipmi-expansion-card-baddaa36928d
 
-[1] https://github.com/ami-megarac/OSSW-v13/tree/master/Core/
+Best regards,
+-- 
+Anirudh Srinivasan <anirudhsriniv@gmail.com>
 
---
-Regards
-Anirudh Srinivasan
 
