@@ -4,63 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE407D3CCAA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 03:35:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C4DD3CCAE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 15 Jan 2026 04:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6An+59kZrrX/6VO4uDw/aRmHE7vH01Ooy0Q4JMyt7Bk=; b=nJPcuN8vI0JplvM5zQ/XO83FA+
-	98DNb3McLYifs1DNOAfURkq21beiYdLaIwccRSifGeEeWEPk/LPVOBPFOmsqhHxbHlt6MTtbQVmu6
-	3kryhqDRnHKmIK71/EltTyr2L1zD8bePczi8E8LWWOevUtG713+CP2pwtJLYdUWUOwXVhxUxmgxci
-	h2Rod1AFVS3fk1NjmjGXlq3LuNblz2gO4mYusfT/myn5oyvA79wmim00N/S4Muw5epL0Z4VxVqt9Y
-	93Dhf9mB0cPMT+zejJuTBoCPPk7YtvyhE4+7hKS6VcCLFPV2Ftw1Hdk4Ra6SaHUnGVdXf/vtPcC9u
-	gUkJG0ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xP2VPIUiLJoH99MGWGrtf+rn+/TD63H55qh3heQER8c=; b=dHStjeRjZW20LMf2BVPDWayM1A
+	NZtpcmfBzoX7aQ2A/VQQo5grzxF6DCT2vij4XswL/Y4gPleXrmJlFpLIJ/GyncJ3bw1v0/Fw1N+/U
+	nXklOqLMt5PFLrMazaJxjqoktFGFS4uIk5YdFGhJG0IsQ0s6WZrhnzWGFuNwbzL7SOW/vKAzGPwOA
+	MVneHtIIu02kVeL2Z1i5eUbgZxE+5qo7bSQg1MLd2KkHV8LGJrZzIfm4GSYVtn7+wlUKzI0jbI8sa
+	Dn4apCjdDdLVlI4mLPR4G6gxr9Doo9fEkNTteWSxlwRzQDRD4Q3QFYUqrJuM32lfydeapcNO7TRyI
+	vFPeow5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgE9I-0000000Bgmf-26ZI;
-	Thu, 15 Jan 2026 03:35:52 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vgEi5-0000000BkAW-0hlJ;
+	Thu, 15 Jan 2026 04:11:50 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgE9C-0000000BgfU-25X3;
-	Thu, 15 Jan 2026 03:35:47 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 15 Jan
- 2026 11:35:29 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Thu, 15 Jan 2026 11:35:29 +0800
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-Date: Thu, 15 Jan 2026 11:35:31 +0800
-Subject: [PATCH v9 3/3] MAINTAINERS: Add ASPEED PCIe PHY driver
+	id 1vgEi1-0000000Bk9S-3jgh
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 15 Jan 2026 04:11:47 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-81f3c14027cso259437b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 14 Jan 2026 20:11:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768450304; x=1769055104; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xP2VPIUiLJoH99MGWGrtf+rn+/TD63H55qh3heQER8c=;
+        b=TGwKjjLKEFmhIAtUsuyKdLYggbLHP0LOmGiIsCHpRJIVSa5/I8nxu+M9lG/bpEpPrK
+         XWPrJPGYRK9+VCnbZzaZQ7R3EM0CsKYw0QAgOJx0TCOoUNqFHvMa36MB70B6RLZdRhmC
+         INwAbtfKp53f4nosP/vFEocL1rDosVmJhpru0QGMyNTUT9326vRKIeMGDzkQYOXENaqx
+         LZpSy+GO7EsycmDHOyHlJTTje4zFNHj9Mk/YUHwFqPAVDcyvsAH0IYcHQSKLlZMYRqbG
+         pS+f+ZuGJy9do4ztxKJ9bfuDwG4kFRz/ggrktRfgT6+IvTr/4JOOBOIv+g7PsSS05Mfq
+         YdXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768450304; x=1769055104;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xP2VPIUiLJoH99MGWGrtf+rn+/TD63H55qh3heQER8c=;
+        b=dsoOgT8Es9ySOBzW7OU3NOQeFyzdy9jB2Dtn/d511OU69Lne/qFW+oxniO09Kp7woR
+         Trl5fH5OCBjBKWOvjwmX8NjqCugbTZ4wLff654Da3vbou8hiwO4zYvEmZ04fQ7OtfC4R
+         tteCQGZRC0+Vx3byD8PwrNPMKCxXp//CVO/sE3xRm6x0KbDNsMz2pMpNcp2A8Dv51L2x
+         xVORTo9SSJnUm9blqZGgbUvl/yRekAO4+pwQ+o6qCY3y+yFcs68iO2Xrv9vTCQaqlnBv
+         rh5AB6aqVkjq6zzLYfTpa5J1GN3BKbuh8bNVEmuv46lG5S/0YrxQXwWbUCC3ucHsVuSI
+         E2pA==
+X-Forwarded-Encrypted: i=1; AJvYcCXR00xB8O8GQBE/SlIyJ5ja2s47MMVCL3G0C9Hqv2FiUzea6DTqK/Kzghqx7uC/WxEIUwBa5El1Enarlr6myDC+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw31a0FVrTy53wbPFMu49fsjZTVz5HYDMDnqELFWsw9aCCjV2hF
+	vhP6v76bzUN9BGESdbShDETMqtlfcNdmK2xLEptOzZ7HnYuWCruq2FF5BSju74/Rijw=
+X-Gm-Gg: AY/fxX6go83iLW8J6evK+FEusdgiGOH3POA8W9yG6YpIuNGBADOCueB3Be2JGvgevG4
+	HpwJ19H7Oy5ND0JedBzgUBhBdMp07DC15DxbQmX8c5t603B+YUSCAhHuOxRvm9LIz8uUifdDBur
+	hUHWoKT+hPzu0zO98w4BlcaX84W0VlHG42hU1wfJYnPjg+gOCgtf6faB2XZBfmB/0PVhqamGo8b
+	Ln+JWMjBr7QXoeBBaEzXYESOCpN9CpMuYsWN56WJsSNFnw6DIER3+PAJm6QpO0iXLIeIMjcmBPF
+	GF8cNpfWzde0nfvyTDO/4ydoLIzwNlNTwHFb93WC4xoVsnpA/51U+5CQTBb4p7W451hY9OusyCW
+	S8qSzKbsljrwhuW1vO3o6Q/r3teE435gMiOk8SRmw4AyHe/Zx5cbM3lmMBDArlzm1VaT+25kiUo
+	4UesIqMmvXAi4=
+X-Received: by 2002:a05:6a00:886:b0:81f:413e:5b6c with SMTP id d2e1a72fcca58-81f8efaca14mr1910211b3a.5.1768450304213;
+        Wed, 14 Jan 2026 20:11:44 -0800 (PST)
+Received: from localhost ([122.172.80.63])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-81f8e4f19c5sm1038158b3a.23.2026.01.14.20.11.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jan 2026 20:11:43 -0800 (PST)
+Date: Thu, 15 Jan 2026 09:41:41 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Viresh Kumar <vireshk@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v2] arm/arm64: dts: st: Drop unused .dtsi
+Message-ID: <idqqwx3svrauv3e26dce4uofevcyd3a6lltsjvpeovp6nse4le@yqym3jc25xr2>
+References: <20260113201340.36950-1-robh@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260115-upstream_pcie_rc-v9-3-d6c82a1556a7@aspeedtech.com>
-References: <20260115-upstream_pcie_rc-v9-0-d6c82a1556a7@aspeedtech.com>
-In-Reply-To: <20260115-upstream_pcie_rc-v9-0-d6c82a1556a7@aspeedtech.com>
-To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>
-CC: <linux-aspeed@lists.ozlabs.org>, <linux-phy@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Jacky Chou <jacky_chou@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768448129; l=878;
- i=jacky_chou@aspeedtech.com; s=20251031; h=from:subject:message-id;
- bh=ukzk8V/+iAWF9vSX9HcoXRh6kD8Xte6R6G0Qmwo0orU=;
- b=Gd49zuaoYFSMlRUbrx/0CcYL0v85DMGnAT15UunB5qirAWWKqhtQBGZ0mNuX9C1azisZvb01Y
- Dmr5JiU/CshCdJ35bT2bREho6WwUWC6sG1gkYxiiAXHjTtHPelXSBg/
-X-Developer-Key: i=jacky_chou@aspeedtech.com; a=ed25519;
- pk=8XBx7KFM1drEsfCXTH9QC2lbMlGU4XwJTA6Jt9Mabdo=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260113201340.36950-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260114_193546_548772_9F0723D9 
-X-CRM114-Status: UNSURE (   6.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260114_201145_944028_D8F782F4 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,34 +100,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add maintainer entry for ASPEED PCIe PHY driver.
+On 13-01-26, 14:13, Rob Herring (Arm) wrote:
+> These .dtsi files are not included anywhere in the tree and can't be
+> tested.
+> 
+> Reviewed-by: Alexandre Torgue <alexandre.torgue@foss.st.com>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+> v2:
+>  - Drop erroneous QCom .dtsi
+> ---
+>  arch/arm/boot/dts/st/spear320s.dtsi           | 24 -------
 
-Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
----
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index cf755238c429..a1979c574759 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3844,6 +3844,14 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/crypto/aspeed,*
- F:	drivers/crypto/aspeed/
- 
-+ASPEED PCIE PHY DRIVER
-+M:	Jacky Chou <jacky_chou@aspeedtech.com>
-+L:	linux-aspeed@lists.ozlabs.org (moderated for non-subscribers)
-+L:	linux-phy@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/phy/aspeed,ast2600-pcie-phy.yaml
-+F:	drivers/phy/aspeed/pcie-phy-aspeed.c
-+
- ASPEED PECI CONTROLLER
- M:	Iwona Winiarska <iwona.winiarska@intel.com>
- L:	linux-aspeed@lists.ozlabs.org (moderated for non-subscribers)
+Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
 
 -- 
-2.34.1
-
+viresh
 
