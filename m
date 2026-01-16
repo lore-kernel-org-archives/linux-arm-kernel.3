@@ -4,168 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EBB4C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 16:09:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91862C982D4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 16:13:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Oecf8M7GO/uIJapRTguyUJlODoeuUrwBF+f4GP9vEg=; b=LQrxTQdQiQQshWCAzyX3q/S6Qm
-	B6EDsd82dXO7nqXdjnyj8wAeOQgqAOTljNEKzPP0nyZWmCD/YKKOzh+x7KjFdvc3x5n1pJkgS/EHl
-	1WIcuaA0VRFmjzD21WMnT/UzNQa5zPTtc01HdYaUn88IDvfHLW1t+J310mh55WFCXpA3j7Q9xMkYH
-	3P+ZdcBMPk2+ts2QZmPPp8WBNXJf1CSWUhTLLgPMiALpp4+puhq/GX/OXD/e9Mkd7unJKazHrTtoU
-	jh2DYsqEfyw3+QNKXDEW7jRiFuoE90+1Q+OoyrNn/xsdEp56L4gkcJlzWvRCsCJlt39zBDv52oRmv
-	oCBHPFOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0mtJwfWQwQe0LqK1E8HXSJ9uPs2A6qOKazMuFJhjKTk=; b=q290Vl2tQ/s4joe4NZq07ssdDl
+	n+UZ3gI//UP0CI7aJcuxPqH7eSeFZuAOnRUpQ9C5fbgvONpW4j6wjH3gGn70Qvz7j4oESpq4qy7zw
+	ukI50X8D/IlVSvgPQ4/eVX9pwLmKcMAs7Pc4YdoLKdEeG/ki912Aqg7yOtt8yqECEDUv10vOTIh5p
+	UNcG/mI+WUuP1EMUZ8Tb+0r7iF6GdV2FMi/XhKFQdXkizC8e1VfqeL91z/QFZ0+ugWF0+RV8FgDrw
+	Ha6f39b4AipS+xP0JkRtj5ji3z/XeAq8bLBqRaV2W0mnVsmcXOZ/G8uDEk+/JcZpTAGLnq5k3v7sE
+	uc50L2/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgmNt-0000000EQkD-3nsC;
-	Fri, 16 Jan 2026 16:09:13 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vgmRj-0000000ER5p-3le2;
+	Fri, 16 Jan 2026 16:13:11 +0000
+Received: from mout.web.de ([212.227.17.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgmNr-0000000EQix-1wcy;
-	Fri, 16 Jan 2026 16:09:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S1kcbcYIobenJzw7PlXNFWFH795jslnTxRK5Q7dEh2e9coYFbY+Tuyqs6fEldX4zFGsAXB7lIYAdeTM+CZxomNYtOTyWdu8+DGqECLejc4ZWvDuWlU2ZSDVeC2wq15/CYFAO/YZ+5iD6cHGNkYS5DPblsVte+E9rD01AjrkV1PKPIqF2iss6DK1CK3Uak8fDUOTGwnjcAJnbRFlhLhVqJwy9KzxESUW8liNDv9q7Oo7FGFG1qivp4m9hq8os7m1K2sdIkCLPFUcq/oVhsCxui/lHy0QQ0XZmi767V/v0snzx+T0KBQFP2X7QcX8cqAnMuZBni+c6fpobvZCvvnDJ2w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3Oecf8M7GO/uIJapRTguyUJlODoeuUrwBF+f4GP9vEg=;
- b=pZQhx6/hrv7I1Xa1qdHWCztHJ+tKzRd78mhyFvvomF2BhoyvCfXnin7JWHun56Zk1xXrcP+T9TPPbh8fzm+Tlxm3KV8HHNNLYFdL8JvTrCgFFl8MommHeCLeWtyFwXisJzpGFp3S6KCAlEwGOf0FnZVT3gSgXuggg2nTZal3+DONAzyioH9RvWkJpmfpo+yxHKzTH0veFdkzA8MktuS0sCm+vc1GI2uHbgP4/i5pM/ziSP7mVHQYGS/EtgVszFlWrK3Ru8SAHcVy9wXIyjFyEZEIKJXCZi0w00G4hJy5Tc+/2XUq2oG4nkU8kkll99WQ+IwoSe4W6f67quFqQk6lWw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3Oecf8M7GO/uIJapRTguyUJlODoeuUrwBF+f4GP9vEg=;
- b=ceG0CebyANq6VAq+CcqxYRrQkR7/aQMC9Bs47K/DL4U8t1JjBOoijFTR3VEUKjrxasrWBhEtvEevV37tjL2h6D4ZMrcJG4bSIR3uYS/Gt2SdA9hBeALguR0urfu6uOSDsnUzm69iGUk4qwScpbWiaiKgzo7ntZr2fjLFIkpoPY3nj+4hhTHw3Si/DOf0XqUnIii2ndCFnwHXNSu1VF4801H3M+9Upml2z3J7BQgCS4B1j2jZZueYBLoRjnl3Zef3VuObJ/pnYn2MNHBWqEmtbYAWv8XlYSRsgkxgwJsM8BGfQIaUlInEa3RBQvwlAhFYvuqb6LJ1XxTpifN7PAaegA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by GVXPR04MB10945.eurprd04.prod.outlook.com (2603:10a6:150:21e::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.6; Fri, 16 Jan
- 2026 16:09:06 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9478.004; Fri, 16 Jan 2026
- 16:09:06 +0000
-Date: Fri, 16 Jan 2026 11:08:55 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Michael Riesch <michael.riesch@collabora.com>
-Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Collabora Kernel Team <kernel@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/3] media: synopsys: add driver for the designware
- mipi csi-2 receiver
-Message-ID: <aWpil6jI1Ad0DcEI@lizhi-Precision-Tower-5810>
-References: <20251114-rockchip-mipi-receiver-v5-0-45aa117f190a@collabora.com>
- <20251114-rockchip-mipi-receiver-v5-2-45aa117f190a@collabora.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251114-rockchip-mipi-receiver-v5-2-45aa117f190a@collabora.com>
-X-ClientProxiedBy: SJ0PR03CA0191.namprd03.prod.outlook.com
- (2603:10b6:a03:2ef::16) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	id 1vgmRh-0000000ER3b-06Ul
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Jan 2026 16:13:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1768579983; x=1769184783; i=markus.elfring@web.de;
+	bh=0mtJwfWQwQe0LqK1E8HXSJ9uPs2A6qOKazMuFJhjKTk=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=qJpUaTD8ONvEQ6bNbK7j9Mojy0zObPbvh+q02b92d3Blmsef/yc1Sarl08UYTmjl
+	 R9fMC+DzP1S0SRWrnxzv1ZsraRQo8SD6EyYjRAWgY7CQw3VVnqI3VxBLXJg5wsGhm
+	 x+1xWGG+SrbyE1JW76HkYgNcueMM/Yw/njAGA0Sr8r3B2TXZDvC60j3Id7IZhPAhi
+	 CJwvDNE5jtpmr+VAGlIXjeDyfN1JLPl1F/zASHTESRZW8OikIeFavBYczbRKpYYoz
+	 rxN7iWALpiHWtI1hWQmhIKGDF/lcg01NLXRdm0dM8Vad/cywWE5MIWcyCCV0btmaX
+	 bKVOAlvWGiWlLSYogg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.218]) by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1Mr7eu-1wCFaa3YYA-00bgOe; Fri, 16
+ Jan 2026 17:13:02 +0100
+Message-ID: <9438c328-c5be-42c3-b7b0-17dae62fac98@web.de>
+Date: Fri, 16 Jan 2026 17:13:01 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|GVXPR04MB10945:EE_
-X-MS-Office365-Filtering-Correlation-Id: c2cdf9d6-24c6-4eae-0f7b-08de551992b4
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|19092799006|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ug7usz8zRxxrkbdtDWAuUwDwxd28xRUY8XfMMxza/5mVsa4TLnJjdJIvMJ4C?=
- =?us-ascii?Q?oWOUfkW2ZY3MZdCThO3czc5kNqsTRzm1e31SCRJsbJfmpIPVt7G5YSxWXT2n?=
- =?us-ascii?Q?CAkkGe9JbX/FAYFN2GLGCP3VNzZLMsUx3ykLFXGdihE0EDgTDRMb0+yRbhMQ?=
- =?us-ascii?Q?fgcfUBYzhGqv+w0Gc79iV1gJJKfZquh+o0KWNuOQHgprixgorxl5qXGYyTog?=
- =?us-ascii?Q?78mwWV36p+ISiemj5gE1Pwn8kWN8CJuvgo1HCwDRx6ZFF4QVoZlzPWnCpJBN?=
- =?us-ascii?Q?kIedH7whKZdO4bNmdSuvyUagN+uWbauZU2wrSIbHdTVGIK1BQ+c/g7vwBwS5?=
- =?us-ascii?Q?9qDoFLopmXConh/UZhn93P+7Ec2F/3NPlc17aynnfVZVrlfShnZ9o0c0T9Xz?=
- =?us-ascii?Q?zBdudA9NwJGNjCMA2RxHgKv7CTNz6crJVKocQ4PXVfAdxk8kS4erxP5YQopb?=
- =?us-ascii?Q?UJbqd4NwFI3PgyMOxoODpQLC4psTG8scNeHJ6d6rFO/6FiMHlDheib0UXeoO?=
- =?us-ascii?Q?nxfzjIs8T4KxDLkSM8l4Ibdal+J1Mx9+yNqy6poNju13VR+2aF3gxpeZP7gg?=
- =?us-ascii?Q?E7p+jgvQ57Hd1L0LUkJ20UnzUMNFyhMKw8gSf1z5uAH6kHMmORdsXMbtiAVL?=
- =?us-ascii?Q?m8tVi9CQaSzhrgKYUMjf1x+F0alJ6OYTb9Tftme5F9bdbUigXqdZVVbjz2l0?=
- =?us-ascii?Q?OHzcUPaQYOhxWpBWuQ5c5y7zAvS4VFoL2UmjF8sFmlO8WUZzdZs6uCRZGgBS?=
- =?us-ascii?Q?901J3m7x7a7IIIsGRnM9MkuNGyiIra2WA2eyPn+SQMGBH5rKqnrG6BlC0sCo?=
- =?us-ascii?Q?jUFF4tx+d3adAbLwa1viNoCMpEfm8aXStQQiTG/rnU9wvZxoVjzqC3zvl924?=
- =?us-ascii?Q?jZuK4qyyu2COK/amjlsPDjO7TbXHBH7vN2gRzwGWUTttmpUVCP9aig4jHfpr?=
- =?us-ascii?Q?3tac2b40s+Sw1N4ZCKl8UqiKyftliJvq4upHBdpCryPp0BYvKZbYc0KsnA2E?=
- =?us-ascii?Q?hMC80mwTGL47L3hBBtvNAJ273vavX6Z/hrnJiR5vgJfvaDvIpnKplFavMJ5J?=
- =?us-ascii?Q?ak/LguJlFlV41UwhlI27Pkn+lSNOs2SpEc5NRSRaUHUcziXEkXv/C4F+XK6k?=
- =?us-ascii?Q?rnE7ydX9gVxhpJ0vVIS0czbXSHJDzjoBetleGF/HMjcvE9fO/IRN8cinA6F3?=
- =?us-ascii?Q?10FErI0/LLFB0mBmq1vBLChxNLvBlhp/BiX4u2mVN5VpaVoPJ+yUhFiFjinr?=
- =?us-ascii?Q?YpvMVguFUvpWMipJ0BV6dgOkdfI9HFL86M+m4/jfqtsXaIPifAgChzlxq0f1?=
- =?us-ascii?Q?sbcDlxg7FY9fkW82ZOFp33Unv8VPvcLZzJ9xuSNXPBYyKgWYqOi1qpH6KLYq?=
- =?us-ascii?Q?cxs3Ahi26+4ToYu41BBUEhQU/o6suMZ2JMAxABZbP4UeGwowWY/fKuGVpk7X?=
- =?us-ascii?Q?CvJ6985WRZDfOb75mdFS4MWI0ImT2hBXPaaWBBBXOrO5Qd8FytgpBJjhGP4l?=
- =?us-ascii?Q?74YzQyygD2C7yCM8a9ULlFjcxazA6Lk0CH+oUXuuD43ogW0kqndtxAIjohUy?=
- =?us-ascii?Q?Bys+BzgwYxuUjzpzpIeEc5MhW3JxJb4u0fEpj1U1frzxhxlmzlToZsRcy4zD?=
- =?us-ascii?Q?rQ6XXsPsbY1eQWr2w2hXkDw=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(19092799006)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?V9xjxnq9F+GC4Lr+p6jHGj/IwNE84FDFyDgvUsn6poBRH0xuduBSxoWqEhW0?=
- =?us-ascii?Q?VxckHmHVTlZMtgn639xXoyEYQFhSflwPez5SZlO+8b4cutl8iQhjavTqdf1u?=
- =?us-ascii?Q?J3WCLLqK3VGo5193glAyKsPyoBz4b1fK0/9RSkQBTau7WBlwMQXyZ8txDJ9V?=
- =?us-ascii?Q?yn7cUdHaP3vJqV/G2JX/BJHFNDrv5/TnCgHuQkIU3JTKuQTvF86Tvl+LmUcc?=
- =?us-ascii?Q?ebN5AvY9Z8kFklAQGwbj/z4ekMF62RbCXehs6Ea+YCAqP5SBKO+fiPFpLoyP?=
- =?us-ascii?Q?9ZRftvyh0T3FVKcMWEFkNIeL77ySqP4ljMXOYcXNjltHsFCB3MQicA+cEgBV?=
- =?us-ascii?Q?xbPmjdYm6upli3lzPvtLgSXKSgcb/GxjLqIlerJ7YV/nCRXdhcEVeU+Aa7EW?=
- =?us-ascii?Q?1SeeADhx0QrlxPwBSFycQKNRemP/3HREwb7Clmydsw8KbkueHXy1us8dkap9?=
- =?us-ascii?Q?WLVOYqbQZhd8iEgxy5SbsWh0t/q3avI0U6nhw6E9kFrFbVudPs3hDNylZN5z?=
- =?us-ascii?Q?x+4WrqaLw9rhL3ZULyu/0y3uvIXmJvSQtHD67BEf0LeXzfEd0+HGPZoS3n5h?=
- =?us-ascii?Q?xQ0cvPJ2A0TKbR6NQPNsAFy5bVLiqCtQqzvYyvl7rCyGDSMXMSXT9YdhX4Fb?=
- =?us-ascii?Q?Vr2aHbnS8TN+dF8hiPcXfzRQVxHuMgrqU6e48ZwoYRFJGfKNm25npkBwEfTo?=
- =?us-ascii?Q?HYjmnEkLM+anPehNWDhEI0dGMfDu43yCnHotVIleKtU5sIk83nvZ41MjjQRx?=
- =?us-ascii?Q?ED9+ZDlA6hH0S0GVwPbWfeL3lHGM+8XXB2P4TemqG+RBpgR7GTmvz/CmpAvF?=
- =?us-ascii?Q?OnLSJkHpyPFdU3Sv0AG/6hlB89iTYdVt4feLo4mzfZzq7sbz+y+1c+tpt+I8?=
- =?us-ascii?Q?4jI1Qrb4UoNPR2EQekLenB4yhL7CUCVF2AUvFuYBY6fN+R24SgHIJ6cx8sUM?=
- =?us-ascii?Q?zO6QG+yRhXW529cLkhf7qkrLGYoKaMeICGlqKMeQFlOWmO8otjiyYSI0rPYx?=
- =?us-ascii?Q?guqJdgtBlY+NMEn72VLQpZtzfiNq95h2YHpqwGKxseX4rtsAZRahmciXkXjq?=
- =?us-ascii?Q?TeM5uGnjzQoaswXQEOYJnV4lRjHOs9M5cJeNa+FEpZGmH6iRb1sNJWLzEbRV?=
- =?us-ascii?Q?O4l2QaM9uWRjLA56BbnsJwvrK6k7K6sqN4zRh/+8RIeHLyR4EHhldVNRgfXT?=
- =?us-ascii?Q?PQq1OUXq3wVSMoAqwinxcgXtwgDelCPQMsFIlUvLaAooBdtseNcZ3gV5Ybzu?=
- =?us-ascii?Q?L7DM80NOMZFX3IkHRA1YsycGfRYQz3K1r+LQDCoOHES7KFumNyWSp2S8NPD0?=
- =?us-ascii?Q?CZa78D+2Aw4m4Gz+b/I5Z7jBnugSLnaNWcnhfvOIA4Y09/Jz013XtJjVS9bb?=
- =?us-ascii?Q?Am3b7F+Y5gTtg5FGglYPws4AjccgNbMwTY2NrK3iNx+77x4qXkxpCi/KDSmm?=
- =?us-ascii?Q?c+9ZpCUBhdoVCldxaTDWqJ51E1C6YjcOW3XabQm9Weoh2xDx/MpmKUs6P7y+?=
- =?us-ascii?Q?RjP6RyI9vjNYQ2Ezb++6aWUGA4QhpYODylNym2g+aoF6WyHvtMt+YqPmqHNC?=
- =?us-ascii?Q?MPlNf/zcWWvXyY94sSTGXUJK7EfHjelO4yynGbp0vkwps0/Nxs+yzYU2yEmx?=
- =?us-ascii?Q?GAIra0ben++OW/y8eIBwFCdCYmD9B9daQmlLUVmhEAVwIw3Jzm7LjWgELiII?=
- =?us-ascii?Q?B88OiAtQavY5/hy+angYsl9hpdZ8HkO8DWXuaqiVSdl+dKUMWutLNLzefMyE?=
- =?us-ascii?Q?b/ytfHOYJA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c2cdf9d6-24c6-4eae-0f7b-08de551992b4
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2026 16:09:05.9583
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JayZHEzGKUvGY02uYZdXeJoZFnXAoEclzUB+1lpMDzp4VaZxpOiMSRJbcgv3SrXIon2LTUG6V4wEGcSzY4YsKQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10945
+User-Agent: Mozilla Thunderbird
+Subject: Re: firmware: arm_scpi: Fix a reference leak on device node
+To: Sudeep Holla <sudeep.holla@arm.com>, arm-scmi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Felix Gu <gu_0233@qq.com>, Cristian Marussi <cristian.marussi@arm.com>,
+ LKML <linux-kernel@vger.kernel.org>
+References: <tencent_A3E20C513BBE7D268B863A5CE473FBA10B06@qq.com>
+ <9d44f5c6-9197-44ec-b7fe-50c2a686a751@web.de> <aWpaOYy6M_wNiMJU@bogus>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <aWpaOYy6M_wNiMJU@bogus>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:TNAMiKUDVe9FKzizud+MZ8C/qbqQATeE08SKvE7qlN3n1H5L1Ja
+ 9C+GjnEx5bQeIrioHciurlqwk+WJuOAAKK34cGsLAkwCH7Q5gGZ1fJ1s2WIwLdGeodc07ju
+ 0UOT+VU+TP6emcmtYEXvb3VVRlexSX66J9UxjLSDwq4Z3boBzzpf5taLzocCcrZeQIQRK7S
+ Z136NS+C8gGLe8AlLgT1A==
+UI-OutboundReport: notjunk:1;M01:P0:pUwbf+FSnIc=;iPx1dkKZriWDr+nvEYLa2jjqJKq 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 HxMx6Kgv7ntftHde7TjC7eR4XpeKM
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_080911_683656_1467165B 
-X-CRM114-Status: GOOD (  24.64  )
+X-CRM114-CacheID: sfid-20260116_081309_367650_5B902E1F 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,210 +85,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 16, 2026 at 02:02:47PM +0100, Michael Riesch wrote:
-> The Synopsys DesignWare MIPI CSI-2 Receiver is a CSI-2 bridge with
-> one input port and one output port. It receives the data with the
-> help of an external MIPI PHY (C-PHY or D-PHY) and passes it to e.g.,
-> the Rockchip Video Capture (VICAP) block on recent Rockchip SoCs.
->
-> Add a V4L2 subdevice driver for this unit.
->
-> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
-> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-> Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
-> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-> ---
-...
-> +
-> +static inline struct dw_mipi_csi2_device *to_csi2(struct v4l2_subdev *sd)
-> +{
-> +	return container_of(sd, struct dw_mipi_csi2_device, sd);
-> +}
-> +
-> +static inline __maybe_unused void
+>> =E2=80=A6
+>>> In scpi_dev_domain_id, it does not release the reference.
+>>
+>> See also once more:
+>> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/Documentation/process/submitting-patches.rst?h=3Dv6.19-rc5#n94
+>>
+>=20
+> This is useless
 
-why need '__maybe_unused', needn't inline. compiler can auto decide and
-report unused function if no 'inline'.
+Do you really disagree here to the usage of imperative mood in change desc=
+riptions?
 
-> +dw_mipi_csi2_write(struct dw_mipi_csi2_device *csi2, unsigned int addr, u32 val)
-> +{
-> +	writel(val, csi2->base_addr + addr);
-> +}
-> +
-> +static inline __maybe_unused u32
-> +dw_mipi_csi2_read(struct dw_mipi_csi2_device *csi2, unsigned int addr)
-> +{
-> +	return readl(csi2->base_addr + addr);
-> +}
-> +
-> +static const struct dw_mipi_csi2_format *
-> +dw_mipi_csi2_find_format(struct dw_mipi_csi2_device *csi2, u32 mbus_code)
-> +{
-> +	WARN_ON(csi2->formats_num == 0);
-> +
-> +	for (unsigned int i = 0; i < csi2->formats_num; i++) {
-> +		const struct dw_mipi_csi2_format *format = &csi2->formats[i];
-> +
-> +		if (format->code == mbus_code)
-> +			return format;
-> +	}
-> +
-> +	return NULL;
-> +}
-> +
-> +static int dw_mipi_csi2_start(struct dw_mipi_csi2_device *csi2)
-> +{
-> +	struct media_pad *source_pad;
-> +	union phy_configure_opts opts;
-> +	s64 link_freq;
-> +	u32 control = 0;
-> +	u32 lanes = csi2->lanes_num;
-> +	int ret;
 
-try keep reverise christmas tree order.
+> and looks like coming from the bot.
 
-> +
-> +	if (lanes < 1 || lanes > 4)
-> +		return -EINVAL;
-> +
-...
-> +
-> +static int dw_mipi_csi2_register_notifier(struct dw_mipi_csi2_device *csi2)
-> +{
-> +	struct v4l2_async_connection *asd;
-> +	struct v4l2_async_notifier *ntf = &csi2->notifier;
-> +	struct v4l2_fwnode_endpoint vep;
-> +	struct v4l2_subdev *sd = &csi2->sd;
-> +	struct device *dev = csi2->dev;
-> +	struct fwnode_handle *ep;
-> +	int ret;
-> +
-> +	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
+I hope that views can become more constructive again.
 
-use  struct fwnode_handle *ep __free(fwnode_handle) can simplify err
-handler.
 
-> +	if (!ep)
-> +		return dev_err_probe(dev, -ENODEV, "failed to get endpoint\n");
-> +
-...
-> +{
-> +	struct media_pad *pads = csi2->pads;
-> +	struct v4l2_subdev *sd = &csi2->sd;
-> +	int ret;
-> +
-> +	ret = dw_mipi_csi2_register_notifier(csi2);
-> +	if (ret)
-> +		goto err;
-> +
-> +	v4l2_subdev_init(sd, &dw_mipi_csi2_ops);
-> +	sd->dev = csi2->dev;
-> +	sd->entity.ops = &dw_mipi_csi2_media_ops;
-> +	sd->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
-> +	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE | V4L2_SUBDEV_FL_STREAMS;
-> +	sd->internal_ops = &dw_mipi_csi2_internal_ops;
-> +	sd->owner = THIS_MODULE;
+> Note to the author:
+> ignore this and no need to act on this.
 
-I remeber needn't set owner, v4l2_async_register_subdev() do it for you.
+Will other contributors get more positive attention for recurring patch re=
+view concerns?
 
-> +	snprintf(sd->name, sizeof(sd->name), "dw-mipi-csi2 %s",
-> +		 dev_name(csi2->dev));
-> +
-...
-> +
-> +static int dw_mipi_csi2_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct dw_mipi_csi2_device *csi2;
-> +	int ret;
-> +
-> +	csi2 = devm_kzalloc(dev, sizeof(*csi2), GFP_KERNEL);
-> +	if (!csi2)
-> +		return -ENOMEM;
-> +	csi2->dev = dev;
-> +	dev_set_drvdata(dev, csi2);
-> +
-> +	csi2->base_addr = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(csi2->base_addr))
-> +		return PTR_ERR(csi2->base_addr);
-> +
-> +	ret = devm_clk_bulk_get_all(dev, &csi2->clks);
-> +	if (ret != DW_MIPI_CSI2_CLKS_MAX)
-> +		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
-> +	csi2->clks_num = ret;
-> +
-> +	csi2->phy = devm_phy_get(dev, NULL);
-> +	if (IS_ERR(csi2->phy))
-> +		return dev_err_probe(dev, PTR_ERR(csi2->phy),
-> +				     "failed to get MIPI CSI-2 PHY\n");
-> +
-> +	csi2->reset = devm_reset_control_get_exclusive(dev, NULL);
-> +	if (IS_ERR(csi2->reset))
-> +		return dev_err_probe(dev, PTR_ERR(csi2->reset),
-> +				     "failed to get reset\n");
-> +
-> +	csi2->formats = formats;
-> +	csi2->formats_num = ARRAY_SIZE(formats);
-> +
-> +	pm_runtime_enable(dev);
-
-devm_pm_runtime_enable() will simple error handle.
-
-> +
-> +	ret = phy_init(csi2->phy);
-> +	if (ret) {
-> +		ret = dev_err_probe(dev, ret,
-> +				    "failed to initialize MIPI CSI-2 PHY\n");
-> +		goto err_pm_runtime_disable;
-> +	}
-> +
-...
-> +
-> +static int dw_mipi_csi2_runtime_resume(struct device *dev)
-> +{
-> +	struct dw_mipi_csi2_device *csi2 = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	reset_control_assert(csi2->reset);
-> +	udelay(5);
-
-Now prefer use fsleep(), which auto choose difference sleep function
-according to delay number.
-
-> +	reset_control_deassert(csi2->reset);
-> +
-> +	ret = clk_bulk_prepare_enable(csi2->clks_num, csi2->clks);
-> +	if (ret) {
-> +		dev_err(dev, "failed to enable clocks\n");
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static DEFINE_RUNTIME_DEV_PM_OPS(dw_mipi_csi2_pm_ops,
-> +				 dw_mipi_csi2_runtime_suspend,
-> +				 dw_mipi_csi2_runtime_resume, NULL);
-> +
-> +static struct platform_driver dw_mipi_csi2_drv = {
-> +	.driver = {
-> +		.name = "dw-mipi-csi2",
-> +		.of_match_table = dw_mipi_csi2_of_match,
-> +		.pm = &dw_mipi_csi2_pm_ops,
-
-pm_ptr( &dw_mipi_csi2_pm_ops)
-
-Frank
-> +	},
-> +	.probe = dw_mipi_csi2_probe,
-> +	.remove = dw_mipi_csi2_remove,
-> +};
-> +module_platform_driver(dw_mipi_csi2_drv);
-> +
-> +MODULE_DESCRIPTION("Synopsys DesignWare MIPI CSI-2 Receiver platform driver");
-> +MODULE_LICENSE("GPL");
->
-> --
-> 2.39.5
->
+Regards,
+Markus
 
