@@ -4,159 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF4DCC982D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:12:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC0BEC982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:25:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w/xiAsxOao7omOsuc5CQ+rxkL1SUjDal6R0S0vPa5Zk=; b=TtqYL1pDeUiEZ62nCmtnj+NTaf
-	cmW5RpaSFRNMHS/XI12vPqVOZtg202JGwNmEB709GqrINly4EihRkF0IaPk0cfivUYEBwPyaAd5Wm
-	LHx350cWIWWXWp6gAKjvfXzgIK6LBMwtfMB3l5KPizpSzEkeEEl6hCVJqpwYZT7qWCAqTEYYP8rwF
-	kA1Eo1l7TKzekUbJdgUl4OgpXGa+CoMFhAjXMioSwoxaOBGNJpRNMvleKHrfd0FgL4GWrWyqz2U79
-	9hYfVlgW38u4Oai34ycbOBBzfUfVzzcb6r3dNHNONHHdd+ZZuc4Pa3rkxg0ZO03fu0Bt7CLL/LhBJ
-	UWa2OEgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=crvtFoSSf1pJ/8ytC325QwTRj4uYdG2Mu4jqSpqZJqk=; b=JNUp/k9tDDDKX8Rcs2/wUUXN+B
+	dcUXTS5OBFiZLYtUPrgz1cre71RN25TZ31lM/I41TjiFtCrG+UG3/avkL0BIwmGW0LAjdHEcQnWyr
+	htOUeObF337gPY/4qdLAYlBZszdlafm29gpDq3UoGQoVONO64oFJCGOgBIF0O4gjPgiCbnDVToolJ
+	xkUwUI5kivf6EtHV1OB+UpoXtuId0LFdyqPGHADtL/LIVB795WDTjJl0zn5MRfiGbAjIxcZyFRsyO
+	l4A7SancXvTTKe92k5w/eTlzEKJLq2aJwFrDpihoLYLphtu90To4GYiGZsVjh/PedtuUOLQ0yHzk6
+	T/pDV1sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnMn-0000000EYQJ-19Y8;
-	Fri, 16 Jan 2026 17:12:09 +0000
-Received: from mail-eastus2azon11010037.outbound.protection.outlook.com ([52.101.56.37] helo=BN1PR04CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnMk-0000000EYPj-2rM7
+	id 1vgnZC-0000000EZbL-0jTv;
+	Fri, 16 Jan 2026 17:24:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vgnZ9-0000000EZZH-2TYh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 17:12:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PV6fqcpoM8u60PhaafXFI1kezFOY4IlPlhPkT+j56Z/AmNuUJmdibSoWN8+bQQVoA0X0Fxoy/iGJvryZ3U8rnpF8k8zN0xaPbx876MuqDERGKidKFuRGOFtwW3rqkAVBazlFVQTP43tuFCM0N1tpKI9r8tWcRoHkbbsU1PFswMHqeoZqv8CdA9gJNkDW784B5NPsAaqVYewmeaGftpDms1UEI69lGw11VSipDH0sRpw/3myL5j3GA3rhf3TAUN4Y+HVNx+OqgKYfJDqUBc1XcsBmu40YB2gUmpl1FySd2tbNBhRUjc433TxRC1Xs2iRUTB9B9mdolDIeBbL1gl36kA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=w/xiAsxOao7omOsuc5CQ+rxkL1SUjDal6R0S0vPa5Zk=;
- b=rFtDi5LqvDPZm6GnXQ+XszA51XffuD9NZlguhEiy7Bj3bX43TRDHh6CM2FiP0+KjfGqH+p1T7PGOWvN3CaJ6G/gFooeKdnerclJsXcfrJsk2TS7YC5DVzhU8OKmAOPQCPn+YYKhmJEL5YNT78pDd8DV0fX72TVklqVVU2ZFJUFaVNg9M0VELnYEWkbN+QACd8/+v9eMdRFPrnv7U5IHaYkDCO05JQwhc9nW0T1keE2D3V3U4Hia/KrGQ/4kagQelUbko44+Y6mSVdVYJICVUlwi/ilVNmM0UASB3+JqpGOUSoxWXYzJCTA0pis7HHGlZGhxlguwQCMWCAFvjL2M0OQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=w/xiAsxOao7omOsuc5CQ+rxkL1SUjDal6R0S0vPa5Zk=;
- b=j1EyANzQYPAfJQsau76XJd9I8LR7wXsIm4CH66OWgYgwEKG8frpB7N/pyqi3cgsej9vlVxpM+ex9nPeXEY2RQgjE9nagIbWSA3RVO3SyT4KtjfvOKsm6MJtkIlcrAQCXEt5L7V8FNbiLAq96eaxOWjdkXm4FLqz97LCUhfhRGuPxae5q0/sTAAbwhjzOV83awNlOwGvHZy63DTS81W5oFI73R2LeORICxZ1xNpG8/6AUeos+mxpPlKsBFuGi3TWV4GFtkTzEdSF5+JV9UriIPDxpA56R4Tbx/eqPdZuAaLDayFO9QtZvHTFk4+YQGKC2qespayddoYFRfT2Et/cCzA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by BN7PPF5D27497F1.namprd12.prod.outlook.com (2603:10b6:40f:fc02::6d1) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.4; Fri, 16 Jan
- 2026 17:12:00 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9520.005; Fri, 16 Jan 2026
- 17:11:59 +0000
-Date: Fri, 16 Jan 2026 13:11:58 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jpb@kernel.org,
-	praan@google.com, miko.lenczewski@arm.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, patches@lists.linux.dev
-Subject: Re: [PATCH v1 2/9] iommu/arm-smmu-v3: Add alloc_id/free_id functions
- to arm_smmu_invs
-Message-ID: <20260116171158.GQ961588@nvidia.com>
-References: <cover.1766088962.git.nicolinc@nvidia.com>
- <1541ea4a9e9c935c2f907c0c5f13a4af2bdc2114.1766088962.git.nicolinc@nvidia.com>
- <20251219170551.GF254720@nvidia.com>
- <aVQfhaqfvfLFNZqe@Asurada-Nvidia>
- <20260102155715.GC125162@nvidia.com>
- <aWnI3Ii3KCFmJV3/@Asurada-Nvidia>
- <20260116144120.GM961588@nvidia.com>
- <aWpuGsnyZJWTmgrf@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aWpuGsnyZJWTmgrf@Asurada-Nvidia>
-X-ClientProxiedBy: MN2PR08CA0030.namprd08.prod.outlook.com
- (2603:10b6:208:239::35) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Fri, 16 Jan 2026 17:24:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E51CA1515;
+	Fri, 16 Jan 2026 09:24:44 -0800 (PST)
+Received: from [10.57.49.133] (unknown [10.57.49.133])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 416DE3F59E;
+	Fri, 16 Jan 2026 09:24:49 -0800 (PST)
+Message-ID: <4da29d46-9a80-4ec4-b6b8-6c9457eed481@arm.com>
+Date: Fri, 16 Jan 2026 17:24:46 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|BN7PPF5D27497F1:EE_
-X-MS-Office365-Filtering-Correlation-Id: 94b03491-a51c-4f9d-b3ff-08de55225ba6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YyoCb9v4PqHszRoomiAkS9jatw1oe1YQqkBzW2Mo//V906AEE2BO47AaVQkr?=
- =?us-ascii?Q?wptD9JHi1JiUsarhfSB97Nhz9cr3WdNPDo7dF4zfd/w5MjC6XwVyqs7OqjkL?=
- =?us-ascii?Q?0qouxHzBxEpdWL2ExlUafvYshRNMR2qtv/yWtpu08AcjXAOvPVCbVknOwpGh?=
- =?us-ascii?Q?7UdcuTZTX5ASRwbkwPhsCMvNlHsIAk5FVSioIob4pQwveaTzVyb7hP3QoIA3?=
- =?us-ascii?Q?9MZZzLn21/nPiF8hJ+J57djJdP12RrrRI/JWYAOVtB+AoYRvUI2+MX4aqJAw?=
- =?us-ascii?Q?Kr/k5oPrNAvK7Ul7prXLOH3UkcaGdoPHfUytHjEhIsaixlBlXtzkGm3FplDr?=
- =?us-ascii?Q?cLmUb0fFtLkVqMj69ADfbLnizwCLtHhDcT4kljqrIUU/UkdEjBln/Ss8Lrrj?=
- =?us-ascii?Q?4k22fzB4+vCCw+VJMhTrMaeNRyuqBiPIfwd9pwBKEnFUqldODmjfMWBjPWUF?=
- =?us-ascii?Q?8nz0shbVjkXNUofhlj0HD1hG5ZyBhIgghPcg6zinqxI7NsexY/vKzZ30I8/L?=
- =?us-ascii?Q?ODRLl5DWV7YckBBG9Ao/OLLdi1cv4b1A6HC2EV/Sd99fhG3uR0tGnD9VEd3F?=
- =?us-ascii?Q?7NvtkZ0ARljqTyRcfQPEZuEzcqo/zX63nUqJlLhIDZuIzWACiaNmwzogCCoO?=
- =?us-ascii?Q?f298pMtmZpm6u+EqiBal8RLfWD8oLMrfAgLU3YZMUzcMfPEyMCuRTtigWkv9?=
- =?us-ascii?Q?dGAI20/x021vFlRq5wTUiMROZTleUSDDv/4lkFMm3dLmf9dnx0qc7yBdIoo4?=
- =?us-ascii?Q?PzDzSUsGFVtmyulMsSVu4uhjTmZqCD+LirvwvfrTApI2WFxNv48kL1lf29Pp?=
- =?us-ascii?Q?5aR1lwXlzXT/g/lqiuVWwPOuRvJzTdFcBlms0gI+SKsmphq8yRTaL0CZeEqt?=
- =?us-ascii?Q?Cf5c5ZA0MPWu3CKhlWq/IJM+U0oswdu/VAsK70cZ5pUPeGeM8z3qf5YgE6DK?=
- =?us-ascii?Q?m96xLaP3o/m9SecEi7HGXKq4+e6W3ecLcybtx9uBE6i1Ia6izPgiVEsCRqrT?=
- =?us-ascii?Q?QzmWveEzn4UEjfEJoys/KADipSdidYByvTNImSe+viuRX5y2FXT4iwLd8r72?=
- =?us-ascii?Q?69t9apZeTiPSbd/jBjRqEkb6LRZgnsN9k+5iHSfYt3ha/wqYJ8xPHBm+rcUY?=
- =?us-ascii?Q?sn7IH8KLQv7cdQiVd/qYBRA0aQMAbdZ9sZLfrrBkIwwMtyFVHkz9KoZLt9g+?=
- =?us-ascii?Q?GhhxZbd7kBSHPlyPpFjtzuBy5Ku/a7PeWPHiANs3KFlHaQwftjqnc0awyxqs?=
- =?us-ascii?Q?oXEe69m8G17gC8qQIyMK7MrvFPGPB1O9+qni0RZnz2wQD4kWML7oDGVS2wwC?=
- =?us-ascii?Q?PBDq1LTHbSLp6PiLm2eciQvJH2vmy3ZQr3uWGH+eGg2vbfls3qE1zUVOBedU?=
- =?us-ascii?Q?2qtcz6ReTuNaEizka9h8mPuTXP3mFEIVIl00CTYZZ/wv3TlM61XK7SVqmqq8?=
- =?us-ascii?Q?iYUMqyKn0/9NvC6xaxpkZgUUDJOtijDgl2W1B8t0o/jF2I+wsNzCrqu6LNNc?=
- =?us-ascii?Q?5Duekq1bTUqF+c0LRpGJcppdNuPcR9h31VoU9Vhpmelq4pmeoX7Pnj9VOf6y?=
- =?us-ascii?Q?Ktk5X7jhLERFbknAhHI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nSpL7p3wiCpKDA151mtp4CSsDbv7Vt51DDbDwTrdpQkn9yt0epG2cihV8KuX?=
- =?us-ascii?Q?/gsqwawe2SxQrxfSB43loHq7b5T/xXWeiDabx79af64zDv2TT6M+Qt7rDMvA?=
- =?us-ascii?Q?9GyZiVJGuI+mNnNc5o/vgE3R3ui+jM0npTD9Zl/wf8yYKHlvKxcyHQlCA7hb?=
- =?us-ascii?Q?GHxyi2dGBqm90hFae4edtbF4cbXAu/gGS/RQkeF4rHgnwQJFf2mT+80LxsOL?=
- =?us-ascii?Q?JXlO8TGmhJpduJJIzc7Z4Ka5bwqE6cEvZXwKv+tko8PDLhJdVrSr5EOP/R9S?=
- =?us-ascii?Q?skdcQVRwTZgDGRAVER3IBjntB1EE3gOjl3Hjp7Z9Dxn2dEpPptZ/pjLPeBnq?=
- =?us-ascii?Q?5eh+Glmz62F2IxBf4XehKj8nECLPbrNxegzcqo+QND1tRgJls7KSzyl9q/b+?=
- =?us-ascii?Q?kUV6yxkLrK06w2uRMfQq1/jb40VRnuyehUQIFQnRcOxvxmLJ0TOZsRsuoP+E?=
- =?us-ascii?Q?ATHqxLr8++j5aXRBYSWwJdpKIxAAS4AzyEzEtIUqfU8EHkXdOkv77hZ4o/M8?=
- =?us-ascii?Q?FBaseg3ALCvN46bBCvHXtKHQR/BEpsVska/avZI9iPwOmYxdvNRrxHq+S4q3?=
- =?us-ascii?Q?RzN2sIctJnx7n8AgjdMLhJN+kVsfU3s1dFRrixaVxqmmsad32HZ9+OkXd4zm?=
- =?us-ascii?Q?0xQPqGhCXXISo+aEDvPulqIKaB2I+KKOFuiKWXqfDtk3dT8To5rEvdGuToln?=
- =?us-ascii?Q?evgDLkdKK7tHkV29eDznyl4d6hZnyggAH6SXf0yiGYOrVPclkvxjqONz9gKo?=
- =?us-ascii?Q?Q1wlVGRWqFE7FY8wXLu76bHoyLdlc90tqDgvyTtOcUudTmgZvBa3HRwCtyH9?=
- =?us-ascii?Q?UcTGoa1YdKfClPpSqdPlimWv8K9uEhoDMAVB0EBC64Isdsx9b6hYO1CO4BM9?=
- =?us-ascii?Q?5bKCbxwm/wUpTdAGbQ8opF0iuXzSmOYaPMGBhdS/vUmgOt0BqCfZl4JCTC9k?=
- =?us-ascii?Q?AFGLuv9MI9GTwC6+gRwzgIT/gdSBCcO0K5WEs/vEwydEOo007qpx6wVj4ObD?=
- =?us-ascii?Q?izVylEuK/ud7Qkg2l+YKdsse10CitV+vGzaGSB/t4VbMTUa8nib+Z9drOjvM?=
- =?us-ascii?Q?DGmALZzMKy7qfySy45Ka9JrAmOyYIVi1L+RLLc0bS9PKZZ75/pbWK1Mogqj0?=
- =?us-ascii?Q?1hmTy7yl0btGz+Wy1UBgxJV2q7QiecMBp2M8d28udczZb0XxFpzPwMc2NfGb?=
- =?us-ascii?Q?BR6VAFUOnyaVl6WuTkPeg/E5w0g9L0obJwbISyTVLe13DYSxCVwFfTUoEbmB?=
- =?us-ascii?Q?Up6D6C5BKOfIVat2AaIlhK4CB34TBcAXLtT92SbDHLBONWSh2PqEOxBBgl75?=
- =?us-ascii?Q?4I6XYfYtvYsDzx8mvgb+OIyAjES1nengsiLtnlFHG0B33T9Hia92pjHMA7qR?=
- =?us-ascii?Q?2HESsNjSTznBphZ5b4CQk6lsbUfYkOyFN/ulPH8GAOy4muynqeeyczcLIVLK?=
- =?us-ascii?Q?HVEyeZp787z8i7QItExo1nxweCqsPH1K/EcAtld2yP2MIMGo4YVmyf+8rL19?=
- =?us-ascii?Q?hTpHyiU/0Xac2IbW1fPXCgpt6JSpclGDRElO3v3rEBJTAcPDQpS3p3Z8/XUU?=
- =?us-ascii?Q?Nw1giwutSAZRI5jvit87TjUi4cmiVdoqmYqa+Hej3Lst2oSsW3eYI8ko8OP6?=
- =?us-ascii?Q?hukiJEBbwzWxav3LLJBDQoJYPaKtWbKznCepRomHcLRJjhzzhCDZjgXVKc45?=
- =?us-ascii?Q?KyWSRYYXLM4Lj++iWBMGsQIsUbYRB8v61XBreWY1OjmOMMPaWBl3a1b5xfWs?=
- =?us-ascii?Q?JXql71LTdw=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 94b03491-a51c-4f9d-b3ff-08de55225ba6
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2026 17:11:58.9494
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fn5zxL2CT5sryKCVgn4w8klWzf8ZYf+443l5D38roGR8BxlZlx6qm/qTR1PIa7D3
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN7PPF5D27497F1
+User-Agent: Mozilla Thunderbird
+Subject: Re: [REGRESSION] Re: imx8 PCI regression since "iommu: Get DT/ACPI
+ parsing into the proper probe path"
+To: Nicolas Cavallari <Nicolas.Cavallari@green-communications.fr>,
+ iommu@lists.linux.dev, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Bjorn Helgaas <bhelgaas@google.com>, "Rob Herring (Arm)"
+ <robh@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Jason Gunthorpe <jgg@nvidia.com>, Joerg Roedel <jroedel@suse.de>,
+ regressions@lists.linux.dev
+References: <a1d926f0-4cb5-4877-a4df-617902648d80@green-communications.fr>
+ <eb94b379-6e0b-4beb-aaa7-413a4e7f04b9@green-communications.fr>
+ <3780eb61-68e2-42ce-939e-7458cd3a63cb@green-communications.fr>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <3780eb61-68e2-42ce-939e-7458cd3a63cb@green-communications.fr>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_091206_721353_DC580379 
-X-CRM114-Status: GOOD (  28.94  )
+X-CRM114-CacheID: sfid-20260116_092455_761998_7006AEDE 
+X-CRM114-Status: GOOD (  23.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,53 +71,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 16, 2026 at 08:58:02AM -0800, Nicolin Chen wrote:
-> On Fri, Jan 16, 2026 at 10:41:20AM -0400, Jason Gunthorpe wrote:
-> > On Thu, Jan 15, 2026 at 09:13:00PM -0800, Nicolin Chen wrote:
-> > > On Fri, Jan 02, 2026 at 11:57:15AM -0400, Jason Gunthorpe wrote:
-> > > > On Tue, Dec 30, 2025 at 10:52:53AM -0800, Nicolin Chen wrote:
-> > > > > Hi Jason,
-> > > > > 
-> > > > > On Fri, Dec 19, 2025 at 01:05:51PM -0400, Jason Gunthorpe wrote:
-> > > > > > +static int arm_smmu_get_tag(struct arm_smmu_domain *smmu_domain,
-> > > > > > +			    struct arm_smmu_master *master,
-> > > > > > +			    struct arm_vsmmu *vsmmu,
-> > > > > > +			    struct arm_smmu_iotlb_tag *tag, bool no_alloc)
-> > > > > [...]
-> > > > > > +	case ARM_SMMU_DOMAIN_S2:
-> > > > > > +		if (smmu_domain->nest_parent) {
-> > > > > > +			/* FIXME we can support attaching a nest_parent without
-> > > > > > +			 * a vsmmu, but to do that we need to fix
-> > > > > > +			 * arm_smmu_get_id_from_invs() to never return the vmid
-> > > > > > +			 * of a vsmmu. Probably by making a
-> > > > > > +			 * INV_TYPE_S2_VMID_VSMMU */
-> > > > > > +			id = vsmmu->vmid;
-> > > > > > +			return 0;
-> > > > > > +		}
-> > > > > 
-> > > > > Would you mind elaborating why arm_smmu_get_id_from_invs() can't
-> > > > > return vsmmu->vmid to share with a naked S2 STE?
-> > > > 
-> > > > A "naked" S2 domain doesn't have a pointer to the vsmmu, so it is
-> > > > impossible to get vsmmu->vmid.
-> > > 
-> > > An S2 parent domain should be per VM. And a vSMMU on top of an S2
-> > > should be per SMMU. So, it could have stored a list of vSMMUs and
-> > > device attaching to a naked S2 could match its master->smmu with
-> > > vSMMU->smmu in the list?
-> > 
-> > That would cause lifecycle problems if the vSMMU is destroyed
-> > while the nake S2 is still attached and trying to use the vSMMU's
-> > VMID.
+On 2026-01-16 4:52 pm, Nicolas Cavallari wrote:
+> +cc regressions ML
 > 
-> Well, if vSMMU code does the same get-build-merge in vsmmu_init()
-> and build-unref in vsmmu_destroy(), VMID is basically managed by
-> the invalidation array. Yes, a naked S2 attachment would still use
-> the shared VMID, but I think that's fine for a nesting parent?
+> Le 13/01/2026 à 10:17, Nicolas Cavallari a écrit :
+>> +cc patch author & reviewers
+>>
+>> On 1/9/26 17:22, Nicolas Cavallari wrote:
+>>> When upgrading from 6.12 to a 6.18 kernel, I noticed that a PCI
+>>> Ethernet adapter (Microchip LAN7430) would hang under load and not
+>>> recover.  When that happens, some of its registers indicate it is
+>>> failing to do DMA reads, so cannot reclaim entries on its ring buffer.
+>>>
+>>> I bisected the problem into this commit:
+>>>
+>>> commit bcb81ac6ae3c2ef95b44e7b54c3c9522364a245c
+>>> Author: Robin Murphy <robin.murphy@arm.com>
+>>> Date:   Fri Feb 28 15:46:33 2025 +0000
+>>>
+>>>       iommu: Get DT/ACPI parsing into the proper probe path
+>>>
+>>> The problem still exists on 6.19-rc1, on pci/next (29a77b4897f1) and on
+>>> iommu/master (360e85353769) trees.  Reverting the commit fixes the 
+>>> issue.
+> 
+> The problem persists on 6.19-rc5
+> 
+>>> The system is a Gateworks GW7200, which is a i.MX 8 Mini connected to a
+>>> Pericom
+>>> PI7C9X2G404 4-port switch connected to the LAN7430 chip.
+>>>
+>>> -[0000:00]---00.0-[01-ff]----00.0-[02-05]--+-01.0-[03]----00.0
+>>>                                              +-02.0-[04]--
+>>>                                              \-03.0-[05]----00.0
+>>>
+>>> The problem only occurs when there is at least another PCI device in use
+>>> on the
+>>> switch.  It does not happen if the LAN7430 is the only PCI device, or if
+>>> the
+>>> other devices are not actively used.  For example i can reproduce it
+>>> with an
+>>> ath9k wireless network adapter when it is up and running, but not when
+>>> it is
+>>> down or its driver is not loaded.
+>>>
+>>> I suspect that other PCI devices have similar issues, but the LAN7430 is
+>>> the
+>>> easiest one to diagnose, as it hangs within seconds with an iperf3 --
+>>> bidir -u
+>>> -b 200M and its register map are public.
+>>>
+>>> I couldn't find an way to dump the PCI address translation mapping from
+>>> userspace.
+>>> I would be happy to provide more information or test patches.
+> 
+> I debugged it further, it seems to be mostly a PCI issue since the 
+> system does not actually have an IOMMU.
 
-The VMID has to be managed by the vsmmu itself, it would be a big
-confusing mess any other way. There are multiple invalidation lists,
-so you can't rely on that to refcount things.
+Indeed, I was figuring this had to be another case of a switch with 
+wonky ACS - do Mani's patches adjusting ACS enablement make any difference?
 
-Jason
+https://lore.kernel.org/all/20260102-pci_acs-v3-1-72280b94d288@oss.qualcomm.com/
+
+Although in this case I guess the issue is arguably more that we're 
+requesting ACS at all, before we know that there's actually an IOMMU 
+present to warrant it. Clearly the best option would be to figure out if 
+the switch behaviour itself can be fixed somehow, but perhaps something 
+like this might help paper over the issue for now (but I'd have to test 
+it to make sure it doesn't break IOMMUs again...)
+
+----->8-----
+diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
+index 6b989a62def2..837cc0b5ace4 100644
+--- a/drivers/iommu/of_iommu.c
++++ b/drivers/iommu/of_iommu.c
+@@ -141,10 +141,12 @@ int of_iommu_configure(struct device *dev, struct 
+device_node *master_np,
+  			.np = master_np,
+  		};
+
+-		pci_request_acs();
+  		err = pci_for_each_dma_alias(to_pci_dev(dev),
+  					     of_pci_iommu_init, &info);
+-		of_pci_check_device_ats(dev, master_np);
++		if (!err) {
++			pci_request_acs();
++			of_pci_check_device_ats(dev, master_np);
++		}
+  	} else {
+  		err = of_iommu_configure_device(master_np, dev, id);
+  	}
+-----8<-----
+
+Thanks,
+Robin.
 
