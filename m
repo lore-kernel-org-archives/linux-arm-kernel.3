@@ -4,75 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE2CC982CD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 15:22:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D1CC982CD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 15:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2/Qkt6WqYRHJqQsgzLyZZh6dzc7S9YDfykp9BItlRdk=; b=MpbrrluGRjj3dvXPYP7OBREHsy
-	7hC06jlMQHgz2r1BIe0ZDwrGpnEdhU/dSz4DRTFxmPYUhdrLjQa7/DZ69dv4Ri9pxdwKEcqYsONo2
-	RlK1VCfjmC2vcr8UHJ9FCawIoIOX7+UUE5TcYFKh9gmBa78POhq2BBijYVF0DcuDrD11BR0mwEkv4
-	mqpmz0Y1m9YTSOgFyCZJAh/MEIRBWy5PY9nQwKEa+FsseRUiuLogHhzSA43opoqvQrvIatEcfIFqg
-	POkUkofhiwVsR+soiE+PY2JiYGPTHUT7GB9CE850POAzEk6RAcDASyyVVWtgUs2Q45Pn+V4nQJBlA
-	V49iuKLg==;
+	bh=6ruow4/wZjKfb8JMQTU1Zv1qutfh8KJ4DdZLyiqz0aA=; b=p4ZZ47pY6sJ5RDb+AXH5BnyrYi
+	COI4hwKFCf5vqtSKI6YXZJIJC/mP/TYGqLkOkJdS1nli5//JNQ9D21XLAuqaMCpEZbwGkuiFr6XYQ
+	LgeVyiZfH2HXVGi4vYFQtH8wmkrztByx+zvFuVhIiqgN2Jiw5uBdfsXThJmKJ1e2o0dgJ25LYAzHv
+	ObDV7M9sD0qiZ3eVOTftzdz0g9hWlRPucxjzZoZoktLjBxCbz/jTwyJHs3qb6phBoBWZnPiRxuiZq
+	dLcVHMYPgiGXgA+13wyAFrPik4sm4SLHeSwDBpoar2i4X6WLD1AOS/jvRV0W+YZAu9EJQCdTbImg2
+	AD1RNZ0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgleV-0000000ELrq-03Gk;
-	Fri, 16 Jan 2026 15:22:19 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vglfY-0000000ELzg-2gFB;
+	Fri, 16 Jan 2026 15:23:24 +0000
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgleR-0000000ELrL-44Gm;
-	Fri, 16 Jan 2026 15:22:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1768576932;
-	bh=nMzG4VYsPxThyemGmauGTpz3/79R6uHQXsAVyIDCY68=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=V0E6xz9bBqQb0j5WBYTwr3DT1kb3tap53bVIQAYhjbhs3C6uXAfqno/ktp1Dw/IBf
-	 IjvqzclP4eyH1K3oLBvSMGDiFvXeB4OZqKl4sn5IdwrLjzmxsILUjI6lij215+FbEC
-	 ibHgQlRgvXCfkVIvHYx5Yl7ixIgXYMuVJM1FPjDedXrMM/3f4fXHiBA54tMw+Q9mES
-	 RJVFznGjlZ6dukcNpwA9jpF3iGrf6sEgcSh7Ow38uLn7/gKs7Au9p9rP5T3w7THdWE
-	 zRy3SVtUd6MfUCYiVd1st5X1HYSvzvVJa0Pyc2LQJdqj3tkwmJKqXn8EDrNOZYUEen
-	 9obLkDk8JeFYQ==
-Received: from [192.168.1.90] (unknown [82.79.138.145])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AD26817E0456;
-	Fri, 16 Jan 2026 16:22:11 +0100 (CET)
-Message-ID: <67fb66b7-eee7-4109-8127-385593e88425@collabora.com>
-Date: Fri, 16 Jan 2026 17:22:11 +0200
+	id 1vglfW-0000000ELzE-1C9t
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Jan 2026 15:23:23 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-5014b671367so27085801cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 07:23:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768577001; x=1769181801; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6ruow4/wZjKfb8JMQTU1Zv1qutfh8KJ4DdZLyiqz0aA=;
+        b=JF1jix/FNcgX2+OxB5nw11KFuyxVrUGFJ+ekqPu895eSHx8gCfUsqfNu5jXUoj7eKk
+         qPCDjf9zTFYTIofY2xRumo2YZtAVfrpgSxJlPx4GjL5pLHf3HR+LRGT1PAapCqPmRtge
+         UsBVEa1OtJAywmBPa3R9LetBs9WSfEEQFO4Mp/9RDUNCw4y+yBWei+wpRGNDWPnBnvF/
+         +5ro1vaabs7lGpBPF+v1EBJtG+BjoDB6k1MvWSdU27t7auPnjVZKT/gla+CrOVgB29sg
+         y9AvotciR5vNrAkA+wxGTBYdVSrLH9Va3JE36Ar/f0uMW+mlV48i6nw+75J0+mSO7UCd
+         1i/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768577001; x=1769181801;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=6ruow4/wZjKfb8JMQTU1Zv1qutfh8KJ4DdZLyiqz0aA=;
+        b=ZoBLRvfD5mE36egs0swHh4tacgRN7tbus/+UY342fUb7+9+Bs1GwHC8xh2ztzK/kTr
+         RwBO6RG8K6wS+nx/jOF7YDRyAAYYnsN93+hH9GhsgjUGpkwZlqLFDe5OX1J2L6jn93f2
+         MvzGg0tth1ohluTtC4kiZxRMD1BF2S5uH5YGZWk0LJPaXO1H5C9nsL+Aek1DPasgFONr
+         LJ7mJLcyISzPSw6c/FkAhB8Q65hE+LYlDc2ZeeFHqtbGIvvfM2zuVeMKUcTJhbefjkr6
+         t3fGD9XihUuD9saExUgAga3uTWMqD+mWR/YB7kjgjsCGzT4cip0LDOwV7B+GucYPGQ2v
+         I5UQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXfULMQi04Qj5KVbdaDE6uato4C6jy3BPnsiKbz0wOKrYJ3eDZGZrfI3cq91oswK/q57OVhDSU8LIKB9tqw80HQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLKV7iG6knl6raNsNVEYXqD91IFbTIZmUD7Izj4U2j/hVExbmG
+	dz9CxZpHzqHEDWqSE2YvbNsysyjxzBJx7KrsLGscioNzGxL+hU5PWURUaX1sZGTgK0bVV23y7CU
+	9EmYxZANnOaDRq1qmJp7jd0tDY7ximrk=
+X-Gm-Gg: AY/fxX7sU9ZNVgOI2//PwOnmZLoyL+scet2dYkNQsgNEcmdMHpVQJmWID3tyNhv/WmR
+	0VZvUmuJf/DnJJa8gv/7+i6WPLKwWcspwSbm/hnRIoT8K2NyhzWYZOjntk9Tg26cOsV/HRzX5hK
+	FTMD/9UxzVvzMx0gb6nEulHByEqcF4dcfaF7wPKvPQ2N1QnnrKWlxORtwz8m6vLi7NMtcE64EMn
+	A9EFeOWw40X1DMMQHYShD5MrgBAM2USBovN5evcP7swHmTp//lVVC/pMnW6EuzL8GoU4T7NjQ==
+X-Received: by 2002:ac8:5ac2:0:b0:4ee:1301:ebb3 with SMTP id
+ d75a77b69052e-502a1f22059mr42688281cf.54.1768577000668; Fri, 16 Jan 2026
+ 07:23:20 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/4] drm/rockchip: vop2: Support setting custom
- background color
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-To: Andy Yan <andyshrk@163.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Louis Chauvet <louis.chauvet@bootlin.com>,
- Haneen Mohammed <hamohammed.sa@gmail.com>,
- Melissa Wen <melissa.srw@gmail.com>,
- Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-References: <20251219-rk3588-bgcolor-v4-0-2ff1127ea757@collabora.com>
- <20251219-rk3588-bgcolor-v4-4-2ff1127ea757@collabora.com>
- <2750b73.10b0.19ba61052c8.Coremail.andyshrk@163.com>
- <9e4c8514-63e9-4ff7-85b1-b5af7dff9a2d@collabora.com>
-Content-Language: en-US
-In-Reply-To: <9e4c8514-63e9-4ff7-85b1-b5af7dff9a2d@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
+ <142919ac14d3cf70cba370808d85debe089df7b4.1766631066.git.baolin.wang@linux.alibaba.com>
+ <20260106132203.kdxfvootlkxzex2l@master> <CAGsJ_4yKRtyADU2ZxUMgvqdrhAEL4SpZxCMRt28gNJfUf--5zQ@mail.gmail.com>
+ <20260107014601.dxvq6b7ljgxwg7iu@master> <db4d0a19-598b-48ff-accc-f5940a481035@arm.com>
+ <CAGsJ_4yo-EE__1VzHqxE8ehDOFQuxqP9GXcskkeZ-WTTyz12_A@mail.gmail.com>
+In-Reply-To: <CAGsJ_4yo-EE__1VzHqxE8ehDOFQuxqP9GXcskkeZ-WTTyz12_A@mail.gmail.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Fri, 16 Jan 2026 23:23:09 +0800
+X-Gm-Features: AZwV_QjhIL27HqGh-V6xqXTmePQwUXe1I8tfl9ShdQFMbp6lIAEloV1CW3BxTnU
+Message-ID: <CAGsJ_4yACo0YVmQG4i1cr_w2unEt+SnpbFPg=O79g-2Asho1dA@mail.gmail.com>
+Subject: Re: [PATCH v5 5/5] mm: rmap: support batched unmapping for file large folios
+To: Dev Jain <dev.jain@arm.com>
+Cc: Wei Yang <richard.weiyang@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	akpm@linux-foundation.org, david@kernel.org, catalin.marinas@arm.com, 
+	will@kernel.org, lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, 
+	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com, 
+	mhocko@suse.com, riel@surriel.com, harry.yoo@oracle.com, jannh@google.com, 
+	willy@infradead.org, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_072216_215563_FFF7CE7E 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20260116_072322_323497_055B7815 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,76 +103,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/10/26 11:58 AM, Cristian Ciocaltea wrote:
-> Hi Andy,
-> 
-> On 1/10/26 6:00 AM, Andy Yan wrote:
->>
->>
->> Hello Cristian,
->> At 2025-12-20 05:47:01, "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com> wrote:
->>> The Rockchip VOP2 display controller allows configuring the background
->>> color of each video output port.
->>>
->>> Since a previous patch introduced the BACKGROUND_COLOR CRTC property,
->>> which defaults to solid black, make use of it when programming the
->>> hardware.
->>>
->>> Note the maximum precision allowed by the display controller is 10bpc,
->>> while the alpha component is not supported, hence ignored.
->>>
->>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>> ---
->>> drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 13 ++++++++++++-
->>> drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  4 ++++
->>> 2 files changed, 16 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->>> index 498df0ce4680..3a232d0d4acb 100644
->>> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->>> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->>> @@ -1554,6 +1554,7 @@ static void vop2_post_config(struct drm_crtc *crtc)
->>> 	struct vop2_video_port *vp = to_vop2_video_port(crtc);
->>> 	struct vop2 *vop2 = vp->vop2;
->>> 	struct drm_display_mode *mode = &crtc->state->adjusted_mode;
->>> +	u64 bgcolor = crtc->state->background_color;
->>> 	u16 vtotal = mode->crtc_vtotal;
->>> 	u16 hdisplay = mode->crtc_hdisplay;
->>> 	u16 hact_st = mode->crtc_htotal - mode->crtc_hsync_start;
->>> @@ -1599,7 +1600,11 @@ static void vop2_post_config(struct drm_crtc *crtc)
->>> 		vop2_vp_write(vp, RK3568_VP_POST_DSP_VACT_INFO_F1, val);
->>> 	}
->>>
->>> -	vop2_vp_write(vp, RK3568_VP_DSP_BG, 0);
->>> +	/* Background color is programmed with 10 bits of precision */
->>> +	val = FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_RED, DRM_ARGB64_GETR(bgcolor) >> 6);
->>> +	val |= FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_GREEN, DRM_ARGB64_GETG(bgcolor) >> 6);
->>
->>> +	val |= FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_BLUE, DRM_ARGB64_GETB(bgcolor) >> 6);
->>
->>
->> the bit31 of  RK3568_VP_DSP_BG  is bg_display_en， that means when we set a 
->> background color, we should set this bg_display_en bit.
+>
+> Thanks for catching this, Dev. I already filter out some of the more
+> complex cases, for example:
+> if (pte_unused(pte))
+>         return 1;
+>
+> Since the userfaultfd write-protection case is also a corner case,
+> could we filter it out as well?
+>
+> diff --git a/mm/rmap.c b/mm/rmap.c
+> index c86f1135222b..6bb8ba6f046e 100644
+> --- a/mm/rmap.c
+> +++ b/mm/rmap.c
+> @@ -1870,6 +1870,9 @@ static inline unsigned int
+> folio_unmap_pte_batch(struct folio *folio,
+>         if (pte_unused(pte))
+>                 return 1;
+>
+> +       if (userfaultfd_wp(vma))
+> +               return 1;
+> +
+>         return folio_pte_batch(folio, pvmw->pte, pte, max_nr);
+> }
+>
+> Just offering a second option =E2=80=94 yours is probably better.
 
-I performed several tests on my ROCK 3A (RK3568), ROCK 4D (RK3576) and ROCK 5B
-(RK3588) boards and noticed that by setting bg_display_en bit to 1 or 0 doesn't
-have any influence on RK3568 and RK3576, the background color is always active
-and cannot be disabled.
+Sorry for replying in the wrong place. The above reply was actually meant
+for your fix-patch below[1]:
 
-However, flipping the bit to 1 on RK3588 has the unexpected effect of covering
-the whole screen with the configured color, even when there's an active plane
-displayed on top. Switching back to 0 makes it work as expected.
+"mm: Fix uffd-wp bit loss when batching file folio unmapping"
 
-Therefore I think we should keep this patch as is, unless there's something else
-we're missing here.
+[1] https://lore.kernel.org/linux-mm/20260116082721.275178-1-dev.jain@arm.c=
+om/
 
->> The default value of this bit is 1, which explains why the patch currently works 
->> properly even though it doesn't set bit31.
-> 
-> For some reason, the RK3588 TRM indicates 0x0 for the reset value.  I assume
-> that's a mistake, as RK3576 TRM shows 0x1.
-
-Considering the observation above, it kinda makes sense now for RK3588 to
-default to 0.
-
+Thanks
+Barry
 
