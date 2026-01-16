@@ -4,159 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF884C982C0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 21:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DFBDC98302
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 21:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C+GebyZuLUebByb7BSRjC1COW71jYd49+xf8BTbDSSY=; b=PWvVtTJUHcHWw8iU77zKWJjX4W
-	tyD6DZVRQMZ8og7HiaCK/L3fa/6+vVuOTfjOgBpprj4n0fT2AQKynaJm/e0obGLDR29uexVMm6LUK
-	GAZZNPi+HEVtRn34EqDcKbEPYhSj3bSO6HYJFsDKpDzlnlFwK/PSw3oGxbO1gJDJqCj5PimBiVBs+
-	s2sZ2TeWXMLbyz/Vn8w+5F1EcoRwP/zrNzu/DoALvp8J1lGoK3/FIq8c483pNFFPQL7sAQ71sKywX
-	crFjWbHHAKvM8yoR5oihjdxzvOG20P3yfn540S7Ldz2wuR9UuOnw9qP2+4EvhYMsrxLn8Wmv00YiH
-	dtwfKo9A==;
+	bh=uzksdNKE6zFNjKkRtgxoYFjKiQIY4jM1ByvFS9VthaE=; b=X1pyvg/YJ5axz6nW7vUqPNYgtr
+	Ov9asAuw1iayJYAM/p/lP60yKLETWohpKHrVZqtM9t5z59TAgPkfTymzcB8ODTOieyK+hO8kq7lEk
+	LYMsi9jKRw0B8OazSxX7/owywlO3OFOA1XHuhw2dsLWN38SGf//u/LbQfY2cn7iQ/kwp9WrQuelXu
+	7Yitr4cJetdIa1NmDpT7wcu8U3oP2AF+HuO3Ux62KHJ1FXIqsO3L7VlKsv3gSN2AhUZ5lTz+uB0TN
+	zQ/1byESlhEwDcop42fxbdGlQ6I0I5sMMw3gPJebTp9rIDFp8+1Q3iUXrPRrX8//d/si0W3PdqJgF
+	a3bbXhFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgrAw-0000000EqpH-2OA8;
-	Fri, 16 Jan 2026 21:16:10 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vgrNm-0000000EuSK-1cFD;
+	Fri, 16 Jan 2026 21:29:28 +0000
+Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgrAu-0000000Eqod-1TIL
+	id 1vgrNg-0000000EuLt-2l39
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 21:16:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cde68PTr/LBF/nj6KxqHcos7Ubnkhwbt/RZHVynjMJaVqihRL99959ABZ+IkXBO0JHdIFNfO0LR4vM6eBGJ33cG3LEMNOr6j7EnW2j3WgD71GpeWvpam00NuH/dW0o0WMBbkn+2VdVXTDNBl7BbkfewWUirhLVmy8L0qM142B1xjHf2pgsBDvXZFGbOBfXob1Xc77936bQL+F0VB9GYtFVJyagaQP5Ijv6dvUUXxWnIdPT37ZyFankR3zSw/e/fsv2f91Hpjq+Jn2F/D40iyWO6nHK04NWN9UKf2d0zehuzNe/MMBFwye979JS/OhrTIauBhjh8THw6tsOk8whZ9+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C+GebyZuLUebByb7BSRjC1COW71jYd49+xf8BTbDSSY=;
- b=XGI+f7YmZJgaEI00s2p44a0hBjmWkHoOhTclD+CIHc/nCj0HcnnYgnYcbGbkTqNc/RPcjuVeo2RGrmsUzz+QsS0EySWc0cyZu1FHv+mmh7CNwRLSXy4RAMLvKz2mm/VJ7pzzHwQdZZDW3wPfquboOXbtKZ8ZD/tjREvm8u+ei/M4QI8wGA1s/VZmhltCDuk3zkCbHqlFCoWdhTXPbStqTF3SXhgJ44e34nW4VNNl5c4yJfTXTuGviW5rhIwoNB++LbdMQa07wDu0I4CU+gtu7BPsS2bN1KYQ5ErKqYB6DxWh8GhplJbXVglSwSSJlJFVmHcPWarJaYceYcLN09xLtw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C+GebyZuLUebByb7BSRjC1COW71jYd49+xf8BTbDSSY=;
- b=m9NeShhdWQfDPQI4w9YGiVkg2leuhdo27cB24RNEMc+tZEajyLr8VgYfWHfCCGb6SAJ/Qs3AO81stGvhfFx1h/dnx+YbD9YVKmFLuj20Y8DvcokiTaY4KAUkM/NPrJA8HJcmcph1S3QyXldE+xQn6E93vO5eGzRBmRUAs84zIVQ=
-Received: from SN7PR04CA0068.namprd04.prod.outlook.com (2603:10b6:806:121::13)
- by CH4PR10MB8227.namprd10.prod.outlook.com (2603:10b6:610:1f6::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.4; Fri, 16 Jan
- 2026 21:16:03 +0000
-Received: from SA2PEPF00001505.namprd04.prod.outlook.com
- (2603:10b6:806:121:cafe::60) by SN7PR04CA0068.outlook.office365.com
- (2603:10b6:806:121::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.6 via Frontend Transport; Fri,
- 16 Jan 2026 21:15:48 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- SA2PEPF00001505.mail.protection.outlook.com (10.167.242.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9542.4 via Frontend Transport; Fri, 16 Jan 2026 21:16:01 +0000
-Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 16 Jan
- 2026 15:16:01 -0600
-Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 16 Jan
- 2026 15:16:01 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE213.ent.ti.com
- (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 16 Jan 2026 15:16:01 -0600
-Received: from [128.247.81.19] (uda0506412.dhcp.ti.com [128.247.81.19])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60GLG1iL3898297;
-	Fri, 16 Jan 2026 15:16:01 -0600
-Message-ID: <c4ab2e7a-6d58-4ab0-a063-23a779e1c1ab@ti.com>
-Date: Fri, 16 Jan 2026 15:16:01 -0600
+	Fri, 16 Jan 2026 21:29:25 +0000
+Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-7cfd8ca8191so812658a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 13:29:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1768598959; x=1769203759; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=uzksdNKE6zFNjKkRtgxoYFjKiQIY4jM1ByvFS9VthaE=;
+        b=V8Rr5dGVR/1Wf5/1WQsXRZYcJY/0vT0xbP+mq0KLf0b7NEGf6E3Y4e8PI/GYebaeF6
+         PHCn8RtOsuAfzR38ppEd9qXFsMa+qSsCQNsqL5YMZaZzJopvkGphwDNSSG/0QAmVelfF
+         ZmJjtU/H6UGunhHG/2CzZ2SiEr0UvVyAt+i1+PCFzMbNBFt7BlwmmPgt9eblIxzptB7Y
+         P2A79zPVJnF5WUtUMR4HqcxYX/6lI27IizCla9fsp5bNtNwIJyRi/aupovVDHFmdGBia
+         aC08bNj8Awj+TGDiZD2y5a3NL1x6mhOEP+enWK42TPwp4B/+Kojs3BLXhNtonMCp71M7
+         V6iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768598959; x=1769203759;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uzksdNKE6zFNjKkRtgxoYFjKiQIY4jM1ByvFS9VthaE=;
+        b=qvwg1VIiqQPt2KcZwaoL+TnNr8FWyiJNVq05VBFro5vh6xqN3B/xA1c+T0xk9RJDXa
+         6AgCvq+jO6GbPLm/J+7DtLRycwyvj+t42RCgKa7Vy1DUaYj3UGZzfnDK4NxJiQQAqcVR
+         1bcL8Zercf5n9MIHXj0PjROO2eB1a7uFumhcO3SU5L06dSj9B8Ab8qn35lsVD9eYABac
+         zc5WrX5oYtEGjEVrf6XSrWjVi8DTkBGTxsKkWSazidDHT/mAGjyxPPmABevl2+1cwGNA
+         AceRdNEPTF5rAQFcONAJya3yM0ejD2K+Il0+Od53ZsBBBZIlVfXHk9GjWIoqmCuoXfx1
+         S7yw==
+X-Forwarded-Encrypted: i=1; AJvYcCVIXPPsPJsyDqoKWmcZijnjz/LrJvV4MMjuk94iU/S+5l4v2RdcE1IX0NR4lSg2MxPHjO1AkLDTNi/mRteLuVEd@lists.infradead.org
+X-Gm-Message-State: AOJu0YzC2r8ytAuHRcWPTtdKd0P6OHVib8dh4lYeMgSSQUqJb4ZpKEJ2
+	ONkrThfj/wyv9Q4XJKVv0+gdc8Nhfk68Ytpx2cR2T3HI4IOxv7CqPuUFGhzlS0XT4lA=
+X-Gm-Gg: AY/fxX6sUsfGYA5pXDcBUVM0RhcfxezjFCPMmJYqCio7ovaqaDPTzek16GyVWHyvOsZ
+	3AwLmCcoTN2WkJLOv6je19sIoZn0LzPpmcgyE/yz3EQPTknRnBPrrLTln17UGVSBzH2KJ0sDk06
+	B+Phd/vAWu66dpclkYuCGG7RMReP4dpAWNrWuspFs3BPNImph+GhsM7nlZLJFJdPe4n8I1Xy1Pn
+	RkC+gioE2Jqp0Heoubj14zdpeEqB25sZsps3p223xkKHMRdhx3EdnzqZhZBjWjVBgq8atj9WVxE
+	Xd9n79HObJp+URvDXOJ44PJCcqWvmDbXC6bCf3vXvgHA8Ztx367O41Dxj5imXyncmaJRGhZ+9qW
+	fev4HmbEZteCBly1qnrmDi71MfjQCP34Z91A/fDPP82uZ/Auf9UOzlVDtTLpYF+X9MY32smeXOH
+	Gn7V/I/Pa/+/lNk6dTR9dC+ZSuZ2gKxQrk+Q9YS+VCrHX9pE5hS9KGtMsPVPX8
+X-Received: by 2002:a05:6830:67d4:b0:7c7:827f:872e with SMTP id 46e09a7af769-7cfe028fa47mr2364292a34.38.1768598958732;
+        Fri, 16 Jan 2026 13:29:18 -0800 (PST)
+Received: from ?IPV6:2600:8803:e7e4:500:bd39:740e:f70f:5f7d? ([2600:8803:e7e4:500:bd39:740e:f70f:5f7d])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7cfdf2b593csm2229799a34.26.2026.01.16.13.29.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 16 Jan 2026 13:29:18 -0800 (PST)
+Message-ID: <108c951c-6124-48f2-9d8b-cac113b24402@baylibre.com>
+Date: Fri, 16 Jan 2026 15:29:17 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] cpufreq: dt-platdev: Add ti,am62l3 to blocklist
-To: Dhruva Gole <d-gole@ti.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>, Nishanth Menon <nm@ti.com>, "Vignesh
- Raghavendra" <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>
-CC: Sebin Francis <sebin.francis@ti.com>, Bryan Brattlof <bb@ti.com>,
-	<linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
-References: <20260116-am62l-cpufreq-v2-0-eac7e2e78d29@ti.com>
- <20260116-am62l-cpufreq-v2-1-eac7e2e78d29@ti.com>
+Subject: Re: [PATCH 0/2] arm: dts: mediatek: fix pinctl node names
+To: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+References: <20260106-mtk-fix-mt7623-pinctl-name-v1-0-33817c7f78ee@baylibre.com>
+ <176772122105.2350532.2584006959358435109.robh@kernel.org>
 Content-Language: en-US
-From: Kendall Willis <k-willis@ti.com>
-In-Reply-To: <20260116-am62l-cpufreq-v2-1-eac7e2e78d29@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <176772122105.2350532.2584006959358435109.robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00001505:EE_|CH4PR10MB8227:EE_
-X-MS-Office365-Filtering-Correlation-Id: 716bacaf-d323-46e6-a842-08de554473b4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|82310400026|36860700013|34020700016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?U2FqMXlOL1ZOVXFQS1o4S1NRV1BWQnJkVmYzR2VTVW54bHcyRWdHTzBrVEdz?=
- =?utf-8?B?aUVWTVpxWjNmRGlwVWJGWElqVWx1NEZIYlk3SVN3b0pOVnViMVIyRnRZTng2?=
- =?utf-8?B?bkxHTUxjMXJFYmtrRlM5WXJzeEUzanVDbC9LcGFFalZRK1F6SitxUTRrdVo0?=
- =?utf-8?B?T21oMUovZjhFT1l4d0RlSmhIeWcxVUNsdkF6aHloOW9IWWRWTFJhRFA4WXh2?=
- =?utf-8?B?S3U0cE5PUlBoQ1NuTTJzakgwekpxVkExRGROanl5VTZ2TzB5SUFjTk8xODBJ?=
- =?utf-8?B?ZUQ2RVlUWmc4SE50dThrR0xUSE1Ob2pBcFY2b1NEVXRLVzVyWUpGUmU1Q1I2?=
- =?utf-8?B?R2pVTXF1V2U0WnFjeDcvYnRIa3JQZDVNSUFLSEVWQVo2QzJBVUpZdENIQzVV?=
- =?utf-8?B?QjIzVzkrV3E2UC9WNmkzTlc0dkhwb0RSd0lGUmZyUHZsQzZQbGRKV3g3Mm9p?=
- =?utf-8?B?THllU3NBOHk2NytMZWkyelU3VlQxRTN0em9tKzdsSDErcmpUaC9TMURXamVl?=
- =?utf-8?B?SHpPakh4VVhsOGdua3UxWTE4Y1RNV2Z3YWNvcnJRaHpQYWxnYXFGOEVHYi90?=
- =?utf-8?B?bzBEaWRpRHM3M3J6aXJsdGlyVTR2MXFYNHVaV25TbDFjQy9zbzRJSmZ1SllV?=
- =?utf-8?B?clZtWUNxOTVuWnRoYXNzU29kTVlXY0dSREI5c1A4NlFRaEFWdGtOeDNwbDky?=
- =?utf-8?B?Y201N2d5bXFZbVd1SVRSSUpxVXVBODhFb3lhNTlOSWdaaVN0cllGY1RDQmZw?=
- =?utf-8?B?WVJzTkZmY0hEYnBqYVNPSFJzNnBMZU1ncUZZdEk1NDZYaHU0T00wazdVK0N6?=
- =?utf-8?B?ZEVJaVl2MFRNeTZqQXZuRXptLzdscVNVQVBqdlp6MEVQakhzUXdJdHZpMWx2?=
- =?utf-8?B?RW1ITnBHZUlvRElRRFhoTEVpRm9HWkxxQzZNZnY0WTJwbHltK28wSlVZV0or?=
- =?utf-8?B?cmtzb2QxSStibnY3aVB6MGF3MzdKdGYzeWwvZWd1TTRnQmtoL2ZTS1NOTFRZ?=
- =?utf-8?B?VCt0dVY0S3VQSHBCSDZ4V3YyakJwRElBVnd6Z2ZIWDgzUzFqbk1nalRsMWV3?=
- =?utf-8?B?NnJrcGJWWHYvcmE3NE90ZzVZMU9pT2Z4RENGNk1RbGNVTnQ2MloyRzJTRndM?=
- =?utf-8?B?WDVEWkJhaTRGanNVTkxHZFA5eWlvQ2k2RnFGQm5YbEtqL2tHRVJjYnNEQ0po?=
- =?utf-8?B?OHk4Qm1aL3RqcXhuZnk4cTQvUDFXK1krdE9RMUkxN2Y1UG9lSTc2RmZMazlL?=
- =?utf-8?B?QWY0N2JEVE1BSi9Yd3FhNTBpdHppU2pCVmcyWThoc0FWVnlLNnpnNGRmdS9Y?=
- =?utf-8?B?VlJkL3d5SFhpM25OSFAyVXo5M2RZZG9WRUFyNXFaZ01DRS9TMXNYQ1RTWXJZ?=
- =?utf-8?B?dWtiS0w1WENDdU5xR1AvYkVPZldOWWxxdHFZZUREU1IrU3hOWFVNZmh5OHlh?=
- =?utf-8?B?YnFmUWdIVVFpSHRuVXlRdkp4L2xqU05pdmZrN3NHT3hob0pjUXlhZlhDakd2?=
- =?utf-8?B?ekpOcllJbVhNcUVIVDlDK0JuTVlMWUtyTENydW1Wdk00Uk0vQXhMWGVLaHhw?=
- =?utf-8?B?Q1hmRVprb3B1bWI5SzhScnA0RmdnSTJTYVdudFBLcXJnZW9SL0EwZzVxcjRh?=
- =?utf-8?B?SG5iTHZKOFJ5ZlUzU3FNbHVLSE5zL2xKUmc5Skp0VVk1a3M3d0JlYkJmU3hn?=
- =?utf-8?B?dEJMUTRqY205Nk9xeDVydkF6SkdVQUx1K3F0VXpHdFc0dUhkRDd6aCs5TTJM?=
- =?utf-8?B?OVNZT1NXR1U5bFRuZGZLU1RVQ2kxR1djOGMxeExDWE50OUVVZ3MxS3pHa2pY?=
- =?utf-8?B?ZWx1aENWUjNnUFNlclhBcGVjYUxFaGRNM2RldEFLWDhacDc0N1ArbjRpbFFE?=
- =?utf-8?B?RC9KNmovVVpmR2ttL1JrR2dCSEtsL2ZLUFRQYmZ1aDZVMWtmdnRjNTV0bVIx?=
- =?utf-8?B?NVA0ZzhaZFd3VGhJWHYyNnhmRFZUNXFJTWJnMlgyOFFzMXFqN1ZidzNZcFh2?=
- =?utf-8?B?N0pxcnR4ZWtHOUpLZDFIMEZ0QndBbW1JS05CbWJXQkRRK2grckZyT3ltcGhj?=
- =?utf-8?B?MENoQk5WcGVBczZsTFB5dElobytpVndtWTVBc1N0VTlrNUVDcTllZFBPOVFD?=
- =?utf-8?B?TDVrYkFrTEN6cGJMdEJiaHZGeHFscWhGczJ2N1Z5bDZRZmtLd3dZVndQbysv?=
- =?utf-8?B?bVJKVS82OHZ4d2ZySnI5cTYwQmhkK3FmZk01dTVlQ3ptS3dLT2RTeU14L1RT?=
- =?utf-8?B?cmNrVWpXSkliVXBSODV6RWVocTVBPT0=?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(82310400026)(36860700013)(34020700016);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2026 21:16:01.9827
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 716bacaf-d323-46e6-a842-08de554473b4
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00001505.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH4PR10MB8227
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_131608_397733_7CFFB307 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20260116_132920_968387_E2482486 
+X-CRM114-Status: GOOD (  27.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,32 +106,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/16/26 04:21, Dhruva Gole wrote:
-> Add AM62L3 SoC to the dt-platdev blocklist to ensure proper handling
-> of CPUFreq functionality. The AM62L3 will use its native TI CPUFreq
-> driver implementation instead of the generic dt-platdev driver.
+On 1/6/26 11:43 AM, Rob Herring wrote:
 > 
-> This follows the same pattern as other TI SoCs like AM62A7, AM62D2,
-> and AM62P5 which have been previously added to this blocklist.
+> On Tue, 06 Jan 2026 09:20:54 -0600, David Lechner wrote:
+>> While passing by, I noticed that the pinctrl nodes in a couple of dtsi
+>> files did not match the addresses in their reg properties. Here are some
+>> patches to fix that.
+>>
+>> Signed-off-by: David Lechner <dlechner@baylibre.com>
+>> ---
+>> David Lechner (2):
+>>       arm: dts: mediatek: mt7623: fix pinctrl node name
+>>       arm: dts: mediatek: mt8135: fix pinctrl node name
+>>
+>>  arch/arm/boot/dts/mediatek/mt7623.dtsi | 2 +-
+>>  arch/arm/boot/dts/mediatek/mt8135.dtsi | 2 +-
+>>  2 files changed, 2 insertions(+), 2 deletions(-)
+>> ---
+>> base-commit: 6cd6c12031130a349a098dbeb19d8c3070d2dfbe
+>> change-id: 20260106-mtk-fix-mt7623-pinctl-name-f8593953bed7
+>>
+>> Best regards,
+>> --
+>> David Lechner <dlechner@baylibre.com>
+>>
+>>
+>>
 > 
-> Signed-off-by: Dhruva Gole <d-gole@ti.com>
-> ---
->   drivers/cpufreq/cpufreq-dt-platdev.c | 1 +
->   1 file changed, 1 insertion(+)
 > 
-> diff --git a/drivers/cpufreq/cpufreq-dt-platdev.c b/drivers/cpufreq/cpufreq-dt-platdev.c
-> index 1708179b2610bca6035d10f0f4766eee6f73912e..16310e190d9ff96af3d20cc5d98dc0e4af4d1bf1 100644
-> --- a/drivers/cpufreq/cpufreq-dt-platdev.c
-> +++ b/drivers/cpufreq/cpufreq-dt-platdev.c
-> @@ -193,6 +193,7 @@ static const struct of_device_id blocklist[] __initconst = {
->   	{ .compatible = "ti,am625", },
->   	{ .compatible = "ti,am62a7", },
->   	{ .compatible = "ti,am62d2", },
-> +	{ .compatible = "ti,am62l3", },
->   	{ .compatible = "ti,am62p5", },
->   
->   	{ .compatible = "qcom,ipq5332", },
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
+> 
+> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+> are fixed by another series. Ultimately, it is up to the platform
+> maintainer whether these warnings are acceptable or not. No need to reply
+> unless the platform maintainer has comments.
+> 
+> If you already ran DT checks and didn't see these error(s), then
+> make sure dt-schema is up to date:
+> 
+>   pip3 install dtschema --upgrade
+> 
+> 
+> This patch series was applied (using b4) to base:
+>  Base: 6cd6c12031130a349a098dbeb19d8c3070d2dfbe (use --merge-base to override)
+> 
+> If this is not the correct base, please add 'base-commit' tag
+> (or use b4 which does this automatically)
+> 
+> New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/mediatek/' for 20260106-mtk-fix-mt7623-pinctl-name-v1-0-33817c7f78ee@baylibre.com:
+> 
+> arch/arm/boot/dts/mediatek/mt7623a-rfb-emmc.dtb: pinctrl@1000b000 (mediatek,mt7623-pinctrl): 'cir-default', 'i2c0-default', 'i2c1-alt', 'i2c1-default', 'i2c2-alt', 'i2c2-default', 'i2s0-default', 'i2s1-default', 'keys-alt', 'leds-alt', 'mmc0', 'mmc0default', 'mmc1', 'mmc1default', 'nanddefault', 'pcie_pin_default', 'pwm-default', 'spi0-default', 'spi1-default', 'spi2-default', 'uart0-default', 'uart1-default', 'uart2-alt', 'uart2-default' do not match any of the regexes: '^pinctrl-[0-9]+$', 'pins$'
+> 	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt65xx-pinctrl.yaml
+> arch/arm/boot/dts/mediatek/mt7623a-rfb-nand.dtb: pinctrl@1000b000 (mediatek,mt7623-pinctrl): 'cir-default', 'i2c0-default', 'i2c1-alt', 'i2c1-default', 'i2c2-alt', 'i2c2-default', 'i2s0-default', 'i2s1-default', 'keys-alt', 'leds-alt', 'mmc0', 'mmc0default', 'mmc1', 'mmc1default', 'nanddefault', 'pcie_pin_default', 'pwm-default', 'spi0-default', 'spi1-default', 'spi2-default', 'uart0-default', 'uart1-default', 'uart2-alt', 'uart2-default' do not match any of the regexes: '^pinctrl-[0-9]+$', 'pins$'
+> 	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt65xx-pinctrl.yaml
+> arch/arm/boot/dts/mediatek/mt7623n-rfb-emmc.dtb: pinctrl@1000b000 (mediatek,mt7623-pinctrl): 'cir-default', 'hdmi-default', 'hdmi_ddc-default', 'i2c0-default', 'i2c1-alt', 'i2c1-default', 'i2c2-alt', 'i2c2-default', 'i2s0-default', 'i2s1-default', 'keys-alt', 'leds-alt', 'mmc0', 'mmc0default', 'mmc1', 'mmc1default', 'nanddefault', 'pcie_pin_default', 'pwm-default', 'spi0-default', 'spi1-default', 'spi2-default', 'uart0-default', 'uart1-default', 'uart2-alt', 'uart2-default' do not match any of the regexes: '^pinctrl-[0-9]+$', 'pins$'
+> 	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt65xx-pinctrl.yaml
+> arch/arm/boot/dts/mediatek/mt7623n-bananapi-bpi-r2.dtb: pinctrl@1000b000 (mediatek,mt7623-pinctrl): 'cir-default', 'hdmi-default', 'hdmi_ddc-default', 'i2c0-default', 'i2c1-alt', 'i2c1-default', 'i2c2-alt', 'i2c2-default', 'i2s0-default', 'i2s1-default', 'keys-alt', 'leds-alt', 'mmc0', 'mmc0default', 'mmc1', 'mmc1default', 'musb', 'nanddefault', 'pcie_pin_default', 'pwm-default', 'spi0-default', 'spi1-default', 'spi2-default', 'uart0-default', 'uart1-default', 'uart2-alt', 'uart2-default' do not match any of the regexes: '^pinctrl-[0-9]+$', 'pins$'
+> 	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt65xx-pinctrl.yaml
+> 
+> 
+> 
+> 
 > 
 
-Reviewed-by: Kendall Willis <k-willis@ti.com>
+It's a bit late for me to be replying but this came up on IRC...
+
+I thought it was obvious that these were unrelated existing warnings, so
+I didn't reply initially. But to save anyone else the trouble of figuring
+it out, it should not block this series. I can send a separate patch later
+to fix the existing warnings if we want to clean that up too.
+
 
