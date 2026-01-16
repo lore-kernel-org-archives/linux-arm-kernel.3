@@ -4,94 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82D06D48995
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 12:10:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C725D47CDE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 12:10:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gLvKYh3wdOGJmRammUN7r7kOl4M6hy+3l4rvEJkbhoo=; b=ZwhhQ1FoiSsGBqs4/SFFd7JjKd
-	90tM+Ht+7zUtaBnZSpqFce9loEcFDCm/x2NxZIhM+9UCEegVh4+bI2T4tHxbJgM3zQdHmIbgFZtG8
-	nd3rNURYOccWnb3+ZBNG/GVv/0zOkvrufNBiZ3EzL7nC2iqxxymEi+X/C9ypOZCjDyHHEk7EyN4u2
-	8F+ChIGeyGEaZ2lI0duUH4zR3dG3Ch6jJvch3g82LnyKQXcL7yZi3n8GyAVOursSWhJEu9Ivxzur/
-	LnmStSzcOzuZc+SrfSu8S0M3Fmlo2yn2Ql42kaP3xH1yMRXTEWA9gknIeWQeNSdGt++hnCmLMtK/6
-	8nnsx/lQ==;
+	bh=m4xj4CRpx5Rn02x3ca442JNSKW3N63XvSapnCzBXF8o=; b=OlNGuoDjSf3WmGu6q6cow4lwDt
+	/27aAaHJNACphI402yDQOioNuIP0bXF4TjbZKdTun2ZFwlZgGvgY1kDvmdlIXx0I11Lq7w1uhuR0g
+	YbDJhuv9Mbhx6OrFHJd2OTZ9l95lGzb0Tsdf/kBQOQRxi+zrKPZdeHWXW/KFwKrUXYTKbdDWjWrrm
+	4qPZOWhibwE0ejLzcWe1do3i0NZpTOM4I3hsEGW4CxH1UHYqhApaojfAB5olJNIpQyimCTtSPm34b
+	lH/a/ESWh/g5HRnkqBH/uGpEwrUmNygEkNa7P0mdKz9vtxynWjgz7As12YVPbWUqI5OwccmxMRPWV
+	bxE35/wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgiet-0000000E5XP-4AT4;
-	Fri, 16 Jan 2026 12:10:32 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1vgifG-0000000E5dV-0a3W;
+	Fri, 16 Jan 2026 12:10:54 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgieq-0000000E5WY-28mj;
-	Fri, 16 Jan 2026 12:10:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768565429; x=1800101429;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=QfxbdCdKhEdyEN02+r2vp+Ub4nbIlg5f/Z9mt5myDKk=;
-  b=Uv9Z3GZ1ltRu6E8jE4jZJdGbuGC2ZV6T6aNpnha+wGnRit3nUt4Z2/3Y
-   Xx1ni00NAsr5aI0CtQNEkamLnhuvkc3MHLEn00ii7yjrEziRe8HqyWjo5
-   TeoIcPzd9qDQUklvnpw4+6EBq+KtohOX046OXGbajj++M79c7bF4Wi7bh
-   xDeagXASe3cCJ0x7uqq6Idzy6aN26lsKz2AcxzX4bJk6ZovZeXD19KWWX
-   vFbr+RwY1qGafq72cGFTnlptnBLC2B6lCM++S3MUCmsXmqrIHTBhRCKk1
-   6XYnaa/4Uq4QjjqQljSvc7kokhRxnlASB4kpgA4lWTgUQYNChxAapoDls
-   Q==;
-X-CSE-ConnectionGUID: nA4e4EN0SpGZystczFZHsw==
-X-CSE-MsgGUID: Jkj+/spcQsOGTfves5QVyw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11672"; a="87455665"
-X-IronPort-AV: E=Sophos;i="6.21,231,1763452800"; 
-   d="scan'208";a="87455665"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jan 2026 04:10:27 -0800
-X-CSE-ConnectionGUID: SEuBDxBVSc2y4zLvJuYMiw==
-X-CSE-MsgGUID: /Lgbij9+QH2fis18QSZjHg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,231,1763452800"; 
-   d="scan'208";a="205127523"
-Received: from abityuts-desk.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.150])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jan 2026 04:10:22 -0800
-Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with ESMTP id 6791711F726;
-	Fri, 16 Jan 2026 14:10:22 +0200 (EET)
-Date: Fri, 16 Jan 2026 14:10:22 +0200
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-Cc: michael.riesch@collabora.com, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Kever Yang <kever.yang@rock-chips.com>, Frank Li <Frank.li@nxp.com>,
-	Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Collabora Kernel Team <kernel@collabora.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/3] media: dt-bindings: add rockchip mipi csi-2
- receiver
-Message-ID: <aWoqrhHJwUHQpb2K@kekkonen.localdomain>
-References: <20251114-rockchip-mipi-receiver-v4-0-a9c86fecd052@collabora.com>
- <20251114-rockchip-mipi-receiver-v4-1-a9c86fecd052@collabora.com>
- <aWoOzn_d7ixgbzj4@kekkonen.localdomain>
- <5173450.iZASKD2KPV@diego>
+	id 1vgifB-0000000E5c8-0U9W
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Jan 2026 12:10:52 +0000
+Date: Fri, 16 Jan 2026 13:10:42 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1768565444;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=m4xj4CRpx5Rn02x3ca442JNSKW3N63XvSapnCzBXF8o=;
+	b=tcY57KtkxrC2Kv4y0HkpbJbC/pQS5RHj9Kp4rg1YyeKUZFPhAszR0J9jXDYqU8XKMRt5yy
+	/cxA+qFjtYuGq3R5ue0ASh4BzD6PkPogDxaC3NG7jOvQXfc6a8y1Mj7UjwdcpmtWm6QmMF
+	P4JSJneYYVjhf0ropRohWWEJusj5z7WghKS+mseOsE/SiZUELdvQaP4mmZXIUcYfG0KM1J
+	SyKqrKtvAZQtbn0EioFiC39BcksrufdUvJKV41PHxEM0/XUOhtZ5Su8mpUxN4BGoJ8QcpA
+	pDPq2VQryd3zYOIkU4e5rPmQSuL5HuVQPwsqa2yeFNGSwpwptypePDBSAzdFGA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1768565444;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=m4xj4CRpx5Rn02x3ca442JNSKW3N63XvSapnCzBXF8o=;
+	b=RoLHU8R2m4lh+TOUGYaYUhiHbsJz60UbhmEfkq+Ri9skt252VpVK6rulxmT2CKH3E9ZPhM
+	NY+TbhTMPWk9blDA==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Andy Lutomirski <luto@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
+	"David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, 
+	Nick Alcock <nick.alcock@oracle.com>, John Stultz <jstultz@google.com>, 
+	Stephen Boyd <sboyd@kernel.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+	Shuah Khan <shuah@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>, 
+	"Jason A. Donenfeld" <Jason@zx2c4.com>, "Russell King (Oracle)" <linux@armlinux.org.uk>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Heiko Carstens <hca@linux.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Shannon Nelson <sln@onemain.com>, Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, Arnd Bergmann <arnd@kernel.org>
+Subject: Re: [PATCH v5 00/34] sparc64: vdso: Switch to the generic vDSO
+ library
+Message-ID: <20260116124847-4bbc0b99-fa0c-4bd1-a229-1bd248ee8c6b@linutronix.de>
+References: <20251106-vdso-sparc64-generic-2-v5-0-97ff2b6542f7@linutronix.de>
+ <b870aa47-5ed4-4dcf-a407-eca83d1733d8@app.fastmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <5173450.iZASKD2KPV@diego>
+In-Reply-To: <b870aa47-5ed4-4dcf-a407-eca83d1733d8@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_041028_564192_A3898BB2 
-X-CRM114-Status: GOOD (  30.90  )
+X-CRM114-CacheID: sfid-20260116_041049_341698_6DB47772 
+X-CRM114-Status: GOOD (  42.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,89 +96,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+Hi Andy,
 
-On Fri, Jan 16, 2026 at 12:07:22PM +0100, Heiko Stübner wrote:
-> Am Freitag, 16. Januar 2026, 11:11:26 Mitteleuropäische Normalzeit schrieb Sakari Ailus:
-> > Hi Michael,
-> > 
-> > On Thu, Jan 15, 2026 at 07:26:07PM +0100, Michael Riesch via B4 Relay wrote:
-> > > From: Michael Riesch <michael.riesch@collabora.com>
-> > > 
-> > > Add documentation for the Rockchip MIPI CSI-2 Receiver.
-> > > 
-> > > Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
-> > > Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-> > > ---
-> > >  .../bindings/media/rockchip,rk3568-mipi-csi2.yaml  | 141 +++++++++++++++++++++
-> > >  MAINTAINERS                                        |   6 +
-> > >  2 files changed, 147 insertions(+)
-> > > 
-> > > diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
-> > > new file mode 100644
-> > > index 000000000000..2c2bd87582eb
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
-> > 
-> > I'd add a compatible string for the base IP block and name it accordingly.
-> 
-> personally, I wouldn't do that.
-> 
-> While the RK3568-variant is a somewhat smooth integration ... the now
-> (temporarily) omitted RK3588 variant of a similar block is not.
-> 
-> I.e. the RK3588 has quite a number of those CSI hosts, with a bunch of
-> resource routing bits and bops between those CSI hosts sitting in the
-> Rockchip "Gernal Register Files" (dumping ground for random bits and bops).
-> 
-> So you then get a syscon accessing per-soc registers and bits.
-> 
-> So while it is (compatible to) some Synopsis IP block, the integration to
-> make that thing actually do something is highly soc-specific.
-> 
-> That's also why the for example the dw-hdmi/dsi IPs don't use a common
-> compatible [0] [1] [2] [3] [4]
-> 
-> 
-> [0] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/display/amlogic,meson-dw-hdmi.yaml
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-dw-hdmi.yaml
-> [2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/display/hisilicon/dw-dsi.txt
-> [3] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-hdmi.yaml
-> [4] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml
+sorry for the long delay.
 
-Ack, thanks for the explanation. This sounds reasonable to me; this can be
-later extended or renamed if needed.
-
+On Fri, Nov 07, 2025 at 04:17:14PM -0800, Andy Lutomirski wrote:
+> On Thu, Nov 6, 2025, at 2:01 AM, Thomas Weißschuh wrote:
+> > The generic vDSO provides a lot common functionality shared between
+> > different architectures. SPARC is the last architecture not using it,
+> > preventing some necessary code cleanup.
+> >
+> > Make use of the generic infrastructure.
+> >
+> > Follow-up to and replacement for Arnd's SPARC vDSO removal patches:
+> > https://lore.kernel.org/lkml/20250707144726.4008707-1-arnd@kernel.org/
+> >
+> > SPARC64 can not map .bss into userspace, so the vDSO datapages are
+> > switched over to be allocated dynamically. This requires changes to the
+> > s390 and random subsystem vDSO initialization as preparation.
+> > The random subsystem changes in turn require some cleanup of the vDSO
+> > headers to not end up as ugly #ifdef mess.
+> >
 > 
-> 
-> > > +    soc {
-> > > +        interrupt-parent = <&gic>;
-> > > +        #address-cells = <2>;
-> > > +        #size-cells = <2>;
-> > > +
-> > > +        csi: csi@fdfb0000 {
-> > > +            compatible = "rockchip,rk3568-mipi-csi2";
-> > 
-> > This would become e.g.
-> > 
-> >             compatible = "rockchip,rk3568-mipi-csi2", "snps,dw-mipi-csi2rx";
-> > 
-> > See my comments on the driver patch as well.
-> 
-> In the PCIe area, we have  rockchip,rk3568-pcie and rockchip,rk3568-pcie-ep
-> for a similar combo.
-> 
-> For CSI the receiver is the vastly more common thing to do. So if anything,
-> I'd go with "foo-csi2" vs. "foo-csi2-device", if somebody really develops a
-> "camera" SoC, with a fully featured DT-based OS in the future ;-) .
+> I hate to say it, but this patch series seems like a step backwards.  You're
+> adding a whole lot of complexity and opportunity for screwups (boot failure?
+> corruption?) to support SPARC, where other architectures have no problem with
+> the existing code.  And this complexity appears to infect basically every
+> kernel subsystem that supplies data to the vDSO.
 
-There may be surprises, CSI-2 transmitters may be used in other kinds to
-devices than cameras. Therefore I'd add the "rx" part in the name, at the
-very least when it comes to the Synopsys IP block. Some of the other
-receivers are named that way already and we have a transmitter driver, too.
+Ack.
 
--- 
-Regards,
+> Can you at least explain what the problem is and maybe give some discussion
+> of why SPARC has no workaround available?  The closest I found was this bit
+> from "[PATCH v4 24/35] vdso/datastore: Allocate data pages dynamically":
+> 
+> > Allocating the datapages as part of the kernel image does not work on
+> SPARC. It is also problematic with regards to dcache aliasing as there is
+> no guarantee that the virtual addresses used by the kernel are compatible
+> with those used by userspace.
+> 
+> Now I'm not an expert on any architecture that has these aliasing (coloring?)
+> issues, but from my limited understanding, it ought to be possible to choose
+> a correctly colored address to map the vdso data given where it's being
+> mapped from.  If there's an issue with gathering a bunch of basically
+> arbitrarily relatively positioned physical pages into their necessary
+> arrangement in usermode, you could presumably fix it either with some linker
+> script magic or by rearranging the C code to stick everything into a
+> multipage structure.
 
-Sakari Ailus
+After I wrote that commit message it turned out to probably not be an
+aliasing issue. Even with matching alignments the error would persist.
+The real reason is unknown. Nobody came up with an explanatin so far.
+
+But another advantage of this dynamic allocation is to enable mlockall()
+on these VMAs. This avoids unexpected page faults and latency spikes for
+realtime applications.
+ 
+> Or maybe you could arrange to allocate all these pages during early boot and
+> to fudge up some relocation to get all the existing generic code to find
+> them.  Or create some pointers that all the generic code will use that, on
+> non-sparc architectures, will be statically populated with the right
+> addresses by the linker.  IOW, conceptually,
+> 
+> struct the_type some_vdso_thing;
+> 
+> could change to:
+> 
+> const struct the_type some_vdso_thing = &the_actual_data;
+> 
+> and SPARC could fix up the initialization of the pointer. And generic code
+> would use the pointer instead of the_actual_data.
+
+These pointers alread exist and are used by the generic code:
+vdso_k_time_data, vdso_k_rng_data, vdso_k_arch_data.
+As proposed elsewhere in this thread, these can point to statically allocated
+memory at first so they can be accessed by the other kernel subsystems.
+Then they after the dynamic allocation we do a mempcy from the static storage
+to the dynamic one and update the pointer. I have the code for that which
+does work nicely.
+
+While we could limit this treatment to SPARC, I prefer to keep the code
+aligned between the different architectures. Otherwise we would need
+duplicate implementations as one uses PFN maps and the other 'struct page'
+maps. Also the mlockall() usecase is architecture-agnostic.
+
+Does this sound acceptable?
+
+> If you really really really need to have non-arch-specific kernel C code
+> running before the vdso data is allocated, can you give a very clear
+> explanation of what, exactly, is wrong on sparc?  And maybe put that
+> explanation into an appropriate comment somewhere so that future kernel
+> programmers don't look at the headers and the code and think "wow, what I
+> mess -- I bet I can clean this up by using statically allocated data".
+
+Ack, will do. But as I mentioned, I do not have an actual root cause.
+
+> (Can SPARC really not map things that existed during early boot into userspace?)
+
+It looks like it.
+
+
+Thomas
 
